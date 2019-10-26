@@ -7,17 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 2d8e9c3531e031538c593cfd60d83b4ae97b4f4c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 98cc20ee8a6308350ffc142a13413bd26567a3e1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813741"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933516"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>아키텍처 - 보조 사이트로 Hyper-V 복제
 
 이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드의 온-프레미스 Hyper-V VM(가상 머신)을 보조 VMM 사이트로 복제할 때 사용되는 구성 요소 및 프로세스를 설명합니다.
 
+> [!WARNING]
+> SCVMM 구성을 고려 하는 ASR 지원은 곧 사용 되지 않을 예정 이므로 계속 하기 전에 사용 [중단 세부 정보를 읽는](scvmm-site-recovery-deprecation.md) 것이 좋습니다.
 
 ## <a name="architectural-components"></a>아키텍처 구성 요소
 
@@ -45,7 +47,7 @@ ms.locfileid: "70813741"
 
 ## <a name="failover-and-failback-process"></a>장애 조치 및 장애 복구 프로세스
 
-- 단일 컴퓨터에 장애 조치를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치를 오케스트레이션할 수 있습니다.
+- 단일 컴퓨터에 장애 조치(failover)를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치(failover)를 오케스트레이션할 수 있습니다.
 - 온-프레미스 사이트 간에 계획된 또는 계획되지 않은 장애 조치(failover)를 실행할 수 있습니다. 계획된 장애 조치를 실행할 경우 데이터 손실을 방지하기 위해 원본 VM이 종료됩니다.
     - 보조 사이트로 계획되지 않은 장애 조치(failover)를 수행하는 경우 장애 조치 후에 보조 위치의 컴퓨터가 보호되지 않습니다.
     - 계획된 장애 조치를 실행했으면 장애 조치 후에 보조 위치에 있는 컴퓨터가 보호됩니다.

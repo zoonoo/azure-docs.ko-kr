@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor 로그 쿼리의 컴퓨터 그룹 | Microsoft Docs
 description: Azure Monitor의 컴퓨터 그룹을 사용하여 로그 쿼리의 범위를 특정 컴퓨터 집합으로 지정할 수 있습니다.  이 문서에서는 컴퓨터 그룹을 만드는 데 사용할 수 있는 몇 가지 방법과 로그 쿼리에 사용하는 방법을 설명합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: a28b9e8a-6761-4ead-aa61-c8451ca90125
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 02/05/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: ae423b6fb141cab4038e65ba85c6067f1c23aee0
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 02/05/2019
+ms.openlocfilehash: 9ef0f2810252b73921fc0a72f2e523262c760bab
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320685"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932652"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 컴퓨터 그룹
 Azure Monitor의 컴퓨터 그룹을 사용하여 [로그 쿼리](../log-query/log-query-overview.md)의 범위를 특정 컴퓨터 집합으로 지정할 수 있습니다.  각 그룹에는 사용자가 정의를 사용하거나 여러 원본에서 그룹을 가져와 컴퓨터가 채워집니다.  로그 쿼리에 그룹을 포함하면 결과가 그룹의 컴퓨터와 일치하는 레코드로 제한됩니다.
@@ -28,13 +22,13 @@ Azure Monitor의 컴퓨터 그룹을 사용하여 [로그 쿼리](../log-query/l
 ## <a name="creating-a-computer-group"></a>컴퓨터 그룹 만들기
 Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 그룹을 만들 수 있습니다.  각 방법에 대한 자세한 내용은 아래 섹션에서 설명합니다. 
 
-| 메서드 | Description |
+| 방법 | 설명 |
 |:--- |:--- |
 | 로그 쿼리 |컴퓨터 목록을 반환하는 로그 쿼리를 만듭니다. |
 | 로그 검색 API |로그 검색 API를 사용하여 로그 쿼리 결과에 따라 프로그래밍 방식으로 컴퓨터 그룹을 만듭니다. |
 | Active Directory |Active Directory 도메인의 구성원인 에이전트 컴퓨터의 그룹 구성원을 자동으로 검색하고 Azure Monitor에서 각 보안 그룹에 대한 그룹을 만듭니다. (Windows 머신에만 해당)|
-| 구성 관리자 | System Center Configuration Manager에서 컬렉션을 가져오고 Azure Monitor에서 각 컬렉션에 대한 그룹을 만듭니다. |
-| Windows Server Update Services |WSUS 서버나 클라이언트에서 대상 그룹을 자동으로 검색하고 Azure Monitor에서 각 대상 그룹에 대한 그룹을 만듭니다. |
+| Configuration Manager | System Center Configuration Manager에서 컬렉션을 가져오고 Azure Monitor에서 각 컬렉션에 대한 그룹을 만듭니다. |
+| Windows Server 업데이트 서비스 |WSUS 서버나 클라이언트에서 대상 그룹을 자동으로 검색하고 Azure Monitor에서 각 대상 그룹에 대한 그룹을 만듭니다. |
 
 ### <a name="log-query"></a>로그 쿼리
 로그 쿼리에서 생성된 컴퓨터 그룹에는 사용자가 정의한 쿼리에서 반환된 모든 컴퓨터가 포함됩니다.  이 쿼리는 컴퓨터 그룹이 사용될 때마다 실행되므로 그룹이 만들어진 이후의 모든 변경 내용이 반영됩니다.  
@@ -53,9 +47,9 @@ Azure Monitor에서 다음 표의 방법 중 하나를 사용하여 컴퓨터 �
 
 다음 표는 컴퓨터 그룹을 정의하는 속성을 설명합니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:---|:---|
-| 이름   | 포털에 표시할 쿼리의 이름입니다. |
+| name   | 포털에 표시할 쿼리의 이름입니다. |
 | 함수 별칭 | 쿼리에서 컴퓨터 그룹을 식별하는 데 사용되는 고유한 별칭입니다. |
 | 범주       | 포털에서 쿼리를 구성할 범주입니다. |
 
@@ -125,7 +119,7 @@ Azure Portal의 Log Analytics 작업 영역에 있는 **고급 설정**에서 �
 ## <a name="computer-group-records"></a>컴퓨터 그룹 레코드
 Active Directory 또는 WSUS에서 만든 각 컴퓨터 그룹 멤버 자격에 대한 레코드가 Log Analytics 작업 영역에 생성됩니다.  이 레코드의 형식은 **ComputerGroup**이며 다음 표의 속성을 갖습니다.  로그 쿼리 기반의 컴퓨터 그룹에 대한 레코드는 만들어지지 않습니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
 | `Type` |*ComputerGroup* |
 | `SourceSystem` |*SourceSystem* |

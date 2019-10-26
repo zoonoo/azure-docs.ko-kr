@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 05/20/2019
+ms.date: 10/24/2019
 ms.author: rajanaki
-ms.openlocfilehash: 92a46f7be116d0664b438c9039e311f802c873e5
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: 79a11a58f11486f3eda0205e62e7a4a92ff070b2
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708072"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933927"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Azure 간 복제에서 모바일 서비스의 자동 업데이트
 
@@ -49,13 +49,13 @@ Site Recovery를 사용 하 여 업데이트를 관리 하는 경우 자격 증�
 
 [Vm 보기](azure-to-azure-quickstart.md) 또는 [recovery services 자격 증명 모음](azure-to-azure-how-to-enable-replication.md)에서 시작 하 여 vm에 대 한 복제를 사용 하도록 설정 하는 경우 Site Recovery Site Recovery 확장에 대 한 업데이트를 관리 하거나 수동으로 관리 하도록 허용할 수 있습니다.
 
-![확장 설정](./media/azure-to-azure-autoupdate/enable-rep.png)
+![확장 프로그램 설정](./media/azure-to-azure-autoupdate/enable-rep.png)
 
 ### <a name="toggle-the-extension-update-settings-inside-the-vault"></a>자격 증명 모음 내에서 확장 업데이트 설정 전환
 
-1. 자격 증명 모음 내에서**Site Recovery 인프라** **관리** > 로 이동 합니다.
+1. 자격 증명 모음 내에서 **관리** > **Site Recovery 인프라**로 이동 합니다.
 2. **Azure Virtual Machines** > **확장 업데이트 설정**에서 **Site Recovery를 관리 하도록 허용** 토글을 설정 합니다. 수동으로 관리 하려면이 기능을 해제 합니다. 
-3.           **저장**을 선택합니다.
+3. **저장**을 선택합니다.
 
 ![확장 업데이트 설정](./media/azure-to-azure-autoupdate/vault-toggle.png)
 
@@ -66,7 +66,8 @@ Site Recovery를 사용 하 여 업데이트를 관리 하는 경우 자격 증�
 > [!Note]
 > 두 옵션은 업데이트를 관리 하는 데 사용 되는 automation 계정을 알려 줍니다. 자격 증명 모음에서이 기능을 처음 사용 하는 경우에는 기본적으로 새 automation 계정이 생성 됩니다. 또는 설정을 사용자 지정 하 고 기존 automation 계정을 선택할 수 있습니다. 동일한 자격 증명 모음에 있는 모든 후속 복제는 이전에 만든 것을 사용 합니다. 현재 드롭다운은 자격 증명 모음과 동일한 리소스 그룹에 있는 Automation 계정만 나열 합니다.  
 
-사용자 지정 automation 계정의 경우 다음 스크립트를 사용 합니다.
+> [!IMPORTANT]
+> 아래 스크립트는 사용자 지정 automation 계정에 대 한 automation 계정의 컨텍스트에서 실행 해야 합니다. 다음 스크립트를 사용 합니다.
 
 ```azurepowershell
 param(
@@ -505,7 +506,7 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 ### <a name="manage-updates-manually"></a>수동으로 업데이트 관리
 
-1. Vm에 설치 된 모바일 서비스에 대 한 새 업데이트가 있는 경우 다음과 같은 알림이 표시 됩니다. "새 Site recovery 복제 에이전트 업데이트를 사용할 수 있습니다. 설치 하려면 클릭 하십시오. "
+1. Vm에 설치 된 모바일 서비스에 대 한 새 업데이트가 있는 경우 다음과 같은 알림이 표시 됩니다. "새 Site Recovery 복제 에이전트 업데이트를 사용할 수 있습니다. 설치 하려면 클릭 하십시오. "
 
      ![복제된 항목 창](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 2. 알림을 선택 하 여 VM 선택 페이지를 엽니다.
@@ -520,7 +521,7 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 자동 업데이트를 사용 하도록 설정할 수 없는 경우 다음과 같은 일반적인 오류 및 권장 되는 작업을 참조 하세요.
 
-- **오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에 참가자 역할을 부여할 수 있는 권한이 없습니다.
+- **오류**: Azure 실행 계정(서비스 사용자)을 만들고 서비스 사용자에게 기여자 역할을 부여할 권한이 없습니다.
 
    **권장 조치**: 로그인 된 계정이 참가자로 할당 되었는지 확인 하 고 다시 시도 하세요. 권한 할당에 대 한 자세한 내용은 [포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#required-permissions) 의 필수 권한 섹션을 참조 하세요.
  
@@ -530,17 +531,17 @@ Write-Tracing -Level Succeeded -Message ("Modify cloud pairing completed.") -Dis
 
 - **오류**: 복구 서비스 리소스에 액세스할 수 있는 권한이 실행 계정에 없습니다.
 
-    **권장 조치**: 실행 계정을 삭제 한 후 [다시 만드십시오](https://docs.microsoft.com/azure/automation/automation-create-runas-account). 또는 Automation 실행 계정의 Azure Active Directory 응용 프로그램에 recovery services 리소스에 대 한 액세스 권한이 있는지 확인 합니다.
+    **권장 작업**: 실행 계정을 삭제 하 고 [다시 만듭니다](https://docs.microsoft.com/azure/automation/automation-create-runas-account). 또는 Automation 실행 계정의 Azure Active Directory 응용 프로그램에 recovery services 리소스에 대 한 액세스 권한이 있는지 확인 합니다.
 
 - **오류**: 실행 계정을 찾을 수 없습니다. Azure Active Directory 애플리케이션, 서비스 사용자, 역할, Automation 인증서 자산, Automation 연결 자산 중 하나가 삭제되었거나 생성되지 않았습니다. 또는 인증서와 연결 사이에서 지문이 일치하지 않습니다. 
 
-    **권장 조치**: 실행 계정을 삭제 한 후 [다시 만드십시오](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+    **권장 작업**: 실행 계정을 삭제 하 고 [다시 만듭니다](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
--  **오류**: Automation 계정에서 사용 하는 Azure 실행 인증서가 곧 만료 됩니다. 
+-  **오류**: automation 계정에서 사용 하는 Azure 실행 인증서가 곧 만료 됩니다. 
 
-    실행 계정에 대해 생성 된 자체 서명 된 인증서는 만든 날짜 로부터 1 년 후에 만료 됩니다. 만료되기 전에 언제든지 갱신할 수 있습니다. 전자 메일 알림을 등록 한 경우 사용자 측에서 조치가 필요한 경우에도 전자 메일을 받게 됩니다. 이 오류는 만료 날짜 전에 2 개월 후에 표시 되며, 인증서가 만료 되 면 심각한 오류로 변경 됩니다. 인증서가 만료 되 면 동일한을 갱신할 때까지 자동 업데이트가 작동 하지 않습니다.
+    실행 계정에 대해 생성 된 자체 서명 된 인증서는 만든 날짜 로부터 1 년 후에 만료 됩니다. 만료되기 전에 언제든지 갱신할 수 있습니다. 전자 메일 알림을 등록 한 경우 사용자 측에서 조치가 필요한 경우에도 전자 메일을 받게 됩니다. 이 오류는 만료 날짜 전에 2 개월 후에 표시 되며, 인증서가 만료 되 면 심각한 오류로 변경 됩니다. 인증서가 만료 된 후에는 동일한을 갱신할 때까지 자동 업데이트가 작동 하지 않습니다.
 
-   **권장 조치**: ' 복구 '를 클릭 한 다음 ' 인증서 갱신 '을 클릭 하 여이 문제를 해결 합니다.
+   **권장 작업**:이 문제를 해결 하려면 ' 복구 '를 클릭 한 다음 ' 인증서 갱신 '을 클릭 하세요.
     
    ![갱신-인증서](media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG)
 

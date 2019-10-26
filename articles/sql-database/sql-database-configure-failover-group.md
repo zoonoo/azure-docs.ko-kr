@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 9206fd264854cd9e5d8e46473dd60b05a3362fdd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 626677ef9444e0ad99fd3678e23bdeec62fd920c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329358"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933385"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Azure SQL Database에 대 한 장애 조치 (failover) 그룹 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "71329358"
 ## <a name="single-database"></a>단일 데이터베이스
 장애 조치 (failover) 그룹을 만들고 Azure Portal 또는 PowerShell을 사용 하 여 단일 데이터베이스를 추가 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 다음 필수 구성 요소를 고려 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "71329358"
 
 ### <a name="create-failover-group"></a>장애 조치 (failover) 그룹 만들기
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 장애 조치 (failover) 그룹을 만들고 Azure Portal를 사용 하 여 단일 데이터베이스를 추가 합니다.
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
@@ -102,11 +102,11 @@ PowerShell을 사용 하 여 장애 조치 그룹을 만들고 단일 데이터�
 
 ---
 
-### <a name="test-failover"></a>테스트 장애 조치(failover) 
+### <a name="test-failover"></a>테스트 장애 조치 
 
 Azure Portal 또는 PowerShell을 사용 하 여 장애 조치 (failover) 그룹의 장애 조치를 테스트 합니다. 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 장애 조치 (failover) 그룹의 장애 조치를 테스트 합니다. 
 
@@ -186,7 +186,7 @@ PowerShell을 사용 하 여 장애 조치 그룹의 장애 조치를 테스트 
 ## <a name="elastic-pool"></a>Elastic Pool
 장애 조치 (failover) 그룹을 만들고 Azure Portal 또는 PowerShell을 사용 하 여 탄력적 풀을 추가 합니다.  
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 다음 필수 구성 요소를 고려 합니다.
 
@@ -196,7 +196,7 @@ PowerShell을 사용 하 여 장애 조치 그룹의 장애 조치를 테스트 
 
 Azure Portal 또는 PowerShell을 사용 하 여 탄력적 풀에 대 한 장애 조치 (failover) 그룹을 만듭니다. 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 장애 조치 (failover) 그룹을 만들고 Azure Portal를 사용 하 여 탄력적 풀을 추가 합니다.
 
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
@@ -263,11 +263,11 @@ Azure Portal 또는 PowerShell을 사용 하 여 탄력적 풀에 대 한 장애
 
 ---
 
-### <a name="test-failover"></a>테스트 장애 조치(failover)
+### <a name="test-failover"></a>테스트 장애 조치
 
 Azure Portal 또는 PowerShell을 사용 하 여 탄력적 풀의 장애 조치 (failover)를 테스트 합니다. 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 장애 조치 (failover) 그룹을 보조 서버로 장애 조치 (failover) 한 다음 Azure Portal를 사용 하 여 장애 복구 (failback) 합니다. 
 
@@ -334,7 +334,7 @@ Azure Portal 또는 PowerShell을 사용 하 여 두 개의 관리 되는 인스
 
 각 관리 되는 인스턴스의 가상 네트워크에 대 한 게이트웨이를 만들고 두 게이트웨이를 연결한 다음 장애 조치 (failover) 그룹을 만들어야 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 다음 필수 구성 요소를 고려 합니다.
 
 - 보조 관리 되는 인스턴스는 비어 있어야 합니다.
@@ -346,7 +346,7 @@ Azure Portal 또는 PowerShell을 사용 하 여 두 개의 관리 되는 인스
 
 Azure Portal 또는 PowerShell을 사용 하 여 기본 가상 네트워크 게이트웨이를 만듭니다. 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 기본 가상 네트워크 게이트웨이를 만듭니다. 
 
@@ -355,7 +355,7 @@ Azure Portal를 사용 하 여 기본 가상 네트워크 게이트웨이를 만
 
    ![기본 관리 되는 인스턴스에 대 한 게이트웨이 추가](media/sql-database-managed-instance-failover-group-tutorial/add-subnet-gateway-primary-vnet.png)
 
-1. 서브넷 게이트웨이를 만든 후 왼쪽 탐색 창에서 **리소스 만들기** 를 선택 하 고 검색 상자에를 `Virtual network gateway` 입력 합니다. **Microsoft**에서 게시 한 **가상 네트워크 게이트웨이** 리소스를 선택 합니다. 
+1. 서브넷 게이트웨이를 만든 후 왼쪽 탐색 창에서 **리소스 만들기** 를 선택 하 고 검색 상자에 `Virtual network gateway`을 입력 합니다. **Microsoft**에서 게시 한 **가상 네트워크 게이트웨이** 리소스를 선택 합니다. 
 
    ![새 가상 네트워크 게이트웨이 만들기](media/sql-database-managed-instance-failover-group-tutorial/create-virtual-network-gateway.png)
 
@@ -363,15 +363,15 @@ Azure Portal를 사용 하 여 기본 가상 네트워크 게이트웨이를 만
 
    다음 표에서는 기본 관리 되는 인스턴스의 게이트웨이에 필요한 값을 보여 줍니다.
  
-    | **필드** | 값 |
+    | **필드** | Value |
     | --- | --- |
     | **구독** |  기본 관리 되는 인스턴스가 있는 구독입니다. |
-    | **이름** | 가상 네트워크 게이트웨이의 이름입니다. | 
-    | **Region** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
+    | **Name** | 가상 네트워크 게이트웨이의 이름입니다. | 
+    | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
     | **게이트웨이 유형** | **VPN**을 선택합니다. |
     | **VPN 유형** | **경로 기반** 선택 |
-    | **SKU**| 기본값은 `VpnGw1`그대로 둡니다. |
-    | **Location**:| 보조 관리 되는 인스턴스와 보조 가상 네트워크가 있는 위치입니다.   |
+    | **SKU**| `VpnGw1`기본값을 그대로 둡니다. |
+    | **위치**| 보조 관리 되는 인스턴스와 보조 가상 네트워크가 있는 위치입니다.   |
     | **가상 네트워크**| 보조 관리 되는 인스턴스의 가상 네트워크를 선택 합니다. |
     | **공용 IP 주소**| **새로 만들기**를 선택합니다. |
     | **공용 IP 주소 이름**| IP 주소에 대 한 이름을 입력 합니다. |
@@ -419,23 +419,23 @@ PowerShell을 사용 하 여 기본 가상 네트워크 게이트웨이를 만�
 
 Azure Portal 또는 PowerShell을 사용 하 여 보조 가상 네트워크 게이트웨이를 만듭니다. 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 이전 섹션의 단계를 반복 하 여 보조 관리 되는 인스턴스에 대 한 가상 네트워크 서브넷 및 게이트웨이를 만듭니다. 보조 관리 되는 인스턴스에 대 한 게이트웨이를 구성 하는 데 필요한 필드를 입력 합니다. 
 
    다음 표에서는 보조 관리 되는 인스턴스의 게이트웨이에 필요한 값을 보여 줍니다.
 
-   | **필드** | 값 |
+   | **필드** | Value |
    | --- | --- |
    | **구독** |  보조 관리 되는 인스턴스가 있는 구독입니다. |
-   | **이름** | 과 `secondary-mi-gateway`같은 가상 네트워크 게이트웨이의 이름입니다. | 
-   | **Region** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
+   | **Name** | `secondary-mi-gateway`와 같은 가상 네트워크 게이트웨이의 이름입니다. | 
+   | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
    | **게이트웨이 유형** | **VPN**을 선택합니다. |
    | **VPN 유형** | **경로 기반** 선택 |
-   | **SKU**| 기본값은 `VpnGw1`그대로 둡니다. |
-   | **Location**:| 보조 관리 되는 인스턴스와 보조 가상 네트워크가 있는 위치입니다.   |
-   | **가상 네트워크**| 섹션 2에서 만든 가상 네트워크 (예: `vnet-sql-mi-secondary`)를 선택 합니다. |
+   | **SKU**| `VpnGw1`기본값을 그대로 둡니다. |
+   | **위치**| 보조 관리 되는 인스턴스와 보조 가상 네트워크가 있는 위치입니다.   |
+   | **가상 네트워크**| `vnet-sql-mi-secondary`와 같이 섹션 2에서 만든 가상 네트워크를 선택 합니다. |
    | **공용 IP 주소**| **새로 만들기**를 선택합니다. |
-   | **공용 IP 주소 이름**| IP 주소에 대 한 이름 (예: `secondary-gateway-IP`)을 입력 합니다. |
+   | **공용 IP 주소 이름**| IP 주소 이름을 입력 합니다 (예: `secondary-gateway-IP`). |
    | &nbsp; | &nbsp; |
 
    ![보조 게이트웨이 설정](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
@@ -481,23 +481,27 @@ Azure Portal 또는 PowerShell을 사용 하 여 두 게이트웨이 간의 연�
 
 두 연결 모두에 사용 되는 공유 키는 각 연결에 대해 동일 해야 합니다. 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Azure Portal를 사용 하 여 두 게이트웨이 간의 연결을 만듭니다. 
 
-1. [Azure Portal](https://portal.azure.com) 에서 리소스 그룹으로 이동 하 고 4 단계에서 만든 기본 게이트웨이를 선택 합니다. 
-1. **설정** 아래에서 **연결** 을 선택한 다음 **추가** 를 선택 하 여 새 연결을 만듭니다. 
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택 합니다.
+1. 검색 상자에 `connection`를 입력 한 다음 enter 키를 눌러 Microsoft에서 게시 한 **연결** 리소스로 이동 합니다.
+1. **만들기** 를 선택 하 여 연결을 만듭니다. 
+1. **기본 사항** 탭에서 다음 값을 선택 하 고 **확인**을 선택 합니다. 
+    1. **연결 형식**에 대 한 `VNet-to-VNet`를 선택 합니다. 
+    1. 드롭다운에서 구독을 선택합니다. 
+    1. 드롭다운에서 관리 되는 인스턴스의 리소스 그룹을 선택 합니다. 
+    1. 드롭다운에서 기본 관리 되는 인스턴스의 위치를 선택 합니다. 
+1. **설정** 탭에서 다음 값을 선택 하거나 입력 한 다음, **확인**을 선택 합니다.
+    1. **첫 번째 가상 네트워크 게이트웨이**(예: `Primary-Gateway`)에 대 한 기본 네트워크 게이트웨이를 선택 합니다.  
+    1. **두 번째 가상 네트워크 게이트웨이**(예: `Secondary-Gateway`)에 대 한 보조 네트워크 게이트웨이를 선택 합니다. 
+    1. **양방향 연결 설정**옆의 확인란을 선택 합니다. 
+    1. 기본 기본 연결 이름을 그대로 두거나 원하는 값으로 이름을 바꿉니다. 
+    1. 연결에 대 한 **공유 키 (PSK)** 를 제공 합니다 (예: `mi1m2psk`). 
 
-   ![기본 게이트웨이에 연결 추가](media/sql-database-managed-instance-failover-group-tutorial/add-primary-gateway-connection.png)
+   ![게이트웨이 연결 만들기](media/sql-database-managed-instance-failover-group-tutorial/create-gateway-connection.png)
 
-1. 연결에 대 한 이름을 입력 하 고 **공유 키**에 대 한 값을 입력 합니다. 
-1. **두 번째 가상 네트워크 게이트웨이** 를 선택 하 고 보조 관리 되는 인스턴스의 게이트웨이를 선택 합니다. 
-
-   ![보조 연결에 대 한 기본 연결 만들기](media/sql-database-managed-instance-failover-group-tutorial/create-primary-to-secondary-connection.png)
-
-1. **확인** 을 선택 하 여 새 기본-보조 게이트웨이 연결을 추가 합니다.
-1. 이러한 단계를 반복 하 여 보조 관리 되는 인스턴스의 게이트웨이에서 기본 관리 되는 인스턴스의 게이트웨이로의 연결을 만듭니다. 
-
-   ![보조에서 기본 연결 만들기](media/sql-database-managed-instance-failover-group-tutorial/create-secondary-to-primary-connection.png)
+1. **요약** 탭에서 양방향 연결에 대 한 설정을 검토 한 다음 **확인** 을 선택 하 여 연결을 만듭니다. 
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -535,7 +539,7 @@ PowerShell을 사용 하 여 두 게이트웨이 간의 연결을 만듭니다.
 ### <a name="create-the-failover-group"></a>장애 조치 (failover) 그룹 만들기 
 Azure Portal 또는 PowerShell을 사용 하 여 관리 되는 인스턴스에 대해 장애 조치 (failover) 그룹을 만듭니다. 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 관리 되는 인스턴스에 대해 장애 조치 (failover) 그룹을 만듭니다. 
 
@@ -573,11 +577,11 @@ PowerShell을 사용 하 여 관리 되는 인스턴스에 대해 장애 조치 
    ```
 ---
 
-### <a name="test-failover"></a>테스트 장애 조치(failover)
+### <a name="test-failover"></a>테스트 장애 조치
 
 Azure Portal 또는 PowerShell을 사용 하 여 장애 조치 (failover) 그룹의 장애 조치를 테스트 합니다. 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 장애 조치 (failover) 그룹의 장애 조치를 테스트 합니다. 
 
@@ -637,13 +641,13 @@ PowerShell을 사용 하 여 장애 조치 그룹의 장애 조치를 테스트 
 
 장애 조치 (failover) 그룹이 구성 되 면 응용 프로그램에 대 한 연결 문자열을 수신기 끝점으로 업데이트 합니다. 이렇게 하면 기본 데이터베이스, 탄력적 풀 또는 관리 되는 인스턴스가 아닌 장애 조치 (failover) 그룹 수신기에 응용 프로그램이 연결 된 상태로 유지 됩니다. 이러한 방식으로 Azure SQL database 엔터티가 장애 조치 (failover) 될 때마다 연결 문자열을 수동으로 업데이트 하지 않아도 되 고, 현재 기본으로 있는 엔터티에 트래픽이 라우팅됩니다. 
 
-수신기 끝점의 형식은 `fog-name.database.windows.net` 이며 장애 조치 (failover) 그룹을 볼 때 Azure Portal에 표시 됩니다.
+수신기 끝점은 `fog-name.database.windows.net`형식이 며 장애 조치 (failover) 그룹을 볼 때 Azure Portal에 표시 됩니다.
 
 ![장애 조치 (Failover) 그룹 연결 문자열](media/sql-database-configure-failover-group/find-failover-group-connection-string.png)
 
 ## <a name="remarks"></a>설명
 
-- 단일 데이터베이스 또는 풀링된 데이터베이스에 대 한 장애 조치 (failover) 그룹을 제거 해도 복제는 중지 되지 않으며 복제 된 데이터베이스는 삭제 되지 않습니다. 단일 또는 풀링된 데이터베이스를 제거한 후 장애 조치 (failover) 그룹에 다시 추가 하려면 보조 서버에서 지역에서 복제를 수동으로 중지 하 고 데이터베이스를 삭제 해야 합니다. 이러한 작업을 수행 하지 못하면 장애 조치 (failover) 그룹에 데이터베이스를 추가 하려고 할 때 `The operation cannot be performed due to multiple errors`과 유사한 오류가 발생할 수 있습니다. 
+- 단일 데이터베이스 또는 풀링된 데이터베이스에 대 한 장애 조치 (failover) 그룹을 제거 해도 복제는 중지 되지 않으며 복제 된 데이터베이스는 삭제 되지 않습니다. 단일 또는 풀링된 데이터베이스를 제거한 후 장애 조치 (failover) 그룹에 다시 추가 하려면 지역에서 복제를 수동으로 중지 하 고 보조 서버에서 데이터베이스를 삭제 해야 합니다. 이러한 작업을 수행 하지 못하면 장애 조치 (failover) 그룹에 데이터베이스를 추가 하려고 할 때 `The operation cannot be performed due to multiple errors`와 유사한 오류가 발생할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

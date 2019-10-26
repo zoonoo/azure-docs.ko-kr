@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 5c501e6c2bc1a30273682352a68565ccc897ff50
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: cc0539462fad0a73d5fc7eb75d2078e513df4e5d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699195"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926529"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
 
@@ -37,7 +37,7 @@ ms.locfileid: "68699195"
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
-- cfs-utils(CIFS 유틸리티)는 클라이언트에 설치되지 않았습니다.
+- CIFS 유틸리티 (cifs-유틸리티)가 클라이언트에 설치 되어 있지 않습니다.
 - 최소 SMB/CIFS 버전 2.1은 클라이언트에 설치되지 않았습니다.
 - SMB 3.0 암호화는 클라이언트에서 지원되지 않습니다. 위의 표에서는 암호화를 사용 하 여 온-프레미스 및 지역 간 탑재를 지 원하는 Linux 배포판 목록을 제공 합니다. 기타 배포에는 커널 4.11 이상 버전이 필요합니다.
 - 지원되지 않는 TCP 포트 445를 통해 스토리지 계정에 연결하려고 합니다.
@@ -54,7 +54,7 @@ ms.locfileid: "68699195"
 * 진단 추적을 수집합니다.
 
 <a id="mounterror13"></a>
-## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>Azure 파일 공유를 탑재하면 "탑재 오류(13): 사용 권한 거부됨" 오류가 발생합니다.
+## <a name="mount-error13-permission-denied-when-you-mount-an-azure-file-share"></a>Azure 파일 공유를 탑재할 때 "탑재 오류 (13): 사용 권한 거부"
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>원인 1: 암호화되지 않은 통신 채널
 
@@ -67,7 +67,7 @@ ms.locfileid: "68699195"
 1. SMB 암호화를 지원하는 클라이언트에서 연결하거나, Azure 파일 공유에 사용되는 Azure Storage 계정과 동일한 데이터 센터에 있는 가상 머신에서 연결합니다.
 2. 클라이언트가 SMB 암호화를 지원하지 않는 경우 스토리지 계정에서 [보안 전송 필요](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정이 사용하지 않도록 설정되었는지 확인합니다.
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 2: 가상 네트워크 또는 방화벽 규칙이 스토리지 계정에서 사용하도록 설정됨 
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 2: 저장소 계정에서 가상 네트워크 또는 방화벽 규칙이 사용 됩니다. 
 
 가상 네트워크(VNET) 및 방화벽 규칙이 스토리지 계정에 구성된 경우, 클라이언트 IP 주소 또는 가상 네트워크에 액세스가 허용되지 않았다면 네트워크 트래픽이 거부됩니다.
 
@@ -106,19 +106,19 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 - copy 메서드를 다음과 같이 올바르게 사용합니다.
     - 두 파일 공유 간의 전송에는 [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 사용합니다.
     - Cp 또는 dd를 병렬로 사용 하 여 복사 속도를 향상 시킬 수 있습니다. 스레드 수는 사용 사례 및 워크 로드에 따라 달라 집니다. 다음 예에서는 6을 사용 합니다. 
-    - cp 예 (cp는 파일 시스템의 기본 블록 크기를 청크 크기로 사용): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`를 사용 합니다.
-    - dd 예 (이 명령은 명시적으로 청크 크기를 1 MiB로 설정):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - cp 예 (cp는 파일 시스템의 기본 블록 크기를 청크 크기로 사용): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &`합니다.
+    - dd 예 (이 명령은 명시적으로 청크 크기를 1 MiB로 설정): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - 오픈 소스 타사 도구:
         - [GNU Parallel](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) -파일을 정렬 하 고 파티션으로 압축 합니다.
         - [Fpsync](https://github.com/martymac/fpart/blob/master/tools/fpsync) -fpart와 복사 도구를 사용 하 여 여러 인스턴스를 생성 하 여 src_dir에서 dst_url로 데이터를 마이그레이션합니다.
         - GNU coreutils를 기반으로 하는 [다중](https://github.com/pkolano/mutil) 다중 스레드 cp 및 md5sum.
-- 모든 쓰기를 확장 하는 대신 파일 크기를 미리 설정 하면 파일 크기가 알려져 있는 시나리오에서 복사 속도를 향상 시키는 데 도움이 됩니다. 쓰기 확장을 피해 야 하는 경우 명령을 사용 `truncate - size <size><file>` 하 여 대상 파일 크기를 설정할 수 있습니다. `dd if=<source> of=<target> bs=1M conv=notrunc`그러면 대상 파일의 크기를 반복 해 서 업데이트 하지 않고 원본 파일이 복사 됩니다. 예를 들어 복사 하려는 모든 파일의 대상 파일 크기를 설정할 수 있습니다 (공유가/mnt/share 아래에 탑재 되어 있다고 가정).
+- 모든 쓰기를 확장 하는 대신 파일 크기를 미리 설정 하면 파일 크기가 알려져 있는 시나리오에서 복사 속도를 향상 시키는 데 도움이 됩니다. 쓰기 확장을 피해 야 하는 경우 `truncate - size <size><file>` 명령을 사용 하 여 대상 파일 크기를 설정할 수 있습니다. 그런 다음 `dd if=<source> of=<target> bs=1M conv=notrunc`명령은 대상 파일의 크기를 반복 해 서 업데이트 하지 않고도 원본 파일을 복사 합니다. 예를 들어 복사 하려는 모든 파일의 대상 파일 크기를 설정할 수 있습니다 (공유가/mnt/share 아래에 탑재 되어 있다고 가정).
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - 그런 다음 쓰기를 병렬로 확장 하지 않고 파일을 복사 합니다.`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - 그런 다음 쓰기를 병렬로 확장 하지 않고 파일을 복사 합니다. `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
-## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>SMB 3.0을 사용하여 Azure Files를 탑재할 때 "탑재 오류(115): 작업이 진행되고 있습니다."가 발생합니다.
+## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>SMB 3.0을 사용하여 Azure Files를 탑재할 때 “Mount 오류(115): 작업이 진행되고 있습니다”
 
 ### <a name="cause"></a>원인
 
@@ -136,15 +136,15 @@ Linux SMB 클라이언트가 암호화를 지원하지 않는 경우 파일 공�
 포털에서 Azure 파일 공유를 찾을 때 다음 오류가 표시될 수 있습니다.
 
 권한 부여 실패  
-액세스 권한이 없습니다.
+액세스 권한이 없음
 
-### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>원인 1: 사용자 계정에 스토리지 계정에 대한 액세스 권한이 없음
+### <a name="cause-1-your-user-account-does-not-have-access-to-the-storage-account"></a>원인 1: 사용자 계정에 저장소 계정에 대 한 액세스 권한이 없습니다.
 
 ### <a name="solution-for-cause-1"></a>원인 1의 해결 방법
 
 Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(IAM)** 를 클릭한 다음, 사용자 계정에 스토리지 계정에 대한 액세스 권한이 있는지 확인합니다. 자세한 내용은 [RBAC(역할 기반 액세스 제어)를 사용하여 스토리지 계정의 보안을 유지하는 방법](https://docs.microsoft.com/azure/storage/common/storage-security-guide#how-to-secure-your-storage-account-with-role-based-access-control-rbac)을 참조하세요.
 
-### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 2: 가상 네트워크 또는 방화벽 규칙이 스토리지 계정에서 사용하도록 설정됨
+### <a name="cause-2-virtual-network-or-firewall-rules-are-enabled-on-the-storage-account"></a>원인 2: 저장소 계정에서 가상 네트워크 또는 방화벽 규칙이 사용 됩니다.
 
 ### <a name="solution-for-cause-2"></a>원인 2의 해결 방법
 
@@ -218,11 +218,11 @@ COPYFILE에서 force 플래그 **f**로 인해 Unix에서 **cp -p -f**가 실행
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
 
-## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: '&lt;path&gt;에 액세스할 수 없음': 입/출력 오류
+## <a name="ls-cannot-access-ltpathgt-inputoutput-error"></a>ls: '&lt;path&gt;'에 액세스할 수 없음: 입력/출력 오류
 
 ls 명령을 사용하여 Azure 파일 공유에서 파일을 나열하려는 경우 파일을 나열할 때 ls 명령이 중지됩니다. 다음과 같은 오류가 표시됩니다.
 
-**ls: '&lt;path&gt;에 액세스할 수 없음': 입/출력 오류**
+**ls: '&lt;path&gt;'에 액세스할 수 없음: 입력/출력 오류**
 
 
 ### <a name="solution"></a>솔루션
@@ -233,7 +233,7 @@ ls 명령을 사용하여 Azure 파일 공유에서 파일을 나열하려는 �
 - 4.12.11+
 - 4\.13 이상 모든 버전
 
-## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>심볼 링크를 만들 수 없음 - ln: 심볼 링크 't'를 만들 수 없음: 지원되지 않는 작업입니다.
+## <a name="cannot-create-symbolic-links---ln-failed-to-create-symbolic-link-t-operation-not-supported"></a>심볼 링크를 만들 수 없음 - ln: 심볼 링크를 만들 수 없음 't': 지원되지 않는 작업입니다.
 
 ### <a name="cause"></a>원인
 기본적으로 CIFS를 사용하여 Linux에 Azure 파일 공유를 탑재하면 symlink(심볼 링크)를 지원할 수 없습니다. 이와 같은 오류가 발생합니다.
@@ -261,7 +261,7 @@ sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
 <a id="error112"></a>
-## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>다시 연결 시간 제한으로 인해 "탑재 오류(112): 호스트가 중단됨"이 발생합니다.
+## <a name="mount-error112-host-is-down-because-of-a-reconnection-time-out"></a>다시 연결 시간 제한으로 인한 "탑재 오류(112): 호스트가 중단됨"
 
 Linux 클라이언트에서 클라이언트가 장시간 유휴 상태일 경우 "112" 탑재 오류가 발생합니다. 오랫동안 유휴 상태일 경우 클라이언트 연결이 끊어지고 연결 시간이 초과됩니다.  
 
@@ -289,6 +289,6 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 
 
 최신 커널 버전으로 업그레이드할 수 없는 경우 매 30초 이하 간격으로 쓰는 Azure 파일 공유에 파일을 보관하여 이 문제를 해결할 수 있습니다. 이 작업은 만든 또는 수정된 날짜를 파일에 다시 쓰는 등의 쓰기 작업이어야 합니다. 그렇지 않으면 캐시된 결과를 얻을 수 있고 작업이 재연결을 트리거하지 않을 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움이 필요하십니까? 지원에 문의
+## <a name="need-help-contact-support"></a>도움이 필요하십니까? 지원에 문의하세요.
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

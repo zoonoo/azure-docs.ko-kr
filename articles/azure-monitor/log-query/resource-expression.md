@@ -3,16 +3,16 @@ title: Azure Monitor 로그 쿼리의 resource () 식 | Microsoft Docs
 description: 리소스 식은 여러 리소스에서 데이터를 검색 하기 위해 리소스 중심 Azure Monitor 로그 쿼리에서 사용 됩니다.
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: article
+ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 4787dc8a8cc06e0ad0be88597dab3481284fb58b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: 370b2547c9e726ab4f5ebc4dd732cc0bfa17f760
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900221"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933023"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 resource () 식
 

@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor 로그 쿼리의 workspace() 식 | Microsoft Docs
 description: workspace 식은 동일한 리소스 그룹, 다른 리소스 그룹 또는 다른 구독의 특정 작업 영역에서 데이터를 검색하기 위해 Azure Monitor 로그 쿼리에서 사용됩니다.
-services: log-analytics
-documentationcenter: ''
+ms.service: azure-monitor
+ms.subservice: logs
+ms.topic: conceptual
 author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.date: 09/10/2018
 ms.author: bwren
-ms.openlocfilehash: b4bc652d54150b72cc64898464b3511a860bf011
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/10/2018
+ms.openlocfilehash: f26b9534fbf95cc301ae782d47ab7030988fa469
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60785679"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932848"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 workspace() 식
 
@@ -33,7 +27,7 @@ ms.locfileid: "60785679"
 
 - *Identifier*: 아래 표에 있는 형식 중 하나를 사용하여 작업 영역을 식별합니다.
 
-| Identifier | 설명 | 예
+| 식별자 | 설명 | 예제
 |:---|:---|:---|
 | 리소스 이름 | 사용자가 읽을 수 있는 작업 영역의 이름(즉, “구성 요소 이름”) | workspace(“contosoretail”) |
 | 정규화된 이름 | “subscriptionName/resourceGroup/componentName” 형식으로 된 작업 영역의 전체 이름 | workspace(‘Contoso/ContosoResource/ContosoWorkspace’) |
@@ -41,12 +35,12 @@ ms.locfileid: "60785679"
 | Azure 리소스 ID | Azure 리소스의 식별자 | workspace(“/subscriptions/e4227-645-44e-9c67-3b84b5982/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail”) |
 
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고
 
 * 작업 영역에 대한 읽기 권한이 있어야 합니다.
 * 관련 식은 Application Insights 애플리케이션 전체에서 쿼리할 수 있는 `app`입니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ```Kusto
 workspace("contosoretail").Update | count
@@ -71,6 +65,6 @@ union
 
 ## <a name="next-steps"></a>다음 단계
 
-- 참조를 [앱 식](app-expression.md) Application Insights 앱을 가리킵니다.
+- Application Insights 앱을 참조 하려면 [앱 식](app-expression.md) 을 참조 하세요.
 - [Azure Monitor 데이터](log-query-overview.md)가 저장되는 방법에 대해 알아보세요.
 - [ 쿼리 언어](/azure/kusto/query/)에 대한 전체 문서에 액세스합니다.

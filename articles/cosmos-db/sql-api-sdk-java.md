@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB는 SQL Java API, SDK 및 리소스
+title: 'Azure Cosmos DB: SQL Java API, SDK & 리소스'
 description: 릴리스 날짜, 사용 중지 날짜 및 Azure Cosmos DB SQL Java SDK의 각 버전 간 변경 내용을 포함하여 SQL Java API 및 SDK에 대한 모든 것을 알아봅니다.
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: bf89d419bcd97c276df35701bc4fd808f599094a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: eb8110c953787d1ebf7f01037808ee77db2eb8b4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637698"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934155"
 ---
-# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SQL API용 Azure Cosmos DB Java SDK: 릴리스 정보 및 리소스
+# <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
@@ -24,7 +24,7 @@ ms.locfileid: "68637698"
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -42,6 +42,30 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 |**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
+* 최적화 된 파티션 키 범위 캐시 새로 고침입니다.
+
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2 sections
+* 최적화 된 컬렉션 캐시 새로 고침입니다.
+
+### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
+* 요청 진단 문자열에서 내부 예외 메시지를 검색 하는 지원이 추가 되었습니다.
+
+### <a name="a-name240240"></a><a name="2.4.0"/>2.4.0
+* 은 (는) 파티션 정의에 도입 되었습니다.
+
+### <a name="a-name230230"></a><a name="2.3.0"/>2.3.0
+* 직접 모드에 대해 별도의 시간 제한 지원을 추가 했습니다.
+
+### <a name="a-name223223"></a><a name="2.2.3"/>2.2.3
+* 서비스에서 null 오류 메시지를 사용 하 고 문서 클라이언트 예외를 생성 하 고 있습니다.
+
+### <a name="a-name222222"></a><a name="2.2.2"/>2.2.2
+* 소켓 연결 향상, SoKeepAlive 기본값 추가
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* 요청 진단 문자열 지원이 추가 되었습니다.
 
 ### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
 * Hash V2에 대 한 PartitionKey의 버그가 수정 되었습니다.
@@ -199,7 +223,7 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 ### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
 * 지리 공간 인덱스 지원
 * 모든 리소스에 대 한 ID 속성의 유효성을 검사 합니다. 리소스에 대한 ID는 ?, /, #, \, 문자를 포함하거나 공백으로 끝날 수 없습니다.
-* 새 헤더 "인덱스 변환 진행률"을 ResourceResponse에 추가합니다.
+* ResourceResponse에 새 헤더 "인덱스 변환 진행"을 추가합니다.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
 * V2 인덱싱 정책 구현
@@ -274,6 +298,6 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 ## <a name="faq"></a>FAQ
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.
 

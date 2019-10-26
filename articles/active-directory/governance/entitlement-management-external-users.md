@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 419970985b9531ffab348491730aaf6c00e143b1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d3794f409b2cdc11373dc330099e5ff93d65a2a1
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527105"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934407"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 외부 사용자에 대 한 액세스 제어
 
@@ -50,11 +50,13 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../b2b/what-is-b2b.md) 를
 
 ![외부 사용자의 수명 주기를 보여 주는 다이어그램](./media/entitlement-management-external-users/external-users-lifecycle.png)
 
+1. 공동 작업 하려는 Azure AD 디렉터리 또는 도메인에 [연결 된 조직을 추가](entitlement-management-organization.md) 합니다.
+
 1. 디렉터리에 [없는 사용자에 대 한](entitlement-management-access-package-create.md#for-users-not-in-your-directory)정책을 포함 하는 액세스 패키지를 디렉터리에 만듭니다.
 
 1. 외부 조직의 사용자와 공유 하 여 액세스 패키지를 요청 하는 사용자와 공유할 수 있는 [내 액세스 포털 링크](entitlement-management-access-package-settings.md) 를 사용자에 게 보냅니다.
 
-1. 외부 사용자 (이 예제의**경우 요청자 A** )는 내 액세스 포털 링크를 사용 하 여 액세스 패키지에 대 한 [액세스를 요청](entitlement-management-request-access.md) 합니다.
+1. 외부 사용자 (이 예제의**경우 요청자 A** )는 내 액세스 포털 링크를 사용 하 여 액세스 패키지에 대 한 [액세스를 요청](entitlement-management-request-access.md) 합니다. 사용자가 로그인 하는 방법은 연결 된 조직에 정의 된 디렉터리 또는 도메인의 인증 유형에 따라 달라 집니다.
 
 1. 승인자가 [요청을 승인](entitlement-management-request-approve.md) 하거나 요청이 자동 승인 됩니다.
 
@@ -116,6 +118,6 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../b2b/what-is-b2b.md) 를
 
 ## <a name="next-steps"></a>다음 단계
 
+- [연결 된 조직 추가](entitlement-management-organization.md)
 - [디렉터리에 없는 사용자의 경우](entitlement-management-access-package-request-policy.md#for-users-not-in-your-directory)
 - [리소스 카탈로그 만들기 및 관리](entitlement-management-catalog-create.md)
-- [위임 및 역할](entitlement-management-delegate.md)

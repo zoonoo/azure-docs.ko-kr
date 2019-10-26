@@ -1,6 +1,6 @@
 ---
 title: Azure Storage 보안 가이드 | Microsoft Docs
-description: RBAC, Storage 서비스 암호화, 클라이언트 쪽 암호화, SMB 3.0 및 Azure 디스크 암호화를 비롯하여 Azure Storage 보안을 유지하는 다양한 방법을 자세히 설명합니다.
+description: 관리 평면 보안, 권한 부여, 네트워크 보안, 암호화 등을 포함 하 여 Azure Storage 계정에 보안을 설정 하는 방법에 대해 자세히 설명 합니다.
 services: storage
 author: tamram
 ms.service: storage
@@ -9,44 +9,54 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 72e695762f2e45309787e6f62fa97aae4c959f34
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 15c59a29bff50f13eea104cb436d1a3764f6d713
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598084"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926715"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage 보안 가이드
 
-Azure Storage는 여러 개발자가 보안 애플리케이션을 빌드하도록 지원하는 포괄적인 보안 기능을 제공합니다.
+Azure Storage는 조직이 보안 응용 프로그램을 빌드하고 배포할 수 있도록 하는 포괄적인 보안 기능 집합을 제공 합니다.
 
-- Azure Storage에 작성 된 모든 데이터 (메타 데이터 포함)는 [저장소 서비스 암호화 (SSE)](storage-service-encryption.md)를 사용 하 여 자동으로 암호화 됩니다. 자세한 내용은 [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/)(Azure Blob, Files, Table 및 Queue Storage에 대한 기본 암호화 발표)를 참조하세요.
-- Azure AD(Azure Active Directory) 및 RBAC(역할 기반 액세스 제어)는 다음과 같이 리소스 관리 작업 및 데이터 작업 모두에 대한 Azure Storage에 지원됩니다.   
+- Azure Storage에 작성 된 모든 데이터 (메타 데이터 포함)는 [저장소 서비스 암호화 (SSE)](storage-service-encryption.md)를 사용 하 여 자동으로 암호화 됩니다. 자세한 내용은 [Azure blob, 파일, 테이블 및 큐 저장소에 대 한 기본 암호화 발표](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/)를 참조 하세요.
+- 리소스 관리 작업 및 데이터 평면 작업 모두에 대해 Azure Active Directory (Azure AD) 및 RBAC (역할 기반 Access Control)가 지원 됩니다.   
     - 스토리지 계정으로 범위가 지정된 RBAC 역할을 보안 주체에 할당하고 Azure AD를 사용하여 키 관리와 같은 리소스 관리 작업의 권한을 부여할 수 있습니다.
-    - Azure AD 통합은 blob 및 큐 데이터 작업에 대해 지원 됩니다. 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너 또는 큐로 범위가 지정된 RBAC 역할을 보안 주체 또는 Azure 리소스의 관리 ID에 할당할 수 있습니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.   
-- [클라이언트 쪽 암호화](../storage-client-side-encryption.md), HTTP 또는 SMB 3.0을 사용하여 애플리케이션과 Azure 간에 전송 중인 데이터의 보안을 유지할 수 있습니다.  
+    - Azure AD 통합은 blob 및 큐 데이터 작업에 대해 지원 됩니다. RBAC 역할의 범위는 구독, 리소스 그룹, 저장소 계정, 개별 컨테이너 또는 큐로 지정할 수 있습니다. 역할은 Azure 리소스에 대 한 보안 주체 또는 관리 id에 할당할 수 있습니다. 자세한 내용은 [Azure Active Directory를 사용하여 Azure Storage에 대한 액세스 인증](storage-auth-aad.md)을 참조하세요.
+- [클라이언트 쪽 암호화](../storage-client-side-encryption.md), HTTPS 또는 SMB 3.0을 사용 하 여 응용 프로그램과 Azure 간에 전송 중인 데이터를 보호할 수 있습니다.  
 - 가상 머신에서 사용되는 OS 및 데이터 디스크는 [Azure Disk Encryption](../../security/fundamentals/encryption-overview.md)을 사용하여 암호화될 수 있습니다.
 - 공유 액세스 서명을 사용 하 여 Azure Storage의 데이터 개체에 대 한 위임 된 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](storage-sas-overview.md)를 참조 하세요.
+- 저장소 방화벽, 서비스 끝점 또는 개인 끝점을 사용 하 여 응용 프로그램 구성 요소와 저장소 간의 네트워크 계층 보안을 설정할 수 있습니다.
 
-이 문서에서는 Azure Storage에서 사용할 수 있는 이러한 각 보안 기능에 대해 간략히 설명합니다. 각 항목을 좀 더 자세히 확인할 수 있도록 각 기능의 세부 정보를 제공하는 문서에 대한 링크가 제공됩니다.
+이 문서에서는 Azure Storage에서 사용할 수 있는 이러한 각 보안 기능에 대해 간략히 설명합니다. 문서에 대 한 링크를 제공 하 여 각 기능에 대 한 추가 세부 정보를 제공 합니다.
 
-다음은 이 문서에 설명된 항목입니다.
+이 문서에서 다루는 영역은 다음과 같습니다.
 
-* [관리 평면 보안](#management-plane-security) - Storage 계정 보안 유지
+* [관리 평면 보안](#management-plane-security) – 저장소 계정에 대 한 리소스 수준 액세스 보안
 
-  관리 평면은 스토리지 계정 관리에 사용되는 리소스로 구성됩니다. 이 섹션에서는 Azure Resource Manager 배포 모델 및 RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정에 대한 액세스를 제어하는 방법을 다룹니다. 또한 스토리지 계정 키의 관리와 이러한 키를 다시 생성하는 방법에 대해서도 설명합니다.
-* [데이터 평면 보안](#data-plane-security) – 데이터에 대한 액세스 보안 유지
+  관리 평면은 저장소 계정을 관리 하는 데 사용 되는 작업으로 구성 됩니다. 이 섹션에서는 Azure Resource Manager 배포 모델 및 RBAC(역할 기반 Access Control)를 사용하여 스토리지 계정에 대한 액세스를 제어하는 방법을 다룹니다. 또한 스토리지 계정 키의 관리와 이러한 키를 다시 생성하는 방법에 대해서도 설명합니다.
 
-  이 섹션에서는 공유 액세스 서명 및 저장된 액세스 정책을 사용하여 Storage 계정에 있는 Blob, 파일, 큐, 테이블 등의 실제 데이터 개체에 대한 액세스를 허용하는 방법을 살펴볼 것입니다. 서비스 수준 SAS 및 계정 수준 SAS에 대한 설명이 제공됩니다. 또한 특정 IP 주소(또는 IP 주소 범위)에 대한 액세스를 제한하는 방법, 사용되는 프로토콜을 HTTPS로 제한하는 방법 및 만료를 기다리지 않고 공유 액세스 서명을 해지하는 방법도 알아봅니다.
+* [네트워크 보안](#network-security) -저장소 계정에 대 한 네트워크 수준 액세스 보호
+
+  이 섹션에서는 저장소 서비스 끝점에 대 한 네트워크 수준 액세스의 보안을 유지 하는 방법을 설명 합니다. 저장소 방화벽을 사용 하 여 특정 가상 네트워크 또는 IP 주소 범위에서 데이터에 대 한 액세스를 허용 하는 방법을 설명 합니다. 또한 저장소 계정에 서비스 끝점 및 개인 끝점을 사용 하는 방법을 설명 합니다.
+
+* [권한 부여](#authorization) -데이터에 대 한 액세스 권한 부여
+
+  이 섹션에서는 공유 액세스 서명 및 저장 된 액세스 정책을 사용 하 여 저장소 계정에서 blob, 파일, 큐 및 테이블과 같은 데이터 개체에 액세스 하는 방법을 설명 합니다. 서비스 수준 SAS 및 계정 수준 SAS에 대한 설명이 제공됩니다. 또한 특정 IP 주소(또는 IP 주소 범위)에 대한 액세스를 제한하는 방법, 사용되는 프로토콜을 HTTPS로 제한하는 방법 및 만료를 기다리지 않고 공유 액세스 서명을 해지하는 방법도 알아봅니다.
+
 * [전송 중 암호화](#encryption-in-transit)
 
-  이 섹션에서는 Azure Storage 간에 전송하는 데이터를 보호하는 방법을 설명합니다. 그뿐 아니라 권장되는 HTTPS 사용과 Azure 파일 공유를 위해 SMB 3.0에서 사용되는 암호화에 대해 설명합니다. 또한 클라이언트 애플리케이션의 스토리지로 데이터가 전송되기 전에 암호화하고 스토리지 외부로 전송된 후에 암호를 해독할 수 있도록 하는 클라이언트 쪽 암호화도 살펴봅니다.
+  이 섹션에서는 Azure Storage 간에 전송하는 데이터를 보호하는 방법을 설명합니다. 그뿐 아니라 권장되는 HTTPS 사용과 Azure 파일 공유를 위해 SMB 3.0에서 사용되는 암호화에 대해 설명합니다. 또한 저장소로 전송 하기 전에 데이터를 암호화 하 고 저장소 외부로 전송 된 후 데이터의 암호를 해독 하는 데 사용할 수 있는 클라이언트 쪽 암호화에 대해 설명 합니다.
+
 * [휴지 상태의 암호화](#encryption-at-rest)
 
   이제 신규 및 기존 스토리지 계정에 대해 자동으로 사용되도록 설정되는 SSE(Storage 서비스 암호화)에 대해 설명합니다. Azure 디스크 암호화를 사용하는 방법을 살펴보고, 디스크 암호화, SSE 및 클라이언트 쪽 암호화의 사례와 기본적인 차이점을 알아봅니다. 미국 정부 컴퓨터의 FIPS 준수에 대해서도 간단히 살펴봅니다.
+
 * [스토리지 분석](#storage-analytics) 을 사용하여 Azure Storage에 대한 액세스 감사
 
   이 섹션에서는 스토리지 분석 로그에서 요청에 대한 정보를 찾는 방법을 설명합니다. 실제 스토리지 분석 로그 데이터에 대해 살펴보고, 성공 여부에 관계없이 Storage 계정 키 사용, 공유 액세스 서명 사용 또는 익명 방식 중 어떤 방식으로 요청이 수행되는지를 확인하는 방법을 알아봅니다.
+
 * [CORS를 사용하여 브라우저 기반 클라이언트를 사용하도록 설정](#cross-origin-resource-sharing-cors)
 
   이 섹션에서는 CORS(크로스-원본 자원 공유)를 허용하는 방법을 설명합니다. 도메인 간 액세스와 Azure Storage에 기본 제공된 CORS 기능으로 이러한 액세스 방식을 처리하는 방법을 살펴봅니다.
@@ -112,16 +122,16 @@ Storage 계정 키는 Azure에서 생성되는 512비트 문자열로, Storage �
 
 각 스토리지 계정에는 [Azure Portal](https://portal.azure.com/) 및 PowerShell cmdlet에서 &quot;키 1&quot;과 &quot;키 2&quot;로 지칭되는 두 개의 키가 있습니다. 이러한 키는 [Azure 포털](https://portal.azure.com/), PowerShell, Azure CLI를 사용하거나 .NET Storage Client Library 또는 Azure Storage Services REST API를 사용하여 프로그래밍 방식으로 다시 생성할 수도 있습니다.
 
-스토리지 계정 키를 다시 생성하는 이유는 많습니다.
+저장소 계정 키를 다시 생성 하는 여러 가지 이유가 있습니다.
 
-* 보안상의 이유로 정기적으로 다시 생성할 수 있습니다.
-* 누군가가 애플리케이션에 간신히 해킹하여 구성 파일에 하드 코딩되었거나 저장된 키를 검색함으로써 사용자의 스토리지 계정에 대한 모든 권한을 얻게 되면 스토리지 계정 키를 다시 생성해야 합니다.
-* 키를 다시 생성하는 또 다른 경우는 팀이 Storage 계정 키를 유지하는 Storage Explorer 애플리케이션 사용하고 있는데 팀 구성원 중 하나가 팀을 탈퇴하는 경우입니다. 애플리케이션은 계속 작동되고 해당 구성원이 나간 후에도 스토리지 계정에 대한 액세스 권한을 부여합니다. 실제로 이것이 액세스 수준 공유 액세스 서명을 만드는 주요 이유입니다. 이러한 문제를 방지하기 위해 구성 파일에 액세스 키를 저장하는 대신 계정 수준 SAS를 사용할 수 있습니다.
+* 보안을 위해 주기적으로 다시 생성할 수 있습니다.
+* 응용 프로그램 또는 네트워크 보안이 손상 되 면 저장소 계정 키를 다시 생성할 수 있습니다.
+* 키를 다시 생성 하는 다른 인스턴스는 키에 대 한 액세스 권한이 있는 팀 멤버가 떠날 때입니다. 공유 액세스 서명은 주로이 시나리오를 해결 하도록 설계 되었습니다. 대부분의 개인 또는 응용 프로그램과 함께 액세스 키를 공유 하는 대신 계정 수준 SAS 연결 문자열 또는 토큰을 공유 해야 합니다.
 
 #### <a name="key-regeneration-plan"></a>키 다시 생성 계획
-사용 중인 키를 계획 없이 그냥 다시 생성하고 싶지는 않을 것입니다. 이렇게 하면 해당 스토리지 계정에 대한 모든 액세스가 차단되어 심각한 업무 중단이 발생할 수 있습니다. 이 때문에 두 개의 키를 준비하는 것입니다. 한 번에 하나의 키를 다시 생성해야 합니다.
+계획 없이 사용 중인 액세스 키를 다시 생성 해서는 안 됩니다. 갑작스러운 키 다시 생성은 기존 응용 프로그램의 저장소 계정에 대 한 액세스를 차단 하 여 심각한 중단을 발생 시킬 수 있습니다. Azure Storage 계정은 한 번에 하나의 키를 다시 생성할 수 있도록 두 개의 키를 제공 합니다.
 
-키를 다시 생성하기 전에 스토리지 계정에 종속되는 모든 애플리케이션의 목록과 Azure에서 사용하는 다른 서비스 목록을 준비해야 합니다. 예를 들어 스토리지 계정에 종속된 Azure Media Services를 사용하는 경우 키를 다시 생성한 후 미디어 서비스와 액세스 키를 다시 동기화해야 합니다. 스토리지 탐색기와 같은 애플리케이션을 사용하는 경우 해당 애플리케이션에도 새 키를 제공 해야 합니다. 해당 VHD 파일이 스토리지 계정에 저장되어 있는 VM의 경우 스토리지 계정 키를 다시 생성해도 영향을 받지 않습니다.
+키를 다시 생성 하기 전에 저장소 계정에 종속 된 모든 응용 프로그램 목록과 Azure에서 사용 하는 다른 서비스를 모두 포함 해야 합니다. 예를 들어 저장소 계정을 사용 하 Azure Media Services를 사용 하는 경우 키를 다시 생성 한 후 미디어 서비스와 액세스 키를 다시 동기화 해야 합니다. 저장소 탐색기와 같은 응용 프로그램을 사용 하는 경우에는 해당 응용 프로그램에도 새 키를 제공 해야 합니다. 해당 VHD 파일이 스토리지 계정에 저장되어 있는 VM의 경우 스토리지 계정 키를 다시 생성해도 영향을 받지 않습니다.
 
 Azure 포털에서 키를 다시 생성할 수 있습니다. 키가 다시 생성되면 Storage 서비스에서 동기화되는 데 최대 10분이 걸릴 수 있습니다.
 
@@ -135,11 +145,11 @@ Azure 포털에서 키를 다시 생성할 수 있습니다. 키가 다시 생�
 
 며칠에 걸쳐 마이그레이션을 수행하여 각 애플리케이션이 새 키를 사용하도록 변경한 후 게시할 수 있습니다. 이러한 작업이 모두 완료되면 돌아가서 더 이상 작동하지 않도록 이전 키를 다시 생성해야 합니다.
 
-다른 옵션은 스토리지 계정 키를 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 암호로 추가하고 애플리케이션이 해당 위치에서 키를 검색하도록 하는 것입니다. 그런 다음, 키를 다시 생성하고 Azure Key Vault를 업데이트하면 애플리케이션이 Azure Key Vault에서 자동으로 새 키를 선택하게 되므로 애플리케이션을 다시 배포하지 않아도 됩니다. 필요할 때마다 애플리케이션에서 키를 읽도록 하거나, 메모리에 캐시한 후 사용에 실패할 경우 Azure Key Vault에서 키를 다시 검색할 수 있습니다.
+다른 옵션은 스토리지 계정 키를 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)에 암호로 추가하고 애플리케이션이 해당 위치에서 키를 검색하도록 하는 것입니다. 그런 다음, 키를 다시 생성하고 Azure Key Vault를 업데이트하면 애플리케이션이 Azure Key Vault에서 자동으로 새 키를 선택하게 되므로 애플리케이션을 다시 배포하지 않아도 됩니다. 응용 프로그램에서 필요할 때마다 키를 읽을 수 있습니다. 또는 응용 프로그램에서 메모리에 캐시 하 고 사용할 때 응용 프로그램에서 키를 다시 검색 하는 경우에는 Azure Key Vault에서 다시 키를 검색 합니다.
 
-또한 Azure Key Vault를 사용하면 스토리지 키에 대한 보안이 한 층 더 강화됩니다. 이 방법을 사용하는 경우 스토리지 키가 구성 파일에 하드 코딩되지 않게 되며, 누군가가 특정 권한 없이도 키에 액세스할 수 있는 공간이 없어지는 셈이 됩니다.
+또한 Azure Key Vault를 사용하면 스토리지 키에 대한 보안이 한 층 더 강화됩니다. Key Vault를 사용 하면 응용 프로그램 구성 파일에서 저장소 키를 작성 하지 않아도 됩니다. 또한 해당 구성 파일에 액세스할 수 있는 모든 사용자에 게 키를 노출 하지 않도록 합니다.
 
-Azure Key Vault를 사용하면 Azure Active Directory를 사용하여 키에 대한 액세스를 제어할 수 있다는 또 다른 장점도 있습니다. 즉, Azure Key Vault에서 키를 검색해야 하는 다양한 애플리케이션에 액세스 권한을 부여할 수 있으며, 특별히 권한을 부여 받지 못한 다른 애플리케이션은 키에 액세스할 수 없다는 것을 알 수 있습니다.
+또한 Azure Key Vault는 Azure AD를 사용 하 여 키에 대 한 액세스를 제어 하는 이점이 있습니다. 키에 액세스할 필요가 없는 다른 응용 프로그램에 노출 하지 않고 Key Vault에서 키를 검색 해야 하는 특정 응용 프로그램에 대 한 액세스 권한을 부여할 수 있습니다.
 
 > [!NOTE]
 > 모든 애플리케이션에서 키 중 하나만 동시에 사용하는 것이 좋습니다. 어떤 경우에는 키 1을 사용하고, 다른 경우에는 키 2를 사용하면 어떤 애플리케이션이 액세스 권한을 상실해야만 키를 순환할 수 있게 됩니다.
@@ -149,7 +159,35 @@ Azure Key Vault를 사용하면 Azure Active Directory를 사용하여 키에 �
 * [Azure Portal에서 스토리지 계정 설정 관리](storage-account-manage.md)
 * [Azure Storage 리소스 공급자 REST API 참조](https://msdn.microsoft.com/library/mt163683.aspx)
 
-## <a name="data-plane-security"></a>데이터 평면 보안
+## <a name="network-security"></a>네트워크 보안
+네트워크 보안을 사용 하면 선택 된 네트워크의 Azure Storage 계정에 있는 데이터에 대 한 액세스를 제한할 수 있습니다. Azure Storage 방화벽을 사용 하 여 특정 공용 IP 주소 범위에서 클라이언트에 대 한 액세스를 제한 하거나, Azure의 가상 네트워크 (Vnet)를 선택 하거나, 특정 Azure 리소스에 대 한 액세스를 제한할 수 있습니다. 또한 액세스를 필요로 하는 VNet에서 저장소 계정에 대 한 개인 끝점을 만들고 공용 끝점을 통해 모든 액세스를 차단 하는 옵션도 있습니다.
+
+Azure Portal의 [방화벽 및 가상 네트워크](storage-network-security.md) 탭을 통해 저장소 계정에 대 한 네트워크 액세스 규칙을 구성할 수 있습니다. 저장소 방화벽을 사용 하 여 공용 인터넷 트래픽에 대 한 액세스를 거부 하 고 구성 된 네트워크 규칙에 따라 선택 하는 클라이언트에 대 한 액세스 권한을 부여할 수 있습니다.
+
+개인 [끝점](../../private-link/private-endpoint-overview.md) 을 사용 하 여 [개인 링크](../../private-link/private-link-overview.md)를 통해 VNet에서 저장소 계정에 안전 하 게 연결할 수도 있습니다.
+
+저장소 방화벽 규칙은 저장소 계정에 대 한 공용 끝점에만 적용 됩니다. 저장소 계정에 대 한 개인 끝점을 호스트 하는 서브넷은 해당 개인 끝점의 생성을 승인할 때 계정에 대 한 암시적 액세스를 가져옵니다.
+
+> [!NOTE]
+> 저장소 방화벽 규칙은 Azure Portal 및 Azure Storage 관리 API를 통해 수행 된 저장소 관리 작업에는 적용 되지 않습니다.
+
+### <a name="access-rules-for-public-ip-address-ranges"></a>공용 IP 주소 범위에 대 한 액세스 규칙
+Azure Storage 방화벽을 사용 하 여 특정 공용 IP 주소 범위에서 저장소 계정에 대 한 액세스를 제한할 수 있습니다. IP 주소 규칙을 사용 하 여 고정 된 공용 IP 끝점에서 통신 하는 특정 인터넷 기반 서비스에 대 한 액세스를 제한 하거나 온-프레미스 네트워크를 선택할 수 있습니다.
+
+### <a name="access-rules-for-azure-virtual-networks"></a>Azure virtual network에 대 한 액세스 규칙
+기본적으로 저장소 계정은 네트워크에 있는 클라이언트의 연결을 허용 합니다. 저장소 방화벽을 사용 하 여 저장소 계정의 데이터에 대 한 클라이언트 액세스를 선택한 네트워크로 제한할 수 있습니다. [서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md) 은 Azure virtual network에서 저장소 계정으로의 트래픽을 라우팅하는 데 사용 됩니다. 
+
+### <a name="granting-access-to-specific-trusted-resource-instances"></a>신뢰할 수 있는 특정 리소스 인스턴스에 대 한 액세스 권한 부여
+서비스 리소스 종류 또는 리소스 인스턴스를 기반으로 하는 강력한 인증을 사용 하 여 [Azure 신뢰할 수 있는 서비스의 하위 집합이](storage-network-security.md#trusted-microsoft-services) 방화벽을 통해 저장소 계정에 액세스 하도록 허용할 수 있습니다.
+
+저장소 방화벽을 통해 리소스 인스턴스 기반 액세스를 지 원하는 서비스의 경우 선택한 인스턴스만 저장소 계정의 데이터에 액세스할 수 있습니다. 이 경우 서비스는 시스템 할당 [관리 id](../../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 리소스 인스턴스 인증을 지원 해야 합니다.
+
+### <a name="using-private-endpoints-for-securing-connections"></a>연결 보안을 위한 개인 끝점 사용
+Azure Storage는 Azure virtual network에서 저장소 계정에 안전 하 게 액세스할 수 있도록 하는 개인 끝점을 지원 합니다. 개인 끝점은 VNet의 주소 공간에서 저장소 서비스로 개인 IP 주소를 할당 합니다. 개인 끝점을 사용 하는 경우 저장소 연결 문자열은 저장소 계정으로 향하는 트래픽을 개인 IP 주소로 리디렉션합니다. 개인 끝점과 저장소 계정 간의 연결은 개인 링크를 사용 합니다. 개인 끝점을 사용 하 여 VNet에서 데이터의 반출을 차단할 수 있습니다.
+
+VPN 또는 [연결할 expressroutes](../../expressroute/expressroute-locations.md) 개인 피어 링 및 기타 피어 링 가상 네트워크를 통해 연결 된 온-프레미스 네트워크도 개인 끝점을 통해 저장소 계정에 액세스할 수 있습니다. 저장소 계정에 대 한 개인 끝점은 모든 지역의 VNet에서 만들 수 있으므로 안전한 글로벌 환경을 사용할 수 있습니다. 다른 [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) 테 넌 트에서 저장소 계정에 대 한 개인 끝점을 만들 수도 있습니다.
+
+## <a name="authorization"></a>권한 부여
 데이터 평면 보안은 Azure Storage에 저장된 데이터 개체(Blob, 큐, 테이블 및 파일)의 보안을 유지하는 데 사용되는 방법을 나타냅니다. 데이터가 전송되는 동안 데이터 및 보안을 암호화하는 방법을 살펴보았습니다. 그렇다면 개체에 대한 액세스를 제어하는 방법은 어디에서 확인할까요?
 
 Azure Storage에서 데이터 개체에 대한 액세스를 인증하는 데 다음을 포함한 세 가지 옵션이 있습니다.
@@ -159,8 +197,6 @@ Azure Storage에서 데이터 개체에 대한 액세스를 인증하는 데 다
 - 공유 액세스 서명을 사용하여 특정 시간 동안 특정 데이터 개체에 제어된 권한을 부여합니다.
 
 또한 Blob Storage의 경우 Blob을 포함하는 컨테이너에 대한 액세스 수준을 적절히 설정하여 Blob에 대한 공용 액세스를 허용할 수 있습니다. 컨테이너에 대한 액세스를 Blob 또는 컨테이너로 설정하는 경우 해당 컨테이너의 Blob에 대해 공용 읽기 액세스가 허용됩니다. 즉, 해당 컨테이너의 Blob을 가리키는 URL이 있으면 누구나 공유 액세스 서명이나 스토리지 계정 키 없이도 브라우저에서 열 수 있습니다.
-
-권한 부여를 통해 액세스를 제한할 뿐 아니라 [방화벽 및 가상 네트워크](storage-network-security.md)를 사용하여 네트워크 규칙에 따라 스토리지 계정에 대한 액세스를 제한할 수도 있습니다.  이 방법을 통해 공용 인터넷 트래픽에 대한 액세스를 거부하고 특정 Azure Virtual Network 또는 공용 인터넷 IP 주소 범위에 대한 액세스 권한만 부여할 수 있습니다.
 
 ### <a name="storage-account-keys"></a>스토리지 계정 키
 Storage 계정 키는 Azure에서 생성되는 512비트 문자열로, Storage 계정에 저장된 데이터 개체에 액세스하기 위해 Storage 계정 이름과 함께 사용될 수 있습니다.
@@ -236,6 +272,11 @@ SAS가 손상되었거나, 회사 보안 또는 규정 준수 요구 때문에 �
     이 문서에서는 Blob, 큐 메시지, 테이블 범위 및 파일에서 서비스 수준 SAS를 사용하는 예제를 제공합니다.
   * [서비스 SAS 생성(영문)](https://msdn.microsoft.com/library/dn140255.aspx)
   * [계정 SAS 생성(영문)](https://msdn.microsoft.com/library/mt584140.aspx)
+
+* .NET 클라이언트 라이브러리를 사용 하 여 공유 액세스 서명 및 저장 된 액세스 정책을 만드는 방법에 대 한 자습서입니다.
+  * [SAS(공유 액세스 서명) 사용](../storage-dotnet-shared-access-signature-part-1.md)
+
+    이 문서에서는 SAS 모델에 대한 설명, 공유 액세스 서명의 예, SAS에 대한 권장 모범 사용 사례를 제공합니다. 부여된 사용 권한을 해지하는 방법도 설명합니다.
 
 * Authentication
 

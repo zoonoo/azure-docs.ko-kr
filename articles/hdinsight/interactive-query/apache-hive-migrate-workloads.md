@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0363f2d8da1ca1371fd55107c6487c3d96f6d00e
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1b270663a83461ecd777599fead9d717e93482c0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091463"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72930899"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>HDInsight 4.0로 Azure HDInsight 3.6 Hive 워크 로드 마이그레이션
 
@@ -30,14 +30,14 @@ ms.locfileid: "71091463"
 Hive의 이점 중 하나는 외부 데이터베이스 (Hive Metastore 이라고 함)로 메타 데이터를 내보내는 기능입니다. **Hive Metastore** 는 테이블 저장소 위치, 열 이름 및 테이블 인덱스 정보를 포함 하 여 테이블 통계를 저장 하는 일을 담당 합니다. Metastore 데이터베이스 스키마는 Hive 버전 마다 다릅니다. Hdinsight 4.0와 호환 되도록 HDInsight 3.6 Hive Metastore를 업그레이드 하려면 다음을 수행 합니다.
 
 1. 외부 metastore의 새 복사본을 만듭니다. HDInsight 3.6 및 HDInsight 4.0에는 다른 metastore 스키마가 필요 하며 단일 metastore를 공유할 수 없습니다. 외부 metastore를 HDInsight 클러스터에 연결 하는 방법에 대 한 자세한 내용은 [Azure hdinsight에서 외부 메타 데이터 저장소 사용](../hdinsight-use-external-metadata-stores.md) 을 참조 하세요. 
-2. HDI 3.6 클러스터에 대해 스크립트 작업을 시작 하 고 "헤드 노드"를 실행을 위한 노드 형식으로 사용 합니다. 다음 URI를 "Bash 스크립트 URI" https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh 로 표시 된 텍스트 상자에 붙여넣습니다. "인수"로 표시 된 텍스트 상자에서 **복사** 된 Hive metastore에 대 한 서버 이름, 데이터베이스, 사용자 이름 및 암호를 공백으로 구분 하 여 입력 합니다. Servername을 지정할 때 ". database.windows.net"를 포함 하지 마십시오.
+2. HDI 3.6 클러스터에 대해 스크립트 작업을 시작 하 고 "헤드 노드"를 실행을 위한 노드 형식으로 사용 합니다. 다음 URI를 "Bash 스크립트 URI": https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh 표시 된 텍스트 상자에 붙여넣습니다. "인수"로 표시 된 텍스트 상자에서 **복사** 된 Hive metastore에 대 한 서버 이름, 데이터베이스, 사용자 이름 및 암호를 공백으로 구분 하 여 입력 합니다. Servername을 지정할 때 ". database.windows.net"를 포함 하지 마십시오.
 
 > [!Warning]
 > HDInsight 3.6 메타 데이터 스키마를 HDInsight 4.0 스키마로 변환 하는 업그레이드는 되돌릴 수 없습니다.
 
 ## <a name="migrate-hive-tables-to-hdinsight-40"></a>HDInsight 4.0로 Hive 테이블 마이그레이션
 
-이전 단계를 완료 하 여 Hive Metastore를 hdinsight 4.0로 마이그레이션한 후 Metastore에 기록 된 테이블 및 데이터베이스는 클러스터 내에서 또는 `show tables` `show databases` 를 실행 하 여 hdinsight 4.0 클러스터 내에서 볼 수 있습니다. . HDInsight 4.0 클러스터에서 쿼리 실행에 대 한 자세한 내용은 [hdinsight 버전 간 쿼리 실행](#query-execution-across-hdinsight-versions) 을 참조 하세요.
+이전 단계를 완료 하 여 Hive Metastore를 HDInsight 4.0로 마이그레이션한 후에는 클러스터 내에서 `show tables` 또는 `show databases`를 실행 하 여 HDInsight 4.0 클러스터 내에서 Metastore에 기록 된 테이블 및 데이터베이스를 볼 수 있습니다. HDInsight 4.0 클러스터에서 쿼리 실행에 대 한 자세한 내용은 [hdinsight 버전 간 쿼리 실행](#query-execution-across-hdinsight-versions) 을 참조 하세요.
 
 그러나 클러스터에 필요한 저장소 계정에 대 한 액세스 권한이 있는 경우에는 테이블의 실제 데이터에 액세스할 수 없습니다. HDInsight 4.0 클러스터가 이전 HDInsight 3.6 클러스터와 동일한 데이터에 액세스할 수 있도록 하려면 다음 단계를 완료 합니다.
 
@@ -66,9 +66,9 @@ Metastore 마이그레이션과 압축 단계를 완료 한 후에는 실제 웨
 테이블 속성이 올바르게 설정 되 면 SSH 셸을 사용 하 여 클러스터 헤드 노드 중 하나에서 Hive 웨어하우스 마이그레이션 도구를 실행 합니다.
 
 1. SSH를 사용 하 여 클러스터 헤드 노드에 연결 합니다. 지침은 [SSH를 사용 하 여 HDInsight에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md) 을 참조 하세요.
-1. 을 실행 하 여 Hive 사용자로 로그인 셸을 엽니다.`sudo su - hive`
-1. 을 실행 `ls /usr/hdp`하 여 Hortonworks Data Platform stack 버전을 확인 합니다. 그러면 다음 명령에서 사용 해야 하는 버전 문자열이 표시 됩니다.
-1. 셸에서 다음 명령을 실행 합니다. 을 `${{STACK_VERSION}}` 이전 단계의 버전 문자열로 바꿉니다.
+1. `sudo su - hive`를 실행 하 여 Hive 사용자로 로그인 셸을 엽니다.
+1. `ls /usr/hdp`를 실행 하 여 데이터 플랫폼 스택 버전을 확인 합니다. 그러면 다음 명령에서 사용 해야 하는 버전 문자열이 표시 됩니다.
+1. 셸에서 다음 명령을 실행 합니다. `${{STACK_VERSION}}`을 이전 단계의 버전 문자열로 바꿉니다.
 
 ```bash
 /usr/hdp/${{STACK_VERSION}}/hive/bin/hive --config /etc/hive/conf --service  strictmanagedmigration --hiveconf hive.strict.managed.tables=true -m automatic --modifyManagedTables
@@ -97,14 +97,14 @@ HDInsight 4.0에서 HiveCLI는 Beeline로 대체 되었습니다. HiveCLI은 Hiv
 
 HDInsight 3.6에서 Hive 서버와 상호 작용 하는 GUI 클라이언트는 Ambari Hive 뷰입니다. HDInsight 4.0는 Hive 뷰를 DAS (Hortonworks Data Analytics Studio)로 대체 합니다. DAS는 HDInsight 클러스터에 기본 제공 되지 않으며 공식적으로 지원 되는 패키지가 아닙니다. 그러나 다음과 같이 클러스터에 DAS를 설치할 수 있습니다.
 
-클러스터에 대해 스크립트 작업을 시작 하 고 실행을 위한 노드 형식으로 "헤드 노드"를 사용 합니다. 다음 URI를 "Bash 스크립트 URI"로 표시 된 텍스트 상자에 붙여넣습니다. https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
+클러스터에 대해 스크립트 작업을 시작 하 고 실행을 위한 노드 형식으로 "헤드 노드"를 사용 합니다. 다음 URI를 "Bash 스크립트 URI"로 표시 된 텍스트 상자에 붙여 넣습니다. https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh
 
-5 ~ 10 분 정도 기다렸다가 다음 URL을 사용 하 여 데이터 분석 스튜디오를 시작\<합니다. https://clustername >. azurehdinsight/das/
+5 ~ 10 분 정도 기다렸다가 다음 URL을 사용 하 여 데이터 분석 스튜디오를 시작 합니다. https://\<clustername >. azurehdinsight/das/
 
 DAS가 설치 되 면 쿼리 뷰어에서 실행 한 쿼리가 표시 되지 않으면 다음 단계를 수행 합니다.
 
 1. [Das 설치 문제 해결에 대 한이 가이드](https://docs.hortonworks.com/HDPDocuments/DAS/DAS-1.2.0/troubleshooting/content/das_queries_not_appearing.html)에 설명 된 대로 Hive, TEZ 및 das에 대 한 구성을 설정 합니다.
-2. 다음 Azure storage 디렉터리 configs가 페이지 blob이 고 나열 `fs.azure.page.blob.dirs`되는지 확인 합니다.
+2. 다음 Azure storage 디렉터리 configs가 페이지 blob이 고 `fs.azure.page.blob.dirs`아래에 나열 되어 있는지 확인 합니다.
     * `hive.hook.proto.base-directory`
     * `tez.history.logging.proto-base-dir`
 3. 두 헤드 노드에서 HDFS, Hive, Tez 및 DAS를 다시 시작 합니다.

@@ -19,12 +19,12 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 208c644c26006fb99139abe1b05c63f90eff448d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 514a74ed0ae52fb7f2a7b7d7f19c0b364dc2ba91
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803282"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934872"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL으로 응용 프로그램 마이그레이션
 
@@ -73,7 +73,7 @@ MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
 * 앱에 필요한 모든 사용 권한 목록을 제공 합니다. 다음은 그 예입니다. 
 
-    `@[@"https://graph.microsot.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
+    `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
     이 경우 앱은 `directory.read` 및 `directory.write` 권한을 요청 합니다. 사용자가이 앱에 대해 이전에 동의한 하지 않은 경우 해당 사용 권한에 동의 하 라는 메시지가 표시 됩니다. 응용 프로그램은 사용자가 응용 프로그램에 대해 이미 동의한 추가 사용 권한을 받을 수도 있습니다. 사용자에 게 새 권한 또는 부여 되지 않은 사용 권한에 동의 하 라는 메시지만 표시 됩니다.
 

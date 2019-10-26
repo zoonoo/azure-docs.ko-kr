@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: 99f8c2b40445fe282800d096353bee1c7a934ebe
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: b644d293afd429bdc68fba66c119eb7146d0daf0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918120"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935457"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
 
@@ -61,9 +61,9 @@ Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 �
    tar -xvf oozie-examples.tar.gz
    hdfs dfs -put examples /user/<DomainUser>/
    ```
-   `DomainUser`를 도메인 사용자 이름으로 바꿉니다. 
-   `DomainUserPath`를 도메인 사용자의 홈 디렉터리 경로로 바꿉니다. 
-   `ClusterVersion`을 클러스터 HDP(Hortonworks Data Platform) 버전으로 바꿉니다.
+   `DomainUser`를 도메인 사용자 이름으로 바꿉니다.
+   `DomainUserPath`를 도메인 사용자의 홈 디렉터리 경로로 바꿉니다.
+   `ClusterVersion`를 클러스터 데이터 플랫폼 버전으로 바꿉니다.
 
 2. 다음 문을 사용하여 새 파일을 만들고 편집합니다.
    ```bash
@@ -169,7 +169,7 @@ Oozie 워크플로 정의는 hPDL(Apache Hadoop 프로세스 정의 언어)로 �
    ```
 4. `clustername`을 클러스터의 이름으로 바꿉니다. 
 
-5. 파일을 저장하려면 Ctrl + X를 선택합니다. `Y` 을 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
+5. 파일을 저장하려면 Ctrl + X를 선택합니다. [https://slack.botframework.com](`Y`) 을 입력합니다. 그런 다음, **Enter** 키를 선택합니다.
 
     워크플로는 두 부분으로 구분됩니다.
    * **자격 증명 섹션.** 이 섹션에서는 Oozie 작업을 인증하는 데 사용되는 자격 증명을 사용합니다.

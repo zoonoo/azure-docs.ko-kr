@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea4b8ea98365ec13f7f027215a75b9d79ea5c54e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6996b6163c1d5a2a4747093743a937dfd9eb7d4f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72453135"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933113"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>암호 없는 인증 배포 완료
 
@@ -93,7 +93,7 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 보안 키를 사용 하 여 리소스에 액세스 하 고 해당 물리적 장치의 관리를 계획 해야 합니다.
 
 1. 키 배포: 조직에 키를 프로 비전 하는 방법을 계획 합니다. 중앙 집중식 프로 비전 프로세스가 있거나 최종 사용자가 FIDO 2.0 호환 키를 구매할 수 있습니다.
-1. 키 활성화: 최종 사용자는 보안 키를 직접 활성화 해야 합니다. 최종 사용자는 [1 @no__t](https://aka.ms/mysecurityinfo) 에 보안 키를 등록 하 고 처음 사용할 때 두 번째 요소 (PIN 또는 생체 인식)를 사용 하도록 설정 합니다.
+1. 키 활성화: 최종 사용자는 보안 키를 직접 활성화 해야 합니다. 최종 사용자는 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 에 보안 키를 등록 하 고 처음 사용할 때 두 번째 요소 (PIN 또는 생체 인식)를 사용 하도록 설정 합니다.
 1. 키 사용 안 함: 보안 키 기능이 미리 보기 단계에 있는 동안 관리자가 사용자 계정에서 키를 제거할 수 있는 방법이 없습니다. 사용자가 제거 해야 합니다. 키를 분실 하거나 도난당 한 경우:
    1. 암호 없는 인증을 사용 하도록 설정 된 그룹에서 사용자를 제거 합니다.
    1. 인증 방법으로 키를 제거 했는지 확인 합니다.
@@ -154,7 +154,7 @@ FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설�
 - [Microsoft Authenticator 앱에 등록](howto-authentication-passwordless-phone.md)
 - [휴대폰으로 로그인](../user-help/user-help-auth-app-sign-in.md)
 
-Microsoft는 사용자의 통신을 쉽게 할 수 있도록 MFA [통신 템플릿](https://aka.ms/mfatemplates), 셀프 서비스 암호 재설정 (SSPR) [통신 템플릿](https://www.microsoft.com/download/details.aspx?id=56768)및 [최종 사용자 설명서](../user-help/security-info-setup-signin.md) 를 제공 합니다. [@No__t-1](https://myprofile.microsoft.com/) 로 사용자를 전송 하 여 해당 페이지의 보안 정보 링크를 선택 하 여 직접 등록할 수 있습니다.
+Microsoft는 사용자의 통신을 쉽게 할 수 있도록 MFA [통신 템플릿](https://aka.ms/mfatemplates), 셀프 서비스 암호 재설정 (SSPR) [통신 템플릿](https://www.microsoft.com/download/details.aspx?id=56768)및 [최종 사용자 설명서](../user-help/security-info-setup-signin.md) 를 제공 합니다. 해당 페이지에서 보안 정보 링크를 선택 하 여 [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) 사용자에 게 직접 등록할 수 있습니다.
 
 ### <a name="testing-passwordless"></a>암호 없는 테스트
 
@@ -185,7 +185,7 @@ Microsoft는 사용자의 통신을 쉽게 할 수 있도록 MFA [통신 템플�
 | 사용자가 FIDO2 장치 (1809)를 사용 하 여 로그인 할 수 있습니다. | 사용자는 로그인 창에서 보안 키를 선택 하 고 성공적으로 로그인 할 수 있습니다. |
 | 사용자가 FIDO2 장치 (1903)를 등록할 수 있습니다. | 사용자는 설정 > 계정 > 로그인 옵션 > 보안 키에 FIDO2 장치를 등록할 수 있습니다. |
 | 사용자가 FIDO2 장치 (1903)를 다시 설정할 수 있습니다. | 사용자는 설정 > 계정 > 로그인 옵션 > 보안 키에서 FIDO2 장치를 다시 설정할 수 있습니다. |
-| 사용자가 FIDO2 장치 (1809)를 사용 하 여 로그인 할 수 있습니다. | 사용자는 로그인 창에서 보안 키를 선택 하 고 성공적으로 로그인 할 수 있습니다. |
+| 사용자가 FIDO2 장치 (1903)를 사용 하 여 로그인 할 수 있습니다. | 사용자는 로그인 창에서 보안 키를 선택 하 고 성공적으로 로그인 할 수 있습니다. |
 
 **Passwordless FIDO Azure AD 웹 앱에 로그인**
 
@@ -276,7 +276,7 @@ Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가 합니다.
 | **오류 메시지**:이 브라우저나 OS는 FIDO2 보안 키를 지원 하지 않습니다. | Passwordless FIDO2 보안 장치는 Windows 10 버전 1809 이상에서 지원 되는 브라우저 (Microsoft Edge, Firefox 버전 67)에만 등록할 수 있습니다. |
 | **오류 메시지**: 회사 정책에서 다른 방법을 사용 하 여 로그인 해야 합니다. | 테 넌 트에서 확실 하지 않은 보안 키를 사용할 수 있습니다. |
 | 사용자가 Windows 10 버전 1809에서 내 보안 키를 관리할 수 없음 | 버전 1809에서는 FIDO2 key 공급 업체에서 제공 하는 보안 키 관리 소프트웨어를 사용 해야 합니다. 공급 업체에 지원을 문의 하세요. |
-| FIDO2 보안 키가 손상 될 수 있다고 생각 합니다. 어떻게 테스트할 수 있나요? | [@No__t-1](https://webauthntest.azurewebsites.net/)로 이동 하 고, 테스트 계정에 대 한 자격 증명을 입력 하 고, 의심 스러운 보안 키를 연결 하 고, 화면 오른쪽 위에 있는 "+" 단추를 클릭 하 고, 만들기를 클릭 하 고, 만들기 프로세스를 진행 합니다. 이 시나리오에서 오류가 발생 하면 장치에 결함이 있을 수 있습니다. |
+| FIDO2 보안 키가 손상 될 수 있다고 생각 합니다. 어떻게 테스트할 수 있나요? | [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/)로 이동 하 고, 테스트 계정에 대 한 자격 증명을 입력 하 고, 의심 스러운 보안 키를 연결 하 고, 화면 오른쪽 위에 있는 "+" 단추를 클릭 하 고, 만들기를 클릭 하 고, 만들기 프로세스를 진행 합니다. 이 시나리오에서 오류가 발생 하면 장치에 결함이 있을 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

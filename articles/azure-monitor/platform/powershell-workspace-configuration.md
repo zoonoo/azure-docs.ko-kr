@@ -1,25 +1,24 @@
 ---
 title: PowerShell을 사용하여 Log Analytics 작업 영역 만들기 및 구성 | Microsoft Docs
 description: 에서 작업 영역을 Log Analytics 하 여 온-프레미스 또는 클라우드 인프라의 서버에서 데이터를 저장할 Azure Monitor. Azure 진단에 의해 생성된 경우에 Azure 스토리지에서 머신 데이터를 수집할 수 있습니다.
-services: log-analytics
-author: bwren
-ms.service: log-analytics
-ms.devlang: powershell
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/19/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 16cad34290ecc518e95ec1a0ce0950722cfe0780
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 05/19/2019
+ms.openlocfilehash: 9d5bbaf02798c0fd87c40f1d952db19aac7b0b7e
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71836136"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932089"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell을 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역 관리
 
 [Log Analytics PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.operationalinsights/) 을 사용 하 여 명령줄에서 또는 스크립트의 일부로 Azure Monitor의 Log Analytics 작업 영역에서 다양 한 기능을 수행할 수 있습니다.  PowerShell을 사용하여 수행할 수 있는 작업의 예:
 
-* 작업 영역 만들기
+* 작업 영역 생성
 * 솔루션 추가 또는 제거
 * 저장된 검색 가져오기 및 내보내기
 * 컴퓨터 그룹 만들기
@@ -38,14 +37,14 @@ ms.locfileid: "71836136"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이러한 예제는 OperationalInsights 모듈의 버전 1.0.0 이상에서 작동 합니다.
 
 
 ## <a name="create-and-configure-a-log-analytics-workspace"></a>Log Analytics 작업 영역 만들기 및 구성
 다음 스크립트 샘플에서는 다음 작업의 방법을 보여 줍니다.
 
-1. 작업 영역 만들기
+1. 작업 영역 생성
 2. 사용 가능한 솔루션 나열
 3. 작업 영역에 솔루션 추가
 4. 저장된 검색 가져오기
@@ -197,26 +196,26 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Azure 진단을 보내도록 Log Analytics 구성
 에이전트 없이 Azure 리소스를 모니터링할 경우 리소스가 Azure 진단을 사용할 수 있어야 하며 Log Analytics 작업 영역에 쓰도록 구성되어야 합니다. 이 방법은 데이터를 작업 영역에 직접 보내고 저장소 계정에 데이터를 쓸 필요가 없습니다. 지원되는 리소스는 다음과 같습니다.
 
-| 리소스 종류 | 로그 | metrics |
+| 리소스 형식 | 로그 | 메트릭 |
 | --- | --- | --- |
-| Application Gateway    | 예 | 예 |
-| Automation 계정     | 예 | |
-| 배치 계정          | 예 | 예 |
-| Data Lake Analytics     | 예 | |
-| Data Lake Store         | 예 | |
-| 탄력적인 SQL 풀        |     | 예 |
-| 이벤트 허브 네임스페이스     |     | 예 |
-| IoT Hub                |     | 예 |
-| Key Vault               | 예 | |
-| Load Balancer          | 예 | |
-| 논리 앱              | 예 | 예 |
-| 네트워크 보안 그룹 | 예 | |
-| Azure Cache for Redis             |     | 예 |
-| Search 서비스         | 예 | 예 |
-| 서비스 버스 네임스페이스   |     | 예 |
-| SQL(v12)               |     | 예 |
-| 웹 사이트               |     | 예 |
-| 웹 서버 팜        |     | 예 |
+| Application Gateway    | yes | yes |
+| Automation 계정     | yes | |
+| Batch 계정          | yes | yes |
+| Data Lake Analytics     | yes | |
+| Data Lake Store         | yes | |
+| 탄력적인 SQL 풀        |     | yes |
+| 이벤트 허브 네임스페이스     |     | yes |
+| IoT Hub                |     | yes |
+| Key Vault               | yes | |
+| 부하 분산 장치          | yes | |
+| Logic Apps              | yes | yes |
+| 네트워크 보안 그룹 | yes | |
+| Azure Cache for Redis             |     | yes |
+| Search 서비스         | yes | yes |
+| Service Bus 네임스페이스   |     | yes |
+| SQL(v12)               |     | yes |
+| 웹 사이트               |     | yes |
+| 웹 서버 팜        |     | yes |
 
 사용 가능한 메트릭에 대한 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](../../azure-monitor/platform/metrics-supported.md)을 참조하세요.
 

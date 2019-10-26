@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor에서 Syslog 메시지 수집 및 분석 | Microsoft Docs
 description: Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, 생성되는 레코드에 대한 자세한 정보를 제공합니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/22/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: dc3aa502dccdd4eb4e8bd1a82456656e5d389160
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.date: 03/22/2019
+ms.openlocfilehash: 5daa9e99ccf71da680dad00b06c4e53f6c8b4e81
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327431"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932428"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure Monitor의 Syslog 데이터 원본
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플리케이션은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다. Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다. 그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.  
@@ -34,7 +28,7 @@ Syslog 수집기에서 지원 되는 기능은 다음과 같습니다.
 
 * 자간
 * 사용자
-* 메일
+* mail
 * daemon
 * auth
 * syslog
@@ -201,9 +195,9 @@ Log Analytics 에이전트는 포트 25224에서 로컬 클라이언트의 Syslo
 ## <a name="syslog-record-properties"></a>Syslog 레코드 속성
 Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니다.
 
-| 속성 | 설명 |
+| 자산 | 설명 |
 |:--- |:--- |
-| Computer |이벤트가 수집된 컴퓨터입니다. |
+| 컴퓨터 |이벤트가 수집된 컴퓨터입니다. |
 | Facility |메시지를 생성한 시스템의 부분을 정의합니다. |
 | HostIP |메시지를 보내는 시스템의 IP 주소입니다. |
 | HostName |메시지를 보내는 시스템의 이름입니다. |
@@ -215,9 +209,9 @@ Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니�
 ## <a name="log-queries-with-syslog-records"></a>Syslog 레코드를 포함하는 로그 쿼리
 다음 표에는 Syslog 레코드를 검색하는 로그 쿼리의 여러 예제가 나와 있습니다.
 
-| query | 설명 |
+| 쿼리 | 설명 |
 |:--- |:--- |
-| Syslog |모든 Syslog입니다. |
+| syslog |모든 Syslog입니다. |
 | Syslog &#124; where SeverityLevel == "error" |심각도가 오류인 모든 Syslog 레코드입니다. |
 | Syslog &#124; summarize AggregatedValue = count() by Computer |컴퓨터별 Syslog 레코드 수입니다. |
 | Syslog &#124; summarize AggregatedValue = count() by Facility |기능별 Syslog 레코드 수입니다. |

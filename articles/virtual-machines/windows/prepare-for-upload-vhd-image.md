@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 555b250f211cf22e766e64960b3359692f73c843
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: d184201c21c31336e31dcba9884d84f6cc224ff8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285705"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72924831"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -54,7 +54,7 @@ Azure Vm에 대 한 지원 정책에 대 한 자세한 내용은 [Azure vm에 �
 ### <a name="use-hyper-v-manager-to-convert-the-disk"></a>Hyper-v 관리자를 사용 하 여 디스크 변환 
 1. Hyper-V 관리자를 열고 왼쪽에서 로컬 컴퓨터를 선택합니다. 컴퓨터 목록 위의 메뉴에서 **작업** > **디스크 편집**을 선택 합니다.
 2. **가상 하드 디스크 찾기** 페이지에서 가상 디스크를 선택 합니다.
-3. **작업 선택** 페이지에서 **Convert** > **다음**을 선택 합니다.
+3. **작업 선택** 페이지에서 **변환** > **다음**을 선택 합니다.
 4. VHDX에서 변환 해야 하는 경우 **VHD** > **다음**을 선택 합니다.
 5. 동적 확장 디스크에서 변환 해야 하는 경우 **고정 크기** > **다음**을 선택 합니다.
 6. 새 VHD 파일을 저장할 경로를 찾아 선택합니다.
@@ -72,7 +72,7 @@ Windows PowerShell의 [Convert-VHD](https://technet.microsoft.com/library/hh8484
 Convert-VHD –Path c:\test\MY-VM.vhdx –DestinationPath c:\test\MY-NEW-VM.vhd -VHDType Fixed
 ```
 
-이 명령에서 @no__t 값을 변환 하려는 가상 하드 디스크의 경로로 바꿉니다. @No__t의 값을 변환 된 디스크의 새 경로 및 이름으로 바꿉니다.
+이 명령에서 `-Path`의 값을 변환 하려는 가상 하드 디스크의 경로로 바꿉니다. `-DestinationPath`의 값을 변환 된 디스크의 새 경로 및 이름으로 바꿉니다.
 
 ### <a name="convert-from-vmware-vmdk-disk-format"></a>VMware VMDK 디스크 형식에서 변환
 [.Vmdk 파일 형식](https://en.wikipedia.org/wiki/VMDK)으로 된 Windows VM 이미지가 있는 경우 [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497) 를 사용 하 여 VHD 형식으로 변환 합니다. 자세한 내용은 [VMWARE .vmdk를 HYPER-V VHD로 변환 하는 방법](https://blogs.msdn.com/b/timomta/archive/2015/06/11/how-to-convert-a-vmware-vmdk-to-hyper-v-vhd.aspx)을 참조 하세요.
@@ -84,14 +84,15 @@ Azure에 업로드 하려는 VM에서 [관리자 권한 명령 프롬프트 창]
 1. 라우팅 테이블에서 정적 영구 경로를 제거합니다.
    
    * 경로 테이블을 보려면 명령 프롬프트에서 `route print`를 실행합니다.
-   * @No__t-0 섹션을 확인 합니다. 영구 경로가 있는 경우 `route delete` 명령을 사용 하 여 제거 합니다.
+   * `Persistence Routes` 섹션을 확인 합니다. 영구 경로가 있는 경우 `route delete` 명령을 사용 하 여 제거 합니다.
 2. WinHTTP 프록시를 제거합니다.
    
     ```PowerShell
     netsh winhttp reset proxy
     ```
 
-    VM이 특정 프록시를 사용 해야 하는 경우 VM이 Azure에 연결할 수 있도록 Azure IP 주소 (@no__t 0168.63.129.16 @ no__t-1)에 프록시 예외를 추가 합니다.
+    VM이 특정 프록시를 사용 해야 하는 경우 VM이 Azure에 연결할 수 있도록 Azure IP 주소 ([168.63.129.16](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
+))에 프록시 예외를 추가 합니다.
     ```
     $proxyAddress="<your proxy server>"
     $proxyBypassList="<your list of bypasses>;168.63.129.16"
@@ -99,7 +100,7 @@ Azure에 업로드 하려는 VM에서 [관리자 권한 명령 프롬프트 창]
     netsh winhttp set proxy $proxyAddress $proxyBypassList
     ```
 
-3. 디스크 SAN 정책을 [`Onlineall`](https://technet.microsoft.com/library/gg252636.aspx)로 설정 합니다.
+3. [`Onlineall`](https://technet.microsoft.com/library/gg252636.aspx)디스크 SAN 정책을 설정 합니다.
    
     ```PowerShell
     diskpart 
@@ -111,7 +112,7 @@ Azure에 업로드 하려는 VM에서 [관리자 권한 명령 프롬프트 창]
     exit   
     ```
 
-4. Windows에 대 한 UTC (협정 세계시) 시간을 설정 합니다. 또한 Windows 시간 서비스의 시작 유형 (`w32time`)을 `Automatic`로 설정 합니다.
+4. Windows에 대 한 UTC (협정 세계시) 시간을 설정 합니다. 또한 Windows 시간 서비스 (`w32time`)의 시작 유형을 `Automatic`로 설정 합니다.
    
     ```PowerShell
     Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -Name "RealTimeIsUniversal" -Value 1 -Type DWord -Force
@@ -152,7 +153,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 원격 액세스에 대해 다음 설정이 올바르게 구성 되어 있는지 확인 합니다.
 
 >[!NOTE] 
->@No__t-0을 실행 하면 오류 메시지가 표시 될 수 있습니다. 이 메시지는 무시 해도 됩니다. 도메인은 그룹 정책 개체를 통해 해당 구성을 푸시하는 것만을 의미 합니다.
+>`Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`를 실행 하면 오류 메시지가 표시 될 수 있습니다. 이 메시지는 무시 해도 됩니다. 도메인은 그룹 정책 개체를 통해 해당 구성을 푸시하는 것만을 의미 합니다.
 
 1. RDP(원격 데스크톱 프로토콜)이 활성화되어 있습니다.
    
@@ -215,7 +216,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 
 9. VM이 도메인의 일부인 경우 다음 정책을 확인 하 여 이전 설정이 되돌리지 않았는지 확인 합니다. 
     
-    | 목표                                     | 정책                                                                                                                                                       | 값                                                                                    |
+    | 목표                                     | 정책                                                                                                                                                       | Value                                                                                    |
     |------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------|
     | RDP 사용                           | Computer Configuration\Policies\Windows Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Connections         | 사용자가 원격 데스크톱을 사용하여 원격으로 연결하도록 허용                                  |
     | NLA 그룹 정책                         | Settings\Administrative Templates\Components\Remote Desktop Services\Remote Desktop Session Host\Security                                                    | NLA를 사용 하 여 원격 액세스에 대 한 사용자 인증 필요 |
@@ -249,7 +250,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
    ``` 
 5. VM이 도메인의 일부인 경우 다음 Azure AD 정책을 확인 하 여 이전 설정이 되돌리지 않았는지 확인 합니다. 
 
-    | 목표                                 | 정책                                                                                                                                                  | 값                                   |
+    | 목표                                 | 정책                                                                                                                                                  | Value                                   |
     |--------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
     | Windows 방화벽 프로필을 사용하도록 설정 | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | 모든 네트워크 연결 보호         |
     | RDP를 사용하도록 설정                           | Computer Configuration\Policies\Windows Settings\Administrative Templates\Network\Network Connection\Windows Firewall\Domain Profile\Windows Firewall   | 인바운드 원격 데스크톱 예외 허용 |
@@ -309,9 +310,9 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    리포지토리가 손상된 경우 [WMI: 리포지토리가 손상 되었거나 @ no__t-0이 아닙니다.
+    리포지토리가 손상 된 경우 [WMI: 리포지토리 손상](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not)여부를 참조 하세요.
 
-5. 다른 응용 프로그램에서 포트 3389을 사용 하 고 있지 않은지 확인 합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. VM에서 사용 되는 포트를 확인 하려면 `netstat -anob`을 실행 합니다.
+5. 다른 응용 프로그램에서 포트 3389을 사용 하 고 있지 않은지 확인 합니다. 이 포트는 Azure의 RDP 서비스에 사용됩니다. VM에서 사용 되는 포트를 확인 하려면 `netstat -anob`를 실행 합니다.
 
     ```PowerShell
     netstat -anob
@@ -340,7 +341,7 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 
    정책에 다음 그룹이 나열 됩니다.
 
-   - Administrators
+   - 관리자
 
    - 백업 운영자
 
@@ -357,7 +358,7 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 ### <a name="install-windows-updates"></a>Windows 업데이트 설치
 *패치 수준*에서 컴퓨터를 업데이트 해야 하는 것이 가장 좋습니다. 가능 하지 않은 경우 다음 업데이트가 설치 되어 있는지 확인 합니다.
 
-| 구성 요소               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
+| 구성 요소               | 이진         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 v1607, Windows Server 2016 v1607 | Windows 10 v1703    | Windows 10 v1709, Windows Server 2016 v1709 | Windows 10 v1803, Windows Server 2016 v1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | 스토리지                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
@@ -381,7 +382,7 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 |                         | tcpip.sys      | 6.1.7601.23761 - KB4022722                | 6.2.9200.22070 - KB4022724                  | 6.3.9600.18478 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.447             | -                                               | -                                               |
 |                         | http.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17285 - KB3042553                  | 6.3.9600.18574 - KB4022726         | 10.0.14393.251 - KB4022715                              | 10.0.15063.483             | -                                               | -                                               |
 |                         | vmswitch.sys   | 6.1.7601.23727 - KB4022719                | 6.2.9200.22117 - KB4022724                  | 6.3.9600.18654 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.138             | -                                               | -                                               |
-| Core                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.483             | -                                               | -                                               |
+| 코어                    | ntoskrnl.exe   | 6.1.7601.23807 - KB4022719                | 6.2.9200.22170 - KB4022718                  | 6.3.9600.18696 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.483             | -                                               | -                                               |
 | 원격 데스크톱 서비스 | rdpcorets.dll  | 6.2.9200.21506 - KB4022719                | 6.2.9200.22104 - KB4022724                  | 6.3.9600.18619 - KB4022726         | 10.0.14393.1198 - KB4022715                             | 10.0.15063.0               | -                                               | -                                               |
 |                         | termsrv.dll    | 6.1.7601.23403 - KB3125574                | 6.2.9200.17048 - KB2973501                  | 6.3.9600.17415 - KB3000850         | 10.0.14393.0 - KB4022715                                | 10.0.15063.0               | -                                               | -                                               |
 |                         | termdd.sys     | 6.1.7601.23403 - KB3125574                | -                                           | -                                  | -                                                       | -                          | -                                               | -                                               |
@@ -409,18 +410,18 @@ VM이 정상, 보안 및 RDP에 액세스할 수 있는지 확인 합니다.
 - [특수화된 디스크에서 VM 만들기](create-vm-specialized.md)
 - [특수화된 VHD 디스크에서 VM 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-일반화 된 이미지를 만들려는 경우 Sysprep를 실행 해야 합니다. 자세한 내용은 [How 사용 방법: 소개 @ no__t-0. 
+일반화 된 이미지를 만들려는 경우 Sysprep를 실행 해야 합니다. 자세한 내용은 [Sysprep 사용 방법: 소개](https://technet.microsoft.com/library/bb457073.aspx)를 참조 하세요. 
 
 Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램은 일반화 된 이미지를 지원 하지 않습니다. 따라서이 절차를 실행 하기 전에 Sysprep에서 컴퓨터의 역할을 지원 하는지 확인 합니다. 자세한 내용은 [Sysprep의 서버 역할 지원](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)을 참조하세요.
 
 ### <a name="generalize-a-vhd"></a>VHD 일반화
 
 >[!NOTE]
-> 다음 단계에서 `sysprep.exe`을 실행 한 후 VM을 끕니다. Azure에서 이미지를 만들 때까지 다시 설정 하지 마세요.
+> 다음 단계에서 `sysprep.exe`를 실행 한 후 VM을 끕니다. Azure에서 이미지를 만들 때까지 다시 설정 하지 마세요.
 
 1. Windows VM에 로그인합니다.
 1. 관리자 권한으로 **명령 프롬프트**를 실행합니다. 
-1. 디렉터리를 `%windir%\system32\sysprep`으로 변경 합니다. 그런 다음, `sysprep.exe`을 실행합니다.
+1. `%windir%\system32\sysprep`디렉터리로 디렉터리를 변경 합니다. 그런 다음, `sysprep.exe`을 실행합니다.
 1. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
 
     ![시스템 준비 도구](media/prepare-for-upload-vhd-image/syspre.png)
@@ -432,7 +433,7 @@ Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램�
 
 
 >[!NOTE]
-> 사용자 지정 *unattend.xml* 파일은 지원 되지 않습니다. @No__t-0 속성은 지원 하지만, Azure 프로 비전 에이전트에서 사용 하는 *unattend.xml* 파일에 [microsoft windows-shell-설치](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 옵션을 추가 하는 기능만 지원 합니다. 예를 들어 [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) 를 사용 하 여 Firstlogoncommands 및 logoncommands를 추가할 수 있습니다. 자세한 내용은 [AdditionalUnattendContent FirstLogonCommands 예](https://github.com/Azure/azure-quickstart-templates/issues/1407)를 참조 하세요.
+> 사용자 지정 *unattend.xml* 파일은 지원 되지 않습니다. `additionalUnattendContent` 속성을 지원 하지만 Azure 프로 비전 에이전트에서 사용 하는 *unattend.xml* 파일에 [microsoft windows-shell-설치](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) 옵션을 추가 하는 기능만 지원 합니다. 예를 들어 [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) 를 사용 하 여 Firstlogoncommands 및 logoncommands를 추가할 수 있습니다. 자세한 내용은 [AdditionalUnattendContent FirstLogonCommands 예](https://github.com/Azure/azure-quickstart-templates/issues/1407)를 참조 하세요.
 
 
 ## <a name="complete-the-recommended-configurations"></a>권장 구성 완료
@@ -445,7 +446,7 @@ Windows 기반 컴퓨터에 설치 된 모든 역할 또는 응용 프로그램�
    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -Force
    ```
   데이터 디스크가 VM에 연결 되어 있으면 임시 드라이브 볼륨의 문자는 일반적으로 *D*입니다. 이 지정은 설정 및 사용 가능한 드라이브의 수에 따라 달라질 수 있습니다.
-  * 바이러스 백신 소프트웨어에서 제공 하는 스크립트 차단 기능을 사용 하지 않도록 설정 하는 것이 좋습니다. 사용자는 이미지에서 새 VM을 배포할 때 실행 되는 Windows 프로 비전 에이전트 스크립트를 interfer 하 고 차단할 수 있습니다.
+  * 바이러스 백신 소프트웨어에서 제공 하는 스크립트 차단 기능을 사용 하지 않도록 설정 하는 것이 좋습니다. 이미지에서 새 VM을 배포할 때 실행 되는 Windows 프로 비전 에이전트 스크립트를 방해 하 고 차단할 수 있습니다.
   
 ## <a name="next-steps"></a>다음 단계
 * [Resource Manager 배포를 위해 Azure에 Windows VM 이미지 업로드](upload-generalized-managed.md)

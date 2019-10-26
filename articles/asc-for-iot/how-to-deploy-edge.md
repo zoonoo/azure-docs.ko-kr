@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 128265cd3e69cd27bab6538c9eb376410439824d
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 009ae89327272ae4b9acd82eb415aad724d14988
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176669"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934354"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 장치에 보안 모듈 배포
 
@@ -35,7 +35,7 @@ ms.locfileid: "72176669"
 
 다음 단계를 사용 하 여 IoT Edge 용 IoT 보안 모듈에 대 한 Azure Security Center를 배포 합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 1. IoT Hub에서 장치가 [IoT Edge 장치로 등록](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)되어 있는지 확인 합니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "72176669"
     - 다음 명령을 실행 하 여 AuditD가 활성 상태 인지 확인 합니다. 
    
     `sudo systemctl status auditd`<br>
-    - 예상 응답은 `active (running)`입니다. 
+    - 예상 응답: `active (running)` 
         
 
 ### <a name="deployment-using-azure-portal"></a>Azure Portal를 사용 하 여 배포
@@ -68,7 +68,7 @@ ms.locfileid: "72176669"
 
 IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지 단계가 있습니다. 다음 섹션에서는 각 단계로 안내합니다. 
 
-#### <a name="step-1-add-modules"></a>1단계: 모듈 추가
+#### <a name="step-1-add-modules"></a>1 단계: 모듈 추가
 
 1. **모듈 추가** 탭의 **배포 모듈** 영역에서 **AzureSecurityCenterforIoT**에 대 한 **구성** 옵션을 클릭 합니다. 
    
@@ -104,10 +104,10 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
     }
     ```
 
-1. **저장**을 클릭합니다.
+1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 1. 탭의 아래쪽으로 스크롤하고 **고급 Edge 런타임 설정 구성**을 선택 합니다. 
    
-1. **Edge Hub** 아래의 **이미지** 를 **mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2**로 변경 합니다.
+1. **Edge Hub** 아래의 **이미지** 를 **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**로 변경 합니다.
 
 1. **만들기 옵션** 이 다음으로 설정 되어 있는지 확인 합니다. 
          
@@ -134,11 +134,11 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
        }
     }
     ```
-1. **저장**을 클릭합니다.
+1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
    
-1. **다음**을 클릭합니다.
+1. **다음**을 누릅니다.
 
-#### <a name="step-2-specify-routes"></a>2단계: 경로 지정 
+#### <a name="step-2-specify-routes"></a>2 단계: 경로 지정 
 
 1. **경로 지정** 탭에서 다음 예제에 따라 **azureiotsecurity** 모듈에서 **$upstream** 로 메시지를 전달 하는 경로 (명시적 또는 암시적)가 있는지 확인 한 **후 다음을 클릭 합니다.** 
 
@@ -150,7 +150,7 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
 "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
 ~~~
 
-#### <a name="step-3-review-deployment"></a>3단계: 배포 검토
+#### <a name="step-3-review-deployment"></a>3 단계: 배포 검토
 
 - 배포 **검토** 탭에서 배포 정보를 검토 한 다음 **제출** 을 선택 하 여 배포를 완료 합니다.
 
@@ -166,10 +166,10 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
    
 1. 다음 컨테이너가 실행 중인지 확인 합니다.
    
-   | 이름 | IMAGE |
+   | name | 이미지로 |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0 |
-   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.9-rc2 |
+   | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |
    | edgeAgent | mcr.microsoft.com/azureiotedge-agent:1.0 |
    
    필요한 최소 컨테이너가 없는 경우 IoT Edge 배포 매니페스트가 권장 설정에 맞게 정렬 되었는지 확인 합니다. 자세한 내용은 [배포 IoT Edge 모듈](#deployment-using-azure-portal)을 참조 하세요.
@@ -180,7 +180,7 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
 
    `sudo docker logs azureiotsecurity`
    
-1. 자세한 로그를 보려면 **azureiotsecurity** 모듈 배포에 다음 환경 변수를 추가 합니다. `logLevel=Debug`.
+1. 자세한 로그를 보려면 **azureiotsecurity** 모듈 배포: `logLevel=Debug`에 다음 환경 변수를 추가 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

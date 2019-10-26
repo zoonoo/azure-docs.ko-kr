@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor HTTP 데이터 수집기 API | Microsoft Docs
 description: REST API를 호출할 수 있는 모든 클라이언트에서 Azure Monitor HTTP 데이터 수집기 API를 사용하여 POST JSON 데이터를 Log Analytics 작업 영역에 추가할 수 있습니다. 이 문서는 API를 사용하는 방법을 설명하며, 다양한 프로그래밍 언어를 사용하여 데이터를 게시하는 방법을 예제로 제시합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: ''
-ms.assetid: a831fd90-3f55-423b-8b20-ccbaaac2ca75
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 10/01/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 50f973de8d1ca983725bc9e9e64eefc9de5237fa
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 10/01/2019
+ms.openlocfilehash: 136644dbcfe9e2835f799b284d21263913bc67b4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802120"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932586"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>HTTP 데이터 수집기 API로 Azure Monitor에 로그 데이터 전송(공개 미리 보기)
 이 문서에서는 HTTP 데이터 수집기 API를 사용하여 REST API 클라이언트에서 Azure Monitor로 로그 데이터를 전송하는 방법을 보여 줍니다.  스크립트 또는 애플리케이션에서 수집한 데이터의 서식을 지정하고, 요청에 포함하며, 해당 요청에 대한 Azure Monitor의 인증을 받는 방법을 설명합니다.  PowerShell, C# 및 Python에 예가 제공됩니다.
@@ -42,29 +36,29 @@ Log Analytics 작업 영역의 모든 데이터는 특정 레코드 종류의 �
 HTTP 데이터 수집기 API를 사용하려면 JSON(JavaScript Object Notation)에서 전송할 데이터가 포함된 POST 요청을 만듭니다.  다음 세 개 표에는 각 요청에 필요한 속성이 나와 있습니다. 이 문서의 뒷부분에서 각각의 속성에 대해 자세히 설명합니다.
 
 ### <a name="request-uri"></a>요청 URI
-| 특성 | 속성 |
+| 특성 | 자산 |
 |:--- |:--- |
-| 메서드 |올리기 |
+| 방법 |POST |
 | URI |https://\<CustomerId\>.ods.opinsights.azure.com/api/logs?api-version=2016-04-01 |
 | 콘텐츠 형식 |application/json |
 
 ### <a name="request-uri-parameters"></a>URI 매개 변수 요청
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |:--- |:--- |
 | CustomerID |Log Analytics 작업 영역에 대한 고유 식별자입니다. |
 | 리소스 |API 리소스 이름: /api/logs |
 | API 버전 |이 요청에 사용하는 API의 버전입니다. 현재 2016-04-01입니다. |
 
-### <a name="request-headers"></a>요청 헤더
+### <a name="request-headers"></a>헤더 요청
 | 헤더 | 설명 |
 |:--- |:--- |
 | 권한 부여 |권한 부여 서명입니다. 문서의 뒷부분에 HMAC-SHA256 헤더를 만드는 방법이 나와 있습니다. |
 | Log-Type |제출 중인 데이터의 레코드 종류를 지정합니다. 는 문자, 숫자 및 밑줄 (_)만 포함할 수 있으며 100 자를 초과할 수 없습니다. |
 | x-ms-date |RFC 1123 형식의 요청이 처리된 날짜입니다. |
-| x-ms-AzureResourceId | 데이터가 연결 되어야 하는 Azure 리소스의 리소스 ID입니다. 그러면 [_Resourceid](log-standard-properties.md#_resourceid) 속성이 채워지고 [리소스 컨텍스트](design-logs-deployment.md#access-mode) 쿼리에 데이터가 포함 될 수 있습니다. 이 필드를 지정 하지 않으면 데이터는 리소스 컨텍스트 쿼리에 포함 되지 않습니다. |
+| AzureResourceId | 데이터가 연결 되어야 하는 Azure 리소스의 리소스 ID입니다. 그러면 [_Resourceid](log-standard-properties.md#_resourceid) 속성이 채워지고 [리소스 컨텍스트](design-logs-deployment.md#access-mode) 쿼리에 데이터가 포함 될 수 있습니다. 이 필드를 지정 하지 않으면 데이터는 리소스 컨텍스트 쿼리에 포함 되지 않습니다. |
 | time-generated-field | 데이터 항목의 타임스탬프가 포함된 데이터의 필드 이름입니다. 필드를 지정하면 그 내용이 **TimeGenerated**에 사용됩니다. 이 필드를 지정하지 않으면 **TimeGenerated**의 기본값은 메시지가 수집된 시간입니다. 메시지 필드의 내용은 ISO 8601 형식 YYYY-MM-DDThh:mm:ssZ를 따라야 합니다. |
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>권한 부여
 Azure Monitor HTTP 데이터 수집기 API에 대한 모든 요청에는 인증 헤더가 포함되어야 합니다. 요청을 인증하려면 요청을 수행하는 작업 영역에 대한 기본 키 또는 보조 키를 통해 요청을 서명해야 합니다. 그런 다음 요청의 일부로 해당 서명을 전달합니다.   
 
 권한 부여 헤더의 형식은 다음과 같습니다.
@@ -141,9 +135,9 @@ Azure Monitor HTTP 데이터 수집기 API를 통해 데이터를 제출할 때 
 
 | 속성 데이터 형식 | 접미사 |
 |:--- |:--- |
-| 문자열 |_s |
+| string |_s |
 | Boolean |_b |
-| Double |_d |
+| DOUBLE |_d |
 | 날짜/시간 |_t |
 | GUID (문자열로 저장 됨) |_g |
 
@@ -171,7 +165,7 @@ Azure Monitor가 각 속성에 사용하는 데이터 형식은 새 레코드의
 ## <a name="reserved-properties"></a>예약 된 속성
 다음 속성은 예약 되어 있으며 사용자 지정 레코드 형식에 사용할 수 없습니다. 페이로드에 이러한 속성 이름이 포함 된 경우 오류가 표시 됩니다.
 
-- 테넌트(tenant)
+- tenant
 
 ## <a name="data-limits"></a>데이터 제한
 Azure Monitor 데이터 수집 API에 게시되는 데이터와 관련된 몇 가지 제약 조건이 있습니다.
@@ -187,7 +181,7 @@ HTTP 상태 코드 200는 처리를 위한 요청을 받았다는 것을 의미�
 
 이 표는 서비스에서 반환할 수 있는 전체 상태 코드 집합을 보여 줍니다.
 
-| 코드 | Status | 오류 코드 | 설명 |
+| 코드 | 상태 | 오류 코드 | 설명 |
 |:--- |:--- |:--- |:--- |
 | 200 |확인 | |요청이 성공적으로 수락되었습니다. |
 | 400 |잘못된 요청 |InactiveCustomer |작업 영역이 닫혔습니다. |

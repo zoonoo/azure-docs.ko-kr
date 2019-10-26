@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 49567ae52b8ea706ebf7e093880e919cc8bbdbad
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: 370717e09e788faa56662c4c88e2e7c0de21eef7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901637"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933144"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Azure Blob 파일 시스템 드라이버(ABFS): Hadoop 전용 Azure Storage 드라이버
 
@@ -49,6 +49,9 @@ ABFS 드라이버는 두 가지 형식의 인증을 지원하므로 Hadoop 애�
 - **공유 키:** 이렇게 하면 사용자가 계정의 모든 리소스에 액세스할 수 있습니다. 키는 암호화되어 Hadoop 구성에 저장됩니다.
 
 - **Azure Active Directory OAuth 전달자 토큰:** Azure AD 전달자 토큰은 최종 사용자의 ID 또는 구성된 서비스 주체를 사용하여 드라이버에서 획득되고 새로 고쳐집니다. 이 인증 모델을 사용하면 모든 액세스 권한은 할당된 POSIX ACL(액세스 제어 목록)에 대해 평가되고 제공된 토큰과 연결된 ID를 사용하여 호출당 기준으로 부여됩니다.
+
+   > [!NOTE] 
+   > Azure Data Lake Storage Gen2는 Azure AD v 1.0 끝점만 지원 합니다.
 
 ### <a name="configuration"></a>구성
 

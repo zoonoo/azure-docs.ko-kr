@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor의 사용자 지정 필드 | Microsoft Docs
 description: Azure Monitor의 사용자 지정 필드 기능을 사용 하면 수집 된 레코드의 속성에 추가 되는 Log Analytics 작업 영역의 레코드에서 고유한 검색 가능 필드를 만들 수 있습니다.  이 문서는 사용자 지정 필드를 만드는 프로세스를 설명하고 샘플 이벤트에 대한 자세한 연습을 제공합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: jwhit
-editor: tysonn
-ms.assetid: 31572b51-6b57-4945-8208-ecfc3b5304fc
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 08/23/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: f6b9c21a3d65e75abe11e705eba058b1d1fb17ff
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.date: 08/23/2019
+ms.openlocfilehash: 1fa8fb8ee944103626966839def358e68a55d8ac
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012728"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932603"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 작업 영역에 사용자 지정 필드 만들기
 
@@ -85,7 +79,7 @@ Azure Portal에서 Log Analytics 작업 영역의 **고급 설정** 메뉴에서
 
 서비스 시작 또는 중지를 나타내는 이벤트인, 이벤트 ID가 7036인 서비스 제어 관리자의 모든 이벤트를 반환하기 위해서 다음 쿼리를 입력합니다.
 
-![Query](media/custom-fields/query.png)
+![쿼리](media/custom-fields/query.png)
 
 그런 다음 이벤트 ID가 7036 인 모든 레코드를 선택 하 고 확장 합니다.
 
@@ -97,7 +91,7 @@ Top 속성 옆에 있는 줄임표를 클릭 하 여 사용자 지정 필드를 
 
 **Field Extraction Wizard**(필드 추출 마법사)가 열리고 **EventLog** 및 **EventID** 필드가 **Main Example**(기본 예제) 열에서 선택됩니다.  이것은 사용자 지정 필드가 이벤트 ID가 7036인 시스템 로그의 이벤트에 대해 정의된다는 것을 나타냅니다.  이것으로 충분하므로 다른 필드를 선택할 필요가 없습니다.
 
-![기본 예제](media/custom-fields/main-example.png)
+![Main Example](media/custom-fields/main-example.png)
 
 **RenderedDescription** 속성에서 서비스의 이름을 강조 표시하고 **Service**를 사용하여 서비스 이름을 식별합니다.  사용자 지정 필드가 **Service_CF**라고 지정됩니다. 이 경우 필드 형식은 문자열 이므로 변경 되지 않은 상태로 둘 수 있습니다.
 

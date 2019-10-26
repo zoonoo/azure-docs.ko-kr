@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b24d9d79bf34325ec033b6ae6847579fa51769ac
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: c4cd3e2ab18c05c8adfda1a54ea4f7820916eab5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803091"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934880"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>MSAL를 사용 하 여 클라이언트 응용 프로그램 초기화
 이 문서에서는 사용자 에이전트 응용 프로그램의 인스턴스에서 JavaScript 용 Microsoft 인증 라이브러리 (MSAL)를 초기화 하는 방법을 설명 합니다. 사용자 에이전트 응용 프로그램은 클라이언트 코드가 웹 브라우저와 같은 사용자 에이전트에서 실행 되는 공용 클라이언트 응용 프로그램의 형태입니다. 브라우저 컨텍스트는 공개적으로 액세스할 수 있기 때문에 이러한 클라이언트는 비밀을 저장 하지 않습니다. 클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [개요](msal-client-applications.md)를 참조 하세요.
@@ -91,6 +91,7 @@ export type SystemOptions = {
     logger?: Logger;
     loadFrameTimeout?: number;
     tokenRenewalOffsetSeconds?: number;
+    navigateFrameWait?: number;
 };
 
 // Developer App Environment Support
@@ -139,6 +140,8 @@ export type Configuration = {
 - **Load프레임 시간 제한**: 선택 사항입니다.  Azure AD에서 토큰 갱신 응답을 시간 초과로 간주 하기 전까지 비활성 시간 (밀리초)입니다. 기본값은 6 초입니다.
 
 - **tokenRenewalOffsetSeconds**: 선택 사항입니다. 만료 전에 토큰을 갱신 하는 데 필요한 오프셋 창을 설정 하는 시간 (밀리초)입니다. 기본값은 300 밀리초입니다.
+
+- **navigateFrameWait**: 선택 사항입니다. 숨겨진 iframe에서 대상으로 이동 하기 전 까지의 대기 시간을 설정 하는 시간 (밀리초)입니다. 기본값은 500 밀리초입니다.
 
 이러한 작업은 MSAL 각도 래퍼 라이브러리에서 전달 되는 경우에만 적용 됩니다.
 - **unprotectedResources**: 선택 사항입니다.  보호 되지 않는 리소스인 Uri의 배열입니다. MSAL은 이러한 URI가 있는 보내는 요청에 토큰을 연결 하지 않습니다. 기본값은 `null`입니다.

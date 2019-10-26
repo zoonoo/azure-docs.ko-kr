@@ -1,24 +1,18 @@
 ---
 title: Windows 용 Log Analytics 에이전트의 문제를 해결 하는 방법 | Microsoft Docs
 description: Azure Monitor의 Windows 용 Log Analytics 에이전트에 대 한 가장 일반적인 문제에 대 한 증상, 원인 및 해결 방법을 설명 합니다.
-services: azure-monitor
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: tysonn
-ms.assetid: ''
 ms.service: azure-monitor
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/12/2019
+ms.subservice: ''
+ms.topic: conceptual
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 96f020f24e27ff799f9bfbc08d899e8375b86094
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 06/12/2019
+ms.openlocfilehash: a218ac09c7a0983796700229c65ae523b61dae10
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72431827"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932756"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Windows 용 Log Analytics 에이전트 문제를 해결 하는 방법 
 
@@ -53,7 +47,7 @@ Azure Government에 필요한 방화벽 정보는 [Azure Government management](
 
 - 작업 영역에서 [Azure Log Analytics 에이전트 상태 평가](../insights/solution-agenthealth.md) 를 사용 하도록 설정 합니다. 에이전트 상태 대시보드에서 **응답 하지 않는 에이전트 수** 열을 확인 하 여 에이전트가 나열 되어 있는지 빠르게 확인 합니다.  
 
-- 다음 쿼리를 실행 하 여 에이전트가 보고 하도록 구성 된 작업 영역에 하트 비트를 보내고 있는지 확인 합니다. @No__t-0을 컴퓨터의 실제 이름으로 바꿉니다.
+- 다음 쿼리를 실행 하 여 에이전트가 보고 하도록 구성 된 작업 영역에 하트 비트를 보내고 있는지 확인 합니다. `<ComputerName>`를 컴퓨터의 실제 이름으로 바꿉니다.
 
     ```
     Heartbeat 

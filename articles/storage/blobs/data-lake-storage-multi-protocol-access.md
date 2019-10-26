@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 9767282b3dd764a45f25a14d62af70a13c80b0ac
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6e3b368d1f5615c34a49b155d288d3c37c28bc26
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300259"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933132"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage-preview"></a>Azure Data Lake Storage에서 멀티 프로토콜 액세스 (미리 보기)
 
@@ -35,7 +35,7 @@ Data Lake Storage에 대 한 다중 프로토콜 액세스를 통해 도구, 응
 
 ## <a name="use-all-blob-storage-features"></a>모든 Blob storage 기능 사용
 
-[진단 로깅](../common/storage-analytics-logging.md), [액세스 계층](storage-blob-storage-tiers.md)및 [blob 저장소 수명 주기 관리 정책과](storage-lifecycle-management-concepts.md) 같은 blob storage 기능은 이제 계층 구조가 있는 계정으로 작동 합니다. 따라서 이러한 중요 한 기능에 대 한 액세스를 끊어질 하지 않고 blob storage 계정에서 계층적 네임 스페이스를 사용 하도록 설정할 수 있습니다. 
+[진단 로깅](../common/storage-analytics-logging.md), [액세스 계층](storage-blob-storage-tiers.md)및 [blob 저장소 수명 주기 관리 정책과](storage-lifecycle-management-concepts.md) 같은 blob storage 기능은 이제 계층 구조가 있는 계정으로 작동 합니다. 따라서 이러한 중요 한 기능에 대 한 액세스를 잃지 않고 blob storage 계정에서 계층적 네임 스페이스를 사용 하도록 설정할 수 있습니다. 
 
 > [!NOTE]
 > 제한 사항을 검토 하려면 [알려진 문제](data-lake-storage-known-issues.md) 문서를 참조 하세요.

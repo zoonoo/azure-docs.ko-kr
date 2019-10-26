@@ -1,0 +1,99 @@
+---
+title: Azure Storage에서 전용 끝점 사용 | Microsoft Docs
+description: 가상 네트워크에서 저장소 계정에 안전 하 게 액세스 하기 위한 개인 끝점의 개요입니다.
+services: storage
+author: santoshc
+ms.service: storage
+ms.topic: article
+ms.date: 09/25/2019
+ms.author: santoshc
+ms.reviewer: santoshc
+ms.subservice: common
+ms.openlocfilehash: aec12cee7466e59389b28742bf66247751a0d22b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72949470"
+---
+# <a name="using-private-endpoints-for-azure-storage-preview"></a>Azure Storage에 대 한 개인 끝점 사용 (미리 보기)
+
+Azure Storage를 통해 VNet (가상 네트워크)의 클라이언트에 대 한 [개인 끝점](../../private-link/private-endpoint-overview.md) 을 사용 하 여 [개인 링크](../../private-link/private-link-overview.md)를 통해 저장소 계정의 데이터에 안전 하 게 액세스할 수 있습니다. 개인 끝점은 저장소 계정 서비스에 대 한 VNet 주소 공간의 IP 주소를 사용 합니다. VNet 및 저장소 계정의 클라이언트 간의 네트워크 트래픽은 VNet을 통해 이동 하 여 공용 인터넷에서 노출 되는 것을 제거 하는 Microsoft 백본 네트워크의 개인 링크를 통해 이동 합니다.
+
+저장소 계정에 대해 개인 끝점을 사용 하면 다음 작업을 수행할 수 있습니다.
+- 저장소 서비스에 대 한 공용 끝점의 모든 연결을 차단 하도록 저장소 방화벽을 구성 하 여 저장소 계정을 보호 합니다.
+- Vnet에서 데이터의 반출을 차단할 수 있도록 하 여 vnet (가상 네트워크)에 대 한 보안을 강화 합니다.
+- 개인 피어 링을 사용 하 여 [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [연결할 expressroutes](../../expressroute/expressroute-locations.md) 를 사용 하 여 VNet에 연결 하는 온-프레미스 네트워크에서 저장소 계정에 안전 하 게 연결 합니다.
+
+## <a name="conceptual-overview"></a>개념적 개요
+![Azure Storage 개요에 대 한 개인 끝점](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
+
+개인 끝점은 Azure 서비스에 대 한 VNet ( [Virtual Network](../../virtual-network/virtual-networks-overview.md) )의 특수 한 네트워크 인터페이스입니다. VNet의 클라이언트와 저장소 계정의 보안 연결을 제공 합니다. 개인 끝점에는 VNet의 IP 주소 범위에서 IP 주소가 할당 됩니다. 개인 끝점과 저장소 서비스 간의 연결은 보안 개인 링크를 사용 합니다.
+
+VNet의 응용 프로그램은 다른 방법으로 사용 하는 것과 동일한 연결 문자열 및 권한 부여 메커니즘을 사용 하 여 개인 끝점을 통해 저장소 서비스에 원활 하 게 연결할 수 있습니다. 개인 끝점은 REST 및 SMB를 포함 하 여 저장소 계정에서 지 원하는 모든 프로토콜과 함께 사용할 수 있습니다.
+
+VNet에서 저장소 서비스에 대 한 개인 끝점을 만드는 경우 승인 요청이 저장소 계정 소유자에 게 전송 됩니다. 개인 끝점의 생성을 요청 하는 사용자가 저장소 계정의 소유자 이기도 한 경우이 동의 요청은 자동으로 승인 됩니다.
+
+저장소 계정 소유자는 [Azure Portal](https://portal.azure.com)의 저장소 계정에 대 한 ' 개인 끝점 ' 탭을 통해 동의 요청을 승인 하거나 거부할 수 있으며 개인 끝점을 보거나 관리할 수 있습니다.
+
+기본적으로 공용 끝점을 통해 액세스를 거부 하도록 [저장소 방화벽을 구성](storage-network-security.md#change-the-default-network-access-rule) 하 여 VNet의 연결만 허용 하도록 저장소 계정을 보호할 수 있습니다. 저장소 방화벽 규칙은 해당 공용 끝점에만 적용 되므로 개인 끝점을 포함 하는 VNet의 트래픽을 허용 하는 저장소 방화벽 규칙이 필요 하지 않습니다. 대신 개인 끝점은 서브넷에 저장소 서비스에 대 한 액세스 권한을 부여 하는 동의 흐름을 사용 합니다.
+
+### <a name="private-endpoints-for-storage-service"></a>저장소 서비스에 대 한 개인 끝점
+
+개인 끝점을 만들 때 저장소 계정 및 해당 끝점을 연결 하는 저장소 서비스를 지정 해야 합니다. 액세스 권한이 필요한 저장소 계정 ( [blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [파일](../files/storage-files-introduction.md), [큐](../queues/storage-queues-introduction.md), [테이블](../tables/table-storage-overview.md)또는 [정적 웹 사이트](../blobs/storage-blob-static-website.md))의 각 저장소 서비스에 대 한 개인 끝점이 필요 합니다.
+
+[읽기 액세스 지역 중복 저장소 계정](storage-redundancy-grs.md#read-access-geo-redundant-storage)에 대 한 읽기 가용성을 보장 하려면 서비스의 주 인스턴스와 보조 인스턴스 모두에 대해 별도의 개인 끝점이 필요 합니다.
+
+#### <a name="resources"></a>리소스
+
+저장소 계정에 대 한 개인 끝점을 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+
+- [Azure Portal의 저장소 계정 환경에서 저장소 계정에 비공개로 연결](../../private-link/create-private-endpoint-storage-portal.md)
+- [Azure Portal에서 개인 링크 센터를 사용 하 여 개인 끝점을 만듭니다.](../../private-link/create-private-endpoint-portal.md)
+- [Azure CLI를 사용 하 여 개인 끝점 만들기](../../private-link/create-private-endpoint-cli.md)
+- [Azure PowerShell를 사용 하 여 개인 끝점 만들기](../../private-link/create-private-endpoint-powershell.md)
+
+### <a name="dns-changes-for-private-endpoints"></a>전용 끝점에 대 한 DNS 변경
+
+저장소 서비스에 대 한 개인 끝점을 만들 때 해당 저장소 끝점에 대 한 DNS CNAME 리소스 레코드를 접두사가 '*privatelink*' 인 하위 도메인의 별칭으로 업데이트 합니다. 또한 기본적으로 VNet에 연결 된 [개인 DNS 영역](../../dns/private-dns-overview.md) 을 만듭니다. 이 개인 DNS 영역은 접두사가 '*privatelink*' 인 하위 도메인에 해당 하며 개인 끝점에 대 한 DNS A 리소스 레코드를 포함 합니다.
+
+개인 끝점이 만들어진 VNet 외부에서 저장소 끝점 URL을 확인 하는 경우에도 저장소 서비스에 대 한 공용 끝점으로 확인 됩니다. 개인 끝점을 호스트 하는 VNet에서 확인 되 면 저장소 끝점 URL은 개인 끝점의 IP 주소로 확인 됩니다.
+
+위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 경우 저장소 계정 ' StorageAccountA '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
+
+| name                                                  | Type  | Value                                                 |
+| :---------------------------------------------------- | :---: | :---------------------------------------------------- |
+| ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<공용 끝점\>                                   |
+| \<공용 끝점\>                                   | 문자열(UTF-8 형식) 또는     | 저장소 서비스 공용 IP 주소를 \<\>                 |
+
+앞에서 설명한 것 처럼 저장소 방화벽을 사용 하 여 공용 끝점을 통해 모든 액세스를 거부할 수 있습니다.
+
+StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet의 클라이언트에서 확인 되는 경우 다음과 같습니다.
+
+| name                                                  | Type  | Value                                                 |
+| :---------------------------------------------------- | :---: | :---------------------------------------------------- |
+| ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | 문자열(UTF-8 형식) 또는     | 10.1.1.5                                              |
+
+이 접근 방식을 사용 하면 개인 끝점을 호스트 하는 VNet과 VNet 외부의 클라이언트에서 동일한 연결 문자열을 사용 하 여 저장소 계정에 액세스할 수 있습니다. 저장소 방화벽을 사용 하 여 VNet 외부의 모든 클라이언트에 대 한 액세스를 거부할 수 있습니다.
+
+## <a name="pricing"></a>가격
+
+가격 책정에 대한 자세한 내용은 [Azure Private Link 가격 책정](https://azure.microsoft.com/pricing/details/private-link)을 참조하세요.
+
+## <a name="known-issues"></a>알려진 문제
+
+### <a name="copy-blob-failures"></a>Blob 복사 실패
+
+현재, 원본 저장소 계정이 방화벽으로 보호 되는 경우 개인 끝점을 통해 액세스 되는 저장소 계정에 실행 된 [Blob 복사](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) 명령은 실패 합니다.
+
+### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>전용 끝점을 사용 하는 Vnet의 클라이언트에 대 한 저장소 액세스 제약 조건
+
+개인 끝점을 사용 하 여 다른 저장소 계정에 액세스할 때 기존 저장소 개인 끝점 얼굴 제약 조건이 있는 Vnet의 클라이언트입니다. 예를 들어 VNet N1에 blob 서비스에 대 한 저장소 계정 A1에 대 한 개인 끝점이 있다고 가정 합니다. 저장소 계정 A2에 blob 서비스에 대 한 VNet N2의 개인 끝점이 있는 경우 VNet N1의 클라이언트는 개인 끝점을 사용 하 여 A2 계정에서 blob 서비스에도 액세스 해야 합니다. Storage 계정 A2에 blob service에 대 한 개인 끝점이 없는 경우 VNet N1의 클라이언트는 개인 끝점 없이 blob 서비스에 액세스할 수 있습니다.
+
+이 제약 조건은 계정 A2가 개인 끝점을 만들 때 적용 되는 DNS 변경의 결과입니다.
+
+### <a name="nsg-rules-on-subnets-with-private-endpoints"></a>개인 끝점이 있는 서브넷의 NSG 규칙
+
+지금은 개인 끝점을 사용 하는 서브넷에 대해 nsg ( [네트워크 보안 그룹](../../virtual-network/security-overview.md) ) 규칙을 구성할 수 없습니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.

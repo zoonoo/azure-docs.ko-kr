@@ -1,24 +1,18 @@
 ---
 title: Azure Log Analytics 에이전트 관리 | Microsoft Docs
 description: 이 문서에서는 컴퓨터에 배포 된 Log Analytics Windows 또는 Linux 에이전트의 수명 주기 동안 일반적으로 수행 하는 다양 한 관리 작업에 대해 설명 합니다.
-services: log-analytics
-documentationcenter: ''
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 06/14/2019
+author: MGoedtel
 ms.author: magoedte
-ms.openlocfilehash: 0c128aaf8102b3072b6a63c80ea860ceefbf5124
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.date: 06/14/2019
+ms.openlocfilehash: 8dec91a3987aed978bb088d1aeab48a6fd0f9fb4
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67146300"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932796"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
@@ -28,7 +22,7 @@ Azure Monitor에서 Log Analytics Windows 또는 Linux 에이전트의 초기 �
 
 Windows 및 Linux 용 Log Analytics 에이전트는 VM이 실행 되는 배포 시나리오 및 환경에 따라 수동으로 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 다음 메서드를 사용 하 여 에이전트를 업그레이드할 수 있습니다.
 
-| 환경 | 설치 방법 | 업그레이드 방법 |
+| Environment | 설치 방법 | 업그레이드 방법 |
 |--------|----------|-------------|
 | Azure VM | Windows/Linux 용 Log Analytics 에이전트 VM 확장 | *AutoUpgradeMinorVersion* 속성을 **false**로 설정 하 여 옵트아웃 (opt out) 하도록 Azure Resource Manager 템플릿을 구성 하지 않은 경우 에이전트는 기본적으로 자동으로 업그레이드 됩니다. |
 | 사용자 지정 Azure VM 이미지 | Windows/Linux 용 Log Analytics 에이전트 수동 설치 | Vm을 최신 버전으로 업데이트 하려면 Windows installer 패키지를 실행 하는 명령줄 이나 Linux 자동 압축 풀기 및 설치 가능 셸 스크립트 번들에서 수행 해야 합니다.|
@@ -36,11 +30,11 @@ Windows 및 Linux 용 Log Analytics 에이전트는 VM이 실행 되는 배포 �
 
 ### <a name="upgrade-windows-agent"></a>Windows 에이전트 업그레이드 
 
-Windows vm의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 되지 않은 최신 버전으로 업데이트 하려면 명령 프롬프트, 스크립트 또는 다른 자동화 솔루션에서 또는 mmasetup-\<platform\>.msi 설치 프로그램을 사용 하 여 실행 합니다. 준비.  
+Windows VM의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 되지 않은 최신 버전으로 업데이트 하려면 명령 프롬프트, 스크립트나 기타 자동화 솔루션 또는 MMASetup-\<platform\>설치 마법사를 사용 하 여를 실행 합니다.  
 
 다음 단계를 수행 하 여 Log Analytics 작업 영역에서 최신 버전의 Windows 에이전트를 다운로드할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 
 2. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
 
@@ -58,7 +52,7 @@ Windows vm의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 �
 
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
-2. **\<Mmasetup\>** 를 실행 하 여 설치 마법사를 시작 합니다.
+2. **Mmasetup-\<platform\>** 를 실행 하 여 설치 마법사를 시작 합니다.
 
 3. 설치 마법사의 첫 페이지에서 **다음**을 클릭 합니다.
 
@@ -105,7 +99,7 @@ Windows 에이전트를 다시 구성 하 여 다른 작업 영역에 보고 하
 
 5. 작업 영역을 추가하려면 **추가**를 클릭하고 **Log Analytics 작업 영역 추가** 대화 상자에서 작업 영역 ID 및 작업 영역 키(기본 키)를 붙여넣습니다. 컴퓨터가 Azure Government 클라우드에서 Log Analytics 작업 영역에 보고해야 하는 경우 Azure Cloud 드롭다운 목록에서 Azure 미국 정부를 선택합니다.
 
-6. **확인** 을 클릭하여 변경 내용을 저장합니다.
+6. **확인**을 클릭하여 변경 내용을 저장합니다.
 
 #### <a name="remove-a-workspace-using-powershell"></a>PowerShell을 사용하여 작업 영역 제거
 

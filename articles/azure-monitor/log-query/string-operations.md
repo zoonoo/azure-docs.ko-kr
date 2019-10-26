@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor 로그 쿼리에서 문자열 작업 | Microsoft Docs
 description: Azure Monitor 로그 쿼리에서 문자열을 편집, 비교, 검색하고 다양한 기타 작업을 수행하는 방법을 설명합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/16/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 0dd61deb372822c5c564758d26d4c4a4938c1064
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.date: 08/16/2018
+ms.openlocfilehash: 0d7bf025b414df819887192bb59f7fd8da64b5d9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741454"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932927"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 문자열 작업
 
@@ -34,7 +28,7 @@ ms.locfileid: "68741454"
 
 
 ## <a name="strings-and-escaping-them"></a>문자열 및 이스케이프
-문자열 값은 작은따옴표 또는 큰따옴표 문자로 래핑됩니다. 백슬래시 (\\)는 문자에 대 한 \t (탭), \n (줄 바꿈) 및 \" 따옴표 문자 자체와 같은 문자를 이스케이프 하는 데 사용 됩니다.
+문자열 값은 작은따옴표 또는 큰따옴표 문자로 래핑됩니다. 백슬래시 (\\)는 문자에 대 한 \t (탭), \n (줄 바꿈), 따옴표 문자 자체 \" 문자를 이스케이프 하는 데 사용 됩니다.
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
@@ -55,37 +49,37 @@ print @"C:\backslash\not\escaped\with @ prefix"
 
 연산자       |설명                         |대/소문자 구분|예제(`true` 생성)
 ---------------|------------------------------------|--------------|-----------------------
-`==`           |같음                              |예           |`"aBc" == "aBc"`
-`!=`           |같지 않음                          |예           |`"abc" != "ABC"`
-`=~`           |같음                              |아니요            |`"abc" =~ "ABC"`
-`!~`           |같지 않음                          |아니요            |`"aBc" !~ "xyz"`
-`has`          |오른쪽이 왼쪽의 전체 항임 |아니요|`"North America" has "america"`
-`!has`         |오른쪽이 왼쪽의 전체 항이 아님       |아니요            |`"North America" !has "amer"` 
-`has_cs`       |오른쪽이 왼쪽의 전체 항임 |예|`"North America" has_cs "America"`
-`!has_cs`      |오른쪽이 왼쪽의 전체 항이 아님       |예            |`"North America" !has_cs "amer"` 
-`hasprefix`    |오른쪽이 왼쪽의 항 접두사임         |아니요            |`"North America" hasprefix "ame"`
-`!hasprefix`   |오른쪽이 왼쪽의 항 접두사가 아님     |아니요            |`"North America" !hasprefix "mer"` 
-`hasprefix_cs`    |오른쪽이 왼쪽의 항 접두사임         |예            |`"North America" hasprefix_cs "Ame"`
-`!hasprefix_cs`   |오른쪽이 왼쪽의 항 접두사가 아님     |예            |`"North America" !hasprefix_cs "CA"` 
-`hassuffix`    |오른쪽이 왼쪽의 항 접미사임         |아니요            |`"North America" hassuffix "ica"`
-`!hassuffix`   |오른쪽이 왼쪽의 항 접미사가 아님     |아니요            |`"North America" !hassuffix "americ"`
-`hassuffix_cs`    |오른쪽이 왼쪽의 항 접미사임         |예            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |오른쪽이 왼쪽의 항 접미사가 아님     |예            |`"North America" !hassuffix_cs "icA"`
-`contains`     |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |아니요            |`"FabriKam" contains "BRik"`
-`!contains`    |오른쪽이 왼쪽에 발생하지 않음           |아니요            |`"Fabrikam" !contains "xyz"`
-`contains_cs`   |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |예           |`"FabriKam" contains_cs "Kam"`
-`!contains_cs`  |오른쪽이 왼쪽에 발생하지 않음           |예           |`"Fabrikam" !contains_cs "Kam"`
-`startswith`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|아니요            |`"Fabrikam" startswith "fab"`
-`!startswith`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|아니요        |`"Fabrikam" !startswith "kam"`
-`startswith_cs`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|예            |`"Fabrikam" startswith_cs "Fab"`
-`!startswith_cs`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|예        |`"Fabrikam" !startswith_cs "fab"`
-`endswith`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|아니요             |`"Fabrikam" endswith "Kam"`
-`!endswith`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|아니요         |`"Fabrikam" !endswith "brik"`
-`endswith_cs`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|예             |`"Fabrikam" endswith "Kam"`
-`!endswith_cs`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|예         |`"Fabrikam" !endswith "brik"`
-`matches regex`|왼쪽에 오른쪽의 일치 항목이 포함됨        |예           |`"Fabrikam" matches regex "b.*k"`
-`in`           |요소 중 하나와 같음       |예           |`"abc" in ("123", "345", "abc")`
-`!in`          |어떤 요소와도 같지 않음   |예           |`"bca" !in ("123", "345", "abc")`
+`==`           |같음                              |yes           |`"aBc" == "aBc"`
+`!=`           |같지 않음                          |yes           |`"abc" != "ABC"`
+`=~`           |같음                              |아닙니다.            |`"abc" =~ "ABC"`
+`!~`           |같지 않음                          |아닙니다.            |`"aBc" !~ "xyz"`
+`has`          |오른쪽이 왼쪽의 전체 항임 |아닙니다.|`"North America" has "america"`
+`!has`         |오른쪽이 왼쪽의 전체 항이 아님       |아닙니다.            |`"North America" !has "amer"` 
+`has_cs`       |오른쪽이 왼쪽의 전체 항임 |yes|`"North America" has_cs "America"`
+`!has_cs`      |오른쪽이 왼쪽의 전체 항이 아님       |yes            |`"North America" !has_cs "amer"` 
+`hasprefix`    |오른쪽이 왼쪽의 항 접두사임         |아닙니다.            |`"North America" hasprefix "ame"`
+`!hasprefix`   |오른쪽이 왼쪽의 항 접두사가 아님     |아닙니다.            |`"North America" !hasprefix "mer"` 
+`hasprefix_cs`    |오른쪽이 왼쪽의 항 접두사임         |yes            |`"North America" hasprefix_cs "Ame"`
+`!hasprefix_cs`   |오른쪽이 왼쪽의 항 접두사가 아님     |yes            |`"North America" !hasprefix_cs "CA"` 
+`hassuffix`    |오른쪽이 왼쪽의 항 접미사임         |아닙니다.            |`"North America" hassuffix "ica"`
+`!hassuffix`   |오른쪽이 왼쪽의 항 접미사가 아님     |아닙니다.            |`"North America" !hassuffix "americ"`
+`hassuffix_cs`    |오른쪽이 왼쪽의 항 접미사임         |yes            |`"North America" hassuffix_cs "ica"`
+`!hassuffix_cs`   |오른쪽이 왼쪽의 항 접미사가 아님     |yes            |`"North America" !hassuffix_cs "icA"`
+`contains`     |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |아닙니다.            |`"FabriKam" contains "BRik"`
+`!contains`    |오른쪽이 왼쪽에 발생하지 않음           |아닙니다.            |`"Fabrikam" !contains "xyz"`
+`contains_cs`   |오른쪽이 왼쪽의 하위 시퀀스로 발생함  |yes           |`"FabriKam" contains_cs "Kam"`
+`!contains_cs`  |오른쪽이 왼쪽에 발생하지 않음           |yes           |`"Fabrikam" !contains_cs "Kam"`
+`startswith`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|아닙니다.            |`"Fabrikam" startswith "fab"`
+`!startswith`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|아닙니다.        |`"Fabrikam" !startswith "kam"`
+`startswith_cs`   |오른쪽이 왼쪽의 시작 하위 시퀀스임|yes            |`"Fabrikam" startswith_cs "Fab"`
+`!startswith_cs`  |오른쪽이 왼쪽의 시작 하위 시퀀스가 아님|yes        |`"Fabrikam" !startswith_cs "fab"`
+`endswith`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|아닙니다.             |`"Fabrikam" endswith "Kam"`
+`!endswith`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|아닙니다.         |`"Fabrikam" !endswith "brik"`
+`endswith_cs`     |오른쪽이 왼쪽의 닫는 하위 시퀀스임|yes             |`"Fabrikam" endswith "Kam"`
+`!endswith_cs`    |오른쪽이 왼쪽의 닫는 하위 시퀀스가 아님|yes         |`"Fabrikam" !endswith "brik"`
+`matches regex`|왼쪽에 오른쪽의 일치 항목이 포함됨        |yes           |`"Fabrikam" matches regex "b.*k"`
+`in`           |요소 중 하나와 같음       |yes           |`"abc" in ("123", "345", "abc")`
+`!in`          |어떤 요소와도 같지 않음   |yes           |`"bca" !in ("123", "345", "abc")`
 
 
 ## <a name="countof"></a>countof
@@ -102,11 +96,11 @@ countof(text, search [, kind])
 - `search` - text 내에서 일치하는 일반 문자열 또는 정규식입니다.
 - `kind` - _normal_ | _regex_(기본값: normal).
 
-### <a name="returns"></a>반환 값
+### <a name="returns"></a>반환
 
 검색 문자열이 컨테이너에서 일치시킬 수 있는 횟수입니다. 일반 문자열 일치는 겹칠 수 있으며, 정규식 일치는 겹칠 수 없습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 #### <a name="plain-string-matches"></a>일반 문자열 일치
 
@@ -127,7 +121,7 @@ print countof("abcabc", "a.c", "regex");  // result: 2
 ```
 
 
-## <a name="extract"></a>추출
+## <a name="extract"></a>extract
 
 지정된 문자열에서 정규식에 대한 일치 항목을 가져옵니다. 필요에 따라 추출 된 부분 문자열을 지정 된 형식으로 변환 합니다.
 
@@ -144,11 +138,11 @@ extract(regex, captureGroup, text [, typeLiteral])
 - `text` - 검색할 문자열입니다.
 - `typeLiteral` - 선택적 형식 리터럴(예: typeof(long))입니다. 제공된 경우 추출된 부분 문자열이 이 형식으로 변환됩니다.
 
-### <a name="returns"></a>반환 값
+### <a name="returns"></a>반환
 지시된 캡처 그룹 captureGroup에 대해 일치된 부분 문자열, 선택적으로 typeLiteral로 변환됩니다.
 일치 항목이 없거나 형식 변환에 실패한 경우 null을 반환합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 예제에서는 하트비트 레코드에서 마지막 8진수 *ComputerIP*를 추출합니다.
 ```Kusto
@@ -188,7 +182,7 @@ isempty(value)
 isnotempty(value)
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 ```Kusto
 print isempty("");  // result: true
@@ -213,7 +207,7 @@ URL을 해당 부분(프로토콜, 호스트, 포트 등)을 분할하고 이러
 parseurl(urlstring)
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 ```Kusto
 print parseurl("http://user:pass@contoso.com/icecream/buy.aspx?a=1&b=2#tag")
@@ -253,7 +247,7 @@ replace(regex, rewrite, input_text)
 ### <a name="returns"></a>반환
 regex의 모든 일치 항목을 rewrite로 바꾼 후의 text입니다. 일치 항목은 겹치지 않습니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 ```Kusto
 SecurityEvent
@@ -264,7 +258,7 @@ SecurityEvent
 
 결과는 다음과 같을 수 있습니다.
 
-활동                                        |대체됨
+작업                                        |대체됨
 ------------------------------------------------|----------------------------------------------------------
 4663 - 개체에 액세스하려고 했습니다.  |활동 ID 4663: 개체에 액세스하려고 했습니다.
 
@@ -285,7 +279,7 @@ split(source, delimiter [, requestedIndex])
 - `requestedIndex` - 0부터 시작하는 선택적 인덱스입니다. 제공될 경우, 반환되는 문자열 배열에 해당 항목만 포함됩니다(있는 경우).
 
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 ```Kusto
 print split("aaa_bbb_ccc", "_");    // result: ["aaa","bbb","ccc"]
@@ -305,7 +299,7 @@ print split("aabbcc", "bb");        // result: ["aa","cc"]
 strcat("string1", "string2", "string3")
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 ```Kusto
 print strcat("hello", " ", "world") // result: "hello world"
 ```
@@ -320,7 +314,7 @@ print strcat("hello", " ", "world") // result: "hello world"
 strlen("text_to_evaluate")
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 ```Kusto
 print strlen("hello")   // result: 5
 ```
@@ -341,7 +335,7 @@ substring(source, startingIndex [, length])
 - `startingIndex` - 요청된 부분 문자열의 0부터 시작하는 시작 문자 위치입니다.
 - `length` - 반환된 부분 문자열의 요청된 길이를 지정하는 데 사용할 수 있는 선택적 매개 변수입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 ```Kusto
 print substring("abcdefg", 1, 2);   // result: "bc"
 print substring("123456", 1);       // result: "23456"
@@ -360,7 +354,7 @@ tolower("value")
 toupper("value")
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 ```Kusto
 print tolower("HELLO"); // result: "hello"
 print toupper("hello"); // result: "HELLO"

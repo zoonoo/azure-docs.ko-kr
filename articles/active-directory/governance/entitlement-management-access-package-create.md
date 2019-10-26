@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 70273a45bb60fca57292275ea0bb564e17a6f4e9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389300"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934793"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 새 액세스 패키지 만들기
 
@@ -68,9 +68,9 @@ ms.locfileid: "72389300"
 
 1. 왼쪽 메뉴에서 **액세스 패키지**를 클릭합니다.
 
-    ![Azure Portal에서 권한 관리](./media/entitlement-management-shared/elm-access-packages.png)
-
 1. **새 액세스 패키지**를 클릭합니다.
+
+    ![Azure Portal에서 권한 관리](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>기본 사항
 
@@ -100,11 +100,11 @@ ms.locfileid: "72389300"
 
     ![액세스 패키지-리소스 역할](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    일반 카탈로그 또는 새 카탈로그에서 액세스 패키지를 만드는 경우 소유 하 고 있는 디렉터리에서 리소스를 선택할 수 있습니다. 사용자는 적어도 전역 관리자, 사용자 관리자 또는 카탈로그 작성자 여야 합니다.
+    일반 카탈로그 또는 새 카탈로그에서 액세스 패키지를 만드는 경우 소유 하 고 있는 디렉터리에서 리소스를 선택할 수 있습니다. 적어도 전역 관리자, 사용자 관리자 또는 카탈로그 작성자 여야 합니다.
 
     기존 카탈로그에서 액세스 패키지를 만드는 경우 해당 리소스를 소유 하지 않고 카탈로그에 이미 있는 리소스를 선택할 수 있습니다.
 
-    전역 관리자, 사용자 관리자 또는 카탈로그 소유자 인 경우 카탈로그에 아직 없는 리소스를 선택할 수 있는 추가 옵션이 있습니다. 선택한 카탈로그에서 현재 사용 되지 않는 리소스를 선택 하는 경우에는 다른 카탈로그 관리자가를 사용 하 여 액세스 패키지를 빌드하기 위한 카탈로그에도 이러한 리소스가 추가 됩니다. 현재 선택 된 카탈로그에 있는 리소스만 선택 하려는 경우에는 이동의 위쪽에 있는 확인란만 **표시** 확인란을 선택 합니다.
+    전역 관리자, 사용자 관리자 또는 카탈로그 소유자 인 경우에는 카탈로그에 아직 없는 리소스를 선택할 수 있는 추가 옵션이 있습니다. 선택한 카탈로그에서 현재 사용 되지 않는 리소스를 선택 하는 경우에는 다른 카탈로그 관리자가를 사용 하 여 액세스 패키지를 빌드하기 위한 카탈로그에도 이러한 리소스가 추가 됩니다. 현재 선택한 카탈로그에 있는 리소스만 선택 하려면 선택 창의 맨 위에 있는 확인란만 **표시** 확인란을 선택 합니다.
 
 1. 리소스를 선택한 후에는 **역할** 목록에서 리소스에 대해 사용자에 게 할당할 역할을 선택 합니다.
 
@@ -118,7 +118,7 @@ ms.locfileid: "72389300"
 
 ![액세스 패키지-요청 탭](./media/entitlement-management-access-package-create/requests.png)
 
-다음 섹션 중 하나에서 단계를 수행 합니다.
+이 액세스 패키지를 요청할 수 있는 사용자에 따라 다음 섹션 중 하나에 나와 있는 단계를 수행 합니다.
 
 [!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 

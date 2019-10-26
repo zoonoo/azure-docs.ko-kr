@@ -1,24 +1,18 @@
 ---
 title: Log Analytics 경고 REST API 사용
 description: Log Analytics 경고 REST API를 사용 하 여 Log Analytics의 일부인 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: 628ad256-7181-4a0d-9e68-4ed60c0f3f04
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/29/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: e8209a2d2034818a00ab9390a9af96d5b0287b5b
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.date: 07/29/2018
+ms.openlocfilehash: 9cc9c9db1438196190df38082f18d650eff38249
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663206"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932689"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>REST API로 Log Analytics에서 경고 규칙 만들기 및 관리
 Log Analytics 경고 REST API를 사용하여 Log Analytics에서 경고를 만들고 관리할 수 있습니다.  이 문서에서는 다음 작업을 수행하기 위한 API 및 여러 예제의 세부 정보를 제공합니다.
@@ -28,18 +22,18 @@ Log Analytics 경고 REST API를 사용하여 Log Analytics에서 경고를 만�
 
 Log Analytics Search REST API는 RESTful이며 Azure Resource Manager REST API를 통해 액세스할 수 있습니다. 이 문서에서 API가 Azure Resource Manager API를 호출하여 단순화하는 공개 소스 명령줄 도구인 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용하여 PowerShell 명령줄에서 액세스하는 예제를 찾을 수 있습니다. ARMClient 및 PowerShell의 사용은 Log Analytics 검색 API에 액세스하는 다양한 옵션 중 하나입니다. 이러한 도구를 사용하면 RESTful Azure Resource Manager API를 활용하여 Log Analytics 작업 영역을 호출하고, 이 작업 영역 내에서 검색 명령을 수행할 수 있습니다. API은 JSON 형식으로 검색 결과를 출력하여 다양한 프로그래밍 방식으로 검색 결과를 사용하게 됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 현재 Log Analytics에 저장된 검색을 사용해서만 경고를 만들 수 있습니다.  자세한 내용은 [로그 검색 REST API](../../azure-monitor/log-query/log-query-overview.md) 를 참조하세요.
 
 ## <a name="schedules"></a>일정
 저장된 검색은 하나 이상의 일정을 가질 수 있습니다. 일정은 검색이 실행되는 빈도 및 조건이 식별되는 기간을 정의합니다.
 일정은 다음 표의 속성을 가집니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
-| Interval |검색이 실행되는 빈도입니다. 분 단위로 측정됩니다. |
+| 간격 |검색이 실행되는 빈도입니다. 분 단위로 측정됩니다. |
 | QueryTimeSpan |조건이 평가되는 시간 간격입니다. 간격보다 크거나 같아야 합니다. 분 단위로 측정됩니다. |
-| Version |사용 중인 API 버전입니다.  현재 항상 1로 설정해야 합니다. |
+| 버전 |사용 중인 API 버전입니다.  현재 항상 1로 설정해야 합니다. |
 
 예를 들어 간격이 15 분이고 Timespan이 30 분인 이벤트 쿼리를 고려합니다. 이 경우 쿼리는 매 15분마다 실행되며 조건이 30분의 기간 동안 계속 True로 확인되었으면 경고가 트리거될 수 있습니다.
 
@@ -90,12 +84,12 @@ Get 메서드를 사용하여 저장된 검색에 대한 모든 일정을 검색
     armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}?api-version=2015-03-20
 
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>작업
 일정이 여러 작업을 가질 수 있습니다. 작업은 메일 보내기 또는 Runbook 시작과 같은 하나 이상의 수행할 프로세스를 정의하거나 검색 결과가 일부 조건과 일치하는 경우를 결정하는 임계값을 정의할 수 있습니다.  일부 작업은 임계값을 만족할 때 프로세스가 수행되도록 정의합니다.
 
 모든 작업은 다음 표의 속성을 가집니다.  서로 다른 유형의 경고는 아래에 설명하는 서로 다른 추가 속성을 가집니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
 | `Type` |작업의 유형입니다.  현재 가능한 값은 경고 및 웹후크입니다. |
 | `Name` |경고에 대한 표시 이름입니다. |
@@ -130,10 +124,10 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 ### <a name="alert-actions"></a>경고 작업
 일정은 경고 작업을 한 개만 가져야 합니다.  경고 작업은 다음 표의 섹션 중 하나 이상을 가집니다.  아래에서 각 섹션을 자세히 설명합니다.
 
-| 섹션 | 설명 | 사용법 |
+| 섹션 | 설명 | 사용량 |
 |:--- |:--- |:--- |
 | 임계값 |작업이 실행되기 위한 조건입니다.| Azure로 확장되기 이전 또는 이후에 모든 경고에 필요합니다. |
-| Severity |트리거되는 경우 경고를 분류하는 데 사용되는 레이블| Azure로 확장되기 이전 또는 이후에 모든 경고에 필요합니다. |
+| 심각도 |트리거되는 경우 경고를 분류하는 데 사용되는 레이블| Azure로 확장되기 이전 또는 이후에 모든 경고에 필요합니다. |
 | 표시 안 함 |경고의 알림을 중지하는 옵션입니다. | 모든 경고(아직 Azure로 확장되지 않은 경고나 Azure로 확장된 경고)에서 선택 사항입니다. |
 | 작업 그룹 |이메일, SMS, 음성 통화, 웹후크, Automation Runbook, ITSM 커넥터 등과 같이 필요한 작업이 지정된 Azure ActionGroup의 ID입니다.| 경고가 Azure로 확장되면 필요함|
 | 사용자 지정 동작|ActionGroup에서 select 동작에 대한 표준 출력 수정| 경고가 Azure로 확장된 후 모든 경고에 대한 옵션을 사용할 수 있습니다. |
@@ -143,7 +137,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
 
 임계값은 다음 표의 속성을 가집니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
 | `Operator` |임계값 비교를 위한 연산자입니다. <br> gt = 보다 큰 <br> lt = 보다 작은 |
 | `Value` |임계값에 대한 값입니다. |
@@ -173,7 +167,7 @@ Get 메서드를 사용하여 일정에 대한 모든 작업을 검색합니다.
     $thresholdJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdJson
 
-#### <a name="severity"></a>Severity
+#### <a name="severity"></a>심각도
 Log Analytics를 통해 쉽게 관리하고 심사할 수 있도록 경고를 범주로 분류할 수 있습니다. 정의된 경고 심각도는 정보 제공, 경고 및 중요입니다. 이러한 항목은 다음으로 Azure Alerts의 정규화된 심각도 규모로 매핑됩니다.
 
 |Log Analytics 심각도 수준  |Azure Alerts 심각도 수준  |
@@ -275,7 +269,7 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 기본적으로 작업은 알림에 대한 표준 템플릿 및 형식을 따릅니다. 하지만 사용자는 작업 그룹에 의해 제어되는 경우에도 일부 작업을 사용자 지정할 수 있습니다. 현재 사용자 지정은 이메일 제목 및 웹후크 페이로드에 가능합니다.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>작업 그룹에 대한 이메일 제목 사용자 지정
-기본적으로 경고용 이메일 제목은 `<WorkspaceName>`에 대한 경고 알림 `<AlertName>`입니다. 하지만 받은 편지함에서 필터 규칙을 쉽게 사용하도록 단어 또는 태그를 명시할 수 있도록 사용자 지정할 수 있습니다. 사용자 지정 이메일 헤더 세부 정보는 아래 예제에서와 같이 ActionGroup 세부 정보와 함께 전송되어야 합니다.
+기본적으로 경고에 대한 이메일 제목은 `<WorkspaceName>`에 대한 경고 알림 `<AlertName>`입니다. 하지만 받은 편지함에서 필터 규칙을 쉽게 사용하도록 단어 또는 태그를 명시할 수 있도록 사용자 지정할 수 있습니다. 사용자 지정 이메일 헤더 세부 정보는 아래 예제에서와 같이 ActionGroup 세부 정보와 함께 전송되어야 합니다.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {

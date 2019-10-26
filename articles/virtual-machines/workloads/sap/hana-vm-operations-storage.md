@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/21/2019
+ms.date: 10/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bcd27378039d539e36c72cf6e8fec7e8a1425e54
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1faf6e4c9124d494507a124013d5fd8588f4b41b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750332"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934913"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -40,7 +40,7 @@ IOPS 및 스토리지 처리량에서 스토리지 유형 및 해당 SLA의 목�
 
 - Azure/hana/log는 Azure [쓰기 가속기](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator)를 사용 하 여 캐시 해야 합니다. 프리미엄 SSD /Hana/data 볼륨은 Azure 쓰기 가속기 또는 Ultra disk 없이 프리미엄 SSD에 배치 될 수 있습니다.
 - 최소/hana/log 볼륨에 대 한 Azure Ultra disk. /Hana/data 볼륨은 Azure 쓰기 가속기 없이 프리미엄 SSD에 배치 하거나 울트라 디스크를 더 빠르게 다시 시작 하기 위해 사용할 수 있습니다.
-- /Hana/log **및** /hana/data에 대 한 Azure NetApp Files 위에 있는 **NFS v 4.1** 볼륨
+- /Hana/log **및** /hana/data.에 대 한 Azure NetApp Files 위에 있는 **NFS v 4.1** 볼륨 /Hana/shared 볼륨은 NFS v3 또는 NFS v 4.1 프로토콜을 사용할 수 있습니다. NFS v 4.1 프로토콜은/hana/data 및/hana/log 볼륨에 필수입니다.
 
 일부 저장소 유형을 결합할 수 있습니다. 예를 들어 Premium Storage에/hana/data를 배치 하 고, 필요한 짧은 대기 시간을 얻기 위해/hana/log를 울트라 디스크 저장소에 배치할 수 있습니다. 그러나/hana/data과 같은 NFS 볼륨을 혼합 하 여/hana/log에 대 한 다른 인증 된 저장소 유형 중 하나를 사용 하지 않는 것이 좋습니다.
 
@@ -230,10 +230,10 @@ M416xx_v2 VM 유형은 아직 Microsoft에서 공개로 제공 되지 않습니�
 M416xx_v2 VM 유형은 아직 Microsoft에서 공개로 제공 되지 않습니다. 나열 되는 값은 시작 점으로 사용 되며 실제 수요에 대해 평가 해야 합니다. Azure Ultra disk의 장점은 VM을 종료 하거나 시스템에 적용 되는 워크 로드를 중지 하지 않고도 IOPS 및 처리량에 대 한 값을 적용할 수 있다는 것입니다.  
 
 ## <a name="nfs-v41-volumes-on-azure-netapp-files"></a>Azure NetApp Files의 NFS v 4.1 볼륨
-Azure NetApp Files은/hana/shared,/hana/data 및/hana/log 볼륨에 사용할 수 있는 네이티브 NFS 공유를 제공 합니다. 이러한 볼륨에 대해 ANF 기반 NFS 공유를 사용 하려면 v 4.1 NFS 프로토콜을 사용 해야 합니다. NFS 프로토콜 v3은 ANF의 공유를 기반으로 하는 경우 HANA 관련 볼륨의 사용에 대해 지원 되지 않습니다. 
+Azure NetApp Files은/hana/shared,/hana/data 및/hana/log 볼륨에 사용할 수 있는 네이티브 NFS 공유를 제공 합니다. /Hana/data 및/hana/log 볼륨에 대해 ANF 기반 NFS 공유를 사용 하려면 v 4.1 NFS 프로토콜을 사용 해야 합니다. NFS 프로토콜 v3은 ANF의 공유를 기반으로 하는 경우/hana/data 및/hana/log 볼륨의 사용에 대해 지원 되지 않습니다. 
 
 > [!IMPORTANT]
-> Azure NetApp Files에서 구현 된 NFS v3 프로토콜은/hana/shared,/hana/data 및/hana/log에 사용할 수 없습니다.
+> Azure NetApp Files에서 구현 된 NFS v3 프로토콜은/hana/data 및/hana/log에 사용할 수 없습니다. NFS 4.1 사용은 기능 관점에서/hana/data 및/hana/log 볼륨에 대해 필수입니다. /Hana/shared 볼륨의 경우 기능 관점에서 NFS v3 또는 NFS v 4.1 프로토콜을 사용할 수 있습니다.
 
 ### <a name="important-considerations"></a>중요 고려 사항
 SAP Netweaver 및 SAP HANA에 대 한 Azure NetApp Files 고려 하는 경우 다음과 같은 중요 한 사항을 고려해 야 합니다.
@@ -270,21 +270,21 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 데이터 및 로그에 대 한 SAP 최소 처리량 요구 사항을 충족 하 고 `/hana/shared`에 대 한 지침에 따라 권장 크기는 다음과 같습니다.
 
-| 볼륨 | 크기<br /> Premium Storage 계층 | 크기<br /> Ultra Storage 계층 |
+| 볼륨 | 크기<br /> Premium Storage 계층 | 크기<br /> Ultra Storage 계층 | 지원 되는 NFS 프로토콜 |
 | --- | --- | --- |
-| /hana/log | 4TiB | 2 TiB |
-| /hana/data | 6.3 TiB | 3.2 TiB |
-| /hana/shared | 작업자 노드당 최대 (512gb, 1xRAM) | 작업자 노드당 최대 (512gb, 1xRAM) |
+| /hana/log | 4TiB | 2 TiB | v 4.1 |
+| /hana/data | 6.3 TiB | 3.2 TiB | v 4.1 |
+| /hana/shared | 작업자 노드당 최대 (512gb, 1xRAM) | 작업자 노드당 최대 (512gb, 1xRAM) | v3 또는 v 4.1 |
 
 이 문서에 제공 된 레이아웃에 대 한 SAP HANA 구성은 Azure NetApp Files Ultra Storage 계층을 사용 하는 것과 같습니다.
 
-| 볼륨 | 크기<br /> Ultra Storage 계층 |
+| 볼륨 | 크기<br /> Ultra Storage 계층 | 지원 되는 NFS 프로토콜 |
 | --- | --- |
-| /hana/log/mnt00001 | 2 TiB |
-| /hana/log/mnt00002 | 2 TiB |
-| /hana/data/mnt00001 | 3.2 TiB |
-| /hana/data/mnt00002 | 3.2 TiB |
-| /hana/shared | 2 TiB |
+| /hana/log/mnt00001 | 2 TiB | v 4.1 |
+| /hana/log/mnt00002 | 2 TiB | v 4.1 |
+| /hana/data/mnt00001 | 3.2 TiB | v 4.1 |
+| /hana/data/mnt00002 | 3.2 TiB | v 4.1 |
+| /hana/shared | 2 TiB | v3 또는 v 4.1 |
 
 > [!NOTE]
 > 여기에 명시 된 Azure NetApp Files 크기 조정 권장 사항은 SAP가 인프라 공급자를 중심으로 하는 최소 요구 사항을 충족 하도록 대상으로 지정 됩니다. 실제 고객 배포 및 워크 로드 시나리오에서는이로 충분 하지 않을 수 있습니다. 이러한 권장 사항을 시작 점으로 사용 하 고 특정 워크 로드의 요구 사항에 따라 조정 합니다.  

@@ -1,23 +1,18 @@
 ---
 title: Azure로 이동하는 OMS 포털 | Microsoft Docs
 description: OMS 포털은 Azure Portal로 이동하면서 모든 기능이 종료되고 있습니다. 이 문서는 이 전환에 대해 자세한 정보를 제공합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/22/2019
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: e8fd49781301406e0c35e1de57cea3040167c6c3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.date: 08/22/2019
+ms.openlocfilehash: 170973d15b5f49021a0507bdd2fd6a2632777d48
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915860"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932144"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
@@ -64,8 +59,8 @@ Azure Portal에 이미 적절한 액세스 권한이 있을 수 있으며 이 �
 
 | OMS 포털 사용 권한 | Azure 역할 |
 |:---|:---|
-| 읽기 전용 | Log Analytics 독자 |
-| 기여자 | Log Analytics 참가자 |
+| ReadOnly | Log Analytics 읽기 권한자 |
+| 기여자 | Log Analytics 기여자 |
 | 관리자 | 소유자 | 
  
 
@@ -93,7 +88,7 @@ OMS 모바일 앱은 OMS 포털과 함께 종료됩니다. OMS 모바일 앱 대
 
 따라서 Application Insights 커넥터는 사용 되지 않으며, 2019 년 3 월 30 일에 OMS 포털 사용 중단과 함께 Azure Marketplace에서 제거 되었습니다. 기존 연결은 2019년 6월 30일까지 계속 작동합니다. OMS 포털 사용 중단으로 포털에서 기존 연결을 구성하고 제거할 방법이 없습니다. 2019년 1월에 사용할 수 있는 REST API를 사용하여 지원되며 [Azure 업데이트](https://azure.microsoft.com/updates/)에 알림이 게시됩니다. 
 
-## <a name="azure-network-security-group-analytics"></a>Azure Network Security Group Analytics
+## <a name="azure-network-security-group-analytics"></a>Azure 네트워크 보안 그룹 분석
 [Azure 네트워크 보안 그룹 분석 솔루션](../insights/azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-azure-monitor)은 최근에 시작된 [트래픽 분석](https://azure.microsoft.com/blog/traffic-analytics-in-preview/)으로 대체되어 클라우드 네트워크에서 사용자 및 애플리케이션 작업에 대한 가시성을 제공합니다. 트래픽 분석은 조직의 네트워크 활동을 감사하고, 애플리케이션 및 데이터를 보호하고, 워크로드 성능을 최적화하고, 준수 상태를 유지하는 데 도움이 됩니다. 
 
 이 솔루션은 NSG 흐름 로그를 분석하고 다음에 대한 인사이트를 제공합니다.

@@ -1,24 +1,18 @@
 ---
 title: Azure Monitor에서 Windows 이벤트 로그 수집 및 분석 | Microsoft Docs
 description: Azure Monitor에 의한 Windows 이벤트 로그 수집을 구성하는 방법을 설명하고,생성되는 레코드에 대한 자세한 정보를 제공합니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: tysonn
-ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
-ms.service: log-analytics
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 11/28/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: cc81a8d8023d0724f4ecb71c157e8f575aa9edc8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.date: 11/28/2018
+ms.openlocfilehash: dd8f1e0e79f85c5d91966bcba13052f297422e67
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997467"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932399"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 이벤트 로그 데이터 원본
 많은 애플리케이션이 Windows 이벤트 로그에 기록되기 때문에 Windows 이벤트 로그는 Windows 에이전트를 사용하여 데이터를 수집하는 가장 일반적인 [데이터 원본](agent-data-sources.md) 중 하나입니다.  모니터링해야 하는 애플리케이션에서 만든 모든 사용자 지정 로그를 지정하는 것 외에 시스템 및 애플리케이션 같은 표준 로그에서 이벤트를 수집할 수 있습니다.
@@ -47,9 +41,9 @@ Azure Monitor에서는 이벤트가 생성될 때 모니터링되는 이벤트 �
 ## <a name="windows-event-records-properties"></a>Windows 이벤트 레코드 속성
 Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 있는 속성이 있습니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
-| Computer |이벤트가 수집된 컴퓨터의 이름입니다. |
+| 컴퓨터 |이벤트가 수집된 컴퓨터의 이름입니다. |
 | EventCategory |이벤트의 범주. |
 | EventData |원시 형식의 모든 이벤트 데이터입니다. |
 | EventID |이벤트의 번호입니다. |
@@ -57,19 +51,19 @@ Windows 이벤트 레코드는 **이벤트** 형식이며, 다음 테이블에 �
 | EventLevelName |텍스트 형식으로 된 이벤트의 심각도입니다. |
 | EventLog |이벤트가 수집된 이벤트 로그의 이름입니다. |
 | ParameterXml |XML 형식의 이벤트 매개 변수 값입니다. |
-| ManagementGroupName |System Center Operations Manager 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우이 값은입니다.`AOI-<workspace ID>` |
+| ManagementGroupName |System Center Operations Manager 에이전트의 관리 그룹 이름입니다.  다른 에이전트의 경우이 값은 `AOI-<workspace ID>` |
 | RenderedDescription |매개 변수 값을 포함하는 이벤트 설명입니다. |
-| Source |이벤트의 원본입니다. |
+| 원본 |이벤트의 원본입니다. |
 | SourceSystem |이벤트가 수집된 에이전트의 유형입니다. <br> OpsManager – Windows 에이전트, 직접 연결 또는 관리된 Operations Manager <br> Linux – 모든 Linux 에이전트  <br> AzureStorage – Azure Diagnostics |
 | TimeGenerated |Windows에서 이벤트가 만들어진 날짜 및 시간입니다. |
-| UserName |이벤트를 로깅한 계정의 사용자 이름입니다. |
+| 사용자 이름 |이벤트를 로깅한 계정의 사용자 이름입니다. |
 
 ## <a name="log-queries-with-windows-events"></a>Windows 이벤트로 로그 쿼리
 다음 표에서는 Windows 이벤트 레코드를 검색하는 로그 쿼리의 다양한 예제를 제공합니다.
 
-| Query | 설명 |
+| 쿼리 | 설명 |
 |:---|:---|
-| 이벤트 |모든 Windows 이벤트 |
+| 행사 |모든 Windows 이벤트 |
 | Event &#124; where EventLevelName == "error" |심각도가 오류인 모든 Windows 이벤트 |
 | Event &#124; summarize count() by Source |원본별 Windows 이벤트 수 |
 | Event &#124; where EventLevelName == "error" &#124; summarize count() by Source |원본별 Windows 오류 이벤트 수 |

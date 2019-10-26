@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 17fa443c3b0113d80a020f2a43c7099cf5a832d2
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 2f9d2cea7adaf2e46feb0417ea9631ce02478f80
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68772895"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934131"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대해 Azure Functions 트리거를 사용 하는 경우 문제 진단 및 해결
 
@@ -43,9 +43,9 @@ Azure Function이 실패 하 고 "원본 컬렉션 ' 컬렉션 이름 ' (데이�
 
 즉, 트리거가 작동 하는 데 필요한 Azure Cosmos 컨테이너 중 하나 또는 둘 다가 존재 하지 않거나 Azure Function에 연결할 수 없습니다. 오류 자체는 사용자의 구성에 따라 **찾고 있는 Azure Cosmos database 및 컨테이너를 알려 줍니다** .
 
-1. 특성을 확인 하 고 **Azure 함수 앱에 있는 설정을 참조**하는지 확인 합니다. `ConnectionStringSetting` 이 특성의 값은 연결 문자열 자체가 아니라 구성 설정의 이름입니다.
-2. `databaseName` 및`collectionName` 가 Azure Cosmos 계정에 있는지 확인 합니다. 패턴을 사용 하 여 `%settingName%` 자동 값 대체를 사용 하는 경우 설정의 이름이 Azure 함수 앱에 있는지 확인 합니다.
-3. 을 `LeaseCollectionName/leaseCollectionName`지정 하지 않으면 기본값은 "임대"입니다. 이러한 컨테이너가 있는지 확인 합니다. 필요에 따라 트리거의 `CreateLeaseCollectionIfNotExists` 특성을로 `true` 설정 하 여 자동으로 만들 수 있습니다.
+1. `ConnectionStringSetting` 특성을 확인 하 고 **Azure 함수 앱에 있는 설정을 참조**하는지 확인 합니다. 이 특성의 값은 연결 문자열 자체가 아니라 구성 설정의 이름입니다.
+2. `databaseName` 및 `collectionName`가 Azure Cosmos 계정에 있는지 확인 합니다. `%settingName%` 패턴을 사용 하 여 자동 값 대체를 사용 하는 경우 설정의 이름이 Azure 함수 앱에 있는지 확인 합니다.
+3. `LeaseCollectionName/leaseCollectionName`지정 하지 않으면 기본값은 "임대"입니다. 이러한 컨테이너가 있는지 확인 합니다. 필요에 따라 `true` 트리거에서 `CreateLeaseCollectionIfNotExists` 특성을 설정 하 여 자동으로 만들 수 있습니다.
 4. Azure [Cosmos 계정의 방화벽 구성을](how-to-configure-firewall.md) 확인 하 여 azure 함수를 차단 하지 않는지 확인 합니다.
 
 ### <a name="azure-function-fails-to-start-with-shared-throughput-collection-should-have-a-partition-key"></a>Azure 함수는 "공유 처리량 수집에 파티션 키가 있어야 합니다."로 시작 되지 않습니다.
@@ -54,21 +54,21 @@ Azure Function이 실패 하 고 "원본 컬렉션 ' 컬렉션 이름 ' (데이�
 
 ### <a name="azure-function-fails-to-start-with-the-lease-collection-if-partitioned-must-have-partition-key-equal-to-id"></a>Azure 함수는 "분할 된 경우 임대 컬렉션에 id와 동일한 파티션 키가 있어야 합니다."로 시작 되지 않습니다.
 
-이 오류는 현재 임대 컨테이너가 분할 되었지만 파티션 키 경로가 분할 되지 `/id`않았음을 의미 합니다. 이 문제를 해결 하려면를 파티션 키로 사용 `/id` 하 여 임대 컨테이너를 다시 만들어야 합니다.
+이 오류는 현재 임대 컨테이너가 분할 되었지만 파티션 키 경로가 `/id`되지 않았음을 의미 합니다. 이 문제를 해결 하려면 `/id`를 파티션 키로 사용 하 여 임대 컨테이너를 다시 만들어야 합니다.
 
 ### <a name="you-see-a-value-cannot-be-null-parameter-name-o-in-your-azure-functions-logs-when-you-try-to-run-the-trigger"></a>"값이 null 일 수 없습니다. 트리거를 실행 하려고 할 때 Azure Functions 로그의 매개 변수 이름: o "
 
 이 문제는 Azure Portal를 사용 하 고 있으며 트리거를 사용 하는 Azure 함수를 검사할 때 화면에서 **실행** 단추를 선택 하려고 할 때 나타납니다. 트리거를 시작 하기 위해 실행을 선택할 필요는 없으며, Azure 함수를 배포할 때 자동으로 시작 됩니다. Azure Portal에서 Azure 함수의 로그 스트림을 확인 하려면 모니터링 된 컨테이너로 이동 하 여 일부 새 항목을 삽입 하면 트리거가 자동으로 실행 되는 것을 볼 수 있습니다.
 
-### <a name="my-changes-take-too-long-be-received"></a>변경 시간이 너무 오래 걸리는 경우
+### <a name="my-changes-take-too-long-to-be-received"></a>변경 내용을 수신 하는 데 너무 오래 걸립니다.
 
 이 시나리오에는 여러 가지 원인이 있을 수 있으며이를 모두 확인 해야 합니다.
 
-1. Azure Function이 Azure Cosmos 계정과 동일한 지역에 배포 되나요? 네트워크 대기 시간을 최적화 하려면 Azure 함수와 Azure Cosmos 계정이 모두 동일한 Azure 지역에서 공동 배치 해야 합니다.
-2. Azure Cosmos 컨테이너를 연속 또는 간헐적으로 변경 하 고 있습니까?
-후자 인 경우 저장 되는 변경 내용과 Azure 함수를 선택 하는 것 사이에 약간의 지연이 있을 수 있습니다. 이는 내부적으로 트리거가 Azure Cosmos 컨테이너에서 변경 내용을 확인 하 고 읽을 보류 중인 항목이 없다는 것을 발견 하면 새 변경 내용을 확인 하기 전에 구성 가능한 시간 (기본적으로 5 초) 동안 절전 모드를 해제 합니다. 트리거 `FeedPollDelay/feedPollDelay` [구성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) 의 설정을 통해이 절전 모드를 구성할 수 있습니다. 값은 밀리초 단위로 예상 됩니다.
+1. Azure 함수가 Azure Cosmos 계정과 동일한 지역에 배포되나요? 네트워크 대기 시간을 최적화하려면 Azure 함수와 Azure Cosmos 계정이 동일한 Azure 지역에 공동 배치되어야 합니다.
+2. Azure Cosmos 컨테이너가 연속적으로 변경되나요? 간헐적으로 변경되나요?
+후자인 경우 저장되는 변경 내용과 변경 내용을 선택하는 Azure 함수 사이에 약간의 지연이 있을 수 있습니다. 이는 내부적으로 트리거가 Azure Cosmos 컨테이너에서 변경 내용을 확인하여 읽기 보류 중인 항목이 없으면 새 변경 내용을 확인하기 전에 높은 RU 사용을 방지하기 위해 구성 가능한 시간(기본값: 5초) 동안 일시 중지하기 때문입니다. 트리거의 [구성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)에서 `FeedPollDelay/feedPollDelay` 설정을 통해 이 일시 중지 시간을 구성할 수 있습니다(값은 밀리초 단위여야 함).
 3. Azure Cosmos 컨테이너는 [rate가 제한](./request-units.md)될 수 있습니다.
-4. 트리거의 `PreferredLocations` 특성을 사용 하 여 쉼표로 구분 된 Azure 지역 목록을 지정 하 여 사용자 지정 기본 연결 순서를 정의할 수 있습니다.
+4. 트리거에서 `PreferredLocations` 특성을 사용 하 여 쉼표로 구분 된 Azure 지역 목록을 지정 하 여 사용자 지정 기본 연결 순서를 정의할 수 있습니다.
 
 ### <a name="some-changes-are-missing-in-my-trigger"></a>일부 변경 내용이 내 트리거에서 누락 됨
 
@@ -78,16 +78,16 @@ Azure 함수는 변경 내용을 받으면 자주 처리 하 고, 선택적으�
 
 대상에 일부 변경 내용이 없는 경우에는 변경 내용이 수신 된 후 Azure 함수를 실행 하는 동안 오류가 발생 하는 것을 의미할 수 있습니다.
 
-이 시나리오에서 가장 좋은 방법은 코드에를 추가 하 고 `try/catch blocks` 변경 내용을 처리 중인 루프 내에 추가 하 여 항목의 특정 하위 집합에 대 한 오류를 감지 하 고 적절 하 게 처리 하는 것입니다 (추가 하기 위해 다른 저장소로 보내기). 분석 또는 다시 시도). 
+이 시나리오에서 가장 좋은 방법은 코드에 `try/catch` 블록을 추가 하 고, 변경 내용을 처리 하는 루프 내에 항목의 특정 하위 집합에 대 한 오류를 감지 하 여 적절 하 게 처리 하는 것입니다 (추가 작업을 위해 다른 저장소로 보내기). 분석 또는 다시 시도). 
 
 > [!NOTE]
 > 코드를 실행 하는 동안 처리 되지 않은 예외가 발생 하면 기본적으로 Cosmos DB에 대 한 Azure Functions 트리거가 변경 내용 일괄 처리를 다시 시도 하지 않습니다. 즉, 변경 내용이 대상에 도착 하지 않은 이유는 처리에 실패 하기 때문입니다.
 
 트리거에서 일부 변경 내용이 수신 되지 않은 경우 가장 일반적인 시나리오는 **다른 Azure 함수가 실행**되 고 있다는 것입니다. Azure에 배포 된 다른 Azure 함수 또는 **정확히 동일한 구성** (동일한 모니터링 및 임대 컨테이너)이 있는 개발자 컴퓨터에서 로컬로 실행 되는 azure 함수 일 수 있으며,이 azure 함수는 변경 내용의 하위 집합을 도용 합니다. Azure 함수를 처리할 것으로 간주 합니다.
 
-또한 실행 중인 Azure 함수 앱 인스턴스 수를 알고 있는 경우 시나리오의 유효성을 검사할 수 있습니다. 임대 컨테이너를 검사 하 고 내에서 임대 항목 수를 계산 하는 경우 해당 `Owner` 속성의 고유 값은 함수 앱 인스턴스의 수와 같아야 합니다. 알려진 Azure 함수 앱 인스턴스에 대 한 소유자가 더 많은 경우 이러한 추가 소유자가 변경 내용을 "도용" 하는 것을 의미 합니다.
+또한 실행 중인 Azure 함수 앱 인스턴스 수를 알고 있는 경우 시나리오의 유효성을 검사할 수 있습니다. 임대 컨테이너를 검사 하 고에서 임대 항목 수를 계산 하는 경우 `Owner` 속성의 고유 값은 함수 앱 인스턴스의 수와 같아야 합니다. 알려진 Azure 함수 앱 인스턴스보다 소유자가 더 많을 경우 추가 소유자는 변경 내용을 "도용하는" 소유자인 것을 의미합니다.
 
-이러한 상황을 해결 하는 한 가지 쉬운 방법은 새 값 `LeaseCollectionPrefix/leaseCollectionPrefix` 또는 다른 값을 사용 하 여 함수에를 적용 하거나 새 임대 컨테이너를 사용 하 여 테스트 하는 것입니다.
+이러한 상황을 해결 하는 한 가지 쉬운 방법은 새 값 또는 다른 값을 사용 하 여 함수에 `LeaseCollectionPrefix/leaseCollectionPrefix`를 적용 하거나 새 임대 컨테이너를 사용 하 여 테스트 하는 것입니다.
 
 ### <a name="need-to-restart-and-re-process-all-the-items-in-my-container-from-the-beginning"></a>처음부터 내 컨테이너의 모든 항목을 다시 시작 하 고 다시 처리 해야 합니다. 
 컨테이너의 모든 항목을 처음부터 다시 처리 하려면 다음을 수행 합니다.
@@ -98,7 +98,7 @@ Azure 함수는 변경 내용을 받으면 자주 처리 하 고, 선택적으�
 
 [Startfrombeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) true로 설정 하면 Azure 함수는 현재 시간 대신 컬렉션의 기록 시작 부분에서 변경 내용 읽기를 시작 하도록 지시 합니다. 이는 아직 생성 된 임대가 없는 경우에만 작동 합니다 (즉, 임대 컬렉션에 문서). 이미 생성 된 임대가 있는 경우이 속성을 true로 설정 해도 아무런 효과가 없습니다. 이 시나리오에서는 함수가 중지 되었다가 다시 시작 될 때 임대 컬렉션에 정의 된 대로 마지막 검사점에서 읽기를 시작 합니다. 처음부터 다시 처리 하려면 위의 1-4 단계를 수행 합니다.  
 
-### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Binding은 IReadOnlyList\<Document > 또는 jarray로만 수행할 수 있습니다.
+### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Binding은 IReadOnlyList\<Document > 또는 JArray로만 수행할 수 있습니다.
 
 이 오류는 Azure Functions 프로젝트 또는 참조 된 프로젝트에 [Azure Functions Cosmos DB 확장](./troubleshoot-changefeed-functions.md#dependencies)에서 제공 하는 버전과 다른 버전의 Azure Cosmos DB SDK에 대 한 수동 NuGet 참조가 포함 된 경우에 발생 합니다.
 

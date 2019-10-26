@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: dacurwin
-ms.openlocfilehash: 50fbd0a2169fb120424d76e786a6269243eeb3e1
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 8d99ff6f2d8a21a501631a3a062be6b05130c05b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72273942"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931811"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Azure에 SAP HANA 데이터베이스 백업
 
@@ -40,10 +40,10 @@ ms.locfileid: "72273942"
 - 데이터베이스 로그는 15 분 마다 백업할 수 있습니다. 로그 백업은 데이터베이스에 대 한 전체 백업이 성공적으로 완료 된 후에만 흐름을 시작 합니다.
 - 전체 백업과 차등 백업을 수행할 수 있습니다. 증분 백업은 현재 지원 되지 않습니다.
 - 백업 정책을 SAP HANA 백업에 적용 한 후에는 수정할 수 없습니다. 다른 설정을 사용 하 여 백업 하려면 새 정책을 만들거나 다른 정책을 할당 합니다.
-  - 새 정책을 만들려면 자격 증명 모음에서 **정책** > **백업 정책**@no__t를 클릭 하 고**Azure VM에서** >  SAP HANA를**추가**하 고 정책 설정을 지정 합니다.
+  - 새 정책을 만들려면 자격 증명 모음에서 **정책** > **백업 정책** >  **+** **Azure VM에서 > SAP HANA**추가를 클릭 하 고 정책 설정을 지정 합니다.
   - 다른 정책을 할당 하려면 데이터베이스를 실행 하는 VM의 속성에서 현재 정책 이름을 클릭 합니다. 그런 다음 **백업 정책** 페이지에서 백업에 사용할 다른 정책을 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 백업을 구성 하기 전에 다음을 수행 해야 합니다.
 
@@ -53,6 +53,9 @@ ms.locfileid: "72273942"
     sudo zypper update
     sudo zypper install unixODBC
     ```
+
+    > [!NOTE]
+    > 리포지토리를 업데이트 하지 않은 경우에는 2.3.4의 버전이 최소 인지 확인 합니다. 총 Xodbc 버전을 확인 하려면 루트로 ```odbcinst -j```를 실행 합니다.
 
 2. [아래](#set-up-network-connectivity)절차에 설명 된 대로 Azure에 연결할 수 있도록 VM에서 인터넷으로의 연결을 허용 합니다.
 
@@ -101,7 +104,7 @@ ms.locfileid: "72273942"
 
 1. 2 단계에서 **백업 구성**을 클릭 합니다.
 2. **백업할 항목 선택**에서 보호 하려는 모든 데이터베이스 > **확인**을 선택 합니다.
-3. **백업 정책** > **백업 정책을 선택**하 고 아래 지침에 따라 데이터베이스에 대 한 새 백업 정책을 만듭니다.
+3. 백업 **정책** > 에서 **백업 정책을 선택**하 고 아래 지침에 따라 데이터베이스에 대 한 새 백업 정책을 만듭니다.
 4. 정책을 만든 후 **백업** 메뉴에서 **백업 사용**을 클릭 합니다.
 5. 포털의 **알림** 영역에서 백업 구성 진행률을 추적 합니다.
 
@@ -167,7 +170,7 @@ Azure Backup를 사용 하 여 백업 되는 데이터베이스의 로컬 백업
 
 1. 데이터베이스에 대 한 전체 또는 로그 백업이 완료 될 때까지 기다립니다. SAP HANA Studio에서 상태를 확인 합니다.
 2. 로그 백업을 사용 하지 않도록 설정 하 고, 관련 데이터베이스에 대 한 백업 카탈로그를 파일 시스템으로 설정 합니다.
-3. 이렇게 하려면 **systemdb** > **구성**@no__t을 두 번 클릭 하 고**데이터베이스** > **필터 (로그)** 를 선택 합니다.
+3. 이렇게 하려면 **systemdb** > **구성** >  > **데이터베이스 선택** **필터 (로그)** 를 차례로 선택 합니다.
 4. **Enable_auto_log_backup** 을 **No**로 설정 합니다.
 5. **Log_backup_using_backint** 을 **False**로 설정 합니다.
 6. 데이터베이스의 임시 전체 백업을 수행 합니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
 ms.author: pepogors
-ms.openlocfilehash: 3fd1716fa7b9c32bb5b5e49598139b6a5e728692
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: a80eb1ba341a1b15da7ad59203a1d25284d03fd0
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166588"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933908"
 ---
 # <a name="set-up-and-configure-reverse-proxy-in-azure-service-fabric"></a>Azure Service Fabric에서 역방향 프록시 설정 및 구성
 역방향 프록시는 Service Fabric 클러스터에서 실행되는 마이크로 서비스를 통해 http 엔드포인트가 있는 다른 서비스를 검색하고 통신할 수 있도록 하는 선택적 Azure Service Fabric 서비스입니다. 자세한 내용은 [Azure Service Fabric의 역방향 프록시](service-fabric-reverseproxy.md)를 참조하세요. 이 문서에서는 클러스터에서 역방향 프록시를 설정하고 구성하는 방법에 대해 설명합니다. 
@@ -44,7 +44,7 @@ Azure에 있는 클러스터의 경우 Azure Resource Manager 템플릿을 사�
 
 새 클러스터의 경우 [사용자 지정 Resource Manager 템플릿을 만들거나](service-fabric-cluster-creation-via-arm.md) 템플릿 샘플을 사용할 수 있습니다. 
 
-GitHub의 [보안 역방향 프록시 템플릿 샘플](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample)에서 Azure 클러스터에 보안 역방향 프록시를 구성하는 데 도움이 되는 Resource Manager 템플릿 샘플을 찾을 수 있습니다. 인증서를 사용하여 보안 역방향 프록시를 구성하고 인증서 롤오버를 처리하는 데 사용할 지침과 템플릿은 추가 정보 파일의 [보안 클러스터에서 HTTPS 역방향 프록시 구성](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample/README.md#configure-https-reverse-proxy-in-a-secure-cluster)을 참조하세요.
+GitHub의 [보안 역방향 프록시 템플릿 샘플](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample)에서 Azure 클러스터에 보안 역방향 프록시를 구성하는 데 도움이 되는 Resource Manager 템플릿 샘플을 찾을 수 있습니다. 인증서를 사용하여 보안 역방향 프록시를 구성하고 인증서 롤오버를 처리하는 데 사용할 지침과 템플릿은 추가 정보 파일의 [보안 클러스터에서 HTTPS 역방향 프록시 구성](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample/README.md#configure-https-reverse-proxy-in-a-secure-cluster)을 참조하세요.
 
 기존 클러스터의 경우 [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-powershell) 또는 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-export-template-cli)를 사용하여 클러스터의 리소스 그룹에 대한 Resource Manager 템플릿을 내보낼 수 있습니다.
 
@@ -167,7 +167,7 @@ Resource Manager 템플릿이 준비되면 다음 단계를 사용하여 역방�
 
 다음 단계에서는 역방향 프록시를 사용하도록 설정하고, 필요에 따라 X.509 인증서를 통해 역방향 프록시를 보호하는 데 사용할 설정을 보여 줍니다. 
 
-1. 역방향 프록시를 사용하도록 설정하려면 클러스터 구성의 **properties** 아래에 있는 노드 유형에 대한 **reverseProxyEndpointPort** 값을 설정합니다. 다음 JSON에서는 "NodeType0" 유형의 노드에 대한 역방향 프록시 엔드포인트 포트를 19081로 설정하는 방법을 보여 줍니다.
+1. 역방향 프록시를 사용 하도록 설정 하려면 클러스터 구성의 **속성** 아래에 있는 노드 형식에 대해 **reverseProxyEndpointPort** 값을 설정 합니다. 다음 JSON은 "NodeType0" 유형의 노드에 대해 역방향 프록시 끝점 포트를 19081로 설정 하는 작업을 보여 줍니다.
 
    ```json
        "properties": {

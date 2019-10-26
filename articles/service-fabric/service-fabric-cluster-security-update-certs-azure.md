@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: d84525e869d47fc609ee8aac7feb7feda36a5f23
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 9c14afb22d95493deaf3552cb8c7392c3fc5a679
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68599944"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934017"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Azure에서 서비스 패브릭 클러스터에 대한 인증서 추가 또는 제거
 Service Fabric이 X.509 인증서를 사용하는 방법을 숙지하고 [클러스터 보안 시나리오](service-fabric-cluster-security.md)를 읽어보는 것이 좋습니다. 다음 과정으로 진행하기 전에 클러스터 인증서가 무엇이며 어떤 용도로 사용되는지를 이해해야 합니다.
@@ -53,13 +53,13 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 이러한 단계에서는 Resource Manager의 작동 원리에 익숙하며, Resource Manager 템플릿을 사용하여 하나 이상의 Service Fabric 클러스터를 배포했고, 클러스터를 설정하는 데 사용한 템플릿이 있다고 가정합니다. 또한 JSON을 잘 사용하여 작업할 수 있다고 간주합니다.
 
 > [!NOTE]
-> 시작 지점으로 사용하거나 필요할 때 사용할 수 있는 샘플 템플릿 및 매개 변수를 찾으려는 경우 이 [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)에서 다운로드합니다. 
+> 시작 지점으로 사용하거나 필요할 때 사용할 수 있는 샘플 템플릿 및 매개 변수를 찾으려는 경우 이 [git-repo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample)에서 다운로드합니다. 
 > 
 > 
 
 ### <a name="edit-your-resource-manager-template"></a>Resource Manager 템플릿 편집
 
-편의를 위해 5-VM-1-NodeTypes-Secure_Step2.JSON 샘플에는 앞으로 수행할 모든 편집이 포함되어 있습니다. 이 샘플은 [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)에서 사용할 수 있습니다.
+편의를 위해 5-VM-1-NodeTypes-Secure_Step2.JSON 샘플에는 앞으로 수행할 모든 편집이 포함되어 있습니다. 이 샘플은 [git-repo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample)에서 사용할 수 있습니다.
 
 **모든 단계를 수행해야 합니다.**
 
@@ -117,7 +117,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
          }
     ``` 
 
-4. **모든** **Microsoft.Compute/virtualMachineScaleSets** 리소스 정의를 변경합니다. Microsoft.Compute/virtualMachineScaleSets 리소스 정의를 찾습니다. "게시자"로 스크롤합니다. "Microsoft.Azure.ServiceFabric", under "virtualMachineProfile".
+4. **모든** **Microsoft.Compute/virtualMachineScaleSets** 리소스 정의를 변경합니다. Microsoft.Compute/virtualMachineScaleSets 리소스 정의를 찾습니다. "virtualMachineProfile" 아래 "publisher": "Microsoft.Azure.ServiceFabric"으로 스크롤합니다.
 
     Service Fabric 게시자 설정에서 다음과 같이 나타납니다.
     
@@ -178,7 +178,7 @@ Azure Portal로는 보조 클러스터 인증서를 추가할 수 없습니다. 
 > 
 
 ### <a name="edit-your-template-file-to-reflect-the-new-parameters-you-added-above"></a>위에서 추가한 새 매개 변수를 반영하도록 템플릿 파일 편집
-[git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample)의 샘플을 사용하여 후속 작업을 수행하는 경우 샘플 5-VM-1-NodeTypes-Secure.parameters_Step2.JSON에서 변경하여 시작할 수 있습니다. 
+[git-repo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Cert-Rollover-Sample)의 샘플을 사용하여 후속 작업을 수행하는 경우 샘플 5-VM-1-NodeTypes-Secure.parameters_Step2.JSON에서 변경하여 시작할 수 있습니다. 
 
 Resource Manager 템플릿 매개 변수 파일을 편집하고 secCertificateThumbprint 및 secCertificateUrlValue에 대한 새로운 두 매개 변수를 추가합니다. 
 

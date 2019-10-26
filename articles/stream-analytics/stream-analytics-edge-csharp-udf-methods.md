@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics Edge 작업에 대한 .NET Standard 함수 개발(미리 보기)
+title: Edge 작업 Azure Stream Analytics에 대 한 .NET Standard 함수 개발
 description: CodeBehind, 기존 패키지 또는 로컬 프로젝트를 사용 하 여 Azure Stream Analytics 작업에 대 한 .NET 사용자 정의 함수를 개발 하는 방법에 대해 알아봅니다.
 services: stream-analytics
 author: mamccrea
@@ -10,12 +10,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 287ee2d84ea3d5c6f1568edb1636191f509681e0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: cdfe4d2ccc39385b4020f60905b12c4683b1758c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901627"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935017"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Azure Stream Analytics Edge 작업에 대한 .NET Standard 사용자 정의 함수 개발(미리 보기)
 

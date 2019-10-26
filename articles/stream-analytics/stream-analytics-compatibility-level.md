@@ -1,17 +1,17 @@
 ---
-title: Azure Stream Analytics 작업의 호환성 수준 이해
+title: Azure Stream Analytics 호환성 수준
 description: Azure Stream Analytics 작업의 호환성 수준을 설정하는 방법과 최신 호환성 수준의 주요 변경 내용을 알아봅니다.
 author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: d6d31506a13656a954c48dfee00f14d8ab381fd5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 888c1f0bb38a5317cc27790ea47917c182d49593
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173235"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925637"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -101,9 +101,9 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 **이전 수준:** 함수 접두사의 엄격한 유효성 검사는 없었습니다.
 
-**1.2 수준:** Azure Stream Analytics는 함수 접두사의 엄격한 유효성 검사를 수행 합니다. 기본 제공 함수에 접두사를 추가 하면 오류가 발생 합니다. 예를 들어`myprefix.ABS(…)` 은 지원 되지 않습니다.
+**1.2 수준:** Azure Stream Analytics는 함수 접두사의 엄격한 유효성 검사를 수행 합니다. 기본 제공 함수에 접두사를 추가 하면 오류가 발생 합니다. 예를 들어`myprefix.ABS(…)` 지원 되지 않습니다.
 
-기본 제공 집계에 접두사를 추가 하면 오류가 발생 하기도 합니다. 예를 들어 `myprefix.SUM(…)` 은 지원 되지 않습니다.
+기본 제공 집계에 접두사를 추가 하면 오류가 발생 하기도 합니다. 예를 들어 `myprefix.SUM(…)` 지원 되지 않습니다.
 
 사용자 정의 함수에 "system" 접두사를 사용 하면 오류가 발생 합니다.
 
@@ -119,15 +119,15 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML 형식
 
-**1.0 수준:** Azure Stream Analytics에서 DataContractSerializer를 사용했기 때문에 메시지 내용에 XML 태그가 포함되었습니다. 예를 들어:
+**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 다음은 그 예입니다.
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 
-**1.1 수준:** 추가 태그 없이 메시지 내용에 스트림이 직접 포함됩니다. 예: `{ "SensorId":"1", "Temperature":64}`
+**1.1 수준:** 메시지 콘텐츠는 추가 태그 없이 스트림을 직접 포함 합니다. 예: `{ "SensorId":"1", "Temperature":64}`
 
 ### <a name="persisting-case-sensitivity-for-field-names"></a>필드 이름에 대 한 대/소문자 구분 유지
 
-**1.0 수준:** Azure Stream Analytics 엔진에서 필드 이름이 처리될 때 소문자로 변경되었습니다.
+**1.0 수준:** Azure Stream Analytics 엔진에서 처리 될 때 필드 이름이 소문자로 변경 되었습니다.
 
 **1.1 수준:** Azure Stream Analytics 엔진에서 처리 하는 경우 필드 이름에 대 한 대/소문자 구분이 유지 됩니다.
 
@@ -136,15 +136,15 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 ### <a name="floatnandeserializationdisabled"></a>FloatNaNDeserializationDisabled
 
-**1.0 수준:** CREATE TABLE 명령은 FLOAT 열 형식이 NaN(숫자가 아님. 예: 무한대, -무한대)인 이벤트를 필터링하지 않습니다. 왜냐하면 이러한 이벤트는 이러한 숫자에 대해 문서화된 범위를 벗어나기 때문입니다.
+**1.0 수준:** CREATE TABLE 명령에서 NaN (숫자가 아님)을 사용 하 여 이벤트를 필터링 하지 않았습니다. 왜냐하면 이러한 이벤트는 이러한 숫자에 대해 문서화된 범위를 벗어나기 때문입니다.
 
-**1.1 수준:** CREATE TABLE 명령을 사용하여 강력한 스키마를 지정할 수 있습니다. Stream Analytics 엔진은 데이터가 이 스키마를 준수하는지 확인합니다. 이 모델을 사용하면 이 명령으로 NaN 값을 사용하는 이벤트를 필터링할 수 있습니다.
+**1.1 수준:** CREATE TABLE를 사용 하면 강력한 스키마를 지정할 수 있습니다. Stream Analytics 엔진은 데이터가 이 스키마를 준수하는지 확인합니다. 이 모델을 사용하면 이 명령으로 NaN 값을 사용하는 이벤트를 필터링할 수 있습니다.
 
 ### <a name="disable-automatic-upcast-for-datetime-strings-in-json"></a>JSON에서 datetime 문자열에 대해 자동 업 캐스트 사용 안 함
 
-**1.0 수준:** JSON 파서가 자동으로 표준 시간대 정보를 사용하여 문자열 값을 날짜/시간 형식으로 업캐스트한 후 UTC로 변환합니다. 이 동작으로 인해 표준 시간대 정보가 손실 되었습니다.
+**1.0 수준:** JSON 파서는 자동으로 날짜/시간/영역 정보를 포함 하는 문자열 값을 DateTime 형식으로 업 캐스트 다음 UTC로 변환 합니다. 이 동작으로 인해 표준 시간대 정보가 손실 되었습니다.
 
-**1.1 수준:** 더 이상 자동으로 표준 시간대 정보를 사용하여 문자열 값을 날짜/시간 형식으로 업캐스트하지 않습니다. 따라서 표준 시간대 정보가 유지됩니다.
+**1.1 수준:** 날짜/시간/영역 정보를 포함 하는 문자열 값을 DateTime 형식으로 자동으로 업 캐스트 수 없습니다. 따라서 표준 시간대 정보가 유지됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

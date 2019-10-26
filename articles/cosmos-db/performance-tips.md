@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: sngun
 ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 10/25/2019
 ms.locfileid: "71261319"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
@@ -47,7 +47,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
      |연결 모드  |지원되는 프로토콜  |지원되는 SDK  |API/서비스 포트  |
      |---------|---------|---------|---------|
      |게이트웨이  |   HTTPS    |  모든 SDK    |   SQL (443), Mongo (10250, 10255, 10256), 테이블 (443), Cassandra (10350), 그래프 (443)    |
-     |직접    |     TCP    |  .NET SDK    | 10000-20,000개 범위 내의 포트 |
+     |Direct    |     TCP    |  .NET SDK    | 10000-20,000개 범위 내의 포트 |
 
      Azure Cosmos DB는 HTTPS를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. 직접 TCP 및 HTTPS는 모두 초기 인증 및 암호화 트래픽에 SSL을 사용합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
 
@@ -128,7 +128,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
      SQL .NET SDK 버전 1.9.0 이상은 분할된 컬렉션을 병렬로 쿼리할 수 있는 병렬 쿼리를 지원합니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)을 참조하세요. 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 파티션의 최대 수를 제어한 다음 병렬로 쿼리될 수 있습니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
 
-    (a) 병렬 ***\: 처리 수준 튜닝*** 병렬 쿼리는 여러 파티션을 병렬로 쿼리하여 작동 합니다. 그러나 개별 파티션의 데이터는 쿼리와 관련 하 여 순차적으로 인출 됩니다. `MaxDegreeOfParallelism` [Sdk V2](sql-api-sdk-dotnet.md) 또는`MaxConcurrency` [sdk V3](sql-api-sdk-dotnet-standard.md) 의를 파티션 수로 설정 하면 다른 모든 시스템 조건을 동일 하 게 유지 하는 경우 가장 성능이 뛰어난 쿼리를 달성할 수 있습니다. 파티션 수를 모르는 경우 병렬 처리 수준을 높게 설정할 수 있으며 시스템은 병렬 처리 수준으로 최소 (파티션 수, 사용자 제공 입력)를 선택 합니다.
+    (a) 병렬 쿼리 ***\:병렬 처리 수준 튜닝*** 은 여러 파티션을 병렬로 쿼리하여 작동 합니다. 그러나 개별 파티션의 데이터는 쿼리와 관련 하 여 순차적으로 인출 됩니다. Sdk v [2의 `MaxDegreeOfParallelism` 또는](sql-api-sdk-dotnet.md) [sdk V3](sql-api-sdk-dotnet-standard.md) 의 `MaxConcurrency`를 파티션 수로 설정 하면 다른 모든 시스템 조건을 동일 하 게 유지 하는 경우 가장 성능이 뛰어난 쿼리를 달성할 수 있는 가능성이 높아집니다. 파티션 수를 모르는 경우 병렬 처리 수준을 높게 설정할 수 있으며 시스템은 병렬 처리 수준으로 최소 (파티션 수, 사용자 제공 입력)를 선택 합니다.
 
     데이터가 쿼리와 관련하여 모든 파티션에 균등하게 분산되어 있는 경우 병렬 쿼리가 최고의 성능을 발휘한다는 것이 중요합니다. 쿼리에서 반환된 전체 또는 대부분의 데이터가 몇 개의 파티션(최악의 경우 하나의 파티션)에 집중되는 것처럼 분할된 컬렉션이 분할되는 경우 해당 파티션으로 인해 쿼리의 성능에는 장애가 발생합니다.
 
@@ -165,13 +165,13 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
    > [!NOTE] 
    > MaxItemCount 속성은 페이지 매김 목적 으로만 사용 하면 안 됩니다. 단일 페이지에서 반환 되는 최대 항목 수를 줄여 쿼리 성능을 향상 시키는 데 주로 사용 됩니다.  
 
-   사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. FeedOptions의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. 이 `maxItemCount` -1로 설정 되 면 SDK는 문서 크기에 따라 가장 적합 한 값을 자동으로 찾습니다. 예를 들어:
+   사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. FeedOptions의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`를-1로 설정 하면 SDK가 문서 크기에 따라 가장 적합 한 값을 자동으로 찾습니다. 다음은 그 예입니다.
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
    ```
     
-   쿼리가 실행 되 면 결과 데이터가 TCP 패킷 내에 전송 됩니다. 에 대해 `maxItemCount`값을 너무 낮게 지정 하면 TCP 패킷 내에서 데이터를 전송 하는 데 필요한 왕복 횟수가 높아 성능에 영향을 줍니다. 따라서 속성에 대해 `maxItemCount` 설정할 값을 잘 모를 경우-1로 설정 하 고 SDK에서 기본값을 선택 하는 것이 가장 좋습니다. 
+   쿼리가 실행 되 면 결과 데이터가 TCP 패킷 내에 전송 됩니다. `maxItemCount`값을 너무 낮게 지정 하면 TCP 패킷 내에서 데이터를 전송 하는 데 필요한 왕복 수가 높아서 성능에 영향을 줍니다. 따라서 `maxItemCount` 속성에 대해 설정할 값을 잘 모를 경우-1로 설정 하 고 SDK에서 기본값을 선택 하는 것이 가장 좋습니다. 
 
 11. **스레드/작업의 수 늘리기**
 
@@ -193,7 +193,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
  
 1. **더 빠른 쓰기에 대한 인덱싱에서 사용하지 않는 경로 제외**
 
-    Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로(IndexingPolicy.IncludedPaths 및 IndexingPolicy.ExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수도 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 저장소를 낮출 수 있습니다.  예를 들어 다음 코드는 "*" 와일드 카드를 사용 하 여 인덱싱에서 문서의 전체 섹션 (하위 트리)을 제외 하는 방법을 보여 줍니다.
+    Cosmos DB의 인덱싱 정책을 통해 인덱싱 경로(IndexingPolicy.IncludedPaths 및 IndexingPolicy.ExcludedPaths)를 활용하여 인덱싱에 포함하거나 제외할 문서 경로를 지정할 수도 있습니다. 인덱싱 비용이 인덱싱된 고유 경로 수와 직접 관련이 있기 때문에, 인덱싱 경로를 사용하면 사전에 알려진 쿼리 패턴의 시나리오에 대해 쓰기 성능을 향상시키고 인덱스 스토리지를 낮출 수 있습니다.  예를 들어 다음 코드는 "*" 와일드 카드를 사용 하 여 인덱싱에서 문서의 전체 섹션 (하위 트리)을 제외 하는 방법을 보여 줍니다.
 
     ```csharp
     var collection = new DocumentCollection { Id = "excludedPathCollection" };
@@ -215,7 +215,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     쿼리의 복잡성은 작업에 사용되는 요청 단위의 양에 영향을 줍니다. 조건자의 수, 조건자의 특성, UDF 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 
-    모든 작업 (만들기, 업데이트 또는 삭제)에 대 한 오버 헤드를 측정 하려면 ResourceResponse\< t > 또는 .net SDK의 FeedResponse\<t >의 해당 [x-ms-requestcharge](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 속성을 검사 합니다. 이러한 작업에 사용 된 요청 단위 수를 측정 합니다.
+    모든 작업 (만들기, 업데이트 또는 삭제)의 오버 헤드를 측정 하려면 >\<ResourceResponse [헤더 (](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 또는 .net SDK의 FeedResponse\<t >의 해당 requestcharge 속성)를 검사 하 여 다음을 측정 합니다. 이러한 작업에 사용 된 요청 단위 수입니다.
 
     ```csharp
     // Measure the performance (request units) of writes

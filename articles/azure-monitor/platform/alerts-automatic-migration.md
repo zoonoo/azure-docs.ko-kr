@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 08/19/2019
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: fbc024b6ae6e3ebfed6f64067158352e8201aef5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: e0ac349554fa580c4ac88b26e76d0bea1ecf738b
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642566"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932706"
 ---
 # <a name="understand-the-automatic-migration-process-for-your-classic-alert-rules"></a>기존 경고 규칙에 대 한 자동 마이그레이션 프로세스 이해
 
 [이전에 발표](monitoring-classic-retirement.md)한 대로 Azure Monitor의 클래식 경고는 9 월 2019 (원래 7 월 2019 일)에 사용 중지 됩니다. 사용 중지 프로세스의 일환으로 마이그레이션 [도구](alerts-using-migration-tool.md) 는 고객이 마이그레이션 자체를 트리거하기 위해 Azure Portal에서 사용할 수 있습니다. 2019 년 8 월 31 일까 지 마이그레이션 도구를 사용 하지 않은 경우 Azure Monitor는 2019 년 9 월 1 일부 터 클래식 경고의 자동 마이그레이션 프로세스를 시작 합니다.
-이 문서에서는 자동 마이그레이션 프로세스를 안내 하 고, 발생할 수 있는 문제를 해결 하는 데 도움을 줍니다.
+이 문서에서는 자동 마이그레이션 프로세스를 안내 하 고 발생할 수 있는 모든 문제를 해결 하는 데 도움을 줍니다.
 
   > [!NOTE]
   > 이 문서는 Azure 공용 클라우드에만 적용 됩니다. Azure Government 클라우드 및 Azure 중국 21Vianet에서 Azure Monitor 클래식 경고에 대 한 사용 중지 프로세스는 미래의 날짜에 발표 될 예정입니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/10/2017
 ms.author: kavyako
-ms.openlocfilehash: d8a11a3289037602535d1b5727d041e376012bd8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e915e689f09ba7f5c92958ebf8531aa67eef4493
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837846"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933948"
 ---
 # <a name="connect-to-a-secure-service-with-the-reverse-proxy"></a>역방향 프록시를 사용하여 보안 서비스 연결
 
@@ -35,14 +35,14 @@ Service Fabric에서 역방향 프록시를 구성하려면 [Azure Service Fabri
 서비스는 역방향 프록시에서 제공한 인증서를 확인하기 위한 논리를 구현할 수 있습니다. 이 서비스는 허용된 클라이언트 인증서 세부 정보를 구성 패키지의 구성 설정으로 지정할 수 있습니다. 이는 런타임 시 읽을 수 있으며 역방향 프록시에서 제공한 인증서의 유효성을 검사하는 데 사용됩니다. 구성 설정을 추가하려면 [애플리케이션 매개 변수 관리](service-fabric-manage-multiple-environment-app-configuration.md)를 참조하세요. 
 
 ### <a name="reverse-proxy-verifying-the-services-identity-via-the-certificate-presented-by-the-service"></a>서비스에서 제공한 인증서를 통해 서비스의 ID를 확인하는 역방향 프록시:
-역방향 프록시 서비스에서 제공 하는 인증서의 서버 인증서 유효성 검사를 수행 하려면 다음 정책을 지원 합니다. None, ServiceCommonNameAndIssuer 및 ServiceCertificateThumbprints 합니다.
+역방향 프록시는 서비스에서 제공하는 인증서의 서버 인증서 유효성 검사를 수행하기 위해 None, ServiceCommonNameAndIssuer 및 ServiceCertificateThumbprints 정책 중 하나를 지원합니다.
 사용할 역방향 프록시에 대한 정책을 선택하려면 [fabricSettings](service-fabric-cluster-fabric-settings.md) 아래에 있는 **ApplicationGateway/Http** 섹션에서 **ApplicationCertificateValidationPolicy**를 지정합니다.
 
 다음 섹션에서는 이러한 옵션 각각에 대한 구성 세부 정보를 보여줍니다.
 
 ### <a name="service-certificate-validation-options"></a>서비스 인증서 유효성 검사 옵션 
 
-- **없음**: 역방향은 프록시 설정 된 서비스 인증서의 확인을 건너뛰고 보안 연결을 설정 합니다. 기본 동작입니다.
+- **None**: 역방향 프록시가 프록시 설정된 서비스 인증서의 확인을 건너뛰고 보안 연결을 설정합니다. 기본 동작입니다.
 [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 섹션에서 값이 **None**인 **ApplicationCertificateValidationPolicy**를 지정합니다.
 
    ```json
@@ -63,7 +63,7 @@ Service Fabric에서 역방향 프록시를 구성하려면 [Azure Service Fabri
    }
    ```
 
-- **ServiceCommonNameAndIssuer**: 역방향 프록시 인증서의 일반 이름과 직접 발급자의 지문을 기반 서비스에서 제공 하는 인증서를 확인 합니다. 지정 된 **ApplicationCertificateValidationPolicy** 값으로 **ServiceCommonNameAndIssuer** 에 [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 섹션입니다.
+- **ServiceCommonNameAndIssuer**: 역방향 프록시가 인증서의 일반 이름과 직접 발급자의 지문을 기반으로 한 서비스에서 제공하는 인증서를 확인합니다. [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 섹션에서 값이 **ServiceCommonNameAndIssuer**인 **ApplicationCertificateValidationPolicy**를 지정합니다.
 
    ```json
    {
@@ -110,7 +110,7 @@ Service Fabric에서 역방향 프록시를 구성하려면 [Azure Service Fabri
    }
    ```
 
-- **ServiceCertificateThumbprints**: 역방향 프록시가 지문을 기반으로 프록시 설정 된 서비스 인증서를 확인 합니다. 서명 된 인증서는 서비스 자체를 사용 하 여 구성 된 경우이 경로 이동 하도록 선택할 수 있습니다. 지정 된 **ApplicationCertificateValidationPolicy** 값으로 **ServiceCertificateThumbprints** 에 [ **ApplicationGateway/Http** ](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 섹션입니다.
+- **ServiceCertificateThumbprints**: 역방향 프록시가 지문을 기반으로 프록시 설정된 서비스 인증서를 확인합니다. 서비스가 자체 서명된 인증서로 구성될 때 이 경로를 선택할 수 있습니다. [**ApplicationGateway/Http**](./service-fabric-cluster-fabric-settings.md#applicationgatewayhttp) 섹션에서 값이 **ServiceCertificateThumbprints**인 **ApplicationCertificateValidationPolicy**를 지정합니다.
 
    ```json
    {
@@ -196,7 +196,7 @@ SSL 종료는 역방향 프록시에서 발생하며 모든 클라이언트 인�
 
 ## <a name="next-steps"></a>다음 단계
 * [클러스터에서 역방향 프록시를 설정 및 구성합니다](service-fabric-reverseproxy-setup.md).
-* 다른 서비스 인증서 유효성 검사 옵션을 사용하여 보안 역방향 프록시를 구성하려면 [Configure reverse proxy to connect to secure services](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/ReverseProxySecureSample#configure-reverse-proxy-to-connect-to-secure-services)(보안 서비스에 연결하도록 역방향 프록시 구성)에서 Azure Resource Manager 템플릿 샘플을 참조하세요.
+* [보안 서비스에 연결 하려면 역방향 프록시 구성](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/Reverse-Proxy-Sample#configure-reverse-proxy-to-connect-to-secure-services) 을 참조 하세요.
 * [GitHub의 샘플 프로젝트](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)에서 서비스 간 HTTP 통신의 예제를 참조하세요.
 * [Reliable Services 원격을 사용하여 원격 프로시저 호출](service-fabric-reliable-services-communication-remoting.md)
 * [Reliable Services에서 OWIN을 사용하는 Web API](service-fabric-reliable-services-communication-webapi.md)

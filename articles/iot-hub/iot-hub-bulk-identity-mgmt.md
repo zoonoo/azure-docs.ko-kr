@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 32c7a2a79c8d6a35008255b3c117f20d04ad7749
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65796354"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927414"
 ---
-# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>IoT Hub 장치 id 대량에서 가져오기 및 내보내기
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>대량으로 IoT Hub 장치 id 가져오기 및 내보내기
 
 각 IoT Hub에는 서비스에서 디바이스마다 리소스를 만드는 데 사용할 수 있는 ID 레지스트리가 있습니다. 또한 ID 레지스트리를 통해 디바이스 지향 엔드포인트에 대한 액세스를 제어할 수 있습니다. 이 문서에서는 ID 레지스트리에서 디바이스 ID를 대량으로 가져오고 내보내는 방법에 대해 설명합니다.
 
@@ -87,11 +87,11 @@ while(true)
 
 ## <a name="device-importexport-job-limits"></a>장치 가져오기/내보내기 작업 제한
 
-1 개의 활성 장치 가져오기 또는 내보내기 작업은 모든 IoT Hub 계층에 대해 한 번에 허용 됩니다. IoT Hub에는 다음과 같은 작업 작업의 속도 대 한 제한이 있습니다. 자세한 내용은 참조 하세요 [참조-IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)합니다.
+모든 IoT Hub 계층에 대해 한 번에 하나의 활성 장치 가져오기 또는 내보내기 작업만 허용 됩니다. 또한 IoT Hub에는 작업의 비율이 제한 됩니다. 자세히 알아보려면 [참조 IoT Hub 할당량 및 제한](iot-hub-devguide-quotas-throttling.md)을 참조 하세요.
 
 ## <a name="export-devices"></a>내보내기 디바이스
 
-**ExportDevicesAsync** 메서드를 사용하여 [공유 액세스 서명](../storage/common/storage-security-guide.md#data-plane-security)을 사용하는 [Azure Storage](../storage/index.yml) Blob 컨테이너에 전체 IoT Hub ID 레지스트리를 내보냅니다.
+**ExportDevicesAsync** 메서드를 사용하여 [공유 액세스 서명](../storage/common/storage-security-guide.md#authorization)을 사용하는 [Azure Storage](../storage/index.yml) Blob 컨테이너에 전체 IoT Hub ID 레지스트리를 내보냅니다.
 
 이 메서드를 사용하면 사용자가 제어하는 blob 컨테이너에 디바이스 정보의 신뢰할 수 있는 백업을 만들 수 있습니다.
 
@@ -259,13 +259,13 @@ JobProperties importJob =
 
 | importMode | 설명 |
 | --- | --- |
-| **createOrUpdate** |지정 된 장치가 없으면 **ID**, 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **create** |지정 된 장치가 없으면 **ID**, 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **update** |장치가 이미 존재 하는 지정 된 경우 **ID**를 관계 없이 제공된 된 입력된 데이터를 사용 하 여 기존 정보를 덮어씁니다를 **ETag** 값입니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **updateIfMatchETag** |장치가 이미 존재 하는 지정 된 경우 **ID**, 경우에 제공 된 입력된 데이터가 기존 정보를 덮어씁니다를 **ETag** 일치 합니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
-| **createOrUpdateIfMatchETag** |지정 된 장치가 없으면 **ID**, 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **delete** |장치가 이미 존재 하는 지정 된 경우 **ID**를 관계 없이 삭제 됩니다 합니다 **ETag** 값입니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
-| **deleteIfMatchETag** |장치가 이미 존재 하는 지정 된 경우 **ID**, 경우에 삭제 되는 **ETag** 일치 합니다. 디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdate** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 값과 관계 없이 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **만들기** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스에 이미 존재하는 경우 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **update** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **updateIfMatchETag** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 가 일치 하는 경우에만 제공 된 입력 데이터를 사용 하 여 기존 정보를 덮어씁니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
+| **createOrUpdateIfMatchETag** |지정 된 **ID**를 가진 장치가 없으면 새로 등록 됩니다. <br/>디바이스가 이미 존재하는 경우 **ETag** 가 일치하는 경우에만 제공된 입력 데이터가 기존 정보를 덮어씁니다. <br/>**ETag** 가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. <br> 사용자는 디바이스 데이터와 함께 쌍으로 된 데이터를 선택적으로 지정할 수 있습니다. 쌍의 ETag을 지정하는 경우 디바이스의 ETag에서 독립적으로 처리됩니다. 기존 쌍의 ETag와 일치하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **delete** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 값과 관계 없이 삭제 됩니다. <br/>디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. |
+| **deleteIfMatchETag** |지정 된 **ID**를 가진 장치가 이미 존재 하는 경우 **ETag** 가 일치 하는 경우에만 삭제 됩니다. 디바이스가 존재하지 않는 경우 오류가 로그 파일에 기록됩니다. <br/>ETag가 일치하지 않는 경우 불일치 오류가 로그 파일에 기록됩니다. |
 
 > [!NOTE]
 > 직렬화 데이터가 디바이스에 대한 **importMode** 플래그를 명시적으로 정의하는 경우 가져오기 작업 중에 기본적으로 **createOrUpdate**를 가정합니다.

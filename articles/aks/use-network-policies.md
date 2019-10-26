@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 6c7cf82381dfb895fdaa0f130e33b2dc9a6e7403
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169747"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72928490"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -20,7 +20,7 @@ Kubernetes에서 최신 마이크로 서비스 기반 애플리케이션을 실�
 
 이 문서에서는 네트워크 정책 엔진을 설치 하 고 Kubernetes 네트워크 정책을 만들어 AKS에서 pod 간의 트래픽 흐름을 제어 하는 방법을 보여 줍니다. 네트워크 정책은 Linux 기반 노드 및 AKS의 pod에만 사용 해야 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 Azure CLI 버전 2.0.61 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드 해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조 하세요.
 
@@ -57,7 +57,7 @@ Azure는 네트워크 정책을 구현 하는 두 가지 방법을 제공 합니
 | 지원되는 플랫폼                      | Linux                      | Linux                       |
 | 지원 되는 네트워킹 옵션             | Azure CNI                  | Azure CNI 및 kubenet       |
 | Kubernetes 사양 준수 | 지원 되는 모든 정책 유형 |  지원 되는 모든 정책 유형 |
-| 추가 기능                      | 없음                       | 글로벌 네트워크 정책, 글로벌 네트워크 집합 및 호스트 끝점으로 구성 된 확장 정책 모델입니다. @No__t-0 CLI를 사용 하 여 이러한 확장 기능을 관리 하는 방법에 대 한 자세한 내용은 [calicoctl user reference][calicoctl]를 참조 하세요. |
+| 추가 기능                      | 없음                       | 글로벌 네트워크 정책, 글로벌 네트워크 집합 및 호스트 끝점으로 구성 된 확장 정책 모델입니다. `calicoctl` CLI를 사용 하 여 이러한 확장 기능을 관리 하는 방법에 대 한 자세한 내용은 [calicoctl user reference][calicoctl]를 참조 하세요. |
 | 지원                                  | Azure 지원 및 엔지니어링 팀에서 지원 | Calico 커뮤니티 지원. 추가 유료 지원에 대 한 자세한 내용은 [프로젝트 Calico 지원 옵션][calico-support]을 참조 하세요. |
 | 로깅                                  | IPTables에서 추가/삭제 된 규칙은 */var/log/azure-npm.log* 아래의 모든 호스트에 기록 됩니다. | 자세한 내용은 [Calico 구성 요소 로그][calico-logs] 를 참조 하세요. |
 
@@ -69,7 +69,11 @@ Azure는 네트워크 정책을 구현 하는 두 가지 방법을 제공 합니
 * pod 레이블을 기준으로 트래픽을 허용합니다.
 * 네임스페이스를 기준으로 트래픽을 허용합니다.
 
-먼저, 네트워크 정책을 지 원하는 AKS 클러스터를 만들어 보겠습니다. 네트워크 정책 기능은 클러스터를 만들 때만 사용할 수 있습니다. 기존 AKS 클러스터에서는 네트워크 정책을 사용하도록 설정할 수 없습니다.
+먼저, 네트워크 정책을 지 원하는 AKS 클러스터를 만들어 보겠습니다. 
+
+> [!IMPORTANT]
+>
+> 네트워크 정책 기능은 클러스터를 만들 때만 사용할 수 있습니다. 기존 AKS 클러스터에서는 네트워크 정책을 사용하도록 설정할 수 없습니다.
 
 Azure 네트워크 정책을 사용 하려면 [azure CNI 플러그 인][azure-cni] 을 사용 하 고 고유한 가상 네트워크 및 서브넷을 정의 해야 합니다. 필요한 서브넷 범위를 계획 하는 방법에 대 한 자세한 내용은 [고급 네트워킹 구성][use-advanced-networking]을 참조 하세요. Calico Network 정책은 동일한 Azure CNI 플러그 인 또는 Kubenet CNI 플러그 인과 함께 사용할 수 있습니다.
 
@@ -79,7 +83,7 @@ Azure 네트워크 정책을 사용 하려면 [azure CNI 플러그 인][azure-cn
 * AKS 클러스터에 사용할 Azure AD (Azure Active Directory) 서비스 주체를 만듭니다.
 * 가상 네트워크에서 AKS 클러스터 서비스 주체에 대해 *참가자* 권한을 할당합니다.
 * 정의 된 가상 네트워크에 AKS 클러스터를 만들고 네트워크 정책을 사용 하도록 설정 합니다.
-    * *Azure* 네트워크 정책 옵션이 사용 됩니다. 대신 Calico를 네트워크 정책 옵션으로 사용 하려면 `--network-policy calico` 매개 변수를 사용 합니다. 참고: Calico는 `--network-plugin azure` 또는 `--network-plugin kubenet`과 함께 사용할 수 있습니다.
+    * *Azure* 네트워크 정책 옵션이 사용 됩니다. 대신 Calico를 네트워크 정책 옵션으로 사용 하려면 `--network-policy calico` 매개 변수를 사용 합니다. 참고: Calico는 `--network-plugin azure` 또는 `--network-plugin kubenet`와 함께 사용할 수 있습니다.
 
 사용자 고유의 보안 *SP_PASSWORD*를 제공합니다. *RESOURCE_GROUP_NAME* 및 *CLUSTER_NAME* 변수를 바꿀 수 있습니다.
 
@@ -134,7 +138,7 @@ az aks create \
     --network-policy azure
 ```
 
-클러스터를 만드는 데 몇 분이 걸립니다. 클러스터가 준비 되 면 [az aks get 자격 증명][az-aks-get-credentials] 명령을 사용 하 여 Kubernetes 클러스터에 연결 하도록 @no__t를 구성 합니다. 이 명령은 자격 증명을 다운로드하고 해당 자격 증명을 사용하도록 Kubernetes CLI를 구성합니다.
+클러스터를 만드는 데 몇 분이 걸립니다. 클러스터가 준비 되 면 [az aks][az-aks-get-credentials] 명령을 사용 하 여 Kubernetes 클러스터에 연결 하도록 `kubectl`를 구성 합니다. 이 명령은 자격 증명을 다운로드하고 해당 자격 증명을 사용하도록 Kubernetes CLI를 구성합니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -163,7 +167,7 @@ kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace d
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-셸 프롬프트에서 `wget`을 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
+셸 프롬프트에서 `wget`를 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
 
 ```console
 wget -qO- http://backend
@@ -218,7 +222,7 @@ kubectl apply -f backend-policy.yaml
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-셸 프롬프트에서 `wget`을 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다. 이번에는 제한 시간 값을 *2*초로 설정합니다. 이제 네트워크 정책이 모든 인바운드 트래픽을 차단 하므로 다음 예제에 표시 된 것 처럼 페이지를 로드할 수 없습니다.
+셸 프롬프트에서 `wget`를 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다. 이번에는 제한 시간 값을 *2*초로 설정합니다. 이제 네트워크 정책이 모든 인바운드 트래픽을 차단 하므로 다음 예제에 표시 된 것 처럼 페이지를 로드할 수 없습니다.
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -273,7 +277,7 @@ kubectl apply -f backend-policy.yaml
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-셸 프롬프트에서 `wget`을 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
+셸 프롬프트에서 `wget`를 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
 
 ```console
 wget -qO- http://backend
@@ -303,7 +307,7 @@ exit
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-셸 프롬프트에서 `wget`을 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다. 네트워크 정책은 인바운드 트래픽을 차단 하므로 다음 예제에 표시 된 것 처럼 페이지를 로드할 수 없습니다.
+셸 프롬프트에서 `wget`를 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다. 네트워크 정책은 인바운드 트래픽을 차단 하므로 다음 예제에 표시 된 것 처럼 페이지를 로드할 수 없습니다.
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -334,7 +338,7 @@ kubectl label namespace/production purpose=production
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-셸 프롬프트에서 `wget`을 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
+셸 프롬프트에서 `wget`를 사용 하 여 기본 NGINX 웹 페이지에 액세스할 수 있는지 확인 합니다.
 
 ```console
 wget -qO- http://backend.development
@@ -398,7 +402,7 @@ kubectl apply -f backend-policy.yaml
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-셸 프롬프트에서 `wget`을 사용 하 여 네트워크 정책에서 이제 트래픽을 거부 하는지 확인 합니다.
+셸 프롬프트에서 `wget`를 사용 하 여 네트워크 정책에서 이제 트래픽을 거부 하는지 확인 합니다.
 
 ```console
 $ wget -qO- --timeout=2 http://backend.development
@@ -418,7 +422,7 @@ exit
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-셸 프롬프트에서 `wget`을 사용 하 여 네트워크 정책에서 트래픽을 허용 하는지 확인 합니다.
+셸 프롬프트에서 `wget`를 사용 하 여 네트워크 정책에서 트래픽을 허용 하는지 확인 합니다.
 
 ```console
 wget -qO- http://backend

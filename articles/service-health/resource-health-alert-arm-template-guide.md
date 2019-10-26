@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 7ccd84042d11b586d524d4eb76eba03111e0b3c5
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0948edec05b97dd604393218e3eeb3302548af82
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71099019"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933562"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Resource Manager 템플릿을 사용하여 리소스 상태 경고 구성
 
@@ -24,7 +24,7 @@ Azure Resource Health는 Azure 리소스의 현재 및 과거 상태에 대한 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 페이지의 지침을 따르려면 미리 몇 가지 사항을 설정해야 합니다.
 
@@ -198,7 +198,7 @@ Resource Health 경고는 세 가지 다른 범위에서 이벤트를 모니터�
 여기서 우리는 `anyOf` 래퍼를 사용하여 리소스 상태 경고가 지정된 조건 중 하나와 일치하도록 허용하여 특정 리소스 유형을 대상으로 하는 경고를 허용합니다.
 
 ### <a name="adjusting-the-resource-health-events-that-alert-you"></a>경고를 표시하는 Resource Health 이벤트 조정
-리소스에 상태 이벤트가 발생하는 경우 상태 이벤트의 상태를 나타내는 일련의 단계(`Active`, `InProgress`, `Updated` 및 `Resolved`)를 거칠 수 있습니다.
+리소스에 상태 이벤트가 발생하는 경우 상태 이벤트의 상태를 나타내는 일련의 단계(`Active`, `In Progress`, `Updated` 및 `Resolved`)를 거칠 수 있습니다.
 
 리소스 상태가 비정상이 되는 경우에만 알림을 받으려는 경우에는 `status`가 `Active`인 경우에만 알리도록 경고를 구성할 수 있습니다. 하지만 다른 단계에서도 알림을 받으려면 다음과 같이 세부 정보를 추가할 수 있습니다.
 
@@ -214,7 +214,7 @@ Resource Health 경고는 세 가지 다른 범위에서 이벤트를 모니터�
                 },
                 {
                     "field": "status",
-                    "equals": "InProgress"
+                    "equals": "In Progress"
                 },
                 {
                     "field": "status",
@@ -234,7 +234,7 @@ Resource Health 경고는 세 가지 다른 범위에서 이벤트를 모니터�
 
 ### <a name="adjusting-the-resource-health-alerts-to-avoid-unknown-events"></a>"알 수 없음" 이벤트를 방지하기 위해 Resource Health 경고 조정
 
-Azure Resource Health는 Test Runner를 사용하여 리소스를 지속적으로 모니터링하여 리소스의 최신 상태를 보고할 수 있습니다. 보고된 관련 상태는 다음과 같습니다. "사용 가능함", "사용 불가능함" 및 "성능 저하됨". 하지만 Runner와 Azure 리소스가 통신할 수 없는 상황에서는 리소스에 대해 "알 수 없음" 상태가 보고되며 이것은 "활성" 상태 이벤트로 간주됩니다.
+Azure Resource Health는 Test Runner를 사용하여 리소스를 지속적으로 모니터링하여 리소스의 최신 상태를 보고할 수 있습니다. 관련된 보고 상태는 "사용할 수 있음", "사용할 수 없음" 및 "저하됨"입니다. 하지만 Runner와 Azure 리소스가 통신할 수 없는 상황에서는 리소스에 대해 "알 수 없음" 상태가 보고되며 이것은 "활성" 상태 이벤트로 간주됩니다.
 
 하지만 리소스가 "알 수 없음"으로 보고되면 가장 최근의 정확한 보고서 이후로 상태가 변경되지 않았을 가능성이 큽니다. "알 수 없음" 이벤트에 대한 경고를 제거하려면 템플릿에서 해당 논리를 지정하면 됩니다.
 
@@ -409,7 +409,7 @@ Azure Resource Health는 Test Runner를 사용하여 리소스를 지속적으�
                                 },
                                 {
                                     "field": "status",
-                                    "equals": "InProgress",
+                                    "equals": "In Progress",
                                     "containsAny": null
                                 },
                                 {

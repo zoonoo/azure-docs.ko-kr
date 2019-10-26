@@ -1,5 +1,5 @@
 ---
-title: 브라우저의 알려진 문제 (JavaScript 용 Microsoft 인증 라이브러리)
+title: Safari 브라우저의 알려진 문제 (JavaScript 용 MSAL)
 titleSuffix: Microsoft identity platform
 description: Safari 브라우저에서 JavaScript 용 Microsoft 인증 라이브러리 (MSAL)를 사용 하는 경우 문제를 파악 하는 방법에 대해 알아봅니다.
 services: active-directory
@@ -18,12 +18,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51d800ea2fbbc733a6213d7bc4f61f955612aba0
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: c48ae9bf7bb5d7f1055ebf0391557a1d117ab39d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803076"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934854"
 ---
 # <a name="known-issues-on-safari-browser-with-msaljs"></a>MSAL를 사용한 Safari 브라우저의 알려진 문제 
 

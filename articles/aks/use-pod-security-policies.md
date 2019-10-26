@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 3c9e5185bfcaf99765ec29874cea407fe55bfb17
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 131a71e27bba1c37b6d50b718b8eac788109a59f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058319"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933760"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
@@ -24,7 +24,7 @@ AKS 클러스터의 보안을 향상 시키기 위해 예약할 수 있는 pod�
 > * [AKS 지원 정책][aks-support-policies]
 > * [Azure 지원 FAQ][aks-faq]
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
@@ -106,10 +106,10 @@ NAME         PRIV    CAPS   SELINUX    RUNASUSER          FSGROUP     SUPGROUP  
 privileged   true    *      RunAsAny   RunAsAny           RunAsAny    RunAsAny    false            *     configMap,emptyDir,projected,secret,downwardAPI,persistentVolumeClaim
 ```
 
-*권한* 있는 pod 보안 정책은 AKS 클러스터의 모든 인증 된 사용자에 게 적용 됩니다. 이 할당은 ClusterRoles 및 ClusterRoleBindings에 의해 제어 됩니다. [Kubectl get clusterrolebindings][kubectl-get] 명령을 사용 하 고 *기본: 특수:* binding을 검색 합니다.
+*권한* 있는 pod 보안 정책은 AKS 클러스터의 모든 인증 된 사용자에 게 적용 됩니다. 이 할당은 ClusterRoles 및 ClusterRoleBindings에 의해 제어 됩니다. [Kubectl get clusterrolebindings][kubectl-get] 명령을 사용 하 여 *기본: 특권:* binding을 검색 합니다.
 
 ```console
-kubectl get clusterrolebindings default:priviledged -o yaml
+kubectl get clusterrolebindings default:privileged -o yaml
 ```
 
 다음 압축 된 출력과 같이 *psp: 제한* 된 ClusterRole는 모든 *시스템: 인증* 된 사용자에 게 할당 됩니다. 이 기능은 사용자 고유의 정책을 정의 하지 않아도 기본적인 제한 수준을 제공 합니다.
@@ -119,12 +119,12 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   [...]
-  name: default:priviledged
+  name: default:privileged
   [...]
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: psp:priviledged
+  name: psp:privileged
 subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: Group
@@ -156,7 +156,7 @@ kubectl create rolebinding \
 
 ### <a name="create-alias-commands-for-admin-and-non-admin-user"></a>관리자 및 관리자가 아닌 사용자에 대 한 별칭 만들기 명령
 
-를 사용할 `kubectl` 때와 이전 단계에서 만든 비관리자 사용자의 차이를 강조 표시 하려면 다음 두 명령줄 별칭을 만듭니다.
+이전 단계에서 만든 `kubectl` 및 비관리자 사용자를 사용할 때 일반 관리자 사용자 간의 차이점을 강조 표시 하려면 다음 두 명령줄 별칭을 만듭니다.
 
 * **Kubectl** 별칭은 일반 관리자 사용자를 위한 것 이며,은 *psp-aks* 네임 스페이스로 범위가 지정 됩니다.
 * **Kubectl 사용자** 별칭은 이전 단계에서 만든 *nonadmin* 이 아닌 사용자를 위한 것 이며,이 별칭은 *psp-aks* 네임 스페이스로 범위가 지정 됩니다.
@@ -170,9 +170,9 @@ alias kubectl-nonadminuser='kubectl --as=system:serviceaccount:psp-aks:nonadmin-
 
 ## <a name="test-the-creation-of-a-privileged-pod"></a>권한 있는 pod 생성 테스트
 
-먼저의 `privileged: true`보안 컨텍스트를 사용 하 여 pod를 예약할 때 발생 하는 결과를 테스트 하겠습니다. 이 보안 컨텍스트는 pod의 권한을 에스컬레이션 합니다. 기본 AKS pod 보안 정책을 보여 준 이전 섹션에서 *제한* 된 정책은이 요청을 거부 해야 합니다.
+먼저 `privileged: true`의 보안 컨텍스트를 사용 하 여 pod를 예약할 때 발생 하는 결과를 테스트 하겠습니다. 이 보안 컨텍스트는 pod의 권한을 에스컬레이션 합니다. 기본 AKS pod 보안 정책을 보여 준 이전 섹션에서 *제한* 된 정책은이 요청을 거부 해야 합니다.
 
-이라는 `nginx-privileged.yaml` 파일을 만들고 다음 yaml 매니페스트를 붙여넣습니다.
+`nginx-privileged.yaml` 라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -207,7 +207,7 @@ Pod는 일정 단계에 도달 하지 않으므로 이동 하기 전에 삭제�
 
 이전 예제에서 pod 사양은 권한 있는 에스컬레이션을 요청 했습니다. 이 요청은 기본 *제한* 된 pod 보안 정책에 의해 거부 되므로 pod를 예약 하지 못합니다. 이제 권한 상승 요청 없이 동일한 NGINX pod를 실행 해 보겠습니다.
 
-이라는 `nginx-unprivileged.yaml` 파일을 만들고 다음 yaml 매니페스트를 붙여넣습니다.
+`nginx-unprivileged.yaml` 라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -226,7 +226,7 @@ spec:
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml
 ```
 
-Kubernetes scheduler는 pod 요청을 허용 합니다. 그러나를 사용 하 `kubectl get pods`여 pod 상태를 살펴보면 오류가 발생 합니다.
+Kubernetes scheduler는 pod 요청을 허용 합니다. 그러나 `kubectl get pods`를 사용 하 여 pod의 상태를 살펴보면 오류가 발생 합니다.
 
 ```console
 $ kubectl-nonadminuser get pods
@@ -267,9 +267,9 @@ kubectl-nonadminuser delete -f nginx-unprivileged.yaml
 
 ## <a name="test-creation-of-a-pod-with-a-specific-user-context"></a>특정 사용자 컨텍스트를 사용 하 여 pod 생성 테스트
 
-이전 예제에서 컨테이너 이미지는 자동으로 root를 사용 하 여 NGINX를 포트 80에 바인딩합니다. 이 요청은 기본 *제한* 된 pod 보안 정책에 의해 거부 되었으므로 pod를 시작 하지 못합니다. 이제와 `runAsUser: 2000`같은 특정 사용자 컨텍스트를 사용 하 여 동일한 NGINX pod를 실행 해 보겠습니다.
+이전 예제에서 컨테이너 이미지는 자동으로 root를 사용 하 여 NGINX를 포트 80에 바인딩합니다. 이 요청은 기본 *제한* 된 pod 보안 정책에 의해 거부 되었으므로 pod를 시작 하지 못합니다. 이제 `runAsUser: 2000`와 같은 특정 사용자 컨텍스트를 사용 하 여 동일한 NGINX pod를 실행 해 보겠습니다.
 
-이라는 `nginx-unprivileged-nonroot.yaml` 파일을 만들고 다음 yaml 매니페스트를 붙여넣습니다.
+`nginx-unprivileged-nonroot.yaml` 라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -290,7 +290,7 @@ spec:
 kubectl-nonadminuser apply -f nginx-unprivileged-nonroot.yaml
 ```
 
-Kubernetes scheduler는 pod 요청을 허용 합니다. 그러나를 사용 하 `kubectl get pods`여 pod 상태를 살펴보면 이전 예제와 다른 오류가 발생 합니다.
+Kubernetes scheduler는 pod 요청을 허용 합니다. 그러나 `kubectl get pods`를 사용 하 여 pod의 상태를 살펴보면 이전 예제와 다른 오류가 발생 합니다.
 
 ```console
 $ kubectl-nonadminuser get pods
@@ -352,7 +352,7 @@ kubectl-nonadminuser delete -f nginx-unprivileged-nonroot.yaml
 
 권한 있는 액세스를 요청 하는 pod를 거부 하는 정책을 만들어 보겠습니다. *RunAsUser* 또는 허용 된 *볼륨과*같은 기타 옵션은 명시적으로 제한 되지 않습니다. 이 유형의 정책은 권한 있는 액세스에 대 한 요청을 거부 하지만, 그렇지 않으면 클러스터에서 요청 된 pod을 실행할 수 있습니다.
 
-이라는 `psp-deny-privileged.yaml` 파일을 만들고 다음 yaml 매니페스트를 붙여넣습니다.
+`psp-deny-privileged.yaml` 라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다.
 
 ```yaml
 apiVersion: policy/v1beta1
@@ -393,7 +393,7 @@ psp-deny-privileged   false          RunAsAny   RunAsAny           RunAsAny    R
 
 이전 단계에서는 권한 있는 액세스를 요청 하는 pod를 거부 하는 pod 보안 정책을 만들었습니다. 정책을 사용할 수 있도록 허용 하려면 *역할* 또는 *ClusterRole*를 만듭니다. 그런 다음 *rolebinding* 또는 *clusterrolebinding*을 사용 하 여 이러한 역할 중 하나를 연결 합니다.
 
-이 예에서는 이전 단계에서 만든 *psp-거부 권한* 정책을 *사용할* 수 있는 ClusterRole를 만듭니다. 이라는 `psp-deny-privileged-clusterrole.yaml` 파일을 만들고 다음 yaml 매니페스트를 붙여넣습니다.
+이 예에서는 이전 단계에서 만든 *psp-거부 권한* 정책을 *사용할* 수 있는 ClusterRole를 만듭니다. `psp-deny-privileged-clusterrole.yaml` 라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다.
 
 ```yaml
 kind: ClusterRole
@@ -417,7 +417,7 @@ rules:
 kubectl apply -f psp-deny-privileged-clusterrole.yaml
 ```
 
-이제 이전 단계에서 만든 ClusterRole를 사용 하는 ClusterRoleBinding을 만듭니다. 이라는 `psp-deny-privileged-clusterrolebinding.yaml` 파일을 만들고 다음 yaml 매니페스트를 붙여넣습니다.
+이제 이전 단계에서 만든 ClusterRole를 사용 하는 ClusterRoleBinding을 만듭니다. `psp-deny-privileged-clusterrolebinding.yaml` 라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -445,7 +445,7 @@ kubectl apply -f psp-deny-privileged-clusterrolebinding.yaml
 
 ## <a name="test-the-creation-of-an-unprivileged-pod-again"></a>권한 없는 pod 생성을 다시 테스트 합니다.
 
-사용자 지정 pod 보안 정책이 적용 되 고 정책을 사용 하기 위한 사용자 계정에 대 한 바인딩이 있으면 권한 없는 pod를 다시 만들려고 시도 합니다. 같은 `nginx-privileged.yaml` 매니페스트를 사용 하 여 [kubectl apply][kubectl-apply] 명령을 사용 하 여 pod를 만듭니다.
+사용자 지정 pod 보안 정책이 적용 되 고 정책을 사용 하기 위한 사용자 계정에 대 한 바인딩이 있으면 권한 없는 pod를 다시 만들려고 시도 합니다. [Kubectl apply][kubectl-apply] 명령을 사용 하 여 pod를 만들려면 동일한 `nginx-privileged.yaml` 매니페스트를 사용 합니다.
 
 ```console
 kubectl-nonadminuser apply -f nginx-unprivileged.yaml

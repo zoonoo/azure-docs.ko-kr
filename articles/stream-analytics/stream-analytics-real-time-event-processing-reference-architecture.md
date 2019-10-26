@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics 이벤트 처리를 사용하여 실시간 이벤트 처리
+title: Azure Stream Analytics를 사용 하 여 실시간 이벤트 처리
 description: 이 문서에서는 Azure Stream Analytics를 사용하여 실시간 이벤트 처리 및 분석을 완수하기 위한 참조 아키텍처를 설명합니다.
 services: stream-analytics
 author: jseb225
@@ -8,14 +8,14 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/24/2017
-ms.openlocfilehash: ab1ca89427f332151120420c3c087902584706f4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 21a0e4e468b606ec7bb7e33bf1a616e68cd6cf50
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621776"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925105"
 ---
-# <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>참조 아키텍처: Microsoft Azure Stream Analytics로 실시간 이벤트 처리
+# <a name="reference-architecture-real-time-event-processing-with-microsoft-azure-stream-analytics"></a>참조 아키텍처: Microsoft Azure Stream Analytics으로 실시간 이벤트 처리
 Microsoft Azure Stream Analytics과 실시간 이벤트 처리의 참조 아키텍처는 Microsoft Azure를 지원하는 실시간 PaaS(Platform as a Service) 스트림 처리 솔루션 배포에 대한 전체적인 청사진을 제공하기 위한 것입니다.
 
 ## <a name="summary"></a>요약
@@ -23,7 +23,7 @@ Microsoft Azure Stream Analytics과 실시간 이벤트 처리의 참조 아키�
 
 Microsoft Azure는 여러 솔루션 시나리오 및 요구 사항을 지원할 수 있는 광범위한 분석 기술 카탈로그를 제공합니다. 솔루션의 범위로 볼 때 엔드투엔드 솔루션에 배포할 Azure 서비스를 선택하는 것은 어려울 수 있습니다. 이 문서는 이벤트 스트리밍 솔루션을 지원하는 다양한 Azure 서비스의 기능 및 상호 운용에 대해 설명하기 위한 것입니다. 또한 고객이 이러한 접근 방식으로 혜택을 볼 수 있는 시나리오를 몇 가지 설명 합니다.
 
-## <a name="contents"></a>목차
+## <a name="contents"></a>콘텐츠
 * 요약
 * 실시간 분석 소개
 * Azure에서 실시간 데이터의 가치 제안
@@ -38,13 +38,13 @@ Microsoft Azure는 여러 솔루션 시나리오 및 요구 사항을 지원할 
 
 **작성자:** Charles Feddersen - Microsoft Corporation, Data Insights Center of Excellence, 솔루션 설계자
 
-**게시일:** 2015년 1월
+**게시:** 2015년 1월
 
 **수정 버전:** 1.0
 
-**다운로드:** [Microsoft Azure Stream Analytics로 실시간 이벤트 처리](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
+**다운로드:** [Microsoft Azure Stream Analytics과 실시간 이벤트 처리](https://download.microsoft.com/download/6/2/3/623924DE-B083-4561-9624-C1AB62B5F82B/real-time-event-processing-with-microsoft-azure-stream-analytics.pdf)
 
-## <a name="get-help"></a>도움말 보기
+## <a name="get-help"></a>도움 받기
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계

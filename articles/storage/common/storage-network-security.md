@@ -7,35 +7,39 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: tamram
-ms.reviewer: cbrooks
+ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: b474e090db48b792ade81e8d0f5be0b69f6f109c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 908e44ef17dcfcf7042eab32cfd6d1fc3a565ac7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673171"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927109"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
-Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 사용 하 여 저장소 계정을 특정 네트워크 하위 집합으로 보호할 수 있습니다. 네트워크 규칙이 구성 된 경우 지정 된 네트워크 집합을 통해 데이터를 요청 하는 응용 프로그램만 저장소 계정에 액세스할 수 있습니다. 저장소 계정에 대 한 액세스를 지정 된 IP 주소, IP 범위 또는 Azure Virtual Network의 서브넷 목록에서 시작 되는 요청으로 제한할 수 있습니다.
+Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 사용 하면 사용 하는 네트워크의 유형 및 하위 집합에 따라 응용 프로그램 및 엔터프라이즈 환경에서 요구 하는 저장소 계정에 대 한 액세스 수준을 보호 하 고 제어할 수 있습니다. 네트워크 규칙이 구성 된 경우 지정 된 네트워크 집합을 통해 데이터를 요청 하는 응용 프로그램만 저장소 계정에 액세스할 수 있습니다. 저장소 계정에 대 한 액세스를 지정 된 IP 주소, IP 범위 또는 Azure Virtual Network (VNet)의 서브넷 목록에서 시작 되는 요청으로 제한할 수 있습니다.
 
-네트워크 규칙이 적용 될 때 저장소 계정에 액세스 하는 응용 프로그램에는 요청에 대 한 적절 한 권한 부여가 필요 합니다. 권한 부여는 blob 및 큐에 대 한 Azure Active Directory (Azure AD) 자격 증명, 유효한 계정 액세스 키 또는 SAS 토큰을 사용 하 여 지원 됩니다.
+저장소 계정에는 인터넷을 통해 액세스할 수 있는 공용 끝점이 있습니다. [저장소 계정에 대 한 개인 끝점](storage-private-endpoints.md)을 만들어 vnet에서 저장소 계정으로 개인 IP 주소를 할당 하 고 개인 링크를 통해 vnet과 저장소 계정 간의 모든 트래픽을 보호할 수도 있습니다. Azure storage 방화벽은 저장소 계정의 공용 끝점에 대 한 액세스 제어 액세스를 제공 합니다. 또한 개인 끝점을 사용 하는 경우 방화벽을 사용 하 여 공용 끝점을 통해 모든 액세스를 차단할 수 있습니다. 저장소 방화벽 구성을 사용 하면 신뢰할 수 있는 Azure 플랫폼 서비스를 선택 하 여 저장소 계정에 안전 하 게 액세스할 수도 있습니다.
+
+네트워크 규칙이 적용 되는 경우 저장소 계정에 액세스 하는 응용 프로그램은 여전히 요청에 대 한 적절 한 권한 부여가 필요 합니다. 권한 부여는 blob 및 큐에 대 한 Azure Active Directory (Azure AD) 자격 증명, 유효한 계정 액세스 키 또는 SAS 토큰을 사용 하 여 지원 됩니다.
 
 > [!IMPORTANT]
-> 저장소 계정에 대 한 방화벽 규칙을 켜면 요청이 Azure Virtual Network (VNet) 내에서 작동 하는 서비스에서 시작 되는 경우를 제외 하 고 기본적으로 들어오는 데이터에 대 한 요청이 차단 됩니다. 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다.
+> 저장소 계정에 대 한 방화벽 규칙을 켜면 요청이 Azure Virtual Network (VNet) 내에서 또는 허용 되는 공용 IP 주소에서 시작 하는 서비스에서 시작 되는 경우를 제외 하 고 기본적으로 들어오는 데이터에 대 한 요청이 차단 됩니다. 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다.
 >
-> 서비스 인스턴스를 호스팅하는 서브넷의 트래픽을 허용 하 여 VNet 내에서 작동 하는 Azure 서비스에 대 한 액세스 권한을 부여할 수 있습니다. 다음 섹션에 설명 된 [예외](#exceptions) 메커니즘을 통해 제한 된 수의 시나리오를 사용 하도록 설정할 수도 있습니다. Azure Portal를 통해 저장소 계정의 데이터에 액세스 하려면 사용자가 설정 하는 신뢰할 수 있는 경계 (IP 또는 VNet) 내의 컴퓨터에 있어야 합니다.
+> 서비스 인스턴스를 호스팅하는 서브넷의 트래픽을 허용 하 여 VNet 내에서 작동 하는 Azure 서비스에 대 한 액세스 권한을 부여할 수 있습니다. 또한 아래에 설명 된 [예외](#exceptions) 메커니즘을 통해 제한 된 수의 시나리오를 사용할 수 있습니다. Azure Portal를 통해 저장소 계정의 데이터에 액세스 하려면 사용자가 설정 하는 신뢰할 수 있는 경계 (IP 또는 VNet) 내의 컴퓨터에 있어야 합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="scenarios"></a>시나리오
 
-저장소 계정을 보호 하려면 먼저 기본적으로 모든 네트워크 (인터넷 트래픽 포함)의 트래픽에 대 한 액세스를 거부 하는 규칙을 구성 해야 합니다. 그런 다음 특정 Vnet 트래픽에 대 한 액세스 권한을 부여 하는 규칙을 구성 해야 합니다. 이 구성을 사용하면 애플리케이션에 대한 보안 네트워크 경계를 구축할 수 있습니다. 또한 특정 인터넷 또는 온-프레미스 클라이언트에서 연결을 사용 하도록 설정 하 여 공용 인터넷 IP 주소 범위 선택에서 트래픽에 대 한 액세스를 허용 하도록 규칙을 구성할 수 있습니다.
+저장소 계정을 보호 하려면 먼저 공용 끝점에서 모든 네트워크 (인터넷 트래픽 포함)의 트래픽에 대 한 액세스를 거부 하는 규칙을 먼저 구성 해야 합니다. 그런 다음 특정 Vnet 트래픽에 대 한 액세스 권한을 부여 하는 규칙을 구성 해야 합니다. 또한 특정 인터넷 또는 온-프레미스 클라이언트에서 연결을 사용 하도록 설정 하 여 공용 인터넷 IP 주소 범위 선택에서 트래픽에 대 한 액세스를 허용 하도록 규칙을 구성할 수 있습니다. 이 구성을 사용하면 애플리케이션에 대한 보안 네트워크 경계를 구축할 수 있습니다.
+
+특정 가상 네트워크 및 공용 IP 주소 범위에서 동일한 저장소 계정에 대 한 액세스를 허용 하는 방화벽 규칙을 결합할 수 있습니다. 저장소 방화벽 규칙은 기존 저장소 계정에 적용 하거나 새 저장소 계정을 만들 때 적용할 수 있습니다.
+
+저장소 방화벽 규칙은 저장소 계정의 공용 끝점에 적용 됩니다. 저장소 계정의 개인 끝점에 대 한 트래픽을 허용 하는 방화벽 액세스 규칙은 필요 하지 않습니다. 개인 끝점의 생성을 승인 하는 프로세스는 개인 끝점을 호스트 하는 서브넷의 트래픽에 대 한 암시적 액세스를 부여 합니다.
 
 네트워크 규칙은 REST 및 SMB를 포함하여 Azure Storage에 대한 모든 네트워크 프로토콜에 적용됩니다. Azure Portal, Storage 탐색기 및 AZCopy와 같은 도구를 사용 하 여 데이터에 액세스 하려면 명시적 네트워크 규칙을 구성 해야 합니다.
-
-네트워크 규칙은 기존 스토리지 계정에 적용하거나 새 스토리지 계정을 만들 때 적용할 수 있습니다.
 
 네트워크 규칙이 적용되면 모든 요청에 적용됩니다. 특정 IP 주소에 대한 액세스 권한을 부여하는 SAS 토큰은 토큰 소유자의 액세스를 제한하지만, 구성된 네트워크 규칙 이외의 새 액세스 권한은 부여하지 않습니다.
 
@@ -127,7 +131,7 @@ VNet 내의 Azure Storage에 대해 [서비스 엔드포인트](/azure/virtual-n
 > [!NOTE]
 > 서비스 엔드포인트는 가상 네트워크 지역 및 지정된 지역 쌍 외부의 트래픽에는 적용되지 않습니다. 가상 네트워크에서 액세스할 수 있도록 허용하는 네트워크 규칙만 스토리지 계정의 주 지역 또는 쌍을 이루는 지정된 지역의 스토리지 계정에 적용할 수 있습니다.
 
-### <a name="required-permissions"></a>필요한 권한
+### <a name="required-permissions"></a>필요한 사용 권한
 
 가상 네트워크 규칙을 스토리지 계정에 적용하려면 추가되는 서브넷에 대한 적절한 권한이 사용자에게 있어야 합니다. 필요한 권한은 *서브넷에 서비스 조인*이며, *스토리지 계정 기여자* 기본 제공 역할에 포함됩니다. 사용자 지정 역할 정의에 추가할 수도 있습니다.
 
@@ -219,7 +223,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
     ```
 
     > [!TIP]
-    > 다른 Azure AD 테 넌 트에 속한 VNet의 서브넷에 대 한 규칙을 추가 하려면 "/subscriptions/subscription-ID/resourceGroups/resourceGroup-Name/providers/Microsoft.Network/virtualNetworks/vNet-name/subnets/subnet-name" 형식으로 정규화 된 서브넷 ID를 사용 합니다.
+    > 다른 Azure AD 테 넌 트에 속한 VNet의 서브넷에 대 한 규칙을 추가 하려면 "/subscriptions/\<subscription-ID\>/Wsourceg/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<" 형식으로 정규화 된 서브넷 ID를 사용 합니다.
     > 
     > **Subscription** 매개 변수를 사용 하 여 다른 Azure AD 테 넌 트에 속한 VNet의 서브넷 ID를 검색할 수 있습니다.
 
@@ -247,9 +251,12 @@ IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용�
    > [!NOTE]
    > IP 네트워크 규칙은 스토리지 계정과 동일한 Azure 지역에서 시작된 요청에 영향을 주지 않습니다. 동일한 지역 요청을 허용하려면 [가상 네트워크 규칙](#grant-access-from-a-virtual-network)을 사용하세요.
 
-현재 IPv4 주소만 지원됩니다.
+  > [!NOTE]
+  > 저장소 계정과 동일한 지역에 배포 된 서비스는 통신을 위해 개인 Azure IP 주소를 사용 합니다. 따라서 공용 인바운드 IP 주소 범위에 따라 특정 Azure 서비스에 대 한 액세스를 제한할 수 없습니다.
 
-각 스토리지 계정은 [가상 네트워크 규칙](#grant-access-from-a-virtual-network)과 결합될 수 있는 최대 100개의 IP 네트워크 규칙을 지원합니다.
+저장소 방화벽 규칙의 구성에는 IPV4 주소만 지원 됩니다.
+
+각 저장소 계정은 최대 100 IP 네트워크 규칙을 지원 합니다.
 
 ### <a name="configuring-access-from-on-premises-networks"></a>온-프레미스 네트워크에서의 액세스 구성
 
@@ -351,35 +358,45 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 ## <a name="exceptions"></a>예외
 
-네트워크 규칙은 대부분의 시나리오에서 보안 네트워크 구성을 사용하도록 설정할 수 있습니다. 그러나 모든 기능을 사용하도록 설정하려면 예외를 허용해야 하는 경우도 있습니다. 신뢰할 수 있는 Microsoft 서비에 대한 예외와 스토리지 분석 데이터의 액세스에 대한 예외를 사용하여 스토리지 계정을 구성할 수 있습니다.
+네트워크 규칙은 대부분의 시나리오에서 응용 프로그램과 데이터 간의 액세스를 위한 보안 환경을 만드는 데 도움이 됩니다. 그러나 일부 응용 프로그램은 가상 네트워크 또는 IP 주소 규칙을 통해 고유 하 게 격리 될 수 없는 서비스를 사용 합니다. 그러나 전체 응용 프로그램 기능을 사용 하려면 이러한 서비스를 저장소 계정에 부여 해야 합니다. ***신뢰할 수 있는 Microsoft 서비스 허용*** ... 예외를 사용 하 여 데이터, 로그 또는 분석에 대 한 일부 액세스 시나리오를 사용 하도록 설정할 수 있습니다.
 
 ### <a name="trusted-microsoft-services"></a>신뢰할 수 있는 Microsoft 서비스
 
-스토리지 계정과 상호 작용하는 일부 Microsoft 서비스는 네트워크 규칙을 통해 액세스 권한을 부여할 수 없는 네트워크에서 작동합니다.
+네트워크에서 작동 하는 일부 Microsoft 서비스는 기존 네트워크 규칙을 통해 액세스 권한을 부여할 수 없습니다. 이러한 신뢰할 수 있는 Microsoft 서비스의 하위 집합에서 저장소 계정에 액세스 하도록 허용 하는 동시에 다른 앱에 대 한 네트워크 규칙을 유지할 수 있습니다. 그러면 이러한 서비스에서 강력한 인증을 사용 하 여 저장소 계정에 연결할 수 있습니다. Microsoft 서비스에 대 한 두 가지 유형의 트러스트 된 액세스를 사용 하도록 설정 합니다.
 
-일부 서비스가 의도 한 대로 작동 하도록 하려면 신뢰할 수 있는 Microsoft 서비스의 하위 집합에서 네트워크 규칙을 무시 하도록 허용 해야 합니다. 그러면 이러한 서비스에서 강력한 인증을 사용하여 스토리지 계정에 액세스합니다.
+- 일부 서비스의 리소스에는 로그 작성 또는 백업과 같은 선택 작업에 대 한 액세스 권한이 부여 될 수 있습니다.
+- 리소스 인스턴스에 [RBAC 역할을 할당](storage-auth-aad.md#assign-rbac-roles-for-access-rights) 하 여 일부 서비스의 특정 인스턴스에 대 한 액세스 권한을 부여할 수 있습니다.
 
-**신뢰할 수 있는 Microsoft 서비스 허용...** 예외를 사용하도록 설정하면 스토리지 계정에 대한 액세스 권한이 다음과 같은 서비스(구독에 등록된 경우)는 부여됩니다.
 
-| 서비스                  | 리소스 공급자 이름     | 용도                                                                                                                                                                                                                                                                                                                      |
-|:-------------------------|:---------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Azure Backup             | Microsoft.RecoveryServices | IAAS 가상 머신에서 관리되지 않는 디스크의 백업 및 복원을 실행합니다. (관리되는 디스크에 필요 없음). [자세히 알아보기](/azure/backup/backup-introduction-to-azure-backup).                                                                                                                                                     |
-| Azure Data Box           | Microsoft.DataBox          | Data Box를 사용 하 여 Azure로 데이터를 가져올 수 있습니다. [자세히 알아보기](/azure/databox/data-box-overview).                                                                                                                                                                                                                              |
-| Azure DevTest Labs       | Microsoft.DevTestLab       | 사용자 지정 이미지 만들기 및 아티팩트 설치. [자세히 알아보기](/azure/devtest-lab/devtest-lab-overview).                                                                                                                                                                                                                      |
-| Azure Event Grid         | Microsoft.EventGrid        | Blob Storage 이벤트 게시를 사용하도록 설정하고 Event Grid가 스토리지 큐에 게시하도록 허용합니다. [Blob Storage 이벤트](/azure/event-grid/event-sources)와 [큐에 게시](/azure/event-grid/event-handlers)에 대해 알아봅니다.                                                                                                     |
-| Azure Event Hubs         | Microsoft.EventHub         | Event Hubs 캡처로 데이터를 보관합니다. [자세한 정보](/azure/event-hubs/event-hubs-capture-overview).                                                                                                                                                                                                                           |
-| Azure 파일 동기화          | Microsoft.StorageSync      | Azure 파일 공유를 위해 온-프레미스 파일 서버를 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 쪽 백업을 허용 합니다. [자세히 알아보기](../files/storage-sync-files-planning.md)                                                                                                       |
-| Azure HDInsight          | Microsoft.HDInsight        | 새 HDInsight 클러스터에 대 한 기본 파일 시스템의 초기 콘텐츠를 프로 비전 합니다. [자세히 알아보기](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).                                                                                                                                    |
-| Azure Machine Learning 서비스 | Microsoft.MachineLearningServices | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 저장소에 기록 합니다. [자세히 알아보기](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace).                                                               
-| Azure Monitor            | Microsoft.Insights         | 보안 스토리지 계정에 모니터링 데이터를 쓸 수 있습니다. [자세히 알아보기](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).                                                                                                                                                                        |
-| Azure 네트워킹         | Microsoft.Network          | 네트워크 트래픽 로그를 저장 및 분석합니다. [자세히 알아보기](/azure/network-watcher/network-watcher-packet-capture-overview).                                                                                                                                                                                                        |
-| Azure Site Recovery      | Microsoft.SiteRecovery     | Azure IaaS 가상 머신에 대한 복제를 사용하도록 설정하여 재해 복구를 구성합니다. 이 서비스는 방화벽 사용 캐시 스토리지 계정, 원본 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우에 필요합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
-| Azure SQL 데이터 웨어하우스 | Microsoft.Sql              | PolyBase를 사용 하 여 특정 SQL Database 인스턴스에서 가져오기 및 내보내기 시나리오를 허용 합니다. [자세히 알아보기](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview).                                                                                                                                                 |
-| Azure Stream Analytics   | Microsoft.StreamAnalytics  | 스트리밍 작업의 데이터를 Blob 저장소에 쓸 수 있습니다. 이 기능은 현재 미리 보기 상태입니다. [자세히 알아보기](../../stream-analytics/blob-output-managed-identity.md).                                                                                                                                        |
+**신뢰할 수 있는 Microsoft 서비스 허용** ... 예외를 사용 하도록 설정 하면 다음 서비스 (구독에 등록 된 경우)에 설명 된 대로 select 작업을 위한 저장소 계정에 대 한 액세스 권한이 부여 됩니다.
+
+| 서비스                  | 리소스 공급자 이름     | 용도                            |
+|:------------------------ |:-------------------------- |:---------------------------------- |
+| Azure Backup             | Microsoft.RecoveryServices | IAAS 가상 머신에서 관리되지 않는 디스크의 백업 및 복원을 실행합니다. (관리되는 디스크에 필요 없음). [자세히 알아보기](/azure/backup/backup-introduction-to-azure-backup). |
+| Azure Data Box           | Microsoft.DataBox          | Data Box를 사용 하 여 Azure로 데이터를 가져올 수 있습니다. [자세히 알아보기](/azure/databox/data-box-overview). |
+| Azure DevTest Lab       | Microsoft.DevTestLab       | 사용자 지정 이미지 만들기 및 아티팩트 설치. [자세히 알아보기](/azure/devtest-lab/devtest-lab-overview). |
+| Azure Event Grid         | Microsoft.EventGrid        | Blob Storage 이벤트 게시를 사용하도록 설정하고 Event Grid가 스토리지 큐에 게시하도록 허용합니다. [Blob Storage 이벤트](/azure/event-grid/event-sources)와 [큐에 게시](/azure/event-grid/event-handlers)에 대해 알아봅니다. |
+| Azure Event Hubs         | Microsoft.EventHub         | Event Hubs 캡처로 데이터를 보관합니다. [자세한 정보](/azure/event-hubs/event-hubs-capture-overview). |
+| Azure 파일 동기화          | Microsoft.StorageSync      | Azure 파일 공유를 위해 온-프레미스 파일 서버를 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 쪽 백업을 허용 합니다. [자세한 정보](../files/storage-sync-files-planning.md) |
+| Azure HDInsight          | Microsoft.HDInsight        | 새 HDInsight 클러스터에 대 한 기본 파일 시스템의 초기 콘텐츠를 프로 비전 합니다. [자세히 알아보기](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/). |
+| Azure Machine Learning 서비스 | Microsoft.MachineLearningServices | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 저장소에 기록 합니다. [자세히 알아보기](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure Monitor            | Microsoft.Insights         | 보안 스토리지 계정에 모니터링 데이터를 쓸 수 있습니다. [자세히 알아보기](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
+| Azure 네트워킹         | Microsoft.Network          | 네트워크 트래픽 로그를 저장 및 분석합니다. [자세히 알아보기](/azure/network-watcher/network-watcher-packet-capture-overview). |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | 방화벽 사용 캐시, 원본 또는 대상 저장소 계정을 사용 하는 경우 Azure IaaS 가상 컴퓨터의 재해 복구에 대 한 복제를 사용 하도록 설정 합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+
+**신뢰할 수 있는 Microsoft 서비스 허용** ... 예외를 사용 하면 인스턴스에 대 한 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 RBAC 역할이 할당 된 경우 이러한 서비스의 특정 인스턴스에서 저장소 계정에 액세스할 수 있습니다.
+
+| 서비스                  | 리소스 공급자 이름          | 용도                            |
+| :----------------------- | :------------------------------ | :--------------------------------- |
+| Azure Data Factory       | Microsoft.DataFactory/factories | ADF 런타임을 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
+| Azure Logic Apps         | Microsoft.Logic/workflows       | 논리 앱이 저장소 계정에 액세스할 수 있도록 합니다. |
+| Azure SQL Data Warehouse | Microsoft.Sql                   | PolyBase를 사용 하 여 특정 SQL Database 인스턴스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아보기](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Azure Stream Analytics   | Microsoft.StreamAnalytics       | 스트리밍 작업의 데이터를 Blob 저장소에 쓸 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. [자세히 알아보기](../../stream-analytics/blob-output-managed-identity.md). |
+
 
 ### <a name="storage-analytics-data-access"></a>스토리지 분석 데이터 액세스
 
-경우에 따라 네트워크 경계 밖에서 진단 로그 및 메트릭을 읽을 수 있는 권한이 필요합니다. 네트워크 규칙에 예외를 허용하여 스토리지 계정 로그 파일, 메트릭 테이블 또는 둘 모두에 대한 읽기 액세스를 허용할 수 있습니다. [스토리지 분석 작업에 대한 자세한 정보](/azure/storage/storage-analytics)
+경우에 따라 네트워크 경계 외부에서 진단 로그 및 메트릭을 읽기 위한 액세스가 필요 합니다. 저장소 계정에 대 한 신뢰할 수 있는 서비스 액세스를 구성 하는 경우 로그 파일, 메트릭 테이블 또는 둘 다에 대해 읽기 액세스를 허용할 수 있습니다. [스토리지 분석 작업에 대한 자세한 정보](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>예외 관리
 

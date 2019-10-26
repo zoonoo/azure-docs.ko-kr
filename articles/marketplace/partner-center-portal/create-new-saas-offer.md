@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: a757ee03b8d8c7c93b191054182d077408c162db
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: da6fee7158344d331c6c2a68f0fab1b13cc3a291
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819812"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934110"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -196,7 +196,7 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
 
 #### <a name="terms-of-use"></a>사용 조건
 
-사용 조건이 표준 계약과 다른 경우 귀하의 법적 사용 약관을 여기에 입력 하도록 선택할 수 있습니다. 이 필드에는 최대 1만 자의 텍스트를 입력할 수도 있습니다. 사용 약관에 더 긴 설명이 필요한 경우 추가 사용 조건을 찾을 수 있는이 필드에 단일 URL 링크를 입력 합니다. 고객이 활성 링크로 표시 됩니다.
+사용 조건이 표준 계약과 다른 경우 귀하의 법적 사용 약관을 여기에 입력 하도록 선택할 수 있습니다. 일반 텍스트로 입력 하거나 사용 조건에 연결 하는 단일 URL로 입력할 수 있습니다.
 
 고객은 이러한 사용 약관에 동의해야 앱을 사용할 수 있습니다. 
 

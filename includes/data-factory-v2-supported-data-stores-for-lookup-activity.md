@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 08/06/2019
+ms.date: 10/25/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: a2b00173f463cf5bf0cda321286042a516b7e322
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 527114adbe2422148605fd878723ae74fa7c3304
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70130101"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72958682"
 ---
 | 범주 | 데이터 저장소 |
 |:--- |:--- |
@@ -30,14 +30,14 @@ ms.locfileid: "70130101"
 | &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |
-| **데이터베이스 백업** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
+| **데이터베이스** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |
-| &nbsp; |[드릴(미리 보기)](../articles/data-factory/connector-drill.md) |
+| &nbsp; |[Drill](../articles/data-factory/connector-drill.md) |
 | &nbsp; |[Google BigQuery](../articles/data-factory/connector-google-bigquery.md) |
 | &nbsp; |[Greenplum](../articles/data-factory/connector-greenplum.md) |
 | &nbsp; |[HBase](../articles/data-factory/connector-hbase.md) |
 | &nbsp; |[Hive](../articles/data-factory/connector-hive.md) |
-| &nbsp; |[Apache Impala(미리 보기)](../articles/data-factory/connector-impala.md) |
+| &nbsp; |[Apache Impala](../articles/data-factory/connector-impala.md) |
 | &nbsp; |[Informix](../articles/data-factory/connector-informix.md) 
 | &nbsp; |[MariaDB](../articles/data-factory/connector-mariadb.md) |
 | &nbsp; |[Microsoft Access](../articles/data-factory/connector-microsoft-access.md) |
@@ -67,15 +67,15 @@ ms.locfileid: "70130101"
 | **일반 프로토콜** |[일반 HTTP](../articles/data-factory/connector-http.md) |
 | &nbsp; |[일반 OData](../articles/data-factory/connector-odata.md) |
 | &nbsp; |[일반 ODBC](../articles/data-factory/connector-odbc.md) |
-| **서비스 및 앱** |[Amazon Marketplace 웹 서비스(미리 보기)](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
+| **서비스 및 앱** |[Amazon Marketplace 웹 서비스](../articles/data-factory/connector-amazon-marketplace-web-service.md) |
 | &nbsp; |[Common Data Service for Apps](../articles/data-factory/connector-dynamics-crm-office-365.md) |
 | &nbsp; |[Concur(미리 보기)](../articles/data-factory/connector-concur.md) |
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |
-| &nbsp; |[Dynamics AX(미리 보기)](../articles/data-factory/connector-dynamics-ax.md) |
+| &nbsp; |[Azure IoT Hub](../articles/data-factory/connector-dynamics-ax.md) |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |
-| &nbsp; |[Google 애드워즈(미리 보기)](../articles/data-factory/connector-google-adwords.md) |
+| &nbsp; |[Google AdWords](../articles/data-factory/connector-google-adwords.md) |
 | &nbsp; |[HubSpot(미리 보기)](../articles/data-factory/connector-hubspot.md) |
-| &nbsp; |[Jira(미리 보기)](../articles/data-factory/connector-jira.md) |
+| &nbsp; |[Jira](../articles/data-factory/connector-jira.md) |
 | &nbsp; |[Magento(미리 보기)](../articles/data-factory/connector-magento.md) |
 | &nbsp; |[Marketo(미리 보기)](../articles/data-factory/connector-marketo.md) |
 | &nbsp; |[Oracle Eloqua(미리 보기)](../articles/data-factory/connector-oracle-eloqua.md) |
@@ -85,14 +85,14 @@ ms.locfileid: "70130101"
 | &nbsp; |[QuickBooks(미리 보기)](../articles/data-factory/connector-quickbooks.md) |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |
 | &nbsp; |[Salesforce 서비스 클라우드](../articles/data-factory/connector-salesforce-service-cloud.md) |
-| &nbsp; |[Salesforce 마케팅 클라우드(미리 보기)](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
+| &nbsp; |[Salesforce 마케팅 클라우드](../articles/data-factory/connector-salesforce-marketing-cloud.md) |
 | &nbsp; |[SAP Cloud for Customer(C4C)](../articles/data-factory/connector-sap-cloud-for-customer.md) |
 | &nbsp; |[SAP ECC](../articles/data-factory/connector-sap-ecc.md) |
 | &nbsp; |[ServiceNow](../articles/data-factory/connector-servicenow.md) |
 | &nbsp; |[Shopify(미리 보기)](../articles/data-factory/connector-shopify.md) |
 | &nbsp; |[Square(미리 보기)](../articles/data-factory/connector-square.md) |
 | &nbsp; |[웹 테이블(HTML 테이블)](../articles/data-factory/connector-web-table.md) 
-| &nbsp; |[Xero(미리 보기)](../articles/data-factory/connector-xero.md) |
+| &nbsp; |[Xero](../articles/data-factory/connector-xero.md) |
 | &nbsp; |[Zoho(미리 보기)](../articles/data-factory/connector-zoho.md) |
 
 > [!NOTE]

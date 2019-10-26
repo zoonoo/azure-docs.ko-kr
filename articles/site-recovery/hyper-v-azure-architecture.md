@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 4035746772b44d7267d6a9cd90c7bdc02c804a8a
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 20f325ff64581396f5f7ab2ce05a2479cdb45118
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147067"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933538"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V와 Azure 간 재해 복구 아키텍처
 
@@ -36,9 +36,11 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 **Hyper-V에서 Azure로 아키텍처(VMM 없음)**
 
-![아키텍처](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![건축](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
+> [!WARNING]
+> SCVMM 구성을 고려 하는 ASR 지원은 곧 사용 되지 않을 예정 이므로 계속 하기 전에 사용 [중단 세부 정보를 읽는](scvmm-site-recovery-deprecation.md) 것이 좋습니다.
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>아키텍처 구성 요소 - VMM 있는 Hyper-V
 
@@ -70,7 +72,7 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 1. Azure Portal 또는 온-프레미스에서 Hyper-V VM에 대한 보호를 사용하도록 설정하면 **보호 활성화**가 시작됩니다.
 2. 이 작업은 사용자가 구성한 설정으로 Azure에 대한 복제를 설정하기 위해 [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx) 메서드를 호출하기 전에 해당 컴퓨터가 전제 조건에 부합하는지 확인합니다.
 3. 작업은 [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) 메서드를 호출하여 초기 복제를 시작하여 전체 VM 복제를 초기화하고 Azure로 VM의 가상 디스크를 전송합니다.
-4. **작업** 탭에서 작업을 모니터링할 수 있습니다.      ![작업 목록](media/hyper-v-azure-architecture/image1.png) ![보호 드릴 다운 사용](media/hyper-v-azure-architecture/image2.png)
+4. **작업 탭에서** 작업을 모니터링할 수 있습니다.      ![작업 목록](media/hyper-v-azure-architecture/image1.png) ![보호 드릴 다운을 사용 하도록 설정](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>초기 데이터 복제
@@ -124,16 +126,16 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 ## <a name="failover-and-failback-process"></a>장애 조치 및 장애 복구 프로세스
 
 1. 온-프레미스 Hyper-V VM에서 Azure로 계획된 또는 계획되지 않은 장애 조치를 실행할 수 있습니다. 계획된 장애 조치를 실행할 경우 데이터 손실을 방지하기 위해 원본 VM이 종료됩니다. 주 사이트에 액세스할 수 없는 경우 계획되지 않은 장애 조치를 실행합니다.
-2. 단일 컴퓨터에 장애 조치를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치를 오케스트레이션할 수 있습니다.
+2. 단일 컴퓨터에 장애 조치(failover)를 수행하거나 복구 계획을 만들어서 여러 컴퓨터의 장애 조치(failover)를 오케스트레이션할 수 있습니다.
 3. 장애 조치를 실행합니다. 첫 번째 장애 조치를 실행한 후에 Azure에서 만들어진 복제본 VM이 표시되어야 합니다. 필요한 경우 VM에 공용 IP 주소를 할당할 수 있습니다.
 4. 그런 다음 복제본 Azure VM에서 워크로드에 액세스하려면 장애 조치를 커밋합니다.
 
 온-프레미스 인프라를 다시 실행한 후 장애 복구를 수행할 수 있습니다. 장애 복구는 다음 3단계로 수행됩니다.
 
 1. Azure에서 온-프레미스 사이트로 계획된 장애 조치를 시작합니다.
-    - **가동 중단 시간 최소화**: 이 옵션을 사용하면 Site Recovery가 장애 조치(failover) 전에 데이터를 동기화합니다. 변경된 데이터 블록을 확인하고 온-프레미스 사이트에 다운로드하며 Azure VM은 그 동안에도 계속 실행되어 가동 중지 시간을 최소화합니다. 장애 조치 완료를 수동으로 지정해야 하는 경우 Azure VM이 종료되고 최종 델타 변경 내용이 복사되며 장애 조치가 시작됩니다.
-    - **전체 다운로드**: 이 옵션에서는 장애 조치(failover) 도중에 데이터가 동기화됩니다. 이 옵션은 전체 디스크를 다운로드합니다. 체크섬을 계산하지 않아 더 빠르지만 가동 중지 시간은 더 늘어납니다. 상당 시간 동안 복제본 Azure VM을 실행하였거나 온-프레미스 VM이 삭제된 경우에 이 옵션을 사용합니다.
-    - **VM 만들기**: 동일한 VM으로 또는 대체 VM으로 장애 복구(Failback)하도록 선택할 수 있습니다. VM이 없는 경우 Site Recovery가 이를 만들도록 지정할 수 있습니다.
+    - **가동 중지 시간 최소화**: 이 옵션을 사용하면 Site Recovery가 장애 조치 전에 데이터를 동기화합니다. 변경된 데이터 블록을 확인하고 온-프레미스 사이트에 다운로드하며 Azure VM은 그 동안에도 계속 실행되어 가동 중지 시간을 최소화합니다. 장애 조치 완료를 수동으로 지정해야 하는 경우 Azure VM이 종료되고 최종 델타 변경 내용이 복사되며 장애 조치가 시작됩니다.
+    - **전체 다운로드**:이 옵션에서는 장애 조치 중에 데이터가 동기화됩니다. 이 옵션은 전체 디스크를 다운로드합니다. 체크섬을 계산하지 않아 더 빠르지만 가동 중지 시간은 더 늘어납니다. 상당 시간 동안 복제본 Azure VM을 실행하였거나 온-프레미스 VM이 삭제된 경우에 이 옵션을 사용합니다.
+    - **VM 만들기**: 동일한 VM으로 또는 대체 VM으로 장애 복구하도록 선택할 수 있습니다. VM이 없는 경우 Site Recovery가 이를 만들도록 지정할 수 있습니다.
 
 2. 초기 동기화가 완료되면 장애 조치를 완료하도록 선택합니다. 완료되면 온-프레미스 VM에 로그온하여 모든 것이 기대한 대로 작동하는지 확인할 수 있습니다. Azure Portal에서 Azure VM이 중지된 것을 확인할 수 있습니다.
 3.  그런 다음 장애 조치를 커밋하여 완료하고 다시 온-프레미스 VM에서 워크로드에 액세스합니다.

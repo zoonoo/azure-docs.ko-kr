@@ -6,12 +6,12 @@ ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51c0d832a6d6d9b1cd148f765e68cb77c4679819
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61471437"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72929212"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 Site Recovery 액세스 관리
 
@@ -37,6 +37,9 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 
 > [!IMPORTANT]
 >리소스 배포에 사용되는 배포 모델(Resource Manager/클래식)마다 적절한 권한이 추가되는지 확인합니다.
+
+> [!NOTE]
+> Azure VM에 대 한 복제를 사용 하도록 설정 하 고 업데이트를 관리 하는 Site Recovery를 허용 하려는 경우 복제를 사용 하도록 설정 하는 동안 새 Automation 계정을 만들 수도 있습니다 .이 경우에는 동일한 방식으로 automation 계정을 만들 수 있는 권한이 있어야 합니다. 자격 증명 모음으로 등록 합니다.
 
 | **리소스 종류** | **배포 모델** | **사용 권한** |
 | --- | --- | --- |
@@ -69,9 +72,9 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 Resource Manager 및 클래식 배포 모델에 대해 각각 'Virtual Machine 참여자' 및 '클래식 Virtual Machine 참여자' [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
-* [역할 기반 액세스 제어](../role-based-access-control/role-assignments-portal.md): Azure Portal에서 RBAC를 시작합니다.
+* [역할 기반 Access Control](../role-based-access-control/role-assignments-portal.md): Azure Portal에서 RBAC를 통해 시작합니다.
 * 다음을 사용하여 액세스를 관리하는 방법에 대해 알아봅니다.
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
   * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [역할 기반 액세스 제어 문제 해결](../role-based-access-control/troubleshooting.md): 일반적인 문제 해결에 대한 제안을 구합니다.
+* [역할 기반 Access Control 문제 해결](../role-based-access-control/troubleshooting.md): 일반적인 문제를 수정하기 위한 제안 사항을 봅니다.

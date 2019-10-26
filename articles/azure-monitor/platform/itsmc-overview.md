@@ -1,24 +1,18 @@
 ---
 title: Azure Log Analytics의 IT Service Management Connector | Microsoft Docs
 description: 이 문서에서는 ITSMC(IT 서비스 관리 커넥터)의 개요 및 이 솔루션을 사용하여 Azure Log Analytics의 ITSM 작업 항목을 중앙에서 모니터링하고 관리하며 모든 문제를 신속하게 해결하는 방법에 대한 정보를 제공합니다.
-services: log-analytics
-documentationcenter: ''
-author: jyothirmaisuri
-manager: riyazp
-editor: ''
-ms.assetid: 0b1414d9-b0a7-4e4e-a652-d3a6ff1118c4
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 05/24/2018
+author: JYOTHIRMAISURI
 ms.author: v-jysur
-ms.openlocfilehash: 6ae1792d9ef3f07ef7258451be79b587692a1694
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.date: 05/24/2018
+ms.openlocfilehash: 54f3d76704a1f9bf7fec2f3c6c68c88fffd993b6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809450"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932263"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -131,7 +125,7 @@ ITSM 연결이 만들어지면 **작업 그룹**에서 **ITSM 작업**을 사용
     ![작업 그룹 세부 정보](media/itsmc-overview/action-groups-details.png)
 
 4. 작업 목록의 **작업 유형** 드롭다운 메뉴에서 **ITSM**을 선택합니다. 해당 작업에 대한 **이름**을 제공하고 **세부 정보 편집**을 클릭합니다.
-5. Log Analytics 작업 영역이 있는 **구독**을 선택합니다. 작업 영역 이름 앞에 나오는 **연결** 이름(ITSM Connector 이름)을 선택합니다. 예: "MyITSMMConnector (MyWorkspace)".
+5. Log Analytics 작업 영역이 있는 **구독**을 선택합니다. 작업 영역 이름 앞에 나오는 **연결** 이름(ITSM Connector 이름)을 선택합니다. 예를 들어 "MyITSMMConnector(MyWorkspace)"와 같습니다.
 
     ![ITSM 작업 세부 정보](media/itsmc-overview/itsm-action-details.png)
 

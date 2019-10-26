@@ -1,24 +1,18 @@
 ---
 title: Splunk-Azure Monitor 로그 쿼리 | Microsoft Docs
 description: Splunk에 익숙한 사용자를 위한 Azure Monitor 로그 쿼리 학습 도움말입니다.
-services: log-analytics
-documentationcenter: ''
-author: bwren
-manager: carmonm
-editor: ''
-ms.assetid: ''
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/21/2018
+author: bwren
 ms.author: bwren
-ms.openlocfilehash: 03a0d755cf6d099f07a7c6d853e1d747908eec05
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 08/21/2018
+ms.openlocfilehash: e16bf152e739a6145bfabaf8546fa71199f8d732
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177627"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932942"
 ---
 # <a name="splunk-to-azure-monitor-log-query"></a>Splunk-Azure Monitor 로그 쿼리
 
@@ -28,23 +22,23 @@ ms.locfileid: "72177627"
 
 다음 표에서는 Splunk와 Azure Monitor 간에 개념과 데이터 구조를 비교합니다.
 
- | 개념  | Splunk | Azure Monitor |  설명
+ | 개념  | Splunk | Azure Monitor |  주석
  | --- | --- | --- | ---
  | 배포 단위  | cluster |  cluster |  Azure Monitor를 사용하면 임의의 클러스터 간 쿼리를 수행할 수 있습니다. Splunk는 그렇지 않습니다. |
  | 데이터 캐시 |  버킷  |  캐싱 및 보존 정책 |  데이터에 대한 기간 및 캐싱 수준을 제어합니다. 이 설정은 쿼리 성능과 배포 비용에 직접적인 영향을 줍니다. |
- | 논리적 데이터 분할  |  인덱스  |  database  |  데이터를 논리적으로 분리할 수 있습니다. 두 구현 모두는 이러한 파티션에서 합집합(union)과 조인(join)을 허용합니다. |
- | 구조적 이벤트 메타데이터 | 해당 사항 없음 | table |  Splunk에는 이벤트 메타데이터의 검색 언어에 대해 공개된 개념이 없습니다. Azure Monitor 로그에는 열이 있는 테이블에 대한 개념이 있습니다. 각 이벤트 인스턴스가 한 행에 매핑됩니다. |
- | 데이터 레코드 | 이벤트 | 행(row) |  용어 변경에만 해당 |
- | 데이터 레코드 특성 | 필드 |  column |  Azure Monitor에서는 테이블 구조의 일부로 미리 정의됩니다. Splunk에서는 각 이벤트마다 자체의 필드 집합이 있습니다. |
- | 유형 | 데이터 형식 |  데이터 형식 |  Azure Monitor 데이터 형식은 열에 설정되므로 더 명시적입니다. 둘 다 JSON 지원을 포함하여 데이터 형식 및 거의 동등한 데이터 형식 집합을 동적으로 사용할 수 있습니다. |
- | 쿼리 및 검색  | 검색 | query |  개념은 기본적으로 Azure Monitor와 Splunk 간에 동일합니다. |
+ | 논리적 데이터 분할  |  index  |  database  |  데이터를 논리적으로 분리할 수 있습니다. 두 구현 모두는 이러한 파티션에서 합집합(union)과 조인(join)을 허용합니다. |
+ | 구조적 이벤트 메타데이터 | N/A | 테이블 |  Splunk에는 이벤트 메타데이터의 검색 언어에 대해 공개된 개념이 없습니다. Azure Monitor 로그에는 열이 있는 테이블에 대한 개념이 있습니다. 각 이벤트 인스턴스가 한 행에 매핑됩니다. |
+ | 데이터 레코드 | event | 행 |  용어 변경에만 해당 |
+ | 데이터 레코드 특성 | 필드 |  열 |  Azure Monitor에서는 테이블 구조의 일부로 미리 정의됩니다. Splunk에서는 각 이벤트마다 자체의 필드 집합이 있습니다. |
+ | 형식 | 데이터 형식 |  데이터 형식 |  Azure Monitor 데이터 형식은 열에 설정되므로 더 명시적입니다. 둘 다 JSON 지원을 포함하여 데이터 형식 및 거의 동등한 데이터 형식 집합을 동적으로 사용할 수 있습니다. |
+ | 쿼리 및 검색  | 검색 | 쿼리 |  개념은 기본적으로 Azure Monitor와 Splunk 간에 동일합니다. |
  | 이벤트 수집 시간 | 시스템 시간 | ingestion_time() |  Splunk에서 각 이벤트는 이벤트가 인덱싱된 시간의 시스템 타임스탬프를 가져옵니다. Azure Monitor에서는 ingestion_time() 함수를 통해 참조할 수 있는 시스템 열을 공개하는 ingestion_time이라는 정책을 정의할 수 있습니다. |
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
 
 다음 표에서는 Splunk 함수와 동일한 Azure Monitor 함수를 지정합니다.
 
-|Splunk | Azure Monitor |설명
+|Splunk | Azure Monitor |주석
 |---|---|---
 |strcat | strcat()| (1) |
 |split  | split() | (1) |
@@ -59,8 +53,8 @@ ms.locfileid: "72177627"
 | regex | matches regex | Splunk에서 `regex`는 연산자입니다. Azure Monitor에서는 관계 연산자입니다. |
 | searchmatch | == | Splunk에서 `searchmatch`는 일치 문자열 검색을 허용합니다.
 | random | rand()<br>rand(n) | Splunk 함수는 0에서 2<sup>31</sup>-1까지의 숫자를 반환합니다. Azure Monitor는 0.0에서 1.0 사이의 숫자를 반환하거나, 매개 변수가 제공되는 경우 0에서 n-1 사이의 숫자를 반환합니다.
-| now | now() | (1)
-| relative_time | totimespan() | (1)<br>Azure Monitor에서 Splunk의 relative_time(datetimeVal, offsetVal)은 datetimeVal + totimespan(offsetVal)입니다.<br>예를 들어, <code>search &#124; eval n=relative_time(now(), "-1d@d")</code> 문자열은 <code>...  &#124; extend myTime = now() - totimespan("1d")</code>과 같이 연결됩니다.
+| 지금 | now() | (1)
+| relative_time | totimespan() | (1)<br>Azure Monitor에서 Splunk의 relative_time(datetimeVal, offsetVal)은 datetimeVal + totimespan(offsetVal)입니다.<br>예를 들어 <code>search &#124; eval n=relative_time(now(), "-1d@d")</code>는 <code>...  &#124; extend myTime = now() - totimespan("1d")</code>가 됩니다.
 
 (1) Splunk에서 함수는 `eval` 연산자를 사용하여 호출됩니다. Azure Monitor에서는 `extend` 또는 `project`의 일부로 사용됩니다.<br>(2) Splunk에서 함수는 `eval` 연산자를 사용하여 호출됩니다. Azure Monitor에서는 `where` 연산자와 함께 사용할 수 있습니다.
 
@@ -72,7 +66,7 @@ ms.locfileid: "72177627"
 > [!NOTE]
 > 다음 예제에서는 _rule_ Splunk 필드가 Azure Monitor의 테이블에 매핑되고, Splunk의 기본 타임스탬프가 Log Analytics의 _ingestion_time()_ 열에 매핑됩니다.
 
-### <a name="search"></a>검색
+### <a name="search"></a>Search
 Splunk에서는 `search` 키워드를 생략하고 따옴표가 없는 문자열을 지정할 수 있습니다. Azure Monitor에서는 `find`를 사용하여 각 쿼리를 시작해야 하며, 따옴표가 없는 문자열은 열 이름이고, 조회 값은 따옴표가 붙은 문자열이어야 합니다. 
 
 | |  | |
@@ -81,7 +75,7 @@ Splunk에서는 `search` 키워드를 생략하고 따옴표가 없는 문자열
 | Azure Monitor | **find** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
-### <a name="filter"></a>Filter
+### <a name="filter"></a>필터링
 Azure Monitor 로그 쿼리는 필터가 있는 테이블 형식 결과 집합에서 시작합니다. Splunk에서 필터링은 현재 인덱스에 대한 기본 작업입니다. 또한 Splunk에서 `where` 연산자도 사용할 수 있지만 권장되지 않습니다.
 
 | |  | |
@@ -125,7 +119,7 @@ Splunk에는 `eval` 연산자를 사용하여 비교할 수 없는 `eval` 함수
 
 
 ### <a name="rename"></a>이름 바꾸기 
-Azure Monitor는 `project-rename` 연산자를 사용 하 여 필드 이름을 바꿉니다. `project-rename`을 사용 하면 쿼리는 필드에 대해 미리 작성 된 인덱스를 사용할 수 있습니다. Splunk에는 동일한 작업을 수행 하는 `rename` 연산자가 있습니다.
+Azure Monitor는 `project-rename` 연산자를 사용 하 여 필드 이름을 바꿉니다. `project-rename`를 사용 하 여 쿼리는 필드에 대해 미리 작성 된 인덱스를 사용할 수 있습니다. Splunk에는 동일한 작업을 수행 하는 `rename` 연산자가 있습니다.
 
 | |  | |
 |:---|:---|:---|
@@ -147,7 +141,7 @@ Splunk에는 `project-away`와 비슷한 연산자가 없는 것 같습니다. U
 
 
 
-### <a name="aggregation"></a>통합
+### <a name="aggregation"></a>집계
 다양한 집계 함수는 [Azure Monitor 로그 쿼리의 집계](aggregations.md)를 참조하세요.
 
 | |  | |

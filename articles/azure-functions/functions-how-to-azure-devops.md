@@ -1,39 +1,39 @@
 ---
-title: Azure DevOps-Azure Functions를 사용 하 여 함수 코드 업데이트를 지속적으로 제공
-description: Azure Functions를 대상으로 하는 Azure DevOps 파이프라인을 설정 하는 방법에 알아봅니다.
+title: Azure DevOps를 사용 하 여 함수 코드 업데이트를 지속적으로 제공-Azure Functions
+description: Azure Functions를 대상으로 하는 Azure DevOps 파이프라인을 설정 하는 방법을 알아봅니다.
 author: ahmedelnably
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: aelnably
-ms.openlocfilehash: 0fdad0caa2deef0d7d55b30a85632f72f4ff0ecc
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 4fb01eac53151799a0def00d13f18619faf437f6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594471"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72927541"
 ---
-# <a name="continuous-delivery-by-using-azure-devops"></a>Azure DevOps를 사용 하 여 지속적인 업데이트
+# <a name="continuous-delivery-by-using-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트
 
-사용 하 여 Azure Functions 앱에 함수를 자동으로 배포할 수 있습니다 [Azure 파이프라인](/azure/devops/pipelines/)합니다.
+[Azure Pipelines](/azure/devops/pipelines/)를 사용 하 여 Azure Functions 앱에 함수를 자동으로 배포할 수 있습니다.
 
-파이프라인을 정의 하기 위한 두 가지 옵션이 있습니다.
+파이프라인을 정의 하는 두 가지 옵션이 있습니다.
 
-- **YAML 파일**: YAML 파일을 파이프라인을 설명합니다. 빌드 단계 섹션과 릴리스 섹션 파일이 있을 수 있습니다. YAML 파일을 앱과 같은 리포지토리 여야 합니다.
-- **템플릿**: 템플릿은 빌드하거나 앱을 배포 하는 바로 사용할 수 있는 작업입니다.
+- **Yaml 파일**: yaml 파일은 파이프라인을 설명 합니다. 이 파일에는 빌드 단계 섹션과 릴리스 섹션이 있을 수 있습니다. YAML 파일은 앱과 동일한 리포지토리에 있어야 합니다.
+- **템플릿**: 템플릿은 앱을 빌드하거나 배포 하는 미리 만들어진 작업입니다.
 
 ## <a name="yaml-based-pipeline"></a>YAML 기반 파이프라인
 
-YAML 기반 파이프라인을 만들려면 먼저 앱을 빌드하고 앱을 배포 합니다.
+YAML 기반 파이프라인을 만들려면 먼저 앱을 빌드한 다음 앱을 배포 합니다.
 
 ### <a name="build-your-app"></a>앱 빌드
 
-Azure 파이프라인에서 앱을 빌드하는 방법을 앱의 프로그래밍 언어에 따라 달라 집니다. 각 언어에는 배포 아티팩트를 만들어야 하는 특정 빌드 단계에 있습니다. 배포 아티팩트를 Azure에서 함수 앱 배포에 사용 됩니다.
+Azure Pipelines에서 앱을 빌드하는 방법은 앱의 프로그래밍 언어에 따라 달라 집니다. 각 언어에는 배포 아티팩트를 만드는 특정 빌드 단계가 있습니다. 배포 아티팩트는 Azure에서 함수 앱을 배포 하는 데 사용 됩니다.
 
 #### <a name="net"></a>.NET
 
-.NET 앱을 빌드하는 YAML 파일을 만들려면 다음 샘플을 사용할 수 있습니다.
+다음 샘플을 사용 하 여 .NET 앱을 빌드하는 YAML 파일을 만들 수 있습니다.
 
 ```yaml
 pool:
@@ -64,7 +64,7 @@ steps:
 
 #### <a name="javascript"></a>JavaScript
 
-JavaScript 앱을 빌드하는 YAML 파일을 만들려면 다음 샘플을 사용할 수 있습니다.
+다음 샘플을 사용 하 여 JavaScript 앱을 빌드하는 YAML 파일을 만들 수 있습니다.
 
 ```yaml
 pool:
@@ -90,9 +90,9 @@ steps:
     name: 'drop'
 ```
 
-#### <a name="python"></a>Python
+#### <a name="python"></a>파이썬
 
-다음 샘플 Python 앱을 빌드하는 YAML 파일 만들기에 사용할 수 있습니다. Python은 Linux Azure Functions에 대해서만 지원 됩니다.
+다음 샘플을 사용 하 여 Python 앱을 빌드하는 YAML 파일을 만들 수 있습니다. Python은 Linux Azure Functions 에서만 지원 됩니다. Python 3.7에 대 한 YAML은이 YAML의 모든 3.6 인스턴스를 3.7로 바꿔서 빌드할 수 있습니다.
 
 ```yaml
 pool:
@@ -125,7 +125,7 @@ steps:
 ```
 #### <a name="powershell"></a>PowerShell
 
-PowerShell 앱을 패키지 하기 위한 YAML 파일을 만들려면 다음 샘플을 사용할 수 있습니다. PowerShell은 Windows Azure Functions에 대해서만 지원 됩니다.
+다음 샘플을 사용 하 여 PowerShell 앱을 패키징하는 YAML 파일을 만들 수 있습니다. PowerShell은 Windows Azure Functions 에서만 지원 됩니다.
 
 ```yaml
 pool:
@@ -149,7 +149,7 @@ steps:
 
 #### <a name="windows-function-app"></a>Windows 함수 앱
 
-Windows 함수 앱을 배포 하려면 다음 코드 조각을 사용할 수 있습니다.
+다음 코드 조각을 사용 하 여 Windows 함수 앱을 배포할 수 있습니다.
 
 ```yaml
 steps:
@@ -166,7 +166,7 @@ steps:
 
 #### <a name="linux-function-app"></a>Linux 함수 앱
 
-Linux 함수 앱을 배포 하려면 다음 코드 조각을 사용할 수 있습니다.
+다음 코드 조각을 사용 하 여 Linux 함수 앱을 배포할 수 있습니다.
 
 ```yaml
 steps:
@@ -184,27 +184,27 @@ steps:
 
 ## <a name="template-based-pipeline"></a>템플릿 기반 파이프라인
 
-Azure DevOps의 서식 파일은 빌드하거나 앱을 배포 하는 작업의 미리 정의 된 그룹입니다.
+Azure DevOps의 템플릿은 앱을 빌드하거나 배포 하는 미리 정의 된 작업 그룹입니다.
 
 ### <a name="build-your-app"></a>앱 빌드
 
-Azure 파이프라인에서 앱을 빌드하는 방법을 앱의 프로그래밍 언어에 따라 달라 집니다. 각 언어에는 배포 아티팩트를 만들어야 하는 특정 빌드 단계에 있습니다. 배포 아티팩트를 Azure에서 함수 앱을 업데이트 하는 데 사용 됩니다.
+Azure Pipelines에서 앱을 빌드하는 방법은 앱의 프로그래밍 언어에 따라 달라 집니다. 각 언어에는 배포 아티팩트를 만드는 특정 빌드 단계가 있습니다. 배포 아티팩트는 Azure에서 함수 앱을 업데이트 하는 데 사용 됩니다.
 
-새 빌드 파이프라인을 만들 때 기본 제공 빌드 템플릿을 사용 하려면 **클래식 편집기를 사용 하 여** 디자이너 템플릿을 사용 하 여 파이프라인을 만드는 합니다.
+기본 제공 빌드 템플릿을 사용 하려면 새 빌드 파이프라인을 만들 때 **클래식 편집기를 사용** 하 여 디자이너 템플릿을 사용 하 여 파이프라인 만들기를 선택 합니다.
 
-![클래식 Azure 파이프라인 편집기를 선택 합니다.](media/functions-how-to-azure-devops/classic-editor.png)
+![Azure Pipelines 클래식 편집기를 선택 합니다.](media/functions-how-to-azure-devops/classic-editor.png)
 
-코드의 소스를 구성 하면 Azure Functions에 대 한 검색 서식 파일을 빌드합니다. 앱 언어와 일치 하는 템플릿을 선택 합니다.
+코드 소스를 구성한 후 Azure Functions 빌드 템플릿을 검색 합니다. 앱 언어와 일치 하는 템플릿을 선택 합니다.
 
-![Azure Functions 빌드 템플릿을 선택합니다](media/functions-how-to-azure-devops/build-templates.png)
+![Azure Functions 빌드 템플릿 선택](media/functions-how-to-azure-devops/build-templates.png)
 
-일부 경우에 빌드 아티팩트에는 특정 폴더 구조가 있습니다. 선택 해야 합니다 **보관 파일 경로 앞에 추가 루트 폴더 이름을** 확인란 합니다.
+경우에 따라 빌드 아티팩트에는 특정 폴더 구조가 있습니다. **보관 경로에 루트 폴더 이름 앞** 에 추가 확인란을 선택 해야 할 수도 있습니다.
 
 ![루트 폴더 이름 앞에 추가 하는 옵션](media/functions-how-to-azure-devops/prepend-root-folder.png)
 
 #### <a name="javascript-apps"></a>JavaScript 앱
 
-JavaScript 앱의 Windows 네이티브 모듈에서 종속성 에이전트 풀 버전을 업데이트 해야 합니다 **호스팅된 VS2017**합니다.
+JavaScript 앱이 Windows 네이티브 모듈에 의존 하는 경우 에이전트 풀 버전을 **호스트 된 VS2017**로 업데이트 해야 합니다.
 
 ![에이전트 풀 버전 업데이트](media/functions-how-to-azure-devops/change-agent.png)
 
@@ -214,29 +214,29 @@ JavaScript 앱의 Windows 네이티브 모듈에서 종속성 에이전트 풀 �
 
 ![Azure Functions 릴리스 템플릿 검색](media/functions-how-to-azure-devops/release-template.png)
 
-배포 슬롯에 배포 릴리스 템플릿에서 지원 되지 않습니다.
+배포 슬롯에 배포 하는 것은 릴리스 템플릿에서 지원 되지 않습니다.
 
-## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 빌드 파이프라인을 만드는
+## <a name="create-a-build-pipeline-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 빌드 파이프라인 만들기
 
-Azure에서 빌드 파이프라인을 만들려면 사용 합니다 `az functionapp devops-pipeline create` [명령](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create)입니다. 빌드 파이프라인 빌드 및 릴리스 리포지토리에 적용 된 모든 코드 변경에 만들어집니다. 이 명령은 새 YAML 파일을 빌드 및 릴리스 파이프라인을 정의 하 고 다음 리포지토리에 커밋합니다를 생성 합니다. 이 명령에 대 한 필수 구성 요소 코드의 위치에 따라 달라 집니다.
+Azure에서 빌드 파이프라인을 만들려면 `az functionapp devops-pipeline create` [명령을](/cli/azure/functionapp/devops-pipeline#az-functionapp-devops-pipeline-create)사용 합니다. 빌드 파이프라인이 만들어져 리포지토리에 적용 되는 모든 코드 변경 내용을 빌드하고 릴리스 합니다. 이 명령은 빌드 및 릴리스 파이프라인을 정의 하는 새 YAML 파일을 생성 한 다음 리포지토리에 커밋합니다. 이 명령에 대 한 필수 구성 요소는 코드의 위치에 따라 달라 집니다.
 
-- 코드를 GitHub의 경우:
+- 코드가 GitHub에 있는 경우:
 
-    - 있어야 **쓰기** 구독에 대 한 권한.
+    - 구독에 대 한 **쓰기** 권한이 있어야 합니다.
 
-    - Azure DevOps 프로젝트 관리자 여야 합니다.
+    - Azure DevOps의 프로젝트 관리자 여야 합니다.
 
-    - 충분 한 권한이 있는 GitHub 개인용 액세스 토큰 (PAT)을 만들 수 있는 권한이 있어야 합니다. 자세한 내용은 참조 하세요. [GitHub PAT 권한 요구 사항입니다.](https://aka.ms/azure-devops-source-repos)
+    - 충분 한 권한이 있는 GitHub PAT (개인용 액세스 토큰)를 만들 수 있는 권한이 있어야 합니다. 자세한 내용은 [GITHUB PAT 권한 요구 사항](https://aka.ms/azure-devops-source-repos) 을 참조 하세요.
 
-    - 자동 생성 된 YAML 파일을 커밋할 수 있도록 GitHub 리포지토리의 마스터 분기에 커밋할 수 있는 권한이 있어야 합니다.
+    - 자동 생성 된 YAML 파일을 커밋할 수 있도록 GitHub 리포지토리에서 마스터 분기에 커밋할 수 있는 권한이 있어야 합니다.
 
-- 코드 리포지토리에서 Azure 경우:
+- 코드가 Azure Repos에 있는 경우:
 
-    - 있어야 **쓰기** 구독에 대 한 권한.
+    - 구독에 대 한 **쓰기** 권한이 있어야 합니다.
 
-    - Azure DevOps 프로젝트 관리자 여야 합니다.
+    - Azure DevOps의 프로젝트 관리자 여야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 검토 합니다 [Azure Functions 개요](functions-overview.md)합니다.
-- 검토 합니다 [Azure DevOps 개요](/azure/devops/pipelines/)합니다.
+- [Azure Functions 개요](functions-overview.md)를 검토 합니다.
+- [Azure DevOps 개요](/azure/devops/pipelines/)를 검토 합니다.

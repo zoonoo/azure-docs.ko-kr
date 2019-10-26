@@ -13,18 +13,18 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8498346c5623913cb68c63e95a787f31c7d90cc0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
-ms.translationtype: HT
+ms.openlocfilehash: 90c9d9be6f5a255a4ddd4f7fae7cf410e5b1f80d
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901951"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934961"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에서 SQL 가상 머신 대량 등록
 
-이 문서에서는 ' SqlVMs 등록 ' PowerShell cmdlet을 사용 하 여 Azure에서 SQL VM 리소스 공급자를 사용 하 여 SQL Server VM (가상 머신)을 대량 등록 하는 방법을 설명 합니다.
+이 문서에서는 `Register-SqlVMs` PowerShell cmdlet을 사용 하 여 SQL VM 리소스 공급자를 사용 하 여 Azure에서 SQL Server VM (가상 머신)을 대량 등록 하는 방법을 설명 합니다.
 
-' Register-SqlVMs ' cmdlet을 사용 하 여 지정 된 구독, 리소스 그룹 또는 특정 가상 컴퓨터 목록에 있는 모든 가상 컴퓨터를 등록할 수 있습니다. 이 cmdlet은 가상 컴퓨터를 _경량_ 관리 모드로 등록 한 다음 [보고서와 로그 파일](#output-description)을 모두 생성 합니다. 
+`Register-SqlVMs` cmdlet을 사용 하 여 지정 된 구독, 리소스 그룹 또는 특정 가상 컴퓨터 목록에 있는 모든 가상 컴퓨터를 등록할 수 있습니다. 이 cmdlet은 가상 컴퓨터를 _경량_ 관리 모드로 등록 한 다음 [보고서와 로그 파일](#output-description)을 모두 생성 합니다. 
 
 등록 프로세스는 위험 없이 발생 하 고 가동 중지 시간이 없으며 SQL Server 또는 가상 머신을 다시 시작 하지 않습니다. 
 

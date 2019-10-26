@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7f08c175972826a8b226d7e80f563ac71ba23db
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 78482b5d7013ffa3bbb0a34dd04c8c48626dc77a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514764"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72926662"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -172,7 +172,7 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 **--check length**                         전송 후 대상에서 파일의 길이를 확인 합니다. 원본과 대상이 일치 하지 않는 경우 전송이 실패 한 것으로 표시 됩니다. (기본값 true)
 
-**--확인란을 선택** 하면 md5 문자열을 다운로드할 때 유효성을 검사 하는 방법을 지정 합니다. 다운로드 하는 경우에만 사용할 수 있습니다. 사용 가능한 옵션: NoCheck, LogOnly, FailIfDifferent,. (기본값 ' FailIfDifferent ') (기본값 "FailIfDifferent")
+**--확인란을 선택** 하면 md5 문자열을 다운로드할 때 유효성을 검사 하는 방법을 지정 합니다. 다운로드 하는 경우에만 사용할 수 있습니다. 사용 가능한 옵션: NoCheck, LogOnly, FailIfDifferent,. (기본값 "FailIfDifferent")
 
 **--콘텐츠** 처리 문자열이 콘텐츠 처리 헤더를 설정 합니다. 다운로드 시 반환 됩니다.
 
@@ -204,15 +204,15 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 **--include-패턴** 문자열은 복사할 때 이러한 파일만 포함 합니다. 이 옵션은 와일드 카드 문자 (*)를 지원 합니다. '; '을 사용 하 여 파일을 구분 합니다.
 
-**--로그 수준** 문자열은 로그 파일에 대 한 로그의 자세한 정도, 사용 가능한 수준: 정보 (모든 요청/응답), 경고 (저속 응답), 오류 (실패 한 요청만) 및 없음 (출력 로그 없음)을 정의 합니다. (기본 ' 정보 '). (기본 "정보")
+**--로그 수준** 문자열은 로그 파일에 대 한 로그의 자세한 정도, 사용 가능한 수준: 정보 (모든 요청/응답), 경고 (저속 응답), 오류 (실패 한 요청만) 및 없음 (출력 로그 없음)을 정의 합니다. (기본 "정보")
 
 **--** 이러한 키-값 쌍을 메타 데이터로 Azure Storage에 대 한 메타 데이터 문자열 업로드입니다.
 
 **--추측-mime 형식**                   AzCopy에서 파일의 확장명 또는 내용을 기준으로 콘텐츠 형식을 검색 하지 못하도록 합니다.
 
-**--** 이 플래그가 true로 설정 된 경우 문자열을 덮어써서 destination은 충돌 하는 파일 및 Blob을 덮어씁니다. (기본값 ' true ') 가능한 값에는 ' true ', ' false ' 및 ' prompt '가 포함 됩니다. (기본값 "true")
+**--** 이 플래그가 true로 설정 된 경우 문자열을 덮어써서 destination은 충돌 하는 파일 및 Blob을 덮어씁니다. 가능한 값에는 ' true ', ' false ' 및 ' prompt '가 포함 됩니다. (기본값 "true")
 
-**--** 이 blob 계층을 사용 하 여 Azure Storage에 페이지 blob 계층 문자열을 업로드 합니다. (기본값 ' 없음 '). (기본 "없음")
+**--** 이 blob 계층을 사용 하 여 Azure Storage에 페이지 blob 계층 문자열을 업로드 합니다. (기본 "없음")
 
 **--유지-마지막-수정 시간**          Destination이 파일 시스템 인 경우에만 사용할 수 있습니다.
 
@@ -222,9 +222,9 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 **--s2s-검색-소스-변경 됨**           를 열거 한 후 원본이 변경 되었는지 확인 합니다.
 
-**--s2s-핸들-잘못** 된 메타 데이터 문자열은 잘못 된 메타 데이터 키를 처리 하는 방법을 지정 합니다. 사용 가능한 옵션: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (기본 ' ExcludeIfInvalid '). (기본 "ExcludeIfInvalid")
+**--s2s-핸들-잘못** 된 메타 데이터 문자열은 잘못 된 메타 데이터 키를 처리 하는 방법을 지정 합니다. 사용 가능한 옵션: ExcludeIfInvalid, FailIfInvalid, RenameIfInvalid. (기본 "ExcludeIfInvalid")
 
-**--s2s-보존-액세스 계층**             서비스를 복사 하는 동안 액세스 계층을 유지 합니다. 대상 저장소 계정에서 액세스 계층 설정을 지원 하도록 하려면 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) 을 참조 하세요. 액세스 계층 설정이 지원 되지 않는 경우에는 s2sPreserveAccessTier = false를 사용 하 여 액세스 계층 복사를 무시 하세요. 기본값은 true입니다.  (기본값 true)
+**--s2s-보존-액세스 계층**             서비스를 복사 하는 동안 액세스 계층을 유지 합니다. 대상 저장소 계정에서 액세스 계층 설정을 지원 하도록 하려면 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) 을 참조 하세요. 액세스 계층 설정이 지원 되지 않는 경우에는 s2sPreserveAccessTier = false를 사용 하 여 액세스 계층 복사를 무시 하세요. (기본값 true)
 
 **--s2s-preserve-속성**              서비스에서 서비스를 복사 하는 동안 전체 속성을 유지 합니다. AWS S3 및 Azure 파일 비 단일 파일 원본의 경우 목록 작업에서 개체 및 파일의 전체 속성을 반환 하지 않습니다. 전체 속성을 유지 하려면 AzCopy는 개체 또는 파일당 하나의 추가 요청을 전송 해야 합니다. (기본값 true)
 
