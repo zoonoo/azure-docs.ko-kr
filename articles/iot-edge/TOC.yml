@@ -110,13 +110,7 @@
 - name: 방법 가이드
   items:
     - name: IoT Edge 디바이스 등록
-      items:
-        - name: Azure portal
-          href: how-to-register-device-portal.md
-        - name: Azure CLI
-          href: how-to-register-device-cli.md
-        - name: Visual Studio Code
-          href: how-to-register-device-vscode.md
+      href: how-to-register-device.md
     - name: IoT Edge 설치 및 관리
       items:
         - name: Linux

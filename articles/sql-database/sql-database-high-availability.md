@@ -11,16 +11,16 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 10/14/2019
-ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ab3971b4fb6065701d693debf55242be7b15295e
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390707"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965966"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>고가용성 및 Azure SQL Database
 
-Azure SQL Database에서 고가용성 아키텍처의 목표는 유지 관리 작업 및 중단의 영향을 걱정 하지 않고 데이터베이스가 99.99%의 시간 동안 실행 되도록 보장 하는 것입니다. Azure는 패치, 백업, Windows 및 SQL 업그레이드와 같은 중요 한 서비스 작업 뿐만 아니라 기본 하드웨어, 소프트웨어 또는 네트워크 오류와 같은 계획 되지 않은 이벤트를 자동으로 처리 합니다.  기본 SQL 인스턴스가 패치 되거나 장애 조치 (failover) 되 면 앱에서 [재시도 논리](sql-database-develop-overview.md#resiliency) 를 사용 하는 경우 가동 중지 시간이 눈에 띄지 않습니다. Azure SQL Database는 가장 심각한 상황에서도 신속한 복구가 가능하기 때문에 데이터를 항상 사용할 수 있습니다.
+Azure SQL Database에서 고가용성 아키텍처의 목표는 유지 관리 작업 및 중단의 영향을 걱정 하지 않고 데이터베이스가 99.99%의 시간 동안 실행 되도록 보장 하는 것입니다. Azure는 패치, 백업, Windows 및 SQL 업그레이드와 같은 중요 한 서비스 작업 뿐만 아니라 기본 하드웨어, 소프트웨어, 네트워크 오류 등의 계획 되지 않은 이벤트도 자동으로 처리 합니다.  기본 SQL 인스턴스가 패치 되거나 장애 조치 (failover) 되 면 앱에서 [재시도 논리](sql-database-develop-overview.md#resiliency) 를 사용 하는 경우 가동 중지 시간이 눈에 띄지 않습니다. Azure SQL Database는 가장 심각한 상황에서도 신속한 복구가 가능하기 때문에 데이터를 항상 사용할 수 있습니다.
 
 고가용성 솔루션은 커밋된 데이터가 오류로 인해 손실 되지 않도록 하 고, 유지 관리 작업이 작업에 영향을 주지 않으며, 데이터베이스가 소프트웨어 아키텍처에서 단일 실패 지점이 되지 않도록 설계 되었습니다. 데이터베이스를 업그레이드하거나 유지 관리하는 동안 워크로드를 중지해야 하는 유지 관리 기간이나 가동 중지 시간이 없습니다. 
 
@@ -39,7 +39,7 @@ Azure SQL Database은 안정적인 최신 버전의 SQL Server 데이터베이�
 
 표준 가용성 모델에는 두 개의 계층이 있습니다.
 
-- @No__t-0 프로세스를 실행 하 고 임시 및 캐시 된 데이터만 포함 하는 상태 비저장 계산 계층 (예: TempDB, 연결 된 SSD의 모델 데이터베이스 및 메모리에 계획 캐시, 버퍼 풀 및 columnstore 풀)을 포함 합니다. 이 상태 비저장 노드는-0 @no__t를 초기화 하 고, 노드의 상태를 제어 하 고, 필요한 경우 다른 노드로 장애 조치 (failover)를 수행 하는 Azure Service Fabric에 의해 작동 합니다.
+- `sqlservr.exe` 프로세스를 실행 하 고 TempDB와 같은 임시 및 캐시 된 데이터만 포함 하는 상태 비저장 계산 계층, 연결 된 SSD의 모델 데이터베이스 및 메모리에 계획 캐시, 버퍼 풀 및 columnstore 풀을 포함 합니다. 이 상태 비저장 노드는 `sqlservr.exe`를 초기화 하 고, 노드의 상태를 제어 하 고, 필요한 경우 다른 노드로 장애 조치 (failover)를 수행 하는 Azure Service Fabric에 의해 작동 합니다.
 - Azure Blob 저장소에 저장 된 데이터베이스 파일 (.mdf/.ldf)이 포함 된 상태 저장 데이터 계층입니다. Azure blob storage에는 기본 제공 되는 데이터 가용성 및 중복성 기능이 있습니다. SQL Server 프로세스가 충돌 하는 경우에도 데이터 파일에 있는 로그 파일 또는 페이지의 모든 레코드가 보존 되도록 보장 합니다.
 
 데이터베이스 엔진 또는 운영 체제가 업그레이드 되거나 오류가 검색 될 때마다 Azure Service Fabric는 사용 가능한 용량이 충분 한 상태 비저장 SQL Server 프로세스를 다른 상태 비저장 계산 노드로 이동 합니다. Azure Blob storage의 데이터는 이동의 영향을 받지 않으며 데이터/로그 파일이 새로 초기화 된 SQL Server 프로세스에 연결 됩니다. 이 프로세스는 99.99%의 가용성을 보장 하지만, 새 SQL Server 인스턴스가 콜드 캐시로 시작 되기 때문에 많은 워크 로드에서 성능 저하가 발생할 수 있습니다.
@@ -62,7 +62,7 @@ Azure SQL Database은 안정적인 최신 버전의 SQL Server 데이터베이�
 
 Hyperscale의 가용성 모델에는 다음 4 개의 계층이 포함 됩니다.
 
-- @No__t-0 프로세스를 실행 하 고, 연결 된 SSD 및 계획 캐시, 버퍼 풀 및 메모리의 columnstore 풀에 포함 되지 않은 임시 및 캐시 된 데이터만 포함 하는 상태 비저장 계산 계층입니다. 이 상태 비저장 계층에는 기본 계산 복제본과 장애 조치 (failover) 대상으로 사용할 수 있는 선택적 개수의 보조 계산 복제본이 포함 됩니다.
+- `sqlservr.exe` 프로세스를 실행 하 고, 연결 된 SSD에서 포함 되지 않은 RBPEX cache, TempDB, model 데이터베이스 등의 임시 및 캐시 된 데이터만 포함 하 고 메모리의 계획 캐시, 버퍼 풀 및 columnstore 풀을 포함 하는 상태 비저장 계산 계층입니다. 이 상태 비저장 계층에는 기본 계산 복제본과 장애 조치 (failover) 대상으로 사용할 수 있는 선택적 개수의 보조 계산 복제본이 포함 됩니다.
 - 페이지 서버에서 구성 된 상태 비저장 저장소 계층입니다. 이 계층은 계산 복제본에서 실행 되는 `sqlservr.exe` 프로세스에 대 한 분산 저장소 엔진입니다. 각 페이지 서버에는 연결 된 SSD의 RBPEX cache 및 메모리에 캐시 된 데이터 페이지와 같은 임시 및 캐시 된 데이터만 포함 됩니다. 각 페이지 서버에는 부하 분산, 중복성 및 고가용성을 제공 하기 위해 활성-활성 구성의 쌍을 이루는 페이지 서버가 있습니다.
 - 로그 서비스 프로세스를 실행 하는 계산 노드, 트랜잭션 로그 방문 영역 및 트랜잭션 로그 장기 저장소로 구성 된 상태 저장 트랜잭션 로그 저장소 계층입니다. 방문 영역 및 장기 저장소는 트랜잭션 로그에 대 한 가용성 및 [중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 을 제공 하는 Azure Storage을 사용 하 여 커밋된 트랜잭션에 대 한 데이터 내 구성을 보장 합니다.
 - Azure Storage에 저장 되 고 페이지 서버에서 업데이트 되는 데이터베이스 파일 (.mdf/.ndf)이 포함 된 상태 저장 데이터 저장소 계층입니다. 이 계층은 Azure Storage의 데이터 가용성 및 [중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 기능을 사용 합니다. 이를 통해 데이터 파일의 모든 페이지가 하이퍼 확장 아키텍처 충돌의 다른 계층에 있는 프로세스 또는 계산 노드가 실패 하는 경우에도 유지 됩니다.
@@ -89,12 +89,14 @@ Hyperscale의 가용성 모델에는 다음 4 개의 계층이 포함 됩니다.
 
 [ADR (가속화 된 데이터베이스 복구)](sql-database-accelerated-database-recovery.md) 는 특히 장기 실행 트랜잭션이 있을 때 데이터베이스 가용성을 크게 향상 시키는 새로운 SQL 데이터베이스 엔진 기능입니다. ADR은 현재 단일 데이터베이스, 탄력적 풀, Azure SQL Data Warehouse에 사용할 수 있습니다.
 
-## <a name="testing-database-fault-resiliency"></a>데이터베이스 오류 복원 력 테스트
+## <a name="testing-application-fault-resiliency"></a>응용 프로그램 오류 복원 력 테스트
 
-고가용성은 Azure SQL Database 플랫폼의 fundamenental 데이터베이스 응용 프로그램에 대해 투명 하 게 작동 합니다. 그러나 계획 되거나 계획 되지 않은 이벤트 중에 시작 된 자동 장애 조치 (failover) 작업이 프로덕션을 위해 배포 되기 전에 응용 프로그램에 영향을 주는지 확인 하는 것을 알 수 있습니다. 특수 API를 호출 하 여 데이터베이스 또는 탄력적 풀을 다시 시작할 수 있습니다. 그러면 장애 조치 (failover)가 트리거됩니다. 영역 중복 데이터베이스 또는 탄력적 풀의 경우 API 호출로 인해 클라이언트 연결이 다른 AZ의 새 주 데이터베이스로 리디렉션됩니다. 따라서 장애 조치 (failover)가 기존 데이터베이스 세션에 미치는 영향을 테스트 하는 것 외에도 종단 간 성능에 영향을 주는지 여부를 확인할 수 있습니다. 다시 시작 작업은 개입 하지 않으며,이로 인해 플랫폼에서 많은 시간을 발생 시킬 수 있기 때문에 각 데이터베이스 또는 탄력적 풀에 대해 30 분 마다 하나의 장애 조치 (failover) 호출만 허용 됩니다. 자세한 내용은 [데이터베이스 장애 조치](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) (failover) 및 [탄력적 풀 장애 조치 (failover](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover))를 참조 하세요.       
+고가용성은 데이터베이스 응용 프로그램에 대해 투명 하 게 작동 하는 Azure SQL Database 플랫폼의 기본적인 부분입니다. 그러나 계획 된 이벤트 또는 계획 되지 않은 이벤트 중에 시작 된 자동 장애 조치 (failover) 작업이 프로덕션 환경에 배포 되기 전에 응용 프로그램에 영향을 주는지 확인 하는 것을 알 수 있습니다. 특수 API를 호출 하 여 데이터베이스 또는 탄력적 풀을 다시 시작할 수 있습니다. 그러면 장애 조치 (failover)가 트리거됩니다. 영역 중복 데이터베이스 또는 탄력적 풀의 경우 API 호출로 인해 이전 주 데이터베이스의 가용성 영역과 다른 가용성 영역에서 새 주 데이터베이스로 클라이언트 연결이 리디렉션됩니다. 따라서 장애 조치 (failover)가 기존 데이터베이스 세션에 미치는 영향을 테스트 하는 것 외에도 네트워크 지연 시간이 변경 되어 종단 간 성능이 변경 되는지 확인할 수 있습니다. 다시 시작 작업은 개입 하지 않으며 많은 수의 플랫폼에서 스트레스를 발생 시킬 수 있기 때문에 각 데이터베이스 또는 탄력적 풀에 대해 30 분 마다 하나의 장애 조치 (failover) 호출만 허용 됩니다. 
+
+장애 조치 (failover)는 REST API 또는 PowerShell을 사용 하 여 시작할 수 있습니다. REST API [데이터베이스 장애 조치](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) (failover) 및 [탄력적 풀 장애 조치 (failover](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover))를 참조 하세요. PowerShell의 경우 [AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover) 및 [AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)를 참조 하세요. [Az REST](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest) 명령을 사용 하 여 Azure CLI에서 REST API 호출을 수행할 수도 있습니다.
 
 > [!IMPORTANT]
-> 장애 조치 (Failover) 명령은 현재 Hypescale 데이터베이스 및 관리 되는 instanceses에 사용할 수 없습니다.  
+> 장애 조치 (Failover) 명령은 현재 Hyperscale service 계층 및 Managed Instance에서 사용할 수 없습니다.
 
 ## <a name="conclusion"></a>결론
 

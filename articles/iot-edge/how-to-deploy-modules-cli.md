@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: aa5c4747238b2f2427be3e57c3e84e03c81fd609
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: c8cd6e2d13e252f9a7560b55eca58341e791db5a
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541751"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964935"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Azure CLI를 사용하여 Azure IoT Edge 모듈 배포
 
@@ -23,12 +23,12 @@ ms.locfileid: "69541751"
 
 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)는 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. 이 기능을 사용하면 Azure IoT Hub 리소스, 디바이스 프로비전 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다. 새로운 IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를 강화합니다.
 
-이 아티클에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor-cli.md)을 참조하세요.
+이 문서에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여 줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor-cli.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-* Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md)
-* IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device-cli.md)
+* Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md)입니다.
+* IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#register-with-the-azure-cli)
 * 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.24 이상이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다.
 * [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
 
@@ -116,7 +116,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-디바이스 ID 매개 변수는 대소문자를 구분합니다. 콘텐츠 매개 변수는 저장한 배포 매니페스트 파일을 가리킵니다.
+장치 ID 매개 변수는 대/소문자를 구분 합니다. 콘텐츠 매개 변수는 저장한 배포 매니페스트 파일을 가리킵니다.
 
    ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
@@ -130,7 +130,7 @@ IoT Edge 디바이스의 모듈 보기:
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-디바이스 ID 매개 변수는 대소문자를 구분합니다.
+장치 ID 매개 변수는 대/소문자를 구분 합니다.
 
    ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 

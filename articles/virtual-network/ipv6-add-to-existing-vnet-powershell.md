@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/21/2019
 ms.author: kumud
-ms.openlocfilehash: 47f73ca8ece8db5fad3f8a7709d8787db42626f4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 907a6de2ff89ddd3c2cb5bdab67e1deb984141dc
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791194"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965248"
 ---
 # <a name="upgrade-an-ipv4-application-to-ipv6-in-azure-virtual-network---powershell-preview"></a>Azure virtual network에서 IPv6로 IPv4 응용 프로그램 업그레이드-PowerShell (미리 보기)
 
-이 문서에서는 표준 Load Balancer에 대 한 Azure 가상 네트워크에서 IPv4 공용 IP 주소를 사용 하는 응용 프로그램에 IPv6 주소를 추가 하는 방법을 보여 줍니다. 현재 위치의 업그레이드에는 가상 네트워크 및 서브넷, IPv4 + IPV6 프런트 엔드 구성을 사용 하는 표준 Load Balancer, IPv4 + IPv6 구성, 네트워크 보안 그룹 및 공용 Ip가 있는 Nic가 있는 Vm이 포함 됩니다.
+이 문서에서는 표준 Load Balancer 및 공용 IP를 사용 하 여 Azure 가상 네트워크의 기존 IPv4 응용 프로그램에 IPv6 연결을 추가 하는 방법을 보여 줍니다. 전체 업그레이드에는 다음이 포함 됩니다.
+- 가상 네트워크 및 서브넷에 대 한 IPv6 주소 공간
+- IPv4 및 IPV6 프런트 엔드 구성을 모두 사용 하는 표준 Load Balancer
+- IPv4 + IPv6 구성이 모두 포함 된 Nic가 있는 Vm
+- IPv 공용 IP를 로드 하 여 부하 분산 장치가 인터넷 연결 IPv6 연결을 갖도록 합니다.
 
 > [!Important]
 > Azure Virtual Network에 대 한 IPv6 지원은 현재 공개 미리 보기 상태입니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
@@ -81,7 +85,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 
 ## <a name="configure-load-balancer-frontend"></a>부하 분산 장치 프런트 엔드 구성
 
-기존 부하 분산 장치 구성을 검색 한 후 다음과 같이 [AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/Add-AzLoadBalancerFrontendIpConfig) 를 사용 하 여 새 IPv6 IP 주소를 사용 하 여 구성 합니다.
+기존 부하 분산 장치 구성을 검색 한 후 다음과 같이 [AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/Add-AzLoadBalancerFrontendIpConfig) 를 사용 하 여 새 IPv6 IP 주소를 추가 합니다.
 
 ```azurepowershell
 # Retrieve the load balancer configuration
@@ -124,7 +128,7 @@ $lb | Set-AzLoadBalancer
 ```
 ## <a name="add-ipv6-address-ranges"></a>IPv6 주소 범위 추가
 
-다음과 같이 부하 분산 장치를 호스트 하는 서브넷 및 가상 네트워크에 IPv6 주소 범위를 추가 합니다.
+다음과 같이 Vm을 호스트 하는 가상 네트워크 및 서브넷에 IPv6 주소 범위를 추가 합니다.
 
 ```azurepowershell
 #Add IPv6 ranges to the VNET and subnet
@@ -145,7 +149,7 @@ $vnet |  Set-AzVirtualNetwork
 ```
 ## <a name="add-ipv6-configuration-to-nic"></a>NIC에 IPv6 구성 추가
 
-다음과 같이 [AzNetworkInterfaceIpConfig](/powershell/module/az.network/Add-AzNetworkInterfaceIpConfig) 를 사용 하 여 IPv6 주소를 사용 하 여 두 VM nic를 구성 합니다.
+다음과 같이 [AzNetworkInterfaceIpConfig](/powershell/module/az.network/Add-AzNetworkInterfaceIpConfig) 를 사용 하 여 IPv6 주소를 사용 하 여 모든 VM nic를 구성 합니다.
 
 ```azurepowershell
 
@@ -185,4 +189,4 @@ Remove-AzResourceGroup -Name MyAzureResourceGroupSLB
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 IPv4 프런트 엔드 IP 구성을 사용 하 여 기존 표준 Load Balancer를 이중 스택 (IPv4 및 IPv6) 구성으로 업데이트 했습니다. 또한 백 엔드 풀의 Vm Nic에 IPv6 구성을 추가 했습니다. Azure virtual network의 IPv6 지원에 대 한 자세한 내용은 [azure Virtual Network에 대 한](ipv6-overview.md) i p v 6을 참조 하세요.
+이 문서에서는 IPv4 프런트 엔드 IP 구성을 사용 하 여 기존 표준 Load Balancer를 이중 스택 (IPv4 및 IPv6) 구성으로 업데이트 했습니다. 또한 백 엔드 풀에 있는 Vm의 Nic와 이들을 호스트 하는 Virtual Network에 IPv6 구성을 추가 했습니다. Azure virtual network의 IPv6 지원에 대 한 자세한 내용은 [azure Virtual Network에 대 한](ipv6-overview.md) i p v 6을 참조 하세요.

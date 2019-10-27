@@ -1,19 +1,19 @@
 ---
-title: '회로 피어링 다시 설정 - ExpressRoute:  Azure | Microsoft Docs'
+title: '회로 피어 링 다시 설정-Express 경로: Azure | Microsoft Docs'
 description: ExpressRoute 회로 피어링을 사용하거나 사용하지 않도록 설정하는 방법입니다.
 services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 10/25/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 8541362a16c7d12a0e3a4cf009ed9cd5faf9f1cd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 841c68b43e7f31693863268c3a7b2bd544c5e7ae
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60366303"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965341"
 ---
 # <a name="reset-expressroute-circuit-peerings"></a>ExpressRoute 회로 피어링 다시 설정
 
@@ -21,7 +21,7 @@ ms.locfileid: "60366303"
 
 ExpressRoute 피어링을 다시 설정하는 것이 도움이 되는 몇 가지 시나리오가 있습니다.
 * 재해 복구 디자인 및 구현을 테스트합니다. 예를 들어 두 개의 ExpressRoute 회로가 있습니다. 한 회로의 피어링은 사용하지 않도록 설정하고 네트워크 트래픽을 다른 회로로 강제로 장애 조치(Failover)할 수 있습니다.
-* ExpressRoute 회로의 Azure 프라이빗 피어링에서 BFD(양방향 전달 검색)를 사용하도록 설정합니다. BFD는 ExpressRoute 회로가 2018년 8월 1일 이후에 만들어진 경우 기본적으로 사용되도록 설정됩니다. 그 이전에 회로를 만들었으면 BFD가 사용되도록 설정되지 않습니다. 피어링을 사용하지 않도록 설정했다가 다시 사용하도록 설정하여 BFD를 사용하도록 설정할 수 있습니다. BFD는 Azure 프라이빗 피어링에서만 지원됩니다.
+* Azure 개인 피어 링 또는 Express 경로 회로의 Microsoft 피어 링에서 BFD (양방향 전달 검색)를 사용 하도록 설정 합니다. 1 2018 년 10 1 2019 월 10 일 이후에 Express 경로 회로가 생성 되는 경우 Microsoft 피어 링에서 Express 경로 및 Microsoft 피어 링 후에 Azure 개인 피어 링에서 BFD가 기본적으로 사용 하도록 설정 됩니다. 그 이전에 회로를 만들었으면 BFD가 사용되도록 설정되지 않습니다. 피어링을 사용하지 않도록 설정했다가 다시 사용하도록 설정하여 BFD를 사용하도록 설정할 수 있습니다. 
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 

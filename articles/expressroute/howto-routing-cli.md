@@ -1,5 +1,5 @@
 ---
-title: '회로의 피어링 구성 방법 - ExpresssRoute: Azure CLI | Microsoft Docs'
+title: '회로 ExpresssRoute: Azure CLI에 대해 피어 링을 구성 하는 방법 Microsoft Docs'
 description: 이 문서는 ExpressRoute 회로의 프라이빗, 공용 및 Microsoft 피어링을 만들고 프로비저닝하는 데 도움이 됩니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
 services: expressroute
 author: cherylmc
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 3f27e10c47b84b6f037c0d9422e9fba40e0315f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d6b361bf7e1b18c44719a8cdbe2e958ac63006d
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64717043"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965763"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 ExpressRoute 회로의 피어링 만들기 및 수정
 
 이 문서는 CLI를 사용하여 Resource Manager 배포 모델에서 ExpressRoute 회로에 라우팅 구성/피어링을 만들고 관리하는 데 도움이 됩니다. ExpressRoute 회로에 대한 피어링의 상태를 확인, 업데이트 또는 삭제 및 프로비전 해제를 수행할 수도 있습니다. 회로를 사용하는 다른 메서드를 사용하려는 경우 다음 목록에서 문서를 선택합니다.
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
+> * [Azure 포털](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [비디오 - 개인 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [비디오 - 프라이빗 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [비디오 - 공용 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [비디오 - Microsoft 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
@@ -44,7 +44,7 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 이 섹션은 ExpressRoute 회로에 Microsoft 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
 > [!IMPORTANT]
-> 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다. 2017년 8월 1일 이후에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터가 회로에 연결될 때까지 접두사가 보급되지 않습니다. 자세한 내용은 [Microsoft 피어링에 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
+> 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다. 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다. 자세한 내용은 [Microsoft 피어링에 경로 필터 구성](how-to-routefilter-powershell.md)을 참조하세요.
 > 
 > 
 
@@ -108,7 +108,7 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
    * 피어링에 대한 AS 숫자입니다. 2바이트 및 4바이트 AS 번호를 모두 사용할 수 있습니다.
    * 보급된 접두사: BGP 세션을 통해 보급하려는 모든 접두사 목록을 제공해야 합니다. 공용 IP 주소 접두사만 수락됩니다. 접두사 집합을 보내려는 경우 쉼표로 구분된 목록을 보낼 수 있습니다. 이 접두사는 RIR/IRR에 등록되어야 합니다.
    * **선택 사항 -** 고객 ASN: 피어링 AS 숫자에 등록되지 않은 광고 접두사인 경우 등록된 AS 번호를 지정할 수 있습니다.
-   * 라우팅 레지스트리 이름: AS 번호 및 접두사가 등록된 RIR/IRR을 지정할 수 있습니다.
+   * 라우팅 레지스트리 이름: AS 번호 및 접두사가 등록된 RIR/ IRR를 지정할 수 있습니다.
    * **선택 사항 -** 사용하기로 선택한 경우 MD5 해시를 사용합니다.
 
    다음 예제를 실행하여 회로에 Microsoft 피어링을 구성합니다.
@@ -124,6 +124,12 @@ ExpressRoute 회로에 한 가지, 두 가지 또는 세 가지 피어링을 구
 ```azurecli-interactive
 az network express-route peering show -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzureMicrosoftPeering
 ```
+> [!IMPORTANT]
+> Microsoft는 지정 된 ' 보급 된 공용 접두사 ' 및 ' 피어 ASN ' (또는 ' Customer ASN ')이 인터넷 라우팅 레지스트리에서 할당 되었는지 확인 합니다. 다른 엔터티에서 공용 접두사를 가져오는 경우 및 라우팅이 라우팅 레지스트리를 사용 하 여 기록 되지 않으면 자동 유효성 검사가 완료 되지 않으며 수동 유효성 검사를 요구 합니다. 자동 유효성 검사에 실패 하면 위의 명령 출력에 ' AdvertisedPublicPrefixesState '이 ' 유효성 검사 필요 '로 표시 됩니다. 
+> 
+> ' 유효성 검사 필요 ' 메시지가 표시 되 면 라우팅 레지스트리에서 접두사의 소유자로 표시 된 엔터티가 조직에 할당 된 공용 접두사를 표시 하는 문서를 수집 하 고 다음을 통해 수동으로 유효성 검사를 위해 이러한 문서를 제출 합니다. 아래와 같이 지원 티켓을 엽니다. 
+> 
+>
 
 다음 예제와 유사하게 출력됩니다.
 
@@ -181,7 +187,7 @@ az network express-route peering update -g ExpressRouteResourceGroup --circuit-n
 az network express-route peering delete -g ExpressRouteResourceGroup --circuit-name MyCircuit --name MicrosoftPeering
 ```
 
-## <a name="private"></a>Azure 개인 피어링
+## <a name="private"></a>Azure 프라이빗 피어링
 
 이 섹션은 ExpressRoute 회로에 Azure 프라이빗 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
@@ -262,7 +268,7 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
    > 
    > 
 
-### <a name="getprivate"></a>Azure 개인 피어링 세부 정보를 보려면
+### <a name="getprivate"></a>Azure 프라이빗 피어링 세부 정보를 보려면
 
 다음 예제를 사용하여 구성 세부 정보를 가져올 수 있습니다.
 
@@ -298,7 +304,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 }
 ```
 
-### <a name="updateprivate"></a>Azure 개인 피어링 구성을 업데이트하려면
+### <a name="updateprivate"></a>Azure 프라이빗 피어링 구성을 업데이트하려면
 
 다음 예제를 사용하여 구성의 일부를 업데이트할 수 있습니다. 이 예제에서는 회로의 VLAN ID를 100개에서 500개로 업데이트됩니다.
 
@@ -306,7 +312,7 @@ az network express-route peering show -g ExpressRouteResourceGroup --circuit-nam
 az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGroup --circuit-name MyCircuit --name AzurePrivatePeering
 ```
 
-### <a name="deleteprivate"></a>Azure 개인 피어링을 삭제하려면
+### <a name="deleteprivate"></a>Azure 프라이빗 피어링을 삭제하려면
 
 다음 예제를 실행하여 피어링 구성을 제거할 수 있습니다.
 
@@ -324,7 +330,7 @@ az network express-route peering delete -g ExpressRouteResourceGroup --circuit-n
 이 섹션은 ExpressRoute 회로에 Azure 공용 피어링 구성을 만들고 가져오며 업데이트하고 삭제하는 데 도움이 됩니다.
 
 > [!Note]
-> 새 회로 대 한 azure 공용 피어 링 하는 사용 되지 않습니다. 자세한 내용은 [ExpressRoute 피어 링](expressroute-circuit-peerings.md)합니다.
+> Azure 공용 피어 링은 새로운 회로에서 사용 되지 않습니다. 자세한 내용은 [express 경로 피어 링](expressroute-circuit-peerings.md)을 참조 하세요.
 >
 
 ### <a name="to-create-azure-public-peering"></a>Azure 공용 피어링을 만들려면

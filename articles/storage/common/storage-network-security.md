@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 908e44ef17dcfcf7042eab32cfd6d1fc3a565ac7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: af5b2a8c6894846ec529763f80c78bc50debabe6
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927109"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965520"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -358,11 +358,11 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 ## <a name="exceptions"></a>예외
 
-네트워크 규칙은 대부분의 시나리오에서 응용 프로그램과 데이터 간의 액세스를 위한 보안 환경을 만드는 데 도움이 됩니다. 그러나 일부 응용 프로그램은 가상 네트워크 또는 IP 주소 규칙을 통해 고유 하 게 격리 될 수 없는 서비스를 사용 합니다. 그러나 전체 응용 프로그램 기능을 사용 하려면 이러한 서비스를 저장소 계정에 부여 해야 합니다. ***신뢰할 수 있는 Microsoft 서비스 허용*** ... 예외를 사용 하 여 데이터, 로그 또는 분석에 대 한 일부 액세스 시나리오를 사용 하도록 설정할 수 있습니다.
+네트워크 규칙은 대부분의 시나리오에서 응용 프로그램과 데이터 간의 연결에 대 한 보안 환경을 만드는 데 도움이 됩니다. 그러나 일부 응용 프로그램은 가상 네트워크 또는 IP 주소 규칙을 통해 고유 하 게 격리 될 수 없는 서비스를 사용 합니다. 그러나 전체 응용 프로그램 기능을 사용 하려면 이러한 서비스를 저장소에 부여 해야 합니다. 이러한 경우 신뢰할 수 있는 ***Microsoft 서비스 허용*** ... 설정을 사용 하 여 데이터, 로그 또는 분석에 액세스할 수 있습니다.
 
 ### <a name="trusted-microsoft-services"></a>신뢰할 수 있는 Microsoft 서비스
 
-네트워크에서 작동 하는 일부 Microsoft 서비스는 기존 네트워크 규칙을 통해 액세스 권한을 부여할 수 없습니다. 이러한 신뢰할 수 있는 Microsoft 서비스의 하위 집합에서 저장소 계정에 액세스 하도록 허용 하는 동시에 다른 앱에 대 한 네트워크 규칙을 유지할 수 있습니다. 그러면 이러한 서비스에서 강력한 인증을 사용 하 여 저장소 계정에 연결할 수 있습니다. Microsoft 서비스에 대 한 두 가지 유형의 트러스트 된 액세스를 사용 하도록 설정 합니다.
+일부 Microsoft 서비스는 네트워크 규칙에 포함 될 수 없는 네트워크에서 작동 합니다. 이러한 신뢰할 수 있는 Microsoft 서비스의 하위 집합에서 저장소 계정에 액세스 하도록 허용 하는 동시에 다른 앱에 대 한 네트워크 규칙을 유지할 수 있습니다. 그러면 이러한 서비스에서 강력한 인증을 사용 하 여 저장소 계정에 안전 하 게 연결할 수 있습니다. Microsoft 서비스에 대 한 두 가지 유형의 트러스트 된 액세스를 사용 하도록 설정 합니다.
 
 - 일부 서비스의 리소스에는 로그 작성 또는 백업과 같은 선택 작업에 대 한 액세스 권한이 부여 될 수 있습니다.
 - 리소스 인스턴스에 [RBAC 역할을 할당](storage-auth-aad.md#assign-rbac-roles-for-access-rights) 하 여 일부 서비스의 특정 인스턴스에 대 한 액세스 권한을 부여할 수 있습니다.
@@ -396,7 +396,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 ### <a name="storage-analytics-data-access"></a>스토리지 분석 데이터 액세스
 
-경우에 따라 네트워크 경계 외부에서 진단 로그 및 메트릭을 읽기 위한 액세스가 필요 합니다. 저장소 계정에 대 한 신뢰할 수 있는 서비스 액세스를 구성 하는 경우 로그 파일, 메트릭 테이블 또는 둘 다에 대해 읽기 액세스를 허용할 수 있습니다. [스토리지 분석 작업에 대한 자세한 정보](/azure/storage/storage-analytics)
+경우에 따라 네트워크 경계 밖에서 진단 로그 및 메트릭을 읽을 수 있는 권한이 필요합니다. 저장소 계정에 대 한 신뢰할 수 있는 서비스 액세스를 구성 하는 경우 로그 파일, 메트릭 테이블 또는 둘 다에 대해 읽기 액세스를 허용할 수 있습니다. [스토리지 분석 작업에 대한 자세한 정보](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>예외 관리
 

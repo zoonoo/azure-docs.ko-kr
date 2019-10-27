@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: f4bab6ab837b746c6a569cc6de95a95023bf83f4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 0e5bec7d3e1ecd63541a319cd5a9151560ef4139
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986999"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964640"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
@@ -33,7 +33,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
     *   VM을 처음으로 시도하는 경우, 암호를 사용하고 공용 인바운드 포트 메뉴에서 SSH를 사용하도록 설정하는 것이 가장 쉬운 방법입니다. 
     *   리소스를 많이 사용하는 워크로드가 있는 경우 CPU 및/또는 메모리를 더 추가하여 가상 머신 크기를 업그레이드해야 합니다.
 4.  가상 머신이 배포되고 나면, IoT Hub에 연결되도록 구성합니다.
-    1.  IoT Hub에 만든 IoT Edge 디바이스에서 디바이스 연결 문자열을 복사합니다. 이 프로세스에 익숙하지 않은 경우 [Azure Portal에서 새 Azure IoT Edge 디바이스 등록](how-to-register-device-portal.md) 방법 가이드를 따를 수 있습니다.
+    1.  IoT Hub에서 만든 IoT Edge 장치에서 장치 연결 문자열을 복사 합니다 .이 프로세스에 익숙하지 않은 경우 [Azure Portal 절차에서 연결 문자열 검색](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) 을 수행할 수 있습니다.
     1.  Azure Portal에서 새로 만든 가상 머신 리소스를 선택하고 **명령 실행** 옵션을 엽니다.
     1.  **RunShellScript** 옵션을 선택합니다.
     1.  디바이스 연결 문자열 `/etc/iotedge/configedge.sh “{device_connection_string}”`을 사용하여 명령 창을 통해 아래 스크립트를 실행합니다.
@@ -85,7 +85,7 @@ Azure Portal에서 “Azure IoT Edge”를 검색하고 **Ubuntu Server 16.04 LT
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image microsoft_iot_edge:iot_edge_vm_ubuntu:ubuntu_1604_edgeruntimeonly:latest --admin-username azureuser --generate-ssh-keys
    ```
 
-1. 디바이스 연결 문자열을 설정합니다. 이 프로세스에 익숙하지 않은 경우 [Azure CLI를 사용하여 새 Azure IoT Edge 디바이스 등록](how-to-register-device-cli.md) 방법 가이드를 따를 수 있습니다.
+1. 장치 연결 문자열을 설정 합니다 .이 프로세스에 익숙하지 않은 경우 Azure CLI 절차를 [사용 하 여 연결 문자열 검색](how-to-register-device.md#retrieve-the-connection-string-with-the-azure-cli) 을 수행할 수 있습니다.
 
    ```azurecli-interactive
    az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"

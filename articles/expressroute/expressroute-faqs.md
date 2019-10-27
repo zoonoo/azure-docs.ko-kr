@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: df8b1c8fd31eed0a09b878f09faadb23f6b72aaa
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686984"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965429"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -27,7 +27,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="where-is-the-service-available"></a>서비스를 사용할 수 있는 곳은 어디인가요?
 
-서비스 위치 및 가용성은 이 페이지를 참조하세요. [ExpressRoute 파트너 및 위치](expressroute-locations.md)
+서비스 위치 및 가용성은 [ExpressRoute 파트너 및 위치](expressroute-locations.md)페이지를 참조하세요.
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>ExpressRoute 통신 업체 중 하나와 파트너의 관계가 아닌 경우, ExpressRoute를 사용하여 Microsoft에 연결할 수 있는 방법이 있나요?
 
@@ -39,7 +39,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>지정된 대역폭의 ExpressRoute 회로에 대한 비용을 지불하는 경우, 네트워크 서비스 공급자로부터 구입한 VPN 연결은 동일한 속도여야 하나요?
 
-아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
+아닙니다. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>지정된 대역폭의 ExpressRoute 회로에 대해 비용을 지불한다면 필요한 경우 더 높은 속도로 버스트할 수 있나요?
 
@@ -57,7 +57,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 Express 경로는 개인 피어 링, Microsoft 피어 링 및 공용 피어 링과 같은 다양 한 유형의 서비스에 대 한 [세 개의 라우팅 도메인](expressroute-circuit-peerings.md) 을 지원 합니다.
 
-### <a name="private-peering"></a>개인 피어링
+### <a name="private-peering"></a>프라이빗 피어링
 
 * 모든 가상 머신 및 클라우드 서비스를 포함한 가상 네트워크
 
@@ -86,6 +86,14 @@ Express 경로는 개인 피어 링, Microsoft 피어 링 및 공용 피어 링�
     * Azure Front Door
     * Multi-factor Authentication 서버 (레거시)
     * Traffic Manager
+
+### <a name="why-i-see-advertised-public-prefixes-status-as-validation-needed-while-configuring-microsoft-peering"></a>Microsoft 피어 링을 구성 하는 동안 ' 보급 된 공용 접두사 ' 상태가 ' 유효성 검사 필요 '로 표시 되는 이유는 무엇 인가요?
+
+Microsoft는 지정 된 ' 보급 된 공용 접두사 ' 및 ' 피어 ASN ' (또는 ' Customer ASN ')이 인터넷 라우팅 레지스트리에서 할당 되었는지 확인 합니다. 다른 엔터티에서 공용 접두사를 가져오는 경우 및 라우팅이 라우팅 레지스트리를 사용 하 여 기록 되지 않으면 자동 유효성 검사가 완료 되지 않으며 수동 유효성 검사를 요구 합니다. 자동 유효성 검사에 실패 하면 ' 유효성 검사 필요 ' 메시지가 표시 됩니다.
+
+' 유효성 검사 필요 ' 메시지가 표시 되 면 라우팅 레지스트리에서 접두사의 소유자로 표시 된 엔터티가 조직에 할당 된 공용 접두사를 표시 하는 문서를 수집 하 고 다음을 통해 수동으로 유효성 검사를 위해 이러한 문서를 제출 합니다. 아래와 같이 지원 티켓을 엽니다.
+
+![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>Express 경로에서 Dynamics 365이 지원 되나요?
 
@@ -128,7 +136,7 @@ Dynamics 365 및 Common Data Service (CD) 환경은 Azure에서 호스트 되므
 
 서로 다른 피어 링 위치의 여러 Express 경로 회로를 동일한 가상 네트워크에 연결 하 여 단일 회로를 사용할 수 없게 되는 경우 고가용성을 제공할 수 있습니다. 그런 다음 특정 회로를 선호 하도록 로컬 연결에 [더 높은 가중치를 할당할](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) 수 있습니다. 단일 실패 지점이 발생 하지 않도록 하기 위해 고객은 두 개 이상의 Express 경로 회로를 설치 하는 것이 좋습니다. 
 
-고가용성을 위한 디자인 설계는 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)를 재해 복구를 위한 디자인은 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)를 참조하세요.  
+재해 복구를 위한 디자인 [을 위해 고가용성](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) 을 위한 설계는 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) 를 참조 하세요.  
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Microsoft 피어 링에서 중복성을 구현 하는 방법
 
@@ -144,7 +152,7 @@ Dynamics 365 및 Common Data Service (CD) 환경은 Azure에서 호스트 되므
 
 온-프레미스에서 Azure로의 경로가 항상 Express 경로 회로에서 선호 되도록 하려면 라우터에 *로컬 기본 설정* 특성을 구현 해야 합니다.
 
-BGP 경로 선택 및 공통 라우터 [구성에서 추가](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) 세부 정보를 참조 하세요. 
+BGP 경로 선택 및 공통 라우터 [구성에서 추가 세부 정보를 참조](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#path-selection-on-microsoft-and-public-peerings) 하세요. 
 
 ### <a name="onep2plink"></a>클라우드 교환에 공동 배치되지 않았으며 서비스 공급자가 점 대 점 연결을 공급하는 경우 온-프레미스 네트워크와 Microsoft 간에 두 개의 실제 연결을 주문해야 하나요?
 
@@ -154,7 +162,7 @@ BGP 경로 선택 및 공통 라우터 [구성에서 추가](https://docs.micros
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>ExpressRoute를 사용하여 Azure에 대한 내 VLAN 중 하나를 확장할 수 있나요?
 
-아니요. Azure까지의 계층 2 연결 확장을 지원하지 않습니다.
+아닙니다. Azure까지의 계층 2 연결 확장을 지원하지 않습니다.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>내 구독에 둘 이상의 ExpressRoute 회로가 있을 수 있나요?
 
@@ -203,7 +211,7 @@ BGP 경로 선택 및 공통 라우터 [구성에서 추가](https://docs.micros
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>가상 네트워크가 서로 격리된 동일한 회로에 연결되어 있나요?
 
-아니요. 라우팅 관점에서 동일한 ExpressRoute 회로에 연결된 모든 가상 네트워크는 동일한 라우팅 도메인의 일부이며 서로 격리되지 않습니다. 경로 격리가 필요하면 별도의 ExpressRoute 회로를 만들어야 합니다.
+아닙니다. 라우팅 관점에서 동일한 ExpressRoute 회로에 연결된 모든 가상 네트워크는 동일한 라우팅 도메인의 일부이며 서로 격리되지 않습니다. 경로 격리가 필요하면 별도의 ExpressRoute 회로를 만들어야 합니다.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>하나의 가상 네트워크를 둘 이상의 ExpressRoute 회로에 연결할 수 있나요?
 
@@ -269,7 +277,7 @@ ExpressRoute Premium은 다음 기능의 모음입니다.
 * ExpressRoute 회로에서 사용할 수 있는 VNet 및 ExpressRoute Global Reach 연결 수가 증가했습니다(기본값은 10). 자세한 내용은 [ExpressRoute 제한](#limits) 표를 참조하세요.
 * Office 365에 대 한 연결
 * Microsoft 핵심 네트워크를 통해 전역 연결합니다. 이제 한 지리적 지역의 VNet을 다른 지역의 ExpressRoute 회로와 연결할 수 있습니다.<br>
-    **예:**
+    **예제:**
 
     *  유럽 서부에서 만든 VNet을 실리콘밸리에서 만든 ExpressRoute 회로에 연결할 수 있습니다. 
     *  Microsoft 피어링에서는 실리콘밸리의 회로에서 유럽 서부의 SQL Azure에 연결할 수 있는 것처럼 다른 지리적 지역의 접두사가 보급됩니다.
@@ -281,7 +289,7 @@ ExpressRoute Premium은 다음 기능의 모음입니다.
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 
-### <a name="how-do-i-enable-expressroute-premium"></a>ExpressRoute 프리미엄을 사용하려면 어떻게 하나요?
+### <a name="how-do-i-enable-expressroute-premium"></a>ExpressRoute Premium을 사용하려면 어떻게 하나요?
 
 ExpressRoute Premium 기능은 사용하도록 설정되면 활성화할 수 있으며, 회로 상태를 업데이트하여 종료할 수 있습니다. ExpressRoute Premium은 회로를 만들 때 또는 REST API/PowerShell cmdlet을 호출하여 사용하도록 설정할 수 있습니다.
 
@@ -291,7 +299,7 @@ ExpressRoute Premium은 REST API/PowerShell cmdlet을 호출하여 사용하지 
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>프리미엄 기능 집합에서 원하는 기능을 선택할 수 있나요?
 
-아니요. 기능은 선택할 수 없습니다. ExpressRoute Premium을 켜면 모든 기능을 사용합니다.
+아닙니다. 기능은 선택할 수 없습니다. ExpressRoute Premium을 켜면 모든 기능을 사용합니다.
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>ExpressRoute Premium 비용
 
@@ -299,7 +307,7 @@ ExpressRoute Premium은 REST API/PowerShell cmdlet을 호출하여 사용하지 
 
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>표준 ExpressRoute 요금 외에도 ExpressRoute premium에 대한 납부 여부
 
-예. ExpressRoute 프리미엄 요금은 ExpressRoute 회로 요금 및 연결 공급자에서 필요한 요금 위에 적용됩니다.
+예. ExpressRoute premium 요금은 ExpressRoute 회로 요금 및 연결 공급자에서 필요한 요금 위에 적용됩니다.
 
 ## <a name="expressroute-local"></a>Express 경로 로컬
 ### <a name="what-is-expressroute-local"></a>Express 경로 로컬 이란?
@@ -384,7 +392,7 @@ Office 365 서비스를 사용하려면 프리미엄 추가 기능을 사용하�
 
 * 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다. 접두사는 기본적으로 표시되지 않습니다.
 
-## <a name="expressRouteDirect"></a>ExpressRoute Direct
+## <a name="expressRouteDirect"></a>Express 경로 직접
 
 [!INCLUDE [ExpressRoute Direct](../../includes/expressroute-direct-faq-include.md)]
 

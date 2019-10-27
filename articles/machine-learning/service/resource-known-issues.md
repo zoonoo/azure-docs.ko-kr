@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: a3ba28960327f1e0a56b1ac838b2cb90ab6ac72a
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 0dd0b8cf39da8039b3a59bf243284e0d5062bd78
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675641"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965590"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -43,7 +43,7 @@ Machine learning 서비스 문제에 대 한 시각적 인터페이스입니다.
  
 이 문제를 해결 하기 전에 데이터 집합을 데이터 변환 모듈 (데이터 집합의 열 선택, 메타 데이터 편집, 데이터 분할 등)에 연결 하 고 실험을 실행할 수 있습니다. 그런 다음 데이터 집합을 시각화할 수 있습니다. 
 
-다음 그림에서는 ![visulize 데이터 ](./media/resource-known-issues/aml-visualize-data.png)를 보여 줍니다.
+다음 이미지는 ![visulize](./media/resource-known-issues/aml-visualize-data.png)를 보여 줍니다.
 
 ## <a name="sdk-installation-issues"></a>SDK 설치 문제
 
@@ -86,6 +86,16 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 ### <a name="experiment-charts"></a>실험 차트
 
 자동화 된 ML 실험 반복에 표시 되는 이진 분류 차트 (정밀도-리콜, ROC, 곡선 등)는 4/12부터 사용자 인터페이스에서 올바르게 렌더링 되지 않습니다. 차트 플롯에는 현재 더 낮은 결과가 포함 된 모델을 더 잘 수행 하는 역 결과가 표시 됩니다. 확인 중입니다.
+
+## <a name="datasets-and-data-preparation"></a>데이터 집합 및 데이터 준비
+
+### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>HTTP 또는 ADLS Gen 2에서 Parquet 파일을 읽지 못했습니다.
+
+AzureML DataPrep SDK 버전 1.1.25에는 HTTP 또는 ADLS Gen 2에서 Parquet 파일을 읽어 데이터 집합을 만들 때 오류가 발생 하는 알려진 문제가 있습니다. 이 문제를 해결 하려면 1.1.26 보다 높은 버전으로 업그레이드 하거나 1.1.24 보다 낮은 버전으로 다운 그레이드 하세요.
+
+```python
+pip install --upgrade azureml-dataprep
+```
 
 ## <a name="databricks"></a>Databricks
 
@@ -136,9 +146,9 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 
 Azure Databricks 클러스터에서 데이터를 읽을 때 `FailToSendFeather` 오류가 표시 되는 경우 다음 해결 방법을 참조 하세요.
 
-* @No__t_0 패키지를 최신 버전으로 업그레이드 합니다.
-* @No__t_0 버전 1.1.8 이상을 추가 합니다.
-* @No__t_0 버전 0.11 이상을 추가 합니다.
+* `azureml-sdk[automl]` 패키지를 최신 버전으로 업그레이드 합니다.
+* `azure-dataprep` 버전 1.1.8 이상을 추가 합니다.
+* `pyarrow` 버전 0.11 이상을 추가 합니다.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -177,13 +187,13 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
 ## <a name="overloaded-azurefile-storage"></a>오버 로드 된 AzureFile 저장소
 
-@No__t_0 오류가 표시 되 면 다음 해결 방법을 적용 합니다.
+`Unable to upload project files to working directory in AzureFile because the storage is overloaded`오류가 표시 되 면 다음 해결 방법을 적용 합니다.
 
 데이터 전송과 같은 다른 작업에 대해 파일 공유를 사용 하는 경우 파일 공유를 사용 하 여 실행을 제출할 수 있도록 blob을 사용 하는 것이 좋습니다. 작업을 서로 다른 두 작업 영역 간에 분할할 수도 있습니다.
 
 ## <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes 서비스 실패의 Webservices 
 
-@No__t_0를 사용 하 여 클러스터에 연결 하 여 Azure Kubernetes Service에서 많은 webservice 오류를 디버그할 수 있습니다. 을 실행 하 여 Azure Kubernetes 서비스 클러스터에 대 한 `kubeconfig.json`를 가져올 수 있습니다.
+`kubectl`를 사용 하 여 클러스터에 연결 하 여 Azure Kubernetes Service에서 많은 webservice 오류를 디버그할 수 있습니다. 을 실행 하 여 Azure Kubernetes 서비스 클러스터에 대 한 `kubeconfig.json`를 가져올 수 있습니다.
 
 ```bash
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -224,7 +234,7 @@ kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes는 암호를 base-64로 인코딩된 형식으로 저장 합니다. @No__t_2에 제공 하기 전에 `cert.pem` 및 암호의 `key.pem` 구성 요소를 먼저 디코딩하는 것이 64 필요 합니다. 
+>Kubernetes는 암호를 base-64로 인코딩된 형식으로 저장 합니다. `attach_config.enable_ssl`에 제공 하기 전에 `cert.pem` 및 암호의 `key.pem` 구성 요소를 먼저 디코딩하는 것이 64 필요 합니다. 
 
 ## <a name="recommendations-for-error-fix"></a>오류 수정에 대 한 권장 사항
 일반적인 관찰을 기준으로 azure ML에서 일반적인 오류 중 일부를 해결 하기 위한 Azure ML 권장 사항은 다음과 같습니다.
@@ -232,7 +242,7 @@ kubectl get secret/azuremlfessl -o yaml
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (이름이 지정 된 모듈 없음)
 Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경우 학습 스크립트는 패키지를 설치 하는 것으로 예상 하지만 추가 되지 않았음을 의미 합니다. 패키지 이름을 제공 하면 Azure ML은 교육에 사용 되는 환경에 패키지를 설치 합니다. 
 
-[추정](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) 를 사용 하 여 실험을 제출 하는 경우 패키지를 설치 하려는 원본에서 기반으로 평가기의 `conda_packages` 매개 변수를 사용 하 여 패키지 `pip_packages` 이름을 지정할 수 있습니다. @No__t_0or를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 하 `pip_requirements_file` 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다.
+[추정](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) 를 사용 하 여 실험을 제출 하는 경우 패키지를 설치 하려는 원본에서 기반으로 평가기의 `conda_packages` 매개 변수를 사용 하 여 패키지 `pip_packages` 이름을 지정할 수 있습니다. `conda_dependencies_file`를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 하거나 `pip_requirements_file` 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다.
 
 또한 Azure ML은 Tensorflow, PyTorch, 체 이너 및 추정에 대 한 프레임 워크 관련 제공 합니다. 이러한 추정을 사용 하면 학습에 사용 되는 환경에서 프레임 워크 종속성을 대신 설치할 수 있습니다. 위에서 설명한 대로 추가 종속성을 지정 하는 옵션이 있습니다. 
  

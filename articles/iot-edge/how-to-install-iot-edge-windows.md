@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: c1b507398a2edd839b610a7c52892e23a88481a0
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ae3f866ff5e4266983117e93f2aab5982065947e
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516605"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964380"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Windows에 Azure IoT Edge 런타임 설치
 
@@ -76,9 +76,9 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 1. 아직 만들지 않은 경우 새 IoT Edge 장치를 등록 하 고 **장치 연결 문자열**을 검색 합니다. 이 섹션의 뒷부분에서 사용할 연결 문자열을 복사 합니다. 다음 도구를 사용 하 여이 단계를 완료할 수 있습니다.
 
-   * [Azure 포털](how-to-register-device-portal.md)
-   * [Azure CLI](how-to-register-device-cli.md)
-   * [Visual Studio Code](how-to-register-device-vscode.md)
+   * [Azure 포털](how-to-register-device.md#register-in-the-azure-portal)
+   * [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)
+   * [Visual Studio Code](how-to-register-device.md#register-with-visual-studio-code)
 
 2. PowerShell을 관리자 권한으로 실행합니다.
 
@@ -123,7 +123,7 @@ PowerShell 스크립트가 Azure IoT Edge 보안 디먼을 다운로드하여 �
 
 이 두 번째 옵션에서는 IoT Hub Device Provisioning Service를 사용하여 디바이스를 프로비전합니다. 기본 [증명 메커니즘과](../iot-dps/concepts-security.md#attestation-mechanism)관련 된 다른 정보와 함께 장치 프로 비전 서비스 인스턴스의 **범위 ID** 를 제공 합니다.
 
-* [Windows에서 시뮬레이트된 TPM Edge 장치 만들기 및 프로 비전](how-to-auto-provision-simulated-device-windows.md)
+* [Windows에서 가상 TPM을 사용 하 여 시뮬레이트된 IoT Edge 장치 만들기 및 프로 비전](how-to-auto-provision-simulated-device-windows.md)
 * [대칭 키 증명을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전](how-to-auto-provision-symmetric-keys.md)
 
 장치를 자동으로 설치 하 고 프로 비전 할 때 다음을 비롯 한 추가 매개 변수를 사용 하 여 설치를 수정할 수 있습니다.

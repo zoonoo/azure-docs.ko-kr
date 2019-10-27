@@ -1,5 +1,5 @@
 ---
-title: Linux 또는 Windows를 실행 하는 Azure 가상 머신에 대 한 일반적인 성능 문제 해결
+title: Linux 또는 Windows에서 Azure 가상 머신 성능 문제 해결
 description: 이 문서에서는 병목 현상 모니터링 및 관찰을 통해 VM (가상 컴퓨터) 일반 성능 문제를 설명 하 고 발생할 수 있는 문제에 대 한 가능한 수정을 제공 합니다.
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: 3fdac123ee7bda9d91d96940aebd6bddf4ea00f8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 50c0a670eb492aef01c3499bc2c8605917f4c7b8
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790876"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965480"
 ---
-# <a name="generic-performance-troubleshooting-for-azure-virtual-machine-running-linux-or-windows"></a>Linux 또는 Windows를 실행 중인 Azure Virtual Machine의 일반 성능 문제 해결
+# <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Linux 또는 Windows에서 Azure 가상 머신 성능 문제 해결
 
 이 문서에서는 병목 현상 모니터링 및 관찰을 통해 VM (가상 컴퓨터) 일반 성능 문제를 설명 하 고 발생할 수 있는 문제에 대 한 가능한 수정을 제공 합니다. 모니터링 외에도 모범 사례 권장 사항을 포함 하는 보고서를 제공할 수 있는 Perfinsights 및 IO/CPU/메모리와 관련 된 주요 병목 상태를 사용할 수 있습니다. Perfinsights는 Azure의 [Windows](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfInsights) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/how-to-use-perfinsights-linux) VM 모두에서 사용할 수 있습니다.
 

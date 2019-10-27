@@ -13,24 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: 73b185eabc77d293328b1251a4af1aafffc5f319
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0c86f9ad134e9b640d33d1a391c5387af9f9afd
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65236350"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965672"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
 다른 Azure 리소스, 온-프레미스 네트워크 및 인터넷과 통신하기 위해 Azure 리소스에 IP 주소를 할당할 수 있습니다. Azure에서 두 가지 유형의 IP 주소를 사용할 수 있습니다.
 
-* **공용 IP 주소**: Azure 공용 서비스를 포함하여 인터넷과의 통신에 사용됩니다.
-* **사설 IP 주소**: VPN 게이트웨이 또는 ExpressRoute 회로를 사용하여 Azure로 네트워크를 확장할 때 Azure VNet(가상 네트워크) 및 온-프레미스 네트워크 내에서 통신하는 데 사용됩니다.
+* **공용 IP 주소**: Azure 공용 웹 서비스를 포함한 인터넷과의 통신에 사용됩니다.
+* **개인 IP 주소**: VPN 게이트웨이 또는 ExpressRoute 회로를 사용하여 Azure로 네트워크를 확장할 때 Azure 가상 네트워크(VNet) 및 온-프레미스 네트워크 내에서 통신하는 데 사용됩니다.
 
 공용 IP 접두사를 통해 고정 공용 IP 주소의 연속 범위를 만들 수도 있습니다. [공용 IP 접두사에 대해 알아보세요.](public-ip-address-prefix.md)
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 사용하기 위한  [Resource Manager 및 클래식](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 Resource Manager 배포 모델 사용을 설명하며 Microsoft에서는 대부분의 새로운 배포에 대해 [클래식 배포 모델](virtual-network-ip-addresses-overview-classic.md) 대신 이 모델을 사용하도록 권장합니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 Resource Manager 배포 모델 사용을 설명하며 Microsoft에서는 대부분의 새로운 배포에 대해 [클래식 배포 모델](virtual-network-ip-addresses-overview-classic.md) 대신 이 모델을 사용하도록 권장합니다.
 > 
 
 클래식 배포 모델에 익숙한 경우 [클래식과 Resource Manager 간 IP 주소 지정의 차이](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments)를 확인하십시오.
@@ -43,12 +43,12 @@ Azure 리소스 관리자에서 [공용 IP](virtual-network-public-ip-address.md
 
 * 가상 머신 네트워크 인터페이스
 * 인터넷 연결 부하 분산 장치
-* VPN Gateway
+* VPN 게이트웨이
 * 애플리케이션 게이트웨이
 
 ### <a name="ip-address-version"></a>IP 주소 버전
 
-공용 IP 주소는 IPv4 또는 IPv6 주소를 사용하여 만들어집니다. 공용 IPv6 주소는 인터넷 연결 부하 분산 장치에만 할당할 수 있습니다.
+공용 IP 주소는 IPv4 또는 IPv6 주소를 사용하여 만들어집니다. 
 
 ### <a name="sku"></a>SKU
 
@@ -81,7 +81,7 @@ SKU 도입 전에 생성된 모든 공용 IP 주소는 기본 SKU 공용 IP 주�
 > [네트워크 보안 그룹](security-overview.md#network-security-groups)을 만들어 연결하고 원하는 인바운드 트래픽을 명시적으로 허용해야 표준 SKU 리소스와 인바운드 통신할 수 있습니다.
 
 > [!NOTE]
-> 사용 하는 경우 기본 SKU 사용 하 여 공용 IP 주소를 사용할 수만 [인스턴스 메타 데이터 서비스 IMDS](../virtual-machines/windows/instance-metadata-service.md)합니다. 표준 SKU는 지원 되지 않습니다.
+> [인스턴스 메타 데이터 서비스 IMDS](../virtual-machines/windows/instance-metadata-service.md)를 사용 하는 경우 기본 SKU를 사용 하는 공용 IP 주소만 사용할 수 있습니다. 표준 SKU는 지원 되지 않습니다.
 
 ### <a name="allocation-method"></a>할당 방법
 
@@ -111,34 +111,34 @@ Azure 관리 DNS 서버에서 공용 IP 주소에 대한 *domainnamelabel*.*loca
 > 생성된 각 도메인 이름은 Azure 위치 내에서 고유해야 합니다.  
 >
 
-### <a name="dns-best-practices"></a>DNS에 대 한 유용한 정보
-다른 지역으로 마이그레이션 해야 하는 경우 공용 IP 주소의 FQDN을 마이그레이션할 수 없습니다. 모범 사례로, Azure에서 공용 IP 주소를 가리키는 사용자 지정 도메인 CNAME 레코드를 만들려면 FQDN을 사용할 수 있습니다. 다른 공용 IP를 이동 해야 할 경우 수동으로 새 주소로 FQDN을 업데이트 하는 대신 CNAME 레코드를 업데이트를 해야 합니다. 사용할 수 있습니다 [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) 또는 DNS 레코드에 대 한 외부 DNS 공급자입니다. 
+### <a name="dns-best-practices"></a>DNS 모범 사례
+다른 지역으로 마이그레이션해야 하는 경우 공용 IP 주소의 FQDN을 마이그레이션할 수 없습니다. 모범 사례로, FQDN을 사용 하 여 Azure의 공용 IP 주소를 가리키는 사용자 지정 도메인 CNAME 레코드를 만들 수 있습니다. 다른 공용 IP로 이동 해야 하는 경우 FQDN을 새 주소로 수동으로 업데이트 하지 않고 CNAME 레코드를 업데이트 해야 합니다. DNS 레코드에 대 한 [Azure DNS](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address) 또는 외부 dns 공급자를 사용할 수 있습니다. 
 
-### <a name="virtual-machines"></a>가상 머신
+### <a name="virtual-machines"></a>Virtual Machines
 
 공용 IP 주소를 **네트워크 인터페이스**에 할당하여 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신과 연결할 수 있습니다. 가상 머신에 동적 또는 고정 공용 IP 주소를 할당할 수 있습니다. [네트워크 인터페이스에 IP 주소를 할당](virtual-network-network-interface-addresses.md)하는 방법에 대해 자세히 알아봅니다.
 
 ### <a name="internet-facing-load-balancers"></a>인터넷 연결 부하 분산 장치
 
-공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [SKU](#sku) 또는 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)와 연결할 수 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다. 부하 분산 장치 프런트 엔드에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다. 또한 부하 분산 장치 프런트 엔드에 여러 공용 IP 주소를 할당하여 SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 [다중 VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 시나리오를 구현할 수도 있습니다. Azure Load Balancer SKU에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
+공용 IP 주소를 부하 분산 장치 **프런트 엔드** 구성에 할당하여 [SKU](#sku) 또는 [Azure Load Balancer](../load-balancer/load-balancer-overview.md)와 연결할 수 있습니다. 공용 IP 주소는 부하가 분산된 VIP(가상 IP 주소)로 사용됩니다. 부하 분산 장치 프런트 엔드에 동적 또는 정적 공용 IP 주소를 할당할 수 있습니다. 또한 부하 분산 장치 프런트 엔드에 여러 공용 IP 주소를 할당하여 SSL 기반 웹 사이트를 사용하는 다중 테넌트 환경과 같은 [다중 VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 시나리오를 구현할 수도 있습니다. Azure 부하 분산 장치 SKU에 대한 자세한 내용은 [Azure Load Balancer 표준 SKU](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
 
-### <a name="vpn-gateways"></a>VPN Gateway
+### <a name="vpn-gateways"></a>VPN 게이트웨이
 
 [Azure VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json)는 Azure 가상 네트워크를 다른 Azure 가상 네트워크 또는 온-프레미스 네트워크에 연결합니다. 공용 IP 주소를 VPN Gateway에 할당하여 원격 네트워크와의 통신을 구현할 수 있습니다. VPN Gateway에 기본 *동적* 공용 IP 주소만을 할당할 수 있습니다.
 
 ### <a name="application-gateways"></a>애플리케이션 게이트웨이
 
-공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway**와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP로 사용됩니다. 만 할당할 수 있습니다는 *동적* 응용 프로그램 게이트웨이 V1 프런트 엔드 구성에 공용 IP 주소를 기본만 *정적* V2 프런트 엔드 구성에 표준 SKU 주소입니다.
+공용 IP 주소를 게이트웨이의 [프런트 엔드](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json)구성에 할당하여 Azure **Application Gateway**와 연결할 수 있습니다. 이 공용 IP 주소는 부하 분산 VIP로 사용됩니다. *동적* 기본 공용 IP 주소만 Application gateway V1 프런트 엔드 구성에 할당 하 고, V2 프런트 엔드 구성에는 *정적* 표준 SKU 주소만 할당할 수 있습니다.
 
 ### <a name="at-a-glance"></a>요약
 다음 표는 공용 IP 주소를 최상위 리소스와 연결할 수 있는 특정 속성 및 사용 가능한 할당 메서드(동적 또는 고정)를 보여줍니다.
 
-| 최상위 리소스 | IP 주소 연결 | 동적 | 공용 |
+| 최상위 리소스 | IP 주소 연결 | 않는 | 공용 |
 | --- | --- | --- | --- |
-| 가상 머신 |Linux |예. |예. |
-| 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |예. |예. |
-| VPN Gateway |게이트웨이 IP 구성 |예. |아닙니다. |
-| 프런트 엔드 |프런트 엔드 구성 |예(V1에만 해당) |예(V2에만 해당) |
+| 가상 컴퓨터 |Linux |yes |yes |
+| 인터넷 연결 부하 분산 장치 |프런트 엔드 구성 |yes |yes |
+| VPN 게이트웨이 |게이트웨이 IP 구성 |yes |아닙니다. |
+| 애플리케이션 게이트웨이 |프런트 엔드 구성 |예(V1에만 해당) |예(V2에만 해당) |
 
 ## <a name="private-ip-addresses"></a>개인 IP 주소
 개인 IP 주소를 사용하면 Azure 리소스가 인터넷 연결이 가능한 IP 주소를 사용하지 않고 VPN 게이트웨이 또는 ExpressRoute 회로를 통해 [가상 네트워크](virtual-networks-overview.md) 또는 온-프레미스 네트워크의 다른 리소스와 통신할 수 있습니다.
@@ -149,20 +149,16 @@ Azure Resource Manager 배포 모델에서 개인 IP 주소는 다음과 같은 
 * 내부 부하 분산 장치(ILB)
 * 애플리케이션 게이트웨이
 
-### <a name="ip-address-version"></a>IP 주소 버전
-
-개인 IP 주소는 IPv4 또는 IPv6 주소를 사용하여 만들어집니다. 개인 IPv6 주소는 동적 할당 메서드를 사용하여 할당될 수 있습니다. 가상 네트워크의 개인 IPv6 주소 간에 통신할 수 없습니다. 인터넷 연결 부하 분산 장치를 통해 인터넷의 프라이빗 IPv6 주소에 대한 인바운드와 통신할 수 있습니다. 자세한 내용은 [IPv6으로 인터넷 연결 부하 분산 장치 만들기](../load-balancer/load-balancer-ipv6-internet-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요.
-
 ### <a name="allocation-method"></a>할당 방법
 
 리소스가 배포된 가상 네트워크 서브넷의 주소 범위에서 개인 IP 주소가 할당됩니다. Azure는 각 서브넷 주소 범위에서 처음 4개 주소를 예약하므로, 주소를 리소스에 할당할 수 없습니다. 예를 들어 서브넷의 주소 범위가 10.0.0.0/16인 경우, 주소 10.0.0.0-10.0.0.3은 리소스에 할당할 수 없습니다. 서브넷 주소 범위 내의 IP 주소는 한 번에 하나의 리소스에만 할당할 수 있습니다. 
 
 개인 IP 주소를 할당하는 방법에는 두 가지가 있습니다.
 
-- **동적**: Azure는 서브넷의 주소 범위에서 할당되지 않았거나 예약되지 않은 다음 사용 가능한 IP 주소를 할당합니다. 예를 들어 Azure는 주소 10.0.0.4-10.0.0.9가 다른 리소스에 이미 할당된 경우 10.0.0.10를 새 리소스에 할당합니다. 동적이 기본 할당 방법입니다. 할당되면 네트워크 인터페이스가 삭제되거나 동일한 가상 네트워크 내에서 다른 서브넷에 할당되거나 또는 할당 메서드가 고정으로 변경된 경우 동적 IP 주소만 해제되고 다른 IP 주소가 지정됩니다. 기본적으로 할당 메서드를 동적에서 고정으로 변경하는 경우 Azure는 이전에 동적으로 할당된 주소를 고정 주소로 할당합니다.
-- **고정**: 서브넷의 주소 범위에서 할당되지 않았거나 예약되지 않은 IP 주소를 선택하여 할당합니다. 예를 들어 서브넷 주소 범위가 10.0.0.0/16이며 주소 10.0.0.4-10.0.0.9가 이미 다른 리소스에 할당된 경우 모든 주소를 10.0.0.10-10.0.255.254 사이에 할당할 수 있습니다. 고정 주소는 네트워크 인터페이스가 삭제되는 경우에만 해제됩니다. 할당 메서드를 동적으로 변경하는 경우 Azure는 주소가 서브넷 주소 범위의 사용 가능한 다음 주소가 아닌 경우에도 이전에 할당한 고정 IP 주소를 동적 주소로 할당합니다. 네트워크 인터페이스가 동일한 가상 네트워크 내의 다른 서브넷에 할당되는 경우에도 주소가 변경됩니다. 하지만 네트워크 인터페이스를 다른 서브넷에 할당하려면 먼저 할당 메서드를 고정에서 동적으로 변경해야 합니다. 네트워크 인터페이스를 다른 서브넷에 할당하면 할당 메서드를 다시 고정으로 변경하고 새로운 서브넷의 주소 범위에서 IP 주소를 할당할 수 있습니다.
+- **동적**: Azure는 사용 가능한 다음 할당되지 않은 또는 예약되지 않은 IP 주소를 서브넷의 주소 범위에 할당합니다. 예를 들어 Azure는 주소 10.0.0.4-10.0.0.9가 다른 리소스에 이미 할당된 경우 10.0.0.10를 새 리소스에 할당합니다. 동적이 기본 할당 방법입니다. 할당되면 네트워크 인터페이스가 삭제되거나 동일한 가상 네트워크 내에서 다른 서브넷에 할당되거나 또는 할당 메서드가 고정으로 변경된 경우 동적 IP 주소만 해제되고 다른 IP 주소가 지정됩니다. 기본적으로 할당 메서드를 동적에서 고정으로 변경하는 경우 Azure는 이전에 동적으로 할당된 주소를 고정 주소로 할당합니다.
+- **고정적**: Azure는 할당되지 않은 또는 예약되지 않은 IP 주소를 선택하고 서브넷의 주소 범위에 할당합니다. 예를 들어 서브넷 주소 범위가 10.0.0.0/16이며 주소 10.0.0.4-10.0.0.9가 이미 다른 리소스에 할당된 경우 모든 주소를 10.0.0.10-10.0.255.254 사이에 할당할 수 있습니다. 고정 주소는 네트워크 인터페이스가 삭제되는 경우에만 해제됩니다. 할당 메서드를 동적으로 변경하는 경우 Azure는 주소가 서브넷 주소 범위의 사용 가능한 다음 주소가 아닌 경우에도 이전에 할당한 고정 IP 주소를 동적 주소로 할당합니다. 네트워크 인터페이스가 동일한 가상 네트워크 내의 다른 서브넷에 할당되는 경우에도 주소가 변경됩니다. 하지만 네트워크 인터페이스를 다른 서브넷에 할당하려면 먼저 할당 메서드를 고정에서 동적으로 변경해야 합니다. 네트워크 인터페이스를 다른 서브넷에 할당한 후 할당 메서드를 다시 정적으로 변경하고 새 서브넷의 주소 범위에서 IP 주소를 할당할 수 있습니다.
 
-### <a name="virtual-machines"></a>가상 머신
+### <a name="virtual-machines"></a>Virtual Machines
 
 하나 이상의 개인 IP 주소는 [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 가상 머신에 있는 하나 이상의 **네트워크 인터페이스**에 할당됩니다. 각 개인 IP 주소에 대한 할당 방법을 동적 또는 고정으로 지정할 수 있습니다.
 
@@ -183,11 +179,11 @@ Azure 관리 DNS 서버를 사용하여 구성된 가상 머신은 동일한 가
 
 | 최상위 리소스 | IP 주소 연결 | 않는 | 공용 |
 | --- | --- | --- | --- |
-| 가상 머신 |Linux |예. |예 |
-| 부하 분산 장치 |프런트 엔드 구성 |예. |예. |
-| 프런트 엔드 |프런트 엔드 구성 |예. |예 |
+| 가상 컴퓨터 |Linux |yes |yes |
+| Load Balancer |프런트 엔드 구성 |yes |yes |
+| 애플리케이션 게이트웨이 |프런트 엔드 구성 |yes |yes |
 
-## <a name="limits"></a>제한
+## <a name="limits"></a>Limits
 IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 제한](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) 전체 집합에 나와 있습니다. 제한은 지역별, 구독별로 적용됩니다. 비즈니스에 따라 최대 한도까지 기본 제한을 증가시키려면 [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) 하세요.
 
 ## <a name="pricing"></a>가격
@@ -195,4 +191,4 @@ IP 주소 지정에 적용되는 제한은 Azure에서 [네트워킹에 대한 �
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 포털을 사용하여 고정 공용 IP를 사용하는 VM 배포](virtual-network-deploy-static-pip-arm-portal.md)
-* [Azure 포털을 사용하여 고정 개인 IP 주소를 사용하는 VM 배포](virtual-networks-static-private-ip-arm-pportal.md)
+* [Azure Portal을 사용하여 고정 개인 IP 주소를 사용하는 VM 배포](virtual-networks-static-private-ip-arm-pportal.md)

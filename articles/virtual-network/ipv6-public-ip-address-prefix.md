@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/15/2019
 ms.author: kumud
-ms.openlocfilehash: 2d00ccdeb89ba5d983e4a3e089e78a8d748e4092
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8254a7d86d5cadc2ddc03940f4ab2d08de74bd86
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597948"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965167"
 ---
 # <a name="reserved-public-ipv6-address-prefix-preview"></a>예약 된 공용 IPv6 주소 접두사 (미리 보기)
 
@@ -46,7 +46,7 @@ Azure에서 이중 스택 (IPv4 + IPv6) 가상 네트워크 (VNet) 및 Vm (가�
 개별 IP 주소와 IP 범위 모두에서 Azure 공용 ip를 사용 하는 것과 관련 된 비용은 [공용 Ip 주소 가격 책정](https://azure.microsoft.com/pricing/details/ip-addresses/)을 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
-IPv6은 Azure에서 응용 프로그램 (VM 또는 부하 분산 장치)을 삭제 하 고 다시 배포 하는 경우 IPv6 주소가 변경 됨을 의미 하는 "동적" 할당 으로만 기본 공용 Ip에서 지원 됩니다. 표준 IPv6 공용 IP만 동적 및 정적 (예약 된) 할당을 모두 지원 합니다.
+IPv6은 Azure에서 응용 프로그램 (VM 또는 부하 분산 장치)을 삭제 하 고 다시 배포 하는 경우 IPv6 주소가 변경 됨을 의미 하는 "동적" 할당 으로만 기본 공용 Ip에서 지원 됩니다. 표준 IPv6 공용 IP는 정적 (예약 된) 할당만 지원 합니다. 단, 표준 내부 부하 분산 장치는 할당 된 서브넷 내에서 동적 할당을 지원할 수도 있습니다.  
 
 가장 좋은 방법은 IPv6 응용 프로그램에 표준 공용 Ip와 표준 부하 분산 장치를 사용 하는 것이 좋습니다.
 

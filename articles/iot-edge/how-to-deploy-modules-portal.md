@@ -10,12 +10,12 @@ ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: f27484fd1d47a2e29aa5083a7d440e5c7dba11c1
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 4c2adc8ef0d426617dc85dd507907d612bbdabaa
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839654"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964912"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
@@ -23,10 +23,10 @@ ms.locfileid: "68839654"
 
 이 아티클에서는 배포 매니페스트를 만들고 IoT Edge 디바이스에 배포를 푸시하는 방법을 Azure Portal에서 어떻게 설명하는지를 보여줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-* Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)
-* IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device-portal.md)
+* Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)입니다.
+* IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#register-in-the-azure-portal)
 
 ## <a name="select-your-device"></a>디바이스 선택
 
@@ -39,7 +39,7 @@ ms.locfileid: "68839654"
 
 배포 매니페스트는 배포할 모듈, 모듈 간의 데이터 흐름 및 모듈 쌍의 desired 속성을 설명하는 JSON 문서입니다. 배포 매니페스트의 작동 방식 및 생성 방법에 대한 자세한 내용은 [IoT Edge 모듈을 사용, 구성 및 다시 사용하는 방법에 대한 이해](module-composition.md)를 참조하세요.
 
-Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니페스트를 만드는 방법을 설명하는 마법사가 포함됩니다. 여기에는 **모듈 추가**, **경로 지정** 및 **배포 검토**의 세 가지 단계가 있습니다.
+Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니페스트를 만드는 방법을 설명하는 마법사가 포함됩니다. **모듈 추가**, **경로 지정** 및 **배포 검토** 등 세 가지 단계가 있습니다.
 
 ### <a name="add-modules"></a>모듈 추가
 
@@ -55,14 +55,14 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 1. **IoT Edge 모듈**을 선택합니다.
 
-1. 모듈에 이름을 입력한 다음, 컨테이너 이미지를 지정합니다. 예:
+1. 모듈에 이름을 입력한 다음, 컨테이너 이미지를 지정합니다. 다음은 그 예입니다.
 
    * **이름** -SimulatedTemperatureSensor
    * **이미지 URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. 필요한 경우 선택적 필드를 작성합니다. 컨테이너 생성 옵션, 다시 시작 정책 및 원하는 상태에 대한 자세한 내용은 [EdgeAgent desired 속성](module-edgeagent-edgehub.md#edgeagent-desired-properties)을 참조하세요. 모듈 쌍에 대한 자세한 내용은 [desired 속성 정의 또는 업데이트](module-composition.md#define-or-update-desired-properties)을 참조하세요.
 
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 1. 2-6단계를 반복하여 배포에 모듈을 추가합니다.
 
@@ -70,7 +70,7 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 ### <a name="specify-routes"></a>경로 지정
 
-기본적으로 마법사에서는 사용자에게 **route**라는 **FROM /\* INTO $upstream**으로 정의된 경로를 제공합니다. 즉, 모듈에 의한 메시지 출력은 IoT Hub에 전송됩니다.  
+기본적으로 마법사에서는 사용자에게 **route**라는 **FROM /* INTO $upstream**으로 정의된 경로를 제공합니다. 즉, 모듈에 의한 메시지 출력은 IoT 허브에 전송됩니다.  
 
 [경로 선언](module-composition.md#declare-routes)의 정보를 포함한 경로를 추가하거나 업데이트한 다음, **다음**을 선택하여 검토 섹션을 진행합니다.
 
@@ -92,14 +92,14 @@ Azure Marketplace 또는 Azure Portal에서 IoT Edge 모듈을 설치할 수 있
 
 1. 모듈을 찾고 배포 프로세스를 시작합니다.
 
-   * Azure Portal: 모듈을 찾고 **만들기**를 선택합니다.
+   * Azure Portal: 모듈을 찾고 **만들기**를 선택 합니다.
 
    * Azure Marketplace:
 
      1. 모듈을 찾고 **지금 가져오기**를 선택합니다.
      1. **계속**을 선택하여 공급자의 사용 약관 및 개인정보처리방침을 확인합니다.
 
-1. 대상 디바이스가 연결된 구독 및 IoT Hub를 선택합니다.
+1. 사용자 구독 및 대상 디바이스가 연결된 IoT Hub를 선택합니다.
 
 1. **디바이스에 배포**를 선택합니다.
 

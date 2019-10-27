@@ -11,12 +11,12 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: a8b380355d7eee6b79bff01d29160fdd3b42800d
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 40e556b5d0fe22629eeca9a088d10ea5fc9b95ac
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285809"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965495"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Azure SQL Database에 대한 고급 데이터 보안
 
@@ -26,7 +26,7 @@ ms.locfileid: "72285809"
 
 광고 (advanced data security)는 데이터 검색 & 분류, 취약성 평가 및 고급 위협 방지를 비롯 한 고급 SQL 보안 기능 집합을 제공 합니다.
 
-- [데이터 검색 및 분류](sql-database-data-discovery-and-classification.md)(현재 미리 보기)는 데이터베이스에 있는 중요한 데이터의 검색, 분류, 레이블 지정 및 보호를 위해 Azure SQL Database에 기본 제공된 기능을 제공합니다. 데이터베이스 분류 상태에 대한 가시성을 제공하고, 데이터베이스 내 및 해당 경계 외부의 중요한 데이터에 대한 액세스를 추적하는 데 사용할 수 있습니다.
+- [데이터 검색 & 분류](sql-database-data-discovery-and-classification.md) 는 데이터베이스의 중요 한 데이터를 검색, 분류, 레이블 지정 &는 Azure SQL Database에 기본 제공 되는 기능을 제공 합니다. 데이터베이스 분류 상태에 대한 가시성을 제공하고, 데이터베이스 내 및 해당 경계 외부의 중요한 데이터에 대한 액세스를 추적하는 데 사용할 수 있습니다.
 - [취약성 평가](sql-vulnerability-assessment.md)는 잠재적인 데이터베이스 취약성을 검색, 추적 및 수정할 수 있는 서비스를 간편하게 구성합니다. 보안 상태에 대한 가시성을 제공하고, 보안 문제를 해결하고 데이터베이스 보안을 강화하기 위한 실행 가능한 단계를 포함합니다.
 - [Advanced Threat Protection](sql-database-threat-detection-overview.md) 은 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 합니다. 지속적으로 의심스러운 활동에 대한 데이터베이스를 모니터링하고, 잠재적인 취약점, SQL 삽입 공격 및 비정상 데이터베이스 액세스 패턴에 대한 보안 경고를 즉시 제공합니다. Advanced Threat Protection 경고는 의심 스러운 활동의 세부 정보를 제공 하 고 위협을 조사 하 고 완화 하는 방법에 대 한 권장 조치를 제공 합니다.
 
@@ -38,7 +38,7 @@ ADS 가격 책정은 Azure Security Center 표준 계층에 부합합니다. 여
 
 다음 단계에서는 ADS를 시작합니다.
 
-## <a name="1-enable-ads"></a>1. ADS 사용
+## <a name="1-enable-ads"></a>1. 광고 사용
 
 SQL Database 서버 또는 관리되는 인스턴스의 **보안** 제목에서 **Advanced Data Security**로 이동하여 ADS를 사용하도록 설정합니다. 데이터베이스 서버 또는 관리되는 인스턴스에서 모든 데이터베이스에 ADS를 사용하도록 설정하려면 **서버에서 Advanced Data Security 사용**을 클릭합니다.
 
@@ -50,17 +50,17 @@ SQL Database 서버 또는 관리되는 인스턴스의 **보안** 제목에서 
 > [!NOTE]
 > ADS의 비용은 노드당 Azure Security Center 표준 계층 가격 책정에 부합합니다. 여기서 노드는 전체 SQL Database 서버 또는 관리되는 인스턴스입니다. 따라서 ADS를 사용하여 데이터베이스 서버 또는 관리되는 인스턴스의 모든 데이터베이스를 보호하기 위해 한 번만 결제합니다. ADS를 처음에 평가판으로 사용해볼 수 있습니다.
 
-## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. 데이터를 분류하고, 취약점을 추적하고, 위협 경고를 조사하기 시작
+## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. 데이터 분류, 취약성 추적 및 위협 경고 조사를 시작 합니다.
 
 **데이터 검색 및 분류** 카드를 클릭하여 분류하도록 추천받은 중요한 열을 확인하고 영구 민감도 레이블을 포함한 데이터를 분류합니다. **취약성 평가** 카드를 클릭하여 취약성 검색 및 보고서를 보고 관리하고, 보안 상태를 추적합니다. 보안 경고가 수신 되 면 **Advanced Threat Protection** 카드를 클릭 하 여 경고 세부 정보를 확인 하 고 Azure Security Center 보안 경고 페이지를 통해 Azure 구독의 모든 경고에 대 한 통합 보고서를 확인 합니다.
 
-## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. SQL Database 서버 또는 관리되는 인스턴스에서 ADS 설정 관리
+## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. SQL Database 서버 또는 관리 되는 인스턴스에서 ADS 설정 관리
 
 ADS 설정을 보고 관리하려면 SQL Database 서버 또는 관리되는 인스턴스의 **보안** 제목에서 **Advanced Data Security**로 이동합니다. 이 페이지에서는 광고를 사용 하거나 사용 하지 않도록 설정 하 고 전체 SQL Database 서버 또는 관리 되는 인스턴스에 대해 취약점 평가 및 고급 위협 방지 설정을 수정할 수 있습니다.
 
 ![서버 설정](./media/sql-advanced-protection/server_settings.png) 
 
-## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. SQL 데이터베이스의 ADS 설정 관리
+## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. SQL database에 대 한 광고 설정 관리
 
 특정 데이터베이스의 ADS 설정을 재정의하려면 **데이터베이스 수준에서 Advanced Data Security 사용** 확인란을 선택합니다. 이 옵션은 개별 데이터베이스에 대해 개별 데이터베이스에 대 한 별도의 Advanced Threat Protection 경고 또는 취약성 평가 결과를 수신 해야 하는 특정 요구 사항이 있는 경우에만 사용 합니다. 데이터베이스 서버 또는 관리 되는 인스턴스입니다.
 

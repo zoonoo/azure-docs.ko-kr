@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 9bc4d60eab0dac80d1b2b524f32bc506a66dee18
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: aca417ebbc6f9af80058ddece32842f38918ce60
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516671"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72964772"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Debian 기반 Linux 시스템에 Azure IoT Edge 런타임 설치
 
@@ -167,7 +167,7 @@ IoT Hub에서 제공하는 디바이스 연결 문자열을 사용하여 단일 
 
 ### <a name="option-1-manual-provisioning"></a>옵션 1: 수동 프로비전
 
-디바이스를 수동으로 프로비전하려면 IoT Hub에 새 디바이스를 등록하여 만들 수 있는 [디바이스 연결 문자열](how-to-register-device-portal.md)을 디바이스에 프로비전해야 합니다.
+디바이스를 수동으로 프로비전하려면 IoT Hub에 새 디바이스를 등록하여 만들 수 있는 [디바이스 연결 문자열](how-to-register-device.md#register-in-the-azure-portal)을 디바이스에 프로비전해야 합니다.
 
 구성 파일을 엽니다.
 
@@ -292,7 +292,7 @@ sudo iotedge list
    ./check-config.sh
    ```
 
-그러면 Moby 런타임에 사용 되는 커널 기능의 상태를 포함 하는 자세한 출력이 제공 됩니다. @No__t_0 및 `Network Drivers` 아래의 모든 항목을 사용 하도록 설정 하 여 커널이 Moby 런타임과 완전히 호환 되는지 확인 해야 합니다.  누락 된 기능을 확인 한 경우 원본에서 커널을 다시 작성 하 고 적절 한 커널 .config에 포함 하기 위해 관련 모듈을 선택 하 여 해당 기능을 사용 하도록 설정 합니다.  마찬가지로 defconfig 또는 menuconfig와 같은 커널 구성 생성기를 사용 하는 경우 해당 기능을 찾아서 사용 하도록 설정 하 고 그에 따라 커널을 다시 빌드합니다.  새로 수정 된 커널을 배포한 후에는 확인-구성 스크립트를 다시 실행 하 여 필요한 모든 기능이 성공적으로 설정 되었는지 확인 합니다.
+그러면 Moby 런타임에 사용 되는 커널 기능의 상태를 포함 하는 자세한 출력이 제공 됩니다. `Generally Necessary` 및 `Network Drivers` 아래의 모든 항목을 사용 하도록 설정 하 여 커널이 Moby 런타임과 완전히 호환 되는지 확인 해야 합니다.  누락 된 기능을 확인 한 경우 원본에서 커널을 다시 작성 하 고 적절 한 커널 .config에 포함 하기 위해 관련 모듈을 선택 하 여 해당 기능을 사용 하도록 설정 합니다.  마찬가지로 defconfig 또는 menuconfig와 같은 커널 구성 생성기를 사용 하는 경우 해당 기능을 찾아서 사용 하도록 설정 하 고 그에 따라 커널을 다시 빌드합니다.  새로 수정 된 커널을 배포한 후에는 확인-구성 스크립트를 다시 실행 하 여 필요한 모든 기능이 성공적으로 설정 되었는지 확인 합니다.
 
 
 ## <a name="uninstall-iot-edge"></a>IoT Edge 제거
