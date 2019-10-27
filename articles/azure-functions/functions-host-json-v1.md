@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: 3d6a28c8cdcf13dc805d70832ed65732911138cd
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 89709edf085e1c424156fb68bd86fbc66b6ae8a7
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263356"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934326"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x에 대한 host.json 참조
 
@@ -140,10 +140,10 @@ ms.locfileid: "72263356"
 }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------|
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
-|Protocol|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.|
+|프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.|
 |leasePrefix|n/a|앱의 모든 함수에서 사용할 접두사를 임대합니다.|
 
 ## <a name="durabletask"></a>durableTask
@@ -156,7 +156,7 @@ ms.locfileid: "72263356"
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>Functions
 
 작업 호스트가 실행하는 함수 목록입니다. 빈 배열은 모든 함수를 실행한다는 의미입니다. [로컬로 실행](functions-run-local.md)할 때만 사용할 수 있습니다. Azure의 함수 앱에서는 이 설정을 사용하는 대신 [Azure Functions에서 함수를 사용하지 않도록 설정하는 방법](disable-function.md)의 단계를 수행하여 특정 함수를 사용하지 않도록 설정해야 합니다.
 
@@ -168,7 +168,7 @@ ms.locfileid: "72263356"
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-모든 함수에 대한 시간 제한 기간을 나타냅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다. 앱 서비스 계획의 경우 전체 제한은 없으며 기본값은 런타임 버전에 따라 달라집니다.
+모든 함수에 대한 시간 제한 기간을 나타냅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다. App Service 계획에서는 전체 제한이 없으며 기본값은 _null_이며 시간 제한이 없음을 나타냅니다.
 
 ```json
 {
@@ -192,9 +192,9 @@ ms.locfileid: "72263356"
 }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
-|enabled|true|기능의 사용 여부를 지정합니다. | 
+|사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
 |healthCheckWindow|2분|`healthCheckThreshold` 설정과 함께 사용되는 슬라이딩 시간 범위| 
 |healthCheckThreshold|6|호스트 재생이 시작되기 전에 상태 검사 실패가 용인되는 최대 횟수| 
@@ -250,10 +250,10 @@ ms.locfileid: "72263356"
 }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |categoryFilter|n/a|범주별 필터링을 지정합니다.| 
-|defaultLevel|Information|`categoryLevels` 배열에 지정되지 않은 범주가 있으면 이 수준 이상의 로그를 Application Insights로 보내십시오.| 
+|defaultLevel|정보|`categoryLevels` 배열에 지정되지 않은 범주가 있으면 이 수준 이상의 로그를 Application Insights로 보내십시오.| 
 |categoryLevels|n/a|각 범주에 대해 Application Insight에 보낼 최소 로그 수준을 지정하는 범주 배열입니다. 여기에 지정된 범주는 동일한 값으로 시작하는 모든 범주를 제어하며 긴 값이 우선합니다. 앞의 샘플 *host.json* 파일에서 "Host.Aggregator"로 시작하는 모든 범주는 `Information` 수준으로 기록됩니다. "Host.Executor"와 같이 "Host"로 시작하는 다른 모든 범주는 `Error` 수준으로 기록됩니다.| 
 
 ## <a name="queues"></a>queues
@@ -272,7 +272,7 @@ ms.locfileid: "72263356"
 }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |maxPollingInterval|60000|큐 폴링 사이 최대 간격(밀리초)입니다.| 
 |visibilityTimeout|0|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다.| 
@@ -291,7 +291,7 @@ ms.locfileid: "72263356"
     }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |from|n/a|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 
@@ -309,7 +309,7 @@ ms.locfileid: "72263356"
 }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. | 
 |prefetchCount|n/a|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.| 
@@ -331,7 +331,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 
@@ -354,7 +354,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|속성  |Default | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 |consoleLevel|info|콘솔 로깅의 추적 수준입니다. 옵션은 `off`, `error`, `warning`, `info` 및 `verbose`입니다.|
 |fileLoggingMode|debugOnly|파일 로깅에 대한 추적 수준입니다. 옵션은 `never`, `always`, `debugOnly`입니다.| 

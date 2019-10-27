@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a467856550bf2deaab931b3fe2f54b7986f12f8a
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 136a9994415b42c456ebdb0caa8ed6edcc7b4534
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430304"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934370"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리란? (Preview)
 
@@ -121,6 +121,7 @@ Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소�
 | 리소스 종류 | 그룹, 응용 프로그램 및 SharePoint Online 사이트를 포함 하는 리소스의 유형입니다. |
 | 리소스 역할 | 리소스와 연결 된 사용 권한 컬렉션입니다. |
 | 리소스 디렉터리 | 공유할 리소스가 하나 이상 있는 디렉터리입니다. |
+| 연결 된 조직 | 관계가 있는 외부 Azure AD 디렉터리 또는 도메인입니다. |
 | 할당 된 사용자 | 사용자가 해당 액세스 패키지의 모든 리소스 역할을 갖도록 사용자에 게 액세스 패키지를 할당 합니다. |
 | enable | 사용자가 요청할 수 있는 액세스 패키지를 만드는 프로세스입니다. |
 

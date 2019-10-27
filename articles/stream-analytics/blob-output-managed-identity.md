@@ -1,17 +1,17 @@
 ---
-title: 관리 Id를 사용 하 여 Azure Blob Storage 출력에 Azure Stream Analytics 작업 인증 (미리 보기)
+title: 관리 Id를 사용 하 여 blob 출력 인증 Azure Stream Analytics
 description: 이 문서에서는 관리 되는 id를 사용 하 여 Azure Blob storage 출력에 Azure Stream Analytics 작업을 인증 하는 방법을 설명 합니다.
 author: cedarbaum
 ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 2bde1e8556fb1255e27595630e061f6b80870ce1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4215dc85da6d507b08f23cf248044ea807fe5319
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278695"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935186"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>관리 Id를 사용 하 여 Azure Blob Storage 출력에 Azure Stream Analytics 작업 인증 (미리 보기)
 

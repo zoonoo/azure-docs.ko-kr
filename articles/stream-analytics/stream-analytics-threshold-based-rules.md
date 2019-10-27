@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙 처리
+title: Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙
 description: 이 문서에서는 Azure Stream Analytics를 사용하여 Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙이 있는 경고 솔루션을 얻는 방법을 설명합니다.
 services: stream-analytics
 author: zhongc
@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f8fd21f411093e22b2b1dc5afd6da9cb26db6ff8
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761729"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934252"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙 처리
 이 문서에서는 Azure Stream Analytics를 사용하여 Azure Stream Analytics에서 구성 가능한 임계값 기반 규칙을 사용하는 경고 솔루션을 얻는 방법을 설명합니다.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>시나리오: 조정 가능한 규칙 임계값 기반 경고
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>시나리오: 조정 가능한 규칙 임계값에 따른 경고
 들어오는 스트리밍 이벤트가 특정 값에 도달했거나, 들어오는 스트리밍 이벤트를 기준으로 하는 집계 값이 특정 임계값을 초과할 경우 출력으로 경고를 생성해야 할 수 있습니다. 고정되고 미리 결정된 정적 임계값에 값을 비교하는 Stream Analytics 쿼리는 간단히 설정할 수 있습니다. 고정 임계값은 단순 숫자 비교(보다 큼, 보다 작음 및 같음)를 사용하여 스트리밍 쿼리 구문으로 하드 코드될 수 있습니다.
 
 어떤 경우에는 임계값이 변경될 때마다 쿼리 구문을 편집하지 않아도 되도록, 임계값을 구성하는 것이 더 쉬워야 할 수 있습니다. 각 종류의 디바이스에서 서로 다른 임계값을 갖는 같은 쿼리로 다양한 디바이스 또는 사용자를 처리해야 하는 경우도 있습니다. 

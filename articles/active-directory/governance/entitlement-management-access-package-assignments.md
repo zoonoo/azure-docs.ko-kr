@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 694c8866a69d8488511be1670ba3d3013a4a3423
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: a20ff526ba00f5b6521198122972071360bb58d6
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392515"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934485"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 할당 보기, 추가 및 제거
 
@@ -70,11 +70,9 @@ Azure AD 자격 관리에서 패키지, 정책 및 상태에 대 한 액세스 �
 
     ![할당-액세스 패키지에 사용자 추가](./media/entitlement-management-access-package-assignments/assignments-add-user.png)
 
-1. **사용자 추가** 를 클릭 하 여 액세스 패키지를 할당 하려는 사용자를 선택 합니다.
+1. **사용자 추가** 를 클릭 하 여이 액세스 패키지를 할당 하려는 사용자를 선택 합니다.
 
-1. **정책 선택** 목록에서 [없음 (관리자 직접 할당에만 해당)](entitlement-management-access-package-request-policy.md#none-administrator-direct-assignments-only) 설정이 있는 정책을 선택 합니다.
-
-    이 액세스 패키지에 이러한 유형의 정책이 없으면 **새 정책 만들기** 를 클릭 하 여 추가할 수 있습니다.
+1. **정책 선택** 목록에서 사용자의 향후 요청 및 수명 주기를 관리 하 고 추적할 정책을 선택 합니다. 선택한 사용자에 게 다른 정책 설정이 있도록 하려면 **새 정책 만들기** 를 클릭 하 여 새 정책을 추가 합니다.
 
 1. 선택한 사용자의 할당을 시작할 날짜와 시간을 설정 하 고 종료 합니다. 종료 날짜를 제공 하지 않으면 정책의 수명 주기 설정이 사용 됩니다.
 
