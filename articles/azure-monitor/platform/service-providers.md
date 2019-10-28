@@ -1,24 +1,18 @@
 ---
 title: 서비스 공급자의 Azure Monitor | Microsoft Docs
 description: Azure Monitor는 MSPs (관리 서비스 공급자), 대기업, Isv (독립 소프트웨어 공급 업체) 및 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리 및 모니터링 하는 데 도움이 될 수 있습니다.
-services: log-analytics
-documentationcenter: ''
-author: MeirMen
-manager: jochan
-editor: ''
-ms.assetid: c07f0b9f-ec37-480d-91ec-d9bcf6786464
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: conceptual
-ms.date: 08/06/2019
+author: MeirMen
 ms.author: meirm
-ms.openlocfilehash: 971757a4778dd50be486bead0c50fd6b3a25002e
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.date: 08/06/2019
+ms.openlocfilehash: b0f25d01421edd329b03d8f2b7e1aafaa2ba67d5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839281"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72932072"
 ---
 # <a name="azure-monitor-for-service-providers"></a>서비스 공급자 Azure Monitor
 Azure Monitor의 Log Analytics 작업 영역을 통해 MSPs (관리 서비스 공급자), 대기업, Isv (독립 소프트웨어 공급 업체) 및 호스팅 서비스 공급자가 고객의 온-프레미스 또는 클라우드 인프라에서 서버를 관리 하 고 모니터링할 수 있습니다. 
@@ -33,7 +27,7 @@ Log Analytics 작업 영역에서는 관리자가 [로그](data-platform-logs.md
 
 Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가지 아키텍처를 사용할 수 있습니다.
 
-### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. 배포됨 - 로그는 고객의 테넌트에 있는 작업 영역에 저장됩니다. 
+### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. 분산 로그는 고객의 테 넌 트에 있는 작업 영역에 저장 됩니다. 
 
 이 아키텍처에서 작업 영역은 해당 고객의 모든 로그에 사용되는 고객의 테넌트에 배포됩니다. 서비스 공급자 관리자는 [Azure Active Directory 게스트 사용자(B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)를 사용하여 이 작업 영역에 대한 액세스 권한이 부여되었습니다. 서비스 공급자 관리자는 Azure Portal에서 고객 디렉터리로 전환해야 이러한 작업 영역에 액세스할 수 있습니다.
 
@@ -49,7 +43,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 * 서비스 공급자 관리자는 고객 디렉터리에서 프로비전되어야 합니다.
 * 서비스 공급자는 해당 고객 간에 데이터를 분석할 수 없습니다.
 
-### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. 중앙 - 로그가 서비스 공급 기업 테넌트에 있는 작업 영역에 저장됨
+### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. 중앙 로그는 서비스 공급자 테 넌 트에 있는 작업 영역에 저장 됩니다.
 
 이 아키텍처에서 로그는 고객의 테넌트에 저장되지 않고 서비스 공급자의 구독 내의 중앙 위치에만 저장됩니다. 고객의 VM에 설치된 에이전트는 작업 영역 ID 및 비밀 키를 사용하여 이 작업 영역에 해당 로그를 보내도록 구성됩니다.
 
@@ -71,7 +65,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 * 모든 고객의 모든 VM 에이전트는 동일한 작업 영역 ID 및 키를 사용하여 중앙 작업 영역에 인증됩니다. 다른 고객을 방해하지 않고 특정 고객의 로그를 차단하는 방법은 없습니다.
 
-### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. 하이브리드 - 로그는 고객의 테넌트에 있는 작업 영역에 저장되고 그 중 일부는 중앙 위치로 끌어옵니다.
+### <a name="3-hybrid---logs-are-stored-in-workspace-located-in-the-customers-tenant-and-some-of-them-are-pulled-to-a-central-location"></a>3. 하이브리드 로그는 고객의 테 넌 트에 있는 작업 영역에 저장 되 고 그 중 일부는 중앙 위치로 끌어옵니다.
 
 두 가지 옵션 중 세 번째 아키텍처 조합입니다. 로그가 각 고객에게 로컬인 첫 번째 분산 아키텍처에 기반하지만 로그의 중앙 리포지토리를 만드는 일부 메커니즘을 사용합니다. 보고 및 분석을 위해 중앙 위치로 로그의 일부를 끌어옵니다. 이 부분은 적은 수의 데이터 형식 또는 일별 통계와 같은 작업 요약일 수 있습니다.
 
@@ -79,7 +73,7 @@ Log Analytics 작업 영역에 관련된 서비스 공급자에 대해 세 가�
 
 1. 중앙 작업 영역: 서비스 공급자는 해당 테넌트에서 작업 영역을 만들고 [데이터 수집 API](../../azure-monitor/platform/data-collector-api.md)와 함께 [쿼리 API](https://dev.loganalytics.io/)를 활용하는 스크립트를 사용하여 데이터를 다양한 작업 영역에서 중앙 위치로 가져올 수 있습니다. 스크립트 외에 사용 가능한 또 다른 옵션은 [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)를 사용하는 것입니다.
 
-2. 중앙 위치인 Power BI: Power BI은 Log Analytics 작업 영역과 [Power BI](../../azure-monitor/platform/powerbi.md)간의 통합을 사용 하 여 여러 작업 영역에서 데이터를 내보낼 때 중앙 위치로 작동할 수 있습니다. 
+2. 중앙 위치로 Power BI: Power BI 여러 작업 영역에서 Log Analytics 작업 영역과 [Power BI](../../azure-monitor/platform/powerbi.md)간의 통합을 사용 하 여 데이터를 내보낼 때 중앙 위치로 작동할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
