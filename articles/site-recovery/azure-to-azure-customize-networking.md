@@ -6,20 +6,20 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 10/21/2019
 ms.author: rajanaki
-ms.openlocfilehash: 8038f7c909cfeaf15039afa7335dd6b0460a2622
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 191161c8185f45712052000285013a6e61c9fa6a
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293453"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968884"
 ---
 # <a name="customize-networking-configurations-of-the-target-azure-vm"></a>대상 Azure VM의 네트워킹 구성 사용자 지정
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용 하 여 한 지역에서 다른 지역으로 azure vm을 복제 및 복구할 때 대상 azure vm (가상 머신)에서 네트워킹 구성을 사용자 지정 하는 방법에 대 한 지침을 제공 합니다.
 
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 Site Recovery가 [이 시나리오](azure-to-azure-architecture.md)에 재해 복구를 지원하는 방법을 알아봅니다.
 
@@ -31,15 +31,12 @@ Azure Vm을 복제 하는 동안 장애 조치 VM에 대해 다음과 같은 주
 - [공용 IP](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses)
 - 서브넷 및 NIC 모두에 대 한 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
 
- > [!IMPORTANT]
-  > 이러한 설정은 현재 장애 조치 (failover) 작업 에서만 지원 되며 테스트 장애 조치 (failover)에 대해서는 지원 되지 않습니다.
-
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - 복구 쪽 구성을 미리 계획 해야 합니다.
 - 네트워킹 리소스를 미리 만듭니다. Azure Site Recovery 서비스에서 이러한 설정을 적용 하 고 장애 조치 (failover) VM이 이러한 설정을 준수 하는지 확인할 수 있도록 입력으로 제공 합니다.
 
-## <a name="customize-failover-networking-configurations"></a>장애 조치 (failover) 네트워킹 구성 사용자 지정
+## <a name="customize-failover-and-test-failover-networking-configurations"></a>장애 조치 (failover) 및 테스트 장애 조치 네트워킹 구성 사용자 지정
 
 1. 복제 된 **항목**으로 이동 합니다. 
 2. 원하는 Azure VM을 선택 합니다.
@@ -47,13 +44,16 @@ Azure Vm을 복제 하는 동안 장애 조치 VM에 대해 다음과 같은 주
 
      ![장애 조치 (failover) 네트워킹 구성 사용자 지정](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
-4. 구성 하려는 NIC 근처에서 **편집** 을 선택 합니다. 열리는 다음 블레이드에서 대상에서 미리 만든 해당 리소스를 선택 합니다.
+4. 테스트 장애 조치 (failover) 가상 네트워크를 선택 합니다. 비워 두고 테스트 장애 조치 (failover) 시에 하나를 선택 하도록 선택할 수 있습니다.
+5. 장애 조치 (Failover) 네트워크는 구성 하려는 NIC 근처에서 **편집** 을 선택 합니다. 열리는 다음 블레이드에서 테스트 장애 조치 (failover) 및 장애 조치 (failover) 위치에서 미리 생성 된 해당 리소스를 선택 합니다.
 
     ![NIC 구성 편집](media/azure-to-azure-customize-networking/nic-drilldown.png) 
 
-5. **확인**을 선택합니다.
+6. **확인**을 선택합니다.
 
 Site Recovery는 이제 이러한 설정을 적용 하 고 장애 조치 (failover) 시 VM이 해당 NIC를 통해 선택한 리소스에 연결 되도록 합니다.
+
+복구 계획을 통해 테스트 장애 조치 (failover)를 트리거하는 경우에는 항상 Azure virtual network에 요청 합니다. 이 가상 네트워크는 테스트 장애 조치 설정이 미리 구성 되지 않은 컴퓨터에 대 한 테스트 장애 조치 (failover)에 사용 됩니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
@@ -72,9 +72,8 @@ Site Recovery는 이제 이러한 설정을 적용 하 고 장애 조치 (failov
 - 대상 VM이 가용성 영역에 배치 되도록 구성 되어 있는 경우 부하 분산 장치가 영역 중복 인지 또는 가용성 영역의 일부 인지 확인 합니다. 기본 SKU 부하 분산 장치는 영역을 지원 하지 않으며이 경우 드롭다운 목록에 표시 되지 않습니다.
 - 내부 부하 분산 장치에 미리 만든 백 엔드 풀 및 프런트 엔드 구성이 있는지 확인 합니다.
 
-
 공용 IP 주소:
-    
+
 - 공용 IP와 대상 VM의 구독 및 지역은 동일 해야 합니다.
 - 대상 VM의 공용 IP SKU와 내부 부하 분산 장치의 SKU는 동일 해야 합니다.
 

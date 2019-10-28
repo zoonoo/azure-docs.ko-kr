@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1c0d470f12cf54c900fec3c453b7e5f07d0b2325
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: df8e309ecb2a81205684c60076015f79ac8c4c8f
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900303"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968477"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -74,10 +74,9 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
     - 아웃바운드 포트 3260
 
 > [!Note]
-> 
-> * 다운로드 한 스크립트 파일 이름에는 URL에 입력 되는 **지역 이름이** 포함 됩니다. 예: 다운로드 한 스크립트 이름은 \'VMname\'\_\'geoname\'_\'GUID\'(예: ContosoVM_wcus_12345678 ...)로 시작 합니다.<br><br>
-> * URL은 "https:\//pod01-rec2.wcus.backup.windowsazure.com"입니다.
-
+>
+> - 다운로드 한 스크립트 파일 이름에는 URL에 입력 되는 **지역 이름이** 포함 됩니다. 예: 다운로드 한 스크립트 이름은 \'VMname\'\_\'geoname\'_\'GUID\'(예: ContosoVM_wcus_12345678 ...)로 시작 합니다.<br><br>
+> - URL은 "https:\//pod01-rec2.wcus.backup.windowsazure.com"입니다.
 
    Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' 및 'lshw' 구성 요소가 필요합니다. 컴퓨터에 스크립트가 실행되는 구성 요소가 없는 경우 스크립트에서 구성 요소 설치를 허가할지 묻습니다. 동의하여 필요한 구성 요소를 설치 합니다.
 
@@ -223,7 +222,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 이 섹션에서는 Azure 가상 컴퓨터 백업에서 파일 복구를 수행 하는 방법에 대해 설명 합니다. 디스크 수는 16 >, 각 디스크 크기는 2TB >
 
-파일 복구 프로세스는 백업의 모든 디스크를 연결 하므로 많은 수의 디스크 (> 16) 또는 대량 디스크 > (각각 4TB)의 경우에는 다음 동작 지점이 권장 됩니다.
+파일 복구 프로세스는 백업에서 모든 디스크를 연결 하므로 많은 수의 디스크 (> 16) 또는 대량 디스크 > (각각 4 TB)의 경우에는 다음 동작 지점이 권장 됩니다.
 
 - 파일 복구를 위해 별도의 복원 서버 (Azure VM D2v3 Vm)를 유지 합니다. 파일 복구만 사용할 수 있으며 필요 하지 않은 경우에는 종료할 수 있습니다. VM 자체에 상당한 영향을 주므로 원래 컴퓨터에서 복원 하는 것은 권장 되지 않습니다.
 - 그런 다음 스크립트를 한 번 실행 하 여 파일 복구 작업이 성공 했는지 확인 합니다.
@@ -276,7 +275,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 #### <a name="select-recovery-point-who-can-generate-script"></a>복구 지점 선택 (스크립트를 생성할 수 있는 사람)
 
-이 스크립트는 VM 데이터에 대 한 액세스를 제공 하며, 처음에이를 생성할 수 있는 사람을 제어 하는 것이 중요 합니다. 하나는 Azure Portal에 로그인 해야 하며 스크립트를 생성할 수 있도록 [RBAC 권한이](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 있어야 합니다.
+이 스크립트는 VM 데이터에 대 한 액세스를 제공 하며, 처음에이를 생성할 수 있는 사람을 제어 하는 것이 중요 합니다. 하나는 Azure Portal에 로그인 해야 하며, 스크립트를 생성할 수 있도록 [RBAC 권한이](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) 있어야 합니다.
 
 파일 복구에는 VM 복원 및 디스크 복원에 필요한 것과 동일한 수준의 권한 부여가 필요 합니다. 즉, 권한 있는 사용자만 VM 데이터를 볼 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Backup를 사용 하 여 Azure VM에서 백업 된 SQL Server 데이터베이스 복원 | Microsoft Docs
+title: Azure Backup를 사용 하 여 Azure VM에서 SQL Server 데이터베이스 복원
 description: 이 문서에서는 Azure VM에서 실행 되 고 Azure Backup을 사용 하 여 백업 되는 SQL Server 데이터베이스를 복원 하는 방법을 설명 합니다.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71867e520d9c98b4af4d4f18f3d08c9e8cc4a8c4
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8bdc77ba81c5a9ec47a02ef5a1ede82365314941
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639552"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968867"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -27,8 +27,7 @@ ms.locfileid: "68639552"
 - 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 - 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 
@@ -36,8 +35,8 @@ ms.locfileid: "68639552"
 - 대상 서버를 원본과 동일한 자격 증명 모음에 등록해야 합니다.
 - TDE로 암호화 된 데이터베이스를 다른 SQL Server 복원 하려면 먼저 [대상 서버에 인증서를 복원](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017)해야 합니다.
 - "Master" 데이터베이스를 복원 하기 전에 시작 옵션인 **-m AzureWorkloadBackup**을 사용 하 여 SQL Server 인스턴스를 단일 사용자 모드로 시작 합니다.
-    - **-M** 에 대 한 값은 클라이언트 이름입니다.
-    - 지정 된 클라이언트 이름만 연결을 열 수 있습니다.
+  - **-M** 에 대 한 값은 클라이언트 이름입니다.
+  - 지정 된 클라이언트 이름만 연결을 열 수 있습니다.
 - 모든 시스템 데이터베이스 (모델, master, msdb)에 대해 복원을 트리거하기 전에 SQL Server 에이전트 서비스를 중지 합니다.
 - 이러한 데이터베이스에 대 한 연결을 시도할 수 있는 응용 프로그램을 모두 닫습니다.
 - 서버에서 여러 인스턴스를 실행 하는 경우 모든 인스턴스를 실행 해야 합니다. 그렇지 않으면 데이터베이스를 복원할 대상 서버 목록에 서버가 나타나지 않습니다.
@@ -46,13 +45,14 @@ ms.locfileid: "68639552"
 
 복원 하려면 다음 권한이 필요 합니다.
 
-* 복원을 수행 하는 자격 증명 모음의 **Backup Operator** 권한입니다.
-* 백업되는 원본 VM에 대한 **참가자(쓰기)** 액세스 권한
-* 대상 VM에 대한 **참가자(쓰기)** 액세스 권한
-    - 동일한 VM으로 복원 하는 경우이 VM은 원본 VM입니다.
-    - 대체 위치로 복원 하는 경우 새 대상 VM이 됩니다.
+- 복원을 수행 하는 자격 증명 모음의 **Backup Operator** 권한입니다.
+- 백업되는 원본 VM에 대한 **참가자(쓰기)** 액세스 권한
+- 대상 VM에 대한 **참가자(쓰기)** 액세스 권한
+  - 동일한 VM으로 복원 하는 경우이 VM은 원본 VM입니다.
+  - 대체 위치로 복원 하는 경우 새 대상 VM이 됩니다.
 
-다음과 같이 복원합니다.
+복원은 다음과 같이 수행됩니다.
+
 1. SQL Server VM이 등록된 자격 증명 모음을 엽니다.
 2. 자격 증명 모음 대시보드의 **사용 현황** 아래에서 **백업 항목**을 선택합니다.
 3. **백업 항목**의 **백업 관리 유형**에서 **Azure VM의 SQL**을 선택합니다.
@@ -65,8 +65,8 @@ ms.locfileid: "68639552"
 
 5. 데이터베이스 메뉴를 검토합니다. 다음과 같은 데이터베이스 백업에 대한 정보를 제공합니다.
 
-    * 가장 오래된 복원 지점 및 최신 복원 지점
-    * 전체 및 대량 로그 복구 모드 이며 트랜잭션 로그 백업용으로 구성 된 데이터베이스의 경우 지난 24 시간 동안의 로그 백업 상태입니다.
+    - 가장 오래된 복원 지점 및 최신 복원 지점
+    - 전체 및 대량 로그 복구 모드 이며 트랜잭션 로그 백업용으로 구성 된 데이터베이스의 경우 지난 24 시간 동안의 로그 백업 상태입니다.
 
 6. **DB 복원**을 선택 합니다.
 
@@ -88,18 +88,18 @@ ms.locfileid: "68639552"
 2. 데이터베이스를 복원하려는 SQL Server 이름 및 인스턴스를 선택합니다.
 3. **복원된 DB 이름** 상자에 대상 데이터베이스의 이름을 입력합니다.
 4. 해당되는 경우 **선택한 SQL 인스턴스에 이름이 같은 DB가 있으면 덮어쓰기**를 선택합니다.
-5.           **확인**을 선택합니다.
+5. **확인**을 선택합니다.
 
     ![복원 구성 메뉴에 대한 값 제공](./media/backup-azure-sql-database/restore-configuration-menu.png)
 
-2. **복원 지점 선택**에서 [특정 시점으로 복원할지](#restore-to-a-specific-point-in-time) 또는 [특정 복구 지점으로 복원할지](#restore-to-a-specific-restore-point)를 선택 합니다.
+6. **복원 지점 선택**에서 [특정 시점으로 복원할지](#restore-to-a-specific-point-in-time) 또는 [특정 복구 지점으로 복원할지](#restore-to-a-specific-restore-point)를 선택 합니다.
 
     > [!NOTE]
     > 지정 시간 복원은 전체 및 대량 로그 복구 모드에 있는 데이터베이스의 로그 백업에 대해서만 사용할 수 있습니다.
 
 ### <a name="restore-and-overwrite"></a>복원 및 덮어쓰기
 
-1. **복원 구성** 메뉴의 **복원 위치**에서 **DB** > 로 덮어쓰기**확인**을 선택 합니다.
+1. **복원 구성** 메뉴에서 **복원할 위치**아래에 있는 **데이터베이스 덮어쓰기** > **확인**을 선택 합니다.
 
     ![DB 덮어쓰기 선택](./media/backup-azure-sql-database/restore-configuration-overwrite-db.png)
 
@@ -112,7 +112,7 @@ ms.locfileid: "68639552"
 
 복원 유형으로 **로그(시점)** 을 선택한 경우 다음을 수행합니다.
 
-1.  **복원 날짜/시간**에서 달력을 엽니다. 달력에서 복구 지점이 있는 날짜는 굵은 형식으로 표시 되 고 현재 날짜는 강조 표시 됩니다.
+1. **복원 날짜/시간**에서 달력을 엽니다. 달력에서 복구 지점이 있는 날짜는 굵은 형식으로 표시 되 고 현재 날짜는 강조 표시 됩니다.
 1. 복구 지점이 있는 날짜를 선택 합니다. 복구 지점이 없는 날짜는 선택할 수 없습니다.
 
     ![일정 열기](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
@@ -122,10 +122,9 @@ ms.locfileid: "68639552"
 
     ![복원 시간 선택](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
 
-
 1. 복원 후 데이터베이스 nonoperational을 유지 하려면 **고급 구성** 메뉴에서 **restore with NORECOVERY**를 사용 하도록 설정 합니다.
 1. 대상 서버에서 복원 위치를 변경하려면 새 대상 경로를 입력합니다.
-1.           **확인**을 선택합니다.
+1. **확인**을 선택합니다.
 
     ![고급 구성 메뉴](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
@@ -144,7 +143,7 @@ ms.locfileid: "68639552"
 
 1. 복원 후 데이터베이스 nonoperational을 유지 하려면 **고급 구성** 메뉴에서 **restore with NORECOVERY**를 사용 하도록 설정 합니다.
 1. 대상 서버에서 복원 위치를 변경하려면 새 대상 경로를 입력합니다.
-1.           **확인**을 선택합니다.
+1. **확인**을 선택합니다.
 
     ![고급 구성 메뉴](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
 
@@ -158,7 +157,6 @@ ms.locfileid: "68639552"
 데이터베이스에 있는 파일의 전체 문자열 크기가 [특정 한도](backup-sql-server-azure-troubleshoot.md#size-limit-for-files)보다 큰 경우 Azure Backup은 복원 작업 중에 대상 복원 경로를 설정할 수 없도록 데이터베이스 파일 목록을 다른 pit 구성 요소에 저장 합니다. 대신 파일이 SQL 기본 경로로 복원 됩니다.
 
   ![대량 파일을 사용 하 여 데이터베이스 복원](./media/backup-azure-sql-database/restore-large-files.jpg)
-
 
 ## <a name="next-steps"></a>다음 단계
 

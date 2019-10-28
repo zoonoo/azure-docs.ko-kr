@@ -1,5 +1,5 @@
 ---
-title: Azure Backup 서비스를 사용하여 VM 설정에서 Azure VM 백업
+title: Azure Backup를 사용 하 여 VM 설정에서 Azure VM 백업
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업하는 방법 알아보기
 author: dcurwin
 manager: carmonm
@@ -7,21 +7,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 042fa44b8f24bb729b94c7631db9469de8493ba4
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cfbec94a2922995eed546d526c1f469e2ea54118
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639777"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969039"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>VM 설정에서 Azure VM 백업
 
 이 문서에서는 [Azure Backup](backup-overview.md) 서비스를 사용하여 Azure VM을 백업하는 방법을 설명합니다. 다음과 같은 몇 가지 방법을 사용하여 Azure VM을 백업할 수 있습니다.
 
-- 단일 Azure VM: 이 문서의 지침에서는 VM 설정에서 직접 Azure VM을 백업하는 방법을 설명합니다.
-- 여러 Azure VM: Recovery Services 자격 증명 모음을 설정하고 여러 Azure VM에 대한 백업을 구성할 수 있습니다. 이 시나리오에 대해서는 [이 문서](backup-azure-arm-vms-prepare.md)의 지침을 따르세요.
-
-
+- 단일 Azure VM:이 문서의 지침은 VM 설정에서 직접 Azure VM을 백업 하는 방법을 설명 합니다.
+- 여러 Azure Vm: Recovery Services 자격 증명 모음을 설정 하 고 여러 Azure Vm에 대 한 백업을 구성할 수 있습니다. 이 시나리오에 대해서는 [이 문서](backup-azure-arm-vms-prepare.md)의 지침을 따르세요.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -37,8 +35,7 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 
 ## <a name="back-up-from-azure-vm-settings"></a>Azure VM 설정에서 백업
 
-
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스**를 클릭하고 필터에 **가상 머신**을 입력한 후 **가상 머신**을 클릭합니다.
 3. VM 목록에서 백업하려는 VM을 선택합니다.
 4. VM 메뉴에서 **백업**을 클릭합니다.
@@ -63,17 +60,15 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 8. 포털 알림에서 구성 진행률을 추적할 수 있습니다.
 9. 작업이 완료되면 VM 메뉴에서 **백업**을 클릭합니다. 이 페이지는 VM의 백업 상태, 복구 지점에 대한 정보, 실행 중인 작업 및 발생한 경고를 표시합니다.
 
-   ![백업 상태](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![Backup 상태](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. 백업을 사용 하도록 설정 하면 초기 백업이 실행 됩니다. 초기 백업을 즉시 시작하거나, 백업 일정에 따라 시작될 때까지 기다릴 수 있습니다.
     - 초기 백업이 완료될 때까지 **마지막 백업 상태**는 **경고(초기 백업 보류 중)** 으로 표시됩니다.
     - 예약된 다음 백업이 실행될 시기를 보려면 백업 정책 이름을 클릭합니다.
 
-
 > [!NOTE]
-> Azure Backup 서비스는 명명 형식 (예: **AzureBackupRG_geography_number** )을 사용 하 여 스냅숏을 저장 하기 위해 VM 리소스 그룹 이외의 별도 리소스 그룹을 만듭니다. AzureBackupRG_northeurope_1). 이 리소스 그룹의 데이터는 Azure 가상 머신 백업 정책의 "즉시 복구 스냅숏 유지" 섹션에 지정 된 기간 (일) 동안 보존 됩니다. 이 리소스 그룹에 잠금을 적용 하면 백업 오류가 발생할 수 있습니다.<br>
+> Azure Backup 서비스는 명명 형식 **AzureBackupRG_geography_number** (예: AzureBackupRG_northeurope_1)를 사용 하 여 스냅숏을 저장할 별도의 리소스 그룹 (VM 리소스 그룹 제외)을 만듭니다. 이 리소스 그룹의 데이터는 Azure 가상 머신 백업 정책의 "즉시 복구 스냅숏 유지" 섹션에 지정 된 기간 (일) 동안 보존 됩니다. 이 리소스 그룹에 잠금을 적용 하면 백업 오류가 발생할 수 있습니다.<br>
 또한이 리소스 그룹은 모든 이름/태그 제한에서 제외 되어야 합니다. 제한 정책에 따라 다시 백업 오류가 발생 하 여 리소스 지점 컬렉션 만들기가 차단 됩니다.
-
 
 ## <a name="run-a-backup-immediately"></a>백업 즉시 실행
 
@@ -86,9 +81,6 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
     ![백업 보존일](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
 3. 포털 알림을 통해 백업 작업이 트리거되었는지 알 수 있습니다. 백업 진행률을 모니터링하려면 **모든 작업 보기**를 클릭합니다.
-
-
-
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Recovery Services 자격 증명 모음에서 백업
 

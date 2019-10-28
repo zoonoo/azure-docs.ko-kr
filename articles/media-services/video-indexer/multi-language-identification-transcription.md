@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/01/2019
 ms.author: juliako
-ms.openlocfilehash: 983b66be6b51c9af5987e539ea1175a65c9269b3
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: f0dede42891069bb5d01ddc33f3797c20c5493d7
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70862045"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968732"
 ---
 # <a name="automatically-identify-and-transcribe-multi-language-content-preview"></a>자동으로 다국어 콘텐츠 식별 및 높여줄 (미리 보기)
 
@@ -39,7 +39,7 @@ Video Indexer은 다중 언어 콘텐츠에서 자동 언어 식별 및 기록�
 
 ## <a name="choosing-multilingual-identification-on-indexing-with-api"></a>API를 사용 하 여 인덱싱에서 다국어 id 선택
 
-API를 사용 하 여 [비디오를 인덱싱하거나 인덱스를](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) 인덱싱할 때 `multi-language detection` `sourceLanguage` 매개 변수에서 옵션을 선택 합니다.
+API를 사용 하 여 [비디오를 인덱싱하거나 인덱스를](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) 인덱싱할 때 `sourceLanguage` 매개 변수에서 `multi-language detection` 옵션을 선택 합니다.
 
 ### <a name="model-output"></a>모델 출력
 
@@ -86,9 +86,8 @@ API를 사용 하 여 [비디오를 인덱싱하거나 인덱스를](https://api
 * 프로젝트 만들기 및 편집은 현재 다국어 비디오에 사용할 수 없습니다.
 * 다국어 검색을 사용 하는 경우 사용자 지정 언어 모델을 사용할 수 없습니다.
 * 키워드 추가는 지원 되지 않습니다.
-* "업데이트 기록" API는 지원 되지 않습니다.
 * 닫힌 캡션 파일을 내보낼 때 언어 표시가 나타나지 않습니다.
-
+* 업데이트 성적 API는 여러 언어 파일을 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

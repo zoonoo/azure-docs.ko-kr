@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 053c52d7d1a0282d72ad76408b77c96aa3b0e3e4
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: a3d48d53c2d4d0c859b58a94b12ffa94590b18a5
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174698"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989629"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux Vm에 대 한 Azure Disk Encryption 
 
@@ -23,7 +23,7 @@ Azure Disk Encryption는 조직의 보안 및 규정 준수 약정에 맞게 데
 ![Azure Security Center 디스크 암호화 경고](media/disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!WARNING]
-> - 이전에 Azure AD에서 Azure Disk Encryption 사용 하 여 VM을 암호화 한 경우 계속이 옵션을 사용 하 여 VM을 암호화 해야 합니다. 자세한 내용은 [AZURE AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption](disk-encryption-overview-aad.md) 를 참조 하세요. 
+> - 이전에 Azure AD에서 Azure Disk Encryption를 사용 하 여 VM을 암호화 한 경우에는이 옵션을 계속 사용 하 여 VM을 암호화 해야 합니다. 자세한 내용은 [AZURE AD (이전 릴리스)를 사용 하 여 Azure Disk Encryption](disk-encryption-overview-aad.md) 를 참조 하세요. 
 > - 특정 권장 사항으로 인해 데이터, 네트워크 또는 컴퓨팅 리소스 사용량이 증가할 수 있으며 이로 인해 라이선스 또는 구독 비용이 발생합니다. 사용자는 유효한 활성 Azure 구독을 포함하여 지원되는 지역에서 Azure에 리소스를 만들어야 합니다.
 
 [Azure CLI를 사용 하 여 LINUX Vm 만들기 및 암호화](disk-encryption-cli-quickstart.md) 빠른 시작 또는 [Azure Powershell을 사용 하 여 linux vm 만들기 및 암호화 빠른](disk-encryption-powershell-quickstart.md)시작을 사용 하 여 몇 분만에 linux 용 Azure Disk Encryption의 기본 사항을 배울 수 있습니다.
@@ -34,7 +34,7 @@ Azure Disk Encryption는 조직의 보안 및 규정 준수 약정에 맞게 데
 
 Linux Vm은 [다양 한 크기로](sizes.md)사용할 수 있습니다. Azure Disk Encryption는 [기본, A 시리즈 vm](https://azure.microsoft.com/pricing/details/virtual-machines/series/)또는 이러한 최소 메모리 요구 사항을 충족 하지 않는 가상 머신에서 사용할 수 없습니다.
 
-| 가상 머신 | 최소 메모리 요구 사항 |
+| 가상 컴퓨터 | 최소 메모리 요구 사항 |
 |--|--|
 | 데이터 볼륨만 암호화 하는 경우 Linux Vm| 2GB |
 | 데이터 및 OS 볼륨을 모두 암호화 하는 경우와 루트 (/) 파일 시스템 사용량이 4GB 이하인 경우 Linux Vm | 8GB |
@@ -96,7 +96,7 @@ Azure Disk Encryption 시스템에 dm 및 vfat 모듈이 있어야 합니다. �
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 
 Azure Disk Encryption 기능을 사용 하도록 설정 하려면 Linux Vm이 다음 네트워크 끝점 구성 요구 사항을 충족 해야 합니다.
-  - 키 자격 증명 모음에 연결 하는 토큰을 가져오려면 Linux VM이 Azure Active Directory 끝점 @no__t microsoftonline @ no__t-1에 연결할 수 있어야 합니다.
+  - 키 자격 증명 모음에 연결 하는 토큰을 가져오려면 Linux VM이 Azure Active Directory 끝점 \[login.microsoftonline.com\]에 연결할 수 있어야 합니다.
   - 키 자격 증명 모음에 암호화 키를 쓰려면 Linux VM에서 키 자격 증명 모음 끝점에 연결할 수 있어야 합니다.
   - Linux VM은 Azure 확장 리포지토리를 호스팅하는 Azure storage 끝점 및 VHD 파일을 호스팅하는 Azure storage 계정에 연결할 수 있어야 합니다.
   -  보안 정책이 Azure VM에서 인터넷으로 액세스를 제한하는 경우 이전 URI를 확인하고 IP에 대한 아웃바운드 연결을 허용하도록 특정 규칙을 구성할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../../key-vault/key-vault-access-behind-firewall.md)를 참조하세요.  

@@ -5,6 +5,7 @@
     - name: Media Services 정보
       href: media-services-overview.md
     - name: Media Services의 새로운 기능
+      displayName: release notes
       href: release-notes.md
 - name: 자습서
   expanded: true

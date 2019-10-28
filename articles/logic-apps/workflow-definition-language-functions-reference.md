@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/23/2019
-ms.openlocfilehash: d16df46ada2254f5bfc671db55e82fc89ef450b6
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 1c6051508a067e17afbc25702c26608da4cd4ca2
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679034"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968931"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-microsoft-flow"></a>식에서 함수를 사용 하 여 Azure Logic Apps 및 Microsoft Flow에 대 한 참조 가이드
 
@@ -252,7 +252,7 @@ ms.locfileid: "72679034"
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | 여러 부분으로 구성된 작업의 출력에서 특정 부분에 대한 본문을 반환합니다. |
 | [출력](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | 런타임 시 작업의 출력을 반환합니다. |
 | [매개 변수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | 워크플로 정의에 설명 된 매개 변수에 대 한 값을 반환 합니다. |
-| [만들어집니다](../logic-apps/workflow-definition-language-functions-reference.md#result) | @No__t_0, `Until` 및 `Scope`와 같이 지정 된 범위 지정 작업 내의 모든 작업에서 입력 및 출력을 반환 합니다. |
+| [만들어집니다](../logic-apps/workflow-definition-language-functions-reference.md#result) | `For_each`, `Until`및 `Scope`와 같이 지정 된 범위 지정 작업 내의 모든 작업에서 입력 및 출력을 반환 합니다. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | 런타임 시 또는 다른 JSON 이름-값 쌍에서 트리거 출력을 반환합니다. [triggerOutputs](#triggerOutputs) 및 [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody)도 참조합니다. |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | 런타임 시 트리거의 `body` 출력을 반환합니다. [트리거](../logic-apps/workflow-definition-language-functions-reference.md#trigger)를 참조합니다. |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | *form-data* 또는 *form-encoded* 트리거 출력에서 키 이름과 일치하는 단일 값을 반환합니다. |
@@ -382,7 +382,7 @@ actionBody('Get_user')
 
 ### <a name="actionoutputs"></a>actionOutputs
 
-런타임 시 작업의 출력을 반환합니다.  및는 `actions('<actionName>').outputs`에 대 한 축약형입니다. [actions()](#actions)를 참조하세요. @No__t_0 함수는 논리 앱 디자이너에서 `outputs()`으로 확인 되므로 `actionOutputs()` 대신 [outputs ()](#outputs)를 사용 하는 것이 좋습니다. 두 함수 모두 같은 방법으로 작동하지만 `outputs()`을 사용하는 것이 좋습니다.
+런타임 시 작업의 출력을 반환합니다.  및는 `actions('<actionName>').outputs`에 대 한 축약형입니다. [actions()](#actions)를 참조하세요. `actionOutputs()` 함수는 논리 앱 디자이너에서 `outputs()`으로 확인 되므로 `actionOutputs()`대신 [outputs ()](#outputs)를 사용 하는 것이 좋습니다. 두 함수 모두 같은 방법으로 작동하지만 `outputs()`을 사용하는 것이 좋습니다.
 
 ```
 actionOutputs('<actionName>')
@@ -1237,7 +1237,7 @@ convertFromUtc('<timestamp>', '<destinationTimeZone>', '<format>'?)
 | 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | yes | string | 타임스탬프를 포함하는 문자열 |
-| <*destinationTimeZone*> | yes | string | 대상 표준 시간대의 이름입니다. 표준 시간대 이름에 대 한 자세한 내용은 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)을 참조 하세요. |
+| <*destinationTimeZone*> | yes | string | 대상 표준 시간대의 이름입니다. 표준 시간대 이름에 대해서는 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)을 참조 하세요. 표준 시간대 이름에서 모든 문장 부호를 제거 해야 할 수도 있습니다. |
 | <*format*> | 아닙니다. | string | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
@@ -1279,8 +1279,8 @@ convertTimeZone('<timestamp>', '<sourceTimeZone>', '<destinationTimeZone>', '<fo
 | 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | yes | string | 타임스탬프를 포함하는 문자열 |
-| <*sourceTimeZone*> | yes | string | 원본 표준 시간대의 이름입니다. 표준 시간대 이름에 대 한 자세한 내용은 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)을 참조 하세요. |
-| <*destinationTimeZone*> | yes | string | 대상 표준 시간대의 이름입니다. 표준 시간대 이름에 대 한 자세한 내용은 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)을 참조 하세요. |
+| <*sourceTimeZone*> | yes | string | 원본 표준 시간대의 이름입니다. 표준 시간대 이름에 대해서는 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)을 참조 하세요. 표준 시간대 이름에서 모든 문장 부호를 제거 해야 할 수도 있습니다. |
+| <*destinationTimeZone*> | yes | string | 대상 표준 시간대의 이름입니다. 표준 시간대 이름에 대해서는 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)을 참조 하세요. 표준 시간대 이름에서 모든 문장 부호를 제거 해야 할 수도 있습니다. |
 | <*format*> | 아닙니다. | string | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
@@ -1322,7 +1322,7 @@ convertToUtc('<timestamp>', '<sourceTimeZone>', '<format>'?)
 | 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 | --------- | -------- | ---- | ----------- |
 | <*timestamp*> | yes | string | 타임스탬프를 포함하는 문자열 |
-| <*sourceTimeZone*> | yes | string | 원본 표준 시간대의 이름입니다. 표준 시간대 이름에 대 한 자세한 내용은 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)을 참조 하세요. |
+| <*sourceTimeZone*> | yes | string | 원본 표준 시간대의 이름입니다. 표준 시간대 이름에 대해서는 [Microsoft 표준 시간대 인덱스 값](https://support.microsoft.com/en-us/help/973627/microsoft-time-zone-index-values)을 참조 하세요. 표준 시간대 이름에서 모든 문장 부호를 제거 해야 할 수도 있습니다. |
 | <*format*> | 아닙니다. | string | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
 
@@ -3318,7 +3318,7 @@ removeProperty(json('{ "customerName": { "firstName": "Sophia", "middleName": "A
 
 ### <a name="result"></a>result
 
-지정 된 범위 지정 작업 (예: `For_each`, `Until` 또는 `Scope` 작업) 내에 있는 모든 작업에서 입력 및 출력을 반환 합니다. 이 함수는 예외를 진단 하 고 처리할 수 있도록 실패 한 작업의 결과를 반환 하는 데 유용 합니다. 자세한 내용은 [오류에 대 한 컨텍스트 및 결과 가져오기](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures)를 참조 하세요.
+지정 된 범위 지정 작업 (예: `For_each`, `Until`또는 `Scope` 작업) 내에 있는 모든 작업에서 입력 및 출력을 반환 합니다. 이 함수는 예외를 진단 하 고 처리할 수 있도록 실패 한 작업의 결과를 반환 하는 데 유용 합니다. 자세한 내용은 [오류에 대 한 컨텍스트 및 결과 가져오기](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures)를 참조 하세요.
 
 ```
 result('<scopedActionName>')

@@ -1,5 +1,5 @@
 ---
-title: Azure Backup를 사용 하 여 Azure VM에서 SQL Server 데이터베이스 관리 및 모니터링
+title: Azure VM에서 SQL Server Db 관리 및 모니터링-Azure Backup
 description: 이 문서에서는 Azure VM에서 실행 되는 SQL Server 데이터베이스를 관리 하 고 모니터링 하는 방법을 설명 합니다.
 author: dcurwin
 manager: carmonm
@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5ef4ca3f6cbf45ac67bad6531926a7de54cd2012
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 7440859748a613f7d6af751974e07289175ed7ac
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934805"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968363"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -32,7 +32,6 @@ Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 
 
 모니터링 시나리오에 대 한 자세한 내용은 [Azure Portal의 모니터링](backup-azure-monitoring-built-in-monitor.md) 및 Azure Monitor를 [사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 참조 하세요.  
 
-
 ## <a name="view-backup-alerts"></a>백업 경고 보기
 
 로그 백업은 15분마다 발생하기 때문에 백업 작업 모니터링이 번거로울 수 있습니다. Azure Backup 전자 메일 경고를 전송 하 여 모니터링을 용이 하 게 합니다. 전자 메일 경고는 다음과 같습니다.
@@ -43,7 +42,7 @@ Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 
 
 데이터베이스 백업 경고를 모니터링 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 
 2. 자격 증명 모음 대시보드에서 **경고 및 이벤트**를 선택합니다.
 
@@ -57,14 +56,14 @@ Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 
 
 다음과 같은 여러 가지 방법으로 SQL Server 데이터베이스 백업을 중지할 수 있습니다.
 
-* 미래의 모든 백업 작업을 중지하고 모든 복구 지점을 삭제
-* 이후의 모든 백업 작업을 중지 하 고 복구 지점은 그대로 둡니다.
+- 미래의 모든 백업 작업을 중지하고 모든 복구 지점을 삭제
+- 이후의 모든 백업 작업을 중지 하 고 복구 지점은 그대로 둡니다.
 
 복구 지점의 보존을 선택 하는 경우 다음 세부 정보를 염두에 두어야 합니다.
 
-* 모든 복구 지점은 영구적으로 유지 되 고, 모든 정리는 데이터 보존을 사용 하 여 보호 중지에서 중지 됩니다.
-* 보호 된 인스턴스와 사용 된 저장소에 대 한 요금이 청구 됩니다. 자세한 내용은 [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)을 참조 하세요.
-* 백업을 중지 하지 않고 데이터 원본을 삭제 하는 경우 새 백업이 실패 합니다.
+- 모든 복구 지점은 영구적으로 유지 되 고, 모든 정리는 데이터 보존을 사용 하 여 보호 중지에서 중지 됩니다.
+- 보호 된 인스턴스와 사용 된 저장소에 대 한 요금이 청구 됩니다. 자세한 내용은 [Azure Backup 가격 책정](https://azure.microsoft.com/pricing/details/backup/)을 참조 하세요.
+- 백업을 중지 하지 않고 데이터 원본을 삭제 하는 경우 새 백업이 실패 합니다.
 
 데이터베이스에 대한 보호를 중지하려면:
 
@@ -82,22 +81,20 @@ Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 
 
     ![백업 중지 선택](./media/backup-azure-sql-database/stop-db-button.png)
 
-
 5. **백업 중지** 메뉴에서 데이터를 보존할지 삭제할지를 선택 합니다. 원하는 경우 이유 및 설명을 제공 합니다.
 
     ![백업 중지 메뉴에서 데이터 보존 또는 삭제](./media/backup-azure-sql-database/stop-backup-button.png)
 
 6. **백업 중지**를 선택 합니다.
 
-
 > [!NOTE]
 >
 >데이터 삭제 옵션에 대 한 자세한 내용은 아래 FAQ를 참조 하세요.
->* [Autoprotected 인스턴스에서 데이터베이스를 삭제 하는 경우 백업에 어떤 일이 발생 하나요?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
->* [Autoprotected 데이터베이스의 백업 작업을 중지 하는 경우 해당 동작이 어떻게 되나요?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>
+>- [Autoprotected 인스턴스에서 데이터베이스를 삭제 하는 경우 백업에 어떤 일이 발생 하나요?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>- [Autoprotected 데이터베이스의 백업 작업을 중지 하는 경우 해당 동작이 어떻게 되나요?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
-
 
 ## <a name="resume-protection-for-a-sql-database"></a>SQL 데이터베이스에 대한 보호 재개
 
@@ -111,16 +108,17 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 
 2. **백업 정책** 메뉴에서 정책을 선택한 다음, **저장**을 클릭합니다.
 
-## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
+## <a name="run-an-on-demand-backup"></a>요청 시 백업 실행
 
 다음과 같은 다양한 유형의 주문형 백업을 실행할 수 있습니다.
 
-* 전체 백업
-* 복사 전용 전체 백업
-* 차등 백업
-* 로그 백업
+- 전체 백업
+- 복사 전용 전체 백업
+- 차등 백업
+- 로그 백업
 
-복사 전용 전체 백업에 대 한 보존 기간을 지정 해야 하지만 임시 전체 백업에 대 한 보존 범위는 현재 시간부터 45 일로 자동 설정 됩니다. <br/>
+복사 전용 전체 백업에 대 한 보존 기간을 지정 해야 하지만 임시 전체 백업에 대 한 보존 범위는 현재 시간부터 45 일로 자동 설정 됩니다.
+
 자세한 내용은 [SQL Server 백업 유형](backup-architecture.md#sql-server-backup-types)을 참조 하세요.
 
 ## <a name="unregister-a-sql-server-instance"></a>SQL Server 인스턴스 등록 취소
@@ -141,35 +139,34 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 
    ![삭제 선택](./media/backup-azure-sql-database/delete-protected-server.jpg)
 
-
 ## <a name="modify-policy"></a>정책 수정
+
 정책을 수정 하 여 백업 빈도 또는 보존 범위를 변경 합니다.
 
 > [!NOTE]
 > 보존 기간을 변경 하면 새 복구 지점이 아닌 모든 이전 복구 소급 적용 됩니다.
 
-자격 증명 모음 대시보드에서**백업 정책** **관리** > 로 이동 하 여 편집 하려는 정책을 선택 합니다.
+자격 증명 모음 대시보드에서 **관리** > **백업 정책** 으로 이동 하 여 편집 하려는 정책을 선택 합니다.
 
   ![백업 정책 관리](./media/backup-azure-sql-database/modify-backup-policy.png)
 
   ![백업 정책 수정](./media/backup-azure-sql-database/modify-backup-policy-impact.png)
 
-정책 수정은 관련 된 모든 백업 항목 및 트리거 **구성 보호** 작업에 영향을 줍니다. 
+정책 수정은 관련 된 모든 백업 항목 및 트리거 **구성 보호** 작업에 영향을 줍니다.
 
-#### <a name="inconsistent-policy"></a>일관 되지 않은 정책 
+### <a name="inconsistent-policy"></a>일관 되지 않은 정책
 
 경우에 따라 정책 수정 작업을 수행 하면 일부 백업 항목에 대해 **일관** 되지 않은 정책 버전이 발생할 수 있습니다. 이는 정책 수정 작업이 트리거된 후 백업 항목에 대 한 해당 **보호 구성** 작업이 실패할 때 발생 합니다. 백업 항목 보기에서 다음과 같이 표시 됩니다.
- 
-  ![일관성 없는 정책](./media/backup-azure-sql-database/inconsistent-policy.png)
+
+  ![일관 되지 않은 정책](./media/backup-azure-sql-database/inconsistent-policy.png)
 
 한 번의 클릭으로 영향을 받는 모든 항목에 대 한 정책 버전을 수정할 수 있습니다.
 
   ![일관 되지 않은 정책 수정](./media/backup-azure-sql-database/fix-inconsistent-policy.png)
- 
 
 ## <a name="re-register-extension-on-the-sql-server-vm"></a>SQL Server VM 확장을 다시 등록 합니다.
 
-경우에 따라 VM에 대 한 워크 로드 확장이 특정 원인 또는 기타에 영향을 받을 수 있습니다. 이러한 경우 VM에서 트리거되는 모든 작업은 실패 하기 시작 합니다. 그런 다음 VM에서 확장을 다시 등록 해야 할 수 있습니다. 작업을 **다시 등록** 하면 작업을 계속할 수 있도록 VM에서 워크 로드 백업 확장 프로그램이 다시 설치 됩니다.  <br>
+경우에 따라 VM에 대 한 워크 로드 확장이 특정 원인 또는 기타에 영향을 받을 수 있습니다. 이러한 경우 VM에서 트리거되는 모든 작업은 실패 하기 시작 합니다. 그런 다음 VM에서 확장을 다시 등록 해야 할 수 있습니다. 작업을 **다시 등록** 하면 작업을 계속할 수 있도록 VM에서 워크 로드 백업 확장 프로그램이 다시 설치 됩니다.
 
 이 옵션은 주의 해 서 사용 해야 합니다. 이미 정상 상태의 VM에서 트리거되면이 작업을 수행 하면 확장이 다시 시작 됩니다. 이로 인해 모든 진행 중인 작업이 실패할 수 있습니다. 다시 등록 작업을 트리거하기 전에 하나 이상의 [증상](backup-sql-server-azure-troubleshoot.md#re-registration-failures) 을 확인 하세요.
 

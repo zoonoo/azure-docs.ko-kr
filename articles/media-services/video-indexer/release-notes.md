@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 10/27/2019
 ms.author: juliako
-ms.openlocfilehash: 4953160a30e45b9be1ff249b6cd1f74e01bb14f3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 0583c0093d240026e3ebcdad7b14494f07986ec2
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672651"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968726"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Azure Media Services Video Indexer 릴리스 정보
 
@@ -28,7 +28,13 @@ ms.locfileid: "71672651"
 * 버그 수정
 * 사용되지 않는 기능
 
-## <a name="september-2019"></a>9 월 2019
+## <a name="october-2019"></a>2019년 10월
+ 
+* 갤러리에서 애니메이션 문자 검색
+
+    애니메이션 문자를 인덱싱할 때 이제 계정의 비디오 교정쇄에서 검색할 수 있습니다. 자세한 내용은 [문자 인식](animated-characters-recognition.md)(영문)을 참조 하세요.
+
+## <a name="september-2019"></a>2019년 9월
  
 IBC 2019에서 여러 가지 기능이 발표 되었습니다.
  
@@ -37,7 +43,7 @@ IBC 2019에서 여러 가지 기능이 발표 되었습니다.
     사용자 지정 비전과의 통합을 통해 애니메이션 된 콘텐츠에서 그룹 ad 인식 문자를 검색 하는 기능입니다. 자세한 내용은 [문자 검색에 애니메이션 적용](animated-characters-recognition.md)을 참조 하세요.
 * 다국어 id (공개 미리 보기)
 
-    오디오 트랙에서 여러 언어로 된 세그먼트를 검색 하 고이를 기반으로 다국어 성적 증명서를 만듭니다. 초기 지원: 영어, 스페인어, 독일어 및 프랑스어입니다. 자세한 내용은 [다중 언어 콘텐츠 자동 식별 및 높여줄](multi-language-identification-transcription.md)를 참조 하세요.
+    오디오 트랙에서 여러 언어로 된 세그먼트를 검색 하 고이를 기반으로 다국어 성적 증명서를 만듭니다. 초기 지원: 영어, 스페인어, 독일어 및 프랑스어 자세한 내용은 [다중 언어 콘텐츠 자동 식별 및 높여줄](multi-language-identification-transcription.md)를 참조 하세요.
 * 사용자 및 위치에 대 한 명명 된 엔터티 추출
 
     NLP (자연어 처리)를 통해 음성 및 시각적 텍스트에서 브랜드, 위치 및 사람을 추출 합니다.
@@ -85,7 +91,7 @@ Video Indexer에 의해 추출 된 키프레임은 비디오의 원래 해상도
 
 이제 다른 언어로 인덱싱되는 비디오 (API만 해당)를 기반으로 프로젝트를 만들 수 있습니다.
 
-## <a name="july-2019"></a>7 월 2019
+## <a name="july-2019"></a>2019년 7월
 
 ### <a name="editor-as-a-widget"></a>Widget 편집기
 

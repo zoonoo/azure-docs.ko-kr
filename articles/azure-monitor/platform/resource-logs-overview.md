@@ -7,12 +7,12 @@ ms.topic: reference
 author: rboucher
 ms.author: robb
 ms.date: 10/22/2019
-ms.openlocfilehash: e1bf6a55568671ddb8f6999356cc9be43ce6a728
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b953f9b5e5fd8c853746caad3047986786bd1317
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804016"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989617"
 ---
 # <a name="azure-resource-logs-overview"></a>Azure 리소스 로그 개요
 Azure 리소스 로그는 내부 작업을 설명 하는 Azure 리소스에서 내보낸 [플랫폼 로그](platform-logs-overview.md) 입니다. 모든 리소스 로그는 일반적인 최상위 스키마를 각 서비스의 유연성과 공유 하 여 고유한 이벤트의 고유한 속성을 내보냅니다.
@@ -25,8 +25,8 @@ Azure 리소스 로그는 내부 작업을 설명 하는 Azure 리소스에서 �
 
 | 대상 | 시나리오 |
 |:---|:---|:---|
-| [Log Analytics 작업 영역](resource-logs-collect-storage.md) | 다른 모니터링 데이터를 사용 하 여 로그를 분석 하 고 로그 쿼리 및 로그 경고와 같은 Azure Monitor 기능을 활용 합니다. |
-| [Azure Storage](archive-diagnostic-logs.md) | 감사 또는 백업용 로그를 보관 합니다. |
+| [Log Analytics 작업 영역](resource-logs-collect-workspace.md) | 다른 모니터링 데이터를 사용 하 여 로그를 분석 하 고 로그 쿼리 및 로그 경고와 같은 Azure Monitor 기능을 활용 합니다. |
+| [Azure Storage](resource-logs-collect-storage.md) | 감사 또는 백업용 로그를 보관 합니다. |
 | [이벤트 허브](resource-logs-stream-event-hubs.md) | 로그를 타사 로깅 및 원격 분석 시스템으로 스트리밍합니다.  |
 
 ## <a name="compute-resources"></a>Compute 리소스

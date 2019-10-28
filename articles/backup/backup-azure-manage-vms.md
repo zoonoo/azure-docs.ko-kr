@@ -1,5 +1,5 @@
 ---
-title: Azure Backup 서비스를 사용 하 여 Azure VM 백업 관리 및 모니터링
+title: Azure Backup 서비스를 사용하여 Azure VM 백업 관리 및 모니터링
 description: Azure Backup 서비스를 사용 하 여 Azure VM 백업을 관리 하 고 모니터링 하는 방법을 알아봅니다.
 ms.reviewer: sogup
 author: dcurwin
@@ -8,17 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e36e231d80a82362333b7a711f94cf627816ac
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 3781ac1be547f6733417c4f0cae9f3e8681ea9e8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029247"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969227"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Azure VM 백업 관리
 
 이 문서에서는 [Azure Backup 서비스](backup-overview.md)를 사용 하 여 백업 된 Azure vm (가상 컴퓨터)을 관리 하는 방법을 설명 합니다. 또한이 문서에서는 자격 증명 모음 대시보드에서 찾을 수 있는 백업 정보를 요약 합니다.
-
 
 Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음을 비롯 한 자격 증명 모음 정보에 대 한 액세스를 제공 합니다.
 
@@ -35,7 +34,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 
 자격 증명 모음 대시보드에서 Vm을 보려면 다음을 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 2. 허브 메뉴에서 **찾아보기**를 선택 합니다. 리소스 목록에서 **Recovery Services**를 입력합니다. 입력 하는 경우에는 입력에 따라 목록이 필터링 됩니다. **Recovery Services 자격 증명 모음**을 선택합니다.
 
     ![Recovery Services 자격 증명 모음 만들기](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
@@ -61,7 +60,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 
 백업 정책을 관리 하려면 다음을 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 자격 증명 모음 대시보드를 엽니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다. 자격 증명 모음 대시보드를 엽니다.
 2. **Backup 항목** 타일에서 **Azure Virtual Machines**를 선택 합니다.
 
     ![Backup 항목 타일을 엽니다.](./media/backup-azure-manage-vms/contoso-vault-1606.png)
@@ -77,11 +76,12 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
      ![백업 정책 선택](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
 ## <a name="run-an-on-demand-backup"></a>요청 시 백업 실행
+
 보호를 설정한 후에는 VM의 주문형 백업을 실행할 수 있습니다. 이러한 세부 정보를 염두에 두어야 합니다.
 
-- 초기 백업이 보류 중인 경우 주문형 백업은 Recovery Services 자격 증명 모음에 VM의 전체 복사본을 만듭니다.
-- 초기 백업이 완료 되 면 주문형 백업은 이전 스냅숏의 변경 내용을 Recovery Services 자격 증명 모음으로 보냅니다. 즉, 이후의 백업은 항상 증분입니다.
-- 주문형 백업의 보존 범위는 백업을 트리거할 때 지정 하는 보존 값입니다.
+* 초기 백업이 보류 중인 경우 주문형 백업은 Recovery Services 자격 증명 모음에 VM의 전체 복사본을 만듭니다.
+* 초기 백업이 완료 되 면 주문형 백업은 이전 스냅숏의 변경 내용을 Recovery Services 자격 증명 모음으로 보냅니다. 즉, 이후의 백업은 항상 증분입니다.
+* 주문형 백업의 보존 범위는 백업을 트리거할 때 지정 하는 보존 값입니다.
 
 요청 시 백업을 트리거하려면 다음을 수행합니다.
 
@@ -147,32 +147,32 @@ VM에 대 한 보호를 다시 시작 하려면:
 
 VM의 백업 데이터를 삭제 하는 방법에는 다음 두 가지가 있습니다.
 
-- 자격 증명 모음 항목 대시보드에서 백업 중지를 선택 하 고 [보호 중지 및 백업 데이터 삭제](#stop-protection-and-delete-backup-data) 에 대 한 지침을 따릅니다.
+* 자격 증명 모음 항목 대시보드에서 백업 중지를 선택 하 고 [보호 중지 및 백업 데이터 삭제](#stop-protection-and-delete-backup-data) 에 대 한 지침을 따릅니다.
 
   ![백업 중지 선택](./media/backup-azure-manage-vms/stop-backup-buttom.png)
 
-- 자격 증명 모음 항목 대시보드에서 백업 데이터 삭제를 선택 합니다. 이 옵션은 VM 보호를 중지 하는 동안 [보호를 중지 하 고 백업 데이터 보존](#stop-protection-and-retain-backup-data) 옵션을 선택한 경우에 사용할 수 있습니다.
+* 자격 증명 모음 항목 대시보드에서 백업 데이터 삭제를 선택 합니다. 이 옵션은 VM 보호를 중지 하는 동안 [보호를 중지 하 고 백업 데이터 보존](#stop-protection-and-retain-backup-data) 옵션을 선택한 경우에 사용할 수 있습니다.
 
   ![백업 삭제 선택](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 
-  - [자격 증명 모음 항목 대시보드에서](#view-vms-on-the-dashboard) **백업 데이터 삭제**를 선택 합니다.
-  - 복구 지점이 삭제 되도록 확인할 백업 항목의 이름을 입력 합니다.
+  * [자격 증명 모음 항목 대시보드에서](#view-vms-on-the-dashboard) **백업 데이터 삭제**를 선택 합니다.
+  * 복구 지점이 삭제 되도록 확인할 백업 항목의 이름을 입력 합니다.
 
     ![백업 데이터 삭제](./media/backup-azure-manage-vms/delete-backup-data1.png)
 
-  - 항목에 대 한 백업 데이터를 삭제 하려면 **삭제**를 선택 합니다. 알림 메시지를 통해 백업 데이터가 삭제 되었음을 알 수 있습니다.
+  * 항목에 대 한 백업 데이터를 삭제 하려면 **삭제**를 선택 합니다. 알림 메시지를 통해 백업 데이터가 삭제 되었음을 알 수 있습니다.
 
   > [!NOTE]
   > 백업 데이터를 삭제 하면 연결 된 모든 복구 지점이 삭제 됩니다. 삭제할 특정 복구 지점은 선택할 수 없습니다.
 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>주 데이터 원본이 더 이상 존재 하지 않는 백업 항목
 
-- Azure backup에 대해 구성 된 Azure Vm이 보호를 중지 하지 않고 삭제 되거나 이동 되 면 예약 된 백업 작업과 주문형 (임시) 백업 작업이 모두 실패 하 고 UserErrorVmNotFoundV2 오류가 발생 합니다. 백업 사전 검사는 실패 한 임시 백업 작업에 대해서만 중요 한 것으로 표시 됩니다 (실패 한 예약 된 작업은 표시 되지 않음). 
-- 이러한 백업 항목은 사용자가 설정한 백업 및 보존 정책을 준수 하는 시스템에서 활성 상태로 유지 됩니다. 이러한 Azure Vm에 대 한 백업 된 데이터는 보존 정책에 따라 보존 됩니다. 만료 된 복구 지점 (마지막 복구 지점 제외)은 백업 정책에 설정 된 보존 범위에 따라 정리 됩니다.
-- 사용자는 추가 비용을 방지 하기 위해 주 데이터 원본이 더 이상 존재 하지 않는 백업 항목을 삭제 하는 것이 좋습니다. 마지막 복구 지점이 영구적으로 유지 되 고 사용자에 게 요금이 청구 될 때 삭제 리소스에 대 한 백업 항목/데이터가 더 이상 필요 하지 않은 경우에는 해당 하는 백업 가격에 따라 적용 됩니다.
-
+* Azure backup에 대해 구성 된 Azure Vm이 보호를 중지 하지 않고 삭제 되거나 이동 되 면 예약 된 백업 작업과 주문형 (임시) 백업 작업이 모두 실패 하 고 UserErrorVmNotFoundV2 오류가 발생 합니다. 백업 사전 검사는 실패 한 임시 백업 작업에 대해서만 중요 한 것으로 표시 됩니다 (실패 한 예약 된 작업은 표시 되지 않음).
+* 이러한 백업 항목은 사용자가 설정한 백업 및 보존 정책을 준수 하는 시스템에서 활성 상태로 유지 됩니다. 이러한 Azure Vm에 대 한 백업 된 데이터는 보존 정책에 따라 보존 됩니다. 만료 된 복구 지점 (마지막 복구 지점 제외)은 백업 정책에 설정 된 보존 범위에 따라 정리 됩니다.
+* 사용자는 추가 비용을 방지 하기 위해 주 데이터 원본이 더 이상 존재 하지 않는 백업 항목을 삭제 하는 것이 좋습니다. 마지막 복구 지점이 영구적으로 유지 되 고 사용자에 게 요금이 청구 될 때 삭제 리소스에 대 한 백업 항목/데이터가 더 이상 필요 하지 않은 경우에는 해당 하는 백업 가격에 따라 적용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [Vm의 설정에서 Azure vm을 백업](backup-azure-vms-first-look-arm.md)하는 방법에 대해 알아봅니다.
-- [Vm을 복원](backup-azure-arm-restore-vms.md)하는 방법을 알아봅니다.
-- [AZURE VM 백업을 모니터링](backup-azure-monitor-vms.md)하는 방법에 대해 알아봅니다.
+
+* [Vm의 설정에서 Azure vm을 백업](backup-azure-vms-first-look-arm.md)하는 방법에 대해 알아봅니다.
+* [Vm을 복원](backup-azure-arm-restore-vms.md)하는 방법을 알아봅니다.
+* [AZURE VM 백업을 모니터링](backup-azure-monitor-vms.md)하는 방법에 대해 알아봅니다.

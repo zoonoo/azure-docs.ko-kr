@@ -4,14 +4,14 @@ description: 리소스 종류가 Azure Resource Manager 템플릿에서 전체 �
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: de1b5080e72f79626ca0c749efe4122721f14922
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 03e91e4be967e822d17144af848f51e73851b1e6
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528593"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969175"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>완료 모드 배포를 위한 Azure 리소스의 삭제
 
@@ -61,7 +61,6 @@ ms.locfileid: "72528593"
 > - [ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
-> - [Microsoft ContentModerator](#microsoftcontentmoderator)
 > - [CortanaAnalytics](#microsoftcortanaanalytics)
 > - [CostManagement](#microsoftcostmanagement)
 > - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
@@ -277,6 +276,7 @@ ms.locfileid: "72528593"
 > | dataAliases | 아닙니다. |
 > | denyAssignments | 아닙니다. |
 > | elevateAccess | 아닙니다. |
+> | findOrphanRoleAssignments | 아닙니다. |
 > | locks | 아닙니다. |
 > | 권한 | 아닙니다. |
 > | policyAssignments | 아닙니다. |
@@ -394,6 +394,7 @@ ms.locfileid: "72528593"
 > | billingAccounts/createBillingRoleAssignment | 아닙니다. |
 > | billingAccounts/createInvoiceSectionOperations | 아닙니다. |
 > | billingAccounts/고객 | 아닙니다. |
+> | billingAccounts/customers/billingPermissions | 아닙니다. |
 > | billingAccounts/customers/billingSubscriptions | 아닙니다. |
 > | billingAccounts/customers/initiateTransfer | 아닙니다. |
 > | billingAccounts/고객/정책 | 아닙니다. |
@@ -451,6 +452,7 @@ ms.locfileid: "72528593"
 > | 리소스 종류 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | blockchainMembers | yes |
+> | cordaMembers | yes |
 > | 감시자 | yes |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
@@ -641,6 +643,8 @@ ms.locfileid: "72528593"
 > | proximityPlacementGroups | yes |
 > | restorePointCollections | yes |
 > | restorePointCollections/restorePoints | 아닙니다. |
+> | sharedVMExtensions | yes |
+> | sharedVMExtensions/버전 | 아닙니다. |
 > | sharedVMImages | yes |
 > | sharedVMImages/versions | 아닙니다. |
 > | 스냅샷 | yes |
@@ -700,6 +704,7 @@ ms.locfileid: "72528593"
 > | registries/buildTasks | yes |
 > | registries/buildTasks/steps | 아닙니다. |
 > | registries/eventGridFilters | 아닙니다. |
+> | 레지스트리/generateCredentials | 아닙니다. |
 > | registries/getBuildSourceUploadUrl | 아닙니다. |
 > | registries/GetCredentials | 아닙니다. |
 > | registries/importImage | 아닙니다. |
@@ -710,7 +715,9 @@ ms.locfileid: "72528593"
 > | registries/runs | 아닙니다. |
 > | registries/runs/cancel | 아닙니다. |
 > | registries/scheduleRun | 아닙니다. |
+> | 레지스트리/scopeMaps | 아닙니다. |
 > | registries/tasks | yes |
+> | 레지스트리/토큰 | 아닙니다. |
 > | registries/updatePolicies | 아닙니다. |
 > | registries/webhooks | yes |
 > | registries/webhooks/getCallbackConfig | 아닙니다. |
@@ -724,14 +731,6 @@ ms.locfileid: "72528593"
 > | containerServices | yes |
 > | managedClusters | yes |
 > | openShiftManagedClusters | yes |
-
-## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
-
-> [!div class="mx-tableFixed"]
-> | 리소스 종류 | 전체 모드 삭제 |
-> | ------------- | ----------- |
-> | 애플리케이션 | yes |
-> | updateCommunicationPreference | 아닙니다. |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
@@ -821,8 +820,6 @@ ms.locfileid: "72528593"
 > | datacatalogs/데이터 원본/검색 | 아닙니다. |
 > | datacatalogs/데이터 원본/검색/데이터 집합 | 아닙니다. |
 > | datacatalogs/데이터 원본/검색/트리거 | 아닙니다. |
-> | datacatalogs/scantargets | 아닙니다. |
-> | datacatalogs/scantargets/데이터 집합 | 아닙니다. |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -887,6 +884,9 @@ ms.locfileid: "72528593"
 > | ------------- | ----------- |
 > | 서버 | yes |
 > | servers/advisors | 아닙니다. |
+> | servers/privateEndpointConnectionProxies | 아닙니다. |
+> | servers/privateEndpointConnections | 아닙니다. |
+> | servers/privateLinkResources | 아닙니다. |
 > | servers/queryTexts | 아닙니다. |
 > | servers/recoverableServers | 아닙니다. |
 > | servers/topQueryStatistics | 아닙니다. |
@@ -900,6 +900,9 @@ ms.locfileid: "72528593"
 > | ------------- | ----------- |
 > | 서버 | yes |
 > | servers/advisors | 아닙니다. |
+> | servers/privateEndpointConnectionProxies | 아닙니다. |
+> | servers/privateEndpointConnections | 아닙니다. |
+> | servers/privateLinkResources | 아닙니다. |
 > | servers/queryTexts | 아닙니다. |
 > | servers/recoverableServers | 아닙니다. |
 > | servers/topQueryStatistics | 아닙니다. |
@@ -914,6 +917,7 @@ ms.locfileid: "72528593"
 > | serverGroups | yes |
 > | 서버 | yes |
 > | servers/advisors | 아닙니다. |
+> | servers/keys | 아닙니다. |
 > | servers/privateEndpointConnectionProxies | 아닙니다. |
 > | servers/privateEndpointConnections | 아닙니다. |
 > | servers/privateLinkResources | 아닙니다. |
@@ -943,6 +947,7 @@ ms.locfileid: "72528593"
 > | ------------- | ----------- |
 > | applicationgroups | yes |
 > | applicationgroups/응용 프로그램 | 아닙니다. |
+> | applicationgroups/데스크톱 | 아닙니다. |
 > | applicationgroups/startmenuitems | 아닙니다. |
 > | hostpools | yes |
 > | hostpools/sessionhosts | 아닙니다. |
@@ -1088,6 +1093,7 @@ ms.locfileid: "72528593"
 > | 리소스 종류 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | autoManagedVmConfigurationProfiles | yes |
+> | configurationprofil | 아닙니다. |
 > | guestConfigurationAssignments | 아닙니다. |
 > | software | 아닙니다. |
 > | softwareUpdateProfile | 아닙니다. |
@@ -1129,6 +1135,7 @@ ms.locfileid: "72528593"
 > | 리소스 종류 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 머신의 | yes |
+> | 컴퓨터/확장 | yes |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
@@ -1235,6 +1242,7 @@ ms.locfileid: "72528593"
 > | ------------- | ----------- |
 > | workspaces | yes |
 > | workspaces/computes | 아닙니다. |
+> | workspace/eventGridFilters | 아닙니다. |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
@@ -1322,6 +1330,7 @@ ms.locfileid: "72528593"
 > | mediaservices/liveEvents | yes |
 > | mediaservices/liveEvents/liveOutputs | 아닙니다. |
 > | mediaservices/liveOutputOperations | 아닙니다. |
+> | windowsazure.mediaservices/mediaGraphs | 아닙니다. |
 > | mediaservices/streamingEndpointOperations | 아닙니다. |
 > | mediaservices/streamingEndpoints | yes |
 > | mediaservices/streamingLocators | 아닙니다. |
@@ -1520,6 +1529,7 @@ ms.locfileid: "72528593"
 > | 리소스 종류 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | policyEvents | 아닙니다. |
+> | policyMetadata | 아닙니다. |
 > | policyStates | 아닙니다. |
 > | policyTrackedResources | 아닙니다. |
 > | remediations | 아닙니다. |
@@ -1610,6 +1620,8 @@ ms.locfileid: "72528593"
 > | ------------- | ----------- |
 > | 배포 | 아닙니다. |
 > | 배포/작업 | 아닙니다. |
+> | deploymentScripts | yes |
+> | deploymentScripts/logs | 아닙니다. |
 > | links | 아닙니다. |
 > | notifyResourceJobs | 아닙니다. |
 > | providers | 아닙니다. |
@@ -1659,6 +1671,7 @@ ms.locfileid: "72528593"
 > | applicationWhitelistings | 아닙니다. |
 > | assessmentMetadata | 아닙니다. |
 > | 인사 | 아닙니다. |
+> | 자동화 | yes |
 > | AutoProvisioningSettings | 아닙니다. |
 > | Compliances | 아닙니다. |
 > | dataCollectionAgents | 아닙니다. |

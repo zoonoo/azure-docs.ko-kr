@@ -1,6 +1,6 @@
 ---
-title: Edge 작업 Azure Stream Analytics에 대 한 .NET Standard 함수 개발
-description: CodeBehind, 기존 패키지 또는 로컬 프로젝트를 사용 하 여 Azure Stream Analytics 작업에 대 한 .NET 사용자 정의 함수를 개발 하는 방법에 대해 알아봅니다.
+title: Azure Stream Analytics 작업을 위한 .NET Standard 함수 개발 (미리 보기)
+description: 'Stream Analytics 작업에 대 한 c # 사용자 정의 함수를 작성 하는 방법에 대해 알아봅니다.'
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -10,16 +10,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: cdfe4d2ccc39385b4020f60905b12c4683b1758c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 835eeaa0036d824a65918102ab7a00c3cf236931
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935017"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988404"
 ---
-# <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-edge-jobs-preview"></a>Azure Stream Analytics Edge 작업에 대한 .NET Standard 사용자 정의 함수 개발(미리 보기)
+# <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Azure Stream Analytics 작업에 대 한 .NET Standard 사용자 정의 함수 개발 (미리 보기)
 
-Azure Stream Analytics는 이벤트 데이터 스트림에서 변환과 계산을 수행하기 위해 SQL 방식 쿼리 언어를 제공합니다. 많은 기본 제공 함수가 있지만 일부 복잡한 시나리오에는 추가적인 유연성이 필요합니다. .NET Standard UDF(사용자 정의 함수)를 사용하면 .NET 표준 언어(C#, F# 등)로 작성된 사용자 고유의 함수를 호출하여 Stream Analytics 쿼리 언어를 확장할 수 있습니다. UDF를 사용하면 복잡한 수학 계산을 수행하고, ML.NET을 사용하여 사용자 지정 ML 모델을 가져오며, 누락된 데이터에 사용자 지정 대체 논리를 사용할 수 있습니다. Stream Analytics Edge 작업용 UDF 함수는 현재 미리 보기로 제공되며 프로덕션 워크로드에는 사용해서는 안 됩니다.
+Azure Stream Analytics는 이벤트 데이터 스트림에서 변환과 계산을 수행하기 위해 SQL 방식 쿼리 언어를 제공합니다. 많은 기본 제공 함수가 있지만 일부 복잡한 시나리오에는 추가적인 유연성이 필요합니다. .NET Standard UDF(사용자 정의 함수)를 사용하면 .NET 표준 언어(C#, F# 등)로 작성된 사용자 고유의 함수를 호출하여 Stream Analytics 쿼리 언어를 확장할 수 있습니다. UDF를 사용하면 복잡한 수학 계산을 수행하고, ML.NET을 사용하여 사용자 지정 ML 모델을 가져오며, 누락된 데이터에 사용자 지정 대체 논리를 사용할 수 있습니다. Stream Analytics 작업에 대 한 UDF 기능은 현재 미리 보기 상태 이며 프로덕션 워크 로드에 사용할 수 없습니다.
 
 ## <a name="overview"></a>개요
 Azure Stream Analytics용 Visual Studio 도구를 사용하면 UDF를 쉽게 작성하고, 작업을 로컬로(심지어 오프라인으로) 테스트하고, Stream Analytics 작업을 Azure에 게시할 수 있습니다. Azure에 게시되면 IoT Hub를 사용하여 작업을 IoT 디바이스에 배포할 수 있습니다.
@@ -65,7 +65,7 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 
 ### <a name="example"></a>예제
 
-이 예에서 **UDFTest**는 C# 클래스 라이브러리 프로젝트이고, **ASAEdgeUDFDemo**는 Azure Stream Analytics Edge 프로젝트이며 **UDFTest**를 참조합니다.
+이 예제에서 **Udftest** 는 C# 클래스 라이브러리 프로젝트이 고 **ASAUDFDemo** 는 **udftest**를 참조 하는 Azure Stream Analytics 프로젝트입니다.
 
 ![Visual Studio의 Azure Stream Analytics IoT Edge 프로젝트](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-demo.png)
 
@@ -73,7 +73,7 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
     
    ![Visual Studio에서 Azure Stream Analytics IoT Edge 프로젝트 빌드](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-build-project.png)
 
-2. C# 프로젝트에 대한 참조를 ASA Edge 프로젝트에 추가합니다. [참조] 노드를 마우스 오른쪽 단추로 클릭하고, [참조 추가]를 선택합니다.
+2. GLOBAL.ASA 프로젝트에서 C# 프로젝트에 대 한 참조를 추가 합니다. [참조] 노드를 마우스 오른쪽 단추로 클릭하고, [참조 추가]를 선택합니다.
 
    ![Visual Studio에서 C# 프로젝트에 대한 참조 추가](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-add-reference.png)
 
@@ -97,7 +97,7 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 
    ![Visual Studio의 C# 함수 구성](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-csharp-function-config.png)
 
-8. C# 함수 구성에서 **ASA 프로젝트 참조에서 로드**를 선택하고, 드롭다운 목록에서 관련 어셈블리, 클래스 및 메서드 이름을 선택합니다. Stream Analytics Edge 쿼리에서 메서드, 형식 및 함수를 참조하려면 클래스를 *public*으로 정의하고 개체를 *static public*으로 정의해야 합니다.
+8. C# 함수 구성에서 **ASA 프로젝트 참조에서 로드**를 선택하고, 드롭다운 목록에서 관련 어셈블리, 클래스 및 메서드 이름을 선택합니다. Stream Analytics 쿼리의 메서드, 형식 및 함수를 참조 하려면 클래스를 *public* 으로 정의 하 고 개체를 *static public*으로 정의 해야 합니다.
 
    ![Stream Analytics C# 함수 구성](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-udf-asa-csharp-function-config.png)
 
@@ -105,26 +105,25 @@ UDF를 구현하는 다음 세 가지 방법이 있습니다.
 
 선택한 IDE에서 .NET Standard UDF를 작성하고 Azure Stream Analytics 쿼리에서 호출할 수 있습니다. 먼저 코드를 컴파일하고 모든 DLL을 패키지합니다. 패키지의 형식은 `/UserCustomCode/CLR/*` 경로입니다. 그런 다음, Azure Storage 계정의 컨테이너 루트에 `UserCustomCode.zip`을 업로드합니다.
 
-어셈블리 zip 패키지가 Azure Storage 계정에 업로드되면 Azure Stream Analytics 쿼리에서 함수를 사용할 수 있습니다. Stream Analytics Edge 작업 구성에 스토리지 정보를 포함하기만 하면 됩니다. Visual Studio 도구에서 패키지를 다운로드하지 않으므로 이 옵션을 사용하여 함수를 로컬로 테스트할 수 없습니다. 패키지 경로는 서비스에 직접 구문 분석됩니다. 
+어셈블리 zip 패키지가 Azure Storage 계정에 업로드되면 Azure Stream Analytics 쿼리에서 함수를 사용할 수 있습니다. Stream Analytics 작업 구성에 저장소 정보를 포함 하기만 하면 됩니다. Visual Studio 도구에서 패키지를 다운로드하지 않으므로 이 옵션을 사용하여 함수를 로컬로 테스트할 수 없습니다. 패키지 경로는 서비스에 직접 구문 분석됩니다. 
 
 `JobConfig.json` 작업 구성 파일에서 어셈블리 경로를 구성하려면 다음을 수행합니다.
 
 **사용자 정의 코드 구성** 섹션을 확장하고 다음 제안 값으로 구성을 입력합니다.
 
- |**설정**  |**제안 값**  |
- |---------|---------|
- |어셈블리 원본  | 클라우드의 기존 어셈블리 패키지    |
- |리소스  |  현재 계정의 데이터 선택   |
- |Subscription  |  구독을 선택합니다.   |
- |스토리지 계정  |  스토리지 계정 선택   |
- |컨테이너  |  스토리지 계정에서 만든 컨테이너 선택   |
-
-![Visual Studio의 Azure Stream Analytics Edge 작업 구성](./media/stream-analytics-edge-csharp-udf-methods/stream-analytics-edge-job-config.png)
+   |**설정**|**제안 값**|
+   |-------|---------------|
+   |전역 저장소 설정 리소스|현재 계정에서 데이터 원본 선택|
+   |전역 저장소 설정 구독| 구독을 < >|
+   |전역 저장소 설정 저장소 계정| 저장소 계정 < >|
+   |사용자 지정 코드 저장소 설정 리소스|현재 계정에서 데이터 원본 선택|
+   |사용자 지정 코드 저장소 설정 저장소 계정|저장소 계정 < >|
+   |사용자 지정 코드 저장소 설정 컨테이너|저장소 컨테이너를 < >|
+   |사용자 지정 코드 어셈블리 소스|클라우드의 기존 어셈블리 패키지|
+   |사용자 지정 코드 어셈블리 소스|UserCustomCode .zip|
 
 ## <a name="limitations"></a>제한 사항
 UDF 미리 보기에는 현재 다음과 같은 제한 사항이 있습니다.
-
-* .NET Standard 언어는 IoT Edge의 Azure Stream Analytics에만 사용할 수 있습니다. 클라우드 작업의 경우 JavaScript 사용자 정의 함수를 작성할 수 있습니다. 자세한 내용은 [Azure Stream Analytics JavaScript UDF](stream-analytics-javascript-user-defined-functions.md) 자습서를 참조하세요.
 
 * .NET Standard UDF는 Visual Studio에서만 작성하여 Azure에 게시할 수 있습니다. Azure Portal의 **함수** 아래에서 읽기 전용 버전의 .NET Standard UDF를 볼 수 있습니다. Azure Portal에서는 .NET Standard 함수 작성을 지원하지 않습니다.
 
@@ -134,6 +133,6 @@ UDF 미리 보기에는 현재 다음과 같은 제한 사항이 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [자습서: Azure Stream Analytics Edge 작업용 C# 사용자 정의 함수 작성(미리 보기)](stream-analytics-edge-csharp-udf.md)
+* [자습서: Azure Stream Analytics 작업 C# (미리 보기)에 대 한 사용자 정의 함수 작성](stream-analytics-edge-csharp-udf.md)
 * [자습서: Azure Stream Analytics JavaScript 사용자 정의 함수](stream-analytics-javascript-user-defined-functions.md)
 * [Visual Studio를 사용하여 Azure Stream Analytics 작업 보기](stream-analytics-vs-tools.md)

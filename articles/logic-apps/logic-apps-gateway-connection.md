@@ -1,6 +1,6 @@
 ---
-title: Azure Logic Apps에서 온-프레미스 데이터 원본에 액세스
-description: 온-프레미스 데이터 게이트웨이를 만들어 논리 앱에서 온-프레미스 데이터 원본에 연결
+title: 온-프레미스에서 데이터 원본에 액세스 Azure Logic Apps
+description: Azure 온-프레미스 데이터 게이트웨이 리소스를 만들어 Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 4b333df740fbd4c2243ea3f166593ca0a6f4bbad
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6a01999eff6accf1b8d7f56729d9dce77fbedb0a
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675669"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988760"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -77,7 +77,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
 1. **온-프레미스 데이터 게이트웨이**아래에서 **추가**를 선택 합니다.
 
-   ![데이터 게이트웨이 추가](./media/logic-apps-gateway-connection/add-gateway.png)
+   ![데이터 게이트웨이에 대 한 새 Azure 리소스 추가](./media/logic-apps-gateway-connection/add-azure-data-gateway-resource.png)
 
 1. **연결 게이트웨이 만들기**에서 게이트웨이 리소스에 대해이 정보를 제공 합니다. 완료되면 **만들기**를 선택합니다.
 
@@ -92,7 +92,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
    다음은 게이트웨이 리소스와 동일한 지역에 있고 동일한 Azure 계정에 연결 된 게이트웨이 설치를 보여 주는 예제입니다.
 
-   ![데이터 게이트웨이 리소스 만들기에 대 한 세부 정보 제공](./media/logic-apps-gateway-connection/gateway-details.png)
+   ![데이터 게이트웨이 리소스 만들기에 대 한 세부 정보 제공](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -155,7 +155,7 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
    다음은 그 예입니다.
 
-   ![게이트웨이 삭제](./media/logic-apps-gateway-connection/gateway-delete.png)
+   ![Azure에서 게이트웨이 리소스 삭제](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
 
 <a name="faq"></a>
 

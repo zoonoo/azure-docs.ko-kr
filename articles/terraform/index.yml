@@ -4,18 +4,17 @@ summary: Terraform을 사용하여 Azure에서 가상 머신 및 다른 인프�
 metadata:
   title: Azure의 Terraform 설명서 - 자습서, 샘플, 참조 및 리소스
   description: Terraform을 사용하여 Azure에서 가상 머신 및 다른 인프라를 안정적으로 프로비전하는 방법을 알아봅니다.
-  services: azure
   ms.service: terraform
-  ms.topic: landing-page
   author: TomArcherMsft
   ms.author: tarcher
-  ms.date: 09/20/2019
-  ms.openlocfilehash: 35391f886d473b91ab99d27bff64d64903ba0545
-  ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+  ms.topic: landing-page
+  ms.date: 10/26/2019
+  ms.openlocfilehash: dbc4ed58b32312023b3248662357777d8567fff9
+  ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/20/2019
-  ms.locfileid: "71173524"
+  ms.lasthandoff: 10/27/2019
+  ms.locfileid: "72969513"
 landingContent:
 - title: Azure의 Terraform 정보
   linkLists:
@@ -34,7 +33,7 @@ landingContent:
     - text: Terraform 설치 및 구성
       url: /azure/virtual-machines/linux/terraform-install-configure?/azure/terraform/toc.json&bc=/azure/bread/toc.json
     - text: Azure에 대한 Terraform 구성 파일 만들기
-      url: terrafom-quickstart.md
+      url: terraform-create-configuration.md
     - text: Terraform Visual Studio Code 확장 설치
       url: terraform-vscode-extension.md
     - text: Yeoman을 사용하여 Terraform 기본 템플릿 만들기
@@ -58,7 +57,7 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: MSI가 활성화된 Terraform VM 만들기
-      url: terraform-vm-msi.md
+      url: terraform-vm-managed-identities-for-azure-resources.md
     - text: Terraform 모듈을 사용하여 VM 클러스터 만들기
       url: terraform-create-vm-cluster-module.md
     - text: Terraform 및 HCL을 사용하여 VM 클러스터 만들기

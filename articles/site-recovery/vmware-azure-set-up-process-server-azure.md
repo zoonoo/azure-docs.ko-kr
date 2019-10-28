@@ -6,14 +6,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 10/21/2019
 ms.author: ramamill
-ms.openlocfilehash: 037f0ff64b114ce9341702564147825099695aa0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 080edfc86848bb6c6579c177c72d3fbd3214a06a
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62110033"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968846"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>장애 복구를 위해 Azure에서 프로세스 서버 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "62110033"
 
 4. **서버 이름**, **사용자 이름** 및 **암호**에서 프로세스 서버의 이름과 서버에 관리자 권한이 할당된 자격 증명을 지정합니다.
 5. 서버 VM 디스크에 사용할 스토리지 계정, 프로세스 서버 VM이 위치한 서브넷 및 VM이 시작될 때 할당된 서버 IP 주소를 지정합니다.
-6. **확인** 단추를 클릭하여 프로세스 서버 VM을 배포하기 시작합니다.
+6. **확인** 단추를 클릭하여 프로세스 서버 VM을 배포하기 시작합니다. 프로세스 서버는 Standard_A8_v2 SKU에 배포 됩니다. 이 VM SKU를 구독에 사용할 수 있는지 확인 하세요.
 
 >
 
