@@ -9,18 +9,15 @@ ms.date: 10/02/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: d61dc9d49053cb8a125362ac492f354fb64b79a5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 851b5607ad5413cd1a594f788cb294ee7790e8eb
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992172"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043175"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>자습서: IoT Edge에서 Blob Storage 이벤트에 대응 (미리 보기)
-
-이 문서에서는 Event Grid를 사용 하 여 IoT Edge에서 Blob 만들기 및 Blob 삭제 이벤트에 로컬 반응 하는 방법을 보여 줍니다.
-
-일반적인 Blob Storage 이벤트 시나리오에는 이미지 또는 비디오 처리, 검색 인덱싱, 또는 파일 중심의 워크플로가 포함됩니다. 비동기 파일 업로드는 이벤트에 매우 적합합니다. 변경 빈도가 낮더라도 즉각적인 대응이 필요한 시나리오에서는 이벤트 기반 아키텍처가 특히 효율적일 수 있습니다.
+이 문서에서는 IoT 모듈에 Azure Blob Storage를 배포 하는 방법을 보여 줍니다 .이 모듈은 Blob 만들기 및 Blob 삭제에 대 한 이벤트를 Event Grid에 전송 하는 Event Grid 게시자 역할을 합니다.  
 
 IoT Edge Azure Blob Storage에 대 한 개요는 IoT Edge 및 해당 기능 [에 대 한 Azure Blob Storage](../../iot-edge/how-to-store-data-blob.md) 를 참조 하세요.
 

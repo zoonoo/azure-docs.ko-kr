@@ -3,8 +3,8 @@ title: ML 실험 & 메트릭 기록
 titleSuffix: Azure Machine Learning
 description: Azure ML 실험을 모니터링 하 고 실행 메트릭을 모니터링 하 여 모델 생성 프로세스를 향상 시킵니다. 학습 스크립트에 로깅을 추가 하 고 실행의 기록 된 결과를 확인 합니다.  Start_logging 또는 ScriptRunConfig를 사용 합니다.
 services: machine-learning
-author: heatherbshapiro
-ms.author: hshapiro
+author: sdgilley
+ms.author: sgilley
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: a37ed7c7f39324a7fb4750389c0d76c36539c3cc
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c72de809dc5818cced95be2cbd6b47308bad4f22
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002701"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045215"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Azure ML 실험 실행 및 메트릭 모니터링
 
@@ -30,7 +30,7 @@ ms.locfileid: "71002701"
 
 실험을 학습하는 동안 실행에 추가할 수 있는 메트릭은 다음과 같습니다. 실행 시 추적할 수 있는 메트릭에 대한 자세한 목록을 보려면 [Run 클래스 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)를 참조하세요.
 
-|형식| Python 함수 | 참고|
+|Type| Python 함수 | 참고|
 |----|:----|:----|
 |스칼라 값 |함수:<br>`run.log(name, value, description='')`<br><br>예제:<br>run.log(“accuracy”, 0.95) |숫자 또는 문자열 값을 지정된 이름의 실행에 기록합니다. 메트릭을 실행에 기록하면 해당 메트릭이 실험의 실행 기록에 저장됩니다.  하나의 실행 내에서 동일한 메트릭을 여러 번 기록할 수 있으며 결과는 해당 메트릭의 벡터로 간주됩니다.|
 |목록|함수:<br>`run.log_list(name, value, description='')`<br><br>예제:<br>run.log_list(“accuracies”, [0.6, 0.7, 0.87]) | 값 목록을 지정된 이름의 실행에 기록합니다.|
@@ -229,7 +229,7 @@ ms.locfileid: "71002701"
 ## <a name="view-run-details"></a>실행 세부 정보 보기
 
 ### <a name="monitor-run-with-jupyter-notebook-widget"></a>Jupyter 노트북 위젯을 사용 하 여 모니터 실행
-**ScriptRunConfig** 메서드를 사용 하 여 실행을 제출 하는 경우 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용 하 여 실행 진행률을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기적이며 작업이 완료될 때까지 10~15초 간격으로 라이브 업데이트를 제공합니다.
+**ScriptRunConfig** 메서드를 사용 하 여 실행을 제출 하는 경우 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용 하 여 실행 진행률을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10-15초 간격으로 라이브 업데이트를 제공합니다.
 
 1. 실행이 완료될 때까지 기다리는 동안 Jupyter 위젯을 봅니다.
 
@@ -246,7 +246,7 @@ ms.locfileid: "71002701"
 print(run.get_portal_url())
 ```
 
-2. **[자동화된 기계 학습 실행의 경우]** 이전 실행에서 차트에 액세스합니다. 를 `<<experiment_name>>` 적절 한 실험 이름으로 바꿉니다.
+2. **[자동화된 기계 학습 실행의 경우]** 이전 실행에서 차트에 액세스합니다. `<<experiment_name>>`를 적절 한 실험 이름으로 바꿉니다.
 
    ``` 
    from azureml.widgets import RunDetails
@@ -298,8 +298,8 @@ print(run.get_portal_url())
 |두 개의 숫자 열을 사용하여 테이블 기록|`run.log_table(name='Sine Wave', value=sines)`|두 개의 변수 꺽은선형 차트|
 
 
-## <a name="example-notebooks"></a>노트북 예제
-이 문서의 개념을 보여 주는 노트북은 다음과 같습니다.
+## <a name="example-notebooks"></a>예제 Notebook
+다음 Notebook은 문서의 개념을 보여줍니다.
 * [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)
 * [how-to-use-azureml/training/logging-api/logging-api.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/logging-api)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yegu
-ms.openlocfilehash: 523f4a302eb1f4679eb34bc959efc895fa5408ec
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 4fee7c84b394e84369b28d2a4191d0e581f3beba
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821049"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044354"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-data-loss"></a>Redis 데이터 손실에 대 한 Azure 캐시 문제 해결
 
@@ -101,7 +101,7 @@ Standard 또는 Premium 계층의 Redis에 대 한 모든 Azure Cache는 마스�
 |---|---|
 | [키 플러시](#key-flushing) | 키를 수동으로 제거 했습니다. |
 | [잘못 된 데이터베이스 선택](#incorrect-database-selection) | Redis가 기본이 아닌 데이터베이스를 사용 하도록 설정 되어 있습니다. |
-| [Redis 인스턴스 오류](#redis-instance-failure) | 명시적 delete 명령으로 키를 제거 합니다. |
+| [Redis 인스턴스 오류](#redis-instance-failure) | Redis 서버를 사용할 수 없습니다. |
 
 ### <a name="key-flushing"></a>키 플러시
 

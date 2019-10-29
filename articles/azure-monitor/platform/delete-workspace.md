@@ -1,18 +1,18 @@
 ---
-title: Azure Log Analytics 작업 영역 삭제 및 복원 | Microsoft Docs
+title: Azure Log Analytics 작업 영역 삭제 및 복구 | Microsoft Docs
 description: 개인 구독에서 작업 영역을 만들었거나 작업 영역 모델을 재구성한 경우 Log Analytics 작업 영역을 삭제하는 방법을 알아봅니다.
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 10/11/2019
-ms.openlocfilehash: f15e9c2a5980c8fb6d98f7bf9187b030e6910523
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/28/2019
+ms.openlocfilehash: 709d63b2c764049a698bc538d9ec451b4e75feaa
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932363"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044235"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복원
 
@@ -54,12 +54,14 @@ Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에
 
 일시 삭제 작업 이전에 작업 영역이 연결 된 구독 및 리소스 그룹에 대 한 참가자 권한이 있는 경우 해당 데이터, 구성 및 연결 된 에이전트를 포함 하 여 일시 삭제 기간 동안 복구할 수 있습니다. 일시 삭제 기간이 지나면 작업 영역은 복구 불가능 하 고 영구 삭제를 위해 할당 됩니다. 삭제 된 작업 영역의 이름은 일시 삭제 기간 동안 보존 되며 새 작업 영역을 만들려고 할 때 사용할 수 없습니다.  
 
-다음을 포함 하 여 작업 영역을 다시 만들어 작업 영역을 복구할 수 있습니다. [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) 을 사용 [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) 하거나 이러한 속성이 삭제 된 작업 영역 세부 정보를 포함 하 여 채워집니다.
+다음 속성이 삭제 된 작업 영역 정보로 채워지는 경우 [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) 또는 [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) 작업 영역을 사용 하 여 작업 영역을 다시 만들면 작업 영역을 복구할 수 있습니다.
 
 * 구독 ID
 * 리소스 그룹 이름
 * 작업 영역 이름
 * 지역
+
+작업 영역 및 모든 해당 데이터는 복구 작업 후에 다시 가져옵니다. 솔루션 및 연결 된 서비스는 삭제 시 작업 영역에서 영구적으로 제거 되며 작업 영역을 이전에 구성 된 상태로 전환 하도록 다시 구성 해야 합니다. 연결 된 솔루션을 다시 설치 하 고 해당 스키마를 작업 영역에 추가할 때까지 작업 영역 복구 후에 일부 데이터를 쿼리에 사용할 수 없습니다.
 
 > [!NOTE]
 > * 작업 영역 복구는 [Azure Portal](https://portal.azure.com)에서 지원 되지 않습니다. 

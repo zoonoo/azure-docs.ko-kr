@@ -1,6 +1,6 @@
 ---
-title: 가격 책정 및 대금 청구 - Azure Logic Apps | Microsoft Docs
-description: Azure Logic Apps의 가격 책정 및 대금 청구 방식 알아보기
+title: 가격 책정 & 청구 모델-Azure Logic Apps
+description: 가격 책정 및 청구 모델의 작동 방식에 대 한 개요 Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: logic-apps
@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: conceptual
 ms.date: 07/19/2019
-ms.openlocfilehash: 62b96fa8722408aed81e87cb31218140fa4f5da8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f4651e40a0f4269dc5c8a2fcd4c0e25c1e9bbb3c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099404"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045102"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Azure Logic Apps용 가격 책정 모델
 
@@ -57,9 +57,9 @@ ms.locfileid: "70099404"
 
   각 ISE SKU는 총 통합 계정 5 개로 제한 됩니다. 추가 비용을 위해 ISE SKU에 따라 더 많은 통합 계정을 사용할 수 있습니다.
 
-  * **프리미엄 SKU**: 최대 4 개의 표준 계정. 무료 또는 기본 계정이 없습니다.
+  * **PREMIUM SKU**: 최대 4 개의 표준 계정이 있습니다. 무료 또는 기본 계정이 없습니다.
 
-  * **개발자 SKU**: 최대 4 개의 표준 계정 또는 최대 5 개의 총 표준 계정. 기본 계정이 없습니다.
+  * **개발자 SKU**: 최대 4 개의 표준 계정 또는 최대 5 개의 총 표준 계정입니다. 기본 계정이 없습니다.
 
 통합 계정 제한에 대 한 자세한 내용은 [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits)을 참조 하세요. [통합 계정 계층 및 해당 가격 책정 모델](#integration-accounts) 에 대 한 자세한 내용은이 항목의 뒷부분에서 확인할 수 있습니다.
 
@@ -82,17 +82,17 @@ Azure Logic Apps 커넥터를 사용 하면 [트리거](#triggers), [작업](#ac
 
 트리거는 특정 이벤트가 발생할 때 논리 앱 인스턴스를 만드는 특수 작업입니다. 트리거는 논리 앱이 계량되는 방식에 영향을 주는 다양한 방법으로 작동합니다. Azure Logic Apps에 존재 하는 다양 한 종류의 트리거는 다음과 같습니다.
 
-* **폴링 트리거**: 이 트리거는 논리 앱 인스턴스를 만들고 워크플로를 시작 하기 위한 조건을 충족 하는 메시지에 대해 끝점을 지속적으로 확인 합니다. 논리 앱 인스턴스를 만들지 않은 경우에도 Logic Apps는 각 폴링 요청을 실행으로 측정합니다. 폴링 간격을 설정하려면 논리 앱 디자이너를 통해 트리거를 설정합니다.
+* **폴링 트리거**:이 트리거는 논리 앱 인스턴스를 만들고 워크플로를 시작 하기 위한 조건을 충족 하는 메시지에 대해 끝점을 지속적으로 확인 합니다. 논리 앱 인스턴스를 만들지 않은 경우에도 Logic Apps는 각 폴링 요청을 실행으로 측정합니다. 폴링 간격을 설정하려면 논리 앱 디자이너를 통해 트리거를 설정합니다.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Webhook 트리거**: 이 트리거는 클라이언트가 특정 끝점에 요청을 보낼 때까지 대기 합니다. 웹후크 엔드포인트로 전송된 각 요청은 작업 실행으로 계산됩니다. 예를 들어, 요청 및 HTTP 웹후크 트리거는 둘 다 웹후크 트리거입니다.
+* **Webhook 트리거**:이 트리거는 클라이언트가 특정 끝점에 요청을 보낼 때까지 대기 합니다. 웹후크 엔드포인트로 전송된 각 요청은 작업 실행으로 계산됩니다. 예를 들어, 요청 및 HTTP 웹후크 트리거는 둘 다 웹후크 트리거입니다.
 
-* **되풀이 트리거**: 이 트리거는 트리거에서 설정한 되풀이 간격을 기반으로 논리 앱 인스턴스를 만듭니다. 예를 들어 3 일 마다 또는 보다 복잡 한 일정으로 실행 되는 되풀이 트리거를 설정할 수 있습니다.
+* **되풀이 트리거**:이 트리거는 트리거에서 설정한 되풀이 간격을 기반으로 논리 앱 인스턴스를 만듭니다. 예를 들어 3 일 마다 또는 보다 복잡 한 일정으로 실행 되는 되풀이 트리거를 설정할 수 있습니다.
 
 <a name="actions"></a>
 
-## <a name="actions"></a>동작
+## <a name="actions"></a>작업
 
 기본 작업으로 "기본 제공" 작업 (예: HTTP)을 Azure Logic Apps 합니다. 예를 들어 기본 제공 작업에는 HTTP 호출, Azure Functions 또는 API Management의 호출 및 조건, 루프, switch 문 등의 제어 흐름 단계가 포함 됩니다. 각 작업에는 고유한 작업 유형이 있습니다. 예를 들어 [커넥터](https://docs.microsoft.com/connectors) 를 호출 하는 작업에는 "ApiConnection" 형식이 있습니다. 이러한 커넥터는 표준 또는 엔터프라이즈 커넥터로 분류 되며 해당 [가격 책정](https://azure.microsoft.com/pricing/details/logic-apps)에 따라 측정 됩니다. *미리 보기* 의 엔터프라이즈 커넥터는 표준 커넥터로 요금이 청구 됩니다.
 
@@ -119,11 +119,11 @@ Azure Logic Apps는 무료, 기본 및 표준 통합 계정을 제공 합니다.
 
 무료, 기본 또는 표준 통합 계정 중에서 선택 하려면 다음과 같은 사용 사례 설명을 검토 합니다.
 
-* **체험**: 프로덕션 시나리오가 아닌 예비 시나리오를 시도 하려는 경우
+* **무료**: 프로덕션 시나리오가 아닌 예비 시나리오를 시도 하려는 경우
 
-* **기본**: 메시지 처리만 수행 하거나 더 큰 비즈니스 엔터티와 거래 파트너 관계가 있는 소규모 비즈니스 파트너 역할을 수행 하려는 경우
+* **기본**: 더 큰 비즈니스 엔터티와 거래 파트너 관계가 있는 소규모 비즈니스 파트너 역할을 하는 메시지 처리만 하려는 경우
 
-* **표준**: 더 복잡 한 B2B 관계와 관리 해야 하는 엔터티의 수가 증가 하는 경우
+* **표준**: 더 복잡 한 B2B 관계와 관리 해야 하는 엔터티 수가 증가 하는 경우
 
 <a name="data-retention"></a>
 

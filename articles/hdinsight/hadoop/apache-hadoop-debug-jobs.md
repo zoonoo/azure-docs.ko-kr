@@ -1,5 +1,5 @@
 ---
-title: '디버그 Apache Hadoop: 로그 보기 및 오류 메시지 해석-Azure HDInsight'
+title: '디버그 Apache Hadoop: Azure HDInsight의 로그 및 오류 메시지'
 description: PowerShell을 사용하여 HDInsight를 관리할 때 표시될 수 있는 오류 메시지와 복구를 위해 수행할 수 있는 단계에 대해 알아봅니다.
 ms.reviewer: jasonh
 author: ashishthaps
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 847b36c2aab761383a4a25bd4da5c626c4744ce1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2e5cb1676670642121caec71a973374063fe4320
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935488"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044851"
 ---
 # <a name="analyze-apache-hadoop-logs-in-azure-hdinsight"></a>Azure HDInsight에서 Apache Hadoop 로그 분석
 

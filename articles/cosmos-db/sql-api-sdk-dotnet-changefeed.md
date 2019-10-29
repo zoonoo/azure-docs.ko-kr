@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: ea6de5f42910457efa5ca6c458d7af63faa38e18
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 2392eb1f02ede13aca88419c00ea33ae38cfd8ab
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68637741"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023900"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>.NET 변경 피드 프로세서 SDK: 다운로드 및 릴리스 정보
 
@@ -26,7 +26,7 @@ ms.locfileid: "68637741"
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -42,6 +42,15 @@ ms.locfileid: "68637741"
 ## <a name="release-notes"></a>릴리스 정보
 
 ### <a name="v2-builds"></a>v2 빌드
+
+### <a name="a-name228228"></a><a name="2.2.8"/>2.2.8
+* 안정성 및 진단 가능 향상 된 기능:
+  * 읽기 변경 피드를 검색 하는 데 오랜 시간이 소요 되는 지원이 추가 되었습니다. `ChangeFeedProcessorOptions.ChangeFeedTimeout` 속성에 지정 된 값 보다 오래 걸리면 다음 단계가 수행 됩니다.
+    * 문제가 있는 파티션에서 변경 피드를 읽는 작업이 중단 됩니다.
+    * 변경 피드 프로세서 인스턴스는 문제가 있는 임대의 소유권을 삭제 합니다. 삭제 된 임대는 동일 하거나 다른 변경 피드 프로세서 인스턴스에 의해 수행 되는 다음 임대 획득 단계 중에 선택 됩니다. 이러한 방식으로 변경 피드를 읽기가 시작 됩니다.
+    * 상태 모니터에 문제가 보고 됩니다. 기본 heath 모니터는 보고 로그에 보고 된 모든 문제를 보냅니다.
+  * 새 공용 속성 `ChangeFeedProcessorOptions.ChangeFeedTimeout`를 추가 했습니다. 이 속성의 기본값은 10 분입니다.
+  * 새 공용 열거형 값 `Monitoring.MonitoredOperation.ReadChangeFeed`을 (를) 추가 했습니다. `HealthMonitoringRecord.Operation` 값이 `Monitoring.MonitoredOperation.ReadChangeFeed`으로 설정 된 경우 상태 문제는 변경 피드 읽기와 관련 되어 있음을 나타냅니다.
 
 ### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
 * 모든 임대를 가져오는 경우의 시나리오에 대 한 향상 된 부하 분산 전략은 임대 만료 간격 (예: 네트워크 문제 때문) 보다 오래 걸립니다.
@@ -76,7 +85,7 @@ ms.locfileid: "68637741"
 
 ### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
 * 분할된 임대 컬렉션에 대한 지원이 추가되었습니다. 파티션 키는 /id로 정의되어야 합니다.
-* 주요 변경 내용: IChangeFeedDocumentClient 인터페이스 및 ChangeFeedDocumentClient 클래스의 메서드는 RequestOptions 및 CancellationToken 매개 변수를 포함하도록 변경되었습니다. IChangeFeedDocumentClient는 변경 피드 프로세서와 함께 사용하여 문서 클라이언트의 사용자 지정 구현을 제공할 수 있는 고급 확장성 지점입니다(예: DocumentClient를 데코레이트하고 그에 대한 모든 호출을 가로채서 추가 추적, 오류 처리 등을 수행). 이 업데이트를 사용하면 새 매개 변수를 구현에 포함하도록 IChangeFeedDocumentClient를 구현하는 코드를 변경해야 합니다.
+* 주요 변경 내용: IChangeFeedDocumentClient 인터페이스 및 ChangeFeedDocumentClient 클래스의 메서드는 RequestOptions 및 CancellationToken 매개 변수를 포함하도록 변경되었습니다. IChangeFeedDocumentClient는 변경 피드 프로세서와 함께 사용할 문서 클라이언트의 사용자 지정 구현을 제공할 수 있도록 하는 고급 확장성 지점입니다 (예: 데코레이팅 DocumentClient 및이에 대 한 모든 호출을 가로채 추가 추적, 오류 처리 수행). 등. 이 업데이트를 사용 하는 경우 IChangeFeedDocumentClient을 구현 하는 코드를 변경 하 여 구현에 새 매개 변수를 포함 해야 합니다.
 * 사소한 진단 개선 사항입니다.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
@@ -170,7 +179,8 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 릴리스 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [2.2.7](#2.2.7) |5 월 14 일, 2019 |--- |
+| [2.2.8](#2.2.8) |2019 년 10 월 28 일 |--- |
+| [2.2.7](#2.2.7) |2019년 5월 14일 |--- |
 | [2.2.6](#2.2.6) |2019년 1월 29일 |--- |
 | [2.2.5](#2.2.5) |2018년 12월 13일 |--- |
 | [2.2.4](#2.2.4) |2018년 11월 29일 |--- |
@@ -189,6 +199,6 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.

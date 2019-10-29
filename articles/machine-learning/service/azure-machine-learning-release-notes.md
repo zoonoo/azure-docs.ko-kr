@@ -10,16 +10,16 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: c8ec05db9bf372f31b6c3cfadf1eda75ba8f7d2b
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 7bfa4a35a99b5a3bbca63fa2d8349568d0ce2467
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965184"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025449"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
-이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 페이지를 참조 하세요. 
+이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다. 전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 페이지를 참조 하세요. 
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
@@ -31,8 +31,8 @@ ms.locfileid: "72965184"
   + SDK 자산과 통합 된 관리 환경
   + 시각적 인터페이스 모델, 파이프라인 및 끝점에 대 한 버전 관리 및 추적 
   + 다시 디자인 한 UI
-  + Batch 추론 배포 추가 됨
-  + 추론 계산 대상에 대 한 AKS (Azure Kubernetes Service) 지원 추가
+  + 추가 된 일괄 처리 유추 배포
+  + 유추 계산 대상에 대 한 AKS (Azure Kubernetes Service) 지원 추가
   + 새 Python-단계 파이프라인 제작 워크플로
   + 시각적 제작 도구에 대 한 새 [방문 페이지](https://ml.azure.com)
 
@@ -50,43 +50,63 @@ ms.locfileid: "72965184"
 + **버그 수정 및 향상 된 기능**
   + **azureml-automl-core**
     + 모든 실행에 대 한 설명을 계산 하지 않고 모델 설명을 최상의 실행으로 제한 로컬, 원격 및 ADB에 대해이 동작을 변경 합니다.
-    + UI에 대 한 요청 시 모델 설명에 대 한 지원 추가
+    + UI에 대 한 요청 시 모델 설명에 대 한 지원이 추가 되었습니다.
     + Psutil을 automl의 종속성으로 추가 하 고 amlcompute에서 conda 종속성으로 포함 된 psutil을 추가 했습니다.
-    + 예측 데이터 집합에서 추론 지연 및 롤링 창 크기에 대 한 문제를 해결 했습니다. 일부 시리즈는 선형 대 수 오류를 일으킬 수 있습니다.
+    + 예측 데이터 집합에서 추론 지연 및 롤링 창 크기 문제를 수정 했습니다 .이로 인해 선형 대 수 오류가 발생할 수 있습니다.
       + 예측 실행에서 결정 된 발견적 매개 변수에 대 한 출력을 추가 했습니다.
-  + **azureml-datadrift**
+  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
     + 첫 번째 섹션에 데이터 집합 수준 드리프트가 없는 경우 출력 메트릭을 만드는 동안 보호 기능이 추가 되었습니다.
   + **azureml-인-해석**
-    + azureml-설명-설명-모델 패키지의 이름이 azureml로 바뀌었습니다.
-  + **azureml-코어**
-    + 데이터 집합의 등록을 취소 하는 API가 추가 되었습니다. `dataset.unregister_all_versions()`
+    + azureml-설명-모델 패키지의 이름이 azureml-대/소문자 구분-해석으로 바뀌었습니다.
+  + **[azureml-코어](https://docs.microsoft.com/python/api/azureml-core)**
+    + 데이터 집합의 등록을 취소 하는 API가 추가 되었습니다. 집합. [unregister_all_versions ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_datastore.abstractdatastore#unregister--).
     + 데이터 변경 시간을 확인 하는 데이터 집합 API를 추가 했습니다. `dataset.data_changed_time`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다.
-    + `HyperDriveStep` 파이프라인에서 `PythonScriptStep`, `EstimatorStep`및 Azure Machine Learning에 대 한 입력으로 `FileDataset` 및 `TabularDataset`를 사용할 수 있습니다.
-    + 많은 수의 파일이 있는 폴더에 대 한 `FileDataset.mount`의 성능이 향상 되었습니다.
+    + [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset) 및 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset) 을 Azure Machine Learning 파이프라인의 [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep), [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep)및 [hyperdrivestep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyperdrivestep) 에 대 한 입력으로 사용할 수 있습니다.
+    + FileDataset의 성능입니다. 여러 파일을 포함 하는 폴더에 대해 [mount ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset#mount-mount-point-none-) 가 개선 되었습니다.
     + 실행 세부 정보에 알려진 오류 권장 사항에 대 한 URL이 추가 되었습니다.
-    + 실행 중인 버그를 수정 했습니다. 실행에 자식이 너무 많이 있는 경우 요청이 실패 하는 메트릭을 가져옵니다 (_s).
+    + 실행 중인 버그를 수정 했습니다. 실행에 자식이 너무 많이 있는 경우 요청이 실패 하는 [메트릭을 가져옵니다 (_s).](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run#get-metrics-name-none--recursive-false--run-type-none--populate-false-)
     + Arcadia 클러스터에서 인증에 대 한 지원이 추가 되었습니다.
-    + 실험 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 id 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예: 실험 = 실험 (작업 영역, "New 실험") experiment_id = experiment.id archive () 및 다시 활성화 ()는 실험에서 실험을 숨기고 복원 하 여 실험에 표시 되지 않도록 하 고 호출에서 기본적으로 반환 되는 함수입니다. 실험을 나열 합니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예: experiment1 = 실험 (작업 영역, "활성 실험") experiment1 () # 보관 된와 동일한 이름을 사용 하 여 새 활성 실험을 만듭니다. experiment2. = 실험 (작업 영역, "활성 실험") experiment1 (new_name = "이전 활성 실험") 실험에서 정적 메서드 목록 ()은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL" 예: archived_experiments = (workspace, view_type = "ARCHIVED_ONLY") all_first_experiments = 실험 (작업 영역, 이름 = "First 실험", view_type = "ALL")
-    + 모델 배포 및 서비스 업데이트를 위한 환경 사용 지원
-  + **azureml-datadrift**
-    + Datadriftbariclass의 show 특성은 선택적 인수 ' with_details '을 더 이상 지원 하지 않습니다. 표시 특성은 기능 열의 데이터 드리프트 계수 및 데이터 드리프트 기여도만 제공 합니다.
-    + DataDriftDetector 특성 ' get_output ' 동작 변경:
+    + [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment) 개체를 만들면 실행 기록 추적을 위한 Azure Machine Learning 작업 영역에서 실험을 가져오거나 만듭니다. 실험 id 및 보관 된 시간은 생성 시 실험 개체에 채워집니다. 예제:
+
+        ```py
+        experiment = Experiment(workspace, "New Experiment")
+        experiment_id = experiment.id
+        ```
+        [archive ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#archive--) 및 [재 활성화 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#reactivate-new-name-none-) 는 실험에서 실험을 숨기 거 나 복원 하기 위해 호출할 수 있는 함수입니다 .이 함수는 실험에서 실험을 숨기 거 나 복원 하 여 목록 실험 호출에서 기본적으로 반환 됩니다. 보관 된 실험과 동일한 이름으로 새 실험을 만든 경우 새 이름을 전달 하 여 다시 활성화할 때 보관 된 실험의 이름을 바꿀 수 있습니다. 지정 된 이름을 가진 활성 실험은 하나만 있을 수 있습니다. 예제: 
+        
+        ```py
+        experiment1 = Experiment(workspace, "Active Experiment")
+        experiment1.archive()
+        # Create new active experiment with the same name as the archived.
+        experiment2 = Experiment(workspace, "Active Experiment")
+        experiment1.reactivate(new_name="Previous Active Experiment")
+        ```
+        실험에서 정적 메서드 [목록 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly--) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예제: 
+        
+        ```py
+        archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
+        all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
+        ```
+    + 모델 배포 및 서비스 업데이트를 위한 환경 사용을 지원 합니다.
+  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
+    + [Datadriftdetector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector) 클래스의 show 특성은 선택적 인수 ' with_details '을 더 이상 지원 하지 않습니다. 표시 특성은 기능 열의 데이터 드리프트 계수 및 데이터 드리프트 기여도만 제공 합니다.
+    + DataDriftDetector 함수 [get_output](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector#get-output-start-time--end-time--run-id-none--daily-latest-only-true-) 동작 변경 내용:
       + 입력 매개 변수 start_time, end_time는 필수 항목이 아닌 선택적 요소입니다.
-      + 입력 및/또는 end_time를 특정 run_id와 동일한 호출에 배치 하면 함께 사용할 수 없으므로 값 오류 예외가 발생 합니다. 
+      + 동일한 호출에서 특정 run_id를 사용 하는 입력 관련 start_time 및/또는 end_time는 함께 사용할 수 없으므로 값 오류 예외가 발생 합니다. 
       + 입력 특정 start_time 및/또는 end_time을 통해 예약 된 실행 결과만 반환 됩니다. 
       + ' Daily_latest_only ' 매개 변수는 사용 되지 않습니다.
     + 데이터 집합 기반 데이터 드리프트 출력 검색을 지원 합니다.
-  + **azureml-설명-모델**
-    + Azureml-설명 모델의 이름을 AzureML로 해석 하 여 이전 패키지를 현재 이전 버전과의 호환성을 유지 합니다.
-    + ExplanationClient에서 다운로드 시 기본적으로 회귀 대신 분류 태스크로 설정 된 원시 설명이 포함 된 automl 버그를 수정 했습니다.
-    + `MimicWrapper`를 사용 하 여 직접 만들 `ScoringExplainer`에 대 한 지원을 추가 합니다.
-  + **azureml 파이프라인-코어**
-    + 대량 파이프라인 생성을 위한 향상 된 성능
-  + **azureml-교육-코어**
-    + TensorFlow 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.
-  + **azureml-학습-automl**
+  + **[azureml-설명-모델](https://docs.microsoft.com/python/api/azureml-explain-model)**
+    + 현재 이전 패키지와 이전 버전과의 호환성을 유지 하도록 azureml-설명 모델 패키지의 이름을 AzureML-해석으로 바꿉니다.
+    + ExplanationClient에서 다운로드 시 기본적으로 회귀 대신 분류 태스크로 설정 된 원시 설명이 있는 automl 버그를 수정 했습니다.
+    + [MimicWrapper](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic_wrapper.mimicwrapper) 를 사용 하 여 직접 만들 [ScoringExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.scoring.scoring_explainer.scoringexplainer) 에 대 한 지원 추가
+  + **[azureml 파이프라인-코어](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
+    + 대량 파이프라인 생성을 위한 향상 된 성능.
+  + **[azureml-교육-코어](https://docs.microsoft.com/python/api/azureml-train-core)**
+    + [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow) 평가기에서 TensorFlow 2.0 지원을 추가 했습니다.
+  + **[azureml-학습-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
     + 오케스트레이션이 이미 처리 하 고 있으므로 설치 반복에 실패 하는 경우 부모 실행은 더 이상 실패 하지 않습니다.
-    + AutoML 실험에 대 한 로컬 docker 및 로컬 conda 지원 추가
+    + AutoML 실험에 대 한 로컬 docker 및 로컬 conda 지원이 추가 되었습니다.
 
 
 ## <a name="2019-10-08"></a>2019-10-08
@@ -103,13 +123,13 @@ ms.locfileid: "72965184"
 ### <a name="azure-machine-learning-sdk-for-python-v1065"></a>Azure Machine Learning SDK for Python v 1.0.65
 
   + **새로운 기능**
-    + 큐 레이트 환경을 추가 했습니다. 이러한 환경은 일반적인 기계 학습 작업을 위한 라이브러리로 미리 구성 되었으며 더 빠른 실행을 위해 Docker 이미지로 미리 빌드 및 캐시 되었습니다. 기본적으로 작업 영역의 환경 목록에 접두사 "AzureML"와 함께 표시 됩니다.
+    + 큐 레이트 환경을 추가 했습니다. 이러한 환경은 일반적인 기계 학습 작업을 위한 라이브러리로 미리 구성 되었으며 더 빠른 실행을 위해 Docker 이미지로 미리 빌드 및 캐시 되었습니다. 기본적으로 [작업 영역의](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29)환경 목록에 접두사 "AzureML"와 함께 표시 됩니다.
   
-  + **azureml-학습-automl**
+  + **[azureml-학습-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
     + ADB 및 HDI에 대 한 ONNX 변환 지원을 추가 했습니다.
 
 + **미리 보기 기능**  
-  + **azureml-학습-automl**
+  + **[azureml-학습-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
     + 지원 되는 BERT 및 BiLSTM as text featurizer (미리 보기 전용)
     + 열 용도 및 변환기 매개 변수에 대해 지원 되는 기능화 사용자 지정 (미리 보기 전용)
     + 사용자가 학습 중에 모델 설명을 사용 하도록 설정 하는 경우 지원 되는 원시 설명 (미리 보기 전용)
@@ -120,34 +140,34 @@ ms.locfileid: "72965184"
 
 + **버그 수정 및 향상 된 기능**
   + **azureml-automl-core**
-    + AutoMLConfig 및 AutoMLBaseSettings에 FeaturizationConfig를 도입 했습니다.
+    + [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig) 및 AutoMLBaseSettings에 FeaturizationConfig를 도입 했습니다.
       + 지정 된 열 및 기능 유형으로 기능화의 열 용도를 재정의 합니다.
       + 변환기 매개 변수 재정의
     + Explain_model () 및 retrieve_model_explanations ()에 대 한 사용 중단 메시지를 추가 했습니다.
-    + 학습 가능 파이프라인으로 Prophet 추가 됨 (미리 보기 전용)
+    + Prophet를 학습 가능 파이프라인 (미리 보기 전용)으로 추가 했습니다.
     + 대상 지연, 롤링 창 크기 및 최대 가로선의 자동 검색에 대 한 지원이 추가 되었습니다. Target_lags, target_rolling_window_size 또는 max_horizon 중 하나를 ' 자동 '으로 설정 하면 학습 데이터를 기반으로 해당 매개 변수의 값을 예측 하기 위해 추론을 적용 합니다.
-    + 예측 수정-데이터 집합에 하나의 그레인 열이 포함 된 경우이 수준은 숫자 유형이 며 학습 및 테스트 집합 사이에 간격이 있습니다.
-    + 예측 작업에서의 원격 실행에서 중복 된 인덱스에 대 한 오류 메시지를 수정 했습니다.
+    + 예측 수정 데이터 집합에 하나의 그레인 열이 포함 된 경우이 수준은 숫자 유형이 며 학습 집합과 테스트 집합 사이에 간격이 있습니다.
+    + 예측 작업에서 원격 실행의 중복 된 인덱스에 대 한 오류 메시지를 수정 했습니다.
     + 데이터 집합이 불균형 하 게 분산 되었는지 여부를 확인 하는 guardrail이 추가 되었습니다. 이 경우 guardrail 메시지가 콘솔에 기록 됩니다.
-  + **azureml-코어**
-    + 모델 개체를 통해 저장소에서 모델에 대 한 SAS URL을 검색 하는 기능을 추가 했습니다. 예: model. get _sas_url ()
-    + 전송 된 실행에 연결 된 데이터 집합을 가져오는 `run.get_details()['datasets']` 소개
-    + API `Dataset.Tabular.from_json_lines_files` 추가 하 여 JSON 줄 파일에서 TabularDataset를 만듭니다. TabularDataset의 JSON 줄 파일에서이 테이블 형식 데이터에 대 한 자세한 내용은 설명서를 보려면 https://aka.ms/azureml-data 를 참조 하세요.
-    + Supported_vmsizes () 함수에 추가 VM 크기 필드 (OS 디스크, Gpu 수)를 추가 했습니다.
-    + List_nodes () 함수에 추가 필드를 추가 하 여 실행, 개인 및 공용 IP, 포트 등을 표시 합니다.
-    + 클러스터를 만들 때 SSH 포트를 열어 둘지 여부에 따라 사용 또는 사용 안 함으로 설정할 수 있는 클러스터 프로 비전 중에 새 필드를 지정 하는 기능--remotelogin_port_public_access 지정 하지 않으면 서비스는 VNet 내에 클러스터를 배포 하 고 있는지 여부에 따라 포트를 열거나 현명 합니다.
-  + **azureml-설명-모델**
+  + **[azureml-코어](https://docs.microsoft.com/python/api/azureml-core/azureml.core)**
+    + 모델 개체를 통해 저장소에서 모델에 대 한 SAS URL을 검색 하는 기능을 추가 했습니다. 예: model. [get_sas_url ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model#get-sas-urls--)
+    + 실행을 소개 합니다. [get_details](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29#get-details--)[' 데이터 집합 ']을 사용 하 여 제출 된 실행에 연결 된 데이터 집합 가져오기
+    + API `Dataset.Tabular`를 추가 합니다. [from_json_lines_files ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory#from-json-lines-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) 를 통해 json 줄 파일에서 TabularDataset를 만듭니다. TabularDataset의 JSON 줄 파일에서이 테이블 형식 데이터에 대 한 자세한 내용은 설명서를 보려면 https://aka.ms/azureml-data 를 참조 하세요.
+    + [Supported_vmsizes ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#supported-vmsizes-workspace--location-none-) 함수에 추가 VM 크기 필드 (OS 디스크, gpu 수)를 추가 했습니다.
+    + [List_nodes ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#list-nodes--) 함수에 추가 필드를 추가 하 여 실행, 개인 및 공용 IP, 포트 등을 표시 합니다.
+    + 클러스터를 만들 때 SSH 포트를 열어 둘지 여부에 따라 사용 또는 사용 안 함으로 설정할 수 있는 클러스터 [프로 비전](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute#provisioning-configuration-vm-size-----vm-priority--dedicated---min-nodes-0--max-nodes-none--idle-seconds-before-scaledown-none--admin-username-none--admin-user-password-none--admin-user-ssh-key-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--tags-none--description-none--remote-login-port-public-access--notspecified--) `--remotelogin_port_public_access` 중에 새 필드를 지정 하는 기능입니다. 지정 하지 않으면 서비스는 VNet 내에 클러스터를 배포 하 고 있는지 여부에 따라 포트를 열거나 현명 합니다.
+  + **[azureml-설명-모델](https://docs.microsoft.com/python/api/azureml-explain-model)**
     + 분류 시나리오의 설명 출력에 대 한 설명서를 개선 했습니다.
     + 평가 예제에 대 한 설명에 예측 된 y 값을 업로드 하는 기능이 추가 되었습니다. 더 유용한 시각화의 잠금을 해제 합니다.
     + 설명 속성을 MimicWrapper에 추가 하 여 기본 MimicExplainer를 가져올 수 있도록 합니다.
-  + **azureml 파이프라인-코어**
-    + 모듈, ModuleVersion 및 ModuleStep를 설명 하는 노트북을 추가 했습니다.
-  + **azureml 파이프라인-단계**
-    + AML 파이프라인을 통해 R 스크립트 실행을 지 원하는 RScriptStep 추가
-    + "매개 변수 SubscriptionId가 지정 되지 않았습니다." 라는 오류 메시지를 발생 시킨 AzureBatchStep에서 메타 데이터 매개 변수 구문 분석이 수정 되었습니다.
-  + **azureml-학습-automl**
-    + 데이터 입력 형식으로 지원 되는 training_data, validation_data, label_column_name, weight_column_name
-    + Explain_model () 및 retrieve_model_explanations ()에 대 한 사용 중단 메시지를 추가 했습니다.
+  + **[azureml 파이프라인-코어](https://docs.microsoft.com/python/api/azureml-pipeline-core)**
+    + [모듈](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.module(class)), [ModuleVersion](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.moduleversion) 및 [modulestep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.modulestep)를 설명 하는 [노트북](https://aka.ms/pl-modulestep) 을 추가 했습니다.
+  + **[azureml 파이프라인-단계](https://docs.microsoft.com/python/api/azureml-pipeline-steps)**
+    + AML 파이프라인을 통해 R 스크립트 실행을 지 원하는 [Rscriptstep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.rscriptstep) 을 추가 했습니다.
+    + "매개 변수 SubscriptionId를 지정 하지 않았습니다." 라는 오류 메시지를 발생 시킨 [Azurebatchstep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep) 에서 메타 데이터 매개 변수가 구문 분석 되었습니다.
+  + **[azureml-학습-automl](https://docs.microsoft.com/python/api/azureml-train-automl)**
+    + 데이터 입력 형식으로 지원 되는 training_data, validation_data, label_column_name, weight_column_name.
+    + [Explain_model ()](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer#explain-model-fitted-model--x-train--x-test--best-run-none--features-none--y-train-none----kwargs-) 및 [retrieve_model_explanations ()](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer#retrieve-model-explanation-child-run-)에 대 한 사용 중단 메시지를 추가 했습니다.
 
   
 ## <a name="2019-09-16"></a>2019-09-16
@@ -195,6 +215,7 @@ ms.locfileid: "72965184"
     + Azureml 설치 패키지 버전을 재정의 하는 기능이 추가 되었습니다. 
     + 추정의 `environment_definition` 매개 변수에 dockerfile 지원이 추가 되었습니다.
     + 추정의 단순화 된 분산 교육 매개 변수
+
          ```py 
         from azureml.train.dnn import TensorFlow, Mpi, ParameterServer 
         ```
@@ -247,13 +268,13 @@ ms.locfileid: "72965184"
   + **azureml-코어**
     + 데이터 집합 소개. (작업 영역) get (작업 영역)을 반환 합니다 .이를 통해 `TabularDataset` 사전을 반환 하 고 등록 이름으로 키가 지정 된 개체 `FileDataset`. 
     
-    ```py 
-    workspace = Workspace.from_config() 
-    all_datasets = Dataset.get_all(workspace) 
-    mydata = all_datasets['my-data'] 
-    ```
-    
-    + `Dataset.Tabular.from_delimited_files` 및 `Dataset.Tabular.from_parquet.files`에 `parition_format` 인수를 소개 합니다. 각 데이터 경로의 파티션 정보는 지정 된 형식에 따라 열로 추출 됩니다. ' {column_name} '은 (는) 문자열 열을 만들며 ' {column_name: yyyy/MM/dd/HH/MM/ss} '는 datetime 열을 만듭니다. 여기에서 ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' 및 ' ss '는 datetime 형식의 연도, 월, 일, 시간 Partition_format는 파일 경로가 끝날 때까지 첫 번째 파티션 키의 위치부터 시작 해야 합니다. 예를 들어 '.. 경로를 지정 합니다. /USA/2019/01/01/data.csv ' 파티션이 국가 및 시간별 이며, partition_format = '/{Country}/{PartitionDate: yyyy/MM/dd}/m a s t '는 값이 ' USA ' 인 ' Country ' 문자열 열과 ' 2019-01-01 ' 값이 포함 된 datetime 열을 만듭니다.
+        ```py 
+        workspace = Workspace.from_config() 
+        all_datasets = Dataset.get_all(workspace) 
+        mydata = all_datasets['my-data'] 
+        ```
+        
+    + `Dataset.Tabular.from_delimited_files` 및 `Dataset.Tabular.from_parquet.files`에 `partition_format` 인수를 소개 합니다. 각 데이터 경로의 파티션 정보는 지정 된 형식에 따라 열로 추출 됩니다. ' {column_name} '은 (는) 문자열 열을 만들며 ' {column_name: yyyy/MM/dd/HH/MM/ss} '는 datetime 열을 만듭니다. 여기에서 ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' 및 ' ss '는 datetime 형식의 연도, 월, 일, 시간 Partition_format는 파일 경로가 끝날 때까지 첫 번째 파티션 키의 위치부터 시작 해야 합니다. 예를 들어 '.. 경로를 지정 합니다. /USA/2019/01/01/data.csv ' 파티션이 국가 및 시간별 이며, partition_format = '/{Country}/{PartitionDate: yyyy/MM/dd}/m a s t '는 값이 ' USA ' 인 ' Country ' 문자열 열과 ' 2019-01-01 ' 값이 포함 된 datetime 열을 만듭니다.
     + `to_csv_files` 및 `to_parquet_files` 메서드가 `TabularDataset`에 추가 되었습니다. 이러한 메서드는 데이터를 지정 된 형식의 파일로 변환 하 여 `TabularDataset`과 `FileDataset` 사이의 변환을 가능 하 게 합니다.
     + 모델인 ()에서 생성 된 Dockerfile을 저장할 때 기본 이미지 레지스트리에 자동으로 로그인 합니다.
     + ' gpu_support '은 더 이상 필요 하지 않습니다. 이제 AzureML에서 nvidia docker 확장을 자동으로 검색 하 고 사용 합니다 (사용 가능한 경우). 이후 릴리스에서 제거 될 예정입니다.

@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 50617eda56c2eaec9fac315013114f173e85edbc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 920419bf10634e8be15e05a89d547a5a9d1430b7
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990782"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027793"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -312,7 +312,7 @@ ExpressRoute Premium은 REST API/PowerShell cmdlet을 호출하여 사용하지 
 
 ## <a name="expressroute-local"></a>Express 경로 로컬
 ### <a name="what-is-expressroute-local"></a>Express 경로 로컬 이란?
-Express 경로 로컬은 [express 경로 직접](expressroute-erdirect-about.md)에서 사용할 수 있는 express 경로 회로의 SKU입니다. 로컬의 핵심 기능은 Express 경로 피어 링 위치의 로컬 회로에서 동일한 metro의 하나 또는 두 개의 Azure 지역에 대 한 액세스를 제공 한다는 것입니다. 반면, 표준 회로는 모든 Azure 지역에 대 한 지정 학적 영역 및 프리미엄 회로의 모든 Azure 지역에 대 한 액세스를 전역적으로 제공 합니다. 
+Express 경로 로컬은 표준 SKU 및 프리미엄 SKU 외에도 Express 경로 회로의 SKU입니다. 로컬의 핵심 기능은 Express 경로 피어 링 위치의 로컬 회로에서 동일한 metro의 하나 또는 두 개의 Azure 지역에 대 한 액세스를 제공 한다는 것입니다. 반면, 표준 회로는 모든 Azure 지역에 대 한 지정 학적 영역 및 프리미엄 회로의 모든 Azure 지역에 대 한 액세스를 전역적으로 제공 합니다. 
 
 ### <a name="what-are-the-benefits-of-expressroute-local"></a>Express 경로 로컬의 이점은 무엇 인가요?
 Standard 또는 Premium Express 경로 회로에 대 한 송신 데이터 전송 비용을 지불 해야 하는 동안 Express 경로 로컬 회로에 대해 별도의 송신 데이터 전송을 지불 하지 않습니다. 즉, Express 경로 로컬의 가격은 데이터 전송 요금을 포함 합니다. Express 경로 로컬은 전송 하는 데 많은 양의 데이터가 있고 개인 연결을 통해 데이터를 원하는 Azure 지역 근처의 Express 경로 피어 링 위치로 가져올 수 있는 경우 보다 경제적인 솔루션입니다. 
@@ -323,9 +323,6 @@ Standard 또는 Premium Express 경로 회로에 대 한 송신 데이터 전송
 * Express 경로 Global Reach 로컬에서 사용할 수 없습니다.
 
 또한 Express 경로 로컬은 표준으로 리소스 (예: 회로 당 Vnet 수)에 대 한 한도를 가집니다. 
-
-### <a name="how-to-configure-expressroute-local"></a>Express 경로 로컬을 구성 하는 방법 
-Express 경로 로컬은 Express 경로 직접 에서만 사용할 수 있습니다. 따라서 먼저 Express 경로 직접 포트를 구성 해야 합니다. 직접 포트를 만든 후에는 [여기](expressroute-howto-erdirect.md)에 설명 된 지침에 따라 로컬 회로를 만들 수 있습니다.
 
 ### <a name="where-is-expressroute-local-available-and-which-azure-regions-is-each-peering-location-mapped-to"></a>여기서는 Express 경로 로컬을 사용할 수 있으며 각 피어 링 위치가에 매핑되는 Azure 지역은 어디 인가요?
 Express 경로 로컬은 하나 또는 두 개의 Azure 지역이 종료 되는 피어 링 위치에서 사용할 수 있습니다. 해당 시/도 또는 국가에 Azure 지역이 없는 피어 링 위치에서는 사용할 수 없습니다. [위치 페이지](expressroute-locations-providers.md)에서 정확한 매핑을 참조 하세요.  

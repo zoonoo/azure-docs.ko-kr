@@ -1,5 +1,5 @@
 ---
-title: HDInsight에서 Apache Hadoop과 MapReduce 및 SSH 연결 - Azure
+title: Apache Hadoop와 MapReduce 및 SSH 연결-Azure HDInsight
 description: SSH를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 작업을 실행하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5eac6cd60b9e58dea8901fad076bb481d5f2eb06
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b4075de1a184896d598c11d09ae2b2bda5e257ed
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67078316"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044519"
 ---
 # <a name="use-mapreduce-with-apache-hadoop-on-hdinsight-with-ssh"></a>SSH를 사용하여 HDInsight에서 Apache Hadoop으로 MapReduce 사용
 

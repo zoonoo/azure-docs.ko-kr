@@ -1,5 +1,5 @@
 ---
-title: Apache Ambari 보기를 사용하여 HDInsight(Apache Hadoop)에서 Hive 작업 - Azure
+title: Azure HDInsight에서 Apache Hadoop Apache Ambari Hive 보기 사용
 description: 웹 브라우저에서 Hive 뷰를 사용하여 Hive 쿼리를 제출하는 방법을 알아봅니다. Hive 뷰는 Linux 기반 HDInsight 클러스터와 함께 제공되는 Ambari 웹 UI의 일부입니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: da4d1ed7dec8b3b0bc61dd2959a868d03875039c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077004"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044820"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
 
@@ -21,7 +21,7 @@ ms.locfileid: "71077004"
 
 Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 알아봅니다. Hive 보기를 사용하면 웹 브라우저에서 Hive 쿼리를 작성, 최적화 및 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * 웹 브라우저
@@ -63,12 +63,12 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
    * `DROP TABLE`: 테이블이 이미 있는 경우 테이블과 데이터 파일을 삭제합니다.
 
-   * `CREATE EXTERNAL TABLE`: Hive에서 새 “외부” 테이블을 만듭니다.
+   * `CREATE EXTERNAL TABLE`: Hive에서 새 "외부" 테이블을 만듭니다.
      외부 테이블은 테이블 정의만 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
-   * `ROW FORMAT`: 데이터의 형식을 지정하는 방법을 보여 줍니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
+   * `ROW FORMAT`: 데이터의 형식을 지정하는 방법을 보여줍니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
 
-   * `STORED AS TEXTFILE LOCATION`: 데이터가 저장된 위치 및 텍스트로 저장되었음을 보여 줍니다.
+   * `STORED AS TEXTFILE LOCATION`: 데이터가 저장된 위치 및 텍스트로 저장되었음을 보여줍니다.
 
    * `SELECT`: t4 열에 [ERROR] 값이 포함된 모든 행의 수를 선택합니다.
 
@@ -150,7 +150,7 @@ add jar /myudfs.jar;
 create temporary function myawesomeudf as 'com.myudfs.Awesome';
 ```
 
-그런 다음 쿼리에서 UDF를 사용할 수 있습니다. 예를 들어, `SELECT myawesomeudf(name) FROM people;`을 입력합니다.
+그런 다음 쿼리에서 UDF를 사용할 수 있습니다. 예: `SELECT myawesomeudf(name) FROM people;`
 
 HDInsight에서 Hive를 통해 UDF를 사용하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
 

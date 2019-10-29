@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight에서 Apache HBase 및 Apache Phoenix에 대 한 백업 및 복제
+title: Apache HBase, Phoenix에 대 한 백업 & 복제-Azure HDInsight
 description: Azure HDInsight에서 Apache HBase 및 Apache Phoenix에 대 한 백업 및 복제 설정
 author: ashishthaps
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 3674ce1a2882fb87b79f69a98c643c73653cddc4
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9611199cf08084505381223ef485ae2b6f00cb21
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70810454"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044705"
 ---
 # <a name="set-up-backup-and-replication-for-apache-hbase-and-apache-phoenix-on-hdinsight"></a>HDInsight에서 Apache HBase 및 Apache Phoenix에 대한 백업 및 복제 설정
 
@@ -22,7 +22,7 @@ Apache HBase는 데이터 손실을 방지하기 위한 몇 가지 방법을 지
 * `hbase` 폴더 복사
 * 내보낸 후 가져오기
 * 테이블 복사
-* 스냅숏
+* 스냅샷
 * 복제
 
 > [!NOTE]  
@@ -153,7 +153,7 @@ curl 명령은 HBase 구성 정보를 사용하여 JSON 문서를 검색하고, 
 
     <destinationAddress> = 10.0.0.9,10.0.0.8,10.0.0.12:2181:/hbase-unsecure
 
-## <a name="snapshots"></a>스냅숏
+## <a name="snapshots"></a>스냅샷
 
 스냅샷을 사용하면 HBase 데이터 저장소에서 데이터에 대한 특정 시점 백업을 수행할 수 있습니다. 스냅샷 작업은 실질적으로 해당 시점에서 스토리지에 있는 모든 파일의 이름을 캡처하는 메타데이터 작업이기 때문에 스냅샷은 최소한의 오버헤드를 가지며 수초 내에 완료됩니다. 스냅샷이 만들어지는 시점에서 실제 데이터는 복사되지 않습니다. 스냅샷은 업데이트, 삭제 및 삽입이 모두 새 데이터로 표시되는 HDFS에 저장된 데이터의 변경 불가능 특성을 사용합니다. 스냅샷은 동일한 클러스터에서 복원(*복제*)하거나 다른 클러스터로 내보낼 수 있습니다.
 

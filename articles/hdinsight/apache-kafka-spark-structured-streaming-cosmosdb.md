@@ -1,5 +1,5 @@
 ---
-title: Apache Kafka에서 Azure Cosmos DB으로 데이터 Apache Spark-Azure HDInsight
+title: Cosmos DB & Apache Kafka Apache Spark-Azure HDInsight
 description: Apache Spark 구조적 스트림을 사용하여 Apache Kafka에서 데이터를 읽고 Azure Cosmos DB로 저장하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0d8c6929705ab29ced25a847bf7c5a72d57aa49b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: faae65c6664123bd673711674a36edc928c74278
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037282"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044904"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Apache Kafka 및 Azure Cosmos DB에서 Apache Spark 정형 스트림 사용
 
@@ -75,7 +75,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
     * **위치**: 지리적으로 가까운 위치를 선택합니다.
 
-    * **Cosmos DB 계정 이름**: 이 값은 Cosmos DB 계정의 이름으로 사용됩니다.
+    * **Cosmos DB 계정 이름**: 이 값을 Cosmos DB 계정에 대한 이름으로 사용합니다.
 
     * **기본 클러스터 이름**: 이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **myhdi**를 입력하면 __spark-myhdi__라는 Spark 클러스터와 **kafka-myhdi**라는 Kafka 클러스터가 만들어집니다.
 
@@ -84,7 +84,7 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
         > [!IMPORTANT]  
         > 이 예제는 HDInsight 3.6을 사용하여 테스트되고 다른 클러스터 형식에서 작동하지 않을 수 있습니다.
 
-    * **클러스터 로그인 사용자 이름**: Spark 및 Kafka 클러스터의 관리 사용자 이름입니다.
+    * **클러스터 로그인 사용자 이름**: Spark 및 Kafka 클러스터의 관리자 이름입니다.
 
     * **클러스터 로그인 암호**: Spark 및 Kafka 클러스터의 관리자 사용자 암호입니다.
 

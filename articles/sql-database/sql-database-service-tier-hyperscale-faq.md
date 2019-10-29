@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: a5daac9fb34f36620176111e866f493d47f63bba
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 906beabe527db41f41793a7fb1f76aef27487cdd
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513934"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044968"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database Hyperscale FAQ
 
@@ -46,9 +46,9 @@ VCore 기반 서비스 계층은 다음 표에 설명 된 것 처럼 데이터�
 | **컴퓨팅 크기**|단일 데이터베이스/탄력적 풀* | vCore 1~80개 | vCore 1~80개* | vCore 1~80개 |
 | |Managed Instance | vCore 8, 16, 24, 32, 40, 64, 80개 | N/A | vCore 8, 16, 24, 32, 40, 64, 80개 |
 | **스토리지 유형** | 전체 |프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
-| **스토리지 크기** | 단일 데이터베이스/탄력적 풀 | 5GB~4TB | 최대 100TB | 5GB~4TB |
+| **스토리지 크기** | 단일 데이터베이스/탄력적 풀*| 5GB~4TB | 최대 100TB | 5GB~4TB |
 | | Managed Instance  | 32GB~8TB | N/A | 32GB~4TB |
-| **IOPS** | 단일 데이터베이스** | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
+| **IOPS** | 단일 데이터베이스 | vCore당 500 IOPS(최대 7,000 IOPS) | Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPS는 워크 로드에 따라 달라 집니다. | 5000 IOPS(최대 200,000 IOPS)|
 | | Managed Instance | 파일 크기에 따라 달라 집니다. | N/A | 1375 IOPS/vCore |
 |**가용성**|전체|복제본 1 개, 읽기 확장 없음, 로컬 캐시 없음 | 여러 복제본, 최대 4 개의 읽기 확장, 부분 로컬 캐시 | 복제본 3 개, 읽기 확장, 영역 중복 HA, 전체 로컬 저장소 |
 |**백업**|전체|RA-GRS, 7-35 일 보존 (기본적으로 7 일)| RA-GRS, 7 일 보존, 일정 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35 일 보존 (기본적으로 7 일) |
@@ -89,7 +89,7 @@ Hyperscale은 워크 로드 요구 사항에 따라 신속한 확장성을 제�
 
   Hyperscale을 사용 하면 읽기 요청을 처리 하는 데 사용할 수 있는 하나 이상의 추가 계산 복제본을 프로 비전 할 수도 있습니다. 즉, 이러한 추가 계산 복제본을 읽기 전용 복제본으로 사용 하 여 기본 계산에서 읽기 작업을 오프 로드할 수 있습니다. 이러한 복제본은 읽기 전용 외에도 주 복제본에서 장애 조치 (failover)를 수행 하는 경우에도 핫으로 제공 됩니다.
 
-  이러한 추가 계산 복제본 각각의 프로 비전은 일정 한 시간에 수행할 수 있으며 온라인 작업입니다. 연결 문자열에 `ApplicationIntent` 인수를 `ReadOnly` 설정 하 여 이러한 추가 읽기 전용 계산 복제본에 연결할 수 있습니다. @No__t_0 응용 프로그램 의도를 가진 연결은 추가 읽기 전용 계산 복제본 중 하나로 자동 라우팅됩니다.
+  이러한 추가 계산 복제본 각각의 프로 비전은 일정 한 시간에 수행할 수 있으며 온라인 작업입니다. 연결 문자열에 `ApplicationIntent` 인수를 `ReadOnly` 설정 하 여 이러한 추가 읽기 전용 계산 복제본에 연결할 수 있습니다. `ReadOnly` 응용 프로그램 의도를 가진 연결은 추가 읽기 전용 계산 복제본 중 하나로 자동 라우팅됩니다.
 
 ## <a name="deep-dive-questions"></a>심층 이해 질문
 
@@ -157,7 +157,7 @@ Hyperscale 데이터베이스에서 데이터 복원 력이 저장소 수준에�
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>내 데이터베이스가 증가 함에 따라 내 `tempdb` 크기 조정
 
-`tempdb` 데이터베이스는 로컬 SSD 스토리지에 위치하며 사용자가 프로비전한 컴퓨팅 크기를 기반으로 구성됩니다. @No__t_0은 최대 성능 이점을 제공 하도록 최적화 되었습니다. `tempdb` 크기는 구성할 수 없으며 사용자를 위해 관리 됩니다.
+`tempdb` 데이터베이스는 로컬 SSD 스토리지에 위치하며 사용자가 프로비전한 컴퓨팅 크기를 기반으로 구성됩니다. `tempdb`은 최대 성능 이점을 제공 하도록 최적화 되었습니다. `tempdb` 크기는 구성할 수 없으며 사용자를 위해 관리 됩니다.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>내 데이터베이스 크기가 자동으로 증가 하거나 데이터 파일의 크기를 관리 해야 하나요?
 
@@ -340,7 +340,7 @@ IOPS 및 IO 대기 시간은 워크 로드 패턴에 따라 달라 집니다. �
 
 ### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>계산이 확장 됨에 따라 `tempdb` 데이터베이스의 크기도 증가 합니다.
 
-예. @No__t_0 데이터베이스는 계산이 증가 함에 따라 자동으로 확장 됩니다.  
+예. `tempdb` 데이터베이스는 계산이 증가 함에 따라 자동으로 확장 됩니다.  
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>다중 마스터 시스템과 같은 여러 기본 계산 복제본을 프로 비전 할 수 있습니다. 여러 기본 계산 헤드는 더 높은 수준의 동시성을 제공할 수 있습니다.
 
@@ -354,7 +354,7 @@ IOPS 및 IO 대기 시간은 워크 로드 패턴에 따라 달라 집니다. �
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>이러한 보조 계산 복제본에 연결 어떻게 할까요?
 
-연결 문자열에 `ApplicationIntent` 인수를 `ReadOnly` 설정 하 여 이러한 추가 읽기 전용 계산 복제본에 연결할 수 있습니다. @No__t_0 표시 된 모든 연결은 추가 읽기 전용 계산 복제본 중 하나로 자동 라우팅됩니다.  
+연결 문자열에 `ApplicationIntent` 인수를 `ReadOnly` 설정 하 여 이러한 추가 읽기 전용 계산 복제본에 연결할 수 있습니다. `ReadOnly` 표시 된 모든 연결은 추가 읽기 전용 계산 복제본 중 하나로 자동 라우팅됩니다.  
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-replica-using-ssms-or-other-client-tools"></a>SSMS 또는 다른 클라이언트 도구를 사용 하 여 보조 계산 복제본에 성공적으로 연결 된 경우 유효성 검사를 어떻게 할까요? 합니다.
 
@@ -363,7 +363,7 @@ IOPS 및 IO 대기 시간은 워크 로드 패턴에 따라 달라 집니다. �
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-a-read-scale-out-replica"></a>읽기 확장 복제본의 전용 끝점을 만들 수 있습니다.
 
-아닙니다. @No__t_0를 지정 하 여 스케일 아웃 복제본 읽기에만 연결할 수 있습니다.
+아닙니다. `ApplicationIntent=ReadOnly`를 지정 하 여 스케일 아웃 복제본 읽기에만 연결할 수 있습니다.
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>시스템에서 읽기 워크로드에 대한 지능적인 부하 분산이 수행되나요?
 
@@ -375,7 +375,7 @@ IOPS 및 IO 대기 시간은 워크 로드 패턴에 따라 달라 집니다. �
 
 ### <a name="do-i-get-different-tempdb-sizing-for-my-primary-compute-and-my-additional-secondary-compute-replicas"></a>기본 계산 및 추가 보조 계산 복제본에 대해 다양 한 `tempdb` 크기 조정 수행
 
-아닙니다. @No__t_0 데이터베이스는 계산 크기 프로 비전에 따라 구성 되 고, 보조 계산 복제본은 기본 계산과 크기가 동일 합니다.
+아닙니다. `tempdb` 데이터베이스는 계산 크기 프로 비전에 따라 구성 되 고, 보조 계산 복제본은 기본 계산과 크기가 동일 합니다.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-replicas"></a>보조 계산 복제본에 인덱스 및 뷰를 추가할 수 있습니다.
 

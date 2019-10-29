@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 6c7d94761e4c5d5087dc8ac4e10854989a18f0fc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: HT
+ms.openlocfilehash: f1452e56054948edffc6e9b3c98fa48d2589cb2a
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992107"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024933"
 ---
 # <a name="use-net-deserializers-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업에 .NET deserializers 사용
 
@@ -40,7 +40,7 @@ Skippable 오류는 `UserDefinedOperator`의 Initialize 메서드를 통해 전�
 
 1. T는 클래스 또는 구조체입니다.
 1. T의 모든 public 필드는
-    1. [Long, DateTime, string, double] 또는 해당 하는 nullable 항목 중 하나입니다.
+    1. [Sbyte, byte, short, ushort, int, uint, long, DateTime, string, float, double] 또는 해당 하는 nullable 해당 항목 중 하나입니다.
     1. 동일한 규칙을 수행 하는 다른 구조체 또는 클래스입니다.
     1. 동일한 규칙을 따르는 `T2` 형식의 배열입니다.
     1. IList`T2`. 여기서 T2는 동일한 규칙을 따릅니다.
@@ -226,12 +226,12 @@ namespace ExampleCustomCode.Serialization
 
 이 기능은 다음 지역에서 제공 됩니다.
 
-* 서유럽
-* 미국 동부
-* 북유럽
-* 미국 서부
-* 미국 동부 2
-* 미국 중서부
+* 미국 서 부 중부 (사용 가능)
+* 서유럽 (사용 가능)
+* 미국 동부 (사용 가능)
+* 미국 서 부 (출시 예정)
+* 미국 동부 2 (출시 예정)
+* 유럽 서부 (출시 예정)
 
 추가 영역에 대 한 [지원을 요청할](https://aka.ms/ccodereqregion) 수 있습니다.
 
@@ -244,10 +244,6 @@ namespace ExampleCustomCode.Serialization
 ### <a name="can-i-access-metadatapropertyvalue-from-my-inputs-similar-to-getmetadatapropertyvalue-function"></a>GetMetadataPropertyValue 함수와 유사한 내 입력에서 MetadataPropertyValue에 액세스할 수 있나요?
 
 이 기능은 지원 되지 않습니다. 이 기능이 필요한 경우 [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese)에서이 요청에 대해 응답할 수 있습니다.
-
-### <a name="streamdeserializer-deserializes-a-stream-into-object-of-type-t-can-the-public-fields-in-t-be-any-supported-type-in-net"></a>StreamDeserializer 변환기는 스트림을 T 형식의 개체로 deserialize 합니다. T의 public 필드가 .NET에서 지원 되는 모든 형식이 될 수 있나요?
-
-.NET에서 지원 되는 모든 형식에 대 한 지원은 로드맵에 있습니다.
 
 ### <a name="can-i-share-my-deserializer-implementation-with-the-community-so-that-others-can-benefit"></a>다른 사용자가 혜택을 받을 수 있도록 내 역직렬 변환기 구현을 커뮤니티와 공유할 수 있나요?
 

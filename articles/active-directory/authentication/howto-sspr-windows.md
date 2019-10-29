@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/28/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ab46bd29aef2fab26c744e1e4c199f6c9a9fff1
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 0aa0480e95fa072b6fa87aea8debd3dafc8ebcab
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304208"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042070"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>방법: Windows 로그인 화면에서 암호 재설정 사용
 
@@ -29,16 +29,15 @@ Windows 7, 8, 8.1 및 10을 실행 하는 컴퓨터의 경우 사용자가 Windo
 - 관리자는 Azure Portal에서 Azure AD 셀프 서비스 암호 재설정을 사용 하도록 설정 해야 합니다.
 - **사용자는이 기능을 사용 하기 전에 SSPR에 등록 해야 합니다.**
 - 네트워크 프록시 요구 사항
-   - Windows 10 디바이스 
-       - 포트 443- `passwordreset.microsoftonline.com` 및`ajax.aspnetcdn.com`
+   - Windows 10 장치 
+       - `passwordreset.microsoftonline.com` 및 `ajax.aspnetcdn.com`에 대 한 포트 443
        - Windows 10 장치는 컴퓨터 수준 프록시 구성만 지원 합니다.
    - Windows 7, 8 및 8.1 장치
-       - 포트 443`passwordreset.microsoftonline.com`
+       - `passwordreset.microsoftonline.com` 포트 443
 
 ## <a name="general-limitations"></a>일반적인 제한 사항
 
 - 현재 원격 데스크톱 또는 Hyper-v 고급 세션에서 암호 재설정이 지원 되지 않습니다.
-- 계정 잠금 해제, 모바일 앱 알림 및 모바일 앱 코드는 지원 되지 않습니다.
 - 이 기능은 802.1x 네트워크 인증이 배포된 네트워크에 및 “사용자가 로그온하기 직전에 수행” 옵션에는 작동하지 않습니다. 802.1x 네트워크 인증이 배포된 네트워크의 경우 머신 인증을 사용하여 이 기능을 사용하는 것이 좋습니다.
 
 ## <a name="windows-10-password-reset"></a>Windows 10 암호 재설정
@@ -102,7 +101,7 @@ Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 Clie
 
 ![Azure AD 감사 로그의 Windows 7 암호 재설정 예](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-사용자가 Windows 10 장치의 로그인 화면에서 암호를 재설정 하면 라는 `defaultuser1` 낮은 권한 임시 계정이 만들어집니다. 이 계정은 암호 재설정 프로세스를 안전하게 유지하는 데 사용됩니다. 계정 자체는 무작위로 생성된 암호를 가지고 있으며, 디바이스 로그인 시 표시되지 않으며, 사용자가 암호를 설정하면 자동으로 제거됩니다. 프로필이 `defaultuser` 여러 개 있을 수 있지만 안전 하 게 무시할 수 있습니다.
+사용자가 Windows 10 장치의 로그인 화면에서 암호를 재설정 하면 `defaultuser1` 라는 낮은 권한 임시 계정이 만들어집니다. 이 계정은 암호 재설정 프로세스를 안전하게 유지하는 데 사용됩니다. 계정 자체는 무작위로 생성된 암호를 가지고 있으며, 디바이스 로그인 시 표시되지 않으며, 사용자가 암호를 설정하면 자동으로 제거됩니다. `defaultuser` 프로필이 여러 개 있을 수 있지만 안전 하 게 무시할 수 있습니다.
 
 ## <a name="windows-7-8-and-81-password-reset"></a>Windows 7, 8 및 8.1 암호 재설정
 
@@ -115,7 +114,7 @@ Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 Clie
 > [!WARNING]
 > 자동 negotiate로 설정 된 것이 아니라 TLS 1.2을 사용 하도록 설정 해야 합니다.
 
-### <a name="install"></a>설치
+### <a name="install"></a>Install
 
 1. 사용할 Windows 버전에 대해 적절한 설치 관리자를 다운로드합니다.
    - [https://aka.ms/sspraddin](https://aka.ms/sspraddin)의 Microsoft 다운로드 센터에서 소프트웨어를 지원합니다.
@@ -141,8 +140,8 @@ Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 Clie
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- 자세한 정보 로깅을 사용 하려면를 만들고 `REG_DWORD: “EnableLogging”`1로 설정 합니다.
-- 자세한 정보 로깅을 사용 하지 않도록 설정 `REG_DWORD: “EnableLogging”` 하려면를 0으로 변경 합니다.
+- 자세한 정보 로깅을 사용 하도록 설정 하려면 `REG_DWORD: “EnableLogging”`을 만들고 1로 설정 합니다.
+- 자세한 정보 로깅을 사용 하지 않도록 설정 하려면 `REG_DWORD: “EnableLogging”`를 0으로 변경 합니다.
 
 ## <a name="what-do-users-see"></a>사용자에게 표시되는 내용
 

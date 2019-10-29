@@ -1,5 +1,5 @@
 ---
-title: Enterprise Security Package를 사용하여 HDInsight에서 Hive 정책 구성 - Azure
+title: Apache 레인저의 Apache Hive 정책-Azure HDInsight
 description: Enterprise Security Package를 사용하여 Azure HDInsight 서비스에서 Hive용 Apache Ranger 정책을 구성하는 방법을 알아봅니다.
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: b0213fc1a96b38b615cbd8b7b6374a6716b9f840
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e49e2d103fd9c91824c8e8a1603cddddf16366e1
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918195"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044864"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Apache Hive 정책 구성
 Apache Hive에 대한 Apache Ranger 정책을 구성하는 방법에 대해 알아봅니다. 이 문서에서는 hivesampletable에 대한 액세스를 제한하는 두 개의 Ranger 정책을 만들 수 있습니다. hivesampletable은 HDInsight 클러스터와 함께 제공됩니다. 정책을 구성한 경우 Excel 및 ODBC 드라이버를 사용하여 HDInsight의 Hive 테이블에 연결합니다.
@@ -55,7 +55,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
    * 사용자 선택: hiveuser1
    * 사용 권한: 선택
 
-     ![HDInsight ESP Ranger Hive 정책 구성](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png)을 선택합니다.
+     ![HDInsight ESP Ranger Hive 정책 구성](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
      > [!NOTE]  
      > 사용자 선택에서 도메인 사용자가 채워지지 않으면 Ranger가 AAD와 동기화되기를 몇 분 정도 기다립니다.
@@ -74,16 +74,16 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC 데이터 원본 만들기
 [Hive ODBC 데이터 원본 만들기](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)에서 지침을 찾을 수 있습니다.  
 
- | 속성  |설명 |
+ | 자산  |설명 |
  | --- | --- |
  | 데이터 원본 이름 | 데이터 원본에 이름 지정 |
  | 호스트 | &lt;HDInsightClusterName>.azurehdinsight.net을 입력합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다. |
- | 포트 | **443**을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
+ | Port | **443**을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
  | 데이터베이스 | **기본값**을 사용합니다. |
  | Hive 서버 유형 | **Hive 서버 2** 선택 |
  | 메커니즘 | **Azure HDInsight Service** 선택 |
  | HTTP 경로 | 비워 둠 |
- | 사용자 이름 | hiveuser1@contoso158.onmicrosoft.com을 입력합니다. 사용자 이름이 다른 경우 도메인 이름을 업데이트합니다. |
+ | 사용자 이름 | [https://slack.botframework.com](hiveuser1@contoso158.onmicrosoft.com) 을 입력합니다. 사용자 이름이 다른 경우 도메인 이름을 업데이트합니다. |
  | 암호 | hiveuser1의 암호를 입력합니다. |
 
 데이터 원본을 저장하기 전에 **테스트**를 클릭해야 합니다.
@@ -99,9 +99,9 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 4. ODBC 데이터 원본에서 이전 단계에서 만든 데이터 원본 이름을 선택한 후 **다음**을 클릭합니다.
 5. 마법사에서 클러스터의 암호를 다시 입력한 후 **확인**을 클릭합니다. **데이터베이스 및 테이블 선택** 대화 상자가 열릴 때까지 기다립니다. 몇 초 정도 걸릴 수 있습니다.
 6. **hivesampletable**을 선택하고 **다음**을 클릭합니다.
-7. **마침**을 클릭합니다.
+7. **Finish**를 클릭합니다.
 8. **데이터 가져오기** 대화 상자에서 쿼리를 변경하거나 지정할 수 있습니다. 이렇게 하려면 **속성**을 클릭합니다. 몇 초 정도 걸릴 수 있습니다.
-9. **정의** 탭을 클릭합니다. 명령 텍스트는 다음과 같습니다.
+9. **정의** 탭을 클릭 합니다. 명령 텍스트는 다음과 같습니다.
 
        SELECT * FROM "HIVE"."default"."hivesampletable"
 

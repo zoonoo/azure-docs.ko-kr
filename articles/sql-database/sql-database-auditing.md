@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: d5214b6a6ffcb7c78fc00fe0305a1d1846b328f8
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1171a3b6d38fe04a4213513e934be258d79a1aa0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990270"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045200"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -48,7 +48,8 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 > - 모든 스토리지 복제 구성이 지원됩니다.
 > - **프리미엄 스토리지**는 현재 **지원되지 않습니다**.
 > - **VNet의 스토리지**는 현재 **지원되지 않습니다**.
-> - **방화벽 뒤의 스토리지**는 현재 **지원되지 않습니다**.
+> - **방화벽 뒤의 저장소** 는 현재 **지원 되지 않습니다**.
+> - **Azure Data Lake Storage Gen2 저장소 계정** 에 대 한 **계층적 네임 스페이스** 는 현재 **지원 되지 않습니다**.
 
 ## <a id="subheading-8"></a>서버 수준 및 데이터베이스 수준 감사 정책 정의
 

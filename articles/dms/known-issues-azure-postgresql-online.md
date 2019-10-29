@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/03/2019
-ms.openlocfilehash: 891e8a261e092de0ffcef3941dd48f01942a8030
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.date: 10/27/2019
+ms.openlocfilehash: e25e31a9ed656d625d2025d8d0086d23ecf10682
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802581"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043199"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>PostgreSQL에서 Azure DB for PostgreSQL에 대 한 온라인 마이그레이션과의 알려진 문제/마이그레이션 제한 사항-단일 서버
 
@@ -89,7 +89,7 @@ PostgreSQL에서 Azure Database for PostgreSQL 단일 서버로의 온라인 마
 
     **해결 방법**: 마이그레이션을 계속할 수 있도록 일시적으로 테이블에 대한 기본 키를 설정합니다. 데이터 마이그레이션이 완료된 후 기본 키를 제거할 수 있습니다.
 
-- **제한 사항**: JSONB 데이터 형식이 마이그레이션에 지원 되지 않습니다.
+- **제한**사항: JSONB 데이터 형식이 마이그레이션에 지원 되지 않습니다.
 
 ## <a name="lob-limitations"></a>LOB 제한 사항
 
@@ -153,28 +153,31 @@ ALTER USER PG_User SET search_path = fnRenames, pg_catalog, "$user", public;
 COMMIT;
 ```
 
+  > [!NOTE]
+  > 위의 스크립트에서 "PG_User"는 마이그레이션 원본에 연결 하는 데 사용 되는 사용자 이름을 나타냅니다.
+
 ## <a name="limitations-when-migrating-online-from-aws-rds-postgresql"></a>AWS RDS PostgreSQL에서 온라인으로 마이그레이션하는 경우의 제한 사항
 
 AWS RDS PostgreSQL에서 Azure Database for PostgreSQL로 온라인 마이그레이션을 수행 하려고 할 때 다음과 같은 오류가 발생할 수 있습니다.
 
-- **오류**: '{database}' 데이터베이스의 '{table}' 테이블에 있는 '{column}' 열의 기본값이 원본 서버와 대상 서버에서 서로 다릅니다. 원본은 '{value on source}'이고 대상은 '{value on target}'입니다.
+- **오류**: ' {database} ' 데이터베이스의 ' {table} ' 테이블에 있는 ' {column} ' 열의 기본값이 원본 서버와 대상 서버에서 다릅니다. 원본은 '{value on source}'이고 대상은 '{value on target}'입니다.
 
-  **제한 사항**: 이 오류는 열 스키마의 기본값이 원본 데이터베이스와 대상 데이터베이스 간에 다를 때 발생 합니다.
+  **제한**사항:이 오류는 열 스키마의 기본값이 원본 데이터베이스와 대상 데이터베이스 간에 다를 때 발생 합니다.
   **해결 방법**: 대상의 스키마가 원본의 스키마와 일치 하는지 확인 합니다. 스키마 마이그레이션에 대 한 자세한 내용은 [Azure PostgreSQL 온라인 마이그레이션 설명서](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)를 참조 하세요.
 
-- **오류**: 대상 데이터베이스 '{database}'에는 '{number of tables}'개의 테이블이 있고, 원본 데이터베이스 '{database}'에는 '{number of tables}'개의 테이블이 있습니다. 원본과 대상 데이터베이스의 테이블 수가 같아야 합니다.
+- **오류**: 대상 데이터베이스 ' {database} '에 원본 데이터베이스 ' {database} '의 테이블 ' {number of tables} '이 (가) 있는 ' {tables} ' 테이블이 있습니다. 원본과 대상 데이터베이스의 테이블 수가 같아야 합니다.
 
-  **제한 사항**: 이 오류는 원본 데이터베이스와 대상 데이터베이스 간에 테이블 수가 다를 때 발생 합니다.
+  **제한 사항**:이 오류는 원본 데이터베이스와 대상 데이터베이스 간에 테이블 수가 다를 때 발생 합니다.
   **해결 방법**: 대상의 스키마가 원본의 스키마와 일치 하는지 확인 합니다. 스키마 마이그레이션에 대 한 자세한 내용은 [Azure PostgreSQL 온라인 마이그레이션 설명서](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)를 참조 하세요.
 
 - **오류:** 원본 데이터베이스 {database}이 (가) 비어 있습니다.
 
-  **제한 사항**: 이 오류는 원본 데이터베이스가 비어 있을 때 발생 합니다. 잘못된 데이터베이스를 원본으로 선택했을 가능성이 높습니다.
+  **제한 사항**:이 오류는 원본 데이터베이스가 비어 있을 때 발생 합니다. 잘못된 데이터베이스를 원본으로 선택했을 가능성이 높습니다.
   **해결 방법**: 마이그레이션을 위해 선택한 원본 데이터베이스를 다시 한 번 확인 한 후 다시 시도 하십시오.
 
 - **오류:** 대상 데이터베이스 {database}이 (가) 비어 있습니다. 스키마를 마이그레이션하세요.
 
-  **제한 사항**: 이 오류는 대상 데이터베이스에 스키마가 없을 때 발생 합니다. 대상의 스키마가 원본의 스키마와 일치 하는지 확인 합니다.
+  **제한**사항:이 오류는 대상 데이터베이스에 스키마가 없을 때 발생 합니다. 대상의 스키마가 원본의 스키마와 일치 하는지 확인 합니다.
   **해결 방법**: 대상의 스키마가 원본의 스키마와 일치 하는지 확인 합니다. 스키마 마이그레이션에 대 한 자세한 내용은 [Azure PostgreSQL 온라인 마이그레이션 설명서](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema)를 참조 하세요.
 
 ## <a name="other-limitations"></a>기타 제한 사항

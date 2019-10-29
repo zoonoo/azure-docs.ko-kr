@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 163259af3797b652c9605c171447f4a7d2576c87
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 961b54a4d7c9caee98497e5d2b8db86284084d15
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842702"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023869"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 
@@ -26,7 +26,7 @@ Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Dir
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 이 문서를 완료 하려면 다음 리소스가 필요 합니다.
 
@@ -64,7 +64,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 *AAD DC 관리자* 그룹을 만든 상태에서 [add-azureadgroupmember][Add-AzureADGroupMember] cmdlet을 사용 하 여 그룹에 사용자를 추가 합니다. 먼저 [AzureADGroup][Get-AzureADGroup] cmdlet을 사용 하 여 *AAD DC ADMINISTRATORS* 그룹 개체 Id를 가져온 다음 [get-azureaduser][Get-AzureADUser] cmdlet을 사용 하 여 원하는 사용자의 개체 id를 가져옵니다.
 
-다음 예에서는 UPN `admin@contoso.onmicrosoft.com`이 인 계정의 사용자 개체 ID입니다. 이 사용자 계정을 *AAD DC 관리자* 그룹에 추가 하려는 사용자의 UPN으로 바꿉니다.
+다음 예에서는 `admin@contoso.onmicrosoft.com`UPN을 사용 하는 계정의 사용자 개체 ID입니다. 이 사용자 계정을 *AAD DC 관리자* 그룹에 추가 하려는 사용자의 UPN으로 바꿉니다.
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -130,6 +130,12 @@ $Vnet= New-AzVirtualNetwork `
 
 이제 Azure AD DS 관리 되는 도메인을 만들어 보겠습니다. Azure 구독 ID를 설정 하 고 관리 되는 도메인의 이름 (예: *contoso.com*)을 입력 합니다. [AzSubscription][Get-AzSubscription] cmdlet을 사용 하 여 구독 ID를 가져올 수 있습니다.
 
+가용성 영역를 지 원하는 지역을 선택 하는 경우 Azure AD DS 리소스는 추가 중복성을 위해 여러 영역에 배포 됩니다.
+
+가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다.
+
+여러 영역에 분산 되도록 Azure AD DS를 구성할 수 없습니다. Azure 플랫폼은 리소스의 영역 배포를 자동으로 처리 합니다. 자세한 내용 및 지역 가용성에 대 한 자세한 내용은 [Azure의 가용성 영역 무엇 인가요?][availability-zones]를 참조 하세요.
+
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
 $ManagedDomainName = "contoso.com"
@@ -148,6 +154,8 @@ Azure Portal Azure AD DS 관리 되는 도메인이 프로 비전을 완료 한 
 
 * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
     * DNS를 구성 하려면 포털에서 Azure AD DS 관리 되는 도메인을 선택 합니다. **개요** 창에서 자동으로 이러한 DNS 설정을 구성 하 라는 메시지가 표시 됩니다.
+* 가용성 영역를 지 원하는 지역에서 Azure AD DS 관리 되는 도메인을 만든 경우 네트워크 보안 그룹을 만들어 가상 네트워크에서 Azure AD DS 관리 되는 도메인에 대 한 트래픽을 제한 합니다. 이러한 규칙을 적용 해야 하는 Azure 표준 부하 분산 장치가 생성 됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호 하며 관리 되는 도메인이 제대로 작동 하는 데 필요 합니다.
+    * 네트워크 보안 그룹 및 필요한 규칙을 만들려면 포털에서 Azure AD DS 관리 되는 도메인을 선택 합니다. **개요** 창에 네트워크 보안 그룹을 자동으로 만들고 구성 하 라는 메시지가 표시 됩니다.
 * 최종 사용자가 회사 자격 증명을 사용 하 여 관리 되는 도메인에 로그인 할 수 있도록 [Azure AD Domain Services에 대해 암호 동기화를 사용 하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) 합니다.
 
 ## <a name="complete-powershell-script"></a>PowerShell 스크립트 완료
@@ -233,6 +241,8 @@ Azure Portal Azure AD DS 관리 되는 도메인이 프로 비전을 완료 한 
 
 * 가상 머신이 도메인 가입 또는 인증을 위해 관리되는 도메인을 찾을 수 있도록 가상 네트워크에 대한 DNS 설정을 업데이트합니다.
     * DNS를 구성 하려면 포털에서 Azure AD DS 관리 되는 도메인을 선택 합니다. **개요** 창에서 자동으로 이러한 DNS 설정을 구성 하 라는 메시지가 표시 됩니다.
+* 가용성 영역를 지 원하는 지역에서 Azure AD DS 관리 되는 도메인을 만든 경우 네트워크 보안 그룹을 만들어 가상 네트워크에서 Azure AD DS 관리 되는 도메인에 대 한 트래픽을 제한 합니다. 이러한 규칙을 적용 해야 하는 Azure 표준 부하 분산 장치가 생성 됩니다. 이 네트워크 보안 그룹은 Azure AD DS를 보호 하며 관리 되는 도메인이 제대로 작동 하는 데 필요 합니다.
+    * 네트워크 보안 그룹 및 필요한 규칙을 만들려면 포털에서 Azure AD DS 관리 되는 도메인을 선택 합니다. **개요** 창에 네트워크 보안 그룹을 자동으로 만들고 구성 하 라는 메시지가 표시 됩니다.
 * 최종 사용자가 회사 자격 증명을 사용 하 여 관리 되는 도메인에 로그인 할 수 있도록 [Azure AD Domain Services에 대해 암호 동기화를 사용 하도록 설정](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) 합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -258,3 +268,4 @@ Azure Portal Azure AD DS 관리 되는 도메인이 프로 비전을 완료 한 
 [New-AzVirtualNetwork]: /powershell/module/Az.Network/New-AzVirtualNetwork
 [Get-AzSubscription]: /powershell/module/Az.Accounts/Get-AzSubscription
 [cloud-shell]: /azure/cloud-shell/cloud-shell-windows-users
+[availability-zones]: ../availability-zones/az-overview.md

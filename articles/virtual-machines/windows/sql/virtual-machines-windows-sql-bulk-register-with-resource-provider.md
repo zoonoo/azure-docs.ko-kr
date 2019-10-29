@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 90c9d9be6f5a255a4ddd4f7fae7cf410e5b1f80d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3a8cfeb237b0e5e662f8fbaef4347f4346db1787
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934961"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045131"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에서 SQL 가상 머신 대량 등록
 
@@ -225,11 +225,6 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 - 투명 오류를 해결 하기 위해 기본 제공 되는 재시도 논리가 있습니다. 가상 컴퓨터가 성공적으로 등록 되 면 신속한 작업입니다. 그러나 등록에 실패 하면 각 가상 머신이 다시 시도 됩니다.  따라서 실제 시간 요구 사항은 오류 유형 및 수에 따라 달라 지지만 등록 프로세스를 완료 하는 데 상당한 시간이 걸릴 수 있습니다. 
 
 ## <a name="full-script"></a>전체 스크립트
-
-전체 스크립트를 복사 하 고 `RegisterSqLVMs.psm1`로 저장 합니다.
-
-[!code-powershell-interactive[main](../../../../powershell_scripts/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1 "Bulk register SQL Server virtual machines")]
-
 GitHub에 대 한 전체 스크립트는 [Az PowerShell을 사용 하 여 SQL Vm 대량 등록](https://github.com/Azure/azure-docs-powershell-samples/blob/master/sql-virtual-machine/register-sql-vms/RegisterSqlVMs.psm1)을 참조 하세요. 
 
 

@@ -1,5 +1,5 @@
 ---
-title: Enterprise Security Package를 사용 하는 Apache Oozie 워크플로-Azure HDInsight
+title: 엔터프라이즈 보안 & Apache Oozie 워크플로-Azure HDInsight
 description: Azure HDInsight Enterprise Security Package를 사용하여 Apache Oozie 워크플로 보안을 유지합니다. 또한 Oozie 워크플로를 정의하고 Oozie 작업을 제출하는 방법에 대해서도 살펴봅니다.
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: b644d293afd429bdc68fba66c119eb7146d0daf0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 03826d1005253c408374ea4c78266eef97aab2aa
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935457"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044828"
 ---
 # <a name="run-apache-oozie-in-hdinsight-hadoop-clusters-with-enterprise-security-package"></a>Enterprise Security Package가 포함된 HDInsight Hadoop 클러스터에서 Apache Oozie 실행
 

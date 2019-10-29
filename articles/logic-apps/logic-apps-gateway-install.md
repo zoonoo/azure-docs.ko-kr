@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 7533b391917175fd9dea395f58906a9f78a61488
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 6467937e2aca08e234cb136c5f610503627921fb
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675696"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73042187"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -89,15 +89,15 @@ ms.locfileid: "72675696"
 
 1. 설치 관리자가 열리면 **다음**을 선택 합니다.
 
-   ![설치 관리자 소개](./media/logic-apps-gateway-install/gateway-intro-screen.png)
+   ![게이트웨이 설치 관리자의 소개 화면](./media/logic-apps-gateway-install/gateway-intro-screen.png)
 
 1. 표준 모드인 **온-프레미스 데이터 게이트웨이 (권장)** 를 선택 하 고 **다음**을 선택 합니다.
 
-   ![게이트웨이 모드 선택](./media/logic-apps-gateway-install/select-gateway-mode.png)
+   ![데이터 게이트웨이에 대 한 실행 모드를 선택 합니다.](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
 
 1. 최소 요구 사항을 검토 하 고, 기본 설치 경로를 유지 하 고, 사용 약관에 동의한 다음, **설치**를 선택 합니다.
 
-   ![요구 사항을 검토 하 고 사용 약관에 동의 합니다.](./media/logic-apps-gateway-install/accept-terms.png)
+   ![요구 사항을 검토 하 고 사용 약관에 동의 합니다.](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
 
 1. 게이트웨이가 성공적으로 설치 되 면 Azure 계정에 대 한 전자 메일 주소를 입력 하 고 **로그인**을 선택 합니다. 예를 들면 다음과 같습니다.
 
@@ -107,7 +107,7 @@ ms.locfileid: "72675696"
 
 1. **이 컴퓨터에 새 게이트웨이 등록**  > **다음**을 선택 합니다. 이 단계에서는 게이트웨이 [클라우드 서비스](#gateway-cloud-service)에 게이트웨이 설치를 등록 합니다.
 
-   ![게이트웨이 등록](./media/logic-apps-gateway-install/register-gateway.png)
+   ![로컬 컴퓨터에 게이트웨이 등록](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
 1. 게이트웨이 설치에 대해 다음 정보를 제공합니다.
 
@@ -115,7 +115,7 @@ ms.locfileid: "72675696"
    * 사용 하려는 복구 키 (8 자 이상 이어야 함)
    * 복구 키 확인
 
-   ![게이트웨이 설정](./media/logic-apps-gateway-install/set-up-gateway.png)
+   ![게이트웨이 설치에 대 한 정보 제공](./media/logic-apps-gateway-install/gateway-name-recovery-key.png)
 
    > [!IMPORTANT]
    > 복구 키를 저장한 후 안전한 장소에 보관합니다. 위치를 변경 하거나, 이동 하거나, 복구 하거나, 게이트웨이 설치를 수행 하려는 경우이 키가 필요 합니다.
@@ -124,7 +124,7 @@ ms.locfileid: "72675696"
 
 1. 게이트웨이를 설치 하는 데 사용 되는 [Azure Service Bus](https://azure.microsoft.com/services/service-bus/) 게이트웨이 클라우드 서비스에 대 한 지역을 확인 합니다. 기본적으로이 지역은 Azure 계정에 대 한 Azure AD 테 넌 트와 동일한 위치입니다.
 
-   ![지역 확인](./media/logic-apps-gateway-install/check-region.png)
+   ![게이트웨이 서비스 및 서비스 버스에 대 한 영역 확인](./media/logic-apps-gateway-install/confirm-gateway-region.png)
 
 1. 기본 지역을 수락 하려면 **구성**을 선택 합니다. 그러나 기본 지역이 가장 근접 한 지역이 아니면 지역을 변경할 수 있습니다.
 
@@ -134,15 +134,15 @@ ms.locfileid: "72675696"
 
    1. 현재 지역 옆에 있는 **지역 변경**을 선택합니다.
 
-      ![지역 변경](./media/logic-apps-gateway-install/change-region.png)
+      ![현재 게이트웨이 영역 변경](./media/logic-apps-gateway-install/change-gateway-service-region.png)
 
    1. 다음 페이지에서 **지역 선택** 목록을 열고 원하는 지역을 선택 하 고 **완료**를 선택 합니다.
 
-      ![다른 지역 선택](./media/logic-apps-gateway-install/select-region-gateway-install.png)
+      ![게이트웨이 서비스의 다른 지역 선택](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
 1. 최종 확인 창에서 정보를 검토 합니다. 이 예에서는 Logic Apps, Power BI, PowerApps 및 Microsoft Flow에 동일한 계정을 사용 하므로 이러한 모든 서비스에 대해 게이트웨이를 사용할 수 있습니다. 준비가 되 면 **닫기**를 선택 합니다.
 
-   ![완료된 게이트웨이](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
+   ![데이터 게이트웨이 정보 확인](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
 1. 이제 [게이트웨이 설치에 대 한 Azure 리소스를 만듭니다](../logic-apps/logic-apps-gateway-connection.md).
 
@@ -185,7 +185,7 @@ ms.locfileid: "72675696"
 
 1. 사용 가능한 클러스터 및 게이트웨이에서를 선택 하 고 선택한 게이트웨이의 복구 키를 입력 합니다. 예를 들면 다음과 같습니다.
 
-   ![게이트웨이 선택](./media/logic-apps-gateway-install/select-existing-gateway.png)
+   ![게이트웨이를 선택 하 고 복구 키 제공](./media/logic-apps-gateway-install/select-existing-gateway.png)
 
 1. 지역을 변경 하려면 **지역 변경**을 선택 하 고 새 지역을 선택 합니다.
 
@@ -270,9 +270,9 @@ Azure AD와 온-프레미스 Active Directory 계정을 일치 시킬 수 있는
 
 자세한 내용은 다음 항목을 참조하세요.
 
-* [온-프레미스 데이터 게이트웨이 FAQ](/data-integration/gateway/service-gateway-onprem-faq)
-* [온-프레미스 데이터 게이트웨이 문제 해결](/data-integration/gateway/service-gateway-tshoot)
-* [게이트웨이 성능 모니터링 및 최적화](/data-integration/gateway/service-gateway-performance)
+* [온-프레미스 데이터 게이트웨이 FAQ](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
+* [온-프레미스 데이터 게이트웨이 문제 해결](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
+* [게이트웨이 성능 모니터링 및 최적화](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>다음 단계
 

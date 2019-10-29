@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d73c0f4dbfcc2c67a222f91693ebe8ed9ea83d98
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1e184691ebbd34de0f69e93419d9c34ab18edbe6
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266135"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025946"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Azure IoT Hub에 다운스트림 디바이스 인증
 
@@ -30,7 +30,7 @@ ms.locfileid: "71266135"
 
 이 문서의 단계에서는 Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 자동으로 프로 비전 하는 것이 아니라 수동 장치 프로 비전을 보여 줍니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 [투명 게이트웨이 역할을 하도록 IoT Edge 장치 구성](how-to-create-transparent-gateway.md)의 단계를 완료 합니다. 다운스트림 장치에 대해 x.509 인증을 사용 하는 경우 투명 게이트웨이 문서에서 설정한 것과 동일한 인증서 생성 스크립트를 사용 해야 합니다. 
 
@@ -72,10 +72,10 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 
 다운스트림 장치에 대 한 대칭 키 연결 문자열에는 다음 구성 요소가 필요 합니다. 
 
-* 장치를 연결 하는 IoT hub:`Hostname={iothub name}.azure-devices.net`
-* 허브에 등록 된 장치 ID:`DeviceID={device ID}`
-* 기본 키 또는 보조 키:`SharedAccessKey={key}`
-* 장치에서 연결 하는 게이트웨이 장치입니다. IoT Edge 게이트웨이 장치의 config.xml 파일에서 **호스트 이름** 값을 제공 합니다.`GatewayHostName={gateway hostname}`
+* 장치를 연결 하는 IoT hub: `Hostname={iothub name}.azure-devices.net`
+* 허브에 등록 된 장치 ID: `DeviceID={device ID}`
+* 기본 또는 보조 키 중 하나: `SharedAccessKey={key}`
+* 장치에서 연결 하는 게이트웨이 장치입니다. IoT Edge 게이트웨이 장치의 구성 파일에서 **호스트 이름** 값을 제공 합니다. yaml 파일: `GatewayHostName={gateway hostname}`
 
 전체 연결 문자열은 다음과 같습니다.
 
@@ -83,7 +83,7 @@ az iot hub device-identity create -n {iothub name} -d {device ID} --pd {gateway 
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-이 다운스트림 장치에 대 한 부모/자식 관계를 설정한 경우 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. 
+이 다운스트림 장치에 대 한 부모/자식 관계를 설정한 경우 게이트웨이를 연결 호스트로 직접 호출 하 여 연결 문자열을 단순화할 수 있습니다. 다음은 그 예입니다. 
 
 ```
 HostName=myGatewayDevice;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz
@@ -101,7 +101,7 @@ IoT Hub에서 x.509 인증을 사용 하는 방법에 대 한 자세한 내용�
 
 X.509 자체 서명 된 인증의 경우 (지문 인증이 라고도 함) IoT 장치에 새 인증서를 만들어야 합니다. 이러한 인증서에는 인증을 위해 IoT Hub와 공유 하는 지문이 있습니다. 
 
-이 시나리오를 테스트 하는 가장 쉬운 방법은에서 인증서를 만드는 데 사용한 것과 동일한 컴퓨터를 사용 하 여 [투명 한 게이트웨이로 작동 하도록 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md)하는 것입니다. IoT 장치 인증서를 만들려면 올바른 도구, 루트 CA 인증서 및 중간 CA 인증서를 사용 하 여 해당 컴퓨터를 이미 설정 해야 합니다. 나중에 다운스트림 장치에 최종 인증서와 해당 개인 키를 복사할 수 있습니다. 게이트웨이 문서의 단계를 수행 하 여 컴퓨터에 openssl를 설정 하 고, IoT Edge 리포지토리를 복제 하 여 인증서 생성 스크립트에 액세스 합니다. 그런 다음  **\<WRKDIR >** 호출 하는 작업 디렉터리를 만들어 인증서를 보관 합니다. 기본 인증서는 개발 및 테스트를 위한 것 이므로 최근 30 일입니다. 루트 CA 인증서와 중간 인증서를 만들어야 합니다. 
+이 시나리오를 테스트 하는 가장 쉬운 방법은에서 인증서를 만드는 데 사용한 것과 동일한 컴퓨터를 사용 하 여 [투명 한 게이트웨이로 작동 하도록 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md)하는 것입니다. IoT 장치 인증서를 만들려면 올바른 도구, 루트 CA 인증서 및 중간 CA 인증서를 사용 하 여 해당 컴퓨터를 이미 설정 해야 합니다. 나중에 다운스트림 장치에 최종 인증서와 해당 개인 키를 복사할 수 있습니다. 게이트웨이 문서의 단계를 수행 하 여 컴퓨터에 openssl를 설정 하 고, IoT Edge 리포지토리를 복제 하 여 인증서 생성 스크립트에 액세스 합니다. 그런 다음 **\<WRKDIR >** 호출 하는 작업 디렉터리를 만들어 인증서를 보관 합니다. 기본 인증서는 개발 및 테스트를 위한 것 이므로 최근 30 일입니다. 루트 CA 인증서와 중간 인증서를 만들어야 합니다. 
 
 1. Bash 또는 PowerShell 창에서 작업 디렉터리로 이동 합니다. 
 
@@ -155,12 +155,12 @@ X.509 CA (인증 기관) 서명 된 인증의 경우 IoT 장치에 대 한 인�
 
 이 섹션은 [Azure IoT Hub에서 x.509 보안 설정](../iot-hub/iot-hub-security-x509-get-started.md)IoT Hub 문서에 설명 된 지침을 기반으로 합니다. 이 섹션의 단계에 따라 게이트웨이를 통해 연결 되는 다운스트림 장치를 설정 하는 데 사용할 값을 확인 합니다. 
 
-이 시나리오를 테스트 하는 가장 쉬운 방법은에서 인증서를 만드는 데 사용한 것과 동일한 컴퓨터를 사용 하 여 [투명 한 게이트웨이로 작동 하도록 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md)하는 것입니다. IoT 장치 인증서를 만들려면 올바른 도구, 루트 CA 인증서 및 중간 CA 인증서를 사용 하 여 해당 컴퓨터를 이미 설정 해야 합니다. 나중에 다운스트림 장치에 최종 인증서와 해당 개인 키를 복사할 수 있습니다. 게이트웨이 문서의 단계를 수행 하 여 컴퓨터에 openssl를 설정 하 고, IoT Edge 리포지토리를 복제 하 여 인증서 생성 스크립트에 액세스 합니다. 그런 다음  **\<WRKDIR >** 호출 하는 작업 디렉터리를 만들어 인증서를 보관 합니다. 기본 인증서는 개발 및 테스트를 위한 것 이므로 최근 30 일입니다. 루트 CA 인증서와 중간 인증서를 만들어야 합니다. 
+이 시나리오를 테스트 하는 가장 쉬운 방법은에서 인증서를 만드는 데 사용한 것과 동일한 컴퓨터를 사용 하 여 [투명 한 게이트웨이로 작동 하도록 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md)하는 것입니다. IoT 장치 인증서를 만들려면 올바른 도구, 루트 CA 인증서 및 중간 CA 인증서를 사용 하 여 해당 컴퓨터를 이미 설정 해야 합니다. 나중에 다운스트림 장치에 최종 인증서와 해당 개인 키를 복사할 수 있습니다. 게이트웨이 문서의 단계를 수행 하 여 컴퓨터에 openssl를 설정 하 고, IoT Edge 리포지토리를 복제 하 여 인증서 생성 스크립트에 액세스 합니다. 그런 다음 **\<WRKDIR >** 호출 하는 작업 디렉터리를 만들어 인증서를 보관 합니다. 기본 인증서는 개발 및 테스트를 위한 것 이므로 최근 30 일입니다. 루트 CA 인증서와 중간 인증서를 만들어야 합니다. 
 
 1. *Azure iot hub에서 x.509 보안 설정*의 [IoT HUB에 X.509 CA 인증서 등록](../iot-hub/iot-hub-security-x509-get-started.md#register-x509-ca-certificates-to-your-iot-hub) 섹션의 지침을 따릅니다. 해당 섹션에서 다음 단계를 수행 합니다. 
 
-   1. 루트 CA 인증서를 업로드 합니다. 투명 게이트웨이 문서에서 만든 인증서를 사용 하는 경우 루트 인증서 파일로  **\<WRKDIR >/certs/azure-iot-test-only.root.ca.cert.pem** 를 업로드 합니다. 
-   2. 해당 루트 CA 인증서를 소유 하 고 있는지 확인 합니다. WRKDIR >에서 \<인증서 도구를 사용 하 여 소유권을 확인할 수 있습니다. 
+   1. 루트 CA 인증서를 업로드 합니다. 투명 게이트웨이 문서에서 만든 인증서를 사용 하는 경우 루트 인증서 파일로 **\<WRKDIR >/certs/azure-iot-test-only.root.ca.cert.pem** 를 업로드 합니다. 
+   2. 해당 루트 CA 인증서를 소유 하 고 있는지 확인 합니다. \<WRKDIR >에서 cert tools의 소유를 확인할 수 있습니다. 
 
       ```powershell
       New-CACertsVerificationCert "<verification code from Azure portal>"
@@ -323,7 +323,7 @@ var options = {
 client.setOptions(options);
 ```
 
-#### <a name="python"></a>Python
+#### <a name="python"></a>파이썬
 
 현재 Python SDK는 기본적으로 정의 된 것이 아니라 X509 인증서 및 및 파일의 키 사용만 지원 합니다. 다음 예제에서 관련 filepaths는 환경 변수에 저장 됩니다.
 

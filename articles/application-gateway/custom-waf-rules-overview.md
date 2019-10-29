@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8ae5c9b6b52ea13e3d0981664e8c920cc5b47a01
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 2e96a2a2dd5504c906b5fb84b643467a83518f21
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263552"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027573"
 ---
 # <a name="overview-custom-rules-for-web-application-firewall-v2"></a>개요: 웹 응용 프로그램 방화벽 v2의 사용자 지정 규칙
 
@@ -32,6 +32,9 @@ Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽)
 > WAF 사용자 지정 규칙의 최대 수는 100입니다. Application Gateway 제한에 대 한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md#application-gateway-limits)을 참조 하세요.
 
 정규식은 핵심 규칙 집합에 있는 것 처럼 사용자 지정 규칙 에서도 지원 됩니다. 이러한 규칙의 예는 [사용자 지정 웹 응용 프로그램 방화벽 규칙 만들기 및 사용](create-custom-waf-rules.md)의 "예제 3" 및 "예제 5"를 참조 하십시오.
+
+> [!NOTE]
+> 사용자 지정 규칙은 v1 SKU WAF에서 사용할 수 없습니다.
 
 ## <a name="allowing-or-blocking-traffic"></a>트래픽 허용 또는 차단
 
@@ -55,7 +58,7 @@ $BlockRule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-위의 `$BlockRule`은 Azure Resource Manager의 다음 사용자 지정 규칙에 매핑됩니다.
+앞의 `$BlockRule` Azure Resource Manager의 다음 사용자 지정 규칙에 매핑됩니다.
 
 ```json
 "customRules": [
@@ -109,12 +112,12 @@ Match 변수는 다음 중 하나 여야 합니다.
 
 - RemoteAddr: 원격 컴퓨터 연결의 IP 주소 또는 호스트 이름
 - RequestMethod: HTTP 요청 메서드 (GET, POST, PUT, DELETE 등)입니다.
-- 문자열 URI에 있는 변수입니다.
+- QueryString: URI에 있는 변수입니다.
 - PostArgs: POST 본문에 전송 되는 인수입니다. 이 일치 변수를 사용 하는 사용자 지정 규칙은 Content-type 헤더가 "application/x-www-form-urlencoded" 및 "multipart/form-data"로 설정 된 경우에만 적용 됩니다.
-- RequestUri 요청의 URI입니다.
-- RequestHeaders 요청의 헤더입니다.
-- RequestBody 전체 요청 본문을 포함 하는 변수입니다. 이 일치 변수를 사용 하는 사용자 지정 규칙은 Content-type 헤더가 "application/x-www-form-urlencoded"로 설정 된 경우에만 적용 됩니다. 
-- RequestCookies: 요청에 대 한 쿠키입니다.
+- RequestUri: 요청의 URI입니다.
+- RequestHeaders: 요청의 헤더입니다.
+- RequestBody: 전체 요청 본문을 포함 하는 변수입니다. 이 일치 변수를 사용 하는 사용자 지정 규칙은 Content-type 헤더가 "application/x-www-form-urlencoded"로 설정 된 경우에만 적용 됩니다. 
+- RequestCookies: 요청의 쿠키입니다.
 
 ### <a name="selector-optional"></a>Selector (선택 사항)
 
@@ -124,9 +127,9 @@ Match 변수는 다음 중 하나 여야 합니다.
 
 연산자는 다음 중 하나 여야 합니다.
 
-- IPMatch: 이 연산자는 일치 변수가 *Remoteaddr*인 경우에만 사용 됩니다.
-- 같거나 입력이 MatchValue와 동일 합니다.
-- 포함
+- IPMatch:이 연산자는 일치 변수가 *Remoteaddr*인 경우에만 사용 됩니다.
+- Equals: 입력이 MatchValue와 동일 합니다.
+- contains
 - LessThan
 - GreaterThan
 - LessThanOrEqual
@@ -158,11 +161,11 @@ MatchValues 필드는와 일치 하는 값 목록으로, *또는*' ed '로 간�
 
 작업 필드는 다음 옵션을 제공 합니다. 
 
-- 허용: 트랜잭션을 승인 하 고 모든 후속 규칙을 건너뜁니다. 즉, 지정 된 요청이 허용 목록에 추가 되 고, 일치 하는 경우 요청이 추가 평가를 중지 하 고 백 엔드 풀로 전송 됩니다. 허용 목록에 있는 규칙은 추가 사용자 지정 규칙 또는 관리 규칙에 대해 평가 되지 않습니다.
+- Allow: 트랜잭션을 승인 하 고 모든 후속 규칙을 건너뜁니다. 즉, 지정 된 요청이 허용 목록에 추가 되 고, 일치 하는 경우 요청이 추가 평가를 중지 하 고 백 엔드 풀로 전송 됩니다. 허용 목록에 있는 규칙은 추가 사용자 지정 규칙 또는 관리 규칙에 대해 평가 되지 않습니다.
 
 - 차단: *SecDefaultAction* (검색/방지 모드)를 기반으로 트랜잭션을 차단 합니다. 허용 동작과 마찬가지로 요청이 평가 되 고 차단 목록에 추가 된 후에는 평가가 중지 되 고 요청이 차단 됩니다. 동일한 조건을 충족 하는 후속 요청은 평가 되지 않습니다. 단지 차단 됩니다. 
 
-- 로그 규칙을 로그에 기록 하 고 나머지 규칙은 평가를 위해 실행할 수 있습니다. 후속 사용자 지정 규칙은 우선 순위에 따라 관리 되는 규칙에 따라 평가 됩니다.
+- 로그: 규칙을 로그에 기록 하 고 나머지 규칙은 평가를 위해 실행할 수 있습니다. 후속 사용자 지정 규칙은 우선 순위에 따라 관리 되는 규칙에 따라 평가 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

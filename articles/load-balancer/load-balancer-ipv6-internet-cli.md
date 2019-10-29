@@ -14,15 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 0ee85a92753845e0e67fff22da894a048acb1b14
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3d92f1a7067d4b3717ecdfd5b8cb16ec0234bdec
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274948"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025699"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치 만들기
 
+>[! 참고: i p v 6에 대 한 모범 사례 변경 내용이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능을 설명 합니다.  이제 ipv6 연결을 가상 네트워크와 통합 하 고 ipv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, ipv6 기본 및와 같은 주요 기능을 포함 하는 [Azure vnet 용](../virtual-network/ipv6-overview.md) i p v 6에서 더 포괄적인 ipv6 연결을 사용할 수 있습니다. 표준 부하 분산 등이 있습니다.  Azure Vnet에 대 한 i p v 6은 Azure에서 IPv6 응용 프로그램에 권장 되는 모범 사례입니다. 
+>[AZURE VNET CLI 배포에 대 한](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md) i p v 6을 참조 하세요.
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 클라우드 서비스의 정상 서비스 인스턴스 또는 부하 분산 장치 집합의 가상 머신 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. 부하 분산 장치는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
 
@@ -47,9 +49,9 @@ Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 
 부하 분산 장치를 배포하려면 다음 개체를 만들고 구성합니다.
 
 * **프런트 엔드 IP 구성**: 들어오는 네트워크 트래픽에 대한 공용 IP 주소를 포함합니다.
-* **백 엔드 주소 풀**: Load Balancer의 네트워크 트래픽을 수신하기 위해 가상 머신에 NIC(네트워크 인터페이스)를 포함합니다.
-* **부하 분산 규칙**: 백 엔드 주소 풀에 있는 포트에 Load Balancer의 공용 포트를 매핑하는 규칙을 포함합니다.
-* **인바운드 NAT 규칙**: 백 엔드 주소 풀에 있는 특정 가상 머신에 대한 포트에 Load Balancer의 공용 포트를 매핑하는 NAT(Network Address Translation) 규칙을 포함합니다.
+* **백 엔드 주소 풀**: 부하 분산 장치의 네트워크 트래픽을 수신하기 위해 가상 머신에 NIC(네트워크 인터페이스)를 포함합니다.
+* **부하 분산 규칙**: 백 엔드 주소 풀에 있는 포트에 부하 분산 장치의 공용 포트를 매핑하는 규칙을 포함합니다.
+* **인바운드 NAT 규칙**: 백 엔드 주소 풀에 있는 특정 가상 머신에 대한 포트에 부하 분산 장치의 공용 포트를 매핑하는 NAT(Network Address Translation) 규칙을 포함합니다.
 * **프로브**: 백 엔드 주소 풀의 가상 머신 인스턴스의 가용성을 확인하는 데 사용하는 상태 프로브를 포함합니다.
 
 ## <a name="set-up-azure-cli"></a>Azure CLI 설치
@@ -296,8 +298,4 @@ VM을 만들려면 스토리지 계정이 있어야 합니다. 부하 분산을 
     az vm create --resource-group $rgname --name $vm2Name --image $imageurn --admin-username $vmUserName --admin-password $mySecurePassword --nics $nic2Id --location $location --availability-set $availabilitySetName --size "Standard_A1" 
     ```
 
-## <a name="next-steps"></a>다음 단계
 
-[내부 부하 분산 장치 구성 시작](load-balancer-get-started-ilb-arm-cli.md)  
-[부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)  
-[부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)

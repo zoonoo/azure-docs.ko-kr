@@ -8,18 +8,18 @@ search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.topic: article
-ms.date: 10/25/2019
+ms.topic: reference
+ms.date: 10/28/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f769aafa3e2976d63e99cf58a6b67e1b4cf81b64
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: a0f7c1987cd4184ba6cda37d4d1894f0dba0b2f1
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72963971"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024626"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -137,7 +137,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 ----- | ----------
 [Microsoft 365 규정 준수 센터](https://protection.office.com) | Microsoft 365 서비스 전반에 걸쳐 조직의 데이터 보호 및 관리<br>규정 준수 경고 관리
 [준수 관리자](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 조직의 규정 준수 활동 추적, 할당, 확인
-[Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 데이터 거버넌스 관리<br>법적 조사/데이터 조사 수행<br>데이터 주체 요청 관리
+[Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 데이터 거버넌스 관리<br>법적 조사/데이터 조사 수행<br>데이터 주체 요청 관리<br><br>이 역할에는 Office 365 보안 및 준수 센터 역할 기반 액세스 제어에서 [준수 관리자 RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) 과 동일한 권한이 있습니다.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 모든 Intune 감사 데이터 확인
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 읽기 전용 권한 소유/경고를 관리할 수 있음<br>파일 정책을 생성/수정하고 파일 거버넌스 작업을 허용할 수 있음<br> 데이터 관리에서 모든 기본 제공 보고서를 확인할 수 있음
 
@@ -149,7 +149,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 ----- | ----------
 [Microsoft 365 규정 준수 센터](https://protection.office.com) | Microsoft 365 서비스에서 준수 관련 정책 모니터링<br>규정 준수 경고 관리
 [준수 관리자](https://docs.microsoft.com/office365/securitycompliance/meet-data-protection-and-regulatory-reqs-using-microsoft-cloud) | 조직의 규정 준수 활동 추적, 할당, 확인
-[Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 데이터 거버넌스 관리<br>법적 조사/데이터 조사 수행<br>데이터 주체 요청 관리<br><br>이 역할은 Office 365 보안 및 규정 준수 센터의 역할 기반 액세스 제어에서 [준수 데이터 관리자 RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) 과 동일한 사용 권한을 갖습니다.
+[Office 365 보안 및 준수 센터](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d) | 데이터 거버넌스 관리<br>법적 조사/데이터 조사 수행<br>데이터 주체 요청 관리<br><br>이 역할에는 Office 365 보안 및 준수 센터 역할 기반 액세스 제어에서 [준수 데이터 관리자 RoleGroup](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center#permissions-needed-to-use-features-in-the-security--compliance-center) 과 동일한 권한이 있습니다.
 [Intune](https://docs.microsoft.com/intune/role-based-access-control) | 모든 Intune 감사 데이터 확인
 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/manage-admins) | 읽기 전용 권한 소유/경고를 관리할 수 있음<br>파일 정책을 생성/수정하고 파일 거버넌스 작업을 허용할 수 있음<br> 데이터 관리에서 모든 기본 제공 보고서를 확인할 수 있음
 
@@ -230,7 +230,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 >* [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage) -전역 판독기는 고객 lockbox 요청을 읽을 수 없습니다. M365 관리 센터의 왼쪽 창에 있는 **지원** 에서 **고객 lockbox 요청** 탭을 찾을 수 없습니다.
 >* [M365 Security center](https://security.microsoft.com/homepage) -전역 판독기는 민감도 및 보존 레이블을 읽을 수 없습니다. M365 Security center의 왼쪽 창에서 **민감도 레이블**, **보존 레이블**및 **레이블 분석** 탭을 찾을 수 없습니다.
 >* [팀 관리 센터](https://admin.teams.microsoft.com) -전역 읽기 권한자는 **팀 수명 주기**, **분석 & 보고서**, **IP 전화 장치 관리** 및 **앱 카탈로그**를 읽을 수 없습니다.
->* [PAM (Privileged Access Management)](https://docs.microsoft.com/en-us/office365/securitycompliance/privileged-access-management-overview) 은 전역 읽기 권한자 역할을 지원 하지 않습니다.
+>* [PAM (Privileged Access Management)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) 은 전역 읽기 권한자 역할을 지원 하지 않습니다.
 >* [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) 전역 판독기는 [중앙 보고](https://docs.microsoft.com/azure/information-protection/reports-aip) 에만 지원 되 고 테 넌 트가 [통합 레이블 플랫폼](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)에 있지 않은 경우에만 지원 됩니다.
 >
 > 이러한 기능은 현재 개발 중입니다.

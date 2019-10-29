@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 75b8ea5e8dcaed533eac424bb8df1d1862889490
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7f0d846a83312e28c305100e7c8dc74cc8140d7d
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592373"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73023843"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
@@ -66,7 +66,7 @@ Azure 서비스에 대 한 개인 끝점을 사용 하는 경우 특정 개인 �
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>승인 워크플로를 사용 하 여 개인 링크 리소스에 대 한 액세스 
 다음 연결 승인 방법을 사용 하 여 개인 링크 리소스에 연결할 수 있습니다.
-- 사용자가 소유 하거나 특정 개인 링크 리소스에 대 한 권한이 있는 경우 **자동으로** 승인 됩니다. 필요한 권한은 다음 형식의 개인 링크 리소스 형식을 기반으로 합니다. Microsoft. \<Provider >/< resource_type >/privateEndpointConnectionApproval/action
+- 사용자가 소유 하거나 특정 개인 링크 리소스에 대 한 권한이 있는 경우 **자동으로** 승인 됩니다. 필요한 권한은 다음 형식의 개인 링크 리소스 형식을 기반으로 합니다. Microsoft.\<공급자 >/< resource_type >/privateEndpointConnectionApproval/action
 - 필요한 권한이 없고 액세스를 요청 하는 경우 **수동** 요청 승인 워크플로가 시작 됩니다. 개인 끝점 및 후속 개인 끝점 연결이 "보류 중" 상태로 생성 됩니다. 개인 링크 리소스 소유자는 연결을 승인 해야 합니다. 승인 된 후에는 다음 승인 워크플로 다이어그램에 표시 된 것 처럼 개인 끝점에서 트래픽을 정상적으로 전송할 수 있습니다.  
 
 ![워크플로 승인](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -91,7 +91,7 @@ FQDN (정규화 된 도메인 이름)을 사용 하 여 연결 문자열의 일�
 다음 옵션을 사용 하 여 개인 끝점에 대 한 DNS 설정을 구성할 수 있습니다. 
 - **호스트 파일 (테스트에만 권장 됨)을 사용**합니다. 가상 컴퓨터의 호스트 파일을 사용 하 여 DNS를 재정의할 수 있습니다.  
 - **개인 DNS 영역을 사용**합니다. 개인 DNS 영역을 사용 하 여 지정 된 개인 끝점에 대 한 DNS 확인을 재정의할 수 있습니다. 개인 DNS 영역을 가상 네트워크에 연결 하 여 특정 도메인을 확인할 수 있습니다.
-- **사용자 지정 DNS 서버를 사용**합니다. 자체 DNS 서버를 사용 하 여 지정 된 개인 링크 리소스에 대 한 DNS 확인을 재정의할 수 있습니다. DNS 서버가 가상 네트워크에서 호스트 되는 경우 개인 DNS 영역을 사용 하 여 모든 개인 링크 리소스에 대 한 구성을 간소화 하는 DNS 전달 규칙을 만들 수 있습니다.
+- **사용자 지정 DNS 서버를 사용**합니다. 자체 DNS 서버를 사용 하 여 지정 된 개인 링크 리소스에 대 한 DNS 확인을 재정의할 수 있습니다. [Dns 서버가](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) 가상 네트워크에서 호스트 되는 경우 개인 dns 영역을 사용 하 여 모든 개인 링크 리소스에 대 한 구성을 간소화 하는 dns 전달 규칙을 만들 수 있습니다.
  
 > [!IMPORTANT]
 > 공용 끝점을 확인 하는 데 적극적으로 사용 되는 영역은 재정의 하지 않는 것이 좋습니다. 공용 DNS로 DNS를 전달 하지 않고 리소스에 대 한 연결을 올바르게 확인할 수 없습니다. 문제를 방지 하려면 다른 도메인 이름을 만들거나 아래 각 서비스에 대 한 제안 된 이름을 따르세요. 

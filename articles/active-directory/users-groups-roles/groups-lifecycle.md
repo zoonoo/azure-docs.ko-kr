@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dd8858786d59563542c95d43d4e480ab1c11383
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6ea0f9e07b476459824c8166781f549d788185ba
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933775"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024777"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "72933775"
 
 만료할 그룹을 설정한 경우 다음이 적용됩니다.
 
-- 사용자 활동을 포함 하는 그룹은 만료 됨 (미리 보기)으로 자동 갱신 됩니다.
+- 만료 될 때 사용자 활동이 있는 그룹이 자동으로 갱신 됨
 - 그룹이 자동으로 갱신 되지 않은 경우 그룹 소유자에 게 그룹을 갱신 하 라는 알림이 표시 됩니다.
 - 갱신하지 않는 모든 그룹은 삭제됩니다.
 - 삭제된 Office 365 그룹은 그룹 소유자 또는 관리자에 의해 30일 이내로 복원될 수 있습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "72933775"
 
 Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 내용은 [Azure Active Directory PowerShell for Graph 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137)을 참조하세요.
 
-## <a name="activity-based-automatic-renewal-preview"></a>활동 기반 자동 갱신 (미리 보기)
+## <a name="activity-based-automatic-renewal"></a>작업 기반 자동 갱신
 
 이제 Azure AD intelligence를 사용 하 여 그룹이 최근 사용 되었는지 여부에 따라 자동으로 갱신 됩니다. 이 기능은 Outlook, SharePoint, 팀 또는 Yammer와 같은 Office 365 서비스에서 그룹의 사용자 작업을 기반으로 하기 때문에 그룹 소유자의 수동 작업 필요성을 제거 합니다. 예를 들어 소유자 또는 그룹 구성원이 SharePoint에서 문서를 업로드 하거나 팀 채널을 방문 하거나 Outlook의 그룹으로 전자 메일을 보내면 그룹이 자동으로 갱신 되 고 소유자에 게 갱신 알림이 수신 되지 않습니다.
 

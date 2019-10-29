@@ -7,12 +7,13 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: fd4eef9771ae89e330c99b398ad6d473356213f5
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: cbb4668ae87404771513ca5825482efe9206308d
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858537"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025013"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -22,7 +23,7 @@ ms.locfileid: "70858537"
 
 ## <a name="general"></a>일반
 
-### <a name="what-is-application-gateway"></a>Application Gateway란?
+### <a name="what-is-application-gateway"></a>Application Gateway란 무엇인가요?
 
 Azure 애플리케이션 Gateway는 ADC (응용 프로그램 배달 컨트롤러)를 서비스로 제공 합니다. 응용 프로그램에 대 한 다양 한 계층 7 부하 분산 기능을 제공 합니다. 이 서비스는 Azure에서 항상 사용 가능 하 고 확장 가능 하며 완전히 관리 됩니다.
 
@@ -104,9 +105,9 @@ V2 SKU를 사용 하는 대부분의 배포는 프로 비전 하는 데 약 6 �
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Application Gateway를 사용 하 여 백 엔드로 Exchange Server를 사용할 수 있나요?
 
-아니요. Application Gateway는 SMTP, IMAP, POP3 등의 메일 프로토콜을 지원 하지 않습니다. 
+아닙니다. Application Gateway는 SMTP, IMAP, POP3 등의 메일 프로토콜을 지원 하지 않습니다. 
 
-## <a name="performance"></a>성능
+## <a name="performance"></a>성능 중심
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Application Gateway는 고가용성과 확장성을 어떤 방식으로 지원하나요?
 
@@ -124,7 +125,7 @@ Traffic Manager를 사용 하 여 여러 데이터 센터의 여러 응용 프�
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>수동으로 확장 하거나 축소 하면 가동 중지 시간이 발생 하나요?
 
-아니요. 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
+아닙니다. 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway는 연결 드레이닝을 지원하나요?
 
@@ -134,7 +135,7 @@ Traffic Manager를 사용 하 여 여러 데이터 센터의 여러 응용 프�
 
 예. Azure는 인스턴스를 업데이트 및 장애 도메인 간에 배포 하 여 인스턴스가 동시에 모두 실패 하지 않도록 합니다. Application Gateway는 로드를 공유하기 위해 동일한 게이트웨이의 여러 인스턴스를 추가하여 크기 조정을 지원합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Application Gateway가 가상 네트워크에서 항상 배포되나요?
 
@@ -146,7 +147,7 @@ IP 연결이 있는 한 Application Gateway는 가상 네트워크 외부의 인
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 다른 항목을 배포할 수 있나요?
 
-아니요. 그러나 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수 있습니다.
+아닙니다. 그러나 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수 있습니다.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Application gateway 서브넷에서 네트워크 보안 그룹이 지원 되나요?
 
@@ -178,7 +179,7 @@ IP 연결이 있는 한 Application Gateway는 가상 네트워크 외부의 인
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>사용자 지정 프로브는 응답 데이터에서 와일드 카드나 정규식을 지원 하나요?
 
-아니요. 
+아닙니다. 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Application Gateway에서 라우팅 규칙은 어떻게 처리 되나요?
 
@@ -186,7 +187,7 @@ IP 연결이 있는 한 Application Gateway는 가상 네트워크 외부의 인
 
 ### <a name="for-custom-probes-what-does-the-host-field-signify"></a>사용자 지정 프로브의 경우 호스트 필드는 무엇을 의미 하나요?
 
-호스트 필드는 Application Gateway에서 멀티 사이트를 구성한 경우 프로브를 보낼 이름을 지정 합니다. 그렇지 않으면 ' 127.0.0.1 '을 사용 합니다. 이 값은 가상 컴퓨터 호스트 이름과 다릅니다. 해당 \<형식은 프로토콜\>:/\</\<호스트: 포트\>경로입니다\>.\<\>
+호스트 필드는 Application Gateway에서 멀티 사이트를 구성한 경우 프로브를 보낼 이름을 지정 합니다. 그렇지 않으면 ' 127.0.0.1 '을 사용 합니다. 이 값은 가상 컴퓨터 호스트 이름과 다릅니다. 해당 형식은 \<프로토콜\>//\<호스트\>:\<포트\>\<경로\>입니다.
 
 ### <a name="can-i-allow-application-gateway-access-to-only-a-few-source-ip-addresses"></a>일부 원본 IP 주소에만 Application Gateway 액세스를 허용할 수 있나요?
 
@@ -194,7 +195,7 @@ IP 연결이 있는 한 Application Gateway는 가상 네트워크 외부의 인
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>공용 및 개인 연결 수신기 모두에 동일한 포트를 사용할 수 있나요?
 
-아니요.
+아닙니다.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>V1 SKU에서 v2 SKU로 마이그레이션하는 데 사용할 수 있는 지침이 있나요?
 
@@ -269,7 +270,7 @@ Application Gateway은 최대 100 SSL 인증서를 지원 합니다.
 
 ### <a name="how-many-authentication-certificates-for-backend-reencryption-does-application-gateway-support"></a>백 엔드 재 암호화 지원 Application Gateway 인증 인증서는 몇 개입니까?
 
-Application Gateway은 최대 10 개의 인증 인증서를 지원 합니다. 기본값은 5입니다.
+Application Gateway는 최대 100 인증 인증서를 지원 합니다.
 
 ### <a name="does-application-gateway-natively-integrate-with-azure-key-vault"></a>Azure Key Vault와 기본적으로 통합 Application Gateway?
 
@@ -299,7 +300,7 @@ Application Gateway는 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 ### <a name="does-detection-mode-block-traffic"></a>검색 모드에서 트래픽을 차단하나요?
 
-아니요. 검색 모드는 WAF 규칙을 트리거하는 트래픽만 로깅합니다.
+아닙니다. 검색 모드는 WAF 규칙을 트리거하는 트래픽만 로깅합니다.
 
 ### <a name="can-i-customize-waf-rules"></a>WAF 규칙을 사용자 지정할 수 있나요?
 
@@ -333,9 +334,9 @@ WAF는 현재 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) 
 
 Application Gateway는 세 개의 로그를 제공 합니다. 
 
-* **ApplicationGatewayAccessLog**: 액세스 로그에는 application gateway 프런트 엔드에 제출 된 각 요청이 포함 됩니다. 데이터에는 호출자의 IP, 요청 된 URL, 응답 대기 시간, 반환 코드 및 바이트 (in/out)가 포함 됩니다. 액세스 로그는 300 초 마다 수집 됩니다. 응용 프로그램 게이트웨이 당 하나의 레코드를 포함 합니다.
+* **Applicationgatewayaccesslog**: 액세스 로그에는 application gateway 프런트 엔드에 제출 된 각 요청이 포함 됩니다. 데이터에는 호출자의 IP, 요청 된 URL, 응답 대기 시간, 반환 코드 및 바이트 (in/out)가 포함 됩니다. 액세스 로그는 300 초 마다 수집 됩니다. 응용 프로그램 게이트웨이 당 하나의 레코드를 포함 합니다.
 * **ApplicationGatewayPerformanceLog**: 성능 로그는 각 application gateway에 대 한 성능 정보를 캡처합니다. 이 정보에는 처리량 (바이트), 처리 된 총 요청 수, 실패 한 요청 수, 정상 및 비정상 백 엔드 인스턴스 수 등이 포함 됩니다.
-* **ApplicationGatewayFirewallLog**: WAF를 사용 하 여 구성 하는 응용 프로그램 게이트웨이의 경우 방화벽 로그에는 검색 모드 또는 방지 모드를 통해 기록 되는 요청이 포함 됩니다.
+* **ApplicationGatewayFirewallLog**: waf를 사용 하 여 구성 하는 응용 프로그램 게이트웨이의 경우 방화벽 로그에는 검색 모드 또는 방지 모드를 통해 기록 되는 요청이 포함 됩니다.
 
 자세한 내용은 [Application Gateway에 대 한 백 엔드 상태, 진단 로그 및 메트릭](application-gateway-diagnostics.md)을 참조 하세요.
 

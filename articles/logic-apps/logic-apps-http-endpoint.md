@@ -12,12 +12,12 @@ ms.assetid: 73ba2a70-03e9-4982-bfc8-ebfaad798bc2
 ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 03/31/2017
-ms.openlocfilehash: 6e5a8eda3891b3b356e0cbd7b6d2e22e4a70c278
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4fc20c4b1314d953ea979192c81b2c264292d3af
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799713"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73041891"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩
 
@@ -62,7 +62,7 @@ HTTP 엔드포인트를 만들려면 들어오는 요청을 받을 수 있는 �
     }
     ```
 
-   ![요청 작업 추가](./media/logic-apps-http-endpoint/manualtrigger.png)
+   ![요청 작업에 대 한 JSON 스키마 제공](./media/logic-apps-http-endpoint/manual-request-trigger-schema.png)
 
    > [!TIP]
    >
@@ -95,7 +95,7 @@ HTTP 엔드포인트를 만들려면 들어오는 요청을 받을 수 있는 �
 
    이 URL은 인증에 사용하는 쿼리 매개 변수에 공유 액세스 서명(SAS) 키를 포함합니다. Azure Portal의 논리 앱 개요에서 HTTP 엔드포인트 URL을 가져올 수도 있습니다. **트리거 기록** 아래에서 트리거를 선택합니다.
 
-   ![Azure Portal에서 HTTP 엔드포인트 URL 가져오기](./media/logic-apps-http-endpoint/manualtriggerurl.png)
+   ![Azure Portal에서 HTTP 엔드포인트 URL 가져오기](./media/logic-apps-http-endpoint/find-manual-trigger-url.png)
 
    또는 다음을 호출하여 URL을 가져올 수도 있습니다.
 
@@ -117,7 +117,7 @@ HTTP 엔드포인트를 만들려면 들어오는 요청을 받을 수 있는 �
    > [!NOTE]
    > 다른 HTTP 메서드를 선택하거나 사용자의 고유한 논리 앱에 대한 사용자 지정 메서드를 지정할 수 있습니다.
 
-   ![HTTP 메서드 변경](./media/logic-apps-http-endpoint/change-method.png)
+   ![요청에 사용할 HTTP 메서드를 선택 합니다.](./media/logic-apps-http-endpoint/select-method-request-trigger.png)
 
 ## <a name="accept-parameters-through-your-http-endpoint-url"></a>HTTP 엔드포인트 URL을 통해 매개 변수 허용
 
@@ -132,7 +132,7 @@ HTTP 엔드포인트 URL이 매개 변수를 허용하도록 하려면 트리거
 
 3. **상대 경로** 아래에서 URL이 허용해야 하는 매개 변수에 대한 상대 경로를 지정합니다. 예: `customers/{customerID}`.
 
-   ![HTTP 메서드 및 매개 변수에 대한 상대 경로 지정](./media/logic-apps-http-endpoint/relativeurl.png)
+   ![HTTP 메서드 및 매개 변수에 대한 상대 경로 지정](./media/logic-apps-http-endpoint/relative-path-url-value.png)
 
 4. 매개 변수를 사용하려면 논리 앱에 **응답** 작업을 추가합니다. (트리거 아래에서 **새 단계** > **작업 추가** > **응답**을 선택) 
 
@@ -140,11 +140,11 @@ HTTP 엔드포인트 URL이 매개 변수를 허용하도록 하려면 트리거
 
    예를 들어 `Hello {customerID}`로 돌아가려면 응답의 **본문**을 `Hello {customerID token}`로 업데이트합니다. 동적 콘텐츠 목록이 나타나고 선택할 `customerID` 토큰이 표시됩니다.
 
-   ![응답 본문에 매개 변수 추가](./media/logic-apps-http-endpoint/relativeurlresponse.png)
+   ![응답 본문에 매개 변수 추가](./media/logic-apps-http-endpoint/relative-url-with-parameter-token.png)
 
    **본문**은 다음 예와 유사해야 합니다.
 
-   ![매개 변수 포함 응답 본문](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
+   ![매개 변수가 있는 예제 응답 본문](./media/logic-apps-http-endpoint/relative-url-with-parameter.png)
 
 6. 논리 앱을 저장합니다. 
 
@@ -194,7 +194,7 @@ HTTP 엔드포인트 URL이 매개 변수를 허용하도록 하려면 트리거
 
 요청을 받을 수 있는 다른 논리 앱을 추가하여 Logic Apps에서 워크플로를 중첩할 수 있습니다. 이러한 논리 앱을 포함하려면 **Azure Logic Apps - 논리 앱 워크플로 선택** 작업을 트리거에 추가합니다. 그런 다음 자격이 있는 Logic Apps 중에서 선택할 수 있습니다.
 
-![다른 논리 앱 추가](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
+![현재 논리 앱 내에서 논리 앱 중첩](./media/logic-apps-http-endpoint/choose-logic-apps-workflow.png)
 
 ## <a name="call-or-trigger-logic-apps-through-http-endpoints"></a>HTTP 엔드포인트를 통해 Logic Apps 호출 또는 트리거
 
@@ -233,7 +233,7 @@ HTTP 엔드포인트를 만든 후 `POST` 메서드를 통해 논리 앱을 전�
 
 응답 본문에 둘 이상의 헤더 및 임의 형식의 콘텐츠를 포함할 수 있습니다. 예제 응답의 경우 헤더는 응답의 콘텐츠 형식이 `application/json`인 것으로 지정합니다. 그리고 본문은 **요청** 트리거에 대해 이전에 업데이트된 JSON 스키마에 따라 `title` 및 `name`를 포함합니다.
 
-![HTTP 응답 작업](./media/logic-apps-http-endpoint/response.png)
+![HTTP 응답 작업에 대 한 응답 콘텐츠 제공](./media/logic-apps-http-endpoint/content-for-response-action.png)
 
 응답 속성:
 

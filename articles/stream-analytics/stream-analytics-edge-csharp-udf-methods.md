@@ -8,18 +8,28 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 10/28/2019
 ms.custom: seodec18
-ms.openlocfilehash: 835eeaa0036d824a65918102ab7a00c3cf236931
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 0bc59ac3e55466f8ac06a3a8fa9cf08fecbb5ce3
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988404"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024960"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Azure Stream Analytics 작업에 대 한 .NET Standard 사용자 정의 함수 개발 (미리 보기)
 
 Azure Stream Analytics는 이벤트 데이터 스트림에서 변환과 계산을 수행하기 위해 SQL 방식 쿼리 언어를 제공합니다. 많은 기본 제공 함수가 있지만 일부 복잡한 시나리오에는 추가적인 유연성이 필요합니다. .NET Standard UDF(사용자 정의 함수)를 사용하면 .NET 표준 언어(C#, F# 등)로 작성된 사용자 고유의 함수를 호출하여 Stream Analytics 쿼리 언어를 확장할 수 있습니다. UDF를 사용하면 복잡한 수학 계산을 수행하고, ML.NET을 사용하여 사용자 지정 ML 모델을 가져오며, 누락된 데이터에 사용자 지정 대체 논리를 사용할 수 있습니다. Stream Analytics 작업에 대 한 UDF 기능은 현재 미리 보기 상태 이며 프로덕션 워크 로드에 사용할 수 없습니다.
+
+클라우드 작업에 대 한 .NET 사용자 정의 함수는 다음에서 사용할 수 있습니다.
+* 미국 서 부 중부 (사용 가능)
+* 서유럽 (사용 가능)
+* 미국 동부 (사용 가능)
+* 미국 서 부 (출시 예정)
+* 미국 동부 2 (출시 예정)
+* 유럽 서부 (출시 예정)
+
+다른 지역에서이 기능을 사용 하려는 경우 [액세스를 요청할](https://aka.ms/ccodereqregion)수 있습니다.
 
 ## <a name="overview"></a>개요
 Azure Stream Analytics용 Visual Studio 도구를 사용하면 UDF를 쉽게 작성하고, 작업을 로컬로(심지어 오프라인으로) 테스트하고, Stream Analytics 작업을 Azure에 게시할 수 있습니다. Azure에 게시되면 IoT Hub를 사용하여 작업을 IoT 디바이스에 배포할 수 있습니다.

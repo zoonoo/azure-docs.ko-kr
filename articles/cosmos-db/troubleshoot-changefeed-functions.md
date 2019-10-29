@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2f9d2cea7adaf2e46feb0417ea9631ce02478f80
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7a9f726273dc3c5b336b22588d49704ffc2d8192
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934131"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043369"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대해 Azure Functions 트리거를 사용 하는 경우 문제 진단 및 해결
 
@@ -103,6 +103,9 @@ Azure 함수는 변경 내용을 받으면 자주 처리 하 고, 선택적으�
 이 오류는 Azure Functions 프로젝트 또는 참조 된 프로젝트에 [Azure Functions Cosmos DB 확장](./troubleshoot-changefeed-functions.md#dependencies)에서 제공 하는 버전과 다른 버전의 Azure Cosmos DB SDK에 대 한 수동 NuGet 참조가 포함 된 경우에 발생 합니다.
 
 이러한 상황을 해결 하려면 추가 된 수동 NuGet 참조를 제거 하 고 Azure Functions Cosmos DB 확장 패키지를 통해 Azure Cosmos DB SDK 참조를 확인 하도록 합니다.
+
+### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>변경 내용 검색에 대 한 Azure 함수의 폴링 간격 변경
+이전에 설명한 대로 [# # #에 대 한 변경 내용 수신 시간이 너무 오래 걸립니다](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-be-received). Azure function은 새 변경 내용을 확인 하기 전에 구성 가능한 시간 (기본적으로 5 초) 동안 대기 합니다. 트리거의 [구성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)에서 `FeedPollDelay/feedPollDelay` 설정을 통해 이 일시 중지 시간을 구성할 수 있습니다(값은 밀리초 단위여야 함).
 
 ## <a name="next-steps"></a>다음 단계
 

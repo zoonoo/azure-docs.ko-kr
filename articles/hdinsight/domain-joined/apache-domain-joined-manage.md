@@ -1,5 +1,5 @@
 ---
-title: Enterprise Security Package - Azure를 사용하여 HDInsight 클러스터 관리
+title: Enterprise Security Package 클러스터 관리-Azure HDInsight
 description: Enterprise Security Package를 사용 하 여 Azure HDInsight 클러스터를 관리 하는 방법을 알아봅니다.
 ms.service: hdinsight
 author: omidm1
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/24/2018
-ms.openlocfilehash: b98c62908885bc13cd5f473967cc70709af693d2
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 35accc587fe197da751a8695e3ec0b21ea9fbbd4
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034111"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044915"
 ---
 # <a name="manage-hdinsight-clusters-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight 클러스터 관리
 HDInsight ESP(Enterprise Security Package)의 사용자 및 역할과 ESP 클러스터 관리 방법을 알아봅니다.
@@ -22,7 +22,7 @@ HDInsight ESP(Enterprise Security Package)의 사용자 및 역할과 ESP 클러
 
 Apache Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러스터를 연결하고, 도메인 사용자 이름(예: `user1@contoso.com`)을 사용하여 보안 Apache Hadoop 클러스터를 연결할 수 있습니다.
 
-1. **Ctrl+Shift+P**를 선택하여 명령 팔레트를 연 다음, **HDInsight: Link a cluster**를 입력합니다.
+1. **CTRL+SHIFT+P**를 선택하여 명령 팔레트를 연 다음, **HDInsight: Link a cluster**를 입력합니다.
 
    ![명령 팔레트, 클러스터 연결](./media/apache-domain-joined-manage/link-cluster-command.png)
 
@@ -35,9 +35,9 @@ Apache Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 �
 
 3. **List cluster** 명령을 사용하여 연결된 클러스터를 볼 수 있습니다. 이제 연결된 클러스터에 스크립트를 제출할 수 있습니다.
 
-   ![클러스터 명령 출력 확인 목록](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "연결 된 클러스터")
+   ![클러스터 명령 출력 확인 목록](./media/apache-domain-joined-manage/hdinsight-linked-cluster.png "연결된 클러스터")
 
-4. 명령 팔레트에서 **HDInsight: Unlink a Cluster**를 입력하여 클러스터의 연결을 끊을 수도 있습니다.
+4. 명령 팔레트에서 **HDInsight: Unlink a cluster**를 입력하여 클러스터 연결을 끊을 수도 있습니다.
 
 ## <a name="use-intellij-to-link-to-domain-joined-cluster"></a>IntelliJ를 사용하여 도메인 가입된 클러스터에 연결
 
@@ -101,7 +101,7 @@ Ambari에서 관리하는 사용자 이름을 사용하여 정상적인 클러�
 |Apache Spark|대화형 작업/쿼리, PySpark 대화형|<ul><li>[Beeline](#beeline)</li><li>[Livy를 사용한 Zeppelin](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
 |Apache Spark|일괄 처리 시나리오 – Spark 제출, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
 |대화형 쿼리(LLAP)|대화형|<ul><li>[Beeline](#beeline)</li><li>[Hive 보기](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Visual Studio Tools](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
-|임의의 값|사용자 지정 애플리케이션 설치|<ul><li>[스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+|모두|사용자 지정 애플리케이션 설치|<ul><li>[스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
 
    > [!NOTE]  
    > Jupyter는 Enterprise Security Package에 설치/지원되지 않습니다.
@@ -150,7 +150,7 @@ Beeline을 로컬로 설치했고 Azure Virtual Network를 통해 연결하는 �
 
 ESP가 포함된 HDInsight 클러스터에는 Ambari 관리자 외에 세 명의 새로운 사용자가 있습니다.
 
-* **Ranger 관리자**:  이 계정은 로컬 Apache Ranger 관리자 계정입니다. 이 계정은 Active Directory 도메인 사용자가 아닙니다. 이 계정은 정책을 설정하고 다른 사용자를 관리자 또는 위임된 관리자로 만드는 데(해당 사용자가 정책을 관리할 수 있도록) 사용할 수 있습니다. 기본적으로 사용자 이름은 *admin*이고 암호는 Ambari 관리자 암호와 동일합니다. 암호는 Ranger의 설정 페이지에서 업데이트할 수 있습니다.
+* **Ranger 관리자**: 이 계정은 로컬 Apache Ranger 관리자 계정입니다. 이 계정은 Active Directory 도메인 사용자가 아닙니다. 이 계정은 정책을 설정하고 다른 사용자를 관리자 또는 위임된 관리자로 만드는 데(해당 사용자가 정책을 관리할 수 있도록) 사용할 수 있습니다. 기본적으로 사용자 이름은 *admin*이고 암호는 Ambari 관리자 암호와 동일합니다. 암호는 Ranger의 설정 페이지에서 업데이트할 수 있습니다.
 * **클러스터 관리 도메인 사용자**: 이 계정은 Ambari 및 Ranger를 포함하여 Hadoop 클러스터 관리자로 지정된 Active Directory 도메인 사용자입니다. 클러스터를 만드는 동안 이 사용자의 자격 증명을 입력해야 합니다. 이 사용자는 다음과 같은 권한을 갖고 있습니다.
 
   * 컴퓨터를 도메인에 가입하고 클러스터를 만드는 동안 지정하는 OU 내에 배치합니다.

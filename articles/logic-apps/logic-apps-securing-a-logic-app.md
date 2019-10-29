@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: f9b23e00c954e8babb1fe920bca1aa2ea5f9298e
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b219eb50254ecd347f731d332c3236be028834ba
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799482"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73045075"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -266,11 +266,11 @@ SAS (공유 액세스 서명)와 함께 논리 앱을 호출할 수 있는 클�
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-   ![샘플 논리 앱 열기](./media/logic-apps-securing-a-logic-app/sample-logic-app.png)
+   ![논리 앱 디자이너에서 논리 앱 열기](./media/logic-apps-securing-a-logic-app/open-sample-logic-app-in-designer.png)
 
 1. 데이터를 보호 하려는 트리거 또는 작업에서 줄임표 ( **...** ) 단추를 선택한 다음 **설정**을 선택 합니다.
 
-   !["설정" 열기](./media/logic-apps-securing-a-logic-app/open-settings.png)
+   ![트리거 또는 작업 설정 열기](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
 1. **보안 입력**, **보안 출력**또는 둘 다를 설정 합니다. 완료되면 **완료**를 선택합니다.
 
@@ -278,11 +278,11 @@ SAS (공유 액세스 서명)와 함께 논리 앱을 호출할 수 있는 클�
 
    이제 작업 또는 트리거가 제목 표시줄에 잠금 아이콘을 표시 합니다.
 
-   ![제목 표시줄의 잠금 아이콘](./media/logic-apps-securing-a-logic-app/title-bar-lock-icon.png)
+   ![작업 또는 트리거 제목 표시줄에 잠금 아이콘이 표시 됩니다.](./media/logic-apps-securing-a-logic-app/lock-icon-action-trigger-title-bar.png)
 
    이전 작업의 보안 출력을 나타내는 토큰에도 잠금 아이콘이 표시 됩니다. 예를 들어 동적 콘텐츠 목록에서 작업에 사용할 출력을 선택 하면 해당 토큰에 잠금 아이콘이 표시 됩니다.
 
-   ![출력 선택](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
+   ![보안 된 출력에 대 한 토큰 선택](./media/logic-apps-securing-a-logic-app/select-secured-token.png)
 
 1. 논리 앱을 실행 한 후에는 해당 실행에 대 한 기록을 볼 수 있습니다.
 
@@ -292,7 +292,7 @@ SAS (공유 액세스 서명)와 함께 논리 앱을 호출할 수 있는 클�
 
       입력과 출력을 모두 보호 하도록 선택한 경우에는 이제 해당 값이 숨김 상태로 표시 됩니다.
 
-      ![실행 기록의 숨겨진 데이터](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
+      ![실행 기록의 숨겨진 입력 및 출력](./media/logic-apps-securing-a-logic-app/hidden-data-run-history.png)
 
 <a name="secure-data-code-view"></a>
 
@@ -349,7 +349,7 @@ SAS (공유 액세스 서명)와 함께 논리 앱을 호출할 수 있는 클�
 
   트리거 또는 작업에서 **보안 입력** 을 수동으로 설정 하는 경우 Logic Apps 실행 기록에서 이러한 입력을 보호 합니다. 다운스트림 작업에서 해당 트리거나 작업에서 표시 되는 출력을 입력으로 명시적으로 사용 하는 경우 실행 기록에서이 다운스트림 작업의 입력을 숨길 Logic Apps 있지만이 작업에서 **보안 입력** 을 *사용 하도록 설정 하지* 않고이 작업의 출력.
 
-  ![대부분의 동작에 대 한 보안 입력 및 다운스트림 영향](./media/logic-apps-securing-a-logic-app/secure-inputs-flow.png)
+  ![대부분의 동작에 대 한 보안 입력 및 다운스트림 영향](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
   작성, 구문 분석 JSON 및 응답 작업에서 보안 된 입력을 포함 하는 트리거 또는 작업의 표시 되는 출력을 명시적으로 사용 하는 경우 이러한 작업의 입력 및 출력을 숨길 Logic Apps 이러한 작업의 **보안 입력** 을 *사용 하지 않습니다* . 설정. 다운스트림 작업에서 작성, 구문 분석 JSON 또는 응답 작업의 숨겨진 출력을 입력으로 명시적으로 사용 하는 경우 *이 다운스트림 작업의 입력 또는 출력을 숨기지*Logic Apps.
 

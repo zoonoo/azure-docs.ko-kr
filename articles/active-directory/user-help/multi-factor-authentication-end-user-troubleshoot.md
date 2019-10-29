@@ -9,27 +9,27 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/28/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 178ce07db24976d7df590d353603da67b68122e8
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: bb510755e7cc163af8ff0cb2c8699e1d2dd04d7f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616112"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043216"
 ---
 # <a name="troubleshoot-common-two-factor-verification-problems"></a>일반적인 2 단계 인증 문제 해결
 
-조직에서 2 단계 인증을 켜면 회사 또는 학교 계정 로그인에 사용자 이름, 암호 및 모바일 장치 또는 휴대폰의 조합이 필요 합니다. 사용자가 알고 있는 것과 사용자가 알고 있는 것과 같은 두 가지 형태의 인증을 사용 하 여 암호 보다 더 안전 하기 때문에 조직에서이 추가 확인을 설정 했습니다. 2 단계 인증을 통해 사용자가 암호를가지고 있는 경우에도 사용자가 장치를 갖지 않는 경우를 제외 하 고 악의적인 해커가 가장 하는 것을 방지할 수 있습니다.
+조직에서 2 단계 인증을 켜면 회사 또는 학교 계정 로그인에 사용자 이름, 암호 및 모바일 장치 또는 휴대폰의 조합이 필요 합니다. 암호 자체보다 더 안전하므로 조직에서 이 추가 확인을 설정했습니다. 이에 따라 두 가지 인증 형식, 즉 사용자가 알고 있는 인증 형식과 사용자 전용의 인증 형식을 사용합니다. 2단계 인증은 악의적인 해커가 사용자를 가장하지 못하게 차단하는 효과가 있습니다. 해커가 사용자의 암호를 알아내더라도 사용자의 디바이스까지 손에 넣을 가능성은 별로 높지 않기 때문입니다.
 
 어떤 경우에는 보다 자주 발생 하는 것 처럼 보이는 몇 가지 일반적인 2 단계 확인 문제가 있습니다. 이 문서를 통합 하 여 가장 일반적인 문제 및 가능한 해결 방법에 대해 설명 했습니다.
 
 >[!Important]
 >이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
 >
->또한이 콘텐츠는 회사 또는 학교 계정 (예: alain@contoso.com)에서 사용자에 게 제공 하는 계정인 용도로만 사용 됩니다. 2 단계 인증 및 개인 Microsoft 계정에 문제가 있는 경우 직접 설정 하는 계정 (예: danielle@outlook.com)은 [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
+>이 콘텐츠는 회사 또는 학교 계정, 조직에서 귀하에게 제공한 계정(예: alain@contoso.com)에만 사용할 수 있습니다. 2단계 인증과 개인 Microsoft 계정, 직접 설정한 계정(예: danielle@outlook.com)에 문제가 있으면 [Microsoft 계정에 대한 2단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조하세요.
 
 ## <a name="i-forgot-my-mobile-device-at-home"></a>집에서 모바일 장치를 잊은 경우
 
@@ -64,6 +64,8 @@ ms.locfileid: "69616112"
 
 - **방해 금지를 해제 합니다.** 모바일 장치에 대 한 **방해** 금지 기능을 설정 하지 않았는지 확인 합니다. 이 기능을 켜면 알림이 모바일 장치에서 경고 하도록 허용 되지 않습니다. 이 기능을 해제 하는 방법에 대 한 지침은 모바일 장치의 설명서를 참조 하세요.
 
+- **전화 번호 차단 해제** 미국에서 Microsoft의 음성 통화는 + 1 (866) 539 4191, + 1 (855) 330 8653 및 + 1 (877) 668 6536 번호에서 제공 됩니다.
+
 - **배터리 관련 설정을 확인 하세요.** 이는 화면에서 약간 이상한 것 처럼 보이지만, 백그라운드에서 사용 되는 사용 되지 않는 응용 프로그램을 중지 하도록 배터리 최적화를 설정한 경우 알림 시스템에 영향을 줄 가능성이 높습니다. 이 문제를 해결 하려면 인증 앱 및 메시징 앱에 대 한 배터리 최적화를 해제 한 다음 계정에 다시 로그인 해 보세요.
 
 ## <a name="im-not-getting-prompted-for-my-second-verification-information"></a>두 번째 확인 정보를 입력 하 라는 메시지가 표시 되지 않습니다.
@@ -96,7 +98,7 @@ ms.locfileid: "69616112"
 
 ## <a name="why-cant-i-turn-two-factor-verification-off"></a>2 단계 인증을 해제할 수 없는 이유는 무엇입니까?
 
-회사 또는 학교 계정 (예: alain@contoso.com)을 사용 하 여 2 단계 인증을 사용 하는 경우이 추가 된 보안 기능을 사용 해야 하는 경우가 많습니다. 조직에서이 기능을 사용 해야 한다고 결정 했기 때문에 개별적으로 해제할 수 있는 방법은 없습니다. 그러나와 같이 alain@outlook.com개인 계정으로 2 단계 인증을 사용 하는 경우 기능을 켜고 끌 수 있습니다. 개인 Microsoft 계정에 대 한 2 단계 인증을 제어 하는 방법에 대 한 지침은 [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
+회사 또는 학교 계정 (예: alain@contoso.com)에서 2 단계 인증을 사용 하는 경우이 추가 된 보안 기능을 사용 해야 하는 경우가 많습니다. 조직에서 이 기능을 사용해야 한다고 결정했으므로 개별적으로 해제할 수 있는 방법이 없습니다. 그러나 alain@outlook.com와 같은 개인 계정으로 2 단계 인증을 사용 하는 경우 기능을 켜고 끌 수 있습니다. 개인 Microsoft 계정에 대 한 2 단계 인증을 제어 하는 방법에 대 한 지침은 [Microsoft 계정에 대해 2 단계 인증 설정 또는 해제](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off)를 참조 하세요.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>문제에 대한 답변을 찾을 수 없는 경우
 
@@ -104,7 +106,7 @@ ms.locfileid: "69616112"
 
 ## <a name="related-articles"></a>관련 문서
 
-- [2 단계 인증 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
+- [2단계 확인 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
 
 - [2 단계 인증을 위한 계정 설정](multi-factor-authentication-end-user-first-time.md)
 

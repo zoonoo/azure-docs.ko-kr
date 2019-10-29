@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/23/2019
 ms.author: iainfou
-ms.openlocfilehash: 81d20a973454db600d8be9ce036f001dd41784e7
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 325b9e8edc997e41e48e11b3ee752bc38d7dc4a1
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71314999"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73024017"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Azure AD Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -62,7 +62,7 @@ Azure AD DS 관리 되는 도메인은 Azure virtual network의 서브넷에 연
 * 가상 네트워크 피어링
 * VPN (가상 사설망)
 
-### <a name="virtual-network-peering"></a>가상 네트워크 피어링
+### <a name="virtual-network-peering"></a>Virtual Network 피어 링
 
 가상 네트워크 피어링은 Azure 백본 네트워크를 통해 동일한 지역에 있는 두 개의 가상 네트워크를 연결하는 메커니즘입니다. 글로벌 가상 네트워크 피어 링은 Azure 지역에서 가상 네트워크를 연결할 수 있습니다. 피어 링 두 개의 가상 네트워크를 사용 하면 Vm과 같은 리소스가 개인 IP 주소를 사용 하 여 서로 직접 통신할 수 있습니다. 가상 네트워크 피어 링을 사용 하면 다른 가상 네트워크에 배포 된 응용 프로그램 워크 로드를 사용 하 여 Azure AD DS 관리 되는 도메인을 배포할 수 있습니다.
 
@@ -91,8 +91,8 @@ Azure AD DS 관리 되는 도메인은 배포 중에 일부 네트워킹 리소�
 | Azure 리소스                          | 설명 |
 |:----------------------------------------|:---|
 | 네트워크 인터페이스 카드                  | Azure AD DS는 Windows Server에서 실행 되는 두 개의 Dc (도메인 컨트롤러)에서 관리 되는 도메인을 Azure Vm으로 호스팅합니다. 각 VM에는 가상 네트워크 서브넷에 연결 하는 가상 네트워크 인터페이스가 있습니다. |
-| 동적 기본 공용 IP 주소         | Azure AD DS는 기본 SKU 공용 IP 주소를 사용 하 여 동기화 및 관리 서비스와 통신 합니다. 공용 IP 주소에 대 한 자세한 내용은 [Azure의 ip 주소 유형 및 할당 방법](../virtual-network/virtual-network-ip-addresses-overview-arm.md)을 참조 하세요. |
-| Azure 기본 부하 분산 장치               | Azure AD DS는 NAT (네트워크 주소 변환) 및 부하 분산에 대 한 기본 SKU 부하 분산 장치 (보안 LDAP와 함께 사용 되는 경우)를 사용 합니다. Azure 부하 분산 장치에 대 한 자세한 내용은 [Azure Load Balancer?](../load-balancer/load-balancer-overview.md) 을 참조 하세요. |
+| 동적 표준 공용 IP 주소         | Azure AD DS는 표준 SKU 공용 IP 주소를 사용 하 여 동기화 및 관리 서비스와 통신 합니다. 공용 IP 주소에 대 한 자세한 내용은 [Azure의 ip 주소 유형 및 할당 방법](../virtual-network/virtual-network-ip-addresses-overview-arm.md)을 참조 하세요. |
+| Azure 표준 부하 분산 장치               | Azure AD DS는 NAT (네트워크 주소 변환) 및 부하 분산을 위해 표준 SKU 부하 분산 장치를 사용 합니다 (보안 LDAP와 함께 사용 하는 경우). Azure 부하 분산 장치에 대 한 자세한 내용은 [Azure Load Balancer?](../load-balancer/load-balancer-overview.md) 을 참조 하세요. |
 | NAT (Network address translation) 규칙 | Azure AD DS는 부하 분산 장치에 대 한 세 가지 NAT 규칙을 만들고 사용 합니다 .이 규칙은 보안 HTTP 트래픽에 대 한 규칙 하나, 보안 PowerShell 원격을 위한 두 가지 규칙입니다. |
 | 부하 분산 장치 규칙                     | Azure AD DS 관리 되는 도메인이 TCP 포트 636에서 보안 LDAP를 사용 하도록 구성 된 경우 부하 분산 장치에서 트래픽을 분산 하는 세 가지 규칙이 만들어지고 사용 됩니다. |
 
@@ -105,12 +105,12 @@ Azure AD DS 관리 되는 도메인은 배포 중에 일부 네트워킹 리소�
 
 다음 네트워크 보안 그룹 규칙은 Azure AD DS에서 인증 및 관리 서비스를 제공 하는 데 필요 합니다. Azure AD DS 관리 되는 도메인이 배포 되는 가상 네트워크 서브넷에 대해 이러한 네트워크 보안 그룹 규칙을 편집 하거나 삭제 하지 마세요.
 
-| 포트 번호 | Protocol | 원본                             | Destination | 작업 | 필요한 공간 | 용도 |
+| 포트 번호 | 프로토콜 | 원본                             | 대상 | 실행력 | 필수 | 용도 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | 임의의 값         | Allow  | 예      | Azure AD 테 넌 트와 동기화. |
-| 3389        | TCP      | CorpNetSaw                         | 임의의 값         | Allow  | 예      | 도메인 관리. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | 임의의 값         | Allow  | 예      | 도메인 관리. |
-| 636         | TCP      | 임의의 값                                | 임의의 값         | Allow  | 아니요       | 보안 LDAP (LDAPS)를 구성 하는 경우에만 사용할 수 있습니다. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | 모두         | 허용  | yes      | Azure AD 테 넌 트와 동기화. |
+| 3389        | TCP      | CorpNetSaw                         | 모두         | 허용  | yes      | 도메인 관리. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | 허용  | yes      | 도메인 관리. |
+| 636         | TCP      | 모두                                | 모두         | 허용  | 아닙니다.       | 보안 LDAP (LDAPS)를 구성 하는 경우에만 사용할 수 있습니다. |
 
 > [!WARNING]
 > 이러한 네트워크 리소스 및 구성은 수동으로 편집 하지 마세요. 잘못 구성 된 네트워크 보안 그룹 또는 사용자 정의 경로 테이블을 Azure AD DS이 배포 된 서브넷과 연결 하면 Microsoft에서 도메인을 서비스 하 고 관리 하는 기능을 방해할 수 있습니다. Azure AD 테 넌 트와 Azure AD DS 관리 되는 도메인 간의 동기화도 중단 됩니다.
@@ -142,7 +142,7 @@ Azure AD DS 관리 되는 도메인은 배포 중에 일부 네트워킹 리소�
 * Azure AD DS 관리 되는 도메인에서 PowerShell 원격을 사용 하 여 관리 작업을 수행 하는 데 사용 됩니다.
 * 이 포트에 대 한 액세스 권한이 없으면 Azure AD DS 관리 되는 도메인을 업데이트, 구성, 백업 또는 모니터링할 수 없습니다.
 * 리소스 관리자 기반 가상 네트워크를 사용 하는 Azure AD DS 관리 되는 도메인의 경우이 포트에 대 한 인바운드 액세스를 *AzureActiveDirectoryDomainServices* service 태그로 제한할 수 있습니다.
-    * 클래식 기반 가상 네트워크를 사용 하는 레거시 Azure AD DS 관리 되는 도메인의 경우이 포트에 대 한 인바운드 액세스를 다음 원본 IP 주소로 제한할 수 있습니다. *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*및 *104.40.87.209*가 있습니다.
+    * 클래식 기반 가상 네트워크를 사용 하는 레거시 Azure AD DS 관리 되는 도메인의 경우이 포트에 대 한 인바운드 액세스를 다음 원본 IP 주소로 제한할 수 있습니다. *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223* , *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*및 *104.40.87.209*입니다.
 
 ## <a name="user-defined-routes"></a>사용자 정의 경로
 

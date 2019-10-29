@@ -1,20 +1,20 @@
 ---
-title: Ambari 및 Azure Monitor 로그를 사용 하 여 클러스터 가용성을 모니터링 하는 방법
+title: '모니터링: Apache Ambari & Azure Monitor logs-Azure HDInsight'
 description: Ambari 및 Azure Monitor 로그를 사용 하 여 클러스터 상태 및 가용성을 모니터링 하는 방법에 대해 알아봅니다.
 keywords: 모니터링, ambari, 모니터, log analytics, 경고, 가용성, 상태
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-author: tylerfox
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: tyfox
-ms.openlocfilehash: 153c28dc8a06968dc9dd3cfda021496672a094d5
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: eeaef8851035bbb8d2f39bcf9f366118545fcf0f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076545"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044474"
 ---
 # <a name="how-to-monitor-cluster-availability-with-ambari-and-azure-monitor-logs"></a>Ambari 및 Azure Monitor 로그를 사용 하 여 클러스터 가용성을 모니터링 하는 방법
 
@@ -58,7 +58,7 @@ HDInsight 클러스터에는 상태 정보를 한눈에 볼 수 있는 Apache Am
 
 Ambari는 다음을 포함 하 여 가용성과 관련 된 미리 정의 된 많은 경고를 제공 합니다.
 
-| 경고 이름                        | Description                                                                                                                                                                           |
+| 경고 이름                        | 설명                                                                                                                                                                           |
 |-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | DataNode 상태 요약           | 비정상 DataNodes 있는 경우이 서비스 수준 경고가 트리거됩니다.                                                                                                                |
 | NameNode 고가용성 상태 | 활성 NameNode 또는 Standby NameNode가 실행 되 고 있지 않으면이 서비스 수준 경고가 트리거됩니다.                                                                              |
@@ -77,13 +77,13 @@ Ambari는 다음을 포함 하 여 가용성과 관련 된 미리 정의 된 많
 
 이 예에서는 두 비정상 DataNodes 트리거를 중요 한 경고로 설정 하 고, 1 비정상 DataNode 경고를 트리거할 수 있습니다. 편집이 완료 되 면 **저장** 을 클릭 합니다.
 
-### <a name="email-notifications"></a>메일 알림
+### <a name="email-notifications"></a>전자 메일 알림
 
 필요에 따라 Ambari 경고에 대 한 전자 메일 알림을 구성할 수도 있습니다. 이렇게 하려면 **경고** 탭에서 왼쪽 위에 있는 **작업** 단추를 클릭 한 다음 **알림 관리** 를 클릭 합니다.
 
 ![Ambari 알림 관리 작업](media/hdinsight-cluster-availability/ambari-manage-notifications.png)
 
-경고 알림을 관리 하는 대화 상자가 열립니다. 대화 상자 **+** 아래쪽의를 클릭 하 고 필수 필드를 입력 하 여 전자 메일을 보낼 전자 메일 서버 세부 정보를 Ambari에 제공 합니다.
+경고 알림을 관리 하는 대화 상자가 열립니다. 대화 상자의 맨 아래에 있는 **+** 를 클릭 하 고 필수 필드를 입력 하 여 전자 메일을 보낼 전자 메일 서버 세부 정보를 Ambari에 제공 합니다.
 
 > [!TIP]
 > Ambari 전자 메일 알림을 설정 하는 것은 많은 HDInsight 클러스터를 관리할 때 한 곳에서 경고를 수신 하는 좋은 방법일 수 있습니다.
@@ -92,7 +92,7 @@ Ambari는 다음을 포함 하 여 가용성과 관련 된 미리 정의 된 많
 
 Azure Monitor 로그를 사용 하면 HDInsight 클러스터와 같은 여러 리소스에 의해 생성 된 데이터를 한 곳에서 수집 하 고 집계 하 여 통합 모니터링 환경을 구현할 수 있습니다.
 
-필수 구성 요소로, 수집 된 데이터를 저장 하려면 Log Analytics 작업 영역이 필요 합니다. 아직 만들지 않은 경우 다음 지침을 따를 수 있습니다. [Log Analytics 작업 영역을 만듭니다](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+필수 구성 요소로, 수집 된 데이터를 저장 하려면 Log Analytics 작업 영역이 필요 합니다. 아직 만들지 않은 경우 다음 지침 [에 따라 Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)를 수행할 수 있습니다.
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>HDInsight Azure Monitor 로그 통합 사용
 
@@ -108,7 +108,7 @@ Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 �
 
 **로그** 블레이드는 다음과 같은 다양 한 샘플 쿼리를 나열 합니다.
 
-| 쿼리 이름                      | Description                                                               |
+| 쿼리 이름                      | 설명                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | 현재 사용 가능한 컴퓨터    | 매 시간 마다 로그를 전송 하는 컴퓨터 수를 차트로 표시 합니다.                     |
 | 하트 비트 나열                 | 지난 1 시간 동안 모든 컴퓨터 하트 비트 나열                           |
@@ -123,7 +123,7 @@ Azure Monitor 로그 통합이 사용 하도록 설정 되 면 (몇 분 정도 �
 > [!NOTE] 
 > 가용성 속도는 24 시간 동안 측정 되므로 정확한 가용성 요금은 표시 되기까지 최소 24 시간 동안 클러스터를 실행 해야 합니다.
 
-오른쪽 위 모서리에서 **고정** 을 클릭 하 여이 테이블을 공유 대시보드에 고정할 수 있습니다. 쓰기 가능한 공유 대시보드가 없으면 여기에서 새로 만드는 방법을 확인할 수 있습니다. [Azure Portal에서 대시보드를 만들고 공유](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard)합니다.
+오른쪽 위 모서리에서 **고정** 을 클릭 하 여이 테이블을 공유 대시보드에 고정할 수 있습니다. 쓰기 가능한 공유 대시보드가 없으면 [Azure Portal에서 대시보드를 만들고 공유](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards#publish-and-share-a-dashboard)하는 방법을 확인할 수 있습니다.
 
 ### <a name="azure-monitor-alerts"></a>Azure Monitor 경고
 

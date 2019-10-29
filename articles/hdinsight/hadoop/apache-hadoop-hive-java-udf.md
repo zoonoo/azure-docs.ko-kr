@@ -1,5 +1,5 @@
 ---
-title: HDInsight에서 Apache Hive와 함께 사용할 Java UDF(사용자 정의 함수) 만들기 - Azure
+title: Apache Hive Azure HDInsight를 사용 하는 Java UDF (사용자 정의 함수)
 description: Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제 UDF는 텍스트 문자열 테이블을 소문자로 변환합니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,23 +8,23 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 43208636fb275c38573f820ef8245d7652b4aa86
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 5690f2cc5bc85d7bcdbf1d05930a05bcc2e764c0
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181173"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044790"
 ---
 # <a name="use-a-java-udf-with-apache-hive-in-hdinsight"></a>HDInsight에서 Apache Hive와 함께 Java UDF 사용
 
 Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제의 Java UDF는 텍스트 문자열 테이블을 모두 소문자로 변환합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * [JDK(Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html) [Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
-* 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://에 대 한 Azure Storage, abfs://에 대 한 wasb://입니다. Azure Storage에 대해 보안 전송이 사용 되는 경우 URI `wasbs://`는입니다.  또한 [보안 전송](../../storage/common/storage-require-secure-transfer.md)을 참조 하세요.
+* 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://에 대 한 Azure Storage, abfs://에 대 한 wasb://입니다. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다.  [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 * 텍스트 편집기 또는 Java IDE
 
@@ -49,16 +49,16 @@ cd C:\HDI
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    이 명령은 Maven 프로젝트를 포함 `exampleudf`하는 라는 디렉터리를 만듭니다.
+    이 명령은 Maven 프로젝트를 포함 하는 `exampleudf`라는 디렉터리를 만듭니다.
 
-2. 프로젝트를 만든 후에는 다음 명령을 입력 `exampleudf/src/test` 하 여 프로젝트의 일부로 만든 디렉터리를 삭제 합니다.
+2. 프로젝트를 만든 후에는 다음 명령을 입력 하 여 프로젝트의 일부로 만든 `exampleudf/src/test` 디렉터리를 삭제 합니다.
 
     ```cmd
     cd ExampleUDF
     rmdir /S /Q "src/test"
     ```
 
-3. 아래 `pom.xml` 명령을 입력 하 여를 엽니다.
+3. 아래 명령을 입력 하 여 `pom.xml`를 엽니다.
 
     ```cmd
     notepad pom.xml
@@ -143,7 +143,7 @@ cd C:\HDI
 
     변경이 완료되면 파일을 저장합니다.
 
-4. 다음 명령을 입력 하 여 새 파일 `ExampleUDF.java`을 만들고 엽니다.
+4. 다음 명령을 입력 하 `ExampleUDF.java`새 파일을 만들고 엽니다.
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
@@ -180,7 +180,7 @@ cd C:\HDI
 
 ## <a name="build-and-install-the-udf"></a>UDF 빌드 및 설치
 
-아래 명령에서를 실제 사용자 `sshuser` 이름 (다른 경우)으로 바꿉니다. 실제 `mycluster` 클러스터 이름으로 대체 합니다.
+아래 명령에서 `sshuser`를 실제 사용자 이름 (다른 경우)으로 바꿉니다. `mycluster`를 실제 클러스터 이름으로 바꿉니다.
 
 1. 다음 명령을 입력 하 여 UDF를 컴파일하고 패키지 합니다.
 

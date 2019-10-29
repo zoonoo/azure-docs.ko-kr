@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0dd0b8cf39da8039b3a59bf243284e0d5062bd78
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 5edf4a4f53e6b4255970f86dd942795ad2e4cbe2
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965590"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025406"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -150,6 +150,12 @@ Azure Databricks 클러스터에서 데이터를 읽을 때 `FailToSendFeather` 
 * `azure-dataprep` 버전 1.1.8 이상을 추가 합니다.
 * `pyarrow` 버전 0.11 이상을 추가 합니다.
 
+## <a name="datasets"></a>데이터 세트
+
+Azure Machine Learning 데이터 집합에 대 한 알려진 문제입니다.
+
++ **Azure Data Lake Storage Gen2 parquet 파일을 읽지 못했습니다.** `azureml-dataprep==1.1.25` 설치 되어 있으면 Azure Data Lake Storage Gen2 데이터 저장소에서 parquet 파일 읽기가 작동 하지 않습니다. `Cannot seek once reading started.`는 실패 합니다. 이 오류가 표시 되 면 `azureml-dataprep<=1.1.24` 설치 하거나 `azureml-dataprep>=1.1.26`를 설치 합니다.
+
 ## <a name="azure-portal"></a>Azure Portal
 
 SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인하려는 경우 확장에서 구독 정보가 포함된 일반 개요 페이지를 확인할 수 없습니다. 다른 작업 영역으로 전환할 수 없습니다. 다른 작업 영역을 확인해야 하는 경우 해결 방법은 [Azure Portal](https://portal.azure.com)로 직접 이동하여 작업 영역 이름을 검색하는 것입니다.
@@ -242,12 +248,12 @@ kubectl get secret/azuremlfessl -o yaml
 ### <a name="moduleerrors-no-module-named"></a>ModuleErrors (이름이 지정 된 모듈 없음)
 Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경우 학습 스크립트는 패키지를 설치 하는 것으로 예상 하지만 추가 되지 않았음을 의미 합니다. 패키지 이름을 제공 하면 Azure ML은 교육에 사용 되는 환경에 패키지를 설치 합니다. 
 
-[추정](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) 를 사용 하 여 실험을 제출 하는 경우 패키지를 설치 하려는 원본에서 기반으로 평가기의 `conda_packages` 매개 변수를 사용 하 여 패키지 `pip_packages` 이름을 지정할 수 있습니다. `conda_dependencies_file`를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 하거나 `pip_requirements_file` 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다.
+[추정](concept-azure-machine-learning-architecture.md#estimators) 를 사용 하 여 실험을 제출 하는 경우 패키지를 설치 하려는 원본에서 기반으로 평가기의 `conda_packages` 매개 변수를 사용 하 여 패키지 `pip_packages` 이름을 지정할 수 있습니다. `conda_dependencies_file`를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 하거나 `pip_requirements_file` 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다.
 
 또한 Azure ML은 Tensorflow, PyTorch, 체 이너 및 추정에 대 한 프레임 워크 관련 제공 합니다. 이러한 추정을 사용 하면 학습에 사용 되는 환경에서 프레임 워크 종속성을 대신 설치할 수 있습니다. 위에서 설명한 대로 추가 종속성을 지정 하는 옵션이 있습니다. 
  
  Azure ML에서 관리 하는 docker 이미지와 해당 콘텐츠는 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 볼 수 있습니다.
-프레임 워크 관련 종속성은 해당 프레임 워크 설명서- [체](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), 고 지 사항 [배우기](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks)에 나열 되어 있습니다.
+프레임 워크 관련 종속성은 해당 프레임 워크 설명서- [체](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), 고 지 사항 [배우기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks)에 나열 되어 있습니다.
 
 >[참고!] 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
  

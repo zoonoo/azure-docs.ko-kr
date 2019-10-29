@@ -1,5 +1,5 @@
 ---
-title: HDInsight에서 Azure Active Directory으로 Enterprise Security Package
+title: Azure AD를 사용 하는 엔터프라이즈 보안-Azure HDInsight
 description: Azure Active Directory Domain Services를 사용하여 HDInsight Enterprise Security Package 클러스터를 설정 및 구성하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 10/02/2019
-ms.openlocfilehash: 448b2674aa6021107d138bc0d91f1bda399eb4a6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d31de590d8dc40ff3d5c1dfab060ee4f045ba4d1
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755894"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044657"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>HDInsight에서 Azure Active Directory Domain Services를 사용 하 여 Enterprise Security Package 구성
 

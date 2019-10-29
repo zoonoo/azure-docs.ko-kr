@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.openlocfilehash: 0a1051d67bf45e96f82833ef8190008204cdc90b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
+ms.lasthandoff: 10/29/2019
 ms.locfileid: "72387548"
 ---
 # <a name="mapping-data-flow-parameters"></a>데이터 흐름 매개 변수 매핑
@@ -50,7 +50,7 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 
 ![데이터 흐름 매개 변수 설정](media/data-flow/parameter-assign.png "데이터 흐름 매개 변수 설정")
 
-매개 변수 데이터 형식이 문자열인 경우 입력란을 클릭 하 여 매개 변수 값을 설정 하면 파이프라인 또는 데이터 흐름 식을 입력 하도록 선택할 수 있습니다. 파이프라인 식을 선택 하는 경우 파이프라인 식 패널이 표시 됩니다. @No__t-0을 사용 하 여 문자열 보간 구문 내에 파이프라인 함수를 포함 해야 합니다. 예를 들면 다음과 같습니다.
+매개 변수 데이터 형식이 문자열인 경우 입력란을 클릭 하 여 매개 변수 값을 설정 하면 파이프라인 또는 데이터 흐름 식을 입력 하도록 선택할 수 있습니다. 파이프라인 식을 선택 하는 경우 파이프라인 식 패널이 표시 됩니다. `'@{<expression>}'`를 사용 하 여 문자열 보간 구문 내에 파이프라인 함수를 포함 해야 합니다. 예를 들면 다음과 같습니다.
 
 ```'@{pipeline().RunId}'```
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: evansma
-ms.openlocfilehash: 9cded164b63bbb72e4a353e9a542c9e054c14d93
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b1ec40485e775b7e50b5f7d82014aef77f14fb3e
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821150"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73025283"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>SaaS 처리 Api, 버전 2 
 
@@ -87,7 +87,7 @@ Azure SaaS는 SaaS 구독 구매의 전체 수명 주기를 관리 합니다. �
 | `offerId`                | 각 제품에 대 한 고유 문자열 식별자입니다 (예: "offer1").  |
 | `planId`                 | 각 계획/SKU에 대 한 고유 문자열 식별자입니다 (예: "은색"). |
 | `operationId`            | 특정 작업에 대 한 GUID 식별자입니다.  |
-|  `action`                | 리소스에서 수행 되는 작업 (`unsubscribe`, `suspend`, `reinstate` 또는 `changePlan`, `changeQuantity`, `transfer`입니다.  |
+|  `action`                | 리소스에서 수행 되는 작업 (`Unsubscribe`, `Suspend`, `Reinstate`또는 `ChangePlan`, `ChangeQuantity`, `Transfer`입니다. |
 |   |   |
 
 [Guid](https://en.wikipedia.org/wiki/Universally_unique_identifier)(Globally unique identifier)는 일반적으로 자동으로 생성 되는 128 비트 (32-16 진수) 번호입니다. 
@@ -707,7 +707,7 @@ Request Body:
 
 #### <a name="get-operation-status"></a>작업 상태 가져오기
 
-게시자가 지정 된 트리거된 비동기 작업 (예: `subscribe`, `unsubscribe`, `changePlan` 또는 `changeQuantity`)의 상태를 추적할 수 있도록 합니다.
+게시자가 지정 된 트리거된 비동기 작업 (예: `Subscribe`, `Unsubscribe`, `ChangePlan`또는 `ChangeQuantity`)의 상태를 추적할 수 있도록 합니다.
 
 ##### <a name="getbr-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>가져오기<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,11 +850,11 @@ Response body:
 }
 ```
 작업은 다음 중 하나일 수 있습니다. 
-- `unsubscribe` (리소스가 삭제 된 경우)
-- `changePlan` (변경 계획 작업이 완료 된 경우)
-- `changeQuantity` (수량 변경 작업이 완료 된 경우)
-- `suspend` (리소스가 일시 중단 된 경우)
-- `reinstate` (일시 중단 후 리소스가 복원 된 경우)
+- `Unsubscribe` (리소스가 삭제 된 경우)
+- `ChangePlan` (변경 계획 작업이 완료 된 경우)
+- `ChangeQuantity` (수량 변경 작업이 완료 된 경우)
+- `Suspend` (리소스가 일시 중단 된 경우)
+- `Reinstate` (일시 중단 후 리소스가 복원 된 경우)
 
 여기서 상태는 다음 중 하나일 수 있습니다. 
 - **NotStarted** <br>

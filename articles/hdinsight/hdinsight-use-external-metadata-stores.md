@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: a495935216cb91a282cc3dbabafbc96a531dde91
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a876269b2746a1065cee2639cfc5804aff0b3446
+ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800108"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73027695"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight에서 외부 메타데이터 저장소 사용
 
@@ -83,7 +83,7 @@ Azure Portal 또는 Ambari 구성(Hive > Advanced)에서 사용자 지정 metast
 
 * 기존 사용자 지정 metastore 데이터베이스용으로 최신 버전 Azure HDInsight를 새로 만들면 시스템은 metastore의 스키마를 업그레이드합니다. 이 경우 백업에서 데이터베이스를 복원하지 않으면 업그레이드를 취소할 수 없습니다.
 
-* 여러 클러스터 간에 metastore 하나를 공유하는 경우 모든 클러스터의 HDInsight 버전이 같은지 확인해야 합니다. 각 Hive 버전이 사용하는 metastore 데이터베이스 스키마는 서로 다릅니다. 예를 들어 Hive 1.2 및 Hive 2.1 버전이 지정 된 클러스터에서 metastore를 공유할 수 없습니다.
+* 여러 클러스터 간에 metastore 하나를 공유하는 경우 모든 클러스터의 HDInsight 버전이 같은지 확인해야 합니다. 각 Hive 버전이 사용하는 metastore 데이터베이스 스키마는 서로 다릅니다. 예를 들어 Hive 2.1 및 Hive 3.1 버전이 지정 된 클러스터에서 metastore를 공유할 수 없습니다.
 
 * HDInsight 4.0에서 Spark 및 Hive는 SparkSQL 또는 Hive 테이블에 액세스 하기 위해 독립적인 카탈로그를 사용 합니다. Spark에서 만든 테이블은 Spark 카탈로그에 상주 합니다. Hive에서 만든 테이블은 Hive 카탈로그에 있습니다. 이는 Hive 및 Spark 공유 공통 카탈로그가 있는 HDInsight 3.6와는 다릅니다. HDInsight 4.0의 hive 및 Spark 통합은 HWC (Hive 웨어하우스 커넥터)에 의존 합니다. HWC는 Spark와 Hive 간의 브리지로 작동 합니다. [Hive 웨어하우스 커넥터에 대해 알아봅니다](../hdinsight/interactive-query/apache-hive-warehouse-connector.md).
 

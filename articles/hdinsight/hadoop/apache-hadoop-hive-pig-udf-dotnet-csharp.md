@@ -1,5 +1,5 @@
 ---
-title: HDInsight의 Apache Hadoop에서 Apache Hive 및 Apache Pig와 함께 C# 사용 - Azure
+title: C#, Apache Hive & Apache Pig on Apache Hadoop-Azure HDInsight
 description: Azure HDInsight에서 Apache Hive 및 Apache Pig 스트림과 함께 C# UDF(사용자 정의 함수)를 사용하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: hrasheed
-ms.openlocfilehash: fa40f206447f631c78052bda085b26a56e481194
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 222b91b2efefa81186d32fee7229aa0cc4f13a63
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066913"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044600"
 ---
 # <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-on-apache-hadoop-in-hdinsight"></a>HDInsight C# 에서 Apache Hadoop의 Apache Hive 및 Apache Pig에서 사용자 정의 함수 사용
 
@@ -213,7 +213,7 @@ Hive 및 Pig 모두 외부 애플리케이션으로 데이터를 전달해 처�
 
 ## <a name="run-an-apache-pig-job"></a>Apache Pig 작업 실행
 
-1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. `ssh sshuser@mycluster-ssh.azurehdinsight.net` 을 입력합니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+1. SSH를 사용하여 HDInsight 클러스터에 연결합니다. 예: `ssh sshuser@mycluster-ssh.azurehdinsight.net` 자세한 내용은 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 2. Pig 명령줄을 시작하려면 다음 명령을 사용합니다.
 
