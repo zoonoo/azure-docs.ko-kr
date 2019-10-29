@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/19/2019
+ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e57a216efee39df0ad22712b281073a68600e0df
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389079"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990729"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 액세스 요청
 
@@ -58,12 +58,13 @@ Azure AD 자격 관리를 통해 액세스 패키지는 액세스 패키지의 �
 
 1. 목록에서 액세스 패키지를 찾습니다.  필요한 경우 검색 문자열을 입력 하 고 **이름**, **카탈로그**또는 **리소스** 필터를 선택 하 여 검색할 수 있습니다.
 
-    ![내 액세스 포털-리소스 검색](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
+    ![내 액세스 포털-리소스 검색](./media/entitlement-management-request-access/my-access-resource-search.png)
+
 1. 확인 표시를 클릭 하 여 액세스 패키지를 선택 합니다.
 
-    ![내 액세스 포털 - 액세스 패키지](./media/entitlement-management-shared/my-access-access-packages.png)
-
 1. **액세스 요청**을 클릭하여 액세스 요청 창을 엽니다.
+
+    ![내 액세스 포털 - 액세스 패키지](./media/entitlement-management-request-access/my-access-request-access-button.png)
 
 1. **비즈니스 근거** 상자가 표시 되 면 액세스를 필요로 하는 근거를 입력 합니다.
 
@@ -78,6 +79,12 @@ Azure AD 자격 관리를 통해 액세스 패키지는 액세스 패키지의 �
 1. 요청 **기록** 을 클릭 하 여 요청 목록과 상태를 표시 합니다.
 
     액세스 패키지에 승인이 필요한 경우 요청은 이제 보류 중인 승인 상태가 됩니다.
+
+### <a name="select-a-policy"></a>정책 선택
+
+여러 정책이 적용 되는 액세스 패키지에 대 한 액세스를 요청 하는 경우 정책을 선택 하 라는 메시지가 표시 될 수 있습니다. 예를 들어 액세스 패키지 관리자는 두 개의 내부 직원 그룹에 대해 두 개의 정책으로 액세스 패키지를 구성할 수 있습니다. 첫 번째 정책은 60 일에 대 한 액세스를 허용 하 고 승인을 받아야 할 수 있습니다. 두 번째 정책은 2 일간의 액세스를 허용할 수 있으며 승인이 필요 하지 않습니다. 이 시나리오가 발생 하는 경우 사용 하려는 정책을 선택 해야 합니다.
+
+![내 액세스 포털-액세스 요청-여러 정책](./media/entitlement-management-request-access/my-access-multiple-policies.png)
 
 ## <a name="cancel-a-request"></a>요청 취소
 
@@ -94,12 +101,6 @@ Azure AD 자격 관리를 통해 액세스 패키지는 액세스 패키지의 �
     ![내 액세스 포털-요청 취소](./media/entitlement-management-request-access/my-access-cancel-request.png)
 
 1. 요청 **기록** 을 클릭 하 여 요청이 취소 되었는지 확인 합니다.
-
-## <a name="select-a-policy"></a>정책 선택
-
-여러 정책이 적용 되는 액세스 패키지에 대 한 액세스를 요청 하는 경우 정책을 선택 하 라는 메시지가 표시 될 수 있습니다. 예를 들어 액세스 패키지 관리자는 두 개의 내부 직원 그룹에 대해 두 개의 정책으로 액세스 패키지를 구성할 수 있습니다. 첫 번째 정책은 60 일에 대 한 액세스를 허용 하 고 승인을 받아야 할 수 있습니다. 두 번째 정책은 2 일간의 액세스를 허용할 수 있으며 승인이 필요 하지 않습니다. 이 시나리오가 발생 하는 경우 사용 하려는 정책을 선택 해야 합니다.
-
-**필수 역할:** 요청
 
 ## <a name="next-steps"></a>다음 단계
 

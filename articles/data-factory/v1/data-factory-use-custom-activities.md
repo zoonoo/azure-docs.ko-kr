@@ -13,12 +13,12 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 robots: noindex
-ms.openlocfilehash: 2174e359f739cfdf3791c8ec64d1a95be2873555
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 698ca6736af86358de13f6deae8f1e2dba92f46e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930902"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990662"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Azure Data Factory 파이프라인에서 사용자 지정 작업 사용
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -556,7 +556,7 @@ adftutorial\customactivityoutput 폴더에 1개 이상의 줄(입력 폴더에�
    | 4 |2016-11-16T03:00:00 |2016-11-16-03.txt |
    | 5 |2016-11-16T04:00:00 |2016-11-16-04.txt |
 
-    입력 폴더에 있는 모든 파일은 위에 언급된 시작 시간의 조각 중 일부입니다. 이 조각을 처리할 때 사용자 지정 작업은 각 파일을 검색하고 검색 용어("Microsoft") 항목 수와 함께 출력 파일에 줄을 생성합니다. inputfolder에 세 개의 파일이 있는 경우 출력 파일에 각 시간별 조각에 해당하는 세 개의 줄이 생깁니다(예: 2016-11-16-00.txt, 2016-11-16:01:00:00.txt 등).
+    입력 폴더에 있는 모든 파일은 위에 언급된 시작 시간의 조각 중 일부입니다. 이 조각을 처리할 때 사용자 지정 작업은 각 파일을 검색하고 검색 용어("Microsoft") 항목 수와 함께 출력 파일에 줄을 생성합니다. 입력 폴더에 세 개의 파일이 있는 경우 각 시간별 조각에 대 한 출력 파일에는 3 개의 줄 (2016-11-16-00.txt), 2016-11-16:01:00:00 .txt 등)이 있습니다.
 3. **OutputDataset**을 배포하려면 명령 모음에서 **배포**를 클릭합니다.
 
 ### <a name="create-and-run-a-pipeline-that-uses-the-custom-activity"></a>사용자 지정 작업을 사용하는 파이프라인 만들기 및 실행

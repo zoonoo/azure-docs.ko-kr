@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 9271a659e18ab969e801fd8974b05984e11e783c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: a21b7f510b6da40d3ab2c72fcfbcb2a746b75db1
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309387"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990514"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Azure Logic Apps에서 데이터 작업 수행
 
@@ -33,7 +33,7 @@ ms.locfileid: "71309387"
 
 배열의 데이터를 사용할 수 있는 작업은 다음과 같습니다.
 
-| 작업 | 설명 |
+| 실행력 | 설명 |
 |--------|-------------|
 | [**CSV 테이블 만들기**](#create-csv-table-action) | 배열에서 CSV(쉼표로 구분된 값) 테이블을 만듭니다. |
 | [**HTML 테이블 만들기**](#create-html-table-action) | 배열에서 HTML 테이블을 만듭니다. |
@@ -46,21 +46,21 @@ ms.locfileid: "71309387"
 
 JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 작업은 다음과 같습니다.
 
-| 작업 | 설명 |
+| 실행력 | 설명 |
 |--------|-------------|
-| [**Compose**](#compose-action) | 다양한 데이터 형식이 있을 수 있는 여러 입력에서 메시지 또는 문자열을 만듭니다. 그런 다음, 동일한 입력을 반복적으로 입력하는 대신, 이 문자열을 단일 입력으로 사용할 수 있습니다. 예를 들어 다양한 입력에서 단일 JSON 메시지를 만들 수 있습니다. |
+| [**작성**](#compose-action) | 다양한 데이터 형식이 있을 수 있는 여러 입력에서 메시지 또는 문자열을 만듭니다. 그런 다음, 동일한 입력을 반복적으로 입력하는 대신, 이 문자열을 단일 입력으로 사용할 수 있습니다. 예를 들어 다양한 입력에서 단일 JSON 메시지를 만들 수 있습니다. |
 | [**JSON 구문 분석**](#parse-json-action) | JSON 콘텐츠의 속성에 대해 사용자에게 친숙한 데이터 토큰을 만들어 논리 앱에서 해당 속성을 더 쉽게 사용할 수 있습니다. |
 |||
 
 더 복잡한 JSON 변환을 만들려면 [Liquid 템플릿을 사용하여 고급 JSON 변환 수행](../logic-apps/logic-apps-enterprise-integration-liquid-transform.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 데이터 작업을 위한 작업이 필요한 논리 앱
 
-  논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작을 검토 하세요. 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
+  논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토 하세요.
 
 * 논리 앱의 첫 번째 단계인 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 
@@ -80,23 +80,23 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
 `{"age":35,"fullName":"Owens,Sophie"}`
 
-이 예제를 시도하려면 Logic Apps 디자이너를 사용하여 다음 단계를 수행합니다. 또는 코드 보기 편집기에서 작업 하는 것을 선호 하는 경우이 문서에서 **작성** 및 **초기화 변수** 작업 정의를 고유한 논리 앱의 기본 워크플로 정의로 복사할 수 있습니다. [데이터 작업 코드 예제-작성](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 
+이 예제를 시도하려면 Logic Apps 디자이너를 사용하여 다음 단계를 수행합니다. 또는 코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - 작성](../logic-apps/logic-apps-data-operations-code-samples.md#compose-action-example) 문서의 **작성** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
    이 예제에서는 Azure Portal과 논리 앱을 하나의 **되풀이** 트리거 및 여러 **변수 초기화** 작업과 함께 사용합니다. 이러한 작업은 두 개의 문자열 변수와 하나의 정수 변수를 만들기 위해 설정됩니다. 나중에 논리 앱을 테스트할 때 트리거가 실행될 때까지 기다리지 않고 수동으로 앱을 실행할 수 있습니다.
 
-   ![논리 앱 샘플 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
+   !["작성" 작업에 대 한 샘플 논리 앱 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-compose-action.png)
 
 1. 출력을 만들려는 논리 앱에서 다음 단계 중 하나를 수행합니다. 
 
    * 마지막 단계에서 작업을 추가 하려면 **새 단계**를 선택 합니다.
 
-     ![작업 추가](./media/logic-apps-perform-data-operations/add-compose-action.png)
+     !["작성" 작업의 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-compose-operation-action.png)
 
    * 단계 사이에 작업을 추가 하려면 더하기 기호 ( **+** )가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
-1. **작업 선택**아래의 검색 상자에 필터로를 입력 `compose` 합니다. 작업 목록에서 **작성** 작업을 선택 합니다.
+1. **작업 선택** 아래의 검색 상자에 `compose`을 필터로 입력합니다. 작업 목록에서 **작성** 작업을 선택 합니다.
 
    !["작성" 작업 선택](./media/logic-apps-perform-data-operations/select-compose-action.png)
 
@@ -104,11 +104,11 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
    이 예제에서 **입력** 상자 내부를 클릭하면 이전에 만든 변수를 선택할 수 있는 동적 콘텐츠 목록이 나타납니다.
 
-   ![작성에 대한 입력 선택](./media/logic-apps-perform-data-operations/configure-compose-action.png)
+   !["작성" 작업에 사용할 입력 선택](./media/logic-apps-perform-data-operations/configure-compose-action.png)
 
    완료된 **작성** 작업 예제는 다음과 같습니다. 
 
-   ![완료된 "작성" 작업](./media/logic-apps-perform-data-operations/finished-compose-action.png)
+   !["작성" 작업에 대 한 완료 된 예제](./media/logic-apps-perform-data-operations/finished-compose-action.png)
 
 1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -124,7 +124,7 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
    이 예제에서는 **전자 메일 보내기** 작업을 사용 하 고 전자 메일의 본문 및 제목에 **출력** 필드를 포함 합니다.
 
-   !["이메일 보내기" 작업의 "출력" 필드](./media/logic-apps-perform-data-operations/send-email-compose-action.png)
+   !["작성" 작업에 대 한 "출력" 필드](./media/logic-apps-perform-data-operations/send-email-compose-action.png)
 
 1. 이제 논리 앱을 수동으로 실행합니다. 디자이너 도구 모음에서 **실행**을 선택 합니다.
 
@@ -138,23 +138,23 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
 배열의 JSON (JavaScript Object Notation) 개체에서 속성과 값을 포함 하는 CSV (쉼표로 구분 된 값) 테이블을 만들려면 **csv 테이블 만들기** 작업을 사용 합니다. 그런 다음, **CSV 테이블 만들기** 작업 이후에 수행하는 작업에서 결과 테이블을 사용할 수 있습니다.
 
-코드 보기 편집기에서 작업 하는 것을 선호 하는 경우이 문서의 **CSV 테이블 만들기** 및 **변수 초기화** 작업 정의 예를 사용자 고유의 논리 앱의 기본 워크플로 정의로 복사할 수 있습니다. [데이터 작업 코드 예제-CSV 테이블 만들기](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example)
+코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - CSV 테이블 만들기](../logic-apps/logic-apps-data-operations-code-samples.md#create-csv-table-action-example) 문서의 **CSV 테이블 만들기** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
    이 예제에서는 Azure Portal과 논리 앱을 각각 하나의 **되풀이** 트리거 및 **변수 초기화** 작업과 함께 사용합니다. 이 작업은 초기 값이 JSON 형식의 일부 속성과 값이 있는 배열인 변수를 만들기 위해 설정됩니다. 나중에 논리 앱을 테스트할 때 트리거가 실행될 때까지 기다리지 않고 수동으로 앱을 실행할 수 있습니다.
 
-   ![논리 앱 샘플 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
+   !["CSV 테이블 만들기" 작업에 대 한 샘플 논리 앱 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
 1. CSV 테이블을 만들려는 논리 앱에서 다음 단계 중 하나를 수행합니다. 
 
    * 마지막 단계에서 작업을 추가 하려면 **새 단계**를 선택 합니다.
 
-     ![작업 추가](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     !["CSV 테이블 만들기" 작업의 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
    * 단계 사이에 작업을 추가 하려면 더하기 기호 ( **+** )가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
-1. **작업 선택**아래의 검색 상자에 필터로를 입력 `create csv table` 합니다. 작업 목록에서 **CSV 테이블 만들기** 작업을 선택 합니다.
+1. **작업 선택** 아래의 검색 상자에 `create csv table`을 필터로 입력합니다. 작업 목록에서 **CSV 테이블 만들기** 작업을 선택 합니다.
 
    !["CSV 테이블 만들기" 작업 선택](./media/logic-apps-perform-data-operations/select-create-csv-table-action.png)
 
@@ -169,7 +169,7 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
    완료된 **CSV 테이블 만들기** 작업 예제는 다음과 같습니다. 
 
-   ![완료된 "CSV 테이블 만들기" 작업](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
+   !["CSV 테이블 만들기" 작업에 대 한 완료 된 예](./media/logic-apps-perform-data-operations/finished-create-csv-table-action.png)
 
 1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -183,7 +183,7 @@ JSON(JavaScript Object Notation) 형식으로 데이터를 사용할 수 있는 
 
 1. **값** 속성에서 대신 사용할 사용자 지정 값을 지정 합니다.
 
-배열에서 값을 반환 하려면 **CSV 테이블 만들기** 작업에 [ `item()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#item) 를 사용할 수 있습니다. 루프에서 [ `items()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#items) `For_each` 를 사용할 수 있습니다.
+배열에서 값을 반환 하려면 **CSV 테이블 만들기** 작업에서 [`item()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#item) 를 사용할 수 있습니다. `For_each` 루프에서 [`items()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#items)를 사용할 수 있습니다.
 
 예를 들어, 배열에서 속성 이름이 아닌 속성 값만 포함 하는 테이블 열을 만들려고 한다고 가정 합니다. 이러한 값만 반환 하려면 디자이너 뷰 또는 코드 뷰에서 작업 하기 위해 다음 단계를 수행 합니다. 다음은이 예제에서 반환 하는 결과입니다.
 
@@ -204,30 +204,30 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   ![역 참조할 식 속성](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+   !["CSV 테이블 만들기"의 "설명"을 역참조 합니다.](./media/logic-apps-perform-data-operations/csv-table-expression.png)
 
 1. 원하는 각 배열 속성에 대해 이전 단계를 반복 합니다. 완료 되 면 작업은 다음 예제와 같습니다.
 
-   ![완성 된 식](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+   !["CSV 테이블 만들기"의 "item ()" 함수](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
 
 1. 식을 보다 설명적인 버전으로 확인 하려면 코드 뷰로 전환 하 고 디자이너 보기로 이동한 다음 축소 된 작업을 다시 엽니다.
 
    이제 **CSV 테이블 만들기** 작업은 다음 예제와 같이 표시 됩니다.
 
-   ![확인 된 식이 있고 헤더가 없는 "CSV 테이블 만들기" 작업](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+   !["CSV 테이블 만들기"-해결 된 식, 헤더 없음](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 #### <a name="work-in-code-view"></a>코드 보기에서 작업
 
-작업의 JSON 정의의 `columns` 배열 내에서 `header` 속성을 빈 문자열로 설정 합니다. 각 `value` 속성에 대해 원하는 각 배열 속성을 역참조 합니다.
+작업의 JSON 정의 `columns` 배열 내에서 `header` 속성을 빈 문자열로 설정 합니다. 각 `value` 속성에 대해 원하는 각 배열 속성을 역참조 합니다.
 
 1. 디자이너 도구 모음에서 **코드 보기**를 선택 합니다.
 
-1. 코드 편집기의 작업 `columns` 배열에서 원하는 배열 값의 각 열에 대해 빈 `header` 속성과이 `value` 식을 추가 합니다.
+1. 코드 편집기의 작업 `columns` 배열에서 빈 `header` 속성을 추가 하 고 원하는 배열 값의 각 열에 대해이 `value` 식을 추가 합니다.
 
    ```json
    {
@@ -236,7 +236,7 @@ Oranges,2
    }
    ```
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    ```json
    "Create_CSV_table": {
@@ -261,7 +261,7 @@ Oranges,2
 
    이제 **CSV 테이블 만들기** 작업은이 예제와 같이 나타나고 식이 더 자세한 버전으로 확인 되었습니다.
 
-   ![확인 된 식이 있고 헤더가 없는 "CSV 테이블 만들기" 작업](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+   !["CSV 테이블 만들기"-확인 된 식 및 헤더 없음](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 기본 워크플로 정의에서 이 작업에 대한 자세한 내용은 [테이블 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action)을 참조하세요.
 
@@ -275,7 +275,7 @@ Oranges,2
 
    이 예제에서는 Office 365 Outlook **전자 메일 보내기** 작업을 사용 하 고 전자 메일의 본문에 **출력** 필드를 포함 합니다.
 
-   !["이메일 보내기" 작업의 "출력" 필드](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
+   !["CSV 테이블 만들기" 작업에 대 한 "출력" 필드](./media/logic-apps-perform-data-operations/send-email-create-csv-table-action.png)
 
 1. 이제 논리 앱을 수동으로 실행합니다. 디자이너 도구 모음에서 **실행**을 선택 합니다.
 
@@ -289,23 +289,23 @@ Oranges,2
 
 배열의 JSON (JavaScript Object Notation) 개체에서 속성 및 값을 포함 하는 HTML 테이블을 만들려면 **html 테이블 만들기** 작업을 사용 합니다. 그런 다음, **HTML 테이블 만들기** 작업 이후에 수행하는 작업에서 결과 테이블을 사용할 수 있습니다.
 
-코드 보기 편집기에서 작업 하는 것을 선호 하는 경우이 문서의 예: **HTML 테이블 만들기** 및 **변수 초기화** 작업 정의를 고유한 논리 앱의 기본 워크플로 정의로 복사할 수 있습니다. [데이터 작업 코드 예제-HTML 테이블 만들기](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 
+코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - HTML 테이블 만들기](../logic-apps/logic-apps-data-operations-code-samples.md#create-html-table-action-example) 문서의 **HTML 테이블 만들기** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
    이 예제에서는 Azure Portal과 논리 앱을 각각 하나의 **되풀이** 트리거 및 **변수 초기화** 작업과 함께 사용합니다. 이 작업은 초기 값이 JSON 형식의 일부 속성과 값이 있는 배열인 변수를 만들기 위해 설정됩니다. 나중에 논리 앱을 테스트할 때 트리거가 실행될 때까지 기다리지 않고 수동으로 앱을 실행할 수 있습니다.
 
-   ![논리 앱 샘플 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
+   !["HTML 테이블 만들기" 용 샘플 논리 앱 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-create-table-action.png)
 
 1. HTML 테이블을 만들려는 논리 앱에서 다음 단계 중 하나를 수행합니다.
 
    * 마지막 단계에서 작업을 추가 하려면 **새 단계**를 선택 합니다.
 
-     ![작업 추가](./media/logic-apps-perform-data-operations/add-create-table-action.png)
+     !["HTML 테이블 만들기" 작업의 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-create-table-action.png)
 
    * 단계 사이에 작업을 추가 하려면 더하기 기호 ( **+** )가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
-1. **작업 선택**아래의 검색 상자에 필터로를 입력 `create html table` 합니다. 작업 목록에서 **HTML 테이블 만들기** 작업을 선택 합니다.
+1. **작업 선택** 아래의 검색 상자에 `create html table`을 필터로 입력합니다. 작업 목록에서 **HTML 테이블 만들기** 작업을 선택 합니다.
 
    !["HTML 테이블 만들기" 작업 선택](./media/logic-apps-perform-data-operations/select-create-html-table-action.png)
 
@@ -320,7 +320,7 @@ Oranges,2
 
    완료된 **HTML 테이블 만들기** 작업 예제는 다음과 같습니다.
 
-   ![완료된 "HTML 테이블 만들기" 작업](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
+   !["HTML 테이블 만들기"에 대 한 완성 된 예제](./media/logic-apps-perform-data-operations/finished-create-html-table-action.png)
 
 1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -334,7 +334,7 @@ Oranges,2
 
 1. **값** 속성에서 대신 사용할 사용자 지정 값을 지정 합니다.
 
-배열에서 값을 반환 하려면 **HTML 테이블 만들기** 작업에 [ `item()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#item) 를 사용할 수 있습니다. 루프에서 [ `items()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#items) `For_each` 를 사용할 수 있습니다.
+배열에서 값을 반환 하려면 [`item()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#item) 를 사용 하 여 **HTML 테이블 만들기** 작업을 수행할 수 있습니다. `For_each` 루프에서 [`items()` 함수](../logic-apps/workflow-definition-language-functions-reference.md#items)를 사용할 수 있습니다.
 
 예를 들어, 배열에서 속성 이름이 아닌 속성 값만 포함 하는 테이블 열을 만들려고 한다고 가정 합니다. 이러한 값만 반환 하려면 디자이너 뷰 또는 코드 뷰에서 작업 하기 위해 다음 단계를 수행 합니다. 다음은이 예제에서 반환 하는 결과입니다.
 
@@ -355,30 +355,30 @@ Oranges,2
 
    `item()?['<array-property-name>']`
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    * `item()?['Description']`
    * `item()?['Product_ID']`
 
-   ![역 참조할 식 속성](./media/logic-apps-perform-data-operations/html-table-expression.png)
+   !["HTML 테이블 만들기" 작업의 역참조 속성](./media/logic-apps-perform-data-operations/html-table-expression.png)
 
 1. 원하는 각 배열 속성에 대해 이전 단계를 반복 합니다. 완료 되 면 작업은 다음 예제와 같습니다.
 
-   ![완성 된 식](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+   !["HTML 테이블 만들기"의 "item ()" 함수](./media/logic-apps-perform-data-operations/finished-html-expression.png)
 
 1. 식을 보다 설명적인 버전으로 확인 하려면 코드 뷰로 전환 하 고 디자이너 보기로 이동한 다음 축소 된 작업을 다시 엽니다.
 
    이제 **HTML 테이블 만들기** 작업은 다음 예제와 같이 표시 됩니다.
 
-   ![확인 된 식이 있고 헤더가 없는 "HTML 테이블 만들기" 작업](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+   !["HTML 테이블 만들기"-해결 된 식, 헤더 없음](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 #### <a name="work-in-code-view"></a>코드 보기에서 작업
 
-작업의 JSON 정의의 `columns` 배열 내에서 `header` 속성을 빈 문자열로 설정 합니다. 각 `value` 속성에 대해 원하는 각 배열 속성을 역참조 합니다.
+작업의 JSON 정의 `columns` 배열 내에서 `header` 속성을 빈 문자열로 설정 합니다. 각 `value` 속성에 대해 원하는 각 배열 속성을 역참조 합니다.
 
 1. 디자이너 도구 모음에서 **코드 보기**를 선택 합니다.
 
-1. 코드 편집기의 작업 `columns` 배열에서 원하는 배열 값의 각 열에 대해 빈 `header` 속성과이 `value` 식을 추가 합니다.
+1. 코드 편집기의 작업 `columns` 배열에서 빈 `header` 속성을 추가 하 고 원하는 배열 값의 각 열에 대해이 `value` 식을 추가 합니다.
 
    ```json
    {
@@ -387,7 +387,7 @@ Oranges,2
    }
    ```
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    ```json
    "Create_HTML_table": {
@@ -412,7 +412,7 @@ Oranges,2
 
    이제 **HTML 테이블 만들기** 작업이이 예제와 같이 나타나고 식이 더 자세한 버전으로 확인 되었습니다.
 
-   ![확인 된 식이 있고 헤더가 없는 "HTML 테이블 만들기" 작업](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+   !["HTML 테이블 만들기"-해결 된 식 및 헤더 없음](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 기본 워크플로 정의에서 이 작업에 대한 자세한 내용은 [테이블 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action)을 참조하세요.
 
@@ -426,8 +426,8 @@ Oranges,2
 
    이 예제에서는 Office 365 Outlook **전자 메일 보내기** 작업을 사용 하 고 전자 메일의 본문에 **출력** 필드를 포함 합니다.
 
-   !["이메일 보내기" 작업의 "출력" 필드](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
-   
+   !["HTML 테이블 만들기"의 "출력" 필드](./media/logic-apps-perform-data-operations/send-email-create-html-table-action.png)
+
    > [!NOTE]
    > 이메일 작업에 HTML 테이블 출력이 포함되는 경우 이메일 작업의 고급 옵션에서 **HTML임** 속성을 **예**로 설정해야 합니다. 이렇게 하면 이메일 작업에서 HTML 테이블의 형식을 올바르게 지정합니다.
 
@@ -435,7 +435,7 @@ Oranges,2
 
    사용한 이메일 커넥터에 따라 다음과 같은 결과가 표시됩니다.
 
-   !["HTML 테이블 만들기" 작업 결과가 포함된 이메일](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
+   !["HTML 테이블 만들기" 결과가 포함 된 전자 메일](./media/logic-apps-perform-data-operations/create-html-table-email-results.png)
 
 <a name="filter-array-action"></a>
 
@@ -448,7 +448,7 @@ Oranges,2
 > 
 > **배열 필터링** 작업에서 배열 출력을 사용하는 작업의 경우 해당 작업에서 배열을 입력으로 받아들여야 하거나 출력 배열을 호환되는 다른 형식으로 변환해야 할 수 있습니다.
 
-코드 보기 편집기에서 작업 하는 것을 선호 하는 경우이 문서의 예제 **필터 배열** 및 **초기화 변수** 작업 정의를 고유한 논리 앱의 기본 워크플로 정의로 복사할 수 있습니다. [데이터 작업 코드 예제-필터 배열](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example)
+또는 코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - 배열 필터링](../logic-apps/logic-apps-data-operations-code-samples.md#filter-array-action-example) 문서의 **배열 필터링** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
@@ -457,17 +457,17 @@ Oranges,2
    > [!NOTE]
    > 이 예제에서는 간단한 정수 배열을 사용하지만 이 작업은 개체의 속성과 값에 따라 필터링할 수 있는 JSON 개체 배열에 특히 유용합니다.
 
-   ![논리 앱 샘플 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
+   !["필터 배열" 작업에 대 한 샘플 논리 앱 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-filter-array-action.png)
 
 1. 필터링된 배열을 만들려는 논리 앱에서 다음 단계 중 하나를 수행합니다. 
 
    * 마지막 단계에서 작업을 추가 하려면 **새 단계**를 선택 합니다.
 
-     ![작업 추가](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
+     !["배열 필터" 작업의 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-filter-array-action.png)
 
    * 단계 사이에 작업을 추가 하려면 더하기 기호 ( **+** )가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
-1. 검색 상자에 필터로를 입력 `filter array` 합니다. 작업 목록에서 **배열 필터** 작업을 선택 합니다.
+1. 검색 상자에서 필터로 `filter array`을 입력합니다. 작업 목록에서 **배열 필터** 작업을 선택 합니다.
 
    !["배열 필터링" 작업 선택](./media/logic-apps-perform-data-operations/select-filter-array-action.png)
 
@@ -479,9 +479,9 @@ Oranges,2
 
 1. 조건에 대해 비교할 배열 항목을 지정하고, 비교 연산자를 선택하고, 비교 값을 지정합니다.
 
-   이 예제에서는 함수 `item()` 를 사용 하 여 배열의 각 항목에 액세스 하는 동안 **필터 배열** 작업에서 값이 1 보다 큰 배열 항목을 검색 합니다.
-   
-   ![완료된 "배열 필터링" 작업](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
+   이 예제에서는 `item()` 함수를 사용 하 여 배열의 각 항목에 액세스 하는 동안 **필터 배열** 작업에서 값이 1 보다 큰 배열 항목을 검색 합니다.
+
+   !["필터 배열" 작업에 대 한 완료 된 예제](./media/logic-apps-perform-data-operations/finished-filter-array-action.png)
 
 1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -499,7 +499,7 @@ Oranges,2
 
    이 예제에서는 Office 365 Outlook **전자 메일 보내기** 작업을 사용 하 고 전자 메일 본문에 **actionbody (' Filter_array ')** 식의 출력을 포함 합니다.
 
-   !["이메일 보내기" 작업의 작업 출력](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
+   !["필터 배열" 작업의 작업 출력](./media/logic-apps-perform-data-operations/send-email-filter-array-action.png)
 
 1. 이제 논리 앱을 수동으로 실행합니다. 디자이너 도구 모음에서 **실행**을 선택 합니다.
 
@@ -509,29 +509,29 @@ Oranges,2
 
 <a name="join-action"></a>
 
-## <a name="join-action"></a>Join 작업
+## <a name="join-action"></a>조인 작업
 
 배열의 모든 항목을 포함 하 고 해당 항목을 특정 구분 기호 문자로 구분 하는 문자열을 만들려면 **조인** 동작을 사용 합니다. 그런 다음, **조인** 작업 이후에 수행하는 작업에서 문자열을 사용할 수 있습니다.
 
-코드 보기 편집기에서 작업 하는 것을 선호 하는 경우이 문서의 예제 **조인** 및 **초기화 변수** 작업 정의를 고유한 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다. [데이터 작업 코드 예제-조인](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example)
+코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - 조인](../logic-apps/logic-apps-data-operations-code-samples.md#join-action-example) 문서의 **조인** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
    이 예제에서는 Azure Portal과 논리 앱을 각각 하나의 **되풀이** 트리거 및 **변수 초기화** 작업과 함께 사용합니다. 이 작업은 초기 값이 몇 가지 샘플 정수가 있는 배열인 변수를 만들기 위해 설정됩니다. 나중에 논리 앱을 테스트할 때 트리거가 실행될 때까지 기다리지 않고 수동으로 앱을 실행할 수 있습니다.
 
-   ![논리 앱 샘플 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-join-action.png)
+   !["조인" 작업에 대 한 샘플 논리 앱 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-join-action.png)
 
 1. 배열에서 문자열을 만들려는 논리 앱에서 다음 단계 중 하나를 수행합니다.
 
    * 마지막 단계에서 작업을 추가 하려면 **새 단계**를 선택 합니다.
 
-     ![작업 추가](./media/logic-apps-perform-data-operations/add-join-action.png)
+     !["조인" 작업의 "새 단계"를](./media/logic-apps-perform-data-operations/new-step-add-join-action.png)
 
    * 단계 사이에 작업을 추가 하려면 더하기 기호 ( **+** )가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
-1. 검색 상자에 필터로를 입력 `join` 합니다. 작업 목록에서 다음 작업을 선택합니다. **Join**
+1. 검색 상자에서 필터로 `join`을 입력합니다. 작업 목록에서 **조인** 작업을 선택합니다.
 
-   !["조인" 작업을 선택 합니다.](./media/logic-apps-perform-data-operations/select-join-action.png)
+   !["조인" 작업을 선택 합니다.](./media/logic-apps-perform-data-operations/select-join-operation-action.png)
 
 1. **원본** 상자에서 조인하려는 항목이 있는 배열을 문자열로 제공합니다.
 
@@ -559,37 +559,37 @@ Oranges,2
 
    이 예제에서는 Office 365 Outlook **전자 메일 보내기** 작업을 사용 하 고 전자 메일의 본문에 **출력** 필드를 포함 합니다.
 
-   !["이메일 보내기" 작업의 "출력" 필드](./media/logic-apps-perform-data-operations/send-email-join-action.png)
+   !["조인" 작업에 대 한 "출력" 필드](./media/logic-apps-perform-data-operations/send-email-join-action.png)
 
 1. 이제 논리 앱을 수동으로 실행합니다. 디자이너 도구 모음에서 **실행**을 선택 합니다.
 
    사용한 이메일 커넥터에 따라 다음과 같은 결과가 표시됩니다.
 
-   !["Join" 작업 결과가 포함된 이메일](./media/logic-apps-perform-data-operations/join-email-results.png)
+   !["Join" 작업 결과가 포함된 이메일](./media/logic-apps-perform-data-operations/join-send-email-results.png)
 
 <a name="parse-json-action"></a>
 
-## <a name="parse-json-action"></a>Parse JSON 작업
+## <a name="parse-json-action"></a>JSON 구문 분석 작업
 
 JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세스 하려면 **Json 구문 분석** 작업을 사용 하 여 해당 속성에 대 한 사용자에 게 친숙 한 필드 또는 토큰을 만들 수 있습니다. 이렇게 하면 논리 앱에 대한 입력을 지정할 때 동적 콘텐츠 목록에서 해당 속성을 선택할 수 있습니다. 이 작업의 경우 JSON 콘텐츠 또는 페이로드 샘플에서 JSON 스키마를 제공하거나 생성할 수 있습니다.
 
-코드 보기 편집기에서 작업 하는 것을 선호 하는 경우이 문서의 **JSON 구문 분석** 및 **변수 초기화** 작업 정의를 고유한 논리 앱의 기본 워크플로 정의로 복사할 수 있습니다. [데이터 작업 코드 예제-JSON 구문 분석](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example)
+코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - JSON 구문 분석](../logic-apps/logic-apps-data-operations-code-samples.md#parse-json-action-example) 문서의 **JSON 구문 분석** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
    이 예제에서는 Azure Portal과 논리 앱을 각각 하나의 **되풀이** 트리거 및 **변수 초기화** 작업과 함께 사용합니다. 이 작업은 초기 값이 속성과 값이 있는 JSON 개체인 변수를 만들기 위해 설정됩니다. 나중에 논리 앱을 테스트할 때 트리거가 실행될 때까지 기다리지 않고 수동으로 앱을 실행할 수 있습니다.
 
-   ![논리 앱 샘플 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
+   !["JSON 구문 분석" 작업에 대 한 샘플 논리 앱 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-parse-json-action.png)
 
 1. JSON 콘텐츠를 구문 분석하려는 논리 앱에서 다음 단계 중 하나를 수행합니다.
 
    * 마지막 단계에서 작업을 추가 하려면 **새 단계**를 선택 합니다.
 
-     ![작업 추가](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
+     !["JSON 구문 분석" 작업의 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-parse-json-action.png)
 
    * 단계 사이에 작업을 추가 하려면 더하기 기호 ( **+** )가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
-1. 검색 상자에 필터로를 입력 `parse json` 합니다. 작업 목록에서 **JSON 구문 분석** 작업을 선택 합니다.
+1. 검색 상자에서 필터로 `parse json`을 입력합니다. 작업 목록에서 **JSON 구문 분석** 작업을 선택 합니다.
 
    !["JSON 구문 분석" 작업 선택](./media/logic-apps-perform-data-operations/select-parse-json-action.png)
 
@@ -631,13 +631,13 @@ JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세
 
    완료된 이메일 작업은 다음과 같습니다.
 
-   ![완료된 이메일 작업](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2.png)
+   ![전자 메일 동작에 대 한 완성 된 예제](./media/logic-apps-perform-data-operations/send-email-parse-json-action-2.png)
 
 1. 이제 논리 앱을 수동으로 실행합니다. 디자이너 도구 모음에서 **실행**을 선택 합니다. 
 
    사용한 이메일 커넥터에 따라 다음과 같은 결과가 표시됩니다.
 
-   !["Join" 작업 결과가 포함된 이메일](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
+   !["JSON 구문 분석" 작업 결과가 포함 된 전자 메일](./media/logic-apps-perform-data-operations/parse-json-email-results.png)
 
 <a name="select-action"></a>
 
@@ -648,23 +648,23 @@ JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세
 > [!NOTE]
 > **선택** 작업에서 배열 출력을 사용하는 작업의 경우 해당 작업에서 배열을 입력으로 받아들여야 하거나 출력 배열을 호환되는 다른 형식으로 변환해야 할 수 있습니다. 
 
-코드 보기 편집기에서 작업 하는 것을 선호 하는 경우이 문서에서 **Select** 및 **Initialize 변수** 작업 정의를 논리 앱의 기본 워크플로 정의에 복사 합니다. [데이터 작업 코드 예제-선택](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 
+코드 보기 편집기에서 작업하려는 경우 [데이터 작업 코드 예제 - 선택](../logic-apps/logic-apps-data-operations-code-samples.md#select-action-example) 문서의 **선택** 및 **변수 초기화** 작업 정의 예제를 사용자 고유의 논리 앱의 기본 워크플로 정의에 복사할 수 있습니다. 
 
 1. [Azure Portal](https://portal.azure.com) 또는 Visual Studio의 논리 앱 디자이너에서 논리 앱을 엽니다.
 
    이 예제에서는 Azure Portal과 논리 앱을 각각 하나의 **되풀이** 트리거 및 **변수 초기화** 작업과 함께 사용합니다. 이 작업은 초기 값이 몇 가지 샘플 정수가 있는 배열인 변수를 만들기 위해 설정됩니다. 나중에 논리 앱을 테스트할 때 트리거가 실행될 때까지 기다리지 않고 수동으로 앱을 실행할 수 있습니다.
 
-   ![논리 앱 샘플 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
+   !["선택" 작업에 대 한 샘플 논리 앱 시작](./media/logic-apps-perform-data-operations/sample-starting-logic-app-select-action.png)
 
 1. 배열을 만들려는 논리 앱에서 다음 단계 중 하나를 수행합니다. 
 
    * 마지막 단계에서 작업을 추가 하려면 **새 단계**를 선택 합니다.
 
-     ![작업 추가](./media/logic-apps-perform-data-operations/add-select-action.png)
+     !["선택" 작업에 대 한 "새 단계"를 선택 합니다.](./media/logic-apps-perform-data-operations/add-select-operation-action.png)
 
    * 단계 사이에 작업을 추가 하려면 더하기 기호 ( **+** )가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
-1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에 필터로를 입력 `select` 합니다. 작업 목록에서 **선택** 작업을 선택 합니다.
+1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에서 필터로 `select`을 입력합니다. 작업 목록에서 **선택** 작업을 선택 합니다.
 
    !["선택" 작업 선택](./media/logic-apps-perform-data-operations/select-select-action.png)
 
@@ -676,13 +676,13 @@ JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세
 
 1. **맵** 상자의 왼쪽 열에서 원본 배열의 각 값을 할당하려는 속성 이름을 제공합니다. 오른쪽 열에서 속성을 할당하려는 값을 나타내는 식을 지정합니다.
 
-   이 예제에서는 각 배열 항목에 액세스 하는 식에서 함수를 `item()` 사용 하 여 정수 배열의 각 값을 할당 하는 속성 이름으로 "Product_ID"를 지정 합니다. 
+   이 예제에서는 각 배열 항목에 액세스 하는 식에서 `item()` 함수를 사용 하 여 정수 배열의 각 값을 할당 하는 속성 이름으로 "Product_ID"를 지정 합니다. 
 
-   ![만들려는 배열에 대한 JSON 개체 속성 및 값을 지정합니다.](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
+   ![JSON 개체 속성 및 배열을 만들 값 지정](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 
    완료된 작업은 다음과 같습니다.
 
-   ![완료된 선택 작업](./media/logic-apps-perform-data-operations/finished-select-action.png)
+   !["선택" 작업에 대 한 완료 된 예제](./media/logic-apps-perform-data-operations/finished-select-action.png)
 
 1. 논리 앱을 저장합니다. 디자이너 도구 모음에서 **저장**을 선택합니다.
 
@@ -698,9 +698,9 @@ JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세
 
    `@actionBody('Select')`
 
-   이 예제에서는 Office 365 Outlook **전자 메일 보내기** 작업을 사용 하 고 해당 `@actionBody('Select')` 식의 출력을 전자 메일 본문에 포함 합니다.
+   이 예제에서는 Office 365 Outlook **전자 메일 보내기** 작업을 사용 하 고 전자 메일 본문에 `@actionBody('Select')` 식의 출력을 포함 합니다.
 
-   !["이메일 보내기" 작업의 작업 출력](./media/logic-apps-perform-data-operations/send-email-select-action.png)
+   !["선택" 작업의 작업 출력](./media/logic-apps-perform-data-operations/send-email-select-action.png)
 
 1. 이제 논리 앱을 수동으로 실행합니다. 디자이너 도구 모음에서 **실행**을 선택 합니다.
 

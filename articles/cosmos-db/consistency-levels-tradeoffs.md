@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 9178b8007d707af2df150102b2d344a44106a9ca
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f241f243860635db443b732f94d12956bbe0f9d8
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755178"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990613"
 ---
 # <a name="consistency-availability-and-performance-tradeoffs"></a>일관성, 가용성 및 성능의 장단점 
 
@@ -62,6 +62,10 @@ Azure Cosmos DB는 선택 사항 스펙트럼으로 데이터 일관성에 접�
 *K* = 항목의 *"K"* 버전 (즉, 업데이트) 수입니다.
 
 *T* = 마지막 업데이트 이후의 시간 간격 *"t"* 입니다.
+
+## <a name="strong-consistency-and-multi-master"></a>강력한 일관성 및 다중 마스터
+
+분산 시스템이 0의 RPO와 0의 RTO를 제공할 수 없기 때문에 다중 마스터에 대해 구성 된 Cosmos 계정은 강력한 일관성을 위해 구성할 수 없습니다. 또한 모든 지역에 대 한 쓰기를 복제 하 고 계정 내의 모든 구성 된 지역에 커밋 해야 하므로 다중 마스터에서 강력한 일관성을 사용 하는 경우 쓰기 대기 시간 이점이 없습니다. 이로 인해 단일 마스터 계정으로 쓰기 대기 시간이 동일 하 게 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

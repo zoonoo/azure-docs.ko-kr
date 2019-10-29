@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/18/2019
+ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78243f02cbbe3d06b94ee52d6193865dbfa27121
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: da3e1b6439b033742af62d548775cfb628e955b7
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68488995"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990694"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 요청 승인 또는 거부
 
@@ -36,7 +36,7 @@ Azure AD 자격 관리를 사용 하 여 액세스 패키지에 대 한 승인�
 
 액세스 요청을 승인 하거나 거부 하는 첫 번째 단계는 승인 보류 중인 액세스 요청을 찾아서 여는 것입니다. 액세스 요청을 여는 방법에는 두 가지가 있습니다.
 
-**필수 역할:** 승인자
+**필수 역할:** 명의
 
 1. 요청을 승인 또는 거부 하도록 요청 하는 Microsoft Azure에서 전자 메일을 찾습니다. 전자 메일 예제는 다음과 같습니다.
 
@@ -48,9 +48,9 @@ Azure AD 자격 관리를 사용 하 여 액세스 패키지에 대 한 승인�
 
 전자 메일이 없는 경우 다음 단계에 따라 승인 보류 중인 액세스 요청을 찾을 수 있습니다.
 
-1. 에서 [https://myaccess.microsoft.com](https://myaccess.microsoft.com)내 액세스 포털에 로그인 합니다.
+1. [https://myaccess.microsoft.com](https://myaccess.microsoft.com)에서 내 액세스 포털에 로그인 합니다.
 
-1. 왼쪽 메뉴에서 승인 **을 클릭 하** 여 승인 보류 중인 액세스 요청 목록을 확인 합니다.
+1. 왼쪽 메뉴 **에서 승인을 클릭 하** 여 승인 보류 중인 액세스 요청 목록을 확인 합니다.
 
 1. **보류 중** 탭에서 요청을 찾습니다.
 
@@ -58,7 +58,7 @@ Azure AD 자격 관리를 사용 하 여 액세스 패키지에 대 한 승인�
 
 승인 보류 중인 액세스 요청을 열면 승인 또는 거부 결정을 내리는 데 도움이 되는 세부 정보를 볼 수 있습니다.
 
-**필수 역할:** 승인자
+**필수 역할:** 명의
 
 1. **보기** 링크를 클릭하여 액세스 요청 창을 엽니다.
 
@@ -70,7 +70,7 @@ Azure AD 자격 관리를 사용 하 여 액세스 패키지에 대 한 승인�
 
 1. 필요한 경우 이유를 입력 합니다.
 
-    ![내 액세스 포털 - 액세스 요청](./media/entitlement-management-shared/my-access-approve-request.png)
+    ![내 액세스 포털 - 액세스 요청](./media/entitlement-management-request-approve/my-access-approve-request.png)
 
 1. **제출**을 클릭하여 결정을 제출합니다.
 

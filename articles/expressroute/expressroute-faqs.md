@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: df8b1c8fd31eed0a09b878f09faadb23f6b72aaa
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 50617eda56c2eaec9fac315013114f173e85edbc
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965429"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990782"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -66,6 +66,7 @@ Express 경로는 개인 피어 링, Microsoft 피어 링 및 공용 피어 링�
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Power BI-Azure 지역 커뮤니티를 통해 사용할 수 있습니다. Power BI 테 넌 트의 지역을 확인 하는 방법은 [여기](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) 를 참조 하세요.
 * Azure Active Directory
+* [Windows 가상 데스크톱](https://azure.microsoft.com/services/virtual-desktop/)
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/)(Azure 글로벌 서비스 커뮤니티)
 * 대부분의 Azure 서비스가 지원됩니다. 사용하려는 서비스의 지원 유무를 직접 확인해 보세요.<br><br>**다음 서비스는 지원되지 않습니다**.
     * CDN
