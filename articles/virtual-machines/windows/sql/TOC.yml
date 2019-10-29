@@ -62,22 +62,31 @@
           href: virtual-machines-windows-portal-sql-server-provision.md
         - name: Azure PowerShell 사용
           href: virtual-machines-windows-ps-sql-create.md
-    - name: 리소스 공급자 등록
-      href: virtual-machines-windows-sql-register-with-resource-provider.md
-    - name: 라이선스 모델 변경
-      href: virtual-machines-windows-sql-ahb.md
-    - name: 버전 변경
-      href: virtual-machines-windows-sql-change-edition.md
+    - name: SQL VM RP에 등록
+      displayName: 'resource provider, registration'
+      items:
+        - name: 단일 VM
+          href: virtual-machines-windows-sql-register-with-resource-provider.md
+        - name: 여러 VM 대량 등록
+          href: virtual-machines-windows-sql-bulk-register-with-resource-provider.md
+    - name: 관리
+      items:
+        - name: 라이선스 모델
+          displayName: 'ahb, ahub, payg, change, modify, update'
+          href: virtual-machines-windows-sql-ahb.md
+        - name: 버전
+          displayName: 'change, modify, update'
+          href: virtual-machines-windows-sql-change-edition.md
+        - name: 백업 및 복원용 Azure Storage
+          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
     - name: 마이그레이션
       items:
-        - name: SQL Server 데이터베이스 마이그레이션
+        - name: SQL Server 데이터베이스를 VM으로 마이그레이션
           href: virtual-machines-windows-migrate-sql.md
         - name: 새 Azure 지역으로 VM 마이그레이션
           href: virtual-machines-windows-sql-move-different-region.md
     - name: 고가용성 구성
       items:
-        - name: 백업 및 복원에 Azure Storage 사용
-          href: virtual-machines-windows-use-storage-sql-server-backup-restore.md
         - name: Always On 가용성 그룹
           items:
             - name: Azure SQL VM CLI

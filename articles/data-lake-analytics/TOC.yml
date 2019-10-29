@@ -40,8 +40,8 @@
               href: data-lake-analytics-manage-use-nodejs.md
         - name: 사용자 추가
           href: data-lake-analytics-add-users.md
-        - name: 정책
-          href: data-lake-analytics-policies.md
+        - name: 계정 정책
+          href: data-lake-analytics-account-policies.md
         - name: 보안 작업 폴더
           href: data-lake-analytics-secure.md
         - name: 진단 로그 액세스
@@ -118,6 +118,14 @@
           href: data-lake-analytics-cicd-test.md
         - name: U-SQL SDK
           href: data-lake-analytics-u-sql-sdk.md
+    - name: U-SQL 개발자를 위한 Apache Spark 이해
+      items:
+        - name: U-SQL 개발자를 위한 Apache Spark 이해
+          href: data-lake-analytics-understand-spark-for-usql-developers.md
+        - name: Apache Spark 데이터 형식 이해
+          href: data-lake-analytics-understand-spark-data-formats.md
+        - name: Apache Spark 코드 개념 이해
+          href: data-lake-analytics-understand-spark-code-concepts.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell

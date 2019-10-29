@@ -2,7 +2,7 @@
 title: Form Recognizer 설명서
 summary: Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출하는 인지 서비스입니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 및 유지 관리 작업 없이도 모델이 필드와 항목 간의 레이아웃 및 관계를 이해할 수 있습니다.
 metadata:
-  title: Form Recognizer 설명서
+  title: Form Recognizer 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
   description: Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출하는 인지 서비스입니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 및 유지 관리 작업 없이도 모델이 필드와 항목 간의 레이아웃 및 관계를 이해할 수 있습니다.
   services: cognitive-services
   ms.service: cognitive-services
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 0c450a79c0dbdd19732488af927c3c29df263a23
-  ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+  ms.openlocfilehash: 3a3146c6a918916792a331c0dab74683db82a02d
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/12/2019
-  ms.locfileid: "70931818"
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72931293"
 landingContent:
 - title: Form Recognizer 정보
   linkLists:
@@ -76,3 +76,11 @@ landingContent:
       url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
     - text: Azure CLI(명령줄 인터페이스)
       url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list
+- title: 도움말 및 피드백
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: UserVoice
+      url: https://go.microsoft.com/fwlink/?linkid=2090535
+    - text: 스택 오버플로
+      url: https://go.microsoft.com/fwlink/?linkid=2087186

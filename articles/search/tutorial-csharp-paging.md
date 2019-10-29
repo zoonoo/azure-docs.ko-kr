@@ -1,22 +1,23 @@
 ---
-title: 검색 결과 페이지 매김에 대한 C# 자습서 - Azure Search
-description: 이 자습서는 두 가지 유형의 페이징 중에서 선택할 수 있는 "첫 번째 앱 만들기 - Azure Search" 프로젝트를 기반으로 합니다. 첫 번째 페이징 시스템은 페이지 번호 단추 범위뿐만 아니라 첫 번째, 다음, 이전 및 마지막 페이지 단추도 사용합니다. 두 번째 시스템은 세로 스크롤 막대를 해당 하한값까지 이동하여 트리거되는 무한 스크롤을 사용합니다.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: 검색 결과 페이지 매김에 대한 C# 자습서
+titleSuffix: Azure Cognitive Search
+description: 이 자습서는 두 가지 유형의 페이징 중에서 선택할 수 있는 "첫 번째 앱 만들기 - Azure Cognitive Search" 프로젝트를 기반으로 합니다. 첫 번째 페이징 시스템은 페이지 번호 단추 범위뿐만 아니라 첫 번째, 다음, 이전 및 마지막 페이지 단추도 사용합니다. 두 번째 시스템은 세로 스크롤 막대를 해당 하한값까지 이동하여 트리거되는 무한 스크롤을 사용합니다.
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: 7e6c433168b73c6b58d13d4698bed55d7c18ec58
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 935e6d43cf77d94b485d55eb4bc5eb517bf802a0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434648"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793993"
 ---
-# <a name="c-tutorial-search-results-pagination---azure-search"></a>C# 자습서: 검색 결과 페이지 매김 - Azure Search
+# <a name="c-tutorial-search-results-pagination---azure-cognitive-search"></a>C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search
 
-서로 다른 두 가지 페이징 시스템을 구현하는 방법에 대해 알아봅니다. 첫 번째 페이징 시스템은 페이지 번호, 두 번째 페이징 시스템은 무한 스크롤을 기반으로 합니다. 두 페이징 시스템은 모두 널리 사용되고 있으며, 올바른 페이징을 선택하는 것은 결과와 관련하여 원하는 사용자 경험에 따라 달라집니다. 이 자습서에서는 페이징 시스템을 [C# 자습서: 첫 번째 앱 만들기 - Azure Search](tutorial-csharp-create-first-app.md) 자습서에서 만든 프로젝트에 구축합니다.
+서로 다른 두 가지 페이징 시스템을 구현하는 방법에 대해 알아봅니다. 첫 번째 페이징 시스템은 페이지 번호, 두 번째 페이징 시스템은 무한 스크롤을 기반으로 합니다. 두 페이징 시스템은 모두 널리 사용되고 있으며, 올바른 페이징을 선택하는 것은 결과와 관련하여 원하는 사용자 경험에 따라 달라집니다. 이 자습서에서는 페이징 시스템을 [C# 자습서: 첫 번째 앱 만들기 - Azure Cognitive Search](tutorial-csharp-create-first-app.md) 자습서에서 만든 프로젝트에 빌드합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -27,7 +28,7 @@ ms.locfileid: "67434648"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-[C# 자습서: 첫 번째 앱 만들기 - Azure Search](tutorial-csharp-create-first-app.md) 프로젝트를 가동하여 실행합니다. 이 프로젝트는 사용자 고유의 버전이거나 GitHub: [첫 번째 앱 만들기](https://github.com/Azure-Samples/azure-search-dotnet-samples)에서 설치할 수 있습니다.
+[C# 자습서: 첫 번째 앱 만들기 - Azure Cognitive Search](tutorial-csharp-create-first-app.md) 프로젝트를 가동하여 실행합니다. 이 프로젝트는 사용자 고유의 버전이거나 GitHub: [첫 번째 앱 만들기](https://github.com/Azure-Samples/azure-search-dotnet-samples)에서 설치할 수 있습니다.
 
 ## <a name="extend-your-app-with-numbered-paging"></a>번호 매기기 페이징을 사용하여 앱 확장
 
@@ -361,7 +362,7 @@ ms.locfileid: "67434648"
     ```
 
     > [!Note]
-    > 이 합계는 Azure Search에서 계산해야 하므로 **IncludeTotalResultCount**를 true로 설정하면 일반적으로 많이는 아니지만 성능이 저하됩니다. 복잡한 데이터 세트를 사용하면 반환되는 값이 _근사값_이라는 경고가 표시됩니다. 이 호텔 데이터의 경우에는 정확합니다.
+    > 이 합계는 Azure Cognitive Search에서 계산해야 하므로 **IncludeTotalResultCount**를 true로 설정하면 일반적으로 많지는 않지만 성능이 저하됩니다. 복잡한 데이터 세트를 사용하면 반환되는 값이 _근사값_이라는 경고가 표시됩니다. 이 호텔 데이터의 경우에는 정확합니다.
 
 ### <a name="compile-and-run-the-app"></a>앱 컴파일 및 실행
 
@@ -474,7 +475,7 @@ ms.locfileid: "67434648"
 
 1. 홈 컨트롤러 파일을 열고, 원래 자습서의 **RunQueryAsync** 메서드를 삭제합니다.
 
-2. **Index(model)** 작업을 다음 코드로 바꿉니다. 이제 null이거나 "next"로 설정된 **paging** 필드를 처리하고, Azure Search에 대한 호출을 처리합니다.
+2. **Index(model)** 작업을 다음 코드로 바꿉니다. 이제 null이거나 "next"로 설정된 **paging** 필드를 처리하고, Azure Cognitive Search에 대한 호출을 처리합니다.
 
     ```cs
         public async Task<ActionResult> Index(SearchData model)
@@ -600,4 +601,4 @@ ms.locfileid: "67434648"
 페이징은 인터넷 검색의 기본입니다. 페이징이 잘 처리되면 다음 단계는 자동 완성 검색 기능을 추가하여 사용자 환경을 더욱 향상시키는 것입니다.
 
 > [!div class="nextstepaction"]
-> [C# 자습서: 자동 완성 및 제안 추가 - Azure Search](tutorial-csharp-type-ahead-and-suggestions.md)
+> [C# 자습서: 자동 완성 및 제안 기능 추가 - Azure Cognitive Search](tutorial-csharp-type-ahead-and-suggestions.md)

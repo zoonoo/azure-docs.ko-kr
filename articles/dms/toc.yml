@@ -53,8 +53,10 @@
       href: resource-scenario-status.md
     - name: 필수 구성 요소의 개요
       href: pre-reqs.md
-    - name: Azure SQL DB 관리형 인스턴스 마이그레이션에 대한 네트워크 토폴로지
+    - name: Azure SQL DB MI 마이그레이션에 대한 네트워크 토폴로지
       href: resource-network-topologies.md
+    - name: SQL Server에서 Azure SQL DB MI로의 온라인 마이그레이션에 대한 사용자 지정 역할
+      href: resource-custom-roles-sql-db-managed-instance.md
     - name: 문제 해결 및 알려진 문제
       items:
         - name: 원본 데이터베이스 연결 문제 해결

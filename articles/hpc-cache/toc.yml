@@ -32,9 +32,13 @@
                   href: hpc-cache-ingest-manual.md
     - name: 캐시에 연결
       href: hpc-cache-mount.md
+    - name: 캐시 관리
+      href: hpc-cache-manage.md
 - name: 리소스
   items:
     - name: 지원 티켓 열기
       href: hpc-cache-support-ticket.md
     - name: 지역 가동 중단에서 복구
       href: hpc-region-recovery.md
+    - name: Azure HPC Cache에서 Azure NetApp Files 사용
+      href: hpc-cache-netapp.md

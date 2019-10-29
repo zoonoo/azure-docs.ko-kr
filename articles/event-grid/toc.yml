@@ -1,5 +1,7 @@
-- name: Event Grid 설명서
+- name: Azure Event Grid 설명서
   href: index.yml
+- name: Event Grid on IoT Edge 설명서로 전환
+  href: edge/pub-sub-events-webhook-local.md
 - name: 개요
   items:
     - name: Event Grid란?

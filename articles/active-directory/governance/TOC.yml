@@ -42,6 +42,8 @@
           items:
             - name: 카탈로그 작성자에게 위임
               href: entitlement-management-delegate-catalog.md
+            - name: 연결된 조직 추가
+              href: entitlement-management-organization.md
             - name: 외부 사용자를 위한 액세스 제어
               href: entitlement-management-external-users.md
             - name: 보고서 및 로그 보기

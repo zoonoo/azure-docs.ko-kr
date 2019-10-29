@@ -1,0 +1,116 @@
+- name: 에너지 산업용 Azure IoT Central 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure IoT Central을 사용하여 에너지 산업 솔루션 빌드
+      href: overview-iot-central-energy.md
+- name: 자습서
+  items:
+    - name: 스마트 측정기 모니터링 앱 만들기
+      href: tutorial-smart-meter-app.md
+    - name: 태양 전지판 모니터링 앱 만들기
+      href: tutorial-solar-panel-app.md
+- name: 개념
+  items:
+    - name: 스마트 측정기 앱 아키텍처
+      href: concept-iot-central-smart-meter-app.md
+    - name: 태양 전지판 앱 아키텍처
+      href: concept-iot-central-solar-panel-app.md
+    - name: 연결
+      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+- name: 방법 가이드
+  items:
+    - name: 디바이스 연결
+      items:
+        - name: MXChip IoT DevKit 준비 및 연결
+          href: ../core/howto-connect-devkit-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: Rigado Cascade 500 준비 및 연결
+          href: ../core/howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: Azure CLI를 사용하여 디바이스 연결 모니터링
+          href: ../core/howto-monitor-devices-azure-cli-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+    - name: 디바이스 관리
+      items:
+        - name: 디바이스 관리
+          href: ../core/howto-manage-devices-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 작업 실행
+          href: ../core/howto-run-a-job.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 디바이스 그룹 사용
+          href: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 버전 디바이스 템플릿
+          href: ../core/howto-version-device-template-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+    - name: 모니터링 및 분석
+      items:
+        - name: 디바이스 데이터 분석
+          href: ../core/howto-create-analytics-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 규칙에서 웹후크 만들기
+          href: ../core/howto-create-webhooks-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+    - name: 작업 및 확장성
+      items:
+        - name: 연속 데이터 내보내기 구성
+          href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 사용자 지정 규칙 만들기
+          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: Databricks를 사용하여 사용자 지정 분석 만들기
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: Databricks를 사용하여 사용자 지정 분석 만들기
+          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+    - name: 관리
+      items:
+        - name: 애플리케이션 설정 변경
+          href: ../core/howto-administer-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 애플리케이션 내보내기
+          href: ../core/howto-use-app-templates-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 사용자 및 역할 관리
+          href: ../core/howto-manage-users-roles-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 청구 관리
+          href: ../core/howto-view-bill-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 애플리케이션 UI 사용자 지정
+          href: ../core/howto-customize-ui-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 대시보드에 타일 추가
+          href: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: Azure Portal에서 관리
+          href: ../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: Azure CLI에서 관리
+          href: ../core/howto-manage-iot-central-from-cli.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: Azure PowerShell에서 관리
+          href: ../core/howto-manage-iot-central-from-powershell.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: CSP 포털에서 관리
+          href: ../core/howto-create-and-manage-applications-csp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+    - name: 개인 설정
+      items:
+        - name: Azure IoT Central 개인 대시보드 만들기
+          href: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 개인 기본 설정 관리
+          href: ../core/howto-manage-preferences.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+        - name: 라이브 채팅 토글
+          href: ../core/howto-show-hide-chat.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+- name: 관련 항목
+  items:
+    - name: 플랫폼 서비스
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: 위치 기반 서비스
+          href: /azure/location-based-services
+        - name: 서비스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: IoT Edge
+      items:
+        - name: Azure IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 디바이스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: 리소스
+  items:
+    - name: 고객 데이터 요청
+      href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+    - name: 지원되는 브라우저
+      href: ../core/iot-central-supported-browsers.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+    - name: API 참조 설명서
+      href: 'https://go.microsoft.com/fwlink/?linkid=2109131'

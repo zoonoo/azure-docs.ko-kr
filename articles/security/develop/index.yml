@@ -1,60 +1,59 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: 보안 개발 설명서
+summary: 샘플 앱, 모범 사례 및 지침을 사용하여 Azure에서 보안 애플리케이션을 개발 및 배포하는 방법을 알아봅니다.
 metadata:
-  document_id: null
   title: Microsoft Azure의 보안 개발 설명서
-  meta.description: Learn how to develop secure apps on Azure.
+  description: Azure에서 보안 앱을 개발하는 방법에 대해 알아봅니다.
   services: security
-  author: TerryLanfear
-  manager: rkarlin
   ms.service: security
   ms.subservice: develop
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/30/2019
+  author: TerryLanfear
   ms.author: terrylan
-abstract:
-  description: '샘플 앱, 모범 사례 및 지침을 사용하여 Azure에서 보안 애플리케이션을 개발 및 배포하는 방법을 알아봅니다.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 2
-        items:
-          - href: /azure/security/develop/secure-dev-overview
-            html: <p>Azure에서 보안 웹 애플리케이션 배포</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_get-started.svg'
-            title: 시작하기
-          - href: 'https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider'
-            html: <p>웹앱의 상위 5가지 보안 항목</p>
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_learn-about.svg'
-            title: Microsoft Learn을 통해 기술 쌓기
-  - title: 샘플 앱 보호
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/security/develop/secure-web-app">Linux 컨테이너의 웹앱</a>
-          - html: <a href="/azure/security/develop/secure-aad-app">Azure Active Directory를 사용하는 웹앱</a>
-          - html: <a href="/azure/security/develop/secure-pci-web-app">지불 카드 산업</a>
-  - title: 개념
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/security/develop/secure-dev-overview">보안 개발 모범 사례</a>
-  - title: 리소스
-    items:
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/security/develop/security-code-analysis-overview">Microsoft 보안 코드 분석</a>
-          - html: <a href="/azure/security/develop/threat-modeling-tool">위협 모델링 도구</a>
+  manager: rkarlin
+  ms.date: 10/24/2019
+  ms.openlocfilehash: 53e59e7d5ef28d8cb09015b7de296b298af9c3f7
+  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 10/25/2019
+  ms.locfileid: "72934077"
+landingContent:
+- title: 보안 샘플 앱 개발
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Linux 컨테이너의 웹앱
+      url: secure-web-app.md
+    - text: Azure Active Directory를 사용하는 웹앱
+      url: secure-aad-app.md
+    - text: 지불 카드 산업
+      url: secure-pci-web-app.md
+- title: 시작하기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 보안 개발 모범 사례
+      url: secure-dev-overview.md
+    - text: 디자인 단계
+      url: secure-design.md
+    - text: 개발 단계
+      url: secure-develop.md
+    - text: 배포 단계
+      url: secure-deploy.md
+- title: 보안 개발에 분석 도구 추가
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 보안 코드 분석
+      url: security-code-analysis-overview.md
+    - text: 위협 모델링
+      url: threat-modeling-tool.md
+- title: 기술 빌드
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 상위 5개 보안 항목
+      url: https://docs.microsoft.com/learn/modules/top-5-security-items-to-consider
+    - text: Azure에서 클라우드 애플리케이션 보호
+      url: https://docs.microsoft.com/learn/paths/secure-your-cloud-apps

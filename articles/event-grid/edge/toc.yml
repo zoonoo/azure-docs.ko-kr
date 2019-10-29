@@ -1,0 +1,62 @@
+- name: Event Grid IoT Edge 설명서
+  href: index.yml
+- name: Azure Event Grid 설명서로 전환
+  href: ../overview.md
+- name: 개요
+  items:
+    - name: Event Grid on IoT Edge란?
+      href: overview.md
+- name: 자습서
+  items:
+    - name: 로컬로 이벤트 게시 및 구독
+      href: pub-sub-events-webhook-local.md
+    - name: 클라우드에서 이벤트 게시 및 구독
+      href: pub-sub-events-webhook-cloud.md
+    - name: Azure Event Grid로 이벤트 전달
+      href: forward-events-event-grid-cloud.md
+    - name: Azure IoT Hub로 이벤트 전달
+      href: forward-events-iothub.md
+    - name: 로컬로 Blob Storage 이벤트에 반응
+      href: react-blob-storage-events-locally.md
+- name: 샘플
+  href: 'https://github.com/Azure/event-grid-iot-edge'
+- name: 개념
+  items:
+    - name: Event Grid 개념
+      href: concepts.md
+    - name: 보안 및 인증
+      href: security-authentication.md
+    - name: 이벤트 스키마
+      href: event-schemas.md
+    - name: 배달 및 다시 시도
+      href: delivery-retry.md
+    - name: 출력 일괄 처리
+      href: delivery-output-batching.md
+    - name: 고급 필터링
+      href: advanced-filtering.md
+- name: 방법 가이드
+  items:
+    - name: 상태 유지
+      items:
+        - name: Linux
+          href: persist-state-linux.md
+        - name: Windows
+          href: persist-state-windows.md
+    - name: API 프로토콜 구성
+      href: configure-api-protocol.md
+    - name: 클라이언트 인증 구성
+      href: configure-client-auth.md
+    - name: 웹후크 구독자 인증 구성
+      href: configure-webhook-subscriber-auth.md
+    - name: ID 인증 구성
+      href: configure-identity-auth.md
+    - name: 문제 해결
+      href: troubleshoot.md
+- name: 참고 자료
+  items:
+    - name: REST API
+      href: api.md
+    - name: Event Grid 구성
+      href: configure-event-grid.md
+    - name: 모듈 쌍 구성 스키마
+      href: twin-json.md

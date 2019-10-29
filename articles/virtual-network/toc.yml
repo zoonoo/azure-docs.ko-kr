@@ -103,8 +103,12 @@
                   href: virtual-network-ipv4-ipv6-dual-stack-cli.md
                 - name: Resource Manager 템플릿
                   href: ipv6-configure-template-json.md
-            - name: 전체 업그레이드
-              href: ipv6-add-to-existing-vnet-powershell.md
+            - name: IPv4 애플리케이션에 IPv6 추가
+              items:
+                - name: Azure PowerShell
+                  href: ipv6-add-to-existing-vnet-powershell.md
+                - name: Azure CLI
+                  href: ipv6-add-to-existing-vnet-cli.md
             - name: 표준 공용 Load Balancer
               items:
                 - name: Azure PowerShell

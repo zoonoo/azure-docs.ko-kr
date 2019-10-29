@@ -10,13 +10,19 @@
     - name: Terraform 설치 및 구성
       href: /azure/virtual-machines/linux/terraform-install-configure
       maintainContext: true
-    - name: 여러 서비스 애플리케이션 만들기
-      href: terrafom-quickstart.md
+    - name: Terraform 구성 만들기
+      href: terraform-create-configuration.md
     - name: Linux VM 만들기
       href: /azure/virtual-machines/linux/terraform-create-complete-vm
       maintainContext: true
 - name: 자습서
   items:
+    - name: 설정 및 구성
+      items:
+        - name: Terraform 상태를 Azure Storage에 저장
+          href: terraform-backend.md
+        - name: Terraform에 대한 Azure Cloud Shell 구성
+          href: terraform-cloud-shell.md
     - name: App Service
       items:
         - name: Terraform 및 Azure 공급자 배포 슬롯
@@ -29,8 +35,8 @@
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: 인프라
       items:
-        - name: MSI가 활성화된 Terraform VM 만들기
-          href: terraform-vm-msi.md
+        - name: Azure 리소스용 관리 ID를 사용하여 Terraform VM 만들기
+          href: terraform-vm-managed-identities-for-azure-resources.md
         - name: Terraform 모듈을 사용하여 VM 클러스터 만들기
           href: terraform-create-vm-cluster-module.md
         - name: Terraform 및 HCL을 사용하여 VM 클러스터 만들기
@@ -67,10 +73,6 @@
   items:
     - name: 구성 템플릿
       href: 'https://github.com/terraform-providers/terraform-provider-azurerm/tree/master/examples'
-- name: 방법 가이드
-  items:
-    - name: Azure Storage의 저장소 상태
-      href: terraform-backend.md
 - name: 참고 자료
   items:
     - name: Azure 모듈 레지스트리
