@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 79a04725c8289baa3008b229d5dc608357cde881
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 77137bcc708ee403571c4ca9fc0ee0333c068437
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72949600"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990333"
 ---
 # <a name="create-a-new-device-template-version-preview-features"></a>새 장치 템플릿 버전 만들기 (미리 보기 기능)
 
@@ -84,4 +84,4 @@ Azure IoT Central을 사용하여 IoT 애플리케이션을 신속하게 개발�
 Azure IoT Central 애플리케이션에서 디바이스 템플릿 버전을 사용하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
-> [원격 분석 규칙을 만드는 방법](howto-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [원격 분석 규칙을 만드는 방법](tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)

@@ -3,20 +3,19 @@ title: Azure Time Series Insights 사용자 지정 보기를 매개 변수가 �
 description: 이 문서에서는 고객 보기를 쉽게 공유할 수 있도록 Azure Time Series Insights에서 매개 변수가 있는 URL을 개발하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e862cd604263c5125259344baf2e990ad56a3291
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675852"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991107"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
@@ -66,7 +65,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 ### <a name="optional-parameters"></a>선택적 매개 변수
 
-@No__t_0 매개 변수는 Time Series Insights 보기의 조건을 지정 합니다.
+`timeSeriesDefinitions=<collection of term objects>` 매개 변수는 Time Series Insights 보기의 조건을 지정 합니다.
 
 | 매개 변수를 포함해야 합니다. | URL 항목 | 설명 |
 | --- | --- | --- |
@@ -74,12 +73,12 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 | **splitBy** | `\<string>` | *분할의 기준*이 되는 열 이름입니다. |
 | **measureName** | `\<string>` | *측정값*의 열 이름입니다. |
 | **가** | `\<string>` | 서버 쪽 필터링에 대한 *where* 절입니다. |
-| **.** | `true` | 측정값에 sum을 사용 하 여 지정 하는 선택적 매개 변수입니다. </br>  @No__t_0 선택 된 측정값이 면 기본적으로 개수가 선택 됩니다.  </br>  @No__t_0 선택 되지 않은 경우 기본적으로 평균이 선택 됩니다. |
+| **.** | `true` | 측정값에 sum을 사용 하 여 지정 하는 선택적 매개 변수입니다. </br>  `Events` 선택 된 측정값이 면 기본적으로 개수가 선택 됩니다.  </br>  `Events` 선택 되지 않은 경우 기본적으로 평균이 선택 됩니다. |
 
-* @No__t_0 키-값 쌍은 차트에서 누적을 사용 합니다.
-* @No__t_0 키-값 쌍은 선택적 매개 변수 내에서 용어에 대해 동일한 Y 축 눈금을 사용할 수 있도록 합니다.  
-* @No__t_0를 사용 하면 간격 슬라이더를 조정 하 여 보다 세분화 하거나 더 정교 하 고 더 세분화 된 차트 보기를 제공할 수 있습니다.  
-* @No__t_0 매개 변수를 사용 하 여 UTC의 오프셋으로 표시할 차트의 표준 시간대를 설정할 수 있습니다.
+* `multiChartStack=<true/false>` 키-값 쌍은 차트에서 누적을 사용 합니다.
+* `multiChartSameScale=<true/false>` 키-값 쌍은 선택적 매개 변수 내에서 용어에 대해 동일한 Y 축 눈금을 사용할 수 있도록 합니다.  
+* `timeBucketUnit=<Unit>&timeBucketSize=<integer>`를 사용 하면 간격 슬라이더를 조정 하 여 보다 세분화 하거나 더 정교 하 고 더 세분화 된 차트 보기를 제공할 수 있습니다.  
+* `timezoneOffset=<integer>` 매개 변수를 사용 하 여 UTC의 오프셋으로 표시할 차트의 표준 시간대를 설정할 수 있습니다.
 
 | 쌍 | 설명 |
 | --- | --- |
@@ -118,7 +117,7 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 전체 보기 (차트 포함):
 
-[![Chart 뷰](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[![차트 뷰](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

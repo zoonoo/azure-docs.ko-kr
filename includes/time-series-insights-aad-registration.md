@@ -5,15 +5,16 @@ ms.topic: include
 ms.custom: include file
 services: time-series-insights
 ms.service: time-series-insights
-author: kingdomofends
-ms.author: adgera
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.date: 09/24/2019
-ms.openlocfilehash: ccfbd16f4db770558f1bc0284860a5f8d9fb8b68
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
-ms.translationtype: HT
+ms.openlocfilehash: 7e67b9e1c611d14b78db53f8662fb4e1f493a8df
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266945"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990188"
 ---
 > [!IMPORTANT]
 > * 2019년 5월에 새 **Azure Active Directory** > **앱 등록** 블레이드가 레거시 **Azure Active Directory** > **앱 등록(레거시)** 블레이드를 대체합니다.
@@ -50,7 +51,7 @@ ms.locfileid: "71266945"
 
    [![새 클라이언트 비밀 만들기](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
-   **저장**을 클릭합니다.
+   페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 1. **인증서 및 비밀**을 선택한 다음, **새 클라이언트 비밀**을 선택하여 클라이언트에서 ID를 증명하는 데 사용할 수 있는 애플리케이션 암호를 만듭니다.
 

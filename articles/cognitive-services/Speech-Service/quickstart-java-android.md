@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 2f728231c01056ecb8709f84f13e834ef3618dc8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 2fb7bc0851868f6551ed57d742c4005550caec99
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71803307"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675552"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android의 Java에서 음성 인식
 
@@ -23,30 +23,30 @@ ms.locfileid: "71803307"
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-이 문서에서는 Cognitive Services Speech SDK를 사용하여 음성을 텍스트로 변환하는 Android용 Java 애플리케이션을 개발하는 방법을 설명합니다.
-이 애플리케이션은 Speech SDK Maven 패키지 및 Android Studio 3.3을 기반으로 합니다.
-Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 탑재한 Android 디바이스와 호환됩니다.
+이 문서에서는 Azure Cognitive Services Speech SDK를 사용하여 음성을 텍스트로 변환하는 Android용 Java 애플리케이션을 개발하는 방법을 설명합니다.
+
+이 애플리케이션은 Speech SDK Maven 패키지 및 Android Studio 3.3을 기반으로 합니다. Speech SDK는 현재 32비트 또는 64비트 ARM 및 Intel x86/x64 호환 프로세서를 탑재한 Android 디바이스와 호환됩니다.
 
 > [!NOTE]
 > Speech Devices SDK 및 Roobo 디바이스에 대한 내용은 [Speech Devices SDK](speech-devices-sdk.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작을 완료하려면 Speech Services 구독 키가 필요합니다. 무료로 가져올 수 있습니다. 자세한 내용은 [Speech Services 평가판 사용해 보기](get-started.md)를 참조하세요.
+이 빠른 시작을 완료하려면 Speech Services 구독 키가 필요합니다. 무료로 가져올 수 있습니다. 자세한 내용은 [Speech Service 체험해보기](get-started.md)를 참조하세요.
 
 ## <a name="create-and-configure-a-project"></a>프로젝트 만들기 및 구성
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-android-create-proj.md)]
 
-## <a name="create-user-interface"></a>사용자 인터페이스 만들기
+## <a name="create-a-user-interface"></a>사용자 인터페이스 만들기
 
-애플리케이션의 기본 사용자 인터페이스를 만들어 보겠습니다. 기본 활동을 위한 레이아웃 `activity_main.xml`을 편집합니다. 레이아웃에는 기본적으로 애플리케이션 이름이 있는 제목 표시줄과 "Hello World!" 텍스트가 포함된 TextView가 포함됩니다.
+애플리케이션의 기본 사용자 인터페이스를 만들어 보겠습니다. 기본 활동을 위한 레이아웃 `activity_main.xml`을 편집합니다. 레이아웃에는 기본적으로 애플리케이션 이름이 있는 제목 표시줄과 “Hello World!” 텍스트가 포함된 TextView가 포함됩니다.
 
-* TextView 요소를 클릭합니다. 오른쪽 위 모서리에 있는 해당 ID 특성을 `hello`로 변경합니다.
+* TextView 요소를 선택합니다. 오른쪽 위 모서리에 있는 해당 ID 특성을 `hello`로 변경합니다.
 
 * `activity_main.xml` 창 왼쪽 위에 있는 색상표에서 단추를 텍스트 위의 빈 공간으로 끌어옵니다.
 
-* 오른쪽의 단추 특성에서 `onClick` 특성 값에 `onSpeechButtonClicked`를 입력합니다. 이 이름으로 버튼 이벤트를 처리하기 위한 메서드를 작성할 것입니다.  오른쪽 위 모서리에 있는 해당 ID 특성을 `button`로 변경합니다.
+* 오른쪽의 단추 특성에서 `onClick` 특성 값에 `onSpeechButtonClicked`를 입력합니다. 이 이름으로 버튼 이벤트를 처리하기 위한 메서드를 작성할 것입니다. 오른쪽 위 모서리에 있는 해당 ID 특성을 `button`로 변경합니다.
 
 * 레이아웃 제약 조건을 유추하도록 디자이너 맨 위에 있는 마법 지팡이 아이콘을 사용합니다.
 
@@ -54,7 +54,7 @@ Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 �
 
 이제 UI의 텍스트 및 그래픽 모양이 다음과 유사하게 표시됩니다.
 
-![](media/sdk/qs-java-android-11-gui.png)
+![사용자 인터페이스](media/sdk/qs-java-android-11-gui.png)
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
 
@@ -68,9 +68,9 @@ Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 �
 
    * `onSpeechButtonClicked` 메서드는 앞에서 설명한 것처럼 단추 클릭 처리기입니다. 단추를 누르면 음성 텍스트 변환 전사가 트리거됩니다.
 
-1. 동일한 파일에서 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
+1. 동일한 파일에서 `YourSubscriptionKey` 문자열을 구독 키로 바꿉니다.
 
-1. 또한 `YourServiceRegion` 문자열을 구독과 연결된 [지역](regions.md)으로 바꿉니다(예: 평가판 구독의 `westus`).
+1. `YourServiceRegion` 문자열을 구독과 연결된 [지역](regions.md)으로 바꿉니다. 예를 들어 평가판 구독의 경우 `westus`를 사용합니다.
 
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 
@@ -78,13 +78,13 @@ Speech SDK는 현재 32/64비트 ARM 및 Intel x86/x64 호환 프로세서를 �
 
 1. 애플리케이션을 빌드하려면 Ctrl + F9를 누르거나 메뉴 모음에서 **빌드** > **프로젝트 만들기**를 선택합니다.
 
-1. 애플리케이션을 시작하려면 Shift+F10을 누르거나 **실행** >  **'앱' 실행**을 선택합니다.
+1. 애플리케이션을 시작하려면 Shift+F10을 누르거나 **실행** >  **‘앱’ 실행**을 선택합니다.
 
 1. 나타나는 배포 대상 창에서 Android 디바이스를 선택합니다.
 
    ![배포 대상 선택 창 스크린샷](media/sdk/qs-java-android-12-deploy.png)
 
-애플리케이션에서 단추를 눌러 음성 인식 섹션을 시작합니다. 다음 15초간의 영어 음성이 Speech Services로 전송되어 전사됩니다. 결과가 Android 애플리케이션과, Android Studio의 logcat 창에 표시됩니다.
+애플리케이션에서 단추를 선택하여 음성 인식 섹션을 시작합니다. 다음 15초간의 영어 음성이 Speech Services로 전송되어 전사됩니다. 결과가 Android 애플리케이션과, Android Studio의 logcat 창에 표시됩니다.
 
 ![Android 애플리케이션 스크린샷](media/sdk/qs-java-android-13-gui-on-device.png)
 

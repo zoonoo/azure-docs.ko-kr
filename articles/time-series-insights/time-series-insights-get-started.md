@@ -3,7 +3,7 @@ title: Azure Time Series Insights 환경 만들기 | Microsoft Docs
 description: 이 문서에서는 Azure Portal을 사용하여 새로운 Time Series Insights 환경을 만드는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1956fd9eaaa537d7ffa992070fc5cffd567954ce
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 1b51931385eb7e2e0bf2a1baf5cc4c3379eab2df
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274806"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991226"
 ---
 # <a name="create-a-new-time-series-insights-environment-in-the-azure-portal"></a>Azure Portal에서 Time Series Insights 환경 만들기
 
@@ -28,40 +28,40 @@ Time Series Insights를 사용하여 Azure IoT Hub 및 Event Hubs로 이동하�
 
 다음 단계에 따라 환경을 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 
 1. **+ 리소스 만들기** 단추를 선택 합니다.
 
 1. **사물 인터넷** 범주를 선택하고 **Time Series Insights**를 선택합니다.
 
-   [![ Time Series Insights 환경 만들기](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox))
+   [Time Series Insights 환경을 만들![](media/time-series-insights-get-started/1-new-tsi.png)](media/time-series-insights-get-started/1-new-tsi.png#lightbox))
 
 1. **Time Series Insights** 페이지에서 **만들기**를 선택합니다.
 
 1. 필수 매개 변수를 입력합니다. 다음 표에서는 각 매개 변수에 대해 설명합니다.
    
-   [![ Time Series Insights 리소스 그룹 만들기](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
+   [Time Series Insights 리소스 그룹![만들기](media/time-series-insights-get-started/2-create-tsi.png)](media/time-series-insights-get-started/2-create-tsi.png#lightbox)
    
-   설정|제안된 값|설명
+   설정|제안 값|설명
    ---|---|---
    환경 이름 | 고유한 이름 | 이 이름은 [Time Series 탐색기](https://insights.timeseries.azure.com)에서 해당 환경을 나타내는 데 사용됩니다.
-   구독 | 사용자의 구독 | 구독이 여러 개인 경우 이벤트 원본을 포함하는 구독을 선택합니다. Time Series Insights는 같은 구독에 있는 Azure IoT Hub 및 Event Hub 리소스를 자동으로 검색할 수 있습니다.
-   리소스 그룹 | 새로 만들기 또는 기존 항목 사용 | 리소스 그룹은 함께 사용되는 Azure 리소스 컬렉션입니다. 예를 들어 이벤트 허브 또는 IoT Hub를 포함하는 기존 리소스 그룹을 선택할 수 있습니다. 또는 이 리소스가 다른 리소스와 관련이 없는 경우에는 새로 만들 수 있습니다.
+   Subscription | 사용자의 구독 | 구독이 여러 개인 경우 이벤트 원본을 포함하는 구독을 선택합니다. Time Series Insights는 같은 구독에 있는 Azure IoT Hub 및 Event Hub 리소스를 자동으로 검색할 수 있습니다.
+   Resource group | 새로 만들기 또는 기존 항목 사용 | 리소스 그룹은 함께 사용되는 Azure 리소스 컬렉션입니다. 예를 들어 이벤트 허브 또는 IoT Hub를 포함하는 기존 리소스 그룹을 선택할 수 있습니다. 또는 이 리소스가 다른 리소스와 관련이 없는 경우에는 새로 만들 수 있습니다.
    위치 | 이벤트 원본에 가장 가까운 위치 | 지역 외부로 데이터를 이동할 때 지역 간 및 영역 간 대역폭 비용이 추가되고 대기 시간이 늘어나지 않도록 하기 위해 이벤트 원본 데이터를 포함하는 동일한 데이터 센터 위치를 선택하는 것이 좋습니다.
    가격 책정 계층 | S1 | 필요한 처리량을 선택합니다. 최저 비용의 시작 용량을 사용하려면 S1을 선택합니다.
-   용 | 1 | 용량은 선택한 SKU와 관련된 입력 속도, 스토리지 용량 및 비용에 적용되는 승수입니다.  환경을 만든 후 환경의 용량을 변경할 수 있습니다. 최저 비용을 원할 경우 용량 1을 선택합니다. 
+   용량 중심 | 1 | 용량은 선택한 SKU와 관련된 입력 속도, 스토리지 용량 및 비용에 적용되는 승수입니다.  환경을 만든 후 환경의 용량을 변경할 수 있습니다. 최저 비용을 원할 경우 용량 1을 선택합니다. 
   
 1. **만들기**를 선택하여 프로비전 프로세스를 시작합니다. 이 작업에 몇 분 정도가 소요됩니다.
 
 1. 배포 프로세스를 모니터링하려면 **알림** 기호(종 모양)를 선택합니다.
 
-   [![ 알림 보기](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
+   [알림![보기](media/time-series-insights-get-started/3-notifications.png)](media/time-series-insights-get-started/3-notifications.png#lightbox)
 
     배포가 성공하면 **리소스로 이동**을 선택하여 다른 속성을 구성하고, 데이터 액세스 정책을 사용하여 보안을 설정하고, 이벤트 원본을 추가하고, 기타 작업을 수행할 수 있습니다.
 
 1. 리소스 **개요**의 오른쪽 위 모서리에 있는 **고정 아이콘** 을 선택 하 여 나중에 Time Series Insights 환경에 쉽게 액세스할 수 있습니다.
 
-   [![ 대시보드에 Time Series Insights pin 만들기](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
+   [대시보드에 Time Series Insights 고정![만들려면](media/time-series-insights-get-started/4-pin-create.png)](media/time-series-insights-get-started/4-pin-create.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

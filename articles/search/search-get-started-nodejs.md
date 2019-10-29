@@ -1,23 +1,22 @@
 ---
-title: '빠른 시작: REST API를 사용하여 Node.js에서 검색 인덱스 만들기 - Azure Search'
-description: JavaScript에서 인덱스 생성, 데이터 로드, 쿼리 방법을 보여주는 Azure Search에 대한 Node.js 샘플입니다.
+title: '빠른 시작: REST API를 사용하여 Node.js에서 검색 인덱스 만들기'
+titleSuffix: Azure Cognitive Search
+description: JavaScript에서 인덱스 생성, 데이터 로드, 쿼리 방법을 보여주는 Azure Cognitive Search에 대한 Node.js 샘플입니다.
 author: lobrien
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.devlang: nodejs
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: 4e17247ea412b5472a0c23fd74ff7e53f375710d
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.devlang: nodejs
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 20a5af5ac7163c182ea01a9a9442d3c99614442d
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881507"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787435"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-nodejs-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Node.js에서 Azure Search 인덱스 만들기
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Node.js에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -26,7 +25,7 @@ ms.locfileid: "70881507"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-Azure Search 인덱스를 생성, 로드, 쿼리하는 Node.js 애플리케이션을 만듭니다. 이 문서에서는 애플리케이션을 만드는 방법을 단계별로 보여줍니다. 또는 [소스 코드와 데이터를 다운로드](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/)하고 명령줄에서 애플리케이션을 실행할 수 있습니다.
+Azure Cognitive Search 인덱스를 생성, 로드, 쿼리하는 Node.js 애플리케이션을 만듭니다. 이 문서에서는 애플리케이션을 만드는 방법을 단계별로 보여줍니다. 또는 [소스 코드와 데이터를 다운로드](https://github.com/Azure-Samples/azure-search-javascript-samples/tree/master/quickstart/)하고 명령줄에서 애플리케이션을 실행할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -37,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 + [Node.js](https://nodejs.org).
 + [NPM](https://www.npmjs.com)은 Node.js로 설치해야 합니다.
 + 샘플 인덱스 구조 및 일치하는 문서는 이 문서 또는 [리포지토리의 **quickstart** 디렉터리](https://github.com/Azure-Samples/azure-search-javascript-samples/)에서 제공됩니다.
-+ [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
++ [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
 권장:
 
@@ -47,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 <a name="get-service-info"></a>
 ## <a name="get-keys-and-urls"></a>키 및 URL 가져오기
 
-서비스를 호출하려면 모든 요청에서 URL 엔드포인트 및 액세스 키가 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
+서비스를 호출하려면 모든 요청에서 URL 엔드포인트 및 액세스 키가 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Cognitive Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 가져옵니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 검색 서비스의 이름을 확인합니다. 엔드포인트 URL을 검토하여 서비스 이름을 확인할 수 있습니다. 엔드포인트 URL이 `https://mydemo.search.windows.net`인 경우 서비스 이름은 `mydemo`입니다.
 
@@ -85,7 +84,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     {
       "name": "quickstart",
       "version": "1.0.0",
-      "description": "Azure Search Quickstart",
+      "description": "Azure Cognitive Search Quickstart",
       "main": "index.js",
       "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
@@ -124,7 +123,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="1---create-index"></a>1 - 인덱스 만들기 
 
-**hotels_quickstart_index.json** 파일을 만듭니다.  이 파일은 다음 단계에서 로드할 문서에서 Azure Search가 작동하는 방식을 정의합니다. 각 필드는 `name`으로 식별되며 지정된 `type`이 있습니다. 또한 각 필드에는 Azure Search가 필드 검색, 필터링, 정렬 및 패싯을 수행할 수 있는지 여부를 지정하는 일련의 인덱스 특성도 있습니다. 대부분의 필드는 단순 데이터 형식이지만 `AddressType`과 같은 일부 형식은 인덱스에서 다양한 데이터 구조를 만들 수 있게 해주는 복합 형식입니다.  [지원되는 데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 및 [인덱스 특성](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes)에 대해 자세히 알아볼 수 있습니다. 
+**hotels_quickstart_index.json** 파일을 만듭니다.  이 파일은 다음 단계에서 로드할 문서에서 Azure Cognitive Search가 작동하는 방식을 정의합니다. 각 필드는 `name`으로 식별되며 지정된 `type`이 있습니다. 또한 각 필드에는 Azure Cognitive Search가 필드 검색, 필터링, 정렬 및 패싯을 수행할 수 있는지 여부를 지정하는 일련의 인덱스 특성도 있습니다. 대부분의 필드는 단순 데이터 형식이지만 `AddressType`과 같은 일부 형식은 인덱스에서 다양한 데이터 구조를 만들 수 있게 해주는 복합 형식입니다.  [지원되는 데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 및 [인덱스 특성](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes)에 대해 자세히 알아볼 수 있습니다. 
 
 **hotels_quickstart_index.json**에 다음을 추가하거나 [파일을 다운로드](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels_quickstart_index.json)하세요. 
 
@@ -337,7 +336,7 @@ static throwOnHttpError(response) {
 }
 ```
 
-마지막으로 Azure Search 인덱스를 검색하고, 삭제하고 만드는 메서드를 추가합니다. 이러한 메서드는 모두 동일한 구조를 가집니다.
+마지막으로 Azure Cognitive Search 인덱스를 검색하고, 삭제하고 만드는 메서드를 추가합니다. 이러한 메서드는 모두 동일한 구조를 가집니다.
 
 * 요청이 수행될 엔드포인트를 확인합니다.
 * 적절한 엔드포인트, HTTP 동사, API 키 및 해당하는 경우 JSON 본문을 사용하여 요청을 생성합니다. `indexExistsAsync()` 및 `deleteIndexAsync()`에는 JSON 본문이 없지만, `createIndexAsync(definition)`에는 있습니다.
@@ -473,7 +472,7 @@ Azure Portal에서 검색 서비스의 **개요**를 엽니다. **인덱스** �
 
 ## <a name="2---load-documents"></a>2 - 문서 로드 
 
-Azure Search에서 문서는 인덱싱에 대한 입력인 동시에 쿼리의 출력인 데이터 구조입니다. 이러한 데이터를 인덱스에 POST(게시)해야 합니다. 이 경우 이전 단계에서 수행한 작업과 다른 엔드포인트를 사용합니다. **AzureSearchClient.js**를 열고, 다음 메서드를 `getIndexUrl()` 뒤에 추가합니다.
+Azure Cognitive Search에서 문서는 인덱싱에 대한 입력인 동시에 쿼리의 출력인 데이터 구조입니다. 이러한 데이터를 인덱스에 POST(게시)해야 합니다. 이 경우 이전 단계에서 수행한 작업과 다른 엔드포인트를 사용합니다. **AzureSearchClient.js**를 열고, 다음 메서드를 `getIndexUrl()` 뒤에 추가합니다.
 
 ```javascript
  getPostDataUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs/index?api-version=${this.apiVersion}`;  }
@@ -604,7 +603,7 @@ const run = async () => {
 
 ## <a name="3---search-an-index"></a>3 - 인덱스 검색
 
-Azure Portal에서 검색 서비스에 있는 **개요**의 **인덱스** 탭으로 돌아갑니다. 인덱스에는 이제 4개의 문서가 포함되어 있고 스토리지의 일부 공간이 사용됩니다(UI에서 인덱스의 기본 상태를 올바르게 반영하는 데 몇 분 정도 걸릴 수 있음). **검색 탐색기**로 가져올 인덱스 이름을 클릭합니다. 이 페이지에서는 데이터 쿼리를 실험할 수 있습니다. `*&$count=true`의 쿼리 문자열을 검색하려고 하면 모든 문서와 결과 수를 다시 가져와야 합니다. `historic&highlight=Description&$filter=Rating gt 4` 쿼리 문자열을 사용하여 시도하고, "historic"이라는 단어가 `<em></em>` 태그에 래핑된 단일 문서를 다시 가져와야 합니다. [Azure Search에서 쿼리를 작성하는 방법](https://docs.microsoft.com/azure/search/search-query-overview)에서 자세한 내용을 알아보세요. 
+Azure Portal에서 검색 서비스에 있는 **개요**의 **인덱스** 탭으로 돌아갑니다. 인덱스에는 이제 4개의 문서가 포함되어 있고 스토리지의 일부 공간이 사용됩니다(UI에서 인덱스의 기본 상태를 올바르게 반영하는 데 몇 분 정도 걸릴 수 있음). **검색 탐색기**로 가져올 인덱스 이름을 클릭합니다. 이 페이지에서는 데이터 쿼리를 실험할 수 있습니다. `*&$count=true`의 쿼리 문자열을 검색하려고 하면 모든 문서와 결과 수를 다시 가져와야 합니다. `historic&highlight=Description&$filter=Rating gt 4` 쿼리 문자열을 사용하여 시도하고, "historic"이라는 단어가 `<em></em>` 태그에 래핑된 단일 문서를 다시 가져와야 합니다. [Azure Cognitive Search에서 쿼리를 작성하는 방법](https://docs.microsoft.com/azure/search/search-query-overview)에서 자세한 내용을 알아보세요. 
 
 **index.js**를 열고 이 코드를 위쪽에 추가하여 코드에서 이러한 쿼리를 재현합니다.
 
@@ -679,11 +678,11 @@ async queryAsync(searchTerm) {
 
 ### <a name="about-the-sample"></a>샘플 정보
 
-이 샘플에서는 소량의 호텔 데이터를 사용하여 Azure Search 인덱스를 만들고 쿼리하는 방법의 기본 사항을 설명합니다.
+이 샘플에서는 소량의 호텔 데이터를 사용하여 Azure Cognitive Search 인덱스를 만들고 쿼리하는 방법의 기본 사항을 설명합니다.
 
-**AzureSearchClient** 클래스는 검색 서비스의 구성, URL 및 기본 HTTP 요청을 캡슐화합니다. **index.js** 파일은 Azure Search 서비스의 구성 데이터, 인덱싱을 위해 업로드할 호텔 데이터를 로드하고, 해당 `run` 함수로 다양한 작업을 명령하고 실행합니다.
+**AzureSearchClient** 클래스는 검색 서비스의 구성, URL 및 기본 HTTP 요청을 캡슐화합니다. **index.js** 파일은 Azure Cognitive Search 서비스의 구성 데이터, 인덱싱을 위해 업로드할 호텔 데이터를 로드하고, 해당 `run` 함수로 다양한 작업을 명령하고 실행합니다.
 
-`run` 함수의 전반적인 동작은 Azure Search 인덱스가 있는 경우 해당 인덱스를 삭제하고, 인덱스를 만들고, 일부 데이터를 추가하고, 몇 가지 쿼리를 수행하는 것입니다.  
+`run` 함수의 전반적인 동작은 Azure Cognitive Search 인덱스가 있는 경우 해당 인덱스를 삭제하고, 인덱스를 만들고, 일부 데이터를 추가하고, 몇 가지 쿼리를 수행하는 것입니다.  
 
 ## <a name="clean-up"></a>정리 
 
@@ -696,7 +695,7 @@ async queryAsync(searchTerm) {
 
 이 Node.js 빠른 시작에서는 인덱스를 만들어서 문서와 함께 로드하고 쿼리를 실행하는 일련의 작업을 수행했습니다. 구성을 읽고 쿼리를 정의하는 등의 특정 단계를 가장 간단한 방법으로 수행했습니다. 실제 애플리케이션에서는 유연성과 캡슐화를 제공하는 별도의 모듈에 이러한 문제를 포함하는 것이 좋습니다. 
  
-Azure Search에 대한 약간의 배경 지식이 이미 있는 경우 이 샘플을 기반으로 suggesters(사전 입력 또는 자동 완성 쿼리), 필터 및 패싯 탐색을 시작할 수 있습니다. Azure Search를 처음 접하는 경우 다른 자습서를 통해 만들 수 있는 항목에 대한 이해를 높여 보세요. 더 많은 리소스를 보려면 [설명서 페이지](https://azure.microsoft.com/documentation/services/search/) 를 방문하세요. 
+Azure Cognitive Search에 대한 약간의 배경 지식이 이미 있는 경우 이 샘플을 기반으로 suggesters(사전 입력 또는 자동 완성 쿼리), 필터 및 패싯 탐색을 시작할 수 있습니다. Azure Cognitive Search를 처음 접하는 경우 다른 자습서를 통해 만들 수 있는 항목에 대한 자세히 알아보세요. 더 많은 리소스를 보려면 [설명서 페이지](https://azure.microsoft.com/documentation/services/search/) 를 방문하세요. 
 
 > [!div class="nextstepaction"]
-> [Javascript를 사용하여 웹 페이지에서 Azure Search 호출](https://github.com/liamca/azure-search-javascript-samples)
+> [Javascript를 사용하여 웹 페이지에서 Azure Cognitive Search 호출](https://github.com/liamca/azure-search-javascript-samples)

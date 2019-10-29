@@ -4,7 +4,7 @@ description: Azure AD PIM(Privileged Identity Management)에 대한 개요를 �
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.workload: identity
@@ -14,24 +14,24 @@ ms.date: 04/09/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5009310dd4ea4e99e1da2871085ee2d2d99a6eab
-ms.sourcegitcommit: 95b180c92673507ccaa06f5d4afe9568b38a92fb
+ms.openlocfilehash: 1ae9429920a4d3a6bac8830d6add2782276850d7
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70804515"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595351"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
-Azure AD(Azure Active Directory) PIM(Privileged Identity Management)은 조직에서 중요한 리소스에 대한 액세스를 관리, 제어 및 모니터링할 수 있습니다. 여기에는 Azure AD, Azure 리소스 및 기타 Microsoft Online Services(예: Office 365 또는 Microsoft Intune)의 리소스에 대한 액세스가 포함됩니다.
+Azure AD(Azure Active Directory) PIM(Privileged Identity Management)은 조직에서 중요한 리소스에 대한 액세스를 관리, 제어 및 모니터링할 수 있습니다. 이러한 리소스에는 Azure AD, Azure 및 다른 Microsoft Online Services(예: Office 365 또는 Microsoft Intune)의 리소스가 포함됩니다.
 
-## <a name="why-should-i-use-pim"></a>PIM을 사용해야 하는 이유는 무엇인가요?
+## <a name="reasons-to-use"></a>사용 이유
 
-악의적인 작업자가 해당 액세스 권한을 얻거나 권한이 있는 사용자가 실수로 중요한 리소스에 영향을 줄 수 있으므로 조직에서는 보호되는 정보 또는 리소스에 액세스할 수 있는 사용자의 수를 최소화하려고 합니다. 그러나 사용자는 여전히 Azure AD, Azure, Office 365 또는 SaaS 응용 프로그램에서 권한 있는 작업을 수행해야 합니다. 조직은 사용자에게 Azure 리소스 및 Azure AD에 대한 JIT(Just-In-Time) 권한 있는 액세스를 제공할 수 있습니다. 이러한 사용자가 해당 관리자 권한으로 수행하는 작업에 대한 감시 요구 사항이 있습니다. PIM은 과도하거나 필요하지 않거나 잘못 사용되는 액세스 권한의 위험을 완화하는 데 도움이 됩니다.
+악의적인 작업자가 해당 액세스 권한을 얻거나 권한이 있는 사용자가 실수로 중요한 리소스에 영향을 줄 수 있으므로 조직에서는 보호되는 정보 또는 리소스에 액세스할 수 있는 사용자의 수를 최소화하려고 합니다. 그러나 사용자는 여전히 Azure AD, Azure, Office 365 또는 SaaS 응용 프로그램에서 권한 있는 작업을 수행해야 합니다. 조직은 사용자에게 Azure 리소스 및 Azure AD에 대한 JIT(Just-In-Time) 권한 있는 액세스를 제공할 수 있습니다. 이러한 사용자가 해당 관리자 권한으로 수행하는 작업에 대한 감시 요구 사항이 있습니다.
 
-## <a name="what-can-i-do-with-pim"></a>PIM으로 무엇을 할 수 있나요?
+## <a name="what-does-it-do"></a>수행하는 작업
 
-PIM은 기본적으로 사용자가 관심 있는 리소스에 대해 누가, 무엇을, 언제, 어디서 그리고 왜 관리해야 하는지를 지원합니다. PIM의 몇 가지 주요 기능은 다음과 같습니다.
+Privileged Identity Management는 중요한 리소스에 대한 과도한, 불필요한 또는 잘못 사용된 액세스 권한의 위험을 완화할 수 있도록 시간 기반 및 승인 기반 역할 활성화를 제공합니다. 다음은 Privileged Identity Management의 주요 기능입니다.
 
 - Azure AD 및 Azure 리소스에 대한 **JIT(Just-In-Time)** 권한 있는 액세스 제공
 - 시작 및 종료 날짜를 사용하여 리소스에 **시간 범위** 액세스 할당
@@ -42,9 +42,45 @@ PIM은 기본적으로 사용자가 관심 있는 리소스에 대해 누가, �
 - **액세스 검토**를 수행하여 사용자에게 여전히 역할이 필요한지 확인
 - 내부 또는 외부 감사를 위해 **감사 기록** 다운로드
 
+## <a name="what-can-i-do-with-it"></a>Privileged Identity Management로 무엇을 할 수 있나요?
+
+Privileged Identity Management를 설정하면 **작업**, **관리** 및 **활동** 옵션이 왼쪽 탐색 메뉴에 표시됩니다. 관리자는 **Azure AD 역할** 및 **Azure 리소스** 관리 중에서 선택합니다. 관리할 역할 유형을 선택하면 해당 역할 유형에 대한 유사한 옵션 세트가 표시됩니다.
+
+![Azure Portal의 Privileged Identity Management 스크린샷](./media/pim-configure/pim-overview.png)
+
+## <a name="who-can-do-what"></a>누가 무엇을 할 수 있나요?
+
+Privileged Identity Management를 사용하는 첫 번째 사용자인 경우 디렉터리에 [보안 관리자](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) 및 [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할이 자동으로 할당됩니다.
+
+Privileged Identity Management의 Azure AD 역할의 경우 권한 있는 역할 관리자 역할에 있는 사용자만이 다른 관리자에 대한 할당을 관리할 수 있습니다. [Privileged Identity Management 관리를 위해 다른 관리자에게 액세스 권한을 부여](pim-how-to-give-access-to-pim.md)할 수 있습니다. 또한 글로벌 관리자, 보안 관리자, 글로벌 읽기 권한자 및 보안 읽기 권한자는 Privileged Identity Management에서 Azure AD 역할에 대한 할당을 볼 수 있습니다.
+
+Privileged Identity Management의 Azure 리소스 역할의 경우 구독 관리자, 리소스 소유자 또는 리소스 사용자 액세스 관리자만이 다른 관리자에 대한 할당을 관리할 수 있습니다. 권한 있는 역할 관리자, 보안 관리자 또는 보안 읽기 권한자인 사용자는 기본적으로 Privileged Identity Management에서 Azure 리소스 역할에 대한 할당을 볼 수 있는 액세스 권한을 가지고 있지 않습니다.
+
+## <a name="scenarios"></a>시나리오
+
+Privileged Identity Management에서 지원하는 시나리오는 다음과 같습니다.
+
+### <a name="privileged-role-administrator-permissions"></a>권한 있는 역할 관리자 사용 권한
+
+- 특정 역할에 대한 승인을 사용하도록 설정
+- 요청을 승인할 승인자 사용자 또는 그룹 지정
+- 모든 권한 있는 역할에 대한 요청 및 승인 기록 보기
+
+### <a name="approver-permissions"></a>승인자 사용 권한
+
+- 보류 중인 승인(요청) 보기
+- 역할 상승 요청 승인 또는 거부(단일 및 대량)
+- 승인 또는 거부에 대한 근거 제공
+
+### <a name="eligible-role-user-permissions"></a>적격 역할 사용자 사용 권한
+
+- 승인이 필요한 역할의 활성화 요청
+- 활성화 요청 상태 보기
+- 활성화가 승인되면 Azure AD에서 작업 수행
+
 ## <a name="terminology"></a>용어
 
-PIM 및 설명서를 보다 정확하게 이해하려면 다음 용어를 검토해야 합니다.
+Privileged Identity Management 및 설명서를 보다 정확하게 이해하려면 다음 용어를 검토해야 합니다.
 
 | 용어 또는 개념 | 역할 할당 범주 | 설명 |
 | --- | --- | --- |
@@ -58,52 +94,16 @@ PIM 및 설명서를 보다 정확하게 이해하려면 다음 용어를 검토
 | 만료 적격 | 기간 | 사용자가 지정된 시작 및 종료 날짜 내에 역할을 활성화할 수 있는 자격이 있는 역할 할당입니다. |
 | 만료 활성화 | 기간 | 사용자가 지정된 시작 및 종료 날짜 내에 어떤 작업도 수행하지 않고 역할을 사용할 수 있는 역할 할당입니다. |
 | JIT(Just In Time) 액세스 |  | 사용자가 권한 있는 작업을 수행하기 위해 임시 사용 권한을 받는 모델이며, 악의적 또는 권한이 없는 사용자가 권한이 만료된 후 액세스 권한을 획득하는 것을 방지합니다. 액세스 권한은 사용자에게 필요한 경우에만 부여됩니다. |
-| 최소 권한 액세스 원칙 |  | 모든 사용자에게 수행할 권한이 있는 작업을 수행하는 데 필요한 최소 권한만 제공하는 권장 보안 방법입니다. 이 방법은 글로벌 관리자 수를 최소화하고, 그 대신 특정 시나리오에 특정 관리자 역할을 사용합니다. |
-
-## <a name="what-does-pim-look-like"></a>PIM은 어떻게 표시되나요?
-
-PIM을 설정하면 **작업**, **관리** 및 **활동** 옵션이 왼쪽 탐색 메뉴에 표시됩니다. 관리자는 **Azure AD 역할** 및 **Azure 리소스** 관리 중에서 선택합니다. 관리할 역할 유형을 선택하면 해당 역할 유형에 대한 유사한 옵션 세트가 표시됩니다.
-
-![Azure Portal에서 PIM의 스크린샷](./media/pim-configure/pim-overview.png)
-
-## <a name="who-can-do-what-in-pim"></a>PIM에서 누가 어떤 일을 수행하나요?
-
-PIM을 처음 사용하는 경우 해당 사용자에게 디렉터리에 대한 [보안 관리자](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) 및 [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할이 자동으로 할당됩니다.
-
-Azure AD 역할의 경우 권한 있는 역할 관리자 역할에 있는 사용자만 PIM의 다른 관리자에 대한 할당을 관리할 수 있습니다. [PIM 관리를 위해 다른 관리자에게 액세스 권한을 부여](pim-how-to-give-access-to-pim.md)할 수 있습니다. 글로벌 관리자, 보안 관리자 및 보안 읽기 권한자는 PIM에서 Azure AD 역할에 대한 할당을 볼 수 있습니다.
-
-Azure 리소스 역할의 경우 구독 관리자, 리소스 소유자 또는 리소스 사용자 액세스 관리자만 PIM에서 다른 관리자에 대한 할당을 관리할 수 있습니다. 권한 있는 역할 관리자, 보안 관리자 또는 보안 읽기 권한자인 사용자는 기본적으로 PIM에서 Azure 리소스 역할에 대한 할당을 볼 수 있는 액세스 권한을 가지고 있지 않습니다.
-
-## <a name="scenarios"></a>시나리오
-
-PIM은 다음과 같은 시나리오를 지원합니다.
-
-**권한 있는 역할 관리자는 다음을 수행할 수 있습니다.**
-
-- 특정 역할에 대한 승인을 사용하도록 설정
-- 요청을 승인할 승인자 사용자 및/또는 그룹 지정
-- 모든 권한 있는 역할에 대한 요청 및 승인 기록 보기
-
-**승인자는 다음을 수행할 수 있습니다.**
-
-- 보류 중인 승인(요청) 보기
-- 역할 상승 요청(단일 및/또는 대량) 승인 또는 거부
-- 승인/거부에 대한 근거 제공 
-
-**적격 역할 사용자는 다음을 수행할 수 있습니다.**
-
-- 승인이 필요한 역할의 활성화 요청
-- 활성화 요청 상태 보기
-- 활성화가 승인되면 Azure AD에서 작업 수행
+| 최소 권한 액세스 원칙 |  | 모든 사용자에게 수행할 권한이 있는 작업을 수행하는 데 필요한 최소 권한만 제공하는 권장 보안 방법입니다. 이 방법은 글로벌 관리자 수를 최소화하고, 그 대신 특정 시나리오에 대해 구체적 관리자 역할을 사용합니다. |
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-사용자의 라이선스에 대한 자세한 내용은 [PIM을 사용하기 위한 라이선스 요구 사항](subscription-requirements.md)을 참조하세요.
+사용자의 라이선스에 대한 자세한 내용은 [Privileged Identity Management를 사용하기 위한 라이선스 요구 사항](subscription-requirements.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [PIM을 사용하기 위한 라이선스 요구 사항](subscription-requirements.md)
+- [Privileged Identity Management를 사용하기 위한 라이선스 요구 사항](subscription-requirements.md)
 - [Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-- [PIM 배포](pim-deployment-plan.md)
+- [Privileged Identity Management 배포](pim-deployment-plan.md)

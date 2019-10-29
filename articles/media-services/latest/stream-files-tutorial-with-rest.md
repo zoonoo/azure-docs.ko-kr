@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/22/2019
+ms.date: 10/21/2019
 ms.author: juliako
-ms.openlocfilehash: f9ca4b54db305a5c088b4dda27a6844c8439fa1a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3f065f77c6843b135554e61f5887655114571b08
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67055293"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72750261"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST
 
@@ -62,11 +62,9 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
 ## <a name="configure-postman"></a>Postman 구성
 
-이 섹션에서는 Postman을 구성합니다.
-
 ### <a name="configure-the-environment"></a>환경 구성 
 
-1. **Postman**을 엽니다.
+1. **Postman** 앱을 엽니다.
 2. 화면 오른쪽에서 **환경 관리** 옵션을 선택합니다.
 
     ![환경 관리](./media/develop-with-postman/postman-import-env.png)
@@ -96,18 +94,19 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 이 섹션에서는 파일을 스트림할 수 있도록 URL 인코딩 및 만들기와 관련된 요청을 보냅니다. 특히 다음 요청을 보냅니다.
 
 1. 서비스 주체 인증을 위한 Azure AD 토큰 가져오기
+1. 스트리밍 엔드포인트 시작
 2. 출력 자산 만들기
-3. **변환** 만들기
-4. **작업** 만들기
-5. **스트리밍 로케이터** 만들기
-6. **스트리밍 로케이터**의 경로 나열
+3. Transform 만들기
+4. 작업 만들기
+5. 스트리밍 로케이터 만들기
+6. 스트리밍 로케이터의 경로 나열
 
 > [!Note]
 >  이 자습서에서는 고유한 이름을 가진 모든 리소스를 만든다고 가정합니다.  
 
 ### <a name="get-azure-ad-token"></a>Azure AD 토큰 가져오기 
 
-1. Postman의 왼쪽 창에서 “1단계: AAD 인증 토큰 가져오기"를 선택합니다.
+1. Postman 앱의 왼쪽 창에서 “1단계: AAD 인증 토큰 가져오기"를 선택합니다.
 2. 그런 다음, "서비스 주체 인증을 위한 Azure AD 토큰 가져오기"를 선택합니다.
 3. **보내기**를 누릅니다.
 
@@ -121,11 +120,38 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
     ![AAD 토큰 가져오기](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+
+### <a name="start-a-streaming-endpoint"></a>스트리밍 엔드포인트 시작
+
+스트리밍을 사용하도록 설정하려면 비디오를 스트리밍하려는 [스트리밍 엔드포인트](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept)를 시작해야 합니다.
+
+> [!NOTE]
+> 스트리밍 엔드포인트가 실행 중인 상태일 때만 요금이 청구됩니다.
+
+1. Postman 앱의 왼쪽 창에서 “스트리밍 및 라이브”를 선택합니다.
+2. 그런 다음, “StreamingEndpoint 시작”을 선택합니다.
+3. **보내기**를 누릅니다.
+
+    * 다음 **POST** 작업이 전송됩니다.
+
+        ```
+        https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaservices/:accountName/streamingEndpoints/:streamingEndpointName/start?api-version={{api-version}}
+        ```
+    * 요청에 성공하면 `Status: 202 Accepted`가 반환됩니다.
+
+        이 상태는 요청이 처리를 위해 수락되었지만 처리가 아직 완료되지 않았음을 의미합니다. `Azure-AsyncOperation` 응답 헤더의 값을 기준으로 작업 상태를 쿼리할 수 있습니다.
+
+        예를 들어 다음 GET 작업은 작업 상태를 반환합니다.
+        
+        `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
+
+        [비동기 Azure 작업 추적](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) 문서에서는 응답에서 반환된 값을 통해 비동기 Azure 작업의 상태를 추적하는 방법에 대해 자세히 설명합니다.
+
 ### <a name="create-an-output-asset"></a>출력 자산 만들기
 
 출력 [Asset](https://docs.microsoft.com/rest/api/media/assets)은 인코딩 작업의 결과를 저장합니다. 
 
-1. Postman의 왼쪽 창에서 "자산"을 선택합니다.
+1. Postman 앱의 왼쪽 창에서 “자산”을 선택합니다.
 2. 그런 다음, "자산 만들기 또는 업데이트"를 선택합니다.
 3. **보내기**를 누릅니다.
 
@@ -156,7 +182,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 > [!Note]
 > [Transform](https://docs.microsoft.com/rest/api/media/transforms)을 만들 때는 먼저 **Get** 메서드를 사용하여 해당 Transform이 이미 있는지 확인해야 합니다. 이 자습서에서는 고유한 이름으로 변환을 만든다고 가정합니다.
 
-1. Postman의 왼쪽 창에서 "인코딩 및 분석"을 선택합니다.
+1. Postman 앱의 왼쪽 창에서 “인코딩 및 분석”을 선택합니다.
 2. 그런 다음, "변환 만들기"를 선택합니다.
 3. **보내기**를 누릅니다.
 
@@ -191,7 +217,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 이 예제에서 작업의 입력은 HTTPS URL(“https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/”)을 기반으로 합니다.
 
-1. Postman의 왼쪽 창에서 "인코딩 및 분석"을 선택합니다.
+1. Postman 앱의 왼쪽 창에서 “인코딩 및 분석”을 선택합니다.
 2. 그런 다음, "작업 만들기 또는 업데이트"를 선택합니다.
 3. **보내기**를 누릅니다.
 
@@ -243,7 +269,7 @@ Media Services에서 콘텐츠를 인코딩하거나 처리할 때 인코딩 설
 
 Media Service 계정에는 **스트리밍 정책** 항목의 수에 대한 할당량이 있습니다. 각 **스트리밍 로케이터**에 대한 새 **스트리밍 정책**을 만들지 않는 것이 좋습니다.
 
-1. Postman의 왼쪽 창에서 "스트리밍 정책"을 선택합니다.
+1. Postman 앱의 왼쪽 창에서 “스트리밍 정책”을 선택합니다.
 2. 그런 다음, "스트리밍 로케이터 만들기"를 선택합니다.
 3. **보내기**를 누릅니다.
 
@@ -269,7 +295,7 @@ Media Service 계정에는 **스트리밍 정책** 항목의 수에 대한 할�
 
 [스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)가 만들어졌으므로 스트리밍 URL을 가져올 수 있습니다.
 
-1. Postman의 왼쪽 창에서 "스트리밍 정책"을 선택합니다.
+1. Postman 앱의 왼쪽 창에서 “스트리밍 정책”을 선택합니다.
 2. 그런 다음, "경로 나열"을 선택합니다.
 3. **보내기**를 누릅니다.
 

@@ -1,30 +1,29 @@
 ---
-title: 'REST 자습서: JSON blob - Azure Search에서 반구조적 데이터 인덱싱'
-description: Azure Search REST API 및 Postman을 사용하여 반정형 JSON Blob을 인덱싱하고 검색하는 방법을 알아봅니다.
-author: HeidiSteen
+title: 'REST 자습서: JSON Blob의 반정형 데이터 인덱싱'
+titleSuffix: Azure Cognitive Search
+description: Azure Cognitive Search REST API 및 Postman을 사용하여 반정형 Azure JSON Blob을 인덱싱하고 검색하는 방법을 알아봅니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: cb9c97efd62a56ad0eac49956f11fb422a448194
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
-ms.translationtype: HT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 569289a2d750f96423bd03ac82cb9e33f893ee15
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647867"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794284"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST 자습서: Azure Search에서 반구조적 데이터(JSON blob) 인덱싱 및 검색
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>REST 자습서: Azure Cognitive Search에서 반정형 데이터(JSON Blob) 인덱싱 및 검색
 
-Azure Search는 반정형 데이터를 읽는 방법을 아는 [indexer](search-indexer-overview.md)를 사용하여 Azure Blob Storage의 JSON 문서와 어레이를 인덱싱할 수 있습니다. 반구조화된 데이터에는 데이터 내의 콘텐츠를 구분하는 태그 또는 표시가 포함되어 있습니다. 완전히 인덱싱해야 하는 비정형 데이터와 필드 단위를 기반으로 인덱싱할 수 있는 데이터 모델(예: 관계형 데이터베이스 스키마)을 준수하는 형식적 비정형 데이터의 차이를 구분합니다.
+Azure Cognitive Search는 반정형 데이터를 읽는 방법을 아는 [indexer](search-indexer-overview.md)를 사용하여 Azure Blob Storage의 JSON 문서와 어레이를 인덱싱할 수 있습니다. 반구조화된 데이터에는 데이터 내의 콘텐츠를 구분하는 태그 또는 표시가 포함되어 있습니다. 완전히 인덱싱해야 하는 비정형 데이터와 필드 단위를 기반으로 인덱싱할 수 있는 데이터 모델(예: 관계형 데이터베이스 스키마)을 준수하는 형식적 비정형 데이터의 차이를 구분합니다.
 
-이 자습서에서는 다음 작업을 수행하는 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/) 및 REST 클라이언트를 사용합니다.
+이 자습서에서는 다음 작업을 수행하는 [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/) 및 REST 클라이언트를 사용합니다.
 
 > [!div class="checklist"]
-> * Azure Blob 컨테이너에 대한 Azure Search 데이터 원본 구성
-> * 검색 가능한 콘텐츠를 포함하는 Azure Search 인덱스 만들기
+> * Azure Blob 컨테이너에 대한 Azure Cognitive Search 데이터 원본 구성
+> * 검색 가능한 콘텐츠를 포함하는 Azure Cognitive Search 인덱스 만들기
 > * 컨테이너를 읽고 Azure Blob Storage에서 검색 가능한 콘텐츠를 추출하기 위한 인덱서 구성 및 실행
 > * 방금 만든 인덱스 검색
 
@@ -32,17 +31,17 @@ Azure Search는 반정형 데이터를 읽는 방법을 아는 [indexer](search-
 
 이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다. 
 
-[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다. 
+[Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다. 
 
-샘플 데이터를 저장하기 위한 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+샘플 데이터를 저장하기 위한 [Azure 스토리지 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
-[Postman 데스크톱 앱](https://www.getpostman.com/)은 요청을 Azure Search에 보내는 데 사용됩니다.
+요청을 Azure Cognitive Search에 보내는 [Postman 데스크톱 앱](https://www.getpostman.com/)을 가져옵니다.
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)에는 이 자습서에서 사용되는 데이터가 포함되어 있습니다. 다운로드하고 해당 폴더에 이 파일의 압축을 풉니다. [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results)의 데이터는 이 자습서에서 사용하기 위해 JSON으로 변환됩니다.
 
 ## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
-REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
+REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Cognitive Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 가져옵니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
@@ -70,7 +69,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="set-up-postman"></a>Postman 설정
 
-Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Search REST API 살펴보기](search-get-started-postman.md)를 참조하세요.
+Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Cognitive Search REST API 살펴보기](search-get-started-postman.md)를 참조하세요.
 
 이 자습서의 모든 호출에 대한 요청 메서드는 **POST**입니다. 헤더 키는 "Content-type" 및 "api-key"입니다. 헤더 키의 값은 각각 "application/json"과 "관리자 키"(관리자 키는 검색 기본 키의 자리 표시자임)입니다. 본문은 호출의 실제 콘텐츠가 배치되는 위치입니다. 사용 중인 클라이언트에 따라 쿼리를 구성하는 방법에 약간의 차이가 있을 수 있지만 일반적으로 기본 사항입니다.
 
@@ -84,7 +83,7 @@ REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 
 ## <a name="create-a-data-source"></a>데이터 소스 만들기
 
-[데이터 원본 API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)는 인덱스할 데이터를 지정하는 Azure Search 개체를 만듭니다.
+[데이터 원본 API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)는 인덱스할 데이터를 지정하는 Azure Cognitive Search 개체를 만듭니다.
 
 이 호출의 엔드포인트는 `https://[service name].search.windows.net/datasources?api-version=2019-05-06`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다. 
 
@@ -127,7 +126,7 @@ REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 
 ## <a name="create-an-index"></a>인덱스 만들기
     
-두 번째 호출은 [인덱스 API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)이며 검색 가능한 모든 데이터를 저장하는 Azure Search 인덱스를 만듭니다. 인덱스는 모든 매개 변수 및 해당 특성을 지정합니다.
+두 번째 호출은 [인덱스 API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-indexer)이며 검색 가능한 모든 데이터를 저장하는 Azure Cognitive Search 인덱스를 만듭니다. 인덱스는 모든 매개 변수 및 해당 특성을 지정합니다.
 
 이 호출에 대한 URL은 `https://[service name].search.windows.net/indexes?api-version=2019-05-06`입니다. `[service name]`을 검색 서비스의 이름으로 바꿉니다.
 
@@ -286,11 +285,11 @@ Azure Portal에서 검색 서비스 **개요** 페이지를 열고 **인덱스**
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Search 서비스의 개요 페이지에 있습니다.
+이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Cognitive Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Cognitive Search 서비스의 개요 페이지에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 JSON Blob을 인덱싱하는 데 사용할 수 있는 방법 및 옵션에는 여러 가지가 있습니다. 다음 단계로 다양한 옵션을 검토하고 테스트하여 자신의 시나리오에 가장 적합한 옵션을 알아보세요.
 
 > [!div class="nextstepaction"]
-> [Azure Search Blob 인덱서를 사용하여 JSON Blob을 인덱싱하는 방법](search-howto-index-json-blobs.md)
+> [Azure Cognitive Search Blob 인덱서를 사용하여 JSON Blob을 인덱싱하는 방법](search-howto-index-json-blobs.md)

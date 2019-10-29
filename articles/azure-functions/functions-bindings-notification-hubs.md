@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 7538e47a1d0bed0c72ff5ed467c98828cc9c18ba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cde565fbafec7f1209d0c65d6f3ebc121f38e6f5
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086634"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991387"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대한 Notification Hubs 출력 바인딩
 
@@ -248,14 +248,14 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 특성의 생성자 매개 변수 및 속성은 [구성](#configuration) 섹션에 설명되어 있습니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 테이블에서는 *function.json* 파일 및 `NotificationHub` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |Description|
+|function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type** |n/a| "notificationHub"로 설정해야 합니다. |
-|**direction** |n/a| "out"으로 설정해야 합니다. | 
+|**type** |n/a| `notificationHub`로 설정해야 합니다. |
+|**direction** |n/a| `out`로 설정해야 합니다. | 
 |**name** |n/a| 알림 허브 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**tagExpression** |**TagExpression** | 태그 식을 사용하면 태그 식과 일치하는 알림을 수신하도록 등록된 일련의 디바이스에 배달하도록 지정할 수 있습니다.  자세한 내용은 [라우팅 및 태그 식](../notification-hubs/notification-hubs-tags-segment-push-message.md)을 참조하세요. |
 |**hubName** | **HubName** | Azure Portal에서 알림 허브 리소스의 이름입니다. |

@@ -13,24 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 07/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 3c23cc4fc7647cffa98cff9310498f683fda6328
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 115320a8b4ee7afc6e420dcfa96612b91ea6d1a0
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275715"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790762"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Azure Lab Services 소개
-Azure Lab Services를 사용하면 클라우드에서 팀 환경(예: 개발 환경, 테스트 환경, 클래스룸 랩 환경)을 신속하게 설정할 수 있습니다. 랩 소유자는 랩을 만들고, Windows 또는 Linux 가상 머신을 프로비전하고, 필요한 소프트웨어 및 도구를 설치하고, 랩 사용자가 사용할 수 있게 합니다. 랩 사용자는 랩의 VM(가상 머신)에 연결하여 그것들을 일상 업무, 단기 프로젝트 또는 클래스룸 연습에 사용합니다. 사용자가 랩에서 리소스를 활용하기 시작하면 랩 관리자는 여러 랩의 비용 및 사용을 분석하고, 조직 또는 팀의 비용을 최적화하기 위해 포괄적인 정책을 설정할 수 있습니다.
+Azure에는 클라우드에서 랩 환경을 설정할 수 있는 두 가지 서비스가 있습니다. 
 
-> [!IMPORTANT]
-> **Azure DevTest Labs**는 새로운 유형의 랩(Azure Lab Services)으로 확장되고 있습니다!
->  
-> Azure Lab Services를 사용하면 클래스룸 랩과 같은 관리되는 랩 형식을 만들 수 있습니다. 서비스 자체는 VM 가동에서 오류 처리 및 인프라 확장에 이르기까지 관리되는 랩 형식에 대한 모든 인프라 관리를 처리합니다. 현재 [DevTest Labs](https://azure.microsoft.com/services/devtest-lab/) 및 [Azure Lab Services](https://azure.microsoft.com/services/lab-services/)는 Azure Portal에서 계속 별도의 서비스로 유지됩니다. 
+- **Azure DevTest Labs** - 이 서비스를 통해 팀 환경(예: 클라우드의 개발 환경 또는 테스트 환경)을 신속하게 설정할 수 있습니다. 랩 소유자는 랩을 만들고, Windows 또는 Linux 가상 머신을 프로비전하고, 필요한 소프트웨어 및 도구를 설치하고, 랩 사용자가 사용할 수 있게 합니다. 랩 사용자는 랩의 VM(가상 머신)에 연결하고 일상적인 작업, 단기 프로젝트에 VM을 사용합니다. 사용자가 랩에서 리소스를 활용하기 시작하면 랩 관리자는 여러 랩의 비용 및 사용을 분석하고, 조직 또는 팀의 비용을 최적화하기 위해 포괄적인 정책을 설정할 수 있습니다.
+- **Azure Lab Services** - 이 서비스를 사용하면 관리형 랩 형식을 만들 수 있습니다. 현재 클래스룸 랩은 Azure Lab Services에서 지원되는 관리형 랩의 유일한 유형입니다. 서비스 자체는 VM 가동에서 오류 처리 및 인프라 확장에 이르기까지 관리되는 랩 형식에 대한 모든 인프라 관리를 처리합니다. IT 관리자가 Azure Lab Services에서 랩 계정을 만든 후, 강사는 해당 클래스에 대한 랩을 신속하게 설정하고 클래스에서 연습해야 하는 VM의 수와 유형을 지정하고 클래스에 사용자를 추가할 수 있습니다. 사용자가 클래스에 등록하고 나면, 사용자는 VM에 액세스하여 클래스에 대한 연습을 수행할 수 있습니다.  
 
 ## <a name="key-capabilities"></a>주요 기능
 
-Azure Lab Services는 다음과 같은 주요 기능/특징을 지원합니다.
+이러한 서비스(Azure DevTest Labs 및 Azure Lab Services)는 다음과 같은 주요 기능/특징을 지원합니다.
 
 - **랩의 빠르고 유연한 설정**. 랩 소유자는 Azure Lab Services를 사용하여 필요에 따라 랩을 신속하게 설정할 수 있습니다. 이 서비스는 관리되는 랩 형식의 모든 Azure 인프라 작업을 처리하거나 랩 소유자가 랩 소유자의 구독에서 인프라를 자체 관리하고 사용자 지정할 수 있는 옵션을 제공합니다. 이 서비스는 서비스가 관리하는 랩을에 대한 인프라의 기본 확장 및 복구 기능을 제공합니다.
 - **랩 사용자를 위한 간소화된 경험**. 클래스룸 랩과 같은 관리되는 랩 형식에서, 랩 사용자는 등록 코드로 랩에 등록하고 언제든지 랩에 액세스하여 랩 리소스를 사용할 수 있습니다. 랩 소유자는 DevTest Labs에서 만든 랩에서 가상 머신을 만들고 액세스하며, 데이터 디스크를 관리 및 재사용하고, 재사용 할 수 있는 비밀을 설정하도록 랩 사용자들에게 권한을 부여할 수 있습니다.  
@@ -43,7 +41,7 @@ Azure Lab Services는 다음과 같은 주요 기능/특징을 지원합니다.
 
 ## <a name="scenarios"></a>시나리오
 
-Azure Lab Services가 지원하는 몇 가지 시나리오는 다음과 같습니다.
+Azure DevTest Labs 및 Azure Lab Services가 지원하는 몇 가지 시나리오는 다음과 같습니다.
 
 ### <a name="set-up-a-resizable-computer-lab-in-the-cloud-for-your-classroom"></a>클래스룸을 위해 크기 조정이 가능한 컴퓨터 랩을 클라우드에 설치  
 

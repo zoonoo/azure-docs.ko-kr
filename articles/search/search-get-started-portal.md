@@ -1,45 +1,46 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 검색 인덱스 만들기 - Azure Search'
-description: Azure Portal에서 데이터 가져오기 마법사를 사용하여 Azure Search에서 첫 번째 인덱스를 만들고 로드하고 쿼리합니다.
+title: Azure Portal에서 검색 인덱스 만들기
+titleSuffix: Azure Cognitive Search
+description: 데이터 가져오기 마법사를 사용하여 Azure Cognitive Search에서 첫 번째 검색 인덱스를 만들고 로드하고 쿼리합니다.
 author: lobrien
 manager: nitinme
-tags: azure-portal
-services: search
-ms.service: search
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: a4a25b8504d873b624e1f6822807c9c08ebd2e4f
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 502177519c0e66baa7ae9c1de18a7b41bceb054a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936976"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791247"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Search 인덱스 만들기
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [포털](search-get-started-portal.md)
+> * [C#](search-get-started-dotnet.md)
+> * [Java](search-get-started-java.md)
+> * [Node.JS](search-get-started-nodejs.md)
 > * [PowerShell](search-get-started-powershell.md)
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
-> * [C#](search-get-started-dotnet.md)
 
-Azure Search 개념에서 빠른 램프업의 경우 Azure Portal에서 기본 제공 도구를 시도해 보세요. 마법사 및 편집기는 .NET 및 REST API가 포함된 완벽한 패리티를 제공하지는 않지만 코드 없는 도입을 통해 빠르게 시작하고 몇 분 내에 인덱스에 대한 흥미로운 쿼리를 작성할 수 있습니다.
+포털을 사용하여 신속하게 개념을 파악하고, 몇 분 내에 인덱스에 대한 흥미로운 쿼리를 작성합니다.
 
 > [!div class="checklist"]
 > * Azure에서 호스트되는 무료 공용 샘플 데이터 세트로 시작
-> * 데이터를 로드하고 인덱스를 생성하려면 Azure Search의 **데이터 가져오기** 마법사 실행
+> * 데이터를 로드하고 인덱스를 생성하려면 Azure Cognitive Search의 **데이터 가져오기** 마법사 실행
 > * 포털에서 인덱싱 진행률 모니터링
 > * 기존 인덱스 및 이를 수정하기 위한 옵션 보기
 > * **검색 탐색기**를 사용하여 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 살펴보기
 
-도구가 너무 제한적인 경우 [.NET에서 Azure Search 프로그래밍에 대한 코드 기반 소개](search-howto-dotnet-sdk.md)를 고려하거나 [REST API를 호출하기 위해 Postman](search-get-started-postman.md)를 사용할 수 있습니다. 이 [Azure Search 개요 비디오](https://channel9.msdn.com/Events/Connect/2016/138)를 시작하고 약 3분 후에 시작하는 이 자습서의 단계에 대한 6분짜리 데모 영상을 시청하셔도 됩니다.
+도구가 너무 제한적인 경우 [.NET에서 Azure Cognitive Search 프로그래밍에 대한 코드 기반 소개](search-howto-dotnet-sdk.md)를 고려하거나 [REST API를 호출하기 위해 Postman](search-get-started-postman.md)을 사용할 수 있습니다. 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
-[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
+[Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
 ### <a name="check-for-space"></a>공간 확인
 
@@ -57,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>1단계 - 데이터 가져오기 마법사 시작 및 데이터 원본 만들기
 
-1. Azure Search 서비스 대시보드의 명령 모음에서 **데이터 가져오기**를 클릭하여 검색 인덱스를 만들고 채웁니다.
+1. Azure Cognitive Search 서비스 대시보드의 명령 모음에서 **데이터 가져오기**를 클릭하여 검색 인덱스를 만들고 채웁니다.
 
    ![데이터 가져오기 명령](media/search-get-started-portal/import-data-cmd.png)
 
@@ -71,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="step-2---skip-cognitive-skills"></a>2단계 - 인식 기술 건너뛰기
 
-마법사는 Cognitive Services AI 알고리즘을 인덱싱에 통합하기 위해 [인식 기술 파이프라인](cognitive-search-concept-intro.md) 생성을 지원합니다. 
+마법사는 Cognitive Services AI 알고리즘을 인덱싱에 통합할 수 있도록 [AI 보강 파이프라인](cognitive-search-concept-intro.md) 만들기를 지원합니다. 
 
 지금은 이 단계를 건너뛰고, **대상 인덱스 사용자 지정**으로 직접 이동하겠습니다.
 
@@ -125,13 +126,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="view-the-index"></a>인덱스 보기
 
-기본 서비스 페이지에서는 Azure Search 서비스에서 만든 리소스의 링크를 제공합니다.  방금 만든 인덱스를 보려면 링크 목록에서 **인덱스**를 클릭합니다. 
+기본 서비스 페이지에서는 Azure Cognitive Search 서비스에서 만든 리소스의 링크를 제공합니다.  방금 만든 인덱스를 보려면 링크 목록에서 **인덱스**를 클릭합니다. 
 
    ![서비스 대시보드의 인덱스 목록](media/search-get-started-portal/indexes-list.png)
 
 이 목록에서 방금 만든 *hotels-sample* 인덱스를 클릭하고, 인덱스 스키마를 볼 수 있습니다. 그리고 필요하다면 새 필드를 추가합니다. 
 
-**필드** 탭에는 인덱스 스키마가 표시됩니다. 목록 맨 아래로 스크롤하여 새 필드를 입력합니다. 대부분의 경우 기존 필드를 변경할 수 없습니다. 기존 필드는 Azure Search에서 물리적 표현이 있으므로 코드에서 조차 수정할 수 없습니다. 기존 필드를 근본적으로 변경하려면 새 인덱스를 만들고 기존 인덱스를 삭제합니다.
+**필드** 탭에는 인덱스 스키마가 표시됩니다. 목록 맨 아래로 스크롤하여 새 필드를 입력합니다. 대부분의 경우 기존 필드를 변경할 수 없습니다. 기존 필드는 Azure Cognitive Search에서 물리적 표현이 있으므로 코드에서 조차 수정할 수 없습니다. 기존 필드를 근본적으로 변경하려면 새 인덱스를 만들고 기존 인덱스를 삭제합니다.
 
    ![샘플 인덱스 정의](media/search-get-started-portal/sample-index-def.png)
 
@@ -146,7 +147,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 **검색 탐색기**는 [REST API 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents)만 처리할 수 있지만, [단순 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 및 [완전한 Lucene 쿼리 파서](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)에 대한 구문과 [문서 REST API 검색](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) 작업에 제공되는 모든 검색 매개 변수를 허용합니다.
 
 > [!TIP]
-> [Azure Search 개요 비디오](https://channel9.msdn.com/Events/Connect/2016/138)의 6분 8초에 다음 단계가 설명되어 있습니다.
+> [Azure Cognitive Search 개요 비디오](https://channel9.msdn.com/Events/Connect/2016/138)의 6분 8초에 다음 단계가 설명되어 있습니다.
 >
 
 1. 명령 모음에서 **검색 탐색기** 를 클릭합니다.
@@ -181,7 +182,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 * **$count=true** 매개 변수는 반환된 모든 문서의 총 수를 반환합니다. 이 값은 검색 결과의 위쪽에 나타납니다. **$count=true**에서 보고하는 변경 내용을 모니터링하여 필터 쿼리를 확인할 수 있습니다. 더 작은 수는 필터가 작동하는 것을 나타냅니다.
 
-* **$top=10**은 문서 전체에서 가장 순위가 높은 문서 10개를 반환합니다. 기본적으로 Azure Search는 일치 항목 중 처음 50개를 반환합니다. **$top**을 통해 이 수를 늘리거나 줄일 수 있습니다.
+* **$top=10**은 문서 전체에서 가장 순위가 높은 문서 10개를 반환합니다. 기본적으로 Azure Cognitive Search는 일치 항목 중 처음 50개를 반환합니다. **$top**을 통해 이 수를 늘리거나 줄일 수 있습니다.
 
 ### <a name="filter-query"></a> 쿼리 필터링
 
@@ -200,7 +201,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>예제(범위 감소를 사용하여 패싯): `search=*&facet=Category&$top=2`
 
 * **search=** \* 는 빈 검색입니다. 빈 검색은 모든 것을 검색합니다. 빈 쿼리를 제출하는 한 가지 이유는 문서는 문서 전체를 필터링하거나 패싯하는 것입니다. 예를 들어 인덱스의 모든 호텔로 구성되는 패싯 탐색 구조가 필요할 수 있습니다.
-* **facet**은 UI 컨트롤에 전달할 수 있는 탐색 구조를 반환합니다. 범주와 개수를 반환합니다. 이 예에서 범주는 편하게 *범주*라고 부르는 필드를 기반으로 합니다. Azure Search에는 집계가 없습니다. 하지만 각 범주의 문서 수를 제공하는 `facet`을 통해 근사치를 집계할 수 있습니다.
+* **facet**은 UI 컨트롤에 전달할 수 있는 탐색 구조를 반환합니다. 범주와 개수를 반환합니다. 이 예에서 범주는 편하게 *범주*라고 부르는 필드를 기반으로 합니다. Azure Cognitive Search에는 집계가 없습니다. 하지만 각 범주의 문서 수를 제공하는 `facet`을 통해 근사치를 집계할 수 있습니다.
 
 * **$top=2**는 두 문서를 가져오고, `top`을 사용하여 결과를 늘리거나 줄일 수 있다는 것을 보여줍니다.
 
@@ -210,7 +211,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 * 필터링 가능한 필드만 패싯이 가능합니다. 검색이 가능한 필드만 결과에 반환할 수 있습니다.
 
-* *등급* 필드는 배정밀도 부동 소수점이며 그룹화는 정확한 값으로 지정됩니다. 간격(예: "3성 등급", "4성 등급" 등)별 그룹화에 대한 자세한 내용은 [Azure Search에서 패싯 탐색을 구현하는 방법](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range)을 참조하세요.
+* *등급* 필드는 배정밀도 부동 소수점이며 그룹화는 정확한 값으로 지정됩니다. 간격(예: "3성 등급", "4성 등급" 등)별 그룹화에 대한 자세한 내용은 [Azure Cognitive Search에서 패싯 탐색을 구현하는 방법](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range)을 참조하세요.
 
 
 ### <a name="highlight-query"></a> 검색 결과 강조
@@ -225,7 +226,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 * 전체 텍스트 검색은 단어 형태의 기본 변형을 인식합니다. 이 예에서 검색 결과에는 "해변"의 키워드 검색에 대한 응답으로 검색 가능한 필드에 해당 단어를 포함하는 호텔들 중에서 "해변"이 강조 표시된 텍스트가 나타납니다. 언어 분석 때문에 같은 단어가 다른 형태로 결과에 나타날 수 있습니다. 
 
-* Azure Search는 Lucene와 Microsoft의 56가지 분석기를 지원합니다. Azure Search에서 사용하는 기본 분석기는 표준 Lucene 분석기입니다.
+* Azure Cognitive Search는 Lucene와 Microsoft의 56가지 분석기를 지원합니다. Azure Cognitive Search에서 사용하는 기본 분석기는 표준 Lucene 분석기입니다.
 
 ### <a name="fuzzy-search"></a> 유사 항목 검색 시도
 
@@ -241,9 +242,9 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 **queryType**을 지정하지 않으면 기본 단순 쿼리 파서가 사용됩니다. 단순 쿼리 파서는 속도가 좀 더 빠릅니다. 하지만 유사 항목 검색, 정규식, 근접 검색 또는 다른 고급 쿼리 종류가 필요한 경우 전체 구문을 사용해야 합니다.
 
-유사 항목 검색 및 와일드카드 검색은 검색 출력에 영향을 줍니다. 이러한 쿼리 형식에서 언어 분석이 수행되지 않습니다. 유사 항목 및 와일드카드 검색을 사용하기 전에 [Azure Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md#stage-2-lexical-analysis)을 검토하고 어휘 분석의 예외에 대한 섹션을 찾습니다.
+유사 항목 검색 및 와일드카드 검색은 검색 출력에 영향을 줍니다. 이러한 쿼리 형식에서 언어 분석이 수행되지 않습니다. 유사 항목 및 와일드카드 검색을 사용하기 전에 [Azure Cognitive Search의 전체 텍스트 검색 작동 방식](search-lucene-query-architecture.md#stage-2-lexical-analysis)을 검토하고 어휘 분석의 예외에 대한 섹션을 찾습니다.
 
-전체 쿼리 파서를 통해 지원되는 쿼리 시나리오에 대한 자세한 내용은 [Azure Search의 Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)을 참조하세요.
+전체 쿼리 파서를 통해 지원되는 쿼리 시나리오에 대한 자세한 내용은 [Azure Cognitive Search의 Lucene 쿼리 구문](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)을 참조하세요.
 
 ### <a name="geo-search"></a> 지리 공간 검색 시도
 
@@ -257,7 +258,7 @@ Bing 이나 Google 검색, 또는 완전히 지정된 쿼리 식에서 수행할
 
 ## <a name="takeaways"></a>핵심 내용
 
-이 자습서에서는 Azure Portal을 사용하여 Azure Search를 간략하게 소개했습니다.
+이 자습서에서는 Azure Portal을 사용하여 Azure Cognitive Search를 간략하게 소개했습니다.
 
 **데이터 가져오기** 마법사를 사용하여 검색 인덱스를 만드는 방법을 배웠습니다. [게시된 인덱스에 대한 지원되는 수정](https://docs.microsoft.com/rest/api/searchservice/update-index)을 포함하여 [인덱서](search-indexer-overview.md) 및 인덱스 디자인에 대한 기본 워크플로를 알아보았습니다.
 
@@ -275,8 +276,8 @@ Azure Portal에서 **검색 탐색기**를 사용하여 필터, 적중 항목 �
 
 ## <a name="next-steps"></a>다음 단계
 
-프로그래밍 방식 도구를 사용하여 Azure Search를 좀 더 자세히 탐색할 수 있습니다.
+프로그래밍 방식 도구를 사용하여 Azure Cognitive Search를 좀 더 자세히 살펴볼 수 있습니다.
 
 * [.NET SDK를 사용하여 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
 * [REST API를 사용하여 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Postman 또는 Fiddler 및 Azure Search REST API를 사용하여 인덱스 만들기](search-get-started-postman.md)
+* [Postman 또는 Fiddler 및 Azure Cognitive Search REST API를 사용하여 인덱스 만들기](search-get-started-postman.md)

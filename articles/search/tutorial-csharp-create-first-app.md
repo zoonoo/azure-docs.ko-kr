@@ -1,22 +1,23 @@
 ---
-title: 첫 번째 앱 만들기 C#자습서 - Azure Search
-description: 이 자습서에서는 처음으로 Azure Search 앱을 빌드하는 분들을 위해 단계별 가이드를 제공합니다. 이 자습서에서는 GitHub의 작동하는 앱 링크와 앱을 처음부터 빌드하는 전체 프로세스의 링크를 제공합니다. Azure Search의 필수 구성 요소에 대해 알아봅니다.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: 첫 번째 앱 만들기 C# 자습서
+titleSuffix: Azure Cognitive Search
+description: 첫 번째 검색 앱을 단계별로 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 GitHub의 작동하는 앱 링크와 앱을 처음부터 빌드하는 전체 프로세스의 링크를 제공합니다. Azure Cognitive Search의 필수 구성 요소에 대해 알아봅니다.
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: d569437a3e6f6f05ddb9c6fa85f62c77ac51f72b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 3f234a11aeaf7af4e47fb0cf6310ecd68d35e4da
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443811"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794144"
 ---
-# <a name="c-tutorial-create-your-first-app---azure-search"></a>C# 자습서: 첫 번째 앱 만들기 - Azure Search
+# <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C# 자습서: 첫 번째 앱 만들기 - Azure Cognitive Search
 
-Azure Search를 사용하여 인덱스를 쿼리하고 검색 결과를 표시하는 웹 인터페이스를 만드는 방법을 알아봅니다. 검색 페이지 작성에 집중할 수 있도록 이 자습서는 기존에 호스트한 인덱스로 시작됩니다. 인덱스에는 가상의 호텔 데이터가 포함되어 있습니다. 기본 페이지를 만든 후에는 후속 단원에서 페이징, 패싯 및 자동 완성 환경을 포함하도록 기본 페이지를 개선할 수 있습니다.
+Azure Cognitive Search를 사용하여 인덱스에서 검색 결과를 쿼리 및 표시하는 웹 인터페이스를 만드는 방법을 알아봅니다. 검색 페이지 작성에 집중할 수 있도록 이 자습서는 기존에 호스트한 인덱스로 시작됩니다. 인덱스에는 가상의 호텔 데이터가 포함되어 있습니다. 기본 페이지를 만든 후에는 후속 단원에서 페이징, 패싯 및 자동 완성 환경을 포함하도록 기본 페이지를 개선할 수 있습니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -60,7 +61,7 @@ IDE로 사용할 [Visual Studio를 설치](https://visualstudio.microsoft.com/)�
 
 이 프로젝트가 원활하게 진행되어 Azure 앱이 실행되기를 바랍니다. 보다 세련된 검색 기능을 구현하기 위한 여러 필수 구성 요소가 이 앱 하나에 포함되어 있으므로, 이 앱을 살펴보고 단계별로 만들어 보는 것이 좋습니다.
 
-이 프로젝트를 처음부터 새로 만들고, 마음 속에 그리고 있는 Azure Search 구성 요소를 강화하려면 다음 단계를 수행하세요.
+이 프로젝트를 처음부터 새로 만들고, 마음 속에 그리고 있는 Azure Cognitive Search 구성 요소를 강화하려면 다음 단계를 수행하세요.
 
 ## <a name="set-up-a-development-environment"></a>개발 환경 설정
 
@@ -72,11 +73,11 @@ IDE로 사용할 [Visual Studio를 설치](https://visualstudio.microsoft.com/)�
 
     ![MVC 프로젝트 만들기](./media/tutorial-csharp-create-first-app/azure-search-project2.png)
 
-3. 다음으로, **도구** 메뉴에서 **NuGet 패키지 관리자**, **...솔루션용 NuGet 패키지 관리**를 차례로 선택합니다. 꼭 설치해야 하는 패키지가 하나 있습니다. **찾아보기** 탭을 선택한 다음, 검색창에 "Azure Search"를 입력합니다. 목록에 **Microsoft.Azure.Search**(버전 9.0.1 이상)가 나타나면 설치합니다. 설치를 완료하려면 몇 가지 추가 대화 상자를 더 클릭해야 합니다.
+3. 다음으로, **도구** 메뉴에서 **NuGet 패키지 관리자**, **...솔루션용 NuGet 패키지 관리**를 차례로 선택합니다. 꼭 설치해야 하는 패키지가 하나 있습니다. **찾아보기** 탭을 선택한 다음, 검색 상자에서 “Azure Cognitive Search”를 입력합니다. 목록에 **Microsoft.Azure.Search**(버전 9.0.1 이상)가 나타나면 설치합니다. 설치를 완료하려면 몇 가지 추가 대화 상자를 더 클릭해야 합니다.
 
     ![NuGet을 사용하여 Azure 라이브러리 추가](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
-### <a name="initialize-azure-search"></a>Azure Search 초기화
+### <a name="initialize-azure-cognitive-search"></a>Azure Cognitive Search 초기화
 
 이 샘플에서는 공개적으로 제공되는 호텔 데이터를 사용하겠습니다. 이 데이터는 오직 데모 데이터를 제공할 목적으로 만든 임의의 50개 가상 호텔 이름과 설명 컬렉션입니다. 이 데이터에 액세스하려면 데이터의 이름과 키를 지정해야 합니다.
 
@@ -223,7 +224,7 @@ IDE로 사용할 [Visual Studio를 설치](https://visualstudio.microsoft.com/)�
     }
     ```
 
-5. **Hotel**, **Address** 및 **Room** 클래스 세트를 Azure에서는 [_복합 형식_](search-howto-complex-data-types.md)이라고 하며, Azure Search의 중요한 기능입니다. 복합 형식은 다양한 클래스 및 하위 클래스 레벨 깊이를 지원하며, _단순 형식_(기본 멤버만 포함하는 클래스)을 사용할 때보다 훨씬 복잡한 데이터 구조를 지원합니다. 모델이 하나 더 필요하므로 새 모델 클래스 만들기 프로세스를 다시 진행합니다. 단, 이번에는 SearchData.cs 클래스를 호출하고 기본 코드를 다음으로 바꿉니다.
+5. **Hotel**, **Address** 및 **Room** 클래스 세트를 Azure에서는 [_복합 형식_](search-howto-complex-data-types.md)이라고 하며, Azure Cognitive Search의 중요한 기능입니다. 복합 형식은 다양한 클래스 및 하위 클래스 레벨 깊이를 지원하며, _단순 형식_(기본 멤버만 포함하는 클래스)을 사용할 때보다 훨씬 복잡한 데이터 구조를 지원합니다. 모델이 하나 더 필요하므로 새 모델 클래스 만들기 프로세스를 다시 진행합니다. 단, 이번에는 SearchData.cs 클래스를 호출하고 기본 코드를 다음으로 바꿉니다.
 
     ```cs
     using Microsoft.Azure.Search.Models;
@@ -425,7 +426,7 @@ Index.cshtml의 콘텐츠 전체를 삭제하고, 다음 단계에 따라 파일
                     model.searchText = "";
                 }
 
-                // Make the Azure Search call.
+                // Make the Azure Cognitive Search call.
                 await RunQueryAsync(model);
             }
 
@@ -451,7 +452,7 @@ GitHub 샘플에서 사용하지 않는 보기와 관련 작업을 삭제했습�
 
 ### <a name="add-the-runqueryasync-method"></a>RunQueryAsync 메서드 추가
 
-Azure Search 호출은 **RunQueryAsync** 메서드에 캡슐화됩니다.
+Azure Cognitive Search 호출은 **RunQueryAsync** 메서드에 캡슐화됩니다.
 
 1. 먼저 Azure 서비스를 설정하는 몇 가지 정적 변수를 추가하고, 이러한 정적 변수를 시작하는 호출을 추가합니다.
 
@@ -517,11 +518,11 @@ Azure Search 호출은 **RunQueryAsync** 메서드에 캡슐화됩니다.
 
      !["해변" 검색](./media/tutorial-csharp-create-first-app/azure-search-beach.png)
 
-3. "5성"을 입력합니다. 결과가 없는 이유를 확인합니다. 보다 세련된 검색은 "5성"을 그와 동의어인 "고급"으로 처리하고 해당 결과를 반환하는 것입니다. 동의어 사용은 Azure Search에서 가능하지만, 이 첫 번째 자습서에서는 다루지 않겠습니다.
+3. "5성"을 입력합니다. 결과가 없는 이유를 확인합니다. 보다 세련된 검색은 "5성"을 그와 동의어인 "고급"으로 처리하고 해당 결과를 반환하는 것입니다. 동의어 사용은 Azure Cognitive Search에서 가능하지만, 이 첫 번째 자습서에서는 다루지 않겠습니다.
  
 4. 검색 텍스트로 "hot"를 입력합니다. "hotel"이라는 단어가 포함된 항목이 반환되지 _않습니다_. 몇 가지 결과가 반환되기는 하지만, 현재 검색은 오직 전체 단어만 찾습니다.
 
-5. "풀", "햇살", "보기" 등의 다른 단어를 입력해 봅니다. Azure Search가 가장 간단하게 작동하지만, 여전히 설득력 있는 수준입니다.
+5. "풀", "햇살", "보기" 등의 다른 단어를 입력해 봅니다. Azure Cognitive Search가 가장 간단하게 작동하지만, 여전히 설득력 있는 수준입니다.
 
 ## <a name="test-edge-conditions-and-errors"></a>에지 조건 및 오류 테스트
 
@@ -542,17 +543,17 @@ Azure Search 호출은 **RunQueryAsync** 메서드에 캡슐화됩니다.
 
 이 프로젝트에서 다음 핵심 내용을 기억하세요.
 
-* Azure Search 호출은 간결하며, 결과를 쉽게 해석할 수 있습니다.
+* Azure Cognitive Search 호출은 간결하며, 결과를 쉽게 해석할 수 있습니다.
 * 비동기 호출은 컨트롤러의 복잡성이 살짝 증가하지만, 고품질의 앱을 개발하려는 경우 가장 좋은 방법입니다.
 * 이 앱은 **searchParameters**에 설정된 정의에 따라 간단한 텍스트 검색을 수행했습니다. 그러나 이 클래스를 검색의 정교함을 높이는 여러 멤버로 채울 수 있습니다. 이 앱의 성능을 높이기 위해 그렇게 많은 추가 작업이 필요하지는 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Search를 사용하여 최상의 사용자 경험을 제공하려면 더 많은 기능, 특히 페이징(페이지 번호 또는 무한 스크롤을 사용하여) 기능과 자동 완성/제안 기능을 추가해야 합니다. 또한 보다 세련된 검색 매개 변수(예: 특정 지점에서 지정된 반경 내에 있는 호텔의 지리적 위치 검색 및 검색 결과 정렬)를 고민해야 합니다.
+Azure Cognitive Search를 사용하여 최상의 사용자 경험을 제공하려면 더 많은 기능, 특히 페이징(페이지 번호 또는 무한 스크롤을 사용하여) 기능과 자동 완성/제안 기능을 추가해야 합니다. 또한 보다 세련된 검색 매개 변수(예: 특정 지점에서 지정된 반경 내에 있는 호텔의 지리적 위치 검색 및 검색 결과 정렬)를 고민해야 합니다.
 
 이러한 단계는 자습서 시리즈에서 다룹니다. 페이징부터 시작하겠습니다.
 
 > [!div class="nextstepaction"]
-> [C# 자습서: 검색 결과 페이지 매김 - Azure Search](tutorial-csharp-paging.md)
+> [C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search](tutorial-csharp-paging.md)
 
 

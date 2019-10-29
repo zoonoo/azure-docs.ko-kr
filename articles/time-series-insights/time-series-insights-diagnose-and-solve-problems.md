@@ -3,7 +3,7 @@ title: Azure Time Series Insights에서 문제 진단 및 해결 | Microsoft Doc
 description: 이 문서에서는 Azure Time Series Insights 환경에서 발생할 수 있는 일반적인 문제를 진단하고 해결하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78a991fb310c635648513e6472543b9f5c01119d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 7c9dcdf43e819e20126f948fa08f4f8f476036ac
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330863"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991266"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
 
@@ -44,7 +44,7 @@ Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 
 
 * Azure Event Hubs의 이벤트 허브에서는 **수신** 권한이 있는 키를 제공해야 합니다. **read** 또는 **manage** 정책에는 **수신** 권한이 있으므로 둘 다 사용할 수 있습니다.
 
-   [![Event hub 수신 권한](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [이벤트 허브 수신 사용 권한![](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>원인 C: 제공 된 소비자 그룹이 Time Series Insights 전용이 아닙니다.
 
@@ -69,7 +69,7 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 다음 그림에는 SKU S1 및 용량 3을 사용하는 Time Series Insights 환경이 나와 있습니다. 하루에 3백만 개의 이벤트를 수신할 수 있습니다.
 
-[![ 환경 SKU 현재 용량](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[![환경 SKU 현재 용량](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 예를 들어, 환경이 이벤트 허브에서 메시지를 수집 하는 경우를 가정 합니다. 일일 수신 속도는 67,000개 이하 메시지입니다. 이 속도를 1분마다 약 46개 메시지로 변환합니다. 
 

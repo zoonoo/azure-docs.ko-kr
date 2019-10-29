@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure Active Directory Domain Services 인스턴스 만들기 | Microsoft Docs
-description: 이 자습서에서는 Azure Portal을 사용하여 Azure Active Directory Domain Services 인스턴스를 만들고 구성하는 방법을 알아봅니다.
+description: 이 자습서에서는 Azure Portal에서 고급 구성 옵션을 사용하여 Azure Active Directory Domain Services 인스턴스를 만들고 구성하는 방법을 알아봅니다.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -9,24 +9,25 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/18/2019
 ms.author: iainfou
-ms.openlocfilehash: b99eafeae60e81fd7d902289a47190a2cbe1daa3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2ed488f5f4380c44772d63d208e2c7a68934aca8
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786994"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72757649"
 ---
-# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>자습서: Azure Active Directory Domain Services 인스턴스 만들기 및 구성
+# <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>자습서: 고급 구성 옵션을 사용하여 Azure Active Directory Domain Services 인스턴스를 만들고 구성
 
 Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Directory와 완전히 호환되는 도메인 조인, 그룹 정책, LDAP, Kerberos/NTLM 인증과 같은 관리되는 도메인 서비스를 제공합니다. 이러한 도메인 서비스는 도메인 컨트롤러를 직접 배포, 관리 및 패치하지 않고 사용할 수 있습니다. Azure AD DS는 기존 Azure AD 테넌트와 통합됩니다. 이러한 통합을 통해 사용자는 회사 자격 증명을 사용하여 로그인할 수 있으며, 기존 그룹과 사용자 계정을 사용하여 리소스에 대한 액세스를 보호할 수 있습니다.
 
-네트워킹 및 동기화를 위해 [기본 구성 옵션을 사용하여 관리형 도메인을 만들거나][tutorial-create-instance-advanced] 이러한 설정을 수동으로 정의할 수 있습니다. 이 자습서에서는 Azure Portal에서 기본 옵션을 사용하여 Azure AD DS 인스턴스를 만들고 구성하는 방법을 보여줍니다.
+네트워킹 및 동기화를 위해 [기본 구성 옵션을 사용하여 관리형 도메인을 만들거나][tutorial-create-instance] 이러한 설정을 수동으로 정의할 수 있습니다. 이 자습서에서는 Azure Portal을 통해 이러한 고급 구성 옵션을 정의하여 Azure AD DS 인스턴스를 만들고 구성하는 방법을 보여줍니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 관리형 도메인의 DNS 요구 사항 이해
+> * 관리되는 도메인에 대한 DNS 및 가상 네트워크 설정 구성
 > * Azure AD DS 인스턴스 만들기
+> * 도메인 관리에 관리자 추가
 > * 암호 해시 동기화 사용
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -51,7 +52,7 @@ Azure AD DS에는 필요하지 않지만 Azure AD 테넌트에 대해 [SSPR(셀�
 
 이 자습서에서는 Azure Portal을 사용하여 Azure AD DS 인스턴스를 만들고 구성합니다. 시작하려면 먼저 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-## <a name="create-an-instance"></a>인스턴스 만들기
+## <a name="create-an-instance-and-configure-basic-settings"></a>인스턴스 만들기 및 기본 설정 구성
 
 **Azure AD Domain Services** 마법사를 시작하려면 다음 단계를 완료합니다.
 
@@ -89,35 +90,84 @@ Azure Portal의 *기본* 창에 있는 필드를 완성하여 Azure AD DS 인스
 1. 이전 사항을 고려하여 관리되는 도메인의 **DNS 도메인 이름**을 입력합니다.
 1. 관리되는 도메인을 만들어야 하는 Azure **위치**를 선택합니다.
 
-    ![Azure AD Domain Services 인스턴스에 대한 기본 설정 구성](./media/tutorial-create-instance/basics-window.png)
+    ![Azure AD Domain Services 인스턴스에 대한 기본 설정 구성](./media/tutorial-create-instance-advanced/basics-window.png)
 
-Azure AD DS 관리형 도메인을 신속하게 만들려면 **검토 + 만들기**를 선택하여 추가 기본 구성 옵션을 적용합니다. 이 만들기 옵션을 선택하면 다음과 같은 기본값이 구성됩니다.
+1. 추가 옵션을 수동으로 구성하려면 **다음 - 네트워킹**를 선택합니다. 또는 **검토 + 만들기**를 선택하여 기본 구성 옵션을 적용한 다음, [관리형 도메인 배포](#deploy-the-managed-domain) 섹션으로 건너뜁니다. 이 만들기 옵션을 선택하면 다음과 같은 기본값이 구성됩니다.
 
 * IP 주소 범위 *10.0.1.0/24*를 사용하는 *aadds-vnet*이라는 가상 네트워크를 만듭니다.
 * IP 주소 범위 *10.0.1.0/24*를 사용하는 *aadds-subnet*이라는 서브넷을 만듭니다.
 * Azure AD의 모든 *사용자*를 Azure AD DS 관리형 도메인으로 동기화합니다.
 
-1. **검토 + 만들기**를 선택하여 이러한 기본 구성 옵션을 적용합니다.
+## <a name="create-and-configure-the-virtual-network"></a>가상 네트워크 만들기 및 구성
 
-## <a name="deploy-the-managed-domain"></a>관리되는 도메인을 배포합니다.
+연결을 제공하려면 Azure 가상 네트워크와 전용 서브넷이 필요합니다. 이 가상 네트워크 서브넷에서 Azure AD DS를 사용하도록 설정되었습니다. 이 자습서에서는 가상 네트워크를 만들지만 기존 가상 네트워크를 사용하도록 대신 선택할 수 있습니다. 두 방법 중 어느 것이든 Azure AD DS에서 사용할 전용 서브넷을 만들어야 합니다.
+
+이 전용 가상 네트워크 서브넷에 대한 몇 가지 고려 사항은 다음과 같습니다.
+
+* Azure AD DS 리소스를 지원하려면 서브넷의 주소 범위에 사용 가능한 IP 주소가 3-5개 이상 있어야 합니다.
+* Azure AD DS를 배포하기 위한 *게이트웨이* 서브넷을 선택하지 않습니다. Azure AD DS를 *게이트웨이* 서브넷에 배포하는 것은 지원되지 않습니다.
+* 다른 가상 머신을 서브넷에 배포하지 않습니다. 애플리케이션과 VM에서 네트워크 보안 그룹을 사용하여 연결을 보호하는 경우가 많습니다. 별도의 서브넷에서 이러한 워크로드를 실행하면 관리되는 도메인에 대한 연결을 방해하지 않고 해당 네트워크 보안 그룹을 적용할 수 있습니다.
+* Azure AD DS를 사용하도록 설정한 후에는 관리되는 도메인을 다른 가상 네트워크로 이동할 수 없습니다.
+
+가상 네트워크를 계획하고 구성하는 방법에 대한 자세한 내용은 [Azure Active Directory Domain Services에 대한 네트워킹 고려 사항][network-considerations]을 참조하세요.
+
+*네트워크* 창의 필드를 다음과 같이 완성합니다.
+
+1. **네트워크** 페이지의 드롭다운 메뉴에서 Azure AD DS를 배포할 가상 네트워크를 선택하거나 **새로 만들기**를 선택합니다.
+    1. 가상 네트워크를 만들기로 선택하는 경우 가상 네트워크 이름(예: *myVnet*)을 입력한 다음, 주소 범위(예: *10.0.1.0/24*)를 입력합니다.
+    1. *DomainServices*와 같이 이름이 명확한 전용 서브넷을 만듭니다. 주소 범위(예: *10.0.1.0/24*)를 입력합니다.
+
+    ![Azure AD Domain Services에서 사용할 가상 네트워크 및 서브넷 만들기](./media/tutorial-create-instance-advanced/create-vnet.png)
+
+    개인 IP 주소 범위 내의 주소 범위를 선택해야 합니다. 퍼블릭 주소 공간에 있는 IP 주소 범위를 소유하지 않으면 Azure AD DS 내에서 오류가 발생합니다.
+
+1. *DomainServices*와 같은 가상 네트워크 서브넷을 선택합니다.
+1. 준비되면 **다음 - 관리**를 선택합니다.
+
+## <a name="configure-an-administrative-group"></a>관리 그룹 구성
+
+*AAD DC Administrators*라는 특수 관리 그룹은 Azure AD DS 도메인을 관리하는 데 사용됩니다. 이 그룹의 멤버에게는 관리되는 도메인에 조인된 VM에 대한 관리자 권한이 부여됩니다. 도메인 조인 VM에서 이 그룹은 로컬 관리자 그룹에 추가됩니다. 또한 이 그룹의 멤버는 원격 데스크톱을 사용하여 도메인 조인 VM에 원격으로 연결할 수 있습니다.
+
+Azure AD DS를 사용하는 관리되는 도메인에 대한 *도메인 관리자* 또는 *엔터프라이즈 관리자* 권한이 없습니다. 이러한 권한은 서비스에서 예약하며 테넌트 내의 사용자가 사용할 수 없습니다. 대신 *AAD DC Administrators* 그룹을 사용하면 일부 권한 있는 작업을 수행할 수 있습니다. 이러한 작업에는 도메인에 컴퓨터 조인, 도메인 조인 VM의 관리 그룹에 할당 및 그룹 정책 구성이 포함됩니다.
+
+마법사는 *AAD DC Administrators* 그룹을 Azure AD 디렉터리에 자동으로 만듭니다. Azure AD 디렉터리에 이 이름 가진 기존 그룹이 있는 경우 마법사는 이 그룹을 선택합니다. 필요에 따라 배포 프로세스 중에 추가 사용자를 이 *AAD DC Administrators* 그룹에 추가하도록 선택할 수 있습니다. 이러한 단계는 나중에 수행할 수 있습니다.
+
+1. 추가 사용자를 이 *AAD DC Administrators* 그룹에 추가하려면 **그룹 멤버 자격 관리**를 선택합니다.
+
+    ![AAD DC Administrators 그룹의 그룹 멤버 자격 구성](./media/tutorial-create-instance-advanced/admin-group.png)
+
+1. **멤버 추가** 단추를 선택한 다음, Azure AD 디렉터리에서 사용자를 검색하여 선택합니다. 예를 들어 자신의 계정을 검색하여 *AAD DC Administrators* 그룹에 추가합니다.
+1. 필요한 경우 Azure AD DS 관리형 도메인에 주의가 필요한 경고가 있을 때 알림을 받을 수신자를 변경하거나 추가합니다.
+1. 준비되면 **다음 - 동기화**를 선택합니다.
+
+## <a name="configure-synchronization"></a>동기화 구성
+
+Azure AD DS를 사용하면 Azure AD에서 사용할 수 있는 사용자와 그룹을 *모두* 동기화하거나 특정 그룹으로만 *범위가 지정된* 동기화를 수행할 수 있습니다. 사용자와 그룹을 *모두* 동기화하도록 선택하면 나중에 범위가 지정된 동기화만 수행하도록 선택할 수 없습니다. 범위가 지정된 동기화에 대한 자세한 내용은 [Azure AD Domain Services 범위가 지정된 동기화][scoped-sync]를 참조하세요.
+
+1. 이 자습서에서는 사용자 및 그룹을 **모두** 동기화하도록 선택합니다. 이 동기화 선택은 기본 옵션입니다.
+
+    ![Azure AD에서 사용자 및 그룹의 전체 동기화 수행](./media/tutorial-create-instance-advanced/sync-all.png)
+
+1. **검토 + 만들기**를 선택합니다.
+
+## <a name="deploy-the-managed-domain"></a>관리형 도메인을 배포합니다.
 
 마법사의 **요약** 페이지에서 관리되는 도메인에 대한 구성 설정을 검토합니다. 임의의 마법사 단계로 돌아가서 변경할 수 있습니다. 이러한 구성 옵션을 사용하여 일관적인 방식으로 Azure AD DS 관리형 도메인을 다른 Azure AD 테넌트에 재배포하려면 **자동화를 위한 템플릿을 다운로드**해도 됩니다.
 
 1. 관리형 도메인을 만들려면 **만들기**를 선택합니다. Azure AD DS 관리형 도메인을 만들고 나면 DNS 이름 또는 가상 네트워크와 같은 특정 구성 옵션을 변경할 수 없다는 주의 사항이 표시됩니다. 계속하려면 **확인**을 선택합니다.
 1. 관리되는 도메인을 프로비전하는 프로세스는 최대 한 시간 정도 걸릴 수 있습니다. 포털에 Azure AD DS 배포의 진행 상황을 보여 주는 알림이 표시됩니다. 알림을 선택하여 자세한 배포 진행 상황을 확인합니다.
 
-    ![Azure Portal의 진행 중인 배포 알림](./media/tutorial-create-instance/deployment-in-progress.png)
+    ![Azure Portal의 진행 중인 배포 알림](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
-1. 이 페이지에는 디렉터리에 새 리소스를 만드는 것을 포함하여 배포 프로세스에 대한 업데이트가 로드됩니다.
 1. 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, Azure 리소스 목록에서 Azure AD DS 인스턴스(예: *contoso.com*)를 선택합니다. **개요** 탭에서 관리되는 도메인이 현재 *배포 중*임을 보여 줍니다. 관리되는 도메인은 완전히 프로비저닝될 때까지 구성할 수 없습니다.
 
-    ![프로비저닝 중 상태의 Domain Services 상태](./media/tutorial-create-instance/provisioning-in-progress.png)
+    ![프로비저닝 중 상태의 Domain Services 상태](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
 
 1. 관리되는 도메인이 완전히 프로비전되면 **개요** 탭에 도메인 상태가 *실행 중*으로 표시됩니다.
 
-    ![성공적으로 프로비저닝된 Domain Services 상태](./media/tutorial-create-instance/successfully-provisioned.png)
+    ![성공적으로 프로비저닝된 Domain Services 상태](./media/tutorial-create-instance-advanced/successfully-provisioned.png)
 
-저희 쪽에서 Azure Active Directory 테넌트에 Azure AD Domain Services을 프로비저닝하면 연결된 Azure 구독 내에 서비스용 Azure AD Domain Services 리소스가 생성됩니다. 프로비저닝 프로세스 중에 Azure AD DS는 Azure AD 도메인 서비스를 사용하도록 설정된 Azure Active Directory 인스턴스에 *Domain Controller Services* 및 *AzureActiveDirectoryDomainControllerServices*라는 두 개의 엔터프라이즈 애플리케이션을 만듭니다. 이러한 Enterprise 애플리케이션은 관리되는 도메인을 제공하는 데 필요합니다.  이러한 애플리케이션은 언제든지 삭제되지 않아야 합니다.
+프로비저닝 프로세스 중에 Azure AD DS는 *도메인 컨트롤러 서비스* 및 *AzureActiveDirectoryDomainControllerServices*라는 두 개의 엔터프라이즈 애플리케이션을 디렉터리에 만듭니다. 이러한 Enterprise 애플리케이션은 관리되는 도메인을 제공하는 데 필요합니다. 이러한 애플리케이션은 언제든지 삭제되지 않아야 합니다.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Azure 가상 네트워크에 대한 DNS 설정 업데이트
 
@@ -127,7 +177,7 @@ Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플
 
     나열된 주소는 가상 네트워크에서 사용할 도메인 컨트롤러입니다. 다음 예에서 해당 주소는 *10.1.0.4* 및 *10.1.0.5*입니다. 이러한 IP 주소는 나중에 **속성** 탭에서 확인할 수 있습니다.
 
-    ![Azure AD Domain Services IP 주소를 사용하여 가상 네트워크에 대한 DNS 설정 구성](./media/tutorial-create-instance/configure-dns.png)
+    ![Azure AD Domain Services IP 주소를 사용하여 가상 네트워크에 대한 DNS 설정 구성](./media/tutorial-create-instance-advanced/configure-dns.png)
 
 1. 가상 네트워크에 대한 DNS 서버 설정을 업데이트하려면 **구성** 단추를 선택합니다. 가상 네트워크에 대한 DNS 설정이 자동으로 구성됩니다.
 
@@ -155,7 +205,7 @@ Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플
 1. [https://myapps.microsoft.com](https://myapps.microsoft.com)의 Azure AD 액세스 패널 페이지로 이동합니다.
 1. 오른쪽 위 모서리에서 이름을 선택한 다음, 드롭다운 메뉴에서 **프로필**을 선택합니다.
 
-    ![프로필 선택](./media/tutorial-create-instance/select-profile.png)
+    ![프로필 선택](./media/tutorial-create-instance-advanced/select-profile.png)
 
 1. **프로필** 페이지에서 **암호 변경**을 선택합니다.
 1. **암호 변경** 페이지에서 기존(이전) 암호를 입력한 다음, 새 암호를 입력하고 확인합니다.
@@ -168,18 +218,18 @@ Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
-> * 관리형 도메인의 DNS 요구 사항 이해
+> * 관리되는 도메인에 대한 DNS 및 가상 네트워크 설정 구성
 > * Azure AD DS 인스턴스 만들기
 > * 도메인 관리에 관리자 추가
 > * Azure AD DS에서 사용자 계정을 사용하도록 설정 및 암호 해시 생성
 
-VM을 도메인에 가입하고 Azure AD DS 관리형 도메인을 사용하는 애플리케이션을 배포하기 전에, 애플리케이션 워크로드에 대한 Azure 가상 네트워크를 구성합니다.
+이 관리되는 도메인이 작동하는지 확인하려면 가상 머신을 만들어 도메인에 조인시킵니다.
 
 > [!div class="nextstepaction"]
-> [관리형 도메인을 사용하도록 애플리케이션 워크로드에 대한 Azure 가상 네트워크 구성](tutorial-configure-networking.md)
+> [Windows Server 가상 머신을 관리되는 도메인에 조인](join-windows-vm.md)
 
 <!-- INTERNAL LINKS -->
-[tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
+[tutorial-create-instance]: tutorial-create-instance.md
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [network-considerations]: network-considerations.md

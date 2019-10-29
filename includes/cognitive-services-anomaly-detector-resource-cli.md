@@ -3,15 +3,64 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/20/2019
-ms.openlocfilehash: e64363c39675305c94557515e54db53c722c6a5f
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.date: 10/08/2019
+ms.openlocfilehash: a7ae6cb1231e4c202dfd0a39602c03b33099d088
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639339"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554703"
 ---
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](../articles/cognitive-services/cognitive-services-apis-create-account.md) 또는 [Azure CLI](../articles/cognitive-services/cognitive-services-apis-create-account-cli.md)를 사용하여 Anomaly Detector용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+아래 Azure 리소스 중 하나를 만들어 Anomaly Detector 서비스 사용을 시작합니다.
 
-* 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
-* [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
+* [평가판 리소스](https://azure.microsoft.com/try/cognitive-services/#decision)(Azure 구독이 필요하지 않음): 
+    * 평가판은 7일 동안 유효합니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 평가판 키 및 엔드포인트를 사용할 수 있습니다. 
+    * 이 옵션은 Anomaly Detector를 시도하지만 Azure 구독이 없는 경우에 유용합니다.
+
+* [Anomaly Detector 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
+    * 리소스를 삭제할 때까지 [Azure Portal](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade)를 통해 사용할 수 있습니다.
+    * 평가판 가격 책정 계층을 사용하여 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드합니다.
+
+### <a name="create-an-environment-variable"></a>환경 변수 만들기
+
+>[!NOTE]
+> 2019년 7월 1일 이후에 생성된 비평가판 리소스의 엔드포인트는 아래에 표시된 사용자 지정 하위 도메인 형식을 사용합니다. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains)을 참조하세요. 
+
+만든 리소스의 키 및 엔드포인트를 사용하여 인증을 위한 두 가지 환경 변수를 만듭니다.
+
+* `ANOMALY_DETECTOR_KEY` - 요청을 인증하기 위한 리소스 키입니다.
+* `ANOMALY_DETECTOR_ENDPOINT` - API 요청을 보내기 위한 리소스 엔드포인트입니다. 다음과 같이 표시됩니다. 
+  * `https://<your-custom-subdomain>.api.cognitive.microsoft.com` 
+
+운영 체제에 대한 지침을 사용합니다.
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx ANOMALY_DETECTOR_KEY your-anomaly-detector-key
+setx ANOMALY_DETECTOR_ENDPOINT your-anomaly-detector-endpoint
+```
+
+환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
+export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+```
+
+환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+`.bash_profile`을 편집하고, 환경 변수를 추가합니다.
+
+```bash
+export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
+export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+```
+
+환경 변수를 추가한 후에는 콘솔 창에서 `source .bash_profile` 명령을 실행하여 변경 내용을 적용합니다.
+
+***

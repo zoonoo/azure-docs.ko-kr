@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: ebb960085691206b096090813636ef56366e6536
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: ee51841046962a6896b4c16e651f85ff761a69fc
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038362"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592475"
 ---
 # <a name="troubleshooting-guide-for-common-problems"></a>일반적인 문제 해결 가이드
 
@@ -146,6 +146,49 @@ JAR/소스 패키지는 포털 또는 Resource Manager 템플릿을 통해 업�
 _Azure Log Analytics_에서 _서비스 레지스트리_ 클라이언트 로그를 확인할 수도 있습니다. 자세한 내용은 [진단 설정을 사용하여 로그 및 메트릭 분석](diagnostic-services.md)을 참조하세요.
 
 _Azure Log Analytics_를 시작하려면 [이 시작 문서](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)를 참조하세요. [Kusto 쿼리 언어](https://docs.microsoft.com/azure/kusto/query/)를 사용하여 로그를 쿼리합니다.
+
+### <a name="i-want-to-inspect-my-applications-environment-variables"></a>내 애플리케이션의 환경 변수를 검사하려고 합니다.
+
+환경 변수는 Azure에서 애플리케이션을 구성하는 서비스를 구성하는 위치와 방법을 이해할 수 있도록 Azure Spring Cloud 프레임워크에 정보를 알려 줍니다.  환경 변수가 올바른지 확인하는 것은 잠재적인 문제 해결에 필수적인 첫 번째 단계입니다.  Spring Boot Actuator 엔드포인트를 사용하여 환경 변수를 검토할 수 있습니다.  
+
+> [!WARNING]
+> 이 프로시저는 테스트 엔드포인트를 사용하여 환경 변수를 노출합니다.  테스트 엔드포인트에 공개적으로 액세스할 수 있거나 애플리케이션에 도메인 이름을 할당한 경우에는 더이상 진행하지 마십시오.
+
+1. `https://<your application test endpoint>/actuator/health` URL로 이동합니다.  
+    - `{"status":"UP"}`과 유사한 응답은 엔드포인트가 사용하도록 설정되었음을 나타냅니다.
+    - 응답이 부정이면 `POM.xml`에 다음 종속성을 포함합니다.
+
+        ```xml
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-actuator</artifactId>
+            </dependency>
+        ```
+
+1. Spring Boot Actuator 엔드포인트가 사용하도록 설정된 상태에서 Azure Portal로 이동하여 애플리케이션의 구성 페이지를 찾습니다.  `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE' and the value `*` 이름의 환경 변수를 추가합니다. 
+
+1. 애플리케이션을 다시 시작합니다.
+
+1. `https://<the test endpoint of your app>/actuator/env`로 이동하여 응답을 검사합니다.  다음과 같이 표시되어야 합니다.
+
+    ```json
+    {
+        "activeProfiles": [],
+        "propertySources": {,
+            "name": "server.ports",
+            "properties": {
+                "local.server.port": {
+                    "value": 1025
+                }
+            }
+        }
+    }
+    ```
+
+`systemEnvironment`라는 자식 노드를 찾습니다.  이 노드에는 애플리케이션의 환경 변수가 포함됩니다.
+
+> [!IMPORTANT]
+> 애플리케이션에 대한 공용 액세스를 가능하게 하려면 환경 변수의 노출을 역방향으로 바꾸어야 합니다.  Azure Portal로 이동하고, 애플리케이션의 구성 페이지를 찾은 후, `MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE` 환경 변수를 삭제합니다.
 
 ### <a name="i-cannot-find-metrics-or-logs-for-my-application"></a>애플리케이션에 대한 메트릭 또는 로그를 찾을 수 없음
 

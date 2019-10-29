@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a9d74d94e139427027f68b2c26675447ae6da18c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3dacea5c1d77bfead85e42ae312bfafbe70d8ca1
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954878"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990387"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central 아키텍처 (미리 보기 기능)
 
@@ -32,7 +32,7 @@ ms.locfileid: "72954878"
 
 Azure IoT Central에서, 디바이스가 애플리케이션과 교환할 수 있는 데이터는 디바이스 템플릿에 지정됩니다. 디바이스 템플릿에 대한 자세한 내용은 [메타데이터 관리](#metadata-management)를 참조하세요.
 
-디바이스가 Azure IoT Central 애플리케이션에 연결하는 방법에 대한 자세한 내용은 [디바이스 연결](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)을 참조하세요.
+디바이스가 Azure IoT Central 애플리케이션에 연결하는 방법에 대한 자세한 내용은 [디바이스 연결](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)을 참조하세요.
 
 ## <a name="cloud-gateway"></a>클라우드 게이트웨이
 
@@ -44,7 +44,7 @@ Azure IoT Central은 디바이스 연결을 가능하게 하는 클라우드 게
 
 IoT Hub에 대한 자세한 내용은 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/)를 참조하세요.
 
-Azure IoT Central의 디바이스 연결에 대한 자세한 내용은 [디바이스 연결](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)을 참조하세요.
+Azure IoT Central의 디바이스 연결에 대한 자세한 내용은 [디바이스 연결](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)을 참조하세요.
 
 ## <a name="data-stores"></a>데이터 저장소
 
@@ -110,4 +110,4 @@ UI 셸은 응답성이 우수한 최신 HTML5 브라우저 기반 애플리케�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure IoT Central의 아키텍처에 대해 알아보았습니다. 제안 된 다음 단계는 Azure IoT Central의 [장치 연결](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) 에 대해 학습 하는 것입니다.
+이제 Azure IoT Central의 아키텍처에 대해 알아보았습니다. 제안 된 다음 단계는 Azure IoT Central의 [장치 연결](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) 에 대해 학습 하는 것입니다.

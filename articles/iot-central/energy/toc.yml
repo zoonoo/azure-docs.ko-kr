@@ -17,7 +17,9 @@
     - name: 태양 전지판 앱 아키텍처
       href: concept-iot-central-solar-panel-app.md
     - name: 연결
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+      href: ../core/overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
+    - name: 애플리케이션 템플릿이란?
+      href: ../core/concepts-app-templates.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
 - name: 방법 가이드
   items:
     - name: 디바이스 연결
@@ -50,8 +52,6 @@
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: 사용자 지정 규칙 만들기
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
-        - name: Databricks를 사용하여 사용자 지정 분석 만들기
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: Databricks를 사용하여 사용자 지정 분석 만들기
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: 관리

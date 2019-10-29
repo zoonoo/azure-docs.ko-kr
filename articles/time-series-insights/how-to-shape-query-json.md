@@ -2,19 +2,19 @@
 title: Azure Time Series Insights 쿼리에서 JSON을 셰이핑하는 방법 모범 사례 | Microsoft Docs
 description: Azure Time Series Insights 쿼리 효율성을 개선하는 방법을 알아봅니다.
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
+ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
 ms.date: 10/09/2019
-ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 09090354012d2cd3ba050ff9c94593947f27b006
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274408"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990274"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>JSON 셰이프 쿼리 성능 최대화 
 
@@ -35,6 +35,9 @@ Time Series Insights로 이벤트를 보내는 방법에 대해 생각해 보십
 1. Time Series Insights 최대 속성 제한에 도달 하지 않았는지 확인 합니다.
    - S1 환경의 경우 600개의 속성(열)
    - S2 환경의 경우 800개의 속성(열)
+
+> [!TIP]
+> Azure Time Series Insights 미리 보기에서 [제한 및 계획](time-series-insights-update-plan.md) 을 검토 합니다.
 
 다음 지침은 가능한 최상의 쿼리 성능을 보장 하는 데 도움이 됩니다.
 
@@ -95,7 +98,7 @@ Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
    | FXXX | LINE\_DATA | EU |
-   | FYYY | LINE\_DATA | US |
+   | FYYY | LINE\_DATA | 미국 |
 
 * Time Series Insights 이벤트 테이블, 평면화 후:
 
@@ -103,7 +106,7 @@ Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 
    | --- | --- | --- | --- | --- | --- |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
-   | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
+   | FYYY | LINE\_DATA | 미국 | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
 > [!NOTE]
 > - **deviceId** 열은 다수의 다양한 디바이스에서 열 헤더로 사용합니다. **DeviceId** 값을 고유 속성 이름으로 설정 하면 총 장치 수가 595 (S1 환경) 또는 795 (S2 환경)에서 다른 5 개의 열로 제한 됩니다.
@@ -166,8 +169,8 @@ Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | 흐름 속도 | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | Engine Oil Pressure | psi |
-   | FYYY | pumpRate | LINE\_DATA | US | 흐름 속도 | ft3/s |
-   | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi |
+   | FYYY | pumpRate | LINE\_DATA | 미국 | 흐름 속도 | ft3/s |
+   | FYYY | oilPressure | LINE\_DATA | 미국 | Engine Oil Pressure | psi |
 
 * Time Series Insights 이벤트 테이블, 평면화 후:
 
@@ -177,8 +180,8 @@ Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 
    | FXXX | oilPressure | LINE\_DATA | EU | Engine Oil Pressure | psi | 2018-01-17T01:17:00Z | 34.7 |
    | FXXX | pumpRate | LINE\_DATA | EU | 흐름 속도 | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
    | FXXX | oilPressure | LINE\_DATA | EU | Engine Oil Pressure | psi | 2018-01-17T01:17:00Z | 49.2 |
-   | FYYY | pumpRate | LINE\_DATA | US | 흐름 속도 | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi | 2018-01-17T01:18:00Z | 22.2 |
+   | FYYY | pumpRate | LINE\_DATA | 미국 | 흐름 속도 | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | LINE\_DATA | 미국 | Engine Oil Pressure | psi | 2018-01-17T01:18:00Z | 22.2 |
 
 > [!NOTE]
 > - **DeviceId** 및 **tagId** 열은 제에서 다양 한 장치 및 태그의 열 머리글로 사용 됩니다. 각각을 고유한 특성으로 사용 하 여 쿼리를 594 (S1 환경) 또는 794 (S2 환경)의 6 개 열이 있는 총 장치 수로 제한 합니다.
@@ -191,11 +194,11 @@ Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 
 가능한 값이 많은 속성의 경우에는 각 값에 대해 새 열을 만드는 대신 단일 열 내에서 고유한 값으로 보내는 것이 가장 좋습니다. 앞의 두 예제에서:
 
   - 첫 번째 예제에서는 몇 가지 속성에 여러 값이 있으므로 별도의 속성을 설정 하는 것이 적절 합니다.
-  - 두 번째 예제에서는 측정값이 개별 속성으로 지정 되지 않습니다. 대신, 공통 계열 속성 아래에 있는 값 또는 측정값의 배열입니다. 새 키 **tagId** 가 전송 되며,이는 평면화 된 테이블에 새 열 **tagId** 를 만듭니다. 새 속성 **type** 및 **unit** 는 속성 제한에 도달 하지 않도록 참조 데이터를 사용 하 여 생성 됩니다.
+  - 두 번째 예제에서는 측정값이 개별 속성으로 지정 되지 않습니다. 대신, 공통 계열 속성 아래에 있는 값 또는 측정값의 배열입니다. 새 키 **tagId** 가 전송 되며,이는 평면화 된 테이블에 새 열 **tagId** 를 만듭니다. 새 속성 **유형** 및 **단위** 는 속성 제한에 도달 하지 않도록 참조 데이터를 사용 하 여 생성 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 내용은 [클라우드로 IoT Hub 장치 메시지 보내기를](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct)참조 하세요.
+- 자세한 내용은 [클라우드로 IoT Hub 장치 메시지 보내기를](../iot-hub/iot-hub-devguide-messages-construct.md)참조 하세요.
 
 - Time Series Insights 데이터 액세스 REST API의 쿼리 구문에 대 한 자세한 내용은 [쿼리 구문 Azure Time Series Insights](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) 를 참조 하세요.
 

@@ -3,21 +3,20 @@ title: Azure Time Series Insights 환경의 규모 계획 | Microsoft Docs
 description: 이 문서에서는 Azure Time Series Insights 환경을 계획할 때 모범 사례를 따르는 방법을 설명 합니다. 포함 되는 영역에는 저장소 용량, 데이터 보존, 수신 용량, 모니터링, 비즈니스 연속성 및 재해 복구 (BCDR)가 포함 됩니다.
 services: time-series-insights
 ms.service: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 659a6357736817f4a590b97e585230ec8c2b7dae
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 649ff31e40bf612f1b70f81e895920f7fc21f082
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332905"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991249"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Azure Time Series Insights GA 환경 계획
 
@@ -69,23 +68,20 @@ Azure Portal의 환경 구성 페이지에서 보존 기간을 조정 하 고 �
 
 1. **데이터 보존 시간 (일)** 상자에 1에서 400 사이의 값을 입력 합니다.
 
-   [![ 보존 구성](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [보존 구성![](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
 
 > [!TIP]
 > 적절 한 데이터 보존 정책을 구현 하는 방법에 대 한 자세한 내용은 [보존을 구성 하는 방법](./time-series-insights-how-to-configure-retention.md)을 참조 하세요.
 
 ## <a name="ingress-capacity"></a>수집 용량
 
-Time Series Insights 환경을 계획할 때 초점을 맞출 수 있는 두 번째 영역은 *수신 용량*입니다. 수신 용량은 분당 할당의 파생물입니다.
+[!INCLUDE [Azure Time Series Insights GA limits](../../includes/time-series-insights-ga-limits.md)]
+
+### <a name="environment-planning"></a>환경 계획
+
+Time Series Insights 환경을 계획 하는 데 중점을 두는 두 번째 영역은 수신 용량입니다. 수신 용량은 분당 할당의 파생물입니다.
 
 제한 관점에서 패킷 크기가 32 KB 인 수신 데이터 패킷은 32 이벤트로 처리 되며 각 크기는 1kb입니다. 허용 되는 최대 이벤트 크기는 32 KB입니다. 32 KB 보다 큰 데이터 패킷은 잘립니다.
-
-다음 표에는 각 Time Series Insights SKU에 대 한 단위당 수신 용량이 요약 되어 있습니다.
-
-|SKU  |월별 이벤트 수  |월 당 이벤트 크기  |분당 이벤트 수  |분당 이벤트 크기  |
-|---------|---------|---------|---------|---------|
-|S1     |   3천만     |  30GB     |  720    |  720KB   |
-|S2     |   3억    |   300GB   | 7,200   | 7,200KB  |
 
 하나의 환경에서 S1 또는 S2 SKU의 용량을 10개의 단위로 늘릴 수 있습니다. S1 환경에서 S2로 마이그레이션할 수 없습니다. S2 환경에서 S1로 마이그레이션할 수 없습니다.
 
@@ -95,7 +91,7 @@ Time Series Insights 환경을 계획할 때 초점을 맞출 수 있는 두 번
 
 예를 들어, 단일 S1 SKU가 있는 경우 분당 720 이벤트의 속도로 데이터를 수신 하 고, 1440 이벤트의 속도로 1 시간 이내에 데이터 속도 급증을 받은 경우, 사용자 환경에서 대기 시간이 크게 증가 하지 않습니다. 그러나 1 시간 넘게 분당 1440 이벤트를 초과 하는 경우에는 사용자 환경에서 시각화 되어 쿼리에 사용할 수 있는 데이터에서 대기 시간이 발생할 수 있습니다.
 
-푸시하는 데 필요한 데이터의 양을 미리 알 수 없습니다. 이 경우 Azure Portal 구독에서 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-metrics) 및 [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) 에 대 한 데이터 원격 분석을 찾을 수 있습니다. 원격 분석은 환경을 프로 비전 하는 방법을 결정 하는 데 도움이 될 수 있습니다. 해당 이벤트 원본에 대 한 Azure Portal의 **메트릭** 창을 사용 하 여 원격 분석을 볼 수 있습니다. 이벤트 소스 메트릭을 파악하면 Time Series Insights 환경을 더 효과적으로 계획하고 프로비전하는 데 도움이 됩니다.
+푸시하는 데 필요한 데이터의 양을 미리 알 수 없습니다. 이 경우 Azure Portal 구독에서 [Azure IoT Hub](../iot-hub/iot-hub-metrics.md) 및 [Azure Event Hubs](https://blogs.msdn.microsoft.com/cloud_solution_architect/2016/05/25/using-the-azure-rest-apis-to-retrieve-event-hub-metrics/) 에 대 한 데이터 원격 분석을 찾을 수 있습니다. 원격 분석은 환경을 프로 비전 하는 방법을 결정 하는 데 도움이 될 수 있습니다. 해당 이벤트 원본에 대 한 Azure Portal의 **메트릭** 창을 사용 하 여 원격 분석을 볼 수 있습니다. 이벤트 소스 메트릭을 파악하면 Time Series Insights 환경을 더 효과적으로 계획하고 프로비전하는 데 도움이 됩니다.
 
 ### <a name="calculate-ingress-requirements"></a>수집 요구 사항 계산하기
 
@@ -114,7 +110,7 @@ Time Series Insights 환경을 계획할 때 초점을 맞출 수 있는 두 번
 Time Series Insights에 이벤트를 전송 하는 방법이 프로 비전 하는 환경의 크기를 지원 하는지 확인 하는 것이 중요 합니다. 반대로, 환경의 크기를 Time Series Insights 읽은 이벤트 수와 각 이벤트의 크기에 매핑할 수 있습니다. 또한 데이터를 쿼리할 때를 사용 하 여 조각화 및 필터링 하는 데 사용할 수 있는 특성을 고려해 야 합니다.
 
 > [!TIP]
-> [이벤트 전송](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-send-events)에서 JSON 셰이핑 설명서를 검토 합니다.
+> [이벤트 전송](time-series-insights-send-events.md)에서 JSON 셰이핑 설명서를 검토 합니다.
 
 ## <a name="ensure-that-you-have-reference-data"></a>참조 데이터가 있는지 확인
 
@@ -123,7 +119,7 @@ Time Series Insights에 이벤트를 전송 하는 방법이 프로 비전 하�
 > [!NOTE]
 > 참조 데이터는 소급 조인 되지 않습니다. 현재 및 이후의 수신 데이터만 일치 하 고 구성 및 업로드 후에 참조 데이터 집합에 조인 됩니다. Time Series Insights에 많은 양의 기록 데이터를 보내고 먼저 Time Series Insights에 참조 데이터를 업로드 하거나 만들지 않으려는 경우 작업을 다시 실행 해야 할 수 있습니다 (힌트: 재미 있지 않음).  
 
-Time Series Insights에서 참조 데이터를 만들고, 업로드 하 고, 관리 하는 방법에 대 한 자세한 내용은 [참조 데이터 집합 설명서](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-add-reference-data-set)를 참조 하세요.
+Time Series Insights에서 참조 데이터를 만들고, 업로드 하 고, 관리 하는 방법에 대 한 자세한 내용은 [참조 데이터 집합 설명서](time-series-insights-add-reference-data-set.md)를 참조 하세요.
 
 [!INCLUDE [business-disaster-recover](../../includes/time-series-insights-business-recovery.md)]
 

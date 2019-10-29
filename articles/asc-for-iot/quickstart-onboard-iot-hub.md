@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 10/17/2019
 ms.author: mlottner
-ms.openlocfilehash: 3d9c5352a90d5bcacbaf27b7b62be61fc404e87a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 7cdf9f61c88d93f0cbf0b80576aa30dff5ce9cab
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299484"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72551602"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>빠른 시작: IoT Hub에서 IoT용 Azure Security Center 서비스 온보딩
 
@@ -28,7 +28,7 @@ ms.locfileid: "71299484"
 
 > [!NOTE]
 > IoT용 Azure Security Center는 현재 표준 계층 IoT Hub만 지원합니다.
-> IoT용 Azure Security Center는 단일 허브 솔루션입니다. 여러 허브가 필요한 경우 여러 개의 IoT용 Azure Security Center 솔루션이 필요합니다. 
+
 
 ## <a name="prerequisites-for-enabling-the-service"></a>서비스를 사용하도록 설정하기 위한 필수 구성 요소
 
@@ -53,6 +53,33 @@ IoT Hub에서 보안을 사용하도록 설정하려면 다음을 수행합니�
 1. **저장**을 클릭합니다. 
 
 축하합니다! IoT Hub에서 IoT용 Azure Security Center를 사용하도록 설정했습니다. 
+
+### <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
+
+IoT 솔루션의 보안을 유지하기 위해 IoT 디바이스, IoT Edge 및 IoT Hub와 주고 받는 수신 및 발신 연결의 IP 주소가 기본적으로 수집 및 저장됩니다. 이 정보는 의심스러운 IP 원본에서 시도하는 비정상적인 연결을 검색하는 데 필요합니다. 알려진 봇넷의 IP 원본 또는 지리적 위치 외부의 IP 원본에서 연결하려는 시도를 예로 들 수 있습니다. IoT용 Azure Security Center 서비스는 언제든지 IP 주소 데이터 수집을 설정 또는 해제할 수 있습니다. 
+
+IP 주소 데이터 수집을 설정 또는 해제하는 방법은 다음과 같습니다. 
+
+1. IoT Hub를 열고 **보안** 메뉴에서 **개요**를 선택합니다. 
+2. **설정** 화면을 선택하고, 지리적 위치 및/또는 IP 처리 설정을 원하는 대로 수정합니다.
+
+### <a name="log-analytics-creation"></a>Log Analytics 만들기
+
+IoT용 Azure Security Center가 켜져 있으면 IoT 디바이스, IoT Edge 및 IoT Hub에 대한 원시 보안 이벤트, 경고 및 권장 사항을 저장하기 위한 기본 Azure Log Analytics 작업 영역이 생성됩니다. 매월 Azure Log Analytics 서비스에 수집되는 처음 5GB 데이터는 무료입니다. Azure Log Analytics 작업 영역에 수집된 모든 데이터(GB)는 처음 31일간 무료로 보존됩니다. [Log Analytics](https://azure.microsoft.com/pricing/details/monitor/) 가격 책정에 대해 자세히 알아보세요.
+
+Log Analytics의 작업 영역 구성을 변경하는 방법은 다음과 같습니다.
+
+1. IoT Hub를 열고 **보안** 메뉴에서 **개요**를 선택합니다. 
+2. **설정** 화면을 선택하고, Log Analytics 설정의 작업 영역 구성을 원하는 대로 수정합니다.
+
+### <a name="customize-your-iot-security-solution"></a>IoT 보안 솔루션 사용자 지정
+기본적으로 IoT용 Azure Security Center 솔루션을 켜면 Azure 구독 내 모든 IoT Hub가 자동으로 보호됩니다. 
+
+특정 IoT Hub에서 IoT용 Azure Security Center 서비스를 켜거나 끄는 방법은 다음과 같습니다. 
+
+1. IoT Hub를 열고 **보안** 메뉴에서 **개요**를 선택합니다. 
+2. **설정** 화면을 선택하고, Azure 구독에서 IoT Hub의 보안 설정을 원하는 대로 수정합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

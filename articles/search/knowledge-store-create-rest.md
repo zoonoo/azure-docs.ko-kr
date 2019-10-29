@@ -1,22 +1,23 @@
 ---
-title: REST를 사용하여 지식 저장소 만들기 - Azure Search
-description: REST API 및 Postman을 사용하여 인지 검색 파이프라인에서 보강을 유지하기 위한 Azure Search 지식 저장소를 만듭니다.
+title: REST를 사용하여 지식 저장소 만들기
+titleSuffix: Azure Cognitive Search
+description: REST API 및 Postman을 사용하여 AI 보강 파이프라인의 보강을 유지하기 위한 Azure Cognitive Search 지식 저장소를 만듭니다.
 author: lobrien
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 10/01/2019
+manager: nitinme
 ms.author: laobri
-ms.openlocfilehash: b67f0cf60d279c7bc52b4114d29c37847f5c57f1
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 24b97374b032640afafde775e90f6db735d63c46
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244460"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790022"
 ---
-# <a name="create-an-azure-search-knowledge-store-by-using-rest"></a>REST를 사용하여 Azure Search 지식 저장소 만들기
+# <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>REST를 사용하여 Azure Cognitive Search 지식 저장소 만들기
 
-Azure Search의 지식 저장소 기능은 나중에 분석하거나 다른 다운스트림을 처리하기 위해 AI 보강 파이프라인의 출력을 유지합니다. AI 보강 파이프라인은 이미지 파일 또는 비정형 텍스트 파일을 받고, Azure Search를 사용하여 인덱싱하고, Azure Cognitive Services의 AI 보강(예: 이미지 분석 및 자연어 처리)을 적용한 다음, 결과를 Azure Storage의 지식 저장소에 저장합니다. Azure Portal에서 Power BI 또는 Storage Explorer와 같은 도구를 사용하여 지식 저장소를 검색할 수 있습니다.
+Azure Cognitive Search의 지식 저장소 기능은 나중에 분석하거나 다른 다운스트림을 처리할 수 있도록 AI 보강 파이프라인의 출력을 유지합니다. AI 보강 파이프라인은 이미지 파일 또는 비정형 텍스트 파일을 수락하고, Azure Cognitive Search를 사용하여 인덱싱하고, Azure Cognitive Services의 AI 보강(예: 이미지 분석 및 자연어 처리)을 적용한 다음, 결과를 Azure Storage의 지식 저장소에 저장합니다. Azure Portal에서 Power BI 또는 Storage Explorer와 같은 도구를 사용하여 지식 저장소를 검색할 수 있습니다.
 
 이 문서에서는 REST API 인터페이스를 사용하여 AI 보강을 호텔 리뷰 세트에 수집, 인덱싱 및 적용합니다. 호텔 리뷰는 Azure Blob 스토리지로 가져오고, 결과는 지식 저장소로 Azure Table 스토리지에 저장됩니다.
 
@@ -26,15 +27,15 @@ Azure Search의 지식 저장소 기능은 나중에 분석하거나 다른 다�
 
 다음 서비스를 만듭니다.
 
-- 현재 구독에서 [Azure Search 서비스](search-create-service-portal.md)를 만들거나 [기존 서비스](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)를 찾습니다. 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
+- [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
 
-- [Azure 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)을 만들어 샘플 데이터와 지식 저장소를 저장합니다. 스토리지 계정은 Azure Search 서비스에 대해 동일한 위치(예: 미국 서부)를 사용해야 합니다. **계정 종류**의 값은 **StorageV2(범용 V2)** (기본값) 또는 **Storage(범용 V1)** 여야 합니다.
+- [Azure 스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)을 만들어 샘플 데이터와 지식 저장소를 저장합니다. 스토리지 계정은 Azure Cognitive Search 서비스에 대해 동일한 위치(예: 미국 서부)를 사용해야 합니다. **계정 종류**의 값은 **StorageV2(범용 V2)** (기본값) 또는 **Storage(범용 V1)** 여야 합니다.
 
-- 권장: 요청을 Azure Search에 보내는 [Postman 데스크톱 앱](https://www.getpostman.com/)을 가져옵니다. HTTP 요청 및 응답을 사용할 수 있는 모든 도구에서 REST API를 사용할 수 있습니다. Postman은 REST API를 검색하는 데 적합합니다. 이 문서에서는 Postman을 사용합니다. 또한 이 문서의 [소스 코드](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json)에는 Postman 요청 컬렉션이 포함되어 있습니다. 
+- 권장: 요청을 Azure Cognitive Search에 보내는 [Postman 데스크톱 앱](https://www.getpostman.com/)을 가져옵니다. HTTP 요청 및 응답을 사용할 수 있는 모든 도구에서 REST API를 사용할 수 있습니다. Postman은 REST API를 검색하는 데 적합합니다. 이 문서에서는 Postman을 사용합니다. 또한 이 문서의 [소스 코드](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/knowledge-store)에는 Postman 요청 컬렉션이 포함되어 있습니다. 
 
 ## <a name="store-the-data"></a>데이터 저장
 
-Azure Search 인덱서에서 액세스하고 AI 보강 파이프라인을 통해 공급할 수 있도록 호텔 리뷰 CSV 파일을 Azure Blob 스토리지에 로드합니다.
+Azure Cognitive Search 인덱서에서 액세스하고 AI 보강 파이프라인을 통해 공급할 수 있도록 호텔 리뷰 CSV 파일을 Azure Blob 스토리지에 로드합니다.
 
 ### <a name="create-a-blob-container-by-using-the-data"></a>데이터를 사용하여 Blob 컨테이너 만들기
 
@@ -63,26 +64,26 @@ Postman을 설치하고 설정합니다.
 1. **컬렉션** 탭, **...** (줄임표) 단추를 차례로 선택합니다.
 1. **편집**을 선택합니다. 
    
-   ![탐색을 보여 주는 Postman 앱](media/knowledge-store-create-rest/postman-edit-menu.png "Postman의 편집 메뉴로 이동")
+   ![탐색 결과를 표시하는 Postman 앱](media/knowledge-store-create-rest/postman-edit-menu.png "Postman의 [편집] 메뉴로 이동")
 1. **편집** 대화 상자에서 **변수** 탭을 선택합니다. 
 
 **변수** 탭에서 이중 중괄호 안에 특정 변수가 있을 때마다 Postman에서 교환하는 값을 추가할 수 있습니다. 예를 들어 Postman에서 `{{admin-key}}` 기호를 `admin-key`에 설정한 현재 값으로 바꿉니다. Postman은 URL, 헤더, 요청 본문 등에서 이 대체를 수행합니다. 
 
-`admin-key`에 대한 값을 가져오려면 Azure Search 서비스로 이동하여 **키** 탭을 선택합니다. `search-service-name` 및 `storage-account-name`을 [서비스 만들기](#create-services)에서 선택한 값으로 변경합니다. 스토리지 계정의 **액세스 키** 탭에 있는 값을 사용하여 `storage-connection-string`을 설정합니다. 다른 값에는 기본값을 그대로 둘 수 있습니다.
+`admin-key`에 대한 값을 가져오려면 Azure Cognitive Search 서비스로 이동하여 **키** 탭을 선택합니다. `search-service-name` 및 `storage-account-name`을 [서비스 만들기](#create-services)에서 선택한 값으로 변경합니다. 스토리지 계정의 **액세스 키** 탭에 있는 값을 사용하여 `storage-connection-string`을 설정합니다. 다른 값에는 기본값을 그대로 둘 수 있습니다.
 
 ![Postman 앱 변수 탭](media/knowledge-store-create-rest/postman-variables-window.png "Postman의 변수 창")
 
 
 | 변수    | 가져올 수 있는 위치 |
 |-------------|-----------------|
-| `admin-key` | Azure Search 서비스의 **키** 탭  |
+| `admin-key` | Azure Cognitive Search 서비스의 **키** 페이지.  |
 | `api-version` | **2019-05-06-Preview**로 유지 |
 | `datasource-name` | **hotel-reviews-ds**로 유지 | 
 | `indexer-name` | **hotel-reviews-ixr**로 유지 | 
 | `index-name` | **hotel-reviews-ix**로 유지 | 
-| `search-service-name` | Azure Search 서비스의 기본 이름입니다. URL은 `https://{{search-service-name}}.search.windows.net`입니다. | 
+| `search-service-name` | Azure Cognitive Search 서비스의 이름. URL은 `https://{{search-service-name}}.search.windows.net`입니다. | 
 | `skillset-name` | **hotel-reviews-ss**로 유지 | 
-| `storage-account-name` | 스토리지 계정 기본 이름 | 
+| `storage-account-name` | 스토리지 계정 이름입니다. | 
 | `storage-connection-string` | 스토리지 계정의 **액세스 키** 탭에서 **key1** > **연결 문자열**을 차례로 선택합니다. | 
 | `storage-container-name` | **hotel-reviews**로 유지 | 
 
@@ -90,8 +91,8 @@ Postman을 설치하고 설정합니다.
 
 지식 저장소를 만드는 경우 다음 네 가지 HTTP 요청을 발급해야 합니다. 
 
-- **인덱스를 만들기 위한 PUT 요청**: 이 인덱스는 Azure Search에서 사용하고 반환하는 데이터를 포함합니다.
-- **데이터 원본을 만들기 위한 POST 요청**: 이 데이터 원본은 Azure Search 동작을 데이터 및 지식 저장소의 스토리지 계정에 연결합니다. 
+- **인덱스를 만들기 위한 PUT 요청**: 이 인덱스는 Azure Cognitive Search에서 사용하고 반환하는 데이터를 포함합니다.
+- **데이터 원본을 만들기 위한 POST 요청**: 이 데이터 원본은 Azure Cognitive Search 동작을 데이터 및 지식 저장소의 스토리지 계정에 연결합니다. 
 - **기술 세트를 만들기 위한 PUT 요청**: 이 기술 세트는 데이터 및 지식 저장소의 구조에 적용되는 보강을 지정합니다.
 - **인덱서를 만들기 위한 PUT 요청**: 인덱서를 실행하면 데이터를 읽고, 기술 세트를 적용하고, 결과를 저장합니다. 이 요청은 마지막으로 실행해야 합니다.
 
@@ -103,11 +104,11 @@ Postman을 설치하고 설정합니다.
 > `api-key` 및 `Content-type` 헤더는 모든 요청에서 설정해야 합니다. Postman에서 변수를 인식하면 이전 스크린샷의 `{{admin-key}}`와 같이 변수가 주황색 텍스트로 표시됩니다. 변수의 철자가 틀리면 빨간색 텍스트로 표시됩니다.
 >
 
-## <a name="create-an-azure-search-index"></a>Azure Search 인덱스 만들기
+## <a name="create-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스 만들기
 
-향상된 기능을 검색, 필터링 및 적용하는 데 관심이 있는 데이터를 나타내는 Azure Search 인덱스를 만듭니다. `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`에 대한 PUT 요청을 발급하여 인덱스를 만듭니다. Postman에서 이중 중괄호로 묶인 기호(예: `{{search-service-name}}`, `{{index-name}}` 및 `{{api-version}}`)를 [Postman 구성](#configure-postman)에서 설정한 값으로 바꿉니다. 다른 도구를 사용하여 REST 명령을 실행하는 경우 이러한 변수를 직접 바꿔야 합니다.
+향상된 기능을 검색, 필터링 및 적용하는 데 관심이 있는 데이터를 나타내는 Azure Cognitive Search 인덱스를 만듭니다. `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`에 대한 PUT 요청을 발급하여 인덱스를 만듭니다. Postman에서 이중 중괄호로 묶인 기호(예: `{{search-service-name}}`, `{{index-name}}` 및 `{{api-version}}`)를 [Postman 구성](#configure-postman)에서 설정한 값으로 바꿉니다. 다른 도구를 사용하여 REST 명령을 실행하는 경우 이러한 변수를 직접 바꿔야 합니다.
 
-Azure Search 인덱스의 구조를 요청 본문에 설정합니다. `api-key` 및 `Content-type` 헤더가 설정되면 Postman에서 요청의 **본문** 창으로 이동합니다. 다음 JSON이 표시됩니다. 그렇지 않으면 **원시** > **JSON(애플리케이션/json)** 을 차례로 선택하고, 다음 코드를 본문으로 붙여넣습니다.
+Azure Cognitive Search 인덱스의 구조를 요청 본문에 설정합니다. `api-key` 및 `Content-type` 헤더가 설정되면 Postman에서 요청의 **본문** 창으로 이동합니다. 다음 JSON이 표시됩니다. 그렇지 않으면 **원시** > **JSON(애플리케이션/json)** 을 차례로 선택하고, 다음 코드를 본문으로 붙여넣습니다.
 
 ```JSON
 {
@@ -148,7 +149,7 @@ Azure Search 인덱스의 구조를 요청 본문에 설정합니다. `api-key` 
 
 ## <a name="create-the-datasource"></a>데이터 원본 만들기
 
-다음으로, Azure Search를 [데이터 저장](#store-the-data)에서 저장한 호텔 데이터에 연결합니다. 데이터 원본을 만들려면 POST 요청을 `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`에 보냅니다. 앞에서 설명한 대로 `api-key` 및 `Content-Type` 헤더를 설정해야 합니다. 
+다음으로, Azure Cognitive Search를 [데이터 저장](#store-the-data)에서 저장한 호텔 데이터에 연결합니다. 데이터 원본을 만들려면 POST 요청을 `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`에 보냅니다. 앞에서 설명한 대로 `api-key` 및 `Content-Type` 헤더를 설정해야 합니다. 
 
 Postman에서 **데이터 원본 만들기** 요청, **본문** 창으로 차례로 이동합니다. 다음 코드가 표시됩니다.
 
@@ -306,7 +307,7 @@ Postman에서 **데이터 원본 만들기** 요청, **본문** 창으로 차례
 
 `parameters/configuration` 개체는 인덱서에서 데이터를 수집하는 방법을 제어합니다. 여기서 입력 데이터는 헤더 줄 및 쉼표로 구분된 값이 있는 단일 문서에 있습니다. 문서 키는 문서의 고유 식별자입니다. 인코딩하기 전에 문서 키는 원본 문서의 URL입니다. 마지막으로, 기술 세트 출력 값(예: 언어 코드, 감정 및 핵심 구)이 문서의 해당 위치에 매핑됩니다. `Language`에는 단일 값이 있지만, `Sentiment`는 `pages` 배열의 각 요소에 적용됩니다. `Keyphrases`는 `pages` 배열의 각 요소에도 적용되는 배열입니다.
 
-`api-key` 및 `Content-type` 헤더를 설정하고 요청의 본문이 다음 소스 코드와 비슷한지 확인한 후에 Postman에서 **보내기**를 선택합니다. Postman에서 PUT 요청을 `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`에 보냅니다. Azure Search에서 인덱서를 만들고 실행합니다. 
+`api-key` 및 `Content-type` 헤더를 설정하고 요청의 본문이 다음 소스 코드와 비슷한지 확인한 후에 Postman에서 **보내기**를 선택합니다. Postman에서 PUT 요청을 `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`에 보냅니다. Azure Cognitive Search에서 인덱서를 만들고 실행합니다. 
 
 ```json
 {
@@ -339,7 +340,7 @@ Postman에서 **데이터 원본 만들기** 요청, **본문** 창으로 차례
 
 ## <a name="run-the-indexer"></a>인덱서 실행 
 
-Azure Portal에서 Azure Search 서비스의 **개요** 페이지로 이동합니다. **인덱서** 탭을 선택한 다음, **hotels-reviews-ixr**을 선택합니다. 인덱서가 아직 실행되지 않은 경우 **실행**을 선택합니다. 인덱싱 작업에서 언어 인식과 관련된 몇 가지 경고가 발생할 수 있습니다. 데이터에는 인지 기술에서 아직 지원하지 않는 언어로 작성된 몇 가지 리뷰가 포함되어 있습니다. 
+Azure Portal에서 Azure Cognitive Search 서비스의 **개요** 페이지로 이동합니다. **인덱서** 탭을 선택한 다음, **hotels-reviews-ixr**을 선택합니다. 인덱서가 아직 실행되지 않은 경우 **실행**을 선택합니다. 인덱싱 작업에서 언어 인식과 관련된 몇 가지 경고가 발생할 수 있습니다. 데이터에는 인지 기술에서 아직 지원하지 않는 언어로 작성된 몇 가지 리뷰가 포함되어 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

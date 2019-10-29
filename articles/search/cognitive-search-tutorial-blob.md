@@ -1,23 +1,23 @@
 ---
-title: 'REST 자습서: 인지 검색을 사용하여 AI 보강 파이프라인 작성 - Azure Search'
-description: Postman 및 Azure Search REST API를 사용하여 JSON Blob의 콘텐츠에서 텍스트를 추출하고 자연어를 처리하는 예제를 단계별로 실행합니다.
+title: 'REST 자습서: AI 보강 파이프라인을 빌드하여 JSON Blob에서 텍스트 및 구조 추출'
+titleSuffix: Azure Cognitive Search
+description: Postman 및 Azure Cognitive Search REST API를 사용하여 JSON Blob의 콘텐츠에서 텍스트를 추출하고 자연어를 처리하는 예제를 단계별로 실행합니다.
 manager: nitinme
 author: luiscabrer
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 08/23/2019
 ms.author: luisca
-ms.openlocfilehash: 6f7c5e2955c57e0e1891593504e5eec1a06bbb04
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265361"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790186"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-cognitive-search"></a>자습서: 인지 검색을 사용하여 구조를 "비정형 콘텐츠"에 추가
+# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>자습서: AI 보강을 사용하여 "비정형 콘텐츠"에 구조 추가
 
-비정형 텍스트 또는 이미지 콘텐츠가 있는 경우 Azure Search의 [인지 검색](cognitive-search-concept-intro.md) 기능을 사용하면 정보를 추출하고 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 콘텐츠를 만들 수 있습니다. 인지 검색은 이미지 파일(JPG, PNG, TIFF)을 처리할 수 있지만, 이 자습서에서는 단어 기반 콘텐츠에 집중하고 언어 감지 및 텍스트 분석을 적용하여 쿼리, 패싯 및 필터에서 활용할 수 있는 새 필드와 정보를 만듭니다.
+비정형 텍스트 또는 이미지 콘텐츠가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)을 사용하면 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 콘텐츠를 만들 수 있습니다. 파이프라인은 이미지 파일(JPG, PNG, TIFF)을 처리할 수 있지만, 이 자습서에서는 단어 기반 콘텐츠에 집중하고 언어 감지 및 텍스트 분석을 적용하여 쿼리, 패싯 및 필터에서 활용할 수 있는 새 필드와 정보를 만듭니다.
 
 > [!div class="checklist"]
 > * Azure Blob 스토리지에서 PDF, MD, DOCX 및 PPTX와 같은 전체 문서(비정형 텍스트)로 시작합니다.
@@ -38,7 +38,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ## <a name="1---create-services"></a>1 - 서비스 만들기
 
-이 연습에서는 Azure Search(인덱싱 및 쿼리용), Cognitive Services(AI 보강용) 및 Azure Blob 스토리지를 사용하여 데이터를 제공합니다. 근접성과 관리 효율성을 위해 가능하면 세 가지 서비스를 모두 동일한 지역과 리소스 그룹에 만듭니다. 실제로 Azure Storage 계정은 모든 지역에 있을 수 있습니다.
+이 연습에서는 Azure Cognitive Search(인덱싱 및 쿼리용), Cognitive Services(AI 보강용) 및 Azure Blob 스토리지를 사용하여 데이터를 제공합니다. 근접성과 관리 효율성을 위해 가능하면 세 가지 서비스를 모두 동일한 지역과 리소스 그룹에 만듭니다. 실제로 Azure Storage 계정은 모든 지역에 있을 수 있습니다.
 
 ### <a name="start-with-azure-storage"></a>Azure Storage 시작
 
@@ -46,7 +46,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 1. *스토리지 계정*을 검색하고, Microsoft의 스토리지 계정 제품을 선택합니다.
 
-   ![스토리지 계정 만들기](media/cognitive-search-tutorial-blob/storage-account.png "스토리지 계정 만들기")
+   ![스토리지 계정 만들기](media/cognitive-search-tutorial-blob/storage-account.png "Storage 계정 만들기")
 
 1. [기본 사항] 탭의 필수 항목은 다음과 같습니다. 다른 모든 항목에는 기본값을 적용합니다.
 
@@ -54,7 +54,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
    + **스토리지 계정 이름**. 동일한 유형의 여러 리소스가 있을 수 있다고 생각되면 유형 및 지역별로 구분할 수 있는 이름(예: *blobstoragewestus*)을 사용합니다. 
 
-   + **위치** - 가능하면 Azure Search 및 Cognitive Services에 사용되는 것과 동일한 위치를 선택합니다. 단일 위치에는 대역폭 요금이 부과되지 않습니다.
+   + **위치** - 가능하면 Azure Cognitive Search 및 Cognitive Services에 사용되는 것과 동일한 위치를 선택합니다. 단일 위치에는 대역폭 요금이 부과되지 않습니다.
 
    + **계정 종류**. 기본값인 *StorageV2(범용 v2)* 를 선택합니다.
 
@@ -70,7 +70,7 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
    ![샘플 파일 업로드](media/cognitive-search-tutorial-blob/sample-files.png "샘플 파일 업로드")
 
-1. Azure Storage를 나가기 전에 Azure Search에서 연결을 만들 수 있도록 연결 문자열을 가져옵니다. 
+1. Azure Storage를 나가기 전에 Azure Cognitive Search에서 연결을 만들 수 있도록 연결 문자열을 가져옵니다. 
 
    1. 스토리지 계정의 [개요] 페이지로 돌아갑니다(*blobstragewestus*를 예로 사용했음). 
    
@@ -86,17 +86,17 @@ Azure 구독이 없는 경우 시작하기 전에 [체험 계정](https://azure.
 
 ### <a name="cognitive-services"></a>Cognitive Services
 
-인지 검색의 AI 보강은 자연어와 이미지 처리를 위한 Text Analytics 및 Computer Vision을 포함한 Cognitive Services를 통해 지원됩니다. 실제 프로토타입 또는 프로젝트를 완료하는 것이 목표라면 이 시점에서 Cognitive Services를 인덱싱 작업에 연결할 수 있도록 Azure Search와 동일한 지역에 프로비저닝합니다.
+AI 보강은 자연어와 이미지 처리를 위한 Text Analytics 및 Computer Vision을 포함한 Cognitive Services를 통해 지원됩니다. 실제 프로토타입 또는 프로젝트를 완료하는 것이 목표라면 이 시점에서 Cognitive Services를 인덱싱 작업에 연결할 수 있도록 Azure Cognitive Search와 동일한 지역에 프로비저닝합니다.
 
-그러나 Azure Search는 백그라운드에서 Cognitive Services에 연결하여 인덱서 실행당 20개의 체험 트랜잭션을 제공할 수 있으므로 이 연습에서는 리소스 프로비저닝을 건너뛸 수 있습니다. 이 자습서에서는 7개의 트랜잭션을 사용하므로 체험 할당이 충분합니다. 대규모 프로젝트의 경우 종량제 S0 계층에서 Cognitive Services를 프로비저닝할 계획입니다. 자세한 내용은 [Cognitive Services 연결](cognitive-search-attach-cognitive-services.md)을 참조하세요.
+그러나 Azure Cognitive Search는 백그라운드에서 Cognitive Services에 연결하여 인덱서 실행당 20개의 체험 트랜잭션을 제공할 수 있으므로 이 연습에서는 리소스 프로비저닝을 건너뛸 수 있습니다. 이 자습서에서는 7개의 트랜잭션을 사용하므로 체험 할당이 충분합니다. 대규모 프로젝트의 경우 종량제 S0 계층에서 Cognitive Services를 프로비저닝할 계획입니다. 자세한 내용은 [Cognitive Services 연결](cognitive-search-attach-cognitive-services.md)을 참조하세요.
 
-### <a name="azure-search"></a>Azure Search
+### <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
-세 번째 구성 요소는 [포털에서 만들](search-create-service-portal.md) 수 있는 Azure Search입니다. 이 연습은 체험 계층을 사용하여 완료할 수 있습니다. 
+세 번째 구성 요소는 [포털에서 만들](search-create-service-portal.md) 수 있는 Azure Cognitive Search입니다. 이 연습은 체험 계층을 사용하여 완료할 수 있습니다. 
 
 Azure Blob 스토리지와 마찬가지로 잠시 시간을 내어 액세스 키를 수집합니다. 또한 요청을 구조화하기 시작할 때 각 요청을 인증하는 데 사용되는 엔드포인트 및 관리 API 키를 제공해야 합니다.
 
-### <a name="get-an-admin-api-key-and-url-for-azure-search"></a>Azure Search용 관리 API 키와 URL을 가져옵니다.
+### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Azure Cognitive Search용 관리 API 키와 URL을 가져옵니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 검색 서비스의 이름을 확인합니다. 엔드포인트 URL을 검토하여 서비스 이름을 확인할 수 있습니다. 엔드포인트 URL이 `https://mydemo.search.windows.net`인 경우 서비스 이름은 `mydemo`입니다.
 
@@ -110,17 +110,17 @@ Azure Blob 스토리지와 마찬가지로 잠시 시간을 내어 액세스 키
 
 ## <a name="2---set-up-postman"></a>2 - Postman 설정
 
-Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Search REST API 살펴보기](search-get-started-postman.md)를 참조하세요.
+Postman을 시작하고 HTTP 요청을 설정합니다. 이 도구가 생소한 경우 [Postman을 사용하여 Azure Cognitive Search REST API 살펴보기](search-get-started-postman.md)를 참조하세요.
 
 이 자습서에 사용되는 요청 메서드는 **POST**, **PUT** 및 **GET**입니다. 이러한 메서드를 사용하여 검색 서비스에 대한 네 가지 API 호출(데이터 원본, 기술 세트, 인덱스 및 인덱서 만들기)을 수행합니다.
 
-[헤더]에서 "Content-type"을 `application/json`으로 설정하고, `api-key`를 Azure Search 서비스의 관리 API 키로 설정합니다. 헤더가 설정되면 이 연습의 모든 요청에 헤더를 사용할 수 있습니다.
+[헤더]에서 "Content-type"을 `application/json`으로 설정하고, `api-key`를 Azure Cognitive Search 서비스의 관리 API 키로 설정합니다. 헤더가 설정되면 이 연습의 모든 요청에 헤더를 사용할 수 있습니다.
 
   ![Postman 요청 URL 및 헤더](media/search-get-started-postman/postman-url.png "Postman 요청 URL 및 헤더")
 
 ## <a name="3---create-the-pipeline"></a>3 - 파이프라인 만들기
 
-Azure Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중에 발생합니다. 이 연습 부분에서는 데이터 원본, 인덱스 정의, 기술 세트, 인덱서의 네 가지 개체를 만듭니다. 
+Azure Cognitive Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중에 발생합니다. 이 연습 부분에서는 데이터 원본, 인덱스 정의, 기술 세트, 인덱서의 네 가지 개체를 만듭니다. 
 
 ### <a name="step-1-create-a-data-source"></a>1단계: 데이터 소스 만들기
 
@@ -171,7 +171,7 @@ Azure Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중에 발생
    | [텍스트 분할](cognitive-search-skill-textsplit.md)  | 핵심 구 추출 기술을 호출하기 전에 큰 콘텐츠를 더 작은 청크로 분할합니다. 핵심 구 추출은 50,000자 이하의 입력을 허용합니다. 일부 샘플 파일은 이 제한에 맞게 분할해야 합니다. |
    | [핵심 구 추출](cognitive-search-skill-keyphrases.md) | 상위 핵심 구를 가져옵니다. |
 
-   각 기술은 문서의 콘텐츠에서 실행됩니다. 처리하는 동안 Azure Search는 각 문서를 해독하여 다른 파일 형식의 콘텐츠를 읽습니다. 원본 파일에서 발생하는 텍스트는 각 문서에 대해 생성되는 ```content``` 필드에 배치됩니다. 따라서 입력은 ```"/document/content"```가 됩니다.
+   각 기술은 문서의 콘텐츠에서 실행됩니다. 처리하는 동안 Azure Cognitive Search는 각 문서를 해독하여 다른 파일 형식의 콘텐츠를 읽습니다. 원본 파일에서 발생하는 텍스트는 각 문서에 대해 생성되는 ```content``` 필드에 배치됩니다. 따라서 입력은 ```"/document/content"```가 됩니다.
 
    핵심 구 추출의 경우 텍스트 분할기 기술을 사용하여 더 큰 파일을 페이지로 분할하므로 핵심 구 추출 기술의 컨텍스트는 ```"/document/content"``` 대신 ```"document/pages/*"```(문서의 각 페이지에 대해)입니다.
 
@@ -230,7 +230,7 @@ Azure Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중에 발생
     ```
     기술 집합의 그래픽 표현은 아래와 같습니다. 
 
-    ![기술 집합의 이해](media/cognitive-search-tutorial-blob/skillset.png "기술 집합의 이해")
+    ![기술 세트 이해](media/cognitive-search-tutorial-blob/skillset.png "기술 세트 이해")
 
 1. 요청을 보냅니다. Postman에서 성공 여부를 확인하는 201 상태 코드를 반환합니다. 
 
@@ -239,7 +239,7 @@ Azure Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중에 발생
 
 ### <a name="step-3-create-an-index"></a>3단계: 인덱스 만들기
 
-[인덱스](https://docs.microsoft.com/rest/api/searchservice/create-index)는 Azure Search에서 콘텐츠의 반전된 인덱스 및 다른 구문의 물리적 식을 만드는 데 사용되는 스키마를 제공합니다. 인덱스의 가장 큰 구성 요소는 필드 컬렉션입니다. 여기서 데이터 형식과 특성은 Azure Search의 콘텐츠와 동작을 결정합니다.
+[인덱스](https://docs.microsoft.com/rest/api/searchservice/create-index)는 Azure Cognitive Search에서 콘텐츠의 반전된 인덱스 및 다른 구문의 물리적 식을 만드는 데 사용되는 스키마를 제공합니다. 인덱스의 가장 큰 구성 요소는 필드 컬렉션입니다. 여기서 데이터 형식과 특성은 Azure Cognitive Search의 콘텐츠와 동작을 결정합니다.
 
 1. 인덱스 이름을 지정하려면 **PUT** 및 다음 URL을 사용하여 YOUR-SERVICE-NAME을 서비스의 실제 이름으로 바꿉니다.
 
@@ -323,7 +323,7 @@ Azure Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중에 발생
 
 ### <a name="step-4-create-and-run-an-indexer"></a>4단계: 인덱서 만들기 및 실행
 
-[인덱서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)는 파이프라인을 구동합니다. 지금까지 만든 세 가지 구성 요소(데이터 원본, 기술 세트, 인덱스)는 인덱서에 대한 입력입니다. Azure Search에서 인덱서를 만드는 것은 전체 파이프라인을 이동시키는 이벤트입니다. 
+[인덱서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)는 파이프라인을 구동합니다. 지금까지 만든 세 가지 구성 요소(데이터 원본, 기술 세트, 인덱스)는 인덱서에 대한 입력입니다. Azure Cognitive Search에서 인덱서를 만드는 것은 전체 파이프라인을 이동시키는 이벤트입니다. 
 
 1. 인덱서 이름을 지정하려면 **PUT** 및 다음 URL을 사용하여 YOUR-SERVICE-NAME을 서비스의 실제 이름으로 바꿉니다.
 
@@ -481,7 +481,7 @@ Azure Search에서 AI 처리는 인덱싱(또는 데이터 수집) 중에 발생
 
 ## <a name="reset-and-rerun"></a>다시 설정하고 다시 실행
 
-파이프라인 개발의 초기 실험 단계에서 디자인 반복에 대한 가장 실용적인 방법은 Azure Search에서 개체를 삭제하고 코드에서 개체를 다시 빌드하게 하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
+파이프라인 개발의 초기 실험 단계에서 디자인 반복에 대한 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제하고 코드에서 개체를 다시 빌드하게 하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
 
 새 정의를 사용하여 문서를 다시 인덱싱하려면:
 
@@ -503,17 +503,17 @@ DELETE https://[YOUR-SERVICE-NAME]].search.windows.net/indexers/cog-search-demo-
 
 이 자습서에서는 데이터 원본, 기술 집합, 인덱스 및 인덱서라고 하는 구성 요소를 만들어서 보강된 인덱싱 파이프라인을 빌드하는 기본 단계를 살펴보았습니다.
 
-기술 집합 정의 및 입/출력을 통해 기술을 서로 연결하는 메커니즘과 함께 [미리 정의된 기술](cognitive-search-predefined-skills.md)을 소개했습니다. 인덱서 정의의 `outputFieldMappings`는 보강된 값을 Azure Search 서비스의 파이프라인에서 검색 가능한 인덱스로 라우팅하는 데 필요하다는 것도 배웠습니다.
+기술 세트 정의 및 입/출력을 통해 기술을 서로 연결하는 메커니즘과 함께 [미리 빌드된 기술](cognitive-search-predefined-skills.md)을 소개했습니다. 인덱서 정의의 `outputFieldMappings`는 보강된 값을 Azure Cognitive Search 서비스의 파이프라인에서 검색 가능한 인덱스로 라우팅하는 데 필요하다는 것도 배웠습니다.
 
 마지막으로, 결과를 테스트하고 추가 반복을 위해 시스템을 다시 설정하는 방법을 배웠습니다. 인덱스에 대한 쿼리를 실행하면 보강된 인덱싱 파이프라인에서 만든 출력이 반환된다는 것을 배웠습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Search 서비스 및 Azure Blob service를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 두 서비스를 동일한 그룹에 배치한 경우 리소스 그룹을 삭제하면 서비스와 이 자습서에서 만들고 저장한 콘텐츠를 포함하여 리소스 그룹에 들어 있는 모든 것이 영구적으로 삭제됩니다. 포털에서 리소스 그룹 이름은 각 서비스의 개요 페이지에 있습니다.
+이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Cognitive Search 서비스 및 Azure Blob Service를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 두 서비스를 동일한 그룹에 배치한 경우 리소스 그룹을 삭제하면 서비스와 이 자습서에서 만들고 저장한 콘텐츠를 포함하여 리소스 그룹에 들어 있는 모든 것이 영구적으로 삭제됩니다. 포털에서 리소스 그룹 이름은 각 서비스의 개요 페이지에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 사용자 지정 기술을 사용하여 파이프라인을 사용자 지정 또는 확장합니다. 사용자 지정 기술을 만들어서 기술 집합에 추가하면 사용자가 직접 작성한 텍스트 또는 이미지 분석을 온보딩할 수 있습니다. 
 
 > [!div class="nextstepaction"]
-> [예제: 인지 검색에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
+> [예제: AI 보강에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)

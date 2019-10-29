@@ -1,30 +1,29 @@
 ---
-title: '빠른 시작: 포털에서 Azure Search 서비스 만들기 - Azure Search'
-description: Azure Portal에서 Azure Search 리소스를 프로비전합니다. 리소스 그룹, 지역 및 SKU 또는 가격 책정 계층을 선택합니다.
+title: '빠른 시작: 포털에서 Azure Cognitive Search서비스 만들기'
+titleSuffix: Azure Cognitive Search
+description: Azure Portal에서 Azure Cognitive Search 리소스를 프로비저닝합니다. 리소스 그룹, 지역 및 SKU 또는 가격 책정 계층을 선택합니다.
 manager: nitinme
 author: HeidiSteen
-services: search
-ms.service: search
-ms.topic: quickstart
-ms.date: 09/10/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 483810f89ea4bbb3a68e616929bd7d752c4d509f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.service: cognitive-search
+ms.topic: quickstart
+ms.date: 11/04/2019
+ms.openlocfilehash: 21f55805e0486d987922a1aa160f2938f3a50155
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883857"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792429"
 ---
-# <a name="quickstart-create-an-azure-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Search서비스 만들기
+# <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Cognitive Search서비스 만들기
 
-Azure Search는 사용자 지정 앱에 검색 환경을 추가하는 데 사용되는 독립 실행형 리소스입니다. Azure Search는 다른 여러 Azure 서비스와 쉽게 통합되지만, 단독 실행형 구성 요소로 사용하거나 네트워크 서버의 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어와 통합할 수 있습니다.
+Azure Cognitive Search는 사용자 지정 앱에 검색 환경을 추가하는 데 사용되는 독립 실행형 리소스입니다. Azure Cognitive Search는 다른 여러 Azure 서비스와 쉽게 통합되지만, 단독 실행형 구성 요소로 사용하거나 네트워크 서버의 앱 또는 다른 클라우드 플랫폼에서 실행되는 소프트웨어와 통합할 수 있습니다.
 
-이 문서에서는 [Azure Portal](https://portal.azure.com/)에서 Azure Search 리소스를 만드는 방법을 알아봅니다.
+이 문서에서는 [Azure Portal](https://portal.azure.com/)에서 Azure Cognitive Search 리소스를 만드는 방법을 알아봅니다.
 
 [![애니메이션 GIF](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
-PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용합니다. 시작하기 도움말은 [PowerShell로 Azure Search 관리](search-manage-powershell.md)를 참조하세요.
+PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](https://azure.microsoft.com/resources/templates/101-azure-search-create/)을 사용합니다. 시작하기 도움말은 [PowerShell로 Azure Cognitive Search 관리](search-manage-powershell.md)를 참조하세요.
 
 ## <a name="subscribe-free-or-paid"></a>구독(무료 또는 유료)
 
@@ -32,27 +31,27 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 아니면 [MSDN 구독자 혜택을 활성화합니다](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다. 
 
-## <a name="find-azure-search"></a>Azure Search 찾기
+## <a name="find-azure-cognitive-search"></a>Azure Cognitive Search 찾기
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 위 모퉁이에서 더하기 기호("+ 리소스 만들기")를 클릭합니다.
-3. 검색 창을 사용하여 "Azure Search"를 찾거나 **웹** > **Azure Search**를 통해 리소스로 이동합니다.
+3. 검색 창을 사용하여 "Azure Cognitive Search"를 찾거나 **웹** > **Azure Cognitive Search**를 통해 리소스로 이동합니다.
 
-![Azure Search 리소스로 이동](./media/search-create-service-portal/find-search3.png "Azure Search에 대한 탐색 경로")
+![Azure Cognitive Search 리소스 탐색](./media/search-create-service-portal/find-search3.png "Azure Cognitive Search 탐색 경로")
 
 ## <a name="select-a-subscription"></a>구독 선택
 
-둘 이상의 구독이 있는 경우 데이터 또는 파일 스토리지 서비스도 있는 구독을 선택합니다. Azure Search는 [*인덱서*](search-indexer-overview.md)를 통해 인덱싱하기 위해 Azure Table 및 Blob 스토리지, SQL Database 및 Azure Cosmos DB를 자동으로 검색할 수 있지만 동일한 구독의 서비스에 대해서만 가능합니다.
+둘 이상의 구독이 있는 경우 데이터 또는 파일 스토리지 서비스도 있는 구독을 선택합니다. Azure Cognitive Search는 [*인덱서*](search-indexer-overview.md)를 통해 인덱싱하기 위해 Azure Table 및 Blob 스토리지, SQL Database 및 Azure Cosmos DB를 자동으로 검색할 수 있지만, 동일한 구독의 서비스에 대해서만 가능합니다.
 
 ## <a name="set-a-resource-group"></a>리소스 그룹 설정
 
-리소스 그룹이 필요하며, 비용 관리를 포함하여 리소스를 모두 관리하는 데 유용합니다. 리소스 그룹은 하나의 서비스 또는 함께 사용되는 여러 서비스로 구성될 수 있습니다. 예를 들어 Azure Search를 사용하여 Azure Cosmos DB 데이터베이스를 인덱싱하는 경우 관리를 위해 두 서비스를 동일한 리소스 그룹의 일부로 만들 수 있습니다. 
+리소스 그룹이 필요하며, 비용 관리를 포함하여 리소스를 모두 관리하는 데 유용합니다. 리소스 그룹은 하나의 서비스 또는 함께 사용되는 여러 서비스로 구성될 수 있습니다. 예를 들어 Azure Cognitive Search를 사용하여 Azure Cosmos DB 데이터베이스를 인덱싱하는 경우 관리를 위해 두 서비스를 동일한 리소스 그룹의 일부로 만들 수 있습니다. 
 
-단일 그룹에 리소스를 결합하지 않거나 기존 리소스 그룹을 관련이 없는 솔루션에서 사용되는 리소스로 채우는 경우 Azure Search 리소스에 대해서만 새 리소스 그룹을 만듭니다. 
+단일 그룹에 리소스를 결합하지 않거나 기존 리소스 그룹을 관련이 없는 솔루션에서 사용되는 리소스로 채우는 경우 Azure Cognitive Search 리소스에 대해서만 새 리소스 그룹을 만듭니다. 
 
 서비스를 사용하면서 스크린샷과 같이 현재 및 예상 비용을 모두 추적하거나, 아래로 스크롤하여 개별 리소스에 대한 요금을 확인할 수 있습니다.
 
-![리소스 그룹 수준의 비용 관리](./media/search-create-service-portal/resource-group-cost-management.png "리소스 그룹 수준의 비용 관리")
+![리소스 그룹 수준에서 비용 관리](./media/search-create-service-portal/resource-group-cost-management.png "리소스 그룹 수준에서 비용 관리")
 
 > [!TIP]
 > 리소스 그룹을 삭제하면 그 안의 서비스도 삭제됩니다. 여러 서비스를 이용하는 프로토타입 프로젝트의 경우, 이들을 모두 동일한 리소스 그룹에 배치하면 프로젝트가 종료된 후 쉽게 정리할 수 있습니다.
@@ -70,22 +69,22 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 * 어디서든 연속 대시("--")를 사용할 수 없음
 
 > [!TIP]
-> 여러 서비스를 사용하려는 경우 지역(또는 위치)을 명명 규칙으로 서비스 이름에 포함하는 것이 좋습니다. 동일한 지역 내의 서비스는 체험 서비스로 데이터를 교환할 수 있으므로, Azure Search가 미국 서부에 있고 다른 서비스도 미국 서부에 있는 경우 `mysearchservice-westus`와 같은 이름은 리소스를 결합하거나 연결하는 방법을 결정할 때 속성 페이지로 이동하는 횟수를 줄일 수 있습니다.
+> 여러 서비스를 사용하려는 경우 지역(또는 위치)을 명명 규칙으로 서비스 이름에 포함하는 것이 좋습니다. 동일한 지역 내의 서비스는 체험 서비스로 데이터를 교환할 수 있으므로, Azure Cognitive Search가 미국 서부에 있고 다른 서비스도 미국 서부에 있는 경우 `mysearchservice-westus`와 같은 이름은 리소스를 결합하거나 연결하는 방법을 결정할 때 속성 페이지로 이동하는 횟수를 줄일 수 있습니다.
 
 ## <a name="choose-a-location"></a>위치 선택
 
-Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅될 수 있습니다. 지원되는 지역 목록은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 참조하세요. 
+Azure 서비스인 Azure Cognitive Search는 전 세계 데이터 센터에 호스팅될 수 있습니다. 지원되는 지역 목록은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)를 참조하세요. 
 
-여러 서비스에 대해 동일한 위치를 선택하여 대역폭 요금을 최소화하거나 방지할 수 있습니다. 예를 들어 다른 Azure 서비스(Azure 스토리지, Azure Cosmos DB, Azure SQL Database)에서 제공한 데이터를 인덱싱하는 경우 Azure Search 서비스를 동일한 지역에 만들면 대역폭 요금이 발생하지 않습니다(서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금이 발생하지 않음).
+여러 서비스에 대해 동일한 위치를 선택하여 대역폭 요금을 최소화하거나 방지할 수 있습니다. 예를 들어 다른 Azure 서비스(Azure 스토리지, Azure Cosmos DB, Azure SQL Database)에서 제공한 데이터를 인덱싱하는 경우 Azure Cognitive Search 서비스를 동일한 지역에 만들면 대역폭 요금이 발생하지 않습니다(서비스가 동일한 지역에 있는 경우 아웃바운드 데이터에 대한 요금이 발생하지 않음).
 
-또한 인지 검색 AI 보강을 사용하는 경우 서비스를 Cognitive Services 리소스와 동일한 지역에 만듭니다. *동일한 지역에 있는 Azure Search와 Cognitive Services의 공동 위치는 AI 보강의 요건입니다*.
+또한 인지 검색 AI 보강을 사용하는 경우 서비스를 Cognitive Services 리소스와 동일한 지역에 만듭니다. *동일한 지역에 있는 Azure Cognitive Search와 Cognitive Services의 공동 위치는 AI 보강의 요건입니다*.
 
 > [!Note]
 > 인도 중부에서는 현재 새로운 서비스를 사용할 수 없습니다. 인도 중부에 이미 있는 서비스의 경우 제한 없이 확장이 가능하며 해당 지역에서 서비스가 완전히 지원됩니다. 이 지역에 대한 제한은 일시적이며 새로운 서비스로만 제한됩니다. 이 내용은 제한이 더 이상 적용되지 않을 때 삭제됩니다.
 
 ## <a name="choose-a-pricing-tier-sku"></a>가격 책정 계층(SKU) 선택
 
-[Azure Search는 현재 여러 가지 가격 책정 계층에서 제공되며](https://azure.microsoft.com/pricing/details/search/) 무료, 기본 또는 표준 등이 있습니다. 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 지침은 [가격 책정 계층 또는 SKU 선택](search-sku-tier.md) 을 참조하세요.
+[Azure Cognitive Search는 현재 여러 가지 가격 책정 계층에서 제공되며](https://azure.microsoft.com/pricing/details/search/) 무료, 기본 또는 표준 등이 있습니다. 각 계층에는 자체 [용량 및 제한](search-limits-quotas-capacity.md)이 있습니다. 지침은 [가격 책정 계층 또는 SKU 선택](search-sku-tier.md) 을 참조하세요.
 
 기본 및 표준 계층은 프로덕션 워크로드에서 일반적으로 선택되지만, 대부분의 고객은 체험 서비스로 시작합니다. 계층 간의 주요 차이점은 파티션 크기와 속도 및 만들 수 있는 개체 수에 대한 제한에 있습니다.
 
@@ -109,13 +108,13 @@ Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅�
 
 2. 왼쪽 탐색 창에서 **키**를 선택한 다음, 관리 키 중 하나(둘 다 동일)를 복사합니다. 관리 api-key는 서비스에서 개체를 생성, 업데이트 및 삭제하는 데 필요합니다.
 
-   ![URL 엔드포인트가 있는 서비스 개요 페이지](./media/search-create-service-portal/get-url-key.png "URL 엔드포인트 및 기타 서비스 정보")
+   ![URL 엔드포인트를 사용하는 서비스 개요 페이지](./media/search-create-service-portal/get-url-key.png "URL 엔드포인트 및 기타 서비스 세부 정보")
 
-엔드포인트 및 키는 포털 기반 작업에 필요하지 않습니다. 포털은 관리자 권한으로 Azure Search 리소스에 이미 연결되어 있습니다. 포털 연습의 경우 [빠른 시작: 포털에서 Azure Search 인덱스 만들기](search-get-started-portal.md)로 시작하세요.
+엔드포인트 및 키는 포털 기반 작업에 필요하지 않습니다. 포털은 관리자 권한으로 Azure Cognitive Search 리소스에 이미 연결되어 있습니다. 포털 연습의 경우 [빠른 시작: 포털에서 Azure Cognitive Search 인덱스 만들기](search-get-started-portal.md)
 
 ## <a name="scale-your-service"></a>서비스 확장
 
-서비스가 프로비전되면 사용자의 요구에 맞게 확장할 수 있습니다. Azure Search 서비스에 대한 표준 계층을 선택한 경우 복제본과 파티션이라는 두 개의 차원에서 서비스를 확장할 수 있습니다. 기본 계층을 선택한 경우 복제본만 추가할 수 있습니다. 무료 서비스를 프로비전한 경우 확장이 불가능합니다.
+서비스가 프로비전되면 사용자의 요구에 맞게 확장할 수 있습니다. Azure Cognitive Search 서비스에 대한 표준 계층을 선택한 경우 복제본과 파티션이라는 두 개의 차원에서 서비스를 확장할 수 있습니다. 기본 계층을 선택한 경우 복제본만 추가할 수 있습니다. 무료 서비스를 프로비전한 경우 확장이 불가능합니다.
 
 ***파티션***을 사용하면 서비스를 저장하고 더 많은 문서를 통해 검색할 수 있습니다.
 
@@ -137,22 +136,22 @@ Azure 서비스인 Azure Search는 전 세계 데이터 센터에서 호스팅�
 
 ## <a name="when-to-add-a-second-service"></a>두 번째 서비스를 추가하는 경우
 
-대부분의 고객은 [적절히 균형 잡힌 리소스](search-sku-tier.md)를 제공하는 계층에 프로비전되는 하나의 서비스만 사용합니다. 하나의 서비스는 [선택한 계층의 최대 제한](search-capacity-planning.md)에 따라 서로 분리된 여러 인덱스를 호스트할 수 있습니다. Azure Search에서 요청은 하나의 인덱스로만 리디렉션될 수 있으므로 같은 서비스의 다른 인덱스에서 실수로 또는 의도적으로 데이터가 검색될 가능성이 최소화됩니다.
+대부분의 고객은 [적절히 균형 잡힌 리소스](search-sku-tier.md)를 제공하는 계층에 프로비전되는 하나의 서비스만 사용합니다. 하나의 서비스는 [선택한 계층의 최대 제한](search-capacity-planning.md)에 따라 서로 분리된 여러 인덱스를 호스트할 수 있습니다. Azure Cognitive Search에서 요청은 하나의 인덱스로만 리디렉션될 수 있으므로 같은 서비스의 다른 인덱스에서 실수로 또는 의도적으로 데이터가 검색될 가능성이 최소화됩니다.
 
 대부분의 고객이 하나의 서비스만 사용하지만 운영과 관련해서 다음과 같은 사항이 요구될 경우 서비스 중복성이 필요할 수 있습니다.
 
-* 재해 복구(데이터 센터 작동 중단). Azure Search는 가동 중단 시 즉각적인 장애 조치(failover)를 제공하지 않습니다. 권장 사항 및 지침에 대해서는 [서비스 관리](search-manage.md)를 참조하세요.
+* 재해 복구(데이터 센터 작동 중단). Azure Cognitive Search는 가동 중단 시 즉각적인 장애 조치(failover)를 제공하지 않습니다. 권장 사항 및 지침에 대해서는 [서비스 관리](search-manage.md)를 참조하세요.
 * 다중 테넌트 모델링을 조사한 결과, 추가 서비스가 최적의 디자인이라는 사실이 확인되었습니다. 자세한 내용은 [다중 테넌트 디자인](search-modeling-multitenant-saas-applications.md)을 참조하세요.
-* 전역으로 배포된 애플리케이션의 경우 애플리케이션 해외 트래픽 대기 시간을 최소화하기 위해 여러 하위 지역에 Azure Search 인스턴스가 필요할 수 있습니다.
+* 전역적으로 배포된 애플리케이션의 경우 애플리케이션 해외 트래픽 대기 시간을 최소화하기 위해 여러 하위 지역에 Azure Cognitive Search 인스턴스가 필요할 수 있습니다.
 
 > [!NOTE]
-> Azure Search에서는 인덱싱 및 쿼리 작업을 분리할 수 없습니다. 따라서 분리된 워크로드에 대해 여러 서비스를 만들지 않습니다. 인덱스는 항상 만들어진 서비스에서 쿼리됩니다(한 서비스에서 인덱스를 만든 후 다른 서비스로 복사할 수 없음).
+> Azure Cognitive Search에서는 인덱싱 및 쿼리 작업을 분리할 수 없습니다. 따라서 분리된 워크로드에 대해 여러 서비스를 만들지 않습니다. 인덱스는 항상 만들어진 서비스에서 쿼리됩니다(한 서비스에서 인덱스를 만든 후 다른 서비스로 복사할 수 없음).
 
 고가용성을 위해 두 번째 서비스가 필요하지 않습니다. 동일한 서비스에 두 개 이상의 복제본을 사용하는 경우 쿼리에 대한 가용성을 높일 수 있습니다. 복제본 업데이트는 순차적입니다. 즉, 서비스 업데이트가 롤아웃될 때도 적어도 하나의 서비스는 작동됩니다. 가동 시간에 대한 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/search/v1_0/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Search 서비스를 프로비전하면 포털에서 첫 번째 인덱스를 계속 만들 수 있습니다.
+Azure Cognitive Search 서비스를 프로비저닝하면 포털에서 첫 번째 인덱스를 계속 만들 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [빠른 시작: 포털에서 Azure Search 인덱스 만들기](search-get-started-portal.md)
+> [빠른 시작: 포털에서 Azure Cognitive Search 인덱스 만들기](search-get-started-portal.md)

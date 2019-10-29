@@ -1,27 +1,27 @@
 ---
-title: 'C# 자습서: 여러 데이터 원본 인덱싱 - Azure Search'
-description: 데이터를 여러 데이터 원본에서 단일 Azure Search 인덱스로 가져오는 방법을 알아봅니다.
-author: RobDixon22
+title: 'C# 자습서: 여러 데이터 원본 인덱싱'
+titleSuffix: Azure Cognitive Search
+description: 여러 데이터 원본의 데이터를 단일 Azure Search 인덱스로 가져오는 방법을 알아봅니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 06/21/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: d55a586d3dfb22b5dad377ff656b8d6a6c940bdb
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
-ms.translationtype: HT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 3b94e3e352f4d6b5cd7da41feb9660be2ffed2bd
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241846"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786478"
 ---
-# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-search-index"></a>C# 자습서: 여러 데이터 원본의 데이터를 하나의 Azure Search 인덱스에 결합
+# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>C# 자습서: 여러 데이터 원본의 데이터를 한 Azure Cognitive Search 인덱스에 결합
 
-Azure Search는 데이터를 여러 데이터 원본에서 단일 결합형 검색 인덱스로 가져오고, 분석하고, 인덱싱할 수 있습니다. 이렇게 하면 정형 데이터가 텍스트, HTML 또는 JSON 문서와 같은 다른 원본의 비정형 데이터, 심지어 일반 텍스트 데이터를 사용하여 집계되는 상황을 지원합니다.
+Azure Cognitive Search는 데이터를 여러 데이터 원본에서 단일 결합형 검색 인덱스로 가져오고, 분석하고, 인덱싱할 수 있습니다. 이렇게 하면 정형 데이터가 텍스트, HTML 또는 JSON 문서와 같은 다른 원본의 비정형 데이터, 심지어 일반 텍스트 데이터를 사용하여 집계되는 상황을 지원합니다.
 
 이 자습서에서는 Azure Cosmos DB 데이터 원본의 호텔 데이터를 인덱싱하고, 이를 Azure Blob Storage 문서에서 가져온 호텔 객실 세부 정보와 병합하는 방법에 대해 설명합니다. 결과는 복잡한 데이터 형식이 포함된 결합형 호텔 검색 인덱스가 됩니다.
 
-이 자습서에서는 C#, Azure Search용 .NET SDK 및 Azure Portal을 사용하여 다음 작업을 수행합니다.
+이 자습서에서는 C#, Azure Cognitive Search용 .NET SDK 및 Azure Portal을 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * 샘플 데이터 업로드 및 데이터 원본 만들기
@@ -34,7 +34,7 @@ Azure Search는 데이터를 여러 데이터 원본에서 단일 결합형 검�
 
 이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다. 
 
-- [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
+- [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
 
 - 샘플 호텔 데이터를 저장하기 위한 [Azure Cosmos DB 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
@@ -46,7 +46,7 @@ Azure Search는 데이터를 여러 데이터 원본에서 단일 결합형 검�
 
 1. GitHub에서 [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) 샘플 리포지토리를 찾습니다.
 1. **복제 또는 다운로드**를 선택하고, 리포지토리의 프라이빗 로컬 복사본을 만듭니다.
-1. Visual Studio를 열고, 아직 설치되지 않은 경우 Microsoft Azure Search NuGet 패키지를 설치합니다. **도구** 메뉴에서 **NuGet 패키지 관리자**, **솔루션용 NuGet 패키지 관리...** 를 차례로 선택합니다. **찾아보기** 탭을 선택한 다음, 검색 상자에서 "Azure Search"를 입력합니다. 목록에 **Microsoft.Azure.Search**(버전 9.0.1 이상)가 나타나면 설치합니다. 설치를 완료하려면 추가 대화 상자를 클릭해야 합니다.
+1. Visual Studio를 열고, Microsoft Azure Cognitive Search NuGet 패키지가 아직 설치되지 않은 경우 지금 설치합니다. **도구** 메뉴에서 **NuGet 패키지 관리자**, **솔루션용 NuGet 패키지 관리...** 를 차례로 선택합니다. **찾아보기** 탭에서 **Microsoft.Azure.Search**(버전 9.0.1 이상)를 찾아서 설치합니다. 설치를 완료하려면 추가 대화 상자를 클릭해야 합니다.
 
     ![NuGet을 사용하여 Azure 라이브러리 추가](./media/tutorial-csharp-create-first-app/azure-search-nuget-azure.png)
 
@@ -54,7 +54,7 @@ Azure Search는 데이터를 여러 데이터 원본에서 단일 결합형 검�
 
 ## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
-Azure Search 서비스와 상호 작용하려면 서비스 URL과 액세스 키가 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
+Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액세스 키가 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Cognitive Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 가져옵니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
@@ -121,17 +121,17 @@ Azure Search 서비스와 상호 작용하려면 서비스 URL과 액세스 키�
 }
 ```
 
-처음 두 항목은 Azure Search 서비스에 대한 URL 및 관리자 키를 사용합니다. 예를 들어 엔드포인트가 `https://mydemo.search.windows.net`으로 지정되면 제공할 서비스 이름은 `mydemo`입니다.
+처음 두 항목은 Azure Cognitive Search 서비스에 대한 URL 및 관리자 키를 사용합니다. 예를 들어 엔드포인트가 `https://mydemo.search.windows.net`으로 지정되면 제공할 서비스 이름은 `mydemo`입니다.
 
 다음 항목에서는 Azure Blob Storage 및 Azure Cosmos DB 데이터 원본에 대한 계정 이름과 연결 문자열 정보를 지정합니다.
 
 ### <a name="identify-the-document-key"></a>문서 키 식별
 
-Azure Search에서 키 필드는 인덱스의 각 문서를 고유하게 식별합니다. 모든 검색 인덱스는 `Edm.String`형식의 키 필드를 정확히 하나만 포함해야 합니다. 이 키 필드는 인덱스에 추가되는 데이터 원본의 각 문서에 대해 있어야 합니다. (실제로 유일한 필수 필드임)
+Azure Cognitive Search에서 키 필드는 인덱스의 각 문서를 고유하게 식별합니다. 모든 검색 인덱스는 `Edm.String`형식의 키 필드를 정확히 하나만 포함해야 합니다. 이 키 필드는 인덱스에 추가되는 데이터 원본의 각 문서에 대해 있어야 합니다. (실제로 유일한 필수 필드임)
 
 여러 데이터 원본에서 데이터를 인덱싱할 때 각 데이터 원본 키 값은 결합된 인덱스의 동일한 키 필드에 매핑되어야 합니다. 인덱스에 의미 있는 문서 키를 식별하고 모든 데이터 원본에 있는지 확인하는 몇 가지 사전 계획이 필요합니다.
 
-Azure Search 인덱서는 인덱싱 프로세스 중에 필드 매핑을 사용하여 데이터 필드의 이름을 변경하고 심지어 형식도 다시 지정할 수 있으므로 원본 데이터를 올바른 인덱스 필드로 보낼 수 있습니다.
+Azure Cognitive Search 인덱서는 인덱싱 프로세스 중에 필드 매핑을 사용하여 데이터 필드의 이름을 변경하고 심지어 형식도 다시 지정할 수 있으므로 원본 데이터를 올바른 인덱스 필드로 보낼 수 있습니다.
 
 예를 들어 샘플 Azure Cosmos DB 데이터에서 호텔 식별자는 **HotelId**라고 합니다. 그러나 호텔 객실에 대한 JSON Blob 파일에서 호텔 식별자의 이름은 **Id**입니다. 프로그램에서 이 문제는 Blob의 **Id** 필드를 인덱스의 **HotelId** 키 필드에 매핑하여 처리합니다.
 
@@ -143,7 +143,7 @@ Azure Search 인덱서는 인덱싱 프로세스 중에 필드 매핑을 사용�
 데이터와 구성 설정이 제대로 갖추어지면 **AzureSearchMultipleDataSources.sln**의 샘플 프로그램을 빌드하고 실행할 준비가 됩니다.
 
 이 간단한 C#/.NET 콘솔 앱에서 수행하는 작업은 다음과 같습니다.
-* C# Hotel 클래스(Address 및 Room 클래스도 참조)의 데이터 구조를 기반으로 하여 새 Azure Search 인덱스를 만듭니다.
+* C# Hotel 클래스(Address 및 Room 클래스도 참조)의 데이터 구조를 기반으로 하여 새 Azure Cognitive Search 인덱스를 만듭니다.
 * Azure Cosmos DB 데이터 원본 및 Azure Cosmos DB 데이터를 인덱스 필드에 매핑하는 인덱서를 만듭니다.
 * Azure Cosmos DB 인덱서를 실행하여 Hotel 데이터를 로드합니다.
 * Azure Blob Storage 데이터 원본 및 JSON Blob 데이터를 인덱스 필드에 매핑하는 인덱서를 만듭니다.
@@ -152,11 +152,11 @@ Azure Search 인덱서는 인덱싱 프로세스 중에 필드 매핑을 사용�
  프로그램을 실행하기 전에 잠시 시간을 내어 이 샘플에 대한 코드, 인덱스 및 인덱서 정의를 살펴봅니다. 관련된 코드가 다음과 같은 두 개의 파일에 있습니다.
 
   + **Hotel.cs**에는 인덱스를 정의하는 스키마가 포함되어 있습니다.
-  + **Program.cs**에는 Azure Search 인덱스, 데이터 원본 및 인덱서를 만들고 결합된 결과를 인덱스에 로드하는 함수가 포함되어 있습니다.
+  + **Program.cs**에는 Azure Cognitive Search 인덱스, 데이터 원본 및 인덱서를 만들고 결합된 결과를 인덱스에 로드하는 함수가 포함되어 있습니다.
 
 ### <a name="define-the-index"></a>인덱스 정의
 
-이 샘플 프로그램에서는 .NET SDK를 사용하여 Azure Search 인덱스를 정의하고 만듭니다. [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) 클래스를 활용하여 C# 데이터 모델 클래스에서 인덱스 구조를 생성합니다.
+이 샘플 프로그램에서는 .NET SDK를 사용하여 Azure Cognitive Search 인덱스를 정의하고 만듭니다. [FieldBuilder](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.fieldbuilder) 클래스를 활용하여 C# 데이터 모델 클래스에서 인덱스 구조를 생성합니다.
 
 데이터 모델은 Address 및 Room 클래스에 대한 참조를 포함한 Hotel 클래스에서 정의됩니다. FieldBuilder는 여러 클래스 정의를 드릴다운하여 인덱스에 대한 복합 데이터 구조를 생성합니다. 메타데이터 태그는 검색 가능 여부 또는 정렬 가능 여부와 같이 각 필드의 특성을 정의하는 데 사용됩니다.
 
@@ -336,22 +336,22 @@ Blob 스토리지 데이터 원본과 인덱서가 만들어지면 인덱서를 
 
 Azure Portal에서 검색 서비스 **개요** 페이지를 열고, **인덱스** 목록에서 **hotel-rooms-sample** 인덱스를 찾습니다.
 
-  ![Azure Search 인덱스 목록](media/tutorial-multiple-data-sources/index-list.png "Azure Search 인덱스 목록")
+  ![Azure Cognitive Search 인덱스 목록](media/tutorial-multiple-data-sources/index-list.png "Azure Cognitive Search 인덱스 목록")
 
 목록에서 hotel-rooms-sample 인덱스를 클릭합니다. 인덱스에 대한 검색 탐색기 인터페이스가 표시됩니다. "Luxury"(특실)와 같은 용어에 대한 쿼리를 입력합니다. 결과에서 하나 이상의 문서가 표시되며, 이 문서에는 객실 배열에 객실 개체 목록이 표시되어 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Search 서비스의 개요 페이지에 있습니다.
+이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Cognitive Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Cognitive Search 서비스의 개요 페이지에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 JSON Blob을 인덱싱하는 데 사용할 수 있는 방법 및 옵션에는 여러 가지가 있습니다. 원본 데이터에 JSON 콘텐츠가 포함되어 있으면 이러한 옵션을 검토하여 시나리오에 가장 적합한 항목을 확인할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Search Blob 인덱서를 사용하여 JSON Blob을 인덱싱하는 방법](search-howto-index-json-blobs.md)
+> [Azure Cognitive Search Blob 인덱서를 사용하여 JSON Blob을 인덱싱하는 방법](search-howto-index-json-blobs.md)
 
-비정형 Blob 또는 전체 텍스트 콘텐츠에서 인지적으로 강화된 데이터를 사용하여 하나의 데이터 원본에 있는 정형 인덱스 데이터를 보강할 수도 있습니다. 다음 자습서에서는 .NET SDK를 사용하여 Cognitive Services를 Azure Search와 함께 사용하는 방법을 보여 줍니다.
+비정형 Blob 또는 전체 텍스트 콘텐츠에서 인지적으로 강화된 데이터를 사용하여 하나의 데이터 원본에 있는 정형 인덱스 데이터를 보강할 수도 있습니다. 다음 자습서에서는 .NET SDK를 사용하여 Cognitive Services를 Azure Cognitive Search와 함께 사용하는 방법을 보여줍니다.
 
 > [!div class="nextstepaction"]
-> [Azure Search 인덱싱 파이프라인에서 Cognitive Services API 호출](cognitive-search-tutorial-blob-dotnet.md)
+> [Azure Cognitive Search 인덱싱 파이프라인에서 Cognitive Services API 호출](cognitive-search-tutorial-blob-dotnet.md)

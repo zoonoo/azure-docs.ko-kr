@@ -1,15 +1,16 @@
 ---
 ms.topic: include
 ms.service: time-series-insights
-author: kingdomofends
-ms.author: adgera
+author: deepakpalled
+ms.author: dpalled
+manager: cshankar
 ms.date: 10/09/2019
-ms.openlocfilehash: 61842a8f410d972c21614f625f7d4f36476cb239
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 038d25a01c02799f48b8430fb6ac3facc1cd3bd6
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72259101"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990866"
 ---
 ## <a name="business-disaster-recovery"></a>비즈니스 재해 복구
 
@@ -21,10 +22,10 @@ Azure 서비스인 Time Series Insights는 Azure 지역 수준에서 중복성�
 
 Azure를 통해 제공 되는 추가 고가용성 기능 (그리고 Time Series Insights 인스턴스에도 제공)은 다음과 같습니다.
 
-- **장애 조치(Failover)** : Azure는 [지역에서 복제 및 부하 분산을](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)제공 합니다.
+- **장애 조치 (Failover)** : Azure는 [지역에서 복제 및 부하 분산을](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)제공 합니다.
 - **데이터 복원** 및 **저장소 복구**: Azure는 [데이터를 유지 하 고 복구 하기 위한 몇 가지 옵션을](https://docs.microsoft.com/azure/architecture/resiliency/recovery-data-corruption)제공 합니다.
-- **사이트 복구**: Azure는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)를 통해 site recovery 기능을 제공 합니다.
-- **Azure Backup**: [Azure Backup](https://docs.microsoft.com/azure/backup/backup-architecture) 은 Azure VM의 온-프레미스 및 클라우드 간 백업을 모두 지원 합니다.
+- **Azure Site Recovery**: Azure는 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)를 통해 Site Recovery 기능을 제공 합니다.
+- **Azure Backup**: [Azure Backup](https://docs.microsoft.com/azure/backup/backup-architecture) 는 Azure vm의 온-프레미스 및 클라우드 간 백업을 모두 지원 합니다.
 
 관련 Azure 기능을 사용 하도록 설정 하 여 장치 및 사용자에 대 한 글로벌 지역 간 고가용성을 제공 해야 합니다.
 
@@ -35,8 +36,8 @@ Azure를 통해 제공 되는 추가 고가용성 기능 (그리고 Time Series 
 
 일부 Azure IoT 서비스에는 기본 제공 비즈니스 재해 복구 기능도 포함 되어 있습니다.
 
-- 지역 내 중복성을 포함 하 여 고가용성 [재해 복구 IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr)
-- [Event Hubs 정책](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
+- 지역 내 중복성을 포함 하는 고가용성 [재해 복구 Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr)
+- [Azure Event Hubs 정책](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr)
 - [Azure Storage 중복성](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 
 다른 서비스와 Time Series Insights를 통합 하면 추가적인 재해 복구 기회가 제공 됩니다. 예를 들어 이벤트 허브로 전송 되는 원격 분석은 백업 Azure Blob storage 데이터베이스에 유지 될 수 있습니다.
@@ -56,7 +57,7 @@ Time Series Insights 데이터, 앱 및 서비스가 중단 되더라도이를 �
 
 1. 두 번째 Azure 지역에 환경을 만듭니다. 자세한 내용은 [Azure Portal에서 새 Time Series Insights 환경 만들기](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started)를 참조 하세요.
 1. 이벤트 원본에 대해 두 번째 전용 소비자 그룹을 만듭니다.
-1. 해당 이벤트 원본을 새 환경에 연결합니다. 두 번째, 전용 소비자 그룹을 지정 했는지 확인 합니다.
+1. 해당 이벤트 원본을 새 환경에 연결합니다. 두 번째 전용 소비자 그룹을 지정 했는지 확인 합니다.
 1. Time Series Insights [IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) 및 [Event Hubs](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access) 설명서를 검토 합니다.
 
 이벤트가 발생 하는 경우:

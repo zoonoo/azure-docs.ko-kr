@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 30c5e9d4ddba473f1afa243eb7fc6db875b3d9b3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 01346ba518a07da1ebb606393c2834994cfb42e2
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953500"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990340"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-preview-features"></a>Azure IoT Central 응용 프로그램에서 장치 관리 (미리 보기 기능)
 
@@ -145,7 +145,7 @@ Azure IoT Central 애플리케이션에 디바이스를 추가하려면:
     * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
 
-연결 문자열 및 실제 장치를 IoT Central 응용 프로그램에 연결 하는 방법에 대 한 자세한 내용은 [Azure IoT Central에서 장치 연결](concepts-connectivity-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)을 참조 하세요.
+연결 문자열 및 실제 장치를 IoT Central 응용 프로그램에 연결 하는 방법에 대 한 자세한 내용은 [Azure IoT Central에서 장치 연결](overview-iot-central-get-connected-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)을 참조 하세요.
 
 ## <a name="delete-a-device"></a>디바이스 삭제
 
