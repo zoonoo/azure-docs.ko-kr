@@ -1,21 +1,21 @@
 ---
 title: Azure Time Series Insights 미리 보기 탐색기에서 데이터 시각화 | Microsoft Docs
 description: 이 문서에서는 Azure Time Series Insights 미리 보기 탐색기 웹앱에서 사용할 수 있는 기능 및 옵션에 대해 설명합니다.
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
-ms.workload: big-data
 manager: cshankar
+ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1707740d673ea49a4b4494f5d2e6a5753982090
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 3f6c03ace13b9b6cb1bda004799502e1f382051d
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553401"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989962"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>탐색기 미리 보기에서 데이터 시각화
 
@@ -35,7 +35,7 @@ Azure Time Series Insights Preview 탐색기를 시작 하려면 다음을 수�
 
 Azure Time Series Insights 미리 보기 탐색기는 다음 요소로 구성되어 있습니다.
 
-[![The 탐색기 뷰](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
+[탐색기 보기![](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
 - <a href="#environment-drop-down-list">환경 패널</a>: Azure Time Series Insights 환경을 표시 합니다.
 - <a href="#navigation-menu">탐색 메뉴</a>: **분석** 및 **모델** 페이지 간을 전환 하는 데 사용 합니다.
@@ -51,13 +51,13 @@ Azure Time Series Insights 미리 보기 탐색기는 다음 요소로 구성되
 
 1. 표시 된 환경 옆에 있는 드롭다운 화살표를 선택 합니다.
 
-   [![The 제어판](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
+   [제어판![](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
 
 1. 그런 다음 원하는 환경을 선택 합니다.
 
 ## <a name="navigation-menu"></a>탐색 메뉴
 
-  [![The 탐색 메뉴](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
+  [탐색 메뉴![](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
 
 탐색 메뉴를 사용 하 여 두 뷰 중에서 선택 합니다.
 
@@ -72,7 +72,7 @@ Azure Time Series Insights 미리 보기 탐색기는 다음 요소로 구성되
 
 모델 검색 패널을 사용 하 여 시계열 모델 계층 구조를 쉽게 검색 하 고 탐색 하 여 차트에 표시할 특정 시계열 인스턴스를 찾을 수 있습니다. 인스턴스를 선택 하면 현재 차트와 데이터 웰에 모두 추가 됩니다.
 
-  [![The 모델 검색 패널](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
+  [모델 검색 패널![](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
 
 ### <a name="model-authoring"></a>모델 작성
 
@@ -88,11 +88,11 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 
 는 선택한 Time Series Insights 인스턴스와 연결 된 인스턴스 필드 및 기타 메타 데이터를 표시 합니다. 오른쪽에 있는 확인란을 선택 하 여 현재 차트의 특정 인스턴스를 숨기 거 나 표시할 수 있습니다. 요소의 왼쪽에 있는 빨간색 **삭제** (휴지통) 컨트롤을 선택 하 여 현재 데이터에서 특정 데이터 요소를 제거할 수도 있습니다.
 
-  [![The 미리 보기 웰](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
+  [미리 보기 웰![](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
 **분석** 차트 페이지의 레이아웃을 다시 구성 하려면 오른쪽 위 모퉁이에 있는 줄임표 아이콘을 선택 합니다.
 
-  [![Telemetry 레이아웃 옵션](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
+  [![원격 분석 레이아웃 옵션](media/v2-update-explorer/explorer-six.png)](media/v2-update-explorer/explorer-six.png#lightbox)
 
 > [!NOTE]
 > 다음 메시지가 표시 되 면 선택 된 시간 범위 동안 인스턴스에 데이터가 없는 것입니다. 이 문제를 해결 하려면 시간 범위를 늘리거나 인스턴스가 데이터를 푸시하는 지 확인 합니다.
@@ -103,7 +103,7 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 
 차트를 사용 하 여 Time Series Insights 인스턴스를 선으로 표시할 수 있습니다. 차트의 크기를 더 크게 설정 하려면 웹 컨트롤을 선택 하 여 환경 패널, 데이터 모델 및 시간 범위 제어판을 축소할 수 있습니다.
 
-  [![Preview 차트 개요](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
+  [![미리 보기 차트 개요](media/v2-update-explorer/explorer-eight.png)](media/v2-update-explorer/explorer-eight.png#lightbox)
 
 - **선택한 날짜 범위**: 시각화에 사용할 수 있는 데이터 요소를 제어 합니다.
 
@@ -121,15 +121,15 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 
 특정 데이터 조각으로 더 자세히 살펴보려면 현재 그래프의 데이터 요소를 마우스 왼쪽 단추로 클릭 한 다음 선택한 영역을 원하는 끝점으로 끕니다. 다음 그림에 표시 된 것 처럼 선택한 회색 영역을 마우스 오른쪽 단추로 클릭 하 고 **확대/축소**를 선택 합니다.
 
-  [![Preview 차트 확대/축소](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
+  [![미리 보기 차트 확대/축소](media/v2-update-explorer/explorer-nine.png)](media/v2-update-explorer/explorer-nine.png#lightbox)
 
 **확대/축소** 작업을 수행 하면 선택한 데이터 집합이 표시 됩니다. Y 축 형식 컨트롤을 선택 하 여 Time Series Insights 데이터의 y 축 표현 3 개를 순환 합니다.
 
-  [![Preview 차트 y 축](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
+  [![미리 보기 차트 y 축](media/v2-update-explorer/explorer-ten.png)](media/v2-update-explorer/explorer-ten.png#lightbox)
 
 여기에서 공유 Y 축의 예를 볼 수 있습니다.
 
-  [![Preview 공유 Y 축](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
+  [공유 Y 축![미리 보기](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
 
 ## <a name="time-editor-panel"></a>시간 편집기 패널
 
@@ -151,7 +151,7 @@ Time Series Insights 미리 보기를 사용하는 경우 먼저 시간 범위�
 
 1. **웹 컨트롤에 대 한 날짜 범위**:이 웹 컨트롤을 사용 하면 원하는 날짜 및 시간 범위를 쉽게 선택할 수 있습니다. 컨트롤을 사용하여 표준 시간대 간에 전환할 수도 있습니다. 현재 작업 영역에 변경 내용을 적용 한 후 **저장**을 선택 합니다.
 
-   [선택 패널의 ![To 및](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
+   [선택 패널과의![](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
 
 ## <a name="navigation-panel"></a>탐색 패널
 
@@ -159,15 +159,15 @@ Time Series Insights Preview 탐색 패널이 Time Series Insights 앱의 맨 �
 
 ### <a name="current-session-share-link-control"></a>현재 세션 공유 링크 컨트롤
 
-  [![Share 아이콘](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
+  [![공유 아이콘](media/v2-update-explorer/explorer-fifteen.png)](media/v2-update-explorer/explorer-fifteen.png#lightbox)
 
 새 **공유** 아이콘을 선택 하 여 팀과 URL 링크를 공유 합니다.
 
-  [인스턴스 URL ![Share](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
+  [![인스턴스 URL 공유](media/v2-update-explorer/url-share.png)](media/v2-update-explorer/url-share.png#lightbox)
 
 ### <a name="tenant-section"></a>테넌트 섹션
 
-  [![Tenant 선택](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
+  [![테 넌 트 선택](media/v2-update-explorer/explorer-sixteen.png)](media/v2-update-explorer/explorer-sixteen.png#lightbox)
 
 * 현재 Time Series Insights 로그인 계정 정보를 표시 합니다.
 * 사용 가능한 Time Series Insights 테마 사이를 전환 하는 데 사용 합니다.
@@ -177,7 +177,7 @@ Time Series Insights Preview 탐색 패널이 Time Series Insights 앱의 맨 �
 
 새 테마를 선택 하려면 오른쪽 위 모퉁이에 있는 프로필 아이콘을 선택 합니다. 그런 다음 **테마 변경**을 선택 합니다.
 
-  [![Theme 선택](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
+  [![테마 선택](media/v2-update-explorer/theme-selection.png)](media/v2-update-explorer/theme-selection.png#lightbox)
 
 > [!TIP]
 > 프로필 아이콘을 선택 하 여 언어를 선택할 수도 있습니다.
@@ -187,7 +187,7 @@ Azure Time Series Insights 미리 보기는 다음 두 가지 테마를 지원�
 * **밝은 테마**:이 문서 전체에 표시 되는 기본 테마입니다.
 * **어두운 테마**: 다음과 같이 탐색기를 렌더링 합니다.
 
-  [어두운 테마 ![Selected](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
+  [선택한 짙은 테마![](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
 
 ## <a name="s1s2-environment-controls"></a>S1/S2 환경 컨트롤
 
@@ -197,7 +197,7 @@ Azure Time Series Insights 미리 보기는 다음 두 가지 테마를 지원�
 
 계층 구조 대신 환경에서 쿼리를 정의 하는 Time Series Insights 용어 창이 표시 됩니다. 조건자를 기준으로 데이터를 필터링 하는 데 사용 합니다.
 
-  [![Where 쿼리 패널](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
+  [쿼리 패널![](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
 
 Time Series Insights 미리 보기 용어 편집기 패널은 다음 매개 변수를 사용합니다.
 
@@ -220,11 +220,11 @@ Time Series Insights 미리 보기 용어 편집기 패널은 다음 매개 변�
 
 **분할 기준**:이 드롭다운 목록에서 데이터를 그룹화 할 수 있는 사용 가능한 모든 범주 열 (문자열)을 모델에 표시 합니다. 동일한 x 축에 대해 볼 수 있는 최대 5 개의 용어를 추가할 수 있습니다. 원하는 매개 변수를 입력 한 다음 **추가** 를 선택 하 여 새 용어를 추가 합니다.
 
-  [![Queried 및 필터링 된 뷰 1](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
+  [![쿼리 및 필터링 된 뷰 1](media/v2-update-explorer/explorer-twenty.png)](media/v2-update-explorer/explorer-twenty.png#lightbox)
 
 다음 그림에 표시 된 것 처럼 표시 되는 아이콘을 선택 하 여 차트 패널에서 요소를 표시 하거나 숨길 수 있습니다. 쿼리를 완전히 제거 하려면 빨간색 **X**를 선택 합니다.
 
-  [![Queried 및 필터링 된 뷰 2](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
+  [![쿼리 및 필터링 된 뷰 2](media/v2-update-explorer/explorer-twenty-one.png)](media/v2-update-explorer/explorer-twenty-one.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 
