@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: pafarley
-ms.openlocfilehash: f3b9a7aefc5fc347c4d5114575388914ea8d6fee
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 62407467e3c63b1752ee6816325f097ad9a1f09e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699910"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755245"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>빠른 시작: Python용 Content Moderator 클라이언트 라이브러리
 
@@ -44,7 +44,7 @@ Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
 
-평가판 구독 또는 리소스에서 키를 가져오면 `CONTENT_MODERATOR_SUBSCRIPTION_KEY`라는 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+평가판 구독 또는 리소스에서 키를 가져온 후에는 각각 `CONTENT_MODERATOR_SUBSCRIPTION_KEY` 및 `CONTENT_MODERATOR_ENDPOINT`라는 키 및 엔드포인트 URL에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
  
 ### <a name="create-a-python-script"></a>Python 스크립트 만들기
 
@@ -52,7 +52,7 @@ Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imports)]
 
-다음으로 리소스의 Azure 위치와 키에 대한 변수를 환경 변수로 만듭니다. 
+다음으로, 리소스의 엔드포인트 위치와 키에 대한 변수를 환경 변수로 만듭니다. 
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_vars)]
 
@@ -92,7 +92,7 @@ Content Moderator Python SDK의 주요 기능 중 일부를 처리하는 클래�
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
 > [!NOTE]
-> 이 빠른 시작에서는 `CONTENT_MODERATOR_SUBSCRIPTION_KEY`라는 Content Moderator 키에 대한 [환경 변수를 만들었다](../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)고 가정합니다.
+> 이 빠른 시작에서는 Content Moderator 키 및 엔드포인트에 대한 [환경 변수를 만들었다](../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication)고 가정합니다.
 
 엔드포인트 및 키를 사용하여 클라이언트를 인스턴스화합니다. 키를 사용하여 [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) 개체를 만들고, 엔드포인트에서 이를 사용하여 [ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python) 개체를 만듭니다.
 
@@ -355,4 +355,4 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 >[이미지 조정 개념](https://docs.microsoft.com/azure/cognitive-services/content-moderator/image-moderation-api)
 
 * [Azure Content Moderator란?](./overview.md)
-* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision)에서 확인할 수 있습니다.
+* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py)에서 확인할 수 있습니다.

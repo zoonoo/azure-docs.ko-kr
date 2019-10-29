@@ -1,6 +1,6 @@
 ---
-title: 자습서 - 이메일 및 첨부 파일 처리 자동화 - Azure Logic Apps
-description: Azure Logic Apps, Azure Storage 및 Azure Functions를 사용하여 이메일과 첨부 파일을 처리하도록 자동화된 워크플로를 만드는 자습서입니다.
+title: Azure Functions를 사용하여 워크플로 빌드 - Azure Logic Apps
+description: 자습서 - Azure Logic Apps, Azure Storage 및 Azure Functions를 사용하여 이메일과 첨부 파일을 처리하는 워크플로 자동화
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/07/2019
-ms.openlocfilehash: e7c27d284ef93d15c5ac9a6228205e79518f2ffa
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 2919816872fd73c8a50f404e857c9ec56eeab0f5
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051781"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679182"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>자습서: Azure Logic Apps를 사용하여 이메일 및 첨부 파일 처리 자동화
 
@@ -64,7 +64,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    | **구독** | <*Azure-subscription-name*> | Azure 구독의 이름 |  
    | **리소스 그룹** | <*Azure-resource-group*> | 관련 리소스를 구성하고 관리하는 데 사용되는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md)의 이름. 이 예제에서는 "LA-Tutorial-RG"를 사용합니다. <p>**참고:** 리소스 그룹은 특정 지역 내에 있습니다. 일부 지역에서 이 자습서의 항목을 사용할 수 없을 수도 있지만, 가능하면 동일한 지역을 사용해 보세요. |
    | **스토리지 계정 이름** | <*Azure-storage-account-name*> | 스토리지 계정 이름은 3-24자여야 하고 소문자와 숫자만 포함할 수 있습니다. 이 예제에서는 "attachmentstorageacct"를 사용합니다. |
-   | **위치**: | <*Azure-region*> | 스토리지 계정에 대한 정보를 저장할 지역입니다. 이 예제에서는 "미국 서부"를 사용합니다. |
+   | **위치** | <*Azure-region*> | 스토리지 계정에 대한 정보를 저장할 지역입니다. 이 예제에서는 "미국 서부"를 사용합니다. |
    | **성능** | Standard | 이 설정은 지원되는 데이터 형식 및 데이터를 저장하기 위한 미디어를 지정합니다. [스토리지 계정 유형](../storage/common/storage-introduction.md#types-of-storage-accounts)을 참조하세요. |
    | **계정 종류** | 범용 가상 컴퓨터 | [스토리지 계정 유형](../storage/common/storage-introduction.md#types-of-storage-accounts) |
    | **복제** | LRS(로컬 중복 스토리지) | 이 설정은 데이터가 복사, 저장, 관리 및 동기화되는 방식을 지정합니다. [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복성](../storage/common/storage-redundancy-lrs.md)을 참조하세요. |
@@ -150,7 +150,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    | **구독** | <*your-Azure-subscription-name*> | 이전에 사용한 동일한 Azure 구독 | 
    | **리소스 그룹** | LA-Tutorial-RG | 이전에 사용한 동일한 Azure 리소스 그룹 |
    | **호스팅 계획** | 소비 계획 | 이 설정은 계산 성능처럼 함수 앱을 실행하기 위한 리소스를 할당하고 크기를 조정하는 방법을 결정합니다. [호스팅 계획 비교](../azure-functions/functions-scale.md)를 참조하세요. | 
-   | **위치**: | 미국 서부 | 이전에 사용한 동일한 지역 |
+   | **위치** | 미국 서부 | 이전에 사용한 동일한 지역 |
    | **런타임 스택** | 기본 설정 언어 | 자주 사용하는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET**을 선택합니다. |
    | **스토리지** | cleantextfunctionstorageacct | 함수 앱에 대한 스토리지 계정을 만듭니다. 소문자와 숫자만 사용할 수 있습니다. <p>**참고:** 이 스토리지 계정은 함수 앱을 포함하며, 이메일 첨부 파일에 대해 이전에 만든 스토리지 계정과 다릅니다. |
    | **Application Insights** | 꺼짐 | [Application Insights](../azure-monitor/app/app-insights-overview.md)를 통해 애플리케이션 모니터링을 사용하도록 설정하지만, 이 자습서에서는 **해제** 설정을 선택합니다. |
@@ -247,7 +247,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    | **Name** | LA-ProcessAttachment | 논리 앱의 이름 |
    | **구독** | <*your-Azure-subscription-name*> | 이전에 사용한 동일한 Azure 구독 |
    | **리소스 그룹** | LA-Tutorial-RG | 이전에 사용한 동일한 Azure 리소스 그룹 |
-   | **위치**: | 미국 서부 | 이전에 사용한 동일한 지역 |
+   | **위치** | 미국 서부 | 이전에 사용한 동일한 지역 |
    | **Log Analytics** | 꺼짐 | 이 자습서에서는 **해제** 설정을 선택합니다. |
    ||||
 

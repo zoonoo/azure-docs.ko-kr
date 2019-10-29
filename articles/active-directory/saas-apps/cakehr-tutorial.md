@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 10/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34ef0497b5cacb66ccf92079e740acd98a05021a
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c0860411c95e48a16d75df4aeeedf3405a5b1835
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026430"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595032"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>자습서: CakeHR과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -67,10 +67,10 @@ CakeHR의 Azure AD 통합을 구성하려면 갤러리의 CakeHR을 관리형 Sa
 CakeHR에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[CakeHR SSO 구성](#configure-cakehr-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[CakeHR 테스트 사용자 만들기](#create-cakehr-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 CakeHR에 만듭니다.
+    * **[CakeHR 테스트 사용자 만들기](#create-cakehr-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 CakeHR에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -135,25 +135,33 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-cakehr-sso"></a>CakeHR SSO 구성
 
-1. 새 웹 브라우저 창을 열고, CakeHR 회사 사이트에 관리자 권한으로 로그인합니다.
+1. CakeHR 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-2. 페이지의 오른쪽 위 모서리에서 **프로필**을 클릭한 다음, **설정**으로 이동합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+1. 브라우저에 확장을 추가한 후 **CakeHR 설정**을 클릭하면 CakeHR 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 CakeHR에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-5단계를 자동으로 수행합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+1. CakeHR을 수동으로 설정하려면 새 웹 브라우저 창을 열고 CakeHR 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+
+1. 페이지의 오른쪽 위 모서리에서 **프로필**을 클릭한 다음, **설정**으로 이동합니다.
 
     ![CakeHR 구성](./media/cakehr-tutorial/config01.png)
 
-3. 메뉴 모음 왼쪽에서 **통합** > **SAML SSO**를 클릭하고 다음 단계를 수행합니다.
+1. 메뉴 모음 왼쪽에서 **통합** > **SAML SSO**를 클릭하고 다음 단계를 수행합니다.
 
-     ![CakeHR 구성](./media/cakehr-tutorial/config02.png)
+    ![CakeHR 구성](./media/cakehr-tutorial/config02.png)
 
-     a. **엔터티 ID** 텍스트 상자에 `cake.hr`을 입력합니다.
+    a. **엔터티 ID** 텍스트 상자에 `cake.hr`을 입력합니다.
 
-     b. Azure Portal에서 복사한 **로그인 URL** 값을 **인증 URL** 텍스트 상자에 붙여넣습니다.
+    b. Azure Portal에서 복사한 **로그인 URL** 값을 **인증 URL** 텍스트 상자에 붙여넣습니다.
 
-     다. Azure Portal에서 복사한 **지문** 값을 **키 지문(SHA1 형식)** 텍스트 상자에 붙여넣습니다.
+    다. Azure Portal에서 복사한 **지문** 값을 **키 지문(SHA1 형식)** 텍스트 상자에 붙여넣습니다.
 
-     d. **Single Sign-On 사용** 확인란을 선택합니다.
+    d. **Single Sign-On 사용** 확인란을 선택합니다.
 
-     e. **저장**을 클릭합니다.
+    e. **저장**을 클릭합니다.
 
 ### <a name="create-cakehr-test-user"></a>CakeHR 테스트 사용자 만들기
 
@@ -192,4 +200,3 @@ Azure AD 사용자가 CakeHR에 로그인하려면 CakeHR에 프로비저닝되�
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD로 CakeHR 사용해보기](https://aad.portal.azure.com/)
-

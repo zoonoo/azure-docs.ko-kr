@@ -4,15 +4,15 @@ description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/11/2019
+ms.date: 10/18/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 0c6fed9cd83f18df0fe0a77d57a76c60cd570c21
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 8d7b1f24d5dcf3d66ffd04704c79a284c4810365
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300994"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72598446"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
@@ -123,6 +123,7 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 - Azure Resource Manager에서 처리되는 요청은 Azure 위임 리소스 관리를 사용하여 수행할 수 있습니다. 이러한 요청에 대한 작업 URI는 `https://management.azure.com`으로 시작합니다. 그러나 리소스 유형의 인스턴스가 처리하는 요청(예: KeyVault 비밀 액세스 또는 스토리지 데이터 액세스)은 Azure 위임 리소스 관리에서 지원되지 않습니다. 이러한 요청에 대한 작업 URI는 일반적으로 `https://myaccount.blob.core.windows.net` 또는 `https://mykeyvault.vault.azure.net/`과 같이 사용자 인스턴스에 고유한 주소로 시작합니다. 후자는 일반적으로 관리 작업이 아니라 데이터 작업입니다. 
 - 역할 할당은 RBAC(역할 기반 액세스 제어) [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 사용해야 합니다. 현재, 소유자, 사용자 액세스 관리자 또는 [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure 위임 리소스 관리에서 지원됩니다. 사용자 지정 역할 및 [클래식 구독 관리자 역할](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators)도 지원되지 않습니다.
 - 현재, 구독에서 Azure Databricks를 사용하는 경우 Azure 위임 리소스 관리에 대 한 구독(또는 구독 내의 리소스 그룹)을 온보딩할 수 없습니다. 마찬가지로, **Microsoft.ManagedServices** 리소스 공급자에 온보딩하기 위해 구독을 등록한 경우 현재는 해당 구독에 대해 Databricks 작업 영역을 만들 수 없습니다.
+- 리소스 잠금이 있는 Azure 위임 리소스 관리에 대한 구독 및 리소스 그룹을 온보드할 수 있지만 이러한 잠금으로 인해 관리 테넌트의 사용자가 작업을 수행할 수 없습니다. Azure 관리 애플리케이션 또는 Azure Blueprints(시스템이 할당한 거부 할당)에서 만든 것과 같이 시스템 관리 리소스를 보호하는 [거부 할당](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments)은 관리 테넌트의 사용자가 해당 리소스에 대해 작업을 수행하지 못하도록 합니다. 그러나 현재 고객 테넌트의 사용자는 자신의 거부 할당(사용자가 할당한 거부 할당)을 만들 수 없습니다.
 
 ## <a name="using-apis-and-management-tools-with-cross-tenant-management"></a>다중 테넌트 관리에서 API 및 관리 도구 사용
 

@@ -1,20 +1,20 @@
 ---
 title: '빠른 시작: Node.js MongoDB 앱을 Azure Cosmos DB에 연결'
 description: 이 빠른 시작은 Node.js로 작성된 기존 MongoDB 앱을 Azure Cosmos DB 데이터베이스에 연결하는 방법을 보여 줍니다.
-author: rimman
-ms.author: rimman
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: b9cadbf35680953058bd38d7db26a6e6c684836b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: c2a689f7c3ac1308e12d0e371a9ad7f7187417d6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327284"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792187"
 ---
 # <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>빠른 시작: 기존 MongoDB Node.js 웹앱을 Azure Cosmos DB로 마이그레이션 
 
@@ -55,7 +55,7 @@ Node.js에 대한 실무 지식이 있어야 합니다. 이 빠른 시작은 일
 1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
     ```bash
-    md "C:\git-samples"
+    mkdir "C:\git-samples"
     ```
 
 2. Git Bash와 같은 Git 터미널 창을 열고, `cd` 명령을 사용하여 샘플 앱을 설치할 새 폴더로 변경합니다.
@@ -179,10 +179,10 @@ module.exports = {
 
 ## <a name="retrieve-the-key"></a>키 검색
 
-Cosmos 데이터베이스에 연결하려면 데이터베이스 키가 필요합니다. [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) 명령을 사용하여 기본 키를 검색합니다.
+Cosmos 데이터베이스에 연결하려면 데이터베이스 키가 필요합니다. [az cosmosdb keys list](/cli/azure/cosmosdb/keys#az-cosmosdb-keys-list) 명령을 사용하여 기본 키를 검색합니다.
 
 ```azurecli-interactive
-az cosmosdb list-keys --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
+az cosmosdb keys list --name <cosmosdb-name> --resource-group myResourceGroup --query "primaryMasterKey"
 ```
 
 Azure CLI는 다음 예와 유사한 정보를 출력합니다. 

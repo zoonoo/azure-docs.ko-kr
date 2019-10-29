@@ -14,16 +14,16 @@ ms.topic: sample
 ms.date: 11/28/2017
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 8e3187ba399ffa4d6c0ca863380205f7fbbfaae8
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 44bb0e615453450c401949f0ce76f15cb82fab67
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036121"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72680536"
 ---
 # <a name="add-an-inbound-network-security-group-rule"></a>인바운드 네트워크 보안 그룹 규칙 추가
 
-이 샘플 스크립트는 포트 8081에서 인바운드 트래픽을 허용하도록 네트워크 보안 그룹 규칙을 만듭니다.  이 스크립트는 클러스터가 위치한 `Microsoft.Network/networkSecurityGroups` 리소스를 가져오고, 새 네트워크 보안 구성 규칙을 만들고, 네트워크 보안 그룹을 업데이트합니다. 필요에 따라 매개 변수를 사용자 지정합니다.
+이 샘플 스크립트는 포트 8081에서 인바운드 트래픽을 허용하도록 네트워크 보안 그룹 규칙을 만듭니다.  이 스크립트는 네트워크 보안 그룹을 가져오고, 새 네트워크 보안 구성 규칙을 만들고, 네트워크 보안 그룹을 업데이트합니다. 필요에 따라 매개 변수를 사용자 지정합니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

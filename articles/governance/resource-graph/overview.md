@@ -3,15 +3,15 @@ title: Azure Resource Graph 개요
 description: Azure Resource Graph 서비스가 어떻게 대규모의 복잡한 리소스 쿼리를 지원하는지 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 05/06/2019
+ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: bf54f1a96c6be7bbfb19770472752b3f958695c4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 45853e3c8986cec58f27d785af31f174aff21b2e
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976809"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72755880"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
 
@@ -34,7 +34,7 @@ Azure Resource Graph는 제공된 구독 세트에서 대규모로 쿼리를 수
 
 Azure Resource Manager는 현재 기본 리소스 필드, 특히 리소스 이름, ID, 유형, 리소스 그룹, 구독 및 위치에서 쿼리를 지원합니다. 또한 Resource Manager는 한 번에 하나의 리소스에 대한 세부 속성을 위해 개별 리소스 공급 기업을 호출하는 기능을 제공합니다.
 
-Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다. 지원되는 리소스 유형의 목록을 보려면 [전체 모드 배포용 리소스](../../azure-resource-manager/complete-mode-deletion.md) 테이블에서 **예**를 찾습니다. 지원되는 리소스 종류를 확인하는 다른 방법은 [Azure Graph Explorer Schema 브라우저](./first-query-portal.md#schema-browser)를 사용하는 것입니다.
+Azure Resource Graph를 사용하면 각 리소스 공급자를 별도로 호출하지 않고도 리소스 공급자가 반환하는 이러한 속성에 액세스할 수 있습니다. 지원되는 리소스 유형의 목록을 보려면 [전체 모드 배포용 리소스](../../azure-resource-manager/complete-mode-deletion.md) 테이블에서 **예**를 찾습니다. 추가 리소스 유형은 관련 [Resource Graph 테이블](./concepts/query-language.md#resource-graph-tables)에서 찾을 수 있습니다. 지원되는 리소스 종류를 확인하는 다른 방법은 [Azure Graph Explorer Schema 브라우저](./first-query-portal.md#schema-browser)를 사용하는 것입니다.
 
 Azure Resource Graph를 통해 다음을 수행할 수 있습니다.
 
@@ -45,6 +45,9 @@ Azure Resource Graph를 통해 다음을 수행할 수 있습니다.
 
 Azure 리소스가 업데이트되면 Resource Graph는 Resource Manager로부터 변경 알림을 받습니다.
 그런 다음, Resource Graph는 해당 데이터베이스를 업데이트합니다. Resource Graph는 또한 일반 _전체 검색_을 수행합니다. 이 검사는 놓친 알림이 있거나 Resource Manager 외부에서 리소스가 업데이트될 때 Resource Graph 데이터가 최신 상태인지 확인합니다.
+
+> [!NOTE]
+> Resource Graph는 각 리소스 공급자의 미리 보기가 아닌 최신 API에 `GET`을 사용하여 속성 및 값을 수집합니다. 따라서 필요한 속성을 사용하지 못할 수 있습니다. 경우에 따라 사용되는 API 버전이 재정의되어 결과에 더 최신 속성 또는 널리 사용되는 속성이 제공되었습니다. 사용자 환경의 전체 목록은 [각 리소스 유형에 대한 API 버전 표시](./samples/advanced.md#apiversion) 샘플을 참조하세요.
 
 ## <a name="the-query-language"></a>쿼리 언어
 

@@ -8,14 +8,14 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 06/21/2019
-ms.openlocfilehash: db049064c35fbe6b940d39f97decc0281983cc0f
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ed3946c40d8e3eff665e4454b81f408c2033c09a
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515075"
+ms.locfileid: "72529587"
 ---
 # <a name="quickstart-use-nodejs-to-control-a-device-connected-to-an-azure-iot-hub"></a>빠른 시작: Node.js를 사용하여 Azure IoT 허브에 연결된 디바이스 제어
 
@@ -128,7 +128,7 @@ az extension add --name azure-cli-iot-ext
 
     다음 스크린샷에서는 시뮬레이션된 디바이스 애플리케이션에서 IoT 허브에 원격 분석을 보낼 때의 출력을 보여 줍니다.
 
-    ![시뮬레이션된 디바이스 실행](./media/quickstart-control-device-node/SimulatedDevice-1.png)
+    ![시뮬레이션된 디바이스 실행](./media/quickstart-control-device-node/simulated-device-telemetry-iot-hub.png)
 
 ## <a name="call-the-direct-method"></a>직접 메서드 호출
 
@@ -149,11 +149,11 @@ az extension add --name azure-cli-iot-ext
 
     다음 스크린샷에서는 애플리케이션에서 디바이스에 직접 메서드를 호출하고 승인을 받을 때의 출력을 보여 줍니다.
 
-    ![백 엔드 애플리케이션 실행](./media/quickstart-control-device-node/BackEndApplication.png)
+    ![애플리케이션이 디바이스에 직접 메서드를 호출할 때 출력](./media/quickstart-control-device-node/direct-method-device-call.png)
 
     백 엔드 애플리케이션을 실행한 후 시뮬레이션된 디바이스를 실행하는 콘솔 창에 메시지가 표시되고 메시지를 보내는 속도가 변경됩니다.
 
-    ![시뮬레이션된 클라이언트에서 변경](./media/quickstart-control-device-node/SimulatedDevice-2.png)
+    ![시뮬레이션된 클라이언트에 변경 내용이 있을 때 출력](./media/quickstart-control-device-node/simulated-device-message-change.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -88,18 +88,18 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ### <a name="apache-hive"></a>Apache Hive
 
-Hive metastore는 스크립트를 사용하여 또는 DB 복제를 사용하여 마이그레이션할 수 있습니다.
+Hive 메타스토어는 스크립트를 사용하여 또는 DB 복제를 사용하여 마이그레이션할 수 있습니다.
 
-#### <a name="hive-metastore-migration-using-scripts"></a>스크립트를 사용하여 Hive metastore 마이그레이션
+#### <a name="hive-metastore-migration-using-scripts"></a>스크립트를 사용하여 Hive 메타스토어 마이그레이션
 
 1. 온-프레미스 Hive metastore에서 Hive DDLs를 생성 합니다. 이 단계는 [래퍼 Bash 스크립트](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)를 사용하여 수행할 수 있습니다.
 1. 생성된 DDL을 편집하여 HDFS url을 WASB/ADLS/ABFS URL로 바꿉니다.
 1. HDInsight 클러스터의 metastore에서 업데이트된 DDL을 실행합니다.
-1. Hive metastore 버전이 온-프레미스와 클라우드 간에 호환되는지 확인합니다.
+1. Hive 메타스토어 버전이 온-프레미스와 클라우드 간에 호환되는지 확인합니다.
 
-#### <a name="hive-metastore-migration-using-db-replication"></a>DB 복제를 사용하여 Hive metastore 마이그레이션
+#### <a name="hive-metastore-migration-using-db-replication"></a>DB 복제를 사용하여 Hive 메타스토어 마이그레이션
 
-- 온-프레미스 Hive metastore DB와 HDInsight metastore DB 간에 데이터베이스 복제를 설정합니다.
+- 온-프레미스 Hive 메타스토어 DB와 HDInsight 메타스토어 DB 간에 데이터베이스 복제를 설정합니다.
 - "Hive MetaTool"을 사용하여 HDFS url을 WASB/ADLS/ABFS url로 바꿉니다. 예:
 
 ```bash

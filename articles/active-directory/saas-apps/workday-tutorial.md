@@ -17,10 +17,10 @@ ms.date: 08/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9fe63ba810724216b1b356896b621f1e5b021bbf
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "69891974"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workday"></a>자습서: Workday와 Azure Active Directory SSO(Single Sign-On) 연결
@@ -196,11 +196,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     f. **ID 공급자 공개 키 인증서**를 클릭한 다음 **만들기**를 클릭합니다.
 
-    ![만들기](./media/workday-tutorial/IC782928.png "만들기")
+    ![만들기](./media/workday-tutorial/IC782928.png "생성")
 
     g. **x509 공개 키 만들기**를 클릭합니다.
 
-    ![만들기](./media/workday-tutorial/IC782929.png "만들기")
+    ![만들기](./media/workday-tutorial/IC782929.png "생성")
 
 6. **x509 공개 키 보기** 섹션에서 다음 단계를 수행합니다.
 
@@ -237,7 +237,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     d. **확인**을 클릭합니다.
 
-    ![확인](./media/workday-tutorial/IC782933.png "확인")
+    ![OK](./media/workday-tutorial/IC782933.png "확인")
 
     > [!NOTE]
     > Single Sign-On을 올바르게 설정했는지 확인하세요. 잘못된 설정으로 Single Sign-On을 활성화한 경우 자격 증명을 사용하여 애플리케이션을 입력하고 잠글 수 없을 수도 있습니다. 이 경우 Workday는 사용자가 [Your Workday URL]/login.flex?redirect=n 형식으로 해당 일반 사용자 이름 및 암호를 사용하여 로그인할 수 있는 백업 로그인 url을 제공합니다.

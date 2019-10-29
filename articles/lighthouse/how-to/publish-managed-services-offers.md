@@ -4,15 +4,15 @@ description: 고객이 Azure 위임 리소스 관리에 고객을 온보딩하�
 author: JnHs
 ms.author: jenhayes
 ms.service: lighthouse
-ms.date: 09/19/2019
+ms.date: 10/17/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: c358c728f7fe008ee8d9138cd081932524e7eaf9
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 10105d06e48a727e71ea5cb03f2ffceb589df50a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300295"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595268"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 솔루션 게시
 
@@ -132,7 +132,7 @@ ms.locfileid: "72300295"
 
 ## <a name="the-customer-onboarding-process"></a>고객 온보딩 프로세스
 
-고객이 제품을 추가하면 [하나 이상의 특정 구독 또는 리소스 그룹을 위임](view-manage-service-providers.md#delegate-resources)할 수 있습니다. 그러면 Azure 위임 리소스 관리에 온보딩됩니다. 고객이 제품을 수락했지만 아직 리소스를 위임하지 않은 경우 Azure Portal에서 [**서비스 공급자**](view-manage-service-providers.md) 페이지의 **공급자 제품** 섹션 맨 위에 메모가 표시됩니다.
+고객이 제품을 추가하면 [하나 이상의 특정 구독 또는 리소스 그룹을 위임](view-manage-service-providers.md#delegate-resources)할 수 있습니다. 그러면 Azure 위임 리소스 관리에 온보딩됩니다. 고객이 제품을 수락했지만 아직 리소스를 위임하지 않은 경우 Azure Portal에서 [**서비스 공급자**](view-manage-service-providers.md) 페이지의 **공급자 제품** 섹션 맨 위에 메모가 표시됩니다. 고객의 테넌트에 있는 사용자가 이 위임을 수행할 수 없는 경우 해당 사용자에게 구독에 대한 소유자 역할이 없기 때문일 수 있습니다. 구독을 위임할 수 있는 사용자를 찾기 위해 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
 구독(또는 구독 내의 리소스 그룹)을 온보딩하려면 먼저 **Microsoft.ManagedServices** 리소스 공급자를 수동으로 등록하여 온보딩에 대한 권한을 구독에 부여해야 합니다. 기여자 또는 소유자 역할이 있는 고객 테넌트의 사용자는 [Azure 리소스 공급자 및 유형](../../azure-resource-manager/resource-manager-supported-services.md)에 설명된 단계에 따라 이 작업을 수행할 수 있습니다.
 

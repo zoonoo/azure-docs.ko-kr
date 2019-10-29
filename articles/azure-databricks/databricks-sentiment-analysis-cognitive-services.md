@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 1d8b3aad3104f07f8f6499c88f00328c95047816
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 1a0d0426904ef5f9f49a627120ff2cc65f630861
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274213"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72785937"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
 
@@ -24,7 +24,7 @@ ms.locfileid: "72274213"
 
 다음 그림에서는 애플리케이션 흐름을 보여줍니다.
 
-![Event Hubs 및 Cognitive Services를 사용하는 Azure Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png "Event Hubs 및 Cognitive Services를 사용하는 Azure Databricks")
+![Event Hubs 및 Cognitive Services가 있는 Azure Databricks](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-tutorial.png "Event Hubs 및 Cognitive Services가 있는 Azure Databricks")
 
 이 자습서에서 다루는 작업은 다음과 같습니다.
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 > [!Note]
 > 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
-> 무료 계정을 사용하여 Azure Databricks 클러스터를 만들려면 클러스터를 만들기 전에 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/?WT.mc_id=sparkeventhubs-docs-alehall)을 참조하세요.
+> 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -115,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. 웹 브라우저에서 [개발자용 Twitter](https://developer.twitter.com/en/apps)로 이동하여 **앱 만들기**를 선택합니다. Twitter 개발자 계정을 신청해야 한다는 메시지가 표시될 수 있습니다. 자유롭게 신청할 수 있으며, 신청이 승인되면 확인 이메일이 수신됩니다. 개발자 계정이 승인될 때까지 며칠이 걸릴 수 있습니다.
 
-    ![Twitter 개발자 계정 확인](./media/databricks-sentiment-analysis-cognitive-services/databricks-twitter-dev-confirmation.png "twitter 개발자 계정 확인")
+    ![Twitter 개발자 계정 확인](./media/databricks-sentiment-analysis-cognitive-services/databricks-twitter-dev-confirmation.png "Twitter 개발자 계정 확인")
 
 2. **애플리케이션 만들기** 페이지에서 새 앱에 대한 세부 정보를 제공한 다음, **Twitter 애플리케이션 만들기**를 선택합니다.
 
@@ -135,16 +135,16 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
 1. Azure Databricks 작업 영역에서 **클러스터**를 선택하고 기존 Spark 클러스터를 선택합니다. 클러스터 메뉴 내에서 **라이브러리**를 선택하고 **새로 설치**를 클릭합니다.
 
-   ![라이브러리 추가 대화 상자](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-locate-cluster.png "라이브러리 추가 클러스터 찾기")
+   ![라이브러리 추가 대화 상자](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-locate-cluster.png "라이브러리 찾기 클러스터 추가")
 
-   ![라이브러리 추가 대화 상자](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-install-new.png "라이브러리 추가 새로 설치")
+   ![라이브러리 추가 대화 상자](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-install-new.png "새 라이브러리 설치 추가")
 
 2. [새 라이브러리] 페이지에서 **원본**에 대해 **Maven**을 선택합니다. **좌표**에서 추가하려는 패키지의 **좌표 검색**을 클릭합니다. 이 자습서에서 사용된 라이브러리에 대한 Maven 코디네이트는 다음과 같습니다.
 
    * Spark Event Hubs 커넥터 - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.10`
    * Twitter API - `org.twitter4j:twitter4j-core:4.0.7`
 
-     ![Maven 코디네이트 제공](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search.png "Maven 코디네이트 제공")
+     ![Maven 좌표 제공](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search.png "Maven 좌표 제공")
 
      ![Maven 좌표 제공](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-search-dialogue.png "Maven 좌표 검색")
 
@@ -166,11 +166,11 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
 3. Azure Marketplace 아래에서 **AI + Cognitive Services** > **텍스트 분석 API**를 선택합니다.
 
-    ![Cognitive Services 계정 만들기](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "Cognitive Services 계정 만들기")
+    ![인지 서비스 계정 만들기](./media/databricks-sentiment-analysis-cognitive-services/databricks-cognitive-services-text-api.png "인지 서비스 계정 만들기")
 
 4. **만들기** 대화 상자에서 다음 값을 제공합니다.
 
-    ![Cognitive Services 계정 만들기](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "Cognitive Services 계정 만들기")
+    ![인지 서비스 계정 만들기](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "인지 서비스 계정 만들기")
 
    - Cognitive Services 계정에 대한 이름을 입력합니다.
    - 계정을 만들 Azure 구독을 선택합니다.
@@ -201,11 +201,11 @@ Twitter 애플리케이션에 대해 검색한 값을 저장합니다. 이러한
 
 1. 왼쪽 창에서 **작업 영역**을 선택합니다. **작업 영역** 드롭다운에서 **만들기**, **Notebook**을 차례로 선택합니다.
 
-    ![Databricks에서 노트북 만들기](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-notebook.png "Databricks에서 노트북 만들기")
+    ![Databricks에서 Notebook 만들기](./media/databricks-sentiment-analysis-cognitive-services/databricks-create-notebook.png "Databricks에서 Notebook 만들기")
 
 2. **Notebook 만들기** 대화 상자에서 **SendTweetsToEventHub**를 입력하고, **Scala**를 언어로 선택하고, 이전에 만든 Spark 클러스터를 선택합니다.
 
-    ![Databricks에서 노트북 만들기](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "Databricks에서 노트북 만들기")
+    ![Databricks에서 Notebook 만들기](./media/databricks-sentiment-analysis-cognitive-services/databricks-notebook-details.png "Databricks에서 Notebook 만들기")
 
     **만들기**를 선택합니다.
 

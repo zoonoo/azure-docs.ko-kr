@@ -9,10 +9,10 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.openlocfilehash: 03a07e70c967f92fe5dcc7c951aeea299b050405
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "71326983"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>자습서: 데이터 레이크 캡처 패턴을 구현하여 Databricks Delta 테이블 업데이트
@@ -55,7 +55,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 1. Azure Storage Explorer를 엽니다. 그런 다음, 스토리지 계정으로 이동하고 **Blob 컨테이너** 섹션에서 **data**라는 새 컨테이너를 만듭니다.
 
-   ![data 폴더](./media/data-lake-storage-events/data-container.png "data 폴더")
+   ![데이터 폴더](./media/data-lake-storage-events/data-container.png "데이터 폴더")
 
    Storage Explorer를 사용하는 방법에 대한 자세한 내용은 [Azure Storage Explorer를 사용하여 Azure Data Lake Storage Gen2 계정에서 데이터 관리](data-lake-storage-explorer.md)를 참조하세요.
 
@@ -121,11 +121,11 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
 1. 왼쪽 창에서 **작업 영역**을 선택합니다. **작업 영역** 드롭다운에서 **만들기** > **Notebook**을 차례로 선택합니다.
 
-    ![Databricks에서 노트북 만들기](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Databricks에서 노트북 만들기")
+    ![Databricks에서 Notebook 만들기](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Databricks에서 Notebook 만들기")
 
 2. **노트북 만들기** 대화 상자에서 노트북 이름을 입력합니다. 언어로 **Python**을 선택한 다음, 앞에서 만든 Spark 클러스터를 선택합니다.
 
-    ![Databricks에서 노트북 만들기](./media/data-lake-storage-events/new-databricks-notebook.png "Databricks에서 노트북 만들기")
+    ![Databricks에서 Notebook 만들기](./media/data-lake-storage-events/new-databricks-notebook.png "Databricks에서 Notebook 만들기")
 
     **만들기**를 선택합니다.
 
@@ -259,7 +259,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
   
 3. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** 단추를 선택한 다음, **컴퓨팅 > 함수 앱**을 차례로 선택합니다.
 
-   ![Azure Function 만들기](./media/data-lake-storage-events/function-app-create-flow.png "Azure Function 만들기")
+   ![Azure Function 만들기](./media/data-lake-storage-events/function-app-create-flow.png "Azure 함수 만들기")
 
 4. 함수 앱의 **만들기** 페이지에서 런타임 스택으로 **.NET Core**를 선택하고, Application Insights 인스턴스를 구성해야 합니다.
 
@@ -373,7 +373,7 @@ Azure Databricks 작업 영역에서 시작하여 이 솔루션을 역순으로 
 
    작업이 완료되면 완료 상태가 표시됩니다.
 
-   ![성공적으로 완료된 작업](./media/data-lake-storage-events/spark-job-completed.png "성공적으로 완료된 작업")
+   ![성공적으로 작업이 완료됨](./media/data-lake-storage-events/spark-job-completed.png "성공적으로 작업이 완료됨")
 
 5. 새 통합 문서 셀의 셀에서 이 쿼리를 실행하여 업데이트된 델타 테이블을 확인합니다.
 

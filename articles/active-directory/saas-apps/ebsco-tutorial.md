@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/24/2019
+ms.date: 10/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebaf3a1d877025cafe8829bc937ef032a3c95d03
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f37085744b9a0e7785ef3a411d53e4df5d15e494
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163450"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595019"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ebsco"></a>자습서: EBSCO와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -68,10 +68,10 @@ EBSCO의 Azure AD 통합을 구성하려면 갤러리의 EBSCO를 관리되는 S
 EBSCO에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[EBSCO SSO 구성](#configure-ebsco-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[EBSCO 테스트 사용자 만들기](#create-ebsco-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 EBSCO에 만듭니다.
+    * **[EBSCO 테스트 사용자 만들기](#create-ebsco-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 EBSCO에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -100,6 +100,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     o   **Custid** = 고유한 EBSCO 고객 ID를 입력합니다. 
 
     o   **Profile** = 클라이언트는 링크를 조정하여 사용자를 특정 프로필에 연결할 수 있습니다(EBSCO에서 구매한 제품에 따라 다름). 특정 프로필 ID를 입력할 수 있습니다. 주 ID는 eds(EBSCO 검색 서비스) 및 ehost(EBSOCOhost 데이터베이스)입니다. 동일한 경우에 대한 지침은 [여기](https://help.ebsco.com/interfaces/EBSCOhost/EBSCOhost_FAQs/How_do_I_set_up_direct_links_to_EBSCOhost_profiles_and_or_databases#profile)를 참조하세요.
+
+1. EBSCO 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
+
+    ![이미지](common/default-attributes.png)
+
+    > [!Note]
+    > **name** 특성은 필수이며 EBSCO 애플리케이션의 **이름 식별자 값**에 매핑됩니다. 기본적으로 추가되므로 수동으로 추가할 필요가 없습니다.
+
+1. 위에서 언급한 특성 외에도 EBSCO 애플리케이션에는 아래에서 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
+
+    | Name | 원본 특성|
+    | ---------------| --------------- |
+    | FirstName   | user.givenname |
+    | LastName   | user.surname |
+    | Email   | user.mail |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -151,8 +166,8 @@ EBSCO의 경우 사용자 프로비저닝은 자동입니다.
 
 Azure AD는 필요한 데이터를 EBSCO 애플리케이션으로 전달합니다. EBSCO의 사용자 프로비저닝은 자동으로 진행되거나 일회성 양식이 필요합니다. 어떤 방식인지는 클라이언트에 개인 설정이 저장된 기존 EBSCOhost 계정이 많이 있는지에 따라 좌우됩니다. 구현 동안 [EBSCO 지원 팀](mailto:support@ebsco.com)에서 동일한 내용이 논의될 수 있습니다. 어떤 방법이든, 클라이언트는 테스트하기 전에 EBSCOhost 계정을 만들 필요가 없습니다.
 
-   >[!Note]
-   >EBSCOhost 사용자 프로비저닝/개인 설정을 자동화할 수 있습니다. Just-In-Time 사용자 프로비저닝에 대해서는 [EBSCO 지원 팀](mailto:support@ebsco.com)에 문의하세요.
+   > [!Note]
+   > EBSCOhost 사용자 프로비저닝/개인 설정을 자동화할 수 있습니다. Just-In-Time 사용자 프로비저닝에 대해서는 [EBSCO 지원 팀](mailto:support@ebsco.com)에 문의하세요.
 
 ## <a name="test-sso"></a>SSO 테스트
 
@@ -180,4 +195,3 @@ Azure AD는 필요한 데이터를 EBSCO 애플리케이션으로 전달합니�
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD로 EBSCO 사용해보기](https://aad.portal.azure.com/)
-

@@ -17,10 +17,10 @@ ms.date: 08/29/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 28f3fca731c9ceb28f66ecd1c178e5c025f80ede
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70163538"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-envoy"></a>자습서: Envoy와 Azure Active Directory SSO(Single Sign-On) 통합
@@ -152,7 +152,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 5. **회사**를 클릭합니다.
 
-    ![회사](./media/envoy-tutorial/ic776783.png "회사")
+    ![Company](./media/envoy-tutorial/ic776783.png "회사")
 
 6. **SAML**을 클릭합니다.
 
@@ -160,7 +160,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 7. **SAML 인증** 구성 섹션에서 다음 단계를 수행합니다.
 
-    ![SAML 인증](./media/envoy-tutorial/ic776785.png "SAML 인증")
+    ![SAML 인증](./media/envoy-tutorial/ic776785.png "SAML 인정")
     
     >[!NOTE]
     >HQ 위치 ID에 대한 값은 애플리케이션에서 자동으로 생성됩니다.

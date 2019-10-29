@@ -1,11 +1,11 @@
 ---
-title: '자습서: AcquireIO과 Azure Active Directory 통합 | Microsoft Docs'
+title: '자습서: AcquireIO와 Azure Active Directory SSO(Single Sign-On) 연결 | Microsoft Docs'
 description: Azure Active Directory와 AcquireIO 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: celested
+ms.reviewer: barbkess
 ms.assetid: 97815e13-32ec-4470-b075-1253f5814f4f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/26/2019
+ms.date: 10/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75a92e78e7293316cad6e567ae49c4998299415c
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.openlocfilehash: 17cc6df651a82b416e670ee5ca5683c428eac6b5
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67544564"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72596264"
 ---
-# <a name="tutorial-integrate-acquireio-with-azure-active-directory"></a>자습서: Azure Active Directory와 AcquireIO 통합
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-acquireio"></a>자습서: AcquireIO와 Azure Active Directory SSO(Single Sign-On) 연결
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 AcquireIO를 통합하는 방법에 대해 알아봅니다. Azure AD와 AcquireIO를 통합하면 다음 작업을 수행할 수 있습니다.
 
@@ -42,7 +42,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. AcquireIO에서 **IDP** 시작 SSO를 지원합니다.
+이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
+
+* AcquireIO에서 **IDP** 시작 SSO를 지원합니다.
 
 ## <a name="adding-acquireio-from-the-gallery"></a>갤러리에서 AcquireIO 추가
 
@@ -55,67 +57,43 @@ Azure AD에 AcquireIO 통합을 구성하려면 갤러리의 AcquireIO를 관리
 1. **갤러리에서 추가** 섹션의 검색 상자에 **AcquireIO**를 입력합니다.
 1. 결과 패널에서 **AcquireIO**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
+## <a name="configure-and-test-azure-ad-single-sign-on-for-acquireio"></a>AcquireIO용 Azure AD Single Sign-On 구성 및 테스트
 
 **B. Simon**이라는 테스트 사용자를 사용하여 AcquireIO에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 AcquireIO의 관련 사용자 간에 링크 관계를 설정해야 합니다.
 
 AcquireIO에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
-1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD SSO를 구성](#configure-azure-ad-sso)** 합니다.
-2. **[AcquireIO 구성](#configure-acquireio)** - 애플리케이션 쪽에서 SSO 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B. Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-on을 사용할 수 있도록 합니다.
-5. **[AcquireIO 테스트 사용자 만들기](#create-acquireio-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 AcquireIO에 만듭니다.
-6. **[SSO를 테스트](#test-sso)** 하여 구성이 작동하는지 여부를 확인합니다.
+1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
+    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[AcquireIO SSO 구성](#configure-acquireio-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    * **[AcquireIO 테스트 사용자 만들기](#create-acquireio-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 AcquireIO에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
-### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
+## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
 Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com/)의 **AcquireIO** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 다음, **Single Sign-On**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com/)의 **AcquireIO** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾아 **Single Sign-On**을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
 1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-4. **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
     **회신 URL** 텍스트 상자에 `https://app.acquire.io/ad/<acquire_account_uid>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
     > 이 값은 실제 값이 아닙니다. 실제 응답 URL을 받게 됩니다. 이 내용은 자습서의 뒷부분에 **AcquireIO 구성** 섹션에 설명되어 있습니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드하고 본인의 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
-   ![인증서 다운로드 링크](common/certificatebase64.png)
+    ![인증서 다운로드 링크](common/certificatebase64.png)
 
 1. **AcquireIO 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
-   ![구성 URL 복사](common/copy-configuration-urls.png)
-
-### <a name="configure-acquireio"></a>AcquireIO 구성
-
-1. 다른 웹 브라우저 창에서 AcquireIO에 관리자로 로그인합니다.
-
-2. 메뉴 왼쪽에서 **앱 스토어**를 클릭합니다.
-
-     ![AcquireIO 구성](./media/acquireio-tutorial/config01.png)
-
-3. **Active Directory**까지 아래로 스크롤하고 **설치**를 클릭합니다.
-
-    ![AcquireIO 구성](./media/acquireio-tutorial/config02.png)
-
-4. Active Directory 팝업에서 다음 단계를 수행합니다.
-
-    ![AcquireIO 구성](./media/acquireio-tutorial/config03.png)
-
-    a. **복사**를 클릭하고 인스턴스의 회신 URL을 복사하여 Azure Portal에서 **기본 SAML 구성** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
-
-    b. Azure Portal에서 복사한 **로그인 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
-
-    다. 메모장에서 Base64로 인코딩된 인증서를 열고 콘텐츠를 복사한 다음, **X.509 인증서** 텍스트 상자에 붙여넣습니다.
-
-    d. **지금 연결**을 클릭합니다.
+    ![구성 URL 복사](common/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -147,6 +125,38 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
+## <a name="configure-acquireio-sso"></a>AcquireIO SSO 구성
+
+1. AcquireIO 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+1. 브라우저에 확장을 추가한 후 **AcquireIO 설정**을 클릭하면 AcquireIO 애플리케이션으로 연결됩니다. 여기서는 AcquireIO에 로그인하는 데 필요한 관리자 자격 증명을 제공합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-6단계를 자동으로 수행합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+1. AcquireIO를 수동으로 설정하려면 다른 웹 브라우저 창에서 AcquireIO에 관리자로 로그인합니다.
+
+1. 메뉴 왼쪽에서 **앱 스토어**를 클릭합니다.
+
+     ![AcquireIO 구성](./media/acquireio-tutorial/config01.png)
+
+1. **Active Directory**까지 아래로 스크롤하고 **설치**를 클릭합니다.
+
+    ![AcquireIO 구성](./media/acquireio-tutorial/config02.png)
+
+1. Active Directory 팝업에서 다음 단계를 수행합니다.
+
+    ![AcquireIO 구성](./media/acquireio-tutorial/config03.png)
+
+    a. **복사**를 클릭하고 인스턴스의 회신 URL을 복사하여 Azure Portal에서 **기본 SAML 구성** 섹션의 **회신 URL** 텍스트 상자에 붙여넣습니다.
+
+    b. Azure Portal에서 복사한 **로그인 URL** 값을 **로그인 URL** 텍스트 상자에 붙여넣습니다.
+
+    다. 메모장에서 Base64로 인코딩된 인증서를 열고 콘텐츠를 복사한 다음, **X.509 인증서** 텍스트 상자에 붙여넣습니다.
+
+    d. **지금 연결**을 클릭합니다.
+
 ### <a name="create-acquireio-test-user"></a>AcquireIO 테스트 사용자 만들기
 
 Azure AD 사용자가 AcquireIO에 로그인하려면 AcquireIO에 프로비저닝되어야 합니다. AcquireIO에서는 프로비저닝이 수동 작업입니다.
@@ -155,11 +165,11 @@ Azure AD 사용자가 AcquireIO에 로그인하려면 AcquireIO에 프로비저�
 
 1. 다른 웹 브라우저 창에서 AcquireIO에 관리자로 로그인합니다.
 
-2. 왼쪽 메뉴에서 **프로필**을 클릭하고 **프로필 추가**로 이동합니다.
+1. 왼쪽 메뉴에서 **프로필**을 클릭하고 **프로필 추가**로 이동합니다.
 
      ![AcquireIO 구성](./media/acquireio-tutorial/config04.png)
 
-3. **고객 추가** 팝업에서 다음 단계를 수행합니다.
+1. **고객 추가** 팝업에서 다음 단계를 수행합니다.
 
     ![AcquireIO 구성](./media/acquireio-tutorial/config05.png)
 
@@ -169,14 +179,18 @@ Azure AD 사용자가 AcquireIO에 로그인하려면 AcquireIO에 프로비저�
 
     다. **제출**을 클릭합니다.
 
-### <a name="test-sso"></a>SSO 테스트
+## <a name="test-sso"></a>SSO 테스트 
 
-액세스 패널에서 AcquireIO 타일을 선택하면 SSO를 설정한 AcquireIO에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
+
+액세스 패널에서 AcquireIO 타일을 클릭하면 SSO를 설정한 AcquireIO에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Azure AD로 AcquireIO 사용해 보기](https://aad.portal.azure.com/)

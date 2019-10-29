@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 10/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe02e9d6c3fa69e0ccd88057e10edb6ea1c6e0d0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 15e98bf83cedc22aa565ba0f98089e9f6f217728
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986054"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787644"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-workplace-by-facebook"></a>자습서: Workplace by Facebook과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -63,7 +63,6 @@ Azure AD에 Workplace by Facebook을 통합하도록 구성하려면 갤러리�
 1. **갤러리에서 추가** 섹션의 검색 상자에서 **Workplace by Facebook**을 입력합니다.
 1. 결과 패널에서 **Workplace by Facebook**을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
 ## <a name="configure-and-test-azure-ad-sso-for-workplace-by-facebook"></a>Workplace by Facebook용 Azure AD SSO 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 Workplace by Facebook에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Workplace by Facebook의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -71,10 +70,10 @@ Azure AD에 Workplace by Facebook을 통합하도록 구성하려면 갤러리�
 Workplace by Facebook에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 2. **[Workplace by Facebook SSO 구성](#configure-workplace-by-facebook-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[Workplace by Facebook 테스트 사용자 만들기](#create-workplace-by-facebook-test-user)** - B.Simon의 Azure AD 표현과 연결된 사용자를 Workplace by Facebook에 만듭니다.
+    * **[Workplace by Facebook 테스트 사용자 만들기](#create-workplace-by-facebook-test-user)** - B.Simon의 Azure AD 표현과 연결된 사용자를 Workplace by Facebook에 만듭니다.
 3. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -96,11 +95,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE] 
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 값을 업데이트합니다. Workplace 커뮤니티에 대한 올바른 값을 보려면 Workplace 회사 대시보드의 인증 페이지를 참조하세요.
 
-4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 본인의 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 본인의 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
-6. **Workplace by Facebook 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+1. **Workplace by Facebook 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
@@ -136,24 +135,36 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-workplace-by-facebook-sso"></a>Workplace by Facebook SSO 구성
 
-1. 다른 웹 브라우저 창에서 Workplace by Facebook 회사 사이트에 관리자로 로그인합니다.
-  
+1. Facebook별 Workplace 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
+
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+1. 브라우저에 확장을 추가한 후 **Facebook별 Workplace 설정**을 클릭하면 Facebook별 Workplace 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Facebook별 Workplace에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-5단계를 자동으로 수행합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+1. Facebook별 Workplace를 수동으로 설정하려면 새 웹 브라우저 창을 열고 Facebook별 Workplace 회사 사이트에 관리자로 로그인하여 다음 단계를 수행합니다.
+
     > [!NOTE]
     > SAML 인증 프로세스의 일환으로 Workplace는 Azure AD에 매개 변수를 전달하기 위해 최대 2.5KB 크기의 쿼리 문자열을 사용할 수 있습니다.
 
-2. **관리 패널**에서 **보안** 탭으로 이동합니다.
+1. 왼쪽 탐색 패널에서 **Security** > **Authentication** 탭으로 이동합니다.
 
     ![관리 패널](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-3. **인증** 탭에서 **SSO(Single Sign-On)** 를 선택하고 다음 단계를 수행합니다.
+    a. **SSO(Single-Sign On)** 옵션을 선택합니다.
+    
+    b. **+새 SSO 공급자 추가**를 클릭합니다.
+
+1. **인증** 탭에서 **SSO(Single Sign-On)** 를 선택하고 다음 단계를 수행합니다.
 
     ![[인증] 탭](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-    a. **SAML URL** 텍스트 상자에, Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
+    a. **SSO 공급자 이름**에 Azureadsso와 같은 SSO 인스턴스 이름을 입력합니다.
 
-    b. **SAML 발급자 URI 텍스트 상자**에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
+    b. **SAML URL** 텍스트 상자에, Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
-    다. **SAML 로그아웃 리디렉션**(선택 사항)에 Azure Portal에서 복사한 **로그아웃 URL** 값을 붙여넣습니다.
+    다. **SAML 발급자 URL 텍스트 상자**에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
 
     d. Azure Portal에서 다운로드한 **base-64로 인코딩된 인증서**를 메모장에서 열고, 콘텐츠를 클립보드에 복사한 다음 **SAML 인증서** 텍스트 상자에 붙여 넣습니다.
 
@@ -169,7 +180,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     i. Workplace를 사용하는 모든 사용자에게 이제 인증을 위한 Azure AD 로그인 페이지가 제공됩니다.
 
-4. **SAML 로그아웃 리디렉션(선택 사항)**  -
+1. **SAML 로그아웃 리디렉션(선택 사항)**  -
 
     Azure AD의 로그아웃 페이지를 가리키는 데 사용할 수 있는 SAML 로그아웃 URL을 선택적으로 구성하도록 선택할 수 있습니다. 이 설정을 사용하도록 설정하고 구성하면 더 이상 사용자가 Workplace 로그아웃 페이지로 이동하지 않습니다. 대신 SAML 로그아웃 리디렉션 설정에 추가된 URL로 사용자가 리디렉션됩니다.
 
@@ -230,4 +241,3 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [사용자 프로비저닝 구성](workplacebyfacebook-provisioning-tutorial.md)
 
 - [Azure AD를 사용하여 Workplace by Facebook 체험](https://aad.portal.azure.com)
-

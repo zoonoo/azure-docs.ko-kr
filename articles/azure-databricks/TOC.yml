@@ -515,7 +515,7 @@
               maintainContext: true
         - name: Metastore
           items:
-            - name: 외부 Hive metastore
+            - name: 외부 Hive 메타스토어
               href: /azure/databricks/data/metastores/external-hive-metastore
               maintainContext: true
     - name: 비즈니스 인텔리전스 도구
@@ -1321,16 +1321,16 @@
             - name: Azure metastore에서 테이블 삭제 시 AnalysisException 발생
               href: /azure/databricks/kb/metastore/drop-table-exception-azure-metastore
               maintainContext: true
-            - name: 일반적인 Hive metastore 문제
+            - name: 일반적인 Hive 메타스토어 문제
               href: /azure/databricks/kb/metastore/hive-metastore-troubleshooting
               maintainContext: true
             - name: 테이블 이름 나열
               href: /azure/databricks/kb/metastore/list-tables
               maintainContext: true
-            - name: 포함된 Hive metastore 설정
+            - name: 포함된 Hive 메타스토어 설정
               href: /azure/databricks/kb/metastore/set-up-embedded-metastore
               maintainContext: true
-            - name: SQL Server에 Hive metastore 설정
+            - name: SQL Server에 Hive 메타스토어 설정
               href: /azure/databricks/kb/metastore/set-up-sql-backed-hive-metastore
               maintainContext: true
         - name: 메트릭

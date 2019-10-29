@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: overview
 ms.date: 06/11/2019
-ms.openlocfilehash: f950d273e16dc7fc25f443fda58f9d6582085129
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 1cea76bec3a1b8b698a604c0bac491ac0319a10e
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076394"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72791170"
 ---
 # <a name="what-is-azure-hdinsight"></a>Azure HDInsight란?
 
@@ -56,7 +56,7 @@ ETL(추출, 변환 및 로드)은 구조화되지 않았거나 구조화된 데�
 
 어떤 형식의 구조화되거나 구조화되지 않은 데이터에 대해 페타바이트 규모의 대화형 쿼리를 수행하는 데 HDInsight를 사용할 수 있습니다. 모델을 BI 도구에 연결하여 작성할 수도 있습니다. 자세한 내용은 [이 고객 스토리를 참고하세요](https://customers.microsoft.com/story/milliman). 
 
-![HDInsight 아키텍처: 데이터 웨어하우징](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "HDInsight 데이터 웨어하우징 아키텍처")
+![HDInsight 아키텍처: 데이터 웨어하우징](./hadoop/media/apache-hadoop-introduction/hdinsight-architecture-data-warehouse.png "HDInsight Data 웨어하우징 아키텍처")
 
 ### <a name="internet-of-things-iot"></a>IoT(사물 인터넷)
 
@@ -86,7 +86,7 @@ HDInsight에는 구성 요소, 유틸리티 및 언어 추가와 같은 특정 �
 |[Apache Spark](https://spark.apache.org/)|메모리 내 처리를 지원하여 빅데이터 분석 애플리케이션의 성능을 향상하는 오픈 소스 병렬 처리 프레임워크입니다. [HDInsight의 Apache Spark란?](./spark/apache-spark-overview.md)을 참조하세요.|
 |[Apache HBase](https://hbase.apache.org/)|구조화되지 않은/반구조화된 대량 데이터(잠재적으로 수십억 개의 행과 수십억 개의 열로 구성됨)에 대해 임의 액세스 및 강력한 일관성을 제공하는 Hadoop 기반의 NoSQL 데이터베이스입니다. [HDInsight의 HBase란?](./hbase/apache-hbase-overview.md)을 참조하세요.|
 |[ML Services](https://docs.microsoft.com/machine-learning-server/rebranding-microsoft-r-server)|병렬 분산된 R 프로세스를 호스트하고 관리하기 위한 서버입니다. 데이터 과학자, 통계학자 및 R 프로그래머에게 HDInsight의 확장 가능한 분산형 분석 방법에 요청 시 액세스할 수 있도록 해줍니다. [HDInsight의 ML 서비스 개요](./r-server/r-server-overview.md)를 참조하세요.|
-|[Apache Storm](https://storm.incubator.apache.org/)|대규모 데이터 스트림을 빠르게 처리하기 위한 분산형 실시간 계산 시스템입니다. HDInsight에서 관리 클러스터로 제공됩니다. [Storm 및 Hadoop을 사용하여 실시간 센서 데이터 분석](./storm/apache-storm-sensor-data-analysis.md)을 참조하세요.|
+|[Apache Storm](https://storm.incubator.apache.org/)|대규모 데이터 스트림을 빠르게 처리하기 위한 분산형 실시간 계산 시스템입니다. HDInsight에서 관리 클러스터로 제공됩니다. [Storm 및 Hadoop을 사용하여 실시간 센서 데이터 분석](/azure/hdinsight/storm/apache-storm-overview)을 참조하세요.|
 |[Apache 대화형 쿼리](https://cwiki.apache.org/confluence/display/Hive/LLAP)|대화형 및 더 빠른 Hive 쿼리에 대한 메모리 내 캐싱입니다. [HDInsight에서 대화형 쿼리 사용](./interactive-query/apache-interactive-query-get-started.md)을 참조하세요.|
 |[Apache Kafka](https://kafka.apache.org/)|스트리밍 데이터 파이프라인 및 애플리케이션을 빌드하는 데 사용되는 오픈 소스 플랫폼입니다. 또한 Kafka는 데이터 스트림을 게시하고 구독할 수 있는 메시지 큐 기능을 제공합니다. [HDInsight에서 Apache Kafka에 대한 소개](./kafka/apache-kafka-introduction.md)를 참조하세요.|
 

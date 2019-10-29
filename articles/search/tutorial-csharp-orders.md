@@ -1,24 +1,25 @@
 ---
-title: 결과 정렬에 대한 C# 자습서 - Azure Search
-description: 이 자습서는 "검색 결과 페이지 매김 - Azure Search" 프로젝트를 기반으로 하여 검색 결과의 정렬을 추가합니다. 기본 속성에 대한 결과를 정렬하는 방법 및 기본 속성이 동일한 결과의 경우 보조 속성에 대한 결과를 정렬하는 방법을 알아봅니다. 마지막으로, 점수 매기기 프로필에 따라 결과를 정렬하는 방법을 알아봅니다.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: 결과 정렬에 대한 C# 자습서
+titleSuffix: Azure Cognitive Search
+description: 이 자습서는 "검색 결과 페이지 매김 - Azure Cognitive Search" 프로젝트를 기반으로 하여 검색 결과의 정렬을 추가합니다. 기본 속성에 대한 결과를 정렬하는 방법 및 기본 속성이 동일한 결과의 경우 보조 속성에 대한 결과를 정렬하는 방법을 알아봅니다. 마지막으로, 점수 매기기 프로필에 따라 결과를 정렬하는 방법을 알아봅니다.
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/21/2019
-ms.openlocfilehash: 684ce33e5ecf587aa2030a817680f2d405225117
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327658"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794044"
 ---
-# <a name="c-tutorial-order-the-results---azure-search"></a>C# 자습서: 결과 정렬 - Azure Search
+# <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C# 자습서: 결과 정렬 - Azure Cognitive Search
 
 자습서 시리즈의 이 시점까지는 결과가 반환되어 기본 순서로 표시됩니다. 이는 데이터가 위치한 순서이거나 기본 _점수 매기기 프로필_이 정의되었을 수 있으며, 이 프로필은 정렬 매개 변수를 지정하지 않은 경우에 사용됩니다. 이 자습서에서는 기본 속성에 따라 결과를 정렬하는 방법을 살펴본 다음, 기본 속성이 동일한 결과에 대해 보조 속성에 대한 해당 선택 항목을 정렬하는 방법에 대해 살펴보겠습니다. 최종적인 예제에서는 숫자 값에 따라 정렬하는 대신 사용자 지정 점수 매기기 프로필에 따라 정렬하는 방법을 보여 줍니다. _복합 형식_의 표시에 대해서도 좀 더 자세히 살펴봅니다.
 
-반환된 결과를 쉽게 비교하기 위해 이 프로젝트는 [C# 자습서: 검색 결과 페이지 매김 - Azure Search](tutorial-csharp-paging.md) 자습서에서 만든 무한 스크롤 프로젝트를 기반으로 합니다.
+반환된 결과를 쉽게 비교하기 위해 이 프로젝트는 [C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search](tutorial-csharp-paging.md) 자습서에서 만든 페이지 매김 프로젝트를 기반으로 합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -31,7 +32,7 @@ ms.locfileid: "71327658"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-[C# 자습서: 검색 결과 페이지 매김 - Azure Search](tutorial-csharp-paging.md) 프로젝트의 무한 스크롤 버전을 프로젝트를 가동하여 실행합니다. 이 프로젝트는 사용자 고유의 버전이거나 GitHub: [첫 번째 앱 만들기](https://github.com/Azure-Samples/azure-search-dotnet-samples)에서 설치할 수 있습니다.
+[C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search](tutorial-csharp-paging.md) 프로젝트를 가동하여 실행합니다. 이 프로젝트는 사용자 고유의 버전이거나 GitHub: [첫 번째 앱 만들기](https://github.com/Azure-Samples/azure-search-dotnet-samples)에서 설치할 수 있습니다.
 
 ## <a name="order-results-based-on-one-property"></a>단일 속성 기준의 결과 정렬
 
@@ -435,7 +436,7 @@ ms.locfileid: "71327658"
     OrderBy = new[] { $"geo.distance(Location, geography'POINT({model.lon} {model.lat})') asc" },
     ```
 
-3. Azure Search에서 거리 필터를 사용하여 결과를 반환했지만 데이터와 지정된 지점 사이를 계산한 거리는 반환되지 _않습니다_. 이 값을 결과에 표시하려면 보기 또는 컨트롤러에서 해당 값을 다시 계산합니다.
+3. Azure Cognitive Search에서 거리 필터를 사용하여 결과를 반환했지만 데이터와 지정된 지점 사이를 계산한 거리는 반환되지 _않습니다_. 이 값을 결과에 표시하려면 보기 또는 컨트롤러에서 해당 값을 다시 계산합니다.
 
     다음 코드는 두 개의 lat/lon(위도/경도) 지점 사이의 거리를 계산합니다.
 
@@ -465,7 +466,7 @@ ms.locfileid: "71327658"
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>점수 매기기 프로필 기준의 결과 정렬
 
-지금까지 자습서에 나와 있는 예제에서는 _정확한_ 정렬 프로세스를 제공하면서 숫자 값(등급, 리모델링 날짜, 지리적 거리)을 기준으로 정렬하는 방법을 보여 주었습니다. 그러나 일부 검색과 일부 데이터에서 자체적으로 두 데이터 요소를 쉽게 비교할 수 없습니다. Azure Search에는 _점수 매기기_라는 개념이 있습니다. _점수 매기기 프로필_은 더 복잡하고 정성적인 비교를 제공하는 데 사용할 수 있는 데이터 세트에 대해 지정할 수 있습니다. 예를 들어 텍스트 기반 데이터를 비교하여 먼저 표시할 데이터를 결정할 때 가장 유용합니다.
+지금까지 자습서에 나와 있는 예제에서는 _정확한_ 정렬 프로세스를 제공하면서 숫자 값(등급, 리모델링 날짜, 지리적 거리)을 기준으로 정렬하는 방법을 보여 주었습니다. 그러나 일부 검색과 일부 데이터에서 자체적으로 두 데이터 요소를 쉽게 비교할 수 없습니다. Azure Cognitive Search에는 _점수 매기기_라는 개념이 있습니다. _점수 매기기 프로필_은 더 복잡하고 정성적인 비교를 제공하는 데 사용할 수 있는 데이터 세트에 대해 지정할 수 있습니다. 예를 들어 텍스트 기반 데이터를 비교하여 먼저 표시할 데이터를 결정할 때 가장 유용합니다.
 
 점수 매기기 프로필은 일반적으로 사용자가 정의하는 것이 아니라 데이터 세트의 관리자가 정의합니다. 호텔 데이터에 대한 몇 가지 점수 매기기 프로필이 설정되어 있습니다. 점수 매기기 프로필이 정의된 방법을 살펴본 다음, 이 프로필을 검색하는 코드를 작성해 보겠습니다.
 
@@ -957,7 +958,7 @@ ms.locfileid: "71327658"
 
 ### <a name="resources"></a>리소스
 
-자세한 내용은 [Azure Search 인덱스에 점수 매기기 프로필 추가](https://docs.microsoft.com/azure/search/index-add-scoring-profiles)를 참조하세요.
+자세한 내용은 [Azure Cognitive Search 인덱스에 점수 매기기 프로필 추가](https://docs.microsoft.com/azure/search/index-add-scoring-profiles)를 참조하세요.
 
 ## <a name="takeaways"></a>핵심 내용
 
@@ -971,6 +972,6 @@ ms.locfileid: "71327658"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 시리즈의 C# 자습서를 완료했으므로 Azure Search API에 대한 유용한 지식을 갖추었습니다.
+이 시리즈의 C# 자습서를 완료했으므로 Azure Cognitive Search API에 대한 유용한 지식을 갖추었습니다.
 
-추가 참조 및 자습서를 보려면 [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure) 또는 [Azure Search 설명서](https://docs.microsoft.com/azure/search/)의 다른 자습서를 찾아보는 것이 좋습니다.
+추가 참조 및 자습서를 보려면 [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure) 또는 [Azure Cognitive Search 설명서](https://docs.microsoft.com/azure/search/)의 다른 자습서를 찾아보는 것이 좋습니다.

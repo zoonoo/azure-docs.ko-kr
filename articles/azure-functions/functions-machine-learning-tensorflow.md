@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: abc7302ee59103a9cbab156b95a41b77eb95d474
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e243fd2f5c4a90e45f424ce39a97913df2332b2b
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729160"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677869"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>자습서: Azure Functions에서 Python 및 TensorFlow를 사용하여 기계 학습 모델 적용
 
@@ -140,7 +140,7 @@ Azure Custom Vision Service에서 학습시키고 내보낸 미리 작성된 Ten
 > [!NOTE]
 > Custom Vision Service의 체험 계층을 사용하여 직접 빌드하려면 [샘플 프로젝트 리포지토리의 지침](https://github.com/Azure-Samples/functions-python-tensorflow-tutorial/blob/master/train-custom-vision-model.md)을 따를 수 있습니다.
 
-모델은 *<REPOSITORY_ROOT>/resources/model* 폴더의 두 파일인 *model.db* 및 *labels.txt*로 구성됩니다. 이러한 파일을 *classify* 함수의 폴더에 복사합니다.
+모델은 *<REPOSITORY_ROOT>/resources/model* 폴더의 두 파일인 *model.pb* 및 *labels.txt*로 구성됩니다. 이러한 파일을 *classify* 함수의 폴더에 복사합니다.
 
 #### <a name="linux-and-macos"></a>Linux 및 macOS:
 
@@ -179,7 +179,7 @@ copy ..\resources\predict.py classify
 도우미 라이브러리에는 설치해야 하는 몇 가지 종속성이 있습니다. 편집기에서 *start/requirements.txt*를 열고, 다음 종속성을 파일에 추가합니다.
 
 ```txt
-tensorflow
+tensorflow==1.15
 Pillow
 requests
 ```

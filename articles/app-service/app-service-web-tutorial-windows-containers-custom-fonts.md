@@ -10,15 +10,15 @@ ms.service: app-service-web
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: quickstart
-ms.date: 04/03/2019
+ms.date: 10/22/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f44c7a66b6d8fe7ed6ad114ea176c84351ac6493
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6f9005b0e73e60bf479d0d3c059c301668f3b848
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071511"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72787329"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Windows 컨테이너를 사용하여 ASP.NET 앱을 Azure App Service로 마이그레이션(미리 보기)
 
@@ -90,6 +90,10 @@ RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 
 _InstallFont.ps1_은 **CustomFontSample** 프로젝트에서 찾을 수 있습니다. 글꼴을 설치하는 간단한 스크립트입니다. [스크립트 센터](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133)에서 더 복잡한 스크립트 버전을 찾을 수 있습니다.
 
+> [!NOTE]
+> Windows 컨테이너를 로컬로 테스트하려면 로컬 머신에서 Docker가 시작되었는지 확인합니다.
+>
+
 ## <a name="publish-to-azure-container-registry"></a>Azure Container Registry에 게시
 
 [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/)는 컨테이너 배포용 이미지를 저장할 수 있습니다. Azure Container Registry에서 호스트되는 이미지를 사용하도록 App Service를 구성할 수 있습니다.
@@ -135,27 +139,34 @@ _InstallFont.ps1_은 **CustomFontSample** 프로젝트에서 찾을 수 있습�
 
 왼쪽 메뉴에서 **리소스 만들기** > **웹** > **Web App for Containers**를 선택합니다.
 
-### <a name="configure-the-new-web-app"></a>새 웹앱 구성
+### <a name="configure-app-basics"></a>앱 기본 사항 구성
 
-만들기 인터페이스에서 다음 표에 따라 설정을 구성합니다.
+**기본 사항** 탭에서 다음 표에 따라 설정을 구성한 후, **다음: Docker**를 클릭합니다.
 
 | 설정  | 제안 값 | Blob에 대한 자세한 내용은 |
 | ----------------- | ------------ | ----|
-|**앱 이름**| 고유한 이름을 입력합니다. | 웹앱의 URL은 `http://<app_name>.azurewebsites.net`이며, 여기서 `<app_name>`은 앱 이름입니다. |
-|**리소스 그룹**| **기존 항목 사용**을 선택하고, **myResourceGroup**을 입력합니다. |  |
-|**OS**| Windows(미리 보기) | |
+|**구독**| 올바른 구독을 선택하는지 확인합니다. |  |
+|**리소스 그룹**| **새로 만들기**를 선택하고, **myResourceGroup**을 입력하고, **확인**을 클릭합니다. |  |
+|**Name**| 고유한 이름을 입력합니다. | 웹앱의 URL은 `http://<app-name>.azurewebsites.net`이며, 여기서 `<app-name>`은 앱 이름입니다. |
+|**게시**| Docker 컨테이너 | |
+|**운영 체제**| Windows | |
+|**지역**| 서유럽 | |
+|**Windows 플랜**| **새로 만들기**를 선택하고, **myAppServicePlan**을 입력하고, **확인**을 클릭합니다. | |
 
-### <a name="configure-app-service-plan"></a>App Service 계획 구성
+**기본 사항** 탭은 다음과 같아야 합니다.
 
-**App Service 계획/위치** > **새로 만들기**를 클릭합니다. 새 계획 이름을 입력하고 **유럽 서부**를 위치로 선택하고 **확인**을 클릭합니다.
+![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-basics.png)
 
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-service-plan.png)
+### <a name="configure-windows-container"></a>Windows 컨테이너 구성
 
-### <a name="configure-container"></a>컨테이너 구성
+**Docker** 탭에서 다음 표에 표시된 대로 사용자 지정 Windows 컨테이너를 구성하고 **검토 + 만들기**를 선택합니다.
 
-**컨테이너 구성** > **Azure Container Registry**를 클릭합니다. 앞서 [Azure Container Registry에 게시](#publish-to-azure-container-registry)에서 만든 레지스트리, 이미지 및 태그를 선택하고 **확인**을 클릭합니다.
-
-![](media/app-service-web-tutorial-windows-containers-custom-fonts/configure-app-container.png)
+| 설정  | 제안 값 |
+| ----------------- | ------------ |
+|**이미지 원본**| Azure Container Register |
+|**Registry**| [이전에 만든 레지스트리](#publish-to-azure-container-registry)를 선택합니다. |
+|**이미지**| customfontsample |
+|**Tag**| 최신 |
 
 ### <a name="complete-app-creation"></a>앱 만들기 완료
 
@@ -183,9 +194,9 @@ Azure 작업이 완료되면 알림 상자가 표시됩니다.
 
 ## <a name="see-container-start-up-logs"></a>컨테이너 시작 로그를 참조하세요.
 
-Windows 컨테이너를 로드하는 데 다소 시간이 걸릴 수 있습니다. 진행률을 보려면 *\<app_name >* 을 앱 이름으로 대체하여 다음 URL로 이동합니다.
+Windows 컨테이너를 로드하는 데 다소 시간이 걸릴 수 있습니다. 진행률을 보려면 *\<app_name>* 을 앱 이름으로 대체하여 다음 URL로 이동합니다.
 ```
-https://<app_name>.scm.azurewebsites.net/api/logstream
+https://<app-name>.scm.azurewebsites.net/api/logstream
 ```
 
 스트리밍된 로그는 다음과 같이 표시됩니다.

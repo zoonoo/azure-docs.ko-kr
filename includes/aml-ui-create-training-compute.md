@@ -2,36 +2,49 @@
 title: 포함 파일
 description: 포함 파일
 services: machine-learning
-author: sdgilley
+author: peterclu
 ms.service: machine-learning
-ms.author: sgilley
+ms.author: peterlu
 manager: cgronlund
 ms.custom: include file
 ms.topic: include
-ms.date: 05/06/2019
-ms.openlocfilehash: eb84dc1b5bf3f756e484ef27aaa998ab6b94cc51
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.date: 10/09/2019
+ms.openlocfilehash: 3f969fb346ce341e694458dcc38bf193f012226b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891708"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792645"
 ---
-작업 영역에 연결된 컴퓨팅 리소스인 컴퓨팅 대상에서 실험이 실행됩니다.  컴퓨팅 대상을 만든 후 이후 실행에 다시 사용할 수 있습니다.
+작업 영역에 연결된 컴퓨팅 리소스인 컴퓨팅 대상에서 파이트라인이 실행됩니다. 컴퓨팅 대상을 만든 후 이후 실행에 다시 사용할 수 있습니다.
 
-1. 아래쪽에서 **실행**을 선택하여 실험을 실행합니다.
+1. 캔버스 위쪽에 있는 **실행**을 선택하여 파이프라인을 실행합니다.
 
-1. **컴퓨팅 대상 설정** 대화 상자가 나타날 때 작업 영역에 이미 컴퓨팅 리소스가 있는 경우 지금 선택할 수 있습니다.  그렇지 않은 경우 **새로 만들기**를 선택합니다.
+1. **설정** 창이 표시되면 **컴퓨팅 대상 선택**을 선택합니다.
+
+    사용 가능한 컴퓨팅 대상이 이미 있는 경우 파이프라인을 실행하도록 선택할 수 있습니다.
 
     > [!NOTE]
     > 그래픽 인터페이스는 Machine Learning 컴퓨팅 대상에서만 실험을 실행할 수 있으며, 다른 컴퓨팅 대상은 표시되지 않습니다.
 
 1. 컴퓨팅 리소스에 이름을 제공합니다.
 
-1. **실행**을 선택합니다.
+1. **저장**을 선택합니다.
 
     ![컴퓨팅 대상 설정](./media/aml-ui-create-training-compute/set-compute.png)
 
-    이제 컴퓨팅 리소스가 만들어집니다. 실험의 오른쪽 맨 위에서 상태를 봅니다. 
+1. **실행**을 선택합니다.
+
+1. **파이프라인 실행 설정** 대화 상자에서 **실험**에 대한 **+ 새 실험**을 선택합니다.
+
+    > [!NOTE]
+    > 실험 그룹은 유사한 파이프라인을 함께 실행합니다. 파이프라인을 여러 번 실행하는 경우 연속 실행에 대해 동일한 실험을 선택할 수 있습니다.
+
+    * 설명이 포함된 **실험 이름**을 입력합니다.
+
+    * **실행**을 선택합니다.
+    
+    캔버스의 오른쪽 위에서 실행 상태와 세부 정보를 볼 수 있습니다.
 
     > [!NOTE]
     > 컴퓨팅 리소스를 만드는 데 약 5분이 걸립니다. 리소스가 만들어지면 다시 사용할 수 있으며 이후 실행에는 이 대기 시간을 건너뛸 수 있습니다.

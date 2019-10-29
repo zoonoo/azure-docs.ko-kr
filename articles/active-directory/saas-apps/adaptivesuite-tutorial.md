@@ -17,10 +17,10 @@ ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70213625"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>자습서: Adaptive Insights와 Azure Active Directory 통합
@@ -186,7 +186,7 @@ Azure AD 사용자가 Adaptive Insights에 로그인하려면 Adaptive Insights�
 
 4. **새 사용자** 섹션에서 다음 단계를 수행합니다.
 
-   ![제출](./media/adaptivesuite-tutorial/IC805649.png "제출")
+   ![제출](./media/adaptivesuite-tutorial/IC805649.png "Submit")
 
    a. 관련된 텍스트 상자에 프로비저닝할 유효한 Azure Active Directory 사용자의 **이름**, **사용자 이름**, **이메일**, **암호**를 입력합니다.
 

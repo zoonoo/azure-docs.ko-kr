@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 32bd0438afa63212222acb84c0194bbc1f4816ce
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 88ff026ea56e5f41b3b124c2d5594822ffeb6830
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286688"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529254"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C# IoT Edge 모듈 개발
 
@@ -82,9 +82,9 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
    | 모듈 프로젝트 이름 | 모듈의 이름을 **CSharpModule**로 지정합니다. | 
    | Docker 이미지 리포지토리 | 이미지 리포지토리는 컨테이너 레지스트리의 이름 및 컨테이너 이미지의 이름을 포함합니다. 컨테이너 이미지는 모듈 프로젝트 이름 값에서 미리 채워져 있습니다. **localhost:5000**을 Azure 컨테이너 레지스트리의 로그인 서버 값으로 바꿉니다. Azure Portal에서 컨테이너 레지스트리의 개요 페이지에서 로그인 서버를 검색할 수 있습니다. <br><br> 마지막 이미지 리포지토리는 \<레지스트리 이름\>.azurecr.io/csharpmodule과 같습니다. |
 
-   ![대상 디바이스, 모듈 유형 및 컨테이너 레지스트리에 대한 프로젝트를 구성](./media/tutorial-csharp-module-windows/add-application-and-module.png)
+   ![대상 디바이스, 모듈 유형 및 컨테이너 레지스트리에 대해 프로젝트 구성](./media/tutorial-csharp-module-windows/add-application-and-module.png)
 
-5. **확인**을 선택하여 변경 내용을 적용합니다. 
+5. **추가**를 선택하여 프로젝트를 만듭니다. 
 
 ### <a name="add-your-registry-credentials"></a>레지스트리 자격 증명 추가
 

@@ -1,22 +1,22 @@
 ---
-title: '빠른 시작: REST API를 사용하여 PowerShell에서 검색 인덱스 만들기 - Azure Search'
-description: PowerShell의 Invoke-RestMethod와 Azure Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
-ms.date: 09/10/2019
-author: heidisteen
+title: '빠른 시작: REST API를 사용하여 PowerShell에서 검색 인덱스 만들기'
+titleSuffix: Azure Cognitive Search
+description: PowerShell의 Invoke-RestMethod와 Azure Cognitive Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
 manager: nitinme
+author: heidisteen
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.openlocfilehash: ab82406fa151f5889a563d8154e02da921f1c4e6
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.devlang: rest-api
+ms.date: 11/04/2019
+ms.openlocfilehash: e9b2b8e8b3585bc747efb5b2916ddf1fe07d3645
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881726"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792243"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-powershell-using-rest-apis"></a>빠른 시작: REST API를 사용하여 PowerShell에서 Azure Search 인덱스 만들기
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-powershell-using-rest-apis"></a>빠른 시작: REST API를 사용하여 PowerShell에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [PowerShell(REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
@@ -25,7 +25,7 @@ ms.locfileid: "70881726"
 > * [포털](search-create-index-portal.md)
 > 
 
-이 문서에서는 PowerShell 및 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 Azure Search 인덱스를 만들고, 로드하고, 쿼리하는 과정을 안내합니다. 이 문서에서는 PowerShell 명령을 대화형으로 실행하는 방법에 대해 설명합니다. 또는 동일한 작업을 수행하는 [Powershell 스크립트를 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)할 수 있습니다.
+이 문서에서는 PowerShell 및 [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 Azure Cognitive Search 인덱스를 만들고, 로드하고, 쿼리하는 과정을 안내합니다. 이 문서에서는 PowerShell 명령을 대화형으로 실행하는 방법에 대해 설명합니다. 또는 동일한 작업을 수행하는 [Powershell 스크립트를 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-powershell-samples/tree/master/Quickstart)할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -35,11 +35,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 + [PowerShell 5.1 이상](https://github.com/PowerShell/PowerShell)(순차적 및 대화형 단계에 [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) 사용)
 
-+ [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
++ [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다. 
 
 ## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
-REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
+REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Cognitive Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 가져옵니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
@@ -49,7 +49,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-## <a name="connect-to-azure-search"></a>Azure Search에 연결
+## <a name="connect-to-azure-cognitive-search"></a>Azure Cognitive Search에 연결
 
 1. PowerShell에서 콘텐츠 형식 및 API 키를 저장하는 **$headers** 개체를 만듭니다. 관리 API 키(YOUR-ADMIN-API-KEY)를 검색 서비스에 유효한 키로 바꿉니다. 이 헤더는 세션 기간 동안 한 번만 설정하면 되지만 모든 요청에 추가됩니다. 
 
@@ -323,7 +323,7 @@ $url 검색에서는 작은따옴표를 사용해야 합니다. 쿼리 문자열
 
 1. 엔드포인트를 *hotels-quickstart* docs 컬렉션으로 설정하고, 쿼리 문자열을 전달하는 **search** 매개 변수를 추가합니다. 
   
-   이 문자열은 빈 검색(search=*)을 실행하여 순위가 없는 임의 문서 목록(검색 점수 = 1.0)을 반환합니다. 기본적으로 Azure Search는 한 번에 50개의 일치 항목을 반환합니다. 구조적으로 이 쿼리는 전체 문서 구조와 값을 반환합니다. **$count=true**를 추가하여 결과에 있는 모든 문서의 수를 가져옵니다.
+   이 문자열은 빈 검색(search=*)을 실행하여 순위가 없는 임의 문서 목록(검색 점수 = 1.0)을 반환합니다. 기본적으로 Azure Cognitive Search는 한 번에 50개의 일치 항목을 반환합니다. 구조적으로 이 쿼리는 전체 문서 구조와 값을 반환합니다. **$count=true**를 추가하여 결과에 있는 모든 문서의 수를 가져옵니다.
 
     ```powershell
     $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?api-version=2019-05-06&search=*&$count=true'
@@ -401,7 +401,7 @@ $url = 'https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quicksta
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 PowerShell을 사용하여 Azure Search에서 콘텐츠를 만들고 액세스하기 위한 기본 워크플로를 단계별로 실행했습니다. 이러한 개념을 염두에 두고 Azure 데이터 원본의 인덱싱과 같은 고급 시나리오로 이동하는 것이 좋습니다.
+이 빠른 시작에서는 PowerShell을 사용하여 Azure Cognitive Search에서 콘텐츠를 만들고 액세스하기 위한 기본 워크플로를 단계별로 실행했습니다. 이러한 개념을 염두에 두고 Azure 데이터 원본의 인덱싱과 같은 고급 시나리오로 이동하는 것이 좋습니다.
 
 > [!div class="nextstepaction"]
-> [REST 자습서: Azure Search에서 반정형 데이터(JSON Blob) 인덱싱 및 검색](search-semi-structured-data.md)
+> [REST 자습서: Azure Cognitive Search에서 반정형 데이터(JSON Blob) 인덱싱 및 검색](search-semi-structured-data.md)

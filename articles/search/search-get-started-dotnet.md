@@ -1,23 +1,22 @@
 ---
-title: '빠른 시작: .NET SDK를 사용하여 C#으로 검색 인덱스 만들기 - Azure Search'
-description: C#과 Azure Search .NET SDK를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
-author: heidisteen
+title: '빠른 시작: .NET SDK를 사용하여 C#에서 검색 인덱스 만들기'
+titleSuffix: Azure Cognitive Search
+description: C#과 Azure Cognitive Search .NET SDK를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
 manager: nitinme
+author: HeidiSteen
 ms.author: heidist
-tags: azure-portal
-services: search
-ms.service: search
+ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: bda9c29fe3af0bd7d9a6ec61dd5fe40a8e9cc339
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 11/04/2019
+ms.openlocfilehash: cb52ebc4cfdb6f62e9e68bf007cadc20cd565fad
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881589"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792834"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-c-using-the-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 C#으로 Azure Search 인덱스 만들기
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 C#에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [C#](search-get-started-dotnet.md)
 > * [포털](search-get-started-portal.md)
@@ -26,12 +25,12 @@ ms.locfileid: "70881589"
 > * [Postman](search-get-started-postman.md)
 >*
 
-Visual Studio와 [Azure Search .NET SDK](https://aka.ms/search-sdk)를 사용하여 Azure Search 인덱스를 만들고, 로드하고, 쿼리하는 .NET Core C# 콘솔 애플리케이션을 만듭니다. 이 문서에서는 애플리케이션을 만드는 방법을 단계별로 설명합니다. 또는 [전체 애플리케이션을 다운로드하고 실행](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart)할 수 있습니다.
+Visual Studio와 [Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk)를 사용하여 Azure Cognitive Search 인덱스를 만들고, 로드하고, 쿼리하는 .NET Core C# 콘솔 애플리케이션을 만듭니다. 이 문서에서는 애플리케이션을 만드는 방법을 단계별로 설명합니다. 또는 [전체 애플리케이션을 다운로드하고 실행](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/Quickstart)할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 > [!NOTE]
-> 이 문서의 데모 코드는 간단히 하기 위해 Azure Search.NET SDK의 동기 메서드를 사용합니다. 하지만 프로덕션 시나리오에서는 확장성과 응답성을 유지하기 위해 자체 애플리케이션에 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어, `Create` 및 `Delete` 대신`CreateAsync` 및 `DeleteAsync`를 사용할 수 있습니다.
+> 이 문서의 데모 코드는 간단히 하기 위해 Azure Cognitive Search .NET SDK의 동기 메서드를 사용합니다. 하지만 프로덕션 시나리오에서는 확장성과 응답성을 유지하기 위해 자체 애플리케이션에 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어, `Create` 및 `Delete` 대신`CreateAsync` 및 `DeleteAsync`를 사용할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -39,13 +38,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/) 모든 버전. 샘플 코드와 지침은 Community 평가판 버전에서 테스트되었습니다.
 
-+ [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
++ [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
 <a name="get-service-info"></a>
 
 ## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
-서비스를 호출하려면 모든 요청에서 URL 엔드포인트 및 액세스 키가 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
+서비스를 호출하려면 모든 요청에서 URL 엔드포인트 및 액세스 키가 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Cognitive Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 가져옵니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
@@ -63,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="install-nuget-packages"></a>NuGet 패키지 설치
 
-[Azure Search .NET SDK](https://aka.ms/search-sdk)는 NuGet 패키지로 배포되는 몇 가지 클라이언트 라이브러리로 구성됩니다.
+[Azure Cognitive Search .NET SDK](https://aka.ms/search-sdk)는 NuGet 패키지로 배포되는 몇 가지 클라이언트 라이브러리로 구성됩니다.
 
 이 프로젝트의 경우 `Microsoft.Azure.Search` NuGet 패키지 버전 9와 최신 `Microsoft.Extensions.Configuration.Json` NuGet 패키지를 사용합니다.
 
@@ -78,7 +77,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 버전 2.2.0 이상을 선택하고 `Microsoft.Extensions.Configuration.Json`에 대해 반복합니다.
 
 
-### <a name="add-azure-search-service-information"></a>Azure Search 서비스 정보 추가
+### <a name="add-azure-cognitive-search-service-information"></a>Azure Cognitive Search 서비스 정보 추가
 
 1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 **추가** > **새 항목...** 을 선택합니다. 
 
@@ -204,7 +203,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Program.cs에서 애플리케이션의 구성 파일 (appsettings.json)에 저장되는 값을 사용하여 서비스에 연결되는 [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) 클래스 인스턴스를 만듭니다. 
 
-   `SearchServiceClient`에는 Azure Search 인덱스를 생성, 나열, 업데이트 또는 삭제하는 데 필요한 모든 메서드를 제공하는 [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) 속성이 있습니다. 
+   `SearchServiceClient`에는 Azure Cognitive Search 인덱스를 생성, 나열, 업데이트 또는 삭제하는 데 필요한 모든 메서드를 제공하는 [`Indexes`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient.indexes?view=azure-dotnet) 속성이 있습니다. 
 
     ```csharp
     using System;
@@ -302,9 +301,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="2---load-documents"></a>2 - 문서 로드
 
-Azure Search에서 문서는 인덱싱에 대한 입력인 동시에 쿼리의 출력인 데이터 구조입니다. 외부 데이터 소스에서 가져온, 문서 입력은 데이터베이스의 행, Blob Storage의 Blob 또는 디스크의 JSON 문서일 수 있습니다. 이 예에서는 손쉬운 방법을 사용하여 4개 호텔에 대한 JSON 문서를 코드 자체에 포함합니다. 
+Azure Cognitive Search에서 문서는 인덱싱에 대한 입력인 동시에 쿼리의 출력인 데이터 구조입니다. 외부 데이터 소스에서 가져온, 문서 입력은 데이터베이스의 행, Blob Storage의 Blob 또는 디스크의 JSON 문서일 수 있습니다. 이 예에서는 손쉬운 방법을 사용하여 4개 호텔에 대한 JSON 문서를 코드 자체에 포함합니다. 
 
-문서를 업로드할 때는 [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 개체를 사용해야 합니다. `IndexBatch`는 [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) 개체의 컬렉션을 포함하며, 이들 각각은 Azure Search가 수행할 작업([업로드, 병합, 삭제 및 mergeOrUpload](search-what-is-data-import.md#indexing-actions))을 알려주는 문서와 속성을 포함합니다.
+문서를 업로드할 때는 [`IndexBatch`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 개체를 사용해야 합니다. `IndexBatch`는 [`IndexAction`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) 개체의 컬렉션을 포함하며, 이들 각각은 Azure Cognitive Search가 수행할 작업([업로드, 병합, 삭제 및 mergeOrUpload](search-what-is-data-import.md#indexing-actions))을 알려주는 문서와 속성을 포함합니다.
 
 1. Program.cs에서 문서 및 인덱스 작업의 배열을 만든 다음, 배열을 `IndexBatch`에 전달합니다. 아래 문서는 호텔 및 주소 클래스에 정의된 호텔-빠른 시작 인덱스를 준수합니다.
 

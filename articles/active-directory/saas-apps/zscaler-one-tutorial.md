@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 04/24/2019
 ms.author: jeedes
 ms.openlocfilehash: d23fc94fba9a9b750f2977fd9c5d8297e4da8d5c
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68825907"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>자습서: Zscaler One과 Azure Active Directory 통합
@@ -177,7 +177,7 @@ Zscaler One에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 5. **SAML 편집** 창에서 다음 단계를 수행하고 저장을 클릭합니다.  
             
-    ![사용자 및 인증 관리](./media/zscaler-one-tutorial/ic800208.png "사용자 및 인증 관리")
+    ![사용자 및 인증 관리](./media/zscaler-one-tutorial/ic800208.png "사용자 & 인증 관리")
     
     a. Azure Portal에서 복사한 **로그인 URL** 값을 **SAML 포털 URL** 텍스트 상자에 붙여넣습니다.
 

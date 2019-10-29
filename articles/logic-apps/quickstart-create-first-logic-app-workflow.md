@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작 - Azure Logic Apps로 첫 번째 워크플로 만들기 및 자동화
-description: Azure Logic Apps를 사용하여 작업, 프로세스 및 워크플로를 자동화하는 첫 번째 논리 앱을 만듭니다. 시스템 및 클라우드 서비스에서 시스템 통합 및 EAI(Enterprise Application Integration) 솔루션에 대한 논리 앱을 만듭니다.
+title: 첫 번째 워크플로 만들기 및 자동화 - Azure Logic Apps
+description: 빠른 시작 - 시스템 통합 및 EAI(엔터프라이즈 애플리케이션 통합) 솔루션에 대한 Azure Logic Apps를 사용하여 첫 번째 자동화된 작업 또는 워크플로를 만듭니다.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
-ms.openlocfilehash: c85b3e3ced661eb36d9cb1eb0ae443a5ab21a913
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8886472b9840c27bcbceb70265379db1682673a9
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029478"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679138"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 자동화된 워크플로 만들기 - Azure Portal
 

@@ -1,6 +1,6 @@
 ---
-title: Visual Studio Code에서 워크플로 만들기 및 관리 - Azure Logic Apps
-description: 빠른 시작 - VS Code(Visual Studio Code)에서 논리 앱 JSON 정의 만들기 및 관리
+title: Visual Studio Code를 사용하여 워크플로 자동화 - Azure Logic Apps
+description: VS Code(Visual Studio Code)를 사용하여 논리 앱 기본 JSON 정의 만들기 또는 편집
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -12,16 +12,16 @@ ms.reviewer: klam, deli, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/05/2018
-ms.openlocfilehash: 34de50517580c84c78ee1f192daa908b3f262670
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a1387ca4d94410bafb1b1024345b5e307e215e6f
+ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035338"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72679160"
 ---
-# <a name="quickstart-create-and-manage-logic-app-definitions-by-using-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 논리 앱 정의 만들기 및 관리
+# <a name="quickstart-create-and-manage-logic-app-workflow-definitions-with-visual-studio-code"></a>빠른 시작: Visual Studio Code를 사용하여 논리 앱 워크플로 정의 만들기 및 관리
 
-[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Visual Studio Code를 사용하여 조직 및 기업 전체에서 앱, 데이터, 시스템 및 서비스를 통합하기 위한 작업, 워크플로 및 프로세스를 자동화하는 데 도움이 되는 논리 앱을 만들고 관리할 수 있습니다. 이 빠른 시작에서는 코드 기반 환경을 통해 JSON(JavaScript Object Notation)의 워크플로 정의 스키마를 사용하여 논리 앱 워크플로 정의를 만들고 편집하는 방법을 설명합니다. Azure에 이미 배포된 기존 논리 앱에서 작업할 수도 있습니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 Visual Studio Code를 사용하여 조직 및 기업 전체에서 앱, 데이터, 시스템 및 서비스를 통합하기 위한 작업, 워크플로 및 프로세스를 자동화하는 데 도움이 되는 논리 앱을 만들고 관리할 수 있습니다. 이 빠른 시작에서는 코드 기반 환경을 통해 논리 앱에 JSON(JavaScript Object Notation)을 사용하는 기본 워크플로 정의를 만들고 편집하는 방법을 보여줍니다. Azure에 이미 배포된 기존 논리 앱에서 작업할 수도 있습니다.
 
 [Azure Portal](https://portal.azure.com) 및 Visual Studio에서 이러한 동일 작업을 수행할 수도 있지만, 논리 앱 정의를 이미 숙지하고 있으며 코드에서 직접 작업하려는 경우 Visual Studio Code를 사용하면 작업을 더 빨리 시작할 수 있습니다. 예를 들어 이미 생성된 논리 앱을 사용하거나 사용하지 않도록 설정하고 삭제하고 새로 고칠 수 있습니다. 또한 Linux, Windows 및 Mac과 같은 Visual Studio Code가 실행되는 모든 개발 플랫폼의 논리 앱 및 통합 계정에서 작업할 수 있습니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "72035338"
 
 * Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* JSON(JavaScript Object Notation)을 사용하는 [논리 앱 워크플로 정의](../logic-apps/logic-apps-workflow-definition-language.md) 및 해당 구조에 대한 기본 지식
+* [논리 앱 워크플로 정의](../logic-apps/logic-apps-workflow-definition-language.md) 및 JSON에 설명된 해당 구조에 대한 기본 지식
 
   Logic Apps를 처음 사용하는 경우 Azure Portal에서 첫 번째 논리 앱을 만들고 기본적인 개념에 대해 더 중점적으로 설명하는 [빠른 시작](../logic-apps/quickstart-create-first-logic-app-workflow.md)을 확인해 보세요.
 

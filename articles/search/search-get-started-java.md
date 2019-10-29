@@ -1,22 +1,22 @@
 ---
-title: '빠른 시작: REST API를 사용하여 Java에서 검색 인덱스 만들기 - Azure Search'
-description: Java 및 Azure Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
+title: '빠른 시작: REST API를 사용하여 Java에서 검색 인덱스 만들기'
+titleSuffix: Azure Cognitive Search
+description: Java 및 Azure Cognitive Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
-ms.service: search
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ms.devlang: java
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 09/10/2019
-ms.openlocfilehash: 3f424f03f72e288994b05c4559bd42e6429760a8
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 11/04/2019
+ms.openlocfilehash: 9f30c30276db6daa0b4afdf3e6bdd8e617dedc52
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166239"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792808"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-java-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Java에서 Azure Search 인덱스 만들기
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Java에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
@@ -26,7 +26,7 @@ ms.locfileid: "72166239"
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
-[IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable) 및 [Azure Search 서비스 REST API](/rest/api/searchservice/)를 사용하여 Azure 검색 인덱스를 만들고, 로드하고 쿼리하는 Java 콘솔 애플리케이션을 만듭니다. 이 문서에서는 애플리케이션을 만드는 단계별 지침을 제공합니다. 또는 [전체 애플리케이션을 다운로드하고 실행](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/)할 수 있습니다.
+[IntelliJ](https://www.jetbrains.com/idea/), [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable) 및 [Azure Cognitive Search REST API](/rest/api/searchservice/)를 사용하여 Azure Cognitive Search 인덱스를 만들고, 로드하고 쿼리하는 Java 콘솔 애플리케이션을 만듭니다. 이 문서에서는 애플리케이션을 만드는 단계별 지침을 제공합니다. 또는 [전체 애플리케이션을 다운로드하고 실행](/samples/azure-samples/azure-search-java-samples/java-sample-quickstart/)할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -38,13 +38,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 + [Java 11 SDK](/java/azure/jdk/?view=azure-java-stable)
 
-+ [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
++ [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
 <a name="get-service-info"></a>
 
 ## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
-서비스를 호출하려면 모든 요청에서 URL 엔드포인트 및 액세스 키가 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
+서비스를 호출하려면 모든 요청에서 URL 엔드포인트 및 액세스 키가 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Cognitive Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 가져옵니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
@@ -143,7 +143,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **확인** 을 클릭하여 창을 닫습니다.
 
-### <a name="add-azure-search-service-information"></a>Azure Search 서비스 정보 추가
+### <a name="add-azure-cognitive-search-service-information"></a>Azure Cognitive Search 서비스 정보 추가
 
 1. **프로젝트** 창에서 원본 트리를 펼쳐 `src` >  `main` >`resources` > `app` 폴더에 액세스하고, `config.properties` 파일을 추가합니다. 이렇게 하려면 `app` 폴더를 선택하고, Alt+Insert를 누르고, **파일**을 선택한 다음, 파일 이름을 입력합니다.
 
@@ -259,7 +259,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ### <a name="add-the-http-operations"></a>HTTP 작업 추가
 
 1. `src` >  `main` > `java` > `service` 폴더에서 `SearchServiceClient` 클래스를 추가합니다. 이렇게 하려면 `service` 폴더를 선택하고, Alt+Insert를 누르고, **Java 클래스**를 선택한 다음, 클래스 이름을 입력합니다.
-1. `SearchServiceClient` 클래스를 열고, 내용을 다음 코드로 바꿉니다. 이 코드는 Azure Search REST API를 사용하는 데 필요한 HTTP 작업을 제공합니다. 인덱스를 만들고, 문서를 업로드하고, 인덱스를 쿼리하는 방법에 대한 추가 메서드는 이후 섹션에서 추가됩니다.
+1. `SearchServiceClient` 클래스를 열고, 내용을 다음 코드로 바꿉니다. 이 코드는 Azure Cognitive Search REST API를 사용하는 데 필요한 HTTP 작업을 제공합니다. 인덱스를 만들고, 문서를 업로드하고, 인덱스를 쿼리하는 방법에 대한 추가 메서드는 이후 섹션에서 추가됩니다.
 
     ```java
     package main.java.service;
@@ -512,9 +512,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     인덱스 이름은 "hotels-quickstart"입니다. 인덱스 필드의 특성은 애플리케이션에서 인덱싱된 데이터를 검색하는 방법을 결정합니다. 예를 들어 전체 텍스트 검색에 포함되어야 하는 모든 필드에는 `IsSearchable` 특성을 할당해야 합니다. 특성에 대한 자세한 내용은 [필드 컬렉션 및 필드 특성](search-what-is-an-index.md#fields-collection)을 참조하세요.
     
-    이 인덱스의 `Description` 필드는 선택적 `analyzer` 속성을 사용하여 기본 Lucene 언어 분석기를 재정의합니다. `Description_fr` 필드는 프랑스어 텍스트를 저장하므로 프랑스어 Lucene 분석기(`fr.lucene`)를 사용합니다. `Description`은 선택적 Microsoft 언어 분석기(en.lucene)를 사용합니다. 분석기에 대한 자세한 내용은 [Azure Search의 텍스트 처리용 분석기](search-analyzers.md)를 참조하세요.
+    이 인덱스의 `Description` 필드는 선택적 `analyzer` 속성을 사용하여 기본 Lucene 언어 분석기를 재정의합니다. `Description_fr` 필드는 프랑스어 텍스트를 저장하므로 프랑스어 Lucene 분석기(`fr.lucene`)를 사용합니다. `Description`은 선택적 Microsoft 언어 분석기(en.lucene)를 사용합니다. 분석기에 대한 자세한 내용은 [Azure Cognitive Search의 텍스트 처리용 분석기](search-analyzers.md)를 참조하세요.
 
-1. `SearchServiceClient` 클래스에 다음 코드를 추가합니다. 이러한 메서드는 인덱스를 만들고, 삭제하고, 인덱스가 있는지 확인하는 Azure Search REST 서비스 URL을 작성합니다. 또한 이 메서드는 HTTP 요청을 수행합니다.
+1. `SearchServiceClient` 클래스에 다음 코드를 추가합니다. 이러한 메서드는 인덱스를 만들고, 삭제하고, 인덱스가 있는지 확인하는 Azure Cognitive Search REST 서비스 URL을 빌드합니다. 또한 이 메서드는 HTTP 요청을 수행합니다.
 
     ```java
     public boolean indexExists() throws IOException, InterruptedException {
@@ -694,9 +694,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이제 호텔 문서를 로드했으므로 호텔 데이터에 액세스하기 위한 검색 쿼리를 만들 수 있습니다.
 
-1. `SearchServiceClient` 클래스에 다음 코드를 추가합니다. 이 코드는 Azure Search REST 서비스 URL을 작성하여 인덱싱된 데이터를 검색하고 검색 결과를 출력합니다.
+1. `SearchServiceClient` 클래스에 다음 코드를 추가합니다. 이 코드는 Azure Cognitive Search REST 서비스 URL을 빌드하여 인덱싱된 데이터를 검색하고 검색 결과를 출력합니다.
 
-    `SearchOptions` 클래스 및 `createSearchOptions` 메서드를 사용하면 사용 가능한 Azure Search REST API 쿼리 옵션의 하위 세트를 지정할 수 있습니다. REST API 쿼리 옵션에 대한 자세한 내용은 [문서 검색(Azure Search 서비스 REST API)](/rest/api/searchservice/search-documents)을 참조하세요.
+    `SearchOptions` 클래스 및 `createSearchOptions` 메서드를 사용하면 사용 가능한 Azure Cognitive Search REST API 쿼리 옵션의 하위 집합을 지정할 수 있습니다. REST API 쿼리 옵션에 대한 자세한 내용은 [문서 검색(Azure Cognitive Search REST API)](/rest/api/searchservice/search-documents)을 참조하세요.
 
     `SearchPlus` 메서드는 검색 쿼리 URL을 만들고, 검색 요청을 수행한 다음, 결과를 콘솔에 출력합니다. 
 

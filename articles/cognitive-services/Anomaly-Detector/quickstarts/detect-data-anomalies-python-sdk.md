@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 10/15/2019
 ms.author: aahi
-ms.openlocfilehash: 28dbcde723e25577545cfd44fed9ef00249d8f30
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 926d7043ea6f56c1ba6d13fd4586fc6f6d59cfa8
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694902"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554723"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-python"></a>빠른 시작: Python용 Anomaly Detector 클라이언트 라이브러리
 
@@ -26,7 +26,7 @@ Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다�
 * 일괄 요청으로 시계열 데이터 세트 전체에서 변칙 검색
 * 시계열에서 최신 데이터 요소의 변칙 상태 검색
 
-[라이브러리 참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [패키지(PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [샘플](https://github.com/Azure-Samples/anomalydetector)
+[라이브러리 참조 설명서](https://docs.microsoft.com/python/api/azure-cognitiveservices-anomalydetector/azure.cognitiveservices.anomalydetector?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-anomalydetector) | [패키지(PyPi)](https://pypi.org/project/azure-cognitiveservices-anomalydetector/) | [코드 샘플](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -40,11 +40,9 @@ Python용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다�
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-평가판 구독 또는 리소스에서 키를 가져온 후 `ANOMALY_DETECTOR_KEY`라는 키에 대해 [환경 변수를 만듭니다](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication).
-
 ### <a name="create-a-new-python-application"></a>새 Python 애플리케이션 만들기
 
- 선호하는 편집기 또는 IDE에서 Python 애플리케이션을 새로 만듭니다. 그런 다음, 다음 라이브러리를 가져옵니다.
+ 새 Python 파일을 만들고 다음 라이브러리를 가져옵니다.
 
 [!code-python[import declarations](~/samples-anomaly-detector/quickstarts/sdk/python-sdk-sample.py?name=imports)]
 
@@ -114,7 +112,7 @@ Anomaly Detector API를 호출하여 클라이언트의 [last_detect()](https://
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-IDE에서 또는 명령줄에서 `python` 명령과 파일 이름을 사용하여 애플리케이션을 실행합니다.
+`python` 명령 및 파일 이름을 사용하여 애플리케이션을 실행합니다.
  
 ## <a name="clean-up-resources"></a>리소스 정리
 

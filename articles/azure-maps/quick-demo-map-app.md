@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6afe76aca388f1f6bd479f53eb4e18cc62c10584
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 092da53c3179d939ebf0472219338b8d8392fda6
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268673"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554261"
 ---
 # <a name="create-an-interactive-search-map-by-using-azure-maps"></a>Azure Maps를 사용하여 대화형 검색 맵 만들기
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
      ![포털에서 Azure Maps 계정 만들기](./media/quick-demo-map-app/create-account.png)
 
-5. 계정이 성공적으로 만들어지면 해당 계정을 열고 계정 메뉴의 설정 섹션을 찾습니다. **키**를 선택하여 Azure Maps 계정에 대한 기본 및 보조 키를 확인합니다. **기본 키** 값은 로컬 클립보드에 복사하여 다음 섹션에서 사용합니다.
+5. 계정이 성공적으로 만들어지면 해당 계정을 열고 계정 메뉴의 설정 섹션을 찾습니다. **인증**을 선택하여 Azure Maps 계정에 대한 기본 및 보조 키를 확인합니다. **기본 키** 값은 로컬 클립보드에 복사하여 다음 섹션에서 사용합니다.
 
 ## <a name="download-the-application"></a>애플리케이션 다운로드
 

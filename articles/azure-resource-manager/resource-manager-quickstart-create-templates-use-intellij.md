@@ -1,5 +1,5 @@
 ---
-title: IntelliJ IDEA를 사용하여 Azure Resource Manager 템플릿 만들기 및 배포 | Microsoft Docs
+title: Azure Resource Manager 템플릿 배포 - IntelliJ IDEA
 description: IntelliJ IDEA를 사용하여 첫 번째 Azure Resource Manager 템플릿을 만들고 이를 배포하는 방법을 알아봅니다.
 services: azure-resource-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
 ms.author: yucwan
-ms.openlocfilehash: d25a5720e3aaa8ad6306a72d2db8d3ca2e89861b
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 137a87ad0314fad08f9af0eb567e1d31032ddcb9
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169437"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533652"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>빠른 시작: IntelliJ IDEA를 사용하여 Azure Resource Manager 템플릿 만들기 및 배포
 

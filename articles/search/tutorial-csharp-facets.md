@@ -1,24 +1,25 @@
 ---
-title: 탐색을 지원하기 위한 패싯 사용에 관한 C# 자습서 - Azure Search
-description: 이 자습서는 “검색 결과 페이지 매김 - Azure Search” 프로젝트를 기반으로 하여 패싯 탐색을 추가합니다. 패싯을 사용하여 검색 범위를 손쉽게 좁힐 수 있는 방법을 알아봅니다.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: 탐색을 지원하기 위한 패싯 사용에 관한 C# 자습서
+titleSuffix: Azure Cognitive Search
+description: 이 자습서는 "검색 결과 페이지 매김 - Azure Cognitive Search" 프로젝트를 기반으로 하여 패싯 탐색을 추가합니다. 패싯을 사용하여 검색 범위를 손쉽게 좁힐 수 있는 방법을 알아봅니다.
+manager: nitinme
 author: PeterTurcan
-ms.date: 06/20/2019
-ms.openlocfilehash: 62326ad3bc5f2d740ce744819df559bce8658eb7
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 9f0d716e9077b2d9702f26b1afe92d9e4faf4a77
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443795"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72794069"
 ---
-# <a name="c-tutorial-use-facets-to-aid-navigation---azure-search"></a>C# 자습서: 탐색을 지원하기 위해 패싯 사용 - Azure Search
+# <a name="c-tutorial-use-facets-to-aid-navigation---azure-cognitive-search"></a>C# 자습서: 패싯을 사용하여 탐색 지원 - Azure Cognitive Search
 
 패싯은 사용자가 검색에 초점을 맞추는 데 사용할 수 있는 링크 세트를 제공함으로써 탐색을 지원하는 데 사용됩니다. 패싯은 데이터의 특성입니다(예: 샘플 데이터에서 호텔의 범주 또는 특정 기능).
 
-이 자습서는 [C# 자습서: 검색 결과 페이지 매김 - Azure Search](tutorial-csharp-paging.md) 자습서에서 생성한 페이지 매김 프로젝트를 기반으로 합니다.
+이 자습서는 [C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search](tutorial-csharp-paging.md) 자습서에서 만든 페이지 매김 프로젝트를 기반으로 합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -29,7 +30,7 @@ ms.locfileid: "67443795"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-[C# 자습서: 검색 결과 페이지 매김 - Azure Search](tutorial-csharp-paging.md) 프로젝트를 실행합니다. 이 프로젝트는 사용자의 고유한 버전이 되거나 GitHub에서 설치할 수 있습니다. [첫 번째 앱을 만듭니다](https://github.com/Azure-Samples/azure-search-dotnet-samples).
+[C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search](tutorial-csharp-paging.md) 프로젝트를 가동하여 실행합니다. 이 프로젝트는 사용자 고유의 버전이거나 GitHub: [첫 번째 앱을 만듭니다](https://github.com/Azure-Samples/azure-search-dotnet-samples).
 
 ## <a name="set-model-properties-as-isfacetable"></a>모델 속성을 IsFacetable로 설정
 
@@ -559,4 +560,4 @@ ms.locfileid: "67443795"
 다음 자습서에서는 결과 정렬에 대해 살펴봅니다. 이 시점까지 결과는 단순히 데이터베이스에 있는 순서대로 정렬됩니다.
 
 > [!div class="nextstepaction"]
-> [C# 자습서: 결과 정렬 - Azure Search](tutorial-csharp-orders.md)
+> [C# 자습서: 결과 정렬 - Azure Cognitive Search](tutorial-csharp-orders.md)

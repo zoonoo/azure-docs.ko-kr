@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 10/15/2019
 ms.author: aahi
-ms.openlocfilehash: c1dd5e4f469b24918eaa03e694a95fa90c91b481
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 04d788160f1bdfd772f48b40b35f6db54cbf87b7
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725567"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554778"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>빠른 시작: .NET용 Anomaly Detector 클라이언트 라이브러리
 
@@ -26,7 +26,7 @@ ms.locfileid: "68725567"
 * 일괄 요청으로 시계열 데이터 세트 전체에서 변칙 검색
 * 시계열에서 최신 데이터 요소의 변칙 상태 검색
 
-[라이브러리 참조 설명서](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [샘플](https://github.com/Azure-Samples/anomalydetector)
+[라이브러리 참조 설명서](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.CognitiveServices.AnomalyDetector?view=azure-dotnet-preview) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [패키지(NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.AnomalyDetector/) | [코드 샘플](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -39,13 +39,9 @@ ms.locfileid: "68725567"
 
 [!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-평가판 구독 또는 리소스에서 키를 가져온 후 `ANOMALY_DETECTOR_KEY`라는 키에 대해 [환경 변수를 만듭니다](../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication).
+### <a name="create-a-new-net-core-application"></a>새 .NET Core 애플리케이션 만들기
 
-### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
-
-선호하는 편집기 또는 IDE에서 .NET Core 애플리케이션을 새로 만듭니다. 
-
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 dotnet `new` 명령을 사용하여 `anomaly-detector-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 *Program.cs*라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다. 
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 dotnet `new` 명령을 사용하여 `anomaly-detector-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 단일 C# 소스 파일을 사용하여 간단한 "Hello World" 프로젝트를 만듭니다. *Program.cs*라는 원본 파일 하나만 들어 있는 간단한 "Hello World" C# 프로젝트를 만듭니다. 
 
 ```console
 dotnet new console -n anomaly-detector-quickstart
@@ -67,14 +63,6 @@ Build succeeded.
 ...
 ```
 
-선호하는 편집기 또는 IDE에서 프로젝트 디렉터리의 *program.cs* 파일을 엽니다. `directives`를 사용하여 다음을 추가합니다.
-
-[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
-
-애플리케이션의 `main()` 메서드에서 리소스의 Azure 위치에 대한 변수와 환경 변수인 키를 만듭니다. 애플리케이션이 시작된 후 환경 변수를 만들었다면 애플리케이션을 실행 중인 편집기, IDE 또는 셸을 닫고 다시 로드해야 변수에 액세스할 수 있습니다.
-
-[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
-
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
 애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 Anomaly Detector 클라이언트 라이브러리를 설치합니다.
@@ -83,7 +71,13 @@ Build succeeded.
 dotnet add package Microsoft.Azure.CognitiveServices.AnomalyDetector --version 0.8.0-preview
 ```
 
-Visual Studio IDE를 사용하는 경우 클라이언트 라이브러리는 NuGet 패키지로 제공됩니다. 
+프로젝트 디렉터리에서 *program.cs* 파일을 열고 `directives`를 사용하여 다음을 추가합니다.
+
+[!code-csharp[using statements](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=usingStatements)]
+
+애플리케이션의 `main()` 메서드에서 리소스의 Azure 위치에 대한 변수와 환경 변수인 키를 만듭니다. 애플리케이션이 시작된 후 환경 변수를 만들었다면 애플리케이션을 실행 중인 편집기, IDE 또는 셸을 닫고 다시 로드해야 변수에 액세스할 수 있습니다.
+
+[!code-csharp[Main method](~/samples-anomaly-detector/quickstarts/sdk/csharp-sdk-sample.cs?name=mainMethod)]
 
 ## <a name="object-model"></a>개체 모델
 

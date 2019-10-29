@@ -17,10 +17,10 @@ ms.date: 04/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07b0f8112f724c857ffb46378f7aa7ef605b9bbb
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68943285"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-beta"></a>자습서: Zscaler Beta와 Azure Active Directory 통합
@@ -177,7 +177,7 @@ Zscaler Beta에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 
 5. **SAML 편집** 창에서 다음 단계를 수행합니다. 
             
-    ![사용자 및 인증 관리](./media/zscaler-beta-tutorial/ic800208.png "사용자 및 인증 관리")
+    ![사용자 및 인증 관리](./media/zscaler-beta-tutorial/ic800208.png "사용자 & 인증 관리")
     
     a. **SAML 포털 URL** 상자에 Azure Portal에서 복사한 **로그인 URL**을 붙여넣습니다.
 

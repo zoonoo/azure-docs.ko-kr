@@ -19,7 +19,7 @@ ms.locfileid: "71076520"
 
 Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 사항 및 해결 방법을 알아봅니다.
 
-## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hive metastore를 내보내고 다른 클러스터로 가져오려면 어떻게 하나요?
+## <a name="how-do-i-export-a-hive-metastore-and-import-it-on-another-cluster"></a>Hive 메타스토어를 내보내고 다른 클러스터로 가져오려면 어떻게 하나요?
 
 ### <a name="resolution-steps"></a>해결 단계:
 
@@ -57,7 +57,7 @@ Apache Ambari에서 Apache Hive 페이로드를 사용할 때의 주요 질문 �
    /tmp/<username>/hive.log
    ```
 
-3. Hive metastore 로그를 보려면 다음 명령을 사용합니다.
+3. Hive 메타스토어 로그를 보려면 다음 명령을 사용합니다.
 
    ```apache
    /var/log/hive/hivemetastore.log

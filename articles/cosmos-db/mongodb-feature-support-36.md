@@ -1,31 +1,28 @@
 ---
-title: Azure Cosmos DB의 API for MongoDB(3.2 버전) 지원 기능 및 구문
-description: Azure Cosmos DB의 API for MongoDB(3.2 버전) 지원 기능 및 구문에 대해 알아봅니다.
+title: Azure Cosmos DB의 API for MongoDB(3.6 버전) 지원 기능 및 구문
+description: Azure Cosmos DB의 API for MongoDB(3.6 버전) 지원 기능 및 구문에 대해 알아봅니다.
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 12e5dba0339b6092564e5d35c1a6250b0c47f50f
+ms.openlocfilehash: 12311fa476d069d2c866fac82ed2bac25ce88ef4
 ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754993"
+ms.locfileid: "72758352"
 ---
-# <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.2 버전): 지원되는 기능 및 구문
+# <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.6 버전): 지원되는 기능 및 구문
 
 Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. 아무 오픈 소스 MongoDB 클라이언트 [드라이버](https://docs.mongodb.org/ecosystem/drivers)를 사용하여 Azure Cosmos DB의 API for MongoDB와 통신할 수 있습니다. Azure Cosmos DB의 API for MongoDB를 사용하면 MongoDB [유선 프로토콜](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)에 따라 기존 클라이언트 드라이버를 사용할 수 있습니다.
 
 Azure Cosmos DB의 API for MongoDB를 사용하면 Cosmos DB가 제공하는 모든 엔터프라이즈 기능과 함께 익숙한 MongoDB의 이점을 누릴 수 있습니다. 이러한 기능에는 [글로벌 배포](distribute-data-globally.md), [자동 분할](partition-data.md), 가용성 및 대기 시간 보장, 모든 필드의 자동 인덱싱, 저장 데이터 암호화, 백업 등이 포함됩니다.
 
-> [!NOTE]
-> 이 문서는 Azure Cosmos DB의 API for MongoDB 3.2에 대한 것입니다. MongoDB 3.6 버전은 [MongoDB 3.6 지원 기능 및 구문 ](mongodb-feature-support-36.md)을 참조하세요.
-
 ## <a name="protocol-support"></a>프로토콜 지원
 
-Azure Cosmos DB의 API for MongoDB에 대한 모든 새 계정은 MongoDB 서버 버전 **3.6**과 호환됩니다. 이 문서에서는 MongoDB 버전 3.2에 대해 설명합니다. 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. 이러한 프로토콜을 인식하는 모든 클라이언트 드라이버는 Azure Cosmos DB의 API for MongoDB에 연결할 수 있습니다.
+Azure Cosmos DB의 API for MongoDB는 새 계정의 경우 기본적으로 MongoDB 서버 버전 **3.6**과 호환됩니다. 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. 이러한 프로토콜을 인식하는 모든 클라이언트 드라이버는 Azure Cosmos DB의 API for MongoDB에 연결할 수 있습니다.
 
 ## <a name="query-language-support"></a>쿼리 언어 지원
 
@@ -54,6 +51,7 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 ### <a name="administration-commands"></a>관리 명령
 
 - dropDatabase
+- listDatabases
 - listCollections
 - drop
 - create
@@ -63,6 +61,7 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 - dropIndexes
 - connectionStatus
 - reIndex
+- killCursors
 
 ### <a name="diagnostics-commands"></a>진단 명령
 
@@ -76,8 +75,6 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 <a name="aggregation-pipeline"/>
 
 ## <a name="aggregation-pipelinea"></a>집계 파이프라인</a>
-
-Cosmos DB는 공개 미리 보기에서 MongoDB 3.2의 집계 파이프라인을 지원합니다. 공개 미리 보기를 이용하는 방법에 대한 지침은 [Azure 블로그](https://aka.ms/mongodb-aggregation)를 참조하세요.
 
 ### <a name="aggregation-commands"></a>집계 명령
 
@@ -99,6 +96,8 @@ Cosmos DB는 공개 미리 보기에서 MongoDB 3.2의 집계 파이프라인을
 - $out
 - $count
 - $addFields
+- $redact
+- $replaceRoot
 
 ### <a name="aggregation-expressions"></a>집계 식
 
@@ -196,14 +195,10 @@ Cosmos DB는 공개 미리 보기에서 MongoDB 3.2의 집계 파이프라인을
 
 ## <a name="aggregation-accumulators"></a>집계 누적기
 
-- $sum
-- $avg
-- $first
-- $last
-- $max
-- $min
-- $push
-- $addToSet
+Cosmos DB는 다음을 제외한 모든 MongoDB v3.6 누적기를 지원합니다.
+
+- $stdDevPop
+- $stdDevSamp
 
 ## <a name="operators"></a>연산자
 
@@ -274,7 +269,7 @@ $regex 쿼리에서 왼쪽에 고정된 식은 인덱스 검색을 허용합니�
 - $addToSet
 - $pop
 - $pullAll
-- $pull(참고: $pull에는 조건이 지원되지 않음)
+- $pull
 - $pushAll
 - $push
 - $each
@@ -311,7 +306,7 @@ $polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon",
 연산자 | 예 | 메모
 --- | --- | --- |
 $all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
-$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |
+$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
 $size | ```{ "Location.coordinates": { $size: 2 } }``` |
 $comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
 $text |  | 지원되지 않습니다. 대신 $regex를 사용합니다.
@@ -332,9 +327,7 @@ cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | 정렬 키가 없는 �
 
 ## <a name="unique-indexes"></a>고유 인덱스
 
-Cosmos DB는 기본적으로 데이터베이스에 기록되는 문서에서 모든 필드를 인덱싱합니다. 고유 인덱스를 사용하면 컬렉션의 모든 문서에서 특정 필드에 중복된 값이 나타나지 않으며, 이는 기본 `_id` 키에서 고유성이 유지되는 방식과 유사합니다. '고유' 제약 조건을 포함하여 createIndex 명령을 사용하여 Cosmos DB에서 사용자 지정 인덱스를 만들 수 있습니다.
-
-고유 인덱스는 Azure Cosmos DB의 API for MongoDB를 사용하는 모든 Cosmos 계정에 사용할 수 있습니다.
+고유 인덱스를 사용하면 컬렉션의 모든 문서에서 특정 필드에 중복된 값이 나타나지 않으며, 이는 기본 “_id” 키에서 고유성이 유지되는 방식과 유사합니다. '고유' 제약 조건을 포함하여 createIndex 명령을 사용하여 Cosmos DB에서 사용자 지정 인덱스를 만들 수 있습니다.
 
 ## <a name="time-to-live-ttl"></a>TTL(Time to Live)
 
@@ -354,7 +347,11 @@ Cosmos DB는 가장 낮은 계층에서 자동 네이티브 복제를 지원합�
 
 ## <a name="sharding"></a>분할
 
-Azure Cosmos DB는 서버 측 자동 분할을 지원합니다. 분할 만들기, 배치 및 분산을 자동으로 관리합니다. Azure Cosmos DB는 수동 분할 명령을 지원하지 않으므로 shardCollection, addShard, balancerStart, moveChunk 등과 같은 명령을 호출할 필요가 없습니다. 컨테이너를 만들거나 데이터를 쿼리하는 동안 분할 키만 지정하면 됩니다.
+Azure Cosmos DB는 서버 측 자동 분할을 지원합니다. 분할 만들기, 배치 및 분산을 자동으로 관리합니다. Azure Cosmos DB는 수동 분할 명령을 지원하지 않으므로 addShard, balancerStart, moveChunk 등과 같은 명령을 호출할 필요가 없습니다. 컨테이너를 만들거나 데이터를 쿼리하는 동안 분할 키만 지정하면 됩니다.
+
+## <a name="sessions"></a>세션
+
+Azure Cosmos DB는 아직 서버 쪽 세션 명령을 지원하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -117,15 +117,15 @@ Oozie는 *작업*, *워크플로* 및 *코디네이터*의 측면에서 해당 �
 
 8. **Metastore 설정**의 **Hive용 SQL 데이터베이스 선택** 아래에서 이전에 만든 데이터베이스를 선택합니다.
 
-    ![HDInsight Hive Metastore 설정](./media/hdinsight-operationalize-data-pipeline/hive-metastore-settings.png)
+    ![HDInsight Hive 메타스토어 설정](./media/hdinsight-operationalize-data-pipeline/hive-metastore-settings.png)
 
 9. **SQL Database 인증**을 선택합니다.
 
-    ![HDInsight Hive Metastore 인증](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql.png)
+    ![HDInsight Hive 메타스토어 인증](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql.png)
 
 10. SQL Database 사용자 이름 및 암호를 입력하고 **선택**을 선택합니다.
 
-       ![HDInsight Hive Metastore 인증 로그인](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql-login.png)
+       ![HDInsight Hive 메타스토어 인증 로그인](./media/hdinsight-operationalize-data-pipeline/hdi-authenticate-sql-login.png)
 
 11. **Metastore 설정** 창으로 돌아가서 Oozie 메타데이터 저장소에 대한 데이터베이스를 선택하고 이전과 같은 방법으로 인증합니다.
 

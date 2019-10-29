@@ -1,22 +1,23 @@
 ---
-title: '빠른 시작: REST API를 사용하여 Python에서 검색 인덱스 만들기 - Azure Search'
-description: Python, Jupyter Notebook 및 Azure Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
-ms.date: 09/10/2019
+title: '빠른 시작: REST API를 사용하여 Python에서 검색 인덱스 만들기'
+titleSuffix: Azure Cognitive Search
+description: Python, Jupyter Notebook 및 Azure Cognitive Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
 author: heidisteen
 manager: nitinme
 ms.author: heidist
-services: search
-ms.service: search
-ms.devlang: rest-api
+ms.service: cognitive-search
 ms.topic: quickstart
-ms.openlocfilehash: 273cd690c56ef01b4fd38398aaef85570dd758a2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.devlang: rest-api
+ms.date: 11/04/2019
+ms.openlocfilehash: c663fae47de1e161314aa3bf2fdb9966ae80d3c6
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881561"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72792272"
 ---
-# <a name="quickstart-create-an-azure-search-index-in-python-using-jupyter-notebooks"></a>빠른 시작: Jupyter Notebook을 사용하여 Python에서 Azure Search 인덱스 만들기
+# <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>빠른 시작: Jupyter Notebook을 사용하여 Python에서 Azure Cognitive Search 인덱스 만들기
+
 > [!div class="op_single_selector"]
 > * [Python(REST)](search-get-started-python.md)
 > * [PowerShell(REST)](search-create-index-rest-api.md)
@@ -25,7 +26,7 @@ ms.locfileid: "70881561"
 > * [포털](search-create-index-portal.md)
 > 
 
-Python 및 [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 Azure Search 인덱스를 만들고, 로드하고, 쿼리하는 Jupyter Notebook을 빌드합니다. 이 문서에서는 Notebook을 단계별로 빌드하는 방법에 대해 설명합니다. 또는 [완성된 Jupyter Python Notebook을 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-python-samples)할 수 있습니다.
+Python 및 [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/)를 사용하여 Azure Cognitive Search 인덱스를 만들고, 로드하고, 쿼리하는 Jupyter Notebook을 빌드합니다. 이 문서에서는 Notebook을 단계별로 빌드하는 방법에 대해 설명합니다. 또는 [완성된 Jupyter Python Notebook을 다운로드하여 실행](https://github.com/Azure-Samples/azure-search-python-samples)할 수 있습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -35,11 +36,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 + [Anaconda 3.x](https://www.anaconda.com/distribution/#download-section) - Python 3.x 및 Jupyter Notebook 제공
 
-+ [Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 계층을 사용할 수 있습니다. 
++ [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 계층을 사용할 수 있습니다. 
 
 ## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
-REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
+REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Cognitive Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 가져옵니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
@@ -49,9 +50,9 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 모든 요청에서 서비스에 보내는 각 요청마다 API 키가 필요합니다. 유효한 키가 있다면 요청을 기반으로 요청을 보내는 애플리케이션과 이를 처리하는 서비스 사이에 신뢰가 쌓입니다.
 
-## <a name="connect-to-azure-search"></a>Azure Search에 연결
+## <a name="connect-to-azure-cognitive-search"></a>Azure Cognitive Search에 연결
 
-이 작업에서는 Jupyter Notebook을 시작하고, Azure Search에 연결할 수 있는지 확인합니다. 이 작업은 서비스에서 인덱스 목록을 요청하여 수행합니다. Anaconda3이 있는 Windows에서 Anaconda Navigator를 사용하여 Notebook을 시작할 수 있습니다.
+이 작업에서는 Jupyter Notebook을 시작하고, Azure Cognitive Search에 연결할 수 있는지 확인합니다. 이 작업은 서비스에서 인덱스 목록을 요청하여 수행합니다. Anaconda3이 있는 Windows에서 Anaconda Navigator를 사용하여 Notebook을 시작할 수 있습니다.
 
 1. 새 Python3 Notebook을 만듭니다.
 
@@ -85,7 +86,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 1. 각 단계를 실행합니다. 인덱스가 있으면 응답에 인덱스 이름 목록이 포함됩니다. 아래 스크린샷에서 서비스에는 이미 azureblob-index 및 realestate-us-sample 인덱스가 있습니다.
 
-   ![Azure Search에 대한 HTTP 요청이 포함된 Jupyter Notebook의 Python 스크립트](media/search-get-started-python/connect-azure-search.png "Azure Search에 대한 HTTP 요청이 포함된 Jupyter Notebook의 Python 스크립트")
+   ![Azure Cognitive Search에 대한 HTTP 요청이 포함된 Jupyter Notebook의 Python 스크립트](media/search-get-started-python/connect-azure-search.png "Azure Cognitive Search에 대한 HTTP 요청이 포함된 Jupyter Notebook의 Python 스크립트")
 
    반대로, 빈 인덱스 컬렉션은 다음 응답을 반환합니다. `{'@odata.context': 'https://mydemo.search.windows.net/$metadata#indexes(name)', 'value': []}`
 
@@ -251,7 +252,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 이 단계에서는 [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)를 사용하여 인덱스를 쿼리하는 방법을 보여 줍니다.
 
-1. 셀에서 빈 검색(search=*)을 실행하는 쿼리 식을 제공하여 임의 문서의 순위 없는 목록(검색 점수 = 1.0)을 반환합니다. 기본적으로 Azure Search는 한 번에 50개의 일치 항목을 반환합니다. 구조적으로 이 쿼리는 전체 문서 구조와 값을 반환합니다. $count=true를 추가하여 결과에 있는 모든 문서의 수를 가져옵니다.
+1. 셀에서 빈 검색(search=*)을 실행하는 쿼리 식을 제공하여 임의 문서의 순위 없는 목록(검색 점수 = 1.0)을 반환합니다. 기본적으로 Azure Cognitive Search는 한 번에 50개의 일치 항목을 반환합니다. 구조적으로 이 쿼리는 전체 문서 구조와 값을 반환합니다. $count=true를 추가하여 결과에 있는 모든 문서의 수를 가져옵니다.
 
    ```python
    searchstring = '&search=*&$count=true'

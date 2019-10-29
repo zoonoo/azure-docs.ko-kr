@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
-ms.custom: mvc, seo-javascript-september2019
-ms.openlocfilehash: 72f50754a28f0bbf5648ae64299d28ff13e2ec31
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: 959f36107ab9f79d4e66cc23b0744f1dbb8b2690
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703047"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677959"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>빠른 시작: Azure Monitor를 사용하여 하이브리드 환경에서 Linux 컴퓨터의 데이터 수집
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
 
-    ![Azure portal](media/quick-collect-azurevm/azure-portal-01.png)<br>  
+    ![Azure Portal에서 Log Analytics 작업 영역 찾기](media/quick-collect-azurevm/azure-portal-log-analytics-workspaces.png)<br>  
 
 2. **만들기**를 선택한 후, 다음 항목에 대한 선택 사항을 지정합니다.
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    * VM이 배포된 **위치**를 선택합니다.  자세한 내용은 [Log Analytics를 사용할 수 있는 지역](https://azure.microsoft.com/regions/services/)을 참조하세요.
    * 2018년 4월 2일 이후에 만들어진 새 구독에서 작업 영역을 만드는 경우 *GB당* 가격 책정 계획이 자동으로 사용되며 가격 책정 계층을 선택할 수 있는 옵션이 제공되지 않습니다.  4월 2일 전에 만들어진 기존 구독 또는 기존 EA 등록과 연결된 구독에서 작업 영역을 만드는 경우 선호하는 가격 책정 계층을 선택합니다.  특정 계층에 대한 자세한 내용은 [Log Analytics 가격 책정 정보](https://azure.microsoft.com/pricing/details/log-analytics/)를 참조하세요.
   
-        ![Log Analytics 리소스 블레이드 만들기](media/quick-collect-azurevm/create-loganalytics-workspace-02.png) 
+        ![Azure Portal에서 Log Analytics 작업 영역 만들기](media/quick-collect-azurevm/create-log-analytics-workspace-azure-portal.png) 
 
 3. **Log Analytics 작업 영역** 창에서 필요한 정보를 제공한 후 **확인**을 선택합니다.  
 
@@ -65,7 +65,7 @@ Linux용 Log Analytics 에이전트를 설치하기 전에 Log Analytics 작업 
 
 3. **고급 설정**을 선택합니다.
 
-    ![Log Analytics 고급 설정](media/quick-collect-azurevm/log-analytics-advanced-settings-01.png) 
+    ![Azure Portal의 Log Analytics에 대한 고급 설정 메뉴](media/quick-collect-azurevm/log-analytics-advanced-settings-azure-portal.png) 
  
 4. **연결된 원본**을 선택한 다음 **Linux 서버**를 선택합니다.
 
@@ -129,7 +129,7 @@ Azure Monitor는 장기 분석 및 보고를 위해 Linux Syslog 및 성능 카�
 
 7. 새 Log Analytics 작업 영역에 대한 Linux 성능 카운터를 처음으로 구성하는 경우, 몇 가지 공용 카운터를 신속하게 만드는 옵션이 제공됩니다. 각 항목은 옆에 확인란과 함께 나열됩니다.
 
-    ![선택된 기본 Windows 성능 카운터](media/quick-collect-azurevm/linux-perfcounters-default.png)
+    ![Azure Monitor에서 선택된 기본 Linux 성능 카운터](media/quick-collect-azurevm/linux-perfcounters-azure-monitor.png)
 
     **내 머신에 아래 구성 적용**을 선택한 다음, **선택한 성능 카운터 추가**를 선택합니다. 해당 성능 카운터가 추가되고, 10초의 수집 샘플 간격으로 미리 설정됩니다.  
 

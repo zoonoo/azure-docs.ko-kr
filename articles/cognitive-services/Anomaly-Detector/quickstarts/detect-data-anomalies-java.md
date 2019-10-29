@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 07/26/2019
 ms.author: aahi
-ms.openlocfilehash: 001d53cbd7e2a57615ea3da71d128bd210a79921
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6d54ec8df08e7c3d76a97c2531c21b1fd4d130b9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565851"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554756"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>빠른 시작: Anomaly Detector REST API와 Java를 사용하여 시계열 데이터에서 변칙 검색
 
@@ -38,28 +38,15 @@ ms.locfileid: "68565851"
 
 - 시계열 데이터 요소가 포함된 JSON 파일 이 빠른 시작의 예제 데이터는 [GitHub](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/request-data.json)에서 확인할 수 있습니다.
 
-[!INCLUDE [cognitive-services-anomaly-detector-data-requirements](../../../../includes/cognitive-services-anomaly-detector-data-requirements.md)]
+### <a name="create-an-anomaly-detector-resource"></a>Anomaly Detector 리소스 만들기
 
-[!INCLUDE [cognitive-services-anomaly-detector-signup-requirements](../../../../includes/cognitive-services-anomaly-detector-signup-requirements.md)]
+[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
 ## <a name="create-a-new-application"></a>새 애플리케이션 만들기
 
-1. 즐겨 찾는 IDE 또는 편집기에서 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
-
-    ```java
-    import org.apache.http.HttpEntity;
-    import org.apache.http.client.methods.CloseableHttpResponse;
-    import org.apache.http.client.methods.HttpPost;
-    import org.apache.http.entity.StringEntity;
-    import org.apache.http.impl.client.CloseableHttpClient;
-    import org.apache.http.impl.client.HttpClients;
-    import org.apache.http.util.EntityUtils;
-    import org.json.JSONArray;
-    import org.json.JSONObject;
-    import java.io.IOException;
-    import java.nio.file.Files;
-    import java.nio.file.Paths;
-    ```
+1. 새 Java 프로젝트를 만들고 다음 라이브러리를 가져옵니다.
+    
+    [!code-java[Import statements](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=imports)]
 
 2. 구독 키 및 엔드포인트에 대한 변수를 만듭니다. 아래는 변칙 검색에 사용할 수 있는 URI입니다. 나중에 API 요청 URL을 만드는 서비스 엔드포인트에 추가됩니다.
 
@@ -68,23 +55,7 @@ ms.locfileid: "68565851"
     |일괄 검색    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |최신 데이터 요소에서 검색     | `/anomalydetector/v1.0/timeseries/last/detect`        |
 
-    ```java
-    // Replace the subscriptionKey string value with your valid subscription key.
-    static final String subscriptionKey = "[YOUR_SUBSCRIPTION_KEY]";
-    //replace the endpoint URL with the correct one for your subscription. Your endpoint can be found in the Azure portal. 
-    //For example: https://westus2.api.cognitive.microsoft.com
-    static final String endpoint = "[YOUR_ENDPOINT_URL]";
-    // Replace the dataPath string with a path to the JSON formatted time series data.
-    static final String dataPath = "[PATH_TO_TIME_SERIES_DATA]";
-    static final String latestPointDetectionUrl = "/anomalydetector/v1.0/timeseries/last/detect";
-    static final String batchDetectionUrl = "/anomalydetector/v1.0/timeseries/entire/detect";
-    ```
-
-3. JSON 데이터 파일에서 읽기
-
-    ```java
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
-    ```
+    [!code-java[Initial key and endpoint variables](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>요청을 보내는 함수 만들기
 
@@ -100,29 +71,7 @@ ms.locfileid: "68565851"
 
 6. 응답 콘텐츠를 저장할 `HttpEntity` 개체를 만듭니다. `getEntity()`를 사용하여 콘텐츠를 받습니다. 응답이 비어 있지 않으면 반환합니다.
 
-```java
-static String sendRequest(String apiAddress, String endpoint, String subscriptionKey, String requestData) {
-    try (CloseableHttpClient client = HttpClients.createDefault()) {
-        HttpPost request = new HttpPost(endpoint + apiAddress);
-        // Request headers.
-        request.setHeader("Content-Type", "application/json");
-        request.setHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
-        request.setEntity(new StringEntity(requestData));
-        try (CloseableHttpResponse response = client.execute(request)) {
-            HttpEntity respEntity = response.getEntity();
-            if (respEntity != null) {
-                return EntityUtils.toString(respEntity, "utf-8");
-            }
-        } catch (Exception respEx) {
-            respEx.printStackTrace();
-        }
-    } catch (IOException ex) {
-        System.err.println("Exception on Anomaly Detector: " + ex.getMessage());
-        ex.printStackTrace();
-    }
-    return null;
-}
-```
+[!code-java[API request method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=request)]
 
 ## <a name="detect-anomalies-as-a-batch"></a>일괄 처리로 변칙 검색
 
@@ -132,39 +81,13 @@ static String sendRequest(String apiAddress, String endpoint, String subscriptio
 
 3. 그렇지 않으면 데이터 세트에서 변칙의 위치를 찾습니다. 응답의 `isAnomaly` 필드는 지정된 데이터 요소가 변칙인지 여부와 관련된 부울 값을 포함합니다. JSON 배열을 가져오고 반복하여 `true` 값의 인덱스를 출력합니다. 이러한 값은 변칙 데이터 요소의 인덱스와 일치합니다(발견된 경우).
 
-```java
-static void detectAnomaliesBatch(String requestData) {
-    System.out.println("Detecting anomalies as a batch");
-    String result = sendRequest(batchDetectionUrl, endpoint, subscriptionKey, requestData);
-    if (result != null) {
-        System.out.println(result);
-        JSONObject jsonObj = new JSONObject(result);
-        if (jsonObj.has("code")) {
-            System.out.println(String.format("Detection failed. ErrorCode:%s, ErrorMessage:%s", jsonObj.getString("code"), jsonObj.getString("message")));
-        } else {
-            JSONArray jsonArray = jsonObj.getJSONArray("isAnomaly");
-            System.out.println("Anomalies found in the following data positions:");
-            for (int i = 0; i < jsonArray.length(); ++i) {
-                if (jsonArray.getBoolean(i))
-                    System.out.print(i + ", ");
-            }
-            System.out.println();
-        }
-    }
-}
-```
+[!code-java[Method for batch detection](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectBatch)]
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>최신 데이터 요소의 변칙 상태 검색
 
 * `detectAnomaliesLatest()`라는 메서드를 만들어서 데이터 세트에서 마지막 데이터 요소의 비정상 상태를 검색합니다. 위에서 만든 `sendRequest()` 메서드를 엔드포인트, URL, 구독 키 및 JSON 데이터로 호출합니다. 결과를 받아서 콘솔에 출력합니다.
 
-```java
-static void detectAnomaliesLatest(String requestData) {
-    System.out.println("Determining if latest data point is an anomaly");
-    String result = sendRequest(latestPointDetectionUrl, endpoint, subscriptionKey, requestData);
-    System.out.println(result);
-}
-```
+[!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
 
 ## <a name="load-your-time-series-data-and-send-the-request"></a>시계열 데이터 로드 및 요청 보내기
 
@@ -172,13 +95,7 @@ static void detectAnomaliesLatest(String requestData) {
 
 2. 위에서 만든 변칙 검색 함수를 호출합니다.
 
-```java
-public static void main(String[] args) throws Exception {
-    String requestData = new String(Files.readAllBytes(Paths.get(dataPath)), "utf-8");
-    detectAnomaliesBatch(requestData);
-    detectAnomaliesLatest(requestData);
-}
-```
+[!code-java[Main method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=main)]
 
 ### <a name="example-response"></a>예제 응답
 
@@ -189,4 +106,8 @@ public static void main(String[] args) throws Exception {
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [REST API 참조](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
+>[Azure Databricks를 사용하여 스트리밍 변칙 검색](../tutorials/anomaly-detection-streaming-databricks.md)
+
+* [Anomaly Detector API](../overview.md)란?
+* Anomaly Detector API를 사용하는 경우 [모범 사례](../concepts/anomaly-detection-best-practices.md)
+* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)에서 확인할 수 있습니다.

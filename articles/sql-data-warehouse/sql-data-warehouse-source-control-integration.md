@@ -11,10 +11,10 @@ ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: 10a10882efe05ef9e6bb86e54fcfcf8c5d73d225
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "70098755"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse를 위한 원본 제어 통합
@@ -59,7 +59,7 @@ ms.locfileid: "70098755"
 
 4. 변경 내용이 복제된 리포지토리에 로컬로 커밋되었으므로 Azure DevOps 프로젝트에서 변경 내용을 Azure Repo 리포지토리에 동기화하고 푸시합니다.
 
-   ![동기화 및 푸시 - 준비](media/sql-data-warehouse-source-control-integration/7-commit-push-changes.png "동기화 및 푸시 - 준비")
+   ![동기화 및 푸시 - 스테이징](media/sql-data-warehouse-source-control-integration/7-commit-push-changes.png "동기화 및 푸시 - 스테이징")
 
    ![동기화 및 푸시](media/sql-data-warehouse-source-control-integration/7.5-commit-push-changes.png "동기화 및 푸시")  
 
@@ -67,7 +67,7 @@ ms.locfileid: "70098755"
 
 1. Visual Studio SSDT(SQL Server Data Tools)에서 데이터베이스 프로젝트의 테이블 열을 업데이트하여 변경 내용이 Azure Repo에 푸시되었는지 확인합니다.
 
-   ![열 업데이트 확인](media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "열 업데이트 확인")
+   ![업데이트 열 유효성 검사](media/sql-data-warehouse-source-control-integration/8-validation-update-column.png "업데이트 열 유효성 검사")
 
 2. 로컬 리포지토리에서 Azure Repo로 변경 내용 커밋 및 푸시
 
@@ -75,7 +75,7 @@ ms.locfileid: "70098755"
 
 3. 변경 내용이 Azure Repo 리포지토리에 푸시되었는지 확인합니다.
 
-   ![확인](media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "변경 내용 확인")
+   ![Verify](media/sql-data-warehouse-source-control-integration/10-verify-column-change-pushed.png "변경 내용 확인")
 
 4. (**선택 사항**) 스키마 비교를 사용하고 SSDT를 사용하여 대상 데이터 웨어하우스의 변경 내용을 업데이트하여 Azure Repo 리포지토리 및 로컬 리포지토리의 개체 정의가 데이터 웨어하우스에 반영되도록 합니다.
 

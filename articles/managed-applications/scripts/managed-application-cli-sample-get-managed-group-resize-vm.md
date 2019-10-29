@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 샘플 - 관리되는 리소스 그룹 가져오기 및 VM 크기 조정 | Microsoft Docs
+title: 관리 리소스 그룹 가져오기 및 VM 크기 조정 - Azure CLI
 description: Azure Managed Application에서 관리되는 리소스 그룹을 가져오는 Azure CLI 샘플 스크립트를 제공합니다. 스크립트는 VM의 크기를 조정합니다.
 services: managed-applications
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7218e2fd033614b5e9f77cca34a5db82e3571094
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ccf853f33eea054b450563747646f3d9ec560aa3
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330136"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528912"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Azure CLI를 사용하여 관리되는 리소스 그룹에서 리소스를 가져오고 VM 크기를 조정합니다
 

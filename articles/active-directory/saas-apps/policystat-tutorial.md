@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: 327e470d60235e6bf400293e80e3aec5f6144ff4
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68943436"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-policystat"></a>자습서: PolicyStat과 Azure Active Directory 통합
@@ -31,7 +31,7 @@ PolicyStat를 Azure AD와 통합하면 다음과 같은 이점이 제공됩니�
 * 사용자가 자신의 Azure AD 계정을 사용하여 PolicyStat(Single Sign-On)에 자동으로 로그인되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -166,11 +166,11 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 3. **설정** 섹션에서 **Single Sign-On 통합 사용**을 선택합니다.
    
-    ![Single Sign-on 구성](./media/policystat-tutorial/ic808634.png "Single Sign-on 구성")
+    ![Single Sign-On 구성](./media/policystat-tutorial/ic808634.png "Single Sign-On 구성")
 
 4. **특성 구성**을 클릭한 다음 **특성 구성** 섹션에서 다음 단계를 수행합니다.
    
-    ![Single Sign-on 구성](./media/policystat-tutorial/ic808635.png "Single Sign-on 구성")
+    ![Single Sign-On 구성](./media/policystat-tutorial/ic808635.png "Single Sign-On 구성")
    
     a. **사용자 이름 특성** 텍스트 상자에 **uid**를 입력합니다.
 
@@ -184,7 +184,7 @@ PolicyStat에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 5. **IDP 메타데이터**를 클릭한 다음, **IDP 메타데이터** 섹션에서 다음 단계를 수행합니다.
    
-    ![Single Sign-on 구성](./media/policystat-tutorial/ic808636.png "Single Sign-on 구성")
+    ![Single Sign-On 구성](./media/policystat-tutorial/ic808636.png "Single Sign-On 구성")
    
     a. 다운로드한 메타데이터 파일을 열고 내용을 복사한 다음 **Your Identity Provider Metadata**(ID 공급자 메타데이터) 텍스트 상자에 붙여넣습니다.
 

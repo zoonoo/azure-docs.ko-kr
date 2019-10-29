@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: 03b8e12d63ba84b4e20d7263f1c2ecb8d912936d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: f2602e5a13f83090291656e7062c74c245bc6568
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203171"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72693341"
 ---
 # <a name="create-an-http-triggered-function-in-azure"></a>Azure에서 HTTP 트리거 함수 만들기
 
@@ -26,7 +26,7 @@ ms.locfileid: "71203171"
 
 시작하기 전에 다음을 수행해야 합니다.
 
-+ [Python 3.6.x](https://www.python.org/downloads/)를 설치합니다.
++ [Python 3.6.8](https://www.python.org/downloads/)을 설치합니다. 이 버전의 Python은 Functions로 확인됩니다. 3.7 이상 버전은 아직 지원되지 않습니다.
 
 + [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.7.1575 이상을 설치합니다.
 

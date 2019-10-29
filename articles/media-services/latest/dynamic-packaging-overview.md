@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/03/2019
+ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 35fd511f2383a09898bcd7e7a5227b750c36125a
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72383523"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72595525"
 ---
 # <a name="dynamic-packaging"></a>동적 패키징
 
@@ -98,7 +98,7 @@ Media Services v3의 라이브 스트리밍에 대 한 정보는 [라이브 스�
 동적 패키징은 [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC)(MPEG-4 AVC 또는 AVC1) 또는 [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding)(HEVC, hev1 또는 hvc1)로 인코딩된 동영상을 포함하는 MP4 파일을 지원합니다.
 
 > [!NOTE]
-> 최대 4K의 해상도와 최대 60 프레임/초의 프레임 속도는 동적 패키징을 통해 테스트되었습니다. [프리미엄 인코더](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)는 레거시 v2 API를 통해 H.265로의 인코딩을 지원합니다. 이 토픽에 대한 질문이 있는 경우 amshelp@microsoft.com으로 문의하세요. 
+> 최대 4K의 해상도와 최대 60 프레임/초의 프레임 속도는 동적 패키징을 통해 테스트되었습니다. [프리미엄 인코더](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)는 레거시 v2 API를 통해 H.265로의 인코딩을 지원합니다.
 
 ## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>동적 패키징으로 지원되는 오디오 코덱
 
@@ -124,7 +124,7 @@ Media Services v3의 라이브 스트리밍에 대 한 정보는 [라이브 스�
 동적 패키징은 [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital)(AC3) 오디오(레거시 코덱임)를 포함하는 파일을 지원하지 않습니다.
 
 > [!NOTE]
-> [프리미엄 인코더](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)는 레거시 v2 API를 통해 Dolby Digital Plus로의 인코딩을 지원합니다. 이 토픽에 대한 질문이 있는 경우 amshelp@microsoft.com으로 문의하세요. 
+> [프리미엄 인코더](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow)는 레거시 v2 API를 통해 Dolby Digital Plus로의 인코딩을 지원합니다. 
 
 ## <a name="manifests"></a>매니페스트 
  
@@ -272,6 +272,10 @@ HLS v7 이상의 경우 `(format=m3u8-cmaf)` 해당 재생 목록은 오디오 �
 ## <a name="more-information"></a>자세한 정보
 
 [Azure Media Services 커뮤니티](media-services-community.md)에서 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 받을 수 있습니다.
+
+## <a name="need-help"></a>도움 필요 시
+
+[새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)으로 이동하여 지원 티켓을 열 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

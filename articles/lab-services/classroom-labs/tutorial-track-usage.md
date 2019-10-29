@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/17/2019
+ms.date: 10/18/2019
 ms.author: spelluru
-ms.openlocfilehash: e2831191905da1b9e0ad55131be9eaa7aa13950e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 842392ab425628a1c82a39e25a65066064747211
+ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894363"
+ms.lasthandoff: 10/20/2019
+ms.locfileid: "72675794"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>자습서: Azure Lab Services에서 랩 사용량 추적
 이 자습서에서는 랩 작성자/소유자가 랩 사용량을 추적하는 방법을 보여줍니다.
@@ -49,18 +49,11 @@ ms.locfileid: "55894363"
     ![VM 사용량](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>학생 VM 관리 
-가상 머신 목록의 행을 마우스로 가리키면 다음 작업을 수행하는 컨트롤이 표시됩니다(이전 섹션의 이미지 참조). 
-
-- VM에 연결
-- VM 시작
-- VM 중지
-- VM 삭제
-
+이 페이지에서 **Status** 열의 드롭다운 목록 또는 도구 모음에 있는 단추를 사용하여 학생 VM을 시작, 중지 또는 다시 설정할 수 있습니다. 
 
 ![VM 컨트롤](../media/tutorial-track-usage/vm-controls.png)
 
 또한 도구 모음 단추를 사용하여 VM을 시작, 중지 또는 삭제할 수 있습니다. 
-
 
 
 ## <a name="next-steps"></a>다음 단계

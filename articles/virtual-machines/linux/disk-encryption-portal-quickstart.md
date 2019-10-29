@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 0249867a6af16505a692e7090639807ed3d239c9
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 83446d30de17973352e836d6107ad545b2da63e3
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030813"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72550321"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 머신 만들기 및 암호화
 
@@ -77,7 +77,7 @@ VM 배포에는 몇 분 정도 걸립니다. 배포가 완료되면 다음 섹�
 
 1. 암호화 화면의 **암호화할 디스크**에서 **OS 및 데이터 디스크**를 선택합니다.
 1. **암호화 설정**에서 “암호화를 위한 Key Vault 및 키 선택”을 클릭합니다.
-1. 오른쪽 사이드바에서 *Key Vault**에 대한 값으로 이전에 만든 Key Vault의 이름을 선택하고 **선택**을 클릭합니다.
+1. 오른쪽 사이드바에서 이전에 만든 Key Vault의 이름을 **Key Vault**의 값으로 선택하고 **선택**을 클릭합니다.
 
     ![디스크 및 암호화 선택](./media/disk-encryption/portal-qs-encrypt-vm-screen.png)
 1. 암호화 화면 위쪽에서 “저장”을 클릭합니다. 팝업에서 VM이 재부팅됨을 경고합니다. **예**를 클릭합니다.

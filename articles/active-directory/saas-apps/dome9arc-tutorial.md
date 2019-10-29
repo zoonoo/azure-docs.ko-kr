@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb47d60f609e63e5a17fd8abd3efe420ea7fd187
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 75f0669a474c24647e71eae8b5e0e0830b7c0bef
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264091"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72533085"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>자습서: Check Point CloudGuard Dome9 Arc와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -89,17 +89,25 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 `https://secure.dome9.com/sso/saml/<yourcompanyname>` 패턴을 사용하여 URL을 입력합니다.
 
-    > [!NOTE]
-    > 이 자습서의 뒷부분에서 설명하는 dome9 관리 포털에서 회사 이름 값을 선택합니다.
-
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://secure.dome9.com/sso/saml/<yourcompanyname>` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 확인하려면 [Check Point CloudGuard Dome9 Arc 클라이언트 지원 팀](mailto:Dome9@checkpoint.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이 자습서의 뒷부분에 설명되어 있는 **Check Point CloudGuard Dome9 Arc SSO 구성** 섹션에서 `<company name>` 값을 가져옵니다. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. Check Point CloudGuard Dome9 Arc는 Azure AD에서 역할을 구성해야 합니다. 역할 클레임은 미리 구성되어 있으므로 구성할 필요가 없지만, 이 [문서](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management)를 사용하여 Azure AD에서 만들어야 합니다.
+1. Check Point CloudGuard Dome9 Arc 애플리케이션은 특정 형식의 SAML 어설션을 예상하며, 따라서 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
+
+    ![이미지](common/edit-attribute.png)
+
+1. 위에서 언급한 특성 외에도, Check Point CloudGuard Dome9 Arc 애플리케이션에는 아래에 표시된 대로 SAML 응답에 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
+    
+    | Name |  원본 특성|
+    | ---------------| --------------- |
+    | memberof | user.assignedroles |
+
+    >[!NOTE]
+    >[여기를](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/apptio-tutorial) 클릭하여 Azure AD에서 역할을 만드는 방법을 알아봅니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -163,7 +171,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![Check Point CloudGuard Dome9 Arc 구성](./media/dome9arc-tutorial/configure3.png)
 
-    a. **계정 ID** 텍스트 상자에서 회사 이름을 입력합니다. 이 값은 Azure Portal **기본 SAML 구성** 섹션에서 언급한 회신 URL에 사용됩니다.
+    a. **계정 ID** 텍스트 상자에서 회사 이름을 입력합니다. 이 값은 Azure Portal의 **기본 SAML 구성 섹션**에서 언급한 **Reply** 및 **Sign on** URL에서 사용됩니다.
 
     b. Azure Portal에서 복사한 **Azure AD 식별자** 값을 **발급자** 텍스트 상자에 붙여넣습니다.
 
@@ -221,4 +229,3 @@ Azure AD 사용자가 Check Point CloudGuard Dome9 Arc에 로그인할 수 있�
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD로 Check Point CloudGuard Dome9 Arc 사용해보기](https://aad.portal.azure.com/)
-

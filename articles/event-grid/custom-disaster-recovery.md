@@ -1,18 +1,18 @@
 ---
-title: Azure Event Grid에서 사용자 지정 항목용 자체 재해 복구 빌드 | Microsoft Docs
-description: 지역 중단을 잘 넘겨서 Azure Event Grid를 연결된 상태로 유지하세요.
+title: Azure Event Grid의 사용자 지정 항목에 대한 재해 복구
+description: Azure Event Grid를 연결된 상태로 유지하기 위해 지역 가동 중단 시에도 견뎌내는 방법을 알아봅니다.
 services: event-grid
 author: banisadr
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/16/2019
+ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 4a069db7984a7b0b0bb4bb867dc510f73d8b1f75
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 7020fb167539e8ad16cc6c386f58e38326dec43b
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66305070"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790274"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Event Grid에서 사용자 지정 항목용 자체 재해 복구 빌드
 재해 복구는 애플리케이션 기능의 심각한 손실에서 복구하는 데 집중합니다. 이 자습서에서는 특정 지역에서 Event Grid 서비스가 비정상 상태가 될 경우 복구되도록 이벤트 아키텍처를 설정하는 방법을 안내합니다.

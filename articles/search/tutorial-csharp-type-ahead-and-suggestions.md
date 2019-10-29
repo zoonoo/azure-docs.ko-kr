@@ -1,22 +1,23 @@
 ---
-title: 자동 완성 및 제안에 대한 C# 자습서 - Azure Search
-description: 이 자습서는 "검색 결과 페이지 매김 - Azure Search" 프로젝트를 기반으로 자동 완성 및 제안 기능을 추가합니다. 풍부한 사용자 환경을 구축하는 것이 목표입니다. 드롭다운 제안 목록을 인라인 자동 완성과 결합하는 방법을 알아봅니다.
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.author: v-pettur
+title: 자동 완성 및 제안에 대한 C# 자습서
+titleSuffix: Azure Cognitive Search
+description: 이 자습서는 "검색 결과 페이지 매김 - Azure Cognitive Search" 프로젝트를 기반으로 자동 완성 및 제안 기능을 추가합니다. 풍부한 사용자 환경을 구축하는 것이 목표입니다. 드롭다운 제안 목록을 인라인 자동 완성과 결합하는 방법을 알아봅니다.
+manager: nitinme
 author: PeterTurcan
-ms.date: 05/01/2019
-ms.openlocfilehash: 01c0819fd0bf525739675ad756031cafc1a51673
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: v-pettur
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: 959ae749f9ab8a025ec9c78d75640e2108868372
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434735"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72786497"
 ---
-# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-search"></a>C# 자습서: 자동 완성 및 제안 기능 추가 - Azure Search
+# <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C# 자습서: 자동 완성 및 제안 기능 추가 - Azure Cognitive Search
 
-사용자가 검색창에 입력을 시작할 때 자동 완성(자동 완성 및 제안)을 구현하는 방법을 알아봅니다. 이 자습서에서는 자동 완성 결과 및 제안 결과를 개별적으로 표시한 다음, 자동 완성과 제안을 결합하여 보다 풍부한 사용자 환경을 만드는 방법을 보여줍니다. 사용자는 핵심 글자 두세 개만 입력하면 사용 가능한 모든 결과를 찾을 수 있습니다. 이 자습서는 [C# 자습서: 검색 결과 페이지 매김 - Azure Search](tutorial-csharp-paging.md) 자습서에서 생성한 페이지 매김 프로젝트를 기반으로 합니다.
+사용자가 검색창에 입력을 시작할 때 자동 완성(자동 완성 및 제안)을 구현하는 방법을 알아봅니다. 이 자습서에서는 자동 완성 결과 및 제안 결과를 개별적으로 표시한 다음, 자동 완성과 제안을 결합하여 보다 풍부한 사용자 환경을 만드는 방법을 보여줍니다. 사용자는 핵심 글자 두세 개만 입력하면 사용 가능한 모든 결과를 찾을 수 있습니다. 이 자습서는 [C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search](tutorial-csharp-paging.md) 자습서에서 만든 페이지 매김 프로젝트를 기반으로 합니다.
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
@@ -29,7 +30,7 @@ ms.locfileid: "67434735"
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-[C# 자습서: 검색 결과 페이지 매김 - Azure Search](tutorial-csharp-paging.md) 프로젝트를 실행합니다. 이전 자습서에서 완료한 개발자 고유의 버전을 이 프로젝트에 사용해도 되고, 또는 GitHub: [첫 번째 앱 만들기](https://github.com/Azure-Samples/azure-search-dotnet-samples)의 버전을 설치해도 됩니다.
+[C# 자습서: 검색 결과 페이지 매김 - Azure Cognitive Search](tutorial-csharp-paging.md) 프로젝트를 가동하여 실행합니다. 이전 자습서에서 완료한 개발자 고유의 버전을 이 프로젝트에 사용해도 되고, 또는 GitHub: [첫 번째 앱 만들기](https://github.com/Azure-Samples/azure-search-dotnet-samples)의 버전을 설치해도 됩니다.
 
 ## <a name="add-suggestions"></a>제안 추가
 
@@ -146,7 +147,7 @@ ms.locfileid: "67434735"
  
     ![fuzzy를 true로 설정하고 "Pa" 입력](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    관심이 있는 분들은 유사 항목 검색에 사용되는 논리에 대해 설명하는 [Azure Search의 Lucene 쿼리 구문](https://docs.microsoft.com/azure/search/query-lucene-syntax)을 읽어보세요.
+    관심이 있는 분들은 유사 항목 검색에 사용되는 논리에 대해 설명하는 [Azure Cognitive Search의 Lucene 쿼리 구문](https://docs.microsoft.com/azure/search/query-lucene-syntax)을 읽어보세요.
 
 ## <a name="add-highlighting-to-the-suggestions"></a>제안에 강조 표시 추가
 
@@ -255,7 +256,7 @@ ms.locfileid: "67434735"
 
 ## <a name="combine-autocompletion-and-suggestions"></a>자동 완성과 제안을 결합
 
-자동 완성과 제안을 결합하는 것은 가장 복잡한 옵션이며, 아마도 최상의 사용자 환경을 제공할 것입니다. 우리가 원하는 것은 입력하는 텍스트에 따라 Azure Search가 텍스트 자동 완성을 위해 선택하는 첫 번째 항목을 표시하는 것입니다. 또한 다양한 제안을 드롭다운 목록으로 제공하려 합니다.
+자동 완성과 제안을 결합하는 것은 가장 복잡한 옵션이며, 아마도 최상의 사용자 환경을 제공할 것입니다. 우리가 원하는 것은 입력하는 텍스트에 따라 Azure Cognitive Search가 텍스트 자동 완성을 위해 선택하는 첫 번째 항목을 표시하는 것입니다. 또한 다양한 제안을 드롭다운 목록으로 제공하려 합니다.
 
 이 기능을 제공하는 라이브러리가 있는데, "인라인 자동 완성" 또는 이와 비슷한 이름으로 부르기도 합니다. 하지만 여기서는 이 기능을 기본적으로 구현하고 어떻게 되는지 살펴보도록 하겠습니다. 이 예제에서는 컨트롤러부터 작업하겠습니다.
 
@@ -464,6 +465,6 @@ ms.locfileid: "67434735"
 다음 자습서에서는 사용자 환경을 개선하는 또 다른 방법으로 패싯을 사용하여 클릭 한 번으로 검색 범위를 좁히는 방법을 알아보겠습니다.
 
 > [!div class="nextstepaction"]
-> [C# 자습서: 패싯을 사용하여 탐색 지원 - Azure Search](tutorial-csharp-facets.md)
+> [C# 자습서: 패싯을 사용하여 탐색 지원 - Azure Cognitive Search](tutorial-csharp-facets.md)
 
 

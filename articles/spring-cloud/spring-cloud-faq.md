@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/07/2019
 ms.author: v-vasuke
-ms.openlocfilehash: d4edc634ad41042642b1d73f28ec61cb6dc15ac4
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 69b3827bbb53a5f989f3bdec0d5c4ea6035130f0
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433313"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72592301"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -30,12 +30,10 @@ Azure Spring Cloud는 Azure Monitor, Application Insights 및 Log Analytics를 �
 
 ### <a name="what-service-plans-does-azure-spring-cloud-offer"></a>Azure Spring Cloud에서 제공하는 서비스 계획은 어떻게 되나요?
 
-Azure Spring Cloud는 미리 보기 기간 동안 하나의 서비스 계획을 제공합니다.
+Azure Spring Cloud는 미리 보기 기간 동안 하나의 서비스 계획을 제공합니다.  Spring Cloud 배포에는 16개의 vCPU 코어 및 32GB의 메모리가 포함되어 있습니다.  배포 내의 각 마이크로서비스 인스턴스에 대한 상한은 8GB의 메모리를 포함하는 4개의 vCPU 코어입니다.
 
 리소스 | Amount
 ------- | -------
-vCPU | 4
-메모리 | 8GB
 Spring 애플리케이션당 앱 인스턴스 수 | 20
 Azure Spring Cloud 서비스 인스턴스당 총 앱 인스턴스 수 | 50*
 구독당 지역별 Azure Spring Cloud 서비스 인스턴스 수 | 2*

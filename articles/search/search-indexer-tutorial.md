@@ -1,27 +1,27 @@
 ---
-title: 'C# 자습서: Azure SQL 데이터베이스에서 데이터 인덱싱 - Azure Search'
-description: Azure SQL 데이터베이스에 연결하고, 검색 가능한 데이터를 추출하고, Azure Search 인덱스에 로드하는 방법을 보여주는 C# 코드 예제입니다.
-author: HeidiSteen
+title: 'C# 자습서: Azure SQL 데이터베이스에서 데이터 인덱싱'
+titleSuffix: Azure Cognitive Search
+description: Azure SQL 데이터베이스에 연결하고, 검색 가능한 데이터를 추출하고, Azure Cognitive Search 인덱스에 로드하는 방법을 보여주는 C# 코드 예제입니다.
 manager: nitinme
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 05/02/2019
+author: HeidiSteen
 ms.author: heidist
-ms.openlocfilehash: 1ba0a965de356cfbe7d9a1cfc8d6d2e8da092934
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: d83db424ee6e9a009353ca568232b38260883a4c
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327170"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72793613"
 ---
-# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C# 자습서: Azure Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
+# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-cognitive-search-indexers"></a>C# 자습서: Azure Cognitive Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
 
-Azure SQL 데이터베이스 샘플에서 검색할 수 있는 데이터를 추출하기 위해 인덱서를 구성하는 방법을 알아봅니다. [인덱서](search-indexer-overview.md)는 외부 데이터 원본을 탐색하는 Azure Search의 구성 요소이며 콘텐츠로 [검색 인덱스](search-what-is-an-index.md)를 채웁니다. 모든 인덱서 중에 Azure SQL Database의 인덱서가 가장 널리 사용됩니다. 
+Azure SQL 데이터베이스 샘플에서 검색할 수 있는 데이터를 추출하기 위해 인덱서를 구성하는 방법을 알아봅니다. [인덱서](search-indexer-overview.md)는 외부 데이터 원본을 탐색하는 Azure Cognitive Search의 구성 요소이며 콘텐츠로 [검색 인덱스](search-what-is-an-index.md)를 채웁니다. 모든 인덱서 중에 Azure SQL Database의 인덱서가 가장 널리 사용됩니다. 
 
 인덱서 구성의 숙련도에 따라 작성하고 유지 관리해야 하는 코드를 단순화할 수 있습니다. 스키마 준수 JSON 데이터 세트를 준비하고 푸시하는 대신 인덱서를 데이터 원본에 연결하고, 인덱서로 데이터를 추출하고, 인덱스에 삽입하고, 필요에 따라 되풀이 일정으로 인덱서를 실행하여 기본 원본에서 변경 내용을 적용할 수 있습니다.
 
-이 자습서에서는 [Azure Search .NET 클라이언트 라이브러리](https://aka.ms/search-sdk) 및 .NET Core 콘솔 애플리케이션을 사용하여 다음 작업을 수행합니다.
+이 자습서에서는 [Azure Cognitive Search .NET 클라이언트 라이브러리](https://aka.ms/search-sdk) 및 .NET Core 콘솔 애플리케이션을 사용하여 다음 작업을 수행합니다.
 
 > [!div class="checklist"]
 > * 애플리케이션 설정에 검색 서비스 정보 추가
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다. 
 
-[Azure Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
+[Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
 
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)는 인덱서에서 사용되는 외부 데이터 원본을 저장합니다. 샘플 솔루션은 SQL 데이터 파일을 제공하여 테이블을 만듭니다. 이 자습서에는 서비스 및 데이터베이스를 만드는 단계가 제공됩니다.
 
@@ -46,11 +46,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 [Azure-Samples/search-dotnet-getting-started](https://github.com/Azure-Samples/search-dotnet-getting-started)는 Azure 샘플 GitHub 리포지토리에 있는 샘플 솔루션을 제공합니다. 솔루션을 다운로드 및 추출합니다. 기본적으로 솔루션은 읽기 전용입니다. 솔루션을 마우스 오른쪽 단추로 클릭하고 읽기 전용 특성을 지워서 파일을 수정할 수 있도록 합니다.
 
 > [!Note]
-> 체험 Azure Search 서비스를 사용하는 경우 세 가지 인덱스, 세 가지 인덱서 및 세 가지 데이터 원본으로 제한됩니다. 이 자습서에서는 각각을 하나씩 만듭니다. 서비스에 새 리소스를 허용하는 공간이 있는지 확인합니다.
+> 체험 Azure Cognitive Search 서비스를 사용하는 경우 세 가지 인덱스, 세 가지 인덱서 및 세 가지 데이터 원본으로 제한됩니다. 이 자습서에서는 각각을 하나씩 만듭니다. 서비스에 새 리소스를 허용하는 공간이 있는지 확인합니다.
 
 ## <a name="get-a-key-and-url"></a>키 및 URL 가져오기
 
-REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 확보하십시오.
+REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL이 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Cognitive Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 가져옵니다.
 
 1. [Azure Portal에 로그인](https://portal.azure.com/)하고, 검색 서비스 **개요** 페이지에서 URL을 가져옵니다. 엔드포인트의 예는 다음과 같습니다. `https://mydemo.search.windows.net`
 
@@ -67,7 +67,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 1. 각 설정을 채울 수 있도록 솔루션 탐색기에서 **appsettings.json**을 엽니다.  
 
-처음 두 항목은 Azure Search 서비스의 URL 및 관리 키를 사용하여 바로 채울 수 있습니다. 엔드포인트가 `https://mydemo.search.windows.net`일 경우 서비스 이름에 `mydemo`를 지정해야 합니다.
+처음 두 항목은 Azure Cognitive Search 서비스의 URL 및 관리 키를 사용하여 바로 채울 수 있습니다. 엔드포인트가 `https://mydemo.search.windows.net`일 경우 서비스 이름에 `mydemo`를 지정해야 합니다.
 
 ```json
 {
@@ -81,7 +81,7 @@ REST를 호출하려면 모든 요청에 대한 액세스 키와 서비스 URL�
 
 ## <a name="prepare-sample-data"></a>샘플 데이터 준비
 
-이 단계에서 인덱서가 탐색할 수 있는 외부 데이터 원본을 만듭니다. Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Database에서 데이터 세트를 만들 수 있습니다. Azure Search는 뷰 또는 쿼리에서 생성된 일반 행 집합을 사용합니다. 샘플 솔루션에 있는 SQL 파일은 단일 테이블을 만들고 채웁니다.
+이 단계에서 인덱서가 탐색할 수 있는 외부 데이터 원본을 만듭니다. Azure Portal 및 샘플의 *hotels.sql* 파일을 사용하여 Azure SQL Database에서 데이터 세트를 만들 수 있습니다. Azure Cognitive Search는 뷰 또는 쿼리에서 생성된 일반 행 집합을 사용합니다. 샘플 솔루션에 있는 SQL 파일은 단일 테이블을 만들고 채웁니다.
 
 다음 연습은 기존 서버 또는 데이터베이스를 사용하지 않고 2단계에서 모두 만들도록 지시합니다. 필요에 따라 기존 리소스가 있는 경우 4단계에서부터 여기에 호텔 테이블을 추가할 수 있습니다.
 
@@ -159,7 +159,7 @@ public string HotelName { get; set; }
 
 기본 프로그램에는 클라이언트, 인덱스, 데이터 원본 및 인덱서를 만드는 논리가 포함되어 있습니다. 코드는 이 프로그램을 여러 번 실행한다는 가정 하에서 동일한 이름의 기존 리소스를 확인하고 삭제합니다.
 
-데이터 원본 개체는 Azure SQL에서 기본적으로 제공하는 [변경 내용 검색 기능](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 활용하기 위한 [증분 인덱싱](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)을 포함하여 Azure SQL 데이터베이스 리소스에 한정된 설정을 사용하여 구성됩니다. Azure SQL의 데모 호텔 데이터베이스에는 **IsDeleted**라는 "일시 삭제" 열이 있습니다. 데이터베이스에서 이 열을 true로 설정하면 인덱서가 Azure Search 인덱스에서 해당 문서를 제거합니다.
+데이터 원본 개체는 Azure SQL에서 기본적으로 제공하는 [변경 내용 검색 기능](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server)을 활용하기 위한 [증분 인덱싱](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows)을 포함하여 Azure SQL 데이터베이스 리소스에 한정된 설정을 사용하여 구성됩니다. Azure SQL의 데모 호텔 데이터베이스에는 **IsDeleted**라는 "일시 삭제" 열이 있습니다. 데이터베이스에서 이 열을 true로 설정하면 인덱서가 Azure Cognitive Search 인덱스에서 해당 문서를 제거합니다.
 
   ```csharp
   Console.WriteLine("Creating data source...");
@@ -261,7 +261,7 @@ Azure Portal의 검색 서비스 개요 페이지에서 맨 위에 있는 **검�
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Search 서비스의 개요 페이지에 있습니다.
+이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Cognitive Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Cognitive Search 서비스의 개요 페이지에 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

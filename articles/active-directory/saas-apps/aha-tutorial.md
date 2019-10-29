@@ -17,15 +17,15 @@ ms.date: 08/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a63872680d28664c6d5a7ff109f6de72817173d5
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
+ms.lasthandoff: 10/21/2019
 ms.locfileid: "68989657"
 ---
 # <a name="tutorial-integrate-aha-with-azure-active-directory"></a>자습서: Aha!를 Azure Active Directory와 연결
 
-이 자습서에서는 Aha!를 Azure AD(Azure Active Directory)와 연결하는 방법을 알아봅니다. Aha!를 Azure AD와 연결하면 다음을 수행할 수 있습니다.
+이 자습서에서는 Aha!를 Azure AD(Azure Active Directory)와 통합하는 방법을 알아봅니다. Aha!를 Azure AD와 연결하면 다음을 수행할 수 있습니다.
 
 * Aha!에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어할 수 있습니다.
 * 사용자가 자신의 Azure AD 계정으로 Aha!에 자동으로 로그인되도록 설정합니다.
@@ -134,7 +134,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![내 앱 확장](common/install-myappssecure-extension.png)
 
-2. 브라우저에 확장을 추가한 후 **Aha! 설정**을 클릭하면 Aha! 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 Aha!에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-8단계를 자동으로 수행합니다.
+2. 브라우저에 확장을 추가한 후 **Aha! 설정**을 클릭하면 Aha! 애플리케이션을 클릭합니다. 여기서 관리자 자격 증명을 입력하여 Aha!에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-8단계를 자동으로 수행합니다.
 
     ![구성 설정](common/setup-sso.png)
 
@@ -150,11 +150,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 6. **보안 및 single sign-on**을 클릭합니다.
 
-    ![보안 및 Single Sign-On](./media/aha-tutorial/IC798952.png "보안 및 Single Sign-On")
+    ![보안 및 Single Sign-On](./media/aha-tutorial/IC798952.png "보안 및 single sign-on")
 
 7. **Single Sign-On** 섹션에서 **ID 공급자**로 **SAML2.0**을 선택합니다.
 
-    ![보안 및 Single Sign-On](./media/aha-tutorial/IC798953.png "보안 및 Single Sign-On")
+    ![보안 및 Single Sign-On](./media/aha-tutorial/IC798953.png "보안 및 single sign-on")
 
 8. **Single Sign-On** 구성 페이지에서 다음 단계를 수행합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 작업 및 리소스가 있는 Azure Managed Application 만들기
+title: 사용자 지정 작업 및 리소스가 있는 Azure Managed Application
 description: 이 자습서에서는 Azure 사용자 지정 공급자가 있는 Azure Managed Application을 만드는 방법을 설명합니다.
 services: managed-applications
 ms.service: managed-applications
@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/20/2019
-ms.openlocfilehash: 3dd0887114156956b55f554d0265e3ca2b9b10ab
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: f70bb768dae3de80f85ffc49558b9ef51d2fce49
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336108"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529209"
 ---
 # <a name="tutorial-create-managed-application-with-custom-actions-and-resources"></a>자습서: 사용자 지정 작업 및 리소스가 있는 관리형 애플리케이션 만들기
 

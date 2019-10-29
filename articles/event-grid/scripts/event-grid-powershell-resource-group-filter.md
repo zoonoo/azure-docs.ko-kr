@@ -1,22 +1,22 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 리소스 그룹 구독 및 리소스로 필터링 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 리소스 그룹 구독 및 리소스로 필터링
+title: Azure PowerShell - 리소스 그룹 구독
+description: Azure Event Grid 및 Azure PowerShell 스크립트 샘플 - 리소스 그룹 구독 및 리소스로 필터링
 services: event-grid
 documentationcenter: na
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
-ms.openlocfilehash: 069762659560d1eb60ecf28267ecfa0e80a7f6e8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/22/2019
+ms.author: spelluru
+ms.openlocfilehash: 222bf6fb9297afda038b38d3fb528711ad03a3ca
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66117107"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72790741"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-and-filter-for-a-resource-with-powershell"></a>PowerShell을 사용하여 리소스 그룹에 대한 이벤트를 구독하고 리소스 필터링
 

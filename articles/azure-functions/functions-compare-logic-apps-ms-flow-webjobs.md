@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 47e300bf242f02d458363b7d2ab7af8a4399b399
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: b131a6fd5bb39ee5ec672a8ffb75cb22087a38af
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155050"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597449"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Microsoft Flow, Logic Apps, Functions 및 WebJobs란?
 
@@ -27,7 +27,9 @@ ms.locfileid: "71155050"
 * [Azure 기능](https://azure.microsoft.com/services/functions/)
 * [Azure App Service WebJobs](../app-service/webjobs-create.md)
 
-이 모든 서비스는 통합 문제를 해결하고 비즈니스 프로세스를 자동화할 수 있습니다. 입력, 동작, 조건 및 출력을 모두 정의할 수 있습니다. 각 서비스를 일정이나 트리거에 따라 실행할 수 있습니다. 서비스마다 고유의 장점이 있으며, 이 문서에서는 차이점을 설명합니다.
+이 모든 서비스는 통합 문제를 해결하고 비즈니스 프로세스를 자동화할 수 있습니다. 입력, 동작, 조건 및 출력을 모두 정의할 수 있습니다. 각 서비스를 일정이나 트리거에 따라 실행할 수 있습니다. 서비스마다 고유의 장점이 있으며, 이 문서에서는 차이점을 설명합니다. 
+
+Azure Functions와 다른 Azure 컴퓨팅 옵션 간에 보다 일반적인 비교를 찾고 있는 경우 [Azure 컴퓨팅 서비스를 선택하기 위한 조건](/azure/architecture/guide/technology-choices/compute-comparison) 및 [마이크로서비스에 대한 Azure 컴퓨팅 옵션 선택](/azure/architecture/microservices/design/compute-options)을 참조하세요.
 
 ## <a name="compare-microsoft-flow-and-azure-logic-apps"></a>Microsoft Flow 및 Azure Logic Apps 비교
 

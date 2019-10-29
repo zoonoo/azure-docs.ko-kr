@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 09/17/2019
 ms.author: aahi
-ms.openlocfilehash: 320c690eb873f760af89b7514893f14ecc209323
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 1932ac571c94f9dc96240bdb63b44fe53c626f1f
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71106874"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554737"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-nodejs"></a>빠른 시작: Node.js용 Anomaly Detector 클라이언트 라이브러리
 
@@ -26,7 +26,7 @@ Node.js용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다�
 * 일괄 요청으로 시계열 데이터 세트 전체에서 변칙 검색
 * 시계열에서 최신 데이터 요소의 변칙 상태 검색
 
-[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [샘플](https://github.com/Azure-Samples/anomalydetector)
+[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/AnomalyDetector) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-anomalydetector) | [코드 샘플](https://github.com/Azure-Samples/anomalydetector)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -37,13 +37,8 @@ Node.js용 Anomaly Detector 클라이언트 라이브러리를 사용하여 다�
 
 ### <a name="create-an-anomaly-detector-azure-resource"></a>Anomaly Detector Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Anomaly Detector용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+[!INCLUDE [anomaly-detector-resource-creation](../../../../includes/cognitive-services-anomaly-detector-resource-cli.md)]
 
-* 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 키를 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
-* [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
-
-평가판 구독 또는 리소스에서 키를 가져오면 `ANOMALY_DETECTOR_KEY`라는 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication). 그런 다음, Azure 엔드포인트에 대한 `ANOMALY_DETECTOR_ENDPOINT` 환경 변수를 만듭니다.
- 
 ### <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
 
 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 앱에 대한 새 디렉터리를 만들고 이 디렉터리로 이동합니다. 
@@ -62,9 +57,9 @@ npm init
 
 [!code-javascript[Import statements](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=imports)]
 
-리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 열어 해당 변수에 액세스해야 합니다. 이후 단계에서 다운로드할 예제 데이터 파일에 대한 또 다른 변수를 만듭니다. 그런 다음, 키를 포함할 ApiKeyCredentials 개체를 만듭니다.
+리소스의 Azure 엔드포인트 및 키에 대한 변수를 만듭니다. 애플리케이션을 시작한 후에 환경 변수를 만든 경우 이를 실행 중인 편집기, IDE 또는 셸을 닫고 다시 열어 해당 변수에 액세스해야 합니다. 이후 단계에서 다운로드할 예제 데이터 파일에 대한 다른 변수와 데이터 지점에 대한 빈 목록을 만듭니다. 그런 다음, 키를 포함할 `ApiKeyCredentials` 개체를 만듭니다.
 
-[!code-javascript[Initial variables](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=vars)]
+[!code-javascript[Initial endpoint and key variables](~/cognitive-services-quickstart-code/javascript/AnomalyDetector/anomaly_detector_quickstart.js?name=vars)]
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
@@ -94,9 +89,6 @@ Anomaly Detector 응답은 사용된 메서드에 따라 [LastDetectResponse](ht
 * [최신 데이터 요소의 변칙 상태 검색](#detect-the-anomaly-status-of-the-latest-data-point)
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
-
-> [!NOTE]
-> 이 빠른 시작에서는 `ANOMALY_DETECTOR_KEY`라는 Anomaly Detector 키용 [환경 변수를 생성](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication)했다고 가정합니다.
 
 엔드포인트와 자격 증명을 사용하여 [AnomalyDetectorClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-anomalydetector/anomalydetectorclient?view=azure-node-latest) 개체를 인스턴스화합니다.
 

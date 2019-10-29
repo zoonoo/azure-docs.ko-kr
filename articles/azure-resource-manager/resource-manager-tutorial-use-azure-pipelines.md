@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 06/12/2019
+ms.date: 10/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 462d9cd6d2a911e660221621ebde5829e928cf00
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
+ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122218"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "72597246"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합
 
@@ -91,7 +91,7 @@ GitHub 계정이 없는 경우 [필수 조건](#prerequisites)을 참조하세�
 
     **[YourAccountName]** 을 해당 GitHub 계정 이름으로 바꾸고, **[YourGitHubRepositoryName]** 을 이전 절차에서 만든 리포지토리 이름으로 바꿉니다.
 
-    다음 스크린샷은 예제를 보여줍니다.
+    다음 스크린샷은 예제를 보여 줍니다.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines GitHub bash 만들기](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-github-bash.png)
 
@@ -183,9 +183,11 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 
     ```yaml
     steps:
-    - task: AzureResourceGroupDeployment@2
+    - task: AzureResourceManagerTemplateDeployment@3
       inputs:
-        azureSubscription: '[YourServiceConnectionName]'
+        deploymentScope: 'Resource Group'
+        ConnectedServiceName: '[EnterYourServiceConnectionName]'
+        subscriptionName: '[EnterTheTargetSubscriptionID]'
         action: 'Create Or Update Resource Group'
         resourceGroupName: '[EnterANewResourceGroupName]'
         location: 'Central US'
@@ -200,14 +202,16 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 
     다음과 같이 변경합니다.
 
-    * **azureSubscription**: 값을 이전 절차에서 만든 서비스 연결로 업데이트 합니다.
+    * **deloymentScope**: `Management Group`, `Subscription` 및 `Resource Group` 옵션에서 배포 범위를 선택합니다. 이 자습서에서는 **리소스 그룹**을 사용합니다. 범위에 대해 자세히 알아보려면 [배포 범위](./resource-group-template-deploy-rest.md#deployment-scope)를 참조하세요.
+    * **ConnectedServiceName**: 이전에 만든 서비스 연결 이름을 지정합니다.
+    * **SubscriptionName**:  대상 구독 ID를 지정합니다.
     * **작업**: **리소스 그룹 만들기 또는 업데이트** 작업은 2가지 작업을 수행합니다. 1. 새 리소스 그룹 이름이 제공되면 리소스 그룹을 만듭니다. 2. 지정된 템플릿을 배포합니다.
     * **resourceGroupName**: 새 리소스 그룹 이름을 지정합니다. 예: **AzureRmPipeline-rg**.
     * **위치**: 리소스 그룹의 위치를 지정합니다.
     * **templateLocation**: **연결된 아티팩트**를 지정하면 작업은 연결된 리포지토리에서 직접 템플릿 파일을 찾습니다.
     * **csmFile**은 템플릿 파일의 경로입니다. 템플릿에 정의된 모든 매개 변수에는 기본값이 있으므로 템플릿 매개 변수 파일을 지정할 필요가 없습니다.
 
-    작업에 대한 자세한 내용은 [Azure 리소스 그룹 배포 작업](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment)을 참조하세요.
+    작업에 대한 자세한 내용은 [Azure Resource Group 배포 작업](/azure/devops/pipelines/tasks/deploy/azure-resource-group-deployment) 및 [Azure Resource Manager 템플릿 배포 작업](https://github.com/microsoft/azure-pipelines-tasks/blob/master/Tasks/AzureResourceManagerTemplateDeploymentV3/README.md)을 참조하세요.
 1. **저장 및 실행**을 선택합니다.
 1. **저장 및 실행**을 다시 선택합니다. 연결된 리포지토리에 YAML 파일의 복사본이 저장됩니다. 리포지토리로 이동하면 YAML 파일을 볼 수 있습니다.
 1. 파이프라인이 성공적으로 실행되는지 확인합니다.

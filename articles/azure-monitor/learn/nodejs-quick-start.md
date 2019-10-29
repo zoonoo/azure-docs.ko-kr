@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 79bd0ce90c76f95ce12662e0d496b481382e805a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 84be9c2b1d8e28fb847e52bda36f9857bd28da28
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177692"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72528792"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>빠른 시작: Azure Application Insights를 사용하여 Node.js 웹 애플리케이션 모니터링 시작
 
@@ -43,7 +43,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 1. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다.
 
-   ![Application Insights 리소스 추가](./media/nodejs-quick-start/1createresourseappinsights.png)
+   ![Azure Application Insights 리소스 추가](./media/nodejs-quick-start/azure-app-insights-create-resource.png)
 
    > [!NOTE]
    >Application Insights 리소스를 처음 만드는 경우 자세한 내용은 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) 문서를 참조하세요.
@@ -62,7 +62,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 1. **개요**를 선택하고, 애플리케이션의 **계측 키**를 복사합니다.
 
-   ![새로운 App Insights 리소스 형식](./media/nodejs-quick-start/3key.png)
+   ![Application Insights 계측 키 보기](./media/nodejs-quick-start/azure-app-insights-instrumentation-key.png)
 
 2. Node.js용 Application Insights SDK를 애플리케이션에 추가합니다. 응용 프로그램의 루트 폴더에서 다음을 실행합니다.
 
@@ -86,19 +86,19 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 1. 이제 계측 키를 검색한 Azure Portal에서 Application Insights **개요** 페이지를 다시 열어 현재 실행 중인 애플리케이션에 대한 세부 정보를 볼 수 있습니다.
 
-   ![Application Insights 개요 메뉴](./media/nodejs-quick-start/4overview.png)
+   ![Application Insights 개요 메뉴](./media/nodejs-quick-start/azure-app-insights-overview-menu.png)
 
 2. 애플리케이션 구성 요소 간의 종속성 관계에 대한 시각적 레이아웃을 보려면 **애플리케이션 맵**을 선택합니다. 각 구성 요소에는 로드, 성능, 오류 및 경고와 같은 KPI가 표시됩니다.
 
-   ![애플리케이션 맵](./media/nodejs-quick-start/5appmap.png)
+   ![Application Insights 애플리케이션 맵](./media/nodejs-quick-start/azure-app-insights-application-map.png)
 
-3. **앱 분석** 아이콘 ![애플리케이션 맵 아이콘](./media/nodejs-quick-start/006.png) **Analytics에서 보기**를 선택합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
+3. **앱 분석** 아이콘 ![애플리케이션 맵 아이콘](./media/nodejs-quick-start/azure-app-insights-analytics-icon.png) **Analytics에서 보기**를 선택합니다.  그러면 Application Insights에 의해 수집된 모든 데이터를 분석하기 위한 풍부한 쿼리 언어를 제공하는 **Application Insights Analytics**가 열립니다. 이 경우 요청 수를 차트로 렌더링하는 쿼리가 생성됩니다. 사용자 고유의 쿼리를 작성하여 다른 데이터를 분석할 수 있습니다.
 
-   ![일정 기간의 사용자 요청에 대한 분석 그래프](./media/nodejs-quick-start/6analytics.png)
+   ![Application Insights Analytics 그래프](./media/nodejs-quick-start/azure-app-insights-analytics-queries.png)
 
 4. **개요** 페이지로 돌아가서 KPI 그래프를 검사합니다.  이 대시보드는 들어오는 요청의 수, 해당 요청의 기간 및 발생한 모든 오류를 포함하여 애플리케이션 상태에 대한 통계를 제공합니다.
 
-   ![상태 개요 타임라인 그래프](./media/nodejs-quick-start/7kpidashboards.png)
+   ![Application Insights 상태 개요 타임라인 그래프](./media/nodejs-quick-start/azure-app-insights-health-overview.png)
 
    **페이지 보기 로드 시간** 차트를 **클라이언트 쪽 원격 분석** 데이터로 채우도록 하려면 이 스크립트를 추적하려는 각 페이지에 추가합니다.
 
@@ -124,7 +124,7 @@ Application Insights는 온-프레미스 또는 클라우드에서 실행되는�
 
 5. 왼쪽에서 **메트릭**을 선택합니다. 메트릭 탐색기를 사용하여 리소스의 상태 및 사용률을 조사합니다. **새 차트 추가**를 선택하여 사용자 지정 보기를 추가로 만들거나, **편집**을 선택하여 기존 차트의 종류, 높이, 색상표, 그룹화 및 메트릭을 수정할 수 있습니다. 예를 들어 메트릭 드롭다운의 "브라우저 페이지 로드 시간"과 집계의 "Avg"를 선택하여 평균 브라우저 페이지 로드 시간을 표시하는 차트를 만들 수 있습니다. Azure 메트릭 탐색기에 대해 자세히 알아보려면 [Azure 메트릭 탐색기 시작](../../azure-monitor/platform/metrics-getting-started.md)을 방문하세요.
 
-   ![서버 메트릭 그래프](./media/nodejs-quick-start/8metrics.png)
+   ![Application Insights Server 메트릭 그래프](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
 Node.js 모니터링에 대한 자세한 내용은 [Application Insights Node.js 추가 설명서](../../azure-monitor/app/nodejs.md)를 참조하세요.
 

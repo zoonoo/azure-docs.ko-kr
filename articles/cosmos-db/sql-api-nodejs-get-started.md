@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 5de0fe47d8ca6372c35cc4f148f97b366a1a742c
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: a273b89d864d97d9bc71acff476371f77cfff066
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971390"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72754832"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 콘솔 앱 빌드
 
@@ -662,7 +662,7 @@ npm을 통해 프로젝트의 종속성을 설치합니다. 다음 명령을 사
 
 * ```npm install``` 
 
-다음으로, ```config.js``` 파일에서 config.endpoint 및 config.primaryKey 값을 [3단계: 앱의 구성 설정](#Config)에서 설명한 대로 업데이트합니다.  
+다음으로, ```config.js``` 파일에서 config.endpoint 및 config.key 값을 [3단계: 앱의 구성 설정](#Config)에서 설명한 대로 업데이트합니다.  
 
 그런 다음, 터미널에서 ```app.js``` 파일을 찾아서 다음 명령을 실행합니다.  
 

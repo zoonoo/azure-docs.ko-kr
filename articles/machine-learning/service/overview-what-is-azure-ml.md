@@ -7,14 +7,14 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 08/05/2019
+ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a70b1c9d3ac888f0f77cf0f6e9ca37bc6cd4324
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c845966c86659c0ff983bf33c492a67dd99275f0
+ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999929"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72692949"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -38,9 +38,9 @@ Azure Machine Learning은 기계 학습 모델의 데이터 준비, 교육, 테�
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/player]
 
-## <a name="what-can-i-do-with-azure-machine-learning"></a>Azure Machine Learning으로 무엇을 할 수 있나요?
+## <a name="what-can-i-do-with-azure-machine-learning-service"></a>Azure Machine Learning 서비스로 무엇을 할 수 있나요?
 
-<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a>를 오픈 소스 Python 패키지에 사용하거나 [그래픽 인터페이스(미리 보기)](ui-tutorial-automobile-price-train-score.md)를 사용하여 Azure Machine Learning 작업 영역에서 매우 정확한 기계 학습 및 딥 러닝 모델을 직접 빌드하고 학습시킬 수 있습니다.
+<a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Azure Machine Learning Python SDK</a>를 오픈 소스 Python 패키지에 사용하거나 [그래픽 인터페이스(미리 보기)](ui-tutorial-automobile-price-train-score.md)를 사용하여 Azure Machine Learning Service 작업 영역에서 매우 정확한 기계 학습 및 딥 러닝 모델을 직접 빌드하고 학습시킬 수 있습니다.
 
 오픈 소스 Python 패키지에 제공되는 <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, <a href="https://mxnet.io" target="_blank">MXNet</a> 등의 여러 기계 학습 구성 요소 중에 선택할 수 있습니다.
 
@@ -54,7 +54,7 @@ SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-
 
 ### <a name="ui-based-low-code-experience"></a>UI 기반, 낮은 코드 환경
 
-코드 없는 학습을 원하신다면 다음 방법을 시도해보세요.
+코드 없는 학습 및 배포의 경우 다음을 시도합니다.
 
 + 사용하기 쉬운 인터페이스에서 [자동화된 ML 실험](tutorial-first-experiment-automated-ml.md)을 만듭니다.
 + [시각적 인터페이스에서 끌어서 놓기 실험](ui-tutorial-automobile-price-train-score.md).
@@ -90,10 +90,15 @@ Azure Machine Learning은 신속하게 데이터를 준비하고 기계 학습 �
 || Machine Learning Studio | Azure Machine Learning:<br/>시각적 인터페이스|
 |---| --- | --- |
 || GA(일반 공급) | 미리 보기|
+|끌어서 놓기 인터페이스| 예 | 예|
+|실험| 크기 조정(10GB 학습 데이터 제한) | 컴퓨팅 대상으로 크기 조정|
 |인터페이스용 모듈| 다수 | 인기 있는 초기 모듈 세트|
-|컴퓨팅 대상 학습| 전용 컴퓨팅 대상, CPU만 지원| Azure Machine Learning 컴퓨팅, GPU 또는 CPU 지원<br/>(다른 컴퓨팅은 SDK에서 지원)|
-|컴퓨팅 대상 배포| 전용 웹 서비스 형식, 사용자 지정 불가능 | 엔터프라이즈 보안 옵션 및 Azure Kubernetes Service <br/>([다른 컴퓨팅](how-to-deploy-and-where.md)은 SDK에서 지원) |
-|자동화된 모델 학습 및 하이퍼 매개변수 튜닝 | 아니요 | 시각적 인터페이스에서는 아직 미지원 <br/> (SDK 및 Azure Portal/작업 영역 방문 페이지에서 지원) |
+|컴퓨팅 대상 학습| 전용 컴퓨팅 대상, CPU만 해당|AML 컴퓨팅(GPU/CPU)<br/> Notebook VM |
+|컴퓨팅 대상 추론| 전용 웹 서비스 형식, 사용자 지정 불가능 | Azure Kubernetes Service(실시간 추론) <br/>AML 컴퓨팅(일괄 처리 추론) |
+|ML 파이프라인| 지원되지 않음 | 파이프라인 제작 <br/> 게시된 파이프라인 <br/> 파이프라인 엔드포인트 <br/> [ML 파이프라인에 대해 자세히 알아보기](concept-ml-pipelines.md)|
+|ML Ops| 기본 모델 관리 및 배포 | 구성 가능한 배포, 모델 및 파이프라인 버전 관리|
+|모델| 전용 형식입니다. Studio 외부에서 사용할 수 없음 | 학습 작업에 따라 다양한 표준 형식|
+|자동화된 모델 학습 및 하이퍼 매개변수 튜닝 | 아니요 | 시각적 인터페이스에서는 아직 미지원 <br/> (Python SDK 및 작업 영역 방문 페이지에서 지원됩니다.) |
 
 [자습서: 시각적 개체 인터페이스로 자동차 가격 예측](ui-tutorial-automobile-price-train-score.md)을 사용하여 시각적 개체 인터페이스(미리 보기)를 시도해 보세요.
 

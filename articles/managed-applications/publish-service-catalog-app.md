@@ -1,5 +1,5 @@
 ---
-title: Azure 서비스 카탈로그 관리형 애플리케이션 만들기 및 게시 | Microsoft Docs
+title: Azure 서비스 카탈로그 관리 애플리케이션 게시
 description: 조직의 구성원을 위한 Azure 관리형 애플리케이션을 만드는 방법이 나와 있습니다.
 services: managed-applications
 author: tfitzmac
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1d28a9d330dd001e3fdc05e37f7bbcdd2db7ee6e
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 62d8de4f36ab110f7bd871c9de0e5d843516970c
+ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224536"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72529004"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>관리되는 애플리케이션 정의 만들기 및 게시
 

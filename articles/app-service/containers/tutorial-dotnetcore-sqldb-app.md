@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a4774431b6a6e37ee9e175e161813936a71cdee9
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 532c6a45351f872260ea9383adaacacd486b9d9a
+ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68824670"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72532726"
 ---
 # <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
@@ -49,7 +49,7 @@ ms.locfileid: "68824670"
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [Git 설치](https://git-scm.com/)
-* [.NET Core 설치](https://www.microsoft.com/net/core/)
+* [.NET Core SDK 2.2 설치](https://dotnet.microsoft.com/download/dotnet-core/2.2)
 
 ## <a name="create-local-net-core-app"></a>로컬 .NET Core 앱 만들기
 

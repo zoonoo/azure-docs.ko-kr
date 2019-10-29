@@ -1,23 +1,24 @@
 ---
-title: Storage Explorer를 사용하여 지식 저장소 보기 - Azure Search
-description: Azure Portal의 Storage Explorer를 사용하여 Azure Search 지식 저장소를 살펴보고 분석합니다.
+title: Storage Explorer를 사용하여 지식 저장소 보기
+titleSuffix: Azure Cognitive Search
+description: Azure Portal의 Storage Explorer를 사용하여 Azure Cognitive Search 지식 저장소를 살펴보고 분석합니다.
+manager: nitinme
 author: lisaleib
-services: search
-ms.service: search
-ms.topic: tutorial
-ms.date: 09/03/2019
 ms.author: v-lilei
-ms.openlocfilehash: 9ec93bcd2309bb47b24983260c35726ac24b5e95
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.service: cognitive-search
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
+ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265609"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72789969"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Storage Explorer를 사용하여 지식 저장소 보기
 
 > [!Note]
-> 지식 저장소는 미리 보기로 있으므로 프로덕션 환경에서 사용하면 안 됩니다. 이 기능은 [Azure Search REST API 버전 2019-05-06-Preview](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
+> 지식 저장소는 미리 보기로 있으므로 프로덕션 환경에서 사용하면 안 됩니다. 이 기능은 [Azure Cognitive Search REST API 버전 2019-05-06-Preview](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
 >
 이 문서에서는 Azure Portal의 Storage Explorer를 사용하여 지식 저장소에 연결하고 검색하는 방법을 알아봅니다. 이 연습에 사용되는 지식 저장소 샘플을 만들려면 [Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md)를 참조하세요.
 
