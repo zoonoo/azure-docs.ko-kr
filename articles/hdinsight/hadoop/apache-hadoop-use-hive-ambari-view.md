@@ -2,18 +2,18 @@
 title: Azure HDInsight에서 Apache Hadoop Apache Ambari Hive 보기 사용
 description: 웹 브라우저에서 Hive 뷰를 사용하여 Hive 쿼리를 제출하는 방법을 알아봅니다. Hive 뷰는 Linux 기반 HDInsight 클러스터와 함께 제공되는 Ambari 웹 UI의 일부입니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/21/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5063be247b2ad51dc8888f8512f523ccf2b0174c
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.date: 10/24/2019
+ms.openlocfilehash: 6c199a0dd75b89d9c9368e799c97a28b73758d06
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044820"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097110"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>HDInsight에서 Apache Hadoop과 Apache Ambari Hive 보기 사용
 
@@ -30,9 +30,9 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
 1. [Azure Portal](https://portal.azure.com/)에서 클러스터를 선택 합니다.  자세한 지침은 [클러스터 나열 및 표시](../hdinsight-administer-use-portal-linux.md#showClusters) 를 참조 하세요. 클러스터는 새 포털 블레이드에서 열립니다.
 
-2. **클러스터 대시보드에서** **Ambari views**를 선택 합니다. 인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다.
+1. **클러스터 대시보드에서** **Ambari views**를 선택 합니다. 인증하라는 메시지가 표시되면 클러스터를 만들 때 제공한 클러스터 로그인(기본값 `admin`) 계정 이름과 암호를 사용합니다. 또는 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/views`로 이동 합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
-3. 보기 목록에서 __Hive 보기__를 선택합니다.
+1. 보기 목록에서 __Hive 보기__를 선택합니다.
 
     ![Apache Ambari select Apache Hive 보기](./media/apache-hadoop-use-hive-ambari-view/select-apache-hive-view.png)
 
@@ -40,7 +40,7 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
 
     ![Hive 보기에 대한 쿼리 워크시트 이미지](./media/apache-hadoop-use-hive-ambari-view/ambari-worksheet-view.png)
 
-4. __쿼리__ 탭에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
+1. __쿼리__ 탭에서 다음 HiveQL 문을 워크시트에 붙여넣습니다.
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -54,8 +54,8 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
         t7 string)
     ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
     STORED AS TEXTFILE LOCATION '/example/data/';
-    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs 
-        WHERE t4 = '[ERROR]' 
+    SELECT t4 AS loglevel, COUNT(*) AS count FROM log4jLogs
+        WHERE t4 = '[ERROR]'
         GROUP BY t4;
     ```
 
@@ -75,9 +75,9 @@ Apache Ambari Hive 보기를 사용하여 Hive 쿼리를 실행하는 방법을 
    > [!IMPORTANT]  
    > __데이터베이스__ 선택 영역을 __기본값__으로 둡니다. 이 문서의 예제에서는 HDInsight에 포함된 기본 데이터베이스를 사용합니다.
 
-5. 쿼리를 시작 하려면 워크시트 아래에서 **실행** 을 선택 합니다. 단추가 주황색으로 바뀌고 텍스트가 **중지**로 변경됩니다.
+1. 쿼리를 시작 하려면 워크시트 아래에서 **실행** 을 선택 합니다. 단추가 주황색으로 바뀌고 텍스트가 **중지**로 변경됩니다.
 
-6. 쿼리가 완료된 후에 **결과** 탭에 작업 결과가 표시됩니다. 다음 텍스트는 쿼리 결과입니다.
+1. 쿼리가 완료된 후에 **결과** 탭에 작업 결과가 표시됩니다. 다음 텍스트는 쿼리 결과입니다.
 
         loglevel       count
         [ERROR]        3
@@ -133,7 +133,7 @@ Hive 보기 위쪽의 **UDF** 탭을 사용하여 UDF 집합을 선언하고 저
 
 UDF를 Hive 보기에 추가한 후에 **쿼리 편집기** 아래쪽에 **udf 삽입** 단추가 표시됩니다. 이 항목을 선택하면 Hive 뷰에서 정의된 UDF의 드롭다운 목록이 표시됩니다. UDF를 선택하면 쿼리에 HiveQL 문을 추가하여 UDF를 사용하도록 설정합니다.
 
-예를 들어 다음 속성으로 UDF를 정의하는 경우:
+예를 들어 다음과 같은 속성을 사용 하 여 UDF를 정의한 경우
 
 * 리소스 이름: myudfs
 

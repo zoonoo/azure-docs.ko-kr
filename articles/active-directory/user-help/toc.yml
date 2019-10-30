@@ -29,7 +29,7 @@
     - name: 암호 재설정에 등록
       href: active-directory-passwords-reset-register.md
     - name: 암호 재설정
-      href: user-help-reset-password.md
+      href: active-directory-passwords-update-your-own-password.md
 - name: Microsoft Authenticator 앱 도움말
   items:
     - name: 개요

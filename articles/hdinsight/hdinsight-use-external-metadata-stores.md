@@ -7,17 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: a876269b2746a1065cee2639cfc5804aff0b3446
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.date: 10/29/2019
+ms.openlocfilehash: 33302f3760cc750bfc41386aaf17368abc15ba5d
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027695"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063282"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight에서 외부 메타데이터 저장소 사용
 
-HDInsight의 Apache Hive metastore는 Apache Hadoop 아키텍처의 핵심 부분입니다. metastore는 Apache Spark, Interactive Query(LLAP), Presto 또는 Apache Pig와 같은 다른 빅 데이터 액세스 도구에서 사용할 수 있는 중앙 스키마 리포지토리입니다. HDInsight는 Azure SQL Database를 Hive metastore로 사용합니다.
+HDInsight를 사용 하면 외부 데이터 저장소에 키 메타 데이터 솔루션 및 관리 데이터베이스를 배포 하 여 데이터 및 메타 데이터를 제어할 수 있습니다. 이 기능은 현재 [Apache Hive metastore](#custom-metastore), [apache Oozie Metastore](#apache-oozie-metastore) 및 [apache Ambari 데이터베이스](#custom-ambari-db)에서 사용할 수 있습니다.
+
+HDInsight의 Apache Hive 메타스토어는 Apache Hadoop 아키텍처의 핵심 부분입니다. metastore는 Apache Spark, Interactive Query(LLAP), Presto 또는 Apache Pig와 같은 다른 빅 데이터 액세스 도구에서 사용할 수 있는 중앙 스키마 리포지토리입니다. HDInsight는 Azure SQL Database를 Hive 메타스토어로 사용합니다.
 
 ![HDInsight Hive 메타데이터 저장소 아키텍처](./media/hdinsight-use-external-metadata-stores/metadata-store-architecture.png)
 
@@ -65,9 +67,9 @@ Azure Portal 또는 Ambari 구성(Hive > Advanced)에서 사용자 지정 metast
 
 ![HDInsight Hive 메타데이터 저장소 Ambari](./media/hdinsight-use-external-metadata-stores/metadata-store-ambari.png)
 
-## <a name="hive-metastore-best-practices"></a>Hive metastore 모범 사례
+## <a name="hive-metastore-best-practices"></a>Hive 메타스토어 모범 사례
 
-다음은 몇 가지 일반적인 HDInsight Hive metastore 모범 사례입니다.
+다음은 몇 가지 일반적인 HDInsight Hive 메타스토어 모범 사례입니다.
 
 * 컴퓨팅 리소스(실행 중인 클러스터)와 metastore에 저장된 메타데이터를 구분할 수 있도록 가능하면 항상 사용자 지정 metastore를 사용합니다.
 
@@ -92,6 +94,10 @@ Azure Portal 또는 Ambari 구성(Hive > Advanced)에서 사용자 지정 metast
 Apache Oozie는 Hadoop 작업을 관리하는 워크플로 조정 시스템입니다.  Oozie는 Apache MapReduce, Pig, Hive 등에 대한 Hadoop 작업을 지원합니다.  Oozie는 metastore를 사용하여 현재 및 완료된 워크플로에 대한 세부 정보를 저장합니다. Oozie 사용 시 성능을 높이기 위해 Azure SQL Database를 사용자 지정 metastore로 사용할 수 있습니다. 클러스터를 삭제한 후 metastore가 Oozie 작업 데이터에 대한 액세스를 제공할 수도 있습니다.
 
 Azure SQL Database를 사용하여 Oozie metastore를 만드는 방법에 대한 지침은 [워크플로에 대해 Apache Oozie 사용](hdinsight-use-oozie-linux-mac.md)을 참조하세요.
+
+## <a name="custom-ambari-db"></a>사용자 지정 Ambari DB
+
+HDInsight의 Apache Ambari에서 고유한 외부 데이터베이스를 사용 하려면 [사용자 지정 Apache Ambari 데이터베이스](hdinsight-custom-ambari-db.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

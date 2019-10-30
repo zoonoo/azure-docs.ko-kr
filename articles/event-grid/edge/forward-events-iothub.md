@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 772fccc96f757c6165238e4041ce98c17c647880
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 073205b5bdc3f6de80bd7e347469c3f06aeb515b
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992302"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098664"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>자습서: IoTHub로 이벤트 전달
 
@@ -160,7 +160,9 @@ ms.locfileid: "72992302"
 
 ## <a name="setup-iot-hub-route"></a>설정 IoT Hub 경로
 
-Event Grid 모듈에서 전달 된 이벤트를 볼 수 있도록 IoT Hub에서 경로를 설정 하는 IoT Hub [라우팅 자습서](../../iot-hub/tutorial-routing.md) 를 참조 하세요.
+Event Grid 모듈에서 전달 된 이벤트를 볼 수 있도록 IoT Hub에서 경로를 설정 하는 [IoT Hub 라우팅 자습서](../../iot-hub/tutorial-routing.md) 를 참조 하세요. 쿼리에 `true`를 사용 하 여 자습서를 단순하게 유지 합니다.  
+
+
 
 ## <a name="publish-an-event"></a>이벤트 게시
 
@@ -205,6 +207,7 @@ Event Grid 모듈에서 전달 된 이벤트를 볼 수 있도록 IoT Hub에서 
 
 이 자습서에서는 event grid 토픽, edge hub 구독 및 게시 된 이벤트를 만들었습니다. Edge 허브로 전달 하는 기본 단계를 배웠으므로 이제 다음 문서를 참조 하세요.
 
+* IoT Edge에서 Azure Event Grid를 사용 하 여 발생 하는 문제를 해결 하려면 [문제 해결 가이드](troubleshoot.md)를 참조 하세요.
 * [Edge 허브](../../iot-edge/module-composition.md) 경로 필터를 사용 하 여 이벤트 분할
 * [Linux](persist-state-linux.md) 또는 [Windows](persist-state-windows.md) 에서 Event Grid 모듈의 지 속성 설정
 * [설명서](configure-client-auth.md) 에 따라 클라이언트 인증 구성

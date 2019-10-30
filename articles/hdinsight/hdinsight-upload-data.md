@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdiseo17may2017
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: f75933940aa97606ca33ab6bfc18fe5871811eef
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.date: 10/29/2019
+ms.openlocfilehash: 7eb1f7e1ce02a30f84cb520438f60fcbcfa3a965
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68441983"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100139"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>HDInsight에서 Apache Hadoop 작업용 데이터 업로드
 
@@ -25,30 +25,29 @@ Azure HDInsight는 Azure Storage 및 Azure Data Lake Store(Gen1 및 Gen2)를 통
 
 * Azure HDInsight 클러스터를 만듭니다. 자세한 지침은 [Azure hdinsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md) 또는 [hdinsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조 하세요.
 * 다음 문서의 정보:
-
-    - [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)
-    - [HDInsight에서 Data Lake Store Gen1 사용](hdinsight-hadoop-use-data-lake-store.md)
-    - [HDInsight에서 Data Lake Store Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
+    * [HDInsight에서 Azure Storage 사용](hdinsight-hadoop-use-blob-storage.md)
+    * [HDInsight에서 Data Lake Store Gen1 사용](hdinsight-hadoop-use-data-lake-store.md)
+    * [HDInsight에서 Data Lake Store Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
 
 ## <a name="upload-data-to-azure-storage"></a>Azure Storage에 데이터 업로드
 
-## <a name="utilities"></a>공공 시설
+## <a name="utilities"></a>공익사업
+
 Microsoft는 Azure Storage에서 작업할 다음 유틸리티를 제공합니다.
 
 | 도구 | Linux | OS X | Windows |
 | --- |:---:|:---:|:---:|
-| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure 포털](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
 | [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
 | [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
 | [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 | [Hadoop 명령](#commandline) |✔ |✔ |✔ |
 
-
 > [!NOTE]  
 > Hadoop 명령은 HDInsight 클러스터에서만 사용할 수 있습니다. 이 명령을 통해 로컬 파일 시스템의 데이터를 Azure Storage로 로드할 수만 있습니다.  
 
-
 ## <a id="commandline"></a>Hadoop 명령줄
+
 데이터가 클러스터 헤드 노드에 존재하는 경우 Hadoop 명령줄은 Azure Storage Blob에 데이터를 저장하는데만 유용합니다.
 
 Hadoop 명령을 사용 하려면 먼저 [SSH 또는 PuTTY](hdinsight-hadoop-linux-use-ssh-unix.md)를 사용 하 여 헤드 노드에 연결 해야 합니다.
@@ -59,13 +58,13 @@ Hadoop 명령을 사용 하려면 먼저 [SSH 또는 PuTTY](hdinsight-hadoop-lin
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-예를 들면 `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+위치(예:`hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로 실제로/example/data/data.txt은 Azure Storage입니다. 파일이 다음과 같을 수도 있습니다.
 
     wasbs:///example/data/data.txt
 
-로 구분하거나 여러
+or
 
     wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt
 
@@ -75,6 +74,7 @@ HDInsight에 대 한 기본 파일 시스템은 Azure Storage 이므로 실제�
 > Apache HBase 클러스터에서 데이터 쓰기 시 사용되는 기본 블록 크기는 256KB입니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령을 사용하여 12GB를 초과하는 데이터를 기록하면 오류가 발생합니다. 자세한 내용은 이 문서의 [Blob에서 쓰기를 위한 스토리지 예외](#storageexception) 섹션을 참조하세요.
 
 ## <a name="graphical-clients"></a>그래픽 클라이언트
+
 Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 몇몇 애플리케이션이 있습니다. 다음 테이블은 이러한 애플리케이션 중 일부의 목록입니다.
 
 | 클라이언트 | Linux | OS X | Windows |
@@ -86,39 +86,45 @@ Azure Storage를 사용하기 위한 그래픽 인터페이스를 제공하는 �
 | [Microsoft Azure용 CloudBerry Explorer](https://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx) | | |✔ |
 | [Cyberduck](https://cyberduck.io/) | |✔ |✔ |
 
-
 ## <a name="mount-azure-storage-as-local-drive"></a>Azure Storage를 로컬 드라이브로 탑재
+
 [Azure Storage를 로컬 드라이브로 탑재](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx)를 참조하세요.
 
 ## <a name="upload-using-services"></a>서비스를 사용하여 업로드
+
 ### <a name="azure-data-factory"></a>Azure Data Factory
+
 Azure 데이터 팩터리 서비스는 데이터 스토리지, 처리 및 이동 서비스를 효율적이고 확장 가능하며 안정적인 데이터 프로덕션 파이프라인으로 구성하기 위한 완전히 관리되는 서비스입니다.
 
-|스토리지 유형|설명서|
+|스토리지 유형|문서화|
 |----|----|
-|Azure Blob 스토리지|[Azure Data Factory를 사용하여 Azure Blob Storage에(서) 데이터 복사](../data-factory/connector-azure-blob-storage.md)|
-|Azure Data Lake Storage Gen1|[Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에(서) 데이터 복사](../data-factory/connector-azure-data-lake-store.md)|
+|Azure Blob Storage|[Azure Data Factory를 사용하여 Azure Blob Storage에(서) 데이터 복사](../data-factory/connector-azure-blob-storage.md)|
+|Azure Data Lake Storage Gen1|[Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1 간에 데이터 복사](../data-factory/connector-azure-data-lake-store.md)|
 |Azure Data Lake Storage Gen2 |[Azure Data Factory를 사용하여 Azure Data Lake Storage Gen2에 데이터 로드](../data-factory/load-azure-data-lake-storage-gen2.md)|
 
 ### <a id="sqoop"></a>Apache Sqoop
+
 Sqoop은 Hadoop과 관계형 데이터베이스 간 데이터 전송을 위해 설계된 도구입니다. 이 도구를 사용하면 SQL Server, MySQL, Oracle 등의 관계형 데이터베이스 관리 시스템(RDBMS)에서 Hadoop 분산형 파일 시스템(HDFS)으로 데이터를 가져오고, MapReduce 또는 Hive로 Hadoop의 데이터를 변환한 후 데이터를 RDBMS로 다시 내보낼 수 있습니다.
 
 자세한 내용은 [HDInsight에서 Sqoop 사용](hadoop/hdinsight-use-sqoop.md)을 참조 하세요.
 
 ### <a name="development-sdks"></a>개발 SDK
+
 Azure Storage는 다음 프로그래밍 언어에서 Azure SDK를 사용하여 액세스할 수 있습니다.
 
 * .NET
 * Java
 * Node.js
 * PHP
-* Python
-* Ruby
+* 파이썬
+* 루비
 
 Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](https://azure.microsoft.com/downloads/)
 
 ## <a name="troubleshooting"></a>문제 해결
+
 ### <a id="storageexception"></a>Blob에서 쓰기를 위한 스토리지 예외
+
 **증상**: `hadoop` 또는 `hdfs dfs` 명령을 사용하여 HBase 클러스터에12GB를 초과하는 데이터를 기록하면 다음 오류가 발생할 수 있습니다.
 
     ERROR azure.NativeAzureFileSystem: Encountered Storage Exception for write on Blob : example/test_large_file.bin._COPYING_ Exception details: null Error Code : RequestBodyTooLarge
@@ -141,9 +147,9 @@ Azure SDK 설치에 대한 자세한 내용은 [Azure 다운로드](https://azur
             at com.microsoft.azure.storage.blob.BlobOutputStream$1.call(BlobOutputStream.java:354)
             ... 7 more
 
-**원인**: HDInsight의 HBase를 Azure Storage에 쓸 때 블록 크기는 기본적으로 256KB로 설정됩니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령줄 유틸리티를 사용할 때 오류가 발생합니다.
+**원인**: Azure storage에 쓸 때 HDInsight 클러스터의 HBase는 기본적으로 256 KB의 블록 크기로 설정 됩니다. HBase API 또는 REST API를 사용할 때는 잘 작동하는 반면 `hadoop` 또는 `hdfs dfs` 명령줄 유틸리티를 사용할 때 오류가 발생합니다.
 
-**해결 방법**: `fs.azure.write.request.size`를 사용하여 블록 크기를 더 크게 지정합니다. `-D` 매개 변수를 사용하여 사용량에 따라 이 작업을 수행할 수 있습니다. `hadoop` 명령에서 이 매개 변수를 사용하는 예는 다음 명령과 같습니다.
+**해결 방법**: `fs.azure.write.request.size`를 사용하여 블록 크기를 더 크기 지정합니다. `-D` 매개 변수를 사용하여 사용량에 따라 이 작업을 수행할 수 있습니다. `hadoop` 명령에서 이 매개 변수를 사용하는 예는 다음 명령과 같습니다.
 
 ```bash
 hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file.bin /example/data
@@ -151,7 +157,7 @@ hadoop -fs -D fs.azure.write.request.size=4194304 -copyFromLocal test_large_file
 
 Apache Ambari를 사용하여 `fs.azure.write.request.size` 값을 전역적으로 늘릴 수도 있습니다. 다음 단계에 따라 Ambari 웹 UI 값을 변경합니다.
 
-1. 브라우저에서 클러스터에 대한 Ambari 웹 UI로 이동합니다. 이것은 `https://CLUSTERNAME.azurehdinsight.net`이며, `CLUSTERNAME` 여기서은 클러스터의 이름입니다.
+1. 브라우저에서 클러스터에 대한 Ambari 웹 UI로 이동합니다. `https://CLUSTERNAME.azurehdinsight.net`입니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
     메시지가 표시되면 클러스터의 관리자 이름 및 암호를 입력합니다.
 2. 화면 왼쪽에서 **HDFS**를 선택한 다음 **구성** 탭을 선택합니다.
@@ -163,6 +169,7 @@ Apache Ambari를 사용하여 `fs.azure.write.request.size` 값을 전역적으�
 Ambari 사용에 대한 자세한 내용은 [Apache Ambari 웹 UI를 사용하여 HDInsight 클러스터 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
+
 이제 HDInsight로 데이터를 가져오는 방법을 익혔으니 다음 문서를 읽고 분석을 수행하는 방법을 알아보세요:
 
 * [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)

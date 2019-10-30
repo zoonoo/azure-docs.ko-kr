@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 2e5eaed40c954df5e7c731bb3fbd5d9424ea9b97
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
-ms.translationtype: HT
+ms.openlocfilehash: e3ff86770ec0337c9a4a11b30c6d88e8365bfa24
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053293"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064114"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대해 Azure Functions 트리거를 사용 하는 경우 문제 진단 및 해결
 
@@ -105,6 +105,7 @@ Azure 함수는 변경 내용을 받으면 자주 처리 하 고, 선택적으�
 이러한 상황을 해결 하려면 추가 된 수동 NuGet 참조를 제거 하 고 Azure Functions Cosmos DB 확장 패키지를 통해 Azure Cosmos DB SDK 참조를 확인 하도록 합니다.
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>변경 내용 검색에 대 한 Azure 함수의 폴링 간격 변경
+
 이전에 변경 된 [내용을 수신 하는 데 너무 오래 걸리므로](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)Azure function은 새 변경 내용을 확인 하기 전에 구성 가능한 시간 (기본적으로 5 초) 동안 대기 합니다. 트리거의 [구성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)에서 `FeedPollDelay/feedPollDelay` 설정을 통해 이 일시 중지 시간을 구성할 수 있습니다(값은 밀리초 단위여야 함).
 
 ## <a name="next-steps"></a>다음 단계

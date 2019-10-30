@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2d9549c88ace63997ff6d17568b6ba5131e8a15f
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391712"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73083743"
 ---
 다음 표에서는 다른 서비스 계층 S1, S2, S3 및 F1와 관련 된 제한을 나열 합니다. 각 계층의 각 *단위* 비용에 대 한 자세한 내용은 [Azure IoT Hub 가격 책정](https://azure.microsoft.com/pricing/details/iot-hub/)을 참조 하세요.
 
@@ -27,7 +27,7 @@ ms.locfileid: "72391712"
 
 | 리소스 | 제한 |
 | --- | --- |
-| Azure 구독당 최대 유료 IoT Hub |50 |
+| Azure 구독당 최대 유료 IoT Hub |100 |
 | Azure 구독당 최대 무료 IoT Hub |1 |
 | 장치 ID의 최대 문자 수 | 128 |
 | 단일 호출에서 반환되는 최대 디바이스 ID<br/> 수 |1,000 |
@@ -53,7 +53,7 @@ ms.locfileid: "72391712"
 | 최대 디바이스 스트림 데이터 전송 | 하루 300MB(S1, S2, S3 및 F1만 해당) |
 
 > [!NOTE]
-> Azure 구독에서 50 개 이상의 유료 IoT hub가 필요한 경우 Microsoft 지원에 문의 하세요.
+> Azure 구독에서 100 개 이상의 유료 IoT hub가 필요한 경우 Microsoft 지원에 문의 하세요.
 
 > [!NOTE]
 > 현재 단일 IoT hub에 등록할 수 있는 장치 및 모듈의 총 수는 100만로 표시 됩니다. 이 제한을 높이려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.

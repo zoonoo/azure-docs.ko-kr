@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 7f0d846a83312e28c305100e7c8dc74cc8140d7d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 32814b7478fac9530cc74fba605a096881229102
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73023843"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101338"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
@@ -81,7 +81,7 @@ Azure 서비스에 대 한 개인 끝점을 사용 하는 경우 특정 개인 �
 > 승인 된 상태의 개인 끝점만 지정 된 개인 링크 리소스에 트래픽을 보낼 수 있습니다. 
 
 ### <a name="connecting-using-alias"></a>별칭을 사용 하 여 연결
-별칭은 서비스 소유자가 표준 부하 분산 장치 뒤에 개인 링크 서비스를 만들 때 생성 되는 고유한 모니커입니다. 서비스 소유자는이 별칭을 소비자와 오프 라인으로 공유할 수 있습니다. 소비자는 리소스 URI 또는 별칭을 사용 하 여 개인 링크 서비스에 대 한 연결을 요청할 수 있습니다. 별칭을 사용 하 여 연결 하려면 수동 연결 승인 방법을 사용 하 여 개인 끝점을 만들어야 합니다. 수동 연결 승인 방법을 사용 하려면 개인 끝점 만들기 흐름에서 수동 요청 매개 변수를 true로 설정 합니다. 자세한 내용은 [AzPrivateEndpoint](https://docs.microsoft.com/en-us/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) 및 [az network private-endpoint create](https://docs.microsoft.com/en-us/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) 를 참조 하세요. 
+별칭은 서비스 소유자가 표준 부하 분산 장치 뒤에 개인 링크 서비스를 만들 때 생성 되는 고유한 모니커입니다. 서비스 소유자는이 별칭을 소비자와 오프 라인으로 공유할 수 있습니다. 소비자는 리소스 URI 또는 별칭을 사용 하 여 개인 링크 서비스에 대 한 연결을 요청할 수 있습니다. 별칭을 사용 하 여 연결 하려면 수동 연결 승인 방법을 사용 하 여 개인 끝점을 만들어야 합니다. 수동 연결 승인 방법을 사용 하려면 개인 끝점 만들기 흐름에서 수동 요청 매개 변수를 true로 설정 합니다. 자세한 내용은 [AzPrivateEndpoint](/powershell/module/az.network/new-azprivateendpoint?view=azps-2.6.0) 및 [az network private-endpoint create](/cli/azure/network/private-endpoint?view=azure-cli-latest#az-network-private-endpoint-create) 를 참조 하세요. 
 
 ## <a name="dns-configuration"></a>DNS 구성 
 FQDN (정규화 된 도메인 이름)을 사용 하 여 연결 문자열의 일부로 개인 링크 리소스에 연결 하는 경우 할당 된 개인 IP 주소를 확인 하도록 DNS 설정을 올바르게 구성 하는 것이 중요 합니다. 기존 Azure 서비스에는 공용 끝점을 통해 연결할 때 사용할 DNS 구성이 이미 있을 수 있습니다. 개인 끝점을 사용 하 여 연결 하려면이를 재정의 해야 합니다. 
@@ -91,7 +91,7 @@ FQDN (정규화 된 도메인 이름)을 사용 하 여 연결 문자열의 일�
 다음 옵션을 사용 하 여 개인 끝점에 대 한 DNS 설정을 구성할 수 있습니다. 
 - **호스트 파일 (테스트에만 권장 됨)을 사용**합니다. 가상 컴퓨터의 호스트 파일을 사용 하 여 DNS를 재정의할 수 있습니다.  
 - **개인 DNS 영역을 사용**합니다. 개인 DNS 영역을 사용 하 여 지정 된 개인 끝점에 대 한 DNS 확인을 재정의할 수 있습니다. 개인 DNS 영역을 가상 네트워크에 연결 하 여 특정 도메인을 확인할 수 있습니다.
-- **사용자 지정 DNS 서버를 사용**합니다. 자체 DNS 서버를 사용 하 여 지정 된 개인 링크 리소스에 대 한 DNS 확인을 재정의할 수 있습니다. [Dns 서버가](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server) 가상 네트워크에서 호스트 되는 경우 개인 dns 영역을 사용 하 여 모든 개인 링크 리소스에 대 한 구성을 간소화 하는 dns 전달 규칙을 만들 수 있습니다.
+- **사용자 지정 DNS 서버를 사용**합니다. 자체 DNS 서버를 사용 하 여 지정 된 개인 링크 리소스에 대 한 DNS 확인을 재정의할 수 있습니다. [Dns 서버가](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server) 가상 네트워크에서 호스트 되는 경우 개인 dns 영역을 사용 하 여 모든 개인 링크 리소스에 대 한 구성을 간소화 하는 dns 전달 규칙을 만들 수 있습니다.
  
 > [!IMPORTANT]
 > 공용 끝점을 확인 하는 데 적극적으로 사용 되는 영역은 재정의 하지 않는 것이 좋습니다. 공용 DNS로 DNS를 전달 하지 않고 리소스에 대 한 연결을 올바르게 확인할 수 없습니다. 문제를 방지 하려면 다른 도메인 이름을 만들거나 아래 각 서비스에 대 한 제안 된 이름을 따르세요. 

@@ -9,12 +9,12 @@ ms.date: 10/02/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 851b5607ad5413cd1a594f788cb294ee7790e8eb
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: a074abf494e155e0dc088d0db6af7eba0b3cf3c2
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043175"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100230"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>자습서: IoT Edge에서 Blob Storage 이벤트에 대응 (미리 보기)
 이 문서에서는 IoT 모듈에 Azure Blob Storage를 배포 하는 방법을 보여 줍니다 .이 모듈은 Blob 만들기 및 Blob 삭제에 대 한 이벤트를 Event Grid에 전송 하는 Event Grid 게시자 역할을 합니다.  
@@ -167,7 +167,10 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 5. 페이지 맨 아래에 있는 **저장**
 6. **다음** 을 클릭 하 여 경로 섹션으로 이동 합니다.
 
- ### <a name="setup-routes"></a>설정 경로
+    > [!NOTE]
+    > Azure VM을에 지 장치로 사용 하는 경우이 자습서에서 사용 되는 호스트 포트 (4438, 5888, 8080 및 11002)에서 인바운드 트래픽을 허용 하는 인바운드 포트 규칙을 추가 합니다. 규칙을 추가 하는 방법에 대 한 지침은 [VM에 포트를 여는 방법](../../virtual-machines/windows/nsg-quickstart-portal.md)을 참조 하세요.
+
+### <a name="setup-routes"></a>설정 경로
 
 기본 경로를 유지 하 고 **다음** 을 선택 하 여 검토 섹션으로 이동 합니다.
 
@@ -184,7 +187,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
    모듈을 디바이스에서 시작한 다음, IoT Hub에 다시 보고하려면 몇 분 정도 걸릴 수 있습니다. 업데이트된 상태를 보려면 페이지를 새로 고칩니다.
 
-## <a name="publish-created-and-deleted-events"></a>생성 및 삭제 된 이벤트 게시
+## <a name="publish-blobcreated-and-blobdeleted-events"></a>BlobCreated 및 Blobcreated 이벤트 게시
 
 1. 이 모듈은 토픽 **MicrosoftStorage**을 자동으로 만듭니다. 존재 하는지 확인
     ```sh

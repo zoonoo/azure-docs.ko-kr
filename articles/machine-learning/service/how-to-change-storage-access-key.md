@@ -1,7 +1,7 @@
 ---
 title: 저장소 계정 액세스 키 변경
 titleSuffix: Azure Machine Learning
-description: 작업 영역에서 사용 하는 Azure Storage 계정의 액세스 키를 변경 하는 방법에 대해 알아봅니다. Azure Machine Learning는 Azure Storage 계정을 사용 하 여 데이터 및 모델을 저장 합니다. 저장소 계정에 대 한 액세스 키를 다시 생성 하는 경우 새 키를 사용 하도록 Azure Machine Learning를 업데이트 해야 합니다.
+description: 작업 영역에서 사용 하는 Azure Storage 계정의 액세스 키를 변경 하는 방법에 대해 알아봅니다. Azure Machine Learning는 Azure Storage 계정을 사용 하 여 데이터 및 모델을 저장 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/16/2019
-ms.openlocfilehash: 6c87d4553c7b0fd34513d761558a06cd527c4e3b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 77cafceee35f00a81b2e07b59f0f4a13146fd906
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034963"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063329"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>저장소 계정 액세스 키 다시 생성
 
@@ -23,7 +23,7 @@ Azure Machine Learning에서 사용 하는 Azure Storage 계정의 액세스 키
 
 보안을 위해 Azure Storage 계정에 대 한 액세스 키를 변경 해야 할 수 있습니다. 액세스 키를 다시 생성 하는 경우 새 키를 사용 하도록 Azure Machine Learning 업데이트 해야 합니다. Azure Machine Learning은 모델 저장소 및 데이터 저장소에 대 한 저장소 계정을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 
@@ -66,7 +66,7 @@ for name, ds in datastores.items():
 
 * 데이터 저장소 이름: 저장소 계정이 등록 된 데이터 저장소의 이름입니다.
 * Storage 계정 이름: Azure Storage 계정의 이름입니다.
-* 컨테이너 이 등록에서 사용 하는 저장소 계정의 컨테이너입니다.
+* 컨테이너:이 등록에서 사용 하는 저장소 계정의 컨테이너입니다.
 
 또한 각 유형의 데이터 저장소를 다시 등록 하는 다양 한 방법이 있으므로 데이터 저장소가 Azure Blob 또는 Azure 파일 공유에 대 한 것인지 여부를 나타냅니다.
 
@@ -89,7 +89,7 @@ for name, ds in datastores.items():
         az login
         ```
 
-    1. 새 키를 사용 하도록 작업 영역을 업데이트 하려면 다음 명령을 사용 합니다. 을 `myworkspace` Azure Machine Learning 작업 영역 이름으로 바꾸고,을 `myresourcegroup` 작업 영역을 포함 하는 Azure 리소스 그룹의 이름으로 바꿉니다.
+    1. 새 키를 사용 하도록 작업 영역을 업데이트 하려면 다음 명령을 사용 합니다. `myworkspace`를 Azure Machine Learning 작업 영역 이름으로 바꾸고 `myresourcegroup`를 작업 영역을 포함 하는 Azure 리소스 그룹의 이름으로 바꿉니다.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
@@ -119,8 +119,8 @@ for name, ds in datastores.items():
     
     ```
 
-    가 `overwrite=True` 지정 되었으므로이 코드는 기존 등록을 덮어쓰고 새 키를 사용 하도록 업데이트 합니다.
+    `overwrite=True` 지정 되었으므로이 코드는 기존 등록을 덮어쓰고 새 키를 사용 하도록 업데이트 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Datastores를 등록 하는 [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) 방법에 대 한 자세한 내용은 클래스 참조를 참조 하세요.
+Datastores를 등록 하는 방법에 대 한 자세한 내용은 [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) 클래스 참조를 참조 하세요.

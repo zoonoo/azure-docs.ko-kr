@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12b6cd17fac77361fa20d3b3e048e64228a2ed3d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 2aa58c354198e648227b9b0b43d1f60546f87d32
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809016"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063073"
 ---
 # <a name="multi-factor-authentication-and-privileged-identity-management"></a>Multi-factor authentication 및 Privileged Identity Management
 
 모든 관리자에 대해 Multi-Factor Authentication(MFA)을 요구하는 것이 좋습니다. 이렇게 하면 손상된 암호로 인한 공격의 위험이 줄어듭니다.
 
-사용자가 로그인 할 때 multi-factor authentication 챌린지를 완료 하도록 요구할 수 있습니다. 사용자가 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)에서 역할을 활성화할 때 multi-factor authentication 챌린지를 완료 하도록 요구할 수도 있습니다. 이러한 방식으로 사용자가 로그인 할 때 multi-factor authentication 챌린지를 완료 하지 않은 경우 Privileged Identity Management 하 여 작업을 수행 하 라는 메시지가 표시 됩니다.
+사용자가 로그인 할 때 multi-factor authentication 챌린지를 완료 하도록 요구할 수 있습니다. 사용자가 Azure Active Directory (Azure AD) Privileged Identity Management (PIM)에서 역할을 활성화할 때 multi-factor authentication 챌린지를 완료 하도록 요구할 수도 있습니다. 이러한 방식으로 사용자가 로그인 시 multi-factor authentication 챌린지를 완료 하지 않은 경우 Privileged Identity Management 하 여이를 수행 하 라는 메시지가 표시 됩니다.
 
 > [!IMPORTANT]
 > 현재 Azure Multi-Factor Authentication는 Microsoft 개인 계정 (일반적으로 Skype, Xbox 또는 Outlook.com와 같은 Microsoft 서비스에 로그인 하는 데 사용 되는 개인 계정)이 아닌 회사 또는 학교 계정 에서만 작동 합니다. 따라서 개인 계정을 사용 하는 사용자는 multi-factor authentication을 사용 하 여 해당 역할을 활성화할 수 없으므로 적격 관리자가 될 수 없습니다. 이 사용자들이 Microsoft 계정을 사용하여 계속 워크로드를 관리해야 하는 경우 영구 관리자로 승격하세요.

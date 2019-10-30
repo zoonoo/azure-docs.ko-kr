@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: b2003b9c7520cfa3e82576fd3430063c20d452ff
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 53df209d080cf91be9c558b43edaa618c0748fc5
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104569"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101545"
 ---
 # <a name="disable-network-policies-for-private-link-service-source-ip"></a>개인 링크 서비스 원본 IP에 대해 네트워크 정책 사용 안 함
 
-개인 링크 서비스에 대 한 원본 IP 주소를 선택 하기 위해 서브넷에 명시적 사용 안 `privateLinkServiceNetworkPolicies` 함 설정이 필요 합니다. 이 설정은 개인 링크 서비스의 원본 IP로 선택한 특정 개인 IP 주소에만 적용 됩니다. 서브넷의 다른 리소스에 대 한 액세스는 NSG (네트워크 보안 그룹) 보안 규칙 정의를 기반으로 제어 됩니다. 
+개인 링크 서비스에 대 한 원본 IP 주소를 선택 하기 위해 서브넷에 `privateLinkServiceNetworkPolicies` 명시적 사용 안 함 설정이 필요 합니다. 이 설정은 개인 링크 서비스의 원본 IP로 선택한 특정 개인 IP 주소에만 적용 됩니다. 서브넷의 다른 리소스에 대 한 액세스는 NSG (네트워크 보안 그룹) 보안 규칙 정의를 기반으로 제어 됩니다. 
  
 Azure 클라이언트 (PowerShell, CLI 또는 템플릿)를 사용 하는 경우이 속성을 변경 하려면 추가 단계가 필요 합니다. Azure Portal 또는 Azure PowerShell의 로컬 설치 Azure CLI에서 cloud shell을 사용 하 여 정책을 사용 하지 않도록 설정 하거나 Azure Resource Manager 템플릿을 사용할 수 있습니다.  
  
@@ -30,9 +30,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
   -Name "myVirtualNetwork" ` 
   -ResourceGroupName "myResourceGroup"  
    
-($virtualNetwork ` 
-  | Select -ExpandProperty subnets ` 
-  | Where-Object  {$_.Name -eq 'default'} ).privateLinkServiceNetworkPolicies = "Disabled" 
+($virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq 'default'} ).privateLinkServiceNetworkPolicies = "Disabled"  
  
 $virtualNetwork | Set-AzVirtualNetwork 
 ```

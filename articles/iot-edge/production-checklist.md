@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: d227a0b43a641ae8f5333a62d4c55f4bbb6c781c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 610e0088fe97bdda1dce7f7391530c5128428b29
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529018"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73096968"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -102,6 +102,8 @@ IoT Edge 허브 및 에이전트 모듈은 로컬 저장소를 사용 하 여 �
 #### <a name="dont-optimize-for-performance-on-constrained-devices"></a>리소스가 제한된 디바이스에서 성능에 최적화하지 않음
 
 IoT Edge 허브는 기본적으로 성능에 맞게 최적화 되었으므로 대량의 메모리를 할당 하려고 합니다. 이 구성으로 인해 Raspberry Pi와 같은 작은 디바이스에서 안정성 문제가 발생할 수 있습니다. 제한 된 리소스를 사용 하 여 장치를 배포 하는 경우 IoT Edge 허브에서 **OptimizeForPerformance** 환경 변수를 **false** 로 설정 하는 것이 좋습니다. 
+
+**OptimizeForPerformance** 가 **true**로 설정 되 면 mqtt 프로토콜 헤드는 더 나은 성능을 갖지만 더 많은 메모리를 할당 하는 PooledByteBufferAllocator를 사용 합니다. 할당자는 32 비트 운영 체제 또는 메모리가 부족 한 장치에서 잘 작동 하지 않습니다. 또한 성능을 최적화 하는 경우 RocksDb는 해당 역할에 대해 로컬 저장소 공급자로 더 많은 메모리를 할당 합니다. 
 
 자세한 내용은 [리소스가 제한된 디바이스의 안정성 문제](troubleshoot.md#stability-issues-on-resource-constrained-devices)를 참조하세요.
 
@@ -221,7 +223,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 }
 ```
 
-@No__t_0 이라는 파일에이 정보를 추가 하거나 추가 하 고 장치 플랫폼의 올바른 위치에 배치 합니다.
+`daemon.json` 이라는 파일에이 정보를 추가 하거나 추가 하 고 장치 플랫폼의 올바른 위치에 배치 합니다.
 
 | 플랫폼 | 위치 |
 | -------- | -------- |
@@ -250,7 +252,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 **Linux 시스템에 대 한 추가 옵션**
 
-* @No__t_2를 기본 로깅 드라이버로 설정 하 여 `systemd` [저널](https://docs.docker.com/config/containers/logging/journald/) 로 로그를 보내도록 컨테이너 엔진을 구성 합니다. 
+* `journald`를 기본 로깅 드라이버로 설정 하 여 `systemd` [저널](https://docs.docker.com/config/containers/logging/journald/) 로 로그를 보내도록 컨테이너 엔진을 구성 합니다. 
 
 * Logrotate 도구를 설치 하 여 장치에서 오래 된 로그를 주기적으로 제거 합니다. 다음 파일 사양을 사용합니다. 
 

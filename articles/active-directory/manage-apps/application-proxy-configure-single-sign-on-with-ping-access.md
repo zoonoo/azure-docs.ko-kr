@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 10/24/2019
 ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0544ed0ff217b6e37cca22a1fc1e0048b30da462
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: ec115e0fa76e695809ba140202d5f13a319d33dd
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68694225"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062731"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -29,7 +29,7 @@ Azure ad (Azure Active Directory) 응용 프로그램 프록시는 Azure AD 고�
 
 ## <a name="whats-pingaccess-for-azure-ad"></a>Azure AD에 대 한 Azure 액세스는 무엇 인가요?
 
-Azure AD에 대 한 액세스를 통해 사용자에 게 인증에 헤더를 사용 하는 응용 프로그램에 대 한 액세스 및 SSO (single sign-on)를 제공할 수 있습니다. 애플리케이션 프록시는 이러한 애플리케이션을 Azure AD를 사용하여 액세스를 인증한 다음, 커넥터 서비스를 통해 트래픽을 전달하는 방식으로 다른 앱과 유사하게 처리합니다. 액세스는 응용 프로그램 앞에 배치 되 고 액세스 토큰을 Azure AD에서 헤더로 변환 합니다. 그러면 응용 프로그램에서 읽을 수 있는 형식으로 인증을 받습니다.
+Azure AD에 대 한 액세스를 통해 사용자에 게 인증에 헤더를 사용 하는 응용 프로그램에 대 한 액세스 및 Single Sign-On (SSO)를 제공할 수 있습니다. 애플리케이션 프록시는 이러한 애플리케이션을 Azure AD를 사용하여 액세스를 인증한 다음, 커넥터 서비스를 통해 트래픽을 전달하는 방식으로 다른 앱과 유사하게 처리합니다. 액세스는 응용 프로그램 앞에 배치 되 고 액세스 토큰을 Azure AD에서 헤더로 변환 합니다. 그러면 응용 프로그램에서 읽을 수 있는 형식으로 인증을 받습니다.
 
 사용자는 회사 애플리케이션을 사용하기 위해 로그인할 때 다른 점을 알아차리지 못합니다. 여전히 어디에서든지 모든 디바이스에서 작업할 수 있습니다. 응용 프로그램 프록시 커넥터는 인증 유형에 관계 없이 모든 앱에 원격 트래픽을 전달 하므로 부하를 자동으로 분산 합니다.
 
@@ -37,7 +37,7 @@ Azure AD에 대 한 액세스를 통해 사용자에 게 인증에 헤더를 사
 
 이 시나리오는 Azure Active Directory 간의 파트너 관계에서 제공 되므로 두 서비스에 대 한 라이선스가 필요 합니다. 그러나 Azure Active Directory Premium 구독에는 최대 20개의 애플리케이션을 보장하는 기본 PingAccess 라이선스가 포함되어 있습니다. 헤더 기반 애플리케이션을 20개 이상 게시해야 하는 경우 PingAccess에서 라이선스를 추가로 구입할 수 있습니다.
 
-자세한 내용은 [Azure Active Directory 버전](../fundamentals/active-directory-whatis.md)을 참조하세요.
+자세한 내용은 [Azure Active Directory Edition](../fundamentals/active-directory-whatis.md)을 참조하세요.
 
 ## <a name="publish-your-application-in-azure"></a>Azure에 애플리케이션 게시
 
@@ -50,10 +50,10 @@ Azure AD에 대 한 액세스를 통해 사용자에 게 인증에 헤더를 사
 
 응용 프로그램 프록시를 사용 하도록 설정 하 고 커넥터를 이미 설치한 경우이 섹션을 건너뛰고 [응용 프로그램 프록시를 사용 하 여 AZURE AD에 응용 프로그램 추가](#add-your-application-to-azure-ad-with-application-proxy)로 이동할 수 있습니다.
 
-응용 프로그램 프록시 커넥터는 원격 직원의 트래픽을 게시 된 응용 프로그램으로 전달 하는 Windows Server 서비스입니다. 자세한 설치 지침을 보려면 [자습서: Azure Active Directory](application-proxy-add-on-premises-application.md)에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램을 추가 합니다.
+응용 프로그램 프록시 커넥터는 원격 직원의 트래픽을 게시 된 응용 프로그램으로 전달 하는 Windows Server 서비스입니다. 자세한 설치 지침은 [자습서: 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가 Azure Active Directory](application-proxy-add-on-premises-application.md)를 참조 하세요.
 
 1. 응용 프로그램 관리자로 [Azure Active Directory 포털](https://aad.portal.azure.com/) 에 로그인 합니다. **Azure Active Directory 관리 센터** 페이지가 나타납니다.
-1. **Azure Active Directory** > **응용 프로그램 프록시** > **다운로드 커넥터 서비스**를 선택 합니다. **응용 프로그램 프록시 커넥터 다운로드** 페이지가 나타납니다.
+1. **커넥터 서비스 > 다운로드** **Azure Active Directory** > **응용 프로그램 프록시** 를 선택 합니다. **응용 프로그램 프록시 커넥터 다운로드** 페이지가 나타납니다.
 
    ![응용 프로그램 프록시 커넥터 다운로드](./media/application-proxy-configure-single-sign-on-with-ping-access/application-proxy-connector-download.png)
 
@@ -77,18 +77,18 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 자신의 온-프레미스 응용 프로그램을 게시 하려면:
 
 1. 마지막 섹션에 없는 경우 응용 프로그램 관리자로 [Azure Active Directory 포털](https://aad.portal.azure.com/) 에 로그인 합니다.
-1. **엔터프라이즈 응용 프로그램** > **새 응용** > 프로그램**온-프레미스 응용 프로그램을**선택 합니다. **사용자 고유의 온-프레미스 응용 프로그램 추가** 페이지가 나타납니다.
+1. **새 응용** 프로그램 > **엔터프라이즈 응용** 프로그램 **을 선택 > 온-프레미스 응용 프로그램을 추가**합니다. **사용자 고유의 온-프레미스 응용 프로그램 추가** 페이지가 나타납니다.
 
-   ![사용자 고유의 온-프레미스 응용 프로그램 추가](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
+   ![자신의 온-프레미스 응용 프로그램 추가](./media/application-proxy-configure-single-sign-on-with-ping-access/add-your-own-on-premises-application.png)
 1. 새 응용 프로그램에 대 한 정보를 사용 하 여 필수 필드를 작성 합니다. 설정에 대 한 아래 지침을 사용 합니다.
 
    > [!NOTE]
    > 이 단계에 대 한 자세한 연습은 [AZURE AD에 온-프레미스 앱 추가](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)를 참조 하세요.
 
-   1. **내부 URL**: 일반적으로 회사 네트워크에 있을 때 앱의 로그인 페이지로 이동 하는 URL을 제공 합니다. 이 시나리오의 경우 커넥터는 응용 프로그램의 front 페이지로 연결 액세스 프록시를 처리 해야 합니다. `https://<host name of your PingAccess server>:<port>` 형식을 사용합니다. 포트는 기본적으로 3000이지만 PingAccess에서 구성할 수 있습니다.
+   1. **내부 url**: 회사 네트워크에 있을 때 일반적으로 앱의 로그인 페이지로 이동 하는 URL을 제공 합니다. 이 시나리오의 경우 커넥터는 응용 프로그램의 front 페이지로 연결 액세스 프록시를 처리 해야 합니다. `https://<host name of your PingAccess server>:<port>` 형식을 사용합니다. 포트는 기본적으로 3000이지만 PingAccess에서 구성할 수 있습니다.
 
       > [!WARNING]
-      > 이 유형의 single sign-on에서 내부 URL은를 사용 `https` 해야 하며 사용할 `http`수 없습니다.
+      > 이 유형의 Single Sign-On에서 내부 URL은 `https`를 사용 해야 하며 `http`를 사용할 수 없습니다.
 
    1. **사전 인증 방법**: **Azure Active Directory**를 선택 합니다.
    1. **헤더에서 URL 변환**: **아니요**를 선택 합니다.
@@ -98,9 +98,9 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 1. **추가**를 선택합니다. 새 응용 프로그램에 대 한 개요 페이지가 나타납니다.
 
-이제 응용 프로그램 테스트를 위해 사용자를 할당 하 고 헤더 기반 single sign-on을 선택 합니다.
+이제 응용 프로그램 테스트를 위해 사용자를 할당 하 고 헤더 기반 Single Sign-On를 선택 합니다.
 
-1. 응용 프로그램 사이드바에서 사용자 **및 그룹** > **추가 사용자** > 사용자**및 그룹 추가 (\<번호 > 선택)** 를 선택 합니다. 사용자가 선택할 수 있는 사용자 및 그룹의 목록이 표시 됩니다.
+1. 응용 프로그램 사이드바에서 사용자 **및 그룹** 을 선택 하 > 사용자 > 사용자 **및 그룹 (\<번호 > 선택)** 을 **추가** 합니다. 사용자가 선택할 수 있는 사용자 및 그룹의 목록이 표시 됩니다.
 
    ![사용자 및 그룹의 목록을 표시 합니다.](./media/application-proxy-configure-single-sign-on-with-ping-access/users-and-groups.png)
 
@@ -113,25 +113,25 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
    ![헤더 기반 로그온 화면 및 액세스 권한 표시](./media/application-proxy-configure-single-sign-on-with-ping-access/sso-header.png)
 
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 그런 다음 리디렉션 URL이 외부 URL로 설정 되었는지 확인 합니다.
 
 1. **Azure Active Directory 관리 센터** 사이드바에서 **Azure Active Directory** > **앱 등록**를 선택 합니다. 응용 프로그램 목록이 표시 됩니다.
 1. 애플리케이션을 선택합니다.
-1. 웹 및 공용 클라이언트에 대해 설정 된 리디렉션 Uri 수를 표시 하는 **리디렉션 uri**옆의 링크를 선택 합니다. **응용 프로그램 이름 >-인증 페이지가 표시 됩니다. \<**
+1. 웹 및 공용 클라이언트에 대해 설정 된 리디렉션 Uri 수를 표시 하는 **리디렉션 uri**옆의 링크를 선택 합니다. **\<응용 프로그램 이름 > 인증** 페이지가 표시 됩니다.
 1. 이전에 응용 프로그램에 할당 한 외부 URL이 **리디렉션 uri** 목록에 있는지 확인 합니다. 그렇지 않은 경우에는 **웹**의 리디렉션 URI 형식을 사용 하 여 외부 URL을 지금 추가 하 고 **저장**을 선택 합니다.
 
 마지막으로, 사용자가 읽기 액세스 권한을 가지 며 다른 응용 프로그램에 읽기/쓰기 액세스 권한이 있도록 온-프레미스 응용 프로그램을 설정 합니다.
 
-1. 응용 프로그램에 대 한 **앱 등록** 사이드바에서 **API 사용** > 권한**추가** > **Microsoft api** > **Microsoft Graph**를 선택 합니다. **Microsoft Graph** 에 대 한 **api 권한 요청** 페이지가 표시 되 고 Windows Azure Active Directory에 대 한 api가 포함 되어 있습니다.
+1. 응용 프로그램에 대 한 **앱 등록** 사이드바에서 **API 사용 권한** > **Microsoft api > Microsoft api** > **Microsoft Graph** **추가** 를 선택 합니다. **Microsoft Graph** 에 대 한 **api 권한 요청** 페이지가 표시 되 고 Windows Azure Active Directory에 대 한 api가 포함 되어 있습니다.
 
    ![API 권한 요청 페이지를 표시 합니다.](./media/application-proxy-configure-single-sign-on-with-ping-access/required-permissions.png)
 
-1. **위임 된 권한** > **사용자** > 사용자**를 선택 합니다. 읽기**.
-1. **응용 프로그램 권한** > **응용** > 프로그램 응용 프로그램 **. ReadWrite를**선택 합니다.
+1. **사용자** > 사용자 > **위임 된 권한** 을 선택 **합니다. 읽기**.
+1. **응용 프로그램 > 응용** 프로그램 > 응용 프로그램 **사용 권한** **을 선택**합니다.
 1. **권한 추가**를 선택 합니다.
-1. **API 사용 권한** 페이지에서 **디렉터리 이름 >에 대해 \<관리자 동의 부여**를 선택 합니다.
+1. **API 사용 권한** 페이지에서 **\<디렉터리 이름 >에 대 한 관리자 동의 부여**를 선택 합니다.
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>PingAccess 단계에 대한 정보 수집
 
@@ -152,18 +152,18 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 1. **응용 프로그램 (클라이언트) ID** 값 옆에서 **클립보드에 복사** 아이콘을 선택 하 고 복사 하 여 저장 합니다. 나중에이 값을 사용자의 클라이언트 ID로 지정 합니다.
 1. 그런 다음 **디렉터리 (테 넌 트) ID** 값은 **클립보드에 복사**를 선택 하 고 복사 하 여 저장 합니다. 나중에이 값을 지정 하 여 액세스의 발급자로 지정 합니다.
-1. 응용 프로그램에 대 한 **앱 등록** 의 사이드바에서 **인증서 및 비밀** > **새 클라이언트 암호**를 선택 합니다. **클라이언트 암호 추가** 페이지가 나타납니다.
+1. 응용 프로그램에 대 한 **앱 등록** 의 사이드바에서 **인증서 및 암호** > **새 클라이언트 암호**를 선택 합니다. **클라이언트 암호 추가** 페이지가 나타납니다.
 
    ![클라이언트 암호 추가 페이지를 표시 합니다.](./media/application-proxy-configure-single-sign-on-with-ping-access/add-a-client-secret.png)
 
-1. **설명**에를 입력 `PingAccess key`합니다.
-1. **만료**아래에서 다음 액세스 키를 설정 하는 방법을 선택 합니다. **1 년**, **2 년**또는 **안 함**
+1. **설명**에 `PingAccess key`을 입력 합니다.
+1. **만료**에서, **1 년**, **2 년**또는 **안 함**중에서 원하는 액세스 키를 설정 하는 방법을 선택 합니다.
 1. **추가**를 선택합니다. 클라이언트 암호의 테이블에는 **값** 필드에 autofills 임의의 문자열이 포함 된 액세스 키가 표시 됩니다.
 1. 키의 **값** 필드 옆에 **클립보드로 복사** 아이콘을 선택 하 고 복사 하 여 저장 합니다. 나중에이 값을 지정 합니다.
 
 ### <a name="update-graphapi-to-send-custom-fields-optional"></a>사용자 지정 필드를 보내도록 GraphAPI 업데이트 (옵션)
 
-Access_token에서 사용 하는 다른 토큰을 전송 하는 사용자 지정 클레임이 필요한 경우 `acceptMappedClaims` 응용 프로그램 필드를로 `True`설정 합니다. 그래프 탐색기 또는 Azure AD 포털의 응용 프로그램 매니페스트를 사용 하 여 이러한 변경을 수행할 수 있습니다.
+Access_token에서 사용 하는 다른 토큰을 전송 하는 사용자 지정 클레임이 필요한 경우 `acceptMappedClaims` 응용 프로그램 필드를 `True`으로 설정 합니다. 그래프 탐색기 또는 Azure AD 포털의 응용 프로그램 매니페스트를 사용 하 여 이러한 변경을 수행할 수 있습니다.
 
 **이 예제에서는 그래프 탐색기를 사용 합니다.**
 
@@ -181,8 +181,8 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 1. **Azure Active Directory** > **앱 등록**을 선택합니다. 응용 프로그램 목록이 표시 됩니다.
 1. 애플리케이션을 선택합니다.
 1. 응용 프로그램에 대 한 **앱 등록** 페이지의 사이드바에서 **매니페스트**를 선택 합니다. 응용 프로그램의 등록에 대 한 매니페스트 JSON 코드가 표시 됩니다.
-1. 필드를 검색 하 고 값을로 `True`변경 합니다. `acceptMappedClaims`
-1.           **저장**을 선택합니다.
+1. `acceptMappedClaims` 필드를 검색 하 고 값을 `True`로 변경 합니다.
+1. **저장**을 선택합니다.
 
 ### <a name="use-of-optional-claims-optional"></a>선택적 클레임 사용 (선택 사항)
 
@@ -213,7 +213,7 @@ AzureAD에 없는 특성에 대 한 [클레임 매핑 정책 (미리 보기)](ht
 > [!NOTE]
 > 사용자 지정 클레임을 사용하려면 사용자 지정 정책도 정의하고 애플리케이션에 할당해야 합니다. 이 정책은 필요한 모든 사용자 지정 특성을 포함해야 합니다.
 >
-> PowerShell, Azure AD Graph Explorer 또는 Microsoft Graph를 통해 정책 정의 및 할당을 수행할 수 있습니다. PowerShell에서이 작업을 수행 하는 경우 먼저를 사용 하 고 `New-AzureADPolicy` 를 사용 하 여 `Add-AzureADServicePrincipalPolicy`응용 프로그램에 할당 해야 할 수 있습니다. 자세한 내용은 [클레임 매핑 정책 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)을 참조 하세요.
+> PowerShell, Azure AD Graph Explorer 또는 Microsoft Graph를 통해 정책 정의 및 할당을 수행할 수 있습니다. PowerShell에서이 작업을 수행 하는 경우 먼저 `New-AzureADPolicy`를 사용 하 고 `Add-AzureADServicePrincipalPolicy`를 사용 하 여 응용 프로그램에 할당 해야 할 수 있습니다. 자세한 내용은 [클레임 매핑 정책 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)을 참조 하세요.
 
 예제:
 ```powershell
@@ -226,7 +226,7 @@ Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Applica
 
 사용자 지정 클레임을 사용 하는 데 필요한 액세스를 사용 하도록 설정 하는 것은 선택 사항 이지만 응용 프로그램에서 추가 클레임을 사용 해야 하는 경우
 
-다음 단계에서 특성 액세스를 구성 하는 경우 만들 웹 세션 (설정-> 액세스-> 웹 세션)에서 **요청 프로필** 선택을 취소 하 고 **사용자 특성을 새로 고쳐야** 합니다.
+다음 단계에서 특성 액세스를 구성 하는 경우 만들 웹 세션 (설정-> 액세스-> 웹 세션)에서 **요청 프로필** 선택을 **취소 하 고** **사용자 특성을 새로 고쳐야** 합니다.
 
 ## <a name="download-pingaccess-and-configure-your-application"></a>응용 프로그램 액세스 및 구성 다운로드
 

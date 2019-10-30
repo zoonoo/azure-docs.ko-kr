@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ecec18945b53711094307162c4aeab2e0580bd5e
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: a1f08589ae28b3e19d2a4fdb3e3862e127a810cc
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063864"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099712"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 
@@ -31,35 +31,37 @@ ms.locfileid: "71063864"
 
 **Predicate** 요소는 클레임 유형의 값을 확인하기 위한 기본적인 유효성 검사를 정의하고 `true` 또는 `false`를 반환합니다. 지정된 **Method** 요소 및 해당 메서드와 관련된 **Parameter** 요소 집합을 사용하여 유효성 검사를 수행합니다. 예를 들어 조건자는 문자열 클레임 값의 길이가 지정한 최소/최대 매개 변수 범위 내에 포함되는지 여부나 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인할 수 있습니다. 확인이 실패하면 **UserHelpText** 요소가 사용자용 오류 메시지를 제공합니다. [언어 사용자 지정](localization.md)을 통해 **UserHelpText** 요소의 값을 지역화할 수 있습니다.
 
+**조건자** 요소는 [BuildingBlocks](buildingblocks.md) 요소 내의 **ClaimsSchema** 요소 바로 다음에 나와야 합니다.
+
 **Predicates** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| 조건자 | 1:n | 조건자 목록입니다. |
+| Predicate | 1:n | 조건자 목록입니다. |
 
 **Predicate** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | 예 | 조건자에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
-| 메서드 | 예 | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 다음과 같습니다. **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** 또는 **IsDateRange**. **IsLengthRange** 값은 문자열 클레임 값의 길이가 지정한 최소/최대 매개 변수 범위 내에 포함되는지 여부를 확인합니다. **MatchesRegex** 값은 문자열 클레임 값이 정규식과 일치하는지 여부를 확인합니다. **IncludesCharacters** 값은 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인합니다. **IsDateRange** 값은 날짜 클레임 값이 지정한 최소/최대 매개 변수 범위 사이에 있는지 여부를 확인합니다. |
+| Id | yes | 조건자에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
+| 방법 | yes | 유효성 검사에 사용할 메서드 형식입니다. 가능한 값은 **IsLengthRange**, **MatchesRegex**, **IncludesCharacters** 또는 **IsDateRange**입니다. **IsLengthRange** 값은 문자열 클레임 값의 길이가 지정한 최소/최대 매개 변수 범위 내에 포함되는지 여부를 확인합니다. **MatchesRegex** 값은 문자열 클레임 값이 정규식과 일치하는지 여부를 확인합니다. **IncludesCharacters** 값은 문자열 클레임 값에 특정 문자 집합이 포함되는지 여부를 확인합니다. **IsDateRange** 값은 날짜 클레임 값이 지정한 최소/최대 매개 변수 범위 사이에 있는지 여부를 확인합니다. |
 
 **Predicate** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 | 확인이 실패하면 사용자에게 표시할 오류 메시지입니다. [언어 사용자 지정](localization.md)을 통해 이 문자열을 지역화할 수 있습니다. |
-| 매개 변수 | 1:1 | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
+| parameters | 1:1 | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
 
 **Parameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| 매개 변수 | 1:n | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
+| 매개 변수를 포함해야 합니다. | 1:n | 문자열 유효성 검사의 메서드 형식에 대한 매개 변수입니다. |
 
 **Parameter** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | Id | 1:1 | 매개 변수의 식별자입니다. |
 
@@ -112,6 +114,8 @@ ms.locfileid: "71063864"
 
 조건자는 클레임 형식에 대해 확인할 유효성 검사를 정의하는 반면 **PredicateValidations**는 조건자 집합을 그룹화하여 클레임 형식에 적용할 수 있는 사용자 입력 유효성 검사를 작성합니다. 각 **PredicateValidation** 요소는 **PredicateGroup** 요소 집합을 포함하며, 이 요소 집합에는 **Predicate**를 가리키는 **PredicateReference** 요소 집합이 포함됩니다. 유효성 검사에 통과하려면 클레임의 값이 **PredicateReference** 요소 집합을 포함하는 모든 **PredicateGroup**에서 조건자의 테스트를 모두 통과해야 합니다.
 
+**PredicateValidations** 요소는 [BuildingBlocks](buildingblocks.md) 요소 내의 **조건자** 요소 바로 다음에 나와야 합니다.
+
 ```XML
 <PredicateValidations>
   <PredicateValidation Id="">
@@ -132,58 +136,58 @@ ms.locfileid: "71063864"
 
 **PredicateValidations** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | PredicateValidation | 1:n | 조건자 유효성 검사 목록입니다. |
 
 **PredicateValidation** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다. **ClaimType** 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
+| Id | yes | 조건자 유효성 검사에 사용되는 식별자입니다. **ClaimType** 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
 **PredicateValidation** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | PredicateGroups | 1:n | 조건자 그룹 목록입니다. |
 
 **PredicateGroups** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | PredicateGroup | 1:n | 조건자 목록입니다. |
 
 **PredicateGroup** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | 예 | 조건자 그룹에 사용되는 식별자입니다.  |
+| Id | yes | 조건자 그룹에 사용되는 식별자입니다.  |
 
 **PredicateGroup** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | UserHelpText | 1:1 |  사용자가 입력해야 하는 값을 쉽게 확인할 수 있는 조건자 설명입니다. |
 | PredicateReferences | 1:n | 조건자 참조 목록입니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| MatchAtLeast | 아니요 | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. |
+| MatchAtLeast | 아닙니다. | 입력이 허용되려면 값이 일치해야 하는 조건자 정의의 최소 수를 지정합니다. |
 
 **PredicateReferences** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 | 설명 |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | PredicateReference | 1:n | 조건자에 대한 참조입니다. |
 
 **PredicateReference** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | 예 | 조건자 유효성 검사에 사용되는 식별자입니다.  |
+| Id | yes | 조건자 유효성 검사에 사용되는 식별자입니다.  |
 
 
 ## <a name="configure-password-complexity"></a>암호 복잡도 구성
@@ -194,7 +198,7 @@ ms.locfileid: "71063864"
 - **Lowercase**(`IncludesCharacters` 메서드 사용)는 암호가 소문자를 포함하는지 유효성을 검사합니다.
 - **Uppercase**(`IncludesCharacters` 메서드 사용)는 암호가 대문자를 포함하는지 유효성을 검사합니다.
 - **Number**(`IncludesCharacters` 메서드 사용)는 암호가 숫자를 포함하는지 유효성을 검사합니다.
-- **Symbol**(`IncludesCharacters` 메서드 사용)은 암호가 `@#$%^&*\-_+=[]{}|\:',?/~"();!` 기호를 포함하는지 유효성을 검사합니다.
+- **기호** 는 `IncludesCharacters` 메서드를 사용 하 여 암호가 여러 기호 문자 중 하나를 포함 하는지 확인 합니다.
 - **PIN**(`MatchesRegex` 메서드 사용)은 암호가 숫자만 포함하는지 유효성을 검사합니다.
 - **AllowedAADCharacters**(`MatchesRegex` 메서드 사용)는 잘못된 문자를 포함하는 암호를 입력했는지 유효성을 검사합니다.
 - **DisallowedWhitespace**(`MatchesRegex` 메서드 사용)는 암호가 공백 문자로 시작하거나 끝나지 않는지 유효성을 검사합니다.
@@ -233,7 +237,7 @@ ms.locfileid: "71063864"
   <Predicate Id="Symbol" Method="IncludesCharacters">
     <UserHelpText>a symbol</UserHelpText>
     <Parameters>
-      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\:',?/`~"();!</Parameter>
+      <Parameter Id="CharacterSet">@#$%^&amp;*\-_+=[]{}|\\:',.?/`~"();!</Parameter>
     </Parameters>
   </Predicate>
 
@@ -262,7 +266,7 @@ ms.locfileid: "71063864"
 기본적인 유효성 검사를 정의한 후에는 유효성 검사를 결합하여 정책에서 사용 가능한 암호 정책 집합을 만들 수 있습니다.
 
 - **SimplePassword**는 DisallowedWhitespace, AllowedAADCharacters 및 IsLengthBetween8And64 유효성 검사를 수행합니다.
-- **StrongPassword**는 DisallowedWhitespace, AllowedAADCharacters, 및 IsLengthBetween8And64 유효성 검사를 수행합니다. 마지막 그룹인 `CharacterClasses`는 `MatchAtLeast`가 3으로 설정된 추가 조건자 집합을 실행합니다. 사용자 암호는 8~16자 사이여야 하며 소문자, 대문자, 숫자, 기호 중 세 가지를 포함해야 합니다.
+- **StrongPassword**는 DisallowedWhitespace, AllowedAADCharacters, 및 IsLengthBetween8And64 유효성 검사를 수행합니다. 마지막 그룹인 `CharacterClasses`는 `MatchAtLeast`가 3으로 설정된 추가 조건자 집합을 실행합니다. 이 경우 사용자 암호는 8~16자 사이여야 하며 소문자, 대문자, 숫자, 기호 중 3가지를 포함해야 합니다.
 - **CustomPassword**는 DisallowedWhitespace, AllowedAADCharacters 유효성 검사만 수행합니다. 따라서 사용자는 문자가 유효하기만 하면 어떤 길이의 암호든 입력할 수 있습니다.
 
 ```XML

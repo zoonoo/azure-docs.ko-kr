@@ -7,16 +7,16 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: cherylmc
-ms.openlocfilehash: 095c7c4bf2a0fb08c0a7fe7e0a8118e76732c9c7
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: fb6c484e234b4641a521bd876acdfeb4df562260
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70961622"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063110"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Azure 기본 인증서 인증 P2S 구성용 VPN 클라이언트 구성 파일 만들기 및 설치
 
-VPN 클라이언트 구성 파일은 zip 파일에 포함되어 있습니다. 구성 파일은 Windows, Mac IKEv2 VPN 또는 Linux 클라이언트에서 Azure 기본 인증서 인증을 사용하는 지점 및 사이트 간 연결을 통해 VNet에 연결하는 데 필요한 설정을 제공합니다.
+VPN 클라이언트 구성 파일은 zip 파일에 포함됩니다. 구성 파일은 Windows, Mac IKEv2 VPN 또는 Linux 클라이언트에서 Azure 기본 인증서 인증을 사용하는 지점 및 사이트 간 연결을 통해 VNet에 연결하는 데 필요한 설정을 제공합니다.
 
 클라이언트 구성 파일은 VNet에 대한 VPN 구성에 적용됩니다. VPN 프로토콜 유형 또는 인증 유형과 같은 VPN 클라이언트 구성 파일을 생성한 후에 지점 및 사이트 간 VPN 구성을 변경하면 사용자 디바이스에 대한 새 VPN 클라이언트 구성 파일을 생성해야 합니다. 
 
@@ -58,17 +58,17 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
 
 ## <a name="installwin"></a>Windows
 
-클라이언트의 아키텍처와 일치하는 버전이면 각 Windows 클라이언트 컴퓨터에서 동일한 VPN 클라이언트 구성 패키지를 사용할 수 있습니다. 지원되는 클라이언트 운영 체제의 목록은 [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S)의 지점 및 사이트 간 연결 섹션을 참조하세요.
+버전이 클라이언트의 아키텍처와 일치하는 한, 각 Windows클라이언트 컴퓨터에서 동일한 VPN 클라이언트 구성 패키지를 사용할 수 있습니다. 지원되는 클라이언트 운영 체제의 목록은 [VPN Gateway FAQ](vpn-gateway-vpn-faq.md#P2S)의 지점 및 사이트 간 연결 섹션을 참조하세요.
 
 >[!NOTE]
 >연결하려는 Windows 클라이언트 컴퓨터에서 관리자 권한이 있어야 합니다.
 >
 >
 
-다음 단계에 따라 인증서 인증을 위한 Windows VPN 기본 클라이언트를 구성합니다.
+인증서 인증을 위해 원시 Windows VPN 클라이언트를 구성하려면 다음 단계를 사용합니다.
 
 1. Windows 컴퓨터의 아키텍처에 해당하는 VPN 클라이언트 구성 파일을 선택합니다. 64비트 프로세서 아키텍처의 경우 'VpnClientSetupAmd64' 설치 관리자 패키지를 선택합니다. 32비트 프로세서 아키텍처의 경우 'VpnClientSetupX86' 설치 관리자 패키지를 선택합니다. 
-2. 해당 패키지를 두 번 클릭하여 설치합니다. SmartScreen 팝업이 표시되면 **자세한 정보**, **실행**을 차례로 클릭합니다.
+2. 패키지를 두 번 클릭하여 설치합니다. SmartScreen 팝업이 표시되면 **자세한 정보**, **실행**을 차례로 클릭합니다.
 3. 클라이언트 컴퓨터에서 **네트워크 설정**으로 이동하고 **VPN**을 클릭합니다. VPN 연결에서 연결되는 가상 네트워크의 이름을 표시합니다. 
 4. 연결을 시도하기 전에 먼저 클라이언트 컴퓨터에 클라이언트 인증서가 설치되어 있어야 합니다. Azure 기본 인증서 인증 유형을 사용할 때 인증을 위해 클라이언트 인증서가 필요합니다. 인증서 생성에 대한 자세한 내용은 [인증서 생성](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert)을 참조하세요. 클라이언트 인증서를 설치하는 방법은 [클라이언트 인증서 설치](point-to-site-how-to-vpn-client-install-azure-cert.md)를 참조하세요.
 
@@ -103,13 +103,13 @@ PowerShell을 사용하거나 Azure Portal을 사용하여 클라이언트 구�
    ![인증 설정](./media/point-to-site-vpn-client-configuration-azure-cert/authsettings.png)
 6. **선택...** 을 클릭합니다. 인증에 사용하려는 클라이언트 인증서를 선택합니다. 이 인증서는 2단계에서 설치한 인증서입니다.
 
-   ![인증서(certificate)](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
+   ![인증서](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. **ID 선택**은 선택할 수 있는 인증서의 목록을 표시합니다. 적절한 인증서를 선택한 다음 **계속**을 클릭합니다.
 
-   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![ID](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. **로컬 ID** 필드에서 인증서 이름(6단계에서 사용한 이름)을 지정합니다. 이 예에서는 "ikev2Client.com"입니다. 그런 다음 **적용** 단추를 클릭하여 변경 내용을 저장합니다.
 
-   ![적용](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
+   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. **네트워크** 대화 상자에서 **적용**을 클릭하여 모든 변경 내용을 저장합니다. 그런 다음 **연결**을 클릭하여 Azure VNet에 대한 P2S 연결을 시작합니다.
 
 ## <a name="linuxgui"></a>Linux(strongSwan GUI)
@@ -136,7 +136,7 @@ Ubuntu 18.0.4에서 다음 지침이 생성 되었습니다. Ubuntu 16.0.10은 s
 2. **설정** 을 선택한 다음 **네트워크**를 선택 합니다.
 
    ![연결 편집](./media/point-to-site-vpn-client-configuration-azure-cert/editconnections.png)
-3. 단추를 **+** 클릭 하 여 새 연결을 만듭니다.
+3. **+** 단추를 클릭 하 여 새 연결을 만듭니다.
 
    ![연결 추가](./media/point-to-site-vpn-client-configuration-azure-cert/addconnection.png)
 4. 메뉴에서 **IPsec/IKEv2 (strongSwan)** 를 선택 하 고를 두 번 클릭 합니다. 이 단계에서 연결의 이름을 지정할 수 있습니다.
@@ -174,17 +174,17 @@ Ubuntu 18.0.4에서 다음 지침이 생성 되었습니다. Ubuntu 16.0.10은 s
   
    ```
    conn azure
-   keyexchange=ikev2
-   type=tunnel
-   leftfirewall=yes
-   left=%any
-   leftauth=eap-tls
-   leftid=%client # use the DNS alternative name prefixed with the %
-   right= Enter the VPN Server value here# Azure VPN gateway address
-   rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
-   rightsubnet=0.0.0.0/0
-   leftsourceip=%config
-   auto=add
+         keyexchange=ikev2
+         type=tunnel
+         leftfirewall=yes
+         left=%any
+         leftauth=eap-tls
+         leftid=%client # use the DNS alternative name prefixed with the %
+         right= Enter the VPN Server value here# Azure VPN gateway address
+         rightid=% # Enter the VPN Server value here# Azure VPN gateway FQDN with %
+         rightsubnet=0.0.0.0/0
+         leftsourceip=%config
+         auto=add
    ```
 6. 다음을 */etc/ipsec.secrets*에 추가합니다.
 
@@ -192,7 +192,7 @@ Ubuntu 18.0.4에서 다음 지침이 생성 되었습니다. Ubuntu 16.0.10은 s
    : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory
    ```
 
-7. 다음 명령을 실행 합니다.
+7. 다음 명령을 실행합니다.
 
    ```
    # ipsec restart
@@ -201,7 +201,7 @@ Ubuntu 18.0.4에서 다음 지침이 생성 되었습니다. Ubuntu 16.0.10은 s
 
 ## <a name="next-steps"></a>다음 단계
 
-P2S 구성을 완료하려면 [P2S 구성 완료](vpn-gateway-howto-point-to-site-rm-ps.md) 문서로 돌아갑니다.
+[P2S 구성을 완료](vpn-gateway-howto-point-to-site-rm-ps.md)하려면 문서로 돌아갑니다.
 
 P2S 연결 문제를 해결하려면 다음 문서를 참조하세요.
 

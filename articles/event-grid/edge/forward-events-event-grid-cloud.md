@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: d73f64463d3e56d7bd2e59fcb719c6320cbc6321
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 502a495bad4115daf9f0f4ffed276a307adf1fc4
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992354"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100648"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>자습서: Event Grid 클라우드에 이벤트 전달
 
@@ -102,7 +102,7 @@ ms.locfileid: "72992354"
    ```
 
    >[!NOTE]
-   > **Endpointurl** 은 클라우드의 EVENT GRID 토픽 url을 지정 합니다. **SasKey** 는 Event Grid 클라우드 토픽의 키를 참조 합니다. **TopicName** 의 값을 사용 하 여 나가는 모든 이벤트를 Event Grid에 스탬프를 지정할 수 있습니다. 이는 Event Grid 도메인 항목에 게시할 때 유용할 수 있습니다. Event Grid 도메인 항목에 대 한 자세한 내용은 [이벤트 도메인]] (. /event-domains.md)
+   > **Endpointurl** 은 클라우드의 EVENT GRID 토픽 url을 지정 합니다. **SasKey** 는 Event Grid 클라우드 토픽의 키를 참조 합니다. **TopicName** 의 값을 사용 하 여 나가는 모든 이벤트를 Event Grid에 스탬프를 지정할 수 있습니다. 이는 Event Grid 도메인 항목에 게시할 때 유용할 수 있습니다. Event Grid 도메인 항목에 대 한 자세한 내용은 [이벤트 도메인](../event-domains.md) 을 참조 하세요.
 
     예를 들면 다음과 같습니다.
   
@@ -198,5 +198,6 @@ ms.locfileid: "72992354"
 
 이 자습서에서는에 지에 이벤트를 게시 하 고 Azure 클라우드에서 Event Grid으로 전달 했습니다. 이제 클라우드에서 Event Grid으로 전달 하는 기본 단계를 알고 있습니다.
 
+* IoT Edge에서 Azure Event Grid를 사용 하 여 발생 하는 문제를 해결 하려면 [문제 해결 가이드](troubleshoot.md)를 참조 하세요.
 * 이 [자습서](forward-events-iothub.md) 에 따라 IoTHub로 이벤트 전달
 * 이 [자습서](pub-sub-events-webhook-cloud.md) 에 따라 클라우드의 Webhook에 이벤트 전달

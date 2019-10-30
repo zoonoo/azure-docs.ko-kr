@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: ac483a338b7d71142b89b13e41fc048346ac037f
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: e0d746f1b01784bc383c12543936f06dae66ca09
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802648"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063249"
 ---
 # <a name="azure-block-blob-storage-performance-tiers"></a>Azure 블록 Blob 저장소 성능 계층
 
@@ -28,7 +28,7 @@ Azure 블록 blob 저장소는 다음과 같은 두 가지 성능 계층을 제�
 
 - 표준 성능은 모든 [Azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=storage)에서 사용할 수 있습니다. 프리미엄 성능은 [선택 지역](https://azure.microsoft.com/global-infrastructure/services/?products=storage)에서 사용할 수 있습니다.
 - Premium 성능은 이러한 워크 로드에 대 한 [총 저장소 비용을 줄일](https://azure.microsoft.com/blog/reducing-overall-storage-costs-with-azure-premium-blob-storage/) 수 있도록 트랜잭션 요금이 높은 응용 프로그램에 대해 최적화 된 가격 책정을 제공 합니다.
-- 프리미엄 성능에는 블록 blob 및 추가 blob을 지 원하는 블록 blob 저장소 계정을 사용 해야 합니다.
+- 블록 blob에 대 한 프리미엄 성능을 얻으려면 BlockBlobStorage 계정 유형을 사용 해야 합니다.
 - 표준 성능은 범용 v1, 범용 v2 및 Blob storage 계정에서 사용할 수 있습니다.
 - 프리미엄 및 표준 성능은 모두 [높은 처리량 블록 blob](https://azure.microsoft.com/blog/high-throughput-with-azure-blob-storage/)을 지원 합니다. 높은 처리량 블록 blob은 256 KiB 보다 높은 프리미엄 성능에 사용할 수 있습니다. 높은 처리량 블록 blob은 4 MiB Put 블록 또는 Put Blob 크기 보다 큰 표준 성능에 사용할 수 있습니다.
 - 프리미엄 성능은 현재 LRS (로컬 중복 저장소) 에서만 사용할 수 있습니다.

@@ -5,20 +5,20 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 0a678023b1097c4bdec70d866632da6ae4ad57bb
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 324c0e9b8dcaafacaac52b622ce9c533d82c7ff1
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992393"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73100705"
 ---
 # <a name="delivery-and-retry"></a>배달 및 다시 시도
 
-Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지에 대해 일치 하는 각 구독에 대해 한 번 이상 배달 하려고 합니다. 구독자의 끝점이 이벤트 수신을 승인 하지 않거나 오류가 발생 한 경우 고정 된 **다시 시도 일정** 및 **재시도 정책**에 따라 배달을 다시 시도 Event Grid.  현재 Event Grid 모듈은 구독자에 게 한 번에 이벤트를 전달 합니다. 그러나 페이로드는 단일 이벤트를 포함 하는 배열입니다.
+Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지에 대해 일치 하는 각 구독에 대해 한 번 이상 배달 하려고 합니다. 구독자의 끝점이 이벤트 수신을 승인 하지 않거나 오류가 발생 한 경우 고정 된 **다시 시도 일정** 및 **재시도 정책**에 따라 배달을 다시 시도 Event Grid.  기본적으로 Event Grid 모듈은 구독자에 게 한 번에 하나의 이벤트를 제공 합니다. 그러나 페이로드는 단일 이벤트를 포함 하는 배열입니다. 출력 일괄 처리 기능을 사용 하도록 설정 하 여 모듈에서 한 번에 둘 이상의 이벤트를 전달 하도록 할 수 있습니다. 이 기능에 대 한 자세한 내용은 [출력 일괄 처리](delivery-output-batching.md)를 참조 하세요.  
 
 > [!IMPORTANT]
 >이벤트 데이터에 대 한 지 속성은 지원 되지 않습니다. 즉, Event Grid 모듈을 다시 배포 하거나 다시 시작 하면 아직 배달 되지 않은 이벤트가 모두 손실 됩니다.

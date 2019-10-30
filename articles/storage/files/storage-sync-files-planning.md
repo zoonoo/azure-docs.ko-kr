@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7dfd7e29b119b5fe98b649b2e5f5f45b422c4634
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
-ms.translationtype: HT
+ms.openlocfilehash: febd97d1c0b296ab281f9ce0ac8dff7de1fd75d6
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053437"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063338"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -159,11 +159,14 @@ Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버"
 
 ### <a name="data-deduplication"></a>데이터 중복 제거
 **에이전트 버전 5.0.2.0 이상**   
-Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사용하면 볼륨의 데이터 중복 제거가 지원됩니다. 클라우드 계층화를 사용 하는 볼륨에서 데이터 중복 제거를 사용 하도록 설정 하면 더 많은 저장소를 프로 비전 하지 않고 온-프레미스에서 더 많은 파일을 캐시할 수 
+데이터 중복 제거는 Windows Server 2016에서 클라우드 계층화를 사용 하는 볼륨에서 지원 됩니다. 클라우드 계층화를 사용 하는 볼륨에서 데이터 중복 제거를 사용 하도록 설정 하면 더 많은 저장소를 프로 비전 하지 않고 온-프레미스에서 더 많은 파일을 캐시할 수 
 
 클라우드 계층화를 사용 하는 볼륨에서 데이터 중복 제거를 사용 하도록 설정 하면 서버 끝점 위치 내의 중복 제거 최적화 파일은 클라우드 계층화 정책 설정에 따라 일반 파일과 비슷하게 계층화 됩니다. 중복 제거 최적화 파일이 계층화 되 면 데이터 중복 제거 가비지 수집 작업이 자동으로 실행 되어 볼륨의 다른 파일에서 더 이상 참조 되지 않는 불필요 한 청크를 제거 하 여 디스크 공간을 회수 합니다.
 
 볼륨 절감은 서버에만 적용 됩니다. Azure 파일 공유의 데이터는 중복 제거 된 되지 않습니다.
+
+> [!Note]  
+> 데이터 중복 제거 및 클라우드 계층화는 향후 업데이트에서 수정 될 버그로 인해 현재 서버 2019의 동일한 볼륨에서 지원 되지 않습니다.
 
 **Windows Server 2012 R2 또는 이전 에이전트 버전**  
 클라우드 계층화를 사용하도록 설정하지 않은 볼륨의 경우 Azure 파일 동기화는 볼륨에 Windows Server 데이터 중복 제거를 사용하도록 지원합니다.

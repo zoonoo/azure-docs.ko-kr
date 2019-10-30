@@ -7,14 +7,14 @@ author: zr-msft
 ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: conceptual
-description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 87aa96614b6aec4843723233a77d0a1dc1b66453
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+description: Azure에서 컨테이너 및 마이크로 서비스가 있는 Kubernetes 개발 환경을 빠르게 만듭니다.
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s '
+ms.openlocfilehash: e145c234c7fc0bc7b9263f40f22d3fd90c1b7250
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300359"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064125"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -22,7 +22,7 @@ ms.locfileid: "71300359"
 
 Azure Dev Spaces를 사용 하는 동안 문제가 발생 하는 경우 [Azure Dev Spaces GitHub 리포지토리에서 문제](https://github.com/Azure/dev-spaces/issues)를 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 자세한 검토 로그를 만들면 더 효과적으로 문제를 해결하는 데 도움이 될 수 있습니다.
 
@@ -30,7 +30,7 @@ Visual Studio 확장의 경우 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 환�
 
 CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다. `%TEMP%\Azure Dev Spaces`에서 자세한 로그를 찾아볼 수도 있습니다. Mac의 경우 터미널 창에서 `echo $TMPDIR`을 실행하면 TEMP 디렉터리를 찾을 수 있습니다. Linux 컴퓨터에서 TEMP 디렉터리는 일반적으로 `/tmp`입니다.
 
-또한 Azure Dev Spaces는 단일 인스턴스 또는 pod를 디버그할 때 가장 잘 작동 합니다. 이 파일에는 서비스에 대해 Kubernetes가 실행 하는 pod의 수를 나타내는 replicaCount 설정이 포함 되어 있습니다. `azds.yaml` 지정 된 서비스에 대해 여러 pod를 실행 하도록 응용 프로그램을 구성 하도록 *replicaCount* 를 변경 하는 경우 디버거는 사전순으로 나열 될 때 첫 번째 pod에 연결 됩니다. 원래 Pod가 재순환될 때는 디버거가 다른 Pod에 연결되므로 예기치 않은 동작이 발생할 수 있습니다.
+또한 Azure Dev Spaces는 단일 인스턴스 또는 pod를 디버그할 때 가장 잘 작동 합니다. `azds.yaml` 파일에는 Kubernetes에서 서비스에 대해 실행 하는 pod의 수를 나타내는 *replicaCount*설정이 포함 되어 있습니다. 지정 된 서비스에 대해 여러 pod를 실행 하도록 응용 프로그램을 구성 하도록 *replicaCount* 를 변경 하는 경우 디버거는 사전순으로 나열 될 때 첫 번째 pod에 연결 됩니다. 원래 Pod가 재순환될 때는 디버거가 다른 Pod에 연결되므로 예기치 않은 동작이 발생할 수 있습니다.
 
 ## <a name="common-issues-when-enabling-azure-dev-spaces"></a>Azure Dev Spaces를 사용 하는 경우 일반적인 문제
 
@@ -56,13 +56,13 @@ CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. �
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>컨트롤러 이름 길이 때문에 컨트롤러를 만들지 못했습니다.
 
-Azure Dev Spaces 컨트롤러 이름은 31 자 보다 길 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31 자를 초과 하는 경우 오류가 표시 됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+Azure Dev Spaces 컨트롤러 이름은 31 자 보다 길 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31 자를 초과 하는 경우 오류가 표시 됩니다. 다음은 그 예입니다.
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-이 문제를 해결 하려면 대체 이름으로 컨트롤러를 만듭니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+이 문제를 해결 하려면 대체 이름으로 컨트롤러를 만듭니다. 다음은 그 예입니다.
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -80,9 +80,9 @@ AKS 클러스터에서 untainted 노드를 찾을 수 없습니다. *준비* 상
 
 이 문제를 해결 하려면 AKS 클러스터에서 [taint 구성을 업데이트](../aks/operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations) 하 여 하나 이상의 Linux 노드에서 tolerations를 지정 하지 않고 pod 일정을 예약할 수 있도록 합니다. 또한 tolerations를 지정 하지 않고 pod 예약을 허용 하는 하나 이상의 Linux 노드가 *준비* 상태 인지 확인 합니다. 노드가 *준비* 상태에 도달 하는 데 오랜 시간이 걸리는 경우 노드를 다시 시작 해 볼 수 있습니다.
 
-### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>실행 시 "Azure Dev Spaces CLI가 제대로 설치 되지 않았습니다." 오류가 발생 합니다.`az aks use-dev-spaces`
+### <a name="error-azure-dev-spaces-cli-not-installed-properly-when-running-az-aks-use-dev-spaces"></a>`az aks use-dev-spaces` 실행 시 "Azure Dev Spaces CLI가 제대로 설치 되지 않았습니다." 오류가 발생 함
 
-Azure Dev Spaces CLI 업데이트가 설치 경로를 변경 했습니다. 2\.0.63 이전 버전의 Azure CLI 사용 하는 경우이 오류가 표시 될 수 있습니다. Azure CLI 버전을 표시 하려면를 사용 `az --version`합니다.
+Azure Dev Spaces CLI 업데이트가 설치 경로를 변경 했습니다. 2\.0.63 이전 버전의 Azure CLI 사용 하는 경우이 오류가 표시 될 수 있습니다. Azure CLI 버전을 표시 하려면 `az --version`를 사용 합니다.
 
 ```bash
 $ az --version
@@ -90,30 +90,30 @@ azure-cli                         2.0.60 *
 ...
 ```
 
-2\.0.63 이전 버전의 Azure CLI를 `az aks use-dev-spaces` 실행 하는 경우 오류 메시지에도 불구 하 고 설치에 성공 합니다. 아무런 문제 없이 계속 사용할 `azds` 수 있습니다.
+2\.0.63 이전 버전의 Azure CLI를 사용 하 여 `az aks use-dev-spaces`를 실행 하는 경우 오류 메시지에도 불구 하 고 설치는 성공 합니다. 아무런 문제 없이 `azds`를 계속 사용할 수 있습니다.
 
-이 문제를 해결 하려면 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 설치를 2.0.63 이상으로 업데이트 합니다. 이 업데이트는를 실행할 `az aks use-dev-spaces`때 표시 되는 오류 메시지를 해결 합니다. 또는 현재 버전의 Azure CLI 및 Azure Dev Spaces CLI를 계속 사용할 수 있습니다.
+이 문제를 해결 하려면 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 설치를 2.0.63 이상으로 업데이트 합니다. 이 업데이트는 `az aks use-dev-spaces`을 실행할 때 나타나는 오류 메시지를 해결 합니다. 또는 현재 버전의 Azure CLI 및 Azure Dev Spaces CLI를 계속 사용할 수 있습니다.
 
 ## <a name="common-issues-when-preparing-your-project-for-azure-dev-spaces"></a>Azure Dev Spaces에 대 한 프로젝트를 준비할 때 발생 하는 일반적인 문제
 
 ### <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>경고 "Dockerfile은 지원 되지 않는 언어 때문에 생성할 수 없습니다."
-Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니다. 이러한 언어 중 `azds prep` 하나로 작성 된 코드를 사용 하 여 디렉터리에서를 실행 하면 Azure Dev Spaces에서 적절 한 dockerfile을 자동으로 만듭니다.
+Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니다. 이러한 언어 중 하나로 작성 된 코드를 사용 하 여 디렉터리에서 `azds prep`를 실행 하면 Azure Dev Spaces 자동으로 적절 한 Dockerfile을 만듭니다.
 
-다른 언어로 작성 된 코드를 사용 하 여 Azure Dev Spaces을 계속 사용할 수 있지만, 처음 실행 `azds up` 하기 전에 dockerfile을 수동으로 만들어야 합니다.
+다른 언어로 작성 된 코드를 사용 하 여 Azure Dev Spaces을 계속 사용할 수 있지만, `azds up`를 처음 실행 하기 전에 Dockerfile을 수동으로 만들어야 합니다.
 
 응용 프로그램이 기본적으로 지원 되지 Azure Dev Spaces 않는 언어로 작성 된 경우 코드를 실행 하는 컨테이너 이미지를 빌드하기 위한 적절 한 Dockerfile을 제공 해야 합니다. Docker는 요구에 맞는 Dockerfile을 작성하는 데 도움이 되는 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/) 및 [Dockerfile 작성 모범 사례 목록](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)을 제공합니다.
 
-적절 한 dockerfile이 준비 되 면를 실행 `azds up` 하 여 Azure Dev Spaces에서 응용 프로그램을 실행 합니다.
+적절 한 Dockerfile이 준비 되 면 `azds up`를 실행 하 여 Azure Dev Spaces에서 응용 프로그램을 실행 합니다.
 
 ## <a name="common-issues-when-starting-or-stopping-services-with-azure-dev-spaces"></a>Azure Dev Spaces를 사용 하 여 서비스를 시작 하거나 중지할 때 발생 하는 일반적인 문제
 
 ### <a name="error-config-file-not-found"></a>오류 "구성 파일을 찾을 수 없음:"
 
-실행 `azds up`되는 경우이 오류가 표시 될 수 있습니다. `azds up` 및`azds prep` 는 모두 개발 공간에서 실행 하려는 프로젝트의 루트 디렉터리에서 실행 해야 합니다.
+`azds up`를 실행 하는 경우이 오류가 표시 될 수 있습니다. `azds up`와 `azds prep`는 모두 개발 공간에서 실행 하려는 프로젝트의 루트 디렉터리에서 실행 해야 합니다.
 
 이 문제를 해결하려면
 1. 현재 디렉터리를 서비스 코드를 포함하는 루트 폴더로 변경합니다. 
-1. _Azds_ 파일이 코드 폴더에 없는 경우를 실행 `azds prep` 하 여 Docker, Kubernetes 및 Azure Dev Spaces 자산을 생성 합니다.
+1. _Azds_ 파일이 코드 폴더에 없는 경우 `azds prep`를 실행 하 여 Docker, Kubernetes 및 Azure Dev Spaces 자산을 생성 합니다.
 
 ### <a name="timeout-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>"컨테이너 이미지 빌드를 기다리는 중 ..."에서 시간이 초과 되었습니다. AKS 가상 노드를 사용 하는 단계
 
@@ -143,19 +143,19 @@ Container image build failed
 
 이 문제를 해결 하려면 클러스터의 에이전트 노드를 다시 시작 합니다.
 
-### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>오류 "release azds-\<identifier\>-\<spacenameservicenamefailed\>:services 'servicename\<-\<\> \>' 이미 있음 ' 또는 "servicename \<\>에 대 한 끌어오기 액세스가 거부 되었습니다. 리포지토리가 존재 하지 않거나 ' docker 로그인 ' '가 필요할 수 있습니다.
+### <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>오류 "release azds-\<identifier\>-\<spacename\>-\<servicename\> failed: 서비스 '\<servicename\>'이 (가) 이미 존재 합니다." 또는 "\<servicename에 대 한 끌어오기 액세스가 거부 되었습니다.\>리포지토리가 없거나 ' docker 로그인 ' '가 필요할 수 있습니다.
 
-이러한 오류는 같은 개발 공간 `helm install`내에서, 또는와 같은 dev Spaces 명령 (예: `azds down` `azds up` , `helm upgrade`또는 `helm delete`)을 함께 실행 하는 경우 발생할 수 있습니다. 개발자 공간에는 동일한 개발 공간에서 실행 되는 고유한 Tiller 인스턴스와 충돌 하는 자체 Tiller 인스턴스가 있기 때문에 발생 합니다.
+이러한 오류는 동일한 개발 공간 내에서 개발 공간 명령 (예: `azds up` 및 `azds down`)과 함께 직접 투구 명령 (예: `helm install`, `helm upgrade`또는 `helm delete`)을 함께 사용 하는 경우 발생할 수 있습니다. 개발자 공간에는 동일한 개발 공간에서 실행 되는 고유한 Tiller 인스턴스와 충돌 하는 자체 Tiller 인스턴스가 있기 때문에 발생 합니다.
 
 동일한 AKS 클러스터에 대해 투구 명령과 Dev Spaces 명령을 모두 사용 하는 것이 좋지만 각 개발 공간 사용 네임 스페이스는 하나 또는 다른를 사용 해야 합니다.
 
-예를 들어, 투구 명령을 사용 하 여 부모 개발 공간에서 전체 응용 프로그램을 실행 한다고 가정 합니다. 해당 부모에서 자식 dev 공간을 만들고 Dev 공간을 사용 하 여 자식 dev 공간 내에서 개별 서비스를 실행 하 고 서비스를 함께 테스트할 수 있습니다. 변경 내용을 체크 인할 준비가 되 면 투구 명령을 사용 하 여 업데이트 된 코드를 부모 개발 공간에 배포 합니다. 처음에 `azds up` 는 투구를 사용 하 여 실행 되는 서비스와 충돌 하므로 부모 dev 공간에서 업데이트 된 서비스를 실행 하는 데를 사용 하지 마세요.
+예를 들어, 투구 명령을 사용 하 여 부모 개발 공간에서 전체 응용 프로그램을 실행 한다고 가정 합니다. 해당 부모에서 자식 dev 공간을 만들고 Dev 공간을 사용 하 여 자식 dev 공간 내에서 개별 서비스를 실행 하 고 서비스를 함께 테스트할 수 있습니다. 변경 내용을 체크 인할 준비가 되 면 투구 명령을 사용 하 여 업데이트 된 코드를 부모 개발 공간에 배포 합니다. 부모 dev 공간에서 업데이트 된 서비스를 실행 하는 데 `azds up`를 사용 하지 마세요 .이는 처음에 투구를 사용 하 여 실행 하는 서비스와 충돌 하기 때문입니다.
 
 ### <a name="existing-dockerfile-not-used-to-build-a-container"></a>기존 Dockerfile은 컨테이너를 빌드하는 데 사용 되지 않습니다.
 
 프로젝트에서 특정 _Dockerfile_을 가리키도록 Azure Dev Spaces를 구성할 수 있습니다. Azure Dev Spaces가 컨테이너를 빌드하는 데 필요한 _Dockerfile_을 사용하지 않는 것 같으면 Azure Dev Spaces에서 사용할 Dockerfile을 명시적으로 지정해야 할 수 있습니다. 
 
-이 문제를 해결 하려면 프로젝트에 생성 Azure Dev Spaces _azds_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: dockerfile* 을 사용 하려는 dockerfile을 가리킵니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+이 문제를 해결 하려면 프로젝트에 생성 Azure Dev Spaces _azds_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: dockerfile* 을 사용 하려는 dockerfile을 가리킵니다. 다음은 그 예입니다.
 
 ```yaml
 ...
@@ -169,9 +169,9 @@ configurations:
 
 인증을 요구 하는 개인 레지스트리에서 Docker 이미지를 사용 하 고 있습니다.
 
-이 문제를 해결 하기 위해 이미지를 사용 [하 여이](https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets)개인 레지스트리에서 이미지를 인증 하 고 끌어올 수 있습니다. ImagePullSecrets을 사용 하려면 이미지를 사용 하는 네임 스페이스에 [Kubernetes secret을 만듭니다](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod) . 그런 다음에서 `azds.yaml`암호를 imagePullSecret로 제공 합니다.
+이 문제를 해결 하기 위해 이미지를 사용 [하 여이](https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets)개인 레지스트리에서 이미지를 인증 하 고 끌어올 수 있습니다. ImagePullSecrets을 사용 하려면 이미지를 사용 하는 네임 스페이스에 [Kubernetes secret을 만듭니다](https://kubernetes.io/docs/concepts/containers/images/#specifying-imagepullsecrets-on-a-pod) . 그런 다음 `azds.yaml`의 imagePullSecret로 암호를 제공 합니다.
 
-다음은에서 `azds.yaml`imagePullSecrets 지정 하는 예입니다.
+다음은 `azds.yaml`에서 imagePullSecrets 지정 하는 예입니다.
 
 ```yaml
 kind: helm-release
@@ -196,19 +196,19 @@ install:
 ```
 
 > [!IMPORTANT]
-> 에서 `azds.yaml` imagepullsecrets 설정 하면에 지정 된 `values.yaml`imagepullsecrets 재정의 됩니다.
+> `azds.yaml`에서 imagePullSecrets 설정 하면 `values.yaml`에 지정 된 imagePullSecrets 재정의 됩니다.
 
 ### <a name="error-service-cannot-be-started"></a>"서비스를 시작할 수 없습니다." 오류가 발생 했습니다.
 
 서비스 코드를 시작하지 못하면 이 오류가 발생할 수 있습니다. 사용자 코드에 원인이 있는 경우가 많습니다. 더 많은 진단 정보를 얻으려면 서비스를 시작할 때 자세한 로깅을 사용 하도록 설정 합니다.
 
-명령줄에서를 사용 `--verbose` 하 여 자세한 로깅을 사용 하도록 설정 합니다. 을 사용 하 여 `--output`출력 형식을 지정할 수도 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+명령줄에서 `--verbose` 사용 하 여 자세한 로깅을 사용 하도록 설정 합니다. `--output`를 사용 하 여 출력 형식을 지정할 수도 있습니다. 다음은 그 예입니다.
 
 ```cmd
 azds up --verbose --output json
 ```
 
-Visual Studio에서 다음을 수행합니다.
+Visual Studio에서
 
 1. **도구 > 옵션**을 열고 **프로젝트 및 솔루션** 아래에서 **빌드 및 실행**을 선택합니다.
 2. **MSBuild 프로젝트 빌드 출력 세부 정보 표시**의 설정을 **세부 내용** 또는 **진단**으로 변경합니다.
@@ -269,7 +269,7 @@ Azure Dev Spaces용 VS Code 확장은 최신 버전이지만 Azure Dev Spaces CL
 * [Mac](https://aka.ms/get-azds-mac)
 * [Linux](https://aka.ms/get-azds-linux)
 
-### <a name="error-failed-to-find-debugger-extension-for-typecoreclr"></a>오류: "형식에 대 한 디버거 확장을 찾지 못했습니다. coreclr"
+### <a name="error-failed-to-find-debugger-extension-for-typecoreclr"></a>오류: "형식에 대 한 디버거 확장을 찾지 못했습니다: coreclr"
 
 Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습니다. 개발 컴퓨터에 VS Code 확장 프로그램이 C# 설치 되어 있지 않을 수 있습니다. 확장 C# 에는 CoreCLR (.net Core)에 대 한 디버깅 지원이 포함 됩니다.
 
@@ -285,7 +285,7 @@ Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습
 
 Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습니다. 기본적으로 VS Code 확장은 컨테이너에 대한 프로젝트의 작업 디렉터리로 여 `src`를 사용합니다. 다른 작업 디렉터리를 지정하도록 `Dockerfile`을 업데이트한 경우에 다음 오류가 표시될 수 있습니다.
 
-이 문제를 해결 하려면 프로젝트 폴더 `launch.json` 의 하위 디렉터리 `.vscode` 에 있는 파일을 업데이트 합니다. 프로젝트의 `Dockerfile`에 정의된 `WORKDIR`과 동일한 디렉터리를 가리키도록 `configurations->cwd` 지시문을 변경합니다. `configurations->program` 지시문도 업데이트해야 할 수 있습니다.
+이 문제를 해결 하려면 프로젝트 폴더의 `.vscode` 하위 디렉터리에 있는 `launch.json` 파일을 업데이트 합니다. 프로젝트의 `Dockerfile`에 정의된 `WORKDIR`과 동일한 디렉터리를 가리키도록 `configurations->cwd` 지시문을 변경합니다. `configurations->program` 지시문도 업데이트해야 할 수 있습니다.
 
 ### <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>"파이프 프로그램 ' azds '은 코드 126로 인해 예기치 않게 종료 되었습니다." 오류가 발생 합니다.
 
@@ -303,12 +303,12 @@ Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습
 
 ### <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>"Azds" 오류는 내부 또는 외부 명령, 실행할 수 있는 프로그램 또는 배치 파일로 인식 되지 않습니다.
 
-가 설치 되지 않았거나 올바르게 `azds.exe` 구성 되지 않은 경우이 오류가 발생할 수 있습니다.
+이 오류는 `azds.exe` 설치 되지 않았거나 올바르게 구성 되지 않은 경우에 발생할 수 있습니다.
 
 이 문제를 해결하려면
 
-1. % ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI의 `azds.exe`위치를 확인 합니다. 위치가 있는 경우 해당 위치를 PATH 환경 변수에 추가합니다.
-2. 가 `azds.exe` 설치 되지 않은 경우 다음 명령을 실행 합니다.
+1. `azds.exe`에 대 한% ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI 위치를 확인 합니다. 위치가 있는 경우 해당 위치를 PATH 환경 변수에 추가합니다.
+2. `azds.exe` 설치 되지 않은 경우 다음 명령을 실행 합니다.
 
     ```cmd
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
@@ -316,13 +316,13 @@ Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>"Microsoft DevSpaces/register/action" 권한 부여 오류
 
-Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev 공간을 관리 하려는 경우 연결 된 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 없으면 권한 부여 오류가 표시 될 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev 공간을 관리 하려는 경우 연결 된 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 없으면 권한 부여 오류가 표시 될 수 있습니다. 다음은 그 예입니다.
 
 ```console
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
 ```
 
-이 문제를 해결 하려면 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 있는 계정을 사용 하 여 네임 `Microsoft.DevSpaces` 스페이스를 수동으로 등록 합니다.
+이 문제를 해결 하려면 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 있는 계정을 사용 하 여 `Microsoft.DevSpaces` 네임 스페이스를 수동으로 등록 합니다.
 
 ```console
 az provider register --namespace Microsoft.DevSpaces
@@ -330,7 +330,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ### <a name="new-pods-arent-starting"></a>새 pod 시작 되지 않음
 
-Kubernetes 이니셜라이저는 클러스터의 *클러스터 관리자* 역할에 대 한 RBAC 권한 변경으로 인해 new Pod에 PodSpec을 적용할 수 없습니다. 또한 새 pod에 잘못 된 PodSpec 있을 수 있습니다. 예를 들어 pod와 연결 된 서비스 계정이 더 이상 존재 하지 않습니다. 이니셜라이저 문제로 인해 *보류* 상태에 있는 pod을 보려면 다음 `kubectl get pods` 명령을 사용 합니다.
+Kubernetes 이니셜라이저는 클러스터의 *클러스터 관리자* 역할에 대 한 RBAC 권한 변경으로 인해 new Pod에 PodSpec을 적용할 수 없습니다. 또한 새 pod에 잘못 된 PodSpec 있을 수 있습니다. 예를 들어 pod와 연결 된 서비스 계정이 더 이상 존재 하지 않습니다. 이니셜라이저 문제로 인해 *보류* 상태에 있는 pod을 보려면 `kubectl get pods` 명령을 사용 합니다.
 
 ```bash
 kubectl get pods --all-namespaces --include-uninitialized
@@ -345,9 +345,9 @@ az aks get-credentials --resource-group <resource group name> --name <cluster na
 kubectl delete InitializerConfiguration azds
 ```
 
-Azure Dev Spaces 컨트롤러에서 *azds initializerconfiguration* 을 제거한 후을 사용 `kubectl delete` 하 여 *보류 중* 상태의 pod를 제거 합니다. 보류 중인 모든 pod을 제거한 후 pod를 다시 배포 합니다.
+Azure Dev Spaces 컨트롤러에서 *Azds InitializerConfiguration* 을 제거한 후에는 `kubectl delete`를 사용 하 여 *보류 중* 상태의 모든 pod를 제거 합니다. 보류 중인 모든 pod을 제거한 후 pod를 다시 배포 합니다.
 
-다시 배포 후 새 pod *보류 중* 상태로 유지 되는 경우를 사용 `kubectl delete` 하 여 *보류 중* 상태에서 pod를 제거 합니다. 보류 중인 모든 pod 제거 된 후 클러스터에서 컨트롤러를 삭제 하 고 다시 설치 합니다.
+다시 배포 후 새 pod가 *보류 중* 상태로 유지 되는 경우 `kubectl delete`를 사용 하 여 *보류 중* 상태에서 pod를 제거 합니다. 보류 중인 모든 pod 제거 된 후 클러스터에서 컨트롤러를 삭제 하 고 다시 설치 합니다.
 
 ```bash
 azds remove -g <resource group name> -n <cluster name>
@@ -362,7 +362,7 @@ Azure Dev Spaces 컨트롤러에 액세스 하는 사용자는 AKS 클러스터�
 
 컨트롤러에 대 한 사용자의 RBAC 역할을 업데이트 하려면:
 
-1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. 일반적으로 AKS 클러스터와 동일한 컨트롤러를 포함 하는 리소스 그룹으로 이동 합니다.
 1. *숨겨진 형식 표시* 확인란을 사용 하도록 설정 합니다.
 1. 컨트롤러를 클릭 합니다.
@@ -372,7 +372,7 @@ Azure Dev Spaces 컨트롤러에 액세스 하는 사용자는 AKS 클러스터�
     * *역할*에 대해 *참가자* 또는 *소유자*를 선택 합니다.
     * *액세스 할당*에서 *Azure AD 사용자, 그룹 또는 서비스 보안 주체*를 선택합니다.
     * *Select*에서 사용 권한을 부여 하려는 사용자를 검색 합니다.
-1. *저장*을 클릭합니다.
+1. 페이지 맨 아래에 있는 *저장*을 참조하세요.
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Dev Spaces 서비스에 연결된 공용 URL에 대한 DNS 이름 확인 실패
 
@@ -414,10 +414,10 @@ Azure Dev Spaces 컨트롤러에 액세스 하는 사용자는 AKS 클러스터�
 
 이 문제를 해결하려면
 
-1. 빌드 컨텍스트를 솔루션 수준으로 설정 하도록 파일을수정합니다.`azds.yaml`
-2. 프로젝트 파일을 `Dockerfile.develop` 참조 하도록 `.csproj` 및파일을수정합니다(예:새빌드컨텍스트를`Dockerfile` 기준으로).
-3. `.sln` 파일과 동일한 `.dockerignore` 디렉터리에를 추가 합니다.
-4. 필요에 `.dockerignore` 따라를 추가 항목으로 업데이트 합니다.
+1. `azds.yaml` 파일을 수정 하 여 빌드 컨텍스트를 솔루션 수준으로 설정 합니다.
+2. `Dockerfile` 및 `Dockerfile.develop` 파일을 수정 하 여 새 빌드 컨텍스트와 관련 하 여 `.csproj`와 같은 프로젝트 파일을 참조 합니다.
+3. `.sln` 파일과 동일한 디렉터리에 `.dockerignore`를 추가 합니다.
+4. 필요에 따라 추가 항목으로 `.dockerignore`를 업데이트 합니다.
 
 [여기](https://github.com/sgreenmsft/buildcontextsample)에서 예제를 찾을 수 있습니다.
 
@@ -425,9 +425,23 @@ Azure Dev Spaces 컨트롤러에 액세스 하는 사용자는 AKS 클러스터�
 
 개발 공간에서 서비스를 실행 하는 경우 해당 서비스의 pod가 [계측을 위한 추가 컨테이너와 함께 삽입](how-dev-spaces-works.md#prepare-your-aks-cluster) 되며 pod의 모든 컨테이너에는 수평 pod 자동 크기 조정에 대해 설정 된 리소스 제한 및 요청이 있어야 합니다.
 
-이 문제를 해결 하려면 리소스 요청을 적용 하 고 삽입 된 Dev Spaces 컨테이너에 제한을 적용 합니다. Pod 사양에 `azds.io/proxy-resources` 주석을 추가 하 여 삽입 된 컨테이너 (devspaces-프록시)에 리소스 요청 및 제한을 적용할 수 있습니다. 프록시에 대 한 컨테이너 사양의 리소스 섹션을 나타내는 JSON 개체로 값을 설정 해야 합니다.
+이 문제를 해결 하려면 리소스 요청을 적용 하 고 삽입 된 Dev Spaces 컨테이너에 제한을 적용 합니다. Pod 사양에 `azds.io/proxy-resources` 주석을 추가 하 여 삽입 된 컨테이너에 대 한 리소스 요청 및 제한을 적용할 수 있습니다. 프록시에 대 한 컨테이너 사양의 리소스 섹션을 나타내는 JSON 개체로 값을 설정 해야 합니다.
 
 다음은 pod 사양에 적용 되는 프록시 리소스 주석의 예입니다.
 ```
 azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
 ```
+
+### <a name="enable-azure-dev-spaces-on-an-existing-namespace-with-running-pods"></a>Pod를 실행 하 여 기존 네임 스페이스에서 Azure Dev Spaces 사용
+
+Azure Dev Spaces를 사용 하도록 설정 하려는 pod를 실행 하는 기존 AKS 클러스터 및 네임 스페이스가 있을 수 있습니다.
+
+AKS 클러스터에서 기존 네임 스페이스에 대 한 Azure Dev Spaces를 사용 하도록 설정 하려면 `use-dev-spaces`를 실행 하 고 `kubectl`를 사용 하 여 해당 네임 스페이스의 모든 pod를 다시 시작 합니다.
+
+```console
+az aks get-credentials --resource-group MyResourceGroup --name MyAKS
+az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+kubectl -n my-namespace delete pod --all
+```
+
+Pod가 다시 시작 되 면 Azure Dev Spaces에서 기존 네임 스페이스 사용을 시작할 수 있습니다.

@@ -8,16 +8,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: df93405940c02affa224fba2d2e6f07ce5278b15
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4f1b8b116cf2a8411a90946dd5801dd1e541323c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755366"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063978"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
-마이크로 서비스의 세계에서 모든 논리 작업은 서비스의 다양한 구성 요소에서 수행되어야 합니다. 이러한 각 구성 요소는 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 개별적으로 모니터링할 수 있습니다. 웹앱 구성 요소는 인증 공급자 구성 요소와 통신하여 사용자 자격 증명의 유효성을 검사하고, API 구성 요소를 사용하여 시각화할 데이터를 가져옵니다. API 구성 요소는 다른 서비스의 데이터를 쿼리하고, 캐시 공급자 구성 요소를 사용하여 이 호출에 대해 청구 구성 요소에 알릴 수 있습니다. Application Insights는 오류 또는 성능 저하를 일으키는 구성 요소를 검색하는 데 사용하는 분산된 원격 분석 상관 관계를 지원합니다.
+마이크로 서비스의 세계에서 모든 논리 작업은 서비스의 다양한 구성 요소에서 수행되어야 합니다. 이러한 각 구성 요소는 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 개별적으로 모니터링할 수 있습니다. Application Insights는 오류 또는 성능 저하를 일으키는 구성 요소를 검색하는 데 사용하는 분산된 원격 분석 상관 관계를 지원합니다.
 
 이 문서에서는 여러 구성 요소에서 보낸 원격 분석의 상관 관계를 지정하기 위해 Application Insights에서 사용되는 데이터 모델에 대해 설명합니다. 컨텍스트 전파 기술 및 프로토콜을 다룹니다. 또한 다른 언어와 플랫폼의 상관 관계 개념에 대한 구현도 다룹니다.
 
@@ -75,7 +75,7 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 ### <a name="enable-w3c-distributed-tracing-support-for-classic-aspnet-apps"></a>클래식 ASP.NET 앱에 W3C 분산 추적 지원을 사용하도록 설정
  
   > [!NOTE]
-  > @No__t_0 및 `Microsoft.ApplicationInsights.DependencyCollector`부터 구성이 필요 하지 않습니다. 
+  > `Microsoft.ApplicationInsights.Web` 및 `Microsoft.ApplicationInsights.DependencyCollector`부터 구성이 필요 하지 않습니다. 
 
 W3C 추적-컨텍스트 지원은 이전 버전과 호환 되는 방식으로 수행 되며 상관 관계는 이전 버전의 SDK를 사용 하 여 계측 된 응용 프로그램에서 작동 합니다 (W3C 지원 없음). 
 
@@ -104,7 +104,7 @@ W3C 추적-컨텍스트 지원은 이전 버전과 호환 되는 방식으로 �
 ### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>ASP.NET Core 앱에 W3C 분산 추적 지원을 사용하도록 설정
 
  > [!NOTE]
-  > @No__t_0 버전 2.8.0로 시작 하는 구성이 필요 하지 않습니다.
+  > `Microsoft.ApplicationInsights.AspNetCore` 버전 2.8.0로 시작 하는 구성이 필요 하지 않습니다.
  
 W3C 추적-컨텍스트 지원은 이전 버전과 호환 되는 방식으로 수행 되며 상관 관계는 이전 버전의 SDK를 사용 하 여 계측 된 응용 프로그램에서 작동 합니다 (W3C 지원 없음). 
 
@@ -221,7 +221,7 @@ OpenCensus Python은 위에서 설명한 `OpenTracing` 데이터 모델 사양�
 
 ### <a name="incoming-request-correlation"></a>들어오는 요청 상관 관계
 
-OpenCensus Python은 요청 자체에서 생성 된 범위에 대 한 들어오는 요청에서 W3C 추적 컨텍스트 헤더를 연관 시킵니다. OpenCensus `flask`, `django` 및 `pyramid`와 같은 인기 있는 웹 응용 프로그램 프레임 워크에 대 한 통합을 통해이 작업을 자동으로 수행 합니다. W3C 추적 컨텍스트 헤더를 [올바른 형식](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)으로 입력 하 고 요청과 함께 전송 해야 합니다. 다음은이를 보여 주는 예제 `flask` 응용 프로그램입니다.
+OpenCensus Python은 요청 자체에서 생성 된 범위에 대 한 들어오는 요청에서 W3C 추적 컨텍스트 헤더를 연관 시킵니다. OpenCensus는 `flask`, `django` 및 `pyramid`와 같은 인기 있는 웹 응용 프로그램 프레임 워크에 대 한 통합을 통해이 작업을 자동으로 수행 합니다. W3C 추적 컨텍스트 헤더를 [올바른 형식](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format) 으로 입력 하 고 요청과 함께 전송 해야 합니다. 다음은이를 보여 주는 예제 `flask` 응용 프로그램입니다.
 
 ```python
 from flask import Flask
@@ -253,13 +253,13 @@ curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7
  `parent-id/span-id`: `00f067aa0ba902b7` 
  0: 1
 
-Azure Monitor로 전송 된 요청 항목을 살펴보면 추적 헤더 정보로 채워진 필드를 볼 수 있습니다.
+Azure Monitor로 전송 된 요청 항목을 살펴보면 추적 헤더 정보로 채워진 필드를 볼 수 있습니다. Azure Monitor Application Insights 리소스의 로그 (분석)에서이 데이터를 찾을 수 있습니다.
 
 ![빨간색 상자에 강조 표시 된 추적 헤더 필드가 있는 로그 (분석)의 요청 원격 분석 스크린샷](./media/opencensus-python/0011-correlation.png)
 
-@No__t_0 필드는 `<trace-id>.<span-id>` 형식으로 되어 있습니다. 여기서 `trace-id`는 요청에 전달 된 추적 헤더에서 가져오며 `span-id`는이 범위에 대해 생성 된 8 바이트 배열입니다. 
+`id` 필드는 `<trace-id>.<span-id>`형식으로 되어 있습니다. 여기서 `trace-id`는 요청에 전달 된 추적 헤더에서 가져오며 `span-id`는이 범위에 대해 생성 된 8 바이트 배열입니다. 
 
-@No__t_0 필드는 `<trace-id>.<parent-id>` 형식으로 되어 있습니다. 여기에서 `trace-id` 및 `parent-id`는 모두 요청에 전달 된 추적 헤더에서 가져옵니다.
+`operation_ParentId` 필드는 `<trace-id>.<parent-id>`형식으로 되어 있습니다. 여기에서 `trace-id` 및 `parent-id`는 모두 요청에 전달 된 추적 헤더에서 가져옵니다.
 
 ### <a name="logs-correlation"></a>로그 상관 관계
 
@@ -289,7 +289,9 @@ logger.warning('After the span')
 2019-10-17 11:25:59,384 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=70da28f5a4831014 In the span
 2019-10-17 11:25:59,385 traceId=c54cb1d4bbbec5864bf0917c64aeacdc spanId=0000000000000000 After the span
 ```
-@No__t_0 범위에 속하는 로그 메시지에 대 한 spanId가 있는지 확인 합니다. 범위 내에는 범위에 속하는 동일한 spanId입니다.
+`hello`범위에 속하는 로그 메시지에 대 한 spanId가 있는지 확인 합니다. 범위 내에는 범위에 속하는 동일한 spanId입니다.
+
+`AzureLogHandler`를 사용 하 여 로그 데이터를 내보낼 수 있습니다. 자세한 내용은 [여기](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python#logs)
 
 ## <a name="telemetry-correlation-in-net"></a>.NET의 원격 분석 상관 관계
 

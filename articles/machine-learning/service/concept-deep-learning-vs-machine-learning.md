@@ -1,7 +1,7 @@
 ---
 title: 심층 학습 및 기계 학습
 titleSuffix: Azure Machine Learning
-description: 심층 학습 및 기계 학습에 대해 알아보고 두 개념이 인공 지능과 어떤 관계가 있는지 알아보세요. 딥 러닝은 사기 감지, 음성 및 얼굴 인식, 감정 분석, 시계열 예측 등의 시나리오에서 적용할 수 있습니다.
+description: 딥 러닝이 기계 학습 및 인공 지능과 어떻게 관련이 있는지 알아보세요. 심층 학습은 사기 감지, 음성 & 얼굴 인식, 감정 분석 및 시계열 예측과 같은 시나리오에서 사용 됩니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 08/07/2019
-ms.openlocfilehash: 791566dc65b41bf3124e84544390d7d843e51273
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ffc71cf8b2f60568e3c4bc63a3751bc44be66e58
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123135"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063133"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습
 
@@ -24,7 +24,7 @@ ms.locfileid: "71123135"
 
 ![관계 다이어그램: AI와 기계 학습 및 심층 학습 비교](./media/concept-deep-learning-vs-machine-learning/ai-vs-machine-learning-vs-deep-learning.png)
 
-심층 학습 및 기계 학습 vs를 이해 하려면 다음 정의를 참조 하세요. AI
+심층 학습 및 기계 학습 vs AI를 이해 하려면 다음 정의를 고려 하십시오.
 
 - **심층 학습은** 인공 신경망을 기반으로 하는 기계 학습의 하위 집합입니다. 인공 신경망의 구조가 여러 입력, 출력 및 숨겨진 계층으로 구성 되기 때문에 _학습 프로세스_ 는 _깊습니다_ . 각 계층에는 입력 데이터를 다음 계층이 특정 예측 태스크에 사용할 수 있는 정보로 변환 하는 단위가 포함 되어 있습니다. 이 구조 덕분에 컴퓨터는 자체 데이터 처리를 통해 학습할 수 있습니다.
 
@@ -82,7 +82,7 @@ AI, 기계 학습 및 심층 학습 간의 관계를 이해 하는 것이 중요
 
 적절 한 데이터 변환을 사용 하 여 신경망은 텍스트, 오디오 및 시각적 신호를 이해할 수 있습니다. 기계 번역을 사용 하 여 큰 오디오 파일의 소리 조각을 식별 하 고 음성 단어 또는 이미지를 텍스트로 높여줄 수 있습니다.
 
-### <a name="text-analytics"></a>텍스트 분석
+### <a name="text-analytics"></a>Text Analytics
 
 심층 학습 방법을 기반으로 하는 텍스트 분석에서는 많은 양의 텍스트 데이터 (예: 의료 문서 또는 경비 영수증)를 분석 하 고 패턴을 인식 하 고 구성 된 정보 및 간결한 정보를 만듭니다.
 

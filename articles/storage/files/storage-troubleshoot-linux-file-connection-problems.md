@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: cc0539462fad0a73d5fc7eb75d2078e513df4e5d
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 12976e2b2dd37b640efe1823fc8d2ca7048ebcdb
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926529"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73097359"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
 
@@ -126,7 +126,7 @@ Linux에서는 다음과 같은 오류 메시지가 수신됩니다.
 
 ### <a name="solution"></a>솔루션
 
-Linux용 SMB 3.0의 암호화 기능이 4.11 커널에 도입되었습니다. 이 기능을 사용하면 온-프레미스에서 또는 다른 Azure 지역에서 Azure 파일 공유를 탑재할 수 있습니다. 이 기능은 [해당 탑재 기능을 갖춘 최소 권장 버전(SMB 버전 2.1 또는 SMB 버전 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30)에 나열된 Linux 배포판에 포함되어 있습니다. 기타 배포에는 커널 4.11 이상 버전이 필요합니다.
+Linux용 SMB 3.0의 암호화 기능이 4.11 커널에 도입되었습니다. 이 기능을 사용하면 온-프레미스에서 또는 다른 Azure 지역에서 Azure 파일 공유를 탑재할 수 있습니다. 일부 Linux 배포판은 4.11 커널에서 유지 관리 하는 Linux 커널의 이전 버전으로 변경 될 수 있습니다. Linux 버전에서 암호화를 사용 하 여 SMB 3.0을 지원 하는지 확인 하는 데 도움이 되도록 [linux에서 Azure Files 사용](storage-how-to-use-files-linux.md)을 참조 하세요. 
 
 Linux SMB 클라이언트가 암호화를 지원하지 않는 경우 파일 공유와 같은 데이터 센터의 Azure Linux VM에서 SMB 2.1을 사용하여 Azure Files를 탑재합니다. 스토리지 계정에서 [보안 전송 필요]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하지 않도록 설정했는지 확인합니다. 
 
@@ -281,7 +281,7 @@ Linux 커널의 이러한 재연결 문제는 현재 다음 변경의 일부로 
 - [CIFS: 재연결 동안 가능한 메모리 손상 수정](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=53e0e11efe9289535b060a51d4cf37c25e0d0f2b)
 - [CIFS: 재연결 동안 가능한 뮤텍스 이중 잠금 해결(커널 v4.9 이상)](https://git.kernel.org/cgit/linux/kernel/git/torvalds/linux.git/commit/?id=96a988ffeb90dba33a71c3826086fe67c897a183)
 
-그러나 이 변경 내용이 모든 Linux 배포판에 아직 이식되지 않은 것일 수 있습니다. 이 픽스 및 다른 재연결 픽스는 [Linux에서 Azure Files 사용](storage-how-to-use-files-linux.md) 문서의 [해당 탑재 기능을 갖춘 최소 권장 버전(SMB 버전 2.1 또는 SMB 버전 3.0)](storage-how-to-use-files-linux.md#minimum-recommended-versions-with-corresponding-mount-capabilities-smb-version-21-vs-smb-version-30) 섹션에서 찾을 수 있습니다. 이러한 권장된 커널 버전 중 하나로 업그레이드하여 이 수정을 가져올 수 있습니다.
+그러나 이 변경 내용이 모든 Linux 배포판에 아직 이식되지 않은 것일 수 있습니다. 널리 사용 되는 Linux 배포를 사용 하는 경우 [linux에서 Azure Files 사용](storage-how-to-use-files-linux.md) 을 확인 하 여 필요한 커널이 변경 된 배포 버전을 확인할 수 있습니다.
 
 ### <a name="workaround"></a>해결 방법
 

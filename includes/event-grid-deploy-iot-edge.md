@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: fab9a8a8c28f2f75e7e5af69b70229c1de74c684
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8656bbb070e2b05a06ea22dd1634a40182b440cb
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992289"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098659"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Event Grid IoT Edge 모듈 배포
 
@@ -24,7 +24,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
 >[!IMPORTANT]
 > 이 자습서에서는 클라이언트 인증 기능이 해제 된 상태에서 Event Grid 모듈이 배포 되며 HTTP 구독자가 허용 됩니다. 프로덕션 워크 로드의 경우 클라이언트 인증을 사용 하는 HTTPS 요청 및 구독자만 사용 하도록 설정 하는 것이 좋습니다. Event Grid 모듈을 안전 하 게 구성 하는 방법에 대 한 자세한 내용은 [보안 및 인증](../articles/event-grid/edge/security-authentication.md)을 참조 하세요.
-
+ 
 ### <a name="select-your-iot-edge-device"></a>IoT Edge 장치 선택
 
 1. [Azure 포털](https://portal.azure.com)
@@ -67,6 +67,10 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
  1. 페이지 맨 아래에 있는 **저장**
  1. **다음** 을 클릭 하 여 경로 섹션으로 이동 합니다.
+
+    > [!NOTE]
+    > Azure VM을에 지 장치로 사용 하는 경우 포트 4438에서 인바운드 트래픽을 허용 하는 인바운드 포트 규칙을 추가 합니다. 규칙을 추가 하는 방법에 대 한 지침은 [VM에 포트를 여는 방법](../articles/virtual-machines/windows/nsg-quickstart-portal.md)을 참조 하세요.
+
 
 ### <a name="setup-routes"></a>설정 경로
 

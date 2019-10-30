@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 8e22bf53a81d94c5204a76c58b43fed63e32b136
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 45cf7b7d9383de467f72769465a3ad382fe9d589
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803392"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064041"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -38,7 +38,7 @@ ms.locfileid: "71803392"
 
 Cosmos 컨테이너 (또는 공유 처리량 데이터베이스)의 최소 처리량은 400 RUs 여야 합니다. 컨테이너가 확장 될 때 지원 되는 최소 처리량은 다음 요소에 따라 달라 집니다.
 
-* 컨테이너에 대해 설정할 수 있는 최소 처리량은 컨테이너에서 프로 비전 된 최대 처리량에 따라 달라 집니다. 이 서비스는 컨테이너의 처리량을 프로 비전 된 최대 10%로 낮출 수 있도록 지원 합니다. 예를 들어 처리량이 1만 RUs로 증가 한 경우 프로 비전 된 가장 낮은 처리량은 1000 RUs가 될 수 있습니다.
+* 컨테이너에 대해 설정할 수 있는 최소 처리량은 컨테이너에서 프로 비전 된 최대 처리량에 따라 달라 집니다. 예를 들어 처리량이 1만 RUs로 증가 한 경우 프로 비전 된 가장 낮은 처리량은 1000 RUs가 될 수 있습니다.
 * 공유 처리량 데이터베이스의 최소 처리량은 공유 처리량 데이터베이스에서 만든 컨테이너의 총 수에 따라 달라 지 며,이는 컨테이너 당 100 RUs로 측정 됩니다. 예를 들어 공유 처리량 데이터베이스 내에 5 개의 컨테이너를 만든 경우 처리량은 500 RUs 이상 이어야 합니다.
 
 컨테이너 또는 데이터베이스의 현재 및 최소 처리량은 Azure Portal 또는 Sdk에서 검색할 수 있습니다. 자세한 내용은 [컨테이너 및 데이터베이스에 대 한 처리량 프로 비전](set-throughput.md)을 참조 하세요. 
@@ -92,7 +92,7 @@ Cosmos DB는 일정 한 간격으로 데이터의 백업을 자동으로 수행 
 | 컨테이너 당 고유 키의 최대 수|10 <sup>*</sup>|
 | Unique key 제약 조건 당 최대 경로 수|16 <sup>*</sup>|
 
-<sup>*</sup>Azure 지원에 문의 하 여 이러한 컨테이너 별 제한을 늘릴 수 있습니다.
+<sup>*</sup> Azure 지원에 문의 하 여 이러한 컨테이너 별 제한을 늘릴 수 있습니다.
 
 ## <a name="per-item-limits"></a>항목당 제한
 
@@ -141,7 +141,7 @@ Cosmos DB는 [SQL](how-to-sql-query.md)을 사용한 항목 쿼리를 지원 합
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| SQL 쿼리의 최대 길이| 256 KB<sup>*</sup>|
+| SQL 쿼리의 최대 길이| 256 <sup>*</sup>|
 | 쿼리당 최대 조인 수| 5 <sup>*</sup>|
 | 쿼리당 최대 ANDs| 2000 <sup>*</sup>|
 | 쿼리당 최대 ORs| 2000 <sup>*</sup>|
@@ -149,7 +149,7 @@ Cosmos DB는 [SQL](how-to-sql-query.md)을 사용한 항목 쿼리를 지원 합
 | 식 당 최대 인수 수| 6000 <sup>*</sup>|
 | 다각형 당 최대 점수| 4096 <sup>*</sup>|
 
-<sup>*</sup>Azure 지원에 문의 하 여 이러한 SQL 쿼리 제한을 늘릴 수 있습니다.
+<sup>*</sup> Azure 지원에 문의 하 여 이러한 SQL 쿼리 제한을 늘릴 수 있습니다.
 
 ## <a name="mongodb-api-specific-limits"></a>MongoDB API 특정 제한
 

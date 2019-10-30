@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2db8d5881b5847adca4fffb72c0a678e1ec550c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 3a1906b8ac281620381176a2a11dff3841069f69
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596317"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062666"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -221,7 +221,7 @@ Azure AD Connect를 사용하여 웹 애플리케이션 프록시 또는 Active 
 | 300,000–600,000개 |1.6GHz |32GB |450GB |
 | 600,000개 초과 |1.6GHz |32GB |500GB |
 
-AD FS 또는 웹 애플리케이션 서버를 실행하는 컴퓨터에 대한 최소 요구 사항은 다음과 같습니다.
+AD FS 또는 웹 응용 프로그램 프록시 서버를 실행 하는 컴퓨터의 최소 요구 사항은 다음과 같습니다.
 
 * CPU: 듀얼 코어 1.6GHz 이상
 * 메모리: 2GB 이상

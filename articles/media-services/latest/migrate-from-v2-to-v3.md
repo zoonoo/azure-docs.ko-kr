@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 901542e2a69d2c7880825d76c1d69d3795713ed2
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 003cc54a07455118969a2dd497e9b963c03f68f2
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231165"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099500"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -41,7 +41,7 @@ ms.locfileid: "70231165"
 * [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) 및 Ruby에 SDK를 사용할 수 있습니다.
 * [Azure CLI](https://aka.ms/ams-v3-cli-ref) 통합을 통해 간단한 스크립팅을 지원합니다.
 
-### <a name="new-features"></a>새 기능
+### <a name="new-features"></a>새로운 기능
 
 * 파일 기반 작업 처리의 경우 HTTP(S) URL을 입력으로 사용할 수 있습니다.<br/>아직 콘텐츠를 Azure에 저장하거나 자산을 만들 필요가 없습니다.
 * 파일 기반 작업 처리를 위한 [변환](transforms-jobs-concept.md) 개념을 도입합니다. 변환을 사용하여 재사용 가능한 구성을 빌드하고, Azure Resource Manager 템플릿을 만들고, 여러 고객 또는 테넌트 간에 처리 설정을 격리할 수 있습니다.
@@ -73,7 +73,8 @@ ms.locfileid: "70231165"
     * Live Event는 Channel을 대체합니다.<br/>라이브 이벤트 요금은 라이브 채널 미터를 기반으로 청구됩니다. 자세한 내용은 [대금 청구](live-event-states-billing.md) 및 [가격 책정](https://azure.microsoft.com/pricing/details/media-services/)을 참조하세요.
     * Live Output은 Program을 대체합니다.
 * 라이브 출력은 생성과 동시에 시작되고 삭제되면 중지됩니다. v2 API에서는 프로그램이 다르게 작동했습니다. 생성 후 시작해야 했습니다.
-*  작업에 대 한 정보를 가져오려면 작업이 만들어진 변환 이름을 알아야 합니다. 
+* 작업에 대 한 정보를 가져오려면 작업이 만들어진 변환 이름을 알아야 합니다. 
+* V2에서 XML [입력](../previous/media-services-input-metadata-schema.md) 및 [출력](../previous/media-services-output-metadata-schema.md) 메타 데이터 파일은 인코딩 작업의 결과로 생성 됩니다. V3에서 메타 데이터 형식이 XML에서 JSON으로 변경 되었습니다. 
 
 > [!NOTE]
 > [Media Services v3 리소스](media-services-apis-overview.md#naming-conventions)에 적용 되는 명명 규칙을 검토 합니다. [Blob 명명](assets-concept.md#naming-blobs)도 검토 합니다.
@@ -104,7 +105,7 @@ v3 API는 v2 API와 관련하여 다음과 같은 기능 격차가 있습니다.
 |---|---|---|
 |자산 만들기 및 파일 업로드 |[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |작업 제출|[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>먼저 변환을 만든 후 작업을 제출하는 방법을 보여줍니다.|
-|AES 암호화를 사용하여 자산 게시 |1. ContentKeyAuthorizationPolicyOption 만들기<br/>2. ContentKeyAuthorizationPolicy 만들기<br/>3. AssetDeliveryPolicy 만들기<br/>4. Asset 만들기/콘텐츠 업로드 또는 작업 제출/출력 자산 사용<br/>5. Asset에 AssetDeliveryPolicy 연결<br/>6. ContentKey 만들기<br/>7. Asset에 ContentKey 연결<br/>8. AccessPolicy 만들기<br/>9. Locator 만들기<br/><br/>[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. 콘텐츠 키 정책 만들기<br/>2. Asset 만들기<br/>3. 콘텐츠 업로드 또는 Asset을 JobOutput으로 사용<br/>4. 스트리밍 로케이터 만들기<br/><br/>[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|AES 암호화를 사용하여 자산 게시 |1. ContentKeyAuthorizationPolicyOption 만들기<br/>2. ContentKeyAuthorizationPolicy 만들기<br/>3. Asset배달 Ypolicy 만들기<br/>4. 자산을 만들고 콘텐츠를 업로드 하거나 작업을 제출 하 고 출력 자산을 사용 합니다.<br/>5. Asset배달 Ypolicy와 자산 연결<br/>6. ContentKey 만들기<br/>7. 콘텐츠 키를 자산에 연결<br/>8. AccessPolicy 만들기<br/>9. 로케이터 만들기<br/><br/>[v2 .NET 예제](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. 콘텐츠 키 정책 만들기<br/>2. 자산 만들기<br/>3. 콘텐츠 업로드 또는 자산을 JobOutput으로 사용<br/>4. 스트리밍 로케이터 만들기<br/><br/>[v3 .NET 예제](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
 |작업 세부 정보 가져오기 및 작업 관리 |[V2를 사용 하 여 작업 관리](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[V3로 작업 관리](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>알려진 문제

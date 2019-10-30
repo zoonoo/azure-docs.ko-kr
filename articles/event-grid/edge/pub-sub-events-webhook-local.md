@@ -5,16 +5,16 @@ author: VidyaKukke
 manager: rajarv
 ms.author: vkukke
 ms.reviewer: spelluru
-ms.date: 10/06/2019
+ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: b484306504af8f83a393feb0469fff5b524948ab
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992211"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73098630"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>자습서: 로컬로 이벤트 게시, 구독
 
@@ -81,6 +81,8 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 
     >[!IMPORTANT]
     > 이 자습서에서는 클라이언트 인증을 사용 하지 않도록 설정 하 고 HTTP 구독자를 허용 하는 Event Grid 모듈을 배포 합니다. 프로덕션 워크 로드의 경우 클라이언트 인증을 사용 하도록 설정 하 고 HTTPs 구독자만 허용 하는 것이 좋습니다. Event Grid 모듈을 안전 하 게 구성 하는 방법에 대 한 자세한 내용은 [보안 및 인증](security-authentication.md)을 참조 하세요.
+    > 
+    > Azure VM을에 지 장치로 사용 하는 경우 포트 4438에서 인바운드 트래픽을 허용 하는 인바운드 포트 규칙을 추가 합니다. 규칙을 추가 하는 방법에 대 한 지침은 [VM에 포트를 여는 방법](../../virtual-machines/windows/nsg-quickstart-portal.md)을 참조 하세요.
     
 
 ## <a name="deploy-azure-function-iot-edge-module"></a>Azure Function IoT Edge 모듈 배포
@@ -257,7 +259,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
     Windows에서 다음 명령을 실행 합니다.
 
     ```sh
-    iotedge logs subscriber -f
+    docker -H npipe:////./pipe/iotedge_moby_engine container logs subscriber
     ```
 
    Linux에서 다음 명령을 실행 합니다.
@@ -299,6 +301,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 ## <a name="next-steps"></a>다음 단계
 이 자습서에서는 event grid 토픽, 구독 및 게시 된 이벤트를 만들었습니다. 기본 단계를 배웠으므로 이제 다음 문서를 참조 하세요. 
 
+- IoT Edge에서 Azure Event Grid를 사용 하 여 발생 하는 문제를 해결 하려면 [문제 해결 가이드](troubleshoot.md)를 참조 하세요.
 - [필터](advanced-filtering.md)를 사용 하 여 구독을 만들거나 업데이트 합니다.
 - [Linux](persist-state-linux.md) 또는 [Windows](persist-state-windows.md) 에서 Event Grid 모듈의 지 속성 사용
 - [설명서](configure-client-auth.md) 에 따라 클라이언트 인증 구성

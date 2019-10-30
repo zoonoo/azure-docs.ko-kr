@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: 02a1c12957570f0e798c5abfd88562128ea1cf76
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 9ea9bea83de0a177fa37d9a186f8962bac1394a4
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053076"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101416"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -175,21 +175,21 @@ Azure AD Identity Protection은 매일 모니터링해야 하는 두 가지 중�
 
 사용자는 자신의 프로필 정보 및 사용자 데이터 (예: 전자 메일)에 대 한 액세스 권한을 얻을 수 있는 손상 된 웹 사이트에 대 한 탐색으로 속아 서 수 있습니다. 악의적인 행위자는 획득한 승인된 권한을 사용하여 사서함 콘텐츠를 암호화하고, 사서함 데이터를 되찾으려면 몸값을 지불하라고 요구할 수 있습니다. 관리자는 사용자가 제공한 권한을 [검토 및 감사](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)해야 합니다.
 
-## <a name="step-5---enable-end-user-self-help"></a>5단계 - 최종 사용자 자가 진단 사용
+## <a name="step-5---enable-end-user-self-service"></a>5 단계-최종 사용자 셀프 서비스 사용
 
-사용자는 최대한 생산성과 보안의 균형을 맞추고자 합니다. 결국 보안에 대한 기반을 설정하는 사고 방식을 통해 경험에 착수하는 것과 같은 방식으로 사용자에게 권한을 부여하면서 한편으론 경계를 게을리하지 않으면 조직에서 마찰을 없앨 수 있습니다. 
+사용자는 최대한 생산성과 보안의 균형을 맞추고자 합니다. 결국 보안에 대한 기반을 설정하는 사고 방식을 통해 경험에 착수하는 것과 같은 방식으로 사용자에게 권한을 부여하면서 한편으론 경계를 게을리하지 않으면 조직에서 마찰을 없앨 수 있습니다.
 
 ### <a name="implement-self-service-password-reset"></a>셀프 서비스 암호 재설정 구현
 
-IT 관리자는 Azure의 [SSPR(셀프 서비스 암호 재설정)](../../active-directory/authentication/quickstart-sspr.md)을 사용하여 사용자에게 해당 암호 또는 계정을 관리자 작업 없이 재설정하거나 잠금 해제할 수 있도록 할 수 있습니다. 이 시스템에는 오용 또는 남용에 대해 경고하는 알림과 함께 사용자가 언제 시스템에 액세스하는지 추적하는 구체적인 보고서가 포함되어 있습니다. 
+Azure AD의 [SSPR (셀프 서비스 암호 재설정)](../../active-directory/authentication/quickstart-sspr.md) 는 IT 관리자가 기술 지원팀 또는 관리자의 개입 없이 암호나 계정을 재설정 하거나 잠금 해제할 수 있도록 하는 간단한 방법을 제공 합니다. 시스템에는 사용자가 암호를 재설정 하는 시기를 추적 하는 상세 보고와 오용 또는 남용에 대해 경고 하는 알림이 포함 됩니다.
 
-### <a name="implement-self-service-group-management"></a>셀프 서비스 그룹 관리 구현
+### <a name="implement-self-service-group-and-application-access"></a>셀프 서비스 그룹 및 응용 프로그램 액세스 구현
 
-Azure AD는 보안 그룹 및 Office 365 그룹을 사용하여 리소스에 대한 액세스를 관리하는 기능을 제공합니다. 이러한 그룹은 IT 관리자 대신 그룹 소유자가 관리할 수 있습니다. [셀프 서비스 그룹 관리](../../active-directory/users-groups-roles/groups-self-service-management.md)라고 하는이 기능을 사용 하면 관리 역할이 할당 되지 않은 그룹 소유자는 해당 요청을 처리 하기 위해 관리자에 의존 하지 않고 그룹을 만들고 관리할 수 있습니다.
+Azure AD는 보안 그룹, Office 365 그룹, 응용 프로그램 역할 및 액세스 패키지 카탈로그를 사용 하 여 관리자가 아닌 리소스에 대 한 액세스를 관리 하는 기능을 제공 합니다.  [셀프 서비스 그룹 관리](../../active-directory/users-groups-roles/groups-self-service-management.md) 를 통해 그룹 소유자는 관리 역할을 할당 하지 않고도 자신의 그룹을 관리할 수 있습니다. 또한 사용자는 관리자를 사용 하 여 요청을 처리 하지 않고 Office 365 그룹을 만들고 관리할 수 있으며 사용 하지 않는 그룹은 자동으로 만료 됩니다.  [AZURE AD 자격 관리](../../active-directory/governance/entitlement-management-overview.md) 는 포괄적인 액세스 요청 워크플로 및 자동 만료를 통해 위임 및 가시성을 추가로 지원 합니다.  직원이 아닌 사용자에 게 액세스 권한을 승인 해야 하는 사용자 지정 정책을 사용 하 여 자신이 소유한 그룹, 팀, 응용 프로그램 및 SharePoint Online 사이트에 대 한 고유한 액세스 패키지를 구성 하는 기능을 관리자가 아닌 사용자에 게 위임할 수 있습니다. 승인자 인 관리자 및 비즈니스 파트너 스폰서.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Azure AD 액세스 검토 구현
 
-[AZURE AD 액세스 검토](../../active-directory/governance/access-reviews-overview.md)를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 권한 있는 역할 할당을 관리할 수 있습니다 .이를 통해 사용자에 게 필요 합니다.
+[AZURE AD 액세스 검토](../../active-directory/governance/access-reviews-overview.md)를 사용 하 여 액세스 패키지 및 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 권한 있는 역할 할당을 관리 하 여 보안 표준을 유지 관리할 수 있습니다.  사용자 자체, 리소스 소유자 및 기타 검토자에의 한 일반적인 감독은 사용자가 더 이상 필요 하지 않은 기간 동안 액세스를 유지 하지 않도록 합니다.
 
 ## <a name="summary"></a>요약
 

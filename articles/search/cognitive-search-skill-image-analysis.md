@@ -1,28 +1,29 @@
 ---
-title: 이미지 분석 인식 기술
-titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search의 AI 보강 파이프라인에서 이미지 분석 인식 기술을 사용 하 여 이미지 분석을 통해 의미 체계 텍스트를 추출 합니다.
+title: 이미지 분석 인식 검색 기술 - Azure Search
+description: Azure Search 보강 파이프라인의 이미지 분석 인식 기술을 사용하여 이미지 분석을 통해 의미 체계 텍스트를 추출합니다.
+services: search
 manager: nitinme
 author: luiscabrer
-ms.author: luisca
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 04114d00f3905675a1794a3875e650661febc832
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 08/28/2019
+ms.author: luisca
+ms.openlocfilehash: e2c8f0519ffcbdbc2445d1fed2725b6f6b948cd1
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792001"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064066"
 ---
-# <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
+#   <a name="image-analysis-cognitive-skill"></a>이미지 분석 인식 기술
 
 **이미지 분석** 기술은 이미지 콘텐츠를 기준으로 다양한 시각적 기능 집합을 추출합니다. 예를 들어, 이미지에서 캡션을 생성하거나, 태그를 생성하거나, 유명인과 랜드마크를 식별할 수 있습니다. 이 기술은 Cognitive Services의 [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)에서 제공하는 기계 학습 모델을 사용합니다. 
 
 > [!NOTE]
-> Azure Cognitive Search에서 작은 볼륨 (20 개 트랜잭션 미만)을 무료로 실행할 수 있지만, 더 큰 워크 로드 [는 청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 Api를 호출 하는 경우와 Azure Cognitive Search에서 문서 크랙 단계의 일부로 이미지 추출에 대 한 요금이 부과 됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
+> 작은 볼륨 (20 개 트랜잭션 미만)은 Azure Search에서 무료로 실행할 수 있지만, 더 큰 워크 로드 [는 청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출할 때와 Azure Search에서 문서 해독 단계의 일부로 이미지를 추출할 때는 요금이 누적됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격은 [Azure Cognitive Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명 되어 있습니다.
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에서 설명하고 있습니다.
 
 
 ## <a name="odatatype"></a>@odata.type  
@@ -321,8 +322,8 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 ```json
     "outputFieldMappings": [
         {
-            "sourceFieldName": /document/normalized_images/*/categories/details/landmarks/*",
-            "targetFieldName": "landmarks"
+            "sourceFieldName": "/document/normalized_images/*/categories/detail/celebrities/*",
+            "targetFieldName": "celebrities"
         }
 ```
 ##  <a name="sample-input"></a>샘플 입력
@@ -520,6 +521,6 @@ Microsoft.Skills.Vision.ImageAnalysisSkill
 
 ## <a name="see-also"></a>참고 항목
 
-+ [기본 제공 기술](cognitive-search-predefined-skills.md)
++ [미리 정의된 기술](cognitive-search-predefined-skills.md)
 + [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [인덱서 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

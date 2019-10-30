@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: f341a3599607e527556f90626dd866418910f61e
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 3bc17830a4852aa3af1a22f53e54c86ee002150d
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052316"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73099747"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 알림 만들기
 
@@ -27,8 +27,9 @@ ms.locfileid: "73052316"
 기본적인 단계는 다음과 같습니다.
 
 1. 다음 템플릿 중 하나를 경고 생성 방법을 설명하는 JSON 파일로 사용합니다.
-2. 해당 매개 변수 파일을 편집하고 JSON으로 사용하여 경고를 사용자 지정합니다.
-3. [배포 방법](../../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 템플릿을 배포합니다.
+2. 해당 매개 변수 파일을 편집 하 고 JSON으로 사용 하 여 경고를 사용자 지정 합니다.
+3. `metricName` 매개 변수 [Azure Monitor 지원 되는 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)에서 사용 가능한 메트릭을 참조 하세요.
+4. [배포 방법](../../azure-resource-manager/resource-group-template-deploy.md)을 사용하여 템플릿을 배포합니다.
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>간단한 정적 임계값 메트릭 경고에 대한 템플릿
 
