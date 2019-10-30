@@ -110,6 +110,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:
+    - name: API 참조 설명서
+      href: 'https://go.microsoft.com/fwlink/?linkid=2109131'
     - name: 고객 데이터 요청
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: 지원되는 브라우저
