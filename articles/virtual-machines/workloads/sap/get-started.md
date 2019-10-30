@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/25/2019
+ms.date: 10/29/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 639b73c95d5a2cceef24044a5247a401f50da860
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e20f90a510795080f4f2e1f9dbd6961e700baab0
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934942"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73061461"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -120,6 +120,7 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 
 ## <a name="change-log"></a>변경 로그
+- 10/29/2019: [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 Virtual Machines에 대 한 공용 끝점 연결](high-availability-guide-standard-load-balancer-outbound-connections.md) 릴리스
 - 10/25/2019:/hana/shared 볼륨에 대 한 NFS 프로토콜을 명확 하 게 설명 하 [는 SUSE Linux Enterprise Server Azure NetApp Files를 사용 하 여 Azure vm에서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-scale-out-standby-netapp-files-suse) azure [가상 머신 저장소 구성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 및 SAP HANA의 대기 노드를 확장 하는 SAP HANA의 변경
 - 10/22/2019: sap 응용 프로그램에 대 한 [SUSE Linux Enterprise Server Azure vm의 Sap NetWeaver에 대 한](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)고가용성 변경, sap [응용 프로그램에 대 한 Azure NetApp Files SUSE Linux Enterprise Server의 AZURE Vm에서 sap NetWeaver에 대 한 고가용성 ](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files), [SUSE Linux Enterprise Server에서 azure VM의 NFS에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs), [azure에서 SUSE Linux Enterprise Server Pacemaker 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker), [SUSE Linux Enterprise Server의 azure vm에서 IBM Db2 LUW의](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm)고가용성 azure 부하 분산 장치 검색 강화를 위해 [SUSE Linux Enterprise Server에서 Azure vm의 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability) 에 대 한 고가용성
 - [Azure 가상 컴퓨터 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 의 anf 섹션과 헤더 섹션을 변경 합니다.

@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/18/2019
 ms.reviewer: olegan
-ms.openlocfilehash: 35d1cf37e1df0b2714505833d40163775e3d090c
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 01cebc3a86808d549f1a7dc3adfd2883bc289076
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819042"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73061443"
 ---
 # <a name="supported-languages"></a>지원되는 언어
 
@@ -21,6 +21,7 @@ ms.locfileid: "72819042"
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [JavaScript](../../azure-monitor/app/javascript.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
+* [Python (미리 보기)](../../azure-monitor/app/opencensus-python.md)
 
 ## <a name="supported-platforms-and-frameworks"></a>지원되는 플랫폼 및 프레임워크
 
@@ -37,6 +38,7 @@ ms.locfileid: "72819042"
 * [iOS](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
 * [Java EE](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](https://www.npmjs.com/package/applicationinsights)
+* [Python (미리 보기)](../../azure-monitor/app/opencensus-python.md)
 * [유니버설 Windows 앱](../../azure-monitor/learn/mobile-center-quickstart.md)(App Center)
 * [Windows 데스크톱 애플리케이션, 서비스 및 작업자 역할](../../azure-monitor/app/windows-desktop.md)
 

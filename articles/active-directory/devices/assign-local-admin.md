@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f50ace6d707db35dfd7cf9f14026d755093a038c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5372bf853092ea55952b45a1300d0f979f1b086c
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802437"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73062265"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Azure AD 조인 디바이스에서 로컬 관리자 그룹을 관리하는 방법
 
@@ -59,10 +59,10 @@ Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 �
 >[!NOTE]
 > 이 옵션에는 Azure AD Premium 테넌트가 필요합니다. 
 
-디바이스 관리자는 모든 Azure AD 조인 디바이스에 할당됩니다. 디바이스 관리자를 특정 디바이스 집합으로 범위를 지정할 수 없습니다. 디바이스 관리자 역할 업데이트가 반드시 영향을 받는 사용자에게 즉각적인 영향을 미치는 것은 아닙니다. 사용자가 이미 로그인되어 있는 디바이스에서는 다음의 경우 권한 업데이트가 수행됩니다.
+디바이스 관리자는 모든 Azure AD 조인 디바이스에 할당됩니다. 디바이스 관리자를 특정 디바이스 집합으로 범위를 지정할 수 없습니다. 디바이스 관리자 역할 업데이트가 반드시 영향을 받는 사용자에게 즉각적인 영향을 미치는 것은 아닙니다. 사용자가 이미 로그인 되어 있는 장치에서는 아래와 같은 작업을 *수행할 때 권한* 업데이트가 수행 됩니다.
 
-- 사용자가 로그 아웃 하는 경우
-- 4시간 후 새 기본 새로 고침 토큰이 발급된 경우. 
+- 적절 한 권한으로 새 주 새로 고침 토큰을 발급 하기 위해 Azure AD에 4 시간이 경과 되었습니다. 
+- 사용자가 로그 아웃 했다가 다시 로그인 하 여 프로필을 새로 고칠 수 있습니다.
 
 ## <a name="manage-regular-users"></a>일반 사용자 관리
 

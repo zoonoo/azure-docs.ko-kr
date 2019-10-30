@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 879404b264e9ea6c544c6edf509001b38997bb0c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: d8606ad9afb6642fa29cc3cae523c31e129c7ebd
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69874338"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73061480"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -43,7 +43,7 @@ Azure MFA가 사용되는 NPS 서버를 필요한 만큼 많이 만들 수 있�
 
 VPN 서버는 인증 요청을 라우팅하므로 새로운 Azure MFA 사용 NPS 서버에 유의해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 NPS 확장은 기존 인프라와 함께 사용할 수 있습니다. 시작하기 전에 다음 필수 조건을 갖추고 있는지 확인합니다.
 
@@ -119,7 +119,7 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 어떤 인증 방법을 NPS 확장 배포와 함께 사용할 수 있는지에 영향을 미치는 두 가지 요소가 있습니다.
 
 1. RADIUS 클라이언트(VPN, Netscaler 서버 또는 기타)와 NPS 서버 간에 사용되는 암호 암호화 알고리즘입니다.
-   - **PAP**는 클라우드에서 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드와 같은 Azure MFA의 모든 인증 방법을 지원합니다.
+   - **PAP** 는 클라우드에서 Azure MFA의 모든 인증 방법, 즉 전화 통화, 단방향 문자 메시지, 모바일 앱 알림, OATH 하드웨어 토큰 및 모바일 앱 확인 코드를 지원 합니다.
    - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
 
       > [!NOTE]
@@ -199,7 +199,7 @@ NPS 확장의 릴리스 1.0.1.32를 사용 하 여 여러 인증서 읽기가 �
 
 `AzureMfaNpsExtnConfigSetup.ps1` 스크립트에서 만든 인증서는 2 년 동안 유효 합니다. IT 조직에서는 인증서가 만료 될 때까지 모니터링 해야 합니다. NPS 확장에 대 한 인증서는 개인의 로컬 컴퓨터 인증서 저장소에 배치 되 고 스크립트에 제공 된 테 넌 트 ID에 발급 됩니다.
 
-인증서가 만료 날짜에 도달 하면 새 인증서를 만들어 해당 인증서를 바꾸어야 합니다.  을 `AzureMfaNpsExtnConfigSetup.ps1` 다시 실행 하 고 메시지가 표시 되 면 동일한 테 넌 트 ID를 유지 하 여이 프로세스를 수행 합니다. 사용자 환경의 각 NPS 서버에서이 프로세스를 반복 해야 합니다.
+인증서가 만료 날짜에 도달 하면 새 인증서를 만들어 해당 인증서를 바꾸어야 합니다.  이 프로세스는 `AzureMfaNpsExtnConfigSetup.ps1`를 다시 실행 하 고 메시지가 표시 될 때 동일한 테 넌 트 ID를 유지 하 여 수행 됩니다. 사용자 환경의 각 NPS 서버에서이 프로세스를 반복 해야 합니다.
 
 ## <a name="configure-your-nps-extension"></a>NPS 확장 구성
 
@@ -208,7 +208,7 @@ NPS 확장의 릴리스 1.0.1.32를 사용 하 여 여러 인증서 읽기가 �
 ### <a name="configuration-limitations"></a>구성 제한 사항
 
 - Azure MFA용 NPS 확장에는 사용자 및 설정을 MFA 서버에서 클라우드로 마이그레이션하는 도구가 없습니다. 이러한 이유로 기존 배포가 아닌 새 배포에 대한 확장을 사용하는 것이 좋습니다. 기존 배포에서 확장을 사용하는 경우 사용자는 증명을 다시 수행하여 클라우드에 MFA 세부 정보를 채워야 합니다.  
-- NPS 확장은 온-프레미스 Active Directory의 UPN을 사용하여 Azure MFA에서 보조 인증을 수행하는 사용자를 식별합니다. 확장은 대체 로그인 ID 또는 UPN 이외의 사용자 지정 Active Directory 필드와 같은 다른 식별자를 사용하도록 구성할 수 있습니다. 자세한 내용은 [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](howto-mfa-nps-extension-advanced.md) 문서를 참조하세요.
+- NPS 확장은 온-프레미스 Active directory의 UPN을 사용 하 여 Azure MFA에서 보조 인증을 수행 하는 사용자를 식별 합니다. 대체 로그인 ID 또는 UPN 이외의 사용자 지정 Active Directory 필드와 같은 다른 식별자를 사용 하도록 확장을 구성할 수 있습니다. 자세한 내용은 [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](howto-mfa-nps-extension-advanced.md) 문서를 참조하세요.
 - 모든 암호화 프로토콜이 모든 확인 메서드를 지원하는 것은 아닙니다.
    - **PAP**는 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드를 지원합니다.
    - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
@@ -221,7 +221,7 @@ NPS 확장을 사용하여 RADIUS 클라이언트에 대해 MFA를 사용하도�
 
 MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 수행할 작업을 결정할 수 있습니다. *HKLM\Software\Microsoft\AzureMFA* 레지스트리 경로에서 *REQUIRE_USER_MATCH* 레지스트리 설정을 사용하여 기능 동작을 제어합니다. 이 설정에는 다음과 같은 단일 구성 옵션이 있습니다.
 
-| Key | 값 | Default |
+| 키 | Value | 기본값 |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | 설정되지 않음(TRUE와 동일) |
 
@@ -235,7 +235,7 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 다음 스크립트는 TechNet 갤러리에서 NPS 확장 문제를 해결할 때 기본 상태 검사 단계를 수행 하는 데 사용할 수 있습니다.
 
-[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
 
 ---
 
@@ -314,7 +314,7 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 
 ### <a name="additional-troubleshooting"></a>추가 문제 해결
 
-추가 문제 해결 지침 및 가능한 해결 방법은 [Azure Multi-factor Authentication에 대 한 NPS 확장의 오류 메시지 해결](howto-mfa-nps-extension-errors.md)문서에서 찾을 수 있습니다.
+추가 문제 해결 지침과 가능한 해결 방법은 [Azure MULTI-FACTOR AUTHENTICATION NPS 확장에서 오류 메시지 해결](howto-mfa-nps-extension-errors.md)문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
