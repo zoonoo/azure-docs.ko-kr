@@ -6,14 +6,12 @@
       href: overview-iot-central-government.md
 - name: 자습서
   items:
-    - name: 스토어 내 분석 체크 아웃
-      items:
-        - name: 연결된 폐기물 관리 앱 만들기
-          href: tutorial-connected-waste-management.md
-        - name: 용수 사용량 모니터링 앱 만들기
-          href: tutorial-water-consumption-monitoring.md
-        - name: 용수 품질 모니터링 앱 만들기
-          href: tutorial-water-quality-monitoring.md
+    - name: 연결된 폐기물 관리 앱 만들기
+      href: tutorial-connected-waste-management.md
+    - name: 용수 사용량 모니터링 앱 만들기
+      href: tutorial-water-consumption-monitoring.md
+    - name: 용수 품질 모니터링 앱 만들기
+      href: tutorial-water-quality-monitoring.md
 - name: 개념
   items:
     - name: 연결된 폐기물 모니터링 참조 아키텍처
@@ -22,10 +20,10 @@
       href: concepts-waterconsumptionmonitoring-architecture.md
     - name: 용수 품질 모니터링 참조 아키텍처
       href: concepts-waterqualitymonitoring-architecture.md
-    - name: 연결
-      href: ../core/concepts-connectivity-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
 - name: 방법 가이드
   items:
+    - name: Dynamics 365 Field Service에 앱 연결
+      href: how-to-configure-connected-field-services.md
     - name: 디바이스 연결
       items:
         - name: MXChip IoT DevKit 준비 및 연결
@@ -56,8 +54,6 @@
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: 사용자 지정 규칙 만들기
           href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
-        - name: Databricks를 사용하여 사용자 지정 분석 만들기
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
         - name: Databricks를 사용하여 사용자 지정 분석 만들기
           href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/government/toc.json&bc=/azure/iot-central/government/breadcrumb/toc.json
     - name: 관리
