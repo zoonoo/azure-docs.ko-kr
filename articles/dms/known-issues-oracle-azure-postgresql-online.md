@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/03/2019
-ms.openlocfilehash: bc37c7cb11b973f89695b5631ec9569ff6b94608
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: cc7e510d9a6db93edc211799eda8df79116236a7
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71801789"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053645"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Oracle의 온라인 마이그레이션과 PostgreSQL 용 Azure DB-단일 서버에 대 한 알려진 문제/마이그레이션 제한 사항
 
@@ -63,7 +63,7 @@ Azure Database Migration Service는 Azure Database for PostgreSQL 단일 서버 
 
 ## <a name="known-issues-and-limitations"></a>알려진 문제 및 제한 사항
 
-- 고객은 SYSDB를 사용 하 여 Oracle에 연결 해야 합니다.
+- 고객은 SYSDBA를 사용 하 여 Oracle에 연결 해야 합니다.
 - 파티션/하위 파티션 작업 (ADD, DROP, EXCHANGE 및 TRUNCATE)으로 인해 발생 하는 데이터 변경 내용은 마이그레이션되지 않으며 다음과 같은 오류가 발생할 수 있습니다.
   - 추가 작업의 경우 추가 된 데이터에 대 한 업데이트 및 삭제는 "적용 된 행 0 개" 경고를 반환할 수 있습니다.
   - DROP 및 TRUNCATE 작업의 경우 새 삽입으로 인해 "중복" 오류가 발생할 수 있습니다.

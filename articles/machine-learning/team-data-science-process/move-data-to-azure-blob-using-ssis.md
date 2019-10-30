@@ -1,6 +1,6 @@
 ---
 title: SSIS 커넥터를 사용하여 Blob 스토리지 데이터 이동 - Team Data Science Process
-description: SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동
+description: Azure 용 SQL Server Integration Services 기능 팩을 사용 하 여 Azure Blob Storage 간에 데이터를 이동 하는 방법을 알아봅니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 688ef059387dc4c312873051c7c9d1eae259b1ae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8fb802905070ab1ddc8af93e501e8e11e262cf4a
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61429897"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053943"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>SSIS 커넥터를 사용하여 Azure Blob Storage의 데이터 이동
 [Azure용 SQL Server Integration Services 기능 팩](https://msdn.microsoft.com/library/mt146770.aspx) 에서는 Azure에 연결하고, Azure와 온-프레미스 데이터 원본 간에 데이터를 전송하며, Azure에 저장된 데이터를 처리하는 구성 요소를 제공합니다.
@@ -34,7 +34,7 @@ SSIS를 사용하여 하이브리드 데이터 통합 시나리오에서 일반�
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 문서에 설명된 작업을 수행하려면 Azure 구독이 있어야 하며 Azure Storage 계정을 설정해야 합니다. 데이터를 업로드하거나 다운로드하려면 Azure Storage 계정 이름 및 계정 키를 알아야 합니다.
 
 * **Azure 구독**을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -42,8 +42,8 @@ SSIS를 사용하여 하이브리드 데이터 통합 시나리오에서 일반�
 
 **SSIS 커넥터**를 사용하려면 다음을 다운로드해야 합니다.
 
-* **SQL Server 2014 또는 2016 표준(이상)** : 설치는 SQL Server Integration Services를 포함합니다.
-* **Azure용 Microsoft SQL Server 2014 또는 2016 Integration Services 기능 팩**: [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) 및 [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) 페이지에서 각각 다운로드할 수 있습니다.
+* **SQL Server 2014 또는 2016 Standard 이상**: 설치 파일에 SQL Server Integration Services가 포함되어 있습니다.
+* **Azure용 Microsoft SQL Server 2014 또는 2016 Integration Services 기능 팩**: [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) 및 [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492) 페이지에서 다운로드할 수 있습니다.
 
 > [!NOTE]
 > SSIS는 SQL Server와 함께 설치되지만 Express 버전에는 포함되어 있지 않습니다. 다양한 버전의 SQL Server에 포함된 애플리케이션에 대한 자세한 내용은 [SQL Server 버전](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)을 참조하세요.
@@ -57,8 +57,8 @@ SISS를 사용하여 간단한 ETL(추출, 변환 및 로드) 패키지를 빌�
 ## <a name="download-nyc-taxi-dataset"></a>NYC Taxi 데이터 세트 다운로드
 여기에 설명된 예제에서는 공개적으로 제공되는 데이터 세트인 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트를 사용합니다. 이 데이터 세트는 2013년 뉴욕 시의 1억 7,300만 건에 달하는 택시 승차 기록으로 구성됩니다. 데이터는 여정 정보 데이터와 요금 데이터의 두 종류가 있습니다. 월별로 하나의 파일씩 총 24개의 파일이 있으며, 각 파일은 압축되지 않은 크기가 약 2GB입니다.
 
-## <a name="upload-data-to-azure-blob-storage"></a>Azure blob storage에 데이터 업로드
-인스턴스의 SSIS를 사용 하 여 데이터 기능 팩 온-프레미스에서 Azure blob storage로 이동 하려면 사용 합니다 [**Azure Blob 업로드 태스크**](https://msdn.microsoft.com/library/mt146776.aspx), 여기에 표시:
+## <a name="upload-data-to-azure-blob-storage"></a>Azure File Storage는 Windows 및 기타 운영 체제에 대해 표준 SMB 2.1 프로토콜을 사용하므로, 응용 프로그램은 파일 공유 열기, 액세스 및 관리에 대해 익숙한 FileSystem API를 계속 사용할 수 있습니다.
+File Storage 시작하기
 
 ![configure-data-science-vm](./media/move-data-to-azure-blob-using-ssis/ssis-azure-blob-upload-task.png)
 

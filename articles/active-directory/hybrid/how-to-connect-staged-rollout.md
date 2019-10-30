@@ -10,12 +10,12 @@ ms.date: 10/28/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 254fa924ea2104e76a475c106f16f4672dd1eec1
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 9c8f4250d2df7703ad2960c2d68cd015cb6ec2bc
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033317"
+ms.locfileid: "73052886"
 ---
 # <a name="cloud-authentication-staged-rollout-public-preview"></a>클라우드 인증: 준비 된 롤아웃 (공개 미리 보기)
 
@@ -80,6 +80,8 @@ ms.locfileid: "73033317"
 ## <a name="get-started-with-staged-rollout"></a>준비 된 롤아웃 시작
 
 단계적 롤아웃을 사용 하 여 PHS (암호 해시 동기화) 로그인을 테스트 하려는 경우 아래 사전 작업을 완료 하 여 암호 해시 동기화 준비 된 롤아웃을 사용 하도록 설정 하세요.
+
+사용 되는 PowerShell cmdlet에 대 한 자세한 내용은 [AzureAD 2.0 preview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout) 를 참조 하세요.
 
 ## <a name="pre-work-for-password-hash-sync"></a>암호 해시 동기화에 대 한 사전 작업
 
@@ -239,3 +241,6 @@ PowerShell을 사용 하 여 AD 포리스트에서 원활한 SSO를 사용 하�
 -   **Q: PowerShell을 사용 하 여 스테이징 롤아웃을 수행할 수 있나요?**
 
 -   A: 예, PowerShell을 사용 하 여 여기에서 준비 된 출시를 수행 하는 설명서를 찾아보십시오.
+
+## <a name="next-steps"></a>다음 단계
+- [AzureAD 2.0 미리 보기](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

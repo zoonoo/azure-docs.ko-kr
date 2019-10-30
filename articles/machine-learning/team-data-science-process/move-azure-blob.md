@@ -1,6 +1,6 @@
 ---
 title: Azure Blob 스토리지 간 데이터 이동 - Team Data Science Process
-description: Azure Blob Storage 간 데이터 이동
+description: Azure Storage 탐색기, AzCopy, Python 및 SSIS를 사용 하 여 Azure Blob storage 간에 데이터를 이동 합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b45f9950ef63bc29d23d78d20909f223cb30350
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: d885a7fad6e958507e7d9df34bd2b1fb222c6f86
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998150"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053669"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Azure Blob Storage 간 데이터 이동
 

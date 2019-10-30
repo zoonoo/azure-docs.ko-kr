@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 43b8dfd571537aaaf6753d6b762ab84cfe4cfd0d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 91670d51328b3adb67ba8b2ed05d3b86f9bc0010
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376159"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053919"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 끝점 만들기
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 
@@ -50,7 +50,7 @@ $virtualNetwork = New-AzVirtualNetwork `
 
 ### <a name="add-a-subnet"></a>서브넷 추가
 
-Azure는 Virtual Network 내의 서브넷에 리소스를 배포 하므로 서브넷을 만들어야 합니다.  [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)를 사용 하 여 *mysubnet* 이라는 서브넷 구성을 만듭니다. 다음 예제에서는 개인 끝점 네트워크 정책 플래그가 **사용 안 함으로**설정 된 *mysubnet* 이라는 서브넷을 만듭니다.
+Azure는 Virtual Network 내의 서브넷에 리소스를 배포 하므로 서브넷을 만들어야 합니다. [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig)를 사용 하 여 *mysubnet* 이라는 서브넷 구성을 만듭니다. 다음 예제에서는 개인 끝점 네트워크 정책 플래그가 **사용 안 함으로**설정 된 *mysubnet* 이라는 서브넷을 만듭니다.
 
 ```azurepowershell
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -62,7 +62,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
 
 ### <a name="associate-the-subnet-to-the-virtual-network"></a>서브넷을 Virtual Network 연결
 
- [AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)를 사용 하 여 서브넷 구성을 Virtual Network에 쓸 수 있습니다. 다음 명령은 서브넷을 만듭니다.
+[AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)를 사용 하 여 서브넷 구성을 Virtual Network에 쓸 수 있습니다. 다음 명령은 서브넷을 만듭니다.
 
 ```azurepowershell
 $virtualNetwork | Set-AzVirtualNetwork
@@ -164,10 +164,10 @@ New-AzPrivateDnsRecordSet -Name $recordName -RecordType A -ZoneName "privatelink
 } 
 } 
 ``` 
-  
+  
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 
- [AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress) 을 사용 하 여 VM의 공용 IP 주소를 반환 합니다. 이 예제에서는 *myvm* vm의 공용 IP 주소를 반환 합니다.
+[Get-AzPublicIpAddress](/powershell/module/az.network/Get-AzPublicIpAddress)를 사용하여 VM의 공용 IP 주소를 반환합니다. 이 예제에서는 *myvm* vm의 공용 IP 주소를 반환 합니다.
 
 ```azurepowershell
 Get-AzPublicIpAddress `
@@ -175,7 +175,7 @@ Get-AzPublicIpAddress `
   -ResourceGroupName myResourceGroup `
   | Select IpAddress 
 ```  
-로컬 컴퓨터에서 명령 프롬프트를 엽니다. Mstsc 명령을 실행 합니다. @ No__t-0 @ no__t-1을 마지막 단계에서 반환 된 공용 IP 주소로 바꿉니다. 
+로컬 컴퓨터에서 명령 프롬프트를 엽니다. Mstsc 명령을 실행 합니다. <publicIpAddress>를 마지막 단계에서 반환된 공용 IP 주소로 바꿉니다. 
 
 
 > [!NOTE]
@@ -195,7 +195,7 @@ mstsc /v:<publicIpAddress>
 ## <a name="access-sql-database-server-privately-from-the-vm"></a>VM에서 전용 SQL Database 서버 액세스
 
 1. MyVM의 원격 데스크톱에서 PowerShell을 엽니다.
-2.  `nslookup myserver.database.windows.net`을 입력합니다. 
+2. [https://slack.botframework.com](`nslookup myserver.database.windows.net`) 을 입력합니다. 
 
     다음과 유사한 메시지가 표시됩니다.
     ```azurepowershell

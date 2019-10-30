@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: b9d8abb34c6ba2b6df5b9cb3fe4069d1034ec538
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 144050bd29e8d2ec56c1347d60fd7452ea60b9cf
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882207"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053632"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -55,7 +55,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 ### <a name="update-rollup-40"></a>업데이트 롤업 40
 
-[업데이트 롤업 40](h https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
+[업데이트 롤업 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
 **업데이트** | **세부 정보**
 --- | ---
@@ -71,7 +71,7 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 
 **기능** | **세부 정보**
 --- | ---
-**장애 복구 후 정리** | 보조 Azure로 장애 조치 (failover) 한 후 주 지역으로 장애 복구 (failback) 한 후 보조 지역에서 자동으로 컴퓨터를 정리 Site Recovery 합니다. VM 및 Nic를 수동으로 삭제할 필요가 없습니다.
+**장애 복구 후 정리** | 보조 Azure로 장애 조치 (failover) 한 후 주 지역으로 장애 복구 (failback) 한 후 보조 지역에서 자동으로 컴퓨터를 정리 Site Recovery 합니다. Vm 및 Nic를 수동으로 삭제할 필요가 없습니다.
 **테스트 장애 조치 (failover)에서 IP 주소 유지** | 이제 재해 복구 훈련 중에 원본 VM의 IP 주소를 유지 하 고 테스트 장애 조치 (failover)에 대 한 고정 IP 주소를 선택할 수 있습니다.
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구

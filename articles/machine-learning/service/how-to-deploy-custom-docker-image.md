@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법에 대해 알아봅니다. 학습 된 모델을 배포 하는 경우 유추를 위해 모델을 실행 하기 위해 기본 컨테이너 이미지를 배포 합니다. Azure Machine Learning 기본 이미지를 제공 하는 동안 고유한 기본 이미지를 사용할 수도 있습니다.
+description: Azure Machine Learning 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법에 대해 알아봅니다. Azure Machine Learning 기본 이미지를 제공 하는 동안 고유한 기본 이미지를 사용할 수도 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 84567b68c85a48d0fc02f6f6a4986d8092215a92
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 47387108de09c9b24471c4afc06a25fa0cbeca00
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326490"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053397"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 
@@ -37,10 +37,10 @@ Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만
 
 이 문서는 두 개의 섹션으로 구분 되어 있습니다.
 
-* 사용자 지정 기본 이미지를 만듭니다. 사용자 지정 이미지를 만들고 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry에 대 한 인증을 구성 하는 데 사용 되는 관리자 및 DevOps 정보를 제공 합니다.
-* 사용자 지정 기본 이미지를 사용 하 여 모델을 배포 합니다. Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/ML 엔지니어에 게 정보를 제공 합니다.
+* 사용자 지정 기본 이미지 만들기: 사용자 지정 이미지를 만들고 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry에 대 한 인증을 구성 하는 데 관리자 및 DevOps에 정보를 제공 합니다.
+* 사용자 지정 기본 이미지를 사용 하 여 모델 배포: Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/ML 엔지니어에 게 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Machine Learning 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다. 
@@ -68,9 +68,9 @@ Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만
 
     Azure Container Registry에서 서비스 주체를 사용 하는 방법에 대 한 자세한 내용은 [서비스 사용자로 인증 Azure Container Registry](/azure/container-registry/container-registry-auth-service-principal)을 참조 하세요.
 
-* Azure Container Registry 및 이미지 정보: 이미지 이름을 사용 해야 하는 모든 사용자에 게 제공 합니다. 예를 들어 라는 `myimage` `myregistry`레지스트리에 저장 된 이라는 이미지는 모델 배포에 이미지를 사용 `myregistry.azurecr.io/myimage` 하는 경우로 참조 됩니다.
+* Azure Container Registry 및 이미지 정보: 이미지 이름을 사용 해야 하는 모든 사용자에 게 제공 합니다. 예를 들어 `myregistry`라는 레지스트리에 저장 된 `myimage`이라는 이미지는 모델 배포에 이미지를 사용 하는 경우 `myregistry.azurecr.io/myimage`으로 참조 됩니다.
 
-* 이미지 요구 사항: Azure Machine Learning는 다음 소프트웨어를 제공 하는 Docker 이미지만 지원 합니다.
+* 이미지 요구 사항: Azure Machine Learning는 다음과 같은 소프트웨어를 제공 하는 Docker 이미지만 지원 합니다.
 
     * Ubuntu 16.04 이상.
     * Conda 4.5. # 이상
@@ -95,7 +95,7 @@ Azure Machine Learning를 사용 하 여 모델을 이미 학습 하거나 배�
 
     프롬프트에 따라 구독에 인증 합니다.
 
-2. 다음 명령을 사용 하 여 작업 영역에 대 한 컨테이너 레지스트리를 나열 합니다. 을 `<myworkspace>` Azure Machine Learning 작업 영역 이름으로 바꿉니다. 을 `<resourcegroup>` 작업 영역을 포함 하는 Azure 리소스 그룹으로 바꿉니다.
+2. 다음 명령을 사용 하 여 작업 영역에 대 한 컨테이너 레지스트리를 나열 합니다. `<myworkspace>`을 Azure Machine Learning 작업 영역 이름으로 바꿉니다. `<resourcegroup>`를 작업 영역을 포함 하는 Azure 리소스 그룹으로 바꿉니다.
 
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
@@ -115,7 +115,7 @@ Azure Machine Learning를 사용 하 여 모델을 이미 학습 하거나 배�
 
 이 섹션의 단계에서는 Azure Container Registry에서 사용자 지정 Docker 이미지를 만드는 과정을 안내 합니다.
 
-1. 이라는 `Dockerfile`새 텍스트 파일을 만들고 내용으로 다음 텍스트를 사용 합니다.
+1. `Dockerfile`이라는 새 텍스트 파일을 만들고 내용으로 다음 텍스트를 사용 합니다.
 
     ```text
     FROM ubuntu:16.04
@@ -142,13 +142,13 @@ Azure Machine Learning를 사용 하 여 모델을 이미 학습 하거나 배�
         find / -type d -name __pycache__ -prune -exec rm -rf {} \;
     ```
 
-2. 셸 또는 명령 프롬프트에서 다음을 사용 하 여 Azure Container Registry에 인증 합니다. 을 `<registry_name>` 이미지를 저장 하려는 컨테이너 레지스트리의 이름으로 바꿉니다.
+2. 셸 또는 명령 프롬프트에서 다음을 사용 하 여 Azure Container Registry에 인증 합니다. `<registry_name>`를 이미지를 저장할 컨테이너 레지스트리 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az acr login --name <registry_name>
     ```
 
-3. Dockerfile을 업로드 하 고 빌드하려면 다음 명령을 사용 합니다. 을 `<registry_name>` 이미지를 저장 하려는 컨테이너 레지스트리의 이름으로 바꿉니다.
+3. Dockerfile을 업로드 하 고 빌드하려면 다음 명령을 사용 합니다. `<registry_name>`를 이미지를 저장 하려는 컨테이너 레지스트리의 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az acr build --image myimage:v1 --registry <registry_name> --file Dockerfile .
@@ -168,10 +168,10 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 
 사용자 지정 이미지를 사용 하려면 다음 정보가 필요 합니다.
 
-* __이미지 이름__입니다. 예를 들어 `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda` 은 Microsoft에서 제공 하는 기본 Docker 이미지에 대 한 경로입니다.
+* __이미지 이름__입니다. 예를 들어 `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`은 Microsoft에서 제공 하는 기본 Docker 이미지의 경로입니다.
 * 이미지가 __개인 리포지토리에__있는 경우 다음 정보가 필요 합니다.
 
-    * 레지스트리 __주소__입니다. 예를 들어, `myregistry.azureecr.io`을 입력합니다.
+    * 레지스트리 __주소__입니다. 예: `myregistry.azureecr.io`
     * 레지스트리에 대 한 읽기 권한이 있는 서비스 사용자 __이름__ 및 __암호__ 입니다.
 
     이 정보가 없는 경우 관리자에 게 이미지를 포함 하는 Azure Container Registry에 대해 문의 하십시오.
@@ -197,7 +197,7 @@ ONNX 런타임 기본 이미지에 대 한 자세한 내용은 GitHub 리포지�
 자세한 내용은 [Azure Machine Learning 컨테이너](https://github.com/Azure/AzureML-Containers)를 참조 하세요.
 
 > [!TIP]
->__모델을 Azure Machine Learning 계산에 대해 학습 하는 경우__Azure Machine Learning SDK의 __버전 1.0.22 이상을__ 사용 하면 학습 중에 이미지가 생성 됩니다. 이 이미지의 이름을 검색 하려면를 사용 `run.properties["AzureML.DerivedImageName"]`합니다. 다음 예제에서는이 이미지를 사용 하는 방법을 보여 줍니다.
+>__모델을 Azure Machine Learning 계산에 대해 학습 하는 경우__Azure Machine Learning SDK의 __버전 1.0.22 이상을__ 사용 하면 학습 중에 이미지가 생성 됩니다. 이 이미지의 이름을 검색 하려면 `run.properties["AzureML.DerivedImageName"]`을 사용 합니다. 다음 예제에서는이 이미지를 사용 하는 방법을 보여 줍니다.
 >
 > ```python
 > # Use an image built during training with SDK 1.0.22 or greater
@@ -209,7 +209,7 @@ ONNX 런타임 기본 이미지에 대 한 자세한 내용은 GitHub 리포지�
 **작업 영역에 대 한 Azure Container Registry**에 저장 된 이미지 또는 **공개적으로 액세스할 수 있는 컨테이너 레지스트리**를 사용 하려면 다음과 같은 [환경](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) 특성을 설정 합니다.
 
 + `docker.enabled=True`
-+ `docker.base_image`: 을 레지스트리로 설정 하 고 이미지에 대 한 경로를 설정 합니다.
++ `docker.base_image`: 레지스트리 및 이미지 경로로 설정 합니다.
 
 ```python
 from azureml.core import Environment
@@ -220,7 +220,7 @@ myenv.docker.enabled = True
 myenv.docker.base_image = "mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda"
 ```
 
-작업 영역에 없는 __개인 컨테이너 레지스트리에서__ 이미지를 사용 하려면를 사용 `docker.base_image_registry` 하 여 리포지토리의 주소와 사용자 이름 및 암호를 지정 해야 합니다.
+작업 영역에 없는 __개인 컨테이너 레지스트리에서__ 이미지를 사용 하려면 `docker.base_image_registry`을 사용 하 여 리포지토리의 주소와 사용자 이름 및 암호를 지정 해야 합니다.
 
 ```python
 # Set the container registry information

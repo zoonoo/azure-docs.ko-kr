@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/09/2019
-ms.openlocfilehash: 18681f7130b3706f846b031dbb4852cda8b90d39
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.date: 10/29/2019
+ms.openlocfilehash: a9dfc32a0f33db5639d5f74667a90a248dc358a1
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899253"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052466"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>클래식 Windows 데스크톱 앱에서 사용량 및 성능 모니터링
 
@@ -70,6 +70,44 @@ using Microsoft.ApplicationInsights;
             base.OnClosing(e);
         }
 
+```
+
+## <a name="override-storage-of-computer-name"></a>컴퓨터 이름 저장소 재정의
+
+기본적으로이 SDK는 원격 분석을 내보내는 시스템의 컴퓨터 이름을 수집 하 고 저장 합니다. 컬렉션을 재정의 하려면 원격 분석 이니셜라이저를 사용 해야 합니다.
+
+**아래와 같이 사용자 지정 TelemetryInitializer을 작성 합니다.**
+
+```csharp
+using Microsoft.ApplicationInsights.Channel;
+using Microsoft.ApplicationInsights.Extensibility;
+
+namespace CustomInitializer.Telemetry
+{
+    public class MyTelemetryInitializer : ITelemetryInitializer
+    {
+        public void Initialize(ITelemetry telemetry)
+        {
+            if (string.IsNullOrEmpty(telemetry.Context.Cloud.RoleName))
+            {
+                //set custom role name here, you can pass an empty string if needed.
+                  telemetry.Context.Cloud.RoleInstance = "Custom RoleInstance";
+            }
+        }
+    }
+}
+```
+계측 키를 설정 하는 `Program.cs` `Main()` 메서드에서 이니셜라이저를 인스턴스화합니다.
+
+```csharp
+ using Microsoft.ApplicationInsights.Extensibility;
+ using CustomInitializer.Telemetry;
+
+   static void Main()
+        {
+            TelemetryConfiguration.Active.InstrumentationKey = "{Instrumentation-key-here}";
+            TelemetryConfiguration.Active.TelemetryInitializers.Add(new MyTelemetryInitializer());
+        }
 ```
 
 ## <a name="next-steps"></a>다음 단계

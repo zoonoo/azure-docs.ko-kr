@@ -8,14 +8,14 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 06/18/2018
+ms.date: 10/28/2019
 ms.author: martinco
-ms.openlocfilehash: fb17d1b95d74a67f220651cf198f367bdd31f19f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 02a1c12957570f0e798c5abfd88562128ea1cf76
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129308"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053076"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -31,18 +31,23 @@ ms.locfileid: "70129308"
 * 감사 및 모니터링의 인식률을 높입니다.
 * 자가 진단으로 더 예측 가능하고 완벽한 최종 사용자 보안을 사용하도록 설정합니다.
 
+이 검사 목록을 읽는 동안 완료 된 기능 및 단계를 계속 추적 해야 합니다.
+
 > [!NOTE]
 > 이 문서의 다양한 권장 사항은 ID 공급자로 Azure Active Directory를 사용하도록 구성되어 있는 애플리케이션에만 적용됩니다. Single Sign-On에 대해 앱을 구성하면 해당 앱에 자격 증명 정책, 위협 요소 탐지, 감사, 로깅 및 기타 기능의 이점이 추가됩니다. [Azure Active Directory를 통한 Single Sign-On](../../active-directory/manage-apps/configure-single-sign-on-portal.md)은 이러한 모든 권장 사항의 기반이 되는 토대입니다.
 
-이 문서의 권장 사항은 Azure AD 테넌트의 ID 보안 구성 평가를 자동화한 [ID 보안 점수](../../active-directory/fundamentals/identity-secure-score.md)와 일치합니다. 조직은 Azure AD 포털의 [ID 보안 점수] 페이지를 통해 현재 보안 구성의 빈틈을 찾아 보안과 관련된 Microsoft의 현재 모범 사례를 따를 수 있습니다. [보안 점수] 페이지의 각 권장 사항을 구현하면 점수가 올라가고 진행 상황을 추적할 수 있으며, 비슷한 규모의 조직 또는 산업과 구현을 비교할 수 있습니다.
+이 문서의 권장 사항은 Azure AD 테넌트의 ID 보안 구성 평가를 자동화한 [ID 보안 점수](../../active-directory/fundamentals/identity-secure-score.md)와 일치합니다. 조직은 Azure AD 포털의 Id 보안 점수 페이지를 사용 하 여 현재 보안 구성에서 보안에 대 한 최신 Microsoft 모범 [사례](identity-management-best-practices.md) 를 준수 하는지 확인 하는 간격을 찾을 수 있습니다. [보안 점수] 페이지의 각 권장 사항을 구현하면 점수가 올라가고 진행 상황을 추적할 수 있으며, 비슷한 규모의 조직 또는 산업과 구현을 비교할 수 있습니다.
 
 ![ID 보안 점수](./media/steps-secure-identity/azure-ad-sec-steps0.png)
 
-## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>시작하기 전에 MFA를 통해 권한 있는 계정 보호
+> [!NOTE]
+> 여기에서 설명 하는 대부분의 기능에는 Azure AD Premium 구독이 필요 하지만 일부는 무료입니다. 자세한 내용은 [Azure Active Directory 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/) 및 [Azure AD 배포 검사 목록](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2) 을 검토 하세요.
+
+## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>시작하기 전에: MFA를 통해 권한 있는 계정을 보호
 
 이 검사 목록을 시작하기 전에 이 검사 목록을 읽는 도중에 손상되지 않도록 해야 합니다. 먼저 권한 있는 계정을 보호해야 합니다.
 
-공격자가 권한 있는 계정의 제어권을 확보하면 엄청난 피해가 발생할 수 있으므로 이러한 계정을 보호하는 것이 무엇보다도 중요합니다. [기준 보호](../../active-directory/conditional-access/baseline-protection.md)를 사용하여 조직의 모든 관리자가 [MFA(Azure Multi-Factor Authentication)](../../active-directory/authentication/multi-factor-authentication.md)를 사용하도록 설정하고 제공합니다. MFA를 구현하지 않았다면, 지금 구현하세요! 이 문제는 중요합니다.
+공격자가 권한 있는 계정의 제어권을 확보하면 엄청난 피해가 발생할 수 있으므로 이러한 계정을 보호하는 것이 무엇보다도 중요합니다. [AZURE AD 보안 기본값](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md) 또는 [조건부 액세스](../../active-directory/conditional-access/plan-conditional-access.md)를 사용 하 여 조직의 모든 관리자에 대해 MFA ( [azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md) )를 사용 하도록 설정 하 고 요구 합니다. MFA를 구현하지 않았다면, 지금 구현하세요! 이 문제는 중요합니다.
 
 모두 준비되었나요? 이제 검사 목록을 시작하겠습니다.
 
@@ -51,9 +56,11 @@ ms.locfileid: "70129308"
 대부분의 엔터프라이즈 보안 위반은 암호 스프레이, 위반 재생 또는 피싱 같은 방법 중 하나로 손상된 계정으로 시작됩니다. 이러한 공격에 대해 자세히 알아보려면 이 비디오(45분)를 시청하세요.
 > [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
-### <a name="make-sure-your-organization-use-strong-authentication"></a>조직에서 강력한 인증을 사용하도록 해야 함
+### <a name="make-sure-your-organization-uses-strong-authentication"></a>조직에서 강력한 인증을 사용 하는지 확인
 
 암호가 추측되고, 피싱되고, 맬웨어로 도난 또는 재사용되는 횟수를 고려할 때 강력한 자격 증명의 형식을 갖춘 암호로 돌아가는 것은 중요합니다. [Azure Multi-Factor Authentication](../../active-directory/authentication/multi-factor-authentication.md)에 대해 자세히 알아보세요.
+
+기본 수준의 id 보안을 쉽게 사용 하도록 설정 하려면 [AZURE AD 보안 기본값과](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md)함께 한 번 클릭 사용을 사용할 수 있습니다. 보안 기본값은 테 넌 트의 모든 사용자에 대해 Azure MFA를 적용 하 고 레거시 프로토콜의 로그인을 차단 합니다.
 
 ### <a name="start-banning-commonly-attacked-passwords-and-turn-off-traditional-complexity-and-expiration-rules"></a>자주 공격받는 암호 사용을 금지하고 기존의 복잡성 및 만료 규칙을 해제합니다.
 
@@ -74,7 +81,7 @@ Azure AD에서 직접 ID를 만드는 경우 사용자의 [암호가 만료되�
 조직에서 통과 인증 또는 페더레이션을 사용하는 하이브리드 ID 솔루션을 이용하는 경우 다음과 같은 두 가지 이유로 암호 해시 동기화를 사용하도록 설정해야 합니다.
 
 * Azure AD 관리의 [유출된 자격 증명이 있는 사용자](../../active-directory/reports-monitoring/concept-risk-events.md) 보고서는 “다크 웹”에서 노출된 사용자 이름 및 암호 쌍에 대해 경고합니다. 엄청난 양의 암호가 피싱, 맬웨어 및 나중에 위반되는 타사 사이트에서 암호 재사용을 통해 유출됩니다. Microsoft는 이러한 유출된 자격 증명 중 많은 부분을 찾아 조직의 자격 증명과 일치하는 경우 이 보고서를 통해 알립니다. 단, [암호 해시 동기화를 사용하도록 설정](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)한 경우에만 적용됩니다!
-* 온-프레미스 장애(예: 랜섬웨어 공격)의 경우 [암호 해시 동기화를 사용하여 클라우드 인증](choose-ad-authn.md)으로 전환할 수 있습니다. 이 백업 인증 방법을 사용하면 Office 365를 비롯하여 Azure Active Directory를 통한 인증을 위해 구성된 앱에 계속 액세스할 수 있습니다. 이 경우 IT 직원은 온-프레미스 중단이 해결될 때까지 개인 이메일 계정을 사용하여 데이터를 공유할 필요가 없습니다.
+* 온-프레미스 중단 (예: 랜 섬 웨어 공격)의 경우 [암호 해시 동기화를 사용 하 여 클라우드 인증](choose-ad-authn.md)사용으로 전환할 수 있습니다. 이 백업 인증 방법을 사용 하면 Office 365을 포함 하 여 Azure Active Directory 인증을 위해 구성 된 앱에 계속 액세스할 수 있습니다. 이 경우 IT 직원은 온-프레미스 중단이 해결 될 때까지 개인 메일 계정을 통해 데이터를 공유할 필요가 없습니다.
 
 [암호 해시 동기화](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md) 작동 방식에 대해 자세히 알아보세요.
 
@@ -99,7 +106,7 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 1. [AD FS를 사용하는 경우 레거시 인증](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)을 차단합니다.
 2. [최신 인증을 사용하도록 SharePoint Online 및 Exchange Online](../../active-directory/conditional-access/conditional-access-for-exo-and-spo.md)을 설정합니다.
-3. [조건부 액세스 정책을 사용 하 여 레거시 인증을 차단할 수](../../active-directory/conditional-access/conditions.md)있습니다.
+3. Azure AD Premium 하는 경우 [조건부 액세스 정책을](../../active-directory/conditional-access/conditions.md) 사용 하 여 레거시 인증을 차단 하 고, 그렇지 않은 경우 [Azure AD 보안 기본값](../../active-directory/conditional-access/concept-conditional-access-security-defaults.md)을 사용 합니다.
 
 ### <a name="block-invalid-authentication-entry-points"></a>잘못된 인증 진입점 차단
 
@@ -107,7 +114,7 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 ### <a name="block-end-user-consent"></a>최종 사용자 동의 차단
 
-기본적으로 Azure AD의 모든 사용자는 OAuth 2.0 및 Microsoft ID [동의 프레임워크](../../active-directory/develop/consent-framework.md)를 활용하는 애플리케이션에 회사 데이터 액세스 권한을 부여할 수 있습니다. 동의를 통해 사용자는 Microsoft 365 및 Azure와 통합되는 유용한 애플리케이션을 쉽게 획득할 수 있지만, 신중하게 사용하고 모니터링하지 않으면 위험 요소로 작용할 수 있습니다. [향후 모든 사용자 동의 작업을 사용하지 않도록 설정](../../active-directory/manage-apps/methods-for-removing-user-access.md)하면 노출 영역을 줄이고 위험을 완화할 수 있습니다. 최종 사용자 동의를 사용하지 않도록 설정하면 기존 동의 부여는 계속 적용되지만, 이후부터는 모든 동의 작업을 관리자가 수행해야 합니다. 이 기능을 사용하지 않도록 설정하기 전에, 사용자에게 새 애플리케이션에 대한 관리자 승인을 요청하는 방법을 이해시키는 것이 좋습니다. 이렇게 하면 사용자 마찰을 줄이고, 지원 볼륨을 최소화하고, 사용자가 비 Azure AD 자격 증명을 사용하는 애플리케이션에 등록하지 못하게 할 수 있습니다.
+기본적으로 Azure AD의 모든 사용자는 OAuth 2.0 및 Microsoft ID [동의 프레임워크](../../active-directory/develop/consent-framework.md)를 활용하는 애플리케이션에 회사 데이터 액세스 권한을 부여할 수 있습니다. 동의를 통해 사용자는 Microsoft 365 및 Azure와 통합되는 유용한 애플리케이션을 쉽게 획득할 수 있지만, 신중하게 사용하고 모니터링하지 않으면 위험 요소로 작용할 수 있습니다. [향후 모든 사용자 동의 작업을 사용하지 않도록 설정](../../active-directory/manage-apps/methods-for-removing-user-access.md)하면 노출 영역을 줄이고 위험을 완화할 수 있습니다. 최종 사용자 동의를 사용하지 않도록 설정하면 기존 동의 부여는 계속 적용되지만, 이후부터는 모든 동의 작업을 관리자가 수행해야 합니다. 이 기능을 사용 하지 않도록 설정 하기 전에 사용자가 새 응용 프로그램에 대해 관리자 승인을 요청 하는 방법을 이해할 수 있도록 하는 것이 좋습니다. 이렇게 하면 사용자 마찰을 줄이고 지원 볼륨을 최소화 하 고 사용자가 비 Azure AD 자격 증명을 사용 하 여 응용 프로그램에 등록 하지 않도록 할 수 있습니다.
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management 구현
 
@@ -132,7 +139,7 @@ Azure Active Directory에는 검색 및 응답 사이의 대기 시간을 제거
 
 사용자 위험은 사용자의 id가 손상 된 가능성을 나타내며 사용자 id와 연결 된 [사용자 위험](../../active-directory/identity-protection/overview.md) 검색에 따라 계산 됩니다. 사용자 위험 정책은 특정 사용자 또는 그룹에 대 한 위험 수준을 평가 하는 조건부 액세스 정책입니다. 낮음, 보통, 높음 위험 수준에 따라 액세스를 차단하거나 다단계 인증을 사용한 보안 암호 변경을 요구하도록 정책을 구성할 수 있습니다. Microsoft의 권장 사항은 높은 위험 수준에 있는 사용자의 경우 보안 암호 변경이 필요합니다.
 
-![위험 플래그가 지정된 사용자](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![위험에 대한 플래그가 지정된 사용자](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Azure AD Identity Protection을 사용하여 로그인 위험 정책 구현
 
@@ -142,7 +149,7 @@ Azure Active Directory에는 검색 및 응답 사이의 대기 시간을 제거
 
 ## <a name="step-4---increase-your-awareness"></a>4단계 - 인식률 높이기
 
-보안 관련 이벤트의 감사와 로깅 및 관련 경고는 효과적인 보호 전략의 중요한 구성 요소입니다. 보안 로그 및 보고서는 의심스러운 활동에 대한 전자 기록을 제공하며, 네트워크의 외부 침투와 내부 공격의 시도 또는 성공을 나타낼 수 있는 패턴을 검색할 수 있도록 도움을 줍니다. 감사를 사용하여 사용자 활동을 모니터링하고, 규제 준수를 문서화하며, 법정 분석 등을 수행할 수 있습니다. 경고는 보안 이벤트의 알림을 제공합니다.
+보안 관련 이벤트의 감사와 로깅 및 관련 경고는 효과적인 보호 전략의 중요한 구성 요소입니다. 보안 로그 및 보고서는 의심스러운 활동에 대한 전자 기록을 제공하며, 네트워크의 외부 침투와 내부 공격의 시도 또는 성공을 나타낼 수 있는 패턴을 검색할 수 있도록 도움을 줍니다. 감사를 사용 하 여 사용자 활동을 모니터링 하 고, 규정 준수를 문서화 하 고, 법정 분석을 수행할 수 있습니다. 경고는 보안 이벤트의 알림을 제공합니다.
 
 ### <a name="monitor-azure-ad"></a>Azure AD 모니터링
 
@@ -162,11 +169,11 @@ Azure AD Identity Protection은 매일 모니터링해야 하는 두 가지 중�
 1. 위험한 로그인 보고서는 로그인한 사람이 정당한 소유자가 아닐 가능성이 있으므로 조사가 필요한 사용자 로그인 활동을 보여줍니다.
 2. 위험한 사용자 보고서는 유출된 자격 증명 발견, 여러 위치에서 로그인하여 불가능한 이동 이벤트를 발생시킨 사용자처럼 손상 가능성이 있는 사용자 계정을 보여줍니다. 
 
-![위험 플래그가 지정된 사용자](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![위험에 대한 플래그가 지정된 사용자](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>감사 앱 및 승인된 권한
 
-손상된 웹 사이트 또는 앱으로 이동하도록 사용자를 속여서 프로필 정보나 이메일 같은 사용자 데이터를 획득할 수 있습니다. 악의적인 행위자는 획득한 승인된 권한을 사용하여 사서함 콘텐츠를 암호화하고, 사서함 데이터를 되찾으려면 몸값을 지불하라고 요구할 수 있습니다. 관리자는 사용자가 제공한 권한을 [검토 및 감사](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)해야 합니다.
+사용자는 자신의 프로필 정보 및 사용자 데이터 (예: 전자 메일)에 대 한 액세스 권한을 얻을 수 있는 손상 된 웹 사이트에 대 한 탐색으로 속아 서 수 있습니다. 악의적인 행위자는 획득한 승인된 권한을 사용하여 사서함 콘텐츠를 암호화하고, 사서함 데이터를 되찾으려면 몸값을 지불하라고 요구할 수 있습니다. 관리자는 사용자가 제공한 권한을 [검토 및 감사](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants)해야 합니다.
 
 ## <a name="step-5---enable-end-user-self-help"></a>5단계 - 최종 사용자 자가 진단 사용
 
@@ -178,11 +185,11 @@ IT 관리자는 Azure의 [SSPR(셀프 서비스 암호 재설정)](../../active-
 
 ### <a name="implement-self-service-group-management"></a>셀프 서비스 그룹 관리 구현
 
-Azure AD는 보안 그룹 및 Office 365 그룹을 사용하여 리소스에 대한 액세스를 관리하는 기능을 제공합니다. 이러한 그룹은 IT 관리자 대신 그룹 소유자가 관리할 수 있습니다. [셀프 서비스 그룹 관리](../../active-directory/users-groups-roles/groups-self-service-management.md)로 알려진 이 기능을 사용하면 관리자가 해당 요청을 처리하길 의존하지 않고도 관리 역할에 할당되지 않은 그룹 소유자가 그룹을 만들고 관리할 수 있습니다.
+Azure AD는 보안 그룹 및 Office 365 그룹을 사용하여 리소스에 대한 액세스를 관리하는 기능을 제공합니다. 이러한 그룹은 IT 관리자 대신 그룹 소유자가 관리할 수 있습니다. [셀프 서비스 그룹 관리](../../active-directory/users-groups-roles/groups-self-service-management.md)라고 하는이 기능을 사용 하면 관리 역할이 할당 되지 않은 그룹 소유자는 해당 요청을 처리 하기 위해 관리자에 의존 하지 않고 그룹을 만들고 관리할 수 있습니다.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Azure AD 액세스 검토 구현
 
-[Azure AD 액세스 검토](../../active-directory/governance/access-reviews-overview.md)를 사용하면 필요하지 않은 경우 연장된 기간 동안 사용자에게 액세스 권한을 부여하지 않는 보안 표준을 유지하도록 그룹 구성원, 엔터프라이즈 애플리케이션에 대한 액세스 및 권한 있는 역할 할당을 관리할 수 있습니다.
+[AZURE AD 액세스 검토](../../active-directory/governance/access-reviews-overview.md)를 사용 하 여 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 권한 있는 역할 할당을 관리할 수 있습니다 .이를 통해 사용자에 게 필요 합니다.
 
 ## <a name="summary"></a>요약
 
@@ -197,4 +204,7 @@ Azure AD는 보안 그룹 및 Office 365 그룹을 사용하여 리소스에 대
 ID 보안에 대해 진지하게 고려해 주신 것에 감사를 드리며, 이 문서가 여러분 조직의 더 안전한 태세를 위한 유용한 로드맵이 되길 바랍니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 권장 사항의 계획 및 배포에 대한 도움이 필요한 경우 [Azure AD 프로젝트 배포 계획](https://aka.ms/deploymentplans)을 참조하세요.
+
+이러한 모든 단계가 완료 된 것으로 확신 하는 경우 Microsoft의 [Id 보안 점수](../../active-directory/fundamentals/identity-secure-score.md)를 사용 하 여 [최신 모범 사례](identity-management-best-practices.md) 및 보안 위협에 대해 최신 정보를 최신 상태로 유지 하세요.

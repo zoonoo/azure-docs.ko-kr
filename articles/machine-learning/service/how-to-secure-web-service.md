@@ -1,7 +1,7 @@
 ---
 title: SSL을 사용 하 여 웹 서비스 보안
 titleSuffix: Azure Machine Learning
-description: HTTPS를 사용 하도록 설정 하 여 Azure Machine Learning를 통해 배포 된 웹 서비스를 보호 하는 방법을 알아봅니다. HTTPS는 SSL (secure socket layer)을 대체 하는 TLS (transport layer security)를 사용 하 여 클라이언트에서 데이터를 보호 합니다. 또한 클라이언트는 HTTPS를 사용 하 여 웹 서비스의 id를 확인 합니다.
+description: Azure Machine Learning를 통해 배포 된 웹 서비스를 너무 안전 하 게 보호 하기 위해 HTTPS를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce60806c26359ae682f5ab468e4f4265d3572c87
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 39b79e5729945a346e9cf022fb93e23da9fa7824
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034372"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053553"
 ---
 # <a name="use-ssl-to-secure-a-web-service-through-azure-machine-learning"></a>SSL을 사용 하 여 Azure Machine Learning 통해 웹 서비스 보호
 
@@ -84,7 +84,7 @@ AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를
 
 **Enable_ssl** 메서드는 Microsoft에서 제공 하는 인증서 또는 구입한 인증서를 사용할 수 있습니다.
 
-  * Microsoft에서 인증서를 사용 하는 경우 *leaf_domain_label* 매개 변수를 사용 해야 합니다. 이 매개 변수는 서비스에 대 한 DNS 이름을 생성 합니다. 예를 들어 "myservice" 값은 "myservice\<6-임의 문자 >의 도메인 이름을 만듭니다.\< azureregion >. 여기서 \<azureregion >는 서비스를 포함 하는 지역입니다. 필요에 따라 *overwrite_existing_domain* 매개 변수를 사용 하 여 기존 *leaf_domain_label*를 덮어쓸 수 있습니다.
+  * Microsoft에서 인증서를 사용 하는 경우 *leaf_domain_label* 매개 변수를 사용 해야 합니다. 이 매개 변수는 서비스에 대 한 DNS 이름을 생성 합니다. 예를 들어 "myservice" 값은 "myservice\<6-임의의 문자 >의 도메인 이름을 만듭니다.\<azureregion >. 여기서 \<azureregion >는 서비스를 포함 하는 지역입니다. 필요에 따라 *overwrite_existing_domain* 매개 변수를 사용 하 여 기존 *leaf_domain_label*를 덮어쓸 수 있습니다.
 
     SSL을 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당 되는 모든 위치에서 *ssl_enabled* 매개 변수를 "True"로 설정 합니다. *Ssl_certificate* 매개 변수를 *인증서* 파일의 값으로 설정 합니다. *Ssl_key* 을 *키* 파일의 값으로 설정 합니다.
 
@@ -151,7 +151,7 @@ aci_config = AciWebservice.deploy_configuration(
 
   왼쪽 창의 **설정** 아래에 있는 **구성** 탭에서 AKS 클러스터의 공용 IP 주소에 대 한 DNS를 업데이트 합니다. 다음 이미지를 참조 하세요. 공용 IP 주소는 AKS 에이전트 노드 및 기타 네트워킹 리소스를 포함 하는 리소스 그룹에 생성 된 리소스 형식입니다.
 
-  [![Azure Machine Learning: SSL을 사용 하 여 웹 서비스 보안](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
+  [![Azure Machine Learning: SSL로 웹 서비스 보안](./media/how-to-secure-web-service/aks-public-ip-address.png)](./media/how-to-secure-web-service/aks-public-ip-address-expanded.png)
 
 ## <a name="update-the-ssl-certificate"></a>SSL 인증서 업데이트
 
@@ -230,7 +230,7 @@ az ml computetarget update aks -g "myresourcegroup" -w "myresourceworkspace" -n 
 
 ## <a name="disable-ssl"></a>SSL 사용 안 함
 
-Azure Kubernetes Service에 배포 된 모델에 대해 SSL을 사용 하지 않도록 `SslConfiguration` 설정 `status="Disabled"`하려면를 사용 하 여를 만든 다음 업데이트를 수행 합니다.
+Azure Kubernetes Service에 배포 된 모델에 대해 SSL을 사용 하지 않도록 설정 하려면 `status="Disabled"`를 사용 하 여 `SslConfiguration` 만든 다음 업데이트를 수행 합니다.
 
 ```python
 from azureml.core.compute import AksCompute
@@ -247,6 +247,6 @@ aks_target.update(update_config)
 ```
 
 ## <a name="next-steps"></a>다음 단계
-다음 작업을 수행하는 방법을 배워 보십시오.
+방법 알아보기
 + [웹 서비스로 배포된 기계 학습 모델 사용](how-to-consume-web-service.md)
 + [Azure virtual network 내에서 실험 및 유추를 안전 하 게 실행](how-to-enable-virtual-network.md)

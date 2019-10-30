@@ -1,6 +1,6 @@
 ---
 title: Team Data Science Process 그룹 관리자 작업
-description: 데이터 과학 팀 프로젝트에서 그룹 관리자에 대 한 작업을 자세히 설명 합니다.
+description: 그룹 관리자가 데이터 과학 팀 프로젝트에서 완료 하는 작업의이 자세한 연습을 수행 합니다.
 author: marktab
 manager: cgronlun
 editor: cgronlun
@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: f95bb30f547e863fc7a796e69fffe1e2334e489c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a3d23950f5cbfaac00b03b25e3c19078c76ad0a5
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326804"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053317"
 ---
 # <a name="team-data-science-process-group-manager-tasks"></a>Team Data Science Process 그룹 관리자 작업
 
@@ -57,7 +57,7 @@ ms.locfileid: "71326804"
    
    ![프로젝트 만들기](./media/group-manager-tasks/create-project.png)
 
-**Groupcommon** 프로젝트 **요약** 페이지가 열립니다. 페이지 URL은 *https: \/ @ no__t @ no__t-3servername >/\<gs-name >/Ogcommon*입니다.
+**Groupcommon** 프로젝트 **요약** 페이지가 열립니다. 페이지 URL은 *https:\//\<servername >/\<조직 이름 >/Sgcommon*입니다.
 
 ![프로젝트 요약 페이지](./media/group-manager-tasks/project-summary.png)
 
@@ -66,7 +66,7 @@ ms.locfileid: "71326804"
 Azure Repos는 그룹에 대해 다음과 같은 유형의 리포지토리를 호스팅합니다.
 
 - **그룹 공통 리포지토리**: 데이터 과학 단위 내의 여러 팀이 여러 데이터 과학 프로젝트에 대해 채택할 수 있는 범용 리포지토리입니다. 
-- **팀 리포지토리**:  데이터 과학 단위 내의 특정 팀에 대 한 리포지토리입니다. 이러한 리포지토리는 팀의 요구에 따라 달라 지 며 해당 팀 내의 여러 프로젝트에 사용 될 수 있지만 데이터 과학 단위 내의 여러 팀에서 사용할 수 있을 정도로 일반적이 지 않습니다.
+- **팀 리포지토리**: 데이터 과학 단위 내의 특정 팀에 대 한 리포지토리입니다. 이러한 리포지토리는 팀의 요구에 따라 달라 지 며 해당 팀 내의 여러 프로젝트에 사용 될 수 있지만 데이터 과학 단위 내의 여러 팀에서 사용할 수 있을 정도로 일반적이 지 않습니다.
 - **프로젝트 리포지토리**: 특정 프로젝트에 대 한 리포지토리입니다. 이러한 리포지토리는 팀 내의 여러 프로젝트 또는 데이터 과학 단위의 다른 팀에 대해 일반적으로 충분 하지 않을 수 있습니다.
 
 프로젝트에서 그룹 공통 리포지토리를 설정 하려면 다음을 수행 합니다. 
@@ -105,7 +105,7 @@ Azure Repos는 그룹에 대해 다음과 같은 유형의 리포지토리를 �
    
    ![GroupUtilities 리포지토리 만들기](./media/group-manager-tasks/create-grouputilities-repo-2.png)
    
-1. **프로젝트 설정** 페이지의 왼쪽 탐색 영역에서 **리포지토리** 아래에 있는 **리포지토리** 를 선택 하 여 두 개의 그룹 리포지토리를 확인 합니다. **Groupprojecttemplate** 및 **grouputilities**.
+1. **프로젝트 설정** 페이지의 왼쪽 탐색 영역에서 **리포지토리** 아래에 있는 **리포지토리** 를 선택 하 여 두 그룹 리포지토리: **groupprojecttemplate** 및 **grouputilities**를 확인 합니다.
    
    ![두 그룹 리포지토리](./media/group-manager-tasks/two-repositories.png)
 
@@ -121,13 +121,13 @@ TDSP 팀 리포지토리를 가져오려면:
    
    ![가져오기 선택](./media/group-manager-tasks/import-repo.png)
    
-1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**에 대해 *Https: \//github .com/Azure/Azure-TDSP-ProjectTemplate* 을 입력 합니다. 그런 다음 **가져오기**를 선택 합니다. Microsoft TDSP 팀 ProjectTemplate 리포지토리의 콘텐츠를 GroupProjectTemplate 리포지토리로 가져옵니다. 
+1. **Git 리포지토리 가져오기** 대화 상자에서 **원본 유형**으로 **Git** 을 선택 하 고 **복제 URL**에 대해 *https:\//github.com/Azure/Azure-TDSP-ProjectTemplate.git* 을 입력 합니다. 그런 다음 **가져오기**를 선택 합니다. Microsoft TDSP 팀 ProjectTemplate 리포지토리의 콘텐츠를 GroupProjectTemplate 리포지토리로 가져옵니다. 
    
    ![Microsoft TDSP 팀 리포지토리 가져오기](./media/group-manager-tasks/import-repo-2.png)
    
 1. **리포지토리** 페이지의 맨 위에서 드롭다운 하 고 **grouputilities** 리포지토리를 선택 합니다.
    
-1. 가져오기 프로세스를 반복 하 여 Microsoft TDSP 팀 **유틸리티** 리포지토리의 *https: \//Github .com/Azure/Azure-TDSP-Utilities*의 콘텐츠를 **grouputilities** 리포지토리로 가져옵니다. 
+1. 가져오기 프로세스를 반복 하 여 Microsoft TDSP 팀 **유틸리티** 리포지토리의 *https:\//github.com/Azure/Azure-TDSP-Utilities.git*의 콘텐츠를 **grouputilities** 리포지토리로 가져옵니다. 
    
 이제 두 개의 그룹 리포지토리에는 Microsoft TDSP 팀의 해당 하는 리포지토리에서 모든 파일이 포함 *됩니다.* 
 
@@ -183,7 +183,7 @@ TDSP 팀 리포지토리를 가져오려면:
    
 1. 로컬 컴퓨터에서 다음 디렉터리를 만듭니다.
    
-   - Windows의 경우: **C:\GitRepos\GroupCommon**
+   - Windows: **C:\GitRepos\GroupCommon**
    - Linux의 경우 홈 디렉터리의 **$/GitRepos/GroupCommon** 
    
 1. 만든 디렉터리로 변경 합니다.

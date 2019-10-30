@@ -6,31 +6,32 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/22/2019
-ms.openlocfilehash: 62758ef82b074e093e837b2095dd9f27ab31657b
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.date: 09/29/2019
+ms.openlocfilehash: aacd41debfa8810facc41896051767eb4ab6e3b6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678093"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052498"
 ---
-# <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights 데이터 수집, 보존 및 스토리지
+# <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights의 데이터 수집, 보존 및 저장
 
 앱에 [Azure 애플리케이션 Insights][start] SDK를 설치 하면 앱에 대 한 원격 분석을 클라우드로 보냅니다. 담당하는 개발자는 전송되는 데이터가 정확한 내용, 데이터에 발생한 내용, 데이터를 제어할 수 있는 방법을 알고자 합니다. 특히 중요한 데이터를 보낼 수 있는지, 저장되었는지 및 얼마나 안전한지를 파악합니다. 
 
 우선 짧은 응답은 다음과 같습니다.
 
 * "초기"를 실행하는 표준 원격 분석 모듈은 서비스에 중요한 데이터를 전송하지 않을 가능성이 있습니다. 원격 분석은 로드, 성능 및 사용 현황 메트릭, 예외 보고서 및 기타 진단 데이터와 관련되어 있습니다. 진단 보고서에 표시되는 기본 사용자 데이터는 URL입니다. 하지만 앱은 어떤 경우에도 URL에 일반 텍스트로 중요한 데이터를 배치하지 않아야 합니다.
-* 추가 사용자 지정 원격 분석을 보내는 코드를 작성하여 사용 현황의 진단 및 모니터링을 도울 수 있습니다. 이 확장성은 Application Insights의 유용한 기능입니다. 실수로 개인 및 기타 중요 한 데이터를 포함 하도록이 코드를 작성 하는 것이 가능 합니다. 애플리케이션이 이러한 데이터를 사용하여 작동하는 경우 작성하는 모든 코드에 철저한 검토 프로세스를 적용해야 합니다.
+* 추가 사용자 지정 원격 분석을 보내는 코드를 작성하여 사용 현황의 진단 및 모니터링을 도울 수 있습니다. 이 확장성은 Application Insights의 유용한 기능입니다. 실수로 개인 및 기타 중요 한 데이터를 포함 하도록이 코드를 작성 하는 것이 가능 합니다. 응용 프로그램이 이러한 데이터를 사용 하 여 작동 하는 경우 작성 하는 모든 코드에 철저 한 검토 프로세스를 적용 해야 합니다.
 * 앱을 개발하고 테스트하는 동안 SDK에서 보낼 항목을 검사하기 쉽습니다. IDE 및 브라우저의 디버깅 출력 창에 데이터가 나타납니다. 
 * 데이터는 미국 또는 유럽의 [Microsoft Azure](https://azure.com) 서버에 저장됩니다. 응용 프로그램은 어디에서 나 실행할 수 있습니다. Azure는 [강력한 보안 프로세스를 포함 하 고 광범위 한 규정 준수 표준을 충족](https://azure.microsoft.com/support/trust-center/)합니다. 사용자와 지정된 팀만 데이터에 액세스할 수 있습니다. Microsoft 직원은 지식으로 제한된 특정 상황에서만 해당 데이터에 제한된 액세스 권한을 갖을 수 있습니다. 전송 중 및 미사용 시 암호화 됩니다.
+*   수집 된 데이터를 검토 합니다. 여기에는 일부 상황에서 허용 되지만 다른 경우에는 허용 되지 않는 데이터가 포함 될 수 있습니다.  이에 대 한 좋은 예는 장치 이름입니다. 서버의 장치 이름은 개인 정보에 영향을 주지 않으며 유용 하지만 휴대폰 또는 랩톱의 장치 이름은 개인 정보에 영향을 줄 수 있으며, 그다지 유용 하지 않습니다. 주로 대상 서버에 대해 개발 되는 SDK는 기본적으로 장치 이름을 수집 하며이를 일반 이벤트와 예외 모두에서 덮어써야 할 수 있습니다.
 
 이 문서의 나머지 부분에서는 이러한 대답에 대해 더 자세하게 설명합니다. 자체 포함되도록 설계되어 소속 팀에 속하지 않은 동료에게 표시할 수 있습니다.
 
 ## <a name="what-is-application-insights"></a>Application Insights란 무엇인가요?
 [Azure 애플리케이션 Insights][start] 는 라이브 응용 프로그램의 성능과 유용성을 개선 하는 데 도움이 되는 Microsoft에서 제공 하는 서비스입니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 애플리케이션을 모니터링합니다. 예를 들어 Application Insights는 많은 사용자를 가져오는 시간, 앱이 얼마나 반응하는지, 종속된 외부 서비스에서 얼마나 잘 제공되는지를 보여주는 차트 및 테이블을 만듭니다. 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 성능과 가용성에 변경 사항이 있는 경우 서비스는 사용자에게 전자 메일을 보냅니다.
 
-이 기능을 가져오기 위해 애플리케이션에서 해당 코드의 일부가 되는 Application Insights SDK를 설치합니다. 앱이 실행 중일 때 SDK는 작업을 모니터링하고 Application Insights 서비스에 원격 분석을 보냅니다. [Microsoft Azure](https://azure.com)에서 호스팅하는 클라우드 서비스입니다. (하지만 Application Insights는 Azure에서 호스팅되는 서비스가 아닌 모든 애플리케이션에 대해 작동합니다.)
+이 기능을 가져오기 위해 애플리케이션에서 해당 코드의 일부가 되는 Application Insights SDK를 설치합니다. 앱이 실행 중일 때 SDK는 작업을 모니터링하고 Application Insights 서비스에 원격 분석을 보냅니다. [Microsoft Azure](https://azure.com)에서 호스팅하는 클라우드 서비스입니다. (하지만 Application Insights는 Azure에서 호스트 되는 응용 프로그램 뿐 아니라 모든 응용 프로그램에 대해 작동 합니다.)
 
 Application Insights 서비스는 원격 분석 데이터를 저장하고 분석합니다. 저장된 원격 분석을 통해 분석 또는 검색을 보려면 Azure 계정에 로그인하고 애플리케이션에 Application Insights 리소스를 엽니다. 또한 팀의 다른 구성원 또는 지정된 Azure 구독자와 데이터에 대한 액세스를 공유할 수 있습니다.
 
@@ -39,10 +40,9 @@ Application Insights 서비스는 원격 분석 데이터를 저장하고 분석
 Application Insights SDK는 사용자 고유의 Java EE 또는 ASP.NET 서버나 Azure에 호스트된 웹 서비스, 웹 클라이언트(즉, 웹 페이지에서 실행되는 코드), 데스크톱 앱 및 서비스, Windows Phone, iOS, Android 등의 디바이스 앱과 같은 다양한 애플리케이션 유형에 사용할 수 있습니다. 모두 동일한 서비스에 원격 분석을 보냅니다.
 
 ## <a name="what-data-does-it-collect"></a>어떤 데이터를 수집하나요?
-### <a name="how-is-the-data-is-collected"></a>데이터는 어떻게 수집되나요?
 세 가지 데이터 원본이 있습니다.
 
-* [개발 시](../../azure-monitor/app/asp-net.md) 또는 [런타임 시](../../azure-monitor/app/monitor-performance-live-website-now.md) 앱과 통합하는 SDK가 있습니다. 다른 애플리케이션 형식에 대한 여러 SDK가 있습니다. 또한 페이지와 함께 최종 사용자의 브라우저에 로드하는 [웹 페이지에 대한 SDK](../../azure-monitor/app/javascript.md)가 있습니다.
+* [개발 시](../../azure-monitor/app/asp-net.md) 또는 [런타임 시](../../azure-monitor/app/monitor-performance-live-website-now.md) 앱과 통합하는 SDK가 있습니다. 다른 애플리케이션 형식에 대한 여러 SDK가 있습니다. 또한 페이지와 함께 최종 사용자의 브라우저에 로드 되는 [웹 페이지에 대 한 SDK](../../azure-monitor/app/javascript.md)가 있습니다.
   
   * 각 SDK에는 다양한 [모듈](../../azure-monitor/app/configuration-with-applicationinsights-config.md)이 있으며 이는 서로 다른 기술을 사용하여 다른 형식의 원격 분석 데이터를 수집합니다.
   * 개발 시 SDK를 설치하면 표준 모듈 외에도 API를 사용하여 사용자 고유의 원격 분석을 보낼 수 있습니다. 이 사용자 지정 원격 분석은 전송하려는 데이터를 포함할 수 있습니다.
@@ -52,11 +52,11 @@ Application Insights SDK는 사용자 고유의 Java EE 또는 ASP.NET 서버나
 ### <a name="what-kinds-of-data-are-collected"></a>어떤 종류의 데이터를 수집하나요?
 주요 범주는 다음과 같습니다.
 
-* [웹 서버 원격 분석](../../azure-monitor/app/asp-net.md) - HTTP가 요청합니다.  URI, 요청, 응답 코드, 클라이언트 IP 주소를 처리하는 데 걸린 시간입니다. 세션 ID.
+* [웹 서버 원격 분석](../../azure-monitor/app/asp-net.md) - HTTP가 요청합니다.  URI, 요청, 응답 코드, 클라이언트 IP 주소를 처리하는 데 걸린 시간입니다. `Session id`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다.
 * [웹 페이지](../../azure-monitor/app/javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외. Ajax 호출.
 * 성능 카운터 - 메모리, CPU, IO, 네트워크 선점입니다.
 * 클라이언트 및 서버 컨텍스트 - OS, 로캘, 디바이스 형식, 브라우저, 화면 해상도입니다.
-* [예외](../../azure-monitor/app/asp-net-exceptions.md) 및 작동 중단 - **스택 덤프**, 작성 ID, CPU 형식입니다. 
+* [예외](../../azure-monitor/app/asp-net-exceptions.md) 및 충돌- **스택 덤프**, `build id`, CPU 종류 
 * [종속성](../../azure-monitor/app/asp-net-dependencies.md) - REST, SQL, AJAX와 같은 외부 서비스를 호출합니다. URI 또는 연결 문자열, 시간, 성공, 명령입니다.
 * [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md) - 테스트, 단계, 응답의 기간입니다.
 * [추적 로그](../../azure-monitor/app/asp-net-trace-logs.md) 및 [사용자 지정 원격 분석](../../azure-monitor/app/api-custom-events-metrics.md) - **로그 또는 원격 분석에 코딩한 것**입니다.
@@ -97,13 +97,13 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 ## <a name="where-is-the-data-held"></a>데이터가 저장되는 위치는 어디인가요?
 * 새 Application Insights 리소스를 만들 때 위치를 선택할 수 있습니다. 지역별 Application Insights 가용성에 대 한 자세한 내용은 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=all)를 참조 하세요.
 
-#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>내 앱을 미국, 유럽 또는 동남 아시아에서 호스트해야 한다는 뜻인가요?
+#### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>내 앱을 미국, 유럽 또는 동남 아시아에서 호스팅해야 함을 의미 하나요?
 * 아닙니다. 애플리케이션은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
 
 ## <a name="how-secure-is-my-data"></a>내 데이터는 어느 정도 안전한가요?
 Application Insights는 Azure 서비스입니다. 보안 정책은 [Azure 보안, 개인 정보 보호 및 규정 준수 백서](https://go.microsoft.com/fwlink/?linkid=392408)에 설명되어 있습니다.
 
-데이터는 Microsoft Azure 서버에 저장됩니다. Azure Portal 계정의 경우 [Azure 보안, 개인 정보 및 규정 준수 문서](https://go.microsoft.com/fwlink/?linkid=392408)에 계정 제한 사항이 설명되어 있습니다.
+데이터는 Microsoft Azure 서버에 저장됩니다. 계정에 대 한 계정 제한은 [Azure 보안, 개인 정보 및 규정 준수 문서](https://go.microsoft.com/fwlink/?linkid=392408)에 설명 되어 Azure Portal.
 
 Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있습니다. Microsoft에서는 사용자가 허락한 경우에만, 그리고 Application Insights 사용을 지원하는 데 필요한 경우에 사용자 데이터에 액세스합니다. 
 
@@ -118,21 +118,21 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 모든 데이터는 미사용 시 암호화 되 고 데이터 센터 간에 이동 합니다.
 
 #### <a name="is-the-data-encrypted-in-transit-from-my-application-to-application-insights-servers"></a>내 애플리케이션에서 Application Insights 서버로 전송 중에 데이터가 암호화되나요?
-예. 웹 서버, 디바이스 및 HTTPS 웹 페이지를 포함하여 거의 모든 SDK에서 https를 사용하여 포털로 데이터를 보냅니다. 유일한 예외는 일반 HTTP 웹 페이지에서 전송된 데이터입니다.
+예, https를 사용 하 여 웹 서버, 장치 및 HTTPS 웹 페이지를 비롯 한 거의 모든 Sdk에서 포털에 데이터를 전송 합니다. 유일한 예외는 일반 HTTP 웹 페이지에서 전송된 데이터입니다.
 
 ## <a name="does-the-sdk-create-temporary-local-storage"></a>SDK에서 임시 로컬 스토리지를 작성하나요?
 
 예, 엔드포인트에 도달할 수 없는 경우 특정 원격 분석 채널은 로컬에 데이터를 지속합니다. 영향을 받는 프레임워크 및 원격 분석 채널을 확인하려면 아래를 검토하세요.
 
-로컬 스토리지를 이용하는 원격 분석 채널은 사용자 애플리케이션을 실행하는 특정 계정으로 제한된 TEMP 또는 APPDATA 디렉터리에 임시 파일을 작성합니다. 이는 엔드포인트를 일시적으로 사용할 수 없거나 조정 제한에 도달했을 때 발생할 수 있습니다. 이 문제가 해결되면 원격 분석 채널이 모든 새 지속 데이터 및 지속된 데이터 전송을 재개합니다.
+로컬 저장소를 활용 하는 원격 분석 채널은 응용 프로그램을 실행 하는 특정 계정으로 제한 되는 TEMP 또는 APPDATA 디렉터리에 임시 파일을 만듭니다. 이는 엔드포인트를 일시적으로 사용할 수 없거나 조정 제한에 도달했을 때 발생할 수 있습니다. 이 문제가 해결되면 원격 분석 채널이 모든 새 지속 데이터 및 지속된 데이터 전송을 재개합니다.
 
-이 지속형 데이터는 로컬로 암호화 되지 않습니다. 이 문제가 있는 경우 데이터를 검토 하 고 개인 데이터의 컬렉션을 제한 합니다. (자세한 정보는 [프라이빗 데이터를 내보내고 삭제하는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data)을 참조하세요.)
+이 지속형 데이터는 로컬로 암호화 되지 않습니다. 이 문제가 있는 경우 데이터를 검토 하 고 개인 데이터의 컬렉션을 제한 합니다. (자세한 내용은 [개인 데이터를 내보내고 삭제 하는 방법](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data)을 참조 하세요.)
 
-고객이 특정 보안 요구 사항으로 이 디렉터리를 구성해야 하는 경우 프레임워크별로 구성할 수 있습니다. 애플리케이션을 실행하는 프로세스에 이 디렉터리에 대한 쓰기 액세스 권한이 있는지 확인하세요. 그러나 의도하지 않은 사용자가 원격 분석을 읽을 수 없도록 보호되었는지도 확인하세요.
+고객이 특정 보안 요구 사항을 사용 하 여이 디렉터리를 구성 해야 하는 경우 프레임 워크 당 구성할 수 있습니다. 애플리케이션을 실행하는 프로세스에 이 디렉터리에 대한 쓰기 액세스 권한이 있는지 확인하세요. 그러나 의도하지 않은 사용자가 원격 분석을 읽을 수 없도록 보호되었는지도 확인하세요.
 
 ### <a name="java"></a>Java
 
-`C:\Users\username\AppData\Local\Temp`는 데이터를 지속하는 데 사용됩니다. 이 위치는 구성 디렉터리에서 구성할 수 없으며 이 폴더에 대한 액세스 권한은 필수 자격 증명이 있는 특정 사용자로 제한됩니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72) 참조)
+`C:\Users\username\AppData\Local\Temp`는 데이터를 지속하는 데 사용됩니다. 이 위치는 구성 디렉터리에서 구성할 수 없으며 이 폴더에 대한 액세스 권한은 필수 자격 증명이 있는 특정 사용자로 제한됩니다. 자세한 내용은 [구현](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72)을 참조 하세요.
 
 ###  <a name="net"></a>.NET
 
@@ -167,7 +167,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 
-(자세한 정보는 [AspNetCore 사용자 지정 구성](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration) 참조 )
+자세한 내용은 [AspNetCore 사용자 지정 구성](https://github.com/Microsoft/ApplicationInsights-aspnetcore/wiki/Custom-Configuration)을 참조 하세요.
 
 ### <a name="nodejs"></a>Node.js
 
@@ -181,9 +181,9 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 Application Insights 엔드포인트에 전송 중인 데이터를 보호하려면 고객이 적어도 TLS(전송 계층 보안) 1.2 이상을 사용하도록 해당 애플리케이션을 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)이 취약한 것으로 나타났습니다. 따라서 현재 이전 버전과 호환성을 허용하기 위해 작동하지만 **사용하지 않는 것이 좋으며** 업계는 이러한 이전 프로토콜에 대한 지원을 중단하도록 빠르게 변화하고 있습니다. 
 
-[PCI 보안 표준 위원회](https://www.pcisecuritystandards.org/)는 이전 버전의 TLS/SSL를 사용하지 않고 추가 보안 프로토콜을 업그레이드하는 [최종 기한인 2018년 6월 30일](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf)을 설정했습니다. Azure가 레거시 지원을 삭제하면 애플리케이션/클라이언트가 TLS 1.2를 통해 통신할 수 없는 경우 Application Insights에 데이터를 보낼 수 없게 됩니다. 애플리케이션의 TLS 지원을 테스트하고 유효성을 검사하는 애플리케이션에서 사용하는 방법은 언어/프레임워크뿐만 아니라 운영 체제/플랫폼에 따라 달라집니다.
+[PCI 보안 표준 Council](https://www.pcisecuritystandards.org/) 이전 버전의 TLS/SSL을 사용 하지 않도록 설정 하 고 더 안전한 프로토콜로 업그레이드 하도록 [2018 년 6 월 30 일 최종 기한](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) 을 설정 했습니다. Azure가 레거시 지원을 삭제하면 애플리케이션/클라이언트가 TLS 1.2를 통해 통신할 수 없는 경우 Application Insights에 데이터를 보낼 수 없게 됩니다. 애플리케이션의 TLS 지원을 테스트하고 유효성을 검사하는 애플리케이션에서 사용하는 방법은 언어/프레임워크뿐만 아니라 운영 체제/플랫폼에 따라 달라집니다.
 
-TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 자동으로 검색하고 활용할 수 있도록 플랫폼 수준 보안 기능을 중단할 수 있으므로 반드시 필요하지 않다면 애플리케이션이 TLS 1.2만을 사용하도록 명시적으로 설정하지 않는 것이 좋습니다. 특정 TLS/SSL 버전의 하드 코딩을 확인하려면 애플리케이션 코드에 대해 철저한 감사를 수행하는 것이 좋습니다.
+필요 하지 않은 경우 TLS 1.2만 사용 하도록 응용 프로그램을 명시적으로 설정 하는 것은 권장 되지 않습니다 .이는 다음과 같은 새로운 더 안전한 프로토콜을 자동으로 검색 하 고 활용할 수 있도록 하는 플랫폼 수준 보안 기능을 사용할 수 있기 때문입니다. TLS 1.3. 특정 TLS/SSL 버전의 하드 코딩을 확인하려면 애플리케이션 코드에 대해 철저한 감사를 수행하는 것이 좋습니다.
 
 ### <a name="platformlanguage-specific-guidance"></a>플랫폼/언어 특정 지침
 
@@ -191,9 +191,9 @@ TLS 1.3 등을 사용할 수 있게 되면 더 안전한 최신 프로토콜을 
 | --- | --- | --- |
 | Azure App Services  | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요.  |
 | Azure 함수 앱 | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요. |
-|.NET | 지원됨, 구성이 버전에 따라 다릅니다. | .NET 4.7 이전 버전에 대한 자세한 구성 정보는 [이러한 지침](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 참조하세요.  |
+|.NET | 지원됨, 구성이 버전에 따라 다릅니다. | .NET 4.7 및 이전 버전에 대 한 자세한 구성 정보는 [다음 지침](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 참조 하세요.  |
 |상태 모니터 | 지원됨, 구성이 필요합니다. | 상태 모니터는 [OS 구성](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) + [.NET 구성](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12)을 사용하여 TLS 1.2를 지원합니다.
-|Node.js |  지원됨, v10.5.0에서 구성이 필요할 수 있습니다. | 애플리케이션 특정 구성에 대해 [공식 Node.js TLS/SSL 설명서](https://nodejs.org/api/tls.html)를 사용합니다. |
+|Node.js |  지원됨, v10.5.0에서 구성이 필요할 수 있습니다. | 응용 프로그램별 구성에는 [공식 NODE.JS TLS/SSL 설명서](https://nodejs.org/api/tls.html) 를 사용 합니다. |
 |Java | 지원됨, TLS 1.2에 대한 JDK 지원이 [JDK 6 업데이트 121](https://www.oracle.com/technetwork/java/javase/overview-156328.html#R160_121) 및 [JDK 7](https://www.oracle.com/technetwork/java/javase/7u131-relnotes-3338543.html)에서 추가되었습니다. | JDK 8은 [기본적으로 TLS 1.2](https://blogs.oracle.com/java-platform-group/jdk-8-will-use-tls-12-as-default)를 사용합니다.  |
 |Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다.  | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
 | Windows 8.0 - 10 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면  |
@@ -212,7 +212,7 @@ openssl version -a
 
 ### <a name="run-a-test-tls-12-transaction-on-linux"></a>Linux에서 테스트 TLS 1.2 트랜잭션을 실행합니다.
 
-Linux 시스템이 TLS 1.2를 통해 통신할 수 있는지 확인하기 위해 기본 예비 테스트를 실행하려면: 터미널을 열고 다음을 실행합니다.
+예비 테스트를 실행 하 여 Linux 시스템이 TLS 1.2를 통해 통신할 수 있는지 확인 하려면 터미널을 열고 다음을 실행 합니다.
 
 ```terminal
 openssl s_client -connect bing.com:443 -tls1_2
@@ -251,9 +251,9 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | 수집되는 데이터 클래스 | 포함(전체 목록 아님) |
 | --- | --- |
 | **속성** |**임의 데이터 - 코드에 의해 결정됨** |
-| DeviceContext |ID, IP, 로캘, 디바이스 모델, 네트워크, 네트워크 종류, OEM 이름, 화면 해상도, 역할 인스턴스, 역할 이름, 디바이스 유형 |
+| DeviceContext |`Id`, IP, 로캘, 장치 모델, 네트워크, 네트워크 종류, OEM 이름, 화면 해상도, 역할 인스턴스, 역할 이름, 장치 유형 |
 | ClientContext |OS, 로캘, 언어, 네트워크, 창 해상도 |
-| Session |세션 ID |
+| Session |`session id` |
 | ServerContext |컴퓨터 이름, 로캘, OS, 디바이스, 사용자 세션, 사용자 컨텍스트, 작업 |
 | 유추 |IP 주소, 타임스탬프, OS, 브라우저에서 지리적 위치 유추 |
 | 메트릭 |메트릭 이름 및 값 |
@@ -262,9 +262,9 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | 클라이언트 성능 |URL/페이지 이름, 브라우저 로드 시간 |
 | Ajax |웹 페이지에서 서버로 HTTP 호출 |
 | 요청 |URL, 기간, 응답 코드 |
-| 종속성 |유형(SQL, HTTP,...), 연결 문자열 또는 URI, 동기/비동기, 기간, 성공, SQL 문(상태 모니터 사용) |
-| **예외** |유형, **메시지**, 호출 스택, 원본 파일 및 줄 번호, 스레드 ID |
-| 충돌 |프로세스 ID, 부모 프로세스 ID, 충돌 스레드 ID; 애플리케이션 패치, ID, 빌드; 예외 유형, 주소, 이유; 난독 처리된 기호 및 레지스터, 이진 시작 및 끝 주소, 이진 이름 및 경로, CPU 종류 |
+| 종속성 |유형 (SQL, HTTP, ...), 연결 문자열 또는 URI, sync/async, duration, success, SQL 문 (with 상태 모니터) |
+| **예외** |형식, **메시지**, 호출 스택, 소스 파일, 줄 번호, `thread id` |
+| 충돌 |`Process id`, `parent process id`, `crash thread id`; 응용 프로그램 패치, `id`, 빌드,  예외 유형, 주소, 이유; 난독 처리 되는 기호 및 레지스터, 이진 시작 및 끝 주소, 이진 이름 및 경로, cpu 종류 |
 | 추적 |**메시지** 및 심각도 수준 |
 | 성능 카운터 |프로세서 시간, 사용 가능한 메모리, 요청 속도, 예외 속도, 프로세스 프라이빗 바이트, IO 속도, 요청 기간, 요청 큐 길이 |
 | 가용성 |웹 테스트 응답 코드, 각 테스트 단계, 테스트 이름, 타임 스탬프, 성공, 응답 시간, 테스트 위치의 기간 |

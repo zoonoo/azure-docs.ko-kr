@@ -1,6 +1,6 @@
 ---
 title: 팀 데이터 과학 프로세스 수명 주기
-description: 데이터 과학 프로젝트를 실행하는 데 필요한 단계입니다.
+description: TDSP(팀 데이터 과학 프로세스)는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다.
 services: machine-learning
 author: marktab
 manager: cgronlun
@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 40d1af6e6258b5026853532f7963a76d4fc389db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00efe89314d4a1a5c3302e820b8609adf194aa59
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60837903"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053235"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기
 
@@ -43,7 +43,7 @@ TDSP 수명 주기는 예측 모델을 사용하는 데 필요한 작업에 대�
 
 각 단계마다 다음 정보를 제공합니다.
 
-   * **목표** 구체적 목적입니다.
+   * **목표**: 구체적 목적입니다.
    * **수행 방법**: 특정 작업의 개요 및 완료 방법에 대한 지침입니다.
    * **아티팩트**: 결과물 및 이를 생성하기 위한 지원입니다.
 

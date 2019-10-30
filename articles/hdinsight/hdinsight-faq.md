@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 5b9011e2a95dc1bdb86311111123db3c994f3aee
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044930"
+ms.locfileid: "73052506"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
 
@@ -387,3 +387,7 @@ Azure HDInsight에서 스트림 처리의 통합 기능에 대 한 자세한 내
 ### <a name="is-there-a-way-to-dynamically-terminate-the-head-node-of-the-cluster-when-the-cluster-is-idle-for-a-specific-period"></a>클러스터가 특정 기간 동안 유휴 상태일 때 클러스터의 헤드 노드를 동적으로 종료 하는 방법이 있나요?
 
 HDInsight 클러스터에서는이 작업을 수행할 수 없습니다. 이러한 시나리오에 Azure Data Factory를 사용할 수 있습니다.
+
+### <a name="what-compliance-offerings-does-hdinsight-offer"></a>HDInsight에서 제공 하는 규정 준수 제품은 무엇 인가요?
+
+호환성에 대 한 자세한 내용은 [Microsoft 보안 센터](https://www.microsoft.com/trust-center) 및 [Microsoft Azure 준수 개요](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조 하세요.

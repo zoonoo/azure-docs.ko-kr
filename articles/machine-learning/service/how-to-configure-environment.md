@@ -1,7 +1,7 @@
 ---
 title: Python 개발 환경 설정
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 작업할 때 개발 환경을 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 Conda 환경을 사용 하 고 구성 파일을 만들고 고유한 클라우드 기반 노트북 서버, Jupyter 노트북, Azure Databricks, Ide, 코드 편집기 및 Data Science Virtual Machine를 구성 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning에 대 한 개발 환경을 구성 하는 방법을 알아봅니다. Conda 환경을 사용 하 여 구성 파일을 만들고 고유한 클라우드 기반 노트북 서버, Jupyter 노트북, Azure Databricks, Ide, 코드 편집기 및 Data Science Virtual Machine를 구성 합니다.
 services: machine-learning
 author: rastala
 ms.author: roastala
@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 66073052b290a1345dc0bb63ed6df0934fd81c64
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 7ad9d721b102ab48f2ebb9c0361153bc3974492a
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804180"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053562"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 
@@ -185,7 +185,7 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
 
 1. 다음 명령을 사용 하 여 패키지를 설치 합니다.
 
-    이 명령은 노트북 및 `automl` 추가 기능을 사용 하 여 기본 Azure Machine Learning SDK를 설치 합니다. @No__t_0 추가는 대량 설치 이며 자동화 된 machine learning 실험을 실행 하지 않으려는 경우 대괄호에서 제거할 수 있습니다. 또한 `automl` 추가에는 기본적으로 Azure Machine Learning 데이터 준비 SDK가 종속성으로 포함 됩니다.
+    이 명령은 노트북 및 `automl` 추가 기능을 사용 하 여 기본 Azure Machine Learning SDK를 설치 합니다. `automl` 추가는 대량 설치 이며 자동화 된 machine learning 실험을 실행 하지 않으려는 경우 대괄호에서 제거할 수 있습니다. 또한 `automl` 추가에는 기본적으로 Azure Machine Learning 데이터 준비 SDK가 종속성으로 포함 됩니다.
 
     ```shell
     pip install azureml-sdk[notebooks,automl]
@@ -205,7 +205,7 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
 
 1. Machine learning 실험을 위한 다른 패키지를 설치 합니다.
 
-    다음 명령 중 하나를 사용 하 여 *\<new 패키지 >* 을 설치 하려는 패키지로 바꿉니다. @No__t_0를 통해 패키지를 설치 하려면 패키지가 현재 채널의 일부 여야 합니다. 새 채널은 Anaconda 클라우드에 추가할 수 있습니다.
+    다음 명령 중 하나를 사용 하 여 *\<new 패키지 >* 을 설치 하려는 패키지로 바꿉니다. `conda install`를 통해 패키지를 설치 하려면 패키지가 현재 채널의 일부 여야 합니다. 새 채널은 Anaconda 클라우드에 추가할 수 있습니다.
 
     ```shell
     conda install <new package>
@@ -316,7 +316,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 ### <a name="install-the-correct-sdk-into-a-databricks-library"></a>Databricks 라이브러리에 올바른 SDK 설치
 클러스터가 실행 되 면 [라이브러리를 만들어](https://docs.databricks.com/user-guide/libraries.html#create-a-library) 적절 한 Azure Machine Learning SDK 패키지를 클러스터에 연결 합니다.
 
-1. 라이브러리를 저장 하려는 현재 작업 영역 폴더를 마우스 오른쪽 단추로 클릭 합니다. @No__t_1**라이브러리** **만들기** 를 선택 합니다.
+1. 라이브러리를 저장 하려는 현재 작업 영역 폴더를 마우스 오른쪽 단추로 클릭 합니다.  > **라이브러리** **만들기** 를 선택 합니다.
 
 1. 옵션을 **하나만** 선택 하십시오. 다른 SDK 설치는 지원 되지 않습니다.
 

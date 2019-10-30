@@ -1,7 +1,7 @@
 ---
 title: 공유 풀
 titleSuffix: Azure Data Science Virtual Machine
-description: DSVMs의 풀을 팀의 공유 리소스로 배포
+description: DSVMs (데이터 과학 Virtual Machines)의 공유 풀을 만들어 팀에 대 한 공유 리소스로 배포 & 하는 방법에 대해 알아봅니다.
 keywords: 딥 러닝, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석, 팀 데이터 과학 프로세스
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 929040b5dc8650a757fb9c0da58cb82a76a72b5b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 2a74df3aaf70270353b10f757cf3a61e8f479d74
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195620"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052991"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Data Science Virtual Machines의 공유 풀 만들기
 
@@ -49,7 +49,7 @@ az group deployment create --resource-group  [[NAME OF RESOURCE GROUP ABOVE]]  -
 
 이전 템플릿은 프런트 엔드 확장 집합부터 Ubuntu DSVM의 백 엔드 풀까지의 SSH 및 JupyterHub 포트를 사용할 수 있습니다. 사용자는 일반적인 방식으로 Secure Shell (SSH) 또는 JupyterHub에서 VM에 로그인 합니다. VM 인스턴스는 동적으로 확장 또는 축소할 수 있으므로 모든 상태를 탑재 된 Azure Files 공유에 저장 해야 합니다. 같은 방식을 사용하여 Windows DSVM의 풀을 만들 수 있습니다.
 
-[Azure Files 공유를 탑재하는 스크립트](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh)는 Azure Data Science VM 리포지토리에서도 GitHub로 사용할 수 있습니다. 스크립트는 매개 변수 파일의 지정된 탑재 지점에서 Azure Files 공유를 탑재합니다. 또한 스크립트는 초기 사용자의 홈 디렉터리에서 탑재된 드라이브에 대한 소프트 링크를 만듭니다. 사용자가 jupyter 노트북에 액세스 하 고 실행 하 고 저장할 수 `$HOME/notebooks/remote` 있도록 Azure Files 공유의 사용자 특정 노트북 디렉터리는 디렉터리에 소프트 링크 됩니다. VM에 추가 사용자를 만들 때 동일한 규칙을 사용하여 Azure Files 공유에 대한 각 사용자의 Jupyter 작업 영역을 가리킬 수 있습니다.
+[Azure Files 공유를 탑재하는 스크립트](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh)는 Azure Data Science VM 리포지토리에서도 GitHub로 사용할 수 있습니다. 스크립트는 매개 변수 파일의 지정된 탑재 지점에서 Azure Files 공유를 탑재합니다. 또한 스크립트는 초기 사용자의 홈 디렉터리에서 탑재된 드라이브에 대한 소프트 링크를 만듭니다. 사용자가 자신의 Jupyter 노트북에 액세스, 실행 및 저장할 수 있도록 Azure Files 공유의 사용자 특정 노트북 디렉터리는 `$HOME/notebooks/remote` 디렉터리에 소프트 연결 됩니다. VM에 추가 사용자를 만들 때 동일한 규칙을 사용하여 Azure Files 공유에 대한 각 사용자의 Jupyter 작업 영역을 가리킬 수 있습니다.
 
 가상 머신 확장 집합은 자동 크기 조정 기능을 지원합니다. 추가 인스턴스를 만들 시기 및 인스턴스를 확장 하는 시기에 대 한 규칙을 설정할 수 있습니다. 예를 들어 VM을 전혀 사용하지 않는 경우 클라우드 하드웨어 사용 비용을 절약하기 위해 0개의 인스턴스로 축소할 수 있습니다. 가상 머신 확장 집합의 설명서 페이지는 [자동 크기 조정](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview)에 대한 자세한 단계를 제공합니다.
 

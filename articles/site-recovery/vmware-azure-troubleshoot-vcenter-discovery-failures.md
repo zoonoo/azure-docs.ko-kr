@@ -1,18 +1,18 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구 시 온-프레미스로 장애 복구(failback) 문제 해결 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 Azure에 VMware VM 재해 복구를 수행 하는 동안 온-프레미스로 장애 복구 문제 해결
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구하는 동안 발생하는 장애 복구(failback) 및 다시 보호 문제를 해결하는 방법을 설명합니다.
-author: rayne-wiselman
-manager: carmonm
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.author: raynew
-ms.openlocfilehash: c27e72333618f73b67eec9b5c0c3a70239a1c0b3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 10/29/2019
+ms.author: mayg
+ms.openlocfilehash: e9213637f45a4761af60de9dfac7add6324f6b96
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970849"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053859"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>vCenter 검색 실패 문제 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "71970849"
 
 - VM을 식별 하 고 값을 숫자 값 (vCenter의 VM 편집 설정)으로 설정 합니다.
 
-또는
+or
 
 - 구성 서버를 버전 9.20 이상으로 업그레이드 합니다.
 
@@ -46,8 +46,8 @@ vCenter 검색은 시스템 사용자가 구성한 시스템 기본 프록시 �
 
 이 문제가 발생 하는 경우 다음 상황이 발생 합니다.
 
-- 오류가 발생 하 여 vCenter server \<vCenter >에 연결할 수 없습니다. 원격 서버에서 오류를 반환했습니다. (503) 서버를 사용할 수 없음
-- 오류가 발생 하 여 vCenter server \<vCenter >에 연결할 수 없습니다. 원격 서버에서 오류를 반환했습니다. 원격 서버에 연결할 수 없습니다.
+- 오류로 인해 vcenter server \<vCenter >에 연결할 수 없습니다. 원격 서버에서 오류를 반환 했습니다. (503) 서버를 사용할 수 없습니다.
+- 오류로 인해 vcenter server \<vCenter >에 연결할 수 없습니다. 원격 서버에서 오류를 반환 했습니다. 원격 서버에 연결할 수 없습니다.
 - VCenter/ESXi 서버에 연결할 수 없습니다.
 
 이 문제를 해결하려면
@@ -60,7 +60,7 @@ PsExec 도구를 사용 하 여 시스템 사용자 컨텍스트에 액세스 �
 
 1. PsExec 도구를 사용 하 여 시스템 사용자 컨텍스트에서 IE를 엽니다.
     
-    psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
+    psexec-i "%Programfiles%\internet explorer\ Explorer\iexplore.exe"
 
 2. Internet Explorer에서 프록시 설정을 수정 하 여 vCenter IP 주소를 무시 합니다.
 3. Tmanssvc 서비스를 다시 시작 합니다.

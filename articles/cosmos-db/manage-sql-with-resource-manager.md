@@ -4,24 +4,23 @@ description: Azure Resource Manager 템플릿을 사용 하 여 SQL (Core) API�
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: b4d121e0628512f7bbd6aedc0a9067b31d46d0ed
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 378deb2138acf2a2c33860ab4e4ebcc44a57d8cd
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68814980"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053331"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB SQL (코어) API 리소스 관리
 
 ## Azure Cosmos 계정, 데이터베이스 및 컨테이너 만들기<a id="create-resource"></a>
 
-Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 만듭니다. 이 템플릿은 데이터베이스 수준에서 400 r u/s 처리량을 공유 하는 두 개의 컨테이너를 사용 하 여 Azure Cosmos 계정을 만듭니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) 를 방문 하 여 Azure Portal에서 배포 합니다. 템플릿을 로컬 컴퓨터에 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
+Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 만듭니다. 이 템플릿은 데이터베이스 수준에서 400 r u/s 처리량을 공유 하는 두 개의 컨테이너를 사용 하 여 Azure Cosmos 계정을 만듭니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql/) 를 방문 하 여 Azure Portal에서 배포 합니다. 로컬 컴퓨터에 템플릿을 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
 
 > [!NOTE]
 >
-> - 현재 리소스 관리자 템플릿을 사용 하 여 Udf (사용자 정의 함수), 저장 프로시저 및 트리거를 배포할 수 없습니다.
 > - Azure Cosmos 계정에 위치를 동시에 추가 또는 제거 하 고 다른 속성을 수정할 수 없습니다. 이러한 작업은 별도의 작업으로 수행 해야 합니다.
 > - 계정 이름은 소문자 여야 하 고 31 자 < 합니다.
 
@@ -82,11 +81,69 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-`az cosmosdb show` 명령은 프로 비전 된 후 새로 만든 Azure Cosmos 계정을 보여 줍니다. CloudShell을 사용 하는 대신 로컬로 설치 된 Azure CLI 버전을 사용 하도록 선택 하는 경우 [AZURE CLI (명령줄 인터페이스)](/cli/azure/) 문서를 참조 하세요.
+`az cosmosdb show` 명령은 프로 비전 된 후 새로 만든 Azure Cosmos 계정을 보여 줍니다. CloudShell을 사용 하는 대신 로컬로 설치 된 Azure CLI 버전을 사용 하도록 선택 하는 경우 [Azure 명령줄 인터페이스 (CLI)](/cli/azure/) 문서를 참조 하세요.
+
+## 서버 쪽 기능을 사용 하 여 Azure Cosmos DB 컨테이너 만들기<a id="create-sproc"></a>
+
+Azure Resource Manager 템플릿을 사용 하 여 저장 프로시저, 트리거 및 사용자 정의 함수를 사용 하 여 Azure Cosmos DB 컨테이너를 만듭니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) 를 방문 하 여 Azure Portal에서 배포 합니다. 로컬 컴퓨터에 템플릿을 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
+
+[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
+
+### <a name="deploy-stored-procedure-template-via-powershell"></a>PowerShell을 통해 저장 프로시저 템플릿 배포
+
+PowerShell을 사용 하 여 리소스 관리자 템플릿을 배포 하려면 스크립트를 **복사** 하 고 **체험** 을 선택 하 여 Azure Cloud shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
+
+```azurepowershell-interactive
+
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$accountName = Read-Host -Prompt "Enter the account name"
+$location = Read-Host -Prompt "Enter the location (i.e. westus2)"
+$primaryRegion = Read-Host -Prompt "Enter the primary region (i.e. westus2)"
+$secondaryRegion = Read-Host -Prompt "Enter the secondary region (i.e. eastus2)"
+$databaseName = Read-Host -Prompt "Enter the database name"
+$containerName = Read-Host -Prompt "Enter the container name"
+
+New-AzResourceGroup -Name $resourceGroupName -Location $location
+New-AzResourceGroupDeployment `
+    -ResourceGroupName $resourceGroupName `
+    -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json" `
+    -accountName $accountName `
+    -location $location `
+    -primaryRegion $primaryRegion `
+    -secondaryRegion $secondaryRegion `
+    -databaseName $databaseName `
+    -containerName $containerName
+
+ (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
+```
+
+Azure Cloud shell 대신 로컬로 설치 된 PowerShell 버전을 사용 하도록 선택 하는 경우 Azure PowerShell 모듈을 [설치](/powershell/azure/install-az-ps) 해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다.
+
+### <a name="deploy-stored-procedure-template-via-azure-cli"></a>Azure CLI를 통해 저장 프로시저 템플릿 배포
+
+Azure CLI를 사용 하 여 리소스 관리자 템플릿을 배포 하려면 **시도** 를 선택 하 여 Azure Cloud shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
+
+```azurecli-interactive
+read -p 'Enter the Resource Group name: ' resourceGroupName
+read -p 'Enter the location (i.e. westus2): ' location
+read -p 'Enter the account name: ' accountName
+read -p 'Enter the primary region (i.e. westus2): ' primaryRegion
+read -p 'Enter the secondary region (i.e. eastus2): ' secondaryRegion
+read -p 'Enter the database name: ' databaseName
+read -p 'Enter the container name: ' containerName
+
+az group create --name $resourceGroupName --location $location
+az group deployment create --resource-group $resourceGroupName \
+   --template-uri https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/101-cosmosdb-sql-container-sprocs/azuredeploy.json \
+   --parameters accountName=$accountName primaryRegion=$primaryRegion secondaryRegion=$secondaryRegion databaseName=$databaseName \
+   containerName=$containerName
+
+az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
+```
 
 ## 데이터베이스의 업데이트 처리량 (r u/초)<a id="database-ru-update"></a>
 
-다음 템플릿은 데이터베이스의 처리량을 업데이트 합니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-database-ru-update/) 를 방문 하 여 Azure Portal에서 배포 합니다. 템플릿을 로컬 컴퓨터에 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
+다음 템플릿은 데이터베이스의 처리량을 업데이트 합니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-database-ru-update/) 를 방문 하 여 Azure Portal에서 배포 합니다. 로컬 컴퓨터에 템플릿을 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
 
 [!code-json[cosmosdb-sql-database-ru-update](~/quickstart-templates/101-cosmosdb-sql-database-ru-update/azuredeploy.json)]
 
@@ -125,7 +182,7 @@ az group deployment create --resource-group $resourceGroupName \
 
 ## 컨테이너의 업데이트 처리량 (r u/초)<a id="container-ru-update"></a>
 
-다음 템플릿에서는 컨테이너의 처리량을 업데이트 합니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-ru-update/) 를 방문 하 여 Azure Portal에서 배포 합니다. 템플릿을 로컬 컴퓨터에 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
+다음 템플릿에서는 컨테이너의 처리량을 업데이트 합니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-ru-update/) 를 방문 하 여 Azure Portal에서 배포 합니다. 로컬 컴퓨터에 템플릿을 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
 
 [!code-json[cosmosdb-sql-container-ru-update](~/quickstart-templates/101-cosmosdb-sql-container-ru-update/azuredeploy.json)]
 

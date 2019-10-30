@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: ff50619d7b3d5bc803e8ee8d9e4cbf4389a4191f
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 47258f27f44b6a21c5da72e4631591e695024400
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978095"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053271"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
 
@@ -52,17 +52,17 @@ REST API 호출로 구독 또는 리소스 그룹에 대한 평가 검사를 시
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
 - `{YourRG}` - 사용자의 리소스 그룹 이름으로 대체
-- `{subscriptionId}` - 사용자의 구독 ID로 대체
+- `{subscriptionId}` - 사용자의구독 ID로 대체
 
 검사는 구독 또는 리소스 그룹에서 리소스의 평가를 지원합니다. 다음 URI 구조를 사용하여 REST API **POST** 명령으로 범위별 검사를 시작합니다.
 
-- 구독
+- Subscription
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-- 리소스 그룹
+- Resource group
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -87,12 +87,12 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 할당에서 정책 또는 이니셔티브 규칙을 따르지 않는 리소스는 **비준수** 리소스입니다.
 다음 표는 다양한 정책 효과가 결과 규정 준수 상태에 대한 조건 평가와 어떻게 작동하는지 보여줍니다.
 
-| 리소스 상태 | 영향 | 정책 평가 | 준수 상태 |
+| 리소스 상태 | 영향 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
-| 있음 | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
-| 있음 | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
-| 단추를 사용하여 새 | Audit, AuditIfNotExist\* | True | 비준수 |
-| 단추를 사용하여 새 | Audit, AuditIfNotExist\* | False | 준수 |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 참 | 비준수 |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 거짓 | 규정 준수 |
+| 신규 | Audit, AuditIfNotExist\* | 참 | 비준수 |
+| 신규 | Audit, AuditIfNotExist\* | 거짓 | 규정 준수 |
 
 \* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다.
 또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
@@ -107,9 +107,9 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 정책과 리소스에는 **준수** 및 **비준수** 외에도 다음의 세 가지 상태 중 하나일 수 있습니다.
 
-- **충돌**: 충돌하는 규칙이 있는 두 개 이상의 정책이 있습니다. 예를 들어 두 개의 정책이 다른 값을 갖는 동일한 태그에 추가되어 있을 수 있습니다.
-- **시작되지 않음**: 정책이나 리소스에 대한 평가 주기가 시작되지 않았습니다.
-- **등록되지 않음**: Azure Policy Resource Provider가 등록되지 않았거나 로그인한 계정에 규정 준수 데이터를 읽을 권한이 없습니다.
+- **충돌**: 규칙이 충돌 하는 정책이 둘 이상 있습니다. 예를 들어 두 개의 정책이 다른 값을 갖는 동일한 태그에 추가되어 있을 수 있습니다.
+- **시작 되지 않음**: 정책 또는 리소스에 대해 평가 주기가 시작 되지 않았습니다.
+- **등록 되지 않음**: Azure Policy 리소스 공급자가 등록 되지 않았거나 로그인 한 계정에 준수 데이터를 읽을 수 있는 권한이 없습니다.
 
 Azure Policy는 정의의 **형식** 및 **이름** 필드를 사용 하 여 리소스가 일치 하는지 여부를 확인 합니다. 리소스가 일치하는 경우 적용 가능하며 **준수** 또는 **비준수** 상태로 간주됩니다. 정의의 속성이 **type** 또는 **name**뿐이면 모든 리소스는 정책을 적용할 수 있는 리소스로 간주되어 평가됩니다.
 
@@ -145,32 +145,10 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 
 ## <a name="command-line"></a>명령줄
 
-포털에 제공되는 동일한 정보를 REST API([ARMClient](https://github.com/projectkudu/ARMClient)에 포함) 또는 Azure PowerShell을 통해 검색할 수 있습니다. REST API에 대 한 자세한 내용은 [Azure Policy Insights](/rest/api/policy-insights/) 참조를 참조 하세요. REST API 참조 페이지에는 각 작업에서 브라우저에서 직접 시도할 수 있는 녹색 '시도' 단추가 있습니다.
+포털에서 사용할 수 있는 정보는 REST API (with [ARMClient](https://github.com/projectkudu/ARMClient)포함), Azure PowerShell 및 Azure CLI (미리 보기)를 사용 하 여 검색할 수 있습니다.
+REST API에 대 한 자세한 내용은 [Azure Policy Insights](/rest/api/policy-insights/) 참조를 참조 하세요. REST API 참조 페이지에는 각 작업에서 브라우저에서 직접 시도할 수 있는 녹색 '시도' 단추가 있습니다.
 
-Azure PowerShell에서 다음 예제를 사용하려면 이 예제 코드를 사용하여 인증 토큰을 생성합니다. 그런 다음, 구문 분석할 수 있는 JSON 개체를 검색하는 예제에서 문자열로 $restUri를 바꿉니다.
-
-```azurepowershell-interactive
-# Login first with Connect-AzAccount if not using Cloud Shell
-
-$azContext = Get-AzContext
-$azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
-$profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
-$token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
-$authHeader = @{
-    'Content-Type'='application/json'
-    'Authorization'='Bearer ' + $token.AccessToken
-}
-
-# Define the REST API to communicate with
-# Use double quotes for $restUri as some endpoints take strings passed in single quotes
-$restUri = "https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2018-04-04"
-
-# Invoke the REST API
-$response = Invoke-RestMethod -Uri $restUri -Method POST -Headers $authHeader
-
-# View the response object (as JSON)
-$response
-```
+ARMClient 또는 유사한 도구를 사용 하 여 REST API 예를 들어 Azure에 대 한 인증을 처리 합니다.
 
 ### <a name="summarize-results"></a>결과 요약
 
@@ -312,7 +290,7 @@ Connect-AzAccount
 - `Start-AzPolicyRemediation`
 - `Stop-AzPolicyRemediation`
 
-예: 가장 많은 수의 호환되지 않는 리소스를 포함하는 가장 많이 할당된 정책에 대한 상태 요약 가져오기
+예제: 가장 많은 수의 호환되지 않는 리소스를 포함하는 가장 많이 할당된 정책에 대한 상태 요약 가져오기
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyStateSummary -Top 1
@@ -323,7 +301,7 @@ PolicyAssignments     : {/subscriptions/{subscriptionId}/resourcegroups/RG-Tags/
                         oft.authorization/policyassignments/37ce239ae4304622914f0c77}
 ```
 
-예: 가장 최근에 평가된 리소스에 대한 상태 레코드 가져오기(기본값은 내림차순 타임스탬프 기준).
+예제: 가장 최근에 평가된 리소스에 대한 상태 레코드 가져오기(기본값은 내림차순 타임스탬프 기준).
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyState -Top 1
@@ -349,7 +327,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-예: 호환되지 않는 모든 가상 네트워크 리소스에 대한 세부 정보 가져오기
+예제: 호환되지 않는 모든 가상 네트워크 리소스에 대한 세부 정보 가져오기
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyState -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'"
@@ -375,7 +353,7 @@ PolicyDefinitionAction     : deny
 PolicyDefinitionCategory   : tbd
 ```
 
-예: 특정 날짜 후에 발생한 호환되지 않는 가상 네트워크 리소스와 관련된 이벤트 가져오기
+예제: 특정 날짜 후에 발생한 호환되지 않는 가상 네트워크 리소스와 관련된 이벤트 가져오기
 
 ```azurepowershell-interactive
 PS> Get-AzPolicyEvent -Filter "ResourceType eq '/Microsoft.Network/virtualNetworks'" -From '2018-05-19'
@@ -412,7 +390,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
-구독에 연결 된 [활동 로그 분석 솔루션](../../../azure-monitor/platform/activity-log-collect.md) 에서 `AzureActivity` 인 [Log Analytics 작업 영역](../../../log-analytics/log-analytics-overview.md) 을 사용 하는 경우 간단한 kusto 쿼리와 `AzureActivity` 테이블을 사용 하 여 평가 주기에서 비준수 결과를 볼 수도 있습니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
+구독에 연결 된 [활동 로그 분석 솔루션](../../../azure-monitor/platform/activity-log-collect.md) 의 `AzureActivity`를 사용 하 [Log Analytics 작업 영역](../../../log-analytics/log-analytics-overview.md) 을 사용 하는 경우 간단한 kusto 쿼리 및 `AzureActivity` 테이블을 사용 하 여 평가 주기에서 비준수 결과를 볼 수도 있습니다. Azure Monitor 로그의 세부 정보를 사용하여 비준수 여부를 감시하도록 경고를 구성할 수 있습니다.
 
 
 ![Azure Monitor 로그를 사용 하 여 Azure Policy 준수](../media/getting-compliance-data/compliance-loganalytics.png)

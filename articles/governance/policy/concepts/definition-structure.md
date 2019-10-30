@@ -6,23 +6,23 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 27cf1539fc98b2ad7f1b82e194989c1619ab99fb
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: fe0f16fd4c07eac92ab3c1ae2c6f78b0bd1595eb
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980701"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053491"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
 리소스 정책 정의는 Azure Policy에서 리소스에 대한 규칙을 설정하는 데 사용됩니다. 각 정의는 리소스 규정 준수 및 리소스가 규정을 준수하지 않을 때 적용되는 영향에 대해 설명합니다.
 규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 머신만 허용되게 지정할 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책은 모든 자식 리소스에 의해 상속됩니다. 리소스 그룹에 정책을 적용하면 해당 리소스 그룹의 모든 리소스에 해당 정책을 적용할 수 있습니다.
 
-정책 정의 스키마는 [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json) 에 있습니다.
+정책 정의 스키마는 다음 위치에서 찾을 수 있습니다. [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
-- mode
+- 모드
 - parameters
 - 표시 이름
 - description
@@ -66,7 +66,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 모든 Azure Policy 샘플은 [Azure Policy 샘플](../samples/index.md)에 있습니다.
 
-## <a name="mode"></a>모드
+## <a name="mode"></a>Mode
 
 **모드** 는 정책이 Azure Resource Manager 속성을 대상으로 하는지 아니면 리소스 공급자 속성을 대상으로 하는지에 따라 구성 됩니다.
 
@@ -83,12 +83,12 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ### <a name="resource-provider-modes"></a>리소스 공급자 모드
 
-현재 지원 되는 리소스 공급자 모드는 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 허용 컨트롤러 규칙을 관리 하는 데 0 @no__t입니다.
+현재 지원 되는 리소스 공급자 모드는 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 허용 컨트롤러 규칙을 관리 하는 데 `Microsoft.ContainerService.Data` 됩니다.
 
 > [!NOTE]
 > [Kubernetes에 대 한 Azure Policy](rego-for-aks.md) 는 공개 미리 보기로 제공 되며 기본 제공 정책 정의만 지원 합니다.
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 매개 변수는 정책 정의의 수를 줄여 정책 관리를 간소화하는 데 도움이 됩니다. 양식의 필드 `name`, `address`, `city`, `state`와 같은 매개 변수에 관해 생각해 봅니다. 이러한 매개 변수는 항상 그대로 유지되지만, 그 값은 양식을 작성하는 개별 값에 기초하여 달라집니다.
 매개 변수는 정책을 만들 때와 같은 방법으로 작동합니다. 정책 정의에 매개 변수를 포함함으로써 서로 다른 값을 사용하여 다양한 시나리오에 대해 해당 정책을 재사용할 수 있습니다.
@@ -100,16 +100,16 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 매개 변수에는 정책 정의에 사용되는 다음 속성이 있습니다.
 
-- **name**: 매개 변수의 이름입니다. 정책 규칙 내의 `parameters` 배포 함수에서 사용됩니다. 자세한 내용은 [매개 변수 값 사용](#using-a-parameter-value)을 참조하세요.
+- **이름**: 매개 변수의 이름입니다. 정책 규칙 내의 `parameters` 배포 함수에서 사용됩니다. 자세한 내용은 [매개 변수 값 사용](#using-a-parameter-value)을 참조하세요.
 - `type`: 매개 변수가 **문자열**, **배열**, **개체**, **부울**, **정수**, **부동 소수점**또는 **날짜/시간**인지 여부를 확인 합니다.
-- `metadata`: Azure Portal에서 사용자에게 친숙한 정보를 표시하는 데 주로 사용되는 하위 속성을 정의합니다.
-  - `description`: 매개 변수의 용도에 대한 설명입니다. 허용 가능한 값의 예를 제공하는 데 사용할 수 있습니다.
-  - `displayName`: 매개 변수에 대해 포털에 표시되는 이름입니다.
-  - `strongType`: (선택 사항) 포털을 통해 정책 정의를 할당할 때 사용됩니다. 컨텍스트 인식 목록을 제공합니다. 자세한 내용은 [strongType](#strongtype)을 참조하세요.
-  - `assignPermissions`: 필드 정책 할당 중에 역할 할당 Azure Portal 만들려면 _true_ 로 설정 합니다. 이 속성은 할당 범위 외부에서 사용 권한을 할당 하려는 경우에 유용 합니다. 정책에는 역할 정의 당 하나의 역할 할당이 있습니다 (또는 이니셔티브의 모든 정책에서 역할 정의 당). 매개 변수 값은 올바른 리소스 또는 범위 여야 합니다.
-- `defaultValue`: (선택 사항) 값이 지정되지 않은 경우 할당에서 매개 변수의 값을 설정합니다.
+- `metadata`: 사용자에 게 친숙 한 정보를 표시 하기 위해 Azure Portal에서 주로 사용 하는 하위 속성을 정의 합니다.
+  - `description`: 매개 변수가 사용 되는 내용에 대 한 설명입니다. 허용 가능한 값의 예를 제공하는 데 사용할 수 있습니다.
+  - `displayName`: 포털에서 매개 변수에 대해 표시 되는 이름입니다.
+  - `strongType`: (선택 사항) 포털을 통해 정책 정의를 할당할 때 사용 됩니다. 컨텍스트 인식 목록을 제공합니다. 자세한 내용은 [strongType](#strongtype)을 참조하세요.
+  - `assignPermissions`: (선택 사항) 정책 할당 중 Azure Portal 역할 할당을 만들려면 _true_ 로 설정 합니다. 이 속성은 할당 범위 외부에서 사용 권한을 할당 하려는 경우에 유용 합니다. 정책에는 역할 정의 당 하나의 역할 할당이 있습니다 (또는 이니셔티브의 모든 정책에서 역할 정의 당). 매개 변수 값은 올바른 리소스 또는 범위 여야 합니다.
+- `defaultValue`: (선택 사항) 값이 지정 되지 않은 경우 할당에서 매개 변수의 값을 설정 합니다.
   할당된 기존 정책 정의를 업데이트할 때 필요합니다.
-- `allowedValues`: 필드 할당 중에 매개 변수가 받아들이는 값의 배열을 제공 합니다.
+- `allowedValues`: (선택 사항) 할당 하는 동안 매개 변수가 받아들이는 값의 배열을 제공 합니다.
 
 예를 들어 리소스를 배포할 수 있는 위치를 제한하는 정책 정의를 정의할 수 있습니다. 해당 정책 정의의 매개 변수는 **allowedLocations**일 수 있습니다. 이 매개 변수는 정책 정의의 각 할당에서 허용되는 값을 제한하는 데 사용됩니다. **strongType**을 사용하면 포털을 통해 할당을 완료할 때 경험이 개선됩니다.
 
@@ -223,18 +223,18 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 조건은 **field** 또는 **value** 접근자가 특정 기준을 충족하는지 여부를 평가합니다. 지원되는 조건은 다음과 같습니다.
 
-- `"equals": "value"`
-- `"notEquals": "value"`
-- `"like": "value"`
-- `"notLike": "value"`
-- `"match": "value"`
-- `"matchInsensitively": "value"`
-- `"notMatch": "value"`
-- `"notMatchInsensitively": "value"`
-- `"contains": "value"`
-- `"notContains": "value"`
-- `"in": ["value1","value2"]`
-- `"notIn": ["value1","value2"]`
+- `"equals": "stringValue"`
+- `"notEquals": "stringValue"`
+- `"like": "stringValue"`
+- `"notLike": "stringValue"`
+- `"match": "stringValue"`
+- `"matchInsensitively": "stringValue"`
+- `"notMatch": "stringValue"`
+- `"notMatchInsensitively": "stringValue"`
+- `"contains": "stringValue"`
+- `"notContains": "stringValue"`
+- `"in": ["stringValue1","stringValue2"]`
+- `"notIn": ["stringValue1","stringValue2"]`
 - `"containsKey": "keyName"`
 - `"notContainsKey": "keyName"`
 - `"less": "value"`
@@ -246,7 +246,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 **like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다.
 값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
 
-**Match** 및 **notmatch** 조건을 사용 하는 경우 `#`를 제공 하 여 숫자를 일치 시키고, @no__t 문자에 대 한 `?`을 제공 하 고, 모든 문자를 일치 시키고, 다른 모든 문자를 해당 실제 문자와 일치 시킵니다.
+**Match** 및 **notmatch** 조건을 사용 하는 경우 숫자와 일치 하는 `#`을 제공 하 고, 문자 `.`를 `?` 하 고, 모든 문자를 일치 시키고, 다른 모든 문자를 해당 실제 문자와 일치 시킵니다.
 **match** 및 **notMatch**는 대/소문자를 구분합니다. 대/소문자를 구분하지 않는 대안은 **matchInsensitively** 및 **notMatchInsensitively**에서 확인할 수 있습니다. 예를 들어 [여러 이름 패턴 허용](../samples/allow-multiple-name-patterns.md)을 참조하세요.
 
 ### <a name="fields"></a>필드
@@ -300,7 +300,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-### <a name="value"></a>값
+### <a name="value"></a>Value
 
 **value**를 사용하여 조건을 구성할 수도 있습니다. **value**는 [매개 변수](#parameters), [지원되는 템플릿 함수](#policy-functions) 또는 리터럴에 대해 조건을 확인합니다.
 **value**는 지원되는 모든 [조건](#conditions)과 쌍을 이룹니다.
@@ -384,7 +384,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-수정 된 정책 규칙을 사용 하 `if()`은 3 자 미만의 값에 `substring()`를 가져오기 전에 **이름** 길이를 확인 합니다. **Name** 이 너무 짧으면 "abc로 시작 하지 않음" 값이 반환 되 고 **abc**와 비교 됩니다. **Abc** 로 시작 하지 않는 짧은 이름의 리소스는 여전히 정책 규칙에 실패 하지만 평가 하는 동안 더 이상 오류가 발생 하지 않습니다.
+수정 된 정책 규칙을 사용 하는 경우 `if()`은 3 자 미만의 값에 대 한 `substring()` 가져오기 전에 **이름** 길이를 확인 합니다. **Name** 이 너무 짧으면 "abc로 시작 하지 않음" 값이 반환 되 고 **abc**와 비교 됩니다. **Abc** 로 시작 하지 않는 짧은 이름의 리소스는 여전히 정책 규칙에 실패 하지만 평가 하는 동안 더 이상 오류가 발생 하지 않습니다.
 
 ### <a name="effect"></a>영향
 
@@ -436,7 +436,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 - copyIndex()
 - deployment()
 - list*
-- newGuid()
+- newGuid ()
 - pickZones()
 - providers()
 - reference()
@@ -445,7 +445,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 다음 함수는 정책 규칙에서 사용할 수 있지만 Azure Resource Manager 템플릿에 사용 되는 것과는 다릅니다.
 
-- addDays(dateTime, numberOfDaysToAdd)
+- addDays (dateTime, numberOfDaysToAdd)
   - **datetime**: [Required] Universal ISO 8601 datetime 형식 ' YYYY-Mm-yyyy-mm-ddthh: MM: Ss. fffffffZ '의 문자열 문자열
   - **Numberofdaystoadd**: [필수] 정수-더할 일 수
 - utcNow ()-리소스 관리자 템플릿과 달리 defaultValue 외부에서 사용할 수 있습니다.
@@ -471,7 +471,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 }
 ```
 
-## <a name="aliases"></a>별칭
+## <a name="aliases"></a>Aliases
 
 리소스 유형에 대한 특정 속성에 액세스하려면 속성 별칭을 사용합니다. 별칭을 사용하면 리소스의 속성에 허용되는 값이나 조건을 제한할 수 있습니다. 각 별칭은 주어진 리소스 유형에 대해 서로 다른 API 버전의 경로에 매핑됩니다. 정책 평가 중에 정책 엔진은 해당 API 버전에 대한 속성 경로를 가져옵니다.
 
@@ -509,14 +509,14 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용 가능한 별칭 중 일부에 ‘정상’ 이름으로 표시되는 버전과 **[\*]** 가 추가된 다른 버전이 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+사용 가능한 별칭 중 일부에 ‘정상’ 이름으로 표시되는 버전과 **[\*]** 가 추가된 다른 버전이 있습니다. 다음은 그 예입니다.
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 ' Normal ' 별칭은 필드를 단일 값으로 나타냅니다. 이 필드는 전체 값 집합을 정의 된 대로 정확 하 게 지정 해야 하는 경우에만 정확 하 게 일치 하는 비교 시나리오를 위한 것입니다.
 
-**[@No__t-1]** 별칭을 사용 하면 배열의 각 요소 값 및 각 요소의 특정 속성을 비교할 수 있습니다. 이 방법을 사용 하면 ' 있는 경우 ', ' 있는 경우 ', ' 모든 ' 시나리오에 대 한 요소 속성을 비교할 수 있습니다. **IpRules [\*]** 을 사용 하는 경우 예를 들어 모든 _동작이_ _거부_인지 확인 하는 것이 고, 존재 하는 규칙 수 또는 IP _값_ 에 대해 걱정 하지 않습니다. 이 샘플 규칙은 **ipRules [\*]** **10.0.4.1** 의 일치 항목을 확인 하 고 하나 이상의 일치 항목을 찾을 수 없는 경우에만 **effectType** 을 적용 합니다.
+**[\*]** 별칭을 사용 하면 배열의 각 요소 값 및 각 요소의 특정 속성을 비교할 수 있습니다. 이 방법을 사용 하면 ' 있는 경우 ', ' 있는 경우 ', ' 모든 ' 시나리오에 대 한 요소 속성을 비교할 수 있습니다. **IpRules [\*]** 를 사용 하 여 예를 들어 모든 _동작이_ _거부_되는지 여부를 확인 하는 것을 확인할 수 있지만 존재 하는 규칙 수 또는 IP _값_ 에 대해 걱정 하지 않습니다. 이 샘플 규칙은 **ipRules [\*]** **10.0.4.1** 에 대 한 일치 항목을 확인 하 고 하나 이상의 일치 항목을 찾을 수 없는 경우에만 **effectType** 을 적용 합니다.
 
 ```json
 "policyRule": {

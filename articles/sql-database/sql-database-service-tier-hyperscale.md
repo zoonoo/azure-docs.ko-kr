@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: df6926a8f50d7ffb2765557cdf75ed6d09b3810b
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 40a2443419fab5d0a89d704312d880e344597b8b
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428046"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053907"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -38,7 +38,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 - 최대 100TB의 데이터베이스 크기 지원
 - 계산 리소스에 대 한 IO 영향이 없는 크기와 관계 없이 Azure Blob storage에 저장 된 파일 스냅숏을 기반으로 하는 거의 즉각적인 데이터베이스 백업  
-- 몇 시간 또는 며칠이 아닌 몇 분 내에(데이터베이스 작업의 규모가 아닌) 빠른 데이터베이스 복원(파일 스냅샷 기반)
+- 고속 데이터베이스 지정 시간 복원 (파일 스냅숏에 기반)-몇 시간 또는 며칠이 아닌 몇 분 내에 (데이터 작업의 크기가 아님)
 - 데이터 볼륨에 관계없이 더 높은 로그 처리량 및 더 빠른 트랜잭션 커밋 시간이 보장되므로 전반적인 성능 개선
 - 빠른 스케일 아웃 - 읽기 워크로드를 오프로드하고 핫 대기로 사용하기 위해 하나 이상의 읽기 전용 노드를 프로비전할 수 있습니다.
 - 빠른 강화 - 필요할 때 일정한 시간에 컴퓨팅 리소스 규모를 확대하여 과도한 워크로드를 수용하고, 필요 없을 때 컴퓨팅 리소스 규모를 다시 축소할 수 있습니다.

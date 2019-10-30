@@ -1,7 +1,7 @@
 ---
 title: Python 기계 학습 스크립트 실행
 titleSuffix: Azure Machine Learning Studio
-description: Azure Machine Learning Studio에서 Python을 사용 하는 방법을 알아봅니다.
+description: Python 스크립트 실행 모듈을 사용 하 여 Machine Learning Studio (클래식) 실험 및 웹 서비스에서 Python 코드를 사용 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: 64030cac73b6fbd750b2ed681d85642cc6ad1146
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: bfc2efca0786838d528b3019a3aff405f46ef645
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308871"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053784"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행
 
@@ -25,7 +25,7 @@ Python은 다양 한 데이터 과학자 도구 상자에 유용한 도구입니
 
 ## <a name="using-the-execute-python-script-module"></a>Python 스크립트 실행 모듈 사용
 
-Studio에서 Python에 대 한 기본 인터페이스는 [Python 스크립트 실행][execute-python-script] 모듈을 통하는 것입니다. 최대 3 개의 입력을 허용 하 고 [R 스크립트 실행][execute-r-script] 모듈과 유사한 출력을 최대 두 개까지 생성 합니다. Python 코드는 라는 `azureml_main`특수 하 게 명명 된 진입점 함수를 통해 매개 변수 상자에 입력 됩니다.
+Studio에서 Python에 대 한 기본 인터페이스는 [Python 스크립트 실행][execute-python-script] 모듈을 통하는 것입니다. 최대 3 개의 입력을 허용 하 고 [R 스크립트 실행][execute-r-script] 모듈과 유사한 출력을 최대 두 개까지 생성 합니다. Python 코드는 `azureml_main`라는 특수 하 게 명명 된 진입점 함수를 통해 매개 변수 상자에 입력 됩니다.
 
 ![Python 스크립트 실행 모듈](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -33,7 +33,7 @@ Studio에서 Python에 대 한 기본 인터페이스는 [Python 스크립트 �
 
 ### <a name="input-parameters"></a>입력 매개 변수
 
-Python 모듈에 대 한 입력은 Pandas 데이터 프레임로 노출 됩니다. 함수 `azureml_main` 는 최대 두 개의 선택적 Pandas 데이터 프레임를 매개 변수로 받아들입니다.
+Python 모듈에 대 한 입력은 Pandas 데이터 프레임로 노출 됩니다. `azureml_main` 함수는 최대 두 개의 선택적 Pandas 데이터 프레임을 매개 변수로 받아들입니다.
 
 입력 포트와 함수 매개 변수 간의 매핑은 위치와 관련됩니다.
 
@@ -47,7 +47,7 @@ Python 모듈에 대 한 입력은 Pandas 데이터 프레임로 노출 됩니�
 
 ### <a name="output-return-values"></a>반환 값 출력
 
-함수 `azureml_main` 는 튜플, list 또는 NumPy 배열과 같은 Python [시퀀스](https://docs.python.org/2/c-api/sequence.html) 에서 패키지 된 단일 Pandas 데이터 프레임를 반환 해야 합니다. 이 시퀀스의 첫 번째 요소는 모듈의 첫 번째 출력 포트에 반환 됩니다. 모듈의 두 번째 출력 포트는 [시각화](#visualizations) 에 사용 되며 반환 값이 필요 하지 않습니다. 이 스키마는 다음과 같습니다.
+`azureml_main` 함수는 튜플, list 또는 NumPy 배열과 같은 Python [시퀀스](https://docs.python.org/2/c-api/sequence.html) 에서 패키지 된 단일 Pandas 데이터 프레임를 반환 해야 합니다. 이 시퀀스의 첫 번째 요소는 모듈의 첫 번째 출력 포트에 반환 됩니다. 모듈의 두 번째 출력 포트는 [시각화](#visualizations) 에 사용 되며 반환 값이 필요 하지 않습니다. 이 스키마는 다음과 같습니다.
 
 ![입력 포트를 매개 변수에 매핑하고 출력 포트에 값 반환](./media/execute-python-scripts/map-of-python-script-inputs-outputs.png)
 
@@ -60,10 +60,10 @@ Python 모듈에 대 한 입력은 Pandas 데이터 프레임로 노출 됩니�
 | 문자열 및 숫자| 있는 그대로 변환 |
 | Pandas ' NA ' | ' 누락 값 '으로 변환 됨 |
 | 인덱스 벡터 | 않음 |
-| 문자열이 아닌 열 이름 | 열 `str` 이름에 대 한 호출 |
-| 중복 열 이름 | 숫자 접미사 추가: (1), (2), (3) 등입니다.
+| 문자열이 아닌 열 이름 | 열 이름에 대 한 `str` 호출 |
+| 중복 열 이름 | 숫자 접미사 (1), (2), (3) 등을 추가 합니다.
 
-**Python 함수의 모든 입력 데이터 프레임에는 항상 0부터 행 수에서 1을 뺀 값 까지의 64 비트 숫자 인덱스가 있습니다.*
+*Python 함수의 모든 입력 데이터 프레임 *에는 항상 0부터 행 수에서 1을 뺀 64 비트 숫자 인덱스가 있습니다* .
 
 ## <a id="import-modules"></a>기존 Python 스크립트 모듈 가져오기
 
@@ -95,7 +95,7 @@ Zip 파일을 데이터 집합으로 Studio에 업로드 합니다. 그런 다�
 
 1. [Python 용 Azure Blob Storage 패키지](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) 를 로컬로 다운로드 합니다.
 1. Zip 파일을 데이터 집합으로 스튜디오 작업 영역에 업로드 합니다.
-1. 를 사용 하 여 BlobService 개체 만들기`protocol='http'`
+1. `protocol='http'`를 사용 하 여 BlobService 개체 만들기
 
 ```
 from azure.storage.blob import BlockBlobService
