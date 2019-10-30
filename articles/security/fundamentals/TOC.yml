@@ -1,5 +1,5 @@
 - name: 기본 사항 설명서
-  href: index.md
+  href: index.yml
 - name: 아키텍처 및 디자인
   href: overview.md
   expanded: false
@@ -40,7 +40,8 @@
           href: data-encryption-best-practices.md
         - name: 미사용 데이터 암호화
           href: encryption-atrest.md
-        - name: VM 및 VM 확장 집합용 Azure Disk Encryption
+        - name: 가상 머신에 대한 Azure Disk Encryption
+          displayName: virtual machines and virtual machine scale sets
           href: azure-disk-encryption-vms-vmss.md
     - name: 스토리지 보안 지침
       href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'

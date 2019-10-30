@@ -81,6 +81,10 @@
           items:
             - name: 영역 중복 가상 네트워크 게이트웨이 만들기
               href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md
+        - name: ID
+          items:
+            - name: Azure Active Directory Domain Services 인스턴스 만들기
+              href: ../active-directory-domain-services/tutorial-create-instance.md
 - name: 재해 복구
   items:
     - name: Azure Site Recovery 사용

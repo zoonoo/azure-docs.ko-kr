@@ -188,6 +188,8 @@
               href: high-availability-guide-suse-pacemaker.md
             - name: RHEL의 Pacemaker
               href: high-availability-guide-rhel-pacemaker.md
+            - name: SAP 고가용성 시나리오에서 Azure Standard Load Balancer를 사용하는 VM에 대한 퍼블릭 엔드포인트 연결
+              href: high-availability-guide-standard-load-balancer-outbound-connections.md
         - name: SAP 설치
           items:
             - name: (A)SCS 인스턴스에 공유 디스크를 사용하는 Windows
