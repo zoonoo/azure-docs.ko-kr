@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
 ms.custom: ''
-ms.openlocfilehash: d1b6444b8512b1b55ac46370e805f8f662f5f555
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 121ea4b7e29510ef86b61350ed97ffca5d133d56
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070692"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199479"
 ---
 # <a name="deployment-best-practices"></a>배포 모범 사례
 
@@ -40,8 +40,8 @@ ms.locfileid: "70070692"
 
 배포 메커니즘은 웹 앱의 */home/site/wwwroot* 디렉터리에 빌드된 응용 프로그램을 배치 하는 데 사용 되는 작업입니다. */Wwwroot* 디렉터리는 웹 앱의 모든 인스턴스에서 공유 하는 탑재 된 저장소 위치입니다. 배포 메커니즘이 응용 프로그램을이 디렉터리에 배치 하면 인스턴스는 새 파일을 동기화 하는 알림을 받게 됩니다. App Service는 다음과 같은 배포 메커니즘을 지원 합니다.
 
-- Kudu 끝점: [Kudu](https://github.com/projectkudu/kudu/wiki) 는 Windows App Service에서 별도의 프로세스로 실행 되 고 Linux App Service의 두 번째 컨테이너로 실행 되는 오픈 소스 개발자 생산성 도구입니다. Kudu는 연속 배포를 처리 하 고 zipdeploy와 같은 배포에 대 한 HTTP 끝점을 제공 합니다.
-- FTP 및 WebDeploy: [사이트 또는 사용자 자격 증명](deploy-configure-credentials.md)을 사용 하 여 FTP 또는 WebDeploy를 [통해](deploy-ftp.md) 파일을 업로드할 수 있습니다. 이러한 메커니즘은 Kudu를 거치지 않습니다.  
+- Kudu 끝점: [Kudu](https://github.com/projectkudu/kudu/wiki) 는 Windows App Service에서 별도의 프로세스로 실행 되는 오픈 소스 개발자 생산성 도구 이며 Linux App Service의 두 번째 컨테이너로 실행 됩니다. Kudu는 연속 배포를 처리 하 고 zipdeploy와 같은 배포에 대 한 HTTP 끝점을 제공 합니다.
+- FTP 및 WebDeploy: [사이트 또는 사용자 자격 증명](deploy-configure-credentials.md)을 사용 하 여 Ftp 또는 webdeploy를 [통해](deploy-ftp.md) 파일을 업로드할 수 있습니다. 이러한 메커니즘은 Kudu를 거치지 않습니다.  
 
 Azure Pipelines, Jenkins 및 편집기 플러그 인 같은 배포 도구는 이러한 배포 메커니즘 중 하나를 사용 합니다.
 
@@ -53,11 +53,11 @@ Kudu [zipdeploy/](deploy-zip.md) API를 사용 하 여 JAR 응용 프로그램�
 
 ### <a name="node"></a>노드
 
-기본적으로 Kudu는 노드 응용 프로그램 (`npm install`)에 대 한 빌드 단계를 실행 합니다. Azure DevOps와 같은 빌드 서비스를 사용 하는 경우 Kudu 빌드는 필요 하지 않습니다. Kudu 빌드를 사용 하지 않도록 설정 하려면 `SCM_DO_BUILD_DURING_DEPLOYMENT` `false`값이 인 앱 설정을 만듭니다.
+기본적으로 Kudu는 노드 응용 프로그램 (`npm install`)에 대 한 빌드 단계를 실행 합니다. Azure DevOps와 같은 빌드 서비스를 사용 하는 경우 Kudu 빌드는 필요 하지 않습니다. Kudu 빌드를 사용 하지 않도록 설정 하려면 `false`값을 사용 하 여 `SCM_DO_BUILD_DURING_DEPLOYMENT`앱 설정을 만듭니다.
 
 ### <a name="net"></a>.NET 
 
-기본적으로 Kudu는 .Net 응용 프로그램에 대 한 빌드 단계 (`dotnet build`)를 실행 합니다. Azure DevOps와 같은 빌드 서비스를 사용 하는 경우 Kudu 빌드는 필요 하지 않습니다. Kudu 빌드를 사용 하지 않도록 설정 하려면 `SCM_DO_BUILD_DURING_DEPLOYMENT` `false`값이 인 앱 설정을 만듭니다.
+기본적으로 Kudu는 .Net 응용 프로그램 (`dotnet build`)에 대 한 빌드 단계를 실행 합니다. Azure DevOps와 같은 빌드 서비스를 사용 하는 경우 Kudu 빌드는 필요 하지 않습니다. Kudu 빌드를 사용 하지 않도록 설정 하려면 `false`값을 사용 하 여 `SCM_DO_BUILD_DURING_DEPLOYMENT`앱 설정을 만듭니다.
 
 ## <a name="other-deployment-considerations"></a>기타 배포 고려 사항
 
@@ -69,7 +69,7 @@ Kudu [zipdeploy/](deploy-zip.md) API를 사용 하 여 JAR 응용 프로그램�
 
 Azure App Service의 콘텐츠는 Azure Storage에 저장되며 영구적 방식으로 콘텐츠 공유로 표시됩니다. 그러나 일부 앱은 고가용성으로 실행할 수 있는 고성능 읽기 전용 콘텐츠 저장소가 필요 합니다. 이러한 앱은 [로컬 캐시](overview-local-cache.md)를 사용 하는 이점을 누릴 수 있습니다. WordPress 등의 콘텐츠 관리 사이트에는 로컬 캐시를 사용할 수 없습니다.
 
-가동 중지 시간을 방지 하려면 항상 [배포 슬롯] (배포-스테이징-슬롯 md)과 함께 로컬 캐시를 사용 합니다. 이러한 기능을 함께 사용 하는 방법에 대 한 자세한 내용은 [이 섹션](overview-local-cache.md#best-practices-for-using-app-service-local-cache) 을 참조 하세요.
+가동 중지 시간을 방지 하려면 항상 [배포 슬롯과](deploy-staging-slots.md) 함께 로컬 캐시를 사용 합니다. 이러한 기능을 함께 사용 하는 방법에 대 한 자세한 내용은 [이 섹션](overview-local-cache.md#best-practices-for-using-app-service-local-cache) 을 참조 하세요.
 
 ### <a name="high-cpu-or-memory"></a>높은 CPU 또는 메모리
 

@@ -36,8 +36,6 @@
           href: ../core/howto-manage-devices-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: 작업 실행
           href: ../core/howto-run-a-job.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
-        - name: 디바이스 그룹 사용
-          href: ../core/howto-use-device-groups-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
         - name: 버전 디바이스 템플릿
           href: ../core/howto-version-device-template-pnp.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: 모니터링 및 분석

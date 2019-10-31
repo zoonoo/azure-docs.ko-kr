@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 14789549218d46dc0eb147bc659fce7adba0a9bd
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 17dd4862a02a736237257c50802135fb62883d77
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953240"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200605"
 ---
 # <a name="manage-users-and-roles-in-your-iot-central-application-preview-features"></a>IoT Central 응용 프로그램에서 사용자 및 역할 관리 (미리 보기 기능)
 
@@ -40,6 +40,9 @@ ms.locfileid: "72953240"
 
     > [!div class="mx-imgBorder"]
     >사용자를 추가 하 고 역할을 선택 ![](media/howto-manage-users-roles-pnp/add-user-pnp.png)
+
+    > [!NOTE]
+    > 사용자에 게 다른 사용자를 추가할 수 있는 권한을 부여 하는 사용자 지정 역할의 사용자는 자신의 역할과 동일 하거나 더 낮은 권한이 있는 역할에만 사용자를 추가할 수 있습니다.
 
 ### <a name="edit-the-roles-that-are-assigned-to-users"></a>사용자에게 지정된 역할 편집
 
@@ -195,6 +198,9 @@ ms.locfileid: "72953240"
 | 추가 | 보기 <br/> 기타 종속성: 사용자 지정 역할 보기 |
 | 삭제 | 보기 <br/> 기타 종속성: 사용자 지정 역할 보기 |
 | 모든 권한 | 보기, 추가, 삭제 <br/> 기타 종속성: 사용자 지정 역할 보기 |
+
+> [!NOTE]
+> 사용자에 게 다른 사용자를 추가할 수 있는 권한을 부여 하는 사용자 지정 역할의 사용자는 자신의 역할과 동일 하거나 더 낮은 권한이 있는 역할에만 사용자를 추가할 수 있습니다.
 
 #### <a name="customizing-the-app"></a>앱 사용자 지정
 

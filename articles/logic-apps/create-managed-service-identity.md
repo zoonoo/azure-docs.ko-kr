@@ -9,16 +9,16 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: fdc5340c9affa7137815577af842aa8b43a552a8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 2d1dbde2499dbe793a895f894e5ae83c36c54449
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799516"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200632"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 되는 id를 사용 하 여 Azure 리소스에 대 한 액세스 인증
 
-다른 Azure Active Directory (Azure AD) 테 넌 트의 리소스에 액세스 하 고 로그인 하지 않고 id를 인증 하기 위해 논리 앱은 시스템 할당 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) (이전의 관리 서비스 ID 또는 MSI)를 사용할 수 있습니다. 자격 증명 또는 암호. 이 ID는 Azure에서 관리되며, 비밀을 제공하거나 순환할 필요가 없기 때문에 자격 증명을 보호하는 데 도움이 됩니다. 이 문서에서는 논리 앱에서 시스템 할당 관리 id를 설정 하 고 사용 하는 방법을 보여 줍니다.
+다른 Azure Active Directory (Azure AD) 테 넌 트의 리소스에 액세스 하 고 로그인 하지 않고 id를 인증 하기 위해 논리 앱은 시스템 할당 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) (이전의 관리 서비스 ID 또는 MSI)를 사용할 수 있습니다. 자격 증명 또는 암호. 이 ID는 Azure에서 관리되며, 비밀을 제공하거나 순환할 필요가 없기 때문에 자격 증명을 보호하는 데 도움이 됩니다. 이 문서에서는 논리 앱에서 시스템 할당 관리 id를 설정 하 고 사용 하는 방법을 보여 줍니다. 현재 관리 되는 id는 관리 되는 커넥터나 연결이 아닌 [특정 기본 제공 트리거 및 작업](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls)에서만 작동 합니다.
 
 자세한 내용은 다음 항목을 참조하세요.
 
@@ -155,7 +155,7 @@ Azure에서 논리 앱 리소스 정의를 만들 때 `identity` 개체는 다�
 
 ## <a name="authenticate-access-with-managed-identity"></a>관리 id를 사용 하 여 액세스 인증
 
-[논리 앱에 관리 되는 id를 사용 하도록 설정](#azure-portal-system-logic-app) 하 고 해당 id에 [대상 리소스에](#access-other-resources)대 한 액세스 권한을 부여 하면 관리 되는 [id를 지 원하는 트리거와 작업](logic-apps-securing-a-logic-app.md#managed-identity-authentication)에서 해당 id를 사용할 수 있습니다.
+[논리 앱에 관리 되는 id를 사용 하도록 설정](#azure-portal-system-logic-app) 하 고 해당 id에 [대상 리소스나 엔터티에](#access-other-resources)대 한 액세스 권한을 부여 하 고 나면 관리 되는 [id를 지 원하는 트리거와 작업](logic-apps-securing-a-logic-app.md#managed-identity-authentication)에서 해당 id를 사용할 수 있습니다.
 
 > [!IMPORTANT]
 > 시스템이 할당 한 id를 사용 하려는 Azure 함수가 있는 경우 먼저 [azure 기능에 대해 인증을 사용 하도록 설정](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions)합니다.
@@ -164,27 +164,34 @@ Azure에서 논리 앱 리소스 정의를 만들 때 `identity` 개체는 다�
 
 1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다.
 
-1. 아직 수행 하지 않은 경우 [관리 되는 id를 지 원하는](logic-apps-securing-a-logic-app.md#managed-identity-authentication)트리거 또는 작업을 추가 합니다.
+1. 아직 수행 하지 않은 경우 [관리 되는 id를 지 원하는 트리거 또는 작업](logic-apps-securing-a-logic-app.md#managed-identity-authentication)을 추가 합니다.
 
-   예를 들어 이전에 id에 대 한 액세스를 설정한 Azure Storage 계정에서 blob에 대 한 blob [스냅숏 작업](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) 을 실행 하려고 하지만 [Azure Blob Storage 커넥터가](/connectors/azureblob/) 현재이 작업을 제공 하지 않습니다. 대신 [HTTP 작업](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) 을 사용 하 여 작업 또는 다른 모든 [Blob Service REST API 작업](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs)을 실행할 수 있습니다. 인증의 경우 HTTP 작업은 논리 앱에 대해 사용 하도록 설정 된 시스템 할당 id를 사용할 수 있습니다. 또한 HTTP 작업은 이러한 속성을 사용 하 여 액세스 하려는 리소스를 지정 합니다.
+   예를 들어, HTTP 트리거 또는 작업은 논리 앱에 대해 사용 하도록 설정 된 시스템 할당 id를 사용할 수 있습니다. 일반적으로 HTTP 트리거 또는 작업은 이러한 속성을 사용 하 여 액세스 하려는 리소스나 엔터티를 지정 합니다.
 
-   * **URI** 속성은 대상 Azure 리소스에 액세스 하기 위한 끝점 URL을 지정 합니다. 이 URI 구문은 일반적으로 Azure 리소스 또는 서비스에 대 한 [리소스 ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 를 포함 합니다.
+   | 자산 | 필수 | 설명 |
+   |----------|----------|-------------|
+   | **메서드** | yes | 실행 하려는 작업에서 사용 하는 HTTP 메서드입니다. |
+   | **URI** | yes | 대상 Azure 리소스 또는 엔터티에 액세스 하기 위한 끝점 URL입니다. URI 구문은 일반적으로 Azure 리소스 또는 서비스에 대 한 [리소스 ID](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 를 포함 합니다. |
+   | **헤더** | 아닙니다. | 필요한 모든 헤더 값 (예: 콘텐츠 형식)을 보내는 요청에 포함 하려고 합니다. |
+   | **쿼리** | 아닙니다. | 특정 작업에 대 한 매개 변수 또는 실행 하려는 작업의 API 버전 등 요청에 포함 하려는 모든 쿼리 매개 변수 |
+   | **인증** | yes | 대상 리소스 또는 엔터티에 대 한 액세스를 인증 하는 데 사용할 인증 유형입니다. |
+   ||||
 
-   * **Headers** 속성은 대상 리소스에서 실행할 작업에 대 한 API 버전 등 필요한 헤더 값을 지정 하거나 요청에 포함 하려고 합니다.
+   특정 한 예로, 이전에 id에 대 한 액세스를 설정한 Azure Storage 계정의 blob에 대해 [스냅숏 blob 작업](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) 을 실행 하려고 한다고 가정 합니다. 그러나 [Azure Blob Storage 커넥터](https://docs.microsoft.com/connectors/azureblob/) 는 현재이 작업을 제공 하지 않습니다. 대신 [HTTP 동작](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) 또는 다른 [Blob Service REST API 작업](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs)을 사용 하 여이 작업을 실행할 수 있습니다.
 
-   * **Queries** 속성은 요청에 포함 해야 하는 모든 쿼리 매개 변수를 지정 합니다. 예를 들어 특정 작업에 대 한 매개 변수 또는 필요한 경우 특정 API 버전을 지정 합니다.
+   > [!IMPORTANT]
+   > HTTP 요청 및 관리 되는 id를 사용 하 여 방화벽 뒤에 있는 Azure 저장소 계정에 액세스 하려면 신뢰할 수 있는 [Microsoft 서비스의 액세스를 허용 하는 예외](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service)를 사용 하 여 저장소 계정도 설정 해야 합니다.
 
-   따라서 [스냅숏 Blob 작업](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob)을 실행 하려면 HTTP 동작에서 다음 속성을 지정 합니다.
+   [Blob 스냅숏 작업](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob)을 실행 하려면 HTTP 동작에서 다음 속성을 지정 합니다.
 
-   * **Method**: `PUT` 작업을 지정 합니다.
-
-   * **URI**: Azure 전역 (공용) 환경에서 Azure Blob Storage 파일에 대 한 리소스 ID를 지정 하 고 다음 구문을 사용 합니다.
-
-     `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}`
-
-   * **헤더**: 스냅숏 Blob 작업에 대 한 `2019-02-02`로 `x-ms-blob-type`를 `BlockBlob` 및 `x-ms-version` 지정 합니다. 자세한 내용은 [요청 헤더-스냅숏 Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) 및 [Azure Storage services에 대 한 버전 관리](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services)를 참조 하세요.
-
-   * **쿼리**: `comp`를 쿼리 매개 변수 이름으로 지정 하 고 `snapshot`를 매개 변수 값으로 지정 합니다.
+   | 자산 | 필수 | 예제 값 | 설명 |
+   |----------|----------|---------------|-------------|
+   | **메서드** | yes | `PUT`| 스냅숏 Blob 작업에서 사용 하는 HTTP 메서드입니다. |
+   | **URI** | yes | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | 이 구문을 사용 하는 Azure 전역 (공용) 환경의 Azure Blob Storage 파일에 대 한 리소스 ID입니다. |
+   | **헤더** | 예, Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Azure Storage 작업에 필요한 `x-ms-blob-type` 및 `x-ms-version` 헤더 값입니다. <p><p>**중요**: Azure Storage에 대 한 나가는 HTTP 트리거와 작업 요청에서 헤더에는 실행할 작업에 대 한 `x-ms-version` 속성 및 API 버전이 필요 합니다. <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [요청 헤더-스냅숏 Blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>[Azure Storage 서비스에 대 한 - 버전 관리](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **쿼리** | 예 (이 작업의 경우) | `comp` = `snapshot` | Snapshot Blob 작업에 대 한 쿼리 매개 변수 이름 및 값입니다. |
+   | **인증** | yes | `Managed Identity` | Azure blob에 대 한 액세스를 인증 하는 데 사용할 인증 유형입니다. |
+   |||||
 
    다음은 이러한 모든 속성 값을 보여 주는 예제 HTTP 동작입니다.
 

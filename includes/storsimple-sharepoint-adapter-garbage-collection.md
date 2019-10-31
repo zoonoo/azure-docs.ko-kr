@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b5d9deacdd4266da30f17c95b6e575a652d2f76
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 00d292b3ba2d1b6c7c425d4c9f89188e660ac80d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182245"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182251"
 ---
 이 절차에서는 다음을 수행합니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "67182245"
 4. `aspnet_regiis -pdf connectionStrings` 를 사용하여 web.config 파일의 암호를 해독합니다.
 5. 암호 해독된 web.config 파일의 `connectionStrings` 노드에 SQL Server 인스턴스 및 콘텐츠 데이터베이스 이름에 대한 연결 문자열을 추가합니다. 다음 예제를 참조하세요.
    
-    `<add name=”RBSMaintainerConnectionWSSContent” connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
+    `<add name="RBSMaintainerConnectionWSSContent" connectionString="Data Source=SHRPT13-SQL12\SHRPT13;Initial Catalog=WSS_Content;Integrated Security=True;Application Name=&quot;Remote Blob Storage Maintainer for WSS_Content&quot;" providerName="System.Data.SqlClient" />`
 6. `aspnet_regiis –pef connectionStrings` 를 사용하여 web.config 파일을 다시 암호화합니다. 
 7. web.config의 이름을 Microsoft.Data.SqlRemoteBlobs.Maintainer.exe.config로 바꿉니다. 
 

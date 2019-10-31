@@ -16,12 +16,12 @@ ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bf254f06c14afa7ee32f27d6632ab33665cf31c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 3eb7960d58723d6fdd165841baea3416d5a84348
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173467"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199775"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 요청 승인 또는 거부
 
@@ -35,7 +35,7 @@ Azure AD 자격 관리를 사용 하 여 액세스 패키지에 대 한 승인�
 
 1. 요청을 승인 또는 거부 하도록 요청 하는 Microsoft Azure에서 전자 메일을 찾습니다. 전자 메일 예제는 다음과 같습니다.
 
-    ![패키지 전자 메일에 액세스 하는 요청 승인](./media/entitlement-management-shared/email-approve-request.png)
+    ![패키지 전자 메일에 액세스 하는 요청 승인](./media/entitlement-management-shared/approver-request-email.png)
 
 1. **요청 승인 또는 거부** 링크를 클릭 하 여 액세스 요청을 엽니다.
 

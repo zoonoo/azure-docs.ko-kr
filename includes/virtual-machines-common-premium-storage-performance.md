@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 961f4595d60e85677d2c7c4a1abd97736d0180ec
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 289100afe825c14ce9964f39e3f583078f51da1d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391714"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182253"
 ---
 ## <a name="application-performance-indicators"></a>애플리케이션 성과 지표
 
@@ -189,7 +189,7 @@ VM당 및 디스크당 최대 IOPS 제한은 서로 다르고 독립적입니다
 *작업 비용*  
 대부분의 경우에서 Premium Storage를 사용하는 작업의 전체 비용은 Standard Storage를 사용하는 비용보다 낮을 수 있습니다.
 
-예를 들어 16,000 IOPS를 필요로 하는 애플리케이션을 가정합니다. 이 성능을 얻으려면 32 standard storage 1tb 디스크를 사용 하 여 16000의 최대 IOPS를 제공할 수 있는 표준 @ no__t-0D14 Azure IaaS VM이 필요 합니다. 각 1tb standard storage 디스크는 최대 500 IOPS를 달성할 수 있습니다. 월별 이 VM의 예상된 비용은 $1,570가 됩니다. 32개의 표준 스토리지 디스크의 월간 비용은 $1,638가 됩니다. 예상되는 총 월간 비용은 $3,208가 됩니다.
+예를 들어 16,000 IOPS를 필요로 하는 애플리케이션을 가정합니다. 이 성능을 얻으려면 32 standard storage 1tb 디스크를 사용 하 여 16000의 최대 IOPS를 제공할 수 있는 표준\_D14 Azure IaaS VM이 필요 합니다. 각 1tb standard storage 디스크는 최대 500 IOPS를 달성할 수 있습니다. 월별 이 VM의 예상된 비용은 $1,570가 됩니다. 32개의 표준 스토리지 디스크의 월간 비용은 $1,638가 됩니다. 예상되는 총 월간 비용은 $3,208가 됩니다.
 
 그러나 Premium Storage에 동일한 애플리케이션을 호스팅한 경우 더 작은 VM 크기와 적은 Premium Storage 디스크가 필요하므로 전반적인 비용이 절감됩니다. Standard\_DS13 VM은 4개의 P30 디스크를 사용하여 16,000 IOPS 요구 사항을 충족할 수 있습니다. DS13 VM은 25,600의 최대 IOPS를 가지고 각 P30 디스크는 5,000의 최대 IOPS를 가집니다. 전체적으로 이 구성은 5,000 x 4 = 20,000 IOPS를 달성할 수 있습니다. 예상되는 이 VM의 월별 비용은 $1,003입니다. 4개의 P30 Premium Storage 디스크의 월간 비용은 $544.34가 됩니다. 예상되는 총 월별 비용은 $1,544입니다.
 
@@ -298,12 +298,12 @@ Premium Storage 데이터 디스크에 ReadOnly 캐싱을 구성하여 짧은 �
 | SUSE | SLES 12 이상| 3.12.36-38.1+ | suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 이상| 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0 + 이상| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 또는 이상| &nbsp; | [LIS4 필요](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
-| CentOS | 7.1 이상| 3.10.0-229.1.2.el7+ | [LIS4 권장](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *다음 섹션의 참고를 참조하세요.* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 또는 이상| &nbsp; | [LIS4 필요](https://www.microsoft.com/download/details.aspx?id=51612) <br> *다음 섹션의 참고를 참조하세요.* |
+| CentOS | 7.1 이상| 3.10.0-229.1.2.el7+ | [LIS4 권장](https://www.microsoft.com/download/details.aspx?id=51612) <br> *다음 섹션의 참고를 참조하세요.* |
 | RHEL(Red Hat Enterprise Linux) | 6.8 +, 7.2 이상 이상 | &nbsp; | &nbsp; |
 | Oracle | 6.0 이상, 7.2 이상 | &nbsp; | UEK4 또는 RHCK |
-| Oracle | 7.0-7.1 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
+| Oracle | 6.4-6.7 이상 | &nbsp; | UEK4 또는 RHCK w/[LIS 4.1+](https://www.microsoft.com/download/details.aspx?id=51612) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>OpenLogic CentOS용 LIS 드라이버
 

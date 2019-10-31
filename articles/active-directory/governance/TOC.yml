@@ -5,7 +5,7 @@
   items:
     - name: ID 거버넌스란?
       href: identity-governance-overview.md
-    - name: 권한 관리란? (미리 보기)
+    - name: 권한 관리란?
       href: entitlement-management-overview.md
     - name: 액세스 검토란?
       href: access-reviews-overview.md

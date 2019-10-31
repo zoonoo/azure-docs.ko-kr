@@ -5,15 +5,15 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 07/11/2019
+ms.date: 10/30/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: a9a837d8a486e10ea2a62be69b889e657b1dbc05
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c141e67157f3ec17d475062ec76406ec765c4f50
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72601049"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199156"
 ---
 메타데이터를 제공하는 Azure 리소스에 태그를 적용하여 분류로 논리적으로 구성합니다. 각 태그는 이름과 값 쌍으로 이루어져 있습니다. 예를 들어 프로덕션의 모든 리소스에 "환경" 이름과 "프로덕션" 값을 적용할 수 있습니다.
 
@@ -24,7 +24,7 @@ ms.locfileid: "72601049"
 다음 제한 사항이 태그에 적용됩니다.
 
 * 일부 리소스 유형은 태그를 지원하지 않습니다. 리소스 유형에 태그를 적용할 수 있는지 확인하려면 [Azure 리소스에 대한 태그 지원](../articles/azure-resource-manager/tag-support.md)을 참조하세요.
-* 각 리소스 또는 리소스 그룹에는 최대 50 개의 태그 이름/값 쌍이 있을 수 있습니다. 현재 저장소 계정은 15 개의 태그만 지원 하지만 이후 릴리스에서는이 제한이 50에 발생 합니다. 허용 되는 최대 수보다 많은 태그를 적용 해야 하는 경우 태그 값에 JSON 문자열을 사용 합니다. JSON 문자열은 단일 태그 이름에 적용되는 여러 값을 포함할 수 있습니다. 리소스 그룹에는 각각 50 개의 태그 이름/값 쌍이 있는 많은 리소스가 포함 될 수 있습니다.
+* 각 리소스 또는 리소스 그룹에는 최대 50 개의 태그 이름/값 쌍이 있을 수 있습니다. 허용 되는 최대 수보다 많은 태그를 적용 해야 하는 경우 태그 값에 JSON 문자열을 사용 합니다. JSON 문자열은 단일 태그 이름에 적용되는 여러 값을 포함할 수 있습니다. 리소스 그룹에는 각각 50 개의 태그 이름/값 쌍이 있는 많은 리소스가 포함 될 수 있습니다.
 * 태그 이름은 512자로 제한되며 태그 값은 256자로 제한됩니다. 스토리지 계정에서 태그 이름은 128자로 제한되며 태그 값은 256자로 제한됩니다.
 * 일반화 된 Vm은 태그를 지원 하지 않습니다.
 * 태그는 해당 리소스 그룹의 리소스에 의해 상속되지 않은 리소스 그룹에 적용됩니다.

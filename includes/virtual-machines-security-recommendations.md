@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/19/2019
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: d43860d71b14bdac275df51695c9206539529171
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e687fc071272e7a509b1dcfb0a417828a07aa7a9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72511497"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182252"
 ---
-이 문서에는 Azure Virtual Machines에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 따라 공유 책임에 대 한 모델에 설명 된 보안 의무를 달성 합니다. 또한 권장 사항은 웹 앱 솔루션에 대 한 전반적인 보안을 개선 하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 역할을 수행 하는 데 필요한 사항에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf)을 참조 하세요.
+이 문서에는 Azure Virtual Machines에 대 한 보안 권장 사항이 포함 되어 있습니다. 이러한 권장 사항을 따라 공유 책임에 대 한 모델에 설명 된 보안 의무를 달성 합니다. 또한 권장 사항은 웹 앱 솔루션에 대 한 전반적인 보안을 개선 하는 데 도움이 됩니다. Microsoft에서 서비스 공급자 역할을 수행 하는 데 필요한 사항에 대 한 자세한 내용은 [클라우드 컴퓨팅을 위한 공유 책임](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91)을 참조 하세요.
 
 이 문서의 권장 사항 중 일부는 Azure Security Center 하 여 자동으로 해결할 수 있습니다. Azure에서 리소스에 대 한 첫 번째 방어선은 Azure Security Center입니다. Azure 리소스의 보안 상태를 주기적으로 분석 하 여 잠재적인 보안 취약성을 식별 합니다. 그런 다음 취약점을 해결 하는 방법을 권장 합니다. 자세한 내용은 [Azure Security Center의 보안 권장 사항](../articles/security-center/security-center-recommendations.md)을 참조 하세요.
 

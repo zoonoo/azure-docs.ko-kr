@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: c133431bb2b84525a8ea875dea94cec8595733bb
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fd2b3a8a09ce69c07cc7d4715a4aaeacf64f0817
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273875"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200642"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
@@ -56,6 +56,17 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 6. Sysprep은 작업을 완료하면 VM을 종료합니다. VM을 다시 시작하지 않습니다.
 
+> [!TIP]
+> **선택 사항** [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) 을 사용 하 여 이미지를 최적화 하 고 VM의 첫 번째 부팅 시간을 줄입니다.
+>
+> 이미지를 최적화 하려면 Windows 탐색기에서 VHD를 두 번 클릭 하 여 탑재 한 다음 `/optimize-image` 매개 변수를 사용 하 여 DISM을 실행 합니다.
+>
+> ```cmd
+> DISM /image:D:\ /optimize-image /boot
+> ```
+> 여기서 D:는 탑재 된 VHD의 경로입니다.
+>
+> `DISM /optimize-image`를 실행 하는 작업은 VHD를 마지막으로 수정한 것입니다. 배포 전에 VHD를 변경 하는 경우 `DISM /optimize-image`를 다시 실행 해야 합니다.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>포털에서 관리 이미지 만들기 
 
@@ -115,7 +126,7 @@ VM 이미지를 만들려면 다음 단계를 수행합니다.
     Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
-4. 가상 머신을 가져옵니다. 
+4. 가상 컴퓨터를 가져옵니다. 
 
     ```azurepowershell-interactive
     $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName
@@ -207,7 +218,7 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>저장소 계정을 사용 하는 VM에서 이미지 만들기
 
-관리 디스크를 사용 하지 않는 VM에서 관리 되는 이미지를 만들려면 저장소 계정에서 OS VHD의 URI가 다음 형식으로 필요 합니다. https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer* /  *vhdfilename*. 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
+관리 디스크를 사용 하지 않는 VM에서 관리 되는 이미지를 만들려면 저장소 계정에서 OS VHD의 URI가 다음 형식으로 필요 합니다. https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename* . 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
 
 
 1.  일부 변수를 만듭니다.

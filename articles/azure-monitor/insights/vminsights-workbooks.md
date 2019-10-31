@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 통합 문서를 사용 하 여 대화형 보고서 만들기 | Microsoft Docs
+title: 통합 문서를 사용 하 여 대화형 보고서 VM용 Azure Monitor 만들기 | Microsoft Docs
 description: VM용 Azure Monitor에 대해 미리 정의 되 고 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고를 간소화 합니다.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: 47e2e5d80241ac093d136b45c853d94a9dd43cbe
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dff5027f2ff9ff244f0fa04177a04e446e98465b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553725"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200539"
 ---
-# <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기
+# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>통합 문서를 사용 하 여 대화형 보고서 VM용 Azure Monitor 만들기
 
 통합 문서는 텍스트, [로그 쿼리](../log-query/query-language.md), 메트릭 및 매개 변수를 풍부한 대화형 보고서로 결합 합니다. 통합 문서는 동일한 Azure 리소스에 대한 액세스 권한이 있는 다른 팀 멤버에 의해 편집될 수 있습니다.
 
@@ -105,7 +105,7 @@ VM용 Azure Monitor는 시작 하기 위한 몇 가지 통합 문서가 포함 �
 
 ### <a name="advanced-analytic-query-settings"></a>고급 분석 쿼리 설정
 
-각 섹션에는 ](media/vminsights-workbooks/006-settings.png) **매개 변수 추가** 단추 오른쪽에 있는 설정 ![Workbooks 섹션 컨트롤 편집 아이콘을 통해 액세스할 수 있는 고유한 고급 설정이 있습니다.
+각 섹션에는 **매개 변수 추가** 단추 오른쪽에 있는 ![통합 문서 섹션 편집 컨트롤](media/vminsights-workbooks/006-settings.png) 아이콘을 통해 액세스할 수 있는 고유한 고급 설정이 있습니다.
 
 ![VM용 Azure Monitor 통합 문서 섹션 편집 컨트롤](media/vminsights-workbooks/007-settings-expanded.png)
 

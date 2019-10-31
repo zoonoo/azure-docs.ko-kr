@@ -447,7 +447,11 @@
         - name: 고가용성
           href: manage-availability.md
         - name: 근접 배치 그룹 만들기
-          href: proximity-placement-groups.md
+          items:
+            - name: 포털
+              href: proximity-placement-groups-portal.md
+            - name: PowerShell
+              href: proximity-placement-groups.md
         - name: 수직 확장
           items:
             - name: PowerShell

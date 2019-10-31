@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: include
-ms.date: 10/07/2019
+ms.date: 10/29/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: 9c53aac47e965a6eba681008d6b6476142190ef8
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 1f6c65d6d8da275d6c52ac2802092dbb5e4e507d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72023086"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73182246"
 ---
 ### <a name="what-is-expressroute-direct"></a>ExpressRoute Direct란?
 
@@ -25,31 +25,7 @@ ExpressRoute Direct는 고객에게 전 세계에 전략적으로 분산된 피�
 
 ### <a name="what-locations-currently-support-expressroute-direct"></a>현재는 Express 경로 다이렉트를 지 원하는 위치는 무엇 인가요? 
 
-사용 가능한 포트는 동적이며 PowerShell에서 용량을 보는 데 사용할 수 있습니다. ‘가용성에 따라 변경될 수 있는’ 이 위치는 다음과 같습니다.
-
-* 암스테르담
-* 암스테르담2
-* 오클랜드 
-* 시카코
-* 댈러스
-* 더블린
-* 홍콩 특별 행정구
-* 런던
-* 런던2
-* Melbourne
-* New York City
-* 퍼스
-* 샌안토니오
-* Seattle
-* 서울
-* 실리콘밸리
-* 싱가포르 2 
-* 시드니
-* 타이베이
-* 도쿄
-* 토론토
-* 워싱턴 DC
-* 워싱턴 DC2
+[ [위치] 페이지](../articles/expressroute/expressroute-locations-providers.md)에서 [가용성]을 확인 하세요. 
 
 ### <a name="what-is-the-sla-for-expressroute-direct"></a>ExpressRoute Direct에 대한 SLA란 무엇인가요?
 
@@ -57,7 +33,7 @@ ExpressRoute Direct는 동일한 [엔터프라이즈급 ExpressRoute](https://az
 
 ### <a name="what-scenarios-should-customers-consider-with-expressroute-direct"></a>고객이 ExpressRoute Direct 사용을 고려해야 하는 시나리오는 무엇인가요?  
 
-Express 경로 다이렉트는 고객에 게 Microsoft 글로벌 백본으로 직접 100 또는 10gbps의 포트 쌍을 제공 합니다. 고객에게 가장 큰 혜택을 제공하는 시나리오에는 대량 데이터 수집, 규제 시장에 대한 물리적 격리 및 버스트 시나리오(예: 렌더링)에 대한 전용 용량이 포함됩니다. 
+Express 경로 다이렉트는 고객에 게 Microsoft 글로벌 백본으로 직접 100 또는 10gbps의 포트 쌍을 제공 합니다. 고객에게 최상의 이점을 제공하는 시나리오에는 대량 데이터 수집, 규제 시장에 대한 물리적 격리 및 버스트 시나리오(예: 렌더링)에 대한 전용 용량이 포함됩니다. 
 
 ### <a name="what-is-the-billing-model-for-expressroute-direct"></a>ExpressRoute Direct에 대한 청구 모델은 무엇인가요? 
 

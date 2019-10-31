@@ -12,12 +12,12 @@ metadata:
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 0d7081a35a143abf1ae068ce7344e0e50e240eaa
-  ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+  ms.openlocfilehash: db10b91f0e407be048cc2a646c2eef905ac81c54
+  ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/11/2019
-  ms.locfileid: "72264133"
+  ms.lasthandoff: 10/31/2019
+  ms.locfileid: "73199753"
 landingContent:
 - title: 애플리케이션 관리 정보
   linkLists:
@@ -25,6 +25,8 @@ landingContent:
     links:
     - text: 애플리케이션 관리란?
       url: what-is-application-management.md
+    - text: SaaS 앱 자습서
+      url: /azure/active-directory/saas-apps/
 - title: 클라우드 앱 및 Single Sign-On 관리
   linkLists:
   - linkListType: concept

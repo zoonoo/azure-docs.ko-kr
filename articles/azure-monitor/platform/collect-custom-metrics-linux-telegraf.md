@@ -1,5 +1,5 @@
 ---
-title: InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
+title: InfluxData Telegraf agent를 사용 하 여 Linux VM에 대 한 사용자 지정 메트릭 수집
 description: InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: e8164a111b9ad5ebcc67c248586e2576046334b0
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 05cc1dcb2a6fa4e7790fa57cd2136d21d94b8a0b
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883237"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200532"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
 
@@ -29,7 +29,7 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
 
 이 자습서에서는 Ubuntu 16.04 LTS 운영 체제를 실행하는 Linux VM을 배포합니다. Telegraf 에이전트는 대부분의 Linux 운영 체제에 대해 지원됩니다. Debian 및 RPM 패키지는 모두 [InfluxData 다운로드 포털](https://portal.influxdata.com/downloads)에서 패키지되지 않은 Linux 이진 파일과 함께 사용할 수 있습니다. 추가 설치 지침 및 옵션은 이 [Telegraf 설치 가이드](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/)를 참조하세요. 
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
+[Azure portal](https://portal.azure.com)에 로그인합니다.
 
 새 Linux VM을 만듭니다. 
 
@@ -47,13 +47,13 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
 
     ![가상 머신 크기 Telegraph 에이전트 개요](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. **네트워크** **네트워크 보안 그룹** 의 > 설정 페이지에서**공용 인바운드 포트를 선택**하 고 HTTP 및 **SSH (22)** 를 선택 합니다. >  나머지는 기본값으로 두고 **확인**을 선택합니다. 
+1. **네트워크** > **네트워크 보안 그룹** 의 **설정** 페이지에서 **공용 인바운드 포트 > 선택**하 고 **HTTP** 및 **SSH (22)** 를 선택 합니다. 나머지는 기본값으로 두고 **확인**을 선택합니다. 
 
 1. 요약 페이지에서 **만들기**를 선택하여 VM 배포를 시작합니다. 
 
 1. VM이 Azure Portal 대시보드에 고정됩니다. 배포가 완료되면 VM 요약이 자동으로 열립니다. 
 
-1. VM 창에서 **ID** 탭으로 이동합니다. VM에서 시스템 할당 ID가 **켜짐**으로 설정되었는지 확인합니다. 
+1. VM 창에서 **id** 탭으로 이동 합니다. vm에 시스템 할당 Id가 **On**으로 설정 되어 있는지 확인 합니다. 
  
     ![Telegraf VM ID 미리 보기](./media/collect-custom-metrics-linux-telegraf/connect-to-VM.png)
  
@@ -81,7 +81,7 @@ wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb
 # install the package 
 sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
 ```
-Telegraf의 구성 파일은 Telegraf의 작업을 정의합니다. 기본적으로는 예제 구성 파일은 **/etc/telegraf/telegraf.conf** 경로에 설치됩니다. 예제 구성 파일은 가능한 모든 입력 및 출력 플러그 인을 나열합니다. 그러나 다음 명령을 실행하여 사용자 지정 구성 파일을 만들고 에이전트에서 사용하도록 설정하겠습니다. 
+Telegraf의 구성 파일은 Telegraf의 작업을 정의합니다. 기본적으로는 예제 구성 파일은 **/etc/telegraf/telegraf.conf** 경로에 설치됩니다. 구성 파일 예제에는 가능한 모든 입력 및 출력 플러그 인이 나열 됩니다. 그러나 사용자 지정 구성 파일을 만들고 에이전트에서 다음 명령을 실행 하 여 사용 하도록 합니다. 
 
 ```cmd
 # generate the new Telegraf config file in the current directory 
@@ -120,9 +120,9 @@ sudo systemctl start telegraf
 
      ![네임스페이스 및 메트릭 선택](./media/collect-custom-metrics-linux-telegraf/VM-resource-selector.png)
 
-## <a name="additional-configuration"></a>기타 고려 사항 
+## <a name="additional-configuration"></a>추가 구성 
 
-이전 연습에서는 몇 가지 기본 입력 플러그 인에서 메트릭을 수집하도록 Telegraf 에이전트를 구성하는 방법에 대한 정보를 제공합니다. Telegraf 에이전트는 몇 가지 추가적인 지원 구성 옵션을 포함하여 150개가 넘는 입력 플러그 인을 지원합니다. InfluxData는 [지원되는 플러그 인 목록](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) 및 [구성 방법](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/)에 대한 지침을 게시합니다.  
+앞의 연습에서는 몇 가지 기본 입력 플러그 인에서 메트릭을 수집 하도록 Telegraf agent를 구성 하는 방법에 대 한 정보를 제공 합니다. Telegraf 에이전트는 추가 구성 옵션을 지 원하는 몇 가지 추가 구성 옵션을 포함 하 여 150 이상의 입력 플러그 인을 지원 합니다. InfluxData는 [지원되는 플러그 인 목록](https://docs.influxdata.com/telegraf/v1.7/plugins/inputs/) 및 [구성 방법](https://docs.influxdata.com/telegraf/v1.7/administration/configuration/)에 대한 지침을 게시합니다.  
 
 또한 이 연습에서는 Telegraf 에이전트를 사용하여 에이전트가 배포된 VM에 대한 메트릭을 내보냈습니다. Telegraf 에이전트를 다른 리소스에 대한 메트릭의 수집기와 전달자로 사용할 수도 있습니다. 다른 Azure 리소스에 대한 메트릭을 내보내도록 에이전트를 구성하는 방법을 알아보려면 [Telegraf에 대한 Azure Monitor 사용자 지정 메트릭 출력](https://github.com/influxdata/telegraf/blob/fb704500386214655e2adb53b6eb6b15f7a6c694/plugins/outputs/azure_monitor/README.md)을 참조하세요.  
 

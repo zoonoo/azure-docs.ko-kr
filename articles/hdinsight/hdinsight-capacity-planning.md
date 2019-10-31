@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 17b68de4766aa8f995a88bd583a7a84e646b9325
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 31d7299b0c14b35aad7a29c875630d8a7fa4827e
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529158"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200595"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -68,13 +68,7 @@ Azure Storage에는 일부 [용량 제한](../azure-subscription-service-limits.
 
 사용하는 애플리케이션에 대해 최적의 클러스터 크기를 결정하려면 클러스터 용량을 벤치마킹하고 지정된 대로 크기를 늘릴 수 있습니다. 예를 들어 시뮬레이트한 워크로드 또는 *카나리아 쿼리*를 사용할 수 있습니다. 시뮬레이트한 워크로드를 사용할 경우 크기가 다른 클러스터에서 예상되는 워크로드를 실행하면서 원하는 성능이 도달할 때까지 크기를 서서히 늘려봅니다. 카나리아 쿼리를 다른 프로덕션 쿼리 간에 주기적으로 삽입 하 여 클러스터에 충분 한 리소스가 있는지 여부를 표시할 수 있습니다.
 
-VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시간에 따라 결정됩니다.
-
-* CPU: VM 크기는 코어 수를 나타냅니다. 코어 수가 많을수록 각 노드가 달성할 수 있는 병렬 계산 수준이 높아집니다. 또한 일부 VM 유형은 더 빠른 코어를 포함합니다.
-
-* RAM: VM 크기는 VM에서 사용할 수 있는 RAM의 양을 나타내기도 합니다. 데이터를 디스크에서 읽지 않고, 처리를 위해 데이터를 메모리에 저장하는 워크로드의 경우, 작업자 노드에 데이터에 맞는 충분한 메모리가 있는지 확인합니다.
-
-* 네트워크: 대부분의 클러스터 유형에 대해 클러스터에서 처리 하는 데이터는 로컬 디스크에 있지 않고 Data Lake Storage 또는 Azure Storage 같은 외부 저장소 서비스에 저장 됩니다. 노드 VM 및 스토리지 서비스 간의 네트워크 대역폭과 처리량을 고려합니다. VM에 사용할 수 있는 네트워크 대역폭은 일반적으로 더 크게 늘어납니다. 자세한 내용은 [VM 크기 개요](https://docs.microsoft.com/azure/virtual-machines/linux/sizes)를 참조하세요.
+워크 로드에 적합 한 VM 제품군을 선택 하는 방법에 대 한 자세한 내용은 [클러스터에 적합 한 vm 크기 선택](hdinsight-selecting-vm-size.md)을 참조 하세요.
 
 ## <a name="choose-the-cluster-scale"></a>클러스터 확장 선택
 
@@ -89,7 +83,7 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 클러스터의 수명은 사용자의 책임입니다. 특정 시간에만 클러스터를 가동하고 실행해야 하는 경우 [Azure Data Factory를 사용하여 요청 시 클러스터를 만들 수 있습니다](hdinsight-hadoop-create-linux-clusters-adf.md). 클러스터를 프로비전하고 삭제하는 PowerShell 스크립트를 만든 다음 [Azure Automation](https://azure.microsoft.com/services/automation/)을 사용하여 해당 스크립트를 예약할 수도 있습니다.
 
 > [!NOTE]  
-> 클러스터를 삭제하면 해당 기본 Hive metastore도 삭제됩니다. 다음에 클러스터를 다시 만들 때를 대비해서 metastore를 보존하려면 Azure Database 또는 [Apache Oozie](https://oozie.apache.org/)와 같은 외부 메타데이터 저장소를 사용합니다.
+> 클러스터를 삭제하면 해당 기본 Hive 메타스토어도 삭제됩니다. 다음에 클러스터를 다시 만들 때를 대비해서 metastore를 보존하려면 Azure Database 또는 [Apache Oozie](https://oozie.apache.org/)와 같은 외부 메타데이터 저장소를 사용합니다.
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>클러스터 작업 오류 격리
@@ -104,10 +98,11 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 1. 페이지 왼쪽 아래에서 **도움말 + 지원** 을 선택 합니다.
 1. **새 지원 요청**을 선택합니다.
 1. **새 지원 요청** 페이지의 **기본 사항** 탭에서 다음 옵션을 선택합니다.
+
    - **문제 유형**: **서비스 및 구독 제한 (할당량)**
    - **구독**: 수정하려는 구독
    - **할당량 유형**: **HDInsight**
-    
+
      ![HDInsight 코어 할당량을 늘리는 지원 요청 만들기](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
 1. **다음: 솔루션 > >** 를 선택 합니다.

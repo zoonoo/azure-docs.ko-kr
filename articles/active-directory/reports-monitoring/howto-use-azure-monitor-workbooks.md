@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: a073a476043fc6570a42cc142e01f2c6f98c7741
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: b88648ce68a7359a842ec975d8633d6200b1a507
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175907"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200124"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Active Directory 보고서에 Azure Monitor 통합 문서를 사용 하는 방법
 
@@ -65,7 +65,7 @@ ms.locfileid: "73175907"
 - Log analytics 작업 영역에 대 한 [액세스](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions)
 - Azure Active Directory의 다음 역할 (Azure Active Directory 포털을 통해 Log Analytics에 액세스 하는 경우)
     - 보안 관리자
-    - 보안 읽기 권한자
+    - 보안 판독기
     - 보고서 구독자
     - 전역 관리자
 
@@ -73,10 +73,9 @@ ms.locfileid: "73175907"
 다음 역할 중 하나에 있어야 하며 통합 문서를 관리 하기 위해 [기본 Log Analytics 작업 영역에 액세스할](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) 수 있어야 합니다.
 -   전역 관리자
 -   보안 관리자
--   보안 읽기 권한자
+-   보안 판독기
 -   보고서 구독자
--   응용 프로그램 관리자
-
+-   애플리케이션 관리자
 
 ## <a name="workbook-access"></a>통합 문서 액세스 
 
@@ -84,16 +83,11 @@ ms.locfileid: "73175907"
 
 1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 
-2. 왼쪽 탐색 창에서 **Azure Active Directory**을 선택 합니다.
+1. **Azure Active Directory** > **모니터링** > **통합 문서로**이동 합니다. 
 
-3. **모니터링** 섹션에서 **통합 문서**를 선택 합니다. 
+1. 보고서 또는 템플릿을 선택 하거나 도구 모음에서 **열기**를 선택 합니다. 
 
-    ![정보 선택](./media/howto-use-azure-monitor-workbooks/41.png)
-
-4. 보고서 또는 템플릿을 선택 하거나 도구 모음에서 **열기**를 선택 합니다. 
-
-    ![열기 선택](./media/howto-use-azure-monitor-workbooks/42.png)
-
+![Azure AD에서 Azure Monitor 통합 문서 찾기](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## <a name="sign-in-analysis"></a>로그인 분석
 

@@ -16,19 +16,19 @@ ms.date: 10/29/2019
 ms.author: mimart
 ms.reviewer: kasimpso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9efe76f15e2f07495a9d95f69b0c21d2bca4ea8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 5a986c2032fc41bbd34230c5b0ead745f88b000f
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180551"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199835"
 ---
 # <a name="create-workspaces-on-the-my-apps-preview-portal"></a>내 앱 (미리 보기) 포털에서 작업 영역 만들기
 
 사용자는 내 앱 (미리 보기) 포털을 사용 하 여 액세스 권한이 있는 클라우드 기반 응용 프로그램을 보고 시작할 수 있습니다. 기본적으로 사용자가 액세스할 수 있는 모든 응용 프로그램은 단일 페이지에 함께 나열 됩니다. 사용자에 대해이 페이지를 더 잘 구성 하기 위해 P1 또는 P2 라이선스가 Azure AD Premium 경우 작업 영역을 설정할 수 있습니다. 작업 영역을 사용 하 여 관련 된 응용 프로그램 (예: 작업 역할, 작업 또는 프로젝트)을 함께 그룹화 하 고 별도의 탭에 표시할 수 있습니다. 작업 영역은 기본적으로 사용자가 액세스할 수 있는 응용 프로그램에 필터를 적용 하므로 사용자는 작업 영역에서 할당 된 응용 프로그램만 볼 수 있습니다.
 
 > [!NOTE]
-> 이 문서에서는 관리자가 작업 영역을 사용 하도록 설정 하 고 만드는 방법을 설명 합니다. 내 앱 포털 및 작업 영역을 사용 하는 방법에 대 한 최종 사용자 정보는 [작업 영역 액세스 및 사용](https://docs.microsoft.com/azure/active-directory/user-help/)을 참조 하세요.
+> 이 문서에서는 관리자가 작업 영역을 사용 하도록 설정 하 고 만드는 방법을 설명 합니다. 내 앱 포털 및 작업 영역을 사용 하는 방법에 대 한 최종 사용자 정보는 [작업 영역 액세스 및 사용](https://docs.microsoft.com/azure/active-directory/user-help/my-applications-portal-workspaces)을 참조 하세요.
 
 ## <a name="enable-my-apps-preview-features"></a>내 앱 미리 보기 기능 사용
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00e5e4a9751a03fe961fe02fec28f41b49e5ba43
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
-ms.translationtype: HT
+ms.openlocfilehash: 2abc5434f11bf00c6872775b1336694c04972e95
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175166"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200225"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>안전 하 고 Azure로 관리 되는 워크스테이션 이해
 
@@ -91,7 +91,7 @@ ms.locfileid: "73175166"
 
 * **보안 강화** –이 항목 수준의 보호 된 솔루션은 개인 사용자, 소규모 비즈니스 사용자 및 일반 개발자에 게 적합 합니다.
 
-   강화 된 워크스테이션은 낮은 보안 프로필의 보안을 강화 하는 정책 기반 방법입니다. 전자 메일 및 웹 검색과 같은 생산성 도구를 사용 하면서 고객 데이터를 사용할 수 있는 안전한 방법을 제공 합니다. 감사 정책 및 Intune을 사용 하 여 사용자 동작 및 프로필 사용에 대 한 향상 된 워크스테이션을 모니터링할 수 있습니다. Windows10 (1809) 스크립트를 사용 하 여 향상 된 워크스테이션 프로필을 배포 하 고 [ATP (Advanced Threat protection)](https://docs.microsoft.com/office365/securitycompliance/office-365-atp)를 사용 하는 고급 맬웨어 보호를 활용 합니다.
+   강화 된 워크스테이션은 낮은 보안 프로필의 보안을 강화 하는 정책 기반 방법입니다. 전자 메일 및 웹 검색과 같은 생산성 도구를 사용 하면서 고객 데이터를 사용할 수 있는 안전한 방법을 제공 합니다. 감사 정책 및 Intune을 사용 하 여 사용자 동작 및 프로필 사용에 대 한 향상 된 워크스테이션을 모니터링할 수 있습니다. Windows10 (1809) 스크립트를 사용 하 여 향상 된 워크스테이션 프로필을 배포 하 고 [ATP (Advanced Threat protection)](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)를 사용 하는 고급 맬웨어 보호를 활용 합니다.
 
 * **높은 수준의 보안** – 워크스테이션의 공격 노출 영역을 줄이는 가장 효과적인 방법은 워크스테이션을 자체 관리 하는 기능을 제거 하는 것입니다. 로컬 관리 권한을 제거 하는 단계는 보안을 개선 하지만 잘못 구현 된 경우 생산성에 영향을 줄 수 있습니다. 높은 수준의 보안 프로필은 향상 된 보안 프로필을 기반으로 하며, 로컬 관리자를 제거 하는 것입니다. 이 프로필은 높은 프로필 사용자를 위해 설계 되었습니다. 임원, 급여 및 중요 한 데이터 사용자, 서비스 및 프로세스에 대 한 승인자입니다.
 

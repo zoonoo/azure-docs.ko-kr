@@ -1,5 +1,5 @@
 ---
-title: 리소스 관리자 템플릿을 사용 하 여 Azure에서 진단 설정 만들기 | Microsoft Docs
+title: 리소스 관리자 템플릿을 사용 하 여 Azure에서 진단 설정 만들기
 description: 리소스 관리자 템플릿을 사용 하 여 진단 설정을 만들어 Azure Monitor 로그, Azure storage 또는 Azure Event Hubs에 Azure platform logs를 전달 합니다.
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 303682a9d7b3c3fe8ba6c8dd6fe2a44741bcafce
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0cb4cee732b1784de489d97769294c455cfd5efd
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597295"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200496"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure에서 진단 설정 만들기
 Azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. 이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md) 사용에 대 한 세부 정보를 제공 하 여 플랫폼 로그를 다른 대상으로 수집 하도록 진단 설정을 구성 합니다. 이렇게 하면 리소스를 만들 때 플랫폼 로그 수집을 자동으로 시작할 수 있습니다.
@@ -59,7 +59,7 @@ Azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 �
 ```
 
 ### <a name="resources"></a>리소스
-진단 설정을 만들 리소스의 리소스 배열에서 `[resource namespace]/providers/diagnosticSettings` 형식의 리소스를 추가 합니다. 속성 섹션은 [진단 설정-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)에 설명 된 형식을 따릅니다. [리소스가 메트릭을 지 원하는](metrics-supported.md)경우 리소스 메트릭을 동일한 대상으로 수집 하려면 `metrics` 속성을 추가 합니다.
+진단 설정을 만들 리소스의 리소스 배열에서 `[resource namespace]/providers/diagnosticSettings`형식의 리소스를 추가 합니다. 속성 섹션은 [진단 설정-만들기 또는 업데이트](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate)에 설명 된 형식을 따릅니다. [리소스가 메트릭을 지 원하는](metrics-supported.md)경우 리소스 메트릭을 동일한 대상으로 수집 하려면 `metrics` 속성을 추가 합니다.
    
 ```json
 "resources": [

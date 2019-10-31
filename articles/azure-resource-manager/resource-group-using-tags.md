@@ -4,14 +4,14 @@ description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9bcbfe1bdb501cac6ff31156db5382d1174eb8ad
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: e7763889ecf69231b7a4daf31e6899b33f3e2b36
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146832"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199165"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>태그를 사용하여 Azure 리소스 구성
 
@@ -250,7 +250,7 @@ done
 
 ## <a name="templates"></a>템플릿
 
-배포 하는 동안 리소스에 태그를 표시 `tags` 하려면 배포 하는 리소스에 요소를 추가 합니다. 태그 이름 및 값을 제공합니다.
+배포 하는 동안 리소스에 태그를 표시 하려면 배포 중인 리소스에 `tags` 요소를 추가 합니다. 태그 이름 및 값을 제공합니다.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>태그 이름에 리터럴 값 적용
 
@@ -361,7 +361,7 @@ done
 
 ### <a name="apply-tags-from-resource-group"></a>리소스 그룹에서 태그 적용
 
-리소스 그룹의 태그를 리소스에 적용 하려면 [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) 함수를 사용 합니다. 태그 값을 가져올 때 일부 문자는 `tags.[tag-name]` 점 표기법에서 올바르게 `tags.tag-name` 구문 분석 되지 않으므로 구문 대신 구문을 사용 합니다.
+리소스 그룹의 태그를 리소스에 적용 하려면 [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) 함수를 사용 합니다. 태그 값을 가져올 때 일부 문자는 점 표기법에서 올바르게 구문 분석 되지 않으므로 `tags.tag-name` 구문 대신 `tags.[tag-name]` 구문을 사용 합니다.
 
 ```json
 {
