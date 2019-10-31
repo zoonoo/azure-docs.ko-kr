@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 01346ba518a07da1ebb606393c2834994cfb42e2
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: b5e4e27e059cdc84370bbf7dbf7c6bc651b1968e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990340"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177361"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application-preview-features"></a>Azure IoT Central 응용 프로그램에서 장치 관리 (미리 보기 기능)
 
@@ -179,6 +179,6 @@ Azure IoT Central 애플리케이션에서 실제 디바이스 또는 시뮬레�
 Azure IoT Central 애플리케이션에서 디바이스를 관리하는 방법을 알아보았으니, 다음과 같은 후속 단계를 진행하시기 바랍니다.
 
 > [!div class="nextstepaction"]
-> [디바이스 집합을 사용하는 방법](howto-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+> [장치 그룹을 사용 하는 방법](tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
 
 <!-- Next how-tos in the sequence -->

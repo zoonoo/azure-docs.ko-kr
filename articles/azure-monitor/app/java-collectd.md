@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 6c74684ac45a040be154a1e6406c1e7a5e0dd253
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 47e5e9dd81174b79e149ba29eec725c8c17eb1a6
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817143"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176399"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights에서 Linux 성능 메트릭
 
@@ -32,7 +32,7 @@ Linux 시스템 성능 메트릭을[Application Insights](../../azure-monitor/ap
 Linux 서버 컴퓨터에서:
 
 1. [collectd](https://collectd.org/) 5.4.0 버전 또는 그 이상을 설치합니다.
-2. [Application Insights collectd 기록기 플러그 인](https://aka.ms/aijavasdk)을 다운로드합니다. 버전 번호를 메모합니다.
+2. [Application Insights collectd 기록기 플러그 인](https://github.com/microsoft/ApplicationInsights-Java/tree/master/collectd/src/main/java/com/microsoft/applicationinsights/collectd/internal)을 다운로드합니다. 버전 번호를 메모합니다.
 3. 플러그인JAR를 `/usr/share/collectd/java`에 복사합니다.
 4. 편집 `/etc/collectd/collectd.conf`:
    * [Java 플러그인](https://collectd.org/wiki/index.php/Plugin:Java) 사용하도록 설정 합니다.

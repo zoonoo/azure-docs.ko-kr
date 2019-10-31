@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: df1263e2cc13f875819c9bb16b5eb7399368b7f5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4a0959c7562c3868825e26366ae08e9b87f92319
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953526"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177221"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Azure IoT Central에서 데이터 내보내기
 
@@ -160,7 +160,7 @@ IoT Central이 디바이스에서 메시지를 받은 후 빠르게 새 메시�
 각 메시지는 마지막으로 내보낸 메시지 이후 적용된 하나 이상의 디바이스 변경 내용을 나타냅니다. 각 메시지로 전송되는 정보는 다음과 같습니다.
 - IoT Central의 디바이스 `id`
 - 디바이스의 `name`
-- [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)의 `deviceId`
+- [Device Provisioning Service](/azure/iot-central/core/howto-connect-nodejs)의 `deviceId`
 - 디바이스 템플릿 정보
 - 속성 값
 - 설정 값

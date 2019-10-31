@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.openlocfilehash: aa5329c6321866fd26e393b581702a392f510108
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 0d8890eeba7fcb53517d6ee653c8dd09866805ef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936837"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177372"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>HDInsight에서 Apache Spark 작업 최적화
 
@@ -57,13 +57,13 @@ Spark는 csv, json, xml, parquet, orc, avro 등의 여러 가지 형식을 지�
 
 새 Spark 클러스터를 만들 때 Azure Blob Storage 또는 Azure Data Lake Storage를 클러스터의 기본 저장소로 선택할 수 있습니다. 두 옵션 모두 임시 클러스터에 대 한 장기 저장소의 이점을 제공 하므로 클러스터를 삭제 하면 데이터가 자동으로 삭제 되지 않습니다. 임시 클러스터를 다시 만들고 해당 데이터에 계속 액세스할 수 있습니다.
 
-| 저장소 유형 | 파일 시스템 | 속도 | 일시적 | 사용 사례 |
+| 저장소 유형 | 파일 시스템 | 속도 | 임시 | 사용 사례 |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:** //url/ | **Standard** | 예 | 임시 클러스터 |
-| Azure Blob Storage (보안) | **wasbs:** /url/ | **Standard** | 예 | 임시 클러스터 |
-| Azure Data Lake Storage Gen 2| **abfs:** /url/ | **보다 빠름** | 예 | 임시 클러스터 |
-| Azure Data Lake Storage Gen 1| **adl:** //url/ | **보다 빠름** | 예 | 임시 클러스터 |
-| 로컬 HDFS | **hdfs:** //url/ | **가장 빠름** | 아니요 | 대화형 24/7 클러스터 |
+| Azure Blob Storage | **wasb:** //url/ | **Standard** | yes | 임시 클러스터 |
+| Azure Blob Storage (보안) | **wasbs:** /url/ | **Standard** | yes | 임시 클러스터 |
+| Azure Data Lake Storage Gen 2| **abfs:** /url/ | **보다 빠름** | yes | 임시 클러스터 |
+| Azure Data Lake Storage Gen 1| **adl:** //url/ | **보다 빠름** | yes | 임시 클러스터 |
+| 로컬 HDFS | **hdfs:** //url/ | **가장 빠름** | 아닙니다. | 대화형 24/7 클러스터 |
 
 ## <a name="use-the-cache"></a>캐시 사용
 
@@ -74,7 +74,7 @@ Spark는 `.persist()`, `.cache()`, `CACHE TABLE`과 같은 다양한 방법을 �
     * 는 분할에서 작동 하지 않으며 이후 Spark 릴리스에서 변경 될 수 있습니다.
 
 * 스토리지 수준 캐싱(권장)
-    * [Alluxio](https://www.alluxio.org/)를 사용하여 구현될 수 있음
+    * [Alluxio](https://www.alluxio.io/)를 사용하여 구현될 수 있음
     * 메모리 내 캐싱 및 SSD 캐싱 사용
 
 * 로컬 HDFS(권장)

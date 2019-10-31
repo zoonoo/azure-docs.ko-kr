@@ -1,6 +1,6 @@
 ---
-title: Azure AD 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 리소스 역할 변경-Azure Active Directory
-description: Azure Active Directory 자격 관리 (미리 보기)에서 기존 액세스 패키지에 대 한 리소스 역할을 변경 하는 방법에 대해 알아봅니다.
+title: Azure AD 자격 관리에서 액세스 패키지에 대 한 리소스 역할 변경-Azure Active Directory
+description: Azure Active Directory 자격 관리에서 기존 액세스 패키지에 대 한 리소스 역할을 변경 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b719546ec598f2e99061597e99a3d4e875b12cf
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 102bbfbd1c02c93830f5c7fce89fe95d7fde54c5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429816"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174649"
 ---
-# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 리소스 역할 변경
-
-> [!IMPORTANT]
-> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="change-resource-roles-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 리소스 역할 변경
 
 액세스 패키지 관리자는 새 리소스에 대 한 사용자의 액세스를 프로 비전 하거나 이전 리소스에서 액세스 권한을 제거 하는 것에 대해 걱정 하지 않고 언제 든 지 액세스 패키지의 리소스를 변경할 수 있습니다. 이 문서에서는 기존 액세스 패키지에 대 한 리소스 역할을 변경 하는 방법을 설명 합니다.
 

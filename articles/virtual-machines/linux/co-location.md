@@ -1,29 +1,27 @@
 ---
-title: Linux Azure Vm 공동 배치 | Microsoft Docs
+title: Linux Azure Vm 공동 배치
 description: Azure VM 리소스를 공동 배치 하 여 대기 시간을 개선할 수 있는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
+manager: gwallace
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/28/2019
-ms.author: cynthn
-ms.openlocfilehash: 81b9dc5059a6ab3e8245acd9c7e7ef8be5abdafd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 10/30/2019
+ms.author: zivr
+ms.openlocfilehash: c90e70900c019340cacc169325155ac74cf7807c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083860"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171474"
 ---
 # <a name="co-locate-resources-for-improved-latency"></a>대기 시간 향상을 위한 리소스 공동 배치
 
 Azure에서 응용 프로그램을 배포할 때 지역 또는 가용성 영역에 인스턴스를 분산 시키면 네트워크 대기 시간이 만들어지므로 응용 프로그램의 전반적인 성능에 영향을 줄 수 있습니다. 
 
-## <a name="preview-proximity-placement-groups"></a>미리 보기: 근접 배치 그룹
+## <a name="proximity-placement-groups"></a>근접 배치 그룹
 
 [!INCLUDE [virtual-machines-common-ppg-overview](../../../includes/virtual-machines-common-ppg-overview.md)]
 
@@ -31,3 +29,8 @@ Azure에서 응용 프로그램을 배포할 때 지역 또는 가용성 영역�
 
 Azure CLI를 사용 하 여 [근접 배치 그룹](proximity-placement-groups.md) 에 VM을 배포 합니다.
 
+[네트워크 대기 시간을 테스트](https://aka.ms/TestNetworkLatency?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하는 방법을 알아봅니다.
+
+[네트워크 처리량을 최적화](https://docs.microsoft.com/azure/virtual-network/virtual-network-optimize-network-bandwidth?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하는 방법을 알아봅니다.  
+
+[SAP 응용 프로그램에서 근접 배치 그룹을 사용](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)하는 방법에 대해 알아봅니다.

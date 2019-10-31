@@ -8,22 +8,22 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/15/2019
+ms.date: 10/30/2019
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.openlocfilehash: 1774fcf0af287bba03c2c5c79e14883e3594ef0c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: a5176f74964e0809cea39aa160943cc6f3451237
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260148"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176515"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대한 관리 ID를 사용하는 방법
 
 > [!Important] 
 > 앱이 구독/테넌트 간에 마이그레이션되면 App Service 및 Azure Functions에 대한 관리 ID가 예상대로 작동하지 않습니다. 앱에서 새 ID를 확보해야 하며 해당 기능을 사용 중지했다가 다시 사용하도록 설정하여 확보할 수 있습니다. 아래 [ID 제거](#remove)를 참조하세요. 다운스트림 리소스에도 새 ID를 사용하려면 액세스 정책을 업데이트해야 합니다.
 
-이 항목에서는 App Service 및 Azure Functions 애플리케이션에 대한 관리 ID를 만드는 방법과 다른 리소스에 액세스하는 데 사용하는 방법을 보여 줍니다. Azure Active Directory의 관리 ID를 사용하면 앱에서 다른 AAD 보호 리소스(예: Azure Key Vault)에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. AAD의 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+이 항목에서는 App Service 및 Azure Functions 애플리케이션에 대한 관리 ID를 만드는 방법과 다른 리소스에 액세스하는 데 사용하는 방법을 보여 줍니다. Azure Active Directory의 관리 ID를 사용하면 앱이 AAD로 보호되는 다른 리소스(예: Azure Key Vault)에 쉽게 액세스할 수 있습니다. ID는 Azure 플랫폼에서 관리하며 비밀을 프로비전하거나 회전할 필요가 없습니다. AAD의 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID](../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
 
 애플리케이션에 두 가지 형식의 ID를 부여할 수 있습니다. 
 - **시스템 할당 ID**는 애플리케이션에 연결되어 있어 해당 앱을 삭제하면 이 ID도 삭제됩니다. 앱에는 하나의 시스템 할당 ID만 있을 수 있습니다.
@@ -43,9 +43,9 @@ ms.locfileid: "71260148"
 
 3. **관리 ID**를 선택합니다.
 
-4. **시스템 할당** 탭에서 **상태**를 **켜기**로 바꿉니다. **저장**을 클릭합니다.
+4. **시스템 할당** 탭에서 **상태**를 **켜기**로 바꿉니다. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
-![App Service의 관리 ID](media/app-service-managed-service-identity/msi-blade-system.png)
+    ![App Service의 관리 ID](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### <a name="using-the-azure-cli"></a>Azure CLI 사용
 
@@ -82,7 +82,7 @@ Azure CLI를 사용하여 관리 ID를 설정하려면 기존 애플리케이션
 
 다음 단계는 웹앱을 만들고 Azure PowerShell을 사용하여 ID를 할당하는 과정을 안내합니다.
 
-1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`를 실행하여 Azure에 연결합니다.
+1. 필요한 경우 [Azure PowerShell 가이드](/powershell/azure/overview)에 있는 지침을 사용하여 Azure PowerShell을 설치한 다음, `Login-AzAccount`을 실행하여 Azure와 연결합니다.
 
 2. Azure PowerShell을 사용하여 웹앱을 만듭니다. App Service에서 Azure PowerShell을 사용하는 방법에 대한 예제는 [App Service PowerShell 샘플](../app-service/samples-powershell.md)을 참조하세요.
 
@@ -172,9 +172,9 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 
 5. **사용자 할당 됨** 탭에서 **추가**를 클릭 합니다.
 
-6. 이전에 만든 ID를 검색한 후 선택합니다. **추가**를 클릭합니다.
+6. 이전에 만든 ID를 검색한 후 선택합니다. **추가**으로 로그온합니다.
 
-![App Service의 관리 ID](media/app-service-managed-service-identity/msi-blade-user.png)
+    ![App Service의 관리 ID](media/app-service-managed-service-identity/msi-blade-user.png)
 
 ### <a name="using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 
@@ -245,55 +245,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 > [!IMPORTANT]
 > 애플리케이션의 액세스를 허용하도록 대상 리소스를 구성해야 할 수도 있습니다. 예를 들어 Key Vault 토큰을 요청할 때에는 애플리케이션의 ID를 포함하는 액세스 정책을 추가했는지 확인해야 합니다. 그렇지 않으면 토큰이 포함되어 있더라도 Key Vault 호출이 거부됩니다. Azure Active Directory 토큰을 지원하는 리소스에 대한 자세한 내용은 [Azure AD 인증을 지원하는 Azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
-App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프로토콜이 있습니다. .NET 애플리케이션의 경우 Microsoft.Azure.Services.AppAuthentication 라이브러리에서 이 프로토콜에 대한 추상화를 제공하고 로컬 개발 환경을 지원합니다.
-
-### <a name="asal"></a>.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리 사용
-
-.NET 애플리케이션 및 함수의 경우 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지를 사용하는 것입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](/cli/azure) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은[Microsoft.Azure.Services.AppAuthentication 참조]를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
-
-1. [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 기타 필요한 NuGet 패키지에 대한 참조를 애플리케이션에 추가합니다. 아래 예제에서는 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)도 사용합니다.
-
-2. 애플리케이션에 다음 코드를 추가하고 올바른 리소스를 대상으로 하도록 수정합니다. 이 예제에서는 Azure Key Vault를 사용하는 두 가지 방법을 보여 줍니다.
-
-```csharp
-using Microsoft.Azure.Services.AppAuthentication;
-using Microsoft.Azure.KeyVault;
-// ...
-var azureServiceTokenProvider = new AzureServiceTokenProvider();
-string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
-// OR
-var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-```
-
-Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자세한 내용은 [Microsoft.Azure.Services.AppAuthentication 참조] 및 [MSI .NET이 포함된 App Service 및 KeyVault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)를 참조하세요.
-
-
-### <a name="using-the-azure-sdk-for-java"></a>Java 용 Azure SDK 사용
-
-Java 응용 프로그램 및 함수의 경우 관리 되는 id를 사용 하는 가장 간단한 방법은 [java 용 AZURE SDK](https://github.com/Azure/azure-sdk-for-java)를 사용 하는 것입니다. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
-
-1. [AZURE SDK 라이브러리](https://mvnrepository.com/artifact/com.microsoft.azure/azure)에 대 한 참조를 추가 합니다. Maven 프로젝트의 경우 프로젝트의 POM 파일 `dependencies` 섹션에이 코드 조각을 추가할 수 있습니다.
-
-```xml
-<dependency>
-    <groupId>com.microsoft.azure</groupId>
-    <artifactId>azure</artifactId>
-    <version>1.23.0</version>
-</dependency>
-```
-
-2. 인증에 `AppServiceMSICredentials` 개체를 사용 합니다. 이 예에서는이 메커니즘을 사용 하 여 Azure Key Vault 작업을 수행할 수 있는 방법을 보여 줍니다.
-
-```java
-import com.microsoft.azure.AzureEnvironment;
-import com.microsoft.azure.management.Azure;
-import com.microsoft.azure.management.keyvault.Vault
-//...
-Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
-        .withSubscription(subscriptionId);
-Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
-
-```
+App Service 및 Azure Functions에서 토큰을 가져오는 간단한 REST 프로토콜이 있습니다. 이는 모든 응용 프로그램 및 언어에 사용할 수 있습니다. 일부 .NET 및 Java의 경우 Azure SDK는이 프로토콜에 대 한 추상화를 제공 하 고 로컬 개발 환경을 용이 하 게 합니다.
 
 ### <a name="using-the-rest-protocol"></a>REST 프로토콜 사용
 
@@ -304,15 +256,15 @@ Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName
 
 **MSI_ENDPOINT**는 앱이 토큰을 요청할 수 있는 로컬 URL입니다. 리소스 토큰을 가져오려면 이 엔드포인트에 다음 매개 변수를 포함하여 HTTP GET 요청을 보냅니다.
 
-> |매개 변수 이름|입력|설명|
+> |매개 변수 이름|그런 다음|설명|
 > |-----|-----|-----|
-> |resource|query|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.|
-> |api-version|query|사용할 토큰 API의 버전입니다. "2017-09-01"은 현재 지원되는 유일한 버전입니다.|
+> |resource|쿼리|토큰을 가져와야 하는 리소스의 AAD 리소스 URI입니다. [Azure AD 인증](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) 또는 기타 리소스 URI를 지원하는 Azure 서비스 중 하나일 수 있습니다.|
+> |api-version|쿼리|사용할 토큰 API의 버전입니다. "2017-09-01"은 현재 지원되는 유일한 버전입니다.|
 > |secret|헤더|MSI_SECRET 환경 변수의 값입니다. 이 헤더는 SSRF(서버 쪽 요청 위조) 공격을 완화하는 데 사용됩니다.|
-> |clientid|query|(사용자가 할당 되지 않은 경우 선택 사항) 사용할 사용자 할당 id의 ID입니다. 생략하면 시스템 할당 ID가 사용됩니다.|
+> |clientid|쿼리|(사용자가 할당 되지 않은 경우 선택 사항) 사용할 사용자 할당 id의 ID입니다. 생략하면 시스템 할당 ID가 사용됩니다.|
 
 > [!IMPORTANT]
-> 사용자 할당 id에 대 한 토큰을 가져오려는 경우에는 `clientid` 속성을 포함 해야 합니다. 그렇지 않으면 토큰 서비스는 시스템 할당 id에 대 한 토큰을 가져오려고 시도 합니다 .이 id는 존재 하지 않을 수도 있고 없을 수도 있습니다.
+> 사용자 할당 id에 대 한 토큰을 가져오려고 시도 하는 경우 `clientid` 속성을 포함 해야 합니다. 그렇지 않으면 토큰 서비스는 시스템 할당 id에 대 한 토큰을 가져오려고 시도 합니다 .이 id는 존재 하지 않을 수도 있고 없을 수도 있습니다.
 
 성공적인 200 OK 응답에는 다음 속성을 가진 JSON 본문이 포함됩니다.
 
@@ -354,26 +306,29 @@ Content-Type: application/json
 
 ### <a name="code-examples"></a>코드 예제
 
-<a name="token-csharp"></a>C#에서 이 요청을 만들려면:
-
-```csharp
-public static async Task<HttpResponseMessage> GetToken(string resource, string apiversion)  {
-    HttpClient client = new HttpClient();
-    client.DefaultRequestHeaders.Add("Secret", Environment.GetEnvironmentVariable("MSI_SECRET"));
-    return await client.GetAsync(String.Format("{0}/?resource={1}&api-version={2}", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource, apiversion));
-}
-```
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 > [!TIP]
 > .NET 언어의 경우 이 요청을 직접 만드는 대신 [Microsoft.Azure.Services.AppAuthentication](#asal)을 사용해도 됩니다.
 
-<a name="token-js"></a>Node.JS:
+```csharp
+private readonly HttpClient _client;
+// ...
+public async Task<HttpResponseMessage> GetToken(string resource)  {
+    var request = new HttpRequestMessage(HttpMethod.Get, 
+        String.Format("{0}/?resource={1}&api-version=2017-09-01", Environment.GetEnvironmentVariable("MSI_ENDPOINT"), resource));
+    request.Headers.Add("Secret", Environment.GetEnvironmentVariable("MSI_SECRET"));
+    return await _client.SendAsync(request);
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const rp = require('request-promise');
-const getToken = function(resource, apiver, cb) {
+const getToken = function(resource, cb) {
     let options = {
-        uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=${apiver}`,
+        uri: `${process.env["MSI_ENDPOINT"]}/?resource=${resource}&api-version=2017-09-01`,
         headers: {
             'Secret': process.env["MSI_SECRET"]
         }
@@ -383,7 +338,7 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
-<a name="token-python"></a>Python에서:
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ```python
 import os
@@ -392,8 +347,8 @@ import requests
 msi_endpoint = os.environ["MSI_ENDPOINT"]
 msi_secret = os.environ["MSI_SECRET"]
 
-def get_bearer_token(resource_uri, token_api_version):
-    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version={token_api_version}"
+def get_bearer_token(resource_uri):
+    token_auth_uri = f"{msi_endpoint}?resource={resource_uri}&api-version=2017-09-01"
     head_msi = {'Secret':msi_secret}
 
     resp = requests.get(token_auth_uri, headers=head_msi)
@@ -402,15 +357,64 @@ def get_bearer_token(resource_uri, token_api_version):
     return access_token
 ```
 
-<a name="token-powershell"></a>PowerShell:
+# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
-$apiVersion = "2017-09-01"
 $resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
-$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVersion"
+$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=2017-09-01"
 $tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
 $accessToken = $tokenResponse.access_token
 ```
+
+---
+
+### <a name="asal"></a>.NET용 Microsoft.Azure.Services.AppAuthentication 라이브러리 사용
+
+.NET 애플리케이션 및 함수의 경우 관리 ID를 사용하는 가장 간단한 방법은 Microsoft.Azure.Services.AppAuthentication 패키지를 사용하는 것입니다. 또한 이 라이브러리는 개발 머신에서 Visual Studio, [Azure CLI](/cli/azure) 또는 Active Directory 통합 인증의 사용자 계정을 사용하여 로컬로 코드를 테스트할 수 있습니다. 이 라이브러를 통한 로컬 개발 옵션에 대한 자세한 내용은[Microsoft.Azure.Services.AppAuthentication 참조]를 참조하세요. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
+
+1. [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 기타 필요한 NuGet 패키지에 대한 참조를 애플리케이션에 추가합니다. 아래 예제에서는 [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)도 사용합니다.
+
+2. 애플리케이션에 다음 코드를 추가하고 올바른 리소스를 대상으로 하도록 수정합니다. 이 예제에서는 Azure Key Vault를 사용하는 두 가지 방법을 보여 줍니다.
+
+    ```csharp
+    using Microsoft.Azure.Services.AppAuthentication;
+    using Microsoft.Azure.KeyVault;
+    // ...
+    var azureServiceTokenProvider = new AzureServiceTokenProvider();
+    string accessToken = await azureServiceTokenProvider.GetAccessTokenAsync("https://vault.azure.net");
+    // OR
+    var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+    ```
+
+Microsoft.Azure.Services.AppAuthentication 및 노출하는 작업에 대한 자세한 내용은 [Microsoft.Azure.Services.AppAuthentication 참조] 및 [MSI .NET이 포함된 App Service 및 KeyVault](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)를 참조하세요.
+
+### <a name="using-the-azure-sdk-for-java"></a>Java 용 Azure SDK 사용
+
+Java 응용 프로그램 및 함수의 경우 관리 되는 id를 사용 하는 가장 간단한 방법은 [java 용 AZURE SDK](https://github.com/Azure/azure-sdk-for-java)를 사용 하는 것입니다. 이 섹션에서는 코드에서 이 라이브러리를 시작하는 방법을 보여 줍니다.
+
+1. [AZURE SDK 라이브러리](https://mvnrepository.com/artifact/com.microsoft.azure/azure)에 대 한 참조를 추가 합니다. Maven 프로젝트의 경우 프로젝트 POM 파일의 `dependencies` 섹션에이 코드 조각을 추가할 수 있습니다.
+
+    ```xml
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>azure</artifactId>
+        <version>1.23.0</version>
+    </dependency>
+    ```
+
+2. 인증에 `AppServiceMSICredentials` 개체를 사용 합니다. 이 예에서는이 메커니즘을 사용 하 여 Azure Key Vault 작업을 수행할 수 있는 방법을 보여 줍니다.
+
+    ```java
+    import com.microsoft.azure.AzureEnvironment;
+    import com.microsoft.azure.management.Azure;
+    import com.microsoft.azure.management.keyvault.Vault
+    //...
+    Azure azure = Azure.authenticate(new AppServiceMSICredentials(AzureEnvironment.AZURE))
+            .withSubscription(subscriptionId);
+    Vault myKeyVault = azure.vaults().getByResourceGroup(resourceGroup, keyvaultName);
+
+    ```
+
 
 ## <a name="remove"></a>ID 제거
 

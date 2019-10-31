@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 0823b4b7e19bec9d8efc83dbb3996076425cb4f1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756892"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176923"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스, 컨테이너 및 항목 작업
 
@@ -85,7 +85,7 @@ Azure Cosmos 컨테이너에는 시스템 정의 속성 집합이 있습니다. 
 |\_id | 시스템 생성 | 컨테이너의 고유 식별자 | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
 |\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
 |\_ts | 시스템 생성 | 컨테이너의 마지막 업데이트 타임스탬프 | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
-|\_self | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
+|\_자체 | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
 |id | 사용자 구성 가능 | 컨테이너의 사용자 정의 고유 이름 | yes | yes | yes | yes | yes |
 |indexingPolicy | 사용자 구성 가능 | 인덱스 경로, 인덱스 유형 및 인덱스 모드를 변경 하는 기능을 제공 합니다. | yes | 아닙니다. | 아닙니다. | 아닙니다. | yes |
 |timeToLive | 사용자 구성 가능 | 설정 된 기간 후에 컨테이너에서 항목을 자동으로 삭제 하는 기능을 제공 합니다. 자세한 내용은 ttl ( [Time To Live](time-to-live.md))을 참조 하세요. | yes | 아닙니다. | 아닙니다. | 아닙니다. | yes |
@@ -121,12 +121,12 @@ Azure Cosmos 컨테이너는 Azure Cosmos Api를 사용 하는 경우 다음 작
 |\_id | 시스템 생성 | 항목의 고유 식별자 | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
 |\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
 |\_ts | 시스템 생성 | 항목의 마지막 업데이트에 대 한 타임 스탬프 | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
-|\_self | 시스템 생성 | 항목의 주소 지정 가능 URI | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
-|id | 여기서는 | 논리적 파티션의 사용자 정의 고유 이름입니다. 사용자가 ID를 지정 하지 않으면 시스템에서 자동으로 생성 합니다. | yes | yes | yes | yes | yes |
+|\_자체 | 시스템 생성 | 항목의 주소 지정 가능 URI | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
+|id | 여기서는 | 논리적 파티션의 사용자 정의 고유 이름입니다. | yes | yes | yes | yes | yes |
 |임의의 사용자 정의 속성 | 사용자 정의 | API 기본 표현으로 표현 되는 사용자 정의 속성 (JSON, BSON 및 CQL 포함) | yes | yes | yes | yes | yes |
 
 > [!NOTE]
-> @No__t_0 속성의 고유성은 각 논리 파티션 내 에서만 적용 됩니다. 여러 문서에는 파티션 키 값이 서로 다른 동일한 `id` 속성이 있을 수 있습니다.
+> `id` 속성의 고유성은 각 논리 파티션 내 에서만 적용 됩니다. 여러 문서에는 파티션 키 값이 서로 다른 동일한 `id` 속성이 있을 수 있습니다.
 
 ### <a name="operations-on-items"></a>항목에 대한 작업
 

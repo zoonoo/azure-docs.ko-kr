@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: b994f75327cb78cd422d75682ee68ea7840a87e8
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: d1ab7089ba76890488aa73d03e0fd9fc8efbe4d5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193961"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176750"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
@@ -34,7 +34,7 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -61,11 +61,11 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 ## <a name="what-is-required-to-create-an-integration-between-api-management-and-application-gateway"></a>API Management 및 Application Gateway 간에 통합을 만드는 데 무엇이 필요한가요?
 
 * **백 엔드 서버 풀:** API Management 서비스의 내부 가상 IP 주소입니다.
-* **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜, 쿠키 기반 선호도와 같은 설정이 있습니다. 이러한 설정은 풀 내의 모든 서버에 적용됩니다.
-* **프런트 엔드 포트:** 애플리케이션 게이트웨이에서 열려 있는 공용 포트입니다. 이 포트에 도달한 트래픽은 백 엔드 서버 중의 하나로 리디렉션됩니다.
+* **백 엔드 서버 풀 설정:** 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀 내의 모든 서버에 적용됩니다.
+* **프런트 엔드 포트:** Application Gateway에 열려 있는 공용 포트입니다. 이 포트에 도달한 트래픽은 백 엔드 서버 중의 하나로 리디렉션됩니다.
 * **수신기:** 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 값은 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
 * **규칙:** 규칙은 수신기를 백 엔드 서버 풀에 바인딩합니다.
-* **사용자 지정 상태 프로브:** 기본적으로 Application Gateway는 IP 주소 기반 프로브를 사용하여 BackendAddressPool의 어떤 서버가 활성 상태인지 파악합니다. API Management 서비스는 올바른 호스트 헤더가 있는 요청에만 응답하므로 기본 프로브는 실패합니다. 서비스가 활성 상태이고 요청을 전달해야 한다는 것을 Application Gateway가 결정할 수 있도록 사용자 지정 상태 프로브를 정의해야 합니다.
+* **사용자 정의 상태 프로브:** 기본적으로 Application Gateway는 IP 주소 기반 프로브를 사용하여 BackendAddressPool의 어떤 서버가 활성 상태인지 파악합니다. API Management 서비스는 올바른 호스트 헤더가 있는 요청에만 응답하므로 기본 프로브는 실패합니다. 서비스가 활성 상태이고 요청을 전달해야 한다는 것을 Application Gateway가 결정할 수 있도록 사용자 지정 상태 프로브를 정의해야 합니다.
 * **사용자 지정 도메인 인증서:** 인터넷에서 API Management에 액세스하려면 Application Gateway 프런트 엔드 DNS 이름에 대한 해당 호스트 이름의 CNAME을 매핑해야 합니다. 이렇게 하면 API Management에 전달되는 Application Gateway에 전송되는 호스트 이름 헤더 및 인증서를 APIM에서 유효한 것으로 인식할 수 있습니다. 이 예제에서는 백 엔드 및 개발자 포털에 대해 두 개의 인증서를 사용합니다.  
 
 ## <a name="overview-steps"> </a> API Management 및 Application Gateway 통합에 필요한 단계
@@ -86,11 +86,11 @@ Virtual Network 내에서만 액세스할 수 있도록 내부 모드의 Virtual
 > Azure AD 또는 타사 인증을 사용하는 경우 Application Gateway에서 [쿠키 기반 세션 선호도](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity) 기능을 사용하도록 설정하세요.
 
 > [!WARNING]
-> Application Gateway WAF가 개발자 포털에서 OpenAPI 사양의 다운로드를 중단 하지 않도록 하려면 방화벽 규칙 `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`을 사용 하지 않도록 설정 해야 합니다.
+> Application Gateway WAF가 개발자 포털에서 OpenAPI 사양의 다운로드를 중단 하지 않도록 하려면 방화벽 규칙 `942200 - "Detects MySQL comment-/space-obfuscated injections and backtick termination"`를 사용 하지 않도록 설정 해야 합니다.
 
 ## <a name="create-a-resource-group-for-resource-manager"></a>Resource Manager에 대한 리소스 그룹 만들기
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 Azure에 로그인
 
@@ -100,7 +100,7 @@ Connect-AzAccount
 
 자격 증명을 사용하여 인증합니다.
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 원하는 구독을 선택합니다.
 
@@ -109,7 +109,7 @@ $subscriptionId = "00000000-0000-0000-0000-000000000000" # GUID of your Azure su
 Get-AzSubscription -Subscriptionid $subscriptionId | Select-AzSubscription
 ```
 
-### <a name="step-3"></a>3단계
+### <a name="step-3"></a>3단계:
 
 리소스 그룹을 만듭니다. 기존 리소스 그룹을 사용하는 경우에는 이 단계를 건너뛰세요.
 
@@ -123,9 +123,9 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 
 ## <a name="create-a-virtual-network-and-a-subnet-for-the-application-gateway"></a>Application Gateway에 대한 Virtual Network 및 서브넷 만들기
 
-다음 예제에서는 Resource Manager를 사용하여 Virtual Network를 만드는 방법을 보여 줍니다.
+다음 예제에서는 리소스 관리자를 사용 하 여 Virtual Network을 만드는 방법을 보여 줍니다.
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 주소 범위 10.0.0.0/24를 Virtual Network를 만드는 동안 Application Gateway에 사용할 서브넷 변수에 할당합니다.
 
@@ -133,7 +133,7 @@ Azure 리소스 관리자를 사용하려면 모든 리소스 그룹이 위치�
 $appgatewaysubnet = New-AzVirtualNetworkSubnetConfig -Name "apim01" -AddressPrefix "10.0.0.0/24"
 ```
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 Virtual Network를 만드는 동안 주소 범위 10.0.1.0/24를 API Management에 사용할 서브넷 변수에 할당합니다.
 
@@ -141,7 +141,7 @@ Virtual Network를 만드는 동안 주소 범위 10.0.1.0/24를 API Management�
 $apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10.0.1.0/24"
 ```
 
-### <a name="step-3"></a>3단계
+### <a name="step-3"></a>3단계:
 
 미국 서부 지역에 리소스 그룹 **apim-appGw-RG**에서 **appgwvnet**이라는 Virtual Network를 만듭니다. 접두사 10.0.0.0/16과 서브넷 10.0.0.0/24 및 10.0.1.0/24를 사용합니다.
 
@@ -149,7 +149,7 @@ $apimsubnet = New-AzVirtualNetworkSubnetConfig -Name "apim02" -AddressPrefix "10
 $vnet = New-AzVirtualNetwork -Name "appgwvnet" -ResourceGroupName $resGroupName -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $appgatewaysubnet,$apimsubnet
 ```
 
-### <a name="step-4"></a>4단계
+### <a name="step-4"></a>4단계:
 
 다음 단계에 대한 서브넷 변수 할당
 
@@ -162,7 +162,7 @@ $apimsubnetdata = $vnet.Subnets[1]
 
 다음 예제에서는 VNET에서 내부 액세스 전용으로 구성된 API Management 서비스를 만드는 방법을 보여 줍니다.
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 위에서 만든 $apimsubnetdata 서브넷을 사용하여 API Management Virtual Network 개체를 만듭니다.
 
@@ -170,7 +170,7 @@ $apimsubnetdata = $vnet.Subnets[1]
 $apimVirtualNetwork = New-AzApiManagementVirtualNetwork -SubnetResourceId $apimsubnetdata.Id
 ```
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 Virtual Network 내부에 API Management 서비스를 만듭니다.
 
@@ -185,7 +185,7 @@ $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $l
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>API Management에서 사용자 지정 도메인 이름 설정
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 도메인에 대 한 개인 키가 있는 인증서의 세부 정보를 사용 하 여 다음 변수를 초기화 합니다. 이 예제에서는 `api.contoso.net` 및 `portal.contoso.net`을 사용합니다.  
 
@@ -202,18 +202,21 @@ $certPwd = ConvertTo-SecureString -String $gatewayCertPfxPassword -AsPlainText -
 $certPortalPwd = ConvertTo-SecureString -String $portalCertPfxPassword -AsPlainText -Force
 ```
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 프록시 및 포털에 대 한 호스트 이름 구성 개체를 만들고 설정 합니다.  
 
 ```powershell
 $proxyHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $gatewayHostname -HostnameType Proxy -PfxPath $gatewayCertPfxPath -PfxPassword $certPwd
-$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType Portal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
+$portalHostnameConfig = New-AzApiManagementCustomHostnameConfiguration -Hostname $portalHostname -HostnameType DeveloperPortal -PfxPath $portalCertPfxPath -PfxPassword $certPortalPwd
 
 $apimService.ProxyCustomHostnameConfiguration = $proxyHostnameConfig
 $apimService.PortalCustomHostnameConfiguration = $portalHostnameConfig
 Set-AzApiManagement -InputObject $apimService
 ```
+
+> [!NOTE]
+> 레거시 개발자 포털 연결을 구성 하려면 `-HostnameType DeveloperPortal` `-HostnameType Portal`으로 바꾸어야 합니다.
 
 ## <a name="create-a-public-ip-address-for-the-front-end-configuration"></a>프런트 엔드 구성에 대한 공용 IP 주소 만들기
 
@@ -229,7 +232,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "public
 
 애플리케이션 게이트웨이를 만들기 전에 모든 구성 항목을 설정해야 합니다. 다음 단계 애플리케이션 게이트웨이 리소스에 필요한 구성 항목을 만듭니다.
 
-### <a name="step-1"></a>1단계
+### <a name="step-1"></a>1단계:
 
 **gatewayIP01**이라는 애플리케이션 게이트웨이 IP 구성을 만듭니다. Application Gateway는 시작되면 구성된 서브넷에서 IP 주소를 선택하고 백 엔드 IP 풀의 IP 주소로 네트워크 트래픽을 라우팅합니다. 인스턴스마다 하나의 IP 주소를 사용합니다.
 
@@ -237,7 +240,7 @@ $publicip = New-AzPublicIpAddress -ResourceGroupName $resGroupName -name "public
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet $appgatewaysubnetdata
 ```
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 공용 IP 엔드포인트에 대한 프런트 엔드 IP 포트를 구성합니다. 이 포트는 최종 사용자가 연결하는 포트입니다.
 
@@ -245,7 +248,7 @@ $gipconfig = New-AzApplicationGatewayIPConfiguration -Name "gatewayIP01" -Subnet
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 ```
 
-### <a name="step-3"></a>3단계
+### <a name="step-3"></a>3단계:
 
 공용 IP 엔드포인트로 프런트 엔드 IP를 구성합니다.
 
@@ -253,7 +256,7 @@ $fp01 = New-AzApplicationGatewayFrontendPort -Name "port01"  -Port 443
 $fipconfig01 = New-AzApplicationGatewayFrontendIPConfig -Name "frontend1" -PublicIPAddress $publicip
 ```
 
-### <a name="step-4"></a>4단계
+### <a name="step-4"></a>4단계:
 
 Application Gateway의 인증서가 전달되는 트래픽을 암호화하고 해독하는 데 사용되도록 구성합니다.
 

@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 9a21242cbb16466ed4c12746ff64bd7352925fed
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4f657cd8c804a597220a7e74d1fce0401c4cd9ae
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592808"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176326"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -133,7 +133,7 @@ Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를
 **작업** 속성 배열을 사용 하면 단일 정책 정의에서 여러 가지 방법으로 여러 태그를 변경할 수 있습니다. 각 작업은 **작업**, **필드**및 **값** 속성으로 구성 됩니다. 작업은 수정 작업이 태그에 수행할 작업을 결정 하 고, 필드는 변경 되는 태그를 결정 하며, 값은 해당 태그에 대 한 새 설정을 정의 합니다. 아래 예제에서는 다음과 같은 태그를 변경 합니다.
 
 - 다른 값이 이미 있는 경우에도 `environment` 태그를 "Test"로 설정 합니다.
-- @No__t_0 태그를 제거 합니다.
+- `TempResource`태그를 제거 합니다.
 - 정책 할당에 구성 된 정책 매개 변수 _DeptName_ `Dept` 태그를 설정 합니다.
 
 ```json
@@ -275,7 +275,7 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
   - **Details. type** 이 if condition 리소스 아래의 리소스 유형인 **경우** 정책은 평가 된 리소스의 범위 내에서이 **형식의** 리소스를 쿼리 합니다. 그렇지 않으면 평가 된 리소스와 동일한 리소스 그룹 내에서 정책 쿼리가 실행 됩니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
-  - **If. field. 형식** 및 **. details. 형식** 에 대 한 조건 값이 일치 하는 경우에는 **이름이** _필요_ 하며 `[field('name')]` 이어야 합니다. 그러나 [감사](#audit) 효과를 대신 고려해 야 합니다.
+  - **If. field. 형식** 및 **. details. 형식** 에 대 한 조건 값이 일치 하는 경우에는 **이름이** _필요_ 하며 `[field('name')]`이어야 합니다. 그러나 [감사](#audit) 효과를 대신 고려해 야 합니다.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
   - **type**이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.
@@ -346,7 +346,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치 시킬 관련 리소
   - **if** 조건 리소스 아래의 리소스를 인출하려는 시도로 시작한 다음, **if** 리소스 조건와 동일한 리소스 그룹 내에서 쿼리합니다.
 - **Name**(옵션)
   - 일치하는 리소스의 정확한 이름을 지정하고 정책에서 지정된 형식의 모든 리소스 대신 하나의 특정 리소스를 인출하도록 합니다.
-  - **If. field. 형식** 및 **. details. 형식** 에 대 한 조건 값이 일치 하는 경우에는 **이름이** _필요_ 하며 `[field('name')]` 이어야 합니다.
+  - **If. field. 형식** 및 **. details. 형식** 에 대 한 조건 값이 일치 하는 경우에는 **이름이** _필요_ 하며 `[field('name')]`이어야 합니다.
 - **ResourceGroupName**(옵션)
   - 다른 리소스 그룹에서 오는 관련된 리소스의 일치를 허용합니다.
   - **type**이 **if** 조건 리소스의 아래에 있는 리소스인 경우 적용되지 않습니다.
@@ -433,7 +433,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치 시킬 관련 리소
 
 ## <a name="enforceregopolicy"></a>EnforceRegoPolicy
 
-이 효과는 `Microsoft.ContainerService.Data`의 정책 정의 *모드* 에서 사용 됩니다. [Rego](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego) 로 정의 된 허용 제어 규칙을 전달 하 여 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 [정책 에이전트](https://www.openpolicyagent.org/) (opa)를 여는 데 사용 됩니다.
+이 효과는 `Microsoft.ContainerService.Data`의 정책 정의 *모드* 에서 사용 됩니다. [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) 로 정의 된 허용 제어 규칙을 전달 하 여 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 [정책 에이전트](https://www.openpolicyagent.org/) (opa)를 여는 데 사용 됩니다.
 
 > [!NOTE]
 > [Kubernetes에 대 한 Azure Policy](rego-for-aks.md) 는 공개 미리 보기로 제공 되며 기본 제공 정책 정의만 지원 합니다.

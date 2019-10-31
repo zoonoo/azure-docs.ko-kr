@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: b720d64f5b0a5f66375083b7854658aa754db150
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ff608cac9786ebc0d3908ce4d88fb501e621be6c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70072297"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176612"
 ---
 # <a name="azure-api-management-page-controls"></a>Azure API Management 페이지 컨트롤
 Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다음 컨트롤을 제공합니다.  
@@ -28,9 +28,11 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
 ```  
   
- 매개 변수의 값은 템플릿에 대한 데이터 모델의 일부로 전달됩니다. 대부분 경우 제대로 작동하도록 각 컨트롤에 대해 제공된 예제에 붙여넣을 수 있습니다. 매개 변수 값에 대한 자세한 내용은 컨트롤을 사용할 수 있는 각 템플릿에 대한 데이터 모델 섹션을 참조할 수 있습니다.  
-  
- 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)을 참조하세요.  
+매개 변수의 값은 템플릿에 대한 데이터 모델의 일부로 전달됩니다. 대부분 경우 제대로 작동하도록 각 컨트롤에 대해 제공된 예제에 붙여넣을 수 있습니다. 매개 변수 값에 대한 자세한 내용은 컨트롤을 사용할 수 있는 각 템플릿에 대한 데이터 모델 섹션을 참조할 수 있습니다.  
+
+템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)을 참조하세요.  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -60,7 +62,7 @@ Azure API Management는 개발자 포털 템플릿에 사용할 수 있는 다�
   
 |매개 변수를 포함해야 합니다.|설명|  
 |---------------|-----------------|  
-|appId|애플리케이션의 ID입니다.|  
+|appId|응용 프로그램의 ID입니다.|  
   
 ### <a name="developer-portal-templates"></a>개발자 포털 템플릿  
  `app-actions` 컨트롤은 다음과 같은 개발자 포털 템플릿에서 사용할 수 있습니다.  

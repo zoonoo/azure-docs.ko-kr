@@ -8,14 +8,14 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 2bb66c52e48e2e872d7f67bfdea88602ba12e5de
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: e493ac10858aa374362d25f1467ded237b30ca44
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518591"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177408"
 ---
-# <a name="azure-notification-hubs-updates-for-ios-13"></a>IOS 13의 Azure Notification Hubs 업데이트
+# <a name="azure-notification-hubs-updates-for-ios-13"></a>iOS 13용 Azure Notification Hubs 업데이트
 
 최근 Apple에서 공용 푸시 서비스를 일부 변경 했습니다. 변경 내용은 대부분 iOS 13 및 Xcode 릴리스에 맞춰져 있습니다. 이 문서에서는 Azure Notification Hubs에 대 한 이러한 변경의 영향을 설명 합니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "72518591"
 
 ### <a name="apns-push-type"></a>APNS 푸시 유형
 
-이제 Apple에서 APNS API에서 새 `apns-push-type` 헤더를 통해 경고 또는 백그라운드 알림으로 알림을 식별 해야 합니다. [Apple의 설명서](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)에 따라 "이 헤더의 값은 알림 페이로드의 내용을 정확 하 게 반영 해야 합니다. 일치 하지 않는 경우 또는 필요한 시스템에 헤더가 없는 경우 APNs에서 오류를 반환 하거나, 알림의 배달을 지연 하거나, 모두 삭제할 수 있습니다. "
+이제 Apple에서 APNS API에서 새 `apns-push-type` 헤더를 통해 경고 또는 백그라운드 알림으로 알림을 식별 해야 합니다. [Apple의 설명서](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns)에 따라 "이 헤더의 값은 알림 페이로드의 내용을 정확 하 게 반영 해야 합니다. 불일치가 존재하거나 요구되는 시스템에서 헤더가 누락된 경우 APN이 오류를 반환하거나 알림의 배달을 지연시키거나 알림을 아예 전달하지 않을 수 있습니다.”
 
 이제 개발자는 Azure Notification Hubs를 통해 알림을 보내는 응용 프로그램에서이 헤더를 설정 해야 합니다. 기술 제한 사항으로 인해 고객은이 특성을 포함 하는 요청과 함께 APNS 자격 증명에 대 한 토큰 기반 인증을 사용 해야 합니다. APNS 자격 증명에 대해 인증서 기반 인증을 사용 하는 경우 토큰 기반 인증을 사용 하도록 전환 해야 합니다.
 
@@ -46,7 +46,7 @@ await hub.SendNotificationAsync(notification);
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);
 var headers = new Dictionary<string, string> {{"apns-push-type", "alert"}};
-var notification = new ApnsNotification("notification text", headers);
+var notification = new AppleNotification("notification text", headers);
 await hub.SendNotificationAsync(notification);
 ```
 
@@ -70,7 +70,7 @@ request.Headers.Add("apns-push-type", "alert");
 ```csharp
 var hub = NotificationHubClient.CreateFromConnectionString(...);
 var headers = new Dictionary<string, string> {{"apns-push-type", "background"}, { "apns-priority", "5" }};
-var notification = new ApnsNotification("notification text", headers);
+var notification = new AppleNotification("notification text", headers);
 await hub.SendNotificationAsync(notification);
 ```
 

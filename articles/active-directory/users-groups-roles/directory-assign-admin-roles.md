@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0f7c1987cd4184ba6cda37d4d1894f0dba0b2f1
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: ea38317868d183bd02958398b51ef906eb78e799
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024626"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177038"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -236,6 +236,10 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 > 이러한 기능은 현재 개발 중입니다.
 >
 
+### <a name="group-administratorgroup-administrator"></a>[그룹 관리자](#group-administrator)
+
+이 역할의 사용자는 이름 및 만료 정책 같은 그룹 및 설정을 만들고 관리할 수 있습니다. 이 역할에 사용자를 할당 하면 팀, SharePoint, Yammer와 같은 다양 한 워크 로드에서 Outlook 외에도 테 넌 트의 모든 그룹을 관리 하는 기능을 이해 하는 것이 중요 합니다. 또한 사용자는 Microsoft 관리 센터, Azure Portal 등의 다양 한 관리 포털에서 다양 한 그룹 설정을 관리할 수 있을 뿐만 아니라 팀 및 SharePoint 관리 센터와 같은 특정 워크 로드를 관리할 수 있습니다.
+
 ### <a name="guest-inviterguest-inviter-permissions"></a>[게스트 초대자](#guest-inviter-permissions)
 
 이 역할의 사용자는 **구성원을 초대할 수 있음** 사용자 설정이 아니요로 설정 된 경우 B2B 게스트 사용자 초대 Azure Active Directory 관리할 수 있습니다. B2B 협업에 대한 자세한 내용은 [Azure AD B2B 협업 정보](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)를 참조하세요. 다른 권한은 포함되지 않습니다.
@@ -286,6 +290,10 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 ### <a name="message-center-readermessage-center-reader-permissions"></a>[메시지 센터 판독기](#message-center-reader-permissions)
 
 이 역할의 사용자는 Exchange, Intune 및 Microsoft 팀과 같은 구성 된 서비스에서 조직의 [Office 365 메시지 센터](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) 에서 알림 및 자문 상태 업데이트를 모니터링할 수 있습니다. 메시지 센터 읽기 권한자는 게시물 및 업데이트 이메일 다이제스트를 매주 수신하며, 메시지 센터 게시물을 Office 365에서 공유할 수 있습니다. Azure AD에서 이 역할에 할당된 사용자는 Azure AD 서비스에서 사용자 및 그룹처럼 읽기 전용 권한만 있습니다. 이 역할에는 지원 티켓 보기, 생성 또는 관리 권한은 없습니다.
+
+### <a name="office-apps-administratoroffice-apps-administrator-permissions"></a>[Office 앱 관리자](#office-apps-administrator-permissions)
+
+이 역할의 사용자는 Office 365 앱의 클라우드 설정을 관리할 수 있습니다. 여기에는 클라우드 정책 관리, 셀프 서비스 다운로드 관리, Office 앱 관련 보고서를 보는 기능 등이 포함 됩니다. 이 역할은 지원 티켓을 관리 하 고 주 관리 센터 내에서 서비스 상태를 모니터링 하는 기능을 추가로 부여 합니다. 이 역할에 할당 된 사용자는 Office 앱의 새로운 기능에 대 한 통신을 관리할 수도 있습니다. 
 
 ### <a name="partner-tier1-supportpartner-tier1-support-permissions"></a>[파트너 Tier1 지원](#partner-tier1-support-permissions)
 
@@ -1060,6 +1068,28 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 | office365/allEntities/표준/읽기   | Office365 포털의 모든 리소스에 대 한 표준 속성을 읽습니다. |
 
+### <a name="group-administrator"></a>그룹 관리자
+이름 지정 및 만료 정책과 같은 그룹 및 그룹 설정의 모든 측면을 관리할 수 있습니다.
+
+| **Actions** | **설명** |
+| --- | --- |
+| microsoft. directory/groups/basic/read | Azure Active Directory에서 그룹의 표준 속성을 읽습니다.  |
+| microsoft. directory/groups/basic/update | Azure Active Directory에서 그룹의 기본 속성을 업데이트합니다. |
+| microsoft. 디렉터리/그룹/만들기 | Azure Active Directory에서 그룹을 만듭니다. |
+| microsoft. directory/groups/createAsOwner | Azure Active Directory에서 그룹을 만듭니다. 작성자는 첫 번째 소유자로 추가되고, 만들어진 개체는 작성자의 250개 개체 만들기 할당량과 대조하여 계산됩니다. |
+| microsoft. 디렉터리/그룹/삭제 | Azure Active Directory에서 그룹을 삭제합니다. |
+| microsoft. directory/groups/hiddenMembers/read | Azure Active Directory에서 groups.hiddenMembers 속성을 읽습니다. |
+| microsoft. 디렉터리/그룹/멤버/업데이트 | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
+| microsoft. 디렉터리/그룹/소유자/업데이트 | Azure Active Directory에서 groups.members 속성을 업데이트합니다. |
+| microsoft. 디렉터리/그룹/복원 | Azure Active Directory에서 그룹을 복원합니다. |
+| microsoft. 디렉터리/그룹/설정/업데이트 | Azure Active Directory에서 groups.settings 속성을 업데이트합니다. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
+
 ### <a name="guest-inviter-permissions"></a>게스트 초대자 권한
 ‘멤버가 게스트를 초대할 수 있음’ 설정에 관계없이 게스트 사용자를 초대할 수 있습니다.
 
@@ -1201,6 +1231,25 @@ Office 365 메시지 센터에서만 조직의 메시지 및 업데이트를 읽
 | --- | --- |
 | microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 | microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
+
+### <a name="office-apps-administrator-permissions"></a>Office 앱 관리자 권한
+는 정책 및 설정 관리를 비롯 한 Office 앱의 클라우드 서비스를 관리 하 고, 최종 사용자의 장치에 "새로운 기능" 기능 콘텐츠를 선택, 선택 취소 및 게시 하는 기능을 관리할 수 있습니다.
+
+> [!NOTE]
+> 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위에 나온 역할 설명을 참조하세요.
+>
+>
+
+| **Actions** | **설명** |
+| --- | --- |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Azure Service Health를 읽고 구성합니다. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Azure 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.messageCenter/messages/read | microsoft.office365.messageCenter에서 메시지를 읽습니다. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Office 365 Service Health를 읽고 구성합니다. |
+| microsoft.office365.supportTickets/allEntities/allTasks | Office 365 지원 티켓을 만들고 관리합니다. |
+| microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
+| office365/allEntities/Allentities | 새 메시지 표시 유형을 읽고 업데이트 합니다. |
+| microsoft.office365.webPortal/allEntities/basic/read | microsoft.office365.webPortal에서 모든 리소스에 대한 기본 속성을 읽습니다. |
 
 ### <a name="partner-tier1-support-permissions"></a>Partner Tier1 지원 권한
 
@@ -1636,6 +1685,7 @@ CRM 서비스 관리자 | Dynamics 365 관리자 | 44367163-eba1-44c3-98af-f5787
 Exchange 서비스 관리자 | Exchange 관리자 | 29232cdf-9323-42fd-ade2-1d097af3e4de
 외부 Id 공급자 관리자 | 외부 Id 공급자 관리자 | be2f45a1-457d-42af-a067-6ec1fa63bc45
 전역 판독기 | 전역 판독기 | f2ef992c-3afb-46b9-b7cf-a126ee74c451
+그룹 관리자 | 그룹 관리자 | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 게스트 초대자 | 게스트 초대자 | 95e79109-95c0-4d8e-aee3-d01accf2d47b
 기술 지원팀 관리자 | 암호 관리자 | 729827e3-9c14-49f7-bb1b-9608f156bbb8
 Intune 서비스 관리자 | Intune 관리자 | 3a2c62db-5318-420d-8d74-23affee5d9d5
@@ -1644,6 +1694,7 @@ Kaizala 관리자 | Kaizala 관리자 | 74ef975b-6605-40af-a5d2-b9539d836353
 Lync 서비스 관리자 | 비즈니스용 Skype 관리자 | 75941009-4869-abe7-691bff18279e
 메시지 센터 개인 정보 읽기 권한자 | 메시지 센터 개인 정보 읽기 권한자 | ac16e43d-7b2d-40e0-ac05-243ff356ab5b
 메시지 센터 읽기 권한자 | 메시지 센터 판독기 | 790c1fb9-7f7d-4f88-86a1-ef1f95c05c1b
+Office 앱 관리자 | Office 앱 관리자 | 2b745bdf-0803-4d80-aa65-822c4493daac
 파트너 계층1 지원 | 파트너 계층1 지원 | 4ba39ca4-527c-499a-b93d-d9b492c50246
 파트너 계층2 지원 | 파트너 계층2 지원 | e00e864a-17c5-4a4b-9c06-f5b95a8d5bd8
 암호 관리자 | 암호 관리자 | 966707d0-3269-4727-9be2-8c3a10f19b9d

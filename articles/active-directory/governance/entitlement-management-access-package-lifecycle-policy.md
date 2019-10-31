@@ -1,6 +1,6 @@
 ---
-title: Azure AD 자격 관리 (미리 보기)에서 액세스 패키지의 수명 주기 설정 변경-Azure Active Directory
-description: Azure Active Directory 자격 관리 (미리 보기)에서 액세스 패키지의 수명 주기 설정을 변경 하는 방법에 대해 알아봅니다.
+title: Azure AD 자격 관리에서 액세스 패키지의 수명 주기 설정 변경-Azure Active Directory
+description: Azure Active Directory 자격 관리에서 액세스 패키지의 수명 주기 설정을 변경 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d63a12443edf04db3570fa43fbd8f20619122e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 959d85f496a4a573a969bf736aba137d5b86154a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392346"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174740"
 ---
-# <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 패키지의 수명 주기 설정 변경
-
-> [!IMPORTANT]
-> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="change-lifecycle-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지의 수명 주기 설정 변경
 
 액세스 패키지 관리자는 기존 정책을 편집 하 여 언제 든 지 액세스 패키지에 대 한 수명 주기 설정을 변경할 수 있습니다. 정책에 대 한 만료 날짜를 변경 하는 경우 이미 보류 중인 승인 또는 승인 된 상태에 있는 요청에 대 한 만료 날짜는 변경 되지 않습니다.
 

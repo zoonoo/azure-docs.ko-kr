@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: dad37af030c456f9ba2cd814fa92a7811dce6aa1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 96956e1ad935933572b1f2d31b70ef64f8b92501
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130321"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175865"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Service Fabric 독립 실행형 클러스터 배포 계획 및 준비
 
@@ -42,10 +42,10 @@ FD를 ClusterConfig.json에 지정하는 경우 각 FD의 이름을 선택할 �
 
 UD를 ClusterConfig.json에 지정하는 경우 각 UD의 이름을 선택할 수 있습니다. 예를 들어 다음 이름이 유효합니다.
 
-* “upgradeDomain”: “UD0”
-* “upgradeDomain”: “UD1A”
-* “upgradeDomain”: “DomainRed”
-* “upgradeDomain”: “Blue”
+* "upgradeDomain": "UD0"
+* "upgradeDomain": "UD1A"
+* "upgradeDomain": "DomainRed"
+* "upgradeDomain": "Blue"
 
 FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](service-fabric-cluster-resource-manager-cluster-description.md)을 참조하세요.
 
@@ -65,7 +65,7 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 * 최소 40GB의 사용 가능한 디스크 공간
 * 4 코어 이상의 CPU
 * 모든 컴퓨터에 대해 보안 네트워크 또는 네트워크 연결성
-* 설치된 Windows Server OS(유효한 버전: 2012 R2, 2016, 1709 또는 1803). Service Fabric 버전 6.4.654.9590 이상에서는 서버 2019 및 1809도 지원 합니다.
+* Windows Server OS가 설치 되었습니다 (유효한 버전: 2012 R2, 2016, 1709 또는 1803). Service Fabric 버전 6.4.654.9590 이상에서는 서버 2019 및 1809도 지원 합니다.
 * [.NET Framework 4.5.1 이상](https://www.microsoft.com/download/details.aspx?id=40773), 전체 설치
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
 * [RemoteRegistry 서비스](https://technet.microsoft.com/library/cc754820)는 모든 컴퓨터에서 실행되어야 함
@@ -102,15 +102,14 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
    * Service Fabric 런타임 제거 
    * Windows 방화벽 서비스(mpssvc) 활성화
    * 원격 레지스트리 서비스(remoteregistry) 활성화
-   * 파일 공유(SMB) 활성화
    * 클러스터 구성 포트에 따라 필요한 포트 열기
-   * Windows SMB 및 원격 레지스트리 서비스: 135, 137, 138, 139 및 445에 대한 필요한 포트 열기
+   * 원격 레지스트리 서비스에 대해 필요한 포트 (135, 137, 138 및 139)를 열어야 합니다.
    * 네트워크 간 연결
 3. 모든 클러스터 노드 컴퓨터는 도메인 컨트롤러여서는 안 됩니다.
 4. 배포되는 클러스터가 보안 클러스터인 경우 필수 보안 구성 요소가 배치되고 구성에 대해 올바르게 구성되어 있는지 유효성을 검사합니다.
 5. 클러스터 컴퓨터를 인터넷에서 액세스할 수 없는 경우 클러스터 구성에서 다음을 설정합니다.
-   * 원격 분석 사용 안 함: *properties*에서 *“enableTelemetry”: false* 설정
-   * 자동 패브릭 버전 다운로드 및 현재 클러스터 버전이 곧 지원 종료된다는 알림 사용 안 함: *properties*에서 *“fabricClusterAutoupgradeEnabled”: true* 설정
+   * 원격 분석 사용 안 함: *속성* 에서 *"enableTelemetry": false를* 설정 합니다.
+   * 자동 패브릭 버전 & 다운로드를 사용 하지 않도록 설정 하 여 현재 클러스터 버전이 지원 끝에 fabricClusterAutoupgradeEnabled 알림: *속성* 에서 *"": false* 를 설정 합니다.
    * 또는 네트워크 인터넷 액세스가 허용 목록 도메인으로 제한될 경우 자동 업그레이드를 위해 go.microsoft.com, download.microsoft.com 도메인이 필요합니다.
 
 6. 적절한 Service Fabric 바이러스 백신 예외 설정:

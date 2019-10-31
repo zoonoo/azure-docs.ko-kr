@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: b94d376ee107f9acd45dff5b96fc43722f2fe208
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 00de95f3b3e6eddd1f45be830202ba3ec8772bfd
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965454"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176157"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Azure Storage에 대 한 개인 끝점 사용 (미리 보기)
 
@@ -48,7 +48,7 @@ VNet에서 저장소 서비스에 대 한 개인 끝점을 만드는 경우 승�
 > [!TIP]
 > RA GRS 계정에 대 한 읽기 성능을 향상 시키기 위해 저장소 서비스의 보조 인스턴스에 대 한 별도의 개인 끝점을 만듭니다.
 
-[읽기 액세스 지역 중복 저장소 계정](storage-redundancy-grs.md#read-access-geo-redundant-storage)에 대 한 읽기 가용성을 위해 서비스의 주 인스턴스와 보조 인스턴스 모두에 대해 별도의 개인 끝점이 필요 합니다. 장애 조치 (failover)를 위해 보조 인스턴스의 개인 끝점을 만들 필요가 없습니다. 장애 조치 (failover) 후 개인 끝점은 새 주 인스턴스에 자동으로 연결 됩니다.
+[읽기 액세스 지역 중복 저장소 계정](storage-redundancy-grs.md#read-access-geo-redundant-storage)에 대 한 읽기 가용성을 위해 서비스의 주 인스턴스와 보조 인스턴스 모두에 대해 별도의 개인 끝점이 필요 합니다. **장애 조치 (failover)** 를 위해 보조 인스턴스의 개인 끝점을 만들 필요가 없습니다. 장애 조치 (failover) 후 개인 끝점은 새 주 인스턴스에 자동으로 연결 됩니다. git 
 
 #### <a name="resources"></a>리소스
 
@@ -91,14 +91,14 @@ StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트
 
 저장소 서비스에 대 한 개인 끝점의 권장 DNS 영역 이름은 다음과 같습니다.
 
-| 저장소 서비스       | 영역 이름                          |
-| :-------------------- | :--------------------------------- |
-| Blob service          | privatelink.blob.core.windows.net  |
-| Data Lake 파일 시스템 | privatelink.dfe.core.windows.net   |
-| 파일 서비스          | privatelink.file.core.windows.net  |
-| 큐 서비스         | privatelink.queue.core.windows.net |
-| Table service         | privatelink.table.core.windows.net |
-| 정적 웹 사이트       | privatelink.web.core.windows.net   |
+| 저장소 서비스        | 영역 이름                            |
+| :--------------------- | :----------------------------------- |
+| Blob service           | `privatelink.blob.core.windows.net`  |
+| Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
+| 파일 서비스           | `privatelink.file.core.windows.net`  |
+| 큐 서비스          | `privatelink.queue.core.windows.net` |
+| Table service          | `privatelink.table.core.windows.net` |
+| 정적 웹 사이트        | `privatelink.web.core.windows.net`   |
 
 ## <a name="pricing"></a>가격
 
@@ -119,6 +119,6 @@ StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트
 
 이 제약 조건은 계정 A2가 개인 끝점을 만들 때 적용 되는 DNS 변경의 결과입니다.
 
-### <a name="network-security-group-rules-on-subnets-with-private-endpoints"></a>개인 끝점을 사용 하는 서브넷의 네트워크 보안 그룹 규칙
+### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>전용 끝점을 사용 하는 서브넷에 대 한 네트워크 보안 그룹 규칙
 
-지금은 개인 끝점을 사용 하는 서브넷에 대해 nsg ( [네트워크 보안 그룹](../../virtual-network/security-overview.md) ) 규칙을 구성할 수 없습니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.
+현재 개인 끝점을 사용 하는 서브넷에 대 한 nsg ( [네트워크 보안 그룹](../../virtual-network/security-overview.md) ) 규칙을 구성할 수 없습니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.

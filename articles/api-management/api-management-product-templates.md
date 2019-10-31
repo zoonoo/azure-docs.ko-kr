@@ -11,18 +11,18 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 637d4e7bc75537d99538048700673192534613dc
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 393563427e936e07315cd44b78cb793d4292b352
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073374"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176572"
 ---
 # <a name="product-templates-in-azure-api-management"></a>Azure API Management의 제품 템플릿
 
-Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) 및 제공된 지역화 [String 리소스](api-management-template-resources.md#strings), [Glyph 리소스](api-management-template-resources.md#glyphs) 및 [Page 컨트롤](api-management-page-controls.md)의 집합과 같은 편집기를 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.  
+Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) 및 제공된 지역화 [String 리소스](api-management-template-resources.md#strings), [Glyph 리소스](api-management-template-resources.md#glyphs) 및 [Page 컨트롤](api-management-page-controls.md)의 집합과 같은 선택한 편집기를 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.  
   
  이 섹션의 템플릿을 통해 개발자 포털에서 제품 페이지의 콘텐츠를 사용자 지정할 수 있습니다.  
   
@@ -32,6 +32,8 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 > [!NOTE]
 >  다음 문서에는 샘플 기본 템플릿이 포함되어 있지만 지속적인 향상으로 인해 변경될 수 있습니다. 원하는 개별 템플릿으로 이동하여 개발자 포털에서 라이브 기본 템플릿을 볼 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)을 참조하세요.  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -71,16 +73,16 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  `Product list` 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [페이징 컨트롤](api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
--   [검색 컨트롤](api-management-page-controls.md#search-control)  
+-   [search-control](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|형식|Description|  
+|자산|Type|설명|  
 |--------------|----------|-----------------|  
-|Paging|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티.|제품 컬렉션에 대한 페이징 정보입니다.|  
-|Filtering|[필터링](api-management-template-data-model-reference.md#Filtering) 엔터티.|제품 목록 페이지에 대한 필터링 정보입니다.|  
+|페이징|[페이징](api-management-template-data-model-reference.md#Paging) 엔터티입니다.|제품 컬렉션에 대한 페이징 정보입니다.|  
+|필터링|[필터링](api-management-template-data-model-reference.md#Filtering) 엔터티.|제품 목록 페이지에 대한 필터링 정보입니다.|  
 |Products|[제품](api-management-template-data-model-reference.md#Product) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 제품입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
@@ -198,23 +200,23 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  `Product list` 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [구독 단추](api-management-page-controls.md#subscribe-button)  
+-   [subscribe-button](api-management-page-controls.md#subscribe-button)  
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|형식|설명|  
+|자산|Type|설명|  
 |--------------|----------|-----------------|  
 |Product|[Product](api-management-template-data-model-reference.md#Product)|지정된 제품.|  
-|IsDeveloperSubscribed|boolean|현재 사용자가 이 제품을 구독하는지 여부입니다.|  
+|IsDeveloperSubscribed|부울|현재 사용자가 이 제품을 구독하는지 여부입니다.|  
 |SubscriptionState|number|구독의 상태입니다. 가능한 상태는 다음과 같습니다.<br /><br /> -   `0 - suspended` – 구독이 차단되고 구독자는 제품의 API를 호출할 수 없습니다.<br />-   `1 - active` – 구독이 활성화되어 있습니다.<br />-   `2 - expired` - 구독이 만료 날짜에 도달되었고 비활성화되었습니다.<br />-   `3 - submitted` - 구독 요청이 개발자에 의해 발생했지만 아직 승인 또는 거부되지 않았습니다.<br />-   `4 - rejected` – 구독 요청이 관리자에 의해 거부되었습니다.<br />-   `5 - cancelled` - 구독이 개발자 또는 관리자에 의해 취소되었습니다.|  
-|Limits|배열|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
-|DelegatedSubscriptionEnabled|boolean|[위임](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/)이 이 구독에 대해 활성화되었는지 여부입니다.|  
-|DelegatedSubscriptionUrl|string|위임을 사용하는 경우 위임된 구독 URL입니다.|  
-|IsAgreed|boolean|제품에 약관이 있는 경우 현재 사용자가 약관에 동의했는지 여부입니다.|  
+|Limits|array|이 속성은 사용되지 않으며 사용할 수 없습니다.|  
+|DelegatedSubscriptionEnabled|부울|[위임](https://azure.microsoft.com/documentation/articles/api-management-howto-setup-delegation/)이 이 구독에 대해 활성화되었는지 여부입니다.|  
+|DelegatedSubscriptionUrl|문자열|위임을 사용하는 경우 위임된 구독 URL입니다.|  
+|IsAgreed|부울|제품에 약관이 있는 경우 현재 사용자가 약관에 동의했는지 여부입니다.|  
 |Subscriptions|[구독 요약](api-management-template-data-model-reference.md#SubscriptionSummary) 엔터티의 컬렉션입니다.|제품에 대한 구독입니다.|  
 |Apis|[API](api-management-template-data-model-reference.md#API) 엔터티의 컬렉션입니다.|이 제품의 API입니다.|  
-|CannotAddBecauseSubscriptionNumberLimitReached|boolean|현재 사용자가 구독 제한과 관련하여 이 제품을 구독할 수 있는지 여부입니다.|  
-|CannotAddBecauseMultipleSubscriptionsNotAllowed|boolean|현재 사용자가 허용 또는 허용되지 않는 여러 구독과 관련하여 이 제품을 구독할 수 있는지 여부입니다.|  
+|CannotAddBecauseSubscriptionNumberLimitReached|부울|현재 사용자가 구독 제한과 관련하여 이 제품을 구독할 수 있는지 여부입니다.|  
+|CannotAddBecauseMultipleSubscriptionsNotAllowed|부울|현재 사용자가 허용 또는 허용되지 않는 여러 구독과 관련하여 이 제품을 구독할 수 있는지 여부입니다.|  
   
 ### <a name="sample-template-data"></a>샘플 템플릿 데이터  
   

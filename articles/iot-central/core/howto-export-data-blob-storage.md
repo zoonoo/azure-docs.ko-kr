@@ -8,12 +8,12 @@ ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: efa44df378e88b870654111295c10bec06539adb
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b6a437af33e3e85b8dc07de223b6e1fd7ce6cb03
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72950523"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176243"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Azure Blob Storage에 데이터 내보내기
 
@@ -132,7 +132,7 @@ ms.locfileid: "72950523"
 연속 데이터 내보내기를 처음으로 켜면 모든 디바이스가 포함된 단일 스냅샷이 내보내집니다. 각 디바이스에는 다음 항목이 포함됩니다.
 - IoT Central의 디바이스 `id`
 - 디바이스의 `name`
-- [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)의 `deviceId`
+- [Device Provisioning Service](/azure/iot-central/core/howto-connect-nodejs)의 `deviceId`
 - 디바이스 템플릿 정보
 - 속성 값
 - 설정 값

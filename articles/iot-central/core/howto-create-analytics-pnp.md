@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 040874f0ba5e2766aab8aa399bcae65a6676fa53
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: bcf19956d998ace88efbd4e1c9d787f1baeef642
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951134"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177381"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>분석을 사용 하 여 장치 데이터를 분석 하는 방법
 
@@ -39,7 +39,7 @@ Azure IoT Central는 풍부한 분석 기능을 제공 하 여 기록 추세를 
 
 먼저 **장치 그룹**을 선택 하 고 분석 하려는 원격 분석을 선택 해야 합니다. 완료 되 면 **분석** 을 선택 하 여 데이터 시각화를 시작 합니다.
 
-- **장치 그룹:** [장치 그룹](howto-use-device-groups-pnp.md) 은 장치의 사용자 정의 그룹입니다. 예를 들어 Oakland의 모든 Refrigerators 또는 모든 버전 2.0 윈드 터빈입니다.
+- **장치 그룹:** [장치 그룹](tutorial-use-device-groups-pnp.md) 은 장치의 사용자 정의 그룹입니다. 예를 들어 Oakland의 모든 Refrigerators 또는 모든 버전 2.0 윈드 터빈입니다.
 
 - **원격 분석:** 분석 하 고 탐색 하려는 원격 분석을 선택 합니다. 여러 원격 분석를 선택 하 여 함께 분석할 수 있습니다. 기본 집계 메서드는 숫자의 경우 Average로 설정 되 고 각각 문자열 데이터 형식에 대해 Count로 설정 됩니다. 숫자 데이터 형식에 대해 지원 되는 집계 방법은 Average, Maximum, Minimum, Count 및 Sum입니다.  문자열 데이터 형식에 대해 지원 되는 집계 메서드는 count입니다.
 

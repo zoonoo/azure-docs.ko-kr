@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: a8b250c45716146c505a803046b18bf5d05cf116
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9657414c56296ee710f17663bf0bbdd3a4d67ac8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073779"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176802"
 ---
 # <a name="how-to-customize-the-azure-api-management-developer-portal-using-templates"></a>템플릿을 사용하여 Azure API Management 개발자 포털을 사용자 지정하는 방법
 
@@ -30,11 +30,13 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 템플릿은 시스템에서 생성된 개발자 포털 페이지(예: API 문서, 제품, 사용자 인증 등)의 콘텐츠를 사용자 지정하는 데 사용됩니다. [DotLiquid](http://dotliquidmarkup.org/) 구문 및 제공된 지역화 문자열 리소스, 아이콘 및 페이지 컨트롤을 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## <a name="developer-portal-templates-overview"></a>개발자 포털 템플릿 개요
 
-관리자로 로그인되어 있는 동안 **개발자 포털**에서 템플릿을 편집합니다. 여기로 이동하려면 우선 Azure Portal을 열고 API Management 인스턴스의 서비스 도구 모음에서 **개발자 포털**을 클릭하세요.
+관리자로 로그인되어 있는 동안 **개발자 포털**에서 템플릿을 편집합니다. 이를 가져오려면 먼저 Azure Portal를 열고 API Management 인스턴스의 서비스 도구 모음에서 **개발자 포털** 을 클릭 합니다.
 
 개발자 포털 템플릿에 액세스하려면 왼쪽의 사용자 지정 아이콘을 클릭하여 사용자 지정 메뉴를 표시한 다음 **템플릿**을 클릭합니다.
 
@@ -161,7 +163,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 **예** 를 클릭하여 확인합니다.
 
-![Confirm][api-management-revert-template-confirm]
+![확인][api-management-revert-template-confirm]
 
 되돌리기 작업이 완료되면 이전에 게시된 템플릿 버전이 개발자 포털에 적용됩니다.
 
@@ -174,7 +176,7 @@ Azure API Management에는 개발자 포털을 사용자 지정하는 기본적�
 
 **예** 를 클릭하여 확인합니다.
 
-![Confirm][api-management-reset-template-confirm]
+![확인][api-management-reset-template-confirm]
 
 모든 템플릿을 기본 버전으로 복원하려면 템플릿 목록에서 **기본 템플릿 복원** 을 클릭합니다.
 

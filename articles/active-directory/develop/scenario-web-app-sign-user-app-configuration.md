@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f558ecf583c96f36b8bbee19c7c9cbb2ee57aa31
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f52fc70b54c27362575bef00c39a93d13e77cc2e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596721"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175341"
 ---
 # <a name="web-app-that-signs-in-users---code-configuration"></a>사용자를 로그인 하는 웹 앱-코드 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "72596721"
 | 플랫폼 | 라이브러리 | 설명 |
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [.NET 용 id 모델 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | ASP.NET 및 ASP.NET Core에서 직접 사용 되는 .NET 용 Microsoft Identity Extensions는 .NET Framework와 .NET Core 둘 다에서 실행 되는 Dll 집합을 제안 합니다. ASP.NET/ASP.NET Core 웹 앱에서 **Tokenvalidationparameters** 클래스를 사용 하 여 토큰 유효성 검사를 제어할 수 있습니다 (특히 일부 ISV 시나리오의 경우). |
-| ![Java](media/sample-v2-code/small_logo_java.png) | [msal4j](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 용 MSAL-현재 공개 미리 보기로 제공 됩니다. |
+| ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 용 MSAL-현재 공개 미리 보기로 제공 됩니다. |
 | ![파이썬](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Python 용 MSAL-현재 공개 미리 보기로 제공 됩니다. |
 
 관심 있는 플랫폼에 해당 하는 탭을 선택 합니다.
@@ -53,7 +53,7 @@ ms.locfileid: "72596721"
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-이 문서의 코드 조각과 다음은 Microsoft graph msal4j 웹 앱 샘플을 호출 하는 [Java 웹 응용 프로그램](https://github.com/Azure-Samples/ms-identity-java-webapp) 에서 추출 됩니다.
+이 문서의 코드 조각과 다음은 Microsoft graph msal Java 웹 앱 샘플을 호출 하는 [java 웹 응용 프로그램](https://github.com/Azure-Samples/ms-identity-java-webapp) 에서 추출 됩니다.
 
 전체 구현에 대 한 자세한 내용은이 샘플을 참조 하는 것이 좋습니다.
 
@@ -137,7 +137,7 @@ ASP.NET Core에는 응용 프로그램에 대 한 URL (`applicationUrl`) 및 SSL
 ```
 
 Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록 해야 하는 회신 uri는 이러한 url과 일치 해야 합니다. 즉, 위의 두 구성 파일에 대해 applicationUrl이 `http://localhost:3110` 되었지만 `sslPort` (44321)가 지정 된 것 처럼 `https://localhost:44321/signin-oidc` 되며 `/signin-oidc`에 정의 된 대로 `CallbackPath` `appsettings.json` 됩니다.
-  
+
 동일한 방식으로 로그 아웃 URI는 `https://localhost:44321/signout-callback-oidc`로 설정 됩니다.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
@@ -175,10 +175,10 @@ aad.clientId=Enter_the_Application_Id_here
 aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
 aad.secretKey=Enter_the_Client_Secret_Here
 aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
-aad.redirectUriGraphUsers=http://localhost:8080/msal4jsample/graph/users
+aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
 ```
 
-Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록 해야 하는 회신 uri는 응용 프로그램에 정의 된 redirecturis와 일치 해야 합니다 (`http://localhost:8080/msal4jsample/secure/aad` 및 `http://localhost:8080/msal4jsample/graph/users`
+Azure Portal에서 응용 프로그램에 대 한 **인증** 페이지에 등록 해야 하는 회신 uri는 응용 프로그램에 정의 된 redirecturis와 일치 해야 합니다 (`http://localhost:8080/msal4jsample/secure/aad` 및 `http://localhost:8080/msal4jsample/graph/me`
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -194,7 +194,8 @@ SESSION_TYPE = "filesystem"  # So token cache will be stored in server-side sess
 ```
 
 > [!NOTE]
-> 이 빠른 시작은 간소화를 위해 클라이언트 암호를 구성 파일에 저장 하는 것을 제안 합니다. 프로덕션 앱에서 다른 방법을 사용 하 여 KeyVault와 같은 암호를 저장 하거나 Flask의 설명서에 설명 된 대로 환경 변수를 사용 하는 것이 좋습니다 https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
+> 이 빠른 시작은 간소화를 위해 클라이언트 암호를 구성 파일에 저장 하는 것을 제안 합니다.
+> 프로덕션 앱에서 다른 방법을 사용 하 여 KeyVault와 같은 암호를 저장 하거나 Flask의 설명서에 설명 된 대로 환경 변수를 사용 하는 것이 좋습니다 https://flask.palletsprojects.com/en/1.1.x/config/#configuring-from-environment-variables
 >
 > ```python
 > CLIENT_SECRET = os.getenv("CLIENT_SECRET")
@@ -215,7 +216,7 @@ ASP.NET Core Web Apps (및 Web Api)에서는 컨트롤러나 컨트롤러 작업
   > [!NOTE]
   > Visual studio 내에서 기본 ASP.NET core 웹 프로젝트를 사용 하 여 프로젝트를 시작 하거나 `dotnet new mvc`를 사용 하는 경우 관련 패키지가 자동으로 로드 되기 때문에 `AddAzureAD` 메서드를 기본적으로 사용할 수 있습니다.
   > 그러나 프로젝트를 처음부터 빌드하여 아래 코드를 사용 하려는 경우 `AddAzureAD` 메서드를 사용할 수 있도록 프로젝트에 NuGet 패키지 **"AspNetCore"** 를 추가 하는 것이 좋습니다.
-  
+
 다음 코드는 시작에서 사용할 수 있습니다 [. cs # L33-L34](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/1-WebApp-OIDC/1-1-MyOrg/Startup.cs#L33-L34)
 
 ```CSharp
@@ -229,7 +230,7 @@ public class Startup
     ...
       // Sign-in users with the Microsoft identity platform
       services.AddMicrosoftIdentityPlatformAuthentication(Configuration);
-  
+
       services.AddMvc(options =>
       {
           var policy = new AuthorizationPolicyBuilder()
@@ -241,13 +242,13 @@ public class Startup
     }
 ```
 
-@No__t_0는 [WebAppServiceCollectionExtensions/L23 #](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23)에 정의 된 확장 메서드입니다. 메서드
+`AddMicrosoftIdentityPlatformAuthentication`는 [WebAppServiceCollectionExtensions/L23 #](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L23)에 정의 된 확장 메서드입니다. 메서드
 
 - 인증 서비스를 추가 합니다.
 - 구성 파일을 읽는 옵션 구성
 - 사용 된 권한이 Microsoft id 플랫폼 (이전의 Azure AD v2.0) 끝점 인 Openid connect connect 옵션을 구성 합니다.
 - 토큰 발급자의 유효성을 검사 합니다.
-- 이름에 해당 하는 클레임은 ID 토큰의 "preferred_username" 클레임에서 매핑됩니다. 
+- 이름에 해당 하는 클레임은 ID 토큰의 "preferred_username" 클레임에서 매핑됩니다.
 
 구성 외에도 `AddMicrosoftIdentityPlatformAuthentication`를 호출할 때 지정할 수 있습니다.
 
@@ -313,7 +314,7 @@ public static IServiceCollection AddMicrosoftIdentityPlatformAuthentication(
   ...
 ```
 
-@No__t_0 클래스를 사용 하면 토큰의 발급자가 대부분의 경우 (v1.0 또는 v2.0 토큰, 단일 테 넌 트 또는 다중 테 넌 트 응용 프로그램 또는 사용자에 게 개인 Microsoft 계정을 사용 하 여 로그인 하는 Azure 공용 클라우드 또는 국가별)에서 유효성을 검사할 수 있습니다. 클라우드). [AadIssuerValidator/Resource/](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs) 에서 사용할 수 있습니다.
+`AadIssuerValidator` 클래스를 사용 하면 토큰의 발급자가 대부분의 경우 (v1.0 또는 v2.0 토큰, 단일 테 넌 트 또는 다중 테 넌 트 응용 프로그램 또는 사용자에 게 개인 Microsoft 계정을 사용 하 여 로그인 하는 Azure 공용 클라우드 또는 국가별)에서 유효성을 검사할 수 있습니다. 클라우드). [AadIssuerValidator/Resource/](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs) 에서 사용할 수 있습니다.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -347,13 +348,13 @@ Java 샘플에서는 스프링 프레임 워크를 사용 합니다. 응용 프�
 
 - 사용자가 인증 되었는지 확인 합니다 (`isAuthenticated()` 메서드).
 - 사용자가 인증 되지 않은 경우 Azure AD 권한 부여 끝점의 url을 계산 하 고 브라우저를이 URI로 리디렉션합니다.
-- 응답이 도착 하면 인증 코드 흐름을 포함 하 여 토큰을 msal4j 수 있습니다.
+- 응답이 도착 하면 인증 코드를 포함 하 여 MSAL Java를 사용 하 여 토큰을 가져옵니다.
 - 마지막으로 토큰 끝점에서 토큰을 수신 하면 (리디렉션 URI) 사용자에 게 로그인 됩니다.
 
 자세한 내용은 Authfilter의 `doFilter()` 메서드를 참조 [하세요.](https://github.com/Azure-Samples/ms-identity-java-webapp/blob/master/src/main/java/com/microsoft/azure/msalwebsample/AuthFilter.java)
 
 > [!NOTE]
-> @No__t_0 코드는 약간 다른 순서로 작성 되지만 흐름은 설명 된 것과 같습니다.
+> `doFilter()` 코드는 약간 다른 순서로 작성 되지만 흐름은 설명 된 것과 같습니다.
 
 이 메서드에 의해 트리거되는 인증 코드 흐름에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 인증 코드 흐름](v2-oauth2-auth-code-flow.md) 을 참조 하세요.
 

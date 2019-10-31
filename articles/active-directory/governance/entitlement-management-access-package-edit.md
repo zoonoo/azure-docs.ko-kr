@@ -1,6 +1,6 @@
 ---
-title: Azure AD 자격 관리 (미리 보기)에서 액세스 패키지 숨기기 또는 삭제-Azure Active Directory
-description: Azure Active Directory 자격 관리 (미리 보기)에서 액세스 패키지를 숨기 거 나 삭제 하는 방법에 대해 알아봅니다.
+title: Azure AD 자격 관리에서 액세스 패키지 숨기기 또는 삭제-Azure Active Directory
+description: Azure Active Directory 자격 관리에서 액세스 패키지를 숨기 거 나 삭제 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab6f3a86d8e88ee2d7465fd32bde7b7555f1f326
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4391cd20f3919e8def28fa3c1d5007f91b2d9f0b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389176"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174756"
 ---
-# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 패키지 숨기기 또는 삭제
-
-> [!IMPORTANT]
-> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="hide-or-delete-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지를 숨기 거 나 삭제 합니다.
 
 액세스 패키지는 기본적으로 검색 가능 합니다. 즉, 정책을 통해 사용자가 액세스 패키지를 요청할 수 있는 경우 내 액세스 포털에 나열 된 액세스 패키지가 자동으로 표시 됩니다. 그러나 액세스 패키지가 사용자의 내 액세스 포털에 표시 되지 않도록 **숨김** 설정을 변경할 수 있습니다.
 

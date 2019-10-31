@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29a30e466e78c3a71764b36bf8337aaeae8981f7
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980492"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175772"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스에 대 한 모범 사례
 
@@ -35,7 +35,7 @@ ms.locfileid: "69980492"
 
 정책이 작동되려면 다음을 구성해야 합니다.
 
-| 내용:           | 방법                                  | 이유 |
+| 대상           | 방법                                  | 이유 |
 | :--            | :--                                  | :-- |
 | **클라우드 앱** |하나 이상의 앱을 선택합니다.  | 조건부 액세스 정책의 목표는 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어할 수 있도록 하는 것입니다.|
 | **사용자 및 그룹** | 선택한 클라우드 앱에 대한 액세스 권한을 부여받은 하나 이상의 사용자 또는 그룹을 선택합니다. | 할당 된 사용자 및 그룹이 없는 조건부 액세스 정책은 트리거되지 않습니다. |
@@ -53,7 +53,7 @@ ms.locfileid: "69980492"
 
 - **두 번째** 단계에서는 충족되지 않은 요구 사항을 충족시키도록 요구하는 메시지가 표시됩니다. 정책 중 하나가 액세스를 차단 하는 경우 차단 되며 다른 정책 제어를 충족 하 라는 메시지가 표시 되지 않습니다. 사용자를 차단 하는 정책이 없으면 다음 순서로 다른 정책 컨트롤을 충족 하 라는 메시지가 표시 됩니다.
 
-   ![주문](./media/best-practices/06.png)
+   ![주문하기](./media/best-practices/06.png)
     
    외부 MFA 공급자와 사용 약관은 다음에 제공 됩니다.
 
@@ -89,7 +89,7 @@ Azure Active Directory는 모든 로그인에 대해 모든 정책을 평가하�
 
 예, 조건부 액세스 정책에서 Exchange ActiveSync를 사용할 수 있습니다.
 
-SharePoint Online 및 Exchange Online과 같은 일부 클라우드 앱도 레거시 인증 프로토콜을 지원 합니다. 클라이언트 앱이 레거시 인증 프로토콜을 사용하여 클라우드 앱에 액세스할 수 있는 경우 Azure AD는 이 액세스 시도에서 조건부 액세스 정책을 적용할 수 없습니다. 클라이언트 앱이 정책의 적용을 우회하는 것을 방지하려면 영향을 받는 클라우드 앱에서 최신 인증만을 사용할 수 있는지 확인해야 합니다.
+SharePoint Online 및 Exchange Online과 같은 일부 클라우드 앱도 레거시 인증 프로토콜을 지원 합니다. 클라이언트 앱이 레거시 인증 프로토콜을 사용 하 여 클라우드 앱에 액세스할 수 있는 경우 Azure AD는이 액세스 시도에 대 한 조건부 액세스 정책을 적용할 수 없습니다. 클라이언트 앱이 정책의 적용을 우회하는 것을 방지하려면 영향을 받는 클라우드 앱에서 최신 인증만을 사용할 수 있는지 확인해야 합니다.
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Office 365 앱을 사용 하 여 조건부 액세스를 구성 하려면 어떻게 해야 하나요?
 

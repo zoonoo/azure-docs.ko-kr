@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/15/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c509e061c43c81f72682fb428529a8e72b34066a
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 05418cde7b31392c1a55f64945764e978daba1bf
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056317"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175400"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 디먼 앱-프로덕션으로 이동
 
@@ -51,23 +51,22 @@ ms.locfileid: "71056317"
 - 기타 샘플/자습서:
   - [microsoft](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) ---platform-디먼 기능 Microsoft Graph를 쿼리 하는 테 넌 트의 사용자를 표시 하는 간단한 .net Core 디먼 콘솔 응용 프로그램입니다.
 
-    ![토폴로지(topology)](media/scenario-daemon-app/daemon-app-sample.svg)
+    ![토폴로지](media/scenario-daemon-app/daemon-app-sample.svg)
 
     동일한 샘플은 인증서를 사용 하는 변형도 보여 줍니다.
 
-    ![토폴로지(topology)](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
+    ![토폴로지](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
 
   - [webapp-디먼](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) 기능은 사용자 대신 응용 프로그램의 id를 사용 하 여 Microsoft Graph에서 데이터를 동기화 하는 ASP.NET MVC 웹 응용 프로그램을 제공 합니다. 또한이 샘플에서는 관리자 동의 프로세스를 보여 줍니다.
 
-    ![토폴로지(topology)](media/scenario-daemon-app/damon-app-sample-web.svg)
+    ![토폴로지](media/scenario-daemon-app/damon-app-sample-web.svg)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-MSAL Python은 현재 공개 미리 보기로 제공 됩니다.
-자세한 내용은 [Msal Python의 리포지토리 내 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/dev/sample)을 참조 하세요.
+[응용 프로그램의 id를 사용 하 여 빠른 시작에서 토큰 획득을 시도 하 고 Python 콘솔 앱에서 MICROSOFT GRAPH API를 호출](./quickstart-v2-python-daemon.md)합니다.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-msal4j (MSAL. Java)는 현재 공개 미리 보기로 제공 됩니다. 자세한 내용은 [Msal Java in repository 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples)을 참조 하세요.
+MSAL Java는 현재 공개 미리 보기로 제공 됩니다. 자세한 내용은 [Msal Java dev 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-java/tree/dev/src/samples)을 참조 하세요.
 
 ---

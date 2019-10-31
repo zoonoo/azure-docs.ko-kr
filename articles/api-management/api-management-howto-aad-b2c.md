@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 4260f4640f488e67d6bb3101ff2cf7d269e2bf3e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 62657134775d21ad6aabdf8f02a1e001de0a6094
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073649"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176838"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory B2C를 사용하여 개발자 계정에 권한을 부여하는 방법
 
@@ -85,7 +85,17 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
 
     변경 내용이 저장되면 개발자는 Azure Active Directory B2C를 사용하여 새 계정을 만들고 개발자 포털에 로그인할 수 있습니다.
 
-## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 개발자 계정에 등록
+## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>개발자 포털-Azure AD B2C 계정 인증 추가
+
+개발자 포털에서 AAD B2C 로그인을 사용 하도록 설정 하려면 로그인 폼에 **OAuth 단추** 위젯을 추가 해야 합니다.
+
+![AAD 단추 위젯](./media/api-management-howto-aad/portal-oauth-widget.png)
+
+새 사용자가 AAD B2C를 사용 하 여 로그인 할 때마다 새 계정이 자동으로 생성 되지만 등록 양식에서 동일한 위젯을 추가 하는 것이 좋습니다.
+
+## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>레거시 개발자 포털-Azure AD B2C 등록 하는 방법
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 1. Azure Active Directory B2C를 사용하여 개발자 계정에 등록하려면 새 브라우저 창을 열고 개발자 포털로 이동합니다. **등록** 단추를 클릭합니다.
 
@@ -109,7 +119,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
 ## <a name="next-steps"></a>다음 단계
 
 *  [Azure Active Directory B2C 개요]
-*  [Azure Active Directory B2C: 확장 가능한 정책 프레임워크]
+*  [Azure Active Directory B2C: 확장할 수 있는 정책 프레임워크]
 *  [Azure Active Directory B2C에서 Microsoft 계정을 ID 공급자로 사용]
 *  [Azure Active Directory B2C에서 Google 계정을 ID 공급자로 사용]
 *  [Azure Active Directory B2C에서 LinkedIn 계정을 ID 공급자로 사용]
@@ -136,7 +146,6 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
 [api-management-complete-registration]: ./media/api-management-howto-aad/api-management-complete-registration.PNG
 [api-management-registration-complete]: ./media/api-management-howto-aad/api-management-registration-complete.png
 
-[api-management-management-console]: ./media/api-management-howto-aad/api-management-management-console.png
 [api-management-security-external-identities]: ./media/api-management-howto-aad/api-management-b2c-security-tab.png
 [api-management-security-aad-new]: ./media/api-management-howto-aad/api-management-security-aad-new.png
 [api-management-new-aad-application-menu]: ./media/api-management-howto-aad/api-management-new-aad-application-menu.png
@@ -180,7 +189,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
 [Accessing the Graph API]: https://msdn.microsoft.com/library/azure/dn132599.aspx#BKMK_Graph
 [Azure Active Directory B2C 개요]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview
 [Azure Active Directory를 사용하여 개발자 계정에 권한을 부여하는 방법]: https://docs.microsoft.com/azure/api-management/api-management-howto-aad
-[Azure Active Directory B2C: 확장 가능한 정책 프레임워크]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
+[Azure Active Directory B2C: 확장할 수 있는 정책 프레임워크]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies
 [Azure Active Directory B2C에서 Microsoft 계정을 ID 공급자로 사용]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-msa-app
 [Azure Active Directory B2C에서 Google 계정을 ID 공급자로 사용]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-goog-app
 [Azure Active Directory B2C에서 Facebook 계정을 ID 공급자로 사용]: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-setup-fb-app

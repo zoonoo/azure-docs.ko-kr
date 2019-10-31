@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5c45005d6a54765458b463acb12c21a1f3b6d0c
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: d727b570361e721c49173138bb60ae89df710e81
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336773"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175231"
 ---
 # <a name="web-app-that-signs-in-users---sign-in-and-sign-out"></a>사용자 로그인 및 로그 아웃 하는 웹 앱
 
@@ -37,7 +37,7 @@ ms.locfileid: "71336773"
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-ASP.NET Core에서 로그인 단추는 인증 된 계정이 없는 경우에 `Views\Shared\_LoginPartial.cshtml` 만 표시 됩니다. 즉, 사용자가 아직 로그인 하지 않았거나 로그 아웃 한 경우에만 표시 됩니다.
+ASP.NET Core에서 로그인 단추는 `Views\Shared\_LoginPartial.cshtml`에 노출 되며 인증 된 계정이 없는 경우에만 표시 됩니다 (사용자가 아직 로그인 하지 않았거나 로그 아웃 한 경우).
 
 ```html
 @using Microsoft.Identity.Web
@@ -55,7 +55,7 @@ else
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-ASP.NET MVC에서 로그 아웃 단추는에 `Views\Shared\_LoginPartial.cshtml` 노출 되며 인증 된 계정이 있는 경우에만 표시 됩니다 (사용자가 이전에 로그인 한 경우).
+ASP.NET MVC에서 로그 아웃 단추는 `Views\Shared\_LoginPartial.cshtml`에 노출 되며 인증 된 계정이 있는 경우에만 표시 됩니다 (사용자가 이전에 로그인 한 경우).
 
 ```html
 @if (Request.IsAuthenticated)
@@ -106,13 +106,13 @@ def index():
 
 ---
 
-### <a name="login-action-of-the-controller"></a>`Login`컨트롤러의 동작
+### <a name="login-action-of-the-controller"></a>컨트롤러의 `Login` 작업
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-ASP.NET에서 웹 앱의 **로그인** 단추를 누르면 `SignIn` `AccountController` 컨트롤러에서 작업이 트리거됩니다. 이전 버전의 ASP.NET core 템플릿에서 컨트롤러는 `Account` 웹 앱에 포함 되었지만 이제는 ASP.NET Core 프레임 워크 자체의 일부가 아닙니다.
+ASP.NET에서 웹 앱의 **로그인** 단추를 누르면 `AccountController` 컨트롤러에서 `SignIn` 작업이 트리거됩니다. 이전 버전의 ASP.NET core 템플릿에서 `Account` 컨트롤러는 웹 앱에 포함 되었지만 이제는 ASP.NET Core 프레임 워크 자체의 일부가 아닙니다.
 
-의 코드 `AccountController` 는 [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs)의 ASP.NET core 리포지토리에서 사용할 수 있습니다. 계정 컨트롤은 Microsoft id 플랫폼 끝점으로 리디렉션하여 사용자에 게 문제를 해결 합니다. 자세한 내용은 ASP.NET Core의 일부로 제공 된 [SignIn](https://github.com/aspnet/AspNetCore/blob/f3e6b74623d42d5164fd5f97a288792c8ad877b6/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs#L23-L31) 메서드를 참조 하세요.
+`AccountController`에 대 한 코드는 [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs)의 ASP.NET core 리포지토리에서 사용할 수 있습니다. 계정 컨트롤은 Microsoft id 플랫폼 끝점으로 리디렉션하여 사용자에 게 문제를 해결 합니다. 자세한 내용은 ASP.NET Core의 일부로 제공 된 [SignIn](https://github.com/aspnet/AspNetCore/blob/f3e6b74623d42d5164fd5f97a288792c8ad877b6/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs#L23-L31) 메서드를 참조 하세요.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -161,7 +161,7 @@ public class AuthPageController {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-다른 플랫폼, MSAL과는 다릅니다. Python은 로그인 페이지에서 사용자 로그인을 허용 합니다. [Py # L20-L28를](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L20-L28) 참조 하세요.
+다른 플랫폼과 달리 MSAL Python은 로그인 페이지에서 사용자 로그인을 허용 합니다. [Py # L20-L28를](https://github.com/Azure-Samples/ms-identity-python-webapp/blob/e03be352914bfbd58be0d4170eba1fb7a4951d84/app.py#L20-L28) 참조 하세요.
 
 ```Python
 @app.route("/login")
@@ -219,15 +219,15 @@ def _get_token_from_cache(scope=None):
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-응용 프로그램을 등록 하는 동안 **사후 로그 아웃 URI**를 등록 합니다. 이 자습서에서는 **인증** 페이지의 `https://localhost:44321/signout-oidc` **고급 설정** 섹션에 있는 **로그 아웃 URL** 필드에 등록 했습니다. 자세한 내용은 [webApp 앱 등록](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp) 을 참조 하세요.
+응용 프로그램을 등록 하는 동안 **사후 로그 아웃 URI**를 등록 합니다. 이 자습서에서는 **인증** 페이지의 **고급 설정** 섹션에 있는 **로그 아웃 URL** 필드에 `https://localhost:44321/signout-oidc`를 등록 했습니다. 자세한 내용은 [webApp 앱 등록](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-1-MyOrg#register-the-webapp-app-webapp) 을 참조 하세요.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-응용 프로그램을 등록 하는 동안 **사후 로그 아웃 URI**를 등록 합니다. 이 자습서에서는 **인증** 페이지의 `https://localhost:44308/Account/EndSession` **고급 설정** 섹션에 있는 **로그 아웃 URL** 필드에 등록 했습니다. 자세한 내용은 [webApp 앱 등록](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet) 을 참조 하세요.
+응용 프로그램을 등록 하는 동안 **사후 로그 아웃 URI**를 등록 합니다. 이 자습서에서는 **인증** 페이지의 **고급 설정** 섹션에 있는 **로그 아웃 URL** 필드에 `https://localhost:44308/Account/EndSession`를 등록 했습니다. 자세한 내용은 [webApp 앱 등록](https://github.com/Azure-Samples/active-directory-dotnet-web-single-sign-out#register-the-service-app-webapp-distributedsignout-dotnet) 을 참조 하세요.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-응용 프로그램을 등록 하는 동안 **사후 로그 아웃 URI**를 등록 합니다. 이 자습서에서는 **인증** 페이지의 `http://localhost:8080/msal4jsample/` **고급 설정** 섹션에 있는 **로그 아웃 URL** 필드에 등록 했습니다.
+응용 프로그램을 등록 하는 동안 **사후 로그 아웃 URI**를 등록 합니다. 이 자습서에서는 **인증** 페이지의 **고급 설정** 섹션에 있는 **로그 아웃 URL** 필드에 `http://localhost:8080/msal4jsample/sign_out`를 등록 했습니다.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -239,7 +239,7 @@ def _get_token_from_cache(scope=None):
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-ASP.NET Core에서 로그 아웃 단추는에 `Views\Shared\_LoginPartial.cshtml` 노출 되며 인증 된 계정이 있는 경우에만 표시 됩니다 (사용자가 이전에 로그인 한 경우).
+ASP.NET Core에서 로그 아웃 단추는 `Views\Shared\_LoginPartial.cshtml`에 노출 되며 인증 된 계정이 있는 경우에만 표시 됩니다 (사용자가 이전에 로그인 한 경우).
 
 ```html
 @using Microsoft.Identity.Web
@@ -260,7 +260,7 @@ else
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
-ASP.NET MVC에서 로그 아웃 단추는에 `Views\Shared\_LoginPartial.cshtml` 노출 되며 인증 된 계정이 있는 경우에만 표시 됩니다 (사용자가 이전에 로그인 한 경우).
+ASP.NET MVC에서 로그 아웃 단추는 `Views\Shared\_LoginPartial.cshtml`에 노출 되며 인증 된 계정이 있는 경우에만 표시 됩니다 (사용자가 이전에 로그인 한 경우).
 
 ```html
 @if (Request.IsAuthenticated)
@@ -320,16 +320,16 @@ Python 빠른 시작에서 로그 아웃 단추는 [템플릿/인덱스. html # 
 
 ---
 
-### <a name="signout-action-of-the-controller"></a>`Signout`컨트롤러의 동작
+### <a name="signout-action-of-the-controller"></a>컨트롤러의 `Signout` 작업
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-ASP.NET에서 웹 앱의 **로그 아웃** 단추를 누르면 `SignOut` `AccountController` 컨트롤러에서 작업이 트리거됩니다. 이전 버전의 ASP.NET core 템플릿에서 컨트롤러는 `Account` 웹 앱에 포함 되었지만 이제는 ASP.NET Core 프레임 워크 자체의 일부가 아닙니다.
+ASP.NET에서 웹 앱의 **로그 아웃** 단추를 누르면 `AccountController` 컨트롤러에서 `SignOut` 동작이 트리거됩니다. 이전 버전의 ASP.NET core 템플릿에서 `Account` 컨트롤러는 웹 앱에 포함 되었지만 이제는 ASP.NET Core 프레임 워크 자체의 일부가 아닙니다.
 
-의 코드 `AccountController` 는 [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs)의 ASP.NET core 리포지토리에서 사용할 수 있습니다. 계정 컨트롤:
+`AccountController`에 대 한 코드는 [AccountController.cs](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Controllers/AccountController.cs)의에서 ASP.NET core 리포지토리에서 사용할 수 있습니다. 계정 컨트롤:
 
-- Openid connect 리디렉션 URI를로 설정 `/Account/SignedOut` 하 여 Azure AD에서 로그 아웃을 완료 하면 컨트롤러가 다시 호출 되도록 합니다.
-- 를 `Signout()`호출 하면 openidconnect 미들웨어가 다음을 수행 하는 Microsoft `logout` id 플랫폼 끝점에 연결할 수 있습니다.
+- Openid connect 리디렉션 URI를 `/Account/SignedOut` 설정 하 여 Azure AD에서 로그 아웃을 완료 하면 컨트롤러가 다시 호출 되도록 합니다.
+- OpenIdConnect 미들웨어가 다음을 수행 하는 Microsoft id platform `logout` 끝점에 연결할 수 있도록 하는 `Signout()`를 호출 합니다.
 
   - 브라우저에서 세션 쿠키를 지웁니다.
   - 마지막으로는 로그 아웃 된 보기 페이지를 표시 하는 **로그 아웃 URL**을 다시 호출 합니다 [. html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml) 은 ASP.NET Core의 일부로도 제공 됩니다.
@@ -394,7 +394,7 @@ def logout():
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-ASP.NET Core openidconnect 미들웨어를 사용 하면 앱에서 라는 `logout` `OnRedirectToIdentityProviderForSignOut`openidconnect 이벤트를 제공 하 여 Microsoft id 플랫폼 끝점에 대 한 호출을 가로챌 수 있습니다. 이 이벤트를 구독 하는 방법에 대 한 예제는 [WebAppServiceCollectionExtensions/L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156) (토큰 캐시를 지우는 방법)를 참조 하세요.
+ASP.NET Core OpenIdConnect 미들웨어를 사용 하면 앱이 `OnRedirectToIdentityProviderForSignOut`라는 OpenIdConnect 이벤트를 제공 하 여 Microsoft id 플랫폼 `logout` 끝점에 대 한 호출을 가로챌 수 있습니다. 이 이벤트를 구독 하는 방법에 대 한 예제는 [WebAppServiceCollectionExtensions/L151-L156](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/faa94fd49c2da46b22d6694c4f5c5895795af26d/Microsoft.Identity.Web/WebAppServiceCollectionExtensions.cs#L151-L156) (토큰 캐시를 지우는 방법)를 참조 하세요.
 
 ```CSharp
     // Handling the global sign-out
@@ -423,7 +423,7 @@ public class AccountController : Controller
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Java 빠른 시작에서 로그 아웃 리디렉션 URI는 단순히 인덱스 .html 페이지를 표시 합니다. 
+Java 빠른 시작에서 로그 아웃 리디렉션 URI는 단순히 인덱스 .html 페이지를 표시 합니다.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -431,7 +431,7 @@ Python 빠른 시작에서 로그 아웃 리디렉션 URI는 단순히 인덱스
 
 ---
 
-## <a name="protocol"></a>Protocol
+## <a name="protocol"></a>프로토콜
 
 로그 아웃에 대해 자세히 알아보려면 [OPEN ID Connect](./v2-protocols-oidc.md)에서 사용할 수 있는 프로토콜 설명서를 참조 하세요.
 

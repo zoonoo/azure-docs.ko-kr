@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 72549a2df3490344987567d1e62c65f76f151097
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7b9cbd4e84f60b42e8eb6cb250a9b25f398fd4a0
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693257"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176456"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Application Gateway에 대 한 백 엔드 상태 및 진단 로그
 
@@ -216,7 +216,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 |timeTaken| 요청을 처리하고 응답을 보내는 데 걸리는 시간(밀리초)입니다. 이 값은 Application Gateway에서 HTTP 요청의 첫 번째 바이트를 받은 시점부터 응답 보내기 작업을 완료하는 시점까지의 간격으로 계산됩니다. 걸린 시간(Time-Taken) 필드에는 대개 요청 및 응답 패킷이 네트워크를 통해 이동하는 시간이 포함됩니다. |
 |sslEnabled| 백 엔드 풀에 대한 통신에서 SSL이 사용되었는지 여부입니다. 유효한 값은 on과 off입니다.|
 |sslCipher| Ssl 통신에 사용 되는 암호 그룹입니다 (SSL을 사용 하는 경우).|
-|sslProtocol| Ssl 프로토콜이 사용 되 고 있습니다 (SSL을 사용 하는 경우).|
+|sslProtocol| SSL/TLS 프로토콜을 사용 하 고 있습니다 (SSL을 사용 하는 경우).|
 |serverRouted| Application gateway에서 요청을 라우팅하는 백 엔드 서버입니다.|
 |시작 했습니다| 백 엔드 서버의 HTTP 상태 코드입니다.|
 |serverResponseLatency| 백 엔드 서버의 응답 대기 시간입니다.|

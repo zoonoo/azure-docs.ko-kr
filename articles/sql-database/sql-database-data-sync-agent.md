@@ -11,16 +11,16 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: de7858be4ac4e392b4fb92cacf55882378ba9813
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 13a59a9b536a25897d7c545b6fb466c1192cb545
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568978"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177704"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Azure SQL 데이터 동기화용 데이터 동기화 에이전트
 
-Azure SQL 데이터 동기화용 데이터 동기화 에이전트를 설치 및 구성하여 온-프레미스 SQL Server 데이터베이스와 데이터를 동기화합니다. SQL 데이터 동기화에 대한 자세한 내용은 [SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스의 데이터 동기화](sql-database-sync-data.md)를 참조하세요.
+Azure SQL 데이터 동기화에 대 한 데이터 동기화 에이전트를 설치 하 고 구성 하 여 온-프레미스 SQL Server 데이터베이스와 데이터를 동기화 합니다. SQL 데이터 동기화에 대 한 자세한 내용은 [SQL 데이터 동기화를 사용 하 여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](sql-database-sync-data.md)를 참조 하세요.
 
 > [!IMPORTANT]
 > Azure SQL 데이터 동기화는 이때 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
@@ -37,7 +37,7 @@ Azure SQL 데이터 동기화용 데이터 동기화 에이전트를 설치 및 
 
 - `LocalSystem`을 **SERVICEACCOUNT**의 값으로 제공하는 경우, 온-프레미스 SQL Server에 연결하도록 에이전트를 구성할 때 SQL Server 인증을 사용합니다.
 
-- 도메인 사용자 계정 또는 로컬 사용자 계정을 **SERVICEACCOUNT**의 값으로 제공하는 경우, **SERVICEPASSWORD** 인수를 사용하여 암호를 제공해야 합니다. `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"` )을 입력합니다.
+- 도메인 사용자 계정 또는 로컬 사용자 계정을 **SERVICEACCOUNT**의 값으로 제공하는 경우, **SERVICEPASSWORD** 인수를 사용하여 암호를 제공해야 합니다. 예: `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`
 
 ```cmd
 msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
@@ -115,7 +115,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
 - **해결 방법**. 다음 두 가지 해결 방법을 시도할 수 있습니다.
 
     -   services.msc를 사용하여 클라이언트 에이전트에 대한 자격 증명을 다시 입력합니다.
-    -   이 클라이언트 에이전트를 제거하고 새로 설치합니다. 최신 클라이언트 에이전트를 [다운로드 센터](https://go.microsoft.com/fwlink/?linkid=221479)에서 다운로드하여 설치합니다.
+    -   이 클라이언트 에이전트를 제거하고 새로 설치합니다. 최신 클라이언트 에이전트를 [다운로드 센터](https://www.microsoft.com/download/details.aspx?id=27693)에서 다운로드하여 설치합니다.
 
 ### <a name="agent-list"></a> 내 데이터베이스가 에이전트 목록에 나열되지 않음
 
@@ -149,7 +149,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
   1. SQL 데이터 동기화 클라이언트 에이전트 서비스를 찾습니다.  
     a. **시작**을 선택합니다.  
     b. 검색 상자에 **services.msc**를 입력합니다.  
-    c. 검색 결과에서 **서비스**선택합니다.  
+    다. 검색 결과에서 **서비스**선택합니다.  
     d. **서비스** 창에서 **SQL 데이터 동기화 에이전트**에 대한 항목으로 스크롤합니다.  
   1. 마우스 오른쪽 단추로 **SQL 데이터 동기화**를 클릭한 후 **중지**를 선택합니다.
   1. 마우스 오른쪽 단추로 **SQL 데이터 동기화**를 클릭한 후 **속성**을 선택합니다.
@@ -193,7 +193,7 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
   1. SqlAzureDataSyncAgent 애플리케이션을 엽니다.
   1. **에이전트 키 제출**을 선택합니다.
   1. 제공된 공간에 클립보드의 키를 붙여 넣습니다.
-  1.           **확인**을 선택합니다.
+  1. **확인**을 선택합니다.
   1. 프로그램을 닫습니다.
 
 ### <a name="agent-delete"></a> 연결된 온-프레미스 데이터베이스를 연결할 수 없는 경우, 클라이언트 에이전트를 포털에서 삭제할 수 없음
@@ -225,7 +225,7 @@ SQL 데이터 동기화 클라이언트 에이전트에 등록된 로컬 엔드�
 
 ### <a name="ping-the-service"></a>서비스 ping
 
-#### <a name="usage"></a>사용법
+#### <a name="usage"></a>사용량
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action pingsyncservice
@@ -239,7 +239,7 @@ SqlDataSyncAgentCommand.exe -action "pingsyncservice"
 
 ### <a name="display-registered-databases"></a>등록된 데이터베이스 표시
 
-#### <a name="usage"></a>사용법
+#### <a name="usage"></a>사용량
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action displayregistereddatabases
@@ -253,7 +253,7 @@ SqlDataSyncAgentCommand.exe -action "displayregistereddatabases"
 
 ### <a name="submit-the-agent-key"></a>에이전트 키 제출
 
-#### <a name="usage"></a>사용법
+#### <a name="usage"></a>사용량
 
 ```cmd
 Usage: SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key]  -username [user name] -password [password]
@@ -267,13 +267,13 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 
 ### <a name="register-a-database"></a>데이터베이스 등록
 
-#### <a name="usage"></a>사용법
+#### <a name="usage"></a>사용량
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예시
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true
@@ -286,7 +286,7 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 
 이 명령을 사용하여 데이터베이스를 등록 취소하면 데이터베이스가 완전히 프로비전을 해제합니다. 데이터베이스가 다른 동기화 그룹에 속해 있는 경우 이 작업은 다른 동기화 그룹을 중단합니다.
 
-#### <a name="usage"></a>사용법
+#### <a name="usage"></a>사용량
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]
@@ -300,13 +300,13 @@ SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -
 
 ### <a name="update-credentials"></a>자격 증명 업데이트
 
-#### <a name="usage"></a>사용법
+#### <a name="usage"></a>사용량
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예시
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 2f9b7b148900e827f4bfb17de1ef3cf05d8bbf10
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: d8d40ed83d7f8234092ca6354642a76aaa83bc12
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169149"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173076"
 ---
 # <a name="create-a-private-link-service-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 개인 링크 서비스 만들기
 이 문서에서는 Azure PowerShell를 사용 하 여 Azure에서 개인 링크 서비스를 만드는 방법을 보여 줍니다.
@@ -115,7 +115,7 @@ $pls = Get-AzPrivateLinkService -Name $plsName -ResourceGroupName $rgName
 
 ## <a name="create-a-private-endpoint"></a>Private Endpoint 만들기
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-[AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용 하 여 개인 끝점에 대 한 가상 네트워크를 만듭니다. 이 예제에서는 이름이 *Myresourcegroup*인 *vnetpe*@no__t 1in 리소스 그룹 이라는 가상 네트워크를 만듭니다.
+[AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용 하 여 개인 끝점에 대 한 가상 네트워크를 만듭니다. 이 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 *vnetpe* 이라는 가상 네트워크를 만듭니다.
  
 ```azurepowershell
 $virtualNetworkNamePE = "vnetPE"
@@ -128,7 +128,7 @@ $peSubnet = New-AzVirtualNetworkSubnetConfig `
 
 $vnetPE = New-AzVirtualNetwork `
 -Name $virtualNetworkNamePE `
--ResourceGroupName myResourceGroup `
+-ResourceGroupName $rgName `
 -Location $location `
 -AddressPrefix "11.0.0.0/16" `
 -Subnet $peSubnet 
@@ -147,7 +147,7 @@ $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $rgName -Name $peNam
 ```
  
 ### <a name="get-private-endpoint"></a>개인 끝점 가져오기
-다음과 같이 `Get-AzPrivateEndpoint` 인 개인 끝점의 IP 주소를 가져옵니다.
+다음과 같이 `Get-AzPrivateEndpoint`를 사용 하 여 개인 끝점의 IP 주소를 가져옵니다.
 
 ```azurepowershell
 # Get Private Endpoint and its IP Address 

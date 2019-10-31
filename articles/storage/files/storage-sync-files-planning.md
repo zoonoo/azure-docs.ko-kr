@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: febd97d1c0b296ab281f9ce0ac8dff7de1fd75d6
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 698702e24f1f6dfc6b94b75de77c08156832e566
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063338"
+ms.locfileid: "73177851"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -277,6 +277,8 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 | US Gov 애리조나 | 애리조나 |
 | US Gov 텍사스 | 텍사스 |
 | US Gov 버지니아 | 버지니아 |
+| 아랍에미리트 북부 | 두바이 |
+| 아랍에미리트 중부 * | 아부다비 |
 | 서유럽 | 네덜란드 |
 | 미국 중서부 | 와이오밍 |
 | 미국 서부 | 캘리포니아 |

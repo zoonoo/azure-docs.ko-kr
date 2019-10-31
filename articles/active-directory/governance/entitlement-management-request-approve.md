@@ -1,6 +1,6 @@
 ---
-title: Azure AD 자격 관리 (미리 보기)에서 액세스 요청 승인 또는 거부-Azure Active Directory
-description: 내 액세스 포털을 사용 하 여 Azure Active Directory 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 요청을 승인 하거나 거부 하는 방법을 알아봅니다.
+title: Azure AD 자격 관리에서 액세스 요청 승인 또는 거부-Azure Active Directory
+description: 내 액세스 포털을 사용 하 여 Azure Active Directory 자격 관리에서 액세스 패키지에 대 한 요청을 승인 또는 거부 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/27/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da3e1b6439b033742af62d548775cfb628e955b7
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: MT
+ms.openlocfilehash: 3bf254f06c14afa7ee32f27d6632ab33665cf31c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990694"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173467"
 ---
-# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 요청 승인 또는 거부
-
-> [!IMPORTANT]
-> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 요청 승인 또는 거부
 
 Azure AD 자격 관리를 사용 하 여 액세스 패키지에 대 한 승인을 요구 하는 정책을 구성 하 고 하나 이상의 승인자를 선택할 수 있습니다. 이 문서에서는 지정 된 승인자가 액세스 패키지에 대 한 요청을 승인 또는 거부 하는 방법을 설명 합니다.
 

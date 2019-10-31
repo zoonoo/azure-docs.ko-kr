@@ -1,5 +1,5 @@
 ---
-title: Azure AD 자격 관리 (미리 보기)에서 연결 된 조직 추가-Azure Active Directory
+title: Azure AD 자격 관리에서 연결 된 조직 추가-Azure Active Directory
 description: 조직 외부 사용자가 프로젝트에 대 한 공동 작업을 수행할 수 있도록 액세스 패키지를 요청 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -16,14 +16,14 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23d45db1f62b370a2692ed932572e16c247b8903
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9a8e5dc43170af8f33ad266edfa02ac5b41ca67a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952486"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174147"
 ---
-# <a name="add-a-connected-organization-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 연결 된 조직 추가
+# <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 연결 된 조직 추가
 
 Azure AD 자격 관리를 통해 조직 외부 사용자와 공동 작업을 수행할 수 있습니다. 외부 Azure AD 디렉터리 또는 도메인의 사용자와 자주 공동 작업 하는 경우 연결 된 조직으로 추가할 수 있습니다. 이 문서에서는 조직 외부 사용자가 디렉터리에서 리소스를 요청할 수 있도록 연결 된 조직을 추가 하는 방법을 설명 합니다.
 
@@ -39,13 +39,11 @@ Azure AD 자격 관리를 통해 조직 외부 사용자와 공동 작업을 수
 
 Azure AD 디렉터리 또는 도메인의 사용자가 인증 하는 방법은 인증 유형에 따라 달라 집니다. 연결 된 조직의 인증 유형은 다음과 같습니다.
 
-| 인증 유형 | 상태 |
-| --- | --- |
-| Azure AD | 지원됨 |
-| [직접 페더레이션](../b2b/direct-federation.md) | 미리 보기 |
-| [일회용 암호](../b2b/one-time-passcode.md) (도메인) | 미리 보기 |
+- Azure AD
+- [직접 페더레이션](../b2b/direct-federation.md)
+- [일회용 암호](../b2b/one-time-passcode.md) (도메인)
 
-## <a name="add-a-connected-organization"></a>연결 된 조직 추가
+## <a name="add-a-connected-organization"></a>연결된 조직 추가
 
 외부 Azure AD 디렉터리 또는 도메인을 연결 된 조직으로 추가 하려면 다음 단계를 수행 합니다.
 

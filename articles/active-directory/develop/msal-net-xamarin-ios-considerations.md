@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64524960e584907b1e761a36f8ceb1461a7771c7
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5cc4eb0084e0606251d3fbd80d08723701c6a260
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802616"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175628"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>MSAL.NET를 사용 하 여 Xamarin iOS 관련 고려 사항
 Xamarin iOS에서 MSAL.NET 사용 시 고려해 야 할 몇 가지 고려 사항이 있습니다.

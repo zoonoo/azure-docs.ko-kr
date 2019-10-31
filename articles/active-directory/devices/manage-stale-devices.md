@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78ddda8ff67cfdfebcf19f53c307c689884baf4d
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: a2e92ca85c485f8c93fc9202b9084ec37d7506e1
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942892"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175059"
 ---
-# <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 부실 디바이스 관리
+# <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 오래 된 장치 관리
 
 이상적으로 수명 주기를 완료하려면 등록된 디바이스가 더 이상 필요하지 않은 경우 해당 디바이스를 등록 취소해야 합니다. 그러나 분실, 도난, 손상된 디바이스 또는 OS 재설치로 인해 일반적으로 환경에는 부실 디바이스가 있습니다. 아마도 IT 관리자는 부실 디바이스를 제거하여 실제로 관리가 필요한 디바이스를 관리하는 데 리소스를 집중할 수 있기를 원할 것입니다.
 

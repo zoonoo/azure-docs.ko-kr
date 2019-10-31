@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 56bc8934db86bb03446a6d2637bd54daaf2b5fb9
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 6a3d1fb347819015887ffc4fd8089bbc1f3a70de
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254734"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176323"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 Azure Policy 이해
 
@@ -92,7 +92,7 @@ Kubernetes에 대 한 _Azure Policy 추가 기능_ 에서 게이트 키퍼 허�
 
 ### <a name="installing-the-add-on"></a>추가 기능 설치
 
-#### <a name="prerequisites"></a>사전 요구 사항
+#### <a name="prerequisites"></a>전제 조건
 
 AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장을 설치 해야 합니다. 이 단계는 Azure CLI를 통해 수행 됩니다.
 
@@ -107,7 +107,7 @@ AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장�
    az aks list
    ```
 
-1. AKS에 대 한 Azure CLI preview 확장의 버전 _0.4.0_ `aks-preview`을 설치 합니다.
+1. AKS에 대 한 Azure CLI preview 확장의 버전 _0.4.0_ `aks-preview`설치 합니다.
 
    ```azurecli-interactive
    # Log in first with az login if you're not using Cloud Shell
@@ -120,7 +120,7 @@ AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장�
    ```
 
    > [!NOTE]
-   > 이전에 _aks-preview_ 확장을 설치한 경우 `az extension update --name aks-preview` 명령을 사용 하 여 업데이트를 설치 합니다.
+   > _Aks-preview_ 확장을 이전에 설치한 경우 `az extension update --name aks-preview` 명령을 사용 하 여 업데이트를 설치 합니다.
 
 #### <a name="installation-steps"></a>설치 단계
 
@@ -164,7 +164,7 @@ AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장�
 
 AKS를 관리 하기 위한 Azure Policy 언어 구조는 기존 정책의 구조와 같습니다. 효과 _EnforceRegoPolicy_ 는 AKS 클러스터를 관리 하는 데 사용 되며 Opa 및 게이트 키퍼 작업과 관련 된 _세부_ 정보 속성을 사용 합니다. 자세한 내용과 예제는 [EnforceRegoPolicy](effects.md#enforceregopolicy) 효과를 참조 하세요.
 
-정책 정의의 _정보. policy_ 속성의 일부로, Azure Policy는 REGO 정책의 URI를 추가 기능에 전달 합니다. Rego는 Kubernetes 클러스터에 대 한 요청을 유효성 검사 하거나 변경할 수 있도록 OPA 및 게이트 키퍼가 지 원하는 언어입니다. Kubernetes 관리에 대 한 기존 표준을 지원 하 Azure Policy를 사용 하면 기존 규칙을 다시 사용 하 여 통합 된 클라우드 규정 준수 보고 환경을 위한 Azure Policy와 연결할 수 있습니다. 자세한 내용은 [Rego 란?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego)을 참조 하세요.
+정책 정의의 _정보. policy_ 속성의 일부로, Azure Policy는 REGO 정책의 URI를 추가 기능에 전달 합니다. Rego는 Kubernetes 클러스터에 대 한 요청을 유효성 검사 하거나 변경할 수 있도록 OPA 및 게이트 키퍼가 지 원하는 언어입니다. Kubernetes 관리에 대 한 기존 표준을 지원 하 Azure Policy를 사용 하면 기존 규칙을 다시 사용 하 여 통합 된 클라우드 규정 준수 보고 환경을 위한 Azure Policy와 연결할 수 있습니다. 자세한 내용은 [Rego 란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조 하세요.
 
 ## <a name="built-in-policies"></a>기본 제공 정책
 

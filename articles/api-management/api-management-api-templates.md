@@ -11,23 +11,23 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 9d75dff413e7b6e61d38b95e08bf9c891b583014
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: eee95a2b6acde3ad3b7d94cf5cdd0f74f9f09fd9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073831"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176878"
 ---
 # <a name="api-templates-in-azure-api-management"></a>Azure API Management의 API 템플릿
 
 Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사용하여 개발자 포털 페이지의 콘텐츠를 사용자 지정하는 기능을 제공합니다. 이러한 템플릿에서 [DotLiquid](http://dotliquidmarkup.org/) 구문 및 [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) 및 제공된 지역화 [String 리소스](api-management-template-resources.md#strings), [Glyph 리소스](api-management-template-resources.md#glyphs) 및 [Page 컨트롤](api-management-page-controls.md)의 집합과 같은 선택한 편집기를 사용하여 필요에 따라 페이지 콘텐츠를 유연하게 구성할 수 있습니다.  
-  
+
 이 섹션의 템플릿을 통해 개발자 포털에서 API 페이지의 콘텐츠를 사용자 지정할 수 있습니다.  
   
 -   [API 목록](#APIList)  
--   [연산](#Product)  
+-   [작업](#Product)  
 -   [코드 샘플](#CodeSamples)  
     -   [Curl](#Curl)  
     -   [C#](#CSharp)  
@@ -40,6 +40,8 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 
 > [!NOTE]
 >  다음 문서에는 샘플 기본 템플릿이 포함되어 있지만 지속적인 향상으로 인해 변경될 수 있습니다. 원하는 개별 템플릿으로 이동하여 개발자 포털에서 라이브 기본 템플릿을 볼 수 있습니다. 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/)을 참조하세요.  
+
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
@@ -81,13 +83,13 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
 ### <a name="controls"></a>컨트롤  
  `API list` 템플릿에서 다음 [페이지 컨트롤](api-management-page-controls.md)을 사용할 수 있습니다.  
   
--   [페이징 컨트롤](api-management-page-controls.md#paging-control)  
+-   [paging-control](api-management-page-controls.md#paging-control)  
   
--   [검색 컨트롤](api-management-page-controls.md#search-control)  
+-   [search-control](api-management-page-controls.md#search-control)  
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|형식|Description|  
+|자산|Type|설명|  
 |--------------|----------|-----------------|  
 |`apis`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티의 컬렉션입니다.|현재 사용자에게 표시되는 API입니다.|  
   
@@ -342,14 +344,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 ### <a name="data-model"></a>데이터 모델  
   
-|속성|형식|Description|  
+|자산|Type|설명|  
 |--------------|----------|-----------------|  
-|`apiId`|string|현재 API의 ID입니다.|  
-|`apiName`|string|API 이름입니다.|  
-|`apiDescription`|string|API에 대한 설명입니다.|  
+|`apiId`|문자열|현재 API의 ID입니다.|  
+|`apiName`|문자열|API 이름입니다.|  
+|`apiDescription`|문자열|API에 대한 설명입니다.|  
 |`api`|[API 요약](api-management-template-data-model-reference.md#APISummary) 엔터티입니다.|현재 API입니다.|  
-|`operation`|[연산](api-management-template-data-model-reference.md#Operation)|현재 표시된 작업입니다.|  
-|`sampleUrl`|string|현재 작업의 URL입니다.|  
+|`operation`|[작업](api-management-template-data-model-reference.md#Operation)|현재 표시된 작업입니다.|  
+|`sampleUrl`|문자열|현재 작업의 URL입니다.|  
 |`operationMenu`|[작업 메뉴](api-management-template-data-model-reference.md#Menu)|이 API에 대한 작업 메뉴입니다.|  
 |`consoleUrl`|URI|**시도** 버튼에 대한 URI입니다.|  
 |`samples`|[코드 샘플](api-management-template-data-model-reference.md#Sample) 엔터티의 컬렉션입니다.|현재 작업에 대한 코드 샘플입니다.|  

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2019
+ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 41cc8114061ff7d23951baa3e6215d4332dff0ed
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 99c52f65bdec2b164cca86a6346d8865d210cf38
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258513"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176069"
 ---
 # <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Azure Active Directory 액세스 패널 배포 계획
 
@@ -45,15 +45,15 @@ Azure AD 액세스 패널을 사용 하 여 다음을 수행할 수 있습니다
 
 Azure AD 액세스 패널은 다음과 같은 방법으로 비즈니스를 활용 합니다.
 
-**직관적인 사용자 환경을 제공 합니다**. 액세스 패널은 모든 Azure Single Sign-On (SSO) 연결 응용 프로그램에 대 한 단일 플랫폼을 제공 합니다. 추가 된 그룹 관리 및 셀프 서비스 암호 재설정과 같은 기존 설정 및 새로운 기능을 찾을 수 있는 통합 포털이 있습니다. 직관적인 환경을 사용 하면 사용자가 더 빨리 작업 하 고 생산성을 높일 수 있을 뿐 아니라 사용자의 불만을 줄일 수 있습니다.
+**직관적인 사용자 환경 제공**: 액세스 패널에서는 모든 SSO (Azure Single Sign-On) 연결 응용 프로그램에 대 한 단일 플랫폼을 제공 합니다. 추가 된 그룹 관리 및 셀프 서비스 암호 재설정과 같은 기존 설정 및 새로운 기능을 찾을 수 있는 통합 포털이 있습니다. 직관적인 환경을 사용 하면 사용자가 더 빨리 작업 하 고 생산성을 높일 수 있을 뿐 아니라 사용자의 불만을 줄일 수 있습니다.
 
-**생산성 향상**: 액세스 패널의 모든 사용자 응용 프로그램에서 SSO를 사용 하도록 설정 했습니다. 엔터프라이즈 응용 프로그램 및 Office 365에서 SSO를 사용 하도록 설정 하면 추가 로그인 프롬프트를 줄이거나 제거 하 여 뛰어난 로그인 환경을 만들 수 있습니다. 액세스 패널에서는 셀프 서비스와 동적 구성원 자격을 사용 하 고 id 시스템의 전반적인 보안을 향상 시킵니다. 이를 위해 적절 한 사용자가 응용 프로그램에 대 한 액세스를 관리할 수 있도록 합니다. 액세스 패널은 리소스를 빠르게 찾고 작업을 계속할 수 있는 일관 된 방문 페이지로 사용 됩니다.
+**생산성 향상**: 액세스 패널의 모든 사용자 응용 프로그램에서 SSO를 사용 하도록 설정 합니다. 엔터프라이즈 응용 프로그램 및 Office 365에서 SSO를 사용 하도록 설정 하면 추가 로그인 프롬프트를 줄이거나 제거 하 여 뛰어난 로그인 환경을 만들 수 있습니다. 액세스 패널에서는 셀프 서비스와 동적 구성원 자격을 사용 하 고 id 시스템의 전반적인 보안을 향상 시킵니다. 이를 위해 적절 한 사용자가 응용 프로그램에 대 한 액세스를 관리할 수 있도록 합니다. 액세스 패널은 리소스를 빠르게 찾고 작업을 계속할 수 있는 일관 된 방문 페이지로 사용 됩니다.
 
 **비용 관리**: Azure AD에서 액세스 패널을 사용 하도록 설정 하면 온-프레미스 인프라의 divestment 도움이 될 수 있습니다. 모든 앱을 찾고, 리소스에 대 한 액세스를 요청 하 고, 계정을 관리 하는 일관 된 포털을 제공 하 여 지원 비용을 절감 합니다.
 
-**유연 하 고 보안이 향상**됩니다. 액세스 패널을 통해 클라우드 플랫폼에서 제공 하는 보안과 유연성에 액세스할 수 있습니다. 관리자는 응용 프로그램 및 리소스에 대 한 설정을 쉽게 변경할 수 있으며 사용자에 게 영향을 주지 않고 새로운 보안 요구 사항을 수용할 수 있습니다.
+**유연성 및 보안 강화**: 액세스 패널을 통해 클라우드 플랫폼에서 제공 하는 보안과 유연성에 액세스할 수 있습니다. 관리자는 응용 프로그램 및 리소스에 대 한 설정을 쉽게 변경할 수 있으며 사용자에 게 영향을 주지 않고 새로운 보안 요구 사항을 수용할 수 있습니다.
 
-**강력한 감사 및 사용 추적을 사용 하도록 설정**합니다. 모든 사용자 기능에 대 한 감사 및 사용 추적을 사용 하면 사용자가 자신의 리소스를 사용 하 고 있는지 확인 하 고 보안을 평가할 수 있습니다.
+**강력한 감사 및 사용 추적 사용**: 모든 사용자 기능에 대 한 감사 및 사용 추적을 사용 하면 사용자가 자신의 리소스를 사용 하 고 있는지 확인 하 고 보안을 평가할 수 있습니다.
 
 ### <a name="licensing-considerations"></a>라이선스 고려 사항
 
@@ -83,12 +83,12 @@ Azure AD 액세스 패널은 다음과 같은 방법으로 비즈니스를 활�
 
 | 영역| 설명 |
 | - | - |
-| 액세스 권한| 액세스 패널 포털은 회사 네트워크 내의 회사 및 개인 장치에서 액세스할 수 있습니다. |
-|액세스 권한 | 액세스 패널 포털은 회사 네트워크 외부의 회사 장치에서 액세스할 수 있습니다. |
+| 액세스| 액세스 패널 포털은 회사 네트워크 내의 회사 및 개인 장치에서 액세스할 수 있습니다. |
+|액세스 | 액세스 패널 포털은 회사 네트워크 외부의 회사 장치에서 액세스할 수 있습니다. |
 | 감사| 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 됩니다. |
 | 거버넌스| Azure AD에 연결 된 응용 프로그램 및 그룹에 대 한 사용자 할당의 수명 주기는 정의 되 고 모니터링 됩니다. |
 | 보안| 리소스에 대 한 액세스는 사용자 및 그룹 할당을 통해 제어 됩니다. 권한 있는 사용자만 리소스 액세스를 관리할 수 있습니다. |
-| 성능| 액세스 할당 전파 타임 라인은 문서화 및 모니터링 됩니다. |
+| 성능 중심| 액세스 할당 전파 타임 라인은 문서화 및 모니터링 됩니다. |
 | 사용자 환경| 사용자는 액세스 패널 기능과이 기능을 사용 하는 방법을 알고 있습니다.|
 | 사용자 환경| 사용자는 응용 프로그램 및 그룹에 대 한 액세스를 관리할 수 있습니다.|
 | 사용자 환경| 사용자는 자신의 계정을 관리할 수 있습니다. |
@@ -108,7 +108,7 @@ Azure AD 액세스 패널은 다음과 같은 방법으로 비즈니스를 활�
    * 셀프 서비스 암호 재설정
    * Multi-Factor Authentication 설정
    * 디바이스 관리
-   * 서비스 계약
+   * 사용 조건
    * 조직 관리
 
 1. 내 그룹
@@ -122,16 +122,16 @@ Azure AD 액세스 패널은 다음과 같은 방법으로 비즈니스를 활�
 
 다음 표에서는 사용할 수 있는 몇 가지 중요 한 액세스 패널 구성과 일반적인 값을 보여 줍니다.
 
-| Configuration| 일반적인 값 |
+| 구성| 일반적인 값 |
 | - | - |
 | 파일럿 그룹 결정| 사용할 Azure AD 보안 그룹을 식별 하 고 모든 파일럿 구성원이 그룹에 속해 있는지 확인 합니다. |
 | 프로덕션에 사용할 그룹을 결정 합니다.| 사용할 azure AD 보안 그룹 또는 Azure AD에 동기화 된 Active Directory 그룹을 식별 합니다. 모든 파일럿 구성원이 그룹의 일부 인지 확인 합니다. |
 | 사용자가 특정 유형의 응용 프로그램에 SSO를 사용할 수 있도록 허용| 페더레이션된 SSO, OAuth, 암호 SSO, 앱 프록시 |
-| 사용자가 셀프 서비스 암호 재설정을 사용 하도록 허용 | 예 |
-| 사용자가 Multi-Factor Authentication을 사용할 수 있도록 허용| 예 |
+| 사용자가 셀프 서비스 암호 재설정을 사용 하도록 허용 | yes |
+| 사용자가 Multi-Factor Authentication을 사용할 수 있도록 허용| yes |
 | 사용자가 특정 유형의 그룹에 대해 셀프 서비스 그룹 관리를 사용 하도록 허용| 보안 그룹, Office 365 그룹 |
-| 사용자가 셀프 서비스 앱 관리를 사용할 수 있도록 허용| 예 |
-| 사용자가 액세스 검토를 사용할 수 있도록 허용| 예 |
+| 사용자가 셀프 서비스 앱 관리를 사용할 수 있도록 허용| yes |
+| 사용자가 액세스 검토를 사용할 수 있도록 허용| yes |
 
 ### <a name="plan-consent-strategy"></a>계획 승인 전략
 
@@ -181,7 +181,7 @@ Azure AD는 [응용 프로그램에서 Single Sign-On](what-is-single-sign-on.md
     * 응용 프로그램을 시작할 때 Azure AD에서 추가 보고 기능을 사용 하도록 설정 합니다. 
     * Azure 애플리케이션 프록시 사용 및 연결 된 Single Sign-On 모드를 포함 합니다.
 
-응용 프로그램의 SSO 모드를 구성 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요. [Azure Active Directory에서 응용 프로그램에 대 한 Single sign-on](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+응용 프로그램의 SSO 모드를 구성 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 응용 프로그램에 대 한 Single sign-on을](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)참조 하세요.
 
 내 앱 페이지에서 최상의 경험을 위해 페더레이션된 SSO에 사용할 수 있는 클라우드 응용 프로그램의 통합을 시작 합니다. 페더레이션된 SSO를 사용 하면 사용자가 앱을 시작 하는 일관 된 한 번 클릭 환경을 제공 하 고 구성 제어에서 더욱 강력해 집니다.
 
@@ -193,7 +193,7 @@ SaaS 응용 프로그램을 배포 하 고 구성 하는 방법에 대 한 자�
 
 사용자가 암호 기반 SSO 응용 프로그램에 로그인 하는 경우 내 앱 보안 로그인 확장을 설치 하 고 사용 해야 합니다. 확장은 응용 프로그램의 로그인 양식에 암호를 전송 하는 스크립트를 실행 합니다. 사용자가 암호 기반 SSO 응용 프로그램을 처음 시작할 때 확장을 설치 하 라는 메시지가 표시 됩니다. 확장에 대 한 자세한 내용은이 설명서에서 [액세스 패널 브라우저 확장 설치](https://docs.microsoft.com/azure/active-directory/application-access-panel-extension-problem-installing?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)에 나와 있습니다.
 
-암호 기반 SSO 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 다음 옵션을 사용할 수 있습니다.
+암호 기반 SSO 응용 프로그램을 통합 해야 하는 경우 [지원 되는 브라우저](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 사용 하 여 확장을 대규모로 배포 하는 메커니즘을 정의 해야 합니다. 옵션은 다음과 같습니다.
 
 * [Internet Explorer에 대 한 그룹 정책](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
 
@@ -211,11 +211,11 @@ SaaS 응용 프로그램을 배포 하 고 구성 하는 방법에 대 한 자�
 
 #### <a name="plan-for-mobile-access"></a>모바일 액세스 계획
 
-모바일 사용자가 암호 기반 SSO 응용 프로그램을 시작 하려면 Intune 정책 (Microsoft Edge 또는 Intune Managed Browser)으로 보호 된 브라우저가 필요 합니다. 정책으로 보호 된 브라우저를 사용 하면 응용 프로그램에 대해 저장 된 암호를 전송할 수 있습니다. Microsoft Edge 또는 managed browser는 웹 데이터 보호 기능 집합을 제공 합니다. IOS 및 Android 장치에서 엔터프라이즈 시나리오용 Microsoft Edge를 사용할 수도 있습니다. Microsoft Edge는 Intune Managed Browser와 동일한 관리 시나리오를 지원 하 고 사용자 환경을 개선 합니다. 자세한 정보: [Microsoft Intune 정책으로 보호 된 브라우저를 사용 하 여 웹 액세스를 관리](https://docs.microsoft.com/intune/app-configuration-managed-browser)합니다.
+모바일 사용자가 암호 기반 SSO 응용 프로그램을 시작 하려면 Intune 정책 (Microsoft Edge 또는 Intune Managed Browser)으로 보호 된 브라우저가 필요 합니다. 정책으로 보호 된 브라우저를 사용 하면 응용 프로그램에 대해 저장 된 암호를 전송할 수 있습니다. Microsoft Edge 또는 managed browser는 웹 데이터 보호 기능 집합을 제공 합니다. IOS 및 Android 장치에서 엔터프라이즈 시나리오용 Microsoft Edge를 사용할 수도 있습니다. Microsoft Edge는 Intune Managed Browser와 동일한 관리 시나리오를 지원 하 고 사용자 환경을 개선 합니다. 자세한 정보: [정책으로 보호 된 Microsoft Intune 브라우저를 사용 하 여 웹 액세스 관리](https://docs.microsoft.com/intune/app-configuration-managed-browser)
 
 ## <a name="plan-your-my-apps-deployment"></a>내 앱 배포 계획
 
-액세스 패널의 기초는 응용 프로그램 시작 관리자 내 앱 이며, 사용자는에 [https://myapps.microsoft.com](https://myapps.microsoft.com/)액세스 합니다. 내 앱 페이지에서는 사용자에 게 작업을 시작 하 고 필요한 응용 프로그램에 액세스할 수 있는 단일 장소를 제공 합니다. 여기서 사용자는 액세스 Single Sign-On 있는 모든 응용 프로그램의 목록을 찾을 수 있습니다. 
+액세스 패널의 기초가 되는 응용 프로그램 시작 관리자 내 앱은 사용자가 [https://myapps.microsoft.com](https://myapps.microsoft.com/)에서 액세스 합니다. 내 앱 페이지에서는 사용자에 게 작업을 시작 하 고 필요한 응용 프로그램에 액세스할 수 있는 단일 장소를 제공 합니다. 여기서 사용자는 액세스 Single Sign-On 있는 모든 응용 프로그램의 목록을 찾을 수 있습니다. 
 
 ![앱 패널의 스크린샷](media/access-panel-deployment-plan/ap-dp-app-launcher.png)
 
@@ -226,6 +226,10 @@ SaaS 응용 프로그램을 배포 하 고 구성 하는 방법에 대 한 자�
 #### <a name="add-applications-to-the-my-apps-panel"></a>내 앱 패널에 응용 프로그램 추가
 
 모든 Azure AD SSO 사용 응용 프로그램을 My Apps 시작 관리자에 추가할 수 있습니다. 다른 응용 프로그램은 연결 된 SSO 옵션을 사용 하 여 추가 됩니다. 기존 웹 응용 프로그램의 URL에 연결 되는 응용 프로그램 타일을 구성할 수 있습니다. 연결 된 SSO를 사용 하면 모든 응용 프로그램을 Azure AD SSO로 마이그레이션하지 않고도 My Apps 포털로 사용자의 연결을 시작할 수 있습니다. 사용자 환경을 방해 하지 않고 Azure AD SSO 구성 응용 프로그램으로 점진적으로 이동할 수 있습니다.
+
+#### <a name="use-my-apps-workspaces-preview"></a>내 앱 작업 영역 사용 (미리 보기)
+
+기본적으로 모든 응용 프로그램은 단일 페이지에 함께 나열 됩니다. 그러나 작업 영역을 사용 하 여 관련 응용 프로그램을 함께 그룹화 하 고 별도의 탭에 제공 하 여 쉽게 찾을 수 있습니다. 예를 들어 작업 영역을 사용 하 여 특정 작업 역할, 작업, 프로젝트 등에 대해 응용 프로그램의 논리적 그룹을 만들 수 있습니다. 자세한 내용은 [My Apps 작업 영역을 사용 하 여 사용자 액세스 패널을 사용자 지정 하는 방법 (미리 보기)](access-panel-workspaces.md)을 참조 하세요. 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>내 앱 또는 기존 포털의 사용 여부 계획
 
@@ -260,7 +264,7 @@ Azure AD [는 기술 및 비즈니스 정보를 제공 하는 보고서를](http
 |   | 위험 관리| 생산성 향상| 거버넌스 및 규정 준수 |
 |  - |- | - | - |
 | 보고서 유형|  응용 프로그램 사용 권한 및 사용| 계정 프로비전 활동| 응용 프로그램에 액세스 하는 사용자 검토 |
-| 잠재적 작업| 감사 액세스 권한 해지| 프로 비전 오류 수정| 액세스 해지 |
+| 잠재적 작업| 감사 액세스 권한 해지| 프로 비전 오류 수정| 액세스 취소 |
 
 Azure AD는 30 일 동안 대부분의 감사 데이터를 유지 합니다. 분석 시스템으로 다운로드 하기 위해 Azure 관리 포털 또는 API를 통해 데이터를 사용할 수 있습니다.
 
@@ -335,9 +339,9 @@ Azure Active Directory 내에서 필요한 작업을 수행 하려면 최소 권
 | 가상 사용자| 역할| Azure AD 역할  |
 | - | -| -|
 | 기술 지원팀 관리자| 계층 1 지원| 없음 |
-| Id 관리| 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그| 전역 관리자 |
+| Id 관리| 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그| 글로벌 관리자 |
 | 응용 프로그램 관리자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
-| 인프라 관리자| 인증서 롤오버 소유자| 전역 관리자 |
+| 인프라 관리자| 인증서 롤오버 소유자| 글로벌 관리자 |
 | 비즈니스 소유자/관련자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
 
 [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) 를 사용 하 여 디렉터리 권한이 있는 사용자에 게 추가 감사, 제어 및 액세스 검토를 제공할 역할을 관리할 수 있습니다.

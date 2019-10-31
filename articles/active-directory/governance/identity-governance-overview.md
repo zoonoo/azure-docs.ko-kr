@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d59a850f590ee71be7e6ab23281cbfdf57147c61
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: c90052d1d75ba65a8e0b0e7a2cd26a279019a82d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062697"
+ms.locfileid: "73173163"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance란?
 
@@ -97,7 +97,7 @@ Id 거 버 넌 스 기능에 대 한 의견이 있는 경우 피드백을 제출
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD 자격 관리 란? 모드](entitlement-management-overview.md)
+- [Azure AD 권한 관리란?](entitlement-management-overview.md)
 - [Azure AD 액세스 검토란?](access-reviews-overview.md)
 - [Azure AD Privileged Identity Management란?](../privileged-identity-management/pim-configure.md)
 - [사용 약관으로 무엇을 할 수 있나요?](active-directory-tou.md)

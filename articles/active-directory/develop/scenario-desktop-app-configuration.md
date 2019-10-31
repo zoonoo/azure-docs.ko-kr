@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0926e6800dbcd81d2e542e27afe3afb1240cff22
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 6baf7d21748b5b524745f26302e70612dab29a8d
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268402"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175426"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 데스크톱 앱-코드 구성
 
@@ -28,13 +28,22 @@ ms.locfileid: "71268402"
 
 ## <a name="msal-libraries"></a>MSAL 라이브러리
 
-현재 여러 플랫폼에서 데스크톱 응용 프로그램을 지 원하는 MSAL 라이브러리는 MSAL.NET입니다.
+데스크톱 응용 프로그램을 지 원하는 Microsoft 라이브러리는 다음과 같습니다.
 
-IOS 및 macOS 용 MSAL은 macOS 에서만 실행 되는 데스크톱 응용 프로그램을 지원 합니다. 
+  MSAL 라이브러리 | 설명
+  ------------ | ----------
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 여러 플랫폼 (Linux, Windows 및 MacOS)에서 데스크톱 응용 프로그램을 빌드할 수 있도록 지원 합니다.
+  ![파이썬](media/sample-v2-code/logo_python.png) <br/> MSAL Python | 에서는 여러 플랫폼에서 데스크톱 응용 프로그램을 빌드할 수 있습니다. 개발 진행 중-공개 미리 보기
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | 에서는 여러 플랫폼에서 데스크톱 응용 프로그램을 빌드할 수 있습니다. 개발 진행 중-공개 미리 보기
+  ![MSAL iOS](media/sample-v2-code/logo_iOS.png) <br/> MSAL iOS | MacOS 에서만 실행 되는 데스크톱 응용 프로그램 지원
 
-## <a name="public-client-application-with-msalnet"></a>MSAL.NET를 사용 하는 공용 클라이언트 응용 프로그램
+## <a name="public-client-application"></a>공용 클라이언트 응용 프로그램
 
-코드 관점에서 볼 때 데스크톱 응용 프로그램은 공용 클라이언트 응용 프로그램 이므로 MSAL.NET `IPublicClientApplication`을 빌드 및 조작 하는 것입니다. 대화형 인증을 사용 하는지 여부에 관계 없이 약간 달라질 수 있습니다.
+코드 관점에서 볼 때 데스크톱 응용 프로그램은 공용 클라이언트 응용 프로그램입니다. 이 구성은 대화형 인증을 사용 하는지 여부에 따라 약간 다릅니다.
+
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+
+MSAL.NET `IPublicClientApplication`를 빌드하고 조작 해야 합니다.
 
 ![IPublicClientApplication](media/scenarios/public-client-application.png)
 
@@ -98,16 +107,16 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>자세히
+### <a name="learn-more"></a>자세히 알아보기
 
 MSAL.NET 데스크톱 응용 프로그램을 구성 하는 방법에 대 한 자세한 내용은 다음을 확인 하세요.
 
-- 에서 `PublicClientApplicationBuilder`사용할 수 있는 모든 한정자 목록은 참조 설명서 [publicclientapplicationbuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods) 를 참조 하세요.
-- 에서 `PublicClientApplicationOptions` 제공 하는 모든 옵션에 대 한 설명은 [publicclientapplicationoptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)참조 설명서를 참조 하세요.
+- `PublicClientApplicationBuilder`에서 사용할 수 있는 모든 한정자 목록은 참조 설명서 [Publicclientapplicationbuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods) 를 참조 하세요.
+- `PublicClientApplicationOptions`에서 제공 하는 모든 옵션에 대 한 설명은 참조 설명서의 [Publicclientapplicationoptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)를 참조 하세요.
 
-## <a name="complete-example-with-configuration-options"></a>구성 옵션을 사용 하는 전체 예제
+### <a name="complete-example-with-configuration-options"></a>구성 옵션을 사용 하는 전체 예제
 
-다음 `appsettings.json` 구성 파일을 포함 하는 .net Core 콘솔 응용 프로그램을 가정해 보겠습니다.
+다음 `appsettings.json` 구성 파일을 포함 하는 .NET Core 콘솔 응용 프로그램을 가정해 보겠습니다.
 
 ```JSon
 {
@@ -175,9 +184,32 @@ var app = PublicClientApplicationBuilder.CreateWithApplicationOptions(config.Pub
            .Build();
 ```
 
-`.Build()` 메서드를 호출 하기 전에 앞에서 볼 수 있는 것 처럼 메서드를 `.WithXXX` 호출 하 여 구성을 재정의할 수 있습니다.
+`.Build()` 메서드를 호출 하기 전에 앞에서 볼 수 있는 것 처럼 `.WithXXX` 메서드를 호출 하 여 구성을 재정의할 수 있습니다.
 
-## <a name="public-client-application-with-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL을 사용 하는 공용 클라이언트 응용 프로그램
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+다음은 샘플을 구성 하기 위해 MSAL Java dev 샘플에서 사용 되는 클래스입니다. [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+
+```Java
+PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CLIENT_ID)
+        .authority(TestData.AUTHORITY_COMMON)
+        .build();
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+config = json.load(open(sys.argv[1]))
+
+app = msal.PublicClientApplication(
+    config["client_id"], authority=config["authority"],
+    # token_cache=...  # Default cache is in memory only.
+                       # You can learn how to use SerializableTokenCache from
+                       # https://msal-python.rtfd.io/en/latest/#msal.SerializableTokenCache
+    )
+```
+
+# <a name="macostabmacos"></a>[MacOS](#tab/macOS)
 
 다음 코드에서는 회사 및 학교 계정이 나 개인 Microsoft 계정를 사용 하 여 공용 클라이언트 응용 프로그램, Microsoft Azure 공용 클라우드의 로그인 사용자를 인스턴스화합니다.
 
@@ -187,12 +219,12 @@ Objective-C:
 
 ```objc
 NSError *msalError = nil;
-    
+
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"];    
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
 
-Swift
+Swift:
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
 if let application = try? MSALPublicClientApplication(configuration: config){ /* Use application */}
@@ -210,25 +242,26 @@ MSALAADAuthority *aadAuthority =
                                                    audienceType:MSALAzureADMultipleOrgsAudience
                                                       rawTenant:nil
                                                           error:nil];
-                                                          
+
 MSALPublicClientApplicationConfig *config =
                 [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"<your-client-id-here>"
                                                                 redirectUri:@"<your-redirect-uri-here>"
                                                                   authority:aadAuthority];
-                                                                  
+
 NSError *applicationError = nil;
 MSALPublicClientApplication *application =
                 [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&applicationError];
 ```
 
-Swift
+Swift:
 
 ```swift
 let authority = try? MSALAADAuthority(cloudInstance: .usGovernmentCloudInstance, audienceType: .azureADMultipleOrgsAudience, rawTenant: nil)
-        
+
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>", redirectUri: "<your-redirect-uri-here>", authority: authority)
 if let application = try? MSALPublicClientApplication(configuration: config) { /* Use application */}
 ```
+---
 
 ## <a name="next-steps"></a>다음 단계
 

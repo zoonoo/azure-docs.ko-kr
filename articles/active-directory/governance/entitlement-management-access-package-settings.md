@@ -1,6 +1,6 @@
 ---
-title: Azure AD 자격 관리 (미리 보기)에서 액세스 패키지를 요청 하는 공유 링크-Azure Active Directory
-description: Azure Active Directory 자격 관리 (미리 보기)에서 액세스 패키지를 요청 하는 링크를 공유 하는 방법을 알아봅니다.
+title: Azure AD 자격 관리에서 액세스 패키지를 요청 하는 공유 링크-Azure Active Directory
+description: Azure Active Directory 자격 관리에서 액세스 패키지를 요청 하는 링크를 공유 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91b98df1f93991d4781283bc38b02dc20d11268d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 94d32bf26def6832f51b4e09c697bca885162dc2
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392333"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174405"
 ---
-# <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 패키지를 요청 하는 공유 링크
-
-> [!IMPORTANT]
-> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="share-link-to-request-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지를 요청 하는 공유 링크
 
 디렉터리의 대부분의 사용자는 내 액세스 포털에 로그인 하 여 요청할 수 있는 액세스 패키지의 목록을 자동으로 볼 수 있습니다. 그러나 디렉터리에 아직 없는 외부 비즈니스 파트너 사용자의 경우 액세스 패키지를 요청 하는 데 사용할 수 있는 링크를 전송 해야 합니다. 
 

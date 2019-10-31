@@ -11,20 +11,23 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1d463bc889385f8f157ebb9892acc7a4a8b2a2e
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 661afc08c76c6cde61b02a29a55b4a8bec932e21
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278520"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175822"
 ---
 # <a name="troubleshooting-conditional-access-using-the-what-if-tool"></a>What If 도구를 사용 하 여 조건부 액세스 문제 해결
 
 조건부 액세스의 [What If 도구](what-if-tool.md) 는 특정 환경에서 정책이 사용자에 게 적용 되었거나 적용 되지 않은 이유를 이해 하거나 정책이 알려진 상태에서 적용 되는 경우에 유용 합니다.
 
-What If 도구는 > **조건부 액세스**  > WhatIfAzurePortal > Azure Active Directory에 있습니다.
+What If 도구는 **Azure Portal** > **Azure Active Directory** **조건부 액세스** ** >  > 에 있습니다.**
 
 ![조건부 액세스 What If 도구 (기본 상태)](./media/troubleshoot-conditional-access-what-if/conditional-access-what-if-tool.png)
+
+> [!NOTE]
+> What If 도구는 현재 보고서 전용 모드에서 정책을 평가 하지 않습니다.
 
 ## <a name="gathering-information"></a>정보 수집
 
@@ -34,7 +37,7 @@ What If 도구를 사용 하려면 **사용자** 만 시작 하면 됩니다.
 
 * 클라우드 앱 또는 작업
 * IP 주소 
-* Country
+* 국가
 * 디바이스 플랫폼
 * 클라이언트 앱 (미리 보기)
 * 장치 상태 (미리 보기) 
@@ -75,4 +78,4 @@ What If 도구를 사용 하려면 **사용자** 만 시작 하면 됩니다.
 * [조건부 액세스 란?](overview.md)
 * [Azure Active Directory Identity Protection 이란?](../identity-protection/overview-v2.md)
 * [디바이스 ID란?](../devices/overview.md)
-* [작동 방법: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md) 문서를 참조하세요
+* [작동 방법: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a353b4577f8cfa9ba279ad2793e1a7ab8b27e55
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 5331f01c5dc6acf01f567dbe4c332853bf7aa47e
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268331"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175559"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 데스크톱 앱-프로덕션으로 이동
 
@@ -37,16 +37,16 @@ ms.locfileid: "71268331"
 > [!NOTE]
 > 여러 리소스에 대 한 동의를 얻는 것은 Microsoft id 플랫폼에서 작동 하지만 Azure Active Directory (Azure AD) B2C의 경우에는 작동 하지 않습니다. Azure AD B2C은 사용자 동의가 아닌 관리자 동의만 지원 합니다.
 
-V2.0 (Microsoft identity platform) 끝점을 사용 하면 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없습니다. 따라서 매개 변수 `scopes` 는 단일 리소스에 대 한 범위만 포함할 수 있습니다. 사용자가 `extraScopesToConsent` 매개 변수를 사용 하 여 여러 리소스를 미리 동의 수 있습니다.
+V2.0 (Microsoft identity platform) 끝점을 사용 하면 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없습니다. 따라서 `scopes` 매개 변수는 단일 리소스에 대 한 범위만 포함할 수 있습니다. `extraScopesToConsent` 매개 변수를 사용 하 여 사용자가 여러 리소스를 미리 동의 수 있도록 할 수 있습니다.
 
 예를 들어 두 개의 리소스가 있는 경우 두 개의 범위가 있습니다.
 
-- `https://mytenant.onmicrosoft.com/customerapi`-2 개 범위 `customer.read` 및`customer.write`
-- `https://mytenant.onmicrosoft.com/vendorapi`-2 개 범위 `vendor.read` 및`vendor.write`
+- `https://mytenant.onmicrosoft.com/customerapi`-2 개 범위 `customer.read` 및 `customer.write`
+- `https://mytenant.onmicrosoft.com/vendorapi`-2 개 범위 `vendor.read` 및 `vendor.write`
 
-`extraScopesToConsent` 매개 변수가 있는 한정자 `.WithAdditionalPromptToConsent` 를 사용 해야 합니다.
+`extraScopesToConsent` 매개 변수가 있는 `.WithAdditionalPromptToConsent` 한정자를 사용 해야 합니다.
 
-말합니다.
+예를 들면 다음과 같습니다.
 
 ### <a name="in-msalnet"></a>MSAL.NET에서
 
@@ -76,24 +76,24 @@ Objective-C:
 ```objc
 NSArray *scopesForCustomerApi = @[@"https://mytenant.onmicrosoft.com/customerapi/customer.read",
                                 @"https://mytenant.onmicrosoft.com/customerapi/customer.write"];
-    
+
 NSArray *scopesForVendorApi = @[@"https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
                               @"https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
-    
+
 MSALInteractiveTokenParameters *interactiveParams = [[MSALInteractiveTokenParameters alloc] initWithScopes:scopesForCustomerApi webviewParameters:[MSALWebviewParameters new]];
 interactiveParams.extraScopesToConsent = scopesForVendorApi;
 [application acquireTokenWithParameters:interactiveParams completionBlock:^(MSALResult *result, NSError *error) { /* handle result */ }];
 ```
 
-Swift
+Swift:
 
 ```swift
 let scopesForCustomerApi = ["https://mytenant.onmicrosoft.com/customerapi/customer.read",
                             "https://mytenant.onmicrosoft.com/customerapi/customer.write"]
-        
+
 let scopesForVendorApi = ["https://mytenant.onmicrosoft.com/vendorapi/vendor.read",
                           "https://mytenant.onmicrosoft.com/vendorapi/vendor.write"]
-        
+
 let interactiveParameters = MSALInteractiveTokenParameters(scopes: scopesForCustomerApi, webviewParameters: MSALWebviewParameters())
 interactiveParameters.extraScopesToConsent = scopesForVendorApi
 application.acquireToken(with: interactiveParameters, completionBlock: { (result, error) in /* handle result */ })
@@ -101,7 +101,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 이 호출을 통해 첫 번째 web API에 대 한 액세스 토큰을 얻을 수 있습니다.
 
-두 번째 웹 api를 호출 해야 하는 경우 api를 호출할 `AcquireTokenSilent` 수 있습니다.
+두 번째 웹 API를 호출 해야 하는 경우 `AcquireTokenSilent` API를 호출할 수 있습니다.
 
 ```CSharp
 AcquireTokenSilent(scopesForVendorApi, accounts.FirstOrDefault()).ExecuteAsync();

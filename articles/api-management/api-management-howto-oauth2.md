@@ -10,18 +10,21 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: e6b5c8c2f734a12fe246a82ce1aa1dc53893ab64
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 99a49aa4627dc23d5f7531ac961d63e3e75ccff9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072385"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176622"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Azure API Management에서 OAuth 2.0을 사용하여 개발자 계정에 권한을 부여하는 방법
 
 대부분의 API는 [OAuth 2.0](https://oauth.net/2/) 을 지원하여 API를 보호하고 유효한 사용자만 액세스 권한이 부여되고 자격이 있는 리소스에만 액세스할 수 있도록 합니다. 이러한 API와 함께 Azure API Management의 대화형 개발자 콘솔을 사용하기 위해 서비스에서 OAuth 2.0 사용 API로 작동하도록 서비스 인스턴스를 구성할 수 있습니다.
+
+> [!IMPORTANT]
+> OAuth 2.0 권한 부여는 새 개발자 포털의 대화형 콘솔에서 아직 사용할 수 없습니다.
 
 ## <a name="prerequisites"> </a>필수 구성 요소
 
@@ -54,7 +57,7 @@ ms.locfileid: "70072385"
 
     원하는 유형을 선택하여 **권한 부여 유형** 을 지정합니다. **인증 코드** 가 지정됩니다.
 
-    **권한 부여 엔드포인트 URL**을 입력합니다. Azure Active Directory의 경우이 url은 다음 url과 유사 합니다. 여기서 `<tenant_id>` 는 Azure AD 테 넌 트의 ID로 바뀝니다.
+    **권한 부여 엔드포인트 URL**을 입력합니다. Azure Active Directory의 경우이 URL은 다음 URL과 유사 합니다. 여기서 `<tenant_id>`은 Azure AD 테 넌 트의 ID로 바뀝니다.
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
@@ -92,11 +95,11 @@ ms.locfileid: "70072385"
 
     ![OAuth 2.0 설정](./media/api-management-howto-oauth2/oauth-07.png)
 
-## <a name="step3"> </a>개발자 포털에서 OAuth 2.0 사용자 권한 부여 테스트
+## <a name="step3"> </a>레거시 개발자 포털-OAuth 2.0 사용자 권한 부여 테스트
 
-OAuth 2.0 권한 부여 서버를 구성하고 해당 서버를 사용하도록 API를 구성한 후에는 개발자 포털로 이동하여 API를 호출하는 방법으로 권한 부여를 테스트할 수 있습니다.  Azure API Management 인스턴스 **개요** 페이지의 맨 위 메뉴에서 **개발자 포털**을 클릭합니다.
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
-![개발자 포털][api-management-developer-portal-menu]
+OAuth 2.0 권한 부여 서버를 구성하고 해당 서버를 사용하도록 API를 구성한 후에는 개발자 포털로 이동하여 API를 호출하는 방법으로 권한 부여를 테스트할 수 있습니다. Azure API Management 인스턴스 **개요** 페이지의 상단 메뉴에서 **개발자 포털 (레거시)** 을 클릭 합니다.
 
 상단 메뉴에서 **API**를 클릭하고 **Echo API**를 선택합니다.
 
@@ -128,7 +131,6 @@ OAuth 2.0 및 API Management 사용에 대한 자세한 내용은 다음 비디�
 
 [api-management-oauth2-signin]: ./media/api-management-howto-oauth2/api-management-oauth2-signin.png
 [api-management-request-header-token]: ./media/api-management-howto-oauth2/api-management-request-header-token.png
-[api-management-developer-portal-menu]: ./media/api-management-howto-oauth2/api-management-developer-portal-menu.png
 [api-management-open-console]: ./media/api-management-howto-oauth2/api-management-open-console.png
 [api-management-apis-echo-api]: ./media/api-management-howto-oauth2/api-management-apis-echo-api.png
 

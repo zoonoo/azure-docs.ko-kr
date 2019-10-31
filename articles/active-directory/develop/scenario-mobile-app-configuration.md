@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 168fbb275f70acd229dfd8f2e3f0d4c325db0f94
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a0d0550dd92b786ec540bae6ae6da7322d4fb629
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71678025"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175487"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 모바일 앱-코드 구성
 
@@ -61,7 +61,7 @@ MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig 
 MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] initWithConfiguration:config error:&msalError];
 ```
 
-Swift
+Swift:
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<your-client-id-here>")
 if let application = try? MSALPublicClientApplication(configuration: config){ /* Use application */}
@@ -75,7 +75,7 @@ if let application = try? MSALPublicClientApplication(configuration: config){ /*
 
 #### <a name="instantiating-the-application"></a>응용 프로그램 인스턴스화
 
-Xamarin 또는 UWP에서 응용 프로그램을 인스턴스화하는 가장 간단한 방법은 다음과 같습니다. 여기서 `ClientId` 은 등록 된 앱의 Guid입니다.
+Xamarin 또는 UWP에서 응용 프로그램을 인스턴스화하는 가장 간단한 방법은 다음과 같습니다. 여기서 `ClientId`는 등록 된 앱의 Guid입니다.
 
 ```CSharp
 var app = PublicClientApplicationBuilder.Create(clientId)
@@ -94,7 +94,7 @@ IPublicClientApplication application = PublicClientApplicationBuilder.Create(cli
   .Build();
 ```
 
-Android에서는 `CurrentActivityPlugin` [여기](https://github.com/jamesmontemagno/CurrentActivityPlugin)를 사용 하는 것이 좋습니다.  `PublicClientApplication` 그러면 빌더 코드가 다음과 같이 표시 됩니다.
+Android에서는 [여기](https://github.com/jamesmontemagno/CurrentActivityPlugin)`CurrentActivityPlugin`를 사용 하는 것이 좋습니다.  그러면 `PublicClientApplication` builder 코드가 다음과 같이 표시 됩니다.
 
 ```CSharp
 // Requires MSAL.NET 4.2 or above
@@ -106,14 +106,14 @@ var pca = PublicClientApplicationBuilder
 
 ##### <a name="more-app-building-parameters"></a>추가 앱 빌드 매개 변수
 
-- 에서 `PublicClientApplicationBuilder`사용할 수 있는 모든 한정자 목록은 참조 설명서 [publicclientapplicationbuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods) 를 참조 하세요.
-- 에서 `PublicClientApplicationOptions` 제공 하는 모든 옵션에 대 한 설명은 [publicclientapplicationoptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)참조 설명서를 참조 하세요.
+- `PublicClientApplicationBuilder`에서 사용할 수 있는 모든 한정자 목록은 참조 설명서 [Publicclientapplicationbuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods) 를 참조 하세요.
+- `PublicClientApplicationOptions`에서 제공 하는 모든 옵션에 대 한 설명은 참조 설명서의 [Publicclientapplicationoptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions)를 참조 하세요.
 
 ## <a name="xamarin-ios-specific-considerations"></a>Xamarin iOS 관련 고려 사항
 
 Xamarin iOS에서는 MSAL.NET을 사용할 때 고려해 야 할 몇 가지 고려 사항이 있습니다.
 
-1. [에서 함수를 `OpenUrl` 재정의 하 고 구현 합니다.`AppDelegate`](msal-net-xamarin-ios-considerations.md#implement-openurl)
+1. [`AppDelegate`에서 `OpenUrl` 함수를 재정의 하 고 구현 합니다.](msal-net-xamarin-ios-considerations.md#implement-openurl)
 1. [키 집합 그룹 사용](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
 1. [토큰 캐시 공유 사용](msal-net-xamarin-ios-considerations.md#enable-token-cache-sharing-across-ios-applications)
 1. [키 집합 액세스 사용](msal-net-xamarin-ios-considerations.md#enable-keychain-access)
@@ -157,7 +157,7 @@ Android 및 iOS에서 broker를 사용 하도록 설정 합니다.
 
 ### <a name="enable-the-broker-on-xamarin"></a>Xamarin에서 broker 사용
 
-이러한 기능 중 하나를 사용 하도록 설정 하려면 `WithBroker()` `PublicClientApplicationBuilder.CreateApplication` 메서드를 호출할 때 매개 변수를 사용 합니다. `.WithBroker()`는 기본적으로 true로 설정 됩니다. [Xamarin.ios](#brokered-authentication-for-xamarinios)에 대 한 다음 단계를 수행 합니다.
+이러한 기능 중 하나를 사용 하도록 설정 하려면 `PublicClientApplicationBuilder.CreateApplication` 메서드를 호출할 때 `WithBroker()` 매개 변수를 사용 합니다. `.WithBroker()`는 기본적으로 true로 설정 됩니다. [Xamarin.ios](#brokered-authentication-for-xamarinios)에 대 한 다음 단계를 수행 합니다.
 
 ### <a name="enable-the-broker-for-msal-for-android"></a>Android에 대 한 MSAL에 broker를 사용 하도록 설정
 
@@ -171,9 +171,9 @@ Android에서 broker를 사용 하는 방법에 대 한 자세한 내용은 [and
 
 다음 단계를 수행 하 여 Xamarin.ios 앱이 [Microsoft Authenticator](https://itunes.apple.com/us/app/microsoft-authenticator/id983156458) 앱과 통신할 수 있도록 설정 합니다.
 
-#### <a name="step-1-enable-broker-support"></a>1단계: Broker 지원 사용
+#### <a name="step-1-enable-broker-support"></a>1 단계: broker 지원 사용
 
-Broker 지원은`PublicClientApplication` 별로 사용 하도록 설정 됩니다. 기본적으로 사용하지 않도록 설정되어 있습니다. 를 `WithBroker()` `PublicClientApplication` 통해를 만들 때 매개 변수를 사용 해야 합니다 (기본적으로 true로 설정). `PublicClientApplicationBuilder`
+Broker 지원은`PublicClientApplication` 별로 사용 하도록 설정 됩니다. 기본적으로 사용하지 않도록 설정되어 있습니다. `PublicClientApplicationBuilder`를 통해 `PublicClientApplication`를 만들 때 `WithBroker()` 매개 변수를 사용 해야 합니다 (기본적으로 true로 설정).
 
 ```CSharp
 var app = PublicClientApplicationBuilder
@@ -183,9 +183,9 @@ var app = PublicClientApplicationBuilder
                 .Build();
 ```
 
-#### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>2단계: 콜백을 처리 하도록 AppDelegate 업데이트
+#### <a name="step-2-update-appdelegate-to-handle-the-callback"></a>2 단계: 콜백을 처리 하도록 AppDelegate 업데이트
 
-MSAL.NET가 broker를 호출할 때 broker는 `AppDelegate.OpenUrl` 메서드를 통해 응용 프로그램을 다시 호출 합니다. MSAL은 broker의 응답을 기다리기 때문에 MSAL.NET를 호출 하려면 응용 프로그램을 공동으로 전환 해야 합니다. 이렇게 하려면 파일을 `AppDelegate.cs` 업데이트 하 여 아래 메서드를 재정의 합니다.
+MSAL.NET가 broker를 호출 하면 broker는 `AppDelegate.OpenUrl` 메서드를 통해 응용 프로그램을 다시 호출 합니다. MSAL은 broker의 응답을 기다리기 때문에 MSAL.NET를 호출 하려면 응용 프로그램을 공동으로 전환 해야 합니다. 이렇게 하려면 `AppDelegate.cs` 파일을 업데이트 하 여 아래 메서드를 재정의 합니다.
 
 ```CSharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
@@ -207,14 +207,14 @@ public override bool OpenUrl(UIApplication app, NSUrl url,
 
 이 메서드는 응용 프로그램이 시작 될 때마다 호출 되며, broker에서 응답을 처리 하 고 MSAL.NET에서 시작한 인증 프로세스를 완료할 수 있는 기회로 사용 됩니다.
 
-#### <a name="step-3-set-a-uiviewcontroller"></a>3단계: UIViewController () 설정
+#### <a name="step-3-set-a-uiviewcontroller"></a>3 단계: UIViewController () 설정
 
-Xamarin iOS를 사용 하면 일반적으로 개체 창을 설정할 필요가 없지만,이 경우에는 broker에서 응답을 보내고 받을 수 있습니다. 에서 `AppDelegate.cs`아직 viewcontroller를 설정 합니다.
+Xamarin iOS를 사용 하면 일반적으로 개체 창을 설정할 필요가 없지만,이 경우에는 broker에서 응답을 보내고 받을 수 있습니다. `AppDelegate.cs`에도 ViewController를 설정 합니다.
 
 개체 창을 설정 하려면 다음을 수행 합니다.
 
-1) 에서 `AppDelegate.cs`를 `App.RootViewController` 새`UIViewController()`로 설정 합니다. 이를 통해 broker에 대 한 `UIViewController` 호출이 있는지 확인할 수 있습니다. 올바르게 설정 되지 않은 경우 다음 오류가 발생할 수 있습니다.`"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
-2) AcquireTokenInteractive 호출에서를 사용 `.WithParentActivityOrWindow(App.RootViewController)` 하 여 사용할 개체 창에 대 한 참조를 전달 합니다.
+1) `AppDelegate.cs`에서 `App.RootViewController`를 새 `UIViewController()`설정 합니다. 이렇게 하면 broker를 호출 하는 `UIViewController` 있는지 확인 됩니다. 올바르게 설정 되지 않은 경우 다음과 같은 오류가 발생할 수 있습니다. `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+2) AcquireTokenInteractive 호출에서 `.WithParentActivityOrWindow(App.RootViewController)` 사용 하 여 사용할 개체 창에 대 한 참조를 전달 합니다.
 
 **예:**
 
@@ -234,15 +234,15 @@ result = await app.AcquireTokenInteractive(scopes)
              .ExecuteAsync();
 ```
 
-#### <a name="step-4-register-a-url-scheme"></a>4단계: URL 스키마 등록
+#### <a name="step-4-register-a-url-scheme"></a>4 단계: URL 구성표 등록
 
 MSAL.NET는 Url을 사용 하 여 broker를 호출한 다음 broker 응답을 앱으로 다시 반환 합니다. 왕복을 완료 하려면 `Info.plist` 파일에 앱에 대 한 URL 체계를 등록 해야 합니다.
 
-에 접두사 `CFBundleURLSchemes` 를 `msauth`붙입니다. 그런 다음 `CFBundleURLName` 끝에를 추가 합니다.
+`msauth`를 사용 하 여 `CFBundleURLSchemes`에 접두사를 붙입니다. 그런 다음 끝에 `CFBundleURLName`를 추가 합니다.
 
 `$"msauth.(BundleId)"`
 
-**예를 들어:** 
+**예:** 
 `msauth.com.yourcompany.xforms`
 
 > [!NOTE]
@@ -264,11 +264,11 @@ MSAL.NET는 Url을 사용 하 여 broker를 호출한 다음 broker 응답을 �
     </array>
 ```
 
-#### <a name="step-5-lsapplicationqueriesschemes"></a>5단계: LSApplicationQueriesSchemes
+#### <a name="step-5-lsapplicationqueriesschemes"></a>5 단계: LSApplicationQueriesSchemes
 
-Msal은 `–canOpenURL:` 장치에 broker가 설치 되어 있는지 확인 하기 위해를 사용 합니다. IOS 9에서 Apple은 응용 프로그램에서 쿼리할 수 있는 스키마를 잠 궜 습니다.
+MSAL은 `–canOpenURL:`를 사용 하 여 broker가 장치에 설치 되어 있는지 확인 합니다. IOS 9에서 Apple은 응용 프로그램에서 쿼리할 수 있는 스키마를 잠 궜 습니다.
 
-**추가** 파일의 섹션으로이동할수있습니다.`LSApplicationQueriesSchemes` **`msauthv2`** `Info.plist`
+`Info.plist` 파일의 `LSApplicationQueriesSchemes` 섹션에 **`msauthv2`** 를 **추가** 합니다.
 
 ```XML 
 <key>LSApplicationQueriesSchemes</key>
@@ -281,9 +281,9 @@ Msal은 `–canOpenURL:` 장치에 broker가 설치 되어 있는지 확인 하�
 
 조정 된 인증은 AAD 시나리오에 대해 기본적으로 사용 하도록 설정 됩니다.
 
-#### <a name="step-1-update-appdelegate-to-handle-the-callback"></a>1단계: 콜백을 처리 하도록 AppDelegate 업데이트
+#### <a name="step-1-update-appdelegate-to-handle-the-callback"></a>1 단계: 콜백을 처리 하도록 AppDelegate 업데이트
 
-IOS 및 macos 용 msal이 broker를 호출 하면 broker는 `openURL` 메서드를 통해 응용 프로그램을 다시 호출 합니다. MSAL은 broker의 응답을 기다리기 때문에 MSAL을 호출 하려면 응용 프로그램이 협력 해야 합니다. 이렇게 하려면 파일을 `AppDelegate.m` 업데이트 하 여 아래 메서드를 재정의 합니다.
+IOS 및 macOS 용 MSAL이 broker를 호출할 때 broker는 다시 `openURL` 메서드를 통해 응용 프로그램을 다시 호출 합니다. MSAL은 broker의 응답을 기다리기 때문에 MSAL을 호출 하려면 응용 프로그램이 협력 해야 합니다. 이렇게 하려면 `AppDelegate.m` 파일을 업데이트 하 여 아래 메서드를 재정의 합니다.
 
 Objective-C:
 
@@ -297,7 +297,7 @@ Objective-C:
 }
 ```
 
-Swift
+Swift:
 
 ```swift
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
@@ -310,21 +310,21 @@ Swift
     }
 ```
 
-IOS 13 이상에서 UISceneDelegate을 채택 하는 경우 msal 콜백은 대신 UISceneDelegate의에 `scene:openURLContexts:` 배치 해야 합니다 ( [Apple 설명서](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)참조). Msal `handleMSALResponse:sourceApplication:` 은 각 URL에 대해 한 번만 호출 해야 합니다.
+IOS 13 이상에서 UISceneDelegate을 채택 하는 경우 MSAL 콜백은 대신 UISceneDelegate의 `scene:openURLContexts:`에 배치 해야 합니다 ( [Apple 설명서](https://developer.apple.com/documentation/uikit/uiscenedelegate/3238059-scene?language=objc)참조). MSAL `handleMSALResponse:sourceApplication:`는 각 URL에 대해 한 번만 호출 해야 합니다.
 
-#### <a name="step-2-register-a-url-scheme"></a>2단계: URL 스키마 등록
+#### <a name="step-2-register-a-url-scheme"></a>2 단계: URL 구성표 등록
 
 IOS 및 macOS 용 MSAL은 Url을 사용 하 여 broker를 호출한 다음 broker 응답을 앱으로 다시 반환 합니다. 왕복을 완료 하려면 `Info.plist` 파일에 앱에 대 한 URL 체계를 등록 해야 합니다.
 
-사용자 지정 URL 체계 `msauth`에 접두사를 붙입니다. 그런 다음 **번들 식별자** 를 끝에 추가 합니다.
+`msauth`를 사용 하 여 사용자 지정 URL 체계에 접두사를 지정 합니다. 그런 다음 **번들 식별자** 를 끝에 추가 합니다.
 
 `msauth.(BundleId)`
 
-**예를 들어:** 
+**예:** 
 `msauth.com.yourcompany.xforms`
 
 > [!NOTE]
-> 이 URL 구성표는 broker에서 응답을 받을 때 앱을 고유 하 게 식별 하는 데 사용 되는 RedirectUri의 일부가 됩니다. 형식의 redirecturi `msauth.(BundleId)://auth` 가 [Azure Portal](https://portal.azure.com)에서 응용 프로그램에 등록 되었는지 확인 합니다.
+> 이 URL 구성표는 broker에서 응답을 받을 때 앱을 고유 하 게 식별 하는 데 사용 되는 RedirectUri의 일부가 됩니다. [Azure Portal](https://portal.azure.com)에서 응용 프로그램에 대 한 `msauth.(BundleId)://auth` 형식의 redirecturi가 등록 되어 있는지 확인 합니다.
 
 ```XML
 <key>CFBundleURLTypes</key>
@@ -338,9 +338,9 @@ IOS 및 macOS 용 MSAL은 Url을 사용 하 여 broker를 호출한 다음 broke
 </array>
 ```
 
-#### <a name="step-3-lsapplicationqueriesschemes"></a>3단계: LSApplicationQueriesSchemes
+#### <a name="step-3-lsapplicationqueriesschemes"></a>3 단계: LSApplicationQueriesSchemes
 
-**를 `LSApplicationQueriesSchemes` 추가** 하 여 Microsoft Authenticator 설치 된 경우을 호출 하도록 허용 합니다.
+설치 된 경우 Microsoft Authenticator를 호출할 수 있도록 **`LSApplicationQueriesSchemes`추가** 합니다.
 Xcode 11 이상으로 앱을 컴파일하는 경우에는 "msauthv3" 체계가 필요 합니다. 
 
 ```XML 

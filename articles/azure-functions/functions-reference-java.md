@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: glenga
-ms.openlocfilehash: fa811c6bd89bf1c8ce9e0b9b4a7cebe9397aaf7f
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 97c721c504c460856796e296fefc33bf01f002f8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062131"
+ms.locfileid: "73176441"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java 개발자 가이드
 
@@ -33,7 +33,7 @@ Java 함수를 보다 쉽게 만들 수 있도록 미리 정의 된 Java 템플�
 
 ### <a name="maven-based-tooling"></a>Maven 기반 도구
 
-다음 개발자 환경에는 Java 함수 프로젝트를 만들 수 있는 도구가 있습니다. 
+다음 개발자 환경에는 Java 함수 프로젝트를 만들 수 있는 도구 Azure Functions 있습니다. 
 
 + [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions)
 + [Eclipse](functions-create-maven-eclipse.md)

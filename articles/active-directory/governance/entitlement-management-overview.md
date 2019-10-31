@@ -1,5 +1,5 @@
 ---
-title: Azure AD 권한 관리란? (미리 보기)-Azure Active Directory
+title: Azure AD 권한 관리란? -Azure Active Directory
 description: Azure Active Directory 자격 관리에 대 한 개요와이를 사용 하 여 내부 및 외부 사용자의 그룹, 응용 프로그램 및 SharePoint Online 사이트에 대 한 액세스를 관리 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7a8df09322def77037575b78ddbff3fae374229
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: b1c054bf354b5cdc5e0803ba6849af19fab40f3c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062744"
+ms.locfileid: "73174166"
 ---
-# <a name="what-is-azure-ad-entitlement-management-preview"></a>Azure AD 권한 관리란? (Preview)
-
-> [!IMPORTANT]
-> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="what-is-azure-ad-entitlement-management"></a>Azure AD 권한 관리란?
 
 Azure AD (Azure Active Directory) 자격 [관리는 조직](identity-governance-overview.md) 에서 액세스 요청 워크플로를 자동화 하 고, 액세스 권한을 부여 하 고, 검토 하 고, 영구히.
 
@@ -137,7 +132,7 @@ Azure AD 보안 그룹 또는 Office 365 그룹을 사용 하는 다른 리소�
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-Azure Government, Azure 독일 및 Azure 중국 21Vianet과 같은 특수 클라우드는 현재이 미리 보기에서 사용할 수 없습니다.
+Azure Government, Azure 독일 및 Azure 중국 21Vianet과 같은 특수 클라우드는 현재 사용할 수 없습니다.
 
 ### <a name="which-users-must-have-licenses"></a>어떤 사용자에게 라이선스가 있어야 하나요?
 

@@ -1,6 +1,6 @@
 ---
-title: Azure AD 자격 관리 (미리 보기)에서 요청 프로세스 및 전자 메일 알림-Azure Active Directory
-description: 액세스 패키지에 대 한 요청 프로세스와 Azure Active Directory 자격 관리 (미리 보기)에서 전자 메일 알림이 전송 되는 시기에 대해 알아봅니다.
+title: Azure AD 자격 관리에서 요청 프로세스 및 전자 메일 알림-Azure Active Directory
+description: 액세스 패키지에 대 한 요청 프로세스와 Azure Active Directory 자격 관리에서 전자 메일 알림이 전송 되는 시기에 대해 알아봅니다.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb5f322d8bc974274f7f2da7811b124499224635
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
-ms.translationtype: MT
+ms.openlocfilehash: 6a1ce3b2cb72a7b57e556e09264cb5bd421eda0f
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678139"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173749"
 ---
-# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)의 요청 프로세스 및 전자 메일 알림
-
-> [!IMPORTANT]
-> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 요청 프로세스 및 전자 메일 알림
 
 사용자가 액세스 패키지에 요청을 제출 하면 해당 요청을 배달 하는 프로세스가 시작 됩니다. 또한 Azure AD 자격 관리는 프로세스 중에 키 이벤트가 발생 하는 경우 승인자 및 요청자에 게 전자 메일 알림을 보냅니다.
 
@@ -40,19 +35,19 @@ ms.locfileid: "68678139"
 
 ![승인 프로세스 다이어그램](./media/entitlement-management-process/request-process.png)
 
-| State | Description |
+| 상태 | 설명 |
 | --- | --- |
-| 제출됨 | 사용자가 요청을 제출 합니다. |
+| 보내는 | 사용자가 요청을 제출 합니다. |
 | 승인 보류 중 | 액세스 패키지에 대 한 정책에 승인이 필요한 경우 요청이 승인 보류 중으로 이동 합니다. |
 | 만료됨 | 승인 요청 시간 제한 내에서 요청을 승인 하는 승인자가 없으면 요청이 만료 됩니다. 다시 시도 하려면 사용자가 자신의 요청을 다시 제출 해야 합니다. |
-| 거부됨 | 승인자가 요청을 거부 합니다. |
-| 승인 | 승인자가 요청을 승인 합니다. |
-| 배달 중 | 액세스 패키지의 모든 리소스에 대 한 액세스 권한이 사용자에 게 할당 **되지** 않았습니다. 외부 사용자 인 경우에는 사용자가 아직 리소스 디렉터리에 액세스 하 여 동의 확인 프롬프트를 수락 하지 않았을 수 있습니다. |
-| Delivered | 액세스 패키지의 모든 리소스에 대 한 액세스 권한이 사용자에 게 할당 되었습니다. |
+| 거부 | 승인자가 요청을 거부 합니다. |
+| 승인됨 | 승인자가 요청을 승인 합니다. |
+| 배달 | 액세스 패키지의 모든 리소스에 대 한 액세스 권한이 사용자에 게 할당 **되지** 않았습니다. 외부 사용자 인 경우에는 사용자가 아직 리소스 디렉터리에 액세스 하 여 동의 확인 프롬프트를 수락 하지 않았을 수 있습니다. |
+| 배달됨 | 액세스 패키지의 모든 리소스에 대 한 액세스 권한이 사용자에 게 할당 되었습니다. |
 | 액세스 확장 | 정책에서 확장이 허용 되 면 사용자가 할당을 확장 한 것입니다. |
 | 액세스가 만료 됨 | 액세스 패키지에 대 한 사용자의 액세스가 만료 되었습니다. 액세스를 다시 받으려면 사용자가 요청을 제출 해야 합니다. |
 
-## <a name="email-notifications"></a>메일 알림
+## <a name="email-notifications"></a>전자 메일 알림
 
 승인자 인 경우 액세스 요청을 승인 해야 하 고 액세스 요청이 완료 되 면 전자 메일 알림을 보냅니다. 요청자는 요청 상태를 나타내는 전자 메일 알림을 받게 됩니다. 다음 다이어그램에서는 이러한 전자 메일 알림이 전송 되는 시기를 보여 줍니다.
 
@@ -62,14 +57,14 @@ ms.locfileid: "68678139"
 
 | # | 전자 메일 제목 | 전송 될 때 | 보낸 사람 |
 | --- | --- | --- | --- |
-| 1 | 작업 필요: [ *Date]* 로 [ *요청자]* 에서 *[access package]* 로의 액세스 요청을 검토 합니다. | 요청 자가 액세스 패키지에 대 한 요청을 제출 하는 경우 | 모든 승인자 |
-| 2 | 작업 필요: [ *Date]* 로 [ *요청자]* 에서 *[access package]* 로의 액세스 요청을 검토 합니다. | 승인 요청 시간 초과 전 X 일 | 모든 승인자 |
-| 3 | 상태 알림: [ *요청자]* 의 액세스 요청 *[액세스 패키지]* 가 만료 되었습니다. | 승인자가 요청 기간 내에 액세스 요청을 승인 하거나 거부 하지 않는 경우 | 요청자 |
+| 1 | 작업 필요: [ *날짜]* 로 [ *요청자]* 에서 *[액세스 패키지]* 로의 액세스 요청을 검토 합니다. | 요청 자가 액세스 패키지에 대 한 요청을 제출 하는 경우 | 모든 승인자 |
+| 2 | 작업 필요: [ *날짜]* 로 [ *요청자]* 에서 *[액세스 패키지]* 로의 액세스 요청을 검토 합니다. | 승인 요청 시간 초과 전 X 일 | 모든 승인자 |
+| 3 | 상태 알림: [ *요청자]* 의 액세스 요청 *[액세스 패키지]* 가 만료 되었습니다. | 승인자가 요청 기간 내에 액세스 요청을 승인 하거나 거부 하지 않는 경우 | 요청 |
 | 4 | 상태 알림: [ *요청자]* *[액세스 패키지]* 에 대 한 액세스 요청이 완료 되었습니다. | 첫 번째 승인자가 액세스 요청을 승인 하거나 거부 하는 경우 | 모든 승인자 |
-| 5 | *[Access package]* 에 대 한 액세스가 거부 되었습니다. | 요청자에 게 액세스 패키지에 대 한 액세스 권한이 거부 된 경우 | 요청자 |
-| 6 | 이제 *[access package]* 에 액세스할 수 있습니다.  | 요청자에 게 액세스 패키지의 모든 리소스에 대 한 액세스 권한이 부여 된 경우 | 요청자 |
-| 7 | *[Access package]* 에 대 한 액세스가 X 일 후에 만료 됩니다. | 액세스 패키지에 대 한 요청자의 액세스 권한이 만료 되기까지 X 일 전 | 요청자 |
-| 8 | *[Access package]* 에 대 한 액세스 권한이 만료 되었습니다. | 액세스 패키지에 대 한 요청자의 액세스 권한이 만료 되는 경우 | 요청자 |
+| 5 | *[Access package]* 에 대 한 액세스가 거부 되었습니다. | 요청자에 게 액세스 패키지에 대 한 액세스 권한이 거부 된 경우 | 요청 |
+| 6 | 이제 *[access package]* 에 액세스할 수 있습니다.  | 요청자에 게 액세스 패키지의 모든 리소스에 대 한 액세스 권한이 부여 된 경우 | 요청 |
+| 7 | *[Access package]* 에 대 한 액세스가 X 일 후에 만료 됩니다. | 액세스 패키지에 대 한 요청자의 액세스 권한이 만료 되기까지 X 일 전 | 요청 |
+| 8 | *[Access package]* 에 대 한 액세스 권한이 만료 되었습니다. | 액세스 패키지에 대 한 요청자의 액세스 권한이 만료 되는 경우 | 요청 |
 
 ### <a name="access-request-emails"></a>액세스 요청 전자 메일
 

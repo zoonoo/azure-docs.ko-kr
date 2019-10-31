@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/03/2019
+ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c6787068cf8ba1e86cbf43955d0ac995aa8de1
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: e4a091abff02e544f97f5621b56836cf6ba6e237
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67702106"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175964"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
 
@@ -32,9 +32,11 @@ Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리�
 
 ## <a name="azure-ad-access-panel"></a>Azure AD 액세스 패널
 
-[https://myapps.microsoft.com](https://myapps.microsoft.com )의 액세스 패널은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반의 애플리케이션을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
+https://myapps.microsoft.com 의 액세스 패널은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반의 애플리케이션을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
 
-![스크린샷은 Azure AD 액세스 패널 포털](media/what-is-single-sign-on/azure-ad-access-panel.png)
+![Azure AD 액세스 패널 포털을 보여 주는 스크린샷](media/what-is-single-sign-on/azure-ad-access-panel.png)
+
+기본적으로 모든 응용 프로그램은 단일 페이지에 함께 나열 됩니다. 그러나 작업 영역을 사용 하 여 관련 응용 프로그램을 함께 그룹화 하 고 별도의 탭에 제공 하 여 쉽게 찾을 수 있습니다. 예를 들어 작업 영역을 사용 하 여 특정 작업 역할, 작업, 프로젝트 등에 대해 응용 프로그램의 논리적 그룹을 만들 수 있습니다. 자세한 내용은 [My Apps 작업 영역을 사용 하 여 사용자 액세스 패널을 사용자 지정 하는 방법 (미리 보기)](access-panel-workspaces.md)을 참조 하세요. 
 
 액세스 패널은 Azure Portal과 별개이며, 사용자에게 Azure 구독이나 Office 365 구독이 필요하지 않습니다.
 
@@ -42,9 +44,9 @@ Azure AD 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개
 
 ## <a name="office-365-application-launcher"></a>Office 365 애플리케이션 실행 프로그램
 
-Office 365 배포의 조직에서 Azure AD 통해 사용자에 게 할당 된 응용 프로그램에에서도 나타납니다에 Office 365 포털 [ https://portal.office.com/myapps ](https://portal.office.com/myapps)합니다. 이렇게 하면 조직의 사용자가 두 번째 포털을 사용하지 않고도 해당 앱을 쉽고 편리하게 시작할 수 있으므로 Office 365를 사용하는 조직에 권장되는 앱 시작 솔루션입니다.
+Office 365을 배포한 조직의 경우 Azure AD를 통해 사용자에 게 할당 된 응용 프로그램은 Office 365 포털의 [https://portal.office.com/myapps](https://portal.office.com/myapps)에도 표시 됩니다. 이렇게 하면 조직의 사용자가 두 번째 포털을 사용하지 않고도 해당 앱을 쉽고 편리하게 시작할 수 있으므로 Office 365를 사용하는 조직에 권장되는 앱 시작 솔루션입니다.
 
-![스크린샷은 Office 365 포털](./media/end-user-experiences/microsoft-365-portal-office-com.png)
+![Office 365 포털을 보여 주는 스크린샷](./media/end-user-experiences/microsoft-365-portal-office-com.png)
 
 Office 365 애플리케이션 실행 프로그램에 대한 자세한 내용은 [Office 365 앱 실행 프로그램에 해당 앱 표시](https://msdn.microsoft.com/office/office365/howto/connect-your-app-to-o365-app-launcher)(영문)를 참조하세요.
 
@@ -58,9 +60,9 @@ SAML 2.0, WS-Federation 또는 OpenID Connect를 지원하는 대부분의 페�
 
 Azure AD는 암호 기반 Single Sign-On, 연결된 Single Sign-On 및 모든 형태의 페더레이션된 Single Sign-On을 지원하는 개별 애플리케이션에 대한 직접 Single Sign-On 링크도 지원합니다.
 
-이러한 링크는 사용자가 Azure AD 액세스 패널이나 Office 365에서 시작하지 않아도 Azure AD 로그인 프로세스를 통해 사용자를 특정 애플리케이션으로 보내는, 특별히 제작된 URL입니다. 이러한 **사용자 액세스 Url** 사용할 수 있는 엔터프라이즈 응용 프로그램의 속성에서 찾을 수 있습니다. Azure portal에서 선택 **Azure Active Directory** > **엔터프라이즈 응용 프로그램**합니다. 응용 프로그램을 선택한 후 **속성**합니다.
+이러한 링크는 사용자가 Azure AD 액세스 패널이나 Office 365에서 시작하지 않아도 Azure AD 로그인 프로세스를 통해 사용자를 특정 애플리케이션으로 보내는, 특별히 제작된 URL입니다. 이러한 **사용자 액세스 url** 은 사용 가능한 엔터프라이즈 응용 프로그램의 속성에서 찾을 수 있습니다. Azure Portal에서 **Azure Active Directory** > **엔터프라이즈 응용 프로그램**을 선택 합니다. 응용 프로그램을 선택한 다음 **속성**을 선택 합니다.
 
-![Twitter 속성에서 사용자 액세스 URL의 예](media/end-user-experiences/direct-sign-on-link.png)
+![Twitter 속성의 사용자 액세스 URL 예](media/end-user-experiences/direct-sign-on-link.png)
 
 이러한 링크는 복사하여 선택한 애플리케이션에 대한 로그인 링크를 제공할 위치에 붙여 넣을 수 있습니다. 이 링크는 전자 메일 또는 사용자 애플리케이션 액세스에 대해 설정한 사용자 지정 웹 기반 포털에 있을 수 있습니다. 다음은 Twitter에 대한 Azure AD Single Sign-On URL의 예제입니다.
 

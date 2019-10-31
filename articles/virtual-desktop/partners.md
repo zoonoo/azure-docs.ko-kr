@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/30/2019
 ms.author: helohr
-ms.openlocfilehash: f4eeecccb3815ebfef9cdf79ac14f3dd3bd5e77a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b62351f1d99ef54d2416a2427264aea225afc5a8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300196"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73171621"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -71,6 +71,16 @@ deviceTRUST는 회사 엔터프라이즈를 tsi 하는 Windows 가상 데스크�
 deviceTRUST는 Windows 가상 데스크톱의 가치를 상황별 보안 기술로 확장 합니다. deviceTRUST를 사용 하면 보안 Windows 가상 데스크톱 액세스에 대 한 조건부 액세스, Windows 가상 데스크톱 내에서 조건부 응용 프로그램 액세스 및 추가 인프라 없이 조건부 Windows 가상 데스크톱 정책을 적용할 수 있습니다. DeviceTRUST를 사용 하면 모든 보안, 규정 준수 및 규정 요구 사항을 충족 하는 유연한 모바일 작업 영역을 사용할 수 있습니다. 
 
 - [파트너 웹 사이트로 이동](https://devicetrust.com/wvd)합니다.
+
+## <a name="ivanti"></a>Ivanti
+
+![Ivanti](./media/partners/ivanti.png)
+
+Ivanti 사용자 작업 영역 관리자는 원활한 이식성을 위해 데스크톱의 사용자 데이터를 분리 하 여 데스크톱 배포 및 관리를 용이 하 게 하는 Windows 가상 데스크톱 값 추가 서비스입니다. Ivanti를 사용 하면 사용자가 Windows 10으로 마이그레이션, Office 365 도입 또는 서비스를 클라우드로 더 빠르게 이동 하는 등 복잡 한 프로젝트를 제공할 수 있습니다. 
+
+Windows 가상 데스크톱과 함께 사용 하는 경우 Ivanti 사용자 작업 영역 관리자는 사용자 데스크톱 환경을 간단 하 게 관리 하 고, 긴 로그인 시간을 제거 하 고, 그룹 정책 금세을 eradicating 합니다. Ivanti 사용자 작업 영역 관리자 기본 템플릿을 사용 하면 에이전트 및 기존 콘솔을 통해 사용자를 간편 하 게 설치할 수 있습니다. Ivanti 사용자 작업 영역 관리자는 응답성이 뛰어난 보안 데스크톱을 제공 하 고, 서버에 비용을 절감 하 고, 사용자를 보다 효율적으로 관리 하 고, 끝점 보안 위험을 줄입니다. 
+
+- [파트너 웹 사이트로 이동](https://www.ivanti.com/products/user-workspace-manager)합니다.
 
 ## <a name="lakeside-software"></a>Lakeside 소프트웨어
 
@@ -133,6 +143,26 @@ SaaS로 제공 되거나 사용자 고유의 사설 클라우드에서 웹 스�
 
 - [파트너 웹 사이트로 이동](https://www.printerlogic.com)합니다.
 
+## <a name="numecent"></a>Numecent
+
+![Numecent 로고](./media/partners/numecent.png)
+
+Numecent는 windows 가상 데스크톱 환경에서 복잡 하거나 호환 되지 않는 Windows 앱의 신속한 온 보 딩 및 마이그레이션을 통해 총 운영 비용을 크게 줄여 주는 Windows 가상 데스크톱 부가 서비스 공급자입니다. 또한 numecent는 사용자가 수행 해야 하는 구성의 양을 최소화 하 고 응용 프로그램 업데이트를 줄이고 복잡 한 프로세스를 간소화 합니다. Numecent Cloudpaging은 다른 응용 프로그램 제공 도구 보다 더 많은 응용 프로그램을 원활 하 게 지원 하므로 다양 한 응용 프로그램 집합을 사용 하 여 환경에서 시간과 IT 워크 로드를 줄일 수 있습니다. 
+
+Windows 가상 데스크톱과 함께 사용 하면 배포에서 소프트웨어 자산 수명 주기를 완료 하 여 응용 프로그램을 업그레이드, 계량 및 제거 하는 방법으로 Cloudpaging이 비용을 더 줄일 수 있습니다. Cloudpaging은 Windows 가상 데스크톱 배포에 대 한 실시간으로 필요에 따라 앱을 동적으로 프로 비전 하 여 이미지 관리를 간소화 합니다. Cloudpaging은 정기적인 Windows 10 업데이트를 통해 관리 또는 개입 없이 응용 프로그램을 실행 하는 데 도움이 됩니다. 또한 cloudpaging 이러한 응용 프로그램의 보다 효율적인 배포 및 사용을 가능 하 게 하 여 비용이 많이 드는 응용 프로그램의 라이선스 비용을 줄여줍니다. 
+
+- [파트너 웹 사이트로 이동](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/)합니다.
+
+## <a name="rdpsoft"></a>RDPSoft
+
+![RDPSoft 로고](./media/partners/rdpsoft.png)
+
+RDPSoft는 강력 하 고 저렴 한 모니터링, 관리 및 보고 솔루션을 제공 하는 Windows 가상 데스크톱 파트너입니다. IT 전문가는 해당 원격 데스크톱 회사 제품을 통해 Windows 가상 데스크톱 배포의 상태, 성능, 사용자 활동, 라이선스 및 보안에 대 한 통찰력을 얻을 수 있습니다. 
+ 
+RDPSoft의 원격 데스크톱 회사 솔루션은 Windows 가상 데스크톱 관리를 향상 시킵니다. 프리미엄 관리 기능을 사용 하면 원격 지원, 사용자 세션 및 프로세스 관리를 제공 하 여 지원 센터 직원에 게 Windows 가상 데스크톱 관리 작업을 간편 하 게 위임할 수 있습니다. 이와 동시에 원격 데스크톱 지향 도구 모음은 사용자 단위 성능 및 로드, 사용자 활동 및 감사, Windows 가상 데스크톱 연결 품질 (대기 시간 및 대역폭), 라이선스 및 보안에 대 한 풍부한 메트릭을 중앙 Azure SQL에 수집 합니다. 검토할 데이터베이스 인스턴스입니다. RDPSoft를 사용 하면 풍부한 기록 보고 및 종합적인 대시보드를 클릭 하 여 바로 이동할 수 있습니다.
+
+- [파트너 웹 사이트로 이동](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+
 ## <a name="thinprint"></a>ThinPrint
 
 ![ThinPrint 로고](./media/partners/thinprint.png)
@@ -143,6 +173,16 @@ ThinPrint 's ezeep 솔루션은 기존 엔터프라이즈 인쇄 인프라에 �
 
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oYas)하세요.
 - [파트너 웹 사이트로 이동](https://www.ezeep.com/wvd-printing)합니다.
+
+## <a name="tricerat"></a>Tricerat
+
+![Tricerat 로고](./media/partners/tricerat.png)
+
+Tricerat는 Windows 가상 데스크톱 및 기타 데스크톱 플랫폼을 위한 고급 인쇄 관리 솔루션을 제공 합니다. Tricerat 소프트웨어는 강력한 기능을 제공 하 여 사용자와 관리자 모두에 게 더 나은 환경을 제공 합니다. 관리자는 전체 드라이버 관리, 간소화 된 인쇄 큐 배포 및 하이브리드 플랫폼에서 일관 된 관리를 통해 효율성을 확보할 수 있습니다. 사용자 환경은 더 짧은 로그인 시간, 사용자, 장치 및 네트워크 위치에 기반한 지능형 인쇄 큐, 빠른 프린터 선택을 위한 셀프 서비스 옵션을 사용 하 여 향상 되었습니다. 
+
+Tricerat를 사용 하면 Windows 가상 데스크톱 이상에서 인쇄를 원활 하 게 진행 합니다. Tricerat software를 사용 하면 관리자가 온-프레미스 프린터를 클라우드에 쉽게 연결 하 여 기존 환경에서 새로운 최신 작업 영역으로 엔터프라이즈 인쇄 관리를 확장할 수 있습니다.
+
+- [파트너 웹 사이트로 이동](https://www.tricerat.com/solutions/wvd-microsoft/)합니다.
 
 ## <a name="workspot"></a>Workspot
 

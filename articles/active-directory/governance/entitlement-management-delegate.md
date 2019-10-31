@@ -1,5 +1,5 @@
 ---
-title: Azure AD 자격 관리 (미리 보기)의 위임 및 역할-Azure Active Directory
+title: Azure AD 자격 관리의 위임 및 역할-Azure Active Directory
 description: IT 관리자의 액세스 관리 권한을 부서 관리자와 프로젝트 관리자에 게 위임 하 여 액세스를 관리 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -16,19 +16,14 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd9eb97b88be3ed68398cf7844b03e6a1fc9cd1b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6d68728c4ca4f9fe511faedcf2ca177b7160f112
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934447"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73174266"
 ---
-# <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)의 위임 및 역할
-
-> [!IMPORTANT]
-> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리의 위임 및 역할
 
 기본적으로 전역 관리자 및 사용자 관리자는 Azure AD 자격 관리의 모든 측면을 만들고 관리할 수 있습니다. 그러나 이러한 역할의 사용자는 액세스 패키지가 필요한 모든 상황을 모를 수 있습니다. 일반적으로 해당 부서, 팀 또는 프로젝트 내에서 사용자가 공동 작업 하 고 있는 리소스를 사용 하 여 리소스와 기간을 사용 하는 사용자입니다. 관리자가 아닌 사용자에 게 무제한 권한을 부여 하는 대신 사용자에 게 작업을 수행 하는 데 필요한 최소 권한을 부여 하 고 충돌 하거나 부적절 한 액세스 권한을 만들지 않도록 할 수 있습니다.
 
@@ -113,8 +108,9 @@ Hana가 마케팅, 재무 및 법률 부서에 액세스 관리를 위임할 수
 | [사용자를 액세스 패키지에 직접 할당](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [액세스 패키지에 할당 된 사용자 보기](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [액세스 패키지의 요청 보기](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [요청의 배달 오류 보기](entitlement-management-access-package-requests.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [보류 중인 요청 취소](entitlement-management-access-package-requests.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [요청의 배달 오류 보기](entitlement-management-troubleshoot.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [요청 다시 처리](entitlement-management-troubleshoot.md#reprocess-a-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [보류 중인 요청 취소](entitlement-management-troubleshoot.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [액세스 패키지 숨기기](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 | [액세스 패키지 삭제](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 

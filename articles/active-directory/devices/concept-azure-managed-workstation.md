@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba53049d580f3f90499dc0471b9ac981f4a374f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
-ms.translationtype: MT
+ms.openlocfilehash: 00e5e4a9751a03fe961fe02fec28f41b49e5ba43
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562163"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175166"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>안전 하 고 Azure로 관리 되는 워크스테이션 이해
 

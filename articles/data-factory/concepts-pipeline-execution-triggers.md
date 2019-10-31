@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/05/2018
-ms.openlocfilehash: 34ff075a604afdcbef67c7b10ce1ef8cbe2924e7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: adc7b65b4e079c55b9400b06603625971efc3ea3
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137027"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177685"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 및 트리거
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택합니다."]
@@ -140,9 +140,9 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 - 연속 창 트리거: 상태를 유지하면서 일정한 간격에 작동하는 트리거입니다.
 
-- 이벤트 기반 트리거: 이벤트에 응답하는 트리거입니다.
+- 이벤트 기반 트리거: 이벤트에 응답하는 트리거.
 
-파이프라인 및 트리거는 다 대 다 관계를 가지고 있습니다. 다중 트리거는 단일 파이프라인을 시작할 수 있고, 단일 트리거는 여러 파이프라인을 시작할 수 있습니다. 다음 트리거 정의에서 **pipelines** 속성은 특정 트리거가 트리거한 파이프라인의 목록을 가리킵니다. 속성 정의는 파이프라인 매개 변수에 대한 값을 포함합니다.
+파이프라인 및 트리거는 다 대 다 관계 (연속 창 트리거 제외)를 포함 합니다. 여러 트리거는 단일 파이프라인을 시작할 수 있고, 단일 트리거는 여러 파이프라인을 시작할 수 있습니다. 다음 트리거 정의에서 **pipelines** 속성은 특정 트리거가 트리거한 파이프라인의 목록을 가리킵니다. 속성 정의는 파이프라인 매개 변수에 대한 값을 포함합니다.
 
 ### <a name="basic-trigger-definition"></a>기본 트리거 정의
 
@@ -276,13 +276,13 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 ### <a name="schema-defaults-limits-and-examples"></a>스키마 기본값, 제한 및 예제
 
-| JSON 속성 | 형식 | 필수 | 기본값 | 유효한 값 | 예 |
+| JSON 속성 | Type | 필수 | 기본값 | 유효한 값 | 예제 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | 예 | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
-| **recurrence** | object | 예 | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **interval** | number | 아니오 | 1 | 1~1000 | `"interval":10` |
-| **endTime** | string | 예 | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
-| **schedule** | object | 아니요 | 없음 | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **startTime** | 문자열 | yes | 없음 | ISO 8601 날짜-시간 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **recurrence** | object | yes | 없음 | 되풀이 개체 | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **interval** | number | 아닙니다. | 1 | 1~1000 | `"interval":10` |
+| **endTime** | 문자열 | yes | 없음 | 미래의 시간을 나타내는 날짜-시간 값 | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **schedule** | object | 아닙니다. | 없음 | 일정 개체 | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="starttime-property"></a>startTime 속성
 다음 표는 **startTime** 속성이 트리거 실행을 제어하는 방법을 보여줍니다.
@@ -292,7 +292,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 | **시작 시간이 과거** | 시작 시간 이후 미래의 첫 번째 실행 시간을 계산하고 해당 시간에 실행합니다.<br /><br />이어지는 후속 실행은 마지막 실행 시간에서 계산하여 실행합니다.<br /><br />이 테이블 다음에 나오는 예제를 참조하세요. | 트리거는 지정된 시작 시간 _이후에_ 시작합니다. 첫 번째 되풀이 항목은 시작 시간부터 계산되는 일정에 따라 실행됩니다.<br /><br />되풀이 일정에 따라 후속 실행을 수행합니다. |
 | **시작 시간이 미래 또는 현재** | 지정된 시작 시간에 한 번 실행됩니다.<br /><br />이어지는 후속 실행은 마지막 실행 시간에서 계산하여 실행합니다. | 트리거는 지정된 시작 시간 _이후에_ 시작합니다. 시작 시간에서 계산된 일정에 따라 첫 번째 되풀이 항목을 실행합니다.<br /><br />되풀이 일정에 따라 후속 실행을 수행합니다. |
 
-예를 들어 시작 시간이 과거이고 되풀이가 있지만 일정이 없는 경우 발생되는 상황을 살펴보겠습니다. 현재 시간이 2017-04-08 오후 1시이고, 시작 시간이 2017-04-07 오후 2시이고, 되풀이는 2일마다라고 가정합니다. (**recurrence** 값은 **frequency** 속성을 "day"로 **interval** 속성을 2로 설정하여 정의됩니다.) **startTime** 값이 현재 시간보다 이전임에 유의하십시오.
+예를 들어 시작 시간이 과거이고 되풀이가 있지만 일정이 없는 경우 발생되는 상황을 살펴보겠습니다. 현재 시간이 2017-04-08 오후 1시이고, 시작 시간이 2017-04-07 오후 2시이고, 되풀이는 2일마다라고 가정합니다. ( **되풀이** 값은 **frequency** 속성을 "day"로 설정 하 고 **interval** 속성을 2로 설정 하 여 정의 됩니다.) **StartTime** 값은 과거 이며 현재 시간 이전에 발생 합니다.
 
 이러한 조건에서 첫 번째 실행은 2017-04-09 오후 2시입니다. Scheduler 엔진이 시작 시간에서 되풀이 실행 시간을 계산합니다. 현재보다 이전의 모든 인스턴스는 무시됩니다. 엔진은 이후에 발생하는 다음 인스턴스를 사용합니다. 이 시나리오에서 시작 시간은 2017-04-07 오후 2시입니다. 다음 인스턴스는 이 시간에서 2일 후인 2017-04-09 오후 2시입니다.
 
@@ -333,7 +333,7 @@ client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, 
 
 예제에서 **interval** 값은 1이고 **frequency** 값은 일정 정의에 따라 올바르다고 가정합니다. 예를 들어 **frequency** 값으로 "day"를 사용할 수 없으며, **schedule** 개체의 **monthDays**를 수정할 수도 있습니다. 이러한 종류의 제한 사항은 앞 섹션의 표에서 설명하고 있습니다.
 
-| 예 | 설명 |
+| 예제 | 설명 |
 |:--- |:--- |
 | `{"hours":[5]}` | 매일 오전 5시에 실행됩니다. |
 | `{"minutes":[15], "hours":[5]}` | 매일 오전 5시 15분에 실행됩니다. |

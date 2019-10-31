@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2019
 ms.author: atsenthi
-ms.openlocfilehash: e361ba4c7275a783b9211def5047a5a755f5a8b8
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: d0d87b42232a19d6bcd3c225fb4a4f8f8b459350
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882010"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177801"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -131,14 +131,14 @@ ms.locfileid: "72882010"
 |AppEtwTraceDeletionAgeInDays |int, 기본값: 3 | 않는 |애플리케이션 ETW 추적을 포함하고 있는 오래된 ETL 파일을 삭제한 이후 경과한 일 수 |
 |ApplicationLogsFormatVersion |int, 기본값: 0 | 않는 |애플리케이션 로그 형식의 버전. 지원되는 값은 0과 1입니다. 버전 1은 버전 0보다 더 많은 ETW 이벤트 레코드 필드를 포함합니다. |
 |AuditHttpRequests |bool, 기본값: false | 않는 | HTTP 감사를 설정 하거나 해제 합니다. 감사 목적은 클러스터에 대해 수행 된 작업을 확인 하는 것입니다. 요청을 시작한 사람을 포함 합니다. 이는 가장 좋은 로깅입니다. 그리고 추적 손실이 발생할 수 있습니다. "User" 인증을 사용 하는 HTTP 요청은 기록 되지 않습니다. |
-|CaptureHttpTelemetry|bool, 기본값: false | 않는 | HTTP 원격 분석을 설정 하거나 해제 합니다. 원격 분석의 목적은 향후 작업을 계획 하 고 문제 영역을 식별 하는 데 도움이 되는 원격 분석 데이터를 캡처할 수 있도록 Service Fabric 하는 것입니다. 원격 분석은 개인 데이터 나 요청 본문을 기록 하지 않습니다. 달리 구성 하지 않는 한 원격 분석은 모든 HTTP 요청을 캡처합니다. |
+|CaptureHttpTelemetry|bool, 기본값: true | 않는 | HTTP 원격 분석을 설정 하거나 해제 합니다. 원격 분석의 목적은 향후 작업을 계획 하 고 문제 영역을 식별 하는 데 도움이 되는 원격 분석 데이터를 캡처할 수 있도록 Service Fabric 하는 것입니다. 원격 분석은 개인 데이터 나 요청 본문을 기록 하지 않습니다. 달리 구성 하지 않는 한 원격 분석은 모든 HTTP 요청을 캡처합니다. |
 |ClusterId |string | 않는 |클러스터의 고유 ID입니다. 클러스터를 만들 때 생성됩니다. |
 |ConsumerInstances |string | 않는 |DCA 소비자 인스턴스 목록 |
 |DiskFullSafetySpaceInMB |int, 기본값: 1024 | 않는 |DCA에서 사용하지 못하도록 보호하기 위해 남아 있는 디스크 공간(MB) |
 |EnableCircularTraceSession |bool, 기본값: false | 공용 |플래그에서 순환 추적 세션을 사용해야 하는지 여부를 나타냅니다. |
 |EnablePlatformEventsFileSink |bool, 기본값: false | 공용 |디스크에 기록 되는 플랫폼 이벤트 사용/사용 안 함 |
 |EnableTelemetry |bool, 기본값: true | 않는 |원격 분석 사용 여부 |
-|FailuresOnlyHttpTelemetry | bool, 기본값: true | 않는 | HTTP 원격 분석 캡처가 사용 되 면이 고, 실패 한 요청만 캡처합니다. 이는 원격 분석을 위해 생성 되는 이벤트 수를 줄이는 데 도움이 됩니다. |
+|FailuresOnlyHttpTelemetry | bool, 기본값: false | 않는 | HTTP 원격 분석 캡처가 사용 되 면이 고, 실패 한 요청만 캡처합니다. 이는 원격 분석을 위해 생성 되는 이벤트 수를 줄이는 데 도움이 됩니다. |
 |HttpTelemetryCapturePercentage | int, 기본값 50 | 않는 | HTTP 원격 분석 캡처가 사용 되 면이 고, 임의 비율의 요청만 캡처합니다. 이는 원격 분석을 위해 생성 되는 이벤트 수를 줄이는 데 도움이 됩니다. |
 |MaxDiskQuotaInMB |int, 기본값: 65536 | 않는 |Windows Fabric 로그 파일의 디스크 할당량(MB) |
 |ProducerInstances |string | 않는 |DCA 생산자 인스턴스 목록 |

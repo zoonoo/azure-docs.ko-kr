@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: baselden
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c5975b57b6f960badf747e33deb238adf260199
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: ede458e7d4c1cb1a8d7e3f2e2c9df54d5925d6d8
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967208"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175976"
 ---
 # <a name="choose-the-right-federation-protocol-for-your-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 대 한 올바른 페더레이션 프로토콜을 선택 합니다.
 
@@ -34,8 +34,8 @@ Azure Active Directory와 [의 SSO 통합에 사용할 수 있는 프로토콜](
 | - |-|-|
 | 웹 기반 Single sign-on| √| √ |
 | 웹 기반 Single sign-on| √| √ |
-| 모바일 기반 Single sign-on| √| √* |
-| 모바일 기반 Single sign-on| √| √* |
+| 모바일 기반 Single sign-on| √| √ |
+| 모바일 기반 Single sign-on| √| √ |
 | 모바일 응용 프로그램에 대 한 조건부 액세스 정책| √| X |
 | 모바일 응용 프로그램에 대 한 원활한 MFA 환경| √| X |
 | 액세스 Microsoft Graph| √| X |
@@ -46,7 +46,7 @@ Azure Active Directory와 [의 SSO 통합에 사용할 수 있는 프로토콜](
 
 OAuth 2.0은 권한 부여를 위한 [업계 표준](https://oauth.net/2/) 프로토콜입니다. OIDC (Openid connect Connect)는 Oath 2.0 프로토콜을 기반으로 구축 된 [업계 표준](https://openid.net/connect/) id 인증 계층입니다.
 
-### <a name="benefits"></a>이점
+### <a name="benefits"></a>혜택
 
 프로토콜에 기본 제공 되는 인증 및 권한 부여가 있기 때문에 OIDC/OAuth 2.0를 사용 하는 것이 좋습니다. SAML을 사용 하 여 권한 부여를 추가로 구현 해야 합니다.
 
@@ -74,7 +74,7 @@ SAML (Security Assertion Markup Language)는 일반적으로 웹 응용 프로�
 
 WSFed (Web Services Federation)는 .Net 플랫폼을 사용 하 여 개발 된 웹 응용 프로그램에 일반적으로 사용 되는 [업계 표준](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) 입니다.
 
-### <a name="benefits"></a>이점
+### <a name="benefits"></a>혜택
 
 SAML 2.0은 성숙한 표준 이며 대부분의 기술 플랫폼은 SAML 2.0 용 오픈 소스 라이브러리를 지원 합니다. SAML SSO를 구성 하기 위해 고객에 게 관리 인터페이스를 제공할 수 있습니다. Saml SSO Microsoft Azure AD 및 SAML 2를 지 원하는 다른 모든 id 공급자를 구성할 수 있습니다.
 

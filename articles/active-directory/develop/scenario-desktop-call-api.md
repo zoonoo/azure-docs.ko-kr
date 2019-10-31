@@ -11,32 +11,64 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56d3d01e39adfeb6bf2ef5e7e7d595f49c90f5a5
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 8160ec489f891764b102b5ba23a687b53376f738
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268286"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175364"
 ---
 # <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>웹 api를 호출 하는 데스크톱 앱-web API 호출
 
 이제 토큰이 있으므로 보호 된 web API를 호출할 수 있습니다.
 
-## <a name="calling-a-web-api-from-net"></a>.NET에서 web API 호출
+## <a name="calling-a-web-api"></a>웹 API 호출
+
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 [!INCLUDE [Call web API in .NET](../../../includes/active-directory-develop-scenarios-call-apis-dotnet.md)]
 
 <!--
 More includes will come later for Python and Java
 -->
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+```Python
+endpoint = "url to the API"
+http_headers = {'Authorization': 'Bearer ' + result['access_token'],
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'}
+data = requests.get(endpoint, headers=http_headers, stream=False).json()
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+```Java
+HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+
+// Set the appropriate header fields in the request header.
+conn.setRequestProperty("Authorization", "Bearer " + accessToken);
+conn.setRequestProperty("Accept", "application/json");
+
+String response = HttpClientHelper.getResponseStringFromConn(conn);
+
+int responseCode = conn.getResponseCode();
+if(responseCode != HttpURLConnection.HTTP_OK) {
+    throw new IOException(response);
+}
+
+JSONObject responseObject = HttpClientHelper.processResponse(responseCode, response);
+```
+
+# <a name="macostabmacos"></a>[MacOS](#tab/macOS)
 
 ## <a name="calling-a-web-api-in-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL에서 web API 호출
 
-토큰을 획득 하는 메서드는 `MSALResult` 개체를 반환 합니다. `MSALResult`웹 API를 호출 하는 데 사용할 수 있는 속성을노출합니다.`accessToken` 보호 된 Web API에 액세스 하기 전에 액세스 토큰을 HTTP 권한 부여 헤더에 추가 해야 합니다.
+토큰을 획득 하는 메서드는 `MSALResult` 개체를 반환 합니다. `MSALResult`는 web API를 호출 하는 데 사용할 수 있는 `accessToken` 속성을 노출 합니다. 보호 된 Web API에 액세스 하기 전에 액세스 토큰을 HTTP 권한 부여 헤더에 추가 해야 합니다.
 
 Objective-C:
 
@@ -45,28 +77,28 @@ NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
 urlRequest.URL = [NSURL URLWithString:"https://contoso.api.com"];
 urlRequest.HTTPMethod = @"GET";
 urlRequest.allHTTPHeaderFields = @{ @"Authorization" : [NSString stringWithFormat:@"Bearer %@", accessToken] };
-        
+
 NSURLSessionDataTask *task =
 [[NSURLSession sharedSession] dataTaskWithRequest:urlRequest
      completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {}];
 [task resume];
 ```
 
-Swift
+Swift:
 
 ```swift
 let urlRequest = NSMutableURLRequest()
 urlRequest.url = URL(string: "https://contoso.api.com")!
 urlRequest.httpMethod = "GET"
 urlRequest.allHTTPHeaderFields = [ "Authorization" : "Bearer \(accessToken)" ]
-     
+
 let task = URLSession.shared.dataTask(with: urlRequest as URLRequest) { (data: Data?, response: URLResponse?, error: Error?) in }
 task.resume()
 ```
 
 ## <a name="calling-several-apis---incremental-consent-and-conditional-access"></a>여러 Api 호출-증분 동의 및 조건부 액세스
 
-동일한 사용자에 대해 여러 api를 호출 해야 하는 경우 첫 번째 api에 대 한 토큰을 얻은 후에만를 호출 `AcquireTokenSilent`하면 대부분의 시간에 자동으로 다른 api에 대 한 토큰을 얻을 수 있습니다.
+동일한 사용자에 대해 여러 Api를 호출 해야 하는 경우에는 첫 번째 API에 대 한 토큰을 가져온 후 `AcquireTokenSilent`만 호출할 수 있으며, 대부분의 시간에 자동으로 다른 Api에 대 한 토큰을 가져옵니다.
 
 ```CSharp
 var result = await app.AcquireTokenXX("scopeApi1")
@@ -97,6 +129,7 @@ catch(MsalUiRequiredException ex)
                   .ExecuteAsync();
 }
 ```
+---
 
 ## <a name="next-steps"></a>다음 단계
 

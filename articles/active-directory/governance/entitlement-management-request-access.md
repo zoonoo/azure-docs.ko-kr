@@ -1,6 +1,6 @@
 ---
-title: Azure AD 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 액세스 요청-Azure Active Directory
-description: 내 액세스 포털을 사용 하 여 Azure Active Directory 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 액세스를 요청 하는 방법을 알아봅니다.
+title: Azure AD 자격 관리에서 액세스 패키지에 대 한 액세스 요청-Azure Active Directory
+description: 내 액세스 포털을 사용 하 여 Azure Active Directory 자격 관리에서 액세스 패키지에 대 한 액세스를 요청 하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -16,19 +16,14 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e57a216efee39df0ad22712b281073a68600e0df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990729"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73173692"
 ---
-# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Azure AD 자격 관리 (미리 보기)에서 액세스 패키지에 대 한 액세스 요청
-
-> [!IMPORTANT]
-> Azure AD(Azure Active Directory) 권한 관리는 현재 공개 미리 보기로 제공됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+# <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 액세스 요청
 
 Azure AD 자격 관리를 통해 액세스 패키지는 액세스 패키지의 수명 동안 자동으로 액세스를 관리 하는 리소스 및 정책의 일회성 설치를 가능 하 게 합니다. 
 

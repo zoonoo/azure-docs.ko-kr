@@ -1,19 +1,20 @@
 ---
 title: 전체 텍스트 검색을 위해 Azure Blob 인덱서에서 하나의 blob을 여러 검색 인덱스 문서로 인덱싱합니다.
-description: Azure Congitive Search Blob 인덱서를 사용 하 여 텍스트 콘텐츠에 대 한 Azure blob을 탐색 합니다. 각 blob은 하나 이상의 검색 인덱스 문서를 생성할 수 있습니다.
-manager: nitinme
+description: Azure Search Blob 인덱서를 사용 하 여 텍스트 콘텐츠에 대 한 Azure blob을 탐색 합니다. 각 blob은 하나 이상의 Azure Search 인덱스 문서를 생성할 수 있습니다.
+ms.date: 05/02/2019
 author: arv100kri
+manager: nitinme
 ms.author: arjagann
+services: search
+ms.service: search
 ms.devlang: rest-api
-ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: ec7796f19df8d58831b442adeae02b54223799c1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d58be681c6a3e609712f9b0206de69f01d6a35f6
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793722"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177994"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>여러 검색 문서를 생성 하는 blob 인덱싱
 기본적으로 blob 인덱서는 blob의 내용을 단일 검색 문서로 처리 합니다. 특정 **parsingMode** 값은 개별 blob이 여러 검색 문서를 발생 시킬 수 있는 시나리오를 지원 합니다. 인덱서가 blob에서 둘 이상의 검색 문서를 추출할 수 있는 다양 한 유형의 **parsingMode** 는 다음과 같습니다.
@@ -22,11 +23,11 @@ ms.locfileid: "72793722"
 + `jsonLines`
 
 ## <a name="one-to-many-document-key"></a>일대다 문서 키
-Azure Cognitive Search 인덱스에 표시 되는 각 문서는 문서 키로 고유 하 게 식별 됩니다. 
+Azure Search 인덱스에 표시 되는 각 문서는 문서 키로 고유 하 게 식별 됩니다. 
 
-구문 분석 모드를 지정 하지 않고 인덱스의 키 필드에 대 한 명시적 매핑이 없으면 Azure Cognitive Search는 `metadata_storage_path` 속성을 키로 자동으로 [매핑합니다](search-indexer-field-mappings.md) . 이 매핑은 각 blob이 고유한 검색 문서로 표시 되도록 합니다.
+구문 분석 모드를 지정 하지 않고 인덱스의 키 필드에 대 한 명시적 매핑이 없는 경우 Azure Search는 `metadata_storage_path` 속성을 키로 자동으로 [매핑합니다](search-indexer-field-mappings.md) . 이 매핑은 각 blob이 고유한 검색 문서로 표시 되도록 합니다.
 
-위에 나열 된 구문 분석 모드를 사용 하는 경우 하나의 blob이 "다" 검색 문서에 매핑되므로 blob 메타 데이터에만 적합 한 문서 키가 생성 됩니다. 이 제약 조건을 극복 하기 위해 Azure Cognitive Search는 blob에서 추출 된 각 개별 엔터티에 대해 "일 대 다" 문서 키를 생성할 수 있습니다. 이 속성은 `AzureSearch_DocumentKey` 이름이 지정 되 고 blob에서 추출 된 각 개별 엔터티에 추가 됩니다. 이 속성의 값은 _blob_ 의 개별 엔터티에 대해 고유 하 게 유지 되며 엔터티는 개별 검색 문서로 표시 됩니다.
+위에 나열 된 구문 분석 모드를 사용 하는 경우 하나의 blob이 "다" 검색 문서에 매핑되므로 blob 메타 데이터에만 적합 한 문서 키가 생성 됩니다. 이 제약 조건을 극복 하기 위해 Azure Search는 blob에서 추출 된 각 개별 엔터티에 대해 "일 대 다" 문서 키를 생성할 수 있습니다. 이 속성은 `AzureSearch_DocumentKey` 이름이 지정 되 고 blob에서 추출 된 각 개별 엔터티에 추가 됩니다. 이 속성의 값은 _blob_ 의 개별 엔터티에 대해 고유 하 게 유지 되며 엔터티는 개별 검색 문서로 표시 됩니다.
 
 기본적으로 키 인덱스 필드에 대 한 명시적 필드 매핑이 지정 되지 않은 경우 `base64Encode` 필드 매핑 함수를 사용 하 여 `AzureSearch_DocumentKey`에 매핑됩니다.
 
@@ -57,7 +58,7 @@ _Blob2_
         "mappingFunction": { "name" : "base64Encode" }
     }
 
-이 설치 프로그램은 다음 정보를 포함 하는 Azure Cognitive Search 인덱스를 생성 합니다 (간단 하 게 하기 위해 base64 인코딩 id 단축).
+이 설치 프로그램은 다음 정보를 포함 하는 Azure Search 인덱스가 생성 됩니다 (간단 하 게 하기 위해 base64 인코딩 id 단축).
 
 | id | 온도 | pressure | timestamp |
 |----|-------------|----------|-----------|
@@ -82,7 +83,7 @@ _Blob2_
     1, 1, 1,"2018-01-12T00:00:00Z" 
     2, 120, 3,"2013-05-11T00:00:00Z" 
 
-@No__t_0 **parsingMode**를 사용 하 여 인덱서를 만들 때 다음과 같이 키 필드에 필드 매핑 함수를 설정 하는 것이 자연스럽 게 느껴질 수 있습니다.
+`delimitedText` **parsingMode**를 사용 하 여 인덱서를 만들 때 다음과 같이 키 필드에 필드 매핑 함수를 설정 하는 것이 자연스럽 게 느껴질 수 있습니다.
 
     {
         "sourceFieldName" : "recordid",
@@ -98,7 +99,7 @@ _Blob2_
 
 ## <a name="next-steps"></a>다음 단계
 
-Blob 인덱싱의 기본 구조와 워크플로에 익숙하지 않은 경우 먼저 [Azure Congitive Search를 사용 하 여 Azure Blob Storage 인덱싱](search-howto-index-json-blobs.md) 을 검토 해야 합니다. 다른 blob 항목 형식에 대 한 구문 분석 모드에 대 한 자세한 내용은 다음 문서를 검토 하세요.
+Blob 인덱싱의 기본 구조와 워크플로에 익숙하지 않은 경우 먼저 [Azure Search를 사용 하 여 Azure Blob Storage 인덱싱](search-howto-index-json-blobs.md) 을 검토 해야 합니다. 다른 blob 내용 유형에 대 한 구문 분석 모드에 대 한 자세한 내용은 다음 문서를 검토 하세요.
 
 > [!div class="nextstepaction"]
 > [JSON Blob 인덱싱](search-howto-index-json-blobs.md) 

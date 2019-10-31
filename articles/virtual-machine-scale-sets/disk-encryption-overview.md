@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 69197b9c0d2a60e1833d03a3f12802221a8307e2
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 0097d0e1d5ea7de092da14683d4bab3d673b2219
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530837"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177786"
 ---
 # <a name="azure-disk-encryption-for-virtual-machine-scale-sets"></a>Virtual Machine Scale Sets에 대 한 Azure Disk Encryption
 
@@ -23,10 +23,10 @@ Azure Disk Encryption는 다음과 같은 경우에 Windows 및 Linux 가상 머
 - Windows 확장 집합의 OS 및 데이터 볼륨.
 - Linux 확장 집합의 데이터 볼륨. Linux 확장 집합에 현재 OS 디스크 암호화가 지원 되지 않습니다.
 
-[Azure CLI를 사용 하 여 가상 머신 확장 집합 암호화](disk-encryption-cli.md) 또는 Azure CLI 자습서를 [사용 하 여 가상 머신 확장 집합 암호화](disk-encryption-powershell.md) 를 사용 하 여 몇 분만에 가상 머신 확장 집합에 대 한 Azure Disk Encryption의 기본 사항을 배울 수 있습니다.
+[Azure CLI를 사용 하 여](disk-encryption-cli.md) 가상 머신 확장 집합 암호화 또는를 [사용 하](disk-encryption-powershell.md) 여 가상 머신 확장 집합 암호화를 사용 하 여 몇 분만에 가상 머신 확장 집합에 대 한 Azure Disk Encryption의 기본 사항을 배울 수 있습니다 Azure PowerShell 자습서.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Resource Manager를 사용 하 여 가상 머신 확장 집합 암호화](disk-encryption-azure-resource-manager.md)
-- [Azure Disk Encryption에 대 한 키 자격 증명 모음 만들기 및 구성](disk-encryption-key-vault.md)
-- [가상 머신 확장 집합 확장 시퀀싱으로 Azure Disk Encryption 사용](disk-encryption-extension-sequencing.md)
+- [Azure Disk Encryption을 위한 Key Vault 만들기 및 구성](disk-encryption-key-vault.md)
+- [가상 머신 확장 집합 확장 시퀀싱을 통한 Azure Disk Encryption 사용](disk-encryption-extension-sequencing.md)

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/19/2017
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: eb06c1c5db20f3216c5c8e81580e445f9c0ba804
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9bbb7ef46fbde881c8968128870d24a03b046c23
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072596"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176797"
 ---
 # <a name="developer-portal-templates"></a>개발자 포털 템플릿
 
@@ -26,13 +26,15 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
   
 템플릿 작업에 대한 자세한 내용은 [템플릿을 사용하여 API Management 개발자 포털을 사용자 지정하는 방법](api-management-developer-portal-templates.md)을 참조하세요.  
 
+[!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
+
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ##  <a name="DeveloperPortalTemplates"></a> 개발자 포털 템플릿  
   
 -   [API](api-management-api-templates.md)  
     -   [API 목록](api-management-api-templates.md#APIList)  
-    -   [연산](api-management-api-templates.md#Product)  
+    -   [작업](api-management-api-templates.md#Product)  
     -   [코드 샘플](api-management-api-templates.md#CodeSamples)  
         -   [Curl](api-management-api-templates.md#Curl)  
         -   [C#](api-management-api-templates.md#CSharp)  
@@ -44,14 +46,14 @@ Azure API Management는 해당 콘텐츠를 구성하는 템플릿 집합을 사
         -   [Ruby](api-management-api-templates.md#Ruby)  
 -   [제품](api-management-product-templates.md)  
     -   [제품 목록](api-management-product-templates.md#ProductList)  
-    -   [제품](api-management-product-templates.md#Product)  
+    -   [Product](api-management-product-templates.md#Product)  
 -   [애플리케이션](api-management-application-templates.md)  
     -   [애플리케이션 목록](api-management-application-templates.md#ProductList)  
-    -   [응용 프로그램](api-management-application-templates.md#Application)  
+    -   [애플리케이션](api-management-application-templates.md#Application)  
 -   [문제](api-management-issue-templates.md)  
     -   [문제 목록](api-management-issue-templates.md#IssueList)  
 -   [사용자 프로필](api-management-user-profile-templates.md)  
-    -   [Profile](api-management-user-profile-templates.md#Profile)  
+    -   [프로필](api-management-user-profile-templates.md#Profile)  
     -   [구독](api-management-user-profile-templates.md#Subscriptions)  
     -   [애플리케이션](api-management-user-profile-templates.md#Applications)  
     -   [계정 정보 업데이트](api-management-user-profile-templates.md#UpdateAccountInfo)  

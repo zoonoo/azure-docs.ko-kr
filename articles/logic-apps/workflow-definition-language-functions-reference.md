@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 08/23/2019
-ms.openlocfilehash: 1c6051508a067e17afbc25702c26608da4cd4ca2
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 1d5197f585fde5388fdafac887d6a1454d6131e9
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968931"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177081"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-microsoft-flow"></a>식에서 함수를 사용 하 여 Azure Logic Apps 및 Microsoft Flow에 대 한 참조 가이드
 
@@ -2019,7 +2019,7 @@ getFutureTime(<interval>, <timeUnit>, <format>?)
 
 | 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
 | --------- | -------- | ---- | ----------- |
-| <*interval*> | yes | 정수 | 뺄 지정한 시간 단위 수 |
+| <*interval*> | yes | 정수 | 더할 지정한 시간 단위 수 |
 | <*timeUnit*> | yes | string | *interval*과 함께 사용할 시간 단위: "Second", "Minute", "Hour", "Day", "Week", "Month", "Year" |
 | <*format*> | 아닙니다. | string | [단일 형식 지정자](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 패턴](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)입니다. 타임스탬프의 기본 형식은 ["o"](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings)(yyyy-MM-ddTHH:mm:ss:fffffffK)입니다. 이 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)을 준수하며 표준 시간대 정보를 보존합니다. |
 |||||
