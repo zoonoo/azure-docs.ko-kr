@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d2fa7d7d294d38d29ce8ace744e13bd1bf2d533
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 527c1937da8634f7448c82ca8c0331fb5cfb85e3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803041"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150613"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>MSAL를 사용 하 여 인증 요청에서 사용자 지정 상태를 전달 합니다.
 OAuth 2.0에 의해 정의 된 *상태* 매개 변수는 인증 요청에 포함 되며 교차 사이트 요청 위조 공격을 방지 하기 위해 토큰 응답에도 반환 됩니다. 기본적으로 JavaScript 용 Microsoft 인증 라이브러리 (MSAL .js)는 인증 요청에서 임의로 생성 된 고유한 *상태* 매개 변수 값을 전달 합니다.
@@ -52,7 +52,7 @@ export type AuthenticationParameters = {
 ```javascript
 let loginRequest = {
     scopes: ["user.read", "user.write"],
-    state: “page_url”
+    state: "page_url"
 }
 
 myMSALObj.loginPopup(loginRequest);
