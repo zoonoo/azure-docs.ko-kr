@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 4c25e8b93fe9bcce17189bd7b787eaf4c3885716
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: dcdc9c6a22f5d291b3773da02a79cc5ceebc3db1
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752481"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73101467"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
@@ -28,7 +28,7 @@ Azure Cosmos 컨테이너에서 프로 비전 된 처리량은 해당 컨테이�
 
 컨테이너에서 프로 비전 된 처리량을 설정 하는 것이 가장 자주 사용 되는 옵션입니다. [RUs (요청 단위](request-units.md))를 사용 하 여 처리량을 프로 비전 하 여 컨테이너에 대 한 처리량 크기를 탄력적으로 수 있습니다. 
 
-Azure Cosmos 컨테이너에서 프로비전된 처리량은 컨테이너의 모든 논리 파티션에 균일하게 분산됩니다. 논리적 파티션의 처리량은 선택적으로 지정할 수 없습니다. 컨테이너에 있는 하나 이상의 논리 파티션은 실제 파티션에서 호스트되므로, 실제 파티션은 컨테이너에 배타적으로 포함되고 컨테이너에서 프로비전된 처리량을 지원합니다. 
+논리적 파티션을 실제 파티션 간에 균등 하 게 분산 하는 좋은 파티션 키를 가정 하면 컨테이너의 모든 논리 파티션에서 처리량도 균등 하 게 분산 됩니다. 논리적 파티션의 처리량은 선택적으로 지정할 수 없습니다. 컨테이너에 있는 하나 이상의 논리 파티션은 실제 파티션에서 호스트되므로, 실제 파티션은 컨테이너에 배타적으로 포함되고 컨테이너에서 프로비전된 처리량을 지원합니다. 
 
 논리 파티션에서 실행 되는 워크 로드가 해당 논리 파티션에 할당 된 처리량을 초과 하는 경우에는 작업의 속도가 제한 됩니다. 속도 제한이 발생 하면 전체 컨테이너에 대해 프로 비전 된 처리량을 늘리거나 작업을 다시 시도할 수 있습니다. 분할에 대한 자세한 내용은 [논리 파티션](partition-data.md)을 참조하세요.
 
