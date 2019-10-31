@@ -232,6 +232,8 @@
           href: backup-azure-restore-windows-server.md
         - name: Windows Server 시스템 상태 복원
           href: backup-azure-restore-system-state.md
+        - name: Windows Server 파일 및 폴더 백업 관리
+          href: backup-azure-manage-mars.md
     - name: Recovery Services 자격 증명 모음
       items:
         - name: Recovery Services 자격 증명 모음 개요

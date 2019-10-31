@@ -80,9 +80,9 @@
           items:
             - name: 데이터 복사 도구
               href: tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md
-    - name: 데이터 흐름 매핑을 사용하여 데이터 변환
+    - name: 데이터 흐름 매핑으로 데이터 변환
       href: tutorial-data-flow.md
-    - name: 클라우드에서 데이터 변환
+    - name: 외부 변환
       items:
         - name: HDInsight Spark
           items:
@@ -94,7 +94,7 @@
           items:
             - name: 사용자 인터페이스(UI)
               href: transform-data-using-databricks-notebook.md
-    - name: 가상 네트워크에서 데이터 변환
+    - name: 가상 네트워크의 Hive 변환
       items:
         - name: 사용자 인터페이스(UI)
           href: tutorial-transform-data-hive-virtual-network-portal.md
@@ -622,6 +622,8 @@
       items:
         - name: 고정 너비 텍스트 파일 처리
           href: how-to-fixed-width.md
+        - name: 오류 행 처리
+          href: how-to-data-flow-error-rows.md
     - name: 온-프레미스에서 SSIS 마이그레이션
       items:
         - name: SSIS 마이그레이션 개요

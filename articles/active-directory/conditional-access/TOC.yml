@@ -50,6 +50,8 @@
           href: howto-conditional-access-policy-admin-mfa.md
         - name: Azure 관리용 MFA 필요
           href: howto-conditional-access-policy-azure-management.md
+        - name: 모든 사용자용 MFA 필요
+          href: howto-conditional-access-policy-all-users-mfa.md
         - name: 레거시 인증 차단
           href: howto-conditional-access-policy-block-legacy.md
         - name: 위험 기반 조건부 액세스

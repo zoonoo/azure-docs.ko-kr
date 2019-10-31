@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: 933273267f72666d91f52471370d41ecee2af870
-  ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+  ms.openlocfilehash: b7ec7aaeab69cfe3a0508a3146558c71b2d616c1
+  ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/01/2019
-  ms.locfileid: "71695640"
+  ms.lasthandoff: 10/30/2019
+  ms.locfileid: "73163496"
 landingContent:
 - title: Azure Dev Spaces 정보
   linkLists:
@@ -56,3 +56,11 @@ landingContent:
       url: how-to/run-dev-spaces-windows-containers.md
     - text: 사용자 지정 수신 및 HTTPS에 traefik 사용
       url: how-to/ingress-https-traefik.md
+- title: 미리 보기 기능
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Dev Spaces로 GitHub 작업 사용
+      url: how-to/github-actions.md
+    - text: Azure Dev Spaces 연결 사용
+      url: how-to/connect.md

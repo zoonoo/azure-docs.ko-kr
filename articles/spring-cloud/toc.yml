@@ -38,6 +38,8 @@
       href: spring-cloud-quotas.md
     - name: Azure Spring Cloud의 메트릭 이해
       href: spring-cloud-concept-metrics.md
+    - name: 재해 복구 계획
+      href: disaster-recovery.md
 - name: 방법 가이드
   items:
     - name: 'Azure Spring Cloud 애플리케이션을 시작, 중지 및 삭제하는 방법'

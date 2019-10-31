@@ -137,6 +137,8 @@
               href: ./hdinsight-autoscale-clusters.md
             - name: 외부 메타데이터 저장소 사용
               href: ./hdinsight-use-external-metadata-stores.md
+            - name: 사용자 지정 Ambari DB
+              href: ./hdinsight-custom-ambari-db.md
             - name: HDInsight 클러스터에 대한 로그 관리
               href: ./hdinsight-log-management.md
             - name: 스토리지 계정 추가

@@ -43,6 +43,8 @@
       items:
         - name: MFA 작동 방법
           href: concept-mfa-howitworks.md
+        - name: MFA 사용
+          href: concept-mfa-get-started.md
         - name: 사용자 라이선스
           href: concept-mfa-licensing.md
         - name: 인증 공급자 관리
@@ -135,6 +137,10 @@
           href: howto-authentication-passwordless-deployment.md
         - name: 암호 없는 보안 키
           href: howto-authentication-passwordless-security-key.md
+        - name: 암호 없는 Windows 10
+          href: howto-authentication-passwordless-security-key-windows.md
+        - name: 암호 없는 온-프레미스
+          href: howto-authentication-passwordless-security-key-on-premises.md
         - name: 암호 없는 휴대폰 로그인
           href: howto-authentication-passwordless-phone.md
         - name: 비즈니스용 Windows Hello

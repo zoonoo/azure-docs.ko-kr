@@ -68,6 +68,8 @@
       href: environment-setup.md
     - name: 원격 세션에 대한 대역폭 권장 사항
       href: bandwidth-recommendations.md
+    - name: 사용자 연결 대기 시간 확인
+      href: connection-latency.md
     - name: Windows Virtual Desktop에서 위임된 액세스
       href: delegated-access-virtual-desktop.md
     - name: 호스트 풀 부하 분산 메서드
