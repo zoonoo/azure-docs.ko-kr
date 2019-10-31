@@ -16,14 +16,14 @@ ms.date: 02/06/2019
 ms.author: mimart
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f8b785b8eadd21f1f94cf82fe137d6f747e738
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eafd209073b36265d24dbad4a66b3870d8f593db
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65824764"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73148633"
 ---
-# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>방법: Azure AD SAML 토큰 암호화 구성(미리 보기)
+# <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>방법: Azure AD SAML 토큰 암호화 구성 (미리 보기)
 
 > [!NOTE]
 > 토큰 암호화는 Azure AD(Azure Active Directory) 프리미엄 기능입니다. Azure AD 버전, 기능 및 가격 책정에 대한 자세한 내용은 [Azure AD 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)을 참조하세요.
@@ -95,7 +95,7 @@ Graph 또는 PowerShell을 사용하거나 keyId에 사용할 GUID를 생성해�
 
 ### <a name="to-configure-token-encryption-using-microsoft-graph"></a>Microsoft Graph를 사용하여 토큰 암호화를 구성하려면
 
-1. 암호화를 위해 애플리케이션의 `keyCredentials`를 X.509 인증서로 업데이트합니다. 다음 예제에서는 이 작업을 수행하는 방법을 보여 줍니다.
+1. 암호화를 위해 애플리케이션의 `keyCredentials`를 X.509 인증서로 업데이트합니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
 
     ```
     Patch https://graph.microsoft.com/beta/applications/<application objectid>
@@ -131,7 +131,7 @@ Graph 또는 PowerShell을 사용하거나 keyId에 사용할 GUID를 생성해�
 1. Set the token encryption settings using the **[Set-AzureApplication](https://docs.microsoft.com/powershell/module/azuread/set-azureadapplication?view=azureadps-2.0-preview)** command.
 
     ```
-    Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials “<KeyCredentialsObject>”  -TokenEncryptionKeyId <keyID>
+    Set-AzureADApplication -ObjectId <ApplicationObjectId> -KeyCredentials "<KeyCredentialsObject>"  -TokenEncryptionKeyId <keyID>
     ```
 
 1. Read the token encryption settings using the following commands.

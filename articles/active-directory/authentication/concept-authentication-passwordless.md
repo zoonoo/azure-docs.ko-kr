@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac59dbed0ba2766f3367e19c5fddeed52e250a5b
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: e17a99a522c6ab960c2ccd0cc2729076c54ed07f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880149"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151855"
 ---
 # <a name="passwordless-authentication-options"></a>Passwordless 인증 옵션
 
@@ -28,13 +28,13 @@ MFA (multi-factor authentication)는 조직을 보호 하는 훌륭한 방법 �
 
 각 조직에는 인증을 할 때 서로 다른 요구 사항이 있습니다. Microsoft는 다음과 같은 세 가지 암호 없는 인증 옵션을 제공 합니다.
 
-- 비즈니스용 Windows Hello 
-- Microsoft Authenticator 앱 
+- 비즈니스용 Windows Hello
+- Microsoft Authenticator 앱
 - FIDO2 보안 키
 
 ![인증: 보안 및 편의성](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
 
-## <a name="windows-hello-for-business"></a>비즈니스용 Windows Hello 
+## <a name="windows-hello-for-business"></a>비즈니스용 Windows Hello
 
 비즈니스용 windows Hello는 고유의 지정 된 Windows PC가 있는 정보 근로자에 게 적합 합니다. 생체 인식 및 PIN은 사용자 PC와 직접 연결 되어 소유자가 아닌 사용자의 액세스를 차단 합니다. 비즈니스용 Windows Hello는 PKI 통합 및 기본 제공 되는 SSO (Single Sign-On) 지원을 통해 온-프레미스 및 클라우드에서 회사 리소스에 원활 하 게 액세스할 수 있는 간단 하 고 편리한 방법을 제공 합니다.
 
@@ -52,7 +52,7 @@ MFA (multi-factor authentication)는 조직을 보호 하는 훌륭한 방법 �
 
 FIDO2 보안 키는 모든 폼 팩터에서 제공 될 수 있는 unphishable 표준 기반 암호 없는 인증 방법입니다. Fast Identity Online (FIDO)은 암호 없는 인증을 위한 개방형 표준입니다. 이 기능을 사용 하면 사용자와 조직이 외부 보안 키 또는 장치에 기본 제공 되는 플랫폼 키를 사용 하 여 사용자 이름 또는 암호 없이 해당 리소스에 로그인 할 수 있습니다.
 
-공개 미리 보기의 경우 직원은 외부 보안 키를 사용 하 여 Azure Active Directory 연결 된 Windows 10 컴퓨터 (버전 1809 이상)에 로그인 하 고 클라우드 리소스에 대 한 single sign-on을 받을 수 있습니다. 지원 되는 브라우저에 로그인 할 수도 있습니다.
+공개 미리 보기의 경우 직원은 보안 키를 사용 하 여 Azure AD 또는 하이브리드 Azure AD에 가입 된 Windows 10 장치에 로그인 하 고 클라우드 및 온-프레미스 리소스에 대 한 single sign-on을 사용할 수 있습니다. 지원 되는 브라우저에 로그인 할 수도 있습니다.
 
 ![보안 키를 사용 하 여 Microsoft Edge에 로그인](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -78,6 +78,9 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만, Microsoft는 
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 
+> [!NOTE]
+> 를 구매 하 고 NFC 기반 보안 키를 사용할 계획인 경우 지원 되는 NFC 판독기가 필요 합니다.
+
 이 목록에서 장치를 구입 하려는 경우에는 [Fido2Request@Microsoft.com](mailto:Fido2Request@Microsoft.com)에 문의 하세요.
 
 FIDO2 보안 키는 매우 보안이 중요 하거나, 전화를 두 번째 요소로 사용 하지 않거나 사용할 수 없는 시나리오 또는 직원이 있는 기업에 게 유용한 옵션입니다.
@@ -89,7 +92,7 @@ FIDO2 보안 키는 매우 보안이 중요 하거나, 전화를 두 번째 요�
 - 최종 사용자는 자신의 계정 포털에서 이러한 암호 없는 인증 방법을 등록 하 고 관리할 수 있습니다.
 - 최종 사용자는 이러한 암호 없는 인증 방법으로 로그인 할 수 있습니다.
    - Microsoft Authenticator 앱: 모든 브라우저를 사용 하는 경우, Windows OOBE (Windows 10) 설정 중, 모든 운영 체제에서 통합 된 모바일 앱을 포함 하 여 Azure AD 인증을 사용 하는 시나리오에서 작동 합니다.
-   - 보안 키: Windows 10 버전 1809 이상 및 Microsoft Edge와 같은 지원 되는 브라우저의 웹에 대 한 잠금 화면에서 작동 합니다.
+   - 보안 키: Windows 10의 잠금 화면 및 Microsoft Edge와 같은 지원 되는 브라우저의 웹에 대해 작동 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

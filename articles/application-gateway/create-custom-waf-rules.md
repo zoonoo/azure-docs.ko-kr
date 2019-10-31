@@ -7,16 +7,16 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 8cf82ce9ed4a9dc701c016f15224d6adfa299736
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 95303ba51fd4133fc6e05be16d6448c8699c3a43
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263593"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162090"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
 
-Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽) v2는 웹 응용 프로그램에 대 한 보호를 제공 합니다. 이 보호는 OWASP (Open Web Application Security Project) 핵심 규칙 집합에서 제공 됩니다. 경우에 따라 특정 요구 사항을 충족 하기 위해 사용자 지정 규칙을 만들어야 할 수도 있습니다. WAF 사용자 지정 규칙에 대 한 자세한 내용은 [Overview 개요를 참조 하세요. 사용자 지정 웹 응용 프로그램 방화벽 규칙 @ no__t-0.
+Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽) v2는 웹 응용 프로그램에 대 한 보호를 제공 합니다. 이 보호는 OWASP (Open Web Application Security Project) 핵심 규칙 집합에서 제공 됩니다. 경우에 따라 특정 요구 사항을 충족 하기 위해 사용자 지정 규칙을 만들어야 할 수도 있습니다. WAF 사용자 지정 규칙에 대 한 자세한 내용은 [개요: 사용자 지정 웹 응용 프로그램 방화벽 규칙](custom-waf-rules-overview.md)을 참조 하세요.
 
 이 문서에서는 WAF v2에서 만들고 사용할 수 있는 몇 가지 예제 사용자 지정 규칙을 보여 줍니다. Azure PowerShell를 사용 하 여 사용자 지정 규칙으로 WAF를 배포 하는 방법을 알아보려면 [Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 사용자 지정 규칙 구성](configure-waf-custom-rules.md)을 참조 하세요.
 
@@ -25,7 +25,7 @@ Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽)
 
 ![WAF 사용][fig1]
 
-## <a name="example-1"></a>예제 1
+## <a name="example-1"></a>예 1
 
 웹 사이트 탐색에서 차단 하려는 *evilbot* 이라는 봇이 있음을 알고 있습니다. 이 예제에서는 요청 헤더의 사용자 에이전트 *evilbot* 를 차단 합니다.
 
@@ -125,7 +125,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-## <a name="example-2"></a>예제 2
+## <a name="example-2"></a>예 2
 
 198.168.5.0/24 범위의 IP 주소에 대 한 모든 요청을 차단 하려고 합니다.
 
@@ -369,7 +369,7 @@ $rule1 = New-AzApplicationGatewayFirewallCustomRule `
       {
         "name": "myrule4",
         "ruleType": "MatchRule",
-        “priority”: 100
+        "priority": 100,
         "action": "block",
         "matchConditions": [
           {

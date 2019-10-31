@@ -4,15 +4,15 @@ description: Azure에서 Analysis Services 서버를 관리하는 방법을 알�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 63591da8d7661f7f3a29b321c20a2e05351c71fd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6846eaedc7f20f5a7597ee889193e977e86a5ed6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298600"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146836"
 ---
 # <a name="manage-analysis-services"></a>Analysis Services 관리
 Azure에 Analysis Services 서버를 만들었으면 즉시 또는 조만간에 수행해야 하는 몇 가지 운영 및 관리 작업이 있습니다. 예를 들어 데이터 새로 고침 처리를 실행하거나, 서버의 모델에 대한 액세스 권한이 있는 사용자를 제어하거나, 서버의 상태를 모니터링합니다. 일부 관리 작업은 Azure 포털에서만, 일부 다른 작업은 SSMS(SQL Server Management Studio)에서만, 일부 작업은 둘 중 하나에서 수행할 수 있습니다.
@@ -60,7 +60,7 @@ Azure Analysis Services에서는 두 가지 유형의 사용자, 서버 관리�
 
 
 ## <a name="troubleshooting-connection-problems"></a>연결 문제 해결
-SSMS를 사용하여 연결할 때 문제가 발생하는 경우 로그인 캐시를 지워야 할 수 있습니다. 아무것도 디스크로 캐시되지 않습니다. 캐시를 지우려면 연결 프로세스를 닫았다가 다시 시작합니다. 
+SSMS를 사용하여 연결할 때 문제가 발생하는 경우 로그인 캐시를 지워야 할 수 있습니다. 디스크에 캐시 된 내용이 없습니다. 캐시를 지우려면 연결 프로세스를 닫고 다시 시작 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 새 서버에 테이블 형식 모델을 아직 배포하지 않았으면 지금이야말로 좋은 기회입니다. 자세한 내용은 [Azure Analysis Services에 배포](analysis-services-deploy.md)를 참조하세요.

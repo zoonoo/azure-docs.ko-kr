@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute 및 사이트 간 VPN 연결 구성 - 공존:클래식: Azure | Microsoft Docs'
+title: 'Express 경로 및 사이트 간 VPN 연결 구성-공존: 클래식: Azure | Microsoft Docs'
 description: 이 문서에서는 클래식 배포 모델에 대해 공존할 수 있는 ExpressRoute와 사이트 간 VPN 연결을 구성하는 과정을 안내합니다.
 documentationcenter: na
 services: expressroute
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: 70e7c689acac094890545ac1e65374e9377a0be0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8eb1d7da9c588aedaedb37dc50c69970fe79ac2
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370426"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162720"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>ExpressRoute 및 사이트 간 공존 연결 구성(클래식)
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 5. ExpressRoute 게이트웨이를 ExpressRoute 회로에 연결합니다. 이 단계를 완료하면 ExpressRoute를 통해 온-프레미스 네트워크와 Azure 간의 연결이 설정됩니다.
    
         New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
-6. <a name="vpngw"></a>그런 다음 사이트 간 VPN 게이트웨이를 만듭니다. GatewaySKU는 *Standard*, *HighPerformance* 또는 *UltraPerformance*이어야 하고 GatewayType은 *DynamicRouting*이어야 합니다.
+6. <a name="vpngw"></a>그런 다음 사이트 간 VPN Gateway를 만듭니다. GatewaySKU는 *Standard*, *HighPerformance* 또는 *UltraPerformance*이어야 하고 GatewayType은 *DynamicRouting*이어야 합니다.
    
         New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
    
@@ -148,7 +148,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
         OperationDescription : Get-AzureVirtualNetworkGateway
         OperationId          : 42773656-85e1-a6b6-8705-35473f1e6f6a
         OperationStatus      : Succeeded
-7. 로컬 사이트 VPN 게이트웨이 엔터티를 만듭니다. 이 명령은 온-프레미스 VPN Gateway를 구성하지 않습니다. 대신, Azure VPN Gateway를 연결할 수 있도록 공용 IP 주소 및 온-프레미스 주소 공간과 같은 로컬 게이트웨이 설정을 제공할 수 있게 해줍니다.
+7. 로컬 사이트 VPN Gateway 엔터티를 만듭니다. 이 명령은 온-프레미스 VPN Gateway를 구성하지 않습니다. 대신, Azure VPN Gateway를 연결할 수 있도록 공용 IP 주소 및 온-프레미스 주소 공간과 같은 로컬 게이트웨이 설정을 제공할 수 있게 해줍니다.
    
    > [!IMPORTANT]
    > 사이트 간 VPN의 로컬 사이트는 netcfg에 정의되지 않습니다. 대신, 다음 cmdlet을 사용하여 로컬 사이트 매개 변수를 지정해야 합니다. 포털 또는 netcfg 파일을 사용하여 정의할 수 없습니다.
@@ -187,7 +187,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 ## <a name="add"></a>기존 VNet에 대한 공존 연결을 구성하려면
 기존 가상 네트워크가 있는 경우 게이트웨이 서브넷 크기를 확인합니다. 게이트웨이 서브넷이 /28 또는 /29인 경우 우선 가상 네트워크 게이트웨이를 삭제하고 게이트웨이 서브넷 크기를 늘려야 합니다. 이 섹션에서 단계별 수행 방법을 보여줍니다.
 
-게이트웨어 서브넷이 /27 이상이고 가상 네트워크가 ExpressRoute를 통해 연결된 경우 아래 단계를 건너뛰고 이전 섹션의 ["6단계 - 사이트 간 VPN 게이트웨이 만들기"](#vpngw) 를 진행할 수 있습니다.
+게이트웨어 서브넷이 /27 이상이고 가상 네트워크가 ExpressRoute를 통해 연결된 경우 아래 단계를 건너뛰고 이전 섹션의 ["6단계 - 사이트 간 VPN Gateway 만들기"](#vpngw) 를 진행할 수 있습니다.
 
 > [!NOTE]
 > 기존 게이트웨이를 삭제하면 이 구성에서 작업하는 동안 로컬 프레미스와 가상 네트워크의 연결이 끊어집니다.
@@ -195,12 +195,12 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 > 
 
 1. 최신 버전의 Azure 리소스 관리자 PowerShell cmdlet을 설치해야 합니다. PowerShell cmdlet 설치에 대한 자세한 내용은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview) 을 참조하세요. 이 구성에 사용할 cmdlet은 지금까지 익숙하던 cmdlet과는 약간 다를 수 있습니다. 다음 지침에 지정된 cmdlet을 사용해야 합니다. 
-2. 기존 ExpressRoute 또는 사이트 간 VPN 게이트웨이를 삭제합니다. 다음 cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
+2. 기존 ExpressRoute 또는 사이트 간 VPN Gateway를 삭제합니다. 다음 cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
    
         Remove-AzureVNetGateway –VnetName MyAzureVNET
 3. 가상 네트워크 스키마를 내보냅니다. 다음 PowerShell cmdlet(사용자 고유의 값으로 대체)을 사용합니다.
    
-        Get-AzureVNetConfig –ExportToFile “C:\NetworkConfig.xml”
+        Get-AzureVNetConfig –ExportToFile "C:\NetworkConfig.xml"
 4. 게이트웨이 서브넷이 /27 또는 더 짧은 접두사가 되도록 네트워크 구성 파일 스키마를 편집합니다.(/26 또는 /25와 같이) 다음 예제를 참조하세요. 
    
    > [!NOTE]

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: f74f9ba55f3593ed31994b83bb9bda1501445e0a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9949c389ad0511c3ed5923e0451bc96e7063621f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100662"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159738"
 ---
 # <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>다른 하위 지역의 Azure Virtual Machines에서 Always On 가용성 그룹 구성
 
@@ -130,7 +130,7 @@ ms.locfileid: "70100662"
    ```powershell
    $ClusterNetworkName = "<MyClusterNetworkName>" # The cluster name for the network in the new region (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name).
    $IPResourceName = "<IPResourceName>" # The cluster name for the new IP Address resource.
-   $ILBIP = “<n.n.n.n>” # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
+   $ILBIP = "<n.n.n.n>" # The IP Address of the Internal Load Balancer (ILB) in the new region. This is the static IP address for the load balancer you configured in the Azure portal.
    [int]$ProbePort = <nnnnn> # The probe port you set on the ILB.
 
    Import-Module FailoverClusters
@@ -148,7 +148,7 @@ ms.locfileid: "70100662"
 
 ## <a name="fail-over-to-remote-region"></a>원격 지역으로 장애 조치
 
-원격 지역에 대한 수신기 연결을 테스트하려면 복제본을 원격 지역으로 장애 조치할 수 있습니다. 복제본이 비동기인 경우 장애 조치 시 잠재적 데이터 손실이 발생하기 쉽습니다. 데이터 손실 없이 장애 조치를 수행하려면 가용성 모드를 동기로 변경하고 장애 조치 모드를 자동으로 설정합니다. 다음 단계를 사용합니다.
+원격 지역에 대한 수신기 연결을 테스트하려면 복제본을 원격 지역으로 장애 조치할 수 있습니다. 복제본이 비동기인 경우 장애 조치 시 잠재적 데이터 손실이 발생하기 쉽습니다. 데이터 손실 없이 장애 조치를 수행하려면 가용성 모드를 동기로 변경하고 장애 조치 모드를 자동으로 설정합니다. 다음 단계를 사용하세요.
 
 1. **개체 탐색기**에서 주 복제본을 호스트하는 SQL Server의 인스턴스에 연결합니다.
 1. **Always On 가용성 그룹**, **가용성 그룹** 아래에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **속성**을 클릭합니다.
@@ -157,7 +157,7 @@ ms.locfileid: "70100662"
 1. 확인을 클릭합니다.
 1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **대시보드 표시**를 클릭합니다.
 1. 대시보드에서 DR 사이트의 복제본이 동기화되었는지 확인합니다.
-1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **장애 조치...** 를 클릭합니다. SQL Server Management Studio는 SQL Server를 장애 조치하는 마법사를 엽니다.  
+1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **장애 조치 (Failover) ...** 를 클릭 합니다. SQL Server Management 스튜디오는 SQL Server를 장애 조치 하는 마법사를 엽니다.  
 1. **다음**을 클릭하고 DR 사이트의 SQL Server 인스턴스를 선택합니다. 다시 **다음**을 클릭합니다.
 1. DR 사이트에서 SQL Server 인스턴스에 연결하고 **다음**을 클릭합니다.
 1. **요약** 페이지에서 설정을 확인한 다음 **마침**을 클릭합니다.
@@ -167,8 +167,8 @@ ms.locfileid: "70100662"
 | 위치 | 서버 인스턴스 | 역할 | 가용성 모드 | 장애 조치(Failover) 모드
 | ----- | ----- | ----- | ----- | -----
 | 주 데이터 센터 | SQL-1 | 보조 | 동기 | 자동
-| 주 데이터 센터 | SQL-2 | 보조 | 동기 | 자동
-| 보조 또는 원격 데이터 센터 | SQL-3 | 보조 | 비동기 | 설명서
+| 주 데이터 센터 | SQL-2 | 주 | 동기 | 자동
+| 보조 또는 원격 데이터 센터 | SQL-3 | 주 | 비동기 | Manual
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>계획된 및 강제 수동 장애 조치에 대한 자세한 내용

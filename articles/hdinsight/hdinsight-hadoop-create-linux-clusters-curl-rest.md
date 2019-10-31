@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: hrasheed
-ms.openlocfilehash: d771d91feaba942b88a0ddb68f0d997fad4a981e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 963dc71097a1ac53df77f3ab9c804b53597adeb5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67059404"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152003"
 ---
 # <a name="create-apache-hadoop-clusters-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Apache Hadoop 클러스터 만들기
 
@@ -28,7 +28,7 @@ Azure REST API를 사용하면 HDInsight 클러스터 등과 같은 새 리소�
 
 ## <a name="create-a-template"></a>템플릿 만들기
 
-Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 리소스를 설명하는 JSON 문서입니다(예: HDInsight). 이 템플릿 기반 접근 방식을 사용하면 하나의 템플릿에서 HDInsight에 필요한 리소스를 정의할 수 있습니다.
+Azure Resource Manager 템플릿은 **리소스 그룹 및 해당 리소스 그룹** 의 모든 리소스 (예: HDInsight)를 설명 하는 JSON 문서입니다. 이 템플릿 기반 접근 방식을 사용 하면 하나의 템플릿에서 HDInsight에 필요한 리소스를 정의할 수 있습니다.
 
 다음 JSON 문서는 [https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-linux-ssh-password)의 템플릿과 매개 변수 파일의 병합기로, 암호를 사용하여 SSH 사용자 계정을 보호하는 Linux 기반 클러스터를 만듭니다.
 
@@ -145,7 +145,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
                                "name": "headnode",
                                "targetInstanceCount": "2",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}" 
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {
@@ -158,7 +158,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
                                "name": "workernode",
                                "targetInstanceCount": "[parameters('clusterWorkerNodeCount')]",
                                "hardwareProfile": {
-                                   "vmSize": "Standard_D3"
+                                   "vmSize": "{}"
                                },
                                "osProfile": {
                                    "linuxOperatingSystemProfile": {
@@ -212,7 +212,7 @@ Azure Resource Manager 템플릿은 **리소스 그룹**과 그 안의 모든 �
 >
 > 노드 크기 및 관련된 비용에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 
-## <a name="sign-in-to-your-azure-subscription"></a>Azure 구독에 로그인합니다.
+## <a name="sign-in-to-your-azure-subscription"></a>Azure 구독에 로그인
 
 [Azure CLI 시작](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)의 단계에 따라 `az login` 명령을 사용하여 구독에 연결합니다.
 

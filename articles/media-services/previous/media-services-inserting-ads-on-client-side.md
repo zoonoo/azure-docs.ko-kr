@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 49c836f5e9189104ba77e8f3d865f4db199c4060
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 37ee600a2f7d621d3fefb2f70c26b6c29f738ea9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002970"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162697"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
 이 문서에서는 클라이언트 측에서 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
@@ -170,7 +170,7 @@ Application/x-shockwave-flash – 리소스가 Flash Player에 표시됩니다.
 
 **IFrameResource**는 IFrame에 표시할 수 있는 HTML 리소스를 설명합니다. **HTMLResource**는 웹 페이지에 삽입할 수 있는 HTML 코드 조각을 설명합니다. **TrackingEvents**는 추적 이벤트와 이벤트가 발생할 때 요청할 URI를 지정합니다. 이 샘플에서는 acceptInvitation 및 collapse 이벤트가 추적됩니다. **NonLinearAds** 요소 및 해당 자식에 대한 자세한 내용은 IAB.NET/VAST를 참조하세요. **TrackingEvents** 요소는 **NonLinear** 요소가 아닌 **NonLinearAds** 요소 내에 있습니다.
 
-동반 광고는 `<CompanionAds>` 요소 내에서 정의됩니다. `<CompanionAds>` 요소에는 하나 이상의 `<Companion>` 요소가 포함될 수 있습니다. 각 `<Companion>` 요소는 동반을 설명하며, 비선형 광고에서와 같은 방법으로 지정되는 `<StaticResource>`, `<IFrameResource>` 또는 `<HTMLResource>`를 포함할 수 있습니다. VAST 파일은 여러 캠페인 광고를 포함할 수 있고 플레이어 애플리케이션은 표시할 가장 적합한 광고를 선택할 수 있습니다. VAST에 대한 자세한 내용은 [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요.
+캠페인(Companion) 광고는 `<CompanionAds>` 요소 내에서 정의됩니다. `<CompanionAds>` 요소에는 하나 이상의 `<Companion>` 요소가 포함될 수 있습니다. 각 `<Companion>` 요소는 동반을 설명하며, 비선형 광고에서와 같은 방법으로 지정되는 `<StaticResource>`, `<IFrameResource>` 또는 `<HTMLResource>`를 포함할 수 있습니다. VAST 파일은 여러 캠페인 광고를 포함할 수 있고 플레이어 애플리케이션은 표시할 가장 적합한 광고를 선택할 수 있습니다. VAST에 대한 자세한 내용은 [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요.
 
 ### <a name="using-a-digital-video-multiple-ad-playlist-vmap-file"></a>디지털 VMAP(Video Multiple Ad Playlist) 파일 사용
 VMAP 파일을 사용하여 광고가 발생하는 시기, 각 광고가 지속되는 기간, 광고 시간 내에 표시될 수 있는 광고 수, 광고 시간 중에 표시될 수 있는 광고 유형을 지정할 수 있습니다. 단일 광고를 정의하는 예제 VMAP 파일은 다음과 같습니다.
@@ -332,7 +332,7 @@ MAST 파일은 하나의 **triggers** 요소를 포함하는 **MAST** 요소로 
 1. **type** – 조건, 이벤트 또는 속성 유형을 지정
 2. **name** – 평가 중에 사용할 속성 또는 이벤트의 이름
 3. **value** – 속성을 평가할 기준 값
-4. **operator** – 평가 중에 사용할 연산: EQ(같음), NEQ(같지 않음), GTR(보다 큼), GEQ(크거나 같음), LT(보다 작음), LEQ(작거나 같음), MOD(모듈로)
+4. **operator** – 평가 중에 사용할 연산: EQ(같음), NEQ(같지 않음), GTR(보다 큼), GEQ(크거나 같음), LT(보다 작음), LEQ(작거나 같음), MOD(나머지)
 
 **endConditions**도 `<condition>` 요소를 포함합니다. 조건이 true로 평가되면 트리거가 다시 설정됩니다. `<trigger>` 요소에는 `<source>` 요소를 하나 이상 포함하는 `<sources>` 요소도 포함됩니다. `<source>` 요소는 광고 응답에 대한 URI와 광고 응답 유형을 정의합니다. 다음 예제에서는 VAST 응답에 URI가 지정되어 있습니다.
 
@@ -356,8 +356,8 @@ VPAID는 실행 가능한 광고 단위가 비디오 플레이어와 통신하�
 
 ```xml
     <MediaFiles>
-       <MediaFile id="1" delivery="progressive" type=”application/x-shockwaveflash”
-                  width=”640” height=”480” apiFramework=”VPAID”>
+       <MediaFile id="1" delivery="progressive" type="application/x-shockwaveflash"
+                  width="640" height="480" apiFramework="VPAID">
            <!-- CDATA wrapped URI to executable ad -->
        </MediaFile>
     </MediaFiles>
@@ -586,7 +586,7 @@ ProgrammaticAdPage.xaml.cs 파일은 AdHandlerPlugin을 만들고, TimelineMarke
 ```
 
 ## <a name="implementing-an-ios-video-player-with-ad-support"></a>광고 지원이 포함된 iOS 비디오 플레이어 구현
-Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 애플리케이션을 구현하는 방법을 보여 주는 애플리케이션 예제 컬렉션이 포함됩니다. [Azure Media Player 프레임워크](https://github.com/Azure/azure-media-player-framework)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다. GitHub 페이지에는 플레이어 프레임워크에 대한 추가 정보와 플레이어 샘플에 대한 소개가 포함된 Wiki 링크 [Azure Media Player Wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)가 있습니다.
+Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 애플리케이션을 구현하는 방법을 보여 주는 샘플 애플리케이션 컬렉션이 포함됩니다. [Azure Media Player 프레임워크](https://github.com/Azure/azure-media-player-framework)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다. GitHub 페이지에는 플레이어 프레임 워크에 대 한 추가 정보를 포함 하는 Wiki에 대 한 링크와 플레이어 샘플에 대 한 소개 인 [Azure Media Player wiki](https://github.com/Azure/azure-media-player-framework/wiki/How-to-use-Azure-media-player-framework)가 있습니다.
 
 ### <a name="scheduling-ads-with-vmap"></a>VMAP를 사용하여 광고 예약
 다음 예제에서는 VMAP 파일을 사용하여 광고를 예약하는 방법을 보여 줍니다.
@@ -846,7 +846,7 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>참고 항목

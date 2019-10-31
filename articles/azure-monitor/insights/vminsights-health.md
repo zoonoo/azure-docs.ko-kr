@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: c9dfd3bfcacc1f50bb9be04c927bf3cbb4895f6d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: e19ba55e48c537974ad4136d40505514b92d387d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555265"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162284"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Azure virtual machines의 상태 이해
 
@@ -339,7 +339,7 @@ Azure Portal에서 특정 경고 관리 작업을 관리할 수 없습니다. �
 2. 다음 명령을 입력 하 여 특정 VM에서 활성 상태인 모든 상태 조건을 검색 하 고 *monitorId* 속성의 값을 확인 합니다.
 
     ```
-    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
+    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview"
     ```
 
     다음 예에서는 *ARMCLIENT GET* 명령의 출력을 보여 줍니다. *MonitorId*의 값을 기록해 둡니다. 이 값은 다음 단계에서 필요 합니다. 여기서는 상태 조건의 ID를 지정 하 고 해당 속성을 수정 하 여 경고를 생성 해야 합니다.

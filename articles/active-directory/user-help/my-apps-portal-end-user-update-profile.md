@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14146be73de309a7119f5c7b416c4e02f3bb4285
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383091"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160759"
 ---
 # <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>내 앱 포털에서 프로필 및 계정 정보 업데이트
 
@@ -86,7 +86,7 @@ ms.locfileid: "68383091"
 암호를 잊은 경우 회사 지원팀에서 암호를 얻지 않았거나 계정에서 잠긴 경우 자신의 암호를 재설정할 수 있습니다.
 
 >[!Important]
->관리자가이 기능을 켜야 하며 참여 하려면 등록 해야 합니다. 등록 하는 방법 및 암호를 재설정 하는 방법에 대 한 자세한 내용은 [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md) 및 [회사 또는 학교 암호 재설정](user-help-reset-password.md)을 참조 하세요.
+>관리자가이 기능을 켜야 하며 참여 하려면 등록 해야 합니다. 등록 하는 방법 및 암호를 재설정 하는 방법에 대 한 자세한 내용은 [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md) 및 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md)을 참조 하세요.
 
 ## <a name="change-your-security-verification-information"></a>보안 확인 정보 변경
 

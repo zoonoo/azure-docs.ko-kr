@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e1be41c854e212a7b673d8c2dff42d7b9981fb4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 101d478d37055a08a5ced9113e070bf826613bd3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616125"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160781"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>인증 앱을 사용하도록 보안 정보(미리 보기) 설정
 
@@ -66,7 +66,7 @@ ms.locfileid: "69616125"
 6. Microsoft Authenticator 앱을 열고, 알림을 허용하도록 선택하고(프롬프트되는 경우), 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가**를 선택한 다음, **회사 또는 학교 계정**을 선택합니다.
 
     >[!Note]
-    >Microsoft Authenticator 앱을 처음으로 설정 하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지 (iOS) 아니면 앱이 사진을 촬영 하 고 비디오를 녹화 (Android) 할 수 있도록 허용할지 묻는 메시지가 표시 될 수 있습니다. **허용** 을 선택 하 여 인증자 앱이 카메라에 액세스 하 여 다음 단계에서 QR 코드를 그림으로 이동할 수 있도록 해야 합니다. 카메라를 허용 하지 않는 경우에도 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가 해야 합니다. 수동으로 코드를 추가 하는 방법에 대 한 자세한 내용은 [앱에 수동으로 계정 추가](user-help-auth-app-add-account-manual.md)를 참조 하세요.
+    >Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용**을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
 7. 컴퓨터에서 **계정 설정** 페이지로 돌아가서 **다음**을 선택합니다.
 
@@ -109,11 +109,11 @@ ms.locfileid: "69616125"
 
     2단계 인증 및 암호 재설정 요청을 위한 인증 앱에서 계정이 완전히 삭제됩니다.
 
-## <a name="change-your-default-security-info-method"></a>기본 보안 정보 메서드 변경
+## <a name="change-your-default-security-info-method"></a>기본 보안 인증 방식 변경
 
 2단계 인증을 사용하거나 암호 재설정을 요청하기 위해 회사 또는 학교 계정에 로그인할 때 사용되는 기본 메서드로 인증 앱을 사용하려면 **보안 정보** 페이지에서 설정하면 됩니다.
 
-### <a name="to-change-your-default-security-info-method"></a>기본 보안 정보 메서드를 변경하려면
+### <a name="to-change-your-default-security-info-method"></a>기본 보안 인증 방식을 변경하려면 다음을 수행합니다.
 
 1. **보안 정보** 페이지에서 **기본 로그인 방법** 정보 옆에 있는 **변경** 링크를 선택합니다.
 
@@ -148,6 +148,6 @@ ms.locfileid: "69616125"
 
 - [2 단계 인증 또는 보안 정보를 사용 하 여 로그인](security-info-setup-signin.md) 문서의 단계를 수행 하 여 Microsoft Authenticator 앱을 사용 하 여 로그인 합니다.
 
-- 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정하거나 [회사 또는 학교 암호 재설정](user-help-reset-password.md) 문서의 단계를 수행합니다.
+- 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정하거나 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md) 문서의 단계를 수행합니다.
 
 - [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서에서 로그인 문제에 대한 문제 해결 팁 및 도움말을 확인합니다.

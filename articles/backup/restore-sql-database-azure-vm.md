@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 8bdc77ba81c5a9ec47a02ef5a1ede82365314941
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 648c5ca1eb1cb1c0f1832654fc66d436b9318af3
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968867"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161839"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -68,19 +68,19 @@ ms.locfileid: "72968867"
     - 가장 오래된 복원 지점 및 최신 복원 지점
     - 전체 및 대량 로그 복구 모드 이며 트랜잭션 로그 백업용으로 구성 된 데이터베이스의 경우 지난 24 시간 동안의 로그 백업 상태입니다.
 
-6. **DB 복원**을 선택 합니다.
+6. **복원**을 선택합니다.
 
-    ![복원 DB 선택](./media/backup-azure-sql-database/restore-db-button.png)
+    ![복원 선택](./media/backup-azure-sql-database/restore-db.png)
 
-7. **복원 구성**에서 데이터를 복원할 위치를 지정 합니다.
+7. **복원 구성**에서 데이터를 복원할 위치 (또는 방법)를 지정 합니다.
    - **대체 위치**: 데이터베이스를 대체 위치로 복원 하 고 원래 원본 데이터베이스를 유지 합니다.
    - **DB 덮어쓰기**: 원래 원본과 동일한 SQL Server 인스턴스에 데이터를 복원합니다. 이 옵션은 원본 데이터베이스를 덮어씁니다.
 
-     > [!Important]
-     > 선택한 데이터베이스가 Always On 가용성 그룹에 속하면 SQL Server에서 데이터베이스를 덮어쓸 수 없습니다. **대체 위치**만 사용할 수 있습니다.
-     >
-
-     ![복원 구성 메뉴](./media/backup-azure-sql-database/restore-restore-configuration-menu.png)
+           > [!IMPORTANT]
+           > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
+           >
+   - **파일로 복원**: 데이터베이스로 복원 하는 대신 SQL Server Management Studio를 사용 하 여 파일이 있는 컴퓨터에서 나중에 데이터베이스로 복구할 수 있는 백업 파일을 복원 합니다.
+     ![복원 구성 메뉴](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### <a name="restore-to-an-alternate-location"></a>대체 위치에 복원
 
@@ -90,7 +90,7 @@ ms.locfileid: "72968867"
 4. 해당되는 경우 **선택한 SQL 인스턴스에 이름이 같은 DB가 있으면 덮어쓰기**를 선택합니다.
 5. **확인**을 선택합니다.
 
-    ![복원 구성 메뉴에 대한 값 제공](./media/backup-azure-sql-database/restore-configuration-menu.png)
+    ![복원 구성 메뉴에 대한 값 제공](./media/backup-azure-sql-database/restore-configuration.png)
 
 6. **복원 지점 선택**에서 [특정 시점으로 복원할지](#restore-to-a-specific-point-in-time) 또는 [특정 복구 지점으로 복원할지](#restore-to-a-specific-restore-point)를 선택 합니다.
 
@@ -107,6 +107,25 @@ ms.locfileid: "72968867"
 
     > [!NOTE]
     > 지정 시간 복원은 전체 및 대량 로그 복구 모드에 있는 데이터베이스의 로그 백업에 대해서만 사용할 수 있습니다.
+
+### <a name="restore-as-files"></a>파일로 복원
+
+데이터베이스 대신 .bak 파일로 백업 데이터를 복원 하려면 **파일로 복원**을 선택 합니다. 지정 된 경로에 파일을 덤프 한 후에는 이러한 파일을 데이터베이스로 복원 하려는 모든 컴퓨터로 가져올 수 있습니다. 이러한 파일을 컴퓨터로 이동할 수 있으므로 이제 구독과 지역 간에 데이터를 복원할 수 있습니다.
+
+1. 복원 **구성** 메뉴의 **복원 위치**아래에서 **파일로 복원**을 선택 합니다.
+2. 백업 파일을 복원 하려는 SQL Server 이름을 선택 합니다.
+3. **서버의 대상 경로** 에서 2 단계에서 선택한 서버의 폴더 경로를 입력 합니다. 서비스에서 필요한 모든 백업 파일을 덤프 하는 위치입니다. 일반적으로 대상 경로로 지정 된 경우 네트워크 공유 경로 또는 탑재 된 Azure 파일 공유의 경로를 사용 하면 동일한 네트워크에 있거나 동일한 Azure 파일 공유에 탑재 된 다른 컴퓨터에서 이러한 파일에 쉽게 액세스할 수 있습니다.
+4. **확인**을 선택합니다.
+
+![파일로 복원 선택](./media/backup-azure-sql-database/restore-as-files.png)
+
+5. 사용 가능한 모든 .bak 파일이 복원 되는 **복원 지점을** 선택 합니다.
+
+![복원 지점 선택](./media/backup-azure-sql-database/restore-point.png)
+
+6. 선택한 복구 지점과 연결 된 모든 백업 파일은 대상 경로로 덤프 됩니다. SQL Server Management Studio를 사용 하 여 있는 모든 컴퓨터의 데이터베이스로 파일을 복원할 수 있습니다.
+
+![대상 경로에서 백업 파일 복원 됨](./media/backup-azure-sql-database/sql-backup-files.png)
 
 ### <a name="restore-to-a-specific-point-in-time"></a>특정 시점으로 복원
 

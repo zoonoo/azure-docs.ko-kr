@@ -4,15 +4,15 @@ description: 서버 이름 별칭을 만들고 사용하는 방법을 설명합�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 161df354bae350df533f3991e551401fd56a4a65
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ea618ecb29451650cbb01e9c95d263f42d406555
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301084"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146343"
 ---
 # <a name="alias-server-names"></a>별칭 서버 이름
 
@@ -52,7 +52,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [클라이언트 라이브러리](analysis-services-data-providers.md)   
 [Power BI Desktop에서 연결](analysis-services-connect-pbi.md)

@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/24/2019
-ms.openlocfilehash: 83c2264cd3aa3025e911db5079747930d1ae096b
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.date: 10/29/2019
+ms.openlocfilehash: 7e3dad5405289ee2d1f4ec8f7a586da70db9d56f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809468"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162249"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>VM용 Azure Monitor 사용 (미리 보기) 개요
 
@@ -37,14 +37,20 @@ VM용 Azure Monitor을 설정 하려면:
 VM용 Azure Monitor는 다음 지역에서 Log Analytics 작업 영역을 지원 합니다.
 
 - 미국 중서부
+- 미국 서 부<sup>1</sup>
 - 미국 서 부 2<sup>1</sup>
+- 미국 중부 중부<sup>1</sup>
 - 미국 동부
 - 동부 미국<sup>1</sup>
+- 미국 중부<sup>1</sup>
+- 미국 중 북부<sup>1</sup>
 - 캐나다 중부
 - 영국 남부
 - 북아메리카 유럽<sup>1</sup>
 - 서유럽
+- 동아시아<sup>1</sup>
 - 동남아시아
+- 인도 중부<sup>1</sup>
 - 일본 동부<sup>1</sup>
 - 오스트레일리아 동부<sup>1</sup>
 - 오스트레일리아 남동쪽<sup>1</sup>
@@ -199,6 +205,9 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한
 ## <a name="performance-counters-enabled"></a>사용하도록 설정된 성능 카운터 
 
 VM용 Azure Monitor Log Analytics 작업 영역을 구성 하 여 사용 하는 성능 카운터를 수집 합니다. 다음 표에서는 60 초 마다 수집 되는 개체 및 카운터를 나열 합니다.
+
+>[!NOTE]
+>VM용 Azure Monitor에서 사용 하도록 설정 된 다음 성능 카운터 목록은 Vm 보고에서 작업 영역으로 수집 해야 하는 추가 카운터를 사용 하도록 제한 하지 않습니다. 또한 이러한 카운터를 사용 하지 않도록 설정 하면 성능 기능에 포함 된 성능 차트 집합에서 Vm의 리소스 사용률을 표시 하지 않습니다.
 
 ### <a name="windows-performance-counters"></a>Windows 성능 카운터
 

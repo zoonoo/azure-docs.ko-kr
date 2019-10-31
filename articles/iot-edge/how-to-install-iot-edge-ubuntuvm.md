@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: gregman
-ms.openlocfilehash: 0e5bec7d3e1ecd63541a319cd5a9151560ef4139
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: fec39a9e788debcd9c3ac707a0431e268d87ed35
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964640"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146188"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Ubuntu Virtual Machines에서 Azure IoT Edge 실행
 
@@ -36,7 +36,7 @@ IoT Edge 런타임의 작동 방식 및 포함되는 구성 요소에 대한 자
     1.  IoT Hub에서 만든 IoT Edge 장치에서 장치 연결 문자열을 복사 합니다 .이 프로세스에 익숙하지 않은 경우 [Azure Portal 절차에서 연결 문자열 검색](how-to-register-device.md#retrieve-the-connection-string-in-the-azure-portal) 을 수행할 수 있습니다.
     1.  Azure Portal에서 새로 만든 가상 머신 리소스를 선택하고 **명령 실행** 옵션을 엽니다.
     1.  **RunShellScript** 옵션을 선택합니다.
-    1.  디바이스 연결 문자열 `/etc/iotedge/configedge.sh “{device_connection_string}”`을 사용하여 명령 창을 통해 아래 스크립트를 실행합니다.
+    1.  디바이스 연결 문자열 `/etc/iotedge/configedge.sh "{device_connection_string}"`을 사용하여 명령 창을 통해 아래 스크립트를 실행합니다.
     1.  **실행**을 선택합니다.
     1.  잠시 기다리면, 연결 문자열이 설정되었음을 나타내는 성공 메시지가 화면에 표시됩니다.
 

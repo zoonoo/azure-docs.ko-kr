@@ -8,12 +8,12 @@ ms.topic: include
 ms.author: estfan
 ms.custom: include file
 ms.date: 05/15/2018
-ms.openlocfilehash: aa1001661d8fe03855e1a28b882f674bee3606b2
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: d60d7727e0674298fa6da7e7330221318da23efd
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312055"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161635"
 ---
 * Azure SQL Database를 사용하는 경우 [Azure SQL Database에 연결](#connect-azure-sql-db)의 단계를 따릅니다.
 
@@ -34,7 +34,7 @@ SQL 트리거 또는 작업에서 연결 정보를 묻는 메시지가 표시 �
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![Azure SQL Database 연결 만들기](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
+   ![Azure SQL Database에 대 한 연결 만들기](./media/connectors-create-api-sqlazure/azure-sql-database-create-connection.png)
 
 1. 완료되면 **만들기**를 선택합니다.
 
@@ -59,7 +59,7 @@ SQL 트리거 또는 작업에서 연결 정보를 묻는 메시지가 표시 �
    * `User ID=<your-user-name>`
    * `Password=<your-password>`
 
-   ![SQL Server 연결 만들기](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
+   ![SQL Server에 대 한 연결 만들기](./media/connectors-create-api-sqlazure/sql-server-create-connection.png)
 
 1. SQL server에서 Windows 또는 기본 인증을 사용 하는 경우 **인증 유형을**선택 합니다.
 

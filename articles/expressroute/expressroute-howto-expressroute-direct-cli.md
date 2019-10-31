@@ -1,6 +1,6 @@
 ---
 title: ExpressRoute Direct 구성 - Azure CLI | Microsoft Docs
-description: 이 문서는 Azure CLI를 사용 하 여 ExpressRoute 직접 구성 하도록 도와줍니다.
+description: 이 문서는를 사용 하 여 Express 경로 다이렉트를 구성 하는 데 도움이 됩니다 Azure CLI
 services: expressroute
 author: cherylmc
 ms.service: expressroute
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: ebfe3db43de87e67ad05ed8cb9f5812b5ded04e0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a879344fddd6d12ae8a50e109dcaf4a4bb2c1b68
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965915"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161559"
 ---
-# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 ExpressRoute 직접 구성
+# <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 직접 구성
 
 Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결할 수 있습니다. 자세한 내용은 [ExpressRoute Direct Connect 정보](expressroute-erdirect-about.md)를 참조하세요.
 
@@ -272,7 +272,7 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
    }
    ```
 
-   동일한 절차에 따라 `AdminState = “Disabled”`를 사용하여 포트를 작동 중단합니다.
+   동일한 절차에 따라 `AdminState = "Disabled"`를 사용하여 포트를 작동 중단합니다.
 
 ## <a name="circuit"></a>회로 만들기
 
@@ -280,9 +280,9 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
 
 여기에 설명된 시나리오만 지원하도록 ExpressRoute Direct에서 추가 회로 대역폭을 사용할 수 있습니다. 대역폭은 40Gbps 및 100Gbps입니다.
 
-**SkuTier** 로컬, Standard 또는 Premium 될 수 있습니다.
+지역, 표준 또는 프리미엄 일 **수 있습니다.**
 
-**SkuFamily** 무제한 으로만 MeteredData 해야 ExpressRoute 직접 지원 되지 않습니다.
+Unlimiteddata는 Express 경로 직접 지원 되지 않으므로 무제한으로 사용할 **수 있어야 합니다** .
 ExpressRoute Direct 리소스에서 회로를 만듭니다.
 
   ```azurecli

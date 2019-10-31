@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 6f7bb1cfdb36bcaa8545fba8767b20d974c8e073
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 57e8eab6413efa25eb03c48a968ca2b671b8c8d6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968377"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162126"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -25,6 +25,9 @@ Azure Backup MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 
 - 온-프레미스 Windows 컴퓨터에서 실행 하 여 Azure에서 백업 Recovery Services 자격 증명 모음에 직접 백업할 수 있습니다.
 - Windows Vm에서를 실행 하 여 자격 증명 모음에 직접 백업할 수 있습니다.
 - MABS (Microsoft Azure Backup 서버) 또는 System Center Data Protection Manager (DPM) 서버에서 실행 합니다. 이 시나리오에서 컴퓨터 및 작업은 MABS 또는 DPM 서버에 백업 됩니다. 그러면 MARS 에이전트는이 서버를 Azure의 자격 증명 모음에 백업 합니다.
+
+> [!NOTE]
+>Azure Backup는 DST (일광 절약 시간제)의 클록 자동 조정을 지원 하지 않습니다. 실제 시간과 예약 된 백업 시간 간의 불일치를 방지 하기 위해 일광 절약 액을 고려 하도록 정책을 수정 합니다.
 
 백업 옵션은 에이전트가 설치 된 위치에 따라 달라 집니다. 자세한 내용은 [MARS 에이전트를 사용 하는 Azure Backup 아키텍처](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders)를 참조 하세요. MABS 및 DPM 백업 아키텍처에 대 한 자세한 내용은 [dpm 또는 MABS에 백업](backup-architecture.md#architecture-back-up-to-dpmmabs)을 참조 하세요. 백업 아키텍처에 대 한 [요구](backup-support-matrix-mabs-dpm.md) 사항도 참조 하세요.
 

@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 512da03e6b473055e3a14d64a9ac0e25b8efca56
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 9dd3f6490d1e9f6bdd20e99025545d83bca191fb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838908"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162330"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -49,16 +49,7 @@ HTTP 트리거를 사용하면 HTTP 요청으로 함수를 호출할 수 있습�
 
 ## <a name="trigger---example"></a>트리거 - 예제
 
-언어 관련 예제를 참조하세요.
-
-* [C#](#trigger---c-example)
-* [C# 스크립트(.csx)](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [Java](#trigger---java-examples)
-* [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>트리거 - C# 예제
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 다음 예제는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다. 반환 값은 출력 바인딩에 사용되지만, 반환 값 특성은 필요 없습니다.
 
@@ -82,7 +73,7 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-### <a name="trigger---c-script-example"></a>트리거 - C# 스크립트 예제
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
@@ -158,73 +149,7 @@ public class Person {
 }
 ```
 
-### <a name="trigger---f-example"></a>트리거 - F# 예제
-
-다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [F# 함수](functions-reference-fsharp.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
-
-*function.json* 파일은 다음과 같습니다.
-
-```json
-{
-  "bindings": [
-    {
-      "authLevel": "function",
-      "name": "req",
-      "type": "httpTrigger",
-      "direction": "in"
-    },
-    {
-      "name": "res",
-      "type": "http",
-      "direction": "out"
-    }
-  ],
-  "disabled": false
-}
-```
-
-[구성](#trigger---configuration) 섹션에서는 이러한 속성을 설명합니다.
-
-F# 코드는 다음과 같습니다.
-
-```fsharp
-open System.Net
-open System.Net.Http
-open FSharp.Interop.Dynamic
-
-let Run(req: HttpRequestMessage) =
-    async {
-        let q =
-            req.GetQueryNameValuePairs()
-                |> Seq.tryFind (fun kv -> kv.Key = "name")
-        match q with
-        | Some kv ->
-            return req.CreateResponse(HttpStatusCode.OK, "Hello " + kv.Value)
-        | None ->
-            let! data = Async.AwaitTask(req.Content.ReadAsAsync<obj>())
-            try
-                return req.CreateResponse(HttpStatusCode.OK, "Hello " + data?name)
-            with e ->
-                return req.CreateErrorResponse(HttpStatusCode.BadRequest, "Please pass a name on the query string or in the request body")
-    } |> Async.StartAsTask
-```
-
-다음 예제와 같이 NuGet을 사용하여 `FSharp.Interop.Dynamic` 및 `Dynamitey` 어셈블리를 참조하는 `project.json` 파일이 필요합니다.
-
-```json
-{
-  "frameworks": {
-    "net46": {
-      "dependencies": {
-        "Dynamitey": "1.0.2",
-        "FSharp.Interop.Dynamic": "3.0.0"
-      }
-    }
-  }
-}
-```
-
-### <a name="trigger---javascript-example"></a>트리거 - JavaScript 예제
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩과 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
@@ -273,9 +198,9 @@ module.exports = function(context, req) {
 };
 ```
 
-### <a name="trigger---python-example"></a>트리거 - Python 예제
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
+다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -329,12 +254,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-### <a name="trigger---java-examples"></a>트리거 - Java 예제
+# <a name="javatabjava"></a>[Java](#tab/java)
 
-* [쿼리 문자열에서 매개 변수 읽기](#read-parameter-from-the-query-string-java)
-* [POST 요청에서 본문 읽기](#read-body-from-a-post-request-java)
-* [경로에서 매개 변수 읽기](#read-parameter-from-a-route-java)
-* [POST 요청에서 POJO 본문 읽기](#read-pojo-body-from-a-post-request-java)
+* [쿼리 문자열에서 매개 변수 읽기](#read-parameter-from-the-query-string)
+* [POST 요청에서 본문 읽기](#read-body-from-a-post-request)
+* [경로에서 매개 변수 읽기](#read-parameter-from-a-route)
+* [POST 요청에서 POJO 본문 읽기](#read-pojo-body-from-a-post-request)
 
 다음 예제는 *function.json* 파일의 HTTP 트리거 바인딩과 이 바인딩을 사용하는 해당 [Java 함수](functions-reference-java.md)를 보여 줍니다. 
 
@@ -359,46 +284,46 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 }
 ```
 
-#### <a name="read-parameter-from-the-query-string-java"></a>쿼리 문자열에서 매개 변수 읽기(Java)  
+#### <a name="read-parameter-from-the-query-string"></a>쿼리 문자열에서 매개 변수를 읽습니다.
 
 이 예제에서는 쿼리 문자열에서 ```id```라는 매개 변수를 읽고 이 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다. 
 
 ```java
-    @FunctionName("TriggerStringGet")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET}, 
-              authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<String>> request,
-            final ExecutionContext context) {
-        
-        // Item list
-        context.getLogger().info("GET parameters are: " + request.getQueryParameters());
+@FunctionName("TriggerStringGet")
+public HttpResponseMessage run(
+        @HttpTrigger(name = "req", 
+            methods = {HttpMethod.GET}, 
+            authLevel = AuthorizationLevel.ANONYMOUS)
+        HttpRequestMessage<Optional<String>> request,
+        final ExecutionContext context) {
+    
+    // Item list
+    context.getLogger().info("GET parameters are: " + request.getQueryParameters());
 
-        // Get named parameter
-        String id = request.getQueryParameters().getOrDefault("id", "");
+    // Get named parameter
+    String id = request.getQueryParameters().getOrDefault("id", "");
 
-        // Convert and display
-        if (id.isEmpty()) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
-                          .body("Document not found.")
-                          .build();
-        } 
-        else {
-            // return JSON from to the client
-            // Generate document
-            final String name = "fake_name";
-            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
-                                         "\"description\": \"" + name + "\"}";
-            return request.createResponseBuilder(HttpStatus.OK)
-                          .header("Content-Type", "application/json")
-                          .body(jsonDocument)
-                          .build();
-        }
+    // Convert and display
+    if (id.isEmpty()) {
+        return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                        .body("Document not found.")
+                        .build();
+    } 
+    else {
+        // return JSON from to the client
+        // Generate document
+        final String name = "fake_name";
+        final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                        "\"description\": \"" + name + "\"}";
+        return request.createResponseBuilder(HttpStatus.OK)
+                        .header("Content-Type", "application/json")
+                        .body(jsonDocument)
+                        .build();
     }
+}
 ```
 
-#### <a name="read-body-from-a-post-request-java"></a>POST 요청에서 본문 읽기(Java)  
+#### <a name="read-body-from-a-post-request"></a>POST 요청에서 본문 읽기
 
 이 예제에서는 POST 요청의 본문을 ```String```으로 읽고, 이 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다.
 
@@ -434,45 +359,45 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     }
 ```
 
-#### <a name="read-parameter-from-a-route-java"></a>경로에서 매개 변수 읽기(Java)  
+#### <a name="read-parameter-from-a-route"></a>경로에서 매개 변수 읽기
 
-이 예제에서는 라우팅 경로에서 ```id```라는 필수 매개 변수와 선택적 매개 변수 ```name```을 읽은 후 이러한 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다. T
+이 예제에서는 라우팅 경로에서 ```id```라는 필수 매개 변수와 선택적 매개 변수 ```name```을 읽은 후 이러한 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다. 조
 
 ```java
-    @FunctionName("TriggerStringRoute")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.GET}, 
-              authLevel = AuthorizationLevel.ANONYMOUS,
-              route = "trigger/{id}/{name=EMPTY}") // name is optional and defaults to EMPTY
-            HttpRequestMessage<Optional<String>> request,
-            @BindingName("id") String id,
-            @BindingName("name") String name,
-            final ExecutionContext context) {
-        
-        // Item list
-        context.getLogger().info("Route parameters are: " + id);
+@FunctionName("TriggerStringRoute")
+public HttpResponseMessage run(
+        @HttpTrigger(name = "req", 
+            methods = {HttpMethod.GET}, 
+            authLevel = AuthorizationLevel.ANONYMOUS,
+            route = "trigger/{id}/{name=EMPTY}") // name is optional and defaults to EMPTY
+        HttpRequestMessage<Optional<String>> request,
+        @BindingName("id") String id,
+        @BindingName("name") String name,
+        final ExecutionContext context) {
+    
+    // Item list
+    context.getLogger().info("Route parameters are: " + id);
 
-        // Convert and display
-        if (id == null) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
-                          .body("Document not found.")
-                          .build();
-        } 
-        else {
-            // return JSON from to the client
-            // Generate document
-            final String jsonDocument = "{\"id\":\"" + id + "\", " + 
-                                         "\"description\": \"" + name + "\"}";
-            return request.createResponseBuilder(HttpStatus.OK)
-                          .header("Content-Type", "application/json")
-                          .body(jsonDocument)
-                          .build();
-        }
+    // Convert and display
+    if (id == null) {
+        return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                        .body("Document not found.")
+                        .build();
+    } 
+    else {
+        // return JSON from to the client
+        // Generate document
+        final String jsonDocument = "{\"id\":\"" + id + "\", " + 
+                                        "\"description\": \"" + name + "\"}";
+        return request.createResponseBuilder(HttpStatus.OK)
+                        .header("Content-Type", "application/json")
+                        .body(jsonDocument)
+                        .build();
     }
+}
 ```
 
-#### <a name="read-pojo-body-from-a-post-request-java"></a>POST 요청에서 POJO 본문 읽기(Java)  
+#### <a name="read-pojo-body-from-a-post-request"></a>POST 요청에서 POJO 본문을 읽습니다.
 
 다음은 이 예제에서 참조되는 ```ToDoItem``` 클래스의 코드입니다.
 
@@ -507,40 +432,46 @@ public class ToDoItem {
 이 예제에서는 POST 요청의 본문을 읽습니다. 요청 본문은 자동으로 ```ToDoItem``` 개체로 역직렬화된 후 콘텐츠 형식 ```application/json```을 사용하여 클라이언트에 반환됩니다. ```ToDoItem``` 매개 변수는 ```HttpMessageResponse.Builder``` 클래스의 ```body``` 속성에 할당될 때 Functions 런타임에 의해 직렬화됩니다.
 
 ```java
-    @FunctionName("TriggerPojoPost")
-    public HttpResponseMessage run(
-            @HttpTrigger(name = "req", 
-              methods = {HttpMethod.POST}, 
-              authLevel = AuthorizationLevel.ANONYMOUS)
-            HttpRequestMessage<Optional<ToDoItem>> request,
-            final ExecutionContext context) {
-        
-        // Item list
-        context.getLogger().info("Request body is: " + request.getBody().orElse(null));
+@FunctionName("TriggerPojoPost")
+public HttpResponseMessage run(
+        @HttpTrigger(name = "req", 
+            methods = {HttpMethod.POST}, 
+            authLevel = AuthorizationLevel.ANONYMOUS)
+        HttpRequestMessage<Optional<ToDoItem>> request,
+        final ExecutionContext context) {
+    
+    // Item list
+    context.getLogger().info("Request body is: " + request.getBody().orElse(null));
 
-        // Check request body
-        if (!request.getBody().isPresent()) {
-            return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
-                          .body("Document not found.")
-                          .build();
-        } 
-        else {
-            // return JSON from to the client
-            // Generate document
-            final ToDoItem body = request.getBody().get();
-            return request.createResponseBuilder(HttpStatus.OK)
-                          .header("Content-Type", "application/json")
-                          .body(body)
-                          .build();
-        }
+    // Check request body
+    if (!request.getBody().isPresent()) {
+        return request.createResponseBuilder(HttpStatus.BAD_REQUEST)
+                        .body("Document not found.")
+                        .build();
+    } 
+    else {
+        // return JSON from to the client
+        // Generate document
+        final ToDoItem body = request.getBody().get();
+        return request.createResponseBuilder(HttpStatus.OK)
+                        .header("Content-Type", "application/json")
+                        .body(body)
+                        .build();
     }
+}
 ```
+
+---
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
-[C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) 특성을 사용합니다.
+클래스 라이브러리 및 Java에서는 함수를 구성 하는 데 `HttpTrigger` 특성을 사용할 수 있습니다. [ C# ](functions-dotnet-class-library.md)
 
-특성 생성자 매개 변수에 권한 부여 수준 및 허용되는 HTTP 메서드를 설정할 수 있으며 웹후크 유형 및 경로 템플릿에 대한 속성이 있습니다. 이러한 설정에 대한 자세한 내용은 [트리거 - 구성](#trigger---configuration)을 참조하세요. 다음은 메서드 서명의 `HttpTrigger` 특성입니다.
+특성 생성자 매개 변수, webhook 형식 및 경로 템플릿에서 권한 부여 수준 및 허용 되는 HTTP 메서드를 설정할 수 있습니다. 이러한 설정에 대한 자세한 내용은 [트리거 - 구성](#trigger---configuration)을 참조하세요.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+이 예제에서는 [Httptrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) 특성을 사용 하는 방법을 보여 줍니다.
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
@@ -551,13 +482,45 @@ public static Task<IActionResult> Run(
 }
 ```
 
-전체 예제는 [트리거 - C# 예제](#trigger---c-example)를 참조하세요.
+전체 예제는 [트리거 예](#trigger---example)를 참조 하세요.
+
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+스크립트에서 C# 특성을 지원 하지 않습니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript에서는 특성을 지원 하지 않습니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python에서 특성을 지원 하지 않습니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+이 예제에서는 [Httptrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java) 특성을 사용 하는 방법을 보여 줍니다.
+
+```java
+@FunctionName("HttpTriggerJava")
+public HttpResponseMessage<String> HttpTrigger(
+        @HttpTrigger(name = "req",
+                     methods = {"get"},
+                     authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<String> request,
+        final ExecutionContext context) {
+
+    ...
+}
+```
+
+전체 예제는 [트리거 예](#trigger---example)를 참조 하세요.
+
+---
 
 ## <a name="trigger---configuration"></a>트리거 - 구성
 
 다음 표에서는 *function.json* 파일 및 `HttpTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |Description|
+|function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
 | **type** | n/a| 필수 - `httpTrigger`으로 설정해야 합니다. |
 | **direction** | n/a| 필수 - `in`으로 설정해야 합니다. |
@@ -569,15 +532,13 @@ public static Task<IActionResult> Run(
 
 ## <a name="trigger---usage"></a>트리거 - 사용
 
-C# 및 F# 함수의 경우 트리거 입력 형식을 `HttpRequest` 또는 사용자 지정 형식으로 선언할 수 있습니다. `HttpRequest`를 선택하면 요청 개체에 대한 모든 권한을 갖게 됩니다. 사용자 지정 형식의 경우 런타임은 JSON 요청 본문의 구문을 분석하여 개체 속성을 설정하려고 합니다.
-
-JavaScript 함수의 경우 함수 런타임은 요청 개체 대신 요청 본문을 제공합니다. 자세한 내용은 [JavaScript 트리거 예제](#trigger---javascript-example)를 참조하세요.
+트리거 입력 형식은 `HttpRequest` 또는 사용자 지정 형식으로 선언 됩니다. `HttpRequest`를 선택하면 요청 개체에 대한 모든 권한을 갖게 됩니다. 사용자 지정 형식의 경우 런타임은 JSON 요청 본문의 구문을 분석하여 개체 속성을 설정하려고 합니다.
 
 ### <a name="customize-the-http-endpoint"></a>HTTP 엔드포인트 사용자 지정
 
 기본적으로 HTTP 트리거용 함수를 만드는 경우 폼의 경로를 사용하여 이 함수의 주소를 지정할 수 있습니다.
 
-    http://<yourapp>.azurewebsites.net/api/<funcname>
+    http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>
 
 HTTP 트리거의 입력 바인딩에서 선택적 `route` 속성을 사용하여 이 경로를 사용자 지정할 수 있습니다. 예를 들어 다음 *function.json* 파일은 HTTP 트리거에 대한 `route` 속성을 정의합니다.
 
@@ -603,52 +564,116 @@ HTTP 트리거의 입력 바인딩에서 선택적 `route` 속성을 사용하�
 이 구성을 사용하면 원래 경로 대신 다음 경로를 사용하여 함수의 주소를 지정할 수 있습니다.
 
 ```
-http://<yourapp>.azurewebsites.net/api/products/electronics/357
+http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-이렇게 하면 함수 코드에서 주소의 두 매개 변수, _category_ 및 _id_를 지원할 수 있습니다. 매개 변수에서 [웹 API 경로 제약 조건](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints)을 사용할 수 있습니다. 다음 C# 함수 코드는 두 매개 변수를 모두 사용합니다.
+이렇게 하면 함수 코드에서 주소의 두 매개 변수, _category_ 및 _id_를 지원할 수 있습니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+매개 변수에서 [웹 API 경로 제약 조건](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints)을 사용할 수 있습니다. 다음 C# 함수 코드는 두 매개 변수를 모두 사용합니다.
 
 ```csharp
-public static Task<IActionResult> Run(HttpRequest req, string category, int? id, ILogger log)
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+
+public static IActionResult Run(HttpRequest req, string category, int? id, ILogger log)
 {
-    if (id == null)
-    {
-        return (ActionResult)new OkObjectResult($"All {category} items were requested.");
-    }
-    else
-    {
-        return (ActionResult)new OkObjectResult($"{category} item with id = {id} has been requested.");
-    }
-    
-    // -----
-    log.LogInformation($"C# HTTP trigger function processed a request. RequestUri={req.RequestUri}");
+    var message = String.Format($"Category: {category}, ID: {id}");
+    return (ActionResult)new OkObjectResult(message);
 }
 ```
 
-다음은 동일한 경로 매개 변수를 사용하는 Node.js 함수 코드입니다.
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+매개 변수에서 [웹 API 경로 제약 조건](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints)을 사용할 수 있습니다. 다음 C# 함수 코드는 두 매개 변수를 모두 사용합니다.
+
+```csharp
+#r "Newtonsoft.Json"
+
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+
+public static IActionResult Run(HttpRequest req, string category, int? id, ILogger log)
+{
+    var message = String.Format($"Category: {category}, ID: {id}");
+    return (ActionResult)new OkObjectResult(message);
+}
+```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+노드에서 함수 런타임은 `context` 개체의 요청 본문을 제공 합니다. 자세한 내용은 [JavaScript 트리거 예제](#trigger---example)를 참조하세요.
+
+다음 예제에서는 `context.bindingData`에서 경로 매개 변수를 읽는 방법을 보여 줍니다.
 
 ```javascript
 module.exports = function (context, req) {
 
     var category = context.bindingData.category;
     var id = context.bindingData.id;
+    var message = `Category: ${category}, ID: ${id}`;
 
-    if (!id) {
-        context.res = {
-            // status defaults to 200 */
-            body: "All " + category + " items were requested."
-        };
-    }
-    else {
-        context.res = {
-            // status defaults to 200 */
-            body: category + " item with id = " + id + " was requested."
-        };
+    context.res = {
+        body: message;
     }
 
     context.done();
 }
 ```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+함수 실행 컨텍스트는 `func.HttpRequest`로 선언 된 매개 변수를 통해 노출 됩니다. 이 인스턴스를 사용 하면 함수에서 데이터 경로 매개 변수, 쿼리 문자열 값 및 HTTP 응답을 반환할 수 있는 메서드를 액세스할 수 있습니다.
+
+정의 된 경로 매개 변수는 `route_params` 메서드를 호출 하 여 함수에 사용할 수 있습니다.
+
+```python
+import logging
+
+import azure.functions as func
+
+def main(req: func.HttpRequest) -> func.HttpResponse:
+
+    category = req.route_params.get('category')
+    id = req.route_params.get('id')
+    message = f"Category: {category}, ID: {id}"
+
+    return func.HttpResponse(message)
+```
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+함수 실행 컨텍스트는 `HttpTrigger` 특성에 선언 된 속성입니다. 특성을 사용 하 여 경로 매개 변수, 권한 부여 수준, HTTP 동사 및 들어오는 요청 인스턴스를 정의할 수 있습니다.
+
+경로 매개 변수는 `HttpTrigger` 특성을 통해 정의 됩니다.
+
+```java
+package com.function;
+
+import java.util.*;
+import com.microsoft.azure.functions.annotation.*;
+import com.microsoft.azure.functions.*;
+
+public class HttpTriggerJava {
+    public HttpResponseMessage<String> HttpTrigger(
+            @HttpTrigger(name = "req",
+                         methods = {"get"},
+                         authLevel = AuthorizationLevel.FUNCTION,
+                         route = "products/{category:alpha}/{id:int}") HttpRequestMessage<String> request,
+            @BindingName("category") String category,
+            @BindingName("id") int id,
+            final ExecutionContext context) {
+
+        String message = String.format("Category  %s, ID: %d", category, id);
+        return request.createResponseBuilder(HttpStatus.OK).body(message).build();
+    }
+}
+```
+
+---
 
 기본적으로 모든 함수 경로에는 *api* 접두사가 붙습니다. [host.json](functions-host-json.md) 파일에서 `http.routePrefix` 속성을 사용하여 접두사를 사용자 지정하거나 제거할 수도 있습니다. 다음 예제에서는 *host.json* 파일에서 빈 문자열을 접두사로 사용하여 *api* 경로 접두사를 제거합니다.
 
@@ -666,7 +691,41 @@ module.exports = function (context, req) {
 
 데이터 바인딩에서 이 정보를 읽을 수도 있습니다. 이 기능은 Functions 2.x 런타임에서만 사용할 수 있습니다. 또한 이 기능은 현재 .NET 언어에 대해서만 사용할 수 있습니다.
 
-.NET 언어에서 이 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)로 사용할 수 있습니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+인증 된 클라이언트에 대 한 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)으로 제공 됩니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
+
+```csharp
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+
+public static IActionResult Run(HttpRequest req, ILogger log)
+{
+    ClaimsPrincipal identities = req.HttpContext.User;
+    // ...
+    return new OkObjectResult();
+}
+```
+
+또는 ClaimsPrincipal은 함수 시그니처에 단순히 추가 매개 변수로 포함될 수 있습니다.
+
+```csharp
+using System.Net;
+using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
+{
+    // ...
+    return;
+}
+```
+
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+인증 된 클라이언트에 대 한 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)으로 제공 됩니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
 
 ```csharp
 using System.Net;
@@ -696,8 +755,21 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
     // ...
     return;
 }
-
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+[HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 인증 된 사용자를 사용할 수 있습니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+[HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 인증 된 사용자를 사용할 수 있습니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+[HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 인증 된 사용자를 사용할 수 있습니다.
+
+---
 
 ### <a name="authorization-keys"></a>권한 부여 키
 
@@ -712,7 +784,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 다음과 같이 두 가지 유형의 키가 있습니다.
 
 * **호스트 키**: 함수 앱 내의 모든 함수에서 공유합니다. API 키로 사용되면 이 키를 통해 함수 앱 내의 모든 함수에 액세스할 수 있습니다.
-* **함수 키**: 정의된 특정 함수에만 적용됩니다. API 키로 사용되면 이 키를 통해 해당 함수에만 액세스할 수 있습니다.
+* **function 키**: 정의된 특정 함수에만 적용됩니다. API 키로 사용되면 이 키를 통해 해당 함수에만 액세스할 수 있습니다.
 
 각 키의 이름은 참조될 수 있도록 지정되며 함수 및 호스트 수준에서는 "default"라는 기본 키가 있습니다. function 키는 호스트 키보다 우선합니다. 두 키가 동일한 이름으로 정의되면 항상 함수 키가 사용됩니다.
 
@@ -755,7 +827,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 이러한 함수 앱 수준 보안 방법 중 하나를 사용할 때는 HTTP 트리거 함수 인증 수준을 `anonymous`로 설정해야 합니다.
 
-### <a name="webhooks"></a>webhooks
+### <a name="webhooks"></a>Webhook
 
 > [!NOTE]
 > 웹후크 모드는 Functions 런타임의 버전 1.x에서만 사용 가능합니다. 버전 2.x에서 HTTP 트리거의 성능 향상을 위해 이렇게 변경되었습니다.
@@ -799,7 +871,7 @@ HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용
 
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. C# 클래스 라이브러리의 경우 *function.json* 속성에 해당하는 attribute 속성이 없습니다.
 
-|속성  |설명  |
+|자산  |설명  |
 |---------|---------|
 | **type** |`http`로 설정해야 합니다. |
 | **direction** | `out`로 설정해야 합니다. |

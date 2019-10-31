@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/15/2018
-ms.openlocfilehash: ecb393ea1f64897f17ce73170da1673886ef8916
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/29/2019
+ms.openlocfilehash: b60906df01f640877e90281812acf64082ffad01
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71266177"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162842"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Azure HDInsight IO 캐시를 사용 하 여 Apache Spark 작업의 성능 향상
 
@@ -22,6 +22,7 @@ IO 캐시는 Apache Spark 작업의 성능을 개선하는 Azure HDInsight에 �
 
 > [!Note]  
 > IO 캐시는 현재 캐싱 구성 요소로 RubiX를 사용하지만 이는 서비스의 미래 버전에서 변경될 수 있습니다. IO 캐시 인터페이스를 사용하고 RubiX 구현에 직접 의존하지 마세요.
+>IO 캐시는 현재 Azure BLOB Storage 에서만 지원 됩니다. 
 
 ## <a name="benefits-of-azure-hdinsight-io-cache"></a>Azure HDInsight IO 캐시의 이점
 

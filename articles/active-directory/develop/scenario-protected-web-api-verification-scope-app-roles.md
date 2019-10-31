@@ -1,5 +1,5 @@
 ---
-title: 보호 된 웹 API-앱 코드 구성 Active Directory
+title: 보호 된 web API를 사용 하 여 범위 및 앱 역할 확인
 titleSuffix: Microsoft identity platform
 description: 보호 된 웹 API를 빌드하고 응용 프로그램의 코드를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
@@ -17,14 +17,14 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7044180c72f92b70e0c3a2085eca043f44da45f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4340d92bdfe871010021edcbefcde62ab8202462
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803638"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149225"
 ---
-# <a name="protected-web-api-adding-authorization-to-your-api"></a>보호 된 웹 API: API에 권한 부여 추가
+# <a name="protected-web-api-verify-scopes-and-app-roles"></a>보호 된 웹 API: 범위 및 앱 역할 확인
 
 이 문서에서는 web API에 권한 부여를 추가할 수 있는 방법을 설명 합니다. 이 보호는 API가에 의해서만 호출 되도록 합니다.
 

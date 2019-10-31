@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: cd13b3a7a3bc4d5a80e44d146e08c14e81ffdb60
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 986371e479f7718fff2e1699401987cb0ca8f623
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730059"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163998"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-powershell"></a>PowerShell을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -46,13 +46,13 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 �
 
 ## <a name="create-a-route-table"></a>경로 테이블 만들기
 
-경로 테이블을 만들려면 먼저 사용 하 여 리소스 그룹을 만듭니다 [새로 만들기-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)합니다. 다음 예제에서는 이 문서에서 만든 모든 리소스에 대해 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+경로 테이블을 만들기 전에 [AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)를 사용 하 여 리소스 그룹을 만듭니다. 다음 예제에서는 이 문서에서 만든 모든 리소스에 대해 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
 ```
 
-사용 하 여 경로 테이블을 만듭니다 [새로 만들기-AzRouteTable](/powershell/module/az.network/new-azroutetable)합니다. 다음 예제에서는 *myRouteTablePublic*이라는 경로 테이블을 만듭니다.
+[AzRouteTable](/powershell/module/az.network/new-azroutetable)를 사용 하 여 경로 테이블을 만듭니다. 다음 예제에서는 *myRouteTablePublic*이라는 경로 테이블을 만듭니다.
 
 ```azurepowershell-interactive
 $routeTablePublic = New-AzRouteTable `
@@ -63,7 +63,7 @@ $routeTablePublic = New-AzRouteTable `
 
 ## <a name="create-a-route"></a>경로 만들기
 
-사용 하 여 경로 테이블 개체를 검색 하 여 경로 만듭니다 [Get AzRouteTable](/powershell/module/az.network/get-azroutetable)를 사용 하 여 경로 [추가 AzRouteConfig](/powershell/module/az.network/add-azrouteconfig)에 다음 경로 테이블에 경로 구성을 작성 [ 집합 AzRouteTable](/powershell/module/az.network/set-azroutetable)합니다.
+[AzRouteTable](/powershell/module/az.network/get-azroutetable)를 사용 하 여 경로 테이블 개체를 검색 하 고 [AzRouteConfig](/powershell/module/az.network/add-azrouteconfig)를 사용 하 여 경로를 만든 다음 [AzRouteTable](/powershell/module/az.network/set-azroutetable)를 사용 하 여 경로 테이블에 경로 구성을 작성 하는 방법으로 경로를 만듭니다.
 
 ```azurepowershell-interactive
 Get-AzRouteTable `
@@ -89,7 +89,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-사용 하 여 세 개의 서브넷 구성을 만들어 세 개의 서브넷을 만듭니다 [새로 만들기-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)합니다. 다음 예제에서는 *공용*, *프라이빗* 및 *DMZ* 서브넷에 대한 세 개의 서브넷 구성을 만듭니다.
+[AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용 하 여 세 개의 서브넷 구성을 만들어 세 개의 서브넷을 만듭니다. 다음 예제에서는 *공용*, *프라이빗* 및 *DMZ* 서브넷에 대한 세 개의 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
@@ -108,13 +108,13 @@ $subnetConfigDmz = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-가상 네트워크에 서브넷 구성을 씁니다 [집합 AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), 가상 네트워크에 서브넷을 만듭니다.
+가상 네트워크에 서브넷을 만드는 [AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)를 사용 하 여 가상 네트워크에 서브넷 구성을 씁니다.
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
 ```
 
-연결 합니다 *myRouteTablePublic* 경로 테이블을를 *공용* 서브넷 [집합 AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) 서브넷 구성을 작성 합니다 사용 하 여 가상 네트워크 [집합 AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)합니다.
+*MyRouteTablePublic* 경로 테이블을 *공용* 서브넷에 [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) 로 연결 하 고 [AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork)를 사용 하 여 서브넷 구성을 가상 네트워크에 기록 합니다.
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkSubnetConfig `
@@ -133,7 +133,7 @@ VM을 만들기 전에 네트워크 인터페이스를 만듭니다.
 
 ### <a name="create-a-network-interface"></a>네트워크 인터페이스 만들기
 
-네트워크 인터페이스를 만들기 전에 검색 해야 할 가상 네트워크 Id를 사용 하 여 [Get AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), 서브넷 Id 사용 하 여 [Get AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig)합니다. 사용 하 여 네트워크 인터페이스 만들기 [새로 만들기-AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) 에 *DMZ* IP 전달 사용 하도록 설정 된 서브넷:
+네트워크 인터페이스를 만들기 전에 [AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork)를 사용 하 여 가상 네트워크 id를 검색 한 다음 [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig)를 사용 하 여 서브넷 id를 검색 해야 합니다. IP 전달을 사용 하도록 설정 된 *DMZ* 서브넷에서 [AzNetworkInterface](/powershell/module/az.network/new-aznetworkinterface) 를 사용 하 여 네트워크 인터페이스를 만듭니다.
 
 ```azurepowershell-interactive
 # Retrieve the virtual network object into a variable.
@@ -157,7 +157,7 @@ $nic = New-AzNetworkInterface `
 
 ### <a name="create-a-vm"></a>VM 만들기
 
-VM을 만들고 기존 네트워크 인터페이스에 연결 하려면 먼저 만들어야로 VM 구성을 [새로 만들기-AzVMConfig](/powershell/module/az.compute/new-azvmconfig)합니다. 구성에는 이전 단계에서 만든 네트워크 인터페이스가 포함됩니다. 사용자 이름 및 암호에 대한 메시지가 나타나면 VM에 로그인할 사용자 이름과 암호를 선택합니다.
+VM을 만들어 기존 네트워크 인터페이스를 연결 하려면 먼저 [AzVMConfig](/powershell/module/az.compute/new-azvmconfig)를 사용 하 여 vm 구성을 만들어야 합니다. 구성에는 이전 단계에서 만든 네트워크 인터페이스가 포함됩니다. 사용자 이름 및 암호에 대한 메시지가 나타나면 VM에 로그인할 사용자 이름과 암호를 선택합니다.
 
 ```azurepowershell-interactive
 # Create a credential object.
@@ -178,7 +178,7 @@ $vmConfig = New-AzVMConfig `
   Add-AzVMNetworkInterface -Id $nic.Id
 ```
 
-사용 하 여 VM 구성을 사용 하 여 VM을 만듭니다 [New-azvm](/powershell/module/az.compute/new-azvm)합니다. 다음 예제에서는 *myVmNva*라는 VM을 만듭니다.
+[New-azvm](/powershell/module/az.compute/new-azvm)와 함께 vm 구성을 사용 하 여 vm을 만듭니다. 다음 예제에서는 *myVmNva*라는 VM을 만듭니다.
 
 ```azurepowershell-interactive
 $vmNva = New-AzVM `
@@ -194,7 +194,7 @@ $vmNva = New-AzVM `
 
 이후 단계에서 *공용* 서브넷의 해당 트래픽이 네트워크 가상 어플라이언스를 통해 *프라이빗* 서브넷에 라우팅되는지 유효성을 검사할 수 있도록 가상 네트워크에 두 개의 VM을 만듭니다.
 
-에 VM을 만듭니다는 *공개* 사용 하 여 서브넷 [New-azvm](/powershell/module/az.compute/new-azvm)합니다. 다음 예제는 *myVirtualNetwork* 가상 네트워크의 *공용* 서브넷에 *myVmPublic*이라는 VM을 만듭니다.
+[New-azvm](/powershell/module/az.compute/new-azvm)를 사용 하 여 *공용* 서브넷에 VM을 만듭니다. 다음 예제는 *myVirtualNetwork* 가상 네트워크의 *공용* 서브넷에 *myVmPublic*이라는 VM을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -207,7 +207,7 @@ New-AzVm `
   -AsJob
 ```
 
-*개인* 서브넷에 VM을 만듭니다.
+*프라이빗* 서브넷에 VM을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -221,9 +221,9 @@ New-AzVm `
 
 VM을 만드는 데 몇 분이 걸립니다. VM이 만들어지고 Azure에서 PowerShell로 출력을 반환할 때까지 나머지 단계를 진행하지 마십시오.
 
-## <a name="route-traffic-through-an-nva"></a>NVA를 통한 트래픽 라우팅
+## <a name="route-traffic-through-an-nva"></a>WAF를 통한 트래픽 라우팅
 
-사용 하 여 [Get AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 의 공용 IP 주소를 반환 합니다 *myVmPrivate* VM. 다음 예제에서는 *myVmPrivate* VM의 공용 IP 주소를 반환합니다.
+[AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) 를 사용 하 여 *myvmprivate* VM의 공용 IP 주소를 반환 합니다. 다음 예제에서는 *myVmPrivate* VM의 공용 IP 주소를 반환합니다.
 
 ```azurepowershell-interactive
 Get-AzPublicIpAddress `
@@ -242,7 +242,7 @@ mstsc /v:<publicIpAddress>
 
 VM을 만들 때 지정한 사용자 이름과 암호를 입력(VM을 만들 때 입력한 자격 증명을 지정하기 위해 **다른 옵션 선택**을 선택한 다음, **다른 계정 사용**을 선택해야 할 수도 있음)한 다음, **확인**을 선택합니다. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예**를 선택하여 연결을 진행합니다.
 
-이후 단계에서의 `tracert.exe` 명령은 라우팅을 테스트 하는 데 사용 됩니다. Tracert는 ICMP(Internet Control Message Protocol)를 사용하는데, ICMP는 Windows 방화벽에서 허용되지 않습니다. *myVmPrivate* VM의 PowerShell에서 다음 명령을 입력하여 Windows 방화벽을 통해 ICMP를 사용하도록 설정합니다.
+이후 단계에서 `tracert.exe` 명령은 라우팅을 테스트 하는 데 사용 됩니다. Tracert는 ICMP(Internet Control Message Protocol)를 사용하는데, ICMP는 Windows 방화벽에서 허용되지 않습니다. *myVmPrivate* VM의 PowerShell에서 다음 명령을 입력하여 Windows 방화벽을 통해 ICMP를 사용하도록 설정합니다.
 
 ```powershell
 New-NetFirewallRule -DisplayName "Allow ICMPv4-In" -Protocol ICMPv4
@@ -275,7 +275,7 @@ mstsc /v:myVmPublic
 *myVmPublic* VM의 PowerShell에서 다음 명령을 입력하여 Windows 방화벽을 통해 ICMP를 사용하도록 설정합니다.
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
 ```
 
 *myVmPublic* VM에서 *myVmPrivate* VM으로의 네트워크 트래픽 라우팅을 테스트하려면 *myVmPublic* VM의 PowerShell에서 다음 명령을 입력합니다.
@@ -323,7 +323,7 @@ Trace complete.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-사용 하 여 더 이상 필요 [제거 AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) 리소스 그룹 및 포함 된 리소스를 모두 제거 합니다.
+더 이상 필요 하지 않은 경우 [AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) 를 사용 하 여 리소스 그룹 및 포함 된 모든 리소스를 제거 합니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

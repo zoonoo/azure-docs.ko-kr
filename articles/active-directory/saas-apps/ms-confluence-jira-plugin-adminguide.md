@@ -7,6 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: joflore
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2f06b884cb1213e9d2cabff4e6e2b97a60339a6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8679f9a03fded546db68f058bca716ba053aa0fe
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60935776"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161199"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Azure Active Directory의 Atlassian Jira 및 Confluence 관리자 가이드
 
@@ -27,7 +28,7 @@ ms.locfileid: "60935776"
 
 Azure AD(Azure Active Directory) SSO(Single Sign-On) 플러그 인을 통해 Microsoft Azure AD 고객은 Atlassian Jira 및 Confluence 서버 기반 제품에 로그인하는 데 해당 회사 또는 학교 계정을 사용할 수 있습니다. SAML 2.0 기반 SSO를 구현합니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 사용자가 Atlassian Jira 또는 Confluence 애플리케이션에 로그인하려는 경우 로그인 페이지에 **Azure AD로 로그인** 단추가 보입니다. 해당 단추를 선택하면 Azure AD 조직 로그인 페이지(즉, 회사 또는 학교 계정)를 사용하여 로그인해야 합니다.
 
@@ -53,7 +54,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 * 회사 네트워크 외부에서도 Jira 또는 Confluence를 사용할 수 있습니다.
 * 플러그 인은 Jira 및 Confluence의 온-프레미스 버전에서만 작동합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 플러그 인을 설치하기 전에 다음 정보를 참조하세요.
 
@@ -69,7 +70,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 플러그 인에서는 다음 버전의 Jira 및 Confluence를 지원합니다.
 
 * JIRA Core 및 Software: 6.0~7.12
-* Jira Service Desk: 3.0.0-3.5.0
+* JIRA Service Desk: 3.0.0~3.5.0
 * JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)을 클릭하세요.
 * Confluence: 5.0 ~ 5.10
 * Confluence: 6.0.1
@@ -110,13 +111,13 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 ![플러그 인 구성 화면](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-* **메타데이터 URL**: Azure AD에서 페더레이션 메타데이터를 가져오는 URL입니다.
+* **메타데이터 URL**: Azure AD에서 페더레이션 메타데이터를 가져오기 위한 URL입니다.
 
-* **식별자**: Azure AD가 요청의 원본 유효성을 검사하는 데 사용하는 URL입니다. Azure AD의 **식별자** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생 *\<도메인: 포트 >* /입니다.
+* **식별자**: Azure AD가 요청의 원본 유효성을 검사하는 데 사용하는 URL입니다. Azure AD의 **식별자** 요소에 매핑됩니다. 플러그 인은 자동으로이 URL을 https:// *\<도메인: port >* /로 파생 합니다.
 
-* **회신 URL**: SAML 로그인을 시작하는 IdP(ID 공급자)의 회신 URL입니다. Azure AD의 **회신 URL** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생 *\<도메인: 포트 >* /plugins/servlet/saml/auth.
+* **회신 URL**: SAML 로그인을 시작하는 IdP(ID 공급자)의 회신 URL입니다. Azure AD의 **회신 URL** 요소에 매핑됩니다. 플러그 인은 자동으로이 URL을 https:// *\<domain: port >* /plugins/servlet/saml/auth.로 파생 시킵니다.
 
-* **로그온 URL**: SAML 로그인을 시작하는 IdP의 로그온 URL입니다. Azure AD의 **로그온** 요소에 매핑됩니다. 플러그 인 https://로이 URL에 자동으로 파생 *\<도메인: 포트 >* /plugins/servlet/saml/auth.
+* **로그온 URL**: SAML 로그인을 시작하는 IdP의 로그온 URL입니다. Azure AD의 **로그온** 요소에 매핑됩니다. 플러그 인은 자동으로이 URL을 https:// *\<domain: port >* /plugins/servlet/saml/auth.로 파생 시킵니다.
 
 * **IdP 엔터티 ID**: IdP에서 사용하는 엔터티 ID입니다. 이 상자는 메타데이터 URL을 확인할 때 채워집니다.
 
@@ -132,17 +133,17 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * **특성 이름**: 사용자 ID가 필요한 특성 이름입니다.
 
-* **홈 영역 검색 사용**: 회사에서 AD FS(Active Directory Federation Services) 기반 로그인을 사용하는 경우 선택합니다.
+* **홈 영역 검색 활성화**: 회사에서 AD FS(Active Directory Federation Services) 기반 로그인을 사용하는 경우 선택합니다.
 
 * **도메인 이름**: 로그인이 AD FS 기반인 경우 도메인 이름입니다.
 
-* **Single Sign-On 사용**: 사용자가 Jira 또는 Confluence에서 로그아웃할 때 Azure AD에서 로그아웃하려는 경우 선택합니다.
+* **Single Signout 활성화**: 사용자가 Jira 또는 Confluence에서 로그아웃할 때 Azure AD에서 로그아웃하려는 경우 선택합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 
-* **여러 인증서 오류가 발생하는 경우**: Azure AD에 로그인하여 앱에서 사용할 수 있는 여러 인증서를 제거합니다. 인증서를 하나만 남겨 둡니다.
+* **여러 인증서 오류를 가져오는 경우**: Azure AD에 로그인하고 앱에 대해 사용할 수 있는 여러 인증서를 제거합니다. 인증서를 하나만 남겨 둡니다.
 
-* **인증서가 Azure AD에서 곧 만료되는 경우**: 추가 기능이 인증서의 자동 롤오버를 처리합니다. 인증서가 곧 만료되는 경우 새 인증서를 활성으로 표시하고 사용하지 않는 인증서를 삭제해야 합니다. 이 시나리오에서 사용자가 Jira에 로그인하려고 시도하면 플러그 인은 새 인증서를 페치하고 저장합니다.
+* **인증서가 Azure AD에서 곧 만료되는 경우**: 추가 기능은 인증서의 자동 롤오버를 처리합니다. 인증서가 곧 만료되는 경우 새 인증서를 활성으로 표시하고 사용하지 않는 인증서를 삭제해야 합니다. 이 시나리오에서 사용자가 Jira에 로그인하려고 시도하면 플러그 인은 새 인증서를 페치하고 저장합니다.
 
 * **WebSudo를 사용하지 않으려는 경우(보안 관리자 세션 해제)** :
 
@@ -158,9 +159,9 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 * **내부 서버 오류가 있는 경우**: 설치의 로그 디렉터리에서 로그를 검토합니다. 사용자가 Azure AD SSO를 사용하여 로그인하려고 시도할 때 오류가 발생하는 경우 지원 팀과 함께 로그를 공유할 수 있습니다.
 
-* **사용자가 로그인을 시도할 때 “사용자 ID를 찾을 수 없음” 오류가 있는 경우**: Jira 또는 Confluence에서 사용자 ID를 만듭니다.
+* **사용자가 로그인을 시도할 때 "사용자 ID를 찾을 수 없음" 오류가 있는 경우**: Jira 또는 Confluence에서 사용자 ID를 만듭니다.
 
-* **Azure AD에 “앱을 찾을 수 없음” 오류가 있는 경우**: Azure AD에서 적절한 URL이 앱에 매핑되는지 확인합니다.
+* **Azure AD에 "앱을 찾을 수 없음" 오류가 있는 경우**: Azure AD에서 적절한 URL이 앱에 매핑되는지 확인합니다.
 
 * **지원이 필요한 경우**: [Azure AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 연락합니다. 팀에서 24~48시간(업무 시간) 이내로 응답해 드립니다.
 
@@ -180,14 +181,14 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 ### <a name="does-the-plug-in-work-on-cloud-versions"></a>플러그 인은 클라우드 버전에서 작동하나요?
 
-아니요. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전만을 지원합니다.
+아닙니다. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전만을 지원합니다.
 
 ### <a name="which-versions-of-jira-and-confluence-does-the-plug-in-support"></a>플러그 인에서 지원하는 Jira 및 Confluence 버전은 무엇인가요?
 
 플러그 인에서는 이러한 버전을 지원합니다.
 
 * JIRA Core 및 Software: 6.0~7.12
-* Jira Service Desk: 3.0.0-3.5.0
+* JIRA Service Desk: 3.0.0~3.5.0
 * JIRA는 5.2도 지원합니다. 자세한 내용을 보려면 [JIRA 5.2용 Microsoft Azure Active Directory Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/jira52microsoft-tutorial)을 클릭하세요.
 * Confluence: 5.0 ~ 5.10
 * Confluence: 6.0.1
@@ -224,7 +225,7 @@ Jira 및 Confluence 관리자는 Azure AD를 사용하여 SSO를 활성화하도
 
 ### <a name="does-the-plug-in-work-with-idps-other-than-azure-ad"></a>플러그 인은 Azure AD 이외에 IdP와 함께 작동하나요?
 
-아니요. Azure AD와만 함께 작동합니다.
+아닙니다. Azure AD와만 함께 작동합니다.
 
 ### <a name="what-version-of-saml-does-the-plug-in-work-with"></a>플러그 인과 함께 작동하는 SAML 버전은 무엇인가요?
 
@@ -232,12 +233,12 @@ SAML 2.0과 함께 작동합니다.
 
 ### <a name="does-the-plug-in-do-user-provisioning"></a>플러그 인은 사용자 프로비저닝을 수행하나요?
 
-아니요. 플러그 인은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 애플리케이션에서 사용자를 프로비전해야 합니다.
+아닙니다. 플러그 인은 SAML 2.0 기반 SSO만 제공합니다. SSO 로그인 전에 애플리케이션에서 사용자를 프로비전해야 합니다.
 
 ### <a name="does-the-plug-in-support-cluster-versions-of-jira-and-confluence"></a>플러그 인에서 지원하는 Jira 및 Confluence 버전은 무엇인가요?
 
-아니요. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전과 함께 작동합니다.
+아닙니다. 플러그 인은 Jira 및 Confluence의 온-프레미스 버전과 함께 작동합니다.
 
 ### <a name="does-the-plug-in-work-with-http-versions-of-jira-and-confluence"></a>플러그 인은 Jira 및 Confluence의 HTTP 버전과 함께 작동하나요?
 
-아니요. 플러그 인은 HTTPS가 설정된 설치 버전에서만 작동합니다.
+아닙니다. 플러그 인은 HTTPS가 설정된 설치 버전에서만 작동합니다.

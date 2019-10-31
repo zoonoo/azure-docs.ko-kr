@@ -1,5 +1,5 @@
 ---
-title: 토큰 관리 (Microsoft 인증 라이브러리)
+title: MSAL을 사용 하 여 토큰 획득 및 캐시
 titleSuffix: Microsoft identity platform
 description: MSAL(Microsoft 인증 라이브러리)을 사용하여 토큰을 획득 및 캐시하는 방법을 알아봅니다.
 services: active-directory
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/24/2019
+ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa6a939fce3eae8b1367c2d01e947e813fa5437
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 0d47fa92de8365ed3a5e0349b78899ff7fde1375
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803291"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150654"
 ---
-# <a name="acquiring-and-caching-tokens-using-msal"></a>MSAL을 사용하여 토큰 획득 및 캐싱
+# <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)을 사용 하 여 토큰 가져오기 및 캐시
+
 [액세스 토큰](access-tokens.md)을 사용하면 클라이언트에서 Azure를 통해 보호되는 웹 API를 안전하게 호출할 수 있습니다. MSAL(Microsoft 인증 라이브러리)을 사용하여 토큰을 획득하는 방법에는 여러 가지가 있습니다. 몇 가지 방법에는 웹 브라우저를 통한 사용자 상호 작용이 필요합니다. 일부 방법에는 사용자 상호 작용이 필요하지 않습니다. 일반적으로 토큰을 획득하는 방법은 애플리케이션이 공용 클라이언트 애플리케이션(데스크톱 또는 모바일 앱) 또는 기밀 클라이언트 애플리케이션(Web App, Web API 또는 Windows 서비스와 같은 디먼 애플리케이션)인지에 따라 달라집니다.
 
 MSAL은 토큰을 획득한 후에 캐시합니다.  애플리케이션 코드는 다른 방법으로 토큰을 획득하기 전에 먼저 캐시에서 토큰을 자동으로 가져오도록 시도해야 합니다.

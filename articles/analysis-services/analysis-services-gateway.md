@@ -4,15 +4,15 @@ description: Azure의 Analysis Services 서버가 온-프레미스 데이터 원
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8d9df32070ff252dff791650788888d1d9a6ce84
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 35ffc7f3c97ca7ab14f94c3607560ffb6ea0b399
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294944"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146859"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이를 사용 하 여 온-프레미스 데이터 원본에 연결
 
@@ -31,7 +31,7 @@ Azure Analysis Services의 경우 처음으로 게이트웨이를 사용 하 여
 ## <a name="how-it-works"> </a>작동 방법
 조직의 컴퓨터에 설치하는 게이트웨이는 Windows 서비스인 **온-프레미스 데이터 게이트웨이**로 실행됩니다. 이 로컬 서비스는 Azure Service Bus를 통해 게이트웨이 클라우드 서비스로 등록됩니다. 그런 다음 Azure 구독에 대 한 온-프레미스 데이터 게이트웨이 리소스를 만듭니다. 그러면 Azure Analysis Services 서버가 Azure 게이트웨이 리소스에 연결 됩니다. 서버의 모델을 쿼리 또는 처리를 위해 온-프레미스 데이터 원본에 연결해야 하는 경우 쿼리 및 데이터 흐름은 게이트웨이 리소스, Azure Service Bus, 로컬 온-프레미스 데이터 게이트웨이 서비스 및 데이터 원본을 통과합니다. 
 
-![작동 방법](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![작동 원리](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 쿼리 및 데이터 흐름:
 
@@ -48,9 +48,9 @@ Azure Analysis Services 환경을 설치 하는 경우 [Azure Analysis Services�
 
 ## <a name="ports-and-communication-settings"></a>포트 및 통신 설정
 
-게이트웨이는 Azure Service Bus에 대한 아웃바운드 연결을 만듭니다. 아웃바운드 포트 TCP 443(기본값), 5671, 5672, 9350~9354에서 통신합니다.  게이트웨이에는 인바운드 포트가 필요하지 않습니다.
+게이트웨이는 Azure Service Bus에 대한 아웃바운드 연결을 만듭니다. 아웃바운드 포트 TCP 443(기본값), 5671, 5672, 9350-9354에서 통신합니다.  게이트웨이에는 인바운드 포트가 필요하지 않습니다.
 
-방화벽에서 데이터 영역에 대 한 IP 주소를 허용 목록 해야 할 수 있습니다. [Microsoft Azure 데이터 센터 IP 목록](https://www.microsoft.com/download/details.aspx?id=41653)을 다운로드할 수 있습니다. 이 목록은 매주 업데이트됩니다. Azure 데이터 센터 IP 목록에 나열된 IP 주소는 CIDR 표기법으로 작성됩니다. 자세한 내용은 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)을 참조하세요.
+방화벽에 데이터 영역에 대 한 IP 주소를 포함 해야 할 수 있습니다. [Microsoft Azure 데이터 센터 IP 목록](https://www.microsoft.com/download/details.aspx?id=41653)을 다운로드할 수 있습니다. 이 목록은 매주 업데이트됩니다. Azure 데이터 센터 IP 목록에 나열된 IP 주소는 CIDR 표기법으로 작성됩니다. 자세한 내용은 [CIDR(Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)을 참조하세요.
 
 다음은 게이트웨이에서 사용 되는 정규화 된 도메인 이름입니다.
 

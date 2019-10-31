@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: ed13735b4da4818e969c4dddff68b55af6e71a15
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 108eeb03c0ed484e40b884372018bbbef686ee62
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855416"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159864"
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen2"></a>Storm on HDInsight 및 Azure Data Lake Storage Gen2에 대한 성능 튜닝 지침
 
@@ -21,8 +21,8 @@ Azure Storm 토폴로지의 성능을 조정할 때 고려해야 하는 요소�
 
 ## <a name="prerequisites"></a>전제 조건
 
-* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure Data Lake Storage Gen2 계정**. 계정을 만드는 방법에 대한 지침은 [빠른 시작: 분석을 위한 스토리지 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조하세요.
+* **Azure 구독** - [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: 분석을 위한 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조 하세요.
 * Data Lake Storage Gen2 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 * **Data Lake Storage Gen2에서 Storm 클러스터 실행**. 자세한 내용은 [HDInsight의 Storm](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview)을 참조하세요.
 * **Data Lake Storage Gen2에 대한 성능 튜닝 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen2 성능 튜닝 지침](data-lake-storage-performance-tuning-guidance.md)을 참조하세요.   
@@ -99,7 +99,7 @@ I/O 집약적인 토폴로지에서 각 Bolt 스레드는 자체 파일에 기�
 
 ## <a name="troubleshoot-common-problems"></a>일반적인 문제 해결
 일반적인 문제 해결 시나리오는 다음과 같습니다.
-* **많은 튜플의 시간이 초과되었습니다.** 토폴로지에서 각 노드를 확인하여 병목 현상이 발생한 위치를 확인합니다. 가장 일반적인 원인은 Bolt가 Spout을 따라갈 수 없기 때문입니다. 이렇게 하면 튜플이 처리될 때까지 대기하는 동안 내부 버퍼를 방해합니다. 시간 초과 값을 늘리거나 보류 중인 최대 Spout을 줄이세요.
+* **많은 튜플이 시간 초과 됩니다.** 토폴로지의 각 노드를 확인 하 여 병목 현상이 발생 한 위치를 확인 합니다. 가장 일반적인 원인은 Bolt가 Spout을 따라갈 수 없기 때문입니다. 이렇게 하면 튜플이 처리될 때까지 대기하는 동안 내부 버퍼를 방해합니다. 시간 초과 값을 늘리거나 보류 중인 최대 Spout을 줄이세요.
 
 * **총 프로세스 실행 대기 시간이 길지만 Bolt 프로세스 대기 시간이 짧습니다.** 이런 경우 튜플이 충분히 빨리 승인되지 않을 수 있습니다. acknowledger 수가 충분한지 확인하세요. Bolt가 처리를 시작하기 전에 큐에서 너무 오래 대기 중인 것도 원인이 될 수 있습니다. 보류 중인 최대 Spout을 줄이세요.
 
@@ -110,7 +110,7 @@ Data Lake Storage Gen2에서 제공하는 대역폭의 제한에 도달하면 �
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정합니다.
 
-1. **Ambari** > **Storm** > **Config** > **고급 storm-worker-log4j**에서 **&lt;root level="info"&gt;** 를 **&lt;root level=”debug”&gt;** 로 변경합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
+1. **Ambari** > **스톰** > **구성** > **고급 스톰-log4j**에서 **&lt;root level = "info"&gt;** 를 **&lt;root level = "debug"&gt;** 로 변경 합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
 2. Data Lake Storage Gen2 제한 예외에 대한 작업자 노드의 Storm 토폴로지 로그(/var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 아래)를 모니터링합니다.
 
 ## <a name="next-steps"></a>다음 단계

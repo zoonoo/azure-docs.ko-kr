@@ -1,6 +1,6 @@
 ---
 title: SQL Server 2016/2017 Azure VM의 자동화된 백업 v2 | Microsoft Docs
-description: Azure에서 실행되는 SQL Server 2016/2017 VM의 자동화된 백업 기능에 대해 설명합니다. 이 문서는 Resource Manager를 사용하는 VMs에만 적용됩니다.
+description: Azure에서 실행되는 SQL Server 2016/2017 VM의 자동화된 백업 기능에 대해 설명합니다. 이 문서는 Resource Manager를 사용하는 VM에만 적용됩니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 066c154c0ba3e62ac4f441e268c657dd5e991220
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 452dfcc04d9fc9048493222ad2a82a5bcc8b78f4
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102133"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162873"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Azure Virtual Machines의 자동화된 백업 v2(Resource Manager)
 
@@ -31,7 +31,7 @@ ms.locfileid: "70102133"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 자동화된 Backup v2를 사용하려면 다음 필수 조건을 고려하세요.
 
 **운영 체제**:
@@ -61,7 +61,7 @@ ms.locfileid: "70102133"
 
 ### <a name="basic-settings"></a>기본 설정
 
-| 설정 | 범위(기본값) | Description |
+| 설정 | 범위(기본값) | 설명 |
 | --- | --- | --- |
 | **자동화된 Backup** | 사용/사용 안 함(사용 안 함) | SQL Server 2016/2017 Developer, Standard 또는 Enterprise를 실행하는 Azure VM에 대해 자동화된 백업을 사용하거나 사용하지 않도록 설정합니다. |
 | **보존 기간** | 1-30일(30일) | 백업 보존 기간(일 수)입니다. |
@@ -73,7 +73,7 @@ ms.locfileid: "70102133"
 
 | 설정 | 범위(기본값) | 설명 |
 | --- | --- | --- |
-| **시스템 데이터베이스 Backup** | 사용/사용 안 함(사용 안 함) | 이 기능을 사용하도록 설정하면 시스템 데이터베이스인 Master, MSDB 및 Model도 백업됩니다. MSDB 및 Model 데이터베이스의 경우 로그 백업이 수행되도록 하려면 전체 복구 모드인지 확인합니다. Master의 경우에는 로그 백업이 수행되지 않습니다. 또한 TempDB에 대해서도 백업이 수행되지 않습니다. |
+| **시스템 데이터베이스 Backup** | 사용/사용 안 함(사용 안 함) | 사용하도록 설정하면 이 기능은 시스템 데이터베이스인 Master, MSDB 및 Model도 백업합니다. MSDB 및 Model 데이터베이스의 경우 로그 백업이 수행되도록 하려면 전체 복구 모드인지 확인합니다. Master의 경우에는 로그 백업이 수행되지 않습니다. 또한 TempDB에 대해서도 백업이 수행되지 않습니다. |
 | **Backup 일정** | 수동/자동(자동) | 기본적으로 백업 일정은 로그 증가에 따라 자동으로 결정됩니다. 수동 백업 일정을 사용하면 백업에 대한 기간을 지정할 수 있습니다. 이 경우 백업은 지정된 빈도로, 지정된 날의 지정된 기간 동안에만 수행됩니다. |
 | **전체 백업 빈도** | 매일/매주 | 전체 백업의 빈도입니다. 두 경우 모두 전체 백업은 예약된 다음 기간 동안 시작됩니다. 매주 옵션을 선택하면 백업은 모든 데이터베이스가 성공적으로 백업될 때까지 여러 날에 걸쳐 수행될 수 있습니다. |
 | **전체 백업 시작 시간** | 00:00 – 23:00(01:00) | 전체 백업이 수행될 수 있는 지정된 날의 시작 시간입니다. |
@@ -83,15 +83,15 @@ ms.locfileid: "70102133"
 ## <a name="understanding-full-backup-frequency"></a>전체 백업 빈도 이해
 매일 및 매주 전체 백업 간 차이를 이해하는 것은 중요합니다. 다음 두 가지 예제 시나리오를 고려하세요.
 
-### <a name="scenario-1-weekly-backups"></a>시나리오 1: 주간 백업
+### <a name="scenario-1-weekly-backups"></a>시나리오 1: 매주 백업
 규모가 큰 데이터베이스를 많이 포함하는 SQL Server VM이 있습니다.
 
 월요일에서 다음 설정으로 자동화된 Backup v2를 사용하도록 설정합니다.
 
-- 백업 일정: **수동**
+- Backup 일정: **수동**
 - 전체 백업 빈도: **매주**
 - 전체 백업 시작 시간: **01:00**
-- 전체 백업 기간: **1시간**
+- 전체 백업 시간 기간: **1시간**
 
 즉, 사용 가능한 다음 백업 기간은 화요일 오전 1시부터 1시간 동안입니다. 해당 시간에 자동화된 Backup은 한 번에 하나씩 데이터베이스를 백업하기 시작합니다. 이 시나리오에서는 처음 두 데이터베이스에 대해 전체 백업이 완료될 정도로 데이터베이스가 큽니다. 그러나 1시간 후에 모든 데이터베이스가 백업되지는 않았습니다.
 
@@ -106,10 +106,10 @@ ms.locfileid: "70102133"
 
 월요일에서 다음 설정으로 자동화된 Backup v2를 사용하도록 설정합니다.
 
-- 백업 일정: 수동
+- Backup 일정: 수동
 - 전체 백업 빈도: 매일
 - 전체 백업 시작 시간: 22:00
-- 전체 백업 기간: 6시간
+- 전체 백업 시간 기간: 6시간
 
 즉, 사용 가능한 다음 백업 기간은 월요일 오후 10시부터 6시간 동안입니다. 해당 시간에 자동화된 Backup은 한 번에 하나씩 데이터베이스를 백업하기 시작합니다.
 
@@ -170,7 +170,7 @@ SQL Server IaaS 에이전트 확장이 설치되어 있는 경우 "SqlIaaSAgent"
 설치되지 않았거나 프로비전되지 못한 경우 다음 명령을 사용하여 설치할 수 있습니다. VM 이름 및 리소스 그룹 외에, VM이 있는 하위 지역( **$region**)도 지정해야 합니다.
 
 ```powershell
-$region = “EASTUS2”
+$region = "EASTUS2"
 Set-AzVMSqlServerExtension -VMName $vmname `
     -ResourceGroupName $resourcegroupname -Name "SQLIaasExtension" `
     -Version "1.2" -Location $region 
@@ -211,7 +211,7 @@ LogBackupFrequency          : 60
 먼저 백업 파일에 대 한 저장소 계정을 선택 하거나 만듭니다. 다음 스크립트는 스토리지 계정을 선택하거나 없으면 새로 만듭니다.
 
 ```powershell
-$storage_accountname = “yourstorageaccount”
+$storage_accountname = "yourstorageaccount"
 $storage_resourcegroupname = $resourcegroupname
 
 $storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
@@ -276,8 +276,8 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 ```powershell
 $vmname = "yourvmname"
 $resourcegroupname = "vmresourcegroupname"
-$region = “Azure region name such as EASTUS2”
-$storage_accountname = “storageaccountname”
+$region = "Azure region name such as EASTUS2"
+$storage_accountname = "storageaccountname"
 $storage_resourcegroupname = $resourcegroupname
 $retentionperiod = 10
 $backupscheduletype = "Manual"
@@ -324,7 +324,7 @@ SQL Server 2016/2017에서 자동화된 백업을 모니터링하려면 두 가�
 다른 옵션은 기본 제공 데이터베이스 메일 기능을 알림에 활용하는 것입니다.
 
 1. [msdb.managed_backup.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) 저장 프로시저를 호출하여 **SSMBackup2WANotificationEmailIds** 매개 변수에 이메일 주소를 할당합니다. 
-1. [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md)가 Azure VM에서 이메일을 보낼 수 있도록 설정합니다.
+1. [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md)가 Azure VM에서 메일을 보낼 수 있도록 설정합니다.
 1. SMTP 서버 및 사용자 이름을 사용하여 데이터베이스 메일을 구성합니다. SQL Server Management Studio 또는 Transact-SQL 명령을 통해 데이터베이스 메일을 구성할 수 있습니다. 자세한 내용은 [데이터베이스 메일](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail)을 참조하세요.
 1. [데이터베이스 메일을 사용하도록 SQL Server 에이전트를 구성](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail)합니다.
 1. 로컬 VM 방화벽과 VM에 대한 네트워크 보안 그룹 둘 다에서 SMTP 포트가 허용되는지 확인합니다.
@@ -332,7 +332,7 @@ SQL Server 2016/2017에서 자동화된 백업을 모니터링하려면 두 가�
 ## <a name="next-steps"></a>다음 단계
 자동화된 Backup v2는 Azure VM에서 관리되는 Backup을 구성합니다. 따라서 [관리되는 Backup 설명서를 검토](https://msdn.microsoft.com/library/dn449496.aspx) 하여 동작 및 의미를 이해해야 합니다.
 
-Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines에서 SQL Server의 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md) 문서를 참조하세요.
+Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines의 SQL Server 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md) 문서를 참조하세요.
 
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 

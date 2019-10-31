@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 49877994e7eef89f099e19d92e26de48bd9d41f4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: efa31e72811b83c00c1b2ee4a5d1a42fc7089630
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566467"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163176"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Azure SQL Database 및 SQL Server용 Spark 커넥터를 통해 실시간 빅 데이터 분석 가속화
 
@@ -32,7 +32,7 @@ Azure SQL Database 및 SQL Server용 Spark 커넥터를 사용하면 Azure SQL D
 | Apache Spark                         |2.0.2 이상           |
 | 스칼라                                |2.10 이상            |
 | SQL Server용 Microsoft JDBC Driver |6.2 이상             |
-| Microsoft SQL Server                 |SQL Server 2008 이상 |
+| Microsoft SQL Server에 대한 연결 문자열                 |SQL Server 2008 이상 |
 | Azure SQL Database                   |지원됨                |
 
 Azure SQL Database 및 SQL Server용 Spark 커넥터는 SQL Server용 Microsoft JDBC Driver를 사용하여 Spark 작업자 노드와 SQL 데이터베이스 간에 데이터를 이동합니다.
@@ -44,7 +44,7 @@ Azure SQL Database 및 SQL Server용 Spark 커넥터는 SQL Server용 Microsoft 
 
 아래 다이어그램은 데이터 흐름을 보여 줍니다.
 
-   ![architecture](./media/sql-database-spark-connector/architecture.png)
+   ![아키텍처](./media/sql-database-spark-connector/architecture.png)
 
 ### <a name="build-the-spark-to-sql-db-connector"></a>Spark - SQL DB 커넥터 빌드
 현재 커넥터 프로젝트는 maven을 사용합니다. 종속성 없이 커넥터를 빌드하려면 다음을 실행할 수 있습니다.
@@ -65,7 +65,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"            -> "mysqlserver.database.windows.net",
   "databaseName"   -> "MyDatabase",
-  "dbTable"        -> "dbo.Clients"
+  "dbTable"        -> "dbo.Clients",
   "user"           -> "username",
   "password"       -> "*********",
   "connectTimeout" -> "5", //seconds
@@ -103,7 +103,7 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"          -> "mysqlserver.database.windows.net",
   "databaseName" -> "MyDatabase",
-  "dbTable"      -> "dbo.Clients"
+  "dbTable"      -> "dbo.Clients",
   "user"         -> "username",
   "password"     -> "*********"
 ))

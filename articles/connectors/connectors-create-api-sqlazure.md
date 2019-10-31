@@ -11,12 +11,12 @@ manager: carmonm
 ms.topic: conceptual
 tags: connectors
 ms.date: 10/14/2019
-ms.openlocfilehash: 6c86ef26bbf7bd9dbce8aa77aef2213b14b57f5f
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 880ae4b661d247889815fc5b9ad08a759fe0aa5b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311985"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161653"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 SQL Server 또는 Azure SQL Database에 대 한 워크플로 자동화
 
@@ -24,9 +24,9 @@ ms.locfileid: "72311985"
 
 SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이벤트로 트리거될 때 실행할 수 있는 논리 앱을 만들 수 있습니다. 논리 앱은 SQL 쿼리 및 저장 프로시저 실행과 함께 데이터를 가져오고 삽입 하 고 삭제할 수도 있습니다. 예를 들어 Dynamics CRM Online에서 새 레코드를 자동으로 확인 하는 논리 앱을 빌드하고, 새 레코드의 SQL 데이터베이스에 항목을 추가한 다음, 추가 된 항목에 대 한 전자 메일 경고를 보낼 수 있습니다.
 
-논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요. 커넥터 관련 기술 정보, 제한 사항 및 알려진 문제에 대해서는 [SQL Server 커넥터 참조 페이지](https://docs.microsoft.com/connectors/sql/)를 참조 하세요.
+논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다. 커넥터 관련 기술 정보, 제한 사항 및 알려진 문제에 대해서는 [SQL Server 커넥터 참조 페이지](https://docs.microsoft.com/connectors/sql/)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -68,7 +68,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
 1. 논리 앱에서 테이블을 확인하는 빈도를 지정하는 **간격** 및 **빈도** 속성을 설정합니다.
 
-   이 트리거는 선택한 테이블에서 행을 하나만 반환 합니다. 다른 작업을 수행 하려면 원하는 작업을 수행 하는 다른 작업을 추가 합니다. 예를 들어이 행의 데이터를 보려면 반환 된 행에서 필드를 포함 하는 파일을 만드는 다른 작업을 추가 하 고 전자 메일 알림을 보낼 수 있습니다. 이 커넥터에 대해 사용할 수 있는 다른 작업에 대해 알아보려면 [커넥터의 참조 페이지](/connectors/sql/)를 참조 하세요.
+   이 트리거는 선택한 테이블에서 행을 하나만 반환 합니다. 다른 작업을 수행 하려면 원하는 작업을 수행 하는 다른 작업을 추가 합니다. 예를 들어이 행의 데이터를 보려면 반환 된 행에서 필드를 포함 하는 파일을 만드는 다른 작업을 추가 하 고 전자 메일 알림을 보낼 수 있습니다. 이 커넥터에 대해 사용할 수 있는 다른 작업에 대해 알아보려면 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/sql/)를 참조 하세요.
 
 1. 작업이 완료 되 면 디자이너 도구 모음에서 **저장**을 선택 합니다.
 
@@ -84,7 +84,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. SQL 작업을 추가 하려는 트리거 또는 작업에서 **새 단계**를 선택 합니다.
 
-   !["새 단계"를 선택 합니다.](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
+   ![논리 앱에 새 단계 추가](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
    기존 단계 간에 작업을 추가하려면 연결 화살표 위로 마우스를 이동합니다. 표시 되는 더하기 기호 ( **+** )를 선택 하 고 **작업 추가**를 선택 합니다.
 
@@ -92,13 +92,13 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    이 예에서는 단일 레코드를 가져오는 **행 가져오기** 작업을 사용 합니다.
 
-   ![SQL "행 가져오기" 작업을 찾아 선택 합니다.](./media/connectors-create-api-sqlazure/select-sql-get-row.png)
+   ![SQL "행 가져오기" 작업을 찾아 선택 합니다.](./media/connectors-create-api-sqlazure/find-select-sql-get-row-action.png)
 
-   이 작업을 수행 하면 선택한 테이블에서 한 행만 반환 되 고 다른 행은 반환 되지 않습니다. 이 행의 데이터를 보려면 반환 된 행에서 필드를 포함 하는 파일을 만드는 다른 작업을 추가 하 고 클라우드 저장소 계정에 해당 파일을 저장 합니다. 이 커넥터에 대해 사용할 수 있는 다른 작업에 대해 알아보려면 [커넥터의 참조 페이지](/connectors/sql/)를 참조 하세요.
+   이 작업을 수행 하면 선택한 테이블에서 한 행만 반환 되 고 다른 행은 반환 되지 않습니다. 이 행의 데이터를 보려면 반환 된 행에서 필드를 포함 하는 파일을 만드는 다른 작업을 추가 하 고 클라우드 저장소 계정에 해당 파일을 저장 합니다. 이 커넥터에 대해 사용할 수 있는 다른 작업에 대해 알아보려면 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/sql/)를 참조 하세요.
 
 1. 연결을 만들지 묻는 메시지가 표시 되 면 [이제 SQL 연결을 만듭니다](#create-connection). 연결이 존재 하는 경우 **테이블 이름을**선택 하 고 원하는 레코드의 **행 ID** 를 입력 합니다.
 
-   ![테이블 이름 및 행 ID 입력](./media/connectors-create-api-sqlazure/table-row-id.png)
+   ![테이블 이름 및 행 ID 입력](./media/connectors-create-api-sqlazure/specify-table-row-id-property-value.png)
 
 1. 작업이 완료 되 면 디자이너 도구 모음에서 **저장**을 선택 합니다.
 
@@ -132,7 +132,7 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 ## <a name="connector-specific-details"></a>커넥터 관련 세부 정보
 
-이 커넥터의 트리거, 작업 및 제한에 대 한 기술 정보는 [커넥터의 참조 페이지](/connectors/sql/)를 참조 하세요.
+이 커넥터의 트리거, 작업 및 제한에 대 한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/sql/)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

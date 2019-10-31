@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: v-fehase
-ms.openlocfilehash: 87df7824a182e68d849fdf967f96b2974b7e0c16
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 88ef0874d760fb87700eac83c0d615be5887ddee
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148173"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159843"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Azure AD 앱에 대 한 보안 앱 개발
 ## <a name="overview"></a>개요
@@ -39,7 +39,7 @@ ms.locfileid: "71148173"
 
 이 앱을 개발 하 고 배포한 후 설명 된 구성 및 보안 측정값과 함께 다음 샘플 웹 앱을 설정 합니다.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>건축
 앱은 3 개의 계층을 포함 하는 일반적인 n 계층 응용 프로그램입니다. 모니터링 및 비밀 관리 구성 요소가 통합 된 프런트 엔드, 백 엔드 및 데이터베이스 계층이 다음과 같이 표시 됩니다.
 
 ![앱 아키텍처](./media/secure-aad-app/architecture.png)
@@ -71,7 +71,7 @@ ms.locfileid: "71148173"
 
 ![위협 모델 출력](./media/secure-aad-app/threat-model-output.png)
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 응용 프로그램을 실행 하려면 다음과 같은 도구를 설치 해야 합니다.
 
 - 응용 프로그램 코드를 수정 하 고 볼 수 있는 코드 편집기입니다. [Visual Studio Code](https://code.visualstudio.com/) 는 오픈 소스 옵션입니다.
@@ -83,7 +83,7 @@ ms.locfileid: "71148173"
 
 이러한 도구를 설치 하 고 나면 Azure에 앱을 배포할 준비가 되었습니다.
 
-### <a name="implementation-guidance"></a>구현 지침
+### <a name="implementation-guidance"></a>구현 가이드
 배포 스크립트는 네 단계로 나눌 수 있는 하나의 스크립트입니다. 각 단계에서 [아키텍처 다이어그램](#architecture)에 있는 Azure 리소스를 배포 하 고 구성 합니다.
 
 네 가지 단계는 다음과 같습니다.
@@ -235,7 +235,7 @@ $trustedRootCert01 = New-AzApplicationGatewayTrustedRootCertificate -Name "test1
 
 #Configure the HTTP settings for the application gateway back end
 
-$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name “setting01” -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
+$poolSetting01 = New-AzApplicationGatewayBackendHttpSettings -Name "setting01" -Port 443 -Protocol Https -CookieBasedAffinity Disabled -TrustedRootCertificate $trustedRootCert01 -HostName "test1"
 
 #Create a load-balancer routing rule that configures the load balancer
 
@@ -259,13 +259,13 @@ Azure App Service를 사용 하면 Python, Ruby, C#및 Java와 같은 언어를 
 #### <a name="create-an-app-service-plan-in-free-tier"></a>무료 계층에서 App Service 계획 만들기
     New-AzAppServicePlan -Name $webappname -Location $location -ResourceGroupName $webappname -Tier Free
 
-#### <a name="create-a-web-app"></a>웹 앱 만들기
+#### <a name="create-a-web-app"></a>웹 응용 프로그램 만들기
     New-AzWebApp -Name $webappname -Location $location -AppServicePlan $webappname -ResourceGroupName $webappname
 
     Write-Host "Configure a CNAME record that maps $fqdn to $webappname.azurewebsites.net"
     Read-Host "Press [Enter] key when ready ..."
 
-#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>계속 하기 전에 사용자 지정 도메인에 대 한 Azure 도메인 이름 시스템 구성 UI로 이동 하 여 "www https://aka.ms/appservicecustomdns " 호스트 이름에 대 한 CNAME 레코드를 구성 하 고 웹 앱의 기본 도메인 이름을 가리키도록의 지침을 따르세요.
+#### <a name="before-continuing-go-to-your-azure-domain-name-system-configuration-ui-for-your-custom-domain-and-follow-the-instructions-at-httpsakamsappservicecustomdns-to-configure-a-cname-record-for-the-hostname-www-and-point-it-your-web-apps-default-domain-name"></a>계속 하기 전에 사용자 지정 도메인에 대 한 Azure 도메인 이름 시스템 구성 UI로 이동 하 고 https://aka.ms/appservicecustomdns 의 지침에 따라 호스트 이름 "www"에 대 한 CNAME 레코드를 구성 하 고 웹 앱의 기본 도메인 이름을 가리키도록 합니다.
 
 #### <a name="upgrade-app-service-plan-to-shared-tier-minimum-required-by-custom-domains"></a>App Service 계획을 공유 계층으로 업그레이드 (사용자 지정 도메인에 필요한 최소)
     Set-AzAppServicePlan -Name $webappname -ResourceGroupName $webappname -Tier Shared
@@ -293,7 +293,7 @@ App Service 인스턴스를 가상 네트워크와 통합할 수 있습니다. �
     *App Service에 대 한 새 가상 네트워크 통합*
 1. 다음 페이지에서 **VNET 추가 (미리 보기)** 를 선택 합니다.
 
-1. 다음 메뉴에서로 `aad-vnet`시작 하는 배포에서 만든 가상 네트워크를 선택 합니다. 새 서브넷을 만들거나 기존 서브넷을 선택할 수 있습니다.
+1. 다음 메뉴에서 `aad-vnet`으로 시작 하는 배포에서 만든 가상 네트워크를 선택 합니다. 새 서브넷을 만들거나 기존 서브넷을 선택할 수 있습니다.
    이 경우 새 서브넷을 만듭니다. **주소 범위** 를 **10.0.3.0/24** 로 설정 하 고 서브넷의 **이름을 서브넷으로 설정 합니다.**
 
    ![가상 네트워크 구성 App Service](./media/secure-web-app/app-vnet-config.png)
@@ -320,7 +320,7 @@ App Service 인스턴스를 가상 네트워크와 통합할 수 있습니다. �
 
    *NSG 구성*
 
-4. 게이트웨이 NSG에 대 한 아웃 바운드 규칙에서 서비스 태그를 대상으로 하는 규칙을 만들어 App Service 인스턴스에 대 한 아웃 바운드 연결을 허용 하는 규칙을 추가 합니다.`AppService`
+4. 게이트웨이 NSG에 대 한 아웃 바운드 규칙에서 서비스 태그를 대상으로 하는 규칙을 만들어 App Service 인스턴스에 대 한 아웃 바운드 연결을 허용 하는 규칙을 추가 `AppService`
 
    ![NSG에 대 한 아웃 바운드 규칙 추가](./media/secure-web-app/nsg-outbound-allowappserviceout.png)
 
@@ -343,14 +343,14 @@ App Service 인스턴스를 가상 네트워크와 통합할 수 있습니다. �
     *Azure Service Health 프로브에 대 한 규칙 추가 (App Service Environment에만 해당)*
 
 공격 노출 영역을 제한 하려면 응용 프로그램 게이트웨이만 응용 프로그램에 액세스할 수 있도록 App Service 네트워크 설정을 수정 합니다.
-설정을 적용 하려면 App Service 네트워크 탭으로 이동 하 고, **IP 제한** 탭을 선택 하 고, 응용 프로그램 게이트웨이의 ip만 서비스에 직접 액세스 하도록 허용 하는 허용 규칙을 만듭니다. 해당 개요 페이지에서 게이트웨이의 IP 주소를 검색할 수 있습니다. **Ip 주소 CIDR** 탭에서 ip 주소를 형식 `<GATEWAY_IP_ADDRESS>/32`으로 입력 합니다.
+설정을 적용 하려면 App Service 네트워크 탭으로 이동 하 고, **IP 제한** 탭을 선택 하 고, 응용 프로그램 게이트웨이의 ip만 서비스에 직접 액세스 하도록 허용 하는 허용 규칙을 만듭니다. 해당 개요 페이지에서 게이트웨이의 IP 주소를 검색할 수 있습니다. **Ip 주소 CIDR** 탭에서 ip 주소를 `<GATEWAY_IP_ADDRESS>/32`형식으로 입력 합니다.
 
 ![게이트웨이만 허용](./media/secure-web-app/app-allow-gw-only.png)
 
 *게이트웨이 IP만 App Service에 액세스할 수 있도록 허용*
 
 ### <a name="azure-domain-name-system"></a>Azure 도메인 이름 시스템 
-Azure Domain Name System 또는 Azure Domain Name System은 웹 사이트 또는 서비스 이름을 해당 IP 주소로 변환 (또는 확인) 하는 일을 담당 합니다. Azure 도메인 이름 시스템 (https://docs.microsoft.com/azure/dns/dns-overview) 은 azure 인프라를 사용 하 여 이름 확인을 제공 하는 도메인 이름 시스템 도메인에 대 한 호스팅 서비스입니다. 사용자는 Azure에서 도메인을 호스트 하 여 다른 Azure 서비스와 동일한 자격 증명, Api, 도구 및 대금 청구를 사용 하 여 도메인 이름 시스템 레코드를 관리할 수 있습니다. Azure 도메인 이름 시스템은 사설 도메인 이름 시스템 도메인도 지원 합니다.
+Azure Domain Name System 또는 Azure Domain Name System은 웹 사이트 또는 서비스 이름을 해당 IP 주소로 변환 (또는 확인) 하는 일을 담당 합니다. Azure 도메인 이름 시스템 (https://docs.microsoft.com/azure/dns/dns-overview) 는 Azure 인프라를 사용 하 여 이름 확인을 제공 하는 도메인 이름 시스템 도메인에 대 한 호스팅 서비스입니다. 사용자는 Azure에서 도메인을 호스트 하 여 다른 Azure 서비스와 동일한 자격 증명, Api, 도구 및 대금 청구를 사용 하 여 도메인 이름 시스템 레코드를 관리할 수 있습니다. Azure 도메인 이름 시스템은 사설 도메인 이름 시스템 도메인도 지원 합니다.
 
 ### <a name="azure-disk-encryption"></a>Azure Disk Encryption
 Azure Disk Encryption는 Windows의 BitLocker 기능을 활용 하 여 데이터 디스크에 대 한 볼륨 암호화를 제공 합니다. 이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어하고 관리하는 데 유용합니다.
@@ -358,7 +358,7 @@ Azure Disk Encryption는 Windows의 BitLocker 기능을 활용 하 여 데이터
 ### <a name="identity-management"></a>ID 관리
 다음 기술은 Azure 환경의 카드 소유자 데이터에 대 한 액세스를 관리 하는 기능을 제공 합니다.
 - Azure Active Directory는 Microsoft의 다중 테 넌 트 클라우드 기반 디렉터리 및 id 관리 서비스입니다. 이 솔루션에 대 한 모든 사용자는 Azure WebApp에 액세스 하는 사용자를 포함 하 여 Azure Active Directory에서 생성 됩니다.
-- 관리자는 Azure 역할 기반 액세스 제어를 통해 세분화 된 액세스 권한을 정의 하 여 사용자가 작업을 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. 관리자는 모든 사용자에게 Azure 리소스에 대한 무제한 권한을 부여하는 대신 카드 소유자 데이터에 액세스하기 위한 특정 작업만 허용할 수 있습니다. 구독 액세스는 구독 관리자로 제한됩니다.
+- 관리자는 Azure 역할 기반 액세스 제어를 통해 세분화 된 액세스 권한을 정의 하 여 사용자가 작업을 수행 하는 데 필요한 액세스 권한만 부여할 수 있습니다. 관리자는 모든 사용자에게 Azure 리소스에 대한 무제한 권한을 부여하는 대신 카드 소유자 데이터에 액세스하기 위한 특정 작업만 허용할 수 있습니다. 구독 액세스는 구독 관리자에게만 허용됩니다.
 - Azure Active Directory Privileged Identity Management를 통해 고객은 카드 소유자 데이터와 같은 특정 정보에 대 한 액세스 권한이 있는 사용자 수를 최소화할 수 있습니다. 관리자는 Azure Active Directory Privileged Identity Management를 사용하여 권한 있는 ID와 리소스에 대한 액세스를 검색, 제한 및 모니터링할 수 있습니다. 필요한 경우 이 기능을 사용하여 요청 시 JIT(Just-In-Time) 관리 액세스를 적용할 수도 있습니다.
 - Azure Active Directory Identity Protection는 조직의 id에 영향을 주는 잠재적 취약성을 검색 하 고, 조직의 id와 관련 된 검색 된 의심 스러운 작업에 대 한 자동화 된 응답을 구성 하 고, 의심 스러운 조사 인시던트를 해결 하기 위해 적절 한 조치를 취해야 합니다.
 ### <a name="secrets-management"></a>비밀 관리
@@ -389,20 +389,20 @@ Azure Security Center를 통해 고객은 워크 로드에 걸쳐 보안 정책�
    - Azure Security Center 및 Azure Advisor는 추가 보호 및 알림을 제공 합니다. Azure Security Center는 평판 시스템도 제공합니다.
 ### <a name="logging-and-auditing"></a>로깅 및 감사
 Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위하게 기록합니다.
-   - 활동 로그: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
-   - 진단 로그: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)는 모든 리소스에서 내보낸 모든 로그를 포함합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Storage 로그, Key Vault 감사 로그, Application Gateway 액세스 및 방화벽 로그가 포함 됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 보존은 조직 특정 보존 요구 사항에 맞게 최대 730일까지 사용자가 구성할 수 있습니다.
+   - 활동 로그: [활동 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) 는 구독의 리소스에서 수행 된 작업에 대 한 통찰력을 제공 합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
+   - 진단 로그: [진단 로그](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 는 모든 리소스에서 내보낸 모든 로그를 포함 합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Azure Storage 로그, Key Vault 감사 로그, Application Gateway 액세스 및 방화벽 로그가 포함 됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 보존은 조직 특정 보존 요구 사항에 맞게 최대 730일까지 사용자가 구성할 수 있습니다.
 ### <a name="azure-monitor-logs"></a>Azure Monitor 로그
    이러한 로그는 처리, 저장 및 대시보드 보고를 위해 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 에 통합 되어 있습니다. 수집이 완료되면 데이터는 Log Analytics 작업 영역 내의 각 데이터 형식에 대해 별도 테이블로 구성되어 원본에 관계없이 모든 데이터가 함께 분석되도록 합니다. 또한 Azure Security Center는 고객이 Kusto 쿼리를 사용 하 여 보안 이벤트 데이터에 액세스 하 고 다른 서비스의 데이터와 결합할 수 있도록 하는 Azure Monitor 로그와 통합 됩니다.
 
    다음 Azure [모니터링 솔루션](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) 은이 아키텍처의 일부로 포함 되어 있습니다.
 
-   - [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 확인 솔루션은 일정한 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.
-   - [에이전트 상태](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): 에이전트 상태 솔루션은 배포 된 에이전트 수 및 해당 지리적 분포를 보고 하며, 응답 하지 않는 에이전트 수와 작업 데이터를 제출 하는 에이전트 수를 보고 합니다.
-   - [활동 로그 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): 활동 로그 분석 솔루션은 고객에 대한 모든 구독에서 활동 로그를 분석하는 데 도움을 줍니다.
+   - [Active Directory 평가](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): Active Directory 상태 확인 솔루션은 표준 간격으로 서버 환경의 위험과 상태를 평가하고 배포된 서버 인프라에 관련된 권장 사항의 우선 순위 목록을 제공합니다.
+   - [에이전트 상태](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): 에이전트 상태 솔루션은 배포 된 에이전트 수 및 해당 지리적 배포를 보고 하며, 응답 하지 않는 에이전트 수와 작업 데이터를 제출 하는 에이전트 수를 보고 합니다.
+   - [활동 로그 분석](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): 활동 로그 분석 솔루션은 고객에 대한 모든 Azure 구독에서 Azure 활동 로그를 분석하는 데 도움을 줍니다.
 ### <a name="azure-monitor"></a>Azure Monitor
    [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/)를 사용 하면 조직에서 Azure 리소스의 API 호출 추적을 포함 하 여 성능을 추적 하 고, 경고를 만들고, 데이터를 보관할 수 있습니다.
 ### <a name="application-insights"></a>Application Insights 
-   [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 애플리케이션 성능 관리 서비스입니다. Application Insights는 성능 이상을 감지하며, 고객이 라이브 웹 애플리케이션을 모니터링하는 데 사용할 수 있습니다. 고객이 문제를 진단하고 실제로 앱을 사용하여 수행하는 작업을 파악할 수 있는 강력한 분석 도구를 포함하고 있습니다. 고객이 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
+   [Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview) 는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 응용 프로그램 성능 관리 서비스입니다. Application Insights는 성능 이상을 감지하며, 고객이 라이브 웹 애플리케이션을 모니터링하는 데 사용할 수 있습니다. 고객이 문제를 진단하고 실제로 앱을 사용하여 수행하는 작업을 파악할 수 있는 강력한 분석 도구를 포함하고 있습니다. 고객이 성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다.
 
 ### <a name="azure-key-vault"></a>Azure Key Vault
    키를 저장할 조직에 대 한 자격 증명 모음을 만들고 아래와 같은 운영 작업에 대 한 책임을 유지 합니다.
@@ -443,8 +443,8 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 1.  Azure Portal으로 다시 이동 합니다. 왼쪽 탐색 창에서 Azure Active Directory 서비스를 선택 하 고 앱 등록를 선택 합니다.
 2.  결과 화면에서 WebApp-OpenIDConnect-DotNet 응용 프로그램을 선택 합니다.
 3.  리디렉션 Uri 섹션의 인증 탭 o에서 콤보 상자에서 웹을 선택 하 고 다음 리디렉션 Uri를 추가 합니다.
-    [https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net](https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ) https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc 고급 설정 섹션에서 로그 아웃 URL을로 설정 합니다. https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc
-4.  브랜딩 탭 o에서 홈 페이지 URL을 app service의 주소로 업데이트 합니다 (예: https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ).
+    고급 설정 섹션에서 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signin-oidc o https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net 로그 아웃 URL을 https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net/signout-oidc 로 설정 합니다.
+4.  브랜딩 탭에서 app service의 주소로 홈 페이지 URL을 업데이트 합니다 (예: https://WebApp-OpenIDConnect-DotNet-code-v2-contoso.azurewebsites.net ).
         o 구성을 저장 합니다.
 5.  응용 프로그램이 web api를 호출 하는 경우에는 프로젝트에 필요한 변경 내용을 적용 해야 합니다 .이 경우 localhost 대신 게시 된 API URL을 호출 합니다.
 샘플 게시

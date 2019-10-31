@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: f5c90b7d79b31c321b00869c90b0261c0b4730d3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63584eedb0e51ddbca0d644bc17db3facd9225b5
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66727746"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164029"
 ---
 # <a name="connect-virtual-networks-with-virtual-network-peering-using-powershell"></a>PowerShell을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -43,7 +43,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우, 이 �
 
 ## <a name="create-virtual-networks"></a>가상 네트워크 만들기
 
-가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 아티클에서 만든 다른 모든 리소스를 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+가상 네트워크를 만들기 전에 가상 네트워크에 대한 리소스 그룹과 이 문서에서 만든 다른 모든 리소스를 만들어야 합니다. [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName myResourceGroup -Location EastUS
@@ -59,7 +59,7 @@ $virtualNetwork1 = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-사용 하 여 서브넷 구성을 만듭니다 [새로 만들기-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)합니다. 다음 예제에서는 10.0.0.0/24 주소 접두사가 포함된 서브넷 구성을 만듭니다.
+[AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용 하 여 서브넷 구성을 만듭니다. 다음 예제에서는 10.0.0.0/24 주소 접두사가 포함된 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
 $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
@@ -68,7 +68,7 @@ $subnetConfig = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork1
 ```
 
-사용 하 여 가상 네트워크에 서브넷 구성을 기록 [집합 AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork), 그러면 서브넷이 만들어집니다.
+서브넷을 만드는 [AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)를 사용 하 여 가상 네트워크에 서브넷 구성을 씁니다.
 
 ```azurepowershell-interactive
 $virtualNetwork1 | Set-AzVirtualNetwork
@@ -96,7 +96,7 @@ $virtualNetwork2 | Set-AzVirtualNetwork
 
 ## <a name="peer-virtual-networks"></a>가상 네트워크 피어링
 
-사용 하 여 피어 링을 만드는 [추가 AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)합니다. 다음 예제에서는 *myVirtualNetwork1*을 *myVirtualNetwork2*에 피어링합니다.
+[AzVirtualNetworkPeering](/powershell/module/az.network/add-azvirtualnetworkpeering)를 사용 하 여 피어 링을 만듭니다. 다음 예제에서는 *myVirtualNetwork1*을 *myVirtualNetwork2*에 피어링합니다.
 
 ```azurepowershell-interactive
 Add-AzVirtualNetworkPeering `
@@ -114,7 +114,7 @@ Add-AzVirtualNetworkPeering `
   -RemoteVirtualNetworkId $virtualNetwork1.Id
 ```
 
-이전 명령 실행 후 반환된 출력에서 **PeeringState**는 *Connected*로 표시됩니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected*로 변경되었습니다. 확인에 대 한 피어 링 상태는 *myVirtualNetwork1-myVirtualNetwork2* 변경 피어 링 *연결 됨* 사용 하 여 [Get AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering)합니다.
+이전 명령 실행 후 반환된 출력에서 **PeeringState**는 *Connected*로 표시됩니다. 또한 Azure에서 *myVirtualNetwork1-myVirtualNetwork2* 피어링의 피어링 상태가 *Connected*로 변경되었습니다. *MyVirtualNetwork1-myVirtualNetwork2* 피어 링의 피어 링 상태가 [AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering)와 *연결* 됨으로 변경 되었는지 확인 합니다.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkPeering `
@@ -179,7 +179,7 @@ mstsc /v:<publicIpAddress>
 *myVm1* VM에서 Windows 방화벽을 통해 ICMP(Internet Control Message Protocol)를 사용하도록 설정하면 이후 단계에서 PowerShell을 사용하여 *myVm2*에서 이 VM을 ping할 수 있습니다.
 
 ```powershell
-New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
 ```
 
 이 문서에서는 VM 간 통신에 ping이 사용되지만, 프로덕션 배포에 Windows 방화벽을 통한 ICMP는 허용하지 않는 것이 좋습니다.
@@ -200,7 +200,7 @@ ping 10.0.0.4
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-사용 하 여 더 이상 필요 [제거 AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) 리소스 그룹 및 포함 된 리소스를 모두 제거 합니다.
+더 이상 필요 하지 않은 경우 [AzResourcegroup](/powershell/module/az.resources/remove-azresourcegroup) 를 사용 하 여 리소스 그룹 및 포함 된 모든 리소스를 제거 합니다.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

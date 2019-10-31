@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 502fb8b49770b4933c44aa1eb447abb746943c0d
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bde1741d12cc7ef181fb60bc7eecbec1fed8cbd0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554816"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151213"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값 이란?
 
@@ -32,7 +32,7 @@ Microsoft는 모든 사용자에 게 보안 기본값을 사용할 수 있도록
 
 ## <a name="unified-multi-factor-authentication-registration"></a>통합 Multi-Factor Authentication 등록
 
-테 넌 트의 모든 사용자는 Azure Multi-Factor Authentication 서비스의 형태로 MFA (다단계 인증)에 등록 해야 합니다. 사용자는 Microsoft Authenticator 앱을 사용 하 여 Multi-Factor Authentication에 등록 하는 데 14 일이 있습니다. 14 일이 경과 되 면 사용자는 Multi-Factor Authentication 등록이 완료 될 때까지 로그인 할 수 없습니다.
+테 넌 트의 모든 사용자는 Azure Multi-Factor Authentication 서비스의 형태로 MFA (multi-factor authentication)에 등록 해야 합니다. 사용자는 Microsoft Authenticator 앱을 사용 하 여 Multi-Factor Authentication에 등록 하는 데 14 일이 있습니다. 14 일이 경과 되 면 사용자는 Multi-Factor Authentication 등록이 완료 될 때까지 로그인 할 수 없습니다.
 
 일부 사용자는 부재 중이거나 보안 기본값을 사용 하도록 설정한 후 14 일 동안 로그인 하지 않을 수 있음을 이해 하 고 있습니다. 모든 사용자가 Multi-Factor Authentication 등록 하는 데 충분 한 시간을 갖도록 하기 위해 14 일의 기간은 각 사용자에 대해 고유 합니다. 사용자의 14 일 기간은 보안 기본값을 사용 하도록 설정한 후 처음 성공한 대화형 로그인 이후에 시작 됩니다.
 
@@ -113,6 +113,7 @@ Azure Resource Manager에 액세스 하 고 구성을 업데이트 하려는 사
 - [관리자 용 MFA 필요](howto-conditional-access-policy-admin-mfa.md)
 - [Azure 관리를 위한 MFA 필요](howto-conditional-access-policy-azure-management.md)
 - [레거시 인증 차단](howto-conditional-access-policy-block-legacy.md)
+- [모든 사용자에 대해 MFA 필요](howto-conditional-access-policy-all-users-mfa.md)
 
 ## <a name="enabling-security-defaults"></a>보안 기본값 사용
 

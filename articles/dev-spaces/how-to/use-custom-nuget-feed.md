@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: Azure Dev Space에서 사용자 지정 NuGet 피드를 사용하여 NuGet 패키지에 액세스하고 이를 사용합니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너
 manager: gwallace
-ms.openlocfilehash: 9df095011c1ff66ff0c85993c7c85dffe62623b8
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 019335cd73e8eaf0ada6897f08c88ef2b8bbf631
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873263"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162807"
 ---
 #  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Azure Dev Space에서 사용자 지정 NuGet 피드 사용
 
@@ -23,7 +23,7 @@ NuGet 피드는 프로젝트에 패키지 원본을 포함하는 편리한 방�
 
 ## <a name="set-up-a-nuget-feed"></a>NuGet 피드 설정
 
-노드의 파일에 종속성에 대 한 [패키지 참조](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) `*.csproj` `PackageReference` 를 추가 합니다. 예를 들어:
+`*.csproj` 파일의 `PackageReference` 노드 아래에 종속성에 대 한 [패키지 참조](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) 를 추가 합니다. 다음은 그 예입니다.
 
 ```xml
 <ItemGroup>
@@ -33,7 +33,7 @@ NuGet 피드는 프로젝트에 패키지 원본을 포함하는 편리한 방�
 </ItemGroup>
 ```
 
-프로젝트 폴더에 [nuget.exe](https://docs.microsoft.com/nuget/reference/nuget-config-file) 파일을 만들고 nuget 피드에 대 한 `packageSources` 및 `packageSourceCredentials` 섹션을 설정 합니다. 섹션 `packageSources` 에는 AKS 클러스터에서 액세스할 수 있어야 하는 피드 url이 포함 되어 있습니다. 는 `packageSourceCredentials` 피드에 액세스 하기 위한 자격 증명입니다. 예:
+프로젝트 폴더에 [nuget.exe](https://docs.microsoft.com/nuget/reference/nuget-config-file) 파일을 만들고 nuget 피드에 대 한 `packageSources` 및 `packageSourceCredentials` 섹션을 설정 합니다. `packageSources` 섹션에는 AKS 클러스터에서 액세스할 수 있어야 하는 피드 url이 포함 되어 있습니다. 피드에 액세스 하기 위한 자격 증명은 `packageSourceCredentials`입니다. 다음은 그 예입니다.
 
 ```xml
 <packageSources>
@@ -48,28 +48,28 @@ NuGet 피드는 프로젝트에 패키지 원본을 포함하는 편리한 방�
 </packageSourceCredentials>
 ```
 
-Dockerfiles를 업데이트 하 여 `NuGet.Config` 파일을 이미지에 복사 합니다. 예:
+Dockerfiles를 업데이트 하 여 `NuGet.Config` 파일을 이미지에 복사 합니다. 다음은 그 예입니다.
 
 ```console
 COPY ["<project folder>/NuGet.Config", "./NuGet.Config"]
 ```
 
 > [!TIP]
-> Windows `NuGet.Config` `nuget.config` 에서, 및는 모두 유효한 파일 이름으로 작동 합니다. `Nuget.Config` Linux `NuGet.Config` 에서이 파일에 대 한 올바른 파일 이름입니다. Azure Dev Spaces는 Docker 및 Linux를 사용 하므로이 파일의 이름을 `NuGet.Config`로 지정 해야 합니다. 이름을 수동으로 또는를 실행 `dotnet restore --configfile nuget.config`하 여 수정할 수 있습니다.
+> Windows에서는 `NuGet.Config`, `Nuget.Config`및 `nuget.config` 모두 유효한 파일 이름으로 작동 합니다. Linux에서는 `NuGet.Config`만이 파일에 대 한 올바른 파일 이름입니다. Azure Dev Spaces는 Docker 및 Linux를 사용 하므로이 파일의 이름을 `NuGet.Config`로 지정 해야 합니다. 이름을 수동으로 지정 하거나 `dotnet restore --configfile nuget.config`를 실행 하 여 수정할 수 있습니다.
 
 
-Git를 사용 하는 경우 버전 제어에서 NuGet 피드에 대 한 자격 증명을 사용 하지 않아야 합니다. 파일이 버전 제어에 추가 되지 않도록 프로젝트 `NuGet.Config` 의에를추가합니다.`.gitignore` `NuGet.Config` 컨테이너 이미지 빌드 프로세스 중에는이 파일이 필요 하지만 기본적으로는 동기화 하는 동안 및 `.gitignore` `.dockerignore` 에 정의 된 규칙을 Azure Dev Spaces 합니다. 기본값을 변경 하 고 Azure Dev Spaces `NuGet.Config` 파일을 동기화 할 수 있도록 허용 하려면 파일을 업데이트 합니다. `azds.yaml`
+Git를 사용 하는 경우 버전 제어에서 NuGet 피드에 대 한 자격 증명을 사용 하지 않아야 합니다. `NuGet.Config` 파일이 버전 제어에 추가 되지 않도록 프로젝트의 `.gitignore`에 `NuGet.Config`를 추가 합니다. Azure Dev Spaces는 컨테이너 이미지 빌드 프로세스 중에이 파일이 필요 하지만 기본적으로 `.gitignore` 및 `.dockerignore`에 정의 된 규칙을 동기화 중에 수행 합니다. 기본값을 변경 하 고 Azure Dev Spaces `NuGet.Config` 파일을 동기화 할 수 있도록 허용 하려면 `azds.yaml` 파일을 업데이트 합니다.
 
 ```yaml
 build:
 useGitIgnore: true
 ignore:
-- “!NuGet.Config”
+- "!NuGet.Config"
 ```
 
 Git를 사용 하지 않는 경우이 단계를 건너뛸 수 있습니다.
 
-다음에 Visual Studio Code 또는 Visual `azds up` Studio에서 `F5` 실행 되거나 적중 될 때 `NuGet.Config` 파일을 동기화 하면 패키지 종속성을 설치 하는 데 사용 Azure Dev Spaces.
+다음에 `azds up`를 실행 하거나 Visual Studio Code 또는 Visual Studio에서 `F5`를 누르면 Azure Dev Spaces는 `NuGet.Config` 파일을 동기화 하 여 패키지 종속성을 설치 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

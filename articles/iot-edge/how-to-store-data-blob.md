@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 7d504bae16b5b9b10debd916ef8888e90e79364e
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 55edc69e706fad8888146e9d97541a1c2bae821d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844176"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163808"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용 하 여에 지에 데이터 저장
 
@@ -39,7 +39,7 @@ IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft
 - 데이터를 업로드 하려는 Azure Storage 계정을 지정 합니다.
 - Azure에 업로드 하려는 컨테이너를 지정 합니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다.
 - 클라우드 저장소에 업로드가 완료 된 후 blob을 즉시 삭제할 수 있는 기능을 선택 합니다.
-- 전체 blob 업로드 (작업 사용 `Put Blob` ) 및 블록 수준 업로드 (및 `Put Block List` 작업 `Put Block` 사용)를 수행 합니다.
+- `Put Blob` 작업을 사용 하 여 전체 blob 업로드를 수행 하 고 `Put Block` 및 `Put Block List` 작업을 사용 하 여 블록 수준 업로드를 수행 합니다.
 
 이 모듈은 blob이 블록으로 구성 된 경우 블록 수준 업로드를 사용 합니다. 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
@@ -55,7 +55,7 @@ Blob을 업로드 하는 동안 예기치 않은 프로세스 종료 (예: 전�
 - DeleteAfterMinutes 값이 만료 되는 경우 업로드 하는 동안 blob을 유지 하는 기능을 선택 합니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Azure IoT Edge 디바이스:
 
@@ -73,37 +73,37 @@ Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
 ## <a name="devicetocloudupload-and-deviceautodelete-properties"></a>deviceToCloudUpload 및 deviceAutoDelete 속성
 
-모듈의 desired 속성을 사용 하 여 **deviceToCloudUploadProperties** 및 **deviceautodeleteproperties**를 설정 합니다. 원하는 속성은 배포 중에 설정 하거나 나중에 다시 배포할 필요 없이 모듈 쌍을 편집 하 여 변경할 수 있습니다. 값이 올바르게 전파 되도록 및 `reported configuration` `configurationValidation` 의 "모듈 쌍"을 확인 하는 것이 좋습니다.
+모듈의 desired 속성을 사용 하 여 **deviceToCloudUploadProperties** 및 **deviceautodeleteproperties**를 설정 합니다. 원하는 속성은 배포 중에 설정 하거나 나중에 다시 배포할 필요 없이 모듈 쌍을 편집 하 여 변경할 수 있습니다. `reported configuration`에 대 한 "모듈 쌍"을 확인 하 고 `configurationValidation` 값이 올바르게 전파 되는지 확인 하는 것이 좋습니다.
 
 ### <a name="devicetoclouduploadproperties"></a>deviceToCloudUploadProperties
 
-이 설정 `deviceToCloudUploadProperties`의 이름은입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
+이 설정의 이름은 `deviceToCloudUploadProperties`입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
 
-| 속성 | 가능한 값 | 설명 |
+| 자산 | 가능한 값 | 설명 |
 | ----- | ----- | ---- |
-| uploadOn | true, false | 기본적으로 `false` 로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 `true`설정 합니다. <br><br> 환경 변수:`deviceToCloudUploadProperties__uploadOn={false,true}` |
-| uploadOrder | NewestFirst, OldestFirst | 데이터를 Azure로 복사 하는 순서를 선택할 수 있습니다. 기본적으로 `OldestFirst` 로 설정 됩니다. 순서는 Blob의 마지막 수정 시간에 따라 결정 됩니다. <br><br> 환경 변수:`deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`데이터를 업로드 하려는 저장소 계정을 지정할 수 있는 연결 문자열입니다. , `Azure Storage Account Name` ,`Azure Storage Account Key` 를`End point suffix`지정 합니다. 데이터가 업로드 되는 Azure의 적절 한 EndpointSuffix를 추가 합니다 .이는 글로벌 Azure, 정부 Azure 및 Microsoft Azure Stack에 따라 달라 집니다. <br><br> 여기에서 Azure Storage SAS 연결 문자열을 지정 하도록 선택할 수 있습니다. 그러나 만료 될 때이 속성을 업데이트 해야 합니다. <br><br> 환경 변수:`deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려는 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면 컨테이너 이름이로 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`자동 할당 됩니다. 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들고 가능한 값 열을 체크 아웃할 수 있습니다. <br>*% h-> IoT Hub 이름 (3-50 자)입니다. <br>*% d-> IoT Edge 장치 ID (1 ~ 129 자)입니다. <br>*% m-> 모듈 이름 (1 ~ 64 자)입니다. <br>*% c-> 원본 컨테이너 이름 (3 ~ 63 자) <br><br>컨테이너 이름의 최대 크기는 63 자입니다. 컨테이너 크기가 63 자를 초과 하는 경우 대상 컨테이너 이름을 자동으로 할당 하는 동안 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName)은 15로 잘립니다. 자를. <br><br> 환경 변수:`deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
-| deleteAfterUpload | true, false | 기본적으로 `false` 로 설정 됩니다. 로 `true`설정 되 면 클라우드 저장소에 업로드가 완료 되 면 데이터가 자동으로 삭제 됩니다. <br><br> 환경 변수:`deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
+| uploadOn | true, false | 기본적으로 `false`로 설정 합니다. 이 기능을 설정 하려면이 필드를 `true`설정 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOn={false,true}` |
+| uploadOrder | NewestFirst, OldestFirst | 데이터를 Azure로 복사 하는 순서를 선택할 수 있습니다. 기본적으로 `OldestFirst`로 설정 합니다. 순서는 Blob의 마지막 수정 시간에 따라 결정 됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`은 데이터를 업로드 하려는 저장소 계정을 지정할 수 있는 연결 문자열입니다. `Azure Storage Account Name`, `Azure Storage Account Key``End point suffix`를 지정 합니다. 데이터가 업로드 되는 Azure의 적절 한 EndpointSuffix를 추가 합니다 .이는 글로벌 Azure, 정부 Azure 및 Microsoft Azure Stack에 따라 달라 집니다. <br><br> 여기에서 Azure Storage SAS 연결 문자열을 지정 하도록 선택할 수 있습니다. 그러나 만료 될 때이 속성을 업데이트 해야 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려는 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`으로 컨테이너 이름이 자동으로 할당 됩니다. 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들고 가능한 값 열을 체크 아웃할 수 있습니다. <br>*% h-> IoT Hub 이름 (3-50 자)입니다. <br>*% d-> IoT Edge 장치 ID (1 ~ 129 자)입니다. <br>*% m-> 모듈 이름 (1 ~ 64 자)입니다. <br>*% c-> 원본 컨테이너 이름 (3 ~ 63 자) <br><br>컨테이너 이름의 최대 크기는 63 자입니다. 컨테이너 크기가 63 자를 초과 하는 경우 대상 컨테이너 이름을 자동으로 할당 하는 동안 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName)은 15로 잘립니다. 자를. <br><br> 환경 변수: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
+| deleteAfterUpload | true, false | 기본적으로 `false`로 설정 합니다. `true`로 설정 된 경우 클라우드 저장소에 업로드가 완료 되 면 데이터가 자동으로 삭제 됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
 
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
-이 설정 `deviceAutoDeleteProperties`의 이름은입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
+이 설정의 이름은 `deviceAutoDeleteProperties`입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
 
-| 속성 | 가능한 값 | 설명 |
+| 자산 | 가능한 값 | 설명 |
 | ----- | ----- | ---- |
-| deleteOn | true, false | 기본적으로 `false` 로 설정 됩니다. 이 기능을 설정 하려면이 필드를로 `true`설정 합니다. <br><br> 환경 변수:`deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | 시간을 분 단위로 지정 합니다. 이 값이 만료 되 면 모듈에서 로컬 저장소의 blob을 자동으로 삭제 합니다. <br><br> 환경 변수:`deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
-| retainWhileUploading | true, false | 기본적으로로 `true`설정 되며, deleteAfterMinutes가 만료 되는 경우 클라우드 저장소에 업로드 하는 동안 blob을 유지 합니다. 로 `false` 설정할 수 있으며, deleteAfterMinutes 만료 되는 즉시 데이터를 삭제 합니다. 참고: 이 속성을 work로 설정 하려면 uploadOn를 true로 설정 해야 합니다. <br><br> 환경 변수:`deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
+| deleteOn | true, false | 기본적으로 `false`로 설정 합니다. 이 기능을 설정 하려면이 필드를 `true`설정 합니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__deleteOn={false,true}` |
+| deleteAfterMinutes | `<minutes>` | 시간을 분 단위로 지정 합니다. 이 값이 만료 되 면 모듈에서 로컬 저장소의 blob을 자동으로 삭제 합니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| retainWhileUploading | true, false | 기본적으로 `true`로 설정 되며, deleteAfterMinutes가 만료 되는 경우 클라우드 저장소에 업로드 하는 동안 blob이 유지 됩니다. `false`로 설정할 수 있으며, deleteAfterMinutes 만료 되는 즉시 데이터를 삭제 합니다. 참고:이 속성을 work로 설정 하려면 uploadOn를 true로 설정 해야 합니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
 ## <a name="using-smb-share-as-your-local-storage"></a>로컬 저장소로 SMB 공유 사용
 Windows 호스트에서이 모듈의 Windows 컨테이너를 배포할 때 로컬 저장소 경로로 SMB 공유를 제공할 수 있습니다.
 
 SMB 공유 및 IoT 장치가 상호 트러스트 된 도메인에 있는지 확인 합니다.
 
-PowerShell 명령을 실행 `New-SmbGlobalMapping` 하 여 Windows를 실행 하는 IoT 장치에서 로컬로 SMB 공유를 매핑할 수 있습니다.
+`New-SmbGlobalMapping` PowerShell 명령을 실행 하 여 Windows를 실행 하는 IoT 장치에서 로컬로 SMB 공유를 매핑할 수 있습니다.
 
 구성 단계는 다음과 같습니다.
 ```PowerShell
@@ -118,12 +118,12 @@ New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath
 
 IoT 장치의 사용자가 원격 SMB 공유에 대 한 읽기/쓰기를 수행할 수 있는지 확인 합니다.
 
-배포의 경우 값 `<storage mount>` 은 **G:/ContainerData: C:/BlobRoot**일 수 있습니다. 
+배포의 `<storage mount>` 값은 **G:/ContainerData: C:/BlobRoot**일 수 있습니다. 
 
 ## <a name="granting-directory-access-to-container-user-on-linux"></a>Linux에서 컨테이너 사용자에 게 디렉터리 액세스 권한 부여
 Linux 컨테이너에 대 한 만들기 옵션에서 저장소에 [볼륨 탑재](https://docs.docker.com/storage/volumes/) 를 사용한 경우 추가 단계를 수행 하지 않아도 되지만, [bind 탑재](https://docs.docker.com/storage/bind-mounts/) 를 사용 하는 경우 이러한 단계는 서비스를 올바르게 실행 하는 데 필요 합니다.
 
-최소 권한의 원칙에 따라 사용자가 작업을 수행 하는 데 필요한 최소 권한으로 사용자의 액세스 권한을 제한 합니다 .이 모듈에는 사용자 (이름: absie, ID: 11000) 및 사용자 그룹 (이름: absie, ID: 11000). 컨테이너가 **root** (기본 사용자 **루트**)로 시작 되는 경우 서비스는 낮은 권한 **absie** 사용자로 시작 됩니다. 
+최소 권한의 원칙에 따라 사용자가 작업을 수행 하는 데 필요한 최소 권한으로 사용자의 액세스 권한을 제한 합니다 .이 모듈에는 사용자 (이름: absie, ID: 11000) 및 사용자 그룹 (이름: absie, ID: 11000)이 포함 됩니다. 컨테이너가 **root** (기본 사용자 **루트**)로 시작 되는 경우 서비스는 낮은 권한 **absie** 사용자로 시작 됩니다. 
 
 이 동작은 서비스가 올바르게 작동 하는 데 매우 중요 한 호스트 경로 바인딩에 대 한 권한을 구성 합니다. 그렇지 않으면 서비스가 액세스 거부 오류로 인해 중단 됩니다. 디렉터리 바인딩에 사용 되는 경로는 컨테이너 사용자가 액세스할 수 있어야 합니다 (예: absie 11000). 호스트에서 아래 명령을 실행 하 여 컨테이너 사용자에 게 디렉터리에 대 한 액세스 권한을 부여할 수 있습니다.
 
@@ -137,11 +137,11 @@ sudo chmod -R 700 <blob-dir>
 `sudo chmod -R 700 /srv/containerdata `
 
 
-**Absie**이외의 사용자로 서비스를 실행 해야 하는 경우 배포 매니페스트의 "user" 속성 아래에서 createoptions에 사용자 지정 사용자 ID를 지정할 수 있습니다. 이러한 경우에는 기본 또는 루트 그룹 ID `0`를 사용 해야 합니다.
+**Absie**이외의 사용자로 서비스를 실행 해야 하는 경우 배포 매니페스트의 "user" 속성 아래에서 createoptions에 사용자 지정 사용자 ID를 지정할 수 있습니다. 이 경우 기본 또는 루트 그룹 ID `0`를 사용 해야 합니다.
 
 ```json
-“createOptions”: { 
-  “User”: “<custom user ID>:0” 
+"createOptions": { 
+  "User": "<custom user ID>:0" 
 } 
 ```
 이제 컨테이너 사용자에 게 디렉터리에 대 한 액세스 권한을 부여 합니다.
@@ -189,7 +189,7 @@ Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드�
 
 1. 연결 문자열을 사용 하 여 Azure Storage에 연결
 
-1. 연결 문자열 제공:`DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
+1. 연결 문자열 제공: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
 
 1. 연결 단계를 진행 합니다.
 
@@ -207,7 +207,7 @@ IoT Edge의 blob storage 모듈은 Azure Storage Sdk를 사용 하며, 블록 bl
 
 IoT Edge Azure Blob Storage에서 모든 Azure Blob Storage 작업을 지원 하지 않기 때문에이 섹션에는 각 작업의 상태가 나열 됩니다.
 
-### <a name="account"></a>계정
+### <a name="account"></a>계좌
 
 지원됨:
 
@@ -226,7 +226,7 @@ IoT Edge Azure Blob Storage에서 모든 Azure Blob Storage 작업을 지원 하
 
 - 컨테이너 만들기 및 삭제
 - 컨테이너 속성 및 메타데이터 가져오기
-- BLOB 나열
+- Blob 나열
 - 컨테이너 ACL 가져오기 및 설정
 - 컨테이너 메타데이터 설정
 
@@ -261,15 +261,21 @@ IoT Edge Azure Blob Storage에서 모든 Azure Blob Storage 작업을 지원 하
 
 - URL에서 블록 배치
 
+## <a name="event-grid-on-iot-edge-integration"></a>IoT Edge 통합 Event Grid
+> [!CAUTION]
+> IoT Edge에서 Event Grid와의 통합이 미리 보기 상태입니다.
+
+IoT Edge 모듈의이 Azure Blob Storage은 이제 IoT Edge의 Event Grid와의 통합을 제공 합니다. 이 통합에 대 한 자세한 내용은 자습서를 참조 하 여 [모듈을 배포 하 고 이벤트를 게시 하 고 이벤트 배달을 확인](../event-grid/edge/react-blob-storage-events-locally.md)하세요.
+
 ## <a name="release-notes"></a>릴리스 정보
 
 이 모듈에 대 한 [docker 허브의 릴리스 정보](https://hub.docker.com/_/microsoft-azure-blob-storage) 는 다음과 같습니다.
 
-## <a name="feedback"></a>사용자 의견
+## <a name="feedback"></a>피드백
 
 사용자 의견은이 모듈과 기능을 유용 하 고 사용 하기 쉽도록 하는 데 중요 합니다. 피드백을 공유 하 고 개선할 수 있는 방법을 알려주세요.
 
-다음에 연결할 수 있습니다.absiotfeedback@microsoft.com
+absiotfeedback@microsoft.com에 연결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

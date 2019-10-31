@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 021560f9538d2a95492ee04467e8733caa226eec
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 38d9a2dda945f3a9459aa8e3360012c6ef422608
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679415"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163308"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>Windows Virtual Desktop PowerShell
 
 Windows 가상 데스크톱과 함께 PowerShell을 사용 하는 경우 오류 및 문제를 해결 하려면이 문서를 사용 합니다. 원격 데스크톱 서비스 PowerShell에 대 한 자세한 내용은 [Windows 가상 데스크톱 PowerShell](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/)을 참조 하세요.
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 
 [Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요.
 
@@ -34,17 +34,17 @@ Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGr
 
 **원인:** 사용 된 사용자 이름이 다른 유형의 앱 그룹에 이미 할당 되었습니다. 동일한 세션 호스트 풀에서 원격 데스크톱 및 원격 앱 그룹에 사용자를 할당할 수 없습니다.
 
-**방법을** 사용자가 원격 앱과 원격 데스크톱이 모두 필요한 경우 다른 호스트 풀을 만들거나 원격 데스크톱에 대 한 사용자 액세스 권한을 부여 하 여 세션 호스트 VM에서 모든 응용 프로그램을 사용 하도록 허용 합니다.
+**해결 방법:** 사용자가 원격 앱과 원격 데스크톱이 모두 필요한 경우 다른 호스트 풀을 만들거나 원격 데스크톱에 대 한 사용자 액세스 권한을 부여 하 여 세션 호스트 VM에서 모든 응용 프로그램을 사용 하도록 허용 합니다.
 
-### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>오류: RdsAppGroupUser 명령-지정 된 UserPrincipalName가 원격 데스크톱 테 넌 트와 연결 된 Azure Active Directory에 없습니다.
+### <a name="error-add-rdsappgroupuser-command----the-specified-userprincipalname-doesnt-exist-in-the-azure-active-directory-associated-with-the-remote-desktop-tenant"></a>오류: RdsAppGroupUser 명령--지정 된 UserPrincipalName가 원격 데스크톱 테 넌 트와 연결 된 Azure Active Directory에 없습니다.
 
 ```PowerShell
-Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName “Desktop Application Group” -UserPrincipalName <UserPrincipalName>
+Add-RdsAppGroupUser -TenantName <TenantName> -HostPoolName <HostPoolName> -AppGroupName "Desktop Application Group" -UserPrincipalName <UserPrincipalName>
 ```
 
 **원인:** -UserPrincipalName로 지정 된 사용자는 Windows 가상 데스크톱 테 넌 트에 연결 된 Azure Active Directory에서 찾을 수 없습니다.
 
-**방법을** 다음 목록에서 항목을 확인 합니다.
+**해결 방법:** 다음 목록에서 항목을 확인 합니다.
 
 - 사용자가 Azure Active Directory와 동기화 됩니다.
 - 사용자가 B2C (business to consumer) 또는 B2B (기업 간) 상거래에 연결 되지 않았습니다.
@@ -58,7 +58,7 @@ Get-RdsDiagnosticActivities -ActivityId <ActivityId>
 
 **원인:** -tenantname 매개 변수
 
-**방법을** -Tenantname \<tenantname >를 사용 하 여 RdsDiagnosticActivities를 실행 합니다.
+**해결 방법:** RdsDiagnosticActivities 이름 \<TenantName >를 사용 하 여 Get-help를 실행 합니다.
 
 ### <a name="error-get-rdsdiagnosticactivities----the-user-isnt-authorized-to-query-the-management-service"></a>오류: RdsDiagnosticActivities--사용자에 게 관리 서비스를 쿼리할 수 있는 권한이 없습니다.
 
@@ -68,7 +68,7 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 
 **원인:** -Deployment 스위치를 사용 합니다.
 
-**해결 방법:** 배포 관리자만 배포 스위치를 사용할 수 있습니다. 이러한 관리자는 일반적으로 원격 데스크톱 서비스/Windows 가상 데스크톱 팀의 구성원입니다. -Deployment 스위치를-tenantname \<tenantname >로 바꿉니다.
+**해결 방법:** 배포 관리자만 배포 스위치를 사용할 수 있습니다. 이러한 관리자는 일반적으로 원격 데스크톱 서비스/Windows 가상 데스크톱 팀의 구성원입니다. -Deployment 스위치를-TenantName \<TenantName >으로 바꿉니다.
 
 ### <a name="error-new-rdsroleassignment----the-user-isnt-authorized-to-query-the-management-service"></a>오류: RdsRoleAssignment--사용자에 게 관리 서비스를 쿼리할 수 있는 권한이 없습니다.
 
@@ -90,6 +90,6 @@ Get-RdsDiagnosticActivities -Deployment -username <username>
 - Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration.md)을 참조 하세요.
 - Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [원격 데스크톱 클라이언트 연결](troubleshoot-client-connection.md)을 참조 하세요.
 - 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)을 참조 하세요.
-- 문제 해결 자습서를 진행하려면 [자습서: 리소스 관리자 템플릿 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)문제를 해결 합니다.
+- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)을 참조 하세요.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)를 참조하세요.

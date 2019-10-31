@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25ac894db42b2b5ee2612e2e3b2906bc2bffcc4c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 47ae7de87efd787b7d3cba14a33688c4b29637e6
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717394"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160715"
 ---
 # <a name="set-up-security-info-to-use-a-security-key-preview"></a>보안 키 (미리 보기)를 사용 하도록 보안 정보 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "68717394"
 > [!Note]
 > FIDO2 보안 키를 사용할 수 없는 경우 Microsoft Authenticator 앱 또는 Windows Hello와 같이 사용할 수 있는 다른 암호 없는 인증 방법이 있습니다. Microsoft Authenticator 앱에 대 한 자세한 내용은 [Microsoft Authenticator 앱 이란?](user-help-auth-app-overview.md)을 참조 하세요. Windows Hello에 대 한 자세한 내용은 [Windows hello 개요](https://www.microsoft.com/windows/windows-hello)를 참조 하세요.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 보안 키를 등록 하려면 다음 조건이 충족 되어야 합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "68717394"
 
 키를 사용 하 여 회사 또는 학교 계정에 로그인 하려면 보안 키를 만들고 고유한 PIN을 지정 해야 합니다. 계정에 최대 10 개의 키가 등록 되어 있을 수 있습니다. 
 
-1. 에서 https://myprofile.microsoft.com **내 프로필** 페이지로 이동 하 여 아직 로그인 하지 않았으면 로그인 합니다.
+1. https://myprofile.microsoft.com 에서 **내 프로필** 페이지로 이동 하 여 아직 로그인 하지 않았으면 로그인 합니다.
 
 2. **보안 정보**를 선택 하 **고 메서드 추가**를 선택한 다음 **방법 추가** 드롭다운 목록에서 **보안 키** 를 선택 합니다.
 
@@ -154,6 +154,6 @@ ms.locfileid: "68717394"
 
 - [Microsoft 규격 보안 키](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)에 대 한 자세한 정보.
 
-- 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정하거나 [회사 또는 학교 암호 재설정](user-help-reset-password.md) 문서의 단계를 수행합니다.
+- 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정하거나 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md) 문서의 단계를 수행합니다.
 
 - [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서에서 로그인 문제에 대한 문제 해결 팁 및 도움말을 확인합니다.

@@ -4,15 +4,15 @@ description: Azure의 Analysis Services 서버에서 데이터베이스 역할 �
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 426b69173994fc94a52ef0fcccb0dbc6315de14a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9d1f3387fcea732e002689a4cdeaaf1d50d8a56f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301139"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147002"
 ---
 # <a name="manage-database-roles-and-users"></a>데이터베이스 역할 및 사용자 관리
 
@@ -25,14 +25,14 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 *  **처리** - 사용자가 데이터베이스에서 프로세스 작업에 연결하고 수행할 수 있으며 model 데이터베이스 데이터를 분석할 수 있습니다.
 *  **읽기** - 사용자가 클라이언트 애플리케이션을 사용하여 model 데이터베이스 데이터에 연결하고 분석할 수 있습니다.
 
-테이블 형식 모델 프로젝트를 만들 때 SQL Server Data Tools (SSDT)에서 역할 관리자를 사용 하 여 역할을 만들고 해당 역할에 사용자 또는 그룹을 추가 합니다. 서버에 배포 된 경우 SSMS (SQL Server Management Studio), [Analysis Services PowerShell cmdlet](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)또는 Tmsl ( [Tabular Model Scripting Language](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) )을 사용 하 여 역할 및 사용자 멤버를 추가 하거나 제거 합니다.
+테이블 형식 모델 프로젝트를 만들 때 Visual Studio에서 역할 관리자를 사용 하 여 Analysis Services 프로젝트에 역할을 만들고 해당 역할에 사용자 또는 그룹을 추가 합니다. 서버에 배포 된 경우 SSMS (SQL Server Management Studio), [Analysis Services PowerShell cmdlet](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)또는 Tmsl ( [Tabular Model Scripting Language](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) )을 사용 하 여 역할 및 사용자 멤버를 추가 하거나 제거 합니다.
 
-**보안 그룹** 은 `MailEnabled` 속성을 `True`으로 설정 하 여 [메일을 사용](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) 해야 합니다. 전자 메일 주소를 기준으로 그룹을 지정 하는 경우 `obj:groupid@tenantid`을 사용 합니다.
+**보안 그룹** 은 `MailEnabled` 속성이 `True`로 설정 된 상태에서 [메일을 사용 하도록](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) 설정 되어야 합니다. 전자 메일 주소를 기준으로 그룹을 지정 하는 경우 `obj:groupid@tenantid`를 사용 합니다.
 
 
-## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>SSDT에서 역할 및 사용자를 추가하거나 관리하려면  
+## <a name="to-add-or-manage-roles-and-users-in-visual-studio"></a>Visual Studio에서 역할 및 사용자를 추가 하거나 관리 하려면  
   
-1.  SSDT > **테이블 형식 모델 탐색기**에서 **역할**을 마우스 오른쪽 단추로 클릭합니다.  
+1.  **테이블 형식 모델 탐색기**에서 **역할**을 마우스 오른쪽 단추로 클릭 합니다.  
   
 2.  **역할 관리자**에서 **새로 만들기**를 클릭합니다.  
   
@@ -47,7 +47,7 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
     |**없음**|멤버는 모델 스키마를 수정할 수 없으며 데이터를 쿼리할 수 없습니다.|  
     |**읽기**|멤버는 행 필터를 기반으로 데이터를 쿼리할 수 있지만 모델 스키마를 수정할 수 없습니다.|  
     |**읽기 및 처리**|멤버는 행 수준 필터를 기반으로 데이터를 쿼리하고 처리 및 모두 처리 작업을 실행할 수 있지만 모델 스키마를 수정할 수 없습니다.|  
-    |**처리**|멤버는 처리 및 모두 처리 작업을 실행할 수 있습니다. 모델 스키마를 수정할 수 없으며 데이터를 쿼리할 수 없습니다.|  
+    |**프로세스**|멤버는 처리 및 모두 처리 작업을 실행할 수 있습니다. 모델 스키마를 수정할 수 없으며 데이터를 쿼리할 수 없습니다.|  
     |**관리자**|멤버는 모델 스키마를 수정하고 모든 데이터를 쿼리할 수 있습니다.|   
   
 5.  만들려는 역할에 읽기 또는 읽기 및 처리 권한이 있는 경우 DAX 수식을 사용하여 행 필터를 추가할 수 있습니다. **행 필터** 탭을 클릭하고 테이블을 선택한 다음 **DAX 필터** 필드를 클릭하고 DAX 수식을 입력합니다.
@@ -139,9 +139,9 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
   
 |Table|DAX 식|  
 |-----------|--------------------|  
-|Region|=Region[Country]="USA"|  
+|지역|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
-|의|=Transactions[Year]=2016|  
+|트랜잭션|=Transactions[Year]=2016|  
   
  결과적으로 멤버는 고객이 USA에 있고, 제품 범주는 bicycles이며, 연도는 2016년인 데이터 행을 쿼리할 수 있습니다. 사용자는 이러한 권한을 부여하는 다른 역할의 멤버가 아닌 한 USA 외부의 거래, bicycles가 아닌 거래 또는 2016년에 수행되지 않은 거래를 쿼리할 수 없습니다.
   

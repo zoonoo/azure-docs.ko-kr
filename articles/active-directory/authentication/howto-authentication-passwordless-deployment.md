@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6996b6163c1d5a2a4747093743a937dfd9eb7d4f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5aab9d8c2b7993598c602ae6b730baff06d807e1
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933113"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73151637"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>암호 없는 인증 배포 완료
 
@@ -104,18 +104,27 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 
 FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설정 하려면 Windows 10에서 자격 증명 공급자 기능을 사용 하도록 설정 해야 합니다. 다음 두 가지 방법 중 하나로 사용 합니다.
 
-- [대상 Intune 배포를 통해 자격 증명 공급자 사용](howto-authentication-passwordless-security-key.md#enable-targeted-intune-deployment)
-   - Intune 배포는 Azure Active Directory 가입 된 컴퓨터에 권장 되는 옵션입니다.
-- [프로 비전 패키지를 통해 자격 증명 공급자 사용](howto-authentication-passwordless-security-key.md#enable-credential-provider-via-provisioning-package)
+- [Intune에서 자격 증명 공급자 사용](howto-authentication-passwordless-security-key-windows.md#enable-with-intune)
+   - Intune 배포를 권장 하는 옵션입니다.
+- [프로 비전 패키지를 사용 하 여 자격 증명 공급자 사용](howto-authentication-passwordless-security-key-windows.md#enable-with-a-provisioning-package)
    - Intune 배포를 수행할 수 없는 경우 관리자는 자격 증명 공급자 기능을 사용 하려면 각 컴퓨터에 패키지를 배포 해야 합니다. 다음 옵션 중 하나를 수행 하 여 패키지를 설치할 수 있습니다.
       - 그룹 정책 또는 System Center Configuration Manager (SCCM)
       - Windows 10 컴퓨터에 로컬 설치
+- [그룹 정책 자격 증명 공급자 사용](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
+   - 하이브리드 Azure AD 조인 장치에 대해서만 지원 됩니다.
+
+#### <a name="enable-on-premises-integration"></a>온-프레미스 통합 사용
+
+온-프레미스 리소스에 대 한 액세스를 사용 하도록 설정 하려면 [암호 없는 보안 키에서 온-프레미스 리소스에 로그인 (미리 보기)](howto-authentication-passwordless-security-key-on-premises.md) 문서의 단계를 수행 합니다.
+
+> [!IMPORTANT]
+> Windows 10 로그인에 대 한 FIDO2 보안 키를 활용 하려면 하이브리드 Azure AD 조인 장치에 대해서도 이러한 단계를 완료 해야 합니다.
 
 ### <a name="register-security-keys"></a>보안 키 등록
 
 사용자는 각각의 Azure Active Directory Windows 10 컴퓨터에 보안 키를 등록 해야 합니다.
 
-자세한 내용은 [FIDO2 보안 키의 사용자 등록 및 관리](howto-authentication-passwordless-security-key.md)를 참조 하세요.
+자세한 내용은 [FIDO2 보안 키의 사용자 등록 및 관리](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys)를 참조 하세요.
 
 ### <a name="licensing-for-passwordless-authentication"></a>암호 없는 인증에 대 한 라이선스
 
@@ -257,7 +266,7 @@ Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가 합니다.
 ### <a name="deploy-fido2-security-key-sign-in"></a>FIDO2 보안 키 로그인 배포
 
 [Azure AD에 대해 암호 없는 보안 키 로그인 사용](howto-authentication-passwordless-security-key.md) 문서의 단계를 수행 하 여 조직에서 FIDO2 보안 키를 암호 없는 인증 방법으로 사용 하도록 설정 합니다.
- 
+
 ### <a name="troubleshoot-phone-sign-in"></a>휴대폰 로그인 문제 해결
 
 | 시나리오 | 솔루션 |

@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: aed716b01fe748be40ee22e3eba5742983c2a523
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: dfbe7e607395006f9bd7da0be0d5673353e2801f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620924"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162602"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Stream Analytics 지리 공간적 함수 소개
 
@@ -27,7 +27,7 @@ Azure Stream Analytics의 지리 공간적 함수를 사용하여 지리 공간�
 * 지오-펜싱
 * 셀 사이트 간 전화 추적
 
-Stream Analytics 쿼리 언어에는 기본 제공되는 7개의 지리 공간적 함수가 있습니다. 즉, **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS** 및 **ST_WITHIN**입니다.
+Stream Analytics 쿼리 언어는 7개의 기본 제공 지리 공간적 함수인 **CreateLineString**, **CreatePoint**, **CreatePolygon**, **ST_DISTANCE**, **ST_OVERLAPS**, **ST_INTERSECTS**, **ST_WITHIN**을 제공합니다.
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -43,7 +43,7 @@ FROM input
 
 ### <a name="input-example"></a>입력 예제  
   
-|위도(latitude)|경도(longitude)|  
+|latitude|longitude|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  
@@ -70,7 +70,7 @@ FROM input
 
 ### <a name="input-example"></a>입력 예제  
   
-|위도(latitude)|경도(longitude)|  
+|latitude|longitude|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  
@@ -97,7 +97,7 @@ FROM input
 
 ### <a name="input-example"></a>입력 예제  
   
-|위도(latitude)|경도(longitude)|  
+|latitude|longitude|  
 |--------------|---------------|  
 |3.0|-10.2|  
 |-87.33|20.2321|  
@@ -111,7 +111,7 @@ FROM input
 자세한 내용은 [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon) 참조를 참조하세요.
 
 
-## <a name="stdistance"></a>ST_DISTANCE
+## <a name="st_distance"></a>ST_DISTANCE
 `ST_DISTANCE` 함수는 두 점 사이의 거리(미터)를 반환합니다. 
 
 다음 쿼리는 `ST_DISTANCE`를 사용하여 주유소가 자동차로부터 10km 이내 거리에 있을 때 이벤트를 생성합니다.
@@ -124,7 +124,7 @@ JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 
 자세한 내용은 [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance) 참조를 참조하세요.
 
-## <a name="stoverlaps"></a>ST_OVERLAPS
+## <a name="st_overlaps"></a>ST_OVERLAPS
 `ST_OVERLAPS` 함수는 두 다각형을 비교합니다. 다각형이 겹치면 이 함수는 1을 반환합니다. 다각형이 겹치지 않으면 이 함수는 0을 반환합니다. 
 
 다음 쿼리는 `ST_OVERLAPS`를 사용하여 건물이 홍수 범람 가능 구역 내에 있을 때 이벤트를 생성합니다.
@@ -145,7 +145,7 @@ JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 
 자세한 내용은 [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps) 참조를 참조하세요.
 
-## <a name="stintersects"></a>ST_INTERSECTS
+## <a name="st_intersects"></a>ST_INTERSECTS
 `ST_INTERSECTS` 함수는 두 LineString을 비교합니다. LineString이 교차하면 이 함수는 1을 반환합니다. LineString이 교차하지 않으면 이 함수는 0을 반환합니다.
 
 다음 예제 쿼리를 `ST_INTERSECTS`를 사용하여 포장된 도로가 비포장 도로와 교차하는지를 확인합니다.
@@ -160,8 +160,8 @@ FROM input
   
 |datacenterArea|stormArea|  
 |--------------------|---------------|  
-|{“type”:”LineString”, “coordinates”: [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{“type”:”LineString”, “coordinates”: [ [0.0, 10.0], [0.0, 0.0], [0.0, -10.0] ]}|  
-|{“type”:”LineString”, “coordinates”: [ [-10.0, 0.0], [0.0, 0.0], [10.0, 0.0] ]}|{“type”:”LineString”, “coordinates”: [ [-10.0, 10.0], [0.0, 10.0], [10.0, 10.0] ]}|  
+|{"type": "LineString", "좌표": [[-10.0, 0.0], [0.0, 0.0], [10.0, 0.0]]}|{"type": "LineString", "좌표": [[0.0, 10.0], [0.0, 0.0], [0.0,-10.0]]}|  
+|{"type": "LineString", "좌표": [[-10.0, 0.0], [0.0, 0.0], [10.0, 0.0]]}|{"type": "LineString", "좌표": [[-10.0, 10.0], [0.0, 10.0], [10.0, 10.0]]}|  
   
 ### <a name="output-example"></a>출력 예제  
 
@@ -171,7 +171,7 @@ FROM input
 
 자세한 내용은 [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects) 참조를 참조하세요.
 
-## <a name="stwithin"></a>ST_WITHIN
+## <a name="st_within"></a>ST_WITHIN
 `ST_WITHIN` 함수는 점 또는 다각형이 다각형 내에 있는지 여부를 확인합니다. 다각형 안에 점 또는 다각형이 포함되어 있으면 이 함수는 1을 반환합니다. 점 또는 다각형이 선언된 다각형 내에 있지 않으면 이 함수는 0을 반환합니다.
 
 다음 예제 쿼리는 `ST_WITHIN`을 사용하여 배송 목적지가 지정된 창고 다각형 내에 있는지 여부를 확인합니다.
@@ -186,8 +186,8 @@ FROM input
   
 |deliveryDestination|warehouse|  
 |-------------------------|---------------|  
-|{“type”:”Point”, “coordinates”: [76.6, 10.1]}|{“type”:”Polygon”, “coordinates”: [ [0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 10.0], [0.0, 0.0] ]}|  
-|{“type”:”Point”, “coordinates”: [15.0, 15.0]}|{“type”:”Polygon”, “coordinates”: [ [10.0, 10.0], [20.0, 10.0], [20.0, 20.0], [10.0, 20.0], [10.0, 10.0] ]}|  
+|{"type": "Point", "좌표": [76.6, 10.1]}|{"type": "Polygon", "좌표": [[0.0, 0.0], [10.0, 0.0], [10.0, 10.0], [0.0, 10.0], [0.0, 0.0]]}|  
+|{"type": "Point", "좌표": [15.0, 15.0]}|{"type": "Polygon", "좌표": [[10.0, 10.0], [20.0, 10.0], [20.0, 20.0], [10.0, 20.0], [10.0, 10.0]]}|  
   
 ### <a name="output-example"></a>출력 예제  
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dc55615d7a5c6ae9a393ed4fd5f49cd92aedc0f9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811606"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162571"
 ---
 # <a name="u-sql-programmability-guide"></a>U-SQL 프로그래밍 기능 가이드
 
@@ -133,9 +133,9 @@ REFERENCE ASSEMBLY MyDB.[MyAssembly];
 
 업로드된 각 어셈블리 DLL, 리소스 파일(예: 다양한 런타임), 네이티브 어셈블리 또는 구성 파일의 크기는 최대 400MB입니다. DEPLOY RESOURCE를 통해 또는 참조 어셈블리를 통해 배포된 리소스 및 추가 파일의 총 크기는 3GB를 초과할 수 없습니다.
 
-마지막으로 U-SQL 데이터베이스마다 지정된 어셈블리 버전을 하나만 포함할 수 있습니다. 예를 들어 버전 7과 버전 8 NewtonSoft Json.NET 라이브러리의 모두, 필요 하면 서로 다른 두 데이터베이스에 등록 해야 합니다. 또한 각 스크립트는 지정된 어셈블리 DLL의 한 가지 버전만 참조할 수 있습니다. 이러한 점에서 U-SQL은 C# 어셈블리 관리 및 버전 관리 의미 체계를 따릅니다.
+마지막으로 U-SQL 데이터베이스마다 지정된 어셈블리 버전을 하나만 포함할 수 있습니다. 예를 들어 Newtonsoft.json Json.NET 라이브러리의 버전 7과 버전 8이 모두 필요한 경우 두 개의 다른 데이터베이스에 등록 해야 합니다. 또한 각 스크립트는 지정된 어셈블리 DLL의 한 가지 버전만 참조할 수 있습니다. 이러한 점에서 U-SQL은 C# 어셈블리 관리 및 버전 관리 의미 체계를 따릅니다.
 
-## <a name="use-user-defined-functions-udf"></a>다음 사용자 정의 함수를 사용합니다. UDF
+## <a name="use-user-defined-functions-udf"></a>UDF(사용자 정의 함수) 사용
 U-SQL UDF(사용자 정의 함수)는 매개 변수를 받아들이고, 작업(예: 복잡한 계산)을 수행하며, 해당 작업의 결과를 값으로 반환하는 프로그래밍 루틴입니다. UDF의 반환 값은 단지 단일 스칼라일 수 있습니다. U-SQL UDF는 다른 C# 스칼라 함수와 같이 U-SQL 기본 스크립트에서 호출할 수 있습니다.
 
 U-SQL 사용자 정의 함수는 **public** 및 **static**으로 초기화하는 것이 좋습니다.
@@ -426,7 +426,7 @@ OUTPUT @rs2
 
 이 예제는 전체 메모리 행 집합에 적용된 코드 숨김 섹션 내부에 전역 변수를 사용하는 보다 세밀한 사용 사례 시나리오를 보여줍니다.
 
-## <a name="use-user-defined-types-udt"></a>다음 사용자 정의 형식을 사용합니다. UDT
+## <a name="use-user-defined-types-udt"></a>UDT(사용자 정의 형식) 사용
 UDT(사용자 정의 형식)는 U-SQL의 또 다른 프로그래밍 기능입니다. U-SQL UDT는 일반 C# 사용자 정의 형식처럼 작동합니다. C#는 기본 제공 및 사용자 지정 UDT를 사용할 수 있는 강력한 형식의 언어입니다.
 
 U-SQL은 UDT가 행 집합의 꼭짓점 간에 전달되는 동안 임의의 UDT를 암시적으로 직렬화하거나 역직렬화할 수 없습니다. 다시 말해 사용자가 IFormatter 인터페이스를 사용하여 명시적인 포맷터를 제공해야 합니다. 이렇게 하면 U-SQL에 UDT에 대한 직렬화 및 역직렬화 메서드가 제공됩니다.
@@ -533,7 +533,7 @@ public class MyTypeFormatter : IFormatter<MyType>
 
 * **Serialize**: 제공된 스트림에 지정된 루트를 사용하여 개체 또는 개체 그래프를 직렬화합니다.
 
-`MyType` 인스턴스: 해당 형식 인스턴스입니다.  
+`MyType` instance: 해당 형식 인스턴스입니다.  
 `IColumnWriter` writer / `IColumnReader` reader: 기본 열 스트림입니다.  
 `ISerializationContext` context: 직렬화하는 동안 스트림에 대한 원본 또는 대상 컨텍스트를 지정하는 플래그 집합을 정의하는 열거형입니다.
 
@@ -895,7 +895,7 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-## <a name="use-user-defined-aggregates-udagg"></a>다음 사용자 정의 집계를 사용합니다. UDAGG
+## <a name="use-user-defined-aggregates-udagg"></a>UDAGG(사용자 정의 집계) 사용
 UDAGG(사용자 정의 집계)는 U-SQL에 제공되지 않는 집계 관련 함수입니다. 예제에는 사용자 지정 수학 계산, 문자열 연결 또는 문자열 조작 등을 수행하는 집계가 포함됩니다.
 
 UDAGG(사용자 정의 집계) 기본 클래스 정의는 다음과 같습니다.
@@ -946,16 +946,16 @@ public abstract class IAggregate<T1, T2, TResult> : IAggregate
 ```
 
 * T1: Accumulate의 첫 번째 매개 변수
-* T2: Accumulate의 두 번째 매개 변수
+* T2: 누적 시킬 두 번째 매개 변수
 * TResult: Terminate의 반환 형식
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```
 public class GuidAggregate : IAggregate<string, int, int>
 ```
 
-또는
+or
 
 ```
 public class GuidAggregate : IAggregate<string, string, string>
@@ -1025,7 +1025,7 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 
 이 사용 사례 시나리오에서는 특정 사용자에 대한 GUID 클래스를 연결합니다.
 
-## <a name="use-user-defined-objects-udo"></a>다음 사용자 정의 개체를 사용합니다. UDO
+## <a name="use-user-defined-objects-udo"></a>UDO(사용자 정의 개체) 사용
 U-SQL을 사용하면 UDO(사용자 정의 개체)라는 사용자 지정 프로그래밍 기능 개체를 정의할 수 있습니다.
 
 U-SQL의 UDO 목록은 다음과 같습니다.
@@ -1057,7 +1057,7 @@ UDO는 일반적으로 다음 U-SQL 문의 일부로 U-SQL 스크립트에서 �
 
 * EXTRACT
 * OUTPUT
-* PROCESS
+* 프로세스
 * COMBINE
 * REDUCE
 
@@ -1788,13 +1788,13 @@ OUTPUT @rs1 TO @output_file USING Outputters.Text();
 사용자 정의 적용자는 applier 개체의 새 인스턴스로 호출될 수 있습니다.
 
 ```
-CROSS APPLY new MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
+CROSS APPLY new MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
 또는 래퍼 팩터리 메서드 호출을 통해 호출될 수 있습니다.
 
 ```csharp
-    CROSS APPLY MyNameSpace.MyApplier (parameter: “value”) AS alias([columns types]…);
+    CROSS APPLY MyNameSpace.MyApplier (parameter: "value") AS alias([columns types]…);
 ```
 
 ## <a name="use-user-defined-combiners"></a>사용자 정의 결합자 사용

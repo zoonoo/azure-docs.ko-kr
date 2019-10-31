@@ -4,15 +4,15 @@ description: Azure Analysis Services 작업을 자동화하기 위해 서비스 
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/23/2019
+ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 94f1313825b21b3adf7173b56798fce22736ea87
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a590590faa422d47306e697a7c90bb635ea8c6e9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294570"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146367"
 ---
 # <a name="automation-with-service-principals"></a>서비스 사용자를 사용한 자동화
 
@@ -27,7 +27,7 @@ Analysis Services에서 서비스 사용자는 일반적인 작업을 자동화�
 서비스 사용자는 Azure Portal에서 또는 PowerShell을 사용하여 만들 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 [서비스 사용자 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
-[서비스 사용자 만들기 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+[서비스 주체 만들기 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Azure Automation에서 자격 증명 및 인증서 자산 저장
 
@@ -48,7 +48,7 @@ UPN과 거의 동일하게 서비스 사용자 appID 및 암호 또는 인증서
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>Microsoft.analysisservices.sharepoint.integration.dll 모듈을 사용 하 여 @no__t
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a>Microsoft.analysisservices.sharepoint.integration.dll 모듈을 사용 하 여 <a name="azmodule" />
 
 [Microsoft.analysisservices.sharepoint.integration.dll](/powershell/module/az.analysisservices) 모듈을 사용 하 여 리소스 관리 작업에 서비스 주체를 사용 하는 경우 `Connect-AzAccount` cmdlet을 사용 합니다. 
 

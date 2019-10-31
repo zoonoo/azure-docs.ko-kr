@@ -4,15 +4,15 @@ description: PowerShell 사용한 Azure Analysis Services 관리입니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: reference
-ms.date: 07/01/2019
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: bfe1bfc2828347e34fa92564c26d005998e14ece
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 329ea51895c45c8cdf50a323328fac3c580ffc16
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294739"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146231"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>PowerShell을 사용하여 Azure Analysis Services 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "72294739"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 대부분의 PowerShell 작업에는 관리하는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 예약된 PowerShell 작업은 무인 작업입니다. 스케줄러를 실행하는 계정 또는 서비스 주체에게는 Analysis Services 서버에 대해 관리자 권한이 있어야 합니다. 
 
@@ -30,7 +30,7 @@ Azure PowerShell cmdlet을 사용 하는 서버 작업의 경우 스케줄러를
 
 ## <a name="resource-and-server-operations"></a>리소스 및 서버 작업 
 
-Install module- [Az. microsoft.analysisservices.sharepoint.integration.dll](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
+설치 모듈- [Az. microsoft.analysisservices.sharepoint.integration.dll](https://www.powershellgallery.com/packages/Az.AnalysisServices)   
 설명서- [Az. microsoft.analysisservices.sharepoint.integration.dll reference](/powershell/module/az.analysisservices)
 
 ## <a name="database-operations"></a>데이터베이스 작업

@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: e2c061b69771214a770b3b42626d28672bd9fe77
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 22806f497283c1885446eadd5f444dacf3769c12
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72297816"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163334"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>캐나다 연방 PMM 청사진 샘플 배포
 
@@ -37,10 +37,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 샘플의 _기본 사항_을 입력합니다.
 
-   - **청사진 이름**: 청사진 샘플 사본의 이름을 지정합니다.
-   - **정의 위치**: 줄임표를 사용하고 샘플 사본을 저장할 관리 그룹을 선택합니다.
+   - **청사진 이름**: 청사진 샘플의 복사본에 대 한 이름을 제공 합니다.
+   - **정의 위치**: 줄임표를 사용 하 고 관리 그룹을 선택 하 여 샘플의 복사본을에 저장 합니다.
 
-1. 페이지 위쪽의 _아티팩트_ 탭 또는 페이지 아래쪽의 **다음: 아티팩트**를 선택합니다.
+1. 페이지 맨 아래에 있는 아티팩트 탭을 선택 하거나 페이지 맨 아래에 있는 **아티팩트** 를 _선택 합니다._
 
 1. 청사진 샘플을 구성하는 아티팩트 목록을 검토합니다. 아티팩트 대부분에 매개 변수는 나중에 정의할 것입니다. 청사진 샘플 검토가 끝나면 **초안 저장**을 선택합니다.
 
@@ -64,15 +64,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 정의 페이지 위쪽에서 **청사진 할당**을 선택합니다.
 
-1. 청사진 할당의 매개 변수 값을 지정합니다.
+1. 청사진 할당의 매개 변수 값을 다음과 같이 지정합니다.
 
    - 기본 사항
 
-     - **구독**: 청사진 샘플 사본을 저장한 관리 그룹에 있는 하나 이상의 구독을 선택합니다. 둘 이상의 구독을 선택하면 입력한 매개 변수를 사용하여 각 구독의 할당이 생성됩니다.
-     - **할당 이름**: 청사진의 이름에 따라 이 이름이 미리 채워집니다.
+     - **구독**: 청사진 샘플의 복사본을 저장 한 관리 그룹에 있는 하나 이상의 구독을 선택 합니다. 둘 이상의 구독을 선택하면 입력한 매개 변수를 사용하여 각 구독의 할당이 생성됩니다.
+     - **할당 이름**: 청사진의 이름을 기준으로 이름이 미리 채워집니다.
        필요에 따라 변경하거나 그대로 둡니다.
-     - **Location**: 관리 ID를 만들 지역을 선택합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
-     - **청사진 정의 버전**: 청사진 샘플 사본의 **게시됨** 버전을 선택합니다.
+     - **위치**: 만들 관리 id의 지역을 선택 합니다. Azure Blueprints는 이 관리 ID를 사용하여 할당된 청사진의 모든 아티팩트를 배포합니다. 자세히 알아보려면 [Azure 리소스의 관리 ID](../../../../active-directory/managed-identities-azure-resources/overview.md)를 참조하세요.
+     - **청사진 정의 버전**: 청사진 샘플 복사본의 **게시** 된 버전을 선택 합니다.
 
    - 할당 잠금
 
@@ -98,16 +98,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
 |-|-|-|-|
 |\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |Linux VM용 Log Analytics 작업 영역 |자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. |
-|\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Linux OS를 지원하는 VM 이미지 목록 |빈 배열은 선택적 매개 변수가 없음을 나타내는 데 사용 될 수 있습니다. `[]` |
-|\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Windows OS를 지원하는 VM 이미지 목록 |빈 배열은 선택적 매개 변수가 없음을 나타내는 데 사용 될 수 있습니다. `[]` |
+|\[미리 보기\]: Linux VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Linux OS가 지원 되는 VM 이미지 목록 |빈 배열은 선택적 매개 변수가 없음을 나타내는 데 사용 될 수 있습니다. `[]` |
+|\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |선택 사항: 범위에 추가할 Windows OS가 지원 되는 VM 이미지 목록 |빈 배열은 선택적 매개 변수가 없음을 나타내는 데 사용 될 수 있습니다. `[]` |
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |Windows VM용 Log Analytics 작업 영역 |자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. |
-|\[미리 보기\]: 캐나다 연방 PMM 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |VM을 구성해야 하는 Log Analytics 작업 영역 ID |VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다. |
-|\[미리 보기\]: 캐나다 연방 PMM 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |진단 로그를 사용해야 하는 리소스 종류 목록 |진단 로그 설정이 사용 하도록 설정 되지 않은 경우 감사할 리소스 종류 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다. |
-|\[미리 보기\]: 캐나다 연방 PMM 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Administrators 그룹 |그룹. 예: `Administrator; myUser1; myUser2` |
-|\[미리 보기\]: 캐나다 연방 PMM 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Windows VM 관리자 그룹에 포함해야 하는 사용자 목록 |관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: `Administrator; myUser1; myUser2` |
+|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |VM을 구성해야 하는 Log Analytics 작업 영역 ID |VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다. |
+|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |진단 로그를 사용해야 하는 리소스 종류 목록 |진단 로그 설정이 사용 하도록 설정 되지 않은 경우 감사할 리소스 종류 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다. |
+|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Administrators 그룹 |그룹. 예: `Administrator; myUser1; myUser2` |
+|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Windows VM 관리자 그룹에 포함해야 하는 사용자 목록 |관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: `Administrator; myUser1; myUser2` |
 |스토리지 계정에 Advanced Threat Protection 배포 |정책 할당 |영향 |정책 효과에 대 한 정보는 [Azure Policy 효과 이해](../../../policy/concepts/effects.md)에서 확인할 수 있습니다. |
 |SQL Server에 감사 배포 |정책 할당 |보존 기간 값(일)(0은 보존 기간에 제한이 없음을 표시) |보존 일 수 (선택 사항, 지정 되지 않은 경우 _180_ 일) |
-|SQL Server에 감사 배포 |정책 할당 |SQL Server 감사를 위한 스토리지 계정의 리소스 그룹 이름 |감사는 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 씁니다. 저장소 계정은 해당 지역의 모든 서버에서 공유 하는 SQL Server 생성 된 각 지역에서 만들어집니다. 중요-감사를 적절 하 게 수행 하려면 리소스 그룹 또는 저장소 계정을 삭제 하거나 이름을 변경 하지 마십시오. |
+|SQL Server에 감사 배포 |정책 할당 |SQL 서버 감사를 위한 스토리지 계정의 리소스 그룹 이름 |감사는 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 씁니다. 저장소 계정은 해당 지역의 모든 서버에서 공유 하는 SQL Server 생성 된 각 지역에서 만들어집니다. 중요-감사를 적절 하 게 수행 하려면 리소스 그룹 또는 저장소 계정을 삭제 하거나 이름을 변경 하지 마십시오. |
 |네트워크 보안 그룹에 대한 진단 설정 배포 |정책 할당 |네트워크 보안 그룹 진단을 위한 스토리지 계정 접두사 |이 접두사는 생성 된 저장소 계정 이름을 구성 하기 위해 네트워크 보안 그룹 위치와 결합 됩니다. |
 |네트워크 보안 그룹에 대한 진단 설정 배포 |정책 할당 |네트워크 보안 그룹 진단을 위한 스토리지 계정의 리소스 그룹 이름(있어야 함) |저장소 계정이 만들어진 리소스 그룹입니다. 이 리소스 그룹은 이미 있어야 합니다. |
 
@@ -116,10 +116,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이제 캐나다 연방 PMM 샘플을 배포 하는 단계를 검토 했으므로 다음 문서를 방문 하 여 개요 및 컨트롤 매핑에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
-> [캐나다 연방 PMM 청사진-개요](./index.md)
+> [캐나다 연방 pmm 청사진-개요](./index.md)
 > [캐나다 연방 Pmm 청사진-제어 매핑](./control-mapping.md)
 
-청사진 및 사용 방법에 대한 추가 문서:
+청사진 및 사용 방법에 대 한 추가 문서입니다.
 
 - [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해

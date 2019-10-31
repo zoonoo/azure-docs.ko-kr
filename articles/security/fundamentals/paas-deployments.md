@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/06/2019
+ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 67a34b2b0a997a118cb2fe1b99de04bd58063307
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: ddcf5a1df31b4b36e25b2522ada21deab19fe032
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999056"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159882"
 ---
-# <a name="securing-paas-deployments"></a>PaaS 배포 보안
+# <a name="securing-paas-deployments"></a>PaaS 배포 보호
 
 이 문서에서 제공하는 유용한 정보는 다음과 같습니다.
 
@@ -34,28 +34,14 @@ ms.locfileid: "70999056"
 [Azure에서 보안 응용 프로그램을 개발](abstract-develop-secure-apps.md) 하는 것은 클라우드 용 응용 프로그램을 개발할 때 소프트웨어 개발 수명 주기의 각 단계에서 고려해 야 하는 보안 질문 및 제어에 대 한 일반적인 지침입니다.
 
 ## <a name="cloud-security-advantages"></a>클라우드 보안 이점
-클라우드에 해당하는 보안 이점이 있습니다. 온-프레미스 환경에서 조직은 충족되지 않은 책임과 제한된 리소스를 보안에 투자할 가능성이 높으며, 이로 인해 공격자가 모든 계층의 취약점을 악용할 수 있는 환경이 만들어집니다.
+사용자와 Microsoft 간의 [책임 구분](shared-responsibility.md) 을 이해 하는 것이 중요 합니다. 온-프레미스에서는 전체 스택을 가지고 있지만 클라우드로 이동할 때 일부 책임이 Microsoft로 이전됩니다.
 
-![클라우드 시대의 보안 이점](./media/paas-deployments/advantages-of-cloud.png)
+클라우드에 있는 [보안상의 이점이](shared-responsibility.md#cloud security advantages)있습니다. 온-프레미스 환경에서 조직은 충족되지 않은 책임과 제한된 리소스를 보안에 투자할 가능성이 높으며, 이로 인해 공격자가 모든 계층의 취약점을 악용할 수 있는 환경이 만들어집니다.
 
 조직에서는 공급자의 클라우드 기반 보안 기능 및 클라우드 인텔리전스를 사용하여 위협 요소 탐지 및 응답 시간을 향상시킬 수 있습니다.  조직은 클라우드 공급자에 책임을 전가함으로써 보안 적용 범위를 더 넓힐 수 있으며, 보안 리소스와 예산을 다른 비즈니스 우선 순위에 다시 할당할 수 있습니다.
 
-## <a name="division-of-responsibility"></a>책임 분담
-사용자와 Microsoft 간의 책임 분담을 이해해야 합니다. 온-프레미스에서는 전체 스택을 가지고 있지만 클라우드로 이동할 때 일부 책임이 Microsoft로 이전됩니다. 다음 책임 매트릭스에서는 사용자와 Microsoft가 책임을 지는 SaaS, PaaS 및 IaaS 배포의 스택 영역을 보여 줍니다.
-
-![책임 영역](./media/paas-deployments/responsibility-zones.png)
-
-모든 클라우드 배포 유형에 대해 사용자는 고유의 데이터와 ID를 소유합니다. 사용자는 자신이 제어하는 데이터 및 ID 보안, 온-프레미스 리소스 및 클라우드 구성 요소(서비스 유형에 따라 다름)의 보안을 보호하는 데 책임이 있습니다.
-
-배포 유형에 관계 없이 사용자가 항상 책임을 지는 영역은 다음과 같습니다.
-
-- 보기
-- 엔드포인트
-- 계좌
-- 액세스 관리
-
 ## <a name="security-advantages-of-a-paas-cloud-service-model"></a>PaaS 클라우드 서비스 모델의 보안 이점
-동일한 책임 매트릭스를 사용하여 Azure PaaS 배포와 온-프레미스 배포 간의 보안 이점을 비교해 보겠습니다.
+Azure PaaS 배포와 온-프레미스의 보안 이점을 살펴보겠습니다.
 
 ![PaaS의 보안 이점](./media/paas-deployments/advantages-of-paas.png)
 
@@ -63,7 +49,7 @@ Microsoft는 물리적 인프라인 스택 맨 아래부터 시작하여 일반�
 
 스택 중간에 수행되는 PaaS 배포와 온-프레미스 배포 간에는 차이가 없습니다. 유사한 위험이 애플리케이션 계층과 계정/액세스 관리 계층에도 있습니다. 이 문서의 다음 단계 섹션에서는 이러한 위험을 제거하거나 최소화하는 모범 사례로 안내합니다.
 
-스택 맨 위에는 데이터 관리와 권한 관리가 있으며 키 관리를 통해 완화될 수 있는 위험이 하나 있습니다. (키 관리는 모범 사례에서 설명합니다.) 키 관리는 추가적인 책임이지만 더 이상 관리할 필요가 없는 PaaS 배포 영역이 있으므로 리소스를 키 관리로 이동할 수 있습니다.
+스택 맨 위에는 데이터 관리와 권한 관리가 있으며 키 관리를 통해 완화될 수 있는 위험이 하나 있습니다. (키 관리는 모범 사례에서 설명 합니다.) 키 관리는 추가 책임 이지만, 더 이상 관리 하지 않아도 되는 PaaS 배포 영역이 있으므로 리소스를 키 관리로 전환할 수 있습니다.
 
 또한 Azure 플랫폼은 다양한 네트워크 기반 기술을 사용하여 강력한 DDoS 보호 기능을 제공합니다. 하지만 모든 유형의 네트워크 기반 DDoS 보호 방법에는 링크별 및 데이터 센터별로 제한이 있습니다. 대규모 DDoS 공격의 영향을 피하기 위해 Azure의 핵심 클라우드 기능을 활용하여 DDoS 공격으로부터 자동으로 신속하게 확장할 수 있습니다. 권장 사례 항목에서 이 작업을 수행하는 방법에 대해 자세히 설명하겠습니다.
 
@@ -88,7 +74,7 @@ PaaS 배포와 기존 온-프레미스 배포 간의 또 다른 중요한 차이
 ID 경계 관리를 위한 모범 사례는 다음과 같습니다.
 
 **모범 사례**: 키와 자격 증명을 안전하게 보관하여 PaaS 배포를 보호합니다.   
-**세부 정보**: 키와 자격 증명을 잃어 버리는 것은 일반적인 문제입니다. 키와 암호를 Hsm (하드웨어 보안 모듈)에 저장할 수 있는 중앙 집중화 된 솔루션을 사용할 수 있습니다. [Azure Key Vault](../../key-vault/key-vault-overview.md) 는 hsm으로 보호 되는 키를 사용 하 여 인증 키, 저장소 계정 키, 데이터 암호화 키, .pfx 파일 및 암호를 암호화 하 여 키와 비밀을 보호 합니다.
+**세부 정보**: 키와 자격 증명 분실은 흔히 발생하는 문제입니다. 키와 암호를 Hsm (하드웨어 보안 모듈)에 저장할 수 있는 중앙 집중화 된 솔루션을 사용할 수 있습니다. [Azure Key Vault](../../key-vault/key-vault-overview.md) 는 hsm으로 보호 되는 키를 사용 하 여 인증 키, 저장소 계정 키, 데이터 암호화 키, .pfx 파일 및 암호를 암호화 하 여 키와 비밀을 보호 합니다.
 
 **모범 사례**: 소스 코드 또는 GitHub에 자격 증명 및 기타 비밀을 포함하지 않습니다.   
 **세부 정보**: 키 및 자격 증명을 분실하는 것보다 더 위험한 상황은 권한이 없는 사람이 해당 정보에 액세스하는 것뿐입니다. 공격자는 봇 기술을 이용하여 GitHub와 같은 코드 리포지토리에 저장된 키와 비밀을 찾을 수 있습니다. 따라서 공용 코드 리포지토리에 키와 비밀 정보를 보관해서는 안 됩니다.
@@ -114,32 +100,32 @@ Microsoft [Security Development Lifecycle](https://www.microsoft.com/en-us/sdl)�
 
 | 위협 | 보안 속성 | Azure 플랫폼 완화 가능성 |
 | --- | --- | --- |
-| 스푸핑 | 인증 | HTTPS 연결을 사용해야 하도록 지정합니다. |
+| 스푸핑 | Authentication | HTTPS 연결을 사용해야 하도록 지정합니다. |
 | 변조 | 무결성 | SSL 인증서 유효성을 검사합니다. |
 | 거부 | 거부 없음 | Azure [모니터링 및 진단](/azure/architecture/best-practices/monitoring)을 사용하도록 설정합니다. |
 | 정보 공개 | 기밀성 | [서비스 인증서](/rest/api/appservice/certificates)를 사용하여 미사용 상태의 중요한 데이터를 암호화합니다. |
 | 서비스 거부 | 가용성 | 성능 메트릭에서 서비스 거부 상황 가능성을 모니터링합니다. 연결 필터를 구현합니다. |
-| 권한 상승 | Authorization | [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements)를 사용합니다. |
+| 권한 상승 | 권한 부여 | [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements)를 사용합니다. |
 
 ## <a name="develop-on-azure-app-service"></a>Azure App Service에서 개발 진행
 [Azure App Service](/azure/app-service/overview)는 플랫폼이나 디바이스를 위한 웹 및 모바일 앱을 만들고 어디서나 클라우드 또는 온-프레미스에 있는 데이터에 연결할 수 있는 PaaS 서비스 제품군입니다. 앱 서비스는 이전에 개별적으로 Azure 웹 사이트 및 Azure Mobile Services로 전달한 웹 및 모바일 기능을 포함합니다. 또한 비즈니스 프로세스를 자동화하고 클라우드 API를 호스팅하는 새 기능을 포함합니다. App Service는 단일 통합 서비스로서 웹, 모바일 및 통합 시나리오에 풍부한 기능 집합을 제공합니다.
 
 App Service 사용 시의 모범 사례는 다음과 같습니다.
 
-**모범 사례**: [Azure Active Directory를 통해 인증](/azure/app-service/overview-authentication-authorization)합니다.   
+**모범 사례**: [Azure Active Directory를 통해 인증합니다](/azure/app-service/overview-authentication-authorization).   
 **세부 정보**: App Service는 ID 공급자를 위한 OAuth 2.0 서비스를 제공합니다. OAuth 2.0은 클라이언트 개발자의 단순성에 기반하여 웹 애플리케이션, 데스크톱 애플리케이션 및 휴대폰에 대한 특정 권한 부여 흐름을 제공합니다. Azure AD는 OAuth 2.0을 사용하여 모바일 및 웹 애플리케이션에 대한 액세스 권한을 부여합니다.
 
-**모범 사례**: 알아야 할 필요성과 최소 권한 보안 원칙에 따라 액세스를 제한합니다.   
+**모범 사례**: 꼭 알아야 할 필요가 있는 경우에 한하여, 그리고 최소 권한 보안 원칙에 따라 액세스를 제한합니다.   
 **세부 정보**: 데이터 액세스를 위한 보안 정책을 시행하려는 조직에서는 액세스를 반드시 제한해야 합니다. RBAC를 사용하여 특정 범위에서 사용자, 그룹 및 애플리케이션에 권한을 할당할 수 있습니다. 사용자에게 애플리케이션 액세스 권한을 부여하는 방법에 대해 자세히 알아보려면 [액세스 관리 시작](/azure/role-based-access-control/overview)을 참조하세요.
 
 **모범 사례**: 키를 보호합니다.   
-**세부 정보**: Azure Key Vault를 사용하면 클라우드 애플리케이션과 서비스에 사용되는 암호화 키 및 비밀을 보호할 수 있습니다. Key Vault를 사용하면 HSM(하드웨어 보안 모듈)을 통해 보호되는 키를 통해 키와 비밀(예: 인증 키, 스토리지 계정 키, 데이터 암호화 키, .PFX 파일 및 암호)를 암호화할 수 있습니다. 추가된 보증을 위해, HSM에서 키를 생성하거나 가져올 수 있습니다. 자세한 내용은 [Azure Key Vault](/azure/key-vault/key-vault-overview)를 참조하세요. 또한 Key Vault를 사용하여 자동 갱신으로 TLS 인증서를 관리할 수도 있습니다.
+**세부 정보**: Azure Key Vault를 사용하면 클라우드 애플리케이션과 서비스에서 사용하는 암호화 키 및 비밀을 보호할 수 있습니다. Key Vault를 사용하면 HSM(하드웨어 보안 모듈)을 통해 보호되는 키를 통해 키와 비밀(예: 인증 키, 스토리지 계정 키, 데이터 암호화 키, .PFX 파일 및 암호)를 암호화할 수 있습니다. 보증 강화를 위해 HSM의 키를 가져오거나 생성할 수 있습니다. 자세한 내용은 [Azure Key Vault](/azure/key-vault/key-vault-overview)를 참조하세요. 또한 Key Vault를 사용하여 자동 갱신으로 TLS 인증서를 관리할 수도 있습니다.
 
 **모범 사례**: 들어오는 원본 IP 주소를 제한합니다.   
-**세부 정보**: [App Service Environment](/azure/app-service/environment/intro)에는 네트워크 보안 그룹을 통해 들어오는 원본 IP 주소를 제한하는 데 도움이 되는 가상 네트워크 통합 기능이 있습니다. 가상 네트워크에서는 액세스를 제어할 수 있는 인터넷이 아닌 라우팅 가능 네트워크에 Azure 리소스를 배치할 수 있습니다. 자세히 알아보려면 [Azure Virtual Network에 앱 통합](/azure/app-service/web-sites-integrate-with-vnet)을 참조하세요.
+**세부 정보**: [App Service Environment](/azure/app-service/environment/intro)에는 네트워크 보안 그룹을 통해 들어오는 원본 IP 주소를 제한할 수 있는 가상 네트워크 통합 기능이 있습니다. 가상 네트워크에서는 액세스를 제어할 수 있는 인터넷이 아닌 라우팅 가능 네트워크에 Azure 리소스를 배치할 수 있습니다. 자세히 알아보려면 [Azure Virtual Network에 앱 통합](/azure/app-service/web-sites-integrate-with-vnet)을 참조하세요.
 
-**모범 사례**: App Service 환경의 보안 상태를 모니터링합니다.   
-**세부 정보**: Azure Security Center를 사용하여 App Service 환경을 모니터링합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 컨트롤을 구성하는 과정을 안내하는 [권장 사항](../../security-center/security-center-virtual-machine-protection.md)을 만듭니다.
+**모범 사례**: App Service Environment의 보안 상태를 모니터링합니다.   
+**세부 정보**: Azure Security Center를 사용하여 App Service Environment를 모니터링합니다. Security Center는 잠재적 보안 취약성이 확인되면 필요한 컨트롤을 구성하는 과정을 안내하는 [권장 사항](../../security-center/security-center-virtual-machine-protection.md)을 만듭니다.
 
 > [!NOTE]
 > Monitoring App Service는 미리 보기로 제공되며 Security Center의 [표준 계층](/azure/security-center/security-center-pricing)에서만 사용할 수 있습니다.
@@ -147,7 +133,7 @@ App Service 사용 시의 모범 사례는 다음과 같습니다.
 >
 
 ## <a name="install-a-web-application-firewall"></a>웹 애플리케이션 방화벽 설치
-웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 애플리케이션 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 애플리케이션 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 애플리케이션 방화벽을 통해 보안 관리가 훨씬 간단해지고 애플리케이션 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 애플리케이션을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 애플리케이션 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
+웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 애플리케이션 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 애플리케이션 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 애플리케이션 방화벽을 통해 보안 관리가 훨씬 간단해지고 애플리케이션 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 애플리케이션을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 응용 프로그램 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
 
 [WAF(웹 애플리케이션 방화벽)](/azure/frontdoor/waf-overview)는 일반적인 악용 및 취약점으로부터 웹 애플리케이션에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. WAF는 [OWASP(Open Web Application Security Project) 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 또는 2.2.9의 규칙에 기반합니다.
 
@@ -181,5 +167,3 @@ Application Insight에는 수집하는 데이터와 상호 작용할 수 있는 
 Azure 보안 및 관련 Microsoft 서비스에 대한 보다 일반적인 정보를 제공하는 다음 리소스도 확인할 수 있습니다.
 * [Azure 보안 팀 블로그](https://blogs.msdn.microsoft.com/azuresecurity/) – Azure Security 관련 최신 정보를 확인할 수 있습니다.
 * [Microsoft 보안 응답 센터](https://technet.microsoft.com/library/dn440717.aspx) - Azure와 관련된 문제를 비롯한 Microsoft 보안 취약점을 보고하거나 secure@microsoft.com으로 이메일을 보낼 수 있습니다.
-
-

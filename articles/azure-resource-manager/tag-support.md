@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: eaf4ba303caa405a170322828add944487908365
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 6b64eb955476a8ab5307b7d508484c290fd7660a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968589"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162166"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다.
@@ -749,7 +749,7 @@ ms.locfileid: "72968589"
 > | Departments | 아닙니다. | 아닙니다. |
 > | 차원 | 아닙니다. | 아닙니다. |
 > | EnrollmentAccounts | 아닙니다. | 아닙니다. |
-> | 내보내도록 | 아닙니다. | 아닙니다. |
+> | 내보내기 | 아닙니다. | 아닙니다. |
 > | ExternalBillingAccounts | 아닙니다. | 아닙니다. |
 > | ExternalBillingAccounts/경고 | 아닙니다. | 아닙니다. |
 > | ExternalBillingAccounts/차원 | 아닙니다. | 아닙니다. |
@@ -1445,7 +1445,6 @@ ms.locfileid: "72968589"
 > | publicIPPrefixes | yes | yes |
 > | routeFilters | yes | yes |
 > | routeTables | yes | yes |
-> | secureGateways | yes | yes |
 > | serviceEndpointPolicies | yes | yes |
 > | trafficManagerGeographicHierarchies | 아닙니다. | 아닙니다. |
 > | trafficmanagerprofiles | yes | yes |

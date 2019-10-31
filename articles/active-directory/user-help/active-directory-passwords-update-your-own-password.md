@@ -1,142 +1,172 @@
 ---
-title: 암호 재설정 - Azure Active Directory | Microsoft Docs
-description: 셀프 서비스 암호 재설정을 사용하여 회사 또는 학교 사용자 계정에 대한 액세스 권한 다시 얻기
+title: 보안 정보를 사용하여 암호 재설정 - Azure Active Directory | Microsoft Docs
+description: 암호를 잊어버린 경우 보안 정보 및 2단계 인증을 사용하여 암호를 재설정하는 방법을 설명합니다.
 services: active-directory
 author: eross-msft
 manager: daveba
 ms.reviewer: sahenry
-ms.assetid: 7ba69b18-317a-4a62-afa3-924c4ea8fb49
 ms.service: active-directory
-ms.subservice: user-help
 ms.workload: identity
+ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/11/2018
+ms.date: 07/30/2018
 ms.author: lizross
-ms.custom: end-user
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d16b54df5b8392a294036978e0b917ecdb3ce1ca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60862264"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160795"
 ---
 # <a name="reset-your-work-or-school-password"></a>회사 또는 학교 암호 재설정
 
-암호를 잊어버린 경우, 회사의 지원 부서에서 암호를 받지 못한 경우, 계정의 암호가 잠긴 경우 또는 암호를 변경하려는 경우 도움이 될 수 있습니다. 알고 있는 암호를 변경해야 하는 경우 [내 암호 변경](#change-my-password) 섹션을 계속 진행합니다.
+암호가 생각 나지 않거나, 회사 지원팀에서 암호를 받은 적이 없거나, 계정이 잠긴 경우 보안 정보 및 모바일 디바이스를 사용하여 암호를 재설정할 수 있습니다.
 
-   > [!NOTE]
-   > Xbox, hotmail.com 또는 outlook.com과 같은 개인 계정에 다시 액세스하려면 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서의 권장 사항을 시도해 보세요.
-   >
+>[!NOTE]
+>암호를 알고 있으며 단순히 암호를 변경하려는 경우 이 문서의 [암호 변경](#how-to-change-your-password) 단계로 이동합니다.<br><br>
+>Xbox, hotmail.com 또는 outlook.com과 같은 개인 계정에 다시 액세스하려면 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서의 권장 사항을 시도해 보세요.
 
-## <a name="reset-or-unlock-my-password-for-a-work-or-school-account"></a>회사 또는 학교 계정의 암호 재설정 또는 잠금 해제
+## <a name="how-to-reset-or-unlock-your-password-for-a-work-or-school-account"></a>회사 또는 학교 계정의 암호를 재설정 또는 잠금 해제하는 방법
 
-다음 원인 중 하나로 인해 Azure AD(Azure Active Directory)에 액세스하지 못할 수 있습니다.
+Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인은 다음 둘 중 하나일 수 있습니다.
 
-* 암호가 작동하지 않아 암호를 재설정하려고 합니다.
-* 암호를 알지만 계정이 잠겨 있어 계정을 잠금 해제하려고 합니다.
+- 암호가 작동하지 않아 암호를 재설정하려고 합니다.
 
-다음 단계를 사용하여 Azure AD SSPR (셀프 서비스 암호 재설정)에 액세스하고 계정에 다시 액세스합니다.
+- 암호를 알지만 계정이 잠겨 있어 계정을 잠금 해제하려고 합니다.
 
-1. 회사 또는 학교 **로그인** 페이지에서 **계정에 액세스할 수 없으세요?** 링크를 클릭한 다음, **회사 또는 학교 계정**을 클릭하거나 [암호 재설정 페이지](https://passwordreset.microsoftonline.com/)로 직접 이동합니다.
+### <a name="to-reset-your-password-and-get-back-into-your-account"></a>암호를 재설정하고 계정으로 돌아가려면
 
-    ![계정에 액세스할 수 없으세요?][Login]
+1. **암호 입력** 화면에서 **암호를 잊어버렸습니다**를 선택합니다.
 
-2. 회사 또는 학교 **사용자 ID**를 입력하고, 화면에 표시되는 문자를 입력하여 로봇이 아님을 증명하고, **다음**을 선택합니다.
+2. **계정으로 돌아가기** 화면에서 회사 또는 학교 **사용자 ID**(예: 이메일 주소)를 입력하고, 화면에 표시되는 문자를 입력하여 로봇이 아님을 증명하고, **다음**을 선택합니다.
 
-   > [!NOTE]
-   > IT 직원이 이 기능을 사용하도록 설정하지 않은 경우, IT 직원이 메일 또는 자체적인 웹 포털을 통해 도움을 줄 수 있도록 "관리자에게 문의" 링크가 나타납니다.
-   >
-   > 계정 잠금을 해제해야 하는 경우 지금은 **암호를 알고 있지만, 여전히 로그인할 수 없습니다** 옵션을 선택합니다.
-   >
+   ![계정으로 돌아가기 화면](media/security-info/security-info-back-into-acct.png)
 
-3. IT 직원이 SSPR을 어떻게 구성하느냐에 따라 다음 인증 방법 중 하나 이상이 표시됩니다. 사용자 또는 IT 직원이 [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md) 문서의 단계에 따라 이 정보 중 일부를 입력했습니다.
+   >[!NOTE]
+   >관리자가 암호 재설정 기능을 설정하지 않은 경우 **계정으로 돌아가기** 화면 대신 **관리자에게 문의** 링크가 표시됩니다. 이 링크를 사용하면 이메일 또는 웹 포털을 통해 관리자에게 암호 재설정 방법을 문의할 수 있습니다.
 
-   * **대체 전자 메일로 메일 보내기**
-   * **휴대폰으로 문자 보내기**
-   * **휴대폰으로 전화 걸기**
-   * **사무실 번호로 전화 걸기**
-   * **보안 질문에 답하기**
+3. 다음 중에서 본인 여부를 확인하고 암호 변경에 사용할 방법을 선택합니다. 관리자가 조직을 설정한 방식에 따라 이 프로세스를 두 번째로 진행하여 두 번째 인증 단계에 대한 정보를 추가해야 할 수도 있습니다.
 
-   옵션을 선택하고, 올바른 응답을 입력한 후 **다음**을 선택합니다.
+    ![계정으로 돌아가기, 인증 단계 #1](media/security-info/security-info-back-into-acct2.png)
 
-   ![인증 데이터 확인][Verification]
+    >[!NOTE]
+    >관리자가 조직을 설정한 방식에 따라 이러한 인증 옵션 중 일부를 사용하지 못할 수도 있습니다. 이전에 다음 방법 중 하나 이상을 사용하여 인증에 사용할 모바일 디바이스를 설정해 놓았어야 합니다.<br><br>또한 새 암호가 특정 강도 요구 사항을 충족해야 합니다. 강력한 암호는 일반적으로 대문자 및 소문자, 하나 이상의 숫자, 하나 이상의 특수 문자가 포함된 8~16자입니다.
 
-4. IT 직원이 추가적인 확인을 필요로 하는 경우, 사용자가 다른 옵션을 선택하여 3단계를 반복해야 할 수도 있습니다.
-5. **새 암호 선택** 페이지에서 새 암호를 입력하고 암호를 확인한 다음 **마침**을 선택합니다. 회사 또는 학교 암호에는 준수해야 할 특정 요구 사항이 있을 수 있습니다. 대/소문자, 숫자 및 특수 문자가 포함된 8-16자의 암호를 선택하는 것이 좋습니다.
-6. **암호가 재설정되었습니다.** 메시지가 표시되면 새 암호로 로그인할 수 있습니다.
+- **이메일 주소를 사용하여 암호 재설정.** 이전에 2단계 인증 또는 보안 정보에서 설정한 이메일 주소로 이메일을 보냅니다. 관리자가 보안 정보 환경을 설정한 경우 [이메일을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-email.md) 문서에서 이메일 주소 설정에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 이메일 주소 설정에 대해 자세히 알아볼 수 있습니다. 
 
-    ![암호가 재설정되었습니다.][Complete]
+    1. **내 암호 확인용 이메일 주소로 이메일 보내기**를 선택한 다음, **이메일**을 선택합니다.
 
-이제 계정에 액세스할 수 있습니다. 계정에 액세스할 수 없으면 조직의 IT 직원에게 연락하여 추가 도움을 요청해야 합니다.
+    2. 이메일의 확인 코드를 입력하고 **다음**을 선택합니다.
+    
+    3. 새 암호를 입력하고 확인한 다음, **완료**를 선택합니다.
 
-계정에서 "Microsoft가 \<귀하의 조직>을 대신하여"와 같은 계정에서 확인 메일을 받을 수도 있습니다. 이러한 메일을 받았고 계정에 대한 액세스 권한을 다시 얻기 위해 셀프 서비스 암호 재설정을 사용하지 않았으면 조직의 IT 직원에게 문의하세요.
+- **문자 메시지를 사용하여 암호 재설정.** 이전에 보안 정보에서 설정한 전화 번호로 문자 메시지를 보냅니다. 관리자가 보안 정보 환경을 설정한 경우 [문자 메시지를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-text-msg.md) 문서에서 문자 메시지 설정에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 문자 메시지 설정에 대해 자세히 알아볼 수 있습니다.
 
-## <a name="change-my-password"></a>내 암호 변경
+    1. **휴대폰으로 문자 보내기**를 선택하고, 전화 번호를 입력하고, **문자**를 선택합니다.
 
-이미 알고 있는 암호를 변경해야 하는 경우 다음 단계를 사용합니다.
+    2. 문자 메시지의 확인 코드를 상자에 입력하고 **다음**을 선택합니다.
 
-### <a name="change-your-password-from-the-office-365-portal"></a>Office 365 포털에서 암호 변경
+    3. 새 암호를 입력하고 확인한 다음, **완료**를 선택합니다.
 
-주로 Office 포털을 통해 애플리케이션에 액세스하는 경우 이 방법을 사용하세요.
+- **전화 번호를 사용하여 암호 재설정.** 이전에 보안 정보에서 설정한 전화 번호로 문자 메시지를 보냅니다. 관리자가 보안 정보 환경을 설정한 경우 [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md) 문서에서 전화 번호 설정에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 전화 번호 설정에 대해 자세히 알아볼 수 있습니다.
 
-1. 기존 암호를 사용하여 [Office 365 계정](https://www.office.com)에 로그인합니다.
+    1. **내 휴대폰으로 전화 걸기**를 선택하고, 전화 번호를 입력하고, **호출**을 선택합니다.
+
+    2. 전화를 받아서 지침에 따라 신원을 확인한 후 **다음**을 선택합니다.
+
+    3. 새 암호를 입력하고 확인한 다음, **완료**를 선택합니다.
+
+- **보안 질문을 사용하여 암호 재설정.** 보안 정보에서 설정한 보안 질문 목록이 표시됩니다. 관리자가 보안 정보 환경을 설정한 경우 [미리 정의된 보안 질문을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-questions.md) 문서에서 보안 질문 설정에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 보안 질문 설정에 대해 자세히 알아볼 수 있습니다.
+
+    1. **보안 질문에 답하기**를 선택하고, 질문에 대답하고, **다음**을 선택합니다.
+
+    2. 새 암호를 입력하고 확인한 다음, **완료**를 선택합니다.
+
+- **Authenticator 앱에서 알림을 사용하여 암호 재설정.** Authenticator 앱에 승인 알림을 보냅니다. 관리자가 보안 정보 환경을 설정한 경우 [인증 앱을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-auth-app.md) 문서에서 Authenticator 앱 설정에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 Authenticator 앱 설정에 대해 자세히 알아볼 수 있습니다.
+
+    1. **Authenticator 앱에서 알림 승인**을 선택하고 **알림 보내기**를 선택합니다.
+
+    2. Authenticator 앱에서 로그인을 승인합니다.
+
+    3. 새 암호를 입력하고 확인한 다음, **완료**를 선택합니다.
+
+- **Authenticator 앱의 코드를 사용하여 암호 재설정.** 인증 앱에서 제공한 임의의 코드를 수락합니다. 관리자가 보안 정보 환경을 설정한 경우 [인증 앱을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-auth-app.md) 문서에서 코드를 제공하도록 Authenticator 앱을 설정하는 방법에 대해 자세히 알아볼 수 있습니다. 아직 보안 정보를 사용하지 않는 경우 [2단계 인증에 내 계정 설정](multi-factor-authentication-end-user-first-time.md) 문서에서 코드를 제공하도록 Authenticator 앱을 설정하는 방법에 대해 자세히 알아볼 수 있습니다.
+
+  1. **Authenticator 앱의 코드 입력**을 선택하고 **알림 보내기**를 선택합니다.
+
+  2. Authenticator 앱을 열고, 계정 확인 코드를 상자에 입력하고, **다음**을 선택합니다.
+
+  3. 새 암호를 입력하고 확인한 다음, **완료**를 선택합니다.
+
+  4. 암호가 재설정되었다는 메시지가 표시되면 새 암호를 사용하여 계정에 로그인 할 수 있습니다.
+        
+     여전히 계정에 액세스할 수 없는 경우 조직의 관리자에게 연락하여 도움을 요청해야 합니다.
+
+암호를 재설정한 후 "Microsoft가 \<*귀하의 조직*>을 대신하여"와 같은 확인 이메일이 계정에 도착할 수 있습니다. 최근에 암호를 재설정하지 않았는데도 이와 비슷한 이메일을 받으면 즉시 조직의 관리자에게 알려야 합니다.
+
+## <a name="how-to-change-your-password"></a>암호를 변경하는 방법
+
+단순히 암호를 변경하려는 경우 Office 365 포털, Azure 액세스 패널 또는 Windows 10 로그인 페이지를 통해 변경할 수 있습니다.
+
+### <a name="to-change-your-password-using-the-office-365-portal"></a>Office 365 포털을 사용하여 암호를 변경하려면
+
+주로 Office 포털을 통해 앱에 액세스하는 경우 이 방법을 사용하세요.
+
+1. 기존 암호를 사용하여 [Office 365 계정](https://portal.office.com)에 로그인합니다.
+
 2. 오른쪽 위에서 자신의 프로필을 선택한 다음 **계정 보기**를 선택합니다.
+
 3. **보안 및 개인 정보 보호** > **암호**를 선택합니다.
-4. 이전 암호를 입력하고, 새 암호를 설정하고 확인한 후 **제출**을 선택합니다.
 
-### <a name="change-your-password-from-the-azure-access-panel"></a>Azure 액세스 패널에서 암호 변경
+4. 이전 암호를 입력하고, 새 암호를 만들고 확인한 후 **제출**을 선택합니다.
 
-주로 Azure 액세스 패널(MyApps)을 사용하여 애플리케이션에 액세스하는 경우 이 방법을 사용하세요.
+### <a name="to-change-your-password-from-the-azure-access-panel"></a>Azure 액세스 패널에서 암호를 변경하려면
+
+주로 Azure 액세스 패널(MyApps)에서 앱에 액세스하는 경우 이 방법을 사용하세요.
 
 1. 기존 암호를 사용하여 [Azure 액세스 패널](https://myapps.microsoft.com/)에 로그인합니다.
+
 2. 오른쪽 위에서 자신의 프로필을 선택한 다음 **프로필**을 선택합니다.
+
 3. **암호 변경**을 선택합니다.
-4. 이전 암호를 입력하고, 새 암호를 설정하고 확인한 후 **제출**을 선택합니다.
 
-## <a name="reset-password-at-sign-in"></a>로그인 시 암호 재설정
+4. 이전 암호를 입력하고, 새 암호를 만들고 확인한 후 **제출**을 선택합니다.
 
-관리자가 이 기능을 사용하도록 설정한 경우 Windows 10 Fall Creators Update 로그인 화면에서 **암호 재설정**에 대한 링크가 표시됩니다.
+### <a name="to-change-your-password-at-windows-sign-in"></a>Windows 로그인 시 암호를 변경하려면
 
-![로그인 화면][LoginScreen]
+관리자가 이 기능을 설정한 경우 Windows 7, Windows 8, Windows 8.1 또는 Windows 10 로그인 화면에 **암호 재설정** 링크가 보입니다.
 
-**암호 재설정** 링크를 선택하면 로그인 화면에서 SSPR 환경이 열리며, 여기서 일반 웹 기반 환경에 액세스하기 위해 로그인할 필요 없이 암호를 다시 설정할 수 있습니다.
+1. 일반 웹 기반 환경을 사용할 필요 없이 **암호 재설정** 링크를 선택하여 암호 재설정 프로세스를 시작합니다.
 
-1. 사용자 ID를 확인하고 **다음**을 선택합니다.
-2. 확인을 위해 연락 방법을 선택하고 확인합니다. IT 직원이 추가적인 확인을 필요로 하는 경우, 사용자가  다른 옵션을 선택하여 이 단계를 반복해야 할 수도 있습니다.
+2. 사용자 ID를 확인하고 **다음**을 선택합니다.
 
-   ![연락 방법][ContactMethod]
+3. 확인을 위해 연락 방법을 선택하고 확인합니다. 필요한 경우 첫 번째 확인 옵션과 다른 두 번째 확인 옵션을 선택하고 필요한 정보를 입력합니다.
 
-3. **새 암호 만들기** 페이지에서 새 암호를 입력하고 해당 암호를 확인한 후 **다음**을 선택합니다. 대/소문자, 숫자 및 특수 문자로 구성된 8-16자의 암호를 사용하는 것이 좋습니다.
+4. **새 암호 만들기** 페이지에서 새 암호를 입력하고 확인한 후 **다음**을 선택합니다.
 
-   ![암호 다시 설정][ResetPassword]
+    강력한 암호는 일반적으로 대문자 및 소문자, 하나 이상의 숫자, 하나 이상의 특수 문자가 포함된 8~16자입니다.
 
-4. **암호가 재설정되었습니다.** 라는 메시지가 표시되면 **마침**을 선택합니다.
+5. 암호가 재설정되었다는 메시지가 표시되면 **완료**를 선택할 수 있습니다.
 
-이제 계정에 액세스할 수 있습니다. 계정에 액세스할 수 없는 경우 조직의 IT 직원에게 문의하여 추가 도움을 요청합니다.
+    여전히 계정에 액세스할 수 없는 경우 조직의 관리자에게 연락하여 도움을 요청해야 합니다.
 
 ## <a name="common-problems-and-their-solutions"></a>일반적인 문제 및 해결 방법
 
- 다음은 일반적인 오류 사례 및 해결 방법입니다.
+다음은 일반적인 오류 사례 및 해결 방법입니다.
 
-| 오류 사례| 어떤 오류가 표시되나요?| 해결 방법 |
+|문제|설명|솔루션|
 | --- | --- | --- |
-| 암호를 변경하려고 하면 오류가 표시됩니다. | 암호에 쉽게 추측할 수 있는 단어, 구 또는 패턴이 포함되어 있습니다. 다른 암호로 다시 시도하세요. | 암호를 추측하기 더 어렵게 변경하세요. |
-| 내 사용자 ID를 입력한 후에 "관리자에게 문의하세요." 페이지가 표시됩니다. | 관리자에게 문의하세요. <br> <br> Microsoft에서 사용자 계정 암호가 관리되지 않는 것이 감지되었습니다. 결과적으로 자동으로 암호를 재설정할 수 없습니다. <br> <br> IT 직원에게 추가 지원을 요청해야 합니다. | IT 직원이 온-프레미스 환경에서 암호를 관리하기 때문에 이 메시지가 표시됩니다. "계정에 액세스할 수 없으세요?" 링크에서 암호를 다시 설정할 수 없습니다. <br> <br> 암호를 재설정하려면 도움을 얻기 위해 직접 IT 직원에게 문의하고 암호를 재설정하려고 한다고 알려서 사용자가 이 기능을 사용할 수 있도록 합니다.|
-| 내 사용자 ID를 입력한 후에 "계정은 암호 재설정에 사용할 수 없습니다." 오류가 발생합니다. | 암호 재설정을 위해 계정을 사용할 수 없습니다. <br> <br> 죄송하지만 IT 직원이 계정을 이 서비스와 함께 사용하도록 설정하지 않습니다. <br> <br> 원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | IT 직원이 "계정에 액세스할 수 없음" 링크에서 조직에 대해 암호 재설정을 사용하도록 설정하지 않았거나 기능을 사용하도록 허가하지 않았기 때문에 이 메시지가 표시됩니다. <br> <br> 암호를 재설정하려면 도움을 얻기 위해 직접 "관리자에게 문의" 링크를 선택하여 회사의 IT 직원에게 메일을 보내고 암호를 재설정하려고 한다고 알려서 사용자가 이 기능을 사용할 수 있도록 합니다. |
-| 내 사용자 ID를 입력한 후에 "계정을 확인하지 못했습니다." 오류가 발생합니다. | 계정을 확인하지 못했습니다. <br> <br> 원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | 이 메시지는 암호 재설정을 사용할 수 있지만 서비스를 사용하도록 등록하지 않은 경우 표시됩니다. 암호 재설정을 등록하려면 계정에 대한 액세스를 회복한 후에 https://aka.ms/ssprsetup 으로 이동합니다. <br> <br> 암호를 재설정하려면 "관리자에게 문의" 링크를 선택하여 회사의 IT 직원에게 메일을 보냅니다. |
+|암호를 변경하려고 하면 오류가 발생합니다. |암호에 쉽게 추측할 수 있는 단어, 구 또는 패턴이 포함되어 있습니다.| 더 강력한 암호를 사용하여 다시 시도하세요.|
+|사용자 ID를 입력하면 "관리자에 문의하세요"라는 페이지로 이동됩니다.|Microsoft는 해당 사용자 계정 암호가 온-프레미스 환경의 관리자를 통해 관리되는 것을 확인했습니다. 따라서 "계정에 액세스할 수 없음" 링크에서 암호를 재설정할 수 없습니다. |관리자에게 문의하여 도움을 받으세요.|
+|사용자 ID를 입력하면 "암호 재설정을 위해 계정을 사용할 수 없습니다" 오류가 발생합니다.|사용자가 암호를 재설정할 수 있도록 관리자가 계정을 설정하지 않았습니다.|관리자가 "계정에 액세스할 수 없음" 링크에서 조직에 대해 암호 재설정을 활성화하지 않았거나 기능을 사용하도록 허가하지 않았기 때문입니다.<br><br> 암호를 재설정하려면 "관리자에게 문의" 링크를 선택하고 회사의 관리자에게 이메일을 보내서 암호를 재설정하려 한다고 알려야 합니다.|
+|사용자 ID를 입력한 후 "계정을 확인할 수 없습니다" 오류가 발생합니다.|로그인 프로세스에서 계정 정보를 확인할 수 없었습니다.|두 가지 이유로 이 메시지가 표시될 수 있습니다.<br><br>1. 관리자가 조직에 대 한 암호 재설정을 사용 하도록 설정 했지만 서비스를 사용 하도록 등록 하지 않았습니다. 암호 재설정을 등록하려면 인증 방법에 따라 [Authenticator 앱을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-auth-app.md), [전화 통화를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-phone-number.md), [문자 메시지를 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-text-msg.md), [이메일을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-email.md) 또는 [보안 질문을 사용하도록 보안 정보 설정(미리 보기)](security-info-setup-questions.md) 문서 중에 하나를 살펴보세요.<br><br>2. 관리자가 조직에 대 한 암호 재설정을 설정 하지 않았습니다. 이 경우 "관리자에게 문의" 링크를 선택하여 관리자에게 암호 재설정을 요청하는 이메일을 보내야 합니다.|
 
 ## <a name="next-steps"></a>다음 단계
+- [보안 정보(미리 보기) 개요](user-help-security-info-overview.md) 문서에서 보안 정보에 대해 자세히 알아봅니다.
 
-* [셀프 서비스 암호 재설정을 사용하도록 등록하는 방법](active-directory-passwords-reset-register.md)
-* [암호 재설정 등록 페이지](https://aka.ms/ssprsetup)
-* [암호 재설정 포털](https://passwordreset.microsoftonline.com/)
-* [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
+- [2단계 인증 개요](user-help-two-step-verification-overview.md) 문서에서 2단계 인증에 대해 알아봅니다. 
 
-[Login]: ./media/active-directory-passwords-update-your-own-password/reset-1-login.png "계정에 액세스할 수 없으세요?"
-[Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "인증 데이터 확인"
-[Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "암호 변경"
-[Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "암호가 재설정되었습니다."
-[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Windows 10 Fall Creators Update 로그인 화면 - 암호 재설정 링크"
-[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "인증 데이터 확인"
-[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "암호 변경"
+- 암호를 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정합니다.
+
+- [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서에서 로그인 문제에 대한 문제 해결 팁 및 도움말을 확인합니다.

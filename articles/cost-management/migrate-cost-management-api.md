@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 53c171df47dde58b264b354eea5ff1ccca9f5256
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ee4b2196240ceff1351b7ea310d9660ed613d075
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374722"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73152072"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>기업계약에서 Microsoft 고객 계약 Api로 마이그레이션
 
@@ -352,15 +352,15 @@ OData-EntityId: {operationId}
 ```
 HTTP Status 200
 
-                                    {
-                            “id”: “providers/Microsoft.Consumption/operationresults/{operationId}”,
-                            “name”: {operationId},
-                           “type”: “Microsoft.Consumption/operationResults”,
-                           “properties” : {
-                                  “downloadUrl”: {urltoblob},
-                                  “vaildTill”: “Date”
+{
+  "id": "providers/Microsoft.Consumption/operationresults/{operationId}",
+  "name": {operationId},
+  "type": “Microsoft.Consumption/operationResults",
+  "properties" : {
+    "downloadUrl": {urltoblob},
+    "validTill": "Date"
+  }
 }
-                     }
 ```
 
 클라이언트는 `Azure-AsyncOperation`에 대 한 GET 호출을 수행할 수도 있습니다. 끝점은 작업에 대 한 상태를 반환 합니다.

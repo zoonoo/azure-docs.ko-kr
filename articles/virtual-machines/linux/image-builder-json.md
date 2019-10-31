@@ -7,12 +7,12 @@ ms.date: 07/31/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 240e0dadaebde6725974604b578328ede0b20652
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 13392644ebe5e163e946deceeec5fcab8f5085cc
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129053"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159726"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure 이미지 작성기 템플릿 만들기 
 
@@ -44,7 +44,7 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
 
 ## <a name="type-and-api-version"></a>유형 및 API 버전
 
-는 `type` 인 리소스 형식 `"Microsoft.VirtualMachineImages/imageTemplates"`입니다. 는 `apiVersion` API가 변경 됨에 따라 시간이 지남에 따라 변경 되지만 미리 `"2019-05-01-preview"` 보기용 이어야 합니다.
+`type`는 리소스 유형으로 `"Microsoft.VirtualMachineImages/imageTemplates"`해야 합니다. `apiVersion` API가 변경 될 때 시간이 지남에 따라 변경 되지만 미리 보기를 위해 `"2019-05-01-preview"` 해야 합니다.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
@@ -55,7 +55,7 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
 
 위치는 사용자 지정 이미지가 생성 될 지역입니다. 이미지 작성기 미리 보기의 경우 다음 지역이 지원 됩니다.
 
-- East US
+- 미국 동부
 - 미국 동부 2
 - 미국 중서부
 - 미국 서부
@@ -66,7 +66,7 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
     "location": "<region>",
 ```
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>태그
 
 이는 생성 된 이미지에 대해 지정할 수 있는 키/값 쌍입니다.
 
@@ -80,7 +80,7 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
 
 자세한 내용은 [리소스 종속성 정의](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-define-dependencies#dependson)를 참조 하세요.
 
-## <a name="identity"></a>클레임
+## <a name="identity"></a>ID
 기본적으로 이미지 작성기는 스크립트를 사용 하거나 GitHub 및 Azure storage와 같은 여러 위치에서 파일을 복사 하는 것을 지원 합니다. 이를 사용 하려면 공개적으로 액세스할 수 있어야 합니다.
 
 사용자가 정의한 Azure 사용자 할당 관리 Id를 사용 하 여 Azure storage 계정에 최소 ' 저장소 Blob 데이터 판독기 '가 id에 부여 된 경우에만 이미지 작성기 액세스를 Azure Storage 수 있습니다. 즉, 저장소 blob을 외부에서 액세스할 수 없도록 하거나 SAS 토큰을 설정할 필요가 없습니다.
@@ -104,7 +104,7 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
 
 ## <a name="properties-source"></a>속성: 원본
 
-섹션 `source` 에는 이미지 작성기에서 사용 되는 원본 이미지에 대 한 정보가 포함 되어 있습니다.
+`source` 섹션에는 이미지 작성기에서 사용 되는 원본 이미지에 대 한 정보가 포함 되어 있습니다.
 
 API에는 이미지 빌드에 대 한 소스를 정의 하는 ' SourceType '가 필요 합니다. 현재 세 가지 유형이 있습니다.
 - ISO-원본이 RHEL ISO 인 경우이를 사용 합니다.
@@ -127,7 +127,7 @@ Azure 이미지 빌더는 미리 보기를 위해 게시 된 Red Hat Enterprise 
 }
 ```
 
-`sourceURI` `https://access.redhat.com/downloads` 및 값`sha256Checksum` 을 가져오려면로 이동 하 여 제품 **Red Hat Enterprise Linux**및 지원 되는 버전을 선택 합니다. 
+`sourceURI` 및 `sha256Checksum` 값을 가져오려면 `https://access.redhat.com/downloads`로 이동 하 여 제품 **Red Hat Enterprise Linux**를 선택 하 고 지원 되는 버전을 선택 합니다. 
 
 **Red Hat Enterprise Linux Server에 대 한 설치 관리자 및 이미지**목록에서 Red Hat Enterprise Linux 7.X 이진 DVD에 대 한 링크 및 체크섬을 복사 해야 합니다.
 
@@ -174,7 +174,7 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
         }
 ```
 
-는 `imageId` 관리 되는 이미지의 ResourceId 여야 합니다. 사용 `az image list` 가능한 이미지를 나열 하려면를 사용 합니다.
+`imageId`는 관리 되는 이미지의 ResourceId 여야 합니다. `az image list` 사용 하 여 사용 가능한 이미지를 나열 합니다.
 
 
 ### <a name="sharedimageversion-source"></a>SharedImageVersion 원본
@@ -187,7 +187,7 @@ az vm image list -l westus -f UbuntuServer -p Canonical --output table –-all
    } 
 ```
 
-는 `imageVersionId` 이미지 버전의 ResourceId 여야 합니다. [Az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) 를 사용 하 여 이미지 버전을 나열 합니다.
+`imageVersionId`는 이미지 버전의 ResourceId 여야 합니다. [Az sig image-version list](/cli/azure/sig/image-version#az-sig-image-version-list) 를 사용 하 여 이미지 버전을 나열 합니다.
 
 ## <a name="properties-buildtimeoutinminutes"></a>속성: buildTimeoutInMinutes
 
@@ -207,8 +207,8 @@ BuildTimeoutInMinutes 값을 지정 하지 않거나 0으로 설정 하면에서
 
 이미지 작성기는 여러 ' 개인 지정자 '를 지원 합니다. 사용자 지정자는 스크립트를 실행 하거나 서버를 다시 부팅 하는 등 이미지를 사용자 지정 하는 데 사용 되는 함수입니다. 
 
-다음을 `customize`사용 하는 경우: 
-- 여러 사용자 지정자를 사용할 수 있지만 고유한 `name`가 있어야 합니다.
+`customize`사용 하는 경우: 
+- 여러 사용자 지정자를 사용할 수 있지만 고유한 `name`있어야 합니다.
 - 서식 지정자는 템플릿에 지정 된 순서 대로 실행 됩니다.
 - 한 사용자 지정 자가 실패 하면 전체 사용자 지정 구성 요소가 실패 하 고 오류가 다시 보고 됩니다.
 - 템플릿을 사용 하기 전에 스크립트를 철저히 테스트 하는 것이 좋습니다. 사용자 고유의 VM에서 스크립트를 디버깅 하는 것이 더 쉽습니다.
@@ -285,10 +285,10 @@ OS 지원: Linux
 OS 지원: Windows
  
 사용자 지정 속성:
-- **유형**: WindowsRestart
+- **유형**: windowsrestart
 - **restartCommand** -restart를 실행 하는 명령입니다 (선택 사항). 기본값은 `'shutdown /r /f /t 0 /c \"packer restart\"'`입니다.
 - **restartCheckCommand** – 다시 시작 성공 여부를 확인 하는 명령입니다 (선택 사항). 
-- **restartTimeout** -크기 및 단위의 문자열로 지정 된 다시 시작 시간 제한입니다. 예를 `5m` 들면 (5 분) 또는 `2h` (2 시간)입니다. 기본값은 다음과 같습니다. 5m
+- **restartTimeout** -크기 및 단위의 문자열로 지정 된 다시 시작 시간 제한입니다. 예를 들어 `5m` (5 분) 또는 `2h` (2 시간)입니다. 기본값은 ' 5m '입니다.
 
 
 ### <a name="powershell-customizer"></a>PowerShell 사용자 지정자 
@@ -349,7 +349,7 @@ Windows 디렉터리 및 Linux 경로에서 지원 되지만 다음과 같은 �
 파일을 다운로드 하는 동안 오류가 발생 하거나 지정 된 디렉터리에 파일을 저장 하는 동안 오류가 발생 하면 사용자 지정 단계가 실패 하 고이는 사용자 지정 .log에 있습니다.
 
 > [!NOTE]
-> 파일 사용자 지정자는 < 20MB 작은 파일 다운로드에만 적합 합니다. 큰 파일 다운로드의 경우 스크립트 또는 인라인 명령을 사용 합니다. 여기에는 Linux `wget` 또는 `curl`, Windows, `Invoke-WebRequest`와 같은 파일을 다운로드 하는 코드가 사용 됩니다.
+> 파일 사용자 지정자는 < 20MB 작은 파일 다운로드에만 적합 합니다. 대용량 파일 다운로드의 경우 스크립트 또는 인라인 명령을 사용 합니다. 예를 들어, Linux `wget` 또는 `curl`, Windows, `Invoke-WebRequest`와 같은 파일을 다운로드 하는 코드를 사용 합니다.
 
 파일 사용자 지정자의 파일은 [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage)를 사용 하 여 Azure Storage에서 다운로드할 수 있습니다.
 
@@ -383,7 +383,7 @@ while($true) { $imageState = Get-ItemProperty HKLM:\\SOFTWARE\\Microsoft\\Window
 명령을 재정의 하려면 PowerShell 또는 Shell 스크립트 provisioners를 사용 하 여 정확한 파일 이름으로 명령 파일을 만들고 올바른 디렉터리에 배치 합니다.
 
 * Windows: c:\DeprovisioningScript.ps1
-* Linux: /tmp/DeprovisioningScript.sh
+* Linux:/tmp/DeprovisioningScript.sh
 
 이미지 작성기는 이러한 명령을 읽어 AIB 로그 (' 사용자 지정. 로그 ')에 기록 합니다. 로그를 수집 하는 방법에 대 한 [문제 해결](https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md#collecting-and-reviewing-aib-logs) 을 참조 하세요.
  
@@ -397,7 +397,7 @@ Azure 이미지 작성기는 다음과 같은 세 가지 배포 대상을 지원
 
 동일한 구성에서 두 대상 유형에 이미지를 배포할 수 있습니다. [예](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80)를 참조 하세요.
 
-배포할 대상이 둘 이상 있을 수 있으므로 이미지 작성기는 `runOutputName`를 쿼리하여 액세스할 수 있는 모든 배포 대상의 상태를 유지 관리 합니다.  는 해당 배포에 대 한 정보를 게시 하는 배포를 쿼리할 수 있는 개체 입니다.`runOutputName` 예를 들어 VHD의 위치나 이미지 버전이 복제 된 지역을 쿼리할 수 있습니다. 모든 배포 대상의 속성입니다. 는 `runOutputName` 각 배포 대상에 대해 고유 해야 합니다.
+배포할 대상이 둘 이상 있을 수 있으므로 이미지 작성기는 `runOutputName`을 쿼리하여 액세스할 수 있는 모든 배포 대상의 상태를 유지 관리 합니다.  `runOutputName`은 해당 배포에 대 한 정보를 게시 하는 배포를 쿼리할 수 있는 개체입니다. 예를 들어 VHD의 위치나 이미지 버전이 복제 된 지역을 쿼리할 수 있습니다. 모든 배포 대상의 속성입니다. `runOutputName`은 각 배포 대상에 대해 고유 해야 합니다.
  
 ### <a name="distribute-managedimage"></a>배포: managedImage
 
@@ -419,7 +419,7 @@ Azure 이미지 작성기는 다음과 같은 세 가지 배포 대상을 지원
  
 배포 속성:
 - **유형** – managedImage 
-- **imageId** – 대상 이미지의 리소스 ID입니다. 예상 형식:/subscriptions/\<subscriptionId >/hsourceg/\<destinationResourceGroupName >/providers/Microsoft.Compute/images/\< imageName >
+- **imageId** – 대상 이미지의 리소스 ID입니다. 예상 형식:/Subscriptions/\<subscriptionId >/Wsourcegs/\<destinationResourceGroupName >/Providers/Microsoft.Compute/images/\<imageName >
 - **location** -관리 되는 이미지의 위치입니다.  
 - **runOutputName** – 분포를 식별 하는 고유 이름입니다.  
 - **artifacttags** -선택적 사용자 지정 키 값 쌍 태그입니다.
@@ -442,23 +442,24 @@ Azure 공유 이미지 갤러리는 이미지 영역 복제, 버전 관리 및 �
 
 ```json
 {
-     "type": "sharedImage",
-     "galleryImageId": “<resource ID>”,
-     "runOutputName": "<name>",
-     "artifactTags": {
-          "<name": "<value>",
-           "<name>": "<value>"
-             }
-     "replicationRegions": [
+    "type": "sharedImage",
+    "galleryImageId": "<resource ID>",
+    "runOutputName": "<name>",
+    "artifactTags": {
+        "<name>": "<value>",
+        "<name>": "<value>"
+    },
+    "replicationRegions": [
         "<region where the gallery is deployed>",
         "<region>"
-    ]}
+    ]
+}
 ``` 
 
 공유 이미지 갤러리에 대 한 속성 배포:
 
-- **type** - sharedImage  
-- **galleryImageId** – 공유 이미지 갤러리의 ID입니다. 형식은 다음과 같습니다./subscriptions/\<subscriptionId >/wsourceg/\<resourceGroupName >/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName >/images/\< imageGalleryName >.
+- **유형** -sharedImage  
+- **galleryImageId** – 공유 이미지 갤러리의 ID입니다. 형식은 다음과 같습니다./subscriptions/\<subscriptionId >/Hsourceg/\<resourceGroupName >/providers/Microsoft.Compute/galleries/\<sharedImageGalleryName >/images/\<imageGalleryName >.
 - **runOutputName** – 분포를 식별 하는 고유 이름입니다.  
 - **artifacttags** -선택적 사용자 지정 키 값 쌍 태그입니다.
 - **replicationRegions** -복제용 지역 배열입니다. 영역 중 하나는 갤러리가 배포 된 지역 이어야 합니다.
@@ -466,18 +467,18 @@ Azure 공유 이미지 갤러리는 이미지 영역 복제, 버전 관리 및 �
 > [!NOTE]
 > 갤러리에 대 한 다른 지역에서 Azure 이미지 작성기를 사용할 수 있지만 Azure 이미지 작성기 서비스는 데이터 센터 간에 이미지를 전송 해야 하므로 더 오래 걸립니다. 이미지 작성기는 단조 정수를 기준으로 이미지의 버전을 자동으로 지정 하므로 현재는 지정할 수 없습니다. 
 
-### <a name="distribute-vhd"></a>배치 VHD  
+### <a name="distribute-vhd"></a>배포: VHD  
 VHD로 출력할 수 있습니다. 그런 다음 VHD를 복사 하 여 Azure MarketPlace에 게시 하거나 Azure Stack와 함께 사용할 수 있습니다.  
 
 ```json
- { 
-     "type": "VHD",
-     "runOutputName": "<VHD name>",
-     "tags": {
-          "<name": "<value>",
-           "<name>": "<value>"
-             }
- }
+{ 
+    "type": "VHD",
+    "runOutputName": "<VHD name>",
+    "tags": {
+        "<name": "<value>",
+        "<name>": "<value>"
+    }
+}
 ```
  
 OS 지원: Windows 및 Linux
@@ -488,7 +489,7 @@ VHD 매개 변수 배포:
 - **runOutputName** – 분포를 식별 하는 고유 이름입니다.  
 - **태그** -선택적으로 사용자 지정 키 값 쌍 태그입니다.
  
-Azure 이미지 작성기에서는 사용자가 저장소 계정 위치를 지정할 수 없지만의 `runOutputs` 상태를 쿼리하여 위치를 가져올 수 있습니다.  
+Azure 이미지 작성기에서는 사용자가 저장소 계정 위치를 지정할 수 없지만, `runOutputs` 상태를 쿼리하여 위치를 가져올 수 있습니다.  
 
 ```azurecli-interactive
 az resource show \

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: fc0b447630b5e1ac360b1d84869cea02186672fc
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 74518fb891c5ecb25e818b9642d31e3daaf828de
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71036620"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162621"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>응용 프로그램에 Video Indexer 위젯 포함
 
@@ -31,7 +31,7 @@ ms.locfileid: "71036620"
 
 |name|정의|설명|
 |---|---|---|
-|`widgets`|쉼표로 구분된 문자열|렌더링 하려는 정보를 제어할 수 있습니다. <br/> 예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사람 및 브랜드 UI 정보를 렌더링 합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>@No__t_0 URL 매개 변수는 버전 2에서 지원 되지 않습니다.<br/>|
+|`widgets`|쉼표로 구분된 문자열|렌더링 하려는 정보를 제어할 수 있습니다. <br/> 예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사람 및 브랜드 UI 정보를 렌더링 합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>`widgets` URL 매개 변수는 버전 2에서 지원 되지 않습니다.<br/>|
 |`locale`|짧은 언어 코드|Insights 언어를 제어 합니다. 기본값은 `en`입니다. <br/> 예: `locale=de`.|
 |`tab`|기본 선택 된 탭|기본적으로 렌더링 되는 **Insights** 탭을 제어 합니다. <br/> 예: **타임 라인** 탭이 선택 된 상태에서 정보를 렌더링 하는 `tab=timeline`.|
 
@@ -88,7 +88,7 @@ ms.locfileid: "71036620"
 - [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API입니다.<br/>
 - [비디오 액세스 토큰을 가져옵니다](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). URL에 쿼리 매개 변수로 추가 합니다. 앞에서 설명한 것 처럼이 URL을 iframe의 **src** 값으로 지정 합니다.
 
-포함 된 위젯에 편집 정보 기능을 제공 하려면 편집 권한을 포함 하는 액세스 토큰을 전달 해야 합니다. @No__t_2에서 [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) 또는 [비디오 액세스 토큰 가져오기](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) 를 사용 합니다. 
+포함 된 위젯에 편집 정보 기능을 제공 하려면 편집 권한을 포함 하는 액세스 토큰을 전달 해야 합니다. `&allowEdit=true`에서 [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) 또는 [비디오 액세스 토큰 가져오기](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) 를 사용 합니다. 
 
 ## <a name="widgets-interaction"></a>위젯 상호 작용
 
@@ -253,7 +253,7 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 기본적으로 Video Indexer 플레이어는 비디오의 성적을 바탕으로 자동 생성 된 폐쇄 캡션을 가집니다. 비디오에서 비디오를 업로드할 때 선택한 원본 언어로 인 증명서가 추출 됩니다.
 
-다른 언어로 포함 하려는 경우 포함 플레이어 URL에 `&captions=< Language | ”all” | “false” >`를 추가할 수 있습니다. 사용 가능한 모든 언어 캡션에 캡션을 원하는 경우 `all` 값을 사용 합니다. 자막을 기본적으로 표시하려면 `&showCaptions=true`를 전달하면 됩니다.
+다른 언어로 포함 하려는 경우 포함 플레이어 URL에 `&captions=< Language | "all" | "false" >`를 추가할 수 있습니다. 사용 가능한 모든 언어 캡션에 캡션을 원하는 경우 `all` 값을 사용 합니다. 자막을 기본적으로 표시하려면 `&showCaptions=true`를 전달하면 됩니다.
 
 그러면 포함 URL이 다음과 같습니다. 
 

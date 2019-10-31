@@ -1,5 +1,5 @@
 ---
-title: 가상 컴퓨터를 사전 유효성 검사를 자체 테스트 클라이언트 | Azure Marketplace
+title: 가상 컴퓨터를 미리 확인 하는 자체 테스트 클라이언트 | Azure Marketplace
 description: Azure Marketplace용 가상 머신 이미지의 사전 유효성 검사를 위한 자체 테스트 클라이언트를 만드는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
 author: dan-wesley
@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pabutler
-ms.openlocfilehash: 117249feea04381b34f8fc1d95f77c2c1a567dba
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46923ecd33a054a36aa6900a415d0b563e5afff0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938716"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163265"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Azure Virtual Machine 이미지의 유효성을 사전 검사하는 자체 테스트 클라이언트 만들기
 
@@ -46,8 +46,8 @@ ms.locfileid: "64938716"
 ```
 Uri:             https://isvapp.azurewebsites.net/selftest-vm
 Method:          Post
-Request Header:  Content-Type: “application/json”
-Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
+Request Header:  Content-Type: "application/json"
+Authorization:   "Bearer xxxx-xxxx-xxxx-xxxxx"
 Request body:    The Request body parameters should use the following JSON format:
                  {
                    "DNSName":"XXXX.westus.cloudapp.azure.com",
@@ -87,7 +87,7 @@ PowerShell에서 API를 호출하려면 다음 단계를 수행합니다.
 다음 코드 예제에서는 API에 대한 PowerShell 호출을 보여 줍니다.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -201,7 +201,7 @@ cURL을 사용하여 API를 호출하려면 다음 단계를 수행합니다.
 
 ```
 CURL POST -H "Content-Type:application/json"
--H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
+-H "Authorization: Bearer XXXXXX-Token-XXXXXXXX"
 https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
 ```
@@ -219,7 +219,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 
 다음 단계에 따라 애플리케이션을 만들려는 Azure AD 테넌트를 선택합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 2. 위쪽의 메뉴 모음에서 계정을 선택하고, [디렉터리] 목록에서 애플리케이션을 등록하려는 Active Directory 테넌트를 선택합니다. 또는 **디렉터리 + 구독** 아이콘을 선택하여 글로벌 구독 필터를 확인합니다. 다음 화면 캡처에는 이 필터의 예가 나와 있습니다.
 
    ![구독 필터 선택](./media/stclient-subscription-filter.png)
@@ -247,7 +247,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 
    - **이름** - 앱에 대한 이름을 입력합니다. 예를 들어 "SelfTestClient"가 있습니다.
    - **애플리케이션 유형** – **웹앱/API**를 선택합니다.
-   - **로그온 URL** – 형식 "https:\//isvapp.azurewebsites.net/selftest-vm"
+   - 로그온 **URL** – "https:\//Isvapp.azurewebsites.net/selftest-vm" 형식
 
 4. **만들기**를 선택합니다.
 5. **앱 등록** 또는 **등록된 앱** 아래에서 **애플리케이션 ID**를 복사합니다.
@@ -269,7 +269,7 @@ https://isvapp.azurewebsites.net/selftest-vm
     ![앱에 대한 API 액세스 사용](./media/stclient-enable-api-access.png)
 
 14. **선택**을 클릭합니다.
-15. **완료**를 선택합니다.
+15. **완료** 를 선택합니다.
 16. **설정** 아래에서 **속성**을 선택합니다.
 17. **속성** 아래에서 **다중 테넌트**까지 아래로 스크롤합니다. **예**를 선택합니다.
 
@@ -293,7 +293,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 
 다음 프로그램 중 하나를 사용하여 OAuth REST API를 사용하는 토큰을 만들고 가져올 수 있습니다.
 
-- Postman
+- postman
 - Linux의 cURL
 - C&#35;
 - PowerShell
@@ -350,7 +350,7 @@ Response:
 
 ### <a name="to-create-and-get-a-token-using-c35"></a>C#을 사용하여 토큰 만들기 및 가져오기
 
-나는 Auth0에 승인 된 응용 프로그램에 대 한 토큰을 요청 하려면 https POST 작업을 수행 합니다.\/형식에서 페이로드를 사용 하 여 /soamtenant.auth0.com/oauth/token 끝점:
+승인 된 응용 프로그램에 대 한 토큰에 대해 좋아하게 되었습니다를 요청 하려면 다음 형식의 페이로드를 사용 하 여 https:\//soamtenant.auth0.com/oauth/token 끝점에 대 한 POST 작업을 수행 합니다.
 
 ```csharp
 string clientId = "Your Application Id";
@@ -373,7 +373,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ### <a name="to-create-and-get-a-token-using-powershell"></a>PowerShell을 토큰 만들기 및 가져오기
 
-나는 Auth0에 승인 된 응용 프로그램에 대 한 토큰을 요청 하려면 https POST 작업을 수행 합니다.\/형식에서 페이로드를 사용 하 여 /soamtenant.auth0.com/oauth/token 끝점:
+승인 된 응용 프로그램에 대 한 토큰에 대해 좋아하게 되었습니다를 요청 하려면 다음 형식의 페이로드를 사용 하 여 https:\//soamtenant.auth0.com/oauth/token 끝점에 대 한 POST 작업을 수행 합니다.
 
 ```powershell
 $clientId = "Application Id of AD Client APP";

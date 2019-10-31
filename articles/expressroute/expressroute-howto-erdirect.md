@@ -1,6 +1,6 @@
 ---
 title: ExpressRoute Direct 구성 - Azure | Microsoft Docs
-description: 이 페이지는 ExpressRoute 직접 구성 하도록 도와줍니다.
+description: 이 페이지는 Express 경로 다이렉트를 구성 하는 데 도움이 됩니다.
 services: expressroute
 author: jaredr80
 ms.service: expressroute
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 0fec7234d18659051c61fda593b1ba0fb846c220
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9dcefb2d47b6862466b64b3568e1a530a2fdb8cb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964252"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161588"
 ---
-# <a name="how-to-configure-expressroute-direct"></a>ExpressRoute 직접 구성 하는 방법
+# <a name="how-to-configure-expressroute-direct"></a>Express 경로 다이렉트를 구성 하는 방법
 
 ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. 자세한 내용은 [ExpressRoute Direct Connect 정보](expressroute-erdirect-about.md)를 참조하세요.
 
@@ -26,7 +26,7 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
    ```powershell
    Connect-AzAccount 
 
-   Select-AzSubscription -Subscription “<SubscriptionID or SubscriptionName>”
+   Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
 2. ExpressRoute Direct가 지원되는 모든 위치를 나열합니다.
   
@@ -163,10 +163,10 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
    링크[0]은 1차 포트이고 링크[1]은 2차 포트입니다.
 
    ```powershell
-   $ERDirect.Links[0].AdminState = “Enabled”
+   $ERDirect.Links[0].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    $ERDirect = Get-AzExpressRoutePort -Name $Name -ResourceGroupName $ResourceGroupName
-   $ERDirect.Links[1].AdminState = “Enabled”
+   $ERDirect.Links[1].AdminState = "Enabled"
    Set-AzExpressRoutePort -ExpressRoutePort $ERDirect
    ```
    **예제 출력:**
@@ -218,17 +218,17 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
    Circuits                   : []
    ```
 
-   `AdminState = “Disabled”`로 동일한 절차를 사용하여 포트 작동을 중단합니다.
+   `AdminState = "Disabled"`로 동일한 절차를 사용하여 포트 작동을 중단합니다.
 
 ## <a name="circuit"></a>회로 만들기
 
 기본적으로 ExpressRoute Direct 리소스가 있는 구독에서 10개의 회로를 만들 수 있습니다. 이 제한은 지원 서비스에서 늘릴 수 있습니다. 사용자는 프로비전된 대역폭과 사용된 대역폭을 둘 다 추적할 책임이 있습니다. 프로비전된 대역폭은 ExpressRoute Direct 리소스에 있는 모든 회로의 대역폭 합계이고, 사용된 대역폭은 기본 물리적 인터페이스의 물리적 사용량입니다.
 
-위에 설명된 시나리오를 지원에 한해 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 다음과 같습니다. 40Gbps 및 100Gbps.
+위에 설명된 시나리오를 지원에 한해 ExpressRoute Direct에서 사용할 수 있는 추가 회로 대역폭은 40Gbps 및 100Gbps입니다.
 
-**SkuTier** 로컬, Standard 또는 Premium 될 수 있습니다.
+지역, 표준 또는 프리미엄 일 **수 있습니다.**
 
-**SkuFamily** 무제한 으로만 MeteredData 해야 ExpressRoute 직접 지원 되지 않습니다.
+Unlimiteddata는 Express 경로 직접 지원 되지 않으므로 무제한으로 사용할 **수 있어야 합니다** .
 
 ExpressRoute Direct 리소스에서 회로를 만듭니다.
 

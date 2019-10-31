@@ -1,6 +1,6 @@
 ---
 title: SQL Server 2014 Azure Virtual Machines의 자동화된 Backup | Microsoft Docs
-description: Azure에서 실행되는 SQL Server 2014 VMs의 자동화된 Backup 기능에 대해 설명합니다. 이 문서는 Resource Manager를 사용하는 VMs에만 적용됩니다.
+description: Azure에서 실행되는 SQL Server 2014 VMs의 자동화된 Backup 기능에 대해 설명합니다. 이 문서는 Resource Manager를 사용하는 VM에만 적용됩니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 24863f00dcec78471cd187b64f6931b7b95124c9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0cfcbdaee5a39a947bd89c677f49214c8c3cb98a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100627"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162856"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 Virtual Machines의 자동화된 Backup(Resource Manager)
 
@@ -31,7 +31,7 @@ ms.locfileid: "70100627"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 자동화된 Backup을 사용하려면 다음 필수 조건을 고려하세요.
 
 **운영 체제**:
@@ -54,7 +54,7 @@ ms.locfileid: "70100627"
 - 대상 데이터베이스는 기본 SQL Server 인스턴스에 있어야 합니다. SQL Server IaaS 확장은 명명된 인스턴스를 지원하지 않습니다.
 
 > [!NOTE]
-> 자동화된 Backup은 SQL Server IaaS 에이전트 확장에 의존합니다. 현재 SQL 가상 컴퓨터 갤러리 이미지는 기본적으로 이 확장을 추가합니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
+> 자동화된 Backup은 SQL Server IaaS 에이전트 확장에 의존합니다. 현재 SQL 가상 머신 갤러리 이미지는 기본적으로 이 확장을 추가합니다. 자세한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 
 ## <a name="settings"></a>설정
 
@@ -164,7 +164,7 @@ LogBackupFrequency          :
 먼저 백업 파일에 대한 스토리지 계정을 선택하거나 만듭니다. 다음 스크립트는 스토리지 계정을 선택하거나 없으면 새로 만듭니다.
 
 ```powershell
-$storage_accountname = “yourstorageaccount”
+$storage_accountname = "yourstorageaccount"
 $storage_resourcegroupname = $resourcegroupname
 
 $storage = Get-AzStorageAccount -ResourceGroupName $resourcegroupname `
@@ -228,8 +228,8 @@ Set-AzVMSqlServerExtension -AutoBackupSettings $autobackupconfig `
 ```powershell
 $vmname = "yourvmname"
 $resourcegroupname = "vmresourcegroupname"
-$region = “Azure region name such as EASTUS2”
-$storage_accountname = “storageaccountname”
+$region = "Azure region name such as EASTUS2"
+$storage_accountname = "storageaccountname"
 $storage_resourcegroupname = $resourcegroupname
 $retentionperiod = 10
 
@@ -280,7 +280,7 @@ SQL Server 2014에서 자동화된 백업을 모니터링하려면 두 가지 �
 
 자동화된 Backup은 Azure VM에서 관리되는 Backup을 구성합니다. 따라서 [SQL Server 2014의 관리 백업에 대한 설명서를 검토](https://msdn.microsoft.com/library/dn449497(v=sql.120).aspx)하는 것이 중요합니다.
 
-Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines에서 SQL Server의 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md) 문서를 참조하세요.
+Azure VM의 SQL Server에 대한 추가적인 백업 및 복원 지침은 [Azure Virtual Machines의 SQL Server 백업 및 복원](virtual-machines-windows-sql-backup-recovery.md) 문서를 참조하세요.
 
 사용 가능한 다른 자동화 작업에 대한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조하세요.
 

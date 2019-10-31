@@ -1,5 +1,5 @@
 ---
-title: Microsoft id 플랫폼 (v1)의 인증 | Microsoft
+title: Microsoft id 플랫폼 (v1.0)의 인증 | Microsoft
 description: Microsoft id 플랫폼에서 인증에 대 한 기본 사항 (앱 모델, API, 프로 비전 및 Microsoft id 플랫폼이 지 원하는 가장 일반적인 인증 시나리오)에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f64b16bde149c4dddd77ccec227781f45176a27d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7c7bf80c0471853008573bbcbb918fb33c6c43cd
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377461"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149186"
 ---
 # <a name="what-is-authentication"></a>인증이란?
 
@@ -73,7 +73,7 @@ ID가 필요한 가장 기본적인 시나리오를 가정하겠습니다. 예�
 |[On-Behalf-Of 흐름](v1-oauth2-on-behalf-of-flow.md) | 액세스 토큰| x| x| x| |
 |[클라이언트 자격 증명](v1-oauth2-client-creds-grant-flow.md) | | | x (앱 전용)| | |
 
-암시적 모드를 통해 발급 된 토큰은 URL을 통해 브라우저에 다시 전달 되기 때문에 길이 제한이 있습니다 (`response_mode`은 @no__t `fragment`).  일부 브라우저는 브라우저 표시줄에 배치할 수 있는 URL의 크기에 제한이 있으며 너무 길면 실패할 수 있습니다.  따라서 이러한 토큰은 `groups` 또는 `wids` 클레임을 포함 하지 않습니다. 
+암시적 모드를 통해 발급 된 토큰은 URL (`response_mode` `query` 또는 `fragment`)을 통해 브라우저에 다시 전달 되기 때문에 길이 제한이 있습니다.  일부 브라우저는 브라우저 표시줄에 배치할 수 있는 URL의 크기에 제한이 있으며 너무 길면 실패할 수 있습니다.  따라서 이러한 토큰은 `groups` 또는 `wids` 클레임을 포함 하지 않습니다. 
 
 이제 기본 사항을 간략히 살펴보았으므로 ID 앱 모델 및 API 이해, Microsoft ID 플랫폼에서 프로비전이 작동하는 방법 및 Microsoft ID 플랫폼에서 지원하는 일반적인 시나리오에 대한 자세한 정보 링크를 살펴보세요.
 

@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/16/2019
+ms.date: 10/23/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f54ad6de21f05c76ca021e172a041563e3d688a8
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 771e4e0ecbda4baf1f38aacd1f39397875bbd0dc
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576564"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150769"
 ---
 # <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>조건부 액세스: MFA 등록을 위해 신뢰할 수 있는 위치 필요
 
-이제 조건부 액세스 정책의 사용자 작업을 통해 사용자가 Azure Multi-factor Authentication 및 셀프 서비스 암호 재설정에 등록 하는 시기 및 방법에 보안을 설정 하는 것이 가능 합니다. 이 미리 보기 기능은 [결합 된 등록 미리 보기](../authentication/concept-registration-mfa-sspr-combined.md)를 사용 하도록 설정한 조직에서 사용할 수 있습니다. 사용자가 HR 등록 중에 신뢰할 수 있는 네트워크 위치와 같은 중앙 위치에서 Azure Multi-factor Authentication을 등록 하 고 SSPR 하는 조직에서이 기능을 사용 하도록 설정할 수 있습니다. 조건부 액세스에서 신뢰할 수 있는 위치를 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건 이란?](../conditional-access/location-condition.md#named-locations) 문서를 참조 하세요.
+이제 조건부 액세스 정책의 사용자 작업을 통해 사용자가 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 등록 하는 시기 및 방법에 대 한 보안을 설정할 수 있습니다. 이 미리 보기 기능은 [결합 된 등록 미리 보기](../authentication/concept-registration-mfa-sspr-combined.md)를 사용 하도록 설정한 조직에서 사용할 수 있습니다. 이 기능은 사용자가 HR 온 보 딩 중에 신뢰할 수 있는 네트워크 위치와 같은 중앙 위치에서 Azure Multi-Factor Authentication에 등록 하 고 SSPR 하는 조직에서 사용 하도록 설정할 수 있습니다. 조건부 액세스에서 신뢰할 수 있는 위치를 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건 이란?](../conditional-access/location-condition.md#named-locations) 문서를 참조 하세요.
 
 ## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>신뢰할 수 있는 위치에서 등록을 요구 하는 정책 만들기
 
@@ -41,7 +41,7 @@ ms.locfileid: "69576564"
    1. **모든 신뢰할 수 있는 위치**를 제외 합니다.
    1. 위치 블레이드에서 **완료** 를 클릭 합니다.
    1. 조건 블레이드에서 **완료** 를 클릭 합니다.
-1. **액세스 제어** > **권한 부여**에서.
+1. **액세스 제어** 에서 **Grant** > 합니다.
    1. **액세스 차단**을 클릭 합니다.
    1. 그런 다음 **선택**을 클릭합니다.
 1. **정책 사용** 을 **켜기**로 설정 합니다.
