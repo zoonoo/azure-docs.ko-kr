@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그를 수집 합니다.
+title: Log Analytics 작업 영역에서 Azure 리소스 로그 수집
 description: Azure Monitor에서 Log Analytics 작업 영역으로 Azure 리소스 로그를 스트리밍하는 방법에 대해 알아봅니다.
 author: bwren
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 2f5dba7c36ec04263f6d227d82b9fc50b82890a3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262441"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200512"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그를 수집 합니다.
 Azure의 [리소스 로그](resource-logs-overview.md) 는 azure 리소스의 내부 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 이 문서에서는 Log Analytics 작업 영역에서 리소스 로그를 수집 하는 방법에 대해 설명 합니다 .이를 통해 강력한 로그 쿼리를 사용 하 여 Azure Monitor 로그에 수집 된 다른 모니터링 데이터를 분석 하 고 경고와 같은 기타 Azure Monitor 기능을 활용할 수 있습니다 가상화. 
@@ -26,7 +26,7 @@ Azure의 [리소스 로그](resource-logs-overview.md) 는 azure 리소스의 �
 * **경고** - [Azure Monitor의 로그 경고](alerts-log.md)를 사용 하 여 리소스 로그에서 식별 된 중요 한 조건 및 패턴에 대 한 사전 알림을 받습니다.
 * **시각화** -로그 쿼리 결과를 Azure 대시보드에 고정 하거나 대화형 보고서의 일부로 통합 문서에 포함 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 아직 없는 경우 [새 작업 영역을 만들어야](../learn/quick-create-workspace.md) 합니다. 설정을 구성 하는 사용자에 게 두 구독에 대 한 적절 한 RBAC 액세스 권한이 있는 한,이 작업 영역은 로그를 보내는 리소스와 동일한 구독을가지고 있지 않아도 됩니다.
 
 ## <a name="create-a-diagnostic-setting"></a>진단 설정 만들기
@@ -51,13 +51,13 @@ Log Analytics 작업 영역에 수집 된 데이터는 [Azure Monitor 로그 구
 
 AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.  
 
-| ResourceProvider    | Category     | 변수를 잠그기 위한  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | 범주     | 문자열(UTF-8 형식) 또는  | b  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
-| Microsoft Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
-| Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | l1 |
-| Microsoft Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
-| Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
+| Microsoft Service1 | AuditLogs    | x | y1 | z1 |    |    |    |    |    |    |
+| Microsoft Service1 | ErrorLogs    |    |    |    | 사분기 | w1 | e1 |    |    |    |
+| Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | L1 |
+| Microsoft Service1 | ErrorLogs    |    |    |    | 2 | w2 | e2 |    |    |    |
+| Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | 3 |
 | Microsoft Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
 | ... |
 
@@ -68,26 +68,26 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
  
 - *Service1AuditLogs* 테이블은 다음과 같습니다.
 
-    | 리소스 공급자 | Category | 변수를 잠그기 위한 | B | C |
+    | 리소스 공급자 | 범주 | 문자열(UTF-8 형식) 또는 | b | C |
     | -- | -- | -- | -- | -- |
-    | Service1 | AuditLogs | x1 | y1 | z1 |
+    | Service1 | AuditLogs | x | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
     | ... |
 
 - *Service1ErrorLogs* 테이블은 다음과 같습니다.  
 
-    | 리소스 공급자 | Category | D | E | F |
+    | 리소스 공급자 | 범주 | D | E | F |
     | -- | -- | -- | -- | -- | 
-    | Service1 | ErrorLogs |  q1 | w1 | e1 |
-    | Service1 | ErrorLogs |  q2 | w2 | e2 |
+    | Service1 | ErrorLogs |  사분기 | w1 | e1 |
+    | Service1 | ErrorLogs |  2 | w2 | e2 |
     | ... |
 
 - *Service2AuditLogs* 테이블은 다음과 같습니다.  
 
-    | 리소스 공급자 | Category | G | H | I |
+    | 리소스 공급자 | 범주 | G | H | I |
     | -- | -- | -- | -- | -- |
-    | Service2 | AuditLogs | j1 | k1 | l1|
-    | Service2 | AuditLogs | j3 | k3 | l3|
+    | Service2 | AuditLogs | j1 | k1 | L1|
+    | Service2 | AuditLogs | j3 | k3 | 3|
     | ... |
 
 
