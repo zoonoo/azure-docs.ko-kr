@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 1fb57a7c6cc694c56667d589eae39442ee9e82ac
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: acda549ffc03679de43b4e5956e65ccada766c15
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984373"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819961"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>제작 및 런타임 리소스 키 사용
 
@@ -28,7 +28,7 @@ ms.locfileid: "70984373"
 LUIS 포털에 로그인 하면 다음 작업을 계속 하도록 선택할 수 있습니다.
 
 * 무료 [평가판 키](#trial-key) -제작 및 몇 가지 예측 끝점 쿼리를 제공 합니다.
-* 새 Azure LUIS authoring resource-새 리소스를 만듭니다. 이는 예측 끝점 리소스와 동일 하지 않습니다. 
+* Azure [LUIS authoring](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) 리소스입니다. 
 
 
 <a name="starter-key"></a>
@@ -52,20 +52,17 @@ LUIS 포털의 **사용자 설정** 페이지와 **관리-> Azure 리소스** �
 
 ## <a name="create-resources-in-the-azure-portal"></a>Azure Portal에서 리소스 만들기
 
-1. [Azure Portal](https://azure.microsoft.com/free/)에 로그인합니다. 
-1. **+ 리소스 만들기**를 선택합니다.
-1. 검색 상자에 `Language understanding`를 입력합니다.
-1. **만들기**를 선택하여 만들기 프로세스를 시작합니다. 
+1. [이 링크](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesLUISAllInOne) 를 사용 하 여 리소스를 만들 때 Azure Portal를 열 수 있습니다.
 1. **둘 다** 선택 하 여 제작 및 예측 끝점 런타임 키를 만듭니다. 
 1. 리소스를 만드는 데 필요한 정보를 입력 하 고 **만들기** 를 선택 하 여 프로세스를 완료 합니다.
 
     ![언어 이해 리소스 만들기](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-    |이름|용도|
+    |name|용도|
     |--|--|
     |리소스 이름| 사용자가 선택한 사용자 지정 이름으로, 작성 및 예측 끝점 쿼리의 URL의 일부로 사용 됩니다.|
     |구독 이름| 리소스에 대해 요금이 청구 되는 구독입니다.|
-    |리소스 그룹| 사용자가 선택 하거나 만드는 사용자 지정 리소스 그룹 이름입니다. 리소스 그룹을 사용 하면 동일한 지역에서 액세스 및 관리를 위해 Azure 리소스를 그룹화 할 수 있습니다.|
+    |Resource group| 사용자가 선택 하거나 만드는 사용자 지정 리소스 그룹 이름입니다. 리소스 그룹을 사용 하면 동일한 지역에서 액세스 및 관리를 위해 Azure 리소스를 그룹화 할 수 있습니다.|
     |제작 위치|모델과 연결 된 지역입니다.|
     |가격 책정 계층 제작|가격 책정 계층은 초당 최대 트랜잭션 수와 월을 결정 합니다.|
     |런타임 위치|게시 된 예측 끝점 런타임과 연결 된 지역입니다.|
@@ -79,8 +76,8 @@ LUIS 포털의 **사용자 설정** 페이지와 **관리-> Azure 리소스** �
 
 리소스 `kind`:
 
-* 만들`LUIS.Authoring`
-* 예측`LUIS` 
+* 제작: `LUIS.Authoring`
+* 예측: `LUIS` 
 
 1. Azure CLI에 로그인 합니다.
 
@@ -90,13 +87,13 @@ LUIS 포털의 **사용자 설정** 페이지와 **관리-> Azure 리소스** �
 
     그러면 올바른 계정을 선택 하 고 인증을 제공할 수 있는 브라우저가 열립니다.
 
-1. 지역`westus` 에 대해 `LUIS.Authoring`이라는 `my-luis-authoring-resource` 기존리소스그룹에이라는종류의LUISauthoring`my-resource-group` resource를 만듭니다. 
+1. `westus` 영역에 대 한 `my-resource-group` 이라는 _기존_ 리소스 그룹에 `my-luis-authoring-resource` 이라는 종류 `LUIS.Authoring`의 **LUIS authoring 리소스**를 만듭니다. 
 
     ```console
     az cognitiveservices account create -n my-luis-authoring-resource -g my-resource-group --kind LUIS.Authoring --sku F0 -l westus --yes
     ```
 
-1. 지역`westus` 에 대해 `LUIS`이라는 `my-luis-prediction-resource` 기존리소스그룹에이라는이름의LUIS예측끝점`my-resource-group` 리소스를 만듭니다. 무료 계층 보다 높은 처리량을 원하는 경우로 `F0` `S0`변경 합니다. [가격 책정 계층 및 처리량](luis-boundaries.md#key-limits)에 대해 자세히 알아보세요.
+1. `westus` 영역에 대 한 `my-resource-group` 이라는 _기존_ 리소스 그룹에 `my-luis-prediction-resource` 이라는 종류 `LUIS`의 **LUIS 예측 끝점 리소스**를 만듭니다. 무료 계층 보다 높은 처리량을 원하는 경우 `F0`를 `S0`으로 변경 합니다. [가격 책정 계층 및 처리량](luis-boundaries.md#key-limits)에 대해 자세히 알아보세요.
 
     ```console
     az cognitiveservices account create -n my-luis-prediction-resource -g my-resource-group --kind LUIS --sku F0 -l westus --yes
@@ -137,7 +134,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |헤더|값|
+    |헤더|Value|
     |--|--|
     |`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.| 
     |`Ocp-Apim-Subscription-Key`|제작 키입니다.|
@@ -148,7 +145,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |형식|설정|값|
+    |Type|설정|Value|
     |--|--|--|
     |헤더|`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|제작 키입니다.|

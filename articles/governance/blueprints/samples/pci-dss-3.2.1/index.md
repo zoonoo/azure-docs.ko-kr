@@ -1,18 +1,18 @@
 ---
 title: PCI-DSS v3.2.1 청사진 샘플 - 개요
-description: Payment Card Industry Data Security Standard v3.2.1 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 파악하는 데 도움이 됩니다.
+description: Payment Card Industry Data Security Standard v3.2.1 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 컨트롤을 평가하는 데 도움이 됩니다.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 16dcec7cefa82b63273a34212ff2b85228d6f0c5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d0bcc4646f2e822de77fa89f23352ec438053d44
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163014"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73200451"
 ---
 # <a name="overview-of-the-pci-dss-v321-blueprint-sample"></a>PCI DSS v3.2.1 청사진 샘플 개요
 

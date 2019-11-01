@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: darrine
 ROBOTS: NOINDEX
-ms.openlocfilehash: c300a6477daa5759a68d5d11d40b1a71b46bd808
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1d16668e2c0f52c0824016c977251e64c800c54d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793831"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161735"
 ---
 # <a name="paper-entity"></a>Paper 엔터티
 
@@ -55,14 +55,14 @@ name | 설명
 --- | ---
 BT | BibTex 문서 형식 (' a ': 저널 문서, ' b ': 책, ' c ': 책 장, ' p ': 컨퍼런스 용지)
 BV | BibTex 장소 이름
-CC | 인용 컨텍스트 – 참조된 논문 ID 및 논문에서 해당하는 컨텍스트의 목록(예: [{123:[“brown foxes are known for jumping as referenced in paper 123”, “the lazy dogs are a historical misnomer as shown in paper 123”]})
+CC | 인용 컨텍스트 – 참조 된 용지 ID의 목록 및 용지에서 해당 하는 컨텍스트 목록 (예: [{123: ["갈색 foxes는 용지 123에서 참조 되는 것으로 인식 됨)", "lazy는 용지 123"]}에 표시 된 기록 점에서 명칭)
 DN | 원래 용지 제목
 DOI | 디지털 개체 식별자
 FP | 게시의 첫 번째 용지 페이지
 I | 게시 문제
 IA | 반전된 요약
 IA.IndexLength | 인덱스의 항목 수(요약의 단어 수)
-IA.InvertedIndex | 요약 단어 및 원래 요약에서 해당하는 위치 목록(예: [{“the”:[0, 15, 30]}, {“brown”:[1]}, {“fox”:[2]}])
+IA.InvertedIndex | 원래 추상 단어 및 해당 위치 (예: [{"the": [0, 15, 30]}, {"밤색": [1]}, {"fox": [2]}])의 목록입니다.
 LP | 게시의 마지막 용지 페이지
 PB | 게시자
 S | 원본 - 논문의 웹 소스 목록, 고정 순위별로 정렬

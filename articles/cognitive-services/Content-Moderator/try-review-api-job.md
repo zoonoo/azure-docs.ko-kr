@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 03/18/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: 4eded22d5f7a8f19f286f9e90185d695b4c28fc6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 83ee8e0c0583cba72da8702e196f0f38128f8d8a
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755294"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935964"
 ---
 # <a name="define-and-use-moderation-jobs-rest"></a>중재 작업 정의 및 사용 (REST)
 
@@ -28,7 +28,7 @@ ms.locfileid: "72755294"
 
 ## <a name="create-a-job"></a>작업 만들기
 
-중재 작업을 만들려면 [작업-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) API 참조 만들기 페이지로 이동 하 고 키 영역에 대 한 단추를 선택 합니다 .이는 [검토 도구의](https://contentmoderator.cognitive.microsoft.com/) **자격 증명** 페이지에 있는 끝점 URL에서 찾을 수 있습니다. 이렇게 하면 REST API 호출을 쉽게 구성 하 고 실행할 수 있는 API 콘솔이 시작 됩니다.
+중재 작업을 만들려면 [작업-](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) API 참조 만들기 페이지로 이동 하 여 구독 영역에 대 한 단추를 선택 합니다 .이는 [검토 도구의](https://contentmoderator.cognitive.microsoft.com/) **자격 증명** 페이지에 있는 끝점 URL에서 찾을 수 있습니다. 이렇게 하면 REST API 호출을 쉽게 구성 하 고 실행할 수 있는 API 콘솔이 시작 됩니다.
 
 ![작업-페이지 영역 선택 영역 만들기](images/test-drive-job-1.png)
 

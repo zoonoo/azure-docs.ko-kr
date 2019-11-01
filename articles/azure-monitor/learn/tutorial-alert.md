@@ -1,26 +1,25 @@
 ---
 title: Azure Application Insights에서 경고 보내기 | Microsoft Docs
 description: Azure Application Insights를 사용하여 애플리케이션에서 오류에 대한 응답으로 경고를 보내는 자습서입니다.
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/10/2019
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 05285a177827cd0dd1e0e39e779a395ccfdfc0cd
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 370d86ae28e49bba9681c6bdc81cc05b4e12a97b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59578767"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894868"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Azure Application Insights를 사용하여 애플리케이션 상태에 대한 모니터링 및 경고
 
 Azure Application Insights를 사용하여 애플리케이션을 모니터링하고 사용할 수 없거나 오류가 발생하거나 성능 문제를 겪을 때 경고를 보낼 수 있습니다.  이 자습서에서는 애플리케이션의 가용성을 지속적으로 확인하는 테스트를 만드는 과정을 단계별로 안내합니다.
 
-다음 방법에 대해 알아봅니다.
+다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 애플리케이션의 응답을 지속적으로 확인하는 가용성 테스트 만들기

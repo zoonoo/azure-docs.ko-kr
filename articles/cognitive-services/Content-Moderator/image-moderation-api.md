@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 3bc5bc99984367b44b38a65266d2915c47ca6fd0
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 6d419135a1da68d23689f66d3134a638d71a3eab
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757346"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044111"
 ---
 # <a name="learn-image-moderation-concepts"></a>이미지 조정 개념 알아보기
 
@@ -147,4 +147,4 @@ Content Moderator는 사용자 지정 이미지 목록을 관리하기 위한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[이미지 조정 API 콘솔](try-image-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. Visual Studio 및 C#에 익숙한 경우 [이미지 조정 .NET 빠른 시작](image-moderation-quickstart-dotnet.md)도 확인합니다.
+[이미지 조정 API 콘솔](try-image-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 또한 Visual Studio 및 C#에 대해 잘 알고 있는 경우 [.net SDK 퀵 스타트](dotnet-sdk-quickstart.md) 의 이미지 조정 섹션을 확인 하세요.

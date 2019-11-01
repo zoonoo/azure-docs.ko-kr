@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: bf7b9b288a32d9f6cc2c9e0d7dba4b074c4bf878
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515718"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164061"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -54,7 +54,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |Resource group| **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다.|
     |지역| **미국 동부**를 선택합니다.|
     |Name|myVirtualNetwork1|
-    ![기본 가상 네트워크 설정 구성] (
+   
 4. **IP 주소** 페이지에서 **주소 공간** 필드에 10.0.0.0/16을 입력합니다. 아래 **서브넷 추가** 단추를 클릭하고 **서브넷 이름**에 Subnet1을 입력하고 **서브넷 주소 범위**에 대해 10.0.0.0/24를 입력합니다.
    
 5. 다음과 같은 변경 내용을 사용하여 다시 1~3단계를 완료합니다.
@@ -147,7 +147,7 @@ VM을 만드는 데 몇 분이 걸릴 수 있습니다. 두 VM이 모두 만들�
 6. 이후 단계에서는 ping을 사용하여 *myVm1* VM의 *myVm2* VM과 통신합니다. ping은 ICMP(Internet Control Message Protocol)를 사용하는데, ICMP는 기본적으로 Windows 방화벽에서 허용되지 않습니다. *myVm1* VM에서 이후 단계에서 PowerShell을 사용하여 *myVm2*에서 이 VM을 ping할 수 있도록 Windows 방화벽을 통해 ICMP를 사용하도록 설정합니다.
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
     
     이 자습서에서는 VM 간 통신에 ping이 사용되지만, 프로덕션 배포에 Windows 방화벽을 통한 ICMP는 허용하지 않는 것이 좋습니다.

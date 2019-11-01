@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: 6f5f2263736e1317ca40e6c27a909be2aa106270
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 8cd5986d61765680698b6c682567dd6388d80a2a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960439"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158854"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure 프라이빗 DNS 영역 만들기
 
@@ -147,7 +147,7 @@ az network private-dns record-set list \
 2. 다음 명령 실행:
 
    ```powershell
-   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
 myVM02에서 반복

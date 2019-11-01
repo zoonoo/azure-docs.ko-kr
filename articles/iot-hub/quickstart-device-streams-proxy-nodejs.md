@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 4a6fd7dd40905a8a81a104c9d6ef22040ff88f15
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 676b05b94fad506fba7c5bd2bd00061ae8a0426b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516283"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900756"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>빠른 시작: Node.js 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -43,6 +43,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
   * 미국 중부
   * 미국 중부 EUAP
+  * 동남아시아
+  * 북유럽
+  
 
 * 이 빠른 시작에서 서비스-로컬 애플리케이션을 실행하려면 개발 머신에 Node.js v10.x.x 이상이 필요합니다.
   * 여러 플랫폼에서 사용할 [Node.js](https://nodejs.org)를 다운로드합니다.

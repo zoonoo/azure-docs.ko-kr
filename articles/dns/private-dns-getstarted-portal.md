@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 10/11/2019
 ms.author: victorh
-ms.openlocfilehash: fe12a1a9f954718dfacb59ae0ed54e69309da650
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 352a63e611e3823e03bedb01a9c1a5071d628c4f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293817"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163818"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure 프라이빗 DNS 영역 만들기
 
@@ -125,7 +125,7 @@ DNS 영역에는 도메인에 대한 DNS 항목이 포함됩니다. Azure DNS에
 2. 다음 명령 실행:
 
    ```powershell
-   New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+   New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
    ```
 
 myVM02에서 반복

@@ -1,25 +1,23 @@
 ---
 title: Azure Application Insights를 사용하여 런타임 예외 진단 | Microsoft Docs
 description: Azure Application Insights를 사용하여 애플리케이션에서 런타임 예외를 찾고 진단하는 자습서입니다.
-services: application-insights
-keywords: ''
+ms.service: azure-monitor
+ms.subservice: application-insights
+ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
-ms.service: application-insights
 ms.custom: mvc
-ms.topic: tutorial
-manager: carmonm
-ms.openlocfilehash: 19455998ca13b9abf48bb1cb3856e38b5c47ef52
-ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.openlocfilehash: 70ecc5dc95aced3eb901f24910339eb059ba0c17
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65595600"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72900464"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 
-Azure Application Insights는 애플리케이션에서 원격 분석을 수집하여 런타임 예외를 식별하고 진단하도록 돕습니다.  이 자습서에서는 애플리케이션을 사용하여 이 프로세스를 안내합니다.  다음 방법에 대해 알아봅니다.
+Azure Application Insights는 애플리케이션에서 원격 분석을 수집하여 런타임 예외를 식별하고 진단하도록 돕습니다.  이 자습서에서는 애플리케이션을 사용하여 이 프로세스를 안내합니다.  다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 예외 추적을 활성화하도록 프로젝트를 수정
@@ -37,8 +35,8 @@ Azure Application Insights는 애플리케이션에서 원격 분석을 수집�
 - 다음 워크로드로 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
     - ASP.NET 및 웹 개발
     - Azure 개발
-- [Visual Studio 스냅숏 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
-- [Visual Studio 스냅숏 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 사용
+- [Visual Studio 스냅샷 디버거](https://aka.ms/snapshotdebugger)를 다운로드 및 설치합니다.
+- [Visual Studio 스냅샷 디버거](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) 사용
 - Azure에 .NET 애플리케이션을 배포하고 [Application Insights SDK를 사용하도록 설정](../../azure-monitor/app/asp-net.md)합니다. 
 - 자습서는 애플리케이션에서 예외의 ID를 추적하여 개발 또는 테스트 환경에서 코드를 수정하여 예외를 생성합니다. 
 
@@ -78,7 +76,7 @@ Application Insights는 애플리케이션에서 모든 오류를 수집하고 �
 스냅샷 디버거는 애플리케이션에서 가장 빈번한 예외의 스냅샷을 수집하여 프로덕션에서 해당 근본 원인을 진단하는 데 도움을 줍니다.  포털에서 디버그 스냅샷을 확인하여 호출 스택을 보고 각 호출 스택 프레임에서 변수를 검사할 수 있습니다. 그 후 스냅샷을 다운로드하여 Visual Studio 2019 Enterprise에서 열고 소스 코드를 디버그할 수 있습니다.
 
 1. 예외 속성에서 **디버그 스냅샷 열기**를 클릭합니다.
-2. **디버그 스냅숏** 패널이 요청에 대한 호출 스택과 함께 열립니다.  메서드를 클릭하여 요청 시 모든 지역 변수의 값을 봅니다.  이 예제에서는 맨 위 메서드에서부터 시작하여 값이 없는 지역 변수를 볼 수 있습니다.
+2. **디버그 스냅샷** 패널이 요청에 대한 호출 스택과 함께 열립니다.  메서드를 클릭하여 요청 시 모든 지역 변수의 값을 봅니다.  이 예제에서는 맨 위 메서드에서부터 시작하여 값이 없는 지역 변수를 볼 수 있습니다.
 
     ![디버그 스냅샷](media/tutorial-runtime-exceptions/debug-snapshot-01.png)
 

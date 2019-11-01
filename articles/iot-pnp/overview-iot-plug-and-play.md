@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 27063702729d8a61ab8919c2685fcfc6f743ce09
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: fd1479a224255f74f4d47cfd90576a5afd25010f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858999"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72935390"
 ---
 # <a name="what-is-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기란?
 
@@ -26,7 +26,7 @@ IoT 플러그 앤 플레이 미리 보기를 사용하면 솔루션 개발자는
 
 디바이스 기능 모델에서 인터페이스를 다시 사용하여 협업을 더 쉽게 수행하고 개발 속도를 높일 수 있습니다.
 
-IoT 플러그 앤 플레이가 [Azure Digital Twins](../digital-twins/about-digital-twins.md)와 원활하게 작동하도록 하기 위해 IoT 플러그 앤 플레이 스키마는 [DTDL(디지털 쌍 정의 언어)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)을 사용하여 정의됩니다. IoT 플러그 앤 플레이 및 DTDL은 커뮤니티에 공개되며, Microsoft는 고객, 파트너 및 업계 기업과의 협업을 환영합니다. 둘 다 서비스와 도구를 더 쉽게 도입할 수 있게 해주는 JSON-LD 및 RDF 같은 개방형 W3C 표준을 기반으로 합니다. 또한 IoT 플러그 앤 플레이 및 DTDL을 사용하기 위한 추가 비용이 없습니다. [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/overview-iot-central.md) 및 다른 Azure 서비스의 표준 요금은 동일하게 유지됩니다.
+IoT 플러그 앤 플레이가 [Azure Digital Twins](../digital-twins/about-digital-twins.md)와 원활하게 작동하도록 하기 위해 IoT 플러그 앤 플레이 스키마는 [DTDL(디지털 쌍 정의 언어)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL)을 사용하여 정의됩니다. IoT 플러그 앤 플레이 및 DTDL은 커뮤니티에 공개되며, Microsoft는 고객, 파트너 및 업계 기업과의 협업을 환영합니다. 둘 다 서비스와 도구를 더 쉽게 도입할 수 있게 해주는 JSON-LD 및 RDF 같은 개방형 W3C 표준을 기반으로 합니다. 또한 IoT 플러그 앤 플레이 및 DTDL을 사용하기 위한 추가 비용이 없습니다. [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/core/overview-iot-central.md) 및 다른 Azure 서비스의 표준 요금은 동일하게 유지됩니다.
 
 IoT Hub 또는 IoT Central 기반의 솔루션은 IoT 플러그 앤 플레이의 이점을 누릴 수 있습니다.
 
@@ -48,7 +48,7 @@ IoT 플러그 앤 플레이는 다음과 같은 두 가지 유형의 개발자�
 
 솔루션 개발자는 IoT 플러그 앤 플레이 디바이스를 사용하는 클라우드 호스팅 IoT 솔루션을 개발할 수 있습니다. 다음 Azure 서비스 중 하나를 사용할 수 있습니다.
 
-- [Azure IoT Central](../iot-central/overview-iot-central.md) - 실제 세계와 디지털 세계를 연결하는 제품을 쉽게 만들 수 있는 완전 관리형 IoT SaaS(Software-as-a-Service) 솔루션입니다.
+- [Azure IoT Central](../iot-central/core/overview-iot-central.md) - 실제 세계와 디지털 세계를 연결하는 제품을 쉽게 만들 수 있는 완전 관리형 IoT SaaS(Software-as-a-Service) 솔루션입니다.
 - [IoT Hub](../iot-hub/about-iot-hub.md) - IoT 애플리케이션과 디바이스 간의 안전한 양방향 통신을 위한 메시지 허브 역할을 하는 관리형 클라우드 서비스입니다.
 
 IoT용 Azure Certified 디바이스 카탈로그를 통해 IoT 플러그 앤 플레이 디바이스를 찾을 수 있습니다. 카탈로그의 각 IoT 플러그 앤 플레이 디바이스는 유효성 검사를 마쳤으며, 디바이스 기능 모델을 포함하고 있습니다. 디바이스 기능 모델을 살펴보고 디바이스의 기능을 이해하거나 Azure IoT Central에서 디바이스를 시뮬레이션하는 데 사용할 수 있습니다.

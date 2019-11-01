@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/17/2019
 ms.author: mlottner
-ms.openlocfilehash: 7cdf9f61c88d93f0cbf0b80576aa30dff5ce9cab
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 67361c402bdbc82d5df01709dc962b59671cb2aa
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72551602"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72991409"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>빠른 시작: IoT Hub에서 IoT용 Azure Security Center 서비스 온보딩
 
@@ -43,14 +43,8 @@ ms.locfileid: "72551602"
 IoT Hub에서 보안을 사용하도록 설정하려면 다음을 수행합니다. 
 
 1. Azure Portal에서 **IoT Hub**를 엽니다. 
-1. **보안** 메뉴 아래에서 **IoT 솔루션 보안**을 클릭합니다.
-1. **사용**을 기본값으로 선택한 상태로 둡니다. 
-1. Log Analytics 작업 영역을 선택합니다.
-1. Log Analytics 작업 영역 세부 정보를 제공합니다. 
-   - **컬렉션 쌍** 토글을 **켜기**로 전환하여 **컬렉션 쌍**을 사용하도록 선택합니다.
-   - Log Analytics에서 **원시 디바이스 보안 이벤트 저장**을 선택하여 스토리지의 기본 정보 유형 외에도 **원시 이벤트**를 저장하도록 선택합니다. **원시 이벤트** 토글을 **켜기**로 그대로 둡니다. 
-    
-1. **저장**을 클릭합니다. 
+1. **보안** 메뉴 아래에서 **IoT 솔루션 보안**을 클릭합니다.    
+
 
 축하합니다! IoT Hub에서 IoT용 Azure Security Center를 사용하도록 설정했습니다. 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight Tools-Visual Studio Code에 대 한 PySpark 대화형 환경
+title: Azure HDInsight Tools를 사용 하 여 대화형 환경 PySpark
 description: Azure HDInsight Tools for Visual Studio Code를 사용하여 쿼리와 스크립트를 만들고 제출하는 방법에 대해 알아봅니다.
 keywords: VScode,Azure HDInsight Tools,Hive,Python,PySpark,Spark,HDInsight,Hadoop,LLAP,대화형 Hive,대화형 쿼리
 author: jejiang
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: f62f7994818e487202e35e4931472355fb6ac3d2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: db2336fb79207ada24b71e0e64f0aaaab543e4da
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130186"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241552"
 ---
 # <a name="set-up-the-pyspark-interactive-environment-for-visual-studio-code"></a>Visual Studio Code용 PySpark 대화형 환경 설정
 
@@ -24,8 +24,8 @@ ms.locfileid: "71130186"
 1. [Python](https://www.python.org/downloads/) 및 [pip](https://pip.pypa.io/en/stable/installing/)를 설치 합니다.
 
    + [https://www.python.org/downloads/](https://www.python.org/downloads/)에서 Python을 설치합니다.
-   + (Python 설치 [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 에서 설치 되지 않은 경우)에서 pip를 설치 합니다.
-   + 다음 명령을 사용 하 여 Python 및 pip가 성공적으로 설치 되었는지 확인 합니다. (옵션)
+   + [https://pip.pypa.io/en/stable/installing](https://pip.pypa.io/en/stable/installing/) 에서 pip를 설치 합니다 (Python 설치에서 설치 되지 않은 경우).
+   + 다음 명령을 사용 하 여 Python 및 pip가 성공적으로 설치 되었는지 확인 합니다. (선택 사항)
 
         ![Python pip 버전 명령 확인](./media/set-up-pyspark-interactive-environment/check-python-pip-version.png)
 

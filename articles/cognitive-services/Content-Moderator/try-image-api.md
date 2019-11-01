@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: aa3b6ce886b06c32e9e4515469099a5b31ff49e3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ce8ea76cfc1f3f30418b66cd21de43d244da6764
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757215"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043972"
 ---
 # <a name="moderate-images-from-the-api-console"></a>API 콘솔에서 이미지 조정
 
@@ -102,4 +102,4 @@ Content Moderator OCR 기능을 사용하여 이미지의 텍스트를 검색할
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용하거나 [이미지 조정 .NET 빠른 시작](image-moderation-quickstart-dotnet.md)을 시작하여 애플리케이션을 통합합니다.
+코드에서 REST API를 사용 하거나 [.NET SDK 퀵 스타트](dotnet-sdk-quickstart.md) 를 따라 응용 프로그램에 이미지 조정을 추가 합니다.

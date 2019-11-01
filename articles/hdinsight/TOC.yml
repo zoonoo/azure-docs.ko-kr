@@ -41,6 +41,10 @@
           href: ./hdinsight-streaming-at-scale-overview.md
         - name: HDInsight의 Apache Hadoop 아키텍처
           href: ./hdinsight-hadoop-architecture.md
+        - name: HDInsight 지원 VM 크기
+          href: ./hdinsight-supported-node-configuration.md
+        - name: 올바른 VM 크기 선택
+          href: ./hdinsight-selecting-vm-size.md
         - name: 클러스터 용량 계획
           href: ./hdinsight-capacity-planning.md
         - name: 가용성 및 안정성

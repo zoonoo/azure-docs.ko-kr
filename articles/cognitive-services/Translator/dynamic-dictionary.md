@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f586702350b38c6d546767f64a8e2f6115b59817
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: c268616c015c1c8735b2bdddc057f235d02cdc2a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595296"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161751"
 ---
 # <a name="how-to-use-a-dynamic-dictionary"></a>동적 사전을 사용 하는 방법
 
@@ -23,12 +23,12 @@ ms.locfileid: "68595296"
 
 **구문:**
 
-<mstrans:dictionary translation=”구 번역”>구</mstrans:dictionary>
+< mstrans: dictionary translation = "구 변환" > 구 </mstrans: dictionary >
 
-**요구 사항:**
+**사항이**
 
-* `From` 및`To` 언어는 달라 야 합니다. 
-* 자동 검색 기능을 `From` 사용 하는 대신 API 번역 요청에 매개 변수를 포함 해야 합니다. 
+* `From` 및 `To` 언어는 달라 야 합니다. 
+* 자동 검색 기능을 사용 하는 대신 API 번역 요청에 `From` 매개 변수를 포함 해야 합니다. 
 
 **예제: en-de:**
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 641f9150d1135f4f214038150b95b6691a37ecc0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 555a8a823526a51b045b4a0314ef7610bf728e5b
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60393336"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242981"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Miscrosoft Azure Diagnostics를 사용하여 이벤트 집계 및 수집
 > [!div class="op_single_selector"]
@@ -30,12 +30,12 @@ ms.locfileid: "60393336"
 
 Azure Service Fabric 클러스터를 실행할 때 모든 노드의 로그를 중앙 위치에 수집하는 것이 좋습니다. 중앙 위치에 로그를 두면 클러스터나 해당 클러스터에서 실행 중인 애플리케이션 및 서비스의 문제를 분석하고 해결하는 데 도움이 됩니다.
 
-로그를 업로드 및 수집하는 방법 중 하나는 WAD(Windows Azure Diagnostics) 확장을 사용하는 것입니다. 이 확장을 사용하면 Azure Storage에 로그를 업로드하고 Azure Application Insights 또는 Event Hubs에 로그를 보낼 수 있습니다. 이벤트 저장소에서 읽고와 같은 분석 플랫폼 제품에 배치할 외부 프로세스를 사용할 수도 있습니다 [Azure Monitor 로그](../log-analytics/log-analytics-service-fabric.md) 또는 다른 로그 구문 분석 솔루션입니다.
+로그를 업로드 및 수집하는 방법 중 하나는 WAD(Windows Azure Diagnostics) 확장을 사용하여 Azure Storage에 로그를 업로드하고, Azure Application Insights 또는 Event Hubs에 로그를 보내는 것입니다. 외부 프로세스를 사용 하 여 저장소에서 이벤트를 읽고 [Azure Monitor 로그](../log-analytics/log-analytics-service-fabric.md) 또는 다른 로그 구문 분석 솔루션과 같은 분석 플랫폼 제품에 배치할 수도 있습니다.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 다음 도구가 사용됩니다.
 
 * [Azure 리소스 관리자](../azure-resource-manager/resource-group-overview.md)
@@ -60,7 +60,7 @@ Service Fabric은 몇 가지 [기본 로깅 채널](service-fabric-diagnostics-e
 
 ![클러스터 템플릿](media/service-fabric-diagnostics-event-aggregation-wad/download-cluster-template.png)
 
-Azure Storage에 이벤트를 집계 하므로 했으므로 [Azure Monitor 로그 설정](service-fabric-diagnostics-oms-setup.md) 통찰력을 얻고 azure에서 쿼리할 모니터 로그 포털
+이제 Azure Storage에서 이벤트를 집계 하는 중 이므로 [Azure Monitor 로그를 설정](service-fabric-diagnostics-oms-setup.md) 하 여 정보를 얻고 Azure Monitor 로그 포털에서 쿼리 합니다.
 
 >[!NOTE]
 >현재 테이블로 전송되는 이벤트를 필터링하거나 영구 제거할 방법은 없습니다. 테이블에서 이벤트를 제거하는 프로세스를 구현하지 않으면 테이블이 계속 커집니다(기본 제한은 50GB). 제한을 변경하는 방법에 대한 지침은 [이 문서의 아래에 자세히 설명](service-fabric-diagnostics-event-aggregation-wad.md#update-storage-quota)되어 있습니다. 또한 [Watchdog 샘플](https://github.com/Azure-Samples/service-fabric-watchdog-service)에서 실행되는 데이터 그루밍 서비스의 예제가 있고, 30일 또는 90일 넘어서 로그를 저장해야 하는 적절한 이유가 없다면 직접 작성하는 것이 좋습니다.
@@ -70,7 +70,7 @@ Azure Storage에 이벤트를 집계 하므로 했으므로 [Azure Monitor 로�
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Azure Resource Manager를 통해 진단 확장 배포
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>진단 확장을 사용하여 클러스터 만들기
-Resource Manager를 사용하여 클러스터를 만들려면 진단 구성 JSON을 전체 Resource Manager 템플릿에 추가해야 합니다. Resource Manager 템플릿 샘플의 일부로 진단 구성이 추가된 샘플 5VM 클러스터 Resource Manager 템플릿이 제공됩니다. Azure 샘플 갤러리의 이 위치에서 확인할 수 있습니다. [진단 Resource Manager 템플릿 샘플을 사용하는 5개 노드 클러스터](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)
+Resource Manager를 사용하여 클러스터를 만들려면 진단 구성 JSON을 전체 Resource Manager 템플릿에 추가해야 합니다. Resource Manager 템플릿 샘플의 일부로 진단 구성이 추가된 샘플 5VM 클러스터 Resource Manager 템플릿이 제공됩니다. Azure 샘플 갤러리의 [진단 Resource Manager 템플릿 샘플이 포함된 5노드 클러스터](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/)에서 샘플을 볼 수 있습니다.
 
 Resource Manager 템플릿에서 진단 설정을 표시하려면 azuredeploy.json 파일을 열고 **IaaSDiagnostics**를 검색합니다. 이 템플릿을 사용하여 클러스터를 만들려면 이전 링크에 제공된 **Azure에 배포** 버튼을 선택합니다.
 
@@ -165,6 +165,15 @@ Resource Manager 템플릿에서 진단 설정을 표시하려면 azuredeploy.js
                     "DefaultEvents": {
                     "eventDestination": "ServiceFabricSystemEventTable"
                     }
+                },
+                {
+                    "provider": "02d06793-efeb-48c8-8f7f-09713309a810",
+                    "scheduledTransferLogLevelFilter": "Information",
+                    "scheduledTransferKeywordFilter": "4611686018427387904",
+                    "scheduledTransferPeriod": "PT5M",
+                    "DefaultEvents": {
+                    "eventDestination": "ServiceFabricSystemEventTable"
+                    }
                 }
                 ]
             }
@@ -202,24 +211,24 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 ## <a name="log-collection-configurations"></a>로그 컬렉션 구성
 컬렉션에 대한 추가 채널의 로그도 사용할 수 있습니다. 여기서는 Azure에서 실행되는 클러스터용 템플릿에서 수행할 수 있는 가장 일반적인 몇 가지 구성을 소개합니다.
 
-* 작업 채널 - 기본: 제공될 노드에 대한 이벤트, 배포 중인 새 애플리케이션 또는 업그레이드 롤백 등을 포함하여 Service Fabric 및 클러스터에서 수행하는 기본적으로 설정된 상위 수준 작업입니다. 이벤트 목록은 [작동 채널 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational)를 참조하세요.
+* 작동 채널-기본: 노드에 대 한 이벤트, 배포 되는 새 응용 프로그램 또는 업그레이드 롤백 등을 비롯 하 여 Service Fabric 및 클러스터에서 수행 하는 상위 수준 작업을 기본적으로 사용 하도록 설정 되어 있습니다. 이벤트 목록은 [작업 채널 이벤트](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-generation-operational)를 참조 하세요.
   
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* 작업 채널 - 상세: 기본 작동 채널의 모든 내용과 상태 보고서 및 부하 분산 결정 사항이 포함됩니다. 이러한 이벤트는 시스템이나 코드에서 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 또는 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx)와 같은 상태 또는 부하 보고 API를 사용하여 생성됩니다. Visual Studio의 Diagnostic Event Viewer에서 이 이벤트를 보려면 ETW 공급자 목록에 "Microsoft-ServiceFabric:4:0x4000000000000008"을 추가합니다.
+* 작동 채널 - 상세: 기본 작동 채널의 모든 내용과 상태 보고서 및 부하 분산 결정이 포함됩니다. 이러한 이벤트는 시스템이나 코드에서 [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) 또는 [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx)와 같은 상태 또는 부하 보고 API를 사용하여 생성됩니다. Visual Studio의 Diagnostic Event Viewer에서 이 이벤트를 보려면 ETW 공급자 목록에 "Microsoft-ServiceFabric:4:0x4000000000000008"을 추가합니다.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* 데이터 및 메시징 채널 - 기본: 상세 작업 채널 로그 외에도 메시징(현재 ReverseProxy만) 및 데이터 경로에서 생성된 중요 로그 및 이벤트입니다. 이러한 이벤트는 요청 처리 실패와 ReverseProxy 및 처리된 요청의 기타 중요 문제입니다. **포괄적인 로깅을 위한 권장 사항입니다**. Visual Studio의 진단 이벤트 뷰어에서 이 이벤트를 보려면 ETW 공급자 목록에 “Microsoft-ServiceFabric:4:0x4000000000000010”을 추가합니다.
+* 데이터 및 메시징 채널 - 기본: 상세 작동 채널 로그 외에 메시징(현재 ReverseProxy만) 및 데이터 경로에 생성된 중요 로그 및 이벤트입니다. 이러한 이벤트는 요청 처리 실패와 ReverseProxy 및 처리된 요청의 기타 중요 문제입니다. **포괄적인 로깅을 위한 권장 사항입니다**. Visual Studio의 진단 이벤트 뷰어에서 이 이벤트를 보려면 ETW 공급자 목록에 “Microsoft-ServiceFabric:4:0x4000000000000010”을 추가합니다.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
   ```
 
-* 데이터 및 메시징 채널 - 상세: 클러스터 및 상세 작업 채널의 메시징 데이터에서 중요하지 않은 모든 로그를 포함하는 자세한 정보 표시 채널입니다. 모든 역방향 프록시 이벤트의 문제 해결에 대한 자세한 내용은 [역방향 프록시 진단 가이드](service-fabric-reverse-proxy-diagnostics.md)를 참조하세요.  Visual Studio의 진단 이벤트 뷰어에서 이 이벤트를 보려면 ETW 공급자 목록에 “Microsoft-ServiceFabric:4:0x4000000000000020”을 추가합니다.
+* 데이터 및 메시징 채널 - 상세: 클러스터 및 상세 작동 채널의 메시징 데이터에서 중요하지 않은 모든 로그를 포함하는 상세 채널입니다. 모든 역방향 프록시 이벤트의 문제 해결에 대한 자세한 내용은 [역방향 프록시 진단 가이드](service-fabric-reverse-proxy-diagnostics.md)를 참조하세요.  Visual Studio의 진단 이벤트 뷰어에서 이 이벤트를 보려면 ETW 공급자 목록에 “Microsoft-ServiceFabric:4:0x4000000000000020”을 추가합니다.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"
@@ -262,6 +271,15 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
                 "DefaultEvents": {
                   "eventDestination": "ServiceFabricSystemEventTable"
                 }
+              },
+              {
+                "provider": "02d06793-efeb-48c8-8f7f-09713309a810",
+                "scheduledTransferLogLevelFilter": "Information",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
+                "scheduledTransferPeriod": "PT5M",
+                "DefaultEvents": {
+                "eventDestination": "ServiceFabricSystemEventTable"
+                }
               }
             ]
           }
@@ -303,7 +321,7 @@ template.json 파일을 설명대로 수정한 후에는 Resource Manager 템플
 >[!NOTE]
 >이는 해당 시점의 Windows 클러스터에만 적용됩니다.
 
-두 가지 기본 WAD에서 데이터를 Application Insights 싱크를 WAD 구성으로 Azure portal 또는 Azure Resource Manager 템플릿을 통해 추가 하 여 수행 되는 Azure Application Insights로 보내도록 합니다.
+WAD에서 Azure 애플리케이션 Insights로 데이터를 전송 하는 두 가지 기본 방법은 Azure Portal를 통해 또는 Azure Resource Manager 템플릿을 통해 Application Insights 싱크를 추가 하 여 수행 하는 것입니다.
 
 #### <a name="add-an-application-insights-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Azure Portal에서 클러스터를 만들 때 Application Insights 계측 키 추가
 
@@ -337,20 +355,20 @@ Resource Manager 템플릿의 "WadCfg"에서 다음 두 가지 변경 사항을 
 
 위의 두 코드 조각에서 "applicationInsights"라는 이름은 싱크를 설명하는 데 사용되었습니다. 이는 요구 사항은 아니며 싱크의 이름이 "sinks"에 포함되어 있는 한 이름을 임의의 문자열로 설정할 수 있습니다.
 
-현재 클러스터의 로그는 Application Insights의 로그 뷰어에 **추적**으로 표시됩니다. 대부분의 플랫폼에서 발생 추적은 "정보" 수준 이므로 수도 있습니다 "경고" 또는 "오류가 발생 했습니다." 유형의 로그만 보내도록 싱크 구성을 변경 이 작업은 [이 문서](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)에서 설명한 것처럼 싱크에 "채널"을 추가하여 수행할 수 있습니다.
+현재 클러스터의 로그는 Application Insights의 로그 뷰어에 **추적**으로 표시됩니다. 플랫폼에서 발생 하는 대부분의 추적은 "정보" 수준 이므로 "경고" 또는 "오류" 유형의 로그만 보내도록 싱크 구성을 변경할 수도 있습니다. 이 작업은 [이 문서](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)에서 설명한 것처럼 싱크에 "채널"을 추가하여 수행할 수 있습니다.
 
 >[!NOTE]
 >포털 또는 Resource Manager 템플릿에서 잘못된 Application Insights 키를 사용하는 경우 수동으로 키를 변경하고 클러스터를 업데이트/재배포해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 진단을 제대로 구성하면 스토리지 테이블에서 ETW 및 EventSource 로그의 데이터를 확인할 수 있습니다. Azure Monitor 로그 또는 Kibana를 사용 하거나 다른 데이터 분석 및 시각화 플랫폼 Resource Manager 템플릿에서 직접 구성 되지 않은 사용 하려는 경우에 이러한 저장소 테이블에서 데이터 읽기를 원하는 플랫폼을 설정 해야 합니다. 비교적 간단 하 고 방법은 Azure Monitor 로그에 대 한 사용자에 게 이렇게 [이벤트 및 로그 분석](service-fabric-diagnostics-event-analysis-oms.md)합니다. Application Insights는 진단 확장 구성의 일부로 구성될 수 있으므로 이런 의미에서 약간 특별한 경우입니다. 따라서 AI를 사용하도록 선택할 경우 [관련 문서](service-fabric-diagnostics-event-analysis-appinsights.md)를 참조하세요.
+Azure Diagnostics를 제대로 구성하면 Storage 테이블에서 ETW 및 EventSource 로그의 데이터를 확인할 수 있습니다. Azure Monitor 로그, Kibana 또는 리소스 관리자 템플릿에 직접 구성 되지 않은 기타 데이터 분석 및 시각화 플랫폼을 사용 하도록 선택 하는 경우 이러한 저장소 테이블에서 데이터를 읽도록 선택한 플랫폼을 설정 해야 합니다. Azure Monitor 로그에 대해이 작업을 수행 하는 것은 비교적 간단 하며 [이벤트 및 로그 분석](service-fabric-diagnostics-event-analysis-oms.md)에서 설명 합니다. Application Insights는 진단 확장 구성의 일부로 구성될 수 있으므로 이런 의미에서 약간 특별한 경우입니다. 따라서 AI를 사용하도록 선택할 경우 [관련 문서](service-fabric-diagnostics-event-analysis-appinsights.md)를 참조하세요.
 
 >[!NOTE]
 >현재 테이블로 전송되는 이벤트를 필터링하거나 영구 제거할 방법은 없습니다. 테이블에서 이벤트를 제거하는 프로세스를 구현하지 않으면 테이블이 계속 커집니다. 현재 [Watchdog 샘플](https://github.com/Azure-Samples/service-fabric-watchdog-service)에서 실행되는 데이터 그루밍 서비스의 예제가 있고, 30일 또는 90일 넘어서 로그를 저장해야 하는 적절한 이유가 없다면 직접 작성하는 것이 좋습니다.
 
 * [진단 확장을 사용하여 성능 카운터 또는 로그를 수집하는 방법 알아보기](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 * [Application Insights를 사용하여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [이벤트 분석 및 Azure Monitor 로그를 사용 하 여 시각화](service-fabric-diagnostics-event-analysis-oms.md)
+* [Azure Monitor 로그를 사용 하 여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-oms.md)
 * [Application Insights를 사용하여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-appinsights.md)
-* [이벤트 분석 및 Azure Monitor 로그를 사용 하 여 시각화](service-fabric-diagnostics-event-analysis-oms.md)
+* [Azure Monitor 로그를 사용 하 여 이벤트 분석 및 시각화](service-fabric-diagnostics-event-analysis-oms.md)

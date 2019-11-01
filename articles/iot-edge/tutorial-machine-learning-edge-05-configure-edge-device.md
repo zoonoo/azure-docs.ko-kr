@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a2096004a7b389f627c528a8dfb4768ac001f390
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: b9f9fe78db2d8bcf50a076fdfc3eba7b1f347201
+ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67155630"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72965387"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 
@@ -97,7 +97,7 @@ ms.locfileid: "67155630"
 
 Azure IoT Edge 디바이스를 IoT Hub에 연결하기 위해, 먼저 허브의 디바이스에 대한 ID를 만듭니다. 클라우드의 디바이스 ID에서 연결 문자열을 가져와 IoT Edge 디바이스의 런타임을 구성하는 데 사용합니다. 디바이스 구성이 완료되고 허브에 연결되면 모듈을 배포하고 메시지를 보낼 수 있습니다. IoT Hub에서 해당 디바이스 ID의 구성을 변경하여 물리적 IoT Edge 디바이스의 구성을 변경할 수도 있습니다.
 
-이 자습서에서는 Visual Studio Code를 사용하여 새 디바이스 ID를 만듭니다. [Azure Portal](how-to-register-device-portal.md) 또는 [Azure CLI](how-to-register-device-cli.md)를 사용하여 이 단계를 완료할 수도 있습니다.
+이 자습서에서는 Visual Studio Code를 사용하여 새 디바이스 ID를 만듭니다. [Azure Portal](how-to-register-device.md#register-in-the-azure-portal) 또는 [Azure CLI](how-to-register-device.md#register-with-the-azure-cli)를 사용하여 이 단계를 완료할 수도 있습니다.
 
 1. 개발 머신에서 Visual Studio Code를 엽니다.
 

@@ -9,16 +9,16 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: c4dec98b66c5074acd6c2350a125c65e448e4878
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: ba261aeedf6574f69d3c05f8fd005c912dcc59d1
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992380"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242474"
 ---
 # <a name="event-schemas"></a>이벤트 스키마
 
-Event Grid 모듈은 이벤트를 수신 하 고 JSON 형식으로 전달 합니다. 현재 Event Grid에서 지 원하는 두 개의 스키마가 있습니다.
+Event Grid 모듈은 이벤트를 수신 하 고 JSON 형식으로 전달 합니다. 현재 Event Grid에서 지 원하는 세 가지 스키마가 있습니다.
 
 * **EventGridSchema**
 * **CustomSchema**

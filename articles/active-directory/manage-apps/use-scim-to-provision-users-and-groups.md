@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5c24a2340775712f1105448b2aacfdc9a75f1a6
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: c9c15a462692c257fac759998698679d9e59dc53
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001715"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242300"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory"></a>Azure Active Directory로 SCIM 사용자 프로 비전
 
@@ -29,13 +29,13 @@ ms.locfileid: "72001715"
 
 Azure AD에서 [사전 통합 된 자동 사용자 프로 비전](../saas-apps/tutorial-list.md) 을 지 원하는 대부분의 응용 프로그램은 사용자 변경 알림을 받는 수단으로 scim을 구현 합니다.  이 외에도, 고객은 Azure Portal에서 일반 "비 갤러리" 통합 옵션을 사용 하 여 [Scim 2.0 프로토콜 사양의](https://tools.ietf.org/html/rfc7644) 특정 프로필을 지 원하는 응용 프로그램을 연결할 수 있습니다.
 
-이 문서의 주요 초점은 Azure AD가 비 갤러리 앱에 대 한 일반 SCIM 커넥터의 일부로 구현 하는 SCIM 2.0 프로필에 대 한 것입니다. 그러나 일반 Azure AD 커넥터를 사용 하 여 SCIM을 지 원하는 응용 프로그램을 성공적으로 테스트 하는 것은 사용자 프로 비전을 지원 하기 위해 Azure AD 갤러리에 나열 된 앱을 가져오는 단계입니다. Azure AD 응용 프로그램 갤러리에 나열 된 응용 프로그램을 가져오는 방법에 대 한 자세한 내용은 [How to: Azure AD 응용 프로그램 갤러리 @ no__t-0에 응용 프로그램을 나열 합니다.
+이 문서의 주요 초점은 Azure AD가 비 갤러리 앱에 대 한 일반 SCIM 커넥터의 일부로 구현 하는 SCIM 2.0 프로필에 대 한 것입니다. 그러나 일반 Azure AD 커넥터를 사용 하 여 SCIM을 지 원하는 응용 프로그램을 성공적으로 테스트 하는 것은 사용자 프로 비전을 지원 하기 위해 Azure AD 갤러리에 나열 된 앱을 가져오는 단계입니다. Azure AD 응용 프로그램 갤러리에 응용 프로그램을 나열 하는 방법에 대 한 자세한 내용은 [방법: AZURE ad 응용 프로그램 갤러리에서 응용 프로그램](../develop/howto-app-gallery-listing.md)나열을 참조 하세요.
 
 > [!IMPORTANT]
 > Azure AD SCIM 구현 동작이 2018년 12월 18일에 마지막으로 업데이트되었습니다. 변경된 내용에 대한 자세한 내용은 [Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 규정 준수](application-provisioning-config-problem-scim-compatibility.md)를 참조하세요.
 
-![은 Azure AD에서 앱 또는 id 저장소로의 프로 비전을 보여 줍니다. @ no__t-1<br/>
-*그림 1: Azure Active Directory에서 SCIM을 구현 하는 응용 프로그램 또는 id 저장소로 프로 비전 @ no__t-0
+![는 Azure AD에서 앱 또는 id 저장소로 프로 비전 하는 방법을 보여 줍니다][0]<br/>
+*그림 1: SCIM을 구현 하는 응용 프로그램 또는 id 저장소에 Azure Active Directory에서 프로 비전*
 
 이 문서는 네 개의 섹션으로 나뉘어 있습니다.
 
@@ -64,14 +64,14 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 1. **+ 새 응용 프로그램** > **모든** > **비 갤러리 응용 프로그램**을 선택 합니다.
 1. 응용 프로그램의 이름을 입력 하 고 **추가** 를 선택 하 여 앱 개체를 만듭니다. 새 앱이 엔터프라이즈 응용 프로그램 목록에 추가 되 고 앱 관리 화면으로 열립니다.
 
-   ![Screenshot은 Azure AD 응용 프로그램 갤러리 @ no__t-1을 보여 줍니다.<br/>
-   *그림 2: Azure AD 애플리케이션 갤러리*
+   ![스크린샷은 Azure AD 응용 프로그램 갤러리를 보여 줍니다][1]<br/>
+   *그림 2: Azure AD 응용 프로그램 갤러리*
 
 1. 앱 관리 화면의 왼쪽 패널에서 **프로 비전** 을 선택 합니다.
 1. **프로비전 모드** 메뉴에서 **자동**을 선택합니다.
 
-   ![예제: Azure Portal @ no__t에서 앱의 프로 비전 페이지-0<br/>
-   *그림 3: Azure Portal에서 프로비전 구성*
+   ![예: Azure Portal에 있는 앱의 프로 비전 페이지][2]<br/>
+   *그림 3: Azure Portal에서 프로 비전 구성*
 
 1. **테넌트 URL** 필드에 애플리케이션의 SCIM 엔드포인트 URL을 입력합니다. 예: https://api.contoso.com/scim/
 1. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청과 함께 Azure AD에서 발급 한 OAuth 전달자 토큰이 포함 됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
@@ -108,21 +108,21 @@ SCIM 2.0 사용자 관리 API를 지 원하는 응용 프로그램을 작성 하
 * [SCIM 프로토콜의 섹션 3.3](https://tools.ietf.org/html/rfc7644#section-3.3)에 따라 사용자 만들기 및 선택적으로 그룹도 지원 합니다.  
 * 는 [SCIM 프로토콜의 3.5.2 섹션](https://tools.ietf.org/html/rfc7644#section-3.5.2)에 따라 패치 요청으로 사용자 또는 그룹을 수정할 수 있도록 지원 합니다.  
 * 는 [SCIM 프로토콜의 3.4.1 섹션](https://tools.ietf.org/html/rfc7644#section-3.4.1)에 따라 앞에서 만든 사용자나 그룹에 대 한 알려진 리소스 검색을 지원 합니다.  
-* [SCIM 프로토콜의 섹션 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2)사용자 또는 그룹 쿼리를 지원 합니다.  기본적으로 사용자는 `id`으로 검색 되 고 `username` 및 `externalid`로 쿼리 되며 그룹은 `displayName`으로 쿼리 됩니다.  
+* [SCIM 프로토콜의 섹션 3.4.2](https://tools.ietf.org/html/rfc7644#section-3.4.2)사용자 또는 그룹 쿼리를 지원 합니다.  기본적으로 사용자는 `id`에 의해 검색 되 고 `username` 및 `externalid`에서 쿼리 되며 그룹은 `displayName`에서 쿼리 됩니다.  
 * SCIM 프로토콜의 섹션 3.4.2에서 ID 및 관리자 별로 사용자 쿼리를 지원 합니다.  
 * SCIM 프로토콜의 섹션 3.4.2 ID 및 멤버 별로 그룹 쿼리를 지원 합니다.  
 * 응용 프로그램에 대 한 Azure AD의 인증 및 권한 부여에 대 한 단일 전달자 토큰을 허용 합니다.
 
 Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 다음 일반 지침을 따릅니다.
 
-* `id`은 모든 리소스에 대 한 필수 속성입니다. 리소스를 반환 하는 모든 응답은 멤버가 0 인 @no__t를 제외 하 고 각 리소스에이 속성이 있는지 확인 해야 합니다.
-* 쿼리/필터 요청에 대 한 응답은 항상 `ListResponse` 이어야 합니다.
+* `id`는 모든 리소스에 대 한 필수 속성입니다. 리소스를 반환 하는 모든 응답은 멤버가 0 인 `ListResponse`를 제외 하 고 각 리소스에이 속성이 있는지 확인 해야 합니다.
+* 쿼리/필터 요청에 대 한 응답은 항상 `ListResponse`이어야 합니다.
 * 그룹은 선택 사항 이지만 SCIM 구현이 패치 요청을 지 원하는 경우에만 지원 됩니다.
 * 패치 응답에 전체 리소스를 포함 하는 것은 필요 하지 않습니다.
 * Microsoft Azure AD는 다음 연산자만 사용 합니다.  
      - `eq`
      - `and`
-* SCIM의 구조적 요소에 대 한 대/소문자를 구분 하지 않아도 됩니다. 특히 패치 https://tools.ietf.org/html/rfc7644#section-3.5.2 @no__t에 정의 된 0 작업 값입니다. Azure AD는 ' op ' 값을 `Add`, `Replace`, `Remove`로 내보냅니다.
+* SCIM의 구조적 요소에 대 한 대/소문자를 구분 하지 않아도 됩니다. 특히 패치 `op` 작업 값은 https://tools.ietf.org/html/rfc7644#section-3.5.2 에 정의 되어 있습니다. Azure AD는 `Add`, `Replace`및 `Remove`으로 ' op '의 값을 내보냅니다.
 * Microsoft Azure AD은 끝점 및 자격 증명이 유효한 지 확인 하기 위해 임의 사용자 및 그룹을 인출 하도록 요청 합니다. [Azure Portal](https://portal.azure.com)에서 **연결 테스트** 흐름의 일부로도 수행 됩니다. 
 * 리소스를 쿼리할 수 있는 특성은 [Azure Portal](https://portal.azure.com)응용 프로그램에서 일치 하는 특성으로 설정 해야 합니다. 자세한 내용은 [사용자 프로 비전 특성 매핑 사용자 지정](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings) 을 참조 하세요.
 
@@ -130,8 +130,8 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 다음 그림에서는 응용 프로그램의 id 저장소에서 사용자의 수명 주기를 관리 하기 위해 SCIM 서비스로 보내는 Azure Active Directory 메시지를 보여 줍니다.  
 
-![은 사용자 프로 비전 및 프로 비전 해제 시퀀스 @ no__t-1을 표시 합니다.<br/>
-*그림 4: 사용자 프로비전 및 시퀀스 프로비전 해제*
+![은 사용자 프로 비전 및 프로 비전 해제 시퀀스를 보여 줍니다][4]<br/>
+*그림 4: 사용자 프로 비전 및 시퀀스 프로 비전 해제*
 
 ### <a name="group-provisioning-and-de-provisioning"></a>그룹 프로비전 및 프로비전 해제
 
@@ -140,8 +140,8 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 * 그룹 검색 요청은 멤버 특성이 요청에 대 한 응답으로 제공 된 리소스에서 제외 되도록 지정 합니다.  
 * 참조 특성에 특정 값이 있는지를 확인하는 요청은 멤버 특성에 대한 요청입니다.  
 
-![은 그룹 프로 비전 및 프로 비전 해제 시퀀스 @ no__t-1을 표시 합니다.<br/>
-*그림 5: 그룹 프로비전 및 시퀀스 프로비전 해제*
+![그룹 프로 비전 및 프로 비전 해제 시퀀스를 보여 줍니다][5]<br/>
+*그림 5: 그룹 프로 비전 및 시퀀스 프로 비전 해제*
 
 ### <a name="scim-protocol-requests-and-responses"></a>SCIM 프로토콜 요청 및 응답
 이 섹션에서는 Azure AD SCIM 클라이언트에서 내보낸 예제 SCIM 요청 및 예상 응답 예제를 제공 합니다. 최상의 결과를 위해서는 이러한 요청을이 형식으로 처리 하 고 예상 된 응답을 내보내는 앱을 코딩 해야 합니다.
@@ -196,7 +196,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ### <a name="user-operations"></a>사용자 작업
 
-* @No__t-0 또는 `email[type eq "work"]` 특성을 통해 사용자를 쿼리할 수 있습니다.  
+* `userName` 또는 `email[type eq "work"]` 특성을 통해 사용자를 쿼리할 수 있습니다.  
 
 #### <a name="create-user"></a>사용자 만들기
 
@@ -259,9 +259,9 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 #### <a name="get-user"></a>사용자 가져오기
 
 ###### <a name="request-1"></a>요구
-*GET /Users/5d48a0a8e9f04aa38008* 
+*/Users/5d48a0a8e9f04aa38008 가져오기* 
 
-###### <a name="response-1"></a>응답이
+###### <a name="response-1"></a>응답 (사용자 찾음)
 *HTTP/1.1 200 정상*
 ```json
 {
@@ -288,11 +288,26 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 }
 ```
 
+###### <a name="request"></a>요청
+*/Users/5171a35d82074e068ce2 가져오기* 
+
+###### <a name="response-user-not-found-note-that-the-detail-is-not-required-only-status"></a>응답 (사용자를 찾을 수 없습니다. 세부 정보는 필요 하지 않으며 상태만 볼 수 있습니다.)
+
+```json
+{
+    "schemas": [
+        "urn:ietf:params:scim:api:messages:2.0:Error"
+    ],
+    "status": "404",
+    "detail": "Resource 23B51B0E5D7AE9110A49411D@7cca31655d49f3640a494224 not found"
+}
+```
+
 #### <a name="get-user-by-query"></a>쿼리로 사용자 가져오기
 
 ##### <a name="request-2"></a>요구
 
-*GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
+*GET/사용자? filter = userName eq "Test_User_dfeef4c5-5681 -4387-b016"*
 
 ##### <a name="response-2"></a>응답이
 
@@ -458,7 +473,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 ### <a name="group-operations"></a>그룹 작업
 
 * 그룹은 항상 빈 멤버 목록으로 만들어야 합니다.
-* @No__t-0 특성을 기준으로 그룹을 쿼리할 수 있습니다.
+* `displayName` 특성을 통해 그룹을 쿼리할 수 있습니다.
 * 그룹 패치 요청을 업데이트 하면 응답에 *HTTP 204 콘텐츠가 생성 되지 않습니다* . 모든 멤버 목록이 포함 된 본문을 반환 하는 것은 바람직하지 않습니다.
 * 그룹의 모든 구성원 반환을 지원할 필요는 없습니다.
 
@@ -466,13 +481,12 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-7"></a>요구
 
-*POST /Groups HTTP/1.1*
+*POST/Groups HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
     "externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
     "displayName": "displayName",
-    "members": [],
     "meta": {
         "resourceType": "Group"
     }
@@ -502,7 +516,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-8"></a>요구
 
-*GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
+*GET/Groups/40734ae655284ad3abcc? excludedAttributes = members HTTP/1.1*
 
 ##### <a name="response-8"></a>응답이
 *HTTP/1.1 200 정상*
@@ -523,7 +537,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 #### <a name="get-group-by-displayname"></a>DisplayName by displayName 가져오기
 
 ##### <a name="request-9"></a>요구
-*GET /Groups?excludedAttributes=members&filter=displayName eq "displayName" HTTP/1.1*
+*/Groups? excludedAttributes = members & filter = displayName eq "displayName" HTTP/1.1*
 
 ##### <a name="response-9"></a>응답이
 
@@ -553,7 +567,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-10"></a>요구
 
-*PATCH /Groups/fa2ce26709934589afc5 HTTP/1.1*
+*PATCH/G/fa2ce26709934589afc5 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -573,7 +587,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-11"></a>요구
 
-*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -596,7 +610,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-12"></a>요구
 
-*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -619,7 +633,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-13"></a>요구
 
-*DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
+*/Groups/cdb1ce18f65944079d37 HTTP/1.1 삭제*
 
 ##### <a name="response-13"></a>응답이
 
@@ -664,13 +678,13 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트�
 
 1. FileProvisioningService 프로젝트를 빌드합니다.
 1. Windows에서 명령 프롬프트 애플리케이션을 관리자 권한으로 시작하고, **cd** 명령을 사용하여 디렉터리를 **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug** 폴더로 변경합니다.
-1. 다음 명령을 실행 하 고 `<ip-address>`을 Windows 컴퓨터의 IP 주소 또는 도메인 이름으로 바꿉니다.
+1. 다음 명령을 실행 하 여 `<ip-address>`를 Windows 컴퓨터의 IP 주소 또는 도메인 이름으로 바꿉니다.
 
    ```
     FileSvc.exe http://<ip-address>:9000 TargetFile.csv
    ```
 
-1. Windows의 windows **설정** > **네트워크 & 인터넷 설정**에서 **Windows 방화벽** > **고급 설정**을 선택 하 고 포트 9000에 대 한 인바운드 액세스를 허용 하는 **인바운드 규칙** 을 만듭니다.
+1. Windows의 windows **설정** > **네트워크 & 인터넷 설정**에서 **windows 방화벽** > **고급 설정**을 선택 하 고 포트 9000에 대 한 인바운드 액세스를 허용 하는 **인바운드 규칙** 을 만듭니다.
 1. Windows 컴퓨터가 라우터 뒤에 있는 경우 라우터는 인터넷에 노출 되는 포트 9000과 Windows 컴퓨터의 포트 9000 사이에서 네트워크 액세스 변환을 실행 하도록 구성 해야 합니다. 이 구성은 Azure AD에서 클라우드의이 끝점에 액세스 하는 데 필요 합니다.
 
 #### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Azure AD에서 샘플 SCIM 엔드포인트를 등록하려면
@@ -706,7 +720,7 @@ SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프�
 
 * CLI(공용 언어 인프라) 라이브러리는 C#과 같은 해당 인프라에 따라 언어와 함께 사용하기 위해 제공됩니다. 이러한 라이브러리 중 하나인 Microsoft.systemforcrossdomainidentitymanagement는 다음 그림에 표시 된 것 처럼 Microsoft.systemforcrossdomainidentitymanagement 인터페이스를 선언 합니다. 라이브러리를 사용하는 개발자는 일반적으로 공급자로 참조될 수 있는 클래스를 사용하여 해당 인터페이스를 구현합니다. 라이브러리를 통해 개발자는 SCIM 사양을 준수 하는 웹 서비스를 배포할 수 있습니다. 웹 서비스는 인터넷 정보 서비스 내에서 또는 실행 가능한 CLI 어셈블리에서 호스팅될 수 있습니다. 요청은 공급자의 메서드에 대한 호출로 변환되며, 개발자에 의해 일부 ID 저장소에서 작동하도록 프로그래밍됩니다.
   
-   ![명세 공급자의 메서드에 대 한 호출로 변환 된 요청][3]
+   ![분석: 공급자의 메서드에 대 한 호출로 변환 된 요청][3]
   
 * [기본 경로 처리기](https://expressjs.com/guide/routing.html)는 node.js 웹 서비스에 수행된(SCIM 사양에 정의된 대로) 호출을 나타내는 node.js 요청 개체를 구문 분석하는 데 사용할 수 있습니다.
 
@@ -837,7 +851,7 @@ CLI 라이브러리를 사용 하는 개발자는 실행 가능한 CLI 어셈블
 
 ### <a name="handling-endpoint-authentication"></a>엔드포인트 인증 처리
 
-Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 수신 하는 모든 서비스는 Azure Active Directory Graph 웹 서비스에 액세스 하기 위해 필요한 Azure Active Directory 테 넌 트에 대해 Azure Active Directory 되는 발급자를 인증 해야 합니다.  토큰에서 발급자는 "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ "과 같은 iss 클레임으로 식별 됩니다.  이 예제에서 클레임 값 https://sts.windows.net 의 기준 주소는 발급자로 Azure Active Directory를 식별 하는 반면, 상대 주소 세그먼트 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422는 해당 하는 Azure Active Directory 테 넌 트의 고유 식별자입니다. 토큰이 발급 되었습니다. 토큰의 대상은 갤러리에 있는 앱의 응용 프로그램 템플릿 ID가 됩니다. 모든 사용자 지정 앱의 응용 프로그램 템플릿 ID는 8adf8e6e-67b2-4cf2-a259-e3dc5476c621입니다. 갤러리의 각 앱에 대 한 응용 프로그램 템플릿 ID는 다릅니다. 갤러리 응용 프로그램의 응용 프로그램 템플릿 ID에 대 한 질문은 ProvisioningFeedback@microsoft.com에 문의 하세요. 단일 테 넌 트에 등록 된 각 응용 프로그램은 SCIM 요청과 동일한 `iss` 클레임을 받을 수 있습니다.
+Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 수신 하는 모든 서비스는 Azure Active Directory Graph 웹 서비스에 액세스 하기 위해 필요한 Azure Active Directory 테 넌 트에 대해 Azure Active Directory 되는 발급자를 인증 해야 합니다.  토큰에서 발급자는 "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/ "와 같은 iss 클레임으로 식별 됩니다.  이 예제에서 클레임 값 https://sts.windows.net 의 기준 주소는 발급자로 Azure Active Directory를 식별 하는 반면, 상대 주소 세그먼트 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422는이에 대 한 Azure Active Directory 테 넌 트의 고유 식별자입니다. 토큰이 발급 되었습니다. 토큰의 대상은 갤러리에 있는 앱의 응용 프로그램 템플릿 ID가 됩니다. 모든 사용자 지정 앱의 응용 프로그램 템플릿 ID는 8adf8e6e-67b2-4cf2-a259-e3dc5476c621입니다. 갤러리의 각 앱에 대 한 응용 프로그램 템플릿 ID는 다릅니다. 갤러리 응용 프로그램의 응용 프로그램 템플릿 ID에 대 한 질문은 ProvisioningFeedback@microsoft.com에 문의 하세요. 단일 테 넌 트에 등록 된 각 응용 프로그램은 SCIM 요청과 동일한 `iss` 클레임을 받을 수 있습니다.
 
 SCIM 서비스를 빌드하기 위해 Microsoft에서 제공 하는 CLI 라이브러리를 사용 하는 개발자는 다음 단계에 따라 ActiveDirectory 패키지를 사용 하 여 Azure Active Directory에서 요청을 인증할 수 있습니다. 
 
@@ -1159,10 +1173,10 @@ SCIM 서비스를 빌드하기 위해 Microsoft에서 제공 하는 CLI 라이�
 * parameters.AlternateFilters.Count: 2
 * parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
 * parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-* parameters.AlternateFilter.ElementAt(x).ComparisonValue:  "54D382A4-2050-4C03-94D1-E769F1D15682"
+* 변수의. AlternateFilter (x). ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
 * parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
 * parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-* parameters.AlternateFilter.ElementAt(y).ComparisonValue:  "2819c223-7f76-453a-919d-413861904646"
+* 변수의. AlternateFilter (y). ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
 * parameters.RequestedAttributePaths.ElementAt(0): "ID"
 * parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
@@ -1329,11 +1343,11 @@ SCIM 서비스를 빌드하기 위해 Microsoft에서 제공 하는 CLI 라이�
 
 Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프로비전할 수 있습니다.  이러한 형식의 리소스는 사용자 및 그룹입니다.  
 
-사용자 리소스는이 프로토콜 사양에 포함 된 `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User` (https://tools.ietf.org/html/rfc7643 ) 스키마 식별자로 식별 됩니다.  사용자 리소스 특성에 Azure Active Directory의 사용자 특성에 대 한 기본 매핑은 표 1에 나와 있습니다.  
+사용자 리소스는이 프로토콜 사양에 포함 된 `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`스키마 식별자 (https://tools.ietf.org/html/rfc7643 )로 식별 됩니다.  사용자 리소스 특성에 Azure Active Directory의 사용자 특성에 대 한 기본 매핑은 표 1에 나와 있습니다.  
 
 그룹 리소스는 스키마 식별자 `urn:ietf:params:scim:schemas:core:2.0:Group`으로 식별됩니다. 표 2에서는 그룹 리소스의 특성에 Azure Active Directory의 그룹 특성에 대 한 기본 매핑을 보여 줍니다.  
 
-### <a name="table-1-default-user-attribute-mapping"></a>표 1: 기본 사용자 특성 매핑
+### <a name="table-1-default-user-attribute-mapping"></a>테이블 1: 기본 사용자 특성 매핑
 
 | Azure Active Directory 사용자 | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
@@ -1342,11 +1356,11 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
-| 메일 |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |externalId |
-| 관리자 |manager |
+| manager |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
-| objectId |id |
+| objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |
 | proxy-Addresses |emails[type eq "other"].Value |
 | physical-Delivery-OfficeName |addresses[type eq "other"].Formatted |
@@ -1355,15 +1369,15 @@ Azure Active Directory는 두 형식의 리소스를 SCIM 웹 서비스에 프�
 | telephone-Number |phoneNumbers[type eq "work"].value |
 | user-PrincipalName |userName |
 
-### <a name="table-2-default-group-attribute-mapping"></a>표 2: 기본 그룹 특성 매핑
+### <a name="table-2-default-group-attribute-mapping"></a>테이블 2: 기본 그룹 특성 매핑
 
-| Azure Active Directory 그룹 | urn:ietf:params:scim:schemas:core:2.0:Group |
+| Azure Active Directory 그룹 | urn: ietf: params: scim: 스키마: core: 2.0: 그룹 |
 | --- | --- |
 | displayName |externalId |
-| 메일 |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |displayName |
-| 구성원 |구성원 |
-| objectId |id |
+| members |members |
+| objectId |ID |
 | proxyAddresses |emails[type eq "other"].Value |
 
 ## <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Azure AD 프로 비전 서비스에서 사용 하는 IP 주소를 사용 하 여 SCIM 요청 만들기

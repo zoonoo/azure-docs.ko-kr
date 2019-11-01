@@ -116,3 +116,13 @@
       href: my-apps-portal-end-user-access-reviews.md
     - name: 문제 해결
       href: my-apps-portal-end-user-troubleshoot.md
+- name: 내 앱(미리 보기) 포털 도움말
+  items:
+    - name: 개요
+      href: my-applications-portal-overview.md
+    - name: My Apps 포털에 액세스 및 사용
+      href: my-applications-portal-access.md
+    - name: 작업 영역 액세스 및 사용
+      href: my-applications-portal-workspaces.md
+    - name: 앱 사용 권한 편집 또는 해지
+      href: my-applications-portal-permissions-saved-accounts.md

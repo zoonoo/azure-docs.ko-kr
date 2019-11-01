@@ -1,29 +1,23 @@
 ---
 title: Azure Log Analytics 데이터의 대시보드 만들기 및 공유 | Microsoft Docs
 description: 이 자습서는 Log Analytics 대시보드가 저장된 모든 로그 쿼리를 시각화하여 환경을 보는 단일 렌즈를 제공하는 방법을 이해하는 데 도움이 됩니다.
-services: log-analytics
-documentationcenter: log-analytics
-author: mgoedtel
-manager: carmonm
-editor: ''
-ms.assetid: abb07f6c-b356-4f15-85f5-60e4415d0ba2
-ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-monitor
+ms.subservice: logs
 ms.topic: tutorial
-ms.date: 06/19/2019
+author: mgoedtel
 ms.author: magoedte
+ms.date: 06/19/2019
 ms.custom: mvc
-ms.openlocfilehash: c859fb9b8b3509e8369559a3a9a4d45cb4e34125
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: baa510e060a3bca46110842600262345072b1a18
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414142"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72894788"
 ---
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Log Analytics 데이터의 대시보드 만들기 및 공유
 
-Log Analytics 대시보드를 통해 저장된 모든 로그 쿼리를 시각화하고 조직의 IT 작동 데이터를 찾고, 상호 연결하며 공유하는 기능을 제공할 수 있습니다.  이 자습서는 IT 운영 지원 팀에서 액세스하는 공유 대시보드를 지원하는 데 사용할 로그 쿼리를 만드는 방법을 설명합니다.  다음 방법에 대해 알아봅니다.
+Log Analytics 대시보드를 통해 저장된 모든 로그 쿼리를 시각화하고 조직의 IT 작동 데이터를 찾고, 상호 연결하며 공유하는 기능을 제공할 수 있습니다.  이 자습서는 IT 운영 지원 팀에서 액세스하는 공유 대시보드를 지원하는 데 사용할 로그 쿼리를 만드는 방법을 설명합니다.  다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 공유 대시보드 만들기

@@ -12,12 +12,12 @@ ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e4b073a63b5b6bec565aed67bcaec7ed014261b
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: d305f3354e7b1af6d43f31f0dd5fe9f54ef3e66f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807865"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242285"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>기존 온-프레미스 프록시 서버 작업
 
@@ -114,9 +114,9 @@ OS 구성 요소는 wpad.domainsuffix에 대한 DNS 조회를 수행하여 프�
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | 커넥터와 애플리케이션 프록시 클라우드 서비스 간의 통신 |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure에서는 다음과 같은 URL을 사용하여 인증서를 확인합니다. |
-| login.windows.net<br>login.microsoftonline.com | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*. microsoftonline.com<br>* microsoftonline-p.com<br>*. msauth.net<br>* msauthimages.net<br>*. msecnd.net<br>* msftauth.net<br>*. msftauthimages.net<br>* phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net | 커넥터는 등록 프로세스 동안 다음과 같은 URL을 사용합니다. |
 
-방화벽 또는 프록시를 통해 구성할 수 있습니다 하는 경우 DNS 허용 목록을에 대 한 연결을 허용할 수 있습니다 \*. msappproxy.net 및 \*. servicebus.windows.net 합니다. 그렇지 않으면 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
+방화벽이 나 프록시를 사용 하 여 DNS 허용 목록을 구성할 수 있는 경우 msappproxy.net 및 servicebus.windows.net에 \*대 \*한 연결을 허용할 수 있습니다. 그렇지 않으면 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 대한 액세스를 허용해야 합니다. IP 범위는 매주 업데이트됩니다.
 
 FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 하는 경우 다음 옵션을 사용합니다.
 
@@ -161,7 +161,7 @@ FQDN으로 연결을 허용할 수 없고 그 대신 IP 범위를 지정해야 �
 1. Azure AD 애플리케이션 프록시 커넥터 서비스를 시작합니다.
 1. 네트워크 캡처를 중지합니다.
 
-   ![스크린샷은 네트워크 캡처 중지 단추](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
+   ![네트워크 캡처 중지 단추를 보여 주는 스크린샷](./media/application-proxy-configure-connectors-with-proxy-servers/stop-trace.png)
 
 ### <a name="check-if-the-connector-traffic-bypasses-outbound-proxies"></a>커넥터 트래픽이 아웃바운드 프록시를 바이패스하는지 확인
 

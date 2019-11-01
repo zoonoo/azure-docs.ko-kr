@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bba95df3-75a4-4a93-8805-b3a8aa3d4861
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b36d34babcbb0241118e895cfe0cc8e4c3bb363
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34a860331e0f4b16ef21b02212217a22e2f5be67
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105148"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158537"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-collaborative-innovation"></a>자습서: Collaborative Innovation과 Azure Active Directory 통합
 
@@ -119,7 +120,7 @@ Collaborative Innovation에서 Azure AD Single Sign-On을 구성하려면 다음
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다. 
 
-    | 이름 | 원본 특성|
+    | Name | 원본 특성|
     | ---------------| --------------- |
     | givenname | user.givenname |
     | surname | user.surname |

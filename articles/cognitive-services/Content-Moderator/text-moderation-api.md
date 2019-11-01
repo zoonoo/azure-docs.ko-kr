@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: c5127d0f16a12840cda735d1682cb578266441fe
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1d147dcee31fa4b84b28ab62e8cd41aebc134a9b
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757246"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043957"
 ---
 # <a name="learn-text-moderation-concepts"></a>텍스트 조정 개념 알아보기
 
@@ -184,4 +184,4 @@ Content Moderator는 사용자 지정 용어 목록 관리 작업이 포함된 [
 
 ## <a name="next-steps"></a>다음 단계
 
-[텍스트 조정 API 콘솔](try-text-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. Visual Studio 및 C#에 익숙한 경우 [텍스트 조정 .NET 빠른 시작](text-moderation-quickstart-dotnet.md)도 확인합니다.
+[텍스트 조정 API 콘솔](try-text-api.md)을 시험 사용하고 REST API 코드 샘플을 사용합니다. 또한 Visual Studio 및 C#에 대해 잘 알고 있는 경우 [.net SDK 퀵 스타트](dotnet-sdk-quickstart.md) 의 텍스트 조정 단원을 확인 하세요.

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 53d06f84172da0c4717cabe79f4f5152e73e9555
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: b02324923e3f004395105b8e04165390cb950fe7
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754260"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044124"
 ---
 # <a name="create-human-reviews"></a>사용자 리뷰 만들기
 
@@ -56,4 +56,4 @@ ms.locfileid: "72754260"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 가이드에서는 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 검토를 설정 하 고 사용 하는 방법을 알아보았습니다. 다음으로, 검토를 프로그래밍 방식으로 만드는 방법을 알아보려면 [REST API 가이드](../try-review-api-review.md) 또는 [.net SDK 가이드](../moderation-reviews-quickstart-dotnet.md) 를 참조 하세요.
+이 가이드에서는 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com)에서 검토를 설정 하 고 사용 하는 방법을 알아보았습니다. 다음으로, 검토를 프로그래밍 방식으로 만드는 방법을 알아보려면 [REST API 가이드](../try-review-api-review.md) 또는 [.net SDK 퀵 스타트](../dotnet-sdk-quickstart.md) 를 참조 하세요.

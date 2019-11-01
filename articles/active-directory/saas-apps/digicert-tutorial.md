@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 646f3129-aa67-4875-9073-1d0b6a3173d9
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aded5e6435be1fd4b2794a3a2ce0918bcbc1164
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df68c9289caed0c857434bf4a1f9a5eb28e71ab4
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104218"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157327"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>자습서: Azure Active Directory와 DigiCert 통합
 
@@ -113,7 +114,7 @@ DigiCert에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다. 
 
-    | 이름 |  원본 특성|
+    | Name |  원본 특성|
     | ---------------| --------------- |
     | nameidentifier | user.userprincipalname |
     | company | < companycode > |

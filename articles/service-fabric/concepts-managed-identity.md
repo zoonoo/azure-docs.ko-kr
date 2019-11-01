@@ -7,16 +7,16 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e2f05ba28109a9b3c88d80eb218bf94014f0f082
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333131"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243020"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Service Fabric 응용 프로그램에 대 한 관리 Id (미리 보기)
 
-클라우드 애플리케이션을 빌드할 때 일반적으로 직면하는 난관 중 하나는 코드에서 클라우드 서비스에 인증하는 데 사용되는 자격 증명을 관리하는 방법입니다. 자격 증명을 안전 하 게 유지 하는 것은 개발자 워크스테이션에 표시 되지 않고 소스 제어로 체크 인하지 않기 때문에 중요 한 작업입니다. Azure AD (Azure Active Directory)에서 Azure 리소스에 대 한 관리 되는 Id 기능을 통해이 문제를 해결할 것입니다. 이 기능은 azure AD에서 자동으로 관리 되는 id를 Azure 서비스에 제공 합니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다.
+클라우드 애플리케이션을 빌드할 때 일반적으로 직면하는 난관 중 하나는 코드에서 클라우드 서비스에 인증하는 데 사용되는 자격 증명을 관리하는 방법입니다. 자격 증명을 안전 하 게 유지 하는 것은 개발자 워크스테이션에 표시 되지 않고 소스 제어로 체크 인하지 않기 때문에 중요 한 작업입니다. Azure AD (Azure Active Directory)에서 Azure 리소스에 대 한 관리 되는 Id 기능을 통해이 문제를 해결할 것입니다. 이 기능은 Azure AD에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다.
 
 Azure 리소스에 대 한 관리 되는 Id 기능은 azure 구독에 azure AD에서 무료로 제공 됩니다. 추가 비용은 없습니다.
 
@@ -78,3 +78,4 @@ Service Fabric에 대 한 관리 id는 azure 리소스로 배포 된 응용 프�
 * [사용자 할당 관리 id를 사용 하 여 Azure Service Fabric 응용 프로그램 배포](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [서비스 코드에서 Service Fabric 응용 프로그램의 관리 되는 id 활용](./how-to-managed-identity-service-fabric-app-code.md)
 * [Azure Service Fabric 응용 프로그램에 다른 Azure 리소스에 대 한 액세스 권한 부여](./how-to-grant-access-other-resources.md)
+* [KeyVaultReferences로 응용 프로그램 비밀 선언 및 사용](./service-fabric-keyvault-references.md) 

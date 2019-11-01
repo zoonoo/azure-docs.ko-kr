@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78d259c0354a1519fa57633a68a1dcfa5a183890
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fa689e6138f8d965e59f7cfa7a85e0835301086c
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105706"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158708"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>자습서: Cezanne HR Software와 Azure Active Directory 통합
 
@@ -255,15 +256,15 @@ Azure AD 사용자가 Cezanne HR Software에 로그인 할 수 있도록 하려�
 
 5. **Single Sign-On** 탭으로 이동하고 **SAML 2.0 식별자** 영역에서 **새로 추가**를 선택합니다.
 
-    ![사용자](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "사용자")
+    ![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_008.png "사용자")
 
 6. **ID 공급자**에 대해 사용자의 ID 공급자를 선택하고 **사용자 식별자** 텍스트 상자에서 Britta Simon 계정의 전자 메일 주소를 입력합니다.
 
-    ![사용자](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "사용자")
+    ![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_009.png "사용자")
 
 7. **저장** 단추를 클릭합니다.
 
-    ![사용자](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "사용자")
+    ![User](./media/cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_010.png "사용자")
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

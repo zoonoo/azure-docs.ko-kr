@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight에서 Apache Spark 클러스터와 함께 Zeppelin Notebook 사용
+title: Zeppelin 노트북 & Apache Spark 클러스터-Azure HDInsight
 description: Azure HDInsight에서 Apache Spark 클러스터와 함께 Zeppelin Notebook을 사용하는 방법에 대한 단계별 지침입니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.openlocfilehash: 26634e2fe23e0a23540638c4559af6e11eccbe72
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: b50baa41c4758ba3c0a405df3f54b4ea2f3f2d13
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71180740"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241297"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용
 
@@ -133,7 +133,7 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://spark.apache.org/) 작
 
     ![변경 인터프리터 run settings1](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-1.png "변경 인터프리터 run settings1")
 
-3. @No__t_0 라는 새 키를 추가 하 고 `group:id:version` 형식으로 해당 값을 설정 합니다. 따라서 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 패키지를 사용하려면 키 값을 `com.databricks:spark-csv_2.10:1.4.0`으로 설정해야 합니다.
+3. `livy.spark.jars.packages`라는 새 키를 추가 하 고 `group:id:version`형식으로 해당 값을 설정 합니다. 따라서 [spark-csv](https://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) 패키지를 사용하려면 키 값을 `com.databricks:spark-csv_2.10:1.4.0`으로 설정해야 합니다.
 
     ![변경 인터프리터 settings2](./media/apache-spark-zeppelin-notebook/zeppelin-use-external-package-2.png "변경 인터프리터 settings2")
 

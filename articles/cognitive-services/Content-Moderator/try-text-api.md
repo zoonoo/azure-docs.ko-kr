@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: bf3f08436fb4bac56907b342c991709947f4c24d
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 467bf7fe26df2f826d6d44d42a9e30b98795232f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754194"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043941"
 ---
 # <a name="moderate-text-from-the-api-console"></a>API 콘솔에서 텍스트 조정
 
@@ -61,9 +61,6 @@ Azure Content Moderator에서 [텍스트 조정 API](https://westus.dev.cognitiv
 ### <a name="sample-text-to-scan"></a>검색할 샘플 텍스트
 
 **요청 본문** 상자에 일부 텍스트를 입력합니다. 다음 예제에서는 텍스트의 의도적인 오타를 보여줍니다.
-
-> [!NOTE]
-> 다음 샘플 텍스트에서 잘못된 사회 보장 번호는 의도적인 것입니다. 샘플 입력 및 출력 형식을 전달하기 위해 사용되었습니다.
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -176,4 +173,4 @@ JSON 응답의 모든 섹션에 대 한 자세한 설명은 [텍스트 중재](t
 
 ## <a name="next-steps"></a>다음 단계
 
-코드에서 REST API를 사용 하거나 [텍스트 조정 .net 빠른](text-moderation-quickstart-dotnet.md) 시작으로 시작 하 여 응용 프로그램과 통합 합니다.
+코드에서 REST API를 사용 하거나 [.NET SDK 퀵 스타트](dotnet-sdk-quickstart.md) 를 따라 응용 프로그램과 통합 합니다.

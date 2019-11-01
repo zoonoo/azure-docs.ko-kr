@@ -18,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 12/12/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 153c692a8fb0fa538ec49c6eafa11815dd794b5d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7e7a01b7fdc1a508fa19397900f8fd4f52d49c53
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64681535"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73164010"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -55,8 +55,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 설정 | 값 |
     | ------- | ----- |
     | Name | *myRouteTablePublic*을 입력합니다. |
-    | 구독 | 구독을 선택합니다. |
-    | 리소스 그룹 | **새로 만들기**를 선택하고, *myResourceGroup*을 입력하고, *확인*을 선택합니다. |
+    | Subscription | 구독을 선택합니다. |
+    | Resource group | **새로 만들기**를 선택하고, *myResourceGroup*을 입력하고, *확인*을 선택합니다. |
     | 위치 | 기본값인 **미국 동부**를 그대로 둡니다.
     | BGP 경로 전파 | 기본값인 **사용**을 그대로 둡니다. |
 
@@ -97,8 +97,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     | Name | *myVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.0.0.0/16*을 입력합니다. |
-    | 구독 | 구독을 선택합니다. |
-    | 리소스 그룹 | ***기존 항목 선택*** > **myResourceGroup**을 차례로 선택합니다. |
+    | Subscription | 구독을 선택합니다. |
+    | Resource group | ***기존 항목 선택*** > **myResourceGroup**을 차례로 선택합니다. |
     | 위치 | 기본값인 **미국 동부**를 그대로 둡니다. |
     | 서브넷 - 이름 | *공용*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.0.0.0/24*를 입력합니다. |
@@ -119,7 +119,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *사설*을 입력합니다. |
+    | Name | *프라이빗*을 입력합니다. |
     | 주소 공간 | *10.0.1.0/24*를 입력합니다. |
 
 1. 나머지는 기본값으로 두고 **확인**을 선택합니다.
@@ -133,7 +133,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 지난 번과 마찬가지로 나머지는 기본값으로 두고, **확인**을 선택합니다.
 
-    Azure에는 세 개의 서브넷, 즉 **공용**, **사설** 및 **DMZ**가 표시됩니다.
+    Azure에는 세 개의 서브넷, 즉 **공용**, **프라이빗** 및 **DMZ**가 표시됩니다.
 
 ### <a name="associate-myroutetablepublic-to-your-public-subnet"></a>공용 서브넷에 myRouteTablePublic 연결
 
@@ -154,8 +154,8 @@ NVA는 라우팅 및 방화벽 최적화와 같은 네트워크 기능을 지원
     | 설정 | 값 |
     | ------- | ----- |
     | **프로젝트 정보** | |
-    | 구독 | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. |
+    | Subscription | 구독을 선택합니다. |
+    | Resource group | **myResourceGroup**을 선택합니다. |
     | **인스턴스 정보** |  |
     | 가상 머신 이름 | *myVmNva*를 입력합니다. |
     | 지역 | **미국 동부**를 선택합니다. |
@@ -242,11 +242,11 @@ NVA는 라우팅 및 방화벽 최적화와 같은 네트워크 기능을 지원
 | 인바운드 포트 선택 | **HTTP** 및 **RDP**를 선택합니다. |
 | 관리 | |
 | 진단 스토리지 계정 | 기본값인 **mynvastorageaccount**를 그대로 둡니다. |
-| **개인 VM** | |
+| **프라이빗 VM** | |
 | 기본 사항 |  |
 | 가상 머신 이름 | *myVmPrivate*를 입력합니다. |
 | 네트워킹 | |
-| 서브넷 | **사설(10.0.1.0/24)** 을 선택합니다. |
+| 서브넷 | **프라이빗(10.0.1.0/24)** 을 선택합니다. |
 | 공용 IP 주소 | 기본값을 적용합니다. |
 | 공용 인바운드 포트 | **선택한 포트 허용**을 선택합니다. |
 | 인바운드 포트 선택 | **HTTP** 및 **RDP**를 선택합니다. |
@@ -290,7 +290,7 @@ Azure가 *myVmPublic* VM을 만드는 동안 *myVmPrivate* VM을 만들 수 있�
 1. 다음 명령을 입력합니다.
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
     이 자습서에서는 추적 경로를 사용하여 라우팅을 테스트합니다. 프로덕션 환경에서는 Windows 방화벽을 통한 ICMP를 허용하지 않는 것이 좋습니다.
@@ -325,7 +325,7 @@ Azure를 사용하여 VM의 네트워크 인터페이스에 대한 [IP 전달을
 1. 다음 명령을 입력하여 Windows 방화벽을 통해 ICMP를 사용하도록 설정합니다.
 
     ```powershell
-    New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
+    New-NetFirewallRule –DisplayName "Allow ICMPv4-In" –Protocol ICMPv4
     ```
 
 ## <a name="test-the-routing-of-network-traffic"></a>네트워크 트래픽의 라우팅 테스트

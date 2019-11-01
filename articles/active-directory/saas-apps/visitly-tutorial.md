@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 3ae085fb-ca60-4f41-96a0-068e5febf943
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18517f8f0022b8347d8a3bb8a978c513db5f6f85
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 82efc34bf580ef204a04268e861a0ff214d97572
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087370"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160914"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-visitly"></a>자습서: Visitly와 Azure Active Directory 통합
 
@@ -111,7 +112,7 @@ Visitly에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 **이름 식별자 값** 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
     
-    | 이름 | 원본 특성 | 
+    | Name | 원본 특성 | 
     | ---------------| --------------- |
     | 이름 식별자 값  | user.mail |
 

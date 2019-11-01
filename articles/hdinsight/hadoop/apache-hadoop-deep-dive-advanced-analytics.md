@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: dde4b4efc62ec444cbbd662a70e7507a1b8f70e7
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 436825c6e5df2be524dc06ccdaf82f0156714679
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066991"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241660"
 ---
 # <a name="deep-dive---advanced-analytics"></a>딥 다이브 분석 - 고급 분석
 
@@ -46,7 +46,7 @@ HDInsight는 대량의 구조화된 데이터, 구조화되지 않은 데이터 
 | 알고리즘 범주| 사용 | 학습 유형 | 알고리즘 |
 | --- | --- | --- | -- |
 | 분류 | 사람 또는 사물을 그룹으로 분류합니다. | 감독 | 의사 결정 트리, 로지스틱 회귀, 신경망 |
-| Clustering | 일단의 예제를 동일 그룹으로 분할합니다. | 자율 | K-평균 클러스터링 |
+| 클러스터링 | 일단의 예제를 동일 그룹으로 분할합니다. | 자율 | K-평균 클러스터링 |
 | 패턴 검색 | 데이터에서 빈번한 연결을 확인합니다. | 자율 | 연결 규칙 |
 | 회귀 | 숫자 결과를 예측합니다. | 감독 | 선형 회귀, 신경망 |
 | 보충 | 최적의 로봇 동작을 결정합니다. | 보충 | 몬테카를로 시뮬레이션, 딥 마인드 |
@@ -78,7 +78,7 @@ HDInsight의 일부로서, 대량 데이터 세트 및 모델과 함께 사용�
 
 ### <a name="azure-machine-learning-and-apache-hive"></a>Azure Machine Learning 및 Apache Hive
 
-[Azure Machine Learning Studio](https://studio.azureml.net/)는 예측 분석을 모델링 하는 도구를 제공할 뿐만 아니라, 예측 모델을 즉시 사용할 준비가 된 웹 서비스로 배포하는 데 사용할 수 있는 완벽하게 관리되는 서비스도 제공합니다. Azure Machine Learning은 클라우드에서 완전한 예측 분석 솔루션을 만들어 예측 모델을 빠르게 만들고, 테스트하고, 운영하고, 관리할 수 있는 도구를 제공합니다. 대형 알고리즘 라이브러리에서 선택하고, 웹 기반 스튜디오를 사용하여 모델을 작성하고, 이 모델을 웹 서비스로 쉽게 배포합니다.
+[Azure Machine Learning Studio (클래식)](https://studio.azureml.net/) 은 예측 분석을 모델링 하는 도구 및 예측 모델을 사용 하기 쉬운 웹 서비스로 배포 하는 데 사용할 수 있는 완전히 관리 되는 서비스를 제공 합니다. Azure Machine Learning은 클라우드에서 완전한 예측 분석 솔루션을 만들어 예측 모델을 빠르게 만들고, 테스트하고, 운영하고, 관리할 수 있는 도구를 제공합니다. 대형 알고리즘 라이브러리에서 선택하고, 웹 기반 스튜디오를 사용하여 모델을 작성하고, 이 모델을 웹 서비스로 쉽게 배포합니다.
 
 ### <a name="apache-spark-and-deep-learning"></a>Apache Spark 및 딥 러닝
 
@@ -127,8 +127,8 @@ Apache Hive 및 Azure Machine Learning
 Apache Spark 및 MLLib
 
 * [HDInsight에서 Apache Spark를 사용하는 Machine Learning](../../machine-learning/team-data-science-process/spark-overview.md)
-* [Apache Spark 및 Machine Learning: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Apache Spark 사용](../spark/apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 및 Machine Learning: HDInsight의 Apache Spark를 사용하여 식품 검사 결과 예측](../spark/apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning Apache Spark: HVAC 데이터를 사용 하 여 온도를 분석 하기 위해 HDInsight에서 Apache Spark 사용](../spark/apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning Apache Spark: HDInsight에서 Apache Spark를 사용 하 여 음식 검사 결과 예측](../spark/apache-spark-machine-learning-mllib-ipython.md)
 
 딥 러닝, Cognitive Toolkit 등
 

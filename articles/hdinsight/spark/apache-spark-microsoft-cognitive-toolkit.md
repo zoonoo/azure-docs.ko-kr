@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight Spark가 포함된 심층 학습용 Microsoft Cognitive Toolkit
+title: Apache Spark로 Microsoft Cognitive Toolkit-Azure HDInsight
 description: Azure HDInsight Spark 클러스터에서 Spark Python API를 사용하여 데이터 세트에 학습된 Microsoft Cognitive 도구 키트 심층 학습 모델을 적용하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: aaa690b62b44f5f21db0861d99d45734cf210db0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f4172c7a5b287c85c0548c7fe9812305a1ee1e6
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448696"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241523"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트 심층 학습 모델 사용
 
@@ -23,15 +23,15 @@ ms.locfileid: "67448696"
 
 2. [Apache Spark](https://spark.apache.org/) 클러스터에 [Jupyter Notebook](https://jupyter.org/)을 업로드하여 [Spark Python API(PySpark)](https://spark.apache.org/docs/0.9.0/python-programming-guide.html)를 통해 Azure Blob Storage 계정의 파일에 학습된 Microsoft Cognitive Toolkit 딥러닝 모델을 적용하는 방법을 확인합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* **Azure 구독**. 이 문서를 시작 하기 전에 Azure 구독이 있어야 합니다. [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free)를 참조하세요.
+* **Azure 구독** - 이 문서를 시작 하기 전에 Azure 구독이 있어야 합니다. [지금 무료 Azure 계정 만들기](https://azure.microsoft.com/free)를 참조하세요.
 
 * **Azure HDInsight Spark 클러스터** - 이 문서에서는 Spark 2.0 클러스터를 만듭니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
 ## <a name="how-does-this-solution-flow"></a>이 솔루션을 전달하는 방법
 
-이 솔루션은이 문서와이 문서의 일부로 업로드 하는 Jupyter notebook을 간에 분할 됩니다. 이 문서에서는 다음 단계를 수행합니다.
+이 솔루션은이 문서와이 문서의 일부로 업로드 하는 Jupyter 노트북 간에 나뉘어 있습니다. 이 문서에서는 다음 단계를 수행합니다.
 
 * HDInsight Spark 클러스터에서 스크립트 동작을 실행하여 Microsoft Cognitive 도구 키트 및 Python 패키지를 설치합니다.
 * 솔루션을 실행하는 Jupyter 노트북을 HDInsight Spark 클러스터에 업로드합니다.
@@ -51,13 +51,13 @@ ms.locfileid: "67448696"
 
 ## <a name="install-microsoft-cognitive-toolkit"></a>Microsoft Cognitive 도구 키트 설치
 
-스크립트 동작을 사용하여 Spark 클러스터에 Microsoft Cognitive 도구 키트를 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. HDInsight.NET SDK 또는 Azure PowerShell을 사용 하 여 Azure portal에서 사용자 지정 스크립트를 사용할 수 있습니다. 또한 스크립트를 사용하여 클러스터 만들기의 일부로 또는 클러스터가 작동하여 실행된 후에 도구 키트를 설치할 수 있습니다. 
+스크립트 동작을 사용하여 Spark 클러스터에 Microsoft Cognitive 도구 키트를 설치할 수 있습니다. 스크립트 작업은 사용자 지정 스크립트를 사용하여 기본적으로 사용할 수 없는 클러스터에 구성 요소를 설치합니다. Azure Portal에서 HDInsight .NET SDK를 사용 하거나 Azure PowerShell를 사용 하 여 사용자 지정 스크립트를 사용할 수 있습니다. 또한 스크립트를 사용하여 클러스터 만들기의 일부로 또는 클러스터가 작동하여 실행된 후에 도구 키트를 설치할 수 있습니다. 
 
 이 문서에서는 클러스터를 만든 후에 포털을 사용하여 도구 키트를 설치합니다. 사용자 지정 스크립트를 실행하는 다른 방법은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-스크립트 작업을 실행 하려면 Azure portal을 사용 하는 방법에 지침은 [사용자 지정 HDInsight 스크립트 동작을 사용 하 여 클러스터](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)합니다. Microsoft Cognitive 도구 키트를 설치하려면 다음 입력을 제공해야 합니다.
+Azure Portal를 사용 하 여 스크립트 동작을 실행 하는 방법에 대 한 지침은 [스크립트 작업을 사용 하 여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)을 참조 하세요. Microsoft Cognitive 도구 키트를 설치하려면 다음 입력을 제공해야 합니다.
 
 * 스크립트 동작 이름에 값을 제공합니다.
 
@@ -73,7 +73,7 @@ Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트를 �
 
 1. Github 리포지토리 [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration)을 복제합니다. 복제 지침은 [리포지토리 복제](https://help.github.com/articles/cloning-a-repository/)를 참조하세요.
 
-2. Azure portal에서 이미 클릭 프로 비전 하는 Spark 클러스터 블레이드를 엽니다 **클러스터 대시보드**를 클릭 하 고 **Jupyter notebook**합니다.
+2. Azure Portal에서 이미 프로 비전 한 Spark 클러스터 블레이드를 열고 **클러스터 대시보드**를 클릭 한 다음 **Jupyter 노트북**을 클릭 합니다.
 
     `https://<clustername>.azurehdinsight.net/jupyter/` URL로 이동하여 Jupyter 노트북을 시작할 수도 있습니다. \<clustername>을 HDInsight 클러스터의 이름으로 바꿉니다.
 
@@ -83,14 +83,14 @@ Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트를 �
 
 4. **업로드**를 다시 클릭합니다.
 
-5. Notebook을 업로드 한 후 노트북의 이름을 클릭 한 다음 데이터 집합을 로드 하 고 문서를 수행 하는 방법에 대 한 노트북 자체의 지침을 따릅니다.
+5. 노트북을 업로드 한 후에는 노트북의 이름을 클릭 한 다음, 데이터 집합을 로드 하 고 문서를 수행 하는 방법에 대 한 노트북 자체의 지침을 따릅니다.
 
 ## <a name="see-also"></a>참고 항목
-* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 * [HDInsight의 Apache Spark를 사용한 Application Insight 원격 분석 데이터 분석](apache-spark-analyze-application-insight-logs.md)

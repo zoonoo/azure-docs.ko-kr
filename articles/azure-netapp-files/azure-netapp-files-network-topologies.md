@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 02852b325a22f274b4aa6e793b03c733c38bb9aa
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 8e6a1c3472c6b20b27cf181edbeeb96ab71eb58d
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984131"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242488"
 ---
 # <a name="guidelines-for-azure-netapp-files-network-planning"></a>Azure NetApp Files 네트워크 계획 지침
 
@@ -52,13 +52,13 @@ Azure NetApp Files에는 다음과 같은 네트워크 제한이 적용 됩니�
 
 |    토폴로지    |    지원 됨    |     해결 방법    |
 |-------------------------------------------------------------------------------------------------------------------------------|--------------------|-----------------------------------------------------------------------------|
-|    로컬 VNet의 볼륨에 연결    |    예    |         |
-|    피어 링 VNet (동일한 지역)의 볼륨에 연결    |    예    |         |
-|    피어 링 VNet (교차 지역 또는 전역 피어 링)의 볼륨에 연결    |    아니요    |    없음    |
-|    Express 경로 게이트웨이를 통해 볼륨에 연결    |    예    |         |
-|    Express 경로 게이트웨이 및 게이트웨이 전송으로 VNet 피어 링을 통해 스포크 VNet의 볼륨에서 온-프레미스로의 연결    |    예    |        |
-|    VPN gateway를 통해 온-프레미스에서 스포크 VNet의 볼륨으로의 연결    |    예    |         |
-|    온-프레미스에서 VPN gateway를 통해 스포크 VNet의 볼륨에 대 한 연결 및 게이트웨이 전송으로 VNet 피어 링    |    예    |         |
+|    로컬 VNet의 볼륨에 연결    |    yes    |         |
+|    피어 링 VNet (동일한 지역)의 볼륨에 연결    |    yes    |         |
+|    피어 링 VNet (교차 지역 또는 전역 피어 링)의 볼륨에 연결    |    아닙니다.    |    없음    |
+|    Express 경로 게이트웨이를 통해 볼륨에 연결    |    yes    |         |
+|    Express 경로 게이트웨이 및 게이트웨이 전송으로 VNet 피어 링을 통해 스포크 VNet의 볼륨에서 온-프레미스로의 연결    |    yes    |        |
+|    VPN gateway를 통해 온-프레미스에서 스포크 VNet의 볼륨으로의 연결    |    yes    |         |
+|    온-프레미스에서 VPN gateway를 통해 스포크 VNet의 볼륨에 대 한 연결 및 게이트웨이 전송으로 VNet 피어 링    |    yes    |         |
 
 
 ## <a name="virtual-network-for-azure-netapp-files-volumes"></a>Azure NetApp Files 볼륨에 대 한 가상 네트워크
@@ -99,7 +99,7 @@ UDRs (사용자 정의 경로) 및 NSGs (네트워크 보안 그룹)는 Azure Ne
 
 서로 다른 리소스에 액세스 해야 하는 동일한 지역에 추가 Vnet이 있는 경우 [VNet 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 을 사용 하 여 vnet를 연결 하 여 Azure 인프라를 통해 보안 연결을 사용할 수 있습니다. 
 
-위의 다이어그램에서 VNet 2와 VNet 3을 고려 합니다. Vm 2가 VM 3 또는 볼륨 2에 연결 되어야 하거나 vm 3이 VM 2 또는 볼륨 1에 연결 해야 하는 경우 VNet 2와 VNet 3 간에 VNet 피어 링을 사용 하도록 설정 해야 합니다. 
+위의 다이어그램에서 VNet 2와 VNet 3을 고려 합니다. Vm 1이 vm 2 또는 볼륨 2에 연결 되어야 하거나 vm 2가 VM 1 또는 볼륨 1에 연결 해야 하는 경우 VNet 2와 VNet 3 간에 VNet 피어 링을 사용 하도록 설정 해야 합니다. 
 
 또한 vnet 1이 VNet 2를 사용 하 여 피어 링 하 고 VNet 2는 동일한 지역에서 VNet 3으로 피어 링는 시나리오를 고려해 야 합니다. Vnet 1의 리소스는 VNet 2의 리소스에 연결할 수 있지만 vnet 1 및 VNet 3이 피어 링 않는 한 VNet 3의 리소스에 연결할 수 없습니다. 
 

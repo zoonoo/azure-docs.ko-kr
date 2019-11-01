@@ -8,12 +8,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0b51617966ad85037ad29f3e5005a17f66602e01
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5c07fac0590b833aa19909849271c59d65d42ad6
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677130"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242446"
 ---
 # <a name="what-is-distributed-tracing"></a>분산 추적이란?
 
@@ -40,6 +40,7 @@ Azure Monitor에는 [애플리케이션 맵](https://docs.microsoft.com/azure/ap
 * [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * [Node.js](https://docs.microsoft.com/azure/application-insights/app-insights-nodejs-quick-start)
 * [JavaScript](https://docs.microsoft.com/azure/application-insights/app-insights-javascript)
+* [Python (미리 보기)](opencensus-python.md)
 
 적절한 Application Insight SDK가 설치되고 구성되면, 많이 사용되는 프레임워크, 라이브러리 및 기술에 대한 추적 정보가 SDK 종속성 자동 수집기를 통해 자동으로 수집됩니다. 지원되는 기술의 전체 목록은 [종속성 자동 수집 설명서](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies)에 제공됩니다.
 
@@ -49,7 +50,7 @@ Azure Monitor에는 [애플리케이션 맵](https://docs.microsoft.com/azure/ap
 
 Application Insights SDK 외에, Application Insights는 [OpenCensus](https://opencensus.io/)를 통해서도 분산 추적을 지원합니다. OpenCensus는 오픈 소스, 벤더에 구애받지 않는, 라이브러리의 단일 배포판이며 서비스에 대한 메트릭 컬렉션 및 분산 추적 기능을 제공합니다. 또한 오픈 소스 커뮤니티에서 Redis, Memcached 또는 MongoDB와 같이 널리 사용되는 기술을 통해 분산 추적이 가능합니다. [Microsoft는 여러 다른 모니터링 및 클라우드 파트너와 OpenCensus에 대해 협력하고 있습니다](https://open.microsoft.com/2018/06/13/microsoft-joins-the-opencensus-project/).
 
-OpenCensus를 사용하여 애플리케이션에 분산 추적 기능을 추가하려면 먼저 [Application Insights 로컬 전달자를 설치 및 구성](./../../azure-monitor/app/opencensus-local-forwarder.md)합니다. 여기에서 로컬 전달자를 통해 분산 추적 데이터를 라우팅하도록 OpenCensus를 구성합니다. [Python](./../../azure-monitor/app/opencensus-python.md)과 [Go](./../../azure-monitor/app/opencensus-go.md)가 둘 다 지원됩니다.
+[Python (미리 보기)](opencensus-python.md) 
 
 OpenCensus 웹 사이트에는 [Python](https://opencensus.io/api/python/trace/usage.html)과 [Go](https://godoc.org/go.opencensus.io)에 대한 API 참조 설명서는 물론 OpenCensus 사용을 위한 다양한 가이드가 있습니다. 
 

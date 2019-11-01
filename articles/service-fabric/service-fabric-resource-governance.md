@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: atsenthi
-ms.openlocfilehash: aa388a688e76b0ba69231d8a11aa1bfa686f7f51
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 44abb297b9ce0eafadd3af9539d5b12751360319
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166546"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242908"
 ---
 # <a name="resource-governance"></a>리소스 관리
 
@@ -32,9 +32,9 @@ ms.locfileid: "72166546"
 
 리소스 관리는 Service Fabric에서 [서비스 패키지](service-fabric-application-model.md)에 따라 지원됩니다. 서비스 패키지에 할당된 리소스를 코드 패키지 간에 다시 나눌 수 있습니다. 지정된 리소스 제한은 리소스 예약을 의미하기도 합니다. Service Fabric은 두 개의 기본 제공 [메트릭](service-fabric-cluster-resource-manager-metrics.md)을 사용하여 서비스 패키지당 CPU 및 메모리 지정을 지원합니다.
 
-* *CPU*(메트릭 이름 `servicefabric:/_CpuCores`): 호스트 머신에서 사용할 수 있는 논리 코어입니다. 모든 노드에서 모든 코어에 동일하게 가중치를 적용합니다.
+* *CPU*(메트릭 이름 `servicefabric:/_CpuCores`): 호스트 컴퓨터에서 사용할 수 있는 논리 코어입니다. 모든 노드에서 모든 코어에 동일하게 가중치를 적용합니다.
 
-* *메모리*(메트릭 이름 `servicefabric:/_MemoryInMB`): 메모리는 메가바이트 단위로 표현되며, 머신에서 사용할 수 있는 실제 메모리에 매핑됩니다.
+* *메모리*(메트릭 이름 `servicefabric:/_MemoryInMB`): 메모리는 메가바이트 단위로 표현되며, 컴퓨터에서 사용할 수 있는 실제 메모리에 매핑됩니다.
 
 이러한 두 메트릭을 위해 [클러스터 리소스 관리자](service-fabric-cluster-resource-manager-cluster-description.md)는 총 클러스터 용량, 클러스터의 각 노드 부하, 클러스터에 남은 리소스를 추적합니다. 이 두 메트릭은 모든 다른 사용자 또는 사용자 지정 메트릭에 동일합니다. 기존의 모든 기능을 함께 사용할 수 있습니다.
 
@@ -56,9 +56,9 @@ Service Fabric 런타임은 현재 리소스 예약을 제공하지 않습니다
 
 그러나 다른 프로세스가 CPU를 경합하는 두 가지 상황이 있습니다. 이 상황에서는 이 예제의 프로세스와 컨테이너에 방해가 되는 이웃 문제가 발생할 수 있습니다.
 
-* *관리형 및 비관리형 서비스와 컨테이너 혼합*: 사용자가 리소스 거버넌스를 지정하지 않고 서비스를 만들면 런타임이 해당 서비스는 리소스를 소비하지 않는다고 간주하며 이 예제의 노드에 배치할 수 있습니다. 이 경우 이 새 프로세스가 이미 노드에서 실행 중인 서비스를 희생하여 일부 CPU를 효과적으로 소비하게 됩니다. 이 문제에 대한 두 가지 해결 방법이 있습니다. 관리 및 비관리 서비스를 같은 클러스터에서 혼합하지 않거나, [배치 제약 조건](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)을 사용하여 두 가지 종류의 서비스가 동일한 노드 집합에서 종료되지 않게 하는 것입니다.
+* *관리 및 비관리 서비스와 컨테이너 혼합*: 사용자가 리소스 거버넌스를 지정하지 않고 서비스를 만들면 런타임이 해당 서비스는 리소스를 소비하지 않는다고 간주하며 이 예제의 노드에 배치할 수 있습니다. 이 경우 이 새 프로세스가 이미 노드에서 실행 중인 서비스를 희생하여 일부 CPU를 효과적으로 소비하게 됩니다. 이 문제에 대 한 두 가지 해결 방법이 있습니다. 관리 및 비관리 서비스를 같은 클러스터에서 혼합하지 않거나, [배치 제약 조건](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)을 사용하여 두 가지 종류의 서비스가 동일한 노드 집합에서 종료되지 않게 하는 것입니다.
 
-* *Service Fabric 외부에 있는 다른 프로세스가 노드에서 시작(예: 일부 OS 서비스)* : 이 경우, Service Fabric 외부의 프로세스도 기존 서비스와 CPU를 경합합니다. 이 문제의 해결 방법은 다음 섹션에서처럼 OS 오버헤드에 부합하는 노드 용량을 올바르게 설정하는 것입니다.
+* *Service Fabric 외부에 있는 다른 프로세스가 노드에서 시작(예: 일부 OS 서비스)* : Service Fabric 외부의 프로세스도 기존 서비스와 CPU를 경합합니다. 이 문제의 해결 방법은 다음 섹션에서처럼 OS 오버헤드에 부합하는 노드 용량을 올바르게 설정하는 것입니다.
 
 ## <a name="cluster-setup-for-enabling-resource-governance"></a>리소스 거버넌스를 사용하기 위한 클러스터 설정
 
@@ -110,6 +110,18 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 </Section>
 ```
 
+> [!IMPORTANT]
+> Service Fabric 버전 7.0부터 사용자가 노드 리소스 용량 값을 수동으로 제공 하는 경우 노드 리소스 용량이 계산 되는 방식에 대 한 규칙이 업데이트 되었습니다. 다음 시나리오를 살펴보겠습니다.
+>
+> * 노드에 총 10 개의 cpu 코어가 있습니다.
+> * SF는 사용자 서비스 (기본 설정)에 대 한 총 리소스의 80%를 사용 하도록 구성 되어 있으며,이는 노드에서 실행 중인 다른 서비스 (포함 시스템 서비스)에 대해 20%의 버퍼를 유지 합니다 Service Fabric.
+> * 사용자가 cpu 코어 메트릭에 대 한 노드 리소스 용량을 수동으로 재정의 하 고 5 개 코어로 설정 하기로 결정 했습니다.
+>
+> Service Fabric 사용자 서비스의 사용 가능한 용량이 다음과 같은 방식으로 계산 되는 방식에 대 한 규칙이 변경 되었습니다.
+>
+> * 7\.0 Service Fabric 하기 전에는 사용자 서비스의 사용 가능한 용량이 **5 개 코어** (20%의 용량 버퍼는 무시 됨)로 계산 됩니다.
+> * Service Fabric 7.0부터 사용자 서비스에 사용할 수 있는 용량은 **4 개 코어** (20%의 용량 버퍼는 무시 되지 않음)로 계산 됩니다.
+
 ## <a name="specify-resource-governance"></a>리소스 거버넌스 지정
 
 리소스 관리 제한은 다음 예제와 같이 애플리케이션 매니페스트(ServiceManifestImport 섹션)에서 지정됩니다.
@@ -141,7 +153,7 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 
 ### <a name="using-application-parameters"></a>애플리케이션 매개 변수 사용
 
-리소스 관리를 지정하는 경우 [애플리케이션 매개 변수](service-fabric-manage-multiple-environment-app-configuration.md)를 사용하여 여러 앱 구성을 관리할 수 있습니다. 다음 예제에서는 애플리케이션 매개 변수의 사용법을 보여 줍니다.
+리소스 거 버 넌 스 설정을 지정 하는 경우 [응용 프로그램 매개 변수](service-fabric-manage-multiple-environment-app-configuration.md) 를 사용 하 여 여러 앱 구성을 관리할 수 있습니다. 다음 예제에서는 애플리케이션 매개 변수의 사용법을 보여 줍니다.
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -185,6 +197,27 @@ Service Fabric이 사용 가능한 CPU의 50%와 사용 가능한 메모리의 7
 > 애플리케이션 매개 변수를 사용해서 리소스 관리를 지정하는 방식은 Service Fabric 버전 6.1부터 사용할 수 있습니다.<br>
 >
 > 리소스 관리를 지정하는 데 애플리케이션 매개 변수를 사용할 경우 Service Fabric을 버전 6.1 이전 버전으로 다운그레이드할 수 없습니다.
+
+## <a name="enforcing-the-resource-limits-for-user-services"></a>사용자 서비스에 대 한 리소스 제한 적용
+
+Service Fabric 서비스에 리소스 관리를 적용 하는 동안 해당 리소스 관리 서비스가 리소스 할당량을 초과할 수 없도록 보장 하는 반면, 많은 사용자는 여전히 Service Fabric 서비스 중 일부를 비관리 모드로 실행 해야 합니다. 비관리 Service Fabric 서비스를 사용 하는 경우 "런어웨이" 비관리 서비스에서 Service Fabric 노드에서 사용 가능한 모든 리소스를 사용 하 여 다음과 같은 심각한 문제가 발생할 수 있는 상황이 발생할 수 있습니다.
+
+* 노드 (Service Fabric 시스템 서비스 포함)에서 실행 되는 다른 서비스의 리소스 부족
+* 비정상 상태에서 종료 되는 노드
+* 클러스터 관리 Api Service Fabric 응답 하지 않음
+
+이러한 상황이 발생 하는 것을 방지 하기 위해 Service Fabric를 사용 하면 *노드에서 실행 중인 모든 Service Fabric 사용자 서비스* (관리 되는 사용자 서비스와 비관리 모두)에 대해 리소스 제한을 적용 하 여 사용자 서비스에서 지정 된 리소스 크기입니다. 이는 ClusterManifest의 PlacementAndLoadBalancing 섹션에 있는 EnforceUserServiceMetricCapacities config 값을 true로 설정 하 여 수행 됩니다. 이 설정은 기본적으로 해제 되어 있습니다.
+
+```xml
+<SectionName="PlacementAndLoadBalancing">
+    <ParameterName="EnforceUserServiceMetricCapacities" Value="false"/>
+</Section>
+```
+
+추가 설명:
+
+* 리소스 제한 적용은 `servicefabric:/_CpuCores` 및 `servicefabric:/_MemoryInMB` 리소스 메트릭에만 적용 됩니다.
+* 리소스 한도 적용은 자동 검색 메커니즘을 통해 또는 사용자가 수동으로 노드 용량을 지정 하 여 ( [사용 하도록 설정 하기 위해 클러스터 설정에 설명 된 대로) 리소스 메트릭의 노드 용량을 Service Fabric 사용할 수 있는 경우에만 작동 합니다. 리소스 관리](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) 섹션). 노드 용량이 구성 되지 않은 경우 Service Fabric 사용자 서비스에 대해 예약할 리소스의 양을 알 수 없기 때문에 리소스 제한 적용 기능을 사용할 수 없습니다. "EnforceUserServiceMetricCapacities"가 true 이지만 노드 용량이 구성 되지 않은 경우 Service Fabric에서 상태 경고를 실행 합니다.
 
 ## <a name="other-resources-for-containers"></a>컨테이너에 대한 기타 리소스
 

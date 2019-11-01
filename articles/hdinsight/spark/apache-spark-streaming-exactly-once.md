@@ -1,5 +1,5 @@
 ---
-title: 정확히 한 번의 이벤트 처리를 사용 하는 Spark 스트리밍 작업-Azure HDInsight
+title: Spark Streaming & 정확히 한 번 이벤트 처리-Azure HDInsight
 description: Apache Spark 스트리밍을 설정 하 여 한 번만 이벤트를 처리 하는 방법입니다.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,19 +8,19 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: 908c49a46fe7993bc20bcb63a3c15758e2de5343
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 34cb3f4cdcc5bfc11bba300ff1aa04422e0fcc57
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091014"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241138"
 ---
 # <a name="create-apache-spark-streaming-jobs-with-exactly-once-event-processing"></a>이벤트를 정확하게 한 번만 처리하는 Apache Spark 스트리밍 작업 만들기
 
 스트림 처리 애플리케이션은 시스템에 일부 오류가 발생한 후에 재처리 메시지를 어떻게 다룰지에 대해 여러 다른 방법을 취합니다.
 
-* 최소 한 번: 각 메시지는 확실히 처리되지만 두 번 이상 처리될 수도 있습니다.
-* 최대 한 번: 각 메시지는 처리될 수도 있고 처리되지 않을 수도 있습니다. 메시지가 처리되는 경우 한 번만 처리됩니다.
+* 최소 한 번: 각 메시지는 처리되도록 보장되지만, 두 번 이상 처리될 수도 있습니다.
+* 최대 한 번: 각 메시지는 처리될 수 또는 처리되지 않을 수도 있습니다. 메시지가 처리되는 경우 한 번만 처리됩니다.
 * 정확히 한 번만: 각 메시지는 오직 한 번만 처리되도록 보장됩니다.
 
 이 아티클은 정확히 한 번만 처리하도록 하기 위해 Spark Streaming을 구성하는 방법을 보여줍니다.

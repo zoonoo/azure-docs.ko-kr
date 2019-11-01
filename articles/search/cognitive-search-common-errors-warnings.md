@@ -1,23 +1,24 @@
 ---
-title: 일반적인 오류 및 경고
-titleSuffix: Azure Cognitive Search
-description: 이 문서에서는 Azure Cognitive Search의 AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
-manager: nitinme
+title: 일반적인 오류 및 경고-Azure Search
+description: 이 문서에서는 Azure Search AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
+services: search
+manager: heidist
 author: amotley
-ms.author: abmotley
-ms.service: cognitive-search
+ms.service: search
+ms.workload: search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 08d15f20f69c0c42d8b4dd4bac72e7d9f367a957
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 09/18/2019
+ms.author: abmotley
+ms.openlocfilehash: 6455ac9dbe0933f6d46d1137e0a19dcc388d8c80
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787986"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73243046"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure Cognitive Search AI 보강 파이프라인의 일반적인 오류 및 경고
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Azure Search AI 보강 파이프라인의 일반적인 오류 및 경고
 
-이 문서에서는 Azure Cognitive Search의 AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
+이 문서에서는 Azure Search AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
 
 ## <a name="errors"></a>오류
 오류 수가 [' Maxfaileditems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures)를 초과 하면 인덱싱이 중지 됩니다. 
@@ -104,9 +105,9 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
       }
 ```
 
-@No__t_0 매개 변수에 대해 설정할 수 있는 최대값은 230 초입니다.  사용자 지정 기술이 230 초 내에 일관 되 게 실행할 수 없는 경우 단일 실행 내에서 처리할 문서 수가 줄어들기 때문에 사용자 지정 기술 `batchSize`를 줄이는 것을 고려할 수 있습니다.  이미 `batchSize`를 1로 설정한 경우에는 230 초 이내에 실행할 수 있도록 기술를 다시 작성 하거나, 단일 사용자 지정 기술에 대 한 실행 시간이 최대 230 초인 경우 여러 사용자 지정 기술로 분할 해야 합니다. 자세한 내용은 [사용자 지정 기술 설명서](cognitive-search-custom-skill-web-api.md) 를 참조 하십시오.
+`timeout` 매개 변수에 대해 설정할 수 있는 최대값은 230 초입니다.  사용자 지정 기술이 230 초 내에 일관 되 게 실행할 수 없는 경우 단일 실행 내에서 처리할 문서 수가 줄어들기 때문에 사용자 지정 기술 `batchSize`를 줄이는 것을 고려할 수 있습니다.  이미 `batchSize`를 1로 설정한 경우에는 230 초 이내에 실행할 수 있도록 기술를 다시 작성 하거나, 단일 사용자 지정 기술에 대 한 실행 시간이 최대 230 초인 경우 여러 사용자 지정 기술로 분할 해야 합니다. 자세한 내용은 [사용자 지정 기술 설명서](cognitive-search-custom-skill-web-api.md) 를 참조 하십시오.
 
-### <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>' @No__t_0 '을 (를) 할 수 없습니다. | 검색 인덱스에 ' `Delete` ' 문서
+### <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>'`MergeOrUpload`'을 (를) 할 수 없습니다. | 검색 인덱스에 '`Delete`' 문서
 
 문서를 읽고 처리 했지만 인덱서가 검색 인덱스에 추가할 수 없습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
@@ -131,6 +132,10 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 | 원본 문서에서 지리적 위치에 대해 호환 되지 않는 표기법이 사용 되었습니다. | WKT POINT 문자열 리터럴은 지원 되지 않습니다. 대신 GeoJson point 리터럴을 사용 하세요. |
 
 이러한 모든 경우에는 [Azure Search의 인덱서에 대해](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) [지원 되는 데이터 형식 (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 및 데이터 형식 맵을 참조 하 여 인덱스 스키마를 올바르게 작성 하 고 적절 한 [인덱서 필드 매핑을](search-indexer-field-mappings.md)설정 했는지 확인 합니다. 오류 메시지에는 불일치의 원인을 추적 하는 데 도움이 되는 세부 정보가 포함 됩니다.
+
+### <a name="could-not-process-document-within-indexer-max-run-time"></a>인덱서 최대 실행 시간 내에서 문서를 처리할 수 없습니다.
+
+이 오류는 인덱서가 허용 된 실행 시간 내에 데이터 원본에서 단일 문서 처리를 완료할 수 없는 경우에 발생 합니다. 기술력과를 사용 하는 경우 [최대 실행 시간이](search-limits-quotas-capacity.md#indexer-limits) 짧아집니다. 이 오류가 발생 하는 경우 maxFailedItems가 0 이외의 값으로 설정 된 경우 인덱서는 이후 실행 시 문서를 우회 하 여 인덱싱이 진행 되도록 합니다. 문서를 건너뛸 수 없는 경우 또는이 오류가 일관 되 게 표시 되는 경우 단일 인덱서 실행 내에서 부분 진행을 수행할 수 있도록 문서를 더 작은 문서로 분할 하는 것이 좋습니다.
 
 ##  <a name="warnings"></a>기록
 경고는 인덱싱을 중지 하지 않지만 예기치 않은 결과가 발생할 수 있는 조건을 표시 합니다. 작업 수행 여부는 데이터와 시나리오에 따라 달라 집니다.

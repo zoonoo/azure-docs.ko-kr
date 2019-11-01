@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 596da9cfe0e914183bd3b2603ffa1047f1d9352b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: f5a9f83a8f6e8d5e83f30d30da2b1c4c0f722dc3
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310018"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73063051"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID란?
 
@@ -122,23 +122,25 @@ Windows VM에서 관리 ID를 사용하는 방법:
 
 Linux VM에서 관리 ID를 사용하는 방법:
 
+* [Azure Container Registry 액세스](../../container-registry/container-registry-authentication-managed-identity.md)
 * [Azure Data Lake Store에 액세스](tutorial-linux-vm-access-datalake.md)
 * [Azure Resource Manager 액세스](tutorial-linux-vm-access-arm.md)
 * [액세스 키를 사용하여 Azure Storage에 액세스](tutorial-linux-vm-access-storage.md)
 * [공유 액세스 서명을 사용하여 Azure Storage에 액세스](tutorial-linux-vm-access-storage-sas.md)
 * [Azure Key Vault를 사용하여 비 Azure AD 리소스에 액세스](tutorial-linux-vm-access-nonaad.md)
-* [Azure Container Registry 액세스](../../container-registry/container-registry-authentication-managed-identity.md)
 
 다른 Azure 서비스에서 관리 ID를 사용하는 방법:
 
 * [Azure App Service](/azure/app-service/overview-managed-identity)
-* [Azure Functions](/azure/app-service/overview-managed-identity)
-* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
-* [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
-* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Azure API Management](../../api-management/api-management-howto-use-managed-service-identity.md)
 * [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 * [Azure Container Registry 작업](../../container-registry/container-registry-tasks-authentication-managed-identity.md)
+* [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
+* [Azure Functions](/azure/app-service/overview-managed-identity)
+* [Azure Kubernetes Service](/azure/aks/use-managed-identity)
+* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
+* [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
+
 
 ## Azure 서비스에서 어떤 기능을 지원하나요?<a name="which-azure-services-support-managed-identity"></a>
 

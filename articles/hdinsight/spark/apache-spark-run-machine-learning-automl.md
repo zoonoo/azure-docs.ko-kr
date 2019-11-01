@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight의 Apache Spark에서 Azure Machine Learning 작업 실행
+title: HDInsight의 Apache Spark에서 Azure Machine Learning 작업 실행
 description: Azure HDInsight의 Apache Spark에서 AutoML(자동화된 기계 학습)을 사용하여 Azure Machine Learning 워크로드를 실행하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/14/2019
-ms.openlocfilehash: 599fa62d253eda7992d7d7db4f5178d3ce428a9c
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 14cb4f02bc18bda24f022f1ccf41a06776a5136b
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814046"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241478"
 ---
 # <a name="run-azure-machine-learning-workloads-with-automated-machine-learning-on-apache-spark-in-hdinsight"></a>HDInsight의 Apache Spark에서 자동화 된 Machine Learning을 사용 하 여 Azure Machine Learning 작업 실행
 
@@ -21,7 +21,7 @@ Azure Machine Learning는 기계 학습 모델의 빌드, 학습 및 배포를 �
 
 ## <a name="install-azure-machine-learning-on-an-hdinsight-cluster"></a>HDInsight 클러스터에서 Azure Machine Learning 설치
 
-자동화 된 기계 학습에 대 한 일반적인 자습서 [를 보려면 자습서: 자동화된 기계 학습을 사용하여 모델 빌드](../../machine-learning/service/tutorial-auto-train-models.md)를 참조하세요.
+자동화 된 기계 학습에 대 한 일반적인 자습서는 [자습서: 자동화 된 machine learning을 사용 하 여 회귀 모델 빌드](../../machine-learning/service/tutorial-auto-train-models.md)를 참조 하세요.
 모든 새 HDInsight-Spark 클러스터는 AzureML-AutoML SDK를 사용 하 여 사전 설치 됩니다. 이 [샘플 Jupyter 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-hdi)을 사용 하 여 HDInsight에서 automl을 시작할 수 있습니다. 이 Jupyter 노트는 단순한 분류 문제에 자동화된 기계 학습 분류자를 사용하는 방법을 보여 줍니다.
 
 > [!Note]
@@ -71,10 +71,10 @@ dataflow_with_token = dprep.read_csv(
 
 ## <a name="experiment-submission"></a>실험 제출
 
-자동화 된 [machine learning 구성](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig)에서는 패키지를 분산 `spark_context` 모드에서 실행 하도록 속성을 설정 해야 합니다. 병렬로 실행되는 최대 반복 횟수를 나타내는 속성 `concurrent_iterations`는 Spark 앱의 실행기 코어 수보다 작은 수로 설정해야 합니다.
+자동화 된 [machine learning 구성](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig)에서는 패키지를 분산 모드에서 실행할 수 있도록 속성 `spark_context` 설정 해야 합니다. 병렬로 실행되는 최대 반복 횟수를 나타내는 속성 `concurrent_iterations`는 Spark 앱의 실행기 코어 수보다 작은 수로 설정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * 자동화 된 machine learning의 동기에 대 한 자세한 내용은 [Microsoft의 자동화 된 machine learning을 사용 하 여 모델 릴리스](https://azure.microsoft.com/blog/release-models-at-pace-using-microsoft-s-automl/) (영문)를 참조 하세요.
-* Azure ML 자동화 ML 기능을 사용 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning service의 새로운 자동화 된 기계 학습 기능](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/) 을 참조 하세요.
+* Azure ML 자동화 된 ML 기능 사용에 대 한 자세한 내용은 [Azure Machine Learning의 새로운 자동화 된 기계 학습 기능](https://azure.microsoft.com/blog/new-automated-machine-learning-capabilities-in-azure-machine-learning-service/) 을 참조 하세요.
 * [Microsoft Research의 AutoML 프로젝트](https://www.microsoft.com/research/project/automl/)

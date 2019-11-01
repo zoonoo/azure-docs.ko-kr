@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 10/31/2019
 ms.author: raynew
-ms.openlocfilehash: 144050bd29e8d2ec56c1347d60fd7452ea60b9cf
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 54416faa9140cf6e7c7c471e4b4c62db5f6f079b
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053632"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242948"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -41,14 +41,45 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 **업데이트** |  **통합 설정** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery 공급자** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
+[롤업 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 9.29.5367.1 | 5.15000.0 | 9.29.5367.1 | 5.15000.0 | 2.0.9165.0
 [롤업 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [롤업 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 [롤업 38](https://support.microsoft.com/help/4513507/) | 9.26.5269.1 | 5.1.4500.0 | 9.26.5269.1 | 5.1.4500.0 | 2.0.9165.0
 [롤업 37](https://support.microsoft.com/help/4508614/) | 9.25.5241.1 | 5.1.4300.0 | 9.25.5241.1 | 5.1.4300.0 | 2.0.9163.0
-[롤업 36](https://support.microsoft.com/help/4503156/) | 9.24.5211.1 | 5.1.4150.0 | 9.24.5211.1 | 5.1.4150.0 | 2.0.9160.0 
         
 
 업데이트 설치 및 지원에 [대해 자세히 알아보세요](service-updates-how-to.md) .
+
+
+## <a name="updates-october-2019"></a>업데이트 (10 월 2019)
+
+### <a name="update-rollup-41"></a>업데이트 롤업 41
+
+[업데이트 롤업 41](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
+
+**업데이트** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 업데이트 (롤업에 설명 된 대로)
+**문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
+
+
+
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
+
+Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있습니다.
+
+**기능** | **세부 정보**
+--- | ---
+**테스트 장애 조치 (failover) 설정** | 테스트 장애 조치 (failover)를 설정할 때 이제 IP 주소, NSG, 내부 부하 분산 및 각 컴퓨터 NIC의 공용 IP 주소를 포함 하 여 테스트 장애 조치 (failover) VM 및 네트워크에 대 한 설정을 구성할 수 있습니다. 이러한 설정은 선택 사항이 며 현재 동작을 변경 하지 않습니다. 이러한 설정을 구성 하지 않으면 테스트 장애 조치 (failover) 시 Azure VNet을 선택할 수 있습니다. [자세히 알아보기](https://azure.microsoft.com/blog/customize-networking-for-dr-drills-azure-site-recovery/).
+**복구 계획** | 이제 복구 계획이 장애 조치 (failover) 안정성을 보장 하기 위해 100 Vm으로 제한 됩니다.
+
+### <a name="vmware-to-azure-disaster-recovery"></a>VMware에서 Azure로 재해 복구
+
+VMware에서 Azure로의 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있습니다.
+
+**기능** | **세부 정보**
+--- | ---
+**복구 계획** | 이제 복구 계획이 장애 조치 (failover) 안정성을 보장 하기 위해 100 Vm으로 제한 됩니다.
 
 
 ## <a name="updates-september-2019"></a>업데이트 (9 월 2019)

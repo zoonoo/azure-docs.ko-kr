@@ -31,6 +31,8 @@
       href: location-condition.md
     - name: 컨트롤
       href: controls.md
+    - name: 보고서 전용 모드
+      href: concept-conditional-access-report-only.md
     - name: 서비스 종속성
       href: service-dependencies.md
     - name: What if 도구
@@ -76,6 +78,8 @@
       href: untrusted-networks.md
     - name: 사용 약관 필요
       href: terms-of-use.md
+    - name: 보고서 전용 모드 구성
+      href: howto-conditional-access-report-only.md
     - name: 로그인 빈도 및 브라우저 지속성 컨트롤
       href: howto-conditional-access-session-lifetime.md
     - name: 클래식 정책 마이그레이션

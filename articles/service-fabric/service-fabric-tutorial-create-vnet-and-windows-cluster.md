@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 12e886c107249c338dc27aefcd2e1a32eba13d3e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 28571584fbd82b245e85e2ebe5b1d282ab5ae979
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598883"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177975"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>자습서: Azure 가상 네트워크에 Windows를 실행하는 Service Fabric 클러스터 배포
 
@@ -112,7 +112,6 @@ ms.locfileid: "68598883"
 
 * ClientConnectionEndpoint(TCP): 19000
 * HttpGatewayEndpoint(HTTP/TCP): 19080
-* SMB: 445
 * Internodecommunication: 1025, 1026, 1027
 * 사용 후 삭제 포트 범위: 49152 ~ 65534(최소 256개 포트 필요)
 * 애플리케이션 사용에 대한 포트: 80 및 443

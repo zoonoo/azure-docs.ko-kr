@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cbb4668ae87404771513ca5825482efe9206308d
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: d0cb5becd8375c393031892efb0b6c54786eeb8f
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025013"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242232"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -73,7 +73,7 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>응용 프로그램 게이트웨이의 수명 동안 IP 또는 DNS 이름이 변경 되나요?
 
-응용 프로그램 게이트웨이를 중지 하 고 시작 하면 VIP가 변경 될 수 있습니다. 하지만 application gateway와 연결 된 DNS 이름은 게이트웨이의 수명 동안 변경 되지 않습니다. DNS 이름이 변경 되지 않으므로 CNAME 별칭을 사용 하 여 응용 프로그램 게이트웨이의 DNS 주소를 가리키도록 해야 합니다.
+Application Gateway V1 SKU에서는 응용 프로그램 게이트웨이를 중지 하 고 시작 하는 경우 VIP가 변경 될 수 있습니다. 하지만 application gateway와 연결 된 DNS 이름은 게이트웨이의 수명 동안 변경 되지 않습니다. DNS 이름이 변경 되지 않으므로 CNAME 별칭을 사용 하 여 응용 프로그램 게이트웨이의 DNS 주소를 가리키도록 해야 합니다. Application Gateway V2 SKU에서 IP 주소를 정적으로 설정할 수 있으므로 응용 프로그램 게이트웨이의 수명 동안 IP 및 DNS 이름이 변경 되지 않습니다. 
 
 ### <a name="does-application-gateway-support-static-ip"></a>Application Gateway에서 고정 IP를 지원하나요?
 
@@ -322,7 +322,7 @@ WAF는 현재 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) 
 
 ### <a name="does-waf-support-ddos-protection"></a>WAF는 DDoS protection을 지원 하나요?
 
-예. Application gateway가 배포 된 가상 네트워크에서 DDoS 보호를 사용 하도록 설정할 수 있습니다. 이 설정은 Azure DDoS Protection 서비스가 응용 프로그램 게이트웨이 VIP (가상 IP)도 보호 하도록 합니다.
+예. Application Gateway가 배포된 가상 네트워크에서 DDoS 보호를 사용하도록 설정할 수 있습니다. 이렇게 설정하면 Azure DDoS Protection 서비스도 Application Gateway VIP(가상 IP)를 보호합니다.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>V1 SKU에서 v2 SKU로 마이그레이션하는 데 사용할 수 있는 지침이 있나요?
 
