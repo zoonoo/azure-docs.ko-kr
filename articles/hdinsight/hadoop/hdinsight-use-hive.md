@@ -10,10 +10,10 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.openlocfilehash: aa3e3b63bdfda7aa6d875055dee4c69b9840db25
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
+ms.lasthandoff: 10/31/2019
 ms.locfileid: "72167362"
 ---
 # <a name="what-is-apache-hive-and-hiveql-on-azure-hdinsight"></a>Azure HDInsight의 Apache Hive 및 HiveQL이란?
@@ -24,13 +24,13 @@ Hive를 사용하면 크게 구조가 없는 데이터에 구조를 투영할 �
 
 HDInsight는 특정 워크로드에 맞게 조정되는 여러 클러스터 형식을 제공합니다. 다음과 같은 클러스터 형식이 Hive 쿼리에 가장 자주 사용됩니다.
 
-* __대화형 쿼리__: [LLAP(낮은 대기 시간 분석 처리)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 기능을 제공하여 대화형 쿼리에 대한 응답 시간을 개선하는 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Interactive Query로 시작](../interactive-query/apache-interactive-query-get-started.md) 문서를 참조하세요.
+* __Interactive Query__: [LLAP(낮은 대기 시간 분석 처리)](https://cwiki.apache.org/confluence/display/Hive/LLAP) 기능을 제공하여 대화형 쿼리에 대한 응답 시간을 개선하는 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Interactive Query로 시작](../interactive-query/apache-interactive-query-get-started.md) 문서를 참조하세요.
 
-* __Hadoop__: 일괄 처리 프로세싱 워크로드에 대해 조정된 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Apache Hadoop으로 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 문서를 참조하세요.
+* __Hadoop__: 배치 프로세싱 워크로드에 대해 조정된 Hadoop 클러스터입니다. 자세한 내용은 [HDInsight의 Apache Hadoop으로 시작](../hadoop/apache-hadoop-linux-tutorial-get-started.md) 문서를 참조하세요.
 
-* __Spark__: Apache Spark에는 Hive 작업을 위한 기본 제공 기능이 있습니다. 자세한 내용은 [HDInsight에서 Apache Spark 시작](../spark/apache-spark-jupyter-spark-sql.md) 문서를 참조하세요.
+* __Spark__: Apache Spark는 Hive로 작업하기 위한 기본 제공 기능입니다. 자세한 내용은 [HDInsight에서 Apache Spark 시작](../spark/apache-spark-jupyter-spark-sql.md) 문서를 참조하세요.
 
-* __HBase__: HiveQL은 Apache HBase에 저장된 데이터를 쿼리하는 데 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache HBase 시작](../hbase/apache-hbase-tutorial-get-started-linux.md) 문서를 참조하세요.
+* __HBase__: HiveQL를 사용 하 여 Apache HBase에 저장 된 데이터를 쿼리할 수 있습니다. 자세한 내용은 [HDInsight에서 Apache HBase 시작](../hbase/apache-hbase-tutorial-get-started-linux.md) 문서를 참조하세요.
 
 ## <a name="how-to-use-hive"></a>Hive 사용 방법
 
@@ -131,7 +131,7 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
     GROUP BY t4;
 ```
 
-이전 예제에서 HiveQL 문은 다음 작업을 수행합니다.
+이전 예제에서 HiveQL 문은 다음 작업을 수행합니다:
 
 * `DROP TABLE`: 이미 테이블이 있는 경우 삭제합니다.
 
@@ -139,7 +139,7 @@ SELECT t4 AS sev, COUNT(*) AS count FROM log4jLogs
 
 * `ROW FORMAT`: 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
 
-* `STORED AS TEXTFILE LOCATION`: 데이터가 저장 되는 위치 (`example/data` 디렉터리)와 텍스트로 저장 된 Hive를 알려 줍니다. 데이터는 디렉터리 내에서 하나의 파일 또는 여러 파일에 걸쳐 분산될 수 있습니다.
+* `STORED AS TEXTFILE LOCATION`: 데이터가 저장 된 위치 (`example/data` 디렉터리)와 텍스트로 저장 된 Hive를 알려 줍니다. 데이터는 디렉터리 내에서 하나의 파일 또는 여러 파일에 걸쳐 분산될 수 있습니다.
 
 * `SELECT`: **t4** 열에 **[ERROR]** 값이 포함된 모든 행의 수를 선택합니다. 이 값을 포함하는 행이 3개 있으므로 이 문은 **3** 값을 반환합니다.
 
@@ -194,7 +194,7 @@ HDInsight는 Interactive Query 클러스터 형식으로 LLAP를 제공합니다
 
 예약된 워크플로 또는 주문형 워크플로의 일부로 Hive 쿼리를 실행하는 데 사용할 수 있는 여러 서비스가 있습니다.
 
-### <a name="azure-data-factory"></a>Azure 데이터 팩터리
+### <a name="azure-data-factory"></a>Azure Data Factory
 
 Azure Data Factory를 사용하면 데이터 팩터리 파이프라인의 일부로 HDInsight를 사용할 수 있습니다. 파이프라인에서 Hive를 사용하는 방법에 대한 자세한 내용은 [Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환](../../data-factory/transform-data-using-hadoop-hive.md) 문서를 참조하세요.
 
@@ -202,7 +202,7 @@ Azure Data Factory를 사용하면 데이터 팩터리 파이프라인의 일부
 
 SSIS(SQL Server Integration Services)를 사용하여 Hive 작업을 실행할 수 있습니다. Azure Feature Pack for SSIS는 HDInsight에서 Hive 작업을 하는 다음 구성 요소를 제공합니다.
 
-* [Azure HDInsight 하이브 태스크](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
+* [Azure HDInsight Hive 작업](https://docs.microsoft.com/sql/integration-services/control-flow/azure-hdinsight-hive-task)
 
 * [Azure 구독 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-subscription-connection-manager)
 
