@@ -46,6 +46,12 @@
           href: prevent-translation.md
         - name: 동적 사전 기능 사용
           href: dynamic-dictionary.md
+        - name: 컨테이너 사용
+          items:
+            - name: 컨테이너 설치 및 실행
+              href: how-to-install-containers.md
+            - name: 컨테이너 구성
+              href: translator-text-container-config.md
         - name: 방화벽 뒤에서 변환
           href: firewalls.md
     - name: 샘플
