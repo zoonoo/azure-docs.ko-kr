@@ -135,7 +135,7 @@
     - name: 보안
       items:
         - name: 웹 및 모바일 앱
-          href: 'https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl'
+          href: 'https://docs.microsoft.com/azure/app-service/configure-ssl-bindings'
     - name: Backup
       items:
         - name: 웹 및 모바일 앱
