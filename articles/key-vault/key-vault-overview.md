@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cfaa2598d53fa57b4a628a7ad1b847a9b078bf2b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 6b59995dc09c0ecf1e5700d8337bd30074083f76
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598155"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483915"
 ---
 # <a name="what-is-azure-key-vault"></a>Azure Key Vault란?
 
@@ -73,7 +73,7 @@ Key Vault를 두 개 만들었으면 키와 비밀이 액세스되는 방법 및
 Azure의 안전한 저장소로서 Key Vault는 다음과 같은 시나리오를 간소화하는 데 사용됐습니다.
 -  [Azure 디스크 암호화](../security/fundamentals/encryption-overview.md)
 -  SQL server 및 Azure SQL Database의 [상시 암호화]( https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 기능
-- [Azure App Service]( https://docs.microsoft.com/azure/app-service/web-sites-purchase-ssl-web-site). 
+- [Azure App Service]( https://docs.microsoft.com/azure/app-service/configure-ssl-certificate). 
 
 Key Vault 자체는 스토리지 계정, 이벤트 허브 및 로그 분석과 통합할 수 있습니다.
 

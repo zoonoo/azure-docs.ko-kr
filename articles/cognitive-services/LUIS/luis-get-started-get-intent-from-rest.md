@@ -9,19 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: f3eceed1c4ab06d9b7a1959bceda4122f0412b35
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 3a8badb74bb8919876f3c0670d785f44fbcbb397
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703615"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499640"
 ---
 # <a name="quickstart-get-intent-with-rest-apis"></a>빠른 시작: REST API로 의도 가져오기
 
-[!INCLUDE [Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
+이 빠른 시작에서는 사용 가능한 공용 LUIS 앱을 통해 대화형 텍스트에서 사용자의 의도를 판단합니다. 공용 앱의 HTTP 예측 엔드포인트에 사용자의 의도를 텍스트로 보냅니다. 엔드포인트에서 LUIS는 공용 앱의 모델을 적용하여 자연어 텍스트의 의미를 분석하고 전반적인 의도를 판단하여 앱의 주체 도메인에 적절한 데이터를 추출합니다. 
+
+이 빠른 시작에서는 엔드포인트 REST API를 사용합니다. 자세한 내용은 [엔드포인트 API 설명서](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)를 참조하세요.
+
+이 문서에는 무료 [LUIS](https://www.luis.ai) 계정이 필요합니다. 
 
 <a name="create-luis-subscription-key"></a>
 

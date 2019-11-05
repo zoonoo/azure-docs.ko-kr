@@ -9,18 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 57a7deee3112737dc457646d040d5d3e02e63d46
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 43ad6558b685d3959562be720f7494b3d2a7334e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390292"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499437"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>자습서: Pattern.any 엔터티를 사용하여 자유 형식 데이터 추출
 
 이 자습서에서는 pattern.any 엔터티를 사용하여 발화가 올바른 형식이고 데이터의 끝이 발화의 나머지 단어와 쉽게 혼동될 수 있는 발화에서 데이터를 추출합니다. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 

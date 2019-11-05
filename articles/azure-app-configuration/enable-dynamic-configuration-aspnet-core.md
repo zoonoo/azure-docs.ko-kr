@@ -3,8 +3,8 @@ title: ASP.NET Core에서 Azure App Configuration 동적 구성 사용 자습서
 description: 이 자습서에서는 ASP.NET Core 앱의 구성 데이터를 동적으로 업데이트하는 방법을 알아봄
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 02/24/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 235b55bcd727e3e3ea947ce086209e0a94f70752
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 7fc7bd6fa0067857bde64d43be5799bd50712490
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076376"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469688"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -45,7 +45,15 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
+계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
+
 ## <a name="reload-data-from-app-configuration"></a>App Configuration에서 데이터 다시 로드
+
+1. 다음 명령을 실행하여 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 패키지에 대한 참조를 추가합니다.
+
+    ```CLI
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
+    ```
 
 1. *Program.cs*를 열고, `CreateWebHostBuilder` 메서드를 업데이트하여 `config.AddAzureAppConfiguration()` 메서드를 추가합니다.
 

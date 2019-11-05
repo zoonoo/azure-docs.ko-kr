@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: ed403e3d761b32c6837eb8e72edef3f3e6380217
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 07afd197e514adb0f2fc65c11e9fec552aa05b99
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307584"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492655"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>자습서:  발언의 감정 가져오기
 
 이 자습서에서는 발언에서 긍정, 부정 및 중립적 감정을 확인하는 방법을 보여주는 앱을 만듭니다. 감정은 전체 발화에서 판별됩니다.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 

@@ -9,18 +9,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 0911747da38ed736a79e692fd511e5bfbfaf7439
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 213449a78baf8fc2b7cb6c74709efeaf2a50d5b2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772922"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495466"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>자습서: C#에서 Language Understanding으로 구현된 웹앱 봇 사용
 
 C#을 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 봇은 Azure [웹앱 봇](https://docs.microsoft.com/azure/bot-service/) 리소스 및 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-dotnet) V4를 사용하여 빌드되었습니다.
+
+[!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
+
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 

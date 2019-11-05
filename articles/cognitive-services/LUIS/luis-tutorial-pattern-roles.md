@@ -9,19 +9,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 7b95dcf6a93c9abdeab9520f0a0fd80eb17dccff
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 13a1589a6cc6ed48f159f361ff69a5a3ba8f0f80
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387633"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499442"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>자습서: 역할을 사용하여 컨텍스트 관련 패턴 추출
 
 이 자습서에서는 적절한 형식의 템플릿 발언에서 데이터를 추출하는 패턴을 사용합니다. 템플릿 발언은 [간단한 엔터티](luis-concept-entity-types.md#simple-entity)와 [역할](luis-concept-roles.md)을 사용하여 원본 위치 및 대상 위치 같은 관련 데이터를 추출합니다.  패턴을 사용할 경우 의도에 더 적은 수의 예제 발언이 필요합니다.
 
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 

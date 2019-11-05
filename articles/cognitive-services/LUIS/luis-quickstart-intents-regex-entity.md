@@ -9,17 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: db60d87b441836f38309166318dd1778ce828483
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0f24721272c85d658a46ab1319e6f4af79b29364
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307597"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465161"
 ---
 # <a name="tutorial-get-well-formatted-data-from-the-utterance"></a>자습서: 발언에서 올바른 형식의 데이터 구하기
 이 자습서에서는 **정규식** 엔터티를 사용하여 발언에서 일관된 형식의 데이터를 추출하는 앱을 만듭니다.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 

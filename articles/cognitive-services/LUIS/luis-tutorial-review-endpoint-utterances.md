@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: f81066ed21702dfe94ad7897adc3b82ed5a49f4d
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 04f30818e3c871d74d94bfd92bd3f73e4e6637a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387514"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499404"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 알 수 없는 LUIS HTTPS 엔드포인트를 통해 수신된 발언을 확인하거나 수정하여 앱 예측을 향상시키는 방법을 학습합니다. 의도를 확인해야 하는 발언도 있고, 엔터티를 확인해야 하는 발언도 있습니다. 예약된 LUIS 유지 관리의 정기적인 과정 형태로 엔드포인트 발언 검토를 진행해야 합니다. 
@@ -28,6 +28,8 @@ ms.locfileid: "70387514"
 * 정기적으로 검토해야 합니다. 
 
 엔드포인트 발언을 검토하여 발언의 예측된 의도를 확인하거나 수정합니다. 또한 예측되지 않았거나 잘못 예측된 사용자 지정 엔터티에도 레이블을 지정합니다. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 

@@ -9,20 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 2af35e08b523d782418ab356bf148e038f397f83
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 3e85067439fe412822ac34a065753e9a13c7a506
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308046"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488740"
 ---
 # <a name="tutorial-extract-contextually-related-data-from-an-utterance"></a>자습서: 발언에서 컨텍스트 관련 데이터 추출
 
 이 자습서에서는 컨텍스트를 기반으로 관련 데이터 조각을 찾습니다. 한 도시에서 다른 도시로 가는 이사의 출발지 및 목적지 위치를 예로 들 수 있습니다. 두 데이터 조각이 모두 필요할 수 있으며, 서로 관련되어 있습니다.  
 
 역할은 미리 작성된 엔터티 유형 또는 사용자 지정 엔터티 유형에 사용할 수 있으며, 두 예제 발화 및 패턴 모두에서 사용할 수 있습니다. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 

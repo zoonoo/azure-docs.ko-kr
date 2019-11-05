@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a2e43b72bda65c5f1e7515888ac33b0ac806e64c
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: a66835d605b9005b8f94eb79a3c266f735f0a3b6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803251"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467203"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>빠른 시작: Python을 사용하여 텍스트 음성 변환
 
@@ -173,6 +173,6 @@ python tts.py
 ## <a name="see-also"></a>참고 항목
 
 * [텍스트를 음성으로 변환 API 참조](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
-* [Python 및 Speech SDK를 사용하여 텍스트 음성 변환](quickstart-text-to-speech-python.md)
+* [Python 및 Speech SDK를 사용하여 텍스트 음성 변환](quickstarts/speech-to-text-from-microphone.md)
 * [사용자 지정 음성 글꼴 만들기](how-to-customize-voice-font.md)
 * [사용자 지정 음성을 만들기 위한 음성 샘플 녹음](record-custom-voice-samples.md)

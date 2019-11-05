@@ -9,17 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: f488cfaf1e55edd8ae0d2bfd177553deb2677f8b
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: b0bc4a93df7db7145accf2b485c45256f53c324d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387918"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498948"
 ---
 # <a name="tutorial-add-luis-results-to-application-insights-from-a-bot-in-nodejs"></a>자습서: Node.js의 봇에서 Application Insights에 LUIS 결과 추가
 이 자습서에서는 [Application Insights](https://azure.microsoft.com/services/application-insights/) 원격 분석 데이터 스토리지에 봇 및 Language Understanding 정보가 추가됩니다. 해당 데이터가 있으면 Kusto 언어 또는 Power BI로 데이터를 쿼리하여 발화의 의도 및 엔터티를 실시간으로 분석, 집계 및 보고할 수 있습니다. 이 분석을 통해 LUIS 앱의 의도와 엔터티를 추가하거나 편집해야 할지 결정할 수 있습니다.
+
+[!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: bf2441d5c0947ec94cbee247bdc4634ff9e53bfd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 768e354281aeb5e2143ddb0e190b0f27bf4f4e24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070306"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470699"
 ---
 # <a name="custom-configuration-settings-for-app-service-environments"></a>App Service Environment에 대한 사용자 지정 구성 설정
 ## <a name="overview"></a>개요
@@ -66,7 +66,7 @@ App Service Environment가 없는 경우 [App Service Environment를 만드는 �
 
 ## <a name="disable-tls-10-and-tls-11"></a>TLS 1.0 및 TLS 1.1 사용 안 함
 
-앱 단위로 TLS 설정을 관리하려는 경우 [TLS 설정 적용](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl#enforce-tls-versions) 설명서와 함께 제공되는 지침을 사용할 수 있습니다. 
+앱 단위로 TLS 설정을 관리하려는 경우 [TLS 설정 적용](../configure-ssl-bindings.md#enforce-tls-versions) 설명서와 함께 제공되는 지침을 사용할 수 있습니다. 
 
 ASE의 모든 앱에 대해 인바운드 TLS 1.0 및 TLS 1.1 트래픽을 모두 사용 안 함으로 설정하려면 다음 **clusterSettings** 항목을 설정할 수 있습니다.
 

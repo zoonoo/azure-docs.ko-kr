@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: f20661a74397487e141e69681f207418db8ac386
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: adb8941fd60a955a44a04717958c5203b721639a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70388040"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498987"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>자습서: 관련된 데이터 그룹화 및 추출
 이 자습서에서는 복합 엔터티를 추가하여 다양한 형식의 추출된 데이터를 단일 포함 엔터티로 묶습니다. 데이터를 묶어서 클라이언트 애플리케이션이 다른 데이터 형식의 관련된 데이터를 쉽게 추출할 수 있습니다.
@@ -28,6 +28,8 @@ ms.locfileid: "70388040"
 * 서로 관련이 있습니다. 
 * 다양한 엔터티 형식을 사용합니다.
 * 클라이언트 앱에서 정보 단위로 그룹화하고 처리되어야 합니다.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 

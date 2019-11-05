@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: a0aa4d334dc5a42da8a3a8f269f70c874c9ad54d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: ac88931d79df6c2527a2a5fd72b440baeb463115
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375509"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499056"
 ---
 # <a name="tutorial-batch-test-data-sets"></a>자습서: 일괄 처리 테스트 데이터 세트
 
@@ -31,6 +31,8 @@ ms.locfileid: "70375509"
 * 허용되는 엔터티 형식: 기계 학습된 단순 및 복합 엔터티만. 일괄 테스트는 기계 학습된 의도 및 엔터티에만 유용합니다.
 
 이 자습서 이외의 앱을 사용할 때에는 의도에 이미 추가된 발언 예제를 사용하지 *마세요*. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 

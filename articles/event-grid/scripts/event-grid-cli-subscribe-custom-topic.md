@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 11/02/2018
 ms.author: tomfitz
 ms.openlocfilehash: a46c348533468ad037ac092037cb34def2b0405c
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51038385"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73549284"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 항목에 대한 이벤트 구독
 
@@ -28,7 +28,7 @@ ms.locfileid: "51038385"
 
 미리 보기 샘플 스크립트에는 Event Grid 확장이 필요합니다. 설치하려면 `az extension add --name eventgrid`를 실행합니다.
 
-## <a name="sample-script---stable"></a>샘플 스크립트 - Stable
+## <a name="sample-script---stable"></a>샘플 스크립트 - 안정적
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic/subscribe-to-custom-topic.sh "Subscribe to custom topic")]
 

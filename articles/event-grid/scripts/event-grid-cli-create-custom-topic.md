@@ -12,11 +12,11 @@ ms.workload: na
 ms.date: 11/02/2018
 ms.author: tomfitz
 ms.openlocfilehash: 16c6586939a6dad248cef3abdabd78faf04a2381
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51034271"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73549263"
 ---
 # <a name="create-event-grid-custom-topic-with-azure-cli"></a>Azure CLI를 사용하여 Event Grid 사용자 지정 항목 만들기
 

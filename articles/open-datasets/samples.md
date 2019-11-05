@@ -6,13 +6,13 @@ ms.service: open-datasets
 ms.topic: sample
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 6991b641bc85a8944bfd12a43f9b049e44ea88d8
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.date: 11/04/2019
+ms.openlocfilehash: 2ccdb7adcae40d22a36fbfb47fba6e4c87b3349a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598965"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496567"
 ---
 # <a name="example-jupyter-notebooks-show-how-to-enrich-data-with-open-datasets"></a>Jupyter Notebook 예제에서는 Open Datasets로 데이터를 보강하는 방법을 보여줍니다. 
 Azure Open Datasets에 대한 Jupyter Notebook 예제에서는 공개 데이터 세트를 로드하여 데모 데이터를 보강하는 방법을 보여줍니다. 데이터를 처리하기 위해 Spark 및 Pandas 기술이 사용됩니다.

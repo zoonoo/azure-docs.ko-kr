@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: anroth
-ms.openlocfilehash: 40f30ddece9881f565f45f4ef6c9d0e2ad85fe95
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0ca849e75f01573bbb356105b281f03d267836e6
+ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561125"
+ms.lasthandoff: 09/13/2019
+ms.locfileid: "73520456"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>빠른 시작: Custom Vision을 사용하여 개체 탐지기를 빌드하는 방법
 
@@ -29,7 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Azure Portal에서 Custom Vision 리소스 만들기
 
-Custom Vision Service를 사용하려면 Azure Portal에서 Custom Vision 학습 및 예측 리소스를 만들어야 합니다. [Custom Vision 만들기](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision) 페이지의 대화 상자 창을 채워서 학습 및 예측 리소스를 모두 만듭니다. 
+[!INCLUDE [create-resources](includes/create-resources.md)]
 
 ## <a name="create-a-new-project"></a>새 프로젝트 만들기
 

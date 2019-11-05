@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 10/11/2019
-ms.openlocfilehash: ed48a4e5bab807695000fe6cdbecf1c1b7b01e9b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5d852378812d8e69480ceb2c5dcea95f1d5f3770
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325590"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488607"
 ---
 # <a name="tutorial-monitor-virtual-machine-changes-by-using-azure-event-grid-and-logic-apps"></a>자습서: Azure Event Grid 및 Logic Apps를 사용하여 가상 머신 변경 모니터링
 
@@ -101,7 +101,7 @@ Azure 리소스 또는 타사 리소스에서 발생하는 특정 이벤트를 �
    | 자산 | 필수 | Value | 설명 |
    | -------- | -------- | ----- | ----------- |
    | **구독** | 예 | <*event-publisher-Azure-subscription-name*> | *이벤트 게시자*와 연결된 Azure 구독의 이름을 선택합니다. 이 자습서에서는 가상 머신에 대한 Azure 구독 이름을 선택합니다. |
-   | **리소스 종류** | 예 | <*event-publisher-Azure-resource-type*> | 이벤트 게시자의 Azure 리소스 종류를 선택합니다. Azure 리소스 종류에 대한 자세한 내용은 [Azure 리소스 공급자 및 형식](../azure-resource-manager/resource-manager-supported-services.md)을 참조하세요. 이 자습서에서는 Azure 리소스 그룹을 모니터링하는 `Microsoft.Resources.ResourceGroups` 값을 선택합니다. 가상 머신만 모니터링하려는 경우  |
+   | **리소스 종류** | 예 | <*event-publisher-Azure-resource-type*> | 이벤트 게시자의 Azure 리소스 종류를 선택합니다. Azure 리소스 종류에 대한 자세한 내용은 [Azure 리소스 공급자 및 형식](../azure-resource-manager/resource-manager-supported-services.md)을 참조하세요. 이 자습서에서는 Azure 리소스 그룹을 모니터링하는 `Microsoft.Resources.ResourceGroups` 값을 선택합니다. |
    | **리소스 이름** |  예 | <*event-publisher-Azure-resource-name*> | 이벤트 게시자의 Azure 리소스 이름을 선택합니다. 이 목록은 선택한 리소스 종류에 따라 달라집니다. 이 자습서에서는 가상 머신이 포함된 Azure 리소스 그룹의 이름을 선택합니다. |
    | **이벤트 유형 항목** |  아니요 | <*event-types*> | 필터링하고 Event Grid로 보낼 하나 이상의 특정 이벤트 유형을 선택합니다. 예를 들어, 필요에 따라 다음 이벤트 유형을 추가하여 리소스가 변경 또는 삭제되는 경우를 감지할 수 있습니다. <p><p>- `Microsoft.Resources.ResourceActionSuccess` <br>- `Microsoft.Resources.ResourceDeleteSuccess` <br>- `Microsoft.Resources.ResourceWriteSuccess` <p>자세한 내용은 다음 항목을 참조하세요. <p><p>- [Azure Event Grid 리소스 그룹에 대한 이벤트 스키마](../event-grid/event-schema-resource-groups.md) <br>- [이벤트 필터링 이해](../event-grid/event-filtering.md) <br>- [Event Grid에 대한 이벤트 필터링](../event-grid/how-to-filter-events.md) |
    | 선택적 속성을 추가하려면 **새 매개 변수 추가**를 선택한 다음, 원하는 속성을 선택합니다. | 아니요 | {see descriptions} | * **접두사 필터**: 이 자습서에서는 이 속성을 비워 둡니다. 기본 동작은 모든 값과 일치합니다. 그러나 접두사 문자열(예: 특정 리소스에 대한 경로 및 매개 변수)을 필터로 지정할 수 있습니다. <p>* **접미사 필터**: 이 자습서에서는 이 속성을 비워 둡니다. 기본 동작은 모든 값과 일치합니다. 그러나 특정 파일 형식만 원하는 경우 접미사 문자열(예: 파일 이름 확장명)을 필터로 지정할 수 있습니다. <p>* **구독 이름**: 이 자습서에서는 이벤트 구독에 대한 고유한 이름을 제공할 수 있습니다. |

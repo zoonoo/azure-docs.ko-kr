@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 07/29/2019
-ms.openlocfilehash: 1a0d0426904ef5f9f49a627120ff2cc65f630861
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9070c19c668529fac5edea5b4d233361043de16d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785937"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469553"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 스트리밍 데이터에 대한 감정 분석
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 > [!Note]
 > 이 자습서는 **Azure 평가판 구독**을 사용하여 수행할 수 없습니다.
-> 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
+> 무료 계정이 있는 경우 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요. 그런 다음 [지출 한도를 제거](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-azure-portal)하고 해당 지역의 vCPU에 대한 [할당량 증가를 요청](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)합니다. Azure Databricks 작업 영역을 만드는 경우 **평가판(프리미엄-14일 무료 DBU)** 가격 책정 계층을 선택하여 14일간 무료 프리미엄 Azure Databricks DBU를 위한 작업 영역 액세스 권한을 부여할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -640,4 +640,4 @@ streamingDataFrame.writeStream.outputMode("append").format("console").option("tr
 Azure Databricks를 사용하여 기계 학습 작업을 수행하는 방법에 대해 알아보려면 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
->[Azure Databricks를 사용한 Machine Learning](https://docs.azuredatabricks.net/spark/latest/mllib/decision-trees.html)
+>[Azure Databricks를 사용한 Machine Learning](https://docs.azuredatabricks.net/applications/machine-learning/index.html)
