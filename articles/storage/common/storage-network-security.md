@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: af5b2a8c6894846ec529763f80c78bc50debabe6
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: e7f4d58ceab78aea7031d2c706504bdcb99434c6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965520"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520648"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage 방화벽 및 가상 네트워크 구성
 
@@ -60,7 +60,7 @@ Azure Storage는 계층화된 보안 모델을 제공합니다. 이 모델을 �
 
 스토리지 계정에 대한 기본 네트워크 액세스 규칙은 Azure Portal, PowerShell 또는 CLIv2를 통해 관리할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
@@ -144,7 +144,7 @@ VNet 내의 Azure Storage에 대해 [서비스 엔드포인트](/azure/virtual-n
 
 Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 가상 네트워크 규칙을 관리할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
@@ -223,7 +223,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
     ```
 
     > [!TIP]
-    > 다른 Azure AD 테 넌 트에 속한 VNet의 서브넷에 대 한 규칙을 추가 하려면 "/subscriptions/\<subscription-ID\>/Wsourceg/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<" 형식으로 정규화 된 서브넷 ID를 사용 합니다.
+    > 다른 Azure AD 테 넌 트에 속한 VNet의 서브넷에 대 한 규칙을 추가 하려면 "/subscriptions/\<subscription-ID\>/Wsourceg/\<resourceGroup-Name\>/providers/Microsoft.Network/virtualNetworks/\<vNet-name\>/subnets/\<" 형식으로 정규화 된 서브넷 ID를 사용 합니다.\>
     > 
     > **Subscription** 매개 변수를 사용 하 여 다른 Azure AD 테 넌 트에 속한 VNet의 서브넷 ID를 검색할 수 있습니다.
 
@@ -241,7 +241,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 �
 
 특정 공용 인터넷 IP 주소 범위에서 액세스할 수 있도록 스토리지 계정을 구성할 수 있습니다. 이 구성은 특정 인터넷 기반 서비스와 온-프레미스 네트워크에 대한 액세스 권한을 부여하고 일반 인터넷 트래픽을 차단합니다.
 
-*16.17.18.0/24* 형식의 [CIDR 표기법](https://tools.ietf.org/html/rfc4632)을 사용하거나 개별 IP 주소(예: *16.17.18.19*)를 사용하여 허용된 인터넷 주소 범위를 제공합니다.
+[16.17.18.0/24](https://tools.ietf.org/html/rfc4632) 형식의 *CIDR 표기법*을 사용하거나 개별 IP 주소(예: *16.17.18.19*)를 사용하여 허용된 인터넷 주소 범위를 제공합니다.
 
    > [!NOTE]
    > "/31" 또는 "/32" 접두사 크기를 사용하는 작은 주소 범위는 지원되지 않습니다. 이러한 범위는 개별 IP 주소 규칙을 사용하여 구성해야 합니다.
@@ -262,13 +262,13 @@ IP 네트워크 규칙은 **공용 인터넷** IP 주소에 대해서만 허용�
 
 IP 네트워크 규칙을 사용하여 온-프레미스 네트워크에서 스토리지 계정으로의 액세스 권한을 부여하려면 네트워크에서 사용되는 인터넷 연결 IP 주소를 식별해야 합니다. 네트워크 관리자에게 도움을 요청합니다.
 
-공용 피어링 또는 Microsoft 피어링을 위해 온-프레미스에서 [ExpressRoute](/azure/expressroute/expressroute-introduction)를 사용하는 경우 사용되는 NAT IP 주소를 식별해야 합니다. 공용 피어링의 경우 기본적으로 각 ExpressRoute 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용되는 두 개의 NAT IP 주소를 사용합니다. Microsoft 피어링의 경우 사용되는 NAT IP 주소는 고객이 제공하거나 서비스 공급자가 제공합니다. 서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다. ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). [ExpressRoute 공용 및 Microsoft 피어링을 위한 NAT](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)에 대해 자세히 알아보세요.
+공용 피어링 또는 Microsoft 피어링을 위해 온-프레미스에서 [ExpressRoute](/azure/expressroute/expressroute-introduction)를 사용하는 경우 사용되는 NAT IP 주소를 식별해야 합니다. 공용 피어링의 경우 기본적으로 각 ExpressRoute 회로는 트래픽이 Microsoft Azure 네트워크 백본으로 들어갈 때 Azure 서비스 트래픽에 적용되는 두 개의 NAT IP 주소를 사용합니다. Microsoft 피어 링의 경우 사용 되는 NAT IP 주소는 고객 제공 이거나 서비스 공급자가 제공 합니다. 서비스 리소스에 대한 액세스를 허용하려면 리소스 IP 방화벽 설정에서 이러한 공용 IP 주소를 허용해야 합니다. ExpressRoute 회로 IP 주소를 찾으려면 Azure Portal을 통해 [ExpressRoute에서 지원 티켓을 엽니다](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). [ExpressRoute 공용 및 Microsoft 피어링을 위한 NAT](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)에 대해 자세히 알아보세요.
 
 ### <a name="managing-ip-network-rules"></a>IP 네트워크 규칙 관리
 
 Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP 네트워크 규칙을 관리할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 
@@ -362,36 +362,37 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 ### <a name="trusted-microsoft-services"></a>신뢰할 수 있는 Microsoft 서비스
 
-일부 Microsoft 서비스는 네트워크 규칙에 포함 될 수 없는 네트워크에서 작동 합니다. 이러한 신뢰할 수 있는 Microsoft 서비스의 하위 집합에서 저장소 계정에 액세스 하도록 허용 하는 동시에 다른 앱에 대 한 네트워크 규칙을 유지할 수 있습니다. 그러면 이러한 서비스에서 강력한 인증을 사용 하 여 저장소 계정에 안전 하 게 연결할 수 있습니다. Microsoft 서비스에 대 한 두 가지 유형의 트러스트 된 액세스를 사용 하도록 설정 합니다.
+일부 Microsoft 서비스는 네트워크 규칙에 포함 될 수 없는 네트워크에서 작동 합니다. 이러한 신뢰할 수 있는 Microsoft 서비스의 하위 집합에 저장소 계정에 대 한 액세스 권한을 부여 하는 동시에 다른 앱에 대 한 네트워크 규칙을 유지할 수 있습니다. 그러면 이러한 신뢰할 수 있는 서비스에서 강력한 인증을 사용 하 여 저장소 계정에 안전 하 게 연결할 수 있습니다. Microsoft 서비스에 대 한 두 가지 유형의 트러스트 된 액세스를 사용 하도록 설정 합니다.
 
-- 일부 서비스의 리소스에는 로그 작성 또는 백업과 같은 선택 작업에 대 한 액세스 권한이 부여 될 수 있습니다.
-- 리소스 인스턴스에 [RBAC 역할을 할당](storage-auth-aad.md#assign-rbac-roles-for-access-rights) 하 여 일부 서비스의 특정 인스턴스에 대 한 액세스 권한을 부여할 수 있습니다.
+- 일부 서비스의 리소스 ( **구독에 등록 된 경우**)는 로그 작성 또는 백업과 같은 선택 작업만을 위해 **동일한 구독의** 저장소 계정에 액세스할 수 있습니다.
+- 일부 서비스의 리소스 인스턴스에는 리소스 인스턴스에 [**RBAC 역할을 할당**](storage-auth-aad.md#assign-rbac-roles-for-access-rights) 하 여 저장소 계정에 대 한 명시적 액세스 권한을 부여할 수 있습니다.
 
 
-**신뢰할 수 있는 Microsoft 서비스 허용** ... 예외를 사용 하도록 설정 하면 다음 서비스 (구독에 등록 된 경우)에 설명 된 대로 select 작업을 위한 저장소 계정에 대 한 액세스 권한이 부여 됩니다.
+**신뢰할 수 있는 Microsoft 서비스 허용** ... 예외를 사용 하도록 설정 하면 다음 서비스 (구독에 등록 된 경우)에 설명 된 대로 선택 작업에 대 한 저장소 계정에 대 한 액세스 권한이 부여 됩니다.
 
-| 서비스                  | 리소스 공급자 이름     | 용도                            |
+| 부여                  | 리소스 공급자 이름     | 목적                            |
 |:------------------------ |:-------------------------- |:---------------------------------- |
-| Azure Backup             | Microsoft.RecoveryServices | IAAS 가상 머신에서 관리되지 않는 디스크의 백업 및 복원을 실행합니다. (관리되는 디스크에 필요 없음). [자세히 알아보기](/azure/backup/backup-introduction-to-azure-backup). |
-| Azure Data Box           | Microsoft.DataBox          | Data Box를 사용 하 여 Azure로 데이터를 가져올 수 있습니다. [자세히 알아보기](/azure/databox/data-box-overview). |
-| Azure DevTest Lab       | Microsoft.DevTestLab       | 사용자 지정 이미지 만들기 및 아티팩트 설치. [자세히 알아보기](/azure/devtest-lab/devtest-lab-overview). |
+| Azure Backup             | Microsoft.RecoveryServices | IAAS 가상 머신에서 관리되지 않는 디스크의 백업 및 복원을 실행합니다. (관리되는 디스크에 필요 없음). [자세히 알아봅니다](/azure/backup/backup-introduction-to-azure-backup). |
+| Azure Data Box           | Microsoft.DataBox          | Data Box를 사용 하 여 Azure로 데이터를 가져올 수 있습니다. [자세히 알아봅니다](/azure/databox/data-box-overview). |
+| Azure DevTest Labs       | Microsoft.DevTestLab       | 사용자 지정 이미지 만들기 및 아티팩트 설치. [자세히 알아봅니다](/azure/devtest-lab/devtest-lab-overview). |
 | Azure Event Grid         | Microsoft.EventGrid        | Blob Storage 이벤트 게시를 사용하도록 설정하고 Event Grid가 스토리지 큐에 게시하도록 허용합니다. [Blob Storage 이벤트](/azure/event-grid/event-sources)와 [큐에 게시](/azure/event-grid/event-handlers)에 대해 알아봅니다. |
 | Azure Event Hubs         | Microsoft.EventHub         | Event Hubs 캡처로 데이터를 보관합니다. [자세한 정보](/azure/event-hubs/event-hubs-capture-overview). |
 | Azure 파일 동기화          | Microsoft.StorageSync      | Azure 파일 공유를 위해 온-프레미스 파일 서버를 캐시로 변환할 수 있습니다. 다중 사이트 동기화, 빠른 재해 복구 및 클라우드 쪽 백업을 허용 합니다. [자세한 정보](../files/storage-sync-files-planning.md) |
-| Azure HDInsight          | Microsoft.HDInsight        | 새 HDInsight 클러스터에 대 한 기본 파일 시스템의 초기 콘텐츠를 프로 비전 합니다. [자세히 알아보기](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/). |
-| Azure Machine Learning 서비스 | Microsoft.MachineLearningServices | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 저장소에 기록 합니다. [자세히 알아보기](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure HDInsight          | Microsoft.HDInsight        | 새 HDInsight 클러스터에 대 한 기본 파일 시스템의 초기 콘텐츠를 프로 비전 합니다. [자세히 알아봅니다](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/). |
+| Azure Machine Learning | Microsoft.MachineLearningServices | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 저장소에 기록 합니다. [자세히 알아봅니다](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace).   
 | Azure Monitor            | Microsoft.Insights         | 보안 스토리지 계정에 모니터링 데이터를 쓸 수 있습니다. [자세히 알아보기](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security). |
-| Azure 네트워킹         | Microsoft.Network          | 네트워크 트래픽 로그를 저장 및 분석합니다. [자세히 알아보기](/azure/network-watcher/network-watcher-packet-capture-overview). |
-| Azure Site Recovery      | Microsoft.SiteRecovery     | 방화벽 사용 캐시, 원본 또는 대상 저장소 계정을 사용 하는 경우 Azure IaaS 가상 컴퓨터의 재해 복구에 대 한 복제를 사용 하도록 설정 합니다.  [자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
+| Azure 네트워킹         | Microsoft.Network          | 네트워크 트래픽 로그를 저장 및 분석합니다. [자세히 알아봅니다](/azure/network-watcher/network-watcher-packet-capture-overview). |
+| Azure Site Recovery      | Microsoft.SiteRecovery     | 방화벽 사용 캐시, 원본 또는 대상 저장소 계정을 사용 하는 경우 Azure IaaS 가상 컴퓨터의 재해 복구에 대 한 복제를 사용 하도록 설정 합니다.  [자세히 알아봅니다](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-**신뢰할 수 있는 Microsoft 서비스 허용** ... 예외를 사용 하면 인스턴스에 대 한 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 RBAC 역할이 할당 된 경우 이러한 서비스의 특정 인스턴스에서 저장소 계정에 액세스할 수 있습니다.
+신뢰할 수 있는 **Microsoft 서비스 허용** ... 예외를 통해 해당 리소스 인스턴스에 대 한 [시스템 할당 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 에 RBAC 역할을 명시적으로 할당 하는 경우 아래 서비스의 특정 인스턴스에서 저장소 계정에 액세스할 수 있습니다.
 
-| 서비스                  | 리소스 공급자 이름          | 용도                            |
-| :----------------------- | :------------------------------ | :--------------------------------- |
-| Azure Data Factory       | Microsoft.DataFactory/factories | ADF 런타임을 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
-| Azure Logic Apps         | Microsoft.Logic/workflows       | 논리 앱이 저장소 계정에 액세스할 수 있도록 합니다. |
-| Azure SQL Data Warehouse | Microsoft.Sql                   | PolyBase를 사용 하 여 특정 SQL Database 인스턴스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아보기](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
-| Azure Stream Analytics   | Microsoft.StreamAnalytics       | 스트리밍 작업의 데이터를 Blob 저장소에 쓸 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. [자세히 알아보기](../../stream-analytics/blob-output-managed-identity.md). |
+| 부여                        | 리소스 공급자 이름          | 목적                            |
+| :----------------------------- | :------------------------------ | :--------------------------------- |
+| Azure 데이터 팩터리             | Microsoft.DataFactory/factories | ADF 런타임을 통해 저장소 계정에 대 한 액세스를 허용 합니다. |
+| Azure Logic Apps               | Microsoft.Logic/workflows       | 논리 앱이 저장소 계정에 액세스할 수 있도록 합니다. |
+| Azure Machine Learning 서비스 | Microsoft.MachineLearningServices | 권한 있는 Azure Machine Learning 작업 영역은 실험 출력, 모델 및 로그를 Blob 저장소에 기록 합니다. [자세히 알아봅니다](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace). | 
+| Azure SQL Data Warehouse       | Microsoft.Sql                   | PolyBase를 사용 하 여 특정 SQL Database 인스턴스에서 데이터를 가져오고 내보낼 수 있습니다. [자세히 알아봅니다](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview). |
+| Azure Stream Analytics         | Microsoft.StreamAnalytics       | 스트리밍 작업의 데이터를 Blob 저장소에 쓸 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. [자세히 알아봅니다](../../stream-analytics/blob-output-managed-identity.md). |
 
 
 ### <a name="storage-analytics-data-access"></a>스토리지 분석 데이터 액세스
@@ -402,7 +403,7 @@ Azure Portal, PowerShell 또는 CLIv2를 통해 스토리지 계정에 대한 IP
 
 Azure Portal, PowerShell 또는 Azure CLI v2를 통해 네트워크 규칙 예외를 관리할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 1. 보호하려는 스토리지 계정으로 이동합니다.
 

@@ -10,15 +10,17 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: a722ce39a679fa13e1fe849c46b44f786ea5ee42
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f3c99856eaffc454754618a1eac34630b985a77e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390280"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499486"
 ---
 # <a name="use-a-list-entity-to-increase-entity-detection"></a>엔터티 검색을 높이기 위한 목록 엔터티 사용 
 이 문서에서는 엔터티 검색을 늘리기 위해 [목록 엔터티](luis-concept-entity-types.md) 를 사용 하는 방법을 보여 줍니다. 목록 엔터티는 용어가 정확히 일치하므로 레이블을 지정할 필요가 없습니다.  
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -27,7 +29,7 @@ ms.locfileid: "70390280"
 > * 정규화된 값 및 동의어 추가
 > * 향상된 엔터티 ID의 유효성 검사
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 > [!div class="checklist"]
 > * 최신 [Node.js](https://nodejs.org)
@@ -46,7 +48,7 @@ HomeAutomation 앱은 조명, 엔터테인먼트 시스템 및 환경 제어(예
 
 다음 발언은 이상적으로 미리 작성된 엔터티 **HomeAutomation.Device**를 해결해야 합니다.
 
-|#|발언|식별된 엔터티|score에 대한 임계값 수준 보기|
+|#|발화|식별된 엔터티|score에 대한 임계값 수준 보기|
 |--|--|--|--|
 |1|turn on the ac|HomeAutomation.Device - “ac”|0.8748562|
 |2|turn up the heat|HomeAutomation.Device - “heat”|0.784990132|
@@ -212,7 +214,7 @@ node train.js
 
 두 개의 다른 발언을 시도하여 thermostat으로 반환되는지 확인합니다. 
 
-|#|발언|엔터티(entity)|type|value|
+|#|발화|엔터티|type|값|
 |--|--|--|--|--|
 |1|turn on the ac| ac | DevicesList | Thermostat|
 |2|turn up the heat|heat| DevicesList |Thermostat|

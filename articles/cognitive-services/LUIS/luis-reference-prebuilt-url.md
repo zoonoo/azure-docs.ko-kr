@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/04/2019
 ms.author: diberry
-ms.openlocfilehash: 77e1c9e64081e20ef064fd8341c54c13940f0dd4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 12831ede2b9d9251f2e02fa396ee7d2fb2d61240
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677308"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499490"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 URL 미리 빌드된 엔터티
 URL 엔터티는 도메인 이름 또는 IP 주소를 사용하여 URL을 추출합니다. 이 엔터티를 이미 학습했기 때문에 URL을 애플리케이션에 포함하는 예제 발언을 추가할 필요가 없습니다. URL 엔터티는 `en-us` 문화권에서만 지원됩니다. 
@@ -26,92 +26,61 @@ URL은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/mas
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>미리 빌드된 URL 엔터티의 해결
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+쿼리에 대해 반환 되는 엔터티 개체는 다음과 같습니다.
 
-다음 예제에서는 **builtin.url** 엔터티의 해결을 보여 줍니다.
+`https://www.luis.ai is a great cognitive services example of artificial intelligence`
+
+#### <a name="v3-responsetabv3"></a>[V3 응답](#tab/V3)
+
+다음 JSON은 `false`로 설정 된 `verbose` 매개 변수를 사용 합니다.
 
 ```json
-{
-  "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.781975448
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.781975448
-    }
-  ],
-  "entities": [
-    {
-      "entity": "https://www.luis.ai",
-      "type": "builtin.url",
-      "startIndex": 0,
-      "endIndex": 17
-    }
-  ]
+"entities": {
+    "url": [
+        "https://www.luis.ai"
+    ]
 }
 ```
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
-
-다음 JSON은 `verbose` 매개 변수를 `false`로 설정 합니다.
-
-```json
-{
-    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-    "prediction": {
-        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.421936184
-            }
-        },
-        "entities": {
-            "url": [
-                "https://www.luis.ai"
-            ]
-        }
-    }
-}
-```
-
-다음 JSON은 `verbose` 매개 변수를 `true`로 설정 합니다.
+다음 JSON은 `true`로 설정 된 `verbose` 매개 변수를 사용 합니다.
 
 ```json
-{
-    "query": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-    "prediction": {
-        "normalizedQuery": "https://www.luis.ai is a great cognitive services example of artificial intelligence",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.421936184
-            }
-        },
-        "entities": {
-            "url": [
-                "https://www.luis.ai"
-            ],
-            "$instance": {
-                "url": [
-                    {
-                        "type": "builtin.url",
-                        "text": "https://www.luis.ai",
-                        "startIndex": 0,
-                        "length": 19,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
+"entities": {
+    "url": [
+        "https://www.luis.ai"
+    ],
+    "$instance": {
+        "url": [
+            {
+                "type": "builtin.url",
+                "text": "https://www.luis.ai",
+                "startIndex": 0,
+                "length": 17,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
                 ]
             }
-        }
+        ]
     }
 }
 ```
+#### <a name="v2-responsetabv2"></a>[V2 응답](#tab/V2)
 
+다음 예에서는 인공 지능의 뛰어난 인식 서비스 예 https://www.luis.ai의 해상도를 보여 줍니다.
+
+```json
+"entities": [
+    {
+        "entity": "https://www.luis.ai",
+        "type": "builtin.url",
+        "startIndex": 0,
+        "endIndex": 17
+    }
+]
+```
 
 * * * 
 
