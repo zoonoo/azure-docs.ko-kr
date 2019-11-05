@@ -1,22 +1,22 @@
 ---
-title: Azure Data Share 미리 보기 문제 해결
-description: Azure 데이터 공유 미리 보기를 사용 하 여 데이터 공유를 만들거나 받을 때 초대 및 오류와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
+title: Azure Data Share 문제 해결
+description: Azure 데이터 공유를 사용 하 여 데이터 공유를 만들거나 받을 때 초대 및 오류와 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
 services: data-share
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.openlocfilehash: 592a2d464aed8c39dfd11734beccbd0399d75fd9
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 6ad612d56b25da9e092070198e321e7fca8ad96b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169217"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490565"
 ---
-# <a name="troubleshoot-common-issues-in-azure-data-share-preview"></a>Azure Data Share 미리 보기의 일반적인 문제 해결
+# <a name="troubleshoot-common-issues-in-azure-data-share"></a>Azure 데이터 공유의 일반적인 문제 해결 
 
-이 문서에서는 Azure Data Share 미리 보기의 일반적인 문제를 해결하는 방법을 보여줍니다. 
+이 문서에서는 Azure 데이터 공유에 대 한 일반적인 문제를 해결 하는 방법을 보여 줍니다. 
 
 ## <a name="azure-data-share-invitations"></a>Azure Data Share 초대 
 
@@ -41,7 +41,7 @@ ms.locfileid: "72169217"
 
 ## <a name="error-when-creating-or-receiving-a-new-data-share"></a>새 Data Share를 만들거나 받을 때 오류 발생
 
-"오류: 작업이 잘못된 상태 코드 'BadRequest'를 반환했습니다."
+"오류: 작업에서 잘못 된 상태 코드 ' BadRequest '를 반환 했습니다."
 
 "오류: AuthorizationFailed"
 
@@ -55,6 +55,20 @@ ms.locfileid: "72169217"
 1. **액세스 제어(IAM)** 를 선택합니다.
 1. **추가**를 클릭합니다.
 1. 자신을 소유자로 추가합니다.
+
+## <a name="troubleshooting-sql-based-sharing"></a>SQL 기반 공유 문제 해결
+
+"오류: 공유 하는 데 필요한 권한이 없어서 x 데이터 집합이 추가 되지 않았습니다."
+
+SQL 기반 원본에서 데이터 집합을 추가할 때이 오류가 발생 하는 경우 SQL Server에서 Azure 데이터 공유 MSI에 대 한 사용자를 만들지 않았기 때문일 수 있습니다.  이 문제를 해결 하려면 다음 스크립트를 실행 합니다.
+
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```      
+*< Share_acc_name >* 는 데이터 공유 계정의 이름입니다. 데이터 공유 계정을 아직 만들지 않은 경우 나중에이 필수 구성 요소로 다시 돌아올 수 있습니다.         
+
+[데이터 공유](share-your-data.md) 자습서에 나열 된 모든 필수 구성 요소를 준수 하는지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

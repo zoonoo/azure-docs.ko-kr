@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 2bd2510b3b7aa72ac5e66ac9910f1c941f276564
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 0bed9f96ce04fae313672f2fa627c2e20bea2f6f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259908"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496420"
 ---
 # <a name="azure-security-and-compliance-blueprint---data-analytics-for-nist-sp-800-171"></a>Azure 보안 및 규정 준수 청사진 - NIST SP 800-171용 데이터 분석
 
@@ -27,7 +27,7 @@ ms.locfileid: "71259908"
 ## <a name="architecture-diagram-and-components"></a>아키텍처 다이어그램 및 구성 요소
 이 솔루션은 고객이 자신의 분석 도구를 구축할 수 있는 분석 플랫폼을 제공합니다. 참조 아키텍처에는 일반 사용 사례를 간략하게 설명합니다. 고객은 이 아키텍처를 사용하여 SQL/데이터 관리자가 대량으로 가져오는 데이터를 입력할 수 있습니다. 또한 운영 사용자가 업데이트하는 운영 데이터를 입력할 수도 있습니다. 두 작업 스트림은 모두 데이터를 Azure SQL Database에 가져오는 Azure Functions를 통합합니다. 고객이 Azure Portal을 통해 Azure Functions를 구성하여 해당 고객의 분석 요구 사항에 고유한 가져오기 작업을 처리해야 합니다.
 
-Azure는 고객에게 다양한 보고 및 분석 서비스를 제공합니다. 이 솔루션은 Azure Machine Learning 서비스와 SQL Database를 사용하여 데이터를 빠르게 탐색하며, 더욱 지능적인 데이터 모델링을 통해 결과를 더 빨리 제공합니다. Machine Learning은 데이터 세트 간의 새로운 관계를 검색하여 쿼리 속도를 높입니다. 처음에는 몇 가지 통계 기능을 통해 데이터 학습을 수행합니다. 그 후에는 최대 7개의 추가 쿼리 풀을 같은 테이블 형식 모델과 동기화하여 쿼리 워크로드를 분산시키고 응답 시간을 줄일 수 있습니다. 이 경우 고객 서버의 총 쿼리 풀 수는 8개가 됩니다.
+Azure는 고객에게 다양한 보고 및 분석 서비스를 제공합니다. 이 솔루션은 Azure Machine Learning 및 SQL Database를 사용 하 여 데이터를 신속 하 게 탐색 하 고 보다 효율적인 데이터 모델링을 통해 더 빠른 결과를 제공 합니다. Machine Learning은 데이터 세트 간의 새로운 관계를 검색하여 쿼리 속도를 높입니다. 처음에는 몇 가지 통계 기능을 통해 데이터 학습을 수행합니다. 그 후에는 최대 7개의 추가 쿼리 풀을 같은 테이블 형식 모델과 동기화하여 쿼리 워크로드를 분산시키고 응답 시간을 줄일 수 있습니다. 이 경우 고객 서버의 총 쿼리 풀 수는 8개가 됩니다.
 
 향상된 분석 및 보고를 위해 열 저장소 인덱스를 사용하여 SQL Database를 구성할 수 있습니다. Machine Learning 및 SQL Database는 모두 고객의 사용량에 따라 강화/축소하거나 완전히 종료할 수 있습니다. 모든 SQL 트래픽은 자체 서명된 인증서를 포함하여 SSL로 암호화됩니다. 모범 사례에 따라 보안 강화를 위해 신뢰할 수 있는 인증 기관을 사용하는 것이 좋습니다.
 
@@ -39,21 +39,21 @@ Azure는 고객에게 다양한 보고 및 분석 서비스를 제공합니다. 
 
 SQL Database는 보통 SQL Server Management Studio를 통해 관리되며, 보안 VPN 또는 Azure ExpressRoute 연결을 통해 SQL 데이터베이스에 액세스하도록 구성된 로컬 컴퓨터에서 실행됩니다. *리소스 그룹으로 데이터를 가져오는 작업 및 관리 작업용으로 VPN 또는 ExpressRoute 연결을 구성하는 것이 좋습니다.*
 
-![NIST SP 800-171 준수 데이터 분석 참조 아키텍처 다이어그램](images/nist171-analytics-architecture.png "NIST SP 800-171 준수 데이터 분석 참조 아키텍처 다이어그램")
+![NIST SP 800-171 참조 아키텍처 다이어그램에 대 한 데이터 분석](images/nist171-analytics-architecture.png "NIST SP 800-171 참조 아키텍처 다이어그램에 대 한 데이터 분석")
 
 이 솔루션에서는 다음과 같은 Azure 서비스를 사용합니다. 자세한 내용은 [배포 아키텍처](#deployment-architecture) 섹션을 참조하세요.
 
 - Application Insights
 - Azure Active Directory
 - Azure Data Catalog
-- Azure Disk Encryption
+- Azure 디스크 암호화
 - Azure Event Grid
-- Azure Functions
+- Azure 기능
 - Azure Key Vault
 - Azure Machine Learning
 - Azure Monitor (로그)
 - Azure Security Center
-- Azure SQL 데이터베이스
+- Azure SQL Database
 - Azure Storage
 - Azure Virtual Network
     - (1) /16 네트워크
@@ -68,14 +68,14 @@ SQL Database는 보통 SQL Server Management Studio를 통해 관리되며, 보�
 
 **Azure Functions**: [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)는 요청 시 코드를 실행하는 서버리스 컴퓨팅 서비스입니다. 따라서 인프라를 명시적으로 프로비전하거나 관리하지 않아도 됩니다. Azure Functions를 사용하여 다양한 이벤트에 대한 응답으로 스크립트 또는 코드 조각을 실행합니다.
 
-**Azure Machine Learning Service**: [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/)은 컴퓨터에서 기존 데이터를 사용하여 미래 동작, 결과 및 추세를 예측하는 데이터 과학 기술입니다.
+**Azure Machine Learning**: [Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/)은 컴퓨터에서 기존 데이터를 사용하여 향후의 동작, 결과 및 추세를 예측할 수 있도록 하는 데이터 과학 기술입니다.
 
 **Azure Data Catalog**: [Data Catalog](../../data-catalog/overview.md)를 사용하면 데이터를 관리하는 사용자가 데이터 원본을 쉽게 검색하고 이해할 수 있습니다. 일반적인 데이터 원본은 데이터를 등록, 태그 지정 및 검색할 수 있습니다. 데이터는 기존 위치에 그대로 유지되지만 메타데이터의 복사본이 Data Catalog에 추가됩니다. 데이터 원본 위치에 대한 참조도 포함됩니다. 메타데이터가 인덱싱되므로 검색을 통해 각 데이터 원본을 쉽게 검색할 수 있습니다. 또한 데이터 원본을 검색하는 사용자가 해당 원본을 쉽게 이해할 수 있습니다.
 
 ### <a name="virtual-network"></a>가상 네트워크
 이 아키텍처는 10.0.0.0/16 주소 공간으로 프라이빗 가상 네트워크를 정의합니다.
 
-**네트워크 보안 그룹**: [NSG(네트워크 보안 그룹)](../../virtual-network/virtual-network-vnet-plan-design-arm.md)에는 가상 네트워크 내에서 트래픽을 허용하거나 거부하는 액세스 제어 목록이 포함됩니다. NSG를 사용하면 서브넷 또는 개별 가상 머신 수준에서 트래픽을 보호할 수 있습니다. 다음과 같은 NSG가 있습니다.
+**네트워크 보안 그룹**: [NSG(네트워크 보안 그룹)](../../virtual-network/virtual-network-vnet-plan-design-arm.md)에는 가상 네트워크 내에서 트래픽을 허용하거나 거부하는 액세스 제어 목록이 포함됩니다. NSG를 사용하면 서브넷 또는 개별 가상 머신 수준에서 트래픽을 보호할 수 있습니다. 존재하는 NSG는 다음과 같습니다.
   - Active Directory용 NSG
   - 워크로드용 NSG
 
@@ -83,7 +83,7 @@ SQL Database는 보통 SQL Server Management Studio를 통해 관리되며, 보�
   - [진단 로그 및 이벤트](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)는 스토리지 계정에 사용되고 저장됩니다.
   - Azure Monitor 로그는 [Nsg의 진단](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json) 에 연결 됩니다.
 
-**서브넷**: 각 서브넷이 해당 NSG에 연결되어야 합니다.
+**서브넷**: 각 서브넷은 해당 NSG에 연결됩니다.
 
 ### <a name="data-in-transit"></a>전송 중 데이터
 Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화합니다. Azure Portal을 통과하여 Storage로 전송되는 모든 트랜잭션은 HTTPS를 통해 진행됩니다.
@@ -92,11 +92,11 @@ Azure는 기본적으로 Azure 데이터 센터와의 모든 통신을 암호화
 
 이 아키텍처는 암호화, 데이터베이스 감사 및 다른 방법을 통해 미사용 데이터를 보호합니다.
 
-**Azure Storage**: 모든 [스토리지](https://azure.microsoft.com/services/storage/)에서는 암호화된 미사용 데이터 관련 요구 사항을 충족하기 위해 [스토리지 서비스 암호화](../../storage/common/storage-service-encryption.md)를 사용합니다. 이 기능을 사용하면 NIST SP 800-171을 통해 정의된 조직의 보안 약정 및 규정 준수 요구 사항을 지원하기 위해 데이터를 보호할 수 있습니다.
+**Azure Storage**: 모든 [Storage](https://azure.microsoft.com/services/storage/)에서는 암호화된 미사용 데이터 관련 요구 사항을 충족하기 위해 [Storage Service Encryption](../../storage/common/storage-service-encryption.md)을 사용합니다. 이 기능을 사용하면 NIST SP 800-171을 통해 정의된 조직의 보안 약정 및 규정 준수 요구 사항을 지원하기 위해 데이터를 보호할 수 있습니다.
 
 **Azure Disk Encryption**: [Disk Encryption](../azure-security-disk-encryption-overview.md)은 Windows의 BitLocker 기능을 활용하여 데이터 디스크에 대한 볼륨 암호화 기능을 제공합니다. 이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키를 제어하고 관리하는 데 유용합니다.
 
-**Azure SQL Database**: SQL Database 인스턴스는 다음 데이터베이스 보안 조치를 사용합니다.
+**Azure SQL Database**: SQL Database 인스턴스에서 사용하는 데이터베이스 보안 조치는 다음과 같습니다.
 -   [Active Directory 인증 및 권한 부여](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication)를 사용하면 데이터베이스 사용자 및 기타 Microsoft 서비스의 ID를 중앙의 한 위치에서 집중적으로 관리할 수 있습니다.
 -   [SQL Database 감사](../../sql-database/sql-database-auditing.md)는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 기록합니다.
 -   SQL Database는 [투명한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용하도록 구성됩니다. 투명한 데이터 암호화는 데이터베이스, 관련 백업 및 트랜잭션 로그 파일의 실시간 암호화 및 암호 해독을 수행하여 미사용 정보를 보호합니다. 투명한 데이터 암호화를 사용하는 경우 저장된 데이터에 무단으로 액세스할 수 없습니다.
@@ -123,7 +123,7 @@ Azure 환경에서 데이터에 대한 액세스를 관리하는 기능을 제�
 - Key Vault에 대한 진단 로그는 365일 이상의 보존 기간 동안 사용하도록 설정됩니다.
 - 키에 허용되는 암호화 작업은 필요한 것으로 제한됩니다
 
-**Azure Security Center**: 고객은 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 통해 여러 워크로드에 걸쳐 보안 정책을 중앙에서 적용 및 관리하고, 위협에 대한 노출을 제한하고, 공격을 검색하여 대응할 수 있습니다. 또한 Security Center는 Azure 서비스의 기존 구성에 액세스하여 보안 태세를 개선하고 데이터를 보호하는 데 유용한 구성 및 서비스 권장 사항을 제공합니다.
+**Azure Security Center**: 고객은 [Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)를 통해 여러 워크로드에 걸쳐 보안 정책을 중앙에서 적용/관리하고, 위협에 대한 노출을 제한하고, 공격을 검색하여 대응할 수 있습니다. 또한 Security Center는 Azure 서비스의 기존 구성에 액세스하여 보안 태세를 개선하고 데이터를 보호하는 데 유용한 구성 및 서비스 권장 사항을 제공합니다.
 
  Security Center는 다양한 검색 기능을 사용하여 고객에게 환경을 대상으로 하는 잠재적인 공격에 대해 경고합니다. 이러한 경고는 트리거된 경고, 대상으로 지정된 리소스 및 공격의 출처에 대한 중요한 정보를 포함합니다. Security Center에는 위협 또는 의심스러운 활동이 발생할 때 트리거되는 미리 정의된 [보안 경고](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) 집합이 있습니다. 고객은 [사용자 지정 경고 규칙](https://docs.microsoft.com/azure/security-center/security-center-custom-alert)을 사용하여 환경에서 이미 수집된 데이터를 기반으로 하는 새 보안 경고를 정의할 수 있습니다.
 
@@ -132,8 +132,8 @@ Azure 환경에서 데이터에 대한 액세스를 관리하는 기능을 제�
 ### <a name="logging-and-auditing"></a>로깅 및 감사
 
 Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위하게 기록합니다.
-- **활동 로그**: [활동 로그](../../azure-monitor/platform/activity-logs-overview.md)는 구독에 있는 리소스에서 수행된 작업에 대한 인사이트를 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
-- **진단 로그**: [진단 로그](../../azure-monitor/platform/resource-logs-overview.md)는 모든 리소스에서 내보낸 모든 로그를 포함합니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Storage 로그, Key Vault 감사 로그 및 Azure Application Gateway 액세스 및 방화벽 로그가 포함됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 사용자는 특정 요구 사항에 맞게 보존 기간을 최대 730일까지 구성할 수 있습니다.
+- **활동 로그**: [활동 로그](../../azure-monitor/platform/activity-logs-overview.md)는 구독에 있는 리소스에서 수행된 작업에 대한 통찰력을 제공합니다. 활동 로그는 작업의 개시 장치, 발생 시간 및 상태를 결정하는 데 도움이 될 수 있습니다.
+- **진단 로그**: [진단 로그](../../azure-monitor/platform/resource-logs-overview.md)에는 모든 리소스에서 내보낸 모든 로그가 포함됩니다. 이러한 로그에는 Windows 이벤트 시스템 로그, Storage 로그, Key Vault 감사 로그 및 Azure Application Gateway 액세스 및 방화벽 로그가 포함됩니다. 모든 진단 로그는 보관을 위해 암호화된 중앙 집중식 Azure Storage 계정에 기록됩니다. 사용자는 특정 요구 사항에 맞게 보존 기간을 최대 730일까지 구성할 수 있습니다.
 
 **Azure Monitor 로그**: 로그는 처리, 저장 및 대시보드 보고를 위해 [Azure Monitor 로그](https://azure.microsoft.com/services/log-analytics/) 에 통합 됩니다. 수집된 데이터는 Log Analytics 작업 영역 내에서 각 데이터 형식용 개별 테이블로 구성됩니다. 이러한 방식으로 인해 원래 원본에 관계없이 모든 데이터를 함께 분석할 수 있습니다. Security Center Azure Monitor 로그와 통합 됩니다. 고객은 Kusto 쿼리를 사용 하 여 보안 이벤트 데이터에 액세스 하 고 다른 서비스의 데이터와 결합할 수 있습니다.
 
@@ -141,7 +141,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 -   [Active Directory 평가](../../azure-monitor/insights/ad-assessment.md): Active Directory 상태 검사 솔루션은 일정한 간격으로 서버 환경의 위험 및 상태를 평가합니다. 이 솔루션은 배포된 서버 인프라 관련 우선 순위가 지정된 권장 사항 목록을 제공합니다.
 - [SQL 평가](../../azure-monitor/insights/sql-assessment.md): SQL 상태 검사 솔루션은 일정한 간격으로 서버 환경의 위험 및 상태를 평가합니다. 이 솔루션은 배포된 서버 인프라 관련 우선 순위가 지정된 권장 사항 목록을 고객에게 제공합니다.
 - [에이전트 상태](../../monitoring/monitoring-solution-agenthealth.md): 에이전트 상태 솔루션은 배포된 에이전트의 수와 에이전트의 지리적 분산을 보고합니다. 또한 응답하지 않는 에이전트의 수와 작동 데이터를 제출하는 에이전트의 수도 보고합니다.
--   [활동 로그 분석](../../azure-monitor/platform/collect-activity-logs.md): 활동 로그 분석 솔루션은 고객에 대한 모든 구독에서 활동 로그를 분석하는 데 도움을 줍니다.
+-   [활동 로그 분석](../../azure-monitor/platform/collect-activity-logs.md): 활동 로그 분석 솔루션은 고객에 대한 모든 Azure 구독에서 Azure 활동 로그를 분석하는 데 도움을 줍니다.
 
 **Azure Automation**: [Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker)은 Runbook을 저장, 실행 및 관리합니다. 이 솔루션에서 Runbook은 SQL Database에서 로그를 수집하는 데 도움이 됩니다. 고객은 Automation [변경 내용 추적](../../automation/change-tracking.md) 솔루션을 사용하여 환경의 변경 내용을 쉽게 파악할 수 있습니다.
 
@@ -153,7 +153,7 @@ Azure 서비스는 시스템 및 사용자 활동, 시스템 상태를 광범위
 
 이 참조 아키텍처에 대한 데이터 흐름 다이어그램은 아래에 나와 있으며 [다운로드](https://aka.ms/nist171-analytics-tm)할 수도 있습니다. 고객은 이 모델을 통해 수정 시 시스템 인프라에서 발생 가능한 위험 요소를 파악할 수 있습니다.
 
-![NIST SP 800-171 준수 데이터 분석 위협 모델](images/nist171-analytics-threat-model.png "NIST SP 800-171 준수 데이터 분석 위협 모델")
+![NIST SP 800-171 위협 모델에 대 한 데이터 분석](images/nist171-analytics-threat-model.png "NIST SP 800-171 위협 모델에 대 한 데이터 분석")
 
 ## <a name="compliance-documentation"></a>규정 준수 설명서
 [Azure 보안 및 규정 준수 청사진 - NIST SP 800-171 고객 책임 매트릭스](https://aka.ms/nist171-crm)에는 NIST SP 800-171에서 요구하는 모든 보안 제어가 나와 있습니다. 이 매트릭스는 각 제어의 구현이 Microsoft, 고객 또는 둘 모두의 책임인지 여부를 자세히 설명합니다.
@@ -183,5 +183,5 @@ VPN 터널 내의 트래픽은 사이트 간 VPN을 사용하여 인터넷을 �
  - 이 문서는 Microsoft 제품 또는 솔루션의 지적 소유권에 대한 법적 권한을 고객에게 제공하지 않습니다.
  - 고객은 이 문서는 내부 참조용으로만 복사 및 사용할 수 있습니다.
  - 이 문서의 특정 권장 사항으로 인해 Azure에서 데이터, 네트워크 또는 컴퓨팅 리소스 사용량이 증가할 수 있으며 이로 인해 고객의 Azure 라이선스 또는 구독 비용이 증가할 수 있습니다.
- - 이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반이며 있는 프로덕션 환경에 그대로 사용해서는 안됩니다.
+ - 이 아키텍처는 고객이 특정 요구 사항에 맞게 조정할 수 있는 기반 형태로 제공되며 있는 그대로 프로덕션 환경에서 사용해서는 안 됩니다.
  - 이 문서는 참조용으로 작성되었으며 고객이 특정 규정 준수 요구 사항 및 규정을 충족할 수 있는 모든 수단을 정의하는 데 사용되어서는 안됩니다. 고객은 승인된 고객 구현에 대해 자체 조직에서 법률 지원을 받아야 합니다.

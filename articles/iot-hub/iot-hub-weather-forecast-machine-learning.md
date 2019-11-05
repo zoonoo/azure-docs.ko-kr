@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: ffc2e5fb588ce6861f5df6cefdf810c1a015c043
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d7b71a6aa17e8eeae55fd6c8c6e9a5aa9e0ce524
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61441018"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498880"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용한 일기 예보
 
@@ -41,11 +41,11 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 
 ## <a name="what-you-need"></a>필요한 항목
 
-- 완료 합니다 [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 장치 자습서; 중 하나 예를 들어 [node.js 사용 하 여 Raspberry Pi](iot-hub-raspberry-pi-kit-node-get-started.md)합니다. 이러한 다음 요구 사항을 다룹니다.
-  - 활성 Azure 구독.
+- [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 장치 자습서 중 하나를 완료 합니다. 예를 들어 [node.js를 사용 하 여 Pi를 Raspberry](iot-hub-raspberry-pi-kit-node-get-started.md)합니다. 다음 요구 사항을 다룹니다.
+  - 활성화된 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
-- Azure Machine Learning Studio 계정 [Machine Learning Studio 체험해 보기](https://studio.azureml.net/)
+- [Azure Machine Learning Studio](https://studio.azureml.net/) 계정.
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>날씨 예측 모델을 웹 서비스로 배포
 
@@ -83,7 +83,7 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 
    **리소스 그룹**: IoT Hub에서 사용하는 것과 동일한 리소스 그룹을 사용합니다.
 
-   **Location**: 리소스 그룹과 동일한 위치를 사용합니다.
+   **위치**: 리소스 그룹과 동일한 위치를 사용합니다.
 
    **대시보드에 고정**: 대시보드에서 IoT Hub에 쉽게 액세스하려면 이 옵션을 선택합니다.
 
@@ -97,11 +97,11 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 1. **작업 토폴로지**에서 **입력**을 클릭합니다.
 1. **입력** 창에서 **추가**를 클릭하고 다음 정보를 입력합니다.
 
-   **입력 별칭**: 입력에 대 한 고유 별칭입니다.
+   **입력 별칭**: 입력에 대한 고유 별칭입니다.
 
    **원본**: **IoT Hub**를 선택합니다.
 
-   **소비자 그룹**: 만든 소비자 그룹을 선택 합니다.
+   **소비자 그룹**: 만든 소비자 그룹을 선택합니다.
 
    ![Azure에서 Stream Analytics 작업에 입력 추가](media/iot-hub-weather-forecast-machine-learning/8_add-input-stream-analytics-job-azure.png)
 
@@ -114,11 +114,11 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 
    **출력 별칭**: 출력에 대한 고유 별칭입니다.
 
-   **싱크**: 선택 **Blob Storage**합니다.
+   **싱크**: **Blob Storage**를 선택합니다.
 
-   **스토리지 계정**: Blob storage에 대 한 저장소 계정입니다. 스토리지 계정을 만들거나 기존 계정을 사용할 수 있습니다.
+   **Storage 계정**: Blob 스토리지의 Storage 계정입니다. 스토리지 계정을 만들거나 기존 계정을 사용할 수 있습니다.
 
-   **컨테이너**: Blob 저장 된 컨테이너입니다. 컨테이너를 만들거나 기존 컨테이너를 사용할 수 있습니다.
+   **컨테이너**: Blob이 저장되는 컨테이너입니다. 컨테이너를 만들거나 기존 컨테이너를 사용할 수 있습니다.
 
    **이벤트 직렬화 형식**: **CSV**를 선택합니다.
 
@@ -131,15 +131,15 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 1. **작업 토폴로지**에서 **함수** > **추가**를 클릭합니다.
 1. 다음 정보를 입력합니다.
 
-   **함수 별칭**: [https://slack.botframework.com](`machinelearning`) 을 입력합니다.
+   **별칭 함수**: `machinelearning`을(를) 입력합니다.
 
-   **함수 유형**: 선택 **Azure ML**합니다.
+   **함수 유형**: **Azure ML**을 선택합니다.
 
-   **가져오기 옵션**: 선택 **다른 구독에서 가져오기**합니다.
+   **가져오기 옵션**: **다른 구독에서 가져오기**를 선택합니다.
 
-   **URL**: Excel 통합 문서에서 기록해 둔 웹 서비스 URL을 입력 합니다.
+   **URL**: Excel 통합 문서에서 기록해 둔 웹 서비스 URL을 입력합니다.
 
-   **키**: Excel 통합 문서에서 기록해 둔 액세스 키를 입력 합니다.
+   **키**: Excel 통합 문서에서 기록해 둔 액세스 키를 입력합니다.
 
    ![Azure에서 Stream Analytics 작업에 함수 추가](media/iot-hub-weather-forecast-machine-learning/10_add-function-stream-analytics-job-azure.png)
 
@@ -163,7 +163,7 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 
    `[YourOutputAlias]`를 작업의 출력 별칭으로 바꿉니다.
 
-1. **저장**을 클릭합니다.
+1. **Save**를 클릭합니다.
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
@@ -175,10 +175,10 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 
 클라이언트 애플리케이션을 실행하여 온도 및 습도 데이터를 수집하여 IoT Hub로 보냅니다. Stream Analytics 작업에서는 IoT Hub에서 받은 각 메시지에 대해 일기 예보 웹 서비스를 호출하여 강우 확률을 생성합니다. 그런 다음 Azure Blob Storage에 결과를 저장합니다. Azure Storage Explorer는 결과를 보는 데 사용할 수 있는 도구입니다.
 
-1. [Microsoft Azure Storage 탐색기를 다운로드하고 설치합니다](https://storageexplorer.com/).
+1. [Microsoft Azure Storage Explorer를 다운로드하고 설치합니다](https://storageexplorer.com/).
 1. Azure Storage Explorer를 엽니다.
 1. Azure 계정에 로그인합니다.
-1. 구독을 선택합니다.
+1. 사용 중인 구독을 선택합니다.
 1. 구독> **Storage 계정** > Storage 계정> **Blob 컨테이너**> 컨테이너를 차례로 클릭합니다.
 1. .csv 파일을 열어 결과를 확인합니다. 마지막 열은 강우 확률을 기록하고 있습니다.
 

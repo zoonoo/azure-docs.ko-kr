@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 3c3c54faa882a38fb6c55c9fc0476a569f25cb98
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638319"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486632"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS 앱에 적합한 발언이 무엇인지 이해
 
@@ -53,7 +53,7 @@ LUIS 모델에 [예제 발언을 추가](luis-how-to-add-example-utterances.md)�
 
 다음과 같은 예제 발언을 사용하세요.
 
-|예제 발화|
+|발화 예제|
 |--|
 |how do I get a computer?|
 |Where do I get a computer?|
@@ -101,7 +101,7 @@ Utterance 정규화는 앱 JSON 파일의 설정 이므로 앱을 만들거나 �
 
 **문장 부호** 표준화는 모델이 학습 되 고 끝점 쿼리가 예측 되기 전에 길이 발언에서 문장 부호가 제거 된다는 것을 의미 합니다. 
 
-**분음 부호** 를 정규화 하면 길이 발언의 분음 부호 문자를 일반 문자로 바꿉니다. 예를 들어 `Je parle français` 은 `Je parle francais`가 됩니다. 
+**분음 부호** 를 정규화 하면 길이 발언의 분음 부호 문자를 일반 문자로 바꿉니다. 예를 들어 `Je parle français` `Je parle francais`됩니다. 
 
 정규화는 예제 길이 발언 또는 예측 응답에서 문장 부호와 분음 부호를 표시 하지 않는다는 것을 의미 하지 않습니다. 단순히 학습 및 예측 중에 무시 됩니다.
 
@@ -118,23 +118,37 @@ Utterance 정규화는 앱 JSON 파일의 설정 이므로 앱을 만들거나 �
 
 ### <a name="ignoring-words-and-punctuation"></a>단어 및 문장 부호 무시
 
-패턴에서 특정 단어나 문장 부호를 무시 하려면 대괄호 `[]`의 _ignore_ 구문과 함께 [패턴](luis-concept-patterns.md#pattern-syntax) 을 사용 합니다. 
+패턴에서 특정 단어나 문장 부호를 무시 하려면 대괄호의 _ignore_ 구문이 있는 [패턴](luis-concept-patterns.md#pattern-syntax) 을 사용 `[]`합니다. 
 
 ## <a name="training-utterances"></a>발언 학습
 
-학습은 일반적으로 비결정적입니다. 발언 예측은 버전이나 앱마다 약간 다를 수 있습니다. 모든 교육 데이터를 사용하기 위해 `UseAllTrainingData` 이름/값 쌍으로 [버전 설정](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) API를 업데이트하여 비결정적 학습을 제거할 수 있습니다.
+학습은 일반적으로 비결정적입니다. 발언 예측은 버전이나 앱마다 약간 다를 수 있습니다. 모든 교육 데이터를 사용하기 위해 [ 이름/값 쌍으로 ](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)버전 설정`UseAllTrainingData` API를 업데이트하여 비결정적 학습을 제거할 수 있습니다.
 
 ## <a name="testing-utterances"></a>발언 테스트 
 
 개발자는 발언을 [예측 엔드포인트](luis-how-to-azure-subscription.md) URL로 전송하여 실제 트래픽으로 LUIS 애플리케이션 테스트를 시작해야 합니다. 이러한 발언은 [발언 검토](luis-how-to-review-endpoint-utterances.md)로 의도 및 엔터티의 성능을 개선하는 데 사용됩니다. LUIS 웹 사이트 테스트 창을 통해 제출된 테스트는 엔드포인트로 전송되지 않으므로 활성 학습에 기여하지 않습니다. 
 
-## <a name="review-utterances"></a>발언 검토
+## <a name="review-utterances"></a>발화 검토
 
 모델이 학습되고, 게시되고 [엔드포인트](luis-glossary.md#endpoint) 쿼리를 수신하면 LUIS에서 제안한 [발언을 검토](luis-how-to-review-endpoint-utterances.md)합니다. LUIS는 의도 또는 엔터티에 대해 낮은 점수를 갖는 엔드포인트 발언을 선택합니다. 
 
 ## <a name="best-practices"></a>모범 사례
 
 [모범 사례](luis-concept-best-practices.md)를 검토하고 일반 제작 주기의 일환으로 적용합니다.
+
+## <a name="label-for-word-meaning"></a>단어 의미에 대한 레이블
+
+단어 선택이나 단어 배열은 동일하지만 같은 의미를 나타내지 않는 경우 엔터티로 레이블을 지정하지 마세요. 
+
+다음 발화에서 단어 `fair`는 동형이의어입니다. 즉, 철자는 동일하지만 의미가 다릅니다.
+
+|발언|
+|--|
+|What kind of county fairs are happening in the Seattle area this summer?|
+|Is the current rating for the Seattle review fair?|
+
+이벤트 엔터티에서 모든 이벤트 데이터를 찾도록 하려면 두 번째 발화가 아닌 첫 번째 발화에서 `fair` 단어에 레이블을 지정하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 사용자 발언을 이해하도록 LUIS 앱을 학습하는 방법에 대한 내용은 [예제 발언 추가](luis-how-to-add-example-utterances.md)를 참조하세요.

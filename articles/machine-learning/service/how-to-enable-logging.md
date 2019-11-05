@@ -10,14 +10,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 07/12/2019
-ms.openlocfilehash: 80508a31db8d86569c52df98697ceb62520059d2
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: a47ce44a325720fb1b6df919a0a324a4d3319d86
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002762"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489894"
 ---
 # <a name="enable-logging-in-azure-machine-learning"></a>Azure Machine Learning에서 로깅 사용
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Machine Learning Python SDK를 사용하면 로컬 로깅 및 포털의 작업 영역 로깅을 위해 기본 Python 로깅 패키지와 SDK 특정 기능 둘 다로 로깅을 사용할 수 있습니다. 로그는 애플리케이션 상태에 대한 실시간 정보를 개발자에게 제공하며 오류 또는 경고 진단에 도움이 될 수 있습니다. 이 문서의 다음 영역에서는 로깅을 사용하는 다양한 방법을 설명합니다.
 
@@ -31,7 +32,7 @@ Azure Machine Learning Python SDK를 사용하면 로컬 로깅 및 포털의 �
 
 ## <a name="training-models-and-compute-target-logging"></a>모델 학습 및 컴퓨팅 대상 로깅
 
-모델 학습 프로세스 중 로깅을 사용하는 여러 가지 방법이 있으며, 표시된 예제는 일반적인 디자인 패턴을 보여 줍니다. `Experiment` 클래스의 `start_logging` 함수를 사용하여 클라우드의 작업 영역에 실행 관련 데이터를 쉽게 로그할 수 있습니다.
+모델 학습 프로세스 중 로깅을 사용하는 여러 가지 방법이 있으며, 표시된 예제는 일반적인 디자인 패턴을 보여 줍니다. `start_logging` 클래스의 `Experiment` 함수를 사용하여 클라우드의 작업 영역에 실행 관련 데이터를 쉽게 로그할 수 있습니다.
 
 ```python
 from azureml.core import Experiment
@@ -58,7 +59,7 @@ run = experiment.submit(config=run_config_object, show_output=True)
 run.wait_for_completion(show_output=True)
 ```
 
-또한 SDK는 특정 학습 시나리오에서 기본 Python 로깅 패키지 사용을 지원합니다. 다음 예제에서는 `AutoMLConfig` 개체의 `INFO` 로깅 수준을 사용하도록 설정합니다.
+또한 SDK는 특정 학습 시나리오에서 기본 Python 로깅 패키지 사용을 지원합니다. 다음 예제에서는 `INFO` 개체의 `AutoMLConfig` 로깅 수준을 사용하도록 설정합니다.
 
 ```python
 from azureml.train.automl import AutoMLConfig
@@ -85,7 +86,7 @@ compute.wait_for_completion(show_output=True)
 
 ## <a name="logging-during-image-creation"></a>이미지 생성 중 로깅
 
-이미지 생성 중 로깅을 사용하면 빌드 프로세스 중에 오류를 확인할 수 있습니다. `wait_for_deployment()` 함수에 `show_output` 매개 변수를 설정합니다.
+이미지 생성 중 로깅을 사용하면 빌드 프로세스 중에 오류를 확인할 수 있습니다. `show_output` 함수에 `wait_for_deployment()` 매개 변수를 설정합니다.
 
 ```python
 from azureml.core.webservice import Webservice
@@ -117,7 +118,7 @@ logs = service.get_logs()
 service.update(enable_app_insights=True)
 ```
 
-Azure Portal에서 Application Insights를 사용하는 방법에 대한 자세한 내용은 [방법](how-to-enable-app-insights.md)을 참조하세요.
+Azure Machine Learning studio에서 Application Insights 작업 하는 방법에 대 한 자세한 내용은 [방법을](how-to-enable-app-insights.md) 참조 하세요.
 
 ## <a name="python-native-logging-settings"></a>Python 기본 로깅 설정
 

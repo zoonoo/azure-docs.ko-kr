@@ -1,24 +1,24 @@
 ---
 title: '누락 데이터 정리: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 누락 된 데이터 정리 모듈을 사용 하 여 누락 값을 제거, 대체 또는 유추 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 누락 된 데이터 정리 모듈을 사용 하 여 누락 값을 제거, 대체 또는 유추 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7167d53cce2c44f754f438753acda008e53bb2b3
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: fef8cb0c29eac4b26b93abee54faa4fe1078678d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693208"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493808"
 ---
 # <a name="clean-missing-data-module"></a>누락 된 데이터 모듈 정리
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 누락 값을 제거, 대체 또는 유추할 수 있습니다. 
 
@@ -133,8 +133,8 @@ ms.locfileid: "72693208"
   
 2.  정리 하려는 데이터 집합을 추가 하 고 오른쪽 입력 포트에 데이터 집합을 연결 합니다.  
   
-3.  인터페이스의 왼쪽 창에 있는 **변환** 그룹을 확장 합니다. 저장 된 변환을 찾아 파이프라인으로 끌어 옵니다.  
-  
+3.  디자이너의 왼쪽 창에 있는 **변환** 그룹을 확장 합니다. 저장 된 변환을 찾아 파이프라인으로 끌어 옵니다.  
+
 4.  [변형 적용](./apply-transformation.md)의 왼쪽 입력 포트에 저장 된 변환을 연결 합니다. 
 
     저장 된 변환을 적용 하면 변환이 적용 되는 열을 선택할 수 없습니다. 이는 변환이 이미 정의 되어 원래 작업에 지정 된 열에 자동으로 적용 되기 때문입니다.
@@ -145,4 +145,4 @@ ms.locfileid: "72693208"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

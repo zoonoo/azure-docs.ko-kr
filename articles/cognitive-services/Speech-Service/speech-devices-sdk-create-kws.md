@@ -1,7 +1,7 @@
 ---
-title: 사용자 지정 절전 모드 해제 워드-음성 서비스 만들기
+title: 사용자 지정 키워드-음성 서비스 만들기
 titleSuffix: Azure Cognitive Services
-description: 디바이스는 항상 절전 모드 해제 단어(또는 구)를 수신 대기합니다. 사용자가 절전 모드 해제 단어를 말하면 사용자가 말하기를 중지할 때까지 디바이스에서 모든 후속 오디오를 클라우드로 보냅니다. 절전 모드 해제 단어를 사용자 지정하는 것은 디바이스를 구별하고 브랜드를 강화하는 효과적인 방법입니다.
+description: 장치는 항상 키워드 (또는 구)를 수신 대기 합니다. 사용자가 키워드를 표시 하면 장치는 사용자가 말하기를 중단할 때까지 모든 후속 오디오를 클라우드로 보냅니다. 키워드를 사용자 지정 하는 것은 장치를 차별화 하 고 브랜딩을 강화 하는 효과적인 방법입니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,62 +10,60 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 2bc1a6cbbf1e0d790326849a41b0788e332daa31
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf9afb66163532b4095e0d30b1167010320abbf8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553098"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490948"
 ---
-# <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Speech Service를 사용하여 사용자 지정 절전 모드 해제 단어 만들기
+# <a name="create-a-custom-keyword-by-using-the-speech-service"></a>음성 서비스를 사용 하 여 사용자 지정 키워드 만들기
 
-디바이스는 항상 절전 모드 해제 단어(또는 구)를 수신 대기합니다. 예를 들어, "Hey Cortana"는 Cortana 비서에 대한 절전 모드 해제 단어입니다. 사용자가 절전 모드 해제 단어를 말하면 사용자가 말하기를 중지할 때까지 디바이스에서 모든 후속 오디오를 클라우드로 보냅니다. 절전 모드 해제 단어를 사용자 지정하는 것은 디바이스를 구별하고 브랜드를 강화하는 효과적인 방법입니다.
+장치는 항상 키워드 (또는 구)를 수신 대기 합니다. 예를 들어 "안녕하세요 Cortana"는 Cortana 길잡이에 대 한 키워드입니다. 사용자가 키워드를 표시 하면 장치는 사용자가 말하기를 중단할 때까지 모든 후속 오디오를 클라우드로 보냅니다. 키워드를 사용자 지정 하는 것은 장치를 차별화 하 고 브랜딩을 강화 하는 효과적인 방법입니다.
 
-이 문서에서는 디바이스를 위한 사용자 지정 절전 모드 해제 단어를 만드는 방법을 설명합니다.
+이 문서에서는 장치에 대 한 사용자 지정 키워드를 만드는 방법에 대해 알아봅니다.
 
-## <a name="choose-an-effective-wake-word"></a>효과적인 절전 모드 해제 단어 선택
+## <a name="choose-an-effective-keyword"></a>유효 키워드 선택
 
-절전 모드 해제 단어를 선택하는 경우 다음 지침을 고려합니다.
+키워드를 선택 하는 경우 다음 지침을 고려 하십시오.
 
-* 절전 모드 해제 단어는 영어 단어 또는 구여야 합니다. 말하는 데 2초 이상 걸리지 않아야 합니다.
+* 키워드는 영어 단어 또는 구 여야 합니다. 말하는 데 2초 이상 걸리지 않아야 합니다.
 
-* 4-7개 음절의 단어가 가장 적합합니다. 예를 들어 "Hey, Computer"는 좋은 절전 모드 해제 단어이지만, 그냥 "Hey"만 사용하는 것은 그렇지 않습니다.
+* 4-7개 음절의 단어가 가장 적합합니다. 예를 들어 "안녕하세요, Computer"는 좋은 키워드입니다. 그냥 "Hey"만 사용하는 것은 그렇지 않습니다.
 
-* 절전 모드 해제 단어는 일반적인 영어 발음 규칙을 따라야 합니다.
+* 키워드는 일반적인 영어 발음 규칙을 따라야 합니다.
 
-* 일반적인 영어 발음 규칙을 따르는 고유하거나 심지어 합성된 단어는 거짓 긍정을 줄일 수 있습니다. 예를 들어 "computerama"는 좋은 절전 모드 해제 단어일 수 있습니다.
+* 일반적인 영어 발음 규칙을 따르는 고유하거나 심지어 합성된 단어는 거짓 긍정을 줄일 수 있습니다. 예를 들어 "computerama"은 좋은 키워드가 될 수 있습니다.
 
 * 일반적인 단어는 선택하지 않도록 합니다. 예를 들어, "eat"과 “go”는 사람들이 평상시 대화에서 자주 말하는 단어입니다. 이러한 단어는 디바이스를 잘못 트리거할 수 있습니다.
 
-* 대체 발음이 있을 수 있는 절전 모드 해제 단어는 사용하지 않습니다. 사용자는 디바이스의 반응을 얻기 위해 "올바른" 발음을 알고 있어야 합니다. 예를 들어 "509"는 "five zero nine", "five oh nine" 또는 "five hundred and nine"으로 발음할 수 있습니다. "R.E.I." "R E I" 또는 "Ray"로, "Live"는 "/līv/" 또는 "/liv/"로 발음할 수 있습니다.
+* 대체 발음 될 수 있는 키워드를 사용 하지 마십시오. 사용자는 디바이스의 반응을 얻기 위해 "올바른" 발음을 알고 있어야 합니다. 예를 들어 "509"는 "five zero nine", "five oh nine" 또는 "five hundred and nine"으로 발음할 수 있습니다. "R.E.I." "R E I" 또는 "Ray"로, "Live"는 "/līv/" 또는 "/liv/"로 발음할 수 있습니다.
 
-* 특수 문자, 기호 또는 숫자는 사용하지 않도록 합니다. 예를 들어, "Go #" 및 "20 + cats"는 좋은 절전 모드 해제 단어가 아닙니다. 그러나 "go sharp" 또는 "twenty plus cats"는 적합할 수 있습니다. 여전히 브랜딩에 기호를 사용하고, 마케팅 및 설명서를 사용하여 적절한 발음을 강화할 수 있습니다.
+* 특수 문자, 기호 또는 숫자는 사용하지 않도록 합니다. 예를 들어 "Go #" 및 "20 + cats"는 좋은 키워드가 아닙니다. 그러나 "go sharp" 또는 "twenty plus cats"는 적합할 수 있습니다. 여전히 브랜딩에 기호를 사용하고, 마케팅 및 설명서를 사용하여 적절한 발음을 강화할 수 있습니다.
 
 > [!NOTE]
-> 등록 상표 단어를 절전 모드 해제 단어로 선택하는 경우 해당 등록 상표의 소유자인지 또는 등록 상표 소유자의 허가를 통해 해당 단어를 사용할 수 있는지 확인합니다. Microsoft는 사용자가 선택한 절전 모드 해제 단어로 인해 발생할 수 있는 모든 법적 문제에 대해 책임을 지지 않습니다.
+> 키워드로 상표 단어를 선택 하는 경우 해당 상표를 소유 하 고 있거나 해당 단어를 사용할 수 있는 상표 소유자의 권한이 있는지를 알고 있어야 합니다. Microsoft는 키워드를 선택 하 여 발생할 수 있는 법적 문제에 대 한 책임을 지지 않습니다.
 
-## <a name="create-your-wake-word"></a>절전 모드 해제 단어 만들기
+## <a name="create-your-keyword"></a>키워드 만들기
 
-장치에서 사용자 지정 절전 모드 해제 단어를 사용 하려면 먼저 Microsoft 사용자 지정 절전 모드 해제 word 생성 서비스를 사용 하 여 절전 모드 해제 단어를 만들어야 합니다. 절전 모드 해제 단어를 제공한 후 서비스는 장치에서 절전 모드 해제 단어를 사용할 수 있도록 개발 키트에 배포 하는 파일을 생성 합니다.
+사용자 지정 키워드를 장치와 함께 사용 하려면 Microsoft 사용자 지정 키워드 생성 서비스를 사용 하 여 키워드를 만들어야 합니다. 키워드를 제공한 후 서비스는 장치에서 키워드를 사용할 수 있도록 개발 키트에 배포 하는 파일을 생성 합니다.
 
-1. [Custom Speech Service 포털로](https://aka.ms/sdsdk-speechportal) 이동 하 여 **로그인** 하거나 음성 구독이 없는 경우 [**구독 만들기**](https://go.microsoft.com/fwlink/?linkid=2086754) 를 선택 합니다.
+1. [Speech Studio](https://aka.ms/sdsdk-speechportal) 로 이동 하 여 **로그인** 하거나, 아직 음성 구독이 없는 경우 [**구독 만들기**](https://go.microsoft.com/fwlink/?linkid=2086754)를 선택 합니다.
 
-    ![Custom Speech Service 포털](media/speech-devices-sdk/wake-word-4.png)
+1. [사용자 지정 키워드](https://aka.ms/sdsdk-wakewordportal) 페이지에서 원하는 키워드를 입력 하 고 **키워드 추가**를 클릭 합니다. 효과적인 키워드를 선택 하는 데 도움이 되는 몇 가지 [지침이](#choose-an-effective-keyword) 있습니다. 지원은 현재 en-us 언어로 제한 됩니다.
 
-1. [사용자 지정 절전 모드 해제 단어](https://aka.ms/sdsdk-wakewordportal) 페이지에서 원하는 절전 모드 해제 단어를 입력 하 고 **절전 모드 해제 단어 추가**를 클릭 합니다. 효과적인 키워드를 선택 하는 데 도움이 되는 몇 가지 [지침이](#choose-an-effective-wake-word) 있습니다. 현재 en-us 언어만 지원 합니다.
+    ![키워드 입력](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
 
-    ![절전 모드 해제 단어 입력](media/speech-devices-sdk/wake-word-5.png)
+1. 이제 포털에서 키워드에 대 한 후보 발음을 만듭니다. 재생 단추를 클릭 하 여 각 후보를 수신 하 고 잘못 된 발음 옆의 검사를 제거 합니다. 올바른 발음만 선택 되 면 **제출** 을 선택 하 여 키워드 생성을 시작 합니다. 키워드를 변경 하려면 먼저 행의 오른쪽에 있는 삭제 단추를 클릭 하 여 기존 항목을 제거 합니다.
 
-1. 절전 모드 해제 단어의 세 가지 대체 발음 생성 됩니다. 원하는 모든 발음를 선택할 수 있습니다. 그런 다음 **제출** 을 선택 하 여 절전 모드 해제 단어를 생성 합니다. 절전 모드 해제 단어를 변경 하려면 먼저 기존 항목을 제거 하 고, 발음 줄을 마우스로 가리키면 삭제 아이콘이 표시 됩니다.
+    ![키워드 검토](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
 
-    ![절전 모드 해제 단어 검토](media/speech-devices-sdk/wake-word-6.png)
+1. 모델을 생성 하는 데 최대 1 분 정도 걸릴 수 있습니다. 그러면 파일을 다운로드 하 라는 메시지가 표시 됩니다.
 
-1. 모델을 생성 하는 데 최대 1 분 정도 걸릴 수 있습니다. 파일을 다운로드 하 라는 메시지가 표시 됩니다.
+    ![키워드 다운로드](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-    ![절전 모드 해제 단어 다운로드](media/speech-devices-sdk/wake-word-7.png)
-
-1. .zip 파일을 컴퓨터에 저장합니다. 사용자 지정 절전 모드 해제 단어를 개발 키트에 배포 하려면이 파일이 필요 합니다.
+1. .zip 파일을 컴퓨터에 저장합니다. 사용자 지정 키워드를 개발 키트에 배포 하려면이 파일이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[음성 장치 SDK 퀵 스타트](https://aka.ms/sdsdk-quickstart)를 사용 하 여 사용자 지정 절전 모드 해제 단어를 테스트 합니다.
+[음성 장치 SDK 퀵 스타트](https://aka.ms/sdsdk-quickstart)를 사용 하 여 사용자 지정 키워드를 테스트 합니다.

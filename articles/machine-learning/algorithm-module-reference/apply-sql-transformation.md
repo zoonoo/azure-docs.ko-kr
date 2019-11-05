@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 8eede9d1fbee7d8b70f6b6924b9767b4d3f4e0bf
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 62c61d589324fe8364fe4630b3cf2cc64e1860b1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694637"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493923"
 ---
 # <a name="apply-sql-transformation"></a>SQL 변환 적용
 
-이 문서에서는 시각적 인터페이스 Azure Machine Learning 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 SQL 변환 적용 모듈을 사용 하 여 다음을 수행할 수 있습니다.
   
@@ -33,7 +33,7 @@ SQL 변환 적용 모듈을 사용 하 여 다음을 수행할 수 있습니다.
 
 ## <a name="how-to-configure-apply-sql-transformation"></a>SQL 변환 적용을 구성 하는 방법  
 
-모듈은 입력으로 최대 3 개의 데이터 집합을 사용할 수 있습니다. 각 입력 포트에 연결 된 데이터 집합을 참조 하는 경우 `t1`, `t2` 및 `t3` 이름을 사용 해야 합니다. 테이블 번호는 입력 포트의 인덱스를 나타냅니다.  
+모듈은 입력으로 최대 3 개의 데이터 집합을 사용할 수 있습니다. 각 입력 포트에 연결 된 데이터 집합을 참조 하는 경우 `t1`, `t2`및 `t3`이름을 사용 해야 합니다. 테이블 번호는 입력 포트의 인덱스를 나타냅니다.  
   
 나머지 매개 변수는 SQLite 구문을 사용 하는 SQL 쿼리입니다. **SQL 스크립트** 텍스트 상자에 여러 줄을 입력할 때는 세미콜론을 사용 하 여 각 문을 종료 합니다. 그렇지 않으면 줄 바꿈이 공백으로 변환 됩니다.  
 
@@ -53,11 +53,11 @@ SQLite는 ANSI SQL 표준의 대부분을 지원 하지만 상업용 관계형 �
   
 - SQLite는 대부분의 관계형 데이터베이스 시스템에서와 같이 열에 형식을 할당 하는 대신 값에 대 한 동적 형식화를 사용 합니다. 약하게 형식화 되며 암시적 형식 변환을 허용 합니다.  
   
-- `LEFT OUTER JOIN` 구현 되지만 `RIGHT OUTER JOIN` 하거나 `FULL OUTER JOIN` 되지 않습니다.  
+- `LEFT OUTER JOIN` 구현 되지만 `RIGHT OUTER JOIN` 하거나 `FULL OUTER JOIN`되지 않습니다.  
 
-- @No__t_0 및 `ADD COLUMN` 문을 `ALTER TABLE` 명령과 함께 사용할 수 있지만 `DROP COLUMN`, `ALTER COLUMN` 및 `ADD CONSTRAINT`를 비롯 한 다른 절은 지원 되지 않습니다.  
+- `RENAME TABLE` 및 `ADD COLUMN` 문을 `ALTER TABLE` 명령과 함께 사용할 수 있지만 `DROP COLUMN`, `ALTER COLUMN`및 `ADD CONSTRAINT`를 비롯 한 다른 절은 지원 되지 않습니다.  
   
-- SQLite 내에서 보기를 만들 수 있지만 이후 보기는 읽기 전용입니다. 뷰에 `DELETE`, `INSERT` 또는 `UPDATE` 문을 실행할 수 없습니다. 그러나 뷰에서 `DELETE`, `INSERT` 또는 `UPDATE` 하려고 할 때 발생 하는 트리거를 만들고 트리거 본문에서 다른 작업을 수행할 수 있습니다.  
+- SQLite 내에서 보기를 만들 수 있지만 이후 보기는 읽기 전용입니다. 뷰에 `DELETE`, `INSERT`또는 `UPDATE` 문을 실행할 수 없습니다. 그러나 뷰에서 `DELETE`, `INSERT`또는 `UPDATE` 하려고 할 때 발생 하는 트리거를 만들고 트리거 본문에서 다른 작업을 수행할 수 있습니다.  
   
 
 공식 SQLite 사이트에서 제공 되는 지원 되지 않는 함수 목록 외에도, 다음 wiki는 지원 되지 않는 다른 기능 목록을 제공 합니다. [SQLite-지원 되지 않는 SQL](http://www2.sqlite.org/cvstrac/wiki?p=UnsupportedSql)  

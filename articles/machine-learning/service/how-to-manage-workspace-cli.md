@@ -9,18 +9,19 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 08/30/2019
-ms.openlocfilehash: 75487906e4323ea12a47d75164617212bd3e65d9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8606ac2578c45062182517b5e67d669a09b8e5c0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002642"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489720"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure CLI를 사용 하 여 Azure Machine Learning 작업 영역을 만드는 방법에 대해 알아봅니다. Azure CLI는 Azure 리소스를 관리 하기 위한 명령을 제공 합니다. CLI에 대 한 machine learning 확장은 Azure Machine Learning 리소스를 사용 하기 위한 명령을 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. 없는 경우 [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -39,7 +40,7 @@ CLI에서 Azure 구독에 인증 하는 방법에는 여러 가지가 있습니�
 az login
 ```
 
-CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 페이지를 로드합니다. 그렇지 않으면 브라우저를 열고 명령줄의 지침을 따르세요. 지침에는 인증 코드 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 를 찾아 입력 하는 작업이 포함 됩니다.
+CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 페이지를 로드합니다. 그렇지 않으면 브라우저를 열고 명령줄의 지침을 따르세요. 지침에는 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 를 찾고 인증 코드를 입력 하는 작업이 포함 됩니다.
 
 다른 인증 방법에 대 한 자세한 내용은 [Azure CLI 사용 하 여 로그인](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)을 참조 하세요.
 
@@ -58,7 +59,7 @@ Azure Machine Learning 작업 영역에서는 다음과 같은 Azure 서비스 �
 > [!IMPORTANT]
 > 기존 Azure 서비스를 지정 하지 않으면 작업 영역을 만드는 동안 자동으로 하나 생성 됩니다. 항상 리소스 그룹을 지정 해야 합니다.
 
-| 서비스 | 기존 인스턴스를 지정 하는 매개 변수 |
+| 부여 | 기존 인스턴스를 지정 하는 매개 변수 |
 | ---- | ---- |
 | **Azure 리소스 그룹** | `-g <resource-group-name>`
 | **Azure Storage 계정** | `--storage-account <service-id>` |
@@ -68,7 +69,7 @@ Azure Machine Learning 작업 영역에서는 다음과 같은 Azure 서비스 �
 
 ### <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹 내에 Azure Machine Learning 작업 영역을 만들어야 합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다. __새 리소스 그룹을 만들려면__다음 명령을 사용 합니다. 이 `<resource-group-name>` 리소스 그룹에 사용할 이름으로 대체 합니다. 이 `<location>` 리소스 그룹에 사용할 Azure 지역으로 대체 합니다.
+리소스 그룹 내에 Azure Machine Learning 작업 영역을 만들어야 합니다. 기존 리소스 그룹을 사용하거나 리소스 그룹을 새로 만들 수 있습니다. __새 리소스 그룹을 만들려면__다음 명령을 사용 합니다. `<resource-group-name>`을이 리소스 그룹에 사용할 이름으로 바꿉니다. `<location>`을이 리소스 그룹에 사용할 Azure 지역으로 바꿉니다.
 
 > [!TIP]
 > Azure Machine Learning를 사용할 수 있는 지역을 선택 해야 합니다. 자세한 내용은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service)을 참조 하세요.
@@ -133,7 +134,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 > [!IMPORTANT]
 > 기존 리소스를 모두 지정할 필요는 없습니다. 하나 이상의을 지정할 수 있습니다. 예를 들어 기존 저장소 계정을 지정 하 고 작업 영역에서 다른 리소스를 만들 수 있습니다.
 
-+ **Azure Storage 계정**:`az storage account show --name <storage-account-name> --query "id"`
++ **Azure Storage 계정**: `az storage account show --name <storage-account-name> --query "id"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 저장소 계정의 ID입니다.
 
@@ -163,7 +164,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.KeyVault/vaults/<key-vault-name>"`
 
-+ **Azure Container Registry**:`az acr show --name <acr-name> -g <resource-group-name> --query "id"`
++ **Azure Container Registry**: `az acr show --name <acr-name> -g <resource-group-name> --query "id"`
 
     이 명령의 응답은 다음 텍스트와 비슷하며 컨테이너 레지스트리의 ID입니다.
 
@@ -172,7 +173,7 @@ az ml workspace create -w <workspace-name> -g <resource-group-name>
     > [!IMPORTANT]
     > 컨테이너 레지스트리가 Azure Machine Learning 작업 영역에서 사용할 수 있도록 [관리자 계정을](/azure/container-registry/container-registry-authentication#admin-account) 사용 하도록 설정 되어 있어야 합니다.
 
-작업 영역에서 사용 하려는 리소스에 대 한 id가 있으면 기본 `az workspace create -w <workspace-name> -g <resource-group-name>` 명령을 사용 하 고 기존 리소스에 대 한 매개 변수 및 ID를 추가 합니다. 예를 들어 다음 명령은 기존 컨테이너 레지스트리를 사용 하는 작업 영역을 만듭니다.
+작업 영역에서 사용 하려는 리소스에 대 한 Id가 있는 경우 기본 `az workspace create -w <workspace-name> -g <resource-group-name>` 명령을 사용 하 고 기존 리소스에 대 한 매개 변수 및 ID를 추가 합니다. 예를 들어 다음 명령은 기존 컨테이너 레지스트리를 사용 하는 작업 영역을 만듭니다.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name> --container-registry "/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.ContainerRegistry/registries/<acr-name>"

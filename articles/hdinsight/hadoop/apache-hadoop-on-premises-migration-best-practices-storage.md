@@ -1,5 +1,5 @@
 ---
-title: 온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션-저장소
+title: '저장소: 온-프레미스 Apache Hadoop을 Azure HDInsight로 마이그레이션'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하는 스토리지 모범 사례를 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9b246fe9b09f2939663b4fb74ee1da703264d533
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: b22c3c7e7dbbf7a93fff10ded1fbb7bef8fc5900
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028931"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494960"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션
 
@@ -25,7 +25,7 @@ Azure Storage 또는 Azure Data Lake Storage에 온-프레미스 HDFS(Apache Had
 
 ### <a name="azure-storage"></a>Azure Storage
 
-HDInsight 클러스터는 기본 파일 시스템 또는 추가 파일 시스템으로 Azure Storage에서 Blob 컨테이너를 사용할 수 있습니다. 표준 계층 스토리지 계정은 HDInsight 클러스터와 함께 사용하도록 지원됩니다. 프리미어 계층은 지원되지 않습니다. 기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다. 여러 클러스터에 대해 하나의 Blob 컨테이너를 기본 파일 시스템으로 공유하는 것은 지원되지 않습니다.
+HDInsight 클러스터는 기본 파일 시스템 또는 추가 파일 시스템으로 Azure Storage에서 Blob 컨테이너를 사용할 수 있습니다. Standard 계층 저장소 계정은 HDInsight 클러스터에서 사용할 수 있습니다. 프리미어 계층은 지원되지 않습니다. 기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다. 여러 클러스터의 기본 파일 시스템으로 하나의 blob 컨테이너를 공유 하는 것은 지원 되지 않습니다.
 
 만들기 프로세스에서 정의된 스토리지 계정과 해당 키는 클러스터 노드의 `%HADOOP_HOME%/conf/core-site.xml`에 저장됩니다. 또한 Ambari UI에서 HDFS 구성의 "사용자 지정 핵심 사이트" 섹션 아래에서 액세스할 수 있습니다. 스토리지 계정 키는 기본적으로 암호화되며 Hadoop 디먼에 전달되기 전에 키를 암호 해독하는 데 사용자 지정 암호 해독 스크립트가 사용됩니다. Hive, MapReduce, Hadoop 스트리밍 및 Pig를 비롯한 작업은 스토리지 계정 및 메타데이터 설명을 전달합니다.
 
@@ -77,7 +77,7 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 - [Azure Storage 확장성 및 성능 목표](../../storage/common/storage-scalability-targets.md)
 - [Microsoft Azure Storage 성능 및 확장성 검사 목록](../../storage/common/storage-performance-checklist.md)
 - [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
-- [Azure Portal에서 저장소 계정 모니터링](../../storage/common/storage-monitor-storage-account.md)
+- [Azure Portal에서 스토리지 계정 모니터링](../../storage/common/storage-monitor-storage-account.md)
 
 ### <a name="azure-data-lake-storage-gen1"></a>Azure Data Lake Storage Gen1
 
@@ -94,19 +94,19 @@ Azure Data Lake Storage Gen2은 최신 저장소 제품입니다. Azure Data Lak
 
 ADLS Gen 2는  [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md)를 기반으로 빌드되었으며 이를 사용하면 파일 시스템 및 개체 스토리지 패러다임을 모두 사용하여 데이터를 조작할 수 있습니다. 파일 시스템 의미 체계, 파일 수준 보안 및 확장과 같은  [Azure Data Lake Storage Gen1](../../data-lake-store/index.md)의 기능은  [Azure Blob 스토리지](../../storage/blobs/storage-blobs-introduction.md)의 낮은 비용, 계층화된 스토리지, 높은 가용성/재해 복구 기능 및 대규모 SDK/도구 에코시스템과 결합됩니다. Data Lake Storage Gen2에서 분석 워크로드에 맞게 최적화된 파일 시스템 인터페이스의 이점이 추가되는 동안 개체 스토리지의 모든 특성이 유지됩니다.
 
-Data Lake Storage Gen2의 기본 기능은 데이터 액세스 성능을 개선하기 위해 개체/파일을 디렉터리 계층 구조로 구성하는  [계층 구조 네임스페이스](../../storage/data-lake-storage/namespace.md) 를 Blob 스토리지 서비스에 추가한 것입니다. 계층 구조를 통해 디렉터리 이름 바꾸기 또는 삭제와 같은 작업은 디렉터리의 이름 접두사를 공유하는 모든 개체를 열거 및 처리하는 대신 디렉터리에 대한 단일 원자성 메타데이터 작업이 됩니다.
+Data Lake Storage Gen2의 기본 기능은 데이터 액세스 성능을 개선하기 위해 개체/파일을 디렉터리 계층 구조로 구성하는  [계층 구조 네임스페이스](../../storage/data-lake-storage/namespace.md) 를 Blob 스토리지 서비스에 추가한 것입니다. 계층 구조를 사용 하면 디렉터리의 이름 접두사를 공유 하는 모든 개체를 열거 하 고 처리 하는 대신 디렉터리의 단일 원자성 메타 데이터 작업으로 디렉터리 이름 바꾸기 또는 삭제 등의 작업을 수행할 수 있습니다.
 
 과거 클라우드 기반 분석은 성능, 관리 및 보안 영역을 양보해야 했습니다. ADLS(Azure Data Lake Storage) Gen2의 주요 기능은 아래와 같습니다.
 
 - **Hadoop 호환 액세스**: Azure Data Lake Storage Gen2를 사용하면  [HDFS(Hadoop 분산 파일 시스템)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html)를 사용하는 것처럼 데이터를 관리하고 액세스할 수 있습니다. 새 [ABFS 드라이버](../../storage/data-lake-storage/abfs-driver.md)를  [Azure HDInsight](../index.yml)에 포함된 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. 이 드라이버를 사용하면 Data Lake Storage Gen2에 저장된 데이터에 액세스할 수 있습니다.
 
-- **POSIX 권한 상위 세트**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 완벽하게 지원합니다. 설정은 관리 도구 또는 Hive 및 Spark 같은 프레임워크를 통해 구성할 수 있습니다.
+- **POSIX 권한 상위 집합**: Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 완벽하게 지원합니다. 설정은 관리 도구 또는 Hive 및 Spark 같은 프레임워크를 통해 구성할 수 있습니다.
 
-- **비용 효율성**: Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 특징으로 합니다. 데이터가 전체 수명 주기를 통해 전환됨에 따라  [Azure Blob Storage 수명 주기](../../storage/common/storage-lifecycle-management-concepts.md)와 같은 기본 제공 기능을 통해 비용을 최소화하도록 청구 요금을 변경합니다.
+- **비용 효과**: Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 제공합니다. 데이터가 전체 수명 주기를 통해 전환됨에 따라  [Azure Blob Storage 수명 주기](../../storage/common/storage-lifecycle-management-concepts.md)와 같은 기본 제공 기능을 통해 비용을 최소화하도록 청구 요금을 변경합니다.
 
-- **Blob Storage 도구, 프레임 워크 및 앱 사용**: Data Lake Storage Gen2는 현재 Blob Storage용으로 제공되는 다양한 도구, 프레임워크 및 애플리케이션을 계속 사용합니다.
+- **Blob Storage 도구, 프레임워크 및 앱 사용**: Data Lake Storage Gen2는 현재 Blob Storage용으로 제공되는 다양한 도구, 프레임워크 및 애플리케이션을 계속 사용합니다.
 
-- **최적화된 드라이버**: ABFS(Azure Blob 파일 시스템 드라이버)는 빅 데이터 분석에  [특별히 최적화](../../storage/data-lake-storage/abfs-driver.md) 되었습니다. 해당 REST API는 dfs 엔드포인트, dfs.core.windows.net을 통해 표시됩니다.
+- **최적화된 드라이버**: ABFS(Azure Blob 파일 시스템 드라이버)는 빅 데이터 분석에  [특별히 최적화](../../storage/data-lake-storage/abfs-driver.md)되었습니다.  해당 REST API는 dfs 엔드포인트, dfs.core.windows.net을 통해 표시됩니다.
 
 ADLS Gen2에 저장된 데이터에 액세스하는 데 다음 형식 중 하나를 사용할 수 있습니다.
 - `abfs:///`: 클러스터의 기본 Data Lake Storage에 액세스합니다.
@@ -157,10 +157,10 @@ HDInsight는 기본적으로 클러스터와 연결된 Azure Storage 계정의 �
 
     |토큰 속성|설명|
     |---|---|
-    |policy_name|만들 저장된 정책에 대해 사용할 이름입니다.|
+    |policy_name|만들려는 저장된 정책에 사용할 이름입니다.|
     |storage_account_name|사용자 스토리지 계정의 이름입니다.|
     |storage_account_key|스토리지 계정의 키입니다.|
-    |storage_container_name|액세스를 제한하려는 스토리지 계정의 컨테이너입니다.|
+    |storage_container_name|액세스를 제한할 스토리지 계정의 컨테이너입니다.|
     |example_file_path|컨테이너에 업로드되는 파일에 대한 경로입니다.|
 
 2. SASToken.py 파일은 `ContainerPermissions.READ + ContainerPermissions.LIST` 권한과 함께 제공되며 사용 사례에 따라 조정할 수 있습니다.
@@ -173,7 +173,7 @@ HDInsight는 기본적으로 클러스터와 연결된 Azure Storage 계정의 �
 
 6. **Key** 및 **Value** 필드에 다음 값을 사용합니다.
 
-    **키**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net` **값**: 위의 4단계에서 Python 애플리케이션에 의해 반환되는 SAS 키입니다.
+    **키**: `fs.azure.sas.YOURCONTAINER.YOURACCOUNT.blob.core.windows.net`**값**: 위의 4단계에서 Python 애플리케이션에 의해 반환되는 SAS 키입니다.
 
 7. **Add** 단추를 클릭하여 이 키 및 값을 저장한 후 **Save** 단추를 클릭하여 구성 변경을 저장합니다. 메시지가 나타나면 변경에 대한 설명(예: &quot;SAS 스토리지 액세스 추가&quot;)을 추가하고 **저장**을 클릭합니다.
 
@@ -193,14 +193,14 @@ Azure에서 SAS 토큰 사용에 관해 기억해야 할 세 가지 중요한 �
 
 ## <a name="use-data-encryption-and-replication"></a>데이터 암호화 및 복제 사용
 
-Azure Storage에 쓴 모든 데이터는  [SSE(스토리지 서비스 암호화)](../../storage/common/storage-service-encryption.md)를 사용하여 자동으로 암호화됩니다. Azure Storage 계정의 데이터는 항상 고가용성을 위해 복제됩니다. 스토리지 계정을 만들 때 다음 복제 옵션 중 하나를 선택할 수 있습니다.
+Azure Storage에 쓴 모든 데이터는  [SSE(스토리지 서비스 암호화)](../../storage/common/storage-service-encryption.md)를 사용하여 자동으로 암호화됩니다. Azure Storage 계정의 데이터는 항상 고가용성을 위해 복제됩니다. 저장소 계정을 만들 때 다음 복제 옵션 중 하나를 선택할 수 있습니다.
 
 - [LRS(로컬 중복 스토리지)](../../storage/common/storage-redundancy-lrs.md)
 - [ZRS(영역 중복 스토리지)](../../storage/common/storage-redundancy-zrs.md)
 - [GRS(지역 중복 스토리지)](../../storage/common/storage-redundancy-grs.md)
 - [RA-GRS(읽기 액세스 지역 중복 스토리지)](../../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
-Azure Data Lake Storage는 LRS(로컬 중복 스토리지)를 제공하지만 재해 복구 계획의 요구에 맞게 정렬된 주파수를 사용하여 다른 지역의 다른 Data Lake Storage 계정에 중요한 데이터를 복사해야 합니다.  [ADLCopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), DistCp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md) 또는  [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)를 포함하여 데이터를 복사하는 다양한 메서드가 있습니다. 또한 실수로 인한 삭제를 방지하도록 Data Lake Storage 계정에 대한 액세스 정책을 적용하는 것이 좋습니다.
+Azure Data Lake Storage는 LRS(로컬 중복 스토리지)를 제공하지만 재해 복구 계획의 요구에 맞게 정렬된 주파수를 사용하여 다른 지역의 다른 Data Lake Storage 계정에 중요한 데이터를 복사해야 합니다.  [Adlcopy](../../data-lake-store/data-lake-store-copy-data-azure-storage-blob.md), distcp, [Azure PowerShell](../../data-lake-store/data-lake-store-get-started-powershell.md)또는 [Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)를 비롯 한 다양 한 방법으로 데이터를 복사할 수 있습니다. 실수로 인 한 삭제를 방지 하기 위해 Data Lake Storage 계정에 대 한 액세스 정책을 적용 하는 것도 좋습니다.
 
 자세한 내용은 다음 문서를 참조하세요.
 

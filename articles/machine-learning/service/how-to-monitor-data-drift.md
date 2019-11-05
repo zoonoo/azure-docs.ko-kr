@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
-ms.date: 09/13/2019
-ms.openlocfilehash: 3b3fbce40c93389037435a7cdb1271e773163de3
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: 536f3ab506dcbe2b8997f2c1870f25244b6c070f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123276"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489657"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 이 문서에서는 학습 데이터 집합 및 배포 된 모델의 유추 데이터 간에 데이터 드리프트를 모니터링 하는 방법에 대해 알아봅니다. 기계 학습의 컨텍스트에서 학습 된 기계 학습 모델은 드리프트로 인 한 예측 성능을 저하 시킬 수 있습니다. Azure Machine Learning를 사용 하 여 데이터 드리프트를 모니터링할 수 있으며, 드리프트가 검색 되 면 서비스에서 사용자에 게 전자 메일 경고를 보낼 수 있습니다.
 
@@ -40,11 +41,11 @@ Azure Machine Learning를 사용 하 여 AKS에 배포 된 모델에 대 한 입
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 드리프트를 모니터링 하는 방법
 
-Azure Machine Learning를 사용 하 여 데이터 드리프트는 데이터 집합 또는 배포를 통해 모니터링 됩니다. 데이터 드리프트를 모니터링 하기 위해 기본 데이터 집합 (일반적으로 모델에 대 한 학습 데이터 집합)이 지정 됩니다. 두 번째 데이터 집합 (일반적으로 배포에서 수집 된 입력 데이터 모델)은 기준선 데이터 집합에 대해 테스트 됩니다. 데이터 집합은 모두 프로 파일링 되 고 데이터 드리프트 모니터링 서비스에 입력 됩니다. 기계 학습 모델을 학습 하 여 두 데이터 집합 간의 차이를 검색 합니다. 모델의 성능은 두 데이터 집합 간의 드리프트 크기를 측정 하는 드리프트 계수로 변환 됩니다. [모델 interpretability](machine-learning-interpretability-explainability.md)를 사용 하 여 드리프트 계수에 영향을 주는 기능을 계산 합니다. 데이터 집합 프로필에서 각 기능에 대 한 통계 정보를 추적 합니다. 
+Azure Machine Learning를 사용 하 여 데이터 드리프트는 데이터 집합 또는 배포를 통해 모니터링 됩니다. 데이터 드리프트를 모니터링 하기 위해 기본 데이터 집합 (일반적으로 모델에 대 한 학습 데이터 집합)이 지정 됩니다. 두 번째 데이터 집합 (일반적으로 배포에서 수집 된 입력 데이터 모델)은 기준선 데이터 집합에 대해 테스트 됩니다. 데이터 집합은 모두 프로 파일링 되 고 데이터 드리프트 모니터링 서비스에 입력 됩니다. 기계 학습 모델을 학습 하 여 두 데이터 집합 간의 차이를 검색 합니다. 모델의 성능은 두 데이터 집합 간의 드리프트 크기를 측정 하는 드리프트 계수로 변환 됩니다. [모델 interpretability](how-to-machine-learning-interpretability.md)를 사용 하 여 드리프트 계수에 영향을 주는 기능을 계산 합니다. 데이터 집합 프로필에서 각 기능에 대 한 통계 정보를 추적 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독. 계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
+- Azure 구독. 계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 - Python용 Azure Machine Learning SDK가 설치되었습니다. [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)의 지침에 따라 다음 작업을 수행합니다.
 
@@ -58,12 +59,12 @@ Azure Machine Learning를 사용 하 여 데이터 드리프트는 데이터 집
 - 다음 명령을 사용 하 여 데이터 드리프트 SDK를 설치 합니다.
 
     ```shell
-    pip install azureml-contrib-datadrift
+    pip install azureml-datadrift
     ```
 
 - 모델의 학습 데이터에서 [데이터 집합](how-to-create-register-datasets.md) 을 만듭니다.
 
-- 모델을 [등록할](concept-model-management-and-deployment.md) 때 학습 데이터 집합을 지정 합니다. 다음 예제에서는 `datasets` 매개 변수를 사용 하 여 학습 데이터 집합을 지정 하는 방법을 보여 줍니다.
+- 모델을 [등록할](concept-model-management-and-deployment.md) 때 학습 데이터 집합을 지정 합니다. 다음 예에서는 `datasets` 매개 변수를 사용 하 여 학습 데이터 집합을 지정 하는 방법을 보여 줍니다.
 
     ```python
     model = Model.register(model_path=model_file,
@@ -79,12 +80,12 @@ Azure Machine Learning를 사용 하 여 데이터 드리프트는 데이터 집
 ## <a name="configure-data-drift"></a>데이터 드리프트 구성
 실험에 대 한 데이터 드리프트를 구성 하려면 다음 Python 예제에서 볼 수 있듯이 종속성을 가져옵니다. 
 
-이 예제에서는 개체를 [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) 구성 하는 방법을 보여 줍니다.
+이 예제에서는 [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) 개체를 구성 하는 방법을 보여 줍니다.
 
 ```python
 # Import Azure ML packages
 from azureml.core import Experiment, Run, RunDetails
-from azureml.contrib.datadrift import DataDriftDetector, AlertConfiguration
+from azureml.datadrift import DataDriftDetector, AlertConfiguration
 
 # if email address is specified, setup AlertConfiguration
 alert_config = AlertConfiguration('your_email@contoso.com')
@@ -97,7 +98,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>DataDriftDetector 실행 제출
 
-구성 된 개체를 사용 하 여 모델에 대해 지정 된 날짜에 [데이터 드리프트 실행](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) 을 제출할 수 있습니다. `DataDriftDetector` 실행의 일부로 매개 변수를 `drift_threshold` 설정 하 여 datadriftdetector 경고를 사용 하도록 설정 합니다. [Datadrift_coefficient](#metrics) 가 지정 `drift_threshold`된 보다 위에 있으면 전자 메일이 전송 됩니다.
+`DataDriftDetector` 개체가 구성 되 면 모델에 대해 지정 된 날짜에 [데이터 드리프트 실행](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) 을 제출할 수 있습니다. 실행의 일부로 `drift_threshold` 매개 변수를 설정 하 여 DataDriftDetector 경고를 사용 하도록 설정 합니다. [Datadrift_coefficient](#metrics) 가 지정 된 `drift_threshold`위에 있으면 전자 메일이 전송 됩니다.
 
 ```python
 # adhoc run today
@@ -131,9 +132,9 @@ datadrift_contribution|드리프트에 영향을 주는 기능의 중요 한 기
 
 여러 가지 방법으로 드리프트 메트릭을 볼 수 있습니다.
 
-* [Jupyter 위젯을 사용 합니다.](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) `RunDetails`
-* [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) 모든`datadrift` 실행 개체에 대해 함수를 사용 합니다.
-* [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)의 **모델** 섹션에서 메트릭을 확인 합니다.
+* `RunDetails`[Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용 합니다.
+* `datadrift` 실행 개체에 대해 [`get_metrics()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py#get-metrics-name-none--recursive-false--run-type-none--populate-false-) 함수를 사용 합니다.
+* [Azure Machine Learning studio](https://ml.azure.com)에서 작업 영역의 **모델** 섹션에서 메트릭을 확인 합니다.
 
 다음 Python 예제에서는 관련 데이터 드리프트 메트릭을 그리는 방법을 보여 줍니다. 반환 된 메트릭을 사용 하 여 사용자 지정 시각화를 빌드할 수 있습니다.
 
@@ -151,22 +152,22 @@ drift_figures = datadrift.show(with_details=True)
 
 ## <a name="schedule-data-drift-scans"></a>데이터 드리프트 검색 예약 
 
-데이터 드리프트 검색을 사용 하도록 설정 하면 DataDriftDetector가 지정 된 예약 된 빈도로 실행 됩니다. Datadrift_coefficient가 지정 `drift_threshold`된에 도달 하면 예약 된 각 실행에 대 한 전자 메일이 전송 됩니다. 
+데이터 드리프트 검색을 사용 하도록 설정 하면 DataDriftDetector가 지정 된 예약 된 빈도로 실행 됩니다. Datadrift_coefficient가 지정 된 `drift_threshold`에 도달 하면 예약 된 각 실행에 대 한 이메일이 전송 됩니다. 
 
 ```python
 datadrift.enable_schedule()
 datadrift.disable_schedule()
 ```
 
-데이터 드리프트 탐지기의 구성은 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)의 **세부 정보** 탭에 있는 **모델** 에서 볼 수 있습니다.
+데이터 드리프트 탐지기의 구성은 [Azure Machine Learning studio](https://ml.azure.com)에서 작업 영역의 **세부 정보** 탭에 있는 **모델** 에서 볼 수 있습니다.
 
-![Azure Portal 데이터 드리프트](media/how-to-monitor-data-drift/drift-config.png)
+![Azure Machine Learning studio 데이터 드리프트](media/how-to-monitor-data-drift/drift-config.png)
 
-## <a name="view-results-in-your-workspace-landing-page"></a>작업 영역 방문 페이지에서 결과 보기
+## <a name="view-results-in-your-azure-machine-learning-studio"></a>Azure Machine Learning studio에서 결과 보기
 
-작업 영역 [방문 페이지 (미리 보기)](https://ml.azure.com)의 작업 영역에서 결과를 보려면 모델 페이지로 이동 합니다. 모델의 자세히 탭에 데이터 드리프트 구성이 표시 됩니다. 이제 **데이터 드리프트 탭을** 사용 하 여 데이터 드리프트 메트릭을 시각화할 수 있습니다. 
+[Azure Machine Learning studio](https://ml.azure.com)에서 작업 영역에 결과를 보려면 모델 페이지로 이동 합니다. 모델의 자세히 탭에 데이터 드리프트 구성이 표시 됩니다. 이제 **데이터 드리프트 탭을** 사용 하 여 데이터 드리프트 메트릭을 시각화할 수 있습니다. 
 
-[![작업 영역 방문 페이지 데이터 드리프트](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
+[![Azure Machine Learning studio 데이터 드리프트](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
 
 
 ## <a name="receiving-drift-alerts"></a>드리프트 경고 수신

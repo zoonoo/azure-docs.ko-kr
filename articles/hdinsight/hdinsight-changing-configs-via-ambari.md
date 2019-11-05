@@ -1,5 +1,5 @@
 ---
-title: Apache Ambari를 사용하여 클러스터 구성 최적화 - Azure HDInsight
+title: 클러스터 구성을 최적화 하기 위한 Apache Ambari-Azure HDInsight
 description: Apache Ambari 웹 UI를 사용 하 여 Azure HDInsight 클러스터를 구성 하 고 최적화 합니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 7261aad8f42168449f2c892fe8aaaa6667964654
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: e0d94a41febdba1bea6818309e05d287bef6d3a1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076952"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492501"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari를 사용하여 HDInsight 클러스터 구성 최적화
 
@@ -68,7 +68,7 @@ NameNode Java 힙 크기를 수정하려면:
 
 ### <a name="set-the-hive-execution-engine"></a>Hive 실행 엔진 설정
 
-Hive는 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 및 [Apache TEZ](https://tez.apache.org/)라는 두 가지 실행 엔진을 제공합니다. Tez는 MapReduce보다 빠릅니다. HDInsight Linux 클러스터에는 Tez가 기본 실행 엔진으로 있습니다. 실행 엔진을 변경하려면:
+Hive는 두 개의 실행 엔진인 [Apache Hadoop MapReduce](https://hadoop.apache.org/docs/r1.2.1/mapred_tutorial.html) 및 [Apache TEZ](https://tez.apache.org/)를 제공합니다. Tez는 MapReduce보다 빠릅니다. HDInsight Linux 클러스터에는 Tez가 기본 실행 엔진으로 있습니다. 실행 엔진을 변경하려면:
 
 1. Hive **Configs**(구성) 탭의 필터 상자에 **실행 엔진**을 입력합니다.
 
@@ -123,7 +123,7 @@ Hadoop은 단일 파일을 여러 파일로 분할(*매핑*)하여 생성되는 
 
 Hive 쿼리는 하나 이상의 단계에서 실행됩니다. 독립적인 단계를 병렬로 실행할 수 있으면 쿼리 성능이 향상됩니다.
 
-1. 병렬 쿼리 실행을 사용하려면 Hive **Config**(구성) 탭으로 이동하여 `hive.exec.parallel` 속성을 검색합니다. 기본값은 false입니다. 값을 true로 변경한 다음 **Enter**를 눌러서 값을 저장합니다.
+1. 병렬 쿼리 실행을 사용하려면 Hive **Config**(구성) 탭으로 이동하여 `hive.exec.parallel` 속성을 검색합니다. 기본값은 False입니다. 값을 true로 변경한 다음 **Enter**를 눌러서 값을 저장합니다.
 
 1. 동시에 실행 되는 작업 수를 제한 하려면 `hive.exec.parallel.thread.number` 속성을 수정 합니다. 기본값은 8입니다.
 
@@ -135,7 +135,7 @@ Hive는 데이터를 한 행씩 처리합니다. 벡터화는 Hive가 데이터�
 
 1. 벡터화된 쿼리 실행을 사용하도록 설정하려면 Hive **Configs**(구성) 탭으로 이동하여 `hive.vectorized.execution.enabled` 매개 변수를 검색합니다. Hive 0.13.0 이상에서는 기본값이 true입니다.
 
-1. 쿼리의 리듀스 측에 대해 벡터화된 실행을 사용하도록 설정하려면 `hive.vectorized.execution.reduce.enabled` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
+1. 쿼리의 리듀스 측에 대해 벡터화된 실행을 사용하도록 설정하려면 `hive.vectorized.execution.reduce.enabled` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
 
     ![Apache Hive 벡터화 실행](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
@@ -180,11 +180,11 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 | Gzip | Gzip | DEFLATE | .gz | 아니요 |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | 예 |
 | LZO | Lzop | LZO | .lzo | 예(인덱싱된 경우) |
-| Snappy | 해당 사항 없음 | Snappy | Snappy | 아니요 |
+| Snappy | 해당 없음 | Snappy | Snappy | 아니요 |
 
 일반적으로 분할 가능한 압축 방법이 있는 것이 중요합니다. 그렇지 않으면 매우 적은 수의 매퍼가 생성됩니다. 입력 데이터가 텍스트인 경우 `bzip2`가 최고 옵션입니다. ORC 형식의 경우 Snappy가 가장 빠른 압축 옵션입니다.
 
-1. 중간 압축을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.intermediate` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
+1. 중간 압축을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.intermediate` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
 
     ![Hive 실행 중간 압축](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
@@ -201,7 +201,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
     c. 사용자 지정 hive-site 창 아래에서 **속성 추가** 링크를 클릭합니다.
 
-    d. 속성 추가 창에서 키에 `mapred.map.output.compression.codec`을 입력하고 값에 `org.apache.hadoop.io.compress.SnappyCodec`을 입력합니다.
+    ㄹ. 속성 추가 창에서 키에 `mapred.map.output.compression.codec`을 입력하고 값에 `org.apache.hadoop.io.compress.SnappyCodec`을 입력합니다.
 
     e. **추가**를 클릭합니다.
 
@@ -216,7 +216,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 최종 Hive 출력도 압축될 수 있습니다.
 
-1. 최종 Hive 출력을 압축하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.output` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
+1. 최종 Hive 출력을 압축하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.output` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
 
 1. 출력 압축 코덱을 선택하려면 이전 섹션 3단계의 설명에 따라 사용자 지정 hive-site 창에 `mapred.output.compression.codec` 사용자 지정 속성을 추가합니다.
 
@@ -228,7 +228,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 입력 양이 많고 오래 실행되는 MapReduce 작업에는 투기적 실행을 사용하지 말아야 합니다.
 
-* 투기적 실행을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.mapred.reduce.tasks.speculative.execution` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
+* 투기적 실행을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.mapred.reduce.tasks.speculative.execution` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
 
     ![Hive mapred 리듀스 태스크 투기적 실행](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -248,7 +248,7 @@ Hive에서는 각 파티션을 미리 정의하지 않고 테이블에 레코드
 
 로컬 모드에서는 Hive가 단일 컴퓨터에서 때로는 단일 프로세스에서 작업의 모든 작업을 수행할 수 있습니다. 이렇게 하면 입력 데이터가 작고 쿼리 실행 작업의 오버 헤드가 전체 쿼리 실행에서 상당한 부분을 차지하는 경우 쿼리 성능이 향상됩니다.
 
-로컬 모드를 사용하려면 [중간 압축 사용](#enable-intermediate-compression) 섹션의 3단계 설명에 따라 `hive.exec.mode.local.auto` 매개 변수를 사용자 지정 hive-site 패널에 추가합니다.
+로컬 모드를 사용하려면 `hive.exec.mode.local.auto`중간 압축 사용[ 섹션의 3단계 설명에 따라 ](#enable-intermediate-compression) 매개 변수를 사용자 지정 hive-site 패널에 추가합니다.
 
 ![Apache Hive exec 모드 로컬 자동](./media/hdinsight-changing-configs-via-ambari/hive-exec-mode-local-auto.png)
 
@@ -256,7 +256,7 @@ Hive에서는 각 파티션을 미리 정의하지 않고 테이블에 레코드
 
 이 속성을 true로 설정하면 공통 group-by 키가 있는 MultiGROUP BY 쿼리가 단일 MapReduce 작업을 생성합니다.  
 
-이 동작을 사용하려면 [중간 압축 사용](#enable-intermediate-compression) 섹션의 3단계 설명에 따라 `hive.multigroupby.singlereducer` 매개 변수를 사용자 지정 hive-site 창에 추가합니다.
+이 동작을 사용하려면 `hive.multigroupby.singlereducer`중간 압축 사용[ 섹션의 3단계 설명에 따라 ](#enable-intermediate-compression) 매개 변수를 사용자 지정 hive-site 창에 추가합니다.
 
 ![Hive에서 단일 MapReduce MultiGROUP BY 설정](./media/hdinsight-changing-configs-via-ambari/hive-multigroupby-singlereducer.png)
 
@@ -268,7 +268,7 @@ Hive에서는 각 파티션을 미리 정의하지 않고 테이블에 레코드
 
 Hive의 기본 조인 유형은 *순서 섞기 조인*입니다. Hive에서는 특수 매퍼가 입력을 읽어서 조인 키/값 쌍을 중간 파일로 내보냅니다. Hadoop은 이러한 쌍을 순서 섞기 단계에서 정렬하고 병합합니다. 순서 섞기 단계는 비용이 높습니다. 데이터를 기반으로 올바른 조인을 선택하면 성능이 상당히 향상될 수 있습니다.
 
-| 조인 유형 | 디렉터리 계층 구조에 | 방법 | Hive 설정 | 주석 |
+| 조인 유형 | 디렉터리 계층 구조에 | 방법 | Hive 설정 | 설명 |
 | -- | -- | -- | -- | -- |
 | 순서 섞기 조인 | <ul><li>기본적 선택</li><li>항상 작동</li></ul> | <ul><li>테이블 중 하나의 부분 읽기</li><li>조인 키 버킷 및 정렬</li><li>각 리듀스에 하나의 버킷 보내기</li><li>리듀스 측에서 조인 수행</li></ul> | 특정 Hive 설정 필요 없음 | 매번 작동 |
 | 맵 조인 | <ul><li>하나의 테이블이 메모리에 들어가는 경우</li></ul> | <ul><li>작은 테이블을 메모리 해시 테이블로 읽기</li><li>큰 파일의 일부를 통해 스트리밍</li><li>해시 테이블에서 각 레코드 조인</li><li>매퍼 단독으로 조인</li></ul> | `hive.auto.confvert.join=true` | 매우 빠르지만 제한적임 |
@@ -313,7 +313,7 @@ Pig 스크립트를 실행하기 위해 두 개의 실행 엔진 즉, MapReduce 
 
 Hive와 마찬가지로 로컬 모드는 비교적 양이 적은 데이터의 작업 속도를 높이는 데 사용됩니다.
 
-1. 로컬 모드를 사용하도록 설정하려면 `pig.auto.local.enabled`를 **true**로 설정합니다. 기본값은 false입니다.
+1. 로컬 모드를 사용하도록 설정하려면 `pig.auto.local.enabled`를 **true**로 설정합니다. 기본값은 False입니다.
 
 1. 입력 데이터 크기가 `pig.auto.local.input.maxbytes` 속성 값보다 작은 작업은 작은 작업으로 간주됩니다. 기본값은 1GB입니다.
 
@@ -337,13 +337,13 @@ Pig는 UDF에 필요한 JAR 파일을 태스크 노드에서 사용할 수 있�
 
 Pig는 작업 실행 중에 임시 파일을 생성합니다. 임시 파일을 압축하면 디스크에 파일을 쓰거나 읽을 때 성능이 향상됩니다. 다음 설정을 사용하여 임시 파일을 압축할 수 있습니다.
 
-* `pig.tmpfilecompression`: true이면 임시 파일 압축이 사용됩니다. 기본값은 false입니다.
+* `pig.tmpfilecompression`: true이면 임시 파일 압축이 사용됩니다. 기본값은 False입니다.
 
 * `pig.tmpfilecompression.codec`: 임시 파일을 압축하는 데 사용하는 압축 코덱입니다. CPU 사용률을 낮추기 위해 권장되는 압축 코덱은 [LZO](https://www.oberhumer.com/opensource/lzo/) 및 Snappy입니다.
 
 ### <a name="enable-split-combining"></a>분할 결합 사용
 
-사용하도록 설정하면 맵 작업 수가 줄어들도록 작은 파일이 결합됩니다. 이렇게 하면 작은 파일이 많이 있는 작업의 효율이 향상됩니다. 사용하도록 설정하려면 `pig.noSplitCombination`을 true로 설정합니다. 기본값은 false입니다.
+사용하도록 설정하면 맵 작업 수가 줄어들도록 작은 파일이 결합됩니다. 이렇게 하면 작은 파일이 많이 있는 작업의 효율이 향상됩니다. 사용하도록 설정하려면 `pig.noSplitCombination`를 true로 설정합니다. 기본값은 False입니다.
 
 ### <a name="tune-mappers"></a>매퍼 조정
 
@@ -355,7 +355,7 @@ Pig는 작업 실행 중에 임시 파일을 생성합니다. 임시 파일을 �
 
 ## <a name="apache-hbase-optimization-with-the-ambari-web-ui"></a>Ambari Web UI로 Apache HBase 최적화
 
-[Apache HBase](https://hbase.apache.org/) 구성은 **HBase Configs** 탭에서 수정됩니다. 다음 섹션에서는 HBase 성능에 영향을 주는 중요한 구성 설정 중 일부를 설명합니다.
+[Apache hbase](https://hbase.apache.org/) 구성은 **HBase Configs** 탭에서 수정 됩니다. 다음 섹션에서는 HBase 성능에 영향을 주는 몇 가지 중요 한 구성 설정에 대해 설명 합니다.
 
 ### <a name="set-hbase_heapsize"></a>HBASE_HEAPSIZE 설정
 

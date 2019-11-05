@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 764a4dd31125dad20f6ef23e3628d7710dba2b85
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 7ebcf865ad23e75b2aa9070fe14fc3ee8f1397c7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880136"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481147"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  
@@ -81,7 +81,7 @@ SSIS 워크로드를 이동하려는 경우 Data Factory를 만들고 Azure-SSIS
 -   프로젝트/패키지의 SSISDB (SSIS 데이터베이스)를 호스트 하는 Azure SQL Database의 세 가지 구성/변형 지원:
 -   가상 네트워크 서비스 끝점을 사용 하 여 SQL Database
 -   Managed Instance
--   Elastic Pool
+-   탄력적 풀
 -   Azure SSIS 통합 런타임을 가상 네트워크 서비스를 사용 하 여 SQL Database에 대해 구성 된 가상 네트워크에 삽입/조인할 수 있는 기존 가상 네트워크를 기반으로 하는 Azure Resource Manager 가상 네트워크에 대 한 지원은 나중에 사용 되지 않습니다. 엔드포인트/MI/온-프레미스 데이터 액세스 자세한 내용은 [AZURE SSIS integration runtime을 가상 네트워크에 가입](join-azure-ssis-integration-runtime-virtual-network.md)을 참조 하세요.
 -   Azure 리소스에 대 한 Data Factory 관리 id로 azure AD 인증을 허용 하 여 SSISDB에 연결할 수 있는 azure AD (Azure Active Directory) 인증 및 SQL 인증 지원
 -   Azure 하이브리드 혜택 옵션을 사용 하 여 비용을 크게 절감할 수 있도록 온-프레미스 SQL Server 라이선스 가져오기 지원
@@ -129,7 +129,7 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 ### <a name="pipeline-runs"></a>파이프라인 실행
 파이프라인 실행은 파이프라인 실행의 인스턴스입니다. 일반적으로 파이프라인에 정의된 매개 변수에 인수를 전달하여 파이프라인 실행을 인스턴스화합니다. 인수는 수동으로 또는 트리거 정의 내에서 전달할 수 있습니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 매개 변수는 읽기 전용 구성의 키-값 쌍입니다. 파이프라인에서 매개 변수를 정의 하 고 실행 컨텍스트에서 실행 하는 동안 정의 된 매개 변수에 대 한 인수를 전달 합니다. 실행 컨텍스트는 트리거 또는 수동으로 실행하는 파이프라인에서 생성됩니다. 파이프라인 내의 작업은 매개 변수 값을 사용합니다.
 
 데이터 집합은 강력한 형식의 매개 변수 이며 다시 사용 하거나 참조할 수 있는 엔터티입니다. 작업은 데이터 집합을 참조할 수 있으며 데이터 집합 정의에 정의 된 속성을 사용할 수 있습니다.
@@ -191,6 +191,82 @@ Microsoft에서 데이터 흐름에 대 한 도움말 또는 문제 해결을 �
 ### <a name="is-the-self-hosted-integration-runtime-available-for-data-flows"></a>자체 호스팅 통합 런타임을 데이터 흐름에 사용할 수 있나요?
 
 자체 호스팅 IR은 복사 작업에서 온-프레미스 또는 VM 기반 데이터 원본 및 싱크로 데이터를 가져오거나 이동 하는 데 사용할 수 있는 ADF 파이프라인 구문입니다. 먼저 복사본을 사용 하 여 데이터를 준비 하 고 변환에 대 한 데이터 흐름을 지정한 다음 변환 된 데이터를 다시 온-프레미스 저장소로 이동 해야 하는 경우 후속 복사를 수행 합니다.
+
+## <a name="wrangling-data-flows"></a>랭 글 링 데이터 흐름
+
+### <a name="what-are-the-supported-regions-for-wrangling-data-flow"></a>랭 글 링 데이터 흐름에 대해 지원 되는 지역은 무엇 인가요?
+
+랭 글 링 데이터 흐름은 현재 다음 지역에서 만든 데이터 팩터리에서 지원 됩니다.
+
+* 오스트레일리아 동부
+* 캐나다 중부
+* 인도 중부
+* 미국 중부
+* 미국 동부
+* 미국 동부 2
+* 일본 동부
+* 북유럽
+* 동남아시아
+* 미국 중남부
+* 영국 남부
+* 미국 중서부
+* 서유럽
+* 미국 서부
+* 미국 서부 2
+
+### <a name="what-are-the-limitations-and-constraints-with-wrangling-data-flow"></a>랭 글 링 데이터 흐름에 대 한 제한 사항 및 제약 조건은 무엇 인가요?
+
+데이터 집합 이름에는 영숫자 문자만 사용할 수 있습니다. 지원 되는 데이터 저장소는 다음과 같습니다.
+
+* 계정 키 인증을 사용 하 Azure Blob Storage의 DelimitedText 데이터 집합
+* 계정 키 또는 서비스 주체 인증을 사용 하 여 Azure Data Lake Storage gen2의 DelimitedText 데이터 집합
+* 서비스 주체 인증을 사용 하 Azure Data Lake Storage gen1의 DelimitedText 데이터 집합
+* SQL 인증을 사용 하는 Azure SQL Database 및 데이터 웨어하우스 아래의 지원 되는 SQL 유형을 참조 하세요. 데이터 웨어하우스에 대 한 PolyBase 또는 스테이징 지원은 없습니다.
+
+이번에는 랭 글 링 데이터 흐름에서 연결 된 서비스 Key Vault 통합이 지원 되지 않습니다.
+
+### <a name="what-is-the-difference-between-mapping-and-wrangling-data-flows"></a>매핑과 랭 글 링 데이터 흐름의 차이점은 무엇 인가요?
+
+데이터 흐름을 매핑하면 코딩을 요구 하지 않고 대규모로 데이터를 변환 하는 방법을 제공 합니다. 일련의 변환을 구성 하 여 데이터 흐름 캔버스에서 데이터 변환 작업을 디자인할 수 있습니다. 임의 개수의 원본 변환으로 시작한 다음, 데이터 변환 단계를 수행합니다. 싱크를 사용 하 여 데이터 흐름을 완료 하 여 결과를 대상으로 이동 합니다. 데이터 흐름 매핑은 싱크와 원본에서 알려진 스키마와 알 수 없는 스키마를 모두 사용 하 여 데이터를 매핑 및 변환 하는 데 유용 합니다.
+
+랭 글 링 데이터 흐름을 사용 하면 spark 실행을 통해 대규모로 파워 쿼리 온라인 매시업 편집기를 사용 하 여 agile 데이터 준비 및 탐색을 수행할 수 있습니다. 데이터 레이크가 증가 함에 따라 데이터 집합을 탐색 하거나 lake에서 데이터 집합을 만들어야 하는 경우가 있습니다. 알려진 대상에 매핑되지 않습니다. 랭 글 링 데이터 흐름은 더 낮은 공식적인 모델 기반 분석 시나리오에 사용 됩니다.
+
+### <a name="what-is-the-difference-between-power-platform-dataflows-and-wrangling-data-flows"></a>Power Platform 데이터 흐름와 랭 글 링 데이터 흐름의 차이는 무엇 인가요?
+
+사용자는 Power Platform 데이터 흐름를 사용 하 여 다양 한 데이터 원본에서 Common Data Service으로 데이터를 가져와 변환 하 고 Azure Data Lake PowerApps 응용 프로그램, Power BI 보고서 또는 흐름 자동화을 빌드할 수 있습니다. Power Platform 데이터 흐름는 Power BI 및 Excel과 유사한 설정 된 파워 쿼리 데이터 준비 환경을 사용 합니다. 또한 Power Platform 데이터 흐름을 사용 하면 조직 내에서 쉽게 다시 사용할 수 있고 오케스트레이션을 자동으로 처리할 수 있습니다 (예: 이전에 새로 고칠 때 다른 데이터 흐름에 의존 하는 데이터 흐름를 자동으로 새로 고치는 중).
+
+ADF (Azure Data Factory)는 데이터 엔지니어와 시민 데이터 통합자를 통해 복잡 한 하이브리드 ETL (추출-변환-로드) 및 ELT (추출-로드-변환) 워크플로를 만들 수 있는 관리 되는 데이터 통합 서비스입니다. ADF의 랭 글 링 데이터 흐름은 사용자에 게 클라우드에서 데이터 준비를 간소화 하 고 인프라를 관리 하지 않아도 되는 데이터 크기에 맞게 확장 하는 코드 없이 서버 리스 환경을 제공 합니다. 파워 쿼리 데이터 준비 기술 (Power Platform 데이터 흐름, Excel, Power BI에도 사용 됨)을 사용 하 여 데이터를 준비 하 고 모양을 합니다. 빅 데이터 통합의 모든 복잡성 및 규모 문제를 처리 하도록 설계 된 랭 글 링 데이터 흐름을 통해 사용자는 spark 실행을 통해 대규모로 데이터를 신속 하 게 준비할 수 있습니다. 사용자는 브라우저 기반 인터페이스를 사용 하 여 액세스할 수 있는 시각적 환경에서 탄력적 데이터 파이프라인을 빌드하고 ADF가 Spark 실행의 복잡성을 처리할 수 있도록 합니다. 파이프라인에 대 한 일정을 작성 하 고 ADF 모니터링 포털에서 데이터 흐름 실행을 모니터링 합니다. ADF의 풍부한 가용성 모니터링과 경고를 사용 하 여 데이터 가용성 Sla를 쉽게 관리 하 고, 기본 제공 되는 연속 통합 및 배포 기능을 활용 하 여 관리 되는 환경에서 흐름을 저장 하 고 관리 합니다. 데이터 흐름을 튜닝할 때 논리가 계획 대로 수행 되는지 유효성을 검사 하기 위해 경고를 설정 하 고 실행 계획을 확인 합니다.
+
+### <a name="supported-sql-types"></a>지원 되는 SQL 형식
+
+랭 글 링 데이터 흐름은 SQL에서 다음과 같은 데이터 형식을 지원 합니다. 지원 되지 않는 데이터 형식을 사용 하는 경우 유효성 검사 오류가 발생 합니다.
+
+* short
+* double
+* real
+* float
+* char
+* nchar
+* varchar
+* nvarchar
+* 정수
+* int
+* bit
+* 부울
+* smallint
+* tinyint
+* bigint
+* long
+* 텍스트
+* date
+* datetime
+* datetime2
+* smalldatetime
+* timestamp
+* uniqueidentifier
+* xml
+
+다른 데이터 형식은 나중에 지원 될 예정입니다.
 
 ## <a name="next-steps"></a>다음 단계
 데이터 팩터리를 만드는 단계별 지침은 다음 자습서를 참조하세요.

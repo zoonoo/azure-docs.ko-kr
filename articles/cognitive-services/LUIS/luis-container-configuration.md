@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 9760475886ecb0f20d9f0f3981eab8246643da21
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 163fe24c941f779a2160ee5ef50f9d4dfcea1022
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71101991"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486725"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Language Understanding Docker 컨테이너 구성 
 
@@ -26,11 +26,11 @@ LUIS**Language Understanding** 컨테이너 런타임 환경은 `docker run` 명
 
 이 컨테이너에는 다음 구성 설정을 사용합니다.
 
-|필수|설정|용도|
+|필수|설정|목적|
 |--|--|--|
 |예|[ApiKey](#apikey-setting)|청구 정보를 추적하는 데 사용됩니다.|
 |아니요|[ApplicationInsights](#applicationinsights-setting)|[Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 원격 분석 지원을 컨테이너에 추가할 수 있습니다.|
-|예|[Billing](#billing-setting)|Azure에서 서비스 리소스의 엔드포인트 URI를 지정합니다.|
+|예|[결제](#billing-setting)|Azure에서 서비스 리소스의 엔드포인트 URI를 지정합니다.|
 |예|[Eula](#eula-setting)| 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.|
 |아니요|[Fluentd](#fluentd-settings)|로그 및 메트릭 데이터(선택 사항)를 Fluentd 서버에 씁니다.|
 |아니요|[Http 프록시](#http-proxy-credentials-settings)|아웃바운드 요청을 만들기 위한 HTTP 프록시를 구성합니다.|
@@ -42,12 +42,12 @@ LUIS**Language Understanding** 컨테이너 런타임 환경은 `docker run` 명
 
 ## <a name="apikey-setting"></a>ApiKey 설정
 
-`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대한 값을 지정해야 하며 그 값은 [ `Billing` ](#billing-setting) 구성 설정에 대해 지정된 _Cognitive Services_ 리소스를 위한 유효한 키여야 합니다.
+`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey 값을 지정 해야 하며,이 값은 [`Billing`](#billing-setting) 구성 설정에 지정 된 _Cognitive Services_ 리소스에 대해 유효한 키 여야 합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
 * Azure Portal: **Cognitive Services** 리소스 관리, **키** 아래
-* LUIS 포털: **키 및 엔드포인트 설정** 페이지 
+* LUIS 포털: **키 및 끝점 설정** 페이지 
 
 시작 키 또는 작성 키를 사용하지 마세요. 
 
@@ -57,19 +57,16 @@ LUIS**Language Understanding** 컨테이너 런타임 환경은 `docker run` 명
 
 ## <a name="billing-setting"></a>청구 설정
 
-`Billing` 설정은 컨테이너에 대한 청구 정보를 계량하기 위해 사용되는 Azure _Cognitive Services_ 리소스의 끝점 URI를 지정합니다. 이 구성 설정에 대한 값을 지정해야 하며 그 값은 Azure _Cognitive Services_ 리소스를 위한 유효한 끝점 URI여야 합니다. 컨테이너는 약 10~15분마다 사용량을 보고합니다.
+`Billing` 설정은 Azure에서 컨테이너에 대 한 청구 정보를 측정 하는 데 사용 되는 _Cognitive Services_ 리소스의 끝점 URI를 지정 합니다. 이 구성 설정의 값을 지정 해야 하며,이 값은 Azure의 _Cognitive Services_ 리소스에 대 한 올바른 끝점 URI 여야 합니다. 컨테이너는 약 10 ~ 15분마다 사용량을 보고합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Cognitive Services** 개요, `Endpoint` 레이블
-* LUIS 포털: 엔드포인트 URI의 일부인 **키 및 엔드포인트 설정** 페이지
+* Azure Portal: **Cognitive Services** 개요, 레이블 `Endpoint`
+* LUIS portal: **키 및 끝점 설정** 페이지를 끝점 URI의 일부로 포함 합니다.
 
-다음 표와 같이 URL `luis/v2.0` 에 라우팅을 포함 해야 합니다.
-
-
-|필수| Name | 데이터 형식 | Description |
-|--|------|-----------|-------------|
-|예| `Billing` | String | 청구 끝점 URI<br><br>예제:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
+| 필수 | Name | 데이터 형식 | 설명 |
+|----------|------|-----------|-------------|
+| 예      | `Billing` | string | 청구 끝점 URI입니다. |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -79,7 +76,7 @@ LUIS**Language Understanding** 컨테이너 런타임 환경은 `docker run` 명
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
-## <a name="http-proxy-credentials-settings"></a>Http 프록시 자격 증명 설정
+## <a name="http-proxy-credentials-settings"></a>HTTP 프록시 자격 증명 설정
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
 
@@ -89,7 +86,7 @@ LUIS**Language Understanding** 컨테이너 런타임 환경은 `docker run` 명
 
 ## <a name="mount-settings"></a>탑재 설정
 
-바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 데이터를 읽고 씁니다. [Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령의 `--mount`옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다. 
+바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 읽고 씁니다. `--mount`Docker 실행[ 명령의 ](https://docs.docker.com/engine/reference/commandline/run/)옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다. 
 
 LUIS 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 서비스 데이터를 저장하지 않습니다. 
 
@@ -97,33 +94,31 @@ LUIS 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 �
 
 다음 테이블은 지원되는 설정을 설명합니다.
 
-|필수| Name | 데이터 형식 | Description |
+|필수| Name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
-|예| `Input` | String | 입력 탑재의 대상입니다. 기본값은 `/input`입니다. LUIS 패키지 파일의 위치입니다. <br><br>예제:<br>`--mount type=bind,src=c:\input,target=/input`|
-|아니요| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. LUIS 쿼리 로그 및 컨테이너 로그를 포함합니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|예| `Input` | 문자열 | 입력 탑재의 대상입니다. 기본값은 `/input`입니다. LUIS 패키지 파일의 위치입니다. <br><br>예:<br>`--mount type=bind,src=c:\input,target=/input`|
+|아니요| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. LUIS 쿼리 로그 및 컨테이너 로그를 포함합니다. <br><br>예:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>docker run 명령 예제
+## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제
 
 다음 예제에서는 구성 설정을 사용하여 `docker run` 명령을 쓰고 사용하는 방법을 설명합니다.  한번 실행되면 컨테이너는 [중지](luis-container-howto.md#stop-the-container)할 때까지 계속 실행됩니다.
 
-* 이 예에서는 드라이브의 `C:` 디렉터리를 사용 하 여 Windows에서 사용 권한 충돌을 방지 합니다. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다. 
+* 이러한 예제에서는 Windows에서 사용 권한 충돌을 방지 하기 위해 `C:` 드라이브의 디렉터리를 사용 합니다. 입력 디렉터리로 특정 디렉터리를 사용해야 할 경우 Docker 서비스 권한을 받아야 할 수도 있습니다. 
 * Docker 컨테이너에 대해 잘 알고 있지 않은 경우 인수 순서를 변경하지 마세요.
-* 다른 운영 체제를 사용 하는 경우 시스템에 올바른 콘솔/터미널, 탑재를 위한 폴더 구문 및 줄 연속 문자를 사용 합니다. 이 예에서는 Windows 콘솔에 줄 연속 문자가 `^`있는 것으로 가정 합니다. 컨테이너는 Linux 운영 체제 이므로 대상 탑재는 Linux 스타일 폴더 구문을 사용 합니다.
-
-다음 표와 같이 URL `luis/v2.0` 에 라우팅을 포함 해야 합니다.
+* 다른 운영 체제를 사용 하는 경우 시스템에 올바른 콘솔/터미널, 탑재를 위한 폴더 구문 및 줄 연속 문자를 사용 합니다. 이 예에서는 Windows 콘솔에 줄 연속 문자 `^`사용 한다고 가정 합니다. 컨테이너는 Linux 운영 체제 이므로 대상 탑재는 Linux 스타일 폴더 구문을 사용 합니다.
 
 {_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 
 | Placeholder | 값 | 형식 또는 예 |
 |-------------|-------|---|
-| **{API_KEY}** | `LUIS` Azure`LUIS` 키 페이지에 있는 리소스의 끝점 키입니다. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
-| **{ENDPOINT_URI}** | 청구 끝점 값은 Azure의 `LUIS` 개요 페이지에서 사용 가능합니다.| 명시적 예제에 대 한 [필수 매개 변수 수집](luis-container-howto.md#gathering-required-parameters) 을 참조 하세요. |
+| **{API_KEY}** | Azure `LUIS` 키 페이지에 있는 `LUIS` 리소스의 끝점 키입니다. | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx` |
+| **{ENDPOINT_URI}** | 청구 끝점 값은 Azure `LUIS` 개요 페이지에서 사용할 수 있습니다.| 명시적 예제에 대 한 [필수 매개 변수 수집](luis-container-howto.md#gathering-required-parameters) 을 참조 하세요. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 > [!IMPORTANT]
-> 컨테이너를 실행하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다. 자세한 내용은 [Billing](luis-container-howto.md#billing)을 참조하세요.
-> Apikey 값은 LUIS 포털의 키 및 끝점 페이지에 있는 **키** 이며 Azure `Cognitive Services` 리소스 키 페이지 에서도 사용할 수 있습니다. 
+> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다. 자세한 내용은 [Billing](luis-container-howto.md#billing)를 참조하세요.
+> ApiKey 값은 LUIS 포털의 키 및 끝점 페이지에 있는 **키** 이며 Azure `Cognitive Services` 리소스 키 페이지 에서도 사용할 수 있습니다. 
 
 ### <a name="basic-example"></a>기본 예제
 
@@ -173,4 +168,4 @@ Logging:Console:LogLevel:Default=Information
 
 * [컨테이너 설치 및 실행 방법](luis-container-howto.md)을 리뷰합니다.
 * LUIS 기능과 관련된 문제를 해결하려면 [문제 해결](troubleshooting.md)을 참조하세요.
-* 추가로 [Cognitive Services 컨테이너](../cognitive-services-container-support.md)를 사용합니다.
+* 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

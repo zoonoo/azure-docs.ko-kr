@@ -1,24 +1,24 @@
 ---
 title: 'CSV로 변환: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 CSV로 변환 모듈을 사용 하 여 R 또는 Python 스크립트 모듈에서 다운로드, 내보내기 또는 공유할 수 있는 CSV 형식으로 데이터 집합을 변환 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 CSV로 변환 모듈을 사용 하 여 R 또는 Python 스크립트 모듈에서 다운로드, 내보내기 또는 공유할 수 있는 CSV 형식으로 데이터 집합을 변환 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 37c1653b31049dc0142cf8c0c6f6d405338b1d1f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 999f78ab08e1a2c9dd6b28d853e49fbb559fab83
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693188"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493843"
 ---
 # <a name="convert-to-csv-module"></a>CSV 모듈로 변환
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 R 또는 Python 스크립트 모듈에서 다운로드, 내보내기 또는 공유할 수 있는 CSV 형식으로 데이터 집합을 변환할 수 있습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "72693188"
 
 "쉼표로 구분 된 값"을 의미 하는 CSV 형식은 여러 외부 기계 학습 도구에서 사용 하는 파일 형식입니다. CSV는 R 또는 Python과 같은 오픈 소스 언어로 작업할 때 일반적인 교환 형식입니다.
 
-Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 외부 도구에서 사용 하기 위해 데이터 집합을 CSV로 변환 하는 것이 유용할 수 있습니다. 다음은 그 예입니다.
+Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 외부 도구에서 사용 하기 위해 데이터 집합을 CSV로 변환 하는 것이 유용할 수 있습니다. 예:
 
 + CSV 파일을 다운로드 하 여 Excel에서 열거나 관계형 데이터베이스로 가져옵니다.  
 + CSV 파일을 클라우드 저장소에 저장 하 고 Power BI에서 연결 하 여 시각화를 만듭니다.  
@@ -36,7 +36,8 @@ Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 �
 
 ## <a name="how-to-configure-convert-to-csv"></a>CSV로 변환 구성 방법
 
-1.  [CSV로 변환](./convert-to-csv.md) 모듈을 파이프라인에 추가 합니다. 이 모듈은 인터페이스의 **데이터 형식 변환** 그룹에서 찾을 수 있습니다. 
+
+1.  [CSV로 변환](./convert-to-csv.md) 모듈을 파이프라인에 추가 합니다. 이 모듈은 디자이너의 **데이터 형식 변환** 그룹에서 찾을 수 있습니다. 
 
 2. 데이터 집합을 출력 하는 모듈에 연결 합니다.   
   
@@ -56,4 +57,4 @@ Azure Machine Learning에서 대부분의 작업을 수행 하는 경우에도 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

@@ -9,15 +9,16 @@ ms.topic: conceptual
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
-ms.date: 07/24/2019
-ms.openlocfilehash: d0e0c5601a6cddf936604df6d5b48b8bf48e7c8d
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/25/2019
+ms.openlocfilehash: 2e088557bf61141d3ea3cbeb25d53f711a71fd97
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162440"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496856"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>GPU를 사용 하 여 유추를 위한 심층 학습 모델 배포
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 GPU 사용 모델을 웹 서비스로 배포 하는 방법을 설명 합니다. 이 문서의 정보는 AKS (Azure Kubernetes Service)에 모델을 배포 하는 방법을 기반으로 합니다. AKS 클러스터는 유추를 위해 모델에서 사용 하는 GPU 리소스를 제공 합니다.
 
@@ -32,7 +33,7 @@ ms.locfileid: "71162440"
 > [!NOTE]
 > 이 문서의 정보는 [Azure Kubernetes Service에 배포 하는 방법](how-to-deploy-azure-kubernetes-service.md) 문서에 있는 정보를 기반으로 합니다. 이 문서는 일반적으로 AKS에 대 한 배포를 다루는이 문서에서는 GPU 특정 배포에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
@@ -136,7 +137,7 @@ def run(raw_data):
 
 ## <a name="define-the-conda-environment"></a>Conda 환경 정의
 
-Conda 환경 파일은 서비스에 대 한 종속성을 지정 합니다. 여기에는 모델과 입력 스크립트 모두에 필요한 종속성이 포함 됩니다. 다음 YAML은 Tensorflow 모델에 대 한 환경을 정의 합니다. 이 배포 `tensorflow-gpu`에 사용 되는 GPU를 사용 하는를 지정 합니다.
+Conda 환경 파일은 서비스에 대 한 종속성을 지정 합니다. 여기에는 모델과 입력 스크립트 모두에 필요한 종속성이 포함 됩니다. 다음 YAML은 Tensorflow 모델에 대 한 환경을 정의 합니다. 이 배포에 사용 되는 GPU를 사용 하는 `tensorflow-gpu`를 지정 합니다.
 
 ```yaml
 name: project_environment
@@ -153,7 +154,7 @@ channels:
 - conda-forge
 ```
 
-이 예에서는 파일이로 `myenv.yml`저장 됩니다.
+이 예에서는 파일이 `myenv.yml`로 저장 됩니다.
 
 ## <a name="define-the-deployment-configuration"></a>배포 구성 정의
 
@@ -209,7 +210,7 @@ print(aks_service.state)
 ```
 
 > [!NOTE]
-> 개체에가 `enable_gpu=True`있는 경우 매개 변수 `deployment_target` 는 GPU를 제공 하는 클러스터를 참조 해야 합니다. `InferenceConfig` 그렇지 않으면 배포에 실패합니다.
+> `InferenceConfig` 개체가 `enable_gpu=True`경우 `deployment_target` 매개 변수는 GPU를 제공 하는 클러스터를 참조 해야 합니다. 그렇지 않으면 배포에 실패합니다.
 
 자세한 내용은 [모델](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py)에 대 한 참조 설명서를 참조 하세요.
 

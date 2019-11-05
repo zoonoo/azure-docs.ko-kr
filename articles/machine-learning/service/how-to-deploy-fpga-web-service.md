@@ -7,24 +7,25 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: larryfr
-ms.author: tedway
-author: tedway
-ms.date: 07/25/2019
+ms.author: jordane
+author: jpe316
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c3c844ba7044f8e1c9c313f1ac63b94310ea322
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5e8dc6181660f0c1545df0688e2749f8f0187027
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350544"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496888"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>FPGA (필드 프로그래밍 가능 게이트 배열) 및 배포 방법
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 FPGA (필드 프로그래밍 가능 게이트 배열)에 대해 소개 하 고 Azure FPGA에 Azure Machine Learning를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다. 
 
 FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 상호 연결 계층 구조를 포함하고 있습니다. 제조 후 상호 연결을 통해 이러한 블록을 다양한 방법으로 구성할 수 있습니다. 다른 칩과 비교해서, FPGA는 프로그래밍 기능 및 성능 조합을 제공합니다.
 
-## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGA 대 CPU, GPU 및 ASIC 비교
+## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGAs 및 CPU, GPU 및이 있습니다
 
 다음 다이어그램 및 표에서는 FPGA와 다른 프로세서를 비교해서 보여 줍니다.
 
@@ -61,9 +62,9 @@ Azure의 FPGAs는 다음을 지원 합니다.
   - SSD-VGG
 
 FPGAs는 다음 Azure 지역에서 사용할 수 있습니다.
-  - East US
+  - 미국 동부
   - 동남아시아
-  - 유럽 서부
+  - 서유럽
   - 미국 서부 2
 
 > [!IMPORTANT]
@@ -82,12 +83,12 @@ Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Microsoft에서는 DN
 
 
 
-## <a name="example-deploy-models-on-fpgas"></a>예: FPGA에 모델 배포 
+## <a name="example-deploy-models-on-fpgas"></a>예: FPGAs 모델 배포 
 
 Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FPGAs에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 유추 또는 모델 점수 매기기는 배포 된 모델이 예측에 사용 되는 단계 이며 가장 일반적으로 프로덕션 데이터에 사용 됩니다.
 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 - Azure 구독.  계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -98,7 +99,7 @@ Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FP
     ```
 
     > [!TIP]
-    > 가능한 다른 위치 ``southeastasia``는, ``westeurope``및 ``westus2``입니다.
+    > 다른 가능한 위치는 ``southeastasia``, ``westeurope``및 ``westus2``입니다.
 
     명령은 다음과 유사한 텍스트를 반환 합니다.
 
@@ -110,7 +111,7 @@ Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FP
 
     __Currentvalue__아래에 6 개 이상의 vcpus가 있는지 확인 합니다.
 
-    할당량이 없는 경우에서 [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI)요청을 제출 합니다.
+    할당량이 없는 경우 [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI)에서 요청을 제출 합니다.
 
 - Azure Machine Learning 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
  
@@ -319,7 +320,7 @@ for i in Image.list(workspace=ws):
 
 ### <a name="deploy-to-the-cloud"></a>클라우드에 배포
 
-모델을 확장성이 뛰어난 프로덕션 웹 서비스로 배포하려면 AKS(Azure Kubernetes Service)를 사용합니다. Azure Machine Learning SDK, CLI, [Azure Portal](https://portal.azure.com) 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)를 사용 하 여 새 항목을 만들 수 있습니다.
+모델을 확장성이 뛰어난 프로덕션 웹 서비스로 배포하려면 AKS(Azure Kubernetes Service)를 사용합니다. Azure Machine Learning SDK, CLI 또는 [Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 새 항목을 만들 수 있습니다.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -433,7 +434,7 @@ FPGA 웹 서비스를 보호 하려면 [보안 웹 서비스](how-to-secure-web-
 
 + 여러 [샘플 노트북](https://aka.ms/aml-accel-models-notebooks).
 
-+ [하이퍼스케일 하드웨어: Azure + FPGA 기반의 대규모 ML: 빌드 2018(비디오)](https://channel9.msdn.com/events/Build/2018/BRK3202)
++ [하이퍼스케일 하드웨어: Azure + FPGA 상단에 있는 대규모 ML: 빌드 2018(비디오)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
 + [Microsoft FPGA 기반 구성 가능 클라우드 살펴보기(비디오)](https://channel9.msdn.com/Events/Build/2017/B8063)
 

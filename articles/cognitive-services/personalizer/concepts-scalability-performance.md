@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 06/07/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: d116f6bd389b1404ea723c965111cd05880e6c30
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 5ac9a870cb05328f040febd0f8161a97f0982e09
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662812"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490780"
 ---
 # <a name="scalability-and-performance"></a>확장성 및 성능
 
@@ -24,28 +24,15 @@ ms.locfileid: "68662812"
 * Rank API 호출을 수행할 때 짧은 대기 시간 유지
 * 이벤트 입력을 따라잡을 수 있는 학습 처리량 확인
 
-개인 설정은 대부분의 REST API를 통한 통신 전용 호출 기간을 사용하여 순위를 매우 신속하게 반환할 수 있습니다. Azure는 요청에 신속하게 응답할 수 있는 기능을 자동 조정합니다.
+개인 설정은 REST API를 통한 통신에만 사용 되는 대부분의 호출 기간을 통해 순위를 신속 하 게 반환할 수 있습니다. Azure는 요청에 신속하게 응답할 수 있는 기능을 자동 조정합니다.
 
 ##  <a name="low-latency-scenarios"></a>짧은 대기 시간 시나리오
 
-일부 애플리케이션은 순위를 반환할 때 대기 시간이 짧아야 합니다. 이 시나리오는 다음을 위해 필요합니다.
+일부 애플리케이션은 순위를 반환할 때 대기 시간이 짧아야 합니다. 짧은 대기 시간이 필요 합니다.
 
 * 순위가 지정된 콘텐츠를 표시하기까지 사용자가 너무 오랜 시간 기다리지 않도록 합니다.
 * 트래픽이 많이 발생하는 서버에서 컴퓨팅 시간 및 네트워크 연결이 부족하지 않도록 합니다.
 
-<!--
-
-If your web site is scaled on your infrastructure, you can avoid making HTTP calls by hosting the Personalizer API in your own servers running a Docker container.
-
-This change would be transparent to your application, other than using an endpoint URL referring to the running docker instances as opposed to an online service in the cloud.
-
-
-
-### Extreme Low Latency Scenarios
-
-If you require latencies under a millisecond, and have already tested using Personalizer via containers, please contact our support team so we can assess your scenario and provide guidance suited to your needs.
-
--->
 
 ## <a name="scalability-and-training-throughput"></a>확장성 및 학습 처리량
 

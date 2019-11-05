@@ -1,5 +1,5 @@
 ---
-title: 온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션-보안
+title: '보안: 온-프레미스 Apache Hadoop을 Azure HDInsight로 마이그레이션'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하는 보안 및 DevOps 모범 사례를 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: c1523ccb3952bce904deac375d11de692ac235ef
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 1cebe425e323eefda6e26b0f32ddeda0118a70d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736149"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494979"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---security-and-devops-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 보안 및 DevOps 모범 사례
 
@@ -23,7 +23,7 @@ ms.locfileid: "70736149"
 
 ESP(Enterprise Security Package)는 Active Directory 기반 인증, 다중 사용자 지원 및 역할 기반 액세스 제어를 지원합니다. ESP 옵션을 선택하면 HDInsight 클러스터가 Active Directory 도메인에 조인되고 엔터프라이즈 관리자는 Apache Ranger를 사용하여 Apache Hive 보안을 위한 RBAC(역할 기반 액세스 제어)를 구성할 수 있습니다. 또한 관리자는 직원의 데이터 액세스 및 액세스 제어 정책에 대한 변경 내용을 감사할 수 있습니다.
 
-ESP는 ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Query(Hive LLAP)의 클러스터 유형에서 사용할 수 있습니다. 
+ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Interactive Query(Hive LLAP)의 클러스터 유형에서 사용할 수 있습니다. 
 
 도메인에 조인된 HDInsight 클러스터를 배포하려면 다음 단계를 수행합니다.
 
@@ -108,13 +108,13 @@ ESP는 ESP는 Apache Hadoop, Apache Spark, Apache HBase, Apache Kafka 및 Intera
 1. 백업된 임시 데이터를 가져옵니다.
 1. 새 클러스터를 사용하여 작업을 시작하거나 계속 처리합니다.
 
-자세한 내용은 다음 문서를 참조하세요. [HDInsight 클러스터를 최신 버전으로 업그레이드](../hdinsight-upgrade-cluster.md)
+자세한 내용은 [HDInsight 클러스터를 새 버전으로 업그레이드](../hdinsight-upgrade-cluster.md)문서를 참조 하세요.
 
 ## <a name="patch-cluster-operating-systems"></a>클러스터 운영 체제 패치
 
 관리되는 Hadoop 서비스인 HDInsight는 HDInsight 클러스터에서 사용하는 VM의 OS를 패치하는 작업을 담당합니다.
 
-자세한 내용은 다음 문서를 참조하세요. [HDInsight의 OS 패치](../hdinsight-os-patching.md)
+자세한 내용은 [HDInsight에 대 한 OS 패치](../hdinsight-os-patching.md)문서를 참조 하세요.
 
 ## <a name="post-migration"></a>마이그레이션 후 작업
 

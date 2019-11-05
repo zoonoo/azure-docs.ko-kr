@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed302b9c98cf5931afa745f5aab4611a54fedb60
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: b2c1aec7f5b653824ab999da2706549e54d47e3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989999"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492063"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights 미리 보기 사용 사례
 
@@ -34,11 +34,11 @@ ms.locfileid: "72989999"
 
 Azure Time Series Insights는 종단 간 플랫폼 간 제공 서비스입니다. 고도로 컨텍스트화되고 시계열에 최적화된 IoT 규모 데이터를 수집, 처리, 저장, 분석 및 쿼리하는 데 사용됩니다. Time Series Insights는 임시 데이터 탐색 및 운영 분석에 적합합니다. Time Series Insights은 산업용 IoT 배포의 광범위 한 요구 사항을 충족 하는 고유 하 고 사용자 지정 된 서비스 제품입니다.
 
-## <a name="data-exploration-and-visual-anomaly-detection"></a>데이터 검색 및 시각적 변칙 검색
+## <a name="data-exploration-and-visual-anomaly-detection"></a>데이터 탐색 및 시각적 변칙 검색
 
-수십억 개의 이벤트를 즉시 검색 및 분석하여 이상 현상을 포착하고 데이터에서 숨겨진 추세를 발견하세요. Time Series Insights는 IoT 및 DevOps 분석 워크로드의 거의 실시간 성능을 제공합니다.
+수십억 개의 이벤트를 즉시 살펴보고 분석하여 이상 현상을 포착하고 데이터에서 숨겨진 추세를 발견하세요. Time Series Insights는 IoT 및 DevOps 분석 워크로드에 대한 거의 실시간에 가까운 성능을 제공합니다.
 
-[데이터 탐색기![](media/v2-update-use-cases/data-explorer.png)](media/v2-update-use-cases/data-explorer.png#lightbox)
+[데이터 탐색기 ![](media/v2-update-use-cases/data-explorer.png)](media/v2-update-use-cases/data-explorer.png#lightbox)
 
 대부분의 고객은 Time Series Insights의 두드러진 기능 중 하나인 정보를 얻는 데 필요한 최소한의 시간에 동의 합니다.
 
@@ -60,17 +60,17 @@ Time Series Insights에 저장된 데이터와 상호 작용하는 세 가지 �
 
     * [Azure Time Series Insights Preview 탐색기에서 데이터 시각화](time-series-insights-update-explorer.md)를 검토 하 여 url 및 새 UI를 공유 하는 방법에 대해 자세히 알아보세요.
 
-- 시작하는 세 번째 방법은 Time Series Insights에 저장된 데이터를 쿼리하는 강력한 API를 사용하는 것입니다. Time Series Insights에는 `from`, `to`, `first` 및 `last`와 같은 임시 연산자가 있습니다. `average`, `min`, `max`, `split by`, `order by`, `DateHistogram`등의 집계 및 변환이 있습니다. 또한 `has`, `in`, `and`, `or`, `greater than`, `REGEX` 등의 필터링 연산자가 있습니다. 이 모든 연산자는 다운스트림 애플리케이션이 데이터에서 흥미로운 추세 및 패턴을 신속하게 찾을 수 있게 해줍니다. 이러한 항목을 사용 하 여 기업 시각화를 사용 하 여 변칙을 발견할 수 있습니다.
+- 시작하는 세 번째 방법은 Time Series Insights에 저장된 데이터를 쿼리하는 강력한 API를 사용하는 것입니다. Time Series Insights에는 `from`, `to`, `first`및 `last`와 같은 임시 연산자가 있습니다. `average`, `min`, `max`, `split by`, `order by`, `DateHistogram`등의 집계 및 변환이 있습니다. 또한 `has`, `in`, `and`, `or`, `greater than`, `REGEX`등의 필터링 연산자가 있습니다. 이 모든 연산자는 다운스트림 애플리케이션이 데이터에서 흥미로운 추세 및 패턴을 신속하게 찾을 수 있게 해줍니다. 이러한 항목을 사용 하 여 기업 시각화를 사용 하 여 변칙을 발견할 수 있습니다.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>운영 분석 및 프로세스 효율성 확보
 
-Time Series Insights를 사용하여 대규모 장비의 상태, 사용량 및 성능을 모니터링할 수 있습니다. Time Series Insights는 간편하게 운영 효율성을 측정할 수 있는 방법을 제공합니다. Time Series Insights에서 다양하고 예기치 않은 IoT 워크로드를 관리하면서도 수집 또는 쿼리 성능을 저하시키지 않을 수 있습니다.
+Time Series Insights를 사용하여 대규모 장비의 상태, 사용량 및 성능을 모니터링할 수 있습니다. Time Series Insights는 간편하게 운영 효율성을 측정할 수 있는 방법을 제공합니다. Time Series Insights는 수집 또는 쿼리 성능의 저하 없이 다양하고 예기치 않은 IoT 워크로드를 관리할 수 있습니다.
 
 [![개요](media/v2-update-use-cases/overview.png)](media/v2-update-use-cases/overview.png#lightbox)
 
 적절한 기술 또는 솔루션과 결합할 경우 운영 프로세스에서 오는 데이터를 스트리밍하고 지속적으로 처리하여 비즈니스를 성공적으로 변환할 수 있습니다. 종종 이러한 솔루션은 여러 시스템을 조합하여 구성됩니다. 이를 통해 지속적으로 변경 되는 데이터를 탐색 하 고 분석할 수 있습니다. 특히 IoT 영역에서 일반적인 패턴을 공유 합니다.
 
-이러한 패턴은 종종 다양한 로캘의 디바이스 및 센서에서 수십억 개의 이벤트를 수집하는 IoT 지원 플랫폼에서 시작됩니다. 이러한 시스템은 스트리밍 데이터를 처리 및 분석하여 실시간 인사이트와 작업을 끌어냅니다. 데이터는 실시간에 가까운 일괄 처리 분석이 가능하도록 일반적으로 웜 및 콜드 스토리지에 보관됩니다.
+이러한 패턴은 종종 다양한 로캘의 디바이스 및 센서에서 수십억 개의 이벤트를 수집하는 IoT 지원 플랫폼에서 시작됩니다. 이러한 시스템은 스트리밍 데이터를 처리 및 분석하여 실시간 인사이트와 작업을 끌어냅니다. 데이터는 일반적으로 거의 실시간 및 일괄 분석을 위해 웜 및 콜드 저장소에 보관 됩니다.
 
 수집된 데이터는 일련의 처리 과정을 거쳐 다운스트림 쿼리 및 분석 시나리오에 적합하도록 정리되고 컨텍스트화됩니다. Azure는 자산 유지 관리, 제조 등의 IoT 시나리오에 적용할 수 있는 다양한 서비스를 제공합니다. 이러한 서비스로는 Time Series Insights, IoT Hub, Event Hubs, Azure Stream Analytics, Azure Functions, Azure Logic Apps, Azure Databricks, Azure Machine Learning 및 Power BI가 있습니다.
 
@@ -82,7 +82,7 @@ Time Series Insights를 사용하여 대규모 장비의 상태, 사용량 및 �
 
 Time Series Insights는 거의 실시간으로 기록 데이터에 대한 데이터 탐색 및 자산 기반 인사이트를 제공합니다. 비즈니스 요구 사항에 따라, Time Series Insights를 Azure HDInsight에 연결하여 Time Series Insights에 저장된 데이터에서 MapReduce 및 Hive 작업을 실행할 수 있습니다. Time Series Insights에 저장된 데이터는 Time Series Insights 공개 화면 쿼리 API를 통해 Power BI 및 기타 고객 애플리케이션에서 사용할 수 있습니다. 이 데이터는 심층 비즈니스 및 운영 인텔리전스 시나리오에 사용할 수 있습니다.
 
-## <a name="advanced-analytics"></a>고성능 분석
+## <a name="advanced-analytics"></a>고급 분석
 
 Machine Learning 및 Azure Databricks 같은 고급 분석 서비스와 통합할 수 있습니다. Time Series Insights는 수백만 대의 디바이스에서 원시 데이터를 수신합니다. 또한 여러 Azure 분석 서비스에서 원활하게 사용할 수 있는 상황에 맞는 데이터를 추가합니다.
 

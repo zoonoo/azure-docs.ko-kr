@@ -10,24 +10,24 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a93c71a97cdb1f6296919a248cf7ef545f7b307f
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: df23c41629dfe86058f0f2fb6602e85fd5a6d494
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269248"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489291"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code용 Azure Machine Learning 시작
 
 이 문서에서는 **Visual Studio Code 확장에 대해 Azure Machine Learning** 를 사용 하 여 기계 학습 모델을 학습 하 고 배포 하는 방법을 알아봅니다.
 
-[Azure Machine Learning 서비스](overview-what-is-azure-ml.md) 는 기계 학습 모델의 빌드, 학습 및 배포를 간소화 합니다.
+[Azure Machine Learning](overview-what-is-azure-ml.md) 는 기계 학습 모델의 빌드, 학습 및 배포를 간소화 합니다.
 + 학습을 위해 로컬 또는 원격으로 실험 실행을 지원 합니다. 모든 실험에 대해 여러 실행의 사용자 지정 메트릭을 기록 하 여 하이퍼 매개 변수를 세밀 하 게 조정할 수 있습니다.
-+ 또한 Azure Machine Learning 서비스를 사용 하 여 테스트 및 프로덕션 요구에 맞게 Machine Learning 모델을 쉽게 배포할 수 있습니다.
++ 또한 Azure Machine Learning를 사용 하 여 테스트 및 프로덕션 요구에 맞게 Machine Learning 모델을 쉽게 배포할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-+ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
++ Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 + Windows, Mac 및 Linux에서 실행 되는 간단한 코드 편집기 인 [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)를 설치 합니다.
 
@@ -58,7 +58,7 @@ Azure Machine Learning 확장을 설치 하려면:
 > [Visual Studio Code 확장 (미리 보기)에 대 한 Azure Machine Learning](https://aka.ms/vscodetoolsforai)에서 직접 확장 설치 관리자를 다운로드할 수도 있습니다.
 
 ## <a name="quickstart-with-azure-machine-learning"></a>Azure Machine Learning 빠른 시작
-Azure Machine Learning 서비스를 사용 하 여 학습 스크립트를 실행 하는 방법에는 여러 가지가 있습니다. 방금 시작한 경우 먼저 Azure에서 실행 하는 학습 스크립트를 신속 하 게 제출 하는 방법을 살펴보겠습니다.
+Azure Machine Learning를 사용 하 여 학습 스크립트를 실행 하는 방법에는 여러 가지가 있습니다. 방금 시작한 경우 먼저 Azure에서 실행 하는 학습 스크립트를 신속 하 게 제출 하는 방법을 살펴보겠습니다.
 
 Azure Machine Learning 개념을 이미 잘 알고 있고 확장을 사용 하 여 관리 하 고 사용 하는 방법에 대 한 자세한 내용을 보려면 아래 VS Code를 [사용 하 여 Azure Machine Learning](./how-to-vscode-tools.md#azure-machine-learning-in-depth-with-vs-code) 을 참조 하세요.
 
@@ -75,11 +75,11 @@ Azure Machine Learning 개념을 이미 잘 알고 있고 확장을 사용 하 �
 
 1. **Train.py** 를 열고 디버거를 열고 실행 단추를 누르거나 F5 키를 누릅니다.
 
-   [![MNIST 교육 실행](./media/vscode-tools-for-ai/run-mnist.gif)](./media/vscode-tools-for-ai/run-mnist.gif#lightbox)
+   [MNIST 교육을 실행 ![](./media/vscode-tools-for-ai/run-mnist.gif)](./media/vscode-tools-for-ai/run-mnist.gif#lightbox)
 
 모든 항목이 제대로 설치 되 면 스크립트가 실행 되 고 outputs 폴더에 TensorFlow 모델이 생성 됩니다.
 
-[![TensorFlow 모델 표시](./media/vscode-tools-for-ai/show-tensorflow-model.gif)](./media/vscode-tools-for-ai/show-tensorflow-model.gif#lightbox)
+[TensorFlow 모델 ![표시](./media/vscode-tools-for-ai/show-tensorflow-model.gif)](./media/vscode-tools-for-ai/show-tensorflow-model.gif#lightbox)
 
 이제 스크립트가 제대로 실행 되는 것을 확인 했으므로 Azure에서 실행 하겠습니다.
 
@@ -137,9 +137,9 @@ Azure에서 실행 중인 중요 한 정보를 인식할 수 있도록 프로젝
     ...
     ```
 ### <a name="run-the-script-in-azure"></a>Azure에서 스크립트 실행
-정말 간단하죠. 이제는 확장을 사용 하 여 클라우드에서 스크립트를 실행 하면 됩니다. 다음 연습 비디오는 새로운 Azure ML 작업 영역을 만드는 데 걸리는 시간과 학습 스크립트를 실행 하는 데 걸리는 시간을 압축 하는 liberty을 가져옵니다.
+이것으로 끝입니다. 이제는 확장을 사용 하 여 클라우드에서 스크립트를 실행 하면 됩니다. 다음 연습 비디오는 새로운 Azure ML 작업 영역을 만드는 데 걸리는 시간과 학습 스크립트를 실행 하는 데 걸리는 시간을 압축 하는 liberty을 가져옵니다.
 
-   [![Azure ML 실험 시작](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
+   [Azure ML 실험을 시작 ![](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
 
 실험 실행 단추를 클릭 한 후 다음과 같이 프롬프트에 응답 합니다.
 
@@ -153,12 +153,12 @@ Azure에서 실행 중인 중요 한 정보를 인식할 수 있도록 프로젝
 1. 실험 실행에 대 한 기본 이름 및 사양을 검토 하 고 json 파일의 **실험 제출** 링크를 클릭 합니다. 제출 하기 전에 실험 설정을 검토 하거나 변경할 수 있는 것 처럼 json 파일은 저장 되지 않습니다.
 1. 확장을 통해 모든 항목을 설정 하 고 스크립트를 실행 하는 동안 잠시 후 완화 하세요.
 
-    [![클라우드에서 학습](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
+    [클라우드에서 ![학습](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
 
-몇 초 후에 실험이 Azure에 제출 되었다는 알림이 표시 됩니다 .이 경우 Azure Portal에는 VS Code 알림에서 **실험 실행 보기** 링크를 클릭 하거나 새로 고침을 통해 VS Code 내에서 진행 상황을 볼 수 있습니다. 단추를 클릭 합니다.
+몇 초 후에 실험이 Azure에 제출 되었다는 알림이 표시 됩니다. 언제 든 지 VS Code 알림에서 **실험 실행 보기** 링크를 클릭 하 여 Azure Machine Learning studio에서 진행률을 볼 수 있으며, VS Code 내에서 Azure 탭에서 새로 고침 단추를 클릭 합니다.
 
-현재 Azure Portal 에서만 실행 메트릭을 볼 수 있습니다. 위에서 언급 한 **실험 실행 링크 보기** 는 기록한 메트릭이 표시 되는 실행으로 이동 합니다.
-[![포털에서 실험 실행](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
+현재 실행 메트릭 보기는 스튜디오 에서만 지원 됩니다. 위에서 언급 한 **실험 실행 링크 보기** 는 기록한 메트릭이 표시 되는 실행으로 이동 합니다.
+[포털에서 ![실험 실행](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
 
 ## <a name="azure-machine-learning-in-depth-with-vs-code"></a>VS Code를 사용 하 여 심층 Azure Machine Learning
 
@@ -170,7 +170,7 @@ Visual Studio Code에서 기계 학습 모델을 학습 하 고 배포 하기 �
 
 1. Visual Studio Code 활동 표시줄에서 Azure 아이콘을 선택 합니다. Azure: Machine Learning 사이드바가 나타납니다.
 
-    [![작업 영역 만들기](./media/vscode-tools-for-ai/create-workspace.gif)](./media/vscode-tools-for-ai/create-workspace.gif#lightbox)
+    [작업 영역 만들기 ![](./media/vscode-tools-for-ai/create-workspace.gif)](./media/vscode-tools-for-ai/create-workspace.gif#lightbox)
 
 
 1. Azure 구독을 마우스 오른쪽 단추로 클릭하고 **작업 영역 만들기**를 선택합니다. 기본적으로 생성 된 날짜와 시간을 포함 하는 이름이 생성 됩니다. 이름을 **Teamworkspace** 로 변경 하 고 enter 키를 누릅니다.
@@ -192,7 +192,7 @@ Visual Studio Code에서 기계 학습 모델을 학습 하 고 배포 하기 �
 
 1. 작업 영역에서 실험을 마우스 오른쪽 단추로 클릭 하 여 **활성** 실험으로 설정할 수 있습니다. **활성** 실험은 클라우드에서 현재 열려 있는 폴더에 대해 클라우드에서 실험을 연결 하는 링크를 Visual Studio Code 합니다. 이 폴더에는 로컬 Python 스크립트가 포함됩니다. 활성 실험을 설정 하 여 모든 학습 실행에 대 한 주요 메트릭은 실행 위치에 관계 없이 실험 내에 저장 됩니다.
 
-    [![실험 만들기](./media/vscode-tools-for-ai/create-experiment.gif)](./media/vscode-tools-for-ai/create-experiment.gif#lightbox)
+    [실험 ![만들기](./media/vscode-tools-for-ai/create-experiment.gif)](./media/vscode-tools-for-ai/create-experiment.gif#lightbox)
 
 
 ### <a name="create-and-manage-compute-targets"></a>컴퓨팅 대상 만들기 및 관리
@@ -219,11 +219,11 @@ Visual Studio Code에 대 한 Azure Machine Learning를 사용 하 여 데이터
 
 1. 이름을 입력 한 후에는 기본 매개 변수를 사용 하 여 계산이 생성 됩니다. 매개 변수를 변경 하려면 새 계산을 마우스 오른쪽 단추로 클릭 하 고 **계산 편집**을 선택 합니다.
 
-1. 표시 되는 json에서 원하는 변경을 수행 하 고 "저장 후 계속" CodeLens를 클릭 합니다. 키보드를 사용 하면 **ctrl + shift + p** 를 눌러 명령 팔레트를 호출 하 고 **Azure ML을 실행할 수 있습니다. 저장 및 계속** 명령)
+1. 표시 되는 json에서 원하는 변경을 수행 하 고 "저장 후 계속" CodeLens를 클릭 합니다. 키보드를 사용 하 여 명령 팔레트를 **호출 하 고** **Azure ML: 저장 및 계속** 명령을 실행 합니다.
 
 다음은 Azure Machine Learning 계산 (AMLCompute)을 만들고 편집 하는 방법의 예입니다.
 
-[![Visual Studio Code에서 AML 계산 만들기](./media/vscode-tools-for-ai/create-remote-compute.gif)](./media/vscode-tools-for-ai/create-remote-compute.gif#lightbox)
+[Visual Studio Code에서 AML 계산 ![만들기](./media/vscode-tools-for-ai/create-remote-compute.gif)](./media/vscode-tools-for-ai/create-remote-compute.gif#lightbox)
 
 #### <a name="the-run-configuration-file"></a>실행 구성 파일
 
@@ -231,7 +231,7 @@ Visual Studio Code에 대 한 Azure Machine Learning를 사용 하 여 데이터
 
 위에서 만든 AmlCompute에 대 한 실행 구성을 만드는 방법에 대 한 예제는 다음과 같습니다.
 
-[![계산에 대 한 실행 구성 만들기](./media/vscode-tools-for-ai/create-runconfig.gif)](./media/vscode-tools-for-ai/create-runconfig.gif#lightbox)
+[계산에 대 한 실행 구성을 만듭니다 ![](./media/vscode-tools-for-ai/create-runconfig.gif)](./media/vscode-tools-for-ai/create-runconfig.gif#lightbox)
 
 로컬 컴퓨터에서 Azure ML 실험을 실행 하려면 여전히 실행 구성 파일이 필요 합니다. 로컬 실행 구성을 만들 때 사용 되는 Python 환경에는 VS Code 내에서 설정 된 인터프리터의 경로가 기본값으로 사용 됩니다.
 
@@ -239,10 +239,10 @@ Visual Studio Code에 대 한 Azure Machine Learning를 사용 하 여 데이터
 
 VS Code에 대 한 Azure ML 확장을 사용 하 여 실험에서 학습 스크립트를 실행 하는 여러 가지 방법이 있습니다.
 
-1. 학습 스크립트를 마우스 오른쪽 단추로 클릭 하 **고 Azure ML을 선택 합니다. Azure에서 실험으로 실행**
+1. 학습 스크립트를 마우스 오른쪽 단추로 클릭 하 고 azure **ML: azure에서 실험으로 실행** 을 선택 합니다.
 1. 실험 실행 도구 모음 아이콘을 클릭 합니다.
 1. 실행 구성 노드를 마우스 오른쪽 단추로 클릭 합니다.
-1. VS Code 명령 팔레트를 사용 하 여 **Azure ML을 실행 합니다. 실험 실행**
+1. VS Code 명령 팔레트를 사용 하 여 **AZURE ML 실행: 실험 실행**
 
 Azure Machine Learning 실험을 실행 하려면 다음을 수행 합니다.
 
@@ -260,7 +260,7 @@ Azure Machine Learning 실험을 실행 하려면 다음을 수행 합니다.
 
 이전에 만든 계산에서 실험을 실행 하는 방법의 예는 다음과 같습니다.
 
-[![로컬로 실험 실행](./media/vscode-tools-for-ai/run-experiment.gif)](./media/vscode-tools-for-ai/run-experiment.gif#lightbox)
+[로컬로 실험을 실행 ![](./media/vscode-tools-for-ai/run-experiment.gif)](./media/vscode-tools-for-ai/run-experiment.gif#lightbox)
 
 ### <a name="deploy-and-manage-models"></a>모델 배포 및 관리
 Azure Machine Learning에서는 클라우드와에 지에서 기계 학습 모델을 배포 하 고 관리할 수 있습니다.
@@ -322,15 +322,15 @@ ACI 컨테이너는 필요에 따라 만들어지므로 미리 테스트할 ACI 
 
 웹 서비스를 배포 하는 방법의 예는 다음과 같습니다.
 
-[![웹 서비스 배포](./media/vscode-tools-for-ai/create-image.gif)](./media/vscode-tools-for-ai/create-image.gif#lightbox)
+[웹 서비스 ![배포](./media/vscode-tools-for-ai/create-image.gif)](./media/vscode-tools-for-ai/create-image.gif#lightbox)
 
 ### <a name="experiment-with-additional-features"></a>추가 기능 실험
 
 명령 팔레트를 사용 하 여 Visual Studio Code의 많은 Azure Machine Learning 기능에 액세스할 수 있습니다. 명령 팔레트를 호출 하려면 Ctrl + Shift + P를 입력 합니다. 여기에서 확장의 추가 Azure ML 기능을 검색할 수 있습니다.
 
-[![Visual Studio Code Azure Machine Learning에 대 한 바로 가기 키](./media/vscode-tools-for-ai/commands.gif)](./media/vscode-tools-for-ai/commands.gif#lightbox)
+[Visual Studio Code에 대 한 Azure Machine Learning 바로 가기 키 ![](./media/vscode-tools-for-ai/commands.gif)](./media/vscode-tools-for-ai/commands.gif#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 
-* Visual Studio Code 외부 Azure Machine Learning를 학습 하는 방법에 대 한 연습은 [자습서: Azure Machine Learning을 사용하여 모델 학습](tutorial-train-models-with-aml.md)을 참조하세요.
+* Visual Studio Code 외부 Azure Machine Learning를 학습 하는 방법에 대 한 연습은 [자습서: Azure Machine Learning를 사용 하 여 모델 학습](tutorial-train-models-with-aml.md)을 참조 하세요.
 * 코드를 로컬로 편집, 실행 및 디버그 하는 방법에 대 한 연습은 [Python hello-세계 자습서](https://code.visualstudio.com/docs/Python/Python-tutorial)를 참조 하세요.

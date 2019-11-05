@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65c68e4f24dd95696cc53b92dd7e2b59d940b6c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175728"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473814"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
@@ -44,7 +44,7 @@ ms.locfileid: "73175728"
  
 클라이언트를 구축 하는 방법에 따라 Microsoft id 플랫폼에서 지원 되는 인증 흐름 중 하나 (또는 여러 개)를 사용할 수 있습니다.  이러한 흐름은 다양 한 토큰 (id_tokens, 새로 고침 토큰, 액세스 토큰) 뿐만 아니라 권한 부여 코드를 생성할 수 있으며 서로 다른 토큰을 사용 하 여 작업을 수행할 수 있습니다. 이 차트는 개요를 ide로 합니다.
  
-|흐름 | 위해서는 | id_token | 액세스 토큰 | 토큰 새로 고침 | 인증 코드 | 
+|흐름 | 위해서는 | id_token | 액세스 토큰 | 토큰 새로 고침 | 권한 부여 코드 | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[인증 코드 흐름](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[암시적 흐름](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -156,7 +156,7 @@ MSAL은 사용자가 스마트 TV, IoT 장치 또는 프린터와 같은 입력 
 
 위의 다이어그램에서:
 
-1. 사용자 인증이 필요한 경우 앱은 코드를 제공 하 고, 다른 장치 (예: 인터넷에 연결 된 스마트폰)를 사용 하 여 URL로 이동 하도록 사용자에 게 요청 합니다 (예: https://microsoft.com/devicelogin) ). 그런 다음 사용자에 게 코드를 입력 하 라는 메시지가 표시 되 고, 필요한 경우 승인 프롬프트 및 multi-factor authentication을 비롯 한 일반 인증 환경을 통해 진행 됩니다.
+1. 사용자 인증이 필요한 경우 앱은 코드를 제공 하 고, 다른 장치 (예: 인터넷에 연결 된 스마트폰)를 사용 하 여 URL로 이동 하도록 사용자에 게 요청 합니다 (예: https://microsoft.com/devicelogin)). 그런 다음 사용자에 게 코드를 입력 하 라는 메시지가 표시 되 고, 필요한 경우 승인 프롬프트 및 multi-factor authentication을 비롯 한 일반 인증 환경을 통해 진행 됩니다.
 
 2. 인증에 성공 하면 명령줄 앱은 백 채널을 통해 필요한 토큰을 수신 하 고이를 사용 하 여 필요한 웹 API 호출을 수행 합니다.
 
@@ -203,7 +203,7 @@ IWA는 자동 흐름 이므로 다음 중 하나가 true 여야 합니다.
 - 사용자가 응용 프로그램에 동의할 수 있는 방법을 제공 했습니다 ( [개별 사용자 동의 요청](v2-permissions-and-consent.md#requesting-individual-user-consent)참조).
 - 테 넌 트 관리자가 응용 프로그램에 동의할 수 있는 방법을 제공 했습니다 ( [관리자 동의](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)참조).
 
-IWA flow는 .NET 데스크톱, .NET Core 및 Windows 유니버설 플랫폼 앱에 대해 사용 하도록 설정 됩니다. .NET Core에서는 사용자 이름을 사용 하는 오버 로드만 사용할 수 있습니다. .NET Core 플랫폼은 사용자 이름을 운영 체제에 요청할 수 없습니다.
+IWA flow는 .NET 데스크톱, .NET Core 및 Windows 유니버설 플랫폼 앱에 대해 사용 하도록 설정 됩니다. .Net core는 운영 체제에서 사용자 이름을 가져올 수 없기 때문에 IWA에 대 한 사용자 이름을 제공 해야 합니다.
   
 승인에 대 한 자세한 내용은 v2.0 [사용 권한 및 동의](v2-permissions-and-consent.md)를 참조 하세요.
 

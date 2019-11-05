@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9b7c63639eea7176af36593983b08ad0c5213613
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073227"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470651"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -26,8 +26,8 @@ ms.locfileid: "70073227"
 
  Azure [App Service Environment][Intro] 는 azure VNet (가상 네트워크)의 서브넷에 Azure App Service를 배포 하는 것입니다. ASE(App Service Environment)에는 두 가지 배포 유형이 있습니다.
 
-- **외부 ASE**: ASE에서 호스트되는 앱을 인터넷 액세스가 가능한 IP 주소에 표시합니다. 자세한 내용은 [외부 ASE 만들기][MakeExternalASE]를 참조 하세요.
-- **ILB ASE**: ASE에서 호스트되는 앱을 VNet 내부의 IP 주소에 표시합니다. 내부 엔드포인트는 ILB(내부 부하 분산 장치)이므로 ILB ASE라고 합니다. 자세한 내용은 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조 하세요.
+- **외부 ASE** - ASE에서 호스트되는 앱을 인터넷 액세스가 가능한 IP 주소에 표시합니다. 자세한 내용은 [외부 ASE 만들기][MakeExternalASE]를 참조 하세요.
+- **ILB ASE** - ASE에서 호스트되는 앱을 VNet 내부의 IP 주소에 표시합니다. 내부 엔드포인트는 ILB(내부 부하 분산 장치)이므로 ILB ASE라고 합니다. 자세한 내용은 [ILB ASE 만들기 및 사용][MakeILBASE]을 참조 하세요.
 
 모든 Ase, 외부 및 ILB에는 ASE에서 인터넷으로의 호출을 수행할 때 인바운드 관리 트래픽에 사용 되 고 보낸 사람 주소로 사용 되는 공용 VIP가 있습니다. 인터넷으로 이동 하는 ASE의 호출은 ASE에 할당 된 VIP를 통해 VNet을 종료 합니다. 이 VIP의 공용 IP는 인터넷으로 이동하는 ASE의 모든 호출에 대한 원본 IP입니다. 사용자의 ASE에 있는 앱이 VNet 또는 VPN의 리소스를 호출하는 경우 원본 IP는 ASE에서 사용되는 서브넷의 IP 중 하나가 됩니다. ASE가 VNet 내에 있으므로 추가 구성 없이 VNet 내 리소스에 액세스할 수 있습니다. VNet이 온-프레미스 네트워크에 연결되어 있으면 ASE의 앱도 추가 구성 없이 해당 네트워크의 리소스에 액세스할 수 있습니다.
 
@@ -59,7 +59,7 @@ ASE를 배포한 후에는 ASE를 호스팅하는 데 사용되는 서브넷의 
 
 Ase가 작동 하려면 ASE가 다음 포트를 열어야 합니다.
 
-| 사용 | 변경 전 | 변경 후 |
+| 사용 | 원본 | 받는 사람 |
 |-----|------|----|
 | 관리 | App Service 관리 주소 | ASE 서브넷: 454, 455 |
 |  ASE 내부 통신 | ASE 서브넷: 모든 포트 | ASE 서브넷: 모든 포트
@@ -90,10 +90,10 @@ Azure Load Balancer 및 ASE 서브넷 간의 통신을 위해서는 최소 포�
 
 ASE는 다음 포트에서 인터넷에 액세스할 수 있는 주소를 전달 합니다.
 
-| 용도 | 포트 |
+| 사용 | 포트 |
 |-----|------|
 | DNS | 53 |
-| NTP | 123 |
+| 있고 | 123 |
 | 8CRL, Windows 업데이트, Linux 종속성, Azure 서비스 | 80/443 |
 | Azure SQL | 1433 | 
 | 모니터링 | 12000 |
@@ -115,11 +115,11 @@ ASE가 있는 VNet의 DNS 설정을 변경하면 ASE를 재부팅해야 합니�
 ASE의 기능적 종속성 외에 포털 환경과 관련된 몇 가지 추가 항목이 있습니다. Azure Portal의 기능 중 일부는 _SCM 사이트_에 대한 직접 액세스에 의존합니다. Azure App Service의 모든 앱에는 URL이 두 개 있습니다. 첫 번째 URL은 앱에 액세스하는 것입니다. 두 번째 URL은 _Kudu 콘솔_이라고도 하는 SCM 사이트에 액세스하는 것입니다. SCM 사이트를 사용하는 기능은 다음과 같습니다.
 
 -   웹 작업
--   함수
--   로그 스트리밍
+-   Functions
+-   스트리밍 로그
 -   Kudu
--   확장명
--   프로세스 탐색기
+-   확장
+-   Process Explorer
 -   콘솔
 
 ILB ASE를 사용 하는 경우 VNet 외부에서 SCM 사이트에 액세스할 수 없습니다. 일부 기능은 앱의 SCM 사이트에 액세스 해야 하기 때문에 앱 포털에서 작동 하지 않습니다. 포털을 사용 하는 대신 SCM 사이트에 직접 연결할 수 있습니다. 
@@ -128,11 +128,11 @@ ILB ASE가 도메인 이름이 *contoso.appserviceenvironment.net* 앱 이름이
 
 ## <a name="ase-ip-addresses"></a>ASE IP 주소 ##
 
-ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 구현되지 않은 것은 다음과 같습니다.
+ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 - **공용 인바운드 IP 주소**: 외부 ASE의 앱 트래픽 및 외부 ASE와 ILB ASE 둘 다의 관리 트래픽에 사용됩니다.
 - **아웃바운드 공용 IP**: VNet에서 시작되는 ASE로부터의 아웃바운드 연결(VPN으로 라우팅되지 않음)의 "시작" IP로 사용됩니다.
-- **ILB IP 주소**: ILB IP 주소는 ILB ASE에만 존재 합니다.
+- **ILB ip 주소**: ilb ip 주소는 ILB ASE에만 존재 합니다.
 - **앱에 할당된 IP 기반 SSL 주소**: 외부 ASE를 사용하며 IP 기반 SSL이 구성되어 있을 때만 사용 가능합니다.
 
 이러한 모든 IP 주소는 ASE UI의 Azure Portal에서 볼 수 있습니다. ILB ASE를 사용하는 경우 ILB용 IP가 나열됩니다.
@@ -144,7 +144,7 @@ ASE에는 알고 있어야 할 몇 가지 IP 주소가 있습니다. 구현되�
 
 ### <a name="app-assigned-ip-addresses"></a>앱에 할당된 IP 주소 ###
 
-외부 ASE를 사용하면 IP 주소를 개별 앱에 할당할 수 있습니다. ILB ASE에서는 IP 주소를 할당할 수 없습니다. 앱용으로 고유한 IP 주소를 구성하는 방법에 대한 자세한 내용은 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](../app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+외부 ASE를 사용하면 IP 주소를 개별 앱에 할당할 수 있습니다. ILB ASE에서는 IP 주소를 할당할 수 없습니다. 고유한 IP 주소를 사용 하도록 앱을 구성 하는 방법에 대 한 자세한 내용은 [Azure App Service에서 SSL 바인딩을 사용 하 여 사용자 지정 DNS 이름 보안 유지](../configure-ssl-bindings.md)를 참조 하세요.
 
 앱에 고유한 IP 기반 SSL 주소가 있는 경우 ASE는 해당 IP 주소에 매핑하도록 두 개의 포트를 예약합니다. 한 포트는 HTTP 트래픽용이고, 다른 포트는 HTTPS용입니다. 이러한 포트는 IP 주소 섹션의 ASE UI에 나열됩니다. 트래픽은 VIP에서 해당 포트에 연결할 수 있어야 합니다. 그렇지 않으면 앱에 액세스할 수 없습니다. NSG(네트워크 보안 그룹)를 구성할 때는 이 요구 사항을 고려해야 합니다.
 
@@ -216,15 +216,15 @@ NSG를 정의한 후 ASE가 있는 서브넷에 할당합니다. ASE VNet 또는
 
     ![NSG 및 경로][7]
 
-## <a name="service-endpoints"></a>서비스 끝점 ##
+## <a name="service-endpoints"></a>서비스 엔드포인트 ##
 
-서비스 엔드포인트를 사용하면 Azure 가상 네트워크 및 서브넷의 집합에 다중 테넌트 서비스에 대한 액세스를 제한할 수 있습니다. 서비스 끝점에 대 한 자세한 내용은 [Virtual Network 서비스 끝점][serviceendpoints] 설명서를 참조 하세요. 
+서비스 엔드포인트를 사용하면 Azure 가상 네트워크 및 서브넷의 집합에 다중 테넌트 서비스에 대한 액세스를 제한할 수 있습니다. 서비스 엔드포인트에 대한 자세한 내용은 [Virtual Network 서비스 엔드포인트][serviceendpoints] 설명서에서 확인할 수 있습니다. 
 
 리소스에서 서비스 엔드포인트를 사용하는 경우 다른 모든 경로에 우선해 만든 경로가 있습니다. 강제 터널링 ASE를 사용 하 여 모든 Azure 서비스에서 서비스 끝점을 사용 하는 경우 해당 서비스에 대 한 트래픽이 강제로 터널링 되지 않습니다. 
 
 Azure SQL 인스턴스를 통해 서브넷에서 서비스 엔드포인트가 사용되는 경우 해당 서브넷에서 연결된 모든 Azure SQL 인스턴스는 서비스 엔드포인트를 사용할 수 있어야 합니다. 동일한 서브넷에서 여러 Azure SQL 인스턴스에 액세스하려는 경우 다른 Azure SQL 인스턴스가 아닌 한 Azure SQL 인스턴스에서 서비스 엔드포인트를 사용할 수 없습니다. 서비스 끝점과 관련 하 여 Azure SQL과 같은 다른 Azure 서비스는 작동 하지 않습니다. Azure Storage를 통해 서비스 엔드포인트를 사용하는 경우 사용자의 서브넷에서 해당 리소스에 대한 액세스를 잠글 수 있지만 서비스 엔드포인트를 사용할 수 없는 경우에도 여전히 다른 Azure Storage 계정에 액세스할 수 있습니다.  
 
-![서비스 끝점][8]
+![서비스 엔드포인트][8]
 
 <!--Image references-->
 [1]: ./media/network_considerations_with_an_app_service_environment/networkase-overflow.png
@@ -251,7 +251,7 @@ Azure SQL 인스턴스를 통해 서브넷에서 서비스 엔드포인트가 �
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ss-cert.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

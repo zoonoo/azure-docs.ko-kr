@@ -1,6 +1,6 @@
 ---
 title: Azureml-데이터 집합으로 학습
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: 학습에서 데이터 집합을 사용 하는 방법 알아보기
 services: machine-learning
 ms.service: machine-learning
@@ -11,39 +11,40 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 9ccc5f5721d1ddc8459918913a4f3ce707766dea
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
-ms.translationtype: MT
+ms.openlocfilehash: 12c08a95cd43f9f988c98711141b1b1f879e8b3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316686"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489377"
 ---
 # <a name="train-with-datasets-preview-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습 (미리 보기)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 연결 문자열 또는 데이터 경로에 대해 걱정 하지 않고 원격 실험 학습 실행에서 [Azure Machine Learning 데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) 을 사용 하는 두 가지 방법을 알아봅니다.
 
 - 옵션 1: 구조화 된 데이터를 사용 하는 경우 TabularDataset을 만들고 학습 스크립트에서 직접 사용 합니다.
 
-- 옵션 2: 구조화 되지 않은 데이터를가지고 있는 경우에는 FileDataset을 만들고 학습을 위해 원격 계산에 파일을 탑재 하거나 다운로드 합니다.
+- 옵션 2: 구조화 되지 않은 데이터를 포함 하는 경우 FileDataset을 만들고 학습을 위해 원격 계산에 파일을 탑재 하거나 다운로드 합니다.
 
 Azure Machine Learning 데이터 집합은 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) 및 [hyperdrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py)와 같은 Azure Machine Learning 교육 제품과 원활한 [통합을 제공](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py)합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 데이터 집합을 만들고 학습 하려면 다음이 필요 합니다.
 
-* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning Service의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 지금 사용해 보세요.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* [Azure Machine Learning 서비스 작업 영역](how-to-manage-workspace.md)입니다.
+* [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
 * Azureml 데이터 집합 패키지가 포함 된 [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)있습니다.
 
 > [!Note]
-> 일부 데이터 집합 클래스 (미리 보기)에는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 다음 배포판 에서만 지원 됩니다.  Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS입니다.
+> 일부 데이터 집합 클래스 (미리 보기)에는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
 
 ## <a name="option-1-use-datasets-directly-in-training-scripts"></a>옵션 1: 학습 스크립트에서 직접 데이터 집합 사용
 
-이 예제에서는 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 를 만들어 학습을 위한 `estimator` 개체에 대 한 직접 입력으로 사용 합니다. 
+이 예제에서는 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) 를 만들어 학습을 위해 `estimator` 개체에 대 한 직접 입력으로 사용 합니다. 
 
 ### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
 
@@ -60,7 +61,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path)
 
 TabularDataset 개체는 익숙한 데이터 준비 및 학습 라이브러리를 사용할 수 있도록 데이터를 pandas 또는 spark 데이터 프레임로 로드 하는 기능을 제공 합니다. 이 기능을 활용 하려면 학습 구성의 입력으로 TabularDataset을 전달한 다음 스크립트에서 검색할 수 있습니다.
 
-이렇게 하려면 학습 스크립트의 [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) 개체를 통해 입력 데이터 집합에 액세스 하 고 메서드를 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--) 사용 합니다. 
+이렇게 하려면 학습 스크립트의 [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) 개체를 통해 입력 데이터 집합에 액세스 하 고 [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe--) 메서드를 사용 합니다. 
 
 ```Python
 %%writefile $script_folder/train_titanic.py
@@ -78,11 +79,11 @@ df = dataset.to_pandas_dataframe()
 
 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 개체는 실험 실행을 제출 하는 데 사용 됩니다. Azure Machine Learning 일반적인 기계 학습 프레임 워크에 대 한 사전 구성 된 추정 및 일반 평가기 있습니다.
 
-이 코드는 `est`를 지정 하는 제네릭 평가기 개체를 만듭니다.
+이 코드는를 지정 하는 제네릭 평가기 개체 `est`를 만듭니다.
 
 * 스크립트에 대 한 스크립트 디렉터리입니다. 이 디렉터리의 모든 파일은 실행을 위해 클러스터 노드로 업로드됩니다.
 * 학습 스크립트 *train_titanic. py*.
-* 학습을 `titanic`위한 입력 데이터 집합입니다.
+* 학습을 위한 입력 데이터 집합 `titanic`입니다.
 * 실험의 계산 대상입니다.
 * 실험에 대 한 환경 정의입니다.
 
@@ -99,7 +100,7 @@ experiment_run = experiment.submit(est)
 experiment_run.wait_for_completion(show_output=True)
 ```
 
-## <a name="option-2--mount-files-to-a-remote-compute-target"></a>옵션 2:  원격 계산 대상에 파일 탑재
+## <a name="option-2--mount-files-to-a-remote-compute-target"></a>옵션 2: 원격 계산 대상에 파일 탑재
 
 학습을 위해 계산 대상에서 데이터 파일을 사용할 수 있도록 하려면 [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) 을 사용 하 여 참조 되는 파일을 탑재 하거나 다운로드 합니다.
 
@@ -126,7 +127,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 ### <a name="configure-the-estimator"></a>평가기 구성
 
-평가기의 `inputs` 매개 변수를 통해 데이터 집합을 전달 하는 대신를 통해 `script_params` 데이터 집합을 전달 하 고 인수를 통해 학습 스크립트의 데이터 경로 (탑재 지점)를 가져올 수도 있습니다. 이러한 방식으로 데이터에 액세스 하 고 기존 학습 스크립트를 사용할 수 있습니다.
+평가기의 `inputs` 매개 변수를 통해 데이터 집합을 전달 하는 대신 `script_params`를 통해 데이터 집합을 전달 하 고 인수를 통해 학습 스크립트의 데이터 경로 (탑재 지점)를 가져올 수도 있습니다. 이러한 방식으로 데이터에 액세스 하 고 기존 학습 스크립트를 사용할 수 있습니다.
 
 Scikit [학습](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 평가기 개체는에 대 한 실행을 제출 하는 데 사용 됩니다. [평가기](how-to-train-scikit-learn.md)학습을 사용한 학습에 대해 자세히 알아보세요.
 
@@ -152,7 +153,7 @@ run.wait_for_completion(show_output=True)
 
 ### <a name="retrieve-the-data-in-your-training-script"></a>학습 스크립트에서 데이터 검색
 
-실행을 제출한 후에는 `mnist` 데이터 집합에서 참조 하는 데이터 파일이 계산 대상으로 탑재 됩니다. 다음 코드에서는 스크립트에서 데이터를 검색 하는 방법을 보여 줍니다.
+실행을 제출한 후 `mnist` 데이터 집합에서 참조 하는 데이터 파일이 계산 대상으로 탑재 됩니다. 다음 코드에서는 스크립트에서 데이터를 검색 하는 방법을 보여 줍니다.
 
 ```Python
 %%writefile $script_folder/train_mnist.py

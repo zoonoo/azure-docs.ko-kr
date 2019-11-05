@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 6d7e4253d37d5b50fc8c3de1c8c31636e59b2b9c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1c6a4202b944b2eb95008964eb1040f176645334
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444781"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482373"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Service Bus 네임스페이스 및 큐 만들기
 
@@ -37,7 +37,7 @@ ms.locfileid: "67444781"
 > * [Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace.md)
 > * [토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
-> 최신 템플릿을 확인 하려면 방문 합니다 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리 및 검색 **Service Bus**합니다.
+> 최신 템플릿을 확인 하려면 [Azure 빠른 시작 템플릿][Azure Quickstart Templates] 갤러리를 방문 하 여 **Service Bus**를 검색 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -53,7 +53,7 @@ ms.locfileid: "67444781"
 
 ## <a name="parameters"></a>매개 변수
 
-Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters` 라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마세요. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
+Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters` 라는 섹션을 포함합니다. 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
 
 템플릿은 다음 매개 변수를 정의합니다.
 
@@ -94,15 +94,16 @@ Service Bus 네임스페이스에서 만든 큐의 이름입니다.
 큐가 있는 **메시징**형식의 표준 Service Bus 네임스페이스를 만듭니다.
 
 ```json
-"resources ": [{
-        "apiVersion": "[variables('sbVersion')]",
+{
+    "resources": [{
+        "apiVersion": "2017-04-01",
         "name": "[parameters('serviceBusNamespaceName')]",
-        "type": "Microsoft.ServiceBus/Namespaces",
-        "location": "[variables('location')]",
-        "kind": "Messaging",
+        "type": "Microsoft.ServiceBus/namespaces",
+        "location": "[parameters('location')]",
         "sku": {
-            "name": "Standard",
+            "name": "Standard"
         },
+        "properties": {},
         "resources": [{
             "apiVersion": "[variables('sbVersion')]",
             "name": "[parameters('serviceBusQueueName')]",
@@ -111,10 +112,11 @@ Service Bus 네임스페이스에서 만든 큐의 이름입니다.
                 "[concat('Microsoft.ServiceBus/namespaces/', parameters('serviceBusNamespaceName'))]"
             ],
             "properties": {
-                "path": "[parameters('serviceBusQueueName')]",
+                "path": "[parameters('serviceBusQueueName')]"
             }
         }]
     }]
+}
 ```
 
 JSON 구문 및 속성의 경우 [네임스페이스](/azure/templates/microsoft.servicebus/namespaces) 및 [큐](/azure/templates/microsoft.servicebus/namespaces/queues)를 참조하세요.
@@ -137,9 +139,9 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>다음 단계
-네임 스페이스/큐에 대 한 권한 부여 규칙을 만드는 방법을 보여 주는 다음 항목을 참조 하세요. [네임 스페이스 및 Azure Resource Manager 템플릿을 사용 하는 큐에 대 한 Service Bus 권한 부여 규칙 만들기](service-bus-resource-manager-namespace-auth-rule.md)
+네임 스페이스/큐에 대 한 권한 부여 규칙을 만드는 방법을 보여 주는 다음 항목을 참조 하세요. [Azure Resource Manager 템플릿을 사용 하 여 네임 스페이스 및 큐에 대 한 Service Bus 권한 부여 규칙을 만듭니다](service-bus-resource-manager-namespace-auth-rule.md) .
 
-이러한 문서를 확인 하 여 이러한 리소스를 관리 하는 방법에 알아봅니다.
+이러한 문서를 검토 하 여 이러한 리소스를 관리 하는 방법을 알아봅니다.
 
 * [PowerShell을 사용하여 Service Bus 관리](service-bus-manage-with-ps.md)
 * [Service Bus 탐색기로 Service Bus 리소스 관리](https://github.com/paolosalvatori/ServiceBusExplorer/releases)

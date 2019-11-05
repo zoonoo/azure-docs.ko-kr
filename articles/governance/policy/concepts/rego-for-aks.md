@@ -3,20 +3,20 @@ title: Azure Kubernetes Service에 대 한 Azure Policy 알아보기
 description: Azure Policy에서 Rego를 사용 하 여 Azure Kubernetes Service에서 클러스터를 관리 하는 방법에 대해 알아봅니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/24/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 6a3d1fb347819015887ffc4fd8089bbc1f3a70de
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 248f96b4385e97605986b53bd94fd83236ec8f08
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176323"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480897"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 Azure Policy 이해
 
 Azure Policy는 AKS ( [Azure Kubernetes Service](../../../aks/intro-kubernetes.md) )와 통합 하 여 중앙에서 일관 된 방식으로 클러스터에 대 한 대규모 사항을 및 보호 기능을 적용 합니다.
-Azure 리소스 및 AKS 클러스터의 준수 상태를 한 곳에서 관리 하 고 보고할 수 있도록 하는 Azure Policy [게이트](https://github.com/open-policy-agent/gatekeeper)a ( [Open Policy Agent](https://www.openpolicyagent.org/) )에 대 한 _허용 컨트롤러_ 웹 후크 사용을 확장 합니다.
+Azure 리소스 및 AKS 클러스터의 준수 상태를 한 곳에서 관리 하 고 보고할 수 있도록 하는 것은 [게이트](https://github.com/open-policy-agent/gatekeeper/tree/master/deprecated) a ( [Open Policy Agent](https://www.openpolicyagent.org/) Azure Policy)에 대 한 _허용 컨트롤러_ 웹 후크 v2의 사용을 확장 하는 것입니다.
 
 > [!NOTE]
 > AKS에 대 한 Azure Policy는 제한 된 미리 보기로 제공 되며 기본 제공 정책 정의만 지원 합니다.
@@ -92,11 +92,11 @@ Kubernetes에 대 한 _Azure Policy 추가 기능_ 에서 게이트 키퍼 허�
 
 ### <a name="installing-the-add-on"></a>추가 기능 설치
 
-#### <a name="prerequisites"></a>전제 조건
+#### <a name="prerequisites"></a>필수 조건
 
 AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장을 설치 해야 합니다. 이 단계는 Azure CLI를 통해 수행 됩니다.
 
-1. Azure CLI 버전 2.0.62 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+1. Azure CLI 버전 2.0.62 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드를 해야 할 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 1. AKS 클러스터는 _1.10_ 이상 버전 이어야 합니다. 다음 스크립트를 사용 하 여 AKS 클러스터 버전의 유효성을 검사 합니다.
 
@@ -126,7 +126,7 @@ AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장�
 
 필수 구성 요소가 완료 되 면 관리 하려는 AKS 클러스터에 Azure Policy 추가 기능을 설치 합니다.
 
-- Azure Portal
+- Azure portal
 
   1. **모든 서비스**를 클릭 한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 
@@ -162,7 +162,7 @@ AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장�
 
 ## <a name="policy-language"></a>정책 언어
 
-AKS를 관리 하기 위한 Azure Policy 언어 구조는 기존 정책의 구조와 같습니다. 효과 _EnforceRegoPolicy_ 는 AKS 클러스터를 관리 하는 데 사용 되며 Opa 및 게이트 키퍼 작업과 관련 된 _세부_ 정보 속성을 사용 합니다. 자세한 내용과 예제는 [EnforceRegoPolicy](effects.md#enforceregopolicy) 효과를 참조 하세요.
+AKS를 관리 하기 위한 Azure Policy 언어 구조는 기존 정책의 구조와 같습니다. 효과 _EnforceRegoPolicy_ 는 AKS 클러스터를 관리 하는 데 사용 되며 Opa 및 게이트 키퍼 v2 작업과 관련 된 _세부_ 정보 속성을 사용 합니다. 자세한 내용과 예제는 [EnforceRegoPolicy](effects.md#enforceregopolicy) 효과를 참조 하세요.
 
 정책 정의의 _정보. policy_ 속성의 일부로, Azure Policy는 REGO 정책의 URI를 추가 기능에 전달 합니다. Rego는 Kubernetes 클러스터에 대 한 요청을 유효성 검사 하거나 변경할 수 있도록 OPA 및 게이트 키퍼가 지 원하는 언어입니다. Kubernetes 관리에 대 한 기존 표준을 지원 하 Azure Policy를 사용 하면 기존 규칙을 다시 사용 하 여 통합 된 클라우드 규정 준수 보고 환경을 위한 Azure Policy와 연결할 수 있습니다. 자세한 내용은 [Rego 란?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)을 참조 하세요.
 
@@ -182,6 +182,9 @@ Azure Portal를 사용 하 여 AKS를 관리 하기 위한 기본 제공 정책�
 > AKS 정의에 대 한 Azure Policy를 할당 하는 경우 **범위** 는 AKS 클러스터 리소스를 포함 해야 합니다.
 
 또는 [정책 할당-포털](../assign-policy-portal.md) 빠른 시작을 사용 하 여 AKS 정책을 찾고 할당 합니다. 샘플 ' vm 감사 ' 대신 Kubernetes 정책 정의를 검색 합니다.
+
+> [!IMPORTANT]
+> Category **Kubernetes service** 의 기본 제공 정책은 AKS 에서만 사용할 수 있습니다.
 
 ## <a name="logging"></a>로깅
 
@@ -206,7 +209,7 @@ Kubernetes controller/container Azure Policy 추가 기능이 AKS 클러스터�
 
 AKS 클러스터에서 Azure Policy 추가 기능을 제거 하려면 Azure Portal 또는 Azure CLI를 사용 합니다.
 
-- Azure Portal
+- Azure portal
 
   1. **모든 서비스**를 클릭 한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 
@@ -227,6 +230,29 @@ AKS 클러스터에서 Azure Policy 추가 기능을 제거 하려면 Azure Port
 
   az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
   ```
+
+## <a name="diagnostic-data-collected-by-azure-policy-add-on"></a>Azure Policy 추가 기능으로 수집 된 진단 데이터
+
+Kubernetes 용 Azure Policy 추가 기능은 제한 된 클러스터 진단 데이터를 수집 합니다. 이 진단 데이터는 소프트웨어 및 성능과 관련 된 중요 한 기술 데이터입니다. 다음과 같은 방법으로 사용 됩니다.
+
+- 최신 버전 Azure Policy 추가 기능 유지
+- 안전 하 고 신뢰할 수 있으며 성능이 뛰어난 추가 기능 Azure Policy 유지
+- 추가 기능 사용에 대 한 집계 분석을 통해 Azure Policy 추가 기능 향상
+
+추가 기능으로 수집 되는 정보는 개인 데이터가 아닙니다. 현재 수집 되는 세부 정보는 다음과 같습니다.
+
+- 추가 기능 에이전트 버전 Azure Policy
+- 클러스터 유형
+- 클러스터 영역
+- 클러스터 리소스 그룹
+- 클러스터 리소스 ID
+- 클러스터 구독 ID
+- 클러스터 OS (예: Linux)
+- 클러스터 도시 (예: 시애틀)
+- 클러스터 상태 또는도 (예: 워싱턴)
+- 클러스터 국가 또는 지역 (예: 미국)
+- 정책 평가에 에이전트를 설치 하는 동안 Azure Policy 추가 기능에서 발생 하는 예외/오류
+- Azure Policy 추가 기능으로 설치 되지 않은 게이트 키퍼 정책 수
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -18,12 +18,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87660c6ef8266d3ebfbad1b7a8a7cb98b936e9c6
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 2c838c6fe256e2960842c5b40f58f8a5d5b1fdf3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803363"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473780"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에서 앱 역할을 추가하고 토큰에서 수신하기
 
@@ -39,13 +39,13 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 
 ### <a name="declare-app-roles-using-azure-portal"></a>Azure Portal을 사용하여 앱 역할 선언
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 1. 위쪽 막대에서 내 계정을 선택한 다음, **디렉터리 전환**을 선택합니다.
 1. **디렉터리 + 구독** 창이 열리면 **즐겨찾기** 또는 **모든 디렉터리** 목록에서 애플리케이션에 등록할 Active Directory 테넌트를 선택합니다.
 1. 왼쪽 탐색 창에서 **모든 서비스**를 선택하고 **Azure Active Directory**를 선택합니다.
-1. **Azure Active Directory** 창에서 **앱 등록**을 선택하여 모든 애플리케이션 목록을 봅니다.
+1. **Azure Active Directory** 창에서 **앱 등록 (레거시)** 를 선택 하 여 모든 응용 프로그램의 목록을 표시 합니다.
 
-     여기에 원하는 애플리케이션이 보이지 않으면 **앱 등록** 목록의 맨 위에서 다양한 필터를 사용하여 목록을 제한하거나 목록을 아래로 스크롤하여 애플리케이션을 찾습니다.
+     여기에 표시 하려는 응용 프로그램이 표시 되지 않으면 **앱 등록 (레거시)** 목록의 위쪽에 있는 다양 한 필터를 사용 하 여 목록을 제한 하거나 목록을 아래로 스크롤하여 응용 프로그램을 찾습니다.
 
 1. 앱 역할을 정의하려는 애플리케이션을 선택합니다.
 1. 애플리케이션의 블레이드에서 **매니페스트**를 선택합니다.
@@ -58,9 +58,9 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
      
 1. 매니페스트를 저장합니다.
 
-### <a name="examples"></a>예시
+### <a name="examples"></a>예
 
-다음 예제는 `users`에게 할당할 수 있는 `appRoles`를 보여줍니다.
+다음 예제는 `appRoles`에게 할당할 수 있는 `users`를 보여줍니다.
 
 > [!NOTE]
 >`id`는 고유 GUID여야 합니다.
@@ -120,13 +120,13 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 1. **사용자 및 그룹** 목록의 맨 위에서 **사용자 추가** 단추를 선택하여 **할당 추가** 창을 엽니다.
 1. **할당 추가** 창에서 **사용자 및 그룹** 선택기를 선택합니다.
 
-     특정 사용자 및 그룹을 검색하고 찾는 텍스트 상자와 함께 사용자 및 보안 그룹의 목록이 표시됩니다. 이 화면에서는 여러 사용자 및 그룹을 한 번에 선택할 수 있습니다.
+     특정 사용자 또는 그룹을 검색하고 찾는 텍스트 상자와 함께 사용자 및 보안 그룹 목록이 표시됩니다. 이 화면에서는 여러 사용자 및 그룹을 한 번에 선택할 수 있습니다.
 
 1. 사용자 및 그룹을 모두 선택하고 나면 맨 아래 **선택** 단추를 눌러서 다음 부분으로 이동합니다.
 1. **할당 추가** 창에서 **역할 선택** 선택기를 선택합니다. 앞서 앱 매니페스트에서 선언한 모든 역할이 표시됩니다.
 1. 역할을 선택하고 **선택** 단추를 누릅니다.
 1. 맨 아래 **할당** 단추를 눌러서 앱에 사용자 및 그룹의 할당을 완료합니다.
-1. 추가한 사용자 및 그룹이 업데이트된 **사용자 및 그룹** 목록에 보이는지 확인합니다.
+1. 추가한 사용자와 그룹이 업데이트된 **사용자 및 그룹** 목록에 보이는지 확인합니다.
 
 ## <a name="more-information"></a>자세한 정보
 

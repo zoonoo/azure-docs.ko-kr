@@ -9,18 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 3bde609c83425d660c867939e034247d7e6898c5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9c8babac8450bdfd170d3d18b338ba3d64383a67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300268"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499043"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing Spell Check로 맞춤법이 틀린 단어 수정
 
 LUIS 앱을 [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)과 통합하여 LUIS에서 발화의 점수 및 엔터티를 예측하기 전에 발화에서 맞춤법이 틀린 단어를 수정할 수 있습니다. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+
 
 ## <a name="create-first-key-for-bing-spell-check-v7"></a>Bing Spell Check V7의 첫 번째 키 만들기
 [첫 번째 Bing Spell Check API v7 키](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)는 무료입니다. 
@@ -70,7 +75,7 @@ LUIS에는 키를 사용할 두 개의 위치가 있습니다. 첫 번째는 [�
 ## <a name="send-misspelled-utterance-to-luis"></a>LUIS에 맞춤법이 틀린 발화 보내기
 1. 웹 브라우저에서 앞의 문자열을 복사하고 `region`, `appId`, `luisKey` 및 `bingKey`를 고유한 값으로 바꿉니다. 게시 [지역](luis-reference-regions.md)과 다른 경우 엔드포인트 지역을 사용해야 합니다.
 
-2. “How far is the mountainn”과 같은 맞춤법이 틀린 발화를 추가합니다. 영어에서 하나의 `n`이 포함된 `mountain`은 올바른 맞춤법입니다. 
+2. “How far is the mountainn”과 같은 맞춤법이 틀린 발화를 추가합니다. 영어에서 하나의 `mountain`이 포함된 `n`은 올바른 맞춤법입니다. 
 
 3. Enter 키를 선택하여 쿼리를 LUIS로 보냅니다.
 
@@ -101,4 +106,4 @@ Bing Spell Check API v7 서비스를 사용 하지 않으려면 올바른 철자
 [게시](luis-how-to-publish-app.md) 페이지에는 **Bing Spell Checker 사용** 확인란이 있습니다. 이는 키를 만들고 엔드포인트 URL이 변경되는 방식을 이해할 수 있는 편리한 기능입니다. 각 발화에 대해 맞춤법을 교정하려면 올바른 엔드포인트 매개 변수를 사용해야 합니다. 
 
 > [!div class="nextstepaction"]
-> [예제 발화에 대해 자세히 알아보기](luis-how-to-add-example-utterances.md)
+> [예제 발언에 대해 자세히 알아보기](luis-how-to-add-example-utterances.md)

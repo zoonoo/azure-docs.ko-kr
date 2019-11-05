@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 02/02/2018
 ms.author: liydu
-ms.openlocfilehash: ae8dc263e08528c6e3b3bae8c779162c96d51f43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 24e31bfa916df969368dce736cf841ed4fdfe2c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61324625"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484052"
 ---
 # <a name="connect-mxchip-iot-devkit-to-azure-iot-remote-monitoring-solution-accelerator"></a>MXChip IoT DevKit를 Azure IoT 원격 모니터링 솔루션 가속기에 연결
 
@@ -29,7 +29,7 @@ ms.locfileid: "61324625"
 * DevKit을 Wi-Fi에 연결
 * 개발 환경 준비
 
-활성 Azure 구독. 구독이 없으면 다음 두 가지 방법 중 하나를 통해 등록할 수 있습니다.
+활성화된 Azure 구독. 구독이 없으면 다음 두 가지 방법 중 하나를 통해 등록할 수 있습니다.
 
 * [30일 평가판 Microsoft Azure 계정](https://azure.microsoft.com/free/) 활성화
 
@@ -82,11 +82,11 @@ ms.locfileid: "61324625"
 4. 왼쪽의 **ARDUINO 예제** 섹션을 확장하고 **MXCHIP AZ3166에 대한 예제 > AzureIoT**로 이동하여 **RemoteMonitoring**을 선택합니다. 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.
 
    > [!NOTE]
-   > 창을 닫은 경우 다시 열면 됩니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
+   > 창을 닫은 경우 다시 열면 됩니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
 
 ## <a name="provision-required-azure-services"></a>필요한 Azure 서비스 프로비전
 
-솔루션 창에서 제공된 텍스트 상자에 `task cloud-provision`을 입력하여 `Ctrl+P`(macOS: `Cmd+P`)를 통해 작업을 실행합니다.
+솔루션 창에서 제공된 텍스트 상자에 `Ctrl+P`을 입력하여 `Cmd+P`(macOS: `task cloud-provision`)를 통해 작업을 실행합니다.
 
 VS Code 터미널에서 대화형 명령줄은 필요한 Azure 서비스를 프로비전하는 과정을 안내합니다.
 
@@ -127,7 +127,7 @@ DevKit는 다시 부팅하고 코드를 실행하기 시작합니다.
 문제가 발생하면 [IoT 개발자 키트 FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 지원 채널을 사용하여 문의해주세요.
 
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
-* [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -135,6 +135,6 @@ DevKit 디바이스를 Azure IoT 원격 모니터링 솔루션 가속기에 연�
 
 * [Azure IoT 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
 
-* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](/azure/iot-central/core/howto-connect-devkit)
 
 * [IoT 개발자 키트](https://microsoft.github.io/azure-iot-developer-kit/) 

@@ -10,7 +10,7 @@ services: azure-maps
 manager: timlt
 ms.openlocfilehash: 2f4a3d791e6b5d6ff20c09408d1a0bf5995c32fd
 ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/22/2019
 ms.locfileid: "72756570"

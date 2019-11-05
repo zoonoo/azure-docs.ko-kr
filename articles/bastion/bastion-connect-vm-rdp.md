@@ -1,30 +1,26 @@
 ---
-title: 배스 천 Azure를 사용 하 여 Windows VM에 연결 | Microsoft Docs
-description: 이 문서에서는 Azure 배스 천을 사용 하 여 Windows를 실행 중인 Azure Virtual Machine에 연결 하는 방법에 알아봅니다.
+title: Azure 방호를 사용 하 여 Windows VM에 연결 | Microsoft Docs
+description: 이 문서에서는 Azure 방호를 사용 하 여 Windows를 실행 하는 Azure 가상 머신에 연결 하는 방법을 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 376b7042a513dd50647dc8f88bf1de70f65bb21c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: dc741007c7de8d8e24f9c0f9e4e0c03306d036a4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478412"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498377"
 ---
-# <a name="connect-to-a-windows-virtual-machine-using-azure-bastion-preview"></a>Azure 배스 천 (미리 보기)를 사용 하 여 Windows 가상 머신에 연결
+# <a name="connect-to-a-windows-virtual-machine-using-azure-bastion"></a>Azure 방호를 사용 하 여 Windows 가상 머신에 연결
 
-이 아티클에서 네트워크 하는 방법에 안전 하 고 원활 하 게 가상 Azure에서 Windows Vm에 RDP 배스 천 Azure를 사용 하 여 합니다. Azure Portal에서 직접 VM에 연결할 수 있습니다. Azure Bastion을 사용하면 VM에 클라이언트, 에이전트 또는 추가 소프트웨어가 필요하지 않습니다. 배스 천 Azure에 대 한 자세한 내용은 참조는 [개요](bastion-overview.md)합니다.
-
-> [!IMPORTANT]
-> 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
+이 문서에서는 Azure 방호를 사용 하 여 Azure 가상 네트워크에서 Windows Vm에 안전 하 고 원활 하 게 RDP 하는 방법을 보여 줍니다. Azure Portal에서 직접 VM에 연결할 수 있습니다. Azure Bastion을 사용하면 VM에 클라이언트, 에이전트 또는 추가 소프트웨어가 필요하지 않습니다. Azure 방호에 대 한 자세한 내용은 [개요](bastion-overview.md)를 참조 하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-VM이 상주 하는 가상 네트워크를 Azure 요새 호스트를 설정 해야 합니다. 자세한 내용은 [Azure 요새 호스트를 만드는](bastion-create-host-portal.md)합니다. 배스 천 서비스 프로 비전 되 면 가상 네트워크에 배포 되는 모든 VM이 가상 네트워크에 연결을 사용할 수 있습니다. 이 미리 보기에서는 배스 천 Linux Vm에 연결할 Windows VM 및 SSH로 연결 하려면 RDP를 사용 한다고 가정 합니다. Linux VM에 연결 하는 방법에 대 한 내용은 [Linux VM에 연결](bastion-connect-vm-ssh.md)합니다.
+VM이 상주 하는 가상 네트워크에 대 한 Azure 방호 호스트를 설정 했는지 확인 합니다. 자세한 내용은 [Azure 방호 호스트 만들기](bastion-create-host-portal.md)를 참조 하세요. 요새 서비스가 프로 비전 되 고 가상 네트워크에 배포 되 면이를 사용 하 여이 가상 네트워크의 VM에 연결할 수 있습니다. 요새는 RDP를 사용 하 여 Windows VM에 연결 하 고 SSH를 사용 하 여 Linux Vm에 연결 한다고 가정 합니다. Linux VM에 연결 하는 방법에 대 한 자세한 내용은 [VM에 연결-Linux](bastion-connect-vm-ssh.md)를 참조 하세요.
 
 연결하려면 다음 역할이 필요합니다.
 
@@ -34,18 +30,16 @@ VM이 상주 하는 가상 네트워크를 Azure 요새 호스트를 설정 해�
 
 ## <a name="rdp"></a>RDP를 사용 하 여 연결
 
-1. 사용 하 여 [이 링크](https://aka.ms/BastionHost) 를 배스 천 Azure에 대 한 미리 보기 포털 페이지를 엽니다. 연결 하려는 가상 머신을 이동한 다음 클릭 **Connect**합니다. VM이 RDP 연결을 사용 하는 경우 Windows 가상 컴퓨터 여야 합니다.
+1. [Azure 포털](https://portal.azure.com)을 엽니다. 연결 하려는 가상 머신으로 이동한 다음 **연결**을 클릭 합니다. RDP 연결을 사용 하는 경우 VM은 Windows 가상 머신 이어야 합니다.
 
-    ![VM 연결](./media/bastion-connect-vm-rdp/connect.png)
+   ![VM 연결](./media/bastion-connect-vm-rdp/connect.png)
+1. 연결을 클릭 하면 RDP, SSH 및 방호의 3 개 탭이 있는 사이드 막대가 나타납니다. 가상 네트워크에 대해 방호를 프로 비전 한 경우에는 기본적으로 방호 탭이 활성화 됩니다. 가상 네트워크에 대 한 방호를 프로 비전 하지 않은 경우에는 링크를 클릭 하 여 요새를 구성할 수 있습니다. 구성 지침은 [요새 구성](bastion-create-host-portal.md)을 참조 하세요.
 
-1. 연결을 클릭 하면 세로 막대는 세 개의 탭 – RDP, SSH 및 배스 천은 표시 됩니다. 배스 천을 가상 네트워크에 대 한 프로 비전 하는 경우 배스 천 탭이 기본적으로 활성화 되어 있습니다. 배스 천 가상 네트워크를 프로 비전 하지 않은 경우에 배스 천 구성에 대 한 링크를 클릭 수 있습니다. 구성 지침을 참조 하세요 [배스 천 구성](bastion-create-host-portal.md)합니다. 표시 되지 않으면 **배스 천** 나열을 열지 않은 경우 미리 보기 포털입니다. 이 사용 하 여 포털을 엽니다 [미리 보기 링크](https://aka.ms/BastionHost)합니다.
+   ![VM 연결](./media/bastion-connect-vm-rdp/bastion.png)
+1. 사용자의 가상 컴퓨터에 대 한 사용자 이름 및 암호를 클릭 한 다음 **연결**을 클릭 합니다. 이 가상 머신에 대 한 RDP 연결은 포트 443 및 요새 서비스를 사용 하 여 Azure Portal (HTML5 이상)에서 직접 열립니다.
 
-    ![VM 연결](./media/bastion-connect-vm-rdp/bastion.png)
-
-1. 배스 천 탭, 사용자 이름 및 가상 컴퓨터에 대 한 암호, 클릭 **Connect**합니다. 배스 천 통해이 가상 머신에 RDP 연결 포트 443 및 배스 천 서비스를 사용 하 여 (HTML5)를 통해 Azure 포털에서 직접 열립니다.
-
-    ![VM 연결](./media/bastion-connect-vm-rdp/443rdp.png)
+   ![VM 연결](./media/bastion-connect-vm-rdp/443rdp.png)
  
 ## <a name="next-steps"></a>다음 단계
 
-읽기는 [배스 천 FAQ](bastion-faq.md)
+[요새 FAQ](bastion-faq.md) 읽기

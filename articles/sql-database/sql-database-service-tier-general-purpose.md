@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 1c6bb557c11cf32449b440b0007e1cef929a026f
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: b4c0f88a1a21b0734c1652d19f74dc662d0a7ce1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259406"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496215"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>범용 서비스 계층 - Azure SQL Database
 
@@ -25,7 +25,7 @@ ms.locfileid: "70259406"
 
 Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 보장하기 위해 클라우드 환경에 적합한 SQL Server 데이터베이스 엔진 아키텍처를 기반으로 합니다. Azure SQL Database에는 3가지 서비스 계층이 사용되며 각각 서로 다른 아키텍처 모델을 사용합니다. 이러한 서비스 계층은 다음과 같습니다.
 
-- 범용
+- 범용 가상 컴퓨터
 - 중요 비즈니스용
 - 하이퍼스케일
 
@@ -48,7 +48,7 @@ Azure SQL Database는 인프라 오류의 경우에도 99.99%의 가용성을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)에서 범용/표준 계층의 리소스 특성 (코어 수, IO, 메모리), [vcore 모델](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-for-provisioned-compute) 또는 [dtu 모델](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)의 단일 데이터베이스 또는 [Vcore 모델](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes) 및 [dtu 모델](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits)의 탄력적 풀을 찾습니다.
+- [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)에서 범용/표준 계층의 리소스 특성 (코어 수, IO, 메모리), [vcore 모델](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) 또는 [dtu 모델](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)의 단일 데이터베이스 또는 [Vcore 모델](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose---provisioned-compute---gen4) 및 [dtu 모델](sql-database-dtu-resource-limits-elastic-pools.md#standard-elastic-pool-limits)의 탄력적 풀을 찾습니다.
 - [중요 비즈니스용](sql-database-service-tier-business-critical.md) 및 [하이퍼스케일](sql-database-service-tier-hyperscale.md)에 대해 알아 봅니다.
-- [Service Fabric](../service-fabric/service-fabric-overview.md)에 대해 알아 봅니다.
+- [Service Fabric](../service-fabric/service-fabric-overview.md)에 대해 알아봅니다.
 - 고가용성 및 재해 복구에 대한 자세한 옵션은 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.

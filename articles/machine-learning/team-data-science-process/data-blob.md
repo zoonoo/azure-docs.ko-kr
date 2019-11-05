@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a91c4d9f5dcdcee436f2dbf012eb5485b7a92192
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d056226ce8ade93e63d7bca49b975a6983dc126a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60398549"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492429"
 ---
 # <a name="heading"></a>고급 분석을 사용하여 Azure blob 데이터 처리
 이 문서에서는 Azure Blob Storage에 저장된 데이터를 탐색하고 기능을 생성하는 방법을 다룹니다. 
@@ -131,7 +131,7 @@ ms.locfileid: "60398549"
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)    
 
 ## <a name="sql-featuregen"></a>다시 Azure blob에 데이터를 쓰고 Azure 기계 학습에서 데이터 사용
-데이터를 탐색하고 필요한 기능을 만든 후에는 다음 단계에 따라 샘플링한 또는 기능화한 데이터를 Azure Blob에 업로드하여 Azure Machine Learning에서 사용할 수 있습니다. Azure Machine Learning Studio에서 추가 기능을 만들 수도 있습니다. 
+데이터를 탐색 하 고 필요한 기능을 만든 후에는 Azure blob에 데이터 (샘플링 또는 기능화)를 업로드 하 고 다음 단계를 사용 하 여 Azure Machine Learning에서 사용할 수 있습니다. Azure 컴퓨터에서 추가 기능을 만들 수 있습니다. 또한 Studio (클래식)를 학습 합니다. 
 
 1. 로컬 파일에 데이터 프레임을 씁니다.
    

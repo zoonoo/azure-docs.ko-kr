@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c851c2d865a7b553be2cd0f619ad09985115a3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 949676c622c87831d22dcfc7e1bc6d920b622738
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336871"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473284"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory 배포 계획
 Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 찾으십니까? Azure AD 배포 계획은 일반적인 Azure AD 기능을 성공적으로 배포 하는 데 필요한 비즈니스 가치, 계획 고려 사항 및 운영 절차를 안내 합니다.
@@ -61,9 +61,10 @@ Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 
 
 | 기능 | 설명|
 | -| -|
-| [Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-mfa-getstarted)| Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용 하 여 Azure MFA는 간단한 로그인 프로세스에 대 한 수요를 충족 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 합니다. |
+| [Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)| Azure Multi-factor Authentication(MFA)은 Microsoft의 2단계 인증 솔루션입니다. 관리자가 승인한 인증 방법을 사용 하 여 Azure MFA는 간단한 로그인 프로세스에 대 한 수요를 충족 하면서 데이터와 응용 프로그램에 대 한 액세스를 보호 합니다. |
 | [조건부 액세스](https://aka.ms/deploymentplans/ca)| 조건부 액세스를 사용 하면 조건에 따라 클라우드 앱에 액세스할 수 있는 사용자에 대 한 자동화 된 액세스 제어 결정을 구현할 수 있습니다. |
 | [셀프 서비스 암호 재설정](https://aka.ms/deploymentplans/sspr)| 셀프 서비스 암호 재설정 기능을 사용 하면 사용자가 관리자 개입 없이 암호를 다시 설정할 수 있습니다 (필요한 경우). |
+| [암호 없는](https://aka.ms/deploymentplans/passwordless) | 조직에서 Microsoft Authenticator 앱 또는 FIDO2 보안 키를 사용 하 여 암호 없는 인증 구현 |
 
 ## <a name="deploy-application-management"></a>응용 프로그램 관리 배포
 
@@ -86,7 +87,7 @@ Azure Active Directory (Azure AD) 기능 배포에 대 한 종단 간 지침을 
 
 | 기능 | 설명|
 | -| -|
-| [사용자 프로비전](https://aka.ms/UserProvisioningDPDownload)| Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 애플리케이션(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. |
+| [사용자 프로비전](https://aka.ms/deploymentplans/userprovisioning)| Azure AD를 사용하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 애플리케이션(SaaS)에서 사용자 ID 만들기, 유지 관리 및 제거를 자동화할 수 있습니다. |
 | [Workday 기반 인바운드 사용자 프로비저닝](https://aka.ms/WorkdayDeploymentPlan)| Workday 기반 인바운드 사용자를 Active Directory에 프로비전하면 지속적인 ID 거버넌스를 위한 기반을 만들고, 신뢰할 수 있는 ID 데이터를 사용하는 비즈니스 프로세스의 품질을 향상시킬 수 있습니다. 이 기능을 사용 하 여 Leaver 프로세스 (예: 새 고용, 종료, 전송)를 IT 프로 비전 작업 (예: 만들기, 사용)에 매핑하는 규칙을 구성 하 여 직원 및 불확정 작업자의 id 수명 주기를 원활 하 게 관리할 수 있습니다. 하지 |
 
 ## <a name="deploy-governance-and-reporting"></a>거 버 넌 스 및 보고 배포

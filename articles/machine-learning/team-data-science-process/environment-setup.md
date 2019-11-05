@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 028f289092a0183072ab0ba0be29f9d1f79781bc
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 63a77a4f715402951ba8af70755196d52e3b742d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534328"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492390"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>팀 데이터 과학 프로세스에서 사용되는 데이터 과학 환경 설정
 팀 데이터 과학 프로세스는 데이터의 스토리지, 처리 및 분석을 위해 다양한 데이터 과학 환경을 사용합니다. 여기에는 Azure Blob Storage, 여러 유형의 Azure 가상 머신, HDInsight(Hadoop) 클러스터 및 Azure Machine Learning 작업 영역이 포함됩니다. 사용할 환경에 대한 결정은 모델링할 데이터의 유형 및 양과 클라우드에서 해당 데이터의 대상에 따라 달라집니다. 
@@ -28,7 +28,7 @@ ms.locfileid: "69534328"
 
 * [Azure storage-account](../../storage/common/storage-quickstart-create-account.md)
 * [HDInsight(Hadoop) 클러스터](customize-hadoop-cluster.md)
-* [Azure Machine Learning Studio 작업 영역](../studio/create-workspace.md)
+* [Azure Machine Learning Studio (클래식) 작업 영역](../studio/create-workspace.md)
 
 **Microsoft DSVM(데이터 과학 Virtual Machine)** 은 Azure VM(가상 머신) 이미지로 사용할 수 있습니다. 이 VM은 데이터 분석 및 Machine Learning에 흔히 사용되는 몇 가지 인기 있는 도구로 사전 설치되고 구성됩니다. Windows 및 Linux에는 DSVM를 사용할 수 있습니다. 자세한 내용은 [Linux 및 Windows용 클라우드 기반 데이터 과학 Virtual Machine에 대한 소개](../data-science-virtual-machine/overview.md)를 참조하세요.
 

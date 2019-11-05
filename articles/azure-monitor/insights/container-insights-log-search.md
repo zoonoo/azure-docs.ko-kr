@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/12/2019
-ms.openlocfilehash: c3a034776b32db57f70ddee960c1cd5fc96b170b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: 787e9e6d0ae86568e1af74b4d67fb716841a02df
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555419"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477086"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에서 로그를 쿼리 하는 방법
 
@@ -36,7 +36,7 @@ ms.locfileid: "72555419"
 | Kubernetes 클러스터의 컨테이너 부분에 대한 성능 메트릭 | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40; CpuRequestNanoCores, memoryRequestBytes, CpuLimitNanoCores, MemoryWorkingSetBytes, RestartTimeEpoch, CpuUsageNanoCores, memoryRssBytes&#41;, Countervalue, Timegenerated, countervalue, SourceSystem | 
 | 사용자 지정 메트릭 |`InsightsMetrics` | 컴퓨터, 이름, 네임 스페이스, 원본, SourceSystem, 태그<sup>1</sup>, Timegenerated, Type, Va, _resourceid | 
 
-<sup>1</sup> *Tags* 속성은 해당 메트릭에 대 한 [여러 차원을](../platform/data-platform-metrics.md#multi-dimensional-metrics) 나타냅니다. @No__t_0 테이블에 수집 되 고 저장 되는 메트릭에 대 한 자세한 내용은 [InsightsMetrics 개요](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md)를 참조 하세요.
+<sup>1</sup> *Tags* 속성은 해당 메트릭에 대 한 [여러 차원을](../platform/data-platform-metrics.md#multi-dimensional-metrics) 나타냅니다. `InsightsMetrics` 테이블에 수집 되 고 저장 되는 메트릭에 대 한 자세한 내용은 [InsightsMetrics 개요](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md)를 참조 하세요.
 
 >[!NOTE]
 >프로메테우스에 대 한 지원은 현재 공개 미리 보기의 기능입니다.
@@ -46,7 +46,7 @@ ms.locfileid: "72555419"
 
 Azure Monitor 로그는 추세를 찾고, 병목 상태를 진단 하거나, 예측 하거나, 현재 클러스터 구성이 최적 상태 인지 여부를 확인 하는 데 도움이 되는 데이터의 상관 관계를 확인 하는 데 도움이 됩니다. 미리 정의된 로그 검색을 즉시 사용하거나, 원하는 방식으로 정보를 반환하도록 사용자 지정할 수 있습니다.
 
-미리 보기 창에서 **Kubernetes 이벤트 로그 보기** 또는 **컨테이너 로그 보기** 옵션을 선택하여 작업 영역에서 데이터에 대한 대화형 분석을 수행할 수 있습니다. 사용자가 있던 Azure Portal 페이지의 오른쪽에 **로그 검색** 페이지가 나타납니다.
+**분석에서 보기** 드롭다운 목록의 미리 보기 창에서 **Kubernetes 이벤트 로그 보기** 또는 **컨테이너 로그 보기** 옵션을 선택 하 여 작업 영역에서 데이터에 대 한 대화형 분석을 수행할 수 있습니다. 사용자가 있던 Azure Portal 페이지의 오른쪽에 **로그 검색** 페이지가 나타납니다.
 
 ![Log Analytics에서 데이터 분석](./media/container-insights-analyze/container-health-log-search-example.png)   
 
@@ -65,37 +65,57 @@ Azure Monitor 로그는 추세를 찾고, 병목 상태를 진단 하거나, 예
 | **꺾은선형 차트 표시 옵션을 선택**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | 컨테이너 메모리 |
 | InsightsMetrics<br> &#124;where Name = = "requests_count"<br> &#124;TimeGenerated = bin (TimeGenerated, 1m)으로 Val = any (Val) 요약<br> &#124;TimeGenerated asc 별 정렬<br> &#124;project RequestsPerMinute = Val-prev (Val), TimeGenerated <br> &#124;렌더링 막대 차트  | 사용자 지정 메트릭으로 분당 요청 수 |
 
-다음 예는 프로메테우스 메트릭 쿼리입니다. 수집 된 메트릭은 특정 기간 내에 발생 한 오류 수를 확인 하기 위해 개수를 계산 하는 데 사용할 수 있습니다. 데이터 집합은 *partitionKey*에 의해 분할 됩니다. 즉, 고유한 이름, *호스트* *이름*및 *OperationType*집합에 대해 해당 집합에 대 한 하위 *쿼리를 실행*합니다. 해당 시간에 대해 기록 된 이전 *Timegenerated* 및 count를 찾아 요금을 확인 합니다.
+## <a name="query-prometheus-metrics-data"></a>프로메테우스 메트릭 데이터 쿼리
+
+다음 예제는 노드당 디스크 읽기 수/초를 보여 주는 프로메테우스 메트릭 쿼리입니다.
 
 ```
-let data = InsightsMetrics 
-| where Namespace contains 'prometheus' 
-| where Name == 'kubelet_docker_operations' or Name == 'kubelet_docker_operations_errors'    
-| extend Tags = todynamic(Tags) 
-| extend OperationType = tostring(Tags['operation_type']), HostName = tostring(Tags.hostName) 
-| extend partitionKey = strcat(HostName, '/' , Name, '/', OperationType) 
-| partition by partitionKey ( 
-    order by TimeGenerated asc 
-    | extend PrevVal = prev(Val, 1), PrevTimeGenerated = prev(TimeGenerated, 1) 
-    | extend Rate = iif(TimeGenerated == PrevTimeGenerated, 0.0, Val - PrevVal) 
-    | where isnull(Rate) == false 
-) 
-| project TimeGenerated, Name, HostName, OperationType, Rate; 
-let operationData = data 
-| where Name == 'kubelet_docker_operations' 
-| project-rename OperationCount = Rate; 
-let errorData = data 
-| where Name == 'kubelet_docker_operations_errors' 
-| project-rename ErrorCount = Rate; 
-operationData 
-| join kind = inner ( errorData ) on TimeGenerated, HostName, OperationType 
-| project-away TimeGenerated1, Name1, HostName1, OperationType1 
-| extend SuccessPercentage = iif(OperationCount == 0, 1.0, 1 - (ErrorCount / OperationCount))
+InsightsMetrics
+| where Namespace == 'container.azm.ms/diskio'
+| where TimeGenerated > ago(1h)
+| where Name == 'reads'
+| extend Tags = todynamic(Tags)
+| extend HostName = tostring(Tags.hostName), Device = Tags.name
+| extend NodeDisk = strcat(Device, "/", HostName)
+| order by NodeDisk asc, TimeGenerated asc
+| serialize
+| extend PrevVal = iif(prev(NodeDisk) != NodeDisk, 0.0, prev(Val)), PrevTimeGenerated = iif(prev(NodeDisk) != NodeDisk, datetime(null), prev(TimeGenerated))
+| where isnotnull(PrevTimeGenerated) and PrevTimeGenerated != TimeGenerated
+| extend Rate = iif(PrevVal > Val, Val / (datetime_diff('Second', TimeGenerated, PrevTimeGenerated) * 1), iif(PrevVal == Val, 0.0, (Val - PrevVal) / (datetime_diff('Second', TimeGenerated, PrevTimeGenerated) * 1)))
+| where isnotnull(Rate)
+| project TimeGenerated, NodeDisk, Rate
+| render timechart
+
+```
+
+스크랩으로 필터링 Azure Monitor는 프로메테우스 메트릭을 보려면 "프로메테우스"를 지정 합니다. `default` kubernetes 네임 스페이스에서 프로메테우스 메트릭을 보는 샘플 쿼리는 다음과 같습니다.
+
+```
+InsightsMetrics 
+| where Namespace == "prometheus"
+| extend tags=parse_json(Tags)
+| summarize count() by Name
+```
+
+또한 이름으로 프로메테우스 데이터를 직접 쿼리할 수 있습니다.
+
+```
+InsightsMetrics 
+| where Namespace == "prometheus"
+| where Name contains "some_prometheus_metric"
+```
+
+### <a name="query-config-or-scraping-errors"></a>쿼리 구성 또는 스크랩 오류
+
+다음 예제 쿼리는 구성 또는 스크랩 오류를 조사 하기 위해 `KubeMonAgentEvents` 테이블에서 정보 이벤트를 반환 합니다.
+
+```
+KubeMonAgentEvents | where Level != "Info" 
 ```
 
 출력은 다음과 유사한 결과를 표시 합니다.
 
-![데이터 수집 볼륨의 쿼리 결과를 기록 합니다.](./media/container-insights-log-search/log-query-example-prometheus-metrics.png)
+![에이전트의 정보 이벤트에 대 한 쿼리 결과 기록](./media/container-insights-log-search/log-query-example-kubeagent-events.png)
 
 ## <a name="next-steps"></a>다음 단계
 

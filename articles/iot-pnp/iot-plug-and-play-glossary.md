@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: db3581616b369345ad654593192048e8573c6fa4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0d132a46db39308911f472941c02f8bb04a44e0d
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935205"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72988782"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기용 용어 설명
 
@@ -117,7 +117,7 @@ IoT 플러그 앤 플레이 장치 클라이언트 응용 프로그램을 빌드
 
 ## <a name="device-provisioning-service"></a>Device Provisioning Service
 
-[Azure IoT Central](#azure-iot-central) 는 장치 프로 비전 서비스를 사용 하 여 모든 장치 등록 및 연결을 관리 합니다. 자세한 내용은 [Azure IoT Central에서 장치 연결](../iot-central/core/concepts-connectivity-pnp.md)을 참조 하세요. 장치 프로 비전 서비스를 사용 하 여 IoT Hub 기반 IoT 솔루션에 대 한 장치 등록 및 연결을 관리할 수도 있습니다. 자세한 내용은 [Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 장치 프로 비전](../iot-dps/about-iot-dps.md)을 참조 하세요.
+[Azure IoT Central](#azure-iot-central) 는 장치 프로 비전 서비스를 사용 하 여 모든 장치 등록 및 연결을 관리 합니다. 자세한 내용은 [Azure IoT Central에서 장치 연결](../iot-central/core/overview-iot-central-get-connected-pnp.md)을 참조 하세요. 장치 프로 비전 서비스를 사용 하 여 IoT Hub 기반 IoT 솔루션에 대 한 장치 등록 및 연결을 관리할 수도 있습니다. 자세한 내용은 [Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 장치 프로 비전](../iot-dps/about-iot-dps.md)을 참조 하세요.
 
 ## <a name="device-registration"></a>디바이스 등록
 
@@ -171,7 +171,7 @@ IoT 플러그 앤 플레이 장치는 일반적으로 데이터를 수집 하거
 
 모델 리포지토리를 관리 하 고 상호 작용 하기 위한 API입니다. 예를 들어 API를 사용 하 여 [장치 기능 모델](#device-capability-model) 을 추가 하 고 기능 모델을 검색할 수 있습니다.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>속성
 
 속성은 디지털 쌍의 일부 상태를 나타내는 [인터페이스](#interface) 에 정의 된 데이터 필드입니다. 속성은 읽기 전용 또는 쓰기 가능으로 선언할 수 있습니다. 일련 번호와 같은 읽기 전용 속성은 [IoT 플러그 앤 플레이 장치](#iot-plug-and-play-device) 자체에서 실행 되는 코드에 의해 설정 됩니다.  경보 임계값과 같은 쓰기 가능한 속성은 일반적으로 클라우드 기반 IoT 솔루션에서 설정 됩니다.
 

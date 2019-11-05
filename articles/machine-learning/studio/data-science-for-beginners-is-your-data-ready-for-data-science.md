@@ -1,6 +1,6 @@
 ---
 title: 데이터 평가
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: 데이터 과학에 사용할 수 있는 데이터가 충족해야 하는 4가지 기준입니다. 이 비디오에는 기본 데이터 평가에 도움이 되는 몇 가지 구체적인 예제가 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 1d9475b49b3ef8a2e672e1ce505a7d94d19cb14f
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 0903bbd5e0000e26472660271bd2fc8970279061
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875318"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493134"
 ---
 # <a name="is-your-data-ready-for-data-science"></a>데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
 ## <a name="video-2-data-science-for-beginners-series"></a>비디오 2: 초급자를 위한 데이터 과학 시리즈
@@ -37,7 +37,7 @@ ms.locfileid: "67875318"
 * 비디오 4: [단순 모델을 사용하여 답변 예측](data-science-for-beginners-predict-an-answer-with-a-simple-model.md) *(7분 42초)*
 * 비디오 5: [데이터 과학을 수행하기 위해 다른 사람의 작품 복사](data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md) *(3분 18초)*
 
-## <a name="transcript-is-your-data-ready-for-data-science"></a>대본: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
+## <a name="transcript-is-your-data-ready-for-data-science"></a>비디오 내용: 데이터 과학에 사용할 수 있게 데이터가 준비되었나요?
 “데이터 과학에 사용할 수 있게 데이터가 준비되었나요?” 비디오를 시작합니다. 이 비디오는 *초급자를 위한 데이터 과학* 시리즈 중 2번째 비디오입니다.  
 
 데이터 과학을 통해 원하는 대답을 얻으려면 먼저 작업할 고품질 원재료를 제공해야 합니다. 피자를 만들 때처럼 더 나은 재료로 시작할수록 더 나은 최종 제품을 얻을 수 있습니다. 
@@ -100,8 +100,8 @@ ms.locfileid: "67875318"
 
 관련성이 있고, 연결되고, 정확하고, 충분한 데이터가 있으면 고품질의 데이터 과학을 수행하는 데 필요한 모든 재료를 갖추게 되는 것입니다.
 
-Microsoft Azure Machine Learning Studio의 *초급자를 위한 데이터 과학*에 포함된 다른 비디오도 확인해보세요.
+Microsoft Azure Machine Learning Studio (클래식)의 *초보자를 위한 데이터 과학* 의 다른 4 가지 비디오를 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* [Machine Learning Studio로 첫 번째 데이터 과학 실험 시도](create-experiment.md)
+* [Machine Learning Studio를 사용 하 여 첫 번째 데이터 과학 실험 시도 (클래식)](create-experiment.md)
 * [Microsoft Azure의 Machine Learning 소개 보기](/azure/machine-learning/preview/overview-what-is-azure-ml)

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/27/2019
-ms.openlocfilehash: 41cb27096782f525a531f38efda539c065fa4c72
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 44089ea4b997e06cb7654fc6665a1a9a59ae2658
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163609"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494127"
 ---
 # <a name="kernels-for-jupyter-notebook-on-apache-spark-clusters-in-azure-hdinsight"></a>Azure HDInsight의 Apache Spark 클러스터에 있는 Jupyter Notebook에 대한 커널
 
@@ -26,7 +26,7 @@ HDInsight Spark 클러스터는 애플리케이션 테스트를 위해 [Apache S
 
 이 문서에서는 이러한 커널의 사용 방법과 사용 시의 이점에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 
@@ -81,7 +81,7 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
    | cleanup |`%%cleanup -f` |이 노트북의 세션을 포함하여 현재 Livy 엔드포인트에 대한 모든 세션을 삭제합니다. 강제 플래그 -f는 필수입니다. |
 
    > [!NOTE]  
-   > PySpark 커널에서 추가한 매직 외에도 `%%sh`를 포함하여 [기본 제공 IPython 매직](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)도 사용할 수 있습니다. `%%sh` 매직을 사용하면 클러스터 헤드 노드에서 스크립트 및 코드 블록을 실행할 수 있습니다.
+   > PySpark 커널에서 추가한 매직 외에도 [를 포함하여 ](https://ipython.org/ipython-doc/3/interactive/magics.html#cell-magics)기본 제공 IPython 매직`%%sh`도 사용할 수 있습니다. `%%sh` 매직을 사용하면 클러스터 헤드 노드에서 스크립트 및 코드 블록을 실행할 수 있습니다.
 
 - **자동 시각화**. Pyspark 커널은 Hive 및 SQL 쿼리의 출력을 자동으로 시각화 합니다. 테이블, 원형, 선, 영역, 막대를 포함하여 다양한 시각화 형식 중에서 선택할 수 있습니다.
 
@@ -89,10 +89,10 @@ HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에�
 
 `%%sql` 매직은 쿼리를 실행할 때 검색하는 출력 종류를 제어하는 데 사용할 수 있는 여러 매개 변수를 지원합니다. 다음 표에는 출력이 나와 있습니다.
 
-| 매개 변수를 포함해야 합니다. | 예제 | 설명 |
+| 매개 변수 | 예제 | 설명 |
 | --- | --- | --- |
 | -o |`-o <VARIABLE NAME>` |이 매개 변수를 사용하여 쿼리 결과를 %%local Python 컨텍스트에서 [Pandas](https://pandas.pydata.org/) 데이터 프레임으로 유지할 수 있습니다. 데이터 프레임 변수 이름은 사용자가 지정한 변수 이름입니다. |
-| -q |`-q` |이 매개 변수를 사용하여 셀에 대한 시각화를 해제할 수 있습니다. 셀 내용을 자동으로 시각화 하지 않고 데이터 프레임 캡처하려면이를 사용 하려는 경우 `-q -o <VARIABLE>`를 사용 합니다. `CREATE TABLE` 문과 같은 SQL 쿼리를 실행하려는 등의 경우 결과를 캡처하지 않고 시각화를 해제하려면 `-o` 인수를 지정하지 않고 `-q`만 사용합니다. |
+| -q |`-q` |이 매개 변수를 사용하여 셀에 대한 시각화를 해제할 수 있습니다. 셀 내용을 자동으로 시각화 하지 않고 데이터 프레임 캡처하려면이를 사용 하려는 경우 `-q -o <VARIABLE>`를 사용 합니다. `CREATE TABLE` 문과 같은 SQL 쿼리를 실행하려는 등의 경우 결과를 캡처하지 않고 시각화를 해제하려면 `-q` 인수를 지정하지 않고 `-o`만 사용합니다. |
 | -m |`-m <METHOD>` |여기서 **METHOD**는 **take** 또는 **sample**(기본값: **take**)입니다. METHOD가 **take**인 경우 커널은 MAXROWS(이 표의 뒷부분에서 설명함)로 지정된 결과 데이터 집합의 맨 위에서부터 요소를 선택합니다. METHOD가 **sample**인 경우 커널은 `-r` 매개 변수(이 표의 다음 행에서 설명함)에 따라 데이터 집합의 요소를 무작위로 샘플링합니다. |
 | -r |`-r <FRACTION>` |여기서 **FRACTION**은 0.0과 1.0 사이의 부동 소수점 숫자입니다. SQL 쿼리의 샘플 메서드가 `sample`인 경우 커널은 결과 집합 요소의 지정된 부분을 무작위로 샘플링합니다. 예를 들어 `-m sample -r 0.01` 인수를 포함하여 SQL 쿼리를 실행할 경우 결과 행의 1%가 무작위로 샘플링됩니다. |
 | -n |`-n <MAXROWS>` |**MAXROWS** 는 정수 값입니다. 커널은 출력 행 수를 **MAXROWS**로 제한합니다. **MAXROWS** 가 **-1**과 같은 음수인 경우에는 결과 집합의 행 수가 제한 되지 않습니다. |
@@ -132,7 +132,7 @@ Notebook이 스토리지 계정에 저장되는 방식은 [Apache Hadoop HDFS](h
 
 Spark HDInsight 클러스터의 Jupyter 노트북은 Google Chrome에서만 지원됩니다.
 
-## <a name="feedback"></a>피드백
+## <a name="feedback"></a>사용자 의견
 
 새로운 커널도 현재 개발 중이며 곧 완성될 예정입니다. 이는 API가 이러한 커널의 성숙에 따라 변경될 수 있음을 의미할 수 있습니다. 이러한 새로운 커널을 사용하는 동안 가진 의견을 보내주시면 감사하겠습니다. 이러한 커널의 최종 릴리스 형성에 유용할 것입니다. 이 문서의 아래쪽에 있는 **피드백** 섹션에서 사용자 의견/피드백을 남길 수 있습니다.
 

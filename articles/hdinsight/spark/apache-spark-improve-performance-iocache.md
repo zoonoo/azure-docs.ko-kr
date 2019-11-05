@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight IO 캐시를 사용 하 여 워크 로드 성능 Apache Spark (미리 보기)
+title: Apache Spark 성능-Azure HDInsight IO 캐시 (미리 보기)
 description: Azure HDInsight IO 캐시 및 이를 사용하여 Apache Spark 성능을 향상하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,16 +7,16 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: b60906df01f640877e90281812acf64082ffad01
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3ef2def6329dc31eb1b175133b4525f87de9181c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162842"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494645"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache"></a>Azure HDInsight IO 캐시를 사용 하 여 Apache Spark 작업의 성능 향상
 
-IO 캐시는 Apache Spark 작업의 성능을 개선하는 Azure HDInsight에 대한 데이터 캐싱 서비스입니다. IO 캐시는 [Apache Spark](https://spark.apache.org/) 클러스터에서 실행할 수 있는 [Apache TEZ](https://tez.apache.org/) 및 [Apache Hive](https://hive.apache.org/) 워크로드에서도 작동합니다. IO 캐시는 RubiX라는 오픈 소스 캐싱 구성 요소를 사용합니다. RubiX는 클라우드 스토리지 시스템의 데이터에 액세스하는 빅 데이터 분석 엔진에 사용하기 위한 로컬 디스크 캐시입니다. RubiX는 캐싱 목적으로 작동 메모리를 예약하지 않고 SSD(반도체 드라이브)를 사용하므로 캐싱 시스템에 고유한 기능입니다. IO 캐시 서비스는 클러스터의 각 작업자 노드에서 RubiX 메타데이터 서버를 시작하고 관리합니다. 또한 클러스터의 모든 서비스를 RubiX 캐시의 투명한 사용에 적합하도록 구성합니다.
+IO 캐시는 Apache Spark 작업의 성능을 개선하는 Azure HDInsight에 대한 데이터 캐싱 서비스입니다. IO 캐시는 [Apache Spark](https://tez.apache.org/) 클러스터에서 실행할 수 있는 [Apache TEZ](https://hive.apache.org/) 및 [Apache Hive](https://spark.apache.org/) 워크로드에서도 작동합니다. IO 캐시는 RubiX라는 오픈 소스 캐싱 구성 요소를 사용합니다. RubiX는 클라우드 스토리지 시스템의 데이터에 액세스하는 빅 데이터 분석 엔진에 사용하기 위한 로컬 디스크 캐시입니다. RubiX는 캐싱 목적으로 작동 메모리를 예약하지 않고 SSD(반도체 드라이브)를 사용하므로 캐싱 시스템에 고유한 기능입니다. IO 캐시 서비스는 클러스터의 각 작업자 노드에서 RubiX 메타데이터 서버를 시작하고 관리합니다. 또한 클러스터의 모든 서비스를 RubiX 캐시의 투명한 사용에 적합하도록 구성합니다.
 
 대부분의 SSD는 초당 1 GB를 초과하는 대역폭을 제공합니다. 이 대역폭은 운영 체제 메모리 내 파일 캐시에 의해 보완되며 Apache Spark 같은 빅 데이터 컴퓨팅 처리 엔진을 로드하기에 충분한 대역폭을 제공합니다. 작동 메모리는 Apache Spark가 메모리에 크게 의존하는 셔플과 같은 작업을 처리하는 데 사용할 수 있도록 남아 있습니다. 작동 메모리를 독점적으로 사용하면 Apache Spark가 최적의 리소스 사용을 달성할 수 있습니다.  
 

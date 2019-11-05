@@ -1,7 +1,7 @@
 ---
 title: '클러스터링 모델 학습: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 클러스터링 모델 학습 모듈을 사용 하 여 클러스터링 모델을 학습 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 클러스터링 모델 학습 모듈을 사용 하 여 클러스터링 모델을 학습 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: fc6d889fb9be40c98e1a2a0de6fddb29939f3b5d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 1b26fc251aeb527041b1e648f19f9dd67f7701b7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693660"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490396"
 ---
 # <a name="train-clustering-model"></a>클러스터링 모델 학습
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 클러스터링 모델을 학습 합니다.
 
@@ -28,8 +28,8 @@ ms.locfileid: "72693660"
 > 클러스터링 모델은 기계 학습 모델 학습을 위한 일반 모듈인 [모델 학습](train-model.md) 모듈을 사용 하 여 학습 없습니다. [모델 학습](train-model.md) 은 감독 된 학습 알고리즘 에서만 작동 하기 때문입니다. K-를 사용 하는 경우 및 다른 클러스터링 알고리즘은 자율 learning을 허용 합니다. 즉, 알고리즘은 레이블이 없는 데이터에서 학습할 수 있습니다.  
   
 ## <a name="how-to-use-train-clustering-model"></a>클러스터링 학습 모델을 사용 하는 방법  
-  
-1.  Studio에서 파이프라인에 **클러스터링 모델 학습** 모듈을 추가 합니다. **학습** 범주에서 모듈 **Machine Learning**모듈 아래에 있는 모듈을 찾을 수 있습니다.  
+
+1.  디자이너에서 파이프라인에 **클러스터링 모델 학습** 모듈을 추가 합니다. **학습** 범주에서 모듈 **Machine Learning**모듈 아래에 있는 모듈을 찾을 수 있습니다.  
   
 2. [K 의미](k-means-clustering.md) 클러스터링 모듈 또는 호환 클러스터링 모델을 만들고 클러스터링 모델의 매개 변수를 설정 하는 다른 사용자 지정 모듈을 추가 합니다.  
     
@@ -60,4 +60,4 @@ ms.locfileid: "72693660"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

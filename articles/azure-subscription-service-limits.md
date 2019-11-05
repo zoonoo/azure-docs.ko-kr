@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: ccddd13ddd8c10daba84f959b1cc1f8a4a80deb1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 71e4b62ddcb3f144b49b99e6ba95a47971d3f4bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345561"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476958"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록이 확장 되 고 더 많은 서비스를 포함 하도록 업데이트 됩니다.
@@ -54,21 +54,21 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
 * [Azure DNS](#azure-dns-limits)
 * [Azure Firewall](#azure-firewall-limits)
-* [Azure Functions](#functions-limits)
+* [Azure 기능](#functions-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
-* [Azure Machine Learning 서비스](#azure-machine-learning-service-limits)
+* [Azure Machine Learning](#azure-machine-learning-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
 * [Azure Search](#azure-search-limits)
-* [Azure SignalR Service](#azure-signalr-service-limits)
+* [Azure SignalR 서비스](#azure-signalr-service-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
 * [Container Instances](#container-instances-limits)
 * [컨테이너 레지스트리](#container-registry-limits)
 * [Content Delivery Network](#content-delivery-network-limits)
-* [Data Factory](#data-factory-limits)
+* [데이터 팩터리](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
 * [Database Migration Service](#database-migration-service-limits)
@@ -84,6 +84,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [네트워킹](#networking-limits)
   * [Application Gateway](#application-gateway-limits)
+  * [Azure 방호](#azure-bastion-limits)
   * [Azure DNS](#azure-dns-limits)
   * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Azure Firewall](#azure-firewall-limits)
@@ -94,16 +95,16 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
   * [개인 링크](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Virtual Network](#networking-limits)
-  * [Virtual WAN](#virtual-wan-limits)
+  * [가상 WAN](#virtual-wan-limits)
 * [Notification Hubs](#notification-hubs-limits)
 * [리소스 그룹](#resource-group-limits)
 * [역할 기반 액세스 제어](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
 * [Service Bus](#service-bus-limits)
-* [사이트 복구](#site-recovery-limits)
+* [Site Recovery](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
-* [저장소](#storage-limits)
+* [스토리지](#storage-limits)
 * [StorSimple 시스템](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [구독](#subscription-limits)
@@ -154,7 +155,7 @@ Azure Resource Manager 및 Azure 리소스 그룹을 사용 하는 경우 다음
 ### <a name="azure-kubernetes-service-limits"></a>Azure Kubernetes 서비스 제한
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
 
-### <a name="azure-machine-learning-service-limits"></a>Azure Machine Learning 서비스 제한
+### <a name="azure-machine-learning-limits"></a>Azure Machine Learning 제한
 Azure Machine Learning 계산 할당량의 최신 값은 [Azure Machine Learning 할당량 페이지](../articles/machine-learning/service/how-to-manage-quotas.md) 에서 찾을 수 있습니다.
 
 ### <a name="networking-limits"></a>네트워킹 제한
@@ -179,6 +180,9 @@ Azure Machine Learning 계산 할당량의 최신 값은 [Azure Machine Learning
 
 #### <a name="traffic-manager-limits"></a>Traffic Manager 제한
 [!INCLUDE [traffic-manager-limits](../includes/traffic-manager-limits.md)]
+
+#### <a name="azure-bastion-limits"></a>Azure 방호 제한
+[!INCLUDE [Azure Bastion limits](../includes/bastion-limits.md)]
 
 #### <a name="azure-dns-limits"></a>Azure DNS 제한
 [!INCLUDE [dns-limits](../includes/dns-limits.md)]
@@ -294,7 +298,7 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 
 ### <a name="azure-monitor-limits"></a>Azure Monitor 제한
 
-#### <a name="alerts"></a>,
+#### <a name="alerts"></a>경고
 
 [!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-alerts.md)]
 
@@ -398,7 +402,7 @@ SQL Database 한도에 대해서는 [단일 데이터베이스에 대 한 리소
 ### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse 제한
 SQL Data Warehouse 한도는 [SQL Data Warehouse 리소스 제한](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)을 참조 하세요.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 - [Azure 제한 및 향상 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 - [Azure의 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure Cloud Services의 크기](cloud-services/cloud-services-sizes-specs.md)

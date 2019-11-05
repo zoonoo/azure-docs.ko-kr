@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
-ms.translationtype: MT
+ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973009"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73523339"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -85,9 +85,9 @@ VM 진단을 위한 프라이빗 스토리지 계정을 설정할 수 있습니�
 
 Managed Disks에서는 세 가지 주요 기본 역할을 지원합니다.
 
-* 소유자: 액세스를 제외한 모든 것을 관리할 수 있음
-* Contributor: 액세스를 제외한 모든 것을 관리할 수 있음
-* 읽기 권한자: 모든 항목을 볼 수 있지만 변경할 수는 없음
+* 소유자: 액세스를 포함한 모든 것을 관리할 수 있음
+* 참여자: 액세스를 제외한 모든 것을 관리할 수 있음
+* 읽기 권한자: 모든 항목을 볼 수 있지만 변경할 수 없음
 
 **프라이빗 스토리지 계정에 Managed Disk를 복사하거나 내보낼 수 있는 방법이 있나요?**
 
@@ -145,19 +145,43 @@ GPT 분할은 OS 디스크가 아닌 데이터 디스크에서만 사용할 수 
 
 프리미엄 SSD, 표준 SSD 및 표준 HDD 지원 스냅숏이 있습니다. 이러한 세 가지 디스크 유형에 대해 스냅숏은 모든 디스크 크기 (최대 32 TiB 크기의 디스크 포함)에 대해 지원 됩니다. 울트라 디스크는 스냅숏을 지원 하지 않습니다.
 
+### <a name="disk-reservation"></a>디스크 예약
+
+**Azure disk 예약은?**
+디스크 예약은 1 년간의 디스크 저장소를 미리 구입 하 여 총 비용을 절감할 수 있는 옵션입니다.
+
+**Azure disk 예약은 제공 하는 옵션은 무엇 인가요?**
+Azure disk 예약은 1 년 동안 P30 (TiB)에서 P80 (32 TiB)까지 지정 된 Sku에서 프리미엄 Ssd를 구매 하는 옵션을 제공 합니다. 디스크 예약을 구매 하는 데 필요한 최소 디스크 크기에 대 한 제한은 없습니다. 또한 단일 선불 지불 또는 월별 지불로 지불 하도록 선택할 수 있습니다. 프리미엄 SSD Managed Disks에는 추가 트랜잭션 비용이 적용 되지 않습니다.
+
+예약은 용량이 아니라 디스크 형식으로 수행 됩니다. 즉, P80 (32 TiB) 디스크를 예약 하는 경우 단일 P80 디스크를 사용할 수 없습니다. 그러면 해당 특정 예약을 두 개의 작은 P70 (16 TiB) 디스크로 divvy 수 없습니다. 물론 두 개의 별도 P70 (16 TiB) 디스크를 포함 하 여 원하는 만큼 또는 적은 수의 디스크를 예약할 수 있습니다.
+
+**Azure disk 예약은 어떻게 청구 되나요?**
+- EA (기업계약) 고객의 경우 azure 디스크 예약을 구매 하는 데 먼저 Azure 금액 약정을 사용 합니다. EA 고객이 모든 현금 약정 금액을 사용 하는 시나리오에서 디스크 예약은 계속 구매할 수 있으며 이러한 구매는 다음 초과분 청구서에 대 한 단일 선불 지불에 대해 송장이 청구 됩니다.
+
+- Azure.com를 통해 구매 하는 고객의 경우 구매 시 파일의 신용 카드에는 Azure 디스크 예약의 전체 선불 지불 (또는 월간 고정 지불)이 부과 됩니다.
+
+**Azure disk 예약은 어떻게 적용 되나요?**
+디스크 예약은 예약 된 VM (가상 컴퓨터) 인스턴스와 유사한 모델을 따릅니다. VM 인스턴스는 다른 Sku에 디스크 예약을 적용할 수 없다는 차이가 있습니다. VM 인스턴스에 대 한 자세한 내용은 [Azure Reserved VM Instances를 사용 하 여 비용](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) 절감을 참조 하세요. 
+
+**여러 지역에 걸쳐 Azure 디스크 예약을 통해 구매한 내 데이터 저장소를 사용할 수 있나요?**
+Azure 디스크 예약은 특정 지역 및 SKU (미국 동부 2의 P30 처럼)에 대해 구매 되므로 이러한 구문 외부에서 사용할 수 없습니다. 다른 지역 또는 Sku에서 디스크 저장소 요구 사항에 대 한 추가 Azure 디스크 예약을 항상 구매할 수 있습니다.
+
+**Azure 디스크 예약이 만료 되 면 어떻게 되나요?**
+만료 전에 30 일 후에 만료 날짜에 다시 전자 메일 알림을 받게 됩니다. 예약이 만료 되 면 배포 된 디스크는 계속 실행 되 고 최신 [종 량 제 요금](https://azure.microsoft.com/pricing/details/managed-disks/)으로 청구 됩니다.
+
 ## <a name="ultra-disks"></a>Ultra disks
 
 **현재 어떤 지역에서 ultra disks를 지원 하나요?**
 - 미국 동부 2
 - 동남 아시아
-- 유럽 북부
+- 북유럽
 
 **현재 어떤 VM 시리즈에서 ultra disks를 지원 하나요?**
 - ESv3
 - DSv3
 
 **Ultra disk 처리량을로 설정 해야 하는 사항은 무엇 인가요?**
-디스크 처리량을로 설정 하는 것이 확실 하지 않은 경우에는 IO 크기를 16 KiB 가정 하 고 응용 프로그램을 모니터링 하는 것에서 성능을 조정 하 여 시작 하는 것이 좋습니다. 수식은 다음과 같습니다. MBps의 처리량 = IOPS * 16/1000.
+디스크 처리량을로 설정 하는 것이 확실 하지 않은 경우에는 IO 크기를 16 KiB 가정 하 고 응용 프로그램을 모니터링 하는 것에서 성능을 조정 하 여 시작 하는 것이 좋습니다. 수식은 MBps의 처리량 (MBps = IOPS * 16/1000)입니다.
 
 **내 디스크를 4만 IOPS로 구성 했지만 12800 IOPS만 표시 됩니다. 디스크의 성능이 표시 되지 않는 이유는 무엇 인가요?**
 디스크 제한 뿐만 아니라 VM 수준에서 적용 되는 IO 제한도 있습니다. 사용 중인 VM 크기가 디스크에 구성 된 수준을 지원할 수 있는지 확인 하세요. VM에서 적용 하는 IO 제한에 대 한 자세한 내용은 [Azure에서 Windows 가상 머신에 대 한 크기](../articles/virtual-machines/windows/sizes.md)를 참조 하세요.
@@ -333,7 +357,19 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 아니요. 하지만 암호화된 Managed Disk 또는 스냅샷의 암호화된 스토리지 계정에 VHD를 내보낼 경우 암호화됩니다. 
 
-## <a name="premium-disks-managed-and-unmanaged"></a>프리미엄 디스크: 관리형 및 비관리형
+## <a name="premium-disks-managed-and-unmanaged"></a>프리미엄 디스크: 관리 및 관리되지 않는 디스크
+
+**해당 하는 프리미엄 SSD 디스크 크기에 대해 버스트 기능을 지 원하는 지역은 어디 인가요?**
+
+버스트 기능은 현재 미국 서 부 중부에서 지원 됩니다.
+
+**에서 지원 되는 4/8/16 GiB 관리 디스크 크기 (P1/P2/P3, E1/E2/E3)는 어떻게 되나요?**
+
+이러한 새 디스크 크기는 현재 미국 서 부 중부에서 지원 됩니다.
+
+**관리 되지 않는 디스크 또는 페이지 blob에 대해 P1/P2/P3 디스크 크기가 지원 되나요?**
+
+아니요, 프리미엄 SSD Managed Disks 에서만 지원 됩니다. 
 
 **VM에서 DSv2와 같이 프리미엄 SD 디스크를 지원하는 크기를 사용하는 경우 프리미엄 및 표준 데이터 디스크를 모두 연결할 수 있나요?** 
 
@@ -363,7 +399,7 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4,000
 
 프리미엄 또는 표준 디스크의 Azure 디스크에서 TRIM을 사용해도 문제는 없습니다.
 
-## <a name="new-disk-sizes-managed-and-unmanaged"></a>새 디스크 크기: 관리형 및 비관리형
+## <a name="new-disk-sizes-managed-and-unmanaged"></a>새 디스크 크기: 관리 및 관리되지 않는 디스크
 
 **운영 체제 및 데이터 디스크에 지원되는 가장 큰 관리 디스크 크기는 어떻게 되나요?**
 
@@ -410,7 +446,7 @@ Azure Backup 및 Azure Site Recovery 서비스에서 지원하는 최대 디스�
 
 **디스크 크기 (> 4 TiB)에 대해 권장 되는 VM 크기는 디스크 IOPS 및 대역폭 최적화를 위해 표준 SSD 및 표준 HDD 디스크에 대해 권장 되는 VM 크기는 무엇 인가요?**
 
-표준 SSD의 디스크 처리량을 확보 하 고 표준 HDD 큰 디스크 크기 (> 4 TiB)를 500 IOPS 및 60 MiB/s 이상으로 유지 하려면 다음 VM 크기 중 하나에서 새 VM을 배포 하 여 성능을 최적화 하는 것이 좋습니다. B 시리즈, DSv2 시리즈, Dsv3 시리즈, ESv3 시리즈, Fs 시리즈, Fsv2 시리즈, M 시리즈, GS 시리즈, NCv2 시리즈, NCv3 시리즈 또는 Ls 시리즈 Vm입니다. 위의 권장 크기를 사용 하지 않는 기존 Vm 또는 Vm에 많은 디스크를 연결 하면 성능이 저하 될 수 있습니다.
+표준 SSD 디스크 처리량을 확보 하 표준 HDD 고 500 IOPS 및 60 MiB/s를 초과 하는 큰 디스크 크기 (> 4 TiB)를 얻으려면 다음 VM 크기 중 하나에서 새 VM을 배포 하 여 성능을 최적화 하는 것이 좋습니다. B 시리즈, DSv2 시리즈, Dsv3 시리즈, ESv3 시리즈 , Fs 시리즈, Fsv2 시리즈, M 시리즈, GS 시리즈, NCv2 시리즈, NCv3 시리즈 또는 Ls 시리즈 Vm입니다. 위의 권장 크기를 사용 하지 않는 기존 Vm 또는 Vm에 많은 디스크를 연결 하면 성능이 저하 될 수 있습니다.
 
 **더 큰 디스크 크기 미리 보기 중에 배포 된 내 디스크 (> 4 TiB)를 업그레이드 하 여 GA에서 더 높은 IOPS & 대역폭을 확보 하려면 어떻게 해야 하나요?**
 

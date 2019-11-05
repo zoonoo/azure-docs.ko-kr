@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: a8cf17ab3eab31d4ac6113437f55d73f96425e4e
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: a43783110f625dd5faef13c83228a2659155ead0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843294"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492231"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
@@ -82,7 +82,7 @@ PITR과 마찬가질 LTR 백업은 지역 중복 백업이며 [Azure Storage 지
 자세한 내용은 [장기 백업 보존](sql-database-long-term-retention.md)을 참조하세요.
 
 ## <a name="storage-costs"></a>스토리지 비용
-단일 데이터베이스의 경우 데이터베이스 크기의 100%와 같은 최소 백업 저장소 양은 추가 비용 없이 제공 됩니다. 탄력적 풀의 경우 풀에 할당 된 데이터 저장소의 100%와 같은 최소 백업 저장소 양은 추가 비용 없이 제공 됩니다. 추가로 사용되는 백업 스토리지의 경우 GB/월 단위로 요금이 청구됩니다. 이러한 추가 사용은 개별 데이터베이스의 워크 로드 및 크기에 따라 달라 집니다.
+단일 데이터베이스 및 관리 되는 인스턴스의 경우 데이터베이스 크기의 100%에 해당 하는 최소 백업 저장소 양은 추가 비용 없이 제공 됩니다. 탄력적 풀의 경우 풀에 할당 된 데이터 저장소의 100%와 같은 최소 백업 저장소 양은 추가 비용 없이 제공 됩니다. 추가로 사용되는 백업 스토리지의 경우 GB/월 단위로 요금이 청구됩니다. 이러한 추가 사용은 개별 데이터베이스의 워크 로드 및 크기에 따라 달라 집니다.
 
 스토리지 가격에 대한 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/sql-database/single/) 페이지를 참조하세요. 
 
@@ -94,7 +94,7 @@ PITR과 마찬가질 LTR 백업은 지역 중복 백업이며 [Azure Storage 지
 
 Azure SQL Database 엔지니어링 팀은 지속적으로 논리 서버 및 탄력적 풀에 배치 된 데이터베이스의 자동화 된 데이터베이스 백업 복원을 자동으로 테스트 합니다 .이는 Managed Instance에서 사용할 수 없습니다. 지정 시간 복원 시 데이터베이스는 DBCC CHECKDB를 사용 하 여 무결성 검사를 수신 합니다.
 
-마이그레이션이 완료 되 면 네이티브 `CHECKSUM` `RESTORE` 명령 또는 데이터 마이그레이션 서비스를 사용 하 여 복원 된 데이터베이스와의 자동 초기 백업을 수행 Managed Instance 합니다.
+마이그레이션이 완료 되 면 기본 `RESTORE` 명령 또는 데이터 마이그레이션 서비스를 사용 하 여 복원 된 데이터베이스의 `CHECKSUM`를 사용 하 여 자동 초기 백업을 수행 Managed Instance 합니다.
 
 무결성 검사 중에 문제가 발견되면 해당 경고를 엔지니어링 팀에 알려줍니다. Azure SQL Database의 데이터 무결성에 대한 자세한 내용은 [Azure SQL Database의 데이터 무결성](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)을 참조하세요.
 
@@ -106,7 +106,7 @@ Azure SQL Database 엔지니어링 팀은 지속적으로 논리 서버 및 탄�
 
 ## <a name="how-to-change-the-pitr-backup-retention-period"></a>PITR 백업 보존 기간은 어떻게 변경하나요?
 
-Azure Portal, PowerShell 또는 REST API를 사용 하 여 기본 PITR 백업 보존 기간을 변경할 수 있습니다. 지원되는 값은 7, 14, 21, 28 또는 35일입니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하는 방법을 보여 줍니다.
+Azure Portal, PowerShell 또는 REST API를 사용 하 여 기본 PITR 백업 보존 기간을 변경할 수 있습니다. 지원되는 값은 7일, 14일, 21일, 28일 또는 35일입니다. 다음 예제에서는 PITR 보존 기간을 28일로 변경하는 방법을 보여 줍니다.
 
 > [!WARNING]
 > 현재 보존 기간을 줄이면 새 보존 기간 보다 오래 된 기존 백업은 더 이상 사용할 수 없습니다. 현재 보존 기간을 늘리면 SQL Database는 더 긴 보존 기간에 도달할 때까지 기존 백업을 유지합니다.
@@ -134,7 +134,7 @@ SQL Database 관리 되는 인스턴스에 대 한 PITR 백업 보존 변경은 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
 
 ```powershell
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28

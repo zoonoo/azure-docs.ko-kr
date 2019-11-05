@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: magattus
-ms.openlocfilehash: 8704d715a20b94dc170f232b07a0acd54bb1e6f1
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: e2827a11f4ec2a5c0467c3699cd9990aaf7ae97a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996802"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495485"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Azure CDN 청구 이해
 
@@ -32,7 +32,7 @@ ms.locfileid: "70996802"
 
 - 영역 2: 아시아 태평양(일본 포함)
 
-- 영역 3: 남아메리카
+- 영역 3: 남미
 
 - 영역 4: 오스트레일리아 및 뉴질랜드
 
@@ -55,11 +55,11 @@ Azure CDN을 사용하면 개체의 원본으로 사용되는 서비스에 대�
 
 콘텐츠 원본으로 Azure Blob Storage를 사용하는 경우 다음과 같은 캐시 채우기에 대한 스토리지 비용도 발생합니다.
 
-- 사용된 실제 GB: 원본 개체의 실제 스토리지입니다.
+- 사용된 실제 GB: 원본 개체의 실제 스토리지.
 
 - 트랜잭션: 캐시를 채우는 데 필요합니다.
 
-- 전송량(GB): CDN 캐시를 채우기 위해 전송된 데이터의 양입니다.
+- 전송량(GB): CDN 캐시를 채우기 위해 전송된 데이터의 양.
 
 > [!NOTE]
 > 2019 년 10 월부터 Microsoft에서 Azure CDN를 사용 하는 경우 Azure에 호스트 된 원본에서 CDN Pop로 데이터를 전송 하는 비용은 무료로 제공 됩니다. Verizon의 Azure CDN와 Akamai의 Azure CDN에는 아래 설명 된 요금이 적용 됩니다.
@@ -68,9 +68,9 @@ Azure Storage 청구에 대한 자세한 내용은 [Azure Storage 청구 이해 
 
 *호스팅된 서비스 배달*을 사용하는 경우 다음과 같이 요금이 발생합니다.
 
-- Azure 컴퓨팅 시간: 원점으로 작동하는 컴퓨팅 인스턴스입니다.
+- Azure 컴퓨팅 시간: 원점으로 작동하는 컴퓨팅 인스턴스.
 
-- Azure 컴퓨팅 전송: Azure CDN 캐시를 채우기 위해 컴퓨팅 인스턴스에서 전송되는 데이터입니다.
+- Azure 컴퓨팅 전송: Azure CDN 캐시를 채우기 위해 컴퓨팅 인스턴스에서 전송되는 데이터.
 
 클라이언트에서 바이트 범위 요청을 사용하는 경우(원본 서비스에 관계없이) 다음과 같은 고려 사항이 적용됩니다.
 
@@ -83,7 +83,7 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 
 - 콘텐츠의 캐시 가능 수준: 콘텐츠의 TTL(Time to Live)/만료 값이 높고 액세스 빈도가 높아 캐시에서 자주 사용되는 경우 부하의 대부분이 CDN에서 처리됩니다. 캐시 누락이든 개체 새고 고침이든, 일반적으로 캐시 적중 비율이 90%를 넘을 때, 다시 말해서 원본으로 돌아가야 하는 클라이언트 요청 비율이 10% 미만일 때 우수하다고 말합니다.
 
-- 개체를 로드해야 하는 노드 수: 노드가 원본에서 개체를 로드할 때마다 청구 가능한 트랜잭션이 발생합니다. 따라서 글로벌 콘텐츠에서 더 많은 청구 가능 트랜잭션이 발생합니다(더 많은 노드에서 액세스하므로).
+- 개체를 로드해야 하는 노드 수: 노드가 원본에서 개체를 로드할 때마다 청구 가능 트랜잭션이 발생합니다. 따라서 글로벌 콘텐츠에서 더 많은 청구 가능 트랜잭션이 발생합니다(더 많은 노드에서 액세스하므로).
 
 - TTL 영향: 개체의 TTL이 높다는 것은 원본에서 개체를 가져오는 빈도를 낮춰야 한다는 뜻입니다. 또한 브라우저 같은 클라이언트에서 개체를 더 오래 캐시할 수 있으며, 따라서 CDN의 트랜잭션을 줄일 수 있다는 의미입니다.
 
@@ -94,26 +94,26 @@ CDN POP는 캐시를 채워야 할 때마다 캐시되는 개체의 원본에 �
 - Azure Media Services
 - Azure Virtual Machines
 - Virtual Network
-- Load Balancer
-- 애플리케이션 게이트웨이
+- 부하 분산 장치
+- Application Gateway
 - Azure DNS
 - ExpressRoute
-- VPN 게이트웨이
+- VPN Gateway
 - Traffic Manager
 - Network Watcher
 - Azure Firewall
 - Azure Front Door Service
 - Azure Bastion
 - Azure App Service
-- Azure Functions
-- Azure Data Factory
+- Azure 기능
+- Azure 데이터 팩터리
 - Azure API Management
 - Azure Batch 
 - Azure Data Explorer
 - HDInsight
 - Azure Cosmos DB
 - Azure Data Lake Store
-- Azure Machine Learning 서비스 
+- Azure Machine Learning 
 - Azure SQL 데이터베이스
 - Azure Cache for Redis
 

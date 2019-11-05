@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 533958221898b620500b7363f3710f75f155934a
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 4a5ebf810771efe49ee40e272d1fa4683140eda1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998054"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482763"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL의 테이블 공동 위치 – Hyperscale (Citus)
 
@@ -20,7 +20,7 @@ ms.locfileid: "69998054"
 
 ## <a name="data-colocation-for-hash-distributed-tables"></a>해시 분산 테이블에 대 한 데이터 공동 위치
 
-Azure Database for PostgreSQL – Hyperscale (Citus) 미리 보기에서 배포 열의 값 해시가 분할 된 해시 범위 내에 있는 경우 행은 분할 된에 저장 됩니다. 동일한 해시 범위가 있는 분할는 항상 같은 노드에 배치 됩니다. 분산 열 값이 같은 행은 항상 테이블의 동일한 노드에 있습니다.
+Azure Database for PostgreSQL – Hyperscale (Citus)에서 배포 열의 값 해시가 분할 된 해시 범위 내에 있는 경우 행은 분할 된에 저장 됩니다. 동일한 해시 범위가 있는 분할는 항상 같은 노드에 배치 됩니다. 분산 열 값이 같은 행은 항상 테이블의 동일한 노드에 있습니다.
 
 ![분할](media/concepts-hyperscale-colocation/colocation-shards.png)
 
@@ -68,7 +68,7 @@ GROUP BY page_id;
 
 단일 서버 쿼리는 테 넌 트의 수와 각 테 넌 트에 대해 저장 된 데이터가 증가 함에 따라 속도가 느려집니다. 작업 집합이 메모리의 맞춤을 중지 하 고 CPU가 병목 상태가 됩니다.
 
-이 경우 Citus (Hyperscale)를 사용 하 여 여러 노드 간에 데이터를 분할할 수 있습니다. 분할을 결정할 때 가장 중요 한 첫 번째 선택은 배포 열입니다. 이벤트 테이블 및 `event_id` `page_id` 테이블에대해를사용하여naive선택하는것부터시작해보겠습니다.`page`
+이 경우 Citus (Hyperscale)를 사용 하 여 여러 노드 간에 데이터를 분할할 수 있습니다. 분할을 결정할 때 가장 중요 한 첫 번째 선택은 배포 열입니다. 이벤트 테이블에 대해 `event_id`를 사용 하 고 `page` 테이블에 대해 `page_id` 하는 naive을 선택 합니다.
 
 ```sql
 -- naively use event_id and page_id as distribution columns
@@ -109,7 +109,7 @@ GROUP BY page_id ORDER BY count DESC LIMIT 10;
 
 ### <a name="distribute-tables-by-tenant"></a>테 넌 트 별로 테이블 배포
 
-Citus (Hyperscale)에서 동일한 분포 열 값을 가진 행은 동일한 노드에 있도록 보장 됩니다. 부터 배포 열로를 사용 `tenant_id` 하 여 테이블을 만들 수 있습니다.
+Citus (Hyperscale)에서 동일한 분포 열 값을 가진 행은 동일한 노드에 있도록 보장 됩니다. 부터 배포 열로 `tenant_id`를 사용 하 여 테이블을 만들 수 있습니다.
 
 ```sql
 -- co-locate tables by using a common distribution column

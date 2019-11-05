@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c34f59c3e9f679adf8ae410f648cb7de6dba6447
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: daaced0aae595e839f2b2476562fc5caffb63640
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430045"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473929"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Azure AD 조건부 액세스 채택
 
@@ -43,7 +43,7 @@ Azure AD 조건부 액세스를 사용할 경우의 주요 이점은 다음과 �
 
 Azure AD 조건부 액세스에 대 한 고객 및 파트너 환경에 대해 자세히 알아보려면 [azure에서 사용자가 수행 하는 놀라운 작업을 참조](https://azure.microsoft.com/case-studies/?service=active-directory)하세요.
 
-## <a name="announcements"></a>발표
+## <a name="announcements"></a>알림
 
 Azure AD는 지속적인 향상되고 있습니다. 최신 개발을 최신 상태로 유지 하려면 [Azure Active Directory의 새로운 기능](../fundamentals/whats-new.md) 을 참조 하세요.
 
@@ -104,7 +104,7 @@ Azure AD 조건부 액세스의 작동 방식에 대 한 개요를 보려면 아
 * O'Reilly- [Azure 솔루션-두 번째 버전을 구현 합니다.](https://www.oreilly.com/library/view/implementing-azure-solutions/9781789343045/b7ead3db-eb1c-4ace-897e-86ee25ea86be.xhtml)
    * "Azure 서비스를 시작 및 실행 하 고 조직에서 이러한 서비스를 구현 하는 방법을 알아봅니다. Azure AD 조건부 액세스는 [Azure Active Directory 배포 및 동기화](https://learning.oreilly.com/library/view/implementing-azure-solutions/9781789343045/02ca8bba-08cf-4691-a7d0-1b96e286e7ea.xhtml)장에서 설명 합니다. "
 
-* Wiley [Microsoft Azure 인프라 서비스](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
+* Wiley- [설계자를 위한 인프라 서비스 Microsoft Azure: 클라우드 솔루션 디자인](https://www.wiley.com/Microsoft+Azure+Infrastructure+Services+for+Architects%3A+Designing+Cloud+Solutions-p-9781119596547)
    * "Microsoft Azure를 활용 하는 환경을 이해, 평가, 배포 및 유지 관리 하는 데 필요한 모든 것은 다음과 같습니다."
 
 ## <a name="white-papers"></a>백서

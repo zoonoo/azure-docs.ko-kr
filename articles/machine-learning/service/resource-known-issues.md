@@ -9,35 +9,34 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/09/2019
-ms.custom: seodec18
-ms.openlocfilehash: 5edf4a4f53e6b4255970f86dd942795ad2e4cbe2
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c52adfb919586fc590ef60215592a5b5c1c1cb3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025406"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476127"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
 이 문서는 Azure Machine Learning를 사용할 때 발생 하는 오류 또는 오류를 찾고 수정 하는 데 도움이 됩니다.
 
-## <a name="upcoming-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>AmlCompute에서 NCv3 컴퓨터에 대 한 향후 SR-IOV 업그레이드
+## <a name="outage-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>중단: AmlCompute에서 NCv3 컴퓨터로 SR-IOV 업그레이드
 
-Azure Compute는 모든 MPI 구현 및 버전을 지원 하기 위해 11 월부터 시작 하는 NCv3 Sku와 InfiniBand 장착 가상 컴퓨터에 대 한 RDMA 동사를 업데이트 합니다. 이 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다. [sr-iov 업그레이드에 대해 자세히](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku)알아보세요.
+Azure Compute는 모든 MPI 구현 및 버전을 지원 하 고 InfiniBand 장착 가상 머신에 대 한 RDMA 동사를 지원 하기 위해 11 월 2019 초에 시작 하는 NCv3 Sku를 업데이트 합니다. 이 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다. [sr-iov 업그레이드에 대해 자세히](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku)알아보세요.
 
 Azure Machine Learning의 관리 되는 계산 제공 (AmlCompute)의 고객으로 서 지금은 변경할 필요가 없습니다. [업데이트 일정](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) 에 따라 교육의 짧은 중단을 계획 해야 합니다. 서비스는 클러스터 노드의 VM 이미지를 업데이트 하 고 클러스터를 자동으로 확장 하는 작업을 담당 합니다. 업그레이드가 완료 되 면 더 높은 InfiniBand 대역폭, 짧은 대기 시간 및 향상 된 배포 응용 프로그램 성능을 얻는 것 외에도 다른 모든 MPI discibutions (예: Pytorch에서 OpenMPI)를 사용할 수 있습니다.
 
-## <a name="visual-interface-issues"></a>시각적 인터페이스 문제
+## <a name="azure-machine-learning-designer-issues"></a>Azure Machine Learning 디자이너 문제
 
-Machine learning 서비스 문제에 대 한 시각적 인터페이스입니다.
+디자이너의 알려진 문제입니다.
 
 ### <a name="long-compute-preparation-time"></a>긴 계산 준비 시간
 
 계산 후에 새 계산 또는 하기 호출할 생성 시간이 소요 되 면 몇 분 정도 걸릴 수 있습니다. 팀이 최적화를 위해 작업 중입니다.
 
 
-### <a name="cannot-run-an-experiment-only-contains-dataset"></a>데이터 집합만 포함 된 실험을 실행할 수 없습니다. 
+### <a name="cannot-run-an-experiment-only-contains-a-dataset"></a>데이터 집합만 포함 된 실험을 실행할 수 없습니다. 
 
 데이터 집합을 시각화 하는 데이터 집합만 포함 하는 실험을 실행할 수 있습니다. 그러나 실험을 실행할 수는 없습니다. 현재 데이터 집합만 포함 되어 있습니다. 이 문제를 적극적으로 해결 하 고 있습니다.
  
@@ -77,7 +76,7 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 
 ## <a name="fpgas"></a>FPGA
 
-요청을 하고 FPGA 할당량의 승인을 받을 때까지 FPGA에 모델을 배포할 수 없습니다. 액세스를 요청하려면 할당량 요청 양식 https://aka.ms/aml-real-time-ai 를 작성합니다.
+요청을 하고 FPGA 할당량의 승인을 받을 때까지 FPGA에 모델을 배포할 수 없습니다. 액세스를 요청하려면 할당량 요청 양식 https://aka.ms/aml-real-time-ai를 작성합니다.
 
 ## <a name="automated-machine-learning"></a>자동화된 기계 학습
 
@@ -103,7 +102,7 @@ Databricks 및 Azure Machine Learning 문제.
 
 ### <a name="failure-when-installing-packages"></a>패키지 설치 시 실패
 
-추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예제:
+추가 패키지가 설치 되 면 Azure Databricks에서 Azure Machine Learning SDK 설치가 실패 합니다. `psutil` 같은 일부 패키지가 충돌을 일으킬 수 있습니다. 설치 오류를 방지 하려면 라이브러리 버전을 고정 하 여 패키지를 설치 합니다. 이 문제는 Azure Machine Learning SDK가 아닌 Databricks와 관련이 있습니다. 다른 라이브러리 에서도이 문제가 발생할 수 있습니다. 예:
 
 ```python
 psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
@@ -150,19 +149,20 @@ Azure Databricks 클러스터에서 데이터를 읽을 때 `FailToSendFeather` 
 * `azure-dataprep` 버전 1.1.8 이상을 추가 합니다.
 * `pyarrow` 버전 0.11 이상을 추가 합니다.
 
+
 ## <a name="datasets"></a>데이터 세트
 
 Azure Machine Learning 데이터 집합에 대 한 알려진 문제입니다.
 
 + **Azure Data Lake Storage Gen2 parquet 파일을 읽지 못했습니다.** `azureml-dataprep==1.1.25` 설치 되어 있으면 Azure Data Lake Storage Gen2 데이터 저장소에서 parquet 파일 읽기가 작동 하지 않습니다. `Cannot seek once reading started.`는 실패 합니다. 이 오류가 표시 되 면 `azureml-dataprep<=1.1.24` 설치 하거나 `azureml-dataprep>=1.1.26`를 설치 합니다.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
-SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인하려는 경우 확장에서 구독 정보가 포함된 일반 개요 페이지를 확인할 수 없습니다. 다른 작업 영역으로 전환할 수 없습니다. 다른 작업 영역을 확인해야 하는 경우 해결 방법은 [Azure Portal](https://portal.azure.com)로 직접 이동하여 작업 영역 이름을 검색하는 것입니다.
+SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인하려는 경우 확장에서 구독 정보가 포함된 일반 개요 페이지를 확인할 수 없습니다. 다른 작업 영역으로 전환할 수 없습니다. 다른 작업 영역을 확인 해야 하는 경우 해결 방법은 [Azure Machine Learning studio](https://ml.azure.com) 로 직접 이동 하 여 작업 영역 이름을 검색 하는 것입니다.
 
 ## <a name="diagnostic-logs"></a>진단 로그
 
-도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다. 일부 로그를 보려면 [Azure Portal](https://portal.azure.com) 를 방문 하 고 작업 영역으로 이동한 다음 **작업 영역 > 실험을 선택 하 > > 로그를 실행**합니다.  [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)의 **실험** 섹션에서이 정보를 찾을 수도 있습니다.
+도움말을 요청할 때 진단 정보를 제공할 수 있는 경우에 유용할 수 있습니다. 일부 로그를 보려면 [Azure Machine Learning studio](https://ml.azure.com) 를 방문 하 고 작업 영역으로 이동한 다음 **작업 영역 > 실험을 선택 하 > > 로그를 실행**합니다.  
 
 > [!NOTE]
 > 자동 Ml 또는 교육 작업을 실행 하는 Docker 컨테이너와 같은 학습 중 다양 한 원본에서 정보를 기록 Azure Machine Learning 합니다. 이러한 로그는 대부분 문서화 되어 있지 않습니다. 문제가 발생 하 고 Microsoft 지원에 문의 하는 경우 문제 해결 중에 이러한 로그를 사용할 수 있습니다.
@@ -199,7 +199,7 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
 ## <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes 서비스 실패의 Webservices 
 
-`kubectl`를 사용 하 여 클러스터에 연결 하 여 Azure Kubernetes Service에서 많은 webservice 오류를 디버그할 수 있습니다. 을 실행 하 여 Azure Kubernetes 서비스 클러스터에 대 한 `kubeconfig.json`를 가져올 수 있습니다.
+`kubectl`를 사용 하 여 클러스터에 연결 하 여 Azure Kubernetes Service에서 많은 webservice 오류를 디버그할 수 있습니다. 을 실행 하 여 Azure Kubernetes 서비스 클러스터에 대 한 `kubeconfig.json`을 가져올 수 있습니다.
 
 ```bash
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -233,7 +233,7 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-SSL 인증서와 개인 키가 더 이상 없거나 Azure Machine Learning에 의해 생성 된 인증서를 사용 하는 경우 `kubectl`를 사용 하 여 클러스터에 연결 하 고 비밀 `azuremlfessl`을 검색 하 여 클러스터를 분리 하기 전에 파일을 검색할 수 있습니다.
+SSL 인증서와 개인 키가 더 이상 없거나 Azure Machine Learning에 의해 생성 된 인증서를 사용 하는 경우 `kubectl`을 사용 하 여 클러스터에 연결 하 고 암호 `azuremlfessl`을 검색 하 여 클러스터를 분리 하기 전에 파일을 검색할 수 있습니다.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
@@ -258,7 +258,7 @@ Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경�
 >[참고!] 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
  
  ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (이름이 정의 되지 않음), AttributeError (개체에 특성이 없음)
-이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서 `run.get_details()`를 사용 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 학습 스크립트를 확인 하 고 다시 시도 하기 전에 오류를 수정 하세요. 
+이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서 `run.get_details()`을 사용 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 학습 스크립트를 확인 하 고 다시 시도 하기 전에 오류를 수정 하세요. 
 
 ### <a name="horovod-is-shutdown"></a>Horovod가 종료 되었습니다.
-대부분의 경우이 예외는 horovod를 종료 시킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그를 쉽게 구분할 수 있도록 로그 이름에 `_rank` 접미사가 붙습니다. Horovod shutdown이 발생 한 정확한 오류를 찾으려면 모든 로그 파일을 살펴보고 driver_log 파일의 끝에 있는 `Traceback`를 찾습니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
+대부분의 경우이 예외는 horovod를 종료 시킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그 이름에 `_rank`을 지정 하 여 로그를 쉽게 구분할 수 있습니다. Horovod shutdown이 발생 한 정확한 오류를 찾으려면 모든 로그 파일을 살펴보고 driver_log 파일의 끝에 있는 `Traceback`를 찾습니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 

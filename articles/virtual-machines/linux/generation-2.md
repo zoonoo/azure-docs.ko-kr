@@ -1,5 +1,5 @@
 ---
-title: 2 세대 Vm에 대 한 Azure 지원 (미리 보기) | Microsoft Docs
+title: 2 세대 Vm에 대 한 Azure 지원 | Microsoft Docs
 description: 2 세대 Vm에 대 한 Azure 지원 개요
 services: virtual-machines-linux
 documentationcenter: ''
@@ -11,31 +11,26 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 10/29/2019
+ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: afec40216695ed19cddb4e93b6523cf30251f2e4
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 6d90075f866cb65e5428a1641ebd4cf77dd2a887
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063159"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479574"
 ---
-# <a name="support-for-generation-2-vms-preview-on-azure"></a>Azure에서 2 세대 Vm (미리 보기)에 대 한 지원
+# <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2 세대 Vm에 대 한 지원
 
-> [!IMPORTANT]
-> 2 세대 Vm에 대 한 Azure 지원은 현재 미리 보기 상태입니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
+이제 Azure에서 2 세대 Vm (가상 머신)에 대 한 지원이 제공 됩니다. 가상 컴퓨터를 만든 후에는 가상 컴퓨터의 세대를 변경할 수 없으므로 세대를 선택 하기 전에이 페이지에 대 한 고려 사항을 검토 하세요.
 
-이제 Azure의 미리 보기에서 2 세대 Vm (가상 머신)에 대 한 지원이 제공 됩니다. 가상 컴퓨터를 만든 후에는 가상 컴퓨터의 세대를 변경할 수 없으므로 세대를 선택 하기 전에이 페이지에 대 한 고려 사항을 검토 하세요.
-
-2 세대 Vm은 1 세대 Vm에서 지원 되지 않는 주요 기능을 지원 합니다. 이러한 기능에는 메모리 증가, intel SGX (Software Guard Extensions) 및 vPMEM (가상화 된 영구 메모리)가 포함 됩니다. 또한 2 세대 Vm에는 아직 Azure에서 지원 되지 않는 몇 가지 기능이 있습니다. 자세한 내용은 [기능 및](#features-and-capabilities) 기능 섹션을 참조 하세요.
+2 세대 Vm은 1 세대 Vm에서 지원 되지 않는 주요 기능을 지원 합니다. 이러한 기능에는 메모리 증가, intel SGX (Software Guard Extensions) 및 vPMEM (가상화 된 영구 메모리)가 포함 됩니다. 온-프레미스에서 실행 되는 2 세대 Vm에는 아직 Azure에서 지원 되지 않는 몇 가지 기능이 있습니다. 자세한 내용은 [기능 및](#features-and-capabilities) 기능 섹션을 참조 하세요.
 
 2 세대 Vm은 1 세대 Vm에서 사용 하는 BIOS 기반 아키텍처가 아닌 새로운 UEFI 기반 부팅 아키텍처를 사용 합니다. 1 세대 Vm과 비교할 때 2 세대 Vm은 부팅 및 설치 시간을 향상 시킬 수 있습니다. 2 세대 Vm의 개요와 1 세대와 2 세대 간의 차이점에 대 한 개요는 [hyper-v에서 1 세대 또는 2 세대 가상 머신을 만들어야 하나요?](https://docs.microsoft.com/windows-server/virtualization/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v)를 참조 하세요.
 
 ## <a name="generation-2-vm-sizes"></a>2 세대 VM 크기
 
-1 세대 Vm은 Azure의 모든 VM 크기에서 지원 됩니다. 이제 Azure는 다음과 같은 선택한 VM 시리즈에 대 한 미리 보기 2 세대 지원을 제공 합니다.
+1 세대 Vm은 Azure의 모든 VM 크기에서 지원 됩니다. 이제 Azure는 다음과 같은 선택한 VM 시리즈에 대 한 2 세대 지원을 제공 합니다.
 
 * [B 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
 * [DC 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
@@ -50,7 +45,6 @@ ms.locfileid: "73063159"
 * [NCv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) 및 [NCv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
 * [ND 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
 * [NVv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
-
 
 > [!NOTE]
 > Mv2 시리즈는 2 세대 VM 이미지와 독점적으로 작동 하므로 Mv2 시리즈 Vm에 대 한 2 세대 VM 이미지 사용은 일반적으로 사용할 수 있습니다. 1 세대 VM 이미지는 Mv2 시리즈 Vm에서 지원 되지 않습니다. 
@@ -107,7 +101,7 @@ Azure는 현재 온-프레미스 Hyper-v에서 2 세대 Vm에 대해 지 원하�
 
 Azure Portal 또는 Azure CLI에서는 UEFI 부팅을 지 원하는 Marketplace 이미지에서 2 세대 Vm을 만들 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 Windows 및 SLES에 대 한 2 세대 이미지는 Gen1 이미지와 동일한 서버 제품에 포함 되어 있습니다. 흐름 관점에서 볼 때 VM에 대 한 포털에서 제품 및 SKU를 선택 한다는 것을 의미 합니다. SKU에서 1 세대와 2 세대 이미지를 모두 지 원하는 경우 VM 생성 흐름의 *고급* 탭에서 2 세대 vm을 만들도록 선택할 수 있습니다.
 
@@ -149,13 +143,13 @@ OS로 Windows Server 2012를 사용 하 여 VM을 만드는 경우 1 세대 (BIO
 
 또한 가상 머신 확장 집합을 사용 하 여 2 세대 Vm을 만들 수 있습니다. Azure CLI에서 Azure 확장 집합을 사용 하 여 2 세대 Vm을 만듭니다.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 * **모든 Azure 지역에서 2 세대 Vm을 사용할 수 있나요?**  
     예. 하지만 모든 지역에서 [2 세대 VM 크기](#generation-2-vm-sizes) 를 사용할 수 있는 것은 아닙니다. 2 세대 VM의 가용성은 VM 크기의 가용성에 따라 달라 집니다.
 
 * **1 세대 및 2 세대 Vm 간에 가격 차이가 있나요?**  
-    아닙니다.
+    아니요.
 
 * **온-프레미스 2 세대 VM의 .vhd 파일이 있습니다. 이 .vhd 파일을 사용 하 여 Azure에서 2 세대 VM을 만들 수 있나요?**
   예, 2 세대 .vhd 파일을 Azure로 가져와서이를 사용 하 여 2 세대 VM을 만들 수 있습니다. 이렇게 하려면 다음 단계를 사용 합니다.

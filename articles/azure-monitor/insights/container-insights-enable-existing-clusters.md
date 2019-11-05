@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 09/12/2019
-ms.openlocfilehash: 0ca73d75751259eccd9e952c2d704a09fc081396
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5d68c343fee5807c430ce42777b988a48b9227f8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162278"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478606"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>이미 배포 된 AKS (Azure Kubernetes Service) 클러스터의 모니터링 사용
 
@@ -25,9 +25,9 @@ ms.locfileid: "73162278"
 * [Azure Monitor에서](#enable-from-azure-monitor-in-the-portal) 또는 AZURE PORTAL의 [AKS 클러스터에서 직접](#enable-directly-from-aks-cluster-in-the-portal) 
 * 제공 된 [Azure Resource Manager 템플릿을](#enable-using-an-azure-resource-manager-template) 사용 하 여 Azure PowerShell cmdlet `New-AzResourceGroupDeployment` 또는 Azure CLI를 사용 합니다. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
 
-[Azure portal](https://portal.azure.com)에 로그인합니다. 
+[Azure 포털](https://portal.azure.com)에 로그인합니다. 
 
 ## <a name="enable-using-azure-cli"></a>Azure CLI 사용
 
@@ -91,7 +91,7 @@ provisioningState       : Succeeded
 
 ## <a name="enable-using-terraform"></a>Terraform 사용
 
-1. 기존 [azurerm_kubernetes_cluster 리소스](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile)에 **oms_agent** 추가 프로필을 추가합니다.
+1. 기존 **azurerm_kubernetes_cluster 리소스**에 [oms_agent](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile) 추가 프로필을 추가합니다.
 
    ```
    addon_profile {
@@ -371,4 +371,6 @@ az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 
 * 솔루션을 등록하는 동안 문제가 발생하는 경우 [문제 해결 가이드](container-insights-troubleshoot.md)를 검토하세요.
 
-* 모니터링을 사용하여 AKS 클러스터 노드와 Pod에 관한 상태 메트릭을 캡처하면, Azure Portal에서 해당 상태 메트릭을 사용할 수 있습니다. 컨테이너용 Azure Monitor 사용 방법을 알아보려면 [Azure Kubernetes Service 상태 보기](container-insights-analyze.md)를 참조하세요.
+* 모니터링을 사용 하 여 AKS 클러스터의 상태 및 리소스 사용률을 수집 하 고 해당 작업에서 실행 되는 작업을 수집 합니다. 컨테이너에 Azure Monitor [를 사용 하는 방법을](container-insights-analyze.md) 알아봅니다.
+
+

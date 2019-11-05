@@ -8,24 +8,26 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 894396686a54ed3a685366fcf3e933fa8f03bee8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958554"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474533"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인의 그룹 정책 관리
 
 Azure Active Directory Domain Services (Azure AD DS)의 사용자 및 컴퓨터 개체에 대 한 설정은 Gpo (그룹 정책 개체)를 사용 하 여 관리 되는 경우가 많습니다. Azure AD DS에는 *Aaddc 사용자* 및 *Aaddc 컴퓨터* 컨테이너에 대 한 기본 제공 gpo가 포함 됩니다. 이러한 기본 제공 Gpo를 사용자 지정 하 여 사용자 환경에 필요한 대로 그룹 정책를 구성할 수 있습니다. Azure *AD DC administrators* 그룹의 구성원은 azure AD DS 도메인에서 그룹 정책 관리 권한을 가지 며 사용자 지정 Gpo 및 ou (조직 구성 단위)를 만들 수도 있습니다. 그룹 정책 정의 및 작동 방법에 대 한 자세한 내용은 [그룹 정책 개요][group-policy-overview]를 참조 하세요.
 
+하이브리드 환경에서 온-프레미스 AD DS 환경에 구성 된 그룹 정책은 Azure AD DS와 동기화 되지 않습니다. Azure AD DS에서 사용자 또는 컴퓨터에 대 한 구성 설정을 정의 하려면 기본 Gpo 중 하나를 편집 하거나 사용자 지정 GPO를 만듭니다.
+
 이 문서에서는 그룹 정책 관리 도구를 설치한 다음 기본 제공 Gpo를 편집 하 고 사용자 지정 Gpo를 만드는 방법을 보여 줍니다.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서를 완료 하려면 다음 리소스와 권한이 필요 합니다.
 
@@ -48,8 +50,8 @@ Azure Active Directory Domain Services (Azure AD DS)의 사용자 및 컴퓨터 
 
 1. 관리 VM에 로그인 합니다. Azure Portal를 사용 하 여 연결 하는 방법에 대 한 단계는 [Windows SERVER VM에 연결][connect-windows-server-vm]을 참조 하세요.
 1. VM에 로그인하면 **서버 관리자**가 기본적으로 열립니다. 그렇지 않은 경우 **시작** 메뉴에서 **서버 관리자**를 선택합니다.
-1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택합니다.
-1. *역할 및 기능 추가 마법사*의 **시작하기 전에** 페이지에서 **다음**을 선택합니다.
+1. *서버 관리자* 창의 **대시보드** 창에서 **역할 및 기능 추가**를 선택합니다.
+1. **역할 및 기능 추가 마법사**의 *시작하기 전에* 페이지에서 **다음**을 선택합니다.
 1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
 1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.contoso.com*), **다음**을 차례로 선택합니다.
 1. **서버 역할** 페이지에서 **다음**을 클릭합니다.

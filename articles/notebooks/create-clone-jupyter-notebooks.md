@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: 13615d319af600234dcc23e04f82ce46b8f97780
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 3e0c49d1141d976558ece325baaa99fc9981275e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970083"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496716"
 ---
 # <a name="create-and-clone-projects"></a>프로젝트 만들기 및 복제
 
@@ -27,7 +27,7 @@ Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 �
 
 ## <a name="use-the-my-projects-dashboard"></a>[내 프로젝트] 대시보드 사용
 
-`https://notebooks.azure.com/<userID>/projects`의 **내 프로젝트** 대시보드에서 프로젝트를 보고, 관리하고, 만들 수 있습니다.
+**의** 내 프로젝트`https://notebooks.azure.com/<userID>/projects` 대시보드에서 프로젝트를 보고, 관리하고, 만들 수 있습니다.
 
 [![Azure Notebooks의 내 프로젝트 대시보드](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
@@ -35,10 +35,10 @@ Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 �
 
 | 명령 | 제공 대상 | 설명 |
 | --- | --- | --- |
-| **실행** | 소유자 | 프로젝트 서버를 시작하고 Jupyter에서 프로젝트 폴더를 엽니다. (대부분은 프로젝트 폴더로 이동한 후 거기서 Notebook을 시작합니다.) |
+| **RoleEntryPoint** | 소유자 | 프로젝트 서버를 시작하고 Jupyter에서 프로젝트 폴더를 엽니다. (대부분은 프로젝트 폴더로 이동한 후 거기서 Notebook을 시작합니다.) |
 | **다운로드** | 모든 사람 | 선택한 프로젝트의 복사본을 ZIP 파일로 다운로드합니다. |
 | **공유** | 모든 사람 | 선택한 프로젝트의 URL을 가져오고, 소셜 미디어에 공유하고, URL이 포함된 이메일을 보내고, URL을 사용하여 "Notebook 시작" 배지([시작 배지 얻기](#obtain-a-launch-badge) 참조)가 있는 HTML 또는 Markdown 코드를 모두 얻을 수 있는 공유 팝업을 표시합니다. |
-| **Delete** | 소유자 | 선택한 프로젝트를 삭제합니다. 이 작업은 취소할 수 없습니다. |
+| **삭제** | 소유자 | 선택한 프로젝트를 삭제합니다. 이 작업은 취소할 수 없습니다. |
 | **터미널** | 소유자 | 프로젝트 서버를 시작한 다음, 해당 서버에 대한 bash 터미널을 사용하여 새 브라우저 창을 엽니다. |
 | **+ 새 프로젝트** | 소유자 | 새 프로젝트를 만듭니다. [새 프로젝트 만들기](#create-a-new-project)를 참조하세요. |
 | **GitHub 리포지토리 업로드** | 소유자 | GitHub에서 프로젝트를 가져옵니다. [GitHub에서 프로젝트를 가져옵니다](#import-a-project-from-github). |
@@ -68,7 +68,7 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 | --- | --- |
 | 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. 예를 들어 "내 전자 필기장 프로젝트"입니다. |
 | 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다(형식은 `https://notebooks.azure.com/<user_id>/projects/<project_id>`). 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있으며, 30 자로 제한 되며, [예약 된 프로젝트 id](#reserved-project-ids)가 될 수 없습니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
-| Public | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 프라이빗 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
+| 공용 | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 프라이빗 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
 | README를 사용하여 이 프로젝트를 초기화 | 이 옵션을 설정하면 프로젝트에 기본 *README.md* 파일이 생성됩니다. 원한다면 *README.md* 파일에 프로젝트에 대한 설명서를 제공할 수 있습니다. |
 
 ### <a name="reserved-project-ids"></a>예약 된 프로젝트 Id
@@ -78,10 +78,10 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 | | | | | | |
 | --- | --- | --- | --- | --- | --- |
 | about | 계정 | 관리 | api | 치거나 | 단체 |
-| 콘텐츠 | 대시보드 | 탐험 | 자주 묻는 질문(FAQ) | 도움말 | html |
-| home | 가져오기 | 도서관 | 관리 | 신규 | 필기장이 |
-| 전자 | pdf | 미리 보기 | pricing | profiles | 검색 |
-| 상태 | 지원 | 테스트 | | | |
+| 콘텐츠 | dashboard | 탐험 | 자주 묻는 질문(FAQ) | help | html |
+| home | 수입 | 도서관 | 관리 | 신규 | 필기장이 |
+| 전자 | pdf | 미리 보기 | 가격 책정 | 프로필 | 검색 |
+| status | support | test | | | |
 
 이러한 단어 중 하나를 프로젝트 ID로 사용 하려는 경우 **새 프로젝트** 및 **프로젝트 설정** 만들기 팝업은 "라이브러리 ID는 예약 된 식별자입니다."를 표시 합니다.
 
@@ -97,7 +97,7 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 | 재귀적으로 복제 | GitHub 리포지토리는 여러 자식 리포지토리를 포함할 수 있습니다. 부모 리포지토리와 자식을 모두 복제하려면 이 옵션을 설정합니다. 한 리포지토리가 여러 자식을 가질 수 있으므로 꼭 필요한 경우 외에는 이 옵션을 선택하지 마세요. |
 | 프로젝트 이름 | Azure Notebooks에서 표시용으로 사용하는 프로젝트의 식별 이름입니다. |
 | 프로젝트 ID | 프로젝트를 공유하기 위해 사용하는 URL의 일부가 되는 사용자 지정 식별자입니다(형식은 `https://notebooks.azure.com/<user_id>/projects/<project_id>`). 이 ID는 문자, 숫자 및 하이픈만 사용할 수 있으며, 30 자로 제한 되며, [예약 된 프로젝트 id](#reserved-project-ids)가 될 수 없습니다. 무엇을 사용해야 할지 잘 모르겠으면 일반적인 규칙에 따라 프로젝트 이름의 소문자 버전을 사용하세요. 이때 공백은 "my-notebook-project"처럼 하이픈으로 바뀝니다(길이 제한 때문에 잘릴 수 있음). |
-| Public | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 프라이빗 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
+| 공용 | 이 옵션을 설정하면 링크가 있는 사람은 누구든지 프로젝트에 액세스할 수 있습니다. 프라이빗 프로젝트를 만들려면 이 옵션의 선택을 취소합니다. |
 
 GitHub에서 리포지토리를 가져오면 해당 기록도 함께 가져옵니다. 터미널에서 표준 Git 명령을 사용하여 새로운 변경 내용을 커밋하고, GitHub에서 변경 내용을 끌어오는 등의 작업을 할 수 있습니다.
 
@@ -121,8 +121,8 @@ GitHub에서 리포지토리를 가져오면 해당 기록도 함께 가져옵�
 
 - [샘플 Notebook 살펴보기](azure-notebooks-samples.md)
 - [방법: 프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
-- [방법: Notebook에서 패키지 설치](install-packages-jupyter-notebook.md)
-- [방법: 슬라이드 쇼 제공](present-jupyter-notebooks-slideshow.md)
+- [방법: 노트북 내에서 패키지 설치](install-packages-jupyter-notebook.md)
+- [방법: 슬라이드 쇼 표시](present-jupyter-notebooks-slideshow.md)
 - [방법: 데이터 파일 작업](work-with-project-data-files.md)
-- [방법: 데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)
-- [방법: Azure Machine Learning Services 사용](use-machine-learning-services-jupyter-notebooks.md)
+- [방법: 데이터 리소스 액세스](access-data-resources-jupyter-notebooks.md)
+- [방법: Azure Machine Learning 사용](use-machine-learning-services-jupyter-notebooks.md)

@@ -7,12 +7,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: d50bb18d15bcad72eed3a97088b61c623e6208fe
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0f71a8af2f7d2cfbfe43c0cfcc84cc7c08109c32
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71199982"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493705"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>참조: CentOS (Linux) Data Science Virtual Machine
 
@@ -57,7 +57,7 @@ R은 가장 많이 사용되는 데이터 분석 및 Machine Learning 언어 중
 
 Machine Learning Server를 사용하여 R 모델을 웹 서비스로 확장하고 운영할 수 있습니다. RStudio, vi 또는 Emacs 등의 기본 편집기 중 하나에서 R 프로그램을 편집할 수 있습니다. Emacs 편집기는 DSVM에 미리 설치되어 있습니다. Emacs ESS(Emacs Speaks Statistics) 패키지는 Emacs 편집기에서 R 파일 작업을 간소화합니다.
 
-R 콘솔을 열려면 셸에서 **R**을 입력합니다. 이 명령을 사용하면 대화형 환경으로 이동합니다. R 프로그램을 개발하려면 일반적으로 Emacs 또는 vi와 같은 편집기를 사용한 다음, R에서 스크립트를 실행합니다. RStudio는 R 프로그램을 개발할 수 있는 완벽한 그래픽 IDE를 제공합니다.
+R 콘솔을 열려면 셸에서 **r**을 입력 합니다. 이 명령은 대화형 환경으로 이동 합니다. R 프로그램을 개발하려면 일반적으로 Emacs 또는 vi와 같은 편집기를 사용한 다음, R에서 스크립트를 실행합니다. RStudio는 R 프로그램을 개발할 수 있는 완벽한 그래픽 IDE를 제공합니다.
 
 [상위 20개 R 패키지](https://www.kdnuggets.com/2015/06/top-20-r-packages.html)를 설치하는 데 사용할 수 있는 R 스크립트는 DSVM에 포함되어 있습니다. R 대화형 인터페이스에 있으면 이 스크립트를 실행할 수 있습니다. 앞에서 설명한 대로 해당 인터페이스를 열려면 셸에서 **R**을 입력합니다.  
 
@@ -186,11 +186,11 @@ SQuirrel SQL을 처음 사용하기 전에 드라이버 및 데이터베이스 �
 
 SQL Server용 ODBC 드라이버 패키지에서는 다음의 두 가지 명령줄 도구도 제공됩니다.
 
-* **bcp**: bcp 도구는 SQL Server 인스턴스와 사용자 지정 형식의 데이터 파일 간에 데이터를 대량 복사합니다. bcp 도구를 사용하여 많은 수의 새 행을 SQL Server 테이블로 가져오거나 데이터를 테이블에서 데이터 파일로 내보낼 수 있습니다. 데이터를 테이블로 가져오려면 해당 테이블에 대해 만든 서식 파일을 사용해야 합니다. 또는 테이블의 구조와 해당 열에 유효한 데이터 형식을 이해해야 합니다.
+* **bcp**: bcp 도구는 SQL Server 인스턴스와 사용자가 지정한 형식의 데이터 파일 간에 데이터를 대량 복사 합니다. bcp 도구를 사용하여 많은 수의 새 행을 SQL Server 테이블로 가져오거나 데이터를 테이블에서 데이터 파일로 내보낼 수 있습니다. 데이터를 테이블로 가져오려면 해당 테이블에 대해 만든 서식 파일을 사용해야 합니다. 또는 테이블의 구조와 해당 열에 유효한 데이터 형식을 이해해야 합니다.
 
   자세한 내용은 [bcp를 사용하여 연결](https://msdn.microsoft.com/library/hh568446.aspx)을 참조하세요.
 
-* **sqlcmd**: sqlcmd 유틸리티를 사용하여 명령 프롬프트에서 Transact-SQL 문, 시스템 프로시저 및 스크립트 파일을 입력할 수 있습니다. sqlcmd 유틸리티는 ODBC를 사용하여 Transact-SQL 일괄 처리를 실행합니다.
+* **sqlcmd**: sqlcmd 유틸리티를 사용 하 여 명령 프롬프트에서 transact-sql 문, 시스템 프로시저 및 스크립트 파일을 입력할 수 있습니다. sqlcmd 유틸리티는 ODBC를 사용하여 Transact-SQL 일괄 처리를 실행합니다.
 
   자세한 내용은 [sqlcmd를 사용하여 연결](https://msdn.microsoft.com/library/hh568447.aspx)을 참조하세요.
 
@@ -208,21 +208,21 @@ SQL Server용 ODBC 드라이버 패키지에서는 다음의 두 가지 명령�
 
 DSVM에 설치되는 Azure 도구는 다음과 같습니다.
 
-* **Azure CLI**: Azure에서 명령줄 인터페이스를 사용하여 셸 명령을 통해 Azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 열려면 **azure help**를 입력합니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
-* **Azure Storage Explorer**: Azure Storage Explorer는 Azure 스토리지 계정에 저장한 개체를 검색하고 Azure Blob 간에 데이터를 업로드 및 다운로드하는 데 사용할 수 있는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. 셸 프롬프트에서 **StorageExplorer**를 입력하여 열 수도 있습니다. X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
-* **Azure 라이브러리**: DSVM에 미리 설치되는 라이브러리는 다음과 같습니다.
+* **Azure CLI**: azure에서 명령줄 인터페이스를 사용 하 여 셸 명령을 통해 azure 리소스를 만들고 관리할 수 있습니다. Azure 도구를 열려면 **azure help**를 입력합니다. 자세한 내용은 [Azure CLI 설명서 페이지](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)를 참조하세요.
+* **Azure Storage 탐색기**: Azure Storage 탐색기는 azure Storage 계정에 저장 된 개체를 검색 하 고 azure blob 간에 데이터를 업로드 및 다운로드 하는 데 사용할 수 있는 그래픽 도구입니다. 바탕 화면 바로 가기 아이콘을 사용하여 Storage Explorer에 액세스할 수 있습니다. 셸 프롬프트에서 **StorageExplorer**를 입력하여 열 수도 있습니다. X2Go 클라이언트에서 로그인하거나 X11 전달을 설정해야 합니다.
+* **Azure 라이브러리**: 다음 라이브러리는 dsvm에 미리 설치 되어 있습니다.
   
-  * **Python**: Python의 Azure 관련 라이브러리는 *azure*, *azureml*, *pydocumentdb* 및 *pyodbc*입니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
-  * **R**: R의 Azure 관련 라이브러리는 AzureML 및 RODBC입니다.
-  * **Java**: Azure Java 라이브러리 목록은 DSVM의 /dsvm/sdk/AzureSDKJava 디렉터리에서 찾을 수 있습니다. 핵심 라이브러리는 Azure Storage 및 관리 API, Azure Cosmos DB, SQL Server용 JDBC 드라이버입니다.  
+  * **Python**: Python의 azure 관련 라이브러리는 *azure*, *azureml*, *pydocumentdb*및 *pyodbc*입니다. 처음 세 개의 라이브러리를 사용하면 Azure Storage 서비스, Azure Machine Learning 및 Azure Cosmos DB(Azure의 NoSQL 데이터베이스)에 액세스할 수 있습니다. 네 번째 라이브러리인 pyodbc를 SQL Serve용 Microsoft ODBC 드라이버와 함께 사용하면 ODBC 인터페이스를 사용하여 Python에서 SQL Server, Azure SQL Database 및 Azure SQL Data Warehouse에 액세스할 수 있습니다. **pip list** 를 입력하면 나열된 라이브러리를 모두 확인할 수 있습니다. Python 2.7 및 3.5 환경 모두에서 이 명령을 실행해야 합니다.
+  * **R**: r의 Azure 관련 라이브러리는 AZUREML 및 RODBC입니다.
+  * **Java**: dsvm의/dsvm/sdk/AzureSDKJava 디렉터리에서 Azure Java 라이브러리 목록을 찾을 수 있습니다. 핵심 라이브러리는 Azure Storage 및 관리 API, Azure Cosmos DB, SQL Server용 JDBC 드라이버입니다.  
 
 미리 설치된 Firefox 브라우저에서 [Azure Portal](https://portal.azure.com)에 액세스할 수 있습니다. Azure Portal에서 Azure 리소스를 만들고, 관리하고, 모니터링할 수 있습니다.
 
 ## <a name="azure-machine-learning"></a>Azure Machine Learning
 
-Azure Machine Learning은 예측 분석 솔루션을 빌드, 배포 및 공유하는 데 사용할 수 있는 완전 관리형 클라우드 서비스입니다. Azure Machine Learning Studio에서 실험 및 모델을 빌드합니다. DSVM의 웹 브라우저에서 Azure Machine Learning에 액세스하려면 [Microsoft Azure Machine Learning](https://studio.azureml.net)으로 이동합니다.
+Azure Machine Learning은 예측 분석 솔루션을 빌드, 배포 및 공유하는 데 사용할 수 있는 완전 관리형 클라우드 서비스입니다. Azure Machine Learning Studio (클래식)에서 실험 및 모델을 빌드합니다. DSVM의 웹 브라우저에서 Azure Machine Learning에 액세스 하려면 [Microsoft Azure Machine Learning](https://studio.azureml.net)로 이동 합니다.
 
-Azure Machine Learning Studio에 로그인하면 실험 캔버스를 사용하여 기계 학습 알고리즘에 대한 논리적 흐름을 작성할 수 있습니다. 또한 Azure Machine Learning에서 호스팅되는 Jupyter Notebook에도 액세스할 수 있습니다. 이 Notebook은 Machine Learning Studio의 실험에서 원활하게 작동할 수 있습니다. 
+Azure Machine Learning Studio (클래식)에 로그인 한 후 실험 캔버스를 사용 하 여 기계 학습 알고리즘에 대 한 논리적 흐름을 만들 수 있습니다. 또한 Azure Machine Learning에서 호스팅되는 Jupyter Notebook에도 액세스할 수 있습니다. 노트북은 Azure Machine Learning Studio (클래식)의 실험을 통해 원활 하 게 작동할 수 있습니다. 
 
 웹 서비스 인터페이스에서 래핑하여 빌드한 기계 학습 모델을 운영합니다. 기계 학습 모델을 운용하면 모든 언어로 작성된 클라이언트가 해당 모델에서 예측을 호출할 수 있습니다. 자세한 내용은 [Machine Learning 설명서](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
@@ -235,13 +235,13 @@ R 및 Python의 모델을 Azure Machine Learning에 배포하는 방법에 대�
 
 ## <a name="machine-learning-tools"></a>기계 학습 도구
 
-DSVM에는 로컬로 미리 컴파일되고 미리 설치된 몇 가지 기계 학습 도구 및 알고리즘이 제공됩니다. 이러한 개체는 다음과 같습니다.
+DSVM에는 로컬로 미리 컴파일되고 미리 설치된 몇 가지 기계 학습 도구 및 알고리즘이 제공됩니다. 내용은 다음과 같습니다.
 
-* **Microsoft Cognitive Toolkit**: 딥러닝 도구 키트
-* **Vowpal Wabbit**: 속성 온라인 학습 알고리즘
-* **XGBoost**: 최적화되고 향상된 트리 알고리즘을 제공하는 도구
+* **Microsoft Cognitive Toolkit**: 심층 학습 도구 키트입니다.
+* **Vowpal Wabbit**: 속성 온라인 학습 알고리즘입니다.
+* **Xgboost**: 최적화 되 고 향상 된 트리 알고리즘을 제공 하는 도구입니다.
 * **Python**: Anaconda Python에서는 Scikit-learn 등의 라이브러리가 포함된 기계 학습 알고리즘이 번들로 제공됩니다. `pip install` 하여 다른 라이브러리를 설치할 수 있습니다.
-* **R**: R에서는 다양한 기계 학습 기능 라이브러리를 사용할 수 있습니다. 미리 설치된 라이브러리에는 lm, glm, randomForest 및 rpart가 포함됩니다. 다른 라이브러리는 `install.packages(<lib name>)`를 실행하여 설치할 수 있습니다.
+* **R**: r에 대해 다양 한 기계 학습 기능 라이브러리를 사용할 수 있습니다. 미리 설치 된 라이브러리에는 lm, 고, randomForest 및 rpart가 포함 됩니다. 다른 라이브러리는 `install.packages(<lib name>)`를 실행하여 설치할 수 있습니다.
 
 Microsoft Cognitive Toolkit, Vowpal Wabbit 및 XGBoost에 대해서는 다음 섹션에서 자세히 설명합니다.
 
@@ -337,7 +337,7 @@ rattle()
 1. **포리스트** 옵션을 선택한 다음, **실행**을 선택하여 임의 포리스트를 작성합니다.
 1. **평가** 탭을 선택합니다.
 1. **위험** 옵션을 선택한 다음, **실행**을 선택하여 두 개의 **위험(누적)** 성능 도표를 표시합니다.
-1. **로그** 탭을 선택하여 이전 작업에서 생성된 R 코드를 표시합니다. (현재 Rattle 릴리스의 버그로 인해 로그 텍스트의 **Export this log**(이 로그 내보내기) 앞에 **#** 문자를 삽입해야 합니다.)
+1. **로그** 탭을 선택하여 이전 작업에서 생성된 R 코드를 표시합니다. (현재 Rattle 릴리스의 버그로 인해 로그 텍스트의 **Export this log#(이 로그 내보내기) 앞에**  문자를 삽입해야 합니다.)
 1. **내보내기** 단추를 선택하여 *weather_script.R*이라는 R 스크립트 파일을 홈 폴더에 저장합니다.
 
 Rattle 및 R을 종료할 수 있습니다. 이제 생성된 R 스크립트를 수정할 수 있습니다. 또는 스크립트를 있는 그대로 사용하고, 언제든지 이를 실행하여 Rattle UI에서 수행된 모든 작업을 반복합니다. 특히 이는 R 초보자를 위해 간단한 그래픽 인터페이스에서 분석 및 기계 학습을 빠르게 수행하는 동시에 R에서 코드를 자동으로 생성하여 수정하거나 학습할 수 있는 방법입니다.

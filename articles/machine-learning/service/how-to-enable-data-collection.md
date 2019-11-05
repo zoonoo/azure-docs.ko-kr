@@ -6,19 +6,20 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
-ms.author: marthalc
-author: marthalc
+ms.reviewer: laobri
+ms.author: copeters
+author: lostmygithubaccount
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25017e6ea0be5d4320832298cdadbec7ec5a05cc
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 845d271c60762177ea88912f2100f3b47aedde46
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929376"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489989"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
 > 이 SDK는 곧 사용이 중지 됩니다. 이 SDK는 모델에서 데이터 드리프트를 모니터링 하는 개발자에 게 적합 하지만 대부분의 개발자는 [Application Insights로 간소화 된 데이터 모니터링](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)을 사용 해야 합니다. 
@@ -54,11 +55,11 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 >[!Note]
 > `0.1.0a16` 하기 전의 SDK 버전에서 `designation` 인수의 이름은 `identifier`입니다. 코드가 이전 버전으로 개발 된 경우 적절 하 게 업데이트 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-- Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 조건을 가져오는 방법을 알아봅니다.
+- Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아보세요.
 
 - AKS(Azure Kubernetes Service)에 배포할 학습된 Machine Learning 모델. 이러한 모델이 없으면 [이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.
 
@@ -115,7 +116,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 되는 모델에 �
 
 **환경 파일** 및 **점수 매기기 파일**의 종속성이 설치된 서비스가 이미 있으면 다음 단계를 수행하여 데이터 수집을 사용하도록 설정합니다.
 
-1. [Azure Portal](https://portal.azure.com)로 이동 합니다.
+1. [Azure Machine Learning studio](https://ml.azure.com)로 이동 합니다.
 
 1. 작업 영역을 엽니다.
 
@@ -133,10 +134,10 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 되는 모델에 �
 
 
 ## <a name="disable-data-collection"></a>데이터 수집 비활성화
-데이터 수집은 언제든지 중지할 수 있습니다. 데이터 수집을 사용하지 않도록 설정하려면 Python 코드 또는 Azure Portal을 사용합니다.
+데이터 수집은 언제든지 중지할 수 있습니다. Python 코드 또는 Azure Machine Learning studio를 사용 하 여 데이터 수집을 사용 하지 않도록 설정 합니다.
 
-+ 옵션 1 - Azure Portal에서 데이터 수집을 사용하지 않도록 설정 
-  1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
++ 옵션 1-Azure Machine Learning studio에서 사용 안 함: 
+  1. [Azure Machine Learning studio](https://ml.azure.com)에 로그인 합니다.
 
   1. 작업 영역을 엽니다.
 
@@ -150,7 +151,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 되는 모델에 �
 
   1. **업데이트**를 선택하여 변경 내용을 적용합니다.
 
-  [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 이러한 설정에 액세스할 수도 있습니다.
+  [Azure Machine Learning studio](https://ml.azure.com)의 작업 영역에서 이러한 설정에 액세스할 수도 있습니다.
 
 + 옵션 2 - Python을 사용하여 데이터 수집을 사용하지 않도록 설정
 
@@ -160,10 +161,10 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 되는 모델에 �
   ```
 
 ## <a name="validate-your-data-and-analyze-it"></a>데이터 유효성 검사 및 분석
-선호하는 도구를 선택하여 Azure Blob에 수집된 데이터를 분석할 수 있습니다. 
+선호하는 도구를 선택하여 Azure Blob에 수집된 데이터를 분석할 수 있습니다.
 
 Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Machine Learning studio](https://ml.azure.com)에 로그인 합니다.
 
 1. 작업 영역을 엽니다.
 1. **Storage**를 클릭합니다.

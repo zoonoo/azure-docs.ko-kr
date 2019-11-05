@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: aschhab
-ms.openlocfilehash: f32a67dc6d3b3f869afaa532403c05b218588552
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7d31dd004c879fd3e689f4ba7a8ae58cb223ae70
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786373"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484927"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-service-bus"></a>Azure Service Bus에서 Virtual Network 서비스 엔드포인트 사용
 
@@ -36,11 +36,10 @@ Service Bus와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 �
 > - Azure Event Grid와 통합
 > - Azure IoT Hub 경로
 > - Azure IoT Device Explorer
-> - Azure Data Explorer
 >
 > 아래 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
 > - Azure App Service
-> - Azure Function
+> - Azure 기능
 
 > [!IMPORTANT]
 > Virtual Network는 [프리미엄 계층](service-bus-premium-messaging.md) Service Bus 네임스페이스에서만 지원됩니다.
@@ -78,7 +77,7 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
 > 가능한 거부 규칙은 없지만 Azure Resource Manager 템플릿은 기본 작업이 **"허용"** 으로 설정되며 연결을 제한하지 않습니다.
 > Virtual Network 또는 방화벽 규칙을 만들 때 ***"defaultAction"*** 을 변경해야 합니다.
 > 
-> from
+> 원본
 > ```json
 > "defaultAction": "Allow"
 > ```

@@ -3,21 +3,20 @@ title: 코드를 사용 하 여 C# Azure Time Series Insights GA 환경에서 �
 description: 이 문서에서는 C#(c-sharp) .NET 언어로 작성된 사용자 지정 앱을 코딩하여 Azure Time Series Insights 환경에서 데이터를 쿼리하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5928a8ee048b608d691ecea33d186838ec743e4b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 23e4ad5667019b5bc38f9ba11d14632d4d55d5b7
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981133"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989973"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>를 사용 하 여 Azure Time Series Insights GA 환경에서 데이터 쿼리C#
 
@@ -35,7 +34,7 @@ ms.locfileid: "71981133"
 
 ## <a name="project-dependencies"></a>프로젝트 종속성
 
-NuGet 패키지 `Microsoft.IdentityModel.Clients.ActiveDirectory` 및 `Newtonsoft.Json`을 추가 합니다.
+NuGet 패키지 `Microsoft.IdentityModel.Clients.ActiveDirectory` 및 `Newtonsoft.Json`를 추가 합니다.
 
 ## <a name="c-example"></a>C# 예제
 

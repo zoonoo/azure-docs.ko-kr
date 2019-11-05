@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 0005d679819f7516e1ded6294030cd42813e085f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 9e9aa3fc7c0ff76f6b93a8acc67681d1ed7cf4ad
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677525"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491225"
 ---
 # <a name="percentage-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 Percentage 미리 빌드된 엔터티
 Percentage 수치는 분수, `3 1/2` 또는 백분율, `2%`로 표시될 수 있습니다. 이 엔터티를 이미 학습했기 때문에 percentage를 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. Percentage 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다. 
@@ -26,95 +26,63 @@ Percentage는 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/b
 
 ## <a name="resolution-for-prebuilt-percentage-entity"></a>미리 빌드된 Percentage 엔터티의 해결
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+쿼리에 대해 반환 되는 엔터티 개체는 다음과 같습니다.
+
+`set a trigger when my stock goes up 2%`
+
+#### <a name="v3-responsetabv3"></a>[V3 응답](#tab/V3)
+
+다음 JSON은 `false`로 설정 된 `verbose` 매개 변수를 사용 합니다.
+
+```json
+"entities": {
+    "percentage": [
+        2
+    ]
+}
+```
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
+다음 JSON은 `true`로 설정 된 `verbose` 매개 변수를 사용 합니다.
+
+```json
+"entities": {
+    "percentage": [
+        2
+    ],
+    "$instance": {
+        "percentage": [
+            {
+                "type": "builtin.percentage",
+                "text": "2%",
+                "startIndex": 36,
+                "length": 2,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+#### <a name="v2-responsetabv2"></a>[V2 응답](#tab/V2)
 
 다음 예제에서는 **builtin.percentage** 엔터티의 해결을 보여 줍니다.
 
 ```json
-{
-  "query": "set a trigger when my stock goes up 2%",
-  "topScoringIntent": {
-    "intent": "SetTrigger",
-    "score": 0.971157849
-  },
-  "intents": [
+"entities": [
     {
-      "intent": "SetTrigger",
-      "score": 0.971157849
-    }
-  ],
-  "entities": [
-    {
-      "entity": "2%",
-      "type": "builtin.percentage",
-      "startIndex": 36,
-      "endIndex": 37,
-      "resolution": {
+        "entity": "2%",
+        "type": "builtin.percentage",
+        "startIndex": 36,
+        "endIndex": 37,
+        "resolution": {
         "value": "2%"
-      }
-    }
-  ]
-}
-```
-
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
-
-다음 JSON은 `verbose` 매개 변수를 `false`로 설정 합니다.
-
-```json
-{
-    "query": "set a trigger when my stock goes up 2%",
-    "prediction": {
-        "normalizedQuery": "set a trigger when my stock goes up 2%",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.541765451
-            }
-        },
-        "entities": {
-            "percentage": [
-                2
-            ]
         }
     }
-}
+]
 ```
-
-다음 JSON은 `verbose` 매개 변수를 `true`로 설정 합니다.
-
-```json
-{
-    "query": "set a trigger when my stock goes up 2%",
-    "prediction": {
-        "normalizedQuery": "set a trigger when my stock goes up 2%",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.541765451
-            }
-        },
-        "entities": {
-            "percentage": [
-                2
-            ],
-            "$instance": {
-                "percentage": [
-                    {
-                        "type": "builtin.percentage",
-                        "text": "2%",
-                        "startIndex": 36,
-                        "length": 2,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
 * * * 
 
 ## <a name="next-steps"></a>다음 단계

@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 52eeedf4651cee012569034ae635a4736b3f3335
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ba2288fa4add6df6b7861b5f8a99bcd3ee8b4c12
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135529"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472199"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
 
@@ -25,7 +25,7 @@ Azure API Management 서비스 인스턴스를 만들면 Azure에서 azure-api.n
 > [!WARNING]
 > 인증서 고정을 사용하여 애플리케이션의 보안을 개선하고자 하는 고객은 사용자 지정 도메인 이름 및 관리하는 인증서(기본 인증서 아님)를 사용해야 합니다. 대신 기본 인증서를 고정하는 고객은 자신이 제어하지 않는 인증서의 속성에 대한 강한 종속성을 가지게 되므로 해당 방법은 권장하지 않습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -59,11 +59,11 @@ Azure API Management 서비스 인스턴스를 만들면 Azure에서 azure-api.n
 1. 업데이트하려는 엔드포인트를 선택합니다.
 1. 오른쪽 창에서 **사용자 지정**을 클릭합니다.
 
-    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. `api.contoso.com` )을 입력합니다.
+    - **사용자 지정 도메인 이름**에서 사용하려는 이름을 지정합니다. 예: `api.contoso.com`
     - **인증서**의 Key Vault에서 인증서를 선택 합니다. 유효한를 업로드할 수도 있습니다. 인증서가 암호로 보호 되는 경우 PFX 파일 및 **암호**를 제공 합니다.
 
     > [!NOTE]
-    > 와일드 카드 도메인 이름 (예 `*.contoso.com` :)은 소비 계층을 제외한 모든 계층에서 지원 됩니다.
+    > 와일드 카드 도메인 이름 (예: `*.contoso.com`는 소비 계층을 제외한 모든 계층에서 지원 됩니다.
 
     > [!TIP]
     > Azure Key Vault를 사용 하 여 인증서를 관리 하 고이를 autorotate로 설정 하는 것이 좋습니다.
@@ -88,7 +88,7 @@ Azure API Management 서비스 인스턴스를 만들면 Azure에서 azure-api.n
 -   API Management 게이트웨이 IP 주소를 가리키는 A 레코드를 구성 합니다.
 
 > [!NOTE]
-> API 관리 인스턴스 IP 주소는 정적 이지만 몇 가지 시나리오에서 변경 될 수 있습니다. 따라서 사용자 지정 도메인을 구성 하는 경우 CNAME을 사용 하는 것이 좋습니다. DNS 구성 방법을 선택할 때 고려해 야 합니다. [API MANANAGEMENT FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)를 참조 하세요.
+> API 관리 인스턴스 IP 주소는 정적 이지만 몇 가지 시나리오에서 변경 될 수 있습니다. 따라서 사용자 지정 도메인을 구성 하는 경우 CNAME을 사용 하는 것이 좋습니다. DNS 구성 방법을 선택할 때 고려해 야 합니다. 자세한 내용은 [API MANAGEMENT FAQ](api-management-faq.md#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

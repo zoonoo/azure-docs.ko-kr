@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: f260e019ffa6eb89e8a2c1e17d2bf239e74290c2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 798c368edb4a738124fce965f8990e6805fbdeba
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900120"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472602"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 고급 스케줄러 기능 모범 사례
 
@@ -31,7 +31,7 @@ AKS(Azure Kubernetes Service)에서 클러스터를 관리할 경우 종종 팀 
 
 AKS 클러스터를 만들 경우 GPU 지원 또는 많은 강력한 CPU를 사용하여 노드를 배포할 수 있습니다. 이러한 노드는 ML(기계 학습) 또는 AI와 같은 대규모 데이터 처리 워크로드에 자주 사용됩니다. 이 유형의 하드웨어는 일반적으로 배포에 비용이 많이 드는 노드 리소스이므로 이러한 노드에서 예약할 수 있는 워크로드를 제한하세요. 대신 클러스터의 일부 노드를 수신 서비스 실행에만 사용하도록 하고 다른 워크로드를 차단할 수 있습니다.
 
-여러 노드 풀을 사용 하 여 다양 한 노드에 대 한 지원을 제공 합니다. AKS 클러스터는 하나 이상의 노드 풀을 제공 합니다. AKS의 여러 노드 풀에 대 한 지원은 현재 미리 보기 상태입니다.
+여러 노드 풀을 사용 하 여 다양 한 노드에 대 한 지원을 제공 합니다. AKS 클러스터는 하나 이상의 노드 풀을 제공 합니다.
 
 Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실행할 수 있는 워크로드를 제한할 수 있습니다.
 
@@ -81,16 +81,16 @@ AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용�
 
 AKS에서 노드 풀을 업그레이드 하는 경우 taints 및 tolerations는 새 노드에 적용 될 때 집합 패턴을 따릅니다.
 
-- **Virtual machine scale을 지원 하지 않는 기본 클러스터**
-  - 2 개 노드 *클러스터 노드 1과 노드* 2가 있다고 가정해 보겠습니다 *.* 업그레이드 하면 추가 노드 (*node3*)가 생성 됩니다.
+- **Virtual machine scale sets를 사용 하는 기본 클러스터**
+  - 2 개 노드 *클러스터 노드 1과 노드* 2가 있다고 가정해 보겠습니다 *.* 노드 풀을 업그레이드 합니다.
+  - *Node3* 및 *node4*라는 두 개의 노드가 추가로 만들어지고 taints가 각각 전달 됩니다.
+  - 원래 *node1* 및 *노드* 2가 삭제 됩니다.
+
+- **가상 컴퓨터 확장 집합이 지원 되지 않는 클러스터**
+  - 다시 한 번, 2 노드 *클러스터 노드 1과 노드* 2가 있다고 가정해 *보겠습니다.* 업그레이드 하면 추가 노드 (*node3*)가 생성 됩니다.
   - *Node1* 의 taints가 *node3*에 적용 된 후 *node1* 이 삭제 됩니다.
   - 새 노드 (이전 *node1* 은 삭제 *된 이후*)가 생성 되 *고 노드 2 taints가* 새 *node1*에 적용 됩니다. 그런 다음 *노드* 2가 삭제 됩니다.
   - 기본적으로 *node1* 은 *node3*이 되 고, *노드* 2는 *node1*이 됩니다.
-
-- **Virtual machine scale sets를 사용 하는 클러스터**
-  - 다시 한 번, 2 노드 *클러스터 노드 1과 노드* 2가 있다고 가정해 *보겠습니다.* 노드 풀을 업그레이드 합니다.
-  - *Node3* 및 *node4*라는 두 개의 노드가 추가로 만들어지고 taints가 각각 전달 됩니다.
-  - 원래 *node1* 및 *노드* 2가 삭제 됩니다.
 
 AKS에서 노드 풀의 크기를 조정 하는 경우 taints 및 tolerations은 설계를 통해 전달 되지 않습니다.
 

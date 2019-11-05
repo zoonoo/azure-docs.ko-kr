@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/20/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 88a5e5fa1267e834a04c46ed38868cf74acd9bb0
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 7d4546a6d2de01575825154ab30a909b76b3fc89
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70171941"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474479"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에서 개체 및 자격 증명을 동기화 하는 방법
 
-Azure Active Directory Domain Services (AD DS) 관리 되는 도메인의 개체 및 자격 증명은 도메인 내에서 로컬로 만들거나 AD (Azure Active Directory) 테 넌 트에서 동기화 할 수 있습니다. Azure AD DS를 처음 배포 하는 경우 Azure AD에서 개체를 복제 하기 위해 자동 단방향 동기화가 구성 되 고 시작 됩니다. 이 단방향 동기화는 azure AD에서 변경 내용을 적용 하 여 Azure AD DS 관리 되는 도메인을 최신 상태로 유지 하기 위해 백그라운드에서 계속 실행 됩니다.
+Azure Active Directory Domain Services (AD DS) 관리 되는 도메인의 개체 및 자격 증명은 도메인 내에서 로컬로 만들거나 Azure Active Directory (Azure AD) 테 넌 트에서 동기화 할 수 있습니다. Azure AD DS를 처음 배포 하는 경우 Azure AD에서 개체를 복제 하기 위해 자동 단방향 동기화가 구성 되 고 시작 됩니다. 이 단방향 동기화는 azure AD에서 변경 내용을 적용 하 여 Azure AD DS 관리 되는 도메인을 최신 상태로 유지 하기 위해 백그라운드에서 계속 실행 됩니다. Azure AD DS에서 Azure AD로 다시 동기화가 수행 되지 않습니다.
 
 하이브리드 환경에서는 Azure AD Connect를 사용 하 여 온-프레미스 AD DS 도메인의 개체 및 자격 증명을 Azure AD로 동기화 할 수 있습니다. 이러한 개체가 Azure AD에 성공적으로 동기화 되 면 자동 백그라운드 동기화가 Azure AD DS 관리 되는 도메인을 사용 하 여 응용 프로그램에서 해당 개체 및 자격 증명을 사용할 수 있도록 합니다.
 
@@ -38,16 +38,18 @@ Azure Active Directory Domain Services (AD DS) 관리 되는 도메인의 개체
 
 다음 표에서는 몇 가지 일반적인 특성 및 Azure AD DS에 동기화 되는 방법을 보여 줍니다.
 
-| Azure AD DS의 특성 | Source | 참고 |
+| Azure AD DS의 특성 | 원본 | 참고 사항 |
 |:--- |:--- |:--- |
 | UPN | Azure AD 테 넌 트의 사용자 *UPN* 특성 | Azure AD 테 넌 트의 UPN 특성은 Azure AD DS와 동일 하 게 동기화 됩니다. Azure AD DS 관리 되는 도메인에 로그인 하는 가장 신뢰할 수 있는 방법은 UPN을 사용 하는 것입니다. |
-| SAMAccountName | Azure AD 테 넌 트의 사용자 *mailNickname* 특성 또는 자동 생성 | *SAMAccountName* 특성은 Azure AD 테 넌 트의 *mailNickname* 특성을 기반으로 합니다. 여러 사용자 계정이 동일한 *mailNickname* 특성을 사용 하는 경우 *SAMAccountName* 이 자동으로 생성 됩니다. 사용자의 *mailNickname* 또는 *UPN* 접두사가 20 자 보다 길면 samaccountname 특성의 20 자 제한을 충족 하도록 *samaccountname* 이 자동으로 생성 됩니다. |
+| SAMAccountName | Azure AD 테 넌 트의 사용자 *mailNickname* 특성 또는 자동 생성 | *SAMAccountName* 특성은 Azure AD 테 넌 트의 *mailNickname* 특성을 기반으로 합니다. 여러 사용자 계정이 동일한 *mailNickname* 특성을 사용 하는 경우 *SAMAccountName* 이 자동으로 생성 됩니다. 사용자의 *mailNickname* 또는 *UPN* 접두사가 20 자 보다 길면 *samaccountname 특성의* 20 자 제한을 충족 하도록 *samaccountname* 이 자동으로 생성 됩니다. |
 | 암호 | Azure AD 테 넌 트에서 사용자 암호 | NTLM 또는 Kerberos 인증에 필요한 레거시 암호 해시는 Azure AD 테 넌 트에서 동기화 됩니다. Azure AD 테 넌 트가 Azure AD Connect를 사용 하는 하이브리드 동기화로 구성 된 경우 이러한 암호 해시는 온-프레미스 AD DS 환경에서 원본으로 사용 됩니다. |
 | 기본 사용자/그룹 SID | 자동 생성 | 사용자/그룹 계정의 주 SID는 Azure AD DS에서 자동으로 생성 됩니다. 이 특성은 온-프레미스 AD DS 환경에서 개체의 기본 사용자/그룹 SID와 일치 하지 않습니다. 이러한 불일치는 Azure AD DS 관리 되는 도메인에 온-프레미스 AD DS 도메인과 다른 SID 네임 스페이스가 있기 때문입니다. |
 | 사용자 및 그룹에 대한 SID 기록 | 온-프레미스 기본 사용자 및 그룹 SID | Azure AD DS의 사용자 및 그룹에 대 한 *SidHistory* 특성은 온-프레미스 AD DS 환경에서 해당 하는 기본 사용자 또는 그룹 SID와 일치 하도록 설정 됩니다. 이 기능을 통해 온-프레미스 응용 프로그램의 리프트 앤 시프트는 리소스를 다시 사용 하지 않아도 되기 때문에 Azure AD DS 더 쉽게 수행할 수 있습니다. |
 
 > [!TIP]
-> **UPN 형식을 사용 하 여 관리 되는 도메인에 로그인 합니다** . 와`CONTOSO\driley`같은 *SAMAccountName* 특성은 Azure AD DS 관리 되는 도메인의 일부 사용자 계정에 대해 자동으로 생성 될 수 있습니다. 사용자의 자동 생성 된 *SAMAccountName* 은 UPN 접두사와 다를 수 있으므로 항상 신뢰할 수 있는 방식으로 로그인 할 수 없습니다. 예를 들어 여러 사용자가 동일한 *mailNickname* 특성을가지고 있거나 사용자에 게 너무 긴 UPN 접두사가 있는 경우 해당 사용자에 대 한 *SAMAccountName* 이 자동으로 생성 될 수 있습니다. 와 `driley@contoso.com`같은 UPN 형식을 사용 하 여 Azure AD DS 관리 되는 도메인에 안정적으로 로그인 합니다.
+> **UPN 형식을 사용 하 여 관리 되는 도메인에 로그인 합니다** . `CONTOSO\driley`와 같은 *SAMAccountName* 특성은 Azure AD DS 관리 되는 도메인의 일부 사용자 계정에 대해 자동으로 생성 될 수 있습니다. 사용자의 자동 생성 된 *SAMAccountName* 은 UPN 접두사와 다를 수 있으므로 항상 신뢰할 수 있는 방식으로 로그인 할 수 없습니다.
+>
+> 예를 들어 여러 사용자가 동일한 *mailNickname* 특성을가지고 있거나 사용자에 게 너무 긴 UPN 접두사가 있는 경우 해당 사용자에 대 한 *SAMAccountName* 이 자동으로 생성 될 수 있습니다. `driley@contoso.com`와 같은 UPN 형식을 사용 하 여 Azure AD DS 관리 되는 도메인에 안정적으로 로그인 합니다.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>사용자 계정에 대한 특성 매핑
 
@@ -63,11 +65,11 @@ Azure Active Directory Domain Services (AD DS) 관리 되는 도메인의 개체
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
 | jobTitle |title |
-| 메일 |메일 |
+| mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (경우에 따라 자동으로 생성 될 수 있음) |
 | mobile |mobile |
-| objectid |msDS-AzureADObjectId |
+| objectId |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | passwordPolicies |userAccountControl(DONT_EXPIRE_PASSWORD 비트를 설정하거나 지움) |
 | physicalDeliveryOfficeName |physicalDeliveryOfficeName |
@@ -87,9 +89,9 @@ Azure Active Directory Domain Services (AD DS) 관리 되는 도메인의 개체
 |:--- |:--- |
 | displayName |displayName |
 | displayName |SAMAccountName (경우에 따라 자동으로 생성 될 수 있음) |
-| 메일 |메일 |
+| mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
-| objectid |msDS-AzureADObjectId |
+| objectId |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |
 | securityEnabled |groupType |
 
@@ -112,14 +114,14 @@ Azure AD는 훨씬 간단 하 고 플랫 네임 스페이스를 포함 합니다
 
 ## <a name="what-isnt-synchronized-to-azure-ad-ds"></a>Azure AD DS에 동기화 되지 않은 항목
 
-다음 개체 또는 특성은 Azure AD 또는 Azure AD DS에 동기화 되지 않습니다.
+다음 개체 또는 특성은 온-프레미스 AD DS 환경에서 Azure AD 또는 Azure AD DS로 동기화 되지 않습니다.
 
-* **제외된 특성:** Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 Azure AD로의 동기화에서 특정 특성을 제외 하도록 선택할 수 있습니다. 이러한 제외 된 특성은 Azure AD DS에서 사용할 수 없습니다.
+* **제외 된 특성:** Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 Azure AD로의 동기화에서 특정 특성을 제외 하도록 선택할 수 있습니다. 이러한 제외 된 특성은 Azure AD DS에서 사용할 수 없습니다.
 * **그룹 정책:** 온-프레미스 AD DS 환경에서 구성 된 그룹 정책은 Azure AD DS와 동기화 되지 않습니다.
 * **Sysvol 폴더:** 온-프레미스 AD DS 환경의 *Sysvol* 폴더 내용은 Azure AD DS와 동기화 되지 않습니다.
 * **컴퓨터 개체:** 온-프레미스 AD DS 환경에 가입 된 컴퓨터의 컴퓨터 개체는 Azure AD DS와 동기화 되지 않습니다. 이러한 컴퓨터는 Azure AD DS 관리 되는 도메인과 트러스트 관계가 없으며 온-프레미스 AD DS 환경에만 속합니다. Azure AD DS에서 관리 되는 도메인에 명시적으로 도메인에 가입 된 컴퓨터에 대 한 컴퓨터 개체만 표시 됩니다.
-* **사용자 및 그룹에 대한 SidHistory 특성:** 온-프레미스 AD DS 환경의 기본 사용자 및 주 그룹 Sid는 Azure AD DS와 동기화 됩니다. 그러나 사용자 및 그룹에 대 한 기존 *SidHistory* 특성은 온-프레미스 AD DS 환경에서 Azure AD DS로 동기화 되지 않습니다.
-* **OU(조직 구성 단위) 구조:** 온-프레미스 AD DS 환경에서 정의 된 조직 구성 단위는 Azure AD DS와 동기화 되지 않습니다. Azure AD DS에는 두 개의 기본 제공 Ou가 있습니다. 하나는 사용자를 위한 것이 고 다른 하나는 컴퓨터용입니다. Azure AD DS 관리 되는 도메인에는 플랫 OU 구조가 있습니다. [관리 되는 도메인에서 사용자 지정 OU를 만들도록](create-ou.md)선택할 수 있습니다.
+* **사용자 및 그룹에 대 한 SidHistory 특성:** 온-프레미스 AD DS 환경의 기본 사용자 및 주 그룹 Sid는 Azure AD DS와 동기화 됩니다. 그러나 사용자 및 그룹에 대 한 기존 *SidHistory* 특성은 온-프레미스 AD DS 환경에서 Azure AD DS로 동기화 되지 않습니다.
+* **OU (조직 구성 단위) 구조:** 온-프레미스 AD DS 환경에서 정의 된 조직 구성 단위는 Azure AD DS와 동기화 되지 않습니다. Azure AD DS에는 두 개의 기본 제공 Ou가 있습니다. 하나는 사용자를 위한 것이 고 다른 하나는 컴퓨터용입니다. Azure AD DS 관리 되는 도메인에는 플랫 OU 구조가 있습니다. [관리 되는 도메인에서 사용자 지정 OU를 만들도록](create-ou.md)선택할 수 있습니다.
 
 ## <a name="password-hash-synchronization-and-security-considerations"></a>암호 해시 동기화 및 보안 고려 사항
 

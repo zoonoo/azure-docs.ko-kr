@@ -7,91 +7,45 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: c1b372dbeaea31e83c8ff42a84fc39d762b2ebdb
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
-ms.translationtype: MT
+ms.openlocfilehash: 8a78c854e9c842915700d4a20c1a57e4f1594a2e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212258"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472460"
 ---
-# <a name="preview---create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
+# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
 Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀*로 그룹화 됩니다. 이러한 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 초기 노드 수와 해당 크기 (SKU)는 *기본 노드 풀*을 만드는 AKS 클러스터를 만들 때 정의 됩니다. 계산 또는 저장소 요구가 다른 응용 프로그램을 지원 하기 위해 추가 노드 풀을 만들 수 있습니다. 예를 들어 이러한 추가 노드 풀을 사용 하 여 계산 집약적인 응용 프로그램을 위한 Gpu를 제공 하거나 고성능 SSD 저장소에 액세스할 수 있습니다.
 
 > [!NOTE]
-> 이 기능을 사용 하면 여러 노드 풀을 만들고 관리 하는 방법을 보다 효과적으로 제어할 수 있습니다. 따라서 create/update/delete에 별도의 명령이 필요 합니다. 이전에 `az aks create` 또는 `az aks update` managedcluster API를 사용 하 여 클러스터 작업을 수행 하 고 제어 평면과 단일 노드 풀을 변경 하는 유일한 옵션 이었습니다. 이 기능은 agentpool API를 통해 에이전트 풀에 대 한 별도의 작업 집합을 노출 하 고 `az aks nodepool` 개별 노드 풀에서 작업을 실행 하려면 명령 집합을 사용 해야 합니다.
+> 이 기능을 사용 하면 여러 노드 풀을 만들고 관리 하는 방법을 보다 효과적으로 제어할 수 있습니다. 따라서 create/update/delete에 별도의 명령이 필요 합니다. 이전에 `az aks create` 또는 `az aks update`를 통한 클러스터 작업에서 managedCluster API를 사용 했으며,이 옵션은 제어 평면과 단일 노드 풀을 변경 하는 유일한 옵션 이었습니다. 이 기능은 agentPool API를 통해 에이전트 풀에 대 한 별도의 작업 집합을 노출 하 고 개별 노드 풀에서 작업을 실행 하려면 `az aks nodepool` 명령 집합을 사용 해야 합니다.
 
-이 문서에서는 AKS 클러스터에서 여러 노드 풀을 만들고 관리 하는 방법을 보여 줍니다. 이 기능은 현재 미리 보기로 제공됩니다.
+이 문서에서는 AKS 클러스터에서 여러 노드 풀을 만들고 관리 하는 방법을 보여 줍니다.
 
-> [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 이러한 기능은 프로덕션 용도로는 사용할 수 없습니다. 추가 정보 다음 지원 문서를 참조 하세요.
->
-> * [AKS 지원 정책][aks-support-policies]
-> * [Azure 지원 FAQ][aks-faq]
+## <a name="before-you-begin"></a>시작하기 전에
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
-
-Azure CLI 버전 2.0.61 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
-
-### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
-
-여러 노드 풀을 사용 하려면 *aks-preview* CLI extension version 0.4.16 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### <a name="register-multiple-node-pool-feature-provider"></a>여러 노드 풀 기능 공급자 등록
-
-여러 노드 풀을 사용할 수 있는 AKS 클러스터를 만들려면 먼저 구독에서 기능 플래그를 사용 하도록 설정 합니다. 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 *Multiagentpoolpreview* 기능 플래그를 등록 합니다.
-
-> [!CAUTION]
-> 구독에 기능을 등록 하면 현재 해당 기능을 등록 취소할 수 없습니다. 일부 미리 보기 기능을 사용 하도록 설정한 후에는 구독에서 만든 모든 AKS 클러스터에 대 한 기본값을 사용할 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용 하도록 설정 하지 마세요. 별도의 구독을 사용 하 여 미리 보기 기능을 테스트 하 고 피드백을 수집 합니다.
-
-```azurecli-interactive
-az feature register --name MultiAgentpoolPreview --namespace Microsoft.ContainerService
-```
-
-> [!NOTE]
-> *Multiagentpoolpreview* 를 성공적으로 등록 한 후에 만든 모든 AKS 클러스터는이 미리 보기 클러스터 환경을 사용 합니다. 완전히 지원 되는 일반 클러스터를 계속 만들려면 프로덕션 구독에서 미리 보기 기능을 사용 하도록 설정 하지 마세요. 별도의 테스트 또는 개발 Azure 구독을 사용 하 여 미리 보기 기능을 테스트 합니다.
-
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MultiAgentpoolPreview')].{Name:name,State:properties.state}"
-```
-
-준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+Azure CLI 버전 2.0.76 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
 여러 노드 풀을 지 원하는 AKS 클러스터를 만들고 관리 하는 경우 다음과 같은 제한 사항이 적용 됩니다.
 
-* 구독에 대 한 *Multiagentpoolpreview* 기능을 성공적으로 등록 한 후에는 여러 노드 풀을 만든 클러스터에만 사용할 수 있습니다. 이 기능이 성공적으로 등록 되기 전에 만든 기존 AKS 클러스터를 사용 하 여 노드 풀을 추가 하거나 관리할 수 없습니다.
 * 기본 (첫 번째) 노드 풀은 삭제할 수 없습니다.
 * HTTP 응용 프로그램 라우팅 추가 기능을 사용할 수 없습니다.
 * 대부분의 작업과 마찬가지로 기존 리소스 관리자 템플릿을 사용 하 여 노드 풀을 추가 하거나 삭제할 수 없습니다. 대신 [별도의 리소스 관리자 템플릿을 사용](#manage-node-pools-using-a-resource-manager-template) 하 여 AKS 클러스터의 노드 풀을 변경 합니다.
 * 노드 풀의 이름은 소문자로 시작 해야 하며 영숫자 문자만 포함할 수 있습니다. Linux 노드 풀의 경우 길이는 1 자에서 12 자 사이 여야 하 고 Windows 노드 풀의 길이는 1에서 6 자 사이 여야 합니다.
-
-이 기능은 미리 보기 상태 이지만 다음과 같은 추가 제한 사항이 적용 됩니다.
-
 * AKS 클러스터에는 최대 8 개의 노드 풀이 있을 수 있습니다.
 * AKS 클러스터는 해당 8 개 노드 풀에서 최대 400 노드를 가질 수 있습니다.
 * 모든 노드 풀이 동일한 서브넷에 있어야 합니다.
+* AKS 클러스터는 노드에 대 한 가상 머신 확장 집합을 사용 해야 합니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
 시작 하려면 단일 노드 풀로 AKS 클러스터를 만듭니다. 다음 예제에서는 [az group create][az-group-create] 명령을 사용 하 여 *에서는 eastus* 지역에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다. 그런 다음 *myAKSCluster* 라는 AKS 클러스터가 [az AKS create][az-aks-create] 명령을 사용 하 여 만들어집니다. *1.13.10* 의 *kubernetes 버전* 은 다음 단계에서 노드 풀을 업데이트 하는 방법을 보여 주는 데 사용 됩니다. [지원 되는 Kubernetes 버전][supported-versions]을 지정할 수 있습니다.
 
-여러 노드 풀을 활용 하는 경우 표준 SKU 부하 분산 장치를 사용 하는 것이 좋습니다. AKS에서 표준 부하 분산 장치를 사용 하는 방법에 대 한 자세한 내용은 [이 문서](load-balancer-standard.md) 를 참조 하세요.
+> [!NOTE]
+> 여러 노드 풀을 사용 하는 경우에는 *Basic* LOAD balanacer SKU가 지원 되지 않습니다. 기본적으로 AKS 클러스터는 *표준* loadbalacer SKU를 사용 하 여 생성 됩니다.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -113,7 +67,7 @@ az aks create \
 > [!NOTE]
 > 클러스터가 안정적으로 작동 하도록 하려면이 노드 풀에서 필수적인 시스템 서비스가 실행 되 고 있으므로 기본 노드 풀에서 2 개 이상의 노드를 실행 해야 합니다.
 
-클러스터가 준비 되 면 [az aks][az-aks-get-credentials] 명령을 사용 하 여에 사용할 `kubectl`클러스터 자격 증명을 가져옵니다.
+클러스터가 준비 되 면 [az aks][az-aks-get-credentials] 명령을 사용 하 여 `kubectl`와 함께 사용할 클러스터 자격 증명을 가져옵니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -178,7 +132,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 > [!NOTE]
 > 클러스터 또는 노드 풀에서 업그레이드 및 크기 조정 작업을 동시에 수행할 수 없습니다. 시도 하면 오류가 반환 됩니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 이에 대 한 자세한 내용은 [문제 해결 가이드](https://aka.ms/aks-pending-upgrade)를 참조 하세요.
 
-첫 번째 단계에서 AKS 클러스터를 처음 만들 때 *1.13.10* 의가 `--kubernetes-version` 지정 되었습니다. 그러면 제어 평면과 기본 노드 풀 모두에 대해 Kubernetes 버전이 설정 됩니다. 이 섹션의 명령은 단일 특정 노드 풀을 업그레이드 하는 방법에 대해 설명 합니다.
+첫 번째 단계에서 AKS 클러스터를 처음 만들 때 *1.13.10* 의 `--kubernetes-version` 지정 되었습니다. 그러면 제어 평면과 기본 노드 풀 모두에 대해 Kubernetes 버전이 설정 됩니다. 이 섹션의 명령은 단일 특정 노드 풀을 업그레이드 하는 방법에 대해 설명 합니다.
 
 Kubernetes 버전의 제어 평면과 노드 풀을 업그레이드 하는 경우의 관계는 [아래 섹션](#upgrade-a-cluster-control-plane-with-multiple-node-pools)에 설명 되어 있습니다.
 
@@ -231,7 +185,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 노드를 지정 된 버전으로 업그레이드 하는 데 몇 분 정도 걸립니다.
 
-AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업그레이드 하는 것이 가장 좋습니다. 의 `az aks upgrade` 기본 동작은이 맞춤을 구현 하기 위해 모든 노드 풀을 제어 평면과 함께 업그레이드 하는 것입니다. 개별 노드 풀을 업그레이드 하는 기능을 사용 하면 롤링 업그레이드를 수행 하 고 노드 풀 간에 pod 일정을 예약 하 여 위에서 언급 한 제약 조건 내에서 응용 프로그램 작동 시간을 유지할 수 있습니다
+AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업그레이드 하는 것이 가장 좋습니다. `az aks upgrade`의 기본 동작은이 맞춤을 얻기 위해 모든 노드 풀을 제어 평면과 함께 업그레이드 하는 것입니다. 개별 노드 풀을 업그레이드 하는 기능을 사용 하면 롤링 업그레이드를 수행 하 고 노드 풀 간에 pod 일정을 예약 하 여 위에서 언급 한 제약 조건 내에서 응용 프로그램 작동 시간을 유지할 수 있습니다
 
 ## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>여러 노드 풀을 사용 하 여 클러스터 제어 평면 업그레이드
 
@@ -244,20 +198,20 @@ AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업�
 
 AKS 클러스터에는 Kubernetes 버전이 연결 된 두 개의 클러스터 리소스 개체가 있습니다. 첫 번째는 Kubernetes 버전의 제어 평면입니다. 두 번째는 Kubernetes 버전을 포함 하는 에이전트 풀입니다. 컨트롤 평면은 하나 이상의 노드 풀에 매핑됩니다. 업그레이드 작업의 동작은 사용 되는 Azure CLI 명령에 따라 달라 집니다.
 
-1. 컨트롤 평면을 업그레이드 하려면를 사용 해야 합니다.`az aks upgrade`
+* 컨트롤 평면을 업그레이드 하려면 `az aks upgrade`를 사용 해야 합니다.
    * 이렇게 하면 클러스터의 모든 노드 풀과 제어 평면 버전이 업그레이드 됩니다.
-   * 플래그와 함께를 전달 `az aks upgrade` 하면 클러스터 제어 평면만 업그레이드 되 고 연결 된 노드 풀은 변경 되지 않습니다. `--control-plane-only` 플래그 `--control-plane-only` 는 **AKS-preview 확장 v 0.4.16** 이상에서 사용할 수 있습니다.
-1. 개별 노드 풀을 업그레이드 하려면를 사용 해야 합니다.`az aks nodepool upgrade`
+   * `--control-plane-only` 플래그를 사용 하 여 `az aks upgrade`를 전달 하면 클러스터 제어 평면만 업그레이드 되 고 연결 된 노드 풀은 변경 되지 않습니다.
+* 개별 노드 풀을 업그레이드 하려면 `az aks nodepool upgrade`를 사용 해야 합니다.
    * 지정 된 Kubernetes 버전을 사용 하 여 대상 노드 풀만 업그레이드 합니다.
 
 노드 풀에서 보유 한 Kubernetes 버전 간의 관계도 일련의 규칙을 따라야 합니다.
 
-1. 제어 평면과 노드 풀 Kubernetes 버전을 다운 그레이드할 수 없습니다.
-1. Node pool Kubernetes version을 지정 하지 않은 경우 동작은 사용 되는 클라이언트에 따라 달라 집니다. ARM 템플릿의 선언에 대해 노드 풀에 대해 정의 된 기존 버전이 사용 됩니다. 설정 된 항목이 없으면 제어 평면 버전이 사용 됩니다.
-1. 지정 된 시간에 제어 평면 또는 노드 풀을 업그레이드 하거나 크기를 조정할 수 있습니다. 두 작업을 동시에 전송할 수는 없습니다.
-1. 노드 풀 Kubernetes 버전은 제어 평면과 동일한 주 버전 이어야 합니다.
-1. Node pool Kubernetes 버전은 제어 평면 보다 두 개 (2) 부 버전이 될 수 있으며, 더 크지 않습니다.
-1. 노드 풀은 제어 평면 보다 작거나 같은 Kubernetes patch 버전 보다 클 수 없습니다.
+* 제어 평면과 노드 풀 Kubernetes 버전을 다운 그레이드할 수 없습니다.
+* Node pool Kubernetes version을 지정 하지 않은 경우 동작은 사용 되는 클라이언트에 따라 달라 집니다. 리소스 관리자 템플릿의 선언에 대해 노드 풀에 대해 정의 된 기존 버전이 사용 됩니다. 설정 된 항목이 없으면 제어 평면 버전이 사용 됩니다.
+* 지정 된 시간에 제어 평면 또는 노드 풀을 업그레이드 하거나 크기를 조정할 수 있습니다. 두 작업을 동시에 전송할 수는 없습니다.
+* 노드 풀 Kubernetes 버전은 제어 평면과 동일한 주 버전 이어야 합니다.
+* Node pool Kubernetes 버전은 제어 평면 보다 두 개 (2) 부 버전이 될 수 있으며, 더 크지 않습니다.
+* 노드 풀은 제어 평면 보다 작거나 같은 Kubernetes patch 버전 보다 클 수 없습니다.
 
 ## <a name="scale-a-node-pool-manually"></a>수동으로 노드 풀 크기 조정
 
@@ -313,7 +267,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
 
 ## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>클러스터 autoscaler를 사용 하도록 설정 하 여 특정 노드 풀의 크기를 자동으로 조정 합니다.
 
-AKS는 [cluster autoscaler](cluster-autoscaler.md)라는 기능을 사용 하 여 노드 풀의 크기를 자동으로 조정 하기 위해 미리 보기의 별도 기능을 제공 합니다. 이 기능은 노드 풀 당 고유한 최소 및 최대 소수 자릿수를 사용 하 여 노드 풀 당 사용 하도록 설정할 수 있는 AKS 추가 기능입니다. [노드 풀 당 클러스터 autoscaler를 사용](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)하는 방법을 알아봅니다.
+AKS는 [cluster autoscaler](cluster-autoscaler.md)라는 기능을 사용 하 여 노드 풀의 크기를 자동으로 조정 하는 별도의 기능을 제공 합니다. 이 기능은 노드 풀 당 고유한 최소 및 최대 소수 자릿수를 사용 하 여 노드 풀 당 사용 하도록 설정할 수 있습니다. [노드 풀 당 클러스터 autoscaler를 사용](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)하는 방법을 알아봅니다.
 
 ## <a name="delete-a-node-pool"></a>노드 풀 삭제
 
@@ -497,7 +451,7 @@ Events:
 
 Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 관리 하는 경우 일반적으로 템플릿에서 설정을 업데이트 하 고 다시 배포 하 여 리소스를 업데이트할 수 있습니다. AKS의 노드 풀을 사용 하면 AKS 클러스터가 생성 된 후 초기 노드 풀 프로필을 업데이트할 수 없습니다. 이 동작은 기존 리소스 관리자 템플릿을 업데이트 하 고, 노드 풀을 변경 하 고, 다시 배포할 수 없음을 의미 합니다. 대신, 기존 AKS 클러스터에 대 한 에이전트 풀만 업데이트 하는 별도의 리소스 관리자 템플릿을 만들어야 합니다.
 
-와 `aks-agentpools.json` 같은 템플릿을 만들고 다음 예제 매니페스트를 붙여 넣습니다. 이 예제 템플릿은 다음 설정을 구성 합니다.
+`aks-agentpools.json`와 같은 템플릿을 만들고 다음 예제 매니페스트를 붙여 넣습니다. 이 예제 템플릿은 다음 설정을 구성 합니다.
 
 * 3 개의 노드를 실행 하도록 *myagentpool* 이라는 *Linux* 에이전트 풀을 업데이트 합니다.
 * Kubernetes version *1.13.10*를 실행 하도록 노드 풀의 노드를 설정 합니다.
@@ -593,7 +547,7 @@ AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-등록을 완료 한 후 [위에](#manage-node-pools-using-a-resource-manager-template) 나와 있는 것과 동일한 지침에 따라 Azure Resource Manager 템플릿을 배포 하 고 agentpoolprofiles에 다음과 같은 부울 값 속성 "enableNodePublicIP"를 추가 합니다. 이를 `true` 기본적으로로 설정 합니다. 지정 하지 `false` 않은 경우로 설정 됩니다. 이는 생성 시간 전용 속성 이며 최소 API 버전 2019-06-01이 필요 합니다. 이는 Linux 및 Windows 노드 풀 모두에 적용할 수 있습니다.
+등록을 완료 한 후 [위에](#manage-node-pools-using-a-resource-manager-template) 나와 있는 것과 동일한 지침에 따라 Azure Resource Manager 템플릿을 배포 하 고 agentpoolprofiles에 다음과 같은 부울 값 속성 "enableNodePublicIP"를 추가 합니다. 지정 하지 않은 경우 기본적으로 `false`로 설정 된 것 처럼 `true`로 설정 합니다. 이는 생성 시간 전용 속성 이며 최소 API 버전 2019-06-01이 필요 합니다. 이는 Linux 및 Windows 노드 풀 모두에 적용할 수 있습니다.
 
 ```
 "agentPoolProfiles":[  
@@ -637,11 +591,6 @@ Windows Server 컨테이너 노드 풀을 만들고 사용 하려면 [AKS에서 
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
-[azure-cli-install]: /cli/azure/install-azure-cli
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-feature-register]: /cli/azure/feature#az-feature-register
-[az-feature-list]: /cli/azure/feature#az-feature-list
-[az-provider-register]: /cli/azure/provider#az-provider-register
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-group-create]: /cli/azure/group#az-group-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
@@ -659,7 +608,3 @@ Windows Server 컨테이너 노드 풀을 만들고 사용 하려면 [AKS에서 
 [operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
-[aks-support-policies]: support-policies.md
-[aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update

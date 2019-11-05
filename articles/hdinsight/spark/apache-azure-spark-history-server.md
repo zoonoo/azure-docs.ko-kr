@@ -1,5 +1,5 @@
 ---
-title: Spark 응용 프로그램을 디버그 하는 확장 Spark 기록 서버-Azure HDInsight
+title: 앱을 디버그 하는 확장 Spark 기록 서버-Azure HDInsight
 description: 확장된 Spark 기록 서버를 사용하여 Spark 애플리케이션 디버그 및 진단 - Azure HDInsight.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 9398745cb240e7b7dff45ff5d6d9cdf064239bfd
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 1320764687f3eb2f033ca70703a9bcb16ab616ea
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130362"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494727"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>확장된 Apache Spark 기록 서버를 사용하여 Apache Spark 애플리케이션 디버그 및 진단
 
-이 문서에서는 확장된 Apache Spark 기록 서버를 사용하여 완료되어 실행되는 Spark 애플리케이션을 디버그 및 진단하는 방법에 대한 지침을 제공합니다. 확장은 데이터 탭 및 그래프 탭과 진단 탭을 포함합니다. **데이터** 탭에서 사용자는 Spark 작업의 입출력 데이터를 확인할 수 있습니다. **그래프** 탭에서 사용자는 데이터 흐름을 확인하고 작업 그래프를 재생할 수 있습니다. **진단** 탭에서 사용자는 **데이터 편향**, **시간 편향** 및 **실행기 사용량 분석**을 참조할 수 있습니다.
+이 문서에서는 확장된 Apache Spark 기록 서버를 사용하여 완료되어 실행되는 Spark 애플리케이션을 디버그 및 진단하는 방법에 대한 지침을 제공합니다. 확장에는 데이터 탭 및 그래프 탭과 진단 탭이 포함 됩니다. 사용자는 **데이터** 탭에서 Spark 작업의 입력 및 출력 데이터를 확인할 수 있습니다. **그래프** 탭에서 사용자는 데이터 흐름을 확인하고 작업 그래프를 재생할 수 있습니다. **진단** 탭에서 사용자는 **데이터 편향**, **시간 편향** 및 **실행기 사용량 분석**을 참조할 수 있습니다.
 
 ## <a name="get-access-to-apache-spark-history-server"></a>Apache Spark 기록 서버에 액세스
 
@@ -106,16 +106,16 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
 + **재생** 단추를 클릭하여 작업을 재생하고 중지 단추를 클릭하여 언제든 중지할 수 있습니다. 재생 시 다른 상태를 표시하기 위한 컬러판 작업 표시입니다.
 
-  + 성공인 경우 녹색: 작업이 완료되었습니다.
+  + 성공의 경우 녹색: 작업이 완료되었습니다.
   + 다시 시도의 경우 주황색: 실패했지만 작업의 최종 결과에는 영향을 미치지 않는 작업의 인스턴스입니다. 이러한 작업은 나중에 성공할 수 있는 인스턴스를 복제하거나 다시 시도합니다.
-  + 실행 중인 경우 파란색: 작업이 실행 중입니다.
-  + 건너뜀 또는 대기 중인 경우 흰색: 작업이 실행을 위해 대기 중이거나 단계를 건너뛰었습니다.
-  + 실패인 경우 빨간색: 작업이 실패했습니다.
+  + 실행의 경우 파란색: 작업이 실행 중입니다.
+  + 대기 중이거나 건너뛴 경우 흰색: 작업이 실행을 위해 대기 중이거나 단계를 건너뛰었습니다.
+  + 실패의 경우 빨간색: 작업이 실패했습니다.
 
     ![Spark 응용 프로그램 및 작업 그래프 색 샘플, 실행](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
 
     건너뛴 단계는 흰색으로 표시됩니다.
-    ![Spark 응용 프로그램 및 작업 그래프 색 샘플, 건너뛰기](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+    Spark 응용 프로그램 및 작업 그래프 색 샘플 ![건너뜀](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
 
     ![Spark 응용 프로그램 및 작업 그래프 색 샘플, 실패](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
 
@@ -224,7 +224,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
     ![Apache Ambari Spark2 기록 다시 시작](./media/apache-azure-spark-history-server/apache-spark-restart2.png)  
 9. Spark 기록 서버 웹 UI를 새로 고침하면 커뮤니티 버전으로 되돌려집니다.
 
-### <a name="2-upload-history-server-event"></a>2. 기록 서버 이벤트 업로드
+### <a name="2-upload-history-server-event"></a>2. history 서버 이벤트 업로드
 
 기록 서버 오류가 발생한 경우 이벤트를 제공하기 위한 단계를 수행합니다.
 
@@ -240,7 +240,7 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 
     ![apache spark 파일 문제 예](./media/apache-azure-spark-history-server/apache-spark-file-issue.png)
 
-### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. 핫픽스 시나리오에 대한 jar 파일 업그레이드
+### <a name="3-upgrade-jar-file-for-hotfix-scenario"></a>3. 핫픽스 시나리오에 대 한 jar 파일 업그레이드
 
 핫픽스를 사용하여 업그레이드하려는 경우 아래 스크립트를 사용하여 spark-enhancement.jar*을 업그레이드합니다.
 
@@ -328,6 +328,6 @@ Spark 기록 서버 웹 UI는 다음과 같습니다.
 * [HDInsight에서 Apache Spark 클러스터용 리소스 관리](apache-spark-resource-manager.md)
 * [Apache Spark 설정 구성](apache-spark-settings.md)
 
-## <a name="contact-us"></a>문의
+## <a name="contact-us"></a>문의처
 
 의견이 있거나 이 도구를 사용할 때 다른 문제가 발생하는 경우 ([hdivstool@microsoft.com](mailto:hdivstool@microsoft.com))으로 메일을 보내주시기 바랍니다.

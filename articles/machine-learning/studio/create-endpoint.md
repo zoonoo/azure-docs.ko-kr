@@ -1,7 +1,7 @@
 ---
 title: 웹 서비스 엔드포인트 만들기
-titleSuffix: Azure Machine Learning Studio
-description: Azure Machine Learning Studio에서 웹 서비스 엔드포인트를 만듭니다. 웹 서비스의 각 엔드포인트는 독립적으로 처리, 제한 및 관리됩니다.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Azure Machine Learning Studio (클래식)에서 웹 서비스 끝점을 만듭니다. 웹 서비스의 각 엔드포인트는 독립적으로 처리, 제한 및 관리됩니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: ac434a696f6e77e5ce61b430232166e7727eda38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d98df3e2dcc8112df9d56033bece069607380d9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751181"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493239"
 ---
-# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-web-services"></a>배포된 Azure Machine Learning Studio 웹 서비스에 대한 엔드포인트 만들기
+# <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>배포 된 Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 끝점 만들기
 
 > [!NOTE]
 > 이 항목에서는 **클래식** Machine Learning 웹 서비스에 적용되는 기술을 설명합니다.
@@ -32,14 +32,14 @@ Azure Machine Learning 웹 서비스 포털을 사용하여 웹 서비스에 엔
 > [!NOTE]
 > 웹 서비스에 엔드포인트를 더 추가한 경우 기본 엔드포인트는 삭제할 수 없습니다.
 
-1. Machine Learning Studio의 왼쪽 탐색 열에서 Web Services를 클릭합니다.
+1. Machine Learning Studio (클래식)의 왼쪽 탐색 열에서 웹 서비스를 클릭 합니다.
 2. 웹 서비스 대시보드 아래쪽에서 **엔드포인트 관리**를 클릭합니다. Azure Machine Learning 웹 서비스 포털에 웹 서비스 엔드포인트 페이지가 열립니다.
 3. **새로 만들기**를 클릭합니다.
 4. 새 엔드포인트에 대한 이름 및 설명을 입력합니다. 엔드포인트 이름은 길이가 24자 이하이고 알파벳 소문자 또는 숫자로 구성되어야 합니다. 로깅 수준 및 예제 데이터 사용 여부를 선택합니다. 자세한 내용은 [Machine Learning 웹 서비스에 대해 로깅 사용](web-services-logging.md)을 참조하세요.
 
 ## <a id="scaling"></a> 엔드포인트를 더 추가하여 웹 서비스 확장
 
-기본적으로 게시된 각각의 웹 서비스는 20개의 동시 요청을 지원하고 최대 200개의 동시 요청을 지원할 수 있도록 구성됩니다. Azure Machine Learning Studio는 웹 서비스에 대한 최상의 성능을 제공하기 위해 설정을 자동으로 최적화하고 포털 값은 무시됩니다.
+기본적으로 게시된 각각의 웹 서비스는 20개의 동시 요청을 지원하고 최대 200개의 동시 요청을 지원할 수 있도록 구성됩니다. Azure Machine Learning Studio의 클래식 버전은 웹 서비스에 대 한 최상의 성능을 제공 하기 위해 설정을 자동으로 최적화 하 고 포털 값은 무시 됩니다.
 
 최대 동시 호출 값인 200에서 지원하는 것보다 많은 부하를 사용하여 API를 호출하려는 경우 동일한 웹 서비스에서 여러 엔드포인트를 만들어야 합니다. 그런 다음 모든 끝점에 부하를 무작위로 분산해야 합니다.
 

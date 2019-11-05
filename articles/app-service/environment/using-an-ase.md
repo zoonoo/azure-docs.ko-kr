@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cabefcc53106a53459975fc26513dc59ae7d3372
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 841271c474ba8e24bc352bcae1fa037cf382a8ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073220"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470590"
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
 
@@ -30,7 +30,7 @@ Azure App Service Environment는 Azure App Service를 고객의 Azure Virtual Ne
 - **스토리지**: 스토리지는 고객이 게시한 앱을 호스트하는 데 사용됩니다.
 
 > [!NOTE]
-> App Service Environment에는 ASEv1 및 ASEv2라는 두 가지 버전이 있습니다. ASEv1에서는 사용하려는 리소스를 관리해야 합니다. ASEv1를 구성 하 고 관리 하는 방법을 알아보려면 [App Service 환경 V1 구성][ConfigureASEv1]을 참조 하세요. 이 문서의 나머지 부분에서는 ASEv2에 대해 중점적으로 설명합니다.
+> App Service Environment에는 두 가지 버전(ASEv1 및 ASEv2)이 있습니다. ASEv1에서는 사용하려는 리소스를 관리해야 합니다. ASEv1를 구성 하 고 관리 하는 방법을 알아보려면 [App Service 환경 V1 구성][ConfigureASEv1]을 참조 하세요. 이 문서의 나머지 부분에서는 ASEv2에 대해 중점적으로 설명합니다.
 >
 >
 
@@ -67,7 +67,7 @@ ASE에서 앱을 만들려면
 
     c. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. 
     
-    d. **격리** 가격 책정 계층을 선택합니다. **선택**을 선택합니다.
+    ㄹ. **격리** 가격 책정 계층을 선택합니다. **선택**을 선택합니다.
 
     e. **확인**을 선택합니다.
     
@@ -135,7 +135,7 @@ ILB ASE에서는 배포 시간에 도메인을 결정합니다. ILB ASE를 만�
 
 ILB ASE의 앱에 대한 게시 엔드포인트에서는 ILB ASE가 만들어진 도메인을 사용합니다. 해당 도메인은 앱의 게시 프로필과 앱의 포털 블레이드(**개요** > **필수** 및 **속성**)에서 확인할 수 있습니다. 
 
-## <a name="pricing"></a>가격 책정 ##
+## <a name="pricing"></a>가격 ##
 
 가격 책정 SKU **격리**는 ASEv2에서만 사용하기 위해 만들어졌습니다. ASEv2에서 호스트되는 모든 App Service 계획에는 격리 가격 책정 SKU가 적용됩니다. 격리된 App Service 계획 요금은 지역마다 다를 수 있습니다. 
 
@@ -179,7 +179,7 @@ ASE를 삭제하려면 다음을 수행합니다.
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b6f122abff1ac75bb1cb836f3389c96dfcdf60e0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07dbbb956dcf6f1204bef2af3a28a0af3eeb5226
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074109"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470089"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service의 보안
 
@@ -40,16 +40,20 @@ Azure의 인프라 및 플랫폼 보안에 대한 자세한 내용은 [Azure 보
 
 ## <a name="https-and-certificates"></a>HTTPS 및 인증서
 
-App Service를 사용하면 [HTTPS](https://wikipedia.org/wiki/HTTPS)를 통해 앱을 보호할 수 있습니다. 앱을 만들 때 기본 도메인 이름(\<app_name>.azurewebsites.net)은 이미 HTTPS를 사용하여 액세스할 수 있습니다. [앱에 대해 사용자 지정 도메인을 구성](app-service-web-tutorial-custom-domain.md)한 경우 클라이언트 브라우저에서 사용자 지정 도메인에 보안 HTTPS를 연결할 수 있도록 [사용자 지정 인증서로도 보안을 설정](app-service-web-tutorial-custom-ssl.md)해야 합니다. 이 작업을 수행하는 방법으로 다음 두 가지가 있습니다.
+App Service를 사용하면 [HTTPS](https://wikipedia.org/wiki/HTTPS)를 통해 앱을 보호할 수 있습니다. 앱을 만들 때 기본 도메인 이름(\<app_name>.azurewebsites.net)은 이미 HTTPS를 사용하여 액세스할 수 있습니다. [앱에 대 한 사용자 지정 도메인을 구성](app-service-web-tutorial-custom-domain.md)하는 경우 클라이언트 브라우저가 사용자 지정 도메인에 대 한 보안 HTTPS 연결을 설정할 수 있도록 [SSL 인증서를 사용 하 여 보안](configure-ssl-bindings.md) 을 설정 해야 합니다. App Service에서 지 원하는 여러 유형의 인증서가 있습니다.
 
-- **App Service 인증서** - Azure에서 직접 인증서를 만듭니다. 인증서는 [Azure Key Vault](/azure/key-vault/)에서 보호되며 App Service 앱으로 가져올 수 있습니다. 자세한 내용은 [Azure App Service에 대한 SSL 인증서 구입 및 구성](web-sites-purchase-ssl-web-site.md)을 참조하세요.
-- **타사 인증서** - 신뢰할 수 있는 인증 기관에서 구입한 사용자 지정 SSL 인증서를 업로드하여 App Service 앱에 바인딩합니다. App Service는 단일 도메인 인증서와 와일드카드 인증서를 모두 지원합니다. 또한 테스트 목적으로 자체 서명된 인증서도 지원합니다. 자세한 내용은 [자습서: Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+- 무료 App Service 관리 되는 인증서
+- 인증서 App Service
+- 타사 인증서
+- Azure Key Vault에서 가져온 인증서
+
+자세한 내용은 [Azure App Service에서 SSL 인증서 추가](configure-ssl-certificate.md)를 참조 하세요.
 
 ## <a name="insecure-protocols-http-tls-10-ftp"></a>보안되지 않은 프로토콜(HTTP, TLS 1.0, FTP)
 
-암호화되지 않은(HTTP) 모든 연결로부터 앱을 보호하기 위해 App Service에서 한 번 클릭 구성을 제공하여 HTTPS를 적용합니다. 보안되지 않은 요청은 애플리케이션 코드에 도달하기도 전에 거부됩니다. 자세한 내용은 [HTTPS 적용](app-service-web-tutorial-custom-ssl.md#enforce-https)을 참조하세요.
+암호화되지 않은(HTTP) 모든 연결로부터 앱을 보호하기 위해 App Service에서 한 번 클릭 구성을 제공하여 HTTPS를 적용합니다. 보안되지 않은 요청은 애플리케이션 코드에 도달하기도 전에 거부됩니다. 자세한 내용은 [HTTPS 적용](configure-ssl-bindings.md#enforce-https)을 참조하세요.
 
-[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0은 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)와 같은 산업 표준에서 더 이상 안전하지 않은 것으로 간주됩니다. App Service를 사용하면 [TLS 1.1/1.2를 적용](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)하여 오래된 프로토콜을 사용하지 않도록 설정할 수 있습니다.
+[TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0은 [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)와 같은 산업 표준에서 더 이상 안전하지 않은 것으로 간주됩니다. App Service를 사용하면 [TLS 1.1/1.2를 적용](configure-ssl-bindings.md#enforce-tls-versions)하여 오래된 프로토콜을 사용하지 않도록 설정할 수 있습니다.
 
 App Service는 파일을 배포하기 위해 FTP와 FTPS를 모두 지원합니다. 그러나 가능한 경우 FTP 대신 FTPS를 사용해야 합니다. 이러한 프로토콜 중 하나 또는 둘 다 사용하지 않는 경우 [해당 프로토콜을 사용하지 않도록 설정](deploy-ftp.md#enforce-ftps)해야 합니다.
 
@@ -57,7 +61,7 @@ App Service는 파일을 배포하기 위해 FTP와 FTPS를 모두 지원합니�
 
 기본적으로 App Service 앱은 인터넷의 모든 IP 주소로부터 요청을 수락하지만, IP 주소의 작은 하위 집합에만 액세스하도록 제한할 수 있습니다. Windows에서 App Service를 사용하면 앱에 액세스할 수 있는 IP 주소 목록을 정의할 수 있습니다. 허용 목록에는 서브넷 마스크에서 정의된 개별 IP 주소 또는 IP 주소 범위가 포함될 수 있습니다. 자세한 내용은 [Azure App Service 고정 IP 제한](app-service-ip-restrictions.md)을 참조하세요.
 
-Windows에 App Service가 있는 경우 _web.config_를 구성하여 IP 주소를 동적으로 제한할 수도 있습니다. 자세한 내용은 [Dynamic IP Security \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)를 참조 하세요.
+Windows에서 App Service의 경우 _web.config_를 구성 하 여 IP 주소를 동적으로 제한할 수도 있습니다. 자세한 내용은 [DYNAMIC IP Security \<dynamicIpSecurity >](https://docs.microsoft.com/iis/configuration/system.webServer/security/dynamicIpSecurity/)를 참조 하세요.
 
 ## <a name="client-authentication-and-authorization"></a>클라이언트 인증 및 권한 부여
 
@@ -69,7 +73,7 @@ App Service 인증 및 권한 부여는 Azure Active Directory, Microsoft 계정
 
 App Service는 백 엔드 서비스를 인증할 때 필요에 따라 별도의 다음 두 가지 메커니즘을 제공합니다.
 
-- **서비스 ID** - 앱 자체의 ID를 사용하여 원격 리소스에 로그인합니다. App Service를 사용하면 다른 서비스(예: [Azure SQL Database](/azure/sql-database/) 또는 [Azure Key Vault](/azure/key-vault/))에서 인증하는 데 사용할 수 있는 [관리 ID](overview-managed-identity.md)를 쉽게 만들 수 있습니다. 이 방식을 설명하는 엔드투엔드 자습서는 [관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호](app-service-web-tutorial-connect-msi.md)를 참조하세요.
+- **서비스 ID** - 앱 자체의 ID를 사용하여 원격 리소스에 로그인합니다. App Service를 사용하면 다른 서비스(예: [Azure SQL Database](overview-managed-identity.md) 또는 [Azure Key Vault](/azure/sql-database/))에서 인증하는 데 사용할 수 있는 [관리 ID](/azure/key-vault/)를 쉽게 만들 수 있습니다. 이 방식을 설명하는 엔드투엔드 자습서는 [관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호](app-service-web-tutorial-connect-msi.md)를 참조하세요.
 - **OBO(On-Behalf-Of)** - 원격 리소스에 대해 사용자를 대신하도록 위임된 액세스 권한을 만듭니다. Azure Active Directory를 인증 공급자로 사용하면 App Service 앱에서 App Service의 원격 서비스(예: [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) 또는 원격 API 앱)에 위임된 로그인을 수행할 수 있습니다. 이 방법에 대한 엔드투엔드 자습서는 [Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)를 참조하세요.
 
 ## <a name="connectivity-to-remote-resources"></a>원격 리소스에 대한 연결
@@ -90,7 +94,7 @@ App Service는 백 엔드 서비스를 인증할 때 필요에 따라 별도의 
 
 ### <a name="resources-inside-an-azure-virtual-network"></a>Azure Virtual Network 내 리소스
 
-앱은 [Virtual Network 통합](web-sites-integrate-with-vnet.md)을 통해 [Azure Virtual Network](/azure/virtual-network/)의 리소스에 액세스할 수 있습니다. Virtual Network와의 통합은 지점-사이트 간 VPN을 사용하여 설정됩니다. 그러면 앱에서 개인 IP 주소를 사용하여 Virtual Network의 리소스에 액세스할 수 있습니다. 그러나 지점-사이트 간 연결은 여전히 Azure에서 공유 네트워크를 통과합니다. 
+앱은 [Virtual Network 통합](/azure/virtual-network/)을 통해 [Azure Virtual Network](web-sites-integrate-with-vnet.md)의 리소스에 액세스할 수 있습니다. Virtual Network와의 통합은 지점-사이트 간 VPN을 사용하여 설정됩니다. 그러면 앱에서 개인 IP 주소를 사용하여 Virtual Network의 리소스에 액세스할 수 있습니다. 그러나 지점-사이트 간 연결은 여전히 Azure에서 공유 네트워크를 통과합니다. 
 
 Azure의 공유 네트워크에서 리소스 연결을 완전히 분리하려면 [App Service 환경](environment/intro.md)에서 앱을 만듭니다. App Service 환경은 항상 전용 Virtual Network에 배포되므로 Virtual Network 내에서 앱과 리소스 간의 연결은 완전히 격리됩니다. App Service 환경의 네트워크 보안에 대한 다른 측면은 [네트워크 격리](#network-isolation)를 참조하세요.
 

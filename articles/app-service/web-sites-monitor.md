@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: b9e910f24503f6bbf86e8ed8cdcb6f422d2490d9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073989"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470128"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service에서 앱 모니터링
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)는 [Azure Portal](https://portal.azure.com)의 웹앱, 모바일 백 엔드 및 API 앱에 대해 기본 제공 모니터링 기능을 제공합니다.
@@ -38,7 +38,7 @@ App Service를 호스트로 사용하는 앱에는 사용 가능한 리소스에
 
 무료 또는 공유 앱의 할당량은 다음과 같습니다.
 
-| 할당량 | Description |
+| 할당량 | 설명 |
 | --- | --- |
 | **CPU(짧음)** | 5분 간격으로 이 앱에 허용되는 CPU의 양입니다. 이 할당량은 5분마다 재설정됩니다. |
 | **CPU(일)** | 하루에 이 앱에 허용되는 총 CPU 양입니다. 이 할당량은 자정 UTC에 24시간마다 재설정됩니다. |
@@ -68,9 +68,9 @@ App Service 계획을 업그레이드하여 앱에서 할당량을 늘리거나 
 
 앱에 사용 가능한 메트릭은 다음과 같습니다.
 
-| 메트릭 | Description |
+| 메트릭 | 설명 |
 | --- | --- |
-| **평균 응답 시간** | 앱에서 요청을 처리하는 데 소요된 평균 시간(ms)입니다. |
+| **평균 응답 시간** | 앱에서 요청을 처리 하는 데 걸린 평균 시간 (초)입니다. |
 | **평균 메모리 작업 집합** | 앱에 사용된 메가바이트(MiB) 크기의 평균 메모리 양입니다. |
 | **연결** | 샌드박스(w3wp.exe 및 해당 자식 프로세스)에 있는 바인딩된 소켓의 수입니다.  바인딩된 소켓은 bind()/connect() API를 호출하여 만들어지며, 해당 소켓이 CloseHandle()/closesocket()으로 닫힐 때까지 유지됩니다. |
 | **CPU 시간** | 앱에서 사용한 CPU의 양(초)입니다. 이 메트릭에 대한 자세한 내용은 [CPU 시간 및 CPU 백분율](#cpu-time-vs-cpu-percentage)을 참조하세요. |
@@ -110,7 +110,7 @@ App Service 계획에 대해 사용 가능한 메트릭은 다음과 같습니�
 > App Service 계획 메트릭은 *기본*, *표준* 및 *프리미엄* 계층의 계획에만 사용할 수 있습니다.
 > 
 
-| 메트릭 | Description |
+| 메트릭 | 설명 |
 | --- | --- |
 | **CPU 비율** | 계획의 모든 인스턴스 간에 사용된 평균 CPU입니다. |
 | **메모리 비율** | 계획의 모든 인스턴스 간에 사용된 평균 메모리입니다. |
@@ -124,9 +124,9 @@ App Service 계획에 대해 사용 가능한 메트릭은 다음과 같습니�
 
 CPU 사용량을 반영하는 두 가지 메트릭이 있습니다.
 
-**CPU 시간**: 해당 할당량 중 하나가 앱에 사용된 CPU 분으로 정의되므로 무료 또는 공유 계획으로 호스트된 앱에 유용합니다.
+**Cpu 시간**: 할당량 중 하나가 앱에서 사용 되는 CPU 시간 (분)으로 정의 되므로 무료 또는 공유 계획에서 호스트 되는 앱에 유용 합니다.
 
-**CPU 백분율**: 확장이 가능하므로 기본, 표준 및 프리미엄 계획에서 호스트되는 앱에 유용합니다. CPU 백분율은 모든 인스턴스에서 전반적인 사용량을 나타내는 좋은 지표입니다.
+**CPU 백분율**: 규모를 확장할 수 있으므로 Basic, Standard 및 Premium 요금제에서 호스트 되는 앱에 유용 합니다. CPU 백분율은 모든 인스턴스의 전체 사용량을 표시 하는 데 적합 합니다.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>메트릭 세분성 및 보존 정책
 앱 및 App Service 계획에 대한 메트릭은 다음 세분성 및 보존 정책에 따라 서비스에 의해 기록 및 집계됩니다.

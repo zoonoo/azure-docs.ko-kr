@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62cbe68bcf191c7ee6fc906bc8ba8ea66e3efb31
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: 2cd0cc6b2343a84287bd2ffdfd9df8d832f17fc8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68233890"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474165"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>특정 조직의 B2B 사용자 초대 허용 또는 차단
 
@@ -41,11 +41,11 @@ ms.locfileid: "68233890"
 
 거부 목록을 추가하려면
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **사용자** > **사용자 설정**을 선택합니다.
 3. **외부 사용자**에서 **외부 협업 설정 관리**를 선택합니다.
 4. **협업 제한**에서 **지정된 도메인에 초대 거부**를 선택합니다.
-5. **대상 도메인**에서 차단할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들어:
+5. **대상 도메인**에서 차단할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예:
 
    ![추가된 도메인에 거부 옵션 표시](./media/allow-deny-list/DenyListSettings.png)
  
@@ -62,11 +62,11 @@ ms.locfileid: "68233890"
 
 허용 목록을 추가하려면
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **사용자** > **사용자 설정**을 선택합니다.
 3. **외부 사용자**에서 **외부 협업 설정 관리**를 선택합니다.
 4. **협업 제한**에서 **지정된 도메인에 초대 거부(가장 제한적)** 를 선택합니다.
-5. **대상 도메인**에서 허용할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들어:
+5. **대상 도메인**에서 허용할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예:
 
    ![추가된 도메인에 허용 옵션 표시](./media/allow-deny-list/AllowListSettings.png)
  
@@ -80,7 +80,10 @@ ms.locfileid: "68233890"
 
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>PowerShell을 사용한 허용 또는 차단 목록 정책 설정
 
-### <a name="prerequisite"></a>필수 조건
+### <a name="prerequisite"></a>필수 요소
+
+> [!Note]
+> AzureADPreview 모듈은 미리 보기 상태 이므로 완전히 지원 되는 모듈이 아닙니다. 
 
 PowerShell을 사용하여 허용 또는 거부 목록을 설정하려면 Azure Active Directory Module for Windows PowerShell의 미리 보기 버전을 설치해야 합니다. 특히 AzureADPreview module version 2.0.0.98 이상을 설치합니다.
 
@@ -137,19 +140,19 @@ New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Typ
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-허용 또는 거부 목록 정책을 설정하려면 [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들어:
+허용 또는 거부 목록 정책을 설정하려면 [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-정책을 가져오려면 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들어:
+정책을 가져오려면 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-정책을 제거오려면 [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들어:
+정책을 제거오려면 [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

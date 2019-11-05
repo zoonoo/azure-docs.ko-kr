@@ -11,23 +11,23 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 98d257c28ab5ff2cf902c0b8205ac8918ccf4d45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ab291ab60a5e72b5c61552bc54c10e303c1df1a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567013"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492494"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>VCore와 DTU 구매 모델 중에서 선택 합니다.
 
 Azure SQL Database를 사용 하면 성능 및 비용 요구에 맞는 완전히 관리 되는 PaaS (platform as a service) 데이터베이스 엔진을 쉽게 구매할 수 있습니다. Azure SQL Database 위해 선택한 배포 모델에 따라 사용자에 게 적합 한 구매 모델을 선택할 수 있습니다.
 
-- [가상 코어 (vcore) 기반 구매 모델](sql-database-service-tiers-vcore.md) (권장). 이 구매 모델은 프로 비전 된 계산 계층과 서버를 사용 하지 않는 (미리 보기) 계산 계층 중에서 선택할 것을 제공 합니다. 프로 비전 된 계산 계층을 사용 하 여 워크 로드에 대해 항상 프로 비전 되는 정확한 계산 리소스 양을 선택 합니다. 서버를 사용 하지 않는 계산 계층에서는 구성 가능한 계산 범위에 대해 계산 리소스의 자동 크기 조정을 지정 합니다. 이 계산 계층을 사용 하 여 워크 로드 활동을 기반으로 데이터베이스를 자동으로 일시 중지 하 고 다시 시작할 수도 있습니다. 프로 비전 된 계산 계층의 시간 단위당 vCore 단가가 서버를 사용 하지 않는 계산 계층에 있는 것 보다 낮습니다.
+- [Vcore (가상 코어) 기반 구매 모델](sql-database-service-tiers-vcore.md) (권장) 이 구매 모델은 프로 비전 된 계산 계층과 서버를 사용 하지 않는 계산 계층 중에서 선택할 것을 제공 합니다. 프로 비전 된 계산 계층을 사용 하 여 워크 로드에 대해 항상 프로 비전 되는 정확한 계산 리소스 양을 선택 합니다. 서버를 사용 하지 않는 계산 계층에서는 구성 가능한 계산 범위에 대해 계산 리소스의 자동 크기 조정을 지정 합니다. 이 계산 계층을 사용 하 여 워크 로드 활동을 기반으로 데이터베이스를 자동으로 일시 중지 하 고 다시 시작할 수도 있습니다. 프로 비전 된 계산 계층의 시간 단위당 vCore 단가가 서버를 사용 하지 않는 계산 계층에 있는 것 보다 낮습니다.
 - [DTU (데이터베이스 트랜잭션 단위) 기반 구매 모델](sql-database-service-tiers-dtu.md)입니다. 이 구매 모델은 공통 작업에 대해 분산 된 번들 계산 및 저장소 패키지를 제공 합니다.
 
 다양 한 Azure SQL Database 배포 모델에 대해 여러 구매 모델을 사용할 수 있습니다.
 
-- [Azure SQL Database](sql-database-technical-overview.md)의 [단일 데이터베이스](sql-database-single-databases-manage.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 배포 옵션은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 모두 제공합니다.
+- [Azure SQL Database](sql-database-single-databases-manage.md)의 [단일 데이터베이스](sql-database-elastic-pool.md) 및 [탄력적 풀](sql-database-technical-overview.md) 배포 옵션은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 모두 제공합니다.
 - Azure SQL Database의 [관리 되는 인스턴스](sql-database-managed-instance.md) 배포 옵션은 [vcore 기반 구매 모델만](sql-database-service-tiers-vcore.md)제공 합니다.
 - 하이퍼 [확장 서비스 계층](sql-database-service-tier-hyperscale.md) 은 [vcore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용 하는 단일 데이터베이스에 사용할 수 있습니다.
 
@@ -53,7 +53,7 @@ Azure SQL Database를 사용 하면 성능 및 비용 요구에 맞는 완전히
 
 ### <a name="serverless-compute-costs"></a>서버를 사용 하지 않는 계산 비용
 
-서버를 사용 하지 않는 계산 계층에 대해 계산 용량이 정의 되 고 비용이 계산 되는 방식에 대 한 설명은 [서버 리스 서버 (미리 보기) SQL Database](sql-database-serverless.md)을 참조 하세요.
+서버를 사용 하지 않는 계산 계층에 대해 계산 용량이 정의 되 고 비용이 계산 되는 방법에 대 한 설명은 서버를 사용 하지 않는 [SQL Database](sql-database-serverless.md)를 참조 하세요.
 
 ## <a name="storage-costs"></a>스토리지 비용
 
@@ -77,7 +77,7 @@ VCore 기반 구매 모델을 사용 하 여 독립적으로 계산 및 저장�
 
 > [!IMPORTANT]
 > 계산 리소스, i/o, 데이터 및 로그 저장소는 데이터베이스 또는 탄력적 풀 별로 요금이 청구 됩니다. 백업 저장소는 각 데이터베이스당 청구 됩니다. 관리되는 인스턴스에 대한 자세한 내용은 [관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요.
-> **지역 제한 사항:** 현재 지원되는 하위 지역 목록은 [하위 지역별로 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)을 참조하세요. 현재 지원 되지 않는 지역에서 관리 되는 인스턴스를 만들려면 [Azure Portal를 통해 지원 요청을 보냅니다](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
+> **지역 제한 사항:** 지원 되는 지역에 대 한 현재 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)을 참조 하세요. 현재 지원 되지 않는 지역에서 관리 되는 인스턴스를 만들려면 [Azure Portal를 통해 지원 요청을 보냅니다](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 
 단일 데이터베이스 또는 탄력적 풀이 300 개 보다 많은 Dtu를 사용 하는 경우 vCore 기반 구매 모델로 변환 하면 비용이 줄어들 수 있습니다. 원하는 API를 사용 하거나 가동 중지 시간 없이 Azure Portal를 사용 하 여 변환할 수 있습니다. 그러나 변환은 필요 하지 않으며 자동으로 수행 되지 않습니다. DTU 기반 구매 모델이 성능 및 비즈니스 요구 사항을 충족하는 경우 이 모델을 계속 사용해야 합니다.
 
@@ -100,9 +100,9 @@ DTU 기반 구매 모델에서 [단일 데이터베이스](sql-database-single-d
 
 워크 로드에서 사용 하는 리소스는 Azure 클라우드의 다른 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않습니다. 마찬가지로 다른 작업에서 사용 하는 리소스는 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않습니다.
 
-![경계 상자(bounding box)](./media/sql-database-what-is-a-dtu/bounding-box.png)
+![경계 상자](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터베이스에 할당 되는 상대 리소스를 이해 하는 데 가장 유용 합니다. 예를 들어:
+Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터베이스에 할당 되는 상대 리소스를 이해 하는 데 가장 유용 합니다. 예:
 
 - 데이터베이스의 계산 크기를 늘려서 Dtu를 두 배로 늘리면 해당 데이터베이스에서 사용할 수 있는 리소스 집합이 배가 됩니다.
 - 1750 dtu를 포함 하는 프리미엄 서비스 계층 P11 데이터베이스는 5 개의 dtu를 포함 하는 기본 서비스 계층 데이터베이스 보다 350 배 더 이상의 dtu 계산 기능을 제공 합니다.  

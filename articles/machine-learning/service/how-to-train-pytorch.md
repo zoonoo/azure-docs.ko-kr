@@ -11,14 +11,15 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: c688f5a59a9a6d980f50a726f9da4dc4379ce073
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
-ms.translationtype: MT
+ms.openlocfilehash: 0c3157d3ff020fd8c4974bf694b9a96d98e83c58
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002562"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489448"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 Pytorch 심층 학습 모델 학습
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning의 [PyTorch 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) 클래스를 사용 하 여 엔터프라이즈 규모에서 [PyTorch](https://pytorch.org/) 학습 스크립트를 실행 하는 방법에 대해 알아봅니다.  
 
@@ -28,20 +29,20 @@ ms.locfileid: "71002562"
 
 [심층 학습 vs machine learning](concept-deep-learning-vs-machine-learning.md)에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
- - Azure Machine Learning 노트북 VM-다운로드 또는 설치 필요 없음
+ - Azure Machine Learning 계산 인스턴스-다운로드 또는 설치 필요 없음
 
-    - 이 자습서를 시작하기 전에 [자습서: SDK 및 샘플 리포지토리](tutorial-1st-experiment-sdk-setup.md) 를 사용 하 여 미리 로드 된 전용 노트북 서버를 만들기 위한 환경 및 작업 영역을 설정 합니다.
+    - [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
     - 노트북 서버의 샘플 심층 학습 폴더에서 다음 디렉터리로 이동 하 여 완료 되 고 확장 된 노트북을 찾습니다. **사용 방법-azureml > 교육-심층 학습 > 학습-hyperparameter 변수-pytorch** 폴더. 
  
  - 사용자 고유의 Jupyter Notebook 서버
 
     - [AZURE MACHINE LEARNING SDK를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
     - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
-    - [샘플 스크립트 파일 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)`pytorch_train.py`
+    - [예제 스크립트 파일을 다운로드](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch) `pytorch_train.py`
      
     GitHub 샘플 페이지에서이 가이드의 전체 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch/train-hyperparameter-tune-deploy-with-pytorch.ipynb) 을 찾을 수도 있습니다. 노트북에는 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 노트북 위젯을 다루는 확장 된 섹션이 포함 되어 있습니다.
 
@@ -67,9 +68,9 @@ from azureml.train.dnn import PyTorch
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
-[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
+[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 개체를 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
 
-`config.json` [전제 조건 섹션](#prerequisites)에서 만든 파일에서 작업 영역 개체를 만듭니다.
+[전제 조건 섹션](#prerequisites)에서 만든 `config.json` 파일에서 작업 영역 개체를 만듭니다.
 
 ```Python
 ws = Workspace.from_config()
@@ -89,19 +90,19 @@ experiment = Experiment(ws, name=experiment_name)
 
 ### <a name="get-the-data"></a>데이터 가져오기
 
-데이터 집합은 각 클래스에 대해 100 유효성 검사 이미지를 사용 하 여 chickens 키와 각각에 대 한 약 120 학습 이미지로 구성 됩니다. 데이터 집합은 학습 스크립트 `pytorch_train.py`의 일부로 다운로드 하 고 압축을 풉니다. 이미지는 [개방형 이미지 V5 데이터 집합](https://storage.googleapis.com/openimages/web/index.html)의 하위 집합입니다.
+데이터 집합은 각 클래스에 대해 100 유효성 검사 이미지를 사용 하 여 chickens 키와 각각에 대 한 약 120 학습 이미지로 구성 됩니다. 데이터 집합을 다운로드 하 고이를 `pytorch_train.py`학습 스크립트의 일부로 추출 합니다. 이미지는 [개방형 이미지 V5 데이터 집합](https://storage.googleapis.com/openimages/web/index.html)의 하위 집합입니다.
 
 ### <a name="prepare-training-scripts"></a>학습 스크립트 준비
 
-이 자습서에서는 학습 스크립트 `pytorch_train.py`인가 이미 제공 되어 있습니다. 실제로는 사용자 지정 학습 스크립트를 그대로 사용 하 고 Azure Machine Learning를 사용 하 여 실행할 수 있습니다.
+이 자습서에서는 학습 스크립트 `pytorch_train.py`가 이미 제공 되어 있습니다. 실제로는 사용자 지정 학습 스크립트를 그대로 사용 하 고 Azure Machine Learning를 사용 하 여 실행할 수 있습니다.
 
-Pytorch 교육 스크립트를 `pytorch_train.py`업로드 합니다.
+Pytorch 교육 스크립트 `pytorch_train.py`업로드 합니다.
 
 ```Python
 shutil.copy('pytorch_train.py', project_folder)
 ```
 
-그러나 Azure Machine Learning 추적 및 메트릭 기능을 사용 하려는 경우 학습 스크립트 내에 작은 양의 코드를 추가 해야 합니다. 메트릭 추적의 예는에서 `pytorch_train.py`찾을 수 있습니다.
+그러나 Azure Machine Learning 추적 및 메트릭 기능을 사용 하려는 경우 학습 스크립트 내에 작은 양의 코드를 추가 해야 합니다. 메트릭 추적의 예는 `pytorch_train.py`에서 찾을 수 있습니다.
 
 ## <a name="create-a-compute-target"></a>컴퓨팅 대상 만들기
 
@@ -129,9 +130,9 @@ except ComputeTargetException:
 
 [PyTorch 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) 는 계산 대상에서 PyTorch 학습 작업을 시작 하는 간단한 방법을 제공 합니다.
 
-PyTorch 평가기는 프레임 워크를 지 원하는 [`estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 데 사용할 수 있는 제네릭 클래스를 통해 구현 됩니다. 제네릭 평가기을 사용한 학습 모델에 대 한 자세한 내용은 [평가기를 사용 하 여 Azure Machine Learning를](how-to-train-ml-models.md) 사용 하 여 모델 학습을 참조 하세요.
+PyTorch 평가기는 프레임 워크를 지 원하는 데 사용할 수 있는 제네릭 [`estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 클래스를 통해 구현 됩니다. 제네릭 평가기을 사용한 학습 모델에 대 한 자세한 내용은 [평가기를 사용 하 여 Azure Machine Learning를](how-to-train-ml-models.md) 사용 하 여 모델 학습을 참조 하세요.
 
-학습 스크립트에 추가 pip 또는 conda 패키지를 실행 해야 하는 경우 및 `pip_packages` `conda_packages` 인수를 통해 해당 이름을 전달 하 여 결과 docker 이미지에 패키지를 설치할 수 있습니다.
+학습 스크립트에 추가 pip 또는 conda 패키지를 실행 해야 하는 경우 `pip_packages` 및 `conda_packages` 인수를 통해 해당 이름을 전달 하 여 결과 docker 이미지에 패키지를 설치할 수 있습니다.
 
 ```Python
 script_params = {
@@ -158,13 +159,13 @@ run.wait_for_completion(show_output=True)
 
 실행이 실행 되 면 다음 단계를 거칩니다.
 
-- **준비 중**: Docker 이미지는 PyTorch 평가기에 따라 만들어집니다. 이미지는 작업 영역 컨테이너 레지스트리로 업로드 되 고 나중에 실행할 수 있도록 캐시 됩니다. 로그는 실행 기록에도 스트리밍되 고 진행률을 모니터링 하기 위해 볼 수 있습니다.
+- **준비**: PyTorch 평가기에 따라 docker 이미지가 생성 됩니다. 이미지는 작업 영역 컨테이너 레지스트리로 업로드 되 고 나중에 실행할 수 있도록 캐시 됩니다. 로그는 실행 기록에도 스트리밍되 고 진행률을 모니터링 하기 위해 볼 수 있습니다.
 
-- **크기 조정**: Batch AI 클러스터가 현재 사용할 수 있는 것 보다 더 많은 노드를 실행 하는 데 필요한 경우 클러스터를 확장 하려고 시도 합니다.
+- **크기 조정**: 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
 
-- **Running**: 스크립트 폴더의 모든 스크립트는 계산 대상으로 업로드 되 고 데이터 저장소는 탑재 되거나 복사 되며 entry_script가 실행 됩니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
+- **실행 중**: 스크립트 폴더의 모든 스크립트를 계산 대상으로 업로드 하 고, 데이터 저장소를 탑재 또는 복사 하 고, entry_script를 실행 합니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
 
-- **후 처리 중**: 실행의./출력 폴더가 실행 기록에 복사 됩니다.
+- **사후 처리**: 실행의./출력 폴더가 실행 기록에 복사 됩니다.
 
 ## <a name="register-or-download-a-model"></a>모델 등록 또는 다운로드
 
@@ -194,7 +195,7 @@ for f in run.get_file_names():
 ### <a name="horovod"></a>Horovod
 [Horovod](https://github.com/uber/horovod) 는 uber에서 개발한 분산 교육을 위한 오픈 소스를 모두 줄인 프레임 워크입니다. Distributed GPU PyTorch 작업에 대 한 쉬운 경로를 제공 합니다.
 
-Horovod를 사용 하려면 PyTorch 생성자 [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) 에서 `distributed_training` 매개 변수에 대 한 개체를 지정 합니다. 이 매개 변수는 학습 스크립트에서 사용할 Horovod 라이브러리가 설치 되어 있는지 확인 합니다.
+Horovod를 사용 하려면 PyTorch 생성자에서 `distributed_training` 매개 변수에 대 한 [`MpiConfiguration`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py) 개체를 지정 합니다. 이 매개 변수는 학습 스크립트에서 사용할 Horovod 라이브러리가 설치 되어 있는지 확인 합니다.
 
 
 ```Python
@@ -210,7 +211,7 @@ estimator= PyTorch(source_directory=project_folder,
                       framework_version='1.13',
                       use_gpu=True)
 ```
-Horovod 및 해당 종속성이 설치 되므로 학습 스크립트 `train.py` 에서 다음과 같이 가져올 수 있습니다.
+Horovod 및 해당 종속성은 다음과 같이 학습 스크립트 `train.py`에서 가져올 수 있도록 설치 됩니다.
 
 ```Python
 import torch

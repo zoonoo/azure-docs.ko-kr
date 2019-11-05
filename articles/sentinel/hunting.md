@@ -16,16 +16,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: edba2a18e3b086a132f0bba7622df5df389671c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372418"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489193"
 ---
-# <a name="hunt-for-threats-with-in-azure-sentinel"></a>Azure 센티널에서 위협 구하기
-
-
+# <a name="hunt-for-threats-with-azure-sentinel"></a>Azure 센티널로 위협 구하기
 
 보안 위협에 대 한 사전 예방을 원하는 조사 기 경우 Azure는 강력한 검색 검색 및 쿼리 도구를 통해 조직의 데이터 원본에서 보안 위협을 찾아냅니다. 그러나 시스템 및 보안 어플라이언스는 의미 있는 이벤트를 구문 분석 하 고 필터링 하기 어려울 수 있는 데이터의 산을 생성 합니다. 보안 분석가가 보안 앱에서 검색 되지 않은 새 변칙을 사전에 확인 하는 데 도움이 되도록 Azure 센티널의 기본 제공 검색 쿼리는 네트워크에 이미 있는 데이터의 문제를 찾기 위한 적절 한 질문을 안내 합니다. 
 
@@ -48,7 +46,7 @@ Azure 센티널 구하기를 사용 하면 다음과 같은 기능을 활용할 
 ## <a name="get-started-hunting"></a>구하기 시작
 
 1. Azure 센티널 포털에서 **구하기**를 클릭 합니다.
-  ![Azure 센티널은 구하기 @ no__t-1을 시작 합니다.
+  ![Azure 센티널에서 구하기를 시작](media/tutorial-hunting/hunting-start.png)
 
 2. **구하기** 페이지를 열면 모든 구하기 쿼리가 단일 테이블에 표시 됩니다. 이 표에는 Microsoft의 보안 분석가 팀에서 작성 하거나 수정한 모든 추가 쿼리를 비롯 한 모든 쿼리가 나열 됩니다. 각 쿼리는 시스템적인에 대 한 설명 및 실행 되는 데이터의 종류를 제공 합니다. 이러한 템플릿은 다양 한 전략에 따라 그룹화 됩니다. 오른쪽의 아이콘은 초기 액세스, 지 속성, exfiltration 등의 위협 유형을 분류 합니다. 모든 필드를 사용 하 여 이러한 구하기 쿼리 템플릿을 필터링 할 수 있습니다. 모든 쿼리를 즐겨찾기에 저장할 수 있습니다. 즐겨찾기에 쿼리를 저장 하면 자동으로 **사냥** 페이지가 액세스 될 때마다 쿼리가 자동으로 실행 됩니다. 사용자 고유의 구하기 쿼리를 만들거나 기존 구하기 쿼리 템플릿을 복제 하 고 사용자 지정할 수 있습니다. 
  
@@ -78,7 +76,7 @@ Azure 센티널의 구하기는 Kusto 쿼리 언어를 기반으로 합니다. �
 
 ## <a name="sample-query"></a>샘플 쿼리
 
-일반적인 쿼리는 테이블 이름으로 시작 하 고 일련의 연산자가 \|으로 구분 됩니다.
+일반적인 쿼리는 테이블 이름으로 시작 하 고 그 뒤에 일련의 연산자가 \|로 구분 됩니다.
 
 위의 예제에서 테이블 이름 SecurityEvent로 시작 하 고 필요에 따라 파이프 된 요소를 추가 합니다.
 

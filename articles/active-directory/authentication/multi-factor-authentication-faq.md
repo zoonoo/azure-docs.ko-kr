@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ecec4d0701f6f55385937f872151a373b2f62e
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ea174de04d0e75bc996c6f692edd474a9396346a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808101"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474267"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -34,7 +34,7 @@ Multi-Factor Authentication 서버를 사용하면 사용자의 데이터가 온
 * **이름과 성** (선택 사항)
 * **전자 메일 주소** (선택 사항)
 * **전화 번호** (음성 통화 또는 SMS 인증을 수행할 때)
-* **디바이스 토큰** (모바일 앱 인증을 수행할 때)
+* **디바이스 토큰**(모바일 앱 인증을 수행할 때)
 * **인증 모드**
 * **인증 결과**
 * **Multi-Factor Authentication 서버 이름**
@@ -61,7 +61,7 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 
 Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 외에도 국가/지역에 대 한 간단한 코드를 지원 하지 않습니다.
 
-## <a name="billing"></a>청구
+## <a name="billing"></a>결제
 
 [Multi-Factor Authentication 가격 책정 페이지](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 또는 [Azure Multi-Factor Authentication 획득 방법](concept-mfa-licensing.md)에 대한 설명서를 참조하여 대부분의 청구 관련 질문에 대답할 수 있습니다.
 
@@ -204,7 +204,7 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 
 모바일 앱에서 해당 계정을 제거하려면 이 절차에 따라 알린 다음 다시 추가합니다.
 
-1. [Azure 포털 프로필](https://account.activedirectory.windowsazure.com/profile/)로 이동한 후 조직 계정으로 로그인합니다.
+1. [Azure 포털 프로필](https://account.activedirectory.windowsazure.com/profile/) 로 이동한 후 조직 계정으로 로그인합니다.
 2. **추가 보안 인증**을 선택합니다.
 3. 모바일 앱에서 기존 계정을 제거합니다.
 4. **구성**을 클릭하고 지침에 따라 모바일 앱을 다시 구성합니다.
@@ -219,7 +219,7 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 
 질문이 여기에서 답변되지 않은 경우 페이지의 맨 아래에 의견을 남겨 주세요. 또는 도움말을 얻는 몇 가지 추가 옵션은 다음과 같습니다.
 
-* [Microsoft 지원 기술 자료](https://www.microsoft.com/Search/result.aspx?form=mssupport&q=phonefactor&form=mssupport)에서 일반적인 기술 문제에 대한 솔루션을 검색합니다.
+* [Microsoft 지원 기술 자료](https://www.microsoft.com/en-us/search?form=mssupport&q=phonefactor&rtc=1)에서 일반적인 기술 문제에 대한 솔루션을 검색합니다.
 * 커뮤니티에서 기술 질문 및 대답을 검색하고 찾아보거나 [Azure Active Directory 포럼](https://social.msdn.microsoft.com/Forums/azure/newthread?category=windowsazureplatform&forum=WindowsAzureAD&prof=required)에서 직접 원하는 질문을 할 수 있습니다.
 * 기존 PhoneFactor 고객이며 암호를 재설정에 대해 질문이 있거나 도움이 필요한 경우 [암호 재설정](mailto:phonefactorsupport@microsoft.com) 링크를 사용하여 지원 사례를 개설하세요.
 * [Azure Multi-Factor Authentication 서버(PhoneFactor) 지원](https://support.microsoft.com/oas/default.aspx?prid=14947)을 통해 지원 전문가에게 문의하세요. 문의하는 경우 가능한 문제에 대한 많은 정보를 제공해주시면 도움이 됩니다. 오류를 발견한 페이지, 특정 오류 코드, 특정 세션 ID 및 오류를 발견한 사용자의 ID를 포함하는 정보를 제공해 주시면 됩니다.

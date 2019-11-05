@@ -1,7 +1,7 @@
 ---
 title: 문제 해결 가이드
 titleSuffix: Microsoft Genomics
-description: Microsoft Genomics 사용에 대 한 문제 해결 전략에 대해 알아봅니다.
+description: 오류 메시지 및 문제 해결 방법을 비롯 하 여 Microsoft Genomics 사용에 대 한 문제 해결 전략에 대해 알아봅니다.
 keywords: 문제 해결, 오류, 디버깅
 services: genomics
 author: ruchir
@@ -11,26 +11,26 @@ ms.service: genomics
 ms.workload: genomics
 ms.topic: troubleshooting
 ms.date: 10/29/2018
-ms.openlocfilehash: ce8af4d444e642a8f67f43f8cf403ce9b2cb08ab
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: f6ef56e4188a7541036db096e4ab35a1b95fc141
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248524"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486004"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
 Microsoft Genomics 서비스 MSGEN을 사용할 때 발생할 수 있는 일반적인 문제를 위한 몇 가지 문제 해결 팁입니다.
 
  문제 해결과 관련이 없는 FAQ의 경우 [일반적인 질문](frequently-asked-questions-genomics.md)을 참조하세요.
-## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>1단계: 워크플로와 관련 된 오류 코드 찾기
+## <a name="step-1-locate-error-codes-associated-with-the-workflow"></a>1단계: 워크플로와 연결된 오류 코드 찾기
 
 다음을 통해 워크플로와 연결된 오류 메시지를 찾을 수 있습니다.
 
 1. `msgen status` 명령줄 사용 및 입력
 2. standardoutput.txt의 콘텐츠 검사
 
-### <a name="1-using-the-command-line-msgen-status"></a>1. `msgen status` 명령줄 사용
+### <a name="1-using-the-command-line-msgen-status"></a>1. 명령줄을 사용 하 여 `msgen status`
 
 ```bash
 msgen status -u URL -k KEY -w ID 
@@ -82,7 +82,7 @@ msgen 실행 파일과 동일한 경로에 있는 config.txt 파일 및 워크�
 msgen status -w 1001 -f "config.txt"
 ```
 
-### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2.  standardoutput.txt의 콘텐츠 검사 
+### <a name="2--examine-the-contents-of-standardoutputtxt"></a>2. standardoutput의 내용을 확인 합니다. 
 질문의 워크플로에 대한 출력 컨테이너를 찾습니다. MSGEN은 모든 워크플로를 실행한 후 `[workflowfilename].logs.zip` 폴더를 만듭니다. 폴더의 압축을 풀어 해당 콘텐츠를 확인합니다.
 
 * outputFileList.txt - 워크플로 중에 생성된 출력 파일의 목록입니다.
@@ -93,14 +93,14 @@ msgen status -w 1001 -f "config.txt"
 문제 해결을 위해 standardoutput.txt의 콘텐츠를 검사하고 나타나는 오류 메시지를 기록합니다.
 
 
-## <a name="step-2-try-recommended-steps-for-common-errors"></a>2단계: 일반적인 오류에 대 한 권장 단계를 시도 합니다.
+## <a name="step-2-try-recommended-steps-for-common-errors"></a>2단계: 일반적인 오류에 대한 권장되는 단계를 시도합니다.
 
 이 섹션에서는 Microsoft Genomics 서비스(msgen)에서 출력되는 일반적인 오류와 이를 해결하는 데 사용할 수 있는 전략에 대해 간략히 설명합니다. 
 
 Microsoft Genomics 서비스(msgen)는 다음 두 종류의 오류를 throw할 수 있습니다.
 
-1. 내부 서비스 오류: 서비스의 내부 오류입니다 .이 오류는 매개 변수 또는 입력 파일을 수정 하 여 해결할 수 없습니다. 경우에 따라 워크플로를 다시 전송하면 이러한 오류를 해결할 수도 있습니다.
-2. 입력 오류: 올바른 인수를 사용 하거나 파일 형식을 수정 하 여 해결할 수 있는 오류입니다.
+1. 내부 서비스 오류: 매개 변수 또는 입력 파일 수정으로는 해결할 수 없는 서비스 내부의 오류입니다. 경우에 따라 워크플로를 다시 전송하면 이러한 오류를 해결할 수도 있습니다.
+2. 입력 오류: 올바른 인수 사용 및 파일 형식 수정으로 해결할 수 있는 오류입니다.
 
 ### <a name="1-internal-service-errors"></a>1. 내부 서비스 오류
 
@@ -116,7 +116,7 @@ Microsoft Genomics 서비스(msgen)는 다음 두 종류의 오류를 throw할 �
 
 | 파일 형식 | 오류 코드 | 오류 메시지                                                                           | 권장되는 문제 해결 단계                                                                                         |
 |--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| 임의의 값          | 701        | 읽기 [readId]에 [numberOfBases] 자료가 있지만 한도는 [maxReadLength]입니다.           | 이 오류에 대한 가장 일반적인 이유는 파일 손상으로 인한 두 개의 읽기 연결입니다. 입력 파일을 확인합니다. |
+| 모두          | 701        | 읽기 [readId]에 [numberOfBases] 자료가 있지만 한도는 [maxReadLength]입니다.           | 이 오류에 대한 가장 일반적인 이유는 파일 손상으로 인한 두 개의 읽기 연결입니다. 입력 파일을 확인합니다. |
 | BAM          | 200        |   ‘[yourFileName]’ 파일을 읽을 수 없습니다.                                                                                       | BAM 파일의 형식을 확인합니다. 올바른 형식의 파일을 사용하여 워크플로를 다시 제출합니다.                                                                           |
 | BAM          | 201        |  [File_name] BAM 파일을 읽을 수 없습니다.                                                                                      |BAM 파일의 형식을 확인합니다.  올바른 형식의 파일을 사용하여 워크플로를 제출합니다.                                                                            |
 | BAM          | 202        | [File_name] BAM 파일을 읽을 수 없습니다. 파일이 너무 작고 헤더가 누락되었습니다.                                                                                        | BAM 파일의 형식을 확인합니다.  올바른 형식의 파일을 사용하여 워크플로를 제출합니다.                                                                            |
@@ -137,7 +137,7 @@ Microsoft Genomics 서비스(msgen)는 다음 두 종류의 오류를 throw할 �
 | FASTQ        | 308        |  FASTQ 읽기 오류입니다. 두 읽기가 서로 다르게 응답됩니다. 올바른 FASTQ 파일을 선택하지 못했습니까?                                                                                       | FASTQ 파일의 형식을 수정하고 워크플로를 다시 제출합니다.                                                                         |
 |        |       |                                                                                        |                                                                           |
 
-## <a name="step-3-contact-microsoft-genomics-support"></a>3단계: Microsoft Genomics 지원 담당자에 게 문의 하세요.
+## <a name="step-3-contact-microsoft-genomics-support"></a>3단계: Microsoft Genomics 지원에 문의
 
 작업이 계속 실패하거나 다른 질문이 있는 경우 Azure Portal의 Microsoft Genomics 지원에 문의하세요. 지원 요청을 제출하는 방법에 대한 추가 정보는 [여기](file-support-ticket-genomics.md)에서 찾을 수 있습니다.
 

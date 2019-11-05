@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5df6ab47c45a64077a39974a30c65fe13f3c851d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 90de0b4bfad4c5096ebc38eb3d31fc41bca6649b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091489"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494860"
 ---
 # <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop 서비스에 힙 덤프 사용
 
@@ -81,7 +81,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
 서비스에 대한 구성을 수정하려면 다음 단계를 사용합니다.
 
-1. 클러스터에 대한 Ambari 웹 UI를 엽니다. URL은 https://YOURCLUSTERNAME.azurehdinsight.net 합니다.
+1. 클러스터에 대한 Ambari 웹 UI를 엽니다. URL은 https://YOURCLUSTERNAME.azurehdinsight.net입니다.
 
     메시지가 나타나면 클러스터의 HTTP 계정 이름(기본값: admin) 및 암호를 사용하여 사이트를 인증합니다.
 
@@ -96,7 +96,7 @@ map 프로세스와 reduce 프로세스는 MapReduce 서비스의 자식 프로�
 
     ![Apache Ambari 구성 필터링 된 목록](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hdinsight-filter-list.png)
 
-4. 힙 덤프를 사용할 서비스에 대한 **\*\_OPTS** 항목을 찾아서 사용할 옵션을 추가합니다. 다음 그림에서는 **HADOOP\_NAMENODE\_OPTS** 항목에 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`를 추가했습니다.
+4. 힙 덤프를 사용할 서비스에 대한 **\*\_OPTS** 항목을 찾아서 사용할 옵션을 추가합니다. 다음 그림에서는 `-XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath=/tmp/`HADOOP**NAMENODE\_OPTS\_ 항목에** 를 추가했습니다.
 
     ![Apache Ambari hadoop-namenode-opts](./media/hdinsight-hadoop-collect-debug-heap-dump-linux/hadoop-namenode-opts.png)
 

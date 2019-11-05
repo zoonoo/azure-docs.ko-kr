@@ -11,14 +11,15 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 22ce9ea44dde6da4d1194463fe266ed00c5a3f96
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 0ceb21d6f77fd9694f7cd564c2e89735cf2a774d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067718"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497419"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 액세스 관리
+[!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning 작업 영역에 대 한 액세스를 관리 하는 방법에 대해 알아봅니다. [RBAC (역할 기반 액세스 제어)](/azure/role-based-access-control/overview) 는 Azure 리소스에 대 한 액세스를 관리 하는 데 사용 됩니다. Azure Active Directory 사용자에 게 리소스에 대 한 액세스 권한을 부여 하는 특정 역할이 할당 됩니다. Azure는 기본 제공 역할 및 사용자 지정 역할을 만드는 기능을 모두 제공 합니다.
 
@@ -29,7 +30,7 @@ Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure �
 | 역할 | 액세스 수준 |
 | --- | --- |
 | **판독기** | 작업 영역의 읽기 전용 작업입니다. 독자는 작업 영역에서 자산을 나열 하 고 볼 수 있지만 이러한 자산을 만들거나 업데이트할 수 없습니다. |
-| **기여자** | 작업 영역에서 자산을 보거나, 만들거나, 편집 하거나, 삭제 합니다 (해당 하는 경우). 예를 들어 참가자는 실험을 만들고, 계산 클러스터를 만들고 연결 하 고, 실행을 제출 하 고, 웹 서비스를 배포할 수 있습니다. |
+| **참여자** | 작업 영역에서 자산을 보거나, 만들거나, 편집 하거나, 삭제 합니다 (해당 하는 경우). 예를 들어 참가자는 실험을 만들고, 계산 클러스터를 만들고 연결 하 고, 실행을 제출 하 고, 웹 서비스를 배포할 수 있습니다. |
 | **소유자** | 작업 영역에 대 한 모든 액세스 권한 (해당 하는 경우)을 확인, 생성, 편집 또는 삭제 (해당 하는 경우) 하는 기능을 포함 하 여 작업 영역에서. 또한 역할 할당을 변경할 수 있습니다. |
 
 > [!IMPORTANT]
@@ -52,7 +53,7 @@ Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure �
 az ml workspace share -w <workspace_name> -g <resource_group_name> --role <role_name> --user <user_corp_email_address>
 ```
 
-필드 `user` 는 작업 영역 부모 구독이 있는 Azure Active Directory 인스턴스에 있는 기존 사용자의 전자 메일 주소입니다. 다음은이 명령을 사용 하는 방법의 예입니다.
+`user` 필드는 작업 영역 부모 구독이 있는 Azure Active Directory 인스턴스에서 기존 사용자의 이메일 주소입니다. 다음은이 명령을 사용 하는 방법의 예입니다.
 
 ```azurecli-interactive 
 az ml workspace share -w my_workspace -g my_resource_group --role Contributor --user jdoe@contoson.com
@@ -67,7 +68,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 사용자 지정 역할을 만들려면 먼저 역할에 대 한 사용 권한 및 범위를 지정 하는 역할 정의 JSON 파일을 생성 합니다. 다음 예제에서는 특정 작업 영역 수준에서 범위가 "Data 과학자" 인 사용자 지정 역할을 정의 합니다.
 
-`data_scientist_role.json`은:
+`data_scientist_role.json` :
 ```json
 {
     "Name": "Data Scientist",
@@ -86,7 +87,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 }
 ```
 
-필드를 `AssignableScopes` 변경 하 여 구독 수준, 리소스 그룹 수준 또는 특정 작업 영역 수준에서이 사용자 지정 역할의 범위를 설정할 수 있습니다.
+`AssignableScopes` 필드를 변경 하 여 구독 수준, 리소스 그룹 수준 또는 특정 작업 영역 수준에서이 사용자 지정 역할의 범위를 설정할 수 있습니다.
 
 이 사용자 지정 역할은 다음 작업을 제외 하 고 작업 영역에서 모든 작업을 수행할 수 있습니다.
 
@@ -115,5 +116,5 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 
 - [엔터프라이즈 보안 개요](concept-enterprise-security.md)
 - [가상 네트워크 내에서 실험 및 유추/점수를 안전 하 게 실행](how-to-enable-virtual-network.md)
-- [자습서: 모델 학습](tutorial-train-models-with-aml.md)
+- [자습서: 모델 교육](tutorial-train-models-with-aml.md)
 - [리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

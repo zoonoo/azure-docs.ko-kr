@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 05/13/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: cfecea6a64301d86aa657420dc300c26d4ed6f1e
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 0b69c1fb070431ad61858322dce461f6496c35d7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663392"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490818"
 ---
 # <a name="exploration-and-exploitation"></a>탐색 및 이용
 
@@ -25,22 +25,15 @@ Personalizer는 순위 호출을 받으면 다음 기능을 수행하는 RewardA
 * 악용을 사용하여 현재 기계 학습 모델을 기반으로 가장 유력한 사용자 동작과 일치시킵니다.
 * 순위에서 확률이 가장 높은 작업과 일치하지 않는 탐색을 사용합니다.
 
-<!--
-Returning the most probable action is called *exploit* behavior. Returning a different action is called *exploration*.
--->
 Personalizer는 현재 *입실론 그리디*라는 알고리즘을 사용하여 탐색합니다. 
 
 ## <a name="choosing-an-exploration-setting"></a>탐색 설정 선택
 
-Azure Portal의 Personalizer에 대한 **설정** 페이지에서 탐색에 사용할 트래픽의 백분율을 구성합니다. 이 설정은 탐색을 수행하는 순위 호출의 백분율을 결정합니다. 
+Personalizer에 대 한 Azure Portal **구성** 페이지에서 탐색에 사용할 트래픽의 비율을 구성 합니다. 이 설정은 탐색을 수행하는 순위 호출의 백분율을 결정합니다. 
 
 Personalizer는 각 순위 호출에 대해 이 확률을 사용하여 탐색할지 또는 이용할지를 결정합니다. 이는 특정 사용자 ID에 대해 처리를 잠그는 일부 A/B 프레임워크의 동작과 다릅니다.
 
 ## <a name="best-practices-for-choosing-an-exploration-setting"></a>탐색 설정 선택 모범 사례
-
-<!--
-@edjez - you say what not to do, but make no recommendations of what **to** do. 
--->
 
 탐색 설정의 선택은 모델을 개선하기 위한 사용자 상호 작용 중 탐색하는 비율에 관한 비즈니스 결정입니다. 
 

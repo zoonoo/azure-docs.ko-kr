@@ -1,34 +1,34 @@
 ---
-title: Azure database for MariaDB 연결 아키텍처
-description: Azure Database for MariaDB 서버에 대 한 연결 아키텍처를 설명합니다.
+title: Azure Database for MariaDB의 연결 아키텍처
+description: Azure Database for MariaDB 서버에 대 한 연결 아키텍처를 설명 합니다.
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: d49e4dff1664d6630c966583a722f8e136061de5
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5c24a89ca12c36a54a84c61c6343ce960da012c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595269"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498076"
 ---
-# <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Azure database for MariaDB 연결 아키텍처
-클라이언트 내부 및 외부 Azure에서에서 MariaDB 인스턴스에 대 한 Azure Database에 트래픽이 이동 되는 방법을이 문서에서는 Azure Database for MariaDB 연결 아키텍처에도 설명 합니다.
+# <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 연결 아키텍처
+이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MariaDB 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MariaDB 연결 아키텍처에 대해 설명 합니다.
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
 
-Azure Database for MariaDB 연결할 서버에는 클러스터의 물리적 위치에 대 한 라우팅 들어오는 연결을 담당 하는 게이트웨이 통해 설정 됩니다. 다음 다이어그램은 트래픽 흐름을 보여 줍니다.
+들어오는 연결을 클러스터에 있는 서버의 실제 위치로 라우팅하는 게이트웨이를 통해 Azure Database for MariaDB에 대 한 연결이 설정 됩니다. 다음 다이어그램은 트래픽 흐름을 보여 줍니다.
 
-![연결 아키텍처의 개요](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+![연결 아키텍처 개요](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-클라이언트와 데이터베이스에 연결, 게이트웨이를 연결 하는 연결 문자열을 얻을 수 있습니다. 이 게이트웨이에 3306 포트를 수신 하는 공용 IP 주소입니다. 데이터베이스 클러스터 내부의 트래픽은 MariaDB에 대 한 적절 한 Azure 데이터베이스로 전달 됩니다. 따라서 회사 네트워크에서와 같은 서버에 연결 하기 위해 것이 게이트웨이 연결할 수 있게 되기를 아웃 바운드 트래픽을 허용 하도록 클라이언트 쪽 방화벽을 열어야 하는 데 필요한 합니다. 아래 지역당 우리의 게이트웨이에서 사용 되는 IP 주소의 전체 목록을 찾을 수 있습니다.
+클라이언트는 데이터베이스에 연결할 때 게이트웨이에 연결 되는 연결 문자열을 가져옵니다. 이 게이트웨이에는 3306 포트를 수신 하는 공용 IP 주소가 있습니다. 데이터베이스 클러스터 내에서 트래픽이 적절 한 Azure Database for MariaDB 전달 됩니다. 따라서 회사 네트워크에서와 같이 서버에 연결 하려면 클라이언트 쪽 방화벽을 열어 아웃 바운드 트래픽이 게이트웨이에 도달할 수 있도록 해야 합니다. 아래에서 지역별 게이트웨이에서 사용 하는 IP 주소의 전체 목록을 찾을 수 있습니다.
 
-## <a name="azure-database-for-mariadb-gateway-ip-addresses"></a>Azure Database for MariaDB 게이트웨이 IP 주소
+## <a name="azure-database-for-mariadb-gateway-ip-addresses"></a>게이트웨이 IP 주소 Azure Database for MariaDB
 
-다음 표에서 모든 데이터 영역에 대 한 MariaDB 게이트웨이 용 Azure 데이터베이스의 기본 및 보조 Ip를 나열합니다. 기본 IP 주소는 게이트웨이의 현재 IP 주소 및 두 번째 IP 주소는 주 데이터베이스의 오류 발생 시 장애 조치 IP 주소입니다. 언급 했 듯이 고객 IP 주소에 아웃 바운드를 허용 해야 합니다. 두 번째 IP 주소를 수신 하지 않습니다 모든 서비스에서 Azure Database for MariaDB 연결을 허용 하도록 하 여 활성화 될 때까지 합니다.
+다음 표에서는 모든 데이터 영역에 대 한 Azure Database for MariaDB 게이트웨이의 기본 및 보조 Ip를 나열 합니다. 주 IP 주소는 게이트웨이의 현재 IP 주소이 고 두 번째 IP 주소는 주 복제본의 오류가 발생 하는 경우 장애 조치 (failover) IP 주소입니다. 앞서 언급 했 듯이, 고객은 두 IP 주소에 대 한 아웃 바운드를 허용 해야 합니다. 두 번째 IP 주소는 연결을 허용 하기 위해 Azure Database for MariaDB에 의해 활성화 될 때까지 서비스에서 수신 하지 않습니다.
 
-| **지역 이름** | **기본 IP 주소** | **보조 IP 주소** |
+| **영역 이름** | **기본 IP 주소** | **보조 IP 주소** |
 |:----------------|:-------------|:------------------------|
 | 오스트레일리아 동부 | 13.75.149.87 | 40.79.161.1 |
 | 오스트레일리아 동남부 | 191.239.192.109 | 13.73.109.251 |
@@ -56,6 +56,9 @@ Azure Database for MariaDB 연결할 서버에는 클러스터의 물리적 위�
 | 북유럽 | 191.235.193.75 | 40.113.93.91 |
 | 미국 중남부 | 23.98.162.75 | 13.66.62.124 |
 | 동남아시아 | 23.100.117.95 | 104.43.15.0 |
+| 남아프리카 공화국 북부 | 102.133.152.0 | |
+| 남아프리카 공화국 서부 | 102.133.24.0 | |
+| 아랍에미리트 북부 | 65.52.248.0 | |
 | 영국 남부 | 51.140.184.11 | |
 | 영국 서부 | 51.141.8.11| |
 | 서유럽 | 191.237.232.75 | 40.68.37.158 |
@@ -69,4 +72,4 @@ Azure Database for MariaDB 연결할 서버에는 클러스터의 물리적 위�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Portal을 사용한 Azure Database for MariaDB 방화벽 규칙을 만들고 관리합니다](./howto-manage-firewall-portal.md).
-* [Azure CLI를 사용 하 여 MariaDB 방화벽 규칙에 대 한 Azure Database를 만들고](./howto-manage-firewall-cli.md)
+* [Azure CLI를 사용 하 여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리](./howto-manage-firewall-cli.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 0bf7fe649a5a604c610307b9be0717dce01cb238
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 22e8fa8fb6999828076ea5f8f34b1f601b920013
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638300"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499560"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
@@ -39,16 +39,20 @@ Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 
 참고 항목: 
 * [개념](luis-concept-batch-test.md)
 * [방법](luis-how-to-batch-test.md)
-* [자습서] luis-testing.md)
+* [자습서](luis-tutorial-batch-testing.md)
 
 
 ## <a name="collaborator"></a>협력자
 
-협력자는 앱의 [소유자](#owner)가 아니지만, 의도, 엔터티, 발화를 추가, 편집 및 삭제할 동일한 권한을 가집니다.
+협력자/기여자는 앱의 [소유자](#owner) 가 아니지만 의도, 엔터티, 길이 발언를 추가, 편집 및 삭제할 수 있는 권한을 가집니다.
 
-## <a name="currently-editing"></a>현재 편집 중
+## <a name="contributor"></a>기고자
 
-[활성 버전](#active-version)과 동일함
+참여자는 [협력자](#collaborator)와 동일 합니다.
+
+## <a name="descriptor"></a>설명자
+
+설명자는 [문구 목록](#phrase-list) 및 [엔터티](#entity)를 포함 하 여 학습 시간에 모델에 적용 되는 [기능](#features) 입니다. 
 
 ## <a name="domain"></a>도메인
 
@@ -58,21 +62,9 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 [LUIS 엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) URL은 [LUIS 앱](#luis-app)이 작성되고 게시된 후 LUIS 쿼리를 제출하는 위치입니다. 엔드포인트 URL에는 앱 ID와 게시된 앱의 지역이 포함됩니다. 앱의 **[키 및 엔드포인트](luis-how-to-azure-subscription.md)** 페이지에 있는 엔드포인트를 찾거나 [앱 정보 가져오기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API에서 엔드포인트 URL을 가져올 수 있습니다.
 
-예제 엔드포인트가 다음과 같이 표시됩니다.
-
-`https://<region>.api.cognitive.microsoft.com/luis/v2.0/apps/<appID>?subscription-key=<subscriptionID>&verbose=true&timezoneOffset=0&q=<utterance>`
-
-|쿼리 문자열 매개 변수|description|
-|--|--|
-|영역(region)| [게시된 지역](luis-reference-regions.md#publishing-regions) |
-|appID | LUIS 앱 ID |
-|subscriptionID | Azure Portal에서 생성된 LUIS 엔드포인트(구독) 키 |
-|q | 발화 |
-|timezoneOffset| 분|
-
 ## <a name="entity"></a>엔터티
 
-[엔터티](luis-concept-entity-types.md)는 [의도](luis-concept-intent.md)에 관련된 정보를 설명하는 [발화](luis-concept-utterance.md)의 중요한 단어이고 때때로 의도에 필수적입니다. 엔터티는 기본적으로 LUIS의 데이터 형식입니다.
+[엔터티](luis-concept-entity-types.md)는 [의도](luis-concept-utterance.md)에 관련된 정보를 설명하는 [발화](luis-concept-intent.md)의 중요한 단어이고 때때로 의도에 필수적입니다. 엔터티는 기본적으로 LUIS의 데이터 형식입니다.
 
 ## <a name="f-measure"></a>F 측정값
 
@@ -100,7 +92,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 ## <a name="luis-app"></a>LUIS 앱
 
-LUIS 앱은 [의도](#intent), [엔터티](#entity) 및 레이블이 지정된 [발화](#utterance)를 포함하여 자연어 처리를 위한 학습된 데이터 모델입니다.
+LUIS 앱은 [의도](#intent), [엔터티](#entity)및 레이블이 지정 된 [길이 발언](#utterance)를 포함 하 여 자연어 처리를 위한 언어 모델의 컬렉션입니다.
 
 ## <a name="owner"></a>소유자
 
@@ -111,7 +103,7 @@ LUIS 앱은 [의도](#intent), [엔터티](#entity) 및 레이블이 지정된 [
 
 ## <a name="phrase-list"></a>구문 목록
 
-[구문 목록](luis-concept-feature.md#what-is-a-phrase-list-feature)에는 동일한 클래스에 속하고 비슷하게 처리되어야 하는 값(단어 또는 구문) 그룹이 포함됩니다(예: 도시 또는 제품의 이름). 서로 교환 가능한 목록은 동의어로 처리됩니다.
+[구문 목록](luis-concept-feature.md)에는 동일한 클래스에 속하고 비슷하게 처리되어야 하는 값(단어 또는 구문) 그룹이 포함됩니다(예: 도시 또는 제품의 이름). 서로 교환 가능한 목록은 동의어로 처리됩니다.
 
 ## <a name="prebuilt-domains"></a>미리 빌드된 도메인
 
@@ -130,7 +122,7 @@ LUIS 앱은 [의도](#intent), [엔터티](#entity) 및 레이블이 지정된 [
 
 ## <a name="publish"></a>게시
 
-게시는 스테이징 또는 프로덕션 [엔드포인트](#endpoint)에서 LUIS [활성 버전](#active-version)을 사용 가능하게 만드는 것입니다.  
+게시는 스테이징 또는 프로덕션 [끝점](#endpoint)에서 LUIS 활성 버전을 사용할 수 있도록 하는 것을 의미 합니다.  
 
 ## <a name="quota"></a>할당량
 
@@ -155,11 +147,15 @@ Bing Spell Checker를 사용하여 예측 전에 발화에서 맞춤법이 잘�
 
 ## <a name="starter-key"></a>시작 키
 
-[프로그래밍 방식 키](#programmatic-key)와 동일하고 작성 키로 이름이 바뀌었습니다.
+LUIS를 사용 하 여 처음 시작할 때 사용할 수 있는 무료 키입니다.
+
+## <a name="structure"></a>구조체나
+
+컴퓨터에서 배운 엔터티에 구조를 추가 하 여 설명자 (기능) 및 제약 조건 (정규식 또는 목록 엔터티)을 포함 하는 하위 구성 요소를 제공 합니다.
 
 ## <a name="subscription-key"></a>구독 키
 
-구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md) LUIS 서비스와 연결된 **엔드포인트** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 엔드포인트 키가 있는 경우 작성 키 대신 모든 엔드포인트 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**키 및 엔드포인트** 페이지](luis-how-to-azure-subscription.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
+구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md)LUIS 서비스와 연결 된 **예측 끝점** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 엔드포인트 키가 있는 경우 작성 키 대신 모든 엔드포인트 요청에 사용해야 합니다. [LUIS**웹 사이트의**](luis-how-to-azure-subscription.md)키 및 엔드포인트[ 페이지](luis-reference-regions.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
 
 ## <a name="test"></a>테스트
 
@@ -176,7 +172,7 @@ LUIS 앱 [테스트](luis-interactive-test.md#test-your-app)는 LUIS에 발화�
 
 ## <a name="train"></a>학습
 
-학습은 마지막 학습 이후 [활성 버전](#active-version)의 변경 내용을 LUIS에 학습시키는 프로세스입니다.
+학습은 마지막 학습 이후 활성 버전의 변경 내용에 대 한 LUIS을 교육 하는 프로세스입니다.
 
 ## <a name="true-negative"></a>참 부정(TN)
 

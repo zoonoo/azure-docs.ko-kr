@@ -7,16 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: nacharya1
-ms.author: nilesha
-ms.date: 06/20/2019
-ms.custom: seodec18
-ms.openlocfilehash: 999f554bf4a2b9ddda83ee6398950cefb11d32aa
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+author: cartacioS
+ms.author: sacartac
+ms.date: 11/04/2019
+ms.openlocfilehash: 5c8ce6a588fd630f69d8ffc682b611baba3afdd4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929332"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497553"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -54,7 +53,9 @@ ms.locfileid: "72929332"
 
 1. **모델 학습을 위한 계산 목표**(예: [로컬 컴퓨터, Azure Machine Learning 계산, 원격 vm 또는 Azure Databricks](how-to-set-up-training-targets.md))를 구성 합니다.  [원격 리소스에](how-to-auto-train-remote.md)대 한 자동화 된 학습에 대해 알아봅니다.
 
-1. 다른 모델에 대 한 반복 횟수, 하이퍼 매개 변수 설정, 고급 전처리/기능화 및 최상의 모델을 결정할 때 살펴볼 메트릭을 결정 하는 **자동화 된 machine learning 매개 변수를 구성 합니다** .  [Azure Portal](how-to-create-portal-experiments.md), [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)또는 [SDK를 사용](how-to-configure-auto-train.md)하 여 자동 학습 실험의 설정을 구성할 수 있습니다. 
+1. 다른 모델에 대 한 반복 횟수, 하이퍼 매개 변수 설정, 고급 전처리/기능화 및 최상의 모델을 결정할 때 살펴볼 메트릭을 결정 하는 **자동화 된 machine learning 매개 변수를 구성 합니다** .  [Azure Machine Learning studio](https://ml.azure.com)또는 [SDK를 사용](how-to-configure-auto-train.md)하 여 자동 학습 실험의 설정을 구성할 수 있습니다. 
+
+    [!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 1. **학습 실행을 제출 합니다.**
 
@@ -94,6 +95,8 @@ ms.locfileid: "72929332"
 ### <a name="advanced-preprocessing-optional-featurization"></a>고급 전처리: 선택적 기능화
 
 누락 값 대체, 인코딩 및 변환과 같은 추가 고급 전처리 및 기능화도 사용할 수 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess). 다음을 사용 하 여이 설정 사용:
+
++ Azure Machine Learning studio: [다음 단계를 사용 하 여](how-to-create-portal-experiments.md) **구성 실행** 섹션에서 **기능화 설정 보기** 를 선택 합니다.
 
 + Python SDK: [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대 한 `"feauturization": auto' / 'off' / FeaturizationConfig`를 지정 합니다.
 
@@ -175,7 +178,7 @@ Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Pytho
 + [자습서: Azure 자동화 된 Machine Learning를 사용 하 여 자동으로 회귀 모델 학습](tutorial-auto-train-models.md) 을 수행 합니다.
 
 + 자동 학습 실험의 설정 구성:
-  + Azure Portal 인터페이스 또는 작업 영역 방문 페이지 (미리 보기)에서 [다음 단계를 사용](how-to-create-portal-experiments.md)합니다.
+  + Azure Machine Learning studio에서 [다음 단계를 사용](how-to-create-portal-experiments.md)합니다.
   + Python SDK를 사용 하 여 [다음 단계를 수행](how-to-configure-auto-train.md)합니다.
 
 + 시계열 데이터를 사용 하 여 자동으로 학습 하는 방법에 대해 설명 하 고 [다음 단계를 사용](how-to-auto-train-forecast.md)합니다.

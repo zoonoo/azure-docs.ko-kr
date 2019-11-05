@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d8eed4f2425cdbfec7d3addad11ddaba57e5370e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 46d0e8aa1fa934f778e950f0187a853ba46772d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704496"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495041"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>시나리오를 파악하고 고급 분석 데이터 처리를 계획하는 방법
 
@@ -30,8 +30,6 @@ ms.locfileid: "64704496"
 * 데이터 특성
 * 데이터 세트 품질
 * 기본 설정 도구 및 언어
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="logistic-questions-data-locations-and-movement"></a>로지스틱 질문: 데이터 위치 및 이동
 
@@ -68,7 +66,7 @@ ms.locfileid: "64704496"
 다양한 스토리지 및 처리 환경에 데이터를 수집하거나 로드하기 위한 절차와 리소스에 대해서는 다음을 참조하세요.
 
 * [분석용 스토리지 환경에 데이터 로드](ingest-data.md)
-* [다양한 데이터 원본에서 Azure Machine Learning Studio로 학습 데이터를 가져오기](../studio/import-data.md)
+* [다양 한 데이터 원본에서 Azure Machine Learning Studio (클래식)으로 학습 데이터 가져오기](../studio/import-data.md)
 
 ### <a name="does-the-data-need-to-be-moved-on-a-regular-schedule-or-modified-during-migration"></a>데이터를 정기적으로 이동해야 하나요? 마이그레이션 중에 수정되어야 하나요?
 
@@ -81,7 +79,7 @@ ms.locfileid: "64704496"
 
 ### <a name="how-much-of-the-data-is-to-be-moved-to-azure"></a>얼마나 많은 양의 데이터를 Azure로 이동해야 하나요?
 
-대량의 데이터 세트는 특정 환경의 스토리지 용량을 초과할 수 있습니다. 예를 들어, 다음 섹션에서 Machine Learning Studio의 크기 제한에 대한 논의를 참조하세요. 이런 경우, 분석하는 동안 데이터 샘플을 사용할 수 있습니다. 다양한 Azure 환경에서 데이터 세트를 다운 샘플링하는 방법에 대한 자세한 내용은 [팀 데이터 과학 프로세스의 데이터 샘플링](sample-data.md)을 참조하세요.
+대량의 데이터 세트는 특정 환경의 스토리지 용량을 초과할 수 있습니다. 예제는 다음 섹션의 Machine Learning Studio (클래식)에 대 한 크기 제한 설명을 참조 하세요. 이런 경우, 분석하는 동안 데이터 샘플을 사용할 수 있습니다. 다양한 Azure 환경에서 데이터 세트를 다운 샘플링하는 방법에 대한 자세한 내용은 [팀 데이터 과학 프로세스의 데이터 샘플링](sample-data.md)을 참조하세요.
 
 ## <a name="data-characteristics-questions-type-format-and-size"></a>데이터 특성 질문: 유형, 형식, 크기
 
@@ -104,11 +102,11 @@ ms.locfileid: "64704496"
 
 ### <a name="how-large-is-your-data"></a>데이터는 얼마나 큰가요?
 
-* 소형: 2GB보다 작음
+* 작음: 2GB 미만
 * 보통: 2GB보다 크고 10GB보다 작음
-* 대형: 10GB보다 큼
+* 큼: 10GB 초과
 
-Azure Machine Learning Studio 환경을 예로 들어 보겠습니다.
+Azure Machine Learning Studio (클래식) 환경을 사용 합니다. 예를 들면 다음과 같습니다.
 
 * Azure Machine Learning Studio에서 지원되는 데이터 형식 및 유형의 목록은 [지원되는 데이터 형식 및 데이터 유형](../studio/import-data.md#supported-data-formats-and-data-types) 섹션을 참조하세요.
 * 분석 과정에 사용되는 다른 Azure 서비스의 제한 사항에 대한 정보는 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-subscription-service-limits.md)을 참조하세요.

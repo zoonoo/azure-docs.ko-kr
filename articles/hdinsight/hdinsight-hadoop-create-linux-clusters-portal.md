@@ -1,5 +1,5 @@
 ---
-title: 웹 브라우저를 사용하여 Apache Hadoop 클러스터 만들기 - Azure HDInsight
+title: 웹 브라우저, Azure HDInsight를 사용 하 여 Apache Hadoop 클러스터 만들기
 description: 웹 브라우저 및 Azure Portal를 사용 하 여 Linux에서 HDInsight에 대 한 Apache Hadoop, Apache HBase, Apache Storm 또는 Apache Spark 클러스터를 만드는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/28/2019
-ms.openlocfilehash: 687fde2e203ed471e2f0164f1f4a670de4afc74e
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 3a64ba088a24f6202b74ae84ad7fb6c011d3bcbf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71677094"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494761"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-by-using-the-azure-portal"></a>Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기
 
@@ -21,11 +21,11 @@ ms.locfileid: "71677094"
 
 Azure 포털은 Microsoft Azure 클라우드에 호스트된 서비스와 리소스에 대한 웹 기반 관리 도구입니다. 이 문서에서는 포털을 사용하여 Linux 기반 Azure HDInsight 클러스터를 만드는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
-* **Azure 구독** - [HDInsight에서 Hadoop을 테스트하기 위한 Azure 평가판을 가져오는 방법](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
+* **Azure 구독**. [HDInsight에서 Hadoop을 테스트하기 위한 Azure 평가판을 가져오는 방법](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 * **최신 웹 브라우저**. Azure Portal에서 HTML5와 JavaScript를 사용합니다. 이전 웹 브라우저에서는 제대로 작동하지 않을 수 있습니다.
 
 ## <a name="create-clusters"></a>클러스터 만들기
@@ -34,7 +34,7 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. 왼쪽 메뉴에서 **+ 리소스 만들기** >  **Analytics** > **HDInsight**로 이동합니다.
 
@@ -81,7 +81,7 @@ Azure 포털은 대부분의 클러스터 속성을 노출합니다. Azure Resou
 
      ![HDInsight 클러스터 저장소 만들기](./media/hdinsight-hadoop-create-linux-clusters-portal/hdinsight-create-cluster-storage.png "Azure 포털에서 새 클러스터 만들기")
 
-     | 스토리지                                      | 설명 |
+     | Storage                                      | 설명 |
      |----------------------------------------------|-------------|
      | **Azure Storage Blob(기본 스토리지)**   | <ul><li>**기본 스토리지 형식**으로 **Azure Storage**를 선택합니다. Azure 구독에 속한 스토리지 계정을 지정하려면 **선택 방법**에 대해 **내 구독**을 선택합니다. 그런 다음, 스토리지 계정을 선택합니다. 그렇지 않으면 **액세스 키**를 선택합니다. 그런 다음, Azure 구독 외부에서 선택하려는 스토리지 계정에 대한 정보를 제공합니다.</li><li>**기본 컨테이너**에 대해 포털에서 제안하는 기본 컨테이너 이름을 선택하거나 사용자 고유의 이름을 지정합니다.</li><li>Azure Blob 스토리지가 기본 스토리지인 경우 **추가 스토리지 계정**을 선택하여 클러스터와 연결할 추가 스토리지 계정을 지정할 수도 있습니다. **Azure Storage 키**에 대해 **스토리지 키 추가**를 선택합니다. 그런 다음, Azure 구독 또는 다른 구독의 스토리지 계정을 제공할 수 있습니다. 스토리지 계정 액세스 키를 제공합니다.</li><li>Blob 스토리지가 기본 스토리지인 경우 **Data Lake Storage 액세스**를 선택하여 Azure Data Lake Storage를 추가 스토리지로 지정할 수도 있습니다. 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.</li></ul> |
      | **Azure Data Lake Storage(기본 스토리지)** | **기본 스토리지 유형**에 대해 **Azure Data Lake Storage Gen1** 또는 **Azure Data Lake Storage Gen2**를 선택합니다. 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md) 문서를 참조 하세요. |

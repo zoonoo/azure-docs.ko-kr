@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 9279f97d5260eae698d5dbee10e077b71ab01992
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: c225be5a1123c89d8a470a8dea48b3c57eb893b5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612362"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474583"
 ---
 # <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에서 DNS 관리
 
@@ -23,41 +23,43 @@ Azure Active Directory Domain Services (Azure AD DS)에서 키 구성 요소는 
 
 사용자 고유의 응용 프로그램 및 서비스를 실행 하는 경우 도메인에 가입 되지 않은 컴퓨터에 대 한 DNS 레코드를 만들고, 부하 분산 장치에 대 한 가상 IP 주소를 구성 하거나, 외부 DNS 전달자를 설정 해야 할 수 있습니다. *AAD DC 관리자* 그룹에 속한 사용자에 게는 Azure AD DS 관리 되는 도메인에 대 한 dns 관리 권한이 부여 되 고 사용자 지정 dns 레코드를 만들고 편집할 수 있습니다.
 
-이 문서에서는 dns 서버 도구를 설치한 다음 DNS 콘솔을 사용 하 여 레코드를 관리 하는 방법을 보여 줍니다.
+하이브리드 환경에서 온-프레미스 AD DS 환경에 구성 된 DNS 영역 및 레코드는 Azure AD DS와 동기화 되지 않습니다. 사용자 고유의 DNS 항목을 정의 하 고 사용 하려면 Azure AD DS DNS 서버에 레코드를 만들거나 사용자 환경의 기존 DNS 서버를 가리키는 조건부 전달자를 사용 합니다.
+
+이 문서에서는 dns 서버 도구를 설치한 다음 DNS 콘솔을 사용 하 여 Azure AD DS에서 레코드를 관리 하는 방법을 보여 줍니다.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서를 완료 하려면 다음 리소스와 권한이 필요 합니다.
 
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화 된 구독과 연결 된 Azure Active Directory 테 넌 트.
-    * 필요한 경우 [Azure Active Directory 테 넌 트][create-azure-ad-tenant] 를 만들거나 [사용자 계정에 Azure 구독을 연결][associate-azure-ad-tenant]합니다.
-* Azure AD 테 넌 트에서 사용 하도록 설정 되 고 구성 된 Azure Active Directory Domain Services 관리 되는 도메인입니다.
+* 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+* Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
     * 필요한 경우 자습서를 완료 하 여 [Windows SERVER VM을 만들고 관리 되는 도메인에 가입 시킵니다][create-join-windows-vm].
-* Azure AD 테 넌 트에서 *AZURE AD DC administrators* 그룹의 구성원 인 사용자 계정
+* Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
 
 ## <a name="install-dns-server-tools"></a>DNS 서버 도구 설치
 
-DNS를 만들고 수정 하려면 DNS 서버 도구를 설치 해야 합니다. 이러한 도구는 Windows Server의 기능으로 설치할 수 있습니다. Windows 클라이언트에 관리 도구를 설치 하는 방법에 대 한 자세한 내용은 install [원격 서버 관리 도구 (RSAT)][install-rsat]를 참조 하십시오.
+Azure AD DS에서 DNS 레코드를 만들고 수정 하려면 DNS 서버 도구를 설치 해야 합니다. 이러한 도구는 Windows Server의 기능으로 설치할 수 있습니다. Windows 클라이언트에 관리 도구를 설치 하는 방법에 대 한 자세한 내용은 install [원격 서버 관리 도구 (RSAT)][install-rsat]를 참조 하십시오.
 
 1. 관리 VM에 로그인 합니다. Azure Portal를 사용 하 여 연결 하는 방법에 대 한 단계는 [Windows SERVER VM에 연결][connect-windows-server-vm]을 참조 하세요.
-1. VM에 로그인 할 때 기본적으로 **서버 관리자** 를 열어야 합니다. 그렇지 않은 경우 **시작** 메뉴에서 **서버 관리자**를 선택 합니다.
-1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택 합니다.
-1. *역할 및 기능 추가 마법사*의 **시작 하기 전** 페이지에서 **다음**을 선택 합니다.
-1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택 된 채로 두고 **다음**을 선택 합니다.
-1. **서버 선택** 페이지에서 서버 풀의 현재 VM (예: *myvm.contoso.com*)을 선택 하 고 **다음**을 선택 합니다.
+1. VM에 로그인 할 때 기본적으로 **서버 관리자** 열리지 않으면 **시작** 메뉴를 선택 하 고 **서버 관리자**를 선택 합니다.
+1. *서버 관리자* 창의 **대시보드** 창에서 **역할 및 기능 추가**를 선택합니다.
+1. **역할 및 기능 추가 마법사**의 *시작하기 전에* 페이지에서 **다음**을 선택합니다.
+1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
+1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.contoso.com*), **다음**을 차례로 선택합니다.
 1. **서버 역할** 페이지에서 **다음**을 클릭합니다.
-1. **기능** 페이지에서 **원격 서버 관리 도구** 노드를 확장 한 다음 **역할 관리 도구** 노드를 확장 합니다. 역할 관리 도구 목록에서 **DNS 서버 도구** 기능을 선택합니다.
+1. **기능** 페이지에서 **원격 서버 관리 도구** 노드, **역할 관리 도구** 노드를 차례로 펼칩니다. 역할 관리 도구 목록에서 **DNS 서버 도구** 기능을 선택합니다.
 
     ![사용 가능한 역할 관리 도구 목록에서 DNS 서버 도구를 설치 하도록 선택 합니다.](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
 
-1. **확인** 페이지에서 **설치**를 선택 합니다. 그룹 정책 관리 도구를 설치 하는 데 1 ~ 2 시간이 걸릴 수 있습니다.
-1. 기능 설치가 완료 되 면 **닫기** 를 선택 하 여 **역할 및 기능 추가** 마법사를 종료 합니다.
+1. **확인** 페이지에서 **설치**를 선택합니다. 그룹 정책 관리 도구를 설치 하는 데 1 ~ 2 시간이 걸릴 수 있습니다.
+1. 기능 설치가 완료되면 **닫기**를 선택하여 **역할 및 기능 추가** 마법사를 종료합니다.
 
 ## <a name="open-the-dns-management-console-to-administer-dns"></a>Dns 관리 콘솔을 열어 DNS 관리
 
@@ -66,7 +68,7 @@ DNS 서버 도구를 설치 하면 Azure AD DS 관리 되는 도메인에서 DNS
 > [!NOTE]
 > Azure AD DS 관리 되는 도메인에서 DNS를 관리 하려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
 
-1. 시작 화면에서 **관리 도구**를 선택 합니다. 이전 섹션에 설치 된 **DNS** 를 비롯 하 여 사용 가능한 관리 도구 목록이 표시 됩니다. Dns 를 선택 하 여 dns 관리 콘솔을 시작 합니다.
+1. 시작 화면에서 **관리 도구**를 선택 합니다. 이전 섹션에 설치 된 **DNS** 를 비롯 하 여 사용 가능한 관리 도구 목록이 표시 됩니다. Dns **를 선택 하 여 Dns** 관리 콘솔을 시작 합니다.
 1. **Dns 서버에 연결** 대화 상자에서 **다음 컴퓨터**를 선택 하 고 관리 되는 도메인의 DNS 도메인 이름 (예: *contoso.com*)을 입력 합니다.
 
     ![DNS 콘솔에서 Azure AD DS 관리 되는 도메인에 연결](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 60520f5a72fd7e27d4ea64ac76511a00a727426e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6afe0a2fe366b83af45682245776c803c99483d3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61369349"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484022"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>MQTT 서버에 메시지 보내기
 
@@ -48,7 +48,7 @@ IoT(사물 인터넷) 시스템은 종종 간헐적이거나, 품질이 낮거�
 왼쪽의 **ARDUINO 예제** 섹션을 펼치고, **MXCHIP AZ3166 예제 > MQTT**로 차례로 이동하고, **MQTTClient**를 선택합니다. 프로젝트 폴더가 있는 새 VS Code 창이 열립니다.
 
 > [!NOTE]
-> 명령 팔레트에서 예제를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음, **Arduino: 예제**를 찾아서 선택합니다.
+> 명령 팔레트에서 예제를 열 수도 있습니다. `Ctrl+Shift+P`(macOS: `Cmd+Shift+P`)를 사용하여 명령 팔레트를 호출하고 **Arduino**를 입력한 다음 **Arduino: 예제**를 찾아서 선택합니다.
 
 ## <a name="build-and-upload-the-arduino-sketch-to-the-devkit"></a>DevKit에 Arduino 스케치 빌드 및 업로드
 
@@ -78,7 +78,7 @@ VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다
 문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 채널을 사용하여 문의하세요.
 
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
-* [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="see-also"></a>참고 항목
 
@@ -90,4 +90,4 @@ VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다
 이제 MXChip Iot DevKit를 MQTT 클라이언트로 구성하고, MQTT 클라이언트 라이브러리를 사용하여 메시지를 MQTT broker에 보내는 방법을 알아보았으므로 여기서 제안되는 단계는 다음과 같습니다.
 
 * [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](/azure/iot-central/core/howto-connect-devkit)

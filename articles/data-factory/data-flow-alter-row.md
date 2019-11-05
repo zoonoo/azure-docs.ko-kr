@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: fff08b3e046161fbedefdc55f4e6a39a7f965f80
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 7a782c62165aa6f2641c2ebe8e4600198ec373c5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387263"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486200"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>행 변환 변경 Azure Data Factory
 
@@ -22,7 +22,7 @@ ms.locfileid: "72387263"
 ![행 설정 변경](media/data-flow/alter-row1.png "행 설정 변경")
 
 > [!NOTE]
-> Alter Row 변환은 데이터 흐름의 데이터베이스 싱크에 대해서만 작동 합니다. 행에 할당 하는 작업 (insert, update, delete, upsert)은 디버그 세션 중에 발생 하지 않습니다. 파이프라인에 데이터 흐름 실행 태스크를 추가 하 고 파이프라인 디버그 또는 트리거를 사용 하 여 데이터베이스 테이블에 대 한 alter row 정책을 적용 해야 합니다.
+> Alter Row 변환은 데이터 흐름의 데이터베이스 또는 CosmosDB 싱크에 대해서만 작동 합니다. 행에 할당 하는 작업 (insert, update, delete, upsert)은 디버그 세션 중에 발생 하지 않습니다. 파이프라인에 데이터 흐름 실행 태스크를 추가 하 고 파이프라인 디버그 또는 트리거를 사용 하 여 데이터베이스 테이블에 대 한 alter row 정책을 적용 해야 합니다.
 
 ## <a name="indicate-a-default-row-policy"></a>기본 행 정책 지정
 

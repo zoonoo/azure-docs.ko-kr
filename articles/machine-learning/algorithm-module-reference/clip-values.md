@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: a45755ca13aed6a514b548674ef424c40238fa42
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 704b7c8a0c55bdcdd69bd8a44b0f9f44e8ddf457
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694741"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493838"
 ---
 # <a name="clip-values"></a>값 자르기
 
-이 문서에서는 시각적 인터페이스 Azure Machine Learning 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 자르기 값 모듈을 사용 하 여 지정 된 임계값 보다 높거나 낮은 데이터 값을 식별 하 고 필요에 따라 평균, 상수 또는 다른 대체 값으로 바꿀 수 있습니다.  
 

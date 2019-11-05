@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 8192a2d731104fe898ca128a1d989783698567da
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 166ae00085f07ef24d746b60947a31e7680a0f00
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559159"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491000"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
 
@@ -39,16 +39,16 @@ Cognitive Services Speech SDK를 사용 하려면 시스템에서 [Visual Studio
 
 필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 애플리케이션과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
 
-| 이름 | 함수
+| Name | 함수
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | 네이티브 및 관리된 배포에 필요한 핵심 SDK
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 관리된 배포에 필요
 
 >[!NOTE]
-> 릴리스부터 릴리스 1.3.0는 파일 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (이전 릴리스에서 제공 됨)이 더 이상 필요 하지 않습니다. 이제 기능이 핵심 SDK에 통합 되었습니다.
+> 릴리스 1.3.0 부터는 (이전 릴리스에서 제공 된) 파일 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 더 이상 필요 하지 않습니다. 이제 기능이 핵심 SDK에 통합 되었습니다.
 
 >[!NOTE]
-> Windows Forms 앱 (.NET Framework) C# 프로젝트의 경우 라이브러리가 프로젝트의 배포 설정에 포함 되어 있는지 확인 합니다. 에서 `Properties -> Publish Section`이를 확인할 수 있습니다. 단추를 `Application Files` 클릭 하 고 스크롤 다운 목록에서 해당 라이브러리를 찾습니다. 값이로 `Included`설정 되어 있는지 확인 합니다. 프로젝트를 게시/배포할 때 Visual Studio에 파일이 포함 됩니다.
+> Windows Forms 앱 (.NET Framework) C# 프로젝트의 경우 라이브러리가 프로젝트의 배포 설정에 포함 되어 있는지 확인 합니다. `Properties -> Publish Section`에서이를 확인할 수 있습니다. `Application Files` 단추를 클릭 하 고 스크롤 다운 목록에서 해당 라이브러리를 찾습니다. 값이 `Included`로 설정 되었는지 확인 합니다. 프로젝트를 게시/배포할 때 Visual Studio에 파일이 포함 됩니다.
 
 ## <a name="linux"></a>Linux
 
@@ -76,5 +76,5 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)
+* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

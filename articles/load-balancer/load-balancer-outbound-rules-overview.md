@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: fd43e9c71db9ae553b24e6cd774495ee8cc5b621
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: d1874d610feb041545e1675ad5b40a1b5e753b67
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242352"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497976"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 아웃바운드 규칙
 
@@ -37,7 +37,7 @@ Azure Load Balancer는 가상 네트워크에서 인바운드 연결 외에도 �
 - 아웃바운드 연결 유휴 시간 제한에 사용할 기간(4-120분)
 - 유휴 시간 제한 시 TCP 재설정을 보낼지 여부(공개 미리 보기에서) 
 
-아웃바운드 규칙은 [아웃바운드 연결](load-balancer-outbound-connections.md) 문서에서 설명한 [시나리오 2](load-balancer-outbound-connections.md#lb)를 확장하며 시나리오 우선 순위는 그대로 유지됩니다.
+아웃바운드 규칙은 [아웃바운드 연결](load-balancer-outbound-connections.md#lb) 문서에서 설명한 [시나리오 2](load-balancer-outbound-connections.md)를 확장하며 시나리오 우선 순위는 그대로 유지됩니다.
 
 ## <a name="outbound-rule"></a>아웃바운드 규칙
 
@@ -86,7 +86,7 @@ VM당 10,000개의 SNAT 포트를 할당하려면 다음 매개 변수를 사용
 
 아웃바운드 규칙의 모든 프런트 엔드에 있는 각 공용 IP 주소는 SNAT 포트로 사용할 최대 64,000개의 사용 후 삭제 포트를 제공합니다.  Load Balancer는 SNAT 포트를 8의 배수로 할당합니다. 8로 나눌 수 없는 값을 제공하면 구성 작업이 거부됩니다.  공용 IP 주소의 수를 기준으로 사용 가능한 것보다 더 많은 SNAT 포트를 할당하려고 하면 구성 작업이 거부됩니다.  예를 들어 VM 당 1만 포트를 할당 하 고 백 엔드 풀의 Vm 7 개에서 단일 공용 IP 주소를 공유 하는 경우 구성이 거부 됩니다 (7 x 1만 SNAT 포트 > 64000 SNAT 포트).  아웃바운드 규칙의 프런트 엔드에 더 많은 공용 IP 주소를 추가하여 시나리오를 사용하도록 설정할 수 있습니다.
 
-포트 수로 0을 지정하여 [백 엔드 풀 크기를 기준으로 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)으로 되돌릴 수 있습니다. 이 경우 첫 번째 50 VM 인스턴스는 1024 포트를 얻게 됩니다. 51-100 VM 인스턴스는 테이블에 따라 512을 받습니다. 아웃 바운드 규칙에 연결 된 공용 IP를 사용 하는 프런트 엔드가 두 개 이상 있으면 각 VM 인스턴스에 할당 된 포트 수가 증가 하지 않습니다.
+포트 수로 0을 지정하여 [백 엔드 풀 크기를 기준으로 자동 SNAT 포트 할당](load-balancer-outbound-connections.md#preallocatedports)으로 되돌릴 수 있습니다. 이 경우 첫 번째 50 VM 인스턴스는 1024 포트를 얻게 됩니다. 51-100 VM 인스턴스는 테이블에 따라 512을 받습니다.
 
 ### <a name="idletimeout"></a> 아웃바운드 흐름 유휴 시간 제한 제어
 

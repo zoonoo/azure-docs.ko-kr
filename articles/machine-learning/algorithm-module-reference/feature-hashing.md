@@ -1,7 +1,7 @@
 ---
 title: 기능 해싱 모듈 참조
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 기능 해싱 모듈을 사용 하 여 텍스트 데이터를 피쳐화 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning의 기능 해시 모듈을 사용 하 여 피쳐화 텍스트 데이터를 사용 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: bbcab6e94783583c7e13ae482d68fd013ba4c91d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 48960eae4941bb744a937639e1308e1b5f6aaf9f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170884"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497832"
 ---
 # <a name="feature-hashing-module-reference"></a>기능 해싱 모듈 참조
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)에 포함 된 모듈을 설명 합니다.
 
 기능 해싱 모듈을 사용 하 여 영어 텍스트 스트림을 정수 기능 집합으로 변환 합니다. 그런 다음이 해시 된 기능 집합을 기계 학습 알고리즘에 전달 하 여 텍스트 분석 모델을 학습 시킬 수 있습니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "71170884"
 
 예를 들어 다음과 같은 간단한 문장 집합을 가져온 다음 감정 점수를 가져옵니다. 이 텍스트를 사용 하 여 모델을 작성 하려는 경우를 가정 합니다.
 
-|사용자 텍스트|감정|
+|사용자 텍스트|데이터|
 |--------------|---------------|
 |이 책 좋아했던|3|
 |이 책 hated|1|
@@ -39,7 +39,7 @@ ms.locfileid: "71170884"
 
 내부적으로 기능 해싱 모듈은 n 그램 사전을 만듭니다. 예를 들어이 데이터 집합에 대 한 바이 그램 목록은 다음과 같습니다.
 
-|Term (bigrams)|빈도|
+|Term (bigrams)|Frequency(빈도)|
 |------------|---------------|
 |이 책|3|
 |좋아했던|1|
@@ -48,12 +48,12 @@ ms.locfileid: "71170884"
 
 **N 그램 속성을** 사용 하 여 n 그램의 크기를 제어할 수 있습니다. Bigrams을 선택 하는 경우에는 평균 그램도 계산 됩니다. 사전에는 다음과 같은 단일 용어도 포함 됩니다.
 
-|용어 (=-그램)|빈도|
+|용어 (=-그램)|Frequency(빈도)|
 |------------|---------------|
 |주소록과|3|
 |I|3|
 |온라인 설명서|1|
-|이었음|1|
+|을|1|
 
 사전이 작성 된 후 기능 해싱 모듈은 사전 용어를 해시 값으로 변환 합니다. 그런 다음 각 경우에 기능을 사용 했는지 여부를 계산 합니다. 텍스트 데이터의 각 행에 대해 모듈은 각 해시 된 기능에 대해 하나의 열로 열 집합을 출력 합니다.
 
@@ -73,7 +73,7 @@ ms.locfileid: "71170884"
 
 ## <a name="configure-the-feature-hashing-module"></a>기능 해싱 모듈 구성
 
-1.  시각적 인터페이스에서 실험에 기능 해싱 모듈을 추가 합니다.
+1.  디자이너에서 파이프라인에 기능 해시 모듈을 추가 합니다.
 
 1. 분석할 텍스트가 포함 된 데이터 집합을 연결 합니다.
 
@@ -94,7 +94,7 @@ ms.locfileid: "71170884"
 
     예를 들어 3을 입력 하는 경우에는 3, 4, bigrams 및 trigrams을 만듭니다.
 
-1. 실험을 실행합니다.
+1. 파이프라인을 실행합니다.
 
 ## <a name="results"></a>결과
 
@@ -127,8 +127,8 @@ ms.locfileid: "71170884"
     * 문장 부호 및 특수 문자 제거
     * 형태소 분석  
 
-솔루션에 적용할 최적의 전처리 메서드 집합은 도메인, 어휘 및 비즈니스 요구에 따라 달라 집니다. 데이터를 실험 하 여 가장 효율적인 텍스트 처리 방법을 확인 합니다.
+솔루션에 적용할 최적의 전처리 메서드 집합은 도메인, 어휘 및 비즈니스 요구에 따라 달라 집니다. 데이터를 사용 하 여 파이프라인을 사용 하 여 가장 효율적인 텍스트 처리 방법을 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
             
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning에서 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

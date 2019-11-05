@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9c21ff5c4c94eecc7bb1a6643e46166df80edf4
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: acdcbef74d95fbbc4cfb49176d1f98621e746ff6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648313"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474362"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 암호 없는 로그인 사용
 
@@ -29,9 +29,9 @@ ms.locfileid: "69648313"
 > [!NOTE]
 > 이 기능은 2017 년 3 월부터 Microsoft Authenticator 앱에 포함 되었으므로 디렉터리에 대해 정책을 사용 하도록 설정 하면 사용자가이 흐름을 즉시 발견할 수 있으며 정책에 의해 사용 하도록 설정 되지 않은 경우 오류 메시지가 표시 될 수 있습니다. 이러한 변화를 인지하고 사용자가 대비하도록 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-- 푸시 알림을 확인 방법으로 허용 하는 Azure Multi-factor Authentication 
+- Azure Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용 됨 
 - iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator
 
 > [!NOTE]
@@ -46,7 +46,7 @@ ms.locfileid: "69648313"
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>암호 없는 휴대폰 로그인 인증 방법 사용
 
 1. [Azure 포털](https://portal.azure.com)
-1. **Azure Active Directory** > **인증**방법인증 > 방법**정책 (미리 보기)** 으로 이동 합니다.
+1. **인증 방법 정책 (미리 보기)**  > **Azure AD 보안** > **인증 방법** 으로 이동 합니다.
 1. **Passwordless 휴대폰 로그인**에서 다음 옵션을 선택 합니다.
    1. **사용** -예 또는 아니요
    1. **대상** -모든 사용자 또는 사용자 선택
@@ -78,7 +78,7 @@ ms.locfileid: "69648313"
 
 사용자가 현재 Microsoft Authenticator 앱 또는 이전 장치에서 암호 없는 휴대폰 로그인 자격 증명을 만든 시점이 있을 수 있습니다. 관리자가 암호 없는 휴대폰 로그인에 대 한 인증 방법 정책을 사용 하도록 설정 하면 자격 증명을 등록 한 모든 사용자가 정책을 사용 하도록 설정 되었는지 여부에 관계 없이 새 로그인 프롬프트가 표시 되기 시작 합니다. 사용자가 정책으로 자격 증명을 사용할 수 없는 경우 인증 흐름을 완료 한 후에 오류가 표시 됩니다. 
 
-관리자는 사용자가 암호 없는 휴대폰 로그인을 사용 하도록 선택할 수 있습니다. 또는 사용자가 메서드를 제거 해야 합니다. 사용자에 게 더 이상 등록 된 장치가 없는 경우로 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 이동 하 여 제거할 수 있습니다. 여전히 MFA에 대 한 인증자를 사용 하는 경우 Microsoft Authenticator 내에서 **휴대폰 로그인 사용 안 함** 을 선택할 수 있습니다.  
+관리자는 사용자가 암호 없는 휴대폰 로그인을 사용 하도록 선택할 수 있습니다. 또는 사용자가 메서드를 제거 해야 합니다. 사용자가 등록 된 장치를 더 이상 사용 하지 않는 경우 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 으로 이동 하 여 제거할 수 있습니다. 여전히 MFA에 대 한 인증자를 사용 하는 경우 Microsoft Authenticator 내에서 **휴대폰 로그인 사용 안 함** 을 선택할 수 있습니다.  
 
 ### <a name="ad-fs-integration"></a>AD FS 통합
 

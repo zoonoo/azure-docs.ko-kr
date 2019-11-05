@@ -11,16 +11,17 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: fe4a2082647ef1325d03ce4eec428ed1579704c5
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.openlocfilehash: 373713cc92379236385024beff201d16fbbfd4b5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755978"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497043"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 [기계 학습 파이프라인](concept-ml-pipelines.md)을 만들고 게시, 실행 및 추적하는 방법을 알아봅니다.  **Ml 파이프라인** 을 사용 하 여 다양 한 ml 단계를 함께 연결 하는 워크플로를 만든 후 나중에 액세스 하거나 다른 사용자와 공유 하기 위해 해당 파이프라인을 Azure Machine Learning 작업 영역에 게시 합니다.  ML 파이프라인은 다양 한 계산을 사용 하 여 일괄 처리를 다시 실행 하는 대신 단계를 다시 사용 하 고 ML 워크플로를 다른 사람들과 공유 하는 일괄 처리 점수 매기기 시나리오에 적합 합니다. 
+이 문서에서는 [Azure Machine Learning SDK](concept-ml-pipelines.md)를 사용하여 [기계 학습 파이프라인](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)을 만들고 게시, 실행 및 추적하는 방법을 알아봅니다.  **Ml 파이프라인** 을 사용 하 여 다양 한 ml 단계를 함께 연결 하는 워크플로를 만든 후 나중에 액세스 하거나 다른 사용자와 공유 하기 위해 해당 파이프라인을 Azure Machine Learning 작업 영역에 게시 합니다.  ML 파이프라인은 다양 한 계산을 사용 하 여 일괄 처리를 다시 실행 하는 대신 단계를 다시 사용 하 고 ML 워크플로를 다른 사람들과 공유 하는 일괄 처리 점수 매기기 시나리오에 적합 합니다. 
 
 ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) 이라는 다른 종류의 파이프라인을 사용할 수 있지만 해당 유형의 파이프라인은 작업 영역 내에 저장 되지 않습니다. [이러한 서로 다른 파이프라인을 비교](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use)합니다.
 
@@ -30,13 +31,17 @@ ML 작업의 CI/CD 자동화를 위해 [Azure 파이프라인](https://docs.micr
 
 ML 파이프라인은 계산에 원격 계산 대상을 사용 하 고 해당 파이프라인과 연결 된 중간 및 최종 데이터의 저장소를 사용 합니다. 지원 되는 [Azure Storage](https://docs.microsoft.com/azure/storage/) 위치에서 데이터를 읽고 쓸 수 있습니다.
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 모든 파이프라인 리소스를 수용하는 [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 
-* Azure Machine Learning SDK를 설치 하거나 SDK가 이미 설치 된 [노트북 VM](tutorial-1st-experiment-sdk-setup.md#azure) 을 사용 하도록 [개발 환경을 구성](how-to-configure-environment.md) 합니다.
+* Azure Machine Learning SDK를 설치 하거나 SDK가 이미 설치 된 [Azure Machine Learning 계산 인스턴스](concept-compute-instance.md) 를 사용 하도록 [개발 환경을 구성](how-to-configure-environment.md) 합니다.
+
+> [!NOTE]
+> 계산 인스턴스는 **미국 중 북부** 또는 **영국 남부**지역이 있는 작업 영역에만 사용할 수 있습니다.
+>작업 영역이 다른 지역에 있는 경우 계속 해 서 [노트북 VM](concept-compute-instance.md#notebookvm) 을 만들고 사용할 수 있습니다. 
 
 작업 영역을 연결 하 여 시작 합니다.
 
@@ -113,7 +118,7 @@ output_data1 = PipelineData(
 
 ## <a name="set-up-compute-target"></a>컴퓨팅 대상 설정
 
-Azure Machine Learning에서 computes__ (또는 __계산 대상__) 이라는 용어는 Machine Learning 파이프라인에서 계산 단계를 수행 하는 컴퓨터 또는 클러스터를 의미 합니다.   컴퓨팅 대상의 전체 목록 및 컴퓨팅 대상을 만들고 작업 영역에 연결하는 방법에 대해서는 [모델 학습을 위한 컴퓨팅 대상](how-to-set-up-training-targets.md)을 참조하세요.  모델을 학습하든 파이프라인 단계를 실행하든 상관 없이 컴퓨팅 모델을 만들고 연결하는 프로세스는 동일합니다. 컴퓨팅 대상을 만들고 연결한 후 [파이프라인 단계](#steps)에서 `ComputeTarget` 개체를 사용합니다.
+Azure Machine Learning에서 computes__ (또는 __계산 대상__) 이라는 용어는 Machine Learning 파이프라인에서 계산 단계를 수행 하는 컴퓨터 또는 클러스터를 의미 합니다.   컴퓨팅 대상의 전체 목록 및 컴퓨팅 대상을 만들고 작업 영역에 연결하는 방법에 대해서는 [모델 학습을 위한 컴퓨팅 대상](how-to-set-up-training-targets.md)을 참조하세요.  모델을 학습하든 파이프라인 단계를 실행하든 상관 없이 컴퓨팅 모델을 만들고 연결하는 프로세스는 동일합니다. 컴퓨팅 대상을 만들고 연결한 후 `ComputeTarget`파이프라인 단계[에서 ](#steps) 개체를 사용합니다.
 
 > [!IMPORTANT]
 > 컴퓨팅 대상에 대한 관리 작업 수행은 원격 작업 내에서 지원되지 않습니다. 기계 학습 파이프라인은 원격 작업으로 제출되므로 파이프라인 내부에서 컴퓨팅 대상에 관리 작업을 사용하지 마십시오.
@@ -278,7 +283,7 @@ trainStep = PythonScriptStep(
 )
 ```
 
-불필요 한 다시 작업을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용 하는 경우 이전 결과 (`allow_reuse`)의 재사용은 중요 합니다. 다시 사용은 script_name, 입력 및 단계의 매개 변수가 동일 하 게 유지 되는 경우의 기본 동작입니다. 단계의 출력이 다시 사용 되는 경우 작업은 계산에 전송 되지 않고 이전 실행의 결과를 다음 단계의 실행에 즉시 사용할 수 있습니다. @No__t_0을 false로 설정 하면 파이프라인 실행 중에이 단계에 대해 새 실행이 항상 생성 됩니다. 
+불필요 한 다시 작업을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용 하는 경우 이전 결과 (`allow_reuse`)의 재사용은 중요 합니다. 다시 사용은 script_name, 입력 및 단계의 매개 변수가 동일 하 게 유지 되는 경우의 기본 동작입니다. 단계의 출력이 다시 사용 되는 경우 작업은 계산에 전송 되지 않고 이전 실행의 결과를 다음 단계의 실행에 즉시 사용할 수 있습니다. `allow_reuse`을 false로 설정 하면 파이프라인 실행 중에이 단계에 대해 새 실행이 항상 생성 됩니다. 
 
 단계를 정의한 후 일부 또는 모든 단계를 사용하여 파이프라인을 빌드합니다.
 
@@ -325,7 +330,7 @@ pipeline1 = Pipeline(workspace=ws, steps=steps)
 파이프라인을 제출할 때 Azure Machine Learning는 각 단계에 대 한 종속성을 확인 하 고 지정한 원본 디렉터리의 스냅숏을 업로드 합니다. 소스 디렉터리를 지정하지 않으면 현재 로컬 디렉터리가 업로드됩니다. 또한 스냅숏은 작업 영역에 실험의 일부로 저장 됩니다.
 
 > [!IMPORTANT]
-> 파일이 스냅숏에 포함 되지 않도록 하려면 디렉터리에 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 파일을 만들고 파일을 추가 합니다. @No__t_0 파일은 [.gitignore](https://git-scm.com/docs/gitignore) 파일과 동일한 구문과 패턴을 사용 합니다. 두 파일이 모두 있는 경우 `.amlignore` 파일이 우선적으로 적용 됩니다.
+> 파일이 스냅숏에 포함 되지 않도록 하려면 디렉터리에 [.gitignore](https://git-scm.com/docs/gitignore) 또는 `.amlignore` 파일을 만들고 파일을 추가 합니다. `.amlignore` 파일은 [.gitignore](https://git-scm.com/docs/gitignore) 파일과 동일한 구문과 패턴을 사용 합니다. 두 파일이 모두 있는 경우 `.amlignore` 파일이 우선적으로 적용 됩니다.
 >
 > 자세한 내용은 [스냅샷](concept-azure-machine-learning-architecture.md#snapshots)을 참조하세요.
 
@@ -410,26 +415,26 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>게시 된 파이프라인의 결과 보기
 
 게시 된 모든 파이프라인 목록과 해당 실행 세부 정보를 확인 합니다.
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Machine Learning studio](https://ml.azure.com)에 로그인 합니다.
 
 1. [작업 영역을 보고](how-to-manage-workspace.md#view) 파이프라인 목록을 찾습니다.
  ![기계 학습 파이프라인 목록](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 특정 파이프라인을 선택하여 실행 결과를 확인합니다.
 
-이러한 결과는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서도 사용할 수 있습니다.
+이러한 결과는 [Azure Machine Learning studio]] (https://ml.azure.com)의 작업 영역 에서도 사용할 수 있습니다.
 
 ### <a name="disable-a-published-pipeline"></a>게시 된 파이프라인 사용 안 함
 
 게시 된 파이프라인 목록에서 파이프라인을 숨기려면 사용 하지 않도록 설정 합니다.
 
 ```
-# Get the pipeline by using its ID from the Azure portal
+# Get the pipeline by using its ID from Azure Machine Learning studio
 p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-@No__t_0를 사용 하 여 다시 사용 하도록 설정할 수 있습니다. 자세한 내용은 [PublishedPipeline 클래스](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) 참조를 참조 하세요.
+`p.enable()`를 사용 하 여 다시 사용 하도록 설정할 수 있습니다. 자세한 내용은 [PublishedPipeline 클래스](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py) 참조를 참조 하세요.
 
 
 ## <a name="caching--reuse"></a>캐싱 & 재사용  
@@ -437,7 +442,7 @@ p.disable()
 파이프라인의 동작을 최적화 하 고 사용자 지정 하기 위해 캐싱 및 다시 사용에 대 한 몇 가지 작업을 수행할 수 있습니다. 예를 들어 다음을 선택할 수 있습니다.
 + [단계 정의](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)중에 `allow_reuse=False`를 설정 하 여 **단계의 기본 재사용을 해제** 합니다. 불필요 한 실행을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 재사용할 수 있습니다. 그러나 재사용을 옵트아웃 (opt out) 할 수 있습니다.
 + Source_directory를 사용 하 여 다른 파일 및 디렉터리에 대 한 절대 경로 또는 상대 경로를 포함 하도록 **스크립트를 넘어 해시를 확장**`hash_paths=['<file or directory']` 합니다. 
-+ @No__t_1를 사용 하 여 **실행의 모든 단계에 대해 출력 다시 생성**
++ `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`를 사용 하 여 **실행의 모든 단계에 대해 출력 다시 생성**
 
 기본적으로 단계에 대 한 `allow_reuse` 사용 되며 주 스크립트 파일만 해시 됩니다. 따라서 지정 된 단계의 스크립트가 동일 하 게 유지 되는 경우 (`script_name`, 입력 및 매개 변수) 이전 단계 실행의 출력이 다시 사용 되 고, 작업이 계산에 전송 되지 않고, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다.  
 

@@ -7,20 +7,20 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 9404888eadf94eaf86a6e8584b49595e10b34c69
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 36bd05940644b62bc3e58b642bfe6c00238383fa
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264174"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472476"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
 AKS 클러스터의 수명 주기의 일환으로, 최신 Kubernetes 버전으로 업그레이드해야 하는 경우가 많습니다. 최신 Kubernetes 보안 릴리스를 적용하거나 최신 기능으로 업그레이드하는 것은 중요합니다. 이 문서에서는 AKS 클러스터에서 마스터 구성 요소 또는 단일 기본 노드 풀을 업그레이드 하는 방법을 보여 줍니다.
 
-여러 노드 풀 또는 Windows Server 노드 (현재 AKS에서 미리 보기 상태)를 사용 하는 AKS 클러스터의 경우 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
+여러 노드 풀 또는 Windows Server 노드를 사용 하는 AKS 클러스터 (현재 AKS에서 미리 보기 상태)의 경우 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
@@ -36,9 +36,9 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> AKS 클러스터를 업그레이드하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. 예를 들어 *1.12* ->  -> . x*1.13 x x* x x x x *x x x*x x x x x x x x x x x x x x x x x x x x *. x를* 사용할 *수* -> 있지만*1.14*
+> AKS 클러스터를 업그레이드하는 경우 Kubernetes 부 버전은 건너뛸 수 없습니다. 예를 들어 ->  -> *1.12* x x x *x x* x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x x. x *는 -> * *1.14*
 >
->  -> *1.14*에서 업그레이드 -> 하려면 *먼저 1.12. x* *1.13.* *x에서 업그레이드*한 다음 *1.13.* x 1.14에서 업그레이드 합니다. -> 
+>  -> x x x x x x *x x x*x x x x x x. *x에서 업그레이드* *하려면 -> 먼저* *1.14*에서 *1.14*를 업그레이드 한 다음, *1.13 -> .* x에서 업그레이드 합니다.
 
 다음 예제 출력에서는 *1.13.9* 및 *1.13.10*버전으로 클러스터를 업그레이드할 수 있음을 보여 줍니다.
 
@@ -65,7 +65,7 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 노드 수에 따라 클러스터를 업그레이드하는 데 몇 분 정도 걸립니다. 
 
 > [!NOTE]
-> 클러스터 업그레이드를 완료 하는 데 허용 되는 총 시간이 있습니다. 이 시간은의 `10 minutes * total number of nodes in the cluster`제품을 활용 하 여 계산 됩니다. 예를 들어 20 개 노드 클러스터에서 업그레이드 작업은 200 분 내에 성공 해야 합니다. 그렇지 않으면 AKS는 복구 불가능 한 클러스터 상태를 방지 하기 위해 작업에 실패 합니다. 업그레이드 실패 시 복구 하려면 시간 제한이 적중 된 후 업그레이드 작업을 다시 시도 하세요.
+> 클러스터 업그레이드를 완료 하는 데 허용 되는 총 시간이 있습니다. 이 시간은 `10 minutes * total number of nodes in the cluster`제품을 활용 하 여 계산 됩니다. 예를 들어 20 개 노드 클러스터에서 업그레이드 작업은 200 분 내에 성공 해야 합니다. 그렇지 않으면 AKS는 복구 불가능 한 클러스터 상태를 방지 하기 위해 작업에 실패 합니다. 업그레이드 실패 시 복구 하려면 시간 제한이 적중 된 후 업그레이드 작업을 다시 시도 하세요.
 
 업그레이드에 성공 했는지 확인 하려면 [az aks show][az-aks-show] 명령을 사용 합니다.
 

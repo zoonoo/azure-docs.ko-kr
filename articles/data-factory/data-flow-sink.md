@@ -6,16 +6,14 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: da8dc332794cadc0eb6677390c566e67a6df6f3f
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 7cfe0cf291e8c39a4600234632090c39ab5cd78e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882436"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519325"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>데이터 흐름에 대 한 싱크 변환
-
-
 
 데이터 흐름을 변환한 후에는 데이터를 대상 데이터 집합으로 싱크할 수 있습니다. 싱크 변환에서 대상 출력 데이터에 대 한 데이터 집합 정의를 선택 합니다. 데이터 흐름에 필요한 만큼 싱크 변환을 수행할 수 있습니다.
 
@@ -107,6 +105,13 @@ Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된
 
 > [!NOTE]
 > 데이터베이스 싱크에서 행을 업데이트 하거나 삭제 하는 경우 키 열을 설정 해야 합니다. 이 설정을 사용 하면 변경 행 변환이 DML (데이터 이동 라이브러리)의 고유 행을 확인할 수 있습니다.
+
+### <a name="cosmosdb-specific-settings"></a>CosmosDB 특정 설정
+
+CosmosDB에서 데이터를 방문 하는 경우 다음과 같은 추가 옵션을 고려해 야 합니다.
+
+* 파티션 키: 필수 필드입니다. 컬렉션에 대 한 파티션 키를 나타내는 문자열을 입력 합니다. 예: ```/movies/title```
+* 처리량:이 데이터 흐름을 실행할 때마다 CosmosDB collection에 적용 하려는 RUs 수에 대 한 선택적 값을 설정 합니다. 최소값은 400입니다.
 
 ## <a name="next-steps"></a>다음 단계
 이제 데이터 흐름을 만들었으므로 [파이프라인에 데이터 흐름 활동](concepts-data-flow-overview.md)을 추가 합니다.

@@ -1,8 +1,7 @@
 ---
-title: 웹 서비스에서 데이터 가져오기/내보내기 - Azure Machine Learning Studio | Microsoft Docs
+title: 웹 서비스에서 데이터 가져오기/내보내기-Azure Machine Learning Studio (클래식) | Microsoft Docs
 description: 데이터 가져오기 및 내보내기 데이터 모듈을 사용하여 웹 서비스에서 데이터를 보내고 받는 방법을 알아봅니다.
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -10,28 +9,25 @@ editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 28d16bce6dbb5063c085e8c4393777ee9d152768
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a9259856a792dbd3c2f22ed98eef26c8e5f7b17d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345144"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500104"
 ---
-# <a name="deploy-azure-machine-learning-studio-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용하는 Azure Machine Learning Studio 웹 서비스 배포
+# <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용 하는 Azure Machine Learning Studio (클래식) 웹 서비스 배포
 
 예측 실험을 만들 때 일반적으로 웹 서비스 입력 및 출력을 추가합니다. 실험을 배포하면 소비자는 입력 및 출력을 통해 웹 서비스에서 데이터를 보내고 받을 수 있습니다. Microsoft Azure 가상 머신 및 클라우드 서비스는 탑재된 공유를 통해 여러 애플리케이션 구성 요소에서 파일 데이터를 공유할 수 있으며 온-프레미스 애플리케이션은 File Storage API 또는 Azure PowerShell을 통해 공유의 파일 데이터에 액세스할 수 있습니다. 이러한 경우 웹 서비스 입력 및 출력을 사용하여 데이터를 읽고 쓸 필요가 없습니다. 대신, BES(Batch 실행 서비스)를 사용하여 데이터 가져오기 모듈을 통해 데이터 원본에서 데이터를 읽고, 데이터 내보내기 모듈을 통해 다른 데이터 위치에 점수 매기기 결과를 쓸 수 있습니다.
 
 데이터 가져오기 및 내보내기 데이터 모듈은 HTTP를 통한 웹 URL, Hive 쿼리, Azure SQL 데이터베이스, Azure Table Storage, Azure Blob 스토리지, 데이터 피드 또는 온-프레미스 SQL 데이터베이스 등의 다양한 데이터 위치에서 읽고 쓸 수 있습니다.
 
-이 항목에서는 "샘플 5: 이진 분류에 대한 학습, 테스트, 평가: 성인 데이터 세트" 샘플을 사용하고 데이터 세트가 censusdata라는 Azure SQL 테이블로 이미 로드되었다고 가정합니다.
+이 항목에서는 "샘플 5: 이진 분류에 대한 학습, 테스트, 평가: 성인 데이터 세트" 샘플을 사용하고 데이터 세트가 censusdata라는 Azure SQL 테이블에 이미 로드되었다고 가정합니다.
 
 ## <a name="create-the-training-experiment"></a>학습 실험 만들기
-"샘플 5: 이진 분류에 대한 학습, 테스트, 평가: 성인 데이터 세트" 샘플을 여는 경우 샘플 성인 인구 조사 소득 이진 분류 데이터 세트를 사용합니다. 또한 캔버스의 실험은 다음 이미지와 비슷합니다.
+"샘플 5: 이진 분류에 대한 학습, 테스트, 평가: 성인 데이터 세트" 샘플을 열면 성인 인구 조사 소득 이진 분류 데이터 세트가 사용됩니다. 또한 캔버스의 실험은 다음 이미지와 비슷합니다.
 
 ![실험의 초기 구성입니다.](./media/web-services-that-use-import-export-modules/initial-look-of-experiment.png)
 
@@ -78,7 +74,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 9. **데이터 테이블 이름 필드**에 dbo.ScoredLabels를 입력합니다. 이 테이블이 없으면 실험을 실행하거나 웹 서비스를 호출할 때 만들어집니다.
 10. **쉼표로 구분된 데이터베이스 열 목록** 필드에 점수가 매겨진 레이블을 입력합니다.
 
-최종 웹 서비스를 호출하는 애플리케이션을 작성하는 경우 런타임에 다른 입력 쿼리 또는 대상 테이블을 지정할 수 있습니다. 이러한 입력 및 출력을 구성하려면 웹 서비스 매개 변수 기능을 사용하여 *데이터 가져오기* 모듈 *데이터 원본* 속성 및 *데이터 내보내기* 모드 데이터 대상 속성을 설정합니다.  웹 서비스 매개 변수에 대한 자세한 내용은 Cortana Intelligence 및 Machine Learning 블로그에서 [Azure Machine Learning studio Web Service Parameters entry](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/)(Azure Machine Learning Studio 웹 서비스 매개 변수 항목)를 참조하세요.
+최종 웹 서비스를 호출하는 애플리케이션을 작성하는 경우 런타임에 다른 입력 쿼리 또는 대상 테이블을 지정할 수 있습니다. 이러한 입력 및 출력을 구성하려면 웹 서비스 매개 변수 기능을 사용하여 *데이터 가져오기* 모듈 *데이터 원본* 속성 및 *데이터 내보내기* 모드 데이터 대상 속성을 설정합니다.  웹 서비스 매개 변수에 대 한 자세한 내용은 Cortana Intelligence 및 Machine Learning 블로그의 [Azure Machine Learning Studio 웹 서비스 매개 변수 항목](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) 을 참조 하세요.
 
 가져오기 쿼리 및 대상 테이블에 대한 웹 서비스 매개 변수를 구성하려면
 
@@ -103,9 +99,9 @@ Azure SQL 테이블에서 데이터를 읽으려면
 2. 실행이 완료되면 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[클래식]** 를 선택합니다.
 3. 웹 서비스 대시보드에서 API 키를 찾습니다. 나중에 사용할 수 있게 복사한 다음 저장합니다.
 4. **기본 엔드포인트** 테이블에서 **Batch 실행** 링크를 클릭하여 API 도움말 페이지를 엽니다.
-5. Visual Studio에서 C# 콘솔 애플리케이션을 만듭니다. **새로 만들기** > **프로젝트** > **Visual C#**  > **Windows 클래식 데스크톱** > **콘솔 앱(.NET Framework)**
+5. Visual Studio(**새로 만들기** > **프로젝트** > **Visual C#**  > **Windows 클래식 바탕 화면** > **콘솔 앱(.NET Framework)** )에서 C# 콘솔 애플리케이션을 만듭니다.
 6. API 도움말 페이지 맨 아래에서 **샘플 코드** 섹션을 찾습니다.
-7. 를 스토리지 계정의 이름으로 바꾸고 을 File Storage 공유의 이름으로 바꿉니다.
+7. {1}를 스토리지 계정의 이름으로 바꾸고 {2}을 File Storage 공유의 이름으로 바꿉니다.
 8. *apiKey* 변수의 값을 이전에 저장된 API 키로 업데이트합니다.
 9. 요청 선언을 찾고 *데이터 가져오기* 및 *데이터 내보내기* 모듈에 전달되는 웹 서비스 매개 변수 값을 업데이트합니다. 이 경우 원래 쿼리를 사용하지만 새 테이블 이름을 정의합니다.
 
@@ -132,7 +128,7 @@ Azure SQL 테이블에서 데이터를 읽으려면
 3. 실험 배포 페이지에서 웹 서비스의 이름을 입력하고 가격 책정 계획을 선택한 후 **배포**를 클릭합니다.
 4. **빠른 시작** 페이지에서 **사용**을 클릭합니다.
 5. **샘플 코드** 섹션에서 **Batch**를 클릭합니다.
-6. Visual Studio에서 C# 콘솔 애플리케이션을 만듭니다. **새로 만들기** > **프로젝트** > **Visual C#**  > **Windows 클래식 데스크톱** > **콘솔 앱(.NET Framework)**
+6. Visual Studio(**새로 만들기** > **프로젝트** > **Visual C#**  > **Windows 클래식 바탕 화면** > **콘솔 앱(.NET Framework)** )에서 C# 콘솔 애플리케이션을 만듭니다.
 7. C# 샘플 코드를 복사하고 Program.cs 파일에 붙여 넣습니다.
 8. *apiKey* 변수 값을 **기본 사용량 정보** 섹션에 있는 **기본 키**로 업데이트합니다.
 9. *scoreRequest* 선언을 찾고 *데이터 가져오기* 및 *데이터 내보내기* 모듈에 전달되는 웹 서비스 매개 변수 값을 업데이트합니다. 이 경우 원래 쿼리를 사용하지만 새 테이블 이름을 정의합니다.

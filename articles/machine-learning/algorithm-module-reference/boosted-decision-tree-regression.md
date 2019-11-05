@@ -1,24 +1,24 @@
 ---
 title: '승격 된 의사 결정 트리 회귀: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 승격 된 의사 결정 트리 회귀 모듈을 사용 하 여 부스트를 사용 하는 회귀 트리의 앙상블을 만드는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 향상 된 의사 결정 트리 회귀 모듈을 사용 하 여 부스트를 사용 하는 회귀 트리의 앙상블을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 4b8ff1c9f5b0f0b04448b950d3ba904ba76927c9
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: b04a44a82f793f39b24ffd94083ca8fd5e66cfb8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693848"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493881"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>승격 된 의사 결정 트리 회귀 모듈
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 부스트를 사용 하는 회귀 트리의 앙상블을 만듭니다. *부스트* 는 각 트리가 이전 트리에 종속 됨을 의미 합니다. 알고리즘은 앞에 오는 트리의 나머지를 맞추는 방법으로 학습 합니다. 따라서 의사 결정 트리를 앙상블 하는 것은 덜 적은 위험을 초래 하 여 정확성을 향상 시키는 경향이 있습니다.  
   
@@ -97,6 +97,8 @@ ms.locfileid: "72693848"
 
 + 모델을 점수 매기기에 사용 하려면 [점수 모델](./score-model.md)에 연결 하 여 새 입력 예제에 대 한 값을 예측 합니다.
 
++ 학습 된 모델의 스냅숏을 저장 하려면 학습 모듈의 학습 된 **모델** 출력을 마우스 오른쪽 단추로 클릭 하 고 다른 **이름으로 저장**을 선택 합니다. 저장 하는 학습 된 모델의 복사본은 파이프라인의 연속 실행에서 업데이트 되지 않습니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

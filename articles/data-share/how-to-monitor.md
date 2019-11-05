@@ -1,21 +1,21 @@
 ---
-title: Azure 데이터 공유 미리 보기를 모니터링 하는 방법
-description: Azure 데이터 공유 미리 보기에서 초대 상태, 공유 구독 및 스냅숏 기록을 모니터링 하는 방법에 대해 알아봅니다.
+title: Azure 데이터 공유를 모니터링 하는 방법
+description: Azure 데이터 공유에서 초대 상태, 공유 구독 및 스냅숏 기록을 모니터링 하는 방법에 대해 알아봅니다.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 22c95f1ac541e1288494ed85cc9654d42780ea60
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 15089dd99de0471c244a6c0d93931438442599a7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169117"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490513"
 ---
-# <a name="monitor-azure-data-share-preview"></a>Azure 데이터 공유 미리 보기 모니터링 
+# <a name="monitor-azure-data-share"></a>Azure Data Share 모니터링  
 
-이 문서에서는 Azure 데이터 공유 미리 보기를 사용 하 여 데이터 공유를 모니터링 하는 방법을 설명 합니다. 데이터 공급자는 데이터 공유 관계의 다양 한 측면을 모니터링할 수 있습니다. 데이터 소비자가 데이터 공유에 대 한 초대를 수락 했는지 여부 및 공유 구독을 만들고 데이터 사용을 시작 했는지 여부와 같은 세부 정보는 모두 모니터링할 수 있습니다. 
+이 문서에서는 Azure 데이터 공유를 사용 하 여 데이터 공유를 모니터링 하는 방법을 설명 합니다. 데이터 공급자는 데이터 공유 관계의 다양 한 측면을 모니터링할 수 있습니다. 데이터 소비자가 데이터 공유에 대 한 초대를 수락 했는지 여부 및 공유 구독을 만들고 데이터 사용을 시작 했는지 여부와 같은 세부 정보는 모두 모니터링할 수 있습니다. 
 
 데이터 소비자는 Azure 구독으로 트리거된 스냅숏을 모니터링할 수 있습니다. 
 

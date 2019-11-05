@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: 16f13cd4ad580ea2f163fe87b5924c1462890972
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 25b08bf78de61e556bab790869b45131a01ce6b8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "64926178"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495109"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>Machine Learning 이상 감지 API
 
@@ -39,14 +39,14 @@ ms.locfileid: "64926178"
 * [웹 애플리케이션](https://anomalydetection-aml.azurewebsites.net/)은 데이터에서 비상 감지 API의 결과를 평가하고 시각화하는 데 도움이 됩니다.
 
 > [!NOTE]
-> [이 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)에서 제공되는 **IT Anomaly Insights 솔루션**을 사용해 봅니다.
+> **이 API**에서 제공되는 [IT Anomaly Insights 솔루션](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)을 사용해 봅니다.
 >
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
 -->
 
 ## <a name="api-deployment"></a>API 배포
-API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 Azure 구독에 API를 배포해야 합니다.  이 작업은 [Azure AI 갤러리](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)에서 수행할 수 있습니다.  그러면 두 개의 Azure Machine Learning Studio 웹 서비스 및 관련 리소스가 Azure 구독에 배포됩니다. 하나는 계절성 검색을 포함한 변칙 검색용이고, 나머지 하나는 계절성 검색이 없는 변칙 검색용입니다.  배포가 완료되면 [Azure Machine Learning Studio 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 API를 관리할 수 있습니다.  이 페이지에서 API를 호출하기 위한 샘플 코드와 엔드포인트 위치, API 키를 찾을 수 있습니다.  더 자세한 지침은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)에 있습니다.
+API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 Azure 구독에 API를 배포해야 합니다.  이 작업은 [Azure AI 갤러리](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)에서 수행할 수 있습니다.  이렇게 하면 두 개의 Azure Machine Learning Studio (클래식) 웹 서비스 (및 관련 리소스)가 Azure 구독에 배포 됩니다. 하나는 계절성 검색을 사용 하 여 변칙 검색을 위한 것이 고 다른 하나는 계절성 검색을 사용 하지 않습니다.  배포가 완료 되 면 [Azure Machine Learning Studio (클래식) 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 api를 관리할 수 있습니다.  이 페이지에서 API를 호출하기 위한 샘플 코드와 엔드포인트 위치, API 키를 찾을 수 있습니다.  더 자세한 지침은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)에 있습니다.
 
 ## <a name="scaling-the-api"></a>API 크기 조정
 기본적으로 배포에는 1,000 트랜잭션/월 및 2 컴퓨팅 시간/월을 포함하는 무료 개발/테스트 청구 계획이 있습니다.  필요에 따라 다른 계획으로 업그레이드할 수 있습니다.  다른 계획의 가격 책정에 대한 자세한 내용은 [여기](https://azure.microsoft.com/pricing/details/machine-learning/)의 "프로덕션 웹 API 가격"에 있습니다.
@@ -55,10 +55,10 @@ API를 사용하려면 Azure Machine Learning 웹 서비스로 호스팅되는 A
 [여기](https://services.azureml.net/plans/)서 청구 계획을 관리할 수 있습니다.  계획 이름은 API를 배포할 때 선택한 리소스 그룹 이름과 구독에 고유한 문자열을 기반으로 합니다.  계획을 업그레이드하는 방법에 대한 지침은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice)의 "청구 계획 관리" 섹션에 있습니다.
 
 ## <a name="api-definition"></a>API 정의
-웹 서비스는 웹 또는 모바일 애플리케이션, R, Python, Excel 등 다양한 방식으로 사용할 수 있는 REST 기반 API over HTTPS를 제공합니다.  REST API 호출을 통해 시계열 데이터를 이 서비스로 보내고 아래에서 설명한 세 가지 이상 유형의 조합을 실행합니다.
+웹 서비스는 웹 또는 모바일 응용 프로그램, R, Python, Excel 등을 비롯 한 다양 한 방법으로 사용 될 수 있는 REST 기반 API를 HTTPS를 통해 제공 합니다.  REST API 호출을 통해 시계열 데이터를이 서비스로 전송 하 고 아래에서 설명 하는 세 가지 변칙 형식의 조합을 실행 합니다.
 
 ## <a name="calling-the-api"></a>API 호출
-API를 호출하려면 엔드포인트 위치 및 API 키를 알고 있어야 합니다.  이 두 항목은 모두 API를 호출하는 샘플 코드와 함께 [Azure Machine Learning Studio 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 사용할 수 있습니다.  원하는 API로 이동한 다음 "사용" 탭을 클릭하여 찾습니다.  API를 Swagger API(즉 `format=swagger` URL 매개 변수 있음) 또는 비Swagger API(즉 `format` URL 매개 변수 없음)로 호출할 수 있습니다.  샘플 코드에서는 Swagger 형식을 사용합니다.  아래는 Swagger가 아닌 형식의 예제 요청 및 응답입니다.  이러한 예제는 계절성 엔드포인트에 관한 것이며,  비계절성 엔드포인트도 비슷합니다.
+API를 호출하려면 엔드포인트 위치 및 API 키를 알고 있어야 합니다.  API를 호출 하는 샘플 코드와 함께 이러한 두 가지 모두 [Azure Machine Learning Studio (클래식) 웹 서비스](https://services.azureml.net/webservices/) 페이지에서 사용할 수 있습니다.  원하는 API로 이동한 다음 "사용" 탭을 클릭하여 찾습니다.  API를 Swagger API(즉 `format=swagger` URL 매개 변수 있음) 또는 비Swagger API(즉 `format` URL 매개 변수 없음)로 호출할 수 있습니다.  샘플 코드에서는 Swagger 형식을 사용합니다.  아래는 Swagger가 아닌 형식의 예제 요청 및 응답입니다.  이러한 예제는 계절성 엔드포인트에 관한 것이며,  비계절성 엔드포인트도 비슷합니다.
 
 ### <a name="sample-request-body"></a>샘플 요청 본문
 요청에는 두 개의 개체, 즉 `Inputs`과 `GlobalParameters`가 있습니다.  아래 예제 요청에서는 일부 매개 변수가 명시적으로 전송되는 반면 다른 매개 변수는 전송되지 않습니다(각 엔드포인트의 전체 매개 변수 목록을 보려면 아래로 스크롤함).  요청에서 명시적으로 전송되지 않은 매개 변수는 아래에 지정된 기본값을 사용합니다.
@@ -111,33 +111,33 @@ Score API는 비계절성 시계열 데이터에 이상 감지를 실행하는 �
 ### <a name="detectors"></a>감지기
 이상 감지 API는 3가지 폭넓은 범주의 감지기를 지원합니다. 각 감지기의 구체적인 입력 매개 변수 및 출력에 대한 자세한 내용은 다음 테이블에서 찾을 수 있습니다.
 
-| 감지기 범주 | 감지기 | Description | 입력 매개 변수 | 출력 |
+| 감지기 범주 | 감지기 | 설명 | 입력 매개 변수 | outputs |
 | --- | --- | --- | --- | --- |
-| 급증 감지기 |TSpike 감지기 |값이 첫 번째와 세 번째 사분위 수에서 얼마나 떨어져 있는지를 기반으로 급증과 급락을 감지합니다. |*tspikedetector.sensitivity:* 는 1-10 범위의 정수 값을 취하고, 기본값은 3이며, 값은 더 극단값을 캐치하므로 민감도가 낮습니다. |TSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ |
-| 급증 감지기 | ZSpike 감지기 |데이터 요소가 평균값에서 얼마나 떨어져 있는지를 기반으로 급증 및 급락을 감지합니다. |*zspikedetector.sensitivity:* 는 1-10 범위의 정수 값을 취하고, 기본값은 3이며, 값은 더 극단값을 캐치하므로 민감도가 낮습니다. |ZSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ |
-| 느린 추세 감지기 |느린 추세 감지기 |집합 민감도에 따른 느리고 긍정적인 추세 감지 |*trenddetector.sensitivity:* 감지기 점수의 임계값(기본값: 3.25, 3.25–5는 이를 선택하는 적절한 범위입니다. 높을수록 민감도가 낮습니다.) |tscore: 추세에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
-| 수준 변화 감지기 | 양방향 수준 변화 감지기 |집합 민감도에 따른 상향 및 하향 수준 변경 감지 |*bileveldetector.sensitivity:* 감지기 점수의 임계값(기본값: 3.25, 3.25–5는 이를 선택하는 적절한 범위입니다. 높을수록 민감도가 낮습니다.) |rpscore: 상향 및 하향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
+| 급증 감지기 |TSpike 감지기 |값이 첫 번째와 세 번째 사분위 수에서 얼마나 떨어져 있는지를 기반으로 급증과 급락을 감지합니다. |*tspikedetector.sensitivity:* 1-10 범위의 정수 값을 갖습니다. 기본값: 3. 값이 높을수록 더 극단값을 포착하므로 민감도는 낮습니다. |TSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ |
+| 급증 감지기 | ZSpike 감지기 |데이터 요소가 평균값에서 얼마나 떨어져 있는지를 기반으로 급증 및 급락을 감지합니다. |*zspikedetector.sensitivity:* 1~10 범위의 정수 값을 갖습니다. 기본값: 3. 값이 높을수록 더 극단값을 포착하므로 민감도는 낮습니다. |ZSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ |
+| 느린 추세 감지기 |느린 추세 감지기 |집합 민감도에 따른 느리고 긍정적인 추세 감지 |*trenddetector.sensitivity:* 감지기 점수 임계값(기본값: 3.25. 3.25 – 5는 선택하기에 적절한 범위입니다. 값이 높을수록 민감도가 낮습니다.) |tscore: 추세에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
+| 수준 변화 감지기 | 양방향 수준 변화 감지기 |집합 민감도에 따른 상향 및 하향 수준 변경 감지 |*bileveldetector.sensitivity:* 감지기 점수 임계값(기본값: 3.25. 3.25 – 5는 선택하기에 적절한 범위입니다. 값이 높을수록 민감도가 낮습니다.) |rpscore: 상향 및 하향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
 
 ### <a name="parameters"></a>매개 변수
 이러한 입력 매개 변수에 대한 자세한 정보는 아래 테이블에 나와 있습니다.
 
-| 입력 매개 변수 | Description | 기본 설정 | 형식 | 유효 범위 | 제안 범위 |
+| 입력 매개 변수 | 설명 | 기본 설정 | 형식 | 유효 범위 | 제안 범위 |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |integer |10-2000 |시계열에 종속 |
-| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |Both |열거형 |Both, Spikes, Dips |Both |
+| detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |정수 |10-2000 |시계열에 종속 |
+| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |둘 다 |열거형 |Both, Spikes, Dips |둘 다 |
 | bileveldetector.sensitivity |양방향 수준 변화 감지기에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
 | trenddetector.sensitivity |긍정적인 추세 감지에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
-| tspikedetector.sensitivity |TSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
-| zspikedetector.sensitivity |ZSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
-| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |integer |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |N/A |
+| tspikedetector.sensitivity |TSpike 감지기의 민감도 |3 |정수 |1-10 |3-5(값이 낮을수록 높은 민감도) |
+| zspikedetector.sensitivity |ZSpike 감지기의 민감도 |3 |정수 |1-10 |3-5(값이 낮을수록 높은 민감도) |
+| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |정수 |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |해당 없음 |
 
 ### <a name="output"></a>출력
 API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 대한 이진 급증 표시기와 이상 점수를 반환합니다. 아래 테이블은 API의 결과 목록입니다.
 
-| 출력 | Description |
+| outputs | 설명 |
 | --- | --- |
 | 시간 |원시 데이터의 타임스탬프 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
-| 보기 |원시 데이터의 값 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
+| Data |원시 데이터의 값 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
 | Tspike |TSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | ZSpike |ZSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | rpscore |양방향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
@@ -157,27 +157,27 @@ ScoreWithSeasonality API는 계절성 패턴이 있는 시계열에 대한 이�
 
 이러한 입력 매개 변수에 대한 자세한 정보는 아래 테이블에 나와 있습니다.
 
-| 입력 매개 변수 | Description | 기본 설정 | 형식 | 유효 범위 | 제안 범위 |
+| 입력 매개 변수 | 설명 | 기본 설정 | 형식 | 유효 범위 | 제안 범위 |
 | --- | --- | --- | --- | --- | --- |
-| preprocess.aggregationInterval |입력 시계열 집계에 대한 초 단위 집계 간격 |0(집계가 수행되지 않음) |integer |0: 집계 건너뜀, > 0 기타 |5분에서 1일, 시계열 종속 |
-| preprocess.aggregationFunc |지정된 AggregationInterval로 데이터를 집계하는 데 사용되는 함수 |평균 |열거형 |평균, 합계, 길이 |해당 사항 없음 |
-| preprocess.replaceMissing |누락된 데이터를 입력하는 데 사용되는 값 |lkv(마지막으로 알려진 값) |열거형 |0, lkv, 평균 |해당 사항 없음 |
-| detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |integer |10-2000 |시계열에 종속 |
-| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |Both |열거형 |Both, Spikes, Dips |Both |
+| preprocess.aggregationInterval |입력 시계열 집계에 대한 초 단위 집계 간격 |0(집계가 수행되지 않음) |정수 |0: 집계 건너뜀, > 0 기타 |5분에서 1일, 시계열 종속 |
+| preprocess.aggregationFunc |지정된 AggregationInterval로 데이터를 집계하는 데 사용되는 함수 |평균 |열거형 |평균, 합계, 길이 |해당 없음 |
+| preprocess.replaceMissing |누락된 데이터를 입력하는 데 사용되는 값 |lkv(마지막으로 알려진 값) |열거형 |0, lkv, 평균 |해당 없음 |
+| detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |정수 |10-2000 |시계열에 종속 |
+| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |둘 다 |열거형 |Both, Spikes, Dips |둘 다 |
 | bileveldetector.sensitivity |양방향 수준 변화 감지기에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
 | postrenddetector.sensitivity |긍정적인 추세 감지에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
 | negtrenddetector.sensitivity |부정적인 추세 감지기에 대한 민감도 |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
-| tspikedetector.sensitivity |TSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
-| zspikedetector.sensitivity |ZSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
-| seasonality.enable |계절성 분석이 수행될지 여부 |true |boolean |true, false |시계열에 종속 |
-| seasonality.numSeasonality |감지할 정기적 주기의 최대 수 |1 |integer |1, 2 |1-2 |
-| seasonality.transform |이상 감지를 적용하기 전에 계절성 (및) 추세 구성 요소가 제거될지 여부 |deseason |열거형 |none, deseason, deseasontrend |해당 사항 없음 |
-| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |integer |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |해당 사항 없음 |
+| tspikedetector.sensitivity |TSpike 감지기의 민감도 |3 |정수 |1-10 |3-5(값이 낮을수록 높은 민감도) |
+| zspikedetector.sensitivity |ZSpike 감지기의 민감도 |3 |정수 |1-10 |3-5(값이 낮을수록 높은 민감도) |
+| seasonality.enable |계절성 분석이 수행될지 여부 |true |부울 |true, false |시계열에 종속 |
+| seasonality.numSeasonality |감지할 정기적 주기의 최대 수 |1 |정수 |1, 2 |1-2 |
+| seasonality.transform |이상 감지를 적용하기 전에 계절성 (및) 추세 구성 요소가 제거될지 여부 |deseason |열거형 |none, deseason, deseasontrend |해당 없음 |
+| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |정수 |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |해당 없음 |
 
 ### <a name="output"></a>출력
 API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 대한 이진 급증 표시기와 이상 점수를 반환합니다. 아래 테이블은 API의 결과 목록입니다.
 
-| 출력 | Description |
+| outputs | 설명 |
 | --- | --- |
 | 시간 |원시 데이터의 타임스탬프 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
 | OriginalData |원시 데이터의 값 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |

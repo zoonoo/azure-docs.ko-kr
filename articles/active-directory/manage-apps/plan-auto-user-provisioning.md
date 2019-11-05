@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab1caeb59cf7fc0a6baef5ba0001e734a75fccd2
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72758235"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473329"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로 비전 배포 계획
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 기능을 더 잘 이해 하려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 및 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 해제를 참조 하세요.
 
-## <a name="learn"></a>학습
+## <a name="learn"></a>유용한 정보
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스에 대 한 토대를 만들고 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킵니다.
 
@@ -63,14 +63,14 @@ Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사�
 
 * 대상 시스템-Azure AD가 프로 비전 하는 사용자의 리포지토리입니다. 대상 시스템은 일반적으로 ServiceNow, Zscaler 및 여유 시간과 같은 SaaS 응용 프로그램입니다. 대상 시스템은 AD와 같은 온-프레미스 시스템 일 수도 있습니다.
 
-* [SCIM (도메인 간 Id 관리)에 대 한 시스템](http://www.simplecloud.info/) -사용자 프로 비전을 자동화 하는 데 사용할 수 있는 개방형 표준입니다. SCIM은 Microsoft와 같은 id 공급자와 사용자 id 정보를 요구 하는 Salesforce 또는 기타 SaaS 앱과 같은 서비스 공급자 간에 사용자 id 데이터를 전달 합니다.
+* [SCIM (도메인 간 Id 관리)에 대 한 시스템](https://aka.ms/scimoverview) -사용자 프로 비전을 자동화 하는 데 사용할 수 있는 개방형 표준입니다. SCIM은 Microsoft와 같은 id 공급자와 사용자 id 정보를 요구 하는 Salesforce 또는 기타 SaaS 앱과 같은 서비스 공급자 간에 사용자 id 데이터를 전달 합니다.
 
 ### <a name="training-resources"></a>학습 리소스
 
 | 리소스| 링크 및 설명 |
 | - | - |
-| 웹 세미나 다시 보기| [Azure AD를 사용 하 여 엔터프라이즈 응용 프로그램 관리](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Azure AD를 사용 하 여 엔터프라이즈 SaaS 응용 프로그램에 대 한 SSO를 구현 하 고 액세스를 제어 하는 최선의 방법을 알아보세요. |
-| 동영상| [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) <br> [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) <br> [Salesforce를 Azure AD와 통합: 사용자 프로 비전을 자동화 하는 방법](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| 주문형 웹 세미나| [Azure AD를 사용 하 여 엔터프라이즈 응용 프로그램 관리](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Azure AD를 사용 하 여 엔터프라이즈 SaaS 응용 프로그램에 대 한 SSO를 구현 하 고 액세스를 제어 하는 최선의 방법을 알아보세요. |
+| 비디오| [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) <br> [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) <br> [Salesforce를 Azure AD와 통합: 사용자 프로 비전을 자동화 하는 방법](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | 온라인 과정| SkillUp Online: [Id 관리](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Azure AD를 많은 SaaS 응용 프로그램과 통합 하 고 이러한 응용 프로그램에 대 한 사용자 액세스를 보호 하는 방법을 알아봅니다. |
 | 온라인 설명서| [웹 응용 프로그램에 대 한 Azure Active Directory 최신 인증 (개발자 참조) 첫 번째 버전](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0)입니다.  <br> 이러한 새 환경에 대 한 Active Directory 인증 솔루션을 구축 하기 위한 신뢰할 수 있는 심층 소개 가이드입니다. |
 | 자습서| [SaaS 앱을 AZURE AD와 통합 하는 방법에 대 한 자습서 목록을](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)참조 하세요. |
@@ -281,6 +281,8 @@ Azure AD 프로 비전 서비스가 처음으로 실행 될 때 원본 시스템
 * 프로 비전 프로세스는 높은 오류 속도로 인해 격리 되 고 자동으로 사용 하지 않도록 설정 될 때 4 주 넘게 격리 상태로 유지 됩니다.
 
 이러한 이벤트 및 프로 비전 서비스에서 수행 하는 다른 모든 작업을 검토 하려면 Azure AD [프로 비전 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context)를 참조 하세요.
+
+프로 비전 주기에서 프로 비전 작업의 진행 상태를 확인 하 고 모니터링 하는 시간을 이해 하려면 [사용자 프로 비전 상태를 확인](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)하면 됩니다.
 
 ### <a name="gain-insights-from-reports"></a>보고서에서 통찰력 얻기
 

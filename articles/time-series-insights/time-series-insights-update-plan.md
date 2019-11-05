@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: dc4336629a4c3b9da906daefca160c5a305603dc
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f5a12ca2bdccee1d2f738aa3c810577caf3d8eac
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990873"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491966"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Azure Time Series Insights 미리 보기 환경 계획
 
@@ -43,7 +43,7 @@ Time Series Insights 미리 보기 환경을 프로비전할 때는 다음 두 �
 * Azure Time Series Insights 미리 보기 환경
 * Azure Storage 범용 V1 계정
 
-프로 비전 프로세스의 일부로 웜 저장소를 사용 하도록 설정할지 여부를 지정 합니다. 웜 스토어는 계층화 된 쿼리 환경을 제공 합니다. 사용 하도록 설정 하는 경우 7 일에서 30 일 사이의 보존 기간을 지정 해야 합니다. 웜 저장소 보존 기간 내에 실행 되는 쿼리는 일반적으로 더 빠른 응답 시간을 제공 합니다. 쿼리가 웜 저장소 보존 기간을 초과 하는 경우 콜드 저장소에서 제공 됩니다.
+프로 비전 프로세스의 일부로 웜 저장소를 사용 하도록 설정할지 여부를 지정 합니다. 웜 스토어는 계층화 된 쿼리 환경을 제공 합니다. 사용 하도록 설정 하는 경우 7 일에서 30 일 사이의 보존 기간을 지정 해야 합니다. 웜 저장소 보존 기간 내에 실행 되는 쿼리는 일반적으로 더 빠른 응답 시간을 제공 합니다. 쿼리가 웜 저장소 보존 기간을 초과 하는 경우 콜드 스토어에서 제공 됩니다.
 
 웜 저장소에 대 한 쿼리는 무료 이지만 콜드 스토어의 쿼리는 비용이 발생 합니다. 쿼리 패턴을 이해 하 고 웜 저장소 구성을 적절 하 게 계획 하는 것이 중요 합니다. 최신 데이터에 대 한 대화형 분석은 웜 저장소에 있고 패턴 분석과 장기적 추세는 콜드에 상주 하는 것이 좋습니다.
 

@@ -7,30 +7,30 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: a3c25553e7abbe39c00407e8000880dc99056bcd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ccc3da6f2dd49775ff4d4486fcd2af9f08a396d6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172986"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475922"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
-Azure 개인 끝점은 Azure 개인 링크를 통해 제공 되는 서비스에 비공개로 안전 하 게 연결 하는 네트워크 인터페이스입니다. 개인 끝점은 VNet의 개인 IP 주소를 사용 하 여 서비스를 VNet에 효과적으로 제공 합니다. 서비스는 Azure Storage, SQL 등의 Azure 서비스 이거나 자신의 [개인 링크 서비스](private-link-service-overview.md)일 수 있습니다.
+Azure 개인 끝점은 Azure 개인 링크를 통해 제공 되는 서비스에 비공개로 안전 하 게 연결 하는 네트워크 인터페이스입니다. 개인 끝점은 VNet의 개인 IP 주소를 사용 하 여 서비스를 VNet에 효과적으로 제공 합니다. 서비스는 Azure Storage, Azure Cosmos DB, SQL 등의 Azure 서비스 이거나 자신의 [개인 링크 서비스](private-link-service-overview.md)일 수 있습니다.
   
 ## <a name="private-endpoint-properties"></a>개인 끝점 속성 
  개인 끝점은 다음 속성을 지정 합니다. 
 
 
-|자산  |설명 |
+|속성  |설명 |
 |---------|---------|
-|name    |    리소스 그룹 내의 고유한 이름입니다.      |
+|Name    |    리소스 그룹 내의 고유한 이름입니다.      |
 |서브넷    |  가상 네트워크에서 개인 IP 주소를 배포 하 고 할당 하는 서브넷입니다. 서브넷 요구 사항은이 문서의 제한 사항 섹션을 참조 하세요.         |
 |개인 링크 리소스    |   사용 가능한 형식 목록에서 리소스 ID 또는 별칭을 사용 하 여 연결할 개인 링크 리소스입니다. 이 리소스로 전송 되는 모든 트래픽에 대해 고유한 네트워크 식별자가 생성 됩니다.       |
 |대상 하위 리소스   |      연결할 하위 리소스입니다. 각 개인 링크 리소스 종류에는 기본 설정에 따라 선택할 수 있는 다양 한 옵션이 있습니다.    |
 |연결 승인 방법    |  자동 또는 수동. RBAC (역할 기반 액세스 제어) 권한에 따라 개인 끝점이 자동으로 승인 될 수 있습니다. RBAC 없이 개인 링크 리소스에 연결 하려고 하면 수동 메서드를 사용 하 여 리소스 소유자가 연결을 승인할 수 있도록 허용 합니다.        |
 |요청 메시지     |  요청 된 연결이 수동으로 승인 되도록 메시지를 지정할 수 있습니다. 이 메시지는 특정 요청을 식별 하는 데 사용할 수 있습니다.        |
-|연결 상태   |   개인 끝점이 활성 상태 인지 여부를 지정 하는 읽기 전용 속성입니다. 승인 된 상태의 개인 끝점만 트래픽을 보내는 데 사용할 수 있습니다. 사용 가능한 추가 상태: <br>**승인**-: 연결이 자동 또는 수동으로 승인 되었고 사용할 준비가 되었습니다.</br><br>-**보류**중: 연결이 수동으로 만들어졌으며 개인 링크 리소스 소유자가 승인을 보류 하 고 있습니다.</br><br>-**거부 됨**: 개인 링크 리소스 소유자가 연결을 거부 했습니다.</br><br>- 연결**끊김**: 개인 링크 리소스 소유자가 연결을 제거 했습니다. 개인 끝점은 정보를 제공 하 고 정리를 위해 삭제 해야 합니다. </br>|
+|연결 상태   |   개인 끝점이 활성 상태 인지 여부를 지정 하는 읽기 전용 속성입니다. 승인 된 상태의 개인 끝점만 트래픽을 보내는 데 사용할 수 있습니다. 사용 가능한 추가 상태: <br>**승인**-: 연결이 자동 또는 수동으로 승인 되었고 사용할 준비가 되었습니다.</br><br>-**보류**중: 연결이 수동으로 만들어졌으며 개인 링크 리소스 소유자가 승인을 보류 하 고 있습니다.</br><br>-**거부 됨**: 개인 링크 리소스 소유자가 연결을 거부 했습니다.</br><br>-연결 **끊김**: 개인 링크 리소스 소유자가 연결을 제거 했습니다. 개인 끝점은 정보를 제공 하 고 정리를 위해 삭제 해야 합니다. </br>|
 
 개인 끝점에 대 한 몇 가지 주요 정보는 다음과 같습니다. 
 - 개인 끝점을 사용 하면 동일한 VNet, 지역적으로 피어 링 Vnet, 글로벌 피어 링 Vnet 및 온-프레미스에서 [VPN](https://azure.microsoft.com/services/vpn-gateway/) 또는 [Express 경로](https://azure.microsoft.com/services/expressroute/) 를 사용 하는 소비자와 개인 링크를 통해 제공 되는 서비스 간의 연결이 가능해 집니다.
@@ -57,7 +57,7 @@ Azure 개인 끝점은 Azure 개인 링크를 통해 제공 되는 서비스에 
 |**Azure SQL Data Warehouse** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> 테이블 (table, table_secondary)<BR> Queue (queue, queue_secondary)<BR> File (file, file_secondary)<BR> 웹 (웹, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)       |
- 
+|**Azure Cosmos DB** | Microsoft.azurecosmosdb/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table|
  
 ## <a name="network-security-of-private-endpoints"></a>개인 끝점의 네트워크 보안 
 Azure 서비스에 대 한 개인 끝점을 사용 하는 경우 특정 개인 링크 리소스에 대 한 트래픽이 보호 됩니다. 플랫폼은 액세스 제어를 수행 하 여 지정 된 개인 링크 리소스에만 도달 하는 네트워크 연결의 유효성을 검사 합니다. 동일한 Azure 서비스 내에서 추가 리소스에 액세스 하려면 추가 개인 끝점이 필요 합니다. 
@@ -107,9 +107,12 @@ Azure 서비스의 경우 다음 표에 설명 된 대로 권장 된 영역 이�
 |저장소 계정 (Microsoft. Storage/storageAccounts)   |    File (file, file_secondary)      |    privatelink.file.core.windows.net      |
 |저장소 계정 (Microsoft. Storage/storageAccounts)     |  웹 (웹, web_secondary)        |    privatelink.web.core.windows.net      |
 |Data Lake 파일 시스템 Gen2 (Microsoft Storage/storageAccounts)  |  Data Lake 파일 시스템 Gen2 (dfs, dfs_secondary)        |     privatelink.dfs.core.windows.net     |
-||||
+|Azure Cosmos DB (Microsoft.azurecosmosdb/databaseAccounts)|SQL |privatelink.documents.azure.com|
+|Azure Cosmos DB (Microsoft.azurecosmosdb/databaseAccounts)|MongoDB |privatelink.mongo.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.azurecosmosdb/databaseAccounts)|Cassandra|privatelink.cassandra.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.azurecosmosdb/databaseAccounts)|Gremlin |privatelink.gremlin.cosmos.azure.com|
+|Azure Cosmos DB (Microsoft.azurecosmosdb/databaseAccounts)|테이블|privatelink.table.cosmos.azure.com|
  
-
 Azure는 공용 DNS에서 정식 이름 DNS 레코드 (CNAME)를 만들어 해결 방법을 제안 된 도메인 이름으로 리디렉션합니다. 개인 끝점의 개인 IP 주소를 사용 하 여 해상도를 재정의할 수 있습니다. 
  
 응용 프로그램에서 연결 URL을 변경할 필요가 없습니다. 공용 DNS를 사용 하 여 확인 하려고 하면 DNS 서버가 개인 끝점으로 확인 됩니다. 이 프로세스는 응용 프로그램에 영향을 주지 않습니다. 
@@ -123,7 +126,7 @@ Azure는 공용 DNS에서 정식 이름 DNS 레코드 (CNAME)를 만들어 해�
 |---------|---------|---------|
 |NSG (네트워크 보안 그룹) 규칙 및 사용자 정의 경로는 개인 끝점에 적용 되지 않습니다.    |NSG는 개인 끝점에서 지원 되지 않습니다. 개인 끝점을 포함 하는 서브넷에 NSG가 연결 되어 있을 수 있지만 규칙은 개인 끝점에서 처리 하는 트래픽에 적용 되지 않습니다. 서브넷에 개인 끝점을 배포 하려면 [네트워크 정책 적용을 사용 하지 않도록 설정](disable-private-endpoint-network-policy.md) 해야 합니다. NSG는 동일한 서브넷에서 호스트 되는 다른 워크 로드에도 적용 됩니다. 모든 클라이언트 서브넷의 경로는/32 접두사를 사용 하 고 기본 라우팅 동작을 변경 하려면 비슷한 UDR이 필요 합니다.  | 원본 클라이언트의 아웃 바운드 트래픽에 대 한 NSG 규칙을 사용 하 여 트래픽을 제어 합니다. /32 접두사를 사용 하 여 개인 끝점 경로를 재정의 하는 개별 경로 배포        |
 |  전용 끝점만 있는 피어 링 Virtual Network는 지원 되지 않습니다.   |   다른 워크 로드 없이 피어 링 Virtual Network의 전용 끝점에 연결할 때 지원 되지 않는 경우       | 피어 링 Virtual Network에서 단일 VM을 배포 하 여 연결을 사용 하도록 설정 합니다. |
-|특수 워크 로드는 전용 끝점에 액세스할 수 없습니다.    |   가상 네트워크에 배포 된 다음 서비스는 개인 끝점을 사용 하 여 개인 링크 리소스에 액세스할 수 없습니다.<br>App Service 플랜</br>Azure Container Instance</br>Azure NetApp Files</br>Azure 전용 HSM<br>       |   미리 보기 중에는 완화가 필요 하지 않습니다.       |
+|특수 워크 로드는 전용 끝점에 액세스할 수 없습니다.    |   가상 네트워크에 배포 된 다음 서비스는 개인 끝점을 사용 하 여 개인 링크 리소스에 액세스할 수 없습니다.<br>App Service 계획</br>Azure Container Instance</br>Azure NetApp Files</br>Azure 전용 HSM<br>       |   미리 보기 중에는 완화가 필요 하지 않습니다.       |
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -131,4 +134,5 @@ Azure는 공용 DNS에서 정식 이름 DNS 레코드 (CNAME)를 만들어 해�
 - [PowerShell을 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-powershell.md)
 - [CLI를 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-cli.md)
 - [포털을 사용하여 스토리지 계정용 프라이빗 엔드포인트 만들기](create-private-endpoint-storage-portal.md)
+- [포털을 사용 하 여 Azure Cosmos 계정에 대 한 개인 끝점 만들기](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Azure PowerShell를 사용하여 고유의 Private Link 서비스 만들기](create-private-link-service-powershell.md)

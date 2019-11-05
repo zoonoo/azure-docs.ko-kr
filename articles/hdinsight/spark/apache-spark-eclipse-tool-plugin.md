@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for Eclipse: HDInsight Spark용 Scala 애플리케이션 만들기 '
+title: 'Azure Toolkit for Eclipse: HDInsight Spark 용 Scala apps 만들기'
 description: Azure Toolkit for Eclipse의 HDInsight Tools를 사용하여 Scala로 작성된 Spark 애플리케이션을 개발한 후에 Eclipse IDE에서 직접 HDInsight Spark 클러스터로 제출합니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 5336153a776f3324e5f73564ba2804389cd96938
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7e320b4a0166ffad3ba62c80ad7667c626acb136
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257578"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494677"
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-apache-spark-applications-for-an-hdinsight-cluster"></a>Azure Toolkit for Eclipse를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기
 
-Azure Toolkit for [Eclipse](https://www.eclipse.org/)의 HDInsight Tools를 사용하여 [Scala](https://www.scala-lang.org/)로 작성된 [Apache Spark](https://spark.apache.org/) 애플리케이션을 개발하여 Eclipse IDE에서 직접 Azure HDInsight Spark 클러스터에 제출합니다. 다음과 같은 방법으로 HDInsight Tools 플러그 인을 사용할 수 있습니다.
+Azure Toolkit for [Eclipse](https://www.eclipse.org/)의 HDInsight Tools를 사용하여 [Scala](https://spark.apache.org/)로 작성된 [Apache Spark](https://www.scala-lang.org/) 애플리케이션을 개발하여 Eclipse IDE에서 직접 Azure HDInsight Spark 클러스터에 제출합니다. 다음과 같은 방법으로 HDInsight Tools 플러그 인을 사용할 수 있습니다.
 
 * HDInsight Spark 클러스터에서 Scala Spark 애플리케이션을 개발 및 제출하려면
 * Azure HDInsight Spark 클러스터 리소스에 액세스하려면
@@ -26,7 +26,7 @@ Azure Toolkit for [Eclipse](https://www.eclipse.org/)의 HDInsight Tools를 사�
 > [!IMPORTANT]  
 > 이 도구를 사용하면 Linux의 HDInsight Spark 클러스터용 애플리케이션만 만들고 제출할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * HDInsight의 Apache Spark 클러스터. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 * Eclipse IDE 런타임에 사용되는 Oracle Java Development 키트 버전 8입니다. [Oracle 웹 사이트](https://aka.ms/azure-jdks)에서 다운로드할 수 있습니다.
@@ -83,7 +83,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 
    > [!NOTE]  
    > 클러스터가 Azure 구독 및 연결된 클러스터 모두에 로그인되어 있으면, 연결된 스토리지 키, 사용자 이름 및 암호를 사용합니다.
-   > ![Azure 탐색기 저장소 계정](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
+   > Azure 탐색기 저장소 계정 ![](./media/apache-spark-eclipse-tool-plugin/storage-explorer-in-Eclipse.png)
 
 1. 입력 정보가 올바르면 확인 단추를 클릭한 후 **HDInsight** 노드에 연결된 클러스터가 표시됩니다. 이제 애플리케이션을 연결된 클러스터에 제출할 수 있습니다.
 
@@ -226,7 +226,7 @@ HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양�
 
 Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 워크스테이션에서 Spark Scala 애플리케이션을 로컬로 실행할 수 있습니다. 일반적으로 이러한 애플리케이션은 스토리지 컨테이너와 같은 클러스터 리소스에 액세스할 필요가 없으므로 로컬로 실행하고 테스트할 수 있습니다.
 
-### <a name="prerequisite"></a>사전 요구 사항
+### <a name="prerequisite"></a>필수 요소
 
 Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에서 설명한 예외가 발생할 수 있습니다. 이 예외는 Windows에 **WinUtils.exe**가 없기 때문에 발생합니다.
 
@@ -288,7 +288,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 
    ![Azure 탐색기에서 HDInsight Spark 클러스터 전송](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer11.png)
 
-3. **클러스터 이름**에 대 한 읽기 전용 역할 권한이 있는 클러스터를 선택 합니다. 경고 메시지가 표시됩니다. **이 클러스터에 연결** 을 클릭 하 여 클러스터에 연결할 수 있습니다.
+3. **클러스터 이름**에 대 한 읽기 전용 역할 권한이 있는 클러스터를 선택 합니다. 경고 메시지가 표시 됩니다. **이 클러스터에 연결** 을 클릭 하 여 클러스터에 연결할 수 있습니다.
 
    ![Azure 탐색기에서 HDInsight Spark 클러스터이 링크](./media/apache-spark-eclipse-tool-plugin/eclipse-view-explorer15.png)
 
@@ -312,18 +312,18 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 
 작업을 제출하는 두 가지 모드가 있습니다. 스토리지 자격 증명을 제공하는 경우 작업을 제출하는 데 일괄 처리 모드가 사용됩니다. 그렇지 않으면 대화형 모드가 사용됩니다. 클러스터가 사용 중인 경우 아래 오류가 발생할 수 있습니다.
 
-![클러스터를 사용 하는 경우 eclipse 오류 가져오기](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "클러스터를 사용 하는 경우 eclipse 오류 가져오기")
+![클러스터를 사용 하는 경우 eclipse 오류 가져오기](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-upload.png "클러스터가 사용 중인 경우 Eclipse에 오류가 발생합니다.")
 
 ![클러스터 사용량이 yarn 때 eclipse 가져오기 오류](./media/apache-spark-eclipse-tool-plugin/eclipse-interactive-cluster-busy-submit.png "클러스터 사용량이 yarn 때 eclipse 가져오기 오류")
 
 ## <a name="seealso"></a>참고 항목
 
-* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
 
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
 * [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](apache-spark-custom-library-website-log-analysis.md)
 

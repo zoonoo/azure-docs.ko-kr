@@ -1,6 +1,6 @@
 ---
 title: Azure에서 사용자 지정 도메인 이름 구입 - App Service
-description: Azure App Service에서 웹앱으로 사용자 지정 도메인 이름을 구입하는 방법에 대해 알아봅니다.
+description: Azure App Service에서 웹 앱으로 사용자 지정 도메인 이름을 구입하는 방법에 대해 알아봅니다.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 188db5e89097542b5a47b43e7bc8bbb2ce30b072
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1354f48843f8006b4a6180a2cea60e735413e446
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073122"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470429"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
@@ -27,11 +27,11 @@ App Service 도메인은 Azure에서 직접 관리 되는 최상위 도메인입
 
 Azure VM 또는 Azure Storage의 경우 [Azure VM 또는 Azure Storage에 App Service 도메인 할당](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/)을 참조하세요. Cloud Services의 경우 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [App Service 앱을 만들거나](/azure/app-service/) 다른 자습서에서 만든 앱을 사용합니다.
+* [App Service 앱을 만들거나](/azure/app-service/) 다른 자습서를 위해 만든 앱을 사용합니다.
 * [구독에 대한 지출 한도를 삭제합니다](../billing/billing-spending-limit.md#remove). 체험 구독 크레딧으로는 App Service 도메인을 구입할 수 없습니다.
 
 ## <a name="prepare-the-app"></a>앱 준비
@@ -42,7 +42,7 @@ Azure App Service에서 사용자 지정 도메인을 사용하려면 앱의 [Ap
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Azure 포털](https://portal.azure.com)에서 Azure 계정으로 로그인합니다.
+[클래식 포털](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>Azure Portal에서 앱으로 이동합니다.
 
@@ -82,7 +82,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Service 가격 책정 페이지](https://azure.microsoft.com/pricing/details/app-service/windows/) 를 방문 하 App Service 도메인으로 스크롤합니다.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
-[Azure 포털](https://portal.azure.com/)에서 Azure 계정으로 로그인합니다.
+[클래식 포털](https://portal.azure.com/)에서 Azure Portal에 로그인합니다.
 
 ### <a name="launch-buy-domains"></a>도메인 구입 시작
 **App Services** 탭에서 앱의 이름을 클릭하고, **설정**을 선택한 다음, **사용자 지정 도메인**을 선택합니다.
@@ -115,7 +115,7 @@ Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Se
 
 그런 다음 도메인에 대해 원하는 옵션을 선택합니다. 설명은 다음 표를 참조하세요.
 
-| 설정 | 제안 값 | Description |
+| 설정 | 제안 값 | 설명 |
 |-|-|-|
 |개인 정보 보호 | 사용 | _체험_ 구매 가격에 포함된 "개인 정보 보호"를 선택합니다. 일부 최상위 도메인은 개인 정보 보호를 지원하지 않는 등록 기관에서 관리하며 **개인 정보 보호** 페이지에 나열됩니다. |
 | 기본 호스트 이름 할당 | **www** 및 **\@** | 필요한 경우 원하는 호스트 이름 바인딩을 선택합니다. 도메인 구매 작업이 완료되면 선택한 호스트 이름에서 앱에 액세스할 수 있습니다. 앱이 [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) 뒤에 있는 경우 Traffic Manager는 A 레코드를 지원하지 않으므로 루트 도메인을 할당하는 옵션이 표시되지 않습니다. 도메인 구매가 완료된 후 호스트 이름 할당을 변경할 수 있습니다. |
@@ -146,10 +146,10 @@ Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Se
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
 > [!NOTE]
-> 사용자 지정 도메인에 대 한 **보안 되지 않은** 레이블은 아직 SSL 인증서에 바인딩되어 있지 않음을 의미 하 고 브라우저에서 사용자 지정 도메인으로의 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받게 됩니다. SSL 바인딩을 구성 하려면 [Azure App Service에 대 한 ssl 인증서 구입 및 구성](web-sites-purchase-ssl-web-site.md)을 참조 하세요.
+> 사용자 지정 도메인에 대 한 **보안 되지 않은** 레이블은 아직 SSL 인증서에 바인딩되어 있지 않음을 의미 하 고 브라우저에서 사용자 지정 도메인으로의 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받게 됩니다. SSL 바인딩을 구성 하려면 [Azure App Service에서 ssl 바인딩을 사용 하 여 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조 하세요.
 >
 
-호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 위의 스크린 샷에서 예제에서는 _kontoso.net_ 및 _www\.kontoso.net_로 이동 합니다.
+호스트 이름을 테스트하려면 브라우저에서 나열된 호스트 이름으로 이동합니다. 위의 스크린 샷에서 예제에서는 _kontoso.net_ 및 _www\.kontoso.net_로 이동 해 봅니다.
 
 ## <a name="assign-hostnames-to-app"></a>앱에 호스트 이름 할당
 
@@ -157,8 +157,8 @@ Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Se
 
 App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수도 있습니다. 이 단계는 App Service 도메인 및 앱이 동일한 구독에 속하는지 여부에 따라 달라집니다.
 
-- 다른 구독: App Service 도메인에서 외부에서 구매한 도메인과 같은 앱으로 사용자 지정 DNS 레코드를 매핑합니다. 사용자 지정 DNS 이름을 App Service 도메인에 추가하는 방법에 대한 자세한 내용은 [사용자 지정 DNS 레코드 관리](#custom)를 참조하세요. 외부에서 구매한 도메인을 앱에 매핑하려면 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)을 참조하세요. 
-- 동일한 구독: 다음 단계를 사용하세요.
+- 다른 구독: App Service 도메인의 사용자 지정 DNS 레코드를 외부에서 구매한 도메인과 같은 앱에 매핑합니다. 사용자 지정 DNS 이름을 App Service 도메인에 추가하는 방법에 대한 자세한 내용은 [사용자 지정 DNS 레코드 관리](#custom)를 참조하세요. 외부에서 구매한 도메인을 앱에 매핑하려면 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)을 참조하세요. 
+- 같은 구독: 다음 단계를 따릅니다.
 
 ### <a name="launch-add-hostname"></a>호스트 이름 추가 시작
 **App Services** 페이지에서 호스트 이름을 할당할 앱 이름을 선택하고 **설정**, **사용자 지정 도메인**을 차례로 선택합니다.
@@ -177,7 +177,7 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 **호스트 이름 추가**를 선택합니다.
 
 ### <a name="configure-hostname"></a>호스트 이름 구성
-**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예를 들어:
+**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예:
 
 - kontoso.net
 - www\.kontoso.net
@@ -228,8 +228,8 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 
 Azure는 다음과 같이 만료 되거나 만료 된 App Service 도메인을 다룹니다.
 
-* 자동 갱신을 사용 하지 않도록 설정 된 경우: 도메인 만료 전 90 일이 지나면 갱신 알림 전자 메일이 전송 되 고 포털에서 **도메인 갱신** 단추가 활성화 됩니다.
-* 자동 갱신을 사용 하는 경우: 도메인 만료 날짜가 지난 날 Azure는 도메인 이름 갱신에 대 한 요금을 청구 하려고 시도 합니다.
+* 자동 갱신을 사용 하지 않도록 설정 하는 경우: 90 일 전에 도메인 만료 전 갱신 알림 전자 메일이 전송 되 고 포털에서 **도메인 갱신** 단추가 활성화 됩니다.
+* 자동 갱신을 사용 하도록 설정 하는 경우: 도메인 만료 날짜가 지난 날에 Azure는 도메인 이름 갱신에 대 한 요금을 청구 하려고 합니다.
 * 자동 갱신 중에 오류가 발생 하는 경우 (예: 파일의 카드가 만료 된 경우) 또는 자동 갱신을 사용 하지 않도록 설정 하 고 도메인 만료를 허용 하는 경우 Azure는 도메인 만료를 알리고 도메인 이름을 파킹 합니다. 도메인을 [수동으로 갱신할](#renew-the-domain) 수 있습니다.
 * 만료 후 4 일 및 12 일에 Azure는 추가 알림 전자 메일을 보냅니다. 도메인을 [수동으로 갱신할](#renew-the-domain) 수 있습니다.
 * 만료 후 19 일 일에 도메인은 보류 상태로 유지 되지만 상환 요금이 적용 됩니다. 고객 지원에 문의 하 여 해당 갱신 및 상환 요금에 따라 도메인 이름을 갱신할 수 있습니다.

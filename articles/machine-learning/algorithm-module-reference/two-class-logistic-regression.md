@@ -1,24 +1,24 @@
 ---
 title: '2 클래스 로지스틱 회귀: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning service에서 2 클래스 로지스틱 회귀 모듈을 사용 하 여 두 개의 결과를 예측 하는 데 사용할 수 있는 로지스틱 회귀 모델을 만드는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 2 클래스 로지스틱 회귀 모듈을 사용 하 여 두 개의 결과를 예측 하는 데 사용할 수 있는 로지스틱 회귀 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7020bf529fa635d74959a9dac071aa6e2b134c5b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: f64352906da5d6e3a314b3af68e37f4dc5bb80bd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692618"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485930"
 ---
 # <a name="two-class-logistic-regression-module"></a>2 클래스 로지스틱 회귀 모듈
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 두 개의 결과를 예측 하는 데 사용할 수 있는 로지스틱 회귀 모델을 만듭니다. 
 
@@ -54,7 +54,7 @@ ms.locfileid: "72692618"
   
     -   이와 대조적으로, 스파스가 아닌 데이터에 대해 L2 정규화이 좋습니다.  
   
-     이 알고리즘은 L1 및 L2 정규화 값의 선형 조합을 지원 합니다. 즉, <code>x = L1</code> 및 <code>ax + by = c</code> <code>y = L2</code> 경우 정규화 용어의 선형 범위를 정의 합니다.  
+     이 알고리즘은 L1 및 L2 정규화 값의 선형 조합을 지원 합니다. 즉, <code>x = L1</code> 및 <code>ax + by = c</code> <code>y = L2</code>경우 정규화 용어의 선형 범위를 정의 합니다.  
   
     > [!NOTE]
     >  L1 및 L2 정규화에 대해 자세히 알아보고 싶습니까? 다음 문서에서는 L1 및 L2 정규화 어떻게 다르고, 로지스틱 회귀 및 신경망 모델에 대 한 코드 샘플을 사용 하 여 모델 피팅에 어떻게 영향을 주는지에 대해 설명 합니다. [l1 및 L2 정규화 for Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx)  
@@ -87,4 +87,4 @@ ms.locfileid: "72692618"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

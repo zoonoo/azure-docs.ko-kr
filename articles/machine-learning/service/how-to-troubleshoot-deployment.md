@@ -9,14 +9,14 @@ ms.topic: conceptual
 author: chris-lauren
 ms.author: clauren
 ms.reviewer: jmartens
-ms.date: 07/09/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 08b9434dbcca96ff57e2c8182693023a5eb2eea9
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3a79c95d627bbdec3a91a1d048a48ff061b308ca
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997169"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489365"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Kubernetes Service 및 Azure Container Instances 배포 Azure Machine Learning 문제 해결
 
@@ -42,11 +42,11 @@ Azure Machine Learning에서 모델을 배포 하는 경우 시스템에서 많�
 
 이 프로세스에 대한 자세한 정보는 [모델 관리](concept-model-management-and-deployment.md) 소개를 참조하세요.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 문제가 발생할 경우 가장 먼저 할 일은 배포 작업을 개별 단계로 분리하여(이전 설명 참조) 문제를 격리하는 것입니다.
 
-[Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) API, 및 [Deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) api를 사용 하는 경우이 두 함수 는 위의 단계를 단일 작업으로 수행 하므로 배포를 작업으로 나누는 것이 유용 합니다. 일반적으로 이러한 Api는 편리 하지만 아래 API 호출로 바꿔서 문제를 해결 하는 데 도움이 됩니다.
+[Deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) ( [) api를](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) 사용 하는 경우이 두 함수는 위의 단계를 단일 작업으로 수행 하므로 배포를 작업으로 나누는 것이 유용 합니다. 일반적으로 이러한 Api는 편리 하지만 아래 API 호출로 바꿔서 문제를 해결 하는 데 도움이 됩니다.
 
 1. 모델을 등록합니다. 다음은 샘플 코드입니다.
 
@@ -154,15 +154,15 @@ b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server 
 
 ## <a name="debug-locally"></a>로컬에서 디버그
 
-ACI 또는 AKS에 모델을 배포 하는 데 문제가 발생 하는 경우 로컬 웹 서비스로 배포 해 보세요. 로컬 웹 서비스를 사용 하면 문제를 보다 쉽게 해결할 수 있습니다. 모델을 포함 하는 Docker 이미지가 로컬 시스템에서 다운로드 되 고 시작 됩니다.
+ACI 또는 AKS에 모델을 배포 하는 데 문제가 발생 하는 경우 로컬로 배포 해 보세요. 로컬을 사용 하면 문제를 보다 쉽게 해결할 수 있습니다. 모델을 포함 하는 Docker 이미지가 로컬 시스템에서 다운로드 되 고 시작 됩니다.
 
 > [!IMPORTANT]
-> 로컬 웹 서비스 배포에는 로컬 시스템에서 작동 하는 Docker 설치가 필요 합니다. 로컬 웹 서비스를 배포 하기 전에 Docker를 실행 해야 합니다. Docker 설치 및 사용에 대 한 자세한 내용은 [https://www.docker.com/](https://www.docker.com/)을 참조 하십시오.
+> 로컬 배포를 수행 하려면 로컬 시스템에서 작동 하는 Docker가 설치 되어 있어야 합니다. 로컬을 배포 하기 전에 Docker를 실행 해야 합니다. Docker 설치 및 사용에 대 한 자세한 내용은 [https://www.docker.com/](https://www.docker.com/)를 참조 하세요.
 
 > [!WARNING]
-> 로컬 웹 서비스 배포는 프로덕션 시나리오에 대해 지원 되지 않습니다.
+> 프로덕션 시나리오에서는 로컬 배포가 지원 되지 않습니다.
 
-로컬로 배포 하려면를 사용 하 여 배포 구성을 `LocalWebservice.deploy_configuration()` 만드는 데 사용할 코드를 수정 합니다. 그런 다음 `Model.deploy()` 를 사용 하 여 서비스를 배포 합니다. 다음 예에서는 `model` 변수에 포함 된 모델을 로컬 웹 서비스로 배포 합니다.
+로컬로 배포 하려면 `LocalWebservice.deploy_configuration()`를 사용 하 여 배포 구성을 만들 수 있도록 코드를 수정 합니다. 그런 다음 `Model.deploy()`를 사용 하 여 서비스를 배포 합니다. 다음 예에서는 모델 (`model` 변수에 포함)을 로컬으로 배포 합니다.
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -173,14 +173,14 @@ inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
-# Create a local deployment, using port 8890 for the web service endpoint
+# Create a local deployment, using port 8890 for the  endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
 service = Model.deploy(
     ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
-# Display the port that the web service is available on
+# Display the port that the  is available on
 print(service.port)
 ```
 
@@ -202,10 +202,10 @@ print(prediction)
 
 ### <a name="update-the-service"></a>서비스 업데이트
 
-로컬 테스트 중에는 로깅을 추가 하거나 검색 한 `score.py` 문제를 해결 하기 위해 파일을 업데이트 해야 할 수 있습니다. `score.py` 파일에 대 한 변경 내용을 다시 로드 `reload()`하려면를 사용 합니다. 예를 들어 다음 코드는 서비스에 대 한 스크립트를 다시 로드 한 다음 데이터를 보냅니다. 업데이트 `score.py` 된 파일을 사용 하 여 데이터 점수가 매겨집니다.
+로컬 테스트 중에 `score.py` 파일을 업데이트 하 여 로깅을 추가 하거나 검색 한 문제를 해결 해 보아야 할 수 있습니다. `score.py` 파일에 대 한 변경 내용을 다시 로드 하려면 `reload()`를 사용 합니다. 예를 들어 다음 코드는 서비스에 대 한 스크립트를 다시 로드 한 다음 데이터를 보냅니다. 업데이트 된 `score.py` 파일을 사용 하 여 데이터 점수가 매겨집니다.
 
 > [!IMPORTANT]
-> 메서드 `reload` 는 로컬 배포에만 사용할 수 있습니다. 다른 계산 대상으로 배포를 업데이트 하는 방법에 대 한 자세한 내용은 [모델 배포](how-to-deploy-and-where.md#update)의 업데이트 섹션을 참조 하십시오.
+> `reload` 메서드는 로컬 배포에만 사용할 수 있습니다. 다른 계산 대상으로 배포를 업데이트 하는 방법에 대 한 자세한 내용은 [모델 배포](how-to-deploy-and-where.md#update)의 업데이트 섹션을 참조 하십시오.
 
 ```python
 service.reload()
@@ -213,7 +213,7 @@ print(service.run(input_data=test_sample))
 ```
 
 > [!NOTE]
-> 스크립트가 서비스에서 사용 하는 개체에 `InferenceConfig` 의해 지정 된 위치에서 다시 로드 됩니다.
+> 스크립트가 서비스에서 사용 하는 `InferenceConfig` 개체로 지정 된 위치에서 다시 로드 됩니다.
 
 모델, Conda 종속성 또는 배포 구성을 변경 하려면 [update ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#update--args-)를 사용 합니다. 다음 예에서는 서비스에서 사용 하는 모델을 업데이트 합니다.
 
@@ -245,7 +245,7 @@ print(ws.webservices['mysvc'].get_logs())
 
 ## <a name="function-fails-get_model_path"></a>함수 실패: get_model_path()
 
-일반적으로 점수 매기기 `init()` 스크립트의 함수에서 [_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 함수를 호출 하 여 컨테이너에 있는 모델 파일 또는 모델 파일의 폴더를 찾습니다. 모델 파일이 나 폴더를 찾을 수 없는 경우 함수가 실패 합니다. 이 오류를 디버그하는 가장 쉬운 방법은 컨테이너 셸에서 아래의 Python 코드를 실행하는 것입니다.
+일반적으로 점수 매기기 스크립트의 `init()` 함수에서 [_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 함수를 호출 하 여 컨테이너에서 모델 파일 또는 모델 파일의 폴더를 찾습니다. 모델 파일이 나 폴더를 찾을 수 없는 경우 함수가 실패 합니다. 이 오류를 디버그하는 가장 쉬운 방법은 컨테이너 셸에서 아래의 Python 코드를 실행하는 것입니다.
 
 ```python
 from azureml.core.model import Model
@@ -254,13 +254,13 @@ logging.basicConfig(level=logging.DEBUG)
 print(Model.get_model_path(model_name='my-best-model'))
 ```
 
-이 예제에서는 점수 매기기 스크립트가 모델 파일이 나 폴더 `/var/azureml-app`를 찾을 것으로 예상 하는 컨테이너의 로컬 경로 (기준)를 출력 합니다. 그러면 예상 위치에 파일 또는 폴더가 실제로 있는지 확인할 수 있습니다.
+이 예제에서는 점수 매기기 스크립트가 모델 파일이 나 폴더를 찾을 것으로 예상 하는 컨테이너의 로컬 경로 (`/var/azureml-app`기준)를 출력 합니다. 그러면 예상 위치에 파일 또는 폴더가 실제로 있는지 확인할 수 있습니다.
 
 로깅 수준을 디버그로 설정 하면 추가 정보가 기록 될 수 있으며이는 오류를 식별 하는 데 유용할 수 있습니다.
 
 ## <a name="function-fails-runinput_data"></a>함수 실패: run(input_data)
 
-서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 예를 들어:
+서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 예:
 
 ```python
 def run(input_data):
@@ -285,16 +285,16 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
 
 * 자동 크기 조정이 새 복제본을 만드는 사용률 수준을 변경 합니다.
     
-    기본적으로 자동 크기 조정 대상 사용률은 70%로 설정 됩니다. 즉, 서비스가 최대 30%의 초당 급증 하는 요청 수 (RPS)를 처리할 수 있습니다. 를 더 낮은 값 `autoscale_target_utilization` 으로 설정 하 여 사용률 목표를 조정할 수 있습니다.
+    기본적으로 자동 크기 조정 대상 사용률은 70%로 설정 됩니다. 즉, 서비스가 최대 30%의 초당 급증 하는 요청 수 (RPS)를 처리할 수 있습니다. `autoscale_target_utilization`를 더 낮은 값으로 설정 하 여 사용률 목표를 조정할 수 있습니다.
 
     > [!IMPORTANT]
     > 이 변경으로 인해 복제본이 *더*이상 생성 되지 않습니다. 대신 낮은 사용률 임계값으로 만들어집니다. 서비스가 70% 이용 될 때까지 기다리는 대신 30%의 사용률을 발생 시킬 때 값을 30%로 변경 하면 복제본이 생성 됩니다.
     
-    웹 서비스에서 현재 최대 복제본을 이미 사용 하 고 있지만 503 상태 코드가 표시 되는 경우 `autoscale_max_replicas` 값을 늘려 최대 복제본 수를 늘립니다.
+    에서 현재 최대 복제본을 이미 사용 하 고 있고 503 상태 코드가 표시 되는 경우 `autoscale_max_replicas` 값을 늘려 최대 복제본 수를 늘립니다.
 
 * 최소 복제본 수를 변경 합니다. 최소 복제본 수를 늘리면 들어오는 급증을 처리할 수 있는 더 큰 풀이 제공 됩니다.
 
-    최소 복제본 수를 늘리려면을 더 큰 값 `autoscale_min_replicas` 으로 설정 합니다. 다음 코드를 사용 하 여 값을 프로젝트와 관련 된 값으로 대체 하 여 필요한 복제본을 계산할 수 있습니다.
+    최소 복제본 수를 늘리려면 `autoscale_min_replicas`을 더 큰 값으로 설정 합니다. 다음 코드를 사용 하 여 값을 프로젝트와 관련 된 값으로 대체 하 여 필요한 복제본을 계산할 수 있습니다.
 
     ```python
     from math import ceil
@@ -316,7 +316,7 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
     > [!NOTE]
     > 새 최소 복제본이 처리할 수 있는 것 보다 더 큰 요청 급증이 발생 하는 경우 503s을 다시 받을 수 있습니다. 예를 들어 서비스에 대 한 트래픽이 늘어나면 최소 복제본을 늘려야 할 수 있습니다.
 
-, `autoscale_target_utilization` `autoscale_max_replicas`및 의`autoscale_min_replicas` 설정에 대 한 자세한 내용은 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 모듈 참조를 참조 하세요.
+에 대 한 `autoscale_target_utilization`, `autoscale_max_replicas`및 `autoscale_min_replicas`를 설정 하는 방법에 대 한 자세한 내용은 [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) 모듈 참조를 참조 하세요.
 
 
 ## <a name="advanced-debugging"></a>고급 디버깅
@@ -324,9 +324,9 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
 모델 배포에 포함 된 Python 코드를 대화형으로 디버깅 해야 하는 경우도 있습니다. 예를 들어 항목 스크립트가 실패 하 고 그 이유를 추가 로깅으로 확인할 수 없는 경우입니다. Visual Studio Code 및 Visual Studio용 Python 도구 (PTVSD)를 사용 하 여 Docker 컨테이너 내에서 실행 되는 코드에 연결할 수 있습니다.
 
 > [!IMPORTANT]
-> `Model.deploy()` 및`LocalWebservice.deploy_configuration` 를 사용 하 여 모델을 로컬로 배포 하는 경우에는이 디버깅 방법이 작동 하지 않습니다. 대신 [get-containerimage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) 클래스를 사용 하 여 이미지를 만들어야 합니다. 
+> `Model.deploy()` 및 `LocalWebservice.deploy_configuration`를 사용 하 여 모델을 로컬로 배포 하는 경우이 디버깅 방법이 작동 하지 않습니다. 대신 [get-containerimage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) 클래스를 사용 하 여 이미지를 만들어야 합니다. 
 >
-> 로컬 웹 서비스 배포에는 로컬 시스템에서 작동 하는 Docker 설치가 필요 합니다. 로컬 웹 서비스를 배포 하기 전에 Docker를 실행 해야 합니다. Docker 설치 및 사용에 대 한 자세한 내용은 [https://www.docker.com/](https://www.docker.com/)을 참조 하십시오.
+> 로컬 배포를 수행 하려면 로컬 시스템에서 작동 하는 Docker가 설치 되어 있어야 합니다. 로컬을 배포 하기 전에 Docker를 실행 해야 합니다. Docker 설치 및 사용에 대 한 자세한 내용은 [https://www.docker.com/](https://www.docker.com/)를 참조 하세요.
 
 ### <a name="configure-development-environment"></a>개발 환경 구성
 
@@ -342,7 +342,7 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
 
     1. VS Code에서 __디버그__ 메뉴를 선택 하 고 __구성 열기__를 선택 합니다. __시작__ 파일 이름이 열립니다.
 
-    1. __시작. json__ 파일에서가 포함 `"configurations": [`된 줄을 찾은 후 다음 텍스트를 삽입 합니다.
+    1. __시작. json__ 파일에서 `"configurations": [`포함 된 줄을 찾은 후 다음 텍스트를 삽입 합니다.
 
         ```json
         {
@@ -369,7 +369,7 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
 
 ### <a name="create-an-image-that-includes-ptvsd"></a>PTVSD를 포함 하는 이미지 만들기
 
-1. PTVSD를 포함 하도록 배포에 대 한 conda 환경을 수정 합니다. 다음 예제에서는 매개 변수를 `pip_packages` 사용 하 여 추가 하는 방법을 보여 줍니다.
+1. PTVSD를 포함 하도록 배포에 대 한 conda 환경을 수정 합니다. 다음 예제에서는 `pip_packages` 매개 변수를 사용 하 여 추가 하는 방법을 보여 줍니다.
 
     ```python
     from azureml.core.conda_dependencies import CondaDependencies 
@@ -384,7 +384,7 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
         f.write(myenv.serialize_to_string())
     ```
 
-1. Ptvsd를 시작 하 고 서비스가 시작 될 때 연결을 대기 하려면 `score.py` 파일의 맨 위에 다음을 추가 합니다.
+1. PTVSD를 시작 하 고 서비스가 시작 될 때 연결을 대기 하려면 `score.py` 파일의 맨 위에 다음을 추가 합니다.
 
     ```python
     import ptvsd
@@ -395,7 +395,7 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
     print("Debugger attached...")
     ```
 
-1. 디버깅 하는 동안 이미지를 다시 만들지 않고도 이미지의 파일을 변경할 수 있습니다. Docker 이미지에 텍스트 편집기 (vim)를 설치 하려면 라는 `Dockerfile.steps` 새 텍스트 파일을 만들고 파일의 내용으로 다음을 사용 합니다.
+1. 디버깅 하는 동안 이미지를 다시 만들지 않고도 이미지의 파일을 변경할 수 있습니다. Docker 이미지에 텍스트 편집기 (vim)를 설치 하려면 `Dockerfile.steps` 라는 새 텍스트 파일을 만들고 파일의 내용으로 다음을 사용 합니다.
 
     ```text
     RUN apt-get update && apt-get -y install vim
@@ -403,10 +403,10 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
 
     텍스트 편집기를 사용 하면 새 이미지를 만들지 않고도 docker 이미지 내의 파일을 수정 하 여 변경 내용을 테스트할 수 있습니다.
 
-1. `Dockerfile.steps` 파일을 사용 하는 이미지를 만들려면 이미지를 만들 `docker_file` 때 매개 변수를 사용 합니다. 다음 예제에서는이 작업을 수행 하는 방법을 보여 줍니다.
+1. `Dockerfile.steps` 파일을 사용 하는 이미지를 만들려면 이미지를 만들 때 `docker_file` 매개 변수를 사용 합니다. 다음 예제에서는이 작업을 수행 하는 방법을 보여 줍니다.
 
     > [!NOTE]
-    > 이 예에서는가 `ws` Azure Machine Learning 작업 영역 `model` 을 가리키고 배포 되는 모델인 것으로 가정 합니다. 이 `myenv.yml` 파일에는 1 단계에서 만든 conda 종속성이 포함 되어 있습니다.
+    > 이 예에서는 `ws`이 Azure Machine Learning 작업 영역을 가리키고 `model`가 배포 되는 모델 이라고 가정 합니다. `myenv.yml` 파일에는 1 단계에서 만든 conda 종속성이 포함 되어 있습니다.
 
     ```python
     from azureml.core.image import Image, ContainerImage
@@ -429,7 +429,7 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
 myregistry.azurecr.io/myimage:1
 ```
 
-이 텍스트 예제에서 레지스트리 이름은이 `myregistry` 고 이미지의 이름은 `myimage`입니다. 이미지 버전이 인 `1`경우
+이 텍스트 예제에서는 레지스트리 이름이 `myregistry` 되며 이미지 이름은 `myimage`입니다. 이미지 버전이 `1`되었습니다.
 
 ### <a name="download-the-image"></a>이미지 다운로드
 
@@ -439,37 +439,37 @@ myregistry.azurecr.io/myimage:1
     az login
     ```
 
-1. 이미지를 포함 하는 Azure Container Registry (ACR)에 인증 하려면 다음 명령을 사용 합니다. 이미지 `myregistry` 를 등록할 때 반환 된 항목으로 대체 합니다.
+1. 이미지를 포함 하는 Azure Container Registry (ACR)에 인증 하려면 다음 명령을 사용 합니다. `myregistry`를 이미지를 등록할 때 반환 된 항목으로 바꿉니다.
 
     ```azurecli
     az acr login --name myregistry
     ```
 
-1. 로컬 Docker에 이미지를 다운로드 하려면 다음 명령을 사용 합니다. 이미지 `myimagepath` 를 등록할 때 반환 되는 위치로 대체 합니다.
+1. 로컬 Docker에 이미지를 다운로드 하려면 다음 명령을 사용 합니다. `myimagepath`를 이미지를 등록할 때 반환 된 위치로 바꿉니다.
 
     ```bash
     docker pull myimagepath
     ```
 
-    이미지 경로는와 비슷해야 `myregistry.azurecr.io/myimage:1`합니다. 여기서 `myregistry` 는 레지스트리이 고 `myimage` `1` ,는 이미지 이며,는 이미지 버전입니다.
+    이미지 경로는 `myregistry.azurecr.io/myimage:1`유사 해야 합니다. 여기서 `myregistry`은 사용자의 `myimage` 이미지이 고 `1`는 이미지 버전입니다.
 
     > [!TIP]
     > 이전 단계의 인증은 영원히 지속 되지 않습니다. 인증 명령과 끌어오기 명령 사이에 충분 한 시간 동안 대기 하면 인증 오류가 표시 됩니다. 이런 경우 다시 인증 합니다.
 
-    다운로드를 완료 하는 데 걸리는 시간은 인터넷 연결 속도에 따라 다릅니다. 프로세스 중에 다운로드 상태가 표시 됩니다. 다운로드가 완료 되 면 `docker images` 명령을 사용 하 여 다운로드 되었는지 확인할 수 있습니다.
+    다운로드를 완료 하는 데 걸리는 시간은 인터넷 연결 속도에 따라 다릅니다. 프로세스 중에 다운로드 상태가 표시 됩니다. 다운로드가 완료 되 면 `docker images` 명령을 사용 하 여 해당 다운로드가 다운로드 되었는지 확인할 수 있습니다.
 
-1. 이미지에 대 한 작업을 더 쉽게 수행 하려면 다음 명령을 사용 하 여 태그를 추가 합니다. 를 `myimagepath` 2 단계의 위치 값으로 바꿉니다.
+1. 이미지에 대 한 작업을 더 쉽게 수행 하려면 다음 명령을 사용 하 여 태그를 추가 합니다. `myimagepath`를 2 단계의 위치 값으로 바꿉니다.
 
     ```bash
     docker tag myimagepath debug:1
     ```
 
-    나머지 단계에서는 전체 이미지 경로 값 `debug:1` 대신 로컬 이미지를 참조할 수 있습니다.
+    나머지 단계에서는 로컬 이미지를 전체 이미지 경로 값 대신 `debug:1`으로 참조할 수 있습니다.
 
 ### <a name="debug-the-service"></a>서비스 디버깅
 
 > [!TIP]
-> `score.py` 파일에서 ptvsd 연결에 대 한 시간 제한을 설정 하는 경우 제한 시간이 만료 되기 전에 VS Code을 디버그 세션에 연결 해야 합니다. VS Code를 시작 하 고,의 `score.py`로컬 복사본을 열고, 중단점을 설정 하 고,이 섹션의 단계를 사용 하기 전에 준비 되도록 합니다.
+> `score.py` 파일에서 PTVSD 연결에 대 한 시간 제한을 설정 하는 경우 제한 시간이 만료 되기 전에 VS Code를 디버그 세션에 연결 해야 합니다. VS Code를 시작 하 고, `score.py`의 로컬 복사본을 열고, 중단점을 설정 하 고,이 섹션의 단계를 사용 하기 전에 준비 되도록 합니다.
 >
 > 중단점 디버깅 및 설정에 대 한 자세한 내용은 [디버깅](https://code.visualstudio.com/Docs/editor/debugging)을 참조 하세요.
 
@@ -479,7 +479,7 @@ myregistry.azurecr.io/myimage:1
     docker run --rm --name debug -p 8000:5001 -p 5678:5678 debug:1
     ```
 
-1. 컨테이너 내부에 VS Code을 연결 하려면 VS Code를 열고 F5 키를 사용 하거나 __디버그__를 선택 합니다. 메시지가 표시 되 면 Azure Machine Learning __를 선택 합니다. Docker 디버그__ 구성. __Azure Machine Learning 측면에서 디버그 아이콘을 선택할 수도 있습니다. 디버그 드롭다운__ 메뉴의 Docker 디버그 항목을 클릭 한 다음 녹색 화살표를 사용 하 여 디버거를 연결 합니다.
+1. 컨테이너 내부에 VS Code을 연결 하려면 VS Code를 열고 F5 키를 사용 하거나 __디버그__를 선택 합니다. 메시지가 표시 되 면 __Azure Machine Learning: Docker 디버그__ 구성을 선택 합니다. 디버그 드롭다운 메뉴의 __Azure Machine Learning: Docker 디버그__ 항목에서 디버그 아이콘을 선택 하 고 녹색 화살표를 사용 하 여 디버거를 연결할 수도 있습니다.
 
     ![디버그 아이콘, 디버깅 시작 단추 및 구성 선택기](media/how-to-troubleshoot-deployment/start-debugging.png)
 
@@ -532,4 +532,4 @@ docker stop debug
 배포에 대해 자세히 알아보세요.
 
 * [배포 방법 및 위치](how-to-deploy-and-where.md)
-* [자습서: 모델 학습 및 배포](tutorial-train-models-with-aml.md)
+* [자습서: 모델 학습 & 배포](tutorial-train-models-with-aml.md)

@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a4daaac6abababcedb5d6dd7eb2122ef29846ef4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: dff6473fd01fc2d41c5bb100eefd583afe4175b0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792544"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496478"
 ---
 # <a name="azure-cognitive-search-service-rest-api-version-2019-05-06-preview"></a>Azure Cognitive Search 서비스 REST api-버전 2019-05-06-미리 보기
 
@@ -24,6 +24,8 @@ ms.locfileid: "72792544"
 
 
 ## <a name="new-in-2019-05-06-preview"></a>2019-05-06의 새로운 기능-미리 보기
+
+[* * 증분 인덱싱은](cognitive-search-incremental-indexing-conceptual.md) 상태 및 캐싱을 추가 하는 인덱싱에 대 한 새로운 모드로, 데이터, 인덱서 및 기술 정의가 변경 되지 않은 경우 기존 출력을 다시 사용할 수 있도록 합니다. 이 기능은 인식 기술을 통한 강화 적용 됩니다.
 
 [**기술 자료 저장소**](knowledge-store-concept-intro.md) 는 AI 기반 보강 파이프라인의 새로운 대상입니다. 인덱스 외에도 이제 Azure storage에서 인덱싱하는 동안 만들어진 채워진 데이터 구조를 유지할 수 있습니다. 데이터의 모양을 지정 하는 방법, 데이터의 모양을 지정 하는 방법, 테이블 저장소 또는 Blob 저장소에 데이터를 저장 하는 방법 및 여러 뷰가 있는지를 포함 하 여 기술의 요소를 통해 데이터의 물리적 구조를 제어 합니다.
 

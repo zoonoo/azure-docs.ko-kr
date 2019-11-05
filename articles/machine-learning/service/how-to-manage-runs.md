@@ -10,15 +10,16 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 07/31/2019
-ms.openlocfilehash: 7ebbc7575ad52bbf7a399babb048113bc505a7f8
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: 525fc8beafbdbe15435c59697d136ae06c91c135
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174531"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489698"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Python 및 [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md) [용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 는 학습 및 실험을 위해 실행을 모니터링 하 고 구성 하 고 관리 하는 다양 한 방법을 제공 합니다.
 
@@ -29,11 +30,11 @@ Python 및 [MACHINE LEARNING CLI](reference-azure-machine-learning-cli.md) [용 
 * 자식 실행을 만듭니다.
 * 태그를 만들고 실행을 찾습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 다음 항목이 필요 합니다.
 
-* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
@@ -62,7 +63,7 @@ ws = Workspace.from_config()
 exp = Experiment(workspace=ws, name="explore-runs")
 ```
 
-[@No__t-1](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) 메서드를 사용 하 여 실행 및 해당 로깅 프로세스를 시작 합니다.
+[`start_logging()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#start-logging--args----kwargs-) 메서드를 사용 하 여 실행 및 해당 로깅 프로세스를 시작 합니다.
 
 ```python
 notebook_run = exp.start_logging()
@@ -79,7 +80,7 @@ notebook_run.log(name="message", value="Hello from run!")
     az login
     ```
 
-1. 학습 스크립트를 포함 하는 폴더에 작업 영역 구성을 연결 합니다. @No__t-0을 Azure Machine Learning 작업 영역으로 바꿉니다. @No__t-0을 작업 영역을 포함 하는 Azure 리소스 그룹으로 바꿉니다.
+1. 학습 스크립트를 포함 하는 폴더에 작업 영역 구성을 연결 합니다. `myworkspace`를 Azure Machine Learning 작업 영역으로 바꿉니다. `myresourcegroup`를 작업 영역을 포함 하는 Azure 리소스 그룹으로 바꿉니다.
 
     ```azurecli-interactive
     az ml folder attach -w myworkspace -g myresourcegroup
@@ -89,18 +90,18 @@ notebook_run.log(name="message", value="Hello from run!")
 
     자세한 내용은 [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)항목을 참조 하세요.
 
-2. 실행을 시작 하려면 다음 명령을 사용 합니다. 이 명령을 사용 하는 경우-c 매개 변수에 대해 .runconfig 파일 @no__t (파일 시스템을 확인 하는 경우 .runconfig)의 이름을 지정 합니다.
+2. 실행을 시작 하려면 다음 명령을 사용 합니다. 이 명령을 사용 하는 경우-c 매개 변수에 대해 .runconfig 파일의 이름 (파일 시스템을 확인 하는 경우 .runconfig \*앞의 텍스트)을 지정 합니다.
 
     ```azurecli-interactive
     az ml run submit-script -c sklearn -e testexperiment train.py
     ```
 
     > [!TIP]
-    > @No__t-0 명령은 .runconfig 파일의 두 예제를 포함 하는 `.azureml` 하위 디렉터리를 만들었습니다.
+    > `az ml folder attach` 명령은 .runconfig 파일의 두 예제를 포함 하는 `.azureml` 하위 디렉터리를 만들었습니다.
     >
     > 실행 구성 개체를 프로그래밍 방식으로 만드는 Python 스크립트가 있는 경우 [.runconfig ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py#save-path-none--name-none--separate-environment-yaml-false-) 를 사용 하 여 .runconfig 파일로 저장할 수 있습니다.
     >
-    > .Runconfig 파일 예제에 대 한 자세한 내용은 [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml)을 참조 하세요.
+    > .Runconfig 파일 예제에 대 한 자세한 내용은 [https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml](https://github.com/MicrosoftDocs/pipelines-azureml/tree/master/.azureml)를 참조 하세요.
 
     자세한 내용은 [az ml run submit-스크립트](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script)를 참조 하세요.
 
@@ -108,7 +109,7 @@ notebook_run.log(name="message", value="Hello from run!")
 
 ### <a name="using-the-sdk"></a>SDK 사용
 
-[@No__t-1](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--) 메서드를 사용 하 여 실행 상태를 가져옵니다.
+[`get_status()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-status--) 메서드를 사용 하 여 실행의 상태를 가져옵니다.
 
 ```python
 print(notebook_run.get_status())
@@ -139,7 +140,7 @@ print(notebook_run.get_status())
 
 ### <a name="using-the-cli"></a>CLI 사용
 
-1. 실험에 대 한 실행 목록을 보려면 다음 명령을 사용 합니다. @No__t-0을 실험의 이름으로 바꿉니다.
+1. 실험에 대 한 실행 목록을 보려면 다음 명령을 사용 합니다. `experiment`를 실험의 이름으로 바꿉니다.
 
     ```azurecli-interactive
     az ml run list --experiment-name experiment
@@ -149,7 +150,7 @@ print(notebook_run.get_status())
 
     자세한 내용은 [az ml 실험 list](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/experiment?view=azure-cli-latest#ext-azure-cli-ml-az-ml-experiment-list)를 참조 하세요.
 
-2. 특정 실행에 대 한 정보를 보려면 다음 명령을 사용 합니다. @No__t-0을 실행 ID로 바꿉니다.
+2. 특정 실행에 대 한 정보를 보려면 다음 명령을 사용 합니다. `runid`를 실행의 ID로 바꿉니다.
 
     ```azurecli-interactive
     az ml run show -r runid
@@ -176,7 +177,7 @@ local_script_run.cancel()
 print(local_script_run.get_status())
 ```
 
-실행이 완료 되었지만 오류가 포함 된 경우 (예: 잘못 된 학습 스크립트 사용) [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)#fail-error-details-none--error-code-none---set-status-true-) 메서드를 사용 하 여 실패 한 것으로 표시할 수 있습니다.
+실행이 완료 되었지만 오류가 포함 된 경우 (예: 잘못 된 학습 스크립트를 사용 하는 경우) [`fail()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)#fail-error-details-none--error-code-none---set-status-true-) 메서드를 사용 하 여 실패로 표시할 수 있습니다.
 
 ```python
 local_script_run = exp.submit(run_config)
@@ -186,7 +187,7 @@ print(local_script_run.get_status())
 
 ### <a name="using-the-cli"></a>CLI 사용
 
-CLI를 사용 하 여 실행을 취소 하려면 다음 명령을 사용 합니다. @No__t-0을 실행 ID로 바꿉니다.
+CLI를 사용 하 여 실행을 취소 하려면 다음 명령을 사용 합니다. `runid`를 실행 ID로 바꿉니다.
 
 ```azurecli-interactive
 az ml run cancel -r runid -w workspace_name -e experiment_name
@@ -201,7 +202,7 @@ az ml run cancel -r runid -w workspace_name -e experiment_name
 > [!NOTE]
 > 자식 실행은 SDK를 사용 해야만 만들 수 있습니다.
 
-이 코드 예제에서는 `hello_with_children.py` 스크립트를 사용 하 여 제출 된 실행 내에서 [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) 메서드를 사용 하 여 5 개의 자식 실행 일괄 처리를 만듭니다.
+이 코드 예제에서는 `hello_with_children.py` 스크립트를 사용 하 여 [`child_run()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#child-run-name-none--run-id-none--outputs-none-) 메서드를 사용 하 여 제출 된 실행 내에서 5 개의 자식 실행 일괄 처리를 만듭니다.
 
 ```python
 !more hello_with_children.py
@@ -245,7 +246,7 @@ child_run.parent.id
 
 ### <a name="query-child-runs"></a>자식 쿼리 실행
 
-특정 부모의 자식 실행을 쿼리하려면 [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) 메서드를 사용 합니다. @No__t-0 인수를 사용 하면 자식 및 손자 중첩 트리를 쿼리할 수 있습니다.
+특정 부모의 자식 실행을 쿼리하려면 [`get_children()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#get-children-recursive-false--tags-none--properties-none--type-none--status-none---rehydrate-runs-true-) 메서드를 사용 합니다. ``recursive = True`` 인수를 사용 하면 자식 및 손자의 중첩 트리를 쿼리할 수 있습니다.
 
 ```python
 print(parent_run.get_children())
@@ -275,7 +276,7 @@ except Exception as e:
     print(e)
 ```
 
-속성과 달리 태그는 변경 가능 합니다. 실험의 소비자에 게 검색 가능 하 고 의미 있는 정보를 추가 하려면 [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-) 메서드를 사용 합니다.
+속성과 달리 태그는 변경 가능 합니다. 실험의 소비자에 게 검색 가능 하 고 의미 있는 정보를 추가 하려면 [`tag()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py#tag-key--value-none-) 방법을 사용 합니다.
 
 ```Python
 local_script_run.tag("quality", "great run")

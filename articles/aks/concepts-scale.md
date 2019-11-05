@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: zarhoads
-ms.openlocfilehash: d2d7508b4f0a2789a0eae5d6c6205475b5795e36
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1972a91e1ed8a39bcd467272108e0e772116344e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097835"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472882"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 크기 조정 옵션
 
@@ -51,13 +51,11 @@ Horizontal Pod Autoscaler는 30분 간격으로 Metrics API를 확인하므로 �
 
 ## <a name="cluster-autoscaler"></a>클러스터 자동 크기 조정기
 
-변경 pod 요청에 응답 하기 위해 Kubernetes에는 현재 AKS에서 미리 보기로 제공 되는 클러스터 autoscaler가 있으며,이는 노드 풀에서 요청 된 계산 리소스에 따라 노드 수를 조정 합니다. 기본적으로 클러스터 autoscaler는 노드 수의 필수 변경에 대해 10 초 마다 메트릭 API 서버를 확인 합니다. 클러스터 자동 크기 조정기가 변경이 필요하다고 판단하면 AKS 클러스터의 노드 수가 그에 따라 증가하거나 감소합니다. 클러스터 자동 크기 조정기는 Kubernetes1.10.x 이상을 실행하는 RBAC 지원 AKS 클러스터에서 작동합니다.
+변경 pod 요청에 응답 하기 위해 Kubernetes에는 현재 AKS에서 미리 보기로 제공 되는 클러스터 autoscaler가 있으며,이는 노드 풀에서 요청 된 계산 리소스에 따라 노드 수를 조정 합니다. 기본적으로 클러스터 autoscaler는 노드 수의 필수 변경에 대해 10 초 마다 메트릭 API 서버를 확인 합니다. 클러스터 자동 크기 조정기가 변경이 필요하다고 판단하면 AKS 클러스터의 노드 수가 그에 따라 증가하거나 감소합니다. 클러스터 자동 크기 조정기는 Kubernetes1.10.x 이상을 실행하는 RBAC 사용 AKS 클러스터에서 작동합니다.
 
 ![Kubernetes 클러스터 자동 크기 조정기](media/concepts-scale/cluster-autoscaler.png)
 
 클러스터 자동 크기 조정기는 일반적으로 Horizontal Pod Autoscaler와 함께 사용됩니다. 이러한 기능을 함께 사용할 경우 Horizontal Pod Autoscaler는 애플리케이션 요구를 기준으로 Pod의 수를 늘리거나 줄이고, 클러스터 자동 크기 조정기는 해당 추가 Pod를 실행하는 데 필요한 만큼 노드 수를 조정합니다.
-
-클러스터 autoscaler는 AKS 클러스터의 미리 보기 에서만 테스트 해야 합니다.
 
 AKS에서 클러스터 autoscaler을 시작 하려면 [AKS의 Cluster autoscaler][aks-cluster-autoscaler]를 참조 하십시오.
 
@@ -83,7 +81,7 @@ AKS 클러스터 크기를 빠르게 조정하기 위해 ACI(Azure Container Ins
 
 ![Kubernetes를 ACI로 버스트 크기 조정](media/concepts-scale/burst-scaling.png)
 
-ACI를 사용하면 추가 인프라 오버헤드 없이 컨테이너 인스턴스를 빠르게 배포할 수 있습니다. AKS와 연결할 경우 ACI는 AKS 클러스터의 안전한 논리 확장이 됩니다. ACI를 가상 Kubernetes 노드로 제공하는 가상 Kubelet 구성 요소가 AKS 클러스터에 설치됩니다. 그러면 Kubernetes는 AKS 클러스터에서 직접, VM 노드의 Pod로 실행되는 Pod가 아니라 가상 노드를 통해 ACI 인스턴스로 실행되는 Pod를 예약할 수 있습니다. AKS의 가상 노드는 현재 프리뷰입니다.
+ACI를 사용하면 추가 인프라 오버헤드 없이 컨테이너 인스턴스를 빠르게 배포할 수 있습니다. AKS와 연결할 경우 ACI는 AKS 클러스터의 안전한 논리 확장이 됩니다. ACI를 가상 Kubernetes 노드로 제공하는 가상 Kubelet 구성 요소가 AKS 클러스터에 설치됩니다. 그러면 Kubernetes는 AKS 클러스터에서 직접, VM 노드의 Pod로 실행되는 Pod가 아니라 가상 노드를 통해 ACI 인스턴스로 실행되는 Pod를 예약할 수 있습니다. 가상 노드는 현재 AKS에서 미리 보기로 제공 됩니다.
 
 가상 노드를 사용하기 위해 애플리케이션을 수정할 필요는 없습니다. AKS 및 ACI 간에 배포 크기를 조정할 수 있으며 클러스터 자동 크기 조정기가 AKS 클러스터에 새 노드를 배포할 때 지연이 발생하지 않습니다.
 
