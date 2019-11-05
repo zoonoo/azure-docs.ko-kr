@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 7ae3eb74b0d0c3f0bd6124362608e14555179697
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 7e341cf8a4ff2a18e44e36d73ad5dbc642582802
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710159"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496287"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 관리 되는 인스턴스 FAQ (질문과 대답)
 
@@ -58,7 +58,7 @@ Azure SQL Database 관리 되는 인스턴스와 온-프레미스 SQL Server 간
 
 데이터베이스의 모든 테이블에 기본 키가 있는 경우 트랜잭션 복제를 사용할 수 있습니다.
 
-관리 `COPY_ONLY` 되는 인스턴스의 데이터베이스 버전이 SQL Server에 비해 높기 때문에 관리 되는 인스턴스에서 가져온 네이티브 백업을 SQL Server 복원할 수 없습니다.
+관리 되는 인스턴스에서 SQL Server와 비교 하 여 더 높은 버전의 데이터베이스를 사용 하므로 관리 되는 인스턴스에서 가져온 네이티브 `COPY_ONLY` 백업을 SQL Server로 복원할 수 없습니다.
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>내 인스턴스 데이터베이스를 단일 Azure SQL Database 마이그레이션하려면 어떻게 해야 하나요?
 
@@ -134,8 +134,8 @@ IO를 많이 사용 하는 워크 로드의 경우 계산 집약적 워크 로�
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
 - [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
 - [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
-- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
-Azure SQL Database 관리 되는 인스턴스를 배포 하는 것과 관련 된 이점, 비용 및 위험에 대 한 이해를 높이기 위해 Forrester의 학습도 있습니다. [MI의 총 경제 영향](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
+- [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)   
+Azure SQL Database 관리 되는 인스턴스를 배포 하는 것과 관련 된 이점, 비용 및 위험에 대 한 이해를 높이기 위해 Forrester의 연구: [MI의 총 경제 영향](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance)도 있습니다.
 
 
 ## <a name="can-i-do-dns-refresh"></a>DNS 새로 고침을 수행할 수 있나요? 
@@ -164,7 +164,7 @@ DNS 구성은 결국 새로 고쳐집니다.
 
 관리 되는 인스턴스가 처음으로 프로 비전 되 면 표준 시간대 구성을 설정할 수 있습니다. 기존 관리 되는 인스턴스의 표준 시간대를 변경 하는 것은 지원 되지 않습니다. 자세한 내용은 [표준 시간대 제한 사항](sql-database-managed-instance-timezone.md#limitations)을 참조 하세요.
 
-해결 방법에는 적절 한 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만든 다음 수동 백업 및 복원을 수행 하거나 권장 사항을 [cross-instance point-in-time restore](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) 수행하는 것이 포함 됩니다.
+해결 방법에는 적절 한 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만든 다음 수동 백업 및 복원을 수행 하거나 권장 사항을 수행 [하는 것](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/)이 포함 됩니다.
 
 
 ## <a name="how-do-i-resolve-performance-issues-with-my-managed-instance"></a>관리 되는 인스턴스를 사용 하 여 성능 문제 해결 어떻게 할까요?
@@ -179,7 +179,7 @@ DNS 구성은 결국 새로 고쳐집니다.
 예, 관리 되는 인스턴스로 복원 하기 위해 데이터베이스 암호를 해독할 필요는 없습니다. 암호화 된 백업 파일에서 데이터를 읽을 수 있으려면 원본 시스템에서 암호화 키 보호기로 사용 되는 인증서/키를 관리 되는 인스턴스에 제공 해야 합니다. 입력하는 방법에는 다음 두 가지가 있습니다.
 
 - *인증서-보호기를 관리 되는 인스턴스에 업로드*합니다. PowerShell을 사용 하 여이 작업을 수행할 수 있습니다. [샘플 스크립트](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) 는 전체 프로세스를 설명 합니다.
-- *비대칭 키-보호기를 Azure Key Vault (AKV)에 업로드 하 고 관리 되는 인스턴스를 가리키도록*합니다. 이 방법은 AKV 통합을 사용 하 여 암호화 키를 저장 하는 BYOK (사용자 소유의 키) TDE 사용 사례와 비슷합니다. 키를 암호화 키 보호기로 사용 하지 않고 관리 되는 인스턴스에서 암호화 된 데이터베이스를 복원 하는 데 키를 사용할 수 있도록 하려는 경우 [BYOK TDE 설정](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption-in-the-azure-portal)지침을 따르고 선택 된 키를 확인 합니다. 확인란을 선택 하지 않습니다.  *기본 TDE 보호기*입니다.
+- *비대칭 키-보호기를 Azure Key Vault (AKV)에 업로드 하 고 관리 되는 인스턴스를 가리키도록*합니다. 이 방법은 AKV 통합을 사용 하 여 암호화 키를 저장 하는 BYOK (사용자 소유의 키) TDE 사용 사례와 비슷합니다. 키를 암호화 키 보호기로 사용 하지 않고 관리 되는 인스턴스에서 암호화 된 데이터베이스를 복원 하는 데 키를 사용할 수 있도록 하려는 경우 [BYOK TDE 설정](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption)지침을 따르고 선택 된 키를 확인 합니다. 확인란을 선택 하지 않습니다.  *기본 TDE 보호기*입니다.
 
 관리 되는 인스턴스에서 암호화 보호기를 사용할 수 있게 되 면 표준 데이터베이스 복원 절차를 진행할 수 있습니다.
 

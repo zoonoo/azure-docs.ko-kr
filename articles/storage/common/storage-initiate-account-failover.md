@@ -9,12 +9,12 @@ ms.date: 02/11/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d94f6297f27eb3ea130b443ccf94052d391eb46d
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2bac51a86c8acdba0f6c2f03e5a24ab2b133aa8e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985332"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521003"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>스토리지 계정 장애 조치(failover)(미리 보기) 시작
 
@@ -27,24 +27,24 @@ ms.locfileid: "68985332"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 스토리지 계정에 대해 계정 장애 조치(failover)를 수행하기 전에 다음 단계를 수행했는지 확인합니다.
 
 - 계정 장애 조치(failover) 미리 보기를 등록합니다. 등록 방법에 대한 자세한 내용은 [미리 보기 정보](storage-disaster-recovery-guidance.md#about-the-preview)를 참조하세요.
-- 스토리지 계정이 GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하도록 구성되었는지 확인합니다. 지역 중복 스토리지에 대한 자세한 내용은 [GRS(지역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy-grs.md)를 참조하세요. 
+- 스토리지 계정이 GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지)를 사용하도록 구성되었는지 확인합니다. 지역 중복 저장소에 대 한 자세한 내용은 [GRS (지역 중복 저장소): Azure Storage에 대 한 지역 간 복제](storage-redundancy-grs.md)를 참조 하세요. 
 
 ## <a name="important-implications-of-account-failover"></a>계정 장애 조치(failover)의 중요한 의미
 
 스토리지 계정에 대해 계정 장애 조치(failover)를 시작하면 보조 엔드포인트가 기본 엔드포인트가 되도록 보조 엔드포인트에 대한 DNS 레코드가 업데이트됩니다. 장애 조치(failover)를 시작하기 전에 스토리지 계정에 대한 잠재적 영향을 파악해야 합니다.
 
-장애 조치(failover)를 시작하기 전에 가능한 데이터 손실 범위를 예측하려면 `Get-AzStorageAccount` PowerShell cmdlet을 사용하여 **마지막 동기화 시간** 속성을 확인하고 `-IncludeGeoReplicationStats` 매개 변수를 포함합니다. 그런 다음, 계정의 `GeoReplicationStats` 속성을 확인합니다. 
+장애 조치(failover)를 시작하기 전에 가능한 데이터 손실 범위를 예측하려면 **PowerShell cmdlet을 사용하여**마지막 동기화 시간`Get-AzStorageAccount` 속성을 확인하고 `-IncludeGeoReplicationStats` 매개 변수를 포함합니다. 그런 다음, 계정의 `GeoReplicationStats` 속성을 확인합니다. 
 
 장애 조치(failover) 후에는 새로운 주 지역에서 스토리지 계정 유형이 LRS(로컬 중복 스토리지)로 자동 변환됩니다. 계정에 대해 GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지)를 다시 사용할 수 있습니다. LRS에서 GRS 또는 RA-GRS로 변환하는 경우 추가 비용이 발생합니다. 자세한 내용은 [대역폭 가격 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 참조하세요. 
 
 스토리지 계정에 대해 GRS를 다시 사용하면 계정의 데이터가 새 보조 지역으로 복제되기 시작합니다. 복제 시간은 복제되는 데이터의 양에 따라 다릅니다.  
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal에서 계정 장애 조치(failover)를 시작하려면 다음 단계를 수행합니다.
 
@@ -60,14 +60,14 @@ Azure Portal에서 계정 장애 조치(failover)를 시작하려면 다음 단�
 
     ![계정 장애 조치(failover)에 대한 확인 대화 상자가 표시된 스크린샷](media/storage-initiate-account-failover/portal-failover-confirm.png)
 
-## <a name="powershell"></a>PowerShell
+## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용하여 계정 장애 조치(failover)를 시작하려면 먼저 6.0.1 미리 보기 모듈을 설치해야 합니다. 다음 단계에 따라 모듈을 설치합니다.
 
 1. 모든 이전 Azure PowerShell 설치를 제거합니다.
 
     - **설정**에 있는 **앱 및 기능** 설정을 사용하여 Windows에서 이전에 설치한 Azure PowerShell을 제거합니다.
-    - 에서 모든 **Azure** 모듈을 `%Program Files%\WindowsPowerShell\Modules`제거 합니다.
+    - `%Program Files%\WindowsPowerShell\Modules`에서 모든 **Azure** 모듈을 제거 합니다.
 
 1. 최신 버전의 PowerShellGet이 설치되어 있는지 확인합니다. Windows PowerShell 창을 열고 다음 명령을 실행하여 최신 버전을 설치합니다.
 
@@ -97,7 +97,7 @@ PowerShell에서 계정 장애 조치(failover)를 시작하려면 다음 명령
 Invoke-AzStorageAccountFailover -ResourceGroupName <resource-group-name> -Name <account-name> 
 ```
 
-## <a name="azure-cli"></a>Azure CLI
+## <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure CLI를 사용하여 계정 장애 조치(failover)를 시작하려면 다음 명령을 실행합니다.
 
@@ -106,8 +106,10 @@ az storage account show \ --name accountName \ --expand geoReplicationStats
 az storage account failover \ --name accountName
 ```
 
+---
+
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Storage의 재해 복구 및 계정 장애 조치(failover)(미리 보기)](storage-disaster-recovery-guidance.md)
 - [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 디자인](storage-designing-ha-apps-with-ragrs.md)
-- [자습서: Blob Storage에서 고가용성 애플리케이션 빌드](../blobs/storage-create-geo-redundant-storage.md) 
+- [자습서: Blob storage를 사용 하 여 고가용성 응용 프로그램 빌드](../blobs/storage-create-geo-redundant-storage.md) 

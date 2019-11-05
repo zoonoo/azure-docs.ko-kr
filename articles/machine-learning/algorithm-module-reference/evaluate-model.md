@@ -1,7 +1,7 @@
 ---
 title: '모델 평가: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스의 모델 평가 모듈을 사용 하 여 학습 된 모델의 정확도를 측정 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 모델 평가 모듈을 사용 하 여 학습 된 모델의 정확도를 측정 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 0ad4ceedf9c1d65339c9e4aabebc0a47475ed568
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ddc6a35d5959a2d1f85c151a6f229223db9ba566
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693812"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497912"
 ---
 # <a name="evaluate-model-module"></a>모델 평가 모듈
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 학습 된 모델의 정확도를 측정 합니다. 모델에서 생성 된 점수가 포함 된 데이터 집합을 제공 하 고 **모델 평가** 모듈은 산업 표준 평가 메트릭 집합을 계산 합니다.
   
@@ -69,7 +69,7 @@ ms.locfileid: "72693812"
 **모델 평가**를 실행 한 후 모듈을 마우스 오른쪽 단추로 클릭 하 고 **평가 결과** 를 선택 하 여 결과를 확인 합니다. 다음과 같은 기능이 가능합니다.
 
 + 다른 도구를 사용 하 여 쉽게 분석할 수 있도록 결과를 데이터 집합으로 저장
-+ 인터페이스에서 시각화를 생성 합니다.
++ 디자이너에서 시각화를 생성 합니다.
 
 **모델 평가**의 두 입력에 데이터 집합을 연결 하는 경우 결과에는 두 데이터 집합 또는 두 모델 모두에 대 한 메트릭이 포함 됩니다.
 왼쪽 포트에 연결 된 모델이 나 데이터가 먼저 보고서에 표시 된 다음 데이터 집합에 대 한 메트릭 또는 올바른 포트에 연결 된 모델이 표시 됩니다.  
@@ -119,11 +119,11 @@ ms.locfileid: "72693812"
   
 - **RSE (상대 제곱 오차** ) 마찬가지로 실제 값의 총 제곱 오차로 나누어 예측 값의 총 제곱 오차를 표준화 합니다.  
   
-- **평균 0 개의 오류 (MZOE)** 는 예측이 올바른지 여부를 나타냅니다.  즉, `x!=y` 때 `ZeroOneLoss(x,y) = 1` 합니다. 그렇지 않으면 `0` 합니다.
+- **평균 0 개의 오류 (MZOE)** 는 예측이 올바른지 여부를 나타냅니다.  즉, `x!=y`때 `ZeroOneLoss(x,y) = 1` 합니다. 그렇지 않으면 `0`합니다.
   
 - 일반적으로 R<sup>2</sup>라고도 하는 **결정 계수**는 모델의 예측 능력을 0에서 1 사이의 값으로 나타냅니다. 0은 모델이 무작위로 사용 됨을 의미 합니다 (아무 것도 설명 하지 않음). 1은 완벽 한 일치를 의미 합니다. 그러나 낮은 값은 완전히 정상이 고 높은 값은 주의 대상이 될 수 있으므로 R<sup>2</sup> 값을 해석 하는 데 주의를 기울여야 합니다.
   
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

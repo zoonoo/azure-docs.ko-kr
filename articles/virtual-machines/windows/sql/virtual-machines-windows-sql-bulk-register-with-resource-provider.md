@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 80a1ac3ebe5f49d6a63f47e08e0b16114d75e91f
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199208"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489081"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에서 SQL 가상 머신 대량 등록
 
@@ -30,14 +30,14 @@ ms.locfileid: "73199208"
 
 리소스 공급자에 대 한 자세한 내용은 [SQL VM 리소스 공급자](virtual-machines-windows-sql-register-with-resource-provider.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 리소스 공급자에 SQL Server VM을 등록 하려면 다음이 필요 합니다. 
 
 - [리소스 공급자에 등록](virtual-machines-windows-sql-register-with-resource-provider.md#register-subscription-with-rp) 되었으며 등록 되지 않은 SQL Server 가상 컴퓨터를 포함 하는 [Azure 구독](https://azure.microsoft.com/free/) 입니다. 
 - 가상 컴퓨터를 등록 하는 데 사용 되는 클라이언트 자격 증명은 다음 RBAC 역할 ( **가상 컴퓨터 참가자**, **참가자**또는 **소유자**) 중 하나에 존재 합니다. 
 - 최신 버전의 [Az PowerShell](/powershell/azure/new-azureps-module-az)입니다. 
-- 최신 버전의 [Az. SqlVirtualMachine] (https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0.
+- 최신 버전의 [Az. SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
 ## <a name="getting-started"></a>시작
 

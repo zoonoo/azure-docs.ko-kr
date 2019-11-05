@@ -1,24 +1,24 @@
 ---
 title: '파티션 및 샘플: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 파티션 및 샘플 모듈을 사용 하 여 데이터 집합에서 샘플링을 수행 하거나 데이터 집합에서 파티션을 만드는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 파티션 및 샘플 모듈을 사용 하 여 데이터 집합에서 샘플링을 수행 하거나 데이터 집합에서 파티션을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: fcbf9fae3306c43613ef0b67a79c9c0b53f6b923
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 659dcae0bee0fe1015ba6225797c31bad438013f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693748"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497713"
 ---
 # <a name="partition-and-sample-module"></a>파티션 및 샘플 모듈
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 데이터 집합에서 샘플링을 수행 하거나 데이터 집합에서 파티션을 만들 수 있습니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "72693748"
 
 이 모듈에서는 데이터를 파티션으로 분할 하거나 샘플링 하는 여러 가지 방법을 지원 합니다. 먼저 메서드를 선택한 다음 메서드에 필요한 추가 옵션을 설정 합니다.
 
-- Head
+- 헤드
 - 샘플링
 - 접기에 할당
 - 접기 선택
@@ -122,7 +122,7 @@ ms.locfileid: "72693748"
 
     - **사용자 지정 비율을 사용 하는 파티션**:이 옵션을 사용 하 여 각 파티션의 크기를 쉼표로 구분 된 목록으로 지정할 수 있습니다.
 
-        예를 들어 데이터의 50%를 포함 하는 첫 번째 파티션과 데이터의 25%를 포함 하는 나머지 두 개의 파티션에 3 개의 파티션을 만들려면 **쉼표로 구분 된 비율 목록** 상자를 클릭 하 고 다음 숫자를 입력 합니다. @no_ _t_1
+        예를 들어 데이터의 50%를 포함 하는 첫 번째 파티션과 데이터의 25%를 포함 하는 나머지 두 개의 파티션에 3 개의 파티션을 만들려면 **쉼표로 구분 된 비율 목록** 상자를 클릭 하 고 다음 숫자를 입력 합니다. @no_ _t_1_`.5, .25, .25`
 
         모든 파티션 크기의 합계는 정확히 1 개까지 추가 해야 합니다.
 
@@ -156,7 +156,7 @@ ms.locfileid: "72693748"
 
     예를 들어 이전에 환자를 사용 하 여 4 개의 접기로 분할 한 경우를 가정해 보겠습니다. 각 개별 접기를 사용 하려면 **파티션 및 샘플** 모듈의 복사본 4 개가 필요 하며, 아래와 같이 각각 다른 접기를 선택 합니다. **할당을** 사용 하 여 직접 접기 출력을 사용 하는 것은 올바르지 않습니다.  
 
-    [![Partition 및 샘플](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    [![파티션 및 샘플](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
 
 5. 파이프라인을 실행합니다.
 
@@ -167,4 +167,4 @@ ms.locfileid: "72693748"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

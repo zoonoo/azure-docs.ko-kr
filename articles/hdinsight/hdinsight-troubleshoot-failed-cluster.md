@@ -1,5 +1,5 @@
 ---
-title: HDInsight 클러스터에서 느리거나 실패 한 작업 문제 해결-Azure HDInsight
+title: Azure HDInsight 클러스터에서 느리거나 실패 한 작업 문제 해결
 description: Azure HDInsight 클러스터에서 느리거나 실패 한 작업을 진단 하 고 문제를 해결 합니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: efb2ac4be074508107bb31ae321c27a3d1263d9e
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 69711f7ac20882617de175b1b90d8df4f2858c4d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105353"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498093"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>HDInsight 클러스터에서 느리거나 실패 한 작업 문제 해결
 
@@ -21,13 +21,13 @@ HDInsight 클러스터에서 데이터를 처리 하는 응용 프로그램이 �
 
 속도가 느리거나 오류가 발생하는 클러스터를 진단하려면 관련된 Azure Services, 클러스터 구성, 작업 실행 정보 등 환경의 모든 측면에 대한 정보를 수집합니다. 다른 클러스터에서 오류 상태를 재현해 보면 진단에 도움이 됩니다.
 
-* 1단계: 문제에 대 한 데이터를 수집 합니다.
-* 2단계: HDInsight 클러스터 환경의 유효성을 검사 합니다.
-* 3단계: 클러스터의 상태를 확인 합니다.
-* 4단계: 환경 스택 및 버전을 검토 합니다.
-* 5단계: 클러스터 로그 파일을 검사 합니다.
-* 6단계: 구성 설정을 확인 하십시오.
-* 7단계: 다른 클러스터에서 오류를 재현 합니다.
+* 1 단계: 문제에 대 한 데이터를 수집 합니다.
+* 2 단계: HDInsight 클러스터 환경의 유효성을 검사 합니다.
+* 3 단계: 클러스터의 상태를 확인 합니다.
+* 4 단계: 환경 스택 및 버전을 검토 합니다.
+* 5 단계: 클러스터 로그 파일을 검사 합니다.
+* 6 단계: 구성 설정 확인
+* 7 단계: 다른 클러스터에서 오류를 재현 합니다.
 
 ## <a name="step-1-gather-data-about-the-issue"></a>1단계: 문제에 대한 데이터 수집
 
@@ -202,7 +202,7 @@ YARN 수준에서 발생할 수 있는 시간 제한은 두 가지입니다.
 
     WebHCat와의 상호 작용은 성공하지만 작업이 실패하는 경우가 있습니다.
 
-    Templeton은 작업 콘솔 출력을 `statusdir`에 `stderr`로 수집하며, 이 정보는 종종 문제 해결에 유용하게 활용됩니다. `stderr`에는 실제 쿼리의 YARN 애플리케이션 식별자가 포함됩니다.
+    Templeton은 작업 콘솔 출력을 `stderr`에 `statusdir`로 수집하며, 이 정보는 종종 문제 해결에 유용하게 활용됩니다. `stderr`에는 실제 쿼리의 YARN 애플리케이션 식별자가 포함됩니다.
 
 ## <a name="step-4-review-the-environment-stack-and-versions"></a>4단계: 환경 스택 및 버전 검토
 

@@ -1,5 +1,5 @@
 ---
-title: Apache Spark Machine Learning 학습 파이프라인 만들기 - Azure HDInsight
+title: Apache Spark machine learning 파이프라인 만들기-Azure HDInsight
 description: Apache Spark machine learning 라이브러리를 사용 하 여 Azure HDInsight에서 데이터 파이프라인을 만듭니다.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 22583d82d8e422d8176fdb7cd70a98d229e8b6bb
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: b0de9103fd022dc74e7c75017a602eb6701686fe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736377"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494664"
 ---
 # <a name="create-an-apache-spark-machine-learning-pipeline"></a>Apache Spark 기계 학습 파이프라인 만들기
 
@@ -33,7 +33,7 @@ ML 파이프라인을 실제로 사용하기 위해 이 예제에서는 HDInsigh
 
 코드는 다음과 같습니다.
 
-1. `BuildingID`, `SystemInfo`(시스템의 식별자 및 보존 기간) 및 `label`(너무 더운 건물인 경우 1.0, 그렇지 않은 경우 0.0)를 저장하는 `LabeledDocument`를 정의합니다.
+1. `LabeledDocument`, `BuildingID`(시스템의 식별자 및 보존 기간) 및 `SystemInfo`(너무 더운 건물인 경우 1.0, 그렇지 않은 경우 0.0)를 저장하는 `label`를 정의합니다.
 2. 데이터의 줄(행)을 사용하여 목표 온도와 실제 온도를 비교하여 건물이 "더운지" 여부를 결정하는 `parseDocument` 사용자 지정 구문 분석기 함수를 만듭니다.
 3. 원본 데이터를 추출할 때 구문 분석기를 적용합니다.
 4. 학습 데이터를 만듭니다.
@@ -78,7 +78,7 @@ documents = data.filter(lambda s: "Date" not in s).map(parseDocument)
 training = documents.toDF()
 ```
 
-이 예제 파이프라인에는 `Tokenizer`, `HashingTF`(둘 다 변환기) 및 `Logistic Regression`(평가기)의 세 단계가 있습니다.  `pipeline.fit(training)`가 호출되면 `training` 데이터 프레임에서 추출되어 구문 분석된 데이터가 파이프라인을 통해 흐릅니다.
+이 예제 파이프라인에는 `Tokenizer`, `HashingTF`(둘 다 변환기) 및 `Logistic Regression`(평가기)의 세 단계가 있습니다.  `training`가 호출되면 `pipeline.fit(training)` 데이터 프레임에서 추출되어 구문 분석된 데이터가 파이프라인을 통해 흐릅니다.
 
 1. 첫 번째 `Tokenizer` 단계에서는 `SystemInfo` 입력 열(시스템 식별자와 보존 기간 값으로 구성)을 `words` 출력 열로 분할합니다. 새로운 이 `words` 열이 데이터 프레임에 추가됩니다. 
 2. 두 번째 `HashingTF` 단계에서는 새 `words` 열을 기능 벡터로 변환합니다. 새로운 이 `features` 열이 데이터 프레임에 추가됩니다. 이러한 처음 두 단계는 변환기입니다. 
@@ -95,7 +95,7 @@ pipeline = Pipeline(stages=[tokenizer, hashingTF, lr])
 model = pipeline.fit(training)
 ```
 
-`Tokenizer` 및 `HashingTF` 변환기에서 추가된 새 `words` 및 `features` 열과 `LogisticRegression` 평가기의 샘플을 보려면 원본 데이터 프레임에서 `PipelineModel.transform()` 메서드를 실행합니다. 프로덕션 코드에서 다음 단계는 테스트 데이터 프레임에 전달하여 학습의 유효성을 검사하는 것입니다.
+`words` 및 `features` 변환기에서 추가된 새 `Tokenizer` 및 `HashingTF` 열과 `LogisticRegression` 평가기의 샘플을 보려면 원본 데이터 프레임에서 `PipelineModel.transform()` 메서드를 실행합니다. 프로덕션 코드에서 다음 단계는 테스트 데이터 프레임에 전달하여 학습의 유효성을 검사하는 것입니다.
 
 ```python
 peek = model.transform(training)
@@ -132,6 +132,6 @@ only showing top 20 rows
 
 이제 `model` 개체를 사용하여 예측을 만들 수 있습니다. 이 기계 학습 애플리케이션의 전체 샘플과 단계별 실행 지침은 [Azure HDInsight에서 Apache Spark 기계 학습 애플리케이션 빌드](apache-spark-ipython-notebook-machine-learning.md)를 참조하세요.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 * [Azure에서 Scala 및 Apache Spark를 사용한 데이터 과학](../../machine-learning/team-data-science-process/scala-walkthrough.md)

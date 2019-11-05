@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a343601ec126549926cfd4035d901862c0a585a8
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: e075091461949639fc36ffb9feab69ac5399ae61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673104"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491972"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>항상 사용 가능한 Azure Storage 응용 프로그램을 빌드하기 위한 ZRS (영역 중복 저장소)
 
@@ -42,6 +42,7 @@ ZRS는 블록 Blob, 디스크가 아닌 페이지 Blob, 파일, 테이블 및 �
 FileStorage 계정의 경우 ZRS은 일반적으로 다음 지역에서 사용할 수 있습니다.
 
 - 서유럽
+- 미국 동부
 
 Microsoft는 추가 Azure 지역에서 ZRS를 사용할 수 있도록 계속 지원하고 있습니다. 새 지역에 대한 정보는 [Azure 서비스 업데이트](https://azure.microsoft.com/updates/) 페이지에서 정기적으로 확인하세요.
 
@@ -56,7 +57,7 @@ Microsoft는 추가 Azure 지역에서 ZRS를 사용할 수 있도록 계속 지
 
 영역을 사용할 수 없는 경우 Azure에서 DNS 재지정과 같은 네트워킹 업데이트를 수행합니다. 업데이트가 완료되기 전에 데이터에 액세스하는 경우 이러한 업데이트는 애플리케이션에 영향을 줄 수 있습니다.
 
-ZRS는 여러 영역에 영구적인 영향을 주는 지역 재해로부터 데이터를 보호하지 못할 수 있습니다. 대신, 데이터를 일시적으로 사용할 수 없게 되면 ZRS에서 해당 데이터에 대한 복원력을 제공합니다. 지역 재해로부터 보호하려면 GRS(지역 중복 스토리지)를 사용하는 것이 좋습니다. GRS에 대한 자세한 내용은 [GRS(영역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy-grs.md)를 참조하세요.
+ZRS는 여러 영역에 영구적인 영향을 주는 지역 재해로부터 데이터를 보호하지 못할 수 있습니다. 대신, 데이터를 일시적으로 사용할 수 없게 되면 ZRS에서 해당 데이터에 대한 복원력을 제공합니다. 지역 재해로부터 보호하려면 GRS(지역 중복 스토리지)를 사용하는 것이 좋습니다. GRS에 대한 자세한 내용은 [GRS(지역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy-grs.md)를 참조하세요.
 
 ## <a name="converting-to-zrs-replication"></a>ZRS 복제로 변환
 
@@ -103,7 +104,7 @@ ZRS로의 마이그레이션을 위한 두 가지 기본 옵션이 있습니다.
     - **문제 유형**: **데이터 마이그레이션**을 선택합니다.
     - **범주**: **ZRS로 마이그레이션을**선택 합니다.
     - **제목**: 설명이 포함된 제목, 예를 들어 **ZRS 계정 마이그레이션**을 입력합니다.
-    - **세부 정보**: **세부 정보** 상자에 예를 들어 \_\_ 지역의 [LRS, GRS]에서 ZRS로 마이그레이션하려 한다는 추가 세부 정보를 입력합니다. 
+    - **세부 정보**: **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어 \_\_ 지역의 [LRS, GRS]에서 ZRS로 마이그레이션하려는 것입니다. 
 5. **다음**을 선택합니다.
 6. **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인합니다.
 7. **만들기**를 선택합니다.
@@ -144,7 +145,7 @@ ZRS는 일반 용도의 v2 계정만 지원 하므로 실시간 마이그레이�
 
 ZRS 클래식은 1~2개의 지역 내의 데이터 센터에서 데이터를 비동기적으로 복제합니다. 복제된 데이터는 Microsoft가 보조 지역에 장애 조치(failover)를 시작하지 않는 한 사용할 수 없습니다. ZRS 클래식 계정을 LRS, GRS 또는 RA-GRS 계정으로 변환하거나, 이러한 계정에서 ZRS 클래식 계정으로 변환할 수 없습니다. 또한 ZRS 클래식 계정은 메트릭이나 로깅을 지원하지 않습니다.
 
-ZRS 클래식은 GPv1(범용 V1) 스토리지 계정의 **블록 Blob**에서만 사용할 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
+ZRS 클래식은 GPv1(범용 V1) 스토리지 계정의 **블록 Blob**에서만 사용할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
 
 LRS, ZRS 클래식, GRS 또는 RA-GRS 계정 간에 ZRS 계정 데이터를 수동으로 마이그레이션하려면 AzCopy, Azure Storage Explorer, Azure PowerShell 또는 Azure CLI와 같은 도구 중 하나를 사용합니다. Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 사용자 고유의 마이그레이션 솔루션을 빌드할 수도 있습니다.
 
@@ -162,7 +163,7 @@ CLI를 사용 하 여 ZRS로 업그레이드 하려면 다음 명령을 호출 �
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 - [Azure Storage 복제](storage-redundancy.md)
-- [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복성](storage-redundancy-lrs.md)
-- [GRS(영역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy-grs.md)
+- [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](storage-redundancy-lrs.md)
+- [GRS(지역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy-grs.md)

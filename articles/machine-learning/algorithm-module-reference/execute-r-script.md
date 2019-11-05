@@ -1,7 +1,7 @@
 ---
 title: 'R 스크립트 실행: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 R 스크립트 실행 모듈을 사용 하 여 R 코드를 실행 하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 R 스크립트 실행 모듈을 사용 하 여 R 코드를 실행 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,25 +9,25 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: 01d4e3a06b8c6a95374b9ee246864167e6d2ac85
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: f9aae1302f0d83c27d5d8f01745ddecbaeea9467
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693777"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497880"
 ---
 # <a name="execute-r-script"></a>R 스크립트 실행
 
-이 문서에서는 **r 스크립트 실행** 모듈을 사용 하 여 시각적 인터페이스 파이프라인에서 r 코드를 실행 하는 방법을 설명 합니다.
+이 문서에서는 **r 스크립트 실행** 모듈을 사용 하 여 Azure Machine Learning designer (미리 보기) 파이프라인에서 r 코드를 실행 하는 방법을 설명 합니다.
 
 R을 사용 하면 다음과 같은 기존 모듈에서 현재 지원 되지 않는 작업을 수행할 수 있습니다. 
 - 사용자 지정 데이터 변환 만들기
 - 고유한 메트릭을 사용 하 여 예측 평가
-- 시각적 인터페이스에서 독립 실행형 모듈로 구현 되지 않는 알고리즘을 사용 하 여 모델 작성
+- 디자이너에서 독립 실행형 모듈로 구현 되지 않는 알고리즘을 사용 하 여 모델 작성
 
 ## <a name="r-version-support"></a>R 버전 지원
 
-Azure Machine Learning 서비스 시각적 인터페이스는 R의 CRAN (포괄적인 R 보관 네트워크) 배포를 사용 합니다. 현재 사용 되는 버전은 CRAN 3.5.1입니다.
+Azure Machine Learning designer는 R의 CRAN (포괄적인 R 보관 네트워크) 배포를 사용 합니다. 현재 사용 되는 버전은 CRAN 3.5.1입니다.
 
 ## <a name="supported-r-packages"></a>지원 되는 R 패키지
 
@@ -73,7 +73,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ![R 모듈](media/module/execute-r-script.png)
 
-시각적 인터페이스에 저장 된 데이터 집합은이 모듈을 사용 하 여 로드 될 때 자동으로 R 데이터 프레임으로 변환 됩니다.
+이 모듈을 사용 하 여 로드 하면 디자이너에 저장 된 데이터 집합이 자동으로 R 데이터 프레임으로 변환 됩니다.
 
 1.  **R 스크립트 실행** 모듈을 파이프라인에 추가 합니다.
 
@@ -81,9 +81,9 @@ azureml_main <- function(dataframe1, dataframe2){
 
 1. 스크립트에 필요한 모든 입력을 연결 합니다. 입력은 선택 사항이 며 데이터 및 추가 R 코드를 포함할 수 있습니다.
 
-    * **Dataset1**: 첫 번째 입력을 `dataframe1` 참조 합니다. 입력 데이터 집합은 CSV, TSV, ARFF 형식으로 지정 하거나 Azure Machine Learning 데이터 집합에 연결할 수 있습니다.
+    * **Dataset1**: 첫 번째 입력을 `dataframe1`참조 합니다. 입력 데이터 집합은 CSV, TSV, ARFF 형식으로 지정 하거나 Azure Machine Learning 데이터 집합에 연결할 수 있습니다.
 
-    * **Dataset2**: 두 번째 입력을 `dataframe2` 참조 합니다. 또한이 데이터 집합은 CSV, TSV, ARFF 파일 또는 Azure Machine Learning 데이터 집합으로 포맷 되어야 합니다.
+    * **Dataset2**: 두 번째 입력을 `dataframe2`참조 합니다. 또한이 데이터 집합은 CSV, TSV, ARFF 파일 또는 Azure Machine Learning 데이터 집합으로 포맷 되어야 합니다.
 
     * **스크립트 번들**: 세 번째 입력은 ZIP 파일을 허용 합니다. 압축 된 파일은 여러 파일 및 여러 파일 형식을 포함할 수 있습니다.
 
@@ -111,15 +111,15 @@ azureml_main <- function(dataframe1, dataframe2){
 }
 ```
 
- * 스크립트는이 모듈에 대 한 진입점인 `azureml_main` 라는 함수를 포함 해야 합니다.
+ * 스크립트는이 모듈에 대 한 진입점인 `azureml_main`라는 함수를 포함 해야 합니다.
 
  * 진입점 함수는 `Param<dataframe1>` 및 `Param<dataframe2>`의 입력 인수를 최대 두 개까지 포함할 수 있습니다.
  
    > [!NOTE]
-    > **R 스크립트 실행** 모듈에 전달 되는 데이터는 `dataframe1` 및 `dataframe2`으로 참조 되며 Azure Machine Learning Studio와는 다릅니다 (스튜디오 참조 `dataset1`, `dataset2`). 입력 데이터가 스크립트에서 올바르게 referneced 확인 하세요.  
+    > **R 스크립트 실행** 모듈에 전달 된 데이터는 `dataframe1` 및 `dataframe2`으로 참조 되며 Azure Machine Learning 디자이너와는 다릅니다. 디자이너 참조는 `dataset1`, `dataset2`). 입력 데이터가 스크립트에서 올바르게 referneced 확인 하세요.  
  
     > [!NOTE]
-    >  기존 R 코드를 시각적 인터페이스 파이프라인에서 실행 하려면 약간 변경 해야 할 수 있습니다. 예를 들어 CSV 형식으로 제공 하는 입력 데이터를 코드에서 사용 하려면 데이터 집합으로 명시적으로 변환 해야 합니다. R 언어에서 사용 되는 데이터 및 열 유형도 시각적 인터페이스에서 사용 되는 데이터 및 열 유형과는 차이가 있습니다.
+    >  기존 R 코드를 디자이너 파이프라인에서 실행 하려면 약간 변경 해야 할 수 있습니다. 예를 들어 CSV 형식으로 제공 하는 입력 데이터를 코드에서 사용 하려면 데이터 집합으로 명시적으로 변환 해야 합니다. R 언어에서 사용 되는 데이터 및 열 유형도 디자이너에서 사용 되는 데이터 및 열 유형에 따라 달라 집니다.
 
 1.  **임의 초기값**: R 환경 내에서 임의 초기값으로 사용할 값을 입력 합니다. 이 매개 변수는 R 코드에서 `set.seed(value)`를 호출 하는 것과 같습니다.  
 
@@ -127,7 +127,7 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="results"></a>결과
 
-**R 스크립트 실행** 모듈은 여러 출력을 반환할 수 있지만 r 데이터 프레임으로 제공 되어야 합니다. 데이터 프레임은 다른 모듈과의 호환성을 위해 자동으로 시각적 인터페이스 데이터 집합으로 변환 됩니다.
+**R 스크립트 실행** 모듈은 여러 출력을 반환할 수 있지만 r 데이터 프레임으로 제공 되어야 합니다. 데이터 프레임은 디자이너에서 다른 모듈과의 호환성을 위해 자동으로 데이터 집합으로 변환 됩니다.
 
 R의 표준 메시지 및 오류는 모듈의 로그로 반환 됩니다.
 
@@ -235,7 +235,7 @@ azureml_main <- function(dataframe1, dataframe2){
     }
     ```
 
-    정수 형식으로의 명시적 변환은 serialization 함수가 시각적 인터페이스에서 지원 하지 않는 R `Raw` 형식으로 데이터를 출력 하기 때문에 수행 됩니다.
+    Serialization 함수가 디자이너에서 지원 되지 않는 R `Raw` 형식으로 데이터를 출력 하기 때문에 정수 형식으로의 명시적 변환은 수행 됩니다.
 
 1. **R 스크립트 실행** 모듈의 두 번째 인스턴스를 추가 하 고이를 이전 모듈의 출력 포트에 연결 합니다.
 
@@ -402,4 +402,4 @@ azureml_main <- function(dataframe1, dataframe2){
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

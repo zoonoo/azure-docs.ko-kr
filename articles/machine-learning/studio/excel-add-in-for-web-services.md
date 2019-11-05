@@ -1,6 +1,6 @@
 ---
 title: 웹 서비스용 Excel 추가 기능
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: 코드를 작성하지 않고 Excel에서 직접 Azure Machine Learning 웹 서비스를 사용하는 방법입니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 9e801e0d7a26cd4d6c43118959aee1dec7216b1c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18e7e2c2c57bd44cb974e5de668045d6322bc4ce
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60750249"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492988"
 ---
-# <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Azure Machine Learning Studio 웹 서비스용 Excel 추가 기능
+# <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Azure Machine Learning Studio (클래식) 웹 서비스용 Excel 추가 기능
 Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비스를 호출할 수 있습니다.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>통합 문서에서 기존 웹 서비스를 사용하는 단계
@@ -37,13 +37,13 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
    
     ![Predict 섹션](./media/excel-add-in-for-web-services/image1.png)
 
-웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포 방법에 대한 자세한 내용은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조하세요.
+웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포에 대 한 자세한 내용은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조 하세요.
 
 웹 서비스에 대한 API 키를 가져옵니다. 새 Machine Learning 웹 서비스의 기존 Machine Learning 웹 서비스를 게시했는지 여부에 따라 이 작업을 수행하는 위치가 달라집니다.
 
 **기존 웹 서비스 사용** 
 
-1. Machine Learning Studio에서 왼쪽 창의 **WEB SERVICES** 섹션을 클릭한 다음 웹 서비스를 선택합니다.
+1. Machine Learning Studio (클래식)의 왼쪽 창에서 **웹 서비스** 섹션을 클릭 한 다음 웹 서비스를 선택 합니다.
    
     ![Studio 웹 서비스 선택](./media/excel-add-in-for-web-services/image4.png)
 2. 웹 서비스에 대한 API 키를 복사합니다.
@@ -65,7 +65,7 @@ Excel을 사용하면 코드를 작성할 필요 없이 쉽게 직접 웹 서비
 
 ## <a name="steps-to-add-a-new-web-service"></a>새 웹 서비스 추가 단계
 
-1. 웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포 방법에 대한 자세한 내용은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조하세요.
+1. 웹 서비스를 배포하거나 기존 웹 서비스를 사용합니다. 웹 서비스 배포에 대 한 자세한 내용은 [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)를 참조 하세요.
 2. **사용**을 클릭합니다.
 3. **기본 사용량 정보** 섹션을 찾습니다. **기본 키** 및 **요청-응답** URL을 복사하여 저장합니다.
 4. Excel에서 **웹 서비스** 섹션으로 이동합니다(**Predict** 섹션에 있는 경우 뒤로 화살표를 클릭하여 웹 서비스 목록으로 이동).

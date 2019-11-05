@@ -1,7 +1,7 @@
 ---
 title: Excel에서 분석 마이그레이션
-titleSuffix: Azure Machine Learning Studio
-description: Excel과 Azure Machine Learning Studio의 선형 회귀 모델 비교
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Excel 및 Azure Machine Learning Studio의 선형 회귀 모델 비교 (클래식)
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,76 +10,76 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 7db66f6f4efa5e48f2af9380115de8bcfb75cb86
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 533d58508f4788e90b0a3daa800e1149f5cba8b1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67786679"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492867"
 ---
-# <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio"></a>Excel에서 Azure Machine Learning Studio로 분석 마이그레이션
+# <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Excel에서 Azure Machine Learning Studio로 분석 마이그레이션 (클래식)
 
-> *Kate Baroni*와 *Ben Boatman*은 Microsoft Data Insights Center of Excellence의 엔터프라이즈 솔루션 설계자입니다. 이 문서에서는 이 두 사람이 Azure Machine Learning Studio를 사용하여 기존 선형 분석 모음을 클라우드 기반 솔루션으로 마이그레이션한 경험을 설명합니다.
+> *Kate Baroni*와 *Ben Boatman*은 Microsoft Data Insights Center of Excellence의 엔터프라이즈 솔루션 설계자입니다. 이 문서에서는 Azure Machine Learning Studio (클래식)를 사용 하 여 기존 회귀 분석 제품군을 클라우드 기반 솔루션으로 마이그레이션하는 환경을 설명 합니다.
 
 ## <a name="goal"></a>목표
 
 다음 두 가지 목표를 염두에 두고 프로젝트를 시작했습니다. 
 
 1. 예측 분석을 사용하여 조직의 월별 수익 예측에 대한 정확도 향상 
-2. Azure Machine Learning Studio를 사용하여 결과 확인, 최적화, 속도 증가 및 확장 
+2. 클래식 버전의 Azure Machine Learning Studio을 사용 하 여 결과의 수를 확인 하 고, 최적화 하 고, 속도를 높이고, 크기를 조정할 수 있습니다. 
 
-많은 기업과 마찬가지로 우리 조직에서도 월별 수익 예측 프로세스를 수행합니다. 소규모 비즈니스 분석가 팀이 Azure Machine Learning Studio를 사용하여 프로세스를 지원하고 예측 정확도를 개선하는 업무를 맡았습니다. 이 팀은 여러 소스에서 데이터를 수집하고 서비스 판매량 매출과 관련된 주요 특성을 식별하는 통계 분석을 통해 데이터 특성을 실행하는 데 몇 달을 보냈습니다. 다음 단계는 Excel에서 데이터에 대한 통계 회귀 모델 프로토타입 작성을 시작하는 것이었습니다. 몇 주 내에 현재 필드 및 재무 예측 프로세스를 능가하는 Excel 회귀 모델이 완성되었습니다. 이를 기준 예측 결과로 사용했습니다. 
+많은 기업과 마찬가지로 우리 조직에서도 월별 수익 예측 프로세스를 수행합니다. 소규모 비즈니스 분석가 팀은 클래식 버전의 Azure Machine Learning Studio을 사용 하 여 프로세스를 지원 하 고 예측 정확도를 향상 시키는 데 사용 되었습니다. 이 팀은 여러 소스에서 데이터를 수집하고 서비스 판매량 매출과 관련된 주요 특성을 식별하는 통계 분석을 통해 데이터 특성을 실행하는 데 몇 달을 보냈습니다. 다음 단계는 Excel에서 데이터에 대한 통계 회귀 모델 프로토타입 작성을 시작하는 것이었습니다. 몇 주 내에 현재 필드 및 재무 예측 프로세스를 능가하는 Excel 회귀 모델이 완성되었습니다. 이를 기준 예측 결과로 사용했습니다. 
 
-예측 분석을 Studio로 전환하는 다음 단계는 Studio가 예측 성능을 어떻게 향상시킬 수 있는지 확인하는 것이었습니다.
+그런 다음 예측 분석을 이전 버전의 Studio로 이동 하는 다음 단계를 수행 하 여 클래식 버전의 Studio에서 예측 성능을 향상 시키는 방법을 알아봅니다.
 
 ## <a name="achieving-predictive-performance-parity"></a>예측 성능 패리티 달성
-첫 번째 우선 순위는 Studio와 Excel 회귀 모델 간의 패리티를 달성하는 것이었습니다. 동일한 데이터를 사용하고 학습 및 테스트할 데이터를 정확히 분할하여 Excel과 Studio 간에 예측 성능 패리티를 달성하려고 했습니다. 처음에는 실패했습니다. Excel 모델의 성능이 Studio 모델보다 뛰어났습니다. Studio의 기본 도구 설정에 대한 이해가 부족한 것이 원인이었습니다. Studio 제품 팀과 동기화한 후 데이터 집합에 필요한 기본 설정을 보다 잘 이해하고 두 모델 간에 패리티를 달성할 수 있었습니다. 
+첫 번째 우선 순위는 이전 버전의 Studio와 Excel 회귀 모델 간의 패리티를 얻는 것 이었습니다. 동일한 데이터를 제공 하 고 데이터 학습 및 테스트를 위해 동일한 분할을 수행 하려면 Excel과 클래식 버전의 Studio 간에 예측 성능 패리티를 확보 하려고 했습니다. 처음에는 실패했습니다. Excel 모델 보다 뛰어났습니다 (클래식) 모델을 수행 했습니다. 이 오류는 클래식 버전의 Studio에서 기본 도구 설정에 대 한 이해가 부족 하기 때문에 발생 했습니다. 이전 버전의 Studio 제품 팀과 동기화 한 후에는 데이터 집합에 필요한 기본 설정을 보다 잘 이해 하 고 두 모델 간에 패리티를 달성 했습니다. 
 
 ### <a name="create-regression-model-in-excel"></a>Excel에서 회귀 모델 만들기
 Excel 회귀에서는 Excel 분석 도구에 있는 표준 선형 회귀 모델을 사용했습니다. 
 
-*절대 평균 오차율(%)* 을 계산하여 이를 모델의 성능 척도로 사용했습니다. Excel을 사용하여 작동하는 모델을 만드는 데 3개월이 걸렸습니다. 대부분의 학습을 Studio 실험으로 가져와 궁극적으로 요구 사항을 이해하는 데 활용했습니다.
+*절대 평균 오차율(%)* 을 계산하여 이를 모델의 성능 척도로 사용했습니다. Excel을 사용하여 작동하는 모델을 만드는 데 3개월이 걸렸습니다. 궁극적으로는 요구 사항을 이해 하는 데 도움이 되는 기존 버전의 Studio 실험으로 많은 학습을 했습니다.
 
-### <a name="create-comparable-experiment-in-studio"></a>Studio에서 비교 가능한 실험 만들기
-다음 단계에 따라 Studio에서 실험을 만들었습니다. 
+### <a name="create-comparable-experiment-in-studio-classic"></a>스튜디오에서 비교 가능한 실험 만들기 (클래식)
+다음 단계를 수행 하 여 클래식 버전의 Studio에서 실험을 만듭니다. 
 
-1. 데이터 세트를 csv 파일(매우 작은 파일)로 Studio에 업로드했습니다.
+1. 데이터 집합을 이전 버전의 Studio (매우 작은 파일)로 csv 파일로 업로드 했습니다.
 2. 새 실험을 만들고 [데이터 집합의 열 선택][select-columns] 모듈을 사용 하 여 Excel에서 사용 되는 것과 동일한 데이터 기능을 선택 합니다. 
 3. [데이터 분할][split] 모듈 ( *상대 식* 모드)을 사용 하 여 데이터를 Excel에서 수행한 것과 동일한 학습 데이터 집합으로 나눕니다. 
 4. [선형 회귀][linear-regression] 모듈을 사용 하 여 실험 (기본 옵션만 해당), 문서화 하 고 결과를 Excel 회귀 모델과 비교
 
 ### <a name="review-initial-results"></a>초기 결과 검토
-Excel 모델의 성능이 Studio 모델보다 분명히 뛰어났습니다. 
+처음에 Excel 모델은 Studio (클래식) 모델을 명확 하 게 수행 했습니다. 
 
-|  | Excel | Studio |
+|  | Excel | Studio (클래식) |
 | --- |:---:|:---:|
 | 성능 | | |
-| <ul style="list-style-type: none;"><li>조정된 R 제곱</li></ul> |0.96 |해당 사항 없음 |
-| <ul style="list-style-type: none;"><li>결정 <br />계수</li></ul> |해당 사항 없음 |0.78<br />(낮은 정확도) |
+| <ul style="list-style-type: none;"><li>조정된 R 제곱</li></ul> |0.96 |해당 없음 |
+| <ul style="list-style-type: none;"><li>결정 <br />계수</li></ul> |해당 없음 |0.78<br />(낮은 정확도) |
 | 평균 절대 오류 |$9.5M |$19.4M |
 | 평균 절대 오차율(%) |6.03% |12.2% |
 
 프로세스를 실행한 결과 Machine Learning 팀의 개발자 및 데이터 과학자는 몇 가지 유용한 팁을 신속하게 제공했습니다. 
 
-* Studio에서 [선형 회귀][linear-regression] 모듈을 사용 하는 경우 두 가지 방법이 제공 됩니다.
-  * 온라인 그라데이션 하강: 보다 큰 규모의 문제에 적합할 수 있습니다.
+* 클래식 버전의 Studio에서 [선형 회귀][linear-regression] 모듈을 사용 하는 경우 다음 두 가지 메서드가 제공 됩니다.
+  * 온라인 기울기 하강: 보다 큰 규모의 문제에 적합할 수 있습니다.
   * 최소 자승법: 대부분의 사람들이 선형 회귀에 대해 떠올리는 방법입니다. 데이터 세트가 작은 경우 최소 자승법이 보다 적합할 수 있습니다.
 * L2 정규화 가중치 매개 변수를 조정하여 성능을 개선하는 것이 좋습니다. 기본적으로 0.001로 설정되지만 작은 데이터 집합에서는 성능 향상을 위해 0.005로 설정했습니다. 
 
 ### <a name="mystery-solved"></a>문제 해결!
-권장 사항을 적용하여 Studio에서 Excel과 동일한 기준 성능을 실현했습니다. 
+권장 사항을 적용 한 경우 Excel에서와 같이 클래식 버전의 Studio에서 동일한 기준 성능을 달성 했습니다. 
 
-|  | Excel | Studio(초기) | Studio w/ 최소 자승 |
+|  | Excel | Studio (클래식) (초기) | 스튜디오 (클래식) w/최소 제곱 |
 | --- |:---:|:---:|:---:|
 | 레이블이 지정된 값 |실제 값(숫자) |동일 |동일 |
 | 학습자 |Excel -> 데이터 분석 ->회귀 |선형 회귀 |Linear Regression |
-| 학습자 옵션 |해당 사항 없음 |기본값 |최소 자승법<br />L2 = 0.005 |
+| 학습자 옵션 |해당 없음 |기본값 |최소 자승법<br />L2 = 0.005 |
 | 데이터 집합 |26개 행, 3가지 기능, 1개 레이블 모든 숫자 |동일 |동일 |
-| 분할: 기차 |처음 18개 행에서 학습되고 마지막 8개 행에서 테스트된 Excel |동일 |동일 |
+| 분할: 학습 |처음 18개 행에서 학습되고 마지막 8개 행에서 테스트된 Excel |동일 |동일 |
 | 분할: 테스트 |마지막 8개 행에 적용되는 Excel 회귀 수식 |동일 |동일 |
 | **성능** | | | |
-| 조정된 R 제곱 |0.96 |해당 사항 없음 | |
-| 결정 계수 |해당 사항 없음 |0.78 |0.952049 |
+| 조정된 R 제곱 |0.96 |해당 없음 | |
+| 결정 계수 |해당 없음 |0.78 |0.952049 |
 | 평균 절대 오류 |$9.5M |$19.4M |$9.5M |
 | 평균 절대 오차율(%) |<span style="background-color: 00FF00;"> 6.03%</span> |12.2% |<span style="background-color: 00FF00;"> 6.03%</span> |
 
@@ -95,7 +95,7 @@ Excel 모델의 성능이 Studio 모델보다 분명히 뛰어났습니다.
 ## <a name="next-steps"></a>다음 단계
 Excel 내에서 Machine Learning 웹 서비스를 사용하려고 했습니다. 비즈니스 분석가는 Excel에 의존하므로 Excel 데이터 행으로 Machine Learning 웹 서비스를 호출하고 예측 값을 Excel로 반환하는 방법이 필요했습니다. 
 
-또한 Studio에서 제공되는 옵션 및 알고리즘을 사용하여 모델을 최적화하려고 했습니다.
+또한 클래식 버전의 Studio에서 제공 되는 옵션 및 알고리즘을 사용 하 여 모델을 최적화 하려고 했습니다.
 
 ### <a name="integration-with-excel"></a>Excel과 통합
 솔루션은 학습된 모델에서 웹 서비스를 만들어Machine Learning 회귀 모델을 조작할 수 있게 하는 것이었습니다. 몇 분 이내에 웹 서비스를 만들었으며 Excel에서 직접 호출하여 예측 수익 값을 반환할 수 있었습니다. 
@@ -113,9 +113,9 @@ Excel 모델을 사용하여 기준을 만들었으므로 이제 Machine Learnin
 
 다음으로는 성능 비교를 위해 실험에서 [Bayesian][bayesian-linear-regression] 또는 [승격 된 의사 결정 트리와][boosted-decision-tree-regression] 같은 추가 알고리즘을 포함 하도록 계획 합니다. 
 
-회귀를 사용하여 실험하려는 경우 많은 숫자 특성이 포함된 Energy Efficiency Regression 샘플 데이터 세트를 사용하는 것이 좋습니다. 이 데이터 세트는 Studio에서 샘플 데이터 세트의 일부로 제공됩니다. 다양한 학습 모듈을 사용하여 난방 부하 또는 냉방 부하를 예측할 수 있습니다. 아래 차트에는 대상 변수 Cooling Load를 예측하여 Energy Efficiency 데이터 세트에 대해 다양한 회귀에서 학습한 결과의 성능이 비교되어 있습니다. 
+회귀를 사용하여 실험하려는 경우 많은 숫자 특성이 포함된 Energy Efficiency Regression 샘플 데이터 세트를 사용하는 것이 좋습니다. 데이터 집합은 클래식 버전의 Studio에서 샘플 데이터 집합의 일부로 제공 됩니다. 다양한 학습 모듈을 사용하여 난방 부하 또는 냉방 부하를 예측할 수 있습니다. 아래 차트에는 대상 변수 Cooling Load를 예측하여 Energy Efficiency 데이터 세트에 대해 다양한 회귀에서 학습한 결과의 성능이 비교되어 있습니다. 
 
-| Model | 평균 절대 오류 | 제곱 평균 오차 | 상대 절대 오차 | 상대 제곱 오차 | 결정 계수 |
+| 모델 | 평균 절대 오류 | 제곱 평균 오차 | 상대 절대 오차 | 상대 제곱 오차 | 결정 계수 |
 | --- | --- | --- | --- | --- | --- |
 | 향상된 의사 결정 트리 |0.930113 |1.4239 |0.106647 |0.021662 |0.978338 |
 | 선형 회귀(기울기 하강) |2.035693 |2.98006 |0.233414 |0.094881 |0.905119 |
@@ -123,18 +123,18 @@ Excel 모델을 사용하여 기준을 만들었으므로 이제 Machine Learnin
 | 선형 회귀(최소 자승법) |1.428273 |1.984461 |0.163767 |0.042074 |0.957926 |
 
 ## <a name="key-takeaways"></a>핵심 내용
-Excel 회귀와 Studio 실험을 함께 실행하여 많은 것을 배울 수 있었습니다. Excel에서 기준 모델을 만들고 Machine Learning [선형 회귀][linear-regression] 를 사용 하는 모델과 비교 하 여 스튜디오에 대해 배우고 데이터 선택 및 모델 성능을 향상 시킬 수 있는 기회를 발견 했습니다. 
+Excel 회귀를 실행 하 고 클래식 버전의 Studio 실험을 병렬로 실행 하 여 많은 것을 배웠습니다. Excel에서 기준 모델을 만들고 Machine Learning [선형 회귀][linear-regression] 를 사용 하는 모델과 비교 하 여 Studio (클래식)에 대해 배우고 데이터 선택 및 모델 성능을 향상 시킬 수 있는 기회를 발견 했습니다. 
 
-또한 [필터 기반 기능 선택][filter-based-feature-selection] 을 사용 하 여 향후 예측 프로젝트를 가속화 하는 것이 좋습니다. 기능 선택을 데이터에 적용하면 Studio에서 더 나은 성능으로 향상된 모델을 만들 수 있습니다. 
+또한 [필터 기반 기능 선택][filter-based-feature-selection] 을 사용 하 여 향후 예측 프로젝트를 가속화 하는 것이 좋습니다. 데이터에 기능 선택을 적용 하면 일반적인 버전의 Studio에서 향상 된 모델을 만들어 전반적인 성능을 향상 시킬 수 있습니다. 
 
-Studio에서 Excel로 예측 분석을 체계적으로 전송하는 기능을 사용하면 광범위한 비즈니스 사용자에게 결과를 제공할 수 있는 성능이 크게 향상됩니다. 
+클래식 버전의 Studio에서 Excel로 예측 분석 예측을 전송 하는 기능을 사용 하면 광범위 한 비즈니스 사용자에 게 결과를 성공적으로 제공할 수 있는 기능이 크게 향상 될 수 있습니다. 
 
 ## <a name="resources"></a>리소스
 회귀 작업에 유용한 일부 리소스는 다음과 같습니다. 
 
 * Excel의 회귀 Excel에서 회귀를 시도해보지 않은 경우 다음 자습서를 통해 쉽게 수행해 보세요. [https://www.excel-easy.com/examples/regression.html](https://www.excel-easy.com/examples/regression.html)
 * 회귀와 예측 Tyler Chessman이 Excel에서 시계열 예측을 수행하는 방법을 설명하는 블로그 문서를 작성했습니다. 여기에는 초보자를 위해 선형 회귀가 자세히 설명되어 있습니다. [https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts](https://www.itprotoday.com/sql-server/understanding-time-series-forecasting-concepts) 
-* 최소 자승법 선형 회귀: 결함, 문제 및 위험 요인 회귀에 대한 소개 및 설명은 다음을 참조하세요. [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
+* 최소 자승법 선형 회귀: 결함, 문제점 및 단점 회귀에 대한 소개 및 설명은 다음을 참조하세요. [https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/ ](https://www.clockbackward.com/2009/06/18/ordinary-least-squares-linear-regression-flaws-problems-and-pitfalls/)
 
 <!-- Module References -->
 [bayesian-linear-regression]: https://msdn.microsoft.com/library/azure/ee12de50-2b34-4145-aec0-23e0485da308/

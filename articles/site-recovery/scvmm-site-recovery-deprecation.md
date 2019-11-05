@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: rajanaki
-ms.openlocfilehash: 972223815810917684f35c4e99f04e1ab5b882c8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 68881d57f251d2f26996b2a837780106326ec1d3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952122"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492282"
 ---
 # <a name="upcoming-deprecation-of-dr-between-customer-owned-sites-using-hyper-v-and-between-sites-managed-by-scvmm-to-azure"></a>Hyper-v를 사용 하는 고객 소유 사이트와 SCVMM에서 관리 하는 사이트 간 Azure 간 DR의 사용 중단 예정
 
@@ -32,13 +32,13 @@ ms.locfileid: "72952122"
 
 - 시나리오가 더 이상 사용 되지 않으면 고객이 권장 단계를 수행 하지 않는 한 다음과 같은 의미가 있습니다.
 
-    - 고객 소유 사이트 간에 SCVMM에서 관리 하는 Hyper-v Vm 간 DR: 복제는 계속 작동 하지만 Hyper-v 복제본의 기본 기능은 계속 작동 하지만 고객이 관리 하거나 관련 작업을 수행할 수 없게 됩니다. Azure Portal에서 Azure의 복구 경험을 통해 
-    - Azure에 대 한 SCVMM에서 관리 하는 Hyper-v Vm의 DR: 기존 복제는 중단 되 고 고객은 Azure Site Recovery를 통해 사용자가 사용자의 DR 관련 작업을 보거나 관리 하거나 수행할 수 없습니다.
+    - 고객 소유 사이트 간에 SCVMM에서 관리 하는 Hyper-v Vm 간 DR: 복제는 계속 작동 하지만 Hyper-v 복제본의 기본 기능은 계속 작동 하지만, 고객은 DR 관련 작업을 보거나 관리 하거나 수행할 수 없게 됩니다. Azure Portal에서 Azure의 복구 경험을 통해 
+    - Azure에 대해 SCVMM에서 관리 하는 Hyper-v Vm의 DR: 기존 복제는 중단 되 고 고객은 Azure Site Recovery를 통해 DR 관련 작업을 보거나 관리 하거나 수행할 수 없습니다.
 
 
 ## <a name="recommended-actions-to-be-taken"></a>권장 조치 수행
 
-다음은 시나리오가 더 이상 사용 되지 않는 경우 사용자가 DR 전략에 영향을 주지 않도록 하는 대체 옵션입니다. 
+다음은 시나리오가 더 이상 사용 되지 않는 경우 사용자가 DR 전략에 영향을 주지 않도록 하는 옵션입니다. 
 
 - [Hyper-v 호스트의 vm에 대 한 DR 대상으로 Azure 사용을 시작](hyper-v-azure-tutorial.md)하도록 선택 합니다.
 

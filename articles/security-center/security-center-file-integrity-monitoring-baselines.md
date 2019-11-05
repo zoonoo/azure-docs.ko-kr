@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: 116f295365084e7570ed9afc493d9179ea2dfb5a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 0e7ef558ec75622b804aef96781b549f1a833e21
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202146"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73518857"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>FIM (파일 무결성 모니터링)을 사용 하 여 기준 비교
 
@@ -51,16 +51,16 @@ FIM 기준은 운영 체제 및 지원 응용 프로그램에 대해 알려진 �
 |도메인 컨트롤러: 컴퓨터 계정 암호 변경 거부| MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RefusePasswordChange|
 |도메인 구성원: 보안 채널 데이터를 디지털로 암호화 하거나 서명 (항상)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireSignOrSeal|
 |도메인 구성원: 보안 채널 데이터를 디지털 암호화 (가능한 경우)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SealSecureChannel|
-|도메인 구성원: 보안 채널 데이터에 디지털 서명 (가능한 경우)|MACHINE\System\CurrentControlSet\Services   \Netlogon\Parameters\SignSecureChannel|
-|도메인 구성원: 컴퓨터 계정 암호 변경 사용 안 함|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\DisablePasswordChange|
-|도메인 구성원: 최대 컴퓨터 계정 암호 사용 기간|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\MaximumPasswordAge|
-|도메인 구성원: 강력한 (Windows 2000 이상) 세션 키 필요|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\RequireStrongKey|
-|네트워크 보안: NTLM 제한:  이 도메인의 NTLM 인증|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
-|네트워크 보안: NTLM 제한: 이 도메인에 서버 예외 추가|MACHINE\System\CurrentControlSet\Services  \Netlogon\Parameters\DCAllowedNTLMServers|
-|네트워크 보안: NTLM 제한: 이 도메인에서 NTLM 인증 감사|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
+|도메인 구성원: 보안 채널 데이터에 디지털 서명 (가능한 경우)|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\SignSecureChannel|
+|도메인 구성원: 컴퓨터 계정 암호 변경 사용 안 함|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DisablePasswordChange|
+|도메인 구성원: 최대 컴퓨터 계정 암호 사용 기간|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\MaximumPasswordAge|
+|도메인 구성원: 강력한 (Windows 2000 이상) 세션 키 필요|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RequireStrongKey|
+|네트워크 보안: NTLM 제한:이 도메인에서 NTLM 인증|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\RestrictNTLMInDomain|
+|네트워크 보안: NTLM 제한:이 도메인에 서버 예외 추가|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\DCAllowedNTLMServers|
+|네트워크 보안: NTLM 제한:이 도메인에서 NTLM 인증 감사|MACHINE\System\CurrentControlSet\Services \Netlogon\Parameters\AuditNTLMInDomain|
 
 > [!NOTE]
-> 다양 한 운영 체제 버전에서 지원 되는 레지스트리 설정에 대 한 자세한 내용은 [그룹 정책 설정 참조 스프레드시트](https://www.microsoft.com/en-us/download/confirmation.aspx?id=25250)를 참조 하세요.
+> 다양 한 운영 체제 버전에서 지원 되는 레지스트리 설정에 대 한 자세한 내용은 [그룹 정책 설정 참조 스프레드시트](https://www.microsoft.com/download/confirmation.aspx?id=25250)를 참조 하세요.
 
 *레지스트리 기준을 모니터링 하도록 FIM을 구성 하려면:*
 

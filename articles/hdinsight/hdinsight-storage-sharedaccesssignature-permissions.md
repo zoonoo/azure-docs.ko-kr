@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: hrasheed
-ms.openlocfilehash: 46cf7d3dd7efecff0280320c100af432367e25f2
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 031498119eb4f9feb92046d7d7a86cfd77f8f368
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180826"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498112"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
@@ -25,7 +25,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 > [!WARNING]  
 > HDInsight는 클러스터의 기본 스토리지에 대해 모든 액세스 권한이 있어야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독.
 
@@ -41,7 +41,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 * 를 사용 C#하는 경우 Visual Studio는 버전 2013 이상 이어야 합니다.
 
-* 저장소 계정에 대 한 [URI 체계](./hdinsight-hadoop-linux-information.md#URI-and-scheme) 입니다. Azure Storage는 `wasb://`, Azure Data Lake Storage Gen2는 `abfs://`, Azure Data Lake Storage Gen1은 `adl://`입니다. Azure Storage에 대해 보안 전송이 사용 되는 경우 URI `wasbs://`는입니다. 또한 [보안 전송](../storage/common/storage-require-secure-transfer.md)을 참조 하세요.
+* 저장소 계정에 대 한 [URI 체계](./hdinsight-hadoop-linux-information.md#URI-and-scheme) 입니다. Azure Storage는 `wasb://`, Azure Data Lake Storage Gen2는 `abfs://`, Azure Data Lake Storage Gen1은 `adl://`입니다. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다. [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 * 공유 액세스 서명을 추가할 기존 HDInsight 클러스터입니다. 그렇지 않으면 Azure PowerShell을 사용하여 클러스터를 만들고 클러스터를 만들 때 공유 액세스 서명을 추가합니다.
 
@@ -50,13 +50,13 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
   * HDInsight에 사용할 스토리지 컨테이너, 저장된 정책 및 SAS를 만들 수 있는 Visual Studio 프로젝트
   * HDInsight에 사용할 스토리지 컨테이너, 저장된 정책 및 SAS를 만들 수 있는 Python 스크립트
   * HDInsight 클러스터를 만들고 SAS를 사용하도록 구성할 수 있는 PowerShell 스크립트 업데이트 된 버전은 아래와 같이 추가로 사용 됩니다.
-  * 샘플 파일:`hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
+  * 샘플 파일: `hdinsight-dotnet-python-azure-storage-shared-access-signature-master\sampledata\sample.log`
 
 ## <a name="shared-access-signatures"></a>공유 액세스 서명
 
 두 가지 형태의 공유 액세스 서명이 있습니다.
 
-* 임시: SAS에 대한 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정됩니다.
+* Ad hoc: SAS에 대한 시작 시간, 만료 시간 및 사용 권한이 SAS URI에 모두 지정됩니다.
 
 * 저장된 액세스 정책: 저장된 액세스 정책은 Blob 컨테이너 같은 리소스 컨테이너에서 정의됩니다. 정책은 하나 이상의 공유 액세스 서명에 대한 제약 조건을 관리하는 데 사용될 수 있습니다. SAS를 공유 액세스 정책과 연결할 경우 SAS는 저장된 액세스 정책에 대해 정의된 제약 조건(시작 시간, 만료 시간 및 사용 권한)을 상속합니다.
 
@@ -90,7 +90,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 ### <a name="using-powershell"></a>PowerShell 사용
 
-, `RESOURCEGROUP` 및을`STORAGECONTAINER` 기존 저장소 컨테이너에 대 한 적절 한 값으로 바꿉니다. `STORAGEACCOUNT` 디렉터리를로 `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` 변경 하거나의 `-File` `Set-AzStorageblobcontent`절대 경로를 포함 하도록 매개 변수를 수정 합니다. 다음 PowerShell 명령을 입력 합니다.
+`RESOURCEGROUP`, `STORAGEACCOUNT`및 `STORAGECONTAINER`을 기존 저장소 컨테이너에 대 한 적절 한 값으로 바꿉니다. 디렉터리를 `hdinsight-dotnet-python-azure-storage-shared-access-signature-master`로 변경 하거나 `-File` 매개 변수를 수정 하 여 `Set-AzStorageblobcontent`의 절대 경로를 포함 합니다. 다음 PowerShell 명령을 입력 합니다.
 
 ```PowerShell
 $resourceGroupName = "RESOURCEGROUP"
@@ -156,7 +156,7 @@ Set-AzStorageblobcontent `
 
 이 섹션에서 변수를 사용 하는 것은 Windows 환경을 기반으로 합니다. Bash 또는 다른 환경에는 약간의 변형이 필요 합니다.
 
-1. 을 기존 저장소 컨테이너에 대 한 적절 한 값 `STORAGEACCOUNT` 으로바꿉니다.`STORAGECONTAINER`
+1. `STORAGEACCOUNT`및 `STORAGECONTAINER`을 기존 저장소 컨테이너에 대 한 적절 한 값으로 바꿉니다.
 
     ```azurecli
     # set variables
@@ -173,14 +173,14 @@ Set-AzStorageblobcontent `
     az storage account keys list --account-name %AZURE_STORAGE_ACCOUNT% --query "[0].{PrimaryKey:value}" --output table
     ```
 
-2. 검색 된 기본 키를 나중에 사용할 수 있도록 변수로 설정 합니다. 을 `PRIMARYKEY` 이전 단계에서 검색 된 값으로 바꾸고 아래 명령을 입력 합니다.
+2. 검색 된 기본 키를 나중에 사용할 수 있도록 변수로 설정 합니다. `PRIMARYKEY`를 이전 단계에서 검색 된 값으로 바꾸고 아래 명령을 입력 합니다.
 
     ```azurecli
     #set variable for primary key
     set AZURE_STORAGE_KEY=PRIMARYKEY
     ```
 
-3. 디렉터리를로 `hdinsight-dotnet-python-azure-storage-shared-access-signature-master` 변경 하거나의 `--file` `az storage blob upload`절대 경로를 포함 하도록 매개 변수를 수정 합니다. 나머지 명령을 실행 합니다.
+3. 디렉터리를 `hdinsight-dotnet-python-azure-storage-shared-access-signature-master`로 변경 하거나 `--file` 매개 변수를 수정 하 여 `az storage blob upload`의 절대 경로를 포함 합니다. 나머지 명령을 실행 합니다.
 
     ```azurecli
     # Create stored access policy on the containing object
@@ -201,9 +201,9 @@ Set-AzStorageblobcontent `
 
 ### <a name="using-python"></a>Python 사용
 
-파일을 열고, `storage_account_name` `storage_account_key` 및`storage_container_name` 을 기존 저장소 컨테이너에 대 한 적절 한 값으로 바꾼 다음 스크립트를 실행 합니다. `SASToken.py`
+`SASToken.py` 파일을 열고 `storage_account_name`, `storage_account_key`및 `storage_container_name`을 기존 저장소 컨테이너에 대 한 적절 한 값으로 바꾼 다음 스크립트를 실행 합니다.
 
-오류 메시지가 `pip install --upgrade azure-storage` `ImportError: No module named azure.storage`표시 되 면를 실행 해야 할 수 있습니다.
+`ImportError: No module named azure.storage`오류 메시지가 표시 되 면 `pip install --upgrade azure-storage`를 실행 해야 할 수 있습니다.
 
 ### <a name="using-c"></a>C# 사용
 
@@ -217,9 +217,9 @@ Set-AzStorageblobcontent `
 
    * ContainerName: 액세스를 제한할 스토리지 계정의 컨테이너입니다.
 
-   * SASPolicyName: 만들려는 저장된 정책에 사용할 이름입니다.
+   * SASPolicyName: 만들 저장된 정책에 대해 사용할 이름입니다.
 
-   * FileToUpload: 컨테이너에 업로드되는 파일의 경로입니다.
+   * FileToUpload: 컨테이너에 업로드할 파일에 대한 경로입니다.
 
 4. 프로젝트를 실행합니다. SAS 정책 토큰, 스토리지 계정 이름 및 컨테이너 이름을 저장합니다. 스토리지 계정을 HDInsight 클러스터에 연결할 때 이러한 값이 사용됩니다.
 
@@ -231,7 +231,7 @@ HDInsight 클러스터를 만들 때 기본 스토리지 계정을 지정해야 
 
 ### <a name="create-a-cluster-that-uses-the-sas"></a>SAS를 사용하는 클러스터 만들기
 
-`CLUSTERNAME` ,`RESOURCEGROUP`, ,`STORAGECONTAINER`, 및 을적절한값으로바꿉니다`TOKEN`. `DEFAULTSTORAGEACCOUNT` `STORAGEACCOUNT` PowerShell 명령을 입력 합니다.
+`CLUSTERNAME`, `RESOURCEGROUP`, `DEFAULTSTORAGEACCOUNT`, `STORAGECONTAINER`, `STORAGEACCOUNT`및 `TOKEN`을 적절 한 값으로 바꿉니다. PowerShell 명령을 입력 합니다.
 
 ```powershell
 
@@ -364,10 +364,10 @@ Remove-AzResourceGroup `
 
 4. **Custom core-site** 섹션을 확장한 후 끝까지 스크롤하여 **Add property...** 링크를 선택합니다. **Key** 및 **Value** 필드에 다음 값을 사용합니다.
 
-   * **키**:`fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+   * **키**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
    * **값**: 이전에 실행 된 메서드 중 하나에서 반환 된 SAS입니다.
 
-     을 `CONTAINERNAME` C# 또는 SAS 응용 프로그램에서 사용한 컨테이너 이름으로 바꿉니다. 을 `STORAGEACCOUNTNAME` 사용한 저장소 계정 이름으로 바꿉니다.
+     `CONTAINERNAME`를 또는 SAS 응용 프로그램에서 C# 사용한 컨테이너 이름으로 바꿉니다. `STORAGEACCOUNTNAME`를 사용한 저장소 계정 이름으로 바꿉니다.
 
 5. **Add** 단추를 클릭하여 이 키 및 값을 저장한 후 **Save** 단추를 클릭하여 구성 변경을 저장합니다. 메시지가 나타나면 변경에 대한 설명(예: &quot;SAS 스토리지 액세스 추가&quot;)을 추가하고 **저장**을 클릭합니다.
 
@@ -386,7 +386,7 @@ Remove-AzResourceGroup `
 
 SAS 저장소 계정의 항목만 읽고 나열할 수 있는지 확인 하려면 다음 단계를 사용 합니다.
 
-1. 클러스터에 연결 합니다. 을 `CLUSTERNAME` 클러스터의 이름으로 바꾸고 다음 명령을 입력 합니다.
+1. 클러스터에 연결 합니다. `CLUSTERNAME`를 클러스터의 이름으로 바꾸고 다음 명령을 입력 합니다.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
@@ -398,11 +398,11 @@ SAS 저장소 계정의 항목만 읽고 나열할 수 있는지 확인 하려�
     hdfs dfs -ls wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/
     ```
 
-    을 `SASCONTAINER` SAS 저장소 계정에 대해 만든 컨테이너의 이름으로 바꿉니다. 을 `SASACCOUNTNAME` SAS에 사용 되는 저장소 계정 이름으로 바꿉니다.
+    `SASCONTAINER`를 SAS 저장소 계정에 대해 만든 컨테이너의 이름으로 바꿉니다. `SASACCOUNTNAME`를 SAS에 사용 되는 저장소 계정 이름으로 바꿉니다.
 
     목록에는 컨테이너와 SAS를 만들 때 업로드된 파일이 포함됩니다.
 
-3. 다음 명령을 사용하여 파일의 내용을 읽을 수 있는지 확인합니다. 이전 단계에서와 같이를 바꿉니다. `SASACCOUNTNAME` `SASCONTAINER` 을 `sample.log` 이전 명령에 표시 되는 파일의 이름으로 바꿉니다.
+3. 다음 명령을 사용하여 파일의 내용을 읽을 수 있는지 확인합니다. 이전 단계에서와 같이 `SASCONTAINER` 및 `SASACCOUNTNAME`를 바꿉니다. `sample.log`를 이전 명령에 표시 되는 파일의 이름으로 바꿉니다.
 
     ```bash
     hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log

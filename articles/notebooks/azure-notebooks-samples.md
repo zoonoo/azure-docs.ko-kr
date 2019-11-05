@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 8e4c817437c22d15e60cf48d5976c30433e83d75
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 715db36921427dc0ac5dcdad24c2c026b1ea1326
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970017"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496699"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>샘플 Notebook 검색 및 사용
 
@@ -30,7 +30,7 @@ ms.locfileid: "71970017"
 
 ## <a name="great-sample-notebooks"></a>유용한 샘플 Notebook
 
-- [Azure Notebooks 시작 세트](https://notebooks.azure.com/#sample-redirect)에는 데이터 액세스, Azure Machine Learning Services 및 몇 가지 데이터 과학 연습을 보여주는 Notebook과 함께 Python, R, F#를 소개하는 내용이 포함되어 있습니다.
+- [Azure Notebooks 스타터 집합](https://notebooks.azure.com/#sample-redirect) 에는 데이터 액세스, Azure Machine Learning 및 몇 F#가지 데이터 과학 연습을 보여 주는 노트북과 함께 Python, R 및에 대 한 소개가 포함 됩니다.
 - [Jupyter Notebook 소개](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb)(jupyter.org)
 - [데이터 과학 소개](https://github.com/jakevdp/PythonDataScienceHandbook/tree/master/notebooks)(Jake Vanderplas)
 - [흥미로운 Notebook 갤러리](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks)(GitHub의 Jupyter 프로젝트)
@@ -42,5 +42,5 @@ ms.locfileid: "71970017"
 
 - [방법: 프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
 - [방법: 데이터 파일 작업](work-with-project-data-files.md)
-- [방법: 데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)
-- [방법: Azure Machine Learning Services 사용](use-machine-learning-services-jupyter-notebooks.md)
+- [방법: 데이터 리소스 액세스](access-data-resources-jupyter-notebooks.md)
+- [방법: Azure Machine Learning 사용](use-machine-learning-services-jupyter-notebooks.md)

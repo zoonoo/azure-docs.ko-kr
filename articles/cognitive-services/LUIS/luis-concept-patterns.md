@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: bad3bdc2b4508c082ca50647d5de5e7265c763a1
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4ca3a27a63f84eccb66b24d5046e2ae7d751387d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639186"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487548"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
 패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다.  패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다. 
@@ -67,15 +67,15 @@ ms.locfileid: "68639186"
 
 |함수|구문|중첩 수준|예제|
 |--|--|--|--|
-|엔터티(entity)| {}-중괄호|2|{Entity-name} 형식은 어디에 있나요?|
-|선택적|[]-대괄호<BR><BR>선택 항목 및 그룹화 조합의 중첩 수준에는 3의 제한이 있습니다. |2|물음표는 선택적인 [?]입니다.|
-|그룹화|()-괄호|2|is (a \| b)|
-|로 구분하거나 여러| \|-세로 막대 (파이프)<br><br>한 그룹의 세로 막대 (또는)에는 2 제한이 있습니다. |-|형식 ({form-name-short} &#x7c; {form-name-long} &#x7c; {form-number})| 
+|엔터티| {}-중괄호|2|{Entity-name} 형식은 어디에 있나요?|
+|선택 사항|[]-대괄호<BR><BR>선택 항목 및 그룹화 조합의 중첩 수준에는 3의 제한이 있습니다. |2|물음표는 선택적인 [?]입니다.|
+|묶어서|()-괄호|2|is (a \| b)|
+|또는| \|-세로 막대 (파이프)<br><br>한 그룹의 세로 막대 (또는)에는 2 제한이 있습니다. |-|형식 ({form-name-short} &#x7c; {form-name-long} &#x7c; {form-number})| 
 |utterance의 시작 및/또는 끝|^-캐럿|-|^ utterance 시작<br>utterance가 완료 되었습니다.<br>^ ' number} 엔터티 ^의 전체 utterance의 엄격한 리터럴 일치 항목 ^|
 
 ## <a name="nesting-syntax-in-patterns"></a>패턴의 중첩 구문
 
-대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예를 들어 `[[this]is] a new form`을 참조하십시오. 이 예에서는 다음 길이 발언을 허용 합니다. 
+대괄호를 사용 하는 **선택적** 구문은 두 수준 중첩할 수 있습니다. 예제: `[[this]is] a new form`. 이 예에서는 다음 길이 발언을 허용 합니다. 
 
 |중첩 된 선택적 utterance 예제|설명|
 |--|--|
@@ -83,21 +83,21 @@ ms.locfileid: "68639186"
 |새 양식|패턴의 외부 선택적 단어 및 선택적 단어가 아닌 단어를 찾습니다.|
 |새 양식|필수 단어만 찾습니다.|
 
-괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예를 들어 `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`을 참조하십시오. 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다. 
+괄호를 사용 하는 **그룹화** 구문은 두 수준 중첩할 수 있습니다. 예제: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. 이 기능을 사용 하면 세 가지 엔터티를 일치 시킬 수 있습니다. 
 
 Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 위치인 경우 엔터티 2는 목록 엔터티 (RedWest-C)에서 알려진 빌딩 이름이 고, 다음 길이 발언는이 패턴에 매핑됩니다.
 
 |Nested grouping utterance 예제|설명|
 |--|--|
 |RedWest-C|외부 그룹화 엔터티와 일치|
-|Seattle|내부 그룹화 엔터티 중 하 나와 일치|
-|Cairo|내부 그룹화 엔터티 중 하 나와 일치|
+|시애틀|내부 그룹화 엔터티 중 하 나와 일치|
+|카이로|내부 그룹화 엔터티 중 하 나와 일치|
 
 ## <a name="nesting-limits-for-groups-with-optional-syntax"></a>선택적인 구문을 사용 하 여 그룹에 대 한 중첩 제한
 
 **선택적** 구문의 **그룹화** 조합에는 중첩 수준 3 개로 제한 됩니다.
 
-|Allowed|예제|
+|허용됨|예제|
 |--|--|
 |예|([(test1 &#x7c; test2)] &#x7c; test3)|
 |아니요|([([test1] &#x7c; test2)] &#x7c; test3)|
@@ -106,7 +106,7 @@ Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 
 
 **Or** of 구문을 사용한 **grouping** 의 조합에는 세로 막대 2 개로 제한 됩니다.
 
-|Allowed|예제|
+|허용됨|예제|
 |--|--|
 |예|(test1 &#x7c; test2 &#x7c; (test3 &#x7c; test4))|
 |아니요|(test1 &#x7c; test2 &#x7c; test3 &#x7c; (test4 &#x7c; test5)) |
@@ -121,7 +121,7 @@ Entity1이 원본 (시애틀) 및 대상 (카이로)과 같은 역할이 있는 
 ## <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>패턴 템플릿에 엔터티 및 역할을 추가하는 구문
 엔터티 역할은 엔터티 이름에 콜론을 입력하고 역할 이름을 입력하여 `{entity:role}`로 표시합니다. 패턴 템플릿에 역할이 있는 엔터티를 추가하려면 엔터티 이름과 역할 이름을 중괄호로 묶습니다(예: `Book a ticket from {Location:Origin} to {Location:Destination}`). 
 
-|엔터티 역할을 사용한 패턴|
+|엔터티 역할 사용 패턴|
 |--|
 |`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
@@ -155,21 +155,21 @@ LUIS는 패턴에 따라 책 제목이 끝나는 위치를 알 수 있기 때문
 
 다음 발언에서 **subject** 및 **person** 엔터티는 올바르게 추출되고 올바르지 않게 추출됩니다.
 
-|발화|엔터티|올바른 추출|
+|발언|엔터티|올바른 추출|
 |--|--|:--:|
 |email about dogs from Chris|subject=dogs<br>person=Chris|✔|
 |email about the man from La Mancha|subject=the man<br>person=La Mancha|X|
 
-위의 표에서 제목은 (책 제목) 이어야 `the man from La Mancha` 하지만 제목에 선택적 단어가 `from`포함 되어 있으므로 제목은 잘못 예측 됩니다. 
+위의 표에서 제목은 `the man from La Mancha` (책 제목) 이어야 하지만 제목에는 선택적 word `from`포함 되어 있으므로 제목은 잘못 예측 됩니다. 
 
-패턴에서 이러한 예외를 해결하려면 [명시적 목록에 대한 API 작성](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)을 사용하여 {subject} 엔터티에 대한 명시적 목록 일치로 `the man from la mancha`를 추가합니다.
+패턴에서 이러한 예외를 해결하려면 `the man from la mancha`명시적 목록에 대한 API 작성[을 사용하여 {subject} 엔터티에 대한 명시적 목록 일치로 ](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8)를 추가합니다.
 
 ## <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>템플릿 발언에서 선택적 텍스트를 표시하는 구문
 정규식 대괄호 구문 `[]`을 사용하여 발언의 선택적 텍스트에 표시합니다. 선택적 텍스트는 대괄호에 최대 2개의 중괄호를 중첩할 수 있습니다.
 
 |선택적 텍스트 사용 패턴|의미|
 |--|--|
-|`[find] email about {subject} [from {person}]`|`find`및 `from {person}` 는 선택 사항입니다.|
+|`[find] email about {subject} [from {person}]`|`find` 및 `from {person}`는 선택 사항입니다.|
 |' 도와 주세요. [?]|구두점 표시는 선택 사항입니다.|
 
 문장 부호 (`?`, `!`, `.`)는 무시 해야 하며 패턴의 대괄호 구문을 사용 하 여 무시 해야 합니다. 
@@ -178,7 +178,7 @@ LUIS는 패턴에 따라 책 제목이 끝나는 위치를 알 수 있기 때문
 각 의도에 대 한 패턴이 있는 한 예 길이 발언 없는 의도를 사용 하 여 앱을 빌드할 수 있습니다. 패턴 전용 앱의 경우에는 예제 길이 발언이 필요 하므로 패턴은 컴퓨터에서 배운 엔터티를 포함 하지 않아야 합니다. 
 
 ## <a name="best-practices"></a>모범 사례
-[모범 사례](luis-concept-best-practices.md)를 알아봅니다.
+[모범 사례](luis-concept-best-practices.md)에 대해 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

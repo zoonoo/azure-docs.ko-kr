@@ -11,15 +11,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/28/2019
-ms.openlocfilehash: 77f816400709262fab8cb9bd351bdcde73377e09
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 41b2602e57d295cfd7e475f4b3aa5657bd4e24d7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034280"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489593"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Azure Machine Learning 실험을 위해 파일을 저장 하 고 작성 하는 위치
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 입력 파일을 저장할 위치와 실험에서 출력 파일을 쓸 위치를 학습 하 여 저장소 제한 오류 및 실험 대기 시간을 방지 합니다.
 
@@ -35,7 +36,7 @@ Azure Machine Learning는 전체 스크립트 폴더를 대상 계산 컨텍스�
 
 * **Azure Machine Learning [데이터 저장소](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)에 파일을 저장 합니다.** 이로 인해 실험 대기 시간 문제가 발생 하지 않으며 원격 계산 대상에서 데이터에 액세스 하는 이점이 있습니다. 즉, 인증 및 탑재는 Azure Machine Learning에서 관리 됩니다. 데이터 저장소를 원본 디렉터리로 지정 하 고 [데이터를 데이터 저장소에서 데이터 액세스 문서의 데이터](how-to-access-data.md) 저장소에 업로드 하는 방법에 대해 자세히 알아보세요.
 
-* **데이터 파일 및 종속성 스크립트가 몇 개만 필요 하 고 데이터 저장소를 사용할 수 없는 경우** 학습 스크립트와 동일한 폴더 디렉터리에 파일을 저장 합니다. 이 폴더 `source_directory` 를 학습 스크립트나 학습 스크립트를 호출 하는 코드에서 직접 지정 합니다.
+* **데이터 파일 및 종속성 스크립트가 몇 개만 필요 하 고 데이터 저장소를 사용할 수 없는 경우** 학습 스크립트와 동일한 폴더 디렉터리에 파일을 저장 합니다. 이 폴더를 학습 스크립트나 학습 스크립트를 호출 하는 코드에서 직접 `source_directory`로 지정 합니다.
 
 <a name="limits"></a>
 
@@ -53,9 +54,9 @@ Your total snapshot size exceeds the limit of 300.0 MB
 실험&nbsp;설명|저장소 제한 솔루션
 ---|---
 2000 개 미만의 파일 & 데이터 저장소를 사용할 수 없음| 스냅숏 크기 제한 재정의 <br> `azureml._restclient.snapshots_client.SNAPSHOT_MAX_SIZE_BYTES = 'insert_desired_size'`<br> 파일 수와 크기에 따라 몇 분 정도 걸릴 수 있습니다.
-특정 스크립트 디렉터리를 사용 해야 합니다.| 소스 코드 `.amlignore` 의 일부가 아닌 실험 스냅숏에서 파일을 제외 하도록 파일을 만듭니다. `.amlignore` 파일 이름을 파일에 추가 하 고 학습 스크립트와 동일한 디렉터리에 저장 합니다. 파일 `.amlignore` 은 `.gitignore` 파일과 동일한 [구문과 패턴](https://git-scm.com/docs/gitignore) 을 사용 합니다.
+특정 스크립트 디렉터리를 사용 해야 합니다.| 소스 코드의 일부가 아닌 실험 스냅숏에서 파일을 제외 하도록 `.amlignore` 파일을 만듭니다. 파일 이름을 `.amlignore` 파일에 추가 하 고 학습 스크립트와 동일한 디렉터리에 저장 합니다. `.amlignore` 파일은 `.gitignore` 파일과 동일한 [구문과 패턴](https://git-scm.com/docs/gitignore) 을 사용 합니다.
 파이프라인|각 단계에 다른 하위 디렉터리 사용
-Jupyter Notebook| 파일을 `.amlignore` 만들거나, 비어 있는 새 하위 디렉터리로 파일을 이동 하 고, 코드를 다시 실행 합니다.
+Jupyter Notebook| `.amlignore` 파일을 만들거나, 비어 있는 새 하위 디렉터리로 노트북을 이동 하 고, 코드를 다시 실행 합니다.
 
 ## <a name="where-to-write-files"></a>파일을 쓸 위치
 
@@ -63,14 +64,14 @@ Jupyter Notebook| 파일을 `.amlignore` 만들거나, 비어 있는 새 하위 
 
 변경 내용을 작성할 때 파일을 Azure Machine Learning 데이터 저장소에 쓰는 것이 좋습니다. [데이터 저장소에서 데이터 액세스](how-to-access-data.md)를 참조 하세요.
 
-데이터 저장소가 필요 하지 않은 경우 `./outputs` 및/또는 `./logs` 폴더에 파일을 씁니다.
+데이터 저장소가 필요 하지 않은 경우에는 `./outputs` 및/또는 `./logs` 폴더에 파일을 씁니다.
 
 >[!Important]
-> 두 개의 폴더, *출력* 및 *로그*는 Azure Machine Learning로 특수 처리를 수신 합니다. 학습 중에 및`./outputs` `./logs` 폴더에 파일을 쓸 때 파일이 실행 기록에 자동으로 업로드 되므로 실행이 완료 되 면 파일에 액세스할 수 있습니다.
+> 두 개의 폴더, *출력* 및 *로그*는 Azure Machine Learning로 특수 처리를 수신 합니다. 학습 중에`./outputs` 및`./logs` 폴더에 파일을 쓸 때 파일이 실행 기록에 자동으로 업로드 되므로 실행이 완료 되 면 파일에 액세스할 수 있습니다.
 
-* **상태 메시지 또는 점수 매기기 결과와 같은 출력의** 경우 `./outputs` 폴더에 파일을 기록 하 여 실행 기록의 아티팩트로 유지 됩니다. 콘텐츠를 실행 기록에 업로드 하면 대기 시간이 발생할 수 있으므로이 폴더에 기록 되는 파일 수와 크기를 염두에 둘 수 있습니다. 대기 시간이 중요 한 경우 데이터 저장소에 파일을 기록 하는 것이 좋습니다.
+* **상태 메시지 또는 점수 매기기 결과와 같은 출력의** 경우 `./outputs` 폴더에 파일을 작성 하 여 실행 기록의 아티팩트로 유지 됩니다. 콘텐츠를 실행 기록에 업로드 하면 대기 시간이 발생할 수 있으므로이 폴더에 기록 되는 파일 수와 크기를 염두에 둘 수 있습니다. 대기 시간이 중요 한 경우 데이터 저장소에 파일을 기록 하는 것이 좋습니다.
 
-* **기록 된 파일을 실행 기록에 로그로 저장 하려면** 폴더에 `./logs` 파일을 씁니다. 로그는 실시간으로 업로드 되므로이 메서드는 원격 실행에서 라이브 업데이트를 스트리밍하는 데 적합 합니다.
+* **기록 된 파일을 실행 기록에 로그로 저장 하려면** `./logs` 폴더에 파일을 씁니다. 로그는 실시간으로 업로드 되므로이 메서드는 원격 실행에서 라이브 업데이트를 스트리밍하는 데 적합 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

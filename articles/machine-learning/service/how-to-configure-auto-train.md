@@ -2,23 +2,24 @@
 title: 자동화된 ML 실험 만들기
 titleSuffix: Azure Machine Learning
 description: 자동화된 기계 학습은 사용자를 위한 알고리즘을 선택하고 배포할 준비가 된 모델을 생성합니다. 자동화된 기계 학습 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다.
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 181f11bd5cfda479c25b5bce20649b8f382968fe
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 4d050385bb76817c8aeada1bef4c4697a1f58d09
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935381"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497266"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 가이드에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하 여 자동화 된 machine learning 실험의 다양 한 구성 설정을 정의 하는 방법에 대해 알아봅니다. 자동화된 Machine Learning은 사용자를 위한 알고리즘과 하이퍼 매개 변수를 선택하고 배포할 준비가 된 모델을 생성합니다. 자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다.
 
@@ -34,7 +35,7 @@ ms.locfileid: "72935381"
 * 모델 메트릭 탐색
 * 모델 등록 및 배포
 
-코드를 사용 하지 않으려는 경우 [Azure Portal에서 자동화 된 machine learning 실험을 만들](how-to-create-portal-experiments.md)수도 있습니다.
+코드를 사용 하지 않으려는 경우 [Azure Machine Learning studio에서 자동화 된 기계 학습 실험을 만들](how-to-create-portal-experiments.md)수도 있습니다.
 
 ## <a name="select-your-experiment-type"></a>실험 유형 선택
 
@@ -72,7 +73,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="data-source-and-format"></a>데이터 원본 및 형식
 
-자동화된 Machine Learning은 로컬 데스크톱 또는 Azure Blob Storage와 같은 클라우드의 데이터를 지원합니다. **Pandas 데이터 프레임** 또는 **Azure Machine Learning TabularDataset**데이터를 읽을 수 있습니다.  [Datatsets에 대해 자세히 알아보세요](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
+자동화된 Machine Learning은 로컬 데스크톱 또는 Azure Blob Storage와 같은 클라우드의 데이터를 지원합니다. **Pandas 데이터 프레임** 또는 **Azure Machine Learning TabularDataset**데이터를 읽을 수 있습니다.  [데이터 집합에 대해 자세히 알아보세요](https://github.com/MicrosoftDocs/azure-docs-pr/pull/how-to-create-register-datasets.md).
 
 데이터 학습을 위한 요구 사항:
 - 데이터는 테이블 형식 이어야 합니다.
@@ -102,7 +103,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 ## <a name="fetch-data-for-running-experiment-on-remote-compute"></a>원격 컴퓨팅에서 실험을 실행하기 위한 데이터 가져오기
 
-원격 실행의 경우 원격 계산에서 학습 데이터에 액세스할 수 있어야 합니다. SDK의 클래스 [`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 은 다음에 대 한 기능을 노출 합니다.
+원격 실행의 경우 원격 계산에서 학습 데이터에 액세스할 수 있어야 합니다. SDK의 클래스 [`Datasets`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) 는 다음과 같은 기능을 제공 합니다.
 
 * 정적 파일 또는 URL 원본에서 작업 영역으로 데이터를 쉽게 전송
 * 클라우드 계산 리소스에서 실행 되는 경우 학습 스크립트에서 데이터를 사용할 수 있도록 설정
@@ -145,26 +146,24 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
 
 일부 사례:
 
-1.  모든 반복이 12000 초 후에 종료 되 고 2 개의 교차 유효성 검사 접기 50 후에는 실험을 사용 하 여, CC 가중치를 사용 하는 기본 메트릭으로 사용 되는 분류 실험.
+1.  실험 시간 제한 시간 (분)이 30 분으로 설정 되 고 교차 유효성 검사를 2로 설정 하는 기본 메트릭으로 # 가중치를 사용 하는 분류 실험
 
     ```python
     automl_classifier=AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        max_time_sec=12000,
-        iterations=50,
+        experiment_timeout_minutes=30,
         blacklist_models='XGBoostClassifier',
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=2)
     ```
-2.  다음은 회귀 실험이 100회 반복된 후 종료되도록 설정한 예제이며, 각 반복이 5회 교차 유효성 검사 접기를 통해 최대 600초까지 지속됩니다.
+2.  다음은 5 번의 유효성 검사를 통해 60 분 후에 종료 되는 회귀 실험 집합의 예입니다.
 
     ```python
     automl_regressor = AutoMLConfig(
         task='regression',
-        max_time_sec=600,
-        iterations=100,
+        experiment_timeout_minutes=60,
         whitelist_models='kNN regressor'
         primary_metric='r2_score',
         training_data=train_data,
@@ -172,7 +171,7 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
         n_cross_validations=5)
     ```
 
-세 가지 `task` 매개 변수 값 (세 번째 작업 유형은 `forecasting` 이며 `regression` 작업과 동일한 알고리즘 풀을 사용)은 적용할 모델 목록을 결정 합니다. `whitelist` 또는 `blacklist` 매개 변수를 사용 하 여 포함 하거나 제외할 사용 가능한 모델로 반복을 수정 합니다. 지원 되는 모델 목록은 [Supportedmodels 클래스](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)에서 찾을 수 있습니다.
+세 가지 다른 `task` 매개 변수 값 (세 번째 작업 유형은 `forecasting`이며 `regression` 작업과 동일한 알고리즘 풀 사용)은 적용할 모델 목록을 결정 합니다. `whitelist` 또는 `blacklist` 매개 변수를 사용 하 여 포함 하거나 제외할 사용 가능한 모델로 반복을 수정 합니다. 지원 되는 모델 목록은 [Supportedmodels 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.constants.supportedmodels?view=azure-ml-py)에서 찾을 수 있습니다.
 
 ### <a name="primary-metric"></a>기본 메트릭
 기본 메트릭은 최적화를 위해 모델 학습 중에 사용할 메트릭을 결정 합니다. 선택할 수 있는 메트릭은 선택한 작업 유형에 따라 결정 되며, 다음 표에서는 각 작업 유형에 대 한 유효한 기본 메트릭을 보여 줍니다.
@@ -191,7 +190,7 @@ Azure Databricks 있는 노트북 예는 [GitHub 사이트](https://github.com/A
 
 자동화 된 모든 기계 학습 실험에서 데이터의 [크기를 자동으로 조정 하 고 표준화](concept-automated-ml.md#preprocess) 하 여 다양 한 규모의 기능에 영향을 주는 *특정* 알고리즘을 지원 합니다.  그러나 누락 값 대체, 인코딩 및 변환과 같은 추가 전처리/기능화을 사용할 수도 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess).
 
-이 기능화를 사용 하도록 설정 하려면 [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대해 `"preprocess": True`을 지정 합니다.
+이 기능화를 사용 하도록 설정 하려면 [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대 한 `"preprocess": True`를 지정 합니다.
 
 > [!NOTE]
 > 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
@@ -225,7 +224,7 @@ time_series_settings = {
 automl_config = AutoMLConfig(task = 'forecasting',
                              debug_log='automl_oj_sales_errors.log',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=20,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -238,9 +237,9 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 앙상블 모델은 기본적으로 사용 하도록 설정 되어 있으며 자동화 된 machine learning 실행에서 최종 실행 반복으로 나타납니다. 현재 지원 되는 앙상블 메서드는 투표 및 누적입니다. 응답은가 중 평균을 사용 하 여 소프트 응답으로 구현 되 고, 스택 구현은 두 계층 구현을 사용 합니다. 여기서 첫 번째 계층은 투표 앙상블와 동일한 모델을 사용 하 고 두 번째 계층 모델은 두 계층 모델을 사용 하 여 첫 번째 계층의 모델입니다. ONNX 모델을 사용 **하거나** explainability를 사용 하는 경우에는 누적이 사용 하지 않도록 설정 되며 투표만 사용 됩니다.
 
-기본 stack 앙상블 동작을 변경 하기 위해 `AutoMLConfig` 개체에서 `kwargs`으로 제공할 수 있는 여러 기본 인수가 있습니다.
+기본 stack 앙상블 동작을 변경 하기 위해 `AutoMLConfig` 개체에서 `kwargs`로 제공 될 수 있는 여러 기본 인수가 있습니다.
 
-* `stack_meta_learner_type`: 학습자은 개별 다른 유형의 모델의 출력에 대해 학습 된 모델입니다. 기본 메타 학습자는 분류 작업 (또는 교차 유효성 검사를 사용 하는 경우 `LogisticRegressionCV`) `ElasticNet` 및 회귀/예측 작업 (교차 유효성 검사를 사용 하는 경우 `ElasticNetCV`)에 대해 `LogisticRegression` 됩니다. 이 매개 변수는 다음 문자열 중 하나일 수 있습니다. `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` 또는 `LinearRegression`.
+* `stack_meta_learner_type`: 학습자은 개별 다른 유형의 모델의 출력에 대해 학습 된 모델입니다. 기본 메타 학습자는 분류 작업 (또는 교차 유효성 검사를 사용 하는 경우 `LogisticRegressionCV`) `ElasticNet` 및 회귀/예측 작업 (교차 유효성 검사를 사용 하는 경우 `ElasticNetCV`)에 대해 `LogisticRegression` 됩니다. 이 매개 변수는 `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`또는 `LinearRegression`문자열 중 하나일 수 있습니다.
 * `stack_meta_learner_train_percentage`: 학습자를 학습 하기 위해 예약할 학습 집합 (학습 및 유효성 검사 유형 선택)의 비율을 지정 합니다. 기본값은 `0.2`입니다.
 * `stack_meta_learner_kwargs`: meta 학습자의 이니셜라이저에 전달할 선택적 매개 변수입니다. 이러한 매개 변수 및 매개 변수 형식은 해당 모델 생성자에서 이러한 매개 변수를 미러링 하 고 모델 생성자에 전달 됩니다.
 
@@ -262,7 +261,7 @@ ensemble_settings = {
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=train_data,
         label_column_name=label,
         n_cross_validations=5,
@@ -276,7 +275,7 @@ automl_classifier = AutoMLConfig(
 automl_classifier = AutoMLConfig(
         task='classification',
         primary_metric='AUC_weighted',
-        iterations=20,
+        experiment_timeout_minutes=30,
         training_data=data_train,
         label_column_name=label,
         n_cross_validations=5,
@@ -314,7 +313,6 @@ run = experiment.submit(automl_config, show_output=True)
 ### <a name="exit-criteria"></a>종료 조건
 실험을 종료 하기 위해 정의할 수 있는 몇 가지 옵션이 있습니다.
 1. 조건 없음: 종료 매개 변수를 정의 하지 않으면 기본 메트릭에 대 한 추가 진행률이 표시 되지 않을 때까지 실험을 계속 진행 합니다.
-1. 반복 횟수: 실험에서 실행할 반복 횟수를 정의 합니다. 필요에 따라 `iteration_timeout_minutes`를 추가 하 여 각 반복 당 시간 제한 (분)을 정의할 수 있습니다.
 1. 시간이 지난 후 종료: 설정에 `experiment_timeout_minutes`를 사용 하면 실험을 계속 실행 하는 데 걸리는 시간 (분)을 정의할 수 있습니다.
 1. 점수를 받은 후 종료: 기본 메트릭 점수에 도달한 후 `experiment_exit_score`를 사용 하 여 실험을 완료 합니다.
 
@@ -338,7 +336,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>자동화 된 기능 엔지니어링
 
-전처리 = True 일 때 발생 하는 전처리 및 [자동화 된 기능 엔지니어링](concept-automated-ml.md#preprocess) 목록을 참조 하세요.
+Feauturization = auto 일 때 발생 하는 전처리 및 [자동화 된 기능 엔지니어링](concept-automated-ml.md#preprocess) 목록을 참조 하세요.
 
 다음 예를 살펴보세요.
 + 입력 기능에는 (숫자), B (숫자), C (숫자), D (DateTime) 4 가지가 있습니다.
@@ -374,7 +372,7 @@ best_run, fitted_model = automl_run.get_output()
   >[!Note]
   >작업 = ' 예측 '에 ' timeseriestransformer '를 사용 하 고, ' 회귀 ' 또는 ' 분류 ' 작업에 ' datatransformer '를 사용 합니다.
 
-  출력
+  출력:
   ```
   [{'RawFeatureName': 'A',
     'TypeDetected': 'Numeric',
@@ -398,7 +396,7 @@ best_run, fitted_model = automl_run.get_output()
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   장소:
+   여기서,
 
    |출력|정의|
    |----|--------|
@@ -407,6 +405,32 @@ best_run, fitted_model = automl_run.get_output()
    |놓도록|입력 기능을 삭제 하거나 사용 했는지 여부를 나타냅니다.|
    |EngineeringFeatureCount|자동화 된 기능 엔지니어링 변환을 통해 생성 된 기능의 수입니다.|
    |변환|엔지니어링 된 기능을 생성 하기 위해 입력 기능에 적용 되는 변환 목록입니다.|
+   
+### <a name="customize-feature-engineering"></a>기능 엔지니어링 사용자 지정
+기능 엔지니어링을 사용자 지정 하려면 `"feauturization":FeaturizationConfig`를 지정 합니다.
+
+지원 되는 사용자 지정은 다음과 같습니다.
+
+|사용자 지정|정의|
+|--|--|
+|열 용도 업데이트|지정 된 열에 대 한 기능 유형을 재정의 합니다.|
+|변환기 매개 변수 업데이트 |지정 된 변환기에 대 한 매개 변수를 업데이트 합니다. 현재는  Uter 및 HashOneHotEncoder을 지원 합니다.|
+|열 삭제 |기능화에서 삭제할 열입니다.|
+|블록 변환기| 기능화 프로세스에 사용할 변환기를 차단 합니다.|
+
+API 호출을 사용 하 여 FeaturizationConfig 개체를 만듭니다.
+```python
+featurization_config = FeaturizationConfig()
+featurization_config.blocked_transformers = ['LabelEncoder']
+featurization_config.drop_columns = ['aspiration', 'stroke']
+featurization_config.add_column_purpose('engine-size', 'Numeric')
+featurization_config.add_column_purpose('body-style', 'CategoricalHash')
+#default strategy mean, add transformer param for for 3 columns
+featurization_config.add_transformer_params('Imputer', ['engine-size'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['city-mpg'], {"strategy": "median"})
+featurization_config.add_transformer_params('Imputer', ['bore'], {"strategy": "most_frequent"})
+featurization_config.add_transformer_params('HashOneHotEncoder', [], {"number_of_bits": 3})
+```
 
 ### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>하이퍼 매개 변수 값을 사용 하는 크기 조정/정규화 및 알고리즘:
 
@@ -467,78 +491,13 @@ LogisticRegression
 
 <a name="explain"></a>
 
-## <a name="explain-the-model-interpretability"></a>모델 설명 (interpretability)
+## <a name="model-interpretability"></a>모델 해석력
 
-자동화된 Machine Learning을 사용하면 기능 중요도를 이해할 수 있습니다.  학습 프로세스 동안 모델의 전역 기능 중요도를 얻을 수 있습니다.  분류 시나리오의 경우 클래스 수준 기능 중요도를 얻을 수도 있습니다.  기능 중요도를 얻으려면 유효성 검사 데이터 집합 (validation_data)을 제공 해야 합니다.
+모델 interpretability를 사용 하면 모델이 예측을 수행한 이유와 기본 기능 중요도 값을 이해할 수 있습니다. SDK에는 로컬 및 배포 된 모델에 대 한 학습 및 유추 시간에 모델 interpretability 기능을 사용 하기 위한 다양 한 패키지가 포함 되어 있습니다.
 
-기능 중요도를 생성하는 방법에는 다음 두 가지가 있습니다.
+자동화 된 기계 학습 실험 내에서 특히 interpretability 기능을 사용 하도록 설정 하는 방법에 대 한 코드 샘플은 [방법을](how-to-machine-learning-interpretability-automl.md) 참조 하세요.
 
-*   실험이 완료되면 모든 반복에 대해 `explain_model` 메서드를 사용할 수 있습니다.
-
-    ```python
-    from azureml.train.automl.automlexplainer import explain_model
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        explain_model(fitted_model, train_data, test_data)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-*   모든 반복의 기능 중요도를 보려면 AutoMLConfig에서 `model_explainability` 플래그를 `True`로 설정하세요.
-
-    ```python
-    automl_config = AutoMLConfig(task='classification',
-                                 debug_log='automl_errors.log',
-                                 primary_metric='AUC_weighted',
-                                 max_time_sec=12000,
-                                 iterations=10,
-                                 verbosity=logging.INFO,
-                                 training_data=train_data,
-                                 label_column_name=y_train,
-                                 validation_data=test_data,
-                                 model_explainability=True,
-                                 path=project_folder)
-    ```
-
-    완료되면 retrieve_model_explanation 메서드를 사용하여 특정 반복의 기능 중요도를 검색할 수 있습니다.
-
-    ```python
-    from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-        retrieve_model_explanation(best_run)
-
-    #Overall feature importance
-    print(overall_imp)
-    print(overall_summary)
-
-    #Class-level feature importance
-    print(per_class_imp)
-    print(per_class_summary)
-    ```
-
-실행 개체를 사용 하 여 기능 중요도를 보려면 URL을 표시 합니다.
-
-```
-automl_run.get_portal_url()
-```
-
-작업 영역에서 Azure Portal 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 기능 중요도 차트를 시각화할 수 있습니다. 노트북에서 `RunDetails` [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) 사용 하는 경우에도 차트가 표시 됩니다. 차트에 대 한 자세한 내용은 자동화 된 [machine learning 결과 이해](how-to-understand-automated-ml.md)를 참조 하세요.
-
-```Python
-from azureml.widgets import RunDetails
-RunDetails(automl_run).show()
-```
-
-![기능 중요도 그래프](./media/how-to-configure-auto-train/feature-importance.png)
-
-자동화 된 machine learning 외부에서 SDK의 다른 영역에 모델 설명과 기능 중요도를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 interpretability의 [개념](machine-learning-interpretability-explainability.md) 문서를 참조 하세요.
+자동화 된 machine learning 외부에서 SDK의 다른 영역에 모델 설명과 기능 중요도를 사용 하도록 설정 하는 방법에 대 한 일반적인 내용은 interpretability의 [개념](how-to-machine-learning-interpretability.md) 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

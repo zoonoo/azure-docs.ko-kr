@@ -1,30 +1,30 @@
 ---
 title: 'Python 스크립트 실행: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning service에서 Python 스크립트 실행 모듈을 사용 하 여 Python 코드를 실행 하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 Python 스크립트 실행 모듈을 사용 하 여 Python 코드를 실행 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: ac68239c12fb284dd3cb5179b5719f3d36acbd34
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 1ba10bf682d900a45f345f2ebe2707ba1275e94e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693789"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497867"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
-이 모듈을 사용 하 여 Python 코드를 실행 합니다. Python의 아키텍처 및 디자인 원칙에 대 한 자세한 내용은 [다음 문서를 참조 하세요.](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)
+이 모듈을 사용 하 여 Python 코드를 실행 합니다. Python의 아키텍처 및 디자인 원칙에 대 한 자세한 내용은 [다음 문서](https://docs.microsoft.com/azure/machine-learning/machine-learning-execute-python-scripts)를 참조 하세요.
 
 Python을 사용 하면 다음과 같은 기존 모듈에서 현재 지원 되지 않는 작업을 수행할 수 있습니다.
 
-+ @No__t_0를 사용 하 여 데이터 시각화
++ `matplotlib`를 사용 하 여 데이터 시각화
 + Python 라이브러리를 사용 하 여 작업 영역에서 데이터 집합 및 모델 열거
 + [데이터 가져오기](./import-data.md) 모듈에서 지원 하지 않는 소스에서 데이터 읽기, 로드 및 조작
 + 사용자 고유의 심층 학습 코드 실행 
@@ -81,7 +81,7 @@ os.system(f"pip install scikit-misc")
 
 1. 파이프라인에 **Python 스크립트 실행** 모듈을 추가 합니다.
 
-2. **Dataset1** 에서 입력에 사용할 인터페이스의 모든 데이터 집합을 추가 하 고 연결 합니다. Python 스크립트에서이 데이터 집합을 **DataFrame1**로 참조 합니다.
+2. **Dataset1** 에서 입력에 사용할 디자이너의 모든 데이터 집합을 추가 하 고 연결 합니다. Python 스크립트에서이 데이터 집합을 **DataFrame1**로 참조 합니다.
 
     Python을 사용 하 여 데이터를 생성 하려는 경우 또는 Python 코드를 사용 하 여 데이터를 모듈로 직접 가져오는 경우에는 데이터 집합을 사용 하는 것이 선택 사항입니다.
 
@@ -97,15 +97,15 @@ os.system(f"pip install scikit-misc")
 
 5. **Python 스크립트** 텍스트 상자에 올바른 Python 스크립트를 입력 하거나 붙여 넣습니다.
 
-    **Python 스크립트** 텍스트 상자는 주석의 일부 지침과 데이터 액세스 및 출력에 대 한 샘플 코드를 사용 하 여 미리 채워져 있습니다. **이 코드를 편집 하거나 바꾸어야 합니다.** 들여쓰기 및 대/소문자 구분에 대 한 Python 규칙을 준수 해야 합니다.
+    **Python 스크립트** 텍스트 상자는 주석의 일부 지침과 데이터 액세스 및 출력에 대 한 샘플 코드를 사용 하 여 미리 채워져 있습니다. 이 코드를 편집 하거나 바꾸어야 합니다. 들여쓰기 및 대/소문자 구분에 대 한 Python 규칙을 준수 해야 합니다.
 
     + 스크립트는이 모듈에 대 한 진입점으로 `azureml_main` 이라는 함수를 포함 해야 합니다.
     + 진입점 함수는 `Param<dataframe1>` 및 `Param<dataframe2>`의 입력 인수를 최대 두 개까지 포함할 수 있습니다.
-    + 세 번째 입력 포트에 연결 된 압축 파일은 압축이 풀린 후 Python `sys.path`에도 추가 되는 `.\Script Bundle` 디렉터리에 저장 됩니다. 
+    + 세 번째 입력 포트에 연결 된 압축 파일은 압축이 풀린 후 Python `sys.path`에도 추가 되는 `.\Script Bundle`디렉터리에 저장 됩니다. 
 
-    따라서 zip 파일에 `mymodule.py` 포함 된 경우 `import mymodule`를 사용 하 여 가져옵니다.
+    따라서 zip 파일에 `mymodule.py`포함 된 경우 `import mymodule`를 사용 하 여 가져옵니다.
 
-    + 인터페이스에 두 데이터 집합을 반환할 수 있으며이는 `pandas.DataFrame` 형식의 시퀀스 여야 합니다. Python 코드에서 다른 출력을 만들고 Azure storage에 직접 쓸 수 있습니다.
+    + 두 데이터 집합을 디자이너에 반환할 수 있으며이는 `pandas.DataFrame`형식의 시퀀스 여야 합니다. Python 코드에서 다른 출력을 만들고 Azure storage에 직접 쓸 수 있습니다.
 
 6. 파이프라인을 실행 하거나 모듈을 선택 하 고 **선택 된 실행** 을 클릭 하 여 Python 스크립트만 실행 합니다.
 
@@ -124,4 +124,4 @@ os.system(f"pip install scikit-misc")
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

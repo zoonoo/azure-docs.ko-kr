@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 05/10/2019
+ms.date: 10/09/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: a8ebd0b36c6ee8bf6762a70af9f4a7c09f6b118d
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
-ms.translationtype: MT
+ms.openlocfilehash: 15253e67283d1ad53bb1d4c018987dceaafac6c8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68955147"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486755"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
@@ -26,7 +26,7 @@ ms.locfileid: "68955147"
 
 다른 개성의 몇 가지 예는 다음과 같습니다. 개성에 대 한 세부 정보와 함께 모든 정보 [데이터 집합](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets) 을 볼 수 있습니다.
 
-사용자 쿼리의 `When is your birthday?`경우 각 사용자에 게 다음과 같은 스타일의 응답이 있습니다.
+`When is your birthday?`의 사용자 쿼리를 위해 각 사용자는 다음과 같은 스타일의 응답을 갖습니다.
 
 <!-- added quotes so acrolinx doesn't score these sentences -->
 |성격|예제|
@@ -38,13 +38,26 @@ ms.locfileid: "68955147"
 |열정적|저는 봇 이므로 나이가 없습니다.|
 ||
 
-> [!NOTE]
-> 잡담 지원은 현재 영어로만 제공됩니다. 
+
+## <a name="language-support"></a>언어 지원
+
+Chit-채팅 데이터 집합은 다음 언어로 지원 됩니다.
+
+|language|
+|--|
+|중국어, `zh-cn`|
+|영어, `en-us`|
+|프랑스어, `fr-fr`|
+|독일, `de-de`|
+|이탈리아어, `it-it`|
+|일본어, `ja-jp`|
+|한국어, `ko-kr`|
+|포르투갈어, `pr-br`|
+|스페인어, `es-es`|
+
 
 ## <a name="add-chit-chat-during-kb-creation"></a>KB 생성 중에 잡담 추가
 기술 자료 생성 중에 원본 URL 및 파일을 추가하면 잡담을 추가하는 옵션이 생깁니다. 잡담 기반으로 사용하려는 성격을 선택합니다. 잡담을 추가하지 않으려는 경우 또는 이미 데이터 원본에 잡담 지원 기능이 있는 경우 **없음**을 선택합니다. 
-   
-![생성 중에 잡담 추가](../media/qnamaker-how-to-chit-chat/create-kb-chit-chat.png)
 
 ## <a name="add-chit-chat-to-an-existing-kb"></a>기존 KB에 잡담 추가
 KB를 선택하고 **설정** 페이지로 이동합니다. 적절한 **.tsv** 형식으로 된 모든 잡담 데이터 세트에 대한 링크가 있습니다. 원하는 성격을 다운로드한 다음, 파일 원본으로 업로드하세요. 파일을 다운로드하고 업로드할 때 형식 또는 메타데이터를 편집하지 않도록 하세요. 
@@ -73,6 +86,6 @@ KB를 선택하고 **설정** 페이지로 이동합니다. 특정 잠담 원본
 > [!div class="nextstepaction"]
 > [기술 자료 가져오기](../Tutorials/migrate-knowledge-base.md)
 
-## <a name="see-also"></a>참고자료 
+## <a name="see-also"></a>참고 항목 
 
 [QnA Maker 개요](../Overview/overview.md)

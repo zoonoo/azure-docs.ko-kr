@@ -1,5 +1,5 @@
 ---
-title: 온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션-데이터 마이그레이션
+title: '데이터 마이그레이션: 온-프레미스에서 Azure HDInsight로 Apache Hadoop'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하는 데이터 마이그레이션 모범 사례를 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 567edca422237c71f0d69c862a17fbc0d2a72795
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 30f7ae2eeb928e3f8dc71baed20d9c9b2129d1f9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735922"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494981"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 데이터 마이그레이션 모범 사례
 
@@ -24,7 +24,7 @@ ms.locfileid: "70735922"
 온-프레미스에서 Azure 환경으로 데이터를 마이그레이션하는 두 가지 주요 옵션이 있습니다.
 
 1.  TLS를 사용하여 네트워크를 통해 데이터 전송
-    1. 인터넷 - Azure Storage 탐색기, AzCopy, Azure Powershell, Azure CLI Azure Storage Explorer, AzCopy, Azure Powershell 및 Azure CLI.  자세한 내용은 [Azure Storage의 데이터 이동](../../storage/common/storage-moving-data.md)을 참조하세요.
+    1. 인터넷 - Azure Storage Explorer, AzCopy, Azure Powershell, Azure CLI 등의 여러 도구 중 하나를 사용하여 일반 인터넷 연결을 통해 데이터를 Azure Storage로 전송할 수 있습니다.  자세한 내용은 [Azure Storage의 데이터 이동](../../storage/common/storage-moving-data.md)을 참조하세요.
     2. Express Route - ExpressRoute는 온-프레미스 또는 공동 장소 시설에 있는 인프라와 Microsoft 데이터 센터 간에 프라이빗 연결을 만들어 주는 Azure 서비스입니다. ExpressRoute 연결은 공용 인터넷을 사용하지 않으며 인터넷을 통한 일반 연결보다 안정적이고 속도가 빠르며 대기 시간이 짧고 보안성이 높습니다. 자세한 내용은 [ExpressRoute 회로 만들기 및 수정](../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)을 참조하세요.
     1. Data Box 온라인 데이터 전송 - Data Box Edge 및 Data Box Gateway는 사용자 사이트와 Azure 간에 데이터를 관리하는 네트워크 스토리지 게이트웨이로 작동하는 온라인 데이터 전송 제품입니다. 온-프레미스 네트워크 디바이스인 Data Box Edge는 Azure와 데이터를 주고받으며 AI(인공 지능) 지원 에지 컴퓨팅을 사용하여 데이터를 처리합니다. Data Box Gateway는 스토리지 게이트웨이 기능이 포함된 가상 어플라이언스입니다. 자세한 내용은 [Azure Data Box 설명서 - 온라인 전송](https://docs.microsoft.com/azure/databox-online/)을 참조하세요.
 1.  오프라인 데이터 배송
@@ -88,18 +88,18 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 ### <a name="apache-hive"></a>Apache Hive
 
-Hive 메타스토어는 스크립트를 사용하여 또는 DB 복제를 사용하여 마이그레이션할 수 있습니다.
+Hive metastore는 스크립트를 사용하여 또는 DB 복제를 사용하여 마이그레이션할 수 있습니다.
 
-#### <a name="hive-metastore-migration-using-scripts"></a>스크립트를 사용하여 Hive 메타스토어 마이그레이션
+#### <a name="hive-metastore-migration-using-scripts"></a>스크립트를 사용하여 Hive metastore 마이그레이션
 
 1. 온-프레미스 Hive metastore에서 Hive DDLs를 생성 합니다. 이 단계는 [래퍼 Bash 스크립트](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md)를 사용하여 수행할 수 있습니다.
 1. 생성된 DDL을 편집하여 HDFS url을 WASB/ADLS/ABFS URL로 바꿉니다.
 1. HDInsight 클러스터의 metastore에서 업데이트된 DDL을 실행합니다.
-1. Hive 메타스토어 버전이 온-프레미스와 클라우드 간에 호환되는지 확인합니다.
+1. Hive metastore 버전이 온-프레미스와 클라우드 간에 호환되는지 확인합니다.
 
-#### <a name="hive-metastore-migration-using-db-replication"></a>DB 복제를 사용하여 Hive 메타스토어 마이그레이션
+#### <a name="hive-metastore-migration-using-db-replication"></a>DB 복제를 사용하여 Hive metastore 마이그레이션
 
-- 온-프레미스 Hive 메타스토어 DB와 HDInsight 메타스토어 DB 간에 데이터베이스 복제를 설정합니다.
+- 온-프레미스 Hive metastore DB와 HDInsight metastore DB 간에 데이터베이스 복제를 설정합니다.
 - "Hive MetaTool"을 사용하여 HDFS url을 WASB/ADLS/ABFS url로 바꿉니다. 예:
 
 ```bash

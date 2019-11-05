@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 08/07/2019
-ms.openlocfilehash: ffc71cf8b2f60568e3c4bc63a3751bc44be66e58
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.date: 11/04/2019
+ms.openlocfilehash: cc98e620194c5bf67d2efa12d61af44d5527bafc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063133"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497489"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습
 
@@ -82,7 +82,7 @@ AI, 기계 학습 및 심층 학습 간의 관계를 이해 하는 것이 중요
 
 적절 한 데이터 변환을 사용 하 여 신경망은 텍스트, 오디오 및 시각적 신호를 이해할 수 있습니다. 기계 번역을 사용 하 여 큰 오디오 파일의 소리 조각을 식별 하 고 음성 단어 또는 이미지를 텍스트로 높여줄 수 있습니다.
 
-### <a name="text-analytics"></a>Text Analytics
+### <a name="text-analytics"></a>텍스트 분석
 
 심층 학습 방법을 기반으로 하는 텍스트 분석에서는 많은 양의 텍스트 데이터 (예: 의료 문서 또는 경비 영수증)를 분석 하 고 패턴을 인식 하 고 구성 된 정보 및 간결한 정보를 만듭니다.
 
@@ -113,6 +113,11 @@ Feedforward 신경망은 가장 기본적인 유형의 인공 신경망입니다
 다음 문서에서는 [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/?WT.mc_id=docs-article-lazzeri)에서 심층 학습 기술을 사용 하는 방법을 보여 줍니다.
 
 - [TensorFlow 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+
 - [TensorFlow 평가기 및 Keras를 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+
 - [Pytorch 모델을 사용 하 여 이미지 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+
 - [체 이너 모델을 사용 하 여 필기 숫자 분류](https://docs.microsoft.com/azure/machine-learning/service/how-to-train-chainer?WT.mc_id=docs-article-lazzeri)
+
+또한 [Machine Learning Algorithm 참고 자료 시트](../algorithm-cheat-sheet.md) 를 사용 하 여 모델에 대 한 알고리즘을 선택 합니다.

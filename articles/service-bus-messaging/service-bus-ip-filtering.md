@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 540435e3e018ae77477030ae8b9f727d71782121
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45415af479c9581ee04b97af4fb5297d09c5769d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64704579"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496333"
 ---
 # <a name="use-firewall-rules"></a>방화벽 규칙 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "64704579"
 
 ## <a name="when-to-use"></a>사용하는 경우
 
-지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 이외의 트래픽은 거부해야 하는 Service Bus를 설정하려는 경우 *방화벽*을 활용하여 다른 IP 주소의 Service Bus 엔드포인트를 차단할 수 있습니다. 예를 들어 [Azure Express Route][express-route]에서 Service Bus를 사용하여 온-프레미스 인프라에 프라이빗 연결을 만듭니다. 
+지정된 범위의 IP 주소에서 오는 트래픽만 수신하고 이외의 트래픽은 거부해야 하는 Service Bus를 설정하려는 경우 *방화벽*을 활용하여 다른 IP 주소의 Service Bus 엔드포인트를 차단할 수 있습니다. 예를 들어 [Azure Express 경로][express-route] 와 Service Bus를 사용 하 여 온-프레미스 인프라에 대 한 개인 연결을 만들 수 있습니다. 
 
 ## <a name="how-filter-rules-are-applied"></a>필터 규칙이 적용되는 방식
 
@@ -51,7 +51,6 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 > - Azure Event Grid와 통합
 > - Azure IoT Hub 경로
 > - Azure IoT Device Explorer
-> - Azure Data Explorer
 >
 > 아래 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
 > - Azure App Service
@@ -60,7 +59,7 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 ### <a name="creating-a-virtual-network-and-firewall-rule-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 가상 네트워크 및 방화벽 규칙 만들기
 
 > [!IMPORTANT]
-> 방화벽 및 가상 네트워크에만 지원 합니다 **premium** 계층 Service Bus의 합니다.
+> 방화벽 및 가상 네트워크는 Service Bus **프리미엄** 계층 에서만 지원 됩니다.
 
 다음과 같은 Resource Manager 템플릿을사용 하면 기존 Service Bus 네임스페이스에 가상 네트워크 규칙을 추가할 수 있습니다.
 
@@ -72,7 +71,7 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
 > 가능한 거부 규칙은 없지만 Azure Resource Manager 템플릿은 기본 작업이 **"허용"** 으로 설정되며 연결을 제한하지 않습니다.
 > Virtual Network 또는 방화벽 규칙을 만들 때 ***"defaultAction"*** 을 변경해야 합니다.
 > 
-> from
+> 원본
 > ```json
 > "defaultAction": "Allow"
 > ```
@@ -143,13 +142,13 @@ IP 필터 규칙은 순서대로 적용되며 IP 주소와 일치하는 첫 번�
   }
 ```
 
-템플릿을 배포하려면 [Azure Resource Manager][lnk-deploy]에 대한 지침을 따르세요.
+템플릿을 배포 하려면 [Azure Resource Manager][lnk-deploy]에 대 한 지침을 따르세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 Service Bus에 대한 액세스를 Azure 가상 네트워크로 제한하려면 다음 링크를 참조하세요.
 
-- [Service Bus의 Virtual Network 서비스 엔드포인트][lnk-vnet]
+- [Service Bus에 대 한 Virtual Network 서비스 끝점][lnk-vnet]
 
 <!-- Links -->
 

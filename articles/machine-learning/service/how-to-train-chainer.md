@@ -10,14 +10,15 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 70d6bd9507670a8846b2a79509b6b6e571f17e37
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
-ms.translationtype: MT
+ms.openlocfilehash: 91278bdc1748615c91675e3894ebae4cf5fce1e4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710081"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489505"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 체 이너 모델 학습 및 등록
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning의 [체 이너 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 클래스를 사용 하 여 엔터프라이즈 규모에서 [체 이너](https://chainer.org/) 교육 스크립트를 실행 하는 방법에 대해 알아봅니다. 이 문서의 예제 학습 스크립트는 인기 있는 [Mnist 데이터 집합](http://yann.lecun.com/exdb/mnist/) 을 사용 하 여 [numpy](https://www.numpy.org/)에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 빌드된 DNN (심층 신경망)를 사용 하 여 필기 된 숫자를 분류 합니다.
 
@@ -25,15 +26,15 @@ ms.locfileid: "71710081"
 
 [심층 학습 vs machine learning](concept-deep-learning-vs-machine-learning.md)에 대해 자세히 알아보세요.
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
-- Azure Machine Learning 노트북 VM-다운로드 또는 설치 필요 없음
+- Azure Machine Learning 계산 인스턴스-다운로드 또는 설치 필요 없음
 
-    - 이 자습서를 시작하기 전에 [자습서: SDK 및 샘플 리포지토리](tutorial-1st-experiment-sdk-setup.md) 를 사용 하 여 미리 로드 된 전용 노트북 서버를 만들기 위한 환경 및 작업 영역을 설정 합니다.
+    - [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
     - 노트북 서버의 샘플 심층 학습 폴더에 있는 **사용 방법-azureml > ml 프레임 워크 > 체 이너 > 배포 > 학습-hyperparameter 변수-튜닝-배포-** 대/소문자를 구분 하는 폴더)에서 완성 된 노트북 및 파일을 찾습니다.  노트북에는 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 노트북 위젯을 다루는 확장 된 섹션이 포함 되어 있습니다.
 
 - 사용자 고유의 Jupyter Notebook 서버
@@ -60,9 +61,9 @@ print("SDK version:", azureml.core.VERSION)
 
 ### <a name="initialize-a-workspace"></a>작업 영역 초기화
 
-[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 개체를 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
+[Azure Machine Learning 작업 영역은](concept-workspace.md) 서비스에 대 한 최상위 리소스입니다. 사용자가 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. Python SDK에서 [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) 개체를 만들어 작업 영역 아티팩트에 액세스할 수 있습니다.
 
-[필수 조건 섹션](#prerequisites)에서 만든 파일을 `config.json` 읽어 작업 영역 개체를 만듭니다.
+[필수 조건 섹션](#prerequisites)에서 만든 `config.json` 파일을 읽어 작업 영역 개체를 만듭니다.
 
 ```Python
 ws = Workspace.from_config()
@@ -142,7 +143,7 @@ print(compute_target.get_status().serialize())
 
 [체 이너 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 는 계산 대상에서 체 이너 학습 작업을 시작 하는 간단한 방법을 제공 합니다.
 
-체 이너 평가기는 모든 프레임 워크를 [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 지 원하는 데 사용할 수 있는 제네릭 클래스를 통해 구현 됩니다. 제네릭 평가기을 사용한 학습 모델에 대 한 자세한 내용은 [평가기를 사용 하 여 Azure Machine Learning를](how-to-train-ml-models.md) 사용 하 여 모델 학습을 참조 하세요.
+체 이너 평가기는 모든 프레임 워크를 지 원하는 데 사용할 수 있는 제네릭 [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 클래스를 통해 구현 됩니다. 제네릭 평가기을 사용한 학습 모델에 대 한 자세한 내용은 [평가기를 사용 하 여 Azure Machine Learning를](how-to-train-ml-models.md) 사용 하 여 모델 학습을 참조 하세요.
 
 ```Python
 from azureml.train.dnn import Chainer
@@ -172,13 +173,13 @@ run.wait_for_completion(show_output=True)
 
 실행이 실행 되 면 다음 단계를 거칩니다.
 
-- **준비 중**: Docker 이미지는 체 이너 평가기에 따라 만들어집니다. 이미지는 작업 영역 컨테이너 레지스트리로 업로드 되 고 나중에 실행할 수 있도록 캐시 됩니다. 로그는 실행 기록에도 스트리밍되 고 진행률을 모니터링 하기 위해 볼 수 있습니다.
+- **준비**: 체 이너 평가기에 따라 docker 이미지가 생성 됩니다. 이미지는 작업 영역 컨테이너 레지스트리로 업로드 되 고 나중에 실행할 수 있도록 캐시 됩니다. 로그는 실행 기록에도 스트리밍되 고 진행률을 모니터링 하기 위해 볼 수 있습니다.
 
-- **크기 조정**: Batch AI 클러스터가 현재 사용할 수 있는 것 보다 더 많은 노드를 실행 하는 데 필요한 경우 클러스터를 확장 하려고 시도 합니다.
+- **크기 조정**: 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
 
-- **Running**: 스크립트 폴더의 모든 스크립트는 계산 대상으로 업로드 되 고 데이터 저장소는 탑재 되거나 복사 되며 entry_script가 실행 됩니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
+- **실행 중**: 스크립트 폴더의 모든 스크립트를 계산 대상으로 업로드 하 고, 데이터 저장소를 탑재 또는 복사 하 고, entry_script를 실행 합니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
 
-- **후 처리 중**: 실행의./출력 폴더가 실행 기록에 복사 됩니다.
+- **사후 처리**: 실행의./출력 폴더가 실행 기록에 복사 됩니다.
 
 ## <a name="save-and-register-the-model"></a>모델 저장 및 등록
 
@@ -194,7 +195,7 @@ model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/m
 > [!TIP]
 > 모델을 찾을 수 없다는 오류가 표시 되 면 1 분을 지정한 후 다시 시도 하십시오.  경우에 따라 학습 실행의 끝과 출력 디렉터리에서 모델의 가용성이 약간 지연 됩니다.
 
-모델의 로컬 복사본을 다운로드할 수도 있습니다. 이는 로컬에서 추가 모델 유효성 검사 작업을 수행 하는 데 유용할 수 있습니다. 학습 스크립트 `chainer_mnist.py`에서 보호기 개체는 모델을 로컬 폴더 (계산 대상의 로컬 폴더)에 유지 합니다. Run 개체를 사용 하 여 데이터 저장소에서 복사본을 다운로드할 수 있습니다.
+모델의 로컬 복사본을 다운로드할 수도 있습니다. 이는 로컬에서 추가 모델 유효성 검사 작업을 수행 하는 데 유용할 수 있습니다. 학습 스크립트에서 `chainer_mnist.py`보호기 개체는 모델을 로컬 폴더 (계산 대상의 로컬 폴더)에 유지 합니다. Run 개체를 사용 하 여 데이터 저장소에서 복사본을 다운로드할 수 있습니다.
 
 ```Python
 # Create a model folder in the current directory

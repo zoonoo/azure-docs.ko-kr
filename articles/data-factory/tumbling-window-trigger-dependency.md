@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: daperlov
-ms.openlocfilehash: 6e5e293e9759f091b6537d5efab9884e0a20fabc
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 24a1a5d132990db2aa10b7860774eecafb4b4edb
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725542"
+ms.lasthandoff: 10/18/2019
+ms.locfileid: "73520562"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>연속 창 트리거 종속성 만들기
 
@@ -79,8 +79,8 @@ ms.locfileid: "68725542"
 | **속성 이름** | **설명**  | **형식** | **필수** |
 |---|---|---|---|
 | type  | 이 드롭다운에는 기존의 연속 창 트리거가 모두 표시됩니다. 종속성을 적용할 트리거를 선택합니다.  | TumblingWindowTriggerDependencyReference 또는 SelfDependencyTumblingWindowTriggerReference | 예 |
-| offset | 종속성 트리거의 오프셋입니다. 시간 범위 형식에 값을 제공 하 고 음수 및 양수 오프셋을 모두 사용할 수 있습니다. 트리거가 자체에 의존 하는 경우이 속성은 필수 이며 다른 모든 경우에는 선택 사항입니다. 자체 종속성은 항상 음수 오프셋이어야 합니다. 값을 지정 하지 않으면 창은 트리거 자체와 동일 합니다. | 시간 범위<br/>(hh:mm:ss) | 자체 종속성: 예<br/>기타: 아니요 |
-| 크기 | 종속성 연속 창의 크기입니다. 양의 timespan 값을 제공 합니다. 이 속성은 선택적입니다. | 시간 범위<br/>(hh:mm:ss) | 아니요  |
+| offset | 종속성 트리거의 오프셋입니다. 시간 범위 형식에 값을 제공 하 고 음수 및 양수 오프셋을 모두 사용할 수 있습니다. 트리거가 자체에 의존 하는 경우이 속성은 필수 이며 다른 모든 경우에는 선택 사항입니다. 자체 종속성은 항상 음수 오프셋이어야 합니다. 값을 지정 하지 않으면 창은 트리거 자체와 동일 합니다. | Timespan<br/>(hh:mm:ss) | 자체 종속성: 예<br/>기타: 아니요 |
+| size | 종속성 연속 창의 크기입니다. 양의 timespan 값을 제공 합니다. 이 속성은 선택 사항입니다. | Timespan<br/>(hh:mm:ss) | 아니요  |
 
 > [!NOTE]
 > 연속 창 트리거는 최대 두 개의 다른 트리거에 따라 달라질 수 있습니다.
@@ -151,15 +151,17 @@ ms.locfileid: "68725542"
 
 ## <a name="monitor-dependencies"></a>종속성 모니터링
 
-트리거 모니터링 실행 페이지에서 종속성 체인 및 해당 windows를 모니터링할 수 있습니다. **모니터링 > 트리거 실행**으로 이동합니다.
+트리거 모니터링 실행 페이지에서 종속성 체인 및 해당 windows를 모니터링할 수 있습니다. **모니터링 > 트리거 실행**으로 이동합니다. 작업 열에서 트리거를 다시 실행 하거나 해당 종속성을 볼 수 있습니다.
 
 ![트리거 실행 모니터링](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "트리거 실행 모니터링")
 
-작업 아이콘을 클릭 하 여 선택한 창의 모든 종속 트리거 실행을 볼 수 있습니다.
+' 트리거 종속성 보기 '를 클릭 하면 종속성의 상태를 볼 수 있습니다. 종속성 트리거 중 하나에 오류가 발생 하는 경우 종속 트리거를 실행 하려면 성공적으로 다시 실행 해야 합니다. 연속 창 트리거는 제한 시간이 초과 될 때까지 7 일 동안 종속성을 기다립니다.
 
 ![종속성 모니터링](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "종속성 모니터링")
 
-위의 예에서 일별 트리거는 창이 정의 되지 않은 매시간 트리거와 3 시간 오프셋으로 종속 됩니다. 결과적으로 성공적으로 종속성을 24 개 실행 한 후에 트리거가 실행 됩니다.
+보다 시각적으로 트리거 종속성 일정을 확인 하려면 Gantt 보기를 선택 합니다.
+
+![종속성 모니터링](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "종속성 모니터링")
 
 ## <a name="next-steps"></a>다음 단계
 

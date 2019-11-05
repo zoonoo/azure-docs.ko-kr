@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 08e9656e3b899cbb6d4de733696175e8f31b0e66
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 559d8cb25624c1d8bebb2969fbeeb80bdcc020e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792002"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479744"
 ---
 #   <a name="entity-recognition-cognitive-skill"></a>엔터티 인식 기술
 
@@ -39,9 +39,8 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 |--------------------|-------------|
 | 범주    | 추출되어야 하는 범주 배열입니다.  가능한 범주 형식: `"Person"`, `"Location"`, `"Organization"`, `"Quantity"`, `"Datetime"`, `"URL"`, `"Email"`. 범주가 제공되지 않으면 모든 형식이 반환됩니다.|
 |defaultLanguageCode |  입력 텍스트의 언어 코드입니다. 다음 언어 `de, en, es, fr, it`가 지원됩니다.|
-|minimumPrecision | 사용되지 않습니다. 다음에 사용하도록 예약됩니다. |
-|includeTypelessEntities | 텍스트에 잘 알려진 엔터티가 포함되어 있지만 지원되는 범주 중 하나로 분류할 수 없는 경우 `"entities"` 복합 출력 필드의 일부로 반환됩니다. 
-이러한 엔터티는 잘 알려져 있지만 현재 지원 되는 "범주"의 일부로 분류 되지 않습니다. 예를 들어 "Windows 10"은 잘 알려진 엔터티 (a 제품) 이지만 "Products"는 현재 지원 되는 범주에 속하지 않습니다. 기본값은 `false`입니다. |
+|minimumPrecision | 0과 1 사이의 값입니다. `namedEntities` 출력의 신뢰도 점수가이 값 보다 낮으면 엔터티가 반환 되지 않습니다. 기본값은 0입니다. |
+|includeTypelessEntities | 현재 범주에 맞지 않는 잘 알려진 엔터티를 인식 하려는 경우 `true`로 설정 합니다. 인식 된 엔터티는 `entities` 복합 출력 필드에 반환 됩니다. 예를 들어 "Windows 10"은 잘 알려진 엔터티 (a 제품) 이지만 "제품"은 지원 되는 범주가 아니므로이 엔터티는 엔터티 출력 필드에 포함 됩니다. 기본값은 `false`입니다. |
 
 
 ## <a name="skill-inputs"></a>기술 입력
@@ -49,7 +48,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 | 입력 이름      | 설명                   |
 |---------------|-------------------------------|
 | languageCode  | 선택 사항입니다. 기본값은 `"en"`입니다.  |
-| text          | 분석할 텍스트입니다.          |
+| 텍스트          | 분석할 텍스트입니다.          |
 
 ## <a name="skill-outputs"></a>기술 출력
 
@@ -65,7 +64,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 | dateTimes  | 각 문자열이 DateTime(텍스트에 표시되는 대로) 값을 나타내는 경우 문자열 배열입니다. |
 | urls | 각 문자열이 URL을 나타내는 경우 문자열 배열입니다. |
 | emails | 각 문자열이 메일을 나타내는 경우 문자열 배열입니다. |
-| namedEntities | 다음 필드가 포함된 복합 형식의 배열입니다. <ul><li>category</li> <li>값 (실제 엔터티 이름)</li><li>오프셋(텍스트에 발견된 위치)</li><li>confidence(현재 사용하지 않음. -1 값으로 설정됨)</li></ul> |
+| namedEntities | 다음 필드가 포함된 복합 형식의 배열입니다. <ul><li>카테고리</li> <li>값 (실제 엔터티 이름)</li><li>오프셋(텍스트에 발견된 위치)</li><li>신뢰도 (더 높은 값은 실제 엔터티입니다.)</li></ul> |
 | 엔터티 | 다음 필드와 함께 텍스트에서 추출된 엔터티에 대한 풍부한 정보가 포함된 복합 형식의 배열입니다. <ul><li> name(실제 엔터티 이름. “정규화된” 형식을 나타냄)</li><li> wikipediaId</li><li>wikipediaLanguage</li><li>wikipediaUrl(엔터티에 대한 Wikipedia 페이지 링크)</li><li>bingId</li><li>type(인식된 엔터티의 범주)</li><li>subType(특정 범주에서만 사용 가능, 더 세부적인 엔터티 형식 보기를 제공함)</li><li> matches(포함된 복합 컬렉션)<ul><li>text(엔터티의 원시 텍스트)</li><li>offset(발견된 위치)</li><li>length(원시 엔터티 텍스트의 길이)</li></ul></li></ul> |
 
 ##  <a name="sample-definition"></a>샘플 정의
@@ -76,6 +75,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
     "categories": [ "Person", "Email"],
     "defaultLanguageCode": "en",
     "includeTypelessEntities": true,
+    "minimumPrecision": 0.5,
     "inputs": [
       {
         "name": "text",
@@ -131,7 +131,7 @@ Microsoft.Skills.Text.EntityRecognitionSkill
             "category":"Person",
             "value": "John Smith",
             "offset": 35,
-            "confidence": -1
+            "confidence": 0.98
           }
         ],
         "entities":  
@@ -194,4 +194,4 @@ Microsoft.Skills.Text.EntityRecognitionSkill
 ## <a name="see-also"></a>참고 항목
 
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

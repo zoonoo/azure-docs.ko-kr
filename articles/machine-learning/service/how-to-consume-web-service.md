@@ -11,14 +11,15 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda6c72504a75d600931185e224bb46db03e23ed
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e9d262380a8e0769b1191673a7e00eed770f7ab2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374303"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497091"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>웹 서비스로 배포된 Azure Machine Learning 모델 사용
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Machine Learning 모델을 웹 서비스로 배포하면 REST API가 생성됩니다. 이 API로 데이터를 보내고 모델에서 반환된 예측을 받을 수 있습니다. 이 문서에서는 C#, Go, Java 및 Python을 사용하여 웹 서비스용 클라이언트를 만드는 방법에 대해 알아봅니다.
 
@@ -40,8 +41,8 @@ Azure Container Instances, Azure Kubernetes Service 또는 FPGA (필드 프로�
 
 [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 클래스는 클라이언트를 만드는 데 필요한 정보를 제공합니다. 다음 `Webservice` 속성은 클라이언트 애플리케이션을 만드는 데 유용합니다.
 
-* `auth_enabled`-키 인증을 사용 하는 경우-1 @no__t 합니다. 그렇지 않으면-2를 @no__t 합니다.
-* `token_auth_enabled`-토큰 인증을 사용 하는 경우-1 @no__t 합니다. 그렇지 않으면-2를 @no__t 합니다.
+* `auth_enabled`-키 인증을 사용 하는 경우 `True`; 그렇지 않으면 `False`합니다.
+* `token_auth_enabled`-토큰 인증을 사용 하는 경우 `True`; 그렇지 않으면 `False`합니다.
 * `scoring_uri` - REST API 주소입니다.
 * `swagger_uri`-OpenAPI 사양의 주소입니다. 자동 스키마 생성을 사용 하도록 설정한 경우이 URI를 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md#schema)를 참조 하세요.
 
@@ -81,7 +82,7 @@ Azure Machine Learning은 웹 서비스에 대 한 액세스를 제어 하는 �
 |키|기본적으로 사용 안 함| 기본적으로 사용|
 |토큰| 사용할 수 없음| 기본적으로 사용 안 함 |
 
-키 또는 토큰으로 보안이 설정 된 서비스로 요청을 보낼 때 __권한 부여__ 헤더를 사용 하 여 키 또는 토큰을 전달 합니다. 키 또는 토큰의 형식은 `Bearer <key-or-token>`으로 지정 해야 합니다. 여기서 `<key-or-token>`은 키 또는 토큰 값입니다.
+키 또는 토큰으로 보안이 설정 된 서비스로 요청을 보낼 때 __권한 부여__ 헤더를 사용 하 여 키 또는 토큰을 전달 합니다. 키 또는 토큰은 `Bearer <key-or-token>`형식 이어야 합니다. 여기서 `<key-or-token>`는 키 또는 토큰 값입니다.
 
 #### <a name="authentication-with-keys"></a>키를 사용 하 여 인증
 
@@ -119,7 +120,7 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> 토큰의 @no__t 0 시간 이후에 새 토큰을 요청 해야 합니다. 
+> 토큰의 `refresh_by` 시간 이후에 새 토큰을 요청 해야 합니다. 
 
 ## <a name="request-data"></a>요청 데이터
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: 5cf4773ac781ae51a60ef7d987c3dc324c125d95
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 53c38af2208be6bb7cdb794ad0403456613f2df6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387722"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73486182"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>데이터 흐름 Azure Data Factory 문제 해결
 
@@ -67,6 +67,14 @@ ms.locfileid: "72387722"
 - **원인**: 대상 데이터베이스에 원본 또는 데이터 집합에 정의 된 동일한 이름의 기존 테이블 이름이 이미 있습니다.
 
 - **해결**방법: 만들려는 테이블의 이름을 변경 합니다.
+
+### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-string-or-binary-data-would-be-truncated"></a>오류 메시지: DF-SYS-01: SQLServerException: 문자열 또는 이진 데이터가 잘립니다. 
+
+- **증상**: SQL 싱크에 데이터를 작성할 때 잘림 오류가 발생할 수 있는 파이프라인 실행에서 데이터 흐름이 실패 합니다.
+
+- **원인**: 데이터 흐름의 필드가 sql database의 열에 매핑되는 값을 저장 하기에 충분 하지 않아 sql 드라이버에서이 오류를 throw 합니다.
+
+- **해결**방법: 파생 열에 ```left()```를 사용 하 여 문자열 열의 데이터 길이를 줄이거나 ["error row" 패턴](how-to-data-flow-error-rows.md) 을 구현할 수 있습니다.
 
 ## <a name="general-troubleshooting-guidance"></a>일반 문제 해결 지침
 

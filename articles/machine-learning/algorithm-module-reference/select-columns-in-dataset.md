@@ -1,24 +1,24 @@
 ---
 title: '데이터 집합에서 열 선택: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스의 데이터 집합에서 열 선택 모듈을 사용 하 여 다운스트림 작업에서 사용할 열 하위 집합을 선택 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning의 데이터 집합에서 열 선택 모듈을 사용 하 여 다운스트림 작업에서 사용할 열 하위 집합을 선택 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 097477fb9fc10d954954815c7f4b0fef8947a526
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.date: 10/22/2019
+ms.openlocfilehash: 3511c448298aa96c95dc970d1d192869c127eb0d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128504"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497666"
 ---
 # <a name="select-columns-in-dataset-module"></a>데이터 집합 모듈에서 열 선택
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 다운스트림 작업에서 사용할 열 하위 집합을 선택할 수 있습니다. 모듈은 원본 데이터 집합에서 열을 물리적으로 제거 하지 않습니다. 대신 데이터베이스 *뷰나* *프로젝션*과 매우 비슷하게 열의 하위 집합을 만듭니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "70128504"
 
     이미 채워진 데이터 집합을 연결한 경우 사용 가능한 열 목록이 표시 됩니다. 열이 나타나지 않으면 업스트림 모듈을 실행 하 여 열 목록을 확인 해야 할 수 있습니다.
 
-    목록을 필터링 하려면 검색 상자에를 입력 합니다. 예를 들어 검색 상자에 문자 `w` 를 입력 하면 해당 문자가 `w`포함 된 열 이름이 표시 되도록 목록이 필터링 됩니다.
+    목록을 필터링 하려면 검색 상자에를 입력 합니다. 예를 들어 검색 상자에 `w` 문자를 입력 하면 목록이 필터링 되어 문자 `w`포함 된 열 이름이 표시 됩니다.
 
     열을 선택 하 고 오른쪽 화살표 단추를 클릭 하 여 선택한 열을 오른쪽 창의 목록으로 이동 합니다.
 
@@ -87,7 +87,7 @@ ms.locfileid: "70128504"
 
 + 열은 1부터 시작 하 여 순차적으로 번호가 매겨집니다.  
 + 열 범위를 가져오려면 하이픈을 사용 합니다. 
-+ `1-` 또는`-3` 와 같은 개방형 사양이 허용 되지 않습니다.
++ `1-` 또는 `-3`와 같은 개방형 사양이 허용 되지 않습니다.
 + 중복 된 인덱스 값 (또는 열 이름)은 허용 되지 않으며 오류가 발생할 수 있습니다.
 
 예를 들어 데이터 집합에 열이 8 개 이상 있다고 가정 하 고 다음 예제 중 하나를 붙여넣어 연속 하지 않는 여러 열을 반환할 수 있습니다. 
@@ -96,7 +96,7 @@ ms.locfileid: "70128504"
 + `1,3-8`
 + `1,3-6,4` 
 
-마지막 예제에서는 오류가 발생 하지 않습니다. 그러나 열의 `4`단일 인스턴스를 반환 합니다.
+마지막 예제에서는 오류가 발생 하지 않습니다. 그러나 열 `4`의 단일 인스턴스를 반환 합니다.
 
 
 
@@ -112,4 +112,4 @@ ms.locfileid: "70128504"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

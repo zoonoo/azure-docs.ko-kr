@@ -1,5 +1,5 @@
 ---
-title: 온-프레미스 Apache Hadoop를 Azure HDInsight로 마이그레이션-동기 및 혜택
+title: '이점: 온-프레미스 Apache Hadoop을 Azure HDInsight로 마이그레이션'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하도록 유도하는 동기 부여 및 혜택에 대해 알아봅니다.
 author: hrasheed-msft
 ms.reviewer: ashishth
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: a65b775a516bfccac2dee5ce00bc7d6495df256d
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 7f67b85b66748ae98cbb520bf4ebc11a2eef9efb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718369"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494933"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
 
@@ -53,7 +53,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 - **사용자 지정 도구 또는 타사 애플리케이션을 통해 확장성 제공** - HDInsight 클러스터는 설치된 구성 요소를 통해 확장 가능하며 Azure 마켓플레이스에서 [원클릭](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) 배포를 사용하여 다른 빅 데이터 솔루션과 통합할 수도 있습니다.
 
-- **간편한 관리, 관리 및 모니터링** -Azure HDInsight는 [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md)@no__t와 통합 하 여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공 합니다.
+- **간편한 관리, 관리 및 모니터링** -Azure HDInsight는 [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 와 통합 하 여 모든 클러스터를 모니터링할 수 있는 단일 인터페이스를 제공 합니다.
 
 - **다른 Azure 서비스와 통합** - HDInsight는 다음과 같은 인기 Azure 서비스와 쉽게 통합할 수 있습니다.
 
@@ -61,7 +61,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
     - Azure Blob Storage
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
-    - Azure SQL 데이터베이스
+    - Azure SQL Database
     - Azure Analysis Services
 
 - **자동 복구 프로세스 및 구성 요소** - HDInsight는 자체 모니터링 인프라를 사용하여 지속적으로 인프라 및 오픈 소스 구성 요소를 확인합니다. 또한 오픈 소스 구성 요소 및 노드를 사용할 수 없는 경우처럼 중요한 오류를 자동으로 복구합니다. OSS 구성 요소에 장애가 발생하면 Ambari에서 경고가 트리거됩니다.
@@ -82,14 +82,14 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 이 섹션에서는 다음에 대한 중요한 정보를 수집하는 데 도움이 되는 템플릿 설문지를 제공합니다.
 
 - 온-프레미스 배포
-- 프로젝트 정보
+- 프로젝트 세부 정보
 - Azure 요구 사항
 
 ### <a name="on-premises-deployment-questionnaire"></a>온-프레미스 배포 설문지
 
 | **질문** | **예제** | **대답** |
 |---|---|---|
-|**항목**: **환경**|||
+|**토픽**: **환경**|||
 |클러스터 배포 버전|HDP 2.6.5, CDH 5.7|
 |빅 데이터 에코시스템 구성 요소|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
 |클러스터 유형|Hadoop, Spark, Confluent Kafka, Storm, Solr|
@@ -106,7 +106,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |재해 복구/백업|백업 클러스터 지원 여부|  
 |클러스터에 종속된 시스템|SQL Server, Teradata, Power BI, MongoDB|
 |타사 통합|Tableau, GridGain, Qubole, Informatica, Splunk|
-|**항목**: **보안**|||
+|**토픽**: **보안**|||
 |경계 보안|방화벽|
 |클러스터 인증 및 권한 부여|Active Directory, Ambari, Cloudera Manager, 인증 없음|
 |HDFS 액세스 제어|  수동, ssh 사용자|
@@ -121,7 +121,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 |**질문**|**예제**|**대답**|
 |---|---|---|
-|**항목**: **워크로드 및 빈도**|||
+|**토픽**: **워크로드 및 빈도**|||
 |MapReduce 작업|10개 작업 -- 하루 2회||
 |Hive 작업|100개 작업 -- 1시간마다||
 |Spark 일괄 작업|50개 작업 -- 15분마다||
@@ -130,53 +130,53 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |ML 모델 학습 작업|2개 작업 -- 주당 1회||
 |프로그래밍 언어|Python, Scala, Java||
 |스크립팅|셸, Python||
-|**항목**: **데이터**|||
+|**토픽**: **데이터**|||
 |데이터 원본|플랫 파일, Json, Kafka, RDBMS||
 |데이터 오케스트레이션|Oozie 워크플로, Airflow||
 |메모리 내 조회|Apache Ignite, Redis||
 |데이터 대상|HDFS, RDBMS, Kafka, MPP ||
-|**항목**: **메타 데이터**|||
+|**토픽**: **메타데이터**|||
 |Hive DB 형식|Mysql, Postgres||
 |Hive metastore 수|2||
 |Hive 테이블 수|100||
 |레인저 정책 수|20||
 |Oozie 워크플로 수|100||
-|**항목**: **소수 자릿수**|||
+|**토픽**: **규모**|||
 |복제를 비롯한 데이터 볼륨|100TB||
 |일일 수집 볼륨|50GB||
 |데이터 증가 속도|연 10%||
 |클러스터 노드 증가 속도|연 5%
-|**항목**: **클러스터 사용률**|||
+|**토픽**: **클러스터 사용률**|||
 |평균 CPU 사용률(%)|60%||
 |평균 메모리 사용률(%)|75%||
 |디스크 공간 사용률|75%||
 |평균 네트워크 사용률(%)|25%
-|**항목**: **직원**|||
+|**토픽**: **직원**|||
 |관리자 수|2||
 |개발자 수|10||
 |최종 사용자 수|100||
 |기술|Hadoop, Spark||
 |마이그레이션 작업에 사용할 수 있는 리소스의 수|2||
-|**항목**: **제한 사항**|||
+|**토픽**: **제한 사항**|||
 |현재 제한 사항|대기 시간이 높음||
 |현재 과제|동시성 문제||
 
 ### <a name="azure-requirements-questionnaire"></a>Azure 요구 사항 설문지
 
-|**항목**: **인프라** |||
+|**토픽**: **인프라** |||
 |---|---|---|
 |**질문**|**예제**|**대답**|
-| 기본 영역|미국 동부||
+| 기본 지역|미국 동부||
 |VNet이 기본 설정입니까?|예||
 |HA/DR이 필요합니까?|예||
 |다른 클라우드 서비스와의 통합 여부|ADF, CosmosDB||
-|**항목**:   **데이터 이동**  |||
+|**토픽**: **데이터 이동**  |||
 |초기 로드 기본 설정|DistCp, Data box, ADF, WANDisco||
 |데이터 전송 델타|DistCp, AzCopy||
 |지속적인 증분 데이터 전송|DistCp, Sqoop||
-|**항목**:   **모니터링 및 경고** |||
+|**토픽**: **모니터링 및 경고** |||
 |Azure와 타사의 모니터링 및 경고 사용 비교|Azure 모니터링 및 경고 사용||
-|**항목**:   **보안 기본 설정** |||
+|**토픽**: **보인 기본 설정** |||
 |보호되는 프라이빗 데이터 파이프라인인가요?|예||
 |도메인 가입 클러스터(ESP)입니까?|     예||
 |온-프레미스 AD가 클라우드와 동기화됩니까?|     예||
@@ -189,7 +189,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |감사가 필요합니까?|                  예||
 |저장 데이터 암호화를 사용합니까?|          예||
 |전송 중 데이터 암호화를 사용합니까?|       예||
-|**항목**:   **재설계 기본 설정** |||
+|**토픽**: **재설계 기본 설정** |||
 |단일 클러스터 vs 특정 클러스터 형식|특정 클러스터 형식||
 |공동 배치된 스토리지 Vs 원격 스토리지|원격 스토리지||
 |데이터로 더 작은 클러스터 크기는 원격으로 저장되나요?|더 작은 클러스터 크기||

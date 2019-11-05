@@ -1,6 +1,6 @@
 ---
 title: CLI에서 모델 학습 및 배포
-titleSuffix: Azure Machine Learning service
+titleSuffix: Azure Machine Learning
 description: Azure CLI에 대해 machine learning 확장을 사용 하 여 명령줄에서 모델을 학습, 등록 및 배포 하는 방법에 대해 알아봅니다.
 ms.author: larryfr
 author: Blackmist
@@ -9,14 +9,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: fb46aaf04535c1b44cdd80810fbb6382dc727a67
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
-ms.translationtype: MT
+ms.openlocfilehash: 3f619caf7e2713e1c9251550b06c8bdefba5936f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350413"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493391"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>자습서: CLI에서 모델 학습 및 배포
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 자습서에서는 Azure CLI에 대해 machine learning 확장을 사용 하 여 모델을 학습, 등록 및 배포 합니다.
 
@@ -33,9 +34,9 @@ ms.locfileid: "71350413"
 > * 모델을 웹 서비스로 배포
 > * 웹 서비스를 사용 하 여 데이터 점수 매기기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * **로컬 환경**에서이 문서의 CLI 명령을 사용 하려면 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)필요 합니다.
 
@@ -43,7 +44,7 @@ ms.locfileid: "71350413"
 
 ## <a name="download-the-example-project"></a>예제 프로젝트 다운로드
 
-이 자습서에서는 [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) 프로젝트를 다운로드 합니다. 이 자습서의 단계에서는 `model-training` 및 @no__t 디렉터리의 파일을 사용 합니다.
+이 자습서에서는 [https://github.com/microsoft/MLOps](https://github.com/microsoft/MLOps) 프로젝트를 다운로드 합니다. 이 자습서의 단계에서는 `model-training` 및 `model-deployment` 디렉터리의 파일을 사용 합니다.
 
 파일의 로컬 복사본을 가져오려면 [.zip 보관](https://github.com/microsoft/MLOps/archive/master.zip)파일을 다운로드 하거나 다음 Git 명령을 사용 하 여 리포지토리를 복제 합니다.
 
@@ -53,23 +54,23 @@ git clone https://github.com/microsoft/MLOps.git
 
 ### <a name="training-files"></a>학습 파일
 
-@No__t-0 디렉터리에는 모델을 학습 하는 데 사용 되는 다음 파일이 포함 되어 있습니다.
+`model-training` 디렉터리에는 모델을 학습 하는 데 사용 되는 다음 파일이 포함 되어 있습니다.
 
 * `.azureml\sklearn.runconfig`: __실행 구성__ 파일입니다. 이 파일은 모델을 학습 하는 데 필요한 런타임 환경을 정의 합니다.
 * `train-sklearn.py`: 학습 스크립트입니다. 이 파일은 모델을 학습 합니다.
-* `mylib.py`: @No__t-0에서 사용 하는 도우미 모듈입니다.
+* `mylib.py`: `train-sklearn.py`에서 사용 하는 도우미 모듈입니다.
 * `training-env.yml`: 학습 스크립트를 실행 하는 데 필요한 소프트웨어 종속성을 정의 합니다.
 
 학습 스크립트는 scikit와 함께 제공 되는 당뇨병 데이터 집합을 사용 하 여 모델을 학습 합니다.
 
 ### <a name="deployment-files"></a>배포 파일
 
-@No__t-0 디렉터리에는 학습 된 모델을 웹 서비스로 배포 하는 데 사용 되는 다음 파일이 포함 되어 있습니다.
+`model-deployment` 디렉터리에는 학습 된 모델을 웹 서비스로 배포 하는 데 사용 되는 다음 파일이 포함 되어 있습니다.
 
 * `aciDeploymentConfig.yml`: __배포 구성__ 파일입니다. 이 파일은 모델에 필요한 호스팅 환경을 정의 합니다.
 * `inferenceConfig.yml`: 유추 configuration__ 파일입니다. 이 파일은 서비스에서 모델을 사용 하 여 데이터의 점수를 매기는 데 사용 하는 소프트웨어 환경을 정의 합니다.
 * `score.py`: 들어오는 데이터를 수락 하 고 모델을 사용 하 여 점수를 지정한 다음 응답을 반환 하는 python 스크립트입니다.
-* `scoring-env.yml`: 모델 및 `score.py` 스크립트를 실행 하는 데 필요한 conda 종속성.
+* `scoring-env.yml`: 모델 및 `score.py` 스크립트를 실행 하는 데 필요한 conda 종속성입니다.
 
 ## <a name="connect-to-your-azure-subscription"></a>Azure 구독에 연결
 
@@ -79,7 +80,7 @@ CLI에서 Azure 구독에 인증 하는 방법에는 여러 가지가 있습니�
 az login
 ```
 
-CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 페이지를 로드합니다. 그렇지 않으면 브라우저를 열고 명령줄의 지침을 따르세요. 지침에는 인증 코드 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 를 찾아 입력 하는 작업이 포함 됩니다.
+CLI가 기본 브라우저를 열 수 있는 경우, 그렇게 하고 로그인 페이지를 로드합니다. 그렇지 않으면 브라우저를 열고 명령줄의 지침을 따르세요. 지침에는 [https://aka.ms/devicelogin](https://aka.ms/devicelogin) 를 찾고 인증 코드를 입력 하는 작업이 포함 됩니다.
 
 ## <a name="install-the-machine-learning-extension"></a>Machine learning 확장 설치
 
@@ -97,12 +98,12 @@ az extension update -n azure-cli-ml
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-리소스 그룹은 Azure 플랫폼의 기본 리소스 컨테이너입니다. Azure Machine Learning 서비스를 사용 하는 경우 리소스 그룹에 Azure Machine Learning 서비스 작업 영역이 포함 됩니다. 또한 작업 영역에서 사용 하는 다른 Azure 서비스를 포함 합니다. 예를 들어 클라우드 기반 계산 리소스를 사용 하 여 모델을 학습 하는 경우 해당 리소스는 리소스 그룹에 만들어집니다.
+리소스 그룹은 Azure 플랫폼의 기본 리소스 컨테이너입니다. Azure Machine Learning 작업할 때 리소스 그룹은 Azure Machine Learning 작업 영역을 포함 합니다. 또한 작업 영역에서 사용 하는 다른 Azure 서비스를 포함 합니다. 예를 들어 클라우드 기반 계산 리소스를 사용 하 여 모델을 학습 하는 경우 해당 리소스는 리소스 그룹에 만들어집니다.
 
-__새 리소스 그룹을 만들려면__다음 명령을 사용 합니다. 이 `<resource-group-name>` 리소스 그룹에 사용할 이름으로 대체 합니다. 이 `<location>` 리소스 그룹에 사용할 Azure 지역으로 대체 합니다.
+__새 리소스 그룹을 만들려면__다음 명령을 사용 합니다. `<resource-group-name>`을이 리소스 그룹에 사용할 이름으로 바꿉니다. `<location>`을이 리소스 그룹에 사용할 Azure 지역으로 바꿉니다.
 
 > [!TIP]
-> Azure Machine Learning 서비스를 사용할 수 있는 지역을 선택 해야 합니다. 자세한 내용은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service)을 참조 하세요.
+> Azure Machine Learning 사용할 수 있는 지역을 선택 해야 합니다. 자세한 내용은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=machine-learning-service)을 참조 하세요.
 
 ```azurecli-interactive
 az group create --name <resource-group-name> --location <location>
@@ -128,7 +129,7 @@ az group create --name <resource-group-name> --location <location>
 
 ## <a name="create-a-workspace"></a>작업 영역 만들기
 
-새 작업 영역을 만들려면 다음 명령을 사용 합니다. @No__t-0을이 작업 영역에 사용할 이름으로 바꿉니다. @No__t-0을 리소스 그룹의 이름으로 바꿉니다.
+새 작업 영역을 만들려면 다음 명령을 사용 합니다. `<workspace-name>`를이 작업 영역에 사용할 이름으로 바꿉니다. `<resource-group-name>`을 리소스 그룹의 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
@@ -178,11 +179,11 @@ az ml folder attach -w <workspace-name> -g <resource-group-name>
 }
 ```
 
-이 명령은 작업 영역에 연결 하는 데 필요한 정보가 포함 된 `.azureml/config.json` 파일을 만듭니다. 이 자습서에서 사용 되는 `az ml` 명령의 나머지 명령은이 파일을 사용 하므로 모든 명령에 작업 영역 및 리소스 그룹을 추가 하지 않아도 됩니다.
+이 명령은 작업 영역에 연결 하는 데 필요한 정보가 포함 된 `.azureml/config.json` 파일을 만듭니다. 이 자습서에서 사용 되는 나머지 `az ml` 명령은이 파일을 사용 하므로 모든 명령에 작업 영역 및 리소스 그룹을 추가 하지 않아도 됩니다.
 
 ## <a name="create-the-compute-target-for-training"></a>학습을 위한 계산 대상 만들기
 
-이 예에서는 Azure Machine Learning 계산 인스턴스를 사용 하 여 모델을 학습 합니다. 새 계산 인스턴스를 만들려면 다음 명령을 사용 합니다.
+이 예제에서는 Azure Machine Learning 계산 클러스터를 사용 하 여 모델을 학습 합니다. 새 계산 클러스터를 만들려면 다음 명령을 사용 합니다.
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2_V2
@@ -199,14 +200,14 @@ az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2
 }
 ```
 
-이 명령은 최대 4 개의 노드를 사용 하 여 `cpu` 이라는 새 계산 대상을 만듭니다. 선택한 VM 크기는 GPU 리소스를 포함 하는 VM을 제공 합니다. VM 크기에 대 한 자세한 내용은 [VM 유형 및 크기]를 참조 하세요.
+이 명령은 최대 4 개의 노드를 사용 하 여 `cpu`라는 새 계산 대상을 만듭니다. 선택한 VM 크기는 GPU 리소스를 포함 하는 VM을 제공 합니다. VM 크기에 대 한 자세한 내용은 [VM 유형 및 크기]를 참조 하세요.
 
 > [!IMPORTANT]
-> 계산 대상의 이름 (이 경우 `cpu`)은 중요 합니다. 다음 섹션에서 사용 되는 `.azureml/sklearn.runconfig` 파일에서 참조 됩니다.
+> 계산 대상의 이름 (이 경우`cpu`)은 중요 합니다. 다음 섹션에서 사용 되는 `.azureml/sklearn.runconfig` 파일에서 참조 됩니다.
 
 ## <a name="submit-the-training-run"></a>학습 실행 제출
 
-@No__t-0 계산 대상에서 학습 실행을 시작 하려면 디렉터리를 `model-training` 디렉터리로 변경한 후 다음 명령을 사용 합니다.
+`cpu` 계산 대상에서 학습 실행을 시작 하려면 디렉터리를 `model-training` 디렉터리로 변경한 후 다음 명령을 사용 합니다.
 
 ```azurecli-interactive
 cd ~/mlops/model-training
@@ -215,11 +216,11 @@ az ml run submit-script -e myexperiment -c sklearn -d training-env.yml -t runout
 
 이 명령은 실험의 이름을 지정 합니다 (`myexperiment`). 실험은이 실행에 대 한 정보를 작업 영역에 저장 합니다.
 
-@No__t-0 매개 변수는 `.azureml/sklearn.runconfig` 파일을 지정 합니다. 앞서 언급 했 듯이이 파일에는 학습 실행에 사용 되는 환경을 구성 하는 데 사용 되는 정보가 포함 되어 있습니다. 이 파일을 검사 하면 이전에 만든 @no__t 0 계산 대상이 참조 되는 것을 볼 수 있습니다. 또한 학습 (`"nodeCount": "4"`) 할 때 사용할 노드 수를 나열 하 고, 학습 스크립트를 실행 하는 데 필요한 Python 패키지를 나열 하는 @no__t 1 섹션을 포함 합니다.
+`-c sklearn` 매개 변수는 `.azureml/sklearn.runconfig` 파일을 지정 합니다. 앞서 언급 했 듯이이 파일에는 학습 실행에 사용 되는 환경을 구성 하는 데 사용 되는 정보가 포함 되어 있습니다. 이 파일을 검사 하면 이전에 만든 `cpu` 계산 대상을 참조 하는 것을 볼 수 있습니다. 또한 학습 (`"nodeCount": "4"`) 할 때 사용할 노드 수를 나열 하 고, 학습 스크립트를 실행 하는 데 필요한 Python 패키지를 나열 하는 `"condaDependenciees"` 섹션을 포함 합니다.
 
-실행 구성 파일에 대 한 자세한 내용은 [모델 학습을 위한 계산 대상 설정 및 사용](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli)을 참조 하세요.
+실행 구성 파일에 대 한 자세한 내용은 [모델 학습을 위한 계산 대상 설정 및 사용](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli)을 참조 하거나이 [JSON 파일](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) 을 참조 하 여 .runconfig에 대 한 전체 스키마를 확인 합니다.
 
-@No__t-0 매개 변수는이 실행에 대 한 참조를 JSON 파일에 저장 하 고, 다음 단계에서 모델을 등록 하 고 다운로드 하는 데 사용 됩니다.
+`-t` 매개 변수는이 실행에 대 한 참조를 JSON 파일에 저장 하 고, 다음 단계에서 모델을 등록 하 고 다운로드 하는 데 사용 됩니다.
 
 학습 실행 프로세스는 원격 계산 리소스의 학습 세션에서 정보를 스트리밍합니다. 정보의 일부는 다음 텍스트와 유사 합니다.
 
@@ -234,11 +235,11 @@ The experiment completed successfully. Finalizing run...
 Cleaning up all outstanding Run operations, waiting 300.0 seconds
 ```
 
-이 텍스트는 학습 스크립트 (`train-sklearn.py`)에서 기록 되며이 모델에 대 한 두 가지 성능 메트릭을 표시 합니다. 이 경우 가장 높은 알파 값을 가진 모델을 원합니다. 성능 메트릭은 학습 하는 모델에만 적용 됩니다. 다른 모델의 성능 메트릭은 서로 다를 수 있습니다.
+이 텍스트는 학습 스크립트 (`train-sklearn.py`)에서 기록 되 고이 모델에 대 한 두 가지 성능 메트릭을 표시 합니다. 이 경우 가장 높은 알파 값을 가진 모델을 원합니다. 성능 메트릭은 학습 하는 모델에만 적용 됩니다. 다른 모델의 성능 메트릭은 서로 다를 수 있습니다.
 
-@No__t-0을 검사 하면 학습 된 모델을 파일에 저장할 때 알파 값도 사용 하는 것을 알 수 있습니다. 이 경우 여러 모델을 학습 합니다. 가장 높은 알파를 사용 하는 것은 가장 적합 한 항목 이어야 합니다. 위의 출력과 코드를 살펴보면 알파 0.95이 인 모델이 @no__t로 저장 되었습니다.
+`train-sklearn.py`를 검사 하는 경우 학습 된 모델을 파일에 저장할 때 알파 값도 사용 하는 것을 알 수 있습니다. 이 경우 여러 모델을 학습 합니다. 가장 높은 알파를 사용 하는 것은 가장 적합 한 항목 이어야 합니다. 위의 출력과 코드를 살펴보면 알파 0.95이 인 모델이 `./outputs/ridge_0.95.pkl`로 저장 되었습니다.
 
-모델이 학습 된 계산 대상의 `./outputs` 디렉터리에 저장 되었습니다. 이 경우 Azure 클라우드의 Azure Machine Learning 계산 인스턴스가 있습니다. 학습 프로세스는 Azure Machine Learning 작업 영역에 대 한 학습을 수행 하는 계산 대상에서 `./outputs` 디렉터리의 콘텐츠를 자동으로 업로드 합니다. 실험의 일부로 저장 됩니다 (이 예제에서는 `myexperiment`).
+모델이 학습 된 계산 대상의 `./outputs` 디렉터리에 저장 되었습니다. 이 경우 Azure 클라우드의 Azure Machine Learning 계산 인스턴스가 있습니다. 학습 프로세스는 Azure Machine Learning 작업 영역에 대 한 학습을 수행 하는 계산 대상에서 `./outputs` 디렉터리의 콘텐츠를 자동으로 업로드 합니다. 실험의 일부로 저장 됩니다 (이 예제에서는`myexperiment`).
 
 ## <a name="register-the-model"></a>모델 등록
 
@@ -248,7 +249,7 @@ Cleaning up all outstanding Run operations, waiting 300.0 seconds
 az ml model register -n mymodel -f runoutput.json --asset-path "outputs/ridge_0.95.pkl" -t registeredmodel.json
 ```
 
-이 명령은 학습 실행에서 만든 @no__t 0 파일을 `mymodel` 이라는 새 모델 등록으로 등록 합니다. @No__t-0은 실험에서 경로를 참조 합니다. 이 경우 실험 및 실행 정보는 학습 명령으로 만든 `runoutput.json` 파일에서 로드 됩니다. @No__t-0은이 명령으로 만든 새 등록 된 모델을 참조 하는 JSON 파일을 만들며 등록 된 모델에서 작동 하는 다른 CLI 명령에 사용 됩니다.
+이 명령은 학습 실행에서 만든 `outputs/ridge_0.95.pkl` 파일을 `mymodel`라는 새 모델 등록으로 등록 합니다. `--assets-path`은 실험에서 경로를 참조 합니다. 이 경우 실험 및 실행 정보는 학습 명령으로 만든 `runoutput.json` 파일에서 로드 됩니다. `-t registeredmodel.json`는이 명령으로 만든 새 등록 된 모델을 참조 하는 JSON 파일을 만들고 등록 된 모델에서 작동 하는 다른 CLI 명령에 사용 됩니다.
 
 이 명령의 출력은 다음 JSON과 유사 합니다.
 
@@ -277,7 +278,7 @@ az ml model download -i "mymodel:1" -t .
 az ml model register -n mymodel -p "ridge_0.95.pkl"
 ```
 
-첫 번째 명령은 등록 된 모델을 현재 디렉터리에 다운로드 합니다. 파일 이름은 `ridge_0.95.pkl`입니다 .이는 모델을 등록할 때 참조 되는 파일입니다. 두 번째 명령은 로컬 모델 (`-p "ridge_0.95.pkl"`)을 이전 등록과 같은 이름으로 등록 합니다 (`mymodel`). 이번에는 반환 되는 JSON 데이터에 버전 2가 나열 됩니다.
+첫 번째 명령은 등록 된 모델을 현재 디렉터리에 다운로드 합니다. 파일 이름은 `ridge_0.95.pkl`입니다 .이 파일은 모델을 등록할 때 참조 되는 파일입니다. 두 번째 명령은 로컬 모델 (`-p "ridge_0.95.pkl"`)을 이전 등록과 같은 이름으로 등록 합니다 (`mymodel`). 이번에는 반환 되는 JSON 데이터에 버전 2가 나열 됩니다.
 
 ## <a name="deploy-the-model"></a>모델 배포
 
@@ -290,11 +291,11 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 
 "Docker 클라이언트를 만들지 못했습니다." 라는 메시지가 표시 될 수 있습니다. 이 메시지는 무시 해도 됩니다. CLI는 웹 서비스를 로컬 Docker 컨테이너에 배포 하 고 Docker를 확인할 수 있습니다. 이 경우 로컬 배포를 사용 하지 않습니다.
 
-이 명령은 이전에 등록 한 모델의 버전 1을 사용 하 여 `myservice` 이라는 새 서비스를 배포 합니다.
+이 명령은 이전에 등록 한 모델의 버전 1을 사용 하 여 `myservice`라는 새 서비스를 배포 합니다.
 
-@No__t-0 파일은 entry 스크립트 (`score.py`) 및 소프트웨어 종속성과 같은 유추를 수행 하는 방법에 대 한 정보를 제공 합니다. 이 파일의 구조에 대 한 자세한 내용은 [유추 구성 스키마](reference-azure-machine-learning-cli.md#inference-configuration-schema)를 참조 하세요. 항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning 서비스를 사용 하 여 모델 배포](how-to-deploy-and-where.md#prepare-to-deploy)를 참조 하세요.
+`inferenceConfig.yml` 파일은 입력 스크립트 (`score.py`) 및 소프트웨어 종속성과 같은 유추를 수행 하는 방법에 대 한 정보를 제공 합니다. 이 파일의 구조에 대 한 자세한 내용은 [유추 구성 스키마](reference-azure-machine-learning-cli.md#inference-configuration-schema)를 참조 하세요. 항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md#prepare-to-deploy)를 참조 하세요.
 
-@No__t-0은 서비스를 호스트 하는 데 사용 되는 배포 환경을 설명 합니다. 배포 구성은 배포에 사용 하는 계산 형식에만 적용 됩니다. 이 경우 Azure Container Instance가 사용 됩니다. 자세한 내용은 [배포 구성 스키마](reference-azure-machine-learning-cli.md#deployment-configuration-schema)를 참조 하세요.
+`aciDeploymentConfig.yml`은 서비스를 호스트 하는 데 사용 되는 배포 환경을 설명 합니다. 배포 구성은 배포에 사용 하는 계산 형식에만 적용 됩니다. 이 경우 Azure Container Instance가 사용 됩니다. 자세한 내용은 [배포 구성 스키마](reference-azure-machine-learning-cli.md#deployment-configuration-schema)를 참조 하세요.
 
 배포 프로세스가 완료 되기까지 몇 분이 소요 됩니다.
 
@@ -318,13 +319,13 @@ ACI service creation operation finished, operation "Succeeded"
 
 ### <a name="the-scoring-uri"></a>점수 매기기 URI
 
-배포에서 반환 된 @no__t 0은 웹 서비스로 배포 된 모델에 대 한 REST 끝점입니다. 다음 명령을 사용 하 여이 URI를 가져올 수도 있습니다.
+배포에서 반환 되는 `scoringUri`는 웹 서비스로 배포 된 모델에 대 한 REST 끝점입니다. 다음 명령을 사용 하 여이 URI를 가져올 수도 있습니다.
 
 ```azurecli-interactive
 az ml service show -n myservice
 ```
 
-이 명령은 `scoringUri`을 포함 하 여 동일한 JSON 문서를 반환 합니다.
+이 명령은 `scoringUri`를 포함 하 여 동일한 JSON 문서를 반환 합니다.
 
 REST 끝점을 사용 하 여 데이터를 서비스로 보낼 수 있습니다. 서비스로 데이터를 전송 하는 클라이언트 응용 프로그램을 만드는 방법에 대 한 자세한 내용은 [웹 서비스로 배포 된 Azure Machine Learning 모델 사용](how-to-consume-web-service.md) 을 참조 하세요.
 
@@ -336,7 +337,7 @@ REST 끝점을 사용 하 여 데이터를 서비스로 보낼 수 있습니다.
 az ml service run -n myservice -d '{"data":[[1,2,3,4,5,6,7,8,9,10]]}'
 ```
 
-명령의 응답은 `[4684.920839774082]`과 비슷합니다.
+명령의 응답은 `[4684.920839774082]`와 비슷합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -355,7 +356,7 @@ az ml service delete -n myservice
 
 ### <a name="delete-the-training-compute"></a>학습 계산 삭제
 
-Azure Machine Learning 작업 영역을 계속 사용 하려는 경우 학습을 위해 만든 @no__t 0 계산 대상을 제거 하려는 경우 다음 명령을 사용 합니다.
+Azure Machine Learning 작업 영역을 계속 사용 하려는 경우 학습을 위해 만든 `cpu` 계산 대상을 제거 하려는 경우 다음 명령을 사용 합니다.
 
 ```azurecli-interactive
 az ml computetarget delete -n cpu
@@ -367,7 +368,7 @@ az ml computetarget delete -n cpu
 
 만든 리소스를 사용 하지 않으려는 경우 추가 비용이 발생 하지 않도록 해당 리소스를 삭제 합니다.
 
-리소스 그룹 및이 문서에서 만든 모든 Azure 리소스를 삭제 하려면 다음 명령을 사용 합니다. @No__t-0을 앞에서 만든 리소스 그룹의 이름으로 바꿉니다.
+리소스 그룹 및이 문서에서 만든 모든 Azure 리소스를 삭제 하려면 다음 명령을 사용 합니다. `<resource-group-name>`를 앞에서 만든 리소스 그룹의 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az group delete -g <resource-group-name> -y
@@ -386,4 +387,4 @@ az group delete -g <resource-group-name> -y
 > * 모델을 웹 서비스로 배포
 > * 웹 서비스를 사용 하 여 데이터 점수 매기기
 
-CLI 사용에 대 한 자세한 내용은 [Azure Machine Learning 서비스에 cli 확장 사용](reference-azure-machine-learning-cli.md)을 참조 하세요.
+CLI 사용에 대 한 자세한 내용은 [Azure Machine Learning에 cli 확장 사용](reference-azure-machine-learning-cli.md)을 참조 하세요.

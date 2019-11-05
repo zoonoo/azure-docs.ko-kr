@@ -1,7 +1,7 @@
 ---
 title: 고객 이탈 분석
-titleSuffix: Azure Machine Learning Studio
-description: Azure Machine Learning Studio를 사용하여 고객 이탈을 분석하고 채점하는 통합 모델 개발에 대한 사례 연구입니다.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Azure Machine Learning Studio (클래식)를 사용 하 여 고객 이탈을 분석 하 고 점수를 매기는 통합 모델을 개발 하는 사례 연구.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,22 +10,22 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: e6a7eaa94e7196c830a66b2d77023bd562119c92
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 168ab29b3d7397505543c169add03fb0d768f54b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64699433"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493366"
 ---
-# <a name="analyze-customer-churn-using-azure-machine-learning-studio"></a>Azure Machine Learning Studio를 사용하여 고객 이탈 분석
+# <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)를 사용 하 여 고객 이탈 분석
 ## <a name="overview"></a>개요
-이 문서에서는 Azure Machine Learning Studio를 사용하여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공합니다. 이 문서에서는 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 Machine Learning을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
+이 문서에서는 Azure Machine Learning Studio (클래식)를 사용 하 여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공 합니다. 이 문서에서는 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 Machine Learning을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
 
-### <a name="acknowledgements"></a>승인
-이 실험은 Microsoft의 수석 데이터 과학자인 Serge Berger와 이전 Microsoft Azure Machine Learning Studio 제품 관리자인 Roger Barga가 개발하고 테스트했습니다. Azure 설명서 팀은 담당자들의 전문 지식을 인정하고 이 백서를 공유한 것에 대해 감사해하고 있습니다.
+### <a name="acknowledgements"></a>감사의 말
+이 실험은 Serge Berger, Microsoft의 Principal Data 과학자, Microsoft의 Roger Barga, 이전에 Microsoft Azure Machine Learning Studio (클래식)에 대 한 제품 관리자에 의해 개발 되 고 테스트 되었습니다. Azure 설명서 팀은 담당자들의 전문 지식을 인정하고 이 백서를 공유한 것에 대해 감사해하고 있습니다.
 
 > [!NOTE]
-> 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 Machine Learning 모델을 작성하는 방법의 예제를 보려면 [Azure AI 갤러리](https://gallery.azure.ai/)의 [소매 변동 모델 템플릿](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)을 참조하세요.
+> 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 Machine Learning 모델을 작성하는 방법의 예제를 보려면 [Azure AI 갤러리](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)의 [소매 변동 모델 템플릿](https://gallery.azure.ai/)을 참조하세요.
 > 
 > 
 
@@ -70,29 +70,29 @@ ms.locfileid: "64699433"
 
  
 
-## <a name="implementing-the-modeling-archetype-in-machine-learning-studio"></a>Machine Learning Studio에서 모델링 원형 구현
-설명된 문제를 감안할 때 통합 모델링 및 채점 방식을 구현하는 가장 좋은 방법은 무엇일까요? 이 섹션에서는 Azure Machine Learning Studio를 사용하여 이 작업을 하는 방법을 보여 줍니다.  
+## <a name="implementing-the-modeling-archetype-in-machine-learning-studio-classic"></a>Machine Learning Studio 모델링 원형 (클래식) 구현
+설명된 문제를 감안할 때 통합 모델링 및 채점 방식을 구현하는 가장 좋은 방법은 무엇일까요? 이 섹션에서는 클래식 버전의 Azure Machine Learning Studio을 사용 하 여이를 수행 하는 방법을 설명 합니다.  
 
 다중 모델 접근법은 이탈에 대한 전역적인 원형을 디자인할 때 필수 요소입니다. 접근법의 점수 매기기(예측) 부분도 다중 모델이어야 합니다.  
 
-다음 다이어그램에서는 Microsoft에서 만든, 이탈을 예측하는 데 Machine Learning Studio의 네 가지 점수 매기기 알고리즘을 사용하는 프로토타입을 보여 줍니다. 다중 모델 접근법은 전체 분류자를 만들어 정확도를 높일 뿐만 아니라 과잉 맞춤을 방지하고 예측 기능 선택을 개선하기 위해 사용합니다.  
+다음 다이어그램에서는 변동를 예측 하기 위해 Machine Learning Studio (클래식)에서 4 개의 점수 매기기 알고리즘을 채택 하는 만든 프로토타입을 보여 줍니다. 다중 모델 접근법은 전체 분류자를 만들어 정확도를 높일 뿐만 아니라 과잉 맞춤을 방지하고 예측 기능 선택을 개선하기 위해 사용합니다.  
 
-![상호 연결된 모듈이 많이 있는 복잡한 Studio 작업 영역을 보여주는 스크린샷](./media/azure-ml-customer-churn-scenario/churn-3.png)
+![상호 연결 된 모듈이 많은 복잡 한 Studio (클래식) 작업 영역을 보여 주는 스크린샷](./media/azure-ml-customer-churn-scenario/churn-3.png)
 
 *그림 5: 일탈 모델링 접근법의 프로토타입*  
 
-다음 섹션에서는 Machine Learning Studio를 사용하여 구현한 프로토타입 점수 매기기 모델에 대한 자세한 설명을 제공합니다.  
+다음 섹션에서는 Machine Learning Studio (클래식)를 사용 하 여 구현한 프로토타입 점수 매기기 모델에 대 한 자세한 정보를 제공 합니다.  
 
 ### <a name="data-selection-and-preparation"></a>데이터 선택 및 준비
 모델을 빌드하고 고객 점수를 매기는 데 사용되는 데이터는 CRM Vertical 솔루션에서 얻고 고객 개인 정보를 보호하도록 데이터가 난독 처리됩니다. 이 데이터에는 미국의 구독 회원 8,000명에 대한 정보가 포함되어 있으며, 세 가지 소스 데이터, 즉 프로비저닝 데이터(구독 메타데이터), 활동 데이터(시스템 사용) 및 고객 지원 데이터가 통합되어 있습니다. 로열티 메타데이터 또는 신용 점수와 같은 고객에 대한 비즈니스 관련 정보는 데이터에 포함되지 않습니다.  
 
 간단히 말해 데이터 준비가 이미 다른 곳에서 완료되었다고 가정하므로 ETL 및 데이터 정리 프로세스는 범위를 벗어납니다.
 
-모델링에 대한 기능 선택은 임의 포리스트 모듈을 사용하는 프로세스에 포함된 예측 변수 집합에 대한 사전 중요도 점수 매기기를 기반으로 합니다. Machine Learning Studio에서 구현하기 위해 대표적인 기능에 대한 평균, 중앙값 및 범위를 계산했습니다. 예를 들어 사용자 활동에 대한 최소값 및 최대값 같은 정성 데이터에 대한 집계를 추가했습니다.
+모델링에 대한 기능 선택은 임의 포리스트 모듈을 사용하는 프로세스에 포함된 예측 변수 집합에 대한 사전 중요도 점수 매기기를 기반으로 합니다. Machine Learning Studio (클래식)의 구현에서는 대표 기능의 평균, 중앙값 및 범위를 계산 했습니다. 예를 들어 사용자 활동에 대한 최소값 및 최대값 같은 정성 데이터에 대한 집계를 추가했습니다.
 
 또한 최근 6개월 동안의 임시 정보를 캡처했습니다. 1년 동안의 데이터를 분석하고 통계상 중요한 추세라도 6개월 후에는 이탈에 대한 영향이 크게 감소하도록 설정했습니다.  
 
-가장 중요한 사항은 ETL, 기능 선택, 모델링을 비롯한 전체 프로세스가 Microsoft Azure에서 데이터 원본을 사용하여 Machine Learning Studio에서 구현되었다는 점입니다.   
+가장 중요 한 점은 ETL, 기능 선택 및 모델링을 비롯 한 전체 프로세스가 Microsoft Azure의 데이터 원본을 사용 하 여 Machine Learning Studio (클래식)에서 구현 된다는 것입니다.   
 
 다음 다이어그램에서는 사용된 데이터를 보여 줍니다.  
 
@@ -124,18 +124,18 @@ ms.locfileid: "64699433"
 
 ![스튜디오 실험의 작은 섹션의 스크린샷 캔버스](./media/azure-ml-customer-churn-scenario/churn-6.png)  
 
-*그림 8: Machine Learning Studio에서 모델 만들기*  
+*그림 8: Machine Learning Studio에서 모델 만들기 (클래식)*  
 
 ### <a name="scoring-methods"></a>점수 매기기 방법
 레이블이 지정된 학습 데이터 세트를 사용하여 네 가지 모델의 점수를 매겼습니다.  
 
-또한 데스크톱 버전의 SAS Enterprise Miner 12를 사용하여 빌드한 비교 가능한 모델에 점수 매기기 데이터 세트를 제출했습니다. SAS 모델과 네 가지 Machine Learning Studio 모델 모두의 정확도를 측정했습니다.  
+또한 데스크톱 버전의 SAS Enterprise Miner 12를 사용하여 빌드한 비교 가능한 모델에 점수 매기기 데이터 세트를 제출했습니다. SAS 모델 및 4 개의 Machine Learning Studio (클래식) 모델의 정확도를 측정 했습니다.  
 
 ## <a name="results"></a>결과
 이 섹션에서는 점수 데이터 세트에 따라 모델 정확도에 대한 결과를 제공합니다.  
 
 ### <a name="accuracy-and-precision-of-scoring"></a>점수 매기기의 정확도 및 정밀도
-일반적으로 Azure Machine Learning Studio의 구현은 정확도가 SAS보다 10~15%(AUC 또는 곡선 아래 영역) 정도 낮습니다.  
+일반적으로 Azure Machine Learning Studio 클래식 버전의 구현은 정확도가 10-15% (곡선 아래의 영역 또는 기타 영역)에 따라 정확도를 벗어났습니다.  
 
 그러나 이탈의 가장 중요한 메트릭은 오분류 비율입니다. 즉, 분류자를 통해 예측된 상위 N명의 이탈자 가운데 실제로 이탈하지 **않았지만** 특별 대우를 받은 비율(%)입니다. 다음 다이어그램에서는 모든 모델에 대한 이 오분류 비율을 비교합니다.  
 
@@ -152,9 +152,9 @@ AUC 값을 통해 모델을 비교할 수 있으므로 AUC는 다양한 알고�
 8,000여 개 구독에 대한 CRM 데이터를 사용하여 해당 데이터 세트에 대한 오분류 비율을 비교했습니다.  
 
 * SAS 오분류 비율은 10~15%였습니다.
-* Machine Learning Studio 오분류 비율은 상위 200~300명의 이탈자에 대해 15~20%였습니다.  
+* Machine Learning Studio (클래식) 잘못 된 분류 요금은 상위 200-300 탈자의 15-20%입니다.  
 
-통신 업계에서는 안내자 서비스나 기타 특별 대우를 제공하여 이탈 위험이 가장 큰 고객에게만 초점을 맞춰야 합니다. 그 점에 있어서 Machine Learning Studio 구현은 SAS 모델과 같은 결과를 달성합니다.  
+통신 업계에서는 안내자 서비스나 기타 특별 대우를 제공하여 이탈 위험이 가장 큰 고객에게만 초점을 맞춰야 합니다. 이와 관련 하 여 Machine Learning Studio (클래식) 구현은 SAS 모델과의 결과를 달성 합니다.  
 
 주요 관심사는 잠재 이탈자를 제대로 분류하는 것이었기 때문에 같은 이유로 정확도가 정밀도보다 더 중요합니다.  
 
@@ -172,7 +172,7 @@ Wikipedia의 다음 다이어그램에서는 효과적이고 이해하기 쉬운
 *그림 11: 향상된 의사 결정 트리 모델 특성*
 
 ## <a name="performance-comparison"></a>성능 비교
-Machine Learning Studio 모델과 SAS Enterprise Miner 12.1 Desktop Edition을 사용하여 생성된 비슷한 모델을 사용하여 데이터 점수를 매긴 속도를 비교했습니다.  
+Machine Learning Studio (클래식) 모델을 사용 하 여 데이터 점수가 매겨진 속도와 SAS Enterprise 마이너 12.1 데스크톱 버전을 사용 하 여 만든 동급 모델을 비교 했습니다.  
 
 다음 표에서는 알고리즘의 성능을 간략히 설명합니다.  
 
@@ -182,7 +182,7 @@ Machine Learning Studio 모델과 SAS Enterprise Miner 12.1 Desktop Edition을 �
 | --- | --- | --- | --- |
 | 평균 모델 |최적 모델 |성능 미만 |평균 모델 |
 
-Machine Learning Studio에서 호스트된 모델은 실행 속도 성능이 SAS보다 15~25% 높았지만 정확도는 대체로 같았습니다.  
+Machine Learning Studio (클래식)에서 호스트 되는 모델은 실행 속도에 대해 15-25% 에%를 수행 하지만 정확도는 거의 동일 합니다.  
 
 ## <a name="discussion-and-recommendations"></a>설명 및 권장 사항
 통신 업계에는 다음과 같이 이탈을 분석하기 위한 여러 가지 사례가 나타났습니다.  
@@ -198,28 +198,28 @@ Machine Learning Studio에서 호스트된 모델은 실행 속도 성능이 SAS
 
 비즈니스 인텔리전스 지향 접근법이 주로 판매가 더 쉽고 직관적인 자동화를 허용하기 때문에 분석보다 이 접근법을 선호하는 비즈니스에서는 이 중요한 관찰 결과가 종종 간과됩니다.  
 
-하지만 Machine Learning Studio를 사용한 셀프 서비스 분석에서 기대되는 것은 사업부나 부서별로 등급이 지정된 네 가지 정보 범주가 이탈에 대한 기계 학습의 중요한 출처가 된다는 점입니다.  
+그러나 Machine Learning Studio (클래식)를 사용 하 여 셀프 서비스 분석을 사용 하는 것은 부서와 부서 별로 등급이 변동 된 네 가지 정보 범주가 변동에 대 한 기계 학습에 중요 한 원본이 될 수 있다는 것입니다.  
 
-Azure Machine Learning Studio에서 제공되는 또 다른 흥미로운 기능은 이미 사용할 수 있는 미리 정의된 모듈의 리포지토리에 사용자 지정 모듈을 추가하는 기능입니다. 이 기능은 기본적으로 라이브러리를 선택하고 수직적 시장에 대한 템플릿을 만들 기회를 제공합니다. 이는 마켓플레이스에서 Azure Machine Learning Studio의 중요한 차별화 요소입니다.  
+Azure Machine Learning Studio의 클래식 버전에서 제공 되는 또 다른 흥미로운 기능은 이미 사용 가능한 미리 정의 된 모듈의 리포지토리에 사용자 지정 모듈을 추가 하는 기능입니다. 이 기능은 기본적으로 라이브러리를 선택하고 수직적 시장에 대한 템플릿을 만들 기회를 제공합니다. 이는 시장에서 Azure Machine Learning Studio 클래식 버전의 중요 한 차이점입니다.  
 
 특히 빅데이터 분석과 관련된 이 토픽은 나중에 설명할 기회가 있을 것입니다.
   
 
 ## <a name="conclusion"></a>결론
-이 문서에서는 일반 프레임워크를 사용하여 일반적인 문제인 고객 이탈을 방지하기 위한 합리적인 접근법에 대해 설명합니다. 채점 모델의 프로토타입을 고려하고 Azure Machine Learning Studio를 사용하여 해당 프로토타입을 구현했습니다. 마지막으로 SAS의 비슷한 알고리즘과 비교하여 프로토타입 솔루션의 정확도와 성능을 평가했습니다.  
+이 문서에서는 일반 프레임워크를 사용하여 일반적인 문제인 고객 이탈을 방지하기 위한 합리적인 접근법에 대해 설명합니다. 모델 점수 매기기를 위한 프로토타입을 고려 하 고 클래식 버전의 Azure Machine Learning Studio을 사용 하 여 구현 했습니다. 마지막으로 SAS의 비슷한 알고리즘과 비교하여 프로토타입 솔루션의 정확도와 성능을 평가했습니다.  
 
  
 
 ## <a name="references"></a>참조
-[1] 예측 분석: Beyond the Predictions, W. McKnight, Information Management, July/August 2011, p.18-20.  
+[1] 예측 분석: 예측, W McKnight, 정보 관리, 7 월/8 월 2011, p. 18-20.  
 
-[2] Wikipedia 문서: [Accuracy and precision](https://en.wikipedia.org/wiki/Accuracy_and_precision)
+[2] 위키백과 문서: [정확도 및 전체 자릿수](https://en.wikipedia.org/wiki/Accuracy_and_precision)
 
 [3] [CRISP-DM 1.0: Step-by-Step Data Mining Guide](https://www.the-modeling-agency.com/crisp-dm.pdf)   
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Azure AI 갤러리](https://gallery.azure.ai/)의 [Telco 변동 모델 템플릿](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) 
+[5] [Azure AI 갤러리](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5)의 [Telco 변동 모델 템플릿](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>부록

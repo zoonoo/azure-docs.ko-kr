@@ -12,14 +12,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: c72de809dc5818cced95be2cbd6b47308bad4f22
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
-ms.translationtype: MT
+ms.openlocfilehash: 2d8bf44f5e5e7a3f8c328a47480599f9dd18b845
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045215"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489522"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Azure ML 실험 실행 및 메트릭 모니터링
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 실험 및 모니터링 실행 메트릭을 추적 하 여 모델 생성 프로세스를 개선 합니다. 이 문서에서는 학습 스크립트에 로깅 코드를 추가 하 고, 실험 실행을 제출 하 고, 실행을 모니터링 하 고, Azure Machine Learning 결과를 검사 하는 방법에 대해 알아봅니다.
 
@@ -30,15 +31,15 @@ ms.locfileid: "73045215"
 
 실험을 학습하는 동안 실행에 추가할 수 있는 메트릭은 다음과 같습니다. 실행 시 추적할 수 있는 메트릭에 대한 자세한 목록을 보려면 [Run 클래스 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)를 참조하세요.
 
-|Type| Python 함수 | 참고|
+|형식| Python 함수 | 참고 사항|
 |----|:----|:----|
-|스칼라 값 |함수:<br>`run.log(name, value, description='')`<br><br>예제:<br>run.log(“accuracy”, 0.95) |숫자 또는 문자열 값을 지정된 이름의 실행에 기록합니다. 메트릭을 실행에 기록하면 해당 메트릭이 실험의 실행 기록에 저장됩니다.  하나의 실행 내에서 동일한 메트릭을 여러 번 기록할 수 있으며 결과는 해당 메트릭의 벡터로 간주됩니다.|
-|목록|함수:<br>`run.log_list(name, value, description='')`<br><br>예제:<br>run.log_list(“accuracies”, [0.6, 0.7, 0.87]) | 값 목록을 지정된 이름의 실행에 기록합니다.|
-|행|함수:<br>`run.log_row(name, description=None, **kwargs)`<br>예제:<br>run.log_row(“Y over X”, x=1, y=0.4) | *log_row*를 사용하여 kwargs에 설명된 대로 열이 여러 개 있는 메트릭을 만듭니다. 명명된 각 매개 변수는 지정된 값이 있는 열을 생성합니다.  *log_row*는 임의의 튜플을 로깅하기 위해 한 번 호출되거나 루프에서 여러 번 호출되어 전체 테이블을 생성할 수 있습니다.|
-|Table|함수:<br>`run.log_table(name, value, description='')`<br><br>예제:<br>run.log_table(“Y over X”, {”x”:[1, 2, 3], “y”:[0.6, 0.7, 0.89]}) | 사전 개체를 지정된 이름의 실행에 기록합니다. |
-|이미지|함수:<br>`run.log_image(name, path=None, plot=None)`<br><br>예제:<br>`run.log_image("ROC", plt)` | 이미지를 실행 기록에 로깅합니다. log_image를 사용하여 이미지 파일이나 matplotlib 도면을 실행에 기록합니다.  이러한 이미지는 실행 기록에서 볼 수 있고 비교할 수 있습니다.|
-|실행 태그 지정|함수:<br>`run.tag(key, value=None)`<br><br>예제:<br>run.tag(“selected”, “yes”) | 문자열 키와 선택적 문자열 값을 사용하여 실행에 대한 태그를 지정합니다.|
-|파일 또는 디렉터리 업로드|함수:<br>`run.upload_file(name, path_or_stream)`<br> <br> 예제:<br>run.upload_file("best_model.pkl", "./model.pkl") | 파일을 실행 기록에 업로드합니다. 실행은 지정된 출력 디렉터리에서 파일을 자동으로 캡처합니다. 이 디렉터리는 대부분의 실행 형식에 대해 기본적으로 "./outputs"로 지정됩니다.  pload_file은 추가 파일을 업로드해야 하거나 출력 디렉터리를 지정하지 않은 경우에만 사용합니다. outputs 디렉터리에 업로드되도록 이름에 `outputs`를 추가하는 것이 좋습니다. `run.get_file_names()`를 호출하여 이 실행 기록와 연결된 모든 파일을 나열할 수 있습니다.|
+|스칼라 값 |함수:<br>`run.log(name, value, description='')`<br><br>예:<br>run.log(“accuracy”, 0.95) |숫자 또는 문자열 값을 지정된 이름의 실행에 기록합니다. 메트릭을 실행에 기록하면 해당 메트릭이 실험의 실행 기록에 저장됩니다.  하나의 실행 내에서 동일한 메트릭을 여러 번 기록할 수 있으며 결과는 해당 메트릭의 벡터로 간주됩니다.|
+|목록|함수:<br>`run.log_list(name, value, description='')`<br><br>예:<br>run.log_list(“accuracies”, [0.6, 0.7, 0.87]) | 값 목록을 지정된 이름의 실행에 기록합니다.|
+|행|함수:<br>`run.log_row(name, description=None, **kwargs)`<br>예:<br>run.log_row(“Y over X”, x=1, y=0.4) | *log_row*를 사용하여 kwargs에 설명된 대로 열이 여러 개 있는 메트릭을 만듭니다. 명명된 각 매개 변수는 지정된 값이 있는 열을 생성합니다.  *log_row*는 임의의 튜플을 로깅하기 위해 한 번 호출되거나 루프에서 여러 번 호출되어 전체 테이블을 생성할 수 있습니다.|
+|테이블|함수:<br>`run.log_table(name, value, description='')`<br><br>예:<br>run.log_table(“Y over X”, {”x”:[1, 2, 3], “y”:[0.6, 0.7, 0.89]}) | 사전 개체를 지정된 이름의 실행에 기록합니다. |
+|이미지|함수:<br>`run.log_image(name, path=None, plot=None)`<br><br>예:<br>`run.log_image("ROC", plt)` | 이미지를 실행 기록에 로깅합니다. log_image를 사용하여 이미지 파일이나 matplotlib 도면을 실행에 기록합니다.  이러한 이미지는 실행 기록에서 볼 수 있고 비교할 수 있습니다.|
+|실행 태그 지정|함수:<br>`run.tag(key, value=None)`<br><br>예:<br>run.tag(“selected”, “yes”) | 문자열 키와 선택적 문자열 값을 사용하여 실행에 대한 태그를 지정합니다.|
+|파일 또는 디렉터리 업로드|함수:<br>`run.upload_file(name, path_or_stream)`<br> <br> 예:<br>run.upload_file("best_model.pkl", "./model.pkl") | 파일을 실행 기록에 업로드합니다. 실행은 지정된 출력 디렉터리에서 파일을 자동으로 캡처합니다. 이 디렉터리는 대부분의 실행 형식에 대해 기본적으로 "./outputs"로 지정됩니다.  pload_file은 추가 파일을 업로드해야 하거나 출력 디렉터리를 지정하지 않은 경우에만 사용합니다. outputs 디렉터리에 업로드되도록 이름에 `outputs`를 추가하는 것이 좋습니다. `run.get_file_names()`를 호출하여 이 실행 기록와 연결된 모든 파일을 나열할 수 있습니다.|
 
 > [!NOTE]
 > 스칼라, 목록, 행 및 테이블에 대한 메트릭은 부동 소수점, 정수 또는 문자열 형식일 수 있습니다.
@@ -261,7 +262,7 @@ print(run.get_portal_url())
    ![자동화된 기계 학습을 위한 Jupyter Notebook 위젯](./media/how-to-track-experiments/azure-machine-learning-auto-ml-widget.png)
 
 
-파이프라인의 세부 정보를 보려면 테이블에서 살펴보려는 파이프라인을 클릭합니다. Azure Portal의 팝업 항목에 차트가 렌더링됩니다.
+파이프라인에 대 한 추가 세부 정보를 보려면 표를 탐색 하려는 파이프라인을 클릭 합니다. 그러면 Azure Machine Learning studio에서 팝업로 차트가 렌더링 됩니다.
 
 ### <a name="get-log-results-upon-completion"></a>완료 시 로그 결과 가져오기
 
@@ -273,22 +274,19 @@ print(run.get_portal_url())
 ```run.get_metrics()```를 사용하여 학습된 모델의 메트릭을 볼 수 있습니다. 이제 위의 예제에 기록된 모든 메트릭을 가져와 최상의 모델을 결정할 수 있습니다.
 
 <a name="view-the-experiment-in-the-web-portal"></a>
-## <a name="view-the-experiment-in-the-azure-portal-or-your-workspace-landing-page-previewhttpsmlazurecom"></a>Azure Portal 또는 [작업 영역 방문 페이지에서 실험 보기 (미리 보기)](https://ml.azure.com)
+## <a name="view-the-experiment-in-your-workspace-in-azure-machine-learning-studiohttpsmlazurecom"></a>[Azure Machine Learning studio](https://ml.azure.com) 에서 작업 영역의 실험 보기
 
-실험에서 실행이 완료되면 기록된 실험 실행 기록을 찾아볼 수 있습니다. 다음 두 가지 방법으로 기록에 액세스할 수 있습니다.
+실험에서 실행이 완료되면 기록된 실험 실행 기록을 찾아볼 수 있습니다. [Azure Machine Learning studio](https://ml.azure.com)에서 기록에 액세스할 수 있습니다.
 
-* URL을 실행으로 직접 가져옵니다(```print(run.get_portal_url())```).
-* 실행 이름(여기서는 ```run```)을 제출하여 실행 세부 정보를 봅니다. 이렇게 하면 실험 이름, ID, 유형, 상태, 세부 정보 페이지, Azure Portal에 대한 링크 및 문서에 대한 링크가 표시됩니다.
+실험 탭으로 이동 하 여 실험을 선택 합니다. 실험 실행 대시보드로 이동 하 여 각 실행에 대해 기록 되는 추적 된 메트릭과 차트를 볼 수 있습니다. 이 경우 MSE와 알파 값을 기록했습니다.
 
-실행 링크를 클릭하면 Azure Portal의 실행 세부 정보 페이지로 바로 이동합니다. 여기서는 실험에 기록된 모든 속성, 추적된 메트릭, 이미지 및 차트를 볼 수 있습니다. 이 경우 MSE와 알파 값을 기록했습니다.
+  ![Azure Machine Learning studio에서 실행 세부 정보](./media/how-to-track-experiments/experiment-dashboard.png)
 
-  ![Azure Portal의 실행 세부 정보](./media/how-to-track-experiments/run-details-page.png)
-
-또한 실행에 대한 모든 출력 또는 로그를 보거나 제출한 실험의 스냅샷을 다운로드하여 실험 폴더를 다른 사용자와 공유할 수도 있습니다.
+특정 실행으로 드릴 다운 하 여 해당 출력 또는 로그를 보거나 제출한 실험의 스냅숏을 다운로드 하 여 다른 사람과 실험 폴더를 공유할 수 있습니다.
 
 ### <a name="viewing-charts-in-run-details"></a>실행 세부 정보에서 차트 보기
 
-로깅 API를 사용하여 실행하는 동안 다른 유형의 메트릭을 기록하고 이를 Azure Portal에서 차트로 확인하는 여러 가지 방법이 있습니다. 
+여러 가지 방법으로 로깅 Api를 사용 하 여 실행 중에 여러 유형의 메트릭을 기록 하 고 Azure Machine Learning studio에서 차트로 볼 수 있습니다.
 
 |기록된 값|예제 코드| 포털에서 보기|
 |----|----|----|
@@ -298,7 +296,7 @@ print(run.get_portal_url())
 |두 개의 숫자 열을 사용하여 테이블 기록|`run.log_table(name='Sine Wave', value=sines)`|두 개의 변수 꺽은선형 차트|
 
 
-## <a name="example-notebooks"></a>예제 Notebook
+## <a name="example-notebooks"></a>노트북 예제
 다음 Notebook은 문서의 개념을 보여줍니다.
 * [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)

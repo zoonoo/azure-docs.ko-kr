@@ -1,30 +1,30 @@
 ---
 title: '의사 결정 포리스트 회귀: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스의 의사 결정 포리스트 회귀 모듈을 사용 하 여 의사 결정 트리의 앙상블을 기반으로 회귀 모델을 만드는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning의 의사 결정 포리스트 회귀 모듈을 사용 하 여 의사 결정 트리의 앙상블을 기반으로 회귀 모델을 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 7b89d08f4621ecde77a60510b05d96decff0cfde
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: d930a6d856c6608e7792ce8ef3204b39aba0028a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693183"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497959"
 ---
 # <a name="decision-forest-regression-module"></a>의사 결정 포리스트 회귀 모듈
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 의사 결정 트리의 앙상블을 기반으로 하는 회귀 모델을 만듭니다.
 
-모델을 구성한 후에는 레이블이 지정 된 데이터 집합 및 [모델 학습](./train-model.md) 모듈을 사용 하 여 모델을 학습 해야 합니다.  그런 다음 학습 된 모델을 사용 하 여 예측을 만들 수 있습니다. 
+모델을 구성한 후에는 레이블이 지정 된 데이터 집합 및 [모델 학습](./train-model.md) 모듈을 사용 하 여 모델을 학습 해야 합니다. 그런 다음 학습 된 모델을 사용 하 여 예측을 만들 수 있습니다. 
 
-## <a name="how-it-works"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
 의사 결정 트리는 각 인스턴스에 대해 간단한 테스트 시퀀스를 수행 하 고 리프 노드 (의사 결정)에 도달할 때까지 이진 트리 데이터 구조를 트래버스하는 패라메트릭 모델이 아닙니다.
 
@@ -42,11 +42,11 @@ ms.locfileid: "72693183"
 
 ## <a name="how-to-configure-decision-forest-regression-model"></a>의사 결정 포리스트 회귀 모델을 구성 하는 방법
 
-1. **의사 결정 포리스트 회귀** 모듈을 파이프라인에 추가 합니다. 인터페이스에서 모듈은 **Machine Learning**, **모델 초기화**및 **재발**아래에서 찾을 수 있습니다.
+1. **의사 결정 포리스트 회귀** 모듈을 파이프라인에 추가 합니다. 이 모듈은 디자이너의 **Machine Learning**, **모델 초기화**및 **재발**아래에서 찾을 수 있습니다.
 
 2. 모듈 속성을 열고, **재샘플링 방법**의 경우 개별 트리를 만드는 데 사용 되는 메서드를 선택 합니다.  **모음 만들기** 에서 선택 하거나 **복제할**수 있습니다.
 
-    - **모음 만들기**: 모음 만들기를 *부트스트랩 집계*라고도 합니다. 회귀 의사 결정 포리스트의 각 트리는 예측을 통해 가우스 분포를 출력 합니다. 집계는 개별 트리에서 반환 된 모든 Gaussians을 결합 하 여 지정 된 Gaussians 혼합의 시점에서 처음 두 분이 일치 하는 가우스을 찾는 것입니다.
+    - **모음 만들기**: 모음 만들기를 *부트스트랩 집계*라고도 합니다. 회귀 의사 결정 포리스트의 각 트리는 예측을 통해 가우스 분포를 출력 합니다. 집계는 개별 트리에서 반환 하는 모든 분포를 결합 하 여 지정 된 가우스 분포의 조합에 대해 처음 두 분이 일치 하는 가우스을 찾는 것입니다.
 
          자세한 내용은 [부트스트랩 집계](https://wikipedia.org/wiki/Bootstrap_aggregating)를 위한 위키백과 항목을 참조 하세요.
 
@@ -96,4 +96,4 @@ ms.locfileid: "72693183"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

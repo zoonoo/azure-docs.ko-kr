@@ -3,21 +3,22 @@ title: 자동화 된 ML 결과 이해
 titleSuffix: Azure Machine Learning
 description: 자동화 된 각 기계 학습 실행에 대 한 차트 및 메트릭을 보고 이해 하는 방법에 대해 알아봅니다.
 services: machine-learning
-author: nilesha
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/22/2019
-ms.openlocfilehash: b0024bc12f29a76da02c9f7e62af7727b9af7249
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: 93695e0bbcb81a570519a6f74cfdeab4ef85f076
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350633"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489403"
 ---
 # <a name="understand-automated-machine-learning-results"></a>자동화 된 machine learning 결과 이해
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 자동화 된 각 기계 학습 실행에 대 한 차트 및 메트릭을 보고 이해 하는 방법에 대해 알아봅니다. 
 
@@ -26,18 +27,18 @@ ms.locfileid: "71350633"
 + [회귀 모델에 대 한 메트릭, 차트 및 그래프](#regression)
 + [모델 interpretability 및 기능 중요도](#explain-model)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-* Azure Portal 또는 작업 영역 방문 페이지 (미리 보기)에서 SDK를 사용 하 여 자동화 된 machine learning 실행에 대 한 실험을 만듭니다.
+* SDK 또는 Azure Machine Learning studio에서 자동화 된 machine learning 실행에 대 한 실험을 만듭니다.
 
     * SDK를 사용 하 여 [분류 모델](how-to-auto-train-remote.md) 또는 [회귀 모델](tutorial-auto-train-models.md) 작성
-    * [Azure Portal 또는 작업 영역 방문 페이지 (미리 보기)](how-to-create-portal-experiments.md) 를 사용 하 여 적절 한 데이터를 업로드 하 여 분류 또는 회귀 모델을 만들 수 있습니다.
+    * [Azure Machine Learning studio](how-to-create-portal-experiments.md) 를 사용 하 여 적절 한 데이터를 업로드 하 여 분류 또는 회귀 모델을 만듭니다.
 
 ## <a name="view-the-run"></a>실행 보기
 
-자동화 된 기계 학습 실험을 실행 한 후에는 machine learning 서비스 작업 영역에서 실행 기록을 찾을 수 있습니다. 
+자동화 된 기계 학습 실험을 실행 한 후에는 machine learning 작업 영역에서 실행 기록을 찾을 수 있습니다. 
 
 1. 작업 영역으로 이동합니다.
 
@@ -51,19 +52,19 @@ ms.locfileid: "71350633"
 
 1. 아래쪽 테이블에서 **실행 번호**를 선택 합니다.
 
-   [ 실험실행![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
+   [![실험 실행](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-run-expanded.png))
 
 1. 반복 테이블에서 추가로 탐색 하려는 모델의 **반복 번호** 를 선택 합니다.
 
    [![실험 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-experiment-model-expanded.png)
 
-`RunDetails` [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용할 때 실행 중에도 동일한 결과가 표시 됩니다.
+`RunDetails`[Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용할 때 실행 중에도 동일한 결과가 표시 됩니다.
 
 ## <a name="classification"></a>분류 결과
 
 다음 메트릭과 차트는의 자동화 된 기계 학습 기능을 사용 하 여 작성 하는 모든 분류 모델에 사용할 수 있습니다 Azure Machine Learning
 
-+ [Metrics](#classification-metrics)(메트릭)
++ [metrics](#classification-metrics)
 + [혼동 행렬](#confusion-matrix)
 + [정밀도-리콜 차트](#precision-recall-chart)
 + [ROC(수신기 작동 특성)](#roc)
@@ -88,7 +89,7 @@ balanced_accuracy|Balanced accuracy(균형 정확도)는 각 클래스 재현율
 f1_score_macro|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. 매크로는 각 클래스에 대 한 F1 점수의 산술 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="macro"|
 f1_score_micro|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. 마이크로는 전체 참 긍정, 거짓 부정 및 거짓 긍정을 계산 하 여 전역적으로 계산 됩니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="micro"|
 f1_score_weighted|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. Weighted(가중치)는 각 클래스에 대한 F1 점수의 클래스 빈도별 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
-log_loss|이 함수는 (다항) 로지스틱 회귀와 그 확장(예: 신경망)에 사용되는 손실 함수로, 지정된 확률적 분류자 예측에 대한 true 레이블의 음수 로그 유사도로 정의됩니다. 에서 {0,1} true 레이블 yt를 사용 하는 단일 샘플 및 yt = 1 인 예상 확률 yt의 경우 로그 손실은-log P (yt&#124;yt) =-(yt 로그 (yt) + (1-yt) 로그 (1-yt))입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|없음|
+log_loss|이 함수는 (다항) 로지스틱 회귀와 그 확장(예: 신경망)에 사용되는 손실 함수로, 지정된 확률적 분류자 예측에 대한 true 레이블의 음수 로그 유사도로 정의됩니다. {0,1}에서 true 레이블 yt를 사용 하는 단일 샘플 및 yt = 1 인 예상 확률 yt의 경우 로그 손실은-log P (yt&#124;yt) =-(yt 로그 (yt) + (1-yt) 로그 (1-yt)입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|없음|
 norm_macro_recall|Normalized Macro Recall(정규화된 매크로 재현율)은 임의 성능 점수가 0이고 완벽한 성능 점수가 1이 되도록 정규화된 매크로 재현율입니다. 이는 norm_macro_recall: = (recall_score_macro)/(1-R)로 구현 됩니다. 여기서 R은 임의 예측에 대해 예상 되는 recall_score_macro 값입니다 (예: 이진 분류의 경우 R = 0.5, C 클래스 분류 문제의 경우 R = (1/C)).|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "매크로" |
 precision_score_macro|Precision(정밀도)은 실제로 해당 클래스에 있는 특정 클래스로 레이블이 지정된 요소의 백분율입니다. 매크로는 각 클래스에 대 한 전체 자릿수의 산술 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
 precision_score_micro|Precision(정밀도)은 실제로 해당 클래스에 있는 특정 클래스로 레이블이 지정된 요소의 백분율입니다. 마이크로는 총 참 긍정 및 거짓 긍정을 계산 하 여 전역적으로 계산 됩니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
@@ -104,9 +105,9 @@ weighted_accuracy|가중치가 적용 되는 정확도는 각 예제에 지정 �
 
 분류 문제를 위해 Azure Machine Learning은 빌드된 각 모델에 대한 혼동 행렬을 자동으로 제공합니다. 각 혼동 행렬에 대해 자동화 된 ML은 각 예측 된 레이블의 빈도와 각 진정한 레이블 교차를 표시 합니다. 이 어두운 색은 행렬의 특정 부분에서 더 높은 수입니다. 가장 이상적인 색은 행렬의 대각선을 따라 하는 것입니다. 
 
-예제 1: 정확성이 낮은 분류 모델 ![정확성이 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
+예 1: 정확도가 낮은 분류 모델 ![정확도가 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
-예 2: 정확성이 높은 분류 모델(이상적) ![정확성이 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
+예 2: 정확도가 높은 분류 모델 (이상적인)은 높은 정확도를 갖춘 분류 모델 ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
 
 ### <a name="precision-recall-chart"></a>정밀도-리콜 차트
@@ -115,17 +116,17 @@ weighted_accuracy|가중치가 적용 되는 정확도는 각 예제에 지정 �
 
 정밀도라는 용어는 분류자가 모든 인스턴스에 올바른 레이블을 지정할 수 있는 기능을 나타냅니다. 리콜은 분류자가 특정 레이블의 인스턴스를 모두 찾을 수 있는 기능을 나타냅니다. 정밀도-리콜 곡선은 이러한 두 개념 간의 관계를 표시합니다. 모델이 100% 정밀도와 100% 정확도를 갖는 것이 이상적입니다.
 
-예제 1: 정밀도와 리콜이 낮은 분류 모델 ![정밀도와 리콜이 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
+예제 1: 낮은 정밀도 및 낮은 회수를 포함 하는 분류 모델 ![낮은 정밀도 및 낮은 회수를 포함 하는 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
 
-예 2: ~100% 정밀도 및 ~100% 리콜인 분류 모델(이상적) ![정밀도와 리콜이 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+예 2: ~ 100% precision 및 ~ 100% 회수 (이상적인)를 포함 하는 분류 모델 ![분류 모델의 높은 전체 자릿수 및 회수](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
 
 ### <a name="roc"></a>ROC
 
 ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 레이블 및 잘못 분류된 레이블의 플롯입니다. ROC 곡선은 가양성 레이블을 표시하지 않으므로 바이어스가 높은 데이터 세트에서 모델을 학습할 때는 제공하는 정보가 적을 수 있습니다.
 
-예제 1: 올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델 ![올바른 레이블이 낮고 잘못된 레이블이 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+예 1: 작은 레이블 및 높은 false 레이블이 있는 분류 모델 ![작은 레이블 및 상위 거짓 레이블이 있는 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
 
-예 2: 올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델 ![올바른 레이블이 높고 잘못된 레이블이 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+예 2: true 레이블 및 낮은 false 레이블이 있는 분류 모델은 true 레이블 및 하위 레이블이 높은 분류 모델 ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
 
 ### <a name="lift-curve"></a>리프트 곡선
 
@@ -133,9 +134,9 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 리프트 차트는 분류 모델의 성능을 평가하는 데 사용됩니다. 모델을 사용하지 않을 경우와 비교해서 모델을 사용할 경우 예상할 수 있는 성능 향상을 보여 줍니다. 
 
-예제 1: 임의 선택 모델보다 모델 성능이 더 낮음 ![임의 선택 모델보다 성능이 더 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
+예 1: 모델을 임의로 선택 하는 모델 ![임의 선택 모델 보다 성능이 저하](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
 
-예 2: 임의 선택 모델보다 모델 성능이 더 높음 ![성능이 더 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
+예 2: 모델은 임의의 선택 모델 ![보다 효율적으로 수행 되는 분류 모델을 보다 효율적으로 수행](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
 
 ### <a name="gains-curve"></a>게인 곡선
 
@@ -143,9 +144,9 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 누적 게인 차트를 사용하면 모델에서 원하는 게인에 해당하는 백분율을 사용하여 분류 경계를 선택하는 데 도움이 됩니다. 이 정보는 동반되는 리프트 차트의 결과를 살펴보는 또 다른 방법을 제공합니다.
 
-예제 1: 최소 게인의 분류 모델 ![최소 게인의 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
+예 1: 최소한의 이득을 사용 하 여 분류 모델 ![최소한의 이득](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
 
-예 2: 상당한 게인의 분류 모델 ![상당한 게인의 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
+예 2: 상당한 이득을 가진 분류 모델 ![상당한 이득을 얻는 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
 
 ### <a name="calibration-plot"></a>보정 플롯
 
@@ -153,16 +154,16 @@ ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 �
 
 보정 플롯은 예측 모델의 신뢰도를 표시하는 데 사용됩니다. 이 작업을 위해 예측 확률과 실제 확률 간의 관계를 보여 주며, 여기서 “확률”은 특정 인스턴스가 일부 레이블에서 속할 가능성을 나타냅니다. 잘 보정된 모델은 y=x 선과 일치하며, 이 경우 해당 예측의 신뢰도가 상당히 높음을 의미합니다. 신뢰도가 과도한 모델은 y=0 선과 일치하며, 이 경우 예측된 확률은 있지만 실제 확률이 없음을 의미합니다.
 
-예제 1: 잘 보정된 모델 ![ 잘 보정된 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
+예 1: 잘 보정 된 모델 ![ 보다 잘 보정 된 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
 
-예 2: 신뢰도가 과도한 모델 ![신뢰도가 과도한 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
+예 2: 과도 하 게 확신 하는 모델 ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
 ## <a name="regression"></a>회귀 결과
 
 다음 메트릭과 차트는의 자동화 된 기계 학습 기능을 사용 하 여 작성 하는 모든 회귀 모델에 사용할 수 있습니다 Azure Machine Learning
 
-+ [Metrics](#reg-metrics)(메트릭)
-+ [예측 대 실제](#pvt)
++ [metrics](#reg-metrics)
++ [예측 및 True](#pvt)
 + [나머지 히스토그램](#histo)
 
 
@@ -186,13 +187,13 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 
 ### <a name="pvt"></a>예측 및 True
 
-예측 대 실제는 회귀 문제에 대한 예측된 값과 상호 연관된 실제 값 사이의 관계를 보여 줍니다. 예측된 값이 y=x 선에 가까울수록 예측 모델의 정확도가 향상되기 때문에 이 그래프를 사용하여 모델의 성능을 측정할 수 있습니다.
+예측 된 값과 True는 회귀 문제에 대 한 예측 값과 해당 하는 실제 값 간의 관계를 보여 줍니다. 예측된 값이 y=x 선에 가까울수록 예측 모델의 정확도가 향상되기 때문에 이 그래프를 사용하여 모델의 성능을 측정할 수 있습니다.
 
 각 실행 후에 각 회귀 모델에 대한 예측 대 실제 그래프를 확인할 수 있습니다. 데이터 개인 정보를 보호하기 위해 값은 함께 bin 처리되고 각 bin의 크기가 차트 영역의 아래쪽에 막대형 그래프로 표시됩니다. 밝은 음영 영역을 통해 오차 범위를 표시하는 예측 모델과 모델의 이상적인 값을 비교할 수 있습니다.
 
-예제 1: 예측 정확도가 낮은 회귀 모델 ![예측 정확도가 낮은 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
+예 1: 예측이 낮은 회귀 모델 ![예측의 정확도가 낮은 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-예 2: 정확도가 높은 회귀 모델 예측의 정확도가 높은 회귀 [ ![모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
+예 2: 예측에서 정확도가 높은 회귀 모델 [![예측에서 정확도가 높은 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
 
 
 
@@ -200,9 +201,9 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 
 나머지는 관찰된 y - 예측된 y를 나타냅니다. 바이어스가 낮은 오차 범위를 표시하려면 나머지 히스토그램의 모양이 0을 중심으로 하는 벨 곡선이어야 합니다. 
 
-예제 1: 오차에 바이어스가 있는 회귀 모델 ![오차에 바이어스가 있는 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
+예제 1: 오류에서 바이어스가 있는 회귀 모델 ![SA 회귀 모델은 해당 오류에 바이어스를 사용 하 여](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-예 2: 오차 분포가 더 균일한 회귀 모델 ![오차 분포가 더 균일한 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
+예 2: 오류를 보다 균등 하 게 분산 하는 회귀 모델 ![보다 균등 하 게 분산 된 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 ## <a name="explain-model"></a>모델 interpretability 및 기능 중요도
 
@@ -212,7 +213,7 @@ normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(�
 
 ![기능 설명 기능](./media/how-to-understand-automated-ml/feature-importance.gif)
 
-Interpretability 기능을 사용 하는 방법에 대 한 자세한 내용은 [Python에서 자동화 된 ML 실험 구성](how-to-configure-auto-train.md#explain-the-model-interpretability)을 참조 하세요.  최상의 모델을 설명 하는 예제는 [최상의 모델 설명](how-to-auto-train-remote.md#explain)을 참조 하세요.
+Interpretability 기능을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 자동화 된 ML 실험에서 interpretability를 사용 하도록 설정 [하는 방법](how-to-machine-learning-interpretability-automl.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

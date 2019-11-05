@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/28/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: eb792034e49b0f8f663eb9ee968ea6fac1372373
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: e74277af8bf0912c418bc169209180195ceb8d8f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70278619"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492410"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>데이터 과학 작업 실행: 탐색, 모델링 및 배포
 
@@ -30,7 +30,7 @@ ms.locfileid: "70278619"
 
 데이터 과학자는 다양한 방법으로, 예를 들어 Python(예: matplotlib) 또는 R(예: ggplot 또는 lattice)과 함께 사용할 수 있는 라이브러리 및 패키지를 사용하여 탐색 및 보고를 수행할 수 있습니다. 데이터 과학자는 해당 코드를 사용자 지정하여 특정 시나리오의 데이터 탐색 요구에 맞출 수 있습니다. 구조화된 데이터를 다루기 위한 요구는 텍스트나 이미지 등 구조화되지 않은 데이터의 경우와 다릅니다. 
 
-Azure Machine Learning Service 같은 제품은 또한 기능 생성을 포함하여 데이터 랭글링 및 탐색을 위한 [고급 데이터 준비](../service/how-to-transform-data.md)도 제공합니다. 사용자는 자신의 요구에 가장 맞는 도구, 라이브러리 및 패키지에 대해 결정해야 합니다. 
+Azure Machine Learning 등의 제품은 기능 생성을 포함 하 여 데이터 랭 글 링 및 탐색을 위한 [고급 데이터 준비](../service/how-to-transform-data.md) 도 제공 합니다. 사용자는 자신의 요구에 가장 맞는 도구, 라이브러리 및 패키지에 대해 결정해야 합니다. 
 
 이 단계가 종료할 때의 결과물은 데이터 탐색 보고서입니다. 보고서는 모델링 및 데이터가 모델링 단계로 진행하는 데 적합한지 여부를 평가에 사용할 데이터의 매우 포괄적인 뷰를 제공해야 합니다. 반자동화 탐색, 모델링 및 보고에 대해 다음 섹션에서 설명하는 TDSP(팀 데이터 과학 프로세스) 유틸리티도 표준화된 데이터 탐색 및 모델링 보고서를 제공합니다. 
 
@@ -66,7 +66,7 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
     - 교차 유효성 검사 접기
 - 각 알고리즘에 대한 하이퍼 파라미터 집합 
 
-또한 모델을 빠르게 실행하기 위해 Yaml 파일에서 알고리즘 수, 최적화 겹(폴드) 횟수, 하이퍼 파라미터 및 스윕하도록 설정된 하이퍼 파라미터 집합 수를 수정할 수 있습니다. 예를 들어 더 적은 수의 CV(교차 검증) 겹과 파라미터 집합으로 모델을 실행할 수 있습니다. 신뢰할 수 있는 경우 CV 접기 수를 높이거나 매개 변수 집합을 더 많이 사용하면 더 포괄적으로 실행할 수도 있습니다.
+또한 모델을 빠르게 실행하기 위해 Yaml 파일에서 알고리즘 수, 최적화 겹(폴드) 횟수, 하이퍼 파라미터 및 스윕하도록 설정된 하이퍼 파라미터 집합 수를 수정할 수 있습니다. 예를 들어 더 적은 수의 CV 접기와 매개 변수 집합으로 실행할 수 있습니다. 신뢰할 수 있는 경우 CV 접기 수를 높이거나 매개 변수 집합을 더 많이 사용하면 더 포괄적으로 실행할 수도 있습니다.
 
 자세한 내용은 [TDSP 데이터 과학 유틸리티의 자동화된 모델링 및 보고 유틸리티](https://github.com/Azure/Azure-TDSP-Utilities/tree/master/DataScienceUtilities/Modeling)를 참조하세요.
 
@@ -86,7 +86,7 @@ YAML 파일은 다음을 지정하는 데 사용됩니다.
 모델을 프로덕션으로 전환하기 위한 여러 접근법과 플랫폼이 있습니다. 다음은 몇 가지 옵션입니다.
 
 
-- [Azure Machine Learning Service에서 배포 모델링](../service/how-to-deploy-and-where.md)
+- [Azure Machine Learning에서 배포 모델링](../service/how-to-deploy-and-where.md)
 - [SQL-Server의 모델 배포](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-py6-operationalize-the-model)
 - [Microsoft Machine Learning Server](https://docs.microsoft.com/sql/advanced-analytics/r/r-server-standalone)
 

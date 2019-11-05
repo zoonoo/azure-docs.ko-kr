@@ -1,5 +1,5 @@
 ---
-title: Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스 - Azure
+title: Apache Hadoop YARN 응용 프로그램 로그에 액세스-Azure HDInsight
 description: 명령줄과 웹 브라우저를 사용하여 Linux 기반 HDInsight(Apache Hadoop) 클러스터에서 YARN 애플리케이션 로그에 액세스하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/22/2018
-ms.openlocfilehash: 6eb24e85d1d7ffa4f3377d4c2fe8b168303c15f0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 263456769ab391cbc0588eed1a714a1ea5788154
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091517"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494892"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Linux 기반 HDInsight에서 Apache Hadoop YARN 애플리케이션 로그에 액세스
 
-Azure HDInsight의 [Apache Hadoop](https://hadoop.apache.org/) 클러스터에서 [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html)(Yet Another Resource Negotiator) 애플리케이션의 로그에 액세스하는 방법에 대해 알아봅니다.
+Azure HDInsight의 [Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) 클러스터에서 [Apache Hadoop YARN](https://hadoop.apache.org/)(Yet Another Resource Negotiator) 애플리케이션의 로그에 액세스하는 방법에 대해 알아봅니다.
 
 ## <a name="YARNTimelineServer"></a>YARN Timeline Server
 
@@ -59,7 +59,7 @@ YARN CLI 도구를 사용하려면 먼저 SSH를 사용하여 HDInsight 클러�
 
 YARN ResourceManager UI는 클러스터 헤드 노드에서 실행됩니다. Ambari 웹 UI를 통해 액세스됩니다. 다음 단계를 사용하여 YARN 로그를 봅니다.
 
-1. 웹 브라우저에서 https://CLUSTERNAME.azurehdinsight.net 으로 이동합니다. CLUSTERNAME은 HDInsight 클러스터 이름을 바꿉니다.
+1. 웹 브라우저에서 https://CLUSTERNAME.azurehdinsight.net으로 이동합니다. CLUSTERNAME은 HDInsight 클러스터 이름을 바꿉니다.
 2. 왼쪽에 있는 서비스 목록에서 **YARN**을 선택합니다.
 
     ![Apache Ambari Yarn 서비스 선택 됨](./media/hdinsight-hadoop-access-yarn-app-logs-linux/yarn-service-selected.png)

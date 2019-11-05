@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 88fe73988f6a90fd5041445a561c0f77f25eddc1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 75568cf3c88c02968b3e3e95971f81cf1b9285d3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67060407"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496357"
 ---
-# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>서비스 패브릭 탐색기로 클러스터 시각화
+# <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Service Fabric Explorer를 사용하여 클러스터 시각화
 
 SFX(Service Fabric Explorer)는 Azure Service Fabric 클러스터를 검사하고 관리하기 위한 오픈 소스 도구입니다. Service Fabric Explorer는 Windows, macOS 및 Linux용 데스크톱 애플리케이션입니다.
 
@@ -46,9 +46,9 @@ Service Fabric Explorer를 데스크톱 애플리케이션으로 다운로드하
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>클러스터에서 Service Fabric Explorer 실행
 
-Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포인트에도 호스트됩니다. 웹 브라우저에서 SFX를 시작 하려면 클러스터의 HTTP 관리 끝점에서 이동 브라우저용-예: https:\//clusterFQDN:19080 합니다.
+Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포인트에도 호스트됩니다. 웹 브라우저에서 SFX를 시작 하려면 브라우저에서 클러스터의 HTTP 관리 끝점 (예: https:\//clusterFQDN: 19080)으로 이동 합니다.
 
-개발자 워크스테이션 설정의 경우 https://localhost:19080/Explorer 로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다. 이 문서를 참조하여 [개발 환경을 준비](service-fabric-get-started.md)하세요.
+개발자 워크스테이션 설정의 경우 https://localhost:19080/Explorer로 이동하여 로컬 클러스터에서 Service Fabric Explorer를 시작할 수 있습니다. 이 문서를 참조하여 [개발 환경을 준비](service-fabric-get-started.md)하세요.
 
 > [!NOTE]
 > 클러스터가 자체 서명된 인증서로 보호되면 웹 브라우저에서 "이 사이트는 안전하지 않습니다"라는 오류 메시지가 표시됩니다. 대부분의 최신 웹 브라우저에서는 이 경고를 무시하고 계속 진행할 수 있습니다. 프로덕션 환경의 클러스터는 일반 이름과 인증 기관에서 발급한 인증서를 사용하여 보호해야 합니다. 
@@ -56,12 +56,12 @@ Service Fabric Explorer는 Service Fabric 클러스터의 HTTP 관리 엔드포�
 >
 
 ## <a name="connect-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 연결
-Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인트(FQDN/IP) 및 HTTP 관리 엔드포인트 포트(기본적으로 19080)가 필요합니다. 예를 들어 https\:/ / mysfcluster.westus.cloudapp.azure.com:19080 합니다. "localhost에 연결" 확인란을 사용하여 워크스테이션에서 로컬 클러스터에 연결합니다.
+Service Fabric 클러스터를 연결하려면 클러스터 관리 엔드포인트(FQDN/IP) 및 HTTP 관리 엔드포인트 포트(기본적으로 19080)가 필요합니다. 예: https\://mysfcluster.westus.cloudapp.azure.com:19080. "localhost에 연결" 확인란을 사용하여 워크스테이션에서 로컬 클러스터에 연결합니다.
 
 ### <a name="connect-to-a-secure-cluster"></a>보안 클러스터에 연결
 인증서 또는 AAD(Azure Active Directory)를 사용하여 서비스 패브릭 클라이언트에 대한 클라이언트 액세스를 제어할 수 있습니다.
 
-보안 클러스터에 연결 하려고 하면 다음 클러스터의 구성에 따라 해야 클라이언트 인증서를 제시 하거나 AAD를 사용 하 여 로그인 합니다.
+보안 클러스터에 연결 하려는 경우 클러스터의 구성에 따라 클라이언트 인증서를 제공 하거나 AAD를 사용 하 여 로그인 해야 합니다.
 
 ## <a name="understand-the-service-fabric-explorer-layout"></a>서비스 패브릭 탐색기 레이아웃 이해
 왼쪽의 트리를 사용하여 서비스 패브릭 탐색기를 탐색할 수 있습니다. 트리의 루트에서 클러스터 대시보드는 애플리케이션 및 노드 상태에 대한 요약을 포함하여 클러스터에 대한 개요를 제공합니다.
@@ -123,12 +123,21 @@ EventStore는 플랫폼에서 Service Fabric Explorer와 REST API를 통해 사�
 >[!NOTE]
 >Service Fabric 버전 6.4부터 EventStore API는 Azure에서만 실행되는 Windows 클러스터에 제공됩니다. 이 기능을 Linux 및 독립 실행형 클러스터에도 이식하려고 노력하고 있습니다.
 
-## <a name="image-store-viewer"></a>이미지 저장소 뷰어
-이미지 저장소 뷰어는 경우 볼 수 있는 네이티브 이미지 저장소를 사용 하 여 이미지의 현재 내용을 저장 하 고, 파일/폴더를 제거 하는 함께 파일 및 폴더 정보를 가져오는 기능을 제공 합니다.
+## <a name="image-store-viewer"></a>Image Store 뷰어
+이미지 저장소 뷰어는 파일/폴더 제거와 함께 이미지 저장소의 현재 콘텐츠를 보고 파일 및 폴더 정보를 가져올 수 있도록 하는 기본 Image Store 사용 하는 경우 제공 되는 기능입니다.
 
 ![서비스 패브릭 탐색기 클러스터 맵][sfx-imagestore]
 
+## <a name="backup-and-restore"></a>Backup 및 복원
+Service Fabric Explorer는 [백업 및 복원과](./service-fabric-reliable-services-backup-restore.md)상호 작용 하는 기능을 제공 합니다. 다음과 같은 작업을 수행할 수 있습니다.
 
+* 백업 정책을 만들고, 편집 하 고, 삭제 합니다.
+* 응용 프로그램, 서비스 또는 파티션에 대해 백업을 사용 하거나 사용 하지 않도록 설정 합니다.
+* 응용 프로그램, 서비스 또는 파티션에 대 한 백업을 일시 중단 하 고 다시 시작 합니다.
+* 파티션의 백업을 트리거하고 추적 합니다.
+* 파티션에 대 한 복원을 트리거하고 추적 합니다.
+
+백업 및 복원 서비스에 대 한 자세한 내용은 [REST API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)를 참조 하세요.
 ## <a name="next-steps"></a>다음 단계
 * [Visual Studio에서 Service Fabric 애플리케이션 관리](service-fabric-manage-application-in-visual-studio.md)
 * [PowerShell을 사용하여 Service Fabric 애플리케이션 배포](service-fabric-deploy-remove-applications.md)

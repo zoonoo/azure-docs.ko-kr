@@ -9,15 +9,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 06/20/2019
-ms.openlocfilehash: 3cec6ee9368b1d9d1f2c9a627108aaf41c6da3c3
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
-ms.translationtype: MT
+ms.date: 11/04/2019
+ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819859"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497389"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning에서 자동화 된 machine learning을 사용 하 여 시계열 예측 회귀 모델을 학습 하는 방법에 대해 알아봅니다. 예측 모델을 구성 하는 것은 자동화 된 machine learning을 사용 하 여 표준 회귀 모델을 설정 하는 것과 유사 하지만 시계열 데이터로 작업 하기 위한 특정 구성 옵션 및 전처리 단계가 있습니다. 다음 예제에서는 다음 방법을 보여 줍니다.
 
@@ -50,20 +51,20 @@ ms.locfileid: "72819859"
 1. 여러 입력 및 출력을 지원 합니다.
 1. 긴 시퀀스에 걸쳐 있는 입력 데이터의 패턴을 자동으로 추출할 수 있습니다.
 
-더 큰 데이터를 제공 하는 경우 Microsofts ' ForecasTCN와 같은 심층 학습 모델을 통해 결과 모델의 점수를 향상할 수 있습니다. 
+더 큰 데이터를 제공 하는 경우 Microsofts ' ForecastTCN와 같은 심층 학습 모델을 통해 결과 모델의 점수를 향상할 수 있습니다. 
 
 기본 시계열 학습자는 자동화 된 ML의 일부로도 제공 됩니다. Prophet는 계절 효과가 강 하 고 기록 데이터가 여러 개 있는 시계열에서 가장 잘 작동 합니다. Prophet는 & 정확 하 고 이상 값에 대 한 강력 하 고, 누락 된 데이터 및 시계열의 극적인 변화입니다. 
 
 ARIMA (자동 회귀 Integrated 이동 평균)는 시계열 예측에 사용 되는 인기 있는 통계 방법입니다. 이 예측 기술은 데이터에서 주기 등의 추세에 대 한 증거를 표시 하는 단기 예측 시나리오에서 일반적으로 사용 됩니다 .이 시나리오는 예측할 수 없으며 모델 또는 예측 하기 어려울 수 있습니다. 자동 ARIMA는 데이터를 고정 된 데이터로 변환 하 여 일관 되 고 신뢰할 수 있는 결과를 수신 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 * 이 문서에서는 자동화 된 machine learning 실험을 설정 하는 방법에 대 한 기본 지식이 있다고 가정 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법에](how-to-configure-auto-train.md) 따라 기본적인 자동화 된 기계 학습 실험 디자인 패턴을 볼 수 있습니다.
 
 ## <a name="preparing-data"></a>데이터 준비
 
-자동화 된 machine learning 내에서 예측 회귀 태스크 유형과 회귀 작업 유형 간의 가장 중요 한 차이점은 유효한 시계열을 나타내는 데이터의 기능을 포함 하는 것입니다. 정규 시계열에는 잘 정의 되 고 일관 된 빈도가 있으며 연속 시간 범위의 모든 샘플 지점에 값이 있습니다. 파일의 다음 스냅숏 `sample.csv`을 고려 합니다.
+자동화 된 machine learning 내에서 예측 회귀 태스크 유형과 회귀 작업 유형 간의 가장 중요 한 차이점은 유효한 시계열을 나타내는 데이터의 기능을 포함 하는 것입니다. 정규 시계열에는 잘 정의 되 고 일관 된 빈도가 있으며 연속 시간 범위의 모든 샘플 지점에 값이 있습니다. `sample.csv`파일의 다음 스냅숏을 살펴보십시오.
 
     day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
@@ -119,6 +120,7 @@ test_labels = test_data.pop(label).values
 |`max_horizon`|시계열 빈도 단위로 원하는 최대 예측 구간을 정의 합니다. 단위는 학습 데이터의 시간 간격 (예: 매월, 매주 forecaster)을 기반으로 합니다.|✓|
 |`target_lags`|데이터의 빈도에 따라 대상 값의 지연에 사용 되는 행 수입니다. 이는 목록 또는 단일 정수로 표시 됩니다. 독립 변수와 종속 변수 간의 관계가 기본적으로 일치 하거나 상관 관계를 지정 하지 않는 경우에는 Lag를 사용 해야 합니다. 예를 들어, 제품 수요를 예측 하려는 경우 매월 수요는 특정 상품 3 개월 전에 가격에 따라 달라질 수 있습니다. 이 예에서는 모델이 올바른 관계에 대해 학습 하도록 대상 (수요)을 3 개월로 지연 시킬 수 있습니다.||
 |`target_rolling_window_size`|예측 값을 생성 하는 데 사용할 수 *있는 기록 기간* < = 학습 집합 크기입니다. 생략 하는 경우 *n* 은 전체 학습 집합 크기입니다. 모델을 학습할 때 특정 분량의 기록만 고려 하려는 경우이 매개 변수를 지정 합니다.||
+|`enable_dnn`|DNNs 예측을 사용 하도록 설정 합니다.||
 
 자세한 내용은 [참조 설명서](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) 를 참조 하세요.
 
@@ -150,7 +152,8 @@ import logging
 
 automl_config = AutoMLConfig(task='forecasting',
                              primary_metric='normalized_root_mean_squared_error',
-                             iterations=10,
+                             experiment_timeout_minutes=15,
+                             enable_early_stopping=True,
                              training_data=train_data,
                              label_column_name=label,
                              n_cross_validations=5,
@@ -170,6 +173,17 @@ best_run, fitted_model = local_run.get_output()
 * 롤링 원본 교차 유효성 검사
 * 구성 가능한 지연
 * 창 롤링 집계 기능
+
+### <a name="configure-a-dnn-enable-forecasting-experiment"></a>DNN 구성 예측 실험 사용
+
+> [!NOTE]
+> 자동 Machine Learning 예측에 대 한 DNN 지원은 미리 보기 상태입니다.
+
+예측을 위해 DNNs를 활용 하려면 AutoMLConfig의 `enable_dnn` 매개 변수를 true로 설정 해야 합니다. 
+
+DNNs를 사용 하려면 GPU Sku와 2 개 이상의 노드가 있는 AML 계산 클러스터를 계산 대상으로 사용 하는 것이 좋습니다. 자세한 내용은 [AML 계산 설명서](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) 를 참조 하세요. Gpu를 포함 하는 VM 크기에 대 한 자세한 내용은 [gpu 최적화 가상 머신 크기](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu) 를 참조 하세요.
+
+DNN 교육이 완료 될 때까지 충분 한 시간을 허용 하려면 실험 시간 제한을 몇 시간 이상으로 설정 하는 것이 좋습니다.
 
 ### <a name="view-feature-engineering-summary"></a>기능 엔지니어링 요약 보기
 
@@ -194,7 +208,7 @@ predict_labels = fitted_model.predict(test_data)
 actual_labels = test_labels.flatten()
 ```
 
-또는 `predict()`대신 `forecast()` 함수를 사용 하 여 예측을 시작할 시기를 지정할 수 있습니다. 다음 예제에서는 먼저 `y_pred`의 모든 값을 `NaN`으로 바꿉니다. 이 경우에는 일반적으로 `predict()`을 사용할 때와 마찬가지로 예측 원본이 학습 데이터의 끝에 있습니다. 그러나 `y_pred`의 두 번째 반만 `NaN`로 바꾸면 함수는 처음 절반의 숫자 값을 수정 되지 않은 상태로 유지 하지만 두 번째 절반의 `NaN` 값을 예측 합니다. 함수는 예측 된 값과 정렬 된 기능을 모두 반환 합니다.
+또는 `predict()`대신 `forecast()` 함수를 사용 하 여 예측을 시작할 시기를 지정할 수 있습니다. 다음 예제에서는 먼저 `y_pred`의 모든 값을 `NaN`으로 바꿉니다. 이 경우에는 일반적으로 `predict()`를 사용할 때와 마찬가지로 예측 원본이 학습 데이터의 끝에 있습니다. 그러나 `y_pred`의 두 번째 반만 `NaN`로 바꾸면 함수는 처음 절반의 숫자 값을 수정 되지 않은 상태로 유지 하지만 두 번째 절반의 `NaN` 값을 예측 합니다. 함수는 예측 된 값과 정렬 된 기능을 모두 반환 합니다.
 
 `forecast()` 함수에서 `forecast_destination` 매개 변수를 사용 하 여 지정 된 날짜까지 값을 예측할 수도 있습니다.
 

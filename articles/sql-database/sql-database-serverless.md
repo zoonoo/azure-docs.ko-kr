@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 서버리스(미리 보기) | Microsoft Docs
+title: Azure SQL Database 서버를 사용 하지 않음 | Microsoft Docs
 description: 이 문서에서는 새 서버리스 컴퓨팅 계층에 대해 설명하고 이를 기존의 프로비저닝된 컴퓨팅 계층과 비교합니다.
 services: sql-database
 ms.service: sql-database
@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/04/2019
+ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173409"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496244"
 ---
-# <a name="azure-sql-database-serverless-preview"></a>서버를 사용 하지 않는 Azure SQL Database (미리 보기)
+# <a name="azure-sql-database-serverless"></a>Azure SQL Database 서버리스
 
-서버를 사용 하지 않는 (미리 보기) Azure SQL Database 작업 수요에 따라 자동으로 계산을 확장 하는 단일 데이터베이스에 대 한 계산 계층으로, 초당 사용 된 계산의 양에 대 한 요금을 청구 합니다. 서버를 사용 하지 않는 계산 계층은 저장소가 청구 될 때 비활성 기간 동안 데이터베이스를 자동으로 일시 중지 하 고 작업이 반환 될 때 데이터베이스를 자동으로 다시 시작 합니다.
+서버를 사용 하지 않는 Azure SQL Database 작업 부하에 따라 자동으로 계산을 확장 하는 단일 데이터베이스의 계산 계층 이며, 초당 사용 된 계산의 양에 대 한 요금을 청구 합니다. 서버를 사용 하지 않는 계산 계층은 저장소가 청구 될 때 비활성 기간 동안 데이터베이스를 자동으로 일시 중지 하 고 작업이 반환 될 때 데이터베이스를 자동으로 다시 시작 합니다.
 
 ## <a name="serverless-compute-tier"></a>서버리스 컴퓨팅 계층
 
@@ -67,7 +67,7 @@ ms.locfileid: "72173409"
 |:---|:---|:---|
 |**데이터베이스 사용 패턴**| 시간이 지남에 따라 평균 계산 사용률이 낮은 간헐적이 고 예측할 수 없는 사용 |  시간이 지남에 따라 더 높은 평균 계산 사용률 또는 탄력적 풀을 사용 하는 여러 데이터베이스를 사용 하는 보다 일반적인 사용 패턴.|
 | **성능 관리 작업** |더 적음|더 많음|
-|**컴퓨팅 크기 조정**|자동|수동|
+|**컴퓨팅 크기 조정**|자동|설명서|
 |**컴퓨팅 응답성**|비활성 기간 후 낮음|즉시|
 |**청구 세분성**|초당|시간당|
 
@@ -115,7 +115,7 @@ Autopause 지연 기간 동안 다음 조건이 모두 true 인 경우 Autopausi
 
 - 지역에서 복제 (활성 지역 복제 및 자동 장애 조치 그룹)
 - 장기 백업 보존 (LTR).
-- SQL 데이터 동기화에 사용되는 동기화 데이터베이스  동기화 데이터베이스와 달리 허브 및 멤버 데이터베이스는 autopausing을 지원 합니다.
+- SQL 데이터 동기화에 사용 되는 동기화 데이터베이스입니다.  동기화 데이터베이스와 달리 허브 및 멤버 데이터베이스는 autopausing을 지원 합니다.
 - 탄력적 작업에 사용 되는 작업 데이터베이스입니다.
 
 Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일부 서비스 업데이트를 배포 하는 동안 일시적으로 차단 됩니다.  이러한 경우 서비스 업데이트가 완료 되 면 autopausing가 다시 허용 됩니다.
@@ -127,7 +127,7 @@ Autopausing는 데이터베이스를 온라인 상태로 만들어야 하는 일
 |기능|자동 다시 시작 트리거|
 |---|---|
 |인증 및 권한 부여|로그인|
-|위협 검색|데이터베이스 또는 서버 수준에서 위협 감지 설정 사용/사용 안 함<br>데이터베이스 또는 서버 수준에서 위협 검색 설정 수정|
+|위협 감지|데이터베이스 또는 서버 수준에서 위협 감지 설정 사용/사용 안 함<br>데이터베이스 또는 서버 수준에서 위협 검색 설정 수정|
 |데이터 검색 및 분류|민감도 레이블 추가, 수정, 삭제 또는 보기|
 |감사|감사 레코드 보기,<br>감사 정책 업데이트 또는 보기|
 |데이터 마스킹|데이터 마스킹 규칙 추가, 수정, 삭제 또는 보기|
@@ -171,8 +171,8 @@ Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 �
 
    |매개 변수|값 선택|기본값|
    |---|---|---|---|
-   |최소 vCores|구성 된 최대 vCores에 따라 다름- [리소스 제한](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)을 참조 하세요.|0.5개 vCore|
-   |자동 일시 중지 지연|최소: 60 분 (1 시간)<br>최대: 10,080분(7일)<br>증분: 60분<br>자동 일시 중지 사용 안 함: -1|60분|
+   |최소 vCores|구성 된 최대 vCores에 따라 다름- [리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)을 참조 하세요.|0.5개 vCore|
+   |자동 일시 중지 지연|최소: 60 분 (1 시간)<br>최대: 10080 분 (7 일)<br>증가: 60 분<br>자동 일시 중지 사용 안 함: -1|60분|
 
 > [!NOTE]
 > T-SQL을 사용하여 기존 데이터베이스를 서버리스로 이동하거나 컴퓨팅 크기를 변경하는 기능은 현재 지원되지 않지만 Azure Portal 또는 PowerShell을 통해 수행할 수 있습니다.
@@ -181,7 +181,7 @@ Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 �
 
 #### <a name="use-azure-portal"></a>Azure Portal 사용
 
-[빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조하세요.
+[빠른 시작: Azure Portal를 사용 하 여 Azure SQL Database에서 단일 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조 하세요.
 
 #### <a name="use-powershell"></a>PowerShell 사용
 
@@ -229,19 +229,19 @@ Set-AzSqlDatabase `
 
 #### <a name="use-powershell"></a>PowerShell 사용
 
-@No__t-1 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최대 vcores를 수정할 수 있습니다.
+`MaxVcore` 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최대 vcores를 수정할 수 있습니다.
 
 ### <a name="minimum-vcores"></a>최소 vCore 수
 
 #### <a name="use-powershell"></a>PowerShell 사용
 
-@No__t-1 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최소 vcores를 수정할 수 있습니다.
+`MinVcore` 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최소 vcores를 수정할 수 있습니다.
 
 ### <a name="autopause-delay"></a>자동 일시 중지 지연
 
 #### <a name="use-powershell"></a>PowerShell 사용
 
-Autopause 지연 수정은 PowerShell에서 `AutoPauseDelayInMinutes` 인수를 사용 하 여 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 수행 합니다.
+Autopause 지연 수정은 `AutoPauseDelayInMinutes` 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 수행 합니다.
 
 ## <a name="monitoring"></a>모니터링
 
@@ -257,14 +257,14 @@ Autopause 지연 수정은 PowerShell에서 `AutoPauseDelayInMinutes` 인수를 
 
 데이터베이스가 서버리스 또는 프로비저닝된 컴퓨팅 계층에 있는지 여부에 관계없이 사용자 리소스 풀은 데이터베이스의 가장 내부에 있는 리소스 관리 경계입니다. 사용자 리소스 풀은 SELECT, INSERT, UPDATE, DELETE 등의 CREATE 및 ALTER 및 DML 쿼리와 같은 DDL 쿼리에서 생성 된 사용자 작업에 대 한 CPU 및 IO 범위를 가집니다. 이러한 쿼리는 일반적으로 앱 패키지 내에서 가장 높은 사용률을 나타냅니다.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>메트릭
 
 응용 프로그램 패키지의 리소스 사용 및 서버를 사용 하지 않는 데이터베이스의 사용자 풀 모니터링에 대 한 메트릭은 다음 표에 나와 있습니다.
 
 |엔터티|메트릭|설명|Units|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
-|앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.|vCore 시간(초)|
+|앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다. 청구 목적으로 CPU와 CPU를 비교 하기 위해 메모리는 Vcores 당 3gb의 메모리 용량을 크기 조정 하 여 vCores 단위로 정규화 됩니다.|vCore 시간(초)|
 |앱 패키지|app_memory_percent|앱에 허용되는 최대 메모리에 대한 앱에서 사용한 메모리의 백분율입니다.|백분율|
 |사용자 풀|cpu_percent|사용자 워크로드에 허용되는 최대 vCore 수에 대한 사용자 워크로드에서 사용한 vCore 수의 백분율입니다.|백분율|
 |사용자 풀|data_IO_percent|사용자 워크로드에 허용되는 최대 데이터 IOPS에 대한 사용자 워크로드에서 사용한 데이터 IOPS의 백분율입니다.|백분율|
@@ -288,15 +288,15 @@ Get-AzSqlDatabase `
 
 ## <a name="resource-limits"></a>리소스 한계
 
-리소스 제한의 경우 서버를 사용 하지 않는 [계산 계층](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)을 참조 하세요.
+리소스 제한의 경우 서버를 사용 하지 않는 [계산 계층](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)을 참조 하세요.
 
-## <a name="billing"></a>대금 청구
+## <a name="billing"></a>결제
 
 청구되는 컴퓨팅 양은 초 단위로 사용된 최대 CPU와 메모리입니다. 사용된 CPU와 메모리의 양이 각각에 대해 프로비저닝된 최소 양보다 적으면 프로비저닝된 양에 대해 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.
 
-- **청구되는 리소스**: CPU 및 메모리
+- **청구**되는 리소스: CPU 및 메모리
 - **청구 금액**: vcore 단가 * max (최소 vcore, 사용 되는 vcore, 최소 메모리 gb * 1/3, 사용 되는 메모리 gb * 1/3) 
-- **청구 주기**: 초당
+- **청구 빈도**: 초당
 
 VCore 단가는 초당 vCore 당 비용입니다. 지정된 지역의 특정 단가는 [Azure SQL Database 가격 페이지](https://azure.microsoft.com/pricing/details/sql-database/single/)를 참조하세요.
 
@@ -326,9 +326,9 @@ VCore 단가는 초당 vCore 당 비용입니다. 지정된 지역의 특정 단
 
 ## <a name="available-regions"></a>사용 가능한 지역
 
-서버 리스 계산 계층은 다음 지역을 제외 하 고 전 세계에서 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 영국 북부, 영국 남부 2, 미국 서 부 및 US Gov 중부 (아이오).
+서버를 사용 하지 않는 계산 계층은 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 영국 북부, 영국 남부 2, 미국 서 부 및 US Gov 중부 (아이오) 지역을 제외 하 고 전 세계에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 시작하려면 [빠른 시작: Azure Portal을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조하세요.
-- 리소스 제한은 [서버리스 컴퓨팅 계층 리소스 제한](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)을 참조하세요.
+- 시작 하려면 [퀵 스타트: Azure Portal를 사용 하 여 Azure SQL Database에서 단일 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조 하세요.
+- 리소스 제한은 [서버리스 컴퓨팅 계층 리소스 제한](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)을 참조하세요.

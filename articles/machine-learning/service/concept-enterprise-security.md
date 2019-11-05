@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 08/07/2019
-ms.openlocfilehash: 309cef6ec058d8192bc7a6341b49a59c0000a305
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: e834c55ec35195ff627176603c7611abbf6adf1c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035553"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497500"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안
 
@@ -31,7 +31,7 @@ Multi-factor authentication은 Azure AD (Azure Active Directory)를 사용 하�
 1. 클라이언트는 Azure Resource Manager 및 모든 Azure Machine Learning에 대 한 토큰을 제공 합니다.
 1. Machine Learning 서비스는 사용자 계산 대상에 Machine Learning 서비스 토큰을 제공 합니다 (예: Machine Learning 컴퓨팅). 이 토큰은 실행이 완료 된 후 사용자 계산 대상에서 Machine Learning 서비스로 다시 호출 하는 데 사용 됩니다. 범위는 작업 영역으로 제한 됩니다.
 
-[![Azure Machine Learning 인증](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
+[Azure Machine Learning에서 ![인증](./media/enterprise-readiness/authentication.png)](./media/enterprise-readiness/authentication-expanded.png)
 
 ### <a name="authentication-for-web-service-deployment"></a>웹 서비스 배포에 대 한 인증
 
@@ -39,7 +39,7 @@ Azure Machine Learning는 웹 서비스에 대 한 두 가지 형태의 인증 �
 
 |인증 방법|Azure Container Instances|AKS|
 |---|---|---|
-|Key|기본적으로 사용 안 함| 기본적으로 사용|
+|키|기본적으로 사용 안 함| 기본적으로 사용|
 |토큰| 사용할 수 없음| 기본적으로 사용 안 함 |
 
 #### <a name="authentication-with-keys"></a>키를 사용 하 여 인증
@@ -49,9 +49,9 @@ Azure Machine Learning는 웹 서비스에 대 한 두 가지 형태의 인증 �
 * Azure Kubernetes Service (AKS)에 배포 하는 경우 기본적으로 인증이 사용 됩니다.
 * Azure Container Instances에 배포 하는 경우 인증은 기본적으로 사용 되지 않습니다.
 
-키 인증을 사용 하려면 배포를 `auth_enabled` 만들거나 업데이트할 때 매개 변수를 사용 합니다.
+키 인증을 사용 하려면 배포를 만들거나 업데이트할 때 `auth_enabled` 매개 변수를 사용 합니다.
 
-키 인증을 사용 하는 경우 `get_keys` 메서드를 사용 하 여 기본 및 보조 인증 키를 검색할 수 있습니다.
+키 인증을 사용 하는 경우 `get_keys` 메서드를 사용 하 여 기본 인증 키와 보조 인증 키를 검색할 수 있습니다.
 
 ```python
 primary, secondary = service.get_keys()
@@ -68,9 +68,9 @@ print(primary)
 * 토큰 인증은 Azure Kubernetes Service에 배포할 때 기본적으로 사용 하지 않도록 설정 됩니다.
 * Azure Container Instances에 배포 하는 경우에는 토큰 인증이 지원 되지 않습니다.
 
-토큰 인증을 제어 하려면 배포를 `token_auth_enabled` 만들거나 업데이트할 때 매개 변수를 사용 합니다.
+토큰 인증을 제어 하려면 배포를 만들거나 업데이트할 때 `token_auth_enabled` 매개 변수를 사용 합니다.
 
-토큰 인증을 사용 하는 경우 `get_token` 메서드를 사용 하 여 JWT (JSON Web Token)와 해당 토큰의 만료 시간을 검색할 수 있습니다.
+토큰 인증을 사용 하는 경우 `get_token` 메서드를 사용 하 여 JWT (JSON Web Token) 및 해당 토큰의 만료 시간을 검색할 수 있습니다.
 
 ```python
 token, refresh_by = service.get_token()
@@ -86,20 +86,21 @@ print(token)
 >
 > 또한 클러스터 지역과 작업 영역 영역 간의 거리가 클수록 토큰을 인출 하는 데 시간이 오래 걸립니다.
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>권한 부여
 
 여러 작업 영역을 만들 수 있고 각 작업 영역을 여러 사용자와 공유할 수 있습니다. 작업 영역을 공유 하는 경우 사용자에 게 다음 역할을 할당 하 여 해당 작업 영역에 대 한 액세스를 제어할 수 있습니다.
 
 * 소유자
-* 참가자
-* 독자
+* 참여자
+* 읽기 권한자
 
 다음 표에서는 몇 가지 주요 Azure Machine Learning 작업 및 이러한 작업을 수행할 수 있는 역할을 보여 줍니다.
 
-| Azure Machine Learning 작업 | 소유자 | 참가자 | 독자 |
+| Azure Machine Learning 작업 | 소유자 | 참여자 | 읽기 권한자 |
 | ---- |:----:|:----:|:----:|
 | 작업 영역 만들기 | ✓ | ✓ | |
 | 작업 영역 공유 | ✓ | |  |
+| Enterprise edition으로 작업 영역 업그레이드 | ✓ | |
 | 계산 대상 만들기 | ✓ | ✓ | |
 | 계산 대상 연결 | ✓ | ✓ | |
 | 데이터 저장소 연결 | ✓ | ✓ | |
@@ -121,18 +122,18 @@ print(token)
 
 관리 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조 하세요.
 
-| 리소스 | 사용 권한 |
+| 리소스 | 권한 |
 | ----- | ----- |
-| 작업 영역 | 기여자 |
-| Storage 계정 | Storage Blob 데이터 Contributor |
-| 키 자격 증명 모음 | 모든 키, 암호, 인증서에 대 한 액세스 |
-| Azure 컨테이너 레지스트리 | 기여자 |
-| 작업 영역을 포함 하는 리소스 그룹 | 기여자 |
-| 키 자격 증명 모음을 포함 하는 리소스 그룹 (작업 영역을 포함 하는 자격 증명 모음과 다른 경우) | 기여자 |
+| 작업 영역 | 참여자 |
+| Storage 계정 | 저장소 Blob 데이터 기여자 |
+| 주요 자격 증명 모음 | 모든 키, 암호, 인증서에 대 한 액세스 |
+| Azure Container Registry | 참여자 |
+| 작업 영역을 포함 하는 리소스 그룹 | 참여자 |
+| 키 자격 증명 모음을 포함 하는 리소스 그룹 (작업 영역을 포함 하는 자격 증명 모음과 다른 경우) | 참여자 |
 
 관리자가 이전 표에 언급 된 리소스에 대 한 관리 되는 id의 액세스를 취소 하는 것은 좋지 않습니다. 키 다시 동기화 작업을 사용 하 여 액세스를 복원할 수 있습니다.
 
-Azure Machine Learning는 모든 작업 영역에 대 한 구독에서 `aml-` 참가자 `Microsoft-AzureML-Support-App-`수준 액세스 권한이 있는 추가 응용 프로그램 (또는로 시작 하는 이름)을 만듭니다. 예를 들어 미국 동부에 한 작업 영역이 있고 동일한 구독의 북아메리카에 다른 작업 영역이 있는 경우 이러한 응용 프로그램 중 두 개를 볼 수 있습니다. 이러한 응용 프로그램을 사용 하 여 계산 리소스를 관리 하는 데 도움을 Azure Machine Learning 있습니다.
+Azure Machine Learning는 모든 작업 영역에 대 한 구독에서 참가자 수준 액세스를 사용 하 여 추가 응용 프로그램 (이름이 `aml-` 또는 `Microsoft-AzureML-Support-App-`로 시작 함)을 만듭니다. 예를 들어 미국 동부에 한 작업 영역이 있고 동일한 구독의 북아메리카에 다른 작업 영역이 있는 경우 이러한 응용 프로그램 중 두 개를 볼 수 있습니다. 이러한 응용 프로그램을 사용 하 여 계산 리소스를 관리 하는 데 도움을 Azure Machine Learning 있습니다.
 
 ## <a name="network-security"></a>네트워크 보안
 
@@ -140,11 +141,11 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
 자세한 내용은 [가상 네트워크에서 실험 및 유추를 실행 하는 방법](how-to-enable-virtual-network.md)을 참조 하세요.
 
-## <a name="data-encryption"></a>데이터 암호화
+## <a name="data-encryption"></a>데이터 암호화.
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
-#### <a name="azure-blob-storage"></a>Azure Blob 스토리지
+#### <a name="azure-blob-storage"></a>Linux에서 File Storage 사용에 대한 자세한 내용은 {1}Linux에서 Azure 파일 스토리지 사용 방법{2}을 참조하세요.
 
 Azure Machine Learning은 Azure Machine Learning 작업 영역 및 구독과 연결 된 Azure Blob storage 계정에 스냅숏, 출력 및 로그를 저장 합니다. Azure Blob storage에 저장 된 모든 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 미사용에 암호화 됩니다.
 
@@ -158,7 +159,7 @@ Azure Blob storage에 저장 된 데이터에 대 한 고유 키를 사용 하�
 
 Azure Machine Learning은 Azure Machine Learning에서 관리 하는 Microsoft 구독과 연결 된 Azure Cosmos DB 인스턴스에 메트릭과 메타 데이터를 저장 합니다. Azure Cosmos DB에 저장 된 모든 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 미사용으로 암호화 됩니다.
 
-#### <a name="azure-container-registry"></a>Azure 컨테이너 레지스트리
+#### <a name="azure-container-registry"></a>Azure Container Registry
 
 레지스트리의 모든 컨테이너 이미지 (Azure Container Registry)는 미사용 시 암호화 됩니다. Azure는 이미지를 저장 하기 전에 이미지를 자동으로 암호화 하 고 Azure Machine Learning 이미지를 끌어올 때 즉시 암호를 해독 합니다.
 
@@ -189,11 +190,11 @@ Azure HDInsight 및 Vm과 같은 대상을 계산 하기 위한 SSH 암호 및 �
 
 ## <a name="monitoring"></a>모니터링
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>메트릭
 
 Azure Monitor 메트릭을 사용 하 여 Azure Machine Learning 작업 영역에 대 한 메트릭을 보고 모니터링할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 작업 영역을 선택 하 고 **메트릭**을 선택 합니다.
 
-[![작업 영역에 대 한 예제 메트릭을 보여 주는 스크린샷](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
+[작업 영역에 대 한 예제 메트릭을 보여 주는 ![스크린샷](./media/enterprise-readiness/workspace-metrics.png)](./media/enterprise-readiness/workspace-metrics-expanded.png)
 
 메트릭은 실행, 배포 및 등록에 대 한 정보를 포함 합니다.
 
@@ -205,7 +206,7 @@ Azure Monitor 메트릭을 사용 하 여 Azure Machine Learning 작업 영역�
 
 이 스크린샷은 작업 영역에 대 한 활동 로그를 보여 줍니다.
 
-[![작업 영역의 활동 로그를 보여 주는 스크린샷](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
+[작업 영역의 활동 로그를 보여 주는 ![스크린샷](./media/enterprise-readiness/workspace-activity-log.png)](./media/enterprise-readiness/workspace-activity-log-expanded.png)
 
 점수 매기기 요청 세부 정보는 Application Insights에 저장 됩니다. 작업 영역을 만들 때 구독에 Application Insights 만들어집니다. 기록 되는 정보에는 HTTPMethod, UserAgent,, RequestUrl, StatusCode, RequestId 및 Duration과 같은 필드가 포함 됩니다.
 
@@ -233,7 +234,7 @@ Azure Monitor 메트릭을 사용 하 여 Azure Machine Learning 작업 영역�
 
 사용자는 필요에 따라 작업 영역 (예: Azure Kubernetes Service 또는 Vm)에 연결 된 다른 계산 대상을 프로 비전 할 수도 있습니다.
 
-[![작업 영역 워크플로 만들기](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
+[작업 영역 워크플로 만들기 ![](./media/enterprise-readiness/create-workspace.png)](./media/enterprise-readiness/create-workspace-expanded.png)
 
 ### <a name="save-source-code-training-scripts"></a>소스 코드 저장 (학습 스크립트)
 
@@ -243,7 +244,7 @@ Azure Machine Learning 작업 영역과 연결 된 디렉터리 (실험)는 소�
 
 [![코드 스냅숏 워크플로](./media/enterprise-readiness/code-snapshot.png)](./media/enterprise-readiness/code-snapshot-expanded.png)
 
-### <a name="training"></a>학습
+### <a name="training"></a>교육
 
 다음 다이어그램에서는 학습 워크플로를 보여 줍니다.
 
@@ -268,7 +269,7 @@ Machine Learning 컴퓨팅는 관리 되는 계산 대상 이므로 microsoft에
 
 아래 흐름 다이어그램에서이 단계는 학습 계산 대상이 Cosmos DB 데이터베이스의 저장소에서 Azure Machine Learning에 실행 메트릭을 다시 작성 하는 경우에 발생 합니다. 클라이언트는 Azure Machine Learning을 호출할 수 있습니다. Machine Learning Cosmos DB 데이터베이스에서 메트릭을 가져와서 클라이언트에 다시 반환 합니다.
 
-[![학습 워크플로](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
+[![교육 워크플로](./media/enterprise-readiness/training-and-metrics.png)](./media/enterprise-readiness/training-and-metrics-expanded.png)
 
 ### <a name="creating-web-services"></a>웹 서비스 만들기
 

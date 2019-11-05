@@ -1,40 +1,40 @@
 ---
 title: '중복 행 제거: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning service에서 중복 행 제거 모듈을 사용 하 여 데이터 집합에서 잠재적 중복 항목을 제거 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 중복 행 제거 모듈을 사용 하 여 데이터 집합에서 잠재적 중복 항목을 제거 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 8b3f73c56d85eecd50633085eca0e632abaa6b4c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: a0faba895c5717d061bacee2ce724c20464f8150
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693672"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497695"
 ---
 # <a name="remove-duplicate-rows-module"></a>중복 행 제거 모듈
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 데이터 집합에서 잠재적 중복 항목을 제거 합니다.
 
 예를 들어 데이터가 다음과 같은 것으로 가정 하 고 환자에 대 한 여러 레코드를 나타냅니다. 
 
-| PatientID | Initials| 성별|연령|연결 되도록 허용|
+| PatientID | Initials| 성별|Age|연결 되도록 허용|
 |----|----|----|----|----|
-|1|F.M.| 백만| 53| Jan|
-|2| F.A.M.| 백만| 53| Jan|
-|3| F.A.M.| 백만| 24| Jan|
-|3| F.M.| 백만| 24| Feb|
-|4| F.M.| 백만| 23| Feb|
-| | F.M.| 백만| 23| |
-|5| F.A.M.| 백만| 53| |
-|6| F.A.M.| 백만| NaN| |
-|7| F.A.M.| 백만| NaN| |
+|1|F.M.| M| 53| Jan|
+|2| F.A.M.| M| 53| Jan|
+|3| F.A.M.| M| 24| Jan|
+|3| F.M.| M| 24| Feb|
+|4| F.M.| M| 23| Feb|
+| | F.M.| M| 23| |
+|5| F.A.M.| M| 53| |
+|6| F.A.M.| M| NaN| |
+|7| F.A.M.| M| NaN| |
 
 분명히이 예에는 잠재적으로 중복 된 데이터가 있는 여러 열이 있습니다. 실제로 중복 되는지 여부는 데이터에 대 한 지식에 따라 다릅니다. 
 
@@ -59,7 +59,7 @@ ms.locfileid: "72693672"
 
     이 컨텍스트에서 **키는** 고유 식별자를 의미 하지 않습니다. 열 선택기를 사용 하 여 선택 하는 모든 열은 **키 열**로 지정 됩니다. 선택 하지 않은 모든 열은 키가 아닌 열로 간주 됩니다. 키로 선택한 열을 조합 하면 레코드의 고유성이 결정 됩니다. (이를 여러 equalities 조인을 사용 하는 SQL 문으로 생각 합니다.)
 
-    예시:
+    예제:
 
     + "Id가 고유한 지 확인 합니다.": ID 열만 선택 합니다.
     + "First name, last name 및 ID의 조합이 고유한 지 확인 합니다.": 세 개의 열을 모두 선택 합니다.
@@ -78,4 +78,4 @@ ms.locfileid: "72693672"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

@@ -1,24 +1,25 @@
 ---
 title: 작업 영역 데이터 내보내기 또는 삭제
 titleSuffix: Azure Machine Learning
-description: Azure Portal, CLI, SDK 및 인증된 REST API를 사용하여 작업 영역을 내보내거나 삭제하는 방법을 알아봅니다.
+description: Azure Machine Learning studio, CLI, SDK 및 인증 된 REST Api를 사용 하 여 작업 영역을 내보내거나 삭제 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
-author: ph-com
-ms.author: pahusban
+author: lobrien
+ms.author: laobri
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18e2ab18dac214e73eaf6ad7dfcb9dbbab0b5cf5
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d653d1cd719ac59bf6c98bee588c41858052bc61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002835"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489862"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제 
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Machine Learning에서는 인증된 REST API를 사용하여 작업 영역 데이터를 내보내거나 삭제할 수 있습니다. 이 문서에서는 이러한 작업을 수행하는 방법에 대해 설명합니다.
 
@@ -27,7 +28,7 @@ Azure Machine Learning에서는 인증된 REST API를 사용하여 작업 영역
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="control-your-workspace-data"></a>작업 영역 데이터 제어
-Azure Machine Learning에 의해 저장 된 제품 내 데이터는 Azure Portal, CLI, SDK 및 인증 된 REST Api를 통해 내보내기 및 삭제에 사용할 수 있습니다. 원격 분석 데이터는 Azure 개인 정보 보호 포털을 통해 액세스할 수 있습니다. 
+Azure Machine Learning에 의해 저장 된 제품 데이터는 Azure Machine Learning studio, CLI, SDK 및 인증 된 REST Api를 통해 내보내기 및 삭제에 사용할 수 있습니다. 원격 분석 데이터는 Azure 개인 정보 보호 포털을 통해 액세스할 수 있습니다. 
 
 Azure Machine Learning에서 개인 데이터는 서비스와 일부 사용자 간 상호 작용의 실행 기록 문서 및 원격 분석 레코드의 사용자 정보로 구성됩니다.
 
@@ -232,28 +233,27 @@ Azure Machine Learning에서 개인 데이터는 서비스와 일부 사용자 �
 
     https://{location}.aether.ms/api/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/DataSources/{id}
 
-## <a name="delete-visual-interface-assets"></a>시각적 인터페이스 자산 삭제
+## <a name="delete-assets-in-the-designer"></a>디자이너에서 자산 삭제
 
-실험을 만든 시각적 인터페이스에서 개별 자산을 삭제 합니다.
+실험을 만든 디자이너에서 개별 자산을 삭제 합니다.
 
-1. 왼쪽에서 삭제 하려는 자산의 종류를 선택 합니다.
+1. 디자이너로 이동
 
     ![자산 삭제](media/how-to-export-delete-data.md/delete-experiment.png)
 
-1. 목록에서 삭제할 개별 자산을 선택 합니다.
+1. 목록에서 삭제할 개별 파이프라인 초안을 선택 합니다.
 
 1. 아래쪽에서 **삭제**를 선택 합니다.
 
-## <a name="export-visual-interface-data"></a>시각적 인터페이스 데이터 내보내기
+## <a name="unregister-data-in-the-designer"></a>디자이너에서 데이터 등록 취소
 
-실험을 만든 시각적 인터페이스에서 추가한 데이터를 내보냅니다.
+실험을 만든 디자이너에서 추가한 데이터를 내보냅니다.
 
-1. 왼쪽에서 **데이터**를 선택 합니다.
+1. 왼쪽에서 **데이터 집합**을 선택 합니다.
 
-1. 위쪽에서 **내 데이터 집합** 또는 **샘플** 을 선택 하 여 내보낼 데이터를 찾습니다.
 
-    ![데이터 다운로드](media/how-to-export-delete-data.md/download-data.png)
 
-1. 목록에서 내보낼 개별 데이터 집합을 선택 합니다.
+    ![데이터 다운로드](media/how-to-export-delete-data.md/unregister-dataset.png)
 
-1. 아래쪽에서 **다운로드**를 선택 합니다.
+1. 목록에서 개별 데이터 집합을 선택 하 고 등록 취소를 클릭 합니다.
+

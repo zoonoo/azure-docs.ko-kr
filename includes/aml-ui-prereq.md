@@ -8,19 +8,20 @@ ms.topic: include
 author: sgilley
 ms.author: sgilley
 ms.date: 05/06/2019
-ms.openlocfilehash: 695153438ba33d9803f7f938aa15b6552d28da40
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 18e855a5f87e700481b69c39c4fe03a69437895e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692797"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490055"
 ---
-1. [Azure Machine Learning 서비스 작업 영역을 만듭니다](../articles/machine-learning/service/how-to-manage-workspace.md) (없는 경우).
+1. 아직 없는 경우 [Azure Machine Learning 작업 영역을 만듭니다](../articles/machine-learning/service/how-to-manage-workspace.md).
 
-1. [Azure Portal](https://portal.azure.com/)에서 작업 영역을 엽니다.  포털에서 작업 영역을 찾는 방법을 잘 모르겠으면 [작업 영역을 찾는 방법](../articles/machine-learning/service/how-to-manage-workspace.md#view)을 참조 하세요.  
+1. [Ml.azure.com](https://ml.azure.com) 에 로그인 하 고 작업할 작업 영역을 선택 합니다.
 
-1. 작업 영역에서 **그래픽 인터페이스**를 선택합니다.  
- 
-    ![그래픽 인터페이스 시작](./media/aml-ui-prereq/launch-ui.png)
+1. **디자이너**를 선택 합니다.
 
-    [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 시각적 인터페이스에 액세스할 수도 있습니다.
+    ![디자이너 시작](./media/aml-ui-prereq/launch-designer.png)
+
+
+

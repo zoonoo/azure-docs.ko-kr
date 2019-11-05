@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 54d7235ef56a94c9c0e7b780c53cbd9791bf4f53
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 503eb533b83cbeedcc16b73a9c1dbe821a4d4d94
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72694715"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492573"
 ---
 # <a name="summarize-data"></a>데이터 요약
 
-이 문서에서는 시각적 인터페이스 Azure Machine Learning 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 데이터 요약 모듈을 사용 하 여 입력 테이블의 각 열을 설명 하는 표준 통계 측정값 집합을 만들 수 있습니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "72694715"
 
 ## <a name="how-to-configure-summarize-data"></a>요약 데이터를 구성 하는 방법  
 
-1. 파이프라인에 **데이터 요약** 모듈을 추가 합니다. 시각적 인터페이스의 **통계 함수** 범주에서이 모듈을 찾을 수 있습니다.
+1. 파이프라인에 **데이터 요약** 모듈을 추가 합니다. 이 모듈은 디자이너의 **통계 함수** 범주에서 찾을 수 있습니다.
 
 1. 보고서를 생성 하려는 데이터 집합을 연결 합니다.
 

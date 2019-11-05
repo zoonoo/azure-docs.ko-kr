@@ -1,23 +1,23 @@
 ---
 title: '선형 회귀: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 선형 회귀 모듈을 사용 하 여 파이프라인에서 사용할 선형 회귀 모델을 만드는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 선형 회귀 모듈을 사용 하 여 파이프라인에서 사용할 선형 회귀 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 9c1dc34743d3fe65d50559d1b75aab1a0530d24c
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 688bf923c07d9417b002b7cab6e3c0a0c8d20dae
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693704"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497753"
 ---
 # <a name="linear-regression-module"></a>선형 회귀 모듈
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 파이프라인에서 사용할 선형 회귀 모델을 만들 수 있습니다.  선형 회귀는 하나 이상의 독립적인 변수와 숫자 결과 또는 종속 변수 간의 선형 관계를 설정 하려고 시도 합니다. 
 
@@ -63,7 +63,7 @@ Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 �
 
 ## <a name="bkmk_OrdinaryLeastSquares"></a>일반적으로 최소 제곱을 사용 하 여 회귀 모델 만들기
 
-1. 인터페이스에서 파이프라인에 **선형 회귀 모델** 모듈을 추가 합니다.
+1. 디자이너에서 **선형 회귀 모델** 모듈을 파이프라인에 추가 합니다.
 
     이 모듈은 **Machine Learning** 범주에서 찾을 수 있습니다. **모델 초기화**, **회귀**를 차례로 확장 한 다음 **선형 회귀 모델** 모듈을 파이프라인으로 끌어 옵니다.
 
@@ -97,7 +97,7 @@ Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 �
 
 ## <a name="bkmk_GradientDescent"></a>온라인 그라데이션 디센더를 사용 하 여 회귀 모델 만들기
 
-1. 인터페이스에서 파이프라인에 **선형 회귀 모델** 모듈을 추가 합니다.
+1. 디자이너에서 **선형 회귀 모델** 모듈을 파이프라인에 추가 합니다.
 
     이 모듈은 **Machine Learning** 범주에서 찾을 수 있습니다. **모델 초기화**, **회귀**를 차례로 확장 하 고 **선형 회귀 모델** 모듈을 파이프라인으로 끌어 옵니다.
 
@@ -143,4 +143,4 @@ Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

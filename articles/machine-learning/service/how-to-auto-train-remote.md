@@ -3,22 +3,24 @@ title: 자동화된 ML 원격 컴퓨팅 대상
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning를 통해 Azure Machine Learning 원격 계산 대상에서 자동화 된 machine learning을 사용 하 여 모델을 빌드하는 방법을 알아봅니다.
 services: machine-learning
-author: nacharya1
-ms.author: nilesha
+author: cartacioS
+ms.author: sacartac
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 7/12/2019
-ms.openlocfilehash: 9eab21fe6b5269229de186a7553e11a147c1033e
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.date: 11/04/2019
+ms.openlocfilehash: 4276a713e62f96cc5340fc7be0e8391939d32342
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034981"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497327"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
+
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Machine Learning에서 관리하는 다양한 종류의 컴퓨팅 리소스에 대해 모델을 교육할 수 있습니다. 계산 대상은 클라우드의 리소스 또는 로컬 컴퓨터 일 수 있습니다.
 
@@ -38,7 +40,7 @@ ws = Workspace.from_config()
 
 ## <a name="create-resource"></a>리소스 만들기
 
-아직 없는 경우 작업 영역에 amlcompute 대상을`ws`만듭니다 ().
+아직 없는 경우 작업 영역 (`ws`)에서 AmlCompute 대상을 만듭니다.
 
 **예상 시간**: AmlCompute 대상을 만드는 데 약 5 분이 걸립니다.
 
@@ -68,9 +70,9 @@ compute_target.wait_for_completion(
 
 ## <a name="access-data-using-tabulardataset-function"></a>TabularDataset 함수를 사용 하 여 데이터 액세스
 
-X 및 y를 s `TabularDataset`로 정의 합니다 .이는 AutoMLConfig에서 자동화 된 ML에 전달 됩니다. `from_delimited_files`기본적으로는 `infer_column_types` 를 true로 설정 합니다. 그러면 열 형식이 자동으로 유추 됩니다. 
+X 및 y를 `TabularDataset`s로 정의 합니다 .이는 AutoMLConfig에서 자동화 된 ML에 전달 됩니다. 기본적으로 `from_delimited_files`는 `infer_column_types`를 true로 설정 하 여 열 형식을 자동으로 유추 합니다. 
 
-수동으로 열 유형을 설정 하려면 `set_column_types` 인수를 설정 하 여 각 열의 유형을 수동으로 설정 합니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
+열 유형을 수동으로 설정 하려는 경우 `set_column_types` 인수를 설정 하 여 각 열의 유형을 수동으로 설정 합니다. 다음 코드 샘플의 데이터는 sklearn 패키지에서 옵니다.
 
 ```python
 # Create a project_folder if it doesn't exist
@@ -101,7 +103,7 @@ y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
 
 ## <a name="create-run-configuration"></a>실행 구성 만들기
 
-Get_data py 스크립트에서 종속성을 사용할 수 있도록 하려면 정의 `RunConfiguration` `CondaDependencies`된을 사용 하 여 개체를 정의 합니다. `run_configuration` 의`AutoMLConfig`매개 변수에이 개체를 사용 합니다.
+Get_data py 스크립트에서 종속성을 사용할 수 있도록 하려면 정의 된 `CondaDependencies`를 사용 하 여 `RunConfiguration` 개체를 정의 합니다. `AutoMLConfig`의 `run_configuration` 매개 변수에이 개체를 사용 합니다.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -243,12 +245,12 @@ remote_run.get_portal_url()
 
 모델 설명 데이터를 검색하면 모델에 대한 자세한 정보를 확인할 수 있으므로 백 엔드에서 실행되는 대상에 대한 투명성이 높아집니다. 이 예제에서는 최적 맞춤 모델에 대해서만 모델 설명을 실행합니다. 파이프라인의 모든 모델에 대해 실행하는 경우 런타임이 크게 늘어납니다. 모델 설명 정보에는 다음이 포함됩니다.
 
-* shap_values: Shap lib에서 생성 한 설명 정보입니다.
-* expected_values: X_train 데이터 세트에 적용되는 모델의 예상 값입니다.
-* overall_summary: 모델 수준 기능 중요도 값이 내림차순으로 정렬 됩니다.
-* overall: 기능 이름은 overall_summary와 동일한 순서로 정렬 됩니다.
-* per_class_summary: 내림차순으로 정렬되는 클래스 수준 기능 중요도 값입니다. 분류 사례에 대해서만 사용할 수 있습니다.
-* per_class_imp: per_class_summary와 동일한 순서로 정렬되는 기능 이름입니다. 분류 사례에 대해서만 사용할 수 있습니다.
+* shap_values: shap lib에서 생성 한 설명 정보입니다.
+* expected_values: X_train 데이터 집합에 적용 된 모델의 예상 값입니다.
+* overall_summary: 모델 수준 기능 중요도 값이 내림차순으로 정렬 되어 있습니다.
+* overall_imp: overall_summary와 동일한 순서로 기능 이름이 정렬 됩니다.
+* per_class_summary: 클래스 수준 기능 중요도 값이 내림차순으로 정렬 되어 있습니다. 분류 사례에 대해서만 사용할 수 있습니다.
+* per_class_imp: per_class_summary와 동일한 순서로 기능 이름이 정렬 됩니다. 분류 사례에 대해서만 사용할 수 있습니다.
 
 다음 코드를 사용하여 반복에서 최상의 파이프라인을 선택합니다. `get_output` 메서드는 마지막 맞춤 호출에 대한 최적의 실행 및 맞춤 모델을 반환합니다.
 
@@ -278,7 +280,7 @@ print(per_class_imp)
 
 ![모델 설명 콘솔 출력](./media/how-to-auto-train-remote/expl-print.png)
 
-위젯 UI, Azure Portal의 웹 UI 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)를 통해 기능 중요도를 시각화할 수도 있습니다. 
+위젯 UI를 통해 또는 [Azure Machine Learning studio](https://ml.azure.com)의 작업 영역에서 기능 중요도를 시각화할 수도 있습니다. 
 
 ![모델 설명 UI](./media/how-to-auto-train-remote/model-exp.png)
 

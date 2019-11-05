@@ -1,7 +1,7 @@
 ---
 title: 'Python 모델 만들기: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 Python 모델 만들기 모델을 사용 하 여 사용자 지정 모델링 또는 데이터 처리 모듈을 만드는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 Python 모델 만들기 모델을 사용 하 여 사용자 지정 모델링 또는 데이터 처리 모듈을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 2a035644dc0d3d533aa052217c89968a5692230b
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 33e15055958ac99f2aa9eb160f9e5cf3c5b0cd41
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693884"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493802"
 ---
 # <a name="create-python-model"></a>Python 모델 만들기
 
 이 문서에서는 python **모델 만들기** 모듈을 사용 하 여 python 스크립트에서 학습 되지 않은 모델을 만드는 방법을 설명 합니다. 
 
-Azure Machine Learning 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다. 
+Azure Machine Learning designer 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다. 
 
 모델을 만든 후에는 [모델 학습](train-model.md) 을 사용 하 여 Azure Machine Learning의 다른 학습자 같은 데이터 집합에 대 한 모델 학습을 수행할 수 있습니다. 모델을 사용 하 여 예측을 만드는 학습 된 모델을 [점수 매기기 모델](score-model.md) 에 전달할 수 있습니다. 그러면 학습 된 모델을 저장할 수 있으며 점수 매기기 워크플로를 웹 서비스로 게시할 수 있습니다.
 

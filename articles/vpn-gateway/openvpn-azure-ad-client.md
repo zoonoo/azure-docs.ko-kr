@@ -1,0 +1,141 @@
+---
+title: 'P2S VPN 연결에 대 한 VPN 클라이언트 구성: Azure AD 인증 | Microsoft Docs'
+description: Azure AD 인증을 사용 하 여 VNet에 연결 하는 데 P2S VPN을 사용할 수 있습니다.
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: conceptual
+ms.date: 10/08/2019
+ms.author: cherylmc
+ms.openlocfilehash: f4241b2ace2d7c86e1ed9036ca6d1da4a59eb61f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73517528"
+---
+# <a name="configure-a-vpn-client-for-p2s-vpn-connections-azure-ad-authentication-preview"></a>P2S VPN 연결에 대 한 VPN 클라이언트 구성: Azure AD 인증 (미리 보기)
+
+이 문서에서는 지점 및 사이트 간 VPN 및 Azure Active Directory 인증을 사용 하 여 가상 네트워크에 연결 하도록 VPN 클라이언트를 구성 하는 방법을 설명 합니다. Azure AD를 사용 하 여 연결 하 고 인증 하려면 먼저 Azure AD 테 넌 트를 구성 해야 합니다. 자세한 내용은 [AZURE AD 테 넌 트 구성](openvpn-azure-ad-tenant.md)을 참조 하세요.
+
+## <a name="profile"></a>클라이언트 프로필 작업
+
+연결 하려면 VNet에 연결 하려는 모든 컴퓨터에서 VPN 클라이언트 프로필을 구성 해야 합니다. 컴퓨터에서 클라이언트 프로필을 만들어 내보낸 다음 추가 컴퓨터에 가져올 수 있습니다.
+
+### <a name="cert"></a>인증서 기반 클라이언트 프로필을 만들려면
+
+인증서 기반 프로필을 사용 하는 경우 적절 한 인증서가 클라이언트 컴퓨터에 설치 되어 있는지 확인 합니다. 인증서에 대 한 자세한 내용은 [클라이언트 인증서 설치](point-to-site-how-to-vpn-client-install-azure-cert.md)를 참조 하세요.
+
+  ![cert](./media/openvpn-azure-ad-client/create/create-cert1.jpg)
+
+### <a name="radius"></a>RADIUS 클라이언트 프로필을 만들려면
+
+  ![반지름이](./media/openvpn-azure-ad-client/create/create-radius1.jpg)
+
+### <a name="export"></a>클라이언트 프로필을 내보내고 배포 하려면
+
+작업 프로필을 사용 하 고 다른 사용자에 게 배포 해야 하는 경우 다음 단계를 사용 하 여 내보낼 수 있습니다.
+
+1. 내보내려는 VPN 클라이언트 프로필을 강조 표시 하 고 **...** 를 선택한 다음 **내보내기**를 선택 합니다.
+
+    ![내보내기가](./media/openvpn-azure-ad-client/export/export1.jpg)
+
+2. 이 프로필을 저장 하려는 위치를 선택 하 고 파일 이름을 그대로 두고 **저장** 을 선택 하 여 xml 파일을 저장 합니다.
+
+    ![내보내기가](./media/openvpn-azure-ad-client/export/export2.jpg)
+
+### <a name="import"></a>클라이언트 프로필을 가져오려면
+
+1. 페이지에서 **가져오기**를 선택 합니다.
+
+    ![수입](./media/openvpn-azure-ad-client/import/import1.jpg)
+
+2. 프로필 xml 파일을 찾아 선택 합니다. 파일이 선택 된 상태에서 **열기**를 선택 합니다.
+
+    ![수입](./media/openvpn-azure-ad-client/import/import2.jpg)
+
+3. 프로필 이름을 지정 하 고 **저장**을 선택 합니다.
+
+    ![수입](./media/openvpn-azure-ad-client/import/import3.jpg)
+
+4. **연결** 을 선택 하 여 VPN에 연결 합니다.
+
+    ![수입](./media/openvpn-azure-ad-client/import/import4.jpg)
+
+5. 연결 되 면 아이콘은 녹색으로 바뀌고 **연결 된**것을 말합니다.
+
+    ![수입](./media/openvpn-azure-ad-client/import/import5.jpg)
+
+### <a name="delete"></a>클라이언트 프로필을 삭제 하려면
+
+1. 삭제할 클라이언트 프로필 옆에 있는 줄임표를 선택 합니다. 그런 다음 **제거**를 선택 합니다.
+
+    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+
+2. **제거** 를 선택 하 여 삭제 합니다.
+
+    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+
+## <a name="connection"></a>연결 만들기
+
+1. 페이지에서 **+** 를 선택 하 고 **+ 추가**를 선택 합니다.
+
+    ![connection](./media/openvpn-azure-ad-client/create/create1.jpg)
+
+2. 연결 정보를 입력 합니다. 값이 확실 하지 않은 경우 관리자에 게 문의 하십시오. 값을 입력 한 후 **저장**을 선택 합니다.
+
+    ![connection](./media/openvpn-azure-ad-client/create/create2.jpg)
+
+3. **연결** 을 선택 하 여 VPN에 연결 합니다.
+
+    ![connection](./media/openvpn-azure-ad-client/create/create3.jpg)
+
+4. 적절 한 자격 증명을 선택한 다음 **계속**을 선택 합니다.
+
+    ![connection](./media/openvpn-azure-ad-client/create/create4.jpg)
+
+5. 성공적으로 연결 되 면 아이콘은 녹색으로 바뀌고 **연결 된**것을 말합니다.
+
+    ![connection](./media/openvpn-azure-ad-client/create/create5.jpg)
+
+### <a name="autoconnect"></a>자동으로 연결 하려면
+
+이러한 단계를 통해 연결을 자동으로 on으로 연결 하도록 구성할 수 있습니다.
+
+1. VPN 클라이언트의 홈 페이지에서 **Vpn 설정**을 선택 합니다.
+
+    ![auto](./media/openvpn-azure-ad-client/auto/auto1.jpg)
+
+2. 앱 전환 대화 상자에서 **예** 를 선택 합니다.
+
+    ![auto](./media/openvpn-azure-ad-client/auto/auto2.jpg)
+
+3. 설정 하려는 연결이 아직 연결 되지 않았는지 확인 한 다음 프로필을 강조 표시 하 고 **자동으로 연결** 확인란을 선택 합니다.
+
+    ![auto](./media/openvpn-azure-ad-client/auto/auto3.jpg)
+
+4. **연결** 을 선택 하 여 VPN 연결을 시작 합니다.
+
+    ![auto](./media/openvpn-azure-ad-client/auto/auto4.jpg)
+
+## <a name="diagnose"></a>연결 문제 진단
+
+1. **진단** 도구를 사용 하 여 연결 문제를 진단할 수 있습니다. 진단 하려는 VPN 연결 옆 **에 있는 ...** 를 선택 하 여 메뉴를 표시 합니다. 그런 다음 **진단**을 선택 합니다.
+
+    ![진단](./media/openvpn-azure-ad-client/diagnose/diagnose1.jpg)
+
+2. **연결 속성** 페이지에서 **진단 실행**을 선택 합니다.
+
+    ![진단](./media/openvpn-azure-ad-client/diagnose/diagnose2.jpg)
+
+3. 자격 증명을 사용 하 여 로그인 합니다.
+
+    ![진단](./media/openvpn-azure-ad-client/diagnose/diagnose3.jpg)
+
+4. 진단 결과를 봅니다.
+
+    ![진단](./media/openvpn-azure-ad-client/diagnose/diagnose4.jpg)
+
+## <a name="next-steps"></a>다음 단계
+
+자세한 내용은 [AZURE AD 인증을 사용 하는 P2S OPEN VPN 연결에 대 한 Azure Active Directory 테 넌 트 만들기](openvpn-azure-ad-tenant.md)를 참조 하세요.

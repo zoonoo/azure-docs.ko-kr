@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/09/2019
-ms.openlocfilehash: 6bd96df1a2ed4ff7cde637a646ab514e89340b38
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 11/04/2019
+ms.openlocfilehash: af7d04bd74ada296b9f0e0f7c149c2a781cec579
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792479"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496491"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-cognitive-search"></a>Azure Cognitive Search을 사용 하 여 Azure blob 데이터에 전체 텍스트 검색 추가
 
@@ -71,4 +71,4 @@ Blob 인덱서는 구성 매개 변수와 함께 제공 되며 기본 데이터�
 ## <a name="next-steps"></a>다음 단계
 
 + [Azure Portal를 사용 하 여 blob 업로드, 다운로드 및 나열 (Azure Blob storage)](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)
-+ [Blob 인덱서 설정 (Azure Search)](search-howto-indexing-azure-blob-storage.md) 
++ [Blob 인덱서 설정 (Azure Cognitive Search)](search-howto-indexing-azure-blob-storage.md) 

@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 12/04/2018
-ms.openlocfilehash: 9e398fd7d370d30fac87035b27a218834b4fab22
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: ef1f420e4c4dbd38ad703eb0573fae36af078edb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899729"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496240"
 ---
 # <a name="business-critical-tier---azure-sql-database"></a>중요 비즈니스용 계층 - Azure SQL Database
 
@@ -49,7 +49,7 @@ SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 스�
 일반적인 용도 계층 대신 중요 비즈니스용 서비스 계층을 선택 해야 하는 주요 이유는 다음과 같습니다.
 -   낮은 IO 대기 시간 요구 사항 – 저장소 계층에서 fast 응답이 필요한 워크 로드 (평균 1-2 밀리초)는 중요 비즈니스용 계층을 사용 해야 합니다. 
 -   응용 프로그램과 데이터베이스 간의 빈번한 통신. 응용 프로그램 계층 캐싱 또는 [요청 일괄](sql-database-use-batching-to-improve-performance.md) 처리를 사용할 수 없으며 신속 하 게 처리 해야 하는 많은 SQL 쿼리를 전송 해야 하는 응용 프로그램은 중요 비즈니스용 계층에 적합 합니다.
--   많은 수의 업데이트 – 삽입, 업데이트 및 삭제 작업을 사용 하 여 `CHECKPOINT` 데이터 파일에 저장 해야 하는 메모리 (더티 페이지)의 데이터 페이지를 수정 합니다. 잠재적인 데이터베이스 엔진 프로세스 충돌 또는 많은 수의 더티 페이지가 있는 데이터베이스의 장애 조치 (failover)로 인해 일반 용도의 계층에서 복구 시간이 늘어날 수 있습니다. 많은 메모리 내 변경을 유발 하는 작업이 있는 경우 중요 비즈니스용 계층을 사용 합니다. 
+-   많은 수의 업데이트 – 삽입, 업데이트 및 삭제 작업 `CHECKPOINT` 작업을 사용 하 여 데이터 파일에 저장 해야 하는 메모리 (더티 페이지)의 데이터 페이지를 수정 합니다. 잠재적인 데이터베이스 엔진 프로세스 충돌 또는 많은 수의 더티 페이지가 있는 데이터베이스의 장애 조치 (failover)로 인해 일반 용도의 계층에서 복구 시간이 늘어날 수 있습니다. 많은 메모리 내 변경을 유발 하는 작업이 있는 경우 중요 비즈니스용 계층을 사용 합니다. 
 -   데이터를 수정 하는 장기 실행 트랜잭션입니다. 더 오랜 시간 동안 열리는 트랜잭션은 로그 크기와 [가상 로그 파일 (VLF)](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide#physical_arch)수를 늘릴 수 있는 로그 파일의 잘림을 방지 합니다. VLF 수가 높으면 장애 조치 (failover) 후 데이터베이스 복구 속도가 느려질 수 있습니다.
 -   무료 보조 읽기 전용 복제본으로 리디렉션될 수 있는 보고 및 분석 쿼리가 포함 된 작업입니다.
 - 복원 력이 향상 되 고 오류에서 복구 속도가 빨라집니다. 시스템 오류가 발생 하는 경우 주 인스턴스의 데이터베이스를 사용할 수 없게 되 고 보조 복제본 중 하나는 즉시 쿼리를 처리할 준비가 된 새로운 읽기/쓰기 주 데이터베이스가 됩니다. 데이터베이스 엔진은 로그 파일에서 트랜잭션을 분석 하 고 다시 실행 하 고 메모리 버퍼의 모든 데이터를 로드할 필요가 없습니다.
@@ -59,7 +59,7 @@ SQL 데이터베이스 엔진 프로세스와 기본 mdf/ldf 파일이 SSD 스�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)에서 중요 비즈니스용 계층의 리소스 특성 (코어 수, IO, 메모리), [vcore 모델](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute) 또는 [dtu 모델](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)의 단일 데이터베이스 또는 [Vcore 모델](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) 및 [dtu 모델](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)의 탄력적 풀을 찾습니다.
+- [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics)에서 중요 비즈니스용 계층의 리소스 특성 (코어 수, IO, 메모리), [vcore 모델](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) 또는 [dtu 모델](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier)의 단일 데이터베이스 또는 [Vcore 모델](sql-database-vcore-resource-limits-elastic-pools.md#business-critical---provisioned-compute---gen4) 및 [dtu 모델](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits)의 탄력적 풀을 찾습니다.
 - [범용](sql-database-service-tier-general-purpose.md) 및 [하이퍼스케일](sql-database-service-tier-hyperscale.md) 계층에 대해 알아봅니다.
 - [Service Fabric](../service-fabric/service-fabric-overview.md)에 대해 알아봅니다.
 - 고가용성 및 재해 복구에 대한 자세한 옵션은 [비즈니스 연속성](sql-database-business-continuity.md)을 참조하세요.

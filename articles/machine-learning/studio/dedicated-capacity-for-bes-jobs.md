@@ -1,23 +1,23 @@
 ---
 title: Azure Batch 서비스 작업
-titleSuffix: Azure Machine Learning Studio
-description: Machine Learning Studio 작업에 대 한 Azure Batch 서비스의 개요입니다. Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Machine Learning Studio (클래식) 작업에 대 한 Azure Batch 서비스 개요. Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
-ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs'
+ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 24efa3caba3918a38c09b1c921c600b117dedbc1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60751169"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493031"
 ---
-# <a name="azure-batch-service-for-azure-machine-learning-studio-jobs"></a>Azure Machine Learning Studio 작업에 대한 Azure Batch 서비스
+# <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Azure Machine Learning Studio (클래식) 작업에 대 한 Azure Batch 서비스
 
 Machine Learning Batch 풀 처리는 Azure Machine Learning Batch 실행 서비스의 고객 관리 규모를 제공합니다. Machine Learning에 대한 클래식 Batch 처리는 제출할 수 있는 동시 작업 수를 제한하는 다중 테넌트 환경에서 수행되며, 작업은 선입 선출 기준으로 큐에 보관됩니다. 이 불확실성은 작업이 실행되는 시기를 예측할 수 없다는 것입니다.
 
@@ -111,4 +111,4 @@ Batch 풀 처리는 항상 청구 가능한 서비스이며, 이를 Resource Man
 
 | **Batch 풀 처리를 사용하는 경우**    | **클래식 일괄 처리를 사용하는 경우**  |
 |---|---|
-|많은 수의 작업을 실행해야 합니다.<br>또는<br/>자신의 작업이 즉시 실행된다는 것을 알아야 합니다.<br/>또는<br/>처리량을 보장해야 합니다. 예를 들어 지정된 시간 프레임 내에서 여러 작업을 실행해야 하며, 요구 사항에 맞게 컴퓨팅 리소스를 확장하려고 합니다.    | 몇 가지 작업만 실행하고 있습니다.<br/>AND<br/> 작업을 즉시 실행할 필요가 없습니다. |
+|많은 수의 작업을 실행해야 합니다.<br>또는<br/>자신의 작업이 즉시 실행된다는 것을 알아야 합니다.<br/>또는<br/>처리량을 보장해야 합니다. 예를 들어 지정된 시간 프레임 내에서 여러 작업을 실행해야 하며, 요구 사항에 맞게 컴퓨팅 리소스를 확장하려고 합니다.    | 몇 가지 작업만 실행하고 있습니다.<br/>and<br/> 작업을 즉시 실행할 필요가 없습니다. |

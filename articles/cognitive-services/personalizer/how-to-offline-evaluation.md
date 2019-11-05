@@ -8,25 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9d7336fb933ee5e9781d15214fa3e59446aa5b6a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515221"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490707"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>오프 라인 평가를 사용 하 여 학습 루프 분석
 
 오프라인 평가를 완료하고 결과를 이해하는 방법을 알아봅니다.
 
-오프라인 평가를 통해 Personalizer가 애플리케이션의 기본 동작에 비해 얼마나 효율적인지 측정하고, 개인 설정에 가장 많이 기여하는 기능이 무엇인지 알아보고, 새 기계 학습 설정을 자동으로 검색할 수 있습니다.
+오프 라인 평가를 사용 하면 효과적인 Personalizer를 응용 프로그램의 기본 동작과 비교 하 고, 개인 설정에 가장 적합 한 기능을 알아보고, 새 machine learning 값을 자동으로 검색할 수 있습니다.
 
 자세한 내용은 [오프라인 평가](concepts-offline-evaluation.md)를 참조하세요.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 구성 된 Personalizer 루프
 * Personalizer 루프에는 대표적인 양의 데이터가 있어야 합니다. 개략적인는 의미 있는 평가 결과를 위해 로그에 5만 개 이상의 이벤트를 권장 합니다. 필요에 따라 이전에 내보낸 _학습 정책_ 파일을 동일한 평가에서 비교하고 테스트할 수 있습니다.
@@ -35,11 +35,11 @@ ms.locfileid: "72515221"
 
 1. [Azure Portal](https://azure.microsoft.com/free/)에서 개인 설정 리소스를 찾습니다.
 1. Azure Portal에서 평가 섹션으로 이동 하 고 **평가 만들기**를 **선택 합니다.**
-    @no__t-Azure Portal에서 * * 평가 * * 섹션으로 이동 하 고 * * 평가 만들기 * *를 선택 합니다. ](./media/offline-evaluation/create-new-offline-evaluation.png)
-1. 다음 설정을 선택 합니다.
+    Azure Portal에서 ![* * 평가 * * 섹션으로 이동 하 고 * * 평가 만들기 * *를 선택 합니다.](./media/offline-evaluation/create-new-offline-evaluation.png)
+1. 다음 값을 구성 합니다.
 
     * 평가 이름
-    * 시작 및 종료 날짜-계산에 사용할 데이터 범위를 지정 하는 과거의 날짜입니다. 이 데이터는 [데이터 보존](how-to-settings.md) 설정에 지정된 대로 로그에 있어야 합니다.
+    * 시작 및 종료 날짜-계산에 사용할 데이터 범위를 지정 하는 과거의 날짜입니다. 이 데이터는 [데이터 보존](how-to-settings.md) 값에 지정 된 대로 로그에 표시 되어야 합니다.
     * 최적화 검색을 **예** 로 설정 합니다.
 
     ![오프 라인 평가 설정 선택](./media/offline-evaluation/create-an-evaluation-form.png)

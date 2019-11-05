@@ -1,7 +1,7 @@
 ---
 title: '클러스터에 데이터 할당: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스의 클러스터에 데이터 할당 모듈을 사용 하 여 클러스터링 모델의 점수를 매기는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: 클러스터링 모델의 점수를 매기는 Azure Machine Learning의 클러스터에 데이터 할당 모듈을 사용 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,23 +9,23 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: 3caf568590beb5b1f9d346d472c93f134a4f3a5f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 75a547a26057ad05444753253666dceea160d714
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693223"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493870"
 ---
 # <a name="module-assign-data-to-clusters"></a>모듈: 클러스터에 데이터 할당
 
-이 문서에서는 Azure Machine Learning 시각적 인터페이스에서 *클러스터에 데이터 할당* 모듈을 사용 하는 방법을 설명 합니다. 이 모듈은 *K를 의미* 하는 클러스터링 알고리즘을 사용 하 여 학습 된 클러스터링 모델을 통해 예측을 생성 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 *클러스터에 데이터 할당* 모듈을 사용 하는 방법을 설명 합니다. 이 모듈은 *K를 의미* 하는 클러스터링 알고리즘을 사용 하 여 학습 된 클러스터링 모델을 통해 예측을 생성 합니다.
 
 클러스터에 데이터 할당 모듈은 각 새 데이터 요소에 대해 가능한 할당을 포함 하는 데이터 집합을 반환 합니다. 
 
 
 ## <a name="how-to-use-assign-data-to-clusters"></a>클러스터에 데이터 할당을 사용 하는 방법
   
-1. Azure Machine Learning 시각적 인터페이스에서 이전에 학습 된 클러스터링 모델을 찾습니다. 다음 방법 중 하나를 사용 하 여 클러스터링 모델을 만들고 학습할 수 있습니다.  
+1. Azure Machine Learning 디자이너에서 이전에 학습 된 클러스터링 모델을 찾습니다. 다음 방법 중 하나를 사용 하 여 클러스터링 모델을 만들고 학습할 수 있습니다.  
   
     - K를 구성 하 [는 클러스터링 알고리즘](k-means-clustering.md) 을 사용 하 여 클러스터링 알고리즘을 구성 하 고, 데이터 집합 및 클러스터링 모델 학습 모듈 (이 문서)을 사용 하 여 모델을 학습 합니다.  
   
@@ -38,7 +38,7 @@ ms.locfileid: "72693223"
    이 데이터 집합에서 레이블은 선택 사항입니다. 일반적으로 클러스터링은 자율 learning 메서드입니다. 범주를 미리 알 수 없습니다. 그러나 입력 열은 클러스터링 모델을 학습 하는 데 사용 된 열과 동일 해야 합니다. 그렇지 않으면 오류가 발생 합니다.
 
     > [!TIP]
-    > 클러스터 예측에서 인터페이스에 기록 되는 열 수를 줄이려면 [데이터 집합에서 열 선택](select-columns-in-dataset.md)을 사용 하 고 열의 하위 집합을 선택 합니다. 
+    > 클러스터 예측에서 디자이너에 기록 되는 열 수를 줄이려면 [데이터 집합에서 열 선택](select-columns-in-dataset.md)을 사용 하 고 열의 하위 집합을 선택 합니다. 
     
 4. 결과 (클러스터 할당)를 표시 하는 열을 포함 하 여 전체 입력 데이터 집합을 결과에 포함 하려면 결과에 **만 추가 또는 선택 취소** 확인란을 선택 된 상태로 둡니다.
   

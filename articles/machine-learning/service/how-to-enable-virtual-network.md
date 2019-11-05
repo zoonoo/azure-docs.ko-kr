@@ -6,18 +6,19 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: jmartens
+ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 08/05/2019
-ms.openlocfilehash: 9299959eef24f6890218dc2d2aa733cc227e1a32
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
-ms.translationtype: MT
+ms.date: 10/25/2019
+ms.openlocfilehash: 1f2380748c4feea6321bd8df1c29bd599f19b089
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162577"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489900"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Virtual Network (vnet) 내에서 Azure Machine Learning의 실험/교육 작업 및 유추/점수 매기기 작업을 보호 하는 방법을 알아봅니다.
 
@@ -27,7 +28,13 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
 또한이 문서에서는 *고급 보안 설정*, 기본 또는 실험적 사용 사례에 필요 하지 않은 정보에 대 한 자세한 정보를 제공 합니다. 이 문서의 특정 섹션에서는 다양 한 시나리오에 대 한 구성 정보를 제공 합니다. 지침을 순서 대로 또는 전체적으로 완료할 필요가 없습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+> [!TIP]
+> 특별히 호출 하지 않는 한, 가상 네트워크 내에서 저장소 계정 또는 계산 대상과 같은 리소스를 사용 하면 기계 학습 파이프라인과 스크립트 실행과 같은 비 파이프라인 워크플로 모두에서 작동 합니다.
+
+> [!WARNING]
+> Microsoft는 가상 네트워크 내의 리소스에 Azure Machine Learning 디자이너 또는 자동화 된 Machine Learning (스튜디오에서)을 사용 하는 것을 지원 하지 않습니다.
+
+## <a name="prerequisites"></a>필수 조건
 
 + Azure Machine Learning [작업 영역](how-to-manage-workspace.md)입니다.
 
@@ -39,13 +46,13 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
 가상 네트워크의 작업 영역에 대 한 Azure storage 계정을 사용 하려면 다음을 수행 합니다.
 
-1. 가상 네트워크 뒤에 계산 인스턴스 (예: Machine Learning 컴퓨팅 인스턴스)를 만들거나 작업 영역 (예: HDInsight 클러스터, 가상 머신 또는 Azure Kubernetes Service 클러스터)에 계산 인스턴스를 연결 합니다. 계산 인스턴스는 실험 또는 모델 배포에 사용할 수 있습니다.
+1. 가상 네트워크 뒤에 계산 리소스 (예: Machine Learning 계산 인스턴스 또는 클러스터)를 만들거나 작업 영역 (예: HDInsight 클러스터, 가상 머신 또는 Azure Kubernetes Service 클러스터)에 계산 리소스를 연결 합니다. 실험 또는 모델 배포의 경우 계산 리소스를 사용할 수 있습니다.
 
-   자세한 내용은이 문서에서 [Machine Learning 컴퓨팅 인스턴스 사용](#amlcompute), [가상 머신 또는 HDInsight 클러스터 사용](#vmorhdi)및 [Azure Kubernetes 서비스](#aksvnet) 사용 섹션을 참조 하세요.
+   자세한 내용은이 문서에서 [a Machine Learning Compute 사용](#amlcompute), [가상 머신 또는 HDInsight 클러스터 사용](#vmorhdi)및 [Azure Kubernetes Service](#aksvnet) 사용 섹션을 참조 하세요.
 
 1. Azure Portal에서 작업 영역에 연결 된 저장소로 이동 합니다.
 
-   [![Azure Machine Learning 작업 영역에 연결 된 저장소](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
+   [Azure Machine Learning 작업 영역에 연결 된 저장소 ![](./media/how-to-enable-virtual-network/workspace-storage.png)](./media/how-to-enable-virtual-network/workspace-storage.png#lightbox)
 
 1. **Azure Storage** 페이지에서 __방화벽 및 가상 네트워크__를 선택 합니다.
 
@@ -53,10 +60,10 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
 1. __방화벽 및 가상 네트워크__ 페이지에서 다음을 수행 합니다.
     - __선택한 네트워크__를 선택합니다.
-    - __가상 네트워크__에서 __기존 가상 네트워크 추가__ 링크를 선택 합니다. 이 작업을 수행 하면 계산 인스턴스가 있는 가상 네트워크가 추가 됩니다 (1 단계 참조).
+    - __가상 네트워크__에서 __기존 가상 네트워크 추가__ 링크를 선택 합니다. 이 작업을 수행 하면 계산이 있는 가상 네트워크가 추가 됩니다 (1 단계 참조).
 
         > [!IMPORTANT]
-        > 저장소 계정은 학습 또는 유추에 사용 되는 계산 인스턴스와 동일한 가상 네트워크에 있어야 합니다.
+        > 저장소 계정은 학습 또는 유추에 사용 되는 계산 인스턴스 또는 클러스터와 동일한 가상 네트워크에 있어야 합니다.
 
     - __신뢰할 수 있는 Microsoft 서비스에서이 저장소 계정에 액세스 하도록 허용__ 확인란을 선택 합니다.
 
@@ -65,7 +72,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
     >
     > 저장소 계정에 대 한 액세스를 사용 하도록 설정 하려면 *개발 클라이언트의 웹 브라우저에서*저장소 계정에 대 한 __방화벽 및 가상 네트워크__ 를 방문 하세요. 그런 다음 __클라이언트 ip 주소 추가__ 확인란을 사용 하 여 클라이언트의 ip 주소를 __주소 범위__에 추가 합니다. __주소 범위__ 필드를 사용 하 여 개발 환경의 IP 주소를 수동으로 입력할 수도 있습니다. 클라이언트의 IP 주소가 추가 되 면 SDK를 사용 하 여 저장소 계정에 액세스할 수 있습니다.
 
-   [![Azure Portal의 "방화벽 및 가상 네트워크" 창](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
+   [Azure Portal에서 "방화벽 및 가상 네트워크" 창을 ![합니다.](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
 
 1. __실험을 실행__하는 경우 실험 코드에서 Azure Blob storage를 사용 하도록 실행 구성을 변경 합니다.
 
@@ -78,7 +85,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 >
 > 기본 저장소 계정은 작업 영역을 만들 때 자동으로 프로 비전 됩니다.
 >
-> 기본이 `storage_account` 아닌 저장소 계정의 경우 [ `Workspace.create()` 함수의](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) 매개 변수를 사용 하 여 Azure 리소스 ID로 사용자 지정 저장소 계정을 지정할 수 있습니다.
+> 기본이 아닌 저장소 계정의 경우 [`Workspace.create()` 함수의](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) `storage_account` 매개 변수를 사용 하 여 AZURE 리소스 ID로 사용자 지정 저장소 계정을 지정할 수 있습니다.
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>작업 영역에서 key vault 인스턴스 사용
 
@@ -90,7 +97,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 가상 네트워크 Azure Key Vault 뒤에 Azure Machine Learning 실험 기능을 사용 하려면 다음을 수행 합니다.
 1. 작업 영역과 연결 된 주요 자격 증명 모음으로 이동 합니다.
 
-   [![Azure Machine Learning 작업 영역에 연결 된 키 자격 증명 모음](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
+   [Azure Machine Learning 작업 영역에 연결 된 키 자격 증명 모음 ![](./media/how-to-enable-virtual-network/workspace-key-vault.png)](./media/how-to-enable-virtual-network/workspace-key-vault.png#lightbox)
 
 1. **Key Vault** 페이지의 왼쪽 창에서 __방화벽 및 가상 네트워크__를 선택 합니다.
 
@@ -98,25 +105,29 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
 1. __방화벽 및 가상 네트워크__ 페이지에서 다음을 수행 합니다.
     - __다음에서 액세스 허용__에서 __선택한 네트워크__를 선택합니다.
-    - __가상 네트워크__에서 __기존 가상 네트워크 추가__ 를 선택 하 여 실험 계산 인스턴스가 있는 가상 네트워크를 추가 합니다.
+    - __가상 네트워크__에서 __기존 가상 네트워크 추가__ 를 선택 하 여 실험 계산이 있는 가상 네트워크를 추가 합니다.
     - __신뢰할 수 있는 Microsoft 서비스에서이 방화벽을 무시 하도록 허용__에서 __예__를 선택 합니다.
 
-   [![Key Vault 창의 "방화벽 및 가상 네트워크" 섹션](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
+   [Key Vault 창에서 "방화벽 및 가상 네트워크" 섹션을 ![.](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png#lightbox)
 
 <a id="amlcompute"></a>
 
-## <a name="use-a-machine-learning-compute-instance"></a>Machine Learning 컴퓨팅 인스턴스 사용
+## <a name="use-a-machine-learning-compute"></a>Machine Learning 컴퓨팅 사용
 
-가상 네트워크에서 Azure Machine Learning 계산 인스턴스를 사용 하려면 다음 네트워크 요구 사항을 충족 해야 합니다.
+> [!NOTE]
+> 계산 인스턴스는 **미국 중 북부** 또는 **영국 남부**지역이 있는 작업 영역에만 사용할 수 있습니다.
+> 이러한 영역 중 하나를 사용 하 여 가상 네트워크에 추가할 수 있는 계산 인스턴스를 만듭니다.
+
+가상 네트워크에서 Azure Machine Learning 계산 인스턴스 또는 계산 클러스터를 사용 하려면 다음 네트워크 요구 사항을 충족 해야 합니다.
 
 > [!div class="checklist"]
 > * 가상 네트워크는 Azure Machine Learning 작업 영역과 동일한 구독 및 지역에 있어야 합니다.
-> * 계산 클러스터에 대해 지정 된 서브넷에는 클러스터를 대상으로 하는 Vm 수를 수용 하기에 충분 한 할당 되지 않은 IP 주소가 있어야 합니다. 서브넷에 할당 되지 않은 IP 주소가 충분 하지 않으면 클러스터가 부분적으로 할당 됩니다.
-> * 가상 네트워크의 구독 또는 리소스 그룹에 대 한 보안 정책 또는 잠금이 가상 네트워크를 관리할 수 있는 권한을 제한 하는지 확인 하십시오. 트래픽을 제한 하 여 가상 네트워크를 보호 하려는 경우 계산 서비스에 대해 일부 포트를 열어 둡니다. 자세한 내용은 [필수 포트](#mlcports) 섹션을 참조 하세요.
-> * 단일 가상 네트워크에 여러 계산 클러스터를 배치 하려는 경우 하나 이상의 리소스에 대해 할당량 증가를 요청 해야 할 수 있습니다.
-> * 작업 영역에 대 한 Azure Storage 계정도 가상 네트워크에서 보호 되는 경우 Azure Machine Learning 계산 인스턴스와 동일한 가상 네트워크에 있어야 합니다.
+> * 계산 인스턴스 또는 클러스터에 대해 지정 된 서브넷에는 대상으로 지정 된 Vm 수를 수용 하기에 충분 한 할당 되지 않은 IP 주소가 있어야 합니다. 서브넷에 할당 되지 않은 IP 주소가 충분 하지 않으면 계산 클러스터가 부분적으로 할당 됩니다.
+> * 가상 네트워크의 구독 또는 리소스 그룹에 대 한 보안 정책 또는 잠금이 가상 네트워크를 관리할 수 있는 권한을 제한 하는지 확인 하십시오. 트래픽을 제한 하 여 가상 네트워크를 보호 하려는 경우 계산 서비스에 대해 일부 포트를 열어 둡니다. 자세한 내용은 [필수 포트](#mlcports) 섹션을 참조하세요.
+> * 단일 가상 네트워크에 여러 계산 인스턴스 또는 클러스터를 배치 하려는 경우 하나 이상의 리소스에 대해 할당량 증가를 요청 해야 할 수 있습니다.
+> * 작업 영역에 대 한 Azure Storage 계정도 가상 네트워크에서 보호 되는 경우 Azure Machine Learning 계산 인스턴스 또는 클러스터와 동일한 가상 네트워크에 있어야 합니다.
 
-Machine Learning 컴퓨팅 인스턴스는 가상 네트워크를 포함 하는 리소스 그룹에 추가 네트워킹 리소스를 자동으로 할당 합니다. 각 계산 클러스터에 대해 서비스는 다음 리소스를 할당 합니다.
+Machine Learning 계산 인스턴스 또는 클러스터는 가상 네트워크를 포함 하는 리소스 그룹에 추가 네트워킹 리소스를 자동으로 할당 합니다. 각 계산 인스턴스 또는 클러스터에 대해 서비스는 다음 리소스를 할당 합니다.
 
 * 네트워크 보안 그룹 1개
 * 공용 IP 주소 1개
@@ -144,7 +155,7 @@ Azure Batch 서비스가 자체 NSGs를 구성 하기 때문에 서브넷 수준
 
 Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 
-[![Machine Learning 컴퓨팅에 대 한 인바운드 NSG 규칙](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png#lightbox)
+[Machine Learning 컴퓨팅에 대 한 인바운드 NSG 규칙을 ![합니다.](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png#lightbox)
 
 ![Machine Learning 컴퓨팅에 대 한 아웃 바운드 NSG 규칙](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
 
@@ -161,7 +172,7 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 
 Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 
-[![Machine Learning 컴퓨팅에 대 한 아웃 바운드 NSG 규칙](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
+[아웃 바운드 NSG 규칙을 ![Machine Learning 컴퓨팅](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 ### <a name="user-defined-routes-for-forced-tunneling"></a>강제 터널링을 위한 사용자 정의 경로
 
@@ -169,7 +180,7 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 
 * 리소스가 있는 지역의 Azure Batch 서비스에서 사용 하는 각 IP 주소에 대해 UDR을 설정 합니다. 이러한 UDRs를 통해 Batch 서비스는 작업 예약을 위해 계산 노드와 통신할 수 있습니다. Batch 서비스의 IP 주소 목록을 가져오려면 다음 방법 중 하나를 사용 합니다.
 
-    * [Azure IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 를 다운로드 하 고 파일 `BatchNodeManagement.<region>`에서을 검색 합니다. 여기서 `<region>` 는 azure 지역입니다.
+    * [AZURE IP 범위 및 서비스 태그](https://www.microsoft.com/download/details.aspx?id=56519) 를 다운로드 하 고 파일에서 `BatchNodeManagement.<region>`를 검색 합니다. 여기서 `<region>`은 azure 지역입니다.
 
     * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 를 사용 하 여 정보를 다운로드 합니다. 다음 예에서는 IP 주소 정보를 다운로드 하 고 미국 동부 2 지역에 대 한 정보를 필터링 합니다.
 
@@ -177,7 +188,7 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
         az network list-service-tags -l "East US 2" --query "values[?starts_with(id, 'Batch')] | [?properties.region=='eastus2']"
         ```
 
-* Azure Storage에 대 한 아웃 바운드 트래픽은 온-프레미스 네트워크 어플라이언스에서 차단 되지 않아야 합니다. 특히 url은, `<account>.table.core.windows.net` `<account>.queue.core.windows.net`및 `<account>.blob.core.windows.net`형식입니다.
+* Azure Storage에 대 한 아웃 바운드 트래픽은 온-프레미스 네트워크 어플라이언스에서 차단 되지 않아야 합니다. 특히 Url은 `<account>.table.core.windows.net`, `<account>.queue.core.windows.net`및 `<account>.blob.core.windows.net`형식입니다.
 
 UDRs를 추가 하는 경우 관련 된 각 Batch IP 주소 접두사에 대 한 경로를 정의 하 고 __다음 홉 유형__ 을 __인터넷__으로 설정 합니다. 다음 이미지는 Azure Portal의이 UDR의 예를 보여 줍니다.
 
@@ -185,7 +196,7 @@ UDRs를 추가 하는 경우 관련 된 각 Batch IP 주소 접두사에 대 한
 
 자세한 내용은 [가상 네트워크에서 Azure Batch 풀 만들기](../../batch/batch-virtual-network.md#user-defined-routes-for-forced-tunneling)를 참조 하세요.
 
-### <a name="create-a-machine-learning-compute-cluster-in-a-virtual-network"></a>가상 네트워크에서 Machine Learning 컴퓨팅 클러스터 만들기
+### <a name="create-a-compute-cluster-in-a-virtual-network"></a>가상 네트워크에서 계산 클러스터 만들기
 
 Machine Learning 컴퓨팅 클러스터를 만들려면 다음을 수행 합니다.
 
@@ -201,11 +212,11 @@ Machine Learning 컴퓨팅 클러스터를 만들려면 다음을 수행 합니�
 
     c. __가상 네트워크__ 드롭다운 목록에서 서브넷이 포함 된 가상 네트워크를 선택 합니다.
 
-    d. __서브넷__ 드롭다운 목록에서 사용할 서브넷을 선택 합니다.
+    ㄹ. __서브넷__ 드롭다운 목록에서 사용할 서브넷을 선택 합니다.
 
    ![Machine Learning 컴퓨팅에 대 한 가상 네트워크 설정](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
-Azure Machine Learning SDK를 사용하여 Machine Learning 컴퓨팅 클러스터를 만들 수도 있습니다. 다음 코드에서는 `mynetwork`라는 가상 네트워크의 `default` 서브넷에 새 Machine Learning 컴퓨팅 클러스터를 만듭니다.
+Azure Machine Learning SDK를 사용하여 Machine Learning 컴퓨팅 클러스터를 만들 수도 있습니다. 다음 코드에서는 `default`라는 가상 네트워크의 `mynetwork` 서브넷에 새 Machine Learning 컴퓨팅 클러스터를 만듭니다.
 
 ```python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -245,6 +256,28 @@ except ComputeTargetException:
 
 <a id="vmorhdi"></a>
 
+### <a name="create-a-compute-instance-in-a-virtual-network"></a>가상 네트워크에서 계산 인스턴스 만들기
+
+가상 네트워크에 Azure Machine Learning 계산 인스턴스를 만듭니다. 계산 인스턴스를 만들려면 다음을 수행 합니다.
+
+1. 작업 영역 스튜디오의 왼쪽 창에서 **계산** 을 선택 합니다.
+
+1. 계산 인스턴스 탭에서 **새로** 만들기를 선택 하 여 새 계산 인스턴스 만들기를 시작 합니다.
+
+1. 계산 이름 및 가상 컴퓨터 크기 필드를 설정 하 고 SSH 액세스를 사용/사용 안 함으로 설정 합니다.
+
+1. 가상 네트워크를 사용 하도록이 계산 인스턴스를 구성 하려면 다음을 수행 합니다.
+
+    a.  **고급 설정**을 선택 합니다.
+
+    b.  **리소스 그룹** 드롭다운 목록에서 가상 네트워크가 포함 된 리소스 그룹을 선택 합니다.
+
+    c.  **가상 네트워크** 드롭다운 목록에서 서브넷이 포함 된 가상 네트워크를 선택 합니다.
+
+    ㄹ.  **서브넷** 드롭다운 목록에서 사용할 서브넷을 선택 합니다.
+
+1. **만들기** 를 선택 하 여 가상 네트워크 내에서 계산 인스턴스를 프로 비전 합니다.
+
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>가상 머신 또는 HDInsight 클러스터 사용
 
 > [!IMPORTANT]
@@ -263,7 +296,7 @@ except ComputeTargetException:
 
     * __원본 서비스 태그__ 드롭다운 목록에서 __AzureMachineLearning__를 선택 합니다.
 
-    * __원본 포트 범위__ 드롭다운 목록에서을 선택 __*__ 합니다.
+    * __원본 포트 범위__ 드롭다운 목록에서 __*__ 을 선택 합니다.
 
     * __대상__ 드롭다운 목록에서 __Any__를 선택 합니다.
 
@@ -294,7 +327,7 @@ except ComputeTargetException:
 
 1. [Azure Portal](https://portal.azure.com)에서 가상 네트워크를 제어 하는 Nsg에 __AzureMachineLearning__ 를 **원본**으로 사용 하 여 Azure Machine Learning에 대해 사용 하도록 설정 된 인바운드 규칙이 있는지 확인 합니다.
 
-    [![Azure Machine Learning 계산 창 추가](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
+    [계산 창 추가 Azure Machine Learning ![](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png#lightbox)
 
 1. Azure Machine Learning 작업 영역을 선택 합니다.
 
@@ -322,9 +355,9 @@ except ComputeTargetException:
    > [!IMPORTANT]
    > NSG에 대한 기본 아웃바운드 규칙을 유지합니다. 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules)의 기본 보안 규칙을 참조하세요.
 
-   [![인바운드 보안 규칙](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
+   [인바운드 보안 규칙 ![](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png#lightbox)
 
-Azure Machine Learning SDK를 사용 하 여 가상 네트워크에 Azure Kubernetes 서비스를 추가할 수도 있습니다. 가상 네트워크에 AKS 클러스터가 이미 있는 경우 [AKS에 배포 하는 방법](how-to-deploy-to-aks.md)에 설명 된 대로 작업 영역에 연결 합니다. 다음 코드는 이라는 `default` `mynetwork`가상 네트워크의 서브넷에 새 AKS 인스턴스를 만듭니다.
+Azure Machine Learning SDK를 사용 하 여 가상 네트워크에 Azure Kubernetes 서비스를 추가할 수도 있습니다. 가상 네트워크에 AKS 클러스터가 이미 있는 경우 [AKS에 배포 하는 방법](how-to-deploy-to-aks.md)에 설명 된 대로 작업 영역에 연결 합니다. 다음 코드는 `mynetwork`이라는 가상 네트워크의 `default` 서브넷에 새 AKS 인스턴스를 만듭니다.
 
 ```python
 from azureml.core.compute import ComputeTarget, AksCompute
@@ -358,7 +391,7 @@ Azure 방화벽을 사용 하는 경우 다음 주소와의 트래픽을 허용 
 - `mlworkspace.azure.ai`
 - `*.aether.ms`
 
-규칙을 추가 하는 경우 __프로토콜__ 을 any로 설정 하 고 포트를 `*`로 설정 합니다.
+규칙을 추가 하는 경우 __프로토콜__ 을 any로 설정 하 고 포트를 `*`설정 합니다.
 
 네트워크 규칙을 구성 하는 방법에 대 한 자세한 내용은 [Azure 방화벽 배포 및 구성](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule)을 참조 하세요.
 

@@ -1,7 +1,7 @@
 ---
 title: 'K-클러스터링: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 K-의미 클러스터링 모듈을 사용 하 여 클러스터링 모델을 학습 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 K-의미 클러스터링 모듈을 사용 하 여 클러스터링 모델을 학습 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 05/06/2019
-ms.openlocfilehash: bb39a57f565a542e5106b7ba14e58bc39041f53d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 4634519f55582a3184472d28acfd98fa849be86a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693103"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497768"
 ---
 # <a name="module-k-means-clustering"></a>모듈: K-클러스터링을 의미 합니다.
 
-이 문서에서는 Azure Machine Learning Studio에서 *k-의미 클러스터링* 모듈을 사용 하 여 학습 되지 않은 k 의미 클러스터링 모델을 만드는 방법을 설명 합니다. 
+이 문서에서는 Azure Machine Learning designer (미리 보기)에서 *k-의미 클러스터링* 모듈을 사용 하 여 학습 되지 않은 k 의미 클러스터링 모델을 만드는 방법을 설명 합니다. 
  
 K-가장 간단 하 고 알려진 *자율* 학습 알고리즘 중 하나입니다. 다음과 같은 다양 한 기계 학습 작업에 알고리즘을 사용할 수 있습니다. 
 

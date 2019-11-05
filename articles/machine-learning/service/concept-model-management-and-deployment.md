@@ -1,5 +1,5 @@
 ---
-title: 'MLOps: ML 모델 관리, 배포, & 모니터링'
+title: 'MLOps: ML 모델 관리, 배포 & 모니터링'
 titleSuffix: Azure Machine Learning
 description: MLOps에 대해 Azure Machine Learning를 사용 하는 방법에 대해 알아봅니다. 모델을 배포, 관리 및 모니터링 하 여 지속적으로 개선 합니다. Azure Machine Learning을 사용하여 학습한 모델을 로컬 머신 또는 다른 원본에서 배포할 수 있습니다.
 services: machine-learning
@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 06/24/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98a3102d47504b40a6b62eb329b508468947ca79
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 8741a9a362a10dfdb0150c9dc0dfddeed54594a7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035476"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497447"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용하여 모델 관리, 배포 및 모니터링
+# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
 이 문서에서는 Azure Machine Learning 사용 하 여 모델의 수명 주기를 관리 하는 방법에 대해 알아봅니다. Azure Machine Learning는 MLOps (Machine Learning 작업) 방법을 사용 하 여 Machine Learning 솔루션의 품질과 일관성을 향상 시킵니다. 
 
@@ -103,7 +103,7 @@ Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 �
 
 다음 계산 대상을 사용 하 여 **웹 서비스** 에서 모델을 사용할 수 있습니다.
 
-* Azure Container Instances
+* Azure Container Instance
 * Azure Kubernetes Service
 * 로컬 개발 환경
 
@@ -115,7 +115,7 @@ Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 �
 
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
-#### <a name="iot-edge-devices"></a>IoT Edge 디바이스
+#### <a name="iot-edge-devices"></a>IoT Edge 장치
 
 **Azure IoT Edge 모듈**을 통해 IoT 장치에서 모델을 사용할 수 있습니다. IoT Edge 모듈은 장치에서 유추 또는 모델 점수 매기기를 사용 하도록 설정 하는 하드웨어 장치에 배포 됩니다.
 
@@ -137,7 +137,7 @@ Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용�
 
 ## <a name="capture-an-end-to-end-audit-trail-of-the-ml-lifecycle"></a>ML 수명 주기의 종단 간 감사 내역 캡처
 
-Azure ML은 모든 ML 자산의 종단 간 감사 내역을 추적 하는 기능을 제공 합니다. 구체적으로는 다음과 같습니다.
+Azure ML은 모든 ML 자산의 종단 간 감사 내역을 추적 하는 기능을 제공 합니다. 구체적으로 살펴보면 다음과 같습니다.
 
 - Azure ML [은 Git와 통합 되어](how-to-set-up-training-targets.md#gitintegration) 코드를 가져온 리포지토리/분기/커밋 정보를 추적 합니다.
 - [AZURE ML 데이터 집합](how-to-create-register-datasets.md) 을 통해 데이터를 추적 하 고 버전 데이터를 관리할 수 있습니다.
@@ -157,7 +157,7 @@ Azure Machine Learning에서 Azure Pipelines를 사용 하는 방법에 대 한 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning를 사용 하 여 [모델을 배포할 수 있는 방법과 위치](how-to-deploy-and-where.md) 에 대해 자세히 알아보세요. 배포 예제를 보려면 [자습서: Azure Container Instances](tutorial-deploy-models-with-aml.md)에서 이미지 분류 모델을 배포 합니다.
+Azure Machine Learning를 사용 하 여 [모델을 배포할 수 있는 방법과 위치](how-to-deploy-and-where.md) 에 대해 자세히 알아보세요. 배포에 대 한 예제는 [자습서: Azure Container Instances에서 이미지 분류 모델 배포](tutorial-deploy-models-with-aml.md)를 참조 하세요.
 
 Azure Pipelines를 사용 하 [여 ML 모델의 지속적인 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)를 만드는 방법에 대해 알아봅니다. 
 

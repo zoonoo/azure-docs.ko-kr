@@ -1,24 +1,24 @@
 ---
 title: '메타 데이터 편집: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 메타 데이터 편집 모듈을 사용 하 여 데이터 집합의 열과 연결 된 메타 데이터를 변경 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 메타 데이터 편집 모듈을 사용 하 여 데이터 집합의 열과 연결 된 메타 데이터를 변경 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: b6e28577fefe4892d719e211e16edafed1504e87
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 2c8224edbe95c8185e390c2ce48cbb4263f97586
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693821"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497950"
 ---
 # <a name="edit-metadata-module"></a>메타 데이터 모듈 편집
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)에 포함 된 모듈을 설명 합니다.
 
 데이터 편집 모듈을 사용 하 여 데이터 집합의 열과 연결 된 메타 데이터를 변경할 수 있습니다. 메타 데이터 편집 모듈을 사용한 후에는 데이터 집합의 값과 데이터 형식이 변경 됩니다.
 
@@ -98,4 +98,4 @@ ms.locfileid: "72693821"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요.
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요.

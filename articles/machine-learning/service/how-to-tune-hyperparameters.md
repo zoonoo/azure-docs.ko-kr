@@ -9,16 +9,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb4023be41377846ed209b3d6702188f5d79ba00
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: a7b0276ca41e1b9342b3602a67dea0517c60f66a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999381"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489346"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델에 대 한 하이퍼 매개 변수 조정
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Machine Learning를 사용 하 여 모델에 대 한 하이퍼 매개 변수를 효율적으로 조정 합니다.  하이퍼 매개 변수 조정에는 다음 단계가 포함됩니다.
 
@@ -96,6 +97,12 @@ Azure Machine Learning을 통해 효율적인 방식으로 하이퍼 매개 변�
 
 하이퍼 매개 변수 공간 정의를 통해 사용하도록 매개 변수 샘플링 방법을 지정할 수도 있습니다. Azure Machine Learning는 무작위 샘플링, 그리드 샘플링 및 Bayesian 샘플링을 지원 합니다.
 
+#### <a name="picking-a-sampling-method"></a>샘플링 방법 선택
+
+* 하이퍼 매개 변수 공간을 불연속 값의 선택으로 정의 하 고 정의 된 검색 공간의 모든 값을 철저히 검색 하는 데 충분 한 예산이 있는 경우 그리드 샘플링을 사용할 수 있습니다. 또한 성능이 좋지 않은 실행의 자동 조기 종료를 사용 하 여 리소스의 낭비 없애고를 줄일 수 있습니다.
+* 무작위 샘플링을 통해 하이퍼 매개 변수 공간에 불연속 및 연속 하이퍼 매개 변수를 모두 포함할 수 있습니다. 실제로 대부분의 경우 좋은 결과를 생성 하 고 성능이 좋지 않은 실행의 자동 조기 종료를 사용할 수도 있습니다. 일부 사용자는 무작위 샘플링을 사용 하 여 초기 검색을 수행한 다음 검색 공간을 반복적으로 구체화 하 여 결과를 향상 시킵니다.
+* Bayesian 샘플링은 하이퍼 매개 변수 값을 선택할 때 이전 샘플에 대 한 지식을 활용 하 여 보고 된 기본 메트릭의 향상을 효과적으로 시도 합니다. 하이퍼 매개 변수 공간을 탐색 하는 데 충분 한 예산이 있는 경우 Bayesian 샘플링을 사용 하는 것이 좋습니다. Bayesian 샘플링을 사용 하 여 최상의 결과를 얻으려면 튜닝 되는 하이퍼 매개 변수 수의 20 배 이상으로 최대 실행 수를 사용 하는 것이 좋습니다. Bayesian 샘플링은 현재 초기 종료 정책을 지원 하지 않습니다.
+
 #### <a name="random-sampling"></a>무작위 샘플링
 
 무작위 샘플링에서 하이퍼 매개 변수 값은 정의된 검색 공간에서 임의로 선택됩니다. [무작위 샘플링](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.randomparametersampling?view=azure-ml-py) 을 통해 검색 공간에 불연속 및 연속 하이퍼 매개 변수를 모두 포함할 수 있습니다.
@@ -129,7 +136,7 @@ param_sampling = GridParameterSampling( {
 
 Bayesian 샘플링을 사용할 때 동시 실행 수는 조정 프로세스의 효율성에 영향을 줍니다. 병렬 처리 수준이 작으면 이전에 완료된 실행에서 활용하는 실행 수가 증가하므로 일반적으로 동시 실행 수가 적으면 더 나은 샘플링 수렴이 가능합니다.
 
-Bayesian 샘플링은 검색 `choice`공간 `uniform`에 대 `quniform` 한, 및 배포만 지원 합니다.
+Bayesian 샘플링은 검색 공간에 대 한 `choice`, `uniform`및 `quniform` 배포만 지원 합니다.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -150,7 +157,7 @@ param_sampling = BayesianParameterSampling( {
 하이퍼 매개 변수 튜닝 실험을 최적화할 [기본 메트릭을](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py) 지정 합니다. 각 교육 실행은 기본 메트릭에 대해 평가됩니다. 성능이 불량한 실행(기본 메트릭이 초기 종료 정책에서 설정된 기준을 충족하지 않음)은 종료됩니다. 기본 메트릭 이름 외에도 기본 메트릭을 최대화하거나 최소화할지 최적화의 목표를 지정합니다.
 
 * `primary_metric_name`: 최적화할 기본 메트릭의 이름입니다. 기본 메트릭 이름은 학습 스크립트에서 기록된 메트릭의 이름과 정확히 일치해야 합니다. [하이퍼 매개 변수 튜닝에 대한 메트릭 기록](#log-metrics-for-hyperparameter-tuning)을 참조하세요.
-* `primary_metric_goal`: `PrimaryMetricGoal.MAXIMIZE` 또는 `PrimaryMetricGoal.MINIMIZE`일 수 있으며 실행을 평가할 때 기본 메트릭을 최대화할지 또는 최소화할지 여부를 결정합니다. 
+* `primary_metric_goal`: `PrimaryMetricGoal.MAXIMIZE` 또는 `PrimaryMetricGoal.MINIMIZE`일 수 있으며 실행을 평가할 때 기본 메트릭을 최대화 또는 최소화할지 여부를 결정합니다. 
 
 ```Python
 primary_metric_name="accuracy",
@@ -163,7 +170,7 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 ### <a name="log-metrics-for-hyperparameter-tuning"></a>하이퍼 매개 변수 튜닝에 대한 메트릭 기록
 
-모델의 학습 스크립트는 모델을 학습하는 동안 관련 메트릭을 기록해야 합니다. 하이퍼 매개 변수 조정을 구성하면 실행 성능을 평가하는 데 사용할 기본 메트릭을 지정합니다. [최적화할 기본 메트릭 지정](#specify-primary-metric-to-optimize)을 참조하세요.  학습 스크립트에서 하이퍼 매개 변수 조정 프로세스에 사용할 수 있도록 이 메트릭을 기록해야 합니다.
+모델의 학습 스크립트는 모델을 학습하는 동안 관련 메트릭을 기록해야 합니다. 하이퍼 매개 변수 조정을 구성하면 실행 성능을 평가하는 데 사용할 기본 메트릭을 지정합니다. [최적화할 기본 메트릭 지정](#specify-primary-metric-to-optimize)을 참조 하세요.  학습 스크립트에서는이 메트릭을 기록 하 여 하이퍼 매개 변수 튜닝 프로세스에 사용할 수 있도록 해야 합니다.
 
 다음 샘플 코드 조각을 사용하여 학습 스크립트에서 이 메트릭을 기록합니다.
 
@@ -248,22 +255,24 @@ policy=None
 
 정책이 지정 되지 않은 경우 하이퍼 매개 변수 튜닝 서비스를 사용 하면 모든 학습 실행이 완료 될 수 있습니다.
 
->[!NOTE] 
->가능성이 높은 작업을 종료하지 않고 비용 절감을 제공하는 보수적인 정책을 원하는 경우 `evaluation_interval` 1 및 `delay_evaluation` 5의 중앙값 중지 정책을 사용할 수 있습니다. 이는 일반적인 설정이며, 기본 메트릭에서 손실 없이 약 25%-35% 절감을 제공할 수 있습니다(계산 데이터에 따라).
+### <a name="picking-an-early-termination-policy"></a>조기 종료 정책 선택
+
+* 가능성이 높은 작업을 종료하지 않고 비용 절감을 제공하는 보수적인 정책을 원하는 경우 `evaluation_interval` 1 및 `delay_evaluation` 5의 중앙값 중지 정책을 사용할 수 있습니다. 이는 일반적인 설정이며, 기본 메트릭에서 손실 없이 약 25%-35% 절감을 제공할 수 있습니다(계산 데이터에 따라).
+* 초기 종료부터 더 적극적인 절감 액을 원하는 경우 더 큰 (더 작은) 허용 가능한 여유 공간이 나 잘림 선택 정책이 더 큰 (잘림 비율) 인 산적 정책을 사용할 수 있습니다.
 
 ## <a name="allocate-resources"></a>리소스 할당
 
 총 교육 실행의 최대 수를 지정하여 하이퍼 매개 변수 조정 실험의 리소스 예산을 제어합니다.  선택적으로 하이퍼 매개 변수 조정 실험의 최대 기간을 지정합니다.
 
 * `max_total_runs`: 생성될 학습 실행 최대 총 수입니다. 상한 - 예를 들어, 하이퍼 매개 변수 공간이 한정되어 있고 샘플이 더 적은 경우더 적은 실행이 있을 수 있습니다. 값은 1에서 1000 사이의 숫자여야 합니다.
-* `max_duration_minutes`: 하이퍼 매개 변수 튜닝 실험의 최대 지속 시간(분)입니다. 매개 변수는 선택적이며, 있는 경우 이 기간 후 실행될 수 있는 모든 실행은 자동으로 취소됩니다.
+* `max_duration_minutes`: 하이퍼 매개 변수 조정 실험의 최대 지속 시간(분)입니다. 매개 변수는 선택적이며, 있는 경우 이 기간 후 실행될 수 있는 모든 실행은 자동으로 취소됩니다.
 
 >[!NOTE] 
 >`max_total_runs` 및 `max_duration_minutes`가 모두 지정된 경우 이러한 두 임계값 중 첫 번째 임계값에 도달하면 하이퍼 매개 변수 조정 실험은 종료됩니다.
 
 또한 하이퍼 매개 변수 조정 검색 중 동시에 실행할 학습 실행의 최대 수를 지정합니다.
 
-* `max_concurrent_runs`: 지정된 순간에 동시에 실행될 실행의 최대 수입니다. 지정되지 않는 경우 모든 `max_total_runs`는 병렬로 시작됩니다. 지정된 경우 1과 100 사이의 숫자여야 합니다.
+* `max_concurrent_runs`: 지정된 순간에 동시에 실행할 실행의 최대 수입니다. 지정되지 않는 경우 모든 `max_total_runs`는 병렬로 시작됩니다. 지정된 경우 1과 100 사이의 숫자여야 합니다.
 
 >[!NOTE] 
 >동시 실행 수는 지정된 컴퓨팅 대상에서 사용할 수 있는 리소스에서 제어됩니다. 따라서 컴퓨팅 대상이 원하는 동시성에 대한 사용 가능한 리소스를 갖도록 해야 합니다.
@@ -304,7 +313,47 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name`는 하이퍼 매개 변수 튜닝 실험에 할당 하는 이름이 며 `workspace` 실험을 만들 작업 영역입니다. 실험에 대 한 자세한 내용은 [Azure Machine Learning 작동 방식](concept-azure-machine-learning-architecture.md)을 참조 하세요.
+`experiment_name`는 하이퍼 매개 변수 튜닝 실험에 할당 하는 이름이 고 `workspace` 실험을 만들려는 작업 영역입니다. 실험에 대 한 자세한 내용은 [Azure Machine Learning 작동 방식](concept-azure-machine-learning-architecture.md)을 참조 하세요.
+
+## <a name="warm-start-your-hyperparameter-tuning-experiment-optional"></a>하이퍼 매개 변수 튜닝 실험 준비 (선택 사항)
+
+모델에 가장 적합 한 하이퍼 매개 변수 값을 찾는 것이 반복적인 프로세스가 될 수 있으며,이를 통해 이전의 하이퍼 매개 변수 튜닝 실행에서 학습 하는 여러 튜닝 실행이 필요 합니다. 이러한 이전 실행의 정보를 다시 사용 하면 하이퍼 매개 변수 튜닝 프로세스를 가속화 하 여 모델 튜닝 비용을 줄이고 결과 모델의 기본 메트릭을 잠재적으로 향상 시킬 수 있습니다. Bayesian 샘플링을 사용 하 여 하이퍼 매개 변수 튜닝 실험을 시작할 때 이전 실행의 평가판은 새 샘플을 지능적으로 선택 하 여 기본 메트릭을 개선 하는 이전 정보로 사용 됩니다. 또한 임의 또는 그리드 샘플링을 사용 하는 경우 조기 종료 결정은 이전 실행의 메트릭을 활용 하 여 학습 실행을 제대로 수행 하지 않습니다. 
+
+Azure Machine Learning를 사용 하면 이전에 완료/취소 한 하이퍼 매개 변수 튜닝 부모 실행의 지식을 활용 하 여 하이퍼 매개 변수 튜닝 실행을 웜 시작할 수 있습니다. 이 코드 조각을 사용 하 여 준비 하려는 부모 실행 목록을 지정할 수 있습니다.
+
+```Python
+from azureml.train.hyperdrive import HyperDriveRun
+
+warmstart_parent_1 = HyperDriveRun(experiment, "warmstart_parent_run_ID_1")
+warmstart_parent_2 = HyperDriveRun(experiment, "warmstart_parent_run_ID_2")
+warmstart_parents_to_resume_from = [warmstart_parent_1, warmstart_parent_2]
+```
+
+또한 하이퍼 매개 변수 튜닝 실험의 개별 학습 실행이 예산 제약 조건으로 인해 취소 되거나 다른 이유로 인해 실패 하는 경우가 있을 수 있습니다. 이제 마지막 검사점에서 이러한 개별 학습 실행을 다시 시작할 수 있습니다 (학습 스크립트가 검사점을 처리 한다고 가정). 개별 학습 실행을 다시 시작 하면 동일한 하이퍼 매개 변수 구성을 사용 하 고 해당 실행에 사용 되는 출력 폴더를 탑재 합니다. 학습 스크립트는 학습 실행을 다시 시작할 검사점 또는 모델 파일이 포함 된 `resume-from` 인수를 수락 해야 합니다. 다음 코드 조각을 사용 하 여 개별 학습 실행을 다시 시작할 수 있습니다.
+
+```Python
+from azureml.core.run import Run
+
+resume_child_run_1 = Run(experiment, "resume_child_run_ID_1")
+resume_child_run_2 = Run(experiment, "resume_child_run_ID_2")
+child_runs_to_resume = [resume_child_run_1, resume_child_run_2]
+```
+
+하이퍼 매개 변수 튜닝 실험을 구성 하 여 이전 실험에서 웜 시작 하거나 구성의 선택적 매개 변수 `resume_from` 및 `resume_child_runs`를 사용 하 여 개별 학습 실행을 다시 시작할 수 있습니다.
+
+```Python
+from azureml.train.hyperdrive import HyperDriveConfig
+
+hyperdrive_run_config = HyperDriveConfig(estimator=estimator,
+                          hyperparameter_sampling=param_sampling, 
+                          policy=early_termination_policy,
+                          resume_from=warmstart_parents_to_resume_from, 
+                          resume_child_runs=child_runs_to_resume,
+                          primary_metric_name="accuracy", 
+                          primary_metric_goal=PrimaryMetricGoal.MAXIMIZE,
+                          max_total_runs=100,
+                          max_concurrent_runs=4)
+```
 
 ## <a name="visualize-experiment"></a>실험 시각화
 

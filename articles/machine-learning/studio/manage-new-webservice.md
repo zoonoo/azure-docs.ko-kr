@@ -1,6 +1,6 @@
 ---
 title: 웹 서비스 관리
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Microsoft Azure Machine Learning 웹 서비스 포털을 사용 하 여 Machine Learning 새 및 기존 웹 서비스를 관리 합니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +10,14 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: 711cb674cb00a880eadda11b03da87631df90b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f0d31ce46ce185ad5bbcd736d9f45e62d7436d24
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60861738"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489240"
 ---
-# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-web-services-portal"></a>Azure Machine Learning Studio 웹 서비스 포털을 사용하여 웹 서비스 관리
+# <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Azure Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 웹 서비스 관리
 Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
 
 Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다음과 같습니다.
@@ -29,7 +29,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * 엔드포인트를 추가하거나 삭제 합니다(기존 서비스에만 해당).
 
 >[!NOTE]
->**웹 서비스** 탭의 [Machine Learning Studio](https://studio.azureml.net)에서 기존 웹 서비스를 관리할 수도 있습니다.
+>**웹 서비스** 탭의 [Machine Learning Studio (클래식)](https://studio.azureml.net) 에서 기존 웹 서비스를 관리할 수도 있습니다.
 
 ## <a name="permissions-to-manage-new-resources-manager-based-web-services"></a>새 Resources Manager 기반 웹 서비스를 관리하기 위한 권한
 
@@ -37,9 +37,9 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 
 사용자에게 Azure Machine Learning 웹 서비스 포털에서 리소스에 액세스할 수 있는 올바른 권한이 없으면 웹 서비스를 배포하려고 할 때 다음과 같은 오류가 발생합니다.
 
-*웹 서비스 배포에 실패했습니다. 이 계정은 작업 영역을 포함하는 Azure 구독에 대한 충분한 액세스 권한이 없습니다. 웹 서비스를 Azure에 배포하려면 같은 계정을 작업 영역에 초대하여 작업 영역을 포함하는 Azure 구독에 액세스할 권한이 이 계정에 제공되어야 합니다.*
+*웹 서비스 배포에 실패 했습니다. 이 계정에는 작업 영역을 포함 하는 Azure 구독에 대 한 충분 한 액세스 권한이 없습니다. 웹 서비스를 Azure에 배포 하기 위해 동일한 계정을 작업 영역에 초대 하 고 작업 영역을 포함 하는 Azure 구독에 대 한 액세스 권한을 부여 받아야 합니다.*
 
-작업 영역을 만드는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
+작업 영역을 만드는 방법에 대 한 자세한 내용은 [Azure Machine Learning Studio (클래식) 작업 영역 만들기 및 공유](create-workspace.md)를 참조 하세요.
 
 액세스 권한 설정에 대한 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 
@@ -72,7 +72,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * **시간에 따른 요청** 은 선택한 기간 동안 요청 수의 단계 그래프를 표시합니다. 사용량이 급증하는 경우에 식별할 수 있도록 도움을 줍니다.
 * **요청-응답 요청** 은 선택한 기간 동안 서비스가 수신한 요청-응답 호출의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
 * **평균 요청-응답 컴퓨팅 시간** 은 수신된 요청을 실행하는 데 필요한 시간의 평균을 표시합니다.
-* **Batch 요청**은 선택한 기간 동안 서비스가 수신한 Batch 요청의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
+* **Batch 요청** 은 선택한 기간 동안 서비스가 수신한 Batch 요청의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
 * **평균 작업 대기** 는 수신된 요청을 실행하는 데 필요한 시간의 평균을 표시합니다.
 * **오류** 웹 서비스 호출에서 발생한 오류의 집계 수를 표시합니다.
 * **서비스 비용** 은 서비스와 연결된 청구 계획에 대한 요금을 표시합니다.
@@ -86,7 +86,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * **제목** 웹 서비스에 대한 제목을 입력할 수 있습니다.
 * **키** 를 사용하면 기본 API 키와 보조 API 키를 회전할 수 있습니다.
 * **Storage 계정 키** 웹 서비스 변경 내용과 연결된 Storage 계정 키를 업데이트할 수 있습니다. 
-* **샘플 데이터 사용** 요청-응답 서비스 테스트에 사용할 수 있는 샘플 데이터를 제공할 수 있습니다. Machine Learning Studio에서 웹 서비스를 만든 경우 샘플 데이터는 모델을 학습하는 데 사용된 데이터에서 가져옵니다. 서비스를 프로그래밍 방식으로 만들 경우 JSON 패키지의 일부로 제공된 예제 데이터에서 가져온 데이터를 사용합니다.
+* **샘플 데이터 사용** 요청-응답 서비스 테스트에 사용할 수 있는 샘플 데이터를 제공할 수 있습니다. Machine Learning Studio (클래식)에서 웹 서비스를 만든 경우 샘플 데이터는 모델을 학습 하는 데 사용 된 데이터에서 가져옵니다. 서비스를 프로그래밍 방식으로 만들 경우 JSON 패키지의 일부로 제공된 예제 데이터에서 가져온 데이터를 사용합니다.
 
 ### <a name="managing-billing-plans"></a>청구 계획 관리
 웹 서비스 빠른 시작 페이지에서 **계획** 메뉴 옵션을 클릭합니다. 특정 웹 서비스와 연결된 계획을 선택하면 해당 계획을 관리할 수도 있습니다.
@@ -104,11 +104,11 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * **계획 사용량**은 계획에 대한 요금이 청구된 트랜잭션 및 컴퓨팅 시간 수를 표시합니다.
 * **웹 서비스** 해당 계획을 사용하는 웹 서비스의 수를 표시합니다.
 * **호출별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 호출을 발생시키는 최상위 4개 웹 서비스를 표시합니다.
-* **Compute 시간별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 계산 리소스를 사용하는 최상위 4개 웹 서비스를 표시합니다.
+* **Compute 시간별 최상위 웹 서비스** 계획과 대조하여 요금이 청구되는 컴퓨팅 리소스를 사용하는 최상위 4개 웹 서비스를 표시합니다.
 
 ## <a name="manage-classic-web-services"></a>기존 웹 서비스 관리
 > [!NOTE]
-> 이 섹션의 절차는 Azure Machine Learning 웹 서비스 포털을 통해 기본 웹 서비스를 관리하는 것과 관련됩니다. Machine Learning Studio 및 Azure Portal을 통해 기존 웹 서비스를 관리하는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio 작업 영역 관리](manage-workspace.md)를 참조하세요.
+> 이 섹션의 절차는 Azure Machine Learning 웹 서비스 포털을 통해 기본 웹 서비스를 관리하는 것과 관련됩니다. Machine Learning Studio (클래식) 및 Azure Portal를 통해 기존 웹 서비스를 관리 하는 방법에 대 한 자세한 내용은 [Azure Machine Learning Studio (클래식) 작업 영역 관리](manage-workspace.md)를 참조 하세요.
 > 
 > 
 
@@ -139,7 +139,7 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 * **시간에 따른 요청** 은 선택한 기간 동안 요청 수의 단계 그래프를 표시합니다. 사용량이 급증하는 경우에 식별할 수 있도록 도움을 줍니다.
 * **요청-응답 요청** 은 선택한 기간 동안 서비스가 수신한 요청-응답 호출의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
 * **평균 요청-응답 컴퓨팅 시간** 은 수신된 요청을 실행하는 데 필요한 시간의 평균을 표시합니다.
-* **Batch 요청**은 선택한 기간 동안 서비스가 수신한 Batch 요청의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
+* **Batch 요청** 은 선택한 기간 동안 서비스가 수신한 Batch 요청의 총 횟수 및 그 중 실패한 횟수를 표시합니다.
 * **평균 작업 대기** 는 수신된 요청을 실행하는 데 필요한 시간의 평균을 표시합니다.
 * **오류** 웹 서비스 호출에서 발생한 오류의 집계 수를 표시합니다.
 * **서비스 비용** 은 서비스와 연결된 청구 계획에 대한 요금을 표시합니다.
@@ -151,6 +151,6 @@ Machine Learning 웹 서비스 포털에서 수행할 수 있는 작업은 다�
 
 * **설명** 웹 서비스에 대한 설명을 입력할 수 있습니다. 설명은 필수 필드입니다.
 * **로깅** 오류 엔드포인트에 대한 로깅을 사용하거나 사용하지 않도록 설정할 수 있습니다. 로깅에 대한 자세한 내용은 [Machine Learning 웹 서비스에 대한 로깅 사용](web-services-logging.md)을 참조하세요.
-* **샘플 데이터 사용** 요청-응답 서비스 테스트에 사용할 수 있는 샘플 데이터를 제공할 수 있습니다. Machine Learning Studio에서 웹 서비스를 만든 경우 샘플 데이터는 모델을 학습하는 데 사용된 데이터에서 가져옵니다. 서비스를 프로그래밍 방식으로 만들 경우 JSON 패키지의 일부로 제공된 예제 데이터에서 가져온 데이터를 사용합니다.
+* **샘플 데이터 사용** 요청-응답 서비스 테스트에 사용할 수 있는 샘플 데이터를 제공할 수 있습니다. Machine Learning Studio (클래식)에서 웹 서비스를 만든 경우 샘플 데이터는 모델을 학습 하는 데 사용 된 데이터에서 가져옵니다. 서비스를 프로그래밍 방식으로 만들 경우 JSON 패키지의 일부로 제공된 예제 데이터에서 가져온 데이터를 사용합니다.
 
 
