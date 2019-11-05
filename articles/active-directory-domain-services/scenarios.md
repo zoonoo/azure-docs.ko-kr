@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6f81bc2ccf11cbcc3621dc1149879864c88cf0cf
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 489f4a527a5afaf1bab5e2065137a5011d45baa6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69980508"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474438"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 일반적인 사용 사례 및 시나리오
 
-Azure Active Directory Domain Services (Azure AD DS)는 도메인 가입, 그룹 정책, LDAP, Kerberos/NTLM 인증 등의 관리 되는 도메인 서비스를 제공 합니다. Azure AD DS는 기존 Azure AD 테넌트와 통합되므로 사용자가 기존 자격 증명을 사용하여 로그인할 수 있습니다. 클라우드에서 도메인 컨트롤러를 배포, 관리 및 패치 하지 않고도 이러한 도메인 서비스를 사용할 수 있습니다 .이는 온-프레미스 리소스를 Azure로 원활 하 게 리프트 앤 시프트 하는 기능을 제공 합니다.
+Azure Active Directory Domain Services (Azure AD DS)는 도메인 가입, 그룹 정책, LDAP (lightweight directory access protocol), Kerberos/NTLM 인증 등의 관리 되는 도메인 서비스를 제공 합니다. Azure AD DS는 기존 Azure AD 테넌트와 통합되므로 사용자가 기존 자격 증명을 사용하여 로그인할 수 있습니다. 클라우드에서 도메인 컨트롤러를 배포, 관리 및 패치 하지 않고도 이러한 도메인 서비스를 사용할 수 있습니다 .이는 온-프레미스 리소스를 Azure로 원활 하 게 리프트 앤 시프트 하는 기능을 제공 합니다.
 
 이 문서에서는 Azure AD DS 가치를 제공 하 고 이러한 요구를 충족 하는 일반적인 비즈니스 시나리오를 간략하게 설명 합니다.
 
@@ -28,11 +28,11 @@ Azure Active Directory Domain Services (Azure AD DS)는 도메인 가입, 그룹
 
 단일 AD 자격 증명 집합을 사용할 수 있도록 Azure Vm (가상 머신)을 Azure AD DS 관리 되는 도메인에 조인할 수 있습니다. 이 방법은 각 VM에서 로컬 관리자 계정 유지 관리, 환경 간의 별도 계정 및 암호와 같은 자격 증명 관리 문제를 줄입니다.
 
-Azure AD DS 관리 되는 도메인에 가입 된 Vm은 그룹 정책를 사용 하 여 관리 하 고 보호할 수도 있습니다. 필요한 보안 기준을 Vm에 적용 하 여 회사 보안 지침에 따라 잠글 수 있습니다. 예를 들어 그룹 정책 관리 기능을 사용 하 여 VM에서 실행할 수 있는 응용 프로그램의 유형을 제한할 수 있습니다.
+Azure AD DS 관리 되는 도메인에 가입 된 Vm은 그룹 정책을 사용 하 여 관리 하 고 보호할 수도 있습니다. 필요한 보안 기준을 Vm에 적용 하 여 회사 보안 지침에 따라 잠글 수 있습니다. 예를 들어 그룹 정책 관리 기능을 사용 하 여 VM에서 실행할 수 있는 응용 프로그램의 유형을 제한할 수 있습니다.
 
 ![Azure 가상 머신의 간소화된 관리](./media/active-directory-domain-services-scenarios/streamlined-vm-administration.png)
 
-일반적인 예제 시나리오를 살펴보겠습니다. 서버 및 기타 인프라가 수명 종료에 도달 하면 Contoso는 현재 온-프레미스에서 호스트 되는 응용 프로그램을 클라우드로 이동 하려고 합니다. 현재 IT 표준에 따라 회사 응용 프로그램을 호스트 하는 서버는 그룹 정책을 사용 하 여 도메인에 가입 되 고 관리 되어야 합니다. Contoso의 IT 관리자는 사용자가 회사 자격 증명을 사용 하 여 로그인 할 수 있으므로 관리를 용이 하 게 하기 위해 Azure에 배포 된 Vm에 도메인 가입을 선호 합니다. 도메인에 가입 하는 경우 그룹 정책를 사용 하 여 필요한 보안 기준을 준수 하도록 Vm을 구성할 수도 있습니다. Contoso는 Azure에서 자체 도메인 컨트롤러를 배포, 모니터링 및 관리 하는 것을 선호 합니다.
+일반적인 예제 시나리오를 살펴보겠습니다. 서버 및 기타 인프라가 수명 종료에 도달 하면 Contoso는 현재 온-프레미스에서 호스트 되는 응용 프로그램을 클라우드로 이동 하려고 합니다. 현재 IT 표준에 따라 회사 응용 프로그램을 호스트 하는 서버는 그룹 정책을 사용 하 여 도메인에 가입 되 고 관리 되어야 합니다. Contoso의 IT 관리자는 사용자가 회사 자격 증명을 사용 하 여 로그인 할 수 있으므로 관리를 용이 하 게 하기 위해 Azure에 배포 된 Vm에 도메인 가입을 선호 합니다. 도메인에 가입 하는 경우 Gpo (그룹 정책 개체)를 사용 하 여 필요한 보안 기준을 준수 하도록 Vm을 구성할 수도 있습니다. Contoso는 Azure에서 자체 도메인 컨트롤러를 배포, 모니터링 및 관리 하는 것을 선호 합니다.
 
 Azure AD DS는이 사용 사례에 적합 합니다. Azure AD DS 관리 되는 도메인을 사용 하 여 Vm을 도메인에 가입 시키고, 단일 자격 증명 집합을 사용 하 고, 그룹 정책을 적용할 수 있습니다. 관리 되는 도메인은 도메인 컨트롤러를 직접 구성 하 고 유지 관리할 필요가 없습니다.
 
@@ -63,7 +63,7 @@ Contoso는이 응용 프로그램을 Azure로 마이그레이션해야 합니다
 
 ## <a name="lift-and-shift-on-premises-applications-that-use-ldap-read-to-access-the-directory"></a>LDAP read를 사용 하 여 디렉터리에 액세스 하는 리프트 앤 시프트 온-프레미스 응용 프로그램
 
-이전 예제 시나리오와 마찬가지로 Contoso에 거의 10 년 전에 개발 된 온-프레미스 LOB (기간 업무) 응용 프로그램이 있다고 가정해 보겠습니다. 이 응용 프로그램은 디렉터리를 인식 하며 LDAP (Lightweight Directory Access Protocol)를 사용 하 여 AD DS에서 사용자에 대 한 정보/특성을 읽도록 설계 되었습니다. 응용 프로그램은 특성을 수정 하거나 디렉터리에 쓰지 않습니다.
+이전 예제 시나리오와 마찬가지로 Contoso에 거의 10 년 전에 개발 된 온-프레미스 LOB (기간 업무) 응용 프로그램이 있다고 가정해 보겠습니다. 이 응용 프로그램은 디렉터리를 인식 하며 LDAP를 사용 하 여 AD DS에서 사용자에 대 한 정보/특성을 읽도록 설계 되었습니다. 응용 프로그램은 특성을 수정 하거나 디렉터리에 쓰지 않습니다.
 
 Contoso는이 응용 프로그램을 Azure로 마이그레이션하고 현재이 응용 프로그램을 호스트 하는 에이징 온-프레미스 하드웨어를 사용 중지 하려고 합니다. REST 기반 Azure AD Graph API와 같은 최신 디렉터리 Api를 사용 하도록 응용 프로그램을 다시 작성할 수 없습니다. 리프트 앤 시프트 옵션은 코드를 수정 하거나 응용 프로그램을 다시 작성 하지 않고 클라우드에서 실행 되도록 응용 프로그램을 마이그레이션할 수 있는 경우에 필요 합니다.
 
@@ -99,7 +99,7 @@ Azure AD DS를 사용 하 여 Azure에 배포 된 원격 데스크톱 서버에 
 
 ## <a name="domain-joined-hdinsight-clusters-preview"></a>도메인에 가입 된 HDInsight 클러스터 (미리 보기)
 
-Apache 레인저를 사용 하도록 설정 하 여 Azure AD DS 관리 되는 도메인에 가입 된 Azure HDInsight 클러스터를 설정할 수 있습니다. 이 기능은 현재 미리 보기로 제공됩니다. Apache 레인저를 통해 Hive 정책을 만들고 적용할 수 있으며, Excel 또는 Tableau와 같은 ODBC 기반 도구를 사용 하 여 데이터 과학자 같은 사용자가 Hive에 연결할 수 있습니다. 도메인에 가입 된 HDInsight에 HBase, Spark 및 스톰과 같은 다른 워크 로드를 추가 하는 작업을 계속 합니다.
+Apache 레인저를 사용 하도록 설정 하 여 Azure AD DS 관리 되는 도메인에 가입 된 Azure HDInsight 클러스터를 설정할 수 있습니다. Apache 레인저를 통해 Hive 정책을 만들고 적용할 수 있으며, Excel 또는 Tableau와 같은 ODBC 기반 도구를 사용 하 여 데이터 과학자 같은 사용자가 Hive에 연결할 수 있습니다. 도메인에 가입 된 HDInsight에 HBase, Spark 및 스톰과 같은 다른 워크 로드를 추가 하는 작업을 계속 합니다.
 
 이 배포 시나리오에 대 한 자세한 내용은 [도메인에 가입 된 HDInsight 클러스터를 구성 하는 방법][hdinsight] 을 참조 하세요.
 

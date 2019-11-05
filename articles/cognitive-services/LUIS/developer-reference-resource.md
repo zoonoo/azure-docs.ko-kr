@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/16/2019
 ms.author: diberry
-ms.openlocfilehash: 8accac7fe6068007180403fdab27013da161b28c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: b2b32d6ccca69f330cfe15faa1446aa91fdb687a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72437182"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465735"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Language Understanding에 대 한 개발자 리소스
 
@@ -46,13 +46,24 @@ Language Understanding 서비스는 만들어야 하는 Azure 리소스에서 �
 
 ### <a name="language-based-sdks"></a>언어 기반 Sdk
 
-|언어 |참조 설명서|패키지|샘플|퀵 스타트|
+|language |참조 설명서|패키지|샘플|빠른 시작|
 |--|--|--|--|--|
 |C#|[작성](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring?view=azure-dotnet)</br>[예측](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.runtime?view=azure-dotnet)|[NuGet 제작](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/)<br>[NuGet 예측](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/)|[.Net SDK 샘플](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/LUIS)|[앱 만들기 및 관리](sdk-csharp-quickstart-authoring-app.md)<br>[쿼리 예측 끝점](sdk-csharp-quickstart-query-prediction-endpoint.md)|
 |Go|[작성 및 예측](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/luis)|[SDK](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v2.0/luis)|[작성](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/go)<br>[예측](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/go)|[REST를 사용 하 여 제작](luis-get-started-go-add-utterance.md)<br>[REST를 사용한 예측](luis-get-started-go-get-intent.md)|
 |Java|[작성 및 예측](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-java-stable)|[Maven 작성](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-authoring)<br>[Maven 예측](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-luis-runtime)|[작성](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/java)<br>[예측](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/java)|[작성](luis-get-started-java-add-utterance.md)<br>[예측](luis-get-started-java-get-intent.md)
 |Node.js|[작성](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest)<br>[예측](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-runtime/?view=azure-node-latest)|[NPM 작성](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring)<br>[NPM 예측](https://www.npmjs.com/package/azure-cognitiveservices-luis-runtime)|[작성](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/change-model/node)<br>[예측](https://github.com/Azure-Samples/cognitive-services-language-understanding/tree/master/documentation-samples/quickstarts/analyze-text/node)|[REST를 사용 하 여 제작](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-node-get-intent)<br>[REST를 사용한 예측](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-node-add-utterance)|
-|파이썬|[작성 및 예측](sdk-python-quickstart-authoring-app.md)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[작성](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[작성](sdk-python-quickstart-authoring-app.md)<br>[REST를 사용한 예측](luis-get-started-python-get-intent.md)
+|Python|[작성 및 예측](sdk-python-quickstart-authoring-app.md)|[Pip](https://pypi.org/project/azure-cognitiveservices-language-luis/)|[작성](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)|[작성](sdk-python-quickstart-authoring-app.md)<br>[REST를 사용한 예측](luis-get-started-python-get-intent.md)
+
+
+### <a name="containers"></a>컨테이너
+
+LUIS (Language Understanding)는 온-프레미스 및 포함 된 앱 버전을 제공 하는 [컨테이너](luis-container-howto.md) 를 제공 합니다. 
+
+### <a name="export-and-import-formats"></a>내보내기 및 가져오기 형식
+
+Language Understanding은 JSON 형식으로 앱 및 해당 모델을 관리 하는 기능, `.LU` ([Ludown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)) 형식 및 Language Understanding 컨테이너의 압축 된 패키지를 제공 합니다. 
+
+이러한 형식의 가져오기 및 내보내기는 Api 및 LUIS 포털에서 사용할 수 있습니다. 포털은 앱 목록 및 버전 목록의 일부로 가져오기 및 내보내기를 제공 합니다. 
 
 ## <a name="other-tools-and-sdks"></a>기타 도구 및 Sdk
 
@@ -61,7 +72,7 @@ Bot framework는 다양 한 언어의 [SDK](https://github.com/Microsoft/botfram
 Bot framework는 다음을 비롯 하 여 Language Understanding에 도움이 되는 [여러 가지 도구](https://github.com/microsoft/botbuilder-tools) 를 제공 합니다.
 
 * [Ludown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown) -빌드 LUIS 언어 markdown 파일을 사용 하 여 모델 이해
-* [LUIS Cli](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) -LUIS.ai 응용 프로그램 만들기 및 관리
+* [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) -LUIS.ai 응용 프로그램 만들기 및 관리
 * [디스패치](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)-부모 및 자식 앱 관리
 * [Luisgen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) -LUIS 의도 및 C#엔터티에 대 한 백업/Typescript 클래스를 자동으로 생성 합니다.
 * [Bot emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) -봇 개발자가 BOT Framework SDK를 사용 하 여 빌드한 봇을 테스트 하 고 디버그할 수 있도록 하는 데스크톱 응용 프로그램입니다.
@@ -69,4 +80,8 @@ Bot framework는 다음을 비롯 하 여 Language Understanding에 도움이 �
 
 ## <a name="next-steps"></a>다음 단계
 
-일반적인 [HTTP 오류 코드](luis-reference-response-codes.md) 에 대 한 자세한 정보
+* 일반적인 [HTTP 오류 코드](luis-reference-response-codes.md) 에 대 한 자세한 정보
+* 모든 Api 및 Sdk에 대 한 [참조 설명서](https://docs.microsoft.com/azure/index#pivot=sdkstools)
+* [Bot framework](https://github.com/Microsoft/botbuilder-dotnet) 및 [Azure Bot Service](https://dev.botframework.com/)
+* [LUDown](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Ludown)
+* [인지 컨테이너](../cognitive-services-container-support.md)

@@ -8,15 +8,15 @@ ms.topic: include
 author: j-martens
 ms.author: jmartens
 ms.date: 12/04/2018
-ms.openlocfilehash: 46a7eb25152c8c7e9ac22c5b4df67bbf6416df4d
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 00980cc69acbe0da8773aa798b693171d07cc1e1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "69894068"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476151"
 ---
 >[!IMPORTANT]
->직접 만든 리소스는 다른 Azure Machine Learning Service 자습서 및 방법 문서에 대한 필수 조건으로 사용할 수 있습니다. 
+>다른 Azure Machine Learning 자습서 및 방법 아티클에 대한 필수 조건으로 만든 리소스를 사용할 수 있습니다. 
 
 
 자신이 만든 리소스를 사용하지 않으려는 경우 요금이 발생하지 않도록 삭제하세요.

@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 제한 구성
+title: 아웃 바운드 네트워크 트래픽 제한 구성-Azure HDInsight
 description: Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 제한을 구성 하는 방법에 대해 알아봅니다.
 services: hdinsight
 ms.service: hdinsight
@@ -8,18 +8,18 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 56e745a4f4e4bfbe82da00b46b7a5c0a58e3785e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
-ms.translationtype: MT
+ms.openlocfilehash: df691102b565824d6cb6a86f19e6fce3822d8ba8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789800"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498144"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall-preview"></a>방화벽을 사용 하 여 Azure HDInsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 구성 (미리 보기)
 
 이 문서에서는 Azure 방화벽을 사용 하 여 HDInsight 클러스터에서 아웃 바운드 트래픽을 보호 하는 단계를 제공 합니다. 아래 단계에서는 기존 클러스터에 대 한 Azure 방화벽을 구성 한다고 가정 합니다. 새 클러스터를 배포 하 고 방화벽 뒤에 있는 경우 먼저 HDInsight 클러스터 및 서브넷을 만든 다음이 가이드의 단계를 따릅니다.
 
-## <a name="background"></a>백그라운드
+## <a name="background"></a>배경
 
 Azure HDInsight 클러스터는 일반적으로 자체 가상 네트워크에 배포 됩니다. 클러스터에 네트워크 액세스가 제대로 작동 하는 데 필요한 가상 네트워크 외부의 서비스에 대 한 종속성이 있습니다.
 
@@ -46,7 +46,7 @@ Azure 방화벽을 사용 하 여 기존 HDInsight에서 송신을 잠그는 단
 
 클러스터가 중요 한 통신을 보내고 받을 수 있도록 하는 응용 프로그램 규칙 컬렉션을 만듭니다.
 
-Azure Portal에서 새 방화벽 **FW01** 을 선택 합니다. **설정**  >  응용 프로그램 규칙**컬렉션**  > **응용 프로그램 규칙 컬렉션 추가**에서 **규칙** 을 클릭 합니다.
+Azure Portal에서 새 방화벽 **FW01** 을 선택 합니다. **설정** > 응용 프로그램 규칙 **컬렉션** > **응용 프로그램 규칙 컬렉션 추가**에서 **규칙** 을 클릭 합니다.
 
 ![제목: 응용 프로그램 규칙 컬렉션 추가](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection.png)
 
@@ -54,19 +54,19 @@ Azure Portal에서 새 방화벽 **FW01** 을 선택 합니다. **설정**  >  �
 
 1. **이름**, **우선 순위**를 입력 하 고 **작업** 드롭다운 메뉴에서 **허용** 을 클릭 한 후 **FQDN 태그 섹션** 에 다음 규칙을 입력 합니다.
 
-   | **Name** | **원본 주소** | **FQDN 태그** | **참고 사항** |
+   | **이름** | **원본 주소** | **FQDN 태그** | **참고 사항** |
    | --- | --- | --- | --- |
    | Rule_1 | * | HDInsight 및 Windowsupdate.log | HDI 서비스에 필요 합니다. |
 
 1. **대상 Fqdn 섹션** 에 다음 규칙을 추가 합니다.
 
-   | **Name** | **원본 주소** | **프로토콜: 포트** | **대상 FQDN** | **참고 사항** |
+   | **이름** | **원본 주소** | **프로토콜: 포트** | **대상 FQDN** | **참고 사항** |
    | --- | --- | --- | --- | --- |
    | Rule_2 | * | https: 443 | login.windows.net | Windows 로그인 작업을 허용 합니다. |
    | Rule_3 | * | https: 443 | login.microsoftonline.com | Windows 로그인 작업을 허용 합니다. |
    | Rule_4 | * | https: 443, http: 80 | storage_account_name >를 < 합니다. | 클러스터가 WASB에서 지원 되는 경우 WASB에 대 한 규칙을 추가 합니다. Https 연결만 사용 하려면 저장소 계정에 ["보안 전송 필요"](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 가 설정 되어 있는지 확인 합니다. |
 
-1. **추가**으로 로그온합니다.
+1. **추가**를 클릭합니다.
 
    ![제목: 응용 프로그램 규칙 컬렉션 정보 입력](./media/hdinsight-restrict-outbound-traffic/hdinsight-restrict-outbound-traffic-add-app-rule-collection-details.png)
 
@@ -75,11 +75,11 @@ Azure Portal에서 새 방화벽 **FW01** 을 선택 합니다. **설정**  >  �
 HDInsight 클러스터를 올바르게 구성 하는 네트워크 규칙을 만듭니다.
 
 1. Azure Portal에서 새 방화벽 **FW01** 을 선택 합니다.
-1. **설정**  > **네트워크 규칙 컬렉션**  > **네트워크 규칙 컬렉션 추가**에서 **규칙** 을 클릭 합니다.
+1. **설정** > **네트워크 규칙 컬렉션** > **네트워크 규칙 컬렉션 추가**에서 **규칙** 을 클릭 합니다.
 1. **네트워크 규칙 컬렉션 추가** 화면에서 **이름**, **우선 순위**를 입력 하 고 **작업** 드롭다운 메뉴에서 **허용** 을 클릭 합니다.
 1. **IP 주소** 섹션에서 다음 규칙을 만듭니다.
 
-   | **Name** | **프로토콜** | **원본 주소** | **대상 주소** | **대상 포트** | **참고 사항** |
+   | **이름** | **프로토콜** | **원본 주소** | **대상 주소** | **대상 포트** | **참고 사항** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_1 | UDP | * | * | `123` | 시간 서비스 |
    | Rule_2 | 모두 | * | DC_IP_Address_1, DC_IP_Address_2 | `*` | Enterprise Security Package (ESP)를 사용 하는 경우 ESP 클러스터에 대해 AAD와 통신할 수 있도록 하는 IP 주소 섹션에서 네트워크 규칙을 추가 합니다. 도메인 컨트롤러의 IP 주소는 포털의 AAD DS 섹션에서 찾을 수 있습니다. | 
@@ -88,7 +88,7 @@ HDInsight 클러스터를 올바르게 구성 하는 네트워크 규칙을 만�
 
 1. **서비스 태그** 섹션에서 다음 규칙을 만듭니다.
 
-   | **Name** | **프로토콜** | **원본 주소** | **서비스 태그** | **대상 포트** | **참고 사항** |
+   | **이름** | **프로토콜** | **원본 주소** | **서비스 태그** | **대상 포트** | **참고 사항** |
    | --- | --- | --- | --- | --- | --- |
    | Rule_7 | TCP | * | SQL | `1433` | Sql SQL Server 트래픽을 기록 하 고 감사 하는 데 사용할 수 있는 SQL에 대 한 서비스 태그 섹션에서 네트워크 규칙을 구성 합니다. |
 

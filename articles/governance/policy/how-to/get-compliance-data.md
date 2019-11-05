@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 47258f27f44b6a21c5da72e4631591e695024400
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: bd65fcf6ebff931fbb408ca8337a37d355221dfe
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053271"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480241"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
 
@@ -29,7 +29,7 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 
 ## <a name="evaluation-triggers"></a>평가 트리거
 
-완료된 평가 주기의 결과는 `PolicyStates` 및 `PolicyEvents` 작업을 통해 `Microsoft.PolicyInsights` 리소스 공급자에서 사용할 수 있습니다. Azure Policy Insights REST API 작업에 대 한 자세한 내용은 [Azure Policy insights](/rest/api/policy-insights/)를 참조 하세요.
+완료된 평가 주기의 결과는 `Microsoft.PolicyInsights` 및 `PolicyStates` 작업을 통해 `PolicyEvents` 리소스 공급자에서 사용할 수 있습니다. Azure Policy Insights REST API 작업에 대 한 자세한 내용은 [Azure Policy insights](/rest/api/policy-insights/)를 참조 하세요.
 
 할당된 정책 및 이니셔티브의 평가는 다양한 이벤트의 결과로 발생합니다.
 
@@ -52,17 +52,17 @@ REST API 호출로 구독 또는 리소스 그룹에 대한 평가 검사를 시
 각 REST API URI에는 사용자가 자신의 값으로 대체해야 하는 변수가 있습니다.
 
 - `{YourRG}` - 사용자의 리소스 그룹 이름으로 대체
-- `{subscriptionId}` - 사용자의구독 ID로 대체
+- `{subscriptionId}` - 사용자의 구독 ID로 대체
 
 검사는 구독 또는 리소스 그룹에서 리소스의 평가를 지원합니다. 다음 URI 구조를 사용하여 REST API **POST** 명령으로 범위별 검사를 시작합니다.
 
-- Subscription
+- 구독
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-- Resource group
+- 리소스 그룹
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -87,12 +87,12 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 할당에서 정책 또는 이니셔티브 규칙을 따르지 않는 리소스는 **비준수** 리소스입니다.
 다음 표는 다양한 정책 효과가 결과 규정 준수 상태에 대한 조건 평가와 어떻게 작동하는지 보여줍니다.
 
-| 리소스 상태 | 영향 | 정책 평가 | 규정 준수 상태 |
+| 리소스 상태 | 결과 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
-| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 참 | 비준수 |
-| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 거짓 | 규정 준수 |
-| 신규 | Audit, AuditIfNotExist\* | 참 | 비준수 |
-| 신규 | Audit, AuditIfNotExist\* | 거짓 | 규정 준수 |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | 비준수 |
+| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 거짓 | 준수 |
+| 새로 만들기 | Audit, AuditIfNotExist\* | True | 비준수 |
+| 새로 만들기 | Audit, AuditIfNotExist\* | 거짓 | 준수 |
 
 \* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다.
 또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
@@ -131,9 +131,16 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 **리소스 준수** 탭의 리소스 목록에는 현재 할당에 대한 기존 리소스의 평가 상태가 표시됩니다. 탭에는 기본적으로 **비준수**로 표시되지만 필터링할 수 있습니다.
 리소스 생성 요청에 의해 트리거되는 이벤트(추가, 감사, 거부, 배포)는 **이벤트** 탭에 표시됩니다.
 
+> [!NOTE]
+> AKS 엔진 정책의 경우 표시 되는 리소스는 리소스 그룹입니다.
+
 ![Azure Policy 준수 이벤트의 예](../media/getting-compliance-data/compliance-events.png)
 
-자세한 세부 정보를 수집하려는 이벤트의 행을 마우스 오른쪽 단추로 클릭하고 **활동 로그 표시**를 선택합니다. 활동 로그 페이지가 열리고 할당 및 이벤트에 대한 세부 정보를 보여주는 검색에 대해 미리 필터링됩니다. 활동 로그는 해당 이벤트에 대한 추가 컨텍스트 및 정보를 제공합니다.
+리소스 [공급자 모드](../concepts/definition-structure.md#resource-provider-modes) 리소스의 경우 **리소스 호환성** 탭에서 리소스를 선택 하거나 행을 마우스 오른쪽 단추로 클릭 하 고 **준수 세부 정보 보기** 를 선택 하면 구성 요소 준수 정보가 열립니다. 이 페이지에는이 리소스, 이벤트, 구성 요소 이벤트 및 변경 기록에 할당 된 정책을 볼 수 있는 탭도 제공 됩니다.
+
+![Azure Policy 구성 요소 준수 정보 예](../media/getting-compliance-data/compliance-components.png)
+
+다시 리소스 준수 페이지에서 자세한 정보를 수집 하려는 이벤트의 행을 마우스 오른쪽 단추로 클릭 하 고 **활동 로그 표시**를 선택 합니다. 활동 로그 페이지가 열리고 할당 및 이벤트에 대한 세부 정보를 보여주는 검색에 대해 미리 필터링됩니다. 활동 로그는 해당 이벤트에 대한 추가 컨텍스트 및 정보를 제공합니다.
 
 ![Azure Policy 준수 활동 로그의 예](../media/getting-compliance-data/compliance-activitylog.png)
 
@@ -143,7 +150,7 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 
 리소스가 **비규격**으로 확인 되는 경우 여러 가지 원인이 있을 수 있습니다. 리소스가 **호환** 되지 않는 이유를 확인 하거나 변경 내용을 확인 하려면 [비준수 확인](./determine-non-compliance.md)을 참조 하세요.
 
-## <a name="command-line"></a>명령줄
+## <a name="command-line"></a>명령 줄
 
 포털에서 사용할 수 있는 정보는 REST API (with [ARMClient](https://github.com/projectkudu/ARMClient)포함), Azure PowerShell 및 Azure CLI (미리 보기)를 사용 하 여 검색할 수 있습니다.
 REST API에 대 한 자세한 내용은 [Azure Policy Insights](/rest/api/policy-insights/) 참조를 참조 하세요. REST API 참조 페이지에는 각 작업에서 브라우저에서 직접 시도할 수 있는 녹색 '시도' 단추가 있습니다.

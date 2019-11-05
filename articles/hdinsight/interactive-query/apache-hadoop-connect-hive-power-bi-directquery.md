@@ -1,5 +1,5 @@
 ---
-title: Azure HDInsight에서 Power BI를 사용하여 대화형 쿼리 Hive 데이터 시각화
+title: Azure HDInsight의 Power BI를 사용 하 여 대화형 쿼리 Hive 데이터를 참조 하세요.
 description: Microsoft Power BI를 사용하여 Azure HDInsight에서 대화형 쿼리 Hive 데이터를 시각화
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,22 +8,22 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/17/2019
-ms.openlocfilehash: 0f273f75c33362bc99efbd7ac6bc46c3778ae88b
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: ea63b0784c0f8680e544179dfcd927f59336b3ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123029"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467142"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-hdinsight"></a>HDInsight에서 직접 쿼리를 사용 하 여 Microsoft Power BI로 대화형 쿼리 Apache Hive 데이터 시각화
 
-이 문서에서는 Microsoft Power BI를 Azure HDInsight 대화형 쿼리 클러스터에 연결하고 직접 쿼리를 사용하여 Apache Hive 데이터를 시각화하는 방법을 설명합니다. 제공 된 예제에서는 `hivesampletable` Hive 테이블의 데이터를 Power BI 로드 합니다. Hive `hivesampletable` 테이블은 일부 휴대폰 사용 데이터를 포함 합니다. 그런 다음 전 세계 맵에 사용량 현황 데이터를 그림으로 나타냅니다.
+이 문서에서는 Microsoft Power BI를 Azure HDInsight 대화형 쿼리 클러스터에 연결하고 직접 쿼리를 사용하여 Apache Hive 데이터를 시각화하는 방법을 설명합니다. 제공 된 예제에서는 `hivesampletable` Hive 테이블의 데이터를 Power BI 로드 합니다. `hivesampletable` Hive 테이블은 일부 휴대폰 사용 데이터를 포함 합니다. 그런 다음 전 세계 맵에 사용량 현황 데이터를 그림으로 나타냅니다.
 
 ![HDInsight Power BI 맵 보고서](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-visualization.png)
 
 [Apache Hive ODBC 드라이버](../hadoop/apache-hadoop-connect-hive-power-bi.md)를 활용하여 Power BI Desktop에서 제네릭 ODBC 커넥터를 통해 가져오기를 수행할 수 있습니다. 그러나 BI 워크로드의 경우 Hive 쿼리 엔진의 비대화형 특성을 지정하지 않는 것이 좋습니다. 성능을 개선하기 위해 [HDInsight 대화형 쿼리 커넥터](./apache-hadoop-connect-hive-power-bi-directquery.md) 및 [HDInsight Apache Spark 커넥터](https://docs.microsoft.com/power-bi/spark-on-hdinsight-with-direct-connect)를 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
 * **HDInsight 클러스터**. 클러스터는 Apache Hive를 사용한 HDInsight 클러스터 또는 새로 릴리스된 대화형 쿼리 클러스터일 수 있습니다. 클러스터를 만드는 방법은 [클러스터 만들기](../hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster)를 참조하세요.
@@ -31,11 +31,11 @@ ms.locfileid: "71123029"
 
 ## <a name="load-data-from-hdinsight"></a>HDInsight에서 데이터 로드
 
-Hive `hivesampletable` 테이블은 모든 HDInsight 클러스터와 함께 제공 됩니다.
+`hivesampletable` Hive 테이블은 모든 HDInsight 클러스터와 함께 제공 됩니다.
 
 1. Power BI Desktop를 시작 합니다.
 
-2. 메뉴 모음에서 **홈** > **데이터** > 가져오기**자세히**로 이동 합니다.
+2. 메뉴 모음에서 **홈** > **데이터 가져오기** > **자세히**...로 이동 합니다.
 
     ![HDInsight Power BI 데이터 가져오기](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-open-odbc.png)
 

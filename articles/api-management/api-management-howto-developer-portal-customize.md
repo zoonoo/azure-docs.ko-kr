@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 2fc22a8f2a9e1e9410f2e6a9738c50a296a6287f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 62fb5552d86a802c3ba0213d99be2f91f21025e2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180720"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472132"
 ---
 # <a name="access-and-customize-developer-portal"></a>개발자 포털 액세스 및 사용자 지정
 
@@ -36,7 +36,11 @@ ms.locfileid: "73180720"
 
 ![API Management 개발자 포털-관리자 모드](media/api-management-howto-developer-portal-customize/cover.png)
 
-## <a name="prerequisites"></a>전제 조건
+> [!WARNING]
+> 개발자 포털이 현재 API Management 서비스에 롤아웃 되 고 있습니다.
+> 서비스가 새로 만들어지거나 개발자 계층 서비스인 경우 최신 버전이 이미 있어야 합니다. 그렇지 않으면 게시 기능과 같은 문제가 발생할 수 있습니다. 기능 출시는 2019 년 11 월 11 일 월요일에 완료 됩니다. 
+
+## <a name="prerequisites"></a>필수 조건
 
 - 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 - Azure API Management 인스턴스를 가져오고 게시합니다. 자세한 내용은 [가져오기 및 게시](import-and-publish.md) 를 참조 하세요.

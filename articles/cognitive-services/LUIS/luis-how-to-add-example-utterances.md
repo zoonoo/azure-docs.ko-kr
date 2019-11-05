@@ -9,20 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 1e170b86f573112cc5bc8dddd6f080921ef29d2d
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ed6321963422cf17c858f43593092f8ffa4a1119
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932946"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467738"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>예제 발언에 엔터티 추가 
 
-예제 발언은 사용자 질문 또는 명령의 텍스트 예제입니다. LUIS(Language Understanding)를 학습시키려면 [의도](luis-concept-intent.md)에 [예제 발언](luis-concept-utterance.md)을 추가해야 합니다.
+예제 발언은 사용자 질문 또는 명령의 텍스트 예제입니다. LUIS(Language Understanding)를 학습시키려면 [의도](luis-concept-utterance.md)에 [예제 발언](luis-concept-intent.md)을 추가해야 합니다.
+
 
 일반적으로 의도에 utterance 예제를 추가한 다음, **의도** 페이지에서 엔터티 및 레이블 길이 발언를 만듭니다. 엔터티를 먼저 만들려면 [엔터티 추가](luis-how-to-add-entities.md)를 참조하세요.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 ## <a name="marking-entities-in-example-utterances"></a>예제 발언에서 엔터티 표시
 
@@ -38,7 +41,7 @@ ms.locfileid: "68932946"
 Are there any SQL server jobs?
 ```
 
-1. 발언에서 `SQL server`을 선택하고 단순 엔터티로 레이블을 지정합니다. 나타나는 엔터티 드롭다운 상자에서 기존 엔터티를 선택하거나 새 엔터티를 추가합니다. 새 엔터티를 추가 하려면 텍스트 상자에 이름을 `Job` 입력 한 다음 **새 엔터티 만들기**를 선택 합니다.
+1. 발언에서 `SQL server`을 선택하고 단순 엔터티로 레이블을 지정합니다. 나타나는 엔터티 드롭다운 상자에서 기존 엔터티를 선택하거나 새 엔터티를 추가합니다. 새 엔터티를 추가 하려면 텍스트 상자에 `Job` 이름을 입력 한 다음 **새 엔터티 만들기**를 선택 합니다.
 
     ![엔터티 이름을 입력하는 스크린샷](./media/luis-how-to-add-example-utterances/create-simple-entity.png)
 
@@ -69,7 +72,7 @@ Are there any SQL server jobs?
 
 복합 엔터티는 부모 엔터티를 형성 하기 위해 기존 **엔터티에서** 생성 됩니다. 
 
-Utterance로 `Does John Smith work in Seattle?`가정 하 여 복합 utterance는 직원 이름의 `John Smith`엔터티 정보와 복합 엔터티의 위치 `Seattle` 를 반환할 수 있습니다. 자식 엔터티는 앱에 이미 존재 해야 하며, 복합 엔터티를 만들기 전에 예제 utterance로 표시 되어야 합니다.
+Utterance `Does John Smith work in Seattle?`, 복합 utterance는 직원 이름 `John Smith`의 엔터티 정보를 반환 하 고, 위치는 복합 엔터티에서 `Seattle` 수 있습니다. 자식 엔터티는 앱에 이미 존재 해야 하며, 복합 엔터티를 만들기 전에 예제 utterance로 표시 되어야 합니다.
 
 1. 자식 엔터티를 복합 엔터티로 래핑하려면 복합 엔터티에 대해 utterance에서 **첫 번째** 레이블이 지정 된 엔터티 (맨 왼쪽)를 선택 합니다. 이 선택 항목에 대 한 선택 항목을 표시 하는 드롭다운 목록이 표시 됩니다.
 
@@ -118,7 +121,7 @@ LUIS 포털에서 새 발언을 입력하면 발언에서 엔터티 예측 오�
 
 다음 솔루션은 엔터티 예측 불일치를 해결하도록 도와줍니다.
 
-|엔터티|시각적 표시기|예측|솔루션|
+|엔터티|시각적 표시기|예측|해결 방법|
 |--|--|--|--|
 |발언이 입력되었지만 아직 엔터티에 레이블이 지정되지 않았습니다.|빨간색 밑줄|예측이 올바릅니다.|예측 값을 사용하여 엔터티를 레이블을 지정합니다.|
 |레이블이 지정되지 않은 텍스트|빨간색 밑줄|잘못된 예측|모든 의도에서 이 잘못된 엔터티를 사용하는 현재 발언을 검토해야 합니다. 현재 발언이 이 텍스트가 예측 엔터티라고 LUIS에 잘못 알려주었습니다.
@@ -159,4 +162,4 @@ LUIS 앱에 pattern.any 엔터티를 추가하는 경우 이러한 엔터티를 
 
 ## <a name="next-steps"></a>다음 단계
 
-길이 발언에 레이블을 지정 하면이제 [복합 엔터티](luis-how-to-add-entities.md)를 만들 수 있습니다.
+길이 발언에 레이블을 지정 하면 이제 [복합 엔터티](luis-how-to-add-entities.md) **를 만들**수 있습니다.

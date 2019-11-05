@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: a3f9ad20e4bfba6e0bb858c82ccce73bb687a826
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 7d651849f5c8d930d99e87931eed5b823e90113c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69613112"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474742"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에 OU (조직 구성 단위) 만들기
 
@@ -24,23 +24,25 @@ Active Directory Domain Services (AD DS)의 Ou (조직 구성 단위)를 사용 
 
 Azure AD DS 관리 되는 도메인에는 두 개의 기본 제공 Ou 인 *Aaddc 컴퓨터* 와 *Aaddc 사용자가*포함 됩니다. *Aaddc 컴퓨터* OU는 관리 되는 도메인에 가입 된 모든 컴퓨터에 대 한 컴퓨터 개체를 포함 합니다. *Aaddc 사용자* OU에는 Azure AD 테 넌 트에서 동기화 된 사용자 및 그룹이 포함 됩니다. Azure AD DS를 사용 하는 워크 로드를 만들고 실행할 때 응용 프로그램 자체를 인증 하기 위한 서비스 계정을 만들어야 할 수 있습니다. 이러한 서비스 계정을 구성 하려면 종종 Azure AD DS 관리 되는 도메인에서 사용자 지정 OU를 만든 다음 해당 OU 내에 서비스 계정을 만듭니다.
 
+하이브리드 환경에서 온-프레미스 AD DS 환경에서 만든 Ou는 Azure AD DS와 동기화 되지 않습니다. Azure AD DS 관리 되는 도메인은 플랫 OU 구조를 사용 합니다. 계층 구조 OU 구조를 구성한 경우에도 모든 사용자 계정 및 그룹은 다른 온-프레미스 도메인 또는 포리스트에서 동기화 되더라도 *Aaddc 사용자* 컨테이너에 저장 됩니다.
+
 이 문서에서는 Azure AD DS 관리 되는 도메인에서 OU를 만드는 방법을 보여 줍니다.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서를 완료 하려면 다음 리소스와 권한이 필요 합니다.
 
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화 된 구독과 연결 된 Azure Active Directory 테 넌 트.
-    * 필요한 경우 [Azure Active Directory 테 넌 트][create-azure-ad-tenant] 를 만들거나 [사용자 계정에 Azure 구독을 연결][associate-azure-ad-tenant]합니다.
-* Azure AD 테 넌 트에서 사용 하도록 설정 되 고 구성 된 Azure Active Directory Domain Services 관리 되는 도메인입니다.
+* 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+* Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
     * 필요한 경우 자습서를 완료 하 여 [관리 VM을 만듭니다][tutorial-create-management-vm].
-* Azure AD 테 넌 트에서 *AZURE AD DC administrators* 그룹의 구성원 인 사용자 계정
+* Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
 
 ## <a name="custom-ou-considerations-and-limitations"></a>사용자 지정 OU 고려 사항 및 제한 사항
 
@@ -49,7 +51,7 @@ Azure AD DS 관리 되는 도메인에서 사용자 지정 Ou를 만들 때 사�
 * 사용자 지정 Ou를 만들려면 사용자가 *AAD DC 관리자* 그룹의 멤버 여야 합니다.
 * 사용자 지정 OU를 만드는 사용자에 게는 해당 OU에 대 한 관리 권한 (모든 권한)이 부여 되며 리소스 소유자입니다.
     * 기본적으로 *AAD DC 관리자* 그룹에는 사용자 지정 OU에 대 한 모든 권한이 있습니다.
-* Azure AD 테 넌 트에서 동기화 된 사용자 계정이 포함 된 *Aaddc 사용자* 에 대 한 기본 OU가 만들어집니다.
+* Azure AD 테 넌 트에서 동기화 된 모든 사용자 계정을 포함 하는 *Aaddc 사용자* 에 대 한 기본 OU가 만들어집니다.
     * *Aaddc 사용자* ou에서 사용자가 만든 사용자 지정 ou로 사용자 또는 그룹을 이동할 수 없습니다. Azure AD DS 관리 되는 도메인에서 만든 사용자 계정 또는 리소스만 사용자 지정 Ou로 이동할 수 있습니다.
 * 사용자 지정 Ou에서 만든 사용자 계정, 그룹, 서비스 계정 및 컴퓨터 개체는 Azure AD 테 넌 트에서 사용할 수 없습니다.
     * 이러한 개체는 azure AD Graph API 또는 Azure AD UI를 사용 하 여 표시 되지 않습니다. Azure AD DS 관리 되는 도메인 에서만 사용할 수 있습니다.
@@ -61,6 +63,7 @@ Azure AD DS 관리 되는 도메인에서 사용자 지정 Ou를 만들 때 사�
 > [!NOTE]
 > Azure AD DS 관리 되는 도메인에서 사용자 지정 OU를 만들려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
 
+1. 관리 VM에 로그인 합니다. Azure Portal를 사용 하 여 연결 하는 방법에 대 한 단계는 [Windows SERVER VM에 연결][connect-windows-server-vm]을 참조 하세요.
 1. 시작 화면에서 **관리 도구**를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. Ou를 만들고 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
 1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *contoso.com*)을 선택 합니다. 기존 Ou 및 리소스 목록이 표시 됩니다.
@@ -91,3 +94,4 @@ Azure AD DS 관리 되는 도메인에서 사용자 지정 Ou를 만들 때 사�
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
+[connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm

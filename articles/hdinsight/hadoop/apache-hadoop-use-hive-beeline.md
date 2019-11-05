@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: b741e928ed80a045b61d79f99d2436577ca864b0
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: d97470494af0d64cc20d78d69957d84a8acebc16
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73027720"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494904"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -53,7 +53,7 @@ kinit <username>
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
 ```
 
-`<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다. `<AAD-DOMAIN>`를 클러스터가 조인 된 Azure Active Directory (AAD)의 이름으로 바꿉니다. `<AAD-DOMAIN>` 값에 대문자 문자열을 사용 합니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다. 필요한 경우 영역 이름 `/etc/krb5.conf`를 확인 합니다.
+`<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다. `<AAD-DOMAIN>`를 클러스터가 조인 된 Azure Active Directory (AAD)의 이름으로 바꿉니다. `<AAD-DOMAIN>` 값에 대문자 문자열을 사용 합니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다. 필요한 경우 영역 이름 `/etc/krb5.conf`을 확인 합니다.
 
 ---
 
@@ -73,7 +73,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 `clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `<username>`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. 참고로, ESP 클러스터의 경우 전체 UPN (예: user@domain.com)을 사용 합니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
 
-개인 끝점은 동일한 지역의 Vnet 피어 링 에서만 액세스할 수 있는 기본 부하 분산 장치를 가리킵니다. 자세한 내용은 [이](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 항목을 참조 하세요. Beeline를 사용 하기 전에 `-v` 옵션과 함께 `curl` 명령을 사용 하 여 공용 또는 개인 끝점에 대 한 연결 문제를 해결할 수 있습니다.
+개인 끝점은 동일한 지역의 Vnet 피어 링 에서만 액세스할 수 있는 기본 부하 분산 장치를 가리킵니다. 자세한 정보는 [글로벌 VNet 피어 링 및 부하 분산 장치에 대 한 제약 조건](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 을 참조 하세요. Beeline를 사용 하기 전에 `-v` 옵션과 함께 `curl` 명령을 사용 하 여 공용 또는 개인 끝점의 연결 문제를 해결할 수 있습니다.
 
 ---
 
@@ -97,13 +97,13 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 `clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `<username>`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. 참고로, ESP 클러스터의 경우 전체 UPN (예: user@domain.com)을 사용 합니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
 
-개인 끝점은 동일한 지역의 Vnet 피어 링 에서만 액세스할 수 있는 기본 부하 분산 장치를 가리킵니다. 자세한 내용은 [이](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 항목을 참조 하세요. Beeline를 사용 하기 전에 `-v` 옵션과 함께 `curl` 명령을 사용 하 여 공용 또는 개인 끝점에 대 한 연결 문제를 해결할 수 있습니다.
+개인 끝점은 동일한 지역의 Vnet 피어 링 에서만 액세스할 수 있는 기본 부하 분산 장치를 가리킵니다. 자세한 정보는 [글로벌 VNet 피어 링 및 부하 분산 장치에 대 한 제약 조건](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 을 참조 하세요. Beeline를 사용 하기 전에 `-v` 옵션과 함께 `curl` 명령을 사용 하 여 공용 또는 개인 끝점의 연결 문제를 해결할 수 있습니다.
 
 ---
 
 #### <a name="from-cluster-head-or-inside-azure-virtual-network-with-apache-spark"></a>Apache Spark를 사용 하 여 클러스터 헤드 또는 Azure Virtual Network 내에서
 
-클러스터 헤드 노드에서 직접 연결하거나 HDInsight 클러스터와 동일한 Azure Virtual Network 내부의 리소스에서 연결하는 경우 `10001` 포트 대신 `10002` 포트를 Spark Thrift 서버에 사용해야 합니다. 다음 예제에서는 헤드 노드에 직접 연결 하는 방법을 보여 줍니다.
+클러스터 헤드 노드에서 직접 연결하거나 HDInsight 클러스터와 동일한 Azure Virtual Network 내부의 리소스에서 연결하는 경우 `10002` 포트 대신 `10001` 포트를 Spark Thrift 서버에 사용해야 합니다. 다음 예제에서는 헤드 노드에 직접 연결 하는 방법을 보여 줍니다.
 
 ```bash
 /usr/hdp/current/spark2-client/bin/beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
@@ -121,7 +121,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 * 옵션 2: 로컬 Beeline 클라이언트
 
-## <a id="beeline"></a>HIVE 쿼리 실행
+## <a id="beeline"></a>Hive 쿼리 실행
 
 이 예제는 SSH 연결에서 Beeline client를 사용 하는 것을 기반으로 합니다.
 
@@ -139,7 +139,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 3. Beeline 명령은 일반적으로 `!` 문자로 시작합니다. 예를 들어 `!help`는 도움말을 표시합니다. 그러나 일부 명령에서는 `!`를 생략할 수 있습니다. 예를 들어 `help`도 작동합니다.
 
-    HiveQL 문을 실행 하는 데 사용 되는 `!sql`있습니다. 그러나 HiveQL은 너무 일반적으로 사용되어 이전의 `!sql`를 생략할 수 있습니다. 다음 두 문은 동일합니다.
+    HiveQL 문을 실행 하는 데 사용 되는 `!sql`이 있습니다. 그러나 HiveQL은 너무 일반적으로 사용되어 이전의 `!sql`를 생략할 수 있습니다. 다음 두 문은 동일합니다.
 
     ```hiveql
     !sql show tables;

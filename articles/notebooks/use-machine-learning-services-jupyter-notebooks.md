@@ -1,6 +1,6 @@
 ---
-title: Azure Notebooks에서 Azure Machine Learning Services 사용
-description: Azure Notebooks에서 사용할 수 있는 Azure Machine Learning Services용 샘플 노트북에 대한 개요입니다.
+title: Azure Notebooks에서 Azure Machine Learning 사용
+description: Azure Notebooks에서 사용할 수 있는 Azure Machine Learning에 대 한 샘플 노트북의 개요입니다.
 services: app-service
 documentationcenter: ''
 author: kraigb
@@ -12,23 +12,23 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: f591758fa6e51c420a090aa62d5160320fe15fe8
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 6eac5d77404c85d5481ded7e58b0cd9fab0de083
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973024"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496633"
 ---
-# <a name="use-azure-machine-learning-service-in-a-notebook"></a>Notebook에서 Azure Machine Learning Service 사용
+# <a name="use-azure-machine-learning-in-a-notebook"></a>노트북에서 Azure Machine Learning 사용
 
-Azure Notebooks는 [Azure Machine Learning Service](/azure/machine-learning/service/)에서 사용하는 데 필요한 환경으로 미리 구성되어 있습니다. 샘플 프로젝트를 Notebooks 계정에 쉽게 복제하여 다양한 Machine Learning 시나리오를 살펴볼 수 있습니다.
+Azure Notebooks은 [Azure Machine Learning](/azure/machine-learning/service/)작업 하는 데 필요한 환경으로 미리 구성 되어 있습니다. 샘플 프로젝트를 Notebooks 계정에 쉽게 복제하여 다양한 Machine Learning 시나리오를 살펴볼 수 있습니다.
 
 ## <a name="clone-the-sample-into-your-account"></a>사용자 계정에 샘플 복제
 
 1. [Azure Notebooks](https://notebooks.azure.com/)에 로그인합니다.
 1. **내 프로젝트** 를 선택 하 여 프로젝트 대시보드로 이동 합니다.
 1. Github 리포지토리 **업로드 (위쪽** 화살표) 단추를 선택 하 여 **github 리포지토리 업로드** 팝업을 엽니다.
-1. 팝업에서 **GitHub 리포지토리**에는 `Azure/MachineLearningNotebooks`, **프로젝트 이름**에는 "Azure Machine Learning Service"와 같은 프로젝트 이름, **프로젝트 ID**에는 식별자를 입력하고, 원하는 경우 **공용**을 선택 취소한 다음, **가져오기**를 선택합니다.
+1. 팝업에서 **GitHub 리포지토리에서**`Azure/MachineLearningNotebooks`를 입력 하 고, "Azure Machine Learning"와 같은 **프로젝트 이름** 에 프로젝트 이름을 입력 하 고, **프로젝트 ID**에 식별자를 제공 하 고, 원하는 경우 **공용** 을 선택 취소 한 후 **가져오기**를 선택 합니다.
 
     ![Notebooks 계정으로 Azure Machine Learning Notebook 샘플 가져오기](media/azureml-import-project.png)
 
@@ -44,11 +44,11 @@ Azure Notebooks는 [Azure Machine Learning Service](/azure/machine-learning/serv
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning Services 문서에는 노트북 내의 Machine Learning Service 작업을 안내하는 기타 다양한 리소스가 포함되어 있습니다.
+Azure Machine Learning 설명서에는 노트북 내에서 Machine Learning 작업 하는 과정을 안내 하는 다양 한 리소스가 포함 되어 있습니다.
 
-- [빠른 시작: Python을 사용하여 Azure Machine Learning 시작](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
-- [자습서 #1: Azure Machine Learning Service를 사용하여 이미지 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
-- [자습서 #2: ACI(Azure Container Instance)에서 이미지 분류 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
-- [자습서: Azure Machine Learning Service에서 자동화된 기계 학습을 사용하여 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
+- [빠른 시작: Python을 사용 하 여 Azure Machine Learning 시작](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [자습서 #1: Azure Machine Learning를 사용 하 여 이미지 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [자습서 #2: ACI (Azure Container Instance)에서 이미지 분류 모델 배포](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [자습서: Azure Machine Learning에서 자동화 된 machine learning을 사용 하 여 분류 모델 학습](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
 [Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 문서도 참조하세요.

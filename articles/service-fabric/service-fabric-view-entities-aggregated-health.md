@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 1721f10f8950577080a89ba58a3eb4dd3a25c188
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: c4a312654fb54660a229c334071d33a5d6bc172f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249176"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496374"
 ---
 # <a name="view-service-fabric-health-reports"></a>서비스 패브릭 상태 보고서 보기
 Azure Service Fabric은 시스템 구성 요소와 워치독이 모니터링하는 로컬 조건을 보고할 수 있는 상태 엔터티가 있는 [상태 모델](service-fabric-health-introduction.md)을 사용합니다. [상태 저장소](service-fabric-health-introduction.md#health-store) 는 모든 상태 데이터를 집계하여 엔터티가 정상인지 여부를 판단합니다.
@@ -32,7 +32,7 @@ Azure Service Fabric은 시스템 구성 요소와 워치독이 모니터링하�
 * 상태 쿼리(PowerShell, API 또는 REST를 통해)
 * 속성 중 하나로 상태를 가지고 있는 엔터티 목록을 반환하는 일반 쿼리(PowerShell, API 또는 REST를 통해)
 
-이러한 옵션을 설명하기 위해 5개의 노드와 [fabric:/WordCount application](https://aka.ms/servicefabric-wordcountapp)이 있는 로컬 클러스터를 사용하겠습니다. **fabric:/WordCount** 애플리케이션에는 상태 저장 서비스 유형 `WordCountServiceType` 및 상태 비저장 서비스 유형 `WordCountWebServiceType` 등, 두 기본 서비스가 포함됩니다. `ApplicationManifest.xml`을 상태 저장 서비스에 대해 7개의 대상 복제본과 1개의 파티션을 요구하도록 변경했습니다. 클러스터에는 노드가 5개뿐이라 목표 수에 미달하므로 시스템 구성 요소는 서비스 파티션에 대해 경고를 보고합니다.
+이러한 옵션을 설명하기 위해 5개의 노드와 [fabric:/WordCount application](https://github.com/Azure-Samples/service-fabric-wordcount/raw/master/WordCountV1.sfpkg)이 있는 로컬 클러스터를 사용하겠습니다. **fabric:/WordCount** 애플리케이션에는 상태 저장 서비스 유형 `WordCountServiceType` 및 상태 비저장 서비스 유형 `WordCountWebServiceType` 등, 두 기본 서비스가 포함됩니다. `ApplicationManifest.xml`을 상태 저장 서비스에 대해 7개의 대상 복제본과 1개의 파티션을 요구하도록 변경했습니다. 클러스터에는 노드가 5개뿐이라 목표 수에 미달하므로 시스템 구성 요소는 서비스 파티션에 대해 경고를 보고합니다.
 
 ```xml
 <Service Name="WordCountService">
@@ -67,7 +67,7 @@ Azure Service Fabric은 시스템 구성 요소와 워치독이 모니터링하�
 서비스 패브릭은 각각의 지원되는 [엔터티 유형](service-fabric-health-introduction.md#health-entities-and-hierarchy)에 대해 상태 쿼리를 노출합니다. 이러한 항목은 [FabricClient.HealthManager](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthmanager?view=azure-dotnet), PowerShell cmdlet 및 REST의 메서드를 사용하여 API를 통해 액세스할 수 있습니다. 이러한 쿼리는 집계된 성능 상태, 엔터티 상태 이벤트, 자식 상태(해당되는 경우), 엔터티가 정상이 아닐 때 비정상적 평가 및 자식 상태 통계(해당되는 경우) 등을 포함한 엔터티에 대한 완전한 상태 정보를 반환합니다.
 
 > [!NOTE]
-> 상태 엔터티는 Health 스토어에서 완전히 채워지면 사용자에게 반환됩니다. 엔터티는 활성화 상태이고(삭제되지 않음) 시스템 보고서를 가져야 합니다. 또한 계층 구조 체인에서 부모 엔터티는 시스템 보고서를 가져야 합니다. 이러한 조건 중 하나라도 만족되지 않으면 상태 쿼리가 엔터티가 반환되지 않는 이유를 보여 주는 [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode) `FabricHealthEntityNotFound`와 함께 [FabricException](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception)을 반환합니다.
+> 상태 엔터티는 Health 스토어에서 완전히 채워지면 사용자에게 반환됩니다. 엔터티는 활성화 상태이고(삭제되지 않음) 시스템 보고서를 가져야 합니다. 또한 계층 구조 체인에서 부모 엔터티는 시스템 보고서를 가져야 합니다. 이러한 조건 중 하나라도 만족되지 않으면 상태 쿼리가 엔터티가 반환되지 않는 이유를 보여 주는 [FabricErrorCode](https://docs.microsoft.com/dotnet/api/system.fabric.fabricexception) [와 함께 ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricerrorcode)FabricException`FabricHealthEntityNotFound`을 반환합니다.
 >
 >
 
@@ -96,7 +96,7 @@ Azure Service Fabric은 시스템 구성 요소와 워치독이 모니터링하�
 * [선택 사항] 상태 통계에 fabric:/System 상태 통계를 포함하는 필터. 상태 통계가 제외되지 않는 경우에만 해당합니다. 기본적으로 상태 통계에는 시스템 애플리케이션이 아닌 사용자 애플리케이션에 대한 통계만 포함됩니다.
 
 ### <a name="api"></a>API
-클러스터 상태를 얻으려면 **HealthManager**에서 `FabricClient`를 만들고 [GetClusterHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync) 메서드를 호출합니다.
+클러스터 상태를 얻으려면 `FabricClient`HealthManager[에서 ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthasync)를 만들고 **GetClusterHealthAsync** 메서드를 호출합니다.
 
 다음 호출은 클러스터 상태를 가져옵니다.
 
@@ -233,7 +233,7 @@ ApplicationHealthStates :
 HealthEvents            : None
 ```
 
-### <a name="rest"></a>REST(영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-by-using-a-health-policy)를 사용하여 클러스터 상태를 가져올 수 있습니다.
 
 ## <a name="get-node-health"></a>노드 상태 가져오기
@@ -302,7 +302,7 @@ _Node_1                     Ok
 _Node_0                     Ok
 ```
 
-### <a name="rest"></a>REST(영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-node-by-using-a-health-policy)를 사용하여 노드 상태를 가져올 수 있습니다.
 
 ## <a name="get-application-health"></a>애플리케이션 상태 가져오기
@@ -314,7 +314,7 @@ _Node_0                     Ok
 * [선택 사항] 상태 통계를 제외하는 필터 지정하지 않은 경우 상태 통계는 모든 애플리케이션 자녀(서비스, 파티션, 복제본, 배포된 애플리케이션, 배포된 서비스 패키지)에 대한 양호, 경고 및 오류 수를 포함합니다.
 
 ### <a name="api"></a>API
-애플리케이션 상태를 가져오려면 HealthManager에서 `FabricClient` 를 만들고 [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) 메서드를 호출합니다.
+애플리케이션 상태를 가져오려면 HealthManager에서 `FabricClient`를 만들고 [GetApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getapplicationhealthasync) 메서드를 호출합니다.
 
 다음 코드는 지정된 애플리케이션 이름(URI)에 대한 애플리케이션 상태를 가져옵니다.
 
@@ -448,7 +448,7 @@ DeployedApplicationHealthStates : None
 HealthEvents                    : None
 ```
 
-### <a name="rest"></a>REST(영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-an-application-by-using-an-application-health-policy)를 사용하여 애플리케이션 상태를 가져올 수 있습니다.
 
 ## <a name="get-service-health"></a>서비스 상태 가져오기
@@ -520,7 +520,7 @@ HealthStatistics      :
                         Partition             : 0 Ok, 1 Warning, 0 Error
 ```
 
-### <a name="rest"></a>REST(영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-by-using-a-health-policy)를 사용하여 서비스 상태를 가져올 수 있습니다.
 
 ## <a name="get-partition-health"></a>파티션 상태 가져오기
@@ -612,7 +612,7 @@ HealthStatistics      :
                         Replica               : 5 Ok, 0 Warning, 0 Error
 ```
 
-### <a name="rest"></a>REST(영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](/rest/api/servicefabric/sfclient-api-getpartitionhealth) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy)를 사용하여 파티션 상태를 가져올 수 있습니다.
 
 ## <a name="get-replica-health"></a>복제본 상태 가져오기
@@ -655,7 +655,7 @@ HealthEvents          :
                         Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="rest"></a>REST(영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-replica-by-using-a-health-policy)를 사용하여 복제본 상태를 가져올 수 있습니다.
 
 ## <a name="get-deployed-application-health"></a>배포된 애플리케이션 상태 가져오기
@@ -667,7 +667,7 @@ HealthEvents          :
 * [선택 사항] 상태 통계를 제외하는 필터 지정하지 않은 경우 상태 통계는 양호, 경고 및 오류 상태인 배포 서비스 패키지 수를 표시합니다.
 
 ### <a name="api"></a>API
-API 통해 노드에 배포된 애플리케이션의 상태를 가져오려면 HealthManager에서 `FabricClient` 를 만들고 [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) 메서드를 호출합니다. 옵션인 매개 변수를 지정하려면 [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription)을 사용합니다.
+API 통해 노드에 배포된 애플리케이션의 상태를 가져오려면 HealthManager에서 `FabricClient`를 만들고 [GetDeployedApplicationHealthAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getdeployedapplicationhealthasync) 메서드를 호출합니다. 옵션인 매개 변수를 지정하려면 [DeployedApplicationHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.deployedapplicationhealthquerydescription)을 사용합니다.
 
 ```csharp
 DeployedApplicationHealth health = await fabricClient.HealthManager.GetDeployedApplicationHealthAsync(
@@ -714,7 +714,7 @@ HealthStatistics                   :
                                      DeployedServicePackage : 2 Ok, 0 Warning, 0 Error
 ```
 
-### <a name="rest"></a>REST(영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-deployed-application-by-using-a-health-policy)를 사용하여 배포된 애플리케이션 상태를 가져올 수 있습니다.
 
 ## <a name="get-deployed-service-package-health"></a>배포된 서비스 패키지 상태 가져오기
@@ -733,7 +733,7 @@ DeployedServicePackageHealth health = await fabricClient.HealthManager.GetDeploy
 ```
 
 ### <a name="powershell"></a>PowerShell
-배포된 서비스 패키지 상태를 가져오는 cmdlet은 [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth)입니다. 먼저 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet을 사용하여 클러스터에 연결합니다. 애플리케이션이 배포되는 위치를 확인하려면 [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps) 를 실행하고 배포된 애플리케이션을 살펴봅니다. 애플리케이션에 어떤 서비스 패키지가 있는지 보려면 [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) 출력에 배포된 서비스 패키지 자녀를 살펴봅니다.
+배포된 서비스 패키지 상태를 가져오는 cmdlet은 [Get-ServiceFabricDeployedServicePackageHealth](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricdeployedservicepackagehealth)입니다. 먼저 [Connect-ServiceFabricCluster](/powershell/module/servicefabric/connect-servicefabriccluster?view=azureservicefabricps) cmdlet을 사용하여 클러스터에 연결합니다. 애플리케이션이 배포되는 위치를 확인하려면 [Get-ServiceFabricApplicationHealth](/powershell/module/servicefabric/get-servicefabricapplicationhealth?view=azureservicefabricps)를 실행하고 배포된 애플리케이션을 살펴봅니다. 애플리케이션에 어떤 서비스 패키지가 있는지 보려면 [Get-ServiceFabricDeployedApplicationHealth](/powershell/module/servicefabric/get-servicefabricdeployedapplicationhealth?view=azureservicefabricps) 출력에 배포된 서비스 패키지 자녀를 살펴봅니다.
 
 다음 cmdlet은 **_Node_2**에 배포된 **fabric:/WordCount** 애플리케이션의 **WordCountServicePkg** 서비스 패키지 상태를 가져옵니다. 엔터티에 성공적인 서비스 패키지 및 진입점 활성화와 성공적인 서비스 유형 등록을 위한 **System.Hosting** 보고서가 있습니다.
 
@@ -784,7 +784,7 @@ HealthEvents               :
                              Transitions           : Error->Ok = 7/13/2017 5:57:18 PM, LastWarning = 1/1/0001 12:00:00 AM
 ```
 
-### <a name="rest"></a>REST(영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책을 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-service-package-by-using-a-health-policy)를 사용하여 배포된 서비스 패키지 상태를 가져올 수 있습니다.
 
 ## <a name="health-chunk-queries"></a>상태 청크 쿼리
@@ -820,7 +820,7 @@ HealthEvents               :
 현재, 청크 쿼리 비정상 평가 또는 엔터티 이벤트를 반환하지 않습니다. 이러한 추가 정보는 기존 클러스터 상태 쿼리를 사용하여 얻을 수 있습니다.
 
 ### <a name="api"></a>API
-클러스터 상태 청크를 가져오려면 해당 **HealthManager**에서 `FabricClient`를 만들고 [GetClusterHealthChunkAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync) 메서드를 호출합니다. 상태 정책 및 고급 필터를 설명하는 [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription)을 전달할 수 있습니다.
+클러스터 상태 청크를 가져오려면 해당 `FabricClient`HealthManager[에서 ](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.healthclient.getclusterhealthchunkasync)를 만들고 **GetClusterHealthChunkAsync** 메서드를 호출합니다. 상태 정책 및 고급 필터를 설명하는 [ClusterHealthQueryDescription](https://docs.microsoft.com/dotnet/api/system.fabric.description.clusterhealthchunkquerydescription)을 전달할 수 있습니다.
 
 다음 코드는 고급 필터가 포함된 클러스터 상태 청크를 가져옵니다.
 
@@ -1015,7 +1015,7 @@ ApplicationHealthStateChunks :
                                     HealthState           : Ok
 ```
 
-### <a name="rest"></a>REST(영문)
+### <a name="rest"></a>REST
 본문에 설명된 상태 정책 및 고급 필터를 포함하는 [GET 요청](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-cluster-using-health-chunks) 또는 [POST 요청](https://docs.microsoft.com/rest/api/servicefabric/health-of-cluster)를 사용하여 클러스터 상태 청크를 가져올 수 있습니다.
 
 ## <a name="general-queries"></a>일반 쿼리
@@ -1038,7 +1038,7 @@ ApplicationHealthStateChunks :
   * PowerShell: Get-ServiceFabricApplication
 * 서비스 목록: 애플리케이션의 서비스 목록(페이징)을 반환합니다.
   * API: [FabricClient.QueryClient.GetServiceListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getservicelistasync)
-  * PowerShell: -ServiceFabricService
+  * PowerShell: Get-ServiceFabricService
 * 파티션 목록: 서비스의 파티션 목록(페이징)을 반환합니다.
   * API: [FabricClient.QueryClient.GetPartitionListAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.queryclient.getpartitionlistasync)
   * PowerShell: Get-ServiceFabricPartition
@@ -1053,7 +1053,7 @@ ApplicationHealthStateChunks :
   * PowerShell: Get-ServiceFabricDeployedApplication
 
 > [!NOTE]
-> 일부 쿼리는 페이징된 결과를 반환합니다. 이러한 쿼리는 [\<PagedList T >](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1)에서 파생 된 목록으로 반환 됩니다. 결과가 메시지와 맞지 않으면 한 페이지만 반환되고 열거형이 중지된 위치를 추적하는 ContinuationToken이 반환됩니다. 다음 결과를 얻으려면 계속해서 동일한 쿼리를 호출하고 이전 쿼리의 연속 토큰을 전달합니다.
+> 일부 쿼리는 페이징된 결과를 반환합니다. 이러한 쿼리는 [PagedList\<t >](https://docs.microsoft.com/dotnet/api/system.fabric.query.pagedlist-1)에서 파생 된 목록으로 반환 됩니다. 결과가 메시지와 맞지 않으면 한 페이지만 반환되고 열거형이 중지된 위치를 추적하는 ContinuationToken이 반환됩니다. 다음 결과를 얻으려면 계속해서 동일한 쿼리를 호출하고 이전 쿼리의 연속 토큰을 전달합니다.
 
 ### <a name="examples"></a>예
 다음 코드는 클러스터에서 비정상 애플리케이션을 가져옵니다.

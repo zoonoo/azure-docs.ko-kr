@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: ee505cc78c16d85640c7e13541272f1bafe30061
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: f6446a2dbe3f111c9c617e78a0bdd98f6cea9153
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799994"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468772"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
@@ -31,9 +31,9 @@ ms.locfileid: "71799994"
 
 Windows의 경우 다음 언어를 지원합니다.
 
-* C#(UWP 및 .NET), C++: 최신 버전의 Speech SDK NuGet 패키지를 참조 및 사용할 수 있습니다. 이 패키지에는 관리(.NET) 라이브러리 외에도 32비트 및 64비트 클라이언트 라이브러리가 포함되어 있습니다. SDK는 NuGet을 사용하여 Visual Studio에서 설치할 수 있습니다. **Microsoft.CognitiveServices.Speech**를 검색합니다.
+* C#(UWP 및.NET), C++: 최신 버전의 음성 SDK NuGet 패키지를 참조 및 사용할 수 있습니다. 이 패키지에는 관리(.NET) 라이브러리 외에도 32비트 및 64비트 클라이언트 라이브러리가 포함되어 있습니다. SDK는 NuGet을 사용하여 Visual Studio에서 설치할 수 있습니다. **Microsoft.CognitiveServices.Speech**를 검색합니다.
 
-* Java: 최신 버전의 Speech SDK Maven 패키지를 참조 및 사용할 수 있으며, 이 패키지는 Windows x64만 지원합니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`을 종속성으로 참조합니다.
+* Java: 최신 버전의 음성 SDK Maven 패키지를 참조 및 사용할 수 있으며, 이 패키지는 Windows x64만 지원합니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`을 종속성으로 참조합니다.
 
 ### <a name="linux"></a>Linux
 
@@ -59,17 +59,17 @@ sudo apt-get update
 sudo apt-get install libssl1.0.2 libasound2
 ```
 
-* C#:  최신 버전의 Speech SDK NuGet 패키지를 참조 및 사용할 수 있습니다. SDK를 참조하려면 다음 패키지 참조를 프로젝트에 추가합니다.
+* C#: 최신 버전의 음성 SDK NuGet 패키지를 참조 및 사용할 수 있습니다. SDK를 참조하려면 다음 패키지 참조를 프로젝트에 추가합니다.
 
   ```xml
   <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.7.0" />
   ```
 
-* Java: 최신 버전의 Speech SDK Maven 패키지를 참조 및 사용할 수 있습니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`을 종속성으로 참조합니다.
+* Java: 최신 버전의 음성 SDK Maven 패키지를 참조 및 사용할 수 있습니다. Maven 프로젝트에서 `https://csspeechstorage.blob.core.windows.net/maven/`을 추가 리포지토리로 추가하고, `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`을 종속성으로 참조합니다.
 
 * C++: SDK를 [.tar package](https://aka.ms/csspeech/linuxbinary)로 다운로드하고 원하는 디렉터리에 파일의 압축을 풉니다. 다음 표는 SDK 폴더 구조를 보여줍니다.
 
-  |경로|설명|
+  |path|설명|
   |-|-|
   |`license.md`|라이선스|
   |`ThirdPartyNotices.md`|타사 알림|
@@ -103,5 +103,5 @@ Java SDK는 [Speech Devices SDK](speech-devices-sdk.md)에도 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)
+* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

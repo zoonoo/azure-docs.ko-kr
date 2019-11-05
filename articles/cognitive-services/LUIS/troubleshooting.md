@@ -9,14 +9,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 8adc052e732fdc54bd3b51873fdcf13a55f1f490
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 6a17993d7bc4ff54b3d55fa5b5bb141463896e32
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971977"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488703"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Language Understanding FAQ(질문과 대답)
 
@@ -28,7 +28,7 @@ Language Understanding의 새로운 기능에 [대해 자세히 알아보세요]
 
 <a name="luis-authoring"></a>
 
-## <a name="authoring"></a>제작
+## <a name="authoring"></a>작성
 
 ### <a name="what-are-the-luis-best-practices"></a>LUIS 모범 사례는 무엇인가요?
 [작성 주기](luis-concept-app-iteration.md)부터 시작해서 [모범 사례](luis-concept-best-practices.md)를 읽어봅니다.
@@ -50,7 +50,7 @@ Language Understanding의 새로운 기능에 [대해 자세히 알아보세요]
 [Bing Spell Check API V7](luis-tutorial-bing-spellcheck.md) 자습서를 참조하세요. LUIS는 Bing Spell Check API v7에 따라 부여되는 제한을 적용합니다.
 
 ### <a name="how-do-i-edit-my-luis-app-programmatically"></a>프로그래밍 방식으로 LUIS 앱을 편집하려면 어떻게 해야 하나요?
-프로그래밍 방식으로 LUIS 앱을 편집하려면 [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)를 사용합니다. 작성 API 호출 방법에 대한 예제를 보려면 [LUIS 작성 API 호출](./luis-quickstart-node-add-utterance.md) 및 [Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드](./luis-tutorial-node-import-utterances-csv.md)를 참조하세요. 작성 API에서는 엔드포인트 키가 아닌 [작성 키](luis-concept-keys.md#authoring-key)를 사용해야 합니다. 프로그래밍 방식으로 작성할 경우 매월 최대 1,000,000개 호출과 초당 5개의 트랜잭션이 허용됩니다. LUIS에서 사용하는 키에 대한 자세한 내용은 [키 관리](./luis-concept-keys.md)를 참조하세요.
+프로그래밍 방식으로 LUIS 앱을 편집하려면 [작성 API](https://go.microsoft.com/fwlink/?linkid=2092087)를 사용합니다. 작성 API 호출 방법에 대한 예제를 보려면 [LUIS 작성 API 호출](./luis-quickstart-node-add-utterance.md) 및 [Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드](./luis-tutorial-node-import-utterances-csv.md)를 참조하세요. 작성 API에서는 엔드포인트 키가 아닌 [작성 키](luis-concept-keys.md#azure-resources-for-luis)를 사용해야 합니다. 프로그래밍 방식으로 작성할 경우 매월 최대 1,000,000개 호출과 초당 5개의 트랜잭션이 허용됩니다. LUIS에서 사용하는 키에 대한 자세한 내용은 [키 관리](./luis-concept-keys.md)를 참조하세요.
 
 ### <a name="where-is-the-pattern-feature-that-provided-regular-expression-matching"></a>정규식 일치를 제공하는 패턴 기능은 어디에 있나요?
 이전 **패턴 기능**이 현재는 더 이상 사용되지 않으며 **[패턴](luis-concept-patterns.md)** 으로 바뀌었습니다.
@@ -70,7 +70,7 @@ LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 
 
 ### <a name="a-prebuilt-entity-is-tagged-in-an-example-utterance-instead-of-my-custom-entity-how-do-i-fix-this"></a>미리 빌드된 엔터티에는 사용자 지정 엔터티가 아닌 예제 utterance 태그가 지정 됩니다. 어떻게 할까요? 문제를 해결 하 시겠습니까? 
 
-미리 작성 한 [엔터티 문제 해결](luis-concept-entity-types.md#troubleshooting-prebuilt-entities)을 참조 하세요.
+LUIS 포털에서 추출 하려는 정확한 엔터티의 텍스트에 레이블을 지정할 수 있습니다. LUIS 포털에 올바른 엔터티 예측이 표시 되지 않는 경우에는 길이 발언를 추가 하 고 텍스트 내에 엔터티 레이블을 추가 하거나 기능 등의 설명자를 추가 해야 할 수 있습니다. 
 
 ### <a name="i-tried-to-import-an-app-or-version-file-but-i-got-an-error-what-happened"></a>앱 또는 버전 파일을 가져오려고 했지만 오류가 발생 했습니다. 문제가 발생 한 경우 
 
@@ -124,10 +124,10 @@ LUIS 앱을 다른 Azure 구독으로 이전하려면 LUIS 앱을 내보낸 후 
 다른 팁을 보려면 [모범 사례](luis-concept-best-practices.md)를 검토하세요. 
 
 ### <a name="why-does-luis-add-spaces-to-the-query-around-or-in-the-middle-of-words"></a>LUIS가 쿼리 주변 또는 단어 중간에 공백을 추가하는 이유는 무엇인가요?
-LUIS는 [문화권](luis-language-support.md#tokenization)에 따라 발언을 [토큰화](luis-glossary.md#token)합니다. 원래 값과 토큰화된 값 둘다 [데이터 추출](luis-concept-data-extraction.md#tokenized-entity-returned)에 사용할 수 있습니다.
+LUIS는 [문화권](luis-glossary.md#token)에 따라 발언을 [토큰화](luis-language-support.md#tokenization)합니다. 원래 값과 토큰화된 값 둘다 [데이터 추출](luis-concept-data-extraction.md#tokenized-entity-returned)에 사용할 수 있습니다.
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>LUIS 엔드포인트 키를 만들고 할당하려면 어떻게 해야 하나요?
-Azure에서 [서비스](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) 수준에 대해 [엔드포인트 키를 만듭니다](luis-how-to-azure-subscription.md). **[Azure 리소스](luis-how-to-azure-subscription.md)** 페이지에서 [키를 할당](luis-how-to-azure-subscription.md) 합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md) 변경해야 합니다.
+Azure에서 [서비스](luis-how-to-azure-subscription.md) 수준에 대해 [엔드포인트 키를 만듭니다](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). **[Azure 리소스](luis-how-to-azure-subscription.md)** 페이지에서 [키를 할당](luis-how-to-azure-subscription.md) 합니다. 이 작업에 해당하는 API는 없습니다. 그런 후 엔드포인트에 대한 HTTP 요청을 [새 엔드포인트 키를 사용하도록](luis-concept-keys.md) 변경해야 합니다.
 
 ### <a name="how-do-i-interpret-luis-scores"></a>LUIS 점수는 어떻게 해석할 수 있나요?
 시스템은 해당 값에 관계 없이 점수가 가장 높은 의도를 사용해야 합니다. 예를 들어, 0.5(50%) 미만 점수라고 해서 LUIS가 반드시 낮은 신뢰도를 갖는다는 것을 의미하는 것은 아닙니다. 더 많은 학습 데이터를 제공하면 가능성이 가장 높은 의도의 [점수](luis-concept-prediction-score.md)를 높일 수 있습니다.
@@ -193,7 +193,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ## <a name="app-publishing"></a>앱 게시
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>"앱에 키 추가" 창에서 테넌트 ID란 무엇인가요?
-Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을 나타냅니다. Azure Portal에서 **Azure Active Directory** > **관리** > **속성**을 선택하여 **디렉터리 ID** 상자에서 테넌트 ID를 찾습니다.
+Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을 나타냅니다. Azure Portal에서 **Azure Active Directory**관리 > 속성 > 을 선택하여 **디렉터리 ID** 상자에서 테넌트 ID를 찾습니다.
 
 ![Azure Portal의 테넌트 ID](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
@@ -220,7 +220,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 자세한 내용은 HTTP 상태 코드 [403](#i-received-an-http-403-error-status-code-how-do-i-fix-it) 및 [429](#i-received-an-http-429-error-status-code-how-do-i-fix-it) 수정을 참조 하세요.
 
-### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 어떻게 된 것입니까?
+### <a name="i-created-an-authoring-key-but-it-isnt-showing-in-the-luis-portal-what-happened"></a>제작 키를 만들었지만 LUIS 포털에 표시 되지 않습니다. 어떻게 된 건가요?
 
 제작 [키 환경으로 마이그레이션한](luis-migration-authoring.md)후 LUIS 포털에서 사용할 수 있습니다.  
 
@@ -241,7 +241,7 @@ Azure에서 테넌트는 서비스와 연결된 클라이언트 또는 조직을
 
 ### <a name="can-i-delete-data-from-luis"></a>LUIS에서 데이터를 삭제할 수 있나요?
 
-* LUIS를 학습시키는 데 사용되는 예제 발언은 항상 삭제할 수 있습니다. LUIS 앱에서 예제 발언을 삭제하면 LUIS 웹 서비스에서 제거되고 내보낼 수 없게 됩니다.
+* LUIS를 학습시키는 데 사용되는 예제 발언은 항상 삭제할 수 있습니다. LUIS 앱에서 예제 발화를 삭제하면 예제 발화는 LUIS 웹 서비스에서 제거되고 내보낼 수 없습니다.
 * **엔드포인트 발언 검토** 페이지에서 LUIS가 제안하는 사용자 발언 목록에 있는 발언을 삭제할 수 있습니다. 이 목록에서 발화를 삭제하면 제안되지 않지만 로그에서 삭제되지는 않습니다.
 * 계정을 삭제하면 모든 앱과 예제 발화 및 로그가 함께 삭제됩니다. 데이터는 영구적으로 삭제하기 전에 60일 동안 서버에 유지됩니다.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: eb5e2c2e2eeb0f29eb74b3727ecf14d70d2381f6
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 1311328dde6fc70202ce3c6271b33f79d52102cc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176671"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472225"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -25,7 +25,10 @@ ms.locfileid: "73176671"
 
 이 문서에서는 API Management에서 개발자 포털 자체 호스팅 및 관리 되는 버전 간의 차이점을 설명 합니다. 또한 아키텍처를 설명 하 고 질문과 대답을 제공 합니다.
 
-> [!IMPORTANT]
+> [!WARNING]
+> 새 개발자 포털이 현재 API Management 서비스에 롤아웃 되 고 있습니다.
+> 서비스가 새로 만들어지거나 개발자 계층 서비스인 경우 최신 버전이 이미 있어야 합니다. 그렇지 않으면 게시 기능과 같은 문제가 발생할 수 있습니다. 기능 출시는 2019 년 11 월 11 일 월요일에 완료 됩니다.
+>
 > [미리 보기 버전에서 개발자 포털의 일반 공급 버전으로 마이그레이션하는 방법에 대해 알아봅니다](#preview-to-ga) .
 
 ![API Management 개발자 포털](media/api-management-howto-developer-portal/cover.png)
@@ -106,11 +109,11 @@ ms.locfileid: "73176671"
 
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>포털이 Azure Resource Manager 템플릿을 지원 하나요? 아니면 API Management DevOps Resource Kit와 호환 되나요?
 
-아닙니다.
+아니요.
 
 ### <a name="do-i-need-to-enable-additional-vnet-connectivity-for-the-managed-portal-dependencies"></a>관리 되는 포털 종속성에 대 한 추가 VNET 연결을 사용 하도록 설정 해야 하나요?
 
-아닙니다.
+아니요.
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>대화형 콘솔을 사용 하는 경우 CORS 오류가 발생 합니다. 어떻게 해야 하나요?
 

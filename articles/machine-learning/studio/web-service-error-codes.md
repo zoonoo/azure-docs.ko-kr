@@ -1,9 +1,8 @@
 ---
-title: REST API 오류 코드 - Azure Machine Learning Studio | Microsoft Docs
+title: REST API 오류 코드-Azure Machine Learning Studio (클래식) | Microsoft Docs
 description: 이러한 오류 코드는 Azure Machine Learning 웹 서비스의 작업에서 반환될 수 있습니다.
 keywords: ''
 services: machine-learning
-documentationcenter: ''
 author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
@@ -11,21 +10,18 @@ editor: cgronlun
 ms.assetid: 0923074b-3728-439d-a1b8-8a7245e39be4
 ms.service: machine-learning
 ms.subservice: studio
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
-ms.openlocfilehash: 8e91d0cd68997dee9bb00cceeaa6b697f6644ee5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15e73740f5d932d0fa4cfb9a56c9fe7b155555cc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60736567"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468166"
 ---
-# <a name="azure-machine-learning-studio-rest-api-error-codes"></a>Azure Machine Learning Studio REST API 오류 코드
+# <a name="azure-machine-learning-studio-classic-rest-api-error-codes"></a>Azure Machine Learning Studio (클래식) REST API 오류 코드
  
-다음 오류 코드는 Azure Machine Learning Studio 웹 서비스의 작업에서 반환될 수 있습니다.
+Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 작업에 의해 반환 되는 오류 코드는 다음과 같습니다.
  
 ## <a name="badargument-http-status-code-400"></a>BadArgument(HTTP 상태 코드 400)
  
@@ -69,7 +65,7 @@ ms.locfileid: "60736567"
 | MissingWebServicePackage | 웹 서비스 패키지가 제공되지 않았습니다. 유효한 웹 서비스 패키지를 제공하고 다시 시도하세요. |
 | MissingWorkspaceId | 작업 영역 ID가 제공되지 않았습니다. 유효한 작업 영역 ID를 제공하고 다시 시도하세요. |
 | ModelConfigurationInvalid | 모델 패키지에 모델 구성이 잘못되었습니다. 모델 구성에 출력 엔드포인트 정의, std 오류 엔드포인트, std 출력 엔드포인트가 포함되었는지 확인하고 다시 시도하세요. |
-| ModelPackageIdInvalid | 모델 패키지 ID가 잘못되었습니다. 모델 패키지 ID가 올바른지 확인하고 다시 시도하세요. |
+| ModelPackageIdInvalid | 모델 패키지 Id가 잘못 되었습니다. 모델 패키지 Id가 올바른지 확인 한 후 다시 시도 하십시오. |
 | RequestBodyInvalid | 요청 본문이 제공되지 않았거나 요청 본문을 역직렬화하는 동안 오류가 발생했습니다. |
 | RequestIsEmpty | 요청이 제공되지 않았습니다. 유효한 요청을 제공하고 다시 시도하세요. |
 | UnexpectedParameter | 예기치 않은 매개 변수가 제공되었습니다. 모든 매개 변수 이름의 철자가 올바른지, 예상된 매개 변수가 전달되는지 확인하고 다시 시도하세요. |

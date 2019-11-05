@@ -1,6 +1,6 @@
 ---
 title: Python 기계 학습 스크립트 실행
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: Python 스크립트 실행 모듈을 사용 하 여 Machine Learning Studio (클래식) 실험 및 웹 서비스에서 Python 코드를 사용 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,22 +10,22 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: bfc2efca0786838d528b3019a3aff405f46ef645
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 1be367191ab042611f45d1f773df0d499400c500
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053784"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492995"
 ---
-# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행
+# <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행 (클래식)
 
 Python은 다양 한 데이터 과학자 도구 상자에 유용한 도구입니다. 데이터 탐색, 기능 추출, 모델 학습 및 유효성 검사, 배포 등 일반적인 기계 학습 워크플로의 모든 단계에서 사용 됩니다.
 
-이 문서에서는 Python 스크립트 실행 모듈을 사용 하 여 Azure Machine Learning Studio 실험 및 웹 서비스에서 Python 코드를 사용 하는 방법을 설명 합니다.
+이 문서에서는 Python 스크립트 실행 모듈을 사용 하 여 Azure Machine Learning Studio (클래식) 실험 및 웹 서비스에서 Python 코드를 사용 하는 방법을 설명 합니다.
 
 ## <a name="using-the-execute-python-script-module"></a>Python 스크립트 실행 모듈 사용
 
-Studio에서 Python에 대 한 기본 인터페이스는 [Python 스크립트 실행][execute-python-script] 모듈을 통하는 것입니다. 최대 3 개의 입력을 허용 하 고 [R 스크립트 실행][execute-r-script] 모듈과 유사한 출력을 최대 두 개까지 생성 합니다. Python 코드는 `azureml_main`라는 특수 하 게 명명 된 진입점 함수를 통해 매개 변수 상자에 입력 됩니다.
+Studio에서 Python (클래식)에 대 한 기본 인터페이스는 [Python 스크립트 실행][execute-python-script] 모듈을 통하는 것입니다. 최대 3 개의 입력을 허용 하 고 [R 스크립트 실행][execute-r-script] 모듈과 유사한 출력을 최대 두 개까지 생성 합니다. Python 코드는 `azureml_main`라는 특수 하 게 명명 된 진입점 함수를 통해 매개 변수 상자에 입력 됩니다.
 
 ![Python 스크립트 실행 모듈](./media/execute-python-scripts/execute-machine-learning-python-scripts-module.png)
 
@@ -53,7 +53,7 @@ Python 모듈에 대 한 입력은 Pandas 데이터 프레임로 노출 됩니�
 
 ## <a name="translation-of-input-and-output-data-types"></a>입력 및 출력 데이터 형식의 변환
 
-스튜디오 데이터 집합은 Panda 데이터 프레임와 다릅니다. 따라서 스튜디오의 입력 데이터 집합은 Pandas 데이터 프레임로 변환 되 고 출력 데이터 프레임는 다시 스튜디오 데이터 집합으로 변환 됩니다. 이 변환 프로세스 중에는 다음과 같은 번역도 수행 됩니다.
+스튜디오 데이터 집합은 Panda 데이터 프레임와 다릅니다. 결과적으로, 클래식 버전의 Studio에 있는 입력 데이터 집합은 Pandas 데이터 프레임로 변환 되 고 출력 데이터 프레임는 다시 Studio (클래식) 데이터 집합으로 변환 됩니다. 이 변환 프로세스 중에는 다음과 같은 번역도 수행 됩니다.
 
  **Python 데이터 형식** | **Studio 변환 프로시저** |
 | --- | --- |
@@ -67,9 +67,9 @@ Python 모듈에 대 한 입력은 Pandas 데이터 프레임로 노출 됩니�
 
 ## <a id="import-modules"></a>기존 Python 스크립트 모듈 가져오기
 
-Python을 실행 하는 데 사용 되는 백 엔드는 널리 사용 되는 과학 Python [Anaconda](https://www.anaconda.com/distribution/)을 기반으로 합니다. 데이터 중심 워크 로드에서 사용 되는 가장 일반적인 Python 패키지의 200에 근접 하 게 제공 됩니다. 스튜디오는 현재 Pip 또는 Conda와 같은 패키지 관리 시스템을 사용 하 여 외부 라이브러리를 설치 하 고 관리 하는 기능을 지원 하지 않습니다.  추가 라이브러리를 통합 해야 하는 경우 다음 시나리오를 지침으로 사용 합니다.
+Python을 실행 하는 데 사용 되는 백 엔드는 널리 사용 되는 과학 Python [Anaconda](https://www.anaconda.com/distribution/)을 기반으로 합니다. 데이터 중심 워크 로드에서 사용 되는 가장 일반적인 Python 패키지의 200에 근접 하 게 제공 됩니다. 클래식 버전의 Studio는 현재 Pip 또는 Conda와 같은 패키지 관리 시스템을 사용 하 여 외부 라이브러리를 설치 하 고 관리 하는 기능을 지원 하지 않습니다.  추가 라이브러리를 통합 해야 하는 경우 다음 시나리오를 지침으로 사용 합니다.
 
-일반적인 사용 사례는 기존 Python 스크립트를 스튜디오 실험으로 통합 하는 것입니다. [Python 스크립트 실행][execute-python-script] 모듈은 세 번째 입력 포트에서 python 모듈을 포함 하는 zip 파일을 허용 합니다. 이 파일은 런타임에 입력 프레임워크에서 압축이 풀리며, 파일의 내용은 Python 인터프리터의 라이브러리 경로에 추가됩니다. 그러면 `azureml_main` 진입점 함수가 이러한 모듈을 직접 가져올 수 있습니다. 
+일반적인 사용 사례는 기존 Python 스크립트를 스튜디오 실험의 클래식 버전에 통합 하는 것입니다. [Python 스크립트 실행][execute-python-script] 모듈은 세 번째 입력 포트에서 python 모듈을 포함 하는 zip 파일을 허용 합니다. 이 파일은 런타임에 입력 프레임워크에서 압축이 풀리며, 파일의 내용은 Python 인터프리터의 라이브러리 경로에 추가됩니다. 그러면 `azureml_main` 진입점 함수가 이러한 모듈을 직접 가져올 수 있습니다. 
 
 예를 들어, 간단한 “Hello, World” 함수를 포함하는 Hello.py라는 파일을 살펴보겠습니다.
 
@@ -79,7 +79,7 @@ Python을 실행 하는 데 사용 되는 백 엔드는 널리 사용 되는 과
 
 ![사용자 정의 Python 코드를 포함 하는 Zip 파일](./media/execute-python-scripts/figure5.png)
 
-Zip 파일을 데이터 집합으로 Studio에 업로드 합니다. 그런 다음, 다음 그림에 표시 된 것 처럼 **Python 스크립트 실행** 모듈의 세 번째 입력 포트에 연결 하 여 Hello .zip 파일에서 python 코드를 사용 하는 실험을 만들고 실행 합니다.
+기본 버전의 Studio에 zip 파일을 데이터 집합으로 업로드 합니다. 그런 다음, 다음 그림에 표시 된 것 처럼 **Python 스크립트 실행** 모듈의 세 번째 입력 포트에 연결 하 여 Hello .zip 파일에서 python 코드를 사용 하는 실험을 만들고 실행 합니다.
 
 ![Python 스크립트 실행 모듈에 대 한 입력으로 Hello .zip을 사용한 샘플 실험](./media/execute-python-scripts/figure6a.png)
 
@@ -94,7 +94,7 @@ Zip 파일을 데이터 집합으로 Studio에 업로드 합니다. 그런 다�
 다음 단계를 사용 하 여 Azure Blob Storage 계정에 저장 된 데이터에 액세스할 수 있습니다.
 
 1. [Python 용 Azure Blob Storage 패키지](https://azuremlpackagesupport.blob.core.windows.net/python/azure.zip) 를 로컬로 다운로드 합니다.
-1. Zip 파일을 데이터 집합으로 스튜디오 작업 영역에 업로드 합니다.
+1. Zip 파일을 Studio (클래식) 작업 영역에 데이터 집합으로 업로드 합니다.
 1. `protocol='http'`를 사용 하 여 BlobService 개체 만들기
 
 ```
@@ -141,11 +141,11 @@ MatplotLib에서 이미지를 생성 하려면 다음 단계를 수행 해야 �
 
 ![Python 코드를 사용 하 여 샘플 실험을 위한 플롯 시각화](./media/execute-python-scripts/figure-v2-9b.png)
 
-여러 그림을 여러 이미지에 저장 하 여 반환할 수 있습니다. 스튜디오 런타임은 모든 이미지를 선택 하 고 시각화를 위해 연결 합니다.
+여러 그림을 여러 이미지에 저장 하 여 반환할 수 있습니다. 클래식 버전의 Studio runtime은 모든 이미지를 선택 하 고 시각화를 위해 연결 합니다.
 
 ## <a name="advanced-examples"></a>고급 예제
 
-Studio에 설치 된 Anaconda 환경에는 NumPy, SciPy 및 Scikits-learn와 같은 일반적인 패키지가 포함 됩니다. 이러한 패키지는 machine learning 파이프라인에서 데이터를 처리 하는 데 효과적으로 사용할 수 있습니다.
+클래식 버전의 Studio에 설치 된 Anaconda 환경에는 NumPy, SciPy 및 Scikits-learn와 같은 일반적인 패키지가 포함 됩니다. 이러한 패키지는 machine learning 파이프라인에서 데이터를 처리 하는 데 효과적으로 사용할 수 있습니다.
 
 예를 들어 다음 실험 및 스크립트는 Scikits-learn에서 앙상블 학습자를 사용 하는 방법을 보여 줍니다. 데이터 집합에 대 한 기능 중요도 점수를 계산 하는 방법을 알아봅니다. 점수를 사용 하 여 다른 모델로 피드를 전환 하기 전에 감독 된 기능 선택을 수행할 수 있습니다.
 
@@ -153,7 +153,7 @@ Studio에 설치 된 Anaconda 환경에는 NumPy, SciPy 및 Scikits-learn와 같
 
 ![점수를 기준으로 기능 순위를 결정 하는 함수](./media/execute-python-scripts/figure8.png)
 
-다음 실험에서는 Azure Machine Learning Studio의 “Pima Indian Diabetes” 데이터 세트에 있는 기능의 중요도 점수를 계산하여 반환합니다.
+다음 실험에서는 Azure Machine Learning Studio 클래식 버전의 "Pima indian diabetes 인디언 당뇨병" 데이터 집합에 있는 기능의 중요도 점수를 계산 하 고 반환 합니다.
 
 ![Python을 사용 하 여 Pima indian diabetes 인디언 당뇨병 데이터 집합의 기능에 대 한 순위를 시험해 보세요.](./media/execute-python-scripts/figure9a.png)
 
@@ -173,7 +173,7 @@ Python 런타임은 현재 샌드 박싱 되며 네트워크 또는 로컬 파�
 
 ### <a name="single-data-frame-output"></a>단일 데이터 프레임 출력
 
-Python 진입점은 단일 데이터 프레임을 출력으로 반환할 수만 있습니다. 현재는 학습 된 모델 등의 임의의 Python 개체를 스튜디오 런타임으로 직접 다시 반환할 수 없습니다. 동일한 제한이 적용 되는 [R 스크립트 실행과][execute-r-script]마찬가지로 개체를 바이트 배열로 pickle 하 고 데이터 프레임 내에서 반환 하는 경우가 많습니다.
+Python 진입점은 단일 데이터 프레임을 출력으로 반환할 수만 있습니다. 현재는 학습 된 모델 등의 임의의 Python 개체를 스튜디오 (클래식) 런타임에 직접 반환할 수 없습니다. 동일한 제한이 적용 되는 [R 스크립트 실행과][execute-r-script]마찬가지로 개체를 바이트 배열로 pickle 하 고 데이터 프레임 내에서 반환 하는 경우가 많습니다.
 
 ### <a name="inability-to-customize-python-installation"></a>Python 설치를 사용자 지정할 수 없음
 

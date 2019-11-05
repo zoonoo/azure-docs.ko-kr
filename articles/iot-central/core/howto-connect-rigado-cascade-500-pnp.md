@@ -10,12 +10,12 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 10/19/2019
-ms.openlocfilehash: 8727de7b13b6ac036e714ac5aca7ae017200097c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b07ce135d9efec6ecad369b6333d0a3bf2c3aab1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951225"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468253"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Rigado Cascade 500 게이트웨이 장치를 Azure IoT Central 응용 프로그램에 연결
 
@@ -28,11 +28,11 @@ Cascade 500 IoT gateway는 Rigado에서 제공 하는 하드웨어 제품으로,
 
 Cascade 500은 솔루션 빌더가 종단 간 솔루션에 장치를 쉽게 등록할 수 있도록 Azure IoT 플러그 앤 플레이 (PnP)를 미리 인증 합니다. Cascade gateway를 사용 하면 게이트웨이 장치와 근접 한 다양 한 조건 모니터링 센서에 무선으로 연결할 수 있습니다. 이러한 센서는 게이트웨이 장치를 통해 IoT Central에 등록 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 방법 가이드를 단계별로 실행 하려면 다음 리소스가 필요 합니다.
 
 * Rigado Cascade 500 장치입니다. 자세한 내용은 [Rigado](https://www.rigado.com/)를 참조 하세요.
-* Preview 응용 프로그램 템플릿 중 하나에서 만든 Azure IoT Central 응용 프로그램입니다. 자세한 내용은 [새 응용 프로그램 만들기](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)를 참조 하세요.
+* Preview 응용 프로그램 템플릿 중 하나에서 만든 Azure IoT Central 응용 프로그램입니다. 자세한 내용은 [새 응용 프로그램 만들기](https://docs.microsoft.com/azure/iot-central/core/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)를 참조 하세요.
 
 ## <a name="add-a-device-template"></a>디바이스 템플릿 추가
 

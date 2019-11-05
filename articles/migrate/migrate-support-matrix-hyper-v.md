@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 0964dac6b4f381e2ec52bd9ec078741d0ee85712
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802187"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498705"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 평가 및 마이그레이션 지원 매트릭스
 
@@ -24,7 +24,7 @@ ms.locfileid: "72802187"
 
 이 표에는 Hyper-v Vm에 대해 지원 되는 시나리오가 요약 되어 있습니다.
 
-**배포** | **세부 정보***
+**배포웹사이트를** | **세부 정보***
 --- | ---
 **온-프레미스 Hyper-v Vm 평가** | 첫 번째 평가를 [설정](tutorial-prepare-hyper-v.md) 합니다.<br/><br/> 대규모 평가를 [실행](scale-hyper-v-assessment.md) 합니다.
 **Hyper-V VM을 Azure로 마이그레이션** | Azure로의 마이그레이션을 [시도](tutorial-migrate-hyper-v.md) 합니다.
@@ -35,26 +35,7 @@ ms.locfileid: "72802187"
 --- | ---
 Azure 권한 | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
 Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니다. Azure 구독에 여러 프로젝트를 포함할 수 있습니다. 프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
-Geography | 여러 지역에서 Azure Migrate 프로젝트를 만들 수 있습니다. 특정 지역에 프로젝트를 만들 수 있지만 다른 대상 위치의 컴퓨터를 평가 하거나 마이그레이션할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
-
-  **지리** | **메타데이터 스토리지 위치**
-  --- | ---
-  Azure Government | US Gov 버지니아
-  아시아 태평양 | 동아시아 또는 동남 아시아
-  오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동쪽
-  브라질 | 브라질 남부
-  캐나다 | 캐나다 중부 또는 캐나다 동부
-  유럽 | 북유럽 또는 유럽 서부
-  프랑스 | 프랑스 중부
-  인도 | 인도 중부 또는 인도 남부
-  일본 |  일본 동부 또는 일본 서 부
-  한국 | 대한민국 중부 또는 한국 남부
-  영국 | 영국 남부 또는 영국 서부
-  미국 | 미국 중부 또는 미국 서 부 2
-
-
- > [!NOTE]
- > Azure Government에 대 한 지원은 현재 [이전 버전](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) 의 Azure Migrate 에서만 사용할 수 있습니다.
+Geography | 지원 되는 지역을 [검토](migrate-support-matrix.md#supported-geographies) 합니다.
 
 
 ## <a name="assessment-hyper-v-host-requirements"></a>평가-Hyper-v 호스트 요구 사항
@@ -104,7 +85,7 @@ Vm을 평가 하려면 Azure Migrate 어플라이언스에서 인터넷에 연�
 **URL** | **세부 정보**  
 --- | ---
 *.portal.azure.com | Azure Portal 탐색
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Azure 구독에 로그인
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com  | Azure 구독에 로그인합니다.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | 어플라이언스에서 서비스 통신에 대 한 Azure Active Directory 응용 프로그램 만들기
 management.azure.com | 어플라이언스에서 서비스 통신에 대 한 Azure Active Directory 응용 프로그램 만들기
 dc.services.visualstudio.com | 로깅 및 모니터링
@@ -141,7 +122,7 @@ https://download.microsoft.com/download/* | Microsoft 다운로드 사이트에�
 | **운영 체제** | Azure에서 지 원하는 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제입니다. |
 | **권한**           | 평가 하려는 각 Hyper-v VM에 대 한 관리자 권한이 필요 합니다. |
 | **Integration Services**       | 운영 체제 정보를 캡처하기 위해 평가 하는 Vm에서 [hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) 실행 중 이어야 합니다. |
-| **Azure에 대 한 필수 변경 내용** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 이상<br/> -CentOS 6.5 이상, 7.0 이상</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다. |
+| **Azure에 대 한 필수 변경 내용** | 일부 Vm은 Azure에서 실행할 수 있도록 변경 해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 이상<br/> -CentOS 6.5 이상, 7.0 이상</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다. |
 | **Linux 부팅**                 | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다. |
 | **UEFI 부팅**                  | Azure에서 마이그레이션된 VM은 자동으로 BIOS 부팅 VM으로 변환 됩니다. VM은 Windows Server 2012 이상만 실행 해야 합니다. OS 디스크에는 최대 5 개의 파티션이 있어야 하 고 OS 디스크의 크기는 300 미만 이어야 합니다.
   |
@@ -169,8 +150,8 @@ https://download.microsoft.com/download/* | Microsoft 다운로드 사이트에�
 --- | ---
 login.microsoftonline.com | Active Directory를 사용 하 여 액세스 제어 및 id 관리.
 *.backup.windowsazure.com | 복제 데이터 전송 및 조정.
-\*.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
-\*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
+*.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
+*.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
 dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
 time.windows.com | 시스템 시간과 글로벌 시간 간의 시간 동기화를 확인 합니다.
 

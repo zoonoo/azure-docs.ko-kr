@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 4d736556147797bcd007bdab1b5328deeadea712
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 2f24f5cacb8b6e115d7fe91c6ef0a7a333676ae1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827362"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472850"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -33,7 +33,7 @@ ms.locfileid: "71827362"
 
 ## <a name="can-i-limit-who-has-access-to-the-kubernetes-api-server"></a>Kubernetes API 서버에 대 한 액세스 권한이 있는 사용자를 제한할 수 있나요?
 
-예, 현재 미리 보기 상태인 [Api Server 권한 있는 IP 범위][api-server-authorized-ip-ranges]를 사용 하 여 Kubernetes api 서버에 대 한 액세스를 제한할 수 있습니다.
+예, [Api 서버 권한 있는 IP 범위][api-server-authorized-ip-ranges]를 사용 하 여 Kubernetes api 서버에 대 한 액세스를 제한할 수 있습니다.
 
 ## <a name="can-i-make-the-kubernetes-api-server-accessible-only-within-my-virtual-network"></a>Kubernetes API 서버를 가상 네트워크 내 에서만 액세스할 수 있나요?
 
@@ -41,7 +41,7 @@ ms.locfileid: "71827362"
 
 ## <a name="can-i-have-different-vm-sizes-in-a-single-cluster"></a>단일 클러스터에서 서로 다른 VM 크기를 가질 수 있나요?
 
-예, [여러 노드 풀][multi-node-pools]을 만들어 AKS 클러스터에서 여러 가상 머신 크기를 사용할 수 있습니다 .이는 현재 미리 보기 상태입니다.
+예, [여러 노드 풀][multi-node-pools]을 만들어 AKS 클러스터에서 서로 다른 가상 머신 크기를 사용할 수 있습니다.
 
 ## <a name="are-security-updates-applied-to-aks-agent-nodes"></a>보안 업데이트가 AKS 에이전트 노드에 적용되나요?
 
@@ -55,7 +55,7 @@ Kured를 사용 하는 방법에 대 한 자세한 내용은 [AKS에서 노드�
 
 ### <a name="windows-server-nodes"></a>Windows Server 노드
 
-Windows Server 노드(현재 AKS에서 프리뷰)에 대한 Windows Update는 최신 업데이트를 자동으로 실행 및 적용하지 않습니다. Windows 업데이트 릴리스 주기와 사용자 고유의 유효성 검사 프로세스를 정기적으로 수행 하는 일정에 따라 클러스터에서 업그레이드를 수행 하 고 AKS 클러스터에서 Windows Server 노드 풀을 업그레이드 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행하는 노드를 생성하고 이전 노드를 제거합니다. 이 프로세스에 대한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조하세요.
+Windows Server 노드 (현재 AKS의 미리 보기 상태)의 경우 Windows 업데이트가 자동으로 실행 되 고 최신 업데이트를 적용 하지 않습니다. Windows 업데이트 릴리스 주기와 사용자 고유의 유효성 검사 프로세스를 정기적으로 수행 하는 일정에 따라 클러스터에서 업그레이드를 수행 하 고 AKS 클러스터에서 Windows Server 노드 풀을 업그레이드 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행 하는 노드를 만든 다음 이전 노드를 제거 합니다. 이 프로세스에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>AKS를 통해 2개의 리소스 그룹이 생성되는 이유는 무엇인가요?
 
@@ -118,18 +118,18 @@ AKS는 현재 기본적으로 Azure Key Vault와 통합 되지 않습니다. 그
 
 SLA (서비스 수준 계약)에서 공급자는 게시 된 서비스 수준이 충족 되지 않는 경우 고객에 게 서비스 비용을 상환에 동의 합니다. AKS는 무료 이므로 상환에는 비용을 사용할 수 없으므로 AKS에는 공식적인 SLA가 없습니다. 그러나 AKS는 Kubernetes API 서버에 대해 최소 99.5%의 가용성을 유지 하려고 합니다.
 
-Kubernetes 제어 평면의 작동 시간 및 Azure Virtual Machines에서 실행 되는 특정 워크 로드의 가용성을 나타내는 AKS 서비스 가용성 간의 차이점을 인식 하는 것이 중요 합니다. 제어 평면이 준비 되지 않은 경우 제어 평면을 사용할 수 없는 경우에도 Azure Vm에서 실행 되는 클러스터 워크 로드가 계속 작동할 수 있습니다. 지정 된 Azure Vm은 유료 리소스 이며 재무 SLA를 통해 지원 됩니다. Azure VM SLA에 대 한 자세한 내용 및 [가용성 영역][availability-zones]같은 기능을 사용 하 여 가용성을 높이는 방법에 [대 한 자세한 내용은 여기를](https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/) 참조 하세요.
+Kubernetes 제어 평면의 작동 시간 및 Azure Virtual Machines에서 실행 되는 특정 워크 로드의 가용성을 나타내는 AKS 서비스 가용성 간의 차이점을 인식 하는 것이 중요 합니다. 제어 평면이 준비 되지 않은 경우 제어 평면을 사용할 수 없는 경우에도 Azure Vm에서 실행 되는 클러스터 워크 로드가 계속 작동할 수 있습니다. 지정 된 Azure Vm은 유료 리소스 이며 재무 SLA를 통해 지원 됩니다. Azure VM SLA에 대 한 자세한 내용 및 [가용성 영역][availability-zones]같은 기능을 사용 하 여 가용성을 높이는 방법에 [대 한 자세한 내용은 여기를](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/) 참조 하세요.
 
 ## <a name="why-cant-i-set-maxpods-below-30"></a>MaxPods를 30 미만으로 설정할 수 없는 이유는 무엇입니까?
 
-AKS에서는 Azure CLI 및 Azure Resource Manager 템플릿을 사용 `maxPods` 하 여 클러스터를 만들 때 값을 설정할 수 있습니다. 그러나 Kubenet 및 Azure CNI에는 최소한의 *값* (생성 시 유효성 검사 됨)이 필요 합니다.
+AKS에서는 Azure CLI 및 Azure Resource Manager 템플릿을 사용 하 여 클러스터를 만들 때 `maxPods` 값을 설정할 수 있습니다. 그러나 Kubenet 및 Azure CNI에는 최소한의 *값* (생성 시 유효성 검사 됨)이 필요 합니다.
 
-| 네트워킹 | 최소 | 최대값 |
+| 네트워킹 | 최소 | 최대 |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |
 
-AKS는 관리 되는 서비스 이므로 클러스터의 일부로 추가 기능 및 pod을 배포 하 고 관리 합니다. 이전에는 사용자가 관리 되는 `maxPods` pod가 실행 하는 데 필요한 값 (예: 30) 보다 낮은 값을 정의할 수 있었습니다. 이제 AKS는 ((maxPods 또는 (maxPods * vm_count)) > 관리 되는 추가 기능 pod minimum 수식을 사용 하 여 최소 pod 수를 계산 합니다.
+AKS는 관리 되는 서비스 이므로 클러스터의 일부로 추가 기능 및 pod을 배포 하 고 관리 합니다. 이전에는 사용자가 관리 되는 pod을 실행 하는 데 필요한 값 (예: 30) 보다 낮은 `maxPods` 값을 정의할 수 있었습니다. 이제 AKS는 ((maxPods 또는 (maxPods * vm_count)) > 관리 되는 추가 기능 pod minimum 수식을 사용 하 여 최소 pod 수를 계산 합니다.
 
 사용자는 최소 `maxPods` 유효성 검사를 재정의할 수 없습니다.
 
@@ -161,17 +161,17 @@ AKS 클러스터와 Azure 구독 간에 연결 된 리소스를 이동 하는 �
 
 아니요. 업그레이드 하기 전에 실패 한 상태의 모든 노드를 삭제/제거 하거나 클러스터에서 제거 하세요.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>클러스터 삭제를 실행 했지만 @no__t 오류를 확인 합니다. 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>클러스터 삭제를 실행 했지만 오류가 표시 됩니다 `[Errno 11001] getaddrinfo failed` 
 
 가장 일반적으로이 문제는 하나 이상의 NSGs (네트워크 보안 그룹)가 계속 사용 되 고 클러스터와 연결 된 사용자에 의해 발생 합니다.  제거 하 고 삭제를 다시 시도 하세요.
 
 ## <a name="i-ran-an-upgrade-but-now-my-pods-are-in-crash-loops-and-readiness-probes-fail"></a>업그레이드를 실행 했지만 이제 pod이 충돌 루프에 있고 준비 검색이 실패 하나요?
 
-서비스 사용자가 만료 되지 않았는지 확인 하세요.  자세한 내용은 다음을 참조 하세요. [AKS 서비스 사용자](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) 및 [AKS 업데이트 자격 증명을 업데이트](https://docs.microsoft.com/azure/aks/update-credentials)합니다.
+서비스 사용자가 만료 되지 않았는지 확인 하세요.  [AKS 서비스 사용자](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) 및 [AKS 업데이트 자격 증명](https://docs.microsoft.com/azure/aks/update-credentials)을 참조 하세요.
 
 ## <a name="my-cluster-was-working-but-suddenly-can-not-provision-loadbalancers-mount-pvcs-etc"></a>클러스터가 작동 했지만 갑자기 LoadBalancers 조정기를 프로 비전 하거나, Pvc를 탑재할 수 없습니다. 
 
-서비스 사용자가 만료 되지 않았는지 확인 하세요.  자세한 내용은 다음을 참조 하세요. [AKS 서비스 사용자](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) 및 [AKS 업데이트 자격 증명을 업데이트](https://docs.microsoft.com/azure/aks/update-credentials)합니다.
+서비스 사용자가 만료 되지 않았는지 확인 하세요.  [AKS 서비스 사용자](https://docs.microsoft.com/azure/aks/kubernetes-service-principal) 및 [AKS 업데이트 자격 증명](https://docs.microsoft.com/azure/aks/update-credentials)을 참조 하세요.
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>가상 머신 확장 집합 Api를 사용 하 여 수동으로 크기를 조정할 수 있나요?
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d314cc55096f681d1bcf66d33c4c30a4060751e9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 9d2986acc47087c267193eee43136e030abcc422
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972661"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990315"
 ---
 # <a name="set-up-vcenter-identity-sources-to-use-active-directory"></a>Active Directory 사용할 vCenter id 원본 설정
 
@@ -31,6 +31,10 @@ VMware vCenter는 vCenter에 액세스 하는 사용자를 인증 하는 데 다
 이 가이드에서는 구독에서 온-프레미스 또는 가상 머신으로 실행 되는 Active Directory 도메인 및 도메인 컨트롤러를 설정 하는 작업에 대해 설명 합니다.  Azure AD를 id 원본으로 사용 하려는 경우 id 원본 설정에 대 한 자세한 지침을 보려면 [CloudSimple 사설 클라우드에서 vCenter 용 id 공급자로 AZURE Ad 사용](azure-ad.md) 을 참조 하세요.
 
 [Id 원본을 추가](#add-an-identity-source-on-vcenter)하기 전에 [vCenter 권한을 임시로 에스컬레이션](escalate-private-cloud-privileges.md)합니다.
+
+> [!CAUTION]
+> 새 사용자는 *클라우드-소유자-그룹*, *클라우드-글로벌-* 관리-그룹, 클라우드- *네트워크* -관리자- *그룹, 클라우드*-글로벌- *v m*i-관리 그룹에만 추가 해야 합니다.  *Administrators* 그룹에 추가 된 사용자는 자동으로 제거 됩니다.  서비스 계정만 *Administrators* 그룹에 추가 해야 합니다.  
+
 
 ## <a name="identity-source-options"></a>Id 원본 옵션
 
@@ -54,9 +58,9 @@ Active Directory 도메인을 설정할 때 다음 표의 정보를 사용 합�
 | **도메인 이름** | 도메인의 FDQN (예: example.com). 이 텍스트 상자에 IP 주소를 제공 하지 마십시오. |
 | **도메인 별칭** | 도메인 NetBIOS 이름입니다. SSPI 인증을 사용 하는 경우 Active Directory 도메인의 NetBIOS 이름을 id 원본의 별칭으로 추가 합니다. |
 | **그룹의 기본 DN** | 그룹에 대 한 기본 고유 이름입니다. |
-| **주 서버 URL** | 도메인에 대 한 주 도메인 컨트롤러 LDAP 서버입니다.<br><br>또는 `ldap://hostname:port` 형식을사용합니다. `ldaps://hostname:port` 포트는 일반적으로 LDAP 연결의 경우 389이 고, LDAPS 연결의 경우 636입니다. Active Directory 다중 도메인 컨트롤러 배포의 경우 포트는 일반적으로 LDAP의 경우 3268, LDAPS의 경우 3269입니다.<br><br>주 또는 보조 LDAP URL에서를 사용 `ldaps://` 하는 경우 Active Directory 서버의 LDAPS 끝점에 대 한 신뢰를 설정 하는 인증서가 필요 합니다. |
+| **주 서버 URL** | 도메인에 대 한 주 도메인 컨트롤러 LDAP 서버입니다.<br><br> `ldap://hostname:port` 또는 `ldaps://hostname:port`형식을 사용 합니다. 포트는 일반적으로 LDAP 연결의 경우 389이 고, LDAPS 연결의 경우 636입니다. Active Directory 다중 도메인 컨트롤러 배포의 경우 포트는 일반적으로 LDAP의 경우 3268, LDAPS의 경우 3269입니다.<br><br>주 또는 보조 LDAP URL에서 `ldaps://` 를 사용 하는 경우 Active Directory 서버의 LDAPS 끝점에 대 한 신뢰를 설정 하는 인증서가 필요 합니다. |
 | **보조 서버 URL** | 장애 조치 (failover)에 사용 되는 보조 도메인 컨트롤러 LDAP 서버의 주소입니다. |
-| **인증서 선택** | Active Directory LDAP 서버 또는 openldap 서버 id 원본에서 LDAPS를 사용 하려는 경우 URL 텍스트 상자에를 입력 `ldaps://` 하면 인증서 선택 단추가 표시 됩니다. 보조 URL은 필요 하지 않습니다. |
+| **인증서 선택** | Active Directory LDAP 서버 또는 OpenLDAP 서버 id 원본에서 LDAPS를 사용 하려는 경우 URL 텍스트 상자에 `ldaps://` 입력 하면 인증서 선택 단추가 나타납니다. 보조 URL은 필요 하지 않습니다. |
 | **사용자 이름** | 도메인에서 사용자 및 그룹의 기본 DN에 대 한 읽기 전용 액세스 권한이 있는 사용자의 ID입니다. |
 | **암호** | 사용자 이름으로 지정 된 사용자의 암호입니다. |
 
@@ -112,9 +116,9 @@ Azure에서 실행 되는 Active Directory 온-프레미스에서 실행 되는 
 
 4. **Single Sign On > 구성**을 선택 합니다.
 
-    ![Single Sign-On](media/OnPremAD02.png)
+    ![Single Sign On](media/OnPremAD02.png)
 
-5. **Id** 원본 탭을 열고를 클릭 **+** 하 여 새 id 원본을 추가 합니다.
+5. **Id** 원본 탭을 열고 **+** 를 클릭 하 여 새 id 원본을 추가 합니다.
 
     ![Id 원본](media/OnPremAD03.png)
 

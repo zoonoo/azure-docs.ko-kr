@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 0e4d0eb19da2485b689b1c5d5192e344153aef0b
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 353e0478172ed03cde848d8c5127d2ee41724963
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71799965"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481240"
 ---
 # <a name="release-notes"></a>릴리스 정보
-## <a name="speech-sdk-170-2019-september-release"></a>Speech SDK 1.7.0: 2019-9 월 릴리스
+## <a name="speech-sdk-170-2019-september-release"></a>Speech SDK 1.7.0:2019-9 월 릴리스
 
 **새로운 기능**
 *   UWP (Xamarin on 유니버설 Windows 플랫폼), Android 및 iOS에 대 한 beta 지원이 추가 됨
@@ -48,7 +48,7 @@ ms.locfileid: "71799965"
 *   Linux ARM64 정보를 사용 하 여 CPP 빠른 시작 업데이트
 *   IOS 정보를 사용 하 여 Unity 빠른 시작 업데이트
 
-## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0: 2019-6 월 릴리스
+## <a name="speech-sdk-160-2019-june-release"></a>Speech SDK 1.6.0:2019-6 월 릴리스
 
 **샘플**
 *   UWP 및 Unity의 텍스트를 음성으로 변환 하기 위한 빠른 시작 샘플
@@ -64,8 +64,8 @@ ms.locfileid: "71799965"
     * 이름 바꾸기 후에는 기존의 모든 Direct Line Speech 클라이언트도 계속 지원 됩니다.
 * 프록시, 영구 연결을 지원 하도록 TTS REST 어댑터 업데이트
 * 잘못 된 지역이 전달 되 면 오류 메시지 개선
-* Swift/Objective-C:
-    * 향상 된 오류 보고: 오류를 발생 시킬 수 있는 메서드는 이제 두 가지 버전으로 제공 됩니다. 오류 처리를 위해 `NSError` 개체를 노출 하는 개체와 예외를 발생 시키는 개체입니다. Swift에는 전자가 노출 됩니다. 이렇게 변경 하려면 기존 Swift 코드를 adaptation 해야 합니다.
+* Swift/목표-C:
+    * 향상 된 오류 보고: 오류를 일으킬 수 있는 메서드는 오류 처리를 위해 `NSError` 개체를 노출 하는 메서드와 예외를 발생 시키는 두 가지 버전으로 제공 됩니다. Swift에는 전자가 노출 됩니다. 이렇게 변경 하려면 기존 Swift 코드를 adaptation 해야 합니다.
     * 향상 된 이벤트 처리
 
 **버그 수정**
@@ -76,7 +76,7 @@ ms.locfileid: "71799965"
 *   안정적으로 웹 소켓을 닫는 문제 해결
 *   Linux에서 부하가 매우 높은 상태에서 연결을 여는 동안 가능한 충돌 해결
 *   MacOS 용 framework 번들의 누락 된 메타 데이터에 대 한 수정
-*   Windows에서 `pip install --user`과 관련 된 문제 해결
+*   Windows에서 `pip install --user` 문제 해결
 
 
 ## <a name="speech-sdk-151"></a>Speech SDK 1.5.1
@@ -86,17 +86,17 @@ ms.locfileid: "71799965"
 **버그 수정**
 
 * 대화 기록을 사용할 때 FromSubscription을 수정 합니다.
-* 음성 우선 가상 길잡이의 발견 키워드에서 버그를 수정 합니다.
+* 음성 도우미에 대 한 발견 키워드의 버그를 수정 합니다.
 
 
-## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0: 2019-릴리스 5 월
+## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0:2019-릴리스 수
 
 **새로운 기능**
 
-* 이제 Windows 및 Linux에서 Wake word (Keyword 발견/KWS) 기능을 사용할 수 있습니다. KWS 기능은 모든 마이크 종류에 사용할 수 있지만, 공식 KWS 지원은 현재 Azure Kinect 진한 하드웨어 또는 음성 장치 SDK에 있는 마이크 배열로 제한 되어 있습니다.
+* 이제 Windows 및 Linux에서 KWS (Keyword 발견)를 사용할 수 있습니다. KWS 기능은 모든 마이크 종류에 사용할 수 있지만, 공식 KWS 지원은 현재 Azure Kinect 진한 하드웨어 또는 음성 장치 SDK에 있는 마이크 배열로 제한 되어 있습니다.
 * 구문 힌트 기능은 SDK를 통해 사용할 수 있습니다. 자세한 내용은 [여기](how-to-phrase-lists.md)를 참조하세요.
 * 대화 내용 기능은 SDK를 통해 사용할 수 있습니다. [여기](conversation-transcription-service.md)를 참조하세요.
-* 직접 선 음성 채널을 사용 하 여 음성 우선 가상 도우미에 대 한 지원을 추가 합니다.
+* 직접 선 음성 채널을 사용 하 여 음성 도우미에 대 한 지원을 추가 합니다.
 
 **샘플**
 
@@ -105,7 +105,7 @@ ms.locfileid: "71799965"
 **향상된 기능/변경 사항**
 
 * 서비스 동작 또는 서비스 결과 (예: 마스킹 및 기타)를 조정 하는 다양 한 인식기 속성이 추가 되었습니다.
-* 이제 인식기 `FromEndpoint`을 만든 경우에도 표준 구성 속성을 통해 인식기를 구성할 수 있습니다.
+* 이제 인식기 `FromEndpoint`를 만든 경우라도 표준 구성 속성을 통해 인식기를 구성할 수 있습니다.
 * 목표-C: `OutputFormat` 속성이 SPXSpeechConfiguration에 추가 되었습니다.
 * SDK는 이제 Linux 배포판으로 Debian 9를 지원 합니다.
 
@@ -122,16 +122,16 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 * 웹 팩에서 https-프록시 에이전트를 로드 하지 못하도록 합니다.
 
-## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0: 2019-4 월 릴리스
+## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0:2019-4 월 릴리스
 
 **새로운 기능** 
 
 * 이제 SDK는 텍스트 음성 변환 서비스를 베타 버전으로 지원 합니다. 및 C++ C#의 Windows 및 Linux 데스크톱에서 지원 됩니다. 자세한 내용은 [텍스트 음성 변환 개요](text-to-speech.md#get-started-with-text-to-speech)를 참조 하세요.
 * 이제 SDK는 MP3 및 Opus/OGG 오디오 파일을 스트림 입력 파일로 지원 합니다. 이 기능은 및 C++ C# 의 Linux 에서만 사용할 수 있으며 현재 베타 버전입니다 (자세한 내용은 [여기](how-to-use-codec-compressed-audio-input-streams.md)참조).
 * Java, .NET core C++ 및 객관적인 C 용 Speech SDK는 macos를 지원 합니다. MacOS에 대 한 목표-C 지원은 현재 베타 버전입니다.
-* iOS: IOS 용 Speech SDK (목표-C)는 이제 CocoaPod로도 게시 됩니다.
+* iOS: iOS 용 Speech SDK (목표-C)도 CocoaPod으로 게시 됩니다.
 * JavaScript: 기본이 아닌 마이크를 입력 장치로 지원 합니다.
-* JavaScript: Node.js에 대 한 프록시 지원.
+* JavaScript: node.js에 대 한 프록시 지원.
 
 **샘플**
 
@@ -140,17 +140,17 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 **향상된 기능/변경 사항**
 
-* Python: 이제 `properties` 속성을 통해 인식 결과의 추가 속성이 노출 됩니다.
+* Python: 인식 결과의 추가 속성이 이제 `properties` 속성을 통해 노출 됩니다.
 * 추가 개발 및 디버그 지원을 위해 SDK 로깅 및 진단 정보를 로그 파일로 리디렉션할 수 있습니다 (자세한 내용은 [여기](how-to-use-logging.md)참조).
 * JavaScript: 오디오 처리 성능을 향상 시킵니다.
 
 **버그 수정**
 
-* Mac/iOS: 음성 서비스에 대 한 연결을 설정할 수 없는 경우 오랜 대기를 발생 시키는 버그가 수정 되었습니다.
+* Mac/iOS: 음성 서비스에 대 한 연결을 설정할 수 없는 경우 오랜 대기를 야기 하는 버그를 수정 했습니다.
 * Python: Python 콜백에서 인수에 대 한 오류 처리를 향상 시킵니다.
 * JavaScript: RequestSession에서 종료 된 음성에 대 한 잘못 된 상태 보고가 수정 되었습니다.
 
-## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1: 2019-2 월 새로 고침
+## <a name="speech-sdk-131-2019-february-refresh"></a>Speech SDK 1.3.1:2019-2 월 새로 고침
 
 이 릴리스는 버그 수정 릴리스 이며 네이티브/관리 SDK에만 영향을 줍니다. SDK의 JavaScript 버전에는 영향을 주지 않습니다.
 
@@ -158,13 +158,13 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 * 마이크 입력을 사용할 때 메모리 누수가 수정 되었습니다. 스트림 기반 또는 파일 입력에 영향을 주지 않습니다.
 
-## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0: 2019년 2월 릴리스
+## <a name="speech-sdk-130-2019-february-release"></a>Speech SDK 1.3.0:2019-2 월 릴리스
 
 **새로운 기능**
 
 * Speech SDK는 AudioConfig 클래스를 통해 입력 마이크를 선택할 수 있도록 지원합니다. 이를 통해 기본이 아닌 마이크에서 음성 서비스로 오디오 데이터를 스트리밍할 수 있습니다. 자세한 내용은 [오디오 입력 장치 선택](how-to-select-audio-input-devices.md)에 대 한 설명서를 참조 하세요. 이 기능은 JavaScript에서 아직 사용할 수 없습니다.
-* 이제 Speech SDK는 베타 버전의 Unity를 지원합니다. [GitHub 샘플 리포지토리의](https://aka.ms/csspeech/samples)문제 섹션을 통해 피드백을 제공 합니다. 이 릴리스에서는 Windows x86 및 x64(데스크톱 또는 유니버설 Windows 플랫폼 애플리케이션)와 Android(ARM32/64, x86)의 Unity를 지원합니다. 자세한 내용은 [Unity 빠른 시작](quickstart-csharp-unity.md)을 참조하세요.
-* 파일 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (이전 릴리스에서 제공 됨)은 더 이상 필요 하지 않습니다. 이제 기능이 핵심 SDK로 통합 되었습니다.
+* 이제 Speech SDK는 베타 버전의 Unity를 지원합니다. [GitHub 샘플 리포지토리의](https://aka.ms/csspeech/samples)문제 섹션을 통해 피드백을 제공 합니다. 이 릴리스에서는 Windows x86 및 x64(데스크톱 또는 유니버설 Windows 플랫폼 애플리케이션)와 Android(ARM32/64, x86)의 Unity를 지원합니다. 자세한 내용은 [Unity 빠른 시작](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=unity)을 참조하세요.
+* 이전 릴리스에서 제공 된 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 파일은 더 이상 필요 하지 않습니다. 이제 기능이 핵심 SDK로 통합 되었습니다.
 
 
 **샘플**
@@ -194,7 +194,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
   * 구문 힌트의 초기 지원 및 구현이 제공됩니다.
   * 인식을 위해 서비스 JSON을 사용하는 속성 컬렉션을 반환합니다.
 * 이제 Windows DLL이 버전 리소스를 포함합니다.
-* 인식기 @no__t를 만드는 경우-0은 끝점 URL에 직접 매개 변수를 추가할 수 있습니다. @No__t-0을 사용 하면 표준 구성 속성을 통해 인식기를 구성할 수 없습니다.
+* 인식기 `FromEndpoint` 만드는 경우 끝점 URL에 매개 변수를 직접 추가할 수 있습니다. `FromEndpoint` 사용 하 여 표준 구성 속성을 통해 인식기를 구성할 수 없습니다.
 
 **버그 수정**
 
@@ -214,7 +214,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 * 다른 인식기/엔드포인트의 버그를 수정했습니다.
 * 설명서 향상된 기능입니다.
 
-## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0: 2018년 12월 릴리스
+## <a name="speech-sdk-120-2018-december-release"></a>Speech SDK 1.2.0:2018-12 월 릴리스
 
 **새로운 기능**
 
@@ -244,11 +244,11 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 * 번역 이벤트 인수에서 메모리 누수가 수정되었습니다.
 * 장기 실행 세션에서 다시 연결 시 잠금 문제가 해결되었습니다.
 * 실패 한 번역의 최종 결과가 누락 될 수 있는 문제를 해결 했습니다.
-* C#:  주 스레드에서 비동기 작업을 기다리지 않는 경우 비동기 작업이 완료되기 전에 인식기가 삭제될 수 있었습니다.
-* Java: Java VM 충돌 문제가 해결되었습니다.
-* Objective-C: 고정 열거형 매핑. RecognizingIntent 대신 RecognizedIntent가 반환되었습니다.
-* JavaScript: SpeechConfig에서 기본 출력 형식을 'simple'로 설정합니다.
-* JavaScript: JavaScript 및 다른 언어에서 구성 개체 속성 간 불일치를 제거합니다.
+* C#: 비동기 작업이 주 스레드에서 대기 되지 않은 경우에는 비동기 작업이 완료 되기 전에 인식기를 삭제할 수 있었습니다.
+* Java: 문제를 해결 하 여 Java VM의 작동이 중단 되는 문제를 해결 했습니다.
+* 목표-C: 열거형 매핑 수정 RecognizingIntent 대신 RecognizedIntent이 반환 되었습니다.
+* JavaScript: SpeechConfig에서 기본 출력 형식을 ' a l l '로 설정 합니다.
+* JavaScript: JavaScript 및 기타 언어에서 구성 개체의 속성 간에 불일치를 제거 합니다.
 
 **샘플**
 
@@ -294,17 +294,17 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 * 속성이 설정되지 않은 경우의 잠재적인 심각한 오류가 수정되었습니다.
 * 추가 오류 및 매개 변수 검사가 추가되었습니다.
 * Objective-C: NSString에서 이름 재정의로 인한 잠재적인 심각한 오류가 수정되었습니다.
-* Objective-C: API의 표시 유형이 조정되었습니다.
+* Objectice-C: API의 표시 유형이 조정되었습니다.
 * JavaScript: 관련 이벤트 및 해당 페이로드가 수정되었습니다.
 * 설명서 향상된 기능입니다.
 
 [샘플 리포지토리](https://aka.ms/csspeech/samples)에서 JavaScript에 대한 새로운 샘플이 추가되었습니다.
 
-## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: 2018-9월 릴리스
+## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>Cognitive Services Speech SDK 1.0.0: 2018년 9월 release
 
 **새로운 기능**
 
-* iOS에서 Objective-C를 지원합니다. [iOS용 Objective-C 빠른 시작](quickstart-objectivec-ios.md)을 확인하세요.
+* iOS에서 Objective-C를 지원합니다. [iOS용 Objective-C 빠른 시작](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone-langs/objectivec-ios.md)을 확인하세요.
 * 브라우저에서 JavaScript를 지원합니다. [JavaScript 빠른 시작](quickstart-js-browser.md)을 확인하세요.
 
 **주요 변경 내용**
@@ -312,15 +312,15 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 * 이 릴리스에서는 몇 가지 주요 변경 사항이 도입 되었습니다.
   자세한 내용은 [이 페이지](https://aka.ms/csspeech/breakingchanges_1_0_0) 를 확인 하세요.
 
-## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: 2018-8월 릴리스
+## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>Cognitive Services Speech SDK 0.6.0: 2018년 8월 릴리스
 
 **새로운 기능**
 
 * Speech SDK를 사용하여 빌드된 UWP 앱은 이제 WACK(Windows 앱 인증 키트)를 전달할 수 있습니다.
-  [UWP 빠른 시작](quickstart-csharp-uwp.md)을 확인하세요.
+  [UWP 빠른 시작](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-chsarp&tabs=uwp)을 확인하세요.
 * Linux(Ubuntu 16.04 x64)에서 .NET 표준 2.0을 지원합니다.
 * 실험: Windows(64비트) 및 Linux(Ubuntu 16.04 x64)에서 Java 8을 지원합니다.
-  [Java Runtime Environment 빠른 시작](quickstart-java-jre.md)을 확인하세요.
+  [Java Runtime Environment 빠른 시작](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre)을 확인하세요.
 
 **기능 변경**
 
@@ -338,14 +338,14 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 * 오래 실행되는 인식이 전송 중에 종료될 수 있는 문제가 해결되었습니다.
 * 인식기 종료에서 발생하는 경합 조건을 수정했습니다.
 
-## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0: 2018-7월 릴리스
+## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>Cognitive Services Speech SDK 0.5.0: 2018년 7월 릴리스
 
 **새로운 기능**
 
-* Android 플랫폼 지원(API 23: Android 6.0 Marshmallow 이상). [Android 빠른 시작](quickstart-java-android.md)을 확인하세요.
-* Windows에서 .NET Standard 2.0을 지원합니다. [.NET Core 빠른 시작](quickstart-csharp-dotnetcore-windows.md)을 확인하세요.
+* Android 플랫폼(API 23: Android 6.0 Marshmallow 이상)을 지원합니다. [Android 빠른 시작](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=android)을 확인하세요.
+* Windows에서 .NET Standard 2.0을 지원합니다. [.NET Core 빠른 시작](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)을 확인하세요.
 * 실험: Windows(버전 1709 이상)에서 UWP를 지원합니다.
-  * [UWP 빠른 시작](quickstart-csharp-uwp.md)을 확인하세요.
+  * [UWP 빠른 시작](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=uwp)을 확인하세요.
   * 참고: Speech SDK를 사용하여 빌드된 UWP 앱은 아직 WACK(Windows 앱 인증 키트)를 제공하지 않습니다.
 * 자동 다시 연결을 통해 장기 실행 인식을 지원합니다.
 
@@ -360,9 +360,9 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 * 인식 이벤트: NoMatch 이벤트 유형이 Error 이벤트에 병합되었습니다.
 * C#의 SpeechOutputFormat이 C++에 맞게 OutputFormat으로 이름이 바뀌었습니다.
 * `AudioInputStream` 인터페이스의 일부 메서드 반환 형식이 다음과 같이 약간 변경되었습니다.
-   * Java에서 `read` 메서드는 이제 `int` 대신 `long`을 반환합니다.
-   * C#에서 `Read` 메서드는 이제 `int` 대신 `uint`을 반환합니다.
-   * C++에서 `Read` 및 `GetFormat` 메서드는 이제 `int` 대신 `size_t`를 반환합니다.
+   * Java에서 `read` 메서드는 이제 `long` 대신 `int`을 반환합니다.
+   * C#에서 `Read` 메서드는 이제 `uint` 대신 `int`을 반환합니다.
+   * C++에서 `Read` 및 `GetFormat` 메서드는 이제 `size_t` 대신 `int`를 반환합니다.
 * C++: 오디오 입력 스트림의 인스턴스가 이제 `shared_ptr`로만 전달될 수 있습니다.
 
 **버그 수정**
@@ -375,7 +375,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 * Android용 Speech SDK에서는 번역에 대한 음성 합성 결과를 보고하지 않습니다. 이 문제는 다음 릴리스에서 해결될 예정입니다.
 
-## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0: 2018-6월 릴리스
+## <a name="cognitive-services-speech-sdk-040-2018-june-release"></a>Cognitive Services Speech SDK 0.4.0: 2018년 6월 릴리스
 
 **기능 변경 내용**
 
@@ -389,7 +389,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 **호환성이 손상되는 변경**
 
-- C#의 `SpeechRecognitionResult.RecognizedText`가 `SpeechRecognitionResult.Text`로 변경되었습니다.
+- C#의 `SpeechRecognitionResult.Text`가 `SpeechRecognitionResult.RecognizedText`로 변경되었습니다.
 
 **버그 수정**
 
@@ -411,6 +411,6 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 추가 샘플이 추가되었고 지속적으로 업데이트되고 있습니다. 최신 샘플 집합은 [Speech SDK 샘플 GitHub 리포지토리](https://aka.ms/csspeech/samples)를 참조하세요.
 
-## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services Speech SDK 0.2.12733: 2018-5월 릴리스
+## <a name="cognitive-services-speech-sdk-0212733-2018-may-release"></a>Cognitive Services Speech SDK 0.2.12733: 2018년 5월 릴리스
 
 이 릴리스는 Cognitive Services Speech SDK의 첫 번째 공개 미리 보기 릴리스입니다.

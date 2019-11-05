@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 2647a8c33bf777cb2d97dcfe89799097ad719ac3
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 61b929756cbc4cf13103faa67a667128eaffeec8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077034"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498166"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대 한 가상 네트워크 계획
 
@@ -71,7 +71,7 @@ Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
 
     * 네트워크 보안 그룹
 
-        을 `RESOURCEGROUP` 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
+        `RESOURCEGROUP`를 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
     
         ```powershell
         Get-AzNetworkSecurityGroup -ResourceGroupName  "RESOURCEGROUP"
@@ -88,7 +88,7 @@ Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
 
     * 사용자 정의 경로
 
-        을 `RESOURCEGROUP` 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
+        `RESOURCEGROUP`를 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
 
         ```powershell
         Get-AzRouteTable -ResourceGroupName "RESOURCEGROUP"
@@ -174,7 +174,7 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
 1. HDInsight 클러스터 노드의 내부 FQDN(정규화된 도메인 이름)을 검색하려면 다음 방법 중 하나를 사용합니다.
 
-    을 `RESOURCEGROUP` 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
+    `RESOURCEGROUP`를 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
 
     ```powershell
     $clusterNICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP" | where-object {$_.Name -like "*node*"}
@@ -209,7 +209,7 @@ Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하�
 
 * **NSG(네트워크 보안 그룹)** 를 통해 네트워크로의 인바운드 및 아웃바운드 트래픽을 필터링할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/security-overview.md) 문서를 참조하세요.
 
-* **네트워크 가상 어플라이언스** (NVA)는 아웃 바운드 트래픽에만 사용할 수 있습니다. Nva는 방화벽 및 라우터와 같은 장치의 기능을 복제 합니다. 자세한 내용은 [네트워크 어플라이언스](https://azure.microsoft.com/solutions/network-appliances) 문서를 참조하세요.
+* Nva ( **네트워크 가상 어플라이언스** )는 아웃 바운드 트래픽에만 사용할 수 있습니다. Nva는 방화벽 및 라우터와 같은 장치의 기능을 복제 합니다. 자세한 내용은 [네트워크 어플라이언스](https://azure.microsoft.com/solutions/network-appliances) 문서를 참조하세요.
 
 관리 서비스인 HDInsight는 VNET에서 들어오고 나가는 트래픽에 대해 HDInsight 상태 및 관리 서비스에 대 한 무제한 액세스가 필요 합니다. NSGs를 사용 하는 경우 이러한 서비스가 HDInsight 클러스터와 계속 통신할 수 있는지 확인 해야 합니다.
 
@@ -248,6 +248,10 @@ HDInsight 클러스터에서 아웃 바운드 트래픽을 제어 하는 방법�
 특정 서비스에 대한 포트 목록은 [HDInsight의 Apache Hadoop 서비스에서 사용되는 포트](hdinsight-hadoop-port-settings-for-services.md) 문서를 참조하세요.
 
 가상 어플라이언스의 방화벽 규칙에 대한 자세한 내용은 [가상 어플라이언스 시나리오](../virtual-network/virtual-network-scenario-udr-gw-nva.md) 문서를 참조하세요.
+
+## <a name="load-balancing"></a>부하 분산
+
+HDInsight 클러스터를 만들 때 부하 분산 장치도 만들어집니다. 이 부하 분산 장치의 형식은 특정 제약 조건이 있는 [기본 SKU 수준](../load-balancer/load-balancer-overview.md#skus) 에 있습니다. 이러한 제약 조건 중 하나는 서로 다른 지역에 두 개의 가상 네트워크가 있는 경우 기본 부하 분산 장치에 연결할 수 없다는 것입니다. 자세한 내용은 [가상 네트워크 FAQ: 글로벌 vnet 피어 링의 제약 조건](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

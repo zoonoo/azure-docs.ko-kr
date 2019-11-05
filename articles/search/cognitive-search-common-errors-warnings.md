@@ -1,24 +1,23 @@
 ---
-title: 일반적인 오류 및 경고-Azure Search
-description: 이 문서에서는 Azure Search AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
-services: search
-manager: heidist
+title: 일반적인 오류 및 경고
+titleSuffix: Azure Cognitive Search
+description: 이 문서에서는 Azure Cognitive Search의 AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
+manager: nitinme
 author: amotley
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: 6455ac9dbe0933f6d46d1137e0a19dcc388d8c80
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
-ms.translationtype: MT
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 540e72a4472fce626822f0b22bfac11a23aea205
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243046"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466764"
 ---
-# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Azure Search AI 보강 파이프라인의 일반적인 오류 및 경고
+# <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Azure Cognitive Search AI 보강 파이프라인의 일반적인 오류 및 경고
 
-이 문서에서는 Azure Search AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
+이 문서에서는 Azure Cognitive Search의 AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
 
 ## <a name="errors"></a>오류
 오류 수가 [' Maxfaileditems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures)를 초과 하면 인덱싱이 중지 됩니다. 
@@ -35,7 +34,7 @@ ms.locfileid: "73243046"
 
 | 이유 | 예제 | 실행력 |
 | --- | --- | --- |
-| 여러 문서에서 일치 하지 않는 필드 형식 | 값의 형식이 열 형식과 일치 하지 않습니다. 작성자 열에 `'{47.6,-122.1}'`를 저장할 수 없습니다.  필요한 형식은 JArray입니다. | 각 필드의 형식이 서로 다른 문서에서 동일한 지 확인 합니다. 예를 들어 첫 번째 문서 `'startTime'` 필드가 DateTime이 고 두 번째 문서에서 문자열이 면이 오류가 발생 합니다. |
+| 여러 문서에서 일치 하지 않는 필드 형식 | 값의 형식이 열 형식과 일치 하지 않습니다. 작성자 열에 `'{47.6,-122.1}'`을 저장할 수 없습니다.  필요한 형식은 JArray입니다. | 각 필드의 형식이 서로 다른 문서에서 동일한 지 확인 합니다. 예를 들어 첫 번째 문서 `'startTime'` 필드가 DateTime이 고 두 번째 문서에서 문자열이 면이 오류가 발생 합니다. |
 | 데이터 원본의 기본 서비스에서 발생 한 오류 | (Cosmos DB) `{"Errors":["Request rate is large"]}` | 저장소 인스턴스를 확인 하 여 정상 상태 인지 확인 합니다. 크기 조정/분할을 조정 해야 할 수 있습니다. |
 | 일시적인 문제 | 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: TCP 공급자, 오류: 0-기존 연결이 원격 호스트에 의해 강제로 끊겼습니다.) | 예기치 않은 연결 문제가 발생 하는 경우도 있습니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
 
@@ -44,7 +43,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 | 이유 | 예제 | 실행력 |
 | --- | --- | --- |
-| blob이 크기 제한을 초과 합니다. | 문서가 현재 서비스 계층의 문서 추출에 대 한 최대 크기 `'134217728'` 바이트를 초과 하는 `'150441598'` 바이트입니다. | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
+| blob이 크기 제한을 초과 합니다. | 문서는 현재 서비스 계층의 문서 추출에 대 한 최대 크기 `'134217728'` 바이트를 초과 하는 `'150441598'` 바이트입니다. | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob의 콘텐츠 형식이 지원 되지 않습니다. | 문서에 지원 되지 않는 콘텐츠 형식이 있습니다 `'image/png'` | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob이 암호화 되어 있습니다. | 문서를 처리할 수 없습니다. 암호화 또는 암호로 보호할 수 있습니다. | [blob 설정](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed) |
 | 일시적인 문제 | Blob 처리 오류: 요청이 중단 되었습니다. 요청이 취소 되었습니다. | 예기치 않은 연결 문제가 발생 하는 경우도 있습니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
@@ -56,8 +55,8 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 | --- | --- | --- |
 | 문서 키가 없습니다. | 문서 키를 누락 하거나 비워 둘 수 없습니다. | 모든 문서에 유효한 문서 키가 있는지 확인 |
 | 문서 키가 잘못 되었습니다. | 문서 키는 1024 자를 초과할 수 없습니다. | 유효성 검사 요구 사항에 맞게 문서 키를 수정 합니다. |
-| 필드에 필드 매핑을 적용할 수 없습니다. | 매핑 함수 `'functionName'` `'fieldName'` 필드에 적용할 수 없습니다. 배열은 null 일 수 없습니다. 매개 변수 이름: 바이트 | 인덱서에 정의 된 [필드 매핑을](search-indexer-field-mappings.md) 두 번 확인 하 고 실패 한 문서의 지정 된 필드의 데이터와 비교 합니다. 필드 매핑 또는 문서 데이터를 수정 해야 할 수도 있습니다. |
-| 필드 값을 읽을 수 없습니다. | 인덱스 `'fieldIndex'`에서 열 `'fieldName'`의 값을 읽을 수 없습니다. 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: TCP 공급자, 오류: 0-기존 연결이 원격 호스트에 의해 강제로 끊겼습니다.) | 이러한 오류는 일반적으로 데이터 원본의 기본 서비스와 관련 된 예기치 않은 연결 문제로 인해 발생 합니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
+| 필드에 필드 매핑을 적용할 수 없습니다. | 매핑 함수 `'functionName'` `'fieldName'`필드에 적용할 수 없습니다. 배열은 null 일 수 없습니다. 매개 변수 이름: 바이트 | 인덱서에 정의 된 [필드 매핑을](search-indexer-field-mappings.md) 두 번 확인 하 고 실패 한 문서의 지정 된 필드의 데이터와 비교 합니다. 필드 매핑 또는 문서 데이터를 수정 해야 할 수도 있습니다. |
+| 필드 값을 읽을 수 없습니다. | 인덱스 `'fieldIndex'`에서 `'fieldName'` 열의 값을 읽을 수 없습니다. 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: TCP 공급자, 오류: 0-기존 연결이 원격 호스트에 의해 강제로 끊겼습니다.) | 이러한 오류는 일반적으로 데이터 원본의 기본 서비스와 관련 된 예기치 않은 연결 문제로 인해 발생 합니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
 
 ### <a name="could-not-execute-skill"></a>기술을 실행할 수 없습니다.
 인덱서가 기술에서 기술을 실행할 수 없습니다.
@@ -81,7 +80,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 언어 검색, 엔터티 인식 또는 OCR과 같은 여러 가지 내장 인식 기술이 인식 서비스 API 끝점에 의해 지원 됩니다. 이러한 끝점에 일시적인 문제가 있어 요청 시간이 초과 되는 경우가 있습니다. 일시적인 문제의 경우 대기를 제외 하 고 다시 시도 하는 경우를 제외 하 고는 해결 방법이 없습니다. 이를 완화 하려면 [일정에 따라 실행](search-howto-schedule-indexers.md)되도록 인덱서를 설정 하는 것이 좋습니다. 예약 된 인덱싱이 중단 된 위치에서 선택 합니다. 일시적인 문제를 해결 하는 것으로 가정 하면 인덱싱 및 인식 기술 처리는 다음에 예약 된 실행을 계속할 수 있습니다.
 
 #### <a name="custom-skills"></a>사용자 지정 기술
-만든 사용자 지정 기술에 시간 초과 오류가 발생 하는 경우 몇 가지 작업을 수행해 볼 수 있습니다. 먼저 사용자 지정 기술을 검토 하 고 무한 루프에서 중단 되 고 결과를 일관 되 게 반환 하는지 확인 합니다. 이를 확인 한 후에는 기술 실행 시간을 결정 합니다. 사용자 지정 기술 정의에 `timeout` 값을 명시적으로 설정 하지 않은 경우 기본 `timeout` 30 초입니다. 30 초가 너무 길어서 기술 실행에 충분 하지 않은 경우 사용자 지정 기술 정의에 더 높은 `timeout` 값을 지정할 수 있습니다. 다음은 시간 제한이 90 초로 설정 된 사용자 지정 기술 정의의 예입니다.
+만든 사용자 지정 기술에 시간 초과 오류가 발생 하는 경우 몇 가지 작업을 수행해 볼 수 있습니다. 먼저 사용자 지정 기술을 검토 하 고 무한 루프에서 중단 되 고 결과를 일관 되 게 반환 하는지 확인 합니다. 이를 확인 한 후에는 기술 실행 시간을 결정 합니다. 사용자 지정 기술 정의에 `timeout` 값을 명시적으로 설정 하지 않은 경우 기본값 `timeout`이 30 초입니다. 30 초가 너무 길어서 기술 실행에 충분 하지 않은 경우 사용자 지정 기술 정의에 더 높은 `timeout` 값을 지정할 수 있습니다. 다음은 시간 제한이 90 초로 설정 된 사용자 지정 기술 정의의 예입니다.
 
 ```json
   {
@@ -105,7 +104,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
       }
 ```
 
-`timeout` 매개 변수에 대해 설정할 수 있는 최대값은 230 초입니다.  사용자 지정 기술이 230 초 내에 일관 되 게 실행할 수 없는 경우 단일 실행 내에서 처리할 문서 수가 줄어들기 때문에 사용자 지정 기술 `batchSize`를 줄이는 것을 고려할 수 있습니다.  이미 `batchSize`를 1로 설정한 경우에는 230 초 이내에 실행할 수 있도록 기술를 다시 작성 하거나, 단일 사용자 지정 기술에 대 한 실행 시간이 최대 230 초인 경우 여러 사용자 지정 기술로 분할 해야 합니다. 자세한 내용은 [사용자 지정 기술 설명서](cognitive-search-custom-skill-web-api.md) 를 참조 하십시오.
+`timeout` 매개 변수에 대해 설정할 수 있는 최대값은 230 초입니다.  사용자 지정 기술이 230 초 내에 일관 되 게 실행할 수 없는 경우 단일 실행 내에서 처리할 문서 수가 줄어들기 때문에 사용자 지정 기술 `batchSize`을 줄이는 것이 좋습니다.  이미 `batchSize`를 1로 설정한 경우에는 230 초 이내에 실행할 수 있도록 기술를 다시 작성 하거나, 단일 사용자 지정 기술에 대 한 실행 시간이 최대 230 초인 경우 여러 사용자 지정 기술로 분할 해야 합니다. 자세한 내용은 [사용자 지정 기술 설명서](cognitive-search-custom-skill-web-api.md) 를 참조 하십시오.
 
 ### <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>'`MergeOrUpload`'을 (를) 할 수 없습니다. | 검색 인덱스에 '`Delete`' 문서
 
@@ -118,6 +117,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 | 쿼리가 나 인덱싱 등의 다른 부하에서 서비스를 하 고 있으므로 대상 인덱스에 연결 하는 데 문제가 있습니다 (재시도 후 지속 됨). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스의 부하가 높습니다. | [Search 서비스 확장](search-capacity-planning.md)
 | 서비스 업데이트를 위해 검색 서비스를 패치 하 고 있거나 토폴로지를 다시 구성 하는 중입니다. | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스가 현재 다운 되었거나 검색 서비스에서 전환 중입니다. | [SLA 설명서](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 당 99.9%의 가용성을 위해 3 개 이상의 복제본을 사용 하 여 서비스를 구성 합니다.
 | 기본 계산/네트워킹 리소스에서 오류가 발생 했습니다 (드문 경우). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 알 수 없는 오류가 발생 했습니다. | 실패 상태에서 선택할 수 있도록 [일정에 따라 실행](search-howto-schedule-indexers.md) 되도록 인덱서를 구성 합니다.
+| 네트워크 문제로 인해 대상 인덱스에 대해 수행 된 인덱싱 요청이 시간 제한 기간 내에 승인 되지 않았습니다. | 적시에 검색 인덱스에 대 한 연결을 설정할 수 없습니다. | 실패 상태에서 선택할 수 있도록 [일정에 따라 실행](search-howto-schedule-indexers.md) 되도록 인덱서를 구성 합니다. 또한이 오류 조건이 지속 되는 경우 인덱서 [일괄 처리 크기](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) 를 줄여 보세요.
 
 ### <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>인덱스에 대 한 인덱서 데이터가 잘못 되었으므로 문서를 인덱싱할 수 없습니다.
 
@@ -131,7 +131,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 | 소스 문서에서 알 수 없는 형식이 검색 되었습니다. | 알 수 없는 '_unknown_' 형식을 인덱싱할 수 없습니다. |
 | 원본 문서에서 지리적 위치에 대해 호환 되지 않는 표기법이 사용 되었습니다. | WKT POINT 문자열 리터럴은 지원 되지 않습니다. 대신 GeoJson point 리터럴을 사용 하세요. |
 
-이러한 모든 경우에는 [Azure Search의 인덱서에 대해](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) [지원 되는 데이터 형식 (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 및 데이터 형식 맵을 참조 하 여 인덱스 스키마를 올바르게 작성 하 고 적절 한 [인덱서 필드 매핑을](search-indexer-field-mappings.md)설정 했는지 확인 합니다. 오류 메시지에는 불일치의 원인을 추적 하는 데 도움이 되는 세부 정보가 포함 됩니다.
+이러한 모든 경우에 대해 [지원 되는 데이터 형식](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) 및 [인덱서의 데이터 형식 맵](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) 을 참조 하 여 인덱스 스키마를 올바르게 작성 하 고 적절 한 [인덱서 필드 매핑을](search-indexer-field-mappings.md)설정 했는지 확인 합니다. 오류 메시지에는 불일치의 원인을 추적 하는 데 도움이 되는 세부 정보가 포함 됩니다.
 
 ### <a name="could-not-process-document-within-indexer-max-run-time"></a>인덱서 최대 실행 시간 내에서 문서를 처리할 수 없습니다.
 
@@ -143,7 +143,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 ### <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>기술 입력이 잘못 되어 스킬을 실행할 수 없습니다.
 기술에 대 한 입력이 누락 되었거나, 형식이 잘못 되었거나, 잘못 되었기 때문에 인덱서가 기술에서 기술을 실행할 수 없습니다.
 
-인식 기술에는 필수 입력과 선택적 입력이 있습니다. 예를 들어 [키 구 추출 기술](cognitive-search-skill-keyphrases.md) 에는 두 가지 필수 입력 `text`, `languageCode` 및 선택적 입력이 없습니다. 필요한 입력이 잘못 된 경우에는 해당 기술을 건너뛰고 경고가 생성 됩니다. 건너뛴 스킬은 출력을 생성 하지 않으므로 다른 기술에서 건너뛴 기술의 출력을 사용 하는 경우 추가 경고를 생성할 수 있습니다.
+인식 기술에는 필수 입력과 선택적 입력이 있습니다. 예를 들어 [키 구 추출 기술](cognitive-search-skill-keyphrases.md) 에는 두 가지 필수 입력 `text`, `languageCode`및 선택적 입력이 없습니다. 필요한 입력이 잘못 된 경우에는 해당 기술을 건너뛰고 경고가 생성 됩니다. 건너뛴 스킬은 출력을 생성 하지 않으므로 다른 기술에서 건너뛴 기술의 출력을 사용 하는 경우 추가 경고를 생성할 수 있습니다.
 
 누락 된 입력에 대 한 기본값을 제공 하려는 경우에는 [조건부 기술을](cognitive-search-skill-conditional.md) 사용 하 여 기본값을 생성 한 다음 [조건 기술](cognitive-search-skill-conditional.md) 출력을 기술 입력으로 사용할 수 있습니다.
 
@@ -163,9 +163,9 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 | 이유 | 예제 | 실행력 |
 | --- | --- | --- |
-| 기술 입력의 형식이 잘못 되었습니다. | 필요한 기술 입력 `X` `String` 필요한 유형이 아닙니다. 필요한 기술 입력 `X`은 (는) 예상 된 형식이 아닙니다. | 특정 기술에는 특정 형식의 입력이 필요 합니다. 예를 들어 [감정 기술](cognitive-search-skill-sentiment.md) 에는 `text` 문자열이 필요 합니다. 입력에서 문자열이 아닌 값을 지정 하는 경우 기술은 실행 되지 않으며 출력을 생성 하지 않습니다. 데이터 집합에 형식에서 입력 값이 균일 한지 확인 하거나 [사용자 지정 웹 API 기술을](cognitive-search-custom-skill-web-api.md) 사용 하 여 입력을 전처리 합니다. 배열에 대 한 기술을 반복 하는 경우 기술 컨텍스트를 확인 하 고 입력 `*` 올바른 위치에 있어야 합니다. 일반적으로 컨텍스트와 입력 소스는 모두 배열에 대 한 `*`로 끝나야 합니다. |
+| 기술 입력의 형식이 잘못 되었습니다. | 필요한 기술 입력 `X` `String`필요한 유형이 아닙니다. 필요한 기술 입력 `X`은 (는) 예상 된 형식이 아닙니다. | 특정 기술에는 특정 형식의 입력이 필요 합니다. 예를 들어 [감정 기술](cognitive-search-skill-sentiment.md) 에는 `text` 문자열이 필요 합니다. 입력에서 문자열이 아닌 값을 지정 하는 경우 기술은 실행 되지 않으며 출력을 생성 하지 않습니다. 데이터 집합에 형식에서 입력 값이 균일 한지 확인 하거나 [사용자 지정 웹 API 기술을](cognitive-search-custom-skill-web-api.md) 사용 하 여 입력을 전처리 합니다. 배열에 대 한 기술을 반복 하는 경우 기술 컨텍스트를 확인 하 고 입력 `*` 올바른 위치에 있어야 합니다. 일반적으로 컨텍스트와 입력 소스는 모두 배열에 대 한 `*`로 끝나야 합니다. |
 | 기술 입력이 누락 되었습니다. | 필요한 기술 입력 `X` 누락 되었습니다. | 모든 문서에서이 경고가 표시 되는 경우 입력 경로에 오타가 있을 가능성이 가장 높습니다. 경로에 대 한 속성 이름 대/소문자 구분, 추가 또는 누락 `*`, 데이터 원본에서의 문서는 필요한 입력을 정의 해야 합니다. |
-| 기술 언어 코드 입력이 잘못 되었습니다. | 기술 입력 `languageCode`에 다음 언어 코드가 `X,Y,Z` 하나 이상 유효 하지 않습니다. | [아래](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) 자세히 보기 |
+| 기술 언어 코드 입력이 잘못 되었습니다. | 기술 입력 `languageCode`에 다음 언어 코드가 `X,Y,Z`하나 이상 유효 하지 않습니다. | [아래](cognitive-search-common-errors-warnings.md#skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid) 자세히 보기 |
 
 ### <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>기술 입력 ' languageCode '에 다음 언어 코드 ' X, Y, Z '가 하나 이상 잘못 되었습니다.
 다운스트림 기술에 대 한 선택적 `languageCode` 입력으로 전달 된 값 중 하나 이상이 지원 되지 않습니다. 이 문제는 [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) 의 출력을 후속 기술로 전달 하 고 출력이 해당 다운스트림 기술에서 지원 되는 것 보다 많은 언어로 구성 된 경우에 발생할 수 있습니다.
@@ -225,3 +225,8 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 이 동작을 재정의 하 여 증분 진행률을 활성화 하 고 `assumeOrderByHighWatermarkColumn` 구성 속성을 사용 하 여이 경고를 표시 하지 않을 수 있습니다.
 
 [Cosmos DB 증분 진행률 및 사용자 지정 쿼리를 추가 하는 방법에 대해 자세히 설명 합니다.](https://go.microsoft.com/fwlink/?linkid=2099593)
+
+### <a name="could-not-map-output-field-x-to-search-index"></a>' X ' 출력 필드를 검색 인덱스에 매핑할 수 없습니다.
+존재 하지 않는/null 데이터를 참조 하는 출력 필드 매핑은 각 문서에 대 한 경고를 생성 하 고 빈 인덱스 필드를 생성 합니다. 이 문제를 해결 하려면 출력 필드 매핑 원본 경로에서 가능한 오타를 다시 확인 하거나 [조건부 기술을](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist)사용 하 여 기본값을 설정 합니다.
+
+인덱서가 기술에서 기술을 실행할 수 있었지만 웹 API 요청의 응답이 실행 중에 경고가 발생 했음을 나타냅니다. 경고를 검토 하 여 데이터의 영향을 받는 방법 및 조치가 필요한 지 여부를 파악 합니다.

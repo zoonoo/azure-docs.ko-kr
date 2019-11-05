@@ -1,5 +1,5 @@
 ---
-title: 하나의 Azure Data Lake Storage 계정으로 여러 HDInsight 클러스터 사용
+title: 여러 HDInsight 클러스터 & Azure Data Lake Storage 계정 하나
 description: 단일 Data Lake Storage 계정으로 하나 이상의 HDInsight 클러스터를 사용하는 방법에 대해 알아봅니다
 keywords: hdinsight 스토리지, hdfs, 구조화된 데이터, 구조화되지 않은 데이터, Data Lake Store
 author: hrasheed-msft
@@ -9,17 +9,17 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 776d8f31a5353604ff1c887bdfa214d07b2bfb48
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: ba0c26d87f2161af514c9430eae5c9949ef92b15
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70733176"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498180"
 ---
 # <a name="use-multiple-hdinsight-clusters-with-an-azure-data-lake-storage-account"></a>Azure Data Lake Storage 계정으로 여러 HDInsight 클러스터 사용
 
 HDInsight 버전 3.5 이상에서는 기본 파일 시스템으로 Azure Data Lake Storage 계정을 사용하여 HDInsight 클러스터를 만들 수 있습니다.
-Data Lake Storage는 많은 양의 데이터 호스팅뿐만 아니라 단일 Data Lake Storage 계정을 공유하는 여러 HDInsight 클러스터 호스팅에 적합하도록 만드는 제한되지 않은 스토리지를 지원합니다. Data Lake Storage를 스토리지로 사용하여 HDInsight 클러스터를 만드는 방법에 대한 지침은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+Data Lake Storage는 많은 양의 데이터 호스팅뿐만 아니라 단일 Data Lake Storage 계정을 공유하는 여러 HDInsight 클러스터 호스팅에 적합하도록 만드는 제한되지 않은 스토리지를 지원합니다. 저장소로 Data Lake Storage를 사용 하 여 HDInsight 클러스터를 만드는 방법에 대 한 지침은 [빠른 시작: hdinsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조 하세요.
 
 이 문서에서는 Data Lake Storage 관리자에게 여러 **활성** HDInsight 클러스터에서 사용할 수 있는 단일 및 공유 Data Lake Storage 계정 설정에 대한 권장 사항을 제공합니다. 이러한 권장 사항은 여러 보안 호스팅뿐만 아니라 공유 Data Lake Storage 계정에서 비보안 Apache Hadoop 클러스터에도 적용됩니다.
 
@@ -34,11 +34,11 @@ Data Lake Storage는 많은 양의 데이터 호스팅뿐만 아니라 단일 Da
 HDInsight 클러스터에서 이 폴더 구조를 효과적으로 사용하려면 Data Lake Storage 관리자는 테이블에 설명된 대로 적절한 권한을 할당해야 합니다. 테이블에 표시된 사용 권한은 액세스-ACL에 해당하며 기본 ACL에 해당하지 않습니다. 
 
 
-|폴더  |사용 권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
+|폴더  |권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
 |---------|---------|---------|---------|---------|---------|---------|---------|
-|/ | rwxr-x--x  |관리자 |관리자  |서비스 사용자 |--x  |FINGRP   |r-x         |
-|/클러스터 | rwxr-x--x |관리자 |관리자 |서비스 사용자 |--x  |FINGRP |r-x         |
-|/클러스터/재무 | rwxr-x--t |관리자 |FINGRP  |서비스 사용자 |rwx  |-  |-     |
+|/ | rwxr-x--x  |admin |admin  |서비스 주체 |--x  |FINGRP   |r-x         |
+|/클러스터 | rwxr-x--x |admin |admin |서비스 주체 |--x  |FINGRP |r-x         |
+|/클러스터/재무 | rwxr-x--t |admin |FINGRP  |서비스 주체 |rwx  |-  |-     |
 
 테이블에서,
 
@@ -55,7 +55,7 @@ AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체�
 - 다른 AAD 서비스 주체에서 **/클러스터/재무**에 클러스터를 만들 수 있는 경우, 고정 비트(**재무** 폴더에서 설정된 경우)를 통해 하나의 서비스 주체에서 만든 폴더는 다른 서비스 주체에서 삭제할 수 없습니다.
 - 폴더 구조 및 사용 권한이 준비 되 면 HDInsight 클러스터 만들기 프로세스에서 **/clusters/finance/** 아래에 클러스터 관련 저장소 위치를 만듭니다. 예를 들어 fincluster01이라는 이름의 클러스터에 대한 스토리지는 **/클러스터/재무/fincluster01**이 될 수 있습니다. HDInsight 클러스터에 의해 생성된 폴더에 대한 소유권 및 권한은 테이블에 표시됩니다.
 
-    |폴더  |사용 권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
+    |폴더  |권한  |소유 사용자  |소유 그룹  | 명명된 사용자 | 명명된 사용자 권한 | 명명된 그룹 | 명명된 그룹 권한 |
     |---------|---------|---------|---------|---------|---------|---------|---------|
     |/클러스터/재무/fincluster01 | rwxr-x---  |서비스 주체 |FINGRP  |- |-  |-   |-  | 
    
@@ -90,7 +90,7 @@ AAD 애플리케이션을 만드는 방법에 대한 지침은(서비스 주체�
 #### <a name="workaround"></a>해결 방법
 계층을 통해 **다른 사용자**에 대한 읽기-실행 권한을 설정합니다(예: **/** 에서 위의 테이블에 나와 있는 것처럼 **/클러스터** 및 **/클러스터/재무**).
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
-* [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+* [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
 * [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](hdinsight-hadoop-use-data-lake-storage-gen2.md)

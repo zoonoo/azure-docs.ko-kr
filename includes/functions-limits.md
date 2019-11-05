@@ -4,30 +4,30 @@ ms.service: billing
 ms.topic: include
 ms.date: 05/09/2019
 ms.author: glenga
-ms.openlocfilehash: d00af77a2d502cb534a4ab4a0db9231e5e8748b7
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ad87964216db72cfef447a18d4cd05b8a976491b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69636440"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476912"
 ---
-| 리소스 | [소비 계획](../articles/azure-functions/functions-scale.md#consumption-plan) | [프리미엄 요금제](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service 계획](../articles/azure-functions/functions-scale.md#app-service-plan) <sup>1</sup> |
+| 리소스 | [소비 계획](../articles/azure-functions/functions-scale.md#consumption-plan) | [프리미엄 요금제](../articles/azure-functions/functions-scale.md#premium-plan) | [App Service 계획](../articles/azure-functions/functions-scale.md#app-service-plan)<sup>1</sup> |
 | --- | --- | --- | --- |
-| 규모 확장 | 이벤트 기반 | 이벤트 기반 | [수동/자동 크기 조정](../articles/app-service/manage-scale-up.md) | 
-| 최대 인스턴스 수 | 200 | 20 | 10-20 |
+| 확장 | 이벤트 기반 | 이벤트 기반 | [수동/자동 크기 조정](../articles/app-service/manage-scale-up.md) | 
+| 최대 인스턴스 | 200 | 20 | 10-20 |
 |기본 [제한 시간](../articles/azure-functions/functions-scale.md#timeout) (분) |5 | 30 |30<sup>2</sup> |
-|최대 [제한 시간](../articles/azure-functions/functions-scale.md#timeout) (분) |10 | unbounded | unbounded<sup>3</sup> |
+|최대 [제한 시간](../articles/azure-functions/functions-scale.md#timeout) (분) |10 | unbounded | 바인딩되지 않은<sup>3</sup> |
 | 최대 아웃 바운드 연결 (인스턴스당) | 600 활성 (총 1200) | unbounded | unbounded |
 | 최대 요청 크기 (MB)<sup>4</sup> | 100 | 100 | 100 |
 | 최대 쿼리 문자열 길이<sup>4</sup> | 4096 | 4096 | 4096 |
 | 최대 요청 URL 길이<sup>4</sup> | 8192 | 8192 | 8192 |
 | 인스턴스당 [Acu](../articles/virtual-machines/windows/acu.md) | 100 | 210-840 | 100-840 |
 | 최대 메모리 (인스턴스당 GB) | 1.5 | 3.5-14 | 1.75 g-14 |
-| 계획 당 함수 앱 |100 |100 |unbounded<sup>5</sup> |
+| 계획 당 함수 앱 |100 |100 |제한 없음<sup>5</sup> |
 | [App Service 계획](../articles/app-service/overview-hosting-plans.md) | 100/ [지역](https://azure.microsoft.com/global-infrastructure/regions/) |리소스 그룹당 100 |리소스 그룹당 100 |
-| Storage<sup>6</sup> |1GB |250GB |50-1000 GB |
+| 저장소<sup>6</sup> |1 GB |250GB |50-1000 GB |
 | 앱당 사용자 지정 도메인</a> |500<sup>7</sup> |500 |500 |
-| 사용자 지정 도메인 [SSL 지원](../articles/app-service/app-service-web-tutorial-custom-ssl.md) |제한 없는 SNI SSL 연결 포함 | 제한 없는 SNI SSL 및 1 개의 IP SSL 연결 포함 |제한 없는 SNI SSL 및 1 개의 IP SSL 연결 포함 | 
+| 사용자 지정 도메인 [SSL 지원](../articles/app-service/configure-ssl-bindings.md) |제한 없는 SNI SSL 연결 포함 | 제한 없는 SNI SSL 및 1 개의 IP SSL 연결 포함 |제한 없는 SNI SSL 및 1 개의 IP SSL 연결 포함 | 
 
 <sup>1</sup> 다양 한 App Service 계획 옵션에 대 한 특정 한도는 [App Service 계획 제한](../articles/azure-subscription-service-limits.md#app-service-limits)을 참조 하세요.  
 <sup>2</sup> 기본적으로 App Service 계획의 함수 1.x 런타임에 대 한 제한 시간은 제한 되지 않습니다.  

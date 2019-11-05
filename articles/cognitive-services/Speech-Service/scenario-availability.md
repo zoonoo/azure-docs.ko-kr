@@ -8,14 +8,14 @@ manager: xdh
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: af5bb7126af65a755cb1d58788d39cb8bdcbbb3b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6ec31df7cef8391728eae7845f64f55bb1c6466a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959034"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73491350"
 ---
 # <a name="scenario-availability"></a>시나리오 가용성
 
@@ -31,13 +31,13 @@ ms.locfileid: "71959034"
   - Swift
   - Objective-C
   - TTS REST API은 다른 모든 상황에서 사용할 수 있습니다.
-- **Wake Word (Keyword 관찰자/KWS)**
+- **KWS (Keyword 발견)**
   - C++/Swindows & Linux
-  - C#/Windows & Linux
+  - C#/Swindows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (음성 장치 SDK)
-  - 절전 모드 해제 단어 (Keyword 관찰자/KWS) 기능은 모든 마이크 종류에 사용할 수 있지만, 공식 KWS 지원은 현재 Azure Kinect 진한 하드웨어 또는 음성 장치 SDK에 있는 마이크 배열로 제한 되어 있습니다.
-- **음성 우선 가상 길잡이**
+  - KWS (Keyword 발견) 기능은 모든 마이크 종류에 사용할 수 있지만, 공식 KWS 지원은 현재 Azure Kinect 진한 하드웨어 또는 음성 장치 SDK에 있는 마이크 배열로 제한 되어 있습니다.
+- **음성 도우미**
   - C++/Swindows & Linux & macOS
   - C#/Windows
   - Java/Windows & Linux & macOS & Android (음성 장치 SDK)

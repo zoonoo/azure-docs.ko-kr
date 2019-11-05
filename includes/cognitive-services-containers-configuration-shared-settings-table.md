@@ -1,25 +1,25 @@
 ---
 author: IEvangelist
 ms.author: dapine
-ms.date: 06/25/2019
+ms.date: 10/02/2019
 ms.service: cognitive-services
 ms.topic: include
-ms.openlocfilehash: 46376477aae9f94c1c8f6e1dd6bc718d213cc373
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7ccbc6c06419d22add7c52829069bb858cb35cf7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67712594"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484101"
 ---
-컨테이너는 다음 구성 설정은 다음과 같습니다.
+컨테이너의 구성 설정은 다음과 같습니다.
 
-|필수|설정|용도|
+|필수|설정|목적|
 |--|--|--|
 |예|[ApiKey](#apikey-configuration-setting)|청구 정보를 추적 합니다.|
-|아니요|[ApplicationInsights](#applicationinsights-setting)|추가 사용 하도록 설정 [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) 컨테이너에 원격 분석 지원.|
-|예|[Billing](#billing-configuration-setting)|Azure에서 서비스 리소스의 엔드포인트 URI를 지정합니다.|
+|아니요|[ApplicationInsights](#applicationinsights-setting)|컨테이너에 [Azure 애플리케이션 Insights](https://docs.microsoft.com/azure/application-insights) 원격 분석 지원을 추가할 수 있습니다.|
+|예|[결제](#billing-configuration-setting)|Azure에서 서비스 리소스의 엔드포인트 URI를 지정합니다.|
 |예|[Eula](#eula-setting)| 컨테이너에 대한 라이선스에 동의했음을 나타냅니다.|
-|아니요|[Fluentd](#fluentd-settings)|로그 쓰기 및 필요에 따라 Fluentd 서버로 메트릭 데이터입니다.|
-|아니요|Http 프록시|아웃 바운드 요청에 대 한 HTTP 프록시를 구성 합니다.|
+|아니요|[Fluentd](#fluentd-settings)|Fluentd 서버에 로그 및 필요에 따라 메트릭 데이터를 씁니다.|
+|아니요|HTTP 프록시|아웃 바운드 요청을 만들기 위해 HTTP 프록시를 구성 합니다.|
 |아니요|[Logging](#logging-settings)|컨테이너에 대한 ASP.NET Core 로깅 지원을 제공합니다. |
-|예|[Mounts](#mount-settings)|읽기 및 쓰기 데이터 컨테이너 및 컨테이너에 호스트 컴퓨터에서 다시 호스트 컴퓨터에 있습니다.|
+|아니요|[Mounts](#mount-settings)|호스트 컴퓨터의 데이터를 읽고 컨테이너에서 호스트 컴퓨터로 다시 씁니다.|

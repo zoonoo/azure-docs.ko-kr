@@ -1,5 +1,5 @@
 ---
-title: 의도-LUIS
+title: 의도 및 엔터티-LUIS
 titleSuffix: Azure Cognitive Services
 description: 단일 의도는 사용자가 수행 하려는 작업 또는 작업을 나타냅니다. 사용자의 발언으로 표현되는 목적 또는 목표입니다. 사용자가 애플리케이션에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다.
 services: cognitive-services
@@ -9,77 +9,67 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: bb7fa9d930f4c1ab3c241048804060e17fe5a8e4
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 3d2895fa8d45ad594963d3f26cbe04fd968f5fcc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619911"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487528"
 ---
-# <a name="concepts-about-intents-in-your-luis-app"></a>LUIS 앱에서 의도에 대한 개념
+# <a name="intents-in-your-luis-app"></a>LUIS 앱의 의도
 
 의도는 사용자가 수행하려는 작업을 나타냅니다. 사용자의 [발화](luis-concept-utterance.md)로 표현되는 목적 또는 목표입니다.
 
 사용자가 애플리케이션에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다. 예를 들어, 여행 앱에서는 다음과 같은 여러 의도를 정의합니다.
 
-여행 앱 의도   |   예제 발화   | 
+여행 앱 의도   |   발화 예제   | 
 ------|------|
  BookFlight     |   “Book me a flight to Rio next week” <br/> “Fly me to Rio on the 24th” <br/> “I need a plane ticket next Sunday to Rio de Janeiro”    |
  Greeting     |   “Hi” <br/>“hello” <br/>“Good morning”  |
  CheckWeather | “What's the weather like in Boston?” <br/> “Show me the forecast for this weekend” |
  없음         | “Get me a cookie recipe”<br>“Did the Lakers win?” |
 
-모든 응용 프로그램에는 대체 의도 인 미리 정의 된 의도 "[None](#none-intent-is-fallback-for-app)"이 함께 제공 됩니다. 
+모든 응용 프로그램에는 대체 의도 인 미리 정의 된 의도 "[None](#none-intent)"이 함께 제공 됩니다. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>미리 빌드된 도메인이 의도를 제공함
-사용자가 정의한 의도 외에도 미리 빌드된 도메인 중 하나에서 미리 빌드된 의도를 사용할 수 있습니다. 앱에서 사용하도록 미리 빌드된 도메인에서 의도를 사용자 지정하는 방법에 대한 자세한 내용은 [LUIS 앱에서 미리 빌드된 도메인 사용](luis-how-to-use-prebuilt-domains.md)을 참조하세요.
+를 정의 하는 것 외에도 미리 작성 된 [도메인](luis-how-to-use-prebuilt-domains.md)중 하나에서 미리 작성 된 의도를 사용할 수 있습니다. 
 
 ## <a name="return-all-intents-scores"></a>모든 의도의 점수 반환
-단일 의도에 하나의 발화를 할당합니다. LUIS는 엔드포인트에서 음성을 수신하면 해당 음성에 대한 하나의 상위 의도를 반환합니다. 발화의 모든 의도의 점수가 필요한 경우, API [엔드포인트 호출](https://aka.ms/v1-endpoint-api-docs)의 쿼리 문자열에 `verbose=true` 플래그를 제공할 수 있습니다. 
+단일 의도에 하나의 발화를 할당합니다. LUIS에서 끝점에 대 한 utterance를 수신 하면 기본적으로 해당 utterance의 최상위 의도를 반환 합니다. 
+
+Utterance에 대 한 모든 의도의 점수를 원하는 경우 예측 API의 쿼리 문자열에 플래그를 제공할 수 있습니다. 
+
+|예측 API 버전|플래그|
+|--|--|
+|V2|`verbose=true`|
+|V3|`show-all-intents=true`|
 
 ## <a name="intent-compared-to-entity"></a>의도 및 엔터티 비교
-의도는 챗봇이 사용자에게 수행해야 하는 작업을 나타내며 전체 발화를 기반으로 합니다. 엔터티는 발화 내부에 포함된 단어 또는 구문을 나타냅니다. 발화에는 하나의 상위 점수 의도만 포함되지만, 여러 엔터티가 포함될 수 있습니다. 
+의도는 bot 사용자에 대해 수행 해야 하는 작업을 나타내며 전체 utterance을 기반으로 합니다. 발화에는 하나의 상위 점수 의도만 포함되지만, 여러 엔터티가 포함될 수 있습니다. 
 
 <a name="how-do-intents-relate-to-entities"></a>
 
-사용자가 checkweather () 함수 호출과 같이 클라이언트 응용 프로그램에서 작업을 트리거하는 의도를 만듭니다. 그런 다음, 작업을 실행하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다. 
+사용자가 checkweather () 함수 호출과 같이 클라이언트 응용 프로그램에서 작업을 _트리거하는 의도_ 를 만듭니다. 그런 다음 작업을 실행 하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다. 
 
-|예제 의도   | 엔터티 | 예제 발화의 엔터티   | 
+|의도   | 엔터티 | 예제 발화   | 
 |------------------|------------------------------|------------------------------|
 | CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` | 
 ||||
 
-## <a name="custom-intents"></a>사용자 지정 의도
-
-마찬가지로 의도된 [발화](luis-concept-utterance.md)는 단일 의도에 해당합니다. 엔터티는 의도에 관련되지 않으므로 의도에 포함된 발화는 앱에서 [엔터티](luis-concept-entity-types.md)를 사용할 수 있습니다. 
-
 ## <a name="prebuilt-domain-intents"></a>미리 빌드된 도메인 의도
 
-[미리 빌드된 도메인](luis-how-to-use-prebuilt-domains.md)에는 발화가 포함된 의도가 있습니다.  
+[미리 빌드된 도메인](luis-how-to-use-prebuilt-domains.md) 은 길이 발언를 사용 하 여 의도를 제공 합니다. 
 
 ## <a name="none-intent"></a>None 의도
 
-모든 앱에는 **아무것도** 중요 하지 않으며 길이 발언는 없어야 합니다.
+**None** 의도가 생성되지만 고의로 비워 둡니다. **None** 의도는 필수 의도이며 삭제하거나 이름을 바꿀 수 없습니다. 이 의도를 도메인 외부에 있는 발화로 채웁니다.
 
-### <a name="none-intent-is-fallback-for-app"></a>None 의도는 앱의 대체 의도임
-**None** 의도는 catch-all 또는 대체 의도입니다. 앱 도메인(주체 영역)에서 중요하지 않은 LUIS 발화를 학습시키는 데 사용됩니다. **None** 의도는 애플리케이션에서 총 발화의 10~20% 사이여야 합니다. [없음] 의도를 비워 놓지 마세요. 
+어떤 경우에 **도** 모든 앱에서 중요 한 대체 의도가 없으며 총 길이 발언의 10%가 있어야 합니다. 앱 도메인(주체 영역)에서 중요하지 않은 LUIS 발화를 학습시키는 데 사용됩니다. **None** 의도의 발화를 추가하지 않으면 LUIS는 도메인 외부에 있는 발화를 도메인 의도 중 하나에 적용합니다. 이로 인해 LUIS가 발화의 잘못된 의도를 학습하게 되어 예측 점수가 왜곡됩니다. 
 
-### <a name="none-intent-helps-conversation-direction"></a>None 의도가 대화 방향에 도움이 됨
-발화가 None 의도로 예측되고 해당 예측과 함께 챗봇에 반환되면 봇은 추가로 질문을 하거나 사용자를 챗봇의 유효한 선택 항목으로 이동하는 메뉴를 제공합니다. 
-
-### <a name="no-utterances-in-none-intent-skews-predictions"></a>None 의도에 발화가 없으면 예측이 왜곡됨
-**None** 의도의 발화를 추가하지 않으면 LUIS는 도메인 외부에 있는 발화를 도메인 의도 중 하나에 적용합니다. 이로 인해 LUIS가 발화의 잘못된 의도를 학습하게 되어 예측 점수가 왜곡됩니다. 
-
-### <a name="add-utterances-to-the-none-intent"></a>None 의도에 발화 추가
-**None** 의도가 생성되지만 고의로 비워 둡니다. 이 의도를 도메인 외부에 있는 발화로 채웁니다. **None**에 적합한 발화는 앱이 서비스를 제공하는 산업 및 앱과 완전히 관련이 없는 어떤 것입니다. 예를 들어, 여행 앱은 예약, 청구, 음식, 숙박, 화물, 기내 엔터테인먼트와 같이 여행에 관련될 수 있는 발화를 **None**에 사용하면 안 됩니다. 
-
-None 의도에 사용할 수 있는 발화 유형은 무엇인가요? “파란색 이빨을 가진 공룡 종류는 무엇인가요?” 같이 봇이 대답하면 안 되는 구체적인 어떤 것으로 시작하세요. 이는 여행 앱과 완전히 관련이 없는 매우 구체적인 질문입니다. 
-
-### <a name="none-is-a-required-intent"></a>None은 필수 의도임
-**None** 의도는 필수 의도이며 삭제하거나 이름을 바꿀 수 없습니다.
+Utterance가 None으로 예측 되 면 클라이언트 응용 프로그램은 더 많은 질문을 하거나 사용자에 게 유효한 선택 항목을 제공 하는 메뉴를 제공할 수 있습니다. 
 
 ## <a name="negative-intentions"></a>부정적 의도 
 “자동차가 **필요해**” 및 “자동차가 **필요하지 않아**”와 같이 부정적 의도와 긍정적 의도를 결정하려면 두 개의 의도(긍정적 의도 및 부정적 의도)를 만들고 각 의도에 적절한 발화를 추가합니다. 또는 단일 의도를 만들고 두 가지 긍정적 및 부정적 용어를 엔터티로 표시할 수 있습니다.  
@@ -109,8 +99,6 @@ None 의도에 사용할 수 있는 발화 유형은 무엇인가요? “파란�
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>많은 의도가 포함된 앱의 도움말 요청
 의도 수를 줄이거나 의도를 여러 앱으로 나눈 경우 앱이 작동하지 않으면 지원에 문의하세요. Azure 구독에 지원 서비스가 포함된 경우, [Azure 기술 지원](https://azure.microsoft.com/support/options/)에 문의하세요. 
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

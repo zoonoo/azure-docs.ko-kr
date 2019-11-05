@@ -4,15 +4,15 @@ description: 온-프레미스 데이터 게이트웨이를 설치 및 구성하�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6f182976ac655692f8c50d4e7560aa21444ce848
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
-ms.translationtype: MT
+ms.openlocfilehash: 99b5a0ff9cc0fd7fdc3b8a0e453ed287c45e1c60
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298653"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147118"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 
@@ -20,7 +20,7 @@ ms.locfileid: "72298653"
 
 게이트웨이에 대 한 자세한 내용 및 Azure Analysis Services 사용 방법에 대 한 자세한 내용은 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 **최소 요구 사항:**
 
@@ -56,7 +56,7 @@ ms.locfileid: "72298653"
 
 2. **온-프레미스 데이터 게이트웨이를**선택 합니다.
 
-   ![선택](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
+   ![여기서](media/analysis-services-gateway-install/aas-gateway-installer-select.png)
 
 2. 위치를 선택하고 조건에 동의한 다음 **설치**를 클릭합니다.
 
@@ -95,7 +95,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
 2. **연결 게이트웨이 만들기**에서 이러한 설정을 입력합니다.
 
-   * **Name**: 게이트웨이 리소스의 이름을 입력합니다. 
+   * **이름**: 게이트웨이 리소스의 이름을 입력합니다. 
 
    * **구독**: 게이트웨이 리소스와 연결할 Azure 구독을 선택합니다. 
    
@@ -103,7 +103,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
    * **리소스 그룹**: 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.
 
-   * **Location**: 게이트웨이를 등록한 지역을 선택합니다.
+   * **위치**: 게이트웨이를 등록한 지역을 선택합니다.
 
    * **설치 이름**: 게이트웨이 설치가 아직 선택 되지 않은 경우 컴퓨터에 설치 하 고 등록 한 게이트웨이를 선택 합니다. 
 

@@ -12,7 +12,7 @@ ms.date: 07/12/2019
 ms.custom: seodec18
 ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
 ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 10/22/2019
 ms.locfileid: "72756042"

@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: cabailey
 manager: barbkess
-ms.date: 06/20/2019
-ms.openlocfilehash: 7ca5c890b1f3161923cd808c5ecec0ccf0165d64
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.date: 11/04/2019
+ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727509"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466412"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대 한 고객 Lockbox
 
@@ -65,7 +65,7 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
     
     ![Azure 고객 Lockbox-보류 중인 요청 보기](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 예를 들어:
+10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 예:
     
     ![Azure 고객 Lockbox-지원 티켓 요청 보기](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
@@ -74,8 +74,8 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
     ![Azure 고객 Lockbox-승인 또는 거부를 선택 합니다.](./media/customer-lockbox-overview/customer-lockbox-approval.png)
     
     선택의 결과로 다음과 같이 합니다.
-    - **승인**:  Microsoft 엔지니어에 게 액세스 권한이 부여 됩니다. 기본적으로 8 시간 동안 액세스 권한이 부여 됩니다.
-    - **거부**: Microsoft 엔지니어의 상승 된 액세스 요청이 거부 되 고 추가 작업은 수행 되지 않습니다.
+    - **승인**: Microsoft 엔지니어에 게 액세스 권한이 부여 됩니다. 기본적으로 8 시간 동안 액세스 권한이 부여 됩니다.
+    - **거부**: Microsoft 엔지니어가 관리자 권한으로 요청한 요청이 거부 되 고 추가 작업은 수행 되지 않습니다.
 
 감사를 위해이 워크플로에서 수행 되는 작업은 [요청 로그 고객 Lockbox](#auditing-logs)에 기록 됩니다.
 
@@ -91,7 +91,7 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
 
 ![Azure 고객 Lockbox-활동 로그](./media/customer-lockbox-overview/customer-lockbox-activitylogs.png)
 
-## <a name="supported-services-and-scenarios"></a>지원되는 서비스 및 시나리오
+## <a name="supported-services-and-scenarios-in-general-availability"></a>일반 공급에서 지원 되는 서비스 및 시나리오
 
 다음 서비스 및 시나리오는 현재 고객 Lockbox에 대 한 일반 공급으로 제공 됩니다.
 
@@ -108,6 +108,23 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
 #### <a name="detailed-audit-logs"></a>자세한 감사 로그
 
 원격 데스크톱 액세스와 관련 된 시나리오의 경우 Windows 이벤트 로그를 사용 하 여 Microsoft 엔지니어가 수행한 작업을 검토할 수 있습니다. Azure Security Center 사용 하 여 이벤트 로그를 수집 하 고 분석을 위해 작업 영역에 데이터를 복사 하는 것이 좋습니다. 자세한 내용은 [Azure Security Center에서 데이터 수집](../../security-center/security-center-enable-data-collection.md)을 참조 하세요.
+
+## <a name="supported-services-and-scenarios-in-preview"></a>미리 보기에서 지원 되는 서비스 및 시나리오
+
+다음 서비스는 현재 고객 Lockbox에 대해 미리 보기로 제공 됩니다.
+
+- Azure Storage 
+
+- Azure SQL DB 
+
+- Azure Data Explorer 
+
+- 가상 컴퓨터 (이제 메모리 덤프 및 관리 디스크에 대 한 액세스도 포함) 
+
+- Azure 구독 전송
+
+조직에서 이러한 미리 보기 제품에 대 한 고객 Lockbox를 사용 하도록 설정 하려면 [고객 Lockbox Azure 공개 미리 보기](https://aka.ms/customerlockbox/insiderprogram)에 등록 합니다.
+
 
 ## <a name="exclusions"></a>제외
 

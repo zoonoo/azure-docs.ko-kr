@@ -1,5 +1,5 @@
 ---
-title: 기본 제공 데이터 추출, 자연어, 이미지 처리
+title: 인덱싱 중에 데이터 추출, 자연어, 이미지 처리를 위한 기본 제공 기술입니다.
 titleSuffix: Azure Cognitive Search
 description: 데이터 추출, 자연어, 이미지 처리 인식 기술은 Azure Cognitive Search 파이프라인의 원시 콘텐츠에 대 한 의미 체계와 구조를 추가 합니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 435635018dc25ed2af0aec3d542c0388af8ab885
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2f03752c5fda366fc16b681d71ba68486527a30f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792095"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466806"
 ---
 # <a name="built-in-cognitive-skills-for-content-enrichment-azure-cognitive-search"></a>콘텐츠 보강에 대 한 기본 제공 인식 기술 (Azure Cognitive Search)
 
@@ -41,6 +41,7 @@ ms.locfileid: "72792095"
 | [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | 이 기술은 이미지 검색 알고리즘을 사용하여 이미지의 콘텐츠를 식별하고 텍스트 설명을 생성합니다. |
 | [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | 광학 문자 인식 |
 | [ConditionalSkill.](cognitive-search-skill-conditional.md) | 조건을 기준으로 필터링, 기본값 할당 및 데이터 병합을 허용 합니다.|
+| [Microsoft. DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) | 보강 파이프라인 내에서 파일의 콘텐츠를 추출 합니다. |
 | [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | 출력을 복합 형식(전체 이름, 여러 줄로 이루어진 주소 또는 성과 개인 식별자의 조합에 사용될 수 있는 다중 파트 데이터 형식)에 매핑합니다. |
 | [Microsoft.Skills.Custom.WebApiSkill](cognitive-search-custom-skill-web-api.md) | 사용자 지정 Web API에 대 한 HTTP 호출을 수행 하 여 AI 보강 파이프라인의 확장성을 허용 합니다. |
 
@@ -49,6 +50,6 @@ ms.locfileid: "72792095"
 
 ## <a name="see-also"></a>참고 항목
 
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [사용자 지정 기술 인터페이스 정의](cognitive-search-custom-skill-interface.md)
 + [자습서: AI를 사용 하 여 보강 인덱싱](cognitive-search-tutorial-blob.md)

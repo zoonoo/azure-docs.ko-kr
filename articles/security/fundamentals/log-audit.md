@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2019
+ms.date: 10/31/2019
 ms.author: terrylan
-ms.openlocfilehash: d1f3f1c00ab8d92ee598a3ef52c1e6f05303b004
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: f53c7e7b045805a28223fb5670afc45c980454bc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755587"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498400"
 ---
 # <a name="azure-security-logging-and-auditing"></a>Azure 보안 로깅 및 감사
 
@@ -42,11 +42,11 @@ Azure 로그는 다음과 같은 유형으로 분류됩니다.
 
 * **데이터 평면 로그** 는 Azure 리소스 사용의 일부로 발생 하는 이벤트에 대 한 정보를 제공 합니다. 이 로그 유형의 예로 VM(가상 머신)의 Windows 이벤트 시스템, 보안 및 애플리케이션 로그와 Azure Monitor를 통해 구성된 [진단 로그](../../azure-monitor/platform/resource-logs-overview.md)가 있습니다.
 
-* **처리된 이벤트**는 사용자를 대신하여 처리되어 분석된 이벤트/경고에 대한 정보를 제공합니다. 이 로그 유형의 예로 [Azure Security Center](../../security-center/security-center-intro.md)에서 구독을 처리 및 분석하고 간결한 보안 경고를 제공하는 [Azure Security Center 경고](../../security-center/security-center-managing-and-responding-alerts.md)가 있습니다.
+* **처리된 이벤트**는 사용자를 대신하여 처리되어 분석된 이벤트/경고에 대한 정보를 제공합니다. 이 로그 유형의 예로 [Azure Security Center](../../security-center/security-center-managing-and-responding-alerts.md)에서 구독을 처리 및 분석하고 간결한 보안 경고를 제공하는 [Azure Security Center 경고](../../security-center/security-center-intro.md)가 있습니다.
 
 다음 표에는 Azure에서 사용할 수 있는 가장 중요한 유형의 로그가 나와 있습니다.
 
-| 로그 범주 | 로그 형식 | 사용량 | 통합 |
+| 로그 범주 | 로그 형식 | 사용 | 통합 |
 | ------------ | -------- | ------ | ----------- |
 |[활동 로그](../../azure-monitor/platform/activity-logs-overview.md)|Azure Resource Manager 리소스에 대한 제어 평면 이벤트|  구독의 리소스에서 수행된 작업에 대한 인사이트를 제공합니다.|    Rest API, [Azure Monitor](../../azure-monitor/platform/activity-logs-overview.md)|
 |[Azure 리소스 로그](../../azure-monitor/platform/resource-logs-overview.md)|구독에서 Azure Resource Manager 리소스 작업에 대한 빈번한 데이터|   리소스 자체에서 수행한 작업에 대한 인사이트를 제공합니다.| Azure Monitor|

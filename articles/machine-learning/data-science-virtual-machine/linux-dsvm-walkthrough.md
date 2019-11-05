@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: f9d4b933bc9c6e11dde8168d9797a1b6196e6f47
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 59f2db8ec4dd8affe1c87ca2bb85a7ff7b8a4d7c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170693"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485386"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Azure에서 Linux Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -24,15 +24,15 @@ ms.locfileid: "71170693"
 
 이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합을 분석 합니다. Spambase는 스팸 또는 ham (스팸이 아님)로 표시 된 전자 메일 집합입니다. Spambase에도 전자 메일의 내용에 대 한 일부 통계가 포함 되어 있습니다. 이 연습의 뒷부분에서 통계에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Linux DSVM을 사용 하려면 먼저 다음과 같은 필수 구성 요소가 있어야 합니다.
 
 * **Azure 구독**. Azure 구독을 얻으려면 [지금 무료 azure 계정 만들기](https://azure.microsoft.com/free/)를 참조 하세요.
 * [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). 가상 컴퓨터를 프로 비전 하는 방법에 대 한 자세한 내용은 [Linux Data Science Virtual Machine 프로 비전](linux-dsvm-intro.md)을 참조 하세요.
 * [**X2Go**](https://wiki.x2go.org/doku.php) 는 열려 있는 XFCE 세션을 사용 하 여 컴퓨터에 설치 됩니다. 자세한 내용은 [Install and configure The X2Go client](linux-dsvm-intro.md#x2go)을 참조 하세요.
-* 더 부드러운 스크롤 환경을 위해 dsvm의 Firefox 웹 브라우저에서 `gfx.xrender.enabled` `about:config`플래그를 전환 합니다. [자세히 알아보기](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한를로 `mousewheel.enable_pixel_scrolling` 설정 `False`하는 것이 좋습니다. [자세히 알아보기](https://support.mozilla.org/questions/981140).
-* **Azure Machine Learning 계정**. 계정이 아직 없는 경우 [Azure Machine Learning 홈 페이지](https://studio.azureml.net/)에서 새 계정을 등록 합니다. 시작 하는 데 도움이 되도록 무료로 사용해 볼 수 있습니다.
+* 더 부드러운 스크롤 환경을 위해 DSVM의 Firefox 웹 브라우저에서 `about:config`의 `gfx.xrender.enabled` 플래그를 전환 합니다. [자세히 알아봅니다](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 `False``mousewheel.enable_pixel_scrolling`을 설정 하는 것이 좋습니다. [자세히 알아봅니다](https://support.mozilla.org/questions/981140).
+* **Azure Machine Learning 계정**. 계정이 아직 없는 경우 [Azure Machine Learning 홈 페이지](https://azure.microsoft.com/free/services/machine-learning//)에서 새 계정을 등록 합니다.
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 세트 다운로드
 
@@ -58,8 +58,8 @@ Linux DSVM을 사용 하려면 먼저 다음과 같은 필수 구성 요소가 �
 
 데이터 집합에는 각 전자 메일에 대 한 여러 유형의 통계가 있습니다.
 
-* Word **\_freq\_ *word*** 와 같은 열은 전자 메일에서 *단어*와 일치 하는 단어의 비율을 표시 합니다. 예를 들어, **word\_freq\_** 가 **1**이면 전자 메일에 있는 모든 단어의 1%가 *되도록 설정*된 것입니다.
-* Char **\_freq\_ *char*** 와 같은 열은 전자 메일에서 *char*인 모든 문자의 비율을 표시 합니다.
+* Word **\_freq\_* word***와 같은 열은 전자 메일에서 *단어*와 일치 하는 단어의 비율을 표시 합니다. 예를 들어 **word\_freq\_** 이 **1**이면 전자 메일에 있는 모든 단어의 1%가 *설정*된 것입니다.
+* Char **\_freq\_* char***와 같은 열은 전자 메일에서 *char*인 모든 문자의 비율을 표시 합니다.
 * **capital\_run\_length\_longest**는 대문자 시퀀스의 가장 긴 길이입니다.
 * **capital\_run\_length\_average**는 모든 대문자 시퀀스의 평균 길이입니다.
 * **capital\_run\_length\_total**는 모든 대문자 시퀀스의 총 길이입니다.
@@ -139,7 +139,7 @@ R을 사용 하 여 데이터를 검토 하 고 몇 가지 기본 기계 학습�
     plot(model.rpart)
     text(model.rpart)
 
-결과 다음과 같습니다.
+결과:
 
 ![만든 의사 결정 트리의 다이어그램](./media/linux-dsvm-walkthrough/decision-tree.png)
 
@@ -172,11 +172,11 @@ R을 사용 하 여 데이터를 검토 하 고 몇 가지 기본 기계 학습�
     accuracy
 
 
-## <a name="deploy-a-model-to-azure-machine-learning-studio"></a>Azure Machine Learning Studio에 모델 배포
+## <a name="deploy-a-model-to-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에 모델 배포 (클래식)
 
-[Azure Machine Learning Studio](https://studio.azureml.net/)는 예측 분석 모델을 쉽게 빌드하고 배포할 수 있는 클라우드 서비스입니다. Azure Machine Learning Studio의 유용한 기능은 R 함수를 웹 서비스로 게시 하는 기능입니다. R 패키지 Azure Machine Learning Studio를 사용 하면 DSVM의 R 세션에서 바로 배포를 쉽게 수행할 수 있습니다.
+[Azure Machine Learning Studio (클래식)](https://studio.azureml.net/) 은 예측 분석 모델을 쉽게 빌드하고 배포할 수 있도록 하는 클라우드 서비스입니다. Azure Machine Learning Studio 클래식 버전의 유용한 기능은 R 함수를 웹 서비스로 게시 하는 기능입니다. R 패키지 Azure Machine Learning Studio를 사용 하면 DSVM의 R 세션에서 바로 배포를 쉽게 수행할 수 있습니다.
 
-이전 섹션에서 의사 결정 트리 코드를 배포 하려면 Azure Machine Learning Studio에 로그인 합니다. 로그인할 작업 영역 ID와 권한 부여 토큰이 필요합니다. 이러한 값을 찾고 Azure Machine Learning 변수를 초기화 하려면 다음 단계를 완료 합니다.
+이전 섹션에서 의사 결정 트리 코드를 배포 하려면 Azure Machine Learning Studio (클래식)에 로그인 합니다. 로그인할 작업 영역 ID와 권한 부여 토큰이 필요합니다. 이러한 값을 찾고 Azure Machine Learning 변수를 초기화 하려면 다음 단계를 완료 합니다.
 
 1. 왼쪽 메뉴에서 **설정**을 선택 합니다. **작업 영역 ID**의 값을 확인 합니다.
 
@@ -229,13 +229,13 @@ R을 사용 하 여 데이터를 검토 하 고 몇 가지 기본 기계 학습�
 
 프레임 워크 기반 샘플 외에도 일련의 포괄적인 연습도 제공 됩니다. 이러한 연습을 통해 이미지 및 텍스트/언어 이해와 같이 도메인에서 딥 러닝 애플리케이션의 개발을 빠르게 시작할 수 있습니다.
 
-- [다양한 프레임워크에서 신경망 실행](https://github.com/ilkarman/DeepLearningFrameworks): 한 프레임 워크에서 다른 프레임 워크로 코드를 마이그레이션하는 방법을 보여 주는 포괄적인 연습입니다. 또한 프레임 워크 간에 모델 및 런타임 성능을 비교 하는 방법을 보여 줍니다. 
+- 여러 프레임 워크에서 [신경망 실행](https://github.com/ilkarman/DeepLearningFrameworks): 한 프레임 워크에서 다른 프레임 워크로 코드를 마이그레이션하는 방법을 보여 주는 포괄적인 연습입니다. 또한 프레임 워크 간에 모델 및 런타임 성능을 비교 하는 방법을 보여 줍니다. 
 
-- [이미지 내에서 제품을 검색 하는 종단 간 솔루션을 구축 하기 위한 방법 가이드](https://github.com/Azure/cortana-intelligence-product-detection-from-images): 이미지 검색은 이미지 내의 개체를 찾고 분류할 수 있는 기술입니다. 이 기술은 많은 실제 비즈니스 도메인에서 상당한 보상을 가져올 수 있습니다. 예를 들어 소매업체는 이 기술을 사용하여 고객이 선택한 제품을 확인할 수 있습니다. 또한 이 정보는 매장의 제품 재고를 관리하는 데 도움이 됩니다. 
+- 이미지 [내에서 제품을 검색 하는 종단 간 솔루션을 빌드하는 방법 가이드](https://github.com/Azure/cortana-intelligence-product-detection-from-images): 이미지 검색은 이미지 내에서 개체를 찾고 분류할 수 있는 기술입니다. 이 기술은 많은 실제 비즈니스 도메인에서 상당한 보상을 가져올 수 있습니다. 예를 들어 소매업체는 이 기술을 사용하여 고객이 선택한 제품을 확인할 수 있습니다. 또한 이 정보는 매장의 제품 재고를 관리하는 데 도움이 됩니다. 
 
-- [오디오에 대 한 심층 학습](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): 이 자습서에서는 [도시 소리 데이터 집합](https://urbansounddataset.weebly.com/)에서 오디오 이벤트 검색을 위한 심층 학습 모델을 학습 하는 방법을 보여 줍니다. 이 자습서에서는 오디오 데이터로 작업 하는 방법에 대 한 개요를 제공 합니다.
+- [오디오에 대 한 심층 학습](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/):이 자습서에서는 [도시 소리 데이터 집합](https://urbansounddataset.weebly.com/)에서 오디오 이벤트 검색을 위한 심층 학습 모델을 학습 하는 방법을 보여 줍니다. 이 자습서에서는 오디오 데이터로 작업 하는 방법에 대 한 개요를 제공 합니다.
 
-- [텍스트 문서의 분류](https://github.com/anargyri/lstm_han): 이 연습에서는 두 개의 다른 신경망 아키텍처를 빌드 및 학습하는 방법을 보여줍니다. 계층적 주의 네트워크 및 LSTM (Long Short Term Memory). 이러한 신경망은 Keras API를 딥 러닝에 사용하여 텍스트 문서를 분류합니다. Keras는 다음 세 개의 가장 인기 있는 딥러닝 프레임워크에 대한 프런트 엔드입니다. Microsoft Cognitive Toolkit, TensorFlow 및 Theano
+- [텍스트 문서 분류](https://github.com/anargyri/lstm_han):이 연습에서는 두 가지 신경망 아키텍처를 빌드하고 학습 하는 방법을 보여 줍니다. 이러한 신경망은 Keras API를 딥 러닝에 사용하여 텍스트 문서를 분류합니다. Keras는 가장 인기 있는 딥 러닝 프레임워크인 Microsoft Cognitive Toolkit, TensorFlow 및 Theano의 프런트 엔드입니다.
 
 ## <a name="other-tools"></a>기타 도구
 
@@ -322,17 +322,17 @@ Azure Machine Learning 끝점을 게시 하는 방법을 보여 주기 위해 �
 
 ### <a name="jupyterhub"></a>JupyterHub
 
-DSVM의 Anaconda 배포는 Python, R 또는 줄리아 코드 및 분석을 공유 하기 위한 플랫폼 간 환경인 Jupyter Notebook와 함께 제공 됩니다. JupyterHub를 통해 Jupyter Notebook에 액세스할 수 있습니다. Https://\<dsvm DNS 이름 또는 IP 주소\>: 8000/에서 로컬 Linux 사용자 이름 및 암호를 사용 하 여 로그인 합니다. JupyterHub에 대 한 모든 구성 파일은/etc/jupyterhub.에 있습니다.
+DSVM의 Anaconda 배포는 Python, R 또는 줄리아 코드 및 분석을 공유 하기 위한 플랫폼 간 환경인 Jupyter Notebook와 함께 제공 됩니다. JupyterHub를 통해 Jupyter Notebook에 액세스할 수 있습니다. Https://\<DSVM DNS 이름 또는 IP 주소\>: 8000/에서 로컬 Linux 사용자 이름 및 암호를 사용 하 여 로그인 합니다. JupyterHub에 대 한 모든 구성 파일은/etc/jupyterhub.에 있습니다.
 
 > [!NOTE]
-> 현재 커널의 Jupyter Notebook에서 Python 패키지 관리자 ( `pip` 명령을 통해)를 사용 하려면 코드 셀에서 다음 명령을 사용 합니다.
+> 현재 커널의 Jupyter Notebook에서 `pip` 명령을 통해 Python 패키지 관리자를 사용 하려면 코드 셀에서 다음 명령을 사용 합니다.
 >
 >   ```python
 >    import sys
 >    ! {sys.executable} -m pip install numpy -y
 >   ```
 > 
-> 현재 커널의 Jupyter Notebook에서 Conda 설치 관리자 ( `conda` 명령을 통해)를 사용 하려면 코드 셀에 다음 명령을 사용 합니다.
+> 현재 커널의 Jupyter Notebook에서 `conda` 명령을 통해 Conda 설치 관리자를 사용 하려면 코드 셀에 다음 명령을 사용 합니다.
 >
 >   ```python
 >    import sys
@@ -352,7 +352,7 @@ DSVM의 Anaconda 배포는 Python, R 또는 줄리아 코드 및 분석을 공�
 
 ### <a name="rattle"></a>Rattle
 
-[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*nalytical *t*ool *t*o *L* *E*asily)는 데이터 마이닝을 위한 그래픽 R 도구입니다. Rattle에는 데이터를 쉽게 로드, 탐색 및 변환 하 고 모델을 작성 및 평가할 수 있게 해 주는 직관적인 인터페이스가 있습니다. [Rattle R](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) 용 데이터 마이닝 GUI는 Rattle의 기능을 보여 주는 연습을 제공 합니다.
+[Rattle](https://cran.r-project.org/web/packages/rattle/index.html) (*R* *A*nalytical *T*ool *t*o *L*획득 *E*asily)는 데이터 마이닝을 위한 그래픽 R 도구입니다. Rattle에는 데이터를 쉽게 로드, 탐색 및 변환 하 고 모델을 작성 및 평가할 수 있게 해 주는 직관적인 인터페이스가 있습니다. [Rattle: R 용 데이터 마이닝 GUI는](https://journal.r-project.org/archive/2009-2/RJournal_2009-2_Williams.pdf) Rattle의 기능을 보여 주는 연습을 제공 합니다.
 
 다음 명령을 실행 하 여 Rattle을 설치 하 고 시작 합니다.
 
@@ -423,12 +423,12 @@ Rattle의 유용한 기능은 여러 기계 학습 방법을 실행 하 고 신�
 1. **유형**에 대해 **모두**를 선택 합니다.
 1. **실행**을 선택합니다.
 1. Rattle 실행이 완료 되 면 **SVM**와 같은 **유형** 값을 선택 하 고 결과를 볼 수 있습니다.
-1. **평가** 탭을 사용 하 여 유효성 검사 집합에서 모델의 성능을 비교할 수도 있습니다. 예를 들어 **오류 매트릭스** 를 선택하면 유효성 검사 집합에서 각 모델에 대한 혼동 행렬, 전체 오류 및 평균 클래스 오류를 볼 수 있습니다. ROC 곡선을 플롯 하 고 민감도 분석을 실행 하 고 다른 유형의 모델 평가를 수행할 수도 있습니다.
+1. **평가** 탭을 사용 하 여 유효성 검사 집합에서 모델의 성능을 비교할 수도 있습니다. 예를 들어 **오류 행렬** 선택은 유효성 검사 집합의 각 모델에 대 한 혼동 행렬, 전체 오류 및 평균 클래스 오류를 보여 줍니다. ROC 곡선을 플롯 하 고 민감도 분석을 실행 하 고 다른 유형의 모델 평가를 수행할 수도 있습니다.
 
 모델 작성을 완료 한 후 **로그** 탭을 선택 하 여 세션 중 Rattle에서 실행 한 R 코드를 확인 합니다. **내보내기** 단추를 선택하여 저장할 수 있습니다.
 
 > [!NOTE]
-> 현재 Rattle 릴리스에는 버그가 포함 되어 있습니다. 스크립트를 수정 하거나 나중에 단계를 반복 하는 데 사용 하려면 로그 텍스트에서 **#** *이 로그 내보내기* ... 앞에 문자를 삽입 해야 합니다.
+> 현재 Rattle 릴리스에는 버그가 포함 되어 있습니다. 스크립트를 수정 하거나 나중에 단계를 반복 하는 데 사용 하려면 로그 텍스트에서 *이 로그 내보내기* ... 앞에 **#** 문자를 삽입 해야 합니다.
 
 ### <a name="postgresql-and-squirrel-sql"></a>PostgreSQL 및 SQuirreL SQL
 
@@ -485,15 +485,15 @@ Psql에 로그인 합니다.
 
 1. **Windows** > **드라이버 보기**를 선택 합니다.
 1. **PostgreSQL** 를 마우스 오른쪽 단추로 클릭 하 고 **드라이버 수정**을 선택 합니다.
-1. 추가 **클래스 경로** > **추가**를 선택 합니다.
+1. 추가 **클래스 경로** 를 선택 하 > **추가**를 선택 합니다.
 1. **파일 이름**에 **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**을 입력 합니다.
 1. **열기**를 선택합니다.
 1. **드라이버 나열**을 선택 합니다. **클래스 이름**에 대해 **postgresql**를 선택 하 고 **확인**을 선택 합니다.
 
 로컬 서버에 연결을 설정하려면
 
-1. **Windows** > **보기 별칭을 선택 합니다.**
-1. 단추를 **+** 선택 하 여 새 별칭을 만듭니다. 새 별칭 이름에 대해 **스팸 데이터베이스**를 입력 합니다. 
+1. **Windows** > **별칭 보기를 선택 합니다.**
+1. **+** 단추를 선택 하 여 새 별칭을 만듭니다. 새 별칭 이름에 대해 **스팸 데이터베이스**를 입력 합니다. 
 1. **드라이버**에 대해 **PostgreSQL**를 선택 합니다.
 1. URL을 **jdbc:postgresql://localhost/spam**으로 설정합니다.
 1. 사용자 이름 및 암호를 입력합니다.
@@ -504,7 +504,7 @@ Psql에 로그인 합니다.
 일부 쿼리를 실행하려면
 
 1. **SQL** 탭을 선택합니다.
-1. **SQL** 탭의 맨 위에 있는 쿼리 상자에와 같은 `SELECT * from data;`기본 쿼리를 입력 합니다.
+1. **SQL** 탭의 맨 위에 있는 쿼리 상자에 `SELECT * from data;`와 같은 기본 쿼리를 입력 합니다.
 1. Ctrl + Enter를 눌러 쿼리를 실행 합니다. 기본적으로 SQuirreL SQL은 쿼리에서 처음 100 개 행을 반환 합니다.
 
 더 많은 쿼리를 실행 하 여이 데이터를 탐색할 수 있습니다. 예를 들어 스팸과 햄 간에 *make* 라는 단어의 빈도가 얼마나 차이가 있을까요?

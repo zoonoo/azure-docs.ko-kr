@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 7053f5b0211878d2f0b9d810fc3f4c0b9361e6f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7e4714de9868dbd540e2e662b22a22da6df6514b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66509600"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147540"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>사용자 지정 정책으로 사용자 경험의 UI 사용자 지정
 
@@ -43,7 +43,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 > [!NOTE]
 > 보안상의 이유로 사용자 지정에 JavaScript의 사용이 현재 차단됩니다. 
 
-각 HTML5/CSS 템플릿에서 HTML 또는 콘텐츠 페이지에서 필수 `<div id=”api”>` 요소에 해당하는 *anchor* 요소를 제공합니다(이 내용은 이후 설명됨). Azure AD B2C에서는 모든 콘텐츠 페이지에 이 특정 div가 있어야 합니다.
+각 HTML5/CSS 템플릿에서 HTML 또는 콘텐츠 페이지에서 필수 *요소에 해당하는*anchor`<div id="api">` 요소를 제공합니다(이 내용은 이후 설명됨). Azure AD B2C에서는 모든 콘텐츠 페이지에 이 특정 div가 있어야 합니다.
 
 ```
 <!DOCTYPE html>
@@ -99,7 +99,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 1.  [GitHub](https://github.com/azureadquickstarts/b2c-azureblobstorage-client/archive/master.zip)에서 도우미 도구를 다운로드합니다.
 2.  *B2C-AzureBlobStorage-Client-master.zip* 파일을 로컬 컴퓨터에 저장합니다.
-3.  로컬 디스크에 B2C-AzureBlobStorage-Client-master.zip 파일의 콘텐츠를 추출합니다(예: *B2C-AzureBlobStorage-Client-master* 폴더 아래에 만든 **UI-Customization-Pack** 폴더 아래).
+3.  로컬 디스크에 B2C-AzureBlobStorage-Client-master.zip 파일의 콘텐츠를 추출합니다(예: **B2C-AzureBlobStorage-Client-master** 폴더 아래에 만든 *UI-Customization-Pack* 폴더 아래).
 4.  폴더를 열고 그 안에 있는 아카이브 파일 *B2CAzureStorageClient.zip*의 콘텐츠를 추출합니다.
 
 ## <a name="upload-the-ui-customization-pack-sample-files"></a>UI-Customization-Pack 샘플 파일 업로드
@@ -109,9 +109,9 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 3.  메시지가 표시되면 다음을 지정합니다. a.  스토리지 계정의 이름 *storageAccountName*(예: *contoso369b2c*).
     b.  Azure Blob Storage의 기본 액세스 키 *key1*(예: *contoso369b2c*).
     c.  Storage Blob Storage 컨테이너의 이름 *containerName*(예: *b2c*).
-    d.  *Starter-Pack* 샘플 파일의 경로(예: *..\B2CTemplates\wingtiptoys*).
+    ㄹ.  *Starter-Pack* 샘플 파일의 경로(예: *..\B2CTemplates\wingtiptoys*).
 
-이전 단계를 따랐다면 **wingtiptoys**라는 가상의 회사에 대한 *UI-Customization-Pack*의 HTML5 및 CSS 파일은 이제 사용자의 스토리지 계정을 가리킵니다.  Azure Portal에서 관련 컨테이너 창을 열어 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 또는 브라우저에서 페이지에 액세스하여 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C: 페이지 UI(사용자 인터페이스) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)를 참조하세요.
+이전 단계를 따랐다면 *wingtiptoys*라는 가상의 회사에 대한 **UI-Customization-Pack**의 HTML5 및 CSS 파일은 이제 사용자의 스토리지 계정을 가리킵니다.  Azure Portal에서 관련 컨테이너 창을 열어 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 또는 브라우저에서 페이지에 액세스하여 콘텐츠를 제대로 업로드했는지 확인할 수 있습니다. 자세한 내용은 [Azure Active Directory B2C: 페이지 UI(사용자 인터페이스) 사용자 지정 기능을 설명하기 위해 사용된 도우미 도구](active-directory-b2c-reference-ui-customization-helper-tool.md)를 참조하세요.
 
 ## <a name="ensure-the-storage-account-has-cors-enabled"></a>스토리지 계정에 CORS가 활성화되었는지 확인
 
@@ -119,8 +119,8 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 콘텐츠를 호스팅하는 스토리지에 CORS를 사용할 수 있는지 확인하려면 다음 단계를 진행합니다.
 
-1. 브라우저 세션을 열고 스토리지 계정 `https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html`에서 해당 위치의 전체 URL을 사용하여 *unified.html* 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html
-2. [https://test-cors.org](https://test-cors.org ) 로 이동합니다. 이 사이트를 통해 사용 중인 페이지에 CORS가 사용하도록 설정되었는지 확인할 수 있습니다.  
+1. 브라우저 세션을 열고 스토리지 계정 *에서 해당 위치의 전체 URL을 사용하여* unified.html`https://<storageAccountName>.blob.core.windows.net/<containerName>/unified.html` 페이지로 이동합니다. 예: https://contoso369b2c.blob.core.windows.net/b2c/unified.html
+2. https://test-cors.org로 이동 합니다. 이 사이트를 사용 하 여 사용 중인 페이지에 CORS가 설정 되어 있는지 확인할 수 있습니다.  
    <!--
    ![test-cors.org](../../media/active-directory-b2c-customize-ui-of-a-user-journey/test-cors.png)
    -->
@@ -150,7 +150,7 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 
 사용자 지정 정책을 직접 편집하여 HTML5/CSS 템플릿에 대한 링크를 사용자 경험에 추가할 수 있습니다.
 
-사용자 경험에 사용할 사용자 지정 HTML5/CSS 템플릿은 해당 사용자 경험에 사용할 수 있는 콘텐츠 정의 목록에 지정해야 합니다. 이 위해 선택적  *\<ContentDefinitions >* XML 요소에서 선언 해야 합니다  *\<BuildingBlocks >* 사용자 지정 정책 XML 파일의 섹션.
+사용자 경험에 사용할 사용자 지정 HTML5/CSS 템플릿은 해당 사용자 경험에 사용할 수 있는 콘텐츠 정의 목록에 지정해야 합니다. 이러한 목적을 위해 사용자 지정 정책 XML 파일의 *\<BuildingBlocks >* 섹션에서 선택적 *\<contentdefinitions >* XML 요소를 선언 해야 합니다.
 
 다음 표는 Azure AD B2C ID 경험 엔진이 인식할 수 있는 콘텐츠 정의 ID 집합과 이에 관련된 페이지 유형을 설명합니다.
 
@@ -159,10 +159,10 @@ HTML5/CSS 파일을 적절하게 선별하여 원하는 만큼 콘텐츠 페이�
 | *api.error* | **오류 페이지**입니다. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. |
 | *api.idpselections* | **ID 공급자 선택 페이지**입니다. 이 페이지는 로그인하는 동안 사용자가 선택할 수 있는 ID 공급자의 목록을 포함합니다. 이러한 공급자는 Facebook, Google+ 또는 로컬 계정(이메일 주소 또는 사용자 이름 기반)과 같은 소셜 ID 공급자, 엔터프라이즈 ID 공급자입니다. |
 | *api.idpselections.signup* | **등록을 위한 ID 공급자 선택 페이지**입니다. 이 페이지는 등록하는 동안 사용자가 선택할 수 있는 ID 공급자의 목록을 포함합니다. 이러한 공급자는 Facebook, Google+ 또는 로컬 계정(이메일 주소 또는 사용자 이름 기반)과 같은 소셜 ID 공급자, 엔터프라이즈 ID 공급자입니다. |
-| *api.localaccountpasswordreset* | **암호 찾기 페이지**. 이 페이지에는 사용자가 자신의 암호 재설정을 시작하기 위해 입력해야 하는 양식이 들어 있습니다.  |
+| *api.localaccountpasswordreset* | **암호 찾기 페이지**입니다. 이 페이지에는 사용자가 자신의 암호 재설정을 시작하기 위해 입력해야 하는 양식이 들어 있습니다.  |
 | *api.localaccountsignin* | **로컬 계정 로그인 페이지**. 이 페이지는 이메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정에 로그인하는 경우 사용자가 작성해야 하는 등록 양식을 포함합니다. 양식에는 텍스트 입력 상자 및 암호 입력란이 포함될 수 있습니다. |
-| *api.localaccountsignup* | **로컬 계정 등록 페이지**. 이 페이지는 메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정을 등록하는 경우 사용자가 작성해야 하는 등록 양식을 포함합니다. 양식은 텍스트 입력 상자, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같은 다른 입력 제어를 포함할 수 있습니다. |
-| *api.phonefactor* | **Multi-Factor Authentication 페이지**. 이 페이지에서 등록 또는 로그인하는 동안 사용자가 텍스트 또는 음성을 사용하여 전화 번호를 확인할 수 있습니다. |
+| *api.localaccountsignup* | **로컬 계정 등록 페이지**입니다. 이 페이지는 메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정을 등록하는 경우 사용자가 작성해야 하는 등록 양식을 포함합니다. 양식은 텍스트 입력 상자, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같은 다른 입력 제어를 포함할 수 있습니다. |
+| *api.phonefactor* | **Multi-Factor Authentication 페이지**입니다. 이 페이지에서 등록 또는 로그인하는 동안 사용자가 텍스트 또는 음성을 사용하여 전화 번호를 확인할 수 있습니다. |
 | *api.selfasserted* | **소셜 계정 등록 페이지**. 이 페이지는 Facebook 또는 Google+와 같은 소셜 ID 공급자에서 기존 계정을 사용하여 등록하는 경우 사용자가 작성해야 하는 등록 양식을 포함합니다. 이 페이지는 암호 입력 필드를 제외하고 이전 소셜 계정 등록 페이지와 유사합니다. |
 | *api.selfasserted.profileupdate* | **프로필 업데이트 페이지**. 이 페이지에는 사용자가 자신의 프로필을 업데이트하기 위해 사용할 수 있는 양식이 들어 있습니다. 이 페이지는 암호 입력 필드를 제외하고 이전 소셜 계정 등록 페이지와 유사합니다. |
 | *api.signuporsignin* | **통합 등록 또는 로그인 페이지**입니다.  이 페이지는 Facebook, Google+ 또는 로컬 계정과 같은 소셜 ID 공급자, 엔터프라이즈 ID 공급자를 사용할 수 있는 사용자의 등록 및 로그인을 모두 다룹니다.

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: b219eb50254ecd347f731d332c3236be028834ba
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 2177ba8b3864e8d453a097b391a18ebbbb5baa11
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045075"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499917"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -615,11 +615,11 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 
 [기본](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) 옵션을 사용할 수 있는 경우 다음과 같은 속성 값을 지정 합니다.
 
-| 속성 (디자이너) | 속성 (JSON) | 필수 | Value | 설명 |
+| 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | yes | Basic | 사용할 인증 유형입니다. |
-| **사용자 이름** | `username` | yes | <*사용자 이름*>| 대상 서비스 엔드포인트에 대한 액세스를 인증하는 사용자 이름입니다. |
-| **암호** | `password` | yes | *암호* <> | 대상 서비스 엔드포인트에 대한 액세스를 인증하는 암호입니다. |
+| **인증** | `type` | 예 | Basic | 사용할 인증 유형입니다. |
+| **사용자 이름** | `username` | 예 | <*사용자 이름*>| 대상 서비스 엔드포인트에 대한 액세스를 인증하는 사용자 이름입니다. |
+| **암호** | `password` | 예 | *암호* <> | 대상 서비스 엔드포인트에 대한 액세스를 인증하는 암호입니다. |
 ||||||
 
 [보안 매개 변수](#secure-action-parameters) 를 사용 하 여 [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)등의 중요 한 정보를 처리 하 고 보호 하는 경우 식을 사용 하 여 런타임에 이러한 매개 변수 값에 액세스할 수 있습니다. 이 예제 HTTP 동작 정의는 `Basic` 인증 `type`을 지정 하 고 [parameters () 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 를 사용 하 여 매개 변수 값을 가져옵니다.
@@ -646,11 +646,11 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 
 [클라이언트 인증서](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) 옵션을 사용할 수 있는 경우 다음과 같은 속성 값을 지정 합니다.
 
-| 속성 (디자이너) | 속성 (JSON) | 필수 | Value | 설명 |
+| 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | yes | **클라이언트 인증서** <br>or <br>`ClientCertificate` | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
-| **Pfx** | `pfx` | yes | <*로 인코딩된 .pfx-파일-콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
-| **암호** | `password`| yes | *pfx 파일에 대 한* <> | PFX 파일에 액세스하기 위한 암호 |
+| **인증** | `type` | 예 | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
+| **Pfx** | `pfx` | 예 | <*로 인코딩된 .pfx-파일-콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
+| **암호** | `password`| 예 | *pfx 파일에 대 한* <> | PFX 파일에 액세스하기 위한 암호 |
 |||||
 
 [보안 매개 변수](#secure-action-parameters) 를 사용 하 여 [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)등의 중요 한 정보를 처리 하 고 보호 하는 경우 식을 사용 하 여 런타임에 이러한 매개 변수 값에 액세스할 수 있습니다. 이 예제 HTTP 동작 정의는 `ClientCertificate` 인증 `type`을 지정 하 고 [parameters () 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 를 사용 하 여 매개 변수 값을 가져옵니다.
@@ -677,7 +677,7 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 * [Azure API Management에서 클라이언트 인증서 인증을 사용 하 여 백 엔드 서비스 보호](../api-management/api-management-howto-mutual-certificates.md)
 * [클라이언트 인증서를 사용 하 여 RESTfuL 서비스 보호](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 * [응용 프로그램 인증을 위한 인증서 자격 증명](../active-directory/develop/active-directory-certificate-credentials.md)
-* [Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용](../app-service/app-service-web-ssl-cert-load.md)
+* [Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용](../app-service/configure-ssl-certificate-in-code.md)
 
 <a name="azure-active-directory-oauth-authentication"></a>
 
@@ -685,17 +685,17 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 
 [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) 옵션을 사용할 수 있는 경우 다음과 같은 속성 값을 지정 합니다.
 
-| 속성 (디자이너) | 속성 (JSON) | 필수 | Value | 설명 |
+| 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | yes | **Active Directory OAuth** <br>or <br>`ActiveDirectoryOAuth` | 사용할 인증 유형입니다. Logic Apps 현재 [OAuth 2.0 프로토콜](../active-directory/develop/v2-overview.md)을 따릅니다. |
-| **넌** | `tenant` | yes | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID |
-| **대상** | `audience` | yes | <*resource-to-authorize*> | 권한 부여에 사용할 리소스(예: `https://management.core.windows.net/`) |
-| **클라이언트 ID** | `clientId` | yes | <*client-ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID |
-| **자격 증명 유형** | `credentialType` | yes | 인증서 <br>or <br>Secret | 클라이언트에서 권한 부여를 요청 하는 데 사용 하는 자격 증명 형식입니다. 이 속성 및 값은 논리 앱의 기본 정의에 표시 되지 않지만 선택한 자격 증명 유형에 대해 표시 되는 속성을 결정 합니다. |
+| **인증** | `type` | 예 | **Active Directory OAuth** <br>또는 <br>`ActiveDirectoryOAuth` | 사용할 인증 유형입니다. Logic Apps 현재 [OAuth 2.0 프로토콜](../active-directory/develop/v2-overview.md)을 따릅니다. |
+| **넌** | `tenant` | 예 | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID |
+| **대상** | `audience` | 예 | <*resource-to-authorize*> | 권한 부여에 사용할 리소스(예: `https://management.core.windows.net/`) |
+| **클라이언트 ID** | `clientId` | 예 | <*client-ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID |
+| **자격 증명 유형** | `credentialType` | 예 | 인증서 <br>또는 <br>Secret | 클라이언트에서 권한 부여를 요청 하는 데 사용 하는 자격 증명 형식입니다. 이 속성 및 값은 논리 앱의 기본 정의에 표시 되지 않지만 선택한 자격 증명 유형에 대해 표시 되는 속성을 결정 합니다. |
 | **비밀** | `secret` | 예, 하지만 "비밀" 자격 증명 형식에만 해당 | *클라이언트 암호* <> | 권한 부여를 요청하는 클라이언트 비밀 |
 | **Pfx** | `pfx` | 예, 하지만 "인증서" 자격 증명 형식에만 해당 | <*로 인코딩된 .pfx-파일-콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
 | **암호** | `password` | 예, 하지만 "인증서" 자격 증명 형식에만 해당 | *pfx 파일에 대 한* <> | PFX 파일에 액세스하기 위한 암호 |
-| **기관** | `authority` | 아닙니다. | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공 하는 인증 기관에 대 한 URL입니다. 이 값은 기본적으로 `https://login.windows.net`입니다. <p>**참고**: 디자이너에서이 속성을 표시 하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **인증 기관**을 선택 합니다. |
+| **기관** | `authority` | 아니요 | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공 하는 인증 기관에 대 한 URL입니다. 이 값은 기본적으로 `https://login.windows.net`입니다. <p>**참고**: 디자이너에서이 속성을 표시 하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **인증 기관**을 선택 합니다. |
 |||||
 
 [보안 매개 변수](#secure-action-parameters) 를 사용 하 여 [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)등의 중요 한 정보를 처리 하 고 보호 하는 경우 식을 사용 하 여 런타임에 이러한 매개 변수 값에 액세스할 수 있습니다. 이 예제 HTTP 동작 정의는 인증 `type` `ActiveDirectoryOAuth`, 자격 증명 유형 `Secret`을 지정 하 고 [parameters () 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 를 사용 하 여 매개 변수 값을 가져옵니다.
@@ -739,10 +739,10 @@ Authorization: OAuth realm="Photos",
 
 원시 인증을 지 원하는 트리거 또는 작업에서 다음 속성 값을 지정 합니다.
 
-| 속성 (디자이너) | 속성 (JSON) | 필수 | Value | 설명 |
+| 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | yes | 미처리 | 사용할 인증 유형입니다. |
-| **값** | `value` | yes | <*권한 부여 헤더-값*> | 인증에 사용할 인증 헤더 값입니다. |
+| **인증** | `type` | 예 | 미처리 | 사용할 인증 유형입니다. |
+| **값** | `value` | 예 | <*권한 부여 헤더-값*> | 인증에 사용할 인증 헤더 값입니다. |
 ||||||
 
 [보안 매개 변수](#secure-action-parameters) 를 사용 하 여 [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)등의 중요 한 정보를 처리 하 고 보호 하는 경우 식을 사용 하 여 런타임에 이러한 매개 변수 값에 액세스할 수 있습니다. 이 예제 HTTP 동작 정의는 `Raw`으로 인증 `type`를 지정 하 고 [parameters () 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 를 사용 하 여 매개 변수 값을 가져옵니다.
@@ -770,14 +770,14 @@ Authorization: OAuth realm="Photos",
 
 1. 논리 앱이 시스템 할당 id를 사용 하기 전에 [Azure Logic Apps에서 관리 되는 id를 사용 하 여 Azure 리소스에 대 한 액세스 인증](../logic-apps/create-managed-service-identity.md)의 단계를 따릅니다. 이러한 단계는 논리 앱에서 관리 id를 사용 하도록 설정 하 고 대상 Azure 리소스에 대 한 id의 액세스를 설정 합니다.
 
-1. Azure 함수에서 시스템이 할당 한 id를 사용 하려면 먼저 [azure 함수에 대해 인증을 사용 하도록 설정](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions)합니다.
+2. Azure 함수에서 시스템이 할당 한 id를 사용 하려면 먼저 [azure 함수에 대해 인증을 사용 하도록 설정](../logic-apps/logic-apps-azure-functions.md#enable-authentication-for-azure-functions)합니다.
 
-1. 관리 id를 사용 하려는 트리거 또는 작업에서 다음 속성 값을 지정 합니다.
+3. 관리 id를 사용 하려는 트리거 또는 작업에서 다음 속성 값을 지정 합니다.
 
-   | 속성 (디자이너) | 속성 (JSON) | 필수 | Value | 설명 |
+   | 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | 설명 |
    |---------------------|-----------------|----------|-------|-------------|
-   | **인증** | `type` | yes | **관리 ID** <br>or <br>`ManagedServiceIdentity` | 사용할 인증 유형입니다. |
-   | **대상** | `audience` | yes | <*대상-리소스 ID*> | 액세스 하려는 대상 리소스의 리소스 ID입니다. <p>예를 들어 `https://storage.azure.com/`는 모든 저장소 계정에 대해 인증에 대 한 액세스 토큰을 사용할 수 있습니다. 그러나 특정 저장소 계정에 대 한 `https://fabrikamstorageaccount.blob.core.windows.net`와 같은 루트 서비스 URL을 지정할 수도 있습니다. <p>**참고**:이 속성은 일부 트리거 또는 작업에서 숨겨질 수 있습니다. 이 속성을 표시 하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **대상 그룹**을 선택 합니다. <p><p>**중요**:이 대상 리소스 ID가 필요한 후행 슬래시를 포함 하 여 Azure AD에 필요한 값과 정확 하 게 일치 하는지 확인 합니다. 따라서 모든 Azure Blob Storage 계정에 대 한 `https://storage.azure.com/` 리소스 ID는 후행 슬래시가 필요 합니다. 그러나 특정 저장소 계정에 대 한 리소스 ID는 후행 슬래시가 필요 하지 않습니다. 이러한 리소스 Id를 찾으려면 [AZURE AD를 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조 하세요. |
+   | **인증** | `type` | 예 | **관리 ID** <br>또는 <br>`ManagedServiceIdentity` | 사용할 인증 유형입니다. |
+   | **대상** | `audience` | 예 | <*대상-리소스 ID*> | 액세스 하려는 대상 리소스의 리소스 ID입니다. <p>예를 들어 `https://storage.azure.com/`는 모든 저장소 계정에 대해 인증에 대 한 액세스 토큰을 사용할 수 있습니다. 그러나 특정 저장소 계정에 대 한 `https://fabrikamstorageaccount.blob.core.windows.net`와 같은 루트 서비스 URL을 지정할 수도 있습니다. <p>**참고**:이 속성은 일부 트리거 또는 작업에서 숨겨질 수 있습니다. 이 속성을 표시 하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **대상 그룹**을 선택 합니다. <p><p>**중요**:이 대상 리소스 ID가 필요한 후행 슬래시를 포함 하 여 Azure AD에 필요한 값과 정확 하 게 일치 하는지 확인 합니다. 따라서 모든 Azure Blob Storage 계정에 대 한 `https://storage.azure.com/` 리소스 ID는 후행 슬래시가 필요 합니다. 그러나 특정 저장소 계정에 대 한 리소스 ID는 후행 슬래시가 필요 하지 않습니다. 이러한 리소스 Id를 찾으려면 [AZURE AD를 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조 하세요. |
    |||||
 
    [보안 매개 변수](#secure-action-parameters) 를 사용 하 여 [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)등의 중요 한 정보를 처리 하 고 보호 하는 경우 식을 사용 하 여 런타임에 이러한 매개 변수 값에 액세스할 수 있습니다. 이 예제 HTTP 동작 정의는 `ManagedServiceIdentity` 인증 `type`을 지정 하 고 [parameters () 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 를 사용 하 여 매개 변수 값을 가져옵니다.

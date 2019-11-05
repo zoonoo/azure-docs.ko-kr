@@ -11,22 +11,24 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: diberry
-ms.openlocfilehash: 1bee26dc57fd844703e2c9c97b38b9a433227fbf
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ef5f6967b7ad9500672d00d93dd8acaca99e5948
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70387951"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499457"
 ---
 # <a name="build-a-luis-app-programmatically-using-nodejs"></a>Node.js를 사용하여 프로그래밍 방식으로 LUIS 앱 빌드
 
 LUIS는 [LUIS](luis-reference-regions.md) 웹 사이트에서 수행하는 모든 작업을 수행하는 프로그래밍 방식의 API를 제공합니다. 따라서 기존 데이터가 있는 경우 시간을 절약할 수 있으며 직접 정보를 입력할 때보다 더 빠르게 프로그래밍 방식으로 LUIS 앱을 만들 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
+## <a name="prerequisites"></a>필수 조건
 
 * [LUIS](luis-reference-regions.md) 웹 사이트에 로그인하고 계정 설정에서 [작성 키](luis-concept-keys.md#authoring-key)를 찾습니다. 이 키를 사용하여 작성 API를 호출합니다.
 * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-* 이 문서는 사용자 요청에 대 한 가상 회사의 로그 파일에 대 한 CSV로 시작 합니다. [여기서](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv) 다운로드하세요.
+* 이 문서는 사용자 요청에 대 한 가상 회사의 로그 파일에 대 한 CSV로 시작 합니다. [여기](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/examples/build-app-programmatically-csv/IoT.csv)에서 다운로드하세요.
 * NPM을 사용하는 최신 Node.js를 설치합니다. [여기](https://nodejs.org/en/download/)에서 다운로드하세요.
 * **[권장]** IntelliSense 및 디버깅용 Visual Studio Code를 [여기](https://code.visualstudio.com/)에서 무료로 다운로드하세요.
 
@@ -144,7 +146,7 @@ const LUIS_versionId = "0.1";
 > node index.js
 ```
 
-로 구분하거나 여러
+또는
 
 ```console
 > npm start
@@ -189,7 +191,7 @@ upload done
 > [!div class="nextstepaction"]
 > [LUIS 웹 사이트에서 앱 테스트 및 학습](luis-interactive-test.md)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 이 애플리케이션 예제에서는 다음 LUIS API를 사용합니다.
 - [앱 만들기](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 950818d08cb654bad969deaede24231cab9bcbe2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 102f3e131b20534dc2f192b6485a3fdc95070315
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098562"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470268"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
@@ -35,7 +35,7 @@ Azure App Service 분산 시스템입니다. 들어오는 HTTP/HTTPS 요청을 �
 |---------------------|-------------------|
 | 앱 할당 주소 | 하이브리드 연결 |
 | 액세스 제한 | 게이트웨이 필요 VNet 통합 |
-| 서비스 끝점 | VNet 통합 (미리 보기) |
+| 서비스 엔드포인트 | VNet 통합 (미리 보기) |
 
 별도로 언급 하지 않는 한 모든 기능을 함께 사용할 수 있습니다. 다양 한 문제를 해결 하는 기능을 혼합할 수 있습니다.
 
@@ -49,7 +49,7 @@ Azure App Service 분산 시스템입니다. 들어오는 HTTP/HTTPS 요청을 �
 | 공유 안 함, 앱에 대 한 전용 인바운드 주소 | 앱 할당 주소 |
 | 잘 정의 된 주소 집합에서 앱에 대 한 액세스 제한 | 액세스 제한 |
 | 내 VNet의 개인 Ip에서 내 앱 노출 | ILB ASE </br> 서비스 끝점으로 Application Gateway |
-| VNet의 리소스에서 내 앱에 대 한 액세스 제한 | 서비스 끝점 </br> ILB ASE |
+| VNet의 리소스에서 내 앱에 대 한 액세스 제한 | 서비스 엔드포인트 </br> ILB ASE |
 | 내 VNet의 개인 IP에서 내 앱 노출 | ILB ASE </br> 서비스 끝점을 사용 하는 Application Gateway에서 인바운드에 대 한 개인 IP |
 | WAF를 사용 하 여 내 앱 보호 | Application Gateway + ILB ASE </br> 서비스 끝점으로 Application Gateway </br> 액세스 제한이 있는 Azure Front 도어 |
 | 다른 지역의 내 앱에 트래픽 부하 분산 | 액세스 제한이 있는 Azure Front 도어 | 
@@ -108,7 +108,7 @@ Azure Virtual Network (VNet)의 리소스에서만 연결할 수 있도록 앱�
 
 서비스 끝점을 사용 하면 원본 주소를 선택 하는 서브넷 집합에서 가져와야 하는 앱에 대 한 **인바운드** 액세스를 잠글 수 있습니다. 이 기능은 IP 액세스 제한과 함께 작동 합니다. 서비스 끝점은 IP 액세스 제한과 동일한 사용자 환경에서 설정 됩니다. Vnet에 서브넷 뿐만 아니라 공용 주소를 포함 하는 액세스 규칙의 허용/거부 목록을 작성할 수 있습니다. 이 기능은 다음과 같은 시나리오를 지원 합니다.
 
-![서비스 끝점](media/networking-features/service-endpoints.png)
+![서비스 엔드포인트](media/networking-features/service-endpoints.png)
 
 * 앱에 대 한 Application Gateway 설정 하 여 앱에 대 한 인바운드 트래픽 잠금
 * VNet의 리소스로 앱에 대 한 액세스를 제한 합니다. 여기에는 Vm, Ase 또는 VNet 통합을 사용 하는 다른 앱도 포함 될 수 있습니다. 
@@ -163,7 +163,7 @@ VNet 통합 기능 App Service 필요한 게이트웨이를 사용 하면 앱에
 
 이 기능은 미리 보기 상태 이며 프로덕션 워크 로드에 사용할 수 없습니다. 이 기능에 대해 자세히 알아보려면 [App Service VNet 통합][vnetintegration]에 대 한 문서를 참조 하세요.
 
-## <a name="app-service-environment"></a>App Service Environment 
+## <a name="app-service-environment"></a>App Service 환경 
 
 ASE (App Service Environment)는 VNet에서 실행 되는 Azure App Service의 단일 테 넌 트 배포입니다. ASE를 사용 하면 다음과 같은 사용 사례를 사용할 수 있습니다.
 
@@ -222,7 +222,7 @@ ASE는 격리 되 고 전용 응용 프로그램 호스팅에 대 한 최상의 
 다른 프런트 엔드 앱에서 VNet 통합을 사용 하 여 여러 프런트 엔드 앱에서 동일한 API 앱을 사용 하 고 API 앱에서 해당 서브넷을 사용 하 여 서비스 끝점을 사용할 수 있습니다.  
 
 <!--Links-->
-[appassignedaddress]: https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl
+[appassignedaddress]: https://docs.microsoft.com/azure/app-service/configure-ssl-certificate
 [iprestrictions]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [serviceendpoints]: https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions
 [hybridconn]: https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections

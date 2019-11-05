@@ -1,7 +1,7 @@
 ---
 title: 클래식 웹 서비스 학습 및 배포
-titleSuffix: Azure Machine Learning Studio
-description: Azure Machine Learning Studio에서 모델을 다시 학습하고 새로 학습된 모델을 사용하도록 클래식 웹 서비스를 업데이트하는 방법을 알아봅니다.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Azure Machine Learning Studio (클래식)에서 새로 학습 된 모델을 사용 하도록 모델을 다시 학습 하 고 기존 웹 서비스를 업데이트 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
@@ -10,16 +10,16 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: b636883ee1f08fa0fb6d080b6980cd07553dde1b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 477e099bb759e09402a245b693d95f3b3980699e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65234052"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480201"
 ---
-# <a name="retrain-and-deploy-a-classic-studio-web-service"></a>클래식 Studio 웹 서비스 학습 및 배포
+# <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>클래식 Studio (클래식) 웹 서비스 다시 학습 및 배포
 
-기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 클래식 Studio 웹 서비스를 다시 학습하는 방법을 보여 줍니다. 새로운 Studio 웹 서비스를 다시 학습하는 방법에 대한 가이드는 [이 방법 문서를 참조](retrain-machine-learning-model.md)하세요.
+기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 클래식 Studio (클래식) 웹 서비스를 다시 학습 하는 방법을 보여 줍니다. 새 Studio (클래식) 웹 서비스를 다시 학습 하는 방법에 대 한 지침은 [이 방법 문서를 참조 하세요.](retrain-machine-learning-model.md)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -44,7 +44,7 @@ ms.locfileid: "65234052"
 
 ### <a name="use-the-azure-web-services-portal-to-add-an-endpoint"></a>Azure 웹 서비스 포털을 사용하여 엔드포인트 추가
 
-1. Machine Learning Studio의 왼쪽 탐색 열에서 Web Services를 클릭합니다.
+1. Machine Learning Studio (클래식)의 왼쪽 탐색 열에서 웹 서비스를 클릭 합니다.
 1. 웹 서비스 대시보드 아래쪽에서 **엔드포인트 관리 미리 보기**를 클릭합니다.
 1. **추가**를 클릭합니다.
 1. 새 엔드포인트에 대한 이름 및 설명을 입력합니다. 로깅 수준 및 예제 데이터 사용 여부를 선택합니다. 자세한 내용은 [Machine Learning 웹 서비스에 대해 로깅 사용](web-services-logging.md)을 참조하세요.
@@ -53,7 +53,7 @@ ms.locfileid: "65234052"
 
 ### <a name="retrieve-patch-url"></a>패치 URL 검색
 
-### <a name="option-1-programmatically"></a>옵션 1: 프로그래밍 방식
+### <a name="option-1-programmatically"></a>옵션 1: 프로그래밍 방식으로
 
 프로그램 방식으로 올바른 패치 URL을 가져오려면 다음 단계를 수행합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "65234052"
 1. **패치** URL 아래의 **API 도움말**을클 릭하여 패치 도움말 페이지를 엽니다.
 
 > [!NOTE]
-> 예측 웹 서비스 대신 학습 웹 서비스에 엔드포인트를 추가한 경우 **업데이트 리소스** 링크를 클릭하면 다음과 같은 오류가 발생합니다. "죄송합니다. 이 기능은 지원되지 않거나 이 컨텍스트에서 사용할 수 없습니다. 이 웹 서비스에 업데이트할 수 있는 리소스가 없습니다. 불편을 끼쳐 드려 죄송합니다. 이 워크플로를 개선하도록 작업 중입니다.”
+> 예측 웹 서비스 대신 학습 웹 서비스에 끝점을 추가한 경우 **업데이트 리소스** 링크를 클릭 하면 다음과 같은 오류가 표시 됩니다. "죄송 합니다 .이 기능은 지원 되지 않거나이 컨텍스트에서 사용할 수 없습니다. 이 웹 서비스에 업데이트할 수 있는 리소스가 없습니다. 불편을 끼쳐 드려 죄송합니다. 이 워크플로를 개선하도록 작업 중입니다.”
 >
 
 PATCH 도움말 페이지에는 사용해야 하는 PATCH URL이 들어 있으며 호출하는 데 사용할 수 있는 샘플 코드가 제공됩니다.
@@ -131,7 +131,7 @@ PATCH 도움말 페이지에는 사용해야 하는 PATCH URL이 들어 있으�
 
 *리소스*의 *Name* 매개 변수의 값은 예측 실험의 저장된 학습된 모델의 리소스 이름과 일치해야 합니다. 리소스 이름을 가져오려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 메뉴에서 **Machine Learning**을 클릭합니다.
 1. 이름 아래에서 작업 영역을 클릭한 다음 **웹 서비스**를 클릭합니다.
 1. 이름 아래에서 **Census Model[예측 exp.]** 을 클릭합니다.

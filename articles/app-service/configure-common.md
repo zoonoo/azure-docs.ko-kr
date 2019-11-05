@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 11a29a980fbbbafad850daeda5af11b78580bcaa
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c22f88487fd8b34d48d3012c706bb0415760b21e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067001"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470948"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
@@ -28,18 +28,18 @@ ms.locfileid: "70067001"
 
 ## <a name="configure-app-settings"></a>앱 설정 구성
 
-App Service에서 앱 설정은 응용 프로그램 코드에 환경 변수로 전달 되는 변수입니다. Linux 앱 및 사용자 지정 컨테이너의 경우 플래그를 `--env` 사용 하 여 컨테이너에 앱 설정을 전달 하 고 컨테이너에서 환경 변수를 설정 App Service 합니다.
+App Service에서 앱 설정은 응용 프로그램 코드에 환경 변수로 전달 되는 변수입니다. Linux 앱 및 사용자 지정 컨테이너의 경우 App Service `--env` 플래그를 사용 하 여 컨테이너에 앱 설정을 전달 하 여 컨테이너에 환경 변수를 설정 합니다.
 
 [Azure Portal]에서 앱의 관리 페이지로 이동 합니다. 앱의 왼쪽 메뉴에서 **구성** > **응용 프로그램 설정**을 클릭 합니다.
 
 ![애플리케이션 설정](./media/configure-common/open-ui.png)
 
-ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설정 하는 것은 web.config `<appSettings>` 또는 *appsettings*의에서 설정 하는 것과 같지만 App Service의 값이 *web.config* *의 값을 재정의 합니다. appsettings*. *Web.config* 또는 *appsettings*에서 개발 설정 (예: 로컬 MySQL 암호)을 유지할 수 있지만 프로덕션 암호 (예: Azure mysql 데이터베이스 암호)는 App Service에서 안전 하 게 사용할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
+ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설정 하는 것은 web.config 또는 appsettings *의 `<appSettings>`* 에서 설정하는 것과 같지만 App Service의 값이 *web.config* 또는 appsettings의 값을 재정의 합니다 *.* . *Web.config* 또는 *appsettings*에서 개발 설정 (예: 로컬 MySQL 암호)을 유지할 수 있지만 프로덕션 암호 (예: Azure mysql 데이터베이스 암호)는 App Service에서 안전 하 게 사용할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
 
 마찬가지로 다른 언어 스택은 런타임에 환경 변수로 앱 설정을 가져옵니다. 언어 스택 관련 단계는 다음을 참조 하세요.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
+- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
 - [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
@@ -64,7 +64,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설
 완료 되 면 **업데이트**를 클릭 합니다. **구성** 페이지에서 다시 **저장** 을 클릭 해야 합니다.
 
 > [!NOTE]
-> 기본 linux 컨테이너 또는 사용자 지정 linux 컨테이너에서와 같은 `ApplicationInsights:InstrumentationKey` 앱 설정 이름의 중첩 된 모든 JSON 키 구조는 키 이름에 대 한 App Service로 `ApplicationInsights__InstrumentationKey` 구성 해야 합니다. 즉, 모든 `:` 을 (이중 밑줄)로 `__` 바꾸어야 합니다.
+> 기본 Linux 컨테이너 또는 사용자 지정 Linux 컨테이너에서 `ApplicationInsights:InstrumentationKey`와 같은 앱 설정 이름의 중첩 된 모든 JSON 키 구조를 키 이름에 대 한 `ApplicationInsights__InstrumentationKey` App Service 구성 해야 합니다. 즉, 모든 `:` `__` (이중 밑줄)로 바꾸어야 합니다.
 >
 
 ### <a name="edit-in-bulk"></a>대량 편집
@@ -95,7 +95,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설
 
 ![애플리케이션 설정](./media/configure-common/open-ui.png)
 
-ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열을 설정 하는 것은 `<connectionStrings>` web.config의에서 설정 하는 것과 같지만 App Service에서 설정 하는 값은web.config의 연결 문자열을 재정의 합니다. *Web.config* 및 프로덕션 암호 (예: SQL Database 자격 증명)에서 개발 설정 (예: 데이터베이스 파일)을 App Service 안전 하 게 유지할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
+ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 *문자열을 설정*하는 것은 web.config의 `<connectionStrings>`에서 설정 하는 것과 같지만 App Service에서 설정한 값이 *web.config의 값*을 재정의 합니다. *Web.config* 및 프로덕션 암호 (예: SQL Database 자격 증명)에서 개발 설정 (예: 데이터베이스 파일)을 App Service 안전 하 게 유지할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
 
 다른 언어 스택에서는 값에 액세스 하기 위해 연결 문자열에 변수 키에 대 한 특수 형식이 필요 하기 때문에 [앱 설정을](#configure-app-settings) 대신 사용 하는 것이 좋습니다. 단, 응용 프로그램에서 연결 문자열을 구성 하는 경우 특정 Azure 데이터베이스 형식이 앱과 함께 백업 됩니다. 자세한 내용은 백업 되는 [항목](manage-backup.md#what-gets-backed-up)을 참조 하세요. 이 자동화 된 백업이 필요 하지 않은 경우 앱 설정을 사용 합니다.
 
@@ -106,10 +106,10 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
 * SQL Database: `SQLAZURECONNSTR_`
 * 사용자 지정: `CUSTOMCONNSTR_`
 
-예를 들어 *connectionstring1* 라는 MySql 연결 문자열을 환경 변수로 `MYSQLCONNSTR_connectionString1`액세스할 수 있습니다. 언어 스택 관련 단계는 다음을 참조 하세요.
+예를 들어 *connectionstring1* 이라는 MySql 연결 문자열은 환경 변수 `MYSQLCONNSTR_connectionString1`로 액세스할 수 있습니다. 언어 스택 관련 단계는 다음을 참조 하세요.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
+- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
 - [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
@@ -168,17 +168,17 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 문자열�
 
 여기에서 앱에 대 한 몇 가지 일반 설정을 구성할 수 있습니다. 일부 설정의 경우 [더 높은 가격 책정 계층으로 확장](manage-scale-up.md)해야 합니다.
 
-- **스택 설정**: 언어 및 SDK 버전을 포함 하 여 앱을 실행할 소프트웨어 스택입니다. Linux 앱 및 사용자 지정 컨테이너 앱의 경우 선택적 시작 명령 또는 파일을 설정할 수도 있습니다.
+- **스택 설정**: 언어 및 SDK 버전을 포함 하 여 앱을 실행 하는 소프트웨어 스택입니다. Linux 앱 및 사용자 지정 컨테이너 앱의 경우 선택적 시작 명령 또는 파일을 설정할 수도 있습니다.
 - **플랫폼 설정**: 다음을 포함 하 여 호스팅 플랫폼에 대 한 설정을 구성할 수 있습니다.
-    - **비트**: 32 비트 또는 64 비트입니다.
-    - **WebSocket 프로토콜**: [ASP.NET SignalR] 또는 [socket.io](https://socket.io/)의 경우 (예:).
+    - **비트: 32**비트 또는 64 비트.
+    - **WebSocket 프로토콜**: 예를 들어 [ASP.NET SignalR] 또는 [socket.io](https://socket.io/)에 대 한입니다.
     - **Always On**: 트래픽이 없는 경우에도 앱을 로드 된 상태로 유지 합니다. CRON 식을 사용 하 여 트리거되는 연속 WebJobs 또는 WebJobs에 필요 합니다.
     - **관리 되는 파이프라인 버전**: IIS [파이프라인 모드]입니다. 이전 버전의 IIS가 필요한 레거시 앱이 있는 경우 **클래식** 으로 설정 합니다.
-    - **HTTP 버전**: [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) 프로토콜에 대한 지원을 사용하도록 **2.0**으로 설정합니다.
+    - **HTTP 버전**: [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) 프로토콜에 대 한 지원을 사용 하도록 설정 하려면 **2.0** 로 설정 합니다.
     > [!NOTE]
-    > 대부분의 최신 브라우저는 TLS를 통해서만 HTTP/2 프로토콜을 지원하는 반면에 암호화되지 않은 트래픽은 HTTP/1.1을 계속 사용합니다. 클라이언트 브라우저가 HTTP/2를 사용 하 여 앱에 연결 되도록 하려면 앱의 사용자 지정 도메인에 대 한 [App Service Certificate를 구입](web-sites-purchase-ssl-web-site.md) 하거나 [타사 인증서를 바인딩합니다](app-service-web-tutorial-custom-ssl.md).
-    - **ARR 선호도**: 다중 인스턴스 배포에서 클라이언트가 세션 수명 동안 동일한 인스턴스로 라우팅되고 있는지 확인 합니다. 상태 비저장 응용 프로그램의 경우이 옵션을 **Off** 로 설정할 수 있습니다.
-- **디버깅**: [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)또는 [node.js](containers/configure-language-nodejs.md#debug-remotely) 앱에 대해 원격 디버깅을 사용 하도록 설정 합니다. 이 옵션은 48 시간 후에 자동으로 꺼집니다.
+    > 대부분의 최신 브라우저는 TLS를 통해서만 HTTP/2 프로토콜을 지원하는 반면에 암호화되지 않은 트래픽은 HTTP/1.1을 계속 사용합니다. 클라이언트 브라우저가 HTTP/2를 사용 하 여 앱에 연결 되도록 하려면 [Azure App Service에서 SSL 바인딩을 사용 하 여 사용자 지정 DNS 이름을 보호](configure-ssl-bindings.md)합니다.
+    - **ARR 선호도**: 다중 인스턴스 배포에서 클라이언트가 세션 수명 동안 동일한 인스턴스로 라우팅되도록 합니다. 상태 비저장 응용 프로그램의 경우이 옵션을 **Off** 로 설정할 수 있습니다.
+- **디버깅**: [ASP.NET](troubleshoot-dotnet-visual-studio.md#remotedebug), [ASP.NET Core](/visualstudio/debugger/remote-debugging-azure)또는 [Node.js](containers/configure-language-nodejs.md#debug-remotely) 앱에 대해 원격 디버깅을 사용 하도록 설정 합니다. 이 옵션은 48 시간 후에 자동으로 꺼집니다.
 - **들어오는 클라이언트 인증서**: [상호 인증](app-service-web-configure-tls-mutual-auth.md)에 클라이언트 인증서가 필요 합니다.
 
 ## <a name="configure-default-documents"></a>기본 문서 구성
@@ -207,27 +207,27 @@ Windows 앱의 경우 IIS 처리기 매핑과 가상 응용 프로그램 및 디
 
 처리기 매핑을 사용 하면 특정 파일 확장명에 대 한 요청을 처리 하는 사용자 지정 스크립트 프로세서를 추가할 수 있습니다. 사용자 지정 처리기를 추가 하려면 **새 처리기**를 클릭 합니다. 다음과 같이 처리기를 구성 합니다.
 
-- **확장명**. *\*Php* 또는 *handler*와 같이 처리 하려는 파일 확장명입니다.
+- **확장명**. 처리 하려는 파일 확장명 (예: *\*php* 또는 *handler*)입니다.
 - **스크립트 프로세서**. 스크립트 프로세서의 절대 경로입니다. 파일 확장명과 일치 하는 파일에 대 한 요청은 스크립트 프로세서에 의해 처리 됩니다. 경로 `D:\home\site\wwwroot` 를 사용하여 앱의 루트 디렉터리를 참조합니다.
 - **인수**. 스크립트 프로세서에 대 한 선택적인 명령줄 인수입니다.
 
-각 앱에는에`/` `D:\home\site\wwwroot`매핑되는 기본 루트 경로 ()가 있습니다. 여기서 코드는 기본적으로 배포 됩니다. 앱 루트가 다른 폴더에 있거나 리포지토리에 둘 이상의 응용 프로그램이 있는 경우 여기에서 가상 응용 프로그램 및 디렉터리를 편집 하거나 추가할 수 있습니다. **새 가상 응용 프로그램 또는 디렉터리**를 클릭 합니다.
+각 앱에는 기본적으로 코드가 배포 되는 `D:\home\site\wwwroot`에 매핑되는 기본 루트 경로 (`/`)가 있습니다. 앱 루트가 다른 폴더에 있거나 리포지토리에 둘 이상의 응용 프로그램이 있는 경우 여기에서 가상 응용 프로그램 및 디렉터리를 편집 하거나 추가할 수 있습니다. **새 가상 응용 프로그램 또는 디렉터리**를 클릭 합니다.
 
-가상 응용 프로그램 및 디렉터리를 구성 하려면 각 가상 디렉터리와 웹 사이트 루트 (`D:\home`)에 상대적인 해당 실제 경로를 지정 합니다. 경우에 따라 **애플리케이션** 확인란을 선택하여 가상 디렉터리를 애플리케이션으로 표시할 수 있습니다.
+가상 응용 프로그램 및 디렉터리를 구성 하려면 각 가상 디렉터리와 웹 사이트 루트 (`D:\home`)를 기준으로 해당 하는 실제 경로를 지정 합니다. 경우에 따라 **애플리케이션** 확인란을 선택하여 가상 디렉터리를 애플리케이션으로 표시할 수 있습니다.
 
 ### <a name="containerized-apps"></a>컨테이너 화 된 앱
 
 [컨테이너 화 된 앱에 대 한 사용자 지정 저장소를 추가할](containers/how-to-serve-content-from-azure-storage.md)수 있습니다. 컨테이너 화 된 apps에는 모든 Linux 앱 및 App Service에서 실행 되는 Windows 및 Linux 사용자 지정 컨테이너도 포함 됩니다. **새로 만들기 Azure Storage** 클릭 하 여 다음과 같이 사용자 지정 저장소를 탑재 하 고 구성 합니다.
 
 - **이름**: 표시 이름입니다.
-- **구성 옵션**: **기본** 또는 **고급**.
-- **Storage 계정**: 컨테이너를 포함 하는 저장소 계정.
-- **스토리지 유형**: **Azure blob** 또는 **Azure Files**.
+- **구성 옵션**: **Basic** 또는 **Advanced**
+- **Storage 계정**: 컨테이너를 포함 하는 저장소 계정입니다.
+- **저장소 유형**: **Azure blob** 또는 **Azure Files**.
   > [!NOTE]
   > Windows 컨테이너 앱은 Azure Files만 지원 합니다.
-- **스토리지 컨테이너**: 기본 구성의 경우 원하는 컨테이너를 선택 합니다.
+- **저장소 컨테이너**: 기본 구성의 경우 원하는 컨테이너를 선택 합니다.
 - **공유 이름**: 고급 구성의 경우 파일 공유 이름입니다.
-- **액세스 키**: 고급 구성의 경우 선택 키입니다.
+- **액세스 키**: 고급 구성의 경우 액세스 키입니다.
 - **탑재 경로**: 사용자 지정 저장소를 탑재할 컨테이너의 절대 경로입니다.
 
 자세한 내용은 [Linux의 App Service에서 Azure Storage 콘텐츠 제공](containers/how-to-serve-content-from-azure-storage.md)을 참조 하세요.
@@ -237,7 +237,7 @@ Windows 앱의 경우 IIS 처리기 매핑과 가상 응용 프로그램 및 디
 Linux 앱의 경우 다음을 참조 하세요.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md)
-- [Node.js](containers/configure-language-nodejs.md)
+- [Node.JS](containers/configure-language-nodejs.md)
 - [PHP](containers/configure-language-php.md)
 - [Python](containers/how-to-configure-python.md)
 - [Java](containers/configure-language-java.md)
@@ -251,7 +251,7 @@ Linux 앱의 경우 다음을 참조 하세요.
 
 - [Azure App Service에서 사용자 지정 도메인 이름 구성]
 - [Azure App Service에서 스테이징 환경 설정]
-- [Azure App Service에서 앱에 대한 HTTPS를 사용하도록 설정]
+- [Azure App Service에서 SSL 바인딩을 사용 하 여 사용자 지정 DNS 이름을 보호 합니다.](configure-ssl-bindings.md)
 - [진단 로그 사용](troubleshoot-diagnostic-logs.md)
 - [Azure App Service에서 앱 크기 조정]
 - [Azure App Service의 기본 사항 모니터링]
@@ -263,7 +263,6 @@ Linux 앱의 경우 다음을 참조 하세요.
 [Azure Portal]: https://portal.azure.com/
 [Azure App Service에서 사용자 지정 도메인 이름 구성]: ./app-service-web-tutorial-custom-domain.md
 [Azure App Service에서 스테이징 환경 설정]: ./deploy-staging-slots.md
-[Azure App Service에서 앱에 대한 HTTPS를 사용하도록 설정]: ./app-service-web-tutorial-custom-ssl.md
 [How to: Monitor web endpoint status]: https://go.microsoft.com/fwLink/?LinkID=279906
 [Azure App Service의 기본 사항 모니터링]: ./web-sites-monitor.md
 [파이프라인 모드]: https://www.iis.net/learn/get-started/introduction-to-iis/introduction-to-iis-architecture#Application

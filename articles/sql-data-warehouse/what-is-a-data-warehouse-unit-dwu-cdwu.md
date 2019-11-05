@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse의 데이터 웨어하우스 단위(DWU, cDWU) | Microsoft Docs
+title: Azure Synapse Analytics (이전 SQL DW)의 데이터 웨어하우스 단위 (DWUs, Cdwu) | Microsoft Docs
 description: 가격 및 성능을 최적화하기 위한 이상적인 데이터 웨어하우스 단위(DWU, cDWU) 수 선택에 대한 권장 사항 및 단위 수를 변경하는 방법
 services: sql-data-warehouse
 author: mlee3gsd
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 05/30/2019
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 mscustom: sqlfreshmay19
-ms.openlocfilehash: 282fab70e3b6d1fcf81814b2dd599259e2396fb3
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 32e75b78b8a5c304fc65a9c20d16fb85b4f8307b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036045"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475747"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWU(데이터 웨어하우스 단위) 및 cDWU(컴퓨팅 데이터 웨어하우스 단위)
 
@@ -24,15 +24,15 @@ ms.locfileid: "69036045"
 
 ## <a name="what-are-data-warehouse-units"></a>데이터 웨어하우스 단위 란?
 
-Azure SQL Data Warehouse CPU, 메모리 및 IO는 DWUs (데이터 웨어하우스 단위) 라는 계산 확장 단위로 제공 됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준을 변경 하면 시스템에서 사용할 수 있는 DWUs 수를 변경 하 여 시스템의 성능 및 비용을 조정 합니다.
+Sql 풀은 [Sql Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)를 사용할 때 프로 비전 되는 분석 리소스의 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의 됩니다. 이러한 세 리소스는 DWUs (데이터 웨어하우스 단위) 라고 하는 계산 확장 단위로 번들로 제공 됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준을 변경 하면 시스템에서 사용할 수 있는 DWUs 수를 변경 하 여 시스템의 성능 및 비용을 조정 합니다.
 
 성능 향상을 위해 데이터 웨어하우스 단위 수를 늘릴 수 있습니다. 성능 저하를 위해 데이터 웨어하우스 단위를 줄입니다. 스토리지 및 컴퓨팅 비용은 별도로 청구되므로 데이터 웨어하우스 단위를 변경해도 스토리지 비용에 영향을 미치지 않습니다.
 
-데이터 웨어하우스 단위의 성능은 다음과 같은 데이터 웨어하우스 워크로드 메트릭을 기반으로 합니다.
+데이터 웨어하우스 단위에 대 한 성능은 다음과 같은 작업 메트릭을 기반으로 합니다.
 
 - 표준 데이터 웨어하우징 쿼리가 많은 수의 행을 검색 한 후 복잡 한 집계를 수행 하는 속도입니다. 이 작업은 I/O 및 CPU를 많이 사용합니다.
 - 데이터 웨어하우스가 Azure Storage Blob 또는 Azure Data Lake에서 데이터를 수집할 수 있는 속도입니다. 이 작업은 네트워크 및 CPU를 많이 사용합니다.
-- [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-sql 명령이 테이블을 복사할 수 있는 속도입니다. 이 작업에는 데이터를 스토리지에서 읽어오기, 어플라이언스의 노드 전체에 배포하기, 스토리지에 다시 쓰기가 포함됩니다. 이 작업은 CPU, IO 및 네트워크를 많이 사용합니다.
+- [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) t-sql 명령이 테이블을 복사할 수 있는 속도입니다. 이 작업에는 데이터를 스토리지에서 읽어오기, 어플라이언스의 노드 전체에 배포하기, 스토리지에 다시 쓰기가 포함됩니다. 이 작업은 CPU, IO 및 네트워크를 많이 사용합니다.
 
 DWU 늘리기:
 
@@ -42,11 +42,11 @@ DWU 늘리기:
 
 ## <a name="service-level-objective"></a>서비스 수준 목표
 
-SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2에 대한 서비스 수준은 cDWU(컴퓨팅 데이터 웨어하우스 단위)로 측정됩니다(예: DW2000c). Gen1 서비스 수준은 DWU로 측정됩니다(예: DW2000).
+SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2 SQL 풀의 서비스 수준은 cDWU (계산 데이터 웨어하우스 단위) (예: DW2000c)로 측정 됩니다. Gen1 SQL 풀 서비스 수준은 DWUs (예: DW2000)로 측정 됩니다.
   > [!NOTE]
-  > Azure SQL Data Warehouse Gen2는 최근에 100cDWU만큼 낮은 컴퓨팅 계층을 지원하기 위해 크기 조정 기능을 추가했습니다. 현재 Gen1에 있는 기존 데이터 웨어하우스는 하위 컴퓨팅 계층이 필요한 경우 이제 추가 비용 없이 현재 사용 가능한 지역에서 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](upgrade-to-latest-generation.md)를 참조하세요.
+  > Gen 2 SQL 풀은 최근에 100 cDWU 낮은 계산 계층을 지원 하기 위해 추가 크기 조정 기능을 추가 했습니다. 이제 더 낮은 계산 계층이 필요한 기존 SQL 풀은 현재 추가 비용 없이 사용할 수 있는 지역의 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](upgrade-to-latest-generation.md)를 참조하세요.
 
-T-sql에서 SERVICE_OBJECTIVE 설정은 데이터 웨어하우스의 서비스 수준 및 성능 계층을 결정 합니다.
+T-sql에서 SERVICE_OBJECTIVE 설정은 SQL 풀의 서비스 수준 및 성능 계층을 결정 합니다.
 
 ```sql
 --Gen1
@@ -68,10 +68,10 @@ CREATE DATABASE myComputeSQLDW
 
 각 성능 계층은 약간 다른 데이터 웨어하우스의 측정 단위를 사용합니다. 이러한 차이는 크기 단위를 직접 요금 청구로 변환하므로 송장에 반영됩니다.
 
-- Gen1 데이터 웨어하우스는 DWU(데이터 웨어하우스 단위)로 측정됩니다.
-- Gen2 데이터 웨어하우스는 cDWU(컴퓨팅 데이터 웨어하우스 단위)로 측정됩니다.
+- Gen1 SQL 풀은 DWUs (데이터 웨어하우스 단위)로 측정 됩니다.
+- Gen2 SQL 풀은 Cdwu (계산 데이터 웨어하우스 단위)로 측정 됩니다.
 
-DWU 및 cDWU 모두 컴퓨팅을 확장 또는 축소할 수 있고 데이터 웨어하우스를 사용할 필요가 없는 경우 컴퓨팅을 일시 중지할 수 있습니다. 이러한 작업은 모두 주문형 작업입니다. Gen2는 컴퓨팅 노드에서 로컬 디스크 기반 캐시를 사용하여 성능을 향상시킵니다. 시스템의 크기를 조정하거나 시스템을 일시 중지할 경우 캐시가 무효화되므로 최적의 성능을 얻으려면 캐시 준비 시간이 필요합니다.  
+DWUs 및 Cdwu는 모두 계산 확장 또는 축소를 지원 하 고 SQL 풀을 사용할 필요가 없을 때 계산을 일시 중지 합니다. 이러한 작업은 모두 주문형 작업입니다. Gen2는 컴퓨팅 노드에서 로컬 디스크 기반 캐시를 사용하여 성능을 향상시킵니다. 시스템의 크기를 조정하거나 시스템을 일시 중지할 경우 캐시가 무효화되므로 최적의 성능을 얻으려면 캐시 준비 시간이 필요합니다.  
 
 데이터 웨어하우스 단위를 늘리면 계산 리소스가 선형적으로 증가됩니다. Gen2는 최상의 쿼리 성능과 최고 규모를 제공 합니다. Gen2 시스템은 캐시를 최대한 활용 합니다.
 
@@ -89,13 +89,13 @@ DWU 및 cDWU 모두 컴퓨팅을 확장 또는 축소할 수 있고 데이터 �
 2. 시스템으로 로드하는 데이터를 테스트할 때 애플리케이션 성능을 모니터링하여 선택한 DWU 수와 관찰한 성능을 비교합니다.
 3. 정기적으로 작업량이 많은 기간에 필요한 추가 요구 사항을 식별합니다. 활동에서 상당한 최대 및 최저점을 보여 주는 워크 로드는 자주 크기를 조정 해야 할 수 있습니다.
 
-SQL Data Warehouse는 데이터 양 조정이 가능한 대량의 컴퓨팅 및 쿼리를 프로비전할 수 있는 스케일 아웃 시스템입니다. 특히 큰 DWU에서 진정한 크기 조정 기능을 확인하려면 데이터에 충분한 CPU가 할당되도록 데이터 집합의 크기를 조정하는 것이 좋습니다. 크기 조정 테스트의 경우 1TB 이상을 사용하는 것이 좋습니다.
+SQL Analytics는 방대한 양의 계산을 프로 비전 하 고 방대한 양의 데이터를 쿼리할 수 있는 스케일 아웃 시스템입니다. 특히 큰 DWU에서 진정한 크기 조정 기능을 확인하려면 데이터에 충분한 CPU가 할당되도록 데이터 집합의 크기를 조정하는 것이 좋습니다. 크기 조정 테스트의 경우 1TB 이상을 사용하는 것이 좋습니다.
 
 > [!NOTE]
 >
 > 컴퓨팅 노드 간에 작업을 분할할 수 있는 경우 더 많은 병렬 처리를 통해 쿼리 성능만 증가합니다. 크기를 조정해도 성능이 변경되지 않는 경우 테이블 디자인 및/또는 쿼리를 튜닝해야 할 수 있습니다. 쿼리 튜닝 지침에 대해서는 [사용자 쿼리 관리](sql-data-warehouse-overview-manage-user-queries.md)를 참조하세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 데이터 웨어하우스 단위를 변경하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql)에 설명된 권한이 필요합니다.
 
@@ -107,7 +107,7 @@ SQL DB 참가자 및 SQL Server 참가자와 같은 Azure 리소스에 대한 �
 
 1. Visual Studio에서 SQL Server 개체 탐색기를 엽니다.
 2. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
-3. sys.database_service_objectives 동적 관리 뷰에서 선택합니다. 다음 예를 참조하세요.
+3. sys.database_service_objectives 동적 관리 뷰에서 선택합니다. 다음은 예제입니다.
 
 ```sql
 SELECT  db.name [Database]
@@ -120,15 +120,15 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ## <a name="change-data-warehouse-units"></a>데이터 웨어하우스 단위 변경
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 DWU 또는 cDWU를 변경하려면
 
-1. [Azure Portal](https://portal.azure.com)을 열고 데이터베이스를 연 다음 **크기 조정**을 클릭합니다.
+1. [Azure 포털](https://portal.azure.com)을 열고 데이터베이스를 연 다음 **조정**을 클릭합니다.
 
 2. **크기 조정**에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
 
-3. **Save**을 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
+3. **Save**를 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -185,25 +185,26 @@ Azure Portal에서 스케일 아웃 작업에 대한 데이터베이스 상태�
 DWU 변경 상태를 확인하려면:
 
 1. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
-2. 다음 쿼리를 제출하여 데이터베이스 상태를 확인합니다.
 
-```sql
-SELECT    *
-FROM      sys.databases
-;
-```
+1. 다음 쿼리를 제출하여 데이터베이스 상태를 확인합니다.
 
+    ```sql
+    SELECT    *
+    FROM      sys.databases
+    ;
+    ```
+    
 1. 다음 쿼리를 제출하여 작업 상태를 확인합니다.
 
-```sql
-SELECT    *
-FROM      sys.dm_operation_status
-WHERE     resource_type_desc = 'Database'
-AND       major_resource_id = 'MySQLDW'
-;
-```
-
-이 DMV는 작업 및 작업 상태 (IN_PROGRESS 또는 완료)와 같은 SQL Data Warehouse의 다양 한 관리 작업에 대 한 정보를 반환 합니다.
+    ```sql
+    SELECT    *
+    FROM      sys.dm_operation_status
+    WHERE     resource_type_desc = 'Database'
+    AND       major_resource_id = 'MySQLDW'
+    ;
+    ```
+    
+이 DMV는 작업 및 작업 상태 (IN_PROGRESS 또는 완료 됨)와 같은 SQL 풀의 다양 한 관리 작업에 대 한 정보를 반환 합니다.
 
 ## <a name="the-scaling-workflow"></a>크기 조정 워크플로
 

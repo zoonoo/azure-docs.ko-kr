@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.openlocfilehash: 146aaa8b1b69c29e22f39d48883f604098b8e348
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 1d684957939c5cb83aae05962c1694f7a8d8da23
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718395"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498245"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Apache Ambari REST API를 사용하여 HDInsight 클러스터 관리
 
@@ -25,7 +25,7 @@ Apache Ambari REST API를 사용하여 Azure HDInsight에서 Apache Hadoop 클�
 
 [Apache Ambari](https://ambari.apache.org) 는 [REST api](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)에서 지원 되는 웹 UI를 쉽게 사용할 수 있도록 하 여 Hadoop 클러스터의 관리 및 모니터링을 간소화 합니다.  Ambari는 Linux 기반 HDInsight 클러스터를 기본으로 제공합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
@@ -43,15 +43,15 @@ Apache Ambari REST API를 사용하여 Azure HDInsight에서 Apache Hadoop 클�
 
 HTTPS를 요구하는 HDInsight에서 Ambari로 연결 클러스터 만들기 중 입력한 관리자 계정 이름(기본값은 **admin**) 및 암호를 사용합니다.
 
-Enterprise Security Package 클러스터의 경우-0 @no__t 대신 `username@domain.onmicrosoft.com`과 같은 정규화 된 사용자 이름을 사용 합니다.
+Enterprise Security Package 클러스터의 경우 `admin`대신 `username@domain.onmicrosoft.com`와 같은 정규화 된 사용자 이름을 사용 합니다.
 
 ## <a name="examples"></a>예
 
 ### <a name="setup-preserve-credentials"></a>설치 (자격 증명 유지)
 각 예제에 대해 자격 증명을 입력할 필요가 없도록 자격 증명을 유지 합니다.  클러스터 이름은 별도의 단계로 유지 됩니다.
 
-**A. Bash @ no__t-0  
-@No__t-0을 실제 암호로 바꿔서 아래 스크립트를 편집 합니다.  그런 다음 명령을 입력 합니다.
+**A. Bash**  
+`PASSWORD`를 실제 암호로 바꿔서 아래 스크립트를 편집 합니다.  그런 다음 명령을 입력 합니다.
 
 ```bash
 export password='PASSWORD'
@@ -66,7 +66,7 @@ $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
 ### <a name="identify-correctly-cased-cluster-name"></a>대/소문자를 올바르게 식별 하는 클러스터 이름
 클러스터 생성 방법에 따라 클러스터 이름의 실제 대/소문자가 예상과 다를 수 있습니다.  여기에서 설명 하는 단계는 실제 대/소문자를 표시 한 다음 모든 후속 예제에 대해 변수에 저장 합니다.
 
-다음 스크립트를 편집 하 여 `CLUSTERNAME`을 클러스터 이름으로 바꿉니다. 그런 다음 명령을 입력 합니다. FQDN의 클러스터 이름은 대/소문자를 구분 하지 않습니다.
+다음 스크립트를 편집 하 여 `CLUSTERNAME`를 클러스터 이름으로 바꿉니다. 그런 다음 명령을 입력 합니다. FQDN의 클러스터 이름은 대/소문자를 구분 하지 않습니다.
 
 ```bash
 export clusterName=$(curl -u admin:$password -sS -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
@@ -85,7 +85,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>JSON 데이터 구문 분석
 
-다음 예제에서는 [jq](https://stedolan.github.io/jq/) 또는 [convertfrom-csv-json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) 을 사용 하 여 json 응답 문서를 구문 분석 하 고 결과에서 `health_report` 정보만 표시 합니다.
+다음 예제에서는 [jq](https://stedolan.github.io/jq/) 또는 [convertfrom-csv-json](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) 을 사용 하 여 json 응답 문서를 구문 분석 하 고 결과의 `health_report` 정보만 표시 합니다.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -305,17 +305,17 @@ $resp.Content
 1. `newconfig.json`를 만듭니다.  
    을 수정 하 고 아래 명령을 입력 합니다.
 
-   * @No__t-0을 원하는 구성 요소로 바꿉니다.
-   * @No__t-0을 [모든 구성 가져오기](#get-all-configurations)의 `tag`에 대해 검색 된 실제 값으로 바꿉니다.
+   * `livy2-conf`를 원하는 구성 요소로 바꿉니다.
+   * `INITIAL`을 [모든 구성 가져오기](#get-all-configurations)에서 `tag` 검색 된 실제 값으로 바꿉니다.
 
-     **A. Bash @ no__t-0  
+     **A. Bash**  
      ```bash
      curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
      | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
      ```
 
      **B. PowerShell**  
-     PowerShell 스크립트는 [jq](https://stedolan.github.io/jq/)를 사용 합니다.  실제 경로와 [jq](https://stedolan.github.io/jq/)의 버전을 반영 하려면 아래 `C:\HD\jq\jq-win64`을 편집 하세요.
+     PowerShell 스크립트는 [jq](https://stedolan.github.io/jq/)를 사용 합니다.  실제 경로 및 버전의 [jq](https://stedolan.github.io/jq/)를 반영 하도록 아래 `C:\HD\jq\jq-win64`를 편집 합니다.
 
      ```powershell
      $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
@@ -336,7 +336,7 @@ $resp.Content
 
    * `href`, `version`, and `Config` 요소는 새 구성을 제출하는 데 필요하지 않으므로 삭제합니다.
 
-   * 값이 `version#################`인 `tag` 요소를 추가합니다. 숫자 부분은 현재 날짜를 기반으로 합니다. 각 구성에 고유한 태그가 있어야 합니다.
+   * 값이 `tag`인 `version#################` 요소를 추가합니다. 숫자 부분은 현재 날짜를 기반으로 합니다. 각 구성에 고유한 태그가 있어야 합니다.
 
      마지막으로 데이터가 `newconfig.json` 문서에 저장됩니다. 문서 구조는 다음 예제와 유사하게 표시되어야 합니다.
 
@@ -358,14 +358,14 @@ $resp.Content
      }
      ```
 
-2. @No__t-0을 편집 합니다.  
+2. `newconfig.json`를 편집 합니다.  
    `newconfig.json` 문서를 열고 `properties` 개체의 값을 수정/추가합니다. 다음 예제는 `"livy.server.csrf_protection.enabled"` 값을 `"true"`에서 `"false"`로 변경합니다.
 
         "livy.server.csrf_protection.enabled": "false",
 
     수정을 완료했으면 파일을 저장합니다.
 
-3. @No__t-0을 제출 합니다.  
+3. `newconfig.json`를 제출 합니다.  
    다음 명령을 사용하여 업데이트된 구성을 Ambari에 제출합니다.
 
     ```bash
@@ -456,7 +456,7 @@ $resp.Content
     > 이 URI에서 반환된 `href` 값은 클러스터 노드의 내부 IP 주소를 사용합니다. 클러스터 외부에서 사용 하려면 `10.0.0.18:8080` 부분을 클러스터의 FQDN으로 바꿉니다.  
 
 4. 요청을 확인 합니다.  
-    @No__t-0을 이전 단계에서 반환 된 `id`에 대 한 실제 값으로 바꿔 아래 명령을 편집 합니다.  다음 명령은 요청의 상태를 검색합니다.
+    이전 단계에서 반환 된 `id`에 대 한 실제 값으로 `29`를 대체 하 여 아래 명령을 편집 합니다.  다음 명령은 요청의 상태를 검색합니다.
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \

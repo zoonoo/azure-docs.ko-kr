@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: ff4367194f06a8a6895c9c16252b01c3b94995d3
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 497dab37f178a9ae7d0ab6cd647a10bac44539f8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241251"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472505"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -30,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.0.61 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 Windows Server 컨테이너를 실행할 수 있는 클러스터를 만든 후 추가 노드 풀을 추가 해야 합니다. 추가 노드 풀 추가는 이후 단계에서 설명 하지만 먼저 몇 가지 미리 보기 기능을 사용 하도록 설정 해야 합니다.
 
@@ -79,7 +79,6 @@ az provider register --namespace Microsoft.ContainerService
 
 여러 노드 풀을 지 원하는 AKS 클러스터를 만들고 관리 하는 경우 다음과 같은 제한 사항이 적용 됩니다.
 
-* *WindowsPreview*를 성공적으로 등록 한 후 생성 된 클러스터에 여러 노드 풀을 사용할 수 있습니다. 구독에 대해 *Multiagentpoolpreview* 기능을 등록 한 경우에도 여러 노드 풀을 사용할 수 있습니다. 이 기능이 성공적으로 등록 되기 전에 만든 기존 AKS 클러스터를 사용 하 여 노드 풀을 추가 하거나 관리할 수 없습니다.
 * 첫 번째 노드 풀은 삭제할 수 없습니다.
 
 이 기능은 미리 보기 상태 이지만 다음과 같은 추가 제한 사항이 적용 됩니다.
@@ -141,7 +140,8 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --enable-vmss \
+    --vm-set-type VirtualMachineScaleSets \
+    --load-balancer-sku standard \
     --network-plugin azure
 ```
 
@@ -153,7 +153,7 @@ az aks create \
 
 ## <a name="add-a-windows-server-node-pool"></a>Windows Server 노드 풀 추가
 
-기본적으로 AKS 클러스터는 Linux 컨테이너를 실행할 수 있는 노드 풀로 생성 됩니다. @No__t-0 명령을 사용 하 여 Windows Server 컨테이너를 실행할 수 있는 추가 노드 풀을 추가 합니다.
+기본적으로 AKS 클러스터는 Linux 컨테이너를 실행할 수 있는 노드 풀로 생성 됩니다. `az aks nodepool add` 명령을 사용 하 여 Windows Server 컨테이너를 실행할 수 있는 추가 노드 풀을 추가 합니다.
 
 ```azurecli
 az aks nodepool add \
@@ -266,7 +266,7 @@ service/sample created
 
 애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다. 경우에 따라 서비스를 프로 비전 하는 데 몇 분 이상 걸릴 수 있습니다. 이러한 경우 최대 10 분이 허용 됩니다.
 
-진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
+진행 상태를 모니터링하려면 [ 인수와 함께 ][kubectl-get]kubectl get service`--watch` 명령을 사용합니다.
 
 ```azurecli-interactive
 kubectl get service sample --watch

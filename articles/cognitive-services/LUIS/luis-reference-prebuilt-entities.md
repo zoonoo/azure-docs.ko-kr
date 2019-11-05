@@ -9,20 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/03/2019
 ms.author: diberry
-ms.openlocfilehash: 66cdedb402392340d38ab9a72f6f19012c359664
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a5fcccc18a453101bd1166f2c85b0c3cdc747c3a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677632"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464957"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>LUIS 모델에서 문화권별 엔터티
 
 LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니다. 미리 빌드된 엔터티가 애플리케이션에 포함되어 있으면 LUIS의 엔드포인트 응답에는 해당 엔터티 예측이 포함됩니다. 또한 모든 예제 발언은 해당 엔터티로 레이블이 지정됩니다. 미리 빌드된 엔터티의 동작은 수정할 수 **없습니다**. 다른 설명이 없는 한, 미리 빌드된 엔터티는 모든 LUIS 애플리케이션 로캘(문화권)에서 사용할 수 있습니다. 다음 표에는 각 문화권에 대해 지원되는 미리 빌드된 엔터티가 나와 있습니다.
 
-|Culture|하위 문화권|참고|
+|문화권|하위 문화권|참고 사항|
 |--|--|--|
 |중국어|[zh-CN](#chinese-entity-support)||
 |네덜란드어|[nl-NL](#dutch-entity-support)||
@@ -36,27 +36,31 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 |스페인어|[es-ES(스페인)](#spanish-spain-entity-support), [es-MX(멕시코)](#spanish-mexico-entity-support)||
 |터키어|[터키어](#turkish-entity-support)|터키어에서 지원 되는 미리 빌드된 엔터티가 없습니다.|
 
+## <a name="prediction-endpoint-runtime"></a>예측 끝점 런타임
+
+특정 언어로 작성 된 엔터티의 가용성은 예측 끝점 런타임 버전에 따라 결정 됩니다. 
+
 ## <a name="chinese-entity-support"></a>중국어 엔터티 지원
 
 다음과 같은 엔터티가 지원됩니다.
 
 |미리 빌드된 엔터티|```zh-CN``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
-[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    V2, V3   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |  
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[Percentage](luis-reference-prebuilt-percentage.md)   |    V2, V3   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    V2, V3   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   | 
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="dutch-entity-support"></a>네덜란드어 엔터티 지원
 
@@ -64,21 +68,21 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```nl-NL``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    V2, V3   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   | 
-[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
+[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |  
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[Percentage](luis-reference-prebuilt-percentage.md)   |    V2, V3   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   | 
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="english-american-entity-support"></a>영어(미국) 엔터티 지원
 
@@ -86,21 +90,21 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```en-US``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
-[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
-[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
-[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    ✔   |
-[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
-[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    V2, V3   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    V2, V3   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
+[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |  
+[OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    V2, V3   |
+[Percentage](luis-reference-prebuilt-percentage.md)   |    V2, V3   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    V2, V3   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   | 
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="french-france-entity-support"></a>프랑스어(프랑스) 엔터티 지원
 
@@ -108,21 +112,21 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```fr-FR``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
-[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    V2, V3   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
+[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |  
-[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[Percentage](luis-reference-prebuilt-percentage.md)   |    V2, V3   | 
 [PersonName](luis-reference-prebuilt-person.md)   |   -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   | 
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="french-canadian-entity-support"></a>프랑스어(캐나다) 엔터티 지원
 
@@ -130,21 +134,21 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```fr-CA``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
-[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    V2, V3   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
+[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |  
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[Percentage](luis-reference-prebuilt-percentage.md)   |    V2, V3   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   | 
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="german-entity-support"></a>독일어 엔터티 지원
 
@@ -152,43 +156,45 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```de-DE``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
-[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    V2, V3   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
+[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |  
-[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[Percentage](luis-reference-prebuilt-percentage.md)   |    V2, V3   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   | 
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="italian-entity-support"></a>이탈리아어 엔터티 지원
+
+이탈리아어 미리 작성 된 사용 기간, 통화, 차원, 숫자, 백분율 _해상도_ 가 V2 및 V3 preview에서 변경 되었습니다.
 
 다음과 같은 엔터티가 지원됩니다.
 
 |미리 빌드된 엔터티|```it-IT``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    V2, V3   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   | 
-[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
+[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |  
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[Percentage](luis-reference-prebuilt-percentage.md)   |    V2, V3   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   | 
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="japanese-entity-support"></a>중국어 엔터티 지원
 
@@ -196,21 +202,21 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```ja-JP``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2,-   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    V2,-   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   | 
-[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2,-   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
+[Number](luis-reference-prebuilt-number.md)   |    V2,-   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2,-   |  
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[Percentage](luis-reference-prebuilt-percentage.md)   |    V2,-   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2,-   | 
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="korean-entity-support"></a>한국어 엔터티 지원
 
@@ -218,21 +224,21 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```ko-KR``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    -   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    -   |
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    -   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    -   |
 [날짜](luis-reference-prebuilt-deprecated.md)   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    -   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
 [Number](luis-reference-prebuilt-number.md)   |    -   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentage](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
 [Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="portuguese-brazil-entity-support"></a>포르투갈어(브라질) 엔터티 지원
 
@@ -240,21 +246,21 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```pt-BR``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
-[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    V2, V3   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
+[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |  
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[Percentage](luis-reference-prebuilt-percentage.md)   |    V2, V3   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   | 
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="spanish-spain-entity-support"></a>스페인어(스페인) 엔터티 지원
 
@@ -262,21 +268,21 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```es-ES``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    ✔   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    ✔   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    ✔   | 
-[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    ✔   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    V2, V3   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    V2, V3   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    V2, V3   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    V2, V3   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
-[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
+[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    V2, V3   |  
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
-[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[Percentage](luis-reference-prebuilt-percentage.md)   |    V2, V3   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
-[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    V2, V3   | 
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 ## <a name="spanish-mexico-entity-support"></a>스페인어(멕시코) 엔터티 지원
 
@@ -284,21 +290,21 @@ LUIS(Language Understanding)에서는 미리 빌드된 엔터티를 제공합니
 
 |미리 빌드된 엔터티|```es-MX``` |
 ------|:------:|
-[Age](luis-reference-prebuilt-age.md):<br>year<br>개월<br>week<br>일   |    -   |
-[통화(금액)](luis-reference-prebuilt-currency.md):<br>달러<br>소수부 단위(예: penny)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>Time<br>timerange   |    -   | 
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>일   |    -   |
+[통화(금액)](luis-reference-prebuilt-currency.md):<br>dollar<br>소수부 단위(예: penny)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>실시간<br>timerange   |    -   | 
 [Dimension](luis-reference-prebuilt-dimension.md):<br>볼륨<br>area<br>weight<br>information(예: bit/byte)<br>length(예: meter)<br>speed(예: mile per hour)  |    -   | 
-[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    V2, V3   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
-[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
-[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    V2, V3   | 
+[Number](luis-reference-prebuilt-number.md)   |    V2, V3   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
 [OrdinalV2](luis-reference-prebuilt-ordinal-v2.md)   |    -   |
 [Percentage](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    V2, V3   | 
 [Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
-[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+[URL](luis-reference-prebuilt-url.md)   |    V2, V3   |
 
 [사용되지 않는 미리 빌드된 엔터티](luis-reference-prebuilt-deprecated.md)에 대한 참고를 참조하세요.
 

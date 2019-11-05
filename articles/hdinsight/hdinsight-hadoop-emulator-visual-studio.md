@@ -1,5 +1,5 @@
 ---
-title: Visual Studio용 Data Lake 도구 및 Hortonworks 샌드박스 - Azure HDInsight
+title: Data Lake tools for Visual Studio & Hortonworks-Azure HDInsight
 description: Hortonworks Sandbox(로컬 VM에서 실행됨)와 Azure Data Lake tools for Visual Studio를 사용하는 방법을 알아봅니다. 이러한 도구로 샌드박스에 대한 Hive 및 Pig 작업을 만들고 실행하며 작업 출력 및 기록을 볼 수 있습니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: 1edab776ec93f057ebf7e37ac887747f86a27db9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: e128aaf6e1726b7a1341fefc6df3cdafd3beb880
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098768"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500162"
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Hortonworks Sandbox와 Azure Data Lake tools for Visual Studio 사용
 
@@ -21,11 +21,11 @@ Azure Data Lake는 제네릭 Apache Hadoop 클러스터를 사용하기 위한 �
 
 Hortonworks Sandbox를 사용하여 개발 환경에서 로컬로 Hadoop를 사용할 수 있습니다. 솔루션을 개발하여 대규모로 배포했으므로 HDInsight 클러스터를 살펴볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 개발 환경의 가상 머신에서 실행되는 Hortonworks Sandbox입니다. 이 문서는 Oracle VirtualBox에서 실행 중인 샌드박스로 작성 및 테스트되었으며, 샌드박스 설정에 대한 자세한 내용은 [Hortonworks 샌드박스 시작](hadoop/apache-hadoop-emulator-get-started.md) 문서를 참조하세요.
 
-* Visual Studio.
+* 있습니다.
 
 * [Azure SDK for .NET](https://azure.microsoft.com/downloads/) 2.7.1 이상
 

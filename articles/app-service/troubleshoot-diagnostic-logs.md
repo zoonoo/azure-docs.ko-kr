@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b0fab51e002ecb431bf68f58984290889296b2a9
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 4f5344259767aaad9ed58ded1da86ae7ee3c03e7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097550"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470099"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -25,12 +25,17 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 이 문서에서는 진단 로그 작업에 [Azure Portal](https://portal.azure.com)과 Azure CLI를 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](troubleshoot-dotnet-visual-studio.md)을 참조하세요.
 
-|형식|플랫폼|위치|Description|
+> [!NOTE]
+> 이 문서의 로깅 지침 외에도 Azure 모니터링을 사용 하는 새로운 통합 로깅 기능이 있습니다. [로그 페이지 및 진단 설정 (미리 보기) 페이지](https://aka.ms/appsvcblog-azmon)에서이 기능을 찾을 수 있습니다. 
+>
+>
+
+|형식|플랫폼|위치|설명|
 |-|-|-|-|
-| 응용 프로그램 로깅 | Windows, Linux | App Service 파일 시스템 및/또는 Azure Storage blob | 응용 프로그램 코드에 의해 생성 된 메시지를 기록 합니다. 사용자가 선택한 웹 프레임 워크 또는 사용자 언어의 표준 로깅 패턴을 사용 하 여 직접 응용 프로그램 코드에서 메시지를 생성할 수 있습니다. 각 메시지에는 다음 범주 중 하나가 할당 됩니다. **중요**, **오류**, **경고**, **정보**, **디버그**및 **추적**입니다. 응용 프로그램 로깅을 사용 하도록 설정할 때 심각도 수준을 설정 하 여 로깅을 원하는 세부 정보를 선택할 수 있습니다.|
+| 애플리케이션 로깅 | Windows, Linux | App Service 파일 시스템 및/또는 Azure Storage blob | 응용 프로그램 코드에 의해 생성 된 메시지를 기록 합니다. 사용자가 선택한 웹 프레임 워크 또는 사용자 언어의 표준 로깅 패턴을 사용 하 여 직접 응용 프로그램 코드에서 메시지를 생성할 수 있습니다. 각 메시지에는 **중요**, **오류**, **경고**, **정보**, **디버그**및 **추적**범주 중 하나가 할당 됩니다. 응용 프로그램 로깅을 사용 하도록 설정할 때 심각도 수준을 설정 하 여 로깅을 원하는 세부 정보를 선택할 수 있습니다.|
 | 웹 서버 로깅| Windows | App Service 파일 시스템 또는 Azure Storage blob| [W3C 확장 로그 파일 형식의](/windows/desktop/Http/w3c-logging)원시 HTTP 요청 데이터입니다. 각 로그 메시지에는 HTTP 메서드, 리소스 URI, 클라이언트 IP, 클라이언트 포트, 사용자 에이전트, 응답 코드 등의 데이터가 포함 됩니다. |
 | 자세한 오류 로깅 | Windows | App Service 파일 시스템 | 클라이언트 브라우저로 전송 된 *.htm* 오류 페이지의 복사본입니다. 보안상의 이유로, 자세한 오류 페이지는 프로덕션 환경에서 클라이언트로 전송 되어서는 안 되지만 응용 프로그램 오류가 발생할 때마다 HTTP 코드 400 이상이 포함 된 오류 페이지를 저장할 수 App Service. 이 페이지에는 서버에서 오류 코드를 반환 하는 이유를 확인 하는 데 도움이 되는 정보가 포함 될 수 있습니다. |
-| 실패한 요청 추적 | Windows | App Service 파일 시스템 | 요청을 처리 하는 데 사용 되는 IIS 구성 요소 추적 및 각 구성 요소에서 소요 된 시간을 비롯 하 여 실패 한 요청에 대 한 자세한 추적 정보입니다. 사이트 성능을 향상시키거나 특정 HTTP 오류를 분리하려는 경우에 유용합니다. 실패 한 각 요청에 대해 XML 로그 파일이 포함 된 폴더와 로그 파일을 볼 XSL 스타일 시트가 하나씩 생성 됩니다. |
+| 실패 한 요청 추적 | Windows | App Service 파일 시스템 | 요청을 처리 하는 데 사용 되는 IIS 구성 요소 추적 및 각 구성 요소에서 소요 된 시간을 비롯 하 여 실패 한 요청에 대 한 자세한 추적 정보입니다. 사이트 성능을 향상시키거나 특정 HTTP 오류를 분리하려는 경우에 유용합니다. 실패 한 각 요청에 대해 XML 로그 파일이 포함 된 폴더와 로그 파일을 볼 XSL 스타일 시트가 하나씩 생성 됩니다. |
 | 배포 로깅 | Windows, Linux | App Service 파일 시스템 | 앱에 콘텐츠를 게시 하는 경우에 대 한 로그입니다. 배포 로깅은 자동으로 수행 되며 배포 로깅에 대 한 구성 가능한 설정이 없습니다. 배포가 실패 한 이유를 확인 하는 데 도움이 됩니다. 예를 들어 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 사용 하는 경우 배포 로깅을 사용 하 여 스크립트가 실패 하는 이유를 확인할 수 있습니다. |
 
 > [!NOTE]
@@ -50,7 +55,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 > [!NOTE]
 > 현재 .NET 애플리케이션 로그만 Blob Storage에 쓸 수 있습니다. Java, PHP, node.js, Python 응용 프로그램 로그는 App Service 파일 시스템에만 저장할 수 있습니다 (외부 저장소에 로그를 기록 하기 위해 코드를 수정 하지 않음).
 >
-> 또한 [저장소 계정의 액세스 키를 다시 생성](../storage/common/storage-create-storage-account.md)하는 경우 업데이트 된 액세스 키를 사용 하도록 각 로깅 구성을 다시 설정 해야 합니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
+> 또한 [저장소 계정의 액세스 키를 다시 생성](../storage/common/storage-create-storage-account.md)하는 경우 업데이트 된 액세스 키를 사용 하도록 각 로깅 구성을 다시 설정 해야 합니다. 다음을 수행합니다.
 >
 > 1. **구성** 탭에서 해당 로깅 기능을 **끄기**로 설정합니다. 설정을 저장합니다.
 > 2. 스토리지 계정 Blob에 로깅을 다시 사용합니다. 설정을 저장합니다.
@@ -59,11 +64,11 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 로깅할 **수준**또는 세부 정보 수준을 선택 합니다. 다음 표에는 각 수준에 포함 된 로그 범주가 나와 있습니다.
 
-| Level | 포함 된 범주 |
+| 수준 | 포함 된 범주 |
 |-|-|
-|**Disabled** | 없음 |
+|**사용 안 함** | 없음 |
 |**오류** | 오류, 위험 |
-|**경고** | 경고, 오류, 위험|
+|**Warning** | 경고, 오류, 위험|
 |**정보** | 정보, 경고, 오류, 위험|
 |**자세한 정보** | 추적, 디버그, 정보, 경고, 오류, 위험(모든 범주) |
 
@@ -88,7 +93,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 **보존 기간 (일)** 에서 로그를 보존할 일 수를 설정 합니다.
 
 > [!NOTE]
-> [스토리지 계정의 선택키를 다시 생성](../storage/common/storage-create-storage-account.md)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 가상 하드 디스크 파일에 대한 중요 정보를 제공하려면
+> [스토리지 계정의 선택키를 다시 생성](../storage/common/storage-create-storage-account.md)하는 경우 해당 로깅 구성을 다시 설정하여 업데이트한 키를 사용해야 합니다. 다음을 수행합니다.
 >
 > 1. **구성** 탭에서 해당 로깅 기능을 **끄기**로 설정합니다. 설정을 저장합니다.
 > 2. 스토리지 계정 Blob에 로깅을 다시 사용합니다. 설정을 저장합니다.
@@ -107,9 +112,9 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 ## <a name="add-log-messages-in-code"></a>코드에 로그 메시지 추가
 
-응용 프로그램 코드에서 일반적인 로깅 기능을 사용 하 여 응용 프로그램 로그에 로그 메시지를 보냅니다. 예를 들어:
+응용 프로그램 코드에서 일반적인 로깅 기능을 사용 하 여 응용 프로그램 로그에 로그 메시지를 보냅니다. 예:
 
-- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예를 들어:
+- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -158,14 +163,14 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 App Service 파일 시스템에 저장 된 로그의 경우 브라우저에서 ZIP 파일을 다운로드 하는 가장 쉬운 방법은 다음과 같습니다.
 
-- Linux/컨테이너 앱:`https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
-- Windows 앱:`https://<app-name>.scm.azurewebsites.net/api/dump`
+- Linux/컨테이너 앱: `https://<app-name>.scm.azurewebsites.net/api/logs/docker/zip`
+- Windows 앱: `https://<app-name>.scm.azurewebsites.net/api/dump`
 
 Linux/컨테이너 앱의 경우 ZIP 파일에는 docker 호스트와 docker 컨테이너 모두에 대 한 콘솔 출력 로그가 포함 되어 있습니다. 스케일 아웃 된 앱의 경우 ZIP 파일에는 각 인스턴스에 대 한 로그 집합이 하나 포함 됩니다. App Service 파일 시스템에서 이러한 로그 파일은 */home/LogFiles* 디렉터리의 내용입니다.
 
 Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\LogFiles* 디렉터리 내용이 포함 되어 있습니다. 구조는 다음과 같습니다.
 
-| 로그 형식 | 디렉터리 | Description |
+| 로그 형식 | 디렉터리 | 설명 |
 |-|-|-|
 | **응용 프로그램 로그** |*/LogFiles/Application/* | 하나 이상의 텍스트 파일을 포함 합니다. 로그 메시지의 형식은 사용 하는 로깅 공급자에 따라 달라 집니다. |
 | **실패 한 요청 추적** | */LogFiles/W3SVC # # # # # # # # #/* | XML 파일 및 XSL 파일을 포함 합니다. 브라우저에서 형식이 지정 된 XML 파일을 볼 수 있습니다. |

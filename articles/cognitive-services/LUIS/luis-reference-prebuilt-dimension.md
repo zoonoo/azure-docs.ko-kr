@@ -9,122 +9,87 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 15ba8ad4d3bcf00024a0c7b14b004de08d37621a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 6699b1617ccd1fef9a507e71fdd73a02b0e98bea
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677656"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465027"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 Dimension 미리 빌드된 엔터티
 미리 빌드된 dimension 엔터티는 LUIS 앱 문화권에 관계없이 다양한 유형의 차원을 검색합니다. 이 엔터티를 이미 학습했기 때문에 dimension을 포함하는 예제 발언을 애플리케이션 의도에 추가할 필요가 없습니다. Dimension 엔터티는 [여러 문화권](luis-reference-prebuilt-entities.md)에서 지원됩니다. 
 
 ## <a name="types-of-dimension"></a>Dimension 유형
 
-Dimension은 [Recognizers-text](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) GitHub 리포지토리에서 관리됩니다.
-
+차원은 [인식기 텍스트](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml) GitHub 리포지토리에서 관리 됩니다.
 
 ## <a name="resolution-for-dimension-entity"></a>dimension 엔터티의 해결
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+쿼리에 대해 반환 되는 엔터티 개체는 다음과 같습니다.
+
+`10 1/2 miles of cable`
+
+#### <a name="v3-responsetabv3"></a>[V3 응답](#tab/V3)
+
+다음 JSON은 `false`로 설정 된 `verbose` 매개 변수를 사용 합니다.
+
+```json
+"entities": {
+    "dimension": [
+        {
+            "number": 10.5,
+            "units": "Mile"
+        }
+    ]
+}
+```
+#### <a name="v3-verbose-responsetabv3-verbose"></a>[V3 자세한 정보 표시 응답](#tab/V3-verbose)
+다음 JSON은 `true`로 설정 된 `verbose` 매개 변수를 사용 합니다.
+
+```json
+"entities": {
+    "dimension": [
+        {
+            "number": 10.5,
+            "units": "Mile"
+        }
+    ],
+    "$instance": {
+        "dimension": [
+            {
+                "type": "builtin.dimension",
+                "text": "10 1/2 miles",
+                "startIndex": 0,
+                "length": 12,
+                "modelTypeId": 2,
+                "modelType": "Prebuilt Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
+    }
+}
+```
+
+#### <a name="v2-responsetabv2"></a>[V2 응답](#tab/V2)
 
 다음 예제에서는 **builtin.dimension** 엔터티의 해결을 보여 줍니다.
 
 ```json
 {
-  "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-  "topScoringIntent": {
-    "intent": "None",
-    "score": 0.762141049
-  },
-  "intents": [
-    {
-      "intent": "None",
-      "score": 0.762141049
-    }
-  ],
-  "entities": [
-    {
-      "entity": "10 1/2 miles",
-      "type": "builtin.dimension",
-      "startIndex": 19,
-      "endIndex": 30,
-      "resolution": {
-        "unit": "Mile",
-        "value": "10.5"
-      }
-    }
-  ]
-}
-```
-
-
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
-
-다음 JSON은 `verbose` 매개 변수를 `false`로 설정 합니다.
-
-```json
-{
-    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-    "prediction": {
-        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.400049
-            }
-        },
-        "entities": {
-            "dimension": [
-                {
-                    "number": 10.5,
-                    "unit": "Mile"
-                }
-            ]
-        }
+    "entity": "10 1/2 miles",
+    "type": "builtin.dimension",
+    "startIndex": 0,
+    "endIndex": 11,
+    "resolution": {
+    "unit": "Mile",
+    "value": "10.5"
     }
 }
 ```
-
-다음 JSON은 `verbose` 매개 변수를 `true`로 설정 합니다.
-
-```json
-{
-    "query": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-    "prediction": {
-        "normalizedQuery": "it takes more than 10 1/2 miles of cable and wire to hook it all up , and 23 computers.",
-        "topIntent": "None",
-        "intents": {
-            "None": {
-                "score": 0.400049
-            }
-        },
-        "entities": {
-            "dimension": [
-                {
-                    "number": 10.5,
-                    "unit": "Mile"
-                }
-            ],
-            "$instance": {
-                "dimension": [
-                    {
-                        "type": "builtin.dimension",
-                        "text": "10 1/2 miles",
-                        "startIndex": 19,
-                        "length": 12,
-                        "modelTypeId": 2,
-                        "modelType": "Prebuilt Entity Extractor"
-                    }
-                ]
-            }
-        }
-    }
-}
-```
-
 * * * 
 
 ## <a name="next-steps"></a>다음 단계

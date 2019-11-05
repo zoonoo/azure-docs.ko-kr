@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f86c34dcc1276b8677e3e60514661a6d0b974005
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e0b54ca89511063e1a76753793846deaf8e8b9b4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787558"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466784"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인에 사용자 지정 기술 추가 방법
 
@@ -154,8 +154,10 @@ Web API 보강자를 만들 때 요청의 일부로 HTTP 헤더 및 매개 변�
 
 ## <a name="next-steps"></a>다음 단계
 
-+ [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://aka.ms/powerskills)
-+ [예: 인지 검색에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+이 문서에서는 사용자 지정 기술을 기술에 통합 하는 데 필요한 인터페이스 요구 사항에 대해 설명 했습니다. 사용자 지정 기술 및 기술 컴퍼지션에 대 한 자세한 내용을 보려면 다음 링크를 클릭 하십시오.
+
++ [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://github.com/Azure-Samples/azure-search-power-skills)
++ [예: AI 보강에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기능 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

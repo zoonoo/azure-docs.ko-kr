@@ -1,27 +1,28 @@
 ---
-title: 컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 모니터링 | Microsoft Docs
+title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 성능 모니터링 | Microsoft Docs
 description: 이 문서에서는 컨테이너용 Azure Monitor를 사용하여 성능 및 로그 데이터를 살펴보고 분석하는 방법을 설명합니다.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 09/17/2019
-ms.openlocfilehash: a65951a90767acce5570244af8a9250845e12def
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: f1a5d0d98a442fab80744636eea05d4c2d26f919
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554234"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478928"
 ---
-# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 AKS 클러스터 성능 이해
-컨테이너에 대 한 Azure Monitor를 사용 하면 성능 차트와 상태를 사용 하 여 두 가지 관점에서 AKS (Azure Kubernetes Service) 클러스터의 작업을 모니터링할 수 있습니다. AKS 클러스터에서 직접 모니터링 하거나 Azure Monitor 구독의 모든 AKS 클러스터를 모니터링할 수 있습니다. Azure Container Instances 보기는 특정 AKS 클러스터를 모니터링 하는 경우에도 가능 합니다.
+# <a name="understand-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 성능 이해
+
+컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 차트와 상태를 사용 하 여 AKS (Azure Kubernetes Service), Azure Stack 또는 다른 환경에서 호스트 되는 Kubernetes 클러스터의 작업을 모니터링할 수 있습니다. 클러스터에서 직접 모니터링 하거나 Azure Monitor에서 구독의 모든 클러스터를 볼 수 있습니다. 특정 AKS 클러스터를 모니터링 하는 경우에도 Azure Container Instances을 볼 수 있습니다.
 
 이 문서에서는 두 가지 관점을 이해 하 고 검색 된 문제를 신속 하 게 평가, 조사 및 해결 하는 데 도움이 되 Azure Monitor 방법을 설명 합니다.
 
 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [컨테이너의 Azure Monitor](container-insights-onboard.md)등록을 참조 하세요.
 
-Azure Monitor는 구독에서 리소스 그룹에 배포 된 Linux 및 Windows Server 2019를 실행 하는 모든 모니터링 되는 AKS 클러스터의 상태를 보여 주는 다중 클러스터 뷰를 제공 합니다. 솔루션에서 모니터링 하지 않는 AKS 클러스터가 표시 됩니다. 클러스터 상태를 즉시 이해할 수 있으며, 여기에서 노드 및 컨트롤러 성능 페이지로 드릴 다운 하거나 탐색 하 여 클러스터에 대 한 성능 차트를 볼 수 있습니다. 검색 되 고 모니터링 되지 않는 것으로 식별 된 AKS 클러스터의 경우 언제 든 지 모니터링을 사용 하도록 설정할 수 있습니다. 
+Azure Monitor는 구독에서 리소스 그룹에 배포 된 Linux 및 Windows Server 2019를 실행 하는 모든 모니터링 되는 Kubernetes 클러스터의 상태를 보여 주는 다중 클러스터 뷰를 제공 합니다. 솔루션에서 모니터링 되지 않는 모든 환경에서 검색 된 클러스터를 표시 합니다. 클러스터 상태를 즉시 이해할 수 있으며, 여기에서 노드 및 컨트롤러 성능 페이지로 드릴 다운 하거나 탐색 하 여 클러스터에 대 한 성능 차트를 볼 수 있습니다. 검색 되 고 모니터링 되지 않는 것으로 식별 된 AKS 클러스터의 경우 언제 든 지 모니터링을 사용 하도록 설정할 수 있습니다. 
 
 Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor를 포함 하는 Windows Server 클러스터 모니터링의 주요 차이점은 다음과 같습니다.
 
@@ -31,15 +32,26 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor를 �
 - Pod 환경을 모니터링 하 고 Docker 환경만 모니터링 합니다.
 - Preview 릴리스를 사용 하는 경우 최대 30 개의 Windows Server 컨테이너가 지원 됩니다. 이 제한은 Linux 컨테이너에는 적용 되지 않습니다. 
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
 
-[Azure portal](https://portal.azure.com)에 로그인합니다. 
+[Azure 포털](https://portal.azure.com)에 로그인합니다. 
 
 ## <a name="multi-cluster-view-from-azure-monitor"></a>Azure Monitor에서 다중 클러스터 보기
 
-배포 된 모든 AKS 클러스터의 상태를 보려면 Azure Portal의 왼쪽 창에서 **모니터** 를 선택 합니다. **인사이트** 섹션에서 **컨테이너**를 선택합니다. 
+배포 된 모든 Kubernetes 클러스터의 상태를 보려면 Azure Portal의 왼쪽 창에서 **모니터** 를 선택 합니다. **인사이트** 섹션에서 **컨테이너**를 선택합니다. 
 
 ![Azure Monitor 다중 클러스터 대시보드 예제](./media/container-insights-analyze/azmon-containers-multiview.png)
+
+표에 표시 된 결과의 범위를 표시 하 여 다음과 같은 클러스터를 표시할 수 있습니다.
+
+* Azure Kubernetes Service에서 호스트 되는 **azure** AKS 및 AKS 클러스터
+* **Azure Stack (미리 보기)** -Azure Stack에 호스트 된 AKS-엔진 클러스터
+* **비 Azure (미리 보기)** -온-프레미스에서 호스트 되는 Kubernetes 클러스터
+* **모두** -Azure, Azure Stack 및 컨테이너에 대해 Azure Monitor 등록 된 온-프레미스 환경에서 호스트 되는 모든 Kubernetes 클러스터를 확인 합니다.
+
+특정 환경에서 클러스터를 보려면 페이지의 왼쪽 위 모서리에 있는 **환경** 약에서 클러스터를 선택 합니다.
+
+![Environment 약 선택기 예제](./media/container-insights-analyze/clusters-multiview-environment-pill.png)
 
 모니터링 되는 **클러스터** 탭에서 다음에 대해 알아봅니다.
 
@@ -64,42 +76,45 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor를 �
 
 다음 표에서는 다중 클러스터 뷰에서 모니터링 되는 클러스터의 상태를 제어 하는 계산에 대 한 분석을 제공 합니다.
 
-| |상태 |가용성 |  
+| |가동 상태 |가용성 |  
 |-------|-------|-----------------|  
 |**사용자 pod**| | |  
-| |정상 |100% |  
-| |경고 |90-99% |  
-| |위험 |<90% |  
+| |Healthy |100% |  
+| |Warning |90-99% |  
+| |중요 |<90% |  
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |  
 |**시스템 pod**| | |  
-| |정상 |100% |
-| |경고 |N/A |
-| |위험 |<100% |
+| |Healthy |100% |
+| |Warning |해당 없음 |
+| |중요 |<100% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
-|**Node** | | |
-| |정상 |>85% |
-| |경고 |60-84% |
-| |위험 |<60% |
+|**노드** | | |
+| |Healthy |>85% |
+| |Warning |60-84% |
+| |중요 |<60% |
 | |알 수 없음 |지난 30분 동안 보고하지 않은 경우 |
 
-클러스터의 목록에서 클러스터의 이름을 선택 하 여 **클러스터** 페이지로 드릴 다운할 수 있습니다. 그런 다음 노드 성능 페이지로 이동 하 여 해당 특정 클러스터에 대 한 **노드** 열에서 노드 롤업을 **선택 합니다.** 또는 **사용자 pod** 또는 **System pod** 열에 대 한 롤업을 선택 하 여 **컨트롤러** 성능 페이지로 드릴 다운할 수 있습니다.  
+클러스터의 목록에서 클러스터의 이름을 선택 하 여 **클러스터** 페이지로 드릴 다운할 수 있습니다. 그런 다음 노드 성능 페이지로 이동 하 여 해당 특정 클러스터에 대 한 **노드** 열에서 노드 롤업을 **선택 합니다.** 또는 **사용자 pod** 또는 **System pod** 열에 대 한 롤업을 선택 하 여 **컨트롤러** 성능 페이지로 드릴 다운할 수 있습니다.
 
-## <a name="view-performance-directly-from-an-aks-cluster"></a>AKS 클러스터에서 직접 성능 보기
+## <a name="view-performance-directly-from-a-cluster"></a>클러스터에서 직접 성능 보기
 
-왼쪽 창에서 **Insights** 를 선택 하 여 AKS 클러스터에서 컨테이너에 대 한 Azure Monitor에 대 한 액세스를 직접 사용할 수 있습니다. AKS 클러스터에 대 한 정보는 다음 네 가지 관점으로 구성 됩니다.
+컨테이너의 Azure Monitor에 대 한 액세스는 왼쪽 창에서 **Insights** > **클러스터** 를 선택 하거나 다중 클러스터 뷰에서 클러스터를 선택 하 여 AKS 클러스터에서 직접 사용할 수 있습니다. 클러스터에 대 한 정보는 다음 네 가지 관점으로 구성 됩니다.
 
-- 클러스터
+- 프로비전
 - 노드 
 - Controllers 
 - 컨테이너
 
-**클러스터** >  **Insights** 를 선택 하면 기본 페이지가 열립니다. 4 개의 꺽은선형 성능 차트에는 클러스터의 주요 성능 메트릭이 표시 됩니다. 
+>[!NOTE]
+>이 문서의 나머지 부분에서 설명 하는 환경은 다중 클러스터 보기에서 선택할 경우 Azure Stack 또는 다른 환경에서 호스트 되는 Kubernetes 클러스터의 성능 및 상태를 보는 데에도 적용 됩니다. 
+
+기본 페이지가 열리고 클러스터의 주요 성능 메트릭을 보여 주는 4 개의 꺾은선형 성능 차트가 표시 됩니다. 
 
 ![클러스터 탭의 예제 성능 차트](./media/container-insights-analyze/containers-cluster-perfview.png)
 
 성능 차트는 4 가지 성능 메트릭을 표시 합니다.
 
-- **노드 cpu 사용률 &nbsp; %** : 전체 클러스터의 cpu 사용률에 대 한 집계 관점입니다. 시간 범위에 대 한 결과를 필터링 하려면 차트 위의 백분위 수 선택기에서 **Avg**, **Min**, **50**, **90**, **95**또는 **Max** 를 선택 합니다. 필터는 개별적으로 사용 하거나 조합 하 여 사용할 수 있습니다. 
+- **노드 cpu 사용률&nbsp;%** : 전체 클러스터의 cpu 사용률에 대 한 집계 관점입니다. 시간 범위에 대 한 결과를 필터링 하려면 차트 위의 백분위 수 선택기에서 **Avg**, **Min**, **50**, **90**, **95**또는 **Max** 를 선택 합니다. 필터는 개별적으로 사용 하거나 조합 하 여 사용할 수 있습니다. 
 - **노드 메모리 사용률&nbsp;%** : 이 차트는 전체 클러스터에 대한 메모리 사용률의 집계된 큐브 뷰를 나타냅니다. 시간 범위에 대 한 결과를 필터링 하려면 차트 위의 백분위 수 선택기에서 **Avg**, **Min**, **50**, **90**, **95**또는 **Max** 를 선택 합니다. 필터는 개별적으로 사용 하거나 조합 하 여 사용할 수 있습니다. 
 - **노드 수**: Kubernetes의 노드 수 및 상태입니다. 표시 되는 클러스터 노드의 상태는 총, 준비 됨, 준비 되지 않음입니다. 이러한 필터는 개별적으로 필터링 하거나 차트 위의 선택기에서 결합할 수 있습니다. 
 - **활성 pod 수**: Kubernetes의 pod 개수 및 상태입니다. 표시 되는 pod의 상태는 Total, Pending, Running, Unknown, Succeeded 또는 Failed입니다. 이러한 필터는 개별적으로 필터링 하거나 차트 위의 선택기에서 결합할 수 있습니다. 
@@ -136,13 +151,9 @@ Linux 클러스터와 비교 하 여 컨테이너에 대 한 Azure Monitor를 �
 
 **노드**, **컨트롤러**및 **컨테이너** 탭으로 전환 하면 속성 창이 페이지의 오른쪽에 자동으로 표시 됩니다. 선택한 항목의 속성을 보여 줍니다. 여기에는 Kubernetes 개체를 구성 하기 위해 정의한 레이블이 포함 됩니다. Linux 노드를 선택 하면 **로컬 디스크 용량** 섹션에는 사용 가능한 디스크 공간과 노드에 표시 된 각 디스크에 사용 되는 비율도 표시 됩니다. 창에서 **>>** 링크를 선택 하 여 창을 보거나 숨깁니다.
 
-![예제 Kubernetes 큐브 뷰 속성 창](./media/container-insights-analyze/perspectives-preview-pane-01.png)
-
-계층 구조에서 개체를 펼치면 선택한 개체에 따라 속성 창이 업데이트됩니다. 창 맨 위에 있는 **Kubernetes 이벤트 로그 보기** 링크를 선택 하 여 미리 정의 된 로그 검색으로 Kubernetes 이벤트를 볼 수도 있습니다. Kubernetes 로그 데이터를 보는 방법에 대 한 자세한 내용은 [로그를 검색 하 여 데이터 분석](container-insights-log-search.md)을 참조 하세요. 클러스터 리소스를 검토 하는 동안 컨테이너 로그 및 이벤트를 실시간으로 볼 수 있습니다. 이 기능에 대 한 자세한 내용과 액세스를 부여 하 고 제어 하는 데 필요한 구성은 [컨테이너에 대 한 Azure Monitor를 사용 하 여 실시간으로 로그 보기](container-insights-live-logs.md)를 참조 하세요. 
+계층 구조에서 개체를 펼치면 선택한 개체에 따라 속성 창이 업데이트됩니다. 창 맨 위에 있는 **라이브 데이터 보기 (미리 보기)** 링크를 선택 하 여 창에서 Kubernetes 컨테이너 로그 (stdout/stderror), 이벤트 및 pod 메트릭을 볼 수도 있습니다. 이 데이터를 볼 수 있는 액세스 권한을 부여 하 고 제어 하는 데 필요한 구성에 대 한 자세한 내용은 [라이브 데이터 설정 (미리 보기)](container-insights-livedata-setup.md)을 참조 하세요. 클러스터 리소스를 검토 하는 동안 컨테이너에서 실시간으로이 데이터를 볼 수 있습니다. 이 기능에 대 한 자세한 내용은 [실시간으로 Kubernetes 로그, 이벤트 및 pod 메트릭을 보는 방법](container-insights-livedata-overview.md)을 참조 하세요. 미리 정의 된 로그 검색을 기반으로 작업 영역에 저장 된 Kubernetes 로그 데이터를 보려면 **분석의 보기** 드롭다운 목록에서 **컨테이너 로그 보기** 를 선택 합니다. 이 항목에 대 한 자세한 내용은 [데이터를 분석 하기 위해 로그 검색](container-insights-log-search.md#search-logs-to-analyze-data)을 참조 하세요.
 
 페이지 맨 위에 있는 **+ 필터 추가** 옵션을 사용 하 여 **서비스**, **노드**, **네임 스페이스**또는 **노드 풀**별로 뷰의 결과를 필터링 할 수 있습니다. 필터 범위를 선택한 후 **값 선택** 필드에 표시 되는 값 중 하나를 선택 합니다. 필터를 구성한 후에는 AKS 클러스터의 큐브 뷰를 보는 동안 전역적으로 적용 됩니다. 수식은 등호만 지원됩니다. 첫 번째 필터에 필터를 추가하여 결과를 더 좁힐 수 있습니다. 예를 들어 **노드**필터링을 지정 하는 경우 두 번째 필터에 대 한 **서비스** 또는 **네임 스페이스** 를 선택할 수 있습니다.
-
-![필터를 사용하여 결과를 좁히는 예제](./media/container-insights-analyze/add-filter-option-01.png)
 
 한 탭에서 필터를 지정 하는 것은 다른 탭을 선택 하는 경우에도 계속 적용 됩니다. 지정 된 필터 옆에 있는 **x** 기호를 선택 하면 삭제 됩니다. 
 
@@ -190,14 +201,14 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 | 열 | 설명 | 
 |--------|-------------|
-| name | 호스트의 이름입니다. |
-| 상태 | 노드 상태의 Kubernetes 보기입니다. |
-| Min &nbsp;%, Avg &nbsp;%, 50 &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, 최대 &nbsp; %  | 선택한 기간 동안 백분위에 기반한 평균 노드 백분율입니다. |
+| Name | 호스트의 이름입니다. |
+| 가동 상태 | 노드 상태의 Kubernetes 보기입니다. |
+| Min&nbsp;%, Avg&nbsp;%, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, 최대&nbsp;%  | 선택한 기간 동안 백분위에 기반한 평균 노드 백분율입니다. |
 | 최소값, 평균, 50, 90, 95, 최대값 | 선택한 기간 동안 백분위 수를 기준으로 하는 평균 노드 값입니다. Average 값은 노드에 대해 설정 된 CPU/메모리 제한에서 측정 됩니다. Pod 및 컨테이너의 경우 호스트에서 보고 하는 평균 값입니다. |
 | 컨테이너 | 컨테이너의 수입니다. |
 | 작동 시간 | 노드가 시작되었거나 다시 부팅된 이후 경과된 시간을 나타냅니다. |
 | Controller | 컨테이너 및 Pod용입니다. 컨트롤러가 있는 컨트롤러를 표시 합니다. 모든 Pod가 컨트롤러에 있는 것은 아니므로 **N/A**가 표시될 수 있습니다. | 
-| 추세 Min &nbsp;%, Avg &nbsp;%, 50 &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, 최대 &nbsp; % | 컨트롤러의 평균 백분위 메트릭 비율을 나타내는 막대 그래프 추세입니다. |
+| 추세 Min&nbsp;%, Avg&nbsp;%, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, 최대&nbsp;% | 컨트롤러의 평균 백분위 메트릭 비율을 나타내는 막대 그래프 추세입니다. |
 
 선택기에서 **컨트롤러**를 선택합니다.
 
@@ -205,7 +216,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 여기서 컨트롤러의 성능 상태를 확인 하 고 컨트롤러에 연결 되지 않은 가상 노드 pod 가상 노드를 Container Instances 수 있습니다.
 
-![\<Name > 컨트롤러 성능 보기](./media/container-insights-analyze/containers-controllers-view.png)
+![\<이름 > 컨트롤러 성능 보기](./media/container-insights-analyze/containers-controllers-view.png)
 
 행 계층은 컨트롤러에서 시작 합니다. 컨트롤러를 확장할 때 하나 이상의 pod를 볼 수 있습니다. Pod를 확장하면 마지막 행에 Pod로 그룹화된 컨테이너가 표시됩니다. 확장 된 컨트롤러에서 실행 중인 노드로 드릴 다운 하 여 해당 노드에 대해 필터링 된 성능 데이터를 볼 수 있습니다. 컨트롤러에 연결 되지 않은 Container Instances pod는 목록에서 마지막에 나열 됩니다.
 
@@ -219,19 +230,19 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 | 열 | 설명 | 
 |--------|-------------|
-| name | 컨트롤러의 이름입니다.|
-| 상태 | 컨테이너의 실행이 완료 된 후 *확인*, *종료*, *실패*, *중지*됨 또는 *일시 중지*됨과 같은 상태를 사용 하 여 컨테이너의 롤업 상태입니다. 컨테이너가 실행 되 고 있지만 에이전트가 제대로 표시 되지 않았거나 에이전트가 선택 하지 않았고 30 분 넘게 응답 하지 않은 경우 상태를 *알 수 없음*으로 표시 합니다. 상태 아이콘의 추가 세부 정보는 다음 표에 나와 있습니다.|
-| Min &nbsp;%, Avg &nbsp;%, 50 &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, 최대 &nbsp; %| 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 평균 롤업입니다. |
+| Name | 컨트롤러의 이름입니다.|
+| 가동 상태 | 컨테이너의 실행이 완료 된 후 *확인*, *종료*, *실패*, *중지*됨 또는 *일시 중지*됨과 같은 상태를 사용 하 여 컨테이너의 롤업 상태입니다. 컨테이너가 실행 되 고 있지만 에이전트가 제대로 표시 되지 않았거나 에이전트가 선택 하지 않았고 30 분 넘게 응답 하지 않은 경우 상태를 *알 수 없음*으로 표시 합니다. 상태 아이콘의 추가 세부 정보는 다음 표에 나와 있습니다.|
+| Min&nbsp;%, Avg&nbsp;%, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, 최대&nbsp;%| 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 평균 롤업입니다. |
 | 최소값, 평균, 50, 90, 95, 최대값  | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
 | 컨테이너 | 컨트롤러 또는 Pod에 대한 컨테이너의 총 수입니다. |
 | Restarts | 컨테이너에서 다시 시작한 횟수의 롤업입니다. |
 | 작동 시간 | 컨테이너가 시작된 이후 경과된 시간을 나타냅니다. |
 | 노드 | 컨테이너 및 Pod용입니다. 컨트롤러가 있는 컨트롤러를 표시 합니다. | 
-| 추세 Min &nbsp;%, Avg &nbsp;%, 50 &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, 최대 &nbsp; % | 컨트롤러의 평균 백분위 메트릭을 나타내는 막대 그래프 추세입니다. |
+| 추세 Min&nbsp;%, Avg&nbsp;%, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, 최대&nbsp;% | 컨트롤러의 평균 백분위 메트릭을 나타내는 막대 그래프 추세입니다. |
 
 상태 필드의 아이콘은 컨테이너의 온라인 상태를 표시 합니다.
  
-| 아이콘 | 상태 | 
+| 아이콘 | 가동 상태 | 
 |--------|-------------|
 | ![실행이 준비됨 상태 아이콘](./media/container-insights-analyze/containers-ready-icon.png) | 실행 중(준비됨)|
 | ![대기 또는 일시 중지 상태 아이콘](./media/container-insights-analyze/containers-waiting-icon.png) | 대기 중 또는 일시 중지됨|
@@ -246,7 +257,7 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 여기서 Azure Kubernetes 및 Azure Container Instances 컨테이너의 성능 상태를 볼 수 있습니다. 
 
-![\<Name > 컨테이너 성능 보기](./media/container-insights-analyze/containers-containers-view.png)
+![\<이름 > 컨테이너 성능 보기](./media/container-insights-analyze/containers-containers-view.png)
 
 컨테이너에서 Pod 또는 노드로 드릴다운하여 해당 개체에 대해 필터링된 성능 데이터를 볼 수 있습니다. 특정 컨테이너의 **Pod** 또는 **Node** 열 아래에서 값을 선택 합니다.
 
@@ -256,19 +267,19 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 
 | 열 | 설명 | 
 |--------|-------------|
-| name | 컨트롤러의 이름입니다.|
-| 상태 | 컨테이너의 상태입니다(있는 경우). 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
-| Min &nbsp;%, Avg &nbsp;%, 50 &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, 최대 &nbsp; % | 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 롤업입니다. |
+| Name | 컨트롤러의 이름입니다.|
+| 가동 상태 | 컨테이너의 상태입니다(있는 경우). 상태 아이콘에 대한 자세한 내용은 아래 표에 나와 있습니다.|
+| Min&nbsp;%, Avg&nbsp;%, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, 최대&nbsp;% | 선택한 메트릭 및 백분위에 대한 각 엔터티 평균 백분율의 롤업입니다. |
 | 최소값, 평균, 50, 90, 95, 최대값 | 선택된 백분위에 대한 컨테이너의 평균 CPU 밀리코어 또는 메모리 성능의 롤업입니다. 평균 값은 Pod에 대해 설정된 CPU/메모리 제한에서 측정됩니다. |
 | Pod | Pod가 위치한 컨테이너입니다.| 
 | 노드 |  컨테이너가 있는 노드입니다. | 
 | Restarts | 컨테이너가 시작된 이후 경과된 시간을 나타냅니다. |
 | 작동 시간 | 컨테이너가 시작 또는 다시 부팅된 이후 경과된 시간을 나타냅니다. |
-| 추세 Min &nbsp;%, Avg &nbsp;%, 50 &nbsp;%, 90 &nbsp;%, 95 &nbsp;%, 최대 &nbsp; % | 컨테이너의 평균 백분위 메트릭 비율을 나타내는 막대 그래프 추세입니다. |
+| 추세 Min&nbsp;%, Avg&nbsp;%, 50&nbsp;%, 90&nbsp;%, 95&nbsp;%, 최대&nbsp;% | 컨테이너의 평균 백분위 메트릭 비율을 나타내는 막대 그래프 추세입니다. |
 
 상태 필드의 아이콘은 다음 표에 설명 된 대로 pod의 온라인 상태를 표시 합니다.
  
-| 아이콘 | 상태 |  
+| 아이콘 | 가동 상태 |  
 |--------|-------------|  
 | ![실행이 준비됨 상태 아이콘](./media/container-insights-analyze/containers-ready-icon.png) | 실행 중(준비됨)|  
 | ![대기 또는 일시 중지 상태 아이콘](./media/container-insights-analyze/containers-waiting-icon.png) | 대기 중 또는 일시 중지됨|  
@@ -307,4 +318,5 @@ Linux OS를 실행 하는 Azure Container Instances 가상 노드는 목록의 �
 ## <a name="next-steps"></a>다음 단계
 
 - [컨테이너에 대 한 Azure Monitor를 사용 하 여 성능 경고 만들기](container-insights-alerts.md) 를 검토 하 여 devops 또는 운영 프로세스 및 절차를 지원 하기 위해 높은 CPU 및 메모리 사용률에 대 한 경고를 만드는 방법을 알아보세요.
+
 - [로그 쿼리 예](container-insights-log-search.md#search-logs-to-analyze-data) 를 확인 하 여 미리 정의 된 쿼리 및 예제를 확인 하거나 사용자 지정 하 여 클러스터를 경고, 시각화 또는 분석할 수 있습니다.

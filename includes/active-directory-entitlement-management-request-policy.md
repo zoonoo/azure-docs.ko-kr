@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 78a0dafeedc9aac4db69903b9f1193574cbd39c7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6f2b5eb96eeb1c4b7d07219d5fe54a8a0ca9e28a
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934742"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73412991"
 ---
 ## <a name="for-users-in-your-directory"></a>디렉터리의 사용자
 
@@ -105,19 +105,19 @@ ms.locfileid: "72934742"
 
 1. 선택한 사용자의 요청에 대 한 승인을 요청 하려면 **승인 필요** 를 **예**로 설정 합니다. 요청을 자동으로 승인 하려면 토글을 **아니요**로 설정 합니다.
 
-    ![액세스 패키지-요청-승인 설정](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 1. 사용자가 액세스 패키지를 요청 하는 근거를 제공 하도록 요구 하려면 **요청자 사유 필요** 를 **예**로 설정 합니다.
 
-1. 요청에 단일 또는 다단계 승인이 필요한 지 여부를 결정 합니다. 단일 단계에 대해 전환 하 **는 단계 수** 를 **1** 로 설정 합니다.
+    ![액세스 패키지-요청-승인 설정](./media/active-directory-entitlement-management-request-policy/approval.png)
+
+### <a name="single-stage-approval"></a>단일 단계 승인
 
 1. 승인자의 경우 **관리자를 승인자로** 선택 하거나 **특정 승인자를 선택**합니다.
 
-    관리자는 Azure AD의 사용자 프로필에 있는 **manager** 특성에 의해 결정 됩니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 사용자의 프로필 정보 추가 또는 업데이트](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md)를 참조 하세요.
-
-    ![사용자 프로필-관리자 특성 Azure Active Directory](./media/active-directory-entitlement-management-request-policy/profile-manager.png)
+    ![액세스 패키지-요청-단일 단계 설정](./media/active-directory-entitlement-management-request-policy/approval-single-stage.png)
 
 1. 관리자를 승인자로 선택한 경우 자격 관리에서 관리자를 찾을 수 없는 경우 대체 승인자가 될 디렉터리에서 하나 이상의 사용자 또는 그룹을 선택 하려면 **대체 (fallback) 추가** 를 클릭 합니다.
+
+    관리자는 Azure AD의 사용자 프로필에 있는 **manager** 특성에 의해 결정 됩니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 사용자의 프로필 정보 추가 또는 업데이트](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md)를 참조 하세요.
 
 1. 특정 승인자 선택을 선택한 경우 승인자 **추가** 를 클릭 하 여 승인자가 될 디렉터리에서 하나 이상의 사용자 또는 그룹을 선택 합니다.
 
@@ -125,9 +125,34 @@ ms.locfileid: "72934742"
 
     이 기간 내에 승인 되지 않은 요청은 자동으로 거부 됩니다. 사용자는 액세스 패키지에 대 한 다른 요청을 제출 해야 합니다.
 
-1. 사용자가 액세스 패키지를 요청 하는 근거를 제공 하도록 요구 하려면 **사유 필요** 를 **예**로 설정 합니다.
+1. 사용자가 액세스 패키지를 요청 하는 근거를 제공 하도록 요구 하려면 **승인자 사유 필요** 를 **예**로 설정 합니다.
 
     다른 승인자와 요청자에 게 근거를 표시 합니다.
+
+### <a name="alternate-approvers"></a>대체 승인자
+
+요청을 승인할 수 있는 기본 승인자를 지정 하는 것 외에도 대체 승인자를 지정할 수 있습니다. 이렇게 하면 요청이 만료 되기 전에 승인 또는 거부 되도록 할 수 있습니다 (시간 제한).
+
+주 승인자가 요청을 승인 하거나 거부할 수 없는 경우 대체 승인자를 지정 하 여 보류 중인 요청을 정책 설정 중에 지정한 전달 일정에 따라 대체 승인자에 게 전달 합니다. 보류 중인 요청을 승인 하거나 거부 하는 전자 메일을 받습니다.
+
+요청을 대체 승인자에 게 전달한 후에는 주 승인자가 요청을 승인 하거나 거부할 수 있습니다. 대체 승인자는 기본 승인자와 동일한 내 액세스 사이트를 사용 하 여 보류 중인 요청을 승인 하거나 거부 합니다.
+
+주 승인자 및 대체 승인자가 될 사람 또는 그룹을 나열할 수 있습니다. 다른 사용자 집합을 기본 승인자와 대체 승인자로 나열 해야 합니다.
+예를 들어, Alice와 Bob을 기본 승인자로 나열 하는 경우 대체 승인자로 서 수 고 Dave를 나열 합니다. 다음 단계를 사용 하 여 액세스 패키지에 대체 승인자를 추가 합니다.
+
+1. **고급 요청 설정 표시**를 클릭 합니다.
+
+    ![액세스 패키지-정책-고급 요청 설정 표시](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+
+1. **수행 된 작업이 없는 경우를 설정 하 고, 다른 승인자에 게 전달 하 시겠습니까?** **예**로 전환 합니다.
+
+1. **대체 승인자 추가** 를 클릭 하 고 목록에서 대체 승인자를 선택 합니다.
+
+    ![액세스 패키지-정책-대체 승인자 추가](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+
+1. **남은 승인자 (일 수) 후의 대체 승인자** 에서 요청을 승인 하거나 거부 해야 하는 일 수를 입력 합니다. 요청 기간 전에 요청을 승인 하거나 거부 한 승인자가 없는 경우 요청은 만료 됩니다 (시간 제한). 사용자는 액세스 패키지에 대 한 다른 요청을 제출 해야 합니다. 
+
+    요청 기간이 반기에 도달 하면 하루 종일 요청을 대체 승인자에 게 전달할 수 있습니다. 이 예제에서 요청 기간은 14 일입니다. 이는 요청 기간이 7 일에 반기에 도달 함을 의미 합니다. 따라서 8 일 이전에 요청을 전달할 수 있습니다. 또한 요청 기간의 마지막 날에 대 한 대체 승인자에 게 요청을 전달할 수 없습니다. 따라서이 예제에서는 최신 요청을 전달할 수 있습니다.
 
 ## <a name="enable-requests"></a>요청 사용
 

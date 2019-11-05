@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: dc648b30dc1236080be06044f510557ae0ce9476
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: b5e5df111b81cb60b6d194be190421bdb5ce2683
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68638302"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467705"
 ---
-# <a name="plan-your-luis-app-with-subject-domain-intents-and-entities"></a>주체 도메인, 의도 및 엔터티를 사용하여 LUIS 앱 계획
+# <a name="plan-your-luis-app-schema-with-subject-domain-and-data-extraction"></a>주제 도메인 및 데이터 추출을 사용 하 여 LUIS 앱 스키마 계획
 
-앱을 계획 하려면 주체 영역 도메인을 식별 합니다. 여기에는 응용 프로그램과 관련 된 가능한 의도 및 엔터티가 포함 됩니다.  
+LUIS 앱 스키마는 주체 도메인과 관련 된 의도 및 엔터티를 포함 합니다. 의도는 사용자 길이 발언를 분류 하 고 엔터티는 사용자 길이 발언에서 데이터를 추출 합니다. 
 
 ## <a name="identify-your-domain"></a>도메인 식별
 
@@ -32,10 +32,16 @@ LUIS 앱은 도메인 특정 항목을 중심으로 합니다.  예를 들어, �
 
 ## <a name="identify-your-intents"></a>의도 식별
 
-애플리케이션의 작업에 중요한 [의도](luis-concept-intent.md)에 대해 생각해 보세요. 항공편을 예약하고 사용자 목적지의 날씨를 확인하는 기능이 있는 여행 앱을 예로 들어보겠습니다. 이러한 동작에 대해 “BookFlight” 및 “GetWeather” 의도를 정의할 수 있습니다. 기능이 더 많은 보다 복잡한 앱에서는 의도가 더 많으므로 너무 구체적이지 않도록 주의해서 정의해야 합니다. 예를 들어, “BookFlight” 및 “BookHotel”은 별도의 의도여야 하지만 “BookInternationalFlight” 및 “BookDomesticFlight”는 너무 유사할 수 있습니다.
+애플리케이션의 작업에 중요한 [의도](luis-concept-intent.md)에 대해 생각해 보세요. 
+
+항공편을 예약하고 사용자 목적지의 날씨를 확인하는 기능이 있는 여행 앱을 예로 들어보겠습니다. 이러한 작업에 대해 `BookFlight` 및 `GetWeather` 의도를 정의할 수 있습니다. 
+
+더 복잡 한 응용 프로그램에서는 더 많은 기능을 사용할 수 있으며, 의도 한 것이 너무 구체적이 지 않도록 신중 하 게 정의 해야 합니다. 예를 들어 `BookFlight` 및 `BookHotel`은 별도의 의도 여야 할 수 있지만 `BookInternationalFlight`와 `BookDomesticFlight`는 너무 유사할 수 있습니다.
 
 > [!NOTE]
-> 앱의 기능을 수행하는 데 필요한 만큼의 의도만 사용하는 것이 좋습니다. 너무 많은 의도를 정의하면 LUIS에서 발화를 올바르게 분류하기가 더욱 어려워집니다. 너무 적게 정의하면 너무 일반적이어서 겹칠 수 있습니다.
+> 앱의 기능을 수행하는 데 필요한 만큼의 의도만 사용하는 것이 좋습니다. 너무 많은 의도를 정의하면 LUIS에서 발화를 올바르게 분류하기가 더욱 어려워집니다. 너무 적은 수를 정의 하는 경우 중복 될 수 있습니다.
+
+전반적인 사용자 의도를 식별할 필요가 없는 경우 모든 예제 사용자 길이 발언을 없음 의도에 추가 합니다. 앱이 더 많은 의도를 필요로 하는 경우 나중에 만들 수 있습니다. 
 
 ## <a name="create-example-utterances-for-each-intent"></a>각 의도의 예제 발화 만들기
 
@@ -51,7 +57,4 @@ LUIS 앱은 도메인 특정 항목을 중심으로 합니다.  예를 들어, �
 
 ## <a name="next-steps"></a>다음 단계
 
-앱에서 엔드포인트 발화를 학습, 게시 및 가져온 후에는 [능동적 학습](luis-how-to-review-endpoint-utterances.md), [구 목록](luis-concept-feature.md) 및 [패턴](luis-concept-patterns.md)을 사용하여 예측 기능 향상을 구현하도록 계획합니다. 
-
-
-* LUIS 앱을 만드는 방법에 대한 간단한 연습은 [Create your first Language Understanding Intelligent Services (LUIS) app](luis-get-started-create-app.md)(첫 번째 LUIS(Language Understanding Intelligent Services) 앱 만들기)을 참조하세요.
+일반적인 [개발 주기에](luis-concept-app-iteration.md)대해 알아보세요.  

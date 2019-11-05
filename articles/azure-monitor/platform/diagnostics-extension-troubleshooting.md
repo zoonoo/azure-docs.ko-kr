@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/08/2019
-ms.openlocfilehash: 63ddb329e37ea3da589e7d2eeaebabb42aa2b467
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 24a2b8a3c190ed440684ea3aa0ab35ebbf93fca0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555509"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73161962"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
 이 문서에서는 Azure Diagnostics 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure Diagnostics 개요](diagnostics-extension-overview.md)를 참조하세요.
@@ -38,7 +38,7 @@ ms.locfileid: "72555509"
 | **로그 컬렉션 유틸리티 경로** | %SystemDrive%\Packages\GuestAgent\ |
 | **MonAgentHost 로그 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>가상 머신
 | 아티팩트 | path |
 | --- | --- |
 | **Azure Diagnostics 구성 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
@@ -58,7 +58,7 @@ Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를
 리소스 ID가 올바르지 않으면 **진단** **구성** > **메트릭** > **리소스 ID**가 올바르게 설정되었는지 확인합니다.
 
 특정 메트릭에 대한 데이터가 없는 경우 **진단 구성** > **PerformanceCounter**에 메트릭(성능 카운터)이 포함되어 있는지 확인합니다. 다음 카운터를 기본적으로 활성화합니다.
-- \Processor(_Total)\% Processor Time
+- \Processor(_Total)\% 프로세서 시간
 - \Memory\Available Bytes
 - \ASP.NET Applications(__Total__)\Requests/Sec
 - \ASP.NET Applications(__Total__)\Errors Total/Sec
@@ -90,7 +90,7 @@ Azure Diagnostics가 시작하지 못한 이유에 대한 자세한 내용은 �
 ```
 DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0
 ```
-**음수** 종료 코드가 있으면 [참조 섹션](#references)의 [종료 코드 테이블](#azure-diagnostics-plugin-exit-codes)을 참조하세요.
+**음수** 종료 코드가 있으면 [참조 섹션](#azure-diagnostics-plugin-exit-codes)의 [종료 코드 테이블](#references)을 참조하세요.
 
 ## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>진단 데이터가 Azure Storage에 기록되지 않음
 나타나는 데이터가 없는지 아니면 일부 데이터가 나타나는지 결정합니다.
@@ -206,12 +206,12 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 ```
 이 코드는 테이블 네 개를 생성합니다.
 
-| 행사 | 테이블 이름 |
+| 이벤트 | 테이블 이름 |
 | --- | --- |
-| provider=”prov1” &lt;Event id=”1” /&gt; |WADEvent+MD5(“prov1”)+”1” |
-| provider=”prov1” &lt;Event id=”2” eventDestination=”dest1” /&gt; |WADdest1 |
-| provider=”prov1” &lt;DefaultEvents /&gt; |WADDefault+MD5(“prov1”) |
-| provider=”prov2” &lt;DefaultEvents eventDestination=”dest2” /&gt; |WADdest2 |
+| provider = "prov1" &lt;이벤트 id = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
+| provider = "prov1" &lt;이벤트 id = "2" eventDestination = "dest1"/&gt; |WADdest1 |
+| provider = "prov1" &lt;DefaultEvents/&gt; |WADDefault + MD5 ("prov1") |
+| provider = "prov2" &lt;DefaultEvents eventDestination = "dest2"/&gt; |WADdest2 |
 
 ## <a name="references"></a>참조
 
@@ -236,17 +236,17 @@ Cloud Service 역할의 경우 디스크에서 구성을 선택하면 데이터�
 | -2 |rcf 파일을 로드할 수 없습니다.<p>이는 게스트 에이전트 플러그 인 시작 관리자를 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
 | -3 |진단 구성 파일을 로드할 수 없습니다.<p><p>해결 방법: 구성 파일이 스키마 유효성 검사를 통과하지 못한 것이 원인입니다. 해결 방법은 스키마를 준수하는 구성 파일을 제공하는 것입니다. |
 | -4 |진단에서 이미 로컬 리소스 디렉터리를 사용하고 있는 모니터링 에이전트의 또 다른 인스턴스입니다.<p><p>해결 방법: **LocalResourceDirectory**를 참조하세요. |
-| -6 |게스트 에이전트 플러그 인 시작 관리자가 잘못된 명령줄로 진단을 실행하려고 했습니다.<p><p>이는 게스트 에이전트 플러그 인 시작 관리자를 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
+| -6 |게스트 에이전트 플러그인 시작 관리자는 잘못된 명령줄으로 진단 유틸리티를 시작 하려고 했습니다.<p><p>이는 게스트 에이전트 플러그 인 시작 관리자를 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
 | -10 |진단 플러그 인이 처리되지 않은 예외와 함께 종료되었습니다. |
 | -11 |게스트 에이전트는 모니터링 에이전트를 시작하고 모니터링하는 일을 담당하는 프로세스를 만들 수 없습니다.<p><p>해결 방법: 새 프로세스를 실행할 수 있을 만큼 시스템 리소스가 충분한지 확인합니다.<p> |
-| -101 |진단 플러그 인을 호출할 때 인수가 잘못되었습니다.<p><p>이는 게스트 에이전트 플러그 인 시작 관리자를 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
+| -101 |진단 플러그 인을 호출할 때 잘못된 인수입니다.<p><p>이는 게스트 에이전트 플러그 인 시작 관리자를 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
 | -102 |플러그인 프로세스 자체를 초기화할 수 없습니다.<p><p>해결 방법: 새 프로세스를 실행할 수 있을 만큼 시스템 리소스가 충분한지 확인합니다. |
 | -103 |플러그인 프로세스 자체를 초기화할 수 없습니다. 특히 로거 개체를 만들 수 없습니다.<p><p>해결 방법: 새 프로세스를 실행할 수 있을 만큼 시스템 리소스가 충분한지 확인합니다. |
-| -104 |게스트 에이전트가 제공하는 rcf 파일을 로드할 수 없습니다.<p><p>이는 게스트 에이전트 플러그 인 시작 관리자를 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
-| -105 |진단 플러그 인이 진단 구성 파일을 열 수 없습니다.<p><p>이는 진단 플러그 인을 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
+| -104 |게스트 에이전트에서 제공한 rcf 파일을 로드할 수 없습니다.<p><p>이는 게스트 에이전트 플러그 인 시작 관리자를 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
+| -105 |진단 플러그인은 진단 구성 파일을 열 수 없습니다.<p><p>이는 진단 플러그 인을 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
 | -106 |진단 구성 파일을 읽을 수 없습니다.<p><p>구성 파일이 스키마 유효성 검사를 통과하지 못한 것이 원인입니다. <br><br>해결 방법: 스키마를 준수하는 구성 파일을 제공합니다. 자세한 내용은 [진단 확장 구성을 확인하는 방법](#how-to-check-diagnostics-extension-configuration)을 참조하세요. |
 | -107 |모니터링 에이전트로의 리소스 디렉터리 전달이 유효하지 않습니다.<p><p>이는 모니터링 에이전트를 VM에서 올바르지 않게 수동으로 호출할 때에만 발생하는 내부 오류입니다.</p> |
-| -108 |진단 구성 파일을 모니터링 에이전트 구성 파일로 변환할 수 없습니다.<p><p>이는 진단 플러그 인을 유효하지 않은 구성 파일과 함께 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
+| -108 |모니터링 에이전트 구성 파일로의 진단 구성 파일을 변환할 수 없습니다.<p><p>이는 진단 플러그 인을 유효하지 않은 구성 파일과 함께 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
 | -110 |일반 진단 구성 오류.<p><p>이는 진단 플러그 인을 유효하지 않은 구성 파일과 함께 수동으로 호출할 때에만 발생하는 내부 오류입니다. |
 | -111 |모니터링 에이전트를 시작할 수 없습니다.<p><p>해결 방법: 사용 가능한 시스템 리소스가 충분한지 확인합니다. |
 | -112 |일반 오류 |

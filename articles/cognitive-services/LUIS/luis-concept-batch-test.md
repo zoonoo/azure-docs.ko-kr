@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: b962fc32cdcde0509cfa60d105022bb208633ae3
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e9ad7c52af20762633c710b39a64fbebf0cf6213
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639293"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487734"
 ---
 # <a name="batch-testing-with-1000-utterances-in-luis-portal"></a>LUIS 포털에서 1000개 발언을 사용한 일괄 처리 테스트
 
-일괄 처리 테스트는 [활성](luis-concept-version.md#active-version) 학습 모델의 유효성을 검사하여 예측 정확도를 측정합니다. 일괄 처리 테스트를 사용 하면 현재 학습 된 모델에서 각 의도 및 엔터티의 정확성을 확인 하 고 차트를 사용 하 여 결과를 표시할 수 있습니다. 일괄 처리 테스트 결과를 검토하여 앱이 올바른 의도를 자주 식별하지 못하는 경우 의도에 예제 발언 추가 등의 적절한 조치를 취해 정확도를 향상합니다.
+일괄 처리 테스트는 적극적인 학습 버전의 유효성을 검사 하 여 예측 정확도를 측정 합니다. 일괄 처리 테스트를 사용 하면 활성 버전에서 각 의도 및 엔터티의 정확성을 확인 하 고 차트를 사용 하 여 결과를 표시할 수 있습니다. 앱이 utterance 내에서 올바른 의도를 식별 하거나 레이블을 지정 하는 데 자주 실패 하는 경우 길이 발언에 더 많은 예제를 추가 하는 것과 같이 적절 한 조치를 취하는 일괄 처리 테스트 결과를 검토 하 여 정확성을 향상 시킵니다.
 
 ## <a name="group-data-for-batch-test"></a>일괄 처리 테스트를 위해 데이터 그룹화
 
@@ -110,7 +110,7 @@ LUIS는 각 데이터 집합의 마지막 테스트 상태를 추적 합니다. 
 
 <a name="sections-of-the-results-chart"></a>
 
-## <a name="batch-test-results"></a>일괄 처리 테스트 결과
+## <a name="batch-test-results"></a>일괄 테스트 결과
 
 일괄 처리 테스트 결과는 오류 행렬이라고 하는 분산형 그래프입니다. 이 그래프는 일괄 처리 파일의 발언과 현재 모델의 예측 의도 및 엔터티를 4방향에서 비교한 것입니다. 
 
@@ -120,7 +120,7 @@ LUIS는 각 데이터 집합의 마지막 테스트 상태를 추적 합니다. 
 
 이 차트는 현재 학습을 기준으로 LUIS에서 잘못 예측하는 발언을 찾는 데 도움이 됩니다. 차트의 영역별로 결과가 표시됩니다. 그래프에서 개별 요소를 선택하여 발언 정보를 검토하거나, 영역 이름을 선택하여 해당 영역의 발언 결과를 검토합니다.
 
-![일괄 처리 테스트](./media/luis-concept-batch-test/batch-testing.png)
+![일괄 테스트](./media/luis-concept-batch-test/batch-testing.png)
 
 ## <a name="errors-in-the-results"></a>결과 오류
 

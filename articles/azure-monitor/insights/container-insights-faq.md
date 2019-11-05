@@ -6,17 +6,21 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 08/14/2019
-ms.openlocfilehash: bda64dd555f1970b70878d827f6be1dab3f1e2d5
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 10/15/2019
+ms.openlocfilehash: d3779a2d48db82bfccdc0f047119a36ef56c3bdf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555438"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73477425"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>컨테이너용 Azure Monitor 질문과 대답
 
 Microsoft FAQ는 컨테이너용 Azure Monitor에 대한 질문과 대답 목록입니다. 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://feedback.azure.com/forums/34192--general-feedback)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.
+
+## <a name="can-i-view-metrics-collected-in-grafana"></a>Grafana에서 수집 된 메트릭을 볼 수 있나요?
+
+컨테이너 Azure Monitor는 Grafana 대시보드의 Log Analytics 작업 영역에 저장 된 메트릭 보기를 지원 합니다. 사용자 지정 Grafana 만들기 대시보드를 시각화 하기 위해 모니터링 되는 클러스터의 추가 데이터를 쿼리 하는 방법을 배우는 데 도움이 되는 Grafana의 [대시보드 리포지토리에서](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) 다운로드할 수 있는 템플릿을 제공 했습니다. 
 
 ## <a name="can-i-monitor-my-aks-engine-cluster-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS-engine 클러스터를 모니터링할 수 있나요?
 
@@ -72,20 +76,15 @@ LogEntry : ({“Hello": "This example has multiple lines:","Docker/Moby": "will 
 
 ## <a name="how-do-i-resolve-azure-ad-errors-when-i-enable-live-logs"></a>라이브 로그를 사용 하도록 설정할 때 Azure AD 오류를 해결할 어떻게 할까요? 있나요? 
 
-다음 오류가 표시 될 수 있습니다. **요청에 지정 된 회신 url이 응용 프로그램에 대해 구성 된 회신 url (' < 응용 프로그램 ID \> ')과 일치 하지**않습니다. 이 문제를 해결 하는 [방법은 컨테이너에 대 한 Azure Monitor를 사용 하 여 컨테이너 로그를 실시간으로 보는 방법](container-insights-live-logs.md#configure-aks-with-azure-active-directory)문서에서 찾을 수 있습니다. 
+다음 오류가 표시 될 수 있습니다. **요청에 지정 된 회신 url이 응용 프로그램에 대해 구성 된 회신 url (' < 응용 프로그램 ID\>')과 일치 하지**않습니다. 이 문제를 해결 하는 [방법은 컨테이너에 대 한 Azure Monitor를 사용 하 여 실시간으로 컨테이너 데이터를 보는 방법](container-insights-livedata-setup.md#configure-ad-integrated-authentication)문서에서 찾을 수 있습니다. 
 
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>온 보 딩 후 클러스터를 업그레이드할 수 없는 이유는 무엇입니까?
 
 AKS 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하도록 설정한 후 클러스터를 업그레이드 하려고 할 때 클러스터가 데이터를 전송 하는 Log Analytics 작업 영역을 삭제 하면 오류가 발생 합니다. 이 문제를 해결 하려면 모니터링을 사용 하지 않도록 설정한 다음 구독에서 다른 유효한 작업 영역을 참조 하 여 다시 사용 하도록 설정 해야 합니다. 클러스터 업그레이드를 다시 수행 하려고 하면 성공적으로 처리 되 고 완료 됩니다.  
 
 ## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>에이전트에 대해 열기/허용 목록 해야 하는 포트 및 도메인은 무엇 인가요?
-- *. ods.opinsights.azure.com 443
-- *. oms.opinsights.azure.com 443
-- *. blob.core.windows.net 443
-- dc.services.visualstudio.com 443
-- *. microsoftonline.com 443
-- *. monitoring.azure.com 443
-- login.microsoftonline.com 443
+
+Azure, Azure 미국 정부 및 Azure 중국 클라우드를 사용 하 여 컨테이너 화 된 에이전트에 필요한 프록시 및 방화벽 구성 정보는 [네트워크 방화벽 요구 사항](container-insights-onboard.md#network-firewall-requirements) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

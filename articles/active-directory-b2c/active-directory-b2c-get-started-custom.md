@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8e858869d742120138e7997ce21d9e4cca93ed9b
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: b8ce4565a2df3ad5f144508010265c1029a6856d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264373"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468854"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -23,7 +23,7 @@ ms.locfileid: "71264373"
 
 [사용자 지정 정책은](active-directory-b2c-overview-custom.md) Azure Active Directory B2C (Azure AD B2C) 테 넌 트의 동작을 정의 하는 구성 파일입니다. 이 문서에서는 전자 메일 주소와 암호를 사용한 로콜 계정 등록 또는 로그인을 지원하는 사용자 지정 정책을 만듭니다. ID 공급자를 추가하기 위한 환경도 준비합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 아직 없는 경우 Azure 구독에 연결 된 [Azure AD B2C 테 넌 트를 만듭니다](tutorial-create-tenant.md) .
 - Azure AD B2C와 통신할 수 있도록 만든 테 넌 트에 [응용 프로그램을 등록](tutorial-register-applications.md) 합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "71264373"
 ### <a name="create-the-signing-key"></a>서명 키 만들기
 
 1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**으로는 `Generate`를 선택합니다.
+1. **옵션**으로는 `Generate`을 선택합니다.
 1. **이름**에 `TokenSigningKeyContainer`를 입력합니다. `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
 1. **키 유형**으로는 **RSA**를 선택합니다.
 1. **키 사용**으로는 **서명**을 선택합니다.
@@ -48,7 +48,7 @@ ms.locfileid: "71264373"
 ### <a name="create-the-encryption-key"></a>암호화 키 만들기
 
 1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**으로는 `Generate`를 선택합니다.
+1. **옵션**으로는 `Generate`을 선택합니다.
 1. **이름**에 `TokenEncryptionKeyContainer`를 입력합니다. `B2C_1A`_ 접두사가 자동으로 추가될 수 있습니다.
 1. **키 유형**으로는 **RSA**를 선택합니다.
 1. **키 사용**에는 **암호화**를 선택합니다.
@@ -67,31 +67,93 @@ Facebook 응용 프로그램의 [앱 암호](active-directory-b2c-setup-fb-app.m
 
 ## <a name="register-identity-experience-framework-applications"></a>Identity Experience Framework 애플리케이션 등록
 
-Azure AD B2C를 사용하려면 사용자 가입 및 로그인에 사용되고 IdentityExperienceFramework 앱에서 위임된 권한을 갖고 있는 두 개의 애플리케이션 IdentityExperienceFramework(웹앱) 및 ProxyIdentityExperienceFramework(네이티브 앱)를 등록해야 합니다. 로컬 계정은 테넌트에만 존재합니다. 사용자는 고유한 이메일 주소/암호 조합으로 등록하여 테넌트에 등록된 애플리케이션에 액세스합니다.
+Azure AD B2C를 사용 하려면 로컬 계정 ( *IdentityExperienceFramework*, web API 및 *ProxyIdentityExperienceFramework*)을 사용 하 여 사용자를 등록 하 고 로그인 하는 데 사용 하는 두 개의 응용 프로그램을 등록 해야 합니다. IdentityExperienceFramework 앱. 사용자는 전자 메일 주소 또는 사용자 이름과 암호를 사용 하 여 등록 하 여 테 넌 트에 등록 된 응용 프로그램에 액세스 하 여 "로컬 계정"을 만들 수 있습니다. 로컬 계정은 Azure AD B2C 테 넌 트에만 존재 합니다.
+
+Azure AD B2C 테 넌 트에서 이러한 두 응용 프로그램을 한 번만 등록 해야 합니다.
 
 ### <a name="register-the-identityexperienceframework-application"></a>IdentityExperienceFramework 애플리케이션 등록
+
+Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 현재 **응용 프로그램** 환경 또는 새로운 통합 **앱 등록 (미리 보기)** 환경을 사용할 수 있습니다. [미리 보기 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **모든 서비스** 를 선택 합니다.
 1. 검색 상자에 `Azure Active Directory`를 입력합니다.
 1. 검색 결과에서 **Azure Active Directory**를 선택합니다.
 1. 왼쪽 메뉴의 **관리** 에서 **앱 등록 (레거시)** 를 선택 합니다.
 1. **새 애플리케이션 등록**을 선택합니다.
-1. **이름**에 `IdentityExperienceFramework`를 입력합니다.
+1. **이름**에 `IdentityExperienceFramework`을 입력합니다.
 1. **애플리케이션 종류**로 **웹앱/API**를 선택합니다.
 1. **로그온 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`은 Azure AD B2C 테넌트 도메인 이름입니다. 이제 모든 URL은 [b2clogin.com](b2clogin.md)을 사용해야 합니다.
 1. **만들기**를 선택합니다. 생성된 애플리케이션 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
 
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록 (미리 보기)](#tab/app-reg-preview/)
+
+1. **앱 등록 (미리 보기)** 를 선택 하 고 **새 등록**을 선택 합니다.
+1. **이름**에 `IdentityExperienceFramework`을 입력합니다.
+1. **지원 되는 계정 유형**에서 **이 조직 디렉터리의 계정만**을 선택 합니다.
+1. **URI 리디렉션**에서 **웹**을 선택 하 고 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`를 입력 합니다. 여기서 `your-tenant-name`는 Azure AD B2C 테 넌 트 도메인 이름입니다.
+1. **사용 권한**아래에서 *openid connect and offline_access Permissions에 관리자 동의 부여* 확인란을 선택 합니다.
+1. **등록**을 선택합니다.
+1. 이후 단계에서 사용할 **응용 프로그램 (클라이언트) ID** 를 기록 합니다.
+
+다음으로, 범위를 추가 하 여 API를 노출 합니다.
+
+1. **관리**에서 **API 노출**을 선택 합니다.
+1. **범위 추가**를 선택한 다음, **저장을 선택 하 고 계속** 을 선택 하 여 기본 응용 프로그램 ID URI를 적용 합니다.
+1. Azure AD B2C 테 넌 트에서 사용자 지정 정책을 실행 하도록 허용 하는 범위를 만들려면 다음 값을 입력 합니다.
+    * **범위 이름**: `user_impersonation`
+    * **관리자 동의 표시 이름**: `Access IdentityExperienceFramework`
+    * **관리자 동의 설명**: `Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
+1. **범위 추가** 선택
+
+* * *
+
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>ProxyIdentityExperienceFramework 애플리케이션 등록
 
+#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+
 1. **앱 등록 (레거시)** 에서 **새 응용 프로그램 등록**을 선택 합니다.
-1. **이름**에 `ProxyIdentityExperienceFramework`를 입력합니다.
+1. **이름**에 `ProxyIdentityExperienceFramework`을 입력합니다.
 1. **애플리케이션 종류**로 **네이티브**를 선택합니다.
 1. **리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`는 Azure AD B2C 테넌트입니다.
 1. **만들기**를 선택합니다. 생성된 애플리케이션 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
 1. **설정**을 선택한 다음 **필요한 권한**을 선택 하 고 **추가**를 선택 합니다.
-1. **API 선택**을 선택 하 고 **IdentityExperienceFramework**를 검색 한 다음 선택을 클릭 **합니다.**
+1. **API 선택**을 선택 하 고 **IdentityExperienceFramework**를 검색 한 **다음 선택을 클릭 합니다.**
 1. **IdentityExperienceFramework 액세스** 옆의 확인란을 선택한 다음 **선택**, **완료**를 차례로 클릭합니다.
 1. **권한 부여**를 선택 하 고 **예**를 선택 하 여 확인 합니다.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록 (미리 보기)](#tab/app-reg-preview/)
+
+1. **앱 등록 (미리 보기)** 를 선택 하 고 **새 등록**을 선택 합니다.
+1. **이름**에 `ProxyIdentityExperienceFramework`을 입력합니다.
+1. **지원 되는 계정 유형**에서 **이 조직 디렉터리의 계정만**을 선택 합니다.
+1. **URI 리디렉션**에서 드롭다운을 사용 하 여 **공용 클라이언트/네이티브 (모바일 & 데스크톱)** 를 선택 합니다.
+1. **리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`는 Azure AD B2C 테넌트입니다.
+1. **사용 권한**아래에서 *openid connect and offline_access Permissions에 관리자 동의 부여* 확인란을 선택 합니다.
+1. **등록**을 선택합니다.
+1. 이후 단계에서 사용할 **응용 프로그램 (클라이언트) ID** 를 기록 합니다.
+
+다음으로 응용 프로그램을 공용 클라이언트로 처리 하도록 지정 합니다.
+
+1. **관리**아래에서 **인증**을 선택 합니다.
+1. **새 환경 사용해 보기** (표시 되는 경우)를 선택 합니다.
+1. **고급 설정**에서 **응용 프로그램을 공용 클라이언트로 처리** 를 사용 하도록 설정 합니다 ( **예**선택).
+1. **저장**을 선택합니다.
+
+이제 *IdentityExperienceFramework* 등록에서 앞서 제공한 API 범위에 사용 권한을 부여 합니다.
+
+1. **관리** 아래에서 **API 권한**을 선택합니다.
+1. **구성 된 사용 권한**에서 **사용 권한 추가**를 선택 합니다.
+1. **내 api** 탭을 선택한 다음 **IdentityExperienceFramework** 응용 프로그램을 선택 합니다.
+1. **사용 권한**아래에서 이전에 정의한 **user_impersonation** 범위를 선택 합니다.
+1. **권한 추가**를 선택 합니다. 지시에 따라 몇 분 정도 기다린 후 다음 단계를 진행 합니다.
+1. **사용자의 테 넌 트 이름에 대해 관리자 동의 부여를**선택 합니다.
+1. 현재 로그인 한 관리자 계정을 선택 하거나 적어도 *클라우드 응용 프로그램 관리자* 역할에 할당 된 Azure AD B2C 테 넌 트의 계정으로 로그인 합니다.
+1. **수락**을 선택합니다.
+1. **새로 고침**을 선택 하 고 "다음에 대해 권한 부여 ..."를 확인 합니다. 두 범위에 대 한 **상태** 아래에 나타납니다. 권한을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
+
+* * *
 
 ## <a name="custom-policy-starter-pack"></a>사용자 지정 정책 시작 팩
 
@@ -104,9 +166,9 @@ Azure AD B2C를 사용하려면 사용자 가입 및 로그인에 사용되고 I
 
 시작 팩 각각에는 다음이 포함됩니다.
 
-- **기본 파일** -기본 파일을 수정 해야 합니다. 예: *Trustframeworkbase.xml*
-- **확장 파일** -이 파일은 대부분의 구성이 변경 되는 위치입니다. 예: *Trustframeworkextensions.xml*
-- **신뢰 당사자 파일** -응용 프로그램에서 호출 하는 작업 관련 파일입니다. 예를 들면 다음과 같습니다. *Signu.xml*, *profileedit*.xml, *passwordreset* .xml
+- **기본 파일** -기본 파일을 수정 해야 합니다. 예: *trustframeworkbase.xml*
+- **확장 파일** -이 파일은 대부분의 구성이 변경 되는 위치입니다. 예: *trustframeworkextensions.xml*
+- **신뢰 당사자 파일** -응용 프로그램에서 호출 하는 작업 관련 파일입니다. 예: *Signu.xml*, *profileedit*.xml, *passwordreset .xml*
 
 이 문서에서는 **Socialandlocalaccounts** 시작 팩에서 XML 사용자 지정 정책 파일을 편집 합니다. XML 편집기가 필요한 경우 간단한 크로스 플랫폼 편집기를 [Visual Studio Code](https://code.visualstudio.com/download)사용해 보세요.
 
@@ -120,17 +182,17 @@ GitHub에서 사용자 지정 정책 시작 팩을 가져온 다음, Azure AD B2
     git clone https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack
     ```
 
-1. 모든 파일의 `yourtenant` **socialandlocalaccounts** 디렉터리에서 문자열을 Azure AD B2C 테 넌 트의 이름으로 바꿉니다.
+1. 모든 파일의 **Socialandlocalaccounts** 디렉터리에서 `yourtenant` 문자열을 Azure AD B2C 테 넌 트의 이름으로 바꿉니다.
 
-    예를 들어 B2C 테 넌 트의 이름이 *contosotenant*인 경우의 `yourtenant.onmicrosoft.com` `contosotenant.onmicrosoft.com`모든 인스턴스는가 됩니다.
+    예를 들어 B2C 테 넌 트의 이름이 *contosotenant*인 경우 `yourtenant.onmicrosoft.com`의 모든 인스턴스가 `contosotenant.onmicrosoft.com`됩니다.
 
 ### <a name="add-application-ids-to-the-custom-policy"></a>사용자 지정 정책에 애플리케이션 ID 추가
 
 확장 파일 *TrustFrameworkExtensions.xml*에 애플리케이션 ID를 추가합니다.
 
-1. 을 `SocialAndLocalAccounts/` 열고 **`TrustFrameworkExtensions.xml`** 요소`<TechnicalProfile Id="login-NonInteractive">`를 찾습니다.
-1. 의 `IdentityExperienceFrameworkAppId` 두 인스턴스를 앞에서 만든 IdentityExperienceFramework 응용 프로그램의 응용 프로그램 ID로 바꿉니다.
-1. 의 `ProxyIdentityExperienceFrameworkAppId` 두 인스턴스를 앞에서 만든 ProxyIdentityExperienceFramework 응용 프로그램의 응용 프로그램 ID로 바꿉니다.
+1. `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** 를 열고 요소 `<TechnicalProfile Id="login-NonInteractive">`찾습니다.
+1. `IdentityExperienceFrameworkAppId`의 두 인스턴스를 앞에서 만든 IdentityExperienceFramework 응용 프로그램의 응용 프로그램 ID로 바꿉니다.
+1. `ProxyIdentityExperienceFrameworkAppId`의 두 인스턴스를 앞에서 만든 ProxyIdentityExperienceFramework 응용 프로그램의 응용 프로그램 ID로 바꿉니다.
 1. 파일을 저장합니다.
 
 ## <a name="upload-the-policies"></a>정책 업로드
@@ -144,10 +206,10 @@ GitHub에서 사용자 지정 정책 시작 팩을 가져온 다음, Azure AD B2
     1. *ProfileEdit .xml*
     1. *PasswordReset .xml*
 
-파일을 업로드 하면 Azure에서 각에 접두사 `B2C_1A_` 를 추가 합니다.
+파일을 업로드 하면 Azure에서 각에 `B2C_1A_` 접두사를 추가 합니다.
 
 > [!TIP]
-> Xml 편집기에서 유효성 검사를 지 원하는 경우 시작 팩의 `TrustFrameworkPolicy_0.3.0.0.xsd` 루트 디렉터리에 있는 xml 스키마에 대해 파일의 유효성을 검사 합니다. 업로드하기 전에 XML 스키마 유효성 검사가 오류를 식별합니다.
+> XML 편집기에서 유효성 검사를 지 원하는 경우 시작 팩의 루트 디렉터리에 있는 `TrustFrameworkPolicy_0.3.0.0.xsd` XML 스키마에 대해 파일의 유효성을 검사 합니다. 업로드하기 전에 XML 스키마 유효성 검사가 오류를 식별합니다.
 
 ## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
 
@@ -161,7 +223,7 @@ GitHub에서 사용자 지정 정책 시작 팩을 가져온 다음, Azure AD B2
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Facebook을 ID 공급자로 추가
 
-1. 파일에서 의`client_id` 값을 Facebook 응용 프로그램 ID로 바꿉니다. `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`**
+1. `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** 파일에서 `client_id` 값을 Facebook 응용 프로그램 ID로 바꿉니다.
 
    ```xml
    <TechnicalProfile Id="Facebook-OAUTH">

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/04/2018
 ms.author: liydu
-ms.openlocfilehash: e955d21132dda6caa137ad3b5de9d00ccf7ed1b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: deb1ea8c7b41ad48bddebfbed1b15c667ee0071a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61369851"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483950"
 ---
 # <a name="mxchip-iot-devkit"></a>MXChip IoT DevKit
 
@@ -55,13 +55,13 @@ ms.locfileid: "61369851"
 
 6. *함수 앱: 함수 앱 이름: xxx*와 유사한 내용이 표시됩니다. 함수 앱 이름을 적어둡니다. 이후 단계에서 사용됩니다.
 
-7. Azure Resource Manager 템플릿 배포를 마칠 때까지 기다립니다. 완료를 나타내는 *Resource Manager 템플릿 배포: 완료* 메시지가 표시됩니다.
+7. Azure Resource Manager 템플릿 배포를 마칠 때까지 기다립니다. 완료를 나타내는 *Resource Manager template deployment: Done*(Resource Manager 템플릿 배포: 완료) 메시지가 표시됩니다.
 
 ## <a name="deploy-function-app"></a>함수 앱 배포
 
 1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **작업 실행...**  - **cloud-deploy**를 선택합니다.
 
-2. 함수 앱 코드 업로드 프로세스가 완료될 때까지 기다리면 *함수 앱 배포: 완료* 메시지가 표시됩니다.
+2. 함수 앱 코드 업로드 프로세스를 마칠 때까지 기다립니다. *function app deploys: Done*(함수 앱 배포: 완료) 메시지가 표시됩니다.
 
 ## <a name="configure-iot-hub-device-connection-string-in-devkit"></a>DevKit에서 IoT Hub 디바이스 연결 문자열 구성
 
@@ -77,7 +77,7 @@ ms.locfileid: "61369851"
 
 MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 
-1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭하고 **빌드 작업 실행...** 을 선택합니다. Arduino 스케치가 컴파일되어 DevKit에 업로드됩니다.
+1. Visual Studio Code에서 **작업** 드롭다운 메뉴를 클릭 하 고 **빌드 작업 실행** ...을 선택 합니다. Arduino 스케치가 컴파일되고 DevKit로 업로드 됩니다.
 
 2. 스케치가 성공적으로 업로드되면 *Build & Upload Sketch: success*(스케치 빌드 및 업로드: 성공) 메시지가 표시됩니다.
 
@@ -106,7 +106,7 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 ![예제 테스트 절차](media/iot-hub-arduino-iot-devkit-az3166-devkit-state/devkit-state.gif)
 
 > [!NOTE]
-> Azure Portal에 디바이스 쌍의 원시 데이터 IoT Hub -\> IoT 디바이스 -\> *\<고객의 디바이스\>*  -\> Device 쌍이 보입니다.
+> Azure Portal에서 디바이스 쌍의 원시 데이터를 확인할 수 있습니다. IoT Hub -\> IoT 디바이스 -\> *\<사용자의 디바이스\>*  -\> 디바이스 쌍
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -117,4 +117,4 @@ MXChip IoT DevKit를 컴퓨터에 연결한 상태로:
 권장되는 단계는 다음과 같습니다.
 
 * [Azure IoT 원격 모니터링 솔루션 가속기 개요](https://docs.microsoft.com/azure/iot-suite/)
-* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](https://docs.microsoft.com/microsoft-iot-central/howto-connect-devkit)
+* [Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결](/azure/iot-central/core/howto-connect-devkit)

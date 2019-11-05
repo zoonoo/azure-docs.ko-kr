@@ -1,7 +1,7 @@
 ---
 title: 일반적인 질문-FAQ
 titleSuffix: Microsoft Genomics
-description: Microsoft Genomics에 대해 고객이 일반적으로 하는 질문에 대한 답입니다.
+description: 기술 정보, SLA 및 청구를 포함 하 여 Microsoft Genomics 서비스 사용과 관련 된 일반적인 질문에 대 한 답변을 받으세요.
 services: genomics
 author: grhuynh
 manager: cgronlun
@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 80a656ee687b71fcaf09a02d70d0a5a4300186bc
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249237"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476430"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
@@ -22,7 +22,7 @@ ms.locfileid: "72249237"
 
 
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Microsoft Genomics에서 GATK4 워크플로를 실행할 어떻게 할까요? 있나요?
-Microsoft Genomics 서비스의 config.xml 파일에서 process_name를 `gatk4`으로 지정 합니다. 정기적인 청구 요금으로 요금이 청구 됩니다.
+Microsoft Genomics 서비스의 config.xml 파일에서 `gatk4`process_name를 지정 합니다. 정기적인 청구 요금으로 요금이 청구 됩니다.
 
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics의 SLA는 무엇인가요?
@@ -38,9 +38,9 @@ Microsoft Genomics는 워크플로당 처리된 기가베이스 수를 기준으
 ## <a name="what-are-the-most-commonly-used-commands-for-the-msgen-client"></a>`msgen` 클라이언트에 대해 가장 일반적으로 사용되는 명령은 무엇인가요?
 `msgen` 클라이언트에 대해 가장 일반적으로 사용되는 명령은 다음과 같습니다. 
 
- |**Command**          |  **필드 설명** |
+ |**명령**          |  **필드 설명** |
  |:--------------------|:-------------         |
- |`list`               |제출한 작업 목록을 반환합니다. 인수는 `msgen help list`를 참조하세요.  |
+ |`list`               |제출한 작업 목록을 반환합니다. 인수는 `msgen help list`을 참조하세요.  |
  |`submit`             |워크플로 요청을 서비스에 제출합니다. 인수는 `msgen help submit`을 참조하세요.|
  |`status`             |`--workflow-id`에 의해 지정된 워크플로의 상태를 반환합니다. `msgen help status`도 참조하세요. |
  |`cancel`             |`--workflow-id`에 의해 지정된 워크플로의 처리를 취소하기 위한 요청을 보냅니다. `msgen help cancel`도 참조하세요. |

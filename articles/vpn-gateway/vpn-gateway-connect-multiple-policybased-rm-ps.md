@@ -1,19 +1,19 @@
 ---
-title: '여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN 게이트웨이 연결: Azure Resource Manager: PowerShell | Microsoft Docs'
+title: '여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결: Azure Resource Manager: PowerShell | Microsoft Docs'
 description: Azure Resource Manager 및 PowerShell을 사용하여 여러 정책 기반 VPN 디바이스에 대해 Azure 경로 기반 VPN 게이트웨이를 구성합니다.
 services: vpn-gateway
 documentationcenter: na
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: 9085d5ee21b1e955b7d9416a379ee730ba26ad3e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c753320b8d525e0c3ac031777bee15ba2050fcc0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66150105"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495677"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>PowerShell을 사용하여 여러 온-프레미스 정책 기반 VPN 디바이스에 Azure VPN Gateway 연결
 
@@ -39,12 +39,12 @@ ms.locfileid: "66150105"
 ### <a name="azure-support-for-policy-based-vpn"></a>정책 기반 VPN에 대한 Azure 지원
 현재 Azure에서는 VPN Gateway의 두 가지 모드(경로 기반 VPN Gateway 및 정책 기반 VPN Gateway)를 모두 지원합니다. 이러한 게이트웨이는 서로 다른 플랫폼에 구축되므로 사양이 서로 다릅니다.
 
-|                          | **PolicyBased VPN Gateway** | **RouteBased VPN Gateway**               |
-| ---                      | ---                         | ---                                      |
-| **Azure Gateway SKU**    | Basic                       | Basic, Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3 |
-| **IKE 버전**          | IKEv1                       | IKEv2                                    |
-| **최대 S2S 연결** | **1**                       | 기본/표준: 10<br> HighPerformance: 30 |
-|                          |                             |                                          |
+|                          | **PolicyBased VPN Gateway** | **RouteBased VPN Gateway**       |**RouteBased VPN Gateway**                          |
+| ---                      | ---                         | ---                              |---                                                 |
+| **Azure Gateway SKU**    | Basic                       | Basic                            | Standard, HighPerformance, VpnGw1, VpnGw2, VpnGw3  |
+| **IKE 버전**          | IKEv1                       | IKEv2                            | IKEv1 및 IKEv2                                    |
+| **최대값. S2S 연결** | **1**                       | 10                               |표준: 10<br> 기타 Sku: 30                     |
+|                          |                             |                                  |                                                    |
 
 이제 사용자 지정 IPsec/IKE 정책을 사용하여 "**PolicyBasedTrafficSelectors**" 옵션과 함께 접두사 기반 트래픽 선택기를 사용하여 온-프레미스 정책 기반 VPN 디바이스에 연결하도록 Azure 경로 기반 VPN 게이트웨이를 구성할 수 있습니다. 이 기능을 사용하면 Azure Virtual Network 및 VPN Gateway에서 여러 온-프레미스 정책 기반 VPN/방화벽 디바이스에 연결할 수 있으므로 현재 Azure 정책 기반 VPN Gateway에서 단일 연결 제한이 제거됩니다.
 
@@ -81,9 +81,9 @@ Azure 구독이 있는지 확인합니다. Azure 구독이 아직 없는 경우 
 
 이 섹션에 대해 [IPsec/IKE 정책 구성 문서의 3부](vpn-gateway-ipsecikepolicy-rm-powershell.md)를 완료했는지 확인하세요. 아래 예제에서는 동일한 매개 변수 및 단계를 사용합니다.
 
-### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>1단계 - 가상 네트워크, VPN Gateway 및 로컬 네트워크 게이트웨이 만들기
+### <a name="step-1---create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>1단계 - 가상 네트워크, VPN 게이트웨이 및 로컬 네트워크 게이트웨이 만들기
 
-#### <a name="1-connect-to-your-subscription-and-declare-your-variables"></a>1. 구독에 연결하고 변수 선언
+#### <a name="1-connect-to-your-subscription-and-declare-your-variables"></a>1. 구독에 연결 하 고 변수를 선언 합니다.
 
 [!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
@@ -114,7 +114,7 @@ $LNGPrefix62   = "10.62.0.0/16"
 $LNGIP6        = "131.107.72.22"
 ```
 
-#### <a name="2-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>2. 가상 네트워크, VPN Gateway 및 로컬 네트워크 게이트웨이 만들기
+#### <a name="2-create-the-virtual-network-vpn-gateway-and-local-network-gateway"></a>2. 가상 네트워크, VPN gateway 및 로컬 네트워크 게이트웨이 만들기
 
 리소스 그룹을 만듭니다.
 
@@ -150,13 +150,13 @@ New-AzLocalNetworkGateway -Name $LNGName6 -ResourceGroupName $RG1 -Location $Loc
 
 아래 예제에서는 다음 알고리즘 및 매개 변수를 사용하여 IPsec/IKE 정책을 만듭니다.
 * IKEv2: AES256, SHA384, DHGroup24
-* IPsec: AES256, SHA256, PFS None, SA 수명 14400초 및 102400000KB
+* IPsec: AES256, SHA256, PFS 없음, SA 수명 14400초 및 102400000KB
 
 ```azurepowershell-interactive
 $ipsecpolicy6 = New-AzIpsecPolicy -IkeEncryption AES256 -IkeIntegrity SHA384 -DhGroup DHGroup24 -IpsecEncryption AES256 -IpsecIntegrity SHA256 -PfsGroup None -SALifeTimeSeconds 14400 -SADataSizeKilobytes 102400000
 ```
 
-#### <a name="2-create-the-s2s-vpn-connection-with-policy-based-traffic-selectors-and-ipsecike-policy"></a>2. 정책 기반 트래픽 선택기 및 IPsec/IKE 정책을 사용하여 S2S VPN 연결 만들기
+#### <a name="2-create-the-s2s-vpn-connection-with-policy-based-traffic-selectors-and-ipsecike-policy"></a>2. 정책 기반 트래픽 선택기와 IPsec/IKE 정책을 사용 하 여 S2S VPN 연결 만들기
 S2S VPN 연결을 만들고 이전 단계에서 만든 IPsec/IKE 정책을 적용합니다. 연결에서 정책 기반 트래픽 선택기를 사용도록 설정하는 추가 매개 변수 "-UsePolicyBasedTrafficSelectors $True"가 필요합니다.
 
 ```azurepowershell-interactive
@@ -171,7 +171,7 @@ New-AzVirtualNetworkGatewayConnection -Name $Connection16 -ResourceGroupName $RG
 ## <a name="update-policy-based-traffic-selectors-for-a-connection"></a>연결에 대한 정책 기반 트래픽 선택기 업데이트
 마지막 섹션에서는 기존 S2S VPN 연결에 대한 정책 기반 트래픽 선택기 옵션을 업데이트하는 방법을 보여 줍니다.
 
-### <a name="1-get-the-connection"></a>1. 연결 가져오기
+### <a name="1-get-the-connection"></a>1. 연결을 가져옵니다.
 연결 리소스를 가져옵니다.
 
 ```azurepowershell-interactive
@@ -189,7 +189,7 @@ $connection6.UsePolicyBasedTrafficSelectors
 
 이 줄에서 "**True**"가 반환되면 연결에 정책 기반 트래픽 선택기가 구성되어 있는 것이고, 그렇지 않으면 "**False**"가 반환됩니다.
 
-### <a name="3-enabledisable-the-policy-based-traffic-selectors-on-a-connection"></a>3. 연결에서 정책 기반 트래픽 선택기 사용/사용 안 함
+### <a name="3-enabledisable-the-policy-based-traffic-selectors-on-a-connection"></a>3. 연결에서 정책 기반 트래픽 선택기를 사용 하거나 사용 하지 않도록 설정
 연결 리소스를 가져온 후에는 옵션을 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
 #### <a name="to-enable-usepolicybasedtrafficselectors"></a>UsePolicyBasedTrafficSelectors를 사용하도록 설정하려면

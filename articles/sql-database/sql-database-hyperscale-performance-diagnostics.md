@@ -9,12 +9,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 92a1fda85e5ee49f12a13123e8a296492fd9eb4b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: fa8b02cf5ee6f24bcc77aae057f41842da721981
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598181"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521144"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL Hyperscale 성능 문제 해결 진단
 
@@ -58,7 +58,7 @@ ms.locfileid: "72598181"
     - scan_stopped
     - query_store_begin_persist_runtime_stat
     - 쿼리-store_execution_runtime_info
-- ActualPageServerReads/ActualPageServerReadAheads는 실제 계획에 대 한 쿼리 계획 XML에 추가 됩니다. 다음은 그 예입니다.
+- ActualPageServerReads/ActualPageServerReadAheads는 실제 계획에 대 한 쿼리 계획 XML에 추가 됩니다. 예:
 
 `<RunTimeCountersPerThread Thread="8" ActualRows="90466461" ActualRowsRead="90466461" Batches="0" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row" ActualElapsedms="133645" ActualCPUms="85105" ActualScans="1" ActualLogicalReads="6032256" ActualPhysicalReads="0" ActualPageServerReads="0" ActualReadAheads="6027814" ActualPageServerReadAheads="5687297" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobPageServerReads="0" ActualLobReadAheads="0" ActualLobPageServerReadAheads="0" />`
 
@@ -101,7 +101,7 @@ Azure SQL Database에서 [_io_virtual_file_stats ()](/sql/relational-databases/s
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- 하이퍼 규모의 단일 데이터베이스에 대 한 vCore 리소스 제한의 경우 하이퍼 [크기 조정 서비스 계층 vCore 제한](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-for-provisioned-compute) 을 참조 하세요.
+- 하이퍼 규모의 단일 데이터베이스에 대 한 vCore 리소스 제한의 경우 하이퍼 [크기 조정 서비스 계층 vCore 제한](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5) 을 참조 하세요.
 - Azure SQL Database 성능 튜닝에 대 한 자세한 내용은 [의 쿼리 성능](sql-database-performance-guidance.md) 을 참조 하십시오 Azure SQL Database
 - 쿼리 저장소 사용 하는 성능 조정에 대해서는 [쿼리 저장소를 사용 하 여 성능 모니터링](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store/) 을 참조 하세요.
 - DMV 모니터링 스크립트는 [동적 관리 뷰를 사용 하 Azure SQL Database 성능 모니터링](sql-database-monitoring-with-dmvs.md) 을 참조 하세요.

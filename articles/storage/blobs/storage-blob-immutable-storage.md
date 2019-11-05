@@ -9,12 +9,12 @@ ms.date: 06/01/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 633c5944f7d813b78f7a0c9b71266d4012fd72cf
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 0c7e178d520084dbf963c4c7ebaf9b8873a36938
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673390"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521063"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage-immutably"></a>비즈니스에 중요 한 데이터를 Azure Blob 저장소에 저장 immutably 
 
@@ -26,21 +26,21 @@ Azure Blob 저장소에 대 한 변경할 수 없는 저장소를 통해 사용�
 
 일반적인 적용 분야는 다음과 같습니다.
 
-- **규정 준수**: Azure Blob Storage에 대해 변경 불가능한 스토리지를 사용하면 SEC 17a-4(f), CFTC 1.31(d), FINRA 및 기타 규정을 처리할 수 있습니다. Cohasset의 기술 백서는 이러한 규정 요구 사항을 해결 하는 방법은 [Microsoft 서비스 신뢰 포털](https://aka.ms/AzureWormStorage)을 통해 다운로드할 수 있는 방법에 대해 자세히 설명 합니다. [Azure 보안 센터](https://www.microsoft.com/trustcenter/compliance/compliance-overview) 에는 규정 준수 인증에 대 한 자세한 정보가 포함 되어 있습니다.
+- **규정 준수**: Azure Blob Storage에 대한 변경 불가능한 스토리지를 사용하면 SEC 17a-4(f), CFTC 1.31(d), FINRA 및 기타 규정을 처리할 수 있습니다. Cohasset의 기술 백서는 이러한 규정 요구 사항을 해결 하는 방법은 [Microsoft 서비스 신뢰 포털](https://aka.ms/AzureWormStorage)을 통해 다운로드할 수 있는 방법에 대해 자세히 설명 합니다. [Azure 보안 센터](https://www.microsoft.com/trustcenter/compliance/compliance-overview) 에는 규정 준수 인증에 대 한 자세한 정보가 포함 되어 있습니다.
 
 - **보안 문서 보존**: Azure Blob 저장소에 대 한 변경할 수 없는 저장소는 계정 관리 권한이 있는 사용자를 포함 하 여 모든 사용자가 데이터를 수정 하거나 삭제할 수 없도록 합니다.
 
-- **법적 보존**: Azure Blob 저장소에 대 한 변경할 수 없는 저장소는 보류를 제거할 때까지 사용자가 원하는 기간 동안 소송 또는 비즈니스 사용에 중요 한 중요 한 정보를 저장 하는 데 사용할 수 있습니다. 이 기능은 법률 사용 사례로 국한 되지 않지만 이벤트 트리거 또는 회사 정책을 기반으로 데이터를 보호 해야 하는 이벤트 기반 보류 또는 엔터프라이즈 잠금으로 간주할 수도 있습니다.
+- **법적**고 지 사항: Azure Blob 저장소에 대 한 변경할 수 없는 저장소는 보류를 제거할 때까지 사용자가 원하는 기간 동안 소송 또는 비즈니스 사용에 중요 한 중요 한 정보를 저장 하는 데 사용할 수 있습니다. 이 기능은 법률 사용 사례로 국한 되지 않지만 이벤트 트리거 또는 회사 정책을 기반으로 데이터를 보호 해야 하는 이벤트 기반 보류 또는 엔터프라이즈 잠금으로 간주할 수도 있습니다.
 
 변경할 수 없는 저장소는 다음을 지원 합니다.
 
-- **[시간 기반 보존 정책 지원](#time-based-retention)** : 사용자는 지정 된 간격에 대 한 데이터를 저장 하도록 정책을 설정할 수 있습니다. 시간 기반 보존 정책이 설정 된 경우 blob을 만들고 읽을 수 있지만 수정 하거나 삭제할 수는 없습니다. 보존 기간이 만료 된 후에는 blob을 삭제할 수는 있지만 덮어쓸 수는 없습니다.
+- **[시간 기반 보존 정책 지원](#time-based-retention)** : 사용자는 지정 된 간격 동안 데이터를 저장 하는 정책을 설정할 수 있습니다. 시간 기반 보존 정책이 설정 된 경우 blob을 만들고 읽을 수 있지만 수정 하거나 삭제할 수는 없습니다. 보존 기간이 만료 된 후에는 blob을 삭제할 수는 있지만 덮어쓸 수는 없습니다.
 
-- **[법적 보존 정책 지원](#legal-holds)** : 보존 기간을 알 수 없는 경우 사용자는 법적 보류를 지울 때까지 데이터 immutably을 저장 하도록 법적 고 지를 설정할 수 있습니다.  법적 보존 정책이 설정 된 경우 blob을 만들고 읽을 수 있지만 수정 하거나 삭제할 수는 없습니다. 각 법적 보류는 식별자 문자열로 사용 되는 사용자 정의 영숫자 태그 (예: 사례 ID, 이벤트 이름 등)와 연결 됩니다. 
+- **[법적 보류 정책 지원](#legal-holds)** : 보존 기간을 알 수 없는 경우 사용자는 법적 보존을 지울 때까지 immutably 데이터를 저장 하도록 법적 고 지를 설정할 수 있습니다.  법적 보존 정책이 설정 된 경우 blob을 만들고 읽을 수 있지만 수정 하거나 삭제할 수는 없습니다. 각 법적 보류는 식별자 문자열로 사용 되는 사용자 정의 영숫자 태그 (예: 사례 ID, 이벤트 이름 등)와 연결 됩니다. 
 
-- **모든 Blob 계층 지원**: WORM 정책은 Azure Blob Storage 계층과 별개이며, 모든 계층(핫, 쿨 및 보관)에 적용됩니다. 사용자가 데이터 불변성을 유지하면서 해당 워크로드에 대해 비용이 가장 최적화된 계층으로 데이터를 전환할 수 있습니다.
+- **모든 Blob 계층 지원:** WORM 정책은 Azure Blob Storage 계층과 별개이며, 모든 계층(핫, 쿨 및 보관)에 적용됩니다. 사용자가 데이터 불변성을 유지하면서 해당 워크로드에 대해 비용이 가장 최적화된 계층으로 데이터를 전환할 수 있습니다.
 
-- **컨테이너 수준 구성**: 사용자가 컨테이너 수준에서 시간 기준 보존 정책 및 법적 보존 태그를 구성할 수 있습니다. 사용자는 간단한 컨테이너 수준 설정을 사용 하 여 시간 기반 보존 정책을 만들고 잠그고, 보존 간격을 확장 하 고, 법적 보류를 설정 하 고 지울 수 있습니다. 이러한 정책은 컨테이너의 모든 Blob(기존 및 신규)에 적용됩니다.
+- **컨테이너 수준 구성:** 사용자가 컨테이너 수준에서 시간 기준 보존 정책 및 법적 보존 태그를 구성할 수 있습니다. 사용자는 간단한 컨테이너 수준 설정을 사용 하 여 시간 기반 보존 정책을 만들고 잠그고, 보존 간격을 확장 하 고, 법적 보류를 설정 하 고 지울 수 있습니다. 이러한 정책은 컨테이너의 모든 Blob(기존 및 신규)에 적용됩니다.
 
 - **감사 로깅 지원**: 각 컨테이너에는 정책 감사 로그가 포함 됩니다. 잠긴 시간 기반 보존 정책에 대 한 최대 7 개의 시간 기반 보존 명령을 표시 하 고 사용자 ID, 명령 유형, 타임 스탬프 및 보존 간격을 포함 합니다. 법적 보존의 경우 로그에는 사용자 ID, 명령 유형, 타임스탬프 및 법적 보존 태그가 포함됩니다. 이 로그는 초 17a-4 (f) 규정 지침에 따라 정책의 수명 동안 유지 됩니다. [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md) 에는 모든 제어 평면 활동의 포괄적인 로그가 표시 됩니다. [Azure 진단 로그](../../azure-monitor/platform/resource-logs-overview.md) 를 사용 하도록 설정 하는 동안 데이터 평면 작업을 유지 하 고 표시 합니다. 이러한 로그는 규정 또는 다른 목적으로 필요할 수 있으므로 사용자가 이러한 로그를 영구적으로 저장할 책임이 있습니다.
 
@@ -60,7 +60,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 새 BLOB의 경우 유효 보존 기간은 사용자가 지정한 보존 기간과 같습니다. 사용자가 보존 간격을 연장할 수 있으므로 변경 불가능한 스토리지는 사용자 지정 보존 간격의 최신 값을 사용하여 유효 보존 기간을 계산합니다.
 
 > [!TIP]
-> **예제:** 사용자가 5년 보존 간격의 시간 기준 보존 정책을 만듭니다.
+> **예:** 사용자는 보존 간격이 5 년 인 시간 기반 보존 정책을 만듭니다.
 >
 > 해당 컨테이너의 기존 blob _testblob1_는 1 년 전에 만들어졌습니다. _Testblob1_ 에 대 한 유효 보존 기간은 4 년입니다.
 >
@@ -99,7 +99,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 - 법적 보류 태그의 최소 길이는 3 개의 영숫자 문자입니다. 최대 길이는 23 자입니다.
 - 컨테이너의 경우 정책 기간 동안 최대 10 개의 법적 보류 정책 감사 로그가 보존 됩니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 이 기능을 사용하는 경우 추가 요금이 부과되지 않습니다. 변경 불가능한 데이터는 일반적으로 변경 가능한 데이터와 동일한 방식으로 가격이 책정됩니다. Azure Blob Storage의 가격 책정에 대한 자세한 내용은 [Azure Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
@@ -108,7 +108,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
 [Azure Portal](https://portal.azure.com), [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)및 [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) 의 최신 릴리스는 Azure Blob storage에 대해 변경할 수 없는 저장소를 지원 합니다. [클라이언트 라이브러리 지원](#client-libraries) 도 제공 됩니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 1. 변경할 수 없는 상태로 유지해야 하는 BLOB을 저장할 새 컨테이너를 만들거나 기존 컨테이너를 선택합니다.
  컨테이너는 GPv2 또는 Blob Storage 계정에 있어야 합니다.
@@ -144,11 +144,11 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지는 두 가지 유�
 
 9. 법적 보존을 취소 하려면 적용 된 법적 보류 식별자 태그를 제거 하면 됩니다.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 이 기능은 `az storage container immutability-policy` 및 `az storage container legal-hold` 명령 그룹에 포함되어 있습니다. 이러한 그룹에 `-h`를 실행하여 명령을 확인합니다.
 
-### <a name="powershell"></a>PowerShell
+### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Az. Storage 모듈은 변경할 수 없는 저장소를 지원 합니다.  기능을 사용하도록 설정하려면 다음 단계를 수행합니다.
 
@@ -157,6 +157,8 @@ Az. Storage 모듈은 변경할 수 없는 저장소를 지원 합니다.  기�
 3. Azure PowerShell을 설치합니다. `Install-Module Az –Repository PSGallery –AllowClobber`
 
 이 문서의 뒷부분에 나오는 [PowerShell 코드 샘플](#sample-powershell-code) 섹션에서는 기능을 사용하는 방법을 보여 줍니다.
+
+---
 
 ## <a name="client-libraries"></a>클라이언트 라이브러리
 
@@ -219,7 +221,7 @@ Azure Blob Storage에 대한 변경 불가능한 스토리지를 지원하는 �
 
 **기능을 사용할 수 있는 위치**
 
-변경이 불가능한 스토리지는 Azure 공용, 중국 및 Government 지역에서 사용할 수 있습니다. 사용자의 지역에서 변경할 수 없는 저장소를 사용할 수 없는 경우 지원 및 azurestoragefeedback@microsoft.com전자 메일에 문의 하세요.
+변경이 불가능한 스토리지는 Azure 공용, 중국 및 Government 지역에서 사용할 수 있습니다. 사용자의 지역에서 변경할 수 없는 저장소를 사용할 수 없는 경우 지원 및 전자 메일 azurestoragefeedback@microsoft.com에 문의 하세요.
 
 ## <a name="sample-powershell-code"></a>PowerShell 코드 샘플
 

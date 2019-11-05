@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c5fb79fc3aa3297068f93b631d11e967c9345f4c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: MT
+ms.openlocfilehash: 531f6d86d57be550d0a1147e131d93ae6e298406
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71717158"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474747"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Azure AD B2C를 사용 하 여 Azure API Management API 보호
 
 Azure Active Directory B2C (Azure AD B2C)를 사용 하 여 인증 된 클라이언트에 대 한 APIM (Azure API Management) API에 대 한 액세스를 제한 하는 방법을 알아봅니다. 이 문서의 단계를 수행 하 여 유효한 Azure AD B2C 발급 된 액세스 토큰을 포함 하는 요청에만 액세스를 제한 하는 APIM에서 인바운드 정책을 만들고 테스트 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 계속 하기 전에 다음 리소스를 준비 해야 합니다.
 
@@ -35,11 +35,25 @@ Azure Active Directory B2C (Azure AD B2C)를 사용 하 여 인증 된 클라이
 
 Azure API Management에서 Azure AD B2C를 사용 하 여 API를 보호 하는 경우 APIM에서 만드는 [인바운드 정책](../api-management/api-management-howto-policies.md) 에 대 한 여러 값이 필요 합니다. 먼저 Azure AD B2C 테 넌 트에서 이전에 만든 응용 프로그램의 응용 프로그램 ID를 기록 합니다. 필수 구성 요소에서 만든 응용 프로그램을 사용 하는 경우 *webbapp1*의 응용 프로그램 ID를 사용 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 Azure AD B2C 테 넌 트로 이동 합니다.
-1. **관리**에서 **응용 프로그램**을 선택 합니다.
-1. *Webapp1* 또는 이전에 만든 다른 응용 프로그램의 **응용 프로그램 ID** 에 값을 기록 합니다.
+현재 **응용 프로그램** 환경 또는 새로운 통합 **앱 등록 (미리 보기)** 환경을 사용 하 여 응용 프로그램 ID를 가져올 수 있습니다. [미리 보기 환경에 대해 자세히 알아보세요](http://aka.ms/b2cappregintro).
 
-  ![Azure Portal B2C 응용 프로그램의 응용 프로그램 ID 위치](media/secure-apim-with-b2c-token/portal-02-app-id.png)
+#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
+1. **관리**에서 **응용 프로그램**을 선택 합니다.
+1. *Webapp1* 또는 이전에 만든 다른 응용 프로그램의 **응용 프로그램 ID** 열에 값을 기록 합니다.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록 (미리 보기)](#tab/app-reg-preview/)
+
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
+1. **앱 등록 (미리 보기)** 를 선택 하 고 **소유 하는 응용 프로그램** 탭을 선택 합니다.
+1. *Webapp1* 또는 이전에 만든 다른 응용 프로그램의 **응용 프로그램 (클라이언트) ID** 열에 값을 기록 합니다.
+
+* * *
 
 ## <a name="get-token-issuer-endpoint"></a>토큰 발급자 끝점 가져오기
 
@@ -59,7 +73,7 @@ Azure API Management에서 Azure AD B2C를 사용 하 여 API를 보호 하는 �
 
     Azure API Management에서 API를 구성 하는 경우 다음 섹션에서이 값을 사용 합니다.
 
-이제 다음 섹션인 Openid connect 연결의 잘 알려진 구성 끝점 URL 및 발급자 URI에 사용 하기 위해 기록 된 두 개의 Url이 있어야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+이제 다음 섹션인 Openid connect 연결의 잘 알려진 구성 끝점 URL 및 발급자 URI에 사용 하기 위해 기록 된 두 개의 Url이 있어야 합니다. 예:
 
 ```
 https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
@@ -74,12 +88,12 @@ https://yourb2ctenant.b2clogin.com/99999999-0000-0000-0000-999999999999/v2.0/
 1. **API**를 선택합니다.
 1. Azure AD B2C를 사용 하 여 보안을 유지할 API를 선택 합니다.
 1. **디자인** 탭을 선택합니다.
-1. **인바운드 처리**에서 **\< @ no__t @ no__t-4** 를 선택 하 여 정책 코드 편집기를 엽니다.
-1. @No__t-1 정책 내에 다음 `<validate-jwt>` 태그를 넣습니다.
+1. **인바운드 처리**에서 **\</\>** 를 선택 하 여 정책 코드 편집기를 엽니다.
+1. `<inbound>` 정책 안에 다음 `<validate-jwt>` 태그를 추가 합니다.
 
-    1. @No__t-1 요소의 `url` 값을 정책의 잘 알려진 구성 URL로 업데이트 합니다.
+    1. `<openid-config>` 요소의 `url` 값을 정책의 잘 알려진 구성 URL로 업데이트 합니다.
     1. B2C 테 넌 트에서 이전에 만든 응용 프로그램의 응용 프로그램 ID로 `<audience>` 요소를 업데이트 합니다 (예: *webapp1*).
-    1. @No__t-0 요소를 앞에서 기록한 토큰 발급자 끝점으로 업데이트 합니다.
+    1. `<issuer>` 요소를 앞에서 기록한 토큰 발급자 끝점으로 업데이트 합니다.
 
     ```xml
     <policies>
@@ -115,12 +129,12 @@ API를 호출 하려면 Azure AD B2C에서 발급 한 액세스 토큰과 APIM �
 1. **정책**에서 **사용자 흐름 (정책)** 을 선택 합니다.
 1. 기존 등록/로그인 사용자 흐름 (예: *B2C_1_signupsignin1*)을 선택 합니다.
 1. **응용 프로그램**에 대해 *webapp1*를 선택 합니다.
-1. **회신 URL**에 대해 `https://jwt.ms`을 선택 합니다.
+1. **회신 URL**에 대해 `https://jwt.ms`를 선택 합니다.
 1. **사용자 흐름 실행**을 선택합니다.
 
     ![Azure Portal에서 등록 로그인 사용자 흐름에 대 한 사용자 흐름 페이지를 실행 합니다.](media/secure-apim-with-b2c-token/portal-03-user-flow.png)
 
-1. 로그인 프로세스를 완료합니다. @No__t-0으로 리디렉션해야 합니다.
+1. 로그인 프로세스를 완료합니다. `https://jwt.ms`으로 리디렉션해야 합니다.
 1. 브라우저에 표시 되는 인코딩된 토큰 값을 기록 합니다. Postman의 Authorization 헤더에이 토큰 값을 사용 합니다.
 
     ![Jwt.ms에 표시 되는 인코딩된 토큰 값](media/secure-apim-with-b2c-token/jwt-ms-01-token.png)
@@ -131,7 +145,7 @@ API를 호출 하려면 Azure AD B2C에서 발급 한 액세스 토큰과 APIM �
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure API Management 서비스 인스턴스로 이동 합니다.
 1. **구독**을 선택합니다.
-1. @No__t-0Product에 대 한 줄임표를 선택 합니다. 무제한 @ no__t를 선택 하 고 **키 표시/숨기기**를 선택 합니다.
+1. Product에 대 한 줄임표 **: 제한 없음**을 선택 하 고 **키 표시/숨기기**를 선택 합니다.
 1. 제품에 대 한 **기본 키** 를 기록 합니다. Postman의 HTTP 요청에서 `Ocp-Apim-Subscription-Key` 헤더에이 키를 사용 합니다.
 
 ![Azure Portal에서 선택 된 키 표시/숨기기가 있는 구독 키 페이지](media/secure-apim-with-b2c-token/portal-04-api-subscription-key.png)
@@ -140,15 +154,15 @@ API를 호출 하려면 Azure AD B2C에서 발급 한 액세스 토큰과 APIM �
 
 액세스 토큰 및 APIM 구독 키가 기록 되 면 API에 대 한 보안 액세스를 올바르게 구성 했는지 테스트할 준비가 되었습니다.
 
-1. [Postman](https://www.getpostman.com/)에서 새 `GET` 요청을 만듭니다. 요청 URL에 대 한 필수 구성 요소 중 하나로 게시 한 API의 스피커 목록 끝점을 지정 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+1. [Postman](https://www.getpostman.com/)에서 새 `GET` 요청을 만듭니다. 요청 URL에 대 한 필수 구성 요소 중 하나로 게시 한 API의 스피커 목록 끝점을 지정 합니다. 예:
 
     `https://contosoapim.azure-api.net/conference/speakers`
 
 1. 다음 헤더를 추가 합니다.
 
-    | Key | 값 |
+    | 키 | 값 |
     | --- | ----- |
-    | `Authorization` | 앞에서 기록해 둔 인코딩된 토큰 값 `Bearer ` ("전달자" 뒤에 공백 포함) |
+    | `Authorization` | 앞에서 기록한 토큰 값으로, `Bearer ` 접두사가 붙습니다 ("전달자" 뒤에 공백 포함). |
     | `Ocp-Apim-Subscription-Key` | 이전에 기록한 APIM 구독 키 |
 
     **GET** 요청 URL과 **헤더** 는 다음과 유사 하 게 표시 됩니다.
@@ -190,7 +204,7 @@ API를 호출 하려면 Azure AD B2C에서 발급 한 액세스 토큰과 APIM �
 
     ![토큰에 잘못 된 추가를 표시 하는 Postman UI의 헤더 섹션](media/secure-apim-with-b2c-token/postman-02-invalid-token.png)
 
-1. **보내기** 단추를 선택 하 여 요청을 실행 합니다. 잘못 된 토큰을 사용 하는 경우 예상 결과는 0 @no__t 권한이 없는 상태 코드입니다.
+1. **보내기** 단추를 선택 하 여 요청을 실행 합니다. 잘못 된 토큰을 사용 하는 경우 예상 결과는 `401` 권한이 없는 상태 코드입니다.
 
     ```JSON
     {
@@ -199,7 +213,7 @@ API를 호출 하려면 Azure AD B2C에서 발급 한 액세스 토큰과 APIM �
     }
     ```
 
-@No__t-0 상태 코드가 표시 되는 경우 Azure AD B2C에서 발급 한 유효한 액세스 토큰이 있는 호출자만 Azure API Management API에 대 한 성공적인 요청을 수행할 수 있음을 확인 했습니다.
+`401` 상태 코드가 표시 되 면 Azure AD B2C에서 발급 한 유효한 액세스 토큰이 있는 호출자만 Azure API Management API에 대 한 성공적인 요청을 수행할 수 있음을 확인 했습니다.
 
 ## <a name="support-multiple-applications-and-issuers"></a>여러 응용 프로그램 및 발급자 지원
 
@@ -213,7 +227,7 @@ API를 호출 하려면 Azure AD B2C에서 발급 한 액세스 토큰과 APIM �
 </audiences>
 ```
 
-마찬가지로, 여러 토큰 발급자를 지원 하려면 APIM 인바운드 정책의 `<issuers>` 요소에 해당 끝점 Uri를 추가 합니다.
+마찬가지로, 여러 토큰 발급자를 지원 하려면 해당 끝점 Uri를 APIM 인바운드 정책의 `<issuers>` 요소에 추가 합니다.
 
 ```XML
 <!-- Accept tokens from multiple issuers -->

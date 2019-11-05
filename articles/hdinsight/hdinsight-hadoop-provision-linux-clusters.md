@@ -1,5 +1,5 @@
 ---
-title: Apache Hadoop, Spark, Kafka, HBase 또는 R Server에 대 한 클러스터 설정-Azure
+title: Azure HDInsight에서 Apache 및 R Server에 대 한 클러스터 설정
 description: 브라우저, Azure 클래식 CLI, Azure PowerShell, REST 또는 SDK에서 Hadoop, Kafka, Spark, HBase, R Server 또는 HDInsight의 Storm 클러스터를 설정합니다.
 keywords: hadoop 클러스터 설정, kafka 클러스터 설정, spark 클러스터 설정, hadoop에서 클러스터란
 author: hrasheed-msft
@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 28038743f859b1a41bb332bf70b481e07b2ff29c
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 0b977cb9fe2df1627ad9a2e07b00ffb0e749ed39
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677027"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498258"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Apache Hadoop, Apache Spark, Apache Kafka 등을 사용하여 HDInsight에서 클러스터 설정
 
@@ -31,7 +31,7 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 
 다음 표는 HDInsight 클러스터를 설정하기 위해 사용할 수 있는 다양한 방법을 보여줍니다.
 
-| 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령줄 | REST API | SDK |
+| 다음을 사용하여 만든 클러스터 | 웹 브라우저 사용 | 명령 줄 | REST API | SDK) |
 | --- |:---:|:---:|:---:|:---:|
 | [Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md) |✔ |&nbsp; |&nbsp; |&nbsp; |
 | [Azure 데이터 팩터리](hdinsight-hadoop-create-linux-clusters-adf.md) |✔ |✔ |✔ |✔ |
@@ -53,7 +53,7 @@ Hadoop 클러스터는 작업의 분산 처리에 사용되는 여러 가상 머
 * [클러스터 유형 및 구성](#cluster-types)
 * [클러스터 이름](#cluster-name)
 * [클러스터 로그인 및 SSH 사용자 이름](#cluster-login-and-ssh-username)
-* [Location](#location):
+* [위치](#location):
 
 ## <a name="resource-group-name"></a>리소스 그룹 이름
 
@@ -94,19 +94,19 @@ HDInsight 클러스터 이름에는 다음과 같은 제한 사항이 있습니�
 
 HDInsight 클러스터를 사용하면 클러스터 생성 중에 다음과 같은 두 개의 사용자 계정을 구성할 수 있습니다.
 
-* HTTP 사용자: 기본 사용자 이름은 *admin*입니다. Azure Portal에서 기본 구성을 사용합니다. 경우에 따라 "클러스터 사용자"라고도 합니다.
-* SSH 사용자: SSH를 통해 클러스터에 연결하는 데 사용됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* HTTP 사용자: 기본 사용자 이름은 *admin*입니다. Azure Portal에서 기본 구성을 사용 합니다. 경우에 따라 "클러스터 사용자"라고도 합니다.
+* SSH 사용자: SSH를 통해 클러스터에 연결 하는 데 사용 됩니다. 자세한 내용은 [HDInsight와 함께 SSH 사용](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 HTTP 사용자 이름에는 다음과 같은 제한 사항이 있습니다.
 
 * 허용 되는 특수 문자: _ 및 @
-* 허용 되지 않는 문자: #;. "', \/: '! *? $ () {} [] < > | &--= +% ~ ^ space
+* 허용 되지 않는 문자: #;. "',\/: '! *? $ (){}[] < > | &--= +% ~ ^ space
 * 최대 길이: 20
 
 SSH 사용자 이름에는 다음과 같은 제한 사항이 있습니다.
 
 * 허용 되는 특수 문자: _ 및 @
-* 허용 되지 않는 문자: #;. "', \/: '! *? $ () {} [] < > | &--= +% ~ ^ space
+* 허용 되지 않는 문자: #;. "',\/: '! *? $ (){}[] < > | &--= +% ~ ^ space
 * 최대 길이: 64
 * 예약 된 이름: hadoop, users, oozie, hive, mapred, ambari-qa, 사육 사, tez, hdfs, sqoop, yarn, hcat, ams, hbase, 스톰, 관리자, 관리자, 사용자, user1, 테스트, 사용자 이름, test1, user3, 1, 1, 123, a, actuser, adm, 2, aspnet, backup, console 게스트, john, owner, root, server, sql, support, support_388945a0, sys, test2, test3, user4, user5, spark
 
@@ -114,7 +114,7 @@ SSH 사용자 이름에는 다음과 같은 제한 사항이 있습니다.
 
 ## <a name="location"></a>클러스터 및 스토리지 위치(영역)
 
-클러스터 위치를 명시적으로 지정할 필요는 없습니다. 클러스터는 기본 스토리지와 동일한 위치에 있습니다. 지원되는 지역 목록은 **HDInsight 가격** 에서 [지역](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)드롭다운 목록을 클릭하세요.
+클러스터 위치를 명시적으로 지정할 필요가 없습니다. 클러스터는 기본 스토리지와 같은 위치에 있습니다. 지원되는 지역 목록은 **HDInsight 가격** 에서 [지역](https://go.microsoft.com/fwLink/?LinkID=282635&clcid=0x409)드롭다운 목록을 클릭하세요.
 
 ## <a name="storage-endpoints-for-clusters"></a>클러스터에 대한 스토리지 엔드포인트
 
@@ -154,14 +154,14 @@ HDInsight 클러스터를 삭제한 후 Hive 테이블을 유지하려는 경우
 
 특정 HDInsight 클러스터 버전에 대해 만든 HDInsight metastore는 여러 다른 HDInsight 클러스터 버전 간에 공유할 수 없습니다. HDInsight 버전 목록은 [지원되는 HDInsight 버전](hdinsight-component-versioning.md#supported-hdinsight-versions)을 참조하세요.
 
-### <a name="oozie-metastore"></a>Oozie metastore
+### <a name="oozie-metastore"></a>Oozie Metastore
 
 Oozie 사용 시 성능을 높이려면 사용자 지정 Metastore를 사용합니다. 또한 Metastore는 클러스터를 삭제 한 후 Oozie 작업 데이터에 액세스를 제공할 수도 있습니다.
 
 > [!IMPORTANT]  
 > 사용자 지정 Oozie Metastore는 다시 사용할 수 없습니다. 사용자 지정 Oozie Metastore를 사용하려면 HDInsight 클러스터를 만들 때 빈 Azure SQL Database를 제공해야 합니다.
 
-## <a name="enterprise-security-package"></a>Enterprise Security Package
+## <a name="enterprise-security-package"></a>엔터프라이즈 보안 패키지
 
 Hadoop, Spark, HBase, Kafaka 및 대화형 쿼리 클러스터 형식의 경우 **Enterprise Security Package**를 사용하도록 선택할 수 있습니다. 이 패키지는 Apache Ranger를 사용하고 Azure Active Directory와 통합하여 보다 안전한 클러스터를 설정하는 옵션을 제공합니다. 자세한 내용은 [Azure HDInsight의 엔터프라이즈 보안 개요](./domain-joined/hdinsight-security-overview.md)를 참조 하세요.
 
@@ -185,10 +185,10 @@ Azure Virtual Network 내에서 두 개의 클러스터 유형을 사용하는 �
 
 각 클러스터 유형에는 자체 노드 수, 노드에 대한 용어 및 기본 VM 크기가 있습니다. 다음 표에서는 각 노드 유형에 대한 노드 수는 괄호로 묶어서 표시됩니다.
 
-| type | 노드 | 다이어그램 |
+| 형식 | 노드 | 다이어그램 |
 | --- | --- | --- |
-| Hadoop |헤드 노드 (2), 작업자 노드 (1 +) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
-| Hbase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |![HDInsight HBase 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
+| Hadoop은 |헤드 노드 (2), 작업자 노드 (1 +) |![HDInsight Hadoop 클러스터 노드](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hadoop-cluster-type-nodes.png) |
+| HBase |헤드 서버(2), 지역 서버(1+), 마스터/ZooKeeper 노드(3) |![HDInsight HBase 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-hbase-cluster-type-setup.png) |
 | Storm |Nimbus 노드(2), 감독자 서버(1+), ZooKeeper 노드(3) |![HDInsight 스톰 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |헤드 노드 (2), 작업자 노드 (1 +), 사육 사 노드 (3) (A1 사육 전 VM 크기의 경우 무료) |![HDInsight spark 클러스터 유형 설정](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
@@ -210,7 +210,7 @@ HDInsight를 사용해 보려는 경우에는 하나의 작업자 노드를 사�
 > [!NOTE]  
 > 클러스터 크기 제한은 Azure 구독에 따라 다릅니다. 제한을 늘리려면 [Azure Billing Support](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)에 문의하세요.
 
-Azure Portal를 사용 하 여 클러스터를 구성 하는 경우에는 **구성 + 가격 책정** 탭을 통해 노드 크기를 사용할 수 있습니다. 포털에서는 또한 다양한 노드 크기와 관련된 비용도 볼 수 있습니다.
+Azure Portal를 사용 하 여 클러스터를 구성 하는 경우에는 **구성 + 가격 책정** 탭을 통해 노드 크기를 사용할 수 있습니다. 포털에서 다양 한 노드 크기와 관련 된 비용도 볼 수 있습니다.
 
 ![HDInsight에서 노드 크기를 선택 합니다.](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-configuration-pricing-hadoop.png)
 
@@ -241,9 +241,9 @@ HDInsight 애플리케이션은 Linux 기반 HDInsight 클러스터에 사용자
 
 HDInsight 애플리케이션 대부분은 빈 Edge 노드에 설치됩니다.  빈 에지 노드는 헤드 노드에 설치되고 구성된 것과 동일한 클라이언트 도구를 사용하는 Linux 가상 머신입니다. 클러스터에 액세스하고, 클라이언트 애플리케이션을 테스트하며 클라이언트 애플리케이션을 호스트하는 데 에지 노드를 사용할 수 있습니다. 자세한 내용은 [HDInsight에서 빈 에지 노드 사용](hdinsight-apps-use-edge-node.md)을 참조하세요.
 
-## <a name="advanced-settings-script-actions"></a>고급 설정: 스크립트 동작
+## <a name="advanced-settings-script-actions"></a>고급 설정: 스크립트 작업
 
-만드는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 작업**을 통해 호출됩니다. 스크립트 작업은 Azure 포털, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)(영문)을 참조하세요.
+만드는 동안 스크립트를 사용하여 추가 구성 요소를 설치하거나 클러스터 구성을 사용자 지정할 수 있습니다. 해당 스크립트는 **스크립트 작업**을 통해 호출됩니다. 스크립트 작업은 Azure Portal, HDInsight Windows PowerShell cmdlet 또는 HDInsight .NET SDK에서 사용할 수 있는 구성 옵션입니다. 자세한 내용은 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)(영문)을 참조하세요.
 
 Apache Mahout, Cascading 등의 일부 네이티브 Java 구성 요소는 클러스터에서 JAR(Java Archive) 파일로 실행할 수 있습니다. 이러한 JAR 파일은 Azure Storage에 배포되고 Hadoop 작업 제출 메커니즘을 통해 HDInsight 클러스터에 제출될 수 있습니다. 자세한 내용은 [프로그래밍 방식으로 Apache Hadoop 작업 제출](hadoop/submit-apache-hadoop-jobs-programmatically.md)을 참조하세요.
 

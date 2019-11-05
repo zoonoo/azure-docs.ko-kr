@@ -7,16 +7,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/14/2019
+ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bf9b6a3ad40d46b628bfcdb3fa3e32b2419360c9
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: bf87b1709c355faf6f06ff2d23b2c819f88750cd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802089"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475197"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -33,10 +33,10 @@ Azure Active Directory B2C (Azure AD B2C)는 B2C 리소스, 발급 된 토큰 �
 
 |활동 유형 |설명  |
 |---------|---------|
-|Authorization |B2C 리소스에 액세스 하는 사용자의 권한 부여와 관련 된 활동 (예: B2C 정책 목록에 액세스 하는 관리자)         |
+|권한 부여 |B2C 리소스에 액세스 하는 사용자의 권한 부여와 관련 된 활동 (예: B2C 정책 목록에 액세스 하는 관리자)         |
 |디렉터리 |관리자가 Azure Portal를 사용 하 여 로그인 할 때 검색 되는 디렉터리 특성과 관련 된 작업입니다. |
 |애플리케이션 | B2C 응용 프로그램에 대 한 만들기, 읽기, 업데이트 및 삭제 (CRUD) 작업을 수행 합니다. |
-|Key |B2C key 컨테이너에 저장 된 키에 대 한 CRUD 작업 |
+|키 |B2C key 컨테이너에 저장 된 키에 대 한 CRUD 작업 |
 |리소스 |B2C 리소스에 대 한 CRUD 작업 예를 들면 정책 및 id 공급자가 있습니다.
 |인증 |사용자 자격 증명 및 토큰 발급의 유효성 검사|
 
@@ -52,13 +52,13 @@ Azure Portal의이 이미지 예제에서는 사용자가 외부 id 공급자 (�
 
 |섹션|필드|설명|
 |-------|-----|-----------|
-| 활동 | 이름 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
+| 작업 | Name | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
 | 초기자(작업자) | ObjectId | 사용자가 로그인 하는 B2C 응용 프로그램의 **개체 ID** 입니다. 이 식별자는 Azure Portal에 표시 되지 않지만 Microsoft Graph API를 통해 액세스할 수 있습니다. |
-| 초기자(작업자) | SPN | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
+| 초기자(작업자) | Spn | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
 | 대상 | ObjectId | 로그인 중인 사용자의 **개체 ID** 입니다. |
-| 자세한 정보 | TenantId | Azure AD B2C 테 넌 트의 **테 넌 트 ID** 입니다. |
-| 자세한 정보 | PolicyId | 사용자를 로그인 하는 데 사용 되는 사용자 흐름 (정책)의 **정책 ID** 입니다. |
-| 자세한 정보 | ApplicationId | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
+| 추가 세부 정보 | TenantId | Azure AD B2C 테 넌 트의 **테 넌 트 ID** 입니다. |
+| 추가 세부 정보 | PolicyId | 사용자를 로그인 하는 데 사용 되는 사용자 흐름 (정책)의 **정책 ID** 입니다. |
+| 추가 세부 정보 | ApplicationId | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
 
 ## <a name="view-audit-logs-in-the-azure-portal"></a>Azure Portal에서 감사 로그 보기
 
@@ -89,8 +89,7 @@ Azure Portal Azure AD B2C 테 넌 트의 감사 로그 이벤트에 대 한 액�
 
 Azure AD 보고 API에 대 한 스크립트 또는 응용 프로그램 기반 액세스를 허용 하려면 다음 API 권한을 사용 하 여 Azure AD B2C 테 넌 트에 등록 된 Azure Active Directory 응용 프로그램이 필요 합니다.
 
-* Microsoft Graph
-  * 프로그램별 모든 감사 로그 데이터 읽기
+* 감사 로그 > 응용 프로그램 사용 권한을 Microsoft Graph >
 
 B2C 테 넌 트 내의 기존 Azure Active Directory 응용 프로그램 등록에 대해 이러한 권한을 사용 하도록 설정 하거나 감사 로그 자동화에 사용 하기 위해 특별히 새 응용 프로그램을 만들 수 있습니다.
 
@@ -102,6 +101,8 @@ B2C 테 넌 트 내의 기존 Azure Active Directory 응용 프로그램 등록�
 
 ### <a name="assign-api-access-permissions"></a>API 액세스 권한 할당
 
+#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+
 1. 등록 된 **앱** 개요 페이지에서 **설정**을 선택 합니다.
 1. **API 액세스**에서 **필요한 권한**을 선택 합니다.
 1. **추가**를 선택한 다음, **API를 선택**합니다.
@@ -109,6 +110,22 @@ B2C 테 넌 트 내의 기존 Azure Active Directory 응용 프로그램 등록�
 1. **응용 프로그램 사용 권한**아래에서 **모든 감사 로그 데이터 읽기**를 선택 합니다.
 1. **선택** 단추를 선택한 다음 **완료**를 선택 합니다.
 1. **사용 권한 부여**를 선택한 다음, **예**를 선택합니다.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록 (미리 보기)](#tab/app-reg-preview/)
+
+1. **관리** 아래에서 **API 권한**을 선택합니다.
+1. **구성 된 사용 권한**에서 **사용 권한 추가**를 선택 합니다.
+1. **Microsoft api** 탭을 선택 합니다.
+1. **Microsoft Graph**를 선택합니다.
+1. **애플리케이션 권한**을 선택합니다.
+1. **감사 로그** 를 확장 한 다음 **감사 로그** 확인란을 선택 합니다.
+1. **권한 추가**를 선택 합니다. 지시에 따라 몇 분 정도 기다린 후 다음 단계를 진행 합니다.
+1. **사용자의 테 넌 트 이름에 대해 관리자 동의 부여를**선택 합니다.
+1. *전역 관리자* 역할이 할당 된 경우 현재 로그인 된 계정을 선택 하거나 *전역 관리자* 역할이 할당 된 Azure AD B2C 테 넌 트의 계정으로 로그인 합니다.
+1. **수락**을 선택합니다.
+1. **새로 고침**을 선택 하 고 "다음에 대해 권한 부여 ..."를 확인 합니다. *감사 로그* 사용 권한에 대 한 **상태** 아래에 나타납니다. 권한을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
+
+* * *
 
 ### <a name="create-client-secret"></a>클라이언트 암호 만들기
 
@@ -118,7 +135,7 @@ B2C 테 넌 트 내의 기존 Azure Active Directory 응용 프로그램 등록�
 
 ### <a name="access-the-api"></a>API 액세스
 
-API를 통해 Azure AD B2C 감사 로그 이벤트를 다운로드 하려면 해당 `B2C` 범주에 대 한 로그를 필터링 합니다. 범주별로 필터링 하려면 Azure AD 보고 `filter` API 끝점을 호출할 때 쿼리 문자열 매개 변수를 사용 합니다.
+API를 통해 Azure AD B2C 감사 로그 이벤트를 다운로드 하려면 `B2C` 범주에 대 한 로그를 필터링 합니다. 범주별로 필터링 하려면 Azure AD 보고 API 끝점을 호출할 때 `filter` 쿼리 문자열 매개 변수를 사용 합니다.
 
 ```HTTP
 https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByService eq 'B2C' and activityDateTime gt 2019-09-10T02:28:17Z
@@ -128,15 +145,15 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 
 다음 PowerShell 스크립트는 Azure AD reporting API를 쿼리 하는 방법의 예를 보여 줍니다. API를 쿼리 한 후에는 로깅된 이벤트를 표준 출력으로 출력 하 고 JSON 출력을 파일에 기록 합니다.
 
-[Azure Cloud Shell](../cloud-shell/overview.md)에서이 스크립트를 사용해 볼 수 있습니다. 응용 프로그램 ID, 키 및 Azure AD B2C 테 넌 트의 이름으로 업데이트 해야 합니다.
+[Azure Cloud Shell](../cloud-shell/overview.md)에서이 스크립트를 사용해 볼 수 있습니다. 응용 프로그램 ID, 클라이언트 암호 및 Azure AD B2C 테 넌 트의 이름으로 업데이트 해야 합니다.
 
 ```powershell
 # This script requires the registration of a Web Application in Azure Active Directory:
 # https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's Client ID, a GUID (registered by Global Admin)
-$ClientSecret   = "your-client-application-secret-here"   # Insert your application's Client secret/key
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
 $tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI

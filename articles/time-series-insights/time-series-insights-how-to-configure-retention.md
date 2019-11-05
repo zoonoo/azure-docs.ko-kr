@@ -3,20 +3,19 @@ title: Azure Time Series Insights 환경의 보존 기간을 구성하는 방법
 description: 이 아티클에서는 Azure Time Series Insights 환경의 보존 기간을 구성하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: bf6788bac7003bec0ccfc171d622cd9b28bf43e0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ff4d326af691ae27894dc94d7581ba68951f090e
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330895"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990066"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Time Series Insights의 보존 기간 구성
 
@@ -35,13 +34,13 @@ ms.locfileid: "72330895"
 
 ## <a name="configure-data-retention"></a>데이터 보존 구성하기
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. 기존 Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 선택합니다. Time Series Insights 환경을 선택합니다.
 
 1. **설정** 제목 아래에서 **구성**을 선택합니다.
 
-    [@no__t 설정, 구성을 차례로 선택 합니다.](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
+    [설정 ![선택 하 고 구성 합니다.](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 1. 슬라이더 막대를 사용 하 여 보존을 구성 하거나 텍스트 상자에 숫자를 입력 하 여 **데이터 보존 시간 (일)** 을 선택 합니다.
 
@@ -49,7 +48,7 @@ ms.locfileid: "72330895"
 
 1. **스토리지 제한을 초과하는 동작** 설정을 전환합니다. **이전 데이터 삭제** 또는 **수신 일시 중지** 동작을 선택합니다.
 
-    [![ 데이터 보존-수락 및 저장 합니다.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [데이터 보존-수락 및 저장을 ![합니다.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
 1. 설명서를 검토 하 고 잠재적인 데이터 손실 위험을 이해 한다는 것을 나타내는 확인란을 그대로 적용 합니다. **저장**을 선택하여 변경 내용을 구성합니다.
 

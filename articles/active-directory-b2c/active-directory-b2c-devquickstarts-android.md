@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 29f1fc2a6fd23ef3a770f58fd78d5067672136dd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 28b1c3622ca449b0ce539937369fe43bd1d508ee
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326293"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468978"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Android 애플리케이션을 사용하여 로그인
 
@@ -38,7 +38,9 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-이후 단계에서 사용할 **응용 프로그램 ID** 를 기록 합니다. 그런 다음 목록에서 응용 프로그램을 선택 하 고 이후 단계에서 사용 하기 위해 **사용자 지정 리디렉션 URI**도 기록 합니다. 예를 들어, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`을 입력합니다.
+이후 단계에서 사용할 **응용 프로그램 (클라이언트) ID** 를 기록 합니다.
+
+또한 이후 단계에서 사용할 사용자 지정 리디렉션 URI를 기록 합니다. 예: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`
 
 ## <a name="create-your-user-flows"></a>사용자 흐름 만들기
 
@@ -62,7 +64,7 @@ Azure AD B2C에서 모든 사용자 환경은 [사용자 흐름](active-director
 > AppAuth는 Android API 16(Jellybean) 이상을 지원합니다. API 23 이상을 사용하는 것이 좋습니다.
 >
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 검색 URI를 지정하거나 권한 부여 엔드포인트와 토큰 엔드포인트 URI를 모두 지정하여 Azure AD B2C와의 통신을 구성할 수 있습니다. 두 경우 모두 다음 정보를 제공해야 합니다.
 
@@ -117,8 +119,8 @@ AuthorizationServiceConfiguration config =
 
 권한 부여 서비스 구성을 구성하거나 검색하면 권한 부여 요청을 생성할 수 있습니다. 요청을 만들려면 다음 정보가 필요합니다.
 
-* 이전에 기록한 클라이언트 ID (응용 프로그램 ID)입니다. 예를 들어, `00000000-0000-0000-0000-000000000000`을 입력합니다.
-* 이전에 기록한 사용자 지정 리디렉션 URI입니다. 예를 들어, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`을 입력합니다.
+* 이전에 기록한 클라이언트 ID (응용 프로그램 ID)입니다. 예: `00000000-0000-0000-0000-000000000000`
+* 이전에 기록한 사용자 지정 리디렉션 URI입니다. 예: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`
 
 두 항목 모두 [앱을 등록](#create-an-application)할 때 저장해야 합니다.
 

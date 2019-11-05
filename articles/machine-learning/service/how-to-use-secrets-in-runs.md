@@ -11,14 +11,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4872ba8a707192cd61ec371fa982a076d410e918
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: c0d696e3fc060a2779eba7d7e895397ea3245383
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996564"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489279"
 ---
 # <a name="use-secrets-in-training-runs"></a>학습 실행에서 비밀 사용
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 학습 실행 시 안전 하 게 암호를 사용 하는 방법에 대해 알아봅니다. 예를 들어 외부 데이터베이스에 연결 하 여 학습 데이터를 쿼리하려면 원격 실행 컨텍스트에 사용자 이름 및 암호를 전달 해야 합니다. 일반 텍스트의 학습 스크립트에 이러한 값을 코딩 하는 것은 암호를 노출 하므로 안전 하지 않습니다. 
 

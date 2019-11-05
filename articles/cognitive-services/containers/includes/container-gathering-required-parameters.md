@@ -6,31 +6,28 @@ manager: nitinme
 description: 모든 Cognitive Services의 컨테이너에 대 한 매개 변수
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/18/2019
+ms.date: 10/15/2019
 ms.author: dapine
-ms.openlocfilehash: 06f68d28d06dec7c9e738ad8cb50ca337fa840be
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: bf4e8f06642a4a764794a75e2b49f15958796c61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102025"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465911"
 ---
 ## <a name="gathering-required-parameters"></a>필수 매개 변수 수집
 
-필요한 모든 Cognitive Services의 컨테이너에 대 한 세 가지 기본 매개 변수가 필요 합니다. 최종 사용자 사용권 계약 (EULA)은 값 `accept`과 함께 제공 되어야 합니다. 또한 끝점 URL과 API 키가 모두 필요 합니다.
+필요한 모든 Cognitive Services의 컨테이너에 대 한 세 가지 기본 매개 변수가 필요 합니다. EULA (최종 사용자 사용권 계약)는 `accept`값과 함께 제공 되어야 합니다. 또한 끝점 URL과 API 키가 모두 필요 합니다.
 
-> [!NOTE]
-> 이러한 3 개의 필수 매개 변수에 대 한 유일한 예외는 컨테이너를 "오프 라인" 컨테이너로 간주 하는 경우입니다. 오프 라인 컨테이너는 사용량을 보고 하지 않으며 요금제를 사용 하지 않으며 다른 청구 방법을 따릅니다.
+### <a name="endpoint-uri-endpoint_uri"></a>끝점 URI `{ENDPOINT_URI}`
 
-### <a name="endpoint-uri-endpoint_uri"></a>끝점 URI`{ENDPOINT_URI}`
-
-**끝점** URI 값은 해당 하는 인지 서비스 리소스의 Azure Portal *개요* 페이지에서 사용할 수 있습니다. *개요* 페이지로 이동 하 고 끝점 `Copy to clipboard` 을 마우스로 가리키면 <span class="docon docon-edit-copy x-hidden-focus"></span> 아이콘이 표시 됩니다. 필요에 따라 복사 하 여 사용 합니다.
+**끝점** URI 값은 해당 하는 인지 서비스 리소스의 Azure Portal *개요* 페이지에서 사용할 수 있습니다. *개요* 페이지로 이동 하 여 끝점 위로 마우스를 이동 하면 `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> 아이콘이 표시 됩니다. 필요에 따라 복사 하 여 사용 합니다.
 
 ![나중에 사용할 끝점 uri 수집](../media/overview-endpoint-uri.png)
 
-### <a name="keys-api_key"></a>키`{API_KEY}`
+### <a name="keys-api_key"></a>키 `{API_KEY}`
 
-이 키는 컨테이너를 시작 하는 데 사용 되며 해당 하는 인지 서비스 리소스의 Azure Portal 키 페이지에서 사용할 수 있습니다. *키* 페이지로 이동 하 여 `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> 아이콘을 클릭 합니다.
+이 키는 컨테이너를 시작 하는 데 사용 되며 해당 하는 인지 서비스 리소스의 Azure Portal 키 페이지에서 사용할 수 있습니다. *키* 페이지로 이동 하 고 `Copy to clipboard` <span class="docon docon-edit-copy x-hidden-focus"></span> 아이콘을 클릭 합니다.
 
 ![나중에 사용 하기 위해 두 키 중 하나를 가져옵니다.](../media/keys-copy-api-key.png)
 

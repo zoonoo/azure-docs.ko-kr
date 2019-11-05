@@ -1,21 +1,21 @@
 ---
-title: Azure Bastion FAQ | Microsoft Docs
-description: 배스 천 Azure에 대 한 FAQ
+title: Azure 방호 FAQ | Microsoft Docs
+description: Azure 방호의 FAQ
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 06/17/2019
 ms.author: cherylmc
-ms.openlocfilehash: d32541e63b0be8d2ef7c1ee8f9f8b2b817f826ef
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: a808513f2e7b1ef43c9a99826671182be008d61c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191656"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466249"
 ---
-# <a name="azure-bastion-faq-preview"></a>Azure는 배스 천 (미리 보기) FAQ
+# <a name="azure-bastion-faq"></a>Azure Bastion FAQ
 
-배스 천 Azure에 대 한 FAQ입니다.
+Azure 방호의 FAQ입니다.
 
 [!INCLUDE [Bastion FAQ](../../includes/bastion-faq-include.md)]

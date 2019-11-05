@@ -1,24 +1,24 @@
 ---
 title: '모델 학습: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스의 **모델 학습** 모듈을 사용 하 여 분류 또는 회귀 모델을 학습 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 **모델 학습** 모듈을 사용 하 여 분류 또는 회귀 모델을 학습 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: f9717c39388c85ced889744722899b78a5df8453
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 28cc2e1f8782f1ffd37e3a20fcc68264b481e42e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693680"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490370"
 ---
 # <a name="train-model-module"></a>모델 학습 모듈
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 분류 또는 회귀 모델을 학습 합니다. 학습은 모델을 정의 하 고 해당 매개 변수를 설정한 후에 발생 하며 태그가 지정 된 데이터가 필요 합니다. 또한 **학습 모델** 을 사용 하 여 기존 모델을 새 데이터로 다시 학습 수 있습니다. 
 
@@ -77,4 +77,4 @@ Azure Machine Learning에서 기계 학습 모델을 만들고 사용 하는 과
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

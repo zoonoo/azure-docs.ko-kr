@@ -1,141 +1,183 @@
 ---
-title: Azure SQL Database 서비스 - vCore | Microsoft Docs
-description: VCore 기반 구매 모델을 사용 하면 계산 및 저장소 리소스를 독립적으로 확장 하 고, 온-프레미스 성능과 일치 하 고, 가격을 최적화할 수 있습니다.
+title: Azure SQL Database 서비스-vCore 모델 개요 | Microsoft Docs
+description: VCore 구매 모델을 통해 계산 및 저장소 리소스를 독립적으로 확장 하 고, 온-프레미스 성능과 일치 시키고, 가격을 최적화할 수 있습니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/01/2019
-ms.openlocfilehash: af2e8826c40fb0d16844b6c67f151b0affbf3efd
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 11/04/2019
+ms.openlocfilehash: 2bbdd565a861004014ca4161856bba83ec0be511
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034990"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496090"
 ---
-# <a name="choose-among-the-vcore-service-tiers-and-migrate-from-the-dtu-service-tiers"></a>VCore 서비스 계층 중에서 선택 하 고 DTU 서비스 계층에서 마이그레이션
+# <a name="vcore-model-overview"></a>vCore 모델 개요
 
-VCore (가상 코어) 기반 구매 모델을 사용 하면 계산 및 저장소 리소스를 독립적으로 확장 하 고, 온-프레미스 성능과 일치 하 고, 가격을 최적화할 수 있습니다. 또한 하드웨어 세대를 선택할 수 있습니다.
+VCore (가상 코어) 모델은 다음과 같은 여러 가지 이점을 제공 합니다.
 
-- **Gen4**: Intel E5-2673 v3 (Haswell) 2.4 g h z 프로세서, vCore = 1 PP (물리적 코어), vCore 당 7GB, 연결 된 SSD를 기반으로 하는 최대 24 개의 논리 Cpu
-- **Gen5**: Intel E5-2673 v4 (Broadwell) 2.3 GHz 프로세서, vCore = 1 LP (하이퍼 스레드), vCore 당 80 5.1, 프로 비전 된 계산에 대 한 vCore 및 서버 리스 계산에 대 한 vcore 당 24 GB 당, fast eNVM SSD
+- 더 높은 계산, 메모리, IO 및 저장소 제한이 있습니다.
+- 워크 로드에 대 한 계산 및 메모리 요구 사항을 더 잘 맞추려면 하드웨어 생성을 제어 합니다.
+- [Azure 하이브리드 혜택 (AHB)](sql-database-azure-hybrid-benefit.md) 및 [예약 인스턴스 (RI)](sql-database-reserved-capacity.md)의 가격 할인.
+- 계산을 지 원하는 하드웨어 세부 정보의 투명도 향상 온-프레미스 배포에서의 마이그레이션 계획을 용이 하 게 합니다.
 
-4세대 하드웨어는 실질적으로 vCore당 더 많은 메모리를 제공합니다. 그러나 5세대 하드웨어를 사용하면 컴퓨팅 리소스를 훨씬 더 강화할 수 있습니다.
+## <a name="service-tiers"></a>서비스 계층
 
-> [!IMPORTANT]
-> 새 Gen4 데이터베이스는 오스트레일리아 동부 또는 브라질 남부 지역에서 더 이상 지원 되지 않습니다.
-> [!NOTE]
-> DTU 기반 서비스 계층에 대 한 자세한 내용은 [dtu 기반 구매 모델에 대 한 서비스 계층](sql-database-service-tiers-dtu.md)을 참조 하세요. DTU 기반 및 vCore 기반 구매 모델에 대 한 서비스 계층 간의 차이점에 대 한 자세한 내용은 [Azure SQL Database 구매 모델](sql-database-purchase-models.md)을 참조 하세요.
-
-## <a name="service-tier-characteristics"></a>서비스 계층 특징
-
-VCore 기반 구매 모델은 세 가지 서비스 계층, 즉 범용, 하이퍼 규모 및 중요 비즈니스용 서비스 계층을 제공 합니다. 이러한 서비스 계층은 다양 한 계산 크기, 고가용성 디자인, 내결함성 방법, 저장소의 형식 및 크기 및 i/o 범위로 구분 됩니다.
-
-백업에 필요한 스토리지와 보존 기간을 개별적으로 구성해야 합니다. 백업 보존 기간을 설정 하려면 Azure Portal을 열고 서버 (데이터베이스가 아님)로 이동한 다음 **백업 관리**로 이동 합니다. 1 @no__t**정책** >  지정**시간 복원 구성** > **7-35 일**.
-
-다음 표에서는 세 계층 간의 차이점을 설명 합니다.
+VCore 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스용 및 Hyperscale이 포함 됩니다. 서비스 계층은 일반적으로 가용성 및 재해 복구와 관련 된 저장소 아키텍처, 공간 및 IO 제한 및 비즈니스 연속성 옵션을 정의 합니다.
 
 ||**범용**|**업무상 중요**|**대규모**|
 |---|---|---|---|
-|적합한 대상|예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다.|트랜잭션 속도가 높고 IO 대기 시간이 낮은 OLTP 응용 프로그램 는 동시에 업데이트 된 여러 복제본을 사용 하 여 오류 및 빠른 장애 조치에 가장 높은 복원 력을 제공 합니다|대부분의 비즈니스 워크로드. 자동 크기 조정 저장소 크기는 최대 100 TB, 유체 수직 및 수평 계산 크기 조정, 빠른 데이터베이스 복원입니다.|
-|컴퓨팅|**프로 비전 된 계산**:<br/>Gen4: 1 개에서 24 개 까지의 vCores<br/>Gen5: 2 ~ 80 vCores<br/>**서버**를 사용 하지 않는 계산:<br/>Gen5: 0.5-16 vCores|**프로 비전 된 계산**:<br/>Gen4: 1 개에서 24 개 까지의 vCores<br/>Gen5: 2 ~ 80 vCores|**프로 비전 된 계산**:<br/>Gen4: 1 개에서 24 개 까지의 vCores<br/>Gen5: 2 ~ 80 vCores|
-|메모리|**프로 비전 된 계산**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB<br/>**서버**를 사용 하지 않는 계산:<br/>Gen5: VCore 당 최대 24gb|**프로 비전 된 계산**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB |**프로 비전 된 계산**:<br/>Gen4: vCore당 7GB<br/>Gen5: vCore당 5.1GB|
-|스토리지|원격 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**관리 되는 인스턴스**: 32GB~8TB |로컬 SSD 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB~4TB<br/>**관리 되는 인스턴스**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
-|I/o 처리량 (근사치)|**단일 데이터베이스 및 탄력적 풀**: 최대 4만의 vCore 당 500 IOPS.<br/>**관리 되는 인스턴스**: [파일의 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 달라 집니다.|최대 20만의 코어 당 5000 IOPS 최대 IOPS|Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPs는 워크 로드에 따라 달라 집니다.|
+|적합한 대상|대부분의 비즈니스 워크로드. 는 예산 지향적이 고 균형이 조정 되며 확장 가능한 계산 및 저장소 옵션을 제공 합니다. |는 여러 개의 격리 된 복제본을 사용 하 여 비즈니스 응용 프로그램에서 오류에 대 한 가장 높은 복원 력을 제공 하 고, 데이터베이스 복제본 별로 최고 i/o 성능을 제공 합니다.|확장성이 뛰어난 저장소 및 읽기 확장 요구 사항에 대 한 대부분의 비즈니스 워크 로드.  에서는 둘 이상의 격리 된 데이터베이스 복제본의 구성을 허용 하 여 오류에 대 한 더 높은 복원 력을 제공 합니다. |
+|Storage|원격 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**관리 되는 인스턴스**: 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB – 8TB<br/>**관리 되는 인스턴스**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
+|I/o 처리량 (근사치)|**단일 데이터베이스 및 탄력적 풀**: vcore 당 500 iops 최대 4만 최대 iops입니다.<br/>**관리 되는 인스턴스**: [파일의 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 달라 집니다.|최대 32만의 vCore 당 5000 IOPS 최대 IOPS|Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPs는 워크 로드에 따라 달라 집니다.|
 |가용성|복제본 1 개, 읽기 확장 복제본 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA (고가용성)|1 읽기/쓰기 복제본 및 0-4 [읽기 확장 복제본](sql-database-read-scale-out.md)|
 |Backup|[읽기 액세스 지역 중복 저장소 (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 일 (기본적으로 7 일)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 복원은 빠른 복구를 위해 이러한 스냅샷을 사용합니다. 백업은 즉시 수행 되며 계산 i/o 성능에 영향을 주지 않습니다. 복원은 빠르게 수행 하 고 데이터의 크기를 조정 하는 작업이 아닙니다 (몇 시간 또는 몇 일이 아닌 분 소요).|
 |메모리 내|지원되지 않음|지원됨|지원되지 않음|
 |||
 
-> [!NOTE]
-> Azure 무료 계정과 함께 기본 서비스 계층에서 무료 Azure SQL database를 다운로드할 수 있습니다. 자세한 내용은 [Azure 무료 계정을 사용 하 여 관리 되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조 하세요.
 
-- VCore 리소스 제한에 대 한 자세한 내용은 [단일 데이터베이스의 Vcore 리소스 제한](sql-database-vcore-resource-limits-single-databases.md) 및 [관리 되는 인스턴스의 vcore 리소스 제한](sql-database-managed-instance.md#vcore-based-purchasing-model)을 참조 하세요.
-- 범용 및 중요 비즈니스용 서비스 계층에 대 한 자세한 내용은 [범용 및 중요 비즈니스용 서비스 계층](sql-database-service-tiers-general-purpose-business-critical.md)을 참조 하세요.
-- Vcore 기반 구매 모델의 하이퍼 크기 조정 서비스 계층에 대 한 자세한 내용은 [대규모 service 계층](sql-database-service-tier-hyperscale.md)을 참조 하세요.  
+### <a name="choosing-a-service-tier"></a>서비스 계층 선택
 
-## <a name="azure-hybrid-benefit"></a>Azure 하이브리드 혜택
+특정 워크 로드에 대 한 서비스 계층을 선택 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-VCore 기반 구매 모델의 프로 비전 된 계산 계층에서는 [SQL Server에 대 한 Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 사용 하 여 SQL Database에 대 한 할인 된 요금으로 기존 라이선스를 교환할 수 있습니다. 이 Azure 혜택을 통해 소프트웨어 보증이 있는 온-프레미스 SQL Server 라이선스를 사용 하 여 Azure SQL Database 최대 30%까지 절약할 수 있습니다.
+- [범용 서비스 계층을 선택 하는 경우](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [중요 비즈니스용 서비스 계층을 선택 하는 경우](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
+- [Hyperscale 서비스 계층을 선택 하는 경우](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
-![pricing](./media/sql-database-service-tiers/pricing.png)
 
-Azure 하이브리드 혜택를 사용 하면 SQL database 엔진 자체 (기본 계산 가격 책정)에 기존 SQL Server 라이선스를 사용 하 여 기본 Azure 인프라에 대해서만 비용을 지불 하도록 선택 하거나 기본 인프라와 SQL Server에 대해 비용을 지불할 수 있습니다. 라이선스 (라이선스 포함 가격).
+## <a name="compute-tiers"></a>Compute 계층
 
-Azure Portal 또는 다음 Api 중 하나를 사용 하 여 라이선스 모델을 선택 하거나 변경할 수 있습니다.
+VCore 모델의 compute 계층 옵션에는 프로 비전 및 서버를 사용 하지 않는 계산 계층이 포함 됩니다.
 
-- PowerShell을 사용 하 여 라이선스 유형을 설정 하거나 업데이트 하려면 다음을 수행 합니다.
 
-  - [New-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase)
-  - [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase)
-  - [New-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlinstance)
-  - [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance)
+### <a name="provisioned-compute"></a>프로비저닝된 컴퓨팅
 
-- Azure CLI를 사용 하 여 라이선스 유형을 설정 하거나 업데이트 하려면 다음을 수행 합니다.
+프로 비전 된 계산 계층은 작업 활동에 독립적으로 지속적으로 프로 비전 되는 특정 양의 계산 리소스를 제공 하 고 시간당 고정 된 가격으로 프로 비전 된 계산의 양에 대 한 요금을 제공 합니다.
 
-  - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
-  - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
-- REST API를 사용 하 여 라이선스 유형을 설정 하거나 업데이트 하려면 다음을 수행 합니다.
+### <a name="serverless-compute"></a>서버리스 컴퓨팅
 
-  - [데이터베이스 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [데이터베이스 - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Managed Instances - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+서버를 사용 하지 않는 [계산 계층](sql-database-serverless.md) 은 작업 활동에 따라 계산 리소스를 자동으로 조정 하 고, 초당 사용 된 계산 양에 대 한 요금을 청구 합니다.
 
-## <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>DTU 기반 모델에서 vCore 기반 모델로 마이그레이션
 
-### <a name="migrate-a-database"></a>데이터베이스 마이그레이션
 
-Dtu 기반 구매 모델에서 vCore 기반 구매 모델로 데이터베이스를 마이그레이션하는 것은 DTU 기반 구매 모델에서 standard 및 premium 서비스 계층 간에 업그레이드 하거나 다운 그레이드 하는 것과 비슷합니다.
+## <a name="hardware-generations"></a>하드웨어 생성
 
-### <a name="migrate-databases-with-geo-replication-links"></a>지역에서 복제 링크를 사용 하 여 데이터베이스 마이그레이션
+VCore 모델의 하드웨어 생성 옵션에는 Gen 4/5, M 시리즈 (미리 보기) 및 Fsv2 시리즈 (미리 보기)가 포함 됩니다. 하드웨어 생성은 일반적으로 계산 및 메모리 제한과 작업의 성능에 영향을 주는 기타 특성을 정의 합니다.
 
-DTU 기반 모델에서 vCore 기반 구매 모델로 마이그레이션하는 것은 standard 및 premium 서비스 계층에 있는 데이터베이스 간의 지역에서 복제 관계를 업그레이드 하거나 다운 그레이드 하는 것과 비슷합니다. 마이그레이션 중에 지역에서 복제를 중지할 필요는 없지만 다음 시퀀싱 규칙을 따라야 합니다.
+### <a name="gen4gen5"></a>Gen4/Gen5
 
-- 업그레이드하는 경우 보조 데이터베이스를 먼저 업그레이드한 다음, 주 데이터베이스를 업그레이드해야 합니다.
-- 다운그레이드하는 경우 반대 순서로 주 데이터베이스를 먼저 다운그레이드한 다음, 보조 데이터베이스를 다운그레이드해야 합니다.
+- Gen4/Gen5 하드웨어는 균형 잡힌 계산 및 메모리 리소스를 제공 하며, Fsv2 시리즈 또는 M 시리즈에서 제공 되는 것과 같은 더 높은 메모리, 더 높은 vCore 또는 더 빠른 단일 vCore 요구 사항이 없는 대부분의 데이터베이스 작업에 적합 합니다.
 
-두 탄력적 풀 간의 지역에서 복제를 사용 하는 경우 하나의 풀을 기본 풀로 지정 하 고 다른 풀을 보조 데이터베이스로 지정 하는 것이 좋습니다. 이 경우 탄력적 풀을 마이그레이션하는 경우 동일한 시퀀싱 지침을 사용 해야 합니다. 그러나 주 데이터베이스와 보조 데이터베이스를 모두 포함 하는 탄력적 풀을 사용 하는 경우 사용률이 높은 풀을 주 데이터베이스로 처리 하 고 그에 따라 시퀀싱 규칙을 따릅니다.  
+Gen4/Gen5을 사용할 수 있는 지역의 경우 [Gen4/Gen5 availability](#gen4gen5-1)를 참조 하세요.
 
-다음 표에서는 특정 마이그레이션 시나리오에 대 한 지침을 제공 합니다.
+### <a name="fsv2-seriespreview"></a>Fsv2 시리즈 (미리 보기)
 
-|현재 서비스 계층|대상 서비스 계층|마이그레이션 유형|사용자 작업|
-|---|---|---|---|
-|Standard|범용 가상 컴퓨터|수평|순서에 관계없이 마이그레이션할 수 있지만 적절한 vCore 크기 조정을 보장해야 합니다.*|
-|Premium|중요 비즈니스용|수평|순서에 관계없이 마이그레이션할 수 있지만 적절한 vCore 크기 조정을 보장해야 합니다.*|
-|Standard|중요 비즈니스용|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
-|중요 비즈니스용|Standard|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
-|Premium|범용 가상 컴퓨터|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
-|범용 가상 컴퓨터|Premium|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
-|중요 비즈니스용|범용 가상 컴퓨터|다운그레이드|먼저 주 데이터베이스를 마이그레이션해야 합니다.|
-|범용 가상 컴퓨터|중요 비즈니스용|업그레이드|먼저 보조 데이터베이스를 마이그레이션해야 합니다.|
-||||
+- Fsv2 시리즈는 cpu 대기 시간이 낮고 CPU가 까다로운 워크 로드에 대해 높은 클록 속도를 제공 하는 계산에 최적화 된 하드웨어 옵션입니다.
+- 워크 로드에 따라 Fsv2 시리즈는 Gen5 보다 vCore 당 더 많은 CPU 성능을 제공할 수 있으며, 72 vCore 크기는 Gen5에서 80 Vcore 보다 적은 비용으로 더 많은 CPU 성능을 제공할 수 있습니다. 
+- Fsv2는 다른 하드웨어 보다 vCore의 메모리와 tempdb를 더 작게 제공 하므로 이러한 한도에 영향을 주는 워크 로드는 Gen5 또는 M 시리즈를 대신 고려 하는 것이 좋습니다.  
 
-@no__t 표준 계층의 모든 100 Dtu에는 vCore가 하나 이상 필요 하며, 프리미엄 계층의 모든 125 Dtu에는 vCore가 하나 이상 필요 합니다.
+Fsv2 시리즈를 사용할 수 있는 지역의 경우 [Fsv2 시리즈 가용성](#fsv2-series)을 참조 하세요.
 
-### <a name="migrate-failover-groups"></a>장애 조치 (failover) 그룹 마이그레이션
 
-여러 데이터베이스가 있는 장애 조치 그룹을 마이그레이션하려면 주 데이터베이스와 보조 데이터베이스를 개별적으로 마이그레이션해야 합니다. 이 과정에서 동일한 고려 사항과 순서 지정 규칙이 적용됩니다. 데이터베이스를 vCore 기반 구매 모델로 변환한 후에는 장애 조치 (failover) 그룹이 동일한 정책 설정에 계속 적용 됩니다.
+### <a name="m-seriespreview"></a>M 시리즈 (미리 보기)
 
-### <a name="create-a-geo-replication-secondary-database"></a>지역에서 복제 보조 데이터베이스 만들기
+- M 시리즈는 Gen5에서 제공 하는 것 보다 더 많은 메모리를 필요로 하는 워크 로드에 대 한 메모리 액세스에 최적화 된 하드웨어 옵션입니다.
+- M 시리즈는 vCore 및 128 Vcore 당 30GB를 제공 하 여 Gen5 by 8x를 기준으로 약 4 TB까지 메모리 제한을 늘립니다.
 
-주 데이터베이스에 사용한 것과 동일한 서비스 계층을 사용 하 여 지역에서 복제 보조 데이터베이스 (지역 보조 데이터베이스)를 만들 수 있습니다. 로그 생성 비율이 높은 데이터베이스의 경우 주 데이터베이스와 동일한 계산 크기로 지역 보조 데이터베이스를 만드는 것이 좋습니다.
+구독과 지역에서 M 시리즈 하드웨어를 사용 하도록 설정 하려면 지원 요청을 열어야 합니다. 지원 요청이 승인 되 면 M 시리즈의 선택 및 프로 비전 환경은 다른 하드웨어 세대와 동일한 패턴을 따릅니다. M 시리즈를 사용할 수 있는 지역에 대해서는 [m 시리즈 가용성](#m-series)을 참조 하세요.
 
-단일 주 데이터베이스에 대 한 탄력적 풀에서 지역 보조 데이터베이스를 만드는 경우 풀에 대 한 `maxVCore` 설정이 주 데이터베이스의 계산 크기와 일치 하는지 확인 합니다. 다른 탄력적 풀에서 주 데이터베이스에 대 한 지역 보조 데이터베이스를 만드는 경우 풀에 동일한 @no__t 0 설정을 갖는 것이 좋습니다.
 
-### <a name="use-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>데이터베이스 복사본을 사용 하 여 DTU 기반 데이터베이스를 vCore 기반 데이터베이스로 변환
+### <a name="compute-and-memory-specifications"></a>계산 및 메모리 사양
 
-대상 컴퓨팅 크기가 원본 데이터베이스의 최대 데이터베이스 크기를 지원하는 경우 제한 또는 특별한 순서 지정 없이 DTU 기반 컴퓨팅 크기의 데이터베이스를 vCore 기반 컴퓨팅 크기의 데이터베이스에 복사할 수 있습니다. 데이터베이스 복사본은 복사 작업을 시작할 때 데이터의 스냅숏을 만들고 원본과 대상 간의 데이터를 동기화 하지 않습니다.
+
+|하드웨어 세대  |Compute  |메모리  |
+|:---------|:---------|:---------|
+|Gen4     |-Intel E5-2673 v3 (Haswell) 2.4 GHz 프로세서<br>-최대 24 개의 vCores 프로 비전 (1 개 Vcores = 1 실제 코어)  |-vCore 당 7GB<br>-최대 168 GB 프로 비전|
+|5세대     |**프로비저닝된 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 프로세서<br>-최대 80 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)<br><br>**서버리스 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 프로세서<br>-최대 16 개의 Vcores 자동 확장 (1 개 Vcores = 1 개 하이퍼 스레드)|**프로비저닝된 컴퓨팅**<br>-vCore 당 5.1 GB<br>-최대 408 GB 프로 비전<br><br>**서버리스 컴퓨팅**<br>-VCore 당 최대 24gb까지 자동 확장<br>-최대 48 GB까지 자동 확장|
+|Fsv2 시리즈     |-Intel Xeon Platinum 8168 (SkyLake) 프로세서<br>-3.4 GHz의 모든 코어 터보 클록 속도와 3.7 g h z의 싱글 코어 터보 클록 속도를 모두 유지 합니다.<br>-72 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 1.9 GB<br>-136 GB 프로 비전|
+|M 시리즈     |-Intel Xeon E7-8890 v3 2.5 GHz 프로세서<br>-128 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 30GB<br>-3.7 TB 프로 비전|
+
+
+리소스 제한에 대 한 자세한 내용은 [단일 데이터베이스에 대 한 리소스 제한 (vcore)](sql-database-vcore-resource-limits-single-databases.md)또는 [탄력적 풀에 대 한 리소스 제한 (vcore)](sql-database-vcore-resource-limits-elastic-pools.md)을 참조 하세요.
+
+### <a name="selecting-a-hardware-generation"></a>하드웨어 생성 선택
+
+Azure Portal에서 만들 때 SQL database 또는 풀에 대 한 하드웨어 생성을 선택 하거나 기존 SQL 데이터베이스 또는 풀의 하드웨어 생성을 변경할 수 있습니다.
+
+**SQL 데이터베이스 또는 풀을 만들 때 하드웨어 생성을 선택 하려면**
+
+자세한 내용은 [SQL 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조 하세요.
+
+**기본** 탭의 **Compute + storage** 섹션에서 **데이터베이스 구성** 링크를 선택 하 고 **구성 변경** 링크를 선택 합니다.
+
+  ![데이터베이스 구성](media/sql-database-service-tiers-vcore/configure-sql-database.png)
+
+원하는 하드웨어 생성을 선택 합니다.
+
+  ![하드웨어 선택](media/sql-database-service-tiers-vcore/select-hardware.png)
+
+
+**기존 SQL 데이터베이스 또는 풀의 하드웨어 생성을 변경 하려면**
+
+데이터베이스의 경우 개요 페이지에서 **가격 책정 계층** 링크를 선택 합니다.
+
+  ![하드웨어 변경](media/sql-database-service-tiers-vcore/change-hardware.png)
+
+풀의 경우 개요 페이지에서 **구성**을 선택 합니다.
+
+단계에 따라 구성을 변경 하 고 이전 단계에서 설명한 대로 하드웨어 생성을 선택 합니다.
+
+### <a name="hardware-availability"></a>하드웨어 가용성
+
+#### <a name="gen4gen5"></a>Gen4/Gen5
+
+새 Gen4 데이터베이스는 오스트레일리아 동부 또는 브라질 남부 지역에서 더 이상 지원 되지 않습니다. 
+
+Gen5는 전 세계 대부분의 지역에서 사용할 수 있습니다.
+
+#### <a name="fsv2-series"></a>Fsv2 시리즈
+
+Fsv2 시리즈는 오스트레일리아 중부, 오스트레일리아 중부 2, 오스트레일리아 동부, 오스트레일리아 남동쪽, 브라질 남부, 캐나다 중부, 동아시아, 미국 동부, 프랑스 중부, 인도 중부, 인도 서 부, 대한민국 중부, 한국 남부, 북부 지역에서 제공 됩니다. 유럽, 동남 공화국 북부, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부, 미국 서 부 2
+
+
+#### <a name="m-series"></a>M 시리즈
+
+M 시리즈는 미국 동부, 유럽 서 부, 유럽 서부, 미국 서 부 2 지역에서 사용할 수 있습니다.
+M 시리즈는 추가 지역의 가용성이 제한 될 수도 있습니다. 여기에 나열 된 것과 다른 지역을 요청할 수 있지만 다른 지역에서의 처리는 불가능 합니다.
+
+구독에서 M 시리즈 가용성을 사용 하도록 설정 하려면 [새 지원 요청](#create-a-support-request-to-enable-m-series)을 작성 하 여 액세스를 요청 해야 합니다.
+
+
+##### <a name="create-a-support-request-to-enable-m-series"></a>M 시리즈를 사용 하도록 지원 요청을 만듭니다. 
+
+1. 포털에서 **도움말 + 지원** 을 선택 합니다.
+2. **새 지원 요청**을 선택합니다.
+
+**기본 사항** 페이지에서 다음을 제공 합니다.
+
+1. **문제점 유형**에 대해 **서비스 및 구독 제한(할당량)** 를 선택합니다.
+2. **Subscription** = M 시리즈를 사용 하도록 설정할 구독을 선택 합니다.
+3. **할당량 유형**에서 **SQL database**를 선택 합니다.
+4. **다음** 을 선택 하 여 **세부 정보** 페이지로 이동 합니다.
+
+**세부 정보** 페이지에서 다음을 제공 합니다.
+
+5. **문제 세부 정보** 섹션에서 **세부 정보 제공** 링크를 선택 합니다. 
+6. **SQL Database 할당량 유형** **으로 M 시리즈**를 선택 합니다.
+7. **지역**에서 M 시리즈를 사용할 지역을 선택 합니다.
+    M 시리즈를 사용할 수 있는 지역에 대해서는 [m 시리즈 가용성](#m-series)을 참조 하세요.
+
+승인 된 지원 요청은 보통 5 영업일 이내에 수행 됩니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 
+- SQL database를 만들려면 [Azure Portal를 사용 하 여 sql 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조 하세요.
 - 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 항목은 [단일 데이터베이스에 대 한 vCore 기반 리소스 제한 SQL Database](sql-database-vcore-resource-limits-single-databases.md)을 참조 하세요.
-- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 항목에 대해서는 [탄력적 풀에 대 한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)을 참조 하세요.
+- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 항목에 대해서는 [탄력적 풀에 대 한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md)을 참조 하세요.
+- 가격 책정에 대 한 자세한 내용은 [Azure SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/single/)를 참조 하세요.

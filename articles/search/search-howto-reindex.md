@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 26a751924985f94a7d7d12a382d4e6654f36ea48
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793719"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466452"
 ---
 # <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스를 다시 작성 하는 방법
 
@@ -46,7 +46,7 @@ ms.locfileid: "72793719"
 
 새 필드를 추가할 때 기존의 인덱싱된 문서에는 새 필드에 null 값이 제공됩니다. 이후에 데이터를 새로 고칠 때 외부 원본 데이터의 값이 Azure Cognitive Search에 의해 추가 된 null을 대체 합니다. 인덱스 콘텐츠 업데이트에 대한 자세한 내용은 [문서 추가, 업데이트 또는 삭제](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)를 참조하세요.
 
-## <a name="partial-or-incremental-indexing"></a>부분 또는 증분 인덱싱
+## <a name="partial-indexing"></a>부분 인덱싱
 
 Azure Cognitive Search에서는 특정 필드를 삭제 하거나 다시 만들도록 선택 하 여 필드 별로 인덱싱을 제어할 수 없습니다. 마찬가지로, [조건에 따른 문서 인덱싱](https://stackoverflow.com/questions/40539019/azure-search-what-is-the-best-way-to-update-a-batch-of-documents)을 위한 기본 제공 메커니즘이 없습니다. 조건 기반 인덱싱에 대한 요구 사항은 사용자 지정 코드를 통해 충족해야 합니다.
 
@@ -74,7 +74,7 @@ Azure Cognitive Search에서는 특정 필드를 삭제 하거나 다시 만들�
 
    해당 인덱스를 대상으로 하는 모든 쿼리는 즉시 삭제됩니다. 인덱스 삭제는 되돌릴 수 없으며, 필드 컬렉션 및 기타 구문의 실제 스토리지가 제거됩니다. 따라서 인덱스를 삭제하기 전에 삭제에 따른 결과를 명확히 인식해야 합니다. 
 
-2. 서비스 엔드포인트, API 키 및 [관리자 키](https://docs.microsoft.com/azure/search/search-security-api-keys)를 사용하여 [인덱스 업데이트](https://docs.microsoft.com/rest/api/searchservice/update-index) 요청을 작성합니다. 관리자 키는 쓰기 작업에 필요합니다.
+2. 서비스 엔드포인트, API 키 및 [관리자 키](https://docs.microsoft.com/rest/api/searchservice/update-index)를 사용하여 [인덱스 업데이트](https://docs.microsoft.com/azure/search/search-security-api-keys) 요청을 작성합니다. 관리자 키는 쓰기 작업에 필요합니다.
 
 3. 요청 본문에서, 변경된 또는 수정된 필드 정의를 인덱스 스키마에 제공합니다. 요청 본문은 인덱스 스키마와 프로필, 분석기, 제안기 및 CORS 옵션에 점수를 매기기 위한 구문을 포함합니다. 스키마 요구 사항은 [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)에 설명되어 있습니다.
 

@@ -1,7 +1,7 @@
 ---
 title: '조인 데이터: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 조인 데이터 조인 모듈을 사용 하 여 데이터 집합을 병합 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 조인 데이터 조인 모듈을 사용 하 여 데이터 집합을 병합 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 06/01/2019
-ms.openlocfilehash: ec9de6975931219ae45543833421234c4d71e6af
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 587490284b2886764c137a01e0eb4b3c9c755d41
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693084"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495086"
 ---
 # <a name="join-data"></a>데이터 조인
 
-이 문서에서는 데이터베이스 스타일 조인 작업을 사용 하 여 두 데이터 집합을 병합 하는 Azure Machine Learning 서비스 시각적 인터페이스의 **데이터 조인** 모듈을 사용 하는 방법을 설명 합니다.  
+이 문서에서는 데이터베이스 스타일 조인 작업을 사용 하 여 두 데이터 집합을 병합 하는 Azure Machine Learning 디자이너 (미리 보기)의 **데이터 조인** 모듈을 사용 하는 방법을 설명 합니다.  
 
 ## <a name="how-to-configure-join-data"></a>조인 데이터를 구성 하는 방법
 
@@ -64,8 +64,8 @@ ms.locfileid: "72693084"
 
 1. 파이프라인을 실행 하거나 데이터 조인 모듈을 선택 하 고 선택 된 **실행** 을 선택 하 여 조인을 수행 합니다.
 
-1. 결과를 보려면 **데이터 조인**  > **결과 데이터 집합** 을 마우스 오른쪽 단추로 클릭  > **시각화**를 클릭 합니다.
+1. 결과를 보려면 **데이터 조인** > **결과 데이터 집합** 을 마우스 오른쪽 단추로 클릭 > **시각화**를 클릭 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

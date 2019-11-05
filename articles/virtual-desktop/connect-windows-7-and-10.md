@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/31/2019
 ms.author: helohr
-ms.openlocfilehash: 561dad566d7f1caaf609c8013fa075062e4471ea
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
-ms.translationtype: MT
+ms.openlocfilehash: 1d7f08dbaa9b91cd2dbac28daf5c17ea85d09985
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676736"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482215"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Windows Desktop 클라이언트와 연결
 
@@ -25,11 +25,11 @@ Windows 데스크톱 클라이언트를 사용 하 여 windows 7 또는 Windows 
 
 ## <a name="install-the-windows-desktop-client"></a>Windows 데스크톱 클라이언트 설치
 
-현재 다운로드할 수 있는 클라이언트는 다음과 같습니다.
+Windows 버전과 일치 하는 클라이언트를 선택 합니다.
 
 - [Windows 64 비트](https://go.microsoft.com/fwlink/?linkid=2068602)
-
-클라이언트를 더 많은 버전의 Windows에서 사용할 수 있게 되 면이 목록을 업데이트 합니다.
+- [Windows 32 비트 미리 보기](https://go.microsoft.com/fwlink/?linkid=2098960)
+- [Windows ARM64 Preview](https://go.microsoft.com/fwlink/?linkid=2098961)
 
 현재 사용자에 대해 관리자 권한이 필요 하지 않은 클라이언트를 설치 하거나 관리자가 클라이언트를 설치 하 고 구성 하 여 장치의 모든 사용자가 액세스할 수 있도록 할 수 있습니다.
 

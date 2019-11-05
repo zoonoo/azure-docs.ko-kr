@@ -1,26 +1,26 @@
 ---
 title: Storage Explorer를 사용하여 지식 저장소 보기
 titleSuffix: Azure Cognitive Search
-description: Azure Portal의 Storage Explorer를 사용하여 Azure Cognitive Search 지식 저장소를 살펴보고 분석합니다.
+description: Azure Portal의 Storage 탐색기을 사용 하 여 Azure Cognitive Search 기술 자료 저장소를 보고 분석 합니다.
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.service: cognitive-search
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cfa85e61059e27cd39a9701a835a725e16e5bc0a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9ba11b69a51a5bc563764a7e75189bed67cb2ac6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789969"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73484996"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Storage Explorer를 사용하여 지식 저장소 보기
 
 > [!Note]
-> 지식 저장소는 미리 보기로 있으므로 프로덕션 환경에서 사용하면 안 됩니다. 이 기능은 [Azure Cognitive Search REST API 버전 2019-05-06-Preview](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
+> 지식 저장소는 미리 보기로 있으므로 프로덕션 환경에서 사용하면 안 됩니다. 포털 및 [검색 REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 에서이 기능을 제공 합니다. 지금은 .NET SDK 지원이 없습니다.
 >
-이 문서에서는 Azure Portal의 Storage Explorer를 사용하여 지식 저장소에 연결하고 검색하는 방법을 알아봅니다. 이 연습에 사용되는 지식 저장소 샘플을 만들려면 [Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md)를 참조하세요.
+이 문서에서는 Azure Portal에서 Storage 탐색기를 사용 하 여 기술 자료 저장소에 연결 하 고 탐색 하는 방법을 설명 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -30,7 +30,7 @@ ms.locfileid: "72789969"
 
 ## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Storage Explorer에서 지식 저장소 보기, 편집 및 쿼리
 
-1. Azure Portal에서 지식 저장소를 만드는 데 사용한 스토리지 계정을 엽니다.
+1. Azure Portal에서 기술 자료 저장소를 만드는 데 사용한 [저장소 계정을 엽니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) .
 
 1. 스토리지 계정의 왼쪽 탐색 창에서 **Storage Explorer**를 클릭합니다.
 
@@ -38,15 +38,15 @@ ms.locfileid: "72789969"
 
 핵심 구 감정 점수, 위도 및 경도 위치 데이터 등을 비롯한 보강 데이터를 보려면 원하는 테이블을 선택합니다.
 
-   ![Storage Explorer에서 테이블 보기](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Storage Explorer에서 테이블 보기")
+   ![Storage 탐색기에서 테이블 보기](media/knowledge-store-view-storage-explorer/storage-explorer-tables.png "Storage 탐색기에서 테이블 보기")
 
 테이블 값에 대한 데이터 형식을 변경하거나 테이블의 개별 값을 변경하려면 **편집**을 클릭합니다. 한 테이블 행의 열에 대한 데이터 형식을 변경하면 모든 행에 적용됩니다.
 
-   ![Storage Explorer에서 테이블 편집](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Storage Explorer에서 테이블 편집")
+   ![Storage 탐색기의 테이블 편집](media/knowledge-store-view-storage-explorer/storage-explorer-edit-table.png "Storage 탐색기의 테이블 편집")
 
 쿼리를 실행하려면 명령 모음에서 **쿼리**를 클릭하고 조건을 입력합니다.  
 
-   ![Storage Explorer의 쿼리 테이블](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Storage Explorer의 쿼리 테이블")
+   ![Storage 탐색기의 쿼리 테이블](media/knowledge-store-view-storage-explorer/storage-explorer-query-table.png "Storage 탐색기의 쿼리 테이블")
 
 ## <a name="clean-up"></a>정리
 
@@ -58,12 +58,8 @@ ms.locfileid: "72789969"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 지식 저장소를 Power BI에 연결하는 방법을 알아보려면 다음 문서를 참조하세요.
+자세한 분석을 위해이 기술 자료 저장소를 Power BI에 연결 하거나 REST API 및 Postman을 사용 하 여 다른 기술 자료 저장소를 만들어 코드로 이동 합니다.
 
 > [!div class="nextstepaction"]
-> [Power BI와 연결](knowledge-store-connect-power-bi.md)
-
-REST API 및 Postman을 사용하여 지식 저장소를 만드는 방법은 다음 문서를 참조하세요.  
-
-> [!div class="nextstepaction"]
-> [REST에서 지식 저장소 만들기](knowledge-store-howto.md)
+> [Power BI를 사용 하 여 연결](knowledge-store-connect-power-bi.md)
+> [REST에서 기술 자료 저장소 만들기](knowledge-store-howto.md)

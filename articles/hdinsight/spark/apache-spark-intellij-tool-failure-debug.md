@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ를 사용 하 여 spark 작업 디버깅 실패 (미리 보기) '
+title: IntelliJ Azure 도구 키트를 사용 하 여 Spark 작업 디버그 (미리 보기)-HDInsight
 description: 응용 프로그램 디버깅을 위한 Azure Toolkit for IntelliJ의 HDInsight 도구 사용 지침
 keywords: IntelliJ 원격으로 디버그, IntelliJ 원격 디버깅, SSH, IntelliJ, HDInsight, IntelliJ 디버그, 디버깅
 author: hrasheed-msft
@@ -9,22 +9,22 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 0275cd6ff83fd5fdcc75c8b88602e8943f9504dd
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1a0a6cf5a26854539dc4bbb0ae0254bbf08dad1f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266175"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494591"
 ---
 # <a name="failure-spark-job-debugging-with-azure-toolkit-for-intellij-preview"></a>Azure Toolkit for IntelliJ를 사용 하 여 spark 작업 디버깅 실패 (미리 보기)
 
 이 문서에서는 [Azure Toolkit for IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij?view=azure-java-stable) 의 HDInsight 도구를 사용 하 여 **Spark 오류 디버그** 응용 프로그램을 실행 하는 방법에 대 한 단계별 지침을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * [Oracle Java Development 키트](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). 이 자습서에서는 Java 버전 8.0.202를 사용합니다.
   
-* IntelliJ IDEA. 이 문서에서는 [IntelliJ IDEA 커뮤니티 버전 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows).
+* IntelliJ IDEA. 이 문서에서는 [INTELLIJ 아이디어 커뮤니티 버전 2019.1.3](https://www.jetbrains.com/idea/download/#section=windows)을 사용 합니다.
   
 * Azure Toolkit for IntelliJ. [Azure Toolkit for IntelliJ 설치](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-installation?view=azure-java-stable)를 참조하세요.
 
@@ -56,7 +56,7 @@ ms.locfileid: "71266175"
 
    c. **Spark 버전** 드롭다운 목록에서 **Spark 2.3.2 (Scala 2.11.8)** 를 선택 합니다.
 
-   d. **마침**을 선택합니다.
+   ㄹ. **마침**을 선택합니다.
 
 3. **src** > **main** > **scala**를 선택하여 프로젝트에서 코드를 엽니다. 이 예에서는 **AgeMean_Div ()** 스크립트를 사용 합니다.
 
@@ -72,7 +72,7 @@ Spark Scala/Java 응용 프로그램을 만든 후 다음 단계를 수행 하 �
 
    ![Intellij 새 구성 추가](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-01.png)
 
-3. **클러스터에서 원격으로 실행** 탭으로 전환합니다. **이름**, **Spark 클러스터** 및 **주 클래스 이름**에 정보를 입력합니다. 이 도구는 **실행기**를 사용하여 디버그를 지원합니다. **NumExectors**기본값은 5이 고 3 보다 큰 값을 설정 하지 않는 것이 좋습니다. 실행 시간을 줄이기 위해 **작업 구성** 에 **yarn** 를 추가 하 고 값을 1로 설정할 수 있습니다. **확인** 단추를 클릭 하 여 구성을 저장 합니다.
+3. **클러스터에서 원격으로 실행** 탭으로 전환 합니다. **이름**, **Spark 클러스터**및 **주 클래스 이름**에 대 한 정보를 입력 합니다. 이 도구는 **실행기**를 사용하여 디버그를 지원합니다. **NumExectors**기본값은 5이 고 3 보다 큰 값을 설정 하지 않는 것이 좋습니다. 실행 시간을 줄이기 위해 **작업 구성** 에 **yarn** 를 추가 하 고 값을 1로 설정할 수 있습니다. **확인** 단추를 클릭 하 여 구성을 저장 합니다.
 
    ![Intellij 디버그 구성 새로 실행](./media/apache-spark-intellij-tool-failure-debug/hdinsight-create-new-configuraion-002.png)
 
@@ -90,7 +90,7 @@ Spark Scala/Java 응용 프로그램을 만든 후 다음 단계를 수행 하 �
 
 작업 제출에 실패 하는 경우 추가 디버깅을 위해 실패 한 작업 프로필을 로컬 컴퓨터에 다운로드할 수 있습니다.
 
-1. **Microsoft Azure Storage 탐색기**를 열고 실패 한 작업에 대 한 클러스터의 HDInsight 계정을 찾은 다음 해당 위치에서 실패 한 작업 리소스를 다운로드 합니다 **.\\\hdp\spark2-events-오류\\ 로컬\<폴더에 > 응용 프로그램 ID** 입니다. **작업** 창에 다운로드 진행률이 표시 됩니다.
+1. **Microsoft Azure Storage 탐색기**를 열고 실패 한 작업에 대 한 클러스터의 HDInsight 계정을 찾은 다음 해당 위치에서 실패 한 작업 리소스를 다운로드 합니다. **\hdp\spark2-events\\. spark-오류\\\<로컬 폴더에 > 응용 프로그램 ID** 입니다. **작업** 창에 다운로드 진행률이 표시 됩니다.
 
    ![Azure Storage 탐색기 다운로드 실패](./media/apache-spark-intellij-tool-failure-debug/hdinsight-find-spark-file-001.png)
 
@@ -116,18 +116,18 @@ Spark Scala/Java 응용 프로그램을 만든 후 다음 단계를 수행 하 �
 
 ## <a name="seealso"></a>다음 단계
 
-* [개요: Apache Spark 응용 프로그램 디버그](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
+* [개요: 응용 프로그램 디버그 Apache Spark](apache-spark-intellij-tool-debug-remotely-through-ssh.md)
 
 ### <a name="demo"></a>데모
 
-* Scala 프로젝트(비디오) 작성: [Apache Spark Scala 애플리케이션 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Scala 프로젝트 만들기(비디오): [Apache Spark Scala 애플리케이션 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
 * 원격 디버그(비디오): [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터에서 원격으로 Apache Spark 애플리케이션 디버그](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>시나리오
 
-* [BI와 Apache Spark: BI 도구를 사용 하 여 HDInsight에서 Spark를 사용 하 여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Apache Spark 및 Machine Learning: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 및 Machine Learning: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
+* [BI를 사용 하 여 Apache Spark: BI 도구와 함께 HDInsight에서 Spark를 사용 하 여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행

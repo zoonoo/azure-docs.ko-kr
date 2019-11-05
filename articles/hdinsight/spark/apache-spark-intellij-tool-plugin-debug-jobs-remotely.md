@@ -1,5 +1,5 @@
 ---
-title: 'Azure Toolkit for IntelliJ: HDInsight Spark에서 원격으로 애플리케이션 디버그 '
+title: 'Azure 도구 키트: 원격으로 Apache Spark 앱 디버그-Azure HDInsight'
 description: Azure Toolkit for IntelliJ에서 HDInsight 도구를 사용 하 여 VPN을 통해 HDInsight 클러스터에서 실행 되는 Spark 응용 프로그램을 원격으로 디버그 하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: a558c0e767610f1fefdf29ca461a476c7bfcee59
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ac8ef620948048ae26ef6f408b4bc86b2a2bfbdc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327333"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494579"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure Toolkit for IntelliJ를 사용하여 VPN을 통해 HDInsight에서 원격으로 Apache Spark 애플리케이션 디버그
 
@@ -27,7 +27,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 1. IntelliJ IDEA에서 Scala 애플리케이션을 만든 다음, 원격 디버깅을 위해 구성합니다.
 1. 애플리케이션을 실행하고 디버그합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * **Azure 구독**. 자세한 내용은 [Azure 평가판 얻기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 * **HDInsight의 Apache Spark 클러스터**. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
@@ -37,7 +37,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 * **IntelliJ IDEA에서 Azure 구독에 로그인**. [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터용 Apache Spark 애플리케이션 만들기](apache-spark-intellij-tool-plugin.md)의 지침을 따릅니다.
 * **예외 해결 방법**. Windows 컴퓨터에서 원격 디버깅을 위해 로컬 Spark Scala 애플리케이션을 실행하는 동안 예외가 발생할 수 있습니다. 이 예외는 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에 설명되어 있으며 Windows에서 누락된 WinUtils.exe 파일 때문에 발생합니다. 이 오류를 해결하려면 [여기서 실행 파일을 다운로드](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)하여 **C:\WinUtils\bin** 등의 위치에 저장해야 합니다. **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C\WinUtils**로 설정합니다.
 
-## <a name="step-1-create-an-azure-virtual-network"></a>1단계: Azure 가상 네트워크 만들기
+## <a name="step-1-create-an-azure-virtual-network"></a>1단계: Azure Virtual Network 만들기
 
 아래 링크의 지침을 따라 Azure Virtual Network를 만든 다음 데스크톱 컴퓨터와 가상 네트워크 간의 연결을 확인합니다.
 
@@ -49,7 +49,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
 또한 만든 Azure Virtual Network의 일부인 Azure HDInsight에서 Apache Spark 클러스터도 만드는 것이 좋습니다. [HDInsight에서 Linux 기반 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)에서 제공되는 정보를 사용합니다. 선택적 구성의 일부로 이전 단계에서 만든 Azure Virtual Network를 선택합니다.
 
-## <a name="step-3-verify-the-connectivity-between-the-cluster-head-node-and-your-desktop"></a>3단계: 클러스터 헤드 노드 및 데스크톱 간의 연결을 확인합니다.
+## <a name="step-3-verify-the-connectivity-between-the-cluster-head-node-and-your-desktop"></a>3단계: 클러스터 헤드 노드 및 데스크톱 간의 연결 확인
 
 1. 헤드 노드의 IP 주소를 가져옵니다. 클러스터에 대한 Ambari UI를 엽니다. 클러스터 블레이드에서 **대시보드**를 선택합니다.
 
@@ -107,7 +107,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     - **프로젝트 SDK** 드롭다운 목록에서 Spark 2.x 클러스터에 대해 **Java 1.8**을 선택하거나 Spark 1.x 클러스터에 대해 **Java 1.7**을 선택합니다.
 
-    - **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark2.x**를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
+    - **Spark 버전** 드롭다운 목록에서 Scala 프로젝트 생성 마법사는 Spark SDK 및 Scala SDK에 대한 적절한 버전을 통합합니다. Spark 클러스터 2.0 이하 버전을 사용하는 경우 **Spark 1.x**를 선택합니다. 그렇지 않은 경우 **Spark 2.x**를 선택합니다. 이 예제에서는 **Spark 2.0.2(Scala 2.11.8)** 를 사용합니다.
   
    ![프로젝트 SDK 및 Spark 버전 선택](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-scala-project-details.png)
   
@@ -187,7 +187,7 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
     ![IntelliJ 아이디어 Create new Scala 클래스](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
-1. `MyClusterAppMain.scala` 파일에서 다음 코드를 붙여 넣습니다. 이 코드는 Spark 컨텍스트를 만들고 `SparkSample` 개체에서 `executeJob` 메서드를 엽니다.
+1. `MyClusterAppMain.scala` 파일에서 다음 코드를 붙여 넣습니다. 이 코드는 Spark 컨텍스트를 만들고 `executeJob` 개체에서 `SparkSample` 메서드를 엽니다.
 
     ```scala
     import org.apache.spark.{SparkConf, SparkContext}
@@ -301,18 +301,18 @@ SSH를 통해 원격으로 [Apache Spark](https://spark.apache.org/) 애플리�
 
 ## <a name="seealso"></a>다음 단계
 
-* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
 
 ### <a name="demo"></a>데모
 
-* Scala 프로젝트(비디오) 작성: [Apache Spark Scala 애플리케이션 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
+* Scala 프로젝트 만들기(비디오): [Apache Spark Scala 애플리케이션 만들기](https://channel9.msdn.com/Series/AzureDataLake/Create-Spark-Applications-with-the-Azure-Toolkit-for-IntelliJ)
 * 원격 디버그(비디오): [Azure Toolkit for IntelliJ를 사용하여 HDInsight 클러스터에서 원격으로 Apache Spark 애플리케이션 디버그](https://channel9.msdn.com/Series/AzureDataLake/Debug-HDInsight-Spark-Applications-with-Azure-Toolkit-for-IntelliJ)
 
 ### <a name="scenarios"></a>시나리오
 
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Apache Spark 및 Machine Learning: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
-* [Apache Spark 및 Machine Learning: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 식품 검사 결과 예측](apache-spark-machine-learning-mllib-ipython.md)
 * [HDInsight의 Apache Spark를 사용한 웹 사이트 로그 분석](../hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
 ### <a name="create-and-run-applications"></a>애플리케이션 만들기 및 실행

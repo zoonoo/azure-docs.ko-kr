@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 2a61a2ba74ccdaa69b26cae65dd4f74a7b837ccf
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
-ms.translationtype: MT
+ms.openlocfilehash: 96c346db74c1e6c43c3501b657621d09e019309c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72927442"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469209"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x에 대한 host.json 참조  
 
@@ -71,6 +71,9 @@ ms.locfileid: "72927442"
             }
         }
     },
+    "managedDependency": {
+        "enabled": true
+    },
     "singleton": {
       "lockPeriod": "00:00:15",
       "listenerLockPeriod": "00:01:00",
@@ -78,10 +81,7 @@ ms.locfileid: "72927442"
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ],
-    "managedDependency": {
-        "enabled": true
-    }
+    "watchDirectories": [ "Shared", "Test" ]
 }
 ```
 
@@ -111,7 +111,7 @@ ms.locfileid: "72927442"
 > [!NOTE]
 > 로그 샘플링으로 인해 Application Insights 모니터 블레이드에 일부 실행이 표시되지 않을 수 있습니다.
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |isEnabled|true|샘플링을 사용 여부를 설정합니다.| 
 |maxTelemetryItemsPerSecond|20|샘플링이 시작되는 임계값입니다.| 
@@ -135,7 +135,7 @@ ms.locfileid: "72927442"
 
 [http](#http), [eventHub](#eventhub) 등의 모든 바인딩 관련 설정이 포함된 개체를 반환하는 속성입니다.
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>functions
 
 작업 호스트가 실행하는 함수 목록입니다. 빈 배열은 모든 함수를 실행한다는 의미입니다. [로컬로 실행](functions-run-local.md)할 때만 사용할 수 있습니다. Azure의 함수 앱에서는 이 설정을 사용하는 대신 [Azure Functions에서 함수를 사용하지 않도록 설정하는 방법](disable-function.md)의 단계를 수행하여 특정 함수를 사용하지 않도록 설정해야 합니다.
 
@@ -148,7 +148,7 @@ ms.locfileid: "72927442"
 ## <a name="functiontimeout"></a>functionTimeout
 
 모든 함수에 대한 시간 제한 기간을 나타냅니다. Timespan 문자열 형식을 따릅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다.  
-전용 (App Service) 계획에서는 전체 제한이 없으며 기본값은 30 분입니다. `-1` 값은 바인딩되지 않은 실행을 나타냅니다.
+전용 (App Service) 계획에서는 전체 제한이 없으며 기본값은 30 분입니다. 값 `-1`은 무제한 실행을 나타냅니다.
 
 ```json
 {
@@ -172,7 +172,7 @@ ms.locfileid: "72927442"
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -220,7 +220,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
 |logLevel|n/a|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x는 로그 범주 필터링용 ASP.NET Core 레이아웃을 따릅니다. 따라서 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
@@ -243,9 +243,21 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |isEnabled|false|콘솔 로깅을 사용하거나 사용하지 않도록 설정합니다.| 
+
+## <a name="manageddependency"></a>managedDependency
+
+관리 되는 종속성은 현재 PowerShell 기반 함수 에서만 지원 되는 기능입니다. 이를 통해 서비스에서 종속성을 자동으로 관리할 수 있습니다. `enabled` 속성이 `true`로 설정 된 경우 `requirements.psd1` 파일이 처리 됩니다. 부 버전이 릴리스되면 종속성이 업데이트 됩니다. 자세한 내용은 PowerShell 문서의 [관리 되는 종속성](functions-reference-powershell.md#dependency-management) 을 참조 하세요.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
+}
+```
 
 ## <a name="queues"></a>queues
 
@@ -275,7 +287,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 
@@ -294,18 +306,6 @@ v2 런타임을 대상으로 하는 함수 앱에서는 버전 문자열 `"versi
 ```json
 {
     "watchDirectories": [ "Shared" ]
-}
-```
-
-## <a name="manageddependency"></a>managedDependency
-
-관리 되는 종속성은 현재 PowerShell 기반 함수 에서만 지원 되는 미리 보기 기능입니다. 이를 통해 서비스에서 종속성을 자동으로 관리할 수 있습니다. Enabled 속성을 true로 설정 하면 [psd1](functions-reference-powershell.md#dependency-management) 파일이 처리 됩니다. 부 버전이 릴리스되면 종속성이 업데이트 됩니다.
-
-```json
-{
-    "managedDependency": {
-        "enabled": true
-    }
 }
 ```
 

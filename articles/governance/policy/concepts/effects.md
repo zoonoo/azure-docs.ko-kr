@@ -3,15 +3,15 @@ title: 효과 작동 방식 이해
 description: Azure Policy 정의에는 규정 준수를 관리 하 고 보고 하는 방법을 결정 하는 다양 한 효과가 있습니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/17/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 4f657cd8c804a597220a7e74d1fce0401c4cd9ae
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: c448ab889ad263f4f8b6c9a59048551ca761d69a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176326"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464042"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -25,6 +25,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 - [차단할](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [사용 안 함](#disabled)
+- [EnforceOPAConstraint](#enforceopaconstraint) (미리 보기)
 - [EnforceRegoPolicy](#enforceregopolicy) (미리 보기)
 - [변경](#modify)
 
@@ -39,7 +40,7 @@ Azure Resource Manager를 통해 리소스를 만들거나 업데이트 하는 �
 
 리소스 공급 기업이 성공 코드를 반환하면 **AuditIfNotExists** 및 **DeployIfNotExists**가 추가 규정 준수 로깅 또는 작업이 필요한지 확인하기 위해 평가합니다.
 
-현재 **EnforceRegoPolicy** 효과를 평가 하는 순서는 없습니다.
+현재 **EnforceOPAConstraint** 또는 **EnforceRegoPolicy** 효과를 평가 하는 순서는 없습니다.
 
 ## <a name="disabled"></a>사용 안 함
 
@@ -160,7 +161,7 @@ Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를
 
 **Operation** 속성에는 다음과 같은 옵션이 있습니다.
 
-|작업(Operation) |설명 |
+|작업 |설명 |
 |-|-|
 |addOrReplace |태그가 다른 값으로 이미 존재 하는 경우에도 정의 된 태그 및 값을 리소스에 추가 합니다. |
 |추가 |리소스에 정의 된 태그 및 값을 추가 합니다. |
@@ -329,7 +330,7 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 AuditIfNotExists와 마찬가지로, DeployIfNotExists 정책 정의는 조건이 충족 될 때 템플릿 배포를 실행 합니다.
 
 > [!NOTE]
-> **deployIfNotExists**에서는 [중첩 템플릿](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template)은 지원되지만 [연결된 템플릿](../../../azure-resource-manager/resource-group-linked-templates.md)은 현재 지원되지 않습니다.
+> [deployIfNotExists](../../../azure-resource-manager/resource-group-linked-templates.md#nested-template)에서는 **중첩 템플릿**은 지원되지만 [연결된 템플릿](../../../azure-resource-manager/resource-group-linked-templates.md)은 현재 지원되지 않습니다.
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 평가
 
@@ -431,12 +432,68 @@ DeployIfNotExists 효과의 **details** 속성에는 일치 시킬 관련 리소
 }
 ```
 
-## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+## <a name="enforceopaconstraint"></a>EnforceOPAConstraint
 
-이 효과는 `Microsoft.ContainerService.Data`의 정책 정의 *모드* 에서 사용 됩니다. [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) 로 정의 된 허용 제어 규칙을 전달 하 여 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 [정책 에이전트](https://www.openpolicyagent.org/) (opa)를 여는 데 사용 됩니다.
+이 효과는 `Microsoft.Kubernetes.Data`의 정책 정의 *모드* 와 함께 사용 됩니다. Azure에서 자체 관리 되는 Kubernetes 클러스터에 대해 opa ( [정책 에이전트](https://www.openpolicyagent.org/) )를 열기 위해 [Opa 제약 조건 프레임 워크](https://github.com/open-policy-agent/frameworks/tree/master/constraint#opa-constraint-framework) 를 사용 하 여 정의한 게이트 키퍼 v3 허용 제어 규칙을 전달 하는 데 사용 됩니다.
 
 > [!NOTE]
-> [Kubernetes에 대 한 Azure Policy](rego-for-aks.md) 는 공개 미리 보기로 제공 되며 기본 제공 정책 정의만 지원 합니다.
+> [AKS 엔진에 대 한 Azure Policy](aks-engine.md) 는 공개 미리 보기로 제공 되며 기본 제공 정책 정의만 지원 합니다.
+
+### <a name="enforceopaconstraint-evaluation"></a>EnforceOPAConstraint 평가
+
+개방 된 정책 에이전트 허용 컨트롤러는 클러스터의 모든 새 요청을 실시간으로 평가 합니다.
+5 분 마다 클러스터의 전체 검색이 완료 되 고 결과가 Azure Policy 보고 됩니다.
+
+### <a name="enforceopaconstraint-properties"></a>EnforceOPAConstraint 속성
+
+EnforceOPAConstraint 효과의 **details** 속성에는 게이트 키퍼 v3 허용 제어 규칙을 설명 하는 하위 속성이 있습니다.
+
+- **constraintTemplate** [필수]
+  - 새 제약 조건을 정의 하는 CRD (제약 조건 템플릿 CustomResourceDefinition)입니다. 템플릿은 Azure Policy의 **값** 을 통해 전달 되는 rego 논리, 제약 조건 스키마 및 제약 조건 매개 변수를 정의 합니다.
+- **제약 조건** [필수]
+  - 제약 조건 템플릿의 CRD 구현입니다. **값** 을 통해 전달 되는 매개 변수를 `{{ .Values.<valuename> }}`으로 사용 합니다. 아래 예제에서는 `{{ .Values.cpuLimit }}` 하 고 `{{ .Values.memoryLimit }}`합니다.
+- **값** [선택 사항]
+  - 제약 조건에 전달할 매개 변수 및 값을 정의 합니다. 각 값은 제약 조건 템플릿 CRD에 있어야 합니다.
+
+### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 예제
+
+예: AKS 엔진에서 컨테이너 CPU 및 메모리 리소스 제한을 설정 하는 게이트 키퍼 v3 허용 제어 규칙
+
+```json
+"if": {
+    "allOf": [
+        {
+            "field": "type",
+            "in": [
+                "Microsoft.ContainerService/managedClusters",
+                "AKS Engine"
+            ]
+        },
+        {
+            "field": "location",
+            "equals": "westus2"
+        }
+    ]
+},
+"then": {
+    "effect": "enforceOPAConstraint",
+    "details": {
+        "constraintTemplate": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/template.yaml",
+        "constraint": "https://raw.githubusercontent.com/Azure/azure-policy/master/built-in-references/Kubernetes/container-resource-limits/constraint.yaml",
+        "values": {
+            "cpuLimit": "[parameters('cpuLimit')]",
+            "memoryLimit": "[parameters('memoryLimit')]"
+        }
+    }
+}
+```
+
+## <a name="enforceregopolicy"></a>EnforceRegoPolicy
+
+이 효과는 `Microsoft.ContainerService.Data`의 정책 정의 *모드* 와 함께 사용 됩니다. [Rego](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego) 로 정의 된 게이트 키퍼 v2 허용 제어 규칙을 전달 하 여 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 [정책 에이전트](https://www.openpolicyagent.org/) (opa)를 여는 데 사용 됩니다.
+
+> [!NOTE]
+> [AKS에 대 한 Azure Policy](rego-for-aks.md) 는 제한 된 미리 보기로 제공 되며 기본 제공 정책 정의만 지원 합니다.
 
 ### <a name="enforceregopolicy-evaluation"></a>EnforceRegoPolicy 평가
 
@@ -445,7 +502,7 @@ DeployIfNotExists 효과의 **details** 속성에는 일치 시킬 관련 리소
 
 ### <a name="enforceregopolicy-properties"></a>EnforceRegoPolicy 속성
 
-EnforceRegoPolicy 효과의 **details** 속성에는 rego 허용 제어 규칙을 설명 하는 하위 속성이 있습니다.
+EnforceRegoPolicy 효과의 **details** 속성에는 게이트 키퍼 허용 제어 규칙을 설명 하는 하위 속성이 있습니다.
 
 - **Policyid** [필수]
   - Rego 허용 제어 규칙에 매개 변수로 전달 되는 고유 이름입니다.
@@ -456,7 +513,7 @@ EnforceRegoPolicy 효과의 **details** 속성에는 rego 허용 제어 규칙�
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy 예제
 
-예: AKS에서 지정 된 컨테이너 이미지만 허용 하는 Rego 허용 제어 규칙
+예: AKS에서 지정 된 컨테이너 이미지만 허용 하는 게이트 키퍼 허용 제어 규칙
 
 ```json
 "if": {
@@ -485,7 +542,7 @@ EnforceRegoPolicy 효과의 **details** 속성에는 rego 허용 제어 규칙�
 
 ## <a name="layering-policies"></a>레이어링 정책
 
-리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 다음은 그 예입니다.
+리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 예:
 
 - 정책 1
   - 리소스 위치를 'westus'로 제한

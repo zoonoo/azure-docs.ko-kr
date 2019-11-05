@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: efc61f7dc8e9d2caa53c4cbd7d932af9e1a206d1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fdb558267d823657f6a735d8b96efde33cdb8383
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793534"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466525"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>PowerShell을 사용 하 여 Azure Cognitive Search 서비스 관리
 > [!div class="op_single_selector"]
-> * [Portal](search-manage.md)
+> * [포털](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
@@ -40,7 +40,7 @@ PowerShell을 사용 하 여 서비스의 이름, 지역 또는 계층을 변경
 
 PowerShell 또는 다른 API를 통해 지원 되지 않는 다른 작업 (포털 전용)은 다음과 같습니다.
 + [AI 보강 인덱싱을](cognitive-search-concept-intro.md)위한 [인식 서비스 리소스를 연결](cognitive-search-attach-cognitive-services.md) 합니다. 인지 서비스는 구독 또는 서비스가 아닌 기술에 연결 됩니다.
-+ Azure Search 모니터링을 위한 [추가 모니터링 솔루션](search-monitor-usage.md#add-on-monitoring-solutions) 입니다.
++ Azure Cognitive Search 모니터링을 위한 [추가 모니터링 솔루션](search-monitor-usage.md#add-on-monitoring-solutions) 입니다.
 
 <a name="check-versions-and-load"></a>
 
@@ -201,7 +201,7 @@ Tags
 
 짐작할 수 있듯이 클라이언트 코드를 업데이트 하지 않고 키를 다시 생성 하면 이전 키를 사용 하는 요청이 실패 합니다. 모든 새 키를 다시 생성 해도 서비스에서 영구적으로 잠기지 않으며 포털을 통해 서비스에 계속 액세스할 수 있습니다. 기본 및 보조 키를 다시 생성 한 후 새 키를 사용 하도록 클라이언트 코드를 업데이트할 수 있으며 그에 따라 작업이 다시 시작 됩니다.
 
-API 키에 대 한 값은 서비스에 의해 생성 됩니다. 사용할 Azure Cognitive Search에 대 한 사용자 지정 키를 제공할 수 없습니다. 마찬가지로, 관리 API 키에 대 한 사용자 정의 이름이 없습니다. 키에 대 한 참조는 `primary` 또는 `secondary` 인 고정 문자열입니다. 
+API 키에 대 한 값은 서비스에 의해 생성 됩니다. 사용할 Azure Cognitive Search에 대 한 사용자 지정 키를 제공할 수 없습니다. 마찬가지로, 관리 API 키에 대 한 사용자 정의 이름이 없습니다. 키에 대 한 참조는 `primary` 또는 `secondary`고정 문자열입니다. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary

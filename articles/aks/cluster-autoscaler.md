@@ -7,40 +7,22 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 9d7a404b767d3975cefd55e1db8487fbb45042e2
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f27b910910ca21aa36582506e6c7b2d1d39da88a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174212"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472869"
 ---
-# <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes 서비스 (AKS)에서 응용 프로그램 요구 사항을 충족 하도록 클러스터를 자동으로 확장 합니다.
+# <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
 AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞추려면 워크로드를 실행하는 노드 수를 조정해야 할 수 있습니다. 클러스터 자동 크기 조정기 구성 요소는 리소스 제약 조건으로 인해 예약할 수 없는 클러스터의 Pod를 확인할 수 있습니다. 문제가 감지 되 면 응용 프로그램 수요를 충족 하기 위해 노드 풀의 노드 수가 늘어납니다. 또한 실행 중인 Pod가 부족한지 노드를 주기적으로 확인하고 필요에 따라 노드 수가 감소합니다. AKS 클러스터에서 노드 수를 자동으로 강화하거나 규모 축소하는 이 기능을 통해 효율적이고 비용 효과적인 클러스터를 실행할 수 있습니다.
 
-이 문서에서는 AKS 클러스터에서 클러스터 자동 크기 조정기를 사용하도록 설정하고 관리하는 방법을 보여 줍니다. 클러스터 autoscaler는 AKS 클러스터의 미리 보기 에서만 테스트 해야 합니다.
+이 문서에서는 AKS 클러스터에서 클러스터 자동 크기 조정기를 사용하도록 설정하고 관리하는 방법을 보여 줍니다. 
 
-> [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 이러한 기능은 프로덕션 용도로는 사용할 수 없습니다. 추가 정보 다음 지원 문서를 참조 하세요.
->
-> * [AKS 지원 정책][aks-support-policies]
-> * [Azure 지원 FAQ][aks-faq]
+## <a name="before-you-begin"></a>시작하기 전에
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
-
-이 문서에서는 Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
-
-### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
-
-클러스터 autoscaler를 사용 하려면 *aks-preview* CLI 확장 버전 0.4.12 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
+이 문서에서는 Azure CLI 버전 2.0.76 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -90,21 +72,19 @@ az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --node-count 1 \
-  --enable-vmss \
+  --vm-set-type VirtualMachineScaleSets \
+  --load-balancer-sku standard \
   --enable-cluster-autoscaler \
   --min-count 1 \
   --max-count 3
 ```
-
-> [!NOTE]
-> `az aks create`을 실행할 때 *--kubernetes* 를 지정 하는 경우 해당 버전은 [앞의 이전](#before-you-begin) 섹션에서 설명한 대로 필요한 최소 버전 번호를 충족 하거나 초과 해야 합니다.
 
 클러스터를 만들고 클러스터 자동 크기 조정기 설정을 구성하는 데 몇 분 정도 걸립니다.
 
 ## <a name="change-the-cluster-autoscaler-settings"></a>클러스터 자동 크기 조정기 설정 변경
 
 > [!IMPORTANT]
-> 구독에서 *여러 에이전트 풀* 기능을 사용 하도록 설정한 경우 [여러 에이전트 풀을 사용 하 여 자동 크기 조정 섹션](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)으로 건너뜁니다. 여러 에이전트 풀을 사용 하도록 설정한 클러스터는 `az aks nodepool` 명령 집합을 사용 하 여-1 @no__t 대신 노드 풀 특정 속성을 변경 해야 합니다. 아래 지침에서는 여러 노드 풀을 사용 하도록 설정 하지 않은 것으로 가정 합니다. 사용 하도록 설정 되어 있는지 확인 하려면 `az feature  list -o table`을 실행 하 고 `Microsoft.ContainerService/multiagentpoolpreview`을 찾습니다.
+> AKS 클러스터에 여러 노드 풀이 있는 경우 [여러 에이전트 풀을 사용 하 여 자동 크기 조정 섹션](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)으로 건너뜁니다. 여러 에이전트 풀을 포함 하는 클러스터는 `az aks nodepool` 명령 집합을 사용 하 여 `az aks`대신 노드 풀 특정 속성을 변경 해야 합니다.
 
 이전 단계에서 AKS 클러스터를 만들거나 기존 노드 풀을 업데이트 하려면 클러스터 autoscaler 최소 노드 수를 *1*로 설정 하 고 최대 노드 수를 *3*으로 설정 했습니다. 애플리케이션 수요가 변경되면 클러스터 자동 크기 조정기의 노드 수를 조정해야 할 수 있습니다.
 
@@ -122,7 +102,7 @@ az aks update \
 위의 예에서는 *myAKSCluster* 의 단일 노드 풀에 있는 클러스터 autoscaler를 최소 *1* 개에서 최대 *5* 개의 노드로 업데이트 합니다.
 
 > [!NOTE]
-> 미리 보기 중에는 노드 풀에 대해 현재 설정 된 것 보다 더 높은 최소 노드 수를 설정할 수 없습니다. 예를 들어 현재 최소 개수가 *1*로 설정되어 있으면 최소 개수를 *3*으로 업데이트할 수 없습니다.
+> 현재 노드 풀에 대해 설정 된 것 보다 높은 최소 노드 수를 설정할 수 없습니다. 예를 들어 현재 최소 개수가 *1*로 설정되어 있으면 최소 개수를 *3*으로 업데이트할 수 없습니다.
 
 애플리케이션 및 서비스의 성능을 모니터링하고 클러스터 자동 크기 조정기 노드 수를 필요한 성능과 일치하도록 조정합니다.
 
@@ -141,20 +121,20 @@ az aks update \
 
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>사용 하지 않도록 설정 된 클러스터 autoscaler 다시 사용
 
-기존 클러스터에서 클러스터 autoscaler를 다시 사용 하도록 설정 하려는 경우 [az aks update][az-aks-update] 명령을 사용 하 여 *--enable-autoscaler* 매개 변수를 지정 하 여 다시 사용 하도록 설정할 수 있습니다.
+기존 클러스터에서 클러스터 autoscaler를 다시 사용 하도록 설정 하려는 경우 [az aks update][az-aks-update] 명령을 사용 하 여 *--enable-autoscaler*, *--min-count*및 *--max-count* 매개 변수를 지정 하 여 다시 사용 하도록 설정할 수 있습니다.
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>여러 노드 풀을 사용할 수 있는 클러스터 autoscaler 사용
 
-클러스터 autoscaler는 [여러 노드 풀 미리 보기 기능과](use-multiple-node-pools.md) 함께 사용할 수 있습니다. 이 문서에 따라 여러 노드 풀을 사용 하도록 설정 하 고 기존 클러스터에 노드 풀을 더 추가 하는 방법을 알아봅니다. 두 기능을 함께 사용 하는 경우 클러스터의 각 개별 노드 풀에서 클러스터 autoscaler를 사용 하도록 설정 하 고 각각에 고유한 자동 크기 조정 규칙을 전달할 수 있습니다.
+클러스터 autoscaler는 [여러 노드 풀](use-multiple-node-pools.md) 을 사용 하도록 설정 된 상태에서 함께 사용할 수 있습니다. 이 문서에 따라 여러 노드 풀을 사용 하도록 설정 하 고 기존 클러스터에 노드 풀을 더 추가 하는 방법을 알아봅니다. 두 기능을 함께 사용 하는 경우 클러스터의 각 개별 노드 풀에서 클러스터 autoscaler를 사용 하도록 설정 하 고 각각에 고유한 자동 크기 조정 규칙을 전달할 수 있습니다.
 
 아래 명령에서는이 문서의 앞부분에 있는 [초기 지침](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) 을 따르고 기존 노드 풀의 최대 개수를 *3* 에서 *5*로 업데이트 하려고 한다고 가정 합니다. [Az aks nodepool update][az-aks-nodepool-update] 명령을 사용 하 여 기존 노드 풀의 설정을 업데이트 합니다.
 
 ```azurecli-interactive
 az aks nodepool update \
   --resource-group myResourceGroup \
-  --cluster-name multipoolcluster \
-  --name mynodepool \
-  --enable-cluster-autoscaler \
+  --cluster-name myAKSCluster \
+  --name nodepool1 \
+  --update-cluster-autoscaler \
   --min-count 1 \
   --max-count 5
 ```
@@ -164,10 +144,12 @@ az aks nodepool update \
 ```azurecli-interactive
 az aks nodepool update \
   --resource-group myResourceGroup \
-  --cluster-name multipoolcluster \
-  --name mynodepool \
+  --cluster-name myAKSCluster \
+  --name nodepool1 \
   --disable-cluster-autoscaler
 ```
+
+기존 클러스터에서 클러스터 autoscaler를 다시 사용 하도록 설정 하려면 [az aks nodepool update][az-aks-nodepool-update] 명령을 사용 하 여 *--enable-autoscaler*, *--min-count*및 *--max-count* 매개 변수를 지정 하 여 다시 사용 하도록 설정할 수 있습니다. .
 
 ## <a name="next-steps"></a>다음 단계
 

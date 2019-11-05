@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18, seo-javascript-october2019
-ms.openlocfilehash: eb4478a435fbfc899055a60e13b318be771652f7
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 46ada91060aa095b7c041ff75abb6256f3d05853
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527615"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464686"
 ---
 # <a name="try-speech-services-for-free"></a>Speech Service 평가판 사용해 보기
 
@@ -69,7 +69,7 @@ Azure 계정이 만들어지면 다음 섹션의 단계에 따라 Speech 서비�
 
 Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추가하려면:
 
-1. Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. Microsoft 계정을 사용하여 [Azure 포털](https://portal.azure.com/) 에 로그인합니다.
 
 1. 포털의 왼쪽 위에서 **리소스 만들기**를 선택합니다.
 
@@ -123,5 +123,5 @@ Speech 서비스 리소스(체험 또는 유료 계층)를 Azure 계정에 추�
 10분 빠른 시작 중 하나를 수행하거나 SDK 샘플을 확인합니다.
 
 > [!div class="nextstepaction"]
-> [빠른 시작: C#에서 음성 인식](quickstart-csharp-dotnet-windows.md)
+> [빠른 시작: C#에서 음성 인식](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
 > [Speech SDK 샘플](speech-sdk.md#get-the-samples)

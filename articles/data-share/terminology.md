@@ -1,21 +1,21 @@
 ---
-title: Azure 데이터 공유 미리 보기 용어
-description: Azure 데이터 공유 미리 보기에서 사용 되는 리소스를 설명 하는 데 사용 되는 일반적인 용어에 대해 알아봅니다 (데이터 공급자, 데이터 소비자, 데이터 공유, 공유 구독, 스냅숏, 초대, 받는 사람).
+title: Azure Data Share 용어
+description: Azure 데이터 공유에서 사용 되는 리소스를 설명 하는 데 사용 되는 일반적인 용어에 대해 알아봅니다 (데이터 공급자, 데이터 소비자, 데이터 공유, 공유 구독, 스냅숏, 초대, 받는 사람).
+ms.service: data-share
 author: joannapea
 ms.author: joanpo
-ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 33532380d8f98df44029eeea998130d1da5fdafd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166284"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468547"
 ---
-# <a name="azure-data-share-preview-concepts"></a>Azure 데이터 공유 미리 보기 개념 
+# <a name="azure-data-share-concepts"></a>Azure 데이터 공유 개념 
 
-Azure 데이터 공유 미리 보기에는 데이터 공유와 관련 된 몇 가지 새로운 용어가 도입 되었습니다. 이 문서에서는 서비스 전체에서 사용할 수 있는 몇 가지 자주 사용 되는 용어에 대해 설명 합니다. 
+Azure 데이터 공유는 데이터 공유와 관련 된 몇 가지 새로운 용어를 소개 합니다. 이 문서에서는 서비스 전체에서 사용할 수 있는 몇 가지 자주 사용 되는 용어에 대해 설명 합니다. 
 
 ## <a name="data-provider"></a>데이터 공급자
 
@@ -35,7 +35,7 @@ Azure 데이터 공유 미리 보기에는 데이터 공유와 관련 된 몇 �
 
 데이터 소비자는 **받은** 공유로 이동 하 여 받은 공유의 상태를 확인 하 여 활성 공유 구독이 있는지 확인할 수 있습니다. 
 
-## <a name="snapshot"></a>스냅숏
+## <a name="snapshot"></a>스냅샷
 
 데이터 소비자가 데이터 공유 초대를 수락 하면 스냅숏을 만들 수 있습니다. 초대를 수락 하면 공유 된 데이터에 대 한 전체 스냅숏을 트리거할 수 있습니다. 스냅숏은 데이터 소비자가 스냅숏을 생성 한 시점의 데이터 복사본입니다. 
 
@@ -47,7 +47,7 @@ Azure 데이터 공유 미리 보기에는 데이터 공유와 관련 된 몇 �
 
 데이터 공급자가이 설정을 사용 하도록 설정 하면 되풀이 간격을 선택할 수 있습니다. 되풀이 간격은 매시간 또는 매일 일 수 있습니다. 
 
-데이터 소비자는 증분 업데이트를 받기 위해이 스냅숏 일정을 옵트인 (opt in) 할 수 있습니다. 여기에는 새 스냅숏을 처음 생성 한 이후 변경 된 데이터가 포함 됩니다. 
+데이터 소비자는 증분 업데이트를 받기 위해이 스냅숏 일정에 옵트인 (opt in) 할 수 있습니다. 여기에는 새 스냅숏을 처음 생성 한 이후 변경 된 데이터가 포함 됩니다. 
 
 ## <a name="invitation"></a>받은
 
@@ -64,4 +64,3 @@ Azure 데이터 공유 미리 보기에는 데이터 공유와 관련 된 몇 �
 ## <a name="next-steps"></a>다음 단계
 
 데이터 공유를 시작하는 방법을 알아보려면 [데이터 공유](share-your-data.md) 자습서로 계속 진행하세요.
-

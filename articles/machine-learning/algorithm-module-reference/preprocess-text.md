@@ -1,7 +1,7 @@
 ---
 title: '텍스트 전처리: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 전처리 텍스트 모듈을 사용 하 여 텍스트를 정리 하 고 간소화 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 전처리 텍스트 모듈을 사용 하 여 텍스트를 정리 하 고 간소화 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 09/01/2019
-ms.openlocfilehash: 2213d26e6d3b2b6a7aca9d65e74a4499ff0da6c1
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9bf81b4e4c305c864592c32a8737d1a5eeb18651
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692681"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497678"
 ---
 # <a name="preprocess-text"></a>텍스트 전처리
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 텍스트 **전처리** 모듈을 사용 하 여 텍스트를 정리 하 고 간소화할 수 있습니다. 이러한 일반 텍스트 처리 작업을 지원 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "72692681"
 
 ## <a name="configure-text-preprocessing"></a>텍스트 전처리 구성  
 
-1.  Azure Machine Learning 서비스의 실험에 **전처리 텍스트** 모듈을 추가 합니다. 이 모듈은 **Text Analytics**에서 찾을 수 있습니다.
+1.  Azure Machine Learning에서 파이프라인에 **전처리 텍스트** 모듈을 추가 합니다. 이 모듈은 **Text Analytics**에서 찾을 수 있습니다.
 
 1. 텍스트를 포함 하는 열이 하나 이상 있는 데이터 집합을 연결 합니다.
 
@@ -70,21 +70,21 @@ ms.locfileid: "72692681"
     
     * **중복 문자 제거**: 두 번 이상 반복 되는 시퀀스에서 추가 문자를 제거 하려면이 옵션을 선택 합니다. 예를 들어 "aaaaa"와 같은 시퀀스는 "aa"로 줄어듭니다.
     
-    * **전자 메일 주소 제거**: `<string>@<string>` 형식의 시퀀스를 모두 제거 하려면이 옵션을 선택 합니다.  
+    * **전자 메일 주소 제거**: `<string>@<string>`형식의 시퀀스를 모두 제거 하려면이 옵션을 선택 합니다.  
     * Url **제거**: 다음 url 접두사가 포함 된 시퀀스를 제거 하려면이 옵션을 선택 합니다. `http`, `https`, `ftp`, `www`
     
 1. **Expand verb 축약**:이 옵션은 verb 축약를 사용 하는 언어에만 적용 됩니다. 현재는 영어로만 되어 있습니다. 
 
     예를 들어이 옵션을 선택 하면 "유지 되지 않습니다." *라는 문구를* *"유지 하지 않습니다*"로 바꿀 수 있습니다.
 
-1. **백슬래시를 슬래시로 정규화**: `\\`의 모든 인스턴스를 `/` 매핑하려면이 옵션을 선택 합니다.
+1. **백슬래시를 슬래시로 정규화**: `\\`의 모든 인스턴스를 `/`매핑하려면이 옵션을 선택 합니다.
 
-1. **특수 문자에 대 한 토큰 분할**: `&`, `-` 등의 문자에 대 한 단어를 중단 하려면이 옵션을 선택 합니다. 이 옵션은 또한 두 번 이상 반복 될 때 특수 문자를 줄일 수 있습니다. 
+1. **특수 문자에 대 한 토큰 분할**: `&`, `-`등의 문자에 대 한 단어를 중단 하려면이 옵션을 선택 합니다. 이 옵션은 또한 두 번 이상 반복 될 때 특수 문자를 줄일 수 있습니다. 
 
-    예를 들어 `MS---WORD` 문자열은 `MS`, `-` 및 `WORD`의 세 가지 토큰으로 구분 됩니다.
+    예를 들어 `MS---WORD` 문자열은 `MS`, `-`및 `WORD`의 세 가지 토큰으로 구분 됩니다.
 
-1. 실험을 실행합니다.
+1. 파이프라인을 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

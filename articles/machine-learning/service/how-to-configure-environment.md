@@ -9,16 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7ad9d721b102ab48f2ebb9c0361153bc3974492a
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
-ms.translationtype: MT
+ms.openlocfilehash: eae1ac9c4e4b5a5a8927aa45e898c6f1c47a052d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053562"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497286"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning을 사용 하도록 개발 환경을 구성 하는 방법에 대해 알아봅니다. Azure Machine Learning는 플랫폼에 독립적입니다. 개발 환경에 대 한 유일한 하드 요구 사항은 Python 3입니다. Anaconda 또는 Virtualenv와 같은 격리 된 환경도 권장 됩니다.
 
@@ -26,21 +27,21 @@ ms.locfileid: "73053562"
 
 | Environment | 장점 | 단점 |
 | --- | --- | --- |
-| [클라우드 기반 노트북 VM](#notebookvm) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
+| [클라우드 기반 Azure Machine Learning 계산 인스턴스](#compute-instance) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
 | [로컬 환경](#local) | 개발 환경 및 종속성에 대 한 모든 권한 원하는 빌드 도구, 환경 또는 IDE를 사용 하 여를 실행 합니다. | 시작 하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치 해야 하 고, 아직 설치 되어 있지 않은 경우에도 환경을 설치 해야 합니다. |
 | [Azure Databricks](#aml-databricks) | 확장 가능한 Apache Spark 플랫폼에서 대규모의 집약적 기계 학습 워크플로를 실행 하는 데 적합 합니다. | 실험적 기계 학습 또는 작은 규모의 실험 및 워크플로를 위한 과잉. Azure Databricks에 대해 발생 하는 추가 비용입니다. [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요. |
-| [Data Science Virtual Machine (DSVM)](#dsvm) | 클라우드 기반 노트북 VM (Python 및 SDK는 사전 설치 됨)과 유사 하지만 추가 인기 있는 데이터 과학 및 기계 학습 도구가 사전 설치 되어 있습니다. 쉽게 확장 하 고 다른 사용자 지정 도구 및 워크플로와 결합할 수 있습니다. | 클라우드 기반 노트북 VM과 비교 하 여 더 느린 시작 환경을 제공 합니다. |
+| [Data Science Virtual Machine (DSVM)](#dsvm) | 클라우드 기반 계산 인스턴스 (Python 및 SDK는 사전 설치 됨)와 비슷하지만 널리 사용 되는 추가 데이터 과학 및 기계 학습 도구가 미리 설치 되어 있습니다. 쉽게 확장 하 고 다른 사용자 지정 도구 및 워크플로와 결합할 수 있습니다. | 클라우드 기반 계산 인스턴스와 비교 하 여 더 느린 시작 환경을 제공 합니다. |
 
 
 또한이 문서에서는 다음 도구에 대 한 추가 사용 팁을 제공 합니다.
 
 * [Jupyter 노트북](#jupyter): 이미 Jupyter Notebook를 사용 하 고 있는 경우 SDK에는 몇 가지 추가 기능을 설치 해야 합니다.
 
-* [Visual Studio Code](#vscode): Visual Studio Code를 사용 하는 경우 [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 에는 Python에 대 한 광범위 한 언어 지원 뿐만 아니라 Azure Machine Learning 서비스를 훨씬 더 편리 하 게 사용할 수 있는 기능이 포함 되어 있습니다. 생산성.
+* [Visual Studio Code](#vscode): Visual Studio Code를 사용 하는 경우 [Azure Machine Learning 확장](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) 에는 Python에 대 한 광범위 한 언어 지원 뿐만 아니라 Azure Machine Learning 훨씬 더 편리 하 고 생산적으로 작업할 수 있는 기능이 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요. 작업 영역은 사용자 고유의 [클라우드 기반 노트북 서버](#notebookvm), [dsvm](#dsvm)또는 [Azure Databricks](#aml-databricks)를 시작 하는 데 필요 합니다.
+Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요. 작업 영역은 사용자 고유의 [클라우드 기반 노트북 서버](#compute-instance), [dsvm](#dsvm)또는 [Azure Databricks](#aml-databricks)를 시작 하는 데 필요 합니다.
 
 [로컬 컴퓨터](#local)에 대 한 SDK 환경을 설치 하려면 [Jupyter Notebook 서버](#jupyter) 또는 [Visual Studio Code](#vscode) 도 필요 합니다.
 
@@ -53,30 +54,20 @@ Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machin
 
 - Windows에서는 명령 프롬프트 또는 Anaconda 프롬프트(Anaconda 및 Miniconda를 통해 설치한)가 필요합니다.
 
-## <a id="notebookvm"></a>사용자 고유의 클라우드 기반 노트북 VM
+## <a id="compute-instance"></a>사용자 고유의 클라우드 기반 계산 인스턴스
 
-노트북 가상 머신 (미리 보기)는 Jupyter 노트북 서버, JupyterLab 및 완전히 준비 된 ML 환경을 사용 하 여 데이터 과학자을 제공 하는 안전한 클라우드 기반 Azure 워크스테이션입니다.
+Azure Machine Learning [계산 인스턴스](concept-compute-instance.md) 는 Jupyter 노트북 서버, JupyterLab 및 완전히 준비 된 ML 환경을 사용 하 여 데이터 과학자을 제공 하는 안전한 클라우드 기반 Azure 워크스테이션입니다.
 
-노트북 VM은 다음과 같습니다.
+> [!NOTE]
+> 계산 인스턴스는 **미국 중 북부** 또는 **영국 남부**지역이 있는 작업 영역에만 사용할 수 있습니다.
+>작업 영역이 다른 지역에 있는 경우 계속 해 서 [노트북 VM](concept-compute-instance.md#notebookvm) 을 만들고 사용할 수 있습니다.
 
-+ **보안**. VM 및 노트북 액세스는 HTTPS를 사용 하 고 기본적으로 Azure Active Directory으로 보호 되므로 IT 전문가는 Single Sign-On 및 multi-factor authentication과 같은 기타 보안 기능을 쉽게 적용할 수 있습니다.
-
-+ **미리 구성**되어 있습니다. 완전히 준비 된 Python ML 환경은 널리 사용 되는 IaaS Data Science VM 계통를 제공 하며 다음을 포함 합니다.
-  + Azure ML Python SDK (최신 버전)
-  + 작업 영역 작업을 위한 자동 구성
-  + Jupyter 노트북 서버
-  + JupyterLab 노트북 IDE
-  + 미리 구성 된 GPU 드라이버
-  + 심층 학습 프레임 워크 선택
+계산 인스턴스를 설치 하거나 구성할 수 없습니다.  Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. [설정 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md)을 사용 하 여 지금 사용해 보세요.
 
 
-  코드를 사용 하는 경우 VM에는 Azure Machine Learning 사용 방법을 탐색 하 고 배우는 데 도움이 되는 자습서와 샘플이 포함 되어 있습니다. 샘플 노트북은 Vm 전체에서 공유할 수 있도록 작업 영역의 Azure Blob Storage 계정에 저장 됩니다. 실행 되 면 작업 영역의 데이터 저장소 및 계산 리소스에 액세스할 수 있습니다.
+[계산 인스턴스에](concept-compute-instance.md)대해 자세히 알아보세요.
 
-+ **간단한 설정**: Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. [설정 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md)을 사용 하 여 지금 사용해 보세요.
-
-+ **사용자 지정 가능**. 관리 및 보안 VM을 제공 하는 동안 하드웨어 기능에 대 한 모든 권한을 유지 하 고 원하는 대로 사용자 지정 합니다. 예를 들어 novel 신경망 아키텍처의 단계별 디버깅을 수행 하기 위해 최신 NVidia V100 구동 VM을 신속 하 게 만들 수 있습니다.
-
-노트북 VM 요금이 발생 하지 않도록 하려면 [노트북 vm을 중지](tutorial-1st-experiment-sdk-train.md#clean-up-resources)합니다.
+계산 요금이 발생 하지 않도록 하려면 [계산 인스턴스를 중지](tutorial-1st-experiment-sdk-train.md#clean-up-resources)합니다.
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -205,7 +196,7 @@ DSVM을 개발 환경으로 사용 하려면 다음을 수행 합니다.
 
 1. Machine learning 실험을 위한 다른 패키지를 설치 합니다.
 
-    다음 명령 중 하나를 사용 하 여 *\<new 패키지 >* 을 설치 하려는 패키지로 바꿉니다. `conda install`를 통해 패키지를 설치 하려면 패키지가 현재 채널의 일부 여야 합니다. 새 채널은 Anaconda 클라우드에 추가할 수 있습니다.
+    다음 명령 중 하나를 사용 하 고 *\<새 패키지 >* 를 설치 하려는 패키지로 바꿉니다. `conda install`를 통해 패키지를 설치 하려면 패키지가 현재 채널의 일부 여야 합니다. 새 채널은 Anaconda 클라우드에 추가할 수 있습니다.
 
     ```shell
     conda install <new package>
@@ -250,7 +241,7 @@ Jupyter Notebook 환경에서 이러한 구성 요소를 사용 하도록 설정
     azureml.core.VERSION
     ```
 
-1. 모듈을 가져오는 데 문제가 발생 하 고 `ModuleNotFoundError` 받는 경우 노트북 셀에서 다음 코드를 실행 하 여 Jupyter 커널이 사용자 환경에 맞는 올바른 경로에 연결 되어 있는지 확인 합니다.
+1. 모듈을 가져오는 데 문제가 발생 하 고 `ModuleNotFoundError`받는 경우 노트북 셀에서 다음 코드를 실행 하 여 Jupyter 커널이 사용자 환경에 맞는 올바른 경로에 연결 되어 있는지 확인 합니다.
 
     ```python
     import sys
@@ -302,7 +293,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 다음 설정을 사용 합니다.
 
-| 설정 |적용 대상| Value |
+| 설정 |적용 대상| 값 |
 |----|---|---|
 | 클러스터 이름 |항상| yourclustername |
 | Databricks 런타임 |항상|비 ML 런타임 6.0 (scala 2.11, spark 2.4.3) |
@@ -320,7 +311,7 @@ Azure Machine Learning에서 Azure Databricks 작동 방법:
 
 1. 옵션을 **하나만** 선택 하십시오. 다른 SDK 설치는 지원 되지 않습니다.
 
-   |SDK &nbsp;package &nbsp;extras|원본|PyPi &nbsp;Name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|
+   |SDK&nbsp;패키지&nbsp;기타 기능|원본|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Databricks의 경우| Python 업로드 Egg 또는 PyPI | azureml-sdk[databricks]|
    |Databricks-<br> 자동화 된 ML 기능| Python 업로드 Egg 또는 PyPI | azureml-sdk [automl]|
@@ -355,7 +346,7 @@ Databricks](./media/how-to-configure-environment/automlonadb.png)에 자동화 �
 사용해 보기:
 + 많은 샘플 노트북을 사용할 수 있지만  **[이러한 샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks) 만 Azure Databricks 작업을 수행 합니다.**
 
-+ 작업 영역에서 직접 이러한 샘플을 가져옵니다. 다음을 참조 하세요. 가져오기 패널![가져오기](media/how-to-configure-environment/azure-db-screenshot.png)
++ 작업 영역에서 직접 이러한 샘플을 가져옵니다. 다음을 참조 하세요. 가져오기 패널 ![가져오기](media/how-to-configure-environment/azure-db-screenshot.png)
 ![선택](media/how-to-configure-environment/azure-db-import.png)
 
 + [Databricks를 학습 계산으로 사용 하 여 파이프라인을 만드는](how-to-create-your-first-pipeline.md)방법에 대해 알아봅니다.
@@ -382,7 +373,7 @@ Databricks](./media/how-to-configure-environment/automlonadb.png)에 자동화 �
 
 * **파일 다운로드**: [Azure Portal](https://ms.portal.azure.com)의 작업 영역 **개요** 섹션에서 **config.xml 다운로드** 를 선택 합니다.
 
-     ![Azure Portal](./media/how-to-configure-environment/configure.png)
+     ![Azure portal](./media/how-to-configure-environment/configure.png)
 
 * **프로그래밍 방식으로 파일 만들기**: 다음 코드 조각에서 구독 ID, 리소스 그룹 및 작업 영역 이름을 제공 하 여 작업 영역에 연결 합니다. 그런 다음, 작업 영역 구성을 파일에 저장합니다.
 

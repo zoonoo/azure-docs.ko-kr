@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3118be297caabbd4b829344e42361fa6b7602aad
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 78440185b4a26bccc8ffb0258416a19aa929af6b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066737"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470247"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 
@@ -37,7 +37,7 @@ App Service 계획의 _가격 책정 계층_은 가져올 App Service 기능 및
 
 - **공유 컴퓨팅**: **체험** 및 **공유**라는 두 개의 기본 계층은 다른 고객의 앱을 비롯한 다른 App Service 앱과 동일한 Azure VM에서 앱을 실행합니다. 이러한 계층은 CPU 할당량을 공유 리소스에서 실행되는 각 앱에 할당하고 리소스는 확장할 수 없습니다.
 - **전용 컴퓨팅**: **기본**, **표준**, **프리미엄** 및 **PremiumV2** 계층은 전용 Azure VM에서 앱을 실행합니다. 동일한 App Service 계획의 앱만이 동일한 컴퓨팅 리소스를 공유합니다. 계층이 높을수록 스케일 아웃을 위해 더 많은 VM 인스턴스가 제공됩니다.
-- **격리**: 이 계층은 전용 Azure 가상 네트워크에서 전용 Azure Vm을 실행 합니다. 앱에 대 한 계산 격리를 기반으로 네트워크 격리를 제공 합니다. 최대 스케일 아웃 기능을 제공합니다.
+- **격리**:이 계층은 전용 Azure 가상 네트워크에서 전용 azure vm을 실행 합니다. 앱에 대 한 계산 격리를 기반으로 네트워크 격리를 제공 합니다. 최대 스케일 아웃 기능을 제공합니다.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -60,7 +60,7 @@ App Service 계획의 _가격 책정 계층_은 가져올 App Service 기능 및
 
 ## <a name="how-does-my-app-run-and-scale"></a>앱을 실행하고 크기를 조정하려면 어떻게 하나요?
 
-**체험** 및 **공유** 계층의 경우, 앱은 공유 VM 인스턴스에서 CPU 시간(분)을 받으므로 확장할 수 없습니다. 다른 계층에서 다음과 같이 앱을 실행하고 크기를 조정합니다.
+**무료** 및 **공유** 계층에서 앱은 공유 VM 인스턴스에서 CPU 분을 수신 하 고 확장할 수 없습니다. 다른 계층에서는 다음과 같이 앱이 실행 되 고 크기가 조정 됩니다.
 
 App Service에서 앱을 만드는 경우 App Service 계획에 배치합니다. 앱을 실행할 때 App Service 계획에 구성된 모든 VM 인스턴스에서 실행합니다. 여러 앱이 동일한 App Service 계획에 있는 경우 모두 동일한 VM 인스턴스를 공유합니다. 또한 앱에 다중 배포 슬롯이 있는 경우 모든 배포 슬롯은 동일한 VM 인스턴스에서 실행됩니다. 진단 로그를 사용하거나, 백업을 수행하거나, WebJobs을 실행하는 경우 이러한 VM 인스턴스에서 CPU 주기 및 메모리를 사용합니다.
 
@@ -95,7 +95,7 @@ App Service에서 앱을 만드는 경우 App Service 계획에 배치합니다.
 
 언제든지 App Service 계획을 확장하고 축소할 수 있습니다. 계획의 가격 책정 계층을 변경하는 것처럼 간단합니다. 처음에 더 낮은 가격 책정 계층을 선택하고 더 많은 App Service 기능이 필요하면 나중에 확장할 수 있습니다.
 
-예를 들어 **체험** App Service 계획에서 웹앱을 테스트하기 시작하고 비용을 지불하지 않을 수 있습니다. [사용자 지정 DNS 이름](app-service-web-tutorial-custom-domain.md)을 웹앱에 추가하려는 경우 계획을 **공유** 계층까지 확장하면 됩니다. 나중에 [사용자 지정 SSL 인증서](app-service-web-tutorial-custom-ssl.md)를 추가하려는 경우 계획을 **기본** 계층까지 확장합니다. [스테이징 환경](deploy-staging-slots.md)이 필요하면 **표준** 계층까지 확장합니다. 더 많은 코어, 메모리 또는 스토리지가 필요한 경우 동일한 계층에서 더 큰 VM 크기로 확장합니다.
+예를 들어 **체험** App Service 계획에서 웹앱을 테스트하기 시작하고 비용을 지불하지 않을 수 있습니다. [사용자 지정 DNS 이름](app-service-web-tutorial-custom-domain.md)을 웹앱에 추가하려는 경우 계획을 **공유** 계층까지 확장하면 됩니다. 나중에 [SSL 바인딩을 만들려면](configure-ssl-bindings.md)계획을 **기본** 계층까지 확장 합니다. [스테이징 환경](deploy-staging-slots.md)이 필요하면 **표준** 계층까지 확장합니다. 더 많은 코어, 메모리 또는 스토리지가 필요한 경우 동일한 계층에서 더 큰 VM 크기로 확장합니다.
 
 동일하게 반대로도 작동합니다. 더 높은 계층의 기능이 더 이상 필요하지 않으면 하위 계층으로 축소하여 비용을 절약할 수 있습니다.
 

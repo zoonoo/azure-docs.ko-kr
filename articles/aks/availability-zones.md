@@ -7,65 +7,24 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: e8ffb9051220cc80aa12adaa9dc9b1fcc6ddfc20
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: MT
+ms.openlocfilehash: eb48afb15e1314dcf670ba04afd9609876dc9539
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839990"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73472830"
 ---
-# <a name="preview---create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>미리 보기-가용성 영역를 사용 하는 AKS (Azure Kubernetes Service) 클러스터 만들기
+# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역를 사용 하는 AKS (Azure Kubernetes Service) 클러스터 만들기
 
 AKS (Azure Kubernetes Service) 클러스터는 기본 Azure 계산 인프라의 논리적 섹션에서 노드 및 저장소와 같은 리소스를 배포 합니다. 이 배포 모델은 노드가 단일 Azure 데이터 센터의 개별 업데이트 및 장애 도메인에서 실행 되는지 확인할 수 있습니다. 이 기본 동작을 사용 하 여 배포 된 AKS 클러스터는 하드웨어 오류 또는 계획 된 유지 관리 이벤트를 방지할 수 있는 높은 수준의 가용성을 제공 합니다.
 
 응용 프로그램에 더 높은 수준의 가용성을 제공 하기 위해 AKS 클러스터는 가용성 영역 간에 분산 될 수 있습니다. 이러한 영역은 지정 된 지역 내에서 물리적으로 분리 된 데이터 센터입니다. 클러스터 구성 요소가 여러 영역에 걸쳐 배포 되는 경우 AKS 클러스터는 이러한 영역 중 하나에서 오류를 허용할 수 있습니다. 응용 프로그램 및 관리 작업은 전체 데이터 센터 하나에 문제가 있는 경우에도 계속 사용할 수 있습니다.
 
-이 문서에서는 AKS 클러스터를 만들고 노드 구성 요소를 가용성 영역에 분산 하는 방법을 보여 줍니다. 이 기능은 현재 미리 보기로 제공됩니다.
+이 문서에서는 AKS 클러스터를 만들고 노드 구성 요소를 가용성 영역에 분산 하는 방법을 보여 줍니다.
 
-> [!IMPORTANT]
-> AKS 미리 보기 기능은 셀프 서비스 옵트인입니다. 미리 보기는 "있는 그대로" 및 "사용 가능한 상태로" 제공 되며 서비스 수준 계약 및 제한 된 보증에서 제외 됩니다. AKS 미리 보기는 최상의 노력에 대 한 고객 지원에서 부분적으로 다룹니다. 이러한 기능은 프로덕션 용도로는 사용할 수 없습니다. 추가 정보 다음 지원 문서를 참조 하세요.
->
-> * [AKS 지원 정책][aks-support-policies]
-> * [Azure 지원 FAQ][aks-faq]
+## <a name="before-you-begin"></a>시작하기 전에
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
-
-Azure CLI 버전 2.0.66 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드 해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조 하세요.
-
-### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
-
-가용성 영역을 사용 하는 AKS 클러스터를 만들려면 *AKS-preview* CLI 확장 버전 0.4.12 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
-
-### <a name="register-the-availabilityzonepreview-feature-flag-for-your-subscription"></a>구독에 대 한 AvailabilityZonePreview 기능 플래그 등록
-
-가용성 영역에서 AKS 클러스터를 만들려면 먼저 구독에서 *AvailabilityZonePreview* 기능 플래그를 사용 하도록 설정 합니다. 다음 예제와 같이 [az feature register][az-feature-register] 명령을 사용 하 여 *AvailabilityZonePreview* feature 플래그를 등록 합니다.
-
-> [!CAUTION]
-> 구독에 기능을 등록 하면 현재 해당 기능을 등록 취소할 수 없습니다. 일부 미리 보기 기능을 사용 하도록 설정한 후에는 구독에서 만든 모든 AKS 클러스터에 대 한 기본값을 사용할 수 있습니다. 프로덕션 구독에서 미리 보기 기능을 사용 하도록 설정 하지 마세요. 별도의 구독을 사용 하 여 미리 보기 기능을 테스트 하 고 피드백을 수집 합니다.
-
-```azurecli-interactive
-az feature register --name AvailabilityZonePreview --namespace Microsoft.ContainerService
-```
-
-상태가 *Registered*로 표시되는 데 몇 분 정도 걸립니다. [Az feature list][az-feature-list] 명령을 사용 하 여 등록 상태를 확인할 수 있습니다.
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AvailabilityZonePreview')].{Name:name,State:properties.state}"
-```
-
-준비가 되 면 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자 등록을 새로 고칩니다.
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+Azure CLI 버전 2.0.76 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드 해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조 하세요.
 
 ## <a name="limitations-and-region-availability"></a>제한 사항 및 지역 가용성
 
@@ -73,13 +32,13 @@ AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용 하 �
 
 * 미국 중부
 * 미국 동부 2
-* East US
+* 미국 동부
 * 프랑스 중부
 * 일본 동부
-* 유럽 북부
+* 북유럽
 * 동남아시아
 * 영국 남부
-* 유럽 서부
+* 서유럽
 * 미국 서부 2
 
 가용성 영역을 사용 하 여 AKS 클러스터를 만들 때는 다음과 같은 제한 사항이 적용 됩니다.
@@ -91,7 +50,7 @@ AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용 하 �
 * 가용성 영역을 사용 하도록 설정 된 클러스터는 영역 간에 배포 하기 위해 Azure 표준 부하 분산 장치를 사용 해야 합니다.
 * 표준 부하 분산 장치를 배포 하려면 Kubernetes 버전 1.13.5 이상을 사용 해야 합니다.
 
-가용성 영역을 사용 하는 AKS 클러스터는 Azure 부하 분산 장치 *표준* SKU를 사용 해야 합니다. Azure 부하 분산 장치의 기본 *기본* SKU는 가용성 영역 간 배포를 지원 하지 않습니다. 표준 부하 분산 장치의 제한 사항 및 제한 사항에 대 한 자세한 내용은 [Azure 부하 분산 장치 표준 SKU 제한][standard-lb-limitations]을 참조 하세요.
+가용성 영역을 사용 하는 AKS 클러스터는 부하 분산 장치 유형의 기본값인 Azure 부하 분산 장치 *표준* SKU를 사용 해야 합니다. 이 부하 분산 장치 유형은 클러스터를 만들 때에만 정의할 수 있습니다. 표준 부하 분산 장치의 제한 사항 및 제한 사항에 대 한 자세한 내용은 [Azure 부하 분산 장치 표준 SKU 제한][standard-lb-limitations]을 참조 하세요.
 
 ### <a name="azure-disks-limitations"></a>Azure 디스크 제한 사항
 
@@ -113,9 +72,9 @@ Azure managed disks를 사용 하는 볼륨은 현재 영역 리소스가 아닙
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>가용성 영역에서 AKS 클러스터 만들기
 
-[Az aks create][az-aks-create] 명령을 사용 하 여 클러스터를 만들 때 매개 변수 `--node-zones` 는 에이전트 노드가 배포 되는 영역을 정의 합니다. 클러스터에 대 한 AKS 제어 평면 구성 요소는 매개 변수를 `--node-zones` 지정 하는 클러스터를 만들 때 사용 가능한 가장 높은 구성의 영역에도 분산 됩니다.
+[Az aks create][az-aks-create] 명령을 사용 하 여 클러스터를 만들 때 `--zones` 매개 변수는 배포할 영역 에이전트 노드를 정의 합니다. 클러스터에 대 한 AKS 제어 평면 구성 요소는 `--zones` 매개 변수를 지정 하는 클러스터를 만들 때 사용 가능한 가장 높은 구성의 영역에도 분산 됩니다.
 
-AKS 클러스터를 만들 때 기본 에이전트 풀에 대 한 영역을 정의 하지 않으면 클러스터의 AKS 제어 평면 구성 요소가 가용성 영역을 사용 하지 않습니다. [Az AKS nodepool add][az-aks-nodepool-add] 명령을 사용 하 여 추가 노드 풀 (현재 AKS에서 미리 보기 상태)을 추가 하 `--node-zones` 고 이러한 새 에이전트 노드에 대해를 지정할 수 있지만, 제어 평면 구성 요소는 가용성 영역을 인식 하지 않고 유지 됩니다. 노드 풀 또는 AKS 제어 평면 구성 요소를 배포한 후에는 영역 인식 기능을 변경할 수 없습니다.
+AKS 클러스터를 만들 때 기본 에이전트 풀에 대 한 영역을 정의 하지 않으면 클러스터의 AKS 제어 평면 구성 요소가 가용성 영역을 사용 하지 않습니다. [Az aks nodepool add][az-aks-nodepool-add] 명령을 사용 하 여 노드 풀을 더 추가 하 고 이러한 새 에이전트 노드에 대해 `--zones` 지정할 수 있지만, 제어 평면 구성 요소는 가용성 영역을 인식 하지 않고 유지 됩니다. 노드 풀 또는 AKS 제어 평면 구성 요소를 배포한 후에는 영역 인식 기능을 변경할 수 없습니다.
 
 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 *myAKSCluster* 라는 AKS 클러스터를 만듭니다. 총 *3* 개의 노드가 생성 됩니다. 1 개의 에이전트는 영역 *1*에 있고, 하나는 *2*로, *3은 3*입니다. AKS 제어 평면 구성 요소는 클러스터 만들기 프로세스의 일부로 정의 되므로 사용 가능한 가장 높은 구성의 영역에도 분산 됩니다.
 
@@ -129,7 +88,7 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --load-balancer-sku standard \
     --node-count 3 \
-    --node-zones 1 2 3
+    --zones 1 2 3
 ```
 
 AKS 클러스터를 만드는 데 몇 분이 걸립니다.

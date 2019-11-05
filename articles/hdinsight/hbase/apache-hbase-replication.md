@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 네트워크에서 HBase 클러스터 복제 설정 - Azure HDInsight
+title: 가상 네트워크의 HBase 클러스터 복제-Azure HDInsight
 description: 부하 분산, 고가용성, 무중단 마이그레이션/업데이트 및 재해 복구를 위해 한 HDInsight 버전에서 다른 HDInsight 버전으로 HBase 복제를 설정하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/15/2018
-ms.openlocfilehash: 34b9993482d1036570805af7caba29361b231426
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 18c7a06e656cbd5c16151381a76ec7725eb2785e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71077175"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468416"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
@@ -36,9 +36,9 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 * 애플리케이션 부하 분산 및 분할
 * 고가용성 추가
 
-[GitHub](https://github.com/Azure/hbase-utils/tree/master/replication)에 있는 [스크립트 동작](../hdinsight-hadoop-customize-cluster-linux.md) 스크립트를 사용하여 클러스터를 복제할 수 있습니다.
+[GitHub](../hdinsight-hadoop-customize-cluster-linux.md)에 있는 [스크립트 동작](https://github.com/Azure/hbase-utils/tree/master/replication) 스크립트를 사용하여 클러스터를 복제할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 이 문서를 시작 하기 전에 Azure 구독이 있어야 합니다. [Azure 평가판 받기](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)를 참조하세요.
 
 ## <a name="set-up-the-environments"></a>환경 설정
@@ -85,7 +85,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 | 속성 | 값 |
 |----------|-------|
-| 위치 | East US |
+| 위치 | 미국 동부 |
 | VNet 이름 | &lt;ClusterNamePrevix>-vnet2 |
 | 주소 공간 접두사 | 10.2.0.0/16 |
 | 서브넷 이름 | 서브넷 1 |
@@ -104,7 +104,7 @@ Azure에서 한 가상 네트워크 내에 또는 두 가상 네트워크 간에
 
 바인딩을 설치하려면 두 DNS 가상 머신의 공용 IP 주소를 찾아야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)을 엽니다.
+1. [Azure 포털](https://portal.azure.com)을 엽니다.
 2. **리소스 그룹 > [리소스 그룹 이름] > [vnet1DNS]** 를 선택하여 DNS 가상 머신을 엽니다.  리소스 그룹 이름은 마지막 절차에서 만든 이름입니다. 기본 DNS 가상 머신 이름은 *vnet1DNS* 및 *vnet2NDS*입니다.
 3. **속성**을 선택하여 가상 네트워크의 속성 페이지를 엽니다.
 4. **공용 IP 주소**를 적어 두고 **개인 IP 주소**를 확인합니다.  개인 IP 주소는 vnet1DNS에 대해 **10.1.0.4**이고 vnet2DNS에 대해 **10.2.0.4**여야 합니다.  
@@ -260,11 +260,11 @@ sudo service bind9 status
 다음 구성을 사용하여 두 가상 네트워크에 각각 [Apache HBase](https://hbase.apache.org/) 클러스터를 만듭니다.
 
 - **리소스 그룹 이름**: 가상 네트워크를 만들 때 동일한 리소스 그룹 이름을 사용합니다.
-- **클러스터 유형**: Hbase
+- **클러스터 유형**: HBase
 - **버전**: HBase 1.1.2(HDI 3.6)
 - **위치**: 가상 네트워크와 동일한 위치를 사용합니다.  기본적으로 vnet1은 *미국 서부*이고, vnet2는 *미국 동부*입니다.
 - **스토리지**: 클러스터에 대한 새 스토리지 계정을 만듭니다.
-- **가상 네트워크**(포털에 대한 고급 설정에서): 마지막 프로시저에서 만든 vnet1를 선택합니다.
+- **가상 네트워크**(포털에 대한 고급 설정에서): 마지막 절차에서 만든 vnet1를 선택합니다.
 - **서브넷**: 템플릿에서 사용하는 기본 이름은 **subnet1**입니다.
 
 환경을 올바르게 구성했는지 확인하려면 두 클러스터 간 헤드 노드의 FQDN을 ping할 수 있어야 합니다.
@@ -273,23 +273,23 @@ sudo service bind9 status
 
 클러스터를 복제할 때 복제하려는 테이블을 지정해야 합니다. 이 섹션에서는 일부 데이터를 원본 클러스터에 로드합니다. 다음 섹션에서는 두 클러스터 간에 복제를 사용하도록 설정합니다.
 
-**Contacts**(연락처) 테이블을 만들고 이 테이블에 데이터를 삽입하려면 [HBase 자습서: HDInsight의 Apache HBase 사용 시작](apache-hbase-tutorial-get-started-linux.md)의 지침을 따릅니다.
+**Contacts** 테이블을 만들고 이 테이블에 일부 데이터를 삽입하려면 [Apache HBase 자습서: HDInsight에서 Apache HBase 사용 시작](apache-hbase-tutorial-get-started-linux.md)의 지침을 따르세요.
 
-## <a name="enable-replication"></a>복제 사용
+## <a name="enable-replication"></a>복제 활성화
 
 다음 단계에서는 Azure Portal에서 스크립트 동작 스크립트를 호출하는 방법을 설명합니다. Azure PowerShell과 Azure 클래식 CLI를 사용하여 스크립트 동작을 실행하는 방법에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
 
 **Azure Portal에서 HBase 복제를 사용하도록 설정하려면**
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 원본 HBase 클러스터를 엽니다.
 3. 클러스터 메뉴에서 **스크립트 동작**을 선택합니다.
 4. 페이지의 위쪽에서 **새로운 항목 제출**을 선택합니다.
 5. 다음 정보를 선택하거나 입력합니다.
 
    1. **이름**: **복제 사용**을 입력합니다.
-   2. **Bash 스크립트 URL**: **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** 을 입력합니다.
-   3. **헤드**: 선택되어 있는지 확인합니다. 다른 노드 형식은 선택 취소합니다.
+   2. **Bash 스크립트 URL**: **https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh** 를 입력합니다.
+   3. **헤드**: 이 URL이 선택되어 있는지 확인합니다. 다른 노드 형식은 선택 취소합니다.
    4. **매개 변수**: 다음 샘플 매개 변수를 사용하면 기존의 모든 테이블을 복제하도록 설정한 다음, 모든 데이터를 원본 클러스터에서 대상 클러스터로 복사합니다.
 
           -m hn1 -s <source hbase cluster name> -d <destination hbase cluster name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
@@ -301,7 +301,7 @@ sudo service bind9 status
 
 필수 인수:
 
-|이름|설명|
+|Name|설명|
 |----|-----------|
 |-s, --src-cluster | HBase 원본 클러스터의 DNS 이름을 지정합니다. 예: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | HBase 대상(복제본) 클러스터의 DNS 이름을 지정합니다. 예: -s dsthbcluster, --src-cluster=dsthbcluster |
@@ -310,7 +310,7 @@ sudo service bind9 status
 
 선택적 인수:
 
-|이름|Description|
+|Name|설명|
 |----|-----------|
 |-su, --src-ambari-user | HBase 원본 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
 |-du, --dst-ambari-user | HBase 대상 클러스터에서 Ambari에 대한 관리 사용자 이름을 지정합니다. 기본값은 **admin**입니다. |
@@ -318,9 +318,9 @@ sudo service bind9 status
 |-m, --machine | 스크립트 동작이 실행되는 헤드 노드를 지정합니다. 값은 **hn0** 또는 **hn1**이며 활성 헤드 노드를 기준으로 선택되어야 합니다. HDInsight 포털 또는 Azure PowerShell에서 $0 스크립트를 스크립트 동작으로 실행하는 경우 이 옵션을 사용합니다.|
 |-cp, -copydata | 복제가 사용되는 테이블에서 기존 데이터의 마이그레이션을 사용하도록 설정합니다. |
 |-rpm, -replicate-phoenix-meta | Phoenix 시스템 테이블에서 복제를 사용하도록 설정합니다. <br><br>*이 옵션은 주의해서 사용해야 합니다.* 이 스크립트를 사용하기 전에 복제본 클러스터에서 Phoenix 테이블을 다시 만드는 것이 좋습니다. |
-|-h, --help | 사용법 정보를 표시합니다. |
+|-h, --help | 사용 정보를 표시합니다. |
 
-[스크립트](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh)의 `print_usage()` 섹션에는 매개 변수에 대한 자세한 설명이 있습니다.
+`print_usage()`스크립트[의 ](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) 섹션에는 매개 변수에 대한 자세한 설명이 있습니다.
 
 스크립트 동작이 성공적으로 배포된 후에 SSH를 사용하여 HBase 대상 클러스터에 연결한 다음 데이터가 복제되었는지 확인할 수 있습니다.
 
@@ -356,14 +356,14 @@ sudo service bind9 status
 
     -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]
 
-[스크립트](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh)의 `print_usage()` 섹션에는 매개 변수에 대한 자세한 설명이 있습니다.
+`print_usage()`스크립트[의 ](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh) 섹션에는 매개 변수에 대한 자세한 설명이 있습니다.
 
 ### <a name="scenarios"></a>시나리오
 
 - **지금(현재 타임스탬프)까지 편집된 모든 행에 대한 특정 테이블(test1, test2 및 test3) 복사**:
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
-  또는:
+  또는
 
         -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
 
@@ -379,7 +379,7 @@ sudo service bind9 status
 
     -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> <-all|-t "table1;table2;...">  
 
-[스크립트](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh)의 `print_usage()` 섹션에는 매개 변수에 대한 자세한 설명이 있습니다.
+`print_usage()`스크립트[의 ](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh) 섹션에는 매개 변수에 대한 자세한 설명이 있습니다.
 
 ### <a name="scenarios"></a>시나리오
 

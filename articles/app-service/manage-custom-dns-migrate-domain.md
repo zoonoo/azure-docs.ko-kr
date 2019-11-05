@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5f11173c7b7f7396a8cf5cda4b9c8975cd7bb38e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 172003b13807720df2431a3610947b36d8303fed
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679807"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470355"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Azure App Service로 활성 DNS 이름 마이그레이션
 
@@ -29,7 +29,7 @@ ms.locfileid: "72679807"
 
 DNS 확인의 중단을 염려하지 않는 경우에는 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 방법을 완료하려면 다음이 필요합니다.
 
@@ -73,7 +73,7 @@ DNS 레코드 페이지에서 마이그레이션할 DNS 이름의 레코드 종�
 
 ![사용자 지정 도메인 메뉴](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-**사용자 지정 도메인** 페이지에서 **호스트 이름 추가** 옆의 **+** 아이콘을 선택합니다.
+**사용자 지정 도메인** 페이지에서 **호스트 이름 추가+ 옆의**  아이콘을 선택합니다.
 
 ![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -119,10 +119,10 @@ A 레코드를 다시 매핑하려면 **사용자 지정 도메인** 페이지�
 
 `contoso.com` 루트 도메인 예제의 경우 다음 표의 예제와 같은 A 또는 CNAME 레코드를 다시 매핑합니다. 
 
-| FQDN 예 | 레코드 형식 | 호스트 | Value |
+| FQDN 예 | 레코드 형식 | 호스트 | 값 |
 | - | - | - | - |
 | contoso.com(루트) | 문자열(UTF-8 형식) 또는 | `@` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
-| www \.contoso (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
+| www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |
 | \*.contoso.com(와일드카드) | CNAME | _\*_ | _&lt;appname>.azurewebsites.net_ |
 
 설정을 저장합니다.
@@ -133,11 +133,11 @@ DNS 쿼리는 DNS가 전파된 직후 App Service 앱에 대해 확인을 시작
 
 Azure에서 구독 또는 동일한 구독 내에서 활성 사용자 지정 도메인을 마이그레이션할 수 있습니다. 그러나 가동 중지 시간 없이 마이그레이션하는 경우 원본 앱이 필요 하 고 대상 앱은 특정 시간에 동일한 사용자 지정 도메인에 할당 됩니다. 따라서 두 앱이 동일한 배포 단위 (내부적으로는 웹 공간 이라고 함)에 배포 되지 않았는지 확인 해야 합니다. 도메인 이름은 각 배포 단위에서 하나의 앱에만 할당할 수 있습니다.
 
-@No__t_0 FTP/S URL의 도메인 이름을 살펴보면 앱에 대 한 배포 단위를 찾을 수 있습니다. 배포 단위가 원본 앱과 대상 앱 간에 다른 지 확인 합니다. 앱의 배포 단위는의 [App Service 계획](overview-hosting-plans.md) 에 따라 결정 됩니다. 계획을 만들 때 Azure에서 임의로 선택 되며 변경할 수 없습니다. Azure는 동일한 [리소스 그룹 *및* 동일한 지역에서](app-service-plan-manage.md#create-an-app-service-plan)두 요금제를 만들 때 동일한 배포 단위에 있지만 계획이 다른 배포 단위에 있는지 확인 하는 논리는 없습니다. 다른 배포 단위로 계획을 만드는 유일한 방법은 다른 배포 단위가 나타날 때까지 새 리소스 그룹이 나 지역에 계획을 계속 만드는 것입니다.
+`<deployment-unit>.ftp.azurewebsites.windows.net`FTP/S URL의 도메인 이름을 살펴보면 앱에 대 한 배포 단위를 찾을 수 있습니다. 배포 단위가 원본 앱과 대상 앱 간에 다른 지 확인 합니다. 앱의 배포 단위는의 [App Service 계획](overview-hosting-plans.md) 에 따라 결정 됩니다. 계획을 만들 때 Azure에서 임의로 선택 되며 변경할 수 없습니다. Azure는 동일한 [리소스 그룹 *및* 동일한 지역에서](app-service-plan-manage.md#create-an-app-service-plan)두 요금제를 만들 때 동일한 배포 단위에 있지만 계획이 다른 배포 단위에 있는지 확인 하는 논리는 없습니다. 다른 배포 단위로 계획을 만드는 유일한 방법은 다른 배포 단위가 나타날 때까지 새 리소스 그룹이 나 지역에 계획을 계속 만드는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 사용자 지정 SSL 인증서를 App Service에 바인딩하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)
+> [Azure App Service에 SSL 인증서 바인딩](configure-ssl-bindings.md)

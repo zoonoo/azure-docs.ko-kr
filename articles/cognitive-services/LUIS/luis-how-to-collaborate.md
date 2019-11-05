@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 004da6c84e6226c4de3114d32cde826cd167e1ab
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 15c7c6664b0c17d02f1f4e9120c9509fda21e0f4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844829"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467538"
 ---
 # <a name="add-contributors-to-your-app"></a>앱에 참가자 추가
 
 앱 소유자는 앱에 참가자를 추가할 수 있습니다. 이러한 협력자는 모델을 수정하고, 앱을 학습시키고, 게시할 수 있습니다. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
@@ -30,7 +32,7 @@ ms.locfileid: "70844829"
 
 LUIS authoring experience가 LUIS 포털의 **관리-> Azure 리소스** 페이지에서 제작 리소스와 연결 된 경우 마이그레이션 되었습니다.
 
-1. Azure Portal에서 Language Understanding (LUIS) 제작 리소스를 찾습니다. 형식 `LUIS.Authoring`입니다.
+1. Azure Portal에서 Language Understanding (LUIS) 제작 리소스를 찾습니다. `LUIS.Authoring`형식입니다.
 1. 이 리소스의 **Access Control (IAM)** 페이지에서 **+ 추가** 를 선택 하 고 **역할 할당 추가**를 선택 합니다.
 
     ![Azure Portal에서 제작 리소스에 대 한 역할 할당을 추가 합니다.](./media/luis-how-to-collaborate/authoring-resource-access-control-add-role.png)

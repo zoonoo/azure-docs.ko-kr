@@ -9,47 +9,142 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4356d9e1cd3d6f1a924603f7405d612814d35859
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 12a1f2304e4255eb9abd04ab2e2d0726066dd1e6
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256921"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73487766"
 ---
-# <a name="authoring-cycle-for-your-luis-app"></a>LUIS 앱에 대한 주기 작성
-LUIS는 모델 변경, 발화 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다. 
+# <a name="authoring-cycles-and-versions"></a>주기 및 버전 제작
+
+LUIS 앱은 다음과 같은 반복적인 주기에서 가장 효과적으로 학습 합니다.
+
+* 새 버전 만들기
+* 앱 스키마 편집
+    * 예 길이 발언를 사용 하는 의도
+    * 엔터티
+    * 기능
+* 타는
+* test
+* 게시
+    * 활성 학습에 대 한 예측 끝점에서 테스트
+* 끝점 쿼리에서 데이터 수집
 
 ![제작 주기](./media/luis-concept-app-iteration/iteration.png)
 
-## <a name="building-a-luis-model"></a>LUIS 모델 빌드
-모델의 목적은 사용자가 요청하는 내용(의도) 및 대답을 결정하는 데 도움이 되는 세부 정보를 제공하는 질문의 부분(엔터티)을 파악하는 것입니다. 
+## <a name="building-a-luis-schema"></a>LUIS 스키마 빌드
 
-일반적인 단어 순서뿐 아니라 관련된 단어 및 구문을 확인하려면 모델이 앱 도메인에 관련되어야 합니다. 
+앱 스키마의 용도는 사용자에 게 요청 하는 항목 (의도 또는 의도) 및 대답을 결정 하는 데 도움이 되는 세부 정보 (엔터티)를 제공 하는 질문의 부분을 정의 하는 것입니다. 
 
-모델은 의도를 요구 하며 엔터티를 _포함 해야_ 합니다. 
+일반적인 단어 순서와 관련 된 단어와 문구를 결정 하려면 앱 스키마를 앱 도메인에 고유 하 게 지정 해야 합니다. 
 
-## <a name="add-training-examples"></a>학습 예제 추가
-LUIS에는 의도의 예제 발화가 필요합니다. 예제에는 발화의 목적인 의도를 결정할 수 있는 단어 선택 및 단어 순서의 충분한 변형이 필요합니다. 각 예제 발화에는 엔터티로 레이블이 지정된 필수 데이터가 있어야 합니다. 
+예 길이 발언는 앱이 런타임에 얻게 될 것으로 예상 되는 사용자 입력을 나타냅니다. 
 
-발화를 **None** 의도에 할당하여 앱 도메인에 관련되지 않은 발화를 무시하도록 LUIS에 지시합니다. 발화에서 끌어올 필요가 없는 단어나 구문에는 레이블을 지정할 필요가 없습니다. 무시할 단어 또는 구문에는 레이블이 없습니다. 
+스키마는 의도를 요구 하며 엔터티를 _포함 해야_ 합니다. 
 
-## <a name="train-and-publish-the-app"></a>앱 학습 및 게시
-각 의도에 15 ~ 30 개의 다른 길이 발언가 있는 경우 레이블이 지정 된 필수 엔터티가 있으면 [학습](luis-how-to-train.md) 한 다음 [게시](luis-how-to-publish-app.md)해야 합니다. 게시 성공 알림에서 링크를 사용하여 엔드포인트를 가져옵니다. 필요한 [끝점 지역](luis-reference-regions.md) 에서 사용할 수 있도록 앱을 만들고 게시 해야 합니다. 
+### <a name="example-schema-of-intents"></a>의도의 스키마 예
 
-## <a name="https-prediction-endpoint-testing"></a>HTTPS 예측 끝점 테스트
-HTTPS 예측 끝점에서 LUIS 앱을 테스트할 수 있습니다. 예측 끝점에서 테스트를 통해 LUIS는 [검토](luis-how-to-review-endpoint-utterances.md)를 위해 신뢰도가 낮은 길이 발언를 선택할 수 있습니다.  
+가장 일반적인 스키마는 의도를 사용 하 여 구성 된 의도 스키마입니다. 이 유형의 스키마는 사용자의 의도를 결정 하는 LUIS에 따라 달라 집니다. 
 
-## <a name="recycle"></a>휴지통
+LUIS가 의도를 결정 하는 데 도움이 되는 경우이 스키마 형식은 엔터티를 가질 수 있습니다. 예를 들어, 배송 엔터티 (의도에 대 한 설명자)는 LUIS 결정 하는 데 도움이 됩니다. 
 
-작성 주기를 완료하면 다시 시작할 수 있습니다. 낮은 신뢰도로 표시 된 [예측 끝점 길이 발언](luis-how-to-review-endpoint-utterances.md) LUIS을 검토 하는 것으로 시작 합니다. 의도 및 엔터티에 모두 이러한 발화를 확인합니다. 발화를 검토한 후 검토 목록이 비어 있어야 합니다.  
+### <a name="example-schema-of-entities"></a>엔터티의 예제 스키마
 
-현재 버전을 새 버전으로 [복제](luis-concept-version.md#clone-a-version) 한 다음 새 버전에서 변경 내용을 작성 하는 것이 좋습니다. 
+엔터티 스키마는 길이 발언에서 추출할 데이터 인 엔터티를 중심으로 합니다. 
 
-## <a name="batch-testing"></a>일괄 테스트
+Utterance는 클라이언트 응용 프로그램에 더 적거나 중요 하지 않습니다. 
 
-[일괄 처리 테스트](luis-concept-batch-test.md) 는 LUIS에서 점수가 매겨진 예 길이 발언 수를 확인 하는 방법입니다. 예제는 LUIS에 새로운 내용이어야 하고 LUIS가 찾을 의도 및 엔터티로 올바르게 레이블이 지정되어야 합니다. 테스트 결과는 발화 집합에서 LUIS가 얼마나 잘 작동하는지를 나타냅니다. 
+엔터티 스키마를 구성 하는 일반적인 방법은 모든 예제 길이 발언를 없음 의도에 추가 하는 것입니다. 
+
+### <a name="example-of-a-mixed-schema"></a>혼합 스키마의 예
+
+가장 강력 하 고 완성도 높은 스키마는 모든 범위의 엔터티 및 기능이 포함 된 의도 스키마입니다. 클라이언트 응용 프로그램에 이러한 정보가 필요 하므로이 스키마는 의도 또는 엔터티 스키마로 시작 하 고 두 가지 개념을 포함 하도록 확장할 수 있습니다. 
+
+## <a name="add-example-utterances-to-intents"></a>의도에 길이 발언 예제 추가
+
+LUIS에는 각각의 **의도**에 몇 가지 예 길이 발언가 필요 합니다. 예 길이 발언에는 utterance가 의도 한 의도를 확인 하는 데 충분 한 단어 선택 및 단어 주문 변형이 필요 합니다. 
+
+> [!CAUTION]
+> 예 길이 발언를 대량으로 추가 하지 마십시오. 15 ~ 30 개의 특정 예제로 시작 합니다. 
+
+각 예제 utterance는 **엔터티**를 사용 하 여 디자인 하 고 레이블을 지정 **하는 데 필요한 데이터** 를 포함 해야 합니다. 
+
+|Key 요소|목적|
+|--|--|
+|의도|사용자 길이 발언를 단일 의도 또는 작업으로 **분류** 합니다. 예에는 `BookFlight` 및 `GetWeather`가 포함됩니다.|
+|엔터티|Utterance에서 데이터를 **추출** 하 여 의도를 완료 해야 합니다. 예를 들면 여행 날짜와 시간 및 위치를 포함 합니다.|
+
+LUIS 앱을 디자인 하 여 **길이 발언에 게** utterance을 할당 함으로써 앱 도메인과 관련이 없는을 무시 합니다. 
+
+## <a name="test-and-train-your-app"></a>응용 프로그램 테스트 및 학습
+
+각 의도에 대해 15 ~ 30 개의 다른 예제가 길이 발언 되 면 레이블이 지정 된 필수 엔터티가 있으면 테스트 하 고 [학습](luis-how-to-train.md)해야 합니다. 
+
+## <a name="publish-to-a-prediction-endpoint"></a>예측 끝점에 게시
+
+필요한 [예측 끝점 지역](luis-reference-regions.md) 에서 사용할 수 있도록 앱을 게시 해야 합니다. 
+
+## <a name="test-your-published-app"></a>게시된 앱 테스트
+
+HTTPS 예측 끝점에서 게시 된 LUIS 앱을 테스트할 수 있습니다. 예측 끝점에서 테스트를 통해 LUIS는 [검토](luis-how-to-review-endpoint-utterances.md)를 위해 신뢰도가 낮은 길이 발언를 선택할 수 있습니다.  
+
+## <a name="create-a-new-version-for-each-cycle"></a>각 주기에 대해 새 버전 만들기
+
+LUIS의 버전은 기존의 프로그래밍 버전과 유사합니다. 각 버전은 앱의 시간에 대한 스냅샷입니다. 앱을 변경하기 전에 새 버전을 만듭니다. 이전 버전으로 돌아가서 의도를 제거 하 고 이전 상태로 길이 발언를 시도 하는 것이 더 쉽습니다.
+
+버전 ID는 문자, 숫자 또는 ‘.’으로 구성되며 10자 이하여야 합니다.
+
+초기 버전(0.1)은 기본 활성 버전입니다. 
+
+### <a name="begin-by-cloning-an-existing-version"></a>기존 버전을 복제 하 여 시작
+
+새 버전의 시작 지점으로 사용할 기존 버전을 복제 합니다. 버전을 복제하면 새 버전이 **활성** 버전이 됩니다. 
+
+### <a name="publishing-slots"></a>슬롯 게시
+스테이지 및 프로덕션 슬롯에 게시할 수 있습니다. 각 슬롯에는 다른 버전 또는 동일한 버전이 있을 수 있습니다. 이 기능은 봇 또는 다른 LUIS 호출 응용 프로그램에서 사용할 수 있는 프로덕션에 게시 하기 전에 변경 사항을 확인 하는 데 유용 합니다. 
+
+학습 된 버전은 앱의 [끝점](luis-glossary.md#endpoint)에서 자동으로 사용할 수 없습니다. 앱 엔드포인트에서 사용할 수 있으려면 버전을 [게시](luis-how-to-publish-app.md)하거나 다시 게시해야 합니다. **스테이징** 및 **프로덕션**에 게시 하 여 끝점에서 사용할 수 있는 두 가지 버전의 앱을 제공할 수 있습니다. 엔드포인트에서 사용할 수 있는 추가 앱 버전이 필요한 경우, 버전을 내보내고 새 앱으로 다시 가져와야 합니다. 새 앱에는 다른 앱 ID가 포함됩니다.
+
+### <a name="import-and-export-a-version"></a>버전 가져오기 및 내보내기
+앱 수준에서 버전을 가져올 수 있습니다. 해당 버전은 활성 버전이 되며 응용 프로그램 파일의 `versionId` 속성에서 버전 ID를 사용 합니다. 버전 수준에서 기존 앱으로 가져올 수도 있습니다. 새 버전이 활성 버전이 됩니다. 
+
+앱 또는 버전 수준에서 버전을 내보낼 수 있습니다. 유일한 차이는 앱 수준에서 내보낸 버전이 현재 활성 버전이지만, 버전 수준에서는 **[설정](luis-how-to-manage-versions.md)** 페이지에서 내보낼 버전을 선택할 수 있다는 것입니다. 
+
+내보낸 파일에는 다음이 포함 되지 않습니다.
+
+* 가져온 후 앱을 다시 학습 때문에 컴퓨터에서 얻은 정보
+* 참가자 정보
+
+LUIS 앱 스키마를 백업 하려면 LUIS 포털에서 버전을 내보냅니다.
+
+## <a name="manage-contributor-changes-with-versions-and-apps"></a>버전 및 앱을 사용 하 여 참가자 변경 관리
+
+LUIS는 Azure 리소스 수준 권한을 제공 하 여 앱의 참여자 개념을 제공 합니다. 이 개념을 버전 관리와 결합 하 여 대상 공동 작업을 제공 합니다. 
+
+다음 기술을 사용 하 여 앱에 대 한 참가자 변경 내용을 관리할 수 있습니다.
+
+### <a name="manage-multiple-versions-inside-the-same-app"></a>동일한 앱 내부에서 여러 버전 관리
+먼저 각 작성자에 기본 버전에서 [복제](luis-how-to-manage-versions.md#clone-a-version)합니다. 
+
+각 작성자는 자신의 앱 버전을 변경 합니다. 각 작성자가 모델에 만족하면 새 버전을 JSON 파일로 내보냅니다.  
+
+내보낸 앱, json 또는. n a n 파일은 변경 내용에 대해 비교할 수 있습니다. 파일을 결합 하 여 새 버전의 단일 파일을 만듭니다. 새 병합 된 버전을 나타내기 위해 **해당 속성을 변경 합니다.** 해당 버전을 원래 앱으로 가져옵니다. 
+
+이 방법을 사용하면 하나의 활성 버전, 하나의 스테이지 버전 및 하나의 게시된 버전을 사용할 수 있습니다. 활성 버전의 결과를 [대화형 테스트 창](luis-interactive-test.md)에서 게시 된 버전 (스테이지 또는 프로덕션)과 비교할 수 있습니다.
+
+### <a name="manage-multiple-versions-as-apps"></a>여러 버전을 앱으로 관리
+기본 버전을 [내보냅니다](luis-how-to-manage-versions.md#export-version). 각 작성자는 버전을 가져옵니다. 앱을 가져오는 사용자는 버전의 소유자입니다. 앱 수정을 완료하면 버전을 내보냅니다. 
+
+내보낸 앱은 JSON 형식 파일이며 기본 내보내기와 변경 내용을 비교할 수 있습니다. 파일을 결합하여 새 버전의 단일 JSON 파일을 만듭니다. JSON에서 **versionId** 속성을 변경하여 새 병합 버전을 표시합니다. 해당 버전을 원래 앱으로 가져옵니다.
+
+[공동 작업자](luis-how-to-collaborate.md)의 기여 작성에 대해 자세히 알아보세요.
+
+## <a name="review-endpoint-utterances-to-begin-the-new-authoring-cycle"></a>끝점 길이 발언을 검토 하 여 새 제작 주기를 시작 합니다.
+
+작성 주기를 완료하면 다시 시작할 수 있습니다. 낮은 신뢰도로 표시 된 [예측 끝점 길이 발언](luis-how-to-review-endpoint-utterances.md) LUIS을 검토 하는 것으로 시작 합니다. 이러한 길이 발언를 확인 하 여 올바른 예측 의도가 있고 올바른 엔터티를 추출 했습니다. 변경 내용을 검토 하 고 적용 한 후에는 검토 목록이 비어 있어야 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

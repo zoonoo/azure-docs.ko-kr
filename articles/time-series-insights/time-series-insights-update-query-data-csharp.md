@@ -3,21 +3,20 @@ title: 코드를 사용 하 여 C# Azure Time Series Insights 미리 보기 환�
 description: 이 문서에서는 C#(c-sharp) .NET 언어로 작성된 사용자 지정 앱을 코딩하여 Azure Time Series Insights 환경에서 데이터를 쿼리하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
-author: ashannon7
+author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1a10996749a113fec1f29d2150ebaacfeffbeba
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 46ade3ed6e8712a074974c81e51b2dd6c834db26
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168894"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72989675"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-preview-environment-using-c"></a>을 사용 하 여 Azure Time Series Insights 미리 보기 환경에서 데이터 쿼리C#
 

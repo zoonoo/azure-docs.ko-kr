@@ -11,22 +11,22 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/26/2019
-ms.openlocfilehash: 5fccf1ffc76c824c81f8b8b826f90bf8314ff1e3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f23ef5506027a5de9f4189a11636d323679707f3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883336"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488470"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database 용어집
 
-|컨텍스트|용어|자세한 정보|
+|Context|용어|자세한 정보|
 |:---|:---|:---|
 |Azure 서비스 이름|Azure SQL Database 또는 SQL Database|[Azure SQL Database 서비스](sql-database-technical-overview.md)|
-|컴퓨팅 계층|서버를 사용 하지 않는 (미리 보기)|[서버를 사용 하지 않는 계산 계층](sql-database-serverless.md)
+|컴퓨팅 계층|서버를 사용하지 않음 |[서버를 사용 하지 않는 계산 계층](sql-database-serverless.md)
 ||프로비전됨|[서버를 사용 하지 않는 계산 계층](sql-database-serverless.md)
 |배포 옵션 |단일 데이터베이스|[단일 데이터베이스](sql-database-single-database.md)|
-||Elastic Pool|[탄력적 풀](sql-database-elastic-pool.md)|
+||탄력적 풀|[탄력적 풀](sql-database-elastic-pool.md)|
 ||Managed Instance|[관리되는 인스턴스](sql-database-managed-instance.md)|
 |서버 개체|SQL Database 서버 또는 데이터베이스 서버|[데이터베이스 서버](sql-database-servers.md)|
 ||SQL Database 관리되는 인스턴스 서버, 관리되는 인스턴스 서버 또는 인스턴스 서버|[관리되는 인스턴스](sql-database-managed-instance.md)|

@@ -10,12 +10,12 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 10/19/2019
-ms.openlocfilehash: 0a93bedb697a0d5a514fddab55c79b969b2bd77b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f1d152c921d38931f8c67396fc5769cfd2dfcf58
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954228"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468226"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 RuuviTag 센서 연결
 
@@ -29,12 +29,12 @@ RuuviTag는 매우 심한 (Bluetooth 저 에너지)를 통해 통신 하므로 A
 
 Rigado Cascade 500 게이트웨이 장치를 설정 하려면 [여기의 지침](./howto-connect-rigado-cascade-500-pnp.md) 을 따르세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 RuuviTag 센서를 연결 하려면 다음 리소스가 필요 합니다.
 
 * RuuviTag 센서입니다. 자세한 내용은 [RuuviTag](https://ruuvi.com/)를 참조 하세요. 
 * Rigado Cascade 500 장치 또는 다른의 다른 게이트웨이. 자세한 내용은 [Rigado](https://www.rigado.com/)를 참조 하세요.
-* Preview 응용 프로그램 템플릿 중 하나에서 만든 Azure IoT Central 응용 프로그램입니다. 자세한 내용은 [새 응용 프로그램 만들기](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)를 참조 하세요.
+* Preview 응용 프로그램 템플릿 중 하나에서 만든 Azure IoT Central 응용 프로그램입니다. 자세한 내용은 [새 응용 프로그램 만들기](https://docs.microsoft.com/azure/iot-central/core/quick-deploy-iot-central-pnp?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)를 참조 하세요.
 
 ## <a name="add-a-ruuvitag-device-template"></a>RuuviTag 장치 템플릿 추가
 

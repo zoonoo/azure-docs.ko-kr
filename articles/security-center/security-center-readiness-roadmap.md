@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: b2b4dc1aa9486e432fb2fae48343c21fba620221
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: ea029e62ac1273d9796e52edc3f7a46868964d2a
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996682"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73520752"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Azure Security Center 준비 로드맵
 이 문서에서는 Azure Security Center를 시작하는 데 도움이 되는 준비 로드맵을 제공합니다.
@@ -28,7 +28,7 @@ Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으�
 
 다음 리소스를 사용하여 Security Center를 시작합니다.
 
-아티클
+문서
 * [Azure Security Center 소개](https://docs.microsoft.com/azure/security-center/security-center-intro)
 * [Azure Security Center 빠른 시작 가이드](https://docs.microsoft.com/azure/security-center/security-center-get-started)
 
@@ -64,7 +64,7 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 
 다음 리소스를 사용하여 보안 경고를 관리하고 리소스를 보호할 수 있습니다.
 
-아티클    
+문서    
 * [Azure Security Center에서 보안 상태 모니터링](https://docs.microsoft.com/azure/security-center/security-center-monitoring)
 * [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
 * [Azure Security Center에서 네트워크 보호](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
@@ -83,7 +83,7 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 * [인시던트 대응을 위한 Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Azure-Security-Center-in-Incident-Response)
 * [차세대 보안 작업으로 위협에 대한 신속한 대응 및 조사](https://youtu.be/e8iFCz5RM4g)
 
-아티클    
+문서    
 * [인시던트 대응에 Azure Security Center 사용](https://docs.microsoft.com/azure/security-center/security-center-incident-response)
 * [보안 플레이 북으로 대응 자동화](https://docs.microsoft.com/azure/security-center/security-center-playbooks)
 
@@ -97,7 +97,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 * [Azure Security Center – Just-in-time VM 액세스](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center - 적응형 애플리케이션 컨트롤](https://youtu.be/wWWekI1Y9ck)
 
-아티클    
+문서    
 * [Just-in-time을 사용 하 여 가상 머신 액세스 관리](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Azure Security Center의 적응형 애플리케이션 제어](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
@@ -107,7 +107,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 * [Security Center의 WAF(웹 애플리케이션 방화벽) 권장 플레이 북](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
 * [Azure Security Center 플레이북: 보안 경고](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 * [Security Center 설명서 페이지](https://docs.microsoft.com/azure/security-center/)
 * [Security Center REST API 설명서 페이지](https://msdn.microsoft.com/library/mt704034.aspx)
 * [Azure Security Center FAQ(질문과 대답)](https://docs.microsoft.com/azure/security-center/security-center-faq)
@@ -115,7 +115,7 @@ Azure VM은 Security Center의 고급 클라우드 방어 기능을 활용할 �
 * [ID 보안 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [네트워크 보안 모범 사례](https://docs.microsoft.com/azure/security/fundamentals/network-best-practices)
 * [PaaS 권장 사항](https://docs.microsoft.com/azure/security/security-paas-deployments)
-* [규정 준수](https://www.microsoft.com/en-us/trustcenter/compliance/due-diligence-checklist)
+* [규정 준수](https://www.microsoft.com/trustcenter/compliance/due-diligence-checklist)
 * [Log analytics 고객은 이제 Azure Security Center를 사용 하 여 하이브리드 클라우드 워크 로드를 보호할 수 있습니다.](https://blogs.technet.microsoft.com/msoms/2017/09/25/oms-customers-can-now-use-azure-security-center-to-protect-their-hybrid-cloud-workloads/)
 
 ## <a name="community-resources"></a>커뮤니티 리소스

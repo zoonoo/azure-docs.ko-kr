@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 08/31/2019
+ms.date: 10/14/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 91f07b8da2cbc9beaa24730f2ec9f2ddb4639f37
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
-ms.translationtype: MT
+ms.openlocfilehash: e6e4c0018f11e216afd5a8c295fc336036885e68
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302533"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468950"
 ---
-# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: 질문과 대답(FAQ)
+# <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: FAQ(질문과 대답)
 
 이 페이지는 Azure Active Directory B2C (Azure AD B2C)에 대 한 자주 묻는 질문에 답변 합니다. 업데이트를 계속 확인합니다.
 
@@ -69,8 +69,8 @@ Azure Portal의 왼쪽 메뉴에서 'Azure AD B2C'를 열기 전에 관리하려
 
 [회사 브랜딩 기능](../active-directory/fundamentals/customize-branding.md)을 사용하여 확인 메일의 콘텐츠를 사용자 지정할 수 있습니다. 특히, 전자 메일의 다음 두 요소를 사용자 지정할 수 있습니다.
 
-* **배너 로고**: 오른쪽 아래에 표시됩니다.
-* **배경색**: 위쪽에 표시됩니다.
+* **배너 로고**: 오른쪽 아래에 표시 됩니다.
+* **배경색**: 맨 위에 표시됩니다.
 
     ![사용자 지정 된 확인 전자 메일의 스크린샷](./media/active-directory-b2c-faqs/company-branded-verification-email.png)
 
@@ -130,15 +130,20 @@ Azure AD B2C는 SharePoint 외부 파트너 공유 시나리오에 해당하지 
 
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Azure AD B2C 테넌트를 삭제하려면 어떻게 해야 하나요?
 
-Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
+Azure AD B2C 테 넌 트를 삭제 하려면 다음 단계를 수행 합니다.
 
+현재 **응용 프로그램** 환경 또는 새로운 통합 **앱 등록 (미리 보기)** 환경을 사용할 수 있습니다. [미리 보기 환경에 대해 자세히 알아보세요](http://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+
+1. *구독 관리자로* [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 동일한 회사 또는 학교 계정 또는 Azure에 등록 하는 데 사용한 것과 동일한 Microsoft 계정를 사용 합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
 1. Azure AD B2C 테 넌 트에서 모든 **사용자 흐름 (정책)** 을 삭제 합니다.
 1. Azure AD B2C 테 넌 트에 등록 한 모든 **응용 프로그램** 을 삭제 합니다.
-1. 그런 다음 구독 관리자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 동일한 회사 또는 학교 계정 또는 Azure에 등록 하는 데 사용한 것과 동일한 Microsoft 계정를 사용 합니다.
-1. 삭제하려는 Azure AD B2C 테넌트로 전환합니다.
 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
 1. **관리**에서 **사용자**를 선택합니다.
-1. 각 사용자를 차례로 선택합니다(현재 로그인에 사용한 구독 관리자 사용자 제외). 페이지 맨 아래에서 **삭제** 를 선택 하 고 메시지가 표시 되 면 **예** 를 선택 합니다.
+1. 각 사용자를 차례로 선택 합니다 (현재 로그인 한 *구독 관리자* 사용자 제외). 페이지 맨 아래에서 **삭제** 를 선택 하 고 메시지가 표시 되 면 **예** 를 선택 합니다.
 1. **관리**에서 **앱 등록** (또는 **앱 등록 (레거시)** )를 선택 합니다.
 1. **모든 응용 프로그램 보기** 선택
 1. **B2c**이라는 응용 프로그램을 선택 하 고, **삭제**를 선택한 다음, 메시지가 표시 되 면 **예** 를 선택 합니다.
@@ -149,6 +154,28 @@ Azure AD B2C 테넌트를 삭제하려면 다음 단계를 수행합니다.
 1. Azure Portal에서 로그 아웃 한 후 다시 로그인 하 여 액세스를 새로 고칩니다.
 1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
 1. **개요** 페이지에서 **디렉터리 삭제**를 선택 합니다. 화면의 지시에 따라 프로세스를 완료 합니다.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록 (미리 보기)](#tab/app-reg-preview/)
+
+1. *구독 관리자로* [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 동일한 회사 또는 학교 계정 또는 Azure에 등록 하는 데 사용한 것과 동일한 Microsoft 계정를 사용 합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
+1. Azure AD B2C 테 넌 트에서 모든 **사용자 흐름 (정책)** 을 삭제 합니다.
+1. **앱 등록 (미리 보기)** 를 선택한 다음 **모든 응용 프로그램** 탭을 선택 합니다.
+1. 등록 한 모든 응용 프로그램을 삭제 합니다.
+1. **B2c 앱**을 삭제 합니다.
+1. **관리**에서 **사용자**를 선택합니다.
+1. 각 사용자를 차례로 선택 합니다 (현재 로그인 한 *구독 관리자* 사용자 제외). 페이지 맨 아래에서 **삭제** 를 선택 하 고 메시지가 표시 되 면 **예** 를 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
+1. **관리**에서 **사용자 설정**을 선택 합니다.
+1. 있는 경우 **LinkedIn 계정 연결**아래에서 **아니요**를 선택 하 고 **저장**을 선택 합니다.
+1. **관리**아래에서 **속성** 을 선택 합니다.
+1. **Azure 리소스에 대 한 액세스 관리**에서 **예**를 선택한 다음, **저장**을 선택 합니다.
+1. Azure Portal에서 로그 아웃 한 후 다시 로그인 하 여 액세스를 새로 고칩니다.
+1. 왼쪽 메뉴에서 **Azure Active Directory** 를 선택 합니다.
+1. **개요** 페이지에서 **디렉터리 삭제**를 선택 합니다. 화면의 지시에 따라 프로세스를 완료 합니다.
+
+* * *
 
 ### <a name="can-i-get-azure-ad-b2c-as-part-of-enterprise-mobility-suite"></a>Enterprise Mobility Suite의 일부로 Azure AD B2C를 가져올 수 있나요?
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 89f8ffc58458ce75d1acd897f224f61bab9158b4
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
-ms.translationtype: MT
+ms.openlocfilehash: 8ce5083d444aa05b59677fb46e7aa80200835412
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512777"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73147083"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services에 연결하기 위한 클라이언트 라이브러리
 
-클라이언트 라이브러리는 클라이언트 애플리케이션 및 도구에서 Analysis Services 서버에 연결하는 데 필요합니다. SSMS (Power BI Desktop, Excel, SQL Server Management Studio) 및 SQL Server Data Tools (SSDT)와 같은 Microsoft 클라이언트 응용 프로그램은 세 가지 클라이언트 라이브러리를 모두 설치 하 고 일반 응용 프로그램 업데이트와 함께 업데이트 합니다. 경우에 따라 최신 버전의 클라이언트 라이브러리를 설치 해야 할 수도 있습니다. 또한 사용자 지정 클라이언트 응용 프로그램에서 클라이언트 라이브러리를 설치 해야 합니다.
+클라이언트 라이브러리는 클라이언트 애플리케이션 및 도구에서 Analysis Services 서버에 연결하는 데 필요합니다. Visual Studio 용 SSMS (Power BI Desktop, Excel, SQL Server Management Studio) 및 Analysis Services 프로젝트 확장과 같은 Microsoft 클라이언트 응용 프로그램은 세 가지 클라이언트 라이브러리를 모두 설치 하 고 일반 응용 프로그램 업데이트와 함께 업데이트 합니다. 경우에 따라 최신 버전의 클라이언트 라이브러리를 설치 해야 할 수도 있습니다. 또한 사용자 지정 클라이언트 응용 프로그램에서 클라이언트 라이브러리를 설치 해야 합니다.
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>최신 클라이언트 라이브러리 다운로드(Windows Installer)  
 
@@ -58,7 +58,7 @@ Power BI Desktop 및 Excel과 같은 Microsoft 클라이언트 애플리케이�
 
 ### <a name="amo"></a>AMO  
 
- AMO는 서버 관리 및 데이터 정의에 사용되는 관리되는 클라이언트 라이브러리입니다. 도구 및 클라이언트 애플리케이션에 의해 설치되고 사용됩니다. 예를 들어 SSMS(SQL Server Management Studio)는 AMO를 사용하여 Analysis Services에 연결합니다. AMO를 사용하는 연결은 일반적으로 최소로 유지되며 `"data source=\<servername>"`으로 구성됩니다. 연결이 설정된 후에 API를 사용하여 데이터베이스 컬렉션 및 주요 개체에 대해 작업을 수행합니다. SSDT와 SSMS는 둘 다 AMO를 사용하여 Analysis Services 인스턴스에 연결합니다.  
+ AMO는 서버 관리 및 데이터 정의에 사용되는 관리되는 클라이언트 라이브러리입니다. 도구 및 클라이언트 애플리케이션에 의해 설치되고 사용됩니다. 예를 들어 SSMS(SQL Server Management Studio)는 AMO를 사용하여 Analysis Services에 연결합니다. AMO를 사용하는 연결은 일반적으로 최소로 유지되며 `"data source=\<servername>"`으로 구성됩니다. 연결이 설정된 후에 API를 사용하여 데이터베이스 컬렉션 및 주요 개체에 대해 작업을 수행합니다. Visual Studio와 SSMS는 모두 AMO를 사용 하 여 Analysis Services 인스턴스에 연결 합니다.  
 
   
 ### <a name="adomd"></a>ADOMD

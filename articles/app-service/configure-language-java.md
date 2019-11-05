@@ -14,12 +14,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 91f0c059d22fb921aeb0c65f7d4eba95debd530d
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 75632d4fcdbf27f70b1b84f08f7295212dbac6a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097726"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471099"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Windows Java 앱 구성
 
@@ -53,7 +53,7 @@ Azure Portal을 통해 각 앱에 대한 성능 보고서, 트래픽 시각화 �
 
 ### <a name="app-logging"></a>앱 로깅
 
-Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 통해 [애플리케이션 로깅](troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다. Java 및 Tomcat 앱 로그는 */LogFiles/Application/* 디렉터리에서 찾을 수 있습니다.
+Azure Portal 또는 [Azure CLI](troubleshoot-diagnostic-logs.md#enable-application-logging-windows)를 통해 [애플리케이션 로깅](/cli/azure/webapp/log#az-webapp-log-config)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다. Java 및 Tomcat 앱 로그는 */LogFiles/Application/* 디렉터리에서 찾을 수 있습니다.
 
 애플리케이션에서 [Logback](https://logback.qos.ch/) 또는 [Log4j](https://logging.apache.org/log4j)를 추적에 사용하는 경우 [Application Insights에서 Java 추적 로그 탐색](/azure/application-insights/app-insights-java-trace-logs)의 로깅 프레임워크 구성 지침에 따라 이러한 추적 로그를 Azure Application Insights로 전송하여 검토할 수 있습니다.
 
@@ -62,17 +62,17 @@ Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 �
 
 Azure App Service은 Azure Portal 및 CLI를 통해 기본 튜닝 및 사용자 지정을 지원 합니다. Java와 관련 되지 않은 웹 앱 구성에 대 한 다음 문서를 검토 합니다.
 
-- [앱 설정 구성](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)
-- [사용자 지정 도메인 설정](app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [SSL 사용](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [CDN 추가](../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [앱 설정 구성](configure-common.md#configure-app-settings)
+- [사용자 지정 도메인 설정](app-service-web-tutorial-custom-domain.md)
+- [SSL 바인딩 구성](configure-ssl-bindings.md)
+- [CDN 추가](../cdn/cdn-add-to-web-app.md)
 - [Kudu 사이트 구성](https://github.com/projectkudu/kudu/wiki/Configurable-settings)
 
 ### <a name="set-java-runtime-options"></a>Java 런타임 옵션 설정
 
-할당 된 메모리 또는 기타 JVM 런타임 옵션을 설정 하려면 옵션으로 이라는 `JAVA_OPTS` [앱 설정을](configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) 만듭니다. App Service는이 설정을 시작 시 Java 런타임으로이를 환경 변수로 전달 합니다.
+할당 된 메모리 또는 기타 JVM 런타임 옵션을 설정 하려면 옵션과 함께 `JAVA_OPTS` 이라는 [앱 설정을](configure-common.md#configure-app-settings) 만듭니다. App Service는이 설정을 시작 시 Java 런타임으로이를 환경 변수로 전달 합니다.
 
-Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `-Xms512m -Xmx1204m`처럼 추가 설정을 포함하는 `JAVA_OPTS`라고 하는 새 앱 설정을 만듭니다.
+Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `JAVA_OPTS`처럼 추가 설정을 포함하는 `-Xms512m -Xmx1204m`라고 하는 새 앱 설정을 만듭니다.
 
 Maven 플러그 인에서 앱 설정을 구성 하려면 Azure 플러그 인 섹션에서 설정/값 태그를 추가 합니다. 다음 예에서는 특정 최소 및 최대 Java 힙 크기를 설정 합니다.
 
@@ -87,9 +87,9 @@ Maven 플러그 인에서 앱 설정을 구성 하려면 Azure 플러그 인 섹
 
 App Service 계획에서 배포 슬롯 하나를 사용하여 단일 애플리케이션을 실행하는 개발자는 다음 옵션을 사용할 수 있습니다.
 
-- B1 및 S1 인스턴스:`-Xms1024m -Xmx1024m`
-- B2 및 S2 인스턴스:`-Xms3072m -Xmx3072m`
-- B3 및 S3 인스턴스:`-Xms6144m -Xmx6144m`
+- B1 및 S1 인스턴스: `-Xms1024m -Xmx1024m`
+- B2 및 S2 인스턴스: `-Xms3072m -Xmx3072m`
+- B3 및 S3 인스턴스: `-Xms6144m -Xmx6144m`
 
 애플리케이션 힙 설정을 튜닝할 때 App Service 계획 세부 정보를 검토하고 여러 애플리케이션 및 배포 슬롯 요구 사항을 고려하여 최적의 메모리 할당을 찾아보세요.
 
@@ -112,7 +112,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### <a name="set-default-character-encoding"></a>기본 문자 인코딩 설정
 
-Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `-Dfile.encoding=UTF-8` 값을 사용하여 `JAVA_OPTS`이라고 하는 새 앱 설정을 만듭니다.
+Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `JAVA_OPTS` 값을 사용하여 `-Dfile.encoding=UTF-8`이라고 하는 새 앱 설정을 만듭니다.
 
 또는 App Service Maven 플러그 인을 사용하여 앱 설정을 구성할 수 있습니다. 플러그 인 구성에서 설정 이름 및 값 태그를 추가합니다.
 
@@ -135,17 +135,17 @@ App Service에서 실행 되는 Java 응용 프로그램에는 다른 응용 프
 
 ### <a name="authenticate-users-easy-auth"></a>사용자 인증 (Easy Auth)
 
-**인증 및 권한 부여** 옵션을 사용 하 여 Azure Portal에서 앱 인증을 설정 합니다. 여기서 Azure Active Directory 또는 Facebook, Google, GitHub 등의 소셜 로그인을 사용하여 인증을 사용하도록 설정할 수 있습니다. Azure Portal 구성은 단일 인증 공급자를 구성할 때만 작동합니다. 자세한 내용은 [Azure Active Directory 로그인을 사용하도록 App Service 앱 구성](configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 및 기타 ID 공급자 관련 문서를 참조하세요. 여러 로그인 공급자를 사용하도록 설정해야 하는 경우 [App Service 인증 사용자 지정](app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) 문서의 지침을 따르세요.
+**인증 및 권한 부여** 옵션을 사용 하 여 Azure Portal에서 앱 인증을 설정 합니다. 여기서 Azure Active Directory 또는 Facebook, Google, GitHub 등의 소셜 로그인을 사용하여 인증을 사용하도록 설정할 수 있습니다. Azure Portal 구성은 단일 인증 공급자를 구성할 때만 작동합니다. 자세한 내용은 [Azure Active Directory 로그인을 사용하도록 App Service 앱 구성](configure-authentication-provider-aad.md) 및 기타 ID 공급자 관련 문서를 참조하세요. 여러 로그인 공급자를 사용하도록 설정해야 하는 경우 [App Service 인증 사용자 지정](app-service-authentication-how-to.md) 문서의 지침을 따르세요.
 
 #### <a name="tomcat-and-wildfly"></a>Tomcat 및 Wildfly
 
-Tomcat 또는 Wildfly 응용 프로그램은 주 개체를 Map 개체로 캐스팅 하 여 서블릿에 사용자의 클레임에 직접 액세스할 수 있습니다. Map 개체는 각 클레임 형식을 해당 형식에 대 한 클레임 컬렉션에 매핑합니다. 아래 `request` 코드에서는의 `HttpServletRequest`인스턴스입니다.
+Tomcat 또는 Wildfly 응용 프로그램은 주 개체를 Map 개체로 캐스팅 하 여 서블릿에 사용자의 클레임에 직접 액세스할 수 있습니다. Map 개체는 각 클레임 형식을 해당 형식에 대 한 클레임 컬렉션에 매핑합니다. 아래 코드에서 `request`은 `HttpServletRequest`인스턴스입니다.
 
 ```java
 Map<String, Collection<String>> map = (Map<String, Collection<String>>) request.getUserPrincipal();
 ```
 
-이제 특정 클레임에 대 `Map` 한 개체를 검사할 수 있습니다. 예를 들어 다음 코드 조각은 모든 클레임 형식을 반복 하 고 각 컬렉션의 내용을 인쇄 합니다.
+이제 특정 클레임에 대 한 `Map` 개체를 검사할 수 있습니다. 예를 들어 다음 코드 조각은 모든 클레임 형식을 반복 하 고 각 컬렉션의 내용을 인쇄 합니다.
 
 ```java
 for (Object key : map.keySet()) {
@@ -169,11 +169,11 @@ public String getScheme()
 public int getServerPort()
 ```
 
-이 기능을 사용 하지 않도록 설정 하려면 `WEBSITE_AUTH_SKIP_PRINCIPAL` `1`값이 인 라는 응용 프로그램 설정을 만듭니다. App Service에 의해 추가 된 모든 서블릿 필터를 사용 하지 않도록 설정 `WEBSITE_SKIP_FILTERS` 하려면 `1`값이 인 이라는 설정을 만듭니다.
+이 기능을 사용 하지 않도록 설정 하려면 `1`값으로 `WEBSITE_AUTH_SKIP_PRINCIPAL` 라는 응용 프로그램 설정을 만듭니다. App Service에서 추가한 모든 서블릿 필터를 사용 하지 않도록 설정 하려면 `1`값을 사용 하 여 `WEBSITE_SKIP_FILTERS` 라는 설정을 만듭니다.
 
 ### <a name="configure-tlsssl"></a>TLS/SSL 구성
 
-[기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)의 지침에 따라 기존 SSL 인증서를 업로드하고 애플리케이션의 도메인 이름에 바인딩합니다. 기본적으로 애플리케이션에서 HTTP 연결을 계속 허용합니다. 자습서의 단계에 따라 SSL 및 TLS를 적용하세요.
+기존 SSL 인증서를 업로드 하 고 응용 프로그램의 도메인 이름에 바인딩하려면 [Azure App Service의 ssl 바인딩과 함께 사용자 지정 DNS 이름 보안](configure-ssl-bindings.md) 설정의 지침을 따릅니다. 기본적으로 애플리케이션에서 HTTP 연결을 계속 허용합니다. 자습서의 단계에 따라 SSL 및 TLS를 적용하세요.
 
 ### <a name="use-keyvault-references"></a>KeyVault 참조 사용
 
@@ -197,8 +197,8 @@ public int getServerPort()
 5. 압축을 푼 새 유물 Java 에이전트 파일을 */home/site/wwwroot/apm*아래의 디렉터리에 업로드 합니다. 에이전트의 파일은 */home/site/wwwroot/apm/newrelic*에 있어야 합니다.
 6. */Home/site/wwwroot/apm/newrelic/newrelic.yml* 에서 yaml 파일을 수정 하 고 자리 표시자 라이선스 값을 자신의 라이선스 키로 바꿉니다.
 7. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
-    - 앱이 **Java SE**를 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`인 `JAVA_OPTS`라는 환경 변수를 만듭니다.
-    - **Tomcat**을 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`인 `CATALINA_OPTS`라는 환경 변수를 만듭니다.
+    - 앱이 **Java SE**를 사용하는 경우 값이 `JAVA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`라는 환경 변수를 만듭니다.
+    - **Tomcat**을 사용하는 경우 값이 `CATALINA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`라는 환경 변수를 만듭니다.
 
 ### <a name="configure-appdynamics"></a>AppDynamics 구성
 
@@ -207,12 +207,12 @@ public int getServerPort()
 3. [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console) 을 사용 하 여 */home/site/wwwroot/apm*새 디렉터리를 만듭니다.
 4. */Home/site/wwwroot/apm*아래의 디렉터리에 Java 에이전트 파일을 업로드 합니다. 에이전트의 파일은 */home/site/wwwroot/apm/appdynamics*에 있어야 합니다.
 5. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
-    - **Java SE**를 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`인 `JAVA_OPTS`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
-    - **Tomcat**을 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`인 `CATALINA_OPTS`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
+    - **Java SE**를 사용하는 경우 값이 `JAVA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
+    - **Tomcat**을 사용하는 경우 값이 `CATALINA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
 
 >  `JAVA_OPTS` 또는 `CATALINA_OPTS`에 대한 환경 변수가 이미 있는 경우 현재 값의 끝에 `-javaagent:/...` 옵션을 추가합니다.
 
-## <a name="data-sources"></a>데이터 소스
+## <a name="data-sources"></a>데이터 원본
 
 ### <a name="tomcat"></a>Tomcat
 
@@ -224,7 +224,7 @@ public int getServerPort()
 | MySQL      | `com.mysql.jdbc.Driver`                        | [다운로드](https://dev.mysql.com/downloads/connector/j/)(“플랫폼 독립적” 선택) |
 | SQL Server | `com.microsoft.sqlserver.jdbc.SQLServerDriver` | [다운로드](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server?view=sql-server-2017#available-downloads-of-jdbc-driver-for-sql-server)                                                           |
 
-JDBC (Java Database Connectivity) 또는 jpa (Java 지 속성 API)를 사용 하도록 Tomcat를 구성 하려면 먼저 `CATALINA_OPTS` Tomcat에서 읽을 환경 변수를 시작 합니다. [App Service Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)에서 앱 설정을 통해 이러한 값을 설정합니다.
+JDBC (Java Database Connectivity) 또는 JPA (Java 지 속성 API)를 사용 하도록 Tomcat를 구성 하려면 먼저 Tomcat에서 읽은 `CATALINA_OPTS` 환경 변수를 사용자 지정 합니다. [App Service Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md)에서 앱 설정을 통해 이러한 값을 설정합니다.
 
 ```xml
 <appSettings>
@@ -235,7 +235,7 @@ JDBC (Java Database Connectivity) 또는 jpa (Java 지 속성 API)를 사용 하
 </appSettings>
 ```
 
-또는 Azure Portal **구성** > **응용 프로그램 설정** 페이지에서 환경 변수를 설정 합니다.
+또는 Azure Portal의 **구성** > **응용 프로그램 설정** 페이지에서 환경 변수를 설정 합니다.
 
 다음으로, 데이터 원본을 한 애플리케이션에만 제공할 것인지 또는 Tomcat 서블릿에서 실행 중인 모든 애플리케이션에 제공할 것인지 결정합니다.
 
@@ -243,7 +243,7 @@ JDBC (Java Database Connectivity) 또는 jpa (Java 지 속성 API)를 사용 하
 
 1. 프로젝트의 *META-INF/* 디렉터리에 *컨텍스트별* 파일을 만듭니다. 존재 하지 않는 경우 *META-INF/* 디렉터리를 만듭니다.
 
-2. *컨텍스트별*에서 요소를 `Context` 추가 하 여 데이터 원본을 JNDI 주소에 연결 합니다. `driverClassName` 자리 표시자를 위 테이블에 있는 드라이버의 클래스 이름으로 바꿉니다.
+2. *컨텍스트별*에서 데이터 원본을 JNDI 주소에 연결 하는 `Context` 요소를 추가 합니다. `driverClassName` 자리 표시자를 위 테이블에 있는 드라이버의 클래스 이름으로 바꿉니다.
 
     ```xml
     <Context>
@@ -269,7 +269,7 @@ JDBC (Java Database Connectivity) 또는 jpa (Java 지 속성 API)를 사용 하
 
 #### <a name="finalize-configuration"></a>구성 완료
 
-마지막으로 Tomcat 클래스 경로에 드라이버 Jar를 저장 하 고 App Service를 다시 시작 합니다. JDBC 드라이버 파일을 */home/tomcat/lib* 디렉터리에 배치 하 여 Tomcat classloader에서 사용할 수 있는지 확인 합니다. (아직 존재하지 않는 경우 이 디렉터리를 만듭니다.) 이러한 파일을 App Service 인스턴스에 업로드하려면 다음 단계를 수행합니다.
+마지막으로 Tomcat 클래스 경로에 드라이버 Jar를 저장 하 고 App Service를 다시 시작 합니다. JDBC 드라이버 파일을 */home/tomcat/lib* 디렉터리에 배치 하 여 Tomcat classloader에서 사용할 수 있는지 확인 합니다. (아직 없는 경우이 디렉터리를 만듭니다.) App Service 인스턴스에 이러한 파일을 업로드 하려면 다음 단계를 수행 합니다.
 
 1. [Cloud Shell](https://shell.azure.com)에서 webapp 확장을 설치 합니다.
 
@@ -285,22 +285,22 @@ JDBC (Java Database Connectivity) 또는 jpa (Java 지 속성 API)를 사용 하
 
 3. SFTP 클라이언트를 사용 하 여 로컬 터널링 포트에 연결 하 고 파일을 */home/tomcat/lib* 폴더에 업로드 합니다.
 
-또는 FTP 클라이언트를 사용하여 JDBC 드라이버를 업로드할 수 있습니다. [FTP 자격 증명을 가져오기 위한 이러한 지침](deploy-configure-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)을 따릅니다.
+또는 FTP 클라이언트를 사용하여 JDBC 드라이버를 업로드할 수 있습니다. [FTP 자격 증명을 가져오기 위한 이러한 지침](deploy-configure-credentials.md)을 따릅니다.
 
 ## <a name="configuring-tomcat"></a>Tomcat 구성
 
-Tomcat의 `server.xml` 또는 다른 구성 파일을 편집 하려면 먼저 포털에서 Tomcat 주 버전을 기록해 둡니다.
+Tomcat의 `server.xml` 또는 기타 구성 파일을 편집 하려면 먼저 포털에서 Tomcat 주 버전을 기록해 둡니다.
 
-1. `env` 명령을 실행 하 여 버전에 대 한 Tomcat home 디렉터리를 찾습니다. 로 `AZURE_TOMCAT`시작 하 고 주 버전과 일치 하는 환경 변수를 검색 합니다. 예를 들어 `AZURE_TOMCAT85_HOME` 는 Tomcat 8.5에 대 한 Tomcat 디렉터리를 가리킵니다.
-1. 버전에 대 한 Tomcat home 디렉터리를 확인 한 후에 구성 디렉터리를로 `D:\home`복사 합니다. 예를 들어의 `AZURE_TOMCAT85_HOME` `D:\Program Files (x86)\apache-tomcat-8.5.37`값이 인 경우 복사 된 디렉터리 `D:\home\apache-tomcat-8.5.37`의 새 경로는입니다.
+1. `env` 명령을 실행 하 여 버전에 대 한 Tomcat home 디렉터리를 찾습니다. `AZURE_TOMCAT`시작 하 고 주 버전과 일치 하는 환경 변수를 검색 합니다. 예를 들어 `AZURE_TOMCAT85_HOME`는 Tomcat 8.5에 대 한 Tomcat 디렉터리를 가리킵니다.
+1. 버전에 대 한 Tomcat home 디렉터리를 확인 한 후에는 구성 디렉터리를 `D:\home`에 복사 합니다. 예를 들어 `AZURE_TOMCAT85_HOME` `D:\Program Files (x86)\apache-tomcat-8.5.37`값이 있는 경우 복사한 디렉터리의 새 경로는 `D:\home\apache-tomcat-8.5.37`됩니다.
 
-마지막으로, App Service를 다시 시작합니다. 배포는 이전과 마찬가지로로 `D:\home\site\wwwroot\webapps` 이동 해야 합니다.
+마지막으로, App Service를 다시 시작합니다. 배포는 이전과 마찬가지로 `D:\home\site\wwwroot\webapps`로 이동 해야 합니다.
 
 ## <a name="java-runtime-statement-of-support"></a>Java 런타임 문 지원
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK 버전 및 유지 관리
 
-Azure에서 지원되는 JDK(Java Development Kit)는 [Azul Systems](https://www.azul.com/)를 통해 제공하는 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)입니다.
+Azure에서 지원되는 JDK(Java Development Kit)는 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)를 통해 제공하는 [Zulu](https://www.azul.com/)입니다.
 
 주 버전 업데이트는 Windows 용 Azure App Service의 새로운 런타임 옵션을 통해 제공 됩니다. 고객은 App Service 배포를 구성하여 최신 버전의 Java로 업데이트해야 하며, 주 업데이트를 테스트하고 요구 사항을 충족하도록 관리할 책임이 있습니다.
 
@@ -324,7 +324,7 @@ Azure [지원 Azul 줄루어 JDK](https://www.azul.com/downloads/azure-only/zulu
 
 ### <a name="runtime-support"></a>런타임 지원
 
-개발자는 [정규화된 지원 계획](https://azure.microsoft.com/support/plans/)이 있는 경우 Azure 지원을 통해 Azul Zulu JDK 관련 [문제를 제기](/azure/azure-supportability/how-to-create-azure-support-request)할 수 있습니다.
+개발자는 [정규화된 지원 계획](/azure/azure-supportability/how-to-create-azure-support-request)이 있는 경우 Azure 지원을 통해 Azul Zulu JDK 관련 [문제를 제기](https://azure.microsoft.com/support/plans/)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

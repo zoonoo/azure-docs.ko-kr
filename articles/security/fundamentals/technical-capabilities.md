@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/31/2019
 ms.author: TomSh
-ms.openlocfilehash: ac9a62a810a957c67d9c24063d01eff822c8294f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: dbc17cff2347cd86db3296f4aa2de76ef0f75460
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129291"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468082"
 ---
 # <a name="azure-security-technical-capabilities"></a>Azure 보안 기술 기능
 이 문서에서는 클라우드에서 데이터, 리소스 및 응용 프로그램을 보호 하 고 비즈니스의 보안 요구를 충족 하는 데 도움이 되는 Azure의 보안 서비스에 대해 소개 합니다.
@@ -71,9 +71,9 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 다음은 핵심적인 Azure id 관리 기능입니다.
 
-- Single Sign-On
+- SSO(Single sign-on)
 
-- 다단계 인증
+- Multi-Factor Authentication
 
 - 보안 모니터링, 경고 및 기계 학습 기반 보고서
 
@@ -85,7 +85,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 - ID 보호
 
-#### <a name="single-sign-on"></a>Single Sign-On
+#### <a name="single-sign-on"></a>SSO(Single sign-on)
 
 [SSO(Single Sign-On)](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)란 단일 사용자 계정을 사용하여 한 번만 로그인함으로써 비즈니스를 수행하는 데 필요한 모든 애플리케이션 및 리소스에 액세스할 수 있음을 의미합니다. 로그인하면 다시 인증(예: 암호 입력)을 수행하지 않아도 필요한 모든 애플리케이션에 액세스할 수 있습니다.
 
@@ -95,7 +95,7 @@ Azure Active Directory (Azure AD)의 보안 이점은 다음과 같은 기능을
 
 사용자는 여러 사용자 이름과 암호 집합을 관리할 필요가 없을 뿐만 아니라, 조직 그룹 및 직원으로서의 상태에 따라 해당 애플리케이션 액세스를 자동으로 프로비전하거나 프로비전을 해제할 수 있습니다. [Azure AD는 SaaS 애플리케이션에 대한 사용자의 액세스를 중앙에서 관리할 수 있는 보안 및 액세스 관리 제어를 도입](../../active-directory/active-directory-enterprise-apps-manage-sso.md)했습니다.
 
-#### <a name="multi-factor-authentication"></a>다단계 인증
+#### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 [MFA (Azure Multi-Factor Authentication)](../../active-directory/authentication/multi-factor-authentication.md) 는 둘 이상의 인증 방법을 사용 해야 하 고 사용자 로그인 및 트랜잭션에 중요 한 두 번째 보안 계층을 추가 하는 인증 방법입니다. [MFA는 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 데이터와 애플리케이션에 대한 액세스를 보호](../../active-directory/authentication/concept-mfa-howitworks.md)하는 데 도움이 됩니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
@@ -169,9 +169,9 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 
 클라우드의 데이터를 보호하기 위한 핵심 중 하나는 데이터에서 발생 가능한 상태 그리고 해당 상태에 어떤 컨트롤을 제공할 것인지 설명하는 것입니다. Azure 데이터 보안 및 암호화 모범 사례의 경우 다음과 같은 데이터 상태와 관련된 권장 사항이 제공됩니다.
 
-- 미사용: 모든 정보 스토리지 개체, 컨테이너 및 물리적 미디어(자기 또는 광 디스크)에 정적으로 존재하는 유형이 여기에 포함됩니다.
+- 스토리지: 모든 정보 스토리지 개체, 컨테이너 및 물리적 미디어(자기 또는 광 디스크)에 정적으로 존재하는 유형이 여기에 포함됩니다.
 
-- 전송 중: 데이터가 ExpressRoute 같은 하이브리드 연결을 포함하여 서비스 버스에서(온-프레미스에서 클라우드로 또는 그 반대로) 네트워크를 통해 구성 요소, 위치 또는 프로그램 간에 전송 중이거나 입력/출력 프로세스 중인 경우 데이터가 동작 중인 것으로 간주됩니다.
+- 전송 중: 데이터를 구성 요소, 위치 또는 프로그램 간에 전송 하는 경우 (예: Express 경로와 같은 하이브리드 연결을 포함 하 여 온-프레미스에서 클라우드로 또는 그 반대의 경우) 또는 입/출력 프로세스 중에 데이터를 전송 하는 경우 는 동작 중인 것으로 간주 됩니다.
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
@@ -206,7 +206,7 @@ RBAC를 사용하면 팀 내에서 업무를 분리하고 사용자에게 해당
 
 사용 하는 각 저장소에 대해 rest 지원에서 기존 암호화를 활용 합니다.
 
-- Azure Storage: [미사용 데이터에 대한 Azure Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)를 참조하세요.
+- Azure Storage: [휴지 상태의 데이터에 대한 Azure Storage 서비스 암호화](../../storage/common/storage-service-encryption.md)를 참조하세요.
 
 - SQL Azure: [TDE(투명한 데이터 암호화), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)를 참조하세요.
 
@@ -238,7 +238,7 @@ Azure Key Vault에 통합하려는 경우 암호 해독에 필요할 때 AKV에�
 
 휴지 상태의 암호화 중에는 호스트, 인프라 및 테넌트 데이터의 암호화가 진행되므로 시스템 장애 또는 악의적인 작업으로 인해 키가 손실되면 모든 암호화된 데이터가 모두 손실될 수 있습니다. 따라서 휴지 상태의 암호화 솔루션에는 시스템 오류 및 악의적인 작업에 대해 복원되는 포괄적인 재해 복구 스토리가 제공됩니다.
 
-휴지 상태의 암호화를 구현하는 서비스는 일반적으로 암호화 키 또는 호스트 드라이브에서 암호화되지 않은 상태로 남아 있는 데이터에 여전히 취약합니다(예를 들어 호스트 OS의 페이지 파일). 따라서 서비스는 해당 서비스의 호스트 볼륨이 암호화되도록 해야 합니다. 이 Compute 기능을 지원하기 위해 팀에서는 [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP와 DCM 서비스 및 에이전트에 대한 확장을 사용하여 호스트 볼륨을 암호화하는 호스트 암호화를 배포하도록 했습니다.
+미사용 암호화를 구현 하는 서비스는 일반적으로 암호화 키 또는 호스트 드라이브 (예: 호스트 OS의 페이지 파일)에서 암호화 되지 않은 상태로 유지 되는 데이터에 취약 합니다. 따라서 서비스는 해당 서비스에 대 한 호스트 볼륨이 암호화 되어 있는지 확인 해야 합니다. 이 Compute 기능을 지원하기 위해 팀에서는 [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP와 DCM 서비스 및 에이전트에 대한 확장을 사용하여 호스트 볼륨을 암호화하는 호스트 암호화를 배포하도록 했습니다.
 
 대부분의 서비스는 표준 Azure VM에서 구현됩니다. 이러한 서비스는 Compute에서 사용되도록 설정될 경우 [호스트 암호화](../azure-security-disk-encryption-overview.md)를 자동으로 가져옵니다. Compute 관리 클러스터에서 실행되는 서비스의 경우 Windows Server 2016이 출시되면 호스트 암호화가 자동으로 사용되도록 설정됩니다.
 
@@ -309,7 +309,7 @@ Azure가 애플리케이션이 실행되는 인프라 및 플랫폼의 보안을
 
 - [앱에 대한 Azure Active Directory 인증 설정](https://azure.microsoft.com/blog/azure-websites-authentication-authorization/)
 
-- [전송 계층 보안(TLS/SSL) - HTTPS를 사용하여 앱에 대한 트래픽 보호](../../app-service/app-service-web-tutorial-custom-ssl.md)
+- [전송 계층 보안(TLS/SSL) - HTTPS를 사용하여 앱에 대한 트래픽 보호](../../app-service/configure-ssl-bindings.md)
 
   - [HTTPS 연결을 통해 들어오는 모든 트래픽 강제 지정](http://microsoftazurewebsitescheatsheet.info/)
 
@@ -336,7 +336,7 @@ Azure App Service는 Azure Cloud Services 및 Virtual Machines에서 사용하�
 ## <a name="secure-your-network"></a>네트워크 보호
 Microsoft Azure에는 사용자의 애플리케이션과 서비스 연결 요구 사항을 지원하기 위한 강력한 네트워킹 인프라가 포함되어 있습니다. 네트워크 연결은 Azure에 위치한 리소스 간, 온-프레미스와 Azure 호스팅 리소스 간, 그리고 인터넷과 Azure 간에 가능합니다.
 
-[Azure 네트워크 인프라](../../virtual-machines/windows/infrastructure-example.md)를 사용하면 Azure 리소스와 [VNet(가상 네트워크)](../../virtual-network/virtual-networks-overview.md)을 서로 안전하게 연결할 수 있습니다. VNet은 클라우드에 있는 사용자의 네트워크를 나타내며, 구독 전용 Azure 클라우드 네트워크를 논리적으로 격리한 것이 VNet입니다. 또한 온-프레미스 네트워크에 VNet을 연결할 수 있습니다.
+[Azure 네트워크 인프라](../../virtual-machines/windows/infrastructure-example.md)를 사용하면 Azure 리소스와 [VNet(가상 네트워크)](../../virtual-network/virtual-networks-overview.md)을 서로 안전하게 연결할 수 있습니다. VNet은 클라우드의 사용자 네트워크를 나타내는 표현입니다. 구독 전용 Azure 클라우드 네트워크를 논리적으로 격리한 것이 VNet입니다. 또한 온-프레미스 네트워크에 VNet을 연결할 수 있습니다.
 
 ![네트워크 보안(보호)](./media/technical-capabilities/azure-security-technical-capabilities-fig6.png)
 
@@ -360,7 +360,7 @@ Azure Cloud Services 및 Virtual Machines를 위한 Microsoft 맬웨어 방지 �
 
 [Azure Site Recovery](../../site-recovery/site-recovery-overview.md)를 사용하면 기본 위치가 중단되는 경우 보조 위치에서 사용할 수 있도록 워크로드 및 앱의 복제, 장애 조치 및 복구를 오케스트레이션할 수 있습니다.
 
-## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>규정 준수 보장: Cloud services 기한 성실 검사 목록
+## <a name="ensure-compliance-cloud-services-due-diligence-checklist"></a>준수 확인: 클라우드 서비스 기한 성실 검사 목록
 
 Microsoft는 조직이 클라우드로의 전환을 고려할 때 실사 작업을 연습해보는 데 도움을 주기 위해 [Cloud Services 실사 검사 목록](https://aka.ms/cloudchecklist.download)을 개발했습니다. 이 검사 목록은 개인 기업 및 공공 부문 조직(모든 수준 및 비영리 조직 정부 기관 포함)을 비롯한 모든 규모 및 종류의 조직이 자체 성과, 서비스, 데이터 관리 및 거버넌스 목표와 요구 사항을 식별하기 위한 체계를 제공합니다. 이를 통해 다양한 클라우드 서비스 공급자의 제품을 비교할 수 있으며 궁극적으로 클라우드 서비스 계약의 토대를 형성할 수 있게 됩니다.
 
@@ -388,7 +388,7 @@ Microsoft는 조직이 클라우드로의 전환을 고려할 때 실사 작업�
 
 Azure 운영 보안은 Microsoft SDL(Security Development Lifecycle), Microsoft 보안 대응 센터 프로그램 및 사이버 보안 위협 상황에 대한 심층 인식을 포함하여 Microsoft 고유의 다양한 기능을 통해 얻은 지식을 통합한 프레임워크를 기반으로 합니다.
 
-### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
+### <a name="microsoft-azure-monitor"></a>Microsoft Azure 모니터
 
 하이브리드 클라우드를 위한 IT 관리 솔루션 [Azure Monitor](../../azure-monitor/index.yml) 입니다. 단독으로 사용 하거나 기존 System Center 배포를 확장 하기 위해 Azure Monitor 로그는 인프라의 클라우드 기반 관리에 대 한 최대 유연성과 제어를 제공 합니다.
 
@@ -410,7 +410,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 보안 센터는 Azure 리소스의 보안 상태를 분석하여 잠재적인 보안 취약성을 식별합니다. 권장 사항 목록은 필요한 컨트롤 구성 과정을 안내합니다.
 
-예를 들어 다음과 같습니다.
+예를 들면 다음과 같습니다.
 
 - 맬웨어 방지 프로그램을 프로비전하여 악성 소프트웨어 식별 및 제거 지원
 
@@ -476,7 +476,7 @@ Azure Monitor를 사용 하면 경쟁 솔루션 보다 저렴 한 비용으로 �
 
 - 판매된 품목, 승리한 게임 등의 비즈니스 이벤트를 추적하기 위해 개발자가 직접 클라이언트 또는 서버 코드로 작성하는 **사용자 지정 이벤트 및 메트릭**.
 
-애플리케이션에 대한 인프라는 일반적으로 가상 컴퓨터, 스토리지 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다.
+애플리케이션에 대한 인프라는 일반적으로 가상 머신, 스토리지 계정 및 가상 네트워크 또는 웹앱, 데이터베이스, 데이터베이스 서버 및 타사 서비스 등의 많은 구성 요소를 만듭니다. 이러한 구성 요소를 별도 엔터티로 표시하지 않으면, 대신 관련된 단일 엔터티의 상호 종속적으로 부분으로 표시됩니다. 그룹으로 배포, 관리 및 모니터링하려고 합니다. [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)를 사용하면 솔루션에서 리소스를 그룹으로 사용할 수 있습니다.
 
 조정된 단일 작업에서 솔루션에 대한 모든 리소스를 배포, 업데이트 또는 삭제할 수 있습니다. 배포용 템플릿을 사용하고 이 템플릿을 테스트, 스테이징 및 프로덕션과 같은 여러 환경에서 사용할 수 있습니다. 리소스 관리자는 보안, 감사 및 태그 기능을 제공하여 배포 후에 리소스를 관리할 수 있습니다.
 
