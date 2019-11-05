@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: f51f5a8583a73219ffb419c76fcd009d102f6ffb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0e3e4226eaaa0505eea96d8b3aca820f2327349e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932906"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467623"
 ---
 # <a name="use-phrase-lists-to-boost-signal-of-word-list"></a>단어 목록의 신호를 강화하는 구 사용
 
@@ -26,6 +26,10 @@ ms.locfileid: "68932906"
 
 구문 목록은 해당 단어와 관련된 LUIS에 대한 두 번째 신호로 앱 도메인의 어휘에 추가됩니다.
 
+[기능 개념](luis-concept-feature.md) 을 검토 하 여 구 목록 사용 시기 및 이유를 이해 합니다. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+
 ## <a name="add-phrase-list"></a>구 목록 추가
 
 LUIS는 앱당 최대 10개의 구 목록을 허용합니다. 
@@ -34,7 +38,7 @@ LUIS는 앱당 최대 10개의 구 목록을 허용합니다.
 
 1. **구 목록** 페이지에서 **새 구 목록 만들기**를 클릭합니다. 
  
-1. **구 목록 추가** 대화 상자에서를 구 목록의 `Cities` 이름으로 입력 합니다. **값** 상자에 구 목록의 값을 입력합니다. 한 번에 하나의 값을 입력하거나 쉼표로 구분해서 여러 개의 값을 입력한 후 **Enter** 키를 누릅니다.
+1. **구 목록 추가** 대화 상자에서 `Cities`를 구 목록 이름으로 입력 합니다. **값** 상자에 구 목록의 값을 입력합니다. 한 번에 하나의 값을 입력하거나 쉼표로 구분해서 여러 개의 값을 입력한 후 **Enter** 키를 누릅니다.
 
     ![구 목록 Cities 추가](./media/luis-add-features/add-phrase-list-cities.png)
 
@@ -46,7 +50,7 @@ LUIS는 앱당 최대 10개의 구 목록을 허용합니다.
 
     ![구 목록 제안된 값 - 교환 가능한 상자 선택](./media/luis-add-features/interchangeable.png)
 
-1. **완료**를 클릭합니다. "Cities" 구 목록이 **구 목록** 페이지에 추가됩니다.
+1. **Done**을 클릭합니다. "Cities" 구 목록이 **구 목록** 페이지에 추가됩니다.
 
 <a name="edit-phrase-list"></a>
 <a name="delete-phrase-list"></a>

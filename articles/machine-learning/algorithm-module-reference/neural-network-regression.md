@@ -1,20 +1,20 @@
 ---
 title: '신경망 회귀: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning 서비스에서 신경망 회귀 모듈을 사용 하 여 사용자 지정 가능한 신경망 알고리즘을 사용 하 여 회귀 모델을 만드는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 신경망 회귀 모듈을 사용 하 여 사용자 지정 가능한 신경망 알고리즘을 사용 하 여 회귀 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: 54518d21db0c9b14cbb7b4fc4316d1db2b871573
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: d5cc0f06e9fb95894df30af1322d47337f51e314
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692747"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466001"
 ---
 # <a name="neural-network-regression-module"></a>신경망 회귀 모듈
 
@@ -24,7 +24,7 @@ ms.locfileid: "72692747"
   
 ## <a name="module-overview"></a>모듈 개요  
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 사용자 지정 가능한 신경망 알고리즘을 사용 하 여 회귀 모델을 만듭니다.
   
@@ -51,8 +51,8 @@ ms.locfileid: "72692747"
     이 옵션은 신경망에 대해 이미 잘 알고 있는 경우에 가장 적합 합니다. Net # 언어를 사용 하 여 네트워크 아키텍처를 정의 합니다.  
 
 ##  <a name="bkmk_DefaultArchitecture"></a>기본 아키텍처를 사용 하 여 신경망 모델 만들기
-  
-1.  인터페이스의 파이프라인에 **신경망 회귀** 모듈을 추가 합니다. **회귀** 범주의 **Machine Learning**, **초기화**에서이 모듈을 찾을 수 있습니다. 
+
+1.  디자이너에서 파이프라인에 **신경망 회귀** 모듈을 추가 합니다. **회귀** 범주의 **Machine Learning**, **초기화**에서이 모듈을 찾을 수 있습니다. 
   
 2. **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
@@ -98,4 +98,4 @@ ms.locfileid: "72692747"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

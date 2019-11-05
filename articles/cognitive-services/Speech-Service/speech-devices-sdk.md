@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: f2819dd2194193ffa8171034fdbe01ac4cb26174
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 243072477c7d249d7066a7a448061c51a0bd2f34
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558918"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468725"
 ---
 # <a name="about-the-speech-devices-sdk"></a>Speech Devices SDK 정보
 
@@ -29,9 +29,9 @@ Speech Devices SDK는 다음을 수행하는 데 유용합니다.
 
 Speech Devices SDK는 [Speech SDK](speech-sdk.md)를 사용합니다. 음성 SDK를 사용 하 여 고급 오디오 처리 알고리즘을 통해 처리 되는 오디오를 장치의 마이크 배열에서 [음성 서비스로](overview.md)보냅니다. 다중 채널 오디오를 사용하여 잡음 제거, 반향 제거, 빔 형성 및 탈반향을 통해 더 정확한 원거리 [음성 인식](speech-to-text.md)을 제공합니다.
 
-또한 음성 장치 SDK를 사용 하 여 사용자 [지정 된 절전 모드 해제 단어](speech-devices-sdk-create-kws.md) 를 포함 하는 주변 장치를 빌드할 수 있으므로 사용자 상호 작용을 시작 하는 큐는 사용자의 브랜드에 따라 고유 합니다.
+또한 음성 장치 SDK를 사용 하 여 사용자 고유의 사용자 [지정 키워드](speech-devices-sdk-create-kws.md) 를 포함 하는 주변 장치를 빌드할 수 있으므로 사용자 상호 작용을 시작 하는 큐는 사용자의 브랜드에 따라 고유 합니다.
 
-음성 장치 SDK를 사용 하면 [사용자 지정 음성-중심의 가상 도우미](https://aka.ms/bots/speech/va), 드라이브를 주문 하는 시스템, [대화](conversation-transcription-service.md)기록, 스마트 스피커 등의 다양 한 음성 사용 시나리오를 쉽게 사용할 수 있습니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](how-to-customize-voice-font.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
+음성 장치 SDK를 사용 하면 [음성 도우미](https://aka.ms/bots/speech/va), 드라이브 및 주문 시스템, [대화](conversation-transcription-service.md)기록, 스마트 스피커 등의 다양 한 음성 사용 시나리오를 활용할 수 있습니다. 예를 들어, 사용자에게 텍스트로 응답하고, 기본 또는 [사용자 지정 음성](how-to-customize-voice-font.md)으로 응답하고, 검색 결과를 제공하고, 다른 언어로 [번역](speech-translation.md)할 수 있습니다. 여러분이 무엇을 빌드할지 기대가 됩니다!
 
 ## <a name="get-the-speech-devices-sdk"></a>음성 디바이스 SDK 가져오기
 

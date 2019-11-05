@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 10/24/2019
-ms.openlocfilehash: ba0ee29b48be259bddd898c3d1119b77f6ee5228
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 10/30/2019
+ms.openlocfilehash: 87e1995a84ae2b598b8097d4910914831a75a318
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932295"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73162023"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 
@@ -22,7 +22,7 @@ ms.locfileid: "72932295"
 
 이 문서에서는 직접 연결 된 컴퓨터 또는 Operations Manager에서 모니터링 하는 컴퓨터에서 인터넷에 액세스할 수 없는 경우 Log Analytics 게이트웨이를 사용 하 여 Azure Automation 및 Azure Monitor와의 통신을 구성 하는 방법을 설명 합니다. 
 
-Log Analytics 게이트웨이는 http CONNECT 명령을 사용 하 여 HTTP 터널링을 지 원하는 HTTP 전달 프록시입니다. 이 게이트웨이는 인터넷에 직접 연결할 수 없는 컴퓨터를 대신 하 여 Azure Automation 및 Log Analytics 작업 Azure Monitor 영역에 데이터를 보냅니다. 에이전트에서 데이터를 캐시 하지 않습니다. 에이전트는 통신이 복원 될 때까지이 상황에서 데이터 캐싱을 처리 합니다.
+Log Analytics 게이트웨이는 http CONNECT 명령을 사용 하 여 HTTP 터널링을 지 원하는 HTTP 전달 프록시입니다. 이 게이트웨이는 인터넷에 직접 연결할 수 없는 컴퓨터를 대신 하 여 Azure Automation 및 Log Analytics 작업 Azure Monitor 영역에 데이터를 보냅니다. 
 
 Log Analytics 게이트웨이는 다음을 지원합니다.
 
@@ -33,7 +33,7 @@ Log Analytics 게이트웨이는 다음을 지원합니다.
 
 일부 IT 보안 정책은 네트워크 컴퓨터에 대 한 인터넷 연결을 허용 하지 않습니다. 이러한 연결 되지 않은 컴퓨터는 POS (point of sale) 장치 또는 IT 서비스를 지 원하는 서버 일 수 있습니다 (예:). 이러한 장치를 관리 하 고 모니터링할 수 있도록 Azure Automation 또는 Log Analytics 작업 영역에 연결 하려면 Log Analytics 게이트웨이와 직접 통신 하도록 구성 합니다. Log Analytics 게이트웨이는 구성 정보를 수신 하 고 데이터를 전달할 수 있습니다. Log Analytics 에이전트를 사용 하 여 컴퓨터를 구성 하 여 Log Analytics 작업 영역에 직접 연결 하는 경우에는 컴퓨터가 Log Analytics 게이트웨이와 대신 통신 합니다.  
 
-Log Analytics 게이트웨이는 에이전트에서 서비스로 직접 데이터를 전송 합니다. 전송 중인 데이터를 분석 하지 않습니다.
+Log Analytics 게이트웨이는 에이전트에서 서비스로 직접 데이터를 전송 합니다. 전송 중인 데이터를 분석 하지 않으며 게이트웨이는 서비스와의 연결이 끊어질 때 데이터를 캐시 하지 않습니다. 게이트웨이가 서비스와 통신할 수 없는 경우 에이전트는 계속 실행 되어 모니터링 되는 컴퓨터의 디스크에 수집 된 데이터를 큐에 대기 시킵니다. 연결이 복원 되 면 에이전트는 Azure Monitor으로 수집 된 캐시 된 데이터를 보냅니다.
 
 Operations Manager 관리 그룹이 Log Analytics와 통합 된 경우 사용 하도록 설정한 솔루션에 따라 구성 정보를 받고 수집 된 데이터를 보내도록 Log Analytics 게이트웨이에 연결 하도록 관리 서버를 구성할 수 있습니다. .  Operations Manager 에이전트는 일부 데이터를 관리 서버로 보냅니다. 예를 들어 에이전트는 Operations Manager 경고, 구성 평가 데이터, 인스턴스 공간 데이터 및 용량 데이터를 보낼 수 있습니다. 인터넷 정보 서비스 (IIS) 로그, 성능 데이터 및 보안 이벤트와 같은 기타 대용량 데이터는 Log Analytics 게이트웨이로 직접 전송 됩니다. 
 
@@ -73,7 +73,7 @@ Log Analytics 게이트웨이는 다음 언어로 제공 됩니다.
 - 중국어 (번체)
 - 체코어
 - 네덜란드어
-- 한국어
+- 영어
 - 프랑스어
 - 독일어
 - 헝가리어
@@ -81,7 +81,7 @@ Log Analytics 게이트웨이는 다음 언어로 제공 됩니다.
 - 일본어
 - 한국어
 - 폴란드어
-- 포르투갈어 (브라질)
+- 포르투갈어(브라질)
 - 포르투갈어(포르투갈)
 - 러시아어
 - 스페인어 (국제)
@@ -115,7 +115,7 @@ Azure Portal에서 Log Analytics 게이트웨이를 가져오려면 다음 단�
  
    ![Log Analytics 게이트웨이를 다운로드 하는 단계 스크린샷](./media/gateway/download-gateway.png)
 
-or 
+또는 
 
 1. **설정** 아래 작업 영역 블레이드에서 **고급 설정**을 선택합니다.
 1. **Windows 서버** > **연결 된 원본** 으로 이동 하 여 **Log Analytics 게이트웨이 다운로드**를 선택 합니다.
@@ -137,7 +137,7 @@ or
 
    b. 게이트웨이가 설치 되어 있는 서버에서 프록시를 통해 통신 해야 하는 경우 게이트웨이를 연결 해야 하는 프록시 주소를 입력 합니다. 예를 들어 `http://myorgname.corp.contoso.com:80`을 입력합니다.  이 필드를 비워 두면 게이트웨이가 인터넷에 직접 연결을 시도 합니다.  프록시 서버에 인증이 필요한 경우 사용자 이름과 암호를 입력합니다.
 
-   다. **다음**을 선택합니다.
+   c. **다음**을 선택합니다.
 
    ![게이트웨이 프록시에 대 한 구성 스크린샷](./media/gateway/gateway-wizard02.png)
 
@@ -153,7 +153,7 @@ or
  
 다음 표에서는 설치 프로그램에서 지 원하는 매개 변수를 보여 줍니다.
 
-|parameters| 참고|
+|매개 변수| 참고 사항|
 |----------|------| 
 |PORTNUMBER | 게이트웨이에서 수신 대기 하는 TCP 포트 번호 |
 |프록시 | 프록시 서버의 IP 주소 |
@@ -167,7 +167,7 @@ or
 게이트웨이를 자동으로 설치 하 고 특정 프록시 주소, 포트 번호로 구성 하려면 다음을 입력 합니다.
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 LicenseAccepted=1 
 ```
 
 /Qn 명령줄 옵션을 사용 하 여 설치 프로그램을 숨깁니다./qb는 자동 설치 중에 설치 프로그램을 표시 합니다.  
@@ -175,7 +175,7 @@ Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200”
 프록시를 사용 하 여 인증할 자격 증명을 제공 해야 하는 경우 다음을 입력 합니다.
 
 ```dos
-Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+Msiexec.exe /I "oms gateway.msi" /qn PORTNUMBER=8080 PROXY="10.80.2.200" HASPROXY=1 HASAUTH=1 USERNAME="<username>" PASSWORD="<password>" LicenseAccepted=1 
 ```
 
 설치 후 다음 PowerShell cmdlet을 사용 하 여 설정이 수락 되었는지 확인할 수 있습니다 (사용자 이름 및 암호 사용).
@@ -325,7 +325,7 @@ Cmdlet을 사용 하 여 Log Analytics 게이트웨이의 구성 설정을 업�
 | **Cmdlet** | **매개 변수** | **설명** | **예제** |
 | --- | --- | --- | --- |  
 | `Get-OMSGatewayConfig` |키 |서비스 구성 가져오기 |`Get-OMSGatewayConfig` |  
-| `Set-OMSGatewayConfig` |키(필수) <br> Value |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
+| `Set-OMSGatewayConfig` |키(필수) <br> 값 |서비스 구성 변경 |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |릴레이(업스트림) 프록시 주소 가져오기 |`Get-OMSGatewayRelayProxy` |  
 | `Set-OMSGatewayRelayProxy` |주소<br> 사용자 이름<br> 암호 |릴레이(업스트림) 프록시 주소(및 자격 증명) 설정 |1. 릴레이 프록시와 자격 증명을 설정 합니다.<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. 인증이 필요 없는 릴레이 프록시 설정: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. 릴레이 프록시 설정 지우기:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |현재 허용 된 호스트 가져오기 (로컬로 구성 된 허용 된 호스트만, 허용 된 호스트를 자동으로 다운로드 하지 않음) |`Get-OMSGatewayAllowedHost` | 
@@ -365,7 +365,7 @@ Cmdlet을 사용 하 여 Log Analytics 게이트웨이의 구성 설정을 업�
 
 다음 테이블은 Log Analytics 게이트웨이에 사용할 수 있는 성능 카운터를 보여줍니다. 성능 모니터를 사용 하 여 카운터를 추가 합니다.
 
-| **Name** | **설명** |
+| **이름** | **설명** |
 | --- | --- |
 | Log Analytics 게이트웨이/활성 클라이언트 연결 |활성 클라이언트 네트워크(TCP) 연결의 수 |
 | Log Analytics 게이트웨이/오류 수 |오류 수 |

@@ -3,15 +3,15 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함으로써 Azure Policy가 조직의 리소스에 대한 규칙을 설정하기 위해 리소스 정책 정의가 어떻게 사용되는지 설명합니다.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/09/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: fe0f16fd4c07eac92ab3c1ae2c6f78b0bd1595eb
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: d415075bda4ff58d4a3a633fe820f22d8a157459
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053491"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464037"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -23,7 +23,7 @@ ms.locfileid: "73053491"
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
 - 모드
-- parameters
+- 매개 변수
 - 표시 이름
 - description
 - 정책 규칙
@@ -81,14 +81,19 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 `indexed`는 태그 또는 위치를 시스템에 적용하는 정책을 만들 때 사용해야 합니다. 이 모드는 반드시 사용해야 하는 것은 아니지만, 사용하는 경우 태그와 위치를 지원하지 않는 리소스가 규정 준수 결과에 미준수 항목으로 표시되지 않습니다. 예외는 **리소스 그룹**입니다. 리소스 그룹에서 위치 또는 태그를 적용하는 정책은 **mode**를 `all`로 설정하고 구체적으로 `Microsoft.Resources/subscriptions/resourceGroups` 형식을 대상으로 지정해야 합니다. 예를 들어 [리소스 그룹 태그 적용](../samples/enforce-tag-rg.md)을 참조하세요. 태그를 지 원하는 리소스 목록은 [Azure 리소스에 대 한 태그 지원](../../../azure-resource-manager/tag-support.md)을 참조 하세요.
 
-### <a name="resource-provider-modes"></a>리소스 공급자 모드
+### <a name="a-nameresource-provider-modes-resource-provider-modes-preview"></a><a name="resource-provider-modes" />리소스 공급자 모드 (미리 보기)
 
-현재 지원 되는 리소스 공급자 모드는 [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 허용 컨트롤러 규칙을 관리 하는 데 `Microsoft.ContainerService.Data` 됩니다.
+다음 리소스 공급자 모드는 현재 미리 보기 중에 지원 됩니다.
+
+- [Azure Kubernetes Service](../../../aks/intro-kubernetes.md)에서 허용 컨트롤러 규칙을 관리 하는 `Microsoft.ContainerService.Data`. 이 리소스 공급자 모드를 사용 하는 정책은 [EnforceRegoPolicy](./effects.md#enforceregopolicy) 효과를 사용 **해야** 합니다.
+- Azure에서 자체 관리 되는 AKS Engine Kubernetes 클러스터를 관리 하는 `Microsoft.Kubernetes.Data`.
+  이 리소스 공급자 모드를 사용 하는 정책은 [EnforceOPAConstraint](./effects.md#enforceopaconstraint) 효과를 사용 **해야** 합니다.
+- [Azure Key Vault](../../../key-vault/key-vault-overview.md)에서 자격 증명 모음 및 인증서를 관리 하는 `Microsoft.KeyVault.Data`.
 
 > [!NOTE]
-> [Kubernetes에 대 한 Azure Policy](rego-for-aks.md) 는 공개 미리 보기로 제공 되며 기본 제공 정책 정의만 지원 합니다.
+> 리소스 공급자 모드는 기본 제공 정책 정의만 지원 하 고 미리 보기에서는 이니셔티브를 지원 하지 않습니다.
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>매개 변수
 
 매개 변수는 정책 정의의 수를 줄여 정책 관리를 간소화하는 데 도움이 됩니다. 양식의 필드 `name`, `address`, `city`, `state`와 같은 매개 변수에 관해 생각해 봅니다. 이러한 매개 변수는 항상 그대로 유지되지만, 그 값은 양식을 작성하는 개별 값에 기초하여 달라집니다.
 매개 변수는 정책을 만들 때와 같은 방법으로 작동합니다. 정책 정의에 매개 변수를 포함함으로써 서로 다른 값을 사용하여 다양한 시나리오에 대해 해당 정책을 재사용할 수 있습니다.
@@ -134,7 +139,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ### <a name="using-a-parameter-value"></a>매개 변수 값 사용
 
-정책 규칙에서 다음 `parameters` 배포 값 함수 구문을 사용하여 매개 변수를 참조합니다.
+정책 규칙에서 다음 `parameters` 함수 구문을 사용 하 여 매개 변수를 참조 합니다.
 
 ```json
 {
@@ -143,7 +148,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-이 샘플은 [매개 변수 속성](#parameter-properties)에 설명된 **allowedLocations** 매개 변수를 참조합니다.
+이 샘플은 **매개 변수 속성**에 설명된 [allowedLocations](#parameter-properties) 매개 변수를 참조합니다.
 
 ### <a name="strongtype"></a>strongType
 
@@ -272,7 +277,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `tags['''<tagName>''']`
   - 이 대괄호 구문은 이중 아포스트로피로 이스케이프 처리하여 아포스트로피가 있는 태그 이름을 지원합니다.
   - 여기서 **‘\<tagName\>’** 은 조건의 유효성을 검사할 태그 이름입니다.
-  - 예: `tags['''My.Apostrophe.Tag''']`. 여기서 **‘\<tagName\>’** 은 태그 이름입니다.
+  - 예: **' 내. 아포스트로피. 태그 '** 는 태그의 이름 `tags['''My.Apostrophe.Tag''']` 합니다.
 - 속성 별칭 - 목록은 [별칭](#aliases)을 참조하세요.
 
 > [!NOTE]
@@ -282,7 +287,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 매개 변수 값을 태그 필드에 전달할 수 있습니다. 매개 변수를 태그 필드에 전달하면 정책 할당 중에 정책 정의의 유연성이 증가합니다.
 
-다음 예제에서 `concat`는 이름이 **tagName** 매개 변수의 값인 태그에 대한 태그 필드 조회를 만드는 데 사용됩니다. 해당 태그가 없는 경우 **append** 효과를 사용하여 `resourcegroup()` 조회 함수를 통해 감사된 리소스 부모 리소스 그룹에 설정된 동일한 이름의 태그 값을 사용하는 태그를 추가합니다.
+다음 예제에서 `concat`는 이름이 **tagName** 매개 변수의 값인 태그에 대한 태그 필드 조회를 만드는 데 사용됩니다. 해당 태그가 없으면 `resourcegroup()` lookup 함수를 사용 하 여 감사 된 리소스 부모 리소스 그룹에 설정 된 동일한 명명 된 태그의 값을 사용 하 여 태그를 추가 하는 데 **수정** 효과가 사용 됩니다.
 
 ```json
 {
@@ -291,16 +296,22 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
         "exists": "false"
     },
     "then": {
-        "effect": "append",
-        "details": [{
-            "field": "[concat('tags[', parameters('tagName'), ']')]",
-            "value": "[resourcegroup().tags[parameters('tagName')]]"
-        }]
+        "effect": "modify",
+        "details": {
+            "operations": [{
+                "operation": "add",
+                "field": "[concat('tags[', parameters('tagName'), ']')]",
+                "value": "[resourcegroup().tags[parameters('tagName')]]"
+            }],
+            "roleDefinitionIds": [
+                "/providers/microsoft.authorization/roleDefinitions/b24988ac-6180-42a0-ab88-20f7382dd24c"
+            ]
+        }
     }
 }
 ```
 
-### <a name="value"></a>Value
+### <a name="value"></a>값
 
 **value**를 사용하여 조건을 구성할 수도 있습니다. **value**는 [매개 변수](#parameters), [지원되는 템플릿 함수](#policy-functions) 또는 리터럴에 대해 조건을 확인합니다.
 **value**는 지원되는 모든 [조건](#conditions)과 쌍을 이룹니다.
@@ -310,7 +321,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 #### <a name="value-examples"></a>값 예제
 
-이 정책 규칙 예제는 **value**를 사용하여 `resourceGroup()` 함수의 결과와 반환된 **name** 속성을 `*netrg`의 **like** 조건과 비교합니다. 규칙은 이름이 `*netrg`로 끝나는 리소스 그룹에서 `Microsoft.Network/*` **type**이 아닌 리소스를 모두 거부합니다.
+이 정책 규칙 예제는 **value**를 사용하여 `resourceGroup()` 함수의 결과와 반환된 **name** 속성을 **의** like`*netrg` 조건과 비교합니다. 규칙은 이름이 `Microsoft.Network/*`로 끝나는 리소스 그룹에서type`*netrg`이 아닌 리소스를 모두 거부합니다.
 
 ```json
 {
@@ -386,46 +397,19 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 수정 된 정책 규칙을 사용 하는 경우 `if()`은 3 자 미만의 값에 대 한 `substring()` 가져오기 전에 **이름** 길이를 확인 합니다. **Name** 이 너무 짧으면 "abc로 시작 하지 않음" 값이 반환 되 고 **abc**와 비교 됩니다. **Abc** 로 시작 하지 않는 짧은 이름의 리소스는 여전히 정책 규칙에 실패 하지만 평가 하는 동안 더 이상 오류가 발생 하지 않습니다.
 
-### <a name="effect"></a>영향
+### <a name="effect"></a>결과
 
 Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
-- **거부**: 활동 로그에 이벤트를 생성하고 요청을 실패합니다.
-- **Audit**: 활동 로그에 경고 이벤트를 생성하지만 요청을 실패하지는 않습니다.
 - **추가**는 정의된 필드 집합을 요청에 추가합니다.
-- **AuditIfNotExists**: 리소스가 없으면 감사를 사용하도록 설정합니다.
-- **DeployIfNotExists**: 아직 존재하지 않는 리소스를 배포합니다.
+- **Audit**: 활동 로그에 경고 이벤트를 생성하지만 요청을 실패하지는 않습니다.
+- **AuditIfNotExists**: 관련 리소스가 없는 경우 활동 로그에 경고 이벤트를 생성 합니다.
+- **거부**: 활동 로그에 이벤트를 생성하고 요청을 실패합니다.
+- **Deployifnotexists**: 관련 리소스가 아직 없는 경우 배포 합니다.
 - **Disabled**: 정책 규칙 준수에 대해 리소스를 평가하지 않습니다.
-- **EnforceRegoPolicy**: Azure Kubernetes Service (미리 보기)에서 개방형 정책 에이전트 입학 컨트롤러를 구성 합니다.
+- **EnforceOPAConstraint** (미리 보기): Azure (미리 보기)에서 자체 관리 되는 Kubernetes 클러스터에 대 한 게이트 키퍼 V3로 열린 정책 에이전트 입학 컨트롤러를 구성 합니다.
+- **EnforceRegoPolicy** (미리 보기): Azure Kubernetes Service에서 게이트 키퍼 v 2를 사용 하 여 열린 정책 에이전트 입학 컨트롤러를 구성 합니다.
 - **수정**: 리소스에서 정의 된 태그를 추가, 업데이트 또는 제거 합니다.
-
-**append**의 경우 아래와 같이 details(세부 정보)를 제공해야 합니다.
-
-```json
-"effect": "append",
-"details": [{
-    "field": "field name",
-    "value": "value of the field"
-}]
-```
-
-값은 문자열 또는 JSON 형식의 개체일 수 있습니다.
-
-**AuditIfNotExists** 및 **DeployIfNotExists**는 관련 리소스의 존재를 평가하고 규칙을 적용합니다. 리소스가 규칙과 일치하지 않으면 영향이 구현됩니다. 예를 들어 모든 가상 네트워크에 대해 네트워크 감시자를 배포하도록 요구할 수 있습니다. 자세한 내용은 [확장이 없는 경우 감사](../samples/audit-ext-not-exist.md)를 참조하세요.
-
-**DeployIfNotExists** 효과에는 정책 규칙의 **details** 부분에 **roleDefinitionId** 속성이 필요합니다. 자세한 내용은 [수정 - 정책 정의 구성](../how-to/remediate-resources.md#configure-policy-definition)을 참조하세요.
-
-```json
-"details": {
-    ...
-    "roleDefinitionIds": [
-        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
-        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
-    ]
-}
-```
-
-마찬가지로 수정 [작업](../how-to/remediate-resources.md)에 대 한 정책 규칙 **의 세부 정보** 부분에서 **roleDefinitionId** 속성을 **수정** 해야 합니다. 또한 **Modify** 는 resources 태그에 대해 수행할 작업을 정의 하는 **작업** 배열이 필요 합니다.
 
 각 효과, 평가 순서, 속성 및 예제에 대 한 자세한 내용은 [Azure Policy 효과 이해](effects.md)를 참조 하세요.
 
@@ -455,7 +439,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 #### <a name="policy-function-example"></a>정책 함수 예제
 
-이 정책 규칙 예제에서는 `resourceGroup` 리소스 함수를 `concat` 배열 및 개체 함수와 함께 사용하여 **name** 속성을 가져오고 리소스 이름을 리소스 그룹 이름으로 시작하도록 하는 `like` 조건을 작성합니다.
+이 정책 규칙 예제에서는 `resourceGroup` 리소스 함수를 **배열 및 개체 함수와 함께 사용하여**name`concat` 속성을 가져오고 리소스 이름을 리소스 그룹 이름으로 시작하도록 하는 `like` 조건을 작성합니다.
 
 ```json
 {
@@ -509,7 +493,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용 가능한 별칭 중 일부에 ‘정상’ 이름으로 표시되는 버전과 **[\*]** 가 추가된 다른 버전이 있습니다. 다음은 그 예입니다.
+사용 가능한 별칭 중 일부에 ‘정상’ 이름으로 표시되는 버전과 **[\*]** 가 추가된 다른 버전이 있습니다. 예:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 96221ffc8249f722268ea5778bee4b4389ded26e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 0fb5341c2e7ee55391cb38251b0ea66b55b93301
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326594"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469148"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: iOS 애플리케이션을 사용하여 로그인
 
@@ -37,7 +37,9 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-이후 단계에서 사용할 **응용 프로그램 ID** 를 기록 합니다. 그런 다음 목록에서 응용 프로그램을 선택 하 고 이후 단계에서 사용 하기 위해 **사용자 지정 리디렉션 URI**도 기록 합니다. 예를 들어, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`을 입력합니다.
+이후 단계에서 사용할 **응용 프로그램 (클라이언트) ID** 를 기록 합니다.
+
+또한 이후 단계에서 사용할 사용자 지정 리디렉션 URI를 기록 합니다. 예: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`
 
 ## <a name="create-your-user-flows"></a>사용자 흐름 만들기
 Azure AD B2C에서 모든 사용자 환경은 [사용자 흐름](active-directory-b2c-reference-policies.md)에 의해 정의됩니다. 이 애플리케이션은 결합된 로그인 및 등록의 하나의 ID 환경을 포함합니다. 사용자 흐름을 만들 때 다음을 확인합니다.
@@ -59,7 +61,7 @@ Azure AD B2C에서 모든 사용자 환경은 [사용자 흐름](active-director
 > AppAuth는 iOS 7 이상을 지원합니다.  그러나 Google에 소셜 로그인을 지원하려면 iOS 9 이상이 필요한 SFSafariViewController가 필요합니다.
 >
 
-### <a name="configuration"></a>Configuration
+### <a name="configuration"></a>구성
 
 권한 부여 엔드포인트와 토큰 엔드포인트 URI를 모두 지정하여 Azure AD B2C와의 통신을 구성할 수 있습니다.  이러한 URI를 생성하려면 다음 정보가 필요합니다.
 * 테넌트 ID(예: contoso.onmicrosoft.com)
@@ -89,8 +91,8 @@ OIDServiceConfiguration *configuration =
 
 권한 부여 서비스 구성을 구성하거나 검색하면 권한 부여 요청을 생성할 수 있습니다. 요청을 만들려면 다음 정보가 필요합니다.
 
-* 이전에 기록한 클라이언트 ID (응용 프로그램 ID)입니다. 예를 들어, `00000000-0000-0000-0000-000000000000`을 입력합니다.
-* 이전에 기록한 사용자 지정 리디렉션 URI입니다. 예를 들어, `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`을 입력합니다.
+* 이전에 기록한 클라이언트 ID (응용 프로그램 ID)입니다. 예: `00000000-0000-0000-0000-000000000000`
+* 이전에 기록한 사용자 지정 리디렉션 URI입니다. 예: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`
 
 두 항목 모두 [앱을 등록](#create-an-application)할 때 저장해야 합니다.
 

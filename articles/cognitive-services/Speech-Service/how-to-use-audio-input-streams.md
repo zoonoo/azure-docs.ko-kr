@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 06b69da7f7435ce8a1e32150b7abe161ebdf527c
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e00feed416eb3e06b703a2ef4fe040f0c815716e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606495"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464311"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>음성 SDK 오디오 입력 스트림 API 정보
 
@@ -75,5 +75,5 @@ ms.locfileid: "67606495"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](quickstart-csharp-dotnet-windows.md)
+* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

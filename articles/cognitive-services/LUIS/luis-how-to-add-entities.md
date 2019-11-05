@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 80e1052cb7acbdcec2dcb94f1667cae3c554d18e
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 54c9d79c62052daeee76de5dffb1099dc7d75180
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932934"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467727"
 ---
 # <a name="create-entities-without-utterances"></a>발화 없는 엔터티 만들기
 
@@ -25,6 +25,8 @@ ms.locfileid: "68932934"
 **엔터티** 페이지의 **엔터티 목록**을 통해 LUIS 앱에서 엔터티를 추가, 편집 또는 삭제할 수 있습니다. LUIS는 두 가지 유형의 주요 엔터티인 [미리 빌드된 엔터티](luis-reference-prebuilt-entities.md) 및 고유한 [사용자 지정 엔터티](luis-concept-entity-types.md#types-of-entities)를 제공합니다.
 
 컴퓨터에서 배운 엔터티를 만든 후에는 모든 예제 utterance에서 해당 엔터티를 표시 해야 합니다.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="add-prebuilt-entity"></a>
 
@@ -48,7 +50,7 @@ ms.locfileid: "68932934"
 
 1. 앱의 **빌드** 섹션을 선택한 다음, 왼쪽 패널에서 **엔터티**를 선택하고 **새 엔터티 만들기**를 선택합니다.
 
-1. 팝업 대화 상자의 **엔터티 이름** 상자에 `Location`을 입력하고 **엔터티 형식** 목록에서 **단순**을 선택한 후, **완료**를 선택합니다.
+1. 팝업 대화 상자의 `Location`엔터티 이름**상자에**을 입력하고 **엔터티 형식** 목록에서 **단순**을 선택한 후, **완료**를 선택합니다.
 
     이 엔터티를 만든 후 엔터티를 포함하는 예제 발화가 있는 모든 의도로 이동합니다. 예제 발화에서 텍스트를 선택하고 엔터티로 텍스트를 표시합니다. 
 
@@ -62,9 +64,9 @@ ms.locfileid: "68932934"
 
 1. 앱의 왼쪽 탐색 영역에서 **엔터티**를 선택하고 **새 엔터티 만들기**를 선택합니다.
 
-1. 팝업 대화 상자의 **엔터티 이름** 상자에 `Human resources form name`를 입력하고 **엔터티 형식** 목록에서 **정규식**을 선택하고 정규식 `hrf-[0-9]{6}`를 입력한 후 **완료**를 선택합니다. 
+1. 팝업 대화 상자의 `Human resources form name`엔터티 이름**상자에**를 입력하고 **엔터티 형식** 목록에서 **정규식**을 선택하고 정규식 `hrf-[0-9]{6}`를 입력한 후 **완료**를 선택합니다. 
 
-    이 정규식은 리터럴 문자와 `hrf-`일치 하 고, 인적 자원 폼의 폼 번호를 나타내는 6 자리 숫자를 찾습니다.
+    이 정규식은 리터럴 문자 `hrf-`와 일치 하며, 6 자리 숫자는 인적 자원 폼의 폼 번호를 나타냅니다.
 
 <a name="add-composite-entities"></a>
 
@@ -80,7 +82,7 @@ ms.locfileid: "68932934"
 
 1. 왼쪽 탐색 영역에서 **엔터티**를 선택하고 **새 엔터티 만들기**를 선택합니다.
 
-1. 팝업 대화 상자의 **엔터티 이름** 상자에 `SendHrForm`을 입력한 다음, **엔터티 형식** 목록에서 **복합**을 선택합니다.
+1. 팝업 대화 상자의 `SendHrForm`엔터티 이름**상자에**을 입력한 다음, **엔터티 형식** 목록에서 **복합**을 선택합니다.
 
 1. **자식 추가**를 선택하여 새 자식을 추가합니다.
 
@@ -88,7 +90,7 @@ ms.locfileid: "68932934"
 
 1. **자식 #2**의 목록에서 **인적 자원 양식 이름** 엔터티를 선택합니다. 
 
-1. **완료** 를 선택합니다.
+1. **완료**를 선택합니다.
 
 <a name="add-pattern-any-entities"></a>
 
@@ -102,9 +104,9 @@ ms.locfileid: "68932934"
 
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택한 다음, **새 엔터티 만들기**를 선택합니다.
 
-1. **엔터티 추가** 대화 상자의 **엔터티 이름** 상자에 `HumanResourcesFormTitle`을 입력하고 **Pattern.any**를 **엔터티 형식**으로 선택합니다.
+1. **엔터티 추가** 대화 상자의 `HumanResourcesFormTitle`엔터티 이름**상자에**을 입력하고 **Pattern.any**를 **엔터티 형식**으로 선택합니다.
 
-    pattern.any 엔터티를 사용하려면 올바른 중괄호 구문(예: `Where is **{HumanResourcesFormTitle}** on the server?`)을 사용하여 **앱 성능 개선** 섹션의 **패턴** 페이지에서 패턴을 추가합니다.
+    pattern.any 엔터티를 사용하려면 올바른 중괄호 구문(예: **)을 사용하여** 앱 성능 개선**섹션의**패턴`Where is **{HumanResourcesFormTitle}** on the server?` 페이지에서 패턴을 추가합니다.
 
     Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견하면 [명시적 목록](luis-concept-patterns.md#explicit-lists)을 사용하여 이 문제를 정정합니다. 
 
@@ -114,7 +116,7 @@ ms.locfileid: "68932934"
 
 역할은 컨텍스트에 따라 명명 된 하위 형식입니다. 미리 작성 된 엔터티 및 비 컴퓨터에서 학습 한 엔터티를 비롯 한 모든 엔터티에서 사용할 수 있습니다. 
 
-역할 **`{Entityname:Rolename}`** 의 구문은 엔터티 이름 뒤에 콜론이 오고 그 뒤의 역할 이름입니다. `Move {personName} from {Location:Origin} to {Location:Destination}` )을 입력합니다.
+역할에 대 한 구문은 엔터티 이름 뒤에 콜론이 오고 그 뒤의 역할 이름을 **`{Entityname:Rolename}`** 입니다. 예: `Move {personName} from {Location:Origin} to {Location:Destination}`
 
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택합니다.
 
@@ -136,7 +138,7 @@ ms.locfileid: "68932934"
 
 1. **빌드** 섹션에서 왼쪽 패널의 **엔터티**를 선택한 다음, **새 엔터티 만들기**를 선택합니다.
 
-1. **엔터티 추가** 대화 상자에서 **엔터티 이름** 상자에 `Department`을 입력하고 **엔터티 형식**으로 **List**를 선택합니다. **완료** 를 선택합니다.
+1. **엔터티 추가** 대화 상자에서 `Department`엔터티 이름**상자에**을 입력하고 **엔터티 형식**으로 **List**를 선택합니다. **완료**를 선택합니다.
   
 1. 목록 엔터티 페이지에서 정규화된 이름을 추가할 수 있습니다. **값** 텍스트 상자에 목록의 부서명(예: `HumanResources`)을 입력한 다음, 키보드에서 Enter 키를 누릅니다. 
 

@@ -1,24 +1,24 @@
 ---
 title: '다중 클래스 로지스틱 회귀: 모듈 참조'
-titleSuffix: Azure Machine Learning service
-description: Azure Machine Learning service에서 다중 클래스 로지스틱 회귀 모듈을 사용 하 여 여러 값을 예측 하는 데 사용할 수 있는 로지스틱 회귀 모델을 만드는 방법에 대해 알아봅니다.
+titleSuffix: Azure Machine Learning
+description: Azure Machine Learning에서 다중 클래스 로지스틱 회귀 모듈을 사용 하 여 여러 값을 예측 하는 데 사용할 수 있는 로지스틱 회귀 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/02/2019
-ms.openlocfilehash: d31329d6d45fd9f137bd6d57a638915e0833ee4a
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 9d6e6c11f0e2a8fb7e08385f7abf26fb4a8d21c8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692762"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465973"
 ---
 # <a name="multiclass-logistic-regression-module"></a>다중 클래스 로지스틱 회귀 모듈
 
-이 문서에서는 Azure Machine Learning 서비스에 대 한 시각적 인터페이스 (미리 보기)의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 여러 값을 예측 하는 데 사용할 수 있는 로지스틱 회귀 모델을 만듭니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "72692762"
 
     정규화는 극단적인 계수 값을 사용 하 여 과잉 맞춤 by 페널티 모델을 방지 하는 방법입니다. 정규화는 계수 값과 연결 된 페널티를 가설의 오류에 추가 하 여 작동 합니다. 극단적인 계수 값을 포함 하는 정확한 모델은 더 페널티가 수 있지만 보다 보수적인 값을 가진 보다 정확한 모델은 페널티가 줄어듭니다.
 
-     L1 및 L2 정규화에는 다른 효과와 사용이 있습니다. L1은 최고 차원 데이터로 작업할 때 유용한 스파스 모델에 적용할 수 있습니다. 이와 대조적으로, 스파스가 아닌 데이터에 대해 L2 정규화이 좋습니다.  이 알고리즘은 L1 및 L2 정규화 값의 선형 조합을 지원 합니다. 즉, `x = L1` 및 `y = L2` `ax + by = c`는 정규화 용어의 선형 범위를 정의 합니다.
+     L1 및 L2 정규화에는 다른 효과와 사용이 있습니다. L1은 최고 차원 데이터로 작업할 때 유용한 스파스 모델에 적용할 수 있습니다. 이와 대조적으로, 스파스가 아닌 데이터에 대해 L2 정규화이 좋습니다.  이 알고리즘은 L1 및 L2 정규화 값의 선형 조합을 지원 합니다. 즉, `x = L1` 및 `y = L2``ax + by = c`는 정규화 용어의 선형 범위를 정의 합니다.
 
      [탄력적 네트워크 정규화](https://wikipedia.org/wiki/Elastic_net_regularization)와 같은 로지스틱 회귀 모델에 대해 L1 및 L2 용어의 여러 선형 조합이 고안 되었습니다.
 
@@ -67,4 +67,4 @@ ms.locfileid: "72692762"
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning 서비스에 [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

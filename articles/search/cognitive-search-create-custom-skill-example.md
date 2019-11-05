@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9ab828daa009f7204abb1c64291d937a1f0dba2
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784943"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466825"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예: Bing Entity Search API을 사용 하 여 사용자 지정 기술 만들기
 
 이 예제에서는 web API 사용자 지정 기술을 만드는 방법에 대해 알아봅니다. 이 스킬은 위치, 공개, 조직 및 조직에 대 한 설명을 반환 합니다. 이 예제에서는 [Azure 함수](https://azure.microsoft.com/services/functions/) 를 사용 하 여 사용자 지정 기술 인터페이스를 구현 하도록 [Bing Entity Search API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) 를 래핑합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 + 사용자 지정 기술에서 구현 해야 하는 입력/출력 인터페이스에 익숙하지 않은 경우 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 문서를 참조 하세요.
 
@@ -313,7 +313,7 @@ namespace SampleSkills
 
 Bing entity search API에 등록할 때 가져온 키를 기반으로 `key` 상수에 고유한 *키* 값을 입력 해야 합니다.
 
-이 샘플에는 편의상 모든 필요한 코드가 단일 파일에 포함 되어 있습니다. 동일한 기술에 대해 약간 더 구조화 된 버전을 찾을 수 있으며, [power skills 리포지토리의](https://aka.ms/entity-search-power-skill)사용자 지정 기술에 대 한 다른 예제도 찾을 수 있습니다.
+이 샘플에는 편의상 모든 필요한 코드가 단일 파일에 포함 되어 있습니다. [Power skills 리포지토리에서](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch)이와 동일한 기술에 대해 약간 더 구조적인 버전을 찾을 수 있습니다.
 
 물론 파일의 이름을 `Function1.cs`에서 `BingEntitySearch.cs`로 바꿀 수 있습니다.
 
@@ -476,10 +476,10 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 ```
 
 ## <a name="next-steps"></a>다음 단계
-축하합니다. 첫 번째 사용자 지정 사용자를 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 
+축하합니다. 첫 번째 사용자 지정 기술을 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 자세한 내용을 보려면 다음 링크를 클릭 하십시오.
 
-+ [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://aka.ms/powerskills)
-+ [인식 검색 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://github.com/Azure-Samples/azure-search-power-skills)
++ [AI 보강 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기능 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

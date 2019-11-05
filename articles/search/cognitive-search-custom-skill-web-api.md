@@ -1,24 +1,23 @@
 ---
-title: 사용자 지정 인식 검색 기술 - Azure Search
-description: Web API를 호출하여 인식 검색 기술 세트의 기능을 확장합니다.
-services: search
+title: 보강 파이프라인의 사용자 지정 웹 API 기술
+titleSuffix: Azure Cognitive Search
+description: Web Api를 호출 하 여 Azure Cognitive Search 기술력과의 기능을 확장 합니다. 사용자 지정 웹 API 기술을 사용 하 여 사용자 지정 코드를 통합 합니다.
 manager: nitinme
 author: luiscabrer
-ms.service: search
-ms.workload: search
-ms.topic: conceptual
-ms.date: 05/02/2019
 ms.author: luisca
-ms.openlocfilehash: fda4f96c2c73c5a2d39435a509afcf654ed77b70
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.service: cognitive-search
+ms.topic: conceptual
+ms.date: 11/04/2019
+ms.openlocfilehash: 24b0d0caa9deb43bc198b3c09836ac94777cf154
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901327"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466728"
 ---
-# <a name="custom-web-api-skill"></a>사용자 지정 Web API 기술
+# <a name="custom-web-api-skill-in-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인의 사용자 지정 웹 API 기술
 
-**사용자 지정 WEB api** 기술을 사용 하면 사용자 지정 작업을 제공 하는 Web api 끝점을 호출 하 여 인지 검색을 확장할 수 있습니다. 기본 제공 기술과 비슷하게 **사용자 지정 Web API** 기술에는 입/출력이 있습니다. 입력에 따라 웹 API는 인덱서가 실행 될 때 JSON 페이로드를 받고 성공 상태 코드와 함께 JSON 페이로드를 응답으로 출력 합니다. 응답은 사용자 지정 기술로 지정된 출력을 포함해야 합니다. 다른 응답은 오류로 간주되며 강화는 수행되지 않습니다.
+**사용자 지정 WEB api** 기술을 사용 하면 사용자 지정 작업을 제공 하는 Web api 끝점을 호출 하 여 AI 보강을 확장할 수 있습니다. 기본 제공 기술과 비슷하게 **사용자 지정 Web API** 기술에는 입/출력이 있습니다. 입력에 따라 웹 API는 인덱서가 실행 될 때 JSON 페이로드를 받고 성공 상태 코드와 함께 JSON 페이로드를 응답으로 출력 합니다. 응답은 사용자 지정 기술로 지정된 출력을 포함해야 합니다. 다른 응답은 오류로 간주되며 강화는 수행되지 않습니다.
 
 JSON 페이로드의 구조는 이 문서 뒷부분에서 좀 더 자세히 설명합니다.
 
@@ -58,7 +57,7 @@ Microsoft.Skills.Custom.WebApiSkill
 ```json
   {
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "A custom skill that can count the number of words or characters or lines in text",
+        "description": "A custom skill that can identify positions of different phrases in the source text",
         "uri": "https://contoso.count-things.com",
         "batchSize": 4,
         "context": "/document",
@@ -72,14 +71,13 @@ Microsoft.Skills.Custom.WebApiSkill
             "source": "/document/languageCode"
           },
           {
-            "name": "countOf",
-            "source": "/document/propertyToCount"
+            "name": "phraseList",
+            "source": "/document/keyphrases"
           }
         ],
         "outputs": [
           {
-            "name": "count",
-            "targetName": "countOfThings"
+            "name": "hitPositions"
           }
         ]
       }
@@ -91,8 +89,8 @@ Microsoft.Skills.Custom.WebApiSkill
 
 * 최상위 엔터티를 `values`라고 하며 개체의 배열이 됩니다. 이러한 개체의 수는 최대 `batchSize`가 됩니다.
 * `values` 배열의 각 개체에는 다음이 지정됩니다.
-    * 해당 레코드 식별에 사용되는 **고유** 문자열인 `recordId` 속성
-    * _JSON_ 개체에 해당하는 `data` 속성. `data` 속성의 필드는 기술 정의의 `inputs` 섹션에 지정된 "names"에 해당합니다. 해당 필드의 값은 해당 필드의 `source`에서 가져옵니다(문서의 필드 또는 다른 기술에서 가져올 수 있음).
+    * 해당 레코드 식별에 사용되는 `recordId`고유**문자열인** 속성
+    * `data`JSON_개체에 해당하는_ 속성. `data` 속성의 필드는 기술 정의의 `inputs` 섹션에 지정된 "names"에 해당합니다. 해당 필드의 값은 해당 필드의 `source`에서 가져옵니다(문서의 필드 또는 다른 기술에서 가져올 수 있음).
 
 ```json
 {
@@ -103,7 +101,7 @@ Microsoft.Skills.Custom.WebApiSkill
            {
              "text": "Este es un contrato en Inglés",
              "language": "es",
-             "countOf": "words"
+             "phraseList": ["Este", "Inglés"]
            }
       },
       {
@@ -112,16 +110,16 @@ Microsoft.Skills.Custom.WebApiSkill
            {
              "text": "Hello world",
              "language": "en",
-             "countOf": "characters"
+             "phraseList": ["Hi"]
            }
       },
       {
         "recordId": "2",
         "data":
            {
-             "text": "Hello world \r\n Hi World",
+             "text": "Hello world, Hi world",
              "language": "en",
-             "countOf": "lines"
+             "phraseList": ["world"]
            }
       },
       {
@@ -130,7 +128,7 @@ Microsoft.Skills.Custom.WebApiSkill
            {
              "text": "Test",
              "language": "es",
-             "countOf": null
+             "phraseList": []
            }
       }
     ]
@@ -159,7 +157,7 @@ Microsoft.Skills.Custom.WebApiSkill
             },
             "errors": [
               {
-                "message" : "Cannot understand what needs to be counted"
+                "message" : "'phraseList' should not be null or empty"
               }
             ],
             "warnings": null
@@ -167,7 +165,7 @@ Microsoft.Skills.Custom.WebApiSkill
         {
             "recordId": "2",
             "data": {
-                "count": 2
+                "hitPositions": [6, 16]
             },
             "errors": null,
             "warnings": null
@@ -175,7 +173,7 @@ Microsoft.Skills.Custom.WebApiSkill
         {
             "recordId": "0",
             "data": {
-                "count": 6
+                "hitPositions": [0, 23]
             },
             "errors": null,
             "warnings": null
@@ -183,10 +181,12 @@ Microsoft.Skills.Custom.WebApiSkill
         {
             "recordId": "1",
             "data": {
-                "count": 11
+                "hitPositions": []
             },
             "errors": null,
-            "warnings": null
+            "warnings": {
+                "message": "No occurrences of 'Hi' were found in the input text"
+            }
         },
     ]
 }
@@ -197,13 +197,12 @@ Microsoft.Skills.Custom.WebApiSkill
 Web API가 사용 가능하지 않거나 성공적이지 않은 상태 코드를 보내는 경우 외에도 다음과 같은 경우가 오류로 간주됩니다.
 
 * Web API가 성공 상태 코드를 반환하지만 응답에 `application/json`이 아니라고 표시되므로 응답은 잘못된 것으로 간주되고 강화는 수행되지 않습니다.
-* 응답 `values` 배열에 **잘못된**(원본 요청에 `recordId`가 없거나 중복된 값이 있음) 레코드가 있으면 **해당** 레코드에 대해 강화가 수행되지 않습니다.
+* 응답 **배열에**잘못된`recordId`(원본 요청에 `values`가 없거나 중복된 값이 있음) 레코드가 있으면 **해당** 레코드에 대해 강화가 수행되지 않습니다.
 
 Web API가 사용 가능하지 않거나 HTTP 오류를 반환하는 경우 HTTP 오류에 대해 사용 가능한 모든 세부 정보를 포함하는 오류가 인덱서 실행 기록에 추가됩니다.
 
 ## <a name="see-also"></a>참고 항목
 
-+ [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://aka.ms/powerskills)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [Cognitive Search에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
-+ [예: 인지 검색에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [AI 보강 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
++ [예: AI 보강 사용자 지정 기술 만들기 (인지-검색-example.md)

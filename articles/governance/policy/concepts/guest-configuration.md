@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 82279e6937fccfbbef13f9580f76cd344593b0df
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
-ms.translationtype: MT
+ms.openlocfilehash: efe929a6ea38a8df7ad9fe37a92c181e3d409b25
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255840"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464068"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -62,7 +62,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 다음 표에는 지원되는 각 운영 체제에서 사용되는 로컬 도구 목록이 나와 있습니다.
 
-|운영 체제|유효성 검사 도구|참고|
+|운영 체제|유효성 검사 도구|참고 사항|
 |-|-|-|
 |Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| 게스트 구성 확장을 통해 Ruby 및 Python이 설치됩니다. |
@@ -75,7 +75,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
 
-|게시자|이름|버전|
+|게시자|Name|버전|
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
@@ -121,7 +121,30 @@ Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성
 > [!NOTE]
 > **AuditIfNotExists** 정책에서 결과를 반환 하려면 **Deployifnotexists** 정책이 필요 합니다. **Deployifnotexists**가 없으면 **AuditIfNotExists** 정책에 "0/0" 리소스가 상태로 표시 됩니다.
 
-할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[미리 보기]: Linux 및 Windows 컴퓨터 내에서 암호 보안 설정 감사 @ no__t-0에는 18 개의 정책이 포함 됩니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. [정책 정의](definition-structure.md#policy-rule) 논리는 대상 운영 체제만 평가 되는지 확인 합니다.
+할당에 사용할 정의를 그룹화할 수 있도록, 게스트 구성을 위한 모든 기본 제공 정책은 이니셔티브에 포함됩니다. *[Preview]: Linux 및 Windows 컴퓨터 내의 감사 암호 보안 설정* 이라는 기본 제공 이니셔티브는 18 개의 정책을 포함 합니다. 그리고 Window용 **DeployIfNotExists** 및 **AuditIfNotExists** 쌍 6개와 Linux용 쌍 3개가 있습니다. [정책 정의](definition-structure.md#policy-rule) 논리는 대상 운영 체제만 평가 되는지 확인 합니다.
+
+#### <a name="auditing-operating-system-settings-following-industry-baselines"></a>업계 기준에 따라 운영 체제 설정 감사
+
+Azure Policy에서 사용할 수 있는 이니셔티브 중 하나는 Microsoft의 "기준"에 따라 가상 머신 내에서 운영 체제 설정을 감사 하는 기능을 제공 합니다.  *[Preview]: Azure 보안 기준 설정과 일치 하지 않는 Windows Vm 감사* 정의는 Active Directory 그룹 정책의 설정에 따라 완전 한 감사 규칙 집합을 포함 합니다.
+
+대부분의 설정은 매개 변수로 사용할 수 있습니다.  이 기능을 사용 하 여 정책을 조직의 요구 사항에 맞게 조정 하거나 정책을 업계 규정 표준 같은 타사 정보에 매핑하기 위해 감사 되는 항목을 사용자 지정할 수 있습니다.
+
+일부 매개 변수는 정수 값 범위를 지원 합니다.  예를 들어 범위 연산자를 사용 하 여 최대 암호 사용 기간 매개 변수를 설정 하 여 컴퓨터 소유자에 게 유연성을 제공할 수 있습니다.  사용자가 암호를 변경 하도록 요구 하는 효과적인 그룹 정책 설정은 70 일이 하 여야 하지만 1 일 미만으로는 안 됨을 감사할 수 있습니다.  매개 변수에 대 한 정보-거품형에 설명 된 대로이 값을 효과적인 감사 값으로 설정 하려면 값을 "1, 70"으로 설정 합니다.
+
+Azure Resource Manager dployment 템플릿을 사용 하 여 정책을 할당 하는 경우 매개 변수 파일을 사용 하 여 소스 제어에서 이러한 설정을 관리할 수 있습니다.
+Git와 같은 도구를 사용 하 여 각 체크 인에 대 한 설명을 포함 하는 감사 정책 변경 사항을 관리 하는 데 필요한 값에 대 한 할당이 예외에 포함 되어야 하는 이유에 대 한 정보를 문서화 합니다.
+
+#### <a name="applying-configurations-using-guest-configuration"></a>게스트 구성을 사용 하 여 구성 적용
+
+Azure Policy의 최신 기능은 컴퓨터 내에서 설정을 구성 합니다.
+정의에서 *Windows 컴퓨터의 표준 시간대를 구성* 하면 표준 시간대를 구성 하 여 컴퓨터를 변경 하 게 됩니다.
+
+*구성*으로 시작 하는 정의를 할당할 때 *Windows Vm에서 게스트 구성 정책을 사용 하려면 정의 배포 필수 구성 요소를* 할당 해야 합니다.
+선택 하는 경우 이니셔티브에서 이러한 정의를 조합할 수 있습니다.
+
+#### <a name="assigning-policies-to-machines-outside-of-azure"></a>Azure 외부의 컴퓨터에 정책 할당
+
+게스트 구성에 사용할 수 있는 감사 정책에는 **HybridCompute/machines** 리소스 종류가 포함 됩니다.  할당 범위 내에 있는 Azure Arc로 등록 되는 모든 컴퓨터는 자동으로 포함 됩니다.
 
 ### <a name="multiple-assignments"></a>여러 할당
 
