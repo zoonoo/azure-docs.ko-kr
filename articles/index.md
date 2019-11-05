@@ -6,12 +6,12 @@ description: Microsoft Azure 클라우드 서비스를 사용하여 강력한 �
 ms.topic: hub-page
 featureFlags:
 - clicktale
-ms.openlocfilehash: b451763a4d359d18ccb4d53cd3ee96fdafd53818
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 4c1b7c49002d9ff6cd8c782c3308edaaa5d2373d
+ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501238"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519846"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -147,7 +147,7 @@ ms.locfileid: "68501238"
                                                             <img src="media/index/logo_NET.svg" alt=""> .NET</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/python/azure/">
+                                                        <a class="barLink" href="/azure/python/">
                                                             <img src="media/index/logo_python.svg" alt=""> Python</a>
                                                     </li>
                                                     <li>
@@ -159,11 +159,11 @@ ms.locfileid: "68501238"
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/javascript/azure/">
+                                                        <a class="barLink" href="/azure/javascript/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/go/azure/">
+                                                        <a class="barLink" href="/azure/go/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt=""> Go</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -188,9 +188,10 @@ ms.locfileid: "68501238"
                                                 <h3>데이터 및 AI 관리</h3>
                                                 <h4>관계형 데이터베이스</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/sql-database/">SQL Database as a Service</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database/">SQL DBaaS(Database as a service)</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-database-edge/">에지용 SQL Database</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">Azure VM의 SQL Server</a></li>
-                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse as a service</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">Synapse Analytics(이전의 SQL DW)</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">PostgreSQL Database as a Service</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">MySQL Database as a Service</a></li>
                                                 </ul>
@@ -198,7 +199,7 @@ ms.locfileid: "68501238"
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/cosmos-db/">Azure Cosmos DB</a></li>
                                                 </ul>
-                                                <h4>스토리지</h4>
+                                                <h4>Storage</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/storage/">Blob Storage</a></li>
                                                 </ul>
@@ -331,7 +332,7 @@ ms.locfileid: "68501238"
                 <a href="#products">제품</a>
                 <ul id="products">
                     <li>
-                        <a href="#all">모두</a>
+                        <a data-default="true" href="#all">모두</a>
                         <ul id="all" class="directory">
                             <li>
                                 <div class="group">
@@ -345,7 +346,7 @@ ms.locfileid: "68501238"
                                         </li>
                                         <li>
                                             <a href="/azure/cognitive-services/welcome">
-                                                <img src="media/index/machinelearning.svg" alt="" />
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
                                                 <p>Cognitive Services</p>
                                             </a>
                                         </li>
@@ -588,8 +589,8 @@ ms.locfileid: "68501238"
                                     <ul>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/sqldatawarehouse.svg" alt="" />
-                                                <p>SQL Data Warehouse</p>
+                                                <img src="media/index/azure_synapse_icon.svg" alt="" />
+                                                <p>Azure Synapse Analytics(이전의 SQL DW)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -825,6 +826,12 @@ ms.locfileid: "68501238"
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                                <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                <p>Cognitive Services</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/service-fabric/">
                                                 <img src="media/index/Fabric.svg" alt="" />
                                                 <p>Service Fabric</p>
@@ -857,6 +864,12 @@ ms.locfileid: "68501238"
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/sql-database-edge/">
+                                                <img src="media/index/sqldatabaseedge.svg" alt="" />
+                                                <p>Azure SQL Database Edge</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/cosmos-db/">
                                                 <img src="media/index/cosmosdb.svg" alt="" />
                                                 <p>Azure Cosmos DB</p>
@@ -864,8 +877,8 @@ ms.locfileid: "68501238"
                                         </li>
                                         <li>
                                             <a href="/azure/sql-data-warehouse/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
-                                                <p>SQL Data Warehouse</p>
+                                                <img src="media/index/azure_synapse_icon.svg" alt="" />
+                                                <p>Azure Synapse Analytics(이전의 SQL DW)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1122,6 +1135,12 @@ ms.locfileid: "68501238"
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-pnp/">
+                                                <img src="media/index/cloud-check.svg" alt="" />
+                                                <p>IoT 플러그 앤 플레이</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/iot-suite/">
                                                 <img src="media/index/iot-solution-accelerators.svg" alt="" />
                                                 <p>IoT 솔루션 가속기</p>
@@ -1356,6 +1375,12 @@ ms.locfileid: "68501238"
                                             <a href="/azure/billing/">
                                                 <img src="media/index/billing.svg" alt="" />
                                                 <p>결제</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/lighthouse/">
+                                                <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                <p>Azure Lighthouse</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1605,6 +1630,36 @@ ms.locfileid: "68501238"
                                                 <p>Azure Bastion</p>
                                             </a>
                                         </li>
+                                        <li>
+                                          <a href="/azure/web-application-firewall/">
+                                                <img src="media/index/web-app-firewall.svg" alt="" />
+                                                <p>웹 애플리케이션 방화벽</p>
+                                          </a>
+                                        </li>
+                                        <li>
+                                          <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                                <img src="media/index/private-link.svg" alt="" />
+                                                <p>Azure Private Link</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/peering-service/">
+                                                <img src="media/index/peering-service.svg" alt="" />
+                                                <p>Peering Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/firewall-manager/">
+                                                <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
+                                                <p>Azure Firewall Manager</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/internet-analyzer/">
+                                                <img src="media/index/internet-analyzer.svg" alt="" />
+                                                <p>Azure Internet Analyzer</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>보안</h3>
                                     <ul>
@@ -1627,19 +1682,19 @@ ms.locfileid: "68501238"
                                             </a>
                                         </li>
                                         <li>
-                                        <li>
                                             <a href="/azure/dedicated-hsm">
                                                 <img src="media/index/dedicated-hsm.svg" alt="" />
                                                 <p>Azure 전용 HSM</p>
                                             </a>
                                         </li>
+                                        <li>
                                             <a href="/azure/virtual-network/ddos-protection-overview">
                                                 <img src="media/index/ddos-protection.svg" alt="" />
                                                 <p>Azure DDoS 보호</p>
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/security/azure-threat-detection">
+                                            <a href="/azure/security/fundamentals/threat-detection">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Azure Advanced Threat Protection</p>
                                             </a>
@@ -1719,7 +1774,7 @@ ms.locfileid: "68501238"
                                         <li>
                                             <a href="/azure/storage/">
                                                 <img src="media/index/Storage.svg" alt="" />
-                                                <p>스토리지</p>
+                                                <p>Storage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1749,7 +1804,7 @@ ms.locfileid: "68501238"
                                         <li>
                                             <a href="/azure/virtual-machines/windows/managed-disks-overview">
                                                 <img src="media/index/Disks-color.svg" alt="" />
-                                                <p>디스크 스토리지</p>
+                                                <p>Disk Storage</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1851,10 +1906,13 @@ ms.locfileid: "68501238"
                                                 <p>Azure SignalR Service</p>
                                             </a>
                                         </li>
+                                    </ul>
+                                    <h3>Windows Virtual Desktop</h3>
+                                    <ul>
                                         <li>
-                                            <a href="/azure/lighthouse/">
-                                                <img src="media/index/azure-resource-manager.svg" alt="" />
-                                                <p>Azure Lighthouse</p>
+                                            <a href="/azure/virtual-desktop/">
+                                                <img src="media/index/windows-virtual-desktop.svg" alt="" />
+                                                <p>Windows Virtual Desktop</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2179,7 +2237,7 @@ ms.locfileid: "68501238"
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Analytics</a>
+                        <a href="#analytics">분석</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/sql-data-warehouse/">
@@ -2188,12 +2246,12 @@ ms.locfileid: "68501238"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/sqldatawarehouse.svg" alt="" />
+                                                        <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
-                                                    <p>엔터프라이즈급 기능을 갖춘 탄력적인 DaaS(Data warehouse-as-a-Service)</p>
+                                                    <h3>Azure Synapse Analytics(이전의 SQL DW)</h3>
+                                                    <p>인사이트에 대한 시간이 일치하지 않는 무제한 분석 서비스</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2288,7 +2346,7 @@ ms.locfileid: "68501238"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>수백만 개의 IoT 디바이스에서 실시간 데이터 스트림 처리</p>
+                                                    <p>애플리케이션 및 디바이스에서 빠르게 이동하는 데이터 스트림에 대한 실시간 분석</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2607,7 +2665,7 @@ ms.locfileid: "68501238"
                         </ul>
                     </li>
                     <li>
-                        <a data-default="true" href="#Compute">컴퓨팅</a>
+                        <a href="#Compute">컴퓨팅</a>
                         <ul id="Compute" class="cardsA">
                             <li>
                                 <a href="/azure/virtual-machines/linux/">
@@ -2717,6 +2775,25 @@ ms.locfileid: "68501238"
                                                 <div class="cardText">
                                                     <h3>Container Instances</h3>
                                                     <p>단일 명령으로 컨테이너를 쉽게 실행</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/cognitive-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cognitive Services</h3>
+                                                    <p>보고, 듣고, 말하고, 해석하도록 지능형 앱, 웹 사이트 및 봇에 정보 제공</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2976,6 +3053,25 @@ ms.locfileid: "68501238"
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/i_azure-cognitive-services-color.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Cognitive Services</h3>
+                                                    <p>Docker, Kubernetes, AKS 및 Container Instances에서 Azure Cognitive Services 컨테이너 사용</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/service-fabric/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3095,6 +3191,25 @@ ms.locfileid: "68501238"
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/sql-database-edge/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/sqldatabaseedge.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure SQL Database Edge</h3>
+                                                    <p>IoT 및 에지 배포에 최적화된 관계형 데이터베이스 엔진입니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/cosmos-db/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -3120,12 +3235,12 @@ ms.locfileid: "68501238"
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/azure_synapse_icon.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>SQL Data Warehouse</h3>
-                                                    <p>엔터프라이즈급 기능을 갖춘 탄력적인 DaaS(Data warehouse-as-a-Service)</p>
+                                                    <h3>Azure Synapse Analytics(이전의 SQL DW)</h3>
+                                                    <p>인사이트에 대한 시간이 일치하지 않는 무제한 분석 서비스</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3639,7 +3754,7 @@ ms.locfileid: "68501238"
                         </ul>
                     </li>
                     <li>
-                        <a href="#identity">ID</a>
+                        <a href="#identity">Identity</a>
                         <ul id="identity" class="cardsA">
                             <li>
                                 <a href="/azure/active-directory/">
@@ -3758,7 +3873,7 @@ ms.locfileid: "68501238"
                         </ul>
                     </li>
                     <li>
-                        <a href="#integration">통합</a>
+                        <a href="#integration">Integration</a>
                         <ul id="integration" class="cardsA">
                             <li>
                                 <a href="/azure/api-management/">
@@ -3911,6 +4026,25 @@ ms.locfileid: "68501238"
                                                 <div class="cardText">
                                                     <h3>IoT Edge</h3>
                                                     <p>클라우드로부터 에지 디바이스까지 인텔리전스 확장</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-pnp/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/cloud-check.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>IoT 플러그 앤 플레이</h3>
+                                                    <p>디바이스 코드를 작성하지 않고 IoT 솔루션에 디바이스 연결</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4663,6 +4797,25 @@ ms.locfileid: "68501238"
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/lighthouse/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Lighthouse</h3>
+                                                    <p>대규모 고객 리소스 관리</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5024,7 +5177,7 @@ ms.locfileid: "68501238"
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">모바일</a>
+                        <a href="#mobile">Mobile</a>
                         <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/appcenter">
@@ -5430,24 +5583,19 @@ ms.locfileid: "68501238"
                                     </div>
                                 </a>
                             </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#security">보안</a>
-                        <ul id="security" class="cardsA">
                             <li>
-                                <a href="/azure/security/">
+                                <a href="/azure/web-application-firewall/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SecurityCenter.svg" alt="" />
+                                                        <img src="media/index/web-app-firewall.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>보안 정보</h3>
-                                                    <p>Azure가 클라우드 솔루션을 빌드하기 위해 보안 인프라를 제공하는 방법 알아보기</p>
+                                                    <h3>웹 애플리케이션 방화벽</h3>
+                                                    <p>일반적인 악용과 취약성으로부터 중앙 집중식으로 웹 애플리케이션 보호</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5455,7 +5603,67 @@ ms.locfileid: "68501238"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/security-center">
+                                <a href="/azure/peering-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/peering-service.svg" alt="" />
+                                                    </div>
+                                            </div>
+                                            <div class="cardText">
+                                                    <h3>Peering Service</h3>
+                                                    <p>Microsoft 네트워크에 액세스하기 위한 최적의 인터넷 연결 가져오기</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#security">보안</a>
+                        <ul id="security" class="cardsA">
+                            <li>
+                                <a href="https://go.microsoft.com/fwlink/?linkid=2097091">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/private-link.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Private Link</h3>
+                                                    <p>Microsoft 네트워크 내에서 데이터를 유지하면서 Azure 플랫폼에서 호스팅되는 서비스에 비공개로 액세스</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/firewall-manager/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/icon-networking-361-azure-firewall-manager.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Firewall Manager</h3>
+                                                    <p>전역적으로 분산된 보안 관리 서비스</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                               <a href="/azure/security-center/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5531,7 +5739,7 @@ ms.locfileid: "68501238"
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/security/azure-threat-detection">
+                                <a href="/azure/security/fundamentals/threat-detection">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -5704,7 +5912,7 @@ ms.locfileid: "68501238"
                         </ul>
                     </li>
                     <li>
-                        <a href="#other">소버린 클라우드</a>
+                        <a href="#other">독립적 클라우드</a>
                         <ul id="other" class="cardsA">
                             <li>
                                 <a href="/azure/azure-government/">
@@ -5766,7 +5974,7 @@ ms.locfileid: "68501238"
                         </ul>
                     </li>
                     <li>
-                        <a href="#storage">Storage</a>
+                        <a href="#storage">스토리지</a>
                         <ul id="storage" class="cardsA">
                             <li>
                                 <a href="/azure/storage/">
@@ -5779,7 +5987,7 @@ ms.locfileid: "68501238"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>스토리지</h3>
+                                                    <h3>Storage</h3>
                                                     <p>내구성과 가용성이 높고 대량으로 확장 가능한 클라우드 스토리지</p>
                                                 </div>
                                             </div>
@@ -5819,25 +6027,6 @@ ms.locfileid: "68501238"
                                                 <div class="cardText">
                                                     <h3>Data Lake Storage Gen2</h3>
                                                     <p>Blob Storage에서 빌드된 확장성이 매우 뛰어나고 안전한 Data Lake Storage</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/lighthouse/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/azure-resource-manager.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Azure Lighthouse</h3>
-                                                    <p>대규모 고객 리소스 관리</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5893,7 +6082,7 @@ ms.locfileid: "68501238"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>디스크 스토리지</h3>
+                                                    <h3>Disk Storage</h3>
                                                     <p>가상 머신을 지원하고 영속성과 안전성을 갖춘 디스크 옵션</p>
                                                 </div>
                                             </div>
@@ -6212,6 +6401,30 @@ ms.locfileid: "68501238"
                             </li>
                         </ul>
                     </li>
+                    <li>
+                        <a href="#windowsvirtualdesktop">Windows Virtual Desktop</a>
+                        <ul id="windowsvirtualdesktop" class="cardsA">
+                            <li>
+                                <a href="/azure/virtual-desktop">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/windows-virtual-desktop.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Windows Virtual Desktop</h3>
+                                                    <p>클라우드 규모의 모든 디바이스에 가상 데스크톱 환경 제공</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
              <li>
@@ -6261,10 +6474,10 @@ ms.locfileid: "68501238"
                                                 <h3>
 Python 개발자용 Azure </h3>
                                                 <p>
-                                                    <a href="/python/azure">시작</a>
+                                                    <a href="/azure/python">시작</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/python/api/overview/azure/">API 참조</a>
+                                                    <a href="/python/api/?view=azure-python">API 참조</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6284,7 +6497,7 @@ Python 개발자용 Azure </h3>
                                                 <h3>
 Node.js 개발자용 Azure </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">시작</a>
+                                                    <a href="/azure/javascript/">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">API 참조</a>
@@ -6330,7 +6543,7 @@ Java 개발자용 Azure </h3>
                                                 <h3>
 Go 개발자용 Azure </h3>
                                                 <p>
-                                                    <a href="/go/azure/">시작</a>
+                                                    <a href="/azure/go/">시작</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">API 참조</a>
@@ -6497,7 +6710,7 @@ Azure CLI </h3>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">스토리지</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Storage</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>

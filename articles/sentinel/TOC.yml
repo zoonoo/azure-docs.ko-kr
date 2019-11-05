@@ -76,12 +76,26 @@
               href: connect-fortinet.md
             - name: F5 연결
               href: connect-f5.md
+            - name: F5 BIG-IP 연결
+              href: connect-f5-big-ip.md
             - name: Syslog 연결
               href: connect-syslog.md
             - name: Symantec ICDX 연결
               href: connect-symantec.md
             - name: Cisco 연결
               href: connect-cisco.md
+            - name: Barracuda CloudGen Firewall 연결
+              href: connect-barracuda-cloudgen-firewall.md
+            - name: Citrix Analytics 연결(보안)
+              href: connect-citrix-analytics.md
+            - name: ExtraHop Reveal(x) 연결
+              href: connect-extrahop.md
+            - name: One Identity Safeguard
+              href: connect-one-identity.md
+            - name: Trend Micro Deep Security
+              href: connect-trend-micro.md
+            - name: Zscaler 연결
+              href: connect-zscaler.md
         - name: 위협 인텔리전스 연결
           href: connect-threat-intelligence.md
         - name: Azure Stack VM 연결
@@ -97,6 +111,8 @@
           href: notebooks.md
         - name: 사냥에 책갈피 사용
           href: bookmarks.md
+        - name: Livestream을 사용하여 헌트
+          href: livestream.md
     - name: Azure Sentinel 제거
       href: offboard.md
 - name: 리소스

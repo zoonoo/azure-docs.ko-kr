@@ -1,0 +1,37 @@
+### YamlMime:Landing
+title: Azure Arc
+summary: Azure Arc는 Azure Resource Manager 기능을 Linux 및 Windows 서버뿐만 아니라 온-프레미스, 다중 클라우드 및 에지의 모든 인프라에 있는 Kubernetes 클러스터로도 확장합니다. 또한 Azure Arc를 사용하면 고객은 어디서나 Azure 데이터 서비스를 실행할 수 있으므로 항상 최신 데이터 기능, 몇 시간이 아닌 몇 초 이내의 배포 및 모든 인프라의 동적 확장성을 포함한 클라우드 혁신의 이점을 실현할 수 있습니다. 서버용 Azure Arc는 현재 공개 미리 보기로 제공됩니다.
+metadata:
+  title: 서버용 Azure Arc
+  description: Azure에서 온-프레미스 머신을 관리하는 방법에 대해 알아보기
+  author: bobbytreed
+  manager: carmonm
+  ms.service: azure-arc
+  ms.topic: landing-page
+  ms.date: 11/04/2019
+  ms.author: robreed
+  ms.openlocfilehash: 2ff0b9a194faf4d5a6b9e5181c52dc135208bdee
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73508553"
+landingContent:
+- title: Azure Arc 개요
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Arc에 대해 자세히 알아보기
+      url: https://aka.ms/Azure-Arc-Info
+- title: 서버용 Azure Arc를 사용하여 Azure에 머신 연결
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 서버용 Azure Arc란?
+      url: ./servers/overview.md
+  - linkListType: quickstart
+    links:
+    - text: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - 포털
+      url: ./servers/quickstart-onboard-portal.md
+    - text: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - PowerShell
+      url: ./servers/quickstart-onboard-portal.md

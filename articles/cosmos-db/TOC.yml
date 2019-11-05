@@ -12,7 +12,9 @@
       items:
         - name: Azure portal
           href: create-cosmosdb-resources-portal.md
-        - name: .NET 앱
+        - name: .NET 앱 - V4 SDK
+          href: create-sql-api-dotnet-v4.md
+        - name: .NET 앱 - V3 SDK
           href: create-sql-api-dotnet.md
         - name: Java 앱
           href: create-sql-api-java.md
@@ -47,8 +49,11 @@
             - name: Xamarin
               href: mobile-apps-with-xamarin.md
     - name: 2 - 데이터 마이그레이션
-      displayName: import
-      href: import-data.md
+      items:
+        - name: 데이터 마이그레이션 도구 사용
+          href: import-data.md
+        - name: .NET 대량 지원 사용
+          href: tutorial-sql-api-dotnet-bulk-import.md
     - name: 3 - 데이터 쿼리
       href: tutorial-query-sql-api.md
     - name: 4 - Notebook 만들기
@@ -122,6 +127,8 @@
         - name: 컨테이너 및 데이터베이스에 대한 처리량 프로비전
           displayName: 'request units, RUs, RU, limits, database throughput, shared throughput, container throughput'
           href: set-throughput.md
+        - name: 처리량 프로비전 - autopilot 모드
+          href: provision-throughput-autopilot.md
     - name: SQL 쿼리 참조
       items:
         - name: 시작
@@ -953,6 +960,11 @@
           href: how-to-configure-firewall.md
         - name: 가상 네트워크에서 액세스 구성
           href: how-to-configure-vnet-service-endpoint.md
+        - name: 프라이빗 엔드포인트에서 액세스 구성
+          href: how-to-configure-private-endpoints.md
+        - name: Cosmos DB 계정에 비공개로 연결
+          href: /azure/private-link/create-private-endpoint-cosmosdb-portal
+          maintainContext: true
         - name: CORS(원본 간 리소스 공유) 구성
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Key Vault를 사용하여 Azure Cosmos 키 보호

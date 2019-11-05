@@ -1,0 +1,18 @@
+- name: Azure Arc 설명서
+  href: index.yml
+- name: 개요
+  expanded: true
+  items:
+    - name: 서버용 Azure Arc란?
+      href: ./servers/overview.md
+- name: 빠른 시작
+  expanded: true
+  items:
+    - name: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - 포털
+      href: ./servers/quickstart-onboard-portal.md
+    - name: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - PowerShell
+      href: ./servers/quickstart-onboard-powershell.md
+- name: 참고 자료
+  items:
+    - name: Azure Connected Machine Agent CLI 인터페이스
+      href: ./servers/azcmagent-reference.md

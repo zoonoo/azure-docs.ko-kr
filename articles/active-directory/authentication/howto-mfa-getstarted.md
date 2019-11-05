@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 10/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62ea1761cef48ab7808a352789963ab55129d2f8
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
-ms.translationtype: MT
+ms.openlocfilehash: 7504d14d522a440572aa25491270c0afc73325a9
+ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162382"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72554399"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>클라우드 기반 Azure Multi-Factor Authentication 배포 계획
 
@@ -24,11 +24,11 @@ ms.locfileid: "70162382"
 
 [MFA (Azure Multi-Factor Authentication)](concept-mfa-howitworks.md) 는 데이터 및 응용 프로그램에 대 한 액세스를 보호 하는 데 도움이 됩니다. 두 번째 형태의 인증을 사용 하 여 추가 보안 계층을 제공 합니다. 조직에서는 [조건부 액세스](../conditional-access/overview.md) 를 사용 하 여 솔루션을 특정 요구 사항에 맞게 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure Multi-Factor Authentication 배포를 시작 하기 전에 고려해 야 하는 필수 조건 항목이 있습니다.
 
-| 시나리오 | 필수 조건 |
+| 시나리오 | 필수 요소 |
 | --- | --- |
 | 최신 인증을 사용 하는 **클라우드 전용** id 환경 | **추가 필수 구성 요소 작업 없음** |
 | **하이브리드** id 시나리오 | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) 배포 되 고 사용자 id가 Azure Active Directory를 사용 하 여 온-프레미스 Active Directory Domain Services와 동기화 되거나 페더레이션 됩니다. |
@@ -44,7 +44,7 @@ MFA 출시 계획에는 파일럿 배포와 지원 용량 내에 있는 배포 �
 
 계획 된 통신, 예정 된 변경 내용, Azure MFA 등록 요구 사항 및 필요한 모든 사용자 작업에 대해 사용자에 게 알리는 것이 중요 합니다. 통신, 변경 관리 또는 인적 자원 부서와 같은 조직 내 담당자와 함께 통신을 개발 하는 것이 좋습니다.
 
-Microsoft는 통신을 간단 하 게 작성할 수 있도록 [통신 템플릿과](https://aka.ms/mfatemplates) [최종 사용자 설명서](../user-help/security-info-setup-signin.md) 를 제공 합니다. 해당 페이지에서 [https://myprofile.microsoft.com](https://myprofile.microsoft.com) **보안 정보** 링크를 선택 하 여에 직접 등록할 수 있습니다.
+Microsoft는 통신을 간단 하 게 작성할 수 있도록 [통신 템플릿과](https://aka.ms/mfatemplates) [최종 사용자 설명서](../user-help/security-info-setup-signin.md) 를 제공 합니다. 해당 페이지에서 **보안 정보** 링크를 선택 하 여 [https://myprofile.microsoft.com](https://myprofile.microsoft.com) 사용자에 게 직접 등록할 수 있습니다.
 
 ## <a name="deployment-considerations"></a>배포 고려 사항
 
@@ -57,7 +57,7 @@ Azure Multi-factor Authentication은 조건부 액세스로 정책을 적용 하
 * 네트워크 위치 또는 지리적으로 배치 되는 IP 주소
 * 클라이언트 애플리케이션
 * 로그인 위험 (Id 보호 필요)
-* 준수 디바이스
+* 규정 준수 디바이스
 * 하이브리드 Azure AD 조인 디바이스
 * 승인 된 클라이언트 응용 프로그램
 
@@ -69,9 +69,9 @@ Multi-factor [authentication 출시 자료](https://www.microsoft.com/download/d
 
 [Azure AD ID 보호](../identity-protection/howto-configure-risk-policies.md) 는 Azure Multi-Factor Authentication 스토리에 대 한 등록 정책과 자동화 된 위험 검색 및 수정 정책을 모두 제공 합니다. 다음 [이벤트](../reports-monitoring/concept-risk-events.md)에 의해 로그인이 위험한 것으로 간주 되는 경우, 손상 된 id의 위협이 발생 하거나 MFA를 요구 하는 경우 암호 변경을 강제로 적용 하도록 정책을 만들 수 있습니다.
 
-* 손실된 자격 증명
+* 유출된 자격 증명
 * 익명 IP 주소에서 로그인
-* 비정상적 위치 간 이동 불가능
+* 비정상적 위치로 불가능한 이동
 * 알 수 없는 위치에서 로그인
 * 감염된 디바이스에서 로그인
 * 의심 스러운 활동을 포함 하는 IP 주소에서의 로그인
@@ -109,13 +109,13 @@ Azure Active Directory Identity Protection에서 검색 되는 일부 위험 검
 > [!NOTE]
 > 조직에서 근무 하는 직원이 있거나 중국으로 여행 하는 경우 **Android 장치** 에서 **모바일 앱 방법을 통한 알림이** 해당 국가에서 작동 하지 않습니다. 이러한 사용자에 대해 다른 방법을 사용할 수 있습니다.
 
-### <a name="verification-code-from-mobile-app"></a>모바일 앱을 통한 인증 코드
+### <a name="verification-code-from-mobile-app"></a>모바일 앱의 확인 코드
 
 Microsoft Authenticator 앱과 같은 모바일 앱은 30 초 마다 새 OATH 확인 코드를 생성 합니다. 사용자는 로그인 인터페이스에 확인 코드를 입력합니다. 휴대폰에 데이터 또는 셀룰러 신호가 있는지 여부에 관계 없이 모바일 앱 옵션을 사용할 수 있습니다.
 
 ### <a name="call-to-phone"></a>휴대폰에 전화 걸기
 
-자동 음성 통화가 사용자에 게 배치 됩니다. 사용자는 전화를 받고 전화 키패드 **#** 를 눌러 인증을 승인 합니다. 휴대폰에 대 한 호출은 모바일 앱에서 알림 또는 확인 코드를 위한 좋은 백업 방법입니다.
+자동 음성 통화가 사용자에 게 배치 됩니다. 사용자는 전화를 받고 전화 키패드에서 **#** 를 눌러 인증을 승인 합니다. 휴대폰에 대 한 호출은 모바일 앱에서 알림 또는 확인 코드를 위한 좋은 백업 방법입니다.
 
 ### <a name="text-message-to-phone"></a>휴대폰에 문자 메시지 전송
 
@@ -176,32 +176,6 @@ Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-
 ISE 창에서이 PowerShell을 실행 하거나로 저장 합니다. 로컬로 실행할 PS1 파일입니다.
 
 ```PowerShell
-# Disable MFA for all users, keeping their MFA methods intact
-Get-MsolUser -All | Disable-MFA -KeepMethods
-
-# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
-function Disable-MFA {
-
-    [CmdletBinding()]
-    param(
-        [Parameter(ValueFromPipeline=$True)]
-        $User,
-        [switch] $KeepMethods
-    )
-
-    Process {
-
-        Write-Verbose ("Disabling MFA for user '{0}'" -f $User.UserPrincipalName)
-        $User | Set-MfaState -State Disabled
-
-        if ($KeepMethods) {
-            # Restore the MFA methods which got cleared when disabling MFA
-            Set-MsolUser -ObjectId $User.ObjectId `
-                         -StrongAuthenticationMethods $User.StrongAuthenticationMethods
-        }
-    }
-}
-
 # Sets the MFA requirement state
 function Set-MfaState {
 
@@ -231,6 +205,8 @@ function Set-MfaState {
     }
 }
 
+# Disable MFA for all users
+Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 ## <a name="plan-conditional-access-policies"></a>조건부 액세스 정책 계획
@@ -248,10 +224,10 @@ Azure AD 테 넌 트에서 실수로 잠기는 것을 방지 하는 것이 중�
 1. **사용자 및 그룹** 아래에서:
    * **포함** 탭에서 **모든 사용자** 라디오 단추를 선택합니다.
    * **제외** 탭에서 **사용자 및 그룹** 의 확인란을 선택 하 고 응급 액세스 계정을 선택 합니다.
-   * **완료**를 클릭합니다.
+   * **Done**을 클릭합니다.
 1. **클라우드 앱**에서 **모든 클라우드 앱** 라디오 단추를 선택합니다.
-   * 선택 사항: **제외** 탭에서 조직에서 MFA를 요구하지 않는 클라우드 앱을 선택합니다.
-   * **완료**를 클릭합니다.
+   * 선택 사항: **제외** 탭에서, 조직에서 MFA를 요구하지 않는 클라우드 앱을 선택합니다.
+   * **Done**을 클릭합니다.
 1. **조건** 섹션에서:
    * 선택 사항: Azure Identity Protection을 사용하도록 설정한 경우 정책의 일부로 로그인 위험을 평가하도록 선택할 수 있습니다.
    * 선택 사항: 신뢰할 수 있는 위치를 구성했거나 위치 이름을 지정한 경우 정책에 해당 위치를 포함 또는 제거하도록 지정할 수 있습니다.
@@ -297,15 +273,15 @@ NPS 인스턴스를 배포 하 여 이미 사용 중인 경우 [기존 Nps 인�
 
 #### <a name="prepare-nps-for-users-that-arent-enrolled-for-mfa"></a>MFA에 등록 되지 않은 사용자를 위한 NPS 준비
 
-MFA에 등록 되지 않은 사용자가 인증을 시도 하는 경우 수행할 작업을 선택 합니다. 레지스트리 경로 `REQUIRE_USER_MATCH` `HKLM\Software\Microsoft\AzureMFA` 에서 레지스트리 설정을 사용 하 여 기능 동작을 제어 합니다. 이 설정에는 단일 구성 옵션이 있습니다.
+MFA에 등록 되지 않은 사용자가 인증을 시도 하는 경우 수행할 작업을 선택 합니다. 레지스트리 경로 `HKLM\Software\Microsoft\AzureMFA` `REQUIRE_USER_MATCH` 레지스트리 설정을 사용 하 여 기능 동작을 제어 합니다. 이 설정에는 단일 구성 옵션이 있습니다.
 
-| Key | 값 | 기본값 |
+| 키 | 값 | 기본값 |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE/FALSE | 설정되지 않음(TRUE와 동일) |
 
 이 설정은 사용자가 MFA에 등록되지 않은 경우 수행할 작업을 결정하기 위한 것입니다. 이 설정이 변경 되는 영향은 아래 표에 나와 있습니다.
 
-| 설정 | 사용자 MFA 상태 | 효과 |
+| 설정 | 사용자 MFA 상태 | Effects |
 | --- | --- | --- |
 | 키가 없습니다. | 등록 되지 않음 | MFA 챌린지 실패 |
 | True/설정 안 함으로 설정 되는 값 | 등록 되지 않음 | MFA 챌린지 실패 |
@@ -357,11 +333,11 @@ Windows 보안 로그 및 AD FS 관리자 로그에 표준 AD FS 2016 및 2019 �
 1. MFA 등록 정책 구성
    1. [결합 된 MFA 및 SSPR](howto-registration-mfa-sspr-combined.md)
    1. [Id 보호](../identity-protection/howto-mfa-policy.md) 사용
-1. 사용자 통신 보내기 및 사용자가 등록할 수 있도록 합니다.[https://aka.ms/mfasetup](https://aka.ms/mfasetup)
+1. 사용자 통신을 보내고 [https://aka.ms/mfasetup](https://aka.ms/mfasetup) 에서 등록할 수 있도록 사용자 가져오기
 1. [등록 된 사용자를 추적 합니다.](#identify-non-registered-users)
 
 > [!TIP]
-> 정부 클라우드 사용자가 등록할 수 있는 위치[https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup)
+> 정부 클라우드 사용자는 [https://aka.ms/GovtMFASetup](https://aka.ms/GovtMFASetup) 에서 등록할 수 있습니다.
 
 ## <a name="manage-your-solution"></a>솔루션 관리
 

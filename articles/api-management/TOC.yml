@@ -61,6 +61,8 @@
       href: api-management-error-handling-policies.md
     - name: API 가져오기 제한
       href: api-management-api-import-restrictions.md
+    - name: 자체 호스팅 게이트웨이 개요
+      href: self-hosted-gateway-overview.md
 - name: 방법 가이드
   items:
     - name: API 정의
@@ -93,6 +95,16 @@
           href: api-management-howto-autoscale.md
         - name: 사용자 지정 도메인 구성
           href: configure-custom-domain.md
+        - name: 여러 Azure 지역에 배포
+          href: api-management-howto-deploy-multi-region.md
+        - name: 자체 호스팅 게이트웨이 프로비전
+          href: api-management-howto-provision-self-hosted-gateway.md
+        - name: Kubernetes에 자체 호스팅 게이트웨이 배포
+          href: api-management-howto-deploy-self-hosted-gateway-to-k8s.md
+        - name: Docker에 자체 호스팅 게이트웨이 배포
+          href: api-management-howto-deploy-self-hosted-gateway-to-docker.md
+        - name: 자체 호스팅 게이트웨이에 대한 사용자 지정 도메인 구성
+          href: api-management-howto-configure-custom-domain-gateway.md
     - name: 캐시
       items:
         - name: 성능 개선을 위해 캐싱 추가
@@ -195,8 +207,6 @@
       items:
         - name: 그룹 관리
           href: api-management-howto-create-groups.md
-        - name: 여러 Azure 지역에 배포
-          href: api-management-howto-deploy-multi-region.md
         - name: IP 주소 검색
           href: api-management-howto-ip-addresses.md
         - name: Azure Event Hubs에 이벤트 기록

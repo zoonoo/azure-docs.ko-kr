@@ -45,7 +45,7 @@
           href: tutorial-deploy-function.md
         - name: Azure Stream Analytics를 사용하여 평균 찾기
           href: tutorial-deploy-stream-analytics.md
-        - name: Azure Machine Learning Service를 사용하여 데이터 채점
+        - name: Azure Machine Learning을 사용하여 데이터 점수 매기기
           href: tutorial-deploy-machine-learning.md
         - name: Custom Vision을 사용하여 이미지 분류
           href: tutorial-deploy-custom-vision.md

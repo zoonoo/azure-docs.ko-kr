@@ -104,6 +104,8 @@
       href: text-analytics-resource-faq.md
     - name: 언어 및 지역 지원
       href: language-support.md
+    - name: 명명된 엔터티 형식
+      href: named-entity-types.md
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/'
     - name: 국가별 가용성

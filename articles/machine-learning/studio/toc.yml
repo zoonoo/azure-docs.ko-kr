@@ -1,9 +1,9 @@
-- name: Machine Learning Studio 설명서
+- name: Machine Learning Studio(클래식) 설명서
   href: index.yml
 - name: 개요
   expanded: true
   items:
-    - name: Machine Learning Studio
+    - name: Machine Learning Studio(클래식)
       displayName: overview
       href: what-is-ml-studio.md
     - name: ML 제품 비교
@@ -106,8 +106,6 @@
       items:
         - name: 알고리즘 선택
           href: algorithm-choice.md
-        - name: 알고리즘 치트 시트
-          href: algorithm-cheat-sheet.md
         - name: 알고리즘 예제
           displayName: 'infographic, studio basics'
           href: basics-infographic-with-algorithm-examples.md
@@ -153,11 +151,11 @@
           href: azure-ml-customer-churn-scenario.md
         - name: 정서 분석
           href: text-analytics-module-tutorial.md
-        - name: Excel에서 Studio로 분석 마이그레이션
+        - name: Excel에서 Studio로 분석 마이그레이션(클래식)
           href: linear-regression-in-azure.md
     - name: 고객 데이터 삭제 및 내보내기
       items:
-        - name: Studio 데이터
+        - name: Studio(클래식) 데이터
           displayName: export
           href: export-delete-personal-data-dsr.md
         - name: 갤러리 데이터

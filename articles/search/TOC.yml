@@ -33,7 +33,7 @@
       href: search-get-started-python.md
 - name: 자습서
   items:
-    - name: 첫 번째 앱 만들기
+    - name: '첫 번째 C# 앱 만들기'
       items:
         - name: 1 - 기본 검색 페이지
           href: tutorial-csharp-create-first-app.md
@@ -215,8 +215,6 @@
           href: search-howto-schedule-indexers.md
         - name: 맵 필드
           href: search-indexer-field-mappings.md
-        - name: 증분 인덱싱
-          href: search-howto-incremental-index.md
         - name: SQL Managed Instance에 연결
           href: search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md
         - name: SQL Server VM에 연결
@@ -239,14 +237,14 @@
               href: cognitive-search-output-field-mapping.md
             - name: 이미지에서 정보 처리 및 추출
               href: cognitive-search-concept-image-scenarios.md
+            - name: 증분 인덱싱 설정
+              href: search-howto-incremental-index.md
         - name: 사용자 지정 기술
           items:
             - name: 사용자 지정 기술 통합
               href: cognitive-search-custom-skill-interface.md
             - name: 예 - Azure Functions
               href: cognitive-search-create-custom-skill-example.md
-            - name: 예 - 파워 스킬
-              href: 'https://aka.ms/powerskills'
             - name: 예 - 컨테이너
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
         - name: 문제 해결 팁
@@ -378,6 +376,8 @@
           href: cognitive-search-skill-shaper.md
         - name: 조건부
           href: cognitive-search-skill-conditional.md
+        - name: 문서 추출
+          href: cognitive-search-skill-document-extraction.md
     - name: 사용자 지정 기술
       items:
         - name: 사용자 지정 Web API

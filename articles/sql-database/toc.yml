@@ -20,29 +20,34 @@
           items:
             - name: 개요
               href: sql-database-purchase-models.md
-            - name: vCore 기반 모델
-              href: sql-database-service-tiers-vcore.md
+            - name: vCore 모델
               items:
-                - name: 서버리스 컴퓨팅 계층
+                - name: vCore 모델 개요
+                  href: sql-database-service-tiers-vcore.md
+                - name: 서버를 사용하지 않음
                   href: sql-database-serverless.md
-                - name: 예약된 용량 선불
+                - name: Azure 하이브리드 혜택
+                  href: sql-database-azure-hybrid-benefit.md
+                - name: 예약 용량
                   href: sql-database-reserved-capacity.md
-            - name: DTU 서비스 계층
+            - name: DTU 모델 개요
               href: sql-database-service-tiers-dtu.md
+            - name: DTU에서 vCore로 마이그레이션
+              href: sql-database-dtu-to-vcore.md
         - name: 컴퓨팅 및 스토리지
           items:
             - name: 개요
               href: sql-database-service-tiers-general-purpose-business-critical.md
               displayName: provisioned compute tier
-            - name: 범용/표준 서비스 계층
+            - name: 범용 / 표준
               href: sql-database-service-tier-general-purpose.md
-            - name: 중요 비즈니스용/프리미엄 서비스 계층
+            - name: 중요 비즈니스용 / 프리미엄
               href: sql-database-service-tier-business-critical.md
-            - name: 하이퍼스케일 서비스 계층
+            - name: 하이퍼스케일
               href: sql-database-service-tier-hyperscale.md
             - name: 하이퍼스케일 FAQ
               href: sql-database-service-tier-hyperscale-faq.md
-            - name: 프리미엄 RS 서버 계층에서 마이그레이션
+            - name: 프리미엄 RS에서 마이그레이션
               href: sql-database-service-tiers-prs.md
 - name: 빠른 시작
   expanded: true
@@ -501,17 +506,17 @@
       items:
         - name: 단일 데이터베이스 리소스
           items:
-            - name: vCore 기반 리소스 제한
+            - name: vCore 리소스 제한
               href: sql-database-vcore-resource-limits-single-databases.md
-            - name: DTU 기반 리소스 제한
+            - name: DTU 리소스 제한
               href: sql-database-dtu-resource-limits-single-databases.md
             - name: 리소스 크기 조정
               href: sql-database-single-database-scale.md
         - name: 탄력적 풀 리소스
           items:
-            - name: vCore 기반 리소스 제한
+            - name: vCore 리소스 제한
               href: sql-database-vcore-resource-limits-elastic-pools.md
-            - name: DTU 기반 리소스 제한
+            - name: DTU 리소스 제한
               href: sql-database-dtu-resource-limits-elastic-pools.md
             - name: 리소스 크기 조정
               href: sql-database-elastic-pool-scale.md

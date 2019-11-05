@@ -1,10 +1,10 @@
-- name: SQL Data Warehouse 설명서
+- name: Azure Synapse Analytics 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: SQL Data Warehouse란 무엇입니까?
+    - name: Azure Synapse Analytics란?
       href: sql-data-warehouse-overview-what-is.md
-    - name: SQL Data Warehouse 아키텍처
+    - name: Azure Synapse Analytics 아키텍처
       href: massively-parallel-processing-mpp-architecture.md
     - name: DWU(데이터 웨어하우스 단위)
       href: what-is-a-data-warehouse-unit-dwu-cdwu.md
@@ -257,20 +257,22 @@
           href: sql-data-warehouse-encryption-tde-tsql.md
     - name: 데이터 로드
       items:
-        - name: 뉴욕 택시 cab 데이터
-          href: load-data-from-azure-blob-storage-using-polybase.md
-        - name: Contoso 공용 데이터
-          href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-        - name: Azure Data Lake 스토리지
+        - name: ADLS(Azure Data Lake Storage)에서
           href: sql-data-warehouse-load-from-azure-data-lake-store.md
-        - name: Azure Databricks
+        - name: ADB(Azure Databricks) 사용
           href: /azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-        - name: Data Factory
+        - name: ADF(Data Factory) 사용
           href: /azure/data-factory/load-azure-sql-data-warehouse?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
-        - name: SSIS
+        - name: SSIS(SQL Server Integration Services) 사용
           href: /sql/integration-services/load-data-to-sql-data-warehouse
-        - name: WideWorldImporters 로드
-          href: load-data-wideworldimportersdw.md
+        - name: 샘플
+          items:
+            - name: 뉴욕 택시
+              href: load-data-from-azure-blob-storage-using-polybase.md
+            - name: Contoso
+              href: sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
+            - name: Wide World Importers
+              href: load-data-wideworldimportersdw.md
     - name: 개발
       items:
         - name: 개요
@@ -351,9 +353,9 @@
       items:
         - name: 전체 참조
           href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest
-        - name: SQL DW 언어 요소
+        - name: Azure Synapse Analytics TSQL 언어 요소
           href: sql-data-warehouse-reference-tsql-language-elements.md
-        - name: SQL DW 문
+        - name: Azure Synapse Analytics TSQL 문
           href: sql-data-warehouse-reference-tsql-statements.md
     - name: 시스템 뷰
       href: sql-data-warehouse-reference-tsql-system-views.md

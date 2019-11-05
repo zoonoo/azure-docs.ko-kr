@@ -124,6 +124,8 @@
               href: point-to-site-how-to-vpn-client-install-azure-cert.md
             - name: VPN 클라이언트 구성 파일 생성 및 설치
               href: point-to-site-vpn-client-configuration-azure-cert.md
+            - name: 클라이언트 VPN 프로필 다운로드 파일 정보
+              href: about-vpn-profile-download.md
         - name: RADIUS 인증
           items:
             - name: P2S VPN 구성
@@ -138,6 +140,14 @@
               href: vpn-gateway-howto-openvpn.md
             - name: OpenVPN 클라이언트 구성
               href: vpn-gateway-howto-openvpn-clients.md
+            - name: Open VPN - Azure Active Directory 인증
+              items:
+                - name: Azure AD 테넌트 구성
+                  href: openvpn-azure-ad-tenant.md
+                - name: VPN 클라이언트 구성 - Azure AD
+                  href: openvpn-azure-ad-client.md
+        - name: P2S용 공용 CA 게이트웨이 인증서로 전환
+          href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Always On VPN 디바이스 터널 구성
           href: vpn-gateway-howto-always-on-device-tunnel.md
         - name: Always On VPN 사용자 터널 구성
@@ -188,6 +198,10 @@
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: 진단 로그 기반의 알림 설정
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
+    - name: 패킷 캡처 구성
+      href: packet-capture.md
+    - name: 사용자 지정 트래픽 선택기 구성
+      href: custom-traffic-selectors.md
     - name: 문제 해결
       href: vpn-gateway-troubleshoot.md
       items:
@@ -203,6 +217,8 @@
               href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
             - name: 지점 및 사이트 간 연결 문제 - Mac OS X VPN 클라이언트
               href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
+            - name: 지점 점 사이트 간 Azure AD 인증
+              href: troubleshoot-ad-vpn-client.md
         - name: 사이트 및 사이트 간 연결 문제
           items:
             - name: 사이트 간 연결

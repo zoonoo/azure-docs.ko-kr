@@ -137,6 +137,8 @@
           href: disk-encryption.md
         - name: 고성능을 위한 디자인
           href: premium-storage-performance.md
+        - name: 디스크 버스팅
+          href: disk-bursting.md
         - name: 디스크에 대한 확장성 목표
           href: disk-scalability-targets.md
         - name: 디스크의 복구 및 재해 복구

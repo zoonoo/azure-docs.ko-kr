@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: j-martens
   ms.author: jmartens
-  ms.date: 09/03/2019
-  ms.openlocfilehash: 589e97442412d30d844111cd9a3e332d70d705b6
-  ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+  ms.date: 10/29/2019
+  ms.openlocfilehash: 400ebc88faad1ba5d55aa81dd737c8913b131340
+  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/19/2019
-  ms.locfileid: "71130374"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73497542"
 landingContent:
 - title: Azure ML 시작
   linkLists:
@@ -25,9 +25,11 @@ landingContent:
     links:
     - text: Python Notebooks에서 실험
       url: service/tutorial-1st-experiment-sdk-setup.md
-    - text: 드래그 앤 드롭을 사용한 실험
-      url: service/ui-tutorial-automobile-price-train-score.md
-    - text: 첫 번째 실험 자동화
+    - text: RStudio에서 실험
+      url: service/tutorial-1st-r-experiment.md
+    - text: 끌어서 놓기 디자이너를 사용한 실험
+      url: service/tutorial-designer-automobile-price-train-score.md
+    - text: 첫 번째 ML 실험 자동화
       url: service/tutorial-first-experiment-automated-ml.md
   - linkListType: overview
     links:
@@ -51,8 +53,6 @@ landingContent:
       url: service/tutorial-train-models-with-aml.md
     - text: 자동화된 ML로 택시 요금 예측
       url: service/tutorial-auto-train-models.md
-    - text: 일괄 처리 점수 매기기에 파이프라인 사용
-      url: service/tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
     - text: Scikit-learn을 사용하여 학습
@@ -63,22 +63,28 @@ landingContent:
       url: service/how-to-train-pytorch.md
     - text: Keras로 학습
       url: service/how-to-train-keras.md
-- title: '실험: 시각적 인터페이스'
+- title: ML 파이프라인 사용
   linkLists:
+  - linkListType: overview
+    links:
+    - text: ML 파이프라인이란?
+      url: service/concept-ml-pipelines.md
+    - text: "'끌어서 놓기' 디자이너"
+      url: service/concept-designer.md
   - linkListType: tutorial
     links:
-    - text: 자동화된 ML을 사용하여 구독 예측
-      url: service/tutorial-first-experiment-automated-ml.md
-    - text: 선형 회귀를 사용하여 가격 예측
-      url: service/ui-tutorial-automobile-price-train-score.md
+    - text: 가격 예측을 위한 선형 회귀(디자이너)
+      url: service/tutorial-designer-automobile-price-train-score.md
+    - text: ML 파이프라인 만들기(Python SDK)
+      url: service/tutorial-pipeline-batch-scoring-classification.md
   - linkListType: how-to-guide
     links:
-    - text: 신용 위험 예측
-      url: service/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
-    - text: 지연 예측
-      url: service/how-to-ui-sample-classification-predict-flight-delay.md
-    - text: 이탈 예측
-      url: service/how-to-ui-sample-classification-predict-churn.md
+    - text: 파이프라인 일정 계획(Python SDK)
+      url: service/how-to-schedule-pipelines.md
+    - text: 지연 예측(디자이너)
+      url: service/how-to-designer-sample-classification-flight-delay.md
+    - text: 이탈 예측(디자이너)
+      url: service/how-to-designer-sample-classification-churn.md
 - title: 모델 배포 및 관리
   linkLists:
   - linkListType: how-to-guide
@@ -95,9 +101,11 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
-    - text: Azure ML Python SDK
+    - text: Python용 SDK
       url: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
-    - text: Azure ML CLI
+    - text: R용 SDK
+      url: https://azure.github.io/azureml-sdk-for-r/reference/index.html
+    - text: Machine Learning CLI
       url: https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest
-    - text: 시각적 인터페이스 알고리즘 및 모듈
+    - text: 디자이너 알고리즘 및 모듈
       url: algorithm-module-reference/module-reference.md

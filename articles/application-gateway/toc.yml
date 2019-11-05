@@ -77,6 +77,8 @@
           href: application-gateway-waf-configuration.md
         - name: 사용자 지정 규칙
           href: custom-waf-rules-overview.md
+    - name: AKS 수신
+      href: ingress-controller-overview.md
     - name: 상태 모니터링
       items:
         - name: 상태 프로브
@@ -153,6 +155,28 @@
           href: create-custom-waf-rules.md
         - name: 사용자 지정 규칙으로 WAF 구성
           href: configure-waf-custom-rules.md
+    - name: AKS 수신
+      items:
+        - name: 기존 Application Gateway로 설정
+          href: ingress-controller-install-existing.md
+        - name: 새 Application Gateway로 설정
+          href: ingress-controller-install-new.md
+        - name: 쿠키 선호도 사용
+          href: ingress-controller-cookie-affinity.md
+        - name: 여러 네임스페이스 지원 사용
+          href: ingress-controller-multiple-namespace-support.md
+        - name: 내부 라우팅에 개인 IP 사용
+          href: ingress-controller-private-ip.md
+        - name: AKS 포드에 상태 프로브 추가
+          href: ingress-controller-add-health-probes.md
+        - name: Application Gateway를 사용하여 HTTP/HTTPS를 통해 AKS 서비스 노출
+          href: ingress-controller-expose-service-over-http-https.md
+        - name: Helm을 사용하여 수신 컨트롤러 업그레이드
+          href: ingress-controller-update-ingress-controller.md
+        - name: Application Gateway와 함께 LetsEncrypt.org 사용
+          href: ingress-controller-letsencrypt-certificate-application-gateway.md
+        - name: WebSocket을 Application Gateway에 노출
+          href: ingress-controller-expose-websocket-server.md
     - name: URL 경로
       items:
         - name: Azure PowerShell
@@ -223,6 +247,8 @@
           href: application-gateway-troubleshooting-502.md
         - name: WAF(웹 애플리케이션 방화벽)
           href: web-application-firewall-troubleshoot.md
+        - name: AKS 수신
+          href: ingress-controller-troubleshoot.md
         - name: 리소스 상태
           href: resource-health-overview.md
         - name: Log Analytics 사용
@@ -235,6 +261,8 @@
   items:
     - name: CRS 규칙
       href: application-gateway-crs-rulegroups-rules.md
+    - name: AKS 주석 수신
+      href: ingress-controller-annotations.md
     - name: Azure CLI
       href: /cli/azure/network/application-gateway
     - name: Azure PowerShell

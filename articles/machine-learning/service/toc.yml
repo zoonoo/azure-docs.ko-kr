@@ -6,6 +6,9 @@
     - name: Azure Machine Learning이란?
       displayName: 'AML, services, overview, introduction'
       href: overview-what-is-azure-ml.md
+    - name: Azure Machine Learning 및 Studio
+      displayName: 'AML, Studio, designer'
+      href: ../compare-azure-ml-to-studio-classic.md
     - name: 아키텍처 및 용어
       displayName: 'architecture, concepts, definitions, glossary'
       href: concept-azure-machine-learning-architecture.md
@@ -32,15 +35,22 @@
               displayName: 'automl, automated, auto ml,'
               href: tutorial-auto-train-models.md
         - name: Machine Learning 파이프라인(고급)
-          href: tutorial-pipeline-batch-scoring-classification.md
-    - name: 시각적 인터페이스
+          items:
+            - name: 분류 모델 일괄 처리 점수 매기기
+              displayName: pipelines
+              href: tutorial-pipeline-batch-scoring-classification.md
+    - name: R SDK
+      items:
+        - name: 첫 번째 ML 실험 만들기(R)
+          href: tutorial-1st-r-experiment.md
+    - name: 디자이너
       items:
         - name: 1. 회귀 모델 학습
           displayName: studio
-          href: ui-tutorial-automobile-price-train-score.md
+          href: tutorial-designer-automobile-price-train-score.md
         - name: 2. 회귀 모델 배포
           displayName: studio
-          href: ui-tutorial-automobile-price-deploy.md
+          href: tutorial-designer-automobile-price-deploy.md
     - name: 자동화된 ML(인터페이스)
       displayName: 'automl, automated, auto ml, portal, ui'
       href: tutorial-first-experiment-automated-ml.md
@@ -57,42 +67,51 @@
   items:
     - name: 작업 영역
       href: concept-workspace.md
-    - name: 컴퓨팅 대상
-      displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
-      href: concept-compute-target.md
     - name: 모델 학습
       displayName: 'run config, estimator, machine learning pipeline, ml pipeline, train model'
       href: concept-train-machine-learning-model.md
-    - name: 시각적 인터페이스
-      displayName: studio
-      href: ui-concept-visual-interface.md
-    - name: 자동화된 기계 학습
-      displayName: 'automl, auto ml'
-      href: concept-automated-ml.md
     - name: 모델 관리(MLOps)
       displayName: 'deploy, deployment, publish, production, operationalize, operationalization'
       href: concept-model-management-and-deployment.md
+    - name: 해석력
+      displayName: explainability
+      href: how-to-machine-learning-interpretability.md
+    - name: '디자이너: ML 코드 없음'
+      displayName: studio
+      href: concept-designer.md
+    - name: 알고리즘 치트 시트
+      href: /azure/machine-learning/algorithm-cheat-sheet?context=azure/machine-learning/service/context/ml-context
+    - name: 자동화된 기계 학습
+      displayName: 'automl, auto ml'
+      href: concept-automated-ml.md
+    - name: 컴퓨팅 인스턴스
+      displayName: 'resource, dsvm, Data Science Virtual Machine'
+      href: concept-compute-instance.md
+    - name: 컴퓨팅 대상
+      displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
+      href: concept-compute-target.md
     - name: ML 파이프라인
       href: concept-ml-pipelines.md
-    - name: 모델 해석력
-      displayName: explainability
-      href: machine-learning-interpretability-explainability.md
     - name: ONNX
       href: concept-onnx.md
-    - name: 보안
+    - name: 엔터프라이즈 준비 및 보안
       items:
-        - name: 엔터프라이즈 보안 개요
-          displayName: authorization authentication encryption aad azure active directory
-          href: concept-enterprise-security.md
-        - name: 사용자 및 역할 관리
-          href: how-to-assign-roles.md
-        - name: 가상 네트워크 사용
-          displayName: vnet
-          href: how-to-enable-virtual-network.md
-        - name: SSL로 웹 서비스 보호
-          href: how-to-secure-web-service.md
-        - name: 스토리지 액세스 키 다시 생성
-          href: how-to-change-storage-access-key.md
+        - name: 엔터프라이즈 보안
+          items:
+            - name: 엔터프라이즈 보안 개요
+              displayName: authorization authentication encryption aad azure active directory
+              href: concept-enterprise-security.md
+            - name: 사용자 및 역할 관리
+              href: how-to-assign-roles.md
+            - name: 가상 네트워크 사용
+              displayName: vnet
+              href: how-to-enable-virtual-network.md
+            - name: SSL로 웹 서비스 보호
+              href: how-to-secure-web-service.md
+            - name: 스토리지 액세스 키 다시 생성
+              href: how-to-change-storage-access-key.md
+        - name: Azure Machine Learning 모니터링
+          href: monitor-azure-machine-learning.md
     - name: 심층 학습
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
@@ -138,32 +157,38 @@
         - name: 데이터 세트로 학습
           displayName: 'data, dataset'
           href: how-to-train-with-datasets.md
+        - name: 데이터 세트에 대한 드리프트 탐지
+          displayName: 'data, dataset'
+          href: how-to-monitor-datasets.md
         - name: 데이터 세트 버전 지정 및 추적
           displayName: 'data, data set'
           href: how-to-version-track-datasets.md
     - name: 모델 학습
       items:
-        - name: 시각적 인터페이스 사용
-          displayName: sample visual interface experiments
+        - name: 디자이너 사용
+          displayName: sample designer experiments
           items:
             - name: 가격 예측
               displayName: 'regression, studio'
-              href: how-to-ui-sample-regression-predict-automobile-price-basic.md
+              href: how-to-designer-sample-regression-automobile-price-basic.md
             - name: 가격 예측(고급)
               displayName: 'regression, studio'
-              href: how-to-ui-sample-regression-predict-automobile-price-compare-algorithms.md
-            - name: 신용 위험 예측
+              href: how-to-designer-sample-regression-automobile-price-compare-algorithms.md
+            - name: 수입 예측
               displayName: 'classification, studio'
-              href: how-to-ui-sample-classification-predict-credit-risk-basic.md
+              href: how-to-designer-sample-classification-predict-income.md
             - name: 신용 위험 예측(고급)
               displayName: 'classification, studio'
-              href: how-to-ui-sample-classification-predict-credit-risk-cost-sensitive.md
+              href: how-to-designer-sample-classification-credit-risk-cost-sensitive.md
             - name: 이탈 예측
               displayName: 'classification, studio'
-              href: how-to-ui-sample-classification-predict-churn.md
+              href: how-to-designer-sample-classification-churn.md
             - name: 비행 지연 예측
               displayName: 'classification, studio'
-              href: how-to-ui-sample-classification-predict-flight-delay.md
+              href: how-to-designer-sample-classification-flight-delay.md
+            - name: 테스트 분류
+              displayName: 'classification, studio'
+              href: how-to-designer-sample-text-classification.md
         - name: ML용 추정기 사용
           items:
             - name: 학습에서 추정 만들기
@@ -187,6 +212,15 @@
           href: how-to-train-pytorch.md
         - name: Chainer
           href: how-to-train-chainer.md
+    - name: 모델 해석
+      displayName: interpretability
+      items:
+        - name: 로컬 및 원격 모델 해석
+          displayName: 'SDK, interpret'
+          href: how-to-machine-learning-interpretability-aml.md
+        - name: 자동화된 ML 모델 해석
+          displayName: 'SDK, interpret, automl'
+          href: how-to-machine-learning-interpretability-automl.md
     - name: 기계 학습 자동화
       displayName: 'automl, auto ml'
       items:
@@ -236,7 +270,7 @@
         - name: Azure App Service
           displayName: web app
           href: how-to-deploy-app-service.md
-        - name: Notebook VM
+        - name: 컴퓨팅 인스턴스
           href: how-to-deploy-local-container-notebook-vm.md
         - name: 사용자 지정 Docker 이미지 사용
           href: how-to-deploy-custom-docker-image.md
@@ -253,6 +287,9 @@
         - name: 일괄 처리 예측 실행
           displayName: score scoring asynchronous consume pipeline
           href: how-to-run-batch-predictions.md
+        - name: 일괄 처리 예측에 디자이너 사용
+          displayName: score scoring asynchronous consume pipeline
+          href: how-to-run-batch-predictions-ui.md
     - name: 모델 모니터링
       items:
         - name: 모델 데이터 수집 및 평가
@@ -262,18 +299,18 @@
           href: how-to-monitor-data-drift.md
         - name: Application Insights로 모니터링
           href: how-to-enable-app-insights.md
-    - name: 재사용 가능한 워크플로 만들기
+    - name: ML 파이프라인 작성 및 사용
       displayName: pipelines
       items:
-        - name: Python에서 ML 파이프라인 만들기
+        - name: ML 파이프라인 만들기(Python)
           href: how-to-create-your-first-pipeline.md
-        - name: ML 파이프라인 디버그 및 문제 해결
+        - name: 파이프라인 예약(Python)
+          href: how-to-schedule-pipelines.md
+        - name: 파이프라인 디버그 및 문제 해결
           href: how-to-debug-pipelines.md
         - name: CI/CD용 Azure Pipelines
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
-        - name: Python에서 ML 파이프라인 예약
-          href: how-to-schedule-pipelines.md
     - name: 리소스 할당량 관리
       displayName: limits
       href: how-to-manage-quotas.md
@@ -282,15 +319,20 @@
       href: how-to-export-delete-data.md
 - name: 참고 자료
   items:
-    - name: Machine Learning SDK
+    - name: ML SDK(Python)
       displayName: 'api, core, package, python, class'
       href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
+    - name: ML SDK(R)
+      displayName: 'api, core, package, R, class'
+      href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
     - name: Machine Learning CLI
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
+    - name: 데이터 참조 모니터링
+      href: monitor-resource-reference.md
     - name: Machine Learning 파이프라인 YAML 참조
       href: reference-pipeline-yaml.md
-    - name: 시각적 인터페이스 모듈
+    - name: 디자이너 모듈
       displayName: 'module, reference, algorithm, studio'
       items:
         - name: 모듈 참조 개요
@@ -299,18 +341,14 @@
           items:
             - name: CSV로 변환
               href: ../algorithm-module-reference/convert-to-csv.md
+            - name: 데이터 세트로 변환
+              href: ../algorithm-module-reference/convert-to-dataset.md
         - name: 데이터 입력 및 출력
           items:
             - name: 데이터 가져오기
               items:
                 - name: 데이터 가져오기
                   href: ../algorithm-module-reference/import-data.md
-                - name: HTTP를 통해 웹 URL에서 가져오기
-                  href: ../algorithm-module-reference/import-from-web-url-via-http.md
-                - name: Azure Blob Storage 모듈에서 가져오기
-                  href: ../algorithm-module-reference/import-from-azure-blob-storage.md
-                - name: Azure SQL Database에서 가져오기
-                  href: ../algorithm-module-reference/import-from-azure-sql-database.md
             - name: 데이터 내보내기
               href: ../algorithm-module-reference/export-data.md
             - name: 수동으로 데이터 입력
@@ -319,12 +357,18 @@
           items:
             - name: 데이터 세트의 열 선택
               href: ../algorithm-module-reference/select-columns-in-dataset.md
+            - name: 열 변환 선택
+              href: ../algorithm-module-reference/select-columns-transform.md
             - name: 메타데이터 편집
               href: ../algorithm-module-reference/edit-metadata.md
             - name: 누락 데이터 정리
               href: ../algorithm-module-reference/clean-missing-data.md
             - name: 기능 해싱
               href: ../algorithm-module-reference/feature-hashing.md
+            - name: 순열 기능 중요도
+              href: ../algorithm-module-reference/permutation-feature-importance.md
+            - name: 필터 기반 기능 선택
+              href: ../algorithm-module-reference/filter-based-feature-selection.md
             - name: 텍스트에서 N-Gram 기능 추출
               href: ../algorithm-module-reference/extract-n-gram-features-from-text.md
             - name: 열 추가
@@ -341,6 +385,8 @@
               href: ../algorithm-module-reference/split-data.md
             - name: 데이터 정규화
               href: ../algorithm-module-reference/normalize-data.md
+            - name: SMOTE
+              href: ../algorithm-module-reference/smote.md
             - name: 파티션 및 샘플
               href: ../algorithm-module-reference/partition-and-sample.md
             - name: 값 잘라내기
@@ -351,14 +397,24 @@
           items:
             - name: 모델 채점
               href: ../algorithm-module-reference/score-model.md
+            - name: SVD 추천 점수 매기기
+              href: ../algorithm-module-reference/score-svd-recommender.md
             - name: 클러스터에 데이터 할당
               href: ../algorithm-module-reference/assign-data-to-clusters.md
             - name: 모델 학습
               href: ../algorithm-module-reference/train-model.md
             - name: 클러스터링 모델 학습
               href: ../algorithm-module-reference/train-clustering-model.md
+            - name: SVD 추천 학습
+              href: ../algorithm-module-reference/train-svd-recommender.md
+            - name: 모델 하이퍼 매개 변수 튜닝
+              href: ../algorithm-module-reference/tune-model-hyperparameters.md
+            - name: 모델 교차 유효성 검사
+              href: ../algorithm-module-reference/cross-validate-model.md
             - name: 모델 평가
               href: ../algorithm-module-reference/evaluate-model.md
+            - name: 추천 평가
+              href: ../algorithm-module-reference/evaluate-recommender.md
             - name: 변환 적용
               href: ../algorithm-module-reference/apply-transformation.md
             - name: Linear Regression
@@ -381,6 +437,8 @@
               href: ../algorithm-module-reference/multiclass-decision-forest.md
             - name: 다중 클래스 향상된 의사 결정 트리
               href: ../algorithm-module-reference/multiclass-boosted-decision-tree.md
+            - name: 일대다 다중 클래스
+              href: ../algorithm-module-reference/one-vs-all-multiclass.md
             - name: 2클래스 평균 퍼셉트론
               href: ../algorithm-module-reference/two-class-averaged-perceptron.md
             - name: 2클래스 의사 결정 포리스트

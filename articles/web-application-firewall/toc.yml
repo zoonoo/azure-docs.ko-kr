@@ -1,0 +1,140 @@
+- name: Azure Web Application Firewall 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Web Application Firewall이란?
+      href: overview.md
+    - name: Application Gateway
+      items:
+        - name: Application Gateway의 Web Application Firewall
+          href: ./ag/ag-overview.md
+        - name: 새로운 기능
+          href: ./ag/whats-new.md
+    - name: Front Door
+      items:
+        - name: Azure Front Door의 Web Application Firewall
+          href: ./afds/afds-overview.md
+- name: 자습서
+  items:
+    - name: Application Gateway
+      items:
+        - name: Web Application Firewall 사용
+          href: ./ag/application-gateway-web-application-firewall-portal.md
+    - name: Front Door
+      items:
+        - name: WAF 정책 구성 - 포털
+          href: ./afds/waf-front-door-create-portal.md
+- name: 샘플
+  items:
+    - name: Azure PowerShell
+      href: ./ag/powershell-samples.md
+    - name: 리소스 관리자 템플릿
+      href: ./ag/resource-manager-template-samples.md
+- name: 개념
+  items:
+    - name: Application Gateway
+      items:
+        - name: 관리 규칙
+          href: ./ag/application-gateway-crs-rulegroups-rules.md
+        - name: 사용자 지정 규칙 개요
+          href: ./ag/custom-waf-rules-overview.md
+        - name: 요청 크기 제한 및 제외 목록
+          href: ./ag/application-gateway-waf-configuration.md
+    - name: Front Door
+      items:
+        - name: 사용자 지정 규칙
+          href: ./afds/waf-front-door-custom-rules.md
+        - name: 정책 설정
+          href: ./afds/waf-front-door-policy-settings.md
+        - name: 지역 필터링
+          href: ./afds/waf-front-door-geo-filtering.md
+        - name: FAQ
+          href: ./afds/waf-faq.md
+- name: 방법 가이드
+  items:
+    - name: Application Gateway
+      items:
+        - name: WAF 정책 만들기
+          href: ./ag/create-waf-policy-ag.md
+        - name: 웹 애플리케이션 방화벽 구성
+          items:
+            - name: Azure PowerShell
+              href: ./ag/tutorial-restrict-web-traffic-powershell.md
+            - name: Azure CLI
+              href: ./ag/tutorial-restrict-web-traffic-cli.md
+        - name: WAF 규칙 사용자 지정
+          items:
+            - name: Azure portal
+              href: ./ag/application-gateway-customize-waf-rules-portal.md
+            - name: Azure PowerShell
+              href: ./ag/application-gateway-customize-waf-rules-powershell.md
+            - name: Azure CLI
+              href: ./ag/application-gateway-customize-waf-rules-cli.md
+        - name: WAF v2 사용자 지정 규칙 구성 - PowerShell
+          href: ./ag/configure-waf-custom-rules.md
+        - name: 사용자 지정 규칙 예제
+          href: ./ag/create-custom-waf-rules.md
+        - name: 봇 보호
+          href: ./ag/bot-protection.md
+        - name: 기존 Application Gateway에 정책 연결
+          href: ./ag/associate-waf-policy-existing-gateway.md
+        - name: 진단 로그
+          href: ./ag/web-application-firewall-logs.md
+        - name: WAF 문제 해결
+          href: ./ag/web-application-firewall-troubleshoot.md
+    - name: Front Door
+      items:
+        - name: WAF 정책 구성 - PowerShell
+          href: ./afds/waf-front-door-custom-rules-powershell.md
+        - name: 봇 보호 구성
+          href: ./afds/waf-front-door-policy-configure-bot-protection.md
+        - name: 사용자 지정 응답 코드 구성
+          href: ./afds/waf-front-door-configure-custom-response-code.md
+        - name: IP 제한 구성
+          href: ./afds/waf-front-door-configure-ip-restriction.md
+        - name: 속도 제한 구성 - PowerShell
+          href: ./afds/waf-front-door-rate-limit-powershell.md
+        - name: 지역 필터링 WAF 정책 구성
+          href: ./afds/waf-front-door-tutorial-geo-filtering.md
+        - name: 모니터링 및 로깅
+          href: ./afds/waf-front-door-monitor.md
+- name: 문제 해결
+  items:
+    - name: Application Gateway
+      items:
+        - name: WAF 문제 해결
+          href: ./ag/web-application-firewall-troubleshoot.md
+        - name: Log Analytics
+          href: ./ag/log-analytics.md
+- name: 참고 자료
+  items:
+    - name: CRS 규칙
+      href: ./ag/application-gateway-crs-rulegroups-rules.md
+    - name: Azure CLI
+      href: /cli/azure/ext/azure-firewall/network/firewall
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/new-azfirewall
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST (영문)
+      href: /rest/api/firewall
+    - name: Azure 리소스 관리자
+      href: ../azure-resource-manager/resource-group-overview.md
+- name: 리소스
+  items:
+    - name: 작성자 템플릿
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 커뮤니티 템플릿
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/web-application-firewall/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'

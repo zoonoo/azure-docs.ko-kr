@@ -1,9 +1,11 @@
-- name: Azure Data Share 미리 보기 설명서
+- name: Azure Data Share 설명서
   href: index.yml
 - name: 개요
   items:
-    - name: Azure Data Share 미리 보기란?
+    - name: Azure Data Share란?
       href: overview.md
+    - name: 지원되는 데이터 저장소
+      href: supported-data-stores.md
 - name: 자습서
   expanded: true
   items:
@@ -19,6 +21,8 @@
       href: concepts-roles-permissions.md
 - name: 샘플
   items:
+    - name: 코드 샘플
+      href: 'https://docs.microsoft.com/samples/browse/?service=data-share/'
     - name: Azure Powershell
       href: samples-powershell.md
 - name: 방법 가이드
@@ -52,7 +56,7 @@
     - name: 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/azure-data-share'
     - name: 블로그
-      href: 'https://azure.microsoft.com/blog/announcing-preview-of-azure-data-share/'
+      href: 'https://techcommunity.microsoft.com/t5/Azure-Data-Share/bg-p/AzureDataShareBlog'
     - name: Microsoft 기술 커뮤니티
       href: 'https://techcommunity.microsoft.com/'
     - name: 제품 사용자 의견

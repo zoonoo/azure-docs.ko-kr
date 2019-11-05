@@ -1,0 +1,57 @@
+- name: Azure Firewall Manager 설명서
+  href: index.yml
+- name: 개요
+  items:
+    - name: Azure Firewall Manager란?
+      href: overview.md
+- name: 자습서
+  expanded: true
+  items:
+    - name: 클라우드 네트워크 보안 - 포털
+      href: secure-cloud-network.md
+- name: 개념
+  items:
+    - name: 보안 가상 허브란?
+      href: secured-virtual-hub.md
+    - name: 일반 배포 프로세스
+      href: deployment-overview.md
+    - name: 신뢰할 수 있는 보안 파트너
+      href: trusted-security-partners.md
+    - name: 규칙 처리 논리
+      href: rule-processing.md
+- name: 방법 가이드
+  items:
+    - name: 신뢰할 수 있는 보안 파트너 배포
+      href: deploy-trusted-security-partner.md
+    - name: 방화벽 정책으로 마이그레이션
+      href: migrate-to-policy.md
+- name: 참고 자료
+  items:
+    - name: Azure CLI
+      href: /cli/azure/ext/azure-firewall/network/firewall
+    - name: Azure PowerShell
+      href: /powershell/module/az.network/new-azfirewall
+    - name: .NET
+      href: /dotnet/api
+    - name: Java
+      href: /java/api
+    - name: Node.js
+      href: 'https://azure.microsoft.com/develop/nodejs/#azure-sdk'
+    - name: Python
+      href: 'https://azure.microsoft.com/develop/python/'
+    - name: REST (영문)
+      href: /rest/api/firewall
+    - name: Azure 리소스 관리자
+      href: ../azure-resource-manager/resource-group-overview.md
+- name: 리소스
+  items:
+    - name: 작성자 템플릿
+      href: ../azure-resource-manager/resource-group-authoring-templates.md
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: 커뮤니티 템플릿
+      href: 'https://azure.microsoft.com/documentation/templates'
+    - name: 가격
+      href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
+    - name: 국가별 가용성
+      href: 'https://azure.microsoft.com/regions/services/'

@@ -6,7 +6,7 @@
       tocHref: /azure/architecture/
       topicHref: /azure/machine-learning/index
       items:
-        - name: 스튜디오
+        - name: Studio(클래식)
           tocHref: /azure/architecture/data-guide/technology-choices/
           topicHref: /azure/machine-learning/studio/index
           items:

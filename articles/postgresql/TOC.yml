@@ -92,6 +92,8 @@
               href: concepts-data-access-and-security-vnet.md
             - name: 연결 아키텍처
               href: concepts-connectivity-architecture.md
+            - name: Azure AD 인증
+              href: concepts-aad-authentication.md
         - name: 비즈니스 연속성
           items:
             - name: 비즈니스 연속성 소개
@@ -153,8 +155,14 @@
               href: concepts-hyperscale-firewall-rules.md
             - name: SSL 구성
               href: concepts-hyperscale-ssl-connection-security.md
+        - name: 모니터링 및 튜닝
+          items:
+            - name: 모니터링 및 튜닝
+              href: concepts-hyperscale-monitoring.md
         - name: PostgreSQL 확장
           href: concepts-hyperscale-extensions.md
+        - name: 고가용성
+          href: concepts-hyperscale-high-availability.md
         - name: 리소스
           items:
             - name: 구성 옵션
@@ -163,8 +171,12 @@
   items:
     - name: 단일 서버
       items:
-        - name: 사용자 만들기
-          href: howto-create-users.md
+        - name: 인증
+          items:
+            - name: 사용자 만들기
+              href: howto-create-users.md
+            - name: Azure AD 통합 구성
+              href: howto-configure-sign-in-aad-authentication.md
         - name: 최적화
           items:
             - name: 대량 삽입
@@ -245,12 +257,20 @@
               href: howto-read-replicas-cli.md
     - name: 하이퍼스케일(Citus)
       items:
+        - name: 사용자 만들기
+          href: howto-hyperscale-create-users.md
         - name: 확장
           href: howto-hyperscale-scaling.md
         - name: 방화벽 관리
           items:
             - name: Azure portal
               href: howto-hyperscale-manage-firewall-using-portal.md
+        - name: 고가용성
+          href: howto-hyperscale-high-availability.md
+        - name: 모니터
+          items:
+            - name: 메트릭에 대한 경고 만들기
+              href: howto-hyperscale-alert-on-metric.md
         - name: 문제 해결
           items:
             - name: 연결 오류 문제 해결
