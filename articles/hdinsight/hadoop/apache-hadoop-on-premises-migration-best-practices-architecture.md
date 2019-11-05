@@ -75,7 +75,7 @@ HDInsight 클러스터에서는 스토리지가 컴퓨팅과 공존할 필요가
 ## <a name="use-external-metadata-stores"></a>외부 메타데이터 저장소 사용
 
 
-HDInsight 클러스터에서 작동 하는 두 가지 주요 metastore는 [Apache Hive](https://hive.apache.org/) 및 [Apache Oozie](https://oozie.apache.org/)입니다. Hive metastore는 Hadoop, Spark, LLAP, Presto 및 Apache Pig를 비롯한 데이터 처리 엔진에서 사용할 수 있는 중앙 스키마 리포지토리입니다. Oozie metastore는 진행 중인 Hadoop 작업과 완료된 Hadoop 작업의 일정 및 상태에 대한 세부 정보를 저장합니다.
+HDInsight 클러스터에서 작동 하는 두 가지 주요 metastore는 [Apache Hive](https://hive.apache.org/) 및 [Apache Oozie](https://oozie.apache.org/)입니다. Hive 메타스토어는 Hadoop, Spark, LLAP, Presto 및 Apache Pig를 비롯한 데이터 처리 엔진에서 사용할 수 있는 중앙 스키마 리포지토리입니다. Oozie metastore는 진행 중인 Hadoop 작업과 완료된 Hadoop 작업의 일정 및 상태에 대한 세부 정보를 저장합니다.
 
 
 HDInsight는 Hive 및 Oozie metastore에 Azure SQL Database를 사용합니다. HDInsight 클러스터에서 metastore를 설정하는 방법에는 다음 두 가지가 있습니다.
@@ -95,9 +95,9 @@ HDInsight는 Hive 및 Oozie metastore에 Azure SQL Database를 사용합니다. 
     - 필요에 따라 metastore를 확장할 수 있습니다.
     - 자세한 내용은 [Azure HDInsight에서 외부 메타데이터 저장소 사용](../hdinsight-use-external-metadata-stores.md)을 참조하세요.
 
-## <a name="best-practices-for-hive-metastore"></a>Hive metastore의 모범 사례
+## <a name="best-practices-for-hive-metastore"></a>Hive 메타스토어의 모범 사례
 
-몇 가지 HDInsight Hive metastore 모범 사례는 다음과 같습니다.
+몇 가지 HDInsight Hive 메타스토어 모범 사례는 다음과 같습니다.
 
 - 사용자 지정 외부 metastore를 사용하여 컴퓨팅 리소스 및 메타데이터를 구분합니다.
 - 50DTU 및 250GB 스토리지를 제공하는 S2 계층 Azure SQL 인스턴스로 시작합니다. 병목 상태가 발생하는 경우 데이터베이스를 확장할 수 있습니다.
