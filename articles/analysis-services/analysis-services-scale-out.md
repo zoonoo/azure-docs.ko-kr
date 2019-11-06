@@ -2,18 +2,17 @@
 title: Azure Analysis Services 규모 확장 | Microsoft Docs
 description: 규모 확장으로 Azure Analysis Services 서버 복제
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 29188013b75dbefbaf80f3c59360f203ae5b5a82
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
-ms.translationtype: MT
+ms.openlocfilehash: 0e6a234e8b69eb48f00687916d4a7b48d3ba1040
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736741"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301179"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -45,9 +44,9 @@ ms.locfileid: "68736741"
 
 * 쿼리 풀에 복제본이 없는 경우에도 동기화가 허용 됩니다. 주 서버에서 처리 작업의 새 데이터를 사용 하 여 0에서 하나 이상의 복제본으로 확장 하는 경우 쿼리 풀에서 복제본 없이 먼저 동기화를 수행 하 고 스케일 아웃 합니다. 규모 확장 전 동기화는 새로 추가 된 복제본의 중복 하이드레이션을 방지 합니다.
 
-* 주 서버에서 model 데이터베이스를 삭제할 때 쿼리 풀의 복제본에서 자동으로 삭제 되지 않습니다. [AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell 명령을 사용 하 여 복제본의 공유 blob 저장소 위치에서 해당 데이터베이스의 파일/s를 제거한 다음 복제본에서 model 데이터베이스를 삭제 하는 동기화 작업을 수행 해야 합니다. 쿼리 풀에 있습니다. 모델 데이터베이스가 주 서버가 아닌 쿼리 풀의 복제본에 존재 하는지 확인 하려면 **풀 쿼리에서 처리 서버를 분리** 합니다. 설정이 **예**인지 확인 합니다. 그런 다음, SSMS를 사용 하 여 데이터베이스의 존재 `:rw` 여부를 확인 하는 한정자를 사용 하 여 주 서버에 연결 합니다. 그런 다음 `:rw` 한정자 없이 연결 하 여 쿼리 풀의 복제본에 연결 하 여 동일한 데이터베이스가 있는지 확인 합니다. 데이터베이스가 쿼리 풀의 복제본에 있지만 주 서버에 있는 경우에는 동기화 작업을 실행 합니다.   
+* 주 서버에서 model 데이터베이스를 삭제할 때 쿼리 풀의 복제본에서 자동으로 삭제 되지 않습니다. [AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell 명령을 사용 하 여 복제본의 공유 blob 저장소 위치에서 해당 데이터베이스의 파일/s를 제거한 다음 복제본에서 model 데이터베이스를 삭제 하는 동기화 작업을 수행 해야 합니다. 쿼리 풀에 있습니다. 모델 데이터베이스가 주 서버가 아닌 쿼리 풀의 복제본에 존재 하는지 확인 하려면 **풀 쿼리에서 처리 서버를 분리** 합니다. 설정이 **예**인지 확인 합니다. 그런 다음 `:rw` 한정자를 사용 하 여 주 서버에 연결 하는 데 SSMS를 사용 하 여 데이터베이스가 있는지 확인 합니다. 그런 다음 `:rw` 한정자 없이 연결 하 여 쿼리 풀의 복제본에 연결 하 여 같은 데이터베이스도 있는지 확인 합니다. 데이터베이스가 쿼리 풀의 복제본에 있지만 주 서버에 있는 경우에는 동기화 작업을 실행 합니다.   
 
-* 주 서버에서 데이터베이스의 이름을 바꿀 때 데이터베이스가 복제본에 올바르게 동기화 되었는지 확인 하는 데 필요한 추가 단계가 있습니다. 이름을 바꾼 후에는 [AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) 명령을 사용 하 여 동기화를 수행 하 고 `-Database` 이전 데이터베이스 이름을 사용 하 여 매개 변수를 지정 합니다. 이 동기화는 복제본에서 이전 이름의 데이터베이스와 파일을 제거 합니다. 그런 다음 새 데이터베이스 이름으로 `-Database` 매개 변수를 지정 하 여 다른 동기화를 수행 합니다. 두 번째 동기화는 새로 명명 된 데이터베이스를 두 번째 파일 집합에 복사 하 고 모든 복제본을 하이드레이션 하며 나중 합니다. 이러한 동기화는 포털의 모델 동기화 명령을 사용 하 여 수행할 수 없습니다.
+* 주 서버에서 데이터베이스의 이름을 바꿀 때 데이터베이스가 복제본에 올바르게 동기화 되었는지 확인 하는 데 필요한 추가 단계가 있습니다. 이름을 바꾼 후에는 [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) 명령을 사용하여 동기화를 수행하고 이전 데이터베이스 이름을 사용하여 `-Database` 매개 변수를 지정합니다. 이 동기화는 복제본에서 이전 이름의 데이터베이스와 파일을 제거 합니다. 그런 다음 새 데이터베이스 이름을 사용 하 여 `-Database` 매개 변수를 지정 하 여 다른 동기화를 수행 합니다. 두 번째 동기화는 새로 명명 된 데이터베이스를 두 번째 파일 집합에 복사 하 고 모든 복제본을 하이드레이션 하며 나중 합니다. 이러한 동기화는 포털의 모델 동기화 명령을 사용 하 여 수행할 수 없습니다.
 
 ### <a name="separate-processing-from-query-pool"></a>쿼리 풀에서 처리 구분
 
@@ -129,7 +128,7 @@ PowerShell을 사용 하기 전에 [최신 Azure PowerShell 모듈을 설치 하
 
 쿼리 복제본 수를 설정 하려면 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)를 사용 합니다. 선택적 `-ReadonlyReplicaCount` 매개 변수를 지정합니다.
 
-쿼리 풀에서 처리 서버를 분리 하려면 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)을 사용 합니다. `-DefaultConnectionMode` 사용할`Readonly`선택적 매개 변수를 지정 합니다.
+쿼리 풀에서 처리 서버를 분리 하려면 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)을 사용 합니다. 선택적 `Readonly` @no__t 사용할 매개 변수를 지정 합니다.
 
 자세한 내용은 [Az. microsoft.analysisservices.sharepoint.integration.dll 모듈을 사용 하 여 서비스 주체 사용](analysis-services-service-principal.md#azmodule)을 참조 하세요.
 
@@ -151,7 +150,7 @@ SSMS, SSDT, PowerShell의 연결 문자열, Azure 함수 앱 및 AMO의 경우 *
 
 **문제:** 사용자는 **연결 모드 'ReadOnly'에서 '\<서버 이름>' 서버 인스턴스를 찾을 수 없습니다.** 라는 오류를 받게 됩니다.
 
-**해결 방법:** **풀 쿼리 옵션에서 처리 서버를 분리** 하는 경우 기본 연결 문자열 (없음 `:rw`)을 사용 하는 클라이언트 연결이 쿼리 풀 복제본으로 리디렉션됩니다. 동기화가 완료되지 않았기 때문에 쿼리 풀의 복제본이 아직 온라인 상태가 아니면 리디렉션된 클라이언트 연결이 실패할 수 있습니다. 연결 실패를 방지하려면 동기화를 수행할 때 쿼리 풀에 두 개 이상의 서버가 있어야 합니다. 다른 서버가 온라인 상태로 유지되는 동안 각 서버는 개별적으로 동기화됩니다. 처리 중에 쿼리 풀에 처리 서버가 없도록 선택한 경우 처리를 위한 풀에서 처리 서버를 제거한 다음, 처리가 완료된 후 동기화되기 전, 다시 풀에 추가하도록 선택할 수 있습니다. 메모리 및 QPU 메트릭을 사용하여 동기화 상태를 모니터링할 수 있습니다.
+**해결 방법:** 풀 쿼리 옵션을 사용 하 여 **별도의 처리 서버** 를 선택 하는 경우 기본 연결 문자열을 사용 하는 클라이언트 연결 (`:rw` 없음)은 쿼리 풀 복제본으로 리디렉션됩니다. 동기화가 완료되지 않았기 때문에 쿼리 풀의 복제본이 아직 온라인 상태가 아니면 리디렉션된 클라이언트 연결이 실패할 수 있습니다. 연결 실패를 방지하려면 동기화를 수행할 때 쿼리 풀에 두 개 이상의 서버가 있어야 합니다. 다른 서버가 온라인 상태로 유지되는 동안 각 서버는 개별적으로 동기화됩니다. 처리 중에 쿼리 풀에 처리 서버가 없도록 선택한 경우 처리를 위한 풀에서 처리 서버를 제거한 다음, 처리가 완료된 후 동기화되기 전, 다시 풀에 추가하도록 선택할 수 있습니다. 메모리 및 QPU 메트릭을 사용하여 동기화 상태를 모니터링할 수 있습니다.
 
 
 
