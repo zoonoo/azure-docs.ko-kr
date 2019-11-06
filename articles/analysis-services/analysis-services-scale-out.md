@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0e6a234e8b69eb48f00687916d4a7b48d3ba1040
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: af1a0db397510014301a58aea7238b695a6c0740
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301179"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73146438"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -72,9 +72,9 @@ ms.locfileid: "72301179"
 
 ### <a name="in-azure-portal"></a>Azure Portal에서
 
-1. Azure Portal에서 **규모 확장**을 클릭합니다. 슬라이더를 사용하여 쿼리 복제본 서버 수를 선택합니다. 선택한 복제본 수는 기존 서버에 추가됩니다.  
+1. 포털에서 **확장**을 클릭 합니다. 슬라이더를 사용 하 여 쿼리 복제본 서버 수를 선택 합니다. 선택한 복제본 수는 기존 서버에 추가됩니다.  
 
-2. 쿼리 서버에서 처리 서버를 제외하려면 **쿼리 풀에서 처리 서버 구분**에서 [예]를 선택합니다. 기본 연결 문자열 (제외 `:rw`)을 사용 하는 클라이언트 [연결](#connections)은 쿼리 풀의 복제본으로 리디렉션됩니다. 
+2. 쿼리 서버에서 처리 서버를 제외하려면 **쿼리 풀에서 처리 서버 구분**에서 [예]를 선택합니다. 기본 연결 문자열 (제외 [)을 사용 하는 클라이언트 ](#connections)연결`:rw`은 쿼리 풀의 복제본으로 리디렉션됩니다. 
 
    ![규모 확장 슬라이더](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
@@ -109,11 +109,11 @@ ms.locfileid: "72301179"
 
 |코드  |설명  |
 |---------|---------|
-|-1     |  잘못됨       |
+|-1     |  올바르지 않음       |
 |0     | 복제 중        |
 |1     |  리하이드레이션       |
-|2     |   완료       |
-|3     |   실패      |
+|2     |   Completed       |
+|3     |   Failed      |
 |4     |    종료하는 중     |
 |||
 
@@ -128,21 +128,21 @@ PowerShell을 사용 하기 전에 [최신 Azure PowerShell 모듈을 설치 하
 
 쿼리 복제본 수를 설정 하려면 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)를 사용 합니다. 선택적 `-ReadonlyReplicaCount` 매개 변수를 지정합니다.
 
-쿼리 풀에서 처리 서버를 분리 하려면 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)을 사용 합니다. 선택적 `Readonly` @no__t 사용할 매개 변수를 지정 합니다.
+쿼리 풀에서 처리 서버를 분리 하려면 [AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver)을 사용 합니다. `Readonly`사용할 선택적 `-DefaultConnectionMode` 매개 변수를 지정 합니다.
 
 자세한 내용은 [Az. microsoft.analysisservices.sharepoint.integration.dll 모듈을 사용 하 여 서비스 주체 사용](analysis-services-service-principal.md#azmodule)을 참조 하세요.
 
-## <a name="connections"></a>Connections
+## <a name="connections"></a>연결
 
 서버의 [개요] 페이지에는 두 개의 서버 이름이 있습니다. 서버에 대한 규모 확장을 아직 구성하지 않은 경우 두 서버 이름은 동일하게 작동합니다. 서버에 대한 규모 확장을 구성한 후에는 연결 형식에 따라 적절한 서버 이름을 지정해야 합니다. 
 
 Power BI Desktop, Excel 및 사용자 지정 앱과 같은 최종 사용자 클라이언트 연결의 경우 **서버 이름**을 사용합니다. 
 
-SSMS, SSDT, PowerShell의 연결 문자열, Azure 함수 앱 및 AMO의 경우 **관리 서버 이름**을 사용합니다. 관리 서버 이름에는 특별한 `:rw`(읽기/쓰기) 한정자가 포함됩니다. 모든 처리 작업은 (기본) 관리 서버에서 발생 합니다.
+SSMS, Visual Studio 및 PowerShell, Azure 함수 앱 및 AMO의 연결 문자열에는 **관리 서버 이름을**사용 합니다. 관리 서버 이름에는 특별한 `:rw`(읽기/쓰기) 한정자가 포함됩니다. 모든 처리 작업은 (기본) 관리 서버에서 발생 합니다.
 
 ![서버 이름](media/analysis-services-scale-out/aas-scale-out-name.png)
 
-## <a name="scale-up-scale-down-vs-scale-out"></a>규모 확장, 규모 축소 및 스케일 아웃
+## <a name="scale-up-scale-down-vs-scale-out"></a>수직 확장, 규모 축소 및 규모 확장
 
 여러 복제본이 있는 서버의 가격 책정 계층을 변경할 수 있습니다. 모든 복제본에 동일한 가격 책정 계층이 적용 됩니다. 크기 조정 작업을 수행 하면 모든 복제본이 항상 한 번에 표시 된 다음 새 가격 책정 계층의 모든 복제본을 가져옵니다.
 
@@ -150,7 +150,7 @@ SSMS, SSDT, PowerShell의 연결 문자열, Azure 함수 앱 및 AMO의 경우 *
 
 **문제:** 사용자는 **연결 모드 'ReadOnly'에서 '\<서버 이름>' 서버 인스턴스를 찾을 수 없습니다.** 라는 오류를 받게 됩니다.
 
-**해결 방법:** 풀 쿼리 옵션을 사용 하 여 **별도의 처리 서버** 를 선택 하는 경우 기본 연결 문자열을 사용 하는 클라이언트 연결 (`:rw` 없음)은 쿼리 풀 복제본으로 리디렉션됩니다. 동기화가 완료되지 않았기 때문에 쿼리 풀의 복제본이 아직 온라인 상태가 아니면 리디렉션된 클라이언트 연결이 실패할 수 있습니다. 연결 실패를 방지하려면 동기화를 수행할 때 쿼리 풀에 두 개 이상의 서버가 있어야 합니다. 다른 서버가 온라인 상태로 유지되는 동안 각 서버는 개별적으로 동기화됩니다. 처리 중에 쿼리 풀에 처리 서버가 없도록 선택한 경우 처리를 위한 풀에서 처리 서버를 제거한 다음, 처리가 완료된 후 동기화되기 전, 다시 풀에 추가하도록 선택할 수 있습니다. 메모리 및 QPU 메트릭을 사용하여 동기화 상태를 모니터링할 수 있습니다.
+**해결 방법:** **풀 쿼리 옵션에서 처리 서버를 분리** 하는 경우 기본 연결 문자열을 사용 하는 클라이언트 연결 (`:rw`없음)이 쿼리 풀 복제본으로 리디렉션됩니다. 동기화가 완료되지 않았기 때문에 쿼리 풀의 복제본이 아직 온라인 상태가 아니면 리디렉션된 클라이언트 연결이 실패할 수 있습니다. 연결 실패를 방지하려면 동기화를 수행할 때 쿼리 풀에 두 개 이상의 서버가 있어야 합니다. 다른 서버가 온라인 상태로 유지되는 동안 각 서버는 개별적으로 동기화됩니다. 처리 중에 쿼리 풀에 처리 서버가 없도록 선택한 경우 처리를 위한 풀에서 처리 서버를 제거한 다음, 처리가 완료된 후 동기화되기 전, 다시 풀에 추가하도록 선택할 수 있습니다. 메모리 및 QPU 메트릭을 사용하여 동기화 상태를 모니터링할 수 있습니다.
 
 
 

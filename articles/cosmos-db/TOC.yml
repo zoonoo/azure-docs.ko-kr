@@ -469,9 +469,6 @@
           href: change-feed-functions.md
     - name: 전역적으로 분산된 분석 및 AI
       items:
-        - name: 소개
-          displayName: 'Apache Spark, spark'
-          href: spark-api-introduction.md
         - name: 분석 사용 사례
           href: analytics-usecases.md
         - name: 분석 - 솔루션 아키텍처
