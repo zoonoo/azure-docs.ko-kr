@@ -73,6 +73,8 @@
       items:
         - name: 가격 책정 계층
           href: concepts-pricing-tiers.md
+        - name: 예약된 용량 선불
+          href: concept-reserved-pricing.md
         - name: 제한
           href: concepts-limits.md
     - name: 데이터 액세스 및 보안

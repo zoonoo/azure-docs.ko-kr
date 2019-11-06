@@ -42,7 +42,7 @@
     - name: 앱 빌드
       items:
         - name: 사용자 의도 확인
-          href: luis-quickstart-intents-only.md
+          href: tutorial-intents-only.md
         - name: 미리 작성된 모델을 사용하여 일반 사용자 데이터 식별
           href: luis-tutorial-prebuilt-intents-entities.md
         - name: 사용자 표현에서 감정 가져오기
@@ -116,6 +116,7 @@
           displayName: roles
         - name: 기능
           href: luis-concept-feature.md
+          displayName: 'descriptor, phrase list'
     - name: 예측 점수
       href: luis-concept-prediction-score.md
     - name: 모범 사례

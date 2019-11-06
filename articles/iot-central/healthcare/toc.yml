@@ -47,9 +47,9 @@
         - name: 연속 데이터 내보내기 구성
           href: ../core/howto-export-data-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: 사용자 지정 규칙 만들기
-          href: ../core/howto-create-custom-rules.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-create-custom-rules-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
         - name: Databricks를 사용하여 사용자 지정 분석 만들기
-          href: ../core/howto-create-custom-analytics.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
+          href: ../core/howto-create-custom-analytics-pnp.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
     - name: 관리
       items:
         - name: 애플리케이션 설정 변경

@@ -9,7 +9,7 @@
     - name: 포털을 사용하여 인터넷 분석기 테스트 만들기
       href: internet-analyzer-create-test-portal.md
     - name: CLI를 사용하여 인터넷 분석기 테스트 만들기
-      herf: internet-analyzer-cli.md
+      href: internet-analyzer-cli.md
 - name: 방법 가이드
   items:
     - name: 클라이언트 포함
