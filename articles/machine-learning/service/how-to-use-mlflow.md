@@ -11,14 +11,15 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: c32b587464d66148957672be16493b66dc051ada
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
-ms.translationtype: MT
+ms.openlocfilehash: d98e45d3ef77fea6b64efef10c20ecce3787b14c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219699"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489304"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 메트릭 추적 및 모델 배포 (미리 보기)
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 [mlflow 추적](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)URI 및 로깅 API를 사용 하도록 설정 하는 방법을 보여 줍니다. 이렇게 하면 다음 작업을 수행할 수 있습니다.
 
@@ -39,7 +40,7 @@ ms.locfileid: "71219699"
  MLflow 추적은 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 통해 사용 가능한 경우에만 사용할 수 있는 메트릭 로깅 및 아티팩트 저장소 기능을 제공 합니다.
 
 
-| | MLflow 추적 & 배포 | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Portal 또는 작업 영역 방문 페이지 (미리 보기)|
+| | MLflow 추적 & 배포 | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure Machine Learning Studio|
 |---|---|---|---|---|
 | 작업 영역 관리 |   | ✓ | ✓ | ✓ |
 | 데이터 저장소 사용  |   | ✓ | ✓ | |
@@ -51,7 +52,7 @@ ms.locfileid: "71219699"
 |모델 성능 모니터링||✓|  |   |
 | 데이터 드리프트 검색 |   | ✓ |   | ✓ |
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * [MLflow를 설치 합니다.](https://mlflow.org/docs/latest/quickstart.html)
 * 로컬 컴퓨터에 [AZURE MACHINE LEARNING sdk를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 합니다. Sdk는 mlflow에 대 한 연결을 제공 하 여 작업 영역에 액세스 합니다.
@@ -61,7 +62,7 @@ ms.locfileid: "71219699"
 
 MLflow 추적 Azure Machine Learning를 사용 하면 로컬 실행의 기록 된 메트릭과 아티팩트를 Azure Machine Learning 작업 영역에 저장할 수 있습니다.
 
-Jupyter Notebook 또는 `azureml-contrib-run` 코드 편집기에서 로컬로 실행 되는 실험에서 Azure Machine Learning를 사용 하 여 mlflow 추적을 사용 하려면 패키지를 설치 합니다.
+Jupyter Notebook 또는 코드 편집기에서 로컬로 실행 되는 실험에서 Azure Machine Learning를 사용 하 여 MLflow 추적을 사용 하려면 `azureml-contrib-run` 패키지를 설치 합니다.
 
 ```shell
 pip install azureml-contrib-run
@@ -70,9 +71,9 @@ pip install azureml-contrib-run
 >[!NOTE]
 >서비스를 개선 하기 위해 azureml 네임 스페이스는 자주 변경 됩니다. 따라서 이 네임 스페이스의 모든 것을 미리 보기로 간주하므로 Microsoft에서 완벽히 지원하지 않아도 됩니다.
 
-`mlflow` [및`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) 클래스를 가져와 mlflow의 추적 URI에 액세스 하 고 작업 영역을 구성 합니다.
+`mlflow` 및 [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) 클래스를 가져와 mlflow의 추적 URI에 액세스 하 고 작업 영역을 구성 합니다.
 
-다음 코드에서 메서드는 `get_mlflow_tracking_uri()` `ws`작업 영역에 고유한 추적 uri 주소를 할당 하 고 `set_tracking_uri()` 이 주소에 대 한 mlflow 추적 uri를 가리킵니다.
+다음 코드에서 `get_mlflow_tracking_uri()` 메서드는 작업 영역에 고유한 추적 URI 주소를 할당 하 고, `ws`하 고,이 주소에 대해 MLflow 추적 URI를 `set_tracking_uri()` 가리킵니다.
 
 ```Python
 import mlflow
@@ -86,7 +87,7 @@ mlflow.set_tracking_uri(ws.get_mlflow_tracking_uri())
 >[!NOTE]
 >추적 URI는 최대 1 시간 이하로 유효 합니다. 유휴 시간 이후 스크립트를 다시 시작 하는 경우 get_mlflow_tracking_uri API를 사용 하 여 새 URI를 가져옵니다.
 
-Mlflow 실험 이름을로 `set_experiment()` 설정 하 고를 사용 하 여 `start_run()`학습 실행을 시작 합니다. 그런 다음 `log_metric()` 를 사용 하 여 mlflow 로깅 API를 활성화 하 고 학습 실행 메트릭의 로깅을 시작 합니다.
+`set_experiment()`를 사용 하 여 MLflow 실험 이름을 설정 하 고 `start_run()`를 사용 하 여 학습 실행을 시작 합니다. 그런 다음 `log_metric()`를 사용 하 여 MLflow 로깅 API를 활성화 하 고 학습 실행 메트릭의 로깅을 시작 합니다.
 
 ```Python
 experiment_name = 'experiment_with_mlflow'
@@ -102,7 +103,7 @@ MLflow 추적 Azure Machine Learning를 사용 하면 원격 실행의 기록 �
 
 원격 실행을 사용 하면 GPU를 사용 하는 가상 컴퓨터 또는 Machine Learning 컴퓨팅 클러스터와 같은 보다 강력한 계산을 통해 모델을 학습할 수 있습니다. 다양 한 계산 옵션에 대 한 자세한 내용은 [모델 학습을 위한 계산 대상 설정](how-to-set-up-training-targets.md) 을 참조 하세요.
 
-[`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) 클래스를 사용 하 여 계산 및 학습 실행 환경을 구성 합니다. 환경 `mlflow` [섹션`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) 에 및 pip 패키지를 `azure-contrib-run` 포함 합니다. 그런 다음 [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) 원격 계산을 계산 대상으로 사용 하 여를 생성 합니다.
+[`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) 클래스를 사용 하 여 계산 및 학습 실행 환경을 구성 합니다. 환경 [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) 섹션에 `mlflow` 및 `azure-contrib-run` pip 패키지를 포함 합니다. 그런 다음 계산 대상으로 원격 계산을 사용 하 여 [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) 를 생성 합니다.
 
 ```Python
 from azureml.core import Environment
@@ -124,7 +125,7 @@ src.run_config.target = 'my-remote-compute-compute'
 src.run_config.environment = mlflow_env
 ```
 
-학습 스크립트에서 mlflow 로깅 `mlflow` api를 사용 하도록 가져오고 실행 메트릭의 로깅을 시작 합니다.
+학습 스크립트에서 MLflow 로깅 Api를 사용 하 `mlflow`를 가져오고 실행 메트릭의 로깅을 시작 합니다.
 
 ```Python
 import mlflow
@@ -217,7 +218,7 @@ mlflow.log_metric('epoch_loss', loss.item())
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>작업 영역에서 메트릭 및 아티팩트 보기
 
-MLflow 로깅의 메트릭과 아티팩트가 작업 영역에 유지 됩니다. 언제 든 지 작업 영역으로 이동 하 여 [Azure Portal](https://portal.azure.com) 또는 [작업 영역 방문 페이지 (미리 보기)](https://ml.azure.com)에서 이름별로 실험을 찾습니다.  또는 아래 코드를 실행 합니다. 
+MLflow 로깅의 메트릭과 아티팩트가 작업 영역에 유지 됩니다. 언제 든 지 작업 영역으로 이동 하 고 [Azure Machine Learning studio](https://ml.azure.com)의 작업 영역에서 이름별로 실험을 찾을 수 있습니다.  또는 아래 코드를 실행 합니다. 
 
 ```python
 run.get_metrics()
@@ -244,7 +245,7 @@ import mlflow.sklearn
 mlflow.sklearn.log_model(regression_model, model_save_path)
 ```
 >[!NOTE]
-> `conda_env` 매개 변수를 포함 하 여이 모델이 실행 되어야 하는 종속성 및 환경의 사전 표현을 전달 합니다.
+> 이 모델이 실행 되어야 하는 종속성 및 환경의 사전 표현을 전달 하려면 `conda_env` 매개 변수를 포함 합니다.
 
 ### <a name="retrieve-model-from-previous-run"></a>이전 실행에서 모델 검색
 
@@ -263,7 +264,7 @@ model_save_path = 'model'
 
 ### <a name="create-docker-image"></a>Docker 이미지 만들기
 
-함수 `mlflow.azureml.build_image()` 는 저장 된 모델에서 프레임 워크 인식 방식으로 Docker 이미지를 빌드합니다. 자동으로 프레임 워크 별 추론 래퍼 코드를 만들고 패키지 종속성을 지정 합니다. 모델 경로, 작업 영역, 실행 ID 및 기타 매개 변수를 지정 합니다.
+`mlflow.azureml.build_image()` 함수는 저장 된 모델에서 프레임 워크를 인식 하는 방식으로 Docker 이미지를 작성 합니다. 자동으로 프레임 워크 별 추론 래퍼 코드를 만들고 패키지 종속성을 지정 합니다. 모델 경로, 작업 영역, 실행 ID 및 기타 매개 변수를 지정 합니다.
 
 다음 코드는 Scikit를 사용 하 < 여 model_uri *>/tmodel* 을 사용 하 여 docker 이미지를 작성 합니다.
 

@@ -11,19 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 10/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 1d95d14398bc6b5acdec89428ebe22a672551a8a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
-ms.translationtype: MT
+ms.openlocfilehash: c1f1f1b7448fb87135973a596017441ec02d8023
+ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338797"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73102019"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Media Services 동적 암호화를 사용 하 여 콘텐츠 보호
 
-Azure Media Services를 사용 하 여 저장, 처리 및 배달을 통해 컴퓨터를 떠날 때부터 미디어를 보호할 수 있습니다. Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다.  
+Azure Media Services를 사용 하 여 저장, 처리 및 배달을 통해 컴퓨터를 떠날 때부터 미디어를 보호할 수 있습니다. Microsoft Azure Media Services를 사용하면 Advanced Encryption Standard (AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다.  
 
 Media Services v 3에서 콘텐츠 키가 스트리밍 로케이터와 연결 되어 있습니다 ( [이 예제](protect-with-aes128.md)참조). Media Services 키 배달 서비스를 사용 하는 경우 콘텐츠 키를 Azure Media Services 생성 하도록 할 수 있습니다. 고유한 키 배달 서비스를 사용 하는 경우 또는 두 데이터 센터에서 동일한 콘텐츠 키를 가져야 하는 고가용성 시나리오를 처리 해야 하는 경우 콘텐츠 키를 직접 생성 해야 합니다.
 
@@ -35,7 +35,7 @@ REST API 또는 Media Services 클라이언트 라이브러리를 사용하여 �
 
 ![Media Services 콘텐츠 보호를 위한 워크플로](./media/content-protection/content-protection.svg)
   
-&#42;*Dynamic encryption은 AES-128 clear key, CBCS 및 CBCS를 지원 합니다. 자세한 내용은 [지원 매트릭스](#streaming-protocols-and-encryption-types)를 참조 하세요.*
+&#42;*동적 암호화는 AES-128 암호화 되지 않은 키, CBCS 및 CBCS를 지원 합니다. 자세한 내용은 [지원 매트릭스](#streaming-protocols-and-encryption-types)를 참조 하세요.*
 
 이 문서에서는 Media Services의 콘텐츠 보호를 이해 하는 데 도움이 되는 개념과 용어에 대해 설명 합니다.
 
@@ -68,24 +68,24 @@ REST API 또는 Media Services 클라이언트 라이브러리를 사용하여 �
      ```
 2. 암호화 된 자산을 스트리밍하려면 구성 된 [스트리밍 로케이터](streaming-locators-concept.md) 를 만듭니다. 
   
-   스트리밍 로케이터는 [스트리밍 정책과](streaming-policy-concept.md)연결 해야 합니다. 이 예에서는 `StreamingLocator.StreamingPolicyName`을 "Predefined_MultiDrmCencStreaming" 정책으로 설정 합니다. 
+   스트리밍 로케이터는 [스트리밍 정책과](streaming-policy-concept.md)연결 해야 합니다. 이 예제에서는 `StreamingLocator.StreamingPolicyName`를 "Predefined_MultiDrmCencStreaming" 정책으로 설정 합니다. 
       
    PlayReady 및 Widevine 암호화가 적용 되 고, 구성 된 DRM 라이선스에 따라 키가 재생 클라이언트에 전달 됩니다. CBCS (FairPlay)를 사용 하 여 스트림을 암호화 하려는 경우에는 "Predefined_MultiDrmStreaming" 정책을 사용 합니다.
 
    또한 스트리밍 로케이터는 정의한 콘텐츠 키 정책과 연결 됩니다.
 3. 테스트 토큰을 만듭니다.
 
-   @No__t-0 메서드는 테스트 토큰을 만드는 방법을 보여 줍니다.
+   `GetTokenAsync` 메서드는 테스트 토큰을 만드는 방법을 보여 줍니다.
 4. 스트리밍 URL을 작성합니다.
 
-   @No__t-0 메서드는 스트리밍 URL을 작성 하는 방법을 보여 줍니다. 이 경우 URL은 대시 콘텐츠를 스트리밍합니다.
+   `GetDASHStreamingUrlAsync` 메서드는 스트리밍 URL을 작성 하는 방법을 보여 줍니다. 이 경우 URL은 대시 콘텐츠를 스트리밍합니다.
 
 ### <a name="player-with-an-aes-or-drm-client"></a>AES 또는 DRM 클라이언트를 사용 하는 플레이어 
 
 플레이어 SDK(기본 또는 브라우저 기반)에 따라 비디오 플레이어 앱은 다음 요구 사항을 충족해야 합니다.
 
 * 플레이어 SDK는 필요한 DRM 클라이언트를 지원 합니다.
-* 플레이어 SDK는 필요한 스트리밍 프로토콜 즉, 부드러운, 대시 및/또는 HLS.
+* 플레이어 SDK는 필요한 스트리밍 프로토콜인 부드러운, 대시 및/또는 HLS를 지원 합니다.
 * 플레이어 SDK는 라이선스 획득 요청에 JWT 토큰을 전달 하는 것을 처리할 수 있습니다.
 
 [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/)를 사용하여 플레이어를 만들 수 있습니다. [Azure Media Player의 ProtectionInfo API](https://amp.azure.net/libs/amp/latest/docs/)를 통해 다양한 DRM 플랫폼에 사용할 DRM 기술을 지정할 수 있습니다.
@@ -108,8 +108,6 @@ STS (보안 토큰 서비스)는 백 엔드 리소스 액세스를 위한 액세
 * 콘텐츠 보호의 비즈니스 요구 사항에 종속되는 클레임
 * 서명 확인에 대한 대칭 또는 비대칭 확인
 * 키 롤오버 지원(필요한 경우)
-
-[이 sts 도구](https://openidconnectweb.azurewebsites.net/DRMTool/Jwt) 를 사용 하 여 sts를 테스트할 수 있습니다. 키 롤오버가 있는 대칭, 비대칭 또는 Azure Active Directory (Azure AD)의 세 가지 유형의 확인 키를 모두 지원 합니다. 
 
 ## <a name="streaming-protocols-and-encryption-types"></a>스트리밍 프로토콜 및 암호화 유형
 
@@ -181,14 +179,14 @@ Azure AD를 STS로 사용 하거나 [사용자 지정 sts](#using-a-custom-sts)�
 
 ### <a name="token-replay-prevention"></a>토큰 재생 방지
 
-*토큰 재생 방지* 기능을 사용 하면 고객이 동일한 토큰을 사용 하 여 키 또는 라이선스를 요청 하는 횟수에 대 한 제한을 설정할 수 Media Services 있습니다. 고객은 토큰에 형식의 `urn:microsoft:azure:mediaservices:maxuses` 클레임을 추가할 수 있습니다. 여기서 값은 토큰이 라이선스 또는 키를 획득 하는 데 사용 될 수 있는 횟수입니다. 키 배달이 동일한 토큰을 사용 하는 모든 후속 요청은 권한 없는 응답을 반환 합니다. [DRM 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601)에서 클레임을 추가 하는 방법을 참조 하세요.
+*토큰 재생 방지* 기능을 사용 하면 고객이 동일한 토큰을 사용 하 여 키 또는 라이선스를 요청 하는 횟수에 대 한 제한을 설정할 수 Media Services 있습니다. 사용자는 토큰에 `urn:microsoft:azure:mediaservices:maxuses` 형식의 클레임을 추가할 수 있습니다. 여기서 값은 토큰이 라이선스 또는 키를 획득 하는 데 사용 될 수 있는 횟수입니다. 키 배달이 동일한 토큰을 사용 하는 모든 후속 요청은 권한 없는 응답을 반환 합니다. [DRM 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs#L601)에서 클레임을 추가 하는 방법을 참조 하세요.
  
 #### <a name="considerations"></a>고려 사항
 
 * 고객은 토큰 생성을 제어 해야 합니다. 클레임은 토큰 자체에 배치 해야 합니다.
 * 이 기능을 사용 하는 경우 만료 시간이 요청을 수신 하는 시간부터 1 시간을 초과 하는 토큰이 있는 요청은 거부 된 응답으로 거부 됩니다.
 * 토큰은 해당 시그니처로 고유 하 게 식별 됩니다. 페이로드를 변경 하는 경우 (예: 만료 시간 또는 클레임에 대 한 업데이트) 토큰의 서명이 변경 되며 이전에 키 배달이 발생 하지 않은 새 토큰으로 계산 됩니다.
-* 토큰이 고객에 의해 설정 된 값을 `maxuses` 초과 하면 재생이 실패 합니다.
+* 토큰이 고객이 설정한 `maxuses` 값을 초과 하면 재생이 실패 합니다.
 * 이 기능은 기존의 모든 보호 된 콘텐츠에 사용할 수 있습니다 (발급 된 토큰만 변경 해야 함).
 * 이 기능은 JWT 및 SWT 모두에서 작동 합니다.
 
@@ -213,40 +211,40 @@ Azure AD를 STS로 사용 하거나 [사용자 지정 sts](#using-a-custom-sts)�
 * 대칭 키: JWT를 생성 및 확인하는 데 동일한 키가 사용됩니다.
 * 비대칭 키: JWT를 암호화/생성하는 데는 프라이빗 키가, 토큰을 확인하는 데는 공개 키가 사용되는 방식으로 X509 인증서에 공개-프라이빗 키 쌍이 사용됩니다.
 
-개발 플랫폼으로 .NET Framework/C#을 사용하는 경우 비공개 보안 키에 사용된 X509 인증서에는 키 길이가 2048 이상이어야 합니다. 이는 .NET Framework에서 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 클래스의 요구 사항입니다. 그렇지 않으면 다음 예외가 throw됩니다. IDX10630: 서명을 위한 ‘System.IdentityModel.Tokens.X509AsymmetricSecurityKey’는 ‘2048’비트 이상이어야 합니다.
+개발 플랫폼으로 .NET Framework/C#을 사용하는 경우 비공개 보안 키에 사용된 X509 인증서에는 키 길이가 2048 이상이어야 합니다. 이는 .NET Framework에서 System.IdentityModel.Tokens.X509AsymmetricSecurityKey 클래스의 요구 사항입니다. 그렇지 않으면 다음 예외가 throw 됩니다. IDX10630: 서명에 대 한 ' System.identitymodel. X509AsymmetricSecurityKey '은 ' 2048 ' 비트 보다 작을 수 없습니다.
 
 ## <a name="custom-key-and-license-acquisition-url"></a>사용자 지정 키 및 라이선스 취득 URL
 
 다른 라이선스/키 배달 서비스 (Media Services)를 지정 하려면 다음 템플릿을 사용 합니다. 템플릿에서 두 개의 대체 가능 필드가 있으므로 자산 당 스트리밍 정책을 만드는 대신 여러 자산에서 스트리밍 정책을 공유할 수 있습니다. 
 
-* `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate`: 최종 사용자 플레이어에 게 키를 전달 하는 사용자 지정 서비스의 URL에 대 한 템플릿입니다. 키를 발급 하는 Azure Media Services을 사용 하는 경우에는 필요 하지 않습니다. 
+* `EnvelopeEncryption.CustomKeyAcquisitionUrlTemplate`: 최종 사용자 플레이어에 게 키를 제공 하는 사용자 지정 서비스의 URL에 대 한 템플릿입니다. 키를 발급 하는 Azure Media Services을 사용 하는 경우에는 필요 하지 않습니다. 
 
    이 템플릿은 서비스에서 요청에 지정 된 값을 사용 하 여 런타임에 업데이트 하는 대체 가능한 토큰을 지원 합니다.  현재 지원 되는 토큰 값은 다음과 같습니다.
-   * `{AlternativeMediaId}`은 StreaminglocAlternativeMediaId의 값으로 대체 됩니다.
-   * `{ContentKeyId}`은 요청 된 키의 식별자 값으로 대체 됩니다.
+   * `{AlternativeMediaId}`-StreaminglocAlternativeMediaId의 값으로 대체 됩니다.
+   * `{ContentKeyId}`는 요청 된 키의 식별자 값으로 대체 됩니다.
 * `StreamingPolicyPlayReadyConfiguration.CustomLicenseAcquisitionUrlTemplate`: 최종 사용자 플레이어에 게 라이선스를 제공 하는 사용자 지정 서비스의 URL에 대 한 템플릿입니다. 라이선스 발급에 Azure Media Services를 사용 하는 경우에는 필요 하지 않습니다. 
 
    이 템플릿은 서비스에서 요청에 지정 된 값을 사용 하 여 런타임에 업데이트 하는 대체 가능한 토큰을 지원 합니다. 현재 지원 되는 토큰 값은 다음과 같습니다.  
-   * `{AlternativeMediaId}`은 StreaminglocAlternativeMediaId의 값으로 대체 됩니다.
-   * `{ContentKeyId}`은 요청 된 키의 식별자 값으로 대체 됩니다. 
+   * `{AlternativeMediaId}`-StreaminglocAlternativeMediaId의 값으로 대체 됩니다.
+   * `{ContentKeyId}`는 요청 된 키의 식별자 값으로 대체 됩니다. 
 * `StreamingPolicyWidevineConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 합니다. Widevine 전용입니다. 
 * `StreamingPolicyFairPlayConfiguration.CustomLicenseAcquisitionUrlTemplate`: 이전 템플릿과 동일 하며 FairPlay에만 해당 합니다.  
 
-예를 들어:
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```csharp
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-`ContentKeyId`에는 요청 된 키의 값이 있습니다. 사용자 측의 엔터티에 요청을 매핑하려는 경우 `AlternativeMediaId`을 사용할 수 있습니다. 예를 들어 `AlternativeMediaId`을 사용 하 여 사용 권한을 조회할 수 있습니다.
+`ContentKeyId`에는 요청 된 키의 값이 있습니다. 사용자 측의 엔터티에 요청을 매핑하려는 경우 `AlternativeMediaId`를 사용할 수 있습니다. 예를 들어 `AlternativeMediaId` 사용 하 여 사용 권한을 조회할 수 있습니다.
 
  사용자 지정 라이선스/키 취득 Url을 사용 하는 REST 예제는 [스트리밍 정책-만들기](https://docs.microsoft.com/rest/api/media/streamingpolicies/create)를 참조 하세요.
 
 ## <a name="troubleshoot"></a>문제 해결
 
-@No__t-0 오류가 발생 하면 적절 한 스트리밍 정책을 지정 해야 합니다.
+`MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` 오류가 발생 하면 적절 한 스트리밍 정책을 지정 해야 합니다.
 
-로 `_NOT_SPECIFIED_IN_URL`끝나는 오류가 발생 하면 URL에 암호화 형식을 지정 해야 합니다. 예제입니다. `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)` [스트리밍 프로토콜 및 암호화 유형을](#streaming-protocols-and-encryption-types)참조 하세요.
+`_NOT_SPECIFIED_IN_URL`로 끝나는 오류가 발생 하면 URL에서 암호화 형식을 지정 해야 합니다. 예는 `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`입니다. [스트리밍 프로토콜 및 암호화 유형을](#streaming-protocols-and-encryption-types)참조 하세요.
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 

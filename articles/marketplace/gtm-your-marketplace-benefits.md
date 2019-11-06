@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: c09e685d10764470d328e7c66293551287b5b1b2
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
+ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962643"
+ms.lasthandoff: 10/22/2019
+ms.locfileid: "72752399"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상용 marketplace 혜택
 
@@ -41,10 +41,10 @@ Marketplace 보상은 첫 번째 고객을 가져오는 데 도움이 되는 인
 시작 하는 단계는 간단 합니다.
 
 1. Microsoft AppSource 또는 Azure Marketplace에 제품을 게시 합니다.
-2. 팀에서 marketplace 제품에 대 한 "소유자" 또는 "기본 연락처"에 도달 합니다. 정기적으로 확인 하는 개인 또는 별칭을 입력 하는 것이 가장 좋습니다. 예를 들어 별칭으로 전송 info@company.com 되는 메시지는 자주 손실 됩니다.
+2. 팀에서 marketplace 제품에 대 한 "소유자" 또는 "기본 연락처"에 도달 합니다. 정기적으로 확인 하는 개인 또는 별칭을 입력 하는 것이 가장 좋습니다. info@company.com와 같이 별칭으로 전송 되는 메시지는 자주 손실 됩니다.
 
 >[!Note]
->제품이 4 주 이상 지속 되 고 메시지를 받지 못한 경우 Cloud 파트너 포털 또는 파트너 센터에서 확인 하 여 해당 제품의 소유자 인 조직 내에서 확인 하세요. 통신 및 다음 단계를 수행 해야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우에서 https://aka.ms/marketplacepublishersupport 지원 티켓을 발생 시킬 수 있습니다.
+>제품이 4 주 이상 지속 되 고 메시지를 받지 못한 경우 Cloud 파트너 포털 또는 파트너 센터에서 확인 하 여 해당 제품의 소유자 인 조직 내에서 확인 하세요. 통신 및 다음 단계를 수행 해야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우 https://aka.ms/marketplacepublishersupport에서 지원 티켓을 올릴 수 있습니다.
 
 마켓플레이스에서 제품을 확장함에 따라 사용 가능한 활동 범위도 확장됩니다. 모든 목록은 리소스 및 모범 사례에 대 한 셀프 서비스 전자 메일의 일부로 기본 수준의 최적화 권장 사항 및 판촉을 받습니다.
 
@@ -60,7 +60,10 @@ Marketplace 보상은 첫 번째 고객을 가져오는 데 도움이 되는 인
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>거래 파트너를 위한 Marketplace 보상
 
-Azure Marketplace 또는 Microsoft AppSource에서 불가능 제안을 사용 하는 경우 상업적 Marketplace를 통해 청구 된 판매 트랜잭션을 성장 하므로 추가 혜택에 액세스할 수 있습니다. 
+Azure Marketplace 또는 Microsoft AppSource에서 불가능 제품을 사용 하는 경우 상업적 Marketplace를 통해 판매 되는 청구 된 판매 트랜잭션 또는 사용자 수를 늘릴 때 추가 혜택에 액세스할 수 있습니다. 
+
+>[!Note]
+>판매 된 사용자 수 임계값은 Microsoft 365 앱에만 적용 되 고 (Microsoft 팀, Office, Outlook 또는 SharePoint와 통합 된 SaaS 응용 프로그램) 혜택은 2020 년 6 월 30 일에 적용 됩니다.
 
 이러한 혜택은 마케팅, 영업 및 기술 작업을 지원 하도록 설계 되었으며, 따라서 더 많은 방문자를 받고 더 많은 잠재 고객을 받고 더 많은 비즈니스를 전환할 수 있습니다.
 
@@ -71,6 +74,8 @@ Live 제품을 보유 한 모든 파트너는 전담 참여 관리자와 협력 
 ![판매 혜택](./media/marketplace-publishers-guide/sales-benefit.png)
 
 ![기술 혜택](./media/marketplace-publishers-guide/technical-benefit.png)
+
+\* 판매량은 Microsoft 365 앱에만 적용 되 고 (Microsoft 팀, Office, Outlook 또는 SharePoint와 통합 된 SaaS 응용 프로그램) 혜택은 2020 년 6 월 30 일에 적용 됩니다.
 
 이러한 모든 혜택에 대 한 자세한 설명은 [Marketplace 보상 프로그램 데크](https://aka.ms/marketplacerewards)에서 찾을 수 있습니다.
 
@@ -97,7 +102,7 @@ Microsoft는 다음을 수행 하는 게시자에 게 Marketplace 보상 혜택�
 
 이 제품은 Azure Marketplace 또는 Microsoft AppSource에서 라이브 제품을 사용 하는 모든 파트너에 대해 영어로 수행 됩니다.
 
-사기성으로 검증된 트랜잭션은 [목록, 평가판, 컨설팅](#list-trial-and-consulting-benefits) 섹션,의 [거래 혜택](#marketplace-rewards-for-transact-partners) 섹션 및 [자세한 프로그램 데크](https://aka.ms/marketplacepublisherrewards)에 설명 된 대로 게시자의 [청구된 판매 프로그램 계층](https://aka.ms/marketplacepublisherrewards)에 계산되지 않습니다. Microsoft는 사기 행위를 제거 하 고 나 서 실제 청구 된 판매량에 따라 적격 계층에 파트너를 할당 합니다. 
+사기성으로 검증된 트랜잭션은 [목록, 평가판, 컨설팅](https://aka.ms/marketplacepublisherrewards) 섹션,의 [거래 혜택](#list-trial-and-consulting-benefits) 섹션 및 [자세한 프로그램 데크](#marketplace-rewards-for-transact-partners)에 설명 된 대로 게시자의 [청구된 판매 프로그램 계층](https://aka.ms/marketplacepublisherrewards)에 계산되지 않습니다. Microsoft는 사기 행위를 제거 하 고 나 서 실제 청구 된 판매량에 따라 적격 계층에 파트너를 할당 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

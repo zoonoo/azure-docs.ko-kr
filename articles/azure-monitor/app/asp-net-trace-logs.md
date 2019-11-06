@@ -1,27 +1,22 @@
 ---
 title: Application Insights에서 .NET 추적 로그 탐색
 description: 추적, NLog 또는 Log4Net에서 생성 된 로그를 검색 합니다.
-services: application-insights
-documentationcenter: .net
-author: mrbullwinkle
-manager: carmonm
-ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.date: 05/08/2019
+author: mrbullwinkle
 ms.author: mbullwin
-ms.openlocfilehash: 125f1bc14a376523a22984e9d8efa7848408bf7a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 05/08/2019
+ms.openlocfilehash: 352e31e2a2f1a88a33e82134460e6df0911dbd2e
+ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035213"
+ms.lasthandoff: 10/21/2019
+ms.locfileid: "72677640"
 ---
-# <a name="explore-netnet-core-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 추적 로그 검색
+# <a name="explore-netnet-core-and-python-trace-logs-in-application-insights"></a>Application Insights에서 .NET/.NET Core 및 Python 추적 로그 살펴보기
 
-ILogger, NLog, log4Net 또는 ASP.NET/ASP.NET Core 응용 프로그램에 대 한 진단 추적 로그를 [Azure 애플리케이션 Insights][start]에 보냅니다. 그런 다음 탐색 하 고 검색할 수 있습니다. 이러한 로그는 응용 프로그램의 다른 로그 파일과 병합 되므로 각 사용자 요청에 연결 된 추적을 식별 하 고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있습니다.
+ILogger, NLog, log4Net 또는 ASP.NET/ASP.NET Core 응용 프로그램에 대 한 진단 추적 로그를 [Azure 애플리케이션 Insights][start]에 보냅니다. Python 응용 프로그램의 경우 Azure Monitor OpenCensus Python에서 AzureLogHandler를 사용 하 여 진단 추적 로그를 보냅니다. 그런 다음 탐색 하 고 검색할 수 있습니다. 이러한 로그는 응용 프로그램의 다른 로그 파일과 병합 되므로 각 사용자 요청에 연결 된 추적을 식별 하 고 다른 이벤트 및 예외 보고서와 상호 연결할 수 있습니다.
 
 > [!NOTE]
 > 로그 캡처 모듈이 필요 한가요? 타사로 거에 대 한 유용한 어댑터입니다. 그러나 NLog, log4Net 또는 System.object를 아직 사용 하지 않는 경우에는 [**Application Insights 기능 추적 ()** ](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 을 직접 호출 하는 것이 좋습니다.
@@ -58,17 +53,17 @@ ILogger, NLog, log4Net 또는 ASP.NET/ASP.NET Core 응용 프로그램에 대 �
 3. "Application Insights"를 검색 합니다.
 4. 다음 패키지 중 하나를 선택합니다.
 
-   - ILogger의 경우: [Microsoft.Extensions.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
-   - NLog의 경우: [Microsoft.ApplicationInsights.NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
+   - ILogger의 경우 [:](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/) [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.Extensions.Logging.ApplicationInsights.svg)](https://www.nuget.org/packages/Microsoft.Extensions.Logging.ApplicationInsights/)
+
+   - NLog: [NLogTarget](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.NLogTarget.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.NLogTarget/)
-   - Log4Net의 경우: [Microsoft.ApplicationInsights.Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
+   - Log4Net: [Log4NetAppender](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.Log4NetAppender.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Log4NetAppender/)
-   - System.Diagnostics의 경우: [Microsoft.ApplicationInsights.TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
-   - [Microsoft.ApplicationInsights.DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
+   - [TraceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/)
+[![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.TraceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.TraceListener/) 의 경우.
+   - [DiagnosticSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.DiagnosticSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener/)
-   - [Microsoft.ApplicationInsights.EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
+   - [Microsoft ApplicationInsights. EtwCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
 [![NuGet](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EtwCollector.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EtwCollector/)
    - [Microsoft.ApplicationInsights.EventSourceListener](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
 [![Nuget](https://img.shields.io/nuget/vpre/Microsoft.ApplicationInsights.EventSourceListener.svg)](https://www.nuget.org/packages/Microsoft.ApplicationInsights.EventSourceListener/)
@@ -89,7 +84,7 @@ Log4net 또는 NLog를 선호 하는 경우 다음을 사용 합니다.
     logger.Warn("Slow response - database01");
 
 ## <a name="use-eventsource-events"></a>EventSource 이벤트 사용
-Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 패키지를 설치합니다. 그런 다음 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 파일의 `TelemetryModules` 섹션을 편집합니다.
+Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) 이벤트를 구성할 수 있습니다. 먼저 `Microsoft.ApplicationInsights.EventSourceListener` NuGet 패키지를 설치합니다. 그런 다음 `TelemetryModules`ApplicationInsights.config[ 파일의 ](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 섹션을 편집합니다.
 
 ```xml
     <Add Type="Microsoft.ApplicationInsights.EventSourceListener.EventSourceTelemetryModule, Microsoft.ApplicationInsights.EventSourceListener">
@@ -101,8 +96,8 @@ Application Insights에 추적으로 보낼 [System.Diagnostics.Tracing.EventSou
 
 각 원본에 대해 다음 매개 변수를 설정할 수 있습니다.
  * **이름** 수집할 EventSource의 이름을 지정 합니다.
- * **수준** : 수집할 로깅 수준을 지정 합니다. *중요*, *오류*, *정보*, *logalways*, *Verbose*또는 *Warning*이 있습니다.
- * **키워드** (선택 사항) 사용할 키워드 조합의 정수 값을 지정 합니다.
+ * **수준** 은 수집할 로깅 수준을 지정 합니다. *중요*, *오류*, *정보*, *logalways*, *Verbose*또는 *Warning*을 지정 합니다.
+ * **키워드** (옵션) 사용할 키워드 조합의 정수 값을 지정 합니다.
 
 ## <a name="use-diagnosticsource-events"></a>DiagnosticSource 이벤트 사용
 Application Insights에 추적으로 보낼 [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md) 이벤트를 구성할 수 있습니다. 먼저 [`Microsoft.ApplicationInsights.DiagnosticSourceListener`](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DiagnosticSourceListener) NuGet 패키지를 설치합니다. 그런 다음 [Applicationinsights .config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) 파일의 "TelemetryModules" 섹션을 편집 합니다.
@@ -133,21 +128,21 @@ ETW(Windows용 이벤트 추적) (ETW) 이벤트를 Application Insights 추적�
 
 각 원본에 대해 다음 매개 변수를 설정할 수 있습니다.
  * **ProviderName** 은 수집할 ETW 공급자의 이름입니다.
- * **ProviderGuid** 은 수집할 ETW 공급자의 GUID를 지정 합니다. 대신 사용할 수 있습니다 `ProviderName`.
+ * **ProviderGuid** 은 수집할 ETW 공급자의 GUID를 지정 합니다. `ProviderName`대신 사용할 수 있습니다.
  * **수준** 수집할 로깅 수준을 설정 합니다. *중요*, *오류*, *정보*, *logalways*, *Verbose*또는 *Warning*일 수 있습니다.
- * **키워드** (선택 사항) 사용할 키워드 조합의 정수 값을 설정 합니다.
+ * **키워드** (옵션) 사용할 키워드 조합의 정수 값을 설정 합니다.
 
 ## <a name="use-the-trace-api-directly"></a>추적 API 직접 사용
 Application Insights 추적 API를 직접 호출할 수 있습니다. 로깅 어댑터는 이 API를 사용합니다.
 
-예를 들어:
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow response - database01");
 
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.
 
-메시지에 심각도 수준을 추가할 수도 있습니다. 다른 원격 분석과 마찬가지로, 다른 추적 집합을 필터링 하거나 검색 하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들어:
+메시지에 심각도 수준을 추가할 수도 있습니다. 다른 원격 분석과 마찬가지로, 다른 추적 집합을 필터링 하거나 검색 하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -155,6 +150,23 @@ TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수
                    new Dictionary<string,string> { {"database", db.ID} });
 
 이렇게 하면 특정 데이터베이스와 관련 된 특정 심각도 수준의 모든 메시지를 [검색][diagnostic] 에서 쉽게 필터링 할 수 있습니다.
+
+## <a name="azureloghandler-for-opencensus-python"></a>OpenCensus Python 용 AzureLogHandler
+Azure Monitor 로그 처리기를 사용 하 여 Python 로그를 Azure Monitor으로 내보낼 수 있습니다.
+
+Azure Monitor 용 [OpenCensus PYTHON SDK](../../azure-monitor/app/opencensus-python.md) 를 사용 하 여 응용 프로그램을 계측 합니다.
+
+이 예에서는 Azure Monitor에 경고 수준 로그를 보내는 방법을 보여 줍니다.
+
+```python
+import logging
+
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+logger = logging.getLogger(__name__)
+logger.addHandler(AzureLogHandler(connection_string='InstrumentationKey=<your-instrumentation_key-here>'))
+logger.warning('Hello, World!')
+```
 
 ## <a name="explore-your-logs"></a>로그 탐색
 디버그 모드에서 앱을 실행 하거나 라이브로 배포 합니다.

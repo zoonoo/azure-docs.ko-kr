@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: f67494b229a14b66b593950903184e54e4a8ab8c
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: d0968ddedb36ab7fb4ee515ef1d20a177d4d59fe
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013696"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72820995"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure-virtual-network---cli-preview"></a>Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-CLI (미리 보기)
 
@@ -33,8 +33,8 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 Azure CLI를 로컬로 설치 하 고 사용 하도록 결정 한 경우이 빠른 시작을 사용 하려면 Azure CLI 버전 2.0.49 이상을 사용 해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
-Azure virtual network에 대 한 IPv6 기능을 사용 하려면 다음과 같이 Azure PowerShell를 사용 하 여 구독을 구성 해야 합니다.
+## <a name="prerequisites"></a>필수 조건
+Azure virtual network에 대 한 IPv6 기능을 사용 하려면 다음과 같이 Azure CLI를 사용 하 여 구독을 구성 해야 합니다.
 
 ```azurecli
 az feature register --name AllowIPv6VirtualNetwork --namespace Microsoft.Network
@@ -53,7 +53,7 @@ az provider register --namespace Microsoft.Network
 ```
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-이중 스택 가상 네트워크를 만들려면 먼저 [az group create](/cli/azure/group)를 사용 하 여 리소스 그룹을 만들어야 합니다. 다음 예에서는 *e미국* 위치에 *myRGDualStack* 이라는 리소스 그룹을 만듭니다.
+이중 스택 가상 네트워크를 만들려면 먼저 [az group create](/cli/azure/group)를 사용 하 여 리소스 그룹을 만들어야 합니다. 다음 예에서는 *e미국* 위치에 *DsResourceGroup01* 이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create \
@@ -62,7 +62,7 @@ az group create \
 ```
 
 ## <a name="create-ipv4-and-ipv6-public-ip-addresses-for-load-balancer"></a>부하 분산 장치에 대 한 IPv4 및 IPv6 공용 IP 주소 만들기
-인터넷에서 IPv4 및 IPv6 끝점에 액세스 하려면 부하 분산 장치에 대 한 IPv4 및 IPv6 공용 IP 주소가 필요 합니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *myRGDualStack* 리소스 그룹에 *dsPublicIP_v4* 및 *dsPublicIP_v6* 라는 IPv4 및 IPv6 공용 IP 주소를 만듭니다.
+인터넷에서 IPv4 및 IPv6 끝점에 액세스 하려면 부하 분산 장치에 대 한 IPv4 및 IPv6 공용 IP 주소가 필요 합니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 공용 IP 주소를 만듭니다. 다음 예제에서는 *DsResourceGroup01* 리소스 그룹에 *dsPublicIP_v4* 및 *dsPublicIP_v6* 라는 IPv4 및 IPv6 공용 IP 주소를 만듭니다.
 
 ```azurecli
 # Create an IPV4 IP address
@@ -113,7 +113,7 @@ az network public-ip create \
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-**DsLbFrontEnd_v4** 라는 프런트 엔드 풀을 포함 하는라는 프런트 엔드 풀을 포함 하는 **dsLbBackEndPool_v4**이라는**dsLB**라는 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)를 사용 하 여 표준 Load Balancer를 만듭니다. 이전 단계에서 만든 **dsPublicIP_v4**입니다. 
+[DsLbFrontEnd_v4](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 라는 프런트 엔드 풀을 포함 하는라는 프런트 엔드 풀을 포함 하는 **dsLbBackEndPool_v4**이라는**dsLB**라는 **az network lb create**를 사용 하 여 표준 Load Balancer를 만듭니다. 이전 단계에서 만든 **dsPublicIP_v4**입니다. 
 
 ```azurecli
 az network lb create \
@@ -382,7 +382,7 @@ az vm create \
 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, VM 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```azurecli
- az group delete --name DsRG1
+ az group delete --name DsResourceGroup01
 ```
 
 ## <a name="next-steps"></a>다음 단계
