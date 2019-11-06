@@ -3,17 +3,17 @@ title: Azure Maps의 인증 관리 | Microsoft Docs
 description: Azure Portal을 사용하여 Azure Maps의 인증을 관리할 수 있습니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/11/2019
+ms.date: 10/24/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 2f4a3d791e6b5d6ff20c09408d1a0bf5995c32fd
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: 496edb4f3528daa5bd06193383f0277922e8a93a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756570"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73478769"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure Maps의 인증 관리
 
@@ -91,7 +91,12 @@ Azure Maps에 RBAC가 부여 된 사용자 및 앱을 보려면 **Access Control
 
 * 응용 프로그램에서 Azure Maps 웹 SDK를 사용 하 여 사용자 토큰 인증을 사용 하는 경우 Azure Maps 클라이언트 ID 및 Azure AD 앱 ID를 사용 하 여 HTML 페이지를 구성 해야 합니다.
 
-* 응용 프로그램에서 서버/응용 프로그램 인증을 사용 하는 경우 azure ad 리소스 ID `https://atlas.microsoft.com/`, Azure Maps 클라이언트 ID, Azure AD 앱 ID 및 Azure AD 앱 등록 암호를 사용 하 여 `https://login.microsoftonline.com` Azure AD 로그인 끝점에서 토큰을 요청 해야 합니다. 인증서.
+* 응용 프로그램에서 서버/응용 프로그램 인증을 사용 하는 경우 azure ad 리소스 ID `https://atlas.microsoft.com/`, Azure Maps 클라이언트 ID, Azure AD 앱 ID 및 Azure AD 앱 등록 암호를 사용 하 여 `https://login.microsoftonline.com` Azure AD 토큰 끝점에서 토큰을 요청 해야 합니다. 인증서.
+
+| Azure 환경   | Azure AD 토큰 끝점 | Azure 리소스 ID |
+| --------------------|-------------------------|-------------------|
+| Azure 공용        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
+| Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
 Azure AD에서 사용자 및 서비스 사용자에 대 한 액세스 토큰을 요청 하는 방법에 대 한 자세한 내용은 [AZURE ad에 대 한 인증 시나리오](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)를 참조 하세요.
 

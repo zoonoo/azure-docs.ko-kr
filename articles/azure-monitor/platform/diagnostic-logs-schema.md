@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 10/22/2019
 author: rboucher
 ms.author: robb
-ms.openlocfilehash: 0031a0c96ecadbb3c7d3a479384bee92ba4d102c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: HT
+ms.openlocfilehash: 09d1a25b83f405b45bbefd39766c82565ea86925
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161979"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476671"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원 되는 서비스, 스키마 및 범주
 
@@ -31,18 +31,18 @@ ms.locfileid: "73161979"
 | resourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
 | tenantId | 테넌트 로그에 필요 | 이 이벤트가 연결된 Active Directory 테넌트의 테넌트 ID입니다. 이 속성은 테넌트 수준 로그에만 사용되며 리소스 수준 로그에는 나타나지 않습니다. |
 | operationName | 필수 | 이 이벤트가 나타내는 작업의 이름입니다. 이벤트가 RBAC 작업을 나타내는 경우, RBAC 작업 이름입니다(예: Microsoft.Storage/storageAccounts/blobServices/blobs/Read). 실제로 문서화된 리소스 관리자 작업은 아니지만, 일반적으로 리소스 관리자 작업 형태로 모델링됩니다(`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
-| operationVersion | 옵션 | operationName이 API를 사용하여 수행된 경우, 작업과 연결된 api-version입니다(예: `http://myservice.windowsazure.net/object?api-version=2016-06-01`). 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
+| operationVersion | 선택 사항 | operationName이 API를 사용하여 수행된 경우, 작업과 연결된 api-version입니다(예: `http://myservice.windowsazure.net/object?api-version=2016-06-01`). 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
 | 카테고리 | 필수 | 이벤트의 로그 범주입니다. 범주는 특정 리소스에 대해 로그를 사용하거나 사용하지 않도록 설정할 수 있는 세분성입니다. 이벤트의 속성 Blob에 표시되는 속성은 특정 로그 범주 및 리소스 종류 내에서 동일합니다. 일반적인 로그 범주는 “감사”, “작동”, “실행” 및 “요청”입니다. |
-| resultType | 옵션 | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
-| resultSignature | 옵션 | 이벤트의 하위 상태입니다. 이 작업이 REST API 호출에 해당하는 경우, 해당 REST 호출의 HTTP 상태 코드입니다. |
-| resultDescription | 옵션 | 이 작업에 대한 정적 텍스트 설명입니다(예: “스토리지 파일 가져오기”). |
-| durationMS | 옵션 | 밀리초 단위의 작업 기간입니다. |
-| callerIpAddress | 옵션 | 작업이 공개적으로 사용 가능한 IP 주소가 있는 엔터티에서 시작된 API 호출에 해당하는 경우, 호출자 IP 주소입니다. |
-| CorrelationId | 옵션 | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로, 두 이벤트의 operationName이 같고 상태가 다른(예: “시작됨” 및 “성공”) 경우, 동일한 상관 관계 ID를 공유합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
-| ID | 옵션 | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로 활성 디렉터리의 클레임/JWT 토큰 및 권한 부여가 포함됩니다. |
-| 수준 | 옵션 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
-| location | 옵션 | 이벤트를 내보내는 리소스의 지역입니다(예: “미국 동부” 또는 “프랑스 남부”). |
-| properties | 옵션 | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 사용자 지정/고유 속성은 스키마의 “파트 B”에 넣어야 합니다. |
+| resultType | 선택 사항 | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| resultSignature | 선택 사항 | 이벤트의 하위 상태입니다. 이 작업이 REST API 호출에 해당하는 경우, 해당 REST 호출의 HTTP 상태 코드입니다. |
+| resultDescription | 선택 사항 | 이 작업에 대한 정적 텍스트 설명입니다(예: “스토리지 파일 가져오기”). |
+| durationMS | 선택 사항 | 밀리초 단위의 작업 기간입니다. |
+| callerIpAddress | 선택 사항 | 작업이 공개적으로 사용 가능한 IP 주소가 있는 엔터티에서 시작된 API 호출에 해당하는 경우, 호출자 IP 주소입니다. |
+| CorrelationId | 선택 사항 | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로, 두 이벤트의 operationName이 같고 상태가 다른(예: “시작됨” 및 “성공”) 경우, 동일한 상관 관계 ID를 공유합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
+| ID | 선택 사항 | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로 활성 디렉터리의 클레임/JWT 토큰 및 권한 부여가 포함됩니다. |
+| 수준 | 선택 사항 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| location | 선택 사항 | 이벤트를 내보내는 리소스의 지역입니다(예: “미국 동부” 또는 “프랑스 남부”). |
+| properties | 선택 사항 | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 사용자 지정/고유 속성은 스키마의 “파트 B”에 넣어야 합니다. |
 
 ## <a name="service-specific-schemas-for-resource-logs"></a>리소스 로그의 서비스별 스키마
 리소스 진단 로그의 스키마는 리소스 및 로그 범주에 따라 달라집니다. 이 목록에는 사용 가능한 리소스 로그와 서비스 및 범주 관련 스키마 (사용 가능한 경우)에 대 한 링크를 만드는 모든 서비스가 표시 됩니다.
@@ -59,6 +59,7 @@ ms.locfileid: "73161979"
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL 로그](../../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Azure Data Explorer | [Azure 데이터 탐색기 로그](../../data-explorer/using-diagnostic-logs.md) |
 | Cognitive Services | [Azure Cognitive Services에 대 한 로깅](../../cognitive-services/diagnostic-logging.md) |
+| Container Registry | [Azure Container Registry에 대 한 로깅](../../container-registry/container-registry-diagnostics-audit-logs.md) |
 | Content Delivery Network | [CDN에 대 한 Azure 로그](../../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Azure Cosmos DB 로깅](../../cosmos-db/logging.md) |
 | Data Factory | [Azure Monitor를 사용하여 데이터 팩터리 모니터링](../../data-factory/monitor-using-azure-monitor.md) |
@@ -114,8 +115,8 @@ ms.locfileid: "73161979"
 |Microsoft.ClassicNetwork/networksecuritygroups|네트워크 보안 그룹 규칙 흐름 이벤트|네트워크 보안 그룹 규칙 흐름 이벤트|
 |Microsoft.CognitiveServices/accounts|감사|감사 로그|
 |Microsoft.CognitiveServices/accounts|RequestResponse|요청 및 응답 로그|
-|Microsoft.ContainerRegistry/registries|ContainerRegistryRepositoryEvents|RepositoryEvent 로그|
-|Microsoft.ContainerRegistry/registries|ContainerRegistryLoginEvents|로그인 이벤트|
+|Microsoft.ContainerRegistry/registries|ContainerRegistryRepositoryEvents|RepositoryEvent 로그 (미리 보기)|
+|Microsoft.ContainerRegistry/registries|ContainerRegistryLoginEvents|로그인 이벤트 (미리 보기)|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Kubernetes API 서버|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Kubernetes 컨트롤러 관리자|
 |Microsoft.ContainerService/managedClusters|kube-scheduler|Kubernetes 스케줄러|

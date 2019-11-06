@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/12/2019
+ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 706f76c00022c5f5661ea261a5bb35eedc13d5ba
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756042"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73497528"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -28,7 +28,7 @@ Azure Machine Learning에 대 한 아키텍처, 개념 및 워크플로에 대�
 Machine learning 모델 워크플로는 일반적으로 다음과 같은 순서를 따릅니다.
 
 1. **타는**
-    + **Python** 또는 시각적 인터페이스를 사용 하 여 기계 학습 교육 스크립트를 개발 합니다.
+    + **Python** 또는 비주얼 디자이너를 사용 하 여 기계 학습 교육 스크립트를 개발 합니다.
     + **컴퓨팅 대상**을 만들고 구성합니다.
     + 해당 환경에서 실행하도록 구성된 컴퓨팅 대상에 **스크립트를 제출**합니다. 학습 동안 **데이터 저장소**에서 스크립트를 읽거나 쓸 수 있습니다. 또한 실행 레코드는 **작업 영역**에서 **실행**으로 저장되고 **실험** 아래에 그룹화됩니다.
 
@@ -45,23 +45,26 @@ Machine learning 모델 워크플로는 일반적으로 다음과 같은 순서�
 Azure Machine Learning 다음 도구를 사용 합니다.
 
 +  [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하 여 python 환경에서 서비스와 상호 작용 합니다.
++ [R에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용 하 여 r 환경에서 서비스와 상호 작용 합니다.
 + [AZURE MACHINE LEARNING CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli)를 사용 하 여 기계 학습 작업을 자동화 합니다.
 + [Azure Machine Learning VS Code 확장](how-to-vscode-tools.md) 을 사용 하 여 Visual Studio Code에 코드 작성
-+ [Azure Machine Learning에 대 한 시각적 인터페이스 (미리 보기)](ui-concept-visual-interface.md) 를 사용 하 여 코드를 작성 하지 않고 워크플로 단계를 수행 합니다.
++ [Azure Machine Learning 디자이너 (미리 보기)](concept-designer.md) 를 사용 하 여 코드를 작성 하지 않고 워크플로 단계를 수행 합니다.
+
 
 > [!NOTE]
 > 이 문서에서는 Azure Machine Learning에서 사용 하는 용어와 개념을 정의 하지만, Azure 플랫폼에 대 한 용어 및 개념은 정의 하지 않습니다. Azure 플랫폼 용어에 대한 자세한 내용은 [Microsoft Azure 용어집](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology)을 참조하세요.
 
 ## <a name="glossary"></a>용어
 + <a href="#activities">활동</a>
++ <a href="#compute-instance">계산 인스턴스</a>
 + <a href="#compute-targets">계산 대상</a>
 + <a href="#datasets-and-datastores">데이터 집합 & 데이터 저장소</a>
-+ <a href="#deployment">배포웹사이트를</a>
++ <a href="#endpoints">엔드포인트</a>
 + <a href="#environments">에서는</a>
 + [추정](#estimators)
 + <a href="#experiments">실험</a>
 + <a href="#github-tracking-and-integration">Git 추적</a>
-+ <a href="#iot-module-deployments">IoT 모듈</a>
++ <a href="#iot-module-endpoints">IoT 모듈</a>
 + <a href="#logging">Logging</a>
 + <a href="#ml-pipelines">ML 파이프라인</a>
 + <a href="#models">모델인</a>
@@ -69,7 +72,7 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 + <a href="#run-configurations">실행 구성</a>
 + <a href="#snapshots">스냅샷</a>
 + <a href="#training-scripts">학습 스크립트</a>
-+ <a href="#web-service-deployments">웹 서비스</a>
++ <a href="#web-service-endpoint">웹 서비스</a>
 + <a href="#workspaces">환경이</a>
 
 ### <a name="activities"></a>활동
@@ -81,9 +84,19 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 
 작업은 SDK 또는 웹 UI를 통해 알림을 제공할 수 있으므로, 사용자가 이러한 조작의 진행 상황을 쉽게 모니터링할 수 있습니다.
 
+### <a name="compute-instance"></a>계산 인스턴스
+
+> [!NOTE]
+> 계산 인스턴스는 **미국 중 북부** 또는 **영국 남부**지역이 있는 작업 영역에만 사용할 수 있습니다.
+>작업 영역이 다른 지역에 있는 경우 계속 해 서 [노트북 VM](concept-compute-instance.md#notebookvm) 을 만들고 사용할 수 있습니다. 
+
+**Azure Machine Learning 계산 인스턴스** (이전의 노트북 VM)는 기계 학습을 위해 설치 된 여러 도구 및 환경을 포함 하는 완전히 관리 되는 클라우드 기반 워크스테이션입니다. 계산 인스턴스는 학습 및 추론 작업에 대 한 계산 대상으로 사용할 수 있습니다. 대량 작업의 경우 다중 노드 크기 조정 기능을 사용 하는 [계산 클러스터 Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) 계산 대상이 더 나은 선택입니다.
+
+[계산 인스턴스에](concept-compute-instance.md)대해 자세히 알아보세요.
+
 ### <a name="compute-targets"></a>컴퓨팅 대상
 
-[계산 대상을](concept-compute-target.md) 사용 하면 학습 스크립트를 실행 하거나 서비스 배포를 호스트 하는 계산 리소스를 지정할 수 있습니다. 이 위치는 로컬 컴퓨터 또는 클라우드 기반 계산 리소스 일 수 있습니다. 계산 대상을 사용 하면 코드를 변경 하지 않고도 계산 환경을 쉽게 변경할 수 있습니다.
+[계산 대상을](concept-compute-target.md) 사용 하면 학습 스크립트를 실행 하거나 서비스 배포를 호스트 하는 계산 리소스를 지정할 수 있습니다. 이 위치는 로컬 컴퓨터 또는 클라우드 기반 계산 리소스 일 수 있습니다.
 
 [학습 및 배포에 사용할 수 있는 계산 대상](concept-compute-target.md)에 대해 자세히 알아보세요.
 
@@ -97,23 +110,23 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 
 **데이터** 저장소는 Azure storage 계정에 대 한 저장소 추상화입니다. 데이터 저장소는 Azure Blob 컨테이너 또는 Azure 파일 공유 중 하나를 백 엔드 스토리지로 사용할 수 있습니다. 각 작업 영역에는 기본 데이터 저장소가 있으며 추가 데이터 저장소를 등록할 수 있습니다. Python SDK API 또는 Azure Machine Learning CLI를 사용하여 데이터 저장소의 파일을 저장하고 검색합니다.
 
-### <a name="deployment"></a>배포
+### <a name="endpoints"></a>엔드포인트
 
-배포는 클라우드에서 호스팅될 수 있는 웹 서비스 또는 통합 된 장치 배포용 IoT 모듈에 모델을 인스턴스화하는 것입니다.
+끝점은 클라우드 또는 통합 장치 배포를 위한 IoT 모듈에서 호스팅될 수 있는 웹 서비스로 모델을 인스턴스화하는 것입니다.
 
-#### <a name="web-service-deployments"></a>웹 서비스 배포
+#### <a name="web-service-endpoint"></a>웹 서비스 끝점
 
-배포된 웹 서비스는 Azure Container Instances, Azure Kubernetes Service 또는 FPGA를 사용할 수 있습니다. 모델, 스크립트 및 관련 파일에서 서비스를 만듭니다. 이러한 이미지는 웹 서비스에 대 한 런타임 환경을 제공 하는 이미지에 캡슐화 되어 있습니다. 이미지에는 웹 서비스에 전송된 점수 매기기 요청을 수신하는 부하 분산된 HTTP 엔드포인트가 있습니다.
+모델을 웹 서비스로 배포 하는 경우 끝점을 Azure Container Instances, Azure Kubernetes Service 또는 FPGAs에 배포할 수 있습니다. 모델, 스크립트 및 관련 파일에서 서비스를 만듭니다. 이러한 컨테이너는 모델에 대 한 실행 환경을 포함 하는 기본 컨테이너 이미지에 배치 됩니다. 이미지에는 웹 서비스에 전송된 점수 매기기 요청을 수신하는 부하 분산된 HTTP 엔드포인트가 있습니다.
 
-Azure에서는 이 기능을 사용하도록 선택한 경우 Application Insight 원격 분석 또는 모델 원격 분석을 수집하여 웹 서비스 배포를 모니터링할 수 있습니다. 원격 분석 데이터는 사용자만 액세스할 수 있으며 Application Insights 및 스토리지 계정 인스턴스에 저장됩니다.
+Azure는이 기능을 사용 하도록 설정한 경우 Application Insights 원격 분석 또는 모델 원격 분석을 수집 하 여 웹 서비스를 모니터링 하는 데 도움이 됩니다. 원격 분석 데이터는 사용자만 액세스할 수 있으며 Application Insights 및 스토리지 계정 인스턴스에 저장됩니다.
 
 자동 크기 조정을 사용하도록 설정한 경우 Azure에서 배포 크기를 자동으로 조정합니다.
 
-모델을 웹 서비스로 배포하는 예제는 [Azure Container Instance에 이미지 분류 모델 배포](tutorial-deploy-models-with-aml.md)를 참조하세요.
+모델을 웹 서비스로 배포 하는 방법에 대 한 예제는 [Azure Container Instances에서 이미지 분류 모델 배포](tutorial-deploy-models-with-aml.md)를 참조 하세요.
 
-#### <a name="iot-module-deployments"></a>IoT 모듈 배포
+#### <a name="iot-module-endpoints"></a>IoT 모듈 끝점
 
-배포된 IoT 모듈은 모델 및 연결된 스크립트나 애플리케이션과 모든 추가 종속성을 포함하는 Docker 컨테이너입니다. Edge 장치에서 Azure IoT Edge를 사용 하 여 이러한 모듈을 배포 합니다.
+배포 된 IoT 모듈 끝점은 모델 및 관련 스크립트나 응용 프로그램 및 추가 종속성을 포함 하는 Docker 컨테이너입니다. Edge 장치에서 Azure IoT Edge를 사용 하 여 이러한 모듈을 배포 합니다.
 
 모니터링을 사용하도록 설정한 경우 Azure에서는 Azure IoT Edge 모듈 내의 모델에서 원격 분석 데이터를 수집합니다. 원격 분석 데이터는 사용자만 액세스할 수 있으며 스토리지 계정 인스턴스에 저장됩니다.
 
@@ -188,7 +201,6 @@ Scikit 및 평가기를 사용 하 여 모델을 학습 하는 방법에 대 한
 
 모델을 등록하는 예제는 [Azure Machine Learning을 사용하여 이미지 분류 모델 학습](tutorial-train-models-with-aml.md)을 참조하세요.
 
-
 ### <a name="runs"></a>실행
 
 실행은 학습 스크립트를 한 번 실행 하는 것입니다. Azure Machine Learning 모든 실행을 기록 하 고 다음 정보를 저장 합니다.
@@ -223,7 +235,6 @@ Scikit 및 평가기를 사용 하 여 모델을 학습 하는 방법에 대 한
 ### <a name="workspaces"></a>작업 영역
 
 [작업 영역은](concept-workspace.md) Azure Machine Learning의 최상위 리소스입니다. Azure Machine Learning를 사용할 때 생성 하는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다. 작업 영역을 다른 사용자와 공유할 수 있습니다. 작업 영역에 대 한 자세한 설명은 [Azure Machine Learning 작업 영역 이란?](concept-workspace.md)을 참조 하세요.
-
 
 ### <a name="next-steps"></a>다음 단계
 
