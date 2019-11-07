@@ -81,8 +81,8 @@
       href: durable-functions-bindings.md
     - name: HTTP API
       href: durable-functions-http-api.md
-    - name: 지속성 확장 API
-      href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet-preview
+    - name: .NET API
+      href: /dotnet/api/microsoft.azure.webjobs.extensions.durabletask?view=azure-dotnet
 - name: 방법 가이드
   items:
     - name: 개발

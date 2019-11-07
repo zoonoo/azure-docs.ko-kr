@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/28/2019
   ms.author: aahi
-  ms.openlocfilehash: b0618f5bd0ed9deb1241dd3ff752a49686ca9073
-  ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+  ms.openlocfilehash: 3e7126b4f98ecc7729afd5abd003caffc2644d75
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/07/2019
-  ms.locfileid: "73746128"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73580134"
 landingContent:
 - title: Bing Autosuggest API 정보
   linkLists:
@@ -50,7 +50,7 @@ landingContent:
     - text: 제안된 용어 사용
       url: concepts/get-suggestions.md
     - text: API 요청 보내기
-      url: concepts/sending-requests.md
+      url: quickstarts/csharp.md
 - title: 참고 자료
   linkLists:
   - linkListType: reference
@@ -65,5 +65,3 @@ landingContent:
       url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
     - text: Go SDK
       url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
-    - text: Node.js SDK
-      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-autosuggest/?view=azure-node-latest

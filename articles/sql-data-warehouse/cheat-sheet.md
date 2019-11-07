@@ -1,24 +1,25 @@
 ---
-title: Azure SQL Data Warehouse 치트 시트 | Microsoft Docs
-description: Azure SQL Data Warehouse 솔루션을 빠르게 구축하는 링크와 모범 사례를 찾습니다.
+title: Azure Synapse Analytics 참고 자료(이전의 SQL DW) | Microsoft Docs
+description: Azure Synapse Analytics(이전의 SQL DW) 솔루션을 빠르게 구축하는 링크와 모범 사례를 찾습니다.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: overview
 ms.subservice: design
-ms.date: 08/23/2019
+ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1bbb0148e6f4be2afc777960afcda9c727328206
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: be5e8952ddfc6cb831b87f880bc281d6ceb2ba3d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195069"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492267"
 ---
-# <a name="cheat-sheet-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 치트 시트
-이 치트 시트는 Azure SQL Data Warehouse 솔루션을 구축하는 데 유용한 팁과 모범 사례를 제공합니다. 시작하기 전에 [Azure SQL Data Warehouse 작업 패턴 및 안티 패턴](https://blogs.msdn.microsoft.com/sqlcat/20../../azure-sql-data-warehouse-workload-patterns-and-anti-patterns)을 참조하여 각 단계에 대해 자세히 알아보세요. 이러한 패턴은 SQL Data Warehouse 정의 및 장단점에 대해 설명합니다.
+# <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics 참고 자료(이전의 SQL DW)
+
+이 참고 자료는 Azure Synapse 솔루션을 구축하는 데 유용한 팁과 모범 사례를 제공합니다. 
 
 다음 그래픽에서는 데이터 웨어하우스를 설계하는 프로세스를 보여 줍니다.
 
@@ -35,7 +36,7 @@ ms.locfileid: "70195069"
 
 ## <a name="data-migration"></a>데이터 마이그레이션
 
-먼저 [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) 또는 Azure Blob Storage에 데이터를 로드합니다. 그런 다음 PolyBase를 사용하여 스테이징 테이블의 SQL Data Warehouse에 데이터를 로드합니다. 다음 구성을 사용합니다.
+먼저 [Azure Data Lake Storage](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-store) 또는 Azure Blob Storage에 데이터를 로드합니다. 그런 다음, PolyBase를 사용하여 스테이징 테이블에 데이터를 로드합니다. 다음 구성을 사용합니다.
 
 | 디자인 | 권장 사항 |
 |:--- |:--- |
@@ -98,28 +99,28 @@ ELT가 필요한 스테이징 테이블을 사용하면 분할의 이점을 활�
 
 데이터를 증분 방식으로 로드하려면 먼저 더 큰 리소스 클래스를 데이터 로드에 할당해야 합니다.  클러스터형 columnstore 인덱스가 있는 테이블로 로드할 때 특히 중요합니다.  자세한 내용은 [리소스 클래스](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management)를 참조하세요.  
 
-ELT 파이프라인을 SQL Data Warehouse로 자동화하는 데 PolyBase 및 ADF V2를 사용하는 것이 좋습니다.
+ELT 파이프라인을 데이터 웨어하우스로 자동화하는 데 PolyBase 및 ADF V2를 사용하는 것이 좋습니다.
 
 기록 데이터의 업데이트를 대량으로 일괄 처리하는 경우 INSERT, UPDATE 및 DELETE를 사용하는 대신 [CTAS](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-develop-ctas)를 사용하여 테이블에 유지할 데이터를 작성하는 것이 좋습니다.
 
 ## <a name="maintain-statistics"></a>통계 유지 관리
- 자동 통계를 일반적으로 사용할 수 있을 때까지 SQL Data Warehouse에서는 통계를 수동으로 유지 관리해야 합니다. 데이터에 *중요한* 변경 내용이 있는 것 만큼 통계를 업데이트하는 것도 중요합니다. 이는 쿼리 계획을 최적화하는 데 도움이 됩니다. 모든 통계를 유지 관리하는 데 시간이 너무 오래 걸리는 경우 통계가 있는 열을 선택해야 합니다. 
+ 자동 통계를 일반적으로 사용할 수 있을 때까지는 통계를 수동으로 유지 관리해야 합니다. 데이터에 *중요한* 변경 내용이 있는 것 만큼 통계를 업데이트하는 것도 중요합니다. 이는 쿼리 계획을 최적화하는 데 도움이 됩니다. 모든 통계를 유지 관리하는 데 시간이 너무 오래 걸리는 경우 통계가 있는 열을 선택해야 합니다. 
 
 또한 업데이트의 빈도를 정의할 수 있습니다. 예를 들어 매일 새 값이 추가될 수 있는 날짜 열을 업데이트할 수 있습니다. 조인에 포함된 열, WHERE 절에 사용된 열 및 GROUP BY에서 찾은 열에 대한 통계를 통해 가장 많은 이점을 얻을 수 있습니다.
 
 [통계]에 대해 자세히 알아보세요.
 
 ## <a name="resource-class"></a>리소스 클래스
-SQL Data Warehouse는 메모리를 쿼리에 할당하는 방법으로 리소스 그룹을 사용합니다. 쿼리 또는 로드 속도를 개선하기 위해 더 많은 메모리가 필요한 경우 더 높은 리소스 클래스를 할당해야 합니다. 다른 한편으로, 더 큰 리소스 클래스를 사용하면 동시성에 영향을 줍니다. 모든 사용자를 큰 리소스 클래스로 이동하기 전에 고려해야 할 사항입니다.
+리소스 그룹은 메모리를 쿼리에 할당하기 위한 방법으로 사용됩니다. 쿼리 또는 로드 속도를 개선하기 위해 더 많은 메모리가 필요한 경우 더 높은 리소스 클래스를 할당해야 합니다. 다른 한편으로, 더 큰 리소스 클래스를 사용하면 동시성에 영향을 줍니다. 모든 사용자를 큰 리소스 클래스로 이동하기 전에 고려해야 할 사항입니다.
 
 쿼리 시간이 오래 걸리는 경우 사용자가 큰 리소스 클래스에서 실행하지 않는지 검사합니다. 큰 리소스 클래스는 많은 동시성 슬롯을 사용합니다. 이는 다른 쿼리를 큐에 대기시킬 수 있습니다.
 
-마지막으로, SQL Data Warehouse의 Gen2를 사용하여 각 리소스 클래스는 Gen1보다 2.5배 더 많은 메모리를 가져옵니다.
+마지막으로, [SQL 풀](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)의 Gen2를 사용하여 각 리소스 클래스는 Gen1보다 2.5배 더 많은 메모리를 가져옵니다.
 
 [리소스 클래스 및 동시성]으로 작업하는 방법에 대해 자세히 알아보세요.
 
 ## <a name="lower-your-cost"></a>비용 절감
-SQL Data Warehouse의 주요 기능은 [컴퓨팅 리소스 관리](sql-data-warehouse-manage-compute-overview.md) 기능입니다. 데이터 웨어하우스를 사용하지 않을 때 일시 중지하여 컴퓨팅 리소스에 대한 청구를 중지할 수 있습니다. 성능 요구를 충족하기 위해 리소스를 확장할 수 있습니다. 일시 중지하려면 [Azure Portal](pause-and-resume-compute-portal.md) 또는 [PowerShell](pause-and-resume-compute-powershell.md)을 사용합니다. 확장하려면 [Azure Portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) 또는 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)를 사용합니다.
+Azure Synapse의 주요 기능은 [컴퓨팅 리소스 관리](sql-data-warehouse-manage-compute-overview.md) 기능입니다. SQL 풀을 사용하지 않을 때 일시 중지하여 컴퓨팅 리소스에 대한 청구를 중지할 수 있습니다. 성능 요구를 충족하기 위해 리소스를 확장할 수 있습니다. 일시 중지하려면 [Azure Portal](pause-and-resume-compute-portal.md) 또는 [PowerShell](pause-and-resume-compute-powershell.md)을 사용합니다. 확장하려면 [Azure Portal](quickstart-scale-compute-portal.md), [Powershell](quickstart-scale-compute-powershell.md), [T-SQL](quickstart-scale-compute-tsql.md) 또는 [REST API](sql-data-warehouse-manage-compute-rest-api.md#scale-compute)를 사용합니다.
 
 이제 Azure Functions를 통해 원하는 시간에 자동 크기 조정을 수행할 수 있습니다.
 
@@ -131,9 +132,9 @@ SQL Data Warehouse의 주요 기능은 [컴퓨팅 리소스 관리](sql-data-war
 
 허브 및 스포크 아키텍처에서 SQL Database 및 Azure Analysis Services를 고려하는 것이 좋습니다. 이 솔루션은 SQL Database 및 Azure Analysis Services의 고급 보안 기능을 사용하면서 동시에 다른 사용자 그룹 간에 워크로드 격리를 제공할 수 있습니다. 또한 사용자에게 무제한 동시성을 제공하는 방법이기도 합니다.
 
-[SQL Data Warehouse를 활용하는 일반적인 아키텍처](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)에 대해 자세히 알아보세요.
+[Azure Synapse를 활용하는 일반적인 아키텍처](https://blogs.msdn.microsoft.com/sqlcat/20../../common-isv-application-patterns-using-azure-sql-data-warehouse/)에 대해 자세히 알아보세요.
 
-SQL Data Warehouse에서 SQL 데이터베이스의 스포크를 한 번 클릭하여 배포합니다.
+SQL 풀에서 SQL 데이터베이스의 스포크를 한 번 클릭하여 배포합니다.
 
 <a href="https://ms.portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FMicrosoft%2Fsql-data-warehouse-samples%2Fmaster%2Farm-templates%2FsqlDwSpokeDbTemplate%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>

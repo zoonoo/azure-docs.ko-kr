@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0892bde09891d2edbd7f8cc8715ccc0d2f047ed4
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 124a87728a8d201c329b15d94ae7e61a225646ab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113468"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468457"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -40,7 +40,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 > * 테스트 네트워크 환경 설정
 > * 방화벽 배포
 > * 기본 경로 만들기
-> * [www.google.com](www.google.com) 액세스를 허용하도록 애플리케이션 규칙 구성
+> * [www.google.com]\(www.google.com) 액세스를 허용하도록 애플리케이션 규칙 구성
 > * 외부 DNS 서버 액세스를 허용하도록 네트워크 규칙 구성
 > * 방화벽 테스트
 
@@ -57,8 +57,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 리소스 그룹에는 자습서의 모든 리소스가 포함되어 있습니다.
 
 1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
-2. Azure Portal 홈 페이지에서 **리소스 그룹** > **추가**를 선택합니다.
-3. **리소스 그룹 이름**에 **Test-FW-RG**를 입력합니다.
+2. Azure Portal 메뉴에서 **리소스 그룹**을 선택하거나 검색하여 어느 페이지에서든 *리소스 그룹*을 선택합니다. 그런 다음, **추가**를 선택합니다.
+3. **리소스 그룹 이름**에 *Test-FW-RG*를 입력합니다.
 4. **구독**의 경우 사용자의 구독을 선택합니다.
 5. **리소스 그룹 위치**의 경우 위치를 선택합니다. 만든 모든 후속 리소스는 동일한 위치에 있어야 합니다.
 6. **만들기**를 선택합니다.
@@ -68,26 +68,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 VNet은 세 개의 서브넷을 포함할 것입니다.
 
 > [!NOTE]
-> AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure 방화벽 FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
+> AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
 
-1. Azure Portal 홈 페이지에서 **리소스 만들기**를 선택합니다.
-2. **네트워킹** 아래에서 **가상 네트워크**를 선택합니다.
-4. **이름**에 **Test-FW-VN**을 입력합니다.
-5. **주소 공간**에 **10.0.0.0/16**을 입력합니다.
-6. **구독**의 경우 사용자의 구독을 선택합니다.
-7. **리소스 그룹**의 경우 **Test-FW-RG**를 선택합니다.
-8. **위치**의 경우 전에 사용한 동일한 위치를 선택합니다.
-9. **서브넷** 아래에서 **이름**에 **AzureFirewallSubnet**을 입력합니다. 방화벽은 이 서브넷에 있고 해당 서브넷 이름은 AzureFirewallSubnet이 **되어야** 합니다.
-10. **주소 범위**에 **10.0.1.0/26**을 입력합니다.
-11. 다른 기본 설정을 유지한 다음, **만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
+1. **네트워킹** > **가상 네트워크**를 선택합니다.
+1. **이름**에 **Test-FW-VN**을 입력합니다.
+1. **주소 공간**에 **10.0.0.0/16**을 입력합니다.
+1. **구독**의 경우 사용자의 구독을 선택합니다.
+1. **리소스 그룹**의 경우 **Test-FW-RG**를 선택합니다.
+1. **위치**의 경우 전에 사용한 동일한 위치를 선택합니다.
+1. **서브넷** 아래에서 **이름**에 **AzureFirewallSubnet**을 입력합니다. 방화벽은 이 서브넷에 있고 해당 서브넷 이름은 AzureFirewallSubnet이 **되어야** 합니다.
+1. **주소 범위**에 **10.0.1.0/26**을 입력합니다.
+1. 다른 기본 설정을 유지한 다음, **만들기**를 선택합니다.
 
 ### <a name="create-additional-subnets"></a>추가 서브넷 만들기
 
 다음으로, 점프 서버에 대한 서브넷 및 워크로드 서버에 대한 서브넷을 만듭니다.
 
-1. Azure Portal 홈 페이지에서 **리소스 그룹** > **Test-FW-RG**를 선택합니다.
+1. Azure Portal 메뉴에서 **리소스 그룹**을 선택하거나 검색하여 어느 페이지에서든 *리소스 그룹*을 선택합니다. 그런 후 **Test-FW-RG**를 선택합니다.
 2. **Test-FW-VN** 가상 네트워크를 선택합니다.
-3. **서브넷** > **+서브넷**을 선택합니다.
+3. **서브넷** >  **+서브넷**을 선택합니다.
 4. **이름**에 **워크 로드-SN**을 입력합니다.
 5. **주소 범위**에 **10.0.2.0/24**를 입력합니다.
 6. **확인**을 선택합니다.
@@ -98,7 +98,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이제 점프 및 워크로드 가상 머신을 만들어 적절한 서브넷에 배치합니다.
 
-1. Azure Portal에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
 2. **컴퓨팅**을 선택한 다음, 추천 목록에서 **Windows Server 2016 Datacenter**를 선택합니다.
 3. 가상 머신에 대해 다음 값을 입력합니다.
 
@@ -133,7 +133,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 VNet에 방화벽을 배포합니다.
 
-1. 포털 홈 페이지에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
 2. 검색 상자에 **방화벽**을 입력하고 **Enter** 키를 누릅니다.
 3. **방화벽**을 선택하고 **만들기**를 선택합니다.
 4. **방화벽 만들기** 페이지에서 다음 표를 사용하여 방화벽을 구성합니다.
@@ -158,7 +158,7 @@ VNet에 방화벽을 배포합니다.
 
 **Workload-SN** 서브넷의 경우 방화벽을 통과하도록 아웃바운드 기본 경로를 구성합니다.
 
-1. Azure Portal 홈 페이지에서 **모든 서비스**를 선택합니다.
+1. Azure Portal 메뉴에서 **모든 서비스**를 선택하거나 검색하여 어느 페이지에서든 *모든 서비스*를 선택합니다.
 2. **네트워킹** 아래에서 **경로 테이블**을 선택합니다.
 3. **추가**를 선택합니다.
 4. **이름**에 **Firewall-route**를 입력합니다.
@@ -183,7 +183,7 @@ VNet에 방화벽을 배포합니다.
 
 ## <a name="configure-an-application-rule"></a>애플리케이션 규칙 구성
 
-[www.google.com](www.google.com) 에 대한 아웃바운드 액세스를 허용하는 애플리케이션 규칙입니다.
+[www.google.com]\(www.google.com) 에 대한 아웃바운드 액세스를 허용하는 애플리케이션 규칙입니다.
 
 1. **Test-FW-RG**를 열고 **Test-FW01** 방화벽을 선택합니다.
 2. **Test-FW01** 페이지의 **설정**에서 **규칙**을 선택합니다.
@@ -195,7 +195,7 @@ VNet에 방화벽을 배포합니다.
 8. **규칙**, **대상 FQDN** 아래에서 **이름**으로 **Allow-Google**을 입력합니다.
 9. **원본 주소**에 **10.0.2.0/24**를 입력합니다.
 10. **Protocol:port**에 **http, https**를 입력합니다.
-11. **대상 FQDN**에 대해 **[www.google.com](www.google.com)** 을 입력합니다.
+11. **대상 FQDN**에 대해 **[www.google.com]\(www.google.com)** 을 입력합니다.
 12. **추가**를 선택합니다.
 
 Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 제공 규칙 컬렉션을 포함합니다. 이러한 FQDN은 플랫폼에 대해 특정적이며 다른 용도로 사용할 수 없습니다. 자세한 내용은 [인프라 FQDN](infrastructure-fqdns.md)을 참조하세요.
@@ -209,19 +209,20 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 3. **이름**에 **Net-Coll01**을 입력합니다.
 4. **우선 순위**에 **200**을 입력합니다.
 5. **동작**에 대해 **허용**을 선택합니다.
-
 6. **규칙** 아래에서 **이름**에 **Allow-DNS**를 입력합니다.
 7. **프로토콜**로 **UDP**를 선택합니다.
 8. **원본 주소**에 **10.0.2.0/24**를 입력합니다.
 9. 대상 주소에 **209.244.0.3,209.244.0.4**를 입력합니다.
-10. **대상 포트**에 **53**을 입력합니다.
-11. **추가**를 선택합니다.
+
+   이것들은 CenturyLink에서 작동하는 공용 DNS 서버입니다.
+1. **대상 포트**에 **53**을 입력합니다.
+2. **추가**를 선택합니다.
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>**Srv-Work** 네트워크 인터페이스에 대해 기본 및 보조 DNS 주소 변경
 
 이 자습서에서는 테스트 목적으로 서버의 기본 및 보조 DNS 주소를 구성할 수 있습니다. 일반적인 Azure Firewall 요구 사항이 아닙니다.
 
-1. Azure Portal에서 **Test-FW-RG** 리소스 그룹을 엽니다.
+1. Azure Portal 메뉴에서 **리소스 그룹**을 선택하거나 검색하여 어느 페이지에서든 *리소스 그룹*을 선택합니다. **Test-FW-RG** 리소스 그룹을 선택합니다.
 2. **Srv-Work** 가상 머신에 대해 네트워크 인터페이스를 선택합니다.
 3. **설정** 아래에서 **DNS 서버**를 선택합니다.
 4. **DNS 서버** 아래에서 **사용자 지정**을 선택합니다.
@@ -235,13 +236,12 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 
 1. Azure portal에서 **Srv-Work** 가상 머신에 대한 네트워크 설정을 검토하고 개인 IP 주소를 참고합니다.
 2. 원격 데스크톱을 **Srv-Jump** 가상 머신과 연결하고 로그인합니다. 여기에서 원격 데스크톱 연결을 **Srv-Work** 개인 IP 주소로 엽니다.
-
-3. Internet Explorer를 열고 [https://www.google.com](https://www.google.com)을 찾습니다.
+3. Internet Explorer를 열고 [https://www.google.com]\(https://www.google.com )을 찾습니다.
 4. Internet Explorer 보안 경고에서 **확인** > **닫기**를 선택합니다.
 
    Google 홈 페이지가 나타납니다.
 
-5. [https://www.microsoft.com](https://www.microsoft.com) 로 이동합니다.
+5. [https://www.microsoft.com]\(https://www.microsoft.com ) 로 이동합니다.
 
    방화벽에서 차단해야 합니다.
 
