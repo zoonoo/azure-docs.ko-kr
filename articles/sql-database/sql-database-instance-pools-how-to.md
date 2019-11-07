@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database instance 풀 방법 가이드 (미리 보기) | Microsoft Docs
+title: Azure SQL Database instance 풀 방법 가이드 (미리 보기)
 description: 이 문서에서는 Azure SQL Database 인스턴스 풀 (미리 보기)을 만들고 관리 하는 방법을 설명 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 5862a54c92de7395ce42865ae32d453e926048d8
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 461de4da35905ed860fb2ed9d2c655b55b777683
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70294270"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689741"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Azure SQL Database instance 풀 (미리 보기) 방법 가이드
 
@@ -26,7 +26,7 @@ ms.locfileid: "70294270"
 
 다음 표에서는 Azure Portal 및 PowerShell에서 인스턴스 풀 및 해당 가용성과 관련 된 사용 가능한 작업을 보여 줍니다.
 
-|명령|Azure Portal|PowerShell|
+|명령|Azure portal|PowerShell|
 |:---|:---|:---|
 |인스턴스 풀 만들기|아니요|예|
 |인스턴스 풀 업데이트 (제한 된 속성 수)|아니요 |예 |
@@ -92,7 +92,7 @@ PowerShell을 사용 하려면 [최신 버전의 Powershell Core를 설치](http
 
 - 공개 미리 보기에서는 범용 및 Gen5 사용할 수 있습니다.
 - 풀 이름은 소문자, 숫자 및 하이픈만 포함할 수 있으며 하이픈으로 시작할 수 없습니다.
-- 서브넷 ID를 가져오려면를 사용 `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`합니다.
+- 서브넷 ID를 가져오려면 `Get-AzVirtualNetworkSubnetConfig -Name "miPoolSubnet" -VirtualNetwork $virtualNetwork`를 사용 합니다.
 - AHB (Azure 하이브리드 혜택)를 사용 하려는 경우 인스턴스 풀 수준에서 적용 됩니다. 풀을 만드는 동안 라이선스 유형을 설정 하거나 생성 후 언제 든 지 업데이트할 수 있습니다.
 
 > [!IMPORTANT]

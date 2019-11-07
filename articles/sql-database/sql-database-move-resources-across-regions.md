@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 리소스를 다른 지역으로 이동 하는 방법 | Microsoft Docs
+title: Azure SQL Database 리소스를 다른 지역으로 이동 하는 방법
 description: Azure SQL Database, Azure SQL 탄력적 풀 또는 Azure SQL 관리 되는 인스턴스를 다른 지역으로 이동 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 2158d4120445de4c62461fb89555a1b73bc1e2b4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e7cd6cb338de1d029d38ef08693a7b52f7cf15c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567164"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687784"
 ---
 # <a name="how-to-move-azure-sql-resources-to-another-region"></a>Azure SQL 리소스를 다른 지역으로 이동 하는 방법
 
@@ -67,19 +67,19 @@ ms.locfileid: "68567164"
  
 ### <a name="monitor-the-preparation-process"></a>준비 프로세스 모니터링
 
-정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. 의 `Get-AzSqlDatabaseFailoverGroup` 출력 개체는 **ReplicationState**에 대 한 속성을 포함 합니다. 
+정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. `Get-AzSqlDatabaseFailoverGroup`의 출력 개체는 **ReplicationState**에 대 한 속성을 포함 합니다. 
    - **ReplicationState = 2** (CATCH_UP)는 데이터베이스가 동기화 되었으며 안전 하 게 장애 조치 (failover) 할 수 있음을 나타냅니다. 
-   - **ReplicationState = 0** (시드)는 데이터베이스가 아직 시드 되지 않아 장애 조치 (failover)가 실패 했음을 나타냅니다. 
+   - **ReplicationState = 0** (시드)은 데이터베이스가 아직 시드 되지 않아 장애 조치 (failover) 시도가 실패 했음을 나타냅니다. 
 
 ### <a name="test-synchronization"></a>동기화 테스트
 
-**ReplicationState** 이 이면 `2`각 데이터베이스 또는 보조 끝점 `<fog-name>.secondary.database.windows.net` 을 사용 하 여 데이터베이스의 하위 집합에 연결 하 고 데이터베이스에 대 한 쿼리를 수행 하 여 연결, 적절 한 보안 구성 및 데이터를 확인 합니다. 복제. 
+**ReplicationState** 가 `2`되 면 `<fog-name>.secondary.database.windows.net` 보조 끝점을 사용 하 여 각 데이터베이스 또는 데이터베이스의 하위 집합에 연결 하 고 데이터베이스에 대 한 쿼리를 수행 하 여 연결, 적절 한 보안 구성 및 데이터 복제를 보장 합니다. 
 
 ### <a name="initiate-the-move"></a>이동 시작
 
-1. 보조 끝점 `<fog-name>.secondary.database.windows.net`을 사용 하 여 대상 서버에 연결 합니다.
+1. `<fog-name>.secondary.database.windows.net`보조 끝점을 사용 하 여 대상 서버에 연결 합니다.
 1. [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) 를 사용 하 여 보조 관리 되는 인스턴스를 전체 동기화를 사용 하는 기본으로 전환 합니다. 이 작업은 성공 하거나 롤백될 예정입니다. 
-1. 를 사용 `nslook up <fog-name>.secondary.database.windows.net` 하 여 DNS CNAME 항목이 대상 지역 IP 주소를 가리키는지 확인 하 여 명령이 성공적으로 완료 되었는지 확인 합니다. 스위치 명령이 실패 하면 CNAME은 업데이트 되지 않습니다. 
+1. `nslook up <fog-name>.secondary.database.windows.net` 사용 하 여 명령이 성공적으로 완료 되었는지 확인 하 고 DNS CNAME 항목이 대상 지역 IP 주소를 가리키는지 확인 합니다. 스위치 명령이 실패 하면 CNAME은 업데이트 되지 않습니다. 
 
 ### <a name="remove-the-source-databases"></a>원본 데이터베이스 제거
 
@@ -119,19 +119,19 @@ ms.locfileid: "68567164"
 
 ### <a name="monitor-the-preparation-process"></a>준비 프로세스 모니터링
 
-정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. 의 `Get-AzSqlDatabaseFailoverGroup` 출력 개체는 **ReplicationState**에 대 한 속성을 포함 합니다. 
+정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. `Get-AzSqlDatabaseFailoverGroup`의 출력 개체는 **ReplicationState**에 대 한 속성을 포함 합니다. 
    - **ReplicationState = 2** (CATCH_UP)는 데이터베이스가 동기화 되었으며 안전 하 게 장애 조치 (failover) 할 수 있음을 나타냅니다. 
-   - **ReplicationState = 0** (시드)는 데이터베이스가 아직 시드 되지 않아 장애 조치 (failover)가 실패 했음을 나타냅니다. 
+   - **ReplicationState = 0** (시드)은 데이터베이스가 아직 시드 되지 않아 장애 조치 (failover) 시도가 실패 했음을 나타냅니다. 
 
 ### <a name="test-synchronization"></a>동기화 테스트
  
-**ReplicationState** 이 이면 `2`각 데이터베이스 또는 보조 끝점 `<fog-name>.secondary.database.windows.net` 을 사용 하 여 데이터베이스의 하위 집합에 연결 하 고 데이터베이스에 대 한 쿼리를 수행 하 여 연결, 적절 한 보안 구성 및 데이터를 확인 합니다. 복제. 
+**ReplicationState** 가 `2`되 면 `<fog-name>.secondary.database.windows.net` 보조 끝점을 사용 하 여 각 데이터베이스 또는 데이터베이스의 하위 집합에 연결 하 고 데이터베이스에 대 한 쿼리를 수행 하 여 연결, 적절 한 보안 구성 및 데이터 복제를 보장 합니다. 
 
 ### <a name="initiate-the-move"></a>이동 시작
  
-1. 보조 끝점 `<fog-name>.secondary.database.windows.net`을 사용 하 여 대상 서버에 연결 합니다.
+1. `<fog-name>.secondary.database.windows.net`보조 끝점을 사용 하 여 대상 서버에 연결 합니다.
 1. [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup) 를 사용 하 여 보조 관리 되는 인스턴스를 전체 동기화를 사용 하는 기본으로 전환 합니다. 이 작업은 성공 하거나 롤백될 예정입니다. 
-1. 를 사용 `nslook up <fog-name>.secondary.database.windows.net` 하 여 DNS CNAME 항목이 대상 지역 IP 주소를 가리키는지 확인 하 여 명령이 성공적으로 완료 되었는지 확인 합니다. 스위치 명령이 실패 하면 CNAME은 업데이트 되지 않습니다. 
+1. `nslook up <fog-name>.secondary.database.windows.net` 사용 하 여 명령이 성공적으로 완료 되었는지 확인 하 고 DNS CNAME 항목이 대상 지역 IP 주소를 가리키는지 확인 합니다. 스위치 명령이 실패 하면 CNAME은 업데이트 되지 않습니다. 
 
 ### <a name="remove-the-source-elastic-pools"></a>원본 탄력적 풀 제거
  
@@ -166,19 +166,19 @@ ms.locfileid: "68567164"
  
 ### <a name="monitor-the-preparation-process"></a>준비 프로세스 모니터링
 
-정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. 의 `Get-AzSqlDatabaseFailoverGroup` 출력 개체는 **ReplicationState**에 대 한 속성을 포함 합니다. 
+정기적으로 [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup?view=azps-2.3.2) 를 호출 하 여 원본에서 대상으로 데이터베이스의 복제를 모니터링할 수 있습니다. `Get-AzSqlDatabaseFailoverGroup`의 출력 개체는 **ReplicationState**에 대 한 속성을 포함 합니다. 
    - **ReplicationState = 2** (CATCH_UP)는 데이터베이스가 동기화 되었으며 안전 하 게 장애 조치 (failover) 할 수 있음을 나타냅니다. 
-   - **ReplicationState = 0** (시드)는 데이터베이스가 아직 시드 되지 않아 장애 조치 (failover)가 실패 했음을 나타냅니다. 
+   - **ReplicationState = 0** (시드)은 데이터베이스가 아직 시드 되지 않아 장애 조치 (failover) 시도가 실패 했음을 나타냅니다. 
 
 ### <a name="test-synchronization"></a>동기화 테스트
 
-**ReplicationState** 이 이면 `2`각 데이터베이스 또는 보조 끝점 `<fog-name>.secondary.database.windows.net` 을 사용 하 여 데이터베이스의 하위 집합에 연결 하 고 데이터베이스에 대 한 쿼리를 수행 하 여 연결, 적절 한 보안 구성 및 데이터를 확인 합니다. 복제. 
+**ReplicationState** 가 `2`되 면 `<fog-name>.secondary.database.windows.net` 보조 끝점을 사용 하 여 각 데이터베이스 또는 데이터베이스의 하위 집합에 연결 하 고 데이터베이스에 대 한 쿼리를 수행 하 여 연결, 적절 한 보안 구성 및 데이터 복제를 보장 합니다. 
 
 ### <a name="initiate-the-move"></a>이동 시작 
 
-1. 보조 끝점 `<fog-name>.secondary.database.windows.net`을 사용 하 여 대상 서버에 연결 합니다.
+1. `<fog-name>.secondary.database.windows.net`보조 끝점을 사용 하 여 대상 서버에 연결 합니다.
 1. [AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup?view=azps-2.3.2) 를 사용 하 여 보조 관리 되는 인스턴스를 전체 동기화를 사용 하는 기본으로 전환 합니다. 이 작업은 성공 하거나 롤백될 예정입니다. 
-1. 를 사용 `nslook up <fog-name>.secondary.database.windows.net` 하 여 DNS CNAME 항목이 대상 지역 IP 주소를 가리키는지 확인 하 여 명령이 성공적으로 완료 되었는지 확인 합니다. 스위치 명령이 실패 하면 CNAME은 업데이트 되지 않습니다. 
+1. `nslook up <fog-name>.secondary.database.windows.net` 사용 하 여 명령이 성공적으로 완료 되었는지 확인 하 고 DNS CNAME 항목이 대상 지역 IP 주소를 가리키는지 확인 합니다. 스위치 명령이 실패 하면 CNAME은 업데이트 되지 않습니다. 
 
 ### <a name="remove-the-source-managed-instances"></a>원본 관리 되는 인스턴스 제거
 이동이 완료 되 면 불필요 한 요금을 방지 하기 위해 원본 지역의 리소스를 제거 합니다. 

@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 7b395bd6024beb52b9263ac4fe655b5328a8e662
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 555b4d95358978e84e14e8a2e8b3d1c9cb2efc18
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "70933148"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614593"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions 형식 및 기능 (Azure Functions)
 
@@ -24,7 +24,7 @@ Durable Functions은 [Azure Functions](../functions-overview.md)의 확장입니
 
 ## <a name="orchestrator-functions"></a>오케스트레이터 함수
 
-오 케 스트레이 터 함수는 작업이 실행 되는 방법 및 작업이 실행 되는 순서를 설명 합니다. Orchestrator 함수는 [Durable Functions 응용 프로그램 패턴](durable-functions-overview.md#application-patterns)에C# 표시 된 것 처럼 코드 (또는 JavaScript)에서 오케스트레이션을 설명 합니다. 오케스트레이션은 [활동 함수](#activity-functions), [하위 오케스트레이션](durable-functions-orchestrations.md#sub-orchestrations), [외부 이벤트 대기](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-orchestrations.md#calling-http-endpoints)및 [타이머](durable-functions-orchestrations.md#durable-timers)를 비롯 한 다양 한 유형의 작업을 포함할 수 있습니다. Orchestrator 함수도 [엔터티 함수와](#entity-functions)상호 작용할 수도 있습니다.
+오 케 스트레이 터 함수는 작업이 실행 되는 방법 및 작업이 실행 되는 순서를 설명 합니다. Orchestrator 함수는 [Durable Functions 응용 프로그램 패턴](durable-functions-overview.md#application-patterns)에C# 표시 된 것 처럼 코드 (또는 JavaScript)에서 오케스트레이션을 설명 합니다. 오케스트레이션은 [활동 함수](#activity-functions), [하위 오케스트레이션](durable-functions-orchestrations.md#sub-orchestrations), [외부 이벤트 대기](durable-functions-orchestrations.md#external-events), [HTTP](durable-functions-http-features.md)및 [타이머](durable-functions-orchestrations.md#durable-timers)를 비롯 한 다양 한 유형의 작업을 포함할 수 있습니다. Orchestrator 함수도 [엔터티 함수와](#entity-functions)상호 작용할 수도 있습니다.
 
 > [!NOTE]
 > Orchestrator 함수는 일반 코드를 사용 하 여 작성 되지만 코드를 작성 하는 방법에 대 한 엄격한 요구 사항이 있습니다. 특히 오 케 스트레이 터 함수 코드는 *결정적*이어야 합니다. 이러한 확정 요구 사항을 따르지 않으면 오 케 스트레이 터 함수가 올바르게 실행 되지 않을 수 있습니다. 이러한 요구 사항 및 해결 방법에 대 한 자세한 내용은 [코드 제약 조건](durable-functions-code-constraints.md) 항목에서 찾을 수 있습니다.
@@ -40,7 +40,7 @@ Orchestrator 함수 및 해당 기능에 대 한 자세한 내용은 지 [속성
 > [!NOTE]
 > 활동 함수는 *적어도 한 번* 실행 되도록 보장 하므로 가능 하면 활동 함수 논리를 *idempotent* 하는 것이 좋습니다.
 
-활동 [트리거](durable-functions-bindings.md#activity-trigger) 를 사용 하 여 활동 함수를 정의 합니다. .NET 함수는 [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) 을 매개 변수로 받습니다. 트리거를 다른 serializeable 개체에 바인딩하여 함수에 입력을 전달할 수도 있습니다. JavaScript에서 [`context.bindings` 개체](../functions-reference-node.md#bindings)의 `<activity trigger binding name>` 속성을 통해 입력에 액세스할 수 있습니다. 작업 함수에는 단일 값만 전달할 수 있습니다. 여러 값을 전달 하려면 튜플, 배열 또는 복합 형식을 사용 해야 합니다.
+활동 [트리거](durable-functions-bindings.md#activity-trigger) 를 사용 하 여 활동 함수를 정의 합니다. .NET 함수는 `DurableActivityContext`를 매개 변수로 받습니다. 트리거를 다른 serializeable 개체에 바인딩하여 함수에 입력을 전달할 수도 있습니다. JavaScript에서 [`context.bindings` 개체](../functions-reference-node.md#bindings)의 `<activity trigger binding name>` 속성을 통해 입력에 액세스할 수 있습니다. 작업 함수에는 단일 값만 전달할 수 있습니다. 여러 값을 전달 하려면 튜플, 배열 또는 복합 형식을 사용 해야 합니다.
 
 > [!NOTE]
 > Orchestrator 함수 에서만 작업 함수를 트리거할 수 있습니다.
@@ -50,7 +50,7 @@ Orchestrator 함수 및 해당 기능에 대 한 자세한 내용은 지 [속성
 엔터티 함수는 작은 상태를 읽고 업데이트 하기 위한 작업을 정의 합니다. 이러한 상태 저장 엔터티를 *내구성이 있는 엔터티로*자주 참조 합니다. 오케스트레이터 함수와 마찬가지로 엔터티 함수는 특수 트리거 유형인 *엔터티 트리거*를 사용하는 함수입니다. 클라이언트 함수 또는 orchestrator 함수에서 호출할 수도 있습니다. Orchestrator 함수와 달리 entity 함수는 특정 코드 제약 조건을 포함 하지 않습니다. 또한 엔터티 함수는 제어 흐름을 통해 상태를 암시적으로 나타내지 않고 명시적으로 관리합니다.
 
 > [!NOTE]
-> 엔터티 함수 및 관련 기능은 Durable Functions 2.0 이상에서만 사용할 수 있습니다. 엔터티 함수는 현재 공개 미리 보기로 있습니다.
+> 엔터티 함수 및 관련 기능은 Durable Functions 2.0 이상에서만 사용할 수 있습니다.
 
 엔터티 함수에 대 한 자세한 내용은 지 [속성 엔터티](durable-functions-entities.md) 문서를 참조 하세요.
 

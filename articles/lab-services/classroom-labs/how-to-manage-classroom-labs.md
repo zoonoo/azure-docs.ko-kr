@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 85a3a9f7afac8250b225d42462f6b29042e34a2a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 91469f27e1ca86650cf94fde5cff5d1864300183
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330415"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606340"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
 이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 클래스룸 랩을 보는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 랩 계정에서 클래스룸 랩을 설정하려면 랩 계정에서 **랩 작성자** 역할의 멤버여야 합니다. 랩 계정을 만드는 데 사용한 계정이 이 역할에 자동으로 추가됩니다. 랩 소유자는 [랩 작성자 역할에 사용자 추가](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) 문서의 단계에 따라 랩 작성자 역할에 다른 사용자를 추가할 수 있습니다.
 
 ## <a name="create-a-classroom-lab"></a>클래스룸 랩 만들기
 
-1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. Internet Explorer 11은 아직 지원되지 않습니다. 
+1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. Internet Explorer 11은 아직 지원 되지 않습니다. 
 2. **로그인**을 선택하고 자격 증명을 입력합니다. 랩 계정에서 **랩 작성자** 역할의 멤버인 **사용자 ID**를 선택하거나 입력하고 암호를 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다. 
 3. **새 랩**을 선택 합니다. 
     
@@ -123,6 +123,10 @@ ms.locfileid: "72330415"
 
 이 드롭다운 목록에서 **새 랩을** 사용 하 여 새 랩을 만들 수도 있습니다. 
 
+> [!NOTE]
+> Az. manage Services PowerShell 모듈 (미리 보기)을 사용 하 여 랩을 관리할 수도 있습니다. 자세한 내용은 [GitHub의 Az 서비스 홈 페이지](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library)를 참조 하세요.
+
+다른 랩 계정으로 전환 하려면 랩 계정 옆에 있는 드롭다운을 선택 하 고 다른 랩 계정을 선택 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.

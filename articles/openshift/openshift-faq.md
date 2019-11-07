@@ -7,27 +7,17 @@ ms.author: jzim
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 05/08/2019
-ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.date: 11/04/2019
+ms.openlocfilehash: d8707e2edccf144cbe58a530bcfe2c176e656915
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249209"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582411"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
 이 문서에서는 Red Hat OpenShift Microsoft Azure에 대 한 Faq (질문과 대답)를 다룹니다.
-
-## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
-
-Azure Red Hat OpenShift를 사용 하려면 최소 4 개의 Azure Red Hat OpenShift 예약 응용 프로그램 노드를 구매 해야 합니다.
-
-Azure 고객 인 경우 Azure Portal를 통해[Azure Red Hat OpenShift 예약 인스턴스를 구입](https://aka.ms/openshift/buy) 합니다. 구매한 후에 구독을 24 시간 이내에 활성화 하 여 클러스터를 프로 비전 할 수 있게 됩니다.
-
-Azure 고객이 아닌 경우 [영업 담당자에 게 연락](https://aka.ms/openshift/contact-sales) 하 여 페이지 맨 아래에 있는 판매 양식을 작성 하 여 프로세스를 시작 합니다.
-
-자세한 내용은 [Azure Red Hat OpenShift 가격 책정 페이지](https://aka.ms/openshift/pricing) 를 참조 하세요.
 
 ## <a name="which-azure-regions-are-supported"></a>지원 되는 Azure 지역은 무엇 인가요?
 
@@ -39,7 +29,7 @@ Azure Red Hat OpenShift가 지원 되는 글로벌 지역 목록은 지원 되�
 
 ## <a name="what-cluster-operations-are-available"></a>사용할 수 있는 클러스터 작업은 무엇 인가요?
 
-계산 노드 수를 확장 하거나 축소할 수만 있습니다. @No__t-0 리소스를 만든 후에는 다른 수정 작업을 수행할 수 없습니다. 최대 계산 노드 수는 20 개로 제한 됩니다.
+계산 노드 수를 확장 하거나 축소할 수만 있습니다. `Microsoft.ContainerService/openShiftManagedClusters` 리소스를 만든 후에는 다른 수정 작업을 수행할 수 없습니다. 최대 계산 노드 수는 20 개로 제한 됩니다.
 
 ## <a name="what-virtual-machine-sizes-can-i-use"></a>어떤 가상 머신 크기를 사용할 수 있나요?
 
@@ -71,7 +61,7 @@ Docker 레지스트리는 `https://docker-registry.apps.<clustername>.<region>.a
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>클러스터를 특정 Azure AD 사용자로만 제한할 수 있나요?
 
-예. Azure ad 응용 프로그램을 구성 하 여 클러스터에 로그인 할 수 있는 Azure AD 사용자를 제한할 수 있습니다. 자세한 내용은 [How to: 사용자 집합으로 앱 제한 @ no__t-0
+예. Azure ad 응용 프로그램을 구성 하 여 클러스터에 로그인 할 수 있는 Azure AD 사용자를 제한할 수 있습니다. 자세한 내용은 [방법: 사용자 집합으로 앱 제한](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users) 을 참조 하세요.
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>클러스터가 여러 Azure 지역에 계산 노드를 가질 수 있나요?
 
@@ -129,7 +119,7 @@ Etcd 수준에서 암호화 되지 않습니다. 이 기능을 설정 하는 옵
 
 Syslog, docker 로그, 저널 및 dmesg는 관리 서비스에서 처리 되며 고객에 게 노출 되지 않습니다.
 
-## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>사용자가 노드 수준에서 CPU/메모리와 같은 메트릭에 액세스 하 여 확장, 문제 해결 등의 작업을 수행 하는 방법에 대해 알아봅니다. ARO 클러스터에서 `kubectl top`을 실행 하지 않는 것 같습니다.
+## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>사용자가 노드 수준에서 CPU/메모리와 같은 메트릭에 액세스 하 여 확장, 문제 해결 등의 작업을 수행 하는 방법에 대해 알아봅니다. ARO 클러스터에서 `kubectl top`를 실행 하는 것으로 보일 수 없습니다.
 
 Red Hat OpenShift에서는 `kubectl top`을 사용할 수 없습니다. 지원 메트릭 원본 (Heapster (사용 되지 않음) 또는 메트릭-서버 (incubating 또는 alpha)이 필요 합니다 .이는 OpenShift 모니터링 스택에 포함 되지 않습니다.
 
@@ -191,7 +181,7 @@ Azure AD 통합을 통해이를 달성할 수 있습니다. 
 
 ## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>OCS와 같은 영구 저장소 솔루션을 선택할 수 있나요? 
 
-두 개의 저장소 클래스를 선택할 수 있습니다. Azure 디스크 및 Azure 파일.
+Azure Disk 및 Azure File에서 두 개의 저장소 클래스를 선택할 수 있습니다.
 
 ## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>클러스터가 어떻게 업데이트 됩니까 (취약점으로 인해 majors 및 미성년자 미성년자 포함)?
 

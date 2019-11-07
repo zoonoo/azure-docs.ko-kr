@@ -1,6 +1,6 @@
 ---
-title: SQL Data Warehouse의 임시 테이블 | Microsoft Docs
-description: 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다.
+title: 임시 테이블
+description: Azure SQL Data Warehouse에서 임시 테이블을 사용 하는 데 필요한 지침을 제공 하 고 세션 수준 임시 테이블의 원리를 강조 표시 합니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e43e52e56ec7abbf5d8eb879defef54bd7d50658
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 23a5825a32c602f70aff1d9f577ce13d3e9f2260
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479821"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685442"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 임시 테이블
 이 문서에서는 임시 테이블을 사용하기 위한 필수 지침을 제공하고 세션 수준 임시 테이블의 원리를 강조해서 설명합니다. 이 문서의 정보를 사용하여 코드를 모듈화할 수 있으므로 코드의 재사용 가능성 및 유지 관리 용이성이 개선됩니다.
@@ -24,7 +25,7 @@ ms.locfileid: "68479821"
 특히 중간 결과가 일시적인 변환 중 데이터를 처리할 때 임시 테이블은 유용합니다. 임시 테이블은 Microsoft Azure SQL Data Warehouse의 세션 수준에서 존재합니다.  이러한 임시 테이블은 생성된 세션에서만 보이고, 해당 세션이 로그오프되면 자동으로 삭제됩니다.  임시 테이블은 결과가 원격 스토리지 대신 로컬로 기록되기 때문에 성능상의 이점을 제공합니다.
 
 ## <a name="create-a-temporary-table"></a>임시 테이블 만들기
-임시 테이블은 테이블 이름 앞에 `#`을 붙여 만듭니다.  예를 들어:
+임시 테이블은 테이블 이름 앞에 `#`을 붙여 만듭니다.  예:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -90,7 +91,7 @@ GROUP BY
 > 
 
 ## <a name="dropping-temporary-tables"></a>임시 테이블 삭제
-새 세션이 만들어지면 임시 테이블이 존재하지 않습니다.  그러나 동일한 이름의 임시 테이블을 만드는 동일한 저장 프로시저를 호출하는 경우 `CREATE TABLE` 문이 정상적으로 수행되도록 하려면 다음 예제와 같이 `DROP`을 사용해서 간단히 미리 존재 여부를 확인할 수 있습니다.
+새 세션이 만들어지면 임시 테이블이 존재하지 않습니다.  그러나 동일한 이름의 임시 테이블을 만드는 동일한 저장 프로시저를 호출하는 경우 `CREATE TABLE` 문이 정상적으로 수행되도록 하려면 다음 예제와 같이 `DROP`을 사용해서 단순한 사전 존재 여부 확인을 수행할 수 있습니다.
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -202,7 +203,7 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>임시 테이블 제한 사항
-임시 테이블을 구현하는 경우 SQL Data Warehouse는 두 가지 제한 사항을 적용합니다.  현재 세션 범위의 임시 테이블만 지원됩니다.  전역 임시 테이블은 지원되지 않습니다.  또한 임시 테이블에서 뷰를 만들 수 없습니다.  임시 테이블은 해시 또는 라운드 로빈 분산를 사용해서만 만들 수 있습니다.  복제된 임시 테이블 분산은 지원되지 않습니다. 
+임시 테이블을 구현하는 경우 SQL Data Warehouse는 두 가지 제한 사항을 적용합니다.  현재 세션 범위의 임시 테이블만 지원됩니다.  전역 임시 테이블은 지원되지 않습니다.  또한 임시 테이블에서 뷰를 만들 수 없습니다.  임시 테이블은 해시 또는 라운드 로빈 배포를 사용 해야만 만들 수 있습니다.  복제 된 임시 테이블 배포는 지원 되지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 테이블 개발에 대해 자세히 알아보려면 [테이블 개요](sql-data-warehouse-tables-overview.md)를 참조하세요.

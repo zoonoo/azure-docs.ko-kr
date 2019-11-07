@@ -2,25 +2,25 @@
 title: Azure Media Clipper 클리핑 작업 제출 | Microsoft Docs
 description: Azure Media Clipper에서 클리핑 작업을 제출하는 단계
 services: media-services
-keywords: 클립, 하위 클립, 인코딩, 미디어
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: 클립;서브클립;인코딩;미디어
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: f0dc6879ccbb22dbebd57de98e4610cd593318db
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04d0d2bb8939c8036ec6817c58f9ac2fbb3acd72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61242858"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684971"
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Azure Media Clipper에서 클리핑 작업 제출 
 
 Azure Media Clipper에서 클리핑 작업 제출을 처리하려면 **submitSubclipCallback** 메서드가 구현되어야 합니다. 이 함수는 웹 서비스에 대한 Clipper 출력의 HTTP POST를 구현하는 데 사용됩니다. 이 웹 서비스에서 인코딩 작업을 제출할 수 있습니다. Clipper의 출력은 렌더링된 작업의 Media Encoder Standard 인코딩 사전 설정이거나 동적 매니페스트 필터 호출에 대한 REST API 페이로드입니다. 이 통과 모델은 미디어 서비스 계정 자격 증명이 클라이언트 브라우저에서 보호되지 않으므로 필요합니다.
 
-다음 시퀀스 다이어그램에서는 브라우저 클라이언트, 웹 서비스 및 Azure Media Services 간의 워크플로를 설명합니다. ![Azure Media Clipper 시퀀스 다이어그램](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG)
+![Azure Media Clipper 시퀀스 다이어그램](media/media-services-azure-media-clipper-submit-job/media-services-azure-media-clipper-sequence-diagram.PNG) 순서도에서는 브라우저 클라이언트, 웹 서비스 및 Azure Media Services 간의 워크플로를 설명합니다.
 
 앞의 순서도에는 사용자 브라우저, 웹 서비스, Clipper 리소스를 호스팅하는 CDN 엔드포인트, Azure Media Services 등의 4개 개체가 있습니다. 최종 사용자가 웹 페이지를 탐색하면 페이지가 호스팅 CDN 엔드포인트에서 Clipper JavaScript와 CSS 리소스를 가져옵니다. 최종 사용자는 자신의 브라우저에서 클리핑 작업이나 동적 매니페스트 필터 만들기 호출을 구성합니다. 최종 사용자가 작업 또는 필터 만들기 호출을 제출하면 브라우저가 작업 페이로드를 사용자가 배포해야 하는 웹 서비스에 넣습니다. 이 웹 서비스는 결과적으로 미디어 서비스 계정 자격 증명을 사용하여 클리핑 작업이나 필터 만들기 호출을 Azure Media Services에 제출하게 됩니다.
 

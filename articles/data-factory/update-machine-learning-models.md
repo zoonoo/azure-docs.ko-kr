@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Machine Learning 모델 업데이트 | Microsoft Docs
+title: Azure Data Factory를 사용 하 여 machine learning 모델 업데이트
 description: Azure Data Factory 및 기계 학습을 사용하여 예측 파이프라인을 만드는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 56d0ce6668c1077b99c980c2bc5b16998a3a41c1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 3313c9c362a9b82cf7ed8db63479aaa5cf0c777e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140536"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683250"
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>리소스 업데이트 작업을 사용하여 Azure Machine Learning 모델 업데이트
-이 문서는 기본 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
+이 문서는 주요 Azure Data Factory - Azure Machine Learning 통합 문서인 [Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기](transform-data-using-machine-learning.md)를 보완합니다. 수행하지 않았다면 이 문서를 읽기 전에 기본 문서를 검토하세요.
 
 ## <a name="overview"></a>개요
 Azure Machine Learning 모델을 조작하는 프로세스의 일부로 모델을 학습하고 저장합니다. 그런 다음, 이를 예측 웹 서비스를 만드는 데 사용합니다. 그러면 웹 사이트, 대시보드 및 모바일 앱에서 웹 서비스를 사용할 수 있습니다.
@@ -94,7 +94,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 
 새 유형의 리소스 업데이트 엔드포인트에는 서비스 주체 인증이 필요합니다. 서비스 주체 인증을 사용하려면 Azure AD(Azure Active Directory)에 애플리케이션 엔터티를 등록하고, 웹 서비스가 속한 구독 또는 리소스 그룹의 **참가자** 또는 **소유자** 역할을 이 엔터티에 부여합니다. [서비스 주체를 만들고 Azure 리소스를 관리하기 위한 권한을 할당하는 방법](../active-directory/develop/howto-create-service-principal-portal.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
 
-- 애플리케이션 ID
+- 애플리케이션 UI
 - 애플리케이션 키
 - 테넌트 ID
 
@@ -196,7 +196,7 @@ Azure Storage는 다음 데이터를 보관합니다.
 ```
 
 ### <a name="pipeline"></a>파이프라인
-파이프라인에는 두 개의 활동인 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**가 있습니다. 일괄 처리 실행 작업에서는 학습 데이터를 입력으로 가져오고, iLearner 파일을 출력으로 생성합니다. 그런 다음 리소스 업데이트 작업에서 이 iLearner 파일을 가져오고, 이를 사용하여 예측 웹 서비스를 업데이트합니다.
+파이프라인에는 **AzureMLBatchExecution** 및 **AzureMLUpdateResource**라는 두 활동이 있습니다. 일괄 처리 실행 작업에서는 학습 데이터를 입력으로 가져오고, iLearner 파일을 출력으로 생성합니다. 그런 다음 리소스 업데이트 작업에서 이 iLearner 파일을 가져오고, 이를 사용하여 예측 웹 서비스를 업데이트합니다.
 
 ```JSON
 {

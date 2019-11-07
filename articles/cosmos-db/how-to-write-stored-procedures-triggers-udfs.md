@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: bec28874bbd67ece4b29f6975e8c7fdcea457bd5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092830"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606267"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
 
@@ -21,6 +21,9 @@ Azure Cosmos DB에서는 사용자가 **저장 프로시저**, **트리거** 및
 
 > [!NOTE]
 > 분할된 컨테이너의 경우 저장 프로시저를 실행할 때 파티션 키 값은 요청 옵션에서 제공되어야 합니다. 저장 프로시저의 범위는 항상 파티션 키로 지정됩니다. 다른 파티션 키 값을 가진 항목은 저장 프로시저에 표시되지 않습니다. 이 트리거에도 적용되었습니다.
+
+> [!Tip]
+> Cosmos는 저장 프로시저, 트리거 및 사용자 정의 함수를 사용 하 여 컨테이너 배포를 지원 합니다. 자세한 내용은 [서버 쪽 기능을 사용 하 여 Azure Cosmos DB 컨테이너 만들기](manage-sql-with-resource-manager.md#create-sproc) 를 참조 하세요.
 
 ## <a id="stored-procedures"></a>저장 프로시저를 작성하는 방법
 
@@ -48,11 +51,11 @@ var helloWorldStoredProc = {
 
 ### <a id="create-an-item"></a>저장 프로시저를 사용하여 항목 만들기
 
-저장 프로시저를 사용하여 항목을 만든 경우 해당 항목이 Azure Cosmos 컨테이너에 삽입되고 새로 만든 항목에 대한 ID가 반환됩니다. 항목 만들기는 비동기 작업이고 JavaScript 콜백 함수에 따라 달라집니다. 콜백 함수에는 작업이 실패할 경우의 오류 개체 및 반환 값(이 경우에는 생성된 개체)에 각각 사용되는 두 개의 매개 변수가 있습니다. 콜백 내에서 예외를 처리하거나 오류를 throw할 수 있습니다. 콜백이 제공되지 않았고 오류가 있는 경우, Azure Cosmos DB 런타임에서 오류를 throw합니다. 
+저장 프로시저를 사용 하 여 항목을 만들 때 항목이 Azure Cosmos 컨테이너에 삽입 되 고 새로 만든 항목에 대 한 ID가 반환 됩니다. 항목 만들기는 비동기 작업이고 JavaScript 콜백 함수에 따라 달라집니다. 콜백 함수에는 작업이 실패할 경우의 오류 개체 및 반환 값(이 경우에는 생성된 개체)에 각각 사용되는 두 개의 매개 변수가 있습니다. 콜백 내에서 예외를 처리하거나 오류를 throw할 수 있습니다. 콜백이 제공되지 않았고 오류가 있는 경우, Azure Cosmos DB 런타임에서 오류를 throw합니다. 
 
 또한 저장 프로시저에는 설명을 설정하는 매개 변수가 포함되며 부울 값입니다. 매개 변수가 true로 설정되고 설명이 누락된 경우 저장 프로시저는 예외를 throw합니다. 그렇지 않으면 저장 프로시저의 나머지가 계속 실행됩니다.
 
-다음 예제 저장 프로시저는 새 Azure Cosmos 항목을 입력으로 사용하고, 이를 Azure Cosmos 컨테이너에 삽입하고, 새로 만든 항목에 대한 ID를 반환합니다. 이 예제에서는 [.NET SQL API 빠른 시작](create-sql-api-dotnet.md)의 ToDoList 샘플을 활용하겠습니다.
+다음 예의 저장 프로시저는 새 Azure Cosmos 항목을 입력으로 사용 하 고, Azure Cosmos 컨테이너에 삽입 하 고, 새로 만든 항목에 대 한 ID를 반환 합니다. 이 예제에서는 [.NET SQL API 빠른 시작](create-sql-api-dotnet.md)의 ToDoList 샘플을 활용하겠습니다.
 
 ```javascript
 function createToDoItem(itemToCreate) {
@@ -237,7 +240,7 @@ function validateToDoItemTimestamp() {
 
 사전 트리거는 입력 매개 변수를 사용할 수 없습니다. 트리거에서 요청 개체를 사용하여 작업과 연결된 요청 메시지를 조작합니다. 이전 예제에서 사전 트리거는 Azure Cosmos 항목을 만들 때 실행되고 요청 메시지 본문에는 JSON 형식으로 만들 항목이 포함됩니다.
 
-트리거가 등록될 때 트리거 실행에 사용되는 작업을 지정할 수 있습니다. 이 트리거는 `TriggerOperation.Create`의 `TriggerOperation` 값을 사용하여 생성되었습니다. 즉, 다음 코드에 나와 있는 것처럼 바꾸기 작업에서 트리거를 사용하는 것은 허용되지 않습니다.
+트리거가 등록될 때 트리거 실행에 사용되는 작업을 지정할 수 있습니다. 이 트리거는 `TriggerOperation`의 `TriggerOperation.Create` 값을 사용하여 생성되었습니다. 즉, 다음 코드에 나와 있는 것처럼 바꾸기 작업에서 트리거를 사용하는 것은 허용되지 않습니다.
 
 사전 트리거를 등록하고 호출하는 방법의 예제는 [사전 트리거](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 및 [사후 트리거](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) 문서를 참조하세요. 
 

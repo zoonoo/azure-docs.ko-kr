@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 파일 기반 저장소 간에 파일 이동 | Microsoft Docs
+title: Azure Data Factory를 사용 하 여 파일 기반 저장소 간에 파일 이동
 description: Azure Data Factory를 사용 하 여 솔루션 템플릿을 사용 하 여 파일 기반 저장소 간에 파일을 이동 하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: 9eb82a23aac5a98a521976118c1e859d0be253d0
-ms.sourcegitcommit: 1b7b0e1c915f586a906c33d7315a5dc7050a2f34
+ms.openlocfilehash: f6f83917e84a880fb86b5f592c4d51b03462753d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67881244"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684108"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Azure Data Factory 파일 이동
 
-이 문서에서는 파일 기반 저장소 간에 파일을 한 폴더에서 다른 폴더로 이동 하는 데 사용할 수 있는 솔루션 템플릿에 대해 설명 합니다. 이 템플릿을 사용 하는 일반적인 시나리오 중 하나는 다음과 같습니다. 파일은 소스 저장소의 방문 폴더에 계속 저장 됩니다. ADF 파이프라인은 일정 트리거를 만들어 해당 파일을 원본에서 대상 저장소로 정기적으로 이동할 수 있습니다.  ADF 파이프라인이 "파일 이동"을 달성 하는 방식은 랜딩 폴더에서 파일을 가져오고 각 파일을 대상 저장소의 다른 폴더로 복사한 다음 원본 저장소의 랜딩 폴더에서 동일한 파일을 삭제 하는 것입니다.
+이 문서에서는 파일 기반 저장소 간에 파일을 한 폴더에서 다른 폴더로 이동 하는 데 사용할 수 있는 솔루션 템플릿에 대해 설명 합니다. 이 템플릿을 사용 하는 일반적인 시나리오 중 하나: 파일은 소스 저장소의 방문 폴더에 계속 저장 됩니다. ADF 파이프라인은 일정 트리거를 만들어 해당 파일을 원본에서 대상 저장소로 정기적으로 이동할 수 있습니다.  ADF 파이프라인이 "파일 이동"을 달성 하는 방식은 랜딩 폴더에서 파일을 가져오고 각 파일을 대상 저장소의 다른 폴더로 복사한 다음 원본 저장소의 랜딩 폴더에서 동일한 파일을 삭제 하는 것입니다.
 
 > [!NOTE]
 > 이 템플릿은 폴더를 이동 하지 않고 파일을 이동 하도록 디자인 되었습니다.  폴더 경로만 포함 하도록 데이터 집합을 변경 하 고 복사 작업 및 삭제 작업을 사용 하 여 폴더를 나타내는 동일한 데이터 집합에 대 한 참조로 폴더를 이동 하려면 매우 주의 해야 합니다. 복사 작업과 삭제 작업 중간에 새 파일이 폴더에 들어오지 않는지를 확인해야 하기 때문입니다. 복사 작업이 방금 복사 작업을 완료했지만 삭제 작업이 시작되지 않은 순간에 새 파일에 폴더에 도착하면 삭제 작업은 전체 폴더를 삭제하여 대상으로 아직 복사되지 않은 이러한 새로 도착한 파일을 삭제할 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse에서 컴퓨팅 리소스 관리 | Microsoft Docs
+title: 계산 리소스 관리
 description: Azure SQL Data Warehouse의 성능 확장 기능을 알아봅니다. DWU를 조정하여 확장하거나 데이터 웨어하우스를 일시 중지하여 비용을 절약합니다.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: f0935ccc4c4274bfab0c589ef158d4ea0bef455c
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f93996d834ab805f2228543a833c4ce601042dc4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575332"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692623"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 컴퓨팅 관리
 Azure SQL Data Warehouse에서 컴퓨팅 리소스를 관리하는 방법에 대해 알아봅니다. 데이터 웨어하우스를 일시 중지하여 비용을 절약하거나 성능 요구 사항에 맞게 데이터 웨어하우스의 크기를 조정합니다. 
@@ -109,7 +110,7 @@ SQL Data Warehouse를 일시 중지하거나 크기를 조정하는 경우 일�
 데이터 웨어하우스 상태를 확인하려면 [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) 또는 [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) 빠른 시작을 참조하세요. 또한 [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state)를 사용하여 데이터 웨어하우스 상태를 확인할 수도 있습니다.
 
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 데이터 웨어하우스 크기를 조정하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)에서 설명하는 권한이 필요합니다.  일시 중지하고 다시 시작하려면 [SQL DB 참가자](../role-based-access-control/built-in-roles.md#sql-db-contributor) 권한, 특히 Microsoft.Sql/servers/databases/action이 필요합니다.
 

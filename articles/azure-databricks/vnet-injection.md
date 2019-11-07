@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 0bb3221c201e6dd4dd17cca8ef7e3ed3331de228
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5eded3217e96ccc45951acae004d1424e16cb098
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432669"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605660"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>가상 네트워크에 Azure Databricks 배포
 
@@ -61,7 +61,7 @@ Azure Databricks 작업 영역을 배포 하는 가상 네트워크는 다음 �
 
 이 섹션에서는 Azure Portal에서 Azure Databricks 작업 영역을 만들고 자신의 기존 가상 네트워크에 배포 하는 방법을 설명 합니다. Azure Databricks은 사용자가 제공한 CIDR 범위를 사용 하 여 두 개의 새 서브넷 및 네트워크 보안 그룹으로 가상 네트워크를 업데이트 하 고, 인바운드 및 아웃 바운드 서브넷 트래픽을 허용 목록 하 고, 업데이트 된 가상 네트워크에 작업 영역을 배포 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Azure Databricks 작업 영역을 배포할 가상 네트워크가 있어야 합니다. 기존 가상 네트워크를 사용 하거나 새 가상 네트워크를 만들 수 있지만 가상 네트워크는 만들려는 Azure Databricks 작업 영역과 동일한 지역에 있어야 합니다. 가상 네트워크에는/16-/24 사이의 CIDR 범위가 필요 합니다.
 
@@ -119,7 +119,7 @@ Azure Databricks 작업 영역을 배포할 가상 네트워크가 있어야 합
 
 ## <a name="whitelisting-subnet-traffic"></a>서브넷 트래픽 허용 목록
 
-[Azure Portal](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-portal) 또는 [Azure Resource Manager 템플릿을](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) 사용 하 여 네트워크 보안 그룹을 만들지 않은 경우에는 서브넷에서 다음 트래픽을 수동으로 허용 목록 합니다.
+[Azure Portal](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject#vnet-inject-portal) 또는 [Azure Resource Manager 템플릿을](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject.html#vnet-inject-advanced) 사용 하 여 네트워크 보안 그룹을 만들지 않은 경우에는 서브넷에서 다음 트래픽을 수동으로 허용 목록 합니다.
 
 |방향|프로토콜|원본|원본 포트|대상|대상 포트|
 |---------|--------|------|-----------|-----------|----------------|
@@ -133,7 +133,7 @@ Azure Databricks 작업 영역을 배포할 가상 네트워크가 있어야 합
 
 다음 IP 주소를 사용 하 여 서브넷 트래픽을 허용 목록. SQL (metastore) 및 저장소 (아티팩트 및 로그 저장소)의 경우 Sql 및 저장소 [서비스 태그](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)를 사용 해야 합니다.
 
-|Azure Databricks 지역|서비스|공용 IP|
+|Azure Databricks 지역|부여|공용 IP|
 |-----------------------|-------|---------|
 |미국 동부|제어 평면 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
 |미국 동부 2|제어 평면 NAT </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|

@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 07/30/2019
 ms.author: erhopf
 ms.openlocfilehash: ffefde7d692950fc272ab2502ad8afe254bf48f1
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68703102"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73591131"
 ---
 Azure 구독 당 Cognitive Services 리소스의 수에 대 한 제한은 다음과 같습니다. 각 Cognitive Services에는 추가 제한이 있을 수 있습니다. 자세한 내용은 [Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)를 참조 하세요.
 

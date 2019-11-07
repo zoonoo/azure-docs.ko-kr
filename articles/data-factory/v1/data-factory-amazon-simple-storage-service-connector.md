@@ -1,5 +1,5 @@
 ---
-title: Data Factory를 사용하여 Amazon 단순 Storage 서비스에서 데이터 이동 | Microsoft Docs
+title: Data Factory를 사용 하 여 Amazon Simple Storage 서비스에서 데이터 이동
 description: Azure Data Factory를 사용하여 Amazon 단순 Storage 서비스(S3)에서 데이터를 이동하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ec44ae7956669ee4e16d2c6ca00794c566272037
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 970e8d2b960c3a4be1c5208d7fa3a21bc05d9e9a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69892001"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683211"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Amazon 단순 Storage 서비스에서 데이터 이동
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -30,9 +30,9 @@ ms.locfileid: "69892001"
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Amazon Simple Storage Service(S3)에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
-Amazon S3에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 Data Factory는 Amazon S3에서 다른 데이터 저장소로의 데이터 이동 만을 지원하지만, 다른 데이터 저장소에서 Amazon S3로 데이터 이동은 지원하지 않습니다.
+Amazon S3에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 표를 참조하세요. 현재 Data Factory는 Amazon S3에서 다른 데이터 저장소로의 데이터 이동 만을 지원하지만, 다른 데이터 저장소에서 Amazon S3로 데이터 이동은 지원하지 않습니다.
 
-## <a name="required-permissions"></a>필요한 권한
+## <a name="required-permissions"></a>필요한 사용 권한
 Amazon S3에서 데이터를 복사하려면 다음과 같은 권한이 부여되어 있는지 확인합니다.
 
 * Amazon S3 개체 작업에 대한 `s3:GetObject` 및 `s3:GetObjectVersion`.
@@ -43,9 +43,9 @@ Amazon S3 사용 권한의 전체 목록은 [정책에서 사용 권한 지정](
 ## <a name="getting-started"></a>시작
 다른 도구 또는 API를 사용하여 Amazon S3 원본의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 빠른 연습을 위해서는 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -63,7 +63,7 @@ Amazon S3 사용 권한의 전체 목록은 [정책에서 사용 권한 지정](
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 연결된 서비스는 데이터 저장소를 데이터 팩터리에 연결합니다. Amazon S3 데이터 저장소를 데이터 팩터리에 연결하는 **AwsAccessKey** 형식의 연결된 서비스를 만듭니다. 다음 표는 Amazon S3(AwsAccessKey) 연결된 서비스에 특정된 JSON 요소에 대한 설명을 제공합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | accessKeyID |비밀 액세스 키의 ID입니다. |string |예 |
 | secretAccessKey |비밀 액세스 키 자체입니다. |암호화된 비밀 문자열 |예 |
@@ -72,7 +72,7 @@ Amazon S3 사용 권한의 전체 목록은 [정책에서 사용 권한 지정](
 >이 커넥터를 사용하려면 Amazon S3에서 데이터를 복사하기 위해 IAM 계정에 대한 액세스 키가 필요합니다. [임시 보안 자격 증명](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html)은 지원되지 않습니다.
 >
 
-다음 예를 참조하세요.
+다음은 예제입니다.
 
 ```json
 {
@@ -94,12 +94,12 @@ Azure Blob Storage에서 입력 데이터를 표시할 데이터 세트를 지�
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| bucketName |S3 버킷 이름입니다. |String |예 |
-| Key |S3 개체 키입니다. |문자열 |아니요 |
-| prefix |S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. 키가 비어 있을 때에만 적용됩니다. |String |아니요 |
-| version |S3 버전 관리를 사용하도록 설정하면 S3 개체의 버전입니다. |String |아니요 |
-| format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. | |아니요 |
-| compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원 되는 형식은 다음과 같습니다. **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. | |아니요 |
+| bucketName |S3 버킷 이름입니다. |문자열 |예 |
+| key |S3 개체 키입니다. |문자열 |아니요 |
+| 접두사 |S3 개체 키에 대한 접두사입니다. 이 접두사로 시작하는 키를 가진 개체가 선택됩니다. 키가 비어 있을 때에만 적용됩니다. |문자열 |아니요 |
+| 버전 |S3 버전 관리를 사용하도록 설정하면 S3 개체의 버전입니다. |문자열 |아니요 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 있는 그대로 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. | |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. | |아니요 |
 
 
 > [!NOTE]
@@ -173,7 +173,7 @@ Amazon S3 데이터 세트의 **접두사** 속성에 대해서도 동일하게 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 작업 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [파이프라인 만들기](data-factory-create-pipelines.md)를 참조하세요. 이름, 설명, 입력/출력 테이블, 정책 등의 속성은 모든 형식의 활동에 사용할 수 있습니다. 활동의 **typeProperties** 섹션에서 사용할 수 있는 속성은 각 활동 유형에 따라 달라집니다. 복사 작업의 경우 속성은 원본 및 싱크의 형식에 따라 달라집니다. 복사 작업의 원본이 **FileSystemSource** 형식인 경우(Amazon S3 포함) **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | recursive |S3 개체를 디렉터리 아래에 재귀적으로 나열할 것인지를 지정합니다. |True/False |아니요 |
 
@@ -184,9 +184,9 @@ Amazon S3 데이터 세트의 **접두사** 속성에 대해서도 동일하게 
 
 * [AwsAccessKey](#linked-service-properties)형식의 연결된 서비스.
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-* [AmazonS3](#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-* [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-* [FileSystemSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+* [AmazonS3](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](#dataset-properties)
+* [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+* [FileSystemSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)입니다.
 
 샘플은 1시간마다 웹 테이블의 데이터를 Amazon S3으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -248,7 +248,7 @@ Amazon S3 데이터 세트의 **접두사** 속성에 대해서도 동일하게 
 
 ### <a name="azure-blob-output-dataset"></a>Azure Blob 출력 데이터 세트
 
-데이터는 1시간마다 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간의 년, 월, 일 및 시 부분을 사용합니다.
+데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간의 년, 월, 일 및 시 부분을 사용합니다.
 
 ```json
 {

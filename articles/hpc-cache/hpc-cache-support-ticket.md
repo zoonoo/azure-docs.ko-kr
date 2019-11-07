@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 캐시 (미리 보기)에 대 한 지원 티켓 열기
+title: Azure HPC 캐시용 지원 티켓 열기
 description: Azure HPC 캐시에 대 한 도움말 요청을 여는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 8c9a92cb21128d3c35fc5ecb7e72ebb4eba87b44
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: c000fb48abfb383e4d166a6f5ae5bb05ac93da5a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254553"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582116"
 ---
-# <a name="open-a-support-ticket-for-azure-hpc-cache-preview"></a>Azure HPC 캐시 (미리 보기)에 대 한 지원 티켓 열기
+# <a name="open-a-support-ticket-for-azure-hpc-cache"></a>Azure HPC 캐시용 지원 티켓 열기
 
 Azure Portal를 사용 하 여 지원 티켓을 엽니다. 캐시 인스턴스로 이동한 다음 사이드바의 아래쪽에 표시 되는 **새 지원 요청** 링크를 클릭 합니다.
 
@@ -21,11 +21,11 @@ Azure Portal를 사용 하 여 지원 티켓을 엽니다. 캐시 인스턴스�
 
 목록에서 구독을 선택 합니다.
 
-Azure HPC Cache preview 서비스를 찾으려면 **모든 서비스** 단추를 클릭 하 고 HPC를 검색 합니다.
+Azure HPC 캐시 서비스를 찾으려면 **모든 서비스** 단추를 클릭 하 고 hpc를 검색 합니다.
 
 ![설명 된 대로 부분적으로 입력 된 지원 요청-기본 탭의 스크린샷](media/hpc-cache-support-request.png)
 
-<!-- update screenshot after preview to update product name -->
+<!-- check screenshot after GA for possible update -->
 
 사용자의 정보 및 기본 설정을 사용 하 여 나머지 필드를 입력 한 다음 준비가 되 면 티켓을 제출 합니다.
 

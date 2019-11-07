@@ -1,5 +1,5 @@
 ---
-title: Databricks Jar를 사용하여 데이터 변환 - Azure | Microsoft Docs
+title: Databricks Jar를 사용 하 여 데이터 변환-Azure
 description: Databricks Jar를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.date: 03/15/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 924367c6bb85b64bafbcb8feb546eeb490e07a34
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 982f00b5de9fd3e84233e5fe3b68e22fa6f7fe2a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70812782"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683963"
 ---
 # <a name="transform-data-by-running-a-jar-activity-in-azure-databricks"></a>Azure Databricks에서 Jar 활동을 실행하여 데이터 변환
 
-[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Jar 활동은 Azure Databricks 클러스터에서 Spark Jar를 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는  [데이터 변환 활동](transform-data.md)  문서에서 작성합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
+[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Jar 활동은 Azure Databricks 클러스터에서 Spark Jar를 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는  [데이터 변환 활동](transform-data.md)  문서에서 작성합니다. Azure Databricks은 Apache Spark을 실행 하기 위한 관리 되는 플랫폼입니다.
 
 11분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
 
@@ -63,7 +63,7 @@ Databricks Jar 활동에 대한 샘플 JSON 정의는 다음과 같습니다.
 |type|Databricks Jar 활동의 경우 활동 유형은 DatabricksSparkJar입니다.|예|
 |linkedServiceName|Jar 활동이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|예|
 |mainClassName|실행될 main 메서드가 포함된 클래스의 전체 이름입니다. 이 클래스는 라이브러리로 제공된 JAR에 포함되어야 합니다.|예|
-|parameters|main 메서드에 전달할 매개 변수이며,  문자열의 배열입니다.|아니요|
+|매개 변수|main 메서드에 전달할 매개 변수이며,  문자열의 배열입니다.|아니요|
 |라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|예(mainClassName 메서드가 하나 이상 포함되는 경우)|
 
 > [!NOTE]

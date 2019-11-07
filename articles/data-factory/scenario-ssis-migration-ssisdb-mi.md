@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 관리 되는 인스턴스를 데이터베이스 작업 대상으로 사용 하는 SSIS 마이그레이션 | Microsoft Docs
+title: Azure SQL Database 관리 되는 인스턴스를 데이터베이스 작업 대상으로 SSIS 마이그레이션
 description: Azure SQL Database 관리 되는 인스턴스를 데이터베이스 작업 대상으로 SSIS로 마이그레이션합니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: c1bb056909641ad0b8654e84f35c4fbd5b38db82
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 6ea9134085812b99d59ad64aa2c9ec1b2ff827d9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968524"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684391"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>Azure SQL Database 관리 되는 인스턴스를 데이터베이스 작업 대상으로 SSIS 마이그레이션
 
@@ -27,13 +27,13 @@ SQL Server Azure SQL Database 온-프레미스에서 관리 되는 인스턴스�
 
 ## <a name="migrate-ssis-catalog-ssisdb"></a>SSIS 카탈로그 (SSISDB) 마이그레이션
 
-SSISDB 마이그레이션은 다음 문서에 설명 된 대로 DMS를 사용 하 여 수행할 수 있습니다. [SSIS 패키지를 Azure SQL Database 관리 되는 인스턴스로 마이그레이션합니다](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance).
+[Azure SQL Database 관리 되는 인스턴스로 SSIS 패키지 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)문서에 설명 된 대로 DMS를 사용 하 여 SSISDB 마이그레이션을 수행할 수 있습니다.
 
 ## <a name="ssis-jobs-to-azure-sql-database-managed-instance-agent"></a>관리 되는 인스턴스 에이전트 Azure SQL Database SSIS 작업
 
 Azure SQL Database 관리 되는 인스턴스에는 온-프레미스 SQL Server 에이전트와 마찬가지로 기본, 최고 수준의 스케줄러가 있습니다.  SSIS 작업을 위한 마이그레이션 도구를 아직 사용할 수 없으므로 스크립트/수동 복사를 통해 SQL Server 에이전트 온-프레미스에서 Azure SQL Database 관리 되는 인스턴스 에이전트로 마이그레이션해야 합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [Azure 데이터 팩터리](https://docs.microsoft.com/azure/data-factory/introduction)
 - [Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)

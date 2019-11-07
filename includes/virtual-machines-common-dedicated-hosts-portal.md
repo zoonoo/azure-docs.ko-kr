@@ -9,11 +9,11 @@ ms.date: 07/25/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 262880997c6b065dc5293a18d9a07c52ac836f37
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68702978"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73591144"
 ---
 > [!IMPORTANT]
 > Azure 전용 호스트는 현재 공개 미리 보기로 제공 됩니다.
@@ -21,7 +21,7 @@ ms.locfileid: "68702978"
 >
 > **알려진 미리 보기 제한 사항**
 > - 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
-> - Preview 초기 릴리스는 다음 VM 시리즈를 지원 합니다. DSv3 및 ESv3. 
+> - Preview 초기 릴리스는 다음 VM 시리즈를 지원 합니다. DSv3 및 ESv3 
 
 
 ## <a name="create-a-host-group"></a>호스트 그룹 만들기
@@ -46,7 +46,7 @@ ms.locfileid: "68702978"
 1. 사용할 구독을 선택한 다음 **새로 만들기** 를 선택 하 여 새 리소스 그룹을 만듭니다.
 1. **이름** 으로 *myDedicatedHostsRG* 를 입력 한 다음 **확인을**선택 합니다.
 1. **호스트 그룹 이름**에 *myHostGroup*을 입력 합니다.
-1. **위치**에서 **미국 동부**를 선택 합니다.
+1. **위치**에 대해 **미국 동부**를 선택합니다.
 1. **가용성 영역**에 대해 **1**을 선택 합니다.
 1. **오류 도메인 수**에 대해 **2**를 선택 합니다.
 1. **검토 + 만들기** 를 선택한 다음 유효성 검사를 기다립니다.
@@ -58,7 +58,7 @@ ms.locfileid: "68702978"
 
 ## <a name="create-a-dedicated-host"></a>전용 호스트 만들기
 
-이제 호스트 그룹에서 전용 호스트를 만듭니다. 호스트의 이름 외에 호스트의 SKU를 제공 해야 합니다. 호스트 SKU는 지원 되는 VM 시리즈 뿐만 아니라 전용 호스트의 하드웨어 생성도 캡처합니다.  미리 보기 중에는 다음 호스트 SKU 값을 지원 합니다. DSv3_Type1 및 ESv3_Type1.
+이제 호스트 그룹에서 전용 호스트를 만듭니다. 호스트의 이름 외에 호스트의 SKU를 제공 해야 합니다. 호스트 SKU는 지원 되는 VM 시리즈 뿐만 아니라 전용 호스트의 하드웨어 생성도 캡처합니다.  미리 보기 중에는 다음 호스트 SKU 값 DSv3_Type1 및 ESv3_Type1를 지원 합니다.
 
 호스트 Sku 및 가격 책정에 대 한 자세한 내용은 [Azure 전용 호스트 가격](https://aka.ms/ADHPricing)을 참조 하세요.
 

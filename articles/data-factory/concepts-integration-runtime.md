@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory의 통합 런타임 | Microsoft Docs
+title: Azure Data Factory의 통합 런타임
 description: Azure Data Factory의 통합 런타임에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: ab82055d99401b0e7bc8aedf247fdf0d779f9f07
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 7475d660fd2fa64ce69e7c23e0bad518fffddd26
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875270"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681503"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다.
 
 - **데이터 흐름**: 관리 되는 Azure 계산 환경에서 [데이터 흐름](concepts-data-flow-overview.md) 을 실행 합니다.  
-- **데이터 이동**: 공용 네트워크의 데이터 저장소 및 프라이빗 네트워크(온-프레미스 또는 가상 사설망)의 데이터 저장소 간에 데이터를 복사합니다. 기본 제공 커넥터, 형식 변환, 열 매핑 및 성능이 뛰어나고 확장 가능한 데이터 전송에 대한 지원을 제공합니다.
-- **작업 디스패치**:  Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server 등과 같은 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 합니다.
+- **데이터 이동**: 공용 네트워크의 데이터 저장소 및 개인 네트워크 (온-프레미스 또는 가상 사설망)의 데이터 저장소 간에 데이터를 복사 합니다. 기본 제공 커넥터, 형식 변환, 열 매핑 및 성능이 뛰어나고 확장 가능한 데이터 전송에 대한 지원을 제공합니다.
+- **활동 디스패치**: Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server 등 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 합니다.
 - **SSIS 패키지 실행**: SSIS(SQL Server 통합 서비스) 패키지를 관리되는 Azure 컴퓨팅 환경에서 고유하게 실행합니다.
 
 Data Factory에서 작업은 수행할 작업을 정의합니다. 연결된 서비스는 대상 데이터 저장소 또는 컴퓨팅 서비스를 정의합니다. 통합 런타임은 작업과 연결된 서비스 간의 브리지를 제공합니다.  이는 연결 된 서비스 또는 활동에서 참조 되며 활동이 실행 되거나 디스패치되는 계산 환경을 제공 합니다. 이러한 방식으로 보안 및 준수 요구를 충족하면서 가장 성능이 뛰어난 방법으로 대상 데이터 저장소 또는 컴퓨팅 서비스에 가능하면 가장 가까운 영역에서 작업을 수행할 수 있습니다.
@@ -40,7 +40,7 @@ Data Factory는 세 유형의 통합 런타임을 제공하며, 데이터 통합
 
 IR 유형 | 공용 네트워크 | 프라이빗 네트워크
 ------- | -------------- | ---------------
-Azure | 데이터 흐름<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
+Azure | Data Flow<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
 자체 호스팅 | 데이터 이동<br/>작업 디스패치 | 데이터 이동<br/>작업 디스패치
 Azure-SSIS | SSIS 패키지 실행 | SSIS 패키지 실행
 
@@ -53,13 +53,13 @@ Azure 통합 런타임은 다음을 수행할 수 있습니다.
 
 - Azure에서 데이터 흐름 실행 
 - 클라우드 데이터 저장소 간에 복사 작업 실행
-- 공용 네트워크에서 다음과 같은 변환 작업 디스패치: Databricks 노트북/Jar/Python 작업, HDInsight Hive 작업, hdinsight Pig 작업, HDInsight MapReduce 작업, HDInsight Spark 작업, HDInsight 스트리밍 작업, Machine Learning Batch 실행 작업 Machine Learning 업데이트 리소스 활동, 저장 프로시저 활동, Data Lake Analytics U-SQL 활동, .NET 사용자 지정 활동, 웹 활동, 조회 작업 및 메타 데이터 가져오기 작업이 있습니다.
+- 공용 네트워크에서 다음과 같은 변환 작업을 디스패치 합니다. Databricks 노트북/Jar/Python 작업, HDInsight Hive 작업, HDInsight Pig 작업, HDInsight MapReduce 작업, HDInsight Spark 작업, hdinsight Streaming activity, Machine 일괄 처리 실행 작업, Machine Learning 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .NET 사용자 지정 작업, 웹 작업, 조회 작업 및 메타 데이터 가져오기 작업을 학습 합니다.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 네트워크 환경
 Azure Integration Runtime는 액세스 가능한 공용 끝점을 사용 하 여 데이터 저장소 및 계산 서비스에 대 한 연결을 지원 합니다. Azure Virtual Network 환경에는 자체 호스팅 통합 런타임을 사용합니다.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Azure IR 컴퓨팅 리소스 및 크기 조정
-Azure 통합 런타임은 Azure에서 완전히 관리되고, 서버리스 계산을 제공합니다.  인프라 프로비전, 소프트웨어 설치, 패치 또는 용량 크기 조정을 걱정할 필요가 없습니다.  또한 실제 사용 기간에 대해서만 지불합니다.
+Azure 통합 런타임은 Azure에서 완전히 관리되고, 서버리스 컴퓨팅을 제공합니다.  인프라 프로비전, 소프트웨어 설치, 패치 또는 용량 크기 조정을 걱정할 필요가 없습니다.  또한 실제 사용 기간에 대해서만 지불합니다.
 
 Azure 통합 런타임은 안전하고 안정적이고 고성능의 방법으로 클라우드 데이터 저장소 간에 데이터를 이동하는 고유 컴퓨팅을 제공합니다.  Azure 통합 런타임의 크기를 명시적으로 조정할 필요 없이 복사 작업에 사용할 데이터 통합 단위 수를 설정할 수 있으며 Azure IR의 컴퓨팅 크기는 그에 따라 탄력적으로 확장됩니다. 
 
@@ -74,10 +74,10 @@ Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아
 자체 호스팅 IR로 다음을 수행할 수 있습니다.
 
 - 클라우드 데이터 저장소와 프라이빗 네트워크의 데이터 저장소 간에 복사 작업을 실행합니다.
-- 온-프레미스 또는 Azure Virtual Network에서 컴퓨팅 리소스에 대해 다음과 같은 변환 작업 디스패치: HDInsight Hive 작업 (BYOC-사용자 고유의 클러스터 가져오기), BYOC (hdinsight Pig activity), BYOC (hdinsight MapReduce activity), byoc (hdinsight Spark 활동), BYOC (HDInsight Streaming activity), Machine Learning Batch 실행 작업 Machine Learning 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, 사용자 지정 작업 (Azure Batch에서 실행), 조회 작업 및 메타 데이터 가져오기 작업을 업데이트 합니다.
+- 온-프레미스 또는 Azure Virtual Network의 계산 리소스에 대해 다음과 같은 변환 작업을 디스패치 합니다. HDInsight Hive 작업 (BYOC-사용자 고유의 클러스터 가져오기), BYOC (hdinsight Pig activity), BYOC (hdinsight MapReduce 활동), HDInsight Spark 활동 (BYOC), HDInsight Streaming activity (BYOC), Machine Learning Batch 실행 작업, Machine Learning 업데이트 리소스 활동, 저장 프로시저 활동, Data Lake Analytics U-SQL 활동, 사용자 지정 활동 (Azure Batch에서 실행), 조회 작업 및 메타 데이터 가져오기 작업을 제공 합니다.
 
 > [!NOTE] 
-> 자체 호스팅 통합 런타임을 사용하여 SAP Hana, MySQL 등 BYOD(bring-your-own driver)를 요구하는 데이터 저장소를 지원합니다.  자세한 내용은 [지원되는 데이터 소스](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+> 자체 호스팅 integration runtime을 사용 하 여 SAP Hana, MySQL 등 자신의 드라이버를 사용 해야 하는 데이터 저장소를 지원할 수 있습니다.  자세한 내용은 [지원 되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조 하세요.
 
 ### <a name="self-hosted-ir-network-environment"></a>자체 호스팅 IR 네트워크 환경
 퍼블릭 클라우드 환경에서 직접 시야를 가지고 있지 않은 프라이빗 네트워크 환경에서 데이터 통합을 안전하게 수행하려면 회사 방화벽 뒤에 또는 가상 사설망 내에 온-프레미스 환경에 자체 호스팅 IR을 설치할 수 있습니다.  자체 호스팅 통합 런타임은 아웃바운드 HTTP 기반 연결만이 인터넷을 열게 만듭니다.
@@ -101,7 +101,7 @@ Azure-SSIS IR은 SSIS 패키지 실행을 전담하는 완전히 관리되는 Az
 Azure-SSIS 런타임에 대한 자세한 내용은 다음 문서를 참조하세요. 
 
 - [자습서: Azure에 SSIS 패키지 배포](tutorial-create-azure-ssis-runtime-portal.md). 이 문서는 Azure-SSIS IR을 만들고 Azure SQL 데이터베이스를 사용하여 SSIS 카탈로그를 호스트하는 단계별 지침을 제공합니다. 
-- [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md) 자습서의 내용을 보충하는 이 문서에서는 Azure SQL Database Managed Instance를 사용하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 
+- [방법: Azure-SSIS 통합 런타임 만들기](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 Azure SQL Database Managed Instance를 사용하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 
 - [Azure-SSIS IR 모니터링](monitor-integration-runtime.md#azure-ssis-integration-runtime). 이 문서는 Azure-SSIS IR에 대한 정보와 반환된 정보의 상태 설명을 검색하는 방법을 설명합니다. 
 - [Azure-SSIS IR 관리](manage-azure-ssis-integration-runtime.md). 이 문서는 Azure-SSIS IR을 중지, 시작 또는 제거하는 방법을 설명합니다. 또한 IR에 노드를 추가하여 Azure-SSIS IR 규모를 확장하는 방법을 보여줍니다. 
 - [Azure-SSIS IR을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md). 이 문서에서는 Azure-SSIS IR을 Azure 가상 네트워크에 조인하는 방법에 대한 개념 정보를 제공합니다. 또한 Azure Portal을 사용하여 Azure-SSIS IR이 가상 네트워크에 조인할 수 있도록 가상 네트워크를 구성하는 단계도 제공합니다. 

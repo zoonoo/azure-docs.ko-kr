@@ -1,5 +1,5 @@
 ---
-title: SQL Database 애플리케이션 개발 개요 | Microsoft 문서
+title: SQL Database 애플리케이션 개발 개요
 description: 사용 가능한 연결 라이브러리 및 SQL Database에 연결하는 애플리케이션에 대한 모범 사례를 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 02/07/2019
-ms.openlocfilehash: 42fc73b5557fba91cc132a0abe8561f0a72bbb64
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 58f823aad157657de5445b1010a405af01c70171
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568865"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690635"
 ---
 # <a name="sql-database-application-development-overview"></a>SQL Database 애플리케이션 개발 개요
 
@@ -38,7 +38,7 @@ Azure SQL Database에 대한 액세스는 로그인과 방화벽으로 보호됩
 
 [데이터베이스 액세스 및 로그인 관리](sql-database-manage-logins.md)에 대해 알아보세요.
 
-## <a name="connections"></a>Connections
+## <a name="connections"></a>연결
 
 클라이언트 연결 논리에서 기본 시간 제한을 30초로 재정의합니다. 기본값 15초는 인터넷에 종속된 연결 시간으로 너무 짧습니다.
 
@@ -54,8 +54,8 @@ Azure SQL 데이터베이스에서 계획된 유지 관리 이벤트를 준비�
 
 ## <a name="network-considerations"></a>네트워크 고려 사항
 
-- 클라이언트 프로그램을 호스팅하는 컴퓨터에서 방화벽이 포트 1433에서 발신 TCP 통신을 허용하는지 확인합니다.  자세한 정보는 [Azure SQL Database 방화벽 구성](sql-database-configure-firewall-settings.md).
-- Azure VM(가상 머신)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL Database에 연결하는 경우에는, VM의 특정 포트 범위를 열어야 합니다. 자세한 정보는 [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)
+- 클라이언트 프로그램을 호스팅하는 컴퓨터에서 방화벽이 포트 1433에서 발신 TCP 통신을 허용하는지 확인합니다.  추가 정보: [Azure SQL Database 방화벽 구성](sql-database-configure-firewall-settings.md).
+- Azure VM(가상 머신)에서 클라이언트가 실행되는 동안 클라이언트 프로그램이 SQL Database에 연결하는 경우에는, VM의 특정 포트 범위를 열어야 합니다. 추가 정보: [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md).
 - Azure SQL Database에 대한 클라이언트 연결이 프록시를 바이패스하고 데이터베이스와 직접 상호 작용하는 경우가 있습니다. 1433 이외의 포트가 중요해집니다. 자세한 내용은 [Azure SQL Database 연결 아키텍처](sql-database-connectivity-architecture.md) 및 [ADO.NET 4.5 및 SQL Database에 대한 1433 이외의 포트](sql-database-develop-direct-route-ports-adonet-v12.md)를 참조하세요.
 - 관리 되는 인스턴스의 네트워킹 구성에 대해서 [는 관리 되는 인스턴스의 네트워크 구성](sql-database-howto-managed-instance.md#network-configuration)을 참조 하세요.
 

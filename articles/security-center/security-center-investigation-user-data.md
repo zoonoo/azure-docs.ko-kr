@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center 조사에서 사용자 데이터 관리 | Microsoft Docs
+title: Azure Security Center 조사에서 사용자 데이터 관리
 description: " Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법을 알아봅니다. "
 services: operations-management-suite
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
 ms.author: memildin
-ms.openlocfilehash: 8b6bde69f233fee9fe20b260e392966298f13a9a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 059ca2a26e50128d6bc4313dad9f995e97c06378
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202046"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686396"
 ---
 # <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Azure Security Center 조사에서 사용자 데이터 관리
 이 아티클에서는 Azure Security Center 조사 기능에서 사용자 데이터를 관리하는 방법에 대한 정보를 제공합니다. 조사 데이터는 [Azure Monitor 로그](../log-analytics/log-analytics-overview.md) 에 저장 되 고 Security Center에 노출 됩니다. 사용자 데이터 관리에는 데이터를 삭제하거나, 내보내는 기능이 포함됩니다.
@@ -45,7 +45,7 @@ DELETE
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/security/incidents/{incidentName}
 ```
 
-`GET` 요청을 사용하는 모든 인시던트를 나열하여 `incidentName` 입력을 찾을 수 있습니다.
+`incidentName` 요청을 사용하는 모든 인시던트를 나열하여 `GET` 입력을 찾을 수 있습니다.
 
 ```HTTP
 GET

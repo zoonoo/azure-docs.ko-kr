@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse를 사용하여 테넌트 데이터베이스에 대해 분석 쿼리 실행 | Microsoft Docs
+title: 'Azure SQL Data Warehouse를 사용 하 여 테 넌 트 데이터베이스에 대해 분석 쿼리 실행 '
 description: Azure SQL Database, SQL Data Warehouse, Azure Data Factory 또는 Power BI에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: b22a9cf8c79530fd931cbe944ef5bfc876a02243
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f4a89029d7ed90f1a2406dcf0f8046a1c651353f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570141"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691884"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL Database, SQL Data Warehouse, Data Factory 및 Power BI를 사용한 SaaS 분석 탐색
 
@@ -64,7 +64,7 @@ SaaS 애플리케이션은 클라우드에서 방대한 양의 테넌트 데이�
 
 ## <a name="setup"></a>설정
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 > [!NOTE]
 > 이 자습서에서는 현재 미리 보기가 제한된 Azure Data Factory의 기능을 사용합니다(연결된 서비스 매개 변수화). 이 자습서를 수행하려는 경우 [여기에](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxrVywox1_tHk9wgd5P8SVJUNlFINjNEOElTVFdMUEREMjVVUlJCUDdIRyQlQCN0PWcu) 구독 ID를 제공합니다. 구독을 사용하도록 설정하는 즉시 확인을 전송합니다.
@@ -109,7 +109,7 @@ Wingtip Tickets 앱에서 테넌트의 트랜잭션 데이터는 많은 데이�
 
 ![DWtables](media/saas-tenancy-tenant-analytics/DWtables.JPG)
 
-#### <a name="blob-storage"></a>Blob Storage
+#### <a name="blob-storage"></a>Linux 사용자 그룹용 Azure Files는 Linux에서 File Storage를 평가하고 채택할 때 피드백을 공유할 수 있도록 포럼을 제공합니다.
 1. [Azure Portal](https://ms.portal.azure.com)에서 애플리케이션을 배포하는 데 사용한 리소스 그룹으로 이동합니다. **wingtipstaging\<user\>** 이라는 스토리지 계정이 추가되었는지 확인합니다.
 
    ![DWtables](media/saas-tenancy-tenant-analytics/adf-staging-storage.PNG)
@@ -141,11 +141,11 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
 개요 페이지에서 왼쪽 패널의 **작성자** 탭으로 전환하고 세 [파이프라인](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) 및 세 [데이터 세트](https://docs.microsoft.com/azure/data-factory/concepts-datasets-linked-services)가 있는지 확인합니다.
 ![adf_author](media/saas-tenancy-tenant-analytics/adf_author_tab.JPG)
 
-세 개의 중첩 파이프라인은 SQLDBToDW, DBCopy 및 TableCopy입니다.
+중첩된 세 파이프라인은 SQLDBToDW, DBCopy 및 TableCopy입니다.
 
 **파이프라인 1 - SQLDBToDW**는 카탈로그 데이터베이스에 저장된 테넌트 데이터베이스의 이름을 조회하고(테이블 이름: [__ShardManagement].[ShardsGlobal]) 각 테넌트 데이터베이스에 대해 **DBCopy** 파이프라인을 실행합니다. 완료하면 제공된 **sp_TransformExtractedData** 저장 프로시저 스키마가 실행됩니다. 이 저장 프로시저는 준비 테이블에서 로드된 데이터를 변환하고 스타 스키마 테이블을 채웁니다.
 
-**파이프라인 2 - DBCopy**는 Blob Storage에 저장된 구성 파일에서 열과 원본 테이블의 이름을 조회합니다.  그런 다음, **TableCopy** 파이프라인이 4개의 각 테이블, 즉 TicketFacts, CustomerFacts, EventFacts 및 VenueFacts별로 실행됩니다. **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** 활동은 20개 데이터베이스 모두에 대해 병렬로 실행됩니다. ADF를 사용하면 최대 20회 루프 반복을 병렬로 실행할 수 있습니다. 더 많은 데이터베이스에 대한 여러 파이프라인을 만듭니다.    
+**파이프라인 2 - DBCopy**는 Blob Storage에 저장된 구성 파일에서 열과 원본 테이블의 이름을 조회합니다.  **TableCopy** 파이프라인은 TicketFacts, CustomerFacts, EventFacts 및 VenueFacts의 4개 테이블 각각에 대해 실행됩니다. **[Foreach](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)** 활동은 20개 데이터베이스 모두에 대해 병렬로 실행됩니다. ADF를 사용하면 최대 20회 루프 반복을 병렬로 실행할 수 있습니다. 더 많은 데이터베이스에 대한 여러 파이프라인을 만듭니다.    
 
 **파이프라인 3 - TableCopy**는 SQL Database(_rowversion_)에서 행 버전 번호를 사용하여 변경되거나 업데이트된 행을 식별합니다. 이 작업은 원본 테이블에서 행을 추출하기 위해 시작 및 마지막 행 버전을 찾습니다. 각 테넌트 데이터베이스에 저장된 **CopyTracker** 테이블은 각각 실행되는 각 원본 테이블에서 추출된 마지막 행을 추적합니다. 새로운 또는 변경된 행은 데이터 웨어하우스에서 **raw_Tickets**, **raw_Customers**, **raw_Venues** 및 **raw_Events**의 해당 준비 테이블로 복사됩니다. 마지막으로 마지막 행 버전은 **CopyTracker** 테이블에 저장되어 다음 추출에 대한 초기 행 버전으로 사용됩니다. 
 
@@ -158,7 +158,7 @@ Azure Data Factory는 데이터의 추출, 로드 및 변환을 오케스트레�
 ### <a name="data-warehouse-pattern-overview"></a>데이터 웨어하우스 패턴 개요
 SQL Data Warehouse는 테넌트 데이터에 대해 집계를 수행하기 위한 분석 저장소로 사용됩니다. 이 샘플에서 PolyBase는 SQL Data Warehouse에 데이터를 로드하는 데 사용됩니다. 원시 데이터는 스타 스키마 테이블로 변환된 행을 추적하는 ID 열이 있는 준비 테이블에 로드됩니다. 다음 이미지는 ![loadingpattern](media/saas-tenancy-tenant-analytics/loadingpattern.JPG) 같은 부하 패턴을 보여줍니다.
 
-SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사용합니다. 각 차원에는 ID 열을 사용하여 정의한 서로게이트 키가 있습니다. 모범 사례로 날짜 차원 테이블은 시간을 절약하기 위해 미리 채워져 있습니다. 다른 차원 테이블의 경우 CREATE TABLE AS SELECT... (CTAS) 문은 서로게이트 키와 함께 기존 수정 및 미수정 행을 포함하는 임시 테이블을 만드는 데 사용됩니다. 이는 IDENTITY_INSERT = ON을 사용하여 완료됩니다. 그런 다음, 새 행은 IDENTITY_INSERT=OFF를 사용하여 테이블에 삽입됩니다. 쉬운 롤백을 위해 기존 차원 테이블 및 임시 테이블의 이름을 바꾸어 새 차원 테이블로 만듭니다. 각 실행에 앞서 기존 차원 테이블은 삭제됩니다.
+SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사용합니다. 각 차원에는 ID 열을 사용하여 정의한 서로게이트 키가 있습니다. 모범 사례로 날짜 차원 테이블은 시간을 절약하기 위해 미리 채워져 있습니다. 다른 차원 CREATE TABLE 테이블의 경우 SELECT ... (CTAS) 문을 사용 하 여 기존에 수정 되거나 수정 되지 않은 행과 서로게이트 키를 포함 하는 임시 테이블을 만들 수 있습니다. 이는 IDENTITY_INSERT = ON을 사용하여 완료됩니다. 그런 다음, 새 행은 IDENTITY_INSERT=OFF를 사용하여 테이블에 삽입됩니다. 쉬운 롤백을 위해 기존 차원 테이블 및 임시 테이블의 이름을 바꾸어 새 차원 테이블로 만듭니다. 각 실행에 앞서 기존 차원 테이블은 삭제됩니다.
 
 차원 테이블은 팩트 테이블보다 먼저 로드됩니다. 이 시퀀싱은 각 도착 팩트에 대해 모든 참조된 차원이 이미 존재하는지 확인합니다. 팩트가 로드되면 각 해당 차원에 대한 비즈니스 키가 일치하고 해당 서로게이트 키가 각 팩트에 추가됩니다.
 
@@ -194,7 +194,7 @@ SCD(Slowly Changing Dimension) 유형 1 차원 테이블을 이 예제에서 사
 
     ![sign-in-to-power-bi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 왼쪽 창에서 **데이터베이스** 를 선택 하 고 사용자 이름 = *개발자*를 입력 한 다음 password = *P\@ssword1*을 입력 합니다. **연결**을 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스** 를 선택 하 고 사용자 이름 = *개발자*를 입력 한 다음 password = *P\@ssword1*를 입력 합니다. **Connect**를 클릭합니다.  
 
     ![database-sign-in](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -248,7 +248,7 @@ Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아보았습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 테넌트 분석에 대한 스타 스키마로 채워진 SQL Data Warehouse를 배포합니다.
@@ -259,6 +259,6 @@ Wingtip Tickets 예제에서는 일찌기 티켓 판매량이 예측 가능한 �
 
 축하합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

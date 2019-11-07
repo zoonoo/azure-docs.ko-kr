@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: 764ed4fefd1a3aba1f0b7812fa2965505aa34161
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: bfc7efa6e8ead3b53704e3c9bd189b18cb787618
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338680"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605844"
 ---
 # <a name="connect-with-the-ios-client"></a>iOS 클라이언트와 연결
 
@@ -28,7 +28,7 @@ IOS 베타 클라이언트를 설치 하려면:
 
 1. IOS 장치에 [Apple TestFlight](https://apps.apple.com/us/app/testflight/id899247664) 앱을 설치 합니다.
 2. IOS 장치에서 브라우저를 열고 [aka.ms/rdiosbeta](https://aka.ms/rdiosbeta)로 이동 합니다.
-3. 레이블 **아래에서 2 단계: 베타**에 참여 하 고 **테스트 시작**을 선택 합니다.
+3. 레이블 **2 단계: 베타 참여**에서 **테스트 시작**을 선택 합니다.
 4. TestFlight 앱으로 리디렉션되는 경우 **동의**를 선택 하 고 **설치**를 선택 합니다.
 
 ## <a name="subscribe-to-a-feed"></a>피드 구독
@@ -37,9 +37,9 @@ IOS 베타 클라이언트를 설치 하려면:
 
 피드를 구독 하려면 다음을 수행 합니다.
 
-1. 연결 센터에서를 탭 **+** 한 다음 **작업 영역 추가**를 탭 합니다.
+1. 연결 센터에서 **+** 를 탭 한 다음 **작업 영역 추가**를 탭 합니다.
 2. **피드 url 필드에** 피드 url을 입력 합니다. 피드 URL은 URL 또는 전자 메일 주소일 수 있습니다.
-   - URL을 사용 하는 경우 관리자가 제공한 URL을 사용 합니다. 일반적으로 URL <https://rdweb.wvd.microsoft.com>은입니다.
+   - URL을 사용 하는 경우 관리자가 제공한 URL을 사용 합니다. 일반적으로 URL은 <https://rdweb.wvd.microsoft.com>입니다.
    - 전자 메일을 사용 하려면 전자 메일 주소를 입력 하세요. 이렇게 하면 관리자가 서버를 구성한 경우 전자 메일 주소와 연결 된 URL을 검색 하도록 클라이언트에 지시 합니다.
 3. **다음**을 탭 합니다.
 4. 자격 증명을 입력하라는 메시지가 표시되면 입력합니다.

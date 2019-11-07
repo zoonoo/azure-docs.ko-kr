@@ -1,5 +1,5 @@
 ---
-title: 데이터 팩터리 함수 및 시스템 변수 | Microsoft Docs
+title: Data Factory 함수 및 시스템 변수
 description: Azure 데이터 팩터리 함수 및 시스템 변수 목록을 제공합니다.
 documentationcenter: ''
 author: djpmsft
@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 243923fba5b81ef68d6e4e560182d228e3b8ad1a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9acc369e24d1bac92dea3fb6ae391a410e5f6c3d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139756"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667660"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure 데이터 팩터리 - 함수 및 시스템 변수
 > [!NOTE]
@@ -25,12 +25,12 @@ ms.locfileid: "70139756"
 
 ## <a name="data-factory-system-variables"></a>데이터 팩터리 시스템 변수
 
-| 변수 이름 | Description | 개체 범위 | JSON 범위 및 사용 사례 |
+| 변수 이름 | 설명 | 개체 범위 | JSON 범위 및 사용 사례 |
 | --- | --- | --- | --- |
-| WindowStart |현재 작업 실행 창에 대한 시간 간격의 시작 |작업(activity) |<ol><li>데이터 선택 쿼리를 지정합니다. [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 참조되는 커넥터 문서 참조)</li> |
+| WindowStart |현재 작업 실행 창에 대한 시간 간격의 시작 |작업 |<ol><li>데이터 선택 쿼리를 지정합니다. [데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 참조되는 커넥터 문서 참조)</li> |
 | WindowEnd |현재 작업 실행 창에 대한 시간 간격의 끝 |작업 |WindowStart와 동일 |
-| SliceStart |생성되는 데이터 조각에 대한 시간 간격 시작 |작업(activity)<br/>데이터 세트 |<ol><li>[Azure Blob](data-factory-azure-blob-connector.md) 및 [파일 시스템 데이터 세트](data-factory-onprem-file-system-connector.md)와 작업하는 동안 동적 폴더 경로 및 파일 이름을 지정합니다.</li><li>작업 입력 컬렉션에서 데이터 팩터리 함수에 입력 종속성을 지정합니다.</li></ol> |
-| SliceEnd |현재 데이터 조각에 대한 시간 간격 끝 |작업(activity)<br/>dataset |SliceStart와 동일 |
+| SliceStart |생성되는 데이터 조각에 대한 시간 간격 시작 |작업<br/>dataset |<ol><li>[Azure Blob](data-factory-azure-blob-connector.md) 및 [파일 시스템 데이터 세트](data-factory-onprem-file-system-connector.md)와 작업하는 동안 동적 폴더 경로 및 파일 이름을 지정합니다.</li><li>작업 입력 컬렉션에서 데이터 팩터리 함수에 입력 종속성을 지정합니다.</li></ol> |
+| SliceEnd |현재 데이터 조각에 대한 시간 간격 끝 |작업<br/>dataset |SliceStart와 동일 |
 
 > [!NOTE]
 > 현재 데이터 팩터리에서는 작업에 지정된 일정이 출력 데이터 세트의 가용성에 지정된 일정과 정확히 일치해야 합니다. 따라서 WindowStart, WindowEnd, SliceStart 및 SliceEnd가 항상 같은 기간과 단일 출력 조각으로 매핑됩니다.
@@ -56,7 +56,7 @@ ms.locfileid: "70139756"
 
 1. 데이터 선택 쿼리 지정([데이터 이동 활동](data-factory-data-movement-activities.md) 문서에서 참조되는 커넥터 문서 참조)
    
-   데이터 팩터리 함수를 호출 하는 구문은 데이터 선택 쿼리와 작업 및 데이터 집합의 기타 속성에 대 한  **$$ \<함수 >** 입니다.  
+   데이터 팩터리 함수를 호출 하는 구문은 데이터 선택 쿼리와 작업 및 데이터 집합의 기타 속성에 대 한 **$$\<함수 >** 입니다.  
 2. 작업 입력 컬렉션에서 데이터 팩터리 함수에 입력 종속성 지정
    
     $$는 입력 종속성 식을 지정할 때는 필요하지 않습니다.     
@@ -72,32 +72,32 @@ ms.locfileid: "70139756"
 
 사용할 수 있는 다른 서식 옵션을 설명하는 [사용자 지정 날짜 및 시간 형식 문자열](https://msdn.microsoft.com/library/8kb3ddd4.aspx)(예: ay 및 yyyy) 토픽을 참조하세요. 
 
-### <a name="functions"></a>함수
+### <a name="functions"></a>Functions
 다음 표에서는 Azure Data Factory의 모든 함수를 보여 줍니다.
 
-| 범주 | 함수 | 매개 변수 | Description |
+| Category | 함수 | 매개 변수 | 설명 |
 | --- | --- | --- | --- |
-| 시간 |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |지정된 시간 X에 Y시간을 추가합니다. <br/><br/>예제: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
-| 시간 |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |X에 Y분을 추가합니다.<br/><br/>예: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
-| 시간 |StartOfHour(X) |X: Datetime |X의 시간 구성 요소로 표현되는 시간에 대한 시작 시간을 가져옵니다. <br/><br/>예: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
-| 날짜 |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y일을 추가합니다. <br/><br/>예제: 9/15/2013 12:00:00 PM + 2 days = 9/17/2013 12:00:00 PM.<br/><br/>Y를 음수로 지정하여 일도 뺄 수 있습니다.<br/><br/>예를 들어, `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM` 같은 형식입니다. |
-| 날짜 |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y개월을 추가합니다.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`.<br/><br/>Y를 음수로 지정하여 월도 뺄 수 있습니다.<br/><br/>예: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
-| 날짜 |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |X에 Y * 3개월을 추가합니다.<br/><br/>예: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
-| 날짜 |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y * 7일을 추가합니다.<br/><br/>예제: 9/15/2013 12:00:00 PM + 1 week = 9/22/2013 12:00:00 PM<br/><br/>Y를 음수로 지정하여 주도 뺄 수 있습니다.<br/><br/>예를 들어, `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM` 같은 형식입니다. |
-| 날짜 |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y년을 추가합니다.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Y를 음수로 지정하여 년도 뺄 수 있습니다.<br/><br/>예를 들어, `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM` 같은 형식입니다. |
-| Date |Day(X) |X: DateTime |X의 일 구성 요소를 가져옵니다.<br/><br/>예를 들어, `Day of 9/15/2013 12:00:00 PM is 9` 같은 형식입니다. |
-| 날짜 |DayOfWeek(X) |X: DateTime |X의 요일 구성 요소를 가져옵니다.<br/><br/>예를 들어, `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday` 같은 형식입니다. |
-| 날짜 |DayOfYear(X) |X: DateTime |X의 연도 구성 요소로 표현되는 연도의 일을 가져옵니다.<br/><br/>예를 들면 다음과 같습니다.<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
-| 날짜 |DaysInMonth(X) |X: DateTime |매개 변수 X의 월 구성 요소로 표현되는 월의 일을 가져옵니다.<br/><br/>예를 들어, `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month` 같은 형식입니다. |
-| 날짜 |EndOfDay(X) |X: DateTime |X의 끝나는 날(일 구성 요소)을 나타내는 날짜-시간을 가져옵니다.<br/><br/>예를 들어, `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM` 같은 형식입니다. |
-| 날짜 |EndOfMonth(X) |X: DateTime |매개 변수 X의 월 구성 요소로 표현되는 월의 끝을 가져옵니다. <br/><br/>예: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM`(9월의 끝을 나타내는 날짜 시간) |
-| 날짜 |StartOfDay(X) |X: DateTime |매개 변수 X의 일 구성 요소로 표현되는 일의 시작을 가져옵니다.<br/><br/>예를 들어, `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM` 같은 형식입니다. |
+| Time |AddHours(X,Y) |X: DateTime <br/><br/>Y: int |지정된 시간 X에 Y시간을 추가합니다. <br/><br/>예: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
+| Time |AddMinutes(X,Y) |X: DateTime <br/><br/>Y: int |X에 Y분을 추가합니다.<br/><br/>예: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |
+| Time |StartOfHour(X) |X: DateTime |X의 시간 구성 요소로 표현되는 시간에 대한 시작 시간을 가져옵니다. <br/><br/>예: `StartOfHour of 9/15/2013 05: 10:23 PM is 9/15/2013 05: 00:00 PM` |
+| Date |AddDays(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y일을 추가합니다. <br/><br/>예제: 9/15/2013 12:00:00 PM + 2일 = 9/17/2013 12:00:00 PM<br/><br/>Y를 음수로 지정하여 일도 뺄 수 있습니다.<br/><br/>예: `9/15/2013 12:00:00 PM - 2 days = 9/13/2013 12:00:00 PM`. |
+| Date |AddMonths(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y개월을 추가합니다.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 month = 10/15/2013 12:00:00 PM`에 설정해야 합니다에 설정해야 합니다.<br/><br/>Y를 음수로 지정하여 월도 뺄 수 있습니다.<br/><br/>예: `9/15/2013 12:00:00 PM - 1 month = 8/15/2013 12:00:00 PM`.|
+| Date |AddQuarters(X,Y) |X: DateTime <br/><br/>Y: int |X에 Y * 3개월을 추가합니다.<br/><br/>예: `9/15/2013 12:00:00 PM + 1 quarter = 12/15/2013 12:00:00 PM` |
+| Date |AddWeeks(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y * 7일을 추가합니다.<br/><br/>예: 9/15/2013 12:00:00 PM + 1주 = 9/22/2013 12:00:00 PM<br/><br/>Y를 음수로 지정하여 주도 뺄 수 있습니다.<br/><br/>예: `9/15/2013 12:00:00 PM - 1 week = 9/7/2013 12:00:00 PM`. |
+| Date |AddYears(X,Y) |X: DateTime<br/><br/>Y: int |X에 Y년을 추가합니다.<br/><br/>`Example: 9/15/2013 12:00:00 PM + 1 year = 9/15/2014 12:00:00 PM`<br/><br/>Y를 음수로 지정하여 년도 뺄 수 있습니다.<br/><br/>예: `9/15/2013 12:00:00 PM - 1 year = 9/15/2012 12:00:00 PM`. |
+| Date |Day(X) |X: DateTime |X의 일 구성 요소를 가져옵니다.<br/><br/>예: `Day of 9/15/2013 12:00:00 PM is 9`. |
+| Date |DayOfWeek(X) |X: DateTime |X의 요일 구성 요소를 가져옵니다.<br/><br/>예: `DayOfWeek of 9/15/2013 12:00:00 PM is Sunday`. |
+| Date |DayOfYear(X) |X: DateTime |X의 연도 구성 요소로 표현되는 연도의 일을 가져옵니다.<br/><br/>예제:<br/>`12/1/2015: day 335 of 2015`<br/>`12/31/2015: day 365 of 2015`<br/>`12/31/2016: day 366 of 2016 (Leap Year)` |
+| Date |DaysInMonth(X) |X: DateTime |매개 변수 X의 월 구성 요소로 표현되는 월의 일을 가져옵니다.<br/><br/>예: `DaysInMonth of 9/15/2013 are 30 since there are 30 days in the September month`. |
+| Date |EndOfDay(X) |X: DateTime |X의 끝나는 날(일 구성 요소)을 나타내는 날짜-시간을 가져옵니다.<br/><br/>예: `EndOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 11:59:59 PM`. |
+| Date |EndOfMonth(X) |X: DateTime |매개 변수 X의 월 구성 요소로 표현되는 월의 끝을 가져옵니다. <br/><br/>예: `EndOfMonth of 9/15/2013 05:10:23 PM is 9/30/2013 11:59:59 PM`(9월의 끝을 나타내는 날짜 시간) |
+| Date |StartOfDay(X) |X: DateTime |매개 변수 X의 일 구성 요소로 표현되는 일의 시작을 가져옵니다.<br/><br/>예: `StartOfDay of 9/15/2013 05:10:23 PM is 9/15/2013 12:00:00 AM`. |
 | DateTime |From(X) |X: String |문자열 X를 날짜 시간으로 구문 분석합니다. |
 | DateTime |Ticks(X) |X: DateTime |매개 변수 X의 틱 속성을 가져옵니다. 1틱은 100나노초에 해당합니다. 이 속성 값은 0001년 1월 1일 자정 12:00:00 이후 경과된 틱 수를 나타냅니다. |
-| 텍스트 |Format(X) |X: 문자열 변수 |텍스트의 서식을 지정합니다(`\\'` 조합을 사용하여 `'` 문자 이스케이프).|
+| 텍스트 |Format(X) |X: String 변수 |텍스트의 서식을 지정합니다(`\\'` 조합을 사용하여 `'` 문자 이스케이프).|
 
 > [!IMPORTANT]
-> 다른 함수 내에서 함수를 사용할 경우 내부 함수에 대한 접두사로 **$$** 를 사용해야 합니다. 예: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' 및 RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). 이 예에서는 **Time.AddHours** 함수에 대해 **$$** 접두사가 사용되지 않았습니다. 
+> 다른 함수 내에서 함수를 사용할 경우 내부 함수에 대한 접두사로 **$$** 를 사용해야 합니다. 예: $$Text.Format('PartitionKey eq \\'my_pkey_filter_value\\' 및 RowKey ge \\'{0: yyyy-MM-dd HH:mm:ss}\\'', Time.AddHours(SliceStart, -6)). 이 예에서는 **Time.AddHours$$ 함수에 대해**  접두사가 사용되지 않았습니다. 
 
 #### <a name="example"></a>예제
 다음 예제에서는 Hive 활동에 대한 입력 및 출력 매개 변수가 `Text.Format` 함수 및 SliceStart 시스템 변수를 사용하여 결정됩니다. 
@@ -139,7 +139,7 @@ ms.locfileid: "70139756"
 }
 ```
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 다음 예제에서는 저장 프로시저 작업에 대한 DataTime 매개 변수가 Text를 사용하여 결정됩니다. Format 함수 및 SliceStart 변수입니다. 
 
@@ -175,7 +175,7 @@ ms.locfileid: "70139756"
 }
 ```
 
-### <a name="example-3"></a>예제 3
+### <a name="example-3"></a>예 3
 SliceStart로 표현된 일 대신 이전 일의 데이터를 읽으려면 다음 예제와 같이 AddDays 함수를 사용합니다. 
 
 ```json

@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱에서 Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기-Azure
+title: FSLogix 프로필 컨테이너 NetApp Windows 가상 데스크톱-Azure
 description: Windows 가상 데스크톱에서 Azure NetApp Files를 사용 하 여 FSLogix 프로필 컨테이너를 만드는 방법
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: 4e714b872ae43eb313efe549c77f5610342f430c
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 1f5d1050815961f51c2bb1cfce256b1ea37d3ac1
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311625"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605770"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기
 
@@ -32,7 +32,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 >[!NOTE]
 >Azure의 여러 FSLogix 프로필 컨테이너 저장소 옵션에 대 한 비교 자료를 찾고 있는 경우 [FSLogix 프로필 컨테이너에 대 한 저장소 옵션](store-fslogix-profile.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 호스트 풀에 대해 FSLogix 프로필 컨테이너를 만들려면 먼저 다음을 수행 해야 합니다.
 
@@ -44,7 +44,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 
 시작 하려면 Azure NetApp Files 계정을 설정 해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 계정에 참가자 또는 관리자 권한이 있는지 확인 합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 계정에 참가자 또는 관리자 권한이 있는지 확인 합니다.
 
 2. 검색 표시줄의 오른쪽에 있는 **Azure Cloud Shell 아이콘** 을 선택 하 여 Azure Cloud Shell를 엽니다.
 
@@ -134,7 +134,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
     - **가상 네트워크**의 경우 드롭다운 메뉴에서 도메인 컨트롤러에 연결 되어 있는 기존 가상 네트워크를 선택 합니다.
     - **서브넷**에서 **새로 만들기**를 선택 합니다. 이 서브넷은 Azure NetApp Files에 위임 된다는 점에 유의 하세요.
 
-3.  완료되면 **다음: 프로토콜 \> @ no__t-1 @ no__t-2를 사용 하 여 프로토콜 탭을 열고 볼륨 액세스 매개 변수를 구성 합니다.
+3.  **다음: 프로토콜 \>\>** 를 선택 하 여 프로토콜 탭을 열고 볼륨 액세스 매개 변수를 구성 합니다.
 
 ## <a name="configure-volume-access-parameters"></a>볼륨 액세스 매개 변수 구성
 
@@ -168,11 +168,11 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 
 6. **설치**를 선택합니다.
 
-7. **C: \\Program Files @ no__t-2FSLogix @ No__t 앱** 으로 이동 하 여 에이전트를 설치 했는지 확인 합니다.
+7. **C:\\Program Files\\FSLogix\\앱** 으로 이동 하 여 에이전트를 설치 했는지 확인 합니다.
 
 8. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다.
 
-9. **Computer @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**로 이동 합니다.
+9. **컴퓨터\\HKEY_LOCAL_MACHINE\\software\\FSLogix**로 이동 합니다.
 
 10. **프로필**이라는 키를 만듭니다.
 
@@ -219,7 +219,7 @@ Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을
 
 5. **개요** 탭으로 이동 하 여 FSLogix 프로필 컨테이너가 공간을 사용 하 고 있는지 확인 합니다.
 
-6. 원격 데스크톱을 사용 하 여 호스트 풀의 모든 VM 부분에 직접 연결 하 고 **파일 탐색기** 를 엽니다. 그런 다음 **탑재 경로로** 이동 합니다 (다음 예제에서는 탑재 경로가 @no__t -1\\anf-SMB-3863.gt1107.onmicrosoft.com @ no__t-3anf-VOL).
+6. 원격 데스크톱을 사용 하 여 호스트 풀의 모든 VM 부분에 직접 연결 하 고 **파일 탐색기** 를 엽니다. 그런 다음 **탑재 경로로** 이동 합니다. 다음 예제에서는 탑재 경로가 \\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-볼륨)으로 이동 합니다.
 
    이 폴더에는 다음 예제에 나와 있는 것과 같은 프로필 VHD (또는 VHDX)가 있어야 합니다.
 

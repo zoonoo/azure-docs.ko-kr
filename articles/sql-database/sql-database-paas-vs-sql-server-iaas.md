@@ -1,5 +1,5 @@
 ---
-title: Azure SQL에서 적절 한 배포 옵션 선택 | Microsoft Docs
+title: Azure SQL에서 적절 한 배포 옵션 선택
 description: Azure SQL 데이터베이스, SQL 관리 되는 인스턴스 및 Azure 가상 컴퓨터의 SQL Server 간 배포 옵션 중에서 선택 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/22/2019
-ms.openlocfilehash: 998318ad1418c1076676725af03bd7f33c963b3a
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 791a4e95048bec8b3c5664bb97760f7c852950e0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279928"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687700"
 ---
 # <a name="choose-the-right-deployment-option-in-azure-sql"></a>Azure SQL에서 적절 한 배포 옵션 선택
 
@@ -29,7 +29,7 @@ ms.locfileid: "70279928"
 
 Azure와 온-프레미스 SQL Server 데이터베이스를 비교 논의할 때 우선 이 둘을 모두 사용할 수 있다는 점을 이해해야 합니다. Microsoft의 데이터 플랫폼은 SQL Server 기술을 활용 하며 물리적 온-프레미스 컴퓨터, 사설 클라우드 환경, 타사 호스팅 사설 클라우드 환경 및 공용 클라우드에 걸쳐 사용할 수 있도록 합니다. Azure virtual machines (SQL virtual machines)에 대 한 SQL Server를 사용 하면 동일한 서버 제품, 개발 도구 및 전문 지식 집합을 사용 하는 동시에 온-프레미스 및 클라우드 호스팅 배포를 조합 하 여 고유 하 고 다양 한 비즈니스 요구 사항을 충족할 수 있습니다. 이러한 환경에서.
 
-   ![클라우드 SQL Server 옵션: IaaS의 SQL Server 또는 클라우드의 SaaS SQL Database입니다.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
+   ![클라우드 SQL Server 옵션: IaaS의 SQL server 또는 클라우드의 SaaS SQL 데이터베이스.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
 
 다이어그램에 표시 된 것 처럼 각 제품은 인프라를 통해 보유 하 고 있는 관리 수준 및 비용 효율성을 기준으로 지정할 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure에서 SQL Server 작업을 호스트 서비스 ([PaaS](https://azure.micro
 
 대답에 따라 다음 옵션을 사용할 수 있습니다.
 
-- [**SQL 데이터베이스**](sql-database-technical-overview.md): 안정적인 최신 SQL Server 기능을 사용 하 고 개발 및 마케팅에 시간 제한이 있는 최신 클라우드 응용 프로그램에 가장 적합 합니다. 안정적인 최신 SQL Server Enterprise Edition을 기준으로 하는 완전 관리형 SQL 데이터베이스 엔진. 이 엔진은 *PaaS(Platform as a Service)* 산업 범주로 분류되며, Azure 클라우드에서 호스트되는 관계형 DBaaS(Database as a Service)입니다. SQL 데이터베이스는 여러 배포 옵션을 제공하며, 각 배포 옵션은 Microsoft에서 소유하고 호스트하고 유지 관리하는 표준화된 하드웨어 및 소프트웨어를 기반으로 합니다. SQL Server를 사용 하면 광범위 한 구성 (온-프레미스 또는 Azure 가상 컴퓨터)을 필요로 하는 기본 제공 기능 및 기능을 사용할 수 있습니다. SQL Database를 사용할 경우 추가 성능에 맞게 중단 없이 강화 및 확장하는 옵션을 통해 사용량에 따라 지불합니다. SQL Database에는 기본 제공 고가용성, 인텔리전스 및 관리와 같이 SQL Server에서 사용할 수 없는 몇 가지 추가 기능이 있습니다.
+- [**SQL database**](sql-database-technical-overview.md): 안정적인 최신 SQL Server 기능을 사용 하 고 개발 및 마케팅에 시간 제한이 있는 최신 클라우드 응용 프로그램에 가장 적합 합니다. 안정적인 최신 SQL Server Enterprise Edition을 기준으로 하는 완전 관리형 SQL 데이터베이스 엔진. 이 엔진은 *PaaS(Platform as a Service)* 산업 범주로 분류되며, Azure 클라우드에서 호스트되는 관계형 DBaaS(Database as a Service)입니다. SQL 데이터베이스는 여러 배포 옵션을 제공하며, 각 배포 옵션은 Microsoft에서 소유하고 호스트하고 유지 관리하는 표준화된 하드웨어 및 소프트웨어를 기반으로 합니다. SQL Server를 사용 하면 광범위 한 구성 (온-프레미스 또는 Azure 가상 컴퓨터)을 필요로 하는 기본 제공 기능 및 기능을 사용할 수 있습니다. SQL Database를 사용할 경우 추가 성능에 맞게 중단 없이 강화 및 확장하는 옵션을 통해 사용량에 따라 지불합니다. SQL Database에는 기본 제공 고가용성, 인텔리전스 및 관리와 같이 SQL Server에서 사용할 수 없는 몇 가지 추가 기능이 있습니다.
 
 
   데이터베이스는 다음과 같은 배포 옵션을 제공 합니다.
@@ -45,17 +45,17 @@ Azure에서 SQL Server 작업을 호스트 서비스 ([PaaS](https://azure.micro
   - 데이터베이스 서버를 통해 관리 되는 리소스의 공유 집합이 있는 데이터베이스 컬렉션인 [***탄력적 풀***](sql-database-elastic-pool.md). 단일 데이터베이스를 탄력적 풀로 이동하거나 탄력적 풀에서 제거할 수 있습니다. 이 옵션은 다중 테 넌 트 SaaS 응용 프로그램 패턴을 사용 하 여 새로운 클라우드를 사용 하는 응용 프로그램의 최신 응용 프로그램 개발에 최적화 되어 있습니다. 탄력적 풀은 변수 사용 패턴이 있는 여러 데이터베이스의 성능을 관리 하는 비용 효율적인 솔루션을 제공 합니다.
   - 단일 데이터베이스 및 탄력적 풀의 그룹을 관리 하는 데 사용 되는 [***데이터베이스 서버***](sql-database-servers.md)입니다. 데이터베이스 서버는 여러 단일 데이터베이스 또는 풀링된 데이터베이스, [로그인](sql-database-manage-logins.md), [방화벽 규칙](sql-database-firewall-configure.md), [감사 규칙](sql-database-auditing.md), [위협 검색 정책](sql-database-threat-detection.md)및 [장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)에 대 한 중앙 관리 지점 역할을 합니다.
 
-- [**SQL 관리 되는 인스턴스**](sql-database-managed-instance.md): 클라우드로의 대부분 마이그레이션에 적합 합니다. 관리 되는 인스턴스는 리프트 앤 시프트 준비가 된 리소스의 공유 집합을 사용 하는 시스템 및 사용자 데이터베이스의 컬렉션입니다. 안정적인 최신 SQL Server 기능을 사용 하 고 최소한의 변경으로 클라우드로 마이그레이션되는 새 응용 프로그램 또는 기존 온-프레미스 응용 프로그램에 가장 적합 합니다. 관리 되는 인스턴스는 데이터베이스의 공유 리소스 및 추가 인스턴스 범위 기능을 제공 하는 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/database-engine/sql-server-database-engine-overview) 의 인스턴스와 비슷합니다. 관리되는 인스턴스는 데이터베이스 변경 없이 또는 최소한의 변경으로 온-프레미스에서 데이터베이스를 마이그레이션할 수 있도록 지원합니다. 이 옵션은 Azure SQL Database의 모든 PaaS 혜택을 제공하지만 이전에 SQL VM에서만 사용할 수 있었던 기능을 추가합니다. 여기에는 기본 가상 네트워크(VNet) 및 온-프레미스 SQL Server와의 거의 100% 호환성이 포함됩니다. 관리 되는 인스턴스는 SQL Server를 Azure로 마이그레이션하기 위한 전체 SQL Server 액세스 및 기능 호환성을 제공 합니다.
+- [**SQL 관리 되는 인스턴스**](sql-database-managed-instance.md): 클라우드로의 대부분 마이그레이션에 가장 적합 합니다. 관리 되는 인스턴스는 리프트 앤 시프트 준비가 된 리소스의 공유 집합을 사용 하는 시스템 및 사용자 데이터베이스의 컬렉션입니다. 안정적인 최신 SQL Server 기능을 사용 하 고 최소한의 변경으로 클라우드로 마이그레이션되는 새 응용 프로그램 또는 기존 온-프레미스 응용 프로그램에 가장 적합 합니다. 관리 되는 인스턴스는 데이터베이스의 공유 리소스 및 추가 인스턴스 범위 기능을 제공 하는 [Microsoft SQL Server 데이터베이스 엔진](https://docs.microsoft.com/sql/database-engine/sql-server-database-engine-overview) 의 인스턴스와 비슷합니다. 관리되는 인스턴스는 데이터베이스 변경 없이 또는 최소한의 변경으로 온-프레미스에서 데이터베이스를 마이그레이션할 수 있도록 지원합니다. 이 옵션은 Azure SQL Database의 모든 PaaS 혜택을 제공하지만 이전에 SQL VM에서만 사용할 수 있었던 기능을 추가합니다. 여기에는 기본 가상 네트워크(VNet) 및 온-프레미스 SQL Server와의 거의 100% 호환성이 포함됩니다. 관리 되는 인스턴스는 SQL Server를 Azure로 마이그레이션하기 위한 전체 SQL Server 액세스 및 기능 호환성을 제공 합니다.
 
 
-- [**SQL 가상 컴퓨터**](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md): OS 수준 액세스를 필요로 하는 마이그레이션 및 응용 프로그램에 가장 적합 합니다. SQL 가상 머신은 변경 내용을 최소화 하거나 변경 하지 않고 클라우드로 신속 하 게 마이그레이션해야 하는 기존 응용 프로그램에 대해 리프트 앤 시프트가 준비 됩니다. SQL 가상 머신은 Azure로의 마이그레이션을 위해 SQL Server 인스턴스 및 기본 OS에 대 한 모든 관리 권한을 제공 합니다. 온-프레미스 개발 및 테스팅 SQL Server 하드웨어를 구입하지 않는 빠른 개발 및 테스트 시나리오 SQL 가상 머신은 업계 범주 *IaaS (Infrastructure as a Service* )에 포함 되며, Azure 클라우드의 완전히 관리 되는 VM (가상 머신) 내에서 SQL Server를 실행할 수 있습니다. SQL 가상 머신은 Microsoft에서 소유 하 고 호스트 하며 유지 관리 하는 표준화 된 하드웨어 에서도 실행 됩니다. SQL 가상 컴퓨터를 사용 하는 경우 이미 SQL Server 이미지에 포함 된 SQL Server 라이선스를 지불 하거나 기존 라이선스를 쉽게 사용할 수 있습니다. 필요에 따라 VM을 중지하거나 다시 시작할 수도 있습니다. 클라우드에 설치 되 고 호스트 되는 SQL Server는 Azure에서 실행 되는 Windows Server 또는 Linux 가상 컴퓨터 (IaaS (infrastructure as a service) 라고도 함)에서 실행 됩니다. SQL 가상 머신은 데이터베이스를 변경 하지 않고 온-프레미스 SQL Server 데이터베이스 및 응용 프로그램을 마이그레이션하는 데 적합 한 옵션입니다. 모든 최신 버전의 SQL Server를 IaaS 가상 머신에 설치할 수 있습니다. SQL database와 SQL 관리 되는 인스턴스의 가장 중요 한 차이점은 SQL Server Vm이 데이터베이스 엔진에 대 한 모든 권한을 허용 한다는 것입니다. 유지 관리/패치를 시작할 시기를 선택 하 고, 복구 모델을 단순 또는 대량 로그로 변경 하거나, 필요에 따라 서비스를 일시 중지 하거나 시작 하 고, SQL Server 데이터베이스 엔진을 완벽 하 게 사용자 지정할 수 있습니다. 이 추가 컨트롤을 사용 하면 가상 머신을 관리 하는 추가 책임이 있습니다.
+- [**SQL 가상 컴퓨터**](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md): OS 수준 액세스가 필요한 마이그레이션 및 응용 프로그램에 가장 적합 합니다. SQL 가상 머신은 변경 내용을 최소화 하거나 변경 하지 않고 클라우드로 신속 하 게 마이그레이션해야 하는 기존 응용 프로그램에 대해 리프트 앤 시프트가 준비 됩니다. SQL 가상 머신은 Azure로의 마이그레이션을 위해 SQL Server 인스턴스 및 기본 OS에 대 한 모든 관리 권한을 제공 합니다. 온-프레미스 개발 및 테스팅 SQL Server 하드웨어를 구입하지 않는 빠른 개발 및 테스트 시나리오 SQL 가상 머신은 업계 범주 *IaaS (Infrastructure as a Service* )에 포함 되며, Azure 클라우드의 완전히 관리 되는 VM (가상 머신) 내에서 SQL Server를 실행할 수 있습니다. SQL 가상 머신은 Microsoft에서 소유 하 고 호스트 하며 유지 관리 하는 표준화 된 하드웨어 에서도 실행 됩니다. SQL 가상 컴퓨터를 사용 하는 경우 이미 SQL Server 이미지에 포함 된 SQL Server 라이선스를 지불 하거나 기존 라이선스를 쉽게 사용할 수 있습니다. 필요에 따라 VM을 중지하거나 다시 시작할 수도 있습니다. 클라우드에 설치 되 고 호스트 되는 SQL Server는 Azure에서 실행 되는 Windows Server 또는 Linux 가상 컴퓨터 (IaaS (infrastructure as a service) 라고도 함)에서 실행 됩니다. SQL 가상 머신은 데이터베이스를 변경 하지 않고 온-프레미스 SQL Server 데이터베이스 및 응용 프로그램을 마이그레이션하는 데 적합 한 옵션입니다. 모든 최신 버전의 SQL Server를 IaaS 가상 머신에 설치할 수 있습니다. SQL database와 SQL 관리 되는 인스턴스의 가장 중요 한 차이점은 SQL Server Vm이 데이터베이스 엔진에 대 한 모든 권한을 허용 한다는 것입니다. 유지 관리/패치를 시작할 시기를 선택 하 고, 복구 모델을 단순 또는 대량 로그로 변경 하거나, 필요에 따라 서비스를 일시 중지 하거나 시작 하 고, SQL Server 데이터베이스 엔진을 완벽 하 게 사용자 지정할 수 있습니다. 이 추가 컨트롤을 사용 하면 가상 머신을 관리 하는 추가 책임이 있습니다.
 
   기존 애플리케이션을 Azure로 마이그레이션하거나 기존 온-프레미스 애플리케이션을 하이브리드 배포의 클라우드로 확장하는 데 최적화됩니다. 또한 가상 머신에서 SQL Server를 사용하여 기존 SQL Server 애플리케이션을 개발하고 테스트할 수 있습니다. SQL 가상 머신에서는 전용 SQL Server 인스턴스와 클라우드 기반 VM에 대 한 전체 관리 권한이 있습니다. 이 옵션은 가상 머신을 유지 관리하는 IT 리소스를 이미 갖춘 조직에게 가장 적합합니다. 이러한 기능을 사용하면 애플리케이션 관련 성능 및 가용성 요구 사항을 해결하는 고도로 사용자 지정된 시스템을 구축할 수 있습니다.
 
 
 다음 표에는 추가 차이점이 나와 있습니다 ***. 그러나 데이터베이스와 관리 되는 인스턴스는 모두 전체 관리 비용을 여러 데이터베이스를 프로 비전 하 고 관리 하는 데 필요한 최소한으로 줄이는 데 최적화 되어 있습니다.*** 가상 머신, 운영 체제 또는 데이터베이스 소프트웨어를 관리할 필요가 없으므로 지속적인 관리 비용을 줄입니다. 업그레이드, 고가용성 또는 [백업](sql-database-automated-backups.md)을 관리할 필요가 없습니다. 일반적으로 Azure SQL Database는 단일 IT 또는 개발 리소스로 관리되는 데이터베이스 수를 크게 늘립니다. 또한 [탄력적 풀](sql-database-elastic-pool.md)은 테넌트 격리, 데이터베이스 간에 리소스를 공유하여 비용을 줄이는 기능을 비롯한 기능으로 SaaS 다중 테넌트 애플리케이션 아키텍처를 지원합니다. [관리되는 인스턴스](sql-database-managed-instance.md)는 데이터베이스 간에 리소스를 공유하는 기능뿐만 아니라 기존 애플리케이션을 쉽게 마이그레이션할 수 있게 해주는 인스턴스 범위 기능을 지원합니다.
 
-| SQL 데이터베이스 | SQL Managed Instance | SQL 가상 컴퓨터 |
+| SQL 데이터베이스 | SQL 관리 되는 인스턴스 | SQL 가상 컴퓨터 |
 | :--- | :--- | :--- |
 |대부분의 온-프레미스 데이터베이스 수준 기능을 지원합니다. 가장 자주 사용되는 SQL Server 기능을 사용할 수 있습니다.<br/>99.995%의 가용성이 보장 됩니다.<br/>기본 제공 백업, 패치, 복구<br/>안정적인 최신 데이터베이스 엔진 버전<br/>필요한 리소스(CPU/스토리지)를 개별 데이터베이스에 할당할 수 있습니다.<br/>기본 제공 고급 인텔리전스 및 보안<br/>온라인에서 리소스(CPU/스토리지)를 변경할 수 있습니다.| 거의 모든 온-프레미스 인스턴스 수준 및 데이터베이스 수준 기능을 지원합니다. 온-프레미스의 SQL Server와의 높은 호환성<br/>99.99% 가용성 보장<br/>기본 제공 백업, 패치, 복구<br/>안정적인 최신 데이터베이스 엔진 버전<br/>SQL Server에서 쉽게 마이그레이션할 수 있습니다.<br/>Azure VNet 내의 개인 IP 주소.<br/>기본 제공 고급 인텔리전스 및 보안<br/>온라인에서 리소스(CPU/스토리지)를 변경할 수 있습니다.| SQL Server 엔진을 완전히 제어할 수 있습니다. 모든 온-프레미스 기능을 지원합니다.<br/>최대 99.99%의 가용성.<br/>일치하는 온-프레미스 SQL Server의 버전과 완전히 동등합니다.<br/>고정된 잘 알려진 데이터베이스 엔진 버전입니다.<br/>SQL Server 온-프레미스에서 쉽게 마이그레이션할 수 있습니다.<br/>Azure VNet 내의 개인 IP 주소.<br/>SQL Server가 있는 호스트에 애플리케이션 또는 서비스를 배포할 수 있습니다.|
 |SQL Server에서 마이그레이션하기 어려울 수 있습니다.<br/>일부 SQL Server 기능을 사용할 수 없습니다.<br/>정확한 유지 관리 시간이 보장되지 않습니다(하지만 거의 투명함).<br/>SQL Server 버전과의 호환성은 데이터베이스 호환성 수준을 사용해야만 달성될 수 있습니다.<br/>개인 IP 주소를 할당할 수 없습니다(방화벽 규칙을 사용하여 액세스를 제한할 수 있음).|사용할 수 없는 최소한의 SQL Server 기능이 아직 있습니다.<br/>정확한 유지 관리 시간이 보장되지 않습니다(하지만 거의 투명함).<br/>SQL Server 버전과의 호환성은 데이터베이스 호환성 수준을 사용해야만 달성될 수 있습니다.|사용자가 백업 및 패치를 관리해야 합니다.<br>사용자 고유의 고가용성 솔루션을 구현해야 합니다.<br/>리소스(CPU/스토리지)를 변경하는 동안 가동 중지 시간이 발생합니다.|
@@ -78,7 +78,7 @@ Azure에서 SQL Server 작업을 호스트 서비스 ([PaaS](https://azure.micro
 
 ### <a name="cost"></a>비용
 
-현금이 쪼들리는 신생 기업이든 자리를 잡은 회사에서 빠듯한 예산으로 운영되는 팀이든 데이터베이스를 호스트하는 방법을 결정할 때 제한된 자금이 주된 동인으로 작용하는 경우가 많습니다. 이 섹션에서는 SQL Database 및 SQL 가상 컴퓨터 또한 총 애플리케이션 비용을 계산하는 방법에 대해 알아봅니다.
+현금이 쪼들리는 신생 기업이든 자리를 잡은 회사에서 빠듯한 예산으로 운영되는 팀이든 데이터베이스를 호스트하는 방법을 결정할 때 제한된 자금이 주된 동인으로 작용하는 경우가 많습니다. 이 섹션에서는 이러한 두 가지 관계형 데이터베이스 옵션인 SQL Database 및 SQL 가상 컴퓨터와 관련 하 여 Azure의 청구 및 라이선스 기본 사항에 대해 알아봅니다. 또한 총 애플리케이션 비용을 계산하는 방법에 대해 알아봅니다.
 
 #### <a name="billing-and-licensing-basics"></a>청구 및 라이선스 기본 사항
 
@@ -101,7 +101,7 @@ Azure에서 SQL Server 작업을 호스트 서비스 ([PaaS](https://azure.micro
 가격에 대한 자세한 내용은 다음 리소스를 참조하세요.
 
 - [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)
-- [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)에 대한 [가상 머신 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/)
+- [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/) 및 [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#sql)에 대한 [가상 머신 가격 책정](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
 - [Azure 가격 계산기](https://azure.microsoft.com/pricing/calculator/)
 
 ### <a name="administration"></a>관리
@@ -121,7 +121,7 @@ Microsoft는 **SQL Database**에 대해 99.99%의 가용성 SLA를 제공합니�
 
 ### <a name="market"></a>Azure로 이동해야 하는 경우
 
-**SQL 데이터베이스** (단일 데이터베이스 또는 탄력적 풀)는 개발자의 생산성과 새 솔루션에 대 한 빠른 출시 시간이 중요 한 경우 클라우드로 설계 된 응용 프로그램에 적합 한 솔루션입니다. 프로그래밍 방식 DBA와 비슷한 기능을 사용하여 기본 운영 체제 및 데이터베이스를 관리할 필요성을 낮추므로 클라우드 설계자와 개발자에게 이상적인 솔루션입니다.
+**SQL database** (단일 데이터베이스 또는 탄력적 풀)는 개발자 생산성을 높이고 새로운 솔루션을 빠르게 출시 하는 데 매우 중요 한 경우 클라우드로 설계 된 응용 프로그램에 적합 한 솔루션입니다. 프로그래밍 방식 DBA와 비슷한 기능을 사용하여 기본 운영 체제 및 데이터베이스를 관리할 필요성을 낮추므로 클라우드 설계자와 개발자에게 이상적인 솔루션입니다.
 
 **Sql 관리 되는 인스턴스** 는 azure sql에 대 한 기존 응용 프로그램의 마이그레이션을 간소화 하 여 마이그레이션된 데이터베이스 응용 프로그램을 azure의 시장에 빠르게 제공할 수 있도록 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Hive 활동을 사용하여 데이터 변환 - Azure | Microsoft Docs
+title: Hive 작업을 사용 하 여 데이터 변환-Azure
 description: Azure 데이터 공장에서 Hive 활동을 사용하여 필요 시/사용자 고유의 HDInsight 클러스터에서 Hive 쿼리를 실행하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 8a7e6748f450ae398a05097ac6b192d074f5f1f7
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f159f672c999d7877ef89cd78d23c4a608ccf1ab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139527"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666983"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 활동을 사용하여 데이터 변환 
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -33,12 +33,12 @@ ms.locfileid: "70139527"
 > * [.NET 사용자 지정 작업](data-factory-use-custom-activities.md)
 
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory에서 Hive 작업을 사용하여 데이터 변환](../transform-data-using-hadoop-hive.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory에서 Hive 작업을 사용하여 데이터 변환](../transform-data-using-hadoop-hive.md)을 참조하세요.
 
 Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight Hive 작업은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터의 Hive 쿼리를 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 
 > [!NOTE] 
-> Azure Data Factory를 처음 접하는 경우 이 문서를 읽기 전에 [Azure Data Factory 소개](data-factory-introduction.md)를 읽고 [첫 번째 데이터 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 자습서를 수행하세요. 
+> Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](data-factory-introduction.md)를 읽고 이 문서를 읽기 전에 [첫 번째 데이터 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 자습서를 수행하세요. 
 
 ## <a name="syntax"></a>구문
 
@@ -80,8 +80,8 @@ Data Factory [파이프라인](data-factory-create-pipelines.md)에서 HDInsight
 | inputs |Hive 활동에서 사용된 입력 |아니요 |
 | outputs |Hive 활동에서 생성된 출력 |예 |
 | linkedServiceName |데이터 팩터리에서 연결된 서비스로 등록된 HDInsight 클러스터에 대한 참조 |예 |
-| 스크립트(script) |Hive 스크립트 인라인 지정 |아니요 |
-| scriptPath |.NET용 File Storage 시작 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
+| script |Hive 스크립트 인라인 지정 |아니요 |
+| scriptPath |{1}.NET용 File Storage 시작{2} 'script' 또는 'scriptPath' 속성을 사용합니다. 둘 모두를 사용할 수는 없습니다. 파일 이름은 대/소문자를 구분합니다. |아니요 |
 | defines |'hiveconf'를 사용하는 Hive 스크립트 내에서 참조하기 위해 매개 변수를 키/값 쌍으로 지정 |아니요 |
 
 ## <a name="example"></a>예제
@@ -127,7 +127,7 @@ FROM HiveSampleIn Group by ProfileID
 데이터 팩터리 파이프라인에서 이 Hive 스크립트를 실행하려면 다음을 수행해야 합니다
 
 1. 연결된 서비스를 만들어 [자체적인 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-linked-service)를 등록하거나 [주문형 HDInsight 컴퓨팅 클러스터](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service)를 구성합니다. 이 연결된 서비스를 "HDInsightLinkedService"라고 하겠습니다.
-2. [연결된 서비스](data-factory-azure-blob-connector.md)를 만들어 데이터를 호스팅하는 Azure Blob Storage에 연결을 구성합니다. 이 연결된 서비스를 "StorageLinkedService"라고 합니다.
+2. 데이터를 호스팅하는 Azure Blob Storage로의 연결을 구성하기 위해 [연결된 서비스](data-factory-azure-blob-connector.md) 를 만듭니다. 이 연결된 서비스를 "StorageLinkedService"라고 합니다.
 3. 입력 및 출력 데이터를 가르키는 [데이터 세트](data-factory-create-datasets.md)를 만듭니다. 입력 데이터 세트를 "HiveSampleIn"라고 하고 출력 데이터 세트를 "HiveSampleOut"라고 합니다.
 4. \#2단계에서 구성된 Azure Blob Storage에 Hive 쿼리를 파일로 복사합니다. 데이터를 호스팅하는 스토리지가 이 쿼리 파일을 호스트하는 스토리지와 다른 경우 서비스에 연결된 별도 Azure Storage를 만들고 작업에서 이를 참조합니다. **scriptPath**를 사용하여 hive 쿼리 파일에 대한 경로를 지정하고 **scriptLinkedService**를 사용하여 스크립트 파일을 포함하는 Azure Storage를 지정합니다. 
    

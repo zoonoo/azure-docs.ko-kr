@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Azure SQL Data Warehouse에 데이터 로드 | Microsoft Docs
+title: Azure Data Factory를 사용하여 Azure SQL Data Warehouse에 데이터 로드
 description: Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터 복사
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 6a7e0a27d3cda4193a04467d541f851a9e57fa46
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 538751b1e93dfec66c35ea3768bde603c198df32
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60549088"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672757"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse에 데이터 로드
 
@@ -26,10 +26,10 @@ ms.locfileid: "60549088"
 
 Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로드하면 다음과 같은 이점이 있습니다.
 
-* **간편한 설정**: 스크립팅이 필요 없는 직관적인 5 단계 마법사.
-* **다양한 데이터 저장소 지원**: 다양한 온-프레미스 및 클라우드 기반 데이터 저장소에 대한 기본 지원을 제공합니다. 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
-* **보안 및 규정 준수**: 데이터는 HTTPS 또는 ExpressRoute를 통해 전송됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
-* **PolyBase를 사용하여 뛰어난 성능 제공**: Polybase는 Azure SQL Data Warehouse로 데이터를 이동하는 데 있어 가장 효율적인 방법입니다. 스테이징 Blob 기능을 사용하여 Azure Blob Storage 및 Data Lake Store를 포함하여 모든 유형의 데이터 스토리지에서 높은 로드 속도를 얻습니다. (Polybase는 기본적으로 Azure Blob Storage 및 Data Lake Store를 지원합니다.) 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조하세요.
+* **간편한 설정**: 스크립팅이 필요 없는 직관적인 5단계 마법사.
+* **다양한 데이터 저장소 지원**: 다양한 온-프레미스 및 클라우드 기반 데이터 저장소 집합에 대한 기본 제공 지원. 자세한 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
+* **보안 및 규정 준수**: 데이터가 HTTPS 또는 ExpressRoute를 통해 전송됩니다. 글로벌 서비스가 제공되므로 데이터가 지리적 경계를 벗어나지 않습니다.
+* **PolyBase를 사용하여 제공되는 뛰어난 성능**: 데이터를 Azure SQL Data Warehouse로 이동하는 가장 효율적인 방법은 Polybase를 사용하는 것입니다. 스테이징 Blob 기능을 사용하여 Azure Blob Storage 및 Data Lake Store를 포함하여 모든 유형의 데이터 스토리지에서 높은 로드 속도를 얻습니다. Polybase는 기본적으로 Azure Blob storage 및 Azure Data Lake Store을 지원 합니다. 자세한 내용은 [복사 작업 성능](copy-activity-performance.md)을 참조 하세요.
 
 이 문서에서는 Data Factory 데이터 복사 도구를 사용하여 _Azure SQL Database의 데이터를 Azure SQL Data Warehouse로 로드_하는 방법을 설명합니다. 다른 데이터 저장소 유형에서 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다.
 
@@ -39,13 +39,13 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* Azure SQL Data Warehouse: 데이터 웨어하우스 SQL 데이터베이스에서 복사 된 데이터를 보유 합니다. Azure SQL Data Warehouse가 아직 없는 경우 [SQL Data Warehouse 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md)의 지침을 참조하세요.
-* Azure SQL Database: 이 자습서는 Adventure Works LT 샘플 데이터를 사용하여 Azure SQL database에서 데이터를 복사합니다. [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 따라 SQL 데이터베이스를 만들 수 있습니다. 
-* Azure Storage 계정: Azure 저장소는 대량 복사 작업에서 _준비_ blob으로 사용됩니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
+* Azure SQL Data Warehouse: 데이터 웨어하우스에는 SQL 데이터베이스에서 복사된 데이터를 보관하고 있습니다. Azure SQL Data Warehouse가 아직 없는 경우 [SQL Data Warehouse 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md)의 지침을 참조하세요.
+* Azure SQL Database: 이 자습서는 Adventure Works LT 샘플 데이터가 포함된 Azure SQL 데이터베이스에서 데이터를 복사합니다. [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 따라 SQL 데이터베이스를 만들 수 있습니다. 
+* Azure 스토리지 계정: Azure Storage는 대량 복사 작업에서 _스테이징_ Blob으로 사용됩니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
 
 ## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
-1. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 차례로 선택합니다. 
+1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -53,7 +53,7 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
       
    ![새 데이터 팩터리 페이지](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
-    * **이름**: Azure Data Factory의 전역적으로 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadSQLDWDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리에 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
+    * **이름**: Azure 데이터 팩터리의 전역 고유 이름을 입력합니다. "데이터 팩터리 이름 \"LoadSQLDWDemo\"를 사용할 수 없습니다" 오류가 발생하면 데이터 팩터리에 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**라는 이름을 사용할 수 있습니다. 데이터 팩터리를 다시 만들어 봅니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
     * **구독**: 데이터 팩터리를 만들 Azure 구독을 선택합니다. 
     * **리소스 그룹**: 드롭다운 목록에서 기존 리소스 그룹을 선택하거나 **새로 만들기** 옵션을 선택하고 리소스 그룹의 이름을 입력합니다. 리소스 그룹에 대한 자세한 내용은 [리소스 그룹을 사용하여 Azure 리소스 관리](../azure-resource-manager/resource-group-overview.md)를 참조하세요.  
     * **버전**: **V2**를 선택합니다.
@@ -85,11 +85,11 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 
     ![Azure SQL DB 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. **새 연결된 서비스** 페이지에서, DB 이름과 서버 이름을 드롭다운 목록에서 선택하고, 사용자 이름 및 암호를 지정합니다. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
+    c. **새 연결 된 서비스** 페이지의 드롭다운 목록에서 서버 이름과 DB 이름을 선택 하 고 사용자 이름 및 암호를 지정 합니다. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
    
     ![Azure SQL DB 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
-    d. 새로 만든 연결된 서비스를 원본으로 선택하고 **다음**을 클릭합니다.
+    ㄹ. 새로 만든 연결된 서비스를 원본으로 선택하고 **다음**을 클릭합니다.
 
     ![원본 연결된 서비스 선택](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
 
@@ -107,11 +107,11 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 
     ![Azure SQL DW 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. **새 연결된 서비스** 페이지에서, DB 이름과 서버 이름을 드롭다운 목록에서 선택하고, 사용자 이름 및 암호를 지정합니다. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
+    c. **새 연결 된 서비스** 페이지의 드롭다운 목록에서 서버 이름과 DB 이름을 선택 하 고 사용자 이름 및 암호를 지정 합니다. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
    
     ![Azure SQL DW 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
-    d. 새로 만든 연결된 서비스를 싱크로 선택하고 **다음**을 클릭합니다.
+    ㄹ. 새로 만든 연결된 서비스를 싱크로 선택하고 **다음**을 클릭합니다.
 
     ![연결된 싱크 서비스 선택](./media/load-azure-sql-data-warehouse/select-sink-linked-service.png)
 
@@ -153,9 +153,9 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 
     ![작업 실행 모니터링](./media/load-azure-sql-data-warehouse/activity-monitoring.png)
 
-1. 각 복사 작업의 실행 세부 정보를 모니터링하려면 작업 모니터링 보기의 **작업** 아래에서 **세부 정보** 링크를 선택합니다. 원본에서 싱크로 복사되는 데이터 볼륨, 데이터 처리량, 해당 기간의 실행 단계, 사용되는 구성 등의 세부 정보를 모니터링할 수 있습니다.
+1. 각 복사 작업의 실행 세부 정보를 모니터링하려면 작업 모니터링 보기의 **작업** 아래에서 **세부 정보** 링크를 선택합니다. 원본에서 싱크로 복사되는 데이터 볼륨, 데이터 처리량, 해당 시간의 실행 단계, 사용되는 구성 등의 세부 정보를 모니터링할 수 있습니다.
 
-    ![작업 실행 세부 정보 모니터링](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
+    ![활동 실행 세부 정보 모니터링](./media/load-azure-sql-data-warehouse/monitor-activity-run-details.png)
 
 ## <a name="next-steps"></a>다음 단계
 

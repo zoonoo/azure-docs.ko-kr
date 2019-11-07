@@ -1,5 +1,5 @@
 ---
-title: 보안 관리 되는 인스턴스 공용 끝점-Azure SQL Database 관리 되는 인스턴스 | Microsoft Docs
+title: 보안 관리 되는 인스턴스 공용 끝점-Azure SQL Database 관리 되는 인스턴스
 description: 관리 되는 인스턴스를 사용 하 여 Azure에서 공용 끝점 안전 하 게 사용
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: c7f57a636e95bb137dd4285b8f9ce8343b27d2a0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3d97eb16ee2a8b3203b187dca7b2a17974473098
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567360"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687955"
 ---
 # <a name="use-an-azure-sql-database-managed-instance-securely-with-public-endpoints"></a>공용 끝점을 사용 하 여 Azure SQL Database 관리 되는 인스턴스를 안전 하 게 사용
 

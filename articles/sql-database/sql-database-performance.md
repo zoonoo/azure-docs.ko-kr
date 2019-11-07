@@ -1,5 +1,5 @@
 ---
-title: 성능 모니터링 및 향상 - Azure SQL Database | Microsoft Docs
+title: 성능 모니터링 및 향상-Azure SQL Database
 description: Azure SQL Database는 현재 쿼리 성능을 향상시킬 수 있는 영역을 식별하는 데 도움이 되는 성능 도구를 제공합니다.
 ms.service: sql-database
 ms.subservice: performance
@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 39a100c487588fb717c642036c7713150a95e047
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 483cd9f185cfa626d21fe0a5b86ba782ebb2f612
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567078"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687658"
 ---
 # <a name="monitor-and-improve-performance"></a>성능 모니터링 및 향상
 
@@ -62,7 +62,7 @@ Azure SQL Database는 데이터베이스의 잠재적 문제를 파악하고 지
 
 Azure SQL 데이터베이스는 자동으로 [성능 권장 사항](sql-database-advisor.md)을 적용하여 데이터베이스 성능을 튜닝할 수 있습니다. 자세한 내용은 [자동 튜닝 문서](sql-database-automatic-tuning.md)를 읽어보세요. 이 기능을 사용하려면 [자동 튜닝 사용 방법](sql-database-automatic-tuning-enable.md)을 읽어보세요.
 
-## <a name="query-performance-insight"></a>Query Performance Insight
+## <a name="query-performance-insight"></a>쿼리
 
 [Query Performance Insight](sql-database-query-performance.md) 를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
 
@@ -74,7 +74,7 @@ Azure SQL 데이터베이스는 자동으로 [성능 권장 사항](sql-database
 
 **[Query Performance Insight 사용 방법](sql-database-query-performance.md)** 문서에서 이 페이지에 대한 자세한 내용을 알아보세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [단일 데이터베이스의 Azure SQL Database 성능 지침](sql-database-performance-guidance.md)
 * [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool-guidance.md)

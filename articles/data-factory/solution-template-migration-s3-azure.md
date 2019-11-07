@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 Amazon s 3에서 Azure Data Lake Storage Gen2로 데이터 마이그레이션 Microsoft Docs
+title: Azure Data Factory를 사용 하 여 Amazon s 3에서 Azure Data Lake Storage Gen2 데이터 마이그레이션
 description: 솔루션 템플릿을 사용 하 여 AWS S3의 파티션 목록을 Azure Data Factory와 함께 저장 하 여 Amazon s 3에서 데이터를 마이그레이션하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2019
-ms.openlocfilehash: e4567d79b70fc18622e4a5e927031e9849b96e99
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a8591762bf4e8eccd5e1b7d67538674feed720b9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71092288"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684203"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Amazon s 3에서 Azure Data Lake Storage Gen2로 데이터 마이그레이션
 
@@ -73,7 +73,7 @@ ms.locfileid: "71092288"
 
     > [!NOTE]
     > 테이블 이름은 s3_partition_control_table입니다.
-    > 컨트롤 테이블의 스키마는 전치 접두사 및 SuccessOrFailure입니다. 여기서 partition Prefix는 이름으로 Amazon s 3의 폴더와 파일을 필터링 하기 위해 S3의 접두사 설정이 고 SuccessOrFailure는 각 파티션 복사의 상태입니다. 0은이 파티션이 Azure로 복사 되지 않았음을 의미 하 고 1은이 파티션이 Azure로 복사 되었음을 의미 합니다.
+    > 컨트롤 테이블의 스키마는 전치 접두사 및 SuccessOrFailure입니다. 여기서 partition Prefix는 이름으로 Amazon s 3의 폴더와 파일을 필터링 하 고 SuccessOrFailure는 각 파티션 복사의 상태입니다. 0은이 파티션에는 Azure에 복사 되지 않았습니다. 1은이 파티션이 Azure에 성공적으로 복사 되었음을 의미 합니다.
     > 제어 테이블에는 5 개의 파티션이 정의 되 고 각 파티션 복사의 기본 상태는 0입니다.
 
     ```sql
@@ -109,7 +109,7 @@ ms.locfileid: "71092288"
 
 3. **AWS S3에서 기록 데이터 마이그레이션 Azure Data Lake Storage Gen2** 템플릿으로 이동 합니다. 외부 컨트롤 테이블에 대 한 연결을 입력 하 고, 데이터 원본 저장소로 S3을 AWS 하 고, 대상 저장소로 Azure Data Lake Storage Gen2 합니다. 외부 제어 테이블 및 저장 프로시저는 동일한 연결에 대 한 참조입니다.
 
-    ![새 연결을 만듦](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
+    ![새 연결 만들기](media/solution-template-migration-s3-azure/historical-migration-s3-azure1.png)
 
 4. **이 템플릿 사용**을 선택 합니다.
 
@@ -134,7 +134,7 @@ ms.locfileid: "71092288"
 
     > [!NOTE]
     > 테이블 이름은 s3_partition_delta_control_table입니다.
-    > 컨트롤 테이블의 스키마는 파티션, JobRunTime 및 SuccessOrFailure입니다. 여기서 전치 접두사는 이름으로 Amazon s 3의 폴더와 파일을 필터링 하는 데 사용할 수 있습니다. JobRunTime은 복사 작업을 실행할 때의 datetime 값이 고, SuccessOrFailure는입니다. 각 파티션 복사 상태: 0은이 파티션이 Azure로 복사 되지 않았음을 의미 하 고 1은이 파티션이 Azure로 복사 되었음을 의미 합니다.
+    > 컨트롤 테이블의 스키마는 파티션, JobRunTime 및 SuccessOrFailure입니다. 여기서 전치 접두사는 이름으로 Amazon s 3의 폴더와 파일을 필터링 하는 데 사용할 수 있습니다. JobRunTime은 복사 작업을 실행할 때의 datetime 값이 고, SuccessOrFailure는입니다. 각 파티션 복사 상태: 0은이 파티션이 Azure로 복사 되지 않았음을 의미 하 고 1은이 파티션이 Azure로 복사 되었음을 나타냅니다.
     > 제어 테이블에는 5 개의 파티션이 정의 되어 있습니다. JobRunTime의 기본값은 일회성 기록 데이터 마이그레이션이 시작 되는 시간 일 수 있습니다. ADF 복사 작업은 해당 시간 이후 마지막으로 수정 된 AWS S3의 파일을 복사 합니다. 각 파티션 복사의 기본 상태는 1입니다.
 
     ```sql
@@ -172,7 +172,7 @@ ms.locfileid: "71092288"
 
 3. **AWS S3에서 델타 데이터 복사 Azure Data Lake Storage Gen2** 템플릿으로 이동 합니다. 외부 컨트롤 테이블에 대 한 연결을 입력 하 고, 데이터 원본 저장소로 S3을 AWS 하 고, 대상 저장소로 Azure Data Lake Storage Gen2 합니다. 외부 제어 테이블 및 저장 프로시저는 동일한 연결에 대 한 참조입니다.
 
-    ![새 연결을 만듦](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
+    ![새 연결 만들기](media/solution-template-migration-s3-azure/delta-migration-s3-azure1.png)
 
 4. **이 템플릿 사용**을 선택 합니다.
 

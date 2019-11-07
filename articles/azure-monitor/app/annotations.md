@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/01/2019
-ms.openlocfilehash: 9dbdd683a8545e0f8c573dfba60daa96ef5ff08d
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: f9ab1f1ef2b64c07a3b0c8ddf93d6ef4293517db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677863"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668106"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Application Insights의 메트릭 차트에 대한 주석
 
@@ -53,6 +53,9 @@ Azure DevOps 조직에 대해 확장을 한 번만 설치 하면 됩니다. 이�
 1. **작업 추가**를 선택한 후 메뉴에서 **Application Insights 릴리스 주석** 작업을 선택 합니다.
    
    ![작업 추가를 선택 하 고 Application Insights 릴리스 주석을 선택 합니다.](./media/annotations/3-add-task.png)
+
+   > [!NOTE]
+   > 릴리스 주석 작업은 현재 Windows 기반 에이전트만 지원 합니다. Linux, macOS 또는 다른 유형의 에이전트에서는 실행 되지 않습니다.
    
 1. **API 액세스** 탭에서 복사한 Application Insights Id를 **응용 프로그램 id**아래에 붙여 넣습니다.
    
@@ -88,7 +91,7 @@ GitHub의 [CreateReleaseAnnotation](https://github.com/Microsoft/ApplicationInsi
    
 1. 이전 절차의 단계를 사용 하 여 Application Insights ID를 가져오고 Application Insights **Api 액세스** 탭에서 api 키를 만듭니다.
    
-1. 다음 코드를 사용 하 여 PowerShell 스크립트를 호출 하 여 꺾쇠 괄호 자리 표시자를 값으로 바꿉니다. @No__t_0은 선택적입니다. 
+1. 다음 코드를 사용 하 여 PowerShell 스크립트를 호출 하 여 꺾쇠 괄호 자리 표시자를 값으로 바꿉니다. `-releaseProperties`은 선택적입니다. 
    
    ```powershell
    

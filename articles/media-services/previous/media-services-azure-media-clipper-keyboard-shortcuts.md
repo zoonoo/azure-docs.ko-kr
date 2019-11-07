@@ -2,19 +2,19 @@
 title: Azure Media Clipper 키보드 설정 구성 | Microsoft Docs
 description: Azure Media Clipper에 대한 바로 가기 키를 설정하는 단계입니다.
 services: media-services
-keywords: 클립, 하위 클립, 인코딩, 미디어
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: 클립;서브클립;인코딩;미디어
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 2eb32b8ec265a4afa2581374c1f07ac06958a576
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 013ca640d30baceeb41e9cb38fab69020b3c50dd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466109"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685062"
 ---
 # <a name="configure-azure-media-clipper-keyboard-shortcuts"></a>Azure Media Clipper 바로 가기 키 구성 
 

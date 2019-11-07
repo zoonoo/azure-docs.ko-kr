@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱 세션 호스트 자동 크기 조정-Azure
+title: 동적 크기 조정 Windows 가상 데스크톱 세션 호스트-Azure
 description: Windows 가상 데스크톱 세션 호스트에 대 한 자동 크기 조정 스크립트를 설정 하는 방법을 설명 합니다.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 744f7d5c191180757620e87d926422c9f1e0baba
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71842780"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607451"
 ---
 # <a name="scale-session-hosts-dynamically"></a>동적으로 세션 호스트 크기 조정
 
@@ -20,7 +20,7 @@ Azure의 많은 Windows 가상 데스크톱 배포의 경우 가상 머신 비�
 
 이 문서에서는 간단한 크기 조정 스크립트를 사용 하 여 Windows 가상 데스크톱 환경에서 세션 호스트 가상 컴퓨터의 크기를 자동으로 조정 합니다. 크기 조정 스크립트의 작동 방식에 대 한 자세한 내용은 [크기 조정 스크립트 작동 방법](#how-the-scaling-script-works) 섹션을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 스크립트를 실행 하는 환경에는 다음 항목이 있어야 합니다.
 
@@ -49,7 +49,7 @@ Azure의 많은 Windows 가상 데스크톱 배포의 경우 가상 머신 비�
 먼저 크기 조정 스크립트를 위한 환경을 준비 합니다.
 
 1. 도메인 관리 계정을 사용 하 여 예약 된 작업을 실행할 VM (scaler VM)에 로그인 합니다.
-2. Scaler VM에서 크기 조정 스크립트와 해당 구성을 저장할 폴더를 만듭니다 (예 **: C: \\Scaling**).
+2. Scaler VM에서 크기 조정 스크립트와 해당 구성을 저장할 폴더를 만듭니다 (예 **: C:\\HostPool1**).
 3. [크기 조정 스크립트 리포지토리에서](https://github.com/Azure/RDS-Templates/tree/master/wvd-sh/WVD%20scaling%20script) **basicscale. ps1**, **Config.xml**및 **Functions-PSStoredCredentials** 파일 및 **powershellmodules** 폴더를 다운로드 하 고 2 단계에서 만든 폴더에 복사 합니다. Scaler VM에 복사 하기 전에 두 가지 주요 방법으로 파일을 가져올 수 있습니다.
     - 로컬 컴퓨터에 git 리포지토리를 복제 합니다.
     - 각 파일의 **원시** 버전을 확인 하 고 각 파일의 내용을 복사 하 여 텍스트 편집기에 붙여 넣은 다음 해당 파일 이름 및 파일 형식으로 파일을 저장 합니다. 
@@ -72,7 +72,7 @@ Azure의 많은 Windows 가상 데스크톱 배포의 경우 가상 머신 비�
     Set-Variable -Name KeyPath -Scope Global -Value <LocalScalingScriptFolder>
     ```
     
-    예를 들어, **KeyPath "c: \\Scaling"와 같이 변수 이름으로 설정 합니다.**
+    예를 들어, **KeyPath "c:\\HostPool1"와 같이 변수 이름으로 설정 합니다.**
 5. **StoredCredential-KeyPath \$KeyPath** cmdlet을 실행 합니다. 메시지가 표시 되 면 호스트 풀을 쿼리할 수 있는 권한이 있는 Windows 가상 데스크톱 자격 증명을 입력 합니다 (호스트 풀이 **config.xml**에서 지정 됨).
     - 다른 서비스 주체 또는 표준 계정을 사용 하는 경우 각 계정에 대해 **StoredCredential-KeyPath \$KeyPath** cmdlet을 한 번 실행 하 여 로컬에 저장 된 자격 증명을 만듭니다.
 6. **StoredCredential** 를 실행 하 여 자격 증명이 성공적으로 만들어졌는지 확인 합니다.
@@ -89,14 +89,14 @@ Azure의 많은 Windows 가상 데스크톱 배포의 경우 가상 머신 비�
 | currentAzureSubscriptionId    | 세션 호스트 Vm이 실행 되는 Azure 구독의 ID입니다.                        |
 | tenantName                    | Windows 가상 데스크톱 테 넌 트 이름                                                    |
 | hostPoolName                  | Windows 가상 데스크톱 호스트 풀 이름                                                 |
-| RDBroker                      | WVD service에 대 한 URL, 기본값 https: \//rdbroker. wvd.             |
+| RDBroker                      | WVD 서비스 URL, 기본값 https:\//rdbroker.wvd.microsoft.com             |
 | 사용자 이름                      | 서비스 사용자 응용 프로그램 ID (AADApplicationId에서와 동일한 서비스 주체를 사용할 수 있음) 또는 multi-factor authentication 없이 표준 사용자 |
 | isServicePrincipal            | 허용 되는 값은 **true** 또는 **false**입니다. 사용 되는 두 번째 자격 증명 집합이 서비스 사용자 또는 표준 계정 인지 여부를 나타냅니다. |
 | BeginPeakTime                 | 피크 사용 시간이 시작 되는 경우                                                            |
 | EndPeakTime                   | 최대 사용 시간이 종료 되는 경우                                                              |
 | TimeDifferenceInHours         | 현지 시간과 UTC 사이의 시간 차이 (시간)입니다.                                   |
 | SessionThresholdPerCPU        | 최대 사용 시간 동안 새 세션 호스트 VM을 시작 해야 하는 시기를 결정 하는 데 사용 되는 CPU 임계값 당 최대 세션 수입니다.  |
-| MinimumNumberOfRDSH           | 사용량이 적은 사용 시간 동안 계속 실행 되는 호스트 풀 Vm의 최소 수             |
+| 이상 번호           | 사용량이 적은 사용 시간 동안 계속 실행 되는 호스트 풀 Vm의 최소 수             |
 | LimitSecondsToForceLogOffUser | 사용자가 로그 아웃 하도록 강제 하기 전에 대기 하는 시간 (초)입니다. 0으로 설정 하면 사용자가 강제로 로그 아웃 되지 않습니다.  |
 | LogOffMessageTitle            | 강제로 로그 아웃 하기 전에 사용자에 게 보내는 메시지의 제목입니다.                  |
 | LogOffMessageBody             | 로그 아웃 하기 전에 사용자에 게 보내는 경고 메시지의 본문입니다. 예를 들어 "이 컴퓨터가 X 분 후에 종료 됩니다. 작업 내용을 저장 하 고 로그 아웃 하세요. " |
@@ -111,7 +111,7 @@ Config.xml 파일을 구성한 후에는 basicScaler 파일을 정기적으로 �
 4. **트리거** 탭으로 이동한 다음 **새로 만들기 ...** 를 선택 합니다.
 5. **새 트리거** 대화 상자의 **고급 설정**에서 **작업 반복** 을 선택 하 고 적절 한 기간 및 기간 (예: **15 분** 또는 **무기한**)을 선택 합니다.
 6. **작업** 탭 및 **새로 만들기** ...를 선택 합니다.
-7. **새 작업** 대화 상자에서 **프로그램/스크립트** 필드에 **powershell .exe** 를 입력 하 고 **인수 추가 (선택 사항)** 필드에 **C: \\scaling 크기 조정 @** 를 입력 합니다.
+7. **새 작업** 대화 상자에서 **프로그램/스크립트** 필드에 **powershell .exe** 를 입력 하 고 **인수 추가 (선택 사항)** 필드에 **C:\\크기 조정\\basicscale.** p s 1을 입력 합니다.
 8. **조건** 및 **설정** 탭으로 이동 하 고 **확인** 을 선택 하 여 각에 대 한 기본 설정을 적용 합니다.
 9. 크기 조정 스크립트를 실행 하려는 관리 계정의 암호를 입력 합니다.
 

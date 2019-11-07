@@ -1,6 +1,6 @@
 ---
-title: 감정 분석 모델 만들기
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 감정 analysis 사용 사례
+titleSuffix: ML Studio (classic) Azure
 description: 텍스트 전처리, N 그램 또는 기능 해시를 위해 모듈을 사용 하 여 Azure Machine Learning Studio (클래식)에서 텍스트 분석 모델을 만드는 방법
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 03/14/2018
-ms.openlocfilehash: d24e4f98e987cb911a8bc0ffcd1b49e1bed8b920
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 63c1d19f1ab44fa56893c17edd78aeaf54a17314
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467153"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670695"
 ---
 # <a name="create-a-sentiment-analysis-model-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에서 감정 분석 모델 만들기
 

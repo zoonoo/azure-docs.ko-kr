@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center (인시던트)의 클라우드 스마트 경고 상관 관계 | Microsoft Docs
+title: Azure Security Center 인시던트-경고의 스마트 상관 관계
 description: 이 항목에서는 fusion에서 클라우드 스마트 경고 상관 관계를 사용 하 여 Azure Security Center에서 보안 인시던트를 생성 하는 방법을 설명 합니다.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 4c2f084fe03271b29a12aa6906f5e36612d50674
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b26f0bab073ce248ca23bb8a815fa3e293ddba51
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202697"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686482"
 ---
 # <a name="cloud-smart-alert-correlation-in-azure-security-center-incidents"></a>Azure Security Center의 클라우드 스마트 경고 상관 관계 (인시던트)
 
@@ -30,7 +30,7 @@ Fusion analytics는 인시던트를 Security Center 하 여 서로 다른 경고
 
 Fusion analytics는 보안 도메인 정보를 AI와 결합 하 여 경고를 분석 하 고 발생 하는 새로운 공격 패턴을 검색 합니다. 
 
-Security Center는 MITRE 공격 매트릭스를 활용 하 여 경고를 인식 된 도와 연결 하 고 보안 도메인 지식을 공식화 하는 데 도움을 줍니다. 또한 공격의 각 단계에 대해 수집 된 정보를 사용 하 여 공격의 단계로 표시 되는 작업을 규칙 할 수 Security Center 있지만 실제로는 그렇지 않습니다.  
+Security Center는 MITRE 공격 매트릭스를 활용 하 여 경고를 인식 된 도와 연결 하 고 보안 도메인 지식을 공식화 하는 데 도움을 줍니다. 또한 공격의 각 단계에 대해 수집 된 정보를 사용 하 여 공격의 단계로 표시 되는 작업을 규칙 할 수 Security Center 있지만 실제로는 그렇지 않습니다.
 
 공격은 여러 테 넌 트에서 자주 발생 하므로 AI 알고리즘을 결합 하 여 각 구독에 대해 보고 되는 공격 순서를 분석할 수 Security Center. 이 기술은 공격 시퀀스를 서로 연결 하는 것이 아니라 널리 사용 되는 경고 패턴으로 식별 합니다.
 

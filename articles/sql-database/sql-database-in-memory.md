@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 메모리 내 기술 | Microsoft Docs
+title: Azure SQL Database 메모리 내 기술
 description: Azure SQL Database 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 325dda3695e796bc0814954d3bd69b9b340133b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7ee643c10c61368ee91692cbddf326ba488f81e6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567958"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689780"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 
@@ -51,8 +51,8 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 - 메모리 내 OLTP를 사용하여 [Quorum Business Solutions은 DTU를 70%까지 개선하면서 작업량을 두 배로 늘릴 수 있었습니다](https://customers.microsoft.com/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
 
   - 여기서 DTU는 *데이터베이스 트랜잭션 단위*를 의미하며 리소스 소비량의 측정값을 포함합니다.
-- 다음 비디오는 샘플 워크로드에서 리소스 소비가 크게 향상되었음을 보여줍니다. [Azure SQL Database의 메모리 내 OLTP 비디오](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
-  - 자세한 내용은 블로그 게시물을 참조하세요. [Azure SQL Database의 메모리 내 OLTP 블로그 게시물](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)
+- 다음 동영상([Azure SQL Database의 메모리 내 OLTP 동영상](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB))은 샘플 워크로드에서 리소스 소비가 크게 향상되었음을 보여 줍니다.
+  - 자세한 내용은 [Azure SQL Database의 메모리 내 OLTP 블로그 게시물](https://azure.microsoft.com/blog/in-memory-oltp-in-azure-sql-database/)을 참조하세요.
 
 > [!NOTE]  
 > 메모리 내 기술은 프리미엄 및 중요 비즈니스용 계층 Azure SQL 데이터베이스 및 Premium 탄력적 풀에서 사용할 수 있습니다.
@@ -69,7 +69,7 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 - 그리고 이러한 기술을 사용하는 데이터베이스를 여러 가격 책정 계층 간에 이동하는 작업을 관리하는 방법도 살펴봅니다.
 - 또한 Azure SQL Database의 columnstore 인덱스뿐만 아니라 메모리 내 OLTP의 사용을 보여 주는 두 개의 샘플입니다.
 
-참조 항목:
+자세한 내용은 다음을 참조하세요.
 
 - [메모리 내 OLTP 개요 및 사용 시나리오](https://msdn.microsoft.com/library/mt774593.aspx)(고객 사례 연구 및 시작 정보에 대한 참조 포함)
 - [메모리 내 OLTP에 대한 설명서](https://msdn.microsoft.com/library/dn133186.aspx)
@@ -82,13 +82,13 @@ columnstore 인덱스 및 메모리 내 OLTP는 각각 SQL Server 제품 2012 �
 
 - **메모리 최적화 rowstore** 형식 여기서 모든 행은 별도 메모리 개체입니다. 이는 고성능 OLTP 워크로드에 대해 최적화된 클래식 메모리 내 OLTP 형식입니다. 메모리 최적화 rowstore 형식에 사용할 수 있는 메모리 최적화 테이블에는 다음과 같은 두 가지 유형이 있습니다.
   - *영구 테이블*(SCHEMA_AND_DATA) 여기서 메모리에 위치한 행은 서버가 다시 시작된 후 유지됩니다. 이 유형의 테이블은 메모리 내 최적화의 추가 혜택을 사용하여 기존의 rowstore 테이블처럼 동작합니다.
-  - *내구성이 없는 테이블* (SCHEMA_ONLY) 다시 시작한 후 행이 유지 되지 않습니다. 이 유형의 테이블은 임시 데이터(예: 대체 임시 테이블) 또는 일부 지속형 테이블로 이동하기 전에 신속하게 데이터를 로드해야 하는 테이블(따라서 준비 테이블이라고 함)을 위해 설계되었습니다.
+  - 다시 시작 후 행이 유지 되지 않는 *내구성이 없는 테이블* (SCHEMA_ONLY) 이 유형의 테이블은 임시 데이터(예: 대체 임시 테이블) 또는 일부 지속형 테이블로 이동하기 전에 신속하게 데이터를 로드해야 하는 테이블(따라서 준비 테이블이라고 함)을 위해 설계되었습니다.
 - **메모리 최적화 columnstore** 형식 여기서 데이터는 열 형식으로 구성됩니다. 이 구조는 OLTP 워크로드가 실행되고 있는 동일한 데이터 구조에서 분석 쿼리를 실행해야 하는 HTAP 시나리오를 위해 설계되었습니다.
 
 > [!Note]
 > 메모리 내 OLTP 기술은 완전히 메모리에 상주할 수 있는 데이터 구조를 위해 설계되었습니다. 메모리 내 데이터는 디스크에 오프로드될 수 없으므로 충분한 메모리가 있는 데이터베이스를 사용하고 있는지 확인합니다. 자세한 내용은 [메모리 내 OLTP의 데이터 크기 및 스토리지 제한](#data-size-and-storage-cap-for-in-memory-oltp)을 참조하세요.
 
-메모리 내 OLTP에 대한 빠른 입문서: [빠른 시작 1: 더 빠른 T-SQL 성능에 대한 메모리 내 OLTP 기술](https://msdn.microsoft.com/library/mt694156.aspx)(시작하는 데 유용한 다른 문서)
+메모리 내 OLTP에 대 한 빠른 입문: 빠른 시작 [1: 더 빠른 T-sql 성능을 위한 메모리 내 Oltp 기술](https://msdn.microsoft.com/library/mt694156.aspx) (시작 하는 데 도움이 되는 다른 문서)
 
 기술에 대한 자세한 비디오:
 
@@ -140,7 +140,7 @@ SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
 
 데이터베이스를 표준/기본으로 다운그레이드하기 전에 모든 메모리 최적화 테이블 및 테이블 형식뿐만 아니라 고유하게 컴파일된 모든 T-SQL 모듈을 제거합니다. 
 
-*중요 비즈니스용 계층의 리소스 축소*: 메모리 최적화 테이블의 데이터는 데이터베이스의 계층 또는 Managed Instance와 연결되거나 탄력적 풀에서 사용할 수 있는 메모리 내 OLTP 스토리지 내에 담겨야 합니다. 계층을 축소하려고 하거나 충분히 사용 가능한 메모리 내 OLTP 스토리지가 없는 풀로 데이터베이스를 이동하려는 경우 작업은 실패합니다.
+*중요 비즈니스용 계층의 리소스 확장*: 메모리 최적화 테이블의 데이터는 데이터베이스 또는 Managed Instance 계층에 연결 된 메모리 내 OLTP 저장소 내에 있거나 탄력적 풀에서 사용할 수 있어야 합니다. 계층을 축소하려고 하거나 충분히 사용 가능한 메모리 내 OLTP 스토리지가 없는 풀로 데이터베이스를 이동하려는 경우 작업은 실패합니다.
 
 ## <a name="in-memory-columnstore"></a>메모리 내 columnstore
 
@@ -180,12 +180,12 @@ columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작 1: 더 빠른 T-SQL 성능을 위한 메모리 내 OLTP 기술](https://msdn.microsoft.com/library/mt694156.aspx)
+- [빠른 시작 1: 더 빠른 T-sql 성능을 위한 메모리 내 OLTP 기술](https://msdn.microsoft.com/library/mt694156.aspx)
 - [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)
 - 메모리 내 OLTP에 대한 [메모리 내 OLTP 스토리지 모니터링](sql-database-in-memory-oltp-monitoring.md).
 - [Azure SQL Database에서 메모리 내 기능 사용해보기](sql-database-in-memory-sample.md)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 ### <a name="deeper-information"></a>자세한 정보
 
@@ -201,7 +201,7 @@ columnstore 인덱스는 메모리에 적합할 필요가 없습니다. 따라�
 - [메모리 내 OLTP(메모리 내 최적화)](https://msdn.microsoft.com/library/dn133186.aspx)
 - [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)
 
-### <a name="tools"></a>Tools
+### <a name="tools"></a>도구
 
 - [Azure Portal](https://portal.azure.com/)
 - [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt238290.aspx)

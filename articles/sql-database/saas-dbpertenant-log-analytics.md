@@ -1,5 +1,5 @@
 ---
-title: SQL Database 다중 테 넌 트 앱을 사용 하 여 Azure Monitor 로그 사용 | Microsoft Docs
+title: SQL Database 다중 테 넌 트 앱을 사용 하 여 Azure Monitor 로그 사용
 description: 다중 테 넌 트 Azure SQL Database SaaS 앱을 사용 하 여 Azure Monitor 로그 설정 및 사용
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: 6b9b2239cfdf0f214ed2f2b179978fe2828d1be3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d7b568424d5e33c19efc9d9d9c21d0023459b6c7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570516"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692142"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>다중 테 넌 트 SQL Database SaaS 앱을 사용 하 여 Azure Monitor 로그 설정 및 사용
 
@@ -60,7 +60,7 @@ OMS 작업 영역을 이제 Log Analytics 작업 영역이라고 합니다. Log 
 
     b. 스크립트를 실행하려면 F5 키를 누릅니다.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database-per-Tenant 애플리케이션 스크립트 가져오기
 
 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 사용할 수 있습니다. Wingtip Tickets PowerShell 스크립트를 다운로드하고 차단을 해제하는 방법은 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 참조하세요.
 
@@ -149,7 +149,7 @@ Azure Monitor 로그를 사용 하 여 경고를 쿼리하고 설정 하는 방�
 
 [테넌트 분석 자습서](saas-dbpertenant-log-analytics.md)를 체험해 보세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [초기 Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 배포를 기반으로 하는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md)

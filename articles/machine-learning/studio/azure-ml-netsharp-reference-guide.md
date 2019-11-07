@@ -1,6 +1,6 @@
 ---
-title: Net#을 사용해 사용자 지정 신경망 만들기
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 네트워크 사용자 지정 신경망
+titleSuffix: ML Studio (classic) Azure
 description: Net# 신경망 사양 언어를 위한 구문 가이드 Azure Machine Learning Studio (클래식)에서 사용자 지정 신경망 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 7e7ad51622c3d3c8254755fb1ad24a047d48a58b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0c413bbc3c3b0bd4b1a6e6d6ff40dc1061bbc834
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493349"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684847"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에 대 한 Net # 신경망 사양 언어 가이드
 
@@ -56,7 +56,7 @@ Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 �
 
 ## <a name="supported-customizations"></a>지원되는 사용자 지정
 
-클래식 버전의 Azure Machine Learning Studio에서 만든 신경망 모델의 아키텍처는 Net #을 사용 하 여 광범위 하 게 사용자 지정할 수 있습니다. 다음과 같은 기능이 가능합니다.
+클래식 버전의 Azure Machine Learning Studio에서 만든 신경망 모델의 아키텍처는 Net #을 사용 하 여 광범위 하 게 사용자 지정할 수 있습니다. 다음을 수행할 수 있습니다.
 
 + 숨겨진 계층을 만들고 각 계층의 노드 수를 제어합니다.
 + 계층이 서로 연결되는 방법을 지정합니다.

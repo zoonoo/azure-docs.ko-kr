@@ -1,5 +1,5 @@
 ---
-title: 고급 데이터 보안 - Azure SQL Database | Microsoft Docs
+title: 고급 데이터 보안-Azure SQL Database
 description: 중요한 데이터 검색 및 분류, 데이터베이스 취약성 관리 및 Azure SQL 데이터베이스에 대한 위협을 나타낼 수 있는 비정상적인 활동 검색 기능에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: memildin
 manager: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: 40e556b5d0fe22629eeca9a088d10ea5fc9b95ac
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: ce9cfa7e4b08dac878de52ba9765bcc204ed8196
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965495"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691304"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Azure SQL Database에 대한 고급 데이터 보안
 
@@ -77,4 +77,4 @@ ADS 설정을 보고 관리하려면 SQL Database 서버 또는 관리되는 인
 - [데이터 검색 및 분류](sql-database-data-discovery-and-classification.md)에 대해 자세히 알아보기 
 - [취약성 평가](sql-vulnerability-assessment.md)에 대해 자세히 알아보기 
 - [Advanced Threat Protection](sql-database-threat-detection.md) 에 대 한 자세한 정보
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대해 자세히 알아봅니다.
+- [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대해 자세히 알아보기

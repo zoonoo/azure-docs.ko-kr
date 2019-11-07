@@ -1,5 +1,5 @@
 ---
-title: SQL 분석 데이터 웨어하우스로 Contoso Retail 데이터 로드 | Microsoft Docs
+title: Contoso Retail 데이터 로드
 description: PolyBase 및 T-sql 명령을 사용 하 여 Contoso Retail 데이터에서 Azure SQL 분석로 두 테이블을 로드 합니다.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: load-data
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 76d9be9159a609e4f7c019afca5da2ab903ffe0c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d928f2392f204baae6cfdbe864938ef0dee1d6ca
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520953"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692667"
 ---
 # <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>SQL 분석 데이터 웨어하우스로 Contoso Retail 데이터 로드
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center으로 Microsoft Defender Advanced Threat Protection
+title: Microsoft Defender Advanced Threat Protection-Azure Security Center
 description: 이 문서에서는 Azure Security Center와 Microsoft Defender Advanced Threat Protection 간의 통합을 소개 합니다.
 services: security-center
 documentationcenter: na
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 6ceed914d1c69ccdfce5d7acb6dcfc1afc9ef868
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 46b9fe5c6a038aa98cf8df64c40bf8ea1747efec
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819893"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663601"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Azure Security Center으로 Microsoft Defender Advanced Threat Protection
 
@@ -95,7 +95,7 @@ Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인
 
 무해 한 Microsoft Defender ATP 테스트 경고를 생성 하려면:
 
-1. 원격 데스크톱을 사용하여 Windows Server 2012 R2 VM 또는 Windows Server 2016 VM에 액세스합니다.  명령 프롬프트 창을 엽니다.
+1. 원격 데스크톱을 사용하여 Windows Server 2012 R2 VM 또는 Windows Server 2016 VM에 액세스합니다. 명령 프롬프트 창을 엽니다.
 
 2. 다음 명령을 복사하여 프롬프트에서 실행합니다. 명령 프롬프트 창이 자동으로 닫힙니다.
 
@@ -107,7 +107,7 @@ Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인
 
 3. 명령이 성공 하면 Azure Security Center 대시보드 및 Microsoft Defender ATP 포털에 새 경고가 표시 됩니다. 이 경고가 표시되려면 몇 분 정도 걸릴 수 있습니다.
 
-4. Security Center에서 경고를 검토하려면 **보안 경고** >  **의심스러운 Powershell 명령줄**로 이동합니다.
+4. Security Center에서 경고를 검토하려면 **보안 경고** > **의심스러운 Powershell 명령줄**로 이동합니다.
 
 5. 조사 창에서 링크를 선택 하 여 Microsoft Defender ATP 포털로 이동 합니다.
 

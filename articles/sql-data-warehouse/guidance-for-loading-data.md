@@ -1,5 +1,5 @@
 ---
-title: 데이터 로드 모범 사례 - Azure SQL Data Warehouse | Microsoft Docs
+title: 데이터 로드 모범 사례
 description: Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장 사항 및 성능 최적화입니다.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,13 +10,13 @@ ms.subservice: load-data
 ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seoapril2019
-ms.openlocfilehash: a1433139695eb59fa3fd721852fae3181b8f892b
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 01bb53488bf63f32d2bae804e4844400a7fd2d31
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882471"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686106"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 데이터를 로드하는 모범 사례
 
@@ -75,11 +75,11 @@ StaticRC20 리소스 클래스에 대 한 리소스를 사용 하 여 부하를 
 
 사용자_A 및 사용자_B는 이제 다른 부서의 스키마에서 차단되었습니다.
 
-## <a name="loading-to-a-staging-table"></a>스테이징 테이블에 로드
+## <a name="loading-to-a-staging-table"></a>준비 테이블에 로드
 
-데이터를 데이터 웨어하우스 테이블로 이동하는 로딩 속도를 가장 빠르게 만들려면 데이터를 스테이징 테이블에 로드합니다.  스테이징 테이블을 힙으로 정의하고 배포 옵션에 라운드 로빈을 사용합니다. 
+데이터를 데이터 웨어하우스 테이블로 이동하는 로딩 속도를 가장 빠르게 만들려면 데이터를 준비 테이블에 로드합니다.  준비 테이블을 힙으로 정의하고 배포 옵션에 라운드 로빈을 사용합니다. 
 
-로드는 먼저 데이터를 스테이징 테이블로 로드한 다음 프로덕션 데이터 웨어하우스 테이블에 삽입하는 2단계 프로세스로 간주하는 것이 좋습니다. 프로덕션 테이블이 해시 배포를 사용하는 경우 해시 배포를 사용하여 스테이징 테이블을 정의하면 로드하고 삽입하는 총 시간이 더 빠를 수 있습니다. 스테이징 테이블로 로드하는 데 시간이 더 걸리지만 프로덕션 테이블에 행을 삽입하는 두 번째 단계에서는 배포에서 데이터 이동이 발생하지 않습니다.
+로드는 먼저 데이터를 준비 테이블로 로드한 다음 프로덕션 데이터 웨어하우스 테이블에 삽입하는 2단계 프로세스로 간주하는 것이 좋습니다. 프로덕션 테이블이 해시 배포를 사용하는 경우 해시 배포를 사용하여 준비 테이블을 정의하면 로드하고 삽입하는 총 시간이 더 빠를 수 있습니다. 준비 테이블로 로드하는 데 시간이 더 걸리지만 프로덕션 테이블에 행을 삽입하는 두 번째 단계에서는 배포에서 데이터 이동이 발생하지 않습니다.
 
 ## <a name="loading-to-a-columnstore-index"></a>columnstore 인덱스에 로드
 
@@ -125,7 +125,7 @@ Azure Storage 계정 키를 회전하려면:
 
 키가 변경된 각 스토리지 계정에 대해 [ALTER DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/alter-database-scoped-credential-transact-sql)을 실행합니다.
 
-예제:
+예:
 
 원래 키를 만드는 경우
 

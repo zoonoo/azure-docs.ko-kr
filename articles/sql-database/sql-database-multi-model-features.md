@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 다중 모델 기능 | Microsoft Docs
+title: Azure SQL Database 다중 모델 기능
 description: Azure SQL Database를 사용하면 동일한 데이터베이스에서 여러 데이터 모델을 사용할 수 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: e319daf322d688828c7d05d78dacd2359273223f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7156b9923c9cb98ae3dde143c98eb32a6eb11a9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567132"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687736"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Azure SQL Database의 다중 모델 기능
 

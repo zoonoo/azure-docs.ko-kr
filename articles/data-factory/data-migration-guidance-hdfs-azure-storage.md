@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션합니다. Microsoft Docs
+title: Azure Data Factory를 사용 하 여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션합니다.
 description: Azure Data Factory를 사용 하 여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 8/30/2019
-ms.openlocfilehash: a2e98e46b168ff2e1270c6512aa515278190350f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: b952be49bf5bc00b338aa04ed51e9dc451b5c4f9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677947"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675825"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Azure Data Factory를 사용 하 여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션합니다. 
 
@@ -25,8 +25,8 @@ Azure Data Factory은 온-프레미스 HDFS에서 Azure Blob storage 또는 Azur
 
 Data Factory은 온-프레미스 HDFS에서 Azure로 데이터를 마이그레이션하는 두 가지 기본적인 방법을 제공 합니다. 시나리오에 따라 방법을 선택할 수 있습니다. 
 
-- **Data Factory DistCp 모드** (권장): Data Factory에서 [Distcp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (분산 복사)를 사용 하 여 Azure Blob storage ( [준비 된 복사](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)포함) 또는 Azure Data Lake Store Gen2 파일을 있는 그대로 복사할 수 있습니다. DistCp와 통합 된 Data Factory를 사용 하 여 기존의 강력한 클러스터를 활용 하 여 최상의 복사 처리량을 달성할 수 있습니다. 또한 Data Factory에서 유연한 예약 및 통합 모니터링 환경을 활용 하는 이점을 얻을 수 있습니다. Data Factory 구성에 따라 복사 작업은 DistCp 명령을 자동으로 생성 하 고, 데이터를 Hadoop 클러스터에 제출한 다음, 복사 상태를 모니터링 합니다. 온-프레미스 Hadoop 클러스터에서 Azure로 데이터를 마이그레이션하기 위해 DistCp 모드 Data Factory 하는 것이 좋습니다.
-- **Data Factory native integration runtime 모드**: DistCp는 모든 시나리오에서 옵션은 아닙니다. 예를 들어 Azure Virtual Networks 환경에서 DistCp 도구는 Azure Storage 가상 네트워크 끝점을 사용 하 여 Azure Express 경로 개인 피어 링을 지원 하지 않습니다. 또한 경우에 따라 기존 Hadoop 클러스터를 데이터 마이그레이션하기 위한 엔진으로 사용 하지 않는 것이 좋습니다. 이렇게 하면 기존 ETL 작업의 성능에 영향을 줄 수 있는 많은 부하가 클러스터에 포함 되지 않습니다. 대신, 온-프레미스 HDFS에서 Azure로 데이터를 복사 하는 엔진으로 Data Factory integration runtime의 기본 기능을 사용할 수 있습니다.
+- **Data Factory distcp 모드** (권장): Data Factory에서 [distcp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (분산 복사)를 사용 하 여 Azure Blob storage (준비 된 복사 포함) Azure Data Lake Store 또는 Gen2 ( [준비 된 복사](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#staged-copy)포함)로 파일을 복사할 수 있습니다. DistCp와 통합 된 Data Factory를 사용 하 여 기존의 강력한 클러스터를 활용 하 여 최상의 복사 처리량을 달성할 수 있습니다. 또한 Data Factory에서 유연한 예약 및 통합 모니터링 환경을 활용 하는 이점을 얻을 수 있습니다. Data Factory 구성에 따라 복사 작업은 DistCp 명령을 자동으로 생성 하 고, 데이터를 Hadoop 클러스터에 제출한 다음, 복사 상태를 모니터링 합니다. 온-프레미스 Hadoop 클러스터에서 Azure로 데이터를 마이그레이션하기 위해 DistCp 모드 Data Factory 하는 것이 좋습니다.
+- **Data Factory native integration runtime 모드**: distcp는 모든 시나리오에서 옵션이 아닙니다. 예를 들어 Azure Virtual Networks 환경에서 DistCp 도구는 Azure Storage 가상 네트워크 끝점을 사용 하 여 Azure Express 경로 개인 피어 링을 지원 하지 않습니다. 또한 경우에 따라 기존 Hadoop 클러스터를 데이터 마이그레이션하기 위한 엔진으로 사용 하지 않는 것이 좋습니다. 이렇게 하면 기존 ETL 작업의 성능에 영향을 줄 수 있는 많은 부하가 클러스터에 포함 되지 않습니다. 대신, 온-프레미스 HDFS에서 Azure로 데이터를 복사 하는 엔진으로 Data Factory integration runtime의 기본 기능을 사용할 수 있습니다.
 
 이 문서에서는 두 가지 방법에 대 한 다음 정보를 제공 합니다.
 > [!div class="checklist"]
@@ -52,7 +52,7 @@ Data Factory native integration runtime 모드에서는 서로 다른 수준에�
 
 ## <a name="resilience"></a>복원력
 
-Data Factory DistCp 모드에서는 다른 DistCp 명령줄 매개 변수를 사용할 수 있습니다. 예를 들어, 다른 DistCp 명령줄 매개 변수를 사용할 수 있습니다 (예: `-i`, 오류 무시 또는 `-update`, 원본 파일 및 대상 파일의 크기가 다른 경우 데이터 기록).
+Data Factory DistCp 모드에서는 다른 DistCp 명령줄 매개 변수를 사용할 수 있습니다. 예를 들어 다른 DistCp 명령줄 매개 변수를 사용할 수 있습니다 (예: `-i`, 오류 무시 또는 `-update`, 원본 파일 및 대상 파일 크기가 다른 경우 데이터 쓰기
 
 Data Factory native integration runtime 모드에서 단일 복사 작업 실행의 Data Factory에는 기본 제공 재시도 메커니즘이 있습니다. 데이터 저장소 또는 기본 네트워크에서 특정 수준의 일시적인 오류를 처리할 수 있습니다. 
 
@@ -107,7 +107,7 @@ Data Factory native integration runtime 모드에서는 데이터 파티션이 �
 
 ### <a name="delta-data-migration"></a>델타 데이터 마이그레이션 
 
-Data Factory DistCp 모드에서 DistCp 명령줄 매개 변수를 사용할 수 있습니다.-0 @no__t 원본 파일 및 대상 파일의 크기가 다른 경우 델타 데이터 마이그레이션의 경우 데이터를 씁니다.
+Data Factory DistCp 모드에서 DistCp 명령줄 매개 변수 `-update`를 사용 하 여 원본 파일 및 대상 파일의 크기가 다른 경우 데이터를 쓸 수 있습니다.
 
 Data Factory 기본 통합 모드에서 HDFS에서 새로운 파일 또는 변경 된 파일을 식별 하는 가장 효율적인 방법은 시간 분할 명명 규칙을 사용 하는 것입니다. HDFS의 데이터가 파일 또는 폴더 이름 (예: */yyyy/mm/dd/file.csv*)의 시간 조각 정보를 사용 하 여 시간 분할 된 경우 파이프라인은 증분 복사할 파일 및 폴더를 쉽게 식별할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 가상 컴퓨터 기반 파일 공유를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기-Azure
+title: Windows 가상 데스크톱 FSLogix 프로필 컨테이너 공유-Azure
 description: 가상 컴퓨터 기반 파일 공유를 사용 하 여 Windows 가상 데스크톱 호스트 풀에 대해 FSLogix 프로필 컨테이너를 설정 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 0e7516fc4874e4cbc387f2f494efc6ef745d64f7
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 65d800cc6c1b6818369807ffeae9cd350a34066f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311600"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607000"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기
 
@@ -59,15 +59,15 @@ FSLogix 소프트웨어를 사용 하 여 가상 머신을 구성 하려면 호�
 
 1. 가상 컴퓨터를 만들 때 제공한 자격 증명을 사용 하 여 [가상 컴퓨터에 연결](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) 합니다.
 2. 인터넷 브라우저를 시작 하 고 [이 링크로](https://go.microsoft.com/fwlink/?linkid=2084562) 이동 하 여 FSLogix 에이전트를 다운로드 합니다.
-3. .Zip 파일에서 \\ @ no__t-1Win32 @ no__t 또는 \\ @ no__t-4X64 @ no__t로 이동 하 고 **FSLogixAppsSetup** 를 실행 하 여 FSLogix 에이전트를 설치 합니다.  FSLogix를 설치 하는 방법에 대해 자세히 알아보려면 [Fslogix 다운로드 및 설치](https://docs.microsoft.com/fslogix/install-ht)를 참조 하세요.
-4. **프로그램 파일** > **fslogix** > **앱** 으로 이동 하 여 에이전트를 설치 했는지 확인 합니다.
-5. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다. **Computer @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**로 이동 합니다.
+3. .Zip 파일에서 \\\\Win32\\릴리스 또는 \\\\X64\\릴리스로 이동 하 고 **FSLogixAppsSetup** 를 실행 하 여 FSLogix 에이전트를 설치 합니다.  FSLogix를 설치 하는 방법에 대해 자세히 알아보려면 [Fslogix 다운로드 및 설치](https://docs.microsoft.com/fslogix/install-ht)를 참조 하세요.
+4. **Fslogix** > **앱** > **프로그램 파일** 로 이동 하 여 에이전트를 설치 했는지 확인 합니다.
+5. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다. **컴퓨터\\HKEY_LOCAL_MACHINE\\software\\FSLogix**로 이동 합니다.
 6. **프로필**이라는 키를 만듭니다.
 7. 프로필 키에 대해 다음 값을 만듭니다.
 
-| 이름                | 형식               | 데이터/값                        |
+| Name                | 형식               | 데이터/값                        |
 |---------------------|--------------------|-----------------------------------|
-| Enabled             | DWORD              | 1                                 |
+| 사용             | DWORD              | 1                                 |
 | VHDLocations        | 다중 문자열 값 | "파일 공유의 네트워크 경로"     |
 
 >[!IMPORTANT]

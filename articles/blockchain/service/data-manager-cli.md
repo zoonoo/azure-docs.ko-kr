@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 1e92ae36aee5e62cd05b40bbaa38a226943f0adb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 9f408b090db40e5145b424034c39cdba4de14a8f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518022"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605913"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Azure CLI를 사용 하 여 블록 체인 Data Manager 구성
 
@@ -259,6 +259,10 @@ az resource create \
 
 Blockchain 응용 프로그램을 추가 하는 경우 Blockchain Data Manager 응용 프로그램에 대 한 이벤트 및 속성 상태를 디코딩합니다. 그렇지 않으면 원시 블록 및 원시 트랜잭션 데이터만 전송 됩니다. Blockchain Data Manager 계약을 배포할 때 계약 주소도 검색 합니다. 블록 체인 Data Manager 인스턴스에 여러 블록 체인 응용 프로그램을 추가할 수 있습니다.
 
+
+> [!IMPORTANT]
+> 현재는 농담 [배열 형식](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) 또는 [매핑 형식을](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) 선언 하는 블록 체인 응용 프로그램은 완전히 지원 되지 않습니다. 배열 또는 매핑 형식으로 선언 된 속성은 *ContractPropertiesMsg* 또는 *DecodedContractEventsMsg* 메시지에서 디코딩되 지 않습니다.
+
 ``` azurecli
 az resource create \
                    --resource-group <Resource group> \
@@ -306,7 +310,7 @@ az resource create \
 | location | 응용 프로그램 리소스를 만들 지역입니다. |
 | artifactType | 애플리케이션의 유형입니다. 현재 **EthereumSmartContract** 가 지원 됩니다. |
 | abiFileUrl | 스마트 계약 ABI JSON 파일에 대 한 URL입니다. 계약 ABI를 가져오고 URL을 만드는 방법에 대 한 자세한 내용은 [계약 abi 및 바이트 코드 가져오기](data-manager-portal.md#get-contract-abi-and-bytecode) 및 [계약 abi 및 바이트 코드 URL 만들기](data-manager-portal.md#create-contract-abi-and-bytecode-url)를 참조 하세요. |
-| bytecodeFileUrl | 스마트 계약 바이트 코드 JSON 파일의 URL입니다. 스마트 계약 바이트 코드를 가져오고 URL을 만드는 방법에 대 한 자세한 내용은 [계약 abi 및 바이트 코드 가져오기](data-manager-portal.md#get-contract-abi-and-bytecode) 및 [계약 abi 및 바이트 코드 url 만들기](data-manager-portal.md#create-contract-abi-and-bytecode-url)를 참조 하세요. |
+| bytecodeFileUrl | 스마트 계약에 배포 된 바이트 코드 JSON 파일의 URL입니다. 스마트 계약에서 바이트 코드를 배포 하 고 URL을 만드는 방법에 대 한 자세한 내용은 [계약 abi 및 바이트 코드 가져오기](data-manager-portal.md#get-contract-abi-and-bytecode) 및 [계약 abi 및 바이트 코드 url 만들기](data-manager-portal.md#create-contract-abi-and-bytecode-url)를 참조 하세요. 참고: Blockchain Data Manager에는 **배포 된 바이트**집합이 필요 합니다. |
 | queryTargetTypes | 게시 된 메시지 유형입니다. **ContractProperties** 게시 *ContractPropertiesMsg* 메시지 유형을 지정 합니다. **ContractEvents** 게시 *DecodedContractEventsMsg* 메시지 유형을 지정 합니다. 참고: *RawBlockAndTransactionMsg* 및 *RawTransactionContractCreationMsg* 메시지 유형은 항상 게시 됩니다. |
 
 JSON 문자열로 정의 된 스마트 계약을 모니터링 하는, *mywatcher* 에 대해 *myApplication* 이라는 응용 프로그램을 만듭니다.
@@ -415,4 +419,7 @@ az resource delete \
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Event Grid에서 이벤트 처리기](../../event-grid/event-handlers.md)에 대해 자세히 알아보세요.
+Blockchain Data Manager 및 Azure Cosmos DB를 사용 하 여 blockchain 트랜잭션 메시지 탐색기를 만들어 보세요.
+
+> [!div class="nextstepaction"]
+> [자습서: 블록 체인 Data Manager를 사용 하 여 데이터를 Azure Cosmos DB에 전송](data-manager-cosmosdb.md)

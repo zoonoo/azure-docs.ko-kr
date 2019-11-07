@@ -8,14 +8,14 @@ manager: rkarlin
 ms.assetid: 1b71e8ad-3bd8-4475-b735-79ca9963b823
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 69b81417e541bd6853e02065e8cee08e3e04b4a2
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: bd538d436d1c900a370f522bccf724eaf87210b4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433887"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582616"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
@@ -63,7 +63,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다. 원격 
 
 또한 광범위 한 캠페인의 증명을 지 원하는 것을 확인 하기 위해 다른 신호와의 상관 관계가 있습니다. 이 상관 관계를 통해 설정된 손상 표시기와 일치하는 이벤트를 식별할 수 있습니다. 
 
-### <a name="anomaly-detection"></a>변칙 검색
+### <a name="anomaly-detection"></a>이상 감지
 
 Azure Security Center는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다.
 
@@ -115,7 +115,7 @@ Microsoft 전체에서 위협 환경의 변화를 지속적으로 모니터링 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Security Center에서 사용할 수 있는 다양 한 유형의 경고에 대해 알아보았습니다. 자세한 내용은
+이 문서에서는 Security Center에서 사용할 수 있는 다양 한 유형의 경고에 대해 알아보았습니다. 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center 계획 및 작업 가이드](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
 * [Azure Security Center FAQ](https://docs.microsoft.com/azure/security-center/security-center-faq)

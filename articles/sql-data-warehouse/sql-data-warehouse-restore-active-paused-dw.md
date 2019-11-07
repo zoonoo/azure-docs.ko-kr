@@ -1,5 +1,5 @@
 ---
-title: 기존 Azure SQL Data Warehouse 복원 | Microsoft Docs
+title: 기존 데이터 웨어하우스 복원
 description: 기존 Azure SQL Data Warehouse 복원에 대 한 방법 가이드입니다.
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 7470dd96109823057a174d2ecf097583dcb51898
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a73658510111df44c522d88ed5eceb7dcfa80d0d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575280"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685541"
 ---
 # <a name="restore-an-existing-azure-sql-data-warehouse"></a>기존 Azure SQL Data Warehouse 복원
 
@@ -25,7 +26,7 @@ ms.locfileid: "69575280"
 
 **DTU 용량을 확인합니다.** 각 SQL Data Warehouse는 기본 DTU 할당량이 있는 SQL server (예: myserver.database.windows.net)에서 호스팅됩니다. SQL server에 복원 중인 데이터베이스에 대 한 DTU 할당량이 충분히 남아 있는지 확인 합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청][Request a DTU quota change]을 참조합니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 1. [Azure PowerShell을 설치][Install Azure PowerShell]해야 합니다.
 2. 복원 하려는 기존 복원 지점이 있어야 합니다. 새 복원을 만들려면 자습서를 참조 [하 여 새 사용자 정의 복원 지점을 만듭니다][the tutorial to create a new user-defined restore point].
@@ -88,7 +89,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-an-existing-data-warehouse-through-the-azure-portal"></a>Azure Portal를 통해 기존 데이터 웨어하우스 복원
 
-1. [Azure Portal][Azure portal]에 로그인합니다.
+1. [Azure 포털][Azure portal]에 로그인합니다.
 2. 복원 하려는 SQL Data Warehouse로 이동 합니다.
 3. [개요] 블레이드의 위쪽에서 **복원**을 선택합니다.
 

@@ -7,39 +7,39 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 12/08/2018
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 11edfc11fc1e54684a99774c21517d4c322348b1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a24d6e96df3abf385b0a64ec4bc7e1f1c248998b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087054"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614634"
 ---
 # <a name="timers-in-durable-functions-azure-functions"></a>지속성 함수의 타이머(Azure Functions)
 
 [지속성 함수](durable-functions-overview.md)는 지연을 구현하거나 비동기 작업에 대한 시간 제한을 설정하기 위해 오케스트레이터 함수에 사용할 *지속성 타이머*를 제공합니다. 지속성 타이머는 `Thread.Sleep` 및 `Task.Delay`(C#) 또는 `setTimeout()` 및 `setInterval()`(JavaScript) 대신, 오케스트레이터 함수에 사용해야 합니다.
 
-.NET에서 [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html)의 [CreateTimer](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CreateTimer_) 메서드를 호출하거나 JavaScript에서 `DurableOrchestrationContext`의 `createTimer`메서드를 호출하여 지속형 타이머를 만듭니다. 이 메서드는 지정된 날짜와 시간에 다시 시작하는 작업을 반환합니다.
+[오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger)`CreateTimer` (.net) 메서드 또는 `createTimer` (JavaScript) 메서드를 호출 하 여 지 속성 타이머를 만듭니다. 메서드는 지정 된 날짜와 시간에 완료 되는 작업을 반환 합니다.
 
 ## <a name="timer-limitations"></a>타이머 제한 사항
 
-오후 4시 30분에 만료되는 타이머를 만들면 기본 지속성 작업 프레임워크에서 오후 4시 30분에만 표시되는 메시지를 큐에 넣습니다. Azure Functions 소비 계획에서 실행될 때 새로 표시되는 타이머 메시지는 함수 앱이 적절한 VM에서 활성화되도록 합니다.
+오후 4:30 시에 만료 되는 타이머를 만들 때 기본 지 속성 작업 프레임 워크는 4:30 pm 에서만 표시 되는 메시지를 큐 합니다. Azure Functions 소비 계획에서 실행 하는 경우 새로 표시 되는 타이머 메시지는 함수 앱이 적절 한 VM에서 활성화 되도록 합니다.
 
 > [!NOTE]
-> * 지속성 타이머는 Azure Storage의 제한으로 인해 7일을 초과하여 지속될 수 없습니다. [7일을 초과할 수 있도록 타이머를 연장하기 위한 기능](https://github.com/Azure/azure-functions-durable-extension/issues/14)을 요청하고 있습니다.
-> * 지속형 타이머의 상대적인 최종 기한을 계산할 때는 항상 아래 예제와 같이 .NET의 `DateTime.UtcNow` 대신 [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime)을 사용하고 JavaScript의 `Date.now` 또는 `Date.UTC` 대신 `currentUtcDateTime`을 사용합니다.
+> * 지 속성 타이머는 현재 7 일로 제한 됩니다. 지연 시간이 더 오래 걸리는 경우 `while` 루프의 타이머 Api를 사용 하 여 시뮬레이션할 수 있습니다.
+> * 영 속 타이머의 화재 시간을 계산할 때 JavaScript에서 `Date.now` 또는 `Date.UTC` 대신 .NET 또는 `currentUtcDateTime` 대신 `DateTime.UtcNow` `CurrentUtcDateTime`를 항상 사용 합니다. 자세한 내용은 [orchestrator 함수 코드 제약 조건](durable-functions-code-constraints.md) 문서를 참조 하세요.
 
 ## <a name="usage-for-delay"></a>지연 사용
 
-다음 예제에서는 실행 지연에 지속성 타이머를 사용하는 방법을 보여 줍니다. 여기서는 청구 알림을 10일 동안 매일 발급하고 있습니다.
+다음 예제에서는 실행 지연에 지속성 타이머를 사용하는 방법을 보여 줍니다. 예는 매일 10 일 동안 청구 알림을 실행 하는 것입니다.
 
 ### <a name="c"></a>C#
 
 ```csharp
 [FunctionName("BillingIssuer")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     for (int i = 0; i < 10; i++)
     {
@@ -50,7 +50,10 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+> [!NOTE]
+> 이전 C# 예제에서는 Durable Functions 2.x를 대상으로 합니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+
+### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
 
 ```js
 const df = require("durable-functions");
@@ -78,7 +81,7 @@ module.exports = df.orchestrator(function*(context) {
 ```csharp
 [FunctionName("TryGetQuote")]
 public static async Task<bool> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     TimeSpan timeout = TimeSpan.FromSeconds(30);
     DateTime deadline = context.CurrentUtcDateTime.Add(timeout);
@@ -104,7 +107,10 @@ public static async Task<bool> Run(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+> [!NOTE]
+> 이전 C# 예제에서는 Durable Functions 2.x를 대상으로 합니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+
+### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
 
 ```js
 const df = require("durable-functions");
@@ -131,11 +137,11 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!WARNING]
-> 코드가 완료될 때까지 기다리지 않는 경우 `CancellationTokenSource`를 사용하여 지속성 타이머를 취소하거나(C#) 반환된 `TimerTask`에 대해 `cancel()`를 호출합니다(JavaScript). 지 속성 작업 프레임 워크는 처리 중인 모든 작업이 완료 되거나 취소 될 때까지 오케스트레이션의 상태를 "완료 됨"으로 변경 하지 않습니다.
+> `CancellationTokenSource`를 사용 하 여 지 속성 타이머 (.NET)를 취소 하거나, 코드가 완료 될 때까지 기다리지 않는 경우 반환 된 `TimerTask` (JavaScript)에서 `cancel()`를 호출 합니다. 지 속성 작업 프레임 워크는 처리 중인 모든 작업이 완료 되거나 취소 될 때까지 오케스트레이션의 상태를 "완료 됨"으로 변경 하지 않습니다.
 
-이 메커니즘은 실제로 진행 중인 작업 함수 실행을 종료하지 않습니다. 대신 단순히 오케스트레이터 함수를 사용하여 결과를 무시하고 계속 진행할 수 있습니다. 함수 앱에서 소비 계획을 사용하는 경우 중단된 작업 함수에서 사용되는 시간과 메모리에 대해 요금이 계속 청구됩니다. 기본적으로 소비 계획에서 실행되는 함수의 시간 제한은 5분입니다. 이 제한을 초과하면 모든 실행을 중지하고 런어웨이 청구 상황을 방지하기 위해 Azure Functions 호스트가 재활용됩니다. [함수 시간 제한은 구성 가능](../functions-host-json.md#functiontimeout)합니다.
+이 취소 메커니즘은 진행 중인 작업 함수 또는 하위 오케스트레이션 실행을 종료 하지 않습니다. 대신 단순히 오케스트레이터 함수를 사용하여 결과를 무시하고 계속 진행할 수 있습니다. 함수 앱이 소비 계획을 사용 하는 경우 중단 된 작업 함수에서 사용 하는 시간 및 메모리에 대 한 요금이 계속 청구 됩니다. 기본적으로 소비 계획에서 실행되는 함수의 시간 제한은 5분입니다. 이 제한을 초과하면 모든 실행을 중지하고 런어웨이 청구 상황을 방지하기 위해 Azure Functions 호스트가 재활용됩니다. [함수 시간 제한은 구성 가능](../functions-host-json.md#functiontimeout)합니다.
 
-오케스트레이터 함수에서 시간 제한을 구현하는 방법에 대한 자세한 예제는 [인간 상호 작용 및 시간 제한 - 전화 확인](durable-functions-phone-verification.md) 연습을 참조하세요.
+Orchestrator 함수에서 시간 제한을 구현 하는 방법에 대 한 자세한 예제는 [사용자 상호 작용 & 시간 제한-전화 확인](durable-functions-phone-verification.md) 문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

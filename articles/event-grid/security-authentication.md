@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: f22d8c57b0127e646321a20587d0cd89f5c9ea45
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b9e471928940094b29bdffeb73ea42fe852492cb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72325415"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665587"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -41,7 +41,7 @@ HTTP 트리거 기반 Azure 함수와 같은 엔드포인트의 다른 형식을
 
    버전 2018-05-01-미리 보기부터 Event Grid는 수동 유효성 검사 핸드셰이크를 지원합니다. API 버전 2018-05-01-미리 보기 이상을 사용하는 SDK 또는 도구에서 이벤트 구독을 만드는 경우 Event Grid는 구독 유효성 검사 이벤트의 데이터 부분에 `validationUrl` 속성을 전송합니다. 핸드셰이크를 완료하려면 이벤트 데이터에서 해당 URL을 찾은 후 GET 요청을 수동으로 전송합니다. REST 클라이언트 또는 웹 브라우저를 사용할 수 있습니다.
 
-   제공 된 URL은 5 분 동안 유효 합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 5 분 내에 수동 유효성 검사를 완료 하지 않으면 프로 비전 상태가 `Failed`으로 설정 됩니다. 수동 유효성 검사를 시작하기 전에 이벤트 구독을 다시 작성해야 합니다.
+   제공 된 URL은 5 분 동안 유효 합니다. 이 시간 동안 이벤트 구독의 프로비전 상태가 `AwaitingManualAction`입니다. 5 분 내에 수동 유효성 검사를 완료 하지 않으면 프로 비전 상태가 `Failed`로 설정 됩니다. 수동 유효성 검사를 시작하기 전에 이벤트 구독을 다시 작성해야 합니다.
 
     또한이 인증 메커니즘을 사용 하려면 웹 후크 끝점에서 HTTP 상태 코드 200을 반환 하 여 유효성 검사 이벤트의 게시물이 수동 유효성 검사 모드에 배치 되기 전에 승인 되었음을 알 수 있습니다. 즉, 끝점이 200을 반환 하지만 프로그래밍 방식으로 유효성 검사 응답을 반환 하지 않는 경우 모드가 수동 유효성 검사 모드로 전환 됩니다. 5 분 이내에 유효성 검사 URL에 대 한 GET이 있으면 유효성 검사 핸드셰이크가 성공한 것으로 간주 됩니다.
 
@@ -85,15 +85,15 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 }
 ```
 
-HTTP 200 정상 응답 상태 코드를 반환해야 합니다. HTTP 202 수락은 유효한 Event Grid 구독 유효성 검사 응답으로 인식되지 않습니다.
+HTTP 200 정상 응답 상태 코드를 반환해야 합니다. HTTP 202 수락 됨은 올바른 Event Grid 구독 유효성 검사 응답으로 인식 되지 않습니다. Http 요청은 30 초 내에 완료 되어야 합니다. 작업이 30 초 내에 완료 되지 않으면 작업이 취소 되 고 5 초 후에 다시 시도 될 수 있습니다. 모든 시도가 실패 하면 유효성 검사 핸드셰이크 오류로 처리 됩니다.
 
-또는 유효성 검사 URL에 GET 요청을 수동으로 전송하여 구독이 유효한지 수동으로 검사할 수 있습니다. 이벤트 구독은 유효성을 검사할 때까지 보류 상태로 유지됩니다.
+또는 유효성 검사 URL에 GET 요청을 수동으로 전송하여 구독이 유효한지 수동으로 검사할 수 있습니다. 이벤트 구독은 유효성을 검사할 때까지 보류 중 상태로 유지 됩니다. 유효성 검사 Url은 포트 553를 사용 합니다. 방화벽 규칙이 포트 553를 차단할 경우 성공적인 수동 핸드셰이크를 위해 규칙을 업데이트 해야 할 수 있습니다.
 
 구독 유효성 검사 핸드셰이크 처리 예제를 보려면 [C# 샘플](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs)을 참조하세요.
 
 ### <a name="checklist"></a>검사 목록
 
-이벤트 구독을 만드는 동안 "제공 된 끝점의 유효성을 검사 하는 중 https: \//끝점이 실패 했습니다."와 같은 오류 메시지가 표시 되는 경우 실패 합니다. 자세한 내용은 https: \//즉,/esvalidation "을 참조 하세요 .이는 유효성 검사 핸드셰이크에 오류가 있음을 나타냅니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
+이벤트 구독을 만드는 동안 "제공 된 끝점의 유효성을 검사 하는 데 실패 했습니다. https:\// 자세한 내용은 https:\//aka.ms/esvalidation "를 참조 하세요 .이는 유효성 검사 핸드셰이크에 오류가 있음을 나타냅니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
 
 * 대상 엔드포인트에서 애플리케이션 코드를 제어할 수 있습니까? 예를 들어, HTTP 트리거 기반 Azure Function을 작성하는 경우 이를 변경하기 위해 애플리케이션 코드에 액세스할 수 있습니까?
 * 애플리케이션 코드에 액세스할 수 있는 경우 위의 샘플에서와 같이 ValidationCode 기반 핸드셰이크 메커니즘을 구현하세요.

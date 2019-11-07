@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Warehouse - VSTS에 연결 | Microsoft Azure
-description: Visual Studio를 사용하여 SQL Data Warehouse를 쿼리합니다.
+title: VSTS를 사용 하 여 연결
+description: Visual Studio를 사용 하 여 Azure SQL Data Warehouse를 쿼리 합니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 08/15/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e6c3de1714d363eb1481bcea5f470d04125b96b9
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e2d37b2d71f605077903197d25b5da2803e34ad3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575302"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685565"
 ---
 # <a name="connect-to-sql-data-warehouse-with-visual-studio-and-ssdt"></a>Visual Studio 및 SSDT를 사용하여 SQL Data Warehouse에 연결
 > [!div class="op_single_selector"]
@@ -29,7 +30,7 @@ ms.locfileid: "69575302"
 
 Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼리합니다. 이 메서드는 Visual Studio 2019에서 SSDT (SQL Server Data Tools) 확장을 사용 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 자습서를 사용하려면 다음이 필요합니다.
 
 * 기존 SQL Data Warehouse입니다. 만들려면 [SQL Data Warehouse 만들기][Create a SQL Data Warehouse]를 참조하세요.
@@ -44,15 +45,15 @@ Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼
 3. **SQL Server 추가** 아이콘을 클릭합니다.
    
     ![SQL Server 추가][2]
-4. 서버에 연결 창에서 필드를 입력합니다.
+4. 서버 창에 연결에서 필드를 입력합니다.
    
     ![서버에 연결][3]
    
    * **서버 이름**. 이전에 식별한 **서버 이름** 을 입력합니다.
    * **인증**. **SQL Server 인증** 또는 **Active Directory 통합 인증**을 선택합니다.
    * **사용자 이름** 및 **암호**. 위에서 SQL Server 인증을 선택한 경우 사용자 이름 및 암호를 입력합니다.
-   * **연결**을 클릭합니다.
-5. 탐색하려면 Azure SQL Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
+   * **Connect**를 클릭합니다.
+5. 탐색하려면 SQL Azure Server를 확장합니다. 서버와 연결된 데이터베이스를 볼 수 있습니다. AdventureWorksDW를 확장하여 샘플 데이터베이스의 테이블을 확인합니다.
    
     ![AdventureWorksDW 탐색하기][4]
 
@@ -63,7 +64,7 @@ Visual Studio를 사용하여 단 몇 분 만에 Azure SQL Data Warehouse를 쿼
 2. **새 쿼리**를 선택합니다. 새 쿼리 창이 열립니다.
    
     ![새 쿼리][5]
-3. 다음 T-SQL 쿼리를 쿼리 창에 복사합니다.
+3. 이 TSQL 쿼리를 쿼리 창에 복사합니다.
    
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;

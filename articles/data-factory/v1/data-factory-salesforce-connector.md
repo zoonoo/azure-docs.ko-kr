@@ -1,5 +1,5 @@
 ---
-title: Data Factory를 사용하여 Salesforce에서 데이터 이동 | Microsoft Docs
+title: Data Factory를 사용 하 여 Salesforce에서 데이터 이동
 description: Azure Data Factory를 사용하여 Salesforce에서 데이터를 이동하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d33172727d4c654614463f69b83f7802cf7fb905
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 71201efeb56ffda2dfbf82ca19b3bacb773c7c3d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839606"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666159"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Salesforce에서 데이터 이동
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](data-factory-salesforce-connector.md)
 > * [버전 2(현재 버전)](../connector-salesforce.md)
 
@@ -33,9 +33,9 @@ ms.locfileid: "67839606"
 현재 Azure Data Factory는 Salesforce에서 [지원되는 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 데이터를 이동하도록 지원하며 다른 데이터 저장소에서 Salesforce로 데이터를 이동하도록 지원하지 않습니다.
 
 ## <a name="supported-versions"></a>지원되는 버전
-이 커넥터에서 지원하는 Salesforce 버전은 다음과 같습니다. Developer Edition, Professional Edition, Enterprise Edition 또는 Unlimited Edition. 그리고 Salesforce 프로덕션, 샌드박스 및 사용자 지정 도메인에서 복사를 지원합니다.
+이 커넥터는 Salesforce Developer Edition, Professional Edition, Enterprise Edition 또는 Unlimited Edition을 지원합니다. 그리고 Salesforce 프로덕션, 샌드박스 및 사용자 지정 도메인에서 복사를 지원합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 * API 권한을 사용하도록 설정해야 합니다. [권한 집합에 따라 Salesforce에서 API 액세스를 사용하도록 설정하는 방법](https://www.data2crm.com/migration/faqs/enable-api-access-salesforce-permission-set/)
 * Salesforce에서 온-프레미스 데이터 저장소로 데이터를 복사하려면 온-프레미스 환경에 데이터 관리 게이트웨이 2.0이 설치되어 있어야 합니다.
 
@@ -50,9 +50,9 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 ## <a name="getting-started"></a>시작
 다른 도구/API를 사용하여 Salesforce의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습을 볼 수 있습니다.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
 
-또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell**를 **Azure Resource Manager 템플릿을**를 **.NET API**, 및 **REST API**합니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -60,7 +60,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다.
 3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다.
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다. Salesforce의 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: Salesforce에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-salesforce-to-azure-blob) 섹션을 참조하세요.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다. Salesforce의 데이터를 복사하는 데 사용되는 데이터 팩터리 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예: Salesforce에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-salesforce-to-azure-blob) 섹션을 참조하세요.
 
 다음 섹션에서는 Salesforce에 한정된 데이터 팩터리 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -69,9 +69,9 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type |type 속성을 다음으로 설정해야 합니다. **Salesforce**. |예 |
-| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https:\//login.salesforce.com"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "https://test.salesforce.com"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아니요 |
-| username |사용자 계정의 사용자 이름을 지정합니다. |예 |
+| type |형식 속성은 **Salesforce**로 설정되어야 합니다. |예 |
+| environmentUrl | Salesforce 인스턴스의 URL을 지정합니다. <br><br> -기본값은 "https:\//login.salesforce.com"입니다. <br> - 샌드박스에서 데이터를 복사하려면 "[https://test.salesforce.com](https://test.salesforce.com)"을 지정합니다. <br> -사용자 지정 도메인에서 데이터를 복사하려면 예를 들어 "https://[domain].my.salesforce.com"을 지정합니다. |아니요 |
+| 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예 |
 | password |사용자 계정으로 password를 지정합니다. |예 |
 | securityToken |사용자 계정에 대한 보안 토큰을 지정합니다. 보안 토큰을 재설정하거나 가져오는 방법에 대한 자세한 내용은 [보안 토큰 가져오기](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) 를 참조하세요. 일반적인 보안 토큰에 대해 자세히 알아보려면 [보안 및 API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)를 참조하세요. |예 |
 
@@ -96,9 +96,9 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 원본이 **RelationalSource** 형식인 복사 작업에서(Salesforce 포함) typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리입니다. 예를 들어 `select * from MyTable__c`을 참조하십시오. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
+| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL-92 쿼리 또는 [SOQL(Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) 쿼리입니다. 예제: `select * from MyTable__c`. |아니요(**데이터 세트**의 **tableName**이 지정된 경우) |
 
 > [!IMPORTANT]
 > 모든 사용자 지정 개체에 대해 API 이름에 "__c" 부분이 필요합니다.
@@ -107,7 +107,7 @@ Salesforce에는 총 API 요청 수와 동시 API 요청 수에 대한 제한이
 
 ## <a name="query-tips"></a>쿼리 팁
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>DateTime 열에서 where 절을 사용하여 데이터 검색
-SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 예를 들어:
+SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 합니다. 예:
 
 * **SOQL 샘플**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
 * **SQL 샘플**:
@@ -115,7 +115,7 @@ SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 �
     * **JSON 편집을 사용하여 쿼리 지정(적절하게 문자 이스케이프):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
 ### <a name="retrieving-data-from-salesforce-report"></a>Salesforce 보고서에서 데이터 검색
-`{call "<report name>"}`과 같이 쿼리를 지정하여 Salesforce 보고서에서 데이터를 검색할 수 있으며 그 예는 다음과 같습니다. `"query": "{call \"TestReport\"}"`.
+`{call "<report name>"}`과 같이 쿼리를 지정하여 Salesforce 보고서에서 데이터를 검색할 수 있으며 그 예는 다음과 같습니다. `"query": "{call \"TestReport\"}"`에 설정해야 합니다에 설정해야 합니다.
 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Salesforce 휴지통에서 삭제된 레코드 검색
 임시 삭제된 쿼리를 Salesforce 휴지통에서 쿼리하려면 쿼리에 **"IsDeleted = 1"** 을 지정하면 됩니다. 예를 들면 다음과 같습니다.
@@ -123,16 +123,16 @@ SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 �
 * 삭제된 레코드만 쿼리하려면 "select * from MyTable__c **where IsDeleted= 1**"을 지정합니다.
 * 기존 레코드와 삭제된 레코드를 포함하여 모든 레코드를 쿼리하려면 "select * from MyTable__c **where IsDeleted = 0 or IsDeleted = 1**"을 지정합니다.
 
-## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>JSON 예제: Salesforce에서 Azure Blob으로 데이터 복사
-다음 예에서는 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의 제공 합니다 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)합니다. 이 샘플은 Salesforce에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
+## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>JSON 예: Salesforce에서 Azure Blob으로 데이터 복사
+다음 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. 이 샘플은 Salesforce에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 [여기](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 에 설명한 싱크로 데이터를 복사할 수 있습니다.
 
 시나리오를 구현하도록 만들어야 하는 데이터 팩터리 아티팩트는 다음과 같습니다. 목록 다음에 나오는 섹션에서는 이러한 단계에 대한 세부 정보를 제공합니다.
 
 * [Salesforce](#linked-service-properties)
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)
-* [RelationalTable](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
-* [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-* [RelationalSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
+* [RelationalTable](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)
+* [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+* [RelationalSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 **Salesforce 연결된 서비스**
 
@@ -202,7 +202,7 @@ SOQL 또는 SQL 쿼리를 지정할 때 DateTime 형식 차이에 주의해야 �
 
 **Azure Blob 출력 데이터 세트:**
 
-데이터는 1시간마다 새 blob에 기록됩니다(frequency: hour, interval: 1).
+데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회)
 
 ```json
 {
@@ -286,25 +286,25 @@ RelationalSource에서 지원하는 속성 목록은 [RelationalSource 형식 �
 
 | Salesforce 형식 | .NET 기반 형식 |
 | --- | --- |
-| 자동 번호 |String |
-| Checkbox |Boolean |
-| Currency |Decimal |
-| 날짜 |DateTime |
-| Date/Time |DateTime |
-| EMail |String |
-| Id |String |
-| 관계 조회 |String |
-| 다중 선택 선택 목록 |String |
-| 숫자 |Decimal |
-| Percent |Decimal |
-| 전화 |String |
-| 선택 목록 |String |
-| 텍스트 |String |
-| 텍스트 영역 |String |
-| 텍스트 영역(Long) |String |
-| 텍스트 영역(Rich) |String |
-| 텍스트(암호화됨) |String |
-| URL |String |
+| 자동 번호 |문자열 |
+| 확인란 |부울 |
+| 통화 |10진수 |
+| Date |DateTime |
+| 날짜/시간 |DateTime |
+| Email |문자열 |
+| id |문자열 |
+| 관계 조회 |문자열 |
+| 다중 선택 선택 목록 |문자열 |
+| Number |10진수 |
+| 백분율 |10진수 |
+| Phone |문자열 |
+| 선택 목록 |문자열 |
+| 텍스트 |문자열 |
+| 텍스트 영역 |문자열 |
+| 텍스트 영역(Long) |문자열 |
+| 텍스트 영역(Rich) |문자열 |
+| 텍스트(암호화됨) |문자열 |
+| URL |문자열 |
 
 > [!NOTE]
 > 원본 데이터 세트의 열을 싱크 데이터 세트의 열로 매핑하려면 [Azure Data Factory의 데이터 세트 열 매핑](data-factory-map-columns.md)을 참조하세요.

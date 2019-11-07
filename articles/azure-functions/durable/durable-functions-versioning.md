@@ -7,14 +7,14 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 0bac6f9105d505bdfc1492b6966c2352771e73b0
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4b4e82acbd3037c70b87731c0661605041090435
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791301"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614522"
 ---
 # <a name="versioning-in-durable-functions-azure-functions"></a>지속성 함수의 버전 관리(Azure Functions)
 
@@ -32,7 +32,7 @@ ms.locfileid: "72791301"
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -43,16 +43,19 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int result = await context.CallActivityAsync<int>("Foo");
     await context.CallActivityAsync("Bar", result);
 }
 ```
 
-이 변경은 오케스트레이터 함수의 새 인스턴스 모두에서 정상적으로 작동하지만 진행 중인 모든 인스턴스를 중단시킵니다. 예를 들어 오케스트레이션 인스턴스에서 **Foo**를 호출하고 부울 값과 검사점을 다시 가져오는 경우를 살펴보겠습니다. 이 시점에서 시그니처 변경이 배포되면 검사점이 설정된 인스턴스는 다시 시작되고 `context.CallActivityAsync<int>("Foo")`에 대한 호출을 재생할 때 즉시 실패합니다. 이는 기록 테이블의 결과가 `bool`이지만 새 코드에서 이를 `int`로 역직렬화하려고 하기 때문입니다.
+> [!NOTE]
+> 위의 C# 예제는 Durable Functions 2.x를 대상으로 합니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
-이 경우는 시그니처 변경으로 인해 기존 인스턴스가 손상될 수 있는 여러 가지 방법 중 하나일 뿐입니다. 일반적으로 오케스트레이터에서 함수를 호출하는 방식을 변경해야 하는 경우 변경이 문제가 될 수 있습니다.
+이 변경은 오케스트레이터 함수의 새 인스턴스 모두에서 정상적으로 작동하지만 진행 중인 모든 인스턴스를 중단시킵니다. 예를 들어 오케스트레이션 인스턴스가 `Foo`이라는 함수를 호출 하 고, 부울 값을 가져온 다음, 검사점을 반환 하는 경우를 고려해 보겠습니다. 이 시점에서 시그니처 변경이 배포되면 검사점이 설정된 인스턴스는 다시 시작되고 `context.CallActivityAsync<int>("Foo")`에 대한 호출을 재생할 때 즉시 실패합니다. 이 오류는 기록 테이블의 결과가 `bool` 되었지만 새 코드에서 `int`로 deserialize 하려고 시도 하기 때문에 발생 합니다.
+
+이 예제는 서명 변경으로 인해 기존 인스턴스가 중단 될 수 있는 여러 가지 방법 중 하나일 뿐입니다. 일반적으로 오케스트레이터에서 함수를 호출하는 방식을 변경해야 하는 경우 변경이 문제가 될 수 있습니다.
 
 ### <a name="changing-orchestrator-logic"></a>오케스트레이터 논리 변경
 
@@ -62,7 +65,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     await context.CallActivityAsync("Bar", result);
@@ -73,7 +76,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 ```csharp
 [FunctionName("FooBar")]
-public static Task Run([OrchestrationTrigger] DurableOrchestrationContext context)
+public static Task Run([OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     bool result = await context.CallActivityAsync<bool>("Foo");
     if (result)
@@ -85,7 +88,10 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-이 변경은 **Foo**와 **Bar** 간의 **SendNotification**에 새 함수 호출을 추가합니다. 시그니처 변경은 없습니다. 문제는 **Bar**에 대한 호출에서 기존 인스턴스가 다시 시작될 때 발생합니다. 재생하는 동안 **Foo**에 대한 원래 호출에서 `true`를 반환하는 경우 오케스트레이터 재생은 실행 기록에 없는 **SendNotification**으로 호출됩니다. 결과적으로 지속성 작업 프레임워크는 **Bar**에 대한 호출을 예상했지만 **SendNotification**에 대한 호출을 발견했기 때문에 `NonDeterministicOrchestrationException`과 함께 실패합니다. `CreateTimer`, `WaitForExternalEvent`등을 포함 하 여 "내구성이 있는" Api에 대 한 호출을 추가할 때 동일한 유형의 문제가 발생할 수 있습니다.
+> [!NOTE]
+> 위의 C# 예제는 Durable Functions 2.x를 대상으로 합니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+
+이 변경은 **Foo**와 **Bar** 간의 **SendNotification**에 새 함수 호출을 추가합니다. 시그니처 변경은 없습니다. 문제는 **Bar**에 대한 호출에서 기존 인스턴스가 다시 시작될 때 발생합니다. 재생 하는 동안 **Foo** 에 대 한 원래 호출이 `true`반환 되 면 orchestrator replay는 실행 기록에 없는 **sendnotification**을 호출 합니다. 결과적으로 지속성 작업 프레임워크는 `NonDeterministicOrchestrationException`Bar**에 대한 호출을 예상했지만** SendNotification**에 대한 호출을 발견했기 때문에** 과 함께 실패합니다. `CreateTimer`, `WaitForExternalEvent`등을 포함 하 여 "내구성이 있는" Api에 대 한 호출을 추가할 때 동일한 유형의 문제가 발생할 수 있습니다.
 
 ## <a name="mitigation-strategies"></a>완화 전략
 
@@ -99,11 +105,11 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 주요 변경을 처리하는 가장 쉬운 방법은 진행 중인 오케스트레이션 인스턴스를 실패하게 만드는 것입니다. 새 인스턴스가 변경된 코드를 성공적으로 실행합니다.
 
-이것이 문제인지 여부는 진행 중인 인스턴스의 중요도에 따라 다릅니다. 현재 개발 중에 있고 진행 중인 인스턴스가 중요하지 않으면 이 정도로 충분할 수 있습니다. 그러나 진단 파이프 라인에서 예외와 오류를 처리해야 합니다. 이러한 문제를 방지하려면 다른 버전 관리 옵션을 사용하는 것이 좋습니다.
+이러한 종류의 실패가 문제 인지 여부는 진행 중인 인스턴스의 중요도에 따라 달라 집니다. 현재 개발 중에 있고 진행 중인 인스턴스가 중요하지 않으면 이 정도로 충분할 수 있습니다. 그러나 진단 파이프라인에서 예외 및 오류를 처리 해야 합니다. 이러한 문제를 방지하려면 다른 버전 관리 옵션을 사용하는 것이 좋습니다.
 
 ### <a name="stop-all-in-flight-instances"></a>진행 중인 모든 인스턴스 중지
 
-다른 옵션으로 진행 중인 모든 인스턴스를 중지하는 것입니다. 이렇게 하려면 내부 **제어 큐** 및 **작업 항목 큐**의 내용을 지우면 됩니다. 인스턴스는 어디에서나 영원히 붙어 있지만 오류 메시지로 원격 분석을 어지럽히지는 않습니다. 이는 빠른 프로토타입 개발에 이상적입니다.
+다른 옵션으로 진행 중인 모든 인스턴스를 중지하는 것입니다. 내부 **제어 큐** 및 작업 **항목 큐** 큐의 콘텐츠를 지워 모든 인스턴스를 중지할 수 있습니다. 인스턴스는 계속 해 서 중단 되지만 오류 메시지를 사용 하 여 로그를 복잡 하 게 만들지 않습니다. 이 접근 방식은 신속한 프로토타입 개발에 적합 합니다.
 
 > [!WARNING]
 > 이러한 큐의 세부 정보는 시간이 지남에 따라 변경될 수 있으므로 프로덕션 작업에 이 기술을 사용하지 마세요.
@@ -114,7 +120,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 
 * 기존 함수를 그대로 두고 완전히 새로운 함수로 모든 업데이트를 배포 합니다. 새 함수 버전의 호출자는 동일한 지침에 따라 업데이트 해야 하기 때문에 복잡할 수 있습니다.
 * 다른 스토리지 계정을 사용하는 새 함수 앱으로 모든 업데이트를 배포합니다.
-* 업데이트 된 `taskHub` 이름을 가진 동일한 저장소 계정을 사용 하 여 함수 앱의 새 복사본을 배포 합니다. 이 방법을 사용하는 것이 좋습니다.
+* 업데이트 된 `taskHub` 이름을 가진 동일한 저장소 계정을 사용 하 여 함수 앱의 새 복사본을 배포 합니다. 병렬 배포는 권장 되는 방법입니다.
 
 ### <a name="how-to-change-task-hub-name"></a>작업 허브 이름을 변경하는 방법
 
@@ -130,7 +136,7 @@ public static Task Run([OrchestrationTrigger] DurableOrchestrationContext contex
 }
 ```
 
-#### <a name="functions-2x"></a>Functions 2.x
+#### <a name="functions-20"></a>함수 2.0
 
 ```json
 {

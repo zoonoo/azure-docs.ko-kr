@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: 3805d7b39c25bcb213a1d4f110161dcd00eb3630
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: dc572d29b4e6d95525959becad0ed8069735e33c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678246"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606041"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -37,7 +37,7 @@ ms.locfileid: "72678246"
 
 [Azure 리소스 그래프](https://docs.microsoft.com/azure/governance/resource-graph/overview)를 사용 하 여 변경 분석을 통해 응용 프로그램을 호스트 하는 azure 리소스가 시간에 따라 어떻게 변경 되었는지에 대 한 기록 기록을 제공 합니다. 변경 분석은 예를 들어, IP 구성 규칙의 변경, 관리 되는 id 및 SSL 설정을 검색할 수 있습니다. 따라서 웹 앱에 태그를 추가 하는 경우 변경 내용 분석에서 변경 내용을 반영 합니다. 이 정보는 Azure 구독에서 `Microsoft.ChangeAnalysis` 리소스 공급자를 사용 하도록 설정한 경우에만 사용할 수 있습니다.
 
-### <a name="changes-in-web-app-deployment-and-configuration"></a>웹 앱 배포 및 구성의 변경 내용
+### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>웹 앱 배포 및 구성의 변경 내용 (게스트 내 변경)
 
 변경 분석은 4 시간 마다 응용 프로그램의 배포 및 구성 상태를 캡처합니다. 예를 들어 응용 프로그램 환경 변수의 변경 내용을 검색할 수 있습니다. 이 도구는 차이점을 계산 하 고 변경 된 내용을 표시 합니다. 리소스 관리자 변경과 달리 코드 배포 변경 정보는 도구에서 즉시 사용 하지 못할 수도 있습니다. 변경 분석에서 최신 변경 내용을 보려면 **지금 변경 내용 검색**을 선택 합니다.
 
@@ -51,10 +51,32 @@ ms.locfileid: "72678246"
 - Azure Storage
 - Azure SQL
 
+## <a name="viewing-changes-for-all-resources-in-azure"></a>Azure에서 모든 리소스에 대 한 변경 내용 보기
+Azure Monitor에는 정보 및 응용 프로그램 종속성 리소스의 모든 변경 내용을 볼 수 있는 변경 분석에 대 한 독립 실행형 블레이드가 있습니다.
+
+Azure Portal의 검색 창에서 변경 분석을 검색 하 여 블레이드를 시작 합니다.
+
+![Azure Portal에서 변경 분석 검색의 스크린샷](./media/change-analysis/search-change-analysis.png)
+
+변경 내용 보기를 시작 하려면 리소스 그룹 및 리소스를 선택 합니다.
+
+![Azure Portal의 변경 분석 블레이드 스크린샷](./media/change-analysis/change-analysis-standalone-blade.png)
+
+응용 프로그램을 호스팅하는 정보 및 관련 종속성 리소스를 볼 수 있습니다. 이 보기는 개발자가 문제를 해결할 수 있도록 응용 프로그램 중심적으로 설계 되었습니다.
+
+현재 지원 되는 리소스는 다음과 같습니다.
+- Virtual Machines
+- 가상 머신 확장 집합
+- Azure 네트워킹 리소스
+- 게스트 내 파일 추적 및 환경 변수가 변경 된 웹 앱
+
+피드백을 보려면 블레이드 또는 메일 changeanalysisteam@microsoft.com에서 사용자 의견 보내기 단추를 사용 하세요. 
+
+![변경 분석 블레이드의 피드백 단추 스크린샷](./media/change-analysis/change-analysis-feedback.png)
 
 ## <a name="change-analysis-for-the-web-apps-feature"></a>Web Apps 기능에 대 한 변경 분석
 
-Azure Monitor 변경 분석은 현재 셀프 서비스 **진단 및 문제 해결** 환경에 기본 제공 됩니다. App Service 응용 프로그램의 **개요** 페이지에서이 환경에 액세스 합니다.
+Azure Monitor에서 변경 분석은 셀프 서비스 **진단 및 문제 해결** 환경에도 기본적으로 제공 됩니다. App Service 응용 프로그램의 **개요** 페이지에서이 환경에 액세스 합니다.
 
 !["개요" 단추의 스크린샷 및 "문제 진단 및 해결" 단추](./media/change-analysis/change-analysis.png)
 
@@ -77,7 +99,7 @@ Azure Monitor 변경 분석은 현재 셀프 서비스 **진단 및 문제 해�
     !["변경 분석 설정" 사용자 인터페이스의 스크린샷](./media/change-analysis/change-analysis-on.png)
 
 
-1. 변경 분석에 액세스 하려면**응용 프로그램 작동 중단** > **가용성 및 성능**  >  **진단 및 해결** 을 선택 합니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다.
+1. 변경 분석에 액세스 하려면 **응용 프로그램 작동 중단** > **가용성 및 성능** > **진단 및 해결** 을 선택 합니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다.
 
      ![Diff 뷰 변경의 스크린샷](./media/change-analysis/change-view.png)
 

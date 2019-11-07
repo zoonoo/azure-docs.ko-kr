@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse 순서가 지정 된 클러스터형 columnstore 인덱스로 성능 튜닝 | Microsoft Docs
+title: 순서가 지정 된 클러스터형 columnstore 인덱스로 성능 튜닝
 description: 정렬 된 클러스터형 columnstore 인덱스를 사용 하 여 쿼리 성능을 향상 시킬 때 알아야 할 권장 사항 및 고려 사항입니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 37d8f17e825daa3a1c160509b1a38f8c70256d1c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3cc2f140eeed0a4667a01aa8c5ccbad7e4411521
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595375"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685997"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>순서가 지정 된 클러스터형 columnstore 인덱스로 성능 튜닝  
 
@@ -43,7 +44,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> 순서가 지정 된 CCI 테이블에서 DML 또는 데이터 로드 작업으로 인해 발생 하는 새 데이터는 자동으로 정렬 되지 않습니다.  사용자는 정렬 된 CCI를 다시 작성 하 여 테이블의 모든 데이터를 정렬할 수 있습니다.  Azure SQL Data Warehouse에서 columnstore 인덱스 다시 작성은 오프 라인 작업입니다.  분할 된 테이블의 경우 다시 작성은 한 번에 하나의 파티션으로 수행 됩니다.  다시 작성 되는 파티션의 데이터는 "오프 라인" 이며 해당 파티션에 대해 다시 작성이 완료 될 때까지 사용할 수 없습니다. 
+> 순서가 지정 된 CCI 테이블에서 동일한 DML 또는 데이터 로드 작업 일괄 처리로 생성 되는 새 데이터는 해당 일괄 처리 내에서 정렬 되며 테이블의 모든 데이터에 대해 전역 정렬이 수행 되지 않습니다.  사용자는 정렬 된 CCI를 다시 작성 하 여 테이블의 모든 데이터를 정렬할 수 있습니다.  Azure SQL Data Warehouse에서 columnstore 인덱스 다시 작성은 오프 라인 작업입니다.  분할 된 테이블의 경우 다시 작성은 한 번에 하나의 파티션으로 수행 됩니다.  다시 작성 되는 파티션의 데이터는 "오프 라인" 이며 해당 파티션에 대해 다시 작성이 완료 될 때까지 사용할 수 없습니다. 
 
 ## <a name="query-performance"></a>쿼리 성능
 
@@ -63,7 +64,7 @@ ORDER (Col_C, Col_B, Col_A)
 
 ```
 
-쿼리 1의 성능은 다른 3 개 쿼리보다 순서가 지정 된 CCI 보다 더 유용할 수 있습니다. 
+쿼리 1의 성능은 다른 세 개의 쿼리 보다 순서가 지정 된 CCI 보다 더 유용할 수 있습니다. 
 
 ```sql
 -- Query #1: 
@@ -112,7 +113,7 @@ OPTION (MAXDOP 1);
 - Azure SQL Data Warehouse 테이블로 로드 하기 전에 정렬 키를 기준으로 데이터를 미리 정렬 합니다.
 
 
-다음은 위의 권장 사항과 겹치지 않는 세그먼트가 0 인 순서가 지정 된 CCI 테이블 배포의 예입니다. 정렬 된 CCI 테이블은 MAXDOP 1 및 xlargerc를 사용 하 여 20GB 힙 테이블에서 CTAS를 통해 DWU1000c 데이터베이스에 생성 됩니다.  CCI는 중복 없이 BIGINT 열에 대해 정렬 됩니다.  
+다음은 위의 권장 사항과 겹치지 않는 세그먼트가 0 인 순서가 지정 된 CCI 테이블 배포의 예입니다. 정렬 된 CCI 테이블은 MAXDOP 1 및 xlargerc를 사용 하 여 20gb 힙 테이블에서 CTAS를 통해 DWU1000c 데이터베이스에 만들어집니다.  CCI는 중복 없이 BIGINT 열에 대해 정렬 됩니다.  
 
 ![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
@@ -126,7 +127,7 @@ OPTION (MAXDOP 1);
 5.  Table_A의 각 파티션에 대해 3 단계와 4 단계를 반복 합니다.
 6.  모든 파티션이 Table_A에서 Table_B로 전환 되 고 다시 작성 된 후 Table_A를 삭제 하 고 Table_B를 Table_A로 바꿉니다. 
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 **입니다. 순서가 지정 된 열 및 주문 서 수를 확인 하려면 다음을 수행 합니다.**
 ```sql

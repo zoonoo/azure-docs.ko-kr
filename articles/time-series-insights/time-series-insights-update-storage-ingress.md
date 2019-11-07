@@ -8,35 +8,57 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0b61e194bdea5fd8272ffc0fc9e16a2d80d3cf60
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
-ms.translationtype: HT
+ms.openlocfilehash: d0cdd78aaa2b58743e16a2e7cfe213a9daed85ff
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989703"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605892"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 
-이 문서에서는 데이터 저장소에 대 한 업데이트 및 Azure Time Series Insights 미리 보기 수신을 설명 합니다. 기본 스토리지 구조, 파일 형식 및 Time Series ID 속성도 다룹니다. 또한 기본 수신 프로세스, 처리량 및 제한 사항에 대해서도 설명 합니다.
+이 문서에서는 데이터 저장소에 대 한 업데이트 및 Azure Time Series Insights 미리 보기 수신을 설명 합니다. 기본 스토리지 구조, 파일 형식 및 Time Series ID 속성도 다룹니다. 기본 수신 프로세스, 모범 사례 및 현재 미리 보기 제한 사항에 대해서도 설명 합니다.
 
 ## <a name="data-ingress"></a>데이터 수신
 
-Time Series Insights 미리 보기에서 데이터 수신 정책은 데이터를 원본으로 사용할 수 있는 위치와 데이터의 형식을 결정 합니다.
-
-[![시계열 모델 개요](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+Azure Time Series Insights 환경에는 시계열 데이터를 수집, 처리 및 저장 하기 위한 수집 엔진이 포함 됩니다. 환경을 계획할 때에는 들어오는 모든 데이터가 처리 되도록 하기 위해 고려해 야 할 몇 가지 고려 사항이 있습니다. 즉, 들어오는 모든 데이터를 처리 하 고, 수집 대기 시간을 최소화 하 여 수집 대기 시간을 최소화 해야 합니다 (TSI에서 이벤트의 데이터를 읽고 처리 하는 데 소요 되는 시간). 원본). Time Series Insights 미리 보기에서 데이터 수신 정책은 데이터를 원본으로 사용할 수 있는 위치와 데이터의 형식을 결정 합니다.
 
 ### <a name="ingress-policies"></a>수신 정책
 
-Time Series Insights 미리 보기는 현재 Time Series Insights 지원 되는 것과 동일한 이벤트 원본을 지원 합니다.
+Time Series Insights 미리 보기는 다음과 같은 이벤트 소스를 지원 합니다.
 
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
 
 Time Series Insights 미리 보기는 인스턴스당 최대 2 개의 이벤트 원본을 지원 합니다.
   
-Azure Time Series Insights Azure IoT Hub 또는 Azure Event Hubs를 통해 전송 되는 JSON을 지원 합니다. IoT JSON 데이터를 최적화 하려면 [json 셰이프를 확인 하는 방법을](./time-series-insights-send-events.md#supported-json-shapes)알아봅니다.
+Azure Time Series Insights Azure IoT Hub 또는 Azure Event Hubs를 통해 전송 되는 JSON을 지원 합니다.
+
+> [!WARNING] 
+> Time Series Insights 미리 보기 환경에 새 이벤트 원본을 연결 하는 경우 현재 IoT Hub 나 이벤트 허브에 있는 이벤트 수에 따라 초기 수집 대기 시간이 길어질 수 있습니다. 데이터가 수집 되 면이 긴 대기 시간을 감소으로 간주 해야 합니다. 그렇지 않은 경우에는 Azure Portal를 통해 지원 티켓을 제출 하 여 문의해 주시기 바랍니다.
+
+## <a name="ingress-best-practices"></a>수신 모범 사례
+
+다음 모범 사례를 따르는 것이 좋습니다.
+
+* 동일한 지역에서 Time Series Insights 및 IoT hub 또는 이벤트 허브를 구성 합니다. 이렇게 하면 네트워크로 인해 발생 하는 수집 대기 시간이 줄어듭니다.
+* 예상 수집 비율을 계산 하 고 아래에 나열 된 지원 되는 요금 범위 내에 있는지 확인 하 여 규모 요구에 대 한 계획을 수립 합니다.
+* [수신 및 쿼리를 위해 json을 shape 하는 방법을](./time-series-insights-update-how-to-shape-events.md)읽어 json 데이터를 최적화 하 고이를 최적화 하는 방법과 미리 보기의 현재 제한 사항을 파악 합니다.
+
+### <a name="ingress-scale-and-limitations-in-preview"></a>미리 보기의 수신 크기 조정 및 제한 사항
+
+기본적으로 Time Series Insights 미리 보기는 환경 당 초당 최대 1mb의 초기 수신 크기를 지원 합니다. 필요한 경우 최대 16mb/s의 처리량을 사용할 수 있습니다. 필요한 경우 Azure Portal에 지원 티켓을 제출 하 여 문의해 주세요. 또한 0.5 m b/s의 파티션당 제한이 있습니다. 이는 IoT Hub를 사용 하는 고객에 게는 IoT Hub 장치 파티션 간의 선호도가 지정 된 경우에만 영향을 미칩니다. 단일 게이트웨이 장치에서 자체 장치 ID 및 연결 문자열을 사용 하 여 허브로 메시지를 전달 하는 시나리오에서 이벤트 페이로드가 다른 TS를 지정 하는 경우에도 메시지가 단일 파티션에 도착 하면 0.5 m b/s 제한에 도달할 위험이 있습니다. 가. 일반적으로 수신 율은 조직에 있는 장치 수, 이벤트 내보내기 빈도 및 이벤트 크기에 대 한 요소로 표시 됩니다. 수집 비율을 계산할 때 사용자 IoT Hub 조직의 전체 장치가 아닌 사용 중인 허브 연결 수를 사용 해야 합니다. 개선된 크기 조정 지원을 제공하기 위해 작업 중입니다. 이 설명서는 이러한 개선 사항을 반영 하도록 업데이트 됩니다. 
+
+> [!WARNING]
+> IoT Hub를 이벤트 원본으로 사용 하는 환경의 경우 사용 중인 허브 장치 수를 사용 하 여 수집 율을 계산 합니다.
+
+처리량 단위 및 파티션에 대 한 자세한 내용은 다음 링크를 참조 하세요.
+
+* [IoT Hub 크기 조정](https://docs.microsoft.com/azure/iot-hub/iot-hub-scaling)
+* [이벤트 허브 크기 조정](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
+* [이벤트 허브 파티션](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
 ### <a name="data-storage"></a>데이터 스토리지
 
@@ -53,19 +75,11 @@ Time Series Insights 미리 보기는 콜드 스토어 데이터를 [Parquet 파
 > 콜드 스토어 데이터가 있는 Azure Blob storage 계정의 소유자는 계정의 모든 데이터에 대 한 모든 액세스 권한을 갖습니다. 이 액세스에는 쓰기 및 삭제 권한이 포함 됩니다. 데이터 손실이 발생할 수 있기 때문에 미리 보기 쓰기가 Time Series Insights 데이터를 편집 하거나 삭제 하지 마십시오.
 
 ### <a name="data-availability"></a>데이터 가용성
+
 최적의 쿼리 성능을 위해 파티션 및 인덱스 데이터를 미리 볼 Time Series Insights. 데이터는 인덱싱된 후 쿼리를 사용할 수 있게 됩니다. 수집 되는 데이터의 양은이 가용성에 영향을 줄 수 있습니다.
 
 > [!IMPORTANT]
-> Time Series Insights GA (일반 공급) 릴리스는 이벤트 원본에서 읽은 후 60 초 내에 데이터를 사용할 수 있도록 합니다. 미리 보기 중에는 데이터를 사용할 수 있을 때까지 시간이 오래 걸릴 수 있습니다. 60 초 보다 긴 대기 시간이 발생 하는 경우 microsoft에 문의 하세요.
-
-### <a name="scale"></a>확장
-
-기본적으로 Time Series Insights 미리 보기는 환경 당 초당 최대 1mb의 초기 수신 크기를 지원 합니다. 필요한 경우 최대 16mb/s의 처리량을 사용할 수 있습니다. 향상 된 크기 조정 지원이 필요한 경우 microsoft에 문의 하세요.
-
-이벤트 원본에 대 한 추가 수신 및 크기 조정 기능을 얻을 수 있습니다.
-
-* [IoT Hub](../iot-hub/iot-hub-scaling.md)
-* [Event Hubs](../event-hubs/event-hubs-scalability.md)
+> Time Series Insights의 예정 된 GA (일반 공급) 릴리스는 이벤트 원본에서 읽은 후 60 초 내에 데이터를 사용할 수 있도록 합니다. 미리 보기 중에는 데이터를 사용할 수 있게 되기 전에 시간이 더 오래 걸릴 수 있습니다. 60 초 보다 긴 대기 시간이 발생 하는 경우 Azure Portal를 통해 지원 티켓을 제출 하세요.
 
 ## <a name="azure-storage"></a>Azure Storage
 

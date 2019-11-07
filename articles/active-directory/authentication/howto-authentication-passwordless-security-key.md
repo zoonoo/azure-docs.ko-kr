@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66102a92ce279b594d61c8b2d484c89a8532057a
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 50af82e79e7ba8b979ab28a1b3f608ec7e41bfb2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73171992"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603441"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "73171992"
 
 |     |
 | --- |
-| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 ## <a name="requirements"></a>요구 사항
@@ -50,7 +50,7 @@ ms.locfileid: "73171992"
 
 ### <a name="enable-fido2-security-key-method"></a>FIDO2 보안 키 사용 방법
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 1. **인증 방법 정책 (미리 보기)**  > **Azure Active Directory** > **보안** > **인증 방법** 으로 이동 합니다.
 1. Method **FIDO2 Security 키**아래에서 다음 옵션을 선택 합니다.
    1. **사용** -예 또는 아니요
@@ -95,7 +95,7 @@ ms.locfileid: "73171992"
 
 ### <a name="upn-changes"></a>UPN 변경
 
-하이브리드 Azure AD 조인 및 Azure AD 조인 장치에서 UPN 변경을 허용 하는 기능을 지원 하기 위해 노력 하 고 있습니다. 사용자의 UPN이 변경 되 면 더 이상 FIDO2 보안 키를 수정 하 여 변경 내용을 고려 하지 않을 수 있습니다. 해결 방법은 장치를 다시 설정 하는 것으로, 사용자가 다시 등록 해야 합니다.
+사용자의 UPN이 변경 되 면 더 이상 FIDO2 보안 키를 수정 하 여 변경 내용을 고려 하지 않을 수 있습니다. 해결 방법은 장치를 다시 설정 하는 것으로, 사용자가 FIDO2 보안 키를 다시 등록 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

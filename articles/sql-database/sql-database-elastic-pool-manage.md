@@ -1,5 +1,5 @@
 ---
-title: 탄력적 풀 관리-Azure SQL database | Microsoft Docs
+title: 탄력적 풀 관리-Azure SQL database
 description: Azure SQL 탄력적 풀을 만들고 관리합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: ca00326d5704d3dd26027d90a3e48bfc52ec5653
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: ad8f076c65c852f338e380f1ad8fca4e5dcb79ba
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744454"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690472"
 ---
 # <a name="manage-elastic-pools-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 관리
 
@@ -40,7 +40,7 @@ ms.locfileid: "70744454"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리하려면 다음 PowerShell cmdlet을 사용합니다. PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 탄력적 풀용 SQL Database 서버를 만들고 관리하려면 [SQL Database 서버 만들기 및 관리](sql-database-servers.md)를 참조하세요. 방화벽 규칙을 만들고 관리하려면 [PowerShell을 사용하여 방화벽 규칙 만들기 및 관리](sql-database-firewall-configure.md#use-powershell-to-manage-server-level-ip-firewall-rules)를 참조하세요.
 
@@ -48,13 +48,13 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 > PowerShell 예제 스크립트의 경우 [PowerShell을 사용하여 탄력적 풀 만들기 및 풀 간에 데이터베이스 이동](scripts/sql-database-move-database-between-pools-powershell.md) 및 [PowerShell을 사용하여 Azure SQL Database에서 SQL 탄력적 풀 모니터링 및 크기 조정](scripts/sql-database-monitor-and-scale-pool-powershell.md)을 참조하세요.
 >
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 |[New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool)|탄력적 풀을 만듭니다.|
-|[Get-AzSqlElasticPool](/powershell/module/az.sql/get-azsqlelasticpool)|탄력적 풀과 해당 속성 값을 가져옵니다.|
+|[AzSqlElasticPool](/powershell/module/az.sql/get-azsqlelasticpool)|탄력적 풀과 해당 속성 값을 가져옵니다.|
 |[Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool)|탄력적 풀의 속성을 수정합니다. 예를 들어 **StorageMB** 속성을 사용하여 탄력적 풀의 최대 스토리지를 수정합니다.|
-|[Remove-AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool)|탄력적 풀을 삭제합니다.|
-|[Get-AzSqlElasticPoolActivity](/powershell/module/az.sql/get-azsqlelasticpoolactivity)|탄력적 풀에 대한 작업 상태를 가져옵니다.|
+|[AzSqlElasticPool](/powershell/module/az.sql/remove-azsqlelasticpool)|탄력적 풀을 삭제합니다.|
+|[AzSqlElasticPoolActivity](/powershell/module/az.sql/get-azsqlelasticpoolactivity)|탄력적 풀에 대한 작업 상태를 가져옵니다.|
 |[New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase)|기존 풀 또는 단일 데이터베이스에서 새 데이터베이스를 만듭니다. |
 |[Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase)|하나 이상의 데이터베이스를 가져옵니다.|
 |[Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase)|데이터베이스의 속성을 설정하거나 기존 데이터베이스와 탄력적 풀 사이를 이동합니다.|
@@ -71,7 +71,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 > Azure CLI 예제 스크립트의 경우 [CLI를 사용하여 SQL 탄력적 풀에서 Azure SQL 데이터베이스 이동](scripts/sql-database-move-database-between-pools-cli.md) 및 [Azure CLI를 사용하여 Azure SQL Database에서 SQL 탄력적 풀 크기 조정](scripts/sql-database-scale-pool-cli.md)을 참조하세요.
 >
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 | --- | --- |
 |[az sql elastic-pool create](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-create)|탄력적 풀을 만듭니다.|
 |[az sql elastic-pool list](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-list)|서버에서 탄력적 풀의 목록을 반환합니다.|
@@ -100,7 +100,7 @@ Azure PowerShell을 사용하여 SQL Database 탄력적 풀 및 풀링된 데이
 
 SQL Database 탄력적 풀 및 풀링된 데이터베이스를 만들고 관리하려면 다음 REST API 요청을 사용합니다.
 
-| 명령 | Description |
+| 명령 | 설명 |
 | --- | --- |
 |[탄력적 풀 - Create 또는 Update](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|새 탄력적 풀을 만들거나 기존 탄력적 풀을 업데이트합니다.|
 |[탄력적 풀 - Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|탄력적 풀을 삭제합니다.|

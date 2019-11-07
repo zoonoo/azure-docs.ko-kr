@@ -4,14 +4,14 @@ description: Azure Cosmos DB에서 데이터베이스 계정을 관리하는 방
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: f67487f6da5c9be028703d7890e16ffab0c858c6
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812519"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582629"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Azure Cosmos 계정 관리
 
@@ -33,17 +33,17 @@ ms.locfileid: "71812519"
 
 ### <a id="create-database-account-via-arm-template"></a>Azure Resource Manager 템플릿
 
-이 Azure Resource Manager 템플릿은 일관성 수준, 자동 장애 조치(failover) 및 다중 마스터를 선택하기 위한 옵션 및 두 개의 지역으로 구성된 지원되는 API에 대한 Azure Cosmos 계정을 만듭니다. 이 템플릿을 배포하려면 추가 정보 페이지인 [Azure Cosmos 계정 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-create-multi-region-account)에서 Azure에 배포를 클릭합니다
+이 Azure Resource Manager 템플릿은 일관성 수준, 자동 장애 조치 (failover) 및 다중 마스터를 선택 하는 옵션과 두 개의 지역으로 구성 된 SQL API 용 Azure Cosmos 계정을 만듭니다. 이 템플릿을 배포하려면 추가 정보 페이지인 [Azure Cosmos 계정 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-cosmosdb-sql)에서 Azure에 배포를 클릭합니다
 
-## <a name="addremove-regions-from-your-database-account"></a>데이터베이스 계정에서 지역 추가/제거
+## <a name="addremove-regions-from-your-database-account"></a>데이터베이스 계정에서 Azure 지역 추가/제거
 
 ### <a id="add-remove-regions-via-portal"></a>Azure Portal
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. Azure Cosmos 계정으로 이동하고, **전역적으로 데이터 복제** 메뉴를 엽니다.
 
-1. 지역을 추가하려면 지도에서 원하는 지역에 해당하는 **+** 레이블이 있는 육각형을 선택합니다. 또는, 지역을 추가하려면 **+ 지역 추가** 옵션을 선택하고 드롭다운 메뉴에서 지역을 선택합니다.
+1. 지역을 추가하려면 지도에서 원하는 지역에 해당하는 **+** 레이블이 있는 육각형을 선택합니다. 또는, 지역을 추가하려면 **+ 지역 추가** 옵션을 선택하고 드롭다운 메뉴에서 Azure 지역을 선택합니다.
 
 1. 지역을 제거하려면 확인 표시가 있는 파란색 육각형을 선택하여 맵에서 하나 이상의 지역을 지웁니다. 또는 오른쪽의 지역 옆에 있는 "휴지통"(🗑) 아이콘을 선택합니다.
 
@@ -51,9 +51,9 @@ ms.locfileid: "71812519"
 
    ![지역 추가 또는 제거 메뉴](./media/how-to-manage-database-account/add-region.png)
 
-단일 지역 쓰기 모드에서는 쓰기 지역을 제거할 수 없습니다. 현재 쓰기 지역을 삭제하려면 먼저 다른 지역으로 장애 조치해야 합니다.
+단일 지역 쓰기 모드에서는 쓰기 지역을 제거할 수 없습니다. 현재 쓰기 지역을 삭제하려면 먼저 다른 Azure 지역으로 장애 조치해야 합니다.
 
-다중 지역 쓰기 모드에서는 하나 이상의 지역이 있으면 지역을 추가하거나 제거할 수 있습니다.
+다중 지역 쓰기 모드에서는 하나 이상의 Azure 지역이 있으면 Azure 지역을 추가하거나 제거할 수 있습니다.
 
 ### <a id="add-remove-regions-via-cli"></a>Azure CLI
 
@@ -113,7 +113,7 @@ ms.locfileid: "71812519"
             "type": "Microsoft.DocumentDb/databaseAccounts",
             "kind": "GlobalDocumentDB",
             "name": "[parameters('name')]",
-            "apiVersion": "2015-04-08",
+            "apiVersion": "2019-08-01",
             "location": "[parameters('location')]",
             "tags": {},
             "properties": {
@@ -123,11 +123,13 @@ ms.locfileid: "71812519"
                 [
                     {
                         "locationName": "[parameters('primaryRegion')]",
-                        "failoverPriority": 0
+                        "failoverPriority": 0,
+                        "isZoneRedundant": false
                     },
                     {
                         "locationName": "[parameters('secondaryRegion')]",
-                        "failoverPriority": 1
+                        "failoverPriority": 1,
+                        "isZoneRedundant": false
                     }
                 ],
                 "enableMultipleWriteLocations": true

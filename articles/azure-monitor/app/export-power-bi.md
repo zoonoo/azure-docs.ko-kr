@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/10/2018
-ms.openlocfilehash: 04848f763fe8246f8e10f563169c04ea37b0ed37
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3ec20f82bc12b60e5b88a02bb92a4a0ada4dcae7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677307"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668020"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](https://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 디바이스에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -88,8 +88,10 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 ### <a name="unauthorized-401-or-403"></a>권한 없음(401 또는 403)
 새로 고침 토큰이 업데이트되지 않은 경우에 발생할 수 있습니다. 액세스 권한이 있는지 확인하려면 다음 단계를 시도합니다.
 
-1. Azure Portal에 로그인하고 리소스에 액세스할 수 있는지 확인합니다.
+1. Azure Portal에 로그인 하 고 리소스에 액세스할 수 있는지 확인 합니다.
 2. 대시보드에 대한 자격 증명 새로 고침을 시도합니다.
+3. PowerBI Desktop에서 캐시를 지워야 합니다.
+
 
    액세스 권한이 있고 자격 증명 새로 고침이 작동하지 않는 경우 지원 티켓을 여세요.
 
@@ -100,8 +102,8 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 1. [API 키](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID)를 만듭니다.
 2. Azure Resource Manager URL을 Application Insights API로 대체하여 Analytics에서 내보낸 Power BI M 스크립트를 업데이트합니다.
-   * **Https: \//management.azure.com/subscriptions/** 를 바꿉니다.
-   * , **https: \//api.applicationinsights.io/beta/apps/** ...
+   * **Https:\//management.azure.com/subscriptions/** 를 바꿉니다.
+   * , **https:\//api.applicationinsights.io/beta/apps/** ...
 3. 마지막으로 자격 증명을 기본으로 업데이트하고 API 키를 사용합니다.
 
 **기존 스크립트**

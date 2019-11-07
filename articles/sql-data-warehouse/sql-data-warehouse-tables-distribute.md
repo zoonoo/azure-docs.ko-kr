@@ -1,5 +1,5 @@
 ---
-title: 분산 테이블 디자인 지침 - Azure SQL Data Warehouse | Microsoft Docs
+title: 분산 테이블 디자인 지침
 description: Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,17 +10,18 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 4b322415592a7202387cb6776d2c040cda765b27
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f05e732e11fb9cd88d4671528d551c68e448a8d7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479345"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685471"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 분산 테이블 디자인 지침
 Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
 
-이 문서에서는 사용자가 SQL Data Warehouse의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [Azure SQL Data Warehouse - MPP(Massively Parallel Processing) 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조하세요. 
+이 문서에서는 사용자가 SQL Data Warehouse의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [Azure SQL Data Warehouse-MPP (대규모 Parallel Processing) 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조 하세요. 
 
 ## <a name="what-is-a-distributed-table"></a>분산 테이블이란?
 분산 테이블은 단일 테이블로 나타나지만 실제로는 행이 60개의 배포에 저장됩니다. 행은 해시 또는 라운드 로빈 알고리즘으로 분산됩니다.  
@@ -29,7 +30,7 @@ Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 
 
 또 다른 Table Storage 옵션은 모든 컴퓨팅 노드에서 작은 테이블을 복제하는 것입니다. 자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요. 세 가지 옵션 중 빨리 선택하려면 [테이블 개요](sql-data-warehouse-tables-overview.md)의 분산 테이블을 참조하세요. 
 
-테이블 디자인의 일환으로 데이터 및 데이터가 쿼리되는 방식에 대해 최대한 많이 이해하는 것이 좋습니다.  예를 들어 다음 질문을 고려합니다.
+테이블 디자인의 일환으로 데이터 및 데이터가 쿼리되는 방식에 대해 최대한 많이 이해하는 것이 좋습니다.  예를 들어 다음과 같은 질문을 고려해 보세요.
 
 - 테이블이 얼마나 큰가요?   
 - 테이블을 얼마나 자주 새로 고치나요?   
@@ -113,7 +114,7 @@ WITH
 데이터 이동을 최소화하려면 다음과 같은 배포 열을 선택합니다.
 
 - `JOIN`, `GROUP BY`, `DISTINCT`, `OVER` 및 `HAVING` 절에 사용됨. 두 개의 큰 팩트 테이블에서 조인이 잦은 경우 조인 열 중 하나에 두 테이블을 분산하면 쿼리 성능이 향상됩니다.  테이블을 조인에 사용하지 않는 경우 `GROUP BY` 절에 자주 사용되는 열에 테이블을 분산하는 것이 좋습니다.
-- `WHERE` 절에 사용되지 *않음*. 이렇게 하면 쿼리가 모든 배포에서 실행되지 않도록 쿼리 범위를 좁힐 수 있습니다. 
+- *절에 사용되지*않음`WHERE`. 이렇게 하면 쿼리가 모든 배포에서 실행되지 않도록 쿼리 범위를 좁힐 수 있습니다. 
 - 날짜 열이 *아님*. WHERE 절은 날짜별로 필터링하는 경우가 많습니다.  이 경우 모든 처리가 몇몇 배포에서만 실행될 수 있습니다.
 
 ### <a name="what-to-do-when-none-of-the-columns-are-a-good-distribution-column"></a>적합한 배포 열이 없을 경우 수행할 작업
@@ -167,7 +168,7 @@ order by two_part_name, row_count
 
 
 ## <a name="resolve-a-distribution-column-problem"></a>배포 열 문제 해결
-모든 경우의 데이터 기울이기를 해결할 필요는 없습니다. 데이터 분산은 데이터 기울이기 최소화와 데이터 이동 최소화 간의 적절한 균형을 찾는 문제입니다. 데이터 기울이기 및 데이터 이동 둘 다를 항상 최소화할 수 있는 것은 아닙니다. 데이터 이동을 최소화할 경우의 이점이 데이터 기울이기의 영향을 능가하는 경우도 있습니다.
+모든 경우의 데이터 기울이기를 해결할 필요는 없습니다. 데이터 분산은 데이터 기울이기 최소화와 데이터 이동 최소화 간의 적절한 균형을 찾는 문제입니다. 데이터 기울이기 및 데이터 이동 둘 다를 항상 최소화할 수 있는 것은 아닙니다. 데이터 이동을 최소화할 경우의 이점은 데이터 기울이기의 영향을 능가하는 경우도 있습니다.
 
 테이블의 데이터 오차를 해결해야 하는지 결정하려면 워크로드의 데이터 볼륨 및 쿼리를 최대한 이해해야 합니다. [쿼리 모니터링](sql-data-warehouse-manage-monitor.md) 문서의 단계를 사용하여 쿼리 성능에 대한 기울이기 영향을 모니터링할 수 있습니다. 특히 개별 배포에서 큰 쿼리가 완료되는 데 소요되는 시간을 확인합니다.
 

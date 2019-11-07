@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: d99bf2a41bc82722fd31c1835f34f913163ce55b
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 9c7bc316900c9e1422289c76b2c3d05924130312
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088217"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602514"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Azure PowerShell을 사용하여 OS 디스크를 복구 VM에 연결함으로써 Windows VM 문제 해결
 Azure에서 Windows 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 디스크 자체에서 문제 해결 단계를 수행해야 할 수 있습니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 디스크를 다른 Windows VM에 연결하여 모든 오류를 수정한 다음, 원래 VM을 복구하기 위해 Azure PowerShell을 사용하는 방법을 자세히 설명합니다. 
@@ -40,7 +40,7 @@ Azure에서 Windows 가상 머신(VM)에 부팅 또는 디스크 오류가 발�
 6. 복구 VM에서 디스크를 탑재 해제하고 분리합니다.
 7. 영향을 받는 VM용 OS 디스크를 변경합니다.
 
-VM 복구 스크립트를 사용하여 1, 2, 3, 4, 6 및 7단계를 자동화할 수 있습니다. 자세한 설명서 및 지침은 [Resource Manager VM에 대한 VM Resource Manager](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager)를 참조하세요.
+VM 복구 명령을 사용 하 여 1, 2, 3, 4, 6, 7 단계를 자동화할 수 있습니다. 자세한 설명서 및 지침은 [Azure 가상 컴퓨터 복구 명령을 사용 하 여 WINDOWS VM 복구](repair-windows-vm-using-azure-virtual-machine-repair-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.
 
 먼저 [최신 Azure PowerShell](/powershell/azure/overview)을 설치하고 구독에 로그인했는지 확인합니다.
 
@@ -51,7 +51,7 @@ Connect-AzAccount
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 
 
 ## <a name="determine-boot-issues"></a>부팅 문제 확인
-Azure에서 VM의 스크린샷을 보고 부팅 문제를 해결할 수 있습니다. 이 스크린샷은 VM이 부팅되지 않는 이유를 확인하는 데 도움이 됩니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 Windows VM `myVM`에서 스크린샷을 가져옵니다.
+Azure에서 VM의 스크린샷을 보고 부팅 문제를 해결할 수 있습니다. 이 스크린샷은 VM이 부팅되지 않는 이유를 확인하는 데 도움이 됩니다. 다음 예제에서는 리소스 그룹 `myVM`의 Windows VM `myResourceGroup`에서 스크린샷을 가져옵니다.
 
 ```powershell
 Get-AzVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
@@ -62,7 +62,7 @@ Get-AzVMBootDiagnosticsData -ResourceGroupName myResourceGroup `
 
 ## <a name="stop-the-vm"></a>VM을 중지합니다.
 
-다음 예제에서는 리소스 그룹 `myResourceGroup`에서 VM `myVM`을 중지합니다.
+다음 예제에서는 리소스 그룹 `myVM`에서 VM `myResourceGroup`을 중지합니다.
 
 ```powershell
 Stop-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -103,7 +103,7 @@ New-AzSnapshot `
 
 ## <a name="create-a-disk-from-the-snapshot"></a>스냅샷에서 디스크 만들기
 
-이 스크립트에서는 `mysnapshot`이라는 스냅샷에서 `newOSDisk` 이름으로 관리 디스크를 만듭니다.  
+이 스크립트에서는 `newOSDisk`이라는 스냅샷에서 `mysnapshot` 이름으로 관리 디스크를 만듭니다.  
 
 ```powershell
 #Set the context to the subscription Id where Managed Disk will be created
@@ -144,7 +144,7 @@ New-AzDisk -Disk $diskConfig -ResourceGroupName $resourceGroupName -DiskName $di
 
 ## <a name="attach-the-disk-to-another-windows-vm-for-troubleshooting"></a>디스크를 다른 Windows VM에 연결하여 문제 해결
 
-이제 원본 OS 디스크의 복사본을 데이터 디스크로 VM에 연결합니다. 이 프로세스를 사용하면 구성 오류를 수정하거나 추가 애플리케이션 또는 디스크의 시스템 로그 파일을 검토할 수 있습니다. 다음 예제에서는 `RecoveryVM`이라는 VM에 `newOSDisk`라는 디스크를 연결합니다.
+이제 원본 OS 디스크의 복사본을 데이터 디스크로 VM에 연결합니다. 이 프로세스를 사용하면 구성 오류를 수정하거나 추가 애플리케이션 또는 디스크의 시스템 로그 파일을 검토할 수 있습니다. 다음 예제에서는 `newOSDisk`이라는 VM에 `RecoveryVM`라는 디스크를 연결합니다.
 
 > [!NOTE]
 > 디스크를 연결하려면 원본 OS 디스크의 복사본 및 복구 VM이 동일한 위치에 있어야 합니다.
@@ -165,7 +165,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ## <a name="connect-to-the-recovery-vm-and-fix-issues-on-the-attached-disk"></a>복구 VM에 연결 및 연결된 디스크의 문제 해결
 
-1. 적절한 자격증명을 사용하여 사용자 복구 VM에 대한 RDP입니다. 다음 예에서는 `myResourceGroup`이라는 리소스 그룹에서 `RecoveryVM`라는 VM에 대한 RDP 연결 파일을 `C:\Users\ops\Documents`에 다운로드합니다
+1. 적절한 자격증명을 사용하여 사용자 복구 VM에 대한 RDP입니다. 다음 예에서는 `RecoveryVM`이라는 리소스 그룹에서 `myResourceGroup`라는 VM에 대한 RDP 연결 파일을 `C:\Users\ops\Documents`에 다운로드합니다
 
     ```powershell
     Get-AzRemoteDesktopFile -ResourceGroupName "myResourceGroup" -Name "RecoveryVM" `
@@ -247,7 +247,7 @@ Start-AzVM -Name $vm.Name -ResourceGroupName myResourceGroup
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>부팅 진단 확인 및 사용하도록 설정
 
-다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVMDeployed`에서 진단 확장을 사용할 수 있습니다.
+다음 예제에서는 리소스 그룹 `myVMDeployed`의 VM `myResourceGroup`에서 진단 확장을 사용할 수 있습니다.
 
 ```powershell
 $myVM = Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVMDeployed"

@@ -1,5 +1,5 @@
 ---
-title: 데이터 복사 도구를 사용 하 여 LastModifiedDate를 기반으로 새 파일 및 변경 된 파일 증분 복사 | Microsoft Docs
+title: 데이터 복사 도구를 사용 하 여 LastModifiedDate를 기반으로 새 파일 및 변경 된 파일 증분 복사
 description: Azure 데이터 팩터리를 만든 다음 데이터 복사 도구를 사용 하 여 LastModifiedDate에 따라 새 파일을 증분 방식으로 로드 합니다.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 1/24/2019
-ms.openlocfilehash: 9f6fd57586603d0d987faa674d40a7e4678530a1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 09a9fa4515913470c86bbafe293add007a3117ea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933877"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683467"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 LastModifiedDate를 기반으로 새 파일 및 변경 된 파일 증분 복사
 
@@ -36,10 +36,10 @@ ms.locfileid: "68933877"
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
-* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
-* **Azure Storage 계정**: Blob storage를 _원본_ 및 _싱크_ 데이터 저장소로 사용 합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
+* **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* **Azure storage 계정**: Blob storage를 _원본_ 및 _싱크_ 데이터 저장소로 사용 합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
 
 ### <a name="create-two-containers-in-blob-storage"></a>Blob 저장소에 두 개의 컨테이너 만들기
 
@@ -49,9 +49,9 @@ ms.locfileid: "68933877"
 
 2. **Destination**이라는 컨테이너를 만듭니다. 
 
-## <a name="create-a-data-factory"></a>data factory 만들기
+## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
 
-1. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 차례로 선택합니다. 
+1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
 
@@ -61,7 +61,7 @@ ms.locfileid: "68933877"
    
    ![새 데이터 팩터리 오류 메시지](./media/doc-common-process/name-not-available-error.png)
 
-   이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**를 사용합니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 명명 규칙](naming-rules.md)을 참조하세요.
+   이름 값에 대한 오류 메시지가 표시되면 데이터 팩터리에 대한 다른 이름을 입력합니다. 예를 들어 _**yourname**_ **ADFTutorialDataFactory**를 사용합니다. Data Factory 아티팩트에 대한 명명 규칙은 [Data Factory 명명 규칙](naming-rules.md)을 참조하세요.
 3. 새 데이터 팩터리를 만들 Azure **구독** 을 선택 합니다. 
 4. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
      
@@ -97,7 +97,7 @@ ms.locfileid: "68933877"
 
     c. **트리거 유형**에서 **연속 창**을 선택 합니다.
     
-    d. **되풀이**에서 **15 분**을 입력 합니다. 
+    ㄹ. **되풀이**에서 **15 분**을 입력 합니다. 
     
     e. **다음**을 선택합니다. 
     
@@ -119,17 +119,17 @@ ms.locfileid: "68933877"
     
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-linkedservice.png)
     
-    d. 새로 만든 연결 된 서비스를 선택 하 고 **다음**을 선택 합니다. 
+    ㄹ. 새로 만든 연결 된 서비스를 선택 하 고 **다음**을 선택 합니다. 
     
    ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
 4. **입력 파일 또는 폴더 선택** 페이지에서 다음 단계를 완료합니다.
     
-    a. **원본** 폴더를 찾아 선택한 다음 선택을 선택 합니다.
+    a. **원본** 폴더를 찾아 선택한 **다음 선택을 선택 합니다.**
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
     
-    b. **파일 로드 동작**에서 증분 로드 **를 선택 합니다. LastModifiedDate**.
+    b. **파일 로드 동작**에서 **증분 로드: LastModifiedDate**를 선택 합니다.
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
     
@@ -143,7 +143,7 @@ ms.locfileid: "68933877"
     
 6. **출력 파일 또는 폴더 선택** 페이지에서 다음 단계를 완료합니다.
     
-    a. **대상** 폴더를 찾아서 선택한 후 선택을 선택 합니다.
+    a. **대상** 폴더를 찾아서 선택한 **후 선택을 선택 합니다.**
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
     

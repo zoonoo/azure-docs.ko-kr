@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory |의 데이터 흐름 작업 Microsoft Docs
+title: Azure Data Factory의 데이터 흐름 작업
 description: 데이터 팩터리 파이프라인 내에서 데이터 흐름을 실행 하는 방법입니다.
 services: data-factory
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: cbfa1acac34187263f8c4203e41bbe61d7e4c745
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030518"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679938"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업
 
@@ -56,7 +56,7 @@ integrationRuntime | 데이터 흐름이 실행 되는 계산 환경 | Integrati
 linkedService | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 저장소 계정 | LinkedServiceReference | 데이터 흐름이 SQL DW를 읽거나 쓰는 경우에만
 스테이징. folderPath | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 blob 저장소 계정의 폴더 경로 | 문자열 | 데이터 흐름이 SQL DW를 읽거나 쓰는 경우에만
 
-![데이터 흐름]실행(media/data-flow/activity-data-flow.png "데이터 흐름 실행")
+![데이터 흐름 실행](media/data-flow/activity-data-flow.png "데이터 흐름 실행")
 
 ### <a name="data-flow-integration-runtime"></a>데이터 흐름 통합 런타임
 

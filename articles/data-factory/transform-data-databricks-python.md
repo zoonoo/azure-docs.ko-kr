@@ -1,5 +1,5 @@
 ---
-title: Databricks Python을 사용하여 데이터 변환 - Azure | Microsoft Docs
+title: Databricks Python을 사용 하 여 데이터 변환-Azure
 description: Databricks Python을 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: maghan
 manager: craigg
-ms.openlocfilehash: 02c4644c4440c3a00a21ef22674bcc0d00902ac2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 47654e8183dab120376f94df63d7664ead5dd580
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140797"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683942"
 ---
 # <a name="transform-data-by-running-a-python-activity-in-azure-databricks"></a>Azure Databricks에서 Python 작업을 실행하여 데이터 변환
 
-[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Python 작업은 Azure Databricks 클러스터에서 Python 파일을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는  [데이터 변환 활동](transform-data.md)  문서에서 작성합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
+[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Python 작업은 Azure Databricks 클러스터에서 Python 파일을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는  [데이터 변환 활동](transform-data.md)  문서에서 작성합니다. Azure Databricks은 Apache Spark을 실행 하기 위한 관리 되는 플랫폼입니다.
 
 11분 동안 이 기능의 소개 및 데모에 대한 다음 비디오를 시청하세요.
 
@@ -69,7 +69,7 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
 |type|Databricks Python 작업의 경우 작업 형식은 DatabricksSparkPython입니다.|예|
 |linkedServiceName|Python 작업이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|예|
 |pythonFile|실행할 Python 파일의 URI입니다. DBFS 경로만이 지원됩니다.|예|
-|parameters|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|아니요|
+|매개 변수|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|아니요|
 |라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|아니요|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 활동에 지원되는 라이브러리

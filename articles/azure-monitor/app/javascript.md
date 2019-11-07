@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 17765910b379bd4212d171cce6643de561db23ad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 177d8e6e9d4393df785f2caf55bf6cbe895bc640
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819371"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667904"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -45,11 +45,11 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>코드 조각 기반 설정
 
-앱에서 npm를 사용 하지 않는 경우 각 페이지의 맨 위에이 코드 조각을 붙여넣어 Application Insights를 사용 하 여 웹 페이지를 직접 계측할 수 있습니다. 모든 종속성과 관련 된 잠재적인 문제를 모니터링할 수 있도록 `<head>` 섹션에서 첫 번째 스크립트 여야 합니다. Blazor Server 앱을 사용 하는 경우 `<head>` 섹션에서 `_Host.cshtml` 파일의 맨 위에 코드 조각을 추가 합니다.
+앱에서 npm를 사용 하지 않는 경우 각 페이지의 맨 위에이 코드 조각을 붙여넣어 Application Insights를 사용 하 여 웹 페이지를 직접 계측할 수 있습니다. 모든 종속성과 관련 된 잠재적인 문제를 모니터링할 수 있도록 `<head>` 섹션의 첫 번째 스크립트 여야 합니다. Blazor Server 앱을 사용 하는 경우 `<head>` 섹션에서 `_Host.cshtml` 파일의 맨 위에 코드 조각을 추가 합니다.
 
 ```html
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("addTelemetryInitializer"),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),t.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t}(
 {
   instrumentationKey:"INSTRUMENTATION_KEY"
 }
@@ -59,7 +59,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Azure Portal 원격 분석 보내기
 
-기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 해당 지역은 다음과 같습니다.
+기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 내용은 다음과 같습니다.
 
 - 에 대 한 정보를 포함 하 여 앱의 Catch 되지 않은 **예외**
     - 스택 추적
@@ -80,7 +80,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 ### <a name="telemetry-initializers"></a>원격 분석 이니셜라이저
 원격 분석 이니셜라이저는 사용자의 브라우저에서 전송 되기 전에 수집 된 원격 분석의 내용을 수정 하는 데 사용 됩니다. 또한 `false`을 반환 하 여 특정 원격 분석이 전송 되는 것을 방지 하는 데 사용할 수 있습니다. 여러 원격 분석 이니셜라이저를 Application Insights 인스턴스에 추가할 수 있으며 이러한 이니셜라이저를 추가 하기 위해 실행 됩니다.
 
-`addTelemetryInitializer`에 대 한 입력 인수는 [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API.md#addTelemetryInitializer) 인수로 사용 하 고 `boolean` 또는 `void`를 반환 하는 콜백입니다. `false`반환 하는 경우 원격 분석 항목이 전송 되지 않고, 다른 원격 분석 이니셜라이저 (있는 경우)로 진행 되거나 원격 분석 컬렉션 끝점으로 전송 됩니다.
+`addTelemetryInitializer`에 대 한 입력 인수는 [`ITelemetryItem`](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#addTelemetryInitializer) 인수로 사용 하 고 `boolean` 또는 `void`를 반환 하는 콜백입니다. `false`반환 하는 경우 원격 분석 항목이 전송 되지 않고, 다른 원격 분석 이니셜라이저 (있는 경우)로 진행 되거나 원격 분석 컬렉션 끝점으로 전송 됩니다.
 
 원격 분석 이니셜라이저를 사용 하는 예제:
 ```ts
@@ -96,7 +96,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>구성
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. `instrumentationKey`를 제외 하 고 모든 필드는 선택 사항입니다.
 
-| name | 기본값 | 설명 |
+| Name | 기본값 | 설명 |
 |------|---------|-------------|
 | instrumentationKey | null | **필수**<br>Azure Portal에서 가져온 계측 키입니다. |
 | accountId | null | 앱이 사용자를 계정으로 그룹화 하는 경우 계정 ID (선택 사항)입니다. 공백, 쉼표, 세미콜론, 같음 또는 세로 막대가 없습니다. |
@@ -106,7 +106,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 | maxBatchInterval | 15000 | 보내기 전에 원격 분석을 일괄 처리 하는 시간 (밀리초) |
 | disableExceptionTracking | false | True 이면 예외가 자동으로 수집 되지 않습니다. 기본값은 false입니다. |
 | disableTelemetry | false | True 이면 원격 분석이 수집 되거나 전송 되지 않습니다. 기본값은 false입니다. |
-| enableDebug | false | True 이면 SDK 로깅 설정에 관계 없이 **내부** 디버깅 데이터가 기록 되는 **대신** 예외로 throw 됩니다. 기본값은 false입니다. <br>***참고:*** 이 설정을 사용 하도록 설정 하면 내부 오류가 발생할 때마다 원격 분석이 삭제 됩니다. 이는 SDK의 구성 또는 사용과 관련 된 문제를 신속 하 게 식별 하는 데 유용할 수 있습니다. 디버깅 하는 동안 원격 분석을 사용 하지 않으려는 경우에는 `enableDebug` 대신 `consoleLoggingLevel` 또는 `telemetryLoggingLevel`을 사용 하는 것이 좋습니다. |
+| enableDebug | false | True 이면 SDK 로깅 설정에 관계 없이 **내부** 디버깅 데이터가 기록 되는 **대신** 예외로 throw 됩니다. 기본값은 false입니다. <br>***참고:*** 이 설정을 사용 하도록 설정 하면 내부 오류가 발생할 때마다 원격 분석이 삭제 됩니다. 이는 SDK의 구성 또는 사용과 관련 된 문제를 신속 하 게 식별 하는 데 유용할 수 있습니다. 디버깅 하는 동안 원격 분석을 잃지 않으려면 `enableDebug`대신 `consoleLoggingLevel` 또는 `telemetryLoggingLevel`를 사용 하는 것이 좋습니다. |
 | loggingLevelConsole | 0 | **내부** Application Insights 오류를 콘솔에 기록 합니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) |
 | loggingLevelTelemetry | 1 | **내부** Application Insights 오류를 원격 분석으로 보냅니다. <br>0: off, <br>1: 심각한 오류만, <br>2: 모든 항목 (오류 & 경고) |
 | diagnosticLogInterval | 10000 | 사내 내부 로깅 큐의 폴링 간격 (밀리초) |
@@ -140,7 +140,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ## <a name="single-page-applications"></a>단일 페이지 응용 프로그램
 
-기본적으로이 SDK는 단일 페이지 응용 프로그램에서 발생 하는 상태 기반 경로 변경을 처리 **하지** 않습니다. 단일 페이지 응용 프로그램에 대해 자동 경로 변경 내용 추적을 사용 하도록 설정 하려면 `enableAutoRouteTracking: true`을 설치 구성에 추가할 수 있습니다.
+기본적으로이 SDK는 단일 페이지 응용 프로그램에서 발생 하는 상태 기반 경로 변경을 처리 **하지** 않습니다. 단일 페이지 응용 프로그램에 대 한 자동 경로 변경 내용 추적을 사용 하도록 설정 하려면 설치 구성에 `enableAutoRouteTracking: true`를 추가 하면 됩니다.
 
 현재이 SDK를 사용 하 여 초기화할 수 있는 별도의 [반응 플러그 인](#react-extensions) 을 제공 합니다. 또한 사용자에 대 한 경로 변경 추적을 수행 하 고 [다른 반응 특정 원격 분석](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md)을 수집 합니다.
 
@@ -163,7 +163,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ![](./media/javascript/browser.png)
 
-### <a name="performance"></a>성능 중심 
+### <a name="performance"></a>성능 
 
 ![](./media/javascript/performance-operations.png)
 
@@ -171,7 +171,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ![](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>분석기능 
+### <a name="analytics"></a>분석 
 
 JavaScript SDK에 의해 수집 된 원격 분석을 쿼리하려면 **로그 (분석)에서 보기** 단추를 선택 합니다. `client_Type == "Browser"``where` 문을 추가 하면 JavaScript SDK의 데이터만 볼 수 있고 다른 Sdk에서 수집한 서버 쪽 원격 분석은 제외 됩니다.
  
@@ -194,7 +194,7 @@ dataset
 
 예외 원격 분석의 매우 많은 호출 스택이 Azure Portal에서 확인할 수 없습니다. 예외 세부 정보 패널의 모든 기존 통합은 새로 적용 되지 않은 호출 스택에 적용 됩니다. 끌어서 놓기 소스 맵 unminifying는 모든 기존 및 향후 JS Sdk (+ NODE.JS)를 지원 하므로 SDK 버전을 업그레이드할 필요가 없습니다. 취소할 수 없는 호출 스택을 보려면
 1. Azure Portal에서 예외 원격 분석 항목을 선택 하 여 "종단 간 트랜잭션 정보"를 확인 합니다.
-2. 이 호출 스택에 해당 하는 소스 맵을 식별 합니다. 소스 맵은 스택 프레임의 소스 파일과 일치 해야 하지만 `.map`으로 시작 합니다.
+2. 이 호출 스택에 해당 하는 소스 맵을 식별 합니다. 소스 맵은 스택 프레임의 소스 파일과 일치 해야 하지만 `.map` 접미사가 붙습니다.
 3. 소스 맵을 Azure Portal의 호출 스택으로 끌어 놓습니다 ![](https://i.imgur.com/Efue9nU.gif)
 
 ### <a name="application-insights-web-basic"></a>Application Insights 웹 기본
@@ -205,7 +205,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 ```
 이 버전은 최소한의 기능과 기능을 제공 하며, 적합 한 것으로 빌드에 의존 합니다. 예를 들어 autocollection (catch 되지 않은 예외, AJAX 등)을 수행 합니다. `trackTrace`, `trackException`등의 특정 원격 분석 유형을 전송 하는 Api는이 버전에 포함 되지 않으므로 고유한 래퍼를 제공 해야 합니다. 유일 하 게 사용할 수 있는 API는 `track`입니다. [샘플](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) 은 여기에 있습니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 실행 가능한 예제는 [Application Insights JAVASCRIPT SDK 샘플](https://github.com/topics/applicationinsights-js-demo) 을 참조 하세요.
 
@@ -215,7 +215,7 @@ SDK V2 버전의 주요 변경 내용:
 - 더 나은 API 서명을 허용 하기 위해 trackPageView, 기능 예외 등의 일부 API 호출이 업데이트 되었습니다. IE8 또는 낮은 버전의 브라우저에서 실행 되는 것은 지원 되지 않습니다.
 - 원격 분석 봉투 (envelope)에는 데이터 스키마 업데이트로 인 한 필드 이름 및 구조 변경 내용이 있습니다.
 - `context.operation`을 `context.telemetryTrace`로 이동 했습니다. 일부 필드도 변경 되었습니다 (`operation.id` --> `telemetryTrace.traceID`).
-  - 현재 페이지 보기 ID (예: SPA 앱)를 수동으로 새로 고치려면 `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`을 사용 하 여이 작업을 수행할 수 있습니다.
+  - 현재 페이지 보기 ID (예: SPA 앱)를 수동으로 새로 고치려면 `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`를 사용 하 여이 작업을 수행할 수 있습니다.
 
 현재 application insights PRODUCTION SDK (1.0.20)를 사용 하 고 새 SDK가 런타임에 작동 하는지 확인 하려는 경우 현재 SDK 로드 시나리오에 따라 URL을 업데이트 합니다.
 
@@ -224,7 +224,7 @@ SDK V2 버전의 주요 변경 내용:
    "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
    ```
 
-- npm 시나리오: `downloadAndSetup`을 호출 하 여 CDN에서 전체 ApplicationInsights 스크립트를 다운로드 하 고 계측 키를 사용 하 여 초기화 합니다.
+- npm 시나리오: `downloadAndSetup`를 호출 하 여 CDN에서 전체 ApplicationInsights 스크립트를 다운로드 하 고 계측 키를 사용 하 여 초기화 합니다.
 
    ```ts
    appInsights.downloadAndSetup({

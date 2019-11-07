@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1985c596b9f4b9b78b0055bfe1eab9888c30e201
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489767"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615220"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Azure Portal에서 Azure Machine Learning 작업 영역 만들기 및 관리
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,13 +30,13 @@ ms.locfileid: "73489767"
 
 1. Azure Portal의 왼쪽 위 모서리에서 **+ 리소스 만들기**를 선택합니다.
 
-      ![새 리소스 만들기](../../../includes/media/aml-create-in-portal/portal-create-resource.png)
+      ![새 리소스 만들기](../../../includes/media/aml-create-in-portal/create-workspace.gif)
 
-1. 검색 창을 사용하여 **Machine Learning Service 작업 영역**을 찾습니다.
+1. 검색 표시줄을 사용 하 여 **Machine Learning**를 찾을 수 있습니다.
 
-1. **Machine Learning Service 작업 영역**을 선택합니다.
+1. **Machine Learning**를 선택 합니다.
 
-1. **Machine Learning 서비스 작업 영역** 창에서 **만들기**를 선택하여 시작합니다.
+1. **Machine Learning** 창에서 **만들기** 를 선택 하 여 시작 합니다.
 
 1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 
@@ -89,18 +89,15 @@ ms.locfileid: "73489767"
 
 ## <a name="view"></a>작업 영역 찾기
 
-1. 포털의 왼쪽 위 모서리에서 **모든 서비스**를 선택합니다.
+1. 위쪽 검색 필드에 **Machine Learning**을 입력 합니다.  
 
-1. **모든 서비스** 필터 필드에 **machine learning**을 입력 합니다.  
+1. **Machine Learning**를 선택 합니다.
 
-1. **Azure Machine Learning**를 선택 합니다.
-
-   ![Azure Machine Learning 작업 영역 검색](media/how-to-manage-workspace/all-services.png)
+   ![Azure Machine Learning 작업 영역 검색](media/how-to-manage-workspace/find-workspaces.png)
 
 1. 검색된 작업 영역 목록을 살펴봅니다. 구독, 리소스 그룹 및 위치를 기준으로 필터링 할 수 있습니다.  
 
 1. 해당 속성을 표시할 작업 영역을 선택 합니다.
-   작업 영역 속성을 ![](media/how-to-manage-workspace/allservices_view_workspace_full.PNG)
 
 ## <a name="delete-a-workspace"></a>작업 영역 삭제
 

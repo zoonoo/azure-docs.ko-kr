@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱 테 넌 트 및 호스트 풀 만들기-Azure
+title: Windows 가상 데스크톱 테 넌 트 호스트 풀 만들기-Azure
 description: Windows 가상 데스크톱 테 넌 트 환경을 설치 하는 동안 테 넌 트 및 호스트 풀 문제를 해결 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: e2d2da5e2c8c0236a4f42bc69a521891616df0d4
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b53bf80774a0715c7a02d837975284e985958635
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163293"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607428"
 ---
 # <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
 이 문서에서는 Windows 가상 데스크톱 테 넌 트 및 관련 세션 호스트 풀 인프라의 초기 설정 중에 발생 하는 문제에 대해 설명 합니다.
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 
 [Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요.
 

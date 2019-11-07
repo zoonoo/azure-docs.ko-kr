@@ -7,12 +7,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 10/04/2019
 ms.author: victorh
-ms.openlocfilehash: 844e24466e9a9b46be3212690767a408e75f234d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 0ac37378797c59d79af5d026200b68154836c5ac
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516618"
+ms.locfileid: "73585402"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2-on-azure-application-gateway"></a>Azure 애플리케이션 Gateway의 웹 응용 프로그램 방화벽 v2에 대 한 사용자 지정 규칙
 
@@ -162,6 +162,11 @@ MatchVariable 컬렉션의 필드에 대해 설명 합니다. 예를 들어 matc
 - 로그 – 규칙을 로그에 기록할 수 있지만 나머지 규칙은 평가를 위해 실행할 수 있습니다. 후속 사용자 지정 규칙은 우선 순위에 따라 관리 되는 규칙에 따라 평가 됩니다.
 
 ## <a name="geomatch-custom-rules-preview"></a>Geomatch 사용자 지정 규칙 (미리 보기)
+
+사용자 지정 규칙을 사용 하면 응용 프로그램의 정확한 요구 사항과 보안 정책에 맞게 조정 된 규칙을 만들 수 있습니다. 이제 공개 미리 보기로 제공 되는 국가/지역에 따라 웹 응용 프로그램에 대 한 액세스를 제한할 수 있습니다. 모든 사용자 지정 규칙과 마찬가지로이 논리는 응용 프로그램의 요구 사항에 맞게 다른 규칙과 함께 사용할 수 있습니다. 
+
+   > [!NOTE]
+   > Geomatch 사용자 지정 규칙은 미국 중 북부와 유럽 서 면에서 사용할 수 있습니다. 포털에서이 항목에 액세스 하려면 모든 사용자에 게 라이브 상태가 될 때까지 [이 링크](https://aka.ms/AppGWWAFGeoMatch) 를 사용 하세요. 
 
 Geomatch 연산자를 사용 하는 경우 선택기는 다음 두 자리 국가 코드 중 하나를 사용할 수 있습니다. 
 

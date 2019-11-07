@@ -1,5 +1,5 @@
 ---
-title: Databricks Notebook으로 데이터 변환 - Azure | Microsoft Docs
+title: Databricks 노트북을 사용 하 여 데이터 변환-Azure
 description: Databricks Notebook을 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,16 +12,16 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 23166a4a0110629674db6ccc9d225118264b3c15
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 685a7863af74bf90c819453b41078b48ab6d2045
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233071"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683921"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Databricks Notebook을 실행하여 데이터 변환
 
-[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Notebook 활동은 Azure Databricks 작업 영역에서 Databricks Notebook을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는  [데이터 변환 활동](transform-data.md)  문서에서 작성합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다.
+[Data Factory 파이프라인](concepts-pipelines-activities.md)의 Azure Databricks Notebook 활동은 Azure Databricks 작업 영역에서 Databricks Notebook을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는  [데이터 변환 활동](transform-data.md)  문서에서 작성합니다. Azure Databricks은 Apache Spark을 실행 하기 위한 관리 되는 플랫폼입니다.
 
 ## <a name="databricks-notebook-activity-definition"></a>Databricks Notebook 활동 정의
 
@@ -120,7 +120,7 @@ Databricks 활동의 *baseparameters* 속성을 사용 하 여 데이터 팩터�
 
 1. 노트북에서 returnValue [("")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) 를 호출 하면 해당 하는 "returnValue"이 data factory로 반환 됩니다.
 
-2. 와 `'@activity('databricks notebook activity name').output.runOutput'`같은 식을 사용 하 여 data factory의 출력을 사용할 수 있습니다. 
+2. `'@activity('databricks notebook activity name').output.runOutput'`와 같은 식을 사용 하 여 data factory의 출력을 사용할 수 있습니다. 
 
    > [!IMPORTANT]
    > JSON 개체를 전달 하는 경우 속성 이름을 추가 하 여 값을 검색할 수 있습니다. 예: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`

@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/03/2019
-ms.openlocfilehash: cc7e510d9a6db93edc211799eda8df79116236a7
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 11/05/2019
+ms.openlocfilehash: ecd2750926fd04c84d2d6b48f5fde06363dd15df
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053645"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606748"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Oracle의 온라인 마이그레이션과 PostgreSQL 용 Azure DB-단일 서버에 대 한 알려진 문제/마이그레이션 제한 사항
 
@@ -26,7 +26,7 @@ Oracle에서 Azure Database for PostgreSQL 단일 서버로의 온라인 마이�
 
 Azure Database Migration Service에 대 한 연결을 지원 합니다.
 
-- Oracle 버전 10g, 11c 및 12c.
+- Oracle 버전 10g, 11g 및 12c.
 - Oracle Enterprise, Standard, Express 및 Personal Edition이 있습니다.
 
 Azure Database Migration Service는 CDBs (다중 테 넌 트 컨테이너 데이터베이스) 연결을 지원 하지 않습니다.
@@ -47,7 +47,7 @@ Azure Database Migration Service는 Azure Database for PostgreSQL 단일 서버 
 - SDO_GEOMETRY
 - 중첩 테이블
 - 사용자 정의 데이터 형식
-- 참고
+- 참고 사항
 - 가상 열
 - ROWID 열을 기반으로 구체화 된 뷰
 

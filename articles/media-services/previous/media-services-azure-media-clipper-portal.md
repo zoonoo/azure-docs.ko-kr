@@ -3,18 +3,18 @@ title: 포털에서 Azure Media Clipper 사용 | Microsoft Docs
 description: Azure Portal에서 Azure Media Clipper를 사용하여 클립 만들기
 services: media-services
 keywords: 클립;서브클립;인코딩;미디어
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 8c88caefb0909da55de87116a23fa520c1679cc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ec43fa469547dcd6481c0c6781c438f42ab4e2bd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465850"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684997"
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>포털에서 Azure Media Clipper를 사용하여 클립 만들기  
 
@@ -24,7 +24,7 @@ ms.locfileid: "61465850"
 
 Clipper는 현재 공개 미리 보기로 제공됩니다. Azure Portal에서 Clipper에 액세스하려면 이 [공개 미리 보기 페이지](https://portal.azure.com/?feature.subclipper=true)로 이동합니다.
 
-다음 이미지는 미디어 서비스 계정의 Clipper 방문 페이지를 보여 줍니다. ![Azure Portal의 Azure Media Clipper](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png)
+다음 이미지에서는 미디어 서비스 계정의 Clipper 방문 페이지를 보여 줍니다: ![Azure Portal의 Azure Media Clipper](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png) .
 
 ## <a name="producing-clips"></a>클립 생성
 클립을 만들려면 클립 인터페이스에 자산을 끌어 놓습니다. 마크 시간을 알고 있다면 인터페이스에 수동으로 입력할 수 있습니다. 또는 자산을 재생하거나 플레이헤드를 끌어 원하는 마크인 및 마크아웃 시간을 찾습니다. 마크인 또는 마크아웃 시간이 제공되지 않으면 클립은 입력 자산의 처음부터 시작하거나 끝까지 계속됩니다.
@@ -36,7 +36,7 @@ Clipper는 현재 공개 미리 보기로 제공됩니다. Azure Portal에서 Cl
 
 동적 매니페스트 필터를 만들려면 **자산** 탭으로 이동하고 원하는 자산을 선택합니다. 상단 메뉴에서 **하위 클립** 단추를 선택합니다. 고급 설정 메뉴에서 클리핑 모드로 동적 매니페스트 필터를 선택합니다. 그런 다음 동일한 프로세스를 따라 렌더링된 클립을 생성하여 필터를 만들 수 있습니다. 필터는 단일 자산에서만 생성할 수 있습니다.
 
-다음 이미지는 Azure Portal에서 동적 매니페스트 필터 모드의 Clipper를 보여 줍니다. ![Azure Portal에서 동적 매니페스트 필터 모드의 Azure Media Clipper](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
+다음 이미지에서는 Azure Portal 동적 매니페스트 필터의 Clipper를 보여 줍니다: ![Azure Portal 동적 매니페스트 필터 모드의 Azure Media Clipper](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG).
 
 ## <a name="submitting-clipping-jobs"></a>클리핑 작업 제출
 클립 작성을 마치면 해당 클리핑 작업 또는 동적 매니페스트 호출을 시작하도록 작업 제출 단추를 선택합니다.

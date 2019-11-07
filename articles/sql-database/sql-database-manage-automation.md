@@ -1,5 +1,5 @@
 ---
-title: Azure Automation을 사용하여 Azure SQL 데이터베이스 관리 | Microsoft Docs
+title: Azure Automation를 사용 하 여 Azure SQL database 관리
 description: Azure Automation 서비스를 사용하여 대규모 Azure SQL 데이터베이스를 관리하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: bb195d5809ef0e2af2a4975a263a9739db1cdfa6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0e29cd85c63bb2f6e083f9cda9abd48fa6d9975a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567739"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689444"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure Automation을 사용하여 Azure SQL 데이터베이스 관리
 
@@ -32,7 +32,7 @@ Azure Automation에 의해 자동으로 실행되도록 클라우드 관리 작�
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Azure Automation을 통해 Azure SQL 데이터베이스 관리 향상
 
-Azure SQL Database는 [Azure PowerShell 도구](/powershell/azure/overview)에서 사용할 수 있는 [Azure SQL Database PowerShell cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql)를 이용하여 Azure Automation에서 관리할 수 있습니다. Azure Automation에서는 이러한 Azure SQL Database PowerShell cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 SQL DB 관리 작업을 모두 수행할 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
+Azure SQL Database는 [Azure PowerShell 도구](https://docs.microsoft.com/powershell/module/servicemanagement/azure/#sql)에서 사용할 수 있는 [Azure SQL Database PowerShell cmdlets](/powershell/azure/overview)를 이용하여 Azure Automation에서 관리할 수 있습니다. Azure Automation에서는 이러한 Azure SQL Database PowerShell cmdlet을 기본적으로 사용할 수 있으므로 서비스 내에서 SQL DB 관리 작업을 모두 수행할 수 있습니다. Azure Automation에서 이러한 cmdlet을 다른 Azure 서비스용 cmdlet과 연결하여 Azure 서비스와 타사 시스템 간의 복잡한 작업을 자동화할 수도 있습니다.
 
 또한 Azure Automation에서 PowerShell을 통해 SQL 명령을 실행하여 SQL 서버와 직접 통신할 수 있습니다.
 

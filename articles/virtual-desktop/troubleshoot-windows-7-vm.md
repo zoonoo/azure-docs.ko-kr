@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱에서 Windows 7 가상 컴퓨터 문제 해결-Azure
+title: Windows 7 virtual machines Windows 가상 데스크톱-Azure
 description: Windows 가상 데스크톱 환경에서 Windows 7 Vm (가상 컴퓨터)에 대 한 문제를 해결 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 09/23/2019
 ms.author: helohr
-ms.openlocfilehash: 282a4d166e48a41015cb2f08496fe39419bdcaf7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ee641a694371ffd3fbc691a05edac707e37e959d
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374256"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607334"
 ---
 # <a name="troubleshoot-windows-7-virtual-machines-in-windows-virtual-desktop"></a>Windows Virtual Desktop에서 Windows 7 가상 머신 문제 해결
 
@@ -42,7 +42,7 @@ Windows 가상 데스크톱이 원격 데스크톱 사용자 그룹에서 사용
 1. Azure Portal을 엽니다.
 2. 오류 메시지가 표시 된 가상 컴퓨터를 선택 합니다.
 3. **명령 실행을**선택 합니다.
-4. @No__t-0을 추가 하려는 사용자의 이름으로 대체 하 여 다음 명령을 실행 합니다.
+4. `<username>`에서 다음 명령을 실행 하 여 추가 하려는 사용자의 이름으로 바꿉니다.
    
    ```cmd
    net localgroup "Remote Desktop Users" <username> /add

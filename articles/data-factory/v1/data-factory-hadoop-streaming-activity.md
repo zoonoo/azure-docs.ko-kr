@@ -1,5 +1,5 @@
 ---
-title: Hadoop 스트리밍 작업을 사용하여 데이터 변환 - Azure | Microsoft Docs
+title: Hadoop 스트리밍 작업을 사용 하 여 데이터 변환-Azure
 description: Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 주문형/사용자 고유의 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행함으로써 데이터를 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fd9512f4ede8d9b8b1a8fd69b7120303fe6a0ad5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c56961b28750f3ba6450c26c897c1ef6c54b3ed8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139557"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73667496"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="변환 작업"]
@@ -41,7 +41,7 @@ HDInsightStreamingActivity 작업을 사용하여 Azure Data Factory 파이프�
 Data Factory [파이프라인](data-factory-create-pipelines.md)의 HDInsight 스트리밍 작업은 [사용자 고유](data-factory-compute-linked-services.md#azure-hdinsight-linked-service) 또는 [주문형](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) Windows/Linux 기반 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행합니다. 이 문서는 데이터 변환 및 지원되는 변환 활동의 일반적인 개요를 표시하는 [데이터 변환 활동](data-factory-data-transformation-activities.md) 문서에서 작성합니다.
 
 > [!NOTE] 
-> Azure Data Factory를 처음 접하는 경우 이 문서를 읽기 전에 [Azure Data Factory 소개](data-factory-introduction.md)를 읽고 [첫 번째 데이터 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 자습서를 수행하세요. 
+> Azure Data Factory를 처음 접하는 경우 [Azure Data Factory 소개](data-factory-introduction.md)를 읽고 이 문서를 읽기 전에 [첫 번째 데이터 파이프라인 빌드](data-factory-build-your-first-pipeline.md) 자습서를 수행하세요. 
 
 ## <a name="json-sample"></a>JSON 샘플
 HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(davinci.txt)와 함께 자동으로 채워집니다. 기본적으로 HDInsight 클러스터에 사용되는 컨테이너의 이름은 클러스터 자체의 이름입니다. 예를 들어, 클러스터 이름이 myhdicluster이면 연결된 BLOB 컨테이너의 이름은 myhdicluster가 됩니다. 
@@ -174,7 +174,7 @@ HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(
 ```
 
 ### <a name="pipeline"></a>파이프라인
-이 예제의 파이프라인은 다음 형식의 작업을 하나만 포함합니다. **HDInsightStreaming**. 
+이 예제의 파이프라인은 **HDInsightStreaming**형식의 작업을 하나만 포함합니다. 
 
 HDInsight 클러스터는 예제 프로그램(wc.exe 및 cat.exe) 및 데이터(davinci.txt)와 함께 자동으로 채워집니다. 기본적으로 HDInsight 클러스터에 사용되는 컨테이너의 이름은 클러스터 자체의 이름입니다. 예를 들어, 클러스터 이름이 myhdicluster이면 연결된 BLOB 컨테이너의 이름은 myhdicluster가 됩니다.  
 

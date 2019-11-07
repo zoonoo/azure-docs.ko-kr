@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 26b0f710590496875521e0dd8577a35841fbd3dd
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c757ef8508f9364a46116e6ddf19207f23a4b6f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657009"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583690"
 ---
 # <a name="set-or-reset-password-for-virtual-machines-in-classroom-labs-students"></a>교실 랩의 가상 컴퓨터에 대 한 암호 설정 또는 다시 설정 (학생용)
 이 문서에서는 학생이 Vm에 대 한 암호를 설정/다시 설정 하는 방법을 보여 줍니다. 
@@ -40,4 +40,4 @@ ms.locfileid: "69657009"
 
 
 ## <a name="next-steps"></a>다음 단계
-랩 소유자가 구성할 수 있는 다른 학생 사용 옵션에 대해 알아보려면 다음 문서를 참조 하세요. [학생 사용을 구성](how-to-configure-student-usage.md)합니다.
+랩 소유자가 구성할 수 있는 다른 학생 사용 옵션에 대해 알아보려면 [학생 사용 구성](how-to-configure-student-usage.md)문서를 참조 하세요.

@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9bb6bba26fd97a0219f183ffcc67e3e34e3973c8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 42a824863766b5d4d91d9eaa3dad1012f5019f63
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489458"
+ms.locfileid: "73584490"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 Keras 분류 모델 학습 및 등록
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 �
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
- - Azure Machine Learning 계산 인스턴스-다운로드 또는 설치 필요 없음
+ - Azure Machine Learning 노트북 VM-다운로드 또는 설치 필요 없음
 
      - [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
     - 노트북 서버의 samples 폴더에서 다음 디렉터리로 이동 하 여 완료 및 확장 된 노트북을 찾습니다. **사용 방법-azureml > 교육-심층 학습 > 학습-hyperparameter 변수-튜닝-배포-keras** 폴더로 이동 합니다.

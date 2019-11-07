@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse용 PowerShell cmdlet
+title: PowerShell cmdlet
 description: 데이터베이스를 일시 중지하고 다시 시작하는 방법을 포함하여 Azure SQL Data Warehouse용 PowerShell cmdlet을 확인합니다.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,15 +10,16 @@ ms.subservice: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 095e66c6c5f75a27b1f0231dfe8cabfd4d741d18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b36a64bb82449ace7acc1de0b3c2bc7c5efebe70
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65205171"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685547"
 ---
 # <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>SQL Data Warehouse용 PowerShell cmdlet 및 REST API
-많은 SQL Data Warehouse 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다.  다음은 PowerShell 명령을 사용하여 SQL Data Warehouse의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다.  유용한 REST 예제는 [REST를 사용하여 확장성 관리][Manage scalability with REST] 문서를 참조하세요.
+많은 SQL Data Warehouse 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다.  다음은 PowerShell 명령을 사용하여 SQL Data Warehouse의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다.  유용한 REST 예제는 [REST를 사용하여 확장성 관리][Manage scalability with REST]문서를 참조하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,12 +34,12 @@ ms.locfileid: "65205171"
     ```
 
 ## <a name="pause-sql-data-warehouse-example"></a>SQL Data Warehouse 일시 중지 예제
-"Server01"라는 서버에서 호스트하는 "Database02"라는 데이터베이스를 일시 중지합니다.  서버는 "ResourceGroup1"이라는 Azure 리소스 그룹 내에 있습니다.
+"Server01."라는 서버에서 호스트하는 "Database02"라는 데이터베이스를 일시 중지합니다.  서버는 "ResourceGroup1."이라는 Azure 리소스 그룹 내에 있습니다.
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
-이 예제에서는 검색된 개체를 [Suspend AzSqlDatabase][Suspend-AzSqlDatabase]으로 전달합니다. 그 결과로 데이터베이스가 일시 중지됩니다. 마지막 명령은 결과를 보여 줍니다.  그 결과로 데이터베이스가 일시 중지됩니다. 마지막 명령은 결과를 보여 줍니다.
+변형으로,이 예제에서는 검색 된 개체를 [AzSqlDatabase][Suspend-AzSqlDatabase]로 파이프 합니다.  그 결과로 데이터베이스가 일시 중지됩니다. 마지막 명령은 결과를 보여 줍니다.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -47,13 +48,13 @@ $resultDatabase
 ```
 
 ## <a name="start-sql-data-warehouse-example"></a>SQL Data Warehouse 시작 예제
-"Server01"이라는 서버에서 호스트하는 "Database02"라는 데이터베이스의 작동을 다시 시작합니다. 서버는 "ResourceGroup1"이라는 리소스 그룹 내에 있습니다.
+"Server01."이라는 서버에서 호스트하는 "Database02"라는 데이터베이스의 작동을 다시 시작합니다. 서버는 "ResourceGroup1."이라는 리소스 그룹 내에 있습니다.
 
 ```Powershell
 Resume-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
 ```
 
-변형인 이 예에서는 "ResourceGroup1."이라는 리소스 그룹에 포함된 "Server01"이라는 서버에서 "Database02"라는 데이터베이스를 검색합니다. 검색된 된 개체를 파이프 [Resume AzSqlDatabase][Resume-AzSqlDatabase]합니다.
+변형인 이 예에서는 "ResourceGroup1."이라는 리소스 그룹에 포함된 "Server01"이라는 서버에서 "Database02"라는 데이터베이스를 검색합니다. 검색 된 개체를 [다시 시작-AzSqlDatabase][Resume-AzSqlDatabase]로 파이프 합니다.
 
 ```Powershell
 $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
@@ -70,14 +71,14 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 
 * [Get-AzSqlDatabase][Get-AzSqlDatabase]
 * [Get-AzSqlDeletedDatabaseBackup][Get-AzSqlDeletedDatabaseBackup]
-* [Get-AzSqlDatabaseRestorePoint][Get-AzSqlDatabaseRestorePoint]
+* [AzSqlDatabaseRestorePoint][Get-AzSqlDatabaseRestorePoint]
 * [New-AzSqlDatabase][New-AzSqlDatabase]
 * [Remove-AzSqlDatabase][Remove-AzSqlDatabase]
 * [Restore-AzSqlDatabase][Restore-AzSqlDatabase]
-* [Resume-AzSqlDatabase][Resume-AzSqlDatabase]
+* [AzSqlDatabase][Resume-AzSqlDatabase]
 * [Select-AzSubscription][Select-AzSubscription]
 * [Set-AzSqlDatabase][Set-AzSqlDatabase]
-* [Suspend-AzSqlDatabase][Suspend-AzSqlDatabase]
+* [일시 중단-AzSqlDatabase][Suspend-AzSqlDatabase]
 
 ## <a name="next-steps"></a>다음 단계
 더 많은 PowerShell 예제는 다음을 참조하세요.
@@ -85,7 +86,7 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 * [Powershell을 사용하여 SQL Data Warehouse 만들기][Create a SQL Data Warehouse using PowerShell]
 * [데이터베이스 복원][Database restore]
 
-PowerShell로 자동화할 수 있는 다른 작업은 [Azure SQL Database Cmdlet][Azure SQL Database Cmdlets]을 참조하세요. 모든 Azure SQL Database cmdlet이 Azure SQL Data Warehouse에 대해 지원되는 것은 아닙니다.  REST를 통해 자동화할 수 있는 작업 목록은 [Azure SQL Database 작업][Operations for Azure SQL Database]을 참조하세요.
+PowerShell을 사용 하 여 자동화할 수 있는 다른 작업은 [Azure SQL Database cmdlet][Azure SQL Database Cmdlets]을 참조 하세요. 모든 Azure SQL Database cmdlet이 Azure SQL Data Warehouse에 대해 지원되는 것은 아닙니다.  REST로 자동화할 수 있는 작업 목록은 [Azure SQL Database에 대 한 작업][Operations for Azure SQL Database]을 참조 하세요.
 
 <!--Image references-->
 

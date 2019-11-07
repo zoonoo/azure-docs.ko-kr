@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance의 기존 가상 네트워크 구성 | Microsoft Docs
+title: Azure SQL Database Managed Instance의 기존 가상 네트워크 구성
 description: 이 문서에서는 Azure SQL Database Managed Instance를 배포할 수 있는 기존 가상 네트워크 및 서브넷을 구성하는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 01/15/2019
-ms.openlocfilehash: 509a08705d87e8f789e26ebbcec295a31f99f416
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0f6ababa9d25798f4b150c322d48d4c7af04a511
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567644"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689371"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance의 기존 가상 네트워크 구성
 
@@ -52,9 +52,9 @@ Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepar
 
 스크립트는 다음 3단계에 따라 서브넷을 준비합니다.
 
-1. 유효성 검사: 선택한 가상 네트워크와 서브넷이 Managed Instance 네트워킹 요구 사항을 준수하는지 검사합니다.
-2. 확인: 사용자에게 Managed Instance 배포를 위해 서브넷을 준비할 때 변경해야 하는 사항이 표시됩니다. 동의도 요청됩니다.
-3. 준비: 가상 네트워크 및 서브넷이 제대로 구성됩니다.
+1. 유효성 검사: Managed Instance 네트워킹 요구 사항에 대해 선택한 가상 네트워크 및 서브넷의 유효성을 검사 합니다.
+2. 확인: Managed Instance 배포를 위해 서브넷을 준비 하기 위해 수행 해야 하는 변경 집합을 사용자에 게 보여 줍니다. 동의도 요청됩니다.
+3. 준비: 가상 네트워크 및 서브넷을 적절 하 게 구성 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

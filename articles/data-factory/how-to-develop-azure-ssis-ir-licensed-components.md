@@ -1,5 +1,5 @@
 ---
-title: Azure-SSIS 통합 런타임에 대한 라이선스 구성 요소 설치 | Microsoft Docs
+title: 'Azure SSIS 통합 런타임에 대 한 사용이 허가 된 구성 요소 설치 '
 description: ISV가 Azure-SSIS 통합 런타임에 대한 유료 또는 라이선스 사용자 지정 구성 요소를 개발하고 설치하는 방법을 알아봄
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 1c574578e6ed6ee032be01718eb3e8afd27fdf6f
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: f1f8a017153d95beed4979b6059383a41cd6a972
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708019"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673592"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 라이선스 사용자 지정 구성 요소 설치
 
@@ -40,7 +40,7 @@ Azure-SSIS Integration Runtime은 기본적으로 사용자 지정 구성 요소
 ![라이선스 구성 요소의 설치](media/how-to-configure-azure-ssis-ir-licensed-components/licensed-component-installation.png)
 
 ## <a name="instructions"></a>지침
-1. ISV는 다양한 SKU 또는 계층의 라이선스 구성 요소(예: 단일 노드, 최대 5개 노드, 최대 10개 노드 등)를 제공할 수 있습니다. ISV는 고객이 제품을 구매할 때 해당 제품 키를 제공합니다. 또한 ISV는 ISV 설치 스크립트 및 관련 파일을 포함하는 Azure Storage Blob 컨테이너를 제공할 수도 있습니다. 고객은 자신의 스토리지 컨테이너에 이러한 파일을 복사하고 자체 제품 키로 수정할 수 있습니다(예: `IsvSetup.exe -pid xxxx-xxxx-xxxx`를 실행하여). 그런 후 고객은 컨테이너의 SAS URI를 매개 변수로 사용하여 Azure-SSIS IR을 프로비전하거나 다시 구성할 수 있습니다. 자세한 내용은 [Azure-SSIS Integration Runtime 사용자 지정 설정](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요.
+1. ISV는 다양한 SKU 또는 계층의 라이선스 구성 요소(예: 단일 노드, 최대 5개 노드, 최대 10개 노드 등)를 제공할 수 있습니다. ISV는 고객이 제품을 구매할 때 해당 제품 키를 제공합니다. 또한 ISV는 ISV 설치 스크립트 및 관련 파일을 포함하는 Azure Storage Blob 컨테이너를 제공할 수도 있습니다. 고객은 자신의 스토리지 컨테이너에 이러한 파일을 복사하고 자체 제품 키로 수정할 수 있습니다(예: `IsvSetup.exe -pid xxxx-xxxx-xxxx`를 실행하여). 그런 후 고객은 컨테이너의 SAS URI를 매개 변수로 사용하여 Azure-SSIS IR을 프로비전하거나 다시 구성할 수 있습니다. 자세한 내용은 [Azure-SSIS 통합 런타임 사용자 지정 설정](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요.
 
 2. Azure-SSIS IR이 프로비전되거나 다시 구성될 때 ISV 설치 프로그램이 각 노드에서 실행되어 Windows 환경 변수 `SSIS_CLUSTERID` 및 `SSIS_CLUSTERNODECOUNT`를 쿼리합니다. 그런 다음 Azure-SSIS IR은 라이선스 제품에 대한 클러스터 ID 및 제품 키를 ISV 정품 인증 서버에 제출하여 정품 인증 키를 생성합니다.
 

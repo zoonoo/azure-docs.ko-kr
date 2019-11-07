@@ -1,6 +1,6 @@
 ---
 title: Azure AI 갤러리
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Azure AI 갤러리의 분석 리소스 등을 공유 및 검색합니다. 다른 사용자로부터 배우고 커뮤니티에 직접 제공합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 445ea2fa299e32d0ceae7b3eee9bbf0a82dd75af
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3f02c7377242dc031cd2d21d2b57bbd5f839eec3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492934"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619136"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
 

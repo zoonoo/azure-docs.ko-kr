@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: c3791946ee31183e4b3c5131a8e62934bf87dfee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 75e789ac1f9c161bc67ba90062be39f986f5b140
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497467"
+ms.locfileid: "73580602"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
@@ -46,22 +46,11 @@ Azure Machine Learning는 여러 계산 리소스에 대해 다양 한 지원을
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Azure Machine Learning compute (관리)
 
-Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 합니다. 이 계산은 machine learning 워크 로드에 최적화 되어 있습니다. 계산 클러스터와 [계산 인스턴스](concept-compute-instance.md) 는 유일 하 게 관리 되는 계산 Azure Machine Learning. 추가 관리 되는 계산 리소스를 나중에 추가할 수 있습니다.
+Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 합니다. 이 계산은 machine learning 워크 로드에 최적화 되어 있습니다. 계산 클러스터를 Azure Machine Learning 합니다. 추가 관리 되는 계산 리소스를 나중에 추가할 수 있습니다.
 
-에서 계산 인스턴스 또는 계산 클러스터 Azure Machine Learning 만들 수 있습니다.
-
-| | Azure Machine Learning Studio | Azure portal | SDK) | Resource Manager 템플릿 | CLI |
-|---| ----- | ----- | ----- | ----- | ----- |
-| 계산 인스턴스 | 예 | 예 | 예 | 예 |  |
-| 계산 클러스터 | 예 | 예 | 예 | 예 | 예 |
+Azure Machine Learning studio, Azure Portal, SDK, 리소스 관리자 템플릿 또는 CLI에서 계산 클러스터 Azure Machine Learning 만들 수 있습니다.
 
 이러한 계산 리소스는 생성 될 때 다른 종류의 계산 대상과 달리 자동으로 작업 영역에 포함 됩니다.
-
-> [!NOTE]
-> 계산 인스턴스는 **미국 중 북부** 또는 **영국 남부**지역이 있는 작업 영역에만 사용할 수 있습니다.
->작업 영역이 다른 지역에 있는 경우 계속 해 서 [노트북 VM](concept-compute-instance.md#notebookvm) 을 만들고 사용할 수 있습니다. 
-
-### <a name="compute-clusters"></a>컴퓨팅 클러스터
 
 학습 및 batch 추론 (미리 보기)에 대 한 계산 클러스터 Azure Machine Learning 사용할 수 있습니다.  이 계산 리소스를 사용 하 여 다음을 수행 합니다.
 

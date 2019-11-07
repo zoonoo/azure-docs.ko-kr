@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault에 자격 증명 저장 | Microsoft Docs
+title: Azure Key Vault에 자격 증명 저장
 description: Azure Data Factory에서 런타임 시 자동으로 검색할 수 있는 Azure Key Vault에 사용되는 데이터 저장소의 자격 증명을 저장하는 방법을 알아봅니다.
 services: data-factory
 author: linda33wj
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 3f46c54edff2bc765e75742848f83d30e7aa7c09
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 1e2458fa125ee4d223ef46001534fb7ae72b805e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003408"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684016"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Azure Key Vault에 자격 증명 저장
 
@@ -24,7 +24,7 @@ ms.locfileid: "71003408"
 
 현재, 사용자 지정 활동을 제외한 모든 활동 유형에서 이 기능이 지원됩니다. 구체적인 커넥터 구성에 대해서는 [각 커넥터 항목](copy-activity-overview.md#supported-data-stores-and-formats)의 "연결된 서비스 속성" 섹션을 확인하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 기능은 데이터 팩터리 관리 id에 의존 합니다. [데이터 팩터리에 대 한 관리 id](data-factory-service-identity.md) 에서 작동 하는 방식에 대해 알아보고 데이터 팩터리에 연결 된 id가 있는지 확인 합니다.
 
@@ -43,7 +43,7 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **AzureKeyVault**. | 예 |
+| type | 형식 속성은 **AzureKeyVault**로 설정되어야 합니다. | 예 |
 | baseUrl | Azure Key Vault URL을 지정합니다. | 예 |
 
 **제작 UI 사용:**
@@ -76,7 +76,7 @@ Azure Key Vault 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 필드의 type 속성을 다음으로 설정해야 합니다. **AzureKeyVaultSecret**. | 예 |
+| type | 필드의 형식 속성을 **AzureKeyVaultSecret**으로 설정해야 합니다. | 예 |
 | secretName | Azure Key Vault의 비밀 이름입니다. | 예 |
 | secretVersion | Azure Key Vault에 있는 암호의 버전입니다.<br/>지정하지 않으면 항상 최신 버전의 비밀을 사용합니다.<br/>지정하는 경우 지정된 버전을 사용합니다.| 아니요 |
 | store | 자격 증명을 저장하는 데 사용하는 Azure Key Vault 연결된 서비스를 나타냅니다. | 예 |

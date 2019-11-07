@@ -1,6 +1,6 @@
 ---
-title: 예제의 실험 Kickstart
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 예제의 Kickstart 실험
+titleSuffix: ML Studio (classic) Azure
 description: 기계 학습 실험 예제를 사용 하 여 Azure AI Gallery 및 Azure Machine Learning Studio (클래식)를 사용 하 여 새 실험을 만드는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/05/2018
-ms.openlocfilehash: 547cd7c97ddf7aa08ef94f6aeea82e16119c7135
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa23612070a5b0c1a33c2effb9cd9e533ca5eada
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496783"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670637"
 ---
 # <a name="create-azure-machine-learning-studio-classic-experiments-from-working-examples-in-azure-ai-gallery"></a>Azure AI Gallery의 작업 예제에서 Azure Machine Learning Studio (클래식) 실험 만들기
 
@@ -59,4 +59,4 @@ ms.locfileid: "73496783"
 ## <a name="next-steps"></a>다음 단계
 * [다양한 소스에서 데이터 가져오기](import-data.md)
 * [Machine Learning의 R 언어용 빠른 시작 자습서](r-quickstart.md)
-* [Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)
+* [Machine Learning 웹 서비스 배포](deploy-a-machine-learning-web-service.md)

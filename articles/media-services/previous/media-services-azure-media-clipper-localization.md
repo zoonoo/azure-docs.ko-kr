@@ -2,19 +2,19 @@
 title: Azure Media Clipper 지역화 구성 | Microsoft Docs
 description: Azure Media Clipper 지원 언어 및 지역화 지원에 대해 알아봅니다.
 services: media-services
-keywords: 클립, 하위 클립, 인코딩, 미디어
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: 클립;서브클립;인코딩;미디어
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 41fd483a0b78619db6d018cf4b2ab7933a7c3031
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96ffdfe5e6b3e913bd5596dd624e35afcaecfabe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465799"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685021"
 ---
 # <a name="configure-localization"></a>지역화 구성 
 

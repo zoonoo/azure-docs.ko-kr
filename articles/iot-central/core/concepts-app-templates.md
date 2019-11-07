@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: ee1168c32cf4d8797b3957340e0acee5605ccc0f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eb7319d665f228c552423a60a3b1529dc9b1143f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951888"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583224"
 ---
 # <a name="what-are-application-templates"></a>응용 프로그램 템플릿은 무엇 인가요?
 
@@ -37,15 +37,14 @@ Azure IoT Central은 업계와 무관 한 응용 프로그램 플랫폼입니다
   - 저장소 내 분석-체크 아웃
   - 스마트 재고 관리
 - [에너지](../energy/overview-iot-central-energy.md)
-  - 연결 된 물류
   - 스마트 측정기 모니터링
   - 태양 창 모니터링
 - [자치](../government/overview-iot-central-government.md)
-  - 연결 된 폐기물 관리
-  - 워터 소비량 모니터링
-  - 수상 품질 모니터링
+  - 커넥티드 폐기물 관리
+  - 용수 사용량 모니터링
+  - 용수 품질 모니터링
 - [의료](../healthcare/overview-iot-central-healthcare.md).
-  - 연속 환자 모니터링
+  - 지속적인 환자 모니터링
 
 ## <a name="next-steps"></a>다음 단계
 

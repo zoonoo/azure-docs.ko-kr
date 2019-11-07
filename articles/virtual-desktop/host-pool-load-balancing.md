@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱 호스트 풀 부하 분산 방법-Azure
+title: Windows 가상 데스크톱 호스트 풀 부하 분산-Azure
 description: Windows 가상 데스크톱 환경에 대 한 호스트 풀 부하 분산 방법
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c2e50593c31951b63601e75c51648a95e54c6959
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 4838a11c3ff54c902e823dcf93ba610f123407a8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676567"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606829"
 ---
 # <a name="host-pool-load-balancing-methods"></a>호스트 풀 부하 분산 메서드
 

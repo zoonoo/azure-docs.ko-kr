@@ -5,20 +5,17 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/17/2019
-ms.openlocfilehash: 40718cdb12cbc46bf0587dfdc657ee06c090061b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 11/04/2019
+ms.openlocfilehash: c8891fc96e3e511e4127b4e114a45b5a865cf8eb
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598237"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603021"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>쿼리 저장소를 사용 하 여 Azure Database for MySQL 성능 모니터링
 
 **적용 대상:** Azure Database for MySQL 5.7
-
-> [!IMPORTANT]
-> 쿼리 저장소 미리 보기 상태입니다.
 
 Azure Database for MySQL의 쿼리 저장소 기능은 시간이 지남에 따라 쿼리 성능을 추적 하는 방법을 제공 합니다. 쿼리 저장소는 가장 오래 실행되고 리소스를 가장 많이 사용하는 쿼리를 신속하게 찾도록 지원하여 성능 문제 해결을 단순화합니다. 쿼리 저장소는 쿼리 및 런타임 통계의 기록을 자동으로 캡처하고 검토를 위해 보존합니다. 데이터베이스 사용량 패턴을 볼 수 있도록 데이터를 기간별로 구분합니다. 모든 사용자, 데이터베이스 및 쿼리에 대 한 데이터는 Azure Database for MySQL 인스턴스의 **mysql** 스키마 데이터베이스에 저장 됩니다.
 
@@ -107,7 +104,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 > [!NOTE]
 > 현재 **query_store_capture_mode** 는이 구성을 대체 합니다. 즉, 모든 대기 통계가 작동 하려면 **query_store_capture_mode** 와 **query_store_wait_sampling_capture_mode** 를 모두 사용 하도록 설정 해야 합니다. **Query_store_capture_mode** 가 해제 된 경우 대기 통계는 performance_schema를 사용 하 고 query_text는 쿼리 저장소로 캡처한 후에도 대기 통계가 꺼집니다.
 
- [Azure Portal](howto-server-parameters.md)  or  to [Azure CLI](howto-configure-server-parameters-using-cli.md) 사용 하 여 매개 변수에 다른 값을 가져오거나 설정 합니다.
+ [Azure Portal](howto-server-parameters.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md) 를 사용 하 여 매개 변수에 대 한 다른 값을 가져오거나 설정 합니다.
 
 ## <a name="views-and-functions"></a>보기 및 함수
 
@@ -119,7 +116,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 이 보기는 쿼리 저장소의 모든 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID 및 쿼리 ID에 대한 하나의 행이 있습니다.
 
-| **Name** | **데이터 형식** | **IS_NULLABLE** | **설명** |
+| **이름** | **데이터 형식** | **IS_NULLABLE** | **설명** |
 |---|---|---|---|
 | `schema_name`| varchar (64) | 아니요 | 스키마의 이름입니다. |
 | `query_id`| bigint (20) | 아니요| 특정 쿼리에 대해 생성 되는 고유 ID로, 같은 쿼리가 다른 스키마에서 실행 되는 경우 새 ID가 생성 됩니다. |
@@ -130,10 +127,10 @@ SELECT * FROM mysql.query_store_wait_stats;
 | `execution_count` | bigint (20)| 아니요| 구성 된 간격 동안이 타임 스탬프 ID/에 대해 쿼리를 실행 한 횟수입니다.|
 | `warning_count` | bigint (20)| 아니요| 내부에서이 쿼리가 생성 된 경고의 수입니다.|
 | `error_count` | bigint (20)| 아니요| 이 쿼리가 시간 간격 동안 생성 된 오류 수입니다.|
-| `sum_timer_wait` | Double| 예| 이 쿼리의 전체 실행 시간 (간격)|
-| `avg_timer_wait` | Double| 예| 이 쿼리에 대 한 평균 실행 시간 (간격)|
-| `min_timer_wait` | Double| 예| 이 쿼리의 최소 실행 시간|
-| `max_timer_wait` | Double| 예| 최대 실행 시간|
+| `sum_timer_wait` | double| 예| 이 쿼리의 전체 실행 시간 (간격)|
+| `avg_timer_wait` | double| 예| 이 쿼리에 대 한 평균 실행 시간 (간격)|
+| `min_timer_wait` | double| 예| 이 쿼리의 최소 실행 시간|
+| `max_timer_wait` | double| 예| 최대 실행 시간|
 | `sum_lock_time` | bigint (20)| 아니요| 이 기간 동안이 쿼리 실행의 모든 잠금에 소요 된 총 시간입니다.|
 | `sum_rows_affected` | bigint (20)| 아니요| 영향을 받는 행 수|
 | `sum_rows_sent` | bigint (20)| 아니요| 클라이언트로 전송 된 행 수|
@@ -152,7 +149,7 @@ SELECT * FROM mysql.query_store_wait_stats;
 
 이 보기는 쿼리 저장소의 대기 이벤트 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID, 쿼리 ID 및 이벤트에 대한 하나의 행이 있습니다.
 
-| **Name**| **데이터 형식** | **IS_NULLABLE** | **설명** |
+| **이름**| **데이터 형식** | **IS_NULLABLE** | **설명** |
 |---|---|---|---|
 | `interval_start` | timestamp | 아니요| 간격의 시작 (15 분 증분)|
 | `interval_end` | timestamp | 아니요| 간격의 끝 (15 분 증분)|
@@ -162,11 +159,11 @@ SELECT * FROM mysql.query_store_wait_stats;
 | `event_type` | varchar (32) | 아니요| 대기 이벤트의 범주입니다. |
 | `event_name` | varchar (128) | 아니요| 대기 이벤트의 이름입니다. |
 | `count_star` | bigint (20) | 아니요| 쿼리 간격 중 샘플링 된 대기 이벤트 수 |
-| `sum_timer_wait_ms` | Double | 아니요| 간격 중이 쿼리의 총 대기 시간 (밀리초)입니다. |
+| `sum_timer_wait_ms` | double | 아니요| 간격 중이 쿼리의 총 대기 시간 (밀리초)입니다. |
 
 ### <a name="functions"></a>Functions
 
-| **Name**| **설명** |
+| **이름**| **설명** |
 |---|---|
 | `mysql.az_purge_querystore_data(TIMESTAMP)` | 지정 된 타임 스탬프 이전의 모든 쿼리 저장소 데이터를 제거 합니다. |
 | `mysql.az_procedure_purge_querystore_event(TIMESTAMP)` | 지정 된 타임 스탬프 보다 먼저 대기 이벤트 데이터를 모두 제거 합니다. |
@@ -175,9 +172,9 @@ SELECT * FROM mysql.query_store_wait_stats;
 ## <a name="limitations-and-known-issues"></a>제한 사항 및 알려진 문제
 
 - MySQL 서버에 `default_transaction_read_only` 매개 변수가 있으면 쿼리 저장소 데이터를 캡처할 수 없습니다.
-- 긴 유니코드 쿼리 (\> = 6000 바이트)를 발견 하면 쿼리 저장소 기능을 중단할 수 있습니다.
+- 쿼리 저장소 기능이 긴 유니코드 쿼리 (\> = 6000 바이트)를 발견 하면 중단 될 수 있습니다.
 - 대기 통계의 보존 기간은 24 시간입니다.
-- 대기 통계는 샘플을 사용 하 여 이벤트의 비율을 캡처합니다. @No__t_0 매개 변수를 사용 하 여 빈도를 수정할 수 있습니다.
+- 대기 통계는 샘플을 사용 하 여 이벤트의 비율을 캡처합니다. `query_store_wait_sampling_frequency`매개 변수를 사용 하 여 빈도를 수정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
