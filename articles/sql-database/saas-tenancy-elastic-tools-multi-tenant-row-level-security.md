@@ -1,5 +1,5 @@
 ---
-title: RLS 및 탄력적 데이터베이스 도구를 사용한 다중 테넌트 앱 | Microsoft Docs
+title: 'RLS 및 탄력적 데이터베이스 도구를 사용 하는 다중 테 넌 트 앱 '
 description: 행 수준 보안으로 탄력적 데이터베이스 도구를 사용하여 확장성이 높은 데이터 계층으로 애플리케이션을 빌드합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 996d4e2ba62c06992b0433fd255800ba8cea0af3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4d3f25a6e234c3d3dfd878aaae68cf58684f2fac
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570164"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691853"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
 
@@ -36,7 +36,7 @@ ms.locfileid: "68570164"
 
 ## <a name="download-the-sample-project"></a>샘플 프로젝트 다운로드
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 - Visual Studio 2012 이상 사용
 - Azure SQL 데이터베이스 3개 만들기
@@ -45,7 +45,7 @@ ms.locfileid: "68570164"
 
 이 프로젝트는 [Azure SQL을 위한 탄력적 DB 도구 - Entity Framework 통합](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) 에서 설명한 프로젝트에 다중 테넌트 분할된 데이터베이스에 대한 지원을 추가하는 확장 프로젝트입니다. 이 프로젝트는 블로그 및 게시물을 만들기 위한 간단한 콘솔 애플리케이션을 작성합니다. 프로젝트에는 4명의 테넌트와 두 개의 다중 테넌트 분할 데이터베이스가 포함됩니다. 이 구성은 이전 다이어그램에 설명되어 있습니다.
 
-응용 프로그램을 빌드 및 실행합니다. 그러면 탄력적 데이터베이스 도구의 분할된 데이터베이스 맵 관리자가 부트스트랩을 실행하고 다음 테스트를 수행합니다.
+애플리케이션을 빌드 및 실행합니다. 그러면 탄력적 데이터베이스 도구의 분할된 데이터베이스 맵 관리자가 부트스트랩을 실행하고 다음 테스트를 수행합니다.
 
 1. Entity Framework 및 LINQ를 사용하여 새 블로그를 만든 후 각 테넌트에 대한 모든 블로그 표시
 2. ADO.NET SqlClient를 사용하여 특정 테넌트에 대한 모든 블로그 표시
@@ -56,7 +56,7 @@ ms.locfileid: "68570164"
 1. **애플리케이션 계층**: 연결을 연 후 애플리케이션 코드를 수정하여 SESSION\_CONTEXT에서 현재 TenantId를 항상 설정합니다. 샘플 프로젝트에서는 이미 TenantId를 이 방법으로 설정합니다.
 2. **데이터 계층**: 각 분할된 데이터베이스에서 SESSION\_CONTEXT에 저장된 TenantId에 따라 행을 필터링하는 RLS 보안 정책을 만듭니다. 분할된 데이터베이스 각각에 대해 정책을 만듭니다. 그렇지 않으면 다중 테넌트 분할된 데이터베이스의 행이 필터링되지 않습니다.
 
-## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. 애플리케이션 계층: SESSION\_CONTEXT에서 TenantId 설정
+## <a name="1-application-tier-set-tenantid-in-the-session_context"></a>1. 응용 프로그램 계층: 세션\_컨텍스트에서 TenantId를 설정 합니다.
 
 먼저 탄력적 데이터베이스 클라이언트 라이브러리의 데이터 종속 라우팅 API를 사용하여 분할된 데이터베이스에 연결합니다. 애플리케이션은 연결을 사용 중인 TenantId를 계속 데이터베이스에 알려야 합니다. TenantId는 어떤 행을 다른 테넌트에 속하는 것으로 필터링해야 하는지 RLS 보안 정책에 알려줍니다. 연결의 [SESSION\_CONTEXT](https://docs.microsoft.com/sql/t-sql/functions/session-context-transact-sql)에 현재 TenantId를 저장합니다.
 
@@ -64,7 +64,7 @@ SESSION\_CONTEXT에 대한 대안은 [CONTEXT\_INFO](https://docs.microsoft.com/
 
 ### <a name="entity-framework"></a>Entity Framework
 
-Entity Framework를 사용하는 애플리케이션의 경우 가장 간단한 방법은 [EF DbContext를 사용하는 데이터 종속 라우팅](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext)에 설명된 ElasticScaleContext 재정의 내에서 SESSION\_CONTEXT를 설정하는 것입니다. SESSION\_CONTEX에서 TenantId를 연결에 대해 지정된 shardingKey로 설정하는 SqlCommand를 만들어서 실행합니다. 그러면 데이터 종속 라우팅을 통해 조정된 연결이 반환됩니다. 이 방법을 사용하면 SESSION\_CONTEXT를 설정하는 코드를 한 번만 작성하면 됩니다.
+Entity Framework를 사용하는 애플리케이션의 경우 가장 간단한 방법은 \_EF DbContext를 사용하는 데이터 종속 라우팅[에 설명된 ElasticScaleContext 재정의 내에서 SESSION](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext)CONTEXT를 설정하는 것입니다. SESSION\_CONTEX에서 TenantId를 연결에 대해 지정된 shardingKey로 설정하는 SqlCommand를 만들어서 실행합니다. 그러면 데이터 종속 라우팅을 통해 조정된 연결이 반환됩니다. 이 방법을 사용하면 SESSION\_CONTEXT를 설정하는 코드를 한 번만 작성하면 됩니다.
 
 ```csharp
 // ElasticScaleContext.cs
@@ -268,7 +268,7 @@ GO
 
 ### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>삽입 시 TenantId를 자동으로 채우도록 기본 제약 조건 추가
 
-행을 삽입할 때 자동으로 SESSION\_CONTEXT에 현재 저장된 값으로 TenantId를 채우도록 각 테이블에 기본 제약 조건을 추가할 수 있습니다. 예를 들면 다음과 같습니다.
+행을 삽입할 때 자동으로 SESSION\_CONTEXT에 현재 저장된 값으로 TenantId를 채우도록 각 테이블에 기본 제약 조건을 추가할 수 있습니다. 예제는 다음과 같습니다.
 
 ```sql
 -- Create default constraints to auto-populate TenantId with the
@@ -347,7 +347,7 @@ GO
 
 탄력적 데이터베이스 도구와 행 수준 보안을 함께 사용하면 다중 테넌트 및 단일 테넌트 분할된 데이터베이스를 모두 지원하여 애플리케이션의 데이터 계층을 확장할 수 있습니다. 다중 테넌트 분할된 데이터베이스는 데이터를 보다 효율적으로 저장하는 데 사용할 수 있습니다. 이러한 효율성은 많은 수의 테넌트가 몇 개의 데이터 행만 가진 경우 분명합니다. 단일 테넌트의 분할된 데이터베이스는 보다 엄격한 성능 및 격리 요구 사항을 갖는 프리미엄 테넌트를 지원할 수 있습니다. 자세한 내용은 [행 수준 보안 참조][rls]를 참조하세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [Azure 탄력적 풀이란?](sql-database-elastic-pool.md)
 - [Azure SQL Database를 사용하여 확장](sql-database-elastic-scale-introduction.md)

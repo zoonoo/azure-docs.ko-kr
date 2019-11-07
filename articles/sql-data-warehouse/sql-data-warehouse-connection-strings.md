@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse용 연결 문자열 | Microsoft Docs
+title: 연결 문자열
 description: SQL Data Warehouse용 연결 문자열
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: afc8dbfa0bc1b1ad37e5f1a0f290c42998ed1e4b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: dc2f03978e219a6fbbf3918bef4c44c072d60610
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68479716"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692886"
 ---
 # <a name="connection-strings-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 연결 문자열
 [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP][PHP] 및 [JDBC][JDBC]와 같은 여러 가지 다양한 애플리케이션 프로토콜을 사용하여 SQL Data Warehouse에 연결할 수 있습니다. 다음은 각 프로토콜에 대한 연결 문제열의 몇 가지 예입니다.  또한 Azure 포털을 사용하여 연결 문자열을 빌드할 수도 있습니다.  Azure Portal을 사용하여 연결 문자열을 빌드하려면 데이터베이스 블레이드로 이동한 후 *Essentials* 링크에서 *데이터베이스 연결 문자열 표시*를 클릭합니다.

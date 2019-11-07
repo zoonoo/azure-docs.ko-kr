@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database의 DNS 별칭 | Microsoft Docs
+title: Azure SQL Database의 DNS 별칭
 description: 애플리케이션은 Azure SQL Database 서버 이름의 별칭에 연결할 수 있습니다. 한편, 별칭이 가리키는 SQL Database를 언제든지 변경하여 테스트 등의 작업을 용이하게 수행할 수 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, jrasnick, vanto
 ms.date: 06/26/2019
-ms.openlocfilehash: 5d37b41fa7b51871f9ce1b21c62de1f9ab7f3b82
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: c3681e882fea3e8e36472c8e540db0255cd654bb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058572"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692292"
 ---
 # <a name="dns-alias-for-azure-sql-database"></a>Azure SQL Database의 DNS 별칭
 
@@ -55,12 +55,12 @@ Azure SQL Database의 DNS 별칭 기능은 다음과 같은 시나리오에서 �
 
 SQL Database 서버에 대한 각 DNS 별칭에는 다음 속성이 적용됩니다.
 
-- 고유 이름: 만드는 각 별칭 이름은 서버 이름과 마찬가지로, 모든 Azure SQL Database 서버에서 고유합니다.
-- 서버 필수: 정확히 한 서버를 참조하지 않는 한, DNS 별칭을 만들 수 없으며, 서버가 미리 존재해야 합니다. 업데이트된 별칭은 항상 정확히 하나의 기존 서버를 참조해야 합니다.
+- *고유 이름:* 만드는 각 별칭 이름은 서버 이름과 마찬가지로, 모든 Azure SQL Database 서버에서 고유합니다.
+- *서버 필수:* 정확히 한 서버를 참조하지 않는 한, DNS 별칭을 만들 수 없으며, 서버가 미리 존재해야 합니다. 업데이트된 별칭은 항상 정확히 하나의 기존 서버를 참조해야 합니다.
   - SQL Database 서버를 삭제하면 Azure 시스템에서도 해당 서버를 참조하는 모든 DNS 별칭을 삭제합니다.
-- 어떤 지역에도 바인딩되지 않음: DNS 별칭은 지역에 바인딩되지 않습니다. DNS 별칭을 지리적 지역에 있는 Azure SQL Database 서버를 참조하도록 업데이트할 수 있습니다.
+- *어떤 지역에도 바인딩되지 않음:* DNS 별칭은 지역에 바인딩되지 않습니다. DNS 별칭을 지리적 지역에 있는 Azure SQL Database 서버를 참조하도록 업데이트할 수 있습니다.
   - 그러나 다른 서버를 참조하도록 별칭을 업데이트할 경우 두 서버 모두 동일한 Azure *구독*에 있어야 합니다.
-- 사용 권한: DNS 별칭을 관리하려면 ‘Server Contributor’ 권한 이상이 있어야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.
+- *사용 권한:* DNS 별칭을 관리하려면 *서버 참가자* 권한 이상이 있어야 합니다. 자세한 내용은 [Azure Portal에서 역할 기반 Access Control 시작](../role-based-access-control/overview.md)을 참조하세요.
 
 ## <a name="manage-your-dns-aliases"></a>DNS 별칭 관리
 
@@ -82,7 +82,7 @@ REST API에 대한 설명서는 다음 웹 위치 근처에서 사용할 수 있
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 REST API를 호출하는 PowerShell cmdlet을 사용할 수 있습니다.
 
@@ -92,23 +92,23 @@ DNS 별칭을 관리하는 데 사용되는 PowerShell cmdlet의 코드 예제�
 
 코드 예제에 사용된 cmdlet은 다음과 같습니다.
 
-- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Azure SQL Database 서비스 시스템에 새 DNS 별칭을 만듭니다. 이 별칭은 Azure SQL Database 서버 1을 가리킵니다.
-- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): SQL DB 서버 1에 할당된 모든 DNS 별칭을 가져와서 나열합니다.
-- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): 별칭이 나타내도록 구성된 서버 이름을 서버 1에서 SQL DB 서버 2로 수정합니다.
-- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): 별칭의 이름을 사용하여 SQL DB 서버 2에서 DNS 별칭을 제거합니다.
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Azure SQL Database 서비스 시스템에 새 DNS 별칭을 만듭니다. 이 별칭은 Azure SQL Database 서버 1을 가리킵니다.
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): SQL DB 서버 1에 할당 된 모든 DNS 별칭을 가져오고 나열 합니다.
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): 별칭을 참조 하도록 구성 된 서버 이름을 서버 1에서 SQL DB 서버 2로 수정 합니다.
+- [AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): 별칭 이름을 사용 하 여 SQL DB 서버 2에서 DNS 별칭을 제거 합니다.
 
 ## <a name="limitations-during-preview"></a>미리 보기 중 제한 사항
 
 현재, DNS 별칭에는 다음과 같은 제한이 있습니다.
 
-- 최대 2분 간 지연: DNS 별칭을 업데이트하거나 제거하는 데는 최대 2분이 소요됩니다.
+- *최대 2분 간 지연:* DNS 별칭을 업데이트하거나 제거하는 데는 최대 2분이 소요됩니다.
   - 지연 시간이 길어지든, 짧아지든, 별칭은 레거시 서버에 대한 클라이언트 연결 참조를 즉시 중지합니다.
-- DNS 조회: 현재, DNS 별칭이 지정된 서버를 확인하는 신뢰할 수 있는 유일한 방법은 [DNS 조회](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)를 수행하는 것입니다.
-- _테이블 감사는 지원 되지 않습니다._ 데이터베이스에 대해 *테이블 감사*가 사용되도록 설정된 Azure SQL Database 서버에 대해 DNS 별칭을 사용할 수 없습니다.
+- *DNS 조회:* 현재, DNS 별칭이 지정된 서버를 확인하는 신뢰할 수 있는 유일한 방법은 [DNS 조회](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup)를 수행하는 것입니다.
+- _테이블 감사는 지원 되지 않습니다._ 데이터베이스에서 *테이블 감사* 를 사용 하는 Azure SQL Database 서버에는 DNS 별칭을 사용할 수 없습니다.
   - 테이블 감사는 더 이상 사용되지 않습니다.
   - 따라서 [Blob 감사](sql-database-auditing.md)로 전환하는 것이 좋습니다.
 
-## <a name="related-resources"></a>관련 참고 자료
+## <a name="related-resources"></a>관련 리소스
 
 - 재해 복구를 포함하는 [Azure SQL Database의 비즈니스 연속성 개요](sql-database-business-continuity.md).
 

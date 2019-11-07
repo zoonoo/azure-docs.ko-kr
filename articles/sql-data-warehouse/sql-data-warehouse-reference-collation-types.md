@@ -1,5 +1,5 @@
 ---
-title: 데이터 정렬-Azure SQL Data Warehouse | Microsoft Docs
+title: Collation
 description: Azure SQL Data Warehouse에서 지원 되는 데이터 정렬 형식입니다.
 services: sql-data-warehouse
 author: antvgski
@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 598ad4c103035ec2d94015e1f8e12194d1b723fc
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f05e54a3dd4b69fff2bc7d122391d145b222b295
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935109"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692557"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대 한 데이터베이스 데이터 정렬 지원
 
@@ -99,5 +100,5 @@ ms.locfileid: "68935109"
 *   SQL_EBCDIC277_2_CP1_CS_AS
 
 ## <a name="checking-the-current-collation"></a>현재 데이터 정렬 확인
-데이터베이스의 현재 데이터 정렬을 확인 하려면 다음 T-sql 코드 조각을 실행할 수 있습니다. 데이터 정렬로 DATABASEPROPERTYEX (DB_NAME (), ' Collation ')를 선택 합니다. ' Collation '을 속성 매개 변수로 전달 하는 경우 DatabasePropertyEx 함수는 지정 된 데이터베이스에 대 한 현재 데이터 정렬을 반환 합니다. 자세한 내용은 MSDN의 DatabasePropertyEx 함수를 확인할 수 있습니다.
+데이터베이스에 대 한 현재 데이터 정렬을 확인 하려면 다음 T-sql 코드 조각을 실행할 수 있습니다. SELECT DATABASEPROPERTYEX (DB_NAME (), ' Collation ')를 데이터 정렬로 ' Collation '을 속성 매개 변수로 전달 하는 경우 DatabasePropertyEx 함수는 지정 된 데이터베이스에 대 한 현재 데이터 정렬을 반환 합니다. 자세한 내용은 MSDN의 DatabasePropertyEx 함수를 확인할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 다중 테넌트 앱에서 Azure SQL Database 스키마 관리 | Microsoft Docs
+title: 다중 테 넌 트 앱에서 Azure SQL Database 스키마 관리
 description: Azure SQL Database를 사용하는 다중 테넌트 애플리케이션에서 여러 테넌트에 대한 스키마 관리
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: db6f471438324e984434704a2cab01d57c800ba5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a4838e571c6dc678fba470ef7f1026388f55d444
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570257"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691973"
 ---
 # <a name="manage-schema-in-a-saas-application-that-uses-sharded-multi-tenant-sql-databases"></a>분할된 다중 테넌트 SQL 데이터베이스를 사용하는 SaaS 애플리케이션에서 스키마 관리
 
@@ -40,7 +40,7 @@ Azure SQL Database의 [탄력적 작업](elastic-jobs-overview.md) 기능은 테
 > * 모든 테넌트 데이터베이스의 참조 데이터 업데이트하기.
 > * 모든 테넌트 데이터베이스의 테이블에서 인덱스를 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Wingtip Tickets 다중 테넌트 데이터베이스 앱이 설치되어 있어야 합니다.
     - 자세한 내용은 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱을 소개하는 첫 번째 튜토리얼을 참조하세요.<br />[Azure SQL Database를 사용하는 분할된 다중 테넌트 애플리케이션 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)합니다.
@@ -52,7 +52,7 @@ Azure SQL Database의 [탄력적 작업](elastic-jobs-overview.md) 기능은 테
 - Azure PowerShell이 설치되어 있어야 합니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 > [!NOTE]
-> 이 자습서에서는 제한된 미리 보기([Elastic Database 작업](sql-database-elastic-database-client-library.md))에 있는 Azure SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행 하려는 경우 주제 = 탄력적인 작업 미리 보기를 사용 하 여 *saasfeedback\@microsoft.com* 에 구독 ID를 제공 합니다. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한 되므로 관련 질문이 나 지원에 대해서는 *saasfeedback\@microsoft.com* 에 문의 하세요.
+> 이 자습서에서는 제한된 미리 보기([Elastic Database 작업](sql-database-elastic-database-client-library.md))에 있는 Azure SQL Database 서비스의 기능을 사용합니다. 이 자습서를 수행 하려면 microsoft.com (subject = 탄력적 작업 미리 보기)를 사용 하 여에 구독 ID *\@* 를 제공 합니다. 구독이 활성화되었다는 확인을 받은 후 [최신 시험판 작업 cmdlet을 다운로드하여 설치하세요](https://github.com/jaredmoo/azure-powershell/releases). 이 미리 보기는 제한 되므로 관련 질문이 나 지원에 대 한 *microsoft.com\@* 에 게 문의 하세요.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>SaaS 스키마 관리 패턴 소개
 
@@ -88,7 +88,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 먼저 각 테넌트 데이터베이스에 포함된 각 장소 유형을 검토합니다. SQL Server Management Studio(SSMS)에서 테넌트 데이터베이스 중 하나에 접속하여 VenueTypes 테이블을 살펴봅니다.  데이터베이스 페이지에서 액세스할 수 있는 Azure Portal에서 쿼리 편집기를 사용하여 이 표를 쿼리하는 방법도 있습니다.
 
 1. SSMS를 열고 테넌트 서버 *tenants1-dpt-&lt;user&gt;.database.windows.net*에 접속합니다.
-1. *Motorcycle Racing*과 *Swimming Club*이 현재 포함되어 있지 **않은** 것을 확인하려면 *tenants1-dpt-&lt;user&gt;* 서버에서 *contosoconcerthall* 데이터베이스로 이동하여 *VenueTypes* 테이블을 쿼리합니다.
+1. *Motorcycle Racing*과 *Swimming Club*이 현재 포함되어 있지 **않은** 것을 확인하려면 *tenants1-dpt-* user *&lt; 서버에서 &gt;contosoconcerthall* 데이터베이스로 이동하여 *VenueTypes* 테이블을 쿼리합니다.
 
 
 
@@ -124,7 +124,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
     - *server* 대상 구성원 유형.
         - 테넌트 데이터베이스를 포함하는 *tenants1-mt-&lt;user&gt;* 서버입니다.
         - 서버를 포함시키면 작업이 실행되는 시점에 존재하는 테넌트 데이터베이스가 포함됩니다.
-    - *catalog-mt-&lt;user&gt;* 서버에 있는 템플릿 데이터베이스(*basetenantdb*)의 *database* 대상 구성원 유형
+    - *catalog-mt-* user 서버에 있는 템플릿 데이터베이스(*basetenantdb&lt;)의 &gt;database* 대상 구성원 유형
     - 이후 자습서에서 사용되는 *adhocreporting* 데이터베이스를 포함할 *database* 대상 구성원 유형.
 
 - **sp\_add\_job**은 *참조 데이터 배포*라는 작업을 만듭니다.
@@ -139,7 +139,7 @@ SSMS에서 *tenants1-mt-&lt;user&gt;* 서버에 있는 테넌트 데이터베이
 
 이 예제에서는 모든 테넌트 데이터베이스의 참조 테이블 기본 키에서 인덱스를 다시 빌드하는 작업을 생성합니다. 인덱스 다시 빌드는 다량의 데이터 로드를 로드한 뒤에 성능 향상을 위해 관리자가 실행하는 일반적인 데이터베이스 관리 작업입니다.
 
-1. SSMS에서 *catalog-mt-&lt;User&gt;.database.windows.net* 서버에 있는 _jobagent_ 데이터베이스에 접속합니다.
+1. SSMS에서 _catalog-mt-_ User *.database.windows.net&lt; 서버에 있는 &gt;jobagent* 데이터베이스에 접속합니다.
 
 2. SSMS에서 *...\\Learning Modules\\Schema Management\\OnlineReindex.sql* 파일을 엽니다.
 
@@ -155,7 +155,7 @@ SSMS에서 *tenants1-mt-&lt;user&gt;* 서버에 있는 테넌트 데이터베이
 
 * 스크립트의 나머지 뷰는 작업 실행을 모니터링합니다. 이러한 쿼리를 사용하여 **lifecycle** 열의 상태 값을 검토해 작업이 모든 대상 그룹 구성원에서 성공적으로 완료된 시기를 확인합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 <!-- TODO: Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment (*Tutorial link to come*)
 (saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

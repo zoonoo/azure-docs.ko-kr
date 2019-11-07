@@ -1,5 +1,5 @@
 ---
-title: 다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 | Microsoft Docs
+title: 다중 테 넌 트 SaaS 앱에서 분할 된 다중 테 넌 트 Azure SQL database의 성능 모니터링
 description: 다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 50fab6afe837ad409f05dbb0f3a8a44d089a894e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 03487c7e0e5fd08b6c93f81b733ab5ec1afb5605
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570319"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692028"
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>다중 테넌트 SaaS 앱에서 분할된 다중 테넌트 Azure SQL 데이터베이스의 성능 모니터링 및 관리
 
@@ -55,7 +55,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱은 테넌트 ID에 
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 소스 코드 및 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
 
 ## <a name="provision-additional-tenants"></a>추가 테넌트 프로비전
 
@@ -63,7 +63,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 이미 이전 자습서에서 테넌트의 배치를 프로비전한 경우 [모든 테넌트 데이터베이스에 대한 사용량 시뮬레이션](#simulate-usage-on-all-tenant-databases) 섹션을 건너뛸 수 있습니다.
 
-1. **PowerShell ISE**에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
+1. **PowerShell ISE**에서 …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
 1. **$DemoScenario** = **1**, _Provision a batch of tenants_ 설정
 1. **F5** 키를 눌러 스크립트를 실행합니다.
 
@@ -84,7 +84,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 부하 생성기는 *가상* CPU만의 부하를 모든 테넌트 데이터베이스에 적용합니다. 이 생성기는 각 테넌트 데이터베이스에 대해 작업을 시작하여 부하를 생성하는 저장 프로세서를 주기적으로 호출합니다. 부하 수준(DTU 단위), 기간 및 간격은 모든 데이터베이스에 걸쳐 변화하여 예측 불가능한 테넌트 작업을 시뮬레이션합니다.
 
-1. **PowerShell ISE**에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
+1. **PowerShell ISE**에서 …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
 1. **$DemoScenario** = **2**, _일반 강도 부하 생성_을 설정합니다.
 1. **F5** 키를 눌러 모든 테넌트에 부하를 적용합니다.
 
@@ -108,7 +108,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 
 데이터베이스에 대해 다음과 같이 사용률 \>75%일 때 트리거되는 경고를 설정합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 *tenants1-mt-&lt;USER&gt;* 서버의 *tenants1* 데이터베이스를 엽니다.
+1. *Azure Portal*에서 *tenants1-mt-&lt;USER&gt;* 서버의 [tenants1](https://portal.azure.com) 데이터베이스를 엽니다.
 1. **경고 규칙**, **+ 경고 추가**를 차례로 클릭합니다.
 
    ![경고 추가](media/saas-multitenantdb-performance-monitoring/add-alert.png)
@@ -147,9 +147,9 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 
 데이터베이스는 프로세스 전체에 걸쳐 온라인이고 완전하게 사용할 수 있도록 남아 있습니다. 애플리케이션 코드는 언제나 끊어진 연결을 재시도하도록 작성해야 합니다. 따라서 데이터베이스 연결이 다시 수행됩니다.
 
-## <a name="provision-a-new-tenant-in-its-own-database"></a>새로운 테넌트를 자체 데이터베이스에서 프로비전 
+## <a name="provision-a-new-tenant-in-its-own-database"></a>새로운 테넌트를 자체 데이터베이스에서 프로비전하기 
 
-분할된 다중 테넌트 모델을 사용하면 다중 테넌트 데이터베이스에서 다른 테넌트와 함께 새 테넌트를 프로비전할지 아니면 자체 데이터베이스에서 테넌트를 프로비전할지 선택할 수 있습니다. 자체 데이터베이스에서 테넌트를 프로비전하면 별도의 데이터베이스의 격리된 특성 덕분에 다른 테넌트와 독립적으로 테넌트의 성능을 관리하고 테넌트를 개별적으로 복원할 수 있습니다. 예를 들어 다중 테넌트 데이터베이스에 평가판 고객 또는 정규 고객을 배치하고 개별 데이터베이스에 프리미엄 고객을 배치할 수 있습니다.  격리된 단일 테넌트 데이터베이스를 만든 경우에도 탄력적 풀에서 함께 관리하여 리소스 비용을 최적화할 수 있습니다.
+분할된 다중 테넌트 모델을 사용하면 다중 테넌트 데이터베이스에서 다른 테넌트와 함께 새 테넌트를 프로비전할지 아니면 자체 데이터베이스에서 테넌트를 프로비전할지 선택할 수 있습니다. 자체 데이터베이스에서 테 넌 트를 프로 비전 하 여 별도의 데이터베이스에 내재 된 격리를 활용 하 여 다른 사용자와 독립적으로 해당 테 넌 트의 성능을 관리 하 고 다른 테 넌 트와 독립적으로 해당 테 넌 트를 복원할 수 있습니다. 예를 들어 다중 테 넌 트 데이터베이스에 무료 평가판 또는 정규 고객을 배치 하 고 개별 데이터베이스에 프리미엄 고객을 배치 하도록 선택할 수 있습니다.  격리된 단일 테넌트 데이터베이스를 만든 경우에도 탄력적 풀에서 함께 관리하여 리소스 비용을 최적화할 수 있습니다.
 
 자체 데이터베이스에서 새 테넌트를 프로비전했다면 아래의 단계를 건너뜁니다.
 
@@ -193,7 +193,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스는 SaaS 앱이며 SaaS 
 > * 데이터베이스 부하 증가에 대응하여 데이터베이스 확장하기
 > * 단일 테넌트 데이터베이스에 테넌트 프로비전
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 <!--* [Additional tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application deployment](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 * [Azure Automation](../automation/automation-intro.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 인증 - Azure SQL | Microsoft Docs
+title: Azure Active Directory 인증-Azure SQL
 description: SQL Database, Managed Instance 및 SQL Data Warehouse에서 인증에 Azure Active Directory를 사용하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,19 +11,19 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: 848cfc96a7da4e69ff77d16a42226a983153ac63
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4516f75d80345312a6ca3b6dac3e5156d7e239e8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896995"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691374"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL에서 인증을 위해 Azure Active Directory 인증 사용
 
 Azure Active Directory 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Azure [SQL Database](sql-database-technical-overview.md), [Managed Instance](sql-database-managed-instance.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결하는 메커니즘입니다. 
 
 > [!NOTE]
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하자면, SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용 됩니다.
 
 Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 데이터베이스 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 이점은 다음과 같습니다.
 
@@ -44,7 +44,7 @@ Azure AD 인증을 사용하면 데이터베이스 사용자 및 다른 Microsof
 구성 단계에는 Azure Active Directory 인증의 구성 및 사용을 위한 다음 절차가 포함됩니다.
 
 1. Azure AD를 만들고 채웁니다.
-2. 선택 사항: 현재 Azure 구독과 연결된 Active Directory를 연결하거나 변경합니다.
+2. 옵션: 현재 Azure 구독과 연결된 Active Directory를 연결하거나 변경합니다.
 3. Azure SQL Database 서버, Managed Instance 또는 [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)에 대한 Azure Active Directory 관리자를 만듭니다.
 4. 클라이언트 컴퓨터를 구성합니다.
 5. Azure AD ID에 매핑된 데이터베이스에서 포함된 데이터베이스 사용자를 만듭니다.
@@ -69,9 +69,9 @@ Azure AD 인증을 사용할 때는 SQL Database 서버 및 Managed Instance에 
 
 ![관리자 구조][3]
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
-새 사용자를 만들려면 데이터베이스에서 `ALTER ANY USER` 권한이 있어야 합니다. `ALTER ANY USER` 권한은 아무 데이터베이스 사용자에게나 부여할 수 있습니다. 서버 관리자 계정과, 해당 데이터베이스에 대한 `CONTROL ON DATABASE` 또는 `ALTER ON DATABASE` 권한이 있는 데이터베이스 사용자와, `db_owner` 데이터베이스 역할 그룹의 구성원도 `ALTER ANY USER` 권한을 보유할 수 있습니다.
+새 사용자를 만들려면 데이터베이스에서 `ALTER ANY USER` 권한이 있어야 합니다. `ALTER ANY USER` 권한은 아무 데이터베이스 사용자에게나 부여할 수 있습니다. 서버 관리자 계정과, 해당 데이터베이스에 대한 `ALTER ANY USER` 또는 `CONTROL ON DATABASE` 권한이 있는 데이터베이스 사용자와, `ALTER ON DATABASE` 데이터베이스 역할 그룹의 구성원도 `db_owner` 권한을 보유할 수 있습니다.
 
 Azure SQL Database, Managed Instance 또는 SQL Data Warehouse에 포함된 데이터베이스 사용자를 만들려면 Azure AD ID를 사용하여 데이터베이스 또는 인스턴스에 연결해야 합니다. 최초 포함 데이터베이스 사용자를 만들려면 Azure AD 관리자(데이터베이스 소유자)를 사용하여 데이터베이스에 연결해야 합니다. 이 내용은 [SQL Database 또는 SQL Data Warehouse에서 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md)에서 설명합니다. 모든 Azure AD 인증은 Azure Active Directory 관리자가 Azure SQL Database 또는 SQL Data Warehouse 서버에 대해 생성된 경우에만 가능합니다. Azure Active Directory 관리자가 서버에서 제거된 경우 SQL Server 내에 이전에 만든 기존 Azure Active Directory 사용자는 Azure Active Directory 자격 증명을 사용하여 데이터베이스에 더 이상 연결할 수 없습니다.
 
@@ -79,8 +79,8 @@ Azure SQL Database, Managed Instance 또는 SQL Data Warehouse에 포함된 데�
 
 - Azure AD의 다음 멤버를 Azure SQL Server 또는 SQL Data Warehouse에서 프로비저닝할 수 있습니다.
 
-  - 네이티브 멤버: 고객 도메인 또는 관리형 도메인 내 Azure AD에서 만든 멤버입니다. 자세한 내용은 [Azure AD에 고유한 도메인 이름을 추가](../active-directory/active-directory-domains-add-azure-portal.md)를 참조하세요.
-  - 페더레이션된 도메인 멤버: 페더레이션 도메인으로 Azure AD에 만들어진 멤버입니다. 자세한 내용은 [Microsoft Azure는 이제 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)을 참조하세요.
+  - 기본 멤버: 고객 도메인 또는 관리되는 도메인 내 Azure AD에서 만든 멤버입니다. 자세한 내용은 [Azure AD에 고유한 도메인 이름을 추가](../active-directory/active-directory-domains-add-azure-portal.md)를 참조하세요.
+  - 도메인 구성원 멤버: 페더레이션 도메인으로 Azure AD에 만들어진 멤버입니다. 자세한 내용은 [Microsoft Azure는 이제 Windows Server Active Directory와의 페더레이션 지원](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)을 참조하세요.
   - 네이티브 또는 페더레이션 도메인 멤버인 다른 Azure AD에서 가져온 멤버입니다.
   - 보안 그룹으로 만들어진 Active Directory 그룹.
 
@@ -104,7 +104,7 @@ Azure SQL Database, Managed Instance 또는 SQL Data Warehouse에 포함된 데�
 - Azure AD 그룹에 매핑된 Azure AD 서버 보안 주체(로그인)를 데이터베이스 소유자로 설정하는 기능은 [Managed Instance](sql-database-managed-instance.md)에서 지원되지 않습니다.
     - 이것이 확장되어 그룹이 `dbcreator` 서버 역할의 일부로 추가되면 이 그룹의 사용자는 Managed Instance에 연결하여 새 데이터베이스를 만들 수 있지만 데이터베이스에 액세스할 수는 없습니다. 새 데이터베이스 소유자는 Azure AD 사용자가 아닌 SA이기 때문입니다. 개별 사용자가 `dbcreator` 서버 역할에 추가되면 이 문제가 발생하지 않습니다.
 - Azure AD 서버 보안 주체(로그인)의 경우 SQL 에이전트 관리 및 작업 실행이 지원됩니다.
-- Azure AD 서버 보안 주체(로그인)는 데이터베이스 백업 및 복원 작업을 실행할 수 있습니다.
+- 데이터베이스 백업 및 복원 작업은 Azure AD 서버 보안 주체(로그인)에서 실행될 수 있습니다.
 - Azure AD 서버 보안 주체(로그인) 및 인증 이벤트와 관련된 모든 문을 감사할 수 있습니다.
 - sysadmin 서버 역할의 구성원인 Azure AD 서버 보안 주체(로그인)의 관리자 전용 연결이 지원됩니다.
     - SQLCMD 유틸리티 및 SQL Server Management Studio를 통해 지원됩니다.

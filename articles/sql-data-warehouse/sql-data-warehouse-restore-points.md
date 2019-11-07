@@ -1,5 +1,5 @@
 ---
-title: 사용자 정의 복원 지점의 | Microsoft Docs
+title: 사용자 정의 복원 지점이
 description: Azure SQL Data Warehouse 복원 지점을 만드는 방법
 services: sql-data-warehouse
 author: anumjs
@@ -10,12 +10,13 @@ ms.subservice: manage
 ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 9dcb8b2e9c1b75aac3c195f89777ac9c6eb030d7
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 61ceb2f1271d085321215aff1c6d138feb95d743
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575254"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692503"
 ---
 # <a name="user-defined-restore-points"></a>사용자 정의 복원 지점이
 

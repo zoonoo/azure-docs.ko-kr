@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 및 SQL Data Warehouse 연결 아키텍처 | Microsoft Docs
+title: Azure SQL Database 및 SQL Data Warehouse 연결 아키텍처
 description: 이 문서에서는 azure 내부 또는 Azure 외부에서의 데이터베이스 연결에 대 한 Azure SQL 연결 아키텍처에 대해 설명 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: f26eb44dd407e379d0bf3291eb890d2e451c919e
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d414276e081407af8ea21ebcbd96909d34455a22
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72807919"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690856"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -39,7 +39,7 @@ ms.locfileid: "72807919"
 Azure SQL Database는 SQL Database 서버의 연결 정책 설정에 대한 다음 세 가지 옵션을 지원합니다.
 
 - **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 연결을 사용 하도록 설정 하려면 클라이언트는 포트 1433의 Azure SQL Database 게이트웨이 IP 주소만이 아닌, 포트 11000-11999에 대 한 [서비스 태그](../virtual-network/security-overview.md#service-tags) 와 Nsg (네트워크 보안 그룹)를 사용 하 여 지역의 모든 Azure IP 주소에 대 한 아웃 바운드 방화벽 규칙을 허용 해야 합니다. 패킷은 데이터베이스로 직접 이동하므로 대기 시간 및 처리량의 성능이 향상됩니다.
-- **프록시:** 이 모드에서 모든 연결은 Azure SQL Database 게이트웨이를 통해 프록시됩니다. 연결을 활성화하려면 클라이언트는 Azure SQL Database 게이트웨이 IP 주소만 허용하는 아웃바운드 방화벽 규칙이 있어야 합니다(일반적으로 지역당 두 개의 IP 주소). 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 높은 처리량을 위해 `Proxy` 연결 정책을 통해 `Redirect` 연결 정책을 사용하는 것이 좋습니다.
+- **프록시:** 이 모드에서 모든 연결은 Azure SQL Database 게이트웨이를 통해 프록시됩니다. 연결을 활성화하려면 클라이언트는 Azure SQL Database 게이트웨이 IP 주소만 허용하는 아웃바운드 방화벽 규칙이 있어야 합니다(일반적으로 지역당 두 개의 IP 주소). 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 높은 처리량을 위해 `Redirect` 연결 정책을 통해 `Proxy` 연결 정책을 사용하는 것이 좋습니다.
 - **기본값:** `Proxy` 또는 `Redirect`연결 정책을 명시적으로 변경 하지 않는 한 생성 후 모든 서버에 적용 되는 연결 정책입니다. 실제 정책은 Azure(`Redirect`) 내에서 또는 Azure(`Proxy`) 외부에서 연결이 발생하는지 여부에 따라 달라집니다.
 
 ## <a name="connectivity-from-within-azure"></a>Azure 내부에서 연결
@@ -115,7 +115,7 @@ Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
 
 다음 PowerShell 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
 

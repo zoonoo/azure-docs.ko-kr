@@ -1,5 +1,5 @@
 ---
-title: SQL Data Warehouse 데이터 통합 파트너 | Microsoft Docs
+title: 데이터 통합 파트너
 description: Azure SQL Data Warehouse를 지원하는 데이터 통합 솔루션을 제공하는 타사 파트너 목록
 services: sql-data-warehouse
 author: mabasile-MSFT
@@ -10,18 +10,19 @@ ms.subservice: consume
 ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
-ms.openlocfilehash: 96ffeb12413f236ca0c131051245306ae16d4288
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e368894d7036d071285ebc7ba85056676d8d670d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045169"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692646"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL Data Warehouse 데이터 통합 파트너
 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다. 이 문서에서는 Azure SQL Data Warehouse을 지 원하는 공식 데이터 통합 솔루션을 사용 하는 Microsoft 파트너 회사를 강조 합니다.
 
 ## <a name="data-integration-partners"></a>데이터 통합 파트너
-| Partner | 설명 | 웹 사이트/제품 링크 |
+| 파트너 | 설명 | 웹 사이트/제품 링크 |
 | ------- | ----------- | -------------------- |
 | ![Oma-uri][7] |**Alooma**<br> Oma는 데이터 팀에서 다양 한 데이터 사일로의 데이터를 실시간으로 SQL Data Warehouse 통합, 보강 및 스트리밍할 수 있도록 하는 ETL 솔루션입니다. |[제품 페이지][alooma_website] |
 | ![Alteryx][1] |**Alteryx**<br> Alteryx Designer는 주간 단위로 이해하는 전형적인 접근 방식이 아니라 시간 단위로 심층 분석하는 셀프 서비스 데이터 분석을 위한 반복 가능한 워크플로를 제공합니다. Alteryx Designer는 동일한 직관적 사용자 인터페이스를 사용하여 데이터 준비, 데이터 혼합 및 분석(예측, 통계 및 공간)을 결합함으로써 데이터 분석을 도와줍니다. |[제품 페이지][alteryx_designer_website]<br>[Azure Marketplace][alteryx_marketplace]<br>|

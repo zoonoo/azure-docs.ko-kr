@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database를 사용하는 다중 테넌트 앱에서 새 테넌트 프로비전 | Microsoft Docs
+title: Azure SQL Database를 사용 하는 다중 테 넌 트 앱에서 새 테 넌 트 프로 비전
 description: Azure SQL Database 다중 테넌트 SaaS 앱에서 새 테넌트를 프로비전하고 분류하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: b5a996fe6be5aa839b78b6693accac9b1000cef8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f0f1ebd8b2ef719a9556b6b20f6685d1da493263
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570428"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692121"
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>새 테넌트를 프로비전하고 카탈로그에 등록하는 방법 알아보기
 
 이 자습서에서는 SaaS 패턴을 프로비전하고 분류하는 방법을 알아봅니다. 또한 Wingtip Tickets SaaS Database-Per-Tenant 애플리케이션에서 구현되는 방식도 알아봅니다. 새 테넌트 데이터베이스를 만들고 초기화하고 애플리케이션의 테넌트 카탈로그에 등록합니다. 카탈로그는 SaaS 애플리케이션 간에 많은 테넌트와 해당 데이터를 유지 관리하는 데이터베이스입니다. 카탈로그는 애플리케이션 및 관리 요청을 올바른 데이터베이스에 디렉션하는 중요한 역할을 합니다.
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > 
@@ -68,9 +68,9 @@ Wingtip Tickets Database-per-Tenant 앱은 카탈로그 서버에 배포된 _bas
 프로비저닝 스크립트는 _basetenantdb_ 데이터베이스를 복사하여 탄력적 풀에 새 테넌트 데이터베이스를 만듭니다. 테넌트 데이터베이스는 _newtenant_ DNS 별칭에 매핑된 테넌트 서버에서 생성됩니다. 이 별칭은 새 테넌트를 프로비전하는 데 사용되는 서버에 대한 참조를 유지 관리하며, 재해 복구 자습서([georestore를 사용하는 DR](saas-dbpertenant-dr-geo-restore.md), [georeplication을 사용하는 DR](saas-dbpertenant-dr-geo-replication.md))에서 복구 테넌트 서버를 가리키도록 업데이트되었습니다. 그런 다음, 스크립트는 테넌트 관련 정보로 데이터베이스를 초기화하고 카탈로그 분할된 데이터베이스 맵에 등록합니다. 테넌트 데이터베이스에는 테넌트 이름을 본따서 이름이 지정됩니다. 이 명명 스키마는 패턴의 중요한 부분이 아닙니다. 카탈로그는 테넌트 키를 데이터베이스 이름으로 매핑하므로 어떤 명명 규칙도 사용 가능합니다. 
 
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS 테넌트별 데이터베이스 애플리케이션 스크립트 가져오기
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Wingtip Tickets SaaS Database-per-Tenant 애플리케이션 스크립트 가져오기
 
-[WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 Wingtip Tickets SaaS 스크립트와 애플리케이션 소스 코드를 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
+[WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) GitHub 리포지토리에서 Wingtip Tickets SaaS 스크립트와 애플리케이션 소스 코드를 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>자세한 연습 프로비전 및 카탈로그
@@ -91,7 +91,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
 4. 스크립트 실행이 중단점에서 중지된 후 F11 키를 눌러 한 단계씩 코드를 실행합니다.
 
-   ![디버깅](media/saas-dbpertenant-provision-and-catalog/debug.png)
+   ![디버그](media/saas-dbpertenant-provision-and-catalog/debug.png)
 
 
 
@@ -154,9 +154,9 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
 이 자습서에 포함되지 않은 기타 프로비전 패턴은 다음과 같습니다.
 
-**데이터베이스 사전 프로비전**: 사전 프로비전 패턴은 탄력적 풀의 데이터베이스에서 추가 비용을 추가하지 않는다는 사실을 악용합니다. 데이터베이스가 아닌 탄력적 풀에 대해 비용이 청구됩니다. 유휴 데이터베이스는 리소스를 소비하지 않습니다. 풀에 있는 데이터베이스를 미리 프로비전하고 필요할 때 할당하면 테넌트 추가 시간을 단축할 수 있습니다. 버퍼를 예상 프로비전 속도에 적합하게 유지하기 위해 필요한 경우 미리 프로비전한 데이터베이스 수를 조정할 수 있습니다.
+**사전 프로비전 데이터베이스**: 사전 프로비전 패턴은 탄력적 풀의 데이터베이스가 추가 비용을 추가하지 않는다는 사실을 악용합니다. 데이터베이스가 아닌 탄력적 풀에 대해 비용이 청구됩니다. 유휴 데이터베이스는 리소스를 소비하지 않습니다. 풀에 있는 데이터베이스를 미리 프로비전하고 필요할 때 할당하면 테넌트 추가 시간을 단축할 수 있습니다. 버퍼를 예상 프로비전 속도에 적합하게 유지하기 위해 필요한 경우 미리 프로비전한 데이터베이스 수를 조정할 수 있습니다.
 
-**자동 프로비전**: 자동 프로비전 패턴의 경우 프로비전 서비스에서 필요에 따라 서버, 풀 및 데이터베이스를 자동으로 프로비저닝합니다. 원할 경우 탄력적 풀에 사전 프로비전 데이터베이스를 포함할 수 있습니다. 데이터베이스가 서비스 해제되고 삭제된 경우 프로비전 서비스에 의해 탄력적 풀의 빈 공간을 채울 수 있습니다. 이러한 서비스는 여러 지리적 영역에 걸쳐 프로비전 처리하고 재해 복구를 위해 지역에서 복제를 설정하는 경우처럼 단순할 수도 있고 복잡할 수도 있습니다. 
+**자동 프로비전**: 자동 프로비전 패턴에서는 프로비전 서비스가 서버, 풀 및 필요한 경우 데이터베이스를 프로비전합니다. 원할 경우 탄력적 풀에 사전 프로비전 데이터베이스를 포함할 수 있습니다. 데이터베이스가 서비스 해제되고 삭제된 경우 프로비전 서비스에 의해 탄력적 풀의 빈 공간을 채울 수 있습니다. 이러한 서비스는 여러 지리적 영역에 걸쳐 프로비전 처리하고 재해 복구를 위해 지역에서 복제를 설정하는 경우처럼 단순할 수도 있고 복잡할 수도 있습니다. 
 
 자동 프로비전 패턴에서 클라이언트 애플리케이션 또는 스크립트는 프로비전 서비스에 의해 처리할 프로비전 요청을 큐에 제출합니다. 그런 다음, 서비스를 폴링하며 완료를 확인합니다. 사전 프로비전이 사용될 경우 요청이 빠르게 처리됩니다. 서비스는 백그라운드에서 대체 데이터베이스를 프로비전합니다.
 
@@ -173,7 +173,7 @@ Wingtip Tickets 애플리케이션에서 새 테넌트 프로비전을 구현하
 
 [성능 모니터링 자습서](saas-dbpertenant-performance-monitoring.md)를 시도해 봅니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [Wingtip Tickets SaaS Database-per-Tenant 애플리케이션을 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)

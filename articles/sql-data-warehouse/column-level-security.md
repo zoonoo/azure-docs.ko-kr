@@ -1,21 +1,22 @@
 ---
-title: Azure SQL Data Warehouse 열 수준 보안 | Microsoft Docs
+title: 열 수준 보안
 description: 고객은 CLS(열 수준 보안)을 통해 사용자의 실행 컨텍스트 또는 해당 그룹 구성원에 따라 데이터베이스 테이블 열에 대한 액세스를 제어할 수 있습니다. CLS는 애플리케이션에서 보안의 설계 및 코딩을 간소화합니다. CLS를 사용하면 열 액세스에 대한 제한을 구현할 수 있습니다.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/02/2019
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
-ms.openlocfilehash: aa91bd586e064239d0e05c754427947963c9ee3a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 605dfadaf4cd1686b124b120151e6a88a43f1a68
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61082811"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693077"
 ---
 # <a name="column-level-security"></a>열 수준 보안
 고객은 CLS(열 수준 보안)을 통해 사용자의 실행 컨텍스트 또는 해당 그룹 구성원에 따라 데이터베이스 테이블 열에 대한 액세스를 제어할 수 있습니다.
@@ -46,7 +47,7 @@ GRANT <permission> [ ,...n ] ON
     | Database_user_mapped_to_Windows_Group
 ```
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 다음 예제는 ‘Membership’ 테이블의 ‘SSN’ 열에 액세스하지 못하도록 ‘TestUser’를 제한하는 방법을 보여 줍니다.
 
 사회 보장 번호를 저장하는 데 사용되는 SSN 열이 포함된 ‘Membership’ 테이블을 만듭니다.

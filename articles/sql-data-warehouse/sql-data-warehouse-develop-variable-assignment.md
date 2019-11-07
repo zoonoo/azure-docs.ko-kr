@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse의 변수 할당 | Microsoft Docs
+title: 변수 할당
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 T-SQL 변수 할당을 위한 팁
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6c943478f3904aac17a572f012f2b2b69ffa2223
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1ae5285a8d1cf6fa391c082d0196b213e6b6a9c5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479555"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692765"
 ---
 # <a name="assigning-variables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 변수 할당
 
@@ -38,7 +39,7 @@ DECLARE @v  INT = (SELECT TOP 1 c_customer_sk FROM Customer where c_last_name = 
 ;
 ```
 
-초기화하여 동일한 DECLARE 문에서 변수를 사용할 수 없습니다. 지점을 설명하기 위해 다음 예에서는 @p1이 동일한 DECLARE 문에서 시작되고 사용되기 때문에 허용되지 **않습니다**. 다음 예제에서는 오류가 발생합니다.
+초기화하여 동일한 DECLARE 문에서 변수를 사용할 수 없습니다. 지점을 설명하기 위해 다음 예에서는 **이 동일한 DECLARE 문에서 시작되고 사용되기 때문에 허용되지** 않습니다@p1. 다음 예제에서는 오류가 발생합니다.
 
 ```sql
 DECLARE @p1 int = 0

@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: Azure SQL Database - Windows 인증서 저장소 | Microsoft Docs'
+title: 'Always Encrypted: Azure SQL Database-Windows 인증서 저장소 '
 description: 이 문서에서는 SSMS(SQL Server Management Studio)의 상시 암호화 마법사를 사용하여 데이터베이스 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다.
 keywords: 데이터 암호화, sql 암호화, 데이터베이스 암호화, 중요한 데이터 암호화, 상시 암호화
 services: sql-database
@@ -12,16 +12,16 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: e9aaa7cb022d4096ec8a175611d0b4c118007b40
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e19055f83ef9b943d5ac0068d38b4f58a2b3b17c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569563"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691235"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
 
-이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)를 사용하여 데이터베이스 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다.
+이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt459280.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/hh213248.aspx)를 사용하여 데이터베이스 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다.
 
 Always Encrypted는 클라이언트와 서버 사이의 이동 중에, 그리고 데이터를 사용 중일 때 서버에서 중요한 미사용 데이터를 보호하는 Azure SQL Database 및 SQL Server 내의 새로운 데이터 암호 기술로서, 중요한 데이터가 데이터베이스 시스템에서 일반 텍스트로 나타나지 않도록 보장합니다. 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 앱 서버는 일반 텍스트 데이터에 액세스할 수 있습니다. 자세한 내용은 [상시 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865.aspx)를 참조하세요.
 
@@ -35,7 +35,7 @@ Always Encrypted는 클라이언트와 서버 사이의 이동 중에, 그리고
 * 데이터베이스 테이블을 만들고 열을 암호화합니다.
 * 암호화된 열에서 데이터를 삽입하고 선택하며 표시한 애플리케이션을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에는 다음이 필요합니다.
 
@@ -46,7 +46,7 @@ Always Encrypted는 클라이언트와 서버 사이의 이동 중에, 그리고
 
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **리소스 만들기** > **데이터 + 스토리지** > **SQL Database**로 이동합니다.
 3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 자세한 지침은 [첫 번째 Azure SQL 데이터베이스](sql-database-single-database-get-started.md)를 참조하세요.
 
@@ -101,7 +101,7 @@ SSMS는 CMK, CEK 및 암호화된 열을 설정하여 상시 암호화를 쉽게
 
     ![열 암호화](./media/sql-database-always-encrypted/encrypt-columns.png)
 
-Always Encrypted 마법사에는 다음 섹션이 포함되어 있습니다. **열 선택**, **마스터 키 구성**(CMK), **유효성 검사** 및 **요약**.
+상시 암호화 마법사에는 **열 선택**, **마스터 키 구성**(CMK), **유효성 검사** 및 **요약** 섹션이 포함됩니다.
 
 ### <a name="column-selection"></a>열 선택
 
@@ -109,7 +109,7 @@ Always Encrypted 마법사에는 다음 섹션이 포함되어 있습니다. **�
 
 각 환자에 대해 **SSN** 및 **BirthDate** 정보를 암호화합니다. **SSN** 열은 같음 조회, 조인 및 그룹화를 지원하는 결정적 암호화를 사용합니다. **BirthDate** 열은 작업을 지원하지 않는 임의의 암호화를 사용합니다.
 
-**SSN** 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 **BirthDate** 열을 **무작위**로 설정합니다. **다음**을 클릭합니다.
+**SSN** 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 **BirthDate** 열을 **무작위**로 설정합니다. **다음**을 누릅니다.
 
 ![열 암호화](./media/sql-database-always-encrypted/column-selection.png)
 
@@ -159,7 +159,7 @@ Always Encrypted 마법사에는 다음 섹션이 포함되어 있습니다. **�
 
 상시 암호화를 사용하려면 **열 암호화 설정** 키워드를 연결 문자열에 추가하고 **사용함**으로 설정해야 합니다.
 
-이 연결 문자열에서 직접 설정하거나 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx)를 사용하여 설정할 수 있습니다. 다음 섹션에서 애플리케이션 예제는 **SqlConnectionStringBuilder**를 사용하는 방법을 보여줍니다.
+이 연결 문자열에서 직접 설정하거나 [SqlConnectionStringBuilder](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.aspx)를 사용하여 설정할 수 있습니다. 다음 섹션에서 애플리케이션 예제는 **SqlConnectionStringBuilder**를 사용하는 방법을 보여 줍니다.
 
 > [!NOTE]
 > 상시 암호화에 특정된 클라이언트 애플리케이션에서 필요한 유일한 변경 내용입니다. 외부(즉, 구성 파일)에서 연결 문자열을 저장하는 기존 애플리케이션이 있는 경우 코드를 변경하지 않고 상시 암호화를 사용할 수 있습니다.

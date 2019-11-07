@@ -4,21 +4,22 @@ description: 모델을 학습 하 고, ONNX로 변환 하 고, Azure SQL Databas
 keywords: sql database edge 배포
 services: sql-database-edge
 ms.service: sql-database-edge
+ms.subservice: machine-learning
 ms.topic: conceptual
 author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
 ms.date: 11/04/2019
-ms.openlocfilehash: 2306a63aa46bd8816c742b0a6d076471705c46a6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 37fc04919b844d1edf87be62a587c34de4a8c4d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514070"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692330"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model-in-sql-database-edge-preview"></a>SQL Database Edge 미리 보기에서 ONNX 모델을 사용 하 여 배포 및 예측을 수행 합니다.
 
-이 빠른 시작에서는 모델을 학습 하 고, ONNX로 변환 하 고, Azure SQL Database Edge 미리 보기에 배포한 후 업로드 된 ONNX 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다.
+이 빠른 시작에서는 모델을 학습 하 고, ONNX로 변환 하 고, Azure SQL Database Edge 미리 보기에 배포한 후 업로드 된 ONNX 모델을 사용 하 여 데이터에 대 한 기본 예측을 실행 하는 방법을 알아봅니다. 자세한 내용은 [SQL Database Edge 미리 보기에서 ONNX를 사용 하는 기계 학습 및 AI](onnx-overview.md)를 참조 하세요.
 
 이 빠른 시작은 **scikit** 를 기반으로 [합니다.](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html)
 

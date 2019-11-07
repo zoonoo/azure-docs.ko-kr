@@ -1,6 +1,6 @@
 ---
-title: Azure SQL Data Warehouse 문제 해결 | Microsoft Docs
-description: Azure SQL Data Warehouse 문제 해결
+title: 연결 문제 해결
+description: Azure SQL Data Warehouse 연결 문제 해결
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -10,12 +10,13 @@ ms.subservice: supportability
 ms.date: 03/27/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: ebdeaf21253e89a9a14e3a56ca7be0f6e8adceb0
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d1139032176b3b44c58471b87cabd10ffeaa3d20
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859238"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692414"
 ---
 # <a name="troubleshooting-connectivity-issues"></a>연결 문제 해결
 
@@ -31,17 +32,17 @@ ms.locfileid: "70859238"
 
 ## <a name="check-service-availability"></a>서비스 가용성 확인
 
-서비스가 사용 가능한지 확인합니다. Azure Portal에서 연결 하려는 SQL Data Warehouse으로 이동 합니다. 왼쪽 목차 창에서 **진단 및 문제 해결**을 클릭합니다.
+서비스를 사용할 수 있는지 확인 하십시오. Azure Portal에서 연결 하려는 SQL Data Warehouse으로 이동 합니다. 왼쪽 TOC 패널에서 **문제 진단 및 해결**을 클릭 합니다.
 
 ![리소스 상태 선택](./media/sql-data-warehouse-troubleshoot-connectivity/diagnostics-link.png)
 
-SQL Data Warehouse 상태가 여기에 표시 됩니다. 서비스가 **사용 가능**으로 표시되지 않는 경우 , 다음 단계를 확인합니다.
+SQL Data Warehouse 상태가 여기에 표시 됩니다. 서비스가 **사용 가능한**것으로 표시 되지 않으면 추가 단계를 확인 합니다.
 
 ![서비스 사용 가능](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health.png)
 
-Resource Health에서 데이터 웨어하우스가 일시 중지 또는 크기 조정 중이라고 표시되는 경우, 데이터 웨어하우스를 다시 시작하기 위한 지침을 따릅니다.
+리소스 상태에서 데이터 웨어하우스가 일시 중지 또는 확장 되는 것으로 표시 되 면 지침에 따라 데이터 웨어하우스를 다시 시작 합니다.
 
-![서비스가 일시 중지](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Resource Health에 대한 자세한 내용은 여기에서 찾을 수 있습니다.
+![서비스가 일시 중지](./media/sql-data-warehouse-troubleshoot-connectivity/resource-health-pausing.png) Resource Health에 대 한 추가 정보는 여기에서 확인할 수 있습니다.
 
 ## <a name="check-for-paused-or-scaling-operation"></a>일시 중지 또는 크기 조정 작업 확인
 
@@ -49,21 +50,21 @@ Resource Health에서 데이터 웨어하우스가 일시 중지 또는 크기 �
 
 ![서비스가 일시 중지 됨](./media/sql-data-warehouse-troubleshoot-connectivity/overview-paused.png)
 
-서비스가 일시 중지 또는 크기 조정이라고 확인되는 경우, 유지 관리 일정 동안에 없는지 확인합니다. SQL Data Warehouse *개요*에 대 한 포털에서 선택한 유지 관리 일정이 표시 됩니다.
+서비스를 일시 중지 하거나 크기를 조정 하는 것이 확인 되는 경우 유지 관리 일정 중이 아닌 것을 확인 합니다. SQL Data Warehouse *개요*에 대 한 포털에서 선택한 유지 관리 일정이 표시 됩니다.
 
 ![개요 유지 관리 일정](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-그렇지 않으면, 이 유지 관리는 예정된 일정이 아닌 것인지 IT 관리자에게 확인합니다. SQL Data Warehouse를 다시 시작 하려면 [여기](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute)에 설명 된 단계를 따르세요.
+그렇지 않으면 IT 관리자에 게이 유지 관리가 예약 된 이벤트가 아닌지 확인 합니다. SQL Data Warehouse를 다시 시작 하려면 [여기](https://docs.microsoft.com/azure/sql-data-warehouse/pause-and-resume-compute-portal#resume-compute)에 설명 된 단계를 따르세요.
 
 ## <a name="check-your-firewall-settings"></a>방화벽 설정 확인
 
-SQL Data Warehouse는 포트 1433을 통해 통신합니다.   회사 네트워크 내에서 연결하려는 경우 1433 포트를 통한 아웃바운드 트래픽이 네트워크 방화벽에서 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다. 방화벽 구성에 대한 추가 정보는 [여기](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)에서 찾을수 있습니다.
+SQL Data Warehouse는 포트 1433을 통해 통신합니다.   회사 네트워크 내에서 연결 하려는 경우 1433 포트를 통한 아웃 바운드 트래픽이 네트워크 방화벽에서 허용 되지 않을 수 있습니다. 이 경우 IT 부서에서 1433 포트를 열지 않으면 Azure SQL Database 서버에 연결할 수 없습니다. 방화벽 구성에 대 한 추가 정보는 [여기](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#create-and-manage-ip-firewall-rules)를 참조 하세요.
 
 ## <a name="check-your-vnetservice-endpoint-settings"></a>VNet/서비스 끝점 설정 확인
 
-오류 40914 및 40615를 수신하는 경우, [오류 설명 및 해결 방법](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615)을 참조합니다.
+40914 및 40615 오류를 수신 하는 경우 [여기에서 오류 설명 및 해결](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615)을 참조 하세요.
 
-## <a name="check-for-the-latest-drivers"></a>최신 드라이버에 대한 확인
+## <a name="check-for-the-latest-drivers"></a>최신 드라이버 확인
 
 ### <a name="software"></a>소프트웨어
 
@@ -75,7 +76,7 @@ SQL Data Warehouse는 포트 1433을 통해 통신합니다.   회사 네트
 
 ### <a name="drivers"></a>드라이버
 
-최신 드라이버 버전을 사용하는지 확인합니다.  이전 드라이버는 새로운 기능을 지원하지 않으므로 이전 버전의 드라이버를 사용하면 예기치 않은 동작이 발생할 수 있습니다.
+최신 드라이버 버전을 사용 하 고 있는지 확인 합니다.  이전 버전의 드라이버를 사용 하면 이전 드라이버가 새 기능을 지원 하지 않을 수 있으므로 예기치 않은 동작이 발생할 수 있습니다.
 
 * [ODBC](https://docs.microsoft.com/sql/connect/odbc/download-odbc-driver-for-sql-server)
 * [JDBC](https://docs.microsoft.com/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server)
@@ -84,7 +85,7 @@ SQL Data Warehouse는 포트 1433을 통해 통신합니다.   회사 네트
 
 ## <a name="check-your-connection-string"></a>연결 문자열 확인
 
-연결 문자열이 올바르게 설정되어 있는지 확인합니다.  다음은 몇 가지 샘플입니다.  [여기서 연결 문자열](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings) 관련 추가정보를 확인할 수 있습니다.
+연결 문자열이 올바르게 설정 되었는지 확인 합니다.  다음은 몇 가지 샘플입니다.  [연결 문자열](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-connection-strings)에 대 한 추가 정보는 여기에서 확인할 수 있습니다.
 
 ADO.NET 연결 문자열
 
@@ -112,11 +113,11 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 
 ## <a name="intermittent-connection-issues"></a>간헐적 연결 문제
 
-대기 중인 요청이 많아 서버의 부하가 발생하는 경우를 확인합니다. 추가 리소스를 위해 데이터 웨어하우스 크기를 조정해야 할 수 있습니다.
+대기 중인 요청 수가 많은 서버에서 부하가 과도 하 게 발생 하는지 확인 합니다. 추가 리소스를 위해 데이터 웨어하우스를 확장 해야 할 수도 있습니다.
 
 ## <a name="common-error-messages"></a>일반적인 오류 메시지
 
-오류 40914 및 40615는 [오류 설명 및 해결 방법](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615)을 확인합니다.
+오류 40914 및 40615에 대 한 자세한 내용은 [여기에서 오류 설명 및 해결](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=/azure/sql-data-warehouse/toc.json#errors-40914-and-40615)을 참조 하세요.
 
 ## <a name="still-having-connectivity-issues"></a>여전히 연결 문제가 있나요?
-[지원 티켓](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket)을 생성하여 엔지니어링 팀의 지원을 받습니다.
+엔지니어링 팀이 지원할 수 있도록 [지원 티켓](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) 을 만듭니다.

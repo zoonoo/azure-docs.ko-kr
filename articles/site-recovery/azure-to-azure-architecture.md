@@ -1,19 +1,19 @@
 ---
-title: Azure Site Recovery의 Azure 간 복제 아키텍처 | Microsoft Docs
-description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 Azure VM의 Azure 지역 간에 재해 복구를 설정할 때 사용되는 구성 요소와 아키텍처에 대해 간략히 설명합니다.
+title: Azure에서 Azure로의 재해 복구 아키텍처 Azure Site Recovery
+description: Azure Site Recovery 서비스를 사용 하 여 Azure Vm에 대 한 Azure 지역 간의 재해 복구를 설정 하는 경우 사용 되는 아키텍처 개요입니다.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 11/05/2019
 ms.author: raynew
-ms.openlocfilehash: d415f303976ae454cb99f07e8d6e15e338e24d7d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: e83c14e5ce337e8a3c4c119acc2397b98afd5b56
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231460"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621116"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -63,7 +63,7 @@ VM의 복제를 활성화하면 Site Recovery는 대상 리소스를 자동으�
 
 Azure VM 복제를 활성화하면 기본적으로 Site Recovery는 표에 요약된 기본 설정을 사용하여 새 복제 정책을 만듭니다.
 
-**정책 설정** | **세부 정보** | **Default**
+**정책 설정** | **세부 정보** | **기본값**
 --- | --- | ---
 **복구 지점 보존** | Site Recovery에서 복구 지점을 유지하는 기간을 지정합니다. | 24시간
 **앱 일치 스냅샷 빈도** | Site Recovery에서 앱 일치 스냅샷을 만드는 주기입니다. | 4 시간 마다
@@ -131,10 +131,10 @@ VM에 대한 아웃바운드 액세스가 URL로 제어되는 경우 다음 URL�
 
 | **URL** | **세부 정보** |
 | ------- | ----------- |
-| \*.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
+| *.blob.core.windows.net | VM에서 원본 지역의 캐시 스토리지 계정에 데이터를 쓸 수 있도록 합니다. |
 | login.microsoftonline.com | Site Recovery 서비스 URL에 대한 권한 부여 및 인증을 제공합니다. |
-| \*.hypervrecoverymanager.windowsazure.com | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
-| \*.servicebus.windows.net | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
+| *.hypervrecoverymanager.windowsazure.com | VM이 Site Recovery 서비스와 통신할 수 있도록 합니다. |
+| *.servicebus.windows.net | VM이 Site Recovery 모니터링 및 진단 데이터를 쓸 수 있도록 합니다. |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
@@ -145,7 +145,7 @@ IP 주소를 사용하여 VM에 대한 아웃바운드 연결을 제어하려면
 
 **규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
-HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할. \<영역 이름 >입니다.
+HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할.\<영역 이름 >입니다.
 HTTPS 아웃바운드 허용: 포트 443 | Azure AD(Azure Active Directory)에 해당하는 범위를 허용합니다.<br/><br/> Azure AD 주소가 나중에 추가되는 경우 새 NSG(네트워크 보안 그룹) 규칙을 만들어야 합니다.  | AzureActiveDirectory
 HTTPS 아웃바운드 허용: 포트 443 | 대상 위치에 해당하는 [Site Recovery 엔드포인트](https://aka.ms/site-recovery-public-ips)에 대한 액세스를 허용합니다. 
 
@@ -153,7 +153,7 @@ HTTPS 아웃바운드 허용: 포트 443 | 대상 위치에 해당하는 [Site R
 
 **규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
-HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할. \<영역 이름 >입니다.
+HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할.\<영역 이름 >입니다.
 HTTPS 아웃바운드 허용: 포트 443 | Azure AD에 해당하는 범위를 허용합니다.<br/><br/> Azure AD 주소가 나중에 추가되는 경우 새 NSG 규칙을 만들어야 합니다.  | AzureActiveDirectory
 HTTPS 아웃바운드 허용: 포트 443 | 원본 위치에 해당하는 [Site Recovery 엔드포인트](https://aka.ms/site-recovery-public-ips)에 대한 액세스를 허용합니다. 
 

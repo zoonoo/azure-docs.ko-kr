@@ -1,21 +1,22 @@
 ---
-title: '자습서: Azure SQL Data Warehouse에서 Azure Functions로 컴퓨팅 관리 | Microsoft Docs'
+title: '자습서: Azure Functions을 사용 하 여 계산 관리'
 description: Azure Functions를 사용하여 데이터 웨어하우스의 컴퓨팅을 관리하는 방법에 대해 설명합니다.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
 ms.date: 04/27/2018
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: b94e4c6f178119d6205c302cf35a9effaf2aa885
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61083864"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693008"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Azure Functions를 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 리소스 관리
 
@@ -53,7 +54,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
    ![함수에 대해 통합 선택](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. 현재 표시되는 값이 *%ScaleDownTime%* 또는 *%ScaleUpTime%* 여야 합니다. 이러한 값은 일정이 [애플리케이션 설정][Application Settings]에 정의된 값을 따른다는 의미입니다. 지금은 이 값을 무시하고 다음 단계에 따라 일정을 원하는 시간으로 변경할 수 있습니다.
+3. 현재 표시되는 값이 *%ScaleDownTime%* 또는 *%ScaleUpTime%* 여야 합니다. 이러한 값은 [응용 프로그램 설정][Application Settings]에 정의 된 값을 기준으로 일정을 표시 합니다. 지금은 이 값을 무시하고 다음 단계에 따라 일정을 원하는 시간으로 변경할 수 있습니다.
 
 4. 일정 영역에서 원하는 SQL Data Warehouse 강화 주기를 반영하도록 CRON 식의 시간을 추가합니다. 
 
@@ -64,7 +65,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
    {second} {minute} {hour} {day} {month} {day-of-week}
    ```
 
-   예를 들어 *"0 30 9 * * 1-5"* 는 평일 오전 9시 30분에 트리거를 반영합니다. 자세한 내용은 Azure Functions [일정 예][schedule examples]를 방문하세요.
+   예를 들어 *"0 30 9 * * 1-5"* 는 평일 오전 9시 30분에 트리거를 반영합니다. 자세한 내용은 Azure Functions [schedule 예][schedule examples]를 참조 하세요.
 
 
 ## <a name="change-the-time-of-the-scale-operation"></a>크기 조정 작업의 시간 변경
@@ -92,7 +93,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 3. 각 트리거의 *통합* 탭으로 이동하여 일정을 변경합니다.
 
    > [!NOTE]
-   > 크기 조정 트리거와 일시 중지/다시 시작 트리거 간의 기능상의 차이는 큐로 보내는 메시지에 있습니다. 자세한 내용은 [새 트리거 함수 추가][Add a new trigger function]를 참조하세요.
+   > 크기 조정 트리거와 일시 중지/다시 시작 트리거 간의 기능상의 차이는 큐로 보내는 메시지에 있습니다. 자세한 내용은 [새 트리거 함수 추가][Add a new trigger function]를 참조 하세요.
 
 
 ## <a name="add-a-new-trigger-function"></a>새 트리거 함수 추가
@@ -144,7 +145,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 매일 오전 8시에 DW600으로 강화하고 오후 8시에 DW200으로 규모 축소합니다.
 
-| 함수  | 일정     | 작업(Operation)                                |
+| 함수  | 일정     | 작업                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
@@ -153,7 +154,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 매일 오전 8시에 DW1000으로 강화하고, 오후 4시에 규모를 DW600으로 한 번 축소하고, 오후 10시에 DW200으로 축소합니다.
 
-| 함수  | 일정     | 작업(Operation)                                |
+| 함수  | 일정     | 작업                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -163,7 +164,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 평일 오전 8시에 DW1000으로 강화하고, 오후 4시에 DW600으로 규모 축소합니다. 금요일 오후 11시에 일시 중지하고 월요일 오전 7시에 다시 시작합니다.
 
-| 함수  | 일정       | 작업(Operation)                                |
+| 함수  | 일정       | 작업                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |

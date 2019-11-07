@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/9/2019
 ms.author: mlearned
-ms.openlocfilehash: 8a78c854e9c842915700d4a20c1a57e4f1594a2e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3495d62c7447ba50d9ffe48e68b15dbe36867ac9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472460"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73662590"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -33,19 +33,20 @@ Azure CLI 버전 2.0.76 이상이 설치 및 구성 되어 있어야 합니다. 
 
 * 기본 (첫 번째) 노드 풀은 삭제할 수 없습니다.
 * HTTP 응용 프로그램 라우팅 추가 기능을 사용할 수 없습니다.
+* AKS 클러스터는 표준 SKU 부하 분산 장치를 사용 하 여 여러 노드 풀을 사용 해야 합니다 .이 기능은 기본 SKU 부하 분산 장치에서 지원 되지 않습니다.
+* AKS 클러스터는 노드에 대 한 가상 머신 확장 집합을 사용 해야 합니다.
 * 대부분의 작업과 마찬가지로 기존 리소스 관리자 템플릿을 사용 하 여 노드 풀을 추가 하거나 삭제할 수 없습니다. 대신 [별도의 리소스 관리자 템플릿을 사용](#manage-node-pools-using-a-resource-manager-template) 하 여 AKS 클러스터의 노드 풀을 변경 합니다.
 * 노드 풀의 이름은 소문자로 시작 해야 하며 영숫자 문자만 포함할 수 있습니다. Linux 노드 풀의 경우 길이는 1 자에서 12 자 사이 여야 하 고 Windows 노드 풀의 길이는 1에서 6 자 사이 여야 합니다.
 * AKS 클러스터에는 최대 8 개의 노드 풀이 있을 수 있습니다.
 * AKS 클러스터는 해당 8 개 노드 풀에서 최대 400 노드를 가질 수 있습니다.
 * 모든 노드 풀이 동일한 서브넷에 있어야 합니다.
-* AKS 클러스터는 노드에 대 한 가상 머신 확장 집합을 사용 해야 합니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
 시작 하려면 단일 노드 풀로 AKS 클러스터를 만듭니다. 다음 예제에서는 [az group create][az-group-create] 명령을 사용 하 여 *에서는 eastus* 지역에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다. 그런 다음 *myAKSCluster* 라는 AKS 클러스터가 [az AKS create][az-aks-create] 명령을 사용 하 여 만들어집니다. *1.13.10* 의 *kubernetes 버전* 은 다음 단계에서 노드 풀을 업데이트 하는 방법을 보여 주는 데 사용 됩니다. [지원 되는 Kubernetes 버전][supported-versions]을 지정할 수 있습니다.
 
 > [!NOTE]
-> 여러 노드 풀을 사용 하는 경우에는 *Basic* LOAD balanacer SKU가 지원 되지 않습니다. 기본적으로 AKS 클러스터는 *표준* loadbalacer SKU를 사용 하 여 생성 됩니다.
+> 여러 노드 풀을 사용 하는 경우에는 *Basic* LOAD balanacer SKU가 지원 되지 않습니다. 기본적으로 AKS 클러스터는 Azure CLI 및 Azure Portal에서 *표준* 부하 분산 장치 SKU를 사용 하 여 만들어집니다.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -547,20 +548,7 @@ AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-등록을 완료 한 후 [위에](#manage-node-pools-using-a-resource-manager-template) 나와 있는 것과 동일한 지침에 따라 Azure Resource Manager 템플릿을 배포 하 고 agentpoolprofiles에 다음과 같은 부울 값 속성 "enableNodePublicIP"를 추가 합니다. 지정 하지 않은 경우 기본적으로 `false`로 설정 된 것 처럼 `true`로 설정 합니다. 이는 생성 시간 전용 속성 이며 최소 API 버전 2019-06-01이 필요 합니다. 이는 Linux 및 Windows 노드 풀 모두에 적용할 수 있습니다.
-
-```
-"agentPoolProfiles":[  
-    {  
-      "maxPods": 30,
-      "osDiskSizeGB": 0,
-      "agentCount": 3,
-      "agentVmSize": "Standard_DS2_v2",
-      "osType": "Linux",
-      "vnetSubnetId": "[parameters('vnetSubnetId')]",
-      "enableNodePublicIP":true
-    }
-```
+등록에 성공 하면 [위와](#manage-node-pools-using-a-resource-manager-template) 동일한 지침에 따라 Azure Resource Manager 템플릿을 배포 하 고 agentpoolprofiles에 `enableNodePublicIP` 부울 값 속성을 추가 합니다. 값을 기본적으로 `true`로 설정 합니다. 지정 하지 않으면 `false`로 설정 됩니다. 이는 생성 시간 전용 속성 이며 최소 API 버전 2019-06-01이 필요 합니다. 이는 Linux 및 Windows 노드 풀 모두에 적용할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

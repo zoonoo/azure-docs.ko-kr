@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 데이터 동기화용 데이터 동기화 에이전트 | Microsoft Docs
+title: Azure SQL 데이터 동기화용 데이터 동기화 에이전트
 description: Azure SQL 데이터 동기화용 데이터 동기화 에이전트를 설치 및 실행하여 온-프레미스 SQL Server 데이터베이스와 데이터를 동기화하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 13a59a9b536a25897d7c545b6fb466c1192cb545
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 097c8547093a13f73f1ae5facdc0f7e6c75c071d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177704"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690792"
 ---
 # <a name="data-sync-agent-for-azure-sql-data-sync"></a>Azure SQL 데이터 동기화용 데이터 동기화 에이전트
 
@@ -149,8 +149,8 @@ UI 인스턴스는 하나만 실행할 수 있습니다.
   1. SQL 데이터 동기화 클라이언트 에이전트 서비스를 찾습니다.  
     a. **시작**을 선택합니다.  
     b. 검색 상자에 **services.msc**를 입력합니다.  
-    다. 검색 결과에서 **서비스**선택합니다.  
-    d. **서비스** 창에서 **SQL 데이터 동기화 에이전트**에 대한 항목으로 스크롤합니다.  
+    c. 검색 결과에서 **서비스**선택합니다.  
+    ㄹ. **서비스** 창에서 **SQL 데이터 동기화 에이전트**에 대한 항목으로 스크롤합니다.  
   1. 마우스 오른쪽 단추로 **SQL 데이터 동기화**를 클릭한 후 **중지**를 선택합니다.
   1. 마우스 오른쪽 단추로 **SQL 데이터 동기화**를 클릭한 후 **속성**을 선택합니다.
   1. **SQL 데이터 동기화 에이전트 속성**에서 **로그인** 탭을 선택합니다.
@@ -225,7 +225,7 @@ SQL 데이터 동기화 클라이언트 에이전트에 등록된 로컬 엔드�
 
 ### <a name="ping-the-service"></a>서비스 ping
 
-#### <a name="usage"></a>사용량
+#### <a name="usage"></a>사용
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action pingsyncservice
@@ -239,7 +239,7 @@ SqlDataSyncAgentCommand.exe -action "pingsyncservice"
 
 ### <a name="display-registered-databases"></a>등록된 데이터베이스 표시
 
-#### <a name="usage"></a>사용량
+#### <a name="usage"></a>사용
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action displayregistereddatabases
@@ -253,7 +253,7 @@ SqlDataSyncAgentCommand.exe -action "displayregistereddatabases"
 
 ### <a name="submit-the-agent-key"></a>에이전트 키 제출
 
-#### <a name="usage"></a>사용량
+#### <a name="usage"></a>사용
 
 ```cmd
 Usage: SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key]  -username [user name] -password [password]
@@ -267,13 +267,13 @@ SqlDataSyncAgentCommand.exe -action submitagentkey -agentkey [agent key generate
 
 ### <a name="register-a-database"></a>데이터베이스 등록
 
-#### <a name="usage"></a>사용량
+#### <a name="usage"></a>사용
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action registerdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>예시
+#### <a name="examples"></a>예
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true
@@ -286,7 +286,7 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 
 이 명령을 사용하여 데이터베이스를 등록 취소하면 데이터베이스가 완전히 프로비전을 해제합니다. 데이터베이스가 다른 동기화 그룹에 속해 있는 경우 이 작업은 다른 동기화 그룹을 중단합니다.
 
-#### <a name="usage"></a>사용량
+#### <a name="usage"></a>사용
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action unregisterdatabase -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]
@@ -300,13 +300,13 @@ SqlDataSyncAgentCommand.exe -action "unregisterdatabase" -serverName localhost -
 
 ### <a name="update-credentials"></a>자격 증명 업데이트
 
-#### <a name="usage"></a>사용량
+#### <a name="usage"></a>사용
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action updatecredential -servername [on-premisesdatabase server name] -databasename [on-premisesdatabase name]  -username [domain\\username] -password [password] -authentication [sql or windows] -encryption [true or false]
 ```
 
-#### <a name="examples"></a>예시
+#### <a name="examples"></a>예
 
 ```cmd
 SqlDataSyncAgentCommand.exe -action "updatecredential" -serverName localhost -databaseName testdb -authentication sql -username <user name> -password <password> -encryption true

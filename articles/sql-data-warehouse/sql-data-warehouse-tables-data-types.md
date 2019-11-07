@@ -1,5 +1,5 @@
 ---
-title: 데이터 형식 정의 - Azure SQL Data Warehouse | Microsoft Docs
+title: 데이터 형식 정의
 description: Azure SQL Data Warehouse에서 테이블 데이터 형식을 정의하기 위한 권장 사항입니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 61bb977271186699b0a72389e1538573f978c56b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a1d88d8fabd5ff32cc1ca5cca4e2a57a86c8dcb3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479363"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692495"
 ---
 # <a name="table-data-types-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 테이블 데이터 형식
 Azure SQL Data Warehouse에서 테이블 데이터 형식을 정의하기 위한 권장 사항입니다. 

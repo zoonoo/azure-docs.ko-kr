@@ -1,5 +1,5 @@
 ---
-title: 새 Elastic Database 작업으로 마이그레이션 | Microsoft Docs
+title: '새 Elastic Database 작업으로 마이그레이션 '
 description: 새 Elastic Database 작업으로 마이그레이션합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviewer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 9fa3444244cbd51c3f14abcfef5212a366cadbd2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2cba7ecb4be500a8f7007c8da009e03e6f33dfde
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68550563"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692271"
 ---
 # <a name="migrate-to-the-new-elastic-database-jobs"></a>새 Elastic Database 작업으로 마이그레이션
 
@@ -25,7 +25,7 @@ ms.locfileid: "68550563"
 기존 고객이 호스트 하는 Elastic Database 작업 버전이 있는 경우 최신 버전으로 쉽게 마이그레이션하기 위해 마이그레이션 cmdlet 및 스크립트가 제공 됩니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 업그레이드된 버전의 Elastic Database 작업에는 마이그레이션 중에 사용할 새로운 PowerShell cmdlet 집합이 포함됩니다. 이 새로운 cmdlet은 모든 기존 작업 자격 증명, 대상(데이터베이스, 서버, 사용자 지정 컬렉션), 작업 트리거, 작업 예약, 작업 콘텐츠 및 작업을 새로운 탄력적 작업 에이전트로 전환합니다.
 

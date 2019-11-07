@@ -1,6 +1,6 @@
 ---
 title: 웹 서비스 엔드포인트 만들기
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Azure Machine Learning Studio (클래식)에서 웹 서비스 끝점을 만듭니다. 웹 서비스의 각 엔드포인트는 독립적으로 처리, 제한 및 관리됩니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/15/2019
-ms.openlocfilehash: 3d98df3e2dcc8112df9d56033bece069607380d9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ca7061171eb68b7473f3bf72423e481f6c5dfee1
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493239"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619564"
 ---
 # <a name="create-endpoints-for-deployed-azure-machine-learning-studio-classic-web-services"></a>배포 된 Azure Machine Learning Studio (클래식) 웹 서비스에 대 한 끝점 만들기
 

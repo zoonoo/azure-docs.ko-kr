@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: b882b8ee08c38b6313558916ab46f80ce9dd5130
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: f0e4540f3f5ab3fdbb5953cbf100c5fdc2b2542a
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129329"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621995"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 
@@ -70,6 +70,29 @@ ms.locfileid: "71129329"
 
 자세한 내용은 아래의 질문과 대답 (질문과 [대답](backup-azure-security-feature-cloud.md#frequently-asked-questions) ) 섹션을 참조 하세요.
 
+## <a name="disabling-soft-delete"></a>일시 삭제 사용 안 함
+
+일시 삭제는 새로 만든 자격 증명 모음에 대해 기본적으로 사용 하도록 설정 됩니다. 일시 삭제 보안 기능을 사용 하지 않도록 설정 하면 백업 데이터가 실수로 또는 악의적으로 삭제 되지 않도록 보호 됩니다. 일시 삭제 기능을 사용 하지 않으면 보호 된 항목을 삭제 하면 복원 기능 없이 즉시 제거 됩니다. "일시 삭제" 상태의 백업 데이터는 고객에 게 어떠한 비용도 부과 되지 않으므로이 기능을 사용 하지 않도록 설정 하는 것은 권장 되지 않습니다. 일시 삭제를 사용 하지 않도록 설정 해야 하는 유일한 경우는 보호 된 항목을 새 자격 증명 모음으로 이동할 계획인 경우이 고, 테스트 환경에서와 같이 삭제 하 고 다시 보호 하기 전에 14 일 동안 기다릴 수 없는 경우입니다.
+
+### <a name="prerequisites-for-disabling-soft-delete"></a>일시 삭제를 사용 하지 않도록 설정 하기 위한 필수 구성 요소
+
+- 자격 증명 모음에 대해 일시 삭제를 사용 하거나 사용 하지 않도록 설정 하는 경우 (보호 된 항목 없음) Azure Portal만 수행할 수 있습니다. 적용 대상:
+  - 보호 된 항목을 포함 하지 않는 새로 만든 자격 증명 모음
+  - 보호 된 항목이 삭제 되 고 만료 된 기존 자격 증명 모음 (14 일 고정 보존 기간 초과)
+- 자격 증명 모음에 대해 일시 삭제 기능을 사용 하지 않도록 설정한 경우 해당 기능을 다시 사용 하도록 설정할 수 있지만, 자격 증명 모음에 보호 된 항목이 포함 된 경우에는 선택을 취소 하 고 다시 사용 하지 않도록 설정할 수 없습니다.
+- 일시 삭제 된 항목 또는 항목을 포함 하는 자격 증명 모음에 대해 일시 삭제를 사용 하지 않도록 설정할 수 없습니다. 이 작업을 수행 해야 하는 경우 다음 단계를 수행 합니다.
+  - 모든 보호 된 항목에 대해 삭제 된 데이터의 보호를 중지 합니다.
+  - 보안 보존 기간 14 일이 만료 될 때까지 기다립니다.
+  - 일시 삭제를 사용 하지 않습니다.
+
+일시 삭제를 사용 하지 않도록 설정 하려면 필수 구성 요소가 충족 되었는지 확인 한 후 다음 단계를 수행 합니다.
+
+1. Azure Portal에서 자격 증명 모음으로 이동한 다음 **설정** -> **속성**으로 이동 합니다.
+2. 속성 창에서 **보안 설정** -> **업데이트**를 선택 합니다.
+3. 보안 설정 창의 일시 삭제 아래에서 **사용 안 함**을 선택 합니다.
+
+![일시 삭제 사용 안 함](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
 ## <a name="other-security-features"></a>기타 보안 기능
 
 ### <a name="storage-side-encryption"></a>스토리지 쪽 암호화
@@ -78,17 +101,17 @@ Azure Storage는 클라우드로 데이터를 유지할 때 자동으로 데이�
 
 Azure 내에서 Azure storage와 자격 증명 모음 간의 전송 데이터는 HTTPS에 의해 보호 됩니다. 이 데이터는 Azure 백본 네트워크에 남아 있습니다.
 
-자세한 내용은 [미사용 데이터에 대 한 암호화 Azure Storage](https://docs.microsoft.com/en-in/azure/storage/common/storage-service-encryption)를 참조 하세요.
+자세한 내용은 [미사용 데이터에 대 한 암호화 Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)를 참조 하세요.
 
 ### <a name="vm-encryption"></a>VM 암호화
 
-Azure Backup 서비스를 사용 하 여 암호화 된 디스크로 Windows 또는 Linux Azure Vm (가상 머신)을 백업 하 고 복원할 수 있습니다. 자세한 내용은 [Azure Backup를 사용 하 여 암호화 된 가상 컴퓨터 백업 및 복원](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption)을 참조 하세요.
+Azure Backup 서비스를 사용 하 여 암호화 된 디스크로 Windows 또는 Linux Azure Vm (가상 머신)을 백업 하 고 복원할 수 있습니다. 자세한 내용은 [Azure Backup를 사용 하 여 암호화 된 가상 컴퓨터 백업 및 복원](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption)을 참조 하세요.
 
 ### <a name="protection-of-azure-backup-recovery-points"></a>Azure Backup 복구 지점의 보호
 
 Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격리 되며 악의적인 목적을 위해 사용자가 액세스할 수 없습니다. 액세스는 복원과 같은 Azure Backup 관리 작업을 통해서만 허용 됩니다. 이러한 관리 작업은 RBAC (역할 기반 Access Control)를 통해 제어 됩니다.
 
-자세한 내용은 [역할 기반 Access Control를 사용 하 여 Azure Backup 복구 지점의 관리](https://docs.microsoft.com/en-us/azure/backup/backup-rbac-rs-vault)를 참조 하세요.
+자세한 내용은 [역할 기반 Access Control를 사용 하 여 Azure Backup 복구 지점의 관리](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault)를 참조 하세요.
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -101,23 +124,23 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 #### <a name="can-i-configure-the-number-of-days-for-which-my-data-will-be-retained-in-soft-deleted-state-after-delete-operation-is-complete"></a>삭제 작업이 완료 된 후 내 데이터가 일시 삭제 된 상태로 유지 되는 일 수를 구성할 수 있나요?
 
 아니요, 삭제 작업 후 14 일 동안 추가 보존 기간이 수정 됩니다.
- 
+
 #### <a name="do-i-need-to-pay-the-cost-for-this-additional-14-day-retention"></a>이 14 일 추가 보존에 대 한 비용을 지불 해야 하나요?
 
 아니요,이 14 일 추가 보존은 일시 삭제 기능의 일부로 무료로 제공 됩니다.
- 
+
 #### <a name="can-i-perform-a-restore-operation-when-my-data-is-in-soft-delete-state"></a>내 데이터가 일시 삭제 상태일 때 복원 작업을 수행할 수 있나요?
 
 아니요, 복원 하려면 일시 삭제 된 리소스를 삭제 취소 해야 합니다. 삭제 취소 작업은 모든 특정 시점으로 복원할 수 있는 **데이터 보관을 사용 하 여 보호 중지 상태로** 리소스를 다시 가져옵니다. 가비지 수집기는이 상태에서 일시 중지 된 상태로 유지 됩니다.
- 
+
 #### <a name="will-my-snapshots-follow-the-same-lifecycle-as-my-recovery-points-in-the-vault"></a>내 스냅숏은 자격 증명 모음에서 복구 지점과 동일한 수명 주기를 따르고 있나요?
 
 예.
- 
+
 #### <a name="how-can-i-trigger-the-scheduled-backups-again-for-a-soft-deleted-resource"></a>일시 삭제 된 리소스에 대해 예약 된 백업을 다시 트리거하는 방법
 
 다시 시작 작업 후 삭제 취소 작업은 리소스를 다시 보호 합니다. 다시 시작 작업은 백업 정책을 연결 하 여 선택한 보존 기간을 사용 하 여 예약 된 백업을 트리거합니다. 또한 가비지 수집기는 다시 시작 작업이 완료 되는 즉시 실행 됩니다. 만료 날짜를 지난 복구 지점에서 복원을 수행 하려는 경우 다시 시작 작업을 트리거하기 전에 수행 하는 것이 좋습니다.
- 
+
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>자격 증명 모음에 일시 삭제 된 항목이 있는 경우 자격 증명 모음을 삭제할 수 있나요?
 
 자격 증명 모음에 일시 삭제 된 상태의 백업 항목이 있는 경우에는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다. 일시 삭제 된 항목은 삭제 작업을 14 일 후에 영구적으로 삭제 됩니다. 모든 일시 삭제 된 항목이 제거 된 후에만 자격 증명 모음을 삭제할 수 있습니다.  
@@ -136,4 +159,4 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Backup에 대 한 보안 제어를](backup-security-controls.md)참조 하세요.
+- [Azure Backup에 대 한 보안 제어를](backup-security-controls.md)참조 하세요.

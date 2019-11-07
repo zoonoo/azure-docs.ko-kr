@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse의 트랜잭션 사용 | Microsoft Docs
+title: 트랜잭션 사용
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 트랜잭션 구현을 위한 팁
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,21 +10,22 @@ ms.subservice: development
 ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 7f00f8a25d0abf3af6d76b372b44145546a79879
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 09fc0f7cee38f799322a1914848a5176e9a223a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479602"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692780"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>SQL Data Warehouse의 트랜잭션 사용
 솔루션 개발을 위한 Azure SQL Data Warehouse의 트랜잭션 구현을 위한 팁
 
-## <a name="what-to-expect"></a>필요한 항목
+## <a name="what-to-expect"></a>예상 프로그램
 예상한 것처럼 SQL Data Warehouse는 데이터 웨어하우스 워크로드의 일부로 트랜잭션을 지원합니다. 그러나 SQL Data Warehouse의 성능은 SQL Server와 비교할 때 일부 기능이 제한되는 수준으로 유지됩니다. 이 문서는 차이점을 강조 표시하고 다른 부분에 대해 설명합니다. 
 
 ## <a name="transaction-isolation-levels"></a>트랜잭션 격리 수준
-SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭션 지원의 격리 수준은 READ UNCOMMITTED로 제한되며 이 수준은 변경할 수 없습니다. READ UNCOMMITTED가 염려되는 경우 다양한 코딩 메서드를 구현하여 데이터의 더티 읽기를 방지할 수 있습니다. 가장 인기 있는 메서드는 CTAS 및 테이블 파티션 전환(슬라이딩 창 패턴이라고 하는)을 모두 사용하여 준비 중인 데이터를 사용자가 쿼리하는 것을 방지합니다. 데이터를 사전 필터링하는 뷰가 일반적인 접근 방법이기도 합니다.  
+SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭션 지원의 격리 수준은 READ UNCOMMITTED로 제한되며 이 수준은 변경할 수 없습니다. READ UNCOMMITTED가 염려되는 경우 다양한 코딩 메서드를 구현하여 데이터의 더티 읽기를 방지할 수 있습니다. 가장 인기 있는 메서드는 CTAS 및 테이블 파티션 전환(슬라이딩 창 패턴이라고 하는)을 모두 사용하여 사용자 준비 중인 데이터 쿼리를 방지합니다. 데이터를 사전 필터링하는 뷰가 일반적인 접근 방법이기도 합니다.  
 
 ## <a name="transaction-size"></a>트랜잭션 크기
 단일 데이터 수정 트랜잭션은 크기가 제한됩니다. 이러한 제한은 배포 기준으로 적용됩니다. 따라서 제한을 배포 수와 곱하여 전체 할당을 계산할 수 있습니다. 트랜잭션에 포함된 대략적인 최대 행 수를 구하려면 배포 용량을 각 행의 전체 크기로 나눕니다. 가변 길이 열의 경우에는 최대 크기를 사용하는 대신, 평균 열 길이를 사용하는 것을 고려합니다.
@@ -34,7 +35,7 @@ SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭
 * 균일한 데이터 분포가 발생했습니다. 
 * 평균 행 길이는 250바이트입니다.
 
-## <a name="gen2"></a>Gen2
+## <a name="gen2"></a>2세대
 
 | [DWU](sql-data-warehouse-overview-what-is.md) | 배포 당 단면 (GB) | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |
@@ -46,16 +47,16 @@ SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭
 | DW1000c |7.5 |60 |450 |30,000,000 |1,800,000,000 |
 | DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
 | DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
-| DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
+| DW2500c |18.75 |60 |1125 |7500만 |45억 |
 | DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
-| DW5000c |37.5 |60 |2250 |150,000,000 |9,000,000,000 |
+| DW5000c |37.5 |60 |2250 |1억5000만 |90억 |
 | DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
-| DW7500c |56.25 |60 |3375 |225,000,000 |13,500,000,000 |
+| DW7500c |56.25 |60 |3375 |2억2500만 |135억 |
 | DW10000c |75 |60 |4500 |300,000,000 |180억 |
-| DW15000c |112.5 |60 |6750 |450,000,000 |27,000,000,000 |
-| DW30000c |225 |60 |13500 |900,000,000 |54,000,000,000 |
+| DW15000c |112.5 |60 |6750 |4억5000만 |270억 |
+| DW30000c |225 |60 |13500 |900,000,000 |540억 |
 
-## <a name="gen1"></a>Gen1
+## <a name="gen1"></a>1세대
 
 | [DWU](sql-data-warehouse-overview-what-is.md) | 배포 당 단면 (GB) | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |
@@ -130,7 +131,7 @@ SELECT @xact_state AS TransactionState;
 
 위의 코드는 다음과 같은 오류 메시지를 제공합니다.
 
-Msg 111233, Level 16, State 1, Line 1 111233; 현재 트랜잭션이 중단되었으며 보류 중인 변경 내용은 롤백되었습니다. 원인: 롤백 전용 상태의 트랜잭션이 DDL, DML 또는 SELECT 문 앞에서 명시적으로 롤백되지 않았습니다.
+Msg 111233, Level 16, State 1, Line 1 111233; 현재 트랜잭션이 중단되었으며 보류 중인 변경 내용은 롤백되었습니다. 원인: 롤백 전용 상태의 트랜잭션은 DDL, DML 또는 SELECT 문 이전에 명시적으로 롤백되지 않았습니다.
 
 또한 ERROR_* 함수의 출력도 제공되지 않습니다.
 
@@ -175,7 +176,7 @@ SELECT @xact_state AS TransactionState;
 
 변경된 부분은 트랜잭션의 ROLLBACK이 CATCH 블록의 오류 정보를 읽기 전에 발생해야 한다는 것입니다.
 
-## <a name="errorline-function"></a>Error_Line() 함수
+## <a name="error_line-function"></a>Error_Line() 함수
 SQL Data Warehouse가 ERROR_LINE() 함수를 구현하거나 지원하는 것 또한 주목할 가치가 있습니다. 이 코드에 있는 경우 SQL Data Warehouse와 호환되도록 제거해야 합니다. 동등한 기능을 구현하는 대신 코드에서 쿼리 레이블을 사용합니다. 자세한 내용은 [레이블](sql-data-warehouse-develop-label.md) 문서를 참조하세요.
 
 ## <a name="using-throw-and-raiserror"></a>THROW 및 RAISERROR 사용
@@ -190,9 +191,9 @@ SQL Data Warehouse에는 트랜잭션과 관련된 몇 가지 기타 제한 사�
 
 다음과 같습니다.
 
-* 분산 트랜잭션이 없습니다
+* 분산된 트랜잭션이 없습니다
 * 중첩된 트랜잭션이 허용되지 않습니다.
-* 저장점을 사용할 수 없습니다.
+* 저장 점수를 사용할 수 없습니다.
 * 명명된 트랜잭션이 없습니다.
 * 표시된 트랜잭션이 없습니다.
 * 사용자 정의 트랜잭션 내에 CREATE TABLE과 같은 DDL 지원은 없습니다.

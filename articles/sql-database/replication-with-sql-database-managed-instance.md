@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 관리 되는 인스턴스 데이터베이스에서 복제 구성 | Microsoft Docs
+title: 'Azure SQL Database 관리형 인스턴스 데이터베이스에서 복제 구성 '
 description: Azure SQL Database 관리형 인스턴스 데이터베이스에서 트랜잭션 복제를 구성하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: b940be1d1b68e4e2a41e3f8353cb54fdb51bb886
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 21275ce7716ffc394c1e7445c3f6836f09b44c87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338745"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692173"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Azure SQL Database 관리형 인스턴스 데이터베이스에서 복제 구성
 
@@ -41,7 +41,7 @@ ms.locfileid: "71338745"
 - 게시자 관리 되는 인스턴스가 배포자 및 구독자와 동일한 가상 네트워크에 있거나, 세 엔터티의 가상 네트워크 간에 [vNet 피어 링](../virtual-network/tutorial-connect-virtual-networks-powershell.md) 이 설정 되었습니다. 
 - 연결은 복제 참가자 간에 SQL 인증을 사용합니다.
 - 복제 작업 디렉터리에 대한 Azure Storage 계정 공유
-- Azure 파일 공유에 액세스 하기 위해 관리 되는 인스턴스에 대 한 NSG의 보안 규칙에서 포트 445 (TCP 아웃 바운드)이 열립니다.  "Azure storage에 연결 하지 못했습니다 \<storage 계정 이름 > os 오류 53" 오류가 발생 하는 경우 적절 한 SQL Managed Instance 서브넷의 NSG에 아웃 바운드 규칙을 추가 해야 합니다.
+- Azure 파일 공유에 액세스 하기 위해 관리 되는 인스턴스에 대 한 NSG의 보안 규칙에서 포트 445 (TCP 아웃 바운드)이 열립니다.  "Azure storage \<storage 계정 이름에 연결 하지 못했습니다 > os 오류 53" 오류가 발생 하는 경우 해당 SQL Managed Instance 서브넷의 NSG에 아웃 바운드 규칙을 추가 해야 합니다.
 
 
  > [!NOTE]
@@ -63,7 +63,7 @@ Azure SQL Database의 관리형 인스턴스에서는 다음과 같은 기능이
  
 ## <a name="1---create-a-resource-group"></a>1-리소스 그룹 만들기
 
-[Azure Portal](https://portal.azure.com) 를 사용 하 여 이름이 `SQLMI-Repl` 인 리소스 그룹을 만듭니다.  
+[Azure Portal](https://portal.azure.com) 를 사용 하 여 이름이 `SQLMI-Repl`인 리소스 그룹을 만듭니다.  
 
 ## <a name="2---create-managed-instances"></a>2-관리 되는 인스턴스 만들기
 
@@ -78,9 +78,9 @@ Azure SQL Database의 관리형 인스턴스에서는 다음과 같은 기능이
 
 작업 디렉터리에 대 한 [Azure Storage 계정을 만든](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) 다음 저장소 계정 내에서 [파일 공유](../storage/files/storage-how-to-create-file-share.md) 를 만듭니다. 
 
-@No__t-0 형식으로 파일 공유 경로를 복사 합니다.
+다음 형식으로 파일 공유 경로를 복사 합니다. `\\storage-account-name.file.core.windows.net\file-share-name`
 
-@No__t-0 형식으로 저장소 액세스 키를 복사 합니다.
+`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net` 형식으로 저장소 액세스 키를 복사 합니다.
 
  자세한 내용은 [스토리지 액세스 키 보기 및 복사](../storage/common/storage-account-manage.md#access-keys)를 참조하세요. 
 
@@ -154,7 +154,7 @@ GO
 
 ## <a name="7---configure-publisher-to-use-distributor"></a>7-배포자를 사용 하도록 게시자 구성 
 
-게시자의 관리 되는 인스턴스 `sql-mi-pub`에서 쿼리 실행을 [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) 모드로 변경 하 고 다음 코드를 실행 하 여 새 배포자를 게시자에 등록 합니다. 
+게시자 관리 되는 인스턴스 `sql-mi-pub`에서 쿼리 실행을 [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) 모드로 변경 하 고 다음 코드를 실행 하 여 새 배포자를 게시자에 등록 합니다. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
@@ -322,10 +322,10 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-[리소스 그룹에서 관리 되는 인스턴스 리소스를 삭제](../azure-resource-manager/manage-resources-portal.md#delete-resources) 하 고 리소스 그룹을 삭제 하 여 Azure 리소스를 정리 하려면-1 @no__t 합니다. 
+[리소스 그룹에서 관리 되는 인스턴스 리소스를 삭제](../azure-resource-manager/manage-resources-portal.md#delete-resources) 한 다음 `SQLMI-Repl`리소스 그룹을 삭제 하 여 Azure 리소스를 정리할 수 있습니다. 
 
    
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 
 - [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
 - [Managed Instance란?](sql-database-managed-instance.md)

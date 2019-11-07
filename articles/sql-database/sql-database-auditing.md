@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 데이터베이스 감사 시작 | Microsoft Docs
+title: Azure SQL 데이터베이스 감사 시작
 description: Azure SQL 데이터베이스 감사를 사용하여 데이터베이스 이벤트를 감사 로그로 추적합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 1171a3b6d38fe04a4213513e934be258d79a1aa0
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 9a154e677a7308553bbef16837efae39006d3dae
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045200"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691203"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -28,7 +28,7 @@ Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse
 
 
 > [!NOTE] 
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용 됩니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -110,7 +110,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
     ![이벤트 허브](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+9. **Save**를 클릭합니다.
 10. 감사 이벤트를 사용자 지정하려면 [PowerShell cmdlet](#subheading-7) 또는 [REST API](#subheading-9)를 통해 다음 작업을 수행합니다.
 11. 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
 
@@ -162,7 +162,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
     **감사 레코드**가 열리고, 여기서 로그를 볼 수 있습니다.
 
   - **감사 레코드** 페이지의 맨 위에서 **필터**를 클릭하여 특정 날짜를 볼 수 있습니다.
-  - **감사 원본**을 전환하여 *서버 감사 정책*에서 생성된 감사 레코드와 *데이터베이스 감사 정책*에서 생성된 감사 레코드 간을 전환할 수 있습니다.
+  - *감사 원본*을 전환하여 *서버 감사 정책*에서 생성된 감사 레코드와 **데이터베이스 감사 정책**에서 생성된 감사 레코드 간을 전환할 수 있습니다.
   - **SQL 삽입 감사 레코드만 표시** 확인란을 선택하여 SQL 삽입 관련 감사 레코드만 볼 수 있습니다.
 
        ![탐색 창][8]

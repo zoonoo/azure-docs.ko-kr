@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 자동, 지역 중복 백업 | Microsoft Docs
+title: 자동 지역 중복 백업 Azure SQL Database
 description: SQL Database는 몇 분마다 로컬 데이터베이스 백업을 자동으로 만들고 Azure 읽기 액세스 지역 중복 스토리지를 사용하여 지리적 중복을 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: a43783110f625dd5faef13c83228a2659155ead0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5dd2cb8d266fcb2a17c50a2213509b968894737e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492231"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691182"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
@@ -134,7 +134,7 @@ SQL Database 관리 되는 인스턴스에 대 한 PITR 백업 보존 변경은 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 ```powershell
 Set-AzSqlDatabaseBackupShortTermRetentionPolicy -ResourceGroupName resourceGroup -ServerName testserver -DatabaseName testDatabase -RetentionDays 28

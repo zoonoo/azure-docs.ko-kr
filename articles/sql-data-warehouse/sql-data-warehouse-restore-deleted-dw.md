@@ -1,5 +1,5 @@
 ---
-title: 삭제 된 Azure SQL Data Warehouse 복원 | Microsoft Docs
+title: 삭제된 데이터 웨어하우스 복원
 description: 삭제 된 Azure SQL Data Warehouse 복원에 대 한 지침입니다.
 services: sql-data-warehouse
 author: anumjs
@@ -10,18 +10,19 @@ ms.subservice: manage
 ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 376a50a79858aee34aa71d172ca5836646a6651d
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.custom: seo-lt-2019
+ms.openlocfilehash: cb09b4808bd6d59d2f70e85d204ab8451d501cee
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68426630"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692600"
 ---
 # <a name="restore-a-deleted-azure-sql-data-warehouse"></a>삭제 된 Azure SQL Data Warehouse 복원
 
 이 문서에서는 Azure Portal 및 PowerShell을 사용 하 여 삭제 된 SQL Data Warehouse를 복원 하는 방법을 알아봅니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -70,7 +71,7 @@ $RestoredDatabase.status
 
 ## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Azure Portal을 사용하여 삭제된 데이터베이스 복원
 
-1. [Azure Portal][Azure portal]에 로그인합니다.
+1. [Azure 포털][Azure portal]에 로그인합니다.
 2. 삭제 된 데이터 웨어하우스가 호스팅된 SQL server로 이동 합니다.
 3. 목차에서 **삭제 된 데이터베이스** 아이콘을 선택 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 일시적 오류 해결 - Azure SQL Database | Microsoft Docs
+title: 일시적인 오류 작업-Azure SQL Database
 description: SQL 연결 오류 또는 Azure SQL Database의 일시적 오류를 해결, 진단 및 방지하는 방법을 알아봅니다.
 keywords: SQL 연결, 연결 문자열, 연결 문제, 일시적인 오류, 연결 오류
 services: sql-database
@@ -13,12 +13,12 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
-ms.openlocfilehash: aba404842658aaa946a14a3cde03853c2fb3062d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0191506cab9a54ad3978bfa7387c9ba1112ae815
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792563"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690827"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL Database 연결 문제 및 일시적 오류 해결
 
@@ -131,7 +131,7 @@ ADO.NET을 사용하는 클라이언트에 대한 차단 기간의 설명은 [SQ
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-**SqlConnection** 개체에 대한 [연결 문자열](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx)을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
+[SqlConnection](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) 개체에 대한 **연결 문자열**을 작성하는 경우 다음 매개 변수 중에서 값을 조정합니다.
 
 - **ConnectRetryCount**:&nbsp;&nbsp;기본값은 1입니다. 범위는 0에서 255입니다.
 - **ConnectRetryInterval**:&nbsp;&nbsp;기본값은 10 초입니다. 범위는 1에서 60입니다.
@@ -226,7 +226,7 @@ ADO.NET 4.0 이전 버전을 사용할 경우 최신 ADO.NET으로 업그레이�
 모든 Windows 컴퓨터에서 이러한 유틸리티를 시도할 수 있습니다.
 
 - ADO.NET을 사용하여 연결하는 SQL Server Management Studio(ssms.exe)
-- [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)를 사용하여 연결하는 `sqlcmd.exe`
+- `sqlcmd.exe`ODBC[를 사용하여 연결하는 ](https://msdn.microsoft.com/library/jj730308.aspx)
 
 프로그램이 연결된 후에는 짧은 SQL SELECT 쿼리가 작동하는지 테스트합니다.
 

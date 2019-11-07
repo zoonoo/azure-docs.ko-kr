@@ -1,5 +1,5 @@
 ---
-title: 여러 Azure SQL 데이터베이스에 대해 임시 보고 쿼리 실행 | Microsoft Docs
+title: 여러 Azure SQL 데이터베이스에서 임시 보고 쿼리 실행
 description: 다중 테넌트 앱 예에서 여러 SQL Database에 대해 임시 보고 쿼리를 실행합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 10/30/2018
-ms.openlocfilehash: 0a6b45db3c8b4071b591ca2b5fc604b986598c0c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3d345e222dac98a63400dd2661ce92674f2534f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570367"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692074"
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>여러 Azure SQL 데이터베이스에 대해 임시 분석 쿼리 실행
 
@@ -52,7 +52,7 @@ SaaS 애플리케이션은 클라우드에 중앙 집중식으로 저장되는 �
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 소스 코드 및 스크립트 가져오기
 
-Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
+Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
 
 ## <a name="create-ticket-sales-data"></a>티켓 판매 데이터 만들기
 
@@ -72,10 +72,10 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션에�
 
 이 연습에서는 *adhocreporting* 데이터베이스를 배포합니다. 모든 테넌트 데이터베이스에 쿼리하는 데 사용되는 스키마를 포함하는 헤드 데이터베이스입니다. 데이터베이스는 샘플 앱에서 모든 관리 관련 데이터베이스에 사용되는 서버인 기존 카탈로그 서버에 배포됩니다.
 
-1. *PowerShell ISE*에서 \\학습 모듈\\운영 분석\\임시 보고\\*Demo-AdhocReporting.ps1*을 열고 다음 값을 설정합니다.
+1. \\PowerShell ISE\\에서 \\학습 모듈\\운영 분석*임시 보고* *Demo-AdhocReporting.ps1*을 열고 다음 값을 설정합니다.
    * **$DemoScenario** = 2, **임시 분석 데이터베이스 배포**.
 
-2. 스크립트를 실행하고 *adhocreporting* 데이터베이스를 만들려면 **F5** 키를 누릅니다.
+2. 스크립트를 실행하고 **adhocreporting** 데이터베이스를 만들려면 *F5* 키를 누릅니다.
 
 다음 섹션에서 배포된 쿼리를 실행하는 데 사용할 수 있도록 데이터베이스에 스키마를 추가합니다.
 
@@ -105,7 +105,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션에�
 
    이러한 방식으로 참조 테이블을 포함하는 경우 테넌트 데이터베이스를 업데이트할 때마다 테이블 스키마 및 데이터를 업데이트해야 합니다.
 
-4. 스크립트를 실행하고 *adhocreporting* 데이터베이스를 초기화하려면 **F5** 키를 누릅니다. 
+4. 스크립트를 실행하고 **adhocreporting** 데이터베이스를 초기화하려면 *F5* 키를 누릅니다. 
 
 이제 배포된 쿼리를 실행하고 모든 테넌트 간에 정보를 수집할 수 있습니다.
 
@@ -152,7 +152,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션에�
 
 이제 [테넌트 분석 자습서](saas-multitenantdb-tenant-analytics.md)를 시도하여 복잡한 분석을 처리하기 위해 별도 분석 데이터베이스에 추출하는 데이터를 탐색합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 <!-- ??
 * Additional [tutorials that build upon the Wingtip Tickets SaaS Multi-tenant Database application](saas-multitenantdb-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)

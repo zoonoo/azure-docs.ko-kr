@@ -1,5 +1,5 @@
 ---
-title: '디자이너 예제 #5: 변동 + 욕구 + 위쪽 판매를 예측 하는 분류'
+title: '디자이너: 분류, 변동 예측'
 titleSuffix: Azure Machine Learning
 description: 이 디자이너 (preview) 샘플 파이프라인에서는 CRM (고객 관계 관리)에 대 한 일반 작업 인 변동의 이진 분류자 예측을 보여 줍니다.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 52fcebb201fbdeebd7b75d9735fd81c3a647c337
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a09060e16b877df4412b785edbb60930cb4122bc
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516241"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647185"
 ---
 # <a name="sample-5---classification-predict-churn"></a>샘플 5-분류: 변동 예측
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

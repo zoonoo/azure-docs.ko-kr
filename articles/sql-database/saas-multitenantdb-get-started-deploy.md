@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database를 사용하는 분할된 다중 테넌트 데이터베이스 SaaS 앱 배포 | Microsoft Docs
+title: 'Azure SQL Database를 사용 하는 분할 된 다중 테 넌 트 데이터베이스 SaaS 앱 배포 '
 description: Azure SQL Database를 사용하여 SaaS 패턴을 보여 주는 분할된 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포하고 탐색합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
-ms.openlocfilehash: 2ddb1fe40507da5caa218f73284a1095035df951
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aa61c9af2e8fbfbe1caeaffb6231afe5b8be6f3c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570382"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692055"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 애플리케이션 배포 및 탐색
 
@@ -46,7 +46,7 @@ ms.locfileid: "68570382"
 
 이 초기 배포 시 생성되는 일련의 관련 자습서를 이용할 수 있습니다. 자습서에서는 다양한 SaaS 디자인 및 관리 패턴을 살펴봅니다. 이 자습서를 진행하는 동안 제공된 스크립트를 단계별로 수행하여 다양한 SaaS 패턴 구현 방법을 확인하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
@@ -57,8 +57,8 @@ ms.locfileid: "68570382"
 ### <a name="plan-the-names"></a>이름 계획
 
 이 섹션의 단계에서는 리소스 이름을 전역에서 고유하게 설정하는 데 사용되는 ‘사용자’ 값과 앱 배포에서 만들어진 모든 리소스를 포함하는 ‘리소스 그룹’의 이름을 제공합니다. *Ann Finley*라는 사람의 경우 다음을 제안합니다.
-- *사용자:* **af1** *(해당 이니셜에 숫자를 더한 값입니다.   앱을 두 번째로 배포하는 경우 다른 값(예: af2)을 사용하세요.)*
-- *리소스 그룹:* **wingtip-mt-af1** *(wingtip-mt는 분할된 다중 테넌트 앱임을 나타냅니다. 사용자 이름 af1을 추가하면 리소스 그룹 이름과 해당 그룹에 포함된 리소스 이름이 연결됩니다.)*
+- *사용자:* **af1**  *(이니셜 및 숫자) 앱을 두 번째로 배포 하는 경우 다른 값 (예: af2)을 사용 합니다.*
+- *리소스 그룹:* **동-mt-af1** *(동-mt는 분할 된 다중 테 넌 트 앱 임을 나타냅니다. af1 사용자 이름을 추가 하면 리소스 그룹 이름이 포함 된 리소스의 이름과 상관 관계가 지정 됩니다.)*
 
 이제 이름을 선택하고, 기록합니다. 
 
@@ -107,9 +107,9 @@ ms.locfileid: "68570382"
 
 ## <a name="update-the-configuration-file-for-this-deployment"></a>이 배포에 대한 구성 파일 업데이트
 
-스크립트를 실행하기 전에 **UserConfig.psm1**에서 *리소스 그룹* 및 *사용자* 값을 설정합니다. 이러한 변수를 배포 중에 설정한 동일한 값으로 설정합니다.
+스크립트를 실행하기 전에 *UserConfig.psm1*에서 *리소스 그룹* 및 **사용자** 값을 설정합니다. 이러한 변수를 배포 중에 설정한 동일한 값으로 설정합니다.
 
-1. *PowerShell ISE*에서 ...\\Learning Modules\\*UserConfig.psm1*을 엽니다.
+1. \\PowerShell ISE\\에서 ...*Learning Modules* *UserConfig.psm1*을 엽니다.
 2. 배포에 대한 특정 값(줄 10 및 11에서만)으로 *ResourceGroupName* 및 *Name*을 업데이트합니다.
 3. 변경 내용을 저장합니다.
 
@@ -124,7 +124,7 @@ Wingtip 앱에서 테넌트는 장소입니다. 장소는 콘서트 홀, 스포�
 중앙 **이벤트 허브** 웹 페이지는 특정 배포에 있는 테넌트의 링크 목록을 제공합니다. 다음 단계를 사용하여 **이벤트 허브** 웹 페이지 및 개별 웹앱을 경험합니다.
 
 1. 웹 브라우저에서 **이벤트 허브**를 엽니다.
-   - http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net &nbsp; *(&lt; user&gt; 를 배포의 사용자 값으로 바꿉니다.)*
+   - http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net &nbsp; *(&lt;user&gt;를 배포의 사용자 값으로 바꿉니다.)*
 
      ![Events Hub](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -136,7 +136,7 @@ Wingtip 앱에서 테넌트는 장소입니다. 장소는 콘서트 홀, 스포�
 
 들어오는 요청의 배포를 제어하기 위해 Wingtip 앱에서는 [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용합니다. 각 테넌트에 대한 이벤트 페이지는 해당 URL에 테넌트 이름을 포함합니다. 각 URL은 특정 사용자 값도 포함합니다. 각 URL은 다음 단계를 사용하여 표시된 형식을 따릅니다.
 
-- http://events.wingtip-mt.&lt ;user&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://events.wingtip-mt.&lt;user&gt;.trafficmanager.net/*fabrikamjazzclub*
 
 1. 이벤트 앱은 URL에서 테넌트 이름을 구문 분석합니다. 테넌트 이름은 위의 예제 URL에서 *fabrikamjazzclub*입니다.
 2. 앱은 테넌트 이름을 해시하여 [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 사용하는 카탈로그에 액세스하기 위한 키를 만듭니다.
@@ -169,7 +169,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 초기 배포 시에는 *Tenants1* 데이터베이스에 세 개의 샘플 테넌트가 포함됩니다. 또 다른 테넌트를 만들고 배포된 애플리케이션에 대한 영향을 확인해 보겠습니다. 이 단계에서는 하나의 키를 눌러 새 테넌트를 만듭니다.
 
-1. *PowerShell ISE*에서 ...\\Learning Modules\\Provision and Catalog\\*Demo-ProvisionTenants.ps1*을 엽니다.
+1. \\PowerShell ISE\\에서 ...\\Learning Modules*Provision and Catalog* *Demo-ProvisionTenants.ps1*을 엽니다.
 2. **F5**(**F8** 아님) 키를 눌러 스크립트를 실행합니다(지금은 기본값을 그대로 사용).
 
    > [!NOTE]
@@ -181,7 +181,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 **이벤트 허브**를 새로 고치면 이제 목록에 새 테넌트가 나타납니다.
 
-## <a name="provision-a-new-tenant-in-its-own-database"></a>새로운 테넌트를 자체 데이터베이스에서 프로비전
+## <a name="provision-a-new-tenant-in-its-own-database"></a>새로운 테넌트를 자체 데이터베이스에서 프로비전하기
 
 분할된 다중 테넌트 모델을 사용하면 다른 테넌트가 포함된 데이터베이스로 새 테넌트를 프로비전할지 아니면 자체 데이터베이스로 새 테넌트를 프로비전할지 선택할 수 있습니다. 자체 데이터베이스에서 격리된 테넌트는 다음과 같은 이점을 활용할 수 있습니다.
 
@@ -243,7 +243,7 @@ PowerShell 세션을 닫으면 모든 작업이 중지됩니다.
 
 부하 생성기 스크립트에 의해 생성된 워크로드는 설명을 위한 목적입니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - 다중 테넌트 SaaS 애플리케이션에 대해 알아보려면 [다중 테넌트 SaaS 애플리케이션을 위한 디자인 패턴](saas-tenancy-app-design-patterns.md)을 참조하세요.
 

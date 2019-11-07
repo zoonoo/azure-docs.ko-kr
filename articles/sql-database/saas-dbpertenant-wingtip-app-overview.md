@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 다중 테넌트 앱 예제 - Wingtip SaaS | Microsoft Docs
+title: Azure SQL Database 다중 테 넌 트 앱 예제-정문 SaaS
 description: Azure SQL Database를 사용하는 샘플 다중 테넌트 애플리케이션인 Wingtip SaaS 예제를 통해 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 16f4bb946af4720a327a8755c6bf9187f3b71ba6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1a4931a24802290e0e7e207f32528a1192fd880f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570340"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692067"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 소개
 

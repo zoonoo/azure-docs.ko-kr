@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구 시 온-프레미스로 장애 복구(failback) 문제 해결 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 VMware VM 재해 복구에서 장애 복구 문제 해결
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구하는 동안 발생하는 장애 복구(failback) 및 다시 보호 문제를 해결하는 방법을 설명합니다.
 author: rajani-janaki-ram
 manager: gauravd
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 20cb7a446befb1d31f0e069d91d0230fc4a2a901
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b597ecb67ab30c8617029fe741af1014444a9b70
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565602"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693158"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Azure에서 온-프레미스로 장애 복구(failback) 문제 해결
 
@@ -56,7 +56,7 @@ ms.locfileid: "60565602"
 
 이 문제를 해결하려면:
 
-장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터에 잘못 된 네트워크 또는 (응답 하지 않거나 종료) 실행 중이 아닌 경우 다시 보호를 시작 하도록 VM에서 모바일 서비스를 구성 서버에 연결할 수 없습니다.
+장애 조치된 VM을 다시 보호하려면 모바일 서비스를 온-프레미스 구성 서버에 등록하고 프로세스 서버와 통신하여 복제를 시작할 수 있도록 Azure VM을 실행해야 합니다. 컴퓨터가 잘못 된 네트워크에 있거나 실행 중이 아닌 경우 (응답 없음 또는 종료) 구성 서버에서 VM의 모바일 서비스에 연결 하 여 다시 보호를 시작할 수 없습니다.
 
 * 온-프레미스와의 통신을 다시 시작할 수 있도록 VM을 다시 시작합니다.
 * Azure 가상 머신을 시작한 후에 다시 보호 작업을 다시 시작합니다.

@@ -29,7 +29,7 @@ ms.locfileid: "72176001"
 이 자습서에서는 다음 작업을 수행하는 방법을 보여 줍니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * Azure Storage 연결된 서비스 만들기
 > * Azure Blob 데이터 세트 만들기
 > * 복사 작업 및 웹 작업이 포함된 파이프라인 만들기
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 * Azure Storage 계정. Blob 스토리지를 원본 데이터 저장소로 사용합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)를 참조하세요.
 * Azure Storage Explorer. 이 도구를 설치하려면 [Azure Storage Explorer](https://storageexplorer.com/)를 참조하세요.
 * Azure SQL Database. 데이터베이스를 싱크 데이터 저장소로 사용합니다. Azure SQL Database가 없는 경우 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)를 참조하세요.
-* 있습니다. 이 문서에서는 Visual Studio 2019를 사용합니다.
+* Visual Studio. 이 문서에서는 Visual Studio 2019를 사용합니다.
 * Azure .NET SDK. [Azure .NET SDK](https://azure.microsoft.com/downloads/)를 다운로드하여 설치합니다.
 
 현재 Data Factory를 사용할 수 있는 Azure 지역의 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요. 데이터 저장소와 컴퓨팅은 다른 지역에 있을 수 있습니다. 저장소에는 Azure Storage 및 Azure SQL Database가 포함됩니다. 컴퓨팅에는 Data Factory에서 사용하는 HDInsight가 포함됩니다.
@@ -144,7 +144,7 @@ C# .NET 콘솔 애플리케이션을 만듭니다.
    var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
    ```
 
-### <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+### <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. `CreateOrUpdateDataFactory` 메서드를 *Program.cs* 파일에 추가합니다.
 
@@ -358,7 +358,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
 
-## <a name="create-a-pipeline"></a>파이프라인을 만들기
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 
 Visual Studio에서 프로젝트로 돌아갑니다. 이제 복사 활동과 `DependsOn` 속성을 사용하여 파이프라인을 만드는 코드를 추가합니다. 이 자습서에서 파이프라인에는 Blob 데이터 세트를 원본으로 사용하고 다른 Blob 데이터 세트를 싱크로 사용하는 복사 활동인 하나의 활동이 포함됩니다. 복사 활동이 성공하거나 실패하면 다른 이메일 작업을 호출합니다.
 
@@ -754,7 +754,7 @@ Press any key to exit...
 이 자습서에서는 다음 작업을 수행했습니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * Azure Storage 연결된 서비스 만들기
 > * Azure Blob 데이터 세트 만들기
 > * 복사 작업 및 웹 작업이 포함된 파이프라인 만들기

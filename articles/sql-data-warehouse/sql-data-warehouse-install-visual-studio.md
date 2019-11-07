@@ -1,8 +1,8 @@
 ---
-title: SQL Data Warehouse 용 Visual Studio 2019 설치 | Microsoft Docs
+title: Visual Studio 2019 설치
 description: Azure SQL Data Warehouse용 Visual Studio 및 SSDT(SQL Server 개발 도구) 설치
 services: sql-data-warehouse
-ms.custom: vs-azure
+ms.custom: seo-lt-2019
 ms.workload: azure-vs
 author: kevinvngo
 manager: craigg
@@ -12,12 +12,12 @@ ms.subservice: development
 ms.date: 10/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 0ca59080b4056ba74e2f05038e07d647f12de765
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: caf4a3efbfafcdb10a8834c213b2469e30296501
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485047"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692682"
 ---
 # <a name="getting-started-with-visual-studio-2019-for-sql-data-warehouse"></a>SQL Data Warehouse 용 Visual Studio 2019 시작
 Visual Studio **2019** SQL SERVER DATA TOOLS (SSDT)는 다음을 수행 하는 데 사용할 수 있는 단일 도구입니다.

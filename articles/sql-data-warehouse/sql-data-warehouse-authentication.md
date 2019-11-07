@@ -1,21 +1,22 @@
 ---
-title: Azure SQL Data Warehouse에 대한 인증 | Microsoft Docs
+title: 인증
 description: AAD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure SQL Data Warehouse에서 인증을 받는 방법을 알아봅니다.
 services: sql-data-warehouse
-author: KavithaJonnakuti
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/02/2019
-ms.author: kavithaj
+ms.author: jrasnick
 ms.reviewer: igorstan
-ms.openlocfilehash: a3bed9df5b62ce7f2f3df7046357dc4f2458575c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: fda29e432fbd952261893f3c32a4df7b9990ae66
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61475034"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692923"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 인증
 AAD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure SQL Data Warehouse에서 인증을 받는 방법을 알아봅니다.
@@ -44,9 +45,9 @@ SQL Data Warehouse에 연결하려면 다음 정보를 제공해야 합니다.
 > 
 
 ## <a name="azure-active-directory-aad-authentication"></a>AAD(Azure Active Directory) 인증
-[Azure Active Directory][What is Azure Active Directory] 인증은 Azure AD(Azure Active Directory)의 ID를 사용하여 Microsoft Azure SQL Data Warehouse에 연결하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL Data Warehouse 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 
+[Azure Active Directory][What is Azure Active Directory] 인증은 Azure Active Directory (Azure AD)에서 id를 사용 하 여 Microsoft Azure SQL Data Warehouse에 연결 하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL Data Warehouse 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 
 
-### <a name="benefits"></a>이점
+### <a name="benefits"></a>혜택
 Azure Active Directory의 이점은 다음과 같습니다.
 
 * SQL Server 인증에 대한 대안을 제공합니다.
@@ -56,10 +57,10 @@ Azure Active Directory의 이점은 다음과 같습니다.
 * Windows 통합 인증 또는 Azure Active Directory에서 지원하는 기타 인증을 사용하여 암호 저장을 제거할 수 있습니다.
 * 포함된 데이터베이스 사용자를 통해 데이터베이스 수준에서 ID를 인증합니다.
 * SQL Data Warehouse에 연결되는 애플리케이션에 대한 토큰 기반 인증을 지원합니다.
-* 비롯 한 다양 한 도구에 대 한 Active Directory 유니버설 인증을 통해 다단계 인증 지원 [SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md) 하 고 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json)합니다.
+* [SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md) 및 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json)를 비롯 한 다양 한 도구에 대 한 Active Directory 범용 인증을 통해 multi-factor authentication을 지원 합니다.
 
 > [!NOTE]
-> Azure Active Directory는 비교적 새로운 기능으로, 몇 가지 제한 사항이 있습니다. Azure Active Directory가 사용자 환경에 적합한지 확인하려면 [Azure AD 기능 및 제한 사항][Azure AD features and limitations], 특히 추가 고려 사항을 참조하세요.
+> Azure Active Directory는 비교적 새로운 기능으로, 몇 가지 제한 사항이 있습니다. Azure Active Directory가 작업 환경에 적합한지 확인하려면 [Azure AD 기능 및 제한 사항][Azure AD features and limitations], 특히 추가 고려 사항을 참조하세요.
 > 
 > 
 
@@ -67,7 +68,7 @@ Azure Active Directory의 이점은 다음과 같습니다.
 다음 단계에 따라 Azure Active Directory 인증을 구성합니다.
 
 1. Azure Active Directory 만들기 및 채우기
-2. 선택 사항: 현재 Azure 구독과 연결된 Active Directory 연결 또는 변경
+2. 옵션: 현재 Azure 구독과 연결된 Active Directory를 연결하거나 변경합니다.
 3. Azure SQL Data Warehouse에 대한 Azure Active Directory 관리자 만들기
 4. 클라이언트 컴퓨터 구성
 5. Azure AD ID에 매핑된 데이터베이스에서 포함된 데이터베이스 사용자 만들기

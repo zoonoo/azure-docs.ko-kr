@@ -1,5 +1,5 @@
 ---
-title: '디자이너 예제 #1: 가격 예측을 위한 회귀'
+title: '디자이너: 예측 가격 (회귀)'
 titleSuffix: Azure Machine Learning
 description: 한 줄의 코드를 작성 하지 않고도 자동차의 가격을 예측 하는 기계 학습 모델을 빌드하는 방법을 알아봅니다.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 14b9f5fd1459ebd3341218a4ada14b16ddb4853f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cdf2d0b632368a5a5bc24e092783c979f7c26bc
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515474"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647164"
 ---
 # <a name="sample-1---regression-predict-price"></a>샘플 1-회귀: 예측 가격
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

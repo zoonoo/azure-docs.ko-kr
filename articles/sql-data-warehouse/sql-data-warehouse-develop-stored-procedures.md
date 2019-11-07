@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse의 저장 프로시저 사용 | Microsoft Docs
+title: 저장 프로시저 사용
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 저장 프로시저 구현을 위한 팁
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,17 +10,18 @@ ms.subservice: development
 ms.date: 04/02/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2c12a679ed5f0a1574deb34df8c0151e737d2d01
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: e6e1144043cbbbc8124785351e1e56a776b84527
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479584"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692817"
 ---
 # <a name="using-stored-procedures-in-sql-data-warehouse"></a>SQL Data Warehouse의 저장 프로시저 사용
 솔루션 개발을 위한 Azure SQL Data Warehouse의 저장 프로시저 구현을 위한 팁
 
-## <a name="what-to-expect"></a>필요한 항목
+## <a name="what-to-expect"></a>예상 프로그램
 
 SQL Data Warehouse는 SQL Server에서 사용되는 여러 T-SQL 기능을 지원합니다. 무엇보다도 솔루션의 성능을 최대화하기 위해 사용할 수 있는 특정 기능 확장 사항이 있습니다.
 
@@ -28,9 +29,9 @@ SQL Data Warehouse는 SQL Server에서 사용되는 여러 T-SQL 기능을 지�
 
 
 ## <a name="introducing-stored-procedures"></a>저장된 프로시저 소개
-저장된 프로시저는 SQL 코드를 캡슐화하여 데이터 웨어하우스의 데이터에 가까이 저장하는 좋은 방법입니다. 관리 가능한 단위로 코드를 캡슐화하여 저장 프로시저를 사용하면 개발자가 솔루션을 모듈화하여 코드의 더 큰 재사용성을 용이하게 합니다. 각 저장된 프로시저로 매개 변수를 더 유연하게 할 수도 있습니다.
+저장된 프로시저는 SQL 코드를 캡슐화하여 데이터 웨어하우스의 데이터에 가까이 저장하는 좋은 방법입니다. 관리 가능한 단위로 코드를 캡슐화하여 저장 프로시저를 사용하면 개발자가 솔루션을 모듈화하여 코드의 더 큰 재유용성을 용이하게 합니다. 각 저장된 프로시저로 매개 변수를 더 유연하게 할 수도 있습니다.
 
-SQL Data Warehouse는 단순하고 효율적인 저장된 프로시저 구현을 제공합니다. SQL Server와 비교하여 가장 큰 차이점은 저장된 프로시저가 미리 컴파일된 코드가 아닙니다. 데이터 웨어하우스에서 컴파일 시간은 대용량 데이터에 대해 쿼리를 실행하는 데 걸리는 시간에 비해 작습니다. 저장 프로시저 코드가 대형 쿼리에 적절하게 최적화되었는지 확인하는 것은 더욱 중요합니다. 시간, 분 및 초(밀리초가 아닌)를 줄이는 것이 목표입니다. 그러므로 저장된 프로시저를 SQL 논리에 대한 컨테이너로 생각하는 것이 더욱 도움이 됩니다.     
+SQL Data Warehouse는 단순하고 효율적인 저장된 프로시저 구현을 제공합니다. SQL Server와 비교하여 가장 큰 차이점은 저장된 프로시저가 미리 컴파일된 코드가 아닙니다. 데이터 웨어하우스에서 컴파일 시간은 대용량 데이터에 대해 쿼리를 실행하는 데 걸리는 시간에 비해 작습니다. 저장 프로시저 코드가 대형 쿼리에 적절하게 최적화되었는지 확인하는 것은 더욱 중요합니다. 시간, 분 및 초(밀리초가 아닌)를 저장하는 것이 목표입니다. 그러므로 저장된 프로시저를 SQL 논리에 대한 컨테이너로 생각하는 것이 더욱 도움이 됩니다.     
 
 SQL Data Warehouse는 저장 프로시저를 실행할 때 SQL 문이 구문 분석되고 변환되고 런타임 시 최적화됩니다. 이 프로세스 중 각 명령문이 분산 쿼리로 변환됩니다. 데이터에 대해 실행되는 SQL 코드는 전송된 쿼리와 다릅니다.
 
@@ -71,7 +72,7 @@ SQL Data Warehouse는 INSERT 문을 사용하여 저장된 프로시저의 결�
 ## <a name="limitations"></a>제한 사항
 SQL Data Warehouse에서 구현되지 않은 TRANSACT-SQL 저장된 프로시저의 일부 측면이 있습니다.
 
-구현되지 않은 것은 다음과 같습니다.
+아래에 이 계정과 키의 예제가 나와 있습니다.
 
 * 임시 저장 프로시저
 * 숫자가 매겨진 저장 프로시저

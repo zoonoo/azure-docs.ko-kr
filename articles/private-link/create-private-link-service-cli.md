@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: c67d2cd4e90b2fa61a4d95e89a68c888a6e1fe3f
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 57ab18c8dfffb6994983179f434491b97589ebda
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273643"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693240"
 ---
 # <a name="create-a-private-link-service-using-azure-cli"></a>Azure CLI를 사용 하 여 개인 링크 서비스 만들기
 이 문서에서는 Azure CLI를 사용 하 여 Azure에서 개인 링크 서비스를 만드는 방법을 보여 줍니다.
@@ -49,7 +49,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 ### <a name="create-a-load-balancer-health-probe"></a>부하 분산 장치 상태 프로브 만들기
 
-상태 프로브는 모든 가상 머신 인스턴스를 검사하여 네트워크 트래픽을 받을 수 있는지 확인합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
+상태 프로브는 모든 가상 머신 인스턴스를 검사하여 네트워크 트래픽을 받을 수 있는지 확인합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) 명령을 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -62,7 +62,7 @@ az network lb create --resource-group myResourceGroup --name myILB --sku standar
 
 ### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)를 사용하여 *myFrontEnd* 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
+부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. *az network lb rule create*를 사용하여 [myFrontEnd](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
 
 ```azurecli-interactive
   az network lb rule create \
@@ -104,14 +104,14 @@ az network private-link-service create \
 ```
 일단 만들어지면 개인 링크 서비스 ID를 기록해 둡니다. 나중에이 서비스에 대 한 연결을 요청 하는 데 필요 합니다.  
  
-이 단계에서는 개인 링크 서비스가 성공적으로 생성 되 고 트래픽을 받을 준비가 된 것입니다. 위의 예제에서는 Azure CLI 사용 하 여 개인 링크 서비스를 만드는 방법을 보여 줍니다.  트래픽 수신 대기를 위해 부하 분산 장치 백 엔드 풀 또는 백 엔드 풀의 응용 프로그램을 구성 하지 않았습니다. 종단 간 트래픽 흐름을 확인 하려는 경우 표준 Load Balancer 뒤에 응용 프로그램을 구성 하는 것이 좋습니다.  
+이 단계에서는 개인 링크 서비스가 성공적으로 생성 되 고 트래픽을 받을 준비가 된 것입니다. 위의 예제에서는 Azure CLI 사용 하 여 개인 링크 서비스를 만드는 방법을 보여 줍니다.  트래픽 수신 대기를 위해 부하 분산 장치 백 엔드 풀 또는 백 엔드 풀의 응용 프로그램을 구성 하지 않았습니다. 종단 간 트래픽 흐름을 보려면 표준 Load Balancer 뒤에 응용 프로그램을 구성 하는 것이 좋습니다.  
  
 다음으로 Azure CLI를 사용 하 여이 서비스를 다른 가상 네트워크의 개인 끝점에 매핑하는 방법을 설명 합니다. 이 예제는 개인 끝점을 만들고 Azure CLI를 사용 하 여 위에서 만든 개인 링크 서비스에 연결 하는 것으로 제한 됩니다. 또한 가상 네트워크에서 가상 컴퓨터를 만들어 개인 끝점으로 트래픽을 보내고 받을 수 있습니다.        
  
-## <a name="private-endpoints"></a>프라이빗 엔드포인트
+## <a name="private-endpoints"></a>전용 끝점
 
 ### <a name="create-the-virtual-network"></a>가상 네트워크 만들기 
- [Az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용 하 여 가상 네트워크를 만듭니다. 이 예제에서는 *myresourcegroup*이라는 리소스 그룹에 *myPEVNet* 라는 가상 네트워크를 만듭니다. 
+ [Az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용 하 여 가상 네트워크를 만듭니다. 이 예제에서는 *Myresourcegroup*이라는 리소스 그룹에  *myPEVNet* 라는 가상 네트워크를 만듭니다. 
 ```azurecli-interactive
 az network vnet create \
 --resource-group myResourceGroup \
@@ -119,7 +119,7 @@ az network vnet create \
 --address-prefix 10.0.0.0/16  
 ```
 ### <a name="create-the-subnet"></a>서브넷 만들기 
- [Az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)를 사용 하 여 가상 네트워크에서 서브넷을 만듭니다. 이 예제에서는 *mysubnet*이라는 리소스 그룹에서 *myPEVnet* 라는 가상 네트워크에 *mysubnet* 이라는 서브넷을 만듭니다. 
+ [Az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create)를 사용 하 여 가상 네트워크에서 서브넷을 만듭니다. 이 예제에서는 *Mysubnet*이라는 리소스 그룹에서 *myPEVnet* 라는 가상 네트워크에 *mysubnet* 이라는 서브넷을 만듭니다. 
 
 ```azurecli-interactive 
 az network vnet subnet create \
@@ -151,7 +151,7 @@ az network private-endpoint create \
 --connection-name myPEConnectingPLS \
 --location westcentralus 
 ```
-개인 링크 서비스를 사용 `az network private-link-service show` 하 여 *개인 연결 리소스 id* 를 가져올 수 있습니다. ID는 다음과 같습니다.   
+개인 링크 서비스에서 `az network private-link-service show`를 사용 하 여 *개인 연결 리소스 id* 를 가져올 수 있습니다. ID는 다음과 같습니다.   
 /subscriptions/subID/resourceGroups/*resourcegroupname*/providers/Microsoft.Network/privateLinkServices/**privatelinkservicename** 
  
 ## <a name="show-private-link-service-connections"></a>개인 링크 서비스 연결 표시 

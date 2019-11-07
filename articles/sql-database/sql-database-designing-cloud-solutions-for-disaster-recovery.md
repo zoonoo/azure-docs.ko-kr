@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database를 사용하여 전역 사용 가능 서비스 디자인 | Microsoft Docs
+title: Azure SQL Database를 사용 하 여 전역적으로 사용 가능한 서비스 디자인
 description: Azure SQL Database를 사용하여 항상 사용 가능한 서비스를 위한 애플리케이션 디자인에 대해 알아봅니다.
 keywords: 클라우드 재해 복구, 재해 복구 솔루션, 앱 데이터 백업, 지역에서 복제, 무중단 업무 방식 계획
 services: sql-database
@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: a79fa40568502a73194e467de2227d54931d0100
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 034d696fd8c9aae826d0bbc7e4d028cefad09840
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568948"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690729"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 전역적으로 사용 가능 서비스 디자인
 
@@ -101,7 +101,7 @@ Azure SQL Database에서 클라우드 서비스를 빌드하고 배포하는 경
 
 애플리케이션은 읽기 전용 모드에서 작동할 수 있어야 하는 것이 **적정 수준**입니다.
 
-## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>시나리오 3: 데이터 손실이 없으면서 가동 중지 시간이 거의 없이 다른 지역에 애플리케이션 재배치
+## <a name="scenario-3-application-relocation-to-a-different-geography-without-data-loss-and-near-zero-downtime"></a>시나리오 3: 데이터 손실이 없으면서 작동 중단 시간이 거의 없이 다른 지역에 애플리케이션 재배치
 
 이 시나리오에서는 애플리케이션에 다음과 같은 특징이 있습니다.
 
@@ -110,7 +110,7 @@ Azure SQL Database에서 클라우드 서비스를 빌드하고 배포하는 경
 * 대부분의 사용자에 대해 동일 지역에서 데이터에 대한 쓰기 액세스를 지원해야 함
 * 최종 사용자 환경에 읽기 대기 시간 중요
 
-이러한 요구 사항에 부합하기 위해, 사용자 디바이스가 **항상** 데이터 탐색, 분석 등 읽기 전용 작업을 위해 동일한 지역에 배포된 애플리케이션에 연결해야 합니다. 반면 OLTP 작업은 **대부분** 동일한 지역에서 처리됩니다. 예를 들어 일과 중에는 OLTP 작업이 동일한 지역에서 처리되지만 업무 시간 외에는 다른 지역에서 처리될 수 있습니다. 최종 사용자 작업이 대부분 일과 시간 중에 일어난다면 대부분의 시간 동안 대부분의 사용자에게 최적 성능을 보장할 수 있습니다. 다음 다이어그램은 이 토폴로지를 보여 줍니다.
+이러한 요구 사항을 충족 하기 위해 사용자 장치가 **항상** 데이터 검색, 분석 등의 읽기 전용 작업을 위해 동일한 지역에 배포 된 응용 프로그램에 연결 되도록 보장 해야 합니다. 반면 OLTP 작업은 **대부분의 시간**에 동일한 지역에서 처리 됩니다. 예를 들어 일과 중에는 OLTP 작업이 동일한 지역에서 처리되지만 업무 시간 외에는 다른 지역에서 처리될 수 있습니다. 최종 사용자 작업이 대부분 일과 시간 중에 일어난다면 대부분의 시간 동안 대부분의 사용자에게 최적 성능을 보장할 수 있습니다. 다음 다이어그램은 이 토폴로지를 보여 줍니다.
 
 애플리케이션의 리소스는 사용 요청이 많은 각 지역에 배포되어야 합니다. 예를 들어 애플리케이션이 미국, 유럽 및 동남아에서 활발히 사용된다면 이 지역 모두에 애플리케이션을 배포해야 합니다. 업무 시간이 끝나면 주 데이터베이스가 한 지역에서 다음 지역으로 동적으로 전환됩니다. 이 방법을 "해바라기"라고 합니다. OLTP 워크로드는 항상 읽기-쓰기 수신기 **&lt;failover-group-name&gt;.database.windows.net**를 통해 데이터베이스에 연결합니다(1). 읽기 전용 워크로드는 데이터베이스 서버 엔드포인트 **&lt;server-name&gt;.database.windows.net**를 통해 직접 로컬 데이터베이스에 연결합니다(2). 트래픽 관리자에는 [성능 라우팅 메서드](../traffic-manager/traffic-manager-configure-performance-routing-method.md)가 구성되어 있습니다. 이를 통해 최종 사용자 디바이스는 가장 가까운 지역의 웹 서비스에 연결됩니다. 각각의 웹 서비스와 끝점에 대해 끝점 모니터링이 활성화된 상태로 트래픽 관리자가 설정되어야 합니다(3).
 
@@ -148,11 +148,11 @@ Azure SQL Database에서 클라우드 서비스를 빌드하고 배포하는 경
 * 대기 시간이 길어지므로 국지적 작동 중단이 지역에 영향을 미칩니다. 읽기-쓰기 및 읽기 전용 워크로드 모두 다른 지역의 애플리케이션에서 서비스합니다.
 * 읽기 전용 워크로드는 각 지역의 다른 끝점에 연결해야 합니다.
 
-## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>비즈니스 연속성 계획: 클라우드 재해 복구에 대한 애플리케이션 디자인 선택
+## <a name="business-continuity-planning-choose-an-application-design-for-cloud-disaster-recovery"></a>무중단 업무 방식 계획: 클라우드 재해 복구에 대한 애플리케이션 디자인 선택
 
 특정 클라우드 재해 복구 전략은 애플리케이션의 요구 사항을 최상으로 충족하도록 이러한 디자인 패턴을 결합하거나 확장할 수 있습니다.  앞에서 설명한 대로 선택한 전략은 고객 및 애플리케이션 배포 토폴로지에 제공하려는 SLA에 따라 달라집니다. 결정에 도움을 주기 위해 다음 테이블에서는 복구 지점 목표(RPO) 및 예상 복구 시간(ERT)에 따라 선택 항목을 비교합니다.
 
-| 무늬 | RPO | ERT |
+| 패턴 | RPO | ERT |
 |:--- |:--- |:--- |
 | 배치된 데이터베이스 액세스로 재해 복구에 대한 활성-수동 배포 |읽기-쓰기 액세스 < 5초 |장애 감지 시간 + DNS TTL |
 | 애플리케이션 부하 분산에 대한 활성-활성 배포 |읽기-쓰기 액세스 < 5초 |장애 감지 시간 + DNS TTL |

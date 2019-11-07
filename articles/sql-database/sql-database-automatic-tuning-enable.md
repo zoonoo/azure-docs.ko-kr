@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database에 대한 자동 조정 사용 | Microsoft Docs
+title: Azure SQL Database에 대 한 자동 조정 사용
 description: Azure SQL Database에서 쉽게 자동 조정을 사용할 수 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: c9339b5c7c35378fb85daeae19a6daa01d54f350
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 52e3dd01446a6292c3404f14bd8ebfb32aa00dd6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809655"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691136"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>자동 조정을 사용하여 쿼리 모니터링 및 워크로드 성능 향상
 
@@ -34,7 +34,7 @@ Azure SQL Database는 지속적으로 쿼리를 모니터링하고 워크로드�
 
 서버 수준에서 "Azure 기본값"에서 자동 조정 구성을 상속하거나 구성을 상속하지 않도록 선택할 수 있습니다. Azure에서는 기본적으로 FORCE_LAST_GOOD_PLAN 및 CREATE_INDEX는 사용하고 DROP_INDEX는 사용하지 않도록 설정됩니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure SQL Database 논리 **서버**에서 자동 조정을 사용하려면 Azure Portal에서 서버로 이동한 다음, 메뉴에서 **자동 조정**을 선택합니다.
 
@@ -60,7 +60,7 @@ Azure SQL Database를 통해 각 데이터베이스에서 자동 조정 구성�
 > 동일한 구성 설정을 모든 데이터베이스에 대해 자동으로 적용할 수 있도록 **서버 수준**에서 자동 조정 구성을 관리하는 것이 좋습니다. 데이터베이스가 동일한 서버에서 설정을 상속하는 다른 데이터베이스와 다른 설정을 가지도록 해야 하는 경우에만 개별 데이터베이스에서 자동 조정을 구성합니다.
 >
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 **단일 데이터베이스**에서 자동 조정을 사용하려면 Azure Portal에서 데이터베이스로 이동하여 **자동 조정**을 선택합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database에 복제 | Microsoft Docs"
+title: Azure SQL Database "로 복제
 description: Azure SQL Database 단일 데이터베이스와 탄력적 풀의 데이터베이스와 함께 SQL Server 복제 사용에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 01/25/2019
-ms.openlocfilehash: eab8f4809742b69e92cb835801493722d28afe49
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ae564a98b77b1ac564fa9aae152b27c491187d0c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570474"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692212"
 ---
 # <a name="replication-to-sql-database-single-and-pooled-databases"></a>SQL Database 단일 및 풀링된 데이터베이스에 복제
 
@@ -103,15 +103,15 @@ Azure SQL Database에서 [SQL Database 서버](sql-database-servers.md)의 단�
 
 ## <a name="examples"></a>예
 
-게시 및 밀어넣기 구독을 만듭니다. 참조 항목:
+게시 및 밀어넣기 구독을 만듭니다. 자세한 내용은 다음을 참조하세요.
   
-- [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- 구독자로는 Azure SQL Database 서버 이름(예: **N'azuresqldbdns.database.windows.net'** )을, 대상 데이터베이스로는 Azure SQL 데이터베이스 이름(예: **AdventureWorks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/).  
+- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- 구독자로는 Azure SQL Database 서버 이름(예: [N'azuresqldbdns.database.windows.net'](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/))을, 대상 데이터베이스로는 Azure SQL 데이터베이스 이름(예: **AdventureWorks**)을 사용하여 **밀어넣기 구독을 만듭니다**.  
 
-## <a name="see-also"></a>관련 항목  
+## <a name="see-also"></a>참고 항목  
 
 - [트랜잭션 복제](sql-database-managed-instance-transactional-replication.md)
-- [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [밀어넣기 구독 만들기](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [모니터링(복제)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)

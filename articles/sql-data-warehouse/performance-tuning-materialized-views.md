@@ -1,5 +1,5 @@
 ---
-title: 구체화 된 뷰로 Azure SQL Data Warehouse 성능 튜닝 | Microsoft Docs
+title: 구체화 된 뷰로 성능 조정
 description: 구체화 된 뷰를 사용 하 여 쿼리 성능을 향상 시킬 때 알아야 할 권장 사항 및 고려 사항입니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.custom: seo-lt-2019
+ms.openlocfilehash: c1cfd3b4c365a04c3d4704f37e4ed4177fa74619
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338902"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692975"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>구체화 된 뷰로 성능 조정 
 Azure SQL Data Warehouse의 구체화 된 뷰를 사용 하면 복잡 한 분석 쿼리에 대해 낮은 유지 관리 방법을 제공 하 여 쿼리를 변경 하지 않고 성능을 빠르게 얻을 수 있습니다. 이 문서에서는 구체화 된 뷰 사용에 대 한 일반적인 지침을 설명 합니다.
@@ -37,9 +38,9 @@ Azure SQL Data Warehouse은 표준 및 구체화 된 뷰를 지원 합니다.  �
 |정의 보기                 | Azure data warehouse에 저장 됩니다.              | Azure data warehouse에 저장 됩니다.    
 |콘텐츠 보기                    | 뷰가 사용 될 때마다 생성 됩니다.   | 뷰를 만드는 동안 Azure data warehouse에서 사전 처리 되 고 저장 됩니다. 기본 테이블에 데이터가 추가 될 때 업데이트 됩니다.                                             
 |데이터 새로 고침                    | 항상 업데이트 됨                               | 항상 업데이트 됨                          
-|복잡 한 쿼리에서 뷰 데이터를 검색 하는 속도     | 느려지는                                         | 빠르게  
+|복잡 한 쿼리에서 뷰 데이터를 검색 하는 속도     | 느려지는                                         | 빠른 속도  
 |추가 스토리지                   | 아니요                                           | 예                             
-|구문                          | CREATE VIEW                                  | 구체화 된 뷰를 SELECT로 만들기           
+|구문                          | 뷰 만들기                                  | 구체화 된 뷰를 SELECT로 만들기           
      
 ## <a name="benefits-of-using-materialized-views"></a>구체화 된 뷰 사용의 이점
 
@@ -55,7 +56,7 @@ Azure SQL Data Warehouse은 표준 및 구체화 된 뷰를 지원 합니다.  �
  
 다른 데이터 웨어하우스 공급자와 비교 하 여 Azure SQL Data Warehouse에 구현 된 구체화 된 뷰는 다음과 같은 추가 이점도 제공 합니다. 
 
-- 기본 테이블의 데이터 변경 내용으로 자동 및 동기 데이터 새로 고침 사용자가 조치할 필요는 없습니다. 
+- 기본 테이블의 데이터 변경 내용으로 자동 및 동기 데이터 새로 고침 추가적인 조치가 필요하지 않습니다. 
 - 광범위 한 집계 함수 지원. [구체화 된 뷰를 SELECT로 만들기 (transact-sql)](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest)를 참조 하세요.
 - 쿼리와 관련 된 구체화 된 뷰 권장 사항을 지원 합니다.  [설명 (transact-sql)](https://docs.microsoft.com/sql/t-sql/queries/explain-transact-sql?view=azure-sqldw-latest)을 참조 하세요.
 
@@ -106,7 +107,7 @@ JOIN sys.indexes I ON V.object_id= I.object_id AND I.index_id < 2;
 
 - 사용량이 낮거나 더 이상 필요 하지 않은 구체화 된 뷰를 삭제 합니다.  비활성화 된 구체화 된 뷰는 유지 관리 되지 않지만 저장소 비용은 계속 발생 합니다.  
 
-- 데이터가 겹치지 않는 경우에도 동일한 기본 테이블 또는 유사한 기본 테이블에 생성 된 구체화 된 뷰를 결합 합니다.  구체화 된 뷰를 결합 함으로써 개별 뷰의 합계 보다 큰 보기가 생성 될 수 있지만 보기 유지 관리 비용이 감소 해야 합니다.  예를 들어 다음과 같은 가치를 제공해야 합니다.
+- 데이터가 겹치지 않는 경우에도 동일한 기본 테이블 또는 유사한 기본 테이블에 생성 된 구체화 된 뷰를 결합 합니다.  구체화 된 뷰를 결합 함으로써 개별 뷰의 합계 보다 큰 보기가 생성 될 수 있지만 보기 유지 관리 비용이 감소 해야 합니다.  예:
 
 ```sql
 

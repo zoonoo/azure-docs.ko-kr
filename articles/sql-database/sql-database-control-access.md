@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 및 SQL Data Warehouse에 대한 액세스 권한 부여 | Microsoft Doc
+title: Azure SQL Database 및 SQL Data Warehouse에 대 한 액세스 권한 부여
 description: Azure SQL Database 및 SQL Data Warehouse에 대한 액세스 권한을 부여하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 05/08/2019
-ms.openlocfilehash: 1292dbf43b5246fe3da95ead4d5d9113b4bc84f9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c115cd7e4d531bfdc7ddbacd4f6eff2a892ea3c3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569028"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690759"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-access-control"></a>Azure SQL Database 및 SQL Data Warehouse 액세스 제어
 
@@ -50,7 +50,7 @@ SQL Database는 두 가지 인증 유형을 지원합니다.
 
 가장 좋은 방법은 애플리케이션이 전용 계정을 사용하여 인증하는 것입니다. 이 방법을 사용하면 애플리케이션에 부여되는 사용 권한을 제한하여 애플리케이션 코드가 SQL 삽입 공격에 취약한 경우 악의적인 활동의 위험을 줄일 수 있습니다. 응용 프로그램을 통해 데이터베이스에 직접 인증할 수 있는 [포함된 데이터베이스 사용자](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable)를 만드는 것이 좋습니다. 
 
-## <a name="authorization"></a>Authorization
+## <a name="authorization"></a>권한 부여
 
 권한 부여는 사용자가 Azure SQL Database에서 수행할 수 있는 작업을 나타내며, 사용자 계정의 데이터베이스 [역할 멤버 자격](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles)과 [개체 수준 사용 권한](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)으로 제어합니다. 사용자에게 필요한 최소한의 권한을 부여하는 것이 가장 좋습니다. 연결 중인 서버 관리자 계정은 데이터베이스 내에서 작업을 수행할 권한이 있는 db_owner의 구성원입니다. 스키마 업그레이드 및 기타 관리 작업을 배포하기 위해서는 이 계정을 저장합니다. 애플리케이션에서 해당 애플리케이션에 필요한 최소한의 권한이 있는 데이터베이스에 연결하려면 보다 제한된 사용 권한을 가진 "ApplicationUser" 계정을 사용합니다. 자세한 내용은 [로그인 관리](sql-database-manage-logins.md)를 참조하세요.
 

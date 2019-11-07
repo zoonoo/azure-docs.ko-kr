@@ -12,13 +12,13 @@ ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: iainfou
 ms.openlocfilehash: 06b0fa1979f18981ec5cf78dc9a9dbad8b196394
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
+ms.lasthandoff: 11/05/2019
 ms.locfileid: "71258041"
 ---
-# <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services에서 경고 보안 LDAP
+# <a name="known-issues-secure-ldap-alerts-in-azure-active-directory-domain-services"></a>알려진 문제: 보안 LDAP 경고 Azure Active Directory Domain Services
 
 LDAP (lightweight directory access protocol)를 사용 하 여 Azure Active Directory Domain Services (Azure AD DS)와 통신 하는 응용 프로그램 및 서비스는 [보안 ldap를 사용 하도록 구성할](tutorial-configure-ldaps.md)수 있습니다. 보안 LDAP가 제대로 작동 하려면 적절 한 인증서 및 필요한 네트워크 포트를 열어야 합니다.
 
@@ -28,7 +28,7 @@ LDAP (lightweight directory access protocol)를 사용 하 여 Azure Active Dire
 
 ### <a name="alert-message"></a>경고 메시지
 
-*관리되는 도메인에 대해 인터넷을 통해 보안 LDAP가 사용되도록 설정됩니다. 그러나 포트 636에 대한 액세스는 네트워크 보안 그룹을 사용하여 잠글 수 없습니다. 이로 인해 관리되는 도메인의 사용자 계정은 암호 무차별 대입 공격에 노출될 수 있습니다.*
+*인터넷을 통해 보안 LDAP는 관리 되는 도메인에 대해 사용 하도록 설정 됩니다. 그러나 포트 636에 대 한 액세스는 네트워크 보안 그룹을 사용 하 여 잠기지 않습니다. 이렇게 하면 관리 되는 도메인의 사용자 계정이 암호 무차별 암호 대입 공격에 노출 될 수 있습니다.*
 
 ### <a name="resolution"></a>해결 방법
 

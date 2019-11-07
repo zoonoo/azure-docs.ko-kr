@@ -1,5 +1,5 @@
 ---
-title: 'Azure Portal: SQL Database 지역 복제 | Microsoft Docs'
+title: 'Azure Portal: SQL Database 지역에서 복제 '
 description: Azure Portal을 사용하여 Azure SQL Database의 단일 또는 풀링된 데이터베이스에 대해 지역 복제 구성 및 장애 조치(failover) 시작
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 049122b97a26e63188142dd5494927c2ae71d852
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 2a9d627cb2b51d0d7d0b07052f18a8dbe1dc2f19
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103218"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691337"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure Portal에서 Azure SQL Database에 대한 활성 지역 복제 구성 및 장애 조치(failover) 시작
 
-이 문서에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Azure SQL Database에서 [단일 및 풀링된 데이터베이스의 활성 지역 복제](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)를 구성하고 장애 조치(failover)를 시작하는 방법을 보여 줍니다.
+이 문서에서는 [Azure Portal](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities)을 사용하여 Azure SQL Database에서 [단일 및 풀링된 데이터베이스의 활성 지역 복제](https://portal.azure.com)를 구성하고 장애 조치(failover)를 시작하는 방법을 보여 줍니다.
 
 단일 및 풀링된 데이터베이스를 사용하는 자동 장애 조치(failover) 그룹에 대한 자세한 내용은 [단일 및 풀링된 데이터베이스로 장애 조치(failover) 그룹을 사용하는 방법의 모범 사례](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-single-databases-and-elastic-pools)를 참조하세요. 관리 되는 인스턴스가 있는 자동 장애 조치 그룹에 대 한 자세한 내용은 [관리 되는 인스턴스에서 장애 조치 (failover) 그룹 사용](sql-database-auto-failover-group.md#best-practices-of-using-failover-groups-with-managed-instances)에 대 한 모범 사례를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure Portal을 사용하여 활성 지역 복제를 구성하려면 다음 리소스가 필요합니다.
 

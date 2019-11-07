@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse에 대해 트랜잭션 최적화 | Microsoft Docs
+title: 트랜잭션 최적화
 description: 긴 롤백에 대한 위험을 최소화하면서 Azure SQL Data Warehouse의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2299c526dd63eb8e8772661ee8fae66153fc36c3
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: b8b8be9467ade870e57355be91b0de329b0f6217
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479669"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692869"
 ---
 # <a name="optimizing-transactions-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 트랜잭션 최적화
 긴 롤백에 대한 위험을 최소화하면서 Azure SQL Data Warehouse의 트랜잭션 코드 성능을 최적화하는 방법을 알아봅니다.
@@ -42,11 +43,11 @@ Azure SQL Data Warehouse는 트랜잭션 로그를 사용하여 데이터베이�
 ## <a name="minimally-logged-operations"></a>최소 로깅 작업
 다음은 최소한으로 로깅 가능한 작업입니다.
 
-* CREATE TABLE AS SELECT([CTAS](sql-data-warehouse-develop-ctas.md))
+* [CTAS](sql-data-warehouse-develop-ctas.md)(CREATE TABLE AS SELECT)
 * INSERT..SELECT
 * CREATE INDEX
-* ALTER  INDEX  REBUILD
-* DROP  INDEX
+* ALTER INDEX REBUILD
+* DROP INDEX
 * TRUNCATE TABLE
 * DROP TABLE
 * ALTER TABLE SWITCH PARTITION
@@ -67,12 +68,12 @@ CTAS 및 INSERT...SELECT는 둘 다 대량 로드 작업입니다. 그러나 둘
 
 | 기본 인덱스 | 부하 시나리오 | 로깅 모드 |
 | --- | --- | --- |
-| 힙 |임의의 값 |**최소** |
+| 힙 |모두 |**최소** |
 | 클러스터형 인덱스 |빈 대상 테이블 |**최소** |
 | 클러스터형 인덱스 |로드된 행이 대상의 기존 페이지와 겹치지 않음 |**최소** |
-| 클러스터형 인덱스 |로드된 행이 대상의 기존 페이지와 겹침 |모든 |
+| 클러스터형 인덱스 |로드된 행이 대상의 기존 페이지와 겹침 |전체 |
 | 클러스터형 Clustered 인덱스 |Batch 크기는 파티션 정렬 분산당 102,400 이상 |**최소** |
-| 클러스터형 Clustered 인덱스 |Batch 크기는 파티션 정렬 분산당 102,400 미만 |모든 |
+| 클러스터형 Clustered 인덱스 |Batch 크기는 파티션 정렬 분산당 102,400 미만 |전체 |
 
 보조 또는 비클러스터형 인덱스를 업데이트하는 모든 쓰기 작업은 항상 전체 로깅됩니다.
 
@@ -417,5 +418,5 @@ Azure SQL Data Warehouse를 사용하여 필요에 따라 데이터 웨어하우
 * 작업을 청크로 나누어서 행의 하위 집합에서 작동
 
 ## <a name="next-steps"></a>다음 단계
-격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SQL Data Warehouse의 트랜잭션](sql-data-warehouse-develop-transactions.md) 을 참조하세요.  기타 모범 사례의 개요에 대해서는 [SQL Data Warehouse 모범 사례](sql-data-warehouse-best-practices.md)를 참조하세요.
+격리 수준 및 트랜잭션 제한에 대해 자세히 알아보려면 [SQL Data Warehouse의 트랜잭션](sql-data-warehouse-develop-transactions.md)을 참조하세요.  기타 모범 사례의 개요에 대해서는 [SQL Data Warehouse 모범 사례](sql-data-warehouse-best-practices.md)를 참조하세요.
 

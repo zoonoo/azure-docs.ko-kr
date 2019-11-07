@@ -1,5 +1,5 @@
 ---
-title: SQL에 ActiveDirectoryInteractive 연결 | Microsoft Docs
+title: ActiveDirectoryInteractive SQL에 연결
 description: SqlAuthenticationMethod.ActiveDirectoryInteractive 모드를 사용하여 Azure SQL Database에 연결하는 C# 코드와 설명입니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: MirekS
 ms.reviewer: GeneMi, vanto
 ms.date: 10/11/2019
-ms.openlocfilehash: c55fa6d58109345a0c600bd0c1c76c5a229c03bc
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5e7d58e5e0fc79e407e77ae9d73314a1d5d22666
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554506"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692296"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication를 사용 하 여 Azure SQL Database에 연결
 
@@ -26,7 +26,7 @@ SQL tools에 대 한 Multi-Factor Authentication 지원에 대 한 자세한 내
 
 ## <a name="multi-factor-authentication-for-azure-sql-database"></a>Azure SQL Database에 대 한 Multi-Factor Authentication
 
-.NET Framework 버전 4.7.2부터 열거 [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) 에 새 값 `ActiveDirectoryInteractive` 있습니다. 클라이언트 C# 프로그램에서 열거형 값은 Multi-Factor Authentication을 지 원하는 azure AD (Azure Active Directory) 대화형 모드를 사용 하 여 azure SQL database에 연결 하도록 시스템에 지시 합니다. 그러면 프로그램을 실행하는 사용자에게 다음 대화 상자가 표시됩니다.
+.NET Framework 버전 4.7.2부터 열거 [`SqlAuthenticationMethod`](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlauthenticationmethod) 에 새 값 `ActiveDirectoryInteractive`있습니다. 클라이언트 C# 프로그램에서 열거형 값은 Multi-Factor Authentication을 지 원하는 azure AD (Azure Active Directory) 대화형 모드를 사용 하 여 azure SQL database에 연결 하도록 시스템에 지시 합니다. 그러면 프로그램을 실행하는 사용자에게 다음 대화 상자가 표시됩니다.
 
 * Azure AD 사용자 이름을 표시하고 사용자의 암호를 요청하는 대화 상자.
 
@@ -45,7 +45,7 @@ Multi-Factor Authentication를 요구 하도록 Azure AD를 구성 하는 방법
 > [!TIP]
 > [.NET Api 브라우저 도구 페이지](https://docs.microsoft.com/dotnet/api/)를 사용 하 여 .NET Framework api를 검색할 수 있습니다.
 >
-> [선택적? term = &lt;search value &gt; 매개 변수](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)를 사용 하 여 직접 검색할 수도 있습니다.
+> [선택적? term =&lt;검색 값&gt; 매개 변수](https://docs.microsoft.com/dotnet/api/?term=SqlAuthenticationMethod)를 사용 하 여 직접 검색할 수도 있습니다.
 
 ## <a name="configure-your-c-application-in-the-azure-portal"></a>Azure Portal에서 C# 애플리케이션 구성
 
@@ -59,7 +59,7 @@ Azure AD 인증을 사용하려면 C# 프로그램이 Azure AD 애플리케이�
 
 애플리케이션에 등록하고 필요한 권한을 설정하려면
 
-1. Azure Portal에서 **Azure Active Directory**  > 를 선택 하**앱 등록** **새 등록**을  >  합니다.
+1. Azure Portal에서 **Azure Active Directory** > 를 선택 하 **앱 등록** **새 등록**을 > 합니다.
 
     ![앱 등록](media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
@@ -67,7 +67,7 @@ Azure AD 인증을 사용하려면 C# 프로그램이 Azure AD 애플리케이�
 
     ![표시된 앱 ID](media/active-directory-interactive-connect-azure-sql-db/image2.png)
 
-2. **API 권한**  > **사용 권한 추가를**선택 합니다.
+2. **API 권한** > **사용 권한 추가를**선택 합니다.
 
     ![등록된 앱의 권한 설정](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-c32.png)
 
@@ -75,7 +75,7 @@ Azure AD 인증을 사용하려면 C# 프로그램이 Azure AD 애플리케이�
 
     ![Azure SQL Database에 대한 API 액세스 추가](media/active-directory-interactive-connect-azure-sql-db/sshot-registered-app-settings-required-permissions-add-api-access-Azure-sql-db-d11.png)
 
-4. **위임 된 권한**  > **User_impersonation**  > **권한 추가**를 선택 합니다.
+4. **위임 된 권한** > **User_impersonation** > **권한 추가**를 선택 합니다.
 
     ![Azure SQL Database에 대한 API에 권한 위임](media/active-directory-interactive-connect-azure-sql-db/sshot-add-api-access-azure-sql-db-delegated-permissions-checkbox-e14.png)
 
@@ -83,7 +83,7 @@ Azure AD 인증을 사용하려면 C# 프로그램이 Azure AD 애플리케이�
 
 C# 프로그램을 실행 하려면 azure SQL server 관리자가 SQL Database 서버에 대 한 azure AD 관리자를 할당 해야 합니다. 
 
-**SQL Server** 페이지에서 **Active Directory 관리자**  > **설정 관리자**를 선택 합니다.
+**SQL Server** 페이지에서 **Active Directory 관리자** > **설정 관리자**를 선택 합니다.
 
 Azure SQL Database에 대 한 Azure AD 관리자 및 사용자에 대 한 자세한 내용은 [SQL Database를 사용 하 여 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server)의 스크린샷을 참조 하세요.
 
@@ -118,10 +118,10 @@ C# 프로그램이 성공적으로 실행되려면 정적 필드에 적절한 �
 | 정적 필드 이름 | 예제 값 | Azure Portal 내 위치 |
 | :---------------- | :------------ | :-------------------- |
 | Az_SQLDB_svrName | "my-sqldb-svr.database.windows.net" | **SQL 서버** > **이름으로 필터링** |
-| AzureAD_UserID | "auser \@abc. onmicrosoft.com" | **Azure Active Directory** > **사용자** > **새 게스트 사용자** |
+| AzureAD_UserID | "auser\@abc.onmicrosoft.com" | **Azure Active Directory** > **사용자** > **새 게스트 사용자** |
 | Initial_DatabaseName | "myDatabase" | **SQL 서버** > **SQL 데이터베이스** |
 | ClientApplicationID | "a94f9c62-97fe-4d19-b06d-111111111111" | **Azure Active Directory** > **앱 등록** > **이름별로 검색** > **애플리케이션 ID** |
-| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** **앱 등록**  > **이름으로 검색**  >   >  *[사용자 앱 등록]* ** > ** **redirecturis**<br /><br />이 문서에서 유효한 값은 여기에서 사용 되지 않으므로 RedirectUri에 대해 적절 합니다. |
+| RedirectUri | new Uri("https://mywebserver.com/") | **Azure Active Directory** **앱 등록** > **이름으로 검색** >  >  *[사용자 앱 등록]* ** > ** **redirecturis** > <br /><br />이 문서에서 유효한 값은 여기에서 사용 되지 않으므로 RedirectUri에 대해 적절 합니다. |
 | &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="verify-with-sql-server-management-studio"></a>SQL Server Management Studio 확인
@@ -139,7 +139,7 @@ C# 프로그램을 실행하려는 같은 컴퓨터, 같은 건물에서 SSMS를
 자세한 내용은 [SSMS 및 AZURE AD에 대 한 Multi-Factor Authentication 구성](sql-database-ssms-mfa-authentication-configure.md)을 참조 하세요.
 
 > [!NOTE]
-> 데이터베이스의 게스트 사용자 인 경우 데이터베이스에 대 한 Azure AD 도메인 이름을 제공 해야 합니다. **옵션**  > **AD 도메인 이름 또는 테 넌 트 ID**를 선택 합니다. Azure Portal에서 도메인 이름을 찾으려면 **Azure Active Directory** > **사용자 지정 도메인 이름**을 선택합니다. C# 예제 프로그램에서는 도메인 이름을 지정하지 않아도 됩니다.
+> 데이터베이스의 게스트 사용자 인 경우 데이터베이스에 대 한 Azure AD 도메인 이름을 제공 해야 합니다. **옵션** > **AD 도메인 이름 또는 테 넌 트 ID**를 선택 합니다. Azure Portal에서 도메인 이름을 찾으려면 **Azure Active Directory** > **사용자 지정 도메인 이름**을 선택합니다. C# 예제 프로그램에서는 도메인 이름을 지정하지 않아도 됩니다.
 
 ## <a name="c-code-example"></a>C# 코드 예제
 
@@ -335,6 +335,6 @@ In method 'AcquireTokenAsync', case_0 == '.ActiveDirectoryInteractive'.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 - [AzSqlServerActiveDirectoryAdministrator](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserveractivedirectoryadministrator)

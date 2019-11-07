@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: SQL Database - Azure Key Vault | Microsoft Docs'
+title: 'Always Encrypted: SQL Database-Azure Key Vault '
 description: 이 문서에서는 SQL Server Management Studio의 상시 암호화 마법사를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다.
 keywords: 데이터 암호화, 암호화 키, 클라우드 암호화
 services: sql-database
@@ -12,16 +12,16 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 924ec20b9922d12da7291dc4f44b7413c68728c6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7ba19f3f3e03c414d651082898976c5bd17e89c9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569576"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691259"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-azure-key-vault"></a>Always Encrypted: 중요한 데이터 보호 및 Azure Key Vault에 암호화 키 저장
 
-이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/hh213248.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/mt459280.aspx)를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 또한 Azure Key Vault에 각 암호화 키를 저장하는 방법을 보여 주는 지침도 포함되어 있습니다.
+이 문서에서는 [SSMS(SQL Server Management Studio)](https://msdn.microsoft.com/library/mt459280.aspx)의 [상시 암호화 마법사](https://msdn.microsoft.com/library/hh213248.aspx)를 사용하여 데이터 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 또한 Azure Key Vault에 각 암호화 키를 저장하는 방법을 보여 주는 지침도 포함되어 있습니다.
 
 상시 암호화는 클라이언트와 서버 사이의 이동 중에, 그리고 데이터를 사용 중일 때 서버에서 중요한 미사용 데이터를 보호하는 Azure SQL Database 및 SQL Server 내의 새로운 데이터 암호 기술입니다. 상시 암호화는 중요한 데이터가 데이터베이스 시스템에서 일반 텍스트로 나타나지 않도록 보장합니다. 데이터 암호화를 구성한 후 키에 액세스할 수 있는 클라이언트 애플리케이션 또는 앱 서버만 일반 텍스트 데이터에 액세스할 수 있습니다. 자세한 내용은 [상시 암호화(데이터베이스 엔진)](https://msdn.microsoft.com/library/mt163865.aspx)를 참조하세요.
 
@@ -35,11 +35,11 @@ ms.locfileid: "68569576"
 * 데이터베이스 테이블을 만들고 열을 암호화합니다.
 * 암호화된 열에서 데이터를 삽입하고 선택하며 표시한 애플리케이션을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 이 자습서에는 다음이 필요합니다.
 
@@ -83,7 +83,7 @@ AAD(Azure Active Directory) 애플리케이션을 설정하고 애플리케이�
 
 
 ## <a name="create-a-blank-sql-database"></a>빈 SQL 데이터베이스 만들기
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **리소스 만들기** > **데이터베이스** > **SQL 데이터베이스**로 이동합니다.
 3. 새 서버 또는 기존 서버에 **클리닉**이라는 **빈** 데이터베이스를 만듭니다. Azure Portal에서 데이터베이스를 만드는 방법에 대한 자세한 지침은 [첫 번째 Azure SQL 데이터베이스](sql-database-single-database-get-started.md)를 참조하세요.
    
@@ -132,19 +132,19 @@ SSMS를 열고 클리닉 데이터베이스가 있는 서버에 연결합니다.
 ## <a name="encrypt-columns-configure-always-encrypted"></a>열 암호화(상시 암호화 구성)
 SSMS는 쉽게 열 마스터 키, 열 암호화 키 및 암호화된 열을 설정하여 상시 암호화를 쉽게 구성하는 마법사를 제공합니다.
 
-1. **데이터베이스**  >  **빈**  >  **테이블** 를 사용하여 데이터베이스 암호화로 SQL 데이터베이스의 중요한 데이터를 보호하는 방법을 보여 줍니다.
+1. **데이터베이스** > **빈** > **테이블**를 사용하여 데이터베이스 암호화로 SQL 데이터베이스의 중요한 데이터를 보호하는 방법을 보여 줍니다.
 2. **Patients** 테이블을 마우스 오른쪽 단추로 클릭하고 **열 암호화**를 선택하여 상시 암호화 마법사를 엽니다.
    
     ![열 암호화](./media/sql-database-always-encrypted-azure-key-vault/encrypt-columns.png)
 
-Always Encrypted 마법사에는 다음 섹션이 포함되어 있습니다. **열 선택**, **마스터 키 구성**, **유효성 검사** 및 **요약**.
+상시 암호화 마법사에는 **열 선택**, **마스터 키 구성**, **유효성 검사** 및 **요약** 섹션이 포함됩니다.
 
 ### <a name="column-selection"></a>열 선택
 **소개** 페이지에서 **다음**을 클릭하여 **열 선택** 페이지를 엽니다. 이 페이지에서 암호화하려는 열, [암호화 형식 및 사용할 CEK(열 암호화 키)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) 를 선택합니다.
 
 각 환자에 대해 **SSN** 및 **BirthDate** 정보를 암호화합니다. SSN 열은 같음 조회, 조인 및 그룹화를 지원하는 결정적 암호화를 사용합니다. BirthDate 열은 작업을 지원하지 않는 임의의 암호화를 사용합니다.
 
-SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 BirthDate 열을 **무작위**로 설정합니다. **다음**을 클릭합니다.
+SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 BirthDate 열을 **무작위**로 설정합니다. **다음**을 누릅니다.
 
 ![열 암호화](./media/sql-database-always-encrypted-azure-key-vault/column-selection.png)
 
@@ -155,7 +155,7 @@ SSN 열에 대한 **암호화 형식**을 **결정적**으로 설정하고 Birth
 
 1. **Azure Key Vault**를 선택합니다.
 2. 드롭다운 목록에서 원하는 주요 자격 증명 모음을 선택합니다.
-3. **다음**을 클릭합니다.
+3. **다음**을 누릅니다.
 
 ![마스터 키 구성](./media/sql-database-always-encrypted-azure-key-vault/master-key-configuration.png)
 
