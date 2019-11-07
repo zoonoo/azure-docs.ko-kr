@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 데이터 동기화 설정 | Microsoft Docs
+title: Azure SQL 데이터 동기화 설정
 description: 이 자습서에서는 Azure SQL 데이터 동기화 설정 방법을 보여줍니다.
 services: sql-database
 ms.service: sql-database
@@ -11,14 +11,14 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 01/14/2019
-ms.openlocfilehash: 37b8f64360e871236be7a8623460bbe75bd1d8b5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 082721ef1436d0b6668016aca29870016038af86
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568168"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689983"
 ---
-# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 SQL 데이터 동기화 설정
+# <a name="tutorial-set-up-sql-data-sync-between-azure-sql-database-and-sql-server-on-premises"></a>자습서: 온-프레미스에서 Azure SQL Database와 SQL Server 간에 SQL 데이터 동기화 설정
 
 이 자습서에서는 Azure SQL Database와 SQL Server 인스턴스를 모두 포함하는 동기화 그룹을 만들어 Azure SQL 데이터 동기화를 설정하는 방법에 대해 설명합니다. 동기화 그룹은 사용자 지정 방식으로 구성되며 사용자가 설정하는 일정에 따라 동기화됩니다.
 
@@ -48,7 +48,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
    **데이터 동기화 그룹 만들기** 페이지에서 다음 설정을 변경합니다.
 
-   | 설정                        | Description |
+   | 설정                        | 설명 |
    | ------------------------------ | ------------------------------------------------- |
    | **동기화 그룹 이름** | 새 동기화 그룹의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과 구분됩니다. |
    | **메타데이터 데이터베이스 동기화** | 데이터베이스를 만들지(권장) 아니면 기존 데이터베이스를 사용할지를 선택합니다.<br/><br/>**새 데이터베이스**를 선택하는 경우 **새 데이터베이스 만들기**를 선택합니다. **SQL 데이터베이스** 페이지에서 새 데이터베이스의 이름을 지정하고 데이터베이스를 구성한 다음 **확인**을 선택합니다.<br/><br/>**기존 데이터베이스 사용**을 선택하는 경우 목록에서 데이터베이스를 선택합니다. |
@@ -76,7 +76,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
   **Azure SQL Database 구성** 페이지에서 다음 설정을 변경합니다.
 
-  | 설정                       | Description |
+  | 설정                       | 설명 |
   | ----------------------------- | ------------------------------------------------- |
   | **동기화 구성원 이름** | 새 동기화 구성원의 이름을 입력합니다. 이 이름은 데이터베이스 자체의 이름과는 달라야 합니다. |
   | **구독** | 대금 청구용으로 연결된 Azure 구독을 선택합니다. |
@@ -119,7 +119,7 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
     1. 동기화 에이전트 앱에서 **에이전트 키 전송**을 선택합니다. **동기화 메타데이터 데이터베이스 구성** 대화 상자가 열립니다.
 
-    1. **동기화 메타데이터 데이터베이스 구성** 대화 상자에 Azure Portal에서 복사된 에이전트 키를 붙여 넣습니다. 또한 메타데이터 데이터베이스가 있는 Azure SQL Database 서버에 기존 자격 증명을 입력합니다. 메타데이터 데이터베이스를 만든 경우 이 데이터베이스는 허브 데이터베이스와 같은 서버에 저장됩니다. **확인**을 선택하고 구성이 완료되기를 기다립니다.
+    1. **동기화 메타데이터 데이터베이스 구성** 대화 상자에 Azure Portal에서 복사된 에이전트 키를 붙여 넣습니다. 또한 메타데이터 데이터베이스가 있는 Azure SQL Database 서버에 기존 자격 증명을 입력합니다. 메타 데이터 데이터베이스를 만든 경우이 데이터베이스는 허브 데이터베이스와 동일한 서버에 있습니다. **확인** 을 선택 하 고 구성이 완료 될 때까지 기다립니다.
 
         ![에이전트 키 및 서버 자격 증명을 입력합니다.](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
@@ -155,9 +155,9 @@ SQL 데이터 동기화를 구성하는 방법을 보여 주는 PowerShell 예�
 
 1. **테이블** 페이지의 동기화 그룹 구성원 목록에서 데이터베이스를 선택한 다음 **스키마 새로 고침**을 선택합니다.
 
-1. 목록에서 동기화할 테이블을 선택합니다. 기본적으로는 모든 열이 선택되므로 동기화하지 않을 열의 확인란 선택은 취소합니다. 선택한 기본 키 열을 남겨 두어야 합니다.
+1. 목록에서 동기화 할 테이블을 선택 합니다. 기본적으로 모든 열이 선택 되어 있으므로 동기화 하지 않을 열에 대해 확인란을 사용 하지 않도록 설정 합니다. 기본 키 열을 선택 된 상태로 두어야 합니다.
 
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 1. 데이터베이스는 동기화를 예약하거나 수동으로 실행할 때까지 기본적으로 동기화되지 않습니다. 수동 동기화를 실행하려면 Azure Portal에서 SQL 데이터베이스로 이동하여 **다른 데이터베이스와 동기화**를 선택하고 동기화 그룹을 선택합니다. **데이터 동기화** 페이지가 열립니다. **동기화**를 선택합니다.
 

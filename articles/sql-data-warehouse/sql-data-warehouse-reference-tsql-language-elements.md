@@ -1,5 +1,5 @@
 ---
-title: T-SQL 언어 요소 - Azure SQL Data Warehouse | Microsoft Docs
+title: T-SQL 언어 요소
 description: Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 5d623ebbb5434338e2d7263ca63dd545230a612d
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 02f463e12547ba64a05e04988d9c192bba4f6a27
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479428"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692518"
 ---
 # <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소
 Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명서 링크입니다.
@@ -26,7 +27,7 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [예약된 키워드](https://msdn.microsoft.com/library/ms189822.aspx)
 * [데이터 정렬](https://msdn.microsoft.com/library/ff848763.aspx)
 * [설명](https://msdn.microsoft.com/library/ms181627.aspx)
-* [constants](https://msdn.microsoft.com/library/ms179899.aspx)
+* [상수](https://msdn.microsoft.com/library/ms179899.aspx)
 * [데이터 형식](https://msdn.microsoft.com/library/ms187752.aspx)
 * [실행](https://msdn.microsoft.com/library/ms188332.aspx)
 * [식](https://msdn.microsoft.com/library/ms190286.aspx)
@@ -81,7 +82,7 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [|= (비트 OR 같음)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [&= (비트 AND 같음)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -225,7 +226,7 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [연도](https://msdn.microsoft.com/library/ms186313.aspx)
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
-## <a name="transactions"></a>의
+## <a name="transactions"></a>트랜잭션
 * [트랜잭션](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>진단 세션

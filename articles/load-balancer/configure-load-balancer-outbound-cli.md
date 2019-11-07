@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: allensu
-ms.openlocfilehash: 837df78ea76451c7dc5e16efde0e90b780b6ee50
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 503c8f71b7e26cfe6803a6df1d3fec9ef55cd5c3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275701"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571126"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Azure CLI를 사용하여 표준 Load Balancer에서 부하 분산 및 아웃바운드 규칙 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "68275701"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 2.0 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
@@ -42,14 +42,14 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --location eastus2
 ```
 ## <a name="create-virtual-network"></a>가상 네트워크 만들기
-[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet)를 사용하여 *myresourcegroupoutbound*에 *mysubnetoutbound*라는 서브넷이 있는 *myvnetoutbound*라는 가상 네트워크를 만듭니다.
+*az network vnet create*를 사용하여 *myresourcegroupoutbound*에 *mysubnetoutbound*라는 서브넷이 있는 [myvnetoutbound](https://docs.microsoft.com/cli/azure/network/vnet)라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
   az network vnet create \
     --resource-group myresourcegroupoutbound \
     --name myvnetoutbound \
     --address-prefix 192.168.0.0/16 \
-    --subnet-name mysubnetoutbound
+    --subnet-name mysubnetoutbound \
     --subnet-prefix 192.168.0.0/24
 ```
 
@@ -81,7 +81,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-인바운드 프런트 엔드 IP 구성을 포함 하 고 공용 IP 주소 와 연결 된 백 엔드 풀 *bepoolinbound*를 포함 하는*lb*라고 하는 [az network LB create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)를 사용 하 여 인바운드 IP 주소를 사용 하 여 Load Balancer를 만듭니다. 이전 단계에서 만든 *mypublicipinbound*입니다.
+인바운드 프런트 엔드 IP 구성을 포함 하 고 공용 IP 주소 와 연결 된 백 엔드 풀 [bepoolinbound](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)를 포함 하는*lb*라고 하는 *az network LB create*를 사용 하 여 인바운드 IP 주소를 사용 하 여 Load Balancer를 만듭니다. 이전 단계에서 만든 *mypublicipinbound*입니다.
 
 ```azurecli-interactive
   az network lb create \
@@ -118,7 +118,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-health-probe"></a>상태 프로브 만들기
 
-상태 프로브는 네트워크 트래픽을 보낼 수 있도록 모든 가상 컴퓨터 인스턴스를 검사합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
+상태 프로브는 네트워크 트래픽을 보낼 수 있도록 모든 가상 컴퓨터 인스턴스를 검사합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) 명령을 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -132,7 +132,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 
 ### <a name="create-load-balancing-rule"></a>부하 분산 규칙 만들기
 
-부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 명령을 사용하여 프런트 엔드 풀 *myfrontendinbound*의 포트 80에서 수신 대기하고 마찬가지로 포트 80을 사용하여 백 엔드 주소 풀 *bepool*에 부하 분산된 네트워크 트래픽을 보내는 *myinboundlbrule*이라는 부하 분산 장치 규칙을 만듭니다. 
+부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. *az network lb rule create* 명령을 사용하여 프런트 엔드 풀 [myfrontendinbound](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)의 포트 80에서 수신 대기하고 마찬가지로 포트 80을 사용하여 백 엔드 주소 풀 *bepool*에 부하 분산된 네트워크 트래픽을 보내는 *myinboundlbrule*이라는 부하 분산 장치 규칙을 만듭니다. 
 
 >[!NOTE]
 >이 부하 분산 규칙은 --disable-outbound-snat 매개 변수를 사용하는 이 규칙의 결과로 자동 아웃바운드 (S)NAT를 해제합니다. 아웃바운드 NAT는 아웃바운드 규칙을 통해서만 제공됩니다.
@@ -173,7 +173,7 @@ az network lb outbound-rule create \
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 부하 분산 장치 및 모든 관련 리소스를 제거할 수 있습니다.
+더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group#az-group-delete) 명령을 사용하여 리소스 그룹, 부하 분산 장치 및 모든 관련된 리소스를 제거할 수 있습니다.
 
 ```azurecli-interactive 
   az group delete --name myresourcegroupoutbound

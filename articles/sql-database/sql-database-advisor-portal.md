@@ -1,5 +1,5 @@
 ---
-title: 성능 권장 사항 적용 - Azure SQL Database | Microsoft Docs
+title: 성능 권장 사항 적용-Azure SQL Database
 description: Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 있는 성능 권장 사항을 찾을 수 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b6bcb2650cd11ed97b6e81fda6aaafe7fca61202
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 24a590a80e768bba2e9b102bdf200e0cd96858f8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569602"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691279"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 
@@ -28,20 +28,20 @@ Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 �
 
 다음 단계를 사용하여 Azure Portal에서 성능 권장 사항을 찾을 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스** > **SQL 데이터베이스**로 이동한 다음, 데이터베이스를 선택합니다.
 3. **성능 권장 사항**으로 이동하여 선택된 데이터베이스의 사용 가능한 권장 사항을 봅니다.
 
 성능 권장 사항은 다음 그림에서 보여주는 표와 비슷하게 표시됩니다.
 
-![권장 사항](./media/sql-database-advisor-portal/recommendations.png)
+![추천](./media/sql-database-advisor-portal/recommendations.png)
 
 권장 사항은 성능의 잠재적 영향 순으로 다음과 같은 카테고리에 정렬됩니다.
 
-| 영향 | Description |
+| 영향 | 설명 |
 |:--- |:--- |
 | 높음 |높은 영향 권장사항은 가장 중요한 성능 영향을 제공합니다. |
-| 보통 |중간 영향 권장 사항은 성능을 향상시키지만, 크게 향상시키지는 않습니다. |
+| 중간 |중간 영향 권장 사항은 성능을 향상시키지만, 크게 향상시키지는 않습니다. |
 | 낮음 |낮은 영향 권장 사항은 없는 것보다 나은 성능을 제공하지만, 향상된 기능이 눈에 띄지는 않습니다. |
 
 
@@ -127,13 +127,13 @@ Azure SQL Database가 권장 사항을 자동으로 구현하도록 설정할 �
 
 권장 구성을 적용해도 즉각적으로 일어나지 않을 수 있습니다. 포털에서는 권장 사항의 상태에 대한 세부 정보를 제공합니다. 다음은 인덱스 안에 나타날 수 있는 상태입니다.
 
-| Status | Description |
+| 가동 상태 | 설명 |
 |:--- |:--- |
-| 대기 중 |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
+| Pending |권장 사항 적용 명령을 수신했고 실행이 예약됩니다. |
 | 실행 중 |권장 사항을 적용 중입니다. |
 | 유효성 검사 중 |권장 사항이 성공적으로 적용되면 서비스가 성능을 측정합니다. |
-| Success |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
-| Error |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
+| 성공 |권장 사항이 성공적으로 적용되면 성능을 측정합니다. |
+| 오류 |권장 사항을 적용하는 과정 중에 오류가 발생했습니다. 일시적인 문제일 수도 있고, 테이블의 스키마변경 문제일 수도 있고, 스크립트가 더 이상 유효하지 않을 수도 있습니다. |
 | 되돌리기 |권장 사항이 적용되었지만 효율적이지 않은 것으로 간주되어 자동으로 되돌리고 있습니다. |
 | 되돌림 |권장 사항을 되돌렸습니다. |
 
@@ -164,7 +164,7 @@ Azure SQL Database는 SQL 데이터베이스 성능을 향상하기 위한 권�
 * Azure SQL Database 성능 권장 사항에 대한 개요는 [성능 권장 사항](sql-database-advisor.md)을 참조하세요.
 * 상위 쿼리의 성능에 미치는 영향을 알아보려면 [Query Performance Insights](sql-database-query-performance.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 * [쿼리 저장소](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [역할 기반 액세스 제어](../role-based-access-control/overview.md)

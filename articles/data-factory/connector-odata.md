@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 OData 원본에서 데이터 복사 | Microsoft Docs
+title: Azure Data Factory를 사용 하 여 OData 원본에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 OData 원본에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f3afccd2414ae4acbd31452d989e9540d36d512d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 85da7752575164ba505d788a5d45f5af0908edc9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090008"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680584"
 ---
 # <a name="copy-data-from-an-odata-source-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 OData 원본에서 데이터 복사
 
@@ -39,9 +39,9 @@ OData 소스에서 지원되는 모든 싱크 데이터 저장소로 데이터�
 특히 이 OData 커넥터는 다음을 지원합니다.
 
 - OData 버전 3.0 및 4.0
-- 인증 방법인 **익명**, **기본**, **Windows**, **AAD 서비스 주체** 및 **Azure 리소스의 관리 ID** 중 하나를 사용하여 데이터 복사
+- 다음 인증 중 하나를 사용 하 여 데이터를 복사 합니다. **익명**, **기본**, **Windows**, **AAD 서비스 사용자**및 **Azure 리소스에 대 한 관리 되는 id**입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -58,7 +58,7 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **형식** 속성은 **OData**로 설정해야 합니다. |예 |
-| url | OData 서비스의 루트 URL입니다. |예 |
+| URL | OData 서비스의 루트 URL입니다. |예 |
 | authenticationType | OData 원본에 연결하는 데 사용되는 인증 형식입니다. 허용되는 값은 **Anonymous**, **Basic**, **Windows**, **AadServicePrincipal** 및 **ManagedServiceIdentity**입니다. 사용자 기반 OAuth는 지원되지 않습니다. | 예 |
 | userName | Basic 또는 Windows 인증을 사용할 경우 **userName**을 지정합니다. | 아니요 |
 | password | **userName**에 지정한 사용자 계정의 **password**를 지정합니다. 이 필드를 **SecureString** 형식으로 표시하여 Data Factory에서 안전하게 저장합니다. 또한 [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)할 수도 있습니다. | 아니요 |
@@ -67,7 +67,7 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
 | servicePrincipalKey | Azure Active Directory 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
 | servicePrincipalEmbeddedCert | Azure Active Directory에 등록된 애플리케이션의 base64로 인코딩된 인증서를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
 | servicePrincipalEmbeddedCertPassword | 인증서가 암호로 보호되는 경우 인증서의 암호를 지정합니다. 이 필드를 **SecureString**으로 표시하여 Data Factory에 안전하게 저장하거나, [Azure Key Vault에 저장된 비밀을 참조](store-credentials-in-key-vault.md)합니다.  | 아니요|
-| 테넌트(tenant) | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 아니요 |
+| 테넌트 | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리를 마우스로 가리켜 검색합니다. | 아니요 |
 | aadResourceId | 권한 부여를 요청하는 AAD 리소스를 지정합니다.| 아니요 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아니요 |
 
@@ -165,7 +165,7 @@ OData 연결된 서비스에 다음 속성이 지원됩니다.
 }
 ```
 
-**예제 5: 서비스 주체 인증서 인증 사용**
+**예 5: 서비스 주체 인증서 인증 사용**
 
 ```json
 {
@@ -243,7 +243,7 @@ OData에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성을 **odatasource**로 설정 해야 합니다. | 예 |
-| query | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예를 들어, `"$select=Name,Description&$top=5"` 같은 형식입니다.<br/><br/>**참고**: OData 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니요 |
+| 쿼리 | 데이터 필터링에 대한 OData 쿼리 옵션입니다. 예: `"$select=Name,Description&$top=5"`.<br/><br/>**참고**: OData 커넥터가 결합된 URL(`[URL specified in linked service]/[path specified in dataset]?[query specified in copy activity source]`)에서 데이터를 복사합니다. 자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니요 |
 
 **예제**
 
@@ -277,7 +277,7 @@ OData에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 
 ]
 ```
 
-형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+형식화 된 원본 `RelationalSource` 사용 하 고 있는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="data-type-mapping-for-odata"></a>OData에 대한 데이터 형식 매핑
 
@@ -289,17 +289,17 @@ OData에서 데이터를 복사하는 경우 OData 데이터 형식과 Azure Dat
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
-| Edm.Decimal | Decimal |
+| Edm.Decimal | 10진수 |
 | Edm.Double | Double |
-| Edm.Single | Single |
+| Edm.Single | 단일 |
 | Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | String |
+| Edm.String | 문자열 |
 | Edm.Time | TimeSpan |
-| Edm.DateTimeOffset | DateTimeOffset |
+| Edm.DateTimeOffset | Datetimeoffset |
 
 > [!NOTE]
 > OData 복합 데이터 형식(예: **Object**)은 지원되지 않습니다.

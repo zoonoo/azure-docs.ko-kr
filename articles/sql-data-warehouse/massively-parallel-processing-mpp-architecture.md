@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics (이전의 SQL DW) 아키텍처 | Microsoft Docs
+title: Azure Synapse Analytics (이전의 SQL DW) 아키텍처
 description: Azure Synapse Analytics (이전의 SQL DW)가 대규모 병렬 처리 (MPP)와 Azure storage를 결합 하 여 고성능 및 확장성을 구현 하는 방법에 대해 알아봅니다.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b463b0806d39ba20ae714c8785e5c0d227ce481b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ea9629c63fcab97ba8ba83cd88592c37ae41818a
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466392"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646399"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics (이전의 SQL DW) 아키텍처 
 

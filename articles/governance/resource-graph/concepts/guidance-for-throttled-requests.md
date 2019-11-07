@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 1bbfd2a64de0b42da19d0a978874d564f1755c59
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 2dea1c160b07ac08075dad3a1ca1f6fc753e3481
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387621"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622645"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure 리소스 그래프의 제한 된 요청에 대 한 지침
 
@@ -30,13 +30,13 @@ Azure 리소스 그래프는 특정 기간에 따라 각 사용자에 대 한 �
 
 모든 쿼리 응답에서 Azure 리소스 그래프는 다음과 같은 두 개의 제한 헤더를 추가 합니다.
 
-- `x-ms-user-quota-remaining` (int): 사용자의 남은 리소스 할당량입니다. 이 값은 쿼리 수에 매핑됩니다.
+- `x-ms-user-quota-remaining` (int): 사용자에 대 한 나머지 리소스 할당량입니다. 이 값은 쿼리 수에 매핑됩니다.
 - `x-ms-user-quota-resets-after` (hh: mm: ss): 사용자의 할당량 소비가 다시 설정 될 때까지 소요 되는 기간입니다.
 
 헤더의 작동 방식을 설명 하기 위해 `x-ms-user-quota-remaining: 10` 및 `x-ms-user-quota-resets-after: 00:00:03`의 헤더와 값이 있는 쿼리 응답을 살펴보겠습니다.
 
 - 다음 3 초 이내에 최대 10 개의 쿼리를 제한 없이 제출할 수 있습니다.
-- 3 초 후에 `x-ms-user-quota-remaining` 및 `x-ms-user-quota-resets-after`의 값이 각각 `15` 및 `00:00:05`으로 다시 설정 됩니다.
+- 3 초 후에 `x-ms-user-quota-remaining` 및 `x-ms-user-quota-resets-after`의 값이 각각 `15` 및 `00:00:05`로 다시 설정 됩니다.
 
 헤더를 사용 하 여 쿼리 요청을 _백오프_ 하는 예제를 보려면 [query in Parallel](#query-in-parallel)의 샘플을 참조 하세요.
 
@@ -227,7 +227,7 @@ Azure 리소스 그래프가 단일 쿼리 응답에서 최대 1000 개 항목�
 
 ## <a name="still-get-throttled"></a>제한 된 상태 인가요?
 
-위의 권장 사항을 연습 한 후 제한 되는 경우 팀에 [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com)로 문의 하세요.
+위의 권장 사항을 연습 한 후 제한 되는 경우 팀에 문의 하 여 [resourcegraphsupport@microsoft.com](mailto:resourcegraphsupport@microsoft.com)합니다.
 
 다음 세부 정보를 제공 합니다.
 
@@ -240,4 +240,4 @@ Azure 리소스 그래프가 단일 쿼리 응답에서 최대 1000 개 항목�
 
 - [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
 - [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.
-- 리소스를 [탐색](explore-resources.md)하는 방법을 알아봅니다.
+- [리소스를 탐색](explore-resources.md)하는 방법에 대해 자세히 알아보세요.

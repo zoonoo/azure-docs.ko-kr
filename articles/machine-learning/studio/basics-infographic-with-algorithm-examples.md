@@ -1,6 +1,6 @@
 ---
 title: 알고리즘 예제
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 기계 학습 기본 사항의 이해하기 쉬운 개요에는 알고리즘 예제가 포함됩니다. 다운로드 가능한 인포그래픽은 대부분의 기계 학습 관련 질문을 다룹니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodc18
 ms.date: 03/04/2019
-ms.openlocfilehash: 0864bdaf31d94469d30a745cfb911cda2c2e493d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 31bf3a5aed69e7fd903342ef229dbc4d1e2530bc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493343"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619672"
 ---
 # <a name="downloadable-infographic-machine-learning-basics-with-algorithm-examples"></a>다운로드 가능한 인포그래픽: 알고리즘 예제를 포함한 기계 학습 기본 사항
 

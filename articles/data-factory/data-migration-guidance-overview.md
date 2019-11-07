@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 data lake 및 데이터 웨어하우스의 데이터를 Azure로 마이그레이션합니다. Microsoft Docs
+title: Azure Data Factory를 사용 하 여 data lake 및 데이터 웨어하우스의 데이터를 Azure로 마이그레이션합니다.
 description: Azure Data Factory를 사용 하 여 data lake 및 데이터 웨어하우스의 데이터를 Azure로 마이그레이션합니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/30/2019
-ms.openlocfilehash: 2d2fc1e2992e379c80a16dee2c1983f9559470c5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 0be9cbc9c5af2e0778654ef70c5350b48f10c35d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931121"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675771"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-your-data-lake-or-data-warehouse-to-azure"></a>Azure Data Factory를 사용 하 여 data lake 또는 데이터 웨어하우스의 데이터를 Azure로 마이그레이션
 
@@ -36,7 +36,7 @@ Data lake migration의 경우 페타바이트 (PB) 데이터를 이동 하 고 �
   - Azure Data Factory는 종 량 제 방법을 사용 하므로 Azure로의 데이터 마이그레이션을 실행 하는 데 실제로 사용한 시간에 대해서만 비용을 지불 합니다.  
 - Azure Data Factory는 일회성 기록 로드와 예약 된 증분 로드를 모두 수행할 수 있습니다.
 - Azure Data Factory는 Azure IR (통합 런타임)을 사용 하 여 공개적으로 액세스할 수 있는 data lake 및 웨어하우스 끝점 간에 데이터를 이동 합니다. 또한 VNet (Azure Virtual Network) 내에서 data lake 및 웨어하우스 끝점에 대 한 데이터를 이동 하거나 방화벽 뒤에 있는 자체 호스팅 IR을 사용할 수 있습니다.
-- Azure Data Factory에는 엔터프라이즈급 보안이 있습니다. 보안 서비스 간 통합을 위해 MSI (Windows Installer) 또는 서비스 Id를 사용 하거나 자격 증명 관리를 위해 Azure Key Vault를 사용할 수 있습니다.
+- 엔터프라이즈급 보안 Azure Data Factory: 보안 서비스 간 통합을 위해 MSI (Windows Installer) 또는 서비스 Id를 사용 하거나 자격 증명 관리에 Azure Key Vault를 사용할 수 있습니다.
 - Azure Data Factory은 코드 없는 제작 환경과 풍부한 기본 제공 모니터링 대시보드를 제공 합니다.  
 
 ## <a name="online-vs-offline-data-migration"></a>온라인 및 오프 라인 데이터 마이그레이션
@@ -51,7 +51,7 @@ Azure Data Factory는 네트워크 (인터넷, ER 또는 VPN)를 통해 데이�
 
 예를 들어 Azure Data Factory를 사용 하 여 2 주 ( *마이그레이션 창*) 내에서 데이터 마이그레이션을 완료할 계획인 경우를 가정 합니다. 다음 표에서 분홍색/파랑 줄을 확인 합니다. 지정 된 열에 대 한 가장 낮은 분홍색 셀은 마이그레이션 기간이 2 주 미만이 가장 가까운 데이터 크기/네트워크 대역폭 페어링을 표시 합니다. 파랑 셀의 모든 크기/대역폭 페어링에는 2 주 이상의 온라인 마이그레이션 기간이 있습니다. 
 
-![온라인 및 오프 라인](media/data-migration-guidance-overview/online-offline.png) 이 표에서는 데이터 크기 및 사용 가능한 네트워크 대역폭에 따라 온라인 마이그레이션 (Azure Data Factory)을 통해 원하는 마이그레이션 기간을 충족할 수 있는지 여부를 결정 하는 데 도움이 됩니다. 온라인 마이그레이션 기간이 2 주 이상 이면 오프 라인 마이그레이션을 사용 하는 것이 좋습니다.
+온라인 및 오프 라인](media/data-migration-guidance-overview/online-offline.png) ![이 표를 사용 하 여 데이터 크기 및 사용 가능한 네트워크 대역폭을 기반으로 하는 온라인 마이그레이션 (Azure Data Factory)을 통해 원하는 마이그레이션 기간을 충족할 수 있는지 여부를 확인할 수 있습니다. 온라인 마이그레이션 기간이 2 주 이상 이면 오프 라인 마이그레이션을 사용 하는 것이 좋습니다.
 
 > [!NOTE]
 > 온라인 마이그레이션을 사용 하면 단일 도구를 통해 기록 데이터 로드 및 증분 피드를 모두 달성할 수 있습니다.  이 방법을 통해 전체 마이그레이션 기간 동안 기존 저장소와 새 저장소 간에 데이터를 동기화 된 상태로 유지할 수 있습니다. 즉, 새로 고쳐진 데이터를 사용 하 여 새 저장소에서 ETL 논리를 다시 빌드할 수 있습니다.

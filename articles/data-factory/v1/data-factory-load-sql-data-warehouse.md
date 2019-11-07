@@ -1,5 +1,5 @@
 ---
-title: SQL Data Warehouse로 데이터(TB) 로드 | Microsoft Docs
+title: SQL Data Warehouse로 tb의 데이터 로드
 description: Azure Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 데이터를 로드하는 방법을 보여 줍니다.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 50a653648f3ae4b40e0bfe2c6f168cfb890bcc59
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 05dcff2276a799b1debc76e4f85fbbac6606eb59
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839100"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682542"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Data Factory를 통해 15분 내에 Azure SQL Data Warehouse에 1TB 로드
 > [!NOTE]
@@ -41,13 +41,13 @@ ms.locfileid: "67839100"
 > [!NOTE]
 >  Azure SQL Data Warehouse 간에 데이터를 이동하는 Data Factory 기능에 대한 일반적인 내용은 [Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 이동](data-factory-azure-sql-data-warehouse-connector.md) 문서를 참조하세요.
 >
-> Visual Studio, PowerShell 등을 사용 하 여 파이프라인을 빌드할 수 있습니다. 단계별 지침은 [자습서: Azure Blob에서 Azure SQL Database에 데이터 복사](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. Azure Data Factory에서 복사 작업을 사용하는 단계별 지침이 있는 빠른 연습을 볼 수 있습니다.  
+> Visual Studio, PowerShell 등을 사용 하 여 파이프라인을 빌드할 수도 있습니다. Azure Data Factory에서 복사 작업을 사용 하는 방법에 대 한 단계별 지침을 보려면 [자습서: Azure Blob에서 데이터 복사를 Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 합니다.  
 >
 >
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 * Azure Blob Storage: 이 실험에서는 Azure Blob Storage(GRS)를 사용하여 TPC-H 테스트 데이터 세트를 저장합니다.  Azure Storage 계정이 없을 경우 [스토리지 계정을 만드는 방법](../../storage/common/storage-quickstart-create-account.md)을 참조하세요.
-* [TPC-H](http://www.tpc.org/tpch/) 데이터: 데이터 세트으로는 TPC-H를 사용할 것입니다.  이렇게 하려면 데이터 세트를 생성하도록 도와주는 TPC-H 도구 키트의 `dbgen`을 사용해야 합니다.  [TPC 도구](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp)에서 `dbgen`에 대한 원본 코드를 다운로드하여 직접 컴파일하거나, [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools)에서 컴파일된 이진 파일을 다운로드할 수 있습니다.  dbgen.exe를 다음 명령과 함께 실행하여 10개 파일에 분산되어 있는 `lineitem` 표에 대한 1TB의 플랫 파일을 생성합니다.
+* [TPC-H](http://www.tpc.org/tpch/) 데이터: 데이터 세트으로는 TPC-H를 사용할 것입니다.  이렇게 하려면 데이터 세트를 생성하도록 도와주는 TPC-H 도구 키트의 `dbgen`을 사용해야 합니다.  `dbgen`TPC 도구[에서 ](http://www.tpc.org/tpc_documents_current_versions/current_specifications.asp)에 대한 원본 코드를 다운로드하여 직접 컴파일하거나, [GitHub](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/TPCHTools)에서 컴파일된 이진 파일을 다운로드할 수 있습니다.  dbgen.exe를 다음 명령과 함께 실행하여 10개 파일에 분산되어 있는 `lineitem` 표에 대한 1TB의 플랫 파일을 생성합니다.
 
   * `Dbgen -s 1000 -S **1** -C 10 -T L -v`
   * `Dbgen -s 1000 -S **2** -C 10 -T L -v`
@@ -117,7 +117,7 @@ ms.locfileid: "67839100"
 3. **새 데이터 팩터리** 창에서 다음을 수행합니다.
 
    1. **이름**으로 **LoadIntoSQLDWDataFactory**를 입력합니다.
-       Azure Data Factory 이름은 전역적으로 고유해야 합니다. 만약 **Data Factory 이름 “LoadIntoSQLDWDataFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 Data Factory 이름을 변경하고(예: yournameLoadIntoSQLDWDataFactory) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.  
+       Azure Data Factory 이름은 전역적으로 고유해야 합니다. **Data Factory 이름 “LoadIntoSQLDWDataFactory”를 사용할 수 없습니다.** 오류가 표시되는 경우 Data Factory 이름을 변경하고(예: yournameLoadIntoSQLDWDataFactory) 다시 만듭니다. 데이터 팩터리 아티팩트에 대한 명명 규칙은 [데이터 팩터리 - 명명 규칙](data-factory-naming-rules.md) 항목을 참조하세요.  
    2. Azure **구독**을 선택합니다.
    3. 리소스 그룹에 대해 다음 단계 중 하나를 수행합니다.
       1. **기존 항목 사용**을 선택하고 기존 리소스 그룹을 선택합니다.
@@ -142,12 +142,12 @@ ms.locfileid: "67839100"
 
 1. **작업 이름**으로 **CopyFromBlobToAzureSqlDataWarehouse**를 입력합니다.
 2. **지금 한 번 실행** 옵션을 선택합니다.   
-3. **다음**을 클릭합니다.  
+3. **다음**을 누릅니다.  
 
     ![복사 마법사 - 속성 페이지](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## <a name="step-2-configure-source"></a>2단계: 원본 구성
-이 섹션에서는 1-TB TPC-H 품목 파일을 포함하는 Azure Blob 원본의 구성 단계를 보여 줍니다.
+이 섹션에서는 1TB TPC-H 라인 항목 파일이 포함된 원본: Azure Blob을 구성하는 단계를 보여 줍니다.
 
 1. 데이터 저장소로 **Azure Blob Storage**를 선택하고 **다음**을 클릭합니다.
 
@@ -184,7 +184,7 @@ ms.locfileid: "67839100"
 
 ## <a name="step-4-performance-settings"></a>4단계: 성능 설정
 
-**Polybase 허용**은 기본적으로 선택됩니다.  **다음**을 클릭합니다.
+**Polybase 허용**은 기본적으로 선택됩니다.  **다음**을 누릅니다.
 
 ![복사 마법사 - 스키마 매핑 페이지](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
@@ -199,7 +199,7 @@ ms.locfileid: "67839100"
 
     오른쪽 패널의 **Activity Window Explorer**(활동 기간 탐색기)에서는 원본에서 읽고 대상에 쓴 데이터 볼륨, 기간, 평균 실행 처리량을 비롯한 복사 실행 세부 정보를 확인할 수 있습니다.
 
-    다음 스크린샷에서 보시는 14 분이 걸려서 실제로 1.22gbps 처리량 걸린 Azure Blob Storage에서 SQL Data Warehouse로 1TB를 복사!
+    다음 스크린샷에서 볼 수 있듯이 1TB를 Azure Blob Storage에서 SQL Data Warehouse로 복사 하는 데 14 분이 걸리며 1.22 g b 처리량을 효과적으로 달성 했습니다.
 
     ![복사 마법사 - 성공 대화 상자](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

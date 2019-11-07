@@ -1,5 +1,5 @@
 ---
-title: Azure-SSIS Integration Runtime에 대한 Azure Active Directory 인증 활성화 | Microsoft Docs
+title: Azure-SSIS Integration Runtime을 위한 Azure Active Directory 인증 활성화
 description: 이 문서에서는 Azure Data Factory에 대해 관리 ID와 함께 Azure Active Directory 인증을 사용하도록 설정하여 Azure-SSIS Integration Runtime을 만드는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
@@ -12,20 +12,20 @@ ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 51f67667caa9e0e564709de40c145b107c619b59
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 5f867126762924906aefada558a65cb68e884f6f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016003"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675661"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime을 위한 Azure Active Directory 인증 활성화
 
 이 문서에서는 Azure Data Factory (ADF)에 대해 관리 id를 사용 하 여 Azure Active Directory (Azure AD) 인증을 사용 하도록 설정 하 고 기본 인증 방법 (예: SQL 인증) 대신 사용 하 여 다음을 수행 하는 방법을 보여 줍니다.
 
-- 사용자를 대신 하 여 Azure SQL Database 서버/Managed Instance에서 SSISDB (SSIS 카탈로그 데이터베이스)를 프로 비전 하는 Azure SSIS Integration Runtime (IR)를 만듭니다.
+- 사용자를 대신 하 여 Azure SQL Database 서버/Managed Instance에서 SSISDB (SSIS 카탈로그 데이터베이스)를 프로 비전 하는 IR (Azure-SSIS Integration Runtime)를 만듭니다.
 
-- Azure SSIS IR에서 SSIS 패키지를 실행할 때 다양 한 Azure 리소스에 연결 합니다.
+- Azure-SSIS IR에서 SSIS 패키지를 실행할 때 다양 한 Azure 리소스에 연결 합니다.
 
 ADF의 관리 되는 id에 대 한 자세한 내용은 [Data Factory 관리 되는 identiy](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)을 참조 하세요.
 
@@ -126,7 +126,7 @@ Azure SQL Database 서버는 Azure AD 사용자로 데이터베이스 만들기�
 
    명령이 성공적으로 완료되면 포함된 사용자에게 데이터베이스(SSISDB)를 만들 수 있는 기능이 부여됩니다.
 
-10. SQL 인증을 사용 하 여 SSISDB를 만든 경우 Azure SSIS IR에 Azure AD 인증을 사용 하 여 액세스 하도록 전환 하려면 **ssisdb** 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **새 쿼리**를 선택 합니다.
+10. SQL 인증을 사용 하 여 SSISDB를 만든 경우 Azure-SSIS IR에 Azure AD 인증을 사용 하도록 전환 하려면 **ssisdb** 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **새 쿼리**를 선택 합니다.
 
 11. 쿼리 창에서 다음 T-sql 명령을 입력 하 고 도구 모음에서 **실행** 을 선택 합니다.
 
@@ -158,7 +158,7 @@ Azure SQL Database Managed Instance는 직접 ADF에 대한 관리 ID로 데이�
 
 1.  SSMS를 시작합니다.
 
-2.  **Sysadmin**인 SQL Server 계정을 사용 하 여 Managed Instance에 연결 합니다. Azure SQL Database Managed Instance에 대 한 Azure AD 서버 보안 주체 (로그인)가 GA 되 면 제거 되는 일시적인 제한입니다. Azure AD 관리자 계정을 사용하여 로그인을 만들려고 시도하면 다음 오류가 발생합니다. 메시지 15247, 수준 16, 상태 1, 줄 1 사용자에 게이 작업을 수행할 수 있는 권한이 없습니다.
+2.  **Sysadmin**인 SQL Server 계정을 사용 하 여 Managed Instance에 연결 합니다. Azure SQL Database Managed Instance에 대 한 Azure AD 서버 보안 주체 (로그인)가 GA 되 면 제거 되는 일시적인 제한입니다. Azure AD 관리자 계정을 사용 하 여 로그인을 만드는 경우 메시지 15247, 수준 16, 상태 1, 줄 1 사용자에 게이 작업을 수행할 수 있는 권한이 없는 경우 다음과 같은 오류가 표시 됩니다.
 
 3.  **개체 탐색기**에서 **데이터베이스** -> **시스템 데이터베이스** 폴더를 확장합니다.
 
@@ -174,7 +174,7 @@ Azure SQL Database Managed Instance는 직접 ADF에 대한 관리 ID로 데이�
     
     명령이 성공적으로 완료되면 ADF에 대한 관리 ID에 데이터베이스(SSISDB)를 만들 수 있는 기능이 부여됩니다.
 
-6.  SQL 인증을 사용 하 여 SSISDB를 만든 경우 Azure SSIS IR에 Azure AD 인증을 사용 하 여 액세스 하도록 전환 하려면 **ssisdb** 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **새 쿼리**를 선택 합니다.
+6.  SQL 인증을 사용 하 여 SSISDB를 만든 경우 Azure-SSIS IR에 Azure AD 인증을 사용 하도록 전환 하려면 **ssisdb** 데이터베이스를 마우스 오른쪽 단추로 클릭 하 고 **새 쿼리**를 선택 합니다.
 
 7.  쿼리 창에서 다음 T-sql 명령을 입력 하 고 도구 모음에서 **실행** 을 선택 합니다.
 
@@ -199,7 +199,7 @@ PowerShell을 사용하여 Azure-SSIS IR을 프로비전하려면 다음 작업�
 
 1.  [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018)  모듈을 설치합니다.
 
-2.  스크립트에서 `CatalogAdminCredential` 매개 변수를 설정하지 마세요. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.
+2.  스크립트에서 `CatalogAdminCredential` 매개 변수를 설정하지 마세요. 예:
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
@@ -222,7 +222,7 @@ PowerShell을 사용하여 Azure-SSIS IR을 프로비전하려면 다음 작업�
 
 ## <a name="run-ssis-packages-with-managed-identity-authentication"></a>관리 Id 인증을 사용 하 여 SSIS 패키지 실행
 
-Azure SSIS IR에서 SSIS 패키지를 실행 하는 경우 관리 되는 id 인증을 사용 하 여 다양 한 Azure 리소스에 연결할 수 있습니다. 현재는 다음 연결 관리자에서 관리 되는 id 인증을 이미 지원 합니다.
+Azure-SSIS IR에서 SSIS 패키지를 실행 하는 경우 관리 id 인증을 사용 하 여 다양 한 Azure 리소스에 연결할 수 있습니다. 현재는 다음 연결 관리자에서 관리 되는 id 인증을 이미 지원 합니다.
 
 - [OLE DB 연결 관리자](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager#managed-identities-for-azure-resources-authentication)
 

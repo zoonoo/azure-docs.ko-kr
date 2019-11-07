@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/16/2017
 ms.author: genli
-ms.openlocfilehash: faa15e9cf6288bcd4014cbc03dcf9d82a2047bde
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1b91a39e1297d8952da67a4f8d3b8568cefe04ce
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71088366"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620555"
 ---
 # <a name="troubleshoot-a-linux-vm-by-attaching-the-os-disk-to-a-recovery-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 OS 디스크를 복구 VM에 연결하는 방식으로 Linux VM 문제 해결
 Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우 가상 하드 디스크에서 바로 문제 해결 단계를 수행해야 합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목으로 인해 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에는 가상 하드 디스크를 다른 Linux VM에 연결하여 모든 오류를 수정한 후 원래 VM을 다시 만들기 위해 Azure CLI를 사용하는 방법을 자세히 설명합니다. 
@@ -44,7 +44,7 @@ Linux 가상 머신(VM)에 부팅 또는 디스크 오류가 발생하는 경우
 ## <a name="determine-boot-issues"></a>부팅 문제 확인
 VM이 올바르게 부팅할 수 없는 원인을 확인하려면 직렬 출력을 검사합니다. 일반적인 예로는 `/etc/fstab`의 잘못된 항목 또는 삭제하거나 이동 중인 기본 가상 하드 디스크입니다.
 
-[az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics)를 사용하여 부팅 로그를 가져옵니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`에서 직렬 출력을 수신합니다.
+[az vm boot-diagnostics get-boot-log](/cli/azure/vm/boot-diagnostics)를 사용하여 부팅 로그를 가져옵니다. 다음 예제에서는 리소스 그룹 `myVM`의 VM `myResourceGroup`에서 직렬 출력을 수신합니다.
 
 ```azurecli
 az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
@@ -54,7 +54,7 @@ az vm boot-diagnostics get-boot-log --resource-group myResourceGroup --name myVM
 
 ## <a name="stop-the-vm"></a>VM을 중지합니다.
 
-다음 예제에서는 리소스 그룹 `myResourceGroup`에서 VM `myVM`을 중지합니다.
+다음 예제에서는 리소스 그룹 `myVM`에서 VM `myResourceGroup`을 중지합니다.
 
 ```azurecli
 az vm stop --resource-group MyResourceGroup --name MyVm
@@ -72,7 +72,7 @@ az snapshot create --resource-group myResourceGroupDisk --source "$osdiskid" --n
 ```
 ## <a name="create-a-disk-from-the-snapshot"></a>스냅샷에서 디스크 만들기
 
-이 스크립트에서는 `mySnapshot`이라는 스냅샷에서 `myOSDisk` 이름으로 관리 디스크를 만듭니다.  
+이 스크립트에서는 `myOSDisk`이라는 스냅샷에서 `mySnapshot` 이름으로 관리 디스크를 만듭니다.  
 
 ```azurecli
 #Provide the name of your resource group
@@ -105,14 +105,14 @@ az disk create --resource-group $resourceGroup --name $osDisk --sku $storageType
 
 ```
 
-리소스 그룹과 원본 스냅숏이 동일한 영역에 없는 경우를 실행할 `az disk create`때 "리소스를 찾을 수 없음" 오류가 표시 됩니다. 이 경우를 지정 `--location <region>` 하 여 원본 스냅숏과 동일한 지역에 디스크를 만들어야 합니다.
+리소스 그룹과 원본 스냅숏이 동일한 영역에 없는 경우 `az disk create`를 실행 하면 "리소스를 찾을 수 없음" 오류가 표시 됩니다. 이 경우 `--location <region>`를 지정 하 여 원본 스냅숏과 동일한 영역에 디스크를 만들어야 합니다.
 
 이제 원본 OS 디스크의 복사본이 마련됐습니다. 문제 해결을 위해이 새 디스크를 다른 Windows VM에 탑재할 수 있습니다.
 
 ## <a name="attach-the-new-virtual-hard-disk-to-another-vm"></a>새 가상 하드 디스크를 다른 VM에 연결
 다음 몇 단계에서는 문제 해결을 위해 다른 VM을 사용합니다. 디스크를이 문제 해결 VM에 연결 하 여 디스크의 콘텐츠를 찾아보고 편집 합니다. 이 프로세스를 통해 모든 구성 오류를 수정 하거나 추가 응용 프로그램 또는 시스템 로그 파일을 검토할 수 있습니다.
 
-이 스크립트는 디스크 `myNewOSDisk` 를 VM `MyTroubleshootVM`에 연결 합니다.
+이 스크립트는 VM `MyTroubleshootVM`에 `myNewOSDisk` 디스크를 연결 합니다.
 
 ```azurecli
 # Get ID of the OS disk that you just created.
@@ -126,7 +126,7 @@ az vm disk attach --disk $diskId --resource-group MyResourceGroup --size-gb 128 
 > [!NOTE]
 > 다음 예제에서는 Ubuntu VM에 필요한 단계를 자세히 설명합니다. Red Hat Enterprise Linux 또는 SUSE와 같은 다른 Linux 배포판을 사용하는 경우 로그 파일 위치와 `mount` 명령을 약간 다를 수 있습니다. 명령의 적절한 변경에 대한 특정 배포에 대한 설명서를 참조하세요.
 
-1. 적절한 자격 증명을 사용하여 문제 해결 VM에 대한 SSH입니다. 이 디스크가 문제 해결 VM에 연결된 첫 번째 데이터 디스크인 경우 디스크는 `/dev/sdc`에 연결할 수 있습니다. `dmseg`를 사용하여 연결된 디스크를 볼 수 있습니다.
+1. 적절한 자격 증명을 사용하여 문제 해결 VM에 대한 SSH입니다. 이 디스크가 문제 해결 VM에 연결된 첫 번째 데이터 디스크인 경우 디스크는 `/dev/sdc`에 연결할 수 있습니다. `dmesg`를 사용하여 연결된 디스크를 볼 수 있습니다.
 
     ```bash
     dmesg | grep SCSI

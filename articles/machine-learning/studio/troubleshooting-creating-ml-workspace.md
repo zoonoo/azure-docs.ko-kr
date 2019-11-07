@@ -1,6 +1,6 @@
 ---
 title: 작업 영역 문제 해결
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 이 가이드에서는 Azure Machine Learning Studio 작업 영역의 클래식 버전을 설정할 때 자주 발생 하는 몇 가지 문제에 대 한 해결 방법을 제공 합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 7d4aebf71ef16287a415e4c39eed1328c9359f6c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2f305f74a4bbf15fdda9a8801e73bda70fab6deb
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492598"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622115"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-azure-machine-learning-studio-classic-workspace"></a>문제 해결 가이드: Azure Machine Learning Studio (클래식) 작업 영역 만들기 및 연결
 이 가이드는 Azure Machine Learning Studio (클래식) 작업 영역을 설정할 때 자주 발생 하는 몇 가지 문제에 대 한 해결 방법을 제공 합니다.

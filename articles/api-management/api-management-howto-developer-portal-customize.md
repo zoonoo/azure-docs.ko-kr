@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 62fb5552d86a802c3ba0213d99be2f91f21025e2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7547db502056304307094541dcfd2474eda999d8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472132"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620431"
 ---
 # <a name="access-and-customize-developer-portal"></a>개발자 포털 액세스 및 사용자 지정
 
@@ -125,7 +125,7 @@ ms.locfileid: "73472132"
 
 ## <a name="visit-the-published-portal"></a>게시 된 포털 방문
 
-포털을 게시 한 후에는 관리 패널과 동일한 URL (예: `https://contoso-api.portal.azure-api.net`에 액세스할 수 있습니다. 새 브라우저 탭에서 열어 외부 방문자로 볼 수 있습니다.
+포털을 게시 한 후에는 관리 패널과 동일한 URL (예: `https://contoso-api.developer.azure-api.net`에 액세스할 수 있습니다. 별도의 브라우저 세션 (incognito/개인 검색 모드)에서 외부 방문자로 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c52adfb919586fc590ef60215592a5b5c1c1cb3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3fd97e33c88e7767e1d9b230792aea675a744f27
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476127"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619779"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -88,9 +88,19 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 
 ## <a name="datasets-and-data-preparation"></a>데이터 집합 및 데이터 준비
 
+Azure Machine Learning 데이터 집합에 대 한 알려진 문제입니다.
+
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>HTTP 또는 ADLS Gen 2에서 Parquet 파일을 읽지 못했습니다.
 
-AzureML DataPrep SDK 버전 1.1.25에는 HTTP 또는 ADLS Gen 2에서 Parquet 파일을 읽어 데이터 집합을 만들 때 오류가 발생 하는 알려진 문제가 있습니다. 이 문제를 해결 하려면 1.1.26 보다 높은 버전으로 업그레이드 하거나 1.1.24 보다 낮은 버전으로 다운 그레이드 하세요.
+AzureML DataPrep SDK 버전 1.1.25에는 HTTP 또는 ADLS Gen 2에서 Parquet 파일을 읽어 데이터 집합을 만들 때 오류가 발생 하는 알려진 문제가 있습니다. `Cannot seek once reading started.`는 실패 합니다. 이 문제를 해결 하려면 `azureml-dataprep`를 1.1.26 보다 높은 버전으로 업그레이드 하거나 1.1.24 보다 낮은 버전으로 다운 그레이드 하세요.
+
+```python
+pip install --upgrade azureml-dataprep
+```
+
+### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: mount ()에서 예기치 않은 키워드 인수 ' invocation_id '를 가져왔습니다.
+
+`azureml-core`와 `azureml-dataprep`간에 호환 되지 않는 버전이 있는 경우이 오류가 발생 합니다. 이 오류가 표시 되는 경우 `azureml-dataprep` 패키지를 최신 버전으로 업그레이드 합니다 (1.1.29 보다 크거나 같음).
 
 ```python
 pip install --upgrade azureml-dataprep
@@ -146,15 +156,8 @@ displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.g
 Azure Databricks 클러스터에서 데이터를 읽을 때 `FailToSendFeather` 오류가 표시 되는 경우 다음 해결 방법을 참조 하세요.
 
 * `azureml-sdk[automl]` 패키지를 최신 버전으로 업그레이드 합니다.
-* `azure-dataprep` 버전 1.1.8 이상을 추가 합니다.
+* `azureml-dataprep` 버전 1.1.8 이상을 추가 합니다.
 * `pyarrow` 버전 0.11 이상을 추가 합니다.
-
-
-## <a name="datasets"></a>데이터 세트
-
-Azure Machine Learning 데이터 집합에 대 한 알려진 문제입니다.
-
-+ **Azure Data Lake Storage Gen2 parquet 파일을 읽지 못했습니다.** `azureml-dataprep==1.1.25` 설치 되어 있으면 Azure Data Lake Storage Gen2 데이터 저장소에서 parquet 파일 읽기가 작동 하지 않습니다. `Cannot seek once reading started.`는 실패 합니다. 이 오류가 표시 되 면 `azureml-dataprep<=1.1.24` 설치 하거나 `azureml-dataprep>=1.1.26`를 설치 합니다.
 
 ## <a name="azure-portal"></a>Azure portal
 
@@ -262,3 +265,23 @@ Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경�
 
 ### <a name="horovod-is-shutdown"></a>Horovod가 종료 되었습니다.
 대부분의 경우이 예외는 horovod를 종료 시킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그 이름에 `_rank`을 지정 하 여 로그를 쉽게 구분할 수 있습니다. Horovod shutdown이 발생 한 정확한 오류를 찾으려면 모든 로그 파일을 살펴보고 driver_log 파일의 끝에 있는 `Traceback`를 찾습니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
+
+## <a name="labeling-projects-issues"></a>프로젝트 문제 레이블 지정
+
+프로젝트 레이블 지정의 알려진 문제입니다.
+
+### <a name="only-datasets-created-on-blob-datastores-can-be-used"></a>Blob 데이터 저장소에서 만든 데이터 집합만 사용할 수 있습니다.
+
+현재 릴리스의 알려진 제한 사항입니다. 
+
+### <a name="after-creation-the-project-shows-initializing-for-a-long-time"></a>프로젝트를 만든 후에는 오랜 시간 동안 "초기화 중"이 표시 됩니다.
+
+페이지를 수동으로 새로 고칩니다. 초기화는 초당 약 20 datapoints 진행 되어야 합니다. Autorefresh의 부족은 알려진 문제입니다. 
+
+### <a name="bounding-box-cannot-be-drawn-all-the-way-to-right-edge-of-image"></a>경계 상자는 이미지의 오른쪽 가장자리까지 그릴 수 없습니다. 
+
+브라우저 창의 크기를 조정 해 보세요. 이 동작의 원인을 확인 하기 위해 조사 중입니다. 
+
+### <a name="when-reviewing-images-newly-labeled-images-are-not-shown"></a>이미지를 검토할 때 새로 레이블이 지정 된 이미지는 표시 되지 않습니다.
+
+레이블이 지정 된 모든 이미지를 로드 하려면 **첫 번째** 단추를 선택 합니다. **첫 번째** 단추는 목록 맨 앞으로 다시 이동 하지만 레이블이 지정 된 모든 데이터를 로드 합니다.

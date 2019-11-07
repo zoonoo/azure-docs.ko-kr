@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 보조 사이트에 VMM 클라우드의 Hyper-V VM 복제에 대한 테스트 결과 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 VMM을 사용 하 여 보조 사이트로 Hyper-v VM 복제 테스트
 description: 이 문서에서는 Azure Site Recovery를 사용하여 보조 사이트에 VMM 클라우드의 Hyper-V VM 복제에 대한 성능 테스트에 대해 정보를 제공합니다.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: a7413b2dcb24a42092eb2af9816b1d29a8306e19
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 3edd182e335bc679d95d7be64f45b617a9f54c1a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68377217"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663183"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>보조 사이트로 Hyper-V 복제에 대한 테스트 결과
 
@@ -106,7 +106,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 ![기본 하드웨어 요구 사항](./media/hyper-v-vmm-performance-results/IC744922.png)
 
-| 서버 | RAM | Model | 프로세서 | 프로세서 수 | NIC | 소프트웨어 |
+| 서버 | RAM | 모델 | 프로세서 | 프로세서 수 | NIC | 소프트웨어 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 클러스터의 Hyper-V 서버: <br />ESTLAB-HOST11<br />ESTLAB-HOST12<br />ESTLAB-HOST13<br />ESTLAB-HOST14<br />ESTLAB-HOST25 |128<br />ESTLAB-HOST25의 256 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 |IGbps 4개 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | VMM 서버 |2 | | |2 |1Gbps |Windows Server Database 2012 R2 (x64) + VMM 2012 R2 |
@@ -118,7 +118,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 
 ![기본 하드웨어 사양](./media/hyper-v-vmm-performance-results/IC744923.png)
 
-| 서버 | RAM | Model | 프로세서 | 프로세서 수 | NIC | 소프트웨어 |
+| 서버 | RAM | 모델 | 프로세서 | 프로세서 수 | NIC | 소프트웨어 |
 | --- | --- | --- | --- | --- | --- | --- |
 | 클러스터의 Hyper-V 서버: <br />ESTLAB-HOST07<br />ESTLAB-HOST08<br />ESTLAB-HOST09<br />ESTLAB-HOST10 |96 |Dell ™ PowerEdge ™ R720 |Intel(R) Xeon(R) CPU E5-2630 0 \@ 2.30GHz |2 |IGbps 4개 |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
 | ESTLAB-HOST17 |128 |Dell ™ PowerEdge ™ R820 |Intel(R) Xeon(R) CPU E5-4620 0 \@ 2.20GHz |4 | |Windows Server Datacenter 2012 R2 (x64) + Hyper-V role |
@@ -145,7 +145,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 * VHDX 디스크를 사용하는 모든 VM입니다.
 * 표에 요약된 작업을 실행하는 VM입니다. 모두 VMM 템플릿으로 생성되었습니다.
 
-| 작업 | VM 수 | 최소 RAM(GB) | 최대 RAM(GB) | VM당 논리 디스크 크기(GB) | 최대 IOPS |
+| 워크로드 | VM 수 | 최소 RAM(GB) | 최대 RAM(GB) | VM당 논리 디스크 크기(GB) | 최대 IOPS |
 | --- | --- | --- | --- | --- | --- |
 | SQL Server |51 |1 |4 |167 |10 |
 | Exchange Server |71 |1 |4 |552 |10 |
@@ -159,7 +159,7 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 * Site Recovery는 온-프레미스 간 보호로 구성됨
 * VMM 서버에는 Hyper-V 클러스터 서버 및 해당 VM을 비롯하여 4개의 클라우드로 구성됩니다.
 
-| 기본 VMM 클라우드 | 보호된 VM | 복제 빈도 | 추가 복구 지점 |
+| 기본 VMM 클라우드 | 보호되는 VM | 복제 빈도 | 추가 복구 지점 |
 | --- | --- | --- | --- |
 | PrimaryCloudRpo15m |142 |15분 |없음 |
 | PrimaryCloudRpo30s |47 |30초 |없음 |
@@ -175,10 +175,10 @@ Hyper-V 복제본은 복구 서버에 적은 양의 메모리를 사용하여 �
 | CPU |\Processor(_Total)\% 프로세서 시간 |
 | 사용 가능한 메모리 |\Memory\사용 가능한 MB |
 | IOPS |\PhysicalDisk(_Total)\디스크 전송/초 |
-| VM 읽기(IOPS) 작업/초 |\Hyper-V Virtual Storage Device(\<VHD>)\Read Operations/Sec |
-| VM 쓰기(IOPS) 작업/초 |\Hyper-V Virtual Storage Device(\<VHD>)\Write Operations/S |
-| VM 읽기 처리량 |\Hyper-V Virtual Storage Device(\<VHD>)\Read Bytes/sec |
-| VM 쓰기 처리량 |\Hyper-V Virtual Storage Device(\<VHD>)\Write Bytes/sec |
+| VM 읽기(IOPS) 작업/초 |\Hyperv-v 가상 저장소 장치 (\<VHD >) \Read 작업/초 |
+| VM 쓰기(IOPS) 작업/초 |\Hyperv-v 가상 저장소 장치 (\<VHD >) \Write 작업/S |
+| VM 읽기 처리량 |\Hyper-V 가상 저장소 장치 (\<VHD >) \Read Bytes/sec |
+| VM 쓰기 처리량 |\Hyperv-v 가상 저장소 장치 (\<VHD >) \Write Bytes/sec |
 
 ## <a name="next-steps"></a>다음 단계
 

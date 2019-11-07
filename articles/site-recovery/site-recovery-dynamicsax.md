@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 다중 계층 Dynamics AX 배포에 대한 재해 복구 설정 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 다중 계층 Dynamics AX 배포에 대 한 재해 복구 Microsoft Docs
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Dynamics AX에 대한 재해 복구를 설정하는 방법을 설명합니다.
 author: asgang
 manager: rochakm
@@ -7,19 +7,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: b97bf56c23dfa96acf7cb5af5ac28b4270de117d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5b8aaff3a3418177f92c3b54fb3bb3e99f93810e
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61281486"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73620748"
 ---
 # <a name="set-up-disaster-recovery-for-a-multitier-dynamics-ax-application"></a>다중 계층 Dynamics AX 애플리케이션에 대한 재해 복구 설정   
 
 
 
 
- Dynamics AX는 여러 위치 간 프로세스를 표준화하고 리소스를 관리하며 규정 준수를 간소화하려는 기업들에게 가장 인기 있는 ERP 솔루션 중 하나입니다. 애플리케이션은 조직에 매우 중요하므로 재해 발생 시 최소한의 시간으로 애플리케이션이 가동될 수 있어야 합니다.
+ Dynamics AX는 위치 간 프로세스, 리소스 관리 및 규정 준수 간소화를 표준화하는 기업들에게 가장 인기 있는 ERP 솔루션 중 하나입니다. 애플리케이션은 조직에 매우 중요하므로 재해 발생 시 최소한의 시간으로 애플리케이션이 가동될 수 있어야 합니다.
 
 현재 Dynamics AX는 기본적으로 재해 복구 기능을 제공하지 않습니다. Dynamics AX는 Windows Application Object Server, Azure Active Directory, Azure SQL Database, SharePoint Server 및 Reporting Services 등의 여러 서버 구성 요소로 이루어져 있습니다. 이러한 각 구성의 재해 복구를 수동으로 관리하려면 비용이 많이 들 뿐만 아니라 오류가 발생하기 쉽습니다.
 
@@ -39,7 +39,7 @@ Site Recovery를 사용하여 Dynamics AX 애플리케이션의 재해 복구를
 
 ## <a name="site-recovery-support"></a>Site Recovery 지원
 
-이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise에서 Dynamics AX 2012 R3가 있는 VMware 가상 머신이 사용되었습니다. Site Recovery 복제는 애플리케이션에 상관없이 실행되므로 여기서 제시하는 권장 사항은 다음 시나리오에서도 적용될 것입니다.
+이 문서를 작성하기 위해 Windows Server 2012 R2 Enterprise에서 Dynamics AX 2012 R3가 있는 VMware 가상 머신이 사용되었습니다. Site Recovery 복제는 애플리케이션을 제한하지 않으므로 여기서 제시하는 권장 사항은 다음 시나리오에서도 유지됩니다.
 
 ### <a name="source-and-target"></a>원본 및 대상
 
@@ -51,15 +51,15 @@ Site Recovery를 사용하여 Dynamics AX 애플리케이션의 재해 복구를
 
 ## <a name="enable-disaster-recovery-of-the-dynamics-ax-application-by-using-site-recovery"></a>Site Recovery를 사용하여 Dynamics AX 애플리케이션의 재해 복구를 활성화
 ### <a name="protect-your-dynamics-ax-application"></a>Dynamics AX 애플리케이션 보호
-완전한 애플리케이션 복제 및 복구가 가능하려면 Dynamics AX의 각 구성 요소를 보호해야 합니다.
+완전한 애플리케이션 복제 및 복구를 위해서는 Dynamics AX의 각 구성 요소를 보호해야 합니다.
 
 ### <a name="1-set-up-active-directory-and-dns-replication"></a>1. Active Directory 및 DNS 복제 설정
 
-Dynamics AX 애플리케이션이 작동하려면 재해 복구 사이트에 Active Directory가 필요합니다. 다음은 고객의 온-프레미스 환경의 복잡도에 따라 권장되는 두 가지 옵션입니다.
+Dynamics AX 애플리케이션이 작동하려면 재해 복구 사이트에 Active Directory가 필요합니다. 고객의 온-프레미스 환경의 복잡도에 따라 다음 두 옵션이 권장됩니다.
 
 **옵션 1**
 
-고객은 온-프레미스 사이트 전체에 적은 수의 애플리케이션과 단 하나의 도메인 컨트롤러를 사용하고 있으며, 전체 사이트를 한 번에 장애 조치(failover)할 계획입니다. 이 경우 Site Recovery 복제를 사용하여 도메인 컨트롤러 컴퓨터를 보조 사이트로 복제하는 것을 권장합니다(사이트-사이트 시나리오와 사이트-Azure 시나리오에 모두 적용 가능).
+고객은 온-프레미스 사이트 전체에 적은 수의 애플리케이션과 단 하나의 도메인 컨트롤러를 사용하고 있으며, 전체 사이트를 한 번에 장애 조치(failover)할 계획입니다. Site Recovery 복제를 사용하여 도메인 컨트롤러 컴퓨터를 보조 사이트에 복제하는 것이 좋습니다(사이트 간 및 사이트-Azure 시나리오에 모두 적용 가능).
 
 **옵션 2**
 
@@ -70,7 +70,7 @@ Dynamics AX 애플리케이션이 작동하려면 재해 복구 사이트에 Act
 ### <a name="2-set-up-sql-server-replication"></a>2. SQL Server 복제 설정
 SQL 계층 보호를 위해 권장되는 옵션에 대한 기술 지침은 [SQL Server 및 Azure Site Recovery를 통한 애플리케이션 복제](site-recovery-sql.md)를 참조하세요.
 
-### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Dynamics AX 클라이언트 및 Application Object Server VM에 대해 보호 사용
+### <a name="3-enable-protection-for-the-dynamics-ax-client-and-application-object-server-vms"></a>3. Dynamics AX 클라이언트 및 응용 프로그램 개체 서버 Vm에 대 한 보호 사용
 VM이 [Hyper-V](site-recovery-hyper-v-site-to-azure.md) 또는 [VMware](site-recovery-vmware-to-azure.md)에 배포되었는지 여부에 따라 관련 Site Recovery 구성을 수행합니다.
 
 > [!TIP]
@@ -82,7 +82,7 @@ VM이 [Hyper-V](site-recovery-hyper-v-site-to-azure.md) 또는 [VMware](site-rec
 ![보호된 항목](./media/site-recovery-dynamics-ax/protecteditems.png)
 
 ### <a name="4-configure-networking"></a>4. 네트워킹 구성
-**VM 계산 및 네트워크 설정 구성**
+**VM 컴퓨팅 및 네트워크 설정 구성**
 
 Dynamics AX 클라이언트 및 Application Object Server VM의 경우 Site Recovery에서 네트워크 설정을 구성하여 장애 조치 후에 VM 네트워크가 올바른 재해 복구 네트워크에 연결되도록 합니다. 이러한 계층에 대한 재해 복구 네트워크가 SQL 계층으로 라우팅할 수 있는지 확인합니다.
 
@@ -118,20 +118,20 @@ Site Recovery에서 복구 계획을 만들어 장애 조치 프로세스를 자
 다음 단계를 추가하여 Dynamics AX 애플리케이션에 대한 복구 계획을 사용자 지정할 수 있습니다. 앞의 스냅샷은 단계를 모두 추가한 후 전체 복구 계획을 보여 줍니다.
 
 
-* **SQL Server 장애 조치(failover) 단계**: SQL Server 관련 복구 단계에 대한 자세한 내용은 [SQL Server 및 Azure Site Recovery를 통한 애플리케이션 복제](site-recovery-sql.md)를 참조하세요.
+* **SQL Server 장애 조치 단계**: SQL Server 특정 복구 단계에 정보는 [SQL Server 및 Azure Site Recovery를 통한 애플리케이션 복제](site-recovery-sql.md)를 참조하세요.
 
-* **장애 조치(failover) 그룹 1** 애플리케이션 개체 서버 VM을 장애 조치합니다.
+* **장애 조치 그룹 1**: Application Object Server VM을 장애 조치합니다.
 선택한 복구 지점이 데이터베이스 PIT에 최대한 근접하면서도 앞서지 않도록 합니다.
 
 * **스크립트**: 부하 분산 장치(E-A만)를 추가합니다.
 Application Object Server VM 그룹이 나온 뒤 스크립트를 추가(Azure Automation을 통해)하여 부하 분산 장치를 추가합니다. 스크립트를 사용하여 이 작업을 수행할 수 있습니다. 자세한 내용은 [다중 계층 애플리케이션의 재해 복구를 위해 부하 분산 장치를 추가하는 방법](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/)을 참조하세요.
 
-* **장애 조치(failover) 그룹 2**: Dynamics AX 클라이언트 VM을 장애 조치합니다. 복구 계획의 일부로 웹 계층 VM을 장애 조치합니다.
+* **장애 조치 그룹 2**: Dynamics AX 클라이언트 VM을 장애 조치합니다. 복구 계획의 일부로 웹 계층 VM을 장애 조치합니다.
 
 
 ### <a name="perform-a-test-failover"></a>테스트 장애 조치(failover) 수행
 
-테스트 장애 조치 중인 Active Directory와 관련한 자세한 내용은 "Active Directory 재해 복구 솔루션" 도우미 가이드를 참조하세요.
+테스트 장애 조치 중 Active Directory 특정 정보에 대한 자세한 내용은 "Active Directory 재해 복구 솔루션" 도우미 가이드를 참조하세요.
 
 테스트 장애 조치 중 Active Directory 특정 정보에 대한 자세한 내용은 [SQL Server 및 Azure 사이트 복구를 통한 애플리케이션 복제](site-recovery-sql.md)를 참조하세요.
 

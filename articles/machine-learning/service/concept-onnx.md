@@ -1,5 +1,5 @@
 ---
-title: ONNX를 사용 하는 고성능, 플랫폼 간 유추
+title: 'ONNX: 고성능 플랫폼 간 유추'
 titleSuffix: Azure Machine Learning
 description: ONNX (Open 신경망 Exchange)를 사용 하 여 기계 학습 모델의 유추를 최적화 하는 방법을 알아봅니다.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 08/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: dc4a5984f42e87aa42c6873bb1ee63d66744e633
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: c94d36065b27b0afcaeb214b8a86e5e2a09df14b
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053578"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648012"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-accelerate-ml-models"></a>ONNX 및 Azure Machine Learning: ML 모델 만들기 및 가속화
 
@@ -30,7 +30,7 @@ Microsoft 및 파트너 커뮤니티는 기계 학습 모델을 나타내기 위
 
 ONNX 런타임은 Bing, Office, Cognitive Services 등의 대규모 Microsoft 서비스에서 사용 됩니다. 성능 향상은 여러 가지 요인에 따라 달라 지지만 이러한 Microsoft 서비스는 __CPU에 대 한 평균 2 배__향상을 보았습니다. ONNX Runtime은 수백만 개의 장치에서 Windows ML의 일부로도 사용 됩니다. Azure Machine Learning에서 런타임을 사용할 수 있습니다. ONNX 런타임을 사용 하 여 광범위 한 프로덕션 등급 최적화, 테스트 및 지속적인 개선의 이점을 누릴 수 있습니다.
 
-[학습, 변환기 및 배포를 보여 주는![ONNX 흐름 다이어그램](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
+[학습, 변환기 및 배포를 보여 주는 ![ONNX 흐름 다이어그램](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>ONNX 모델 가져오기
 
@@ -78,7 +78,7 @@ results = session.run([], {"input1": indata1, "input2": indata2})
 
 전체 Python API 참조는 [ONNX 런타임 참조 문서](https://aka.ms/onnxruntime-python)를 참조하세요.    
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ONNX 모델을 만들고 배포하는 예제 노트는 [how-to-use-azureml/deployment/onnx](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx)를 참조하세요.
 

@@ -1,18 +1,18 @@
 ---
-title: Azure Site Recovery를 사용 하 여 보조 사이트에 대 한 VMM 클라우드의 Hyper-v Vm 재해 복구를 위한 지원 매트릭스
+title: 지원 매트릭스-Azure Site Recovery를 사용 하 여 보조 VMM 사이트로의 Hyper-v 재해 복구
 description: Azure Site Recovery를 사용하여 VMM 클라우드의 Hyper-V VM을 보조 사이트에 복제하는 기능 지원에 대해 요약합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 46d6cba1d702773639420a3bc5ac74b9c16ce706
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 7711ebaaddccd68d4322c1d3ebdd049a57bc709b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933821"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686174"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
@@ -56,54 +56,54 @@ Windows Server 2012 R2 | Windows Server 2012 R2에서 [Hyper-V가 지원하는](
 
 **구성** | **지원됨**  
 --- | --- 
-호스트 - NIC 팀 | yes 
-호스트 - VLAN | yes 
-호스트 - IPv4 | yes 
-호스트 - IPv6 | 아닙니다. 
-게스트 VM - NIC 팀 | 아닙니다.
-게스트 VM - IPv4 | yes
-게스트 VM - IPv6 | 아닙니다.
-게스트 VM - Windows/Linux - 고정 IP 주소 | yes
-게스트 VM - 다중 NIC | yes
+호스트 - NIC 팀 | 예 
+호스트 - VLAN | 예 
+호스트 - IPv4 | 예 
+호스트 - IPv6 | 아니요 
+게스트 VM - NIC 팀 | 아니요
+게스트 VM - IPv4 | 예
+게스트 VM - IPv6 | 아니요
+게스트 VM - Windows/Linux - 고정 IP 주소 | 예
+게스트 VM - 다중 NIC | 예
 
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 ### <a name="host-storage"></a>호스트 스토리지
 
 **Storage(호스트)** | **지원됨**
 --- | --- 
-NFS | N/A
-SMB 3.0 |  yes
-SAN(ISCSI) | yes
-다중 경로(MPIO) | yes
+NFS | 해당 없음
+SMB 3.0 |  예
+SAN(ISCSI) | 예
+다중 경로(MPIO) | 예
 
 ### <a name="guest-or-physical-server-storage"></a>게스트 또는 물리적 서버 스토리지
 
 **구성** | **지원됨**
 --- | --- | 
-VMDK |  N/A
+VMDK |  해당 없음
 VHD/VHDX | 예(최대 16개 디스크)
-2세대 VM | yes
-공유 클러스터 디스크 | 아닙니다.
-암호화된 디스크 | 아닙니다.
-UEFI| N/A
-NFS | 아닙니다.
-SMB 3.0 | 아닙니다.
-RDM | N/A
-디스크 > 1TB | yes
-스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | yes
-스토리지 공간 | yes
-디스크 핫 추가/제거 | 아닙니다.
-디스크 제외 | yes
-다중 경로(MPIO) | yes
+2세대 VM | 예
+공유 클러스터 디스크 | 아니요
+암호화된 디스크 | 아니요
+UEFI| 해당 없음
+NFS | 아니요
+SMB 3.0 | 아니요
+RDM | 해당 없음
+디스크 > 1TB | 예
+스트라이프 디스크 포함 볼륨 > 1TB<br/><br/> LVM | 예
+스토리지 공간 | 예
+디스크 핫 추가/제거 | 아니요
+디스크 제외 | 예
+다중 경로(MPIO) | 예
 
 ## <a name="vaults"></a>자격 증명 모음
 
 **작업** | **지원됨**
 --- | --- 
-리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아닙니다.
-리소스 그룹 간에 스토리지, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아닙니다.
+리소스 그룹 간에 자격 증명 모음 이동(동일 구독 내 또는 구독 간에) |  아니요
+리소스 그룹 간에 스토리지, 네트워크, Azure VM 이동(동일 구독 내 또는 구독 간에) | 아니요
 
 ## <a name="azure-site-recovery-provider"></a>Azure Site Recovery 공급자
 

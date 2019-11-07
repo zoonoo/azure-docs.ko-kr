@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center에서 SQL 정보 보호 정책 사용자 지정 | Microsoft Docs
+title: SQL information protection 사용자 지정-Azure Security Center
 description: Azure Security Center에서 정보 보호 정책을 사용자 지정하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
@@ -13,29 +13,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/29/2019
 ms.author: memildin
-ms.openlocfilehash: f9b161bbb692c1336083640250b93f9d87f1e0d9
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: HT
+ms.openlocfilehash: d37333c0ca3f8acab7a35c23bbab67beef056b72
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520795"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664396"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Azure Security Center에서 SQL 정보 보호 정책 사용자 지정
  
-Azure Security Center에서 전체 Azure 테넌트에 대해 SQL 정보 보호 정책을 정의하고 사용자 지정할 수 있습니다.
+Azure Security Center에서 전체 Azure 테 넌 트에 대 한 SQL information protection 정책을 정의 하 고 사용자 지정할 수 있습니다.
 
-정보 보호는 Azure 데이터 리소스에서 중요한 데이터를 검색하고, 분류하고, 레이블을 지정하고, 보호하는 고급 보안 기능입니다. 가장 중요 한 데이터 (비즈니스, 재무, 의료, 개인 데이터 등)를 검색 하 고 분류 하면 조직 정보 보호에서 pivotal 역할을 수행할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
+Information protection은 Azure 데이터 리소스의 중요 한 데이터를 검색, 분류, 레이블 지정 및 보호 하기 위한 고급 보안 기능입니다. 가장 중요 한 데이터 (비즈니스, 재무, 의료, 개인 데이터 등)를 검색 하 고 분류 하면 조직 정보 보호에서 pivotal 역할을 수행할 수 있습니다. 그것은 다음에 대한 인프라 역할을 할 수 있습니다.
 - 데이터 프라이버시 표준 및 규정 준수 요구 사항을 충족하도록 지원
-- 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고 등 다양한 보안 시나리오
+- 모니터링 (감사) 및 중요 한 데이터에 대 한 비정상적인 액세스 경고와 같은 보안 시나리오
 - 매우 중요한 데이터가 들어 있는 데이터 저장소에 대한 액세스 제어 및 보안 강화
  
-[SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md)은 SQL 데이터 저장소에 대한 이 패러다임을 구현하며 현재 Azure SQL Database에 지원됩니다. SQL Information Protection은 잠재적으로 중요한 데이터를 자동으로 검색하고 분류하며, 분류 속성으로 중요한 데이터의 태그를 영구적으로 지정하는 레이블 지정 메커니즘을 제공하고, 데이터베이스 분류 상태를 보여주는 상세 대시보드를 제공합니다. 또한 중요한 데이터를 추출하는 쿼리를 명시적으로 감사할 수 있도록 SQL 쿼리의 결과 집합 민감도를 계산하고 데이터를 보호할 수 있습니다. SQL Information Protection에 대한 자세한 내용은 [Azure SQL Database 데이터 검색 및 분류](../sql-database/sql-database-data-discovery-and-classification.md)를 참조하세요.
+[SQL Information Protection](../sql-database/sql-database-data-discovery-and-classification.md)은 SQL 데이터 저장소에 대한 이 패러다임을 구현하며 현재 Azure SQL Database에 지원됩니다. SQL Information Protection은 잠재적으로 중요한 데이터를 자동으로 검색하고 분류하며, 분류 속성으로 중요한 데이터의 태그를 영구적으로 지정하는 레이블 지정 메커니즘을 제공하고, 데이터베이스 분류 상태를 보여주는 상세 대시보드를 제공합니다. 또한 중요한 데이터를 추출하는 쿼리를 명시적으로 감사할 수 있도록 SQL 쿼리의 결과 집합 민감도를 계산하고 데이터를 보호할 수 있습니다. SQL Information Protection에 대 한 자세한 내용은 [데이터 검색 및 분류 Azure SQL Database](../sql-database/sql-database-data-discovery-and-classification.md)를 참조 하세요.
  
 분류 메커니즘은 분류를 구성하는 **레이블** 및 **정보 형식**이라는 두 가지 기본 구문을 기반으로 합니다.
 - **레이블** - 열에 저장된 데이터의 민감도 수준을 정의하는 데 사용되는 주요 분류 속성입니다. 
 - **정보 형식** – 열에 저장된 데이터의 형식에 추가 세분성을 제공합니다.
  
-Information Protection은 기본적으로 사용되는 레이블 및 정보 형식의 기본 제공 집합이 함께 제공됩니다. 이러한 항목을 사용자 지정하려면 Azure Security Center에서 정보 보호 정책을 사용자 지정하면 됩니다.
+Information Protection은 기본적으로 사용되는 레이블 및 정보 형식의 기본 제공 집합이 함께 제공됩니다. 이러한 레이블 및 유형을 사용자 지정 하려면 Security Center에서 information protection 정책을 사용자 지정할 수 있습니다.
  
 ## <a name="customize-the-information-protection-policy"></a>정보 보호 정책 사용자 지정
 Azure 테넌트에 대한 정보 보호 정책을 사용자 지정하려면 [테넌트의 루트 관리 그룹에 대한 관리 권한](security-center-management-groups.md)이 있어야 합니다. 

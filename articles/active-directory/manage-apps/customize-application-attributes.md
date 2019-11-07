@@ -14,14 +14,14 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef3d6a47986056925f9964638c9c7192341ca5f9
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241002"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641498"
 ---
-# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Azure Active Directory에서 SaaS 애플리케이션에 대한 사용자 프로비전 특성 매핑 사용자 지정
+# <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>사용자 프로 비전 특성 사용자 지정-Azure Active Directory에서 SaaS 응용 프로그램에 대 한 매핑
 
 Microsoft Azure AD는 Salesforce, G Suite 및 기타와 같은 타사 SaaS 응용 프로그램에 대 한 사용자 프로비저닝을 지원 합니다. 타사 SaaS 응용 프로그램에 대해 사용자 프로 비전을 사용 하도록 설정 하면 Azure Portal는 특성 매핑을 통해 해당 특성 값을 제어 합니다.
 
@@ -69,13 +69,23 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 이전 섹션에서는 특성 매핑 형식 속성을 이미 소개 했습니다.
 이 속성과 함께 특성 매핑은 다음 특성도 지원 합니다.
 
-- **원본 특성** - 원본 시스템의 사용자 특성입니다(예: Azure Active Directory).
-- **대상 특성** – 대상 시스템의 사용자 특성입니다(예: ServiceNow)의 필드 간에 내용이 동기화되도록 지정하기 위해 구성할 수 있습니다.
+- **원본 특성** - 원본 시스템의 사용자 특성(예: Azure Active Directory).
+- **대상 특성** – 대상 시스템의 사용자 특성(예: ServiceNow).
 - **이 특성을 사용 하 여 개체 일치** – 원본 및 대상 시스템 간에 사용자를 고유 하 게 식별 하는 데이 매핑을 사용할지 여부를 지정 합니다. 일반적으로 대상 응용 프로그램의 사용자 이름 필드에 매핑되는 Azure AD의 userPrincipalName 또는 mail 특성에 대해 설정 됩니다.
 - **일치 우선 순위** – 여러 일치 특성을 설정할 수 있습니다. 여러 개가 있는 경우이 필드에 정의 된 순서 대로 평가 됩니다. 일치 항목이 발견되는 즉시 더 이상 일치 특성을 평가하지 않습니다.
 - **이 매핑 적용**
   - **항상** – 사용자 만들기 및 업데이트 작업 모두에이 매핑을 적용 합니다.
   - **만드는 동안에만** -이 매핑은 사용자 생성 작업에만 적용 됩니다.
+
+## <a name="matching-users-in-the-source-and-target--systems"></a>원본 및 대상 시스템의 사용자 일치
+Azure AD 프로 비전 서비스는 최적의 (사용자가 대상 시스템에서 종료 하지 않음) 및 brownfield (대상 시스템에 이미 있는 사용자) 시나리오 모두에 배포할 수 있습니다. 두 시나리오를 모두 지원 하기 위해 프로 비전 서비스는 일치 하는 특성의 개념을 사용 합니다. 일치 하는 특성을 사용 하 여 원본에서 사용자를 고유 하 게 식별 하 고 대상의 사용자와 일치 하는 방법을 결정할 수 있습니다. 배포 계획의 일부로 원본 및 대상 시스템에서 사용자를 고유 하 게 식별 하는 데 사용할 수 있는 특성을 식별 합니다. 참고 사항:
+
+- **일치 하는 특성은 고유 해야 합니다.** 고객은 userPrincipalName, 메일 또는 개체 ID와 같은 특성을 일치 하는 특성으로 사용 하는 경우가 많습니다.
+- **여러 특성을 일치 하는 특성으로 사용할 수 있습니다.** 사용자를 일치 시킬 때 평가할 여러 특성을 정의 하 고, 해당 사용자가 평가 되는 순서 (UI에서 일치 하는 우선 순위로 정의 됨)를 정의할 수 있습니다. 예를 들어 세 개의 특성을 일치 하는 특성으로 정의 하 고 처음 두 특성을 평가한 후 사용자가 고유 하 게 일치 하는 경우 서비스는 세 번째 특성을 evaluat 하지 않습니다. 서비스는 지정 된 순서 대로 일치 하는 특성을 평가 하 고 일치 항목이 발견 되 면 계산을 중지 합니다.  
+- **원본 및 대상의 값이 정확 하 게 일치 하지** 않아도 됩니다. 대상의 값은 원본에 있는 값의 몇 가지 간단한 함수 일 수 있습니다. 따라서 소스와 대상의 emailAddress 특성을 가질 수 있으며 일부 문자를 일부 상수 값으로 대체 하는 emailAddress 특성의 함수를 사용 하 여 일치 시킬 수 있습니다.  
+- **특성의 조합을 기반으로 하는 일치가 지원 되지 않습니다.** 대부분의 응용 프로그램은 두 속성을 기반으로 하는 쿼리를 지원 하지 않습니다. 따라서 특성의 조합을 기반으로 하 여 일치 시킬 수 없습니다. 다른 속성 뒤의 단일 속성을 평가할 수 있습니다.
+- **모든 사용자에 게 하나 이상의 일치 하는 특성에 대 한 값이 있어야 합니다.** 일치 하는 특성을 하나 정의 하는 경우 모든 사용자에 게 원본 시스템의 해당 특성 값이 있어야 합니다. 예를 들어 userPrincipalName을 일치 하는 특성으로 정의 하는 경우 모든 사용자에 게 userPrincipalName가 있어야 합니다. 일치 하는 특성 (예: extensionAttribute1 및 메일)을 여러 개 정의 하는 경우 모든 사용자가 일치 하는 특성을 가질 필요가 없습니다. 사용자 한 명에 게는 extensionAttribute1 있지만 메일은 없지만 다른 사용자는 메일을 포함할 수 있지만 extensionAttribute1는 없습니다. 
+- **대상 응용 프로그램은 일치 하는 특성에 대 한 필터링을 지원 해야 합니다.** 응용 프로그램 개발자는 해당 사용자 또는 그룹 API에서 특성의 하위 집합에 대 한 필터링을 허용 합니다. 갤러리의 응용 프로그램의 경우 기본 특성 매핑이 대상 응용 프로그램의 API에서 필터링을 지 원하는 특성에 대 한 것을 확인 합니다. 대상 응용 프로그램에 대해 일치 하는 기본 특성을 변경 하는 경우 타사 API 설명서를 참조 하 여 특성을 필터링 할 수 있는지 확인 합니다.  
 
 ## <a name="editing-group-attribute-mappings"></a>그룹 특성 매핑 편집
 
@@ -125,6 +135,113 @@ ServiceNow, Box 및 G Suite와 같은 선택한 수의 응용 프로그램은 �
 - 참조 된 **개체 특성** -참조 형식 특성인 경우이 메뉴에서 특성에 연결 된 값을 포함 하는 대상 응용 프로그램의 테이블 및 특성을 선택할 수 있습니다. 예를 들어 "Department"라는 특성의 저장된 값이 별도의 "Departments" 테이블에 있는 개체를 참조하는 경우 "Departments.Name"을 선택합니다. 지정 된 응용 프로그램에 대해 지원 되는 참조 테이블 및 기본 ID 필드는 미리 구성 되어 있으며 현재 Azure Portal를 사용 하 여 편집할 수 없지만 [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)를 사용 하 여 편집할 수 있습니다.
 
 새 특성을 추가하려면 지원되는 특성 목록의 끝 부분으로 스크롤하고, 제공된 입력을 사용하여 위의 필드를 채우고, **특성 추가**를 선택합니다. 특성을 다 추가했으면 **저장**을 선택합니다. 그런 다음 특성 매핑 편집기에서 사용할 수 있게 하려면 새 특성에 대 한 **프로 비전** 탭을 다시 로드 해야 합니다.
+## <a name="provisioning-a-role-to-a-scim-app"></a>SCIM 앱에 역할 프로 비전
+다음 단계를 사용 하 여 응용 프로그램에 사용자의 역할을 프로 비전 합니다. 아래 설명은 사용자 지정 SCIM 응용 프로그램에만 적용 됩니다. Salesforce 및 ServiceNow와 같은 갤러리 응용 프로그램의 경우 미리 정의 된 역할 매핑을 사용 합니다. 아래 글머리 기호는 AppRoleAssignments 특성을 응용 프로그램에서 예상 하는 형식으로 변환 하는 방법을 설명 합니다.
+
+- Azure AD의 appRoleAssignment을 응용 프로그램의 역할에 매핑 하려면 [식을](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)사용 하 여 특성을 변환 해야 합니다. 정규식을 사용 하 여 역할 세부 정보를 구문 분석 하지 않고도 appRoleAssignment 특성을 role 특성에 **직접 매핑할 수 없습니다** . 
+
+- **SingleAppRoleAssignment** 
+  - **사용 시기:** 단일 역할을 사용자에 게 프로 비전 하 고 주 역할을 지정 하려면 SingleAppRoleAssignment을 사용 합니다. 
+  - **구성 방법:** 위에 설명 된 단계를 사용 하 여 특성 매핑 페이지로 이동 하 고 SingleAppRoleAssignment을 사용 하 여 roles 특성에 매핑합니다. 선택할 수 있는 역할 특성에는 다음 세 가지가 있습니다. (역할 [primary eq "True"]. 표시, 역할 [primary eq "True]. 형식 및 역할 [primary eq" True "]. value). 모든 역할 특성을 매핑에 포함 하도록 선택할 수 있습니다. 둘 이상의를 포함 하려면 새 매핑을 추가 하 고 대상 특성으로 포함 하면 됩니다.  
+  
+  ![SingleAppRoleAssignment 추가](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  - **고려해 야 할 사항**
+    - 사용자에 게 여러 역할이 할당 되지 않았는지 확인 합니다. 프로 비전 되는 역할을 보장할 수 없습니다.
+    
+  - **예제 출력** 
+
+   ```json
+    {
+      "schemas": [
+          "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": true,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "value": "Admin"
+         }
+      ]
+   }
+   ```
+  
+- **AppRoleAssignmentsComplex** 
+  - **사용 시기:** AppRoleAssignmentsComplex 식을 사용 하 여 사용자에 대 한 여러 역할을 프로 비전 합니다. 
+  - **구성 방법:** 위의 설명에 따라 지원 되는 특성 목록을 편집 하 여 역할에 대 한 새 특성을 포함 합니다. 
+  
+    ![역할 추가](./media/customize-application-attributes/add-roles.png)<br>
+
+    그런 다음 AppRoleAssignmentsComplex 식을 사용 하 여 아래 이미지에 표시 된 것 처럼 사용자 지정 역할 특성에 매핑합니다.
+
+    ![AppRoleAssignmentsComplex 추가](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+  - **고려해 야 할 사항**
+    - 모든 역할은 primary = false로 프로 비전 됩니다.
+    - 게시물에는 역할 형식이 포함 되어 있습니다. PATCH 요청에 형식이 포함 되어 있지 않습니다. POST 및 PATCH 요청에서 형식을 전송 하기 위해 노력 하 고 있습니다.
+    
+  - **예제 출력** 
+  
+   ```json
+   {
+       "schemas": [
+           "urn:ietf:params:scim:schemas:core:2.0:User"
+      ],
+      "externalId": "alias",
+      "userName": "alias@contoso.OnMicrosoft.com",
+      "active": true,
+      "displayName": "First Name Last Name",
+      "meta": {
+           "resourceType": "User"
+      },
+      "roles": [
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "Admin",
+               "value": "Admin"
+         },
+         {
+               "primary": false,
+               "type": "WindowsAzureActiveDirectoryRole",
+               "display": "User",
+             "value": "User"
+         }
+      ]
+   }
+   ```
+
+  
+
+
+## <a name="provisioning-a-multi-value-attribute"></a>다중 값 특성 프로 비전
+PhoneNumbers 및 전자 메일 등의 특정 특성은 다양 한 형식의 전화 번호 또는 전자 메일을 지정 해야 할 수 있는 다중 값 특성입니다. 다중 값 특성에 대해 아래 식을 사용 합니다. 특성 유형을 지정 하 고 값에 대 한 해당 Azure AD 사용자 특성에 매핑할 수 있습니다. 
+
+* phoneNumbers[type eq "work"].value
+* phoneNumbers[type eq "mobile"].value
+* phoneNumbers[type eq "fax"].value
+
+   ```json
+   "phoneNumbers": [
+       {
+         "value": "555-555-5555",
+         "type": "work"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "mobile"
+      },
+      {
+         "value": "555-555-5555",
+         "type": "fax"
+      }
+   ]
+   ```
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>기본 특성 및 특성 매핑 복원
 

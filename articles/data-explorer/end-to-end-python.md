@@ -1,33 +1,35 @@
 ---
-title: Python을 사용 하 여 Azure 데이터 탐색기에 대 한 종단 간 Blob 수집
-description: 이 문서에서는 Python을 사용 하 여 종단 간 예제를 통해 Azure 데이터 탐색기에 수집 blob을 사용 하는 방법에 대해 알아봅니다.
+title: Python을 통해 Azure 데이터 탐색기에 대 한 종단 간 blob 수집
+description: 이 문서에서는 Python을 사용 하는 종단 간 예제를 사용 하 여 blob을 Azure 데이터 탐색기에 수집 하는 방법을 알아봅니다.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 2cb3e73abf8a97e481a4260ee6abe79115521d18
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 1c78336880d685090ae21c725becc90d689c1817
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809606"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581784"
 ---
-# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-using-python"></a>Python을 사용 하 여 Azure 데이터 탐색기에 대 한 종단 간 Blob 수집
+# <a name="end-to-end-blob-ingestion-into-azure-data-explorer-through-python"></a>Python을 통해 Azure 데이터 탐색기에 대 한 종단 간 blob 수집
 
 > [!div class="op_single_selector"]
 > * [C#](end-to-end-csharp.md)
 > * [Python](end-to-end-python.md)
 >
 
-Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장이 가능한 데이터 탐색 서비스로서, 이 문서에서는 Blob Storage에서 Azure 데이터 탐색기로 데이터를 수집 하는 방법에 대 한 종단 간 예제를 제공 합니다. 리소스 그룹, 저장소 계정 및 컨테이너, 이벤트 허브 및 Azure 데이터 탐색기 클러스터와 데이터베이스를 프로그래밍 방식으로 만드는 방법을 알아봅니다. 또한 Azure 데이터 탐색기를 프로그래밍 방식으로 구성 하 여 새 저장소 계정에서 데이터를 수집 하는 방법을 알아봅니다.
+Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장이 가능한 데이터 탐색 서비스로서, 이 문서에서는 azure Blob storage에서 Azure 데이터 탐색기로 데이터를 수집 하는 방법에 대 한 종단 간 예제를 제공 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+프로그래밍 방식으로 리소스 그룹, 저장소 계정 및 컨테이너, 이벤트 허브 및 Azure 데이터 탐색기 클러스터와 데이터베이스를 만드는 방법을 알아봅니다. 또한 Azure 데이터 탐색기를 프로그래밍 방식으로 구성 하 여 새 저장소 계정에서 데이터를 수집 하는 방법을 알아봅니다.
+
+## <a name="prerequisites"></a>필수 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="install-python-package"></a>Python 패키지 설치
+## <a name="install-the-python-package"></a>Python 패키지 설치
 
 Azure Data Explorer(Kusto)용 Python 패키지를 설치하려면 경로에 Python이 있는 명령 프롬프트를 엽니다. 다음 명령을 실행합니다.
 
@@ -44,7 +46,9 @@ pip install azure-storage-blob
 
 ## <a name="code-example"></a>코드 예제 
 
-다음 코드 예제에서는 Azure 데이터 탐색기에 데이터를 수집 하는 단계별 프로세스를 제공 합니다. 먼저 리소스 그룹 및 Azure 리소스 (예: 저장소 계정 및 컨테이너, 이벤트 허브 및 Azure 데이터 탐색기 클러스터와 데이터베이스)를 만듭니다. 그런 다음 Azure 데이터 탐색기 데이터베이스에서 Event Grid 구독 및 테이블 및 열 매핑을 만듭니다. 마지막으로 새 저장소 계정에서 데이터를 수집 하도록 Azure 데이터 탐색기를 구성 하는 데이터 연결을 만듭니다.
+다음 코드 예제에서는 Azure 데이터 탐색기에 데이터를 수집 하는 단계별 프로세스를 제공 합니다. 
+
+먼저 리소스 그룹을 만듭니다. 또한 저장소 계정 및 컨테이너, 이벤트 허브, Azure 데이터 탐색기 클러스터 및 데이터베이스와 같은 Azure 리소스를 만들 수 있습니다. 그런 다음 Azure 데이터 탐색기 데이터베이스에서 테이블 및 열 매핑과 함께 Azure Event Grid 구독을 만듭니다. 마지막으로 새 저장소 계정에서 데이터를 수집 하도록 Azure 데이터 탐색기를 구성 하는 데이터 연결을 만듭니다.
 
 ```python
 from azure.common.credentials import ServicePrincipalCredentials
@@ -61,12 +65,12 @@ from azure.mgmt.kusto.models import EventGridDataConnection
 tenant_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
 #Application ID
 client_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
-#Client Secret
+#Client secret
 client_secret = "xxxxxxxxxxxxxx"
 subscription_id = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx"
 location = "West Europe"
 location_small_case = "westeurope"
-#path to the Azure Resource Manager template json from the previous section
+#Path to the Azure Resource Manager template JSON from the previous section
 azure_resource_template_path = "xxxxxxxxx/template.json";
 
 deployment_name = 'e2eexample'
@@ -118,7 +122,7 @@ deployment_properties = {
     'parameters': parameters
 }
 
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller; see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = resource_client.deployments.create_or_update(
     resource_group_name,
     deployment_name,
@@ -161,7 +165,7 @@ kusto_client.execute_mgmt(database_name, create_column_mapping_command)
 print('Step 5: Add an Event Grid data connection. Azure Data Explorer will automatically ingest the data when new blobs are created.')
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 data_connections = kusto_management_client.data_connections
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller; see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=kusto_cluster_name, database_name=kusto_database_name, data_connection_name=kusto_data_connection_name,
                                            parameters=EventGridDataConnection(storage_account_resource_id=storage_resource_id,
                                                                               event_hub_resource_id=event_hub_resource_id, consumer_group="$Default", location=location, table_name=kusto_table_name, mapping_rule_name=kusto_column_mapping_name, data_format="csv"))
@@ -176,7 +180,7 @@ poller.wait()
 
 ## <a name="test-the-code-example"></a>코드 예제 테스트
 
-1. 저장소 계정에 파일 업로드
+1. 저장소 계정에 파일을 업로드 합니다.
 
     ```python
     account_key = "xxxxxxxxxxxxxx"
@@ -190,7 +194,7 @@ poller.wait()
     |---|---|---|
     | account_key | 프로그래밍 방식으로 만든 저장소 계정의 액세스 키입니다.|
 
-2. Azure 데이터 탐색기에서 테스트 쿼리 실행
+2. Azure 데이터 탐색기에서 테스트 쿼리를 실행 합니다.
 
     ```python
     kusto_uri = "https://{}.{}.kusto.windows.net".format(kusto_cluster_name, location_small_case)
@@ -206,14 +210,14 @@ poller.wait()
 리소스 그룹을 삭제 하 고 리소스를 정리 하려면 다음 명령을 사용 합니다.
 
 ```python
-#Returns an instance of LROPoller, see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
+#Returns an instance of LROPoller; see https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = resource_client.resource_groups.delete(resource_group_name=resource_group_name)
 poller.wait()
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-*  클러스터 및 데이터베이스를 만드는 다른 방법에 대해 알아보려면 [Azure 데이터 탐색기 클러스터와 데이터베이스를 만듭니다](create-cluster-database-python.md) .
-* [Azure Data Explorer 데이터 수집](ingest-data-overview.md)에서 수집 방법에 대해 자세히 알아봅니다.
-* [빠른 시작: Azure 데이터 탐색기에서 데이터 쿼리](web-query-data.md) 웹 UI.
+*  클러스터 및 데이터베이스를 만드는 다른 방법에 대 한 자세한 내용은 [Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기](create-cluster-database-python.md)를 참조 하세요.
+* 수집 방법에 대 한 자세한 내용은 [Azure 데이터 탐색기 데이터](ingest-data-overview.md)수집을 참조 하세요.
+* 웹 응용 프로그램에 대 한 자세한 내용은 [빠른 시작: Azure 데이터 탐색기 웹 UI에서 데이터 쿼리](web-query-data.md)를 참조 하세요.
 * Kusto 쿼리 언어를 사용하여 [쿼리를 작성](write-queries.md)합니다.

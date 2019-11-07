@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5758b1fbb9d311219e3dc4dd483691f6c9d80c1
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9b57fe9241a6a29e6f5ce12b7a1412455df4a001
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172176"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603468"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Windows 10 장치에 대 한 암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -24,24 +24,18 @@ ms.locfileid: "73172176"
 
 |     |
 | --- |
-| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 ## <a name="requirements"></a>요구 사항
 
-| 디바이스 유형 | Azure AD 가입 | 하이브리드 Azure AD 가입 |
-| --- | --- | --- |
-| [Azure Multi-Factor Authentication](howto-mfa-getstarted.md) | X | X |
-| [결합 된 보안 정보 등록 미리 보기](concept-registration-mfa-sspr-combined.md) | X | X |
-| 호환 되는 [FIDO2 보안 키](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
-| WebAuthN에는 Windows 10 버전 1809 이상이 필요 합니다. | X | X |
-| [AZURE AD 가입 장치](../devices/concept-azure-ad-join.md) 에는 Windows 10 버전 1809 이상이 필요 합니다. | X |   |
-| [하이브리드 AZURE AD 조인 장치](../devices/concept-azure-ad-join-hybrid.md) 에는 Windows 10 Insider Build 18945 이상이 필요 합니다. |   | X |
-| Windows Server 2016/2019 도메인 컨트롤러를 완전히 패치 했습니다. |   | X |
-| 최신 버전의 [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) 로 업그레이드 |   | X |
-| [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (옵션) | X | X |
-| 프로 비전 패키지 (옵션) | X | X |
-| 그룹 정책 (옵션) |   | X |
+- [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+- [결합 된 보안 정보 등록 미리 보기](concept-registration-mfa-sspr-combined.md)
+- 호환 되는 [FIDO2 보안 키](concept-authentication-passwordless.md#fido2-security-keys)
+- WebAuthN에는 Windows 10 버전 1809 이상이 필요 합니다.
+- [AZURE AD 가입 장치](../devices/concept-azure-ad-join.md) 에는 Windows 10 버전 1809 이상이 필요 합니다.
+- [Microsoft Intune](https://docs.microsoft.com/intune/fundamentals/what-is-intune) (옵션)
+- 프로 비전 패키지 (옵션)
 
 ### <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
@@ -56,8 +50,6 @@ ms.locfileid: "73172176"
 
 파일럿 할 Azure AD 조인 장치는 Windows 10 버전 1809 이상을 실행 해야 합니다. 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
 
-파일럿 할 하이브리드 Azure AD 조인 장치는 Windows 10 Insider Build 18945 이상 버전을 실행 해야 합니다.
-
 ## <a name="enable-security-keys-for-windows-sign-in"></a>Windows 로그인에 대 한 보안 키 사용
 
 조직에서는 조직의 요구 사항에 따라 Windows 로그인에 보안 키를 사용할 수 있도록 다음 방법 중 하나 이상을 사용 하도록 선택할 수 있습니다.
@@ -65,16 +57,10 @@ ms.locfileid: "73172176"
 - [Intune을 사용 하 여 사용](#enable-with-intune)
    - [대상 Intune 배포](#targeted-intune-deployment)
 - [프로 비전 패키지를 사용 하 여 사용](#enable-with-a-provisioning-package)
-- [그룹 정책 사용 하도록 설정 (하이브리드 Azure AD 조인 장치만 해당)](#enable-with-group-policy)
-
-> [!IMPORTANT]
-> **하이브리드 AZURE AD 조인 장치** 를 사용 하는 조직에서는 WINDOWS 10 FIDO2 보안 키 인증이 작동 하기 전에 [온-프레미스 리소스에 FIDO2 인증 사용](howto-authentication-passwordless-security-key-on-premises.md) 문서의 단계 **를 완료 해야 합니다.**
->
-> **AZURE AD 조인 장치** 를 사용 하는 조직은 FIDO2 보안 키를 사용 하 여 온-프레미스 리소스에 인증할 수 있도록 장치에서이 작업을 수행 해야 합니다.
 
 ### <a name="enable-with-intune"></a>Intune을 사용 하 여 사용
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 1. Windows **등록 > windows 등록** 을 >  > **장치 등록** 을 **Microsoft Intune** 하 여 **비즈니스용 windows Hello** > **속성**으로 이동 합니다.
 1. **설정** 에서 **로그인에 대 한 보안 키 사용** 을 사용 **으로 설정**합니다.
 
@@ -84,7 +70,7 @@ ms.locfileid: "73172176"
 
 특정 장치 그룹을 대상으로 자격 증명 공급자를 사용 하도록 설정 하려면 Intune을 통해 다음 사용자 지정 설정을 사용 합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 1. **Microsoft Intune** > **장치 구성** > 프로필로 이동 하 여 **프로필 만들기**를 > 합니다.
 1. 다음 설정을 사용 하 여 새 프로필을 구성 합니다.
    1. 이름: Windows 로그인에 대 한 보안 키
@@ -93,7 +79,7 @@ ms.locfileid: "73172176"
    1. 프로필 유형: 사용자 지정
    1. 사용자 지정 OMA-URI 설정:
       1. 이름: Windows 로그인에 대 한 FIDO 보안 키를 설정 합니다.
-      1. OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
+      1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       1. 데이터 형식: Integer
       1. 값: 1
 1. 이 정책은 특정 사용자, 장치 또는 그룹에 할당할 수 있습니다. 자세한 내용은 [Microsoft Intune에서 사용자 및 장치 프로필 할당](https://docs.microsoft.com/intune/device-profile-assign)문서에서 찾을 수 있습니다.
@@ -124,18 +110,7 @@ Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 �
 > [!NOTE]
 > Windows 10 버전 1809을 실행 하는 장치 에서도 공유 PC 모드 (EnableSharedPCMode)를 사용 하도록 설정 해야 합니다. 이 기능이를 사용 하는 방법에 대 한 정보는 [Windows 10을 사용 하 여 공유 또는 게스트 PC 설정](https://docs.microsoft.com/windows/configuration/set-up-shared-or-guest-pc)문서에서 찾을 수 있습니다.
 
-### <a name="enable-with-group-policy"></a>그룹 정책 사용
-
-**하이브리드 AZURE AD 조인 장치** 에서 조직은 FIDO 보안 키 로그인을 사용 하도록 다음 그룹 정책 설정을 구성할 수 있습니다.
-
-설정은 **컴퓨터 구성** > **관리 템플릿** > **System** > **Logon** > **보안 키 로그인 설정**에서 찾을 수 있습니다.
-
-- 이 정책을 **사용** 으로 설정 하면 사용자가 보안 키를 사용 하 여 로그인 할 수 있습니다.
-- 이 정책을 **사용 안 함** 또는 **구성 되지 않음** 으로 설정 하면 사용자가 보안 키를 사용 하 여 로그인 하지 못하게 됩니다.
-
-이 그룹 정책 설정에는 업데이트 된 버전의 `credentialprovider.admx` 그룹 정책 템플릿이 필요 합니다. 이 새 템플릿은 다음 버전의 Windows Server 및 Windows 10 20H1에서 사용할 수 있습니다. 이 설정은 windows에서 이러한 최신 버전 중 하나를 실행 하는 장치를 사용 하 여 관리 하거나 지원 항목의 지침에 따라 [중앙 저장소를 만들고 관리 하는 방법 그룹 정책 관리 템플릿](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra)를 사용 하 여 중앙에서 관리할 수 있습니다.
-
-## <a name="sign-in-with-fido2-security-key"></a>FIDO2 보안 키로 로그인
+## <a name="sign-in-to-windows-with-a-fido2-security-key"></a>FIDO2 보안 키로 Windows에 로그인
 
 아래 예에서는 사용자 Bala Sandhu이 이전 문서의 단계를 사용 하 여 FIDO2 보안 키를 이미 프로 비전 했습니다. [암호 없는 보안 키 로그인을 사용 하도록 설정](howto-authentication-passwordless-security-key.md#user-registration-and-management-of-fido2-security-keys)합니다. Bala는 Windows 10 잠금 화면에서 보안 키 자격 증명 공급자를 선택 하 고 Windows에 로그인 하는 보안 키를 삽입할 수 있습니다.
 
@@ -157,9 +132,29 @@ Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 �
    1. 하위 범주: FIDO
 1. 로그를 캡처하려면 **문제 다시 만들기** 옵션을 사용 합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="frequently-asked-questions"></a>질문과 대답
 
-[Azure AD 및 하이브리드 Azure AD 조인 장치에 대 한 온-프레미스 리소스에 대 한 액세스 사용](howto-authentication-passwordless-security-key-on-premises.md)
+### <a name="does-this-work-in-my-on-premises-environment"></a>온-프레미스 환경에서 작동 하나요?
+
+이 기능은 순수한 온-프레미스 Active Directory Domain Services (AD DS) 환경에서 작동 하지 않습니다.
+
+### <a name="my-organization-requires-two-factor-authentication-to-access-resources-what-can-i-do-to-support-this-requirement"></a>조직에서 리소스에 액세스 하려면 2 단계 인증을 요구 하 고,이 요구 사항을 지원 하기 위해 수행할 수 있는 작업은 무엇 인가요?
+
+보안 키는 다양 한 폼 팩터를 제공 합니다. 원하는 장치 제조업체에 문의 하 여 PIN 또는 생체 인식으로 두 번째 요소로 장치를 사용 하도록 설정 하는 방법에 대해 논의 하세요.
+
+### <a name="can-admins-set-up-security-keys"></a>관리자가 보안 키를 설정할 수 있나요?
+
+이 기능의 GA (일반 공급)에 대해이 기능을 사용 하 고 있습니다.
+
+### <a name="where-can-i-go-to-find-compliant-security-keys"></a>규격 보안 키를 찾을 수 있는 위치
+
+[FIDO2 보안 키](concept-authentication-passwordless.md#fido2-security-keys)
+
+### <a name="what-do-i-do-if-i-lose-my-security-key"></a>보안 키를 분실 한 경우 어떻게 해야 하나요?
+
+보안 정보 페이지로 이동 하 고 보안 키를 제거 하 여 Azure Portal에서 키를 제거할 수 있습니다.
+
+## <a name="next-steps"></a>다음 단계
 
 [장치 등록에 대 한 자세한 정보](../devices/overview.md)
 

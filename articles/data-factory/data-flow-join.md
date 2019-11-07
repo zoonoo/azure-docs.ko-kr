@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름의 조인 변환 | Microsoft Docs
+title: Azure Data Factory 매핑 데이터 흐름의 조인 변환
 description: Azure Data Factory 매핑 데이터 흐름에서 조인 변환을 사용 하 여 두 데이터 소스의 데이터를 결합 합니다.
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 78de9f2bedfc36add567053e1de47e8893bfaf3c
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4680804017a9b08248bb41ff999c6ba6371e99c8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596990"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675924"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 조인 변환
 
@@ -32,7 +32,7 @@ ms.locfileid: "72596990"
 
 ### <a name="right-outer"></a>오른쪽 우선 외부
 
-왼쪽 우선 외부 조인은 오른쪽 스트림의 모든 행과 일치 하는 레코드를 왼쪽 스트림에서 반환 합니다. 오른쪽 스트림의 행에 일치 하는 항목이 없으면 오른쪽 스트림의 출력 열이 NULL로 설정 됩니다. 출력은 내부 조인에서 반환 되는 행과 오른쪽 스트림의 일치 하지 않는 행을 더한 값입니다.
+오른쪽 우선 외부 조인은 오른쪽 스트림의 모든 행과 일치 하는 레코드를 왼쪽 스트림에서 반환 합니다. 오른쪽 스트림의 행에 일치 하는 항목이 없으면 왼쪽 스트림의 출력 열이 NULL로 설정 됩니다. 출력은 내부 조인에서 반환 되는 행과 오른쪽 스트림의 일치 하지 않는 행을 더한 값입니다.
 
 ### <a name="full-outer"></a>완전 외부
 
@@ -83,7 +83,7 @@ SSIS와 같은 도구의 병합 조인과 달리 조인 변환은 필수 병합 
 
 ### <a name="inner-join-example"></a>내부 조인 예제
 
-아래 예제는 왼쪽 스트림 `TripData` 및 오른쪽 스트림 `TripFare`을 사용 하는 `JoinMatchedData` 라는 조인 변환입니다.  조인 조건은 각 스트림의 `hack_license`, `medallion`, `vendor_id` 및 `pickup_datetime` 열이 일치 하는 경우 true를 반환 하는 식 `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}`입니다. @No__t_0 `'inner'`입니다. @No__t_0 `'left'` 값을 가질 수 있도록 왼쪽 스트림에만 브로드캐스팅을 사용 하도록 설정 하 고 있습니다.
+아래 예제는 왼쪽 스트림 `TripData` 및 오른쪽 스트림 `TripFare`을 사용 하는 `JoinMatchedData` 라는 조인 변환입니다.  조인 조건은 각 스트림의 `hack_license`, `medallion`, `vendor_id`및 `pickup_datetime` 열이 일치 하는 경우 true를 반환 하는 식 `hack_license == { hack_license} && TripData@medallion == TripFare@medallion && vendor_id == { vendor_id} && pickup_datetime == { pickup_datetime}`입니다. `joinType` `'inner'`입니다. `broadcast` `'left'`값을 가질 수 있도록 왼쪽 스트림에만 브로드캐스팅을 사용 하도록 설정 하 고 있습니다.
 
 Data Factory UX에서이 변환은 아래 이미지와 같습니다.
 
@@ -105,7 +105,7 @@ TripData, TripFare
 
 ### <a name="cross-join-example"></a>크로스 조인 예제
 
-아래 예제는 왼쪽 스트림 `TripData` 및 오른쪽 스트림 `TripFare`을 사용 하는 `CartesianProduct` 라는 조인 변환입니다. 이 변환은 두 개의 스트림을 사용 하 고 해당 행의 데카르트 곱을 반환 합니다. 조인 조건은 전체 데카르트 곱을 출력 하므로 `true()` 됩니다. @No__t_1의 `joinType`입니다. @No__t_0 `'left'` 값을 가질 수 있도록 왼쪽 스트림에만 브로드캐스팅을 사용 하도록 설정 하 고 있습니다.
+아래 예제는 왼쪽 스트림 `TripData` 및 오른쪽 스트림 `TripFare`을 사용 하는 `CartesianProduct` 라는 조인 변환입니다. 이 변환은 두 개의 스트림을 사용 하 고 해당 행의 데카르트 곱을 반환 합니다. 조인 조건은 전체 데카르트 곱을 출력 하므로 `true()` 됩니다. `cross`의 `joinType`입니다. `broadcast` `'left'`값을 가질 수 있도록 왼쪽 스트림에만 브로드캐스팅을 사용 하도록 설정 하 고 있습니다.
 
 Data Factory UX에서이 변환은 아래 이미지와 같습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Mesh 용어 | Microsoft Docs
-description: Azure Service Fabric Mesh의 일반적인 용어에 대해 알아봅니다.
+description: 이 문서에서는 설명서에 사용 된 용어를 더 잘 이해할 수 있도록 Azure Service Fabric 메시에서 사용 되는 용어에 대해 자세히 설명 합니다.
 services: service-fabric-mesh
 keywords: ''
 author: dkkapur
@@ -9,16 +9,16 @@ ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 2d2661593ba3d9be2755d81803c8e248a2f7d0e1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cacf3a7419982e8c0e8d55700c903e3414cfcbb4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60810595"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663019"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Service Fabric Mesh 용어
 
-Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. 이 문서에서는 문서에 사용된 용어를 이해할 수 있도록 Azure Service Fabric Mesh에서 사용되는 용어를 자세히 설명합니다.
+Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네트워킹을 관리하지 않고 마이크로 서비스 애플리케이션을 배포할 수 있는 완전히 관리되는 서비스입니다. 이 문서에서는 설명서에 사용 된 용어를 더 잘 이해할 수 있도록 Azure Service Fabric 메시에서 사용 되는 용어에 대해 자세히 설명 합니다.
 
 ## <a name="service-fabric"></a>Service Fabric
 
@@ -32,7 +32,7 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네
 
 **애플리케이션**: Service Fabric Mesh 애플리케이션은 Mesh 애플리케이션 배포, 버전 관리 및 수명의 단위입니다. 각 애플리케이션 인스턴스의 수명 주기를 독립적으로 관리할 수 있습니다.  애플리케이션은 하나 이상의 서비스 코드 패키지 및 설정으로 구성됩니다. 애플리케이션은 Azure RM(Resource Model) 스키마를 사용하여 정의됩니다.  서비스는 RM 템플릿의 애플리케이션 리소스 속성으로 설명됩니다.  애플리케이션이 사용하는 네트워크 및 볼륨이 애플리케이션에서 참조됩니다.  애플리케이션을 만들면 애플리케이션, 서비스, 네트워크 및 볼륨이 Service Fabric 리소스 모델을 사용하여 모델링됩니다.
 
-**서비스**: 애플리케이션의 서비스는 마이크로서비스를 나타내고 완전한 독립 실행형 기능을 수행합니다. 각 서비스는 코드 패키지와 관련된 컨테이너 이미지를 실행하는 데 필요한 모든 항목을 설명하는 하나 이상의 코드 패키지로 구성됩니다.  애플리케이션의 서비스 복제 수를 확대 및 축소할 수 있습니다.
+**서비스**: 애플리케이션의 서비스는 마이크로 서비스를 나타내고 완전한 독립 실행형 기능을 수행합니다. 각 서비스는 코드 패키지와 관련된 컨테이너 이미지를 실행하는 데 필요한 모든 항목을 설명하는 하나 이상의 코드 패키지로 구성됩니다.  애플리케이션의 서비스 복제 수를 확대 및 축소할 수 있습니다.
 
 **코드 패키지**: 코드 패키지는 다음을 포함하여 코드 패키지와 연결된 컨테이너 이미지를 실행하는 데 필요한 모든 것을 설명합니다.
 
@@ -64,7 +64,7 @@ Service Fabric은 여러 서비스 및 제품의 기초가 되는 오픈 소스 
 
  - **Service Fabric Mesh**: Microsoft Azure에서 Service Fabric 애플리케이션을 실행하기 위한 완전히 관리되는 서비스입니다.
  - **Azure Service Fabric**: Azure 호스팅 Service Fabric 클러스터 제품입니다. Service Fabric 클러스터의 업그레이드 및 구성 관리와 함께 Service Fabric과 Azure 인프라 간의 통합을 제공합니다.
- - **Service Fabric 독립 실행형**: [임의 위치(온-프레미스 또는 임의 클라우드 공급 기업)에 Service Fabric 클러스터를 배포](/azure/service-fabric/service-fabric-deploy-anywhere)하기 위한 설치 및 구성 도구 세트입니다. Azure에서 관리되지 않습니다.
+ - **Service Fabric 독립 실행형**: [임의 위치(온-프레미스 또는 임의 클라우드 공급자)에 Service Fabric 클러스터를 배포](/azure/service-fabric/service-fabric-deploy-anywhere)하기 위한 설치 및 구성 도구 집합입니다. Azure에서 관리되지 않습니다.
  - **Service Fabric 개발 클러스터**: Service Fabric 애플리케이션 개발을 위해 Windows, Linux 또는 Mac에서 로컬 개발 환경을 제공합니다.
 
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>환경, 프레임워크 및 배포 모델 지원 매트릭스

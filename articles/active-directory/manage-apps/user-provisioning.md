@@ -15,16 +15,16 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ff6d9e33e15aa04adfa03705172166492f87e30
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ef2ce1ce7a754868a1adc2e78b4c0a83fc84f071
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330016"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641444"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
 
-Azure Active Directory (Azure AD)를 사용 하면 Dropbox, Salesforce, ServiceNow 등과 같은 클라우드 ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램의 사용자 id 생성, 유지 관리 및 제거를 자동화할 수 있습니다. 이를 SaaS 앱에 대 한 자동화 된 사용자 프로비저닝 이라고 합니다.
+Azure Active Directory (Azure AD)를 사용 하면 [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)등과 같은 클라우드 SaaS 응용 프로그램에서 사용자 id의 생성, 유지 관리 및 제거를 자동화할 수 있습니다. 이를 SaaS 앱에 대 한 자동화 된 사용자 프로비저닝 이라고 합니다.
 
 > [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
 
@@ -56,11 +56,14 @@ Azure Active Directory (Azure AD)를 사용 하면 Dropbox, Salesforce, ServiceN
 
 **AZURE AD 프로 비전 서비스** 는 각 응용 프로그램 공급 업체에서 제공 하는 사용자 관리 API 끝점에 연결 하 여 SaaS 앱 및 기타 시스템에 사용자를 프로 비전 합니다. 이러한 사용자 관리 API 엔드포인트를 사용하면 Azure AD에서 프로그래밍 방식으로 사용자를 만들고, 업데이트하고, 제거할 수 있습니다. 선택한 응용 프로그램의 경우 프로 비전 서비스는 그룹 및 역할과 같은 추가 id 관련 개체를 만들고 업데이트 하 고 제거할 수도 있습니다.
 
-![Azure AD 프로 비전 서비스 @ no__t-1*그림 1: AZURE Ad 프로 비전 서비스*
+Azure AD 프로 비전 서비스를 ![](./media/user-provisioning/provisioning0.PNG)
+*그림 1: AZURE Ad 프로 비전 서비스*
 
-![Outbound 바운드 사용자 프로 비전 워크플로 @ no__t-1*그림 2: "아웃 바운드" 사용자 프로 비전 워크플로를 AZURE AD에서 인기 있는 SaaS 응용 프로그램으로 프로 비전*
+![아웃 바운드 사용자 프로 비전 워크플로](./media/user-provisioning/provisioning1.PNG)
+*그림 2: AZURE AD에서 인기 있는 SaaS 응용 프로그램에 대 한 "아웃 바운드" 사용자 프로 비전 워크플로*
 
-![ 인바운드 사용자 프로 비전 워크플로 @ no__t-1*그림 3: 인기 있는 HCM (인간 자본 관리) 응용 프로그램에서 Azure Active Directory 및 Windows Server로의 "인바운드" 사용자 프로 비전 워크플로 Active Directory*
+인바운드 사용자 프로 비전 워크플로](./media/user-provisioning/provisioning2.PNG)
+*그림 3: 인기 있는 HCM (인간 자본 관리) 응용 프로그램에서 Azure Active Directory 및 Windows Server로의 "인바운드" 사용자 프로 비전 워크플로를 ![Active Directory*
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Azure AD 자동 사용자 프로비전에서 사용할 수 있는 애플리케이션과 시스템은 무엇입니까?
 
@@ -87,11 +90,7 @@ Azure Active Directory 포털을 사용 하 여 선택한 응용 프로그램에
 
 1. **[Azure Active Directory 포털](https://aad.portal.azure.com)** 을 엽니다.
 1. 왼쪽 창에서 **엔터프라이즈 응용 프로그램** 을 선택 합니다. 구성 된 모든 앱의 목록이 표시 됩니다.
-1. **+ 새 응용** 프로그램을 선택 하 여 응용 프로그램을 추가 합니다. 시나리오에 따라 다음 중 하나를 추가 합니다.
-
-   - 사용자 **고유의 앱 추가** 옵션은 사용자 지정 개발 된 scim 통합을 지원 합니다.
-   - **갤러리에서 추가** > **추천 응용 프로그램** 섹션의 모든 응용 프로그램은 자동 프로 비전을 지원 합니다. 추가 애플리케이션을 보려면 [사용자 프로비전에 대한 애플리케이션 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
-
+1. **+ 새 응용** 프로그램을 선택 하 여 응용 프로그램을 추가 합니다. 
 1. 세부 정보를 입력 하 고 **추가**를 선택 합니다. 새 앱이 엔터프라이즈 응용 프로그램 목록에 추가 되 고 응용 프로그램 관리 화면으로 열립니다.
 1. **프로 비전** 을 선택 하 여 앱에 대 한 사용자 계정 프로 비전 설정을 관리 합니다.
 
@@ -193,9 +192,9 @@ Azure Portal에서 프로 비전 로그를 읽는 방법에 대 한 자세한 �
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
-애플리케이션에 대한 아웃바운드 사용자 프로비저닝에 대한 단계별 배포 계획 예제는 [사용자 프로비저닝에 대한 ID 배포 가이드](https://aka.ms/userprovisioningdeploymentplan)를 참조하세요.
+애플리케이션에 대한 아웃바운드 사용자 프로비저닝에 대한 단계별 배포 계획 예제는 [사용자 프로비저닝에 대한 ID 배포 가이드](https://aka.ms/deploymentplans/userprovisioning)를 참조하세요.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>SaaS 앱에 대한 자동 사용자 프로비저닝이 Azure AD의 B2B 사용자에게 작동하나요?
 
@@ -215,7 +214,7 @@ Azure Portal에서 프로 비전 로그를 읽는 방법에 대 한 자세한 �
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>SaaS 앱에 대한 자동 사용자 프로비저닝이 Azure AD의 중첩 그룹에 작동하나요?
 
-아닙니다. "할당 된 사용자 및 그룹만 동기화"로 구성 된 경우 Azure AD 사용자 프로 비전 서비스는 중첩 된 그룹에 있는 사용자를 읽거나 프로 비전 할 수 없습니다. 명시적으로 할당 된 그룹의 직접 구성원 인 사용자를 읽고 프로 비전 할 수 있습니다.
+아니요. "할당 된 사용자 및 그룹만 동기화"로 구성 된 경우 Azure AD 사용자 프로 비전 서비스는 중첩 된 그룹에 있는 사용자를 읽거나 프로 비전 할 수 없습니다. 명시적으로 할당 된 그룹의 직접 구성원 인 사용자를 읽고 프로 비전 할 수 있습니다.
 
 이것은 Single Sign-On에도 영향을 미치는 “애플리케이션에 대한 그룹 기반 할당”의 제한 사항으로, [그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps )에 설명되어 있습니다.
 
@@ -225,7 +224,7 @@ Azure Portal에서 프로 비전 로그를 읽는 방법에 대 한 자세한 �
 
 예. 서버 대상에 대해 HTTPS SSL 암호화를 사용 합니다.
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
 - [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)
 - [사용자 프로 비전을 위한 특성 매핑 사용자 지정](customize-application-attributes.md)

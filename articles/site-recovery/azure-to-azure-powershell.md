@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery - Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정 및 테스트 | Microsoft Docs
+title: Azure PowerShell 및 Azure Site Recovery를 사용 하는 Azure Vm에 대 한 재해 복구
 description: Azure PowerShell을 사용하여 Azure Site Recovery와 함께 Azure Virtual Machines에 대한 재해 복구를 설정하는 방법을 알아봅니다.
 services: site-recovery
 author: sujayt
@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: fe74080387f76b858f60c5285a98c9b67f051449
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: aa91725daf36113334849dd15dd01b6ce6ed4389
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671896"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621088"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구 설정
 
 
 이 문서에서는 Azure PowerShell을 사용하여 Azure Virtual Machines에 대한 재해 복구를 설치 및 테스트하는 방법을 알아봅니다.
 
-여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
+다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > - Recovery Services 자격 증명 모음을 만듭니다.
@@ -39,21 +39,21 @@ ms.locfileid: "67671896"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-시작하기 전 주의 사항:
+시작하기 전에 다음을 수행합니다.
 - [시나리오 아키텍처 및 구성 요소](azure-to-azure-architecture.md)를 이해해야 합니다.
 - 모든 구성 요소에 대한 [지원 요구 사항](azure-to-azure-support-matrix.md)을 검토합니다.
-- Azure PowerShell을 사용할 `Az` 모듈입니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
+- Azure PowerShell `Az` 모듈이 있습니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 
 ## <a name="log-in-to-your-microsoft-azure-subscription"></a>Microsoft Azure 구독에 로그인
 
-Connect AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인
+AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
 
 ```azurepowershell
 Connect-AzAccount
 ```
-Azure 구독을 선택합니다. Get-AzSubscription cmdlet를 사용 하 여에 대 한 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. Azure 구독 선택 AzSubscription cmdlet을 사용 하 여 작업을 선택 합니다.
+Azure 구독을 선택합니다. AzSubscription cmdlet을 사용 하 여 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. AzSubscription cmdlet을 사용 하 여 작업할 Azure 구독을 선택 합니다.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -154,7 +154,7 @@ a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults
 Remove-Item -Path $Vaultsettingsfile.FilePath
 ```
 
-Azure로의 마이그레이션을, 새로 만든 자격 증명 모음 자격 증명 모음 컨텍스트를 설정할 수 있습니다. 
+Azure-Azure로 마이그레이션하는 경우 자격 증명 모음 컨텍스트를 새로 만든 자격 증명 모음으로 설정할 수 있습니다. 
 
 ```azurepowershell
 
@@ -594,9 +594,9 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
-## <a name="reprotect-and-failback-to-source-region"></a>다시 보호 및 원본 지역으로 장애 복구
+## <a name="reprotect-and-failback-to-source-region"></a>원본 지역으로 다시 보호 및 장애 복구
 
-장애 조치 후 다시 원래 지역으로 이동할 준비가 되 면 업데이트 AzRecoveryServicesAsrProtectionDirection cmdlet을 사용 하 여 복제 보호 된 항목에 대 한 역방향 복제를 시작 합니다.
+장애 조치 (failover) 후 원래 영역으로 돌아갈 준비가 되 면 AzRecoveryServicesAsrProtectionDirection cmdlet을 사용 하 여 복제 보호 된 항목에 대 한 역방향 복제를 시작 합니다.
 
 ```azurepowershell
 #Create Cache storage account for replication logs in the primary region
@@ -609,15 +609,15 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 -ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
 ```
 
-다시 보호가 완료 되 면 역방향 (미국 동부에 미국 서 부) 및 원본 지역으로 장애 복구에서 장애 조치를 시작할 수 있습니다.
+다시 보호가 완료 되 면 역방향 (미국 서 부에 대 한 미국 서 부) 및 원본 지역으로 장애 복구 (failback)를 시작할 수 있습니다.
 
 ## <a name="disable-replication"></a>복제 사용 안 함
 
-제거-ASRReplicationProtectedItem cmdlet을 사용 하 여 복제를 해제할 수 있습니다.
+ASRReplicationProtectedItem cmdlet을 사용 하 여 복제를 사용 하지 않도록 설정할 수 있습니다.
 
 ```azurepowershell
 Remove-ASRReplicationProtectedItem -ReplicationProtectedItem $ReplicatedItem
 ```
 
 ## <a name="next-steps"></a>다음 단계
-보기는 [Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/az.RecoveryServices) 하려면 복구 계획 만들기 및 PowerShell 통해 복구 계획의 장애 조치 테스트 등의 다른 작업을 수행 하는 방법을 알아봅니다.
+Powershell을 통해 복구 계획을 만들고 장애 조치 (failover)를 테스트 하는 등의 다른 작업을 수행 하는 방법을 알아보려면 [Azure Site Recovery powershell 참조](https://docs.microsoft.com/powershell/module/az.RecoveryServices) 를 확인 합니다.

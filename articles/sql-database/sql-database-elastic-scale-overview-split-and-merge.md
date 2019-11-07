@@ -1,5 +1,5 @@
 ---
-title: 확장된 클라우드 데이터베이스 간 데이터 이동 | Microsoft Docs
+title: 확장된 클라우드 데이터베이스 간 데이터 이동
 description: 탄력적 데이터베이스 API를 사용하여 자체 호스팅되는 서비스를 통해 분할된 데이터베이스를 조작하고 데이터를 이동하는 방법에 대해 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 841794dcbb41249ea25f615524150df4bd257b45
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b2203b7fb9e168b251eda16a9505ae2004b0460
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568381"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690198"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>확장된 클라우드 데이터베이스 간 데이터 이동
 
@@ -30,7 +30,7 @@ ms.locfileid: "68568381"
 
 [Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge/)
 
-## <a name="documentation"></a>설명서
+## <a name="documentation"></a>문서화
 
 1. [탄력적 데이터베이스 분할/병합 도구 자습서](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 2. [분할-병합 보안 구성](sql-database-elastic-scale-split-merge-security-configuration.md)
@@ -175,7 +175,7 @@ ms.locfileid: "68568381"
 - 요청 처리 과정에서 일부 shardlet 데이터는 원본 및 대상 분할된 데이터베이스 모두에 있을 수 있습니다. shardlet 이동 중 오류가 발생하지 않도록 보호하기 위해 필요합니다. 분할된 데이터베이스 맵과 분할-병합을 통합하면 분할된 데이터베이스 맵에서 **OpenConnectionForKey** 메서드를 사용하여 데이터 종속 라우팅 API를 통해 설정한 연결에서는 불일치하는 중간 상태가 표시되지 않습니다. 그러나 **OpenConnectionForKey** 메서드를 사용하지 않고 원본 또는 대상 분할된 데이터베이스에 연결할 경우 분할/병합/이동 요청이 진행될 때 불일치하는 중간 상태가 표시될 수도 있습니다. 이러한 연결은 타이밍이나 분할된 데이터베이스 기본 연결에 따라 부분적인 결과나 중복된 결과를 표시할 수 있습니다. 현재 이러한 제한 상황에는 탄력적인 확장 다중 분할된 데이터베이스 쿼리를 통해 생성된 연결이 포함됩니다.
 - 분할/병합 서비스용 메타데이터 데이터베이스를 여러 역할 간에 공유하지 않아야 합니다. 예를 들어 스테이징 환경에서 실행되는 분할/병합 서비스의 역할이 프로덕션 역할과는 다른 메타데이터 데이터베이스를 가리켜야 합니다.
 
-## <a name="billing"></a>대금 청구
+## <a name="billing"></a>결제
 
 분할 병합 서비스는 Microsoft Azure 구독에서 클라우드 서비스로 실행 됩니다. 따라서 서비스 인스턴스의 클라우드 서비스에 대한 요금이 적용 됩니다. 분할/병합/이동 작업을 자주 수행하지 않는 한 분할/병합 클라우드 서비스를 삭제하는 것이 좋습니다. 그렇게 하면 실행 중이거나 배포된 클라우드 서비스 인스턴스의 비용이 절감됩니다. 분할/병합 작업을 수행해야 할 때마다 즉시 실행 가능한 구성을 다시 배포하고 시작할 수 있습니다.
 
@@ -185,7 +185,7 @@ ms.locfileid: "68568381"
 
 분할-병합 서비스는 완료된 요청 및 진행 중인 요청의 모니터링을 위해 메타데이터 저장소 데이터베이스에서 **RequestStatus** 테이블을 제공합니다. 이 테이블은 분할/병합 서비스의 이 인스턴스에 제출된 각 분할/병합 요청에 대한 행을 나열하며, 각 요청에 대해 다음 정보를 제공합니다.
 
-- **타임스탬프**
+- **Timestamp**
 
   요청이 시작된 시간 및 날짜입니다.
 
@@ -211,13 +211,13 @@ ms.locfileid: "68568381"
 
 ### <a name="azure-diagnostics"></a>Azure Diagnostics
 
-분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure Diagnostics를 사용합니다. 여기에 설명된 대로 진단 구성을 제어합니다. [Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md) 다운로드 패키지에는 웹 역할용 하나와 작업자 역할용 하나, 총 두 개의 진단 구성이 포함되어 있습니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 애플리케이션 이벤트 로그를 기록하는 정의가 포함됩니다.
+분할 병합 서비스 모니터링 및 진단에 Azure SDK 2.5에 따라 Azure Diagnostics를 사용합니다. [Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)에 설명된 대로 진단 구성을 제어합니다. 다운로드 패키지에는 웹 역할용 하나와 작업자 역할용 하나, 총 두 개의 진단 구성이 포함되어 있습니다. 여기에는 성능 카운터, IIS 로그, Windows 이벤트 로그 및 분할/병합 애플리케이션 이벤트 로그를 기록하는 정의가 포함됩니다.
 
 ## <a name="deploy-diagnostics"></a>진단 배포
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 모니터링 및 진단 구성을 사용하여NuGet 패키지에서 제공 하는 웹 및 작업자 역할에 대한 진단 유틸리티를 사용하려면 Azure PowerShell을 사용하여 다음 명령을 실행 합니다.
 
@@ -233,17 +233,17 @@ ms.locfileid: "68568381"
     Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Production -Role "SplitMergeWorker"
 ```
 
-여기에서 진단 설정을 구성 및 배포하는 방법에 자세한 정보를 찾을 수 있습니다. [Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)
+[Azure Cloud Services 및 Virtual Machines에서 진단 사용](../cloud-services/cloud-services-dotnet-diagnostics.md)에서 진단 설정을 구성 및 배포하는 방법에 자세한 내용을 확인할 수 있습니다.
 
 ## <a name="retrieve-diagnostics"></a>진단 검색
 
-서버 탐색기 트리의 Azure 부분에 있는 Visual Studio 서버 탐색기에서 진단에 쉽게 액세스할 수 있습니다. Visual Studio 인스턴스를 열고 메뉴 모음에서 보기와 서버 탐색기를 차례로 클릭합니다. Azure 아이콘을 클릭하여 Azure 구독에 연결합니다. 그런 다음 Azure -> 저장소-> `<your storage account>`-> 테이블 -> WADLogsTable로 이동합니다. 자세한 내용은 [서버 탐색기](https://msdn.microsoft.com/library/x603htbk.aspx)를 참조하세요.
+서버 탐색기 트리의 Azure 부분에 있는 Visual Studio 서버 탐색기에서 진단에 쉽게 액세스할 수 있습니다. Visual Studio 인스턴스를 열고 메뉴 모음에서 보기와 서버 탐색기를 차례로 클릭합니다. Azure 아이콘을 클릭하여 Azure 구독에 연결합니다. 그런 다음 Azure -&gt; 스토리지-&gt; `<your storage account>`-&gt; 테이블 -&gt; WADLogsTable로 이동합니다. 자세한 내용은 [서버 탐색기](https://msdn.microsoft.com/library/x603htbk.aspx)를 참조하세요.
 
 ![WADLogsTable][2]
 
 위의 그림에서 강조 표시된 WADLogsTable에는 분할/병합 서비스의 애플리케이션 로그에 있는 자세한 이벤트가 포함됩니다. 다운로드한 패키지의 기본 구성이 프로덕션 배포에 맞춰 조정됩니다. 그렇기 때문에, 서비스 인스턴스에서 로그 및 카운터를 가져오는 간격이 큽니다(5 분). 테스트 및 개발을 위해 필요에 따라 웹 또는 작업자 역할의 진단 설정을 조정하여 간격을 낮출 수 있습니다. Visual Studio 서버 탐색기(위 참조)의 역할을 마우스 오른쪽 단추로 클릭하여 이 작업을 수행한 다음 진단 구성 설정용 대화 상자에서 전송 기간을 조정합니다.
 
-![Configuration][3]
+![구성][3]
 
 ## <a name="performance"></a>성능
 

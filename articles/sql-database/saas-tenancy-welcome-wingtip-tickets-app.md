@@ -1,7 +1,7 @@
 ---
-title: Wingtips 앱 시작 - Azure SQL Database | Microsoft Docs
+title: 'Wingtips 앱 시작-Azure SQL Database '
 description: 클라우드 환경의 Azure SQL Database에 대한 샘플 Wingtips SaaS 애플리케이션 및 데이터베이스 테넌시 모델에 대해 알아봅니다.
-keywords: SQL Database 자습서
+keywords: sql 데이터베이스 자습서
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
@@ -12,16 +12,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: ca534d3ffcfd1d4caeb9cf755934a846fafae26e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6b8cb9bed2f5fdd0b246e73c84731081d0f2e41e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570096"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691829"
 ---
 # <a name="the-wingtip-tickets-saas-application"></a>Wingtip Tickets SaaS 애플리케이션
 
-세 개의 샘플 각각에 동일한 *Wingtip Tickets* SaaS 애플리케이션이 구현되어 있습니다. 이 앱은 극장, 클럽 등 작은 장소를 대상으로 간단한 이벤트를 나열하며 티켓팅하는 SaaS 앱입니다. 각 장소는 앱의 테넌트이며, 장소 세부 정보, 고객, 티켓 주문, 이벤트 목록 등의 자체 데이터를 갖습니다.  관리 스크립트 및 자습서와 함께 앱을 통해 엔드투엔드 SaaS 시나리오를 보여 줍니다. 여기에는 테넌트 프로비전, 성능 모니터링 및 관리, 스키마 관리, 테넌트 간 보고 및 분석이 포함됩니다.
+세 개의 샘플 각각에 동일한 *Wingtip Tickets* SaaS 애플리케이션이 구현되어 있습니다. 앱은 small 장소-극장, 클럽 등을 대상으로 하는 간단한 이벤트 목록 및 티켓 SaaS 앱입니다. 각 장소는 앱의 테 넌 트 이며, 장소 세부 정보, 이벤트 목록, 고객, 티켓 주문 등의 고유한 데이터가 있습니다.  앱은 관리 스크립트 및 자습서와 함께 종단 간 SaaS 시나리오를 소개 합니다. 여기에는 테넌트 프로비전, 성능 모니터링 및 관리, 스키마 관리, 테넌트 간 보고 및 분석이 포함됩니다.
 
 ## <a name="three-saas-application-and-tenancy-patterns"></a>세 개의 SaaS 애플리케이션과 테넌트 패턴
 

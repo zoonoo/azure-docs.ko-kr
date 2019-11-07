@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/04/2019
 ms.author: raynew
-ms.openlocfilehash: e2faa47a58283623747ae569de22e1c57df1a51f
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 249cbea173afe1671118446e0714b721b8c7f72b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231138"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685104"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -25,14 +25,14 @@ ms.locfileid: "70231138"
 
 Azure Migrate 어플라이언스 유형 및 사용법은 다음과 같습니다.
 
-**배포 된** | **사용 대상** | **세부 정보**
+**배포 된** | **용도** | **세부 정보**
 --- | --- |  ---
 VMware VM | Azure Migrate 평가 도구를 사용 하 여 VMware VM 평가<br/><br/> Azure Migrate 서버 마이그레이션 도구를 사용 하 여 VMware VM 에이전트 없이 마이그레이션 | OVA 템플릿을 다운로드 하 고 vCenter Server로 가져와 어플라이언스 VM을 만듭니다.
 Hyper-V VM | Azure Migrate 평가 도구를 사용 하 여 hyper-v VM 평가 | 압축 된 VHD를 다운로드 하 고 Hyper-v로 가져와서 어플라이언스 VM을 만듭니다.
 
 ## <a name="appliance-access"></a>어플라이언스 액세스
 
-어플라이언스를 구성한 후에는 TCP 포트 3389을 통해 어플라이언스 VM에 원격으로 액세스할 수 있습니다. URL `https://<appliance-ip-or-name>:44368`이 인 포트 44368에서 어플라이언스에 대 한 웹 관리 앱에 원격으로 액세스할 수도 있습니다.
+어플라이언스를 구성한 후에는 TCP 포트 3389을 통해 어플라이언스 VM에 원격으로 액세스할 수 있습니다. URL: `https://<appliance-ip-or-name>:44368`을 사용 하 여 포트 44368에서 어플라이언스에 대 한 웹 관리 앱에 원격으로 액세스할 수도 있습니다.
 
 ## <a name="appliance-license"></a>어플라이언스 라이선스
 어플라이언스는 180 일 동안 유효한 Windows Server 2016 evaluation 라이선스와 함께 제공 됩니다. 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
@@ -60,7 +60,7 @@ Hyper-V VM | Azure Migrate 평가 도구를 사용 하 여 hyper-v VM 평가 | �
 
 **데이터** | **카운터** | **평가 영향**
 --- | --- | ---
-CPU 사용량 | cpu.usage.average | 권장 되는 VM 크기/비용
+CPU 사용률 | cpu.usage.average | 권장 되는 VM 크기/비용
 메모리 사용률 | mem.usage.average | 권장 되는 VM 크기/비용
 디스크 읽기 처리량 (초당 MB) | virtualDisk.read.average | 디스크 크기, 저장소 비용, VM 크기에 대 한 계산
 디스크 쓰기 처리량 (초당 MB) | virtualDisk.write.average | 디스크 크기, 저장소 비용, VM 크기에 대 한 계산
@@ -73,7 +73,7 @@ NIC 쓰기 처리량 (초당 MB) | net.transmitted.average  |VM 크기에 대 �
 ## <a name="collected-metadata-vmware"></a>수집 된 메타 데이터-VMware
 
 > [!NOTE]
-> Azure Migrate 어플라이언스에서 검색 된 메타 데이터는 Azure로 마이그레이션할 때 응용 프로그램을 적절 하 게 크기를 조정 하 고, Azure 적합성 분석, 응용 프로그램 종속성 분석 및 비용 계획을 수행 하는 데 사용 됩니다. Microsoft에서는 모든 라이센스 규정 준수 감사와 관련하여 이 데이터를 사용하지 않습니다.
+> Azure Migrate 어플라이언스에서 검색 된 메타 데이터는 Azure로 마이그레이션할 때 응용 프로그램을 적절 하 게 크기를 조정 하 고, Azure 적합성 분석, 응용 프로그램 종속성 분석 및 비용 계획을 수행 하는 데 사용 됩니다. Microsoft는 라이선스 규정 준수 감사와 관련 하 여이 데이터를 사용 하지 않습니다.
 
 다음은 기기가 수집 하 여 Azure에 전송 하는 VMware VM 메타 데이터의 전체 목록입니다.
 
@@ -92,7 +92,7 @@ VM 설명 | vm.Summary.Config.Annotation
 디스크 수 | vm. 구성 합니다. FindAll (x = >는 VirtualDisk). count
 디스크 크기 목록 | vm. 구성 합니다. FindAll (x = >는 VirtualDisk)
 네트워크 어댑터 목록 | vm. 구성 합니다. FindAll (x = >는 VirtualEthernet). count
-CPU 사용량 | cpu.usage.average
+CPU 사용률 | cpu.usage.average
 메모리 사용률 |mem.usage.average
 **디스크당 정보** | 
 디스크 키 값 | disk.Key
@@ -112,7 +112,7 @@ IPv6 주소 | vm.Guest.Net
 읽기 처리량 (초당 MB) | net.received.average
 쓰기 처리량 (초당 MB) | net.transmitted.average
 **인벤토리 경로 세부 정보** | 
-이름 | container.GetType().Name
+Name | container.GetType().Name
 자식 개체 유형 | container.ChildType
 참조 세부 정보 | container.MoRef
 부모 세부 정보 | Container.Parent
@@ -127,9 +127,9 @@ VM 당 호스트 세부 정보 | (HostSystem) 컨테이너). VM
 ## <a name="collected-performance-data-hyper-v"></a>수집 된 성능 데이터-Hyper-v
 
 > [!NOTE]
-> Azure Migrate 어플라이언스에서 검색 된 메타 데이터는 Azure로 마이그레이션할 때 응용 프로그램을 적절 하 게 크기를 조정 하 고, Azure 적합성 분석, 응용 프로그램 종속성 분석 및 비용 계획을 수행 하는 데 사용 됩니다. Microsoft에서는 모든 라이센스 규정 준수 감사와 관련하여 이 데이터를 사용하지 않습니다.
+> Azure Migrate 어플라이언스에서 검색 된 메타 데이터는 Azure로 마이그레이션할 때 응용 프로그램을 적절 하 게 크기를 조정 하 고, Azure 적합성 분석, 응용 프로그램 종속성 분석 및 비용 계획을 수행 하는 데 사용 됩니다. Microsoft는 라이선스 규정 준수 감사와 관련 하 여이 데이터를 사용 하지 않습니다.
 
-다음은 기기가 수집 하 여 Azure에 전송 하는 VMware VM 성능 데이터입니다.
+다음은 기기가 수집 하 여 Azure에 전송 하는 하이퍼 VM 성능 데이터입니다.
 
 **성능 카운터 클래스** | **카운터** | **평가 영향**
 --- | --- | ---
@@ -187,7 +187,7 @@ NIC MAC ID (레거시 Nic) | MsvmEmulatedEthernetPortSetting 데이터 | 주소
 2. **메타 데이터 및 성능 데이터를 수집**합니다.
     - 어플라이언스는 CIM(Common Information Model) (CIM) 세션을 사용 하 여 hyper-v 호스트에서 5985 및 5986 포트의 hyper-v VM 데이터를 수집 합니다.
     - 어플라이언스는 기본적으로 포트 443와 통신 하 여 vCenter Server에서 VMware VM 데이터를 수집 합니다.
-3. **데이터 보내기**: 어플라이언스는 Azure Migrate 서버 평가를 위해 수집 된 데이터를 보내고 SSL 포트 443을 통한 서버 마이그레이션을 Azure Migrate 합니다.
+3. **데이터 보내기**: 어플라이언스는 Azure Migrate 서버 평가를 위해 수집 된 데이터를 보내고 SSL 포트 443을 통해 서버 마이그레이션을 Azure Migrate 합니다.
     - 성능 데이터의 경우 어플라이언스는 실시간 사용률 데이터를 수집 합니다.
         - 성능 데이터는 각 성능 메트릭에 대해 VMware에 대해 20 초 마다 수집 되 고 Hyper-v의 경우 30 초 마다 수집 됩니다.
         - 수집 된 데이터는 10 분 동안 단일 데이터 요소를 만들기 위해 롤업 됩니다.

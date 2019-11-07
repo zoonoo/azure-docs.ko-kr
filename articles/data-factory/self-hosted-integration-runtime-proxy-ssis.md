@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory에서 SSIS에 대 한 프록시로 자체 호스팅 통합 런타임 구성 Microsoft Docs
+title: Azure Data Factory에서 SSIS에 대 한 프록시로 자체 호스팅 통합 런타임 구성
 description: 자체 호스팅 Integration Runtime Azure-SSIS Integration Runtime에 대 한 프록시로 구성 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 2ade270011ad5c1e1e5f5940ca305687e52bba86
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 178628db11b95fbd345e94111ebf15809da3fc35
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200305"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684291"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성
 이 문서에서는 프록시로 구성 된 자체 호스팅 IR을 사용 하 여 Azure Data Factory (ADF)에서 Azure-SSIS Integration Runtime (IR)에 SQL Server Integration Services (SSIS) 패키지를 실행 하는 방법을 설명 합니다.  이 기능을 사용 하면 [Azure-SSIS IR 가상 네트워크에 가입](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)하지 않고도 온-프레미스 데이터에 액세스할 수 있습니다.  이는 회사 네트워크에 Azure-SSIS IR를 삽입 하는 데 과도 하 게 복잡 한 구성/제한적인 정책이 있는 경우에 유용 합니다.
@@ -59,7 +59,7 @@ OLEDB/Flat File 원본을 사용 하는 데이터 흐름 태스크가 포함 된
 ![ConnectByProxy 속성 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 수동으로 변경 하지 않고도 기존 패키지를 실행할 때이 속성을 사용 하도록 설정할 수도 있습니다.  다음과 같은 두 가지 옵션이 있습니다.
-- Azure-SSIS IR에서 실행할 최신 SSDT를 사용 하 여 해당 패키지를 포함 하는 프로젝트를 열고 다시 빌드하고 다시 배포 합니다. 그런 다음 SSMS에서 패키지를 실행할 때 패키지 실행 팝업 창의 **연결 관리자** 탭에 표시 되는 관련 연결 관리자에 대해이 속성을 **True** 로 설정 하 여 속성을 설정할 수 있습니다.
+- Azure-SSIS IR에서 실행할 최신 SSDT를 사용 하 여 해당 패키지를 포함 하는 프로젝트를 열고 다시 빌드하고 다시 배포 하는 것은 연결에 표시 되는 관련 연결 관리자에 대해 **True** 로 설정 하 여 속성을 설정할 수 있습니다.SSMS에서 패키지를 실행 하는 경우 패키지 실행 팝업 창의 관리자 탭
 
   ![ConnectByProxy property2 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
@@ -67,16 +67,16 @@ OLEDB/Flat File 원본을 사용 하는 데이터 흐름 태스크가 포함 된
   
   ![ConnectByProxy property3 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- SSIS IR에서 실행할 패키지를 포함 하는 프로젝트를 다시 배포 합니다. 그런 다음 속성 경로를 `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`제공 하 고이 속성을 **True** 로 설정 하 여 SSMS에서 패키지를 실행할 때 패키지 실행 팝업 창의 **고급** 탭에서 속성 재정의로 설정 하면 속성을 설정할 수 있습니다.
+- SSIS IR에서 실행할 패키지를 포함 하는 프로젝트를 다시 배포: 속성 경로를 제공 하 고, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`하 고, 패키지 실행 팝업 창의 **고급** 탭에서 속성 재정의로 **True** 로 설정 하 여 속성을 사용 하도록 설정할 수 있습니다. SSMS에서 패키지를 실행 하는 경우.
 
   ![ConnectByProxy property4 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
-  `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`속성 경로를 제공 하 고이 속성을 True로 설정 하 여 ADF 파이프라인에서 패키지를 실행할 때 [SSIS 패키지 실행 작업](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) 의 속성 재정의 탭에서 속성을 **True** 로 설정 하 여 속성을 설정할 수도 있습니다.
+  속성 경로를 제공 하 고, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`하 고, ADF 파이프라인에서 패키지를 실행할 때 [SSIS 패키지 실행 작업](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) **의 속성 재정의 탭에** 속성 재정의로 설정 하 여 속성을 **True** 로 설정 하 여 속성을 설정할 수도 있습니다.
   
   ![ConnectByProxy property5 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
 ## <a name="debug-the-first-and-second-staging-tasks"></a>첫 번째와 두 번째 준비 작업을 디버깅 합니다.
-자체 호스팅 IR에서 폴더의 `C:\ProgramData\SSISTelemetry` 런타임 로그와 폴더에 있는 `C:\ProgramData\SSISTelemetry\ExecutionLog` 첫 번째 준비 작업의 실행 로그를 찾을 수 있습니다.  두 번째 준비 태스크의 실행 로그는 ssisdb 또는 파일 시스템/파일 공유/Azure Files 각각에 패키지를 저장 하는지에 따라 SSISDB 또는 지정 된 로깅 경로에서 찾을 수 있습니다.  첫 번째 준비 태스크의 고유 Id는 두 번째 준비 작업의 실행 로그 (예:) 에서도 확인할 수 있습니다. 
+자체 호스팅 IR에서 `C:\ProgramData\SSISTelemetry` 폴더의 런타임 로그와 `C:\ProgramData\SSISTelemetry\ExecutionLog` 폴더에 있는 첫 번째 준비 작업의 실행 로그를 찾을 수 있습니다.  두 번째 준비 태스크의 실행 로그는 ssisdb 또는 파일 시스템/파일 공유/Azure Files 각각에 패키지를 저장 하는지에 따라 SSISDB 또는 지정 된 로깅 경로에서 찾을 수 있습니다.  첫 번째 준비 태스크의 고유 Id는 두 번째 준비 작업의 실행 로그 (예:) 에서도 확인할 수 있습니다. 
 
 ![첫 번째 준비 태스크의 고유 ID](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 

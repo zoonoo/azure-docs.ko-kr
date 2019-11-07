@@ -1,5 +1,5 @@
 ---
-title: Azure 유지 관리 이벤트 계획 - Azure SQL Database | Microsoft Docs
+title: Azure 유지 관리 이벤트 계획-Azure SQL Database
 description: Azure SQL Database에 대한 계획된 유지 관리 이벤트를 준비하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 01/30/2019
-ms.openlocfilehash: 1bb88d6f74ab4b93e226fe8630f07f0a96f4ba47
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5598d5a465645ce20d9244011de6d9cef47ac3c4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567047"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687619"
 ---
 # <a name="planning-for-azure-maintenance-events-in-azure-sql-database"></a>Azure SQL Database의 Azure 유지 관리 이벤트 계획
 
@@ -28,19 +28,19 @@ Azure SQL 데이터베이스에서 계획된 유지 관리 이벤트를 준비�
 
 ## <a name="what-to-expect-during-a-planned-maintenance-event"></a>계획된 유지 관리 이벤트 기간 동안 예상되는 상황
 
-재구성/장애 조치(failover)는 일반적으로 30초 이내에 완료되며 평균은 8초가 걸립니다. 이미 연결되어있는 경우, 애플리케이션은 데이터베이스의 새로운 주 복제본을 정상적으로 복제해야 합니다. 새로운 주 복제본이 온라인 상태가 되기 전에, 데이터베이스가 재구성되는 동안 새 연결을 시도하면 40613(데이터베이스 사용 불가): "서버 '{servername}'의 데이터베이스 '{databasename}'을(를) 현재 사용할 수 없습니다. 나중에 연결을 다시 시도해보세요." 오류가 발생합니다. 데이터베이스에 장기 실행 쿼리가 있으면, 이 쿼리가 재구성 중에 중단되어 다시 시작해야 합니다.
+재구성/장애 조치(failover)는 일반적으로 30초 이내에 완료되며 평균은 8초가 걸립니다. 이미 연결되어있는 경우, 애플리케이션은 데이터베이스의 새로운 주 복제본을 정상적으로 복제해야 합니다. 새 주 복제본이 온라인 상태가 되기 전에 데이터베이스를 다시 구성 하는 동안 새 연결을 시도 하면 오류 40613 (데이터베이스를 사용할 수 없음): "{servername} ' 서버에서" 데이터베이스 ' {databasename} '을 (를) 현재 사용할 수 없습니다. 나중에 연결을 다시 시도해보세요." 오류가 발생합니다. 데이터베이스에 장기 실행 쿼리가 있으면, 이 쿼리가 재구성 중에 중단되어 다시 시작해야 합니다.
 
 ## <a name="retry-logic"></a>재시도 논리
 
 클라우드 데이터베이스 서비스에 연결하는 모든 클라이언트 프로덕션 애플리케이션은 강력한 연결 [재시도 논리](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)를 구현해야 합니다. 그러면 이러한 상황을 완화하는 데 도움이 되며 일반적으로 최종 사용자에게 오류를 투명하게 만들 수 있습니다.
 
-## <a name="frequency"></a>빈도
+## <a name="frequency"></a>Frequency(빈도)
 
 평균적으로 계획된 유지 관리 이벤트는 매달 1.7개가 발생합니다.
 
-## <a name="resource-health"></a>Resource Health
+## <a name="resource-health"></a>리소스 상태
 
-SQL 데이터베이스에 로그인 장애가 있으면, [Azure Portal](https://portal.azure.com)의 [Resource Health](../service-health/resource-health-overview.md#get-started) 창에서 현재 상태를 확인하세요. 상태 기록 섹션에는 각 이벤트에 대한 가동 중지 시간 이유가 포함됩니다(가능한 경우).
+SQL 데이터베이스에 로그인 장애가 있으면, [Azure Portal](../service-health/resource-health-overview.md#get-started)의 [Resource Health](https://portal.azure.com) 창에서 현재 상태를 확인하세요. 상태 기록 섹션에는 각 이벤트에 대한 가동 중지 시간 이유가 포함됩니다(가능한 경우).
 
 
 ## <a name="next-steps"></a>다음 단계

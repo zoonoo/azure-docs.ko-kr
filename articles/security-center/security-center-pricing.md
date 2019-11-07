@@ -1,5 +1,5 @@
 ---
-title: 보안 강화를 위해 Security Center의 표준 계층으로 업그레이드 | Microsoft Docs
+title: Azure Security Center 계층 가격 책정
 description: 이 문서에서는 Azure Security Center에 대한 가격 책정 정보를 제공합니다.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 43ae34b946fada4d27c6843dbb8c3f9511aefd81
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 0c3fdc48d9b3bc77b629d4d6f1da081d70658c88
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520760"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664256"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>보안 강화를 위해 Security Center의 표준 계층으로 업그레이드
 Azure Security Center는 Azure, 온-프레미스 및 기타 클라우드용으로 통합 보안 관리 및 고급 위협 보호 기능을 제공합니다. 또한 하이브리드 클라우드 작업을 확인하고 제어하는 기능, 위협에 대한 노출을 줄이는 적극적인 방어 기능, 그리고 빠르게 발전하는 사이버 공격에 대응할 수 있는 지능형 검색 기능을 제공합니다.
@@ -54,7 +54,7 @@ Vm에 대 한 무료 계층 보안 평가의 대부분 표준 계층 보안 경�
 Security Center에서는 다음을 비롯하여 하이브리드 클라우드 작업을 위한 강화된 보안 및 위협 방지 기능을 제공합니다.
 
 - **하이브리드 보안** – 모든 온-프레미스 및 클라우드 작업에 걸쳐 보안을 통합 확인할 수 있습니다. 또한 보안 정책을 적용하고 하이브리드 클라우드 작업의 보안을 지속적으로 평가하여 보안 표준을 준수할 수 있습니다. 방화벽 및 기타 파트너 솔루션을 포함 하 여 여러 원본에서 보안 데이터를 수집, 검색 및 분석 합니다.
-- **고급 위협 검색** - 고급 분석 및 Microsoft Intelligent Security Graph를 사용하여 갈수록 발전하는 사이버 공격을 효율적으로 대응할 수 있습니다.  기본 제공 행동 분석 및 Machine Learning을 활용하여 공격 및 제로 데이 익스플로잇을 식별할 수 있습니다. 또한 네트워크, 컴퓨터 및 클라우스 서비스에서 들어오는 공격 및 위반 후 활동을 모니터링할 수 있습니다. 대화형 도구 및 상황에 맞는 위협 인텔리전스를 사용하면 조사를 손쉽게 수행할 수 있습니다.
+- **고급 위협 검색** - 고급 분석 및 Microsoft Intelligent Security Graph를 사용하여 갈수록 발전하는 사이버 공격을 효율적으로 대응할 수 있습니다. 기본 제공 행동 분석 및 Machine Learning을 활용하여 공격 및 제로 데이 익스플로잇을 식별할 수 있습니다. 또한 네트워크, 컴퓨터 및 클라우스 서비스에서 들어오는 공격 및 위반 후 활동을 모니터링할 수 있습니다. 대화형 도구 및 상황에 맞는 위협 인텔리전스를 사용하면 조사를 손쉽게 수행할 수 있습니다.
 - **액세스 및 응용 프로그램 제어** -특정 워크 로드에 맞게 조정 된 machine learning powered 허용 목록 권장 사항을 적용 하 여 맬웨어 및 기타 원치 않는 응용 프로그램을 차단 합니다. Azure Vm의 관리 포트에 대 한 적시의 제어 된 액세스로 네트워크 공격 노출 영역을 줄입니다. 따라서 무차별 암호 대입 및 기타 네트워크 공격에 대 한 노출을 크게 줄일 수 있습니다.
 - **컨테이너 보안 기능** -컨테이너 화 된 환경에서 취약점 관리 및 실시간 위협 감지를 활용 합니다. 컨테이너 레지스트리 리소스를 사용 하도록 설정 하는 경우 모든 기능을 사용 하도록 설정할 때까지 최대 12 시간이 걸릴 수 있습니다.
 

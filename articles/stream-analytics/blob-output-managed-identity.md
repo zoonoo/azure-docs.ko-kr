@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/12/2019
-ms.openlocfilehash: 4215dc85da6d507b08f23cf248044ea807fe5319
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1854a99cac3ead386f38c1c7fe27a56b672f365c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935186"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664318"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-azure-blob-storage-output-preview"></a>관리 Id를 사용 하 여 Azure Blob Storage 출력에 Azure Stream Analytics 작업 인증 (미리 보기)
 
@@ -23,7 +23,7 @@ Azure Blob 저장소에 대 한 출력에 대 한 [관리 id 인증은](../activ
 
 1. 새 Stream Analytics 작업을 만들거나 Azure Portal에서 기존 작업을 엽니다. 화면 왼쪽에 있는 메뉴 모음에서 **구성**아래에 있는 **관리 되는 id** 를 선택 합니다. "시스템 할당 관리 Id 사용"이 선택 되어 있는지 확인 하 고 화면 아래쪽에 있는 **저장** 단추를 클릭 합니다.
 
-   ![관리 id Stream Analytics 구성](./media/stream-analytics-managed-identities-blob-output-preview/stream-analytics-enable-managed-identity.png)
+   ![관리 id Stream Analytics 구성](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. Azure Blob 저장소 출력 싱크의 출력 속성 창에서 인증 모드 드롭다운을 선택 하 고 **관리 되는 id**를 선택 합니다. 다른 출력 속성에 대 한 자세한 내용은 [Azure Stream Analytics의 출력 이해](./stream-analytics-define-outputs.md)를 참조 하세요. 작업을 마쳤으면 **저장**을 클릭합니다.
 

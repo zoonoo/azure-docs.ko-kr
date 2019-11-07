@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용한 VMware VM과 Azure 간 재해 복구를 위한 복제에서 디스크 제외 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 재해 복구에서 Azure로 VMware VM 디스크 제외
 description: VMware와 Azure 간 재해 복구를 위한 복제에서 VM 디스크를 제외하는 이유와 방법을 설명합니다.
 author: mayurigupta13
 manager: rochakm
@@ -8,14 +8,14 @@ ms.workload: storage-backup-recovery
 ms.date: 3/3/2019
 ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c003620420611f3416e6481c575f987fbd1bd05f
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60922124"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622384"
 ---
-# <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>VMware VM과 Azure 간 복제에서 디스크 제외
+# <a name="exclude-disks-from-vmware-vm-replication-to-azure"></a>VMware VM 복제에서 Azure로 디스크 제외
 
 이 문서에서는 Azure로 VMware VM을 복제할 때 디스크를 제외하는 방법을 설명합니다. 이 제외는 그러한 디스크가 활용하는 대상 쪽 리소스를 최적화하거나 소비된 복제 대역폭을 최적화할 수 있습니다. Hyper-V에서 디스크 제외에 관한 정보가 필요한 경우 [이 문서](hyper-v-exclude-disk.md)를 읽어보세요.
 
@@ -57,7 +57,7 @@ ms.locfileid: "60922124"
 > * 복제를 사용하도록 설정한 후 복제에 대해 디스크를 추가 또는 제거할 수 없습니다. 디스크를 추가하거나 제외하려는 경우 컴퓨터에 대한 보호를 해제한 다음 다시 사용하도록 설정해야 합니다.
 > * 애플리케이션 작동에 필요한 디스크를 제외하면 Azure로 장애 조치(failover) 후 복제된 애플리케이션이 실행할 수 있도록 디스크를 Azure에서 수동으로 만들어야 합니다. 또는 Azure Automation을 복구 계획에 통합하여 컴퓨터의 장애 조치(failover) 동안 디스크를 만들 수 있습니다.
 > * Window 가상 머신: Azure에서 수동으로 만드는 디스크는 장애 복구되지 않습니다. 예를 들어 디스크 세 개를 장애 조치하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 장애 조치된 디스크 세 개만 장애 복구됩니다. 온-프레미스에서 Azure로 장애 복구 또는 다시 보호에서 수동으로 만든 디스크는 포함할 수 없습니다.
-> * Linux 가상 머신: Azure에서 수동으로 만드는 디스크는 장애 복구되지 않습니다. 예를 들어 디스크 세 개를 장애 조치(failover)하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 다섯 개 모두 장애 복구됩니다. 장애 복구에서 수동으로 만든 디스크는 제외할 수 없습니다.
+> * Linux 가상 머신: Azure에서 수동으로 만드는 디스크는 장애 복구됩니다. 예를 들어 디스크 세 개를 장애 조치(failover)하고 Azure Virtual Machines에서 디스크 두 개를 직접 만들면 다섯 개 모두 장애 복구됩니다. 장애 복구에서 수동으로 만든 디스크는 제외할 수 없습니다.
 >
 
 
@@ -80,7 +80,7 @@ ms.locfileid: "60922124"
 DB-Disk0-OS | DISK0 | C:\ | 운영 체제 디스크
 DB-Disk1| Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 DB-Disk2(보호에서 디스크 제외됨) | Disk2 | E:\ | 임시 파일
-DB-Disk3(보호에서 디스크 제외됨) | Disk3 | F:\ | SQL tempdb 데이터베이스(폴더 경로(F:\MSSQL\Data\)) <br /> <br />장애 조치 전에 폴더 경로 적어둡니다.
+DB-Disk3(보호에서 디스크 제외됨) | Disk3 | F:\ | SQL tempdb 데이터베이스(폴더 경로(F:\MSSQL\Data\)) <br /> <br />장애 조치 (failover) 전에 폴더 경로를 적어 씁니다.
 DB-Disk4 | Disk4 |G:\ |사용자 데이터베이스 2
 
 가상 머신의 디스크 두 개에 나타난 데이터 변동은 일시적이므로 SalesDB 가상 머신을 보호하는 동안 Disk2 및 Disk3을 복제에서 제외합니다. Azure Site Recovery는 해당 디스크를 복제하지 않습니다. 장애 조치(failover) 시 해당 디스크는 Azure에서 장애 조치(failover) 가상 머신에 표시되지 않습니다.
@@ -90,7 +90,7 @@ DB-Disk4 | Disk4 |G:\ |사용자 데이터베이스 2
 **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | ---
 DISK0 | C:\ | 운영 체제 디스크
-Disk1 | E:\ | 임시 저장소<br /> <br />Azure는이 디스크를 추가 하 고 첫 번째 사용 가능한 드라이브 문자를 할당 합니다.
+Disk1 | E:\ | 임시 저장소<br /> <br />Azure에서이 디스크를 추가 하 고 사용 가능한 첫 번째 드라이브 문자를 할당 합니다.
 Disk2 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 Disk3 | G:\ | 사용자 데이터베이스 2
 
@@ -154,7 +154,7 @@ SQL tempdb 디스크였던(tempdb 폴더 경로 F:\MSSQL\Data\) Disk3은 복제�
 **게스트 운영 체제 디스크#** | **드라이브 문자** | **디스크 데이터 형식**
 --- | --- | ---
 DISK0 | C:\ | 운영 체제 디스크
-Disk1 | E:\ | 임시 저장소<br /> <br />Azure는이 디스크를 추가 하 고 첫 번째 사용 가능한 드라이브 문자를 할당 합니다.
+Disk1 | E:\ | 임시 저장소<br /> <br />Azure에서이 디스크를 추가 하 고 사용 가능한 첫 번째 드라이브 문자를 할당 합니다.
 Disk2 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 Disk3 | G:\ | 사용자 데이터베이스 2
 
@@ -168,7 +168,7 @@ DISK0 | C:\ | 운영 체제 디스크
 Disk1 | D:\ | SQL 시스템 데이터베이스 및 사용자 데이터베이스 1
 Disk2 | G:\ | 사용자 데이터베이스 2
 
-## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>예 2: 페이징 파일(pagefile.sys) 디스크 제외
+## <a name="example-2-exclude-the-paging-file-pagefilesys-disk"></a>예제 2: 페이징 파일(pagefile.sys) 디스크 제외
 
 제외할 수 있는 페이징 파일 디스크가 있는 가상 머신을 살펴보겠습니다.
 다음 두 가지 경우가 있습니다.
@@ -234,4 +234,4 @@ Azure Virtual Machine의 페이징 파일 설정은 다음과 같습니다.
 ![Azure Virtual Machine의 페이징 파일 설정](./media/vmware-azure-exclude-disk/pagefile-on-azure-vm-after-failover-2.png)
 
 ## <a name="next-steps"></a>다음 단계
-배포가 설정되고 실행된 후에는 다양한 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md).
+배포가 설정되고 실행된 후에는 다양한 형식의 장애 조치(Failover)에 대해 [자세히 알아보세요](site-recovery-failover.md) .

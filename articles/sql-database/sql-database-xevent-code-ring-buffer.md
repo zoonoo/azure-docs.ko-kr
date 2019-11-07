@@ -1,5 +1,5 @@
 ---
-title: SQL Database에 대한 XEvent 링 버퍼 코드 | Microsoft Docs
+title: SQL Database에 대 한 XEvent 링 버퍼 코드
 description: Azure SQL Database에서 링 버퍼 대상을 사용하여 편리하고 빨라진 Transact-SQL 코드 샘플을 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: f1ec9cd3a4256597ade409fb3e04d44171277554
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8fd04cac394f05a9db18e84117a8647c1a17ba30
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566167"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686819"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 링 버퍼 대상 코드
 
@@ -40,7 +40,7 @@ ms.locfileid: "68566167"
 7. 링 버퍼 대상을 삭제하여 해당 리소스를 해제합니다.
 8. 이벤트 세션 및 데모 테이블을 삭제합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 * 테이블을 만들 수 있는 데이터베이스.
@@ -222,7 +222,7 @@ ssms.exe를 사용하여 코드 샘플을 실행했습니다.
 
 그런 다음 결과 창에서 열 머리글 **target_data_XML** 아래의 셀을 클릭했습니다. 그러면 결과 셀의 콘텐츠가 XML로 표시된 다른 파일 탭이 ssms.exe에 만들어졌습니다.
 
-출력은 다음 블록에 표시되어 있습니다. 긴 것으로 보이지만 두 개의  **\<이벤트 >** 요소입니다.
+출력은 다음 블록에 표시되어 있습니다. 긴 것으로 보이지만 두 개의 **\<이벤트 >** 요소입니다.
 
 &nbsp;
 

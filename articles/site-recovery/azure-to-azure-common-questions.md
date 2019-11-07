@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery 사용 하 여 Azure-Azure 재해 복구에 대 한 일반적인 질문
+title: Azure Site Recovery 사용 하는 Azure VM 재해 복구에 대 한 일반적인 질문
 description: 이 문서에서는 Azure Site Recovery 사용 하 여 다른 Azure 지역에 Azure Vm의 재해 복구에 대 한 일반적인 질문에 답변 합니다.
 author: asgang
 manager: rochakm
@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.date: 04/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: cd1c6cf0ff5a963720df7420a5d983d24e7b4d3e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 5ed501a9f11e790bcc2196d57c6479beb54f1a17
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861396"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621062"
 ---
-# <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure 간 재해 복구
+# <a name="common-questions-azure-to-azure-disaster-recovery"></a>일반적인 질문: Azure에서 Azure로 재해 복구
 
 이 문서에서는 [Site Recovery](site-recovery-overview.md)를 사용 하 여 다른 azure 지역에 azure vm의 재해 복구에 대 한 일반적인 질문에 대 한 답변을 제공 합니다. 
 
@@ -45,7 +45,7 @@ Site Recovery 팀은 Azure 용량 관리 팀과 협력 하 여 충분 한 인프
 예, Site Recovery는 ADE (Azure disk encryption)를 사용 하는 Vm의 재해 복구를 지원 합니다. 복제를 사용 하도록 설정 하면 필요한 모든 디스크 암호화 키와 비밀이 원본 지역에서 사용자 컨텍스트의 대상 지역으로 복사 됩니다. 적절 한 권한이 없는 경우에는 바로 사용할 수 있는 스크립트를 보안 관리자에 게 전달 하 여 키와 비밀을 복사할 수 있습니다.
 
 - Site Recovery은 Windows를 실행 하는 Azure Vm에 대해 ADE를 지원 합니다.
-- Site recovery는 aad를 사용 하 여 Azure Active Directory (AAD) 및 버전 1.1을 사용 하는 스키마를 사용 하 여 ADE 버전 0.1를 지원 합니다. [자세히 알아보기](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
+- Site recovery는 aad를 사용 하 여 Azure Active Directory (AAD) 및 버전 1.1을 사용 하는 스키마를 사용 하 여 ADE 버전 0.1를 지원 합니다. [자세히 알아봅니다](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schemata).
 - ADE 버전 1.1, Windows Vm은 관리 디스크를 사용 해야 합니다.
 - 암호화 된 Vm에 대 한 복제 사용에 대해 [자세히 알아보세요](azure-to-azure-how-to-enable-replication-ade-vms.md) .
 
@@ -97,7 +97,7 @@ Site Recovery를 사용하면 동일한 지리적 클러스터 내의 두 지역
 * 복구 지점의 보존 기록의 경우 24시간으로 설정합니다.
 * 앱 일치 스냅샷 빈도의 경우 60분으로 설정합니다.
 
-[자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
+[자세히 알아봅니다](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>크래시 일치 복구 지점은 무엇인가요?
 크래시 일치 복구 지점은 스냅샷을 만들 때 서버에서 VM이 손상되었거나 전원 코드가 빠졌을 때 디스크에 기록된 데이터를 나타냅니다. 스냅샷을 만들 때 메모리에 있던 내용이 포함되지 않습니다.
@@ -163,7 +163,7 @@ Site Recovery는 “다중 VM 일관성” 옵션을 제공하며, 이 옵션을
 CPU를 많이 사용하기 때문에 다중 VM 일관성을 사용하도록 설정하면 워크로드 성능에 영향을 줄 수 있습니다. 머신이 동일한 워크로드를 실행 중이며 다중 머신에서 일관성이 필요한 경우에만 사용해야 합니다. 예를 들어 한 애플리케이션에서 두 개의 SQL Server 인스턴스와 두 개의 웹 서버를 사용하는 경우 SQL Server 인스턴스에 대해서만 다중 VM 일관성이 있어야 합니다.
 
 
-## <a name="failover"></a>장애 조치
+## <a name="failover"></a>장애 조치(Failover)
 
 ### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>Azure Vm의 대상 지역에서 용량을 보장 하는 방법
 Site Recovery 팀은 Azure capacity management 팀과 협력 하 여 충분 한 인프라 용량을 계획 하 고 장애 복구를 사용 하도록 설정 된 Vm이 장애 조치 (failover)가 시작 될 때 대상 지역에 성공적으로 배포 되도록 합니다.
@@ -225,7 +225,7 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 ![Site Recovery 작업 목록](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)
 
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>복구 플랜에 자동화 Runbook을 추가할 수 있나요?
-예, Azure Automation Runbook을 복구 플랜에 통합할 수 있습니다. [자세히 알아보기](site-recovery-runbook-automation.md).
+예, Azure Automation Runbook을 복구 플랜에 통합할 수 있습니다. [자세히 알아봅니다](site-recovery-runbook-automation.md).
 
 ## <a name="reprotection-and-failback"></a>다시 보호 및 장애 복구
 
@@ -244,7 +244,7 @@ Site Recovery의 복구 플랜은 VM의 장애 조치(failover) 복구를 조정
 Site Recovery 팀은 Azure capacity management 팀과 협력 하 여 충분 한 인프라 용량을 계획 하 고 장애 복구를 사용 하도록 설정 된 Vm이 장애 조치 (failover)가 시작 될 때 대상 지역에 성공적으로 배포 되도록 합니다.
 
 ### <a name="does-site-recovery-work-with-reserved-instances"></a>예약 된 인스턴스를 사용할 Site Recovery 있나요?
-예, 재해 복구 지역에서 [예약 인스턴스](https://azure.microsoft.com/pricing/reserved-vm-instances/) 를 구입할 수 있으며 Site Recovery 장애 조치 (failover) 작업에서 사용 됩니다. </br> 추가적인 구성은 필요하지 않습니다.
+예, 재해 복구 지역에서 [예약 인스턴스](https://azure.microsoft.com/pricing/reserved-vm-instances/) 를 구입할 수 있으며 Site Recovery 장애 조치 (failover) 작업에서 사용 됩니다. </br> 추가 구성은 필요하지 않습니다.
 
 
 ## <a name="security"></a>보안

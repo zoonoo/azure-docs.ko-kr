@@ -4,7 +4,7 @@ description: 이 문서에서는 Azure 운영 보안 기능에 대한 개요를 
 services: security
 documentationcenter: na
 author: unifycloud
-manager: barbkess
+manager: rkarlin
 editor: tomsh
 ms.assetid: ''
 ms.service: security
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/30/2018
+ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: 52d74983458a2c6a4de27ec91bc23a8dd9bee387
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: c5ab994ce7b4e3d195ec3a4c83094974c5767e66
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899813"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643780"
 ---
 # <a name="azure-operational-security-overview"></a>Azure 운영 보안 개요
 
@@ -34,19 +34,19 @@ IT 운영 팀은 이러한 시스템의 안정성과 보안을 포함하여 데�
 
 ### <a name="azure-monitor"></a>Azure Monitor
 
-[Azure Monitor](/azure/azure-monitor/overview)는 관리되는 원본에서 중앙 데이터 저장소로 데이터를 수집합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 데이터를 수집한 후에는 경고, 분석 및 내보내기에 사용할 수 있습니다. 
+[Azure Monitor](/azure/azure-monitor/overview)는 관리되는 원본에서 중앙 데이터 저장소로 데이터를 수집합니다. 이 데이터에는 이벤트, 성능 데이터 또는 API를 통해 제공되는 사용자 지정 데이터가 포함될 수 있습니다. 데이터를 수집한 후에는 경고, 분석 및 내보내기에 사용할 수 있습니다.
 
 다양한 원본의 데이터를 통합하고 Azure 서비스의 데이터를 기존 온-프레미스 환경과 결합할 수 있습니다. 또한 Azure Monitor 로그는 모든 종류의 데이터에서 모든 작업을 사용할 수 있도록 해당 데이터에 대해 수행 되는 작업과 데이터 컬렉션을 명확 하 게 구분 합니다.
 
-### <a name="automation"></a>자동화
+### <a name="automation"></a>Automation
 
 [Azure Automation](/azure/automation/automation-intro)은 클라우드 및 엔터프라이즈 환경에서 일반적으로 장기간 실행되고, 오류가 발생하기 쉬우며, 자주 반복되는 수동 작업을 자동화할 수 있는 방법을 제공합니다. 시간을 절약하고 일반 관리 작업의 안정성을 향상시키며, 이러한 작업을 정기적으로 자동으로 수행되도록 예약합니다. Runbook을 사용하는 프로세스를 자동화하거나 원하는 상태 구성을 사용하여 구성 관리를 자동화할 수 있습니다.
 
-### <a name="backup"></a>백업
+### <a name="backup"></a>Backup
 
-[Azure Backup](/azure/backup/backup-introduction-to-azure-backup)은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스입니다. 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다. 
+[Azure Backup](/azure/backup/backup-introduction-to-azure-backup)은 Microsoft 클라우드에서 데이터를 백업(또는 보호)하고 복원하는 데 사용할 수 있는 Azure 기반 서비스입니다. 기존의 온-프레미스 또는 오프사이트 백업 솔루션을 신뢰할 수 있고 안전하며 가격 경쟁력이 있는 클라우드 기반 솔루션으로 대체합니다.
 
-Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계없이 모든 Azure Backup 구성 요소는 Azure에서 Azure Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다. 
+Azure Backup에서는 컴퓨터, 서버 또는 클라우드에 적절히 다운로드하고 배포하는 구성 요소를 제공합니다. 배포하는 구성 요소 또는 에이전트는 보호하려는 대상에 따라 달라집니다. 온-프레미스 또는 클라우드에서 데이터를 보호하는지 여부에 관계없이 모든 Azure Backup 구성 요소는 Azure에서 Azure Recovery Services 자격 증명 모음에 데이터를 백업하는 데 사용할 수 있습니다.
 
 자세한 내용은 [Azure Backup 구성 요소 표](/azure/backup/backup-introduction-to-azure-backup#which-backup-agent-should-i-use)를 참조하세요.
 
@@ -102,7 +102,7 @@ Security Center에서는 Microsoft Monitoring Agent를 사용하며, 이는 Azur
 
 [Azure Monitor](/azure/monitoring-and-diagnostics/monitoring-overview-azure-monitor) - Azure에서 실행되는 서비스를 모니터링하는 기본 도구입니다. 또한 서비스의 처리량과 주변 환경에 대한 인프라 수준 데이터를 제공합니다. Azure에서 모든 앱을 관리하고 리소스를 확장 또는 축소할지 여부를 결정하려면 Azure Monitor에서 시작해야 합니다.
 
-모니터링 데이터를 사용하여 애플리케이션에 대해 깊이 이해할 수도 있습니다. 이러한 정보를 통해 애플리케이션 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다. 
+모니터링 데이터를 사용하여 애플리케이션에 대해 깊이 이해할 수도 있습니다. 이러한 정보를 통해 애플리케이션 성능이나 유지 관리를 개선하거나 그렇지 않으면 수동 개입이 필요한 작업을 자동화하는 데 도움이 될 수 있습니다.
 
 Azure Monitor에는 다음 구성 요소가 포함되어 있습니다.
 
@@ -118,7 +118,7 @@ Windows 이벤트 시스템 로그는 VM에 대한 진단 로그의 한 범주�
 
 진단 로그는 [활동 로그](/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)와 다릅니다. 활동 로그는 구독에 있는 리소스에서 수행된 작업에 대한 자세한 정보를 제공합니다. 진단 로그는 리소스 자체에서 수행하는 작업에 대한 정보를 제공합니다.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>메트릭
 
 Azure Monitor는 Azure에서 워크로드의 상태와 성능에 대한 정보를 얻을 수 있는 원격 분석 기능을 제공합니다. Azure 원격 분석 데이터의 가장 중요한 유형은 대부분의 Azure 리소스에서 내보내는 [메트릭](/azure/monitoring-and-diagnostics/monitoring-overview-metrics)(성능 카운터라고도 함)입니다. Azure Monitor는 모니터링 및 문제 해결을 위해 이러한 메트릭을 구성 및 사용하는 몇 가지 방법을 제공합니다.
 
@@ -145,22 +145,24 @@ Network Watcher는 현재 다음과 같은 기능을 제공합니다.
 - [IP 흐름 확인](/azure/network-watcher/network-watcher-ip-flow-verify-overview): 흐름 정보의 5-튜플 패킷 매개 변수(대상 IP, 원본 IP, 대상 포트, 원본 포트 및 프로토콜)에 따라 패킷을 허용하거나 거부하는지 확인합니다. 보안 그룹에서 패킷을 거부하면 해당 패킷을 거부한 규칙과 그룹이 반환됩니다.
 - [다음 홉](/azure/network-watcher/network-watcher-next-hop-overview): 잘못 구성된 사용자 정의 경로를 진단할 수 있도록 Azure 네트워크 패브릭에서 라우팅되는 패킷의 다음 홉을 결정합니다.
 - [보안 그룹 보기](/azure/network-watcher/network-watcher-security-group-view-overview): VM에 적용되는 효과적이고 실용적인 보안 규칙을 가져옵니다.
-- [네트워크 보안 그룹의 NSG 흐름 로그](/azure/network-watcher/network-watcher-nsg-flow-logging-overview): 그룹의 보안 규칙으로 허용되거나 거부되는 트래픽과 관련된 로그를 캡처할 수 있습니다. 흐름은 원본 IP, 대상 IP, 원본 포트, 대상 포트 및 프로토콜의 5-튜플 정보로 정의됩니다.
-- [Virtual Network 게이트웨이 및 연결 문제 해결](/azure/network-watcher/network-watcher-troubleshoot-manage-rest): 가상 네트워크 게이트웨이 및 연결 문제를 해결하는 기능을 제공합니다.
-- [네트워크 구독 제한](/azure/network-watcher/network-watcher-monitoring-overview): 제한 대비 네트워크 리소스 사용량을 볼 수 있습니다.
+- [네트워크 보안 그룹의 NSG 흐름 로그](/azure/network-watcher/network-watcher-nsg-flow-logging-overview): 그룹의 보안 규칙으로 허용되거나 거부되는 트래픽과 관련된 로그를 캡처할 수 있도록 합니다. 흐름은 원본 IP, 대상 IP, 원본 포트, 대상 포트 및 프로토콜의 5-튜플 정보로 정의됩니다.
+- [Virtual Network 게이트웨이 및 연결 문제 해결](/azure/network-watcher/network-watcher-troubleshoot-manage-rest): Virtual Network 게이트웨이 및 연결에 발생한 문제를 해결하는 기능을 제공합니다.
+- [네트워크 구독 제한](/azure/network-watcher/network-watcher-monitoring-overview): 제한과 대조한 네트워크 리소스 사용량을 볼 수 있습니다.
 - [진단 로그](/azure/network-watcher/network-watcher-monitoring-overview): 리소스 그룹의 네트워크 리소스에 대해 진단 로그를 사용하거나 사용하지 않도록 설정할 수 있는 단일 창을 제공합니다.
 
 자세한 내용은 [Network Watcher 구성](/azure/network-watcher/network-watcher-create)을 참조하세요.
 
 ## <a name="cloud-service-provider-access-transparency"></a>클라우드 서비스 공급자 액세스 투명성
 
-[Microsoft Azure에 대한 고객 Lockbox](https://azure.microsoft.com/blog/approve-audit-support-access-requests-to-vms-using-customer-lockbox-for-azure/)는 Microsoft 지원 엔지니어가 문제를 해결하기 위해 데이터에 액세스해야 하는 드문 경우에서 명시적인 제어를 제공하는 Azure Portal로 통합된 서비스입니다. Microsoft 지원 엔지니어가 이 문제를 해결하기 위해 관리자 권한이 필요한 디버깅 원격 액세스 문제와 같은 경우는 거의 없습니다. 이러한 경우 Microsoft 엔지니어는 서비스로 제한된 액세스를 사용하여 제한된, 시간 제한 권한 부여를 제공하는 Just-In-Time 액세스 서비스를 사용합니다.  
+[Microsoft Azure에 대한 고객 Lockbox](customer-lockbox-overview.md)는 Microsoft 지원 엔지니어가 문제를 해결하기 위해 데이터에 액세스해야 하는 드문 경우에서 명시적인 제어를 제공하는 Azure Portal로 통합된 서비스입니다.
+Microsoft 지원 엔지니어가 이 문제를 해결하기 위해 관리자 권한이 필요한 디버깅 원격 액세스 문제와 같은 경우는 거의 없습니다. 이러한 경우 Microsoft 엔지니어는 서비스로 제한된 액세스를 사용하여 제한된, 시간 제한 권한 부여를 제공하는 Just-In-Time 액세스 서비스를 사용합니다.  
 Microsoft는 항상 액세스에 대한 고객 동의를 얻었지만 고객 Lockbox는 이제 Azure Portal에서 이러한 요청을 검토 및 승인하거나 거부하는 기능을 제공합니다. Microsoft 지원 엔지니어는 요청을 승인할 때까지 액세스 권한이 부여되지 않습니다.
 
 ## <a name="standardized-and-compliant-deployments"></a>표준화된 준수 배포
 
 클라우드 설계자와 중앙 정보 기술 그룹은 [Azure Blueprints](/azure/governance/blueprints/overview)를 통해 조직의 표준, 패턴 및 요구 사항을 구현하고 준수하는 반복 가능한 Azure 리소스 집합을 정의할 수 있습니다.  
-따라서 DevOps 팀은 새 환경을 신속하게 빌드 및 구축하고 조직의 규정 준수를 유지 관리하는 인프라를 사용하여 빌드한다는 것을 신뢰할 수 있습니다. Blueprints는 다음과 같은 다양한 리소스 템플릿 및 기타 아티팩트의 배포를 조정하는 명확한 방법을 제공합니다. 
+따라서 DevOps 팀은 새 환경을 신속하게 빌드 및 구축하고 조직의 규정 준수를 유지 관리하는 인프라를 사용하여 빌드한다는 것을 신뢰할 수 있습니다.
+Blueprints는 다음과 같은 다양한 리소스 템플릿 및 기타 아티팩트의 배포를 조정하는 명확한 방법을 제공합니다.
 
 - 역할 할당
 - 정책 할당
@@ -189,6 +191,6 @@ Microsoft Azure와 같은 클라우드 플랫폼은 기존 병목 현상을 제�
 
 보안 및 감사 솔루션에 대한 자세한 내용은 다음 문서를 참조하세요.
 
-- [보안 및 규정 준수](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [보안 및 규정 준수](https://azure.microsoft.com/overview/trusted-cloud/)
 - [Azure Security Center](/azure/security-center/security-center-intro)
 - [Azure Monitor](/azure/azure-monitor/overview)

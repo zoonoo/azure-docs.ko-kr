@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름의 필터 변환 | Microsoft Docs
+title: Azure Data Factory 매핑 데이터 흐름의 필터 변환
 description: Azure Data Factory 매핑 데이터 흐름에서 필터 변환을 사용 하 여 행을 필터링 합니다.
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: a4dd53f37a8a963d05a3ad9c49769528e945f6a1
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 77587d007d9bfcdc1461201f676c79880bd89d6b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72527385"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676167"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 필터 변환
 
@@ -37,7 +37,7 @@ ms.locfileid: "72527385"
 
 ### <a name="example"></a>예제
 
-아래 예제는 들어오는 스트림 `CleanData`를 사용 하는 `FilterBefore1960` 이라는 조건부 분할 변환입니다. 필터 조건은 `year <= 1960` 식입니다.
+아래 예제는 들어오는 스트림 `CleanData`를 사용 하는 `FilterBefore1960` 이라는 조건부 분할 변환입니다. 필터 조건은 `year <= 1960`식입니다.
 
 Data Factory UX에서이 변환은 아래 이미지와 같습니다.
 

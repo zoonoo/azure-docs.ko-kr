@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 531f6d86d57be550d0a1147e131d93ae6e298406
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 942c565c885d59a14d64e7ec06beee0354e7c4ca
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474747"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641631"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Azure AD B2C를 사용 하 여 Azure API Management API 보호
 
@@ -35,7 +35,7 @@ Azure Active Directory B2C (Azure AD B2C)를 사용 하 여 인증 된 클라이
 
 Azure API Management에서 Azure AD B2C를 사용 하 여 API를 보호 하는 경우 APIM에서 만드는 [인바운드 정책](../api-management/api-management-howto-policies.md) 에 대 한 여러 값이 필요 합니다. 먼저 Azure AD B2C 테 넌 트에서 이전에 만든 응용 프로그램의 응용 프로그램 ID를 기록 합니다. 필수 구성 요소에서 만든 응용 프로그램을 사용 하는 경우 *webbapp1*의 응용 프로그램 ID를 사용 합니다.
 
-현재 **응용 프로그램** 환경 또는 새로운 통합 **앱 등록 (미리 보기)** 환경을 사용 하 여 응용 프로그램 ID를 가져올 수 있습니다. [미리 보기 환경에 대해 자세히 알아보세요](http://aka.ms/b2cappregintro).
+현재 **응용 프로그램** 환경 또는 새로운 통합 **앱 등록 (미리 보기)** 환경을 사용 하 여 응용 프로그램 ID를 가져올 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
 

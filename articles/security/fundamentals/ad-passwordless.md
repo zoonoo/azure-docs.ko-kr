@@ -2,19 +2,19 @@
 title: Azure Active Directory 사용 하 여 암호가 없는 전 세계 이해 | Microsoft Docs
 description: 이 가이드는 ceo, cio, cisos, 최고 id 설계자, 엔터프라이즈 설계자, 보안 및 IT 의사 결정권자가 Azure Active Directory 구현에 대해 암호 없는 인증 방법을 선택 하는 데 도움이 됩니다.
 keywords: passwordless, azuread
-author: martincoetzer
-ms.author: martinco
+author: TerryLanfear
+ms.author: terrylan
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: d1c69cd1cf9990fc77a24e18d87690210453cf75
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: a24195dcf8f384db8d78d39ac7100e487f6c9272
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091961"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621273"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Azure Active Directory 암호가 없는 전 세계
 
@@ -44,7 +44,7 @@ Windows 10에서 비즈니스용 Windows Hello는 Pc 및 장치에서 강력한 
 
 ### <a name="windows-hello-for-business-scenarios"></a>비즈니스용 Windows Hello 시나리오
 
-비즈니스용 windows Hello는 고유의 지정 된 Windows PC가 있는 정보 근로자에 게 적합 합니다. 생체 인식 및 자격 증명은 사용자 PC와 직접 연결 되어 소유자 이외의 사용자가 액세스 하지 못하도록 합니다. 비즈니스용 Windows Hello는 PKI 통합 및 SSO (single sign-on)에 대 한 기본 제공 지원을 통해 온-프레미스 및 클라우드에서 회사 리소스에 원활 하 게 액세스할 수 있는 간단 하 고 편리한 방법을 제공 합니다.
+비즈니스용 windows Hello는 고유의 지정 된 Windows PC가 있는 정보 근로자에 게 적합 합니다. 생체 인식 및 자격 증명은 사용자 PC와 직접 연결 되어 소유자 이외의 사용자가 액세스 하지 못하도록 합니다. 비즈니스용 Windows Hello는 PKI 통합 및 기본 제공 되는 SSO (Single Sign-On) 지원을 통해 온-프레미스 및 클라우드에서 회사 리소스에 원활 하 게 액세스할 수 있는 간단 하 고 편리한 방법을 제공 합니다.
 
 ### <a name="windows-hello-for-business-deployment-considerations"></a>비즈니스용 Windows Hello 배포 고려 사항
 
@@ -109,7 +109,7 @@ Windows 10 장치의 기능에 따라 TPM (하드웨어 신뢰할 수 있는 플
 
 [MICROSOFT pin 재설정 서비스](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) 는 사용자가 필요에 따라 PIN을 다시 설정할 수 있도록 하는 Azure AD의 기능입니다. 관리자는 그룹 정책, Microsoft Intune 또는 호환 되는 MDM을 사용 하 여 Microsoft PIN 재설정 서비스를 안전 하 게 사용 하도록 Windows 10 장치를 구성할 수 있습니다. 다시 등록 합니다.
 
-사용자가 암호를 사용 하 여 대체 해야 하는 경우도 있습니다. [셀프 서비스 암호 재설정](../../active-directory/authentication/howto-sspr-deployment.md) (SSPR)는 IT 직원에 게 연락 하지 않고도 사용자가 암호를 재설정할 수 있도록 하는 또 다른 Azure AD 기능입니다. 사용자는 서비스를 사용 하기 전에 셀프 서비스 암호 재설정을 위해 등록 하거나 등록 해야 합니다. 등록 하는 동안 사용자는 조직에서 사용 하도록 설정 된 하나 이상의 인증 방법을 선택 합니다. SSPR를 사용 하면 사용자가 신속 하 게 차단이 해제 되 고 시간이 나 시간에 관계 없이 작업을 계속할 수 있습니다. 사용자가 자신을 차단 해제할 수 있도록 하 여 조직에서는 일반적인 암호 관련 문제에 대 한 비 생산성 시간 및 지원 비용을 줄일 수 있습니다.
+사용자가 암호를 사용 하 여 대체 해야 하는 경우도 있습니다. SSPR ( [셀프 서비스 암호 재설정](../../active-directory/authentication/howto-sspr-deployment.md) )는 IT 직원에 게 연락 하지 않고도 사용자가 암호를 재설정할 수 있도록 하는 또 다른 Azure AD 기능입니다. 사용자는 서비스를 사용 하기 전에 셀프 서비스 암호 재설정을 위해 등록 하거나 등록 해야 합니다. 등록 하는 동안 사용자는 조직에서 사용 하도록 설정 된 하나 이상의 인증 방법을 선택 합니다. SSPR를 사용 하면 사용자가 신속 하 게 차단이 해제 되 고 시간이 나 시간에 관계 없이 작업을 계속할 수 있습니다. 사용자가 자신을 차단 해제할 수 있도록 하 여 조직에서는 일반적인 암호 관련 문제에 대 한 비 생산성 시간 및 지원 비용을 줄일 수 있습니다.
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>Microsoft Authenticator를 사용 하 여 passwordless 로그인
 
@@ -123,7 +123,7 @@ Microsoft Authenticator 앱을 사용 하면 사용자가 자신의 id를 확인
 
 Microsoft Authenticator 앱을 사용 하 여 Azure AD에 암호 없는 로그인을 수행 하기 위한 필수 구성 요소는 다음과 같습니다.
 
-* Azure Multi-factor Authentication에 대해 최종 사용자가 사용 하도록 설정 됨
+* Azure Multi-Factor Authentication 최종 사용자를 사용할 수 있습니다.
 
 * 앱 배포를 용이 하 게 하려면 Microsoft Intune 또는 타사 MDM (모바일 장치 관리) 솔루션을 사용 하 여 장치를 등록 하는 것이 좋습니다.
 
@@ -131,7 +131,7 @@ Microsoft Authenticator 앱을 사용 하 여 Azure AD에 암호 없는 로그�
 
 관리자가 암호 없는 로그인을 사용 하도록 설정한 경우 최종 사용자는 다음 요구 사항을 충족 해야 합니다.
 
-* Azure Multi-factor Authentication에 등록 됨
+* Azure Multi-Factor Authentication에 등록 됨
 
 * IOS 8.0 이상을 실행 하는 장치에 설치 된 최신 버전의 Microsoft Authenticator 또는 Android 6.0 이상
 
@@ -150,7 +150,7 @@ Microsoft Authenticator 앱을 사용 하 여 Azure AD에 암호 없는 로그�
 
 Azure AD 계정에 로그인 하는 데 Microsoft Authenticator 앱을 암호 없는 솔루션으로 사용 하려면 먼저 관리자와 최종 사용자 모두에 게 단계를 수행 해야 합니다.
 
-먼저 관리자가 Windows PowerShell을 사용 하 여 테 넌 트에서 [앱을 자격 증명으로 사용 하도록 설정](../../active-directory/authentication/howto-authentication-passwordless-phone.md) 해야 합니다. 또한 관리자는 azure MFA (Multi-factor Authentication)에 대해 최종 사용자를 사용 하도록 설정 하 고 [확인 방법](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods)중 하나로 Microsoft Authenticator 앱을 구성 해야 합니다.
+먼저 관리자가 Windows PowerShell을 사용 하 여 테 넌 트에서 [앱을 자격 증명으로 사용 하도록 설정](../../active-directory/authentication/howto-authentication-passwordless-phone.md) 해야 합니다. 또한 관리자는 azure MFA (azure Multi-Factor Authentication)에 대 한 최종 사용자를 사용 하도록 설정 하 고 [확인 방법](../../active-directory/authentication/howto-mfa-mfasettings.md#verification-methods)중 하나로 Microsoft Authenticator 앱을 구성 해야 합니다.
 
 최종 사용자는 Microsoft Authenticator 앱을 다운로드 하 여 [설치](../../active-directory/user-help/user-help-auth-app-download-install.md) 하 고 Microsoft Authenticator 앱을 확인 방법 중 하나로 사용 하도록 [계정을 설정](../../active-directory/user-help/security-info-setup-auth-app.md) 해야 합니다.
 
@@ -184,7 +184,7 @@ Microsoft Authenticator를 사용 하는 암호 없는 인증은 비즈니스용
 
 #### <a name="user-manages-their-passwordless-sign-in-with-microsoft-authenticator-credentials"></a>사용자가 Microsoft Authenticator 자격 증명을 사용 하 여 암호 없는 로그인을 관리 합니다.
 
-사용자는 [결합 된 등록](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md)을 통해 Azure multi-factor Authentication 및 셀프 서비스 암호 재설정의 혜택을 등록 하 고 얻을 수 있습니다. 사용자는 [내 프로필 페이지로](https://aka.ms/mysecurityinfo)이동 하 여 이러한 설정을 등록 하 고 관리 합니다. SSPR를 사용 하도록 설정 하는 것 외에도 결합 된 등록은 여러 인증 방법과 작업을 지원 합니다.
+사용자는 [결합 된 등록](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md)을 통해 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정을 등록 하 고 혜택을 받을 수 있습니다. 사용자는 [내 프로필 페이지로](https://aka.ms/mysecurityinfo)이동 하 여 이러한 설정을 등록 하 고 관리 합니다. SSPR를 사용 하도록 설정 하는 것 외에도 결합 된 등록은 여러 인증 방법과 작업을 지원 합니다.
 
 ## <a name="fido2-security-keys"></a>FIDO2 보안 키
 
@@ -228,7 +228,7 @@ FIDO2 규격 폼 팩터는 USB, NFC 및 Bluetooth 장치를 포함 합니다. �
 
 관리자는 [수동으로 키를 프로 비전](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-passwordless) 하 고 최종 사용자에 게 배포할 수 있지만, Windows 10 잠금 화면에서 FIDO2 자격 증명 공급자를 프로 비전 하 고 사용 하도록 설정 하는 것은 [Intune](https://docs.microsoft.com/intune/windows-enrollment-methods)을 통해 지원 됩니다. 또한 관리자는 [Azure Portal](https://portal.azure.com/) 를 사용 하 여 암호 없는 인증 방법으로 하드웨어 토큰 장치를 사용 하도록 설정 해야 합니다.
 
-또한 FIDO2 보안 키를 배포 하려면 사용자가 [결합 된 등록](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md)을 사용 하 여 키를 등록 해야 합니다. 사용자는 결합 된 등록을 통해 한 번 등록 하 고 Azure Multi-factor Authentication 및 single sign-on 암호 재설정 (SSPR)의 이점을 얻을 수 있습니다.
+또한 FIDO2 보안 키를 배포 하려면 사용자가 [결합 된 등록](../../active-directory/authentication/concept-registration-mfa-sspr-combined.md)을 사용 하 여 키를 등록 해야 합니다. 사용자는 결합 된 등록을 통해 한 번 등록 하 고 Azure Multi-Factor Authentication 및 Single Sign-On 암호 재설정 (SSPR)의 이점을 얻을 수 있습니다.
 
 하드웨어 토큰을 기본 multi-factor authentication 방법으로 선택 하는 것 외에도 추가 확인 옵션을 선택 하는 것이 좋습니다.
 
@@ -287,11 +287,11 @@ Microsoft 암호 없는 기술을 선택할 때 고려할 몇 가지 요소는 �
 |**모드**|플랫폼|소프트웨어|하드웨어|
 |**시스템 및 장치**|기본 제공 신뢰할 수 있는 플랫폼 모듈 (TPM)를 사용 하는 PC<br>PIN 및 생체 인식 인식 |휴대폰에서 PIN 및 생체 인식 인식|Microsoft와 호환 되는 보안 장치 FIDO2|
 |**사용자 환경**|PIN 또는 생체 인식 인식 (얼굴, iri 또는 지문)을 사용 하 여 Windows 장치에 로그인 합니다.<br>Windows Hello 인증은 장치에 연결 됩니다. 회사 리소스에 액세스 하려면 사용자에 게 PIN 또는 생체 인식 요소와 같은 장치 및 로그인 구성 요소가 필요 합니다.|지문 검색, 얼굴 또는 조리개 인식 또는 PIN을 사용 하 여 휴대폰을 사용 하 여 로그인 합니다.<br>사용자는 PC 또는 휴대폰에서 회사 또는 개인 계정에 로그인 합니다.|FIDO2 security 장치 (생체 인식, 핀 및 NFC)를 사용 하 여 로그인<br>사용자는 장치에 액세스 하 고, PIN에 기반 하 여 장치에 액세스 하 고, USB 보안 키, NFC 지원 스마트 카드, 키 또는 착용 식 장치용와 같은 장치를 사용 하 여 생체 인식을 수행할 수 있습니다.|
-|**사용 시나리오**| Windows 장치에서 암호 없는 환경<br>장치 및 응용 프로그램에 대 한 single sign-on 기능을 갖춘 전용 작업 PC에 적용 가능 합니다.|휴대폰을 사용 하는 암호 없는 장소 솔루션.<br>모든 장치에서 웹의 회사 또는 개인 응용 프로그램에 액세스 하는 데 사용할 수 있습니다.|생체 인식, PIN 및 NFC를 사용 하는 작업자에 대 한 암호 없는 환경<br>공유 Pc 및 휴대폰을 사용할 수 없는 경우 (예: 지원 센터 직원, 공공 키오스크 또는 병원 팀)에서 사용할 수 있습니다.|
+|**사용 시나리오**| Windows 장치에서 암호 없는 환경<br>장치 및 응용 프로그램에 대 한 Single Sign-On 기능이 있는 전용 작업 PC에 적용 가능 합니다.|휴대폰을 사용 하는 암호 없는 장소 솔루션.<br>모든 장치에서 웹의 회사 또는 개인 응용 프로그램에 액세스 하는 데 사용할 수 있습니다.|생체 인식, PIN 및 NFC를 사용 하는 작업자에 대 한 암호 없는 환경<br>공유 Pc 및 휴대폰을 사용할 수 없는 경우 (예: 지원 센터 직원, 공공 키오스크 또는 병원 팀)에서 사용할 수 있습니다.|
 
 다음 표를 사용 하 여 요구 사항 및 사용자를 지원할 방법을 선택할 수 있습니다.
 
-|Persona|시나리오|환경|Passwordless 기술|
+|Persona|시나리오|Environment|Passwordless 기술|
 |:-|:-|:-|:-|
 |**지점**|관리 작업을 위해 장치에 안전 하 게 액세스|할당 된 Windows 10 장치|비즈니스용 Windows Hello 및/또는 FIDO2 보안 키|
 |**지점**|Windows가 아닌 장치에 대 한 관리 작업| 모바일 또는 비 windows 장치|Microsoft Authenticator 앱을 사용 하 여 passwordless 로그인|

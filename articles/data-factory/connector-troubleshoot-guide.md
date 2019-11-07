@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 커넥터 문제 해결 | Microsoft Docs
+title: Azure Data Factory 커넥터 문제 해결
 description: Azure Data Factory에서 커넥터 문제를 해결 하는 방법을 알아봅니다.
 services: data-factory
 author: linda33wj
@@ -8,31 +8,31 @@ ms.topic: troubleshooting
 ms.date: 08/26/2019
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: bea5191063cf673f6b1395d46a15536e80b0aa30
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 8cabc1031f9d0be772ba087109ae1dfc881ce163
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143506"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680075"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Azure Data Factory 커넥터 문제 해결
 
 이 문서에서는 Azure Data Factory의 커넥터에 대 한 일반적인 문제 해결 방법을 살펴봅니다.
 
-## <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
+## <a name="azure-data-lake-storage"></a>Azure Data Lake 스토리지
 
-### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>오류 메시지: 원격 서버에서 (403) 사용할 수 없음
+### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>오류 메시지: 원격 서버에서 오류를 반환 했습니다. (403) 사용할 수 없음
 
-- **증상**: 다음 오류가 발생 하 여 복사 작업이 실패 합니다. 
+- **증상**: 복사 작업이 실패 하 고 다음 오류가 발생 합니다. 
 
     ```
     Message: The remote server returned an error: (403) Forbidden.. 
     Response details: {"RemoteException":{"exception":"AccessControlException""message":"CREATE failed with error 0x83090aa2 (Forbidden. ACL verification failed. Either the resource does not exist or the user is not authorized to perform the requested operation.)....
     ```
 
-- **원인**: 한 가지 가능한 원인은 사용자가 사용 하는 서비스 주체 또는 관리 id에 특정 폴더/파일에 대 한 액세스 권한이 없는 것입니다.
+- **원인**: 사용 하는 서비스 주체 또는 관리 id에 특정 폴더/파일에 대 한 액세스 권한이 없기 때문일 수 있습니다.
 
-- **해결 방법**: 복사 해야 하는 모든 폴더와 하위 폴더에 해당 하는 사용 권한을 부여 합니다. [이 문서](connector-azure-data-lake-store.md#linked-service-properties)를 참조 하세요.
+- **해결**방법: 복사 해야 하는 모든 폴더와 하위 폴더에 해당 하는 사용 권한을 부여 합니다. [이 문서](connector-azure-data-lake-store.md#linked-service-properties)를 참조 하세요.
 
 ### <a name="error-message-failed-to-get-access-token-by-using-service-principal-adal-error-service_unavailable"></a>오류 메시지: 서비스 주체를 사용 하 여 액세스 토큰을 가져오지 못했습니다. ADAL 오류: service_unavailable
 
@@ -45,7 +45,7 @@ ms.locfileid: "70143506"
 
 - **원인**: Azure Active Directory에서 소유 하 고 있는 STS (서비스 토큰 서버)를 사용할 수 없는 경우 (예: 요청을 처리 하기에 너무 많음) HTTP 오류 503을 반환 합니다. 
 
-- **해결 방법**: 몇 분 후에 복사 작업을 다시 실행 합니다.
+- **해결**방법: 몇 분 후에 복사 작업을 다시 실행 합니다.
 
 ## <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
 
@@ -60,11 +60,11 @@ ms.locfileid: "70143506"
     Message=Conversion failed when converting from a character string to uniqueidentifier...
     ```
 
-- **원인**: Azure SQL Data Warehouse PolyBase에서 빈 문자열을 GUID로 변환할 수 없습니다.
+- **원인**: PolyBase Azure SQL Data Warehouse 빈 문자열을 GUID로 변환할 수 없습니다.
 
-- **해결 방법**: 복사 작업 싱크의 Polybase 설정에서 "**형식 기본값 사용**" 옵션을 false로 설정 합니다.
+- **해결**방법: 복사 작업 싱크에서 Polybase 설정에서 "**형식 기본값 사용**" 옵션을 false로 설정 합니다.
 
-### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>오류 메시지: 예상 데이터 형식: DECIMAL (x, x), 잘못 값
+### <a name="error-message-expected-data-type-decimalxx-offending-value"></a>오류 메시지: 예상 데이터 형식: DECIMAL (x, x), 잘못 되는 값
 
 - **증상**: 준비 된 복사 및 PolyBase를 사용 하 여 테이블 형식 데이터 원본 (예: SQL Server)에서 SQL DW로 데이터를 복사 하는 경우 다음 오류가 발생 합니다.
 
@@ -76,9 +76,9 @@ ms.locfileid: "70143506"
     Column ordinal: 18, Expected data type: DECIMAL(x,x), Offending value:..
     ```
 
-- **원인**: Azure SQL Data Warehouse Polybase에서 10 진수 열에 빈 문자열 (null 값)을 삽입할 수 없습니다.
+- **원인**: Polybase Azure SQL Data Warehouse 빈 문자열 (null 값)을 decimal 열에 삽입할 수 없습니다.
 
-- **해결 방법**: 복사 작업 싱크의 Polybase 설정에서 "**형식 기본값 사용**" 옵션을 false로 설정 합니다.
+- **해결**방법: 복사 작업 싱크에서 Polybase 설정에서 "**형식 기본값 사용**" 옵션을 false로 설정 합니다.
 
 ### <a name="error-message-java-exception-messagehdfsbridgecreaterecordreader"></a>오류 메시지: Java 예외 메시지: HdfsBridge:: CreateRecordReader
 
@@ -109,42 +109,42 @@ ms.locfileid: "70143506"
     - 시간 > 12 바이트
     - Tinyint-> 1 바이트
 
-- **해결 방법**: 열 너비를 1mb 미만으로 줄이기
+- **해결**방법: 열 너비를 1mb 미만으로 줄입니다.
 
 - 또는 Polybase를 사용 하지 않도록 설정 하 여 대량 삽입 방법을 사용 합니다.
 
 ### <a name="error-message-the-condition-specified-using-http-conditional-headers-is-not-met"></a>오류 메시지: HTTP 조건부 헤더를 사용 하 여 지정한 조건이 충족 되지 않았습니다.
 
-- **증상**: SQL 쿼리를 사용 하 여 Azure SQL Data Warehouse에서 데이터를 가져오고 다음 오류를 발생 합니다.
+- **증상**: SQL 쿼리를 사용 하 여 Azure SQL Data Warehouse에서 데이터를 끌어오고 다음 오류가 발생 합니다.
 
     ```
     ...StorageException: The condition specified using HTTP conditional header(s) is not met...
     ```
 
-- **원인**: Azure SQL Data Warehouse Azure Storage에서 외부 테이블을 쿼리 하는 데 문제가 발생 합니다.
+- **원인**: Azure Storage에서 외부 테이블을 쿼리 하는 데 Azure SQL Data Warehouse 적중 문제가 있습니다.
 
-- **해결 방법**: SSMS에서 동일한 쿼리를 실행 하 고 동일한 결과가 표시 되는지 확인 합니다. 그렇다면 지원 티켓을 열고 Azure SQL Data Warehouse 하 고 SQL DW 서버와 데이터베이스 이름을 제공 하 여 추가로 문제를 해결 합니다.
+- **해결**방법: SSMS에서 동일한 쿼리를 실행 하 고 동일한 결과가 표시 되는지 확인 합니다. 그렇다면 지원 티켓을 열고 Azure SQL Data Warehouse 하 고 SQL DW 서버와 데이터베이스 이름을 제공 하 여 추가로 문제를 해결 합니다.
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-### <a name="error-message-request-size-is-too-large"></a>오류 메시지: 요청 크기가 너무 큼
+### <a name="error-message-request-size-is-too-large"></a>오류 메시지: 요청 크기가 너무 깁니다.
 
 - **증상**: 기본 쓰기 일괄 처리 크기를 사용 하 여 Azure Cosmos DB에 데이터를 복사 하 고 *"**요청 크기가 너무 큼**"* 오류가 발생 합니다.
 
-- **원인**: Cosmos DB는 하나의 요청 크기를 2mb로 제한 합니다. 수식은 요청 크기 = 단일 문서 크기 * 쓰기 일괄 처리 크기입니다. 문서 크기가 크면 기본 동작으로 인해 요청 크기가 너무 커집니다. 쓰기 일괄 처리 크기를 튜닝할 수 있습니다.
+- **원인**: Cosmos DB 하나의 요청 크기를 2mb로 제한 합니다. 수식은 요청 크기 = 단일 문서 크기 * 쓰기 일괄 처리 크기입니다. 문서 크기가 크면 기본 동작으로 인해 요청 크기가 너무 커집니다. 쓰기 일괄 처리 크기를 튜닝할 수 있습니다.
 
-- **해결 방법**: 복사 작업 싱크에서 ' 일괄 처리 크기 ' 값을 줄입니다 (기본값은 1만).
+- **해결**방법: 복사 작업 싱크에서 ' 일괄 처리 크기 ' 값을 줄입니다 (기본값은 1만).
 
-### <a name="error-message-unique-index-constraint-violation"></a>오류 메시지: Unique 인덱스 제약 조건 위반
+### <a name="error-message-unique-index-constraint-violation"></a>오류 메시지: 고유 인덱스 제약 조건 위반
 
-- **증상**: Cosmos DB로 데이터를 복사 하는 경우 다음 오류가 발생 합니다.
+- **증상**: Cosmos DB에 데이터를 복사 하는 경우 다음 오류가 발생 합니다.
 
     ```
     Message=Partition range id 0 | Failed to import mini-batch. 
     Exception was Message: {"Errors":["Encountered exception while executing function. Exception &#61; Error: {\"Errors\":[\"Unique index constraint violation.\"]}... 
     ```
 
-- **원인**: 다음 두 가지 가능한 원인이 있습니다.
+- **원인**: 다음과 같은 두 가지 원인이 있을 수 있습니다.
 
     - **Insert** as write 동작을 사용 하는 경우이 오류는 원본 데이터에 동일한 ID를 가진 행/개체가 있음을 의미 합니다.
 
@@ -155,18 +155,18 @@ ms.locfileid: "70143506"
     - Cause1의 경우 **Upsert** 을 쓰기 동작으로 설정 합니다.
     - 원인 2의 경우 각 문서에 정의 된 고유 키에 대해 서로 다른 값이 있는지 확인 합니다.
 
-### <a name="error-message-request-rate-is-large"></a>오류 메시지: 요청 빈도가 높습니다.
+### <a name="error-message-request-rate-is-large"></a>오류 메시지: 요청 비율이 깁니다.
 
-- **증상**: Cosmos DB로 데이터를 복사 하는 경우 다음 오류가 발생 합니다.
+- **증상**: Cosmos DB에 데이터를 복사 하는 경우 다음 오류가 발생 합니다.
 
     ```
     Type=Microsoft.Azure.Documents.DocumentClientException,
     Message=Message: {"Errors":["Request rate is large"]}
     ```
 
-- **원인**: 사용 된 요청 단위가 Cosmos DB에서 구성 된 사용 가능한 것 보다 큽니다. [여기](../cosmos-db/request-units.md#request-unit-considerations)에서 Cosmos DB을 계산 하는 방법을 알아보세요.
+- **원인**: 사용 된 요청 단위가 Cosmos DB에서 구성 된 사용 가능한 r u 보다 큽니다. [여기](../cosmos-db/request-units.md#request-unit-considerations)에서 Cosmos DB을 계산 하는 방법을 알아보세요.
 
-- **해결 방법**: 다음은 두 가지 해결 방법입니다.
+- **해결**방법: 다음 두 가지 해결 방법이 있습니다.
 
     1. **컨테이너** 를 보다 큰 값으로 늘리면 복사 작업 성능이 향상 되는 반면, Cosmos DB에 더 많은 비용이 발생 하는 Cosmos DB. 
 
@@ -174,19 +174,19 @@ ms.locfileid: "70143506"
 
 ### <a name="column-missing-in-column-mapping"></a>열 매핑의 열이 누락 되었습니다.
 
-- **증상**: 열 매핑에 대 한 Cosmos DB 스키마를 가져오는 경우 일부 열이 누락 됩니다. 
+- **증상**: 열 매핑에 대 한 Cosmos DB 스키마를 가져올 때 일부 열이 누락 되었습니다. 
 
 - **원인**: ADF는 처음 10 개의 Cosmos DB 문서에서 스키마를 유추 합니다. 일부 열/속성에 해당 문서에 값이 없는 경우 ADF에 의해 검색 되지 않으므로 표시 되지 않습니다.
 
-- **해결 방법**: 아래와 같이 쿼리를 조정 하 여 열이 빈 값을 가진 결과 집합에 표시 되도록 할 수 있습니다. 예를 들어, 처음 10 개 문서에 "불가능" 열이 누락 된 것으로 가정 합니다. 또는 매핑을 위한 열을 수동으로 추가할 수 있습니다.
+- **해결**방법: 아래와 같이 쿼리를 조정 하 여 열이 빈 값을 가진 결과 집합에 표시 되도록 할 수 있습니다. 예를 들어 첫 10 개 문서에 "불가능" 열이 없습니다. 또는 매핑을 위한 열을 수동으로 추가할 수 있습니다.
 
     ```sql
     select c.company, c.category, c.comments, (c.impossible??'') as impossible from c
     ```
 
-### <a name="error-message-the-guidrepresentation-for-the-reader-is-csharplegacy"></a>오류 메시지: 판독기에 대 한 GuidRepresentation는 CSharpLegacy입니다.
+### <a name="error-message-the-guidrepresentation-for-the-reader-is-csharplegacy"></a>오류 메시지: 판독기의 GuidRepresentation은 CSharpLegacy입니다.
 
-- **증상**: Cosmos DB MongoAPI/MongoDB에서 UUID 필드를 사용 하 여 데이터를 복사 하는 경우 다음 오류가 발생 합니다.
+- **증상**: UUID 필드를 사용 하 여 Cosmos DB MongoAPI/MongoDB에서 데이터를 복사 하는 경우 다음 오류가 발생 합니다.
 
     ```
     Failed to read data via MongoDB client.,
@@ -194,15 +194,15 @@ ms.locfileid: "70143506"
     Message=The GuidRepresentation for the reader is CSharpLegacy which requires the binary sub type to be UuidLegacy not UuidStandard.,Source=MongoDB.Bson,’“,
     ```
 
-- **원인**: BSON-UuidStardard 및 UuidLegacy에 UUID를 표시 하는 방법에는 두 가지가 있습니다. 기본적으로 UuidLegacy는 데이터를 읽는 데 사용 됩니다. MongoDB의 UUID 데이터가 UuidStandard 인 경우 오류가 발생 합니다.
+- **원인**: bson-UuidStardard 및 UUIDLEGACY에 UUID를 표시 하는 두 가지 방법이 있습니다. 기본적으로 UuidLegacy는 데이터를 읽는 데 사용 됩니다. MongoDB의 UUID 데이터가 UuidStandard 인 경우 오류가 발생 합니다.
 
-- **해결 방법**: MongoDB 연결 문자열에서 "**uuidRepresentation = standard**" 옵션을 추가 합니다. 자세한 내용은 [MongoDB connection string](connector-mongodb.md#linked-service-properties)항목을 참조 하세요.
+- **해결**방법: MongoDB 연결 문자열에서 "**uuidRepresentation = standard**" 옵션을 추가 합니다. 자세한 내용은 [MongoDB connection string](connector-mongodb.md#linked-service-properties)항목을 참조 하세요.
 
 ## <a name="sftp"></a>SFTP
 
 ### <a name="error-message-invalid-sftp-credential-provided-for-sshpublickey-authentication-type"></a>오류 메시지: ' SshPublicKey ' 인증 유형에 대해 제공 된 SFTP 자격 증명이 잘못 되었습니다.
 
-- **증상**: 인증을 `SshPublicKey` 사용 하 여 다음 오류를 발생 합니다.
+- **증상**: `SshPublicKey` 인증을 사용 하 여 다음 오류를 적중 합니다.
 
     ```
     Invalid Sftp credential provided for 'SshPublicKey' authentication type

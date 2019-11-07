@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 인증 구성 - SQL | Microsoft Docs
+title: Azure Active Directory 인증 구성-SQL
 description: Azure AD를 구성한 후 Azure Active Directory 인증을 사용 하 여 SQL Database, 관리 되는 인스턴스 및 SQL Data Warehouse에 연결 하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -10,26 +10,26 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
-ms.date: 10/16/2019
-ms.openlocfilehash: 1dbccf43d03907cefb68315b6908a35735f373ce
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.date: 11/06/2019
+ms.openlocfilehash: d23fcb781f5eddd71d5ddce9344d988d2e323611
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177640"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691379"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>SQL을 사용하여 Azure Active Directory 인증 구성 및 관리
 
 이 문서에서는 azure AD를 만들고 채운 다음 azure [SQL Database](sql-database-technical-overview.md), [관리 되는 인스턴스](sql-database-managed-instance.md)및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에서 azure ad를 사용 하는 방법을 보여 줍니다. 개요는 [Azure Active Directory 인증](sql-database-aad-authentication.md)을 참조하세요.
 
 > [!NOTE]
-> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용 됩니다.
 > [!IMPORTANT]  
 > Azure VM에서 실행되는 SQL Server에 연결하는 경우 Azure Active Directory 계정은 사용할 수 없습니다. 대신 도메인 Active Directory 계정을 사용합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 ## <a name="create-and-populate-an-azure-ad"></a>Azure AD 만들기 및 채우기
 
@@ -58,6 +58,9 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 > [!IMPORTANT]
 > 관리 되는 인스턴스를 프로 비전 하는 경우에만 다음 단계를 수행 합니다. 이 작업은 글로벌/회사 관리자 또는 Azure AD의 권한 있는 역할 관리자만 실행할 수 있습니다. 다음 단계에서는 디렉터리에서 서로 다른 권한을 가진 사용자에 대해 사용 권한을 부여하는 프로세스를 설명합니다.
 
+> [!NOTE]
+> GA 이전에 생성 된 Azure AD 관리자의 경우에는 GA 이전에는 계속 작동 하지만 기존 동작에는 기능이 변경 되지 않습니다. 자세한 내용은 [MI에 대 한 새 AZURE AD 관리 기능](#new-azure-ad-admin-functionality-for-mi) 섹션을 참조 하세요.
+
 관리 되는 인스턴스에는 보안 그룹 구성원 자격 또는 새 사용자 만들기를 통한 사용자 인증 등의 작업을 성공적으로 수행 하기 위해 Azure AD를 읽을 수 있는 권한이 필요 합니다. 이 작업을 수행 하려면 관리 되는 인스턴스에 Azure AD를 읽을 수 있는 권한을 부여 해야 합니다. 이 작업은 포털 및 PowerShell의 두 가지 방법으로 수행할 수 있습니다. 다음 단계에서는 두 방법을 모두 안내합니다.
 
 1. Azure Portal의 상단 오른쪽 끝에서 해당 연결을 선택하여 가능한 Active Directory 목록을 드롭다운합니다.
@@ -68,7 +71,7 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 
    ![aad](./media/sql-database-aad-authentication/aad.png)
 
-4. Active Directory 관리자 페이지 위쪽에서 배너를 선택하고 현재 사용자에게 권한을 부여합니다. Azure AD의 글로벌/회사 관리자 권한으로 로그인된 경우 Azure Portal에서 또는 아래 스크립트로 PowerShell을 사용하여 이 작업을 수행할 수 있습니다.
+4. Active Directory 관리자 페이지 위쪽에서 배너를 선택하고 현재 사용자에게 권한을 부여합니다. Azure AD에서 전역/회사 관리자 권한으로 로그인 한 경우에는 Azure Portal에서 또는 아래의 스크립트를 사용 하 여 PowerShell을 사용 하 여이 작업을 수행할 수 있습니다.
 
     ![권한 부여-포털](./media/sql-database-aad-authentication/grant-permissions.png)
 
@@ -146,10 +149,34 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 
     관리자 변경 과정에는 몇 분 정도 소요될 수 있습니다. 그런 다음 새 관리자가 Active Directory 관리자 상자에 표시됩니다.
 
-관리 되는 인스턴스에 대해 Azure AD 관리자를 프로 비전 한 후 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> 구문을 사용 하 여 azure ad 서버 보안 주체 (로그인) (**공개 미리 보기**) 만들기를 시작할 수 있습니다. 자세한 내용은 [관리 되는 인스턴스 개요](sql-database-managed-instance.md#azure-active-directory-integration)를 참조 하세요.
+관리 되는 인스턴스에 대해 Azure AD 관리자를 프로 비전 한 후 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a> 구문을 사용 하 여 azure ad 서버 보안 주체 (로그인) 만들기를 시작할 수 있습니다. 자세한 내용은 [관리 되는 인스턴스 개요](sql-database-managed-instance.md#azure-active-directory-integration)를 참조 하세요.
 
 > [!TIP]
 > 나중에 관리자를 제거하려면, Active Directory 관리자 페이지 위쪽에서 **관리자 제거**를 선택한 다음, **저장**을 선택합니다.
+
+### <a name="new-azure-ad-admin-functionality-for-mi"></a>MI 용 새 Azure AD 관리 기능
+
+아래 표에는 Azure AD 로그인을 위해 GA와 함께 제공 되는 공개 미리 보기 Azure AD 로그인 관리자의 기능 및 새 기능이 요약 되어 있습니다.
+
+| 공개 미리 보기로 제공 되는 MI 용 Azure AD 로그인 관리자 | MI 용 Azure AD 관리자에 대 한 GA 기능 |
+| --- | ---|
+| 는 azure ad 인증을 가능 하 게 하는 SQL Database에 대 한 Azure AD 관리자와 비슷한 방식으로 작동 하지만 Azure ad 관리자는 MI 용 master db에 Azure AD 또는 SQL 로그인을 만들 수 없습니다. | Azure AD 관리자는 sysadmin 권한을 가지 며 MI 용 master db에서 AAD 및 SQL 로그인을 만들 수 있습니다. |
+| Server_principals 뷰에 없습니다. | Server_principals 뷰에 있습니다. |
+| 개별 Azure AD 게스트 사용자를 Azure AD admin for MI로 설정할 수 있습니다. 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](../active-directory/b2b/add-users-administrator.md)를 참조 하세요. | 이 그룹을 MI 용 Azure AD 관리자로 설정 하려면 게스트 사용자를 구성원으로 사용 하 여 Azure AD 그룹을 만들어야 합니다. 자세한 내용은 [AZURE AD business to business 지원](sql-database-ssms-mfa-authentication.md#azure-ad-business-to-business-support)을 참조 하세요. |
+
+GA 이전에 만든 MI에 대해 기존 Azure AD 관리자를 사용 하는 것이 가장 좋은 방법으로, 동일한 Azure AD 사용자 또는 그룹에 대 한 "관리자 제거" 및 "관리자 설정" 옵션 Azure Portal 사용 하 여 Azure AD 관리자를 다시 설정 합니다.
+
+### <a name="known-issues-with-the-azure-ad-login-ga-for-mi"></a>MI 용 Azure AD 로그인 GA의 알려진 문제
+
+- Azure AD 로그인이 T-sql 명령 `CREATE LOGIN [myaadaccount] FROM EXTERNAL PROVIDER`를 사용 하 여 만든 MI의 master 데이터베이스에 있는 경우 MI에 대 한 Azure AD 관리자로 설정할 수 없습니다. Azure AD 로그인을 만드는 데 Azure Portal, PowerShell 또는 CLI 명령을 사용 하 여 Azure AD 관리자로 로그인을 설정 하는 동안 오류가 발생 합니다. 
+  - 계정을 Azure AD 관리자로 만들려면 먼저 명령을 `DROP LOGIN [myaadaccount]`사용 하 여 master 데이터베이스에서 로그인을 삭제 해야 합니다.
+  - `DROP LOGIN` 성공한 후 Azure Portal에서 Azure AD 관리자 계정을 설정 합니다. 
+  - Azure AD 관리자 계정을 설정할 수 없는 경우 로그인에 대 한 관리 되는 인스턴스의 master 데이터베이스를 확인 합니다. 다음 명령을 사용 합니다. `SELECT * FROM sys.server_principals`
+  - MI에 대 한 Azure AD 관리자를 설정 하면이 계정의 master 데이터베이스에 로그인이 자동으로 생성 됩니다. Azure AD 관리자를 제거 하면 해당 로그인이 master 데이터베이스에서 자동으로 삭제 됩니다.
+   
+- 개별 Azure AD 게스트 사용자는 MI 용 Azure AD 관리자로 지원 되지 않습니다. 게스트 사용자는 azure AD 관리자로 설정할 Azure AD 그룹의 일부 여야 합니다. 현재 Azure Portal 블레이드에서 다른 Azure AD에 대 한 게스트 사용자를 회색으로 표시 하지 않으므로 사용자가 관리자 설치를 계속할 수 있습니다. 게스트 사용자를 Azure AD 관리자로 저장 하면 설치가 실패 합니다. 
+  - 게스트 사용자에 게 MI에 대 한 Azure AD 관리자를 만들려면 Azure AD 그룹에 게스트 사용자를 포함 하 고이 그룹을 Azure AD 관리자로 설정 합니다.
+
 
 ### <a name="powershell-for-sql-managed-instance"></a>SQL 관리 되는 인스턴스의 PowerShell
 
@@ -206,7 +233,7 @@ CLI 명령에 대 한 자세한 내용은 [az sql mi](https://docs.microsoft.com
 
 다음 두 절차는 Azure Portal에서나 PowerShell을 사용하여 Azure SQL Server에 대한 Azure Active Directory 관리자를 프로비전하는 방법을 보여 줍니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com/)의 상단 오른쪽 끝에서 해당 연결을 선택하여 가능한 Active Directory 목록을 드롭다운합니다. 정확한 Active Directory를 기본 Azure AD로 선택합니다. 이 단계는 구독 연결 Active Directory를 Azure SQL Server와 연결하여 동일한 구독이 두 Azure AD 및 SQL Server에 사용되게 합니다. (Azure SQL 서버는 Azure SQL Database 또는 Azure SQL Data Warehouse에서 호스트할 수 있습니다.) ![choose-ad][8]
 
@@ -252,7 +279,7 @@ PowerShell 명령 get-help를 사용 하 여 이러한 각 명령에 대 한 자
 
 ### <a name="powershell-examples-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Azure SQL Database 및 Azure SQL Data Warehouse에 대 한 PowerShell 예제
 
-다음 스크립트는 리소스 그룹 **Group-23**에서 **demo_server** 서버에 대해 이름이 **DBA_Group**(개체 ID `40b79501-b343-44ed-9ce7-da4c8cc7353f`)인 Azure AD 관리자 그룹을 프로비전합니다.
+다음 스크립트는 리소스 그룹 **Group-23**에서 `40b79501-b343-44ed-9ce7-da4c8cc7353f`demo_server**서버에 대해 이름이**DBA_Group **(개체 ID** )인 Azure AD 관리자 그룹을 프로비전합니다.
 
 ```powershell
 Set-AzSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23"
@@ -318,15 +345,15 @@ CLI 명령에 대 한 자세한 내용은 [az sql server](https://docs.microsoft
 
 ## <a name="create-contained-database-users-in-your-database-mapped-to-azure-ad-identities"></a>Azure AD ID에 매핑된 데이터베이스에서 포함된 데이터베이스 사용자 만들기
 
->[!IMPORTANT]
->이제 관리 되는 인스턴스는 azure ad 사용자, 그룹 또는 응용 프로그램에서 로그인을 만들 수 있는 Azure AD 서버 보안 주체 (**공용 미리 보기**)를 지원 합니다. Azure AD 서버 보안 주체 (로그인)는 데이터베이스 사용자를 포함 된 데이터베이스 사용자로 만들 필요 없이 관리 되는 인스턴스에 대해 인증 하는 기능을 제공 합니다. 자세한 내용은 [관리 되는 인스턴스 개요](sql-database-managed-instance.md#azure-active-directory-integration)를 참조 하세요. Azure AD 서버 보안 주체(로그인)를 만드는 구문은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하세요.
+> [!IMPORTANT]
+> 이제 관리 되는 인스턴스는 azure ad 사용자, 그룹 또는 응용 프로그램에서 로그인을 만들 수 있는 Azure AD 서버 보안 주체 (로그인)를 지원 합니다. Azure AD 서버 보안 주체 (로그인)는 데이터베이스 사용자를 포함 된 데이터베이스 사용자로 만들 필요 없이 관리 되는 인스턴스에 대해 인증 하는 기능을 제공 합니다. 자세한 내용은 [관리 되는 인스턴스 개요](sql-database-managed-instance.md#azure-active-directory-integration)를 참조 하세요. Azure AD 서버 보안 주체(로그인)를 만드는 구문은 <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">CREATE LOGIN</a>을 참조하세요.
 
 Azure Active Directory 인증에는 포함된 데이터베이스 사용자로 만들 데이터베이스 사용자가 필요합니다. Azure AD ID를 기반으로 하는 포함된 데이터베이스 사용자는 마스터 데이터베이스에 로그인이 없는 데이터베이스 사용자이며, 데이터베이스와 연결된 Azure AD 디렉터리의 ID에 매핑됩니다. Azure AD ID는 개별 사용자 계정 또는 그룹일 수 있습니다. 포함된 데이터베이스 사용자에 대한 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
 
 > [!NOTE]
 > 데이터베이스 사용자(관리자 예외)는 Azure Portal을 사용하여 만들 수 없습니다. RBAC 역할은 SQL Server, SQL Database 또는SQL Data Warehouse에 전파되지 않습니다. Azure RBAC 역할은 Azure 리소스 관리에 사용되며 데이터베이스 사용 권한에는 적용되지 않습니다. 예를 들어 **SQL Server 참여자** 역할은 SQL Database 또는 SQL Data Warehouse에 연결 권한을 부여하지 않습니다. TRANSACT-SQL 문을 사용하여 데이터베이스에 직접 액세스 권한을 부여해야 합니다.
 > [!WARNING]
-> 콜론(`:`) 또는 앰퍼샌드(`&`) 같은 특수 문자는 T-SQL CREATE LOGIN 및 CREATE USER 문에 포함할 수 없습니다.
+> 콜론(`:`) 또는 앰퍼샌드(`&`) 같은 특수 문자는 T-SQL CREATE LOGIN 및 CREATE USER 문의 사용자 이름에 포함할 수 없습니다.
 
 Azure AD 기반의 포함된 데이터베이스 사용자(데이터베이스를 소유한 서버 관리자 아님)를 만들려면 **ALTER ANY USER** 이상의 권한이 있는 사용자인 Azure AD ID를 통해 데이터베이스에 연결합니다. 그런 다음 아래 TRANSACT-SQL 구문을 사용합니다.
 
@@ -405,7 +432,7 @@ Azure AD 관리 도메인을 사용하여 Azure AD 사용자 이름과 연결할
 이 방법을 사용하면 네이티브 또는 페더레이션된 Azure AD 사용자에 대해 Azure AD로 SQL DB/DW에 인증할 수 있습니다. 기본 사용자는 Azure AD에서 명시적으로 만들어지고 사용자 이름 및 암호를 사용하여 인증되지만, 페더레이션된 사용자는 도메인이 Azure AD와 함께 페더레이션된 Windows 사용자입니다. 후자의 방법(사용자 및 암호 사용)은 사용자가 자신의 Windows 자격 증명을 사용하려고 하지만 자신의 로컬 머신이 도메인에 가입되어 있지 않은 경우(예: 원격 액세스 사용) 사용할 수 있습니다. 이 경우 Windows 사용자는 자신의 도메인 계정과 암호를 표시할 수 있으며 페더레이션된 자격 증명을 사용하여 SQL DB/DW에 대해 인증할 수 있습니다.
 
 1. Management Studio 또는 Data Tools를 시작하고, **서버에 연결**(또는 **데이터베이스 엔진 연결**) 대화 상자의 **인증** 상자에서 **Active Directory - 암호**를 선택합니다.
-2. **사용자 이름** 상자에 사용자 이름 **\@domain. .com**형식으로 Azure Active Directory 사용자 이름을 입력 합니다. 사용자 이름은 Azure Active Directory의 계정이거나, Azure Active Directory와 페더레이션된 도메인의 계정이어야 합니다.
+2. **사용자 이름** 상자에 사용자 이름 **\@domain.com**형식으로 Azure Active Directory 사용자 이름을 입력 합니다. 사용자 이름은 Azure Active Directory의 계정이거나, Azure Active Directory와 페더레이션된 도메인의 계정이어야 합니다.
 3. **암호** 상자에 Azure Active Directory 계정이나 페더레이션된 도메인 계정의 사용자 암호를 입력합니다.
 
     ![AD 암호 인증 선택][12]

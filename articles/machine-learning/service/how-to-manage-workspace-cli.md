@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 08/30/2019
-ms.openlocfilehash: 8606ac2578c45062182517b5e67d669a09b8e5c0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/05/2019
+ms.openlocfilehash: c7eb18cf2f8868001c1937b03a63c6013e9cbea8
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489720"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619881"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -99,6 +99,9 @@ az group create --name <resource-group-name> --location <location>
 ### <a name="automatically-create-required-resources"></a>필요한 리소스를 자동으로 만듭니다.
 
 __서비스가 자동으로 생성 되__는 새 작업 영역을 만들려면 다음 명령을 사용 합니다.
+
+> [!TIP]
+> 이 섹션의 명령은 기본 버전 작업 영역을 만듭니다. 엔터프라이즈 작업 영역을 만들려면 `az ml workspace create` 명령과 `--sku enterprise` 스위치를 사용 합니다. Azure Machine Learning 버전에 대 한 자세한 내용은 [Azure Machine Learning 항목](overview-what-is-azure-ml.md#sku)을 참조 하세요.
 
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>

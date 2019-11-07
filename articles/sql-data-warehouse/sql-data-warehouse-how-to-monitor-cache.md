@@ -1,5 +1,5 @@
 ---
-title: Gen2 캐시 최적화 | Microsoft Docs
+title: Gen2 cache 최적화
 description: Azure Portal을 사용하여 Gen2 캐시를 모니터링하는 방법에 대해 알아봅니다.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 26791aecb2ca57b31358d3385d07230c73c84904
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b33f7cedca4ef130eefa28c1dbaaedd82d11a9e4
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61474422"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73645760"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Gen2 캐시 모니터링 방법
 Gen2 스토리지 아키텍처는 Gen2 데이터 웨어하우스용으로 설계된 NVMe 기반의 SSD에 있는 캐시에 가장 자주 쿼리되는 columnstore 세그먼트를 자동으로 계층화합니다. 쿼리가 캐시에 있는 세그먼트를 검색하면 성능이 향상됩니다. 이 문서에서는 워크로드가 Gen2 캐시를 최적으로 활용하는지 판단하여 쿼리 성능을 모니터링하고 문제를 해결하는 방법에 대해 설명합니다.  
@@ -41,13 +41,13 @@ Gen2 캐시 문제 해결에 대한 키 메트릭은 **캐시 적중 비율** �
 
 **시나리오 1:** 현재 캐시를 최적으로 사용하고 있습니다. 쿼리 속도를 저하시킬 수 있는 다른 영역의 [문제를 해결](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)하세요.
 
-**시나리오 2:** 현재 작업 중인 데이터 세트가 물리적 읽기로 인해 낮은 캐시 적중 비율을 초래할 수 있어 캐시에 적합하지 않습니다. 성능 수준의 규모를 확장하고 워크로드를 다시 실행하여 캐시를 채우는 것을 고려하세요.
+**시나리오 2:** 현재 작업 중인 데이터 집합이 물리적 읽기로 인해 낮은 캐시 적중 비율을 초래할 수 있어 캐시에 적합하지 않습니다. 성능 수준의 규모를 확장하고 워크로드를 다시 실행하여 캐시를 채우는 것을 고려하세요.
 
 **시나리오 3:** 캐시와 관련이 없는 이유로 인해 쿼리가 느리게 실행되는 것 같습니다. 쿼리 속도를 저하시킬 수 있는 다른 영역의 [문제를 해결](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)하세요. 또한 캐시 크기를 줄여 비용을 절약하도록 [인스턴스 규모를 축소](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)하는 것을 고려해 보세요. 
 
 **시나리오 4:** 쿼리가 느려진 원인일 수 있는 콜드 캐시가 있습니다. 작업 데이터 세트가 캐시될 때 쿼리를 다시 실행해보세요. 
 
-**중요: 워크로드를 다시 실행한 후 캐시 적중 비율 또는 캐시 사용 비율이 업데이트되지 않으면 작업 세트가 이미 메모리에 있는 것일 수 있습니다. 클러스터된 columnstore 테이블만 캐시됩니다.**
+**중요: 작업을 다시 실행 한 후 캐시 적중률 또는 사용 된 캐시 백분율이 업데이트 되지 않는 경우 작업 집합이 이미 메모리에 있을 수 있습니다. 참고 클러스터형 columnstore 테이블만 캐시 됩니다.**
 
 ## <a name="next-steps"></a>다음 단계
 일반 쿼리 성능 튜닝에 대한 자세한 내용은 [쿼리 실행 모니터링](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor#monitor-query-execution)을 참조하세요.
