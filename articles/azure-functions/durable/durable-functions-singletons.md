@@ -7,22 +7,22 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ba35999d5a7193ba691b14005dc8271120ac2be7
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ec7eb1eba2bc029d592560b39cde20e93e5afcd6
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933222"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614675"
 ---
 # <a name="singleton-orchestrators-in-durable-functions-azure-functions"></a>지속성 함수의 단일 항목 오케스트레이터(Azure Functions)
 
-백그라운드 작업의 경우 한 번에 하나의 특정 오케스트레이터 인스턴스만 실행되도록 해야 합니다. 생성할 때 오케스트레이터에 특정 인스턴스 ID를 할당하여 [지속성 함수](durable-functions-overview.md)에서 수행할 수 있습니다.
+백그라운드 작업의 경우 특정 orchestrator의 인스턴스가 한 번에 하나만 실행 되도록 해야 하는 경우가 많습니다. 특정 인스턴스 ID를 만들 때 orchestrator에 할당 하 여 [Durable Functions](durable-functions-overview.md) 에서 이러한 유형의 singleton 동작을 확인할 수 있습니다.
 
 ## <a name="singleton-example"></a>단일 항목 예제
 
-다음 C# 및 JavaScript 예제에서는 싱글톤 백그라운드 작업 오케스트레이션을 만드는 HTTP 트리거 함수를 보여 줍니다. 이 코드는 지정한 인스턴스 ID에 대해 인스턴스가 하나만 존재하는지 확인합니다.
+다음 예에서는 단일 백그라운드 작업 오케스트레이션을 만드는 HTTP 트리거 함수를 보여 줍니다. 이 코드는 지정한 인스턴스 ID에 대해 인스턴스가 하나만 존재하는지 확인합니다.
 
 ### <a name="c"></a>C#
 
@@ -30,7 +30,7 @@ ms.locfileid: "70933222"
 [FunctionName("HttpStartSingle")]
 public static async Task<HttpResponseMessage> RunSingle(
     [HttpTrigger(AuthorizationLevel.Function, methods: "post", Route = "orchestrators/{functionName}/{instanceId}")] HttpRequestMessage req,
-    [OrchestrationClient] DurableOrchestrationClient starter,
+    [DurableClient] IDurableOrchestrationClient starter,
     string functionName,
     string instanceId,
     ILogger log)
@@ -55,7 +55,10 @@ public static async Task<HttpResponseMessage> RunSingle(
 }
 ```
 
-### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+> [!NOTE]
+> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+
+### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
 
 function.json 파일은 다음과 같습니다.
 ```json
@@ -111,12 +114,12 @@ module.exports = async function(context, req) {
 };
 ```
 
-기본적으로 인스턴스 ID는 임의로 GUID에서 생성됩니다. 하지만 이 경우 인스턴스 ID가 URL에서 경로 데이터에 전달됩니다. 이 코드는 [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_GetStatusAsync_)(C#) 또는 `getStatus`(JavaScript)를 호출하여 지정된 ID를 갖는 인스턴스가 이미 실행되고 있는지 확인합니다. 실행되고 있지 않으면 해당 ID를 사용하여 인스턴스가 만들어집니다.
+기본적으로 인스턴스 ID는 임의로 GUID에서 생성됩니다. 그러나 이전 예제에서 인스턴스 ID는 URL의 경로 데이터로 전달 됩니다. 이 코드는 `GetStatusAsync`(C#) 또는 `getStatus` (JavaScript)를 호출 하 여 지정 된 ID를 가진 인스턴스가 이미 실행 중인지 확인 합니다. 이러한 인스턴스가 실행 되 고 있지 않으면 해당 ID를 사용 하 여 새 인스턴스를 만듭니다.
 
 > [!NOTE]
 > 이 샘플에는 잠재적 경합 상태가 있습니다. **HttpStartSingle**의 두 인스턴스가 동시에 실행되면 두 함수의 호출 모두에서 성공을 보고하지만 실제로는 하나의 오케스트레이션 인스턴스만 시작됩니다. 요구 사항에 따라 바람직하지 않은 부작용이 있을 수 있습니다. 이러한 이유로 두 요청이 이 트리거 함수를 동시에 실행할 수 없도록 하는 것이 중요합니다.
 
-오케스트레이터 함수의 구현 세부 정보는 실제로 중요하지 않습니다. 시작하고 완료하는 일반 오케스트레이터 함수일 수 있거나 무기한 실행하는 오케스트레이터 함수일 수 있습니다(즉, [영구 오케스트레이션](durable-functions-eternal-orchestrations.md)). 중요한 점은 한 번에 하나의 인스턴스만 실행된다는 점입니다.
+오 케 스트레이 터 함수의 구현 세부 정보는 실제로 중요 하지 않습니다. 시작하고 완료하는 일반 오케스트레이터 함수일 수 있거나 무기한 실행하는 오케스트레이터 함수일 수 있습니다(즉, [영구 오케스트레이션](durable-functions-eternal-orchestrations.md)). 중요한 점은 한 번에 하나의 인스턴스만 실행된다는 점입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

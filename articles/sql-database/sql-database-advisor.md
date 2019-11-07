@@ -1,5 +1,5 @@
 ---
-title: 성능 권장 사항 - Azure SQL Database | Microsoft Docs
+title: 성능 권장 사항-Azure SQL Database
 description: Azure SQL Database는 현재 쿼리 성능을 향상시킬 수 있는 SQL 데이터베이스에 대한 권장 사항을 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 08def3ac2fd94f01586bc690d867c04758b8856b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: de6ddd8886f8cadafa57724a5d5e33a3ba4e3c74
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569527"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691256"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database에 대한 성능 권장 사항
 
@@ -76,7 +76,7 @@ SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기
 
 “스키마 문제 해결” 권장 사항은 Azure SQL Database 서비스가 SQL 데이터베이스에서 발생하는 스키마 관련 SQL 오류 수의 이상을 감지할 때 나타납니다. 다음 표에는 스키마 문제와 관련된 오류가 나와 있습니다.
 
-| SQL 오류 코드 | 메시지 |
+| SQL 오류 코드 | Message |
 | --- | --- |
 | 201 |프로시저 또는 함수 ' *'에서 매개 변수 '* '이(가) 필요하지만 제공되지 않았습니다. |
 | 207 |잘못된 열 이름: '*'. |

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 1eb769ec64e50be65d63be43d897c1190789e555
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 254c2645d842a6f6a2eaaeca2369b93a81e1a8cd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518763"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681673"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Azure Cosmos 계정에 대 한 Azure 개인 링크 구성 (미리 보기)
 
@@ -53,6 +53,7 @@ Azure Portal를 사용 하 여 기존 Azure Cosmos 계정에 대 한 개인 링�
     | 리소스 |Azure Cosmos 계정 선택 |
     |대상 하위 리소스 |매핑할 Cosmos DB API 유형을 선택 합니다. 이 기본값은 SQL, MongoDB 및 Cassandra Api에 대해 선택 하는 옵션 중 하나입니다. Gremlin 및 Table Api의 경우 sql API와 상호 운용할 수 있는 Api를 사용 하 여 *sql* 을 선택할 수도 있습니다. |
     |||
+
 1. **다음: 구성**을 선택 합니다.
 1. **프라이빗 엔드포인트 만들기(미리 보기) - 구성**에서 다음 정보를 입력하거나 선택합니다.
 
@@ -62,14 +63,26 @@ Azure Portal를 사용 하 여 기존 Azure Cosmos 계정에 대 한 개인 링�
     | 가상 네트워크| 가상 네트워크를 선택 합니다. |
     | 서브넷 | 서브넷을 선택 합니다. |
     |**사설 DNS 통합**||
-    |프라이빗 DNS 영역과 통합 |**예**를 선택합니다. |
-    |프라이빗 DNS 영역 |*Privatelink.documents.azure.com* 선택 |
+    |프라이빗 DNS 영역과 통합 |**예**를 선택합니다. <br><br/> 개인 끝점과 개인적으로 연결 하려면 DNS 레코드가 필요 합니다. 개인 끝점을 개인 DNS 영역에 통합 하는 것이 좋습니다. 사용자의 DNS 서버를 활용 하거나 가상 컴퓨터의 호스트 파일을 사용 하 여 DNS 레코드를 만들 수도 있습니다. |
+    |프라이빗 DNS 영역 |*Privatelink.documents.azure.com* 선택 <br><br/> 사설 DNS 영역은 자동으로 결정 되며 현재 Azure Portal를 사용 하 여 변경할 수 없습니다.|
     |||
 
 1. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다.
 1. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다.
 
 Azure Cosmos 계정에 대 한 개인 링크 Azure Portal를 승인한 경우 **방화벽 및 가상 네트워크** 창의 **모든 네트워크** 옵션은 회색으로 표시 됩니다.
+
+다음 표에서는 서로 다른 Azure Cosmos 계정 API 형식, 지원 되는 하위 리소스 및 해당 개인 영역 이름 간의 매핑을 보여 줍니다. Gremlin 및 Table API 계정은 SQL API를 통해서도 액세스할 수 있으므로 이러한 Api에 대 한 두 개의 항목이 있습니다.
+
+|Azure Cosmos 계정 API 유형  |지원 되는 하위 리소스 (또는 groupIds) |개인 영역 이름  |
+|---------|---------|---------|
+|Sql    |   Sql      | privatelink.documents.azure.com   |
+|Cassandra    | Cassandra        |  privatelink.cassandra.cosmos.azure.com    |
+|Mongo   |  MongoDB       |  privatelink.mongo.cosmos.azure.com    |
+|Gremlin     | Gremlin        |  privatelink.gremlin.cosmos.azure.com   |
+|Gremlin     |  Sql       |  privatelink.documents.azure.com    |
+|테이블    |    테이블     |   privatelink.table.cosmos.azure.com    |
+|테이블     |   Sql      |  privatelink.documents.azure.com    |
 
 ### <a name="fetch-the-private-ip-addresses"></a>개인 IP 주소 가져오기
 
@@ -280,9 +293,11 @@ PowerShell 스크립트에서 "GroupId" 변수는 계정의 API 유형인 값을
 
 템플릿을 배포한 후에는 개인 IP 주소가 서브넷 내에서 예약 됩니다. Azure Cosmos 계정의 방화벽 규칙은 개인 끝점의 연결만 허용 하도록 구성 됩니다.
 
-## <a name="configure-private-dns"></a>개인 DNS 구성
+## <a name="configure-custom-dns"></a>사용자 지정 DNS 구성
 
 개인 연결 미리 보기 중 개인 끝점이 생성 된 서브넷 내에서 개인 DNS를 사용 해야 합니다. 각 개인 IP 주소가 DNS 항목에 매핑되도록 끝점을 구성 합니다 (위에 표시 된 응답의 "fqdn" 속성 참조).
+
+개인 끝점을 만들 때 Azure의 개인 DNS 영역과 통합할 수 있습니다. 개인 끝점을 Azure의 개인 DNS 영역과 통합 하지 않고 대신 사용자 지정 DNS를 사용 하도록 선택한 경우 새 지역에 해당 하는 개인 IP에 대 한 새 DNS 레코드를 추가 하도록 DNS를 구성 해야 합니다.
 
 ## <a name="firewall-configuration-with-private-link"></a>개인 링크를 사용 하는 방화벽 구성
 
@@ -292,7 +307,7 @@ PowerShell 스크립트에서 "GroupId" 변수는 계정의 API 유형인 값을
 
 * 공용 트래픽 또는 서비스 끝점을 구성 하 고 개인 끝점을 만든 경우에는 해당 유형의 방화벽 규칙에 따라 들어오는 트래픽 유형이 서로 다릅니다.
 
-* 공용 트래픽 또는 서비스 끝점이 구성 되지 않고 개인 끝점이 생성 된 경우 Azure Cosmos 계정은 개인 끝점을 통해서만 액세스할 수 있습니다.
+* 공용 트래픽 또는 서비스 끝점이 구성 되지 않고 개인 끝점이 생성 된 경우 Azure Cosmos 계정은 개인 끝점을 통해서만 액세스할 수 있습니다. 공용 트래픽 또는 서비스 끝점이 구성 되지 않은 경우 승인 된 모든 개인 끝점을 거부 하거나 삭제 한 후 계정이 모든 네트워크에 열립니다.
 
 ## <a name="update-private-endpoint-when-you-add-or-remove-a-region"></a>영역을 추가 하거나 제거 하는 경우 개인 끝점 업데이트
 
@@ -304,9 +319,9 @@ Azure Cosmos 계정에 지역을 추가 하거나 제거 하려면 해당 계정
 
 예를 들어, "미국 서 부", "미국 중부" 및 "유럽 서부"의 3 개 지역에서 Azure Cosmos 계정을 배포 하는 경우입니다. 계정에 대 한 개인 끝점을 만들 때 4 개의 개인 Ip가 서브넷에 예약 되어 있습니다. 각 지역에 대해 하나씩 (총 3 개, 전역/지역에 상관 없는 끝점의 경우)
 
-나중에 Azure Cosmos 계정에 새 지역 (예: "미국 동부")을 추가 합니다. 기본적으로 새 지역은 기존 개인 끝점에서 액세스할 수 없습니다. Azure Cosmos 계정 관리자는 새 지역에 액세스 하기 전에 개인 끝점 연결을 새로 고쳐야 합니다.
+나중에 Azure Cosmos 계정에 새 지역 (예: "미국 동부")을 추가 합니다. 기본적으로 새 지역은 기존 개인 끝점에서 액세스할 수 없습니다. Azure Cosmos 계정 관리자는 새 지역에 액세스 하기 전에 개인 끝점 연결을 새로 고쳐야 합니다. 
 
-` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` 명령을 실행 하면 명령의 출력에 "다시 만들기"로 설정 된 `ActionRequired` 매개 변수가 포함 됩니다. 이 값은 개인 끝점을 새로 고쳐야 함을 나타냅니다. 그런 다음 Azure Cosmos 계정 관리자는 `Set-AzPrivateEndpoint` 명령을 실행 하 여 개인 끝점 새로 고침을 트리거합니다.
+` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` 명령을 실행 하면 명령의 출력에 "다시 만들기"로 설정 된 `actionsRequired` 매개 변수가 포함 됩니다. 이 값은 개인 끝점을 새로 고쳐야 함을 나타냅니다. 그런 다음 Azure Cosmos 계정 관리자는 `Set-AzPrivateEndpoint` 명령을 실행 하 여 개인 끝점 새로 고침을 트리거합니다.
 
 ```powershell
 $pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>
@@ -314,9 +329,11 @@ $pe = Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupNam
 Set-AzPrivateEndpoint -PrivateEndpoint $pe
 ```
 
-새 개인 IP는이 개인 끝점의 서브넷에서 자동으로 예약 되며 `ActionRequired` 값이 `None`됩니다. 개인 DNZ 영역 통합이 없는 경우 (즉, 사용자 지정 개인 DNS를 사용 하는 경우) 새 지역에 해당 하는 개인 IP에 대 한 새 DNS 레코드를 추가 하도록 개인 DNS를 구성 해야 합니다.
+새 개인 IP는이 개인 끝점의 서브넷에서 자동으로 예약 되며 `actionsRequired` 값이 `None`됩니다. 개인 DNZ 영역 통합이 없는 경우 (즉, 사용자 지정 개인 DNS를 사용 하는 경우) 새 지역에 해당 하는 개인 IP에 대 한 새 DNS 레코드를 추가 하도록 개인 DNS를 구성 해야 합니다.
 
-지역을 제거할 때와 동일한 단계를 사용할 수 있습니다. 제거 된 영역의 개인 IP가 자동으로 회수 되 고 `ActionRequired` 플래그가 `None`됩니다. 개인 DNZ 영역 통합이 없는 경우 제거 된 지역에 대 한 DNS 레코드를 제거 하도록 개인 DNS를 구성 해야 합니다.
+지역을 제거할 때와 동일한 단계를 사용할 수 있습니다. 제거 된 영역의 개인 IP가 자동으로 회수 되 고 `actionsRequired` 플래그가 `None`됩니다. 개인 DNZ 영역 통합이 없는 경우 제거 된 지역에 대 한 DNS 레코드를 제거 하도록 개인 DNS를 구성 해야 합니다.
+
+개인 끝점을 삭제 하거나 Azure Cosmos 계정의 지역이 제거 되 면 개인 DNS 영역의 DNS 레코드는 자동으로 제거 되지 않습니다. DNS 레코드를 수동으로 제거 해야 합니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
@@ -328,7 +345,7 @@ Azure Cosmos 계정에 개인 링크를 사용 하는 경우 다음 제한 사�
 
 * 개인 링크가 있는 MongoDB 계정에 대해 Azure Cosmos DB의 API를 사용 하는 경우 Robo 3T, 스튜디오 3T, Mongoose 등의 도구를 사용할 수 없습니다. AppName =<account name> 매개 변수가 지정 된 경우에만 끝점이 개인 링크를 지원할 수 있습니다. 예: replicaSet = globaldb & appName = mydbaccountname 이러한 도구는 연결 문자열의 앱 이름을 서비스에 전달 하지 않으므로 개인 링크를 사용할 수 없습니다. 그러나 3.6 버전의 SDK 드라이버를 사용 하 여 이러한 계정에 계속 액세스할 수 있습니다.
 
-* Azure Cosmos 계정 및 Vnet에 대 한 개인 링크 지원은 특정 지역 에서만 사용할 수 있습니다. 지원 되는 지역 목록은 개인 링크 문서의 [사용 가능한 지역](../private-link/private-link-overview.md#availability) 섹션을 참조 하세요.
+* Azure Cosmos 계정 및 Vnet에 대 한 개인 링크 지원은 특정 지역 에서만 사용할 수 있습니다. 지원 되는 지역 목록은 개인 링크 문서의 [사용 가능한 지역](../private-link/private-link-overview.md#availability) 섹션을 참조 하세요. **VNET 및 Azure Cosmos 계정은 모두 개인 끝점을 만들 수 있도록 지원 되는 지역에**있어야 합니다.
 
 * 개인 링크를 포함 하는 경우 가상 네트워크를 이동 하거나 삭제할 수 없습니다.
 
@@ -337,6 +354,15 @@ Azure Cosmos 계정에 개인 링크를 사용 하는 경우 다음 제한 사�
 * Azure Cosmos 계정은 연결 된 모든 개인 끝점에 매핑되지 않은 지역으로 장애 조치 (failover) 할 수 없습니다. 자세한 내용은 이전 섹션에서 지역 추가 또는 제거를 참조 하세요.
 
 * 관리자는 Azure Cosmos 계정 범위에서 "*/PrivateEndpointConnectionsApproval" 이상의 권한을 부여 받아야 자동으로 승인 된 개인 끝점을 만들 수 있습니다.
+
+### <a name="private-dns-zone-integration-limitations"></a>사설 DNS 영역 통합 제한 사항
+
+개인 끝점을 삭제 하거나 Azure Cosmos 계정의 지역이 제거 되 면 개인 DNS 영역의 DNS 레코드는 자동으로 제거 되지 않습니다. 이전에 DNS 레코드를 수동으로 제거 해야 합니다.
+
+* 이 개인 DNS 영역에 연결 된 새 개인 끝점을 추가 합니다.
+* 이 개인 DNS 영역에 연결 된 개인 끝점이 있는 모든 데이터베이스 계정에 새 영역을 추가 합니다.
+
+DNS 레코드를 정리 하지 않으면 개인 끝점 제거 또는 지역 제거 후에 추가 된 지역에 대 한 데이터 중단 등 예기치 않은 데이터 평면 문제가 발생할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

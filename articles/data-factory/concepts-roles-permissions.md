@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory용 역할 및 권한 | Microsoft Docs
+title: Azure Data Factory용 역할 및 권한
 description: 데이터 팩터리를 만들고 하위 리소스를 사용하는 데 필요한 역할과 권한에 대해 설명합니다.
 ms.date: 11/5/2018
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: 9df65322958bffd3182aaa8d734e8b29717d939d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f5b4cbc670a429a84f42be79adb00057656a5483
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142519"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681416"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Azure Data Factory용 역할 및 권한
 
@@ -57,7 +57,7 @@ Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 
 
 ### <a name="custom-scenarios-and-custom-roles"></a>사용자 지정 시나리오 및 사용자 지정 역할
 
-데이터 팩터리 사용자에게 각기 다른 액세스 수준을 부여해야 하는 경우도 있습니다. 예를 들어:
+데이터 팩터리 사용자에게 각기 다른 액세스 수준을 부여해야 하는 경우도 있습니다. 예:
 - 사용자에게 특정 데이터 팩터리에 대한 권한만 있는 그룹이 필요할 수 있습니다.
 - 사용자가 데이터 팩터리를 하나 이상 모니터링할 수는 있지만 수정할 수는 없는 그룹이 필요할 수도 있습니다.
 
@@ -92,4 +92,4 @@ Azure 리포지토리 및 GitHub에 대한 사용 권한은 Data Factory 사용 
 
 - Azure - [역할 정의 이해](../role-based-access-control/role-definitions.md)에서 역할에 대해 자세히 알아봅니다.
 
-- [데이터 팩터리 참가자 역할](../role-based-access-control/built-in-roles.md#data-factory-contributor)에서 **Data Factory 참가자** 역할에 대해 자세히 알아봅니다.
+- **데이터 팩터리 참가자 역할**에서 [Data Factory 참가자](../role-based-access-control/built-in-roles.md#data-factory-contributor) 역할에 대해 자세히 알아봅니다.

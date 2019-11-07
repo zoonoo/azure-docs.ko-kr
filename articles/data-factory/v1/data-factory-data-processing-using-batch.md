@@ -1,5 +1,5 @@
 ---
-title: Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리 | Microsoft Docs
+title: Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 description: Azure Batch의 병렬 처리 기능을 사용하여 Azure Data Factory 파이프라인에서 대용량 데이터를 처리하는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: fe015e2ffa371c0c31f7f5f43c433d44f3ca3c42
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 611c2a36cac5a589ecd6f9063f5f1bc325860ef6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140049"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682658"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Data Factory 및 Batch를 사용하여 대규모 데이터 세트 처리
 > [!NOTE]
@@ -84,9 +84,9 @@ Data Factory는 기본 제공 작업을 포함합니다. 예를 들어 복사 �
 ## <a name="implementation-of-the-sample-solution"></a>샘플 솔루션의 구현
 샘플 솔루션은 의도적으로 간단합니다. Data Factory와 Batch를 사용하여 데이터 세트를 처리하는 방법을 알려주도록 디자인되었습니다. 솔루션은 시계열에 구성된 입력 파일에서 검색 단어 "Microsoft"의 발생 수를 계산합니다. 그러면 출력 파일에 개수를 출력합니다.
 
-**시간:** Azure, Data Factory 및 Batch의 기본 사항에 익숙하고 다음과 같은 필수 구성 요소를 완료했다면 이 솔루션이 완료되는 데 1~2시간이 소요됩니다.
+**시간**: Azure, Data Factory 및 Batch의 기본 사항에 익숙하고 다음과 같은 필수 구성 요소를 완료했다면 이 솔루션이 완료되는 데 1~2시간이 소요됩니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 #### <a name="azure-subscription"></a>Azure 구독
 Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습니다. 자세한 내용은 [평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
@@ -115,7 +115,7 @@ Azure 구독이 없는 경우 신속하게 평가판 계정을 만들 수 있습
 
    c. **노드 가격 책정 계층**을 선택합니다.
 
-   d. **대상 전용** 설정 값으로 **2**를 입력합니다.
+   ㄹ. **대상 전용** 설정 값으로 **2**를 입력합니다.
 
    e. **노드당 최대 작업** 설정 값으로 **2**를 입력합니다.
 
@@ -170,12 +170,12 @@ public IDictionary<string, string> Execute(
 * 이 메서드는 다음과 같은 네 개의 매개 변수를 사용합니다.
 
   * **linkedServices**. 이 매개 변수는 입/출력 데이터 원본(예: Blob Storage)을 데이터 팩터리에 연결하는 연결된 서비스의 열거형 목록입니다. 이 샘플에서는 입력 및 출력 모두에 사용되는 Azure Storage 형식의 연결된 서비스가 하나만 있습니다.
-  * **데이터 세트**. 이 매개 변수는 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
+  * **datasets**. 이 매개 변수는 데이터 세트의 열거형 목록입니다. 이 매개 변수를 사용하여 입력 및 출력 데이터 세트에 정의된 위치 및 스키마를 가져올 수 있습니다.
   * **activity**. 이 매개 변수는 현재 컴퓨팅 엔터티를 나타냅니다. 이 경우 Batch 서비스입니다.
   * **logger**. 로거를 사용하여 파이프라인에서 "사용자" 로그로 노출할 디버그 주석을 기록할 수 있습니다.
 * 이 메서드는 나중에 사용자 지정 작업을 함께 연결하는 데 사용할 수 있는 사전을 반환합니다. 이 기능은 아직 구현되지 않았기 때문에, 메서드로부터 빈 사전이 반환됩니다.
 
-#### <a name="procedure-create-the-custom-activity"></a>프로시저: 사용자 지정 작업 만들기
+#### <a name="procedure-create-the-custom-activity"></a>절차: 사용자 지정 작업 만들기
 1. Visual Studio에서 .NET 클래스 라이브러리 프로젝트를 만듭니다.
 
    a. Start Visual Studio 2012/2013/2015.
@@ -184,13 +184,13 @@ public IDictionary<string, string> Execute(
 
    c. **템플릿**을 확장하고 **Visual C\#** 를 선택합니다. 이 연습에서는 C\#를 사용하지만 다른 .NET 언어를 사용하여 사용자 지정 작업을 개발할 수도 있습니다.
 
-   d. 오른쪽의 프로젝트 형식 목록에서 **클래스 라이브러리**를 선택합니다.
+   ㄹ. 오른쪽의 프로젝트 형식 목록에서 **클래스 라이브러리**를 선택합니다.
 
    e. **이름**에 **MyDotNetActivity**를 입력합니다.
 
    f. **C:\\ADF**를 **위치**로 선택합니다. 존재하지 않는 경우 폴더 **ADF**를 만듭니다.
 
-   g. **확인**을 선택하여 프로젝트를 만듭니다.
+   g. **확인**을 클릭하여 프로젝트를 만듭니다.
 
 1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다.
 
@@ -398,11 +398,11 @@ public IDictionary<string, string> Execute(
 
 1. Windows 탐색기를 시작하고, **bin\\debug** 또는 **bin\\release** 폴더로 이동합니다. 선택하는 폴더하는 빌드의 형식에 따라 달라집니다.
 
-1. **\\bin\\Debug** 폴더의 이진을 모두 포함하는 **MyDotNetActivity.zip** Zip 파일을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 MyDotNetActivity.**pdb** 파일을 포함할 수 있습니다.
+1. bin**Debug\\ 폴더의 이진을 모두 포함하는 \\MyDotNetActivity.zip** Zip 파일을 만듭니다. 오류가 발생할 경우 문제를 발생시킨 소스 코드의 줄 번호 같은 추가 정보를 받을 수 있도록 MyDotNetActivity.**pdb** 파일을 포함할 수 있습니다.
 
    ![Bin\Debug 폴더 목록](./media/data-factory-data-processing-using-batch/image5.png)
 
-1. ADFTutorialDataFactory의 연결된 서비스 StorageLinkedService가 사용하는 Blob Storage의 Blob 컨테이너 `customactivitycontainer`에 Blob으로 **MyDotNetActivity.zip**을 업로드합니다. 아직 없는 경우 `customactivitycontainer` Blob 컨테이너를 만듭니다.
+1. ADFTutorialDataFactory의 연결된 서비스 StorageLinkedService가 사용하는 Blob Storage의 Blob 컨테이너 **에 Blob으로** MyDotNetActivity.zip`customactivitycontainer`을 업로드합니다. 아직 없는 경우 `customactivitycontainer` Blob 컨테이너를 만듭니다.
 
 #### <a name="execute-method"></a>메서드 실행
 이 섹션에서는 Execute 메서드에서 코드에 대한 자세한 내용을 제공합니다.
@@ -550,13 +550,13 @@ test custom activity Microsoft test custom activity Microsoft
 연결된 서비스는 데이터 저장소 또는 컴퓨팅 서비스를 Data Factory에 연결합니다. 이 단계에서는 스토리지 계정 및 Batch 계정을 Data Factory에 연결합니다.
 
 #### <a name="create-an-azure-storage-linked-service"></a>Azure Storage 연결된 서비스 만들기
-1. **CustomActivityFactory**에 대한 **Data Factory** 블레이드에서 **작성 및 배포** 타일을 선택합니다. Data Factory 편집기가 표시됩니다.
+1. **CustomActivityFactory**에 대한 **Data Factory** 블레이드에서 **작성 및 배포** 타일을 선택합니다. 데이터 팩터리 편집기가 표시됩니다.
 
 1. 명령 모음에서 **새 데이터 저장소**를 선택하고 **Azure Storage**를 선택합니다. 편집기에 Storage 연결된 서비스를 만들기 위한 JSON 스크립트가 표시됩니다.
 
    ![새 데이터 저장소](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. **account name**을 스토리지 계정 이름으로 바꿉니다. **계정 키**를 스토리지 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 확보하는 방법을 알아보려면 [스토리지 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
+1. **계정 이름**을 스토리지 계정 이름으로 바꿉니다. **계정 키**를 스토리지 계정의 액세스 키로 바꿉니다. 스토리지 액세스 키를 확보하는 방법을 알아보려면 [스토리지 액세스 키 보기, 복사 및 다시 생성](../../storage/common/storage-account-manage.md#access-keys)을 참조하세요.
 
 1. 명령 모음에서 **배포**를 선택하여 연결된 서비스를 배포합니다.
 
@@ -575,10 +575,10 @@ test custom activity Microsoft test custom activity Microsoft
 
    c. **poolName** 속성에 대한 풀 ID를 입력합니다. 이 속성의 경우 풀 이름 또는 풀 ID 중 하나를 지정할 수 있습니다.
 
-   d. **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
+   ㄹ. **batchUri** JSON 속성에 대한 배치 URI를 입력합니다.
 
       > [!IMPORTANT]
-      > **Batch 계정** 블레이드의 URL은 \<accountname\>.\<region\>.batch.azure.com 형식을 사용합니다. JSON 스크립트의 **batchUri** 속성의 경우 URL에서 a88"accountname."**을 제거해야 합니다. 예제입니다. `"batchUri": "https://eastus.batch.azure.com"`
+      > **Batch 계정** 블레이드의 URL은 \<accountname\>.\<region\>.batch.azure.com 형식을 사용합니다. JSON 스크립트의 **batchUri** 속성의 경우 URL에서 a88"accountname."**을 제거해야 합니다. 예는 `"batchUri": "https://eastus.batch.azure.com"`입니다.
       >
       >
 
@@ -828,7 +828,7 @@ test custom activity Microsoft test custom activity Microsoft
 
 1. 포털을 사용하여 조각과 연결된 작업을 보고 각 조각이 실행된 VM을 확인합니다. 자세한 내용은 [Data Factory 및 Batch 통합](#data-factory-and-batch-integration) 섹션을 참조하세요.
 
-1. 출력 파일이 Blob Storage의 `outputfolder`에 있는 `mycontainer` 아래에 표시됩니다.
+1. 출력 파일이 Blob Storage의 `mycontainer`에 있는 `outputfolder` 아래에 표시됩니다.
 
    ![스토리지의 출력 파일](./media/data-factory-data-processing-using-batch/image15.png)
 
@@ -849,7 +849,7 @@ test custom activity Microsoft test custom activity Microsoft
 
     ![실행](./media/data-factory-data-processing-using-batch/image17.png)
 
-1. 조각이 실행되고 해당 상태가 **준비** 상태가 된 후 이 조각에 대한 출력 파일(**2015-11-16-01.txt**)의 콘텐츠를 확인합니다. 출력 파일이 Blob Storage의 `outputfolder`에 있는 `mycontainer` 아래에 표시됩니다. 조각의 각 파일에 대한 줄이 있어야 합니다.
+1. 조각이 실행되고 해당 상태가 **준비** 상태가 된 후 이 조각에 대한 출력 파일(**2015-11-16-01.txt**)의 콘텐츠를 확인합니다. 출력 파일이 Blob Storage의 `mycontainer`에 있는 `outputfolder` 아래에 표시됩니다. 조각의 각 파일에 대한 줄이 있어야 합니다.
 
     ```
     2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
@@ -932,9 +932,9 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
 
 1. 다음 하위 폴더를 `inputfolder`에 추가합니다. 2015-11-16-05, 2015-11-16-06, 201-11-16-07, 2011-11-16-08 및 2015-11-16-09. 해당 폴더에 입력 파일을 배치합니다. `2015-11-16T05:00:00Z`에서 `2015-11-16T10:00:00Z`(으)로 파이프라인에 대한 종료 시간을 변경합니다. **다이어그램** 보기에서 **InputDataset**을 두 번 클릭하고 입력 조각이 준비되었는지 확인합니다. **OutputDataset**을 두 번 클릭하여 출력 조각의 상태를 봅니다. **준비** 상태에 있는 경우 출력 파일에 대한 출력 폴더를 확인합니다.
 
-1. 솔루션, 특히 Batch에서 발생하는 처리의 성능에 미치는 영향을 이해하려면 **동시성** 설정을 증가 또는 감소시킵니다. **동시성** 설정에 대한 자세한 내용은 “4단계: 사용자 지정 작업을 사용하여 파이프라인 만들기 및 실행”을 참조하세요.
+1. 솔루션, 특히 Batch에서 발생하는 처리의 성능에 미치는 영향을 이해하려면 **동시성** 설정을 증가 또는 감소시킵니다. **동시성** 설정에 대한 자세한 내용은 "4단계: 사용자 지정 작업을 사용하여 파이프라인 만들기 및 실행"을 참조하세요.
 
-1. 상위/하위 **VM당 최대 작업**을 가진 풀을 만듭니다. 만든 새 풀을 사용하려면 Data Factory 솔루션에서 Batch 연결된 서비스를 업데이트합니다. **VM당 최대 작업** 설정에 대한 자세한 내용은 “4단계: 사용자 지정 작업을 사용하여 파이프라인 만들기 및 실행”을 참조하세요.
+1. 상위/하위 **VM당 최대 작업**을 가진 풀을 만듭니다. 만든 새 풀을 사용하려면 Data Factory 솔루션에서 Batch 연결된 서비스를 업데이트합니다. **VM당 최대 작업** 설정에 대한 자세한 내용은 "4단계: 사용자 지정 작업을 사용하여 파이프라인 만들기 및 실행"을 참조하세요.
 
 1. **자동 크기 조정** 기능이 있는 Batch 풀을 만듭니다. Batch 풀에서 자동으로 컴퓨팅 노드 크기를 조정하는 것은 애플리케이션에서 사용하는 처리 능력을 동적으로 조정하는 것입니다. 
 
@@ -964,7 +964,7 @@ Data Factory 및 Batch 기능에 대한 자세한 내용을 보려면 이 샘플
 * [Power BI에서 데이터 새로 고침](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/)
 * [Azure 및 Power BI: 기본 개요](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
-## <a name="references"></a>참조 항목
+## <a name="references"></a>참조
 * [Azure 데이터 팩터리](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Data Factory 서비스 소개](data-factory-introduction.md)

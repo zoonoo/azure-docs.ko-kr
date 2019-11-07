@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database vCore 리소스 제한-단일 데이터베이스 | Microsoft Docs
+title: Azure SQL Database vCore 리소스 제한-단일 데이터베이스
 description: 이 페이지에서는 Azure SQL Database의 단일 데이터베이스에 대 한 몇 가지 일반적인 vCore 리소스 제한을 설명 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 11/04/2019
-ms.openlocfilehash: 55b0b28f3081cfe643645683a9773b4c97b9caef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b3b55b3542eb0dd8c3c61d7a82c8ce2e9d271113
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495946"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686855"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>VCore 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한
 

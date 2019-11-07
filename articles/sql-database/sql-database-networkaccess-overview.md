@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 및 데이터 웨어하우스 네트워크 액세스 제어 | Microsoft Docs
+title: Azure SQL Database 및 데이터 웨어하우스 네트워크 액세스 제어
 description: 액세스를 관리 하 고 단일 또는 풀링된 데이터베이스를 구성 하기 위한 Azure SQL Database 및 데이터 웨어하우스의 네트워크 액세스 제어 개요입니다.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: deee668c3597047a5d5f0fd153626916c3fd8517
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703264"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687705"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database 및 데이터 웨어하우스 네트워크 액세스 제어
 
 > [!NOTE]
-> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하자면, SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 문서는 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용 됩니다.
 
 > [!IMPORTANT]
-> 이 문서는 **Azure SQL Database Managed Instance**에 적용되지 *않습니다*. 네트워킹 구성에 대 한 자세한 내용은 [Managed Instance에 연결](sql-database-managed-instance-connect-app.md) 을 참조 하세요.
+> 이 문서는 *Azure SQL Database Managed Instance*에 적용되지 **않습니다**. 네트워킹 구성에 대 한 자세한 내용은 [Managed Instance에 연결](sql-database-managed-instance-connect-app.md) 을 참조 하세요.
 
 [Azure Portal에서](sql-database-single-database-get-started.md)새 Azure SQL Server를 만들 때 결과는 *yourservername.database.windows.net*형식의 공용 끝점입니다. 설계상 공용 끝점에 대 한 모든 액세스는 거부 됩니다. 그런 다음, 다음 네트워크 액세스 제어를 사용 하 여 공용 끝점을 통해 SQl Database에 대 한 액세스를 선택적으로 허용할 수 있습니다.
 - Azure 서비스 허용: 사용으로 설정 되 면 azure 경계 내의 다른 리소스 (예: Azure Virtual Machine)는에 액세스할 수 있습니다 SQL Database
@@ -83,12 +83,12 @@ Virtual Network 방화벽 규칙을 탐색 하면서 다음과 같은 Azure 네�
 
 **서브넷:** 가상 네트워크에 **서브넷**이 포함됩니다. 소유한 Azure VM(가상 머신)은 서브넷에 할당됩니다. 하나의 서브넷에 여러 VM 또는 다른 컴퓨팅 노드가 포함될 수 있습니다. 액세스를 허용하도록 보안을 구성해야 가상 네트워크 외부의 컴퓨팅 노드가 가상 네트워크에 액세스할 수 있습니다.
 
-**Virtual Network 서비스 엔드포인트:** [Virtual Network service endpoint] [vm-가상-네트워크-서비스-끝점-b y d]는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함 된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다.
+**Virtual Network 서비스 끝점:** [Virtual Network service endpoint] [vm-가상-네트워크-서비스-끝점-b y d]는 속성 값에 하나 이상의 정식 Azure 서비스 유형 이름이 포함 된 서브넷입니다. 이 문서에서는 SQL Database라는 Azure 서비스를 나타내는 **Microsoft.Sql**의 형식 이름을 살펴봅니다.
 
 **가상 네트워크 규칙:** SQL Database 서버에 대한 가상 네트워크 규칙은 SQL Database 서버의 ACL(액세스 제어 목록)에 나열된 서브넷입니다. SQL Database에 대한 ACL에 나열되려면 서브넷에 **Microsoft.Sql** 형식 이름이 있어야 합니다. 가상 네트워크 규칙은 서브넷에 있는 모든 노드에서 보낸 통신을 수락하도록 SQL Database 서버에 지시합니다.
 
 
-## <a name="ip-vs-virtual-network-firewall-rules"></a>IP 및 Virtual Network 방화벽 규칙
+## <a name="ip-vs-virtual-network-firewall-rules"></a>IP와 Virtual Network 방화벽 규칙 비교
 
 Azure SQL Server 방화벽을 사용 하 여 SQL Database에 대 한 통신을 허용 하는 IP 주소 범위를 지정할 수 있습니다. 이 방법은 Azure 프라이빗 네트워크 외부에 있는 안정적인 IP 주소에 적합합니다. 그러나 Azure 개인 네트워크 내의 가상 머신 (Vm)는 *동적* IP 주소로 구성 됩니다. 동적 IP 주소는 VM이 다시 시작 될 때 변경 될 수 있으며, 그런 다음 IP 기반 방화벽 규칙을 무효화 합니다. 프로덕션 환경의 방화벽 규칙에서는 동적 IP 주소를 지정하면 안 됩니다.
 
@@ -107,7 +107,7 @@ VM에 대 한 *고정* IP 주소를 가져오면 이러한 제한을 해결할 �
 
 - 오픈 소스 또는 타사 응용 프로그램에서 Azure SQL database에 연결 하는 데 도움이 필요한 경우 [클라이언트 빠른 시작 코드 샘플](https://msdn.microsoft.com/library/azure/ee336282.aspx)을 참조 하 여 SQL Database 합니다.
 
-- 추가로 열어야 하는 포트에 대한 자세한 내용은 **SQL Database: 내부 및 외부** 섹션([ADO.NET 4.5 및 SQL Database에 대한 1433 이외 포트](sql-database-develop-direct-route-ports-adonet-v12.md))를 참조하세요.
+- 열어야 할 수 있는 추가 포트에 대한 자세한 내용은 **ADO.NET 4.5와 SQL Database에 대한 1433 이외 포트**의 [SQL Database: 내부 및 외부](sql-database-develop-direct-route-ports-adonet-v12.md) 섹션을 참조하세요.
 
 - Azure SQL Database 연결에 대 한 개요는 [AZURE SQL 연결 아키텍처](sql-database-connectivity-architecture.md) 를 참조 하세요.
 

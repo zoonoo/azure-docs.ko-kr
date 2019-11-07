@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 MariaDB에서 데이터 복사 | Microsoft Docs
+title: Azure Data Factory를 사용하여 MariaDB에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 MariaDB에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: b58617281094973e2705c34fdd4e4f6ccb2e8d8c
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 853d39545d099f43cd5769eadae974e20c977e53
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090130"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680722"
 ---
 # <a name="copy-data-from-mariadb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MariaDB에서 데이터 복사
 
@@ -36,7 +36,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 이 커넥터는 현재 10.0~10.2 버전의 MariaDB를 지원합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -52,7 +52,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **MariaDB** | 예 |
+| type | type 속성은 **MariaDB**로 설정해야 합니다. | 예 |
 | connectionString | MariaDB에 연결할 ODBC 연결 문자열입니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. Azure Key Vault에 암호를 넣고, 연결 문자열에서 `pwd` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
@@ -139,8 +139,8 @@ MariaDB에서 데이터를 복사하려면 복사 작업의 원본 형식을 **M
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **MariaDBSource** | 예 |
-| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| type | 복사 작업 원본의 type 속성은 **MariaDBSource**로 설정해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

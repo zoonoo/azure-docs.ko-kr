@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory의 지속적인 통합 및 지속적인 업데이트 | Microsoft Docs
+title: Azure Data Factory에서 지속적인 통합 및 전달
 description: 지속적인 통합 및 지속적인 업데이트를 사용하여 환경(개발, 테스트, 프로덕션) 간에 Data Factory 파이프라인을 이동하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: ff1d34852890a8d5005153ebdfa2fa0f9749d129
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7c5c1e91e97087bf28b03629659e5194f67c22b3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030611"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680037"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Azure Data Factory의 CI/CD(지속적인 통합 및 지속적인 업데이트)
 
 ## <a name="overview"></a>개요
 
-지속적인 통합은 코드 베이스에 자동으로 이루어진 변경 내용을 각각 가능한 빨리 테스트하는 방법입니다. 지속적인 업데이트는 지속적인 통합 중에 발생하는 테스트를 수행하고, 변경 내용을 준비 또는 프로덕션 시스템에 푸시합니다.
+지속적인 통합은 코드 베이스에 자동으로 이루어진 변경 내용을 각각 가능한 빨리 테스트하는 방법입니다. 연속 전달은 연속 통합 중에 발생 하는 테스트를 따르고 스테이징 또는 프로덕션 시스템에 변경 내용을 푸시합니다.
 
 Azure Data Factory에서 지속적인 통합 & 배달은 Data Factory 파이프라인을 한 환경 (개발, 테스트, 프로덕션)에서 다른 환경으로 이동 하는 것을 의미 합니다. 지속적인 통합 & 배달 하려면 Azure Resource Manager 템플릿과 Data Factory UX 통합을 사용할 수 있습니다. Data Factory UX는 **ARM 템플릿** 드롭다운에서 리소스 관리자 템플릿을 생성할 수 있습니다. **ARM 템플릿 내보내기**를 선택하는 경우 포털에서는 Data Factory의 Resource Manager 템플릿과 모든 연결 문자열 및 기타 매개 변수를 포함하는 구성 파일을 생성합니다. 그런 다음 각 환경 (개발, 테스트, 프로덕션)에 대해 하나의 구성 파일을 만들어야 합니다. 주 Resource Manager 템플릿 파일은 모든 환경에서 동일하게 유지됩니다.
 
@@ -116,13 +116,13 @@ Azure Data Factory에서 지속적인 통합 & 배달은 Data Factory 파이프�
 
     c.  배포 작업에서 대상 Data Factory의 구독, 리소스 그룹 및 위치를 선택하고, 필요한 경우 자격 증명을 제공합니다.
 
-    d.  작업 드롭다운에서 **리소스 그룹 만들기 또는 업데이트**를 선택 합니다.
+    ㄹ.  작업 드롭다운에서 **리소스 그룹 만들기 또는 업데이트**를 선택 합니다.
 
-    e.  **템플릿 매개 변수 재정의** 필드 **…** 를 선택합니다. [각 환경에 대 한 Resource Manager 템플릿 만들기](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment)의 **ARM 템플릿 가져오기** 단계를 통해 Azure Resource Manager 템플릿 만들기를 찾습니다. `adf_publish` 분기의 `<FactoryName>` 폴더에서 이 파일을 찾습니다.
+    e.  “**템플릿**” 필드에서 **…** 를 선택합니다. [각 환경에 대 한 Resource Manager 템플릿 만들기](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment)의 **ARM 템플릿 가져오기** 단계를 통해 Azure Resource Manager 템플릿 만들기를 찾습니다. `<FactoryName>` 분기의 `adf_publish` 폴더에서 이 파일을 찾습니다.
 
-    f.  **템플릿 매개 변수 재정의** 필드 **템플릿 매개 변수 필드에 있습니다.** 를 클릭 하 여 매개 변수 파일을 선택 합니다. 복사본을 만들었는지 또는 기본 파일 *ARMTemplateParametersForFactory.json*을 사용하는지에 따라 올바른 파일을 선택합니다.
+    f.  “**템플릿**” 필드에서 **템플릿 매개 변수 필드에 있습니다.** 를 클릭 하 여 매개 변수 파일을 선택 합니다. 복사본을 만들었는지 또는 기본 파일 *ARMTemplateParametersForFactory.json*을 사용하는지에 따라 올바른 파일을 선택합니다.
 
-    g.  **템플릿 매개 변수 재정의** 필드 옆에 있는 **…** 을 선택하고 대상 Data Factory에 대한 정보를 입력합니다. Key vault에서 가져온 자격 증명의 경우 큰따옴표 사이에 비밀 이름을 입력 합니다. 예를 들어 비밀의 이름이 `cred1` 인 경우 해당 값을 @no__t 1for 입력 합니다.
+    g.  “**템플릿**” 필드에서 옆에 있는 **…** 을 선택하고 대상 Data Factory에 대한 정보를 입력합니다. Key vault에서 가져온 자격 증명의 경우 큰따옴표 사이에 비밀 이름을 입력 합니다. 예를 들어 비밀의 이름이 `cred1`인 경우 해당 값에 대 한 `"$(cred1)"`을 입력 합니다.
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
@@ -196,7 +196,7 @@ Azure Resource Manager 템플릿에서 암호를 전달 하는 경우 Azure Pipe
 
     ![](media/continuous-integration-deployment/continuous-integration-image11.png)
 
-@No__t-0 함수를 사용 하 여 비슷한 단계를 수행 하 여 배포 후에 트리거를 다시 시작할 수 있습니다.
+`Start-AzDataFactoryV2Trigger` 함수를 사용 하 여 비슷한 단계를 수행 하 여 배포 후에 트리거를 다시 시작할 수 있습니다.
 
 > [!IMPORTANT]
 > 지속적인 통합 및 지속적인 배포 시나리오에서는 서로 다른 환경 간의 Integration Runtime 유형이 동일해야 합니다. 예를 들어 개발 환경에 *자체 호스팅* IR(Integration Runtime)이 있는 경우 테스트 및 프로덕션과 같은 다른 환경에서도 동일한 IR이 *자체 호스팅* 유형이어야 합니다. 마찬가지로 여러 단계에서 통합 런타임을 공유하는 경우 개발, 테스트 및 프로덕션과 같은 모든 환경에서 통합 런타임을 *연결된 자체 호스팅*으로 구성해야 합니다.
@@ -335,14 +335,14 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
 
 다음은 사용자 지정 매개 변수 파일을 작성할 때 사용할 수 있는 몇 가지 지침입니다. 이 파일은 트리거, 파이프라인, 연결 된 서비스, 데이터 집합, 통합 런타임 등의 각 엔터티 형식에 대 한 섹션으로 구성 됩니다.
 * 관련 엔터티 형식 아래에 속성 경로를 입력 합니다.
-* 속성 이름을 ' \* ' ' (으)로 설정 하는 경우 해당 속성의 모든 속성을 매개 변수화 하도록 지정 합니다 (재귀적이 아닌 첫 번째 수준 까지만). 이에 대 한 모든 예외를 제공할 수도 있습니다.
-* 문자열로 속성의 값을 설정할 때 속성을 매개 변수화하려는 것을 나타냅니다. @ No__t-0 형식을 사용 합니다.
-   *  `<action>` @ no__t-1은 다음 문자 중 하나일 수 있습니다.
-      * `=` @ no__t-1은 현재 값을 매개 변수의 기본값으로 유지 합니다.
-      * `-` @ no__t-1은 매개 변수의 기본값을 유지 하지 않음을 의미 합니다.
-      * `|` @ no__t-1은 연결 문자열이 나 키에 대 한 Azure Key Vault 암호의 특별 한 경우입니다.
-   * `<name>` @ no__t-1은 매개 변수의 이름입니다. 비어 있는 경우 속성의 이름을 사용 합니다. 값이 `-` 문자로 시작 하면 이름이 짧아집니다. 예를 들어 `AzureStorage1_properties_typeProperties_connectionString`은-1 @no__t으로 줄어듭니다.
-   * `<stype>` @ no__t-1은 매개 변수의 유형입니다. @ No__t-0 @ no__t가 비어 있으면 기본 형식은 `string`입니다. 지원 되는 값은 `string`, `bool`, `number`, `object`, `securestring`입니다.
+* 속성 이름을 '\*' ' (으)로 설정 하는 경우 해당 속성의 모든 속성을 매개 변수화 하도록 지정 합니다 (재귀적이 아닌 첫 번째 수준 까지만). 이에 대 한 모든 예외를 제공할 수도 있습니다.
+* 문자열로 속성의 값을 설정할 때 속성을 매개 변수화하려는 것을 나타냅니다.  `<action>:<name>:<stype>`형식을 사용 합니다.
+   *  `<action>` 는 다음 문자 중 하나를 사용할 수 있습니다.
+      * `=` 는 현재 값을 매개 변수의 기본값으로 유지 한다는 의미입니다.
+      * `-` 는 매개 변수의 기본값을 유지 하지 않음을 의미 합니다.
+      * `|` 는 연결 문자열이 나 키에 대 한 Azure Key Vault의 비밀에 대 한 특별 한 사례입니다.
+   * `<name>` 는 매개 변수의 이름입니다. 비어 있는 경우 속성의 이름을 사용 합니다. 값이 `-` 문자로 시작 하면 이름이 짧아집니다. 예를 들어 `AzureStorage1_properties_typeProperties_connectionString` `AzureStorage1_connectionString`으로 줄어듭니다.
+   * `<stype>` 는 매개 변수의 형식입니다.  `<stype>` 비어 있는 경우 기본 유형은 `string`입니다. 지원 되는 값은 `string`, `bool`, `number`, `object`, `securestring`입니다.
 * 정의 파일에서 배열을 지정 하면 템플릿에서 일치 하는 속성이 배열 임을 알 수 있습니다. Data Factory 배열의 Integration Runtime 개체에 지정 된 정의를 사용 하 여 배열의 모든 개체를 반복 합니다. 두 번째 개체, 문자열은 각 반복에 대한 매개 변수의 이름으로 사용되는 속성의 이름이 됩니다.
 * 리소스 인스턴스에 대 한 정의를 가질 수 없습니다. 모든 정의는 해당 형식의 모든 리소스에 적용 됩니다.
 * 기본적으로 Key Vault 암호 및 보안 문자열 (예: 연결 문자열, 키, 토큰)과 같은 모든 보안 문자열에 매개 변수가 있습니다.
@@ -414,27 +414,27 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
 
 #### <a name="pipelines"></a>파이프라인
     
-* Path 활동/typeProperties/waitTimeInSeconds의 모든 속성은 매개 변수화 됩니다. @No__t-0 (예: `Wait` 활동) 이라는 코드 수준 속성을 가진 파이프라인의 모든 활동은 기본 이름을 가진 숫자로 매개 변수화 됩니다. 그러나 리소스 관리자 템플릿에는 기본값이 없습니다. 리소스 관리자 배포 중에 필수 입력이 됩니다.
+* Path 활동/typeProperties/waitTimeInSeconds의 모든 속성은 매개 변수화 됩니다. `waitTimeInSeconds` 라는 코드 수준 속성 (예: `Wait` 활동)이 있는 파이프라인의 모든 활동은 기본 이름을 가진 숫자로 매개 변수화 됩니다. 그러나 리소스 관리자 템플릿에는 기본값이 없습니다. 리소스 관리자 배포 중에 필수 입력이 됩니다.
 * 마찬가지로 `headers` (예: `Web` 활동) 이라는 속성은 `object` (JObject) 형식으로 매개 변수화 됩니다. 이 값은 원본 팩터리의 값과 동일한 기본값을 가집니다.
 
 #### <a name="integrationruntimes"></a>IntegrationRuntimes
 
-* @No__t-0 경로 아래의 모든 속성은 해당 기본값을 사용 하 여 매개 변수화 됩니다. 예를 들어 **IntegrationRuntimes** 형식 속성에는 `computeProperties`과 `ssisProperties`의 두 속성이 있습니다. 두 속성 유형 모두 해당 기본값과 유형 (개체)을 사용 하 여 생성 됩니다.
+* `typeProperties` 경로 아래에 있는 모든 속성은 해당 기본값을 사용 하 여 매개 변수화 됩니다. 예를 들어 **IntegrationRuntimes** 형식 속성에는 `computeProperties` 및 `ssisProperties`라는 두 가지 속성이 있습니다. 두 속성 유형 모두 해당 기본값과 유형 (개체)을 사용 하 여 생성 됩니다.
 
 #### <a name="triggers"></a>트리거
 
-* @No__t-0에서는 두 개의 속성을 매개 변수화 합니다. 첫 번째 값은 @no__t 이며 기본값을 갖도록 지정 하 고 @ no__t-1 형식입니다. 기본 매개 변수 이름 `<entityName>_properties_typeProperties_maxConcurrency`입니다.
-* @No__t-0 속성은 매개 변수가 있습니다. 이 수준에서 해당 수준의 모든 속성은 기본값으로 매개 변수화 되도록 지정 되며 기본값 및 매개 변수 이름이 사용 됩니다. 예외는 숫자 형식으로 매개 변수화 되 고 매개 변수 이름이 `<entityName>_properties_typeProperties_recurrence_triggerSuffix` 인 `interval` 속성입니다. 마찬가지로 `freq` 속성은 문자열이 며 문자열로 매개 변수화 됩니다. 그러나 `freq` 속성은 기본값이 없는 매개 변수화 됩니다. 이름이 단축 되 고 접미사가 붙습니다. 예를 들어, `<entityName>_freq`을 입력합니다.
+* `typeProperties`에서는 두 개의 속성을 매개 변수화 합니다. 첫 번째 값은 `maxConcurrency`이며 기본값을 갖도록 지정 되 고`string`형식입니다. 기본 매개 변수 이름 `<entityName>_properties_typeProperties_maxConcurrency`입니다.
+* 또한 `recurrence` 속성은 매개 변수가 있습니다. 이 수준에서 해당 수준의 모든 속성은 기본값으로 매개 변수화 되도록 지정 되며 기본값 및 매개 변수 이름이 사용 됩니다. 예외는 숫자 형식으로 매개 변수화 되 고 매개 변수 이름이 `<entityName>_properties_typeProperties_recurrence_triggerSuffix` 인 `interval` 속성입니다. 마찬가지로 `freq` 속성은 문자열이 며 문자열로 매개 변수화 됩니다. 그러나 `freq` 속성은 기본값이 없는 매개 변수화 됩니다. 이름이 단축 되 고 접미사가 붙습니다. 예: `<entityName>_freq`
 
-#### <a name="linkedservices"></a>LinkedServices
+#### <a name="linkedservices"></a>Linkedservices.json 및 datasets.json
 
-* 연결 된 서비스는 고유 합니다. 연결 된 서비스 및 데이터 집합에는 다양 한 형식이 있으므로 유형별 사용자 지정을 제공할 수 있습니다. 이 예제에서는 @no__t 형식의 모든 연결 된 서비스를 적용 하 고, 특정 템플릿이 적용 되며, 다른 모든 사용자 (\*)를 통해 다른 템플릿이 적용 됩니다.
-* @No__t-0 속성은 1 @no__t 값으로 매개 변수화 되 고 기본값은 없으며 `connectionString` 인 약식 매개 변수 이름이 사용 됩니다.
-* @No__t-0 속성은 `AzureKeyVaultSecret` (예: `AmazonS3` 연결 된 서비스) 인 경우에 발생 합니다. 자동으로 Azure Key Vault 암호로 매개 변수화 되 고 구성 된 Key Vault에서 인출 됩니다. 키 자격 증명 모음을 매개 변수화 할 수도 있습니다.
+* 연결 된 서비스는 고유 합니다. 연결 된 서비스 및 데이터 집합에는 다양 한 형식이 있으므로 유형별 사용자 지정을 제공할 수 있습니다. 이 예제에서는 `AzureDataLakeStore`형식의 모든 연결 된 서비스를 적용 하 고, 특정 템플릿이 적용 되며, 다른 모든 (\*를 통해) 다른 템플릿이 적용 됩니다.
+* `connectionString` 속성은 `securestring` 값으로 매개 변수화 되 고 기본값은 없으며 `connectionString`접미사로 표시 되는 약식 매개 변수 이름입니다.
+* 속성 `secretAccessKey`는 `AzureKeyVaultSecret` (예: `AmazonS3` 연결 된 서비스)로 발생 합니다. 자동으로 Azure Key Vault 암호로 매개 변수화 되 고 구성 된 Key Vault에서 인출 됩니다. 키 자격 증명 모음을 매개 변수화 할 수도 있습니다.
 
 #### <a name="datasets"></a>데이터 세트
 
-* 데이터 집합에 대해 유형별 사용자 지정을 사용할 수 있지만 @no__t 64, 수준 구성을 명시적으로 사용 하지 않고 구성을 제공할 수 있습니다. 위의 예제에서 `typeProperties` 아래의 모든 데이터 집합 속성은 매개 변수화 됩니다.
+* 데이터 집합에 대해 유형별 사용자 지정을 사용할 수 있지만 명시적으로 \*수준 구성을 사용 하지 않고도 구성을 제공할 수 있습니다. 위의 예제에서 `typeProperties` 아래의 모든 데이터 집합 속성은 매개 변수화 됩니다.
 
 ### <a name="default-parameterization-template"></a>기본 매개 변수화 템플릿
 
@@ -545,7 +545,7 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
 }
 ```
 
-다음은 단일 값을 기본 매개 변수화 템플릿에 추가 하는 방법의 예입니다. Databricks 연결 된 서비스에 대 한 기존 Databricks 대화형 클러스터 ID를 매개 변수 파일에 추가 하려고 합니다. 아래 파일은-1 @no__t의 속성 필드에 포함 된 @no__t를 제외 하 고 위의 파일과 동일 합니다.
+다음은 단일 값을 기본 매개 변수화 템플릿에 추가 하는 방법의 예입니다. Databricks 연결 된 서비스에 대 한 기존 Databricks 대화형 클러스터 ID를 매개 변수 파일에 추가 하려고 합니다. 아래 파일은 `Microsoft.DataFactory/factories/linkedServices`의 속성 필드에 포함 된 `existingClusterId`를 제외 하 고 위의 파일과 동일 합니다.
 
 ```json
 {

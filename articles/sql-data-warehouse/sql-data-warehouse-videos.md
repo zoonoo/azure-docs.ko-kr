@@ -1,6 +1,6 @@
 ---
-title: 비디오-Azure SQL Data Warehouse | Microsoft Docs
-description: Azure SQL Data Warehouse에 대 한 다양 한 비디오 재생 목록에 연결 합니다.
+title: 비디오
+description: Azure SQL Data Warehouse에 대 한 다양 한 비디오 재생 목록에 대 한 링크입니다.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -10,18 +10,19 @@ ms.subservice: manage
 ms.date: 02/15/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 52f61f606ddf28c23eb3f72ff91c68a47b667ea1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 5d01ff2eb74844997eb1640123e4af59abe2340b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595450"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692446"
 ---
 # <a name="azure-sql-data-warehouse---videos"></a>Azure SQL Data Warehouse-비디오
 
-새로운 기능과 성능 향상에 대해 자세히 알아보려면 최신 Azure SQL Data Warehouse 비디오를 시청 하세요. 
+최신 Azure SQL Data Warehouse 비디오를 시청 하 여 새로운 기능 및 성능 향상에 대해 알아보세요. 
 
-시작 하려면 Azure SQL Data Warehouse는 새 업데이트에 대해 자세히 알아보려면 아래 개요 비디오를 선택 합니다. 또한 사이버 범죄와 같은 실제 시나리오를 해결 하려면 최신 데이터 웨어하우스 패턴을 사용할 수 있는 방법을 알아봅니다.
+시작 하려면 아래 개요 비디오를 선택 하 여 Azure SQL Data Warehouse에 대 한 새 업데이트에 대해 알아보세요. 또한 최신 데이터 웨어하우스 패턴을 사용 하 여 사이버 범죄와 같은 실제 시나리오를 다룰 수 있는 방법에 대해 알아봅니다.
 </br>
 
 <a href="https://www.youtube.com/watch?v=7MDCWgxPnVY&list=PLXtHYVsvn_b_v4EKljH6dGo9qJ7JjItWL&index=2">
@@ -30,8 +31,8 @@ ms.locfileid: "67595450"
   </div>
 </a>
 
-특정 기능을 설명 하는 추가 비디오에서 볼 수 있습니다. 
-- [YouTube: Azure 사용 하 여 고급 분석](https://www.youtube.com/playlist?list=PLLasX02E8BPClOvjNV9bXk3LUuf3nQiS2)
+특정 기능을 설명 하는 추가 비디오는 다음에서 볼 수 있습니다. 
+- [YouTube: Azure를 사용한 고급 분석](https://www.youtube.com/playlist?list=PLLasX02E8BPClOvjNV9bXk3LUuf3nQiS2)
 - [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?services=sql-data-warehouse)
 
 

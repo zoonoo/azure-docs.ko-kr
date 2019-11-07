@@ -1,5 +1,5 @@
 ---
-title: CSV 파일에서 Azure SQL Database로 데이터 로드(bcp) | Microsoft Docs
+title: CSV 파일의 데이터를 Azure SQL Database으로 로드 (bcp)
 description: 작은 데이터 크기의 경우 bcp를 사용하여 Azure SQL Database로 데이터를 가져옵니다.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: b3dff4e100d3859978667ad0df7d895a24ca8a8d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d9c4a6293fe2c52870e61488713455ac6c2ed4a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567826"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689559"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>CSV에서 Azure SQL Database(플랫 파일)로 데이터 로드
 
 bcp 명령줄 유틸리티를 사용하여 CSV 파일에서 Azure SQL Database로 데이터를 가져올 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 완료하려면 다음이 필요합니다.
 
@@ -38,7 +38,7 @@ bcp 명령줄 유틸리티를 사용하여 CSV 파일에서 Azure SQL Database�
 
 사용자의 데이터로 이 자습서를 수행하는 경우에는, bcp가 UTF-8을 지원하지 않으므로, 데이터에 ASCII 또는 UTF-16 인코딩을 사용해야 합니다. 
 
-## <a name="1-create-a-destination-table"></a>1. 대상 테이블 만들기
+## <a name="1-create-a-destination-table"></a>1. 대상 테이블을 만듭니다.
 
 SQL Database에서 테이블을 대상 테이블로 정의합니다. 테이블의 열은 데이터 파일의 각 행에 있는 데이터와 일치해야 합니다.
 
@@ -76,7 +76,7 @@ sqlcmd.exe -S <server name> -d <database name> -U <username> -P <password> -I -Q
 20150101,1,3
 ```
 
-(선택 사항) SQL Server 데이터베이스에서 사용자의 데이터를 내보내려면, 명령 프롬프트를 열고 다음 명령을 실행합니다. TableName, ServerName, DatabaseName, Username 및 Password를 사용자의 정보로 바꿉니다.
+(선택 사항) SQL Server 데이터베이스에서 사용자의 데이터를 내보내려면, 명령 프롬프트를 열고 다음 명령을 실행합니다. TableName, ServerName, DatabaseName, Username, 및 Password를 사용자의 정보로 바꿉니다.
 
 ```bcp
 bcp <TableName> out C:\Temp\DimDate2_export.txt -S <ServerName> -d <DatabaseName> -U <Username> -P <Password> -q -c -t , 

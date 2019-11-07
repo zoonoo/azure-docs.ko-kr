@@ -1,5 +1,5 @@
 ---
-title: BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기 | Microsoft Docs
+title: BACPAC 파일을 가져와 Azure SQL 데이터베이스 만들기
 description: BACPAC 파일을 가져와 새 Azure SQL 데이터베이스를 만듭니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/20/2019
-ms.openlocfilehash: 5e0f3ccafa449cc431166d5b4bd4135a1d1ac97c
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 4b96f076abf36a8f93d2b257be8fac2fd9e6de48
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675873"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689893"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database"></a>빠른 시작: Azure SQL Database에서 BACPAC 파일을 데이터베이스로 가져오기
 
@@ -34,7 +34,7 @@ ms.locfileid: "72675873"
 Azure PowerShell를 사용 하 여 BACPAC 파일에서 관리 되는 [인스턴스로](sql-database-managed-instance.md) 데이터베이스를 마이그레이션하는 것은 현재 지원 되지 않습니다. 대신 SQL Server Management Studio 또는 SQLPackage를 사용 해야 합니다.
 
 > [!NOTE]
-> Azure Portal 또는 PowerShell을 통해 제출 된 가져오기/내보내기 요청을 처리 하는 컴퓨터는 BACPAC 파일 뿐만 아니라 데이터 계층 응용 프로그램 프레임 워크 (DacFX)에서 생성 된 임시 파일을 저장 해야 합니다. 필요한 디스크 공간은 크기가 같은 데이터베이스에 따라 크게 달라 지 며, 데이터베이스 크기의 최대 3 배까지 디스크 공간이 필요할 수 있습니다. Import/export 요청을 실행 하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 `There is not enough space on the disk` 오류와 함께 실패할 수 있습니다. 이 경우 해결 방법은 충분 한 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage를 실행 하는 것입니다. 이 문제를 방지 하기 위해 [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) 를 사용 하 여 150GB 보다 큰 데이터베이스를 가져오거나 내보내는 것이 좋습니다.
+> Azure Portal 또는 PowerShell을 통해 제출 된 가져오기/내보내기 요청을 처리 하는 컴퓨터는 BACPAC 파일 뿐만 아니라 데이터 계층 응용 프로그램 프레임 워크 (DacFX)에서 생성 된 임시 파일을 저장 해야 합니다. 필요한 디스크 공간은 크기가 같은 데이터베이스에 따라 크게 달라 지 며, 데이터베이스 크기의 최대 3 배까지 디스크 공간이 필요할 수 있습니다. Import/export 요청을 실행 하는 컴퓨터에는 450GB 로컬 디스크 공간만 있습니다. 따라서 일부 요청은 `There is not enough space on the disk`오류와 함께 실패할 수 있습니다. 이 경우 해결 방법은 충분 한 로컬 디스크 공간이 있는 컴퓨터에서 sqlpackage를 실행 하는 것입니다. 이 문제를 방지 하기 위해 [SqlPackage](#import-from-a-bacpac-file-using-sqlpackage) 를 사용 하 여 150GB 보다 큰 데이터베이스를 가져오거나 내보내는 것이 좋습니다.
  
 1. Azure Portal을 사용하여 BACPAC 파일에서 새 단일 데이터베이스로 가져오려면 적절한 데이터베이스 서버 페이지를 연 다음, 도구 모음에서 **데이터베이스 가져오기**를 선택합니다.  
 
@@ -85,7 +85,7 @@ SqlPackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 [AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) cmdlet을 사용 하 여 Azure SQL Database 서비스에 데이터베이스 가져오기 요청을 제출 합니다. 데이터베이스 크기에 따라 가져오기를 완료하는 데 다소 시간이 걸릴 수 있습니다.
 

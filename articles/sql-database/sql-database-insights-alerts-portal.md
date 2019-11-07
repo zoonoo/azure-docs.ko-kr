@@ -1,5 +1,5 @@
 ---
-title: Azure Portal을 사용하여 경고 및 알림 설정 | Microsoft Docs
+title: Azure Portal를 사용 하 여 경고 및 알림 설정
 description: Azure Portal을 사용하여 사용자가 지정한 조건에 부합하면 알림이나 자동 작업을 트리거할 수 있는 SQL Database 경고를 만듭니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: 3103b556098d0b9ccbfca7348ab70c183a69753d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: d68055bc64ea36bd3ad024123a8d5b7b239858dc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262223"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689758"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse에 대한 경고 만들기
 
@@ -50,7 +50,7 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
    
      ![모니터링](media/sql-database-insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SQL DW 전용**: **DWU 사용** 그래프를 클릭합니다. **클래식 경고 보기** 선택
+   - **SQL DW만 해당**: **DWU 사용량** 그래프를 클릭합니다. **클래식 경고 보기** 선택
 
 3. **메트릭 경고 추가(클래식)** 단추를 선택하고 필드에 입력합니다.
    
@@ -58,9 +58,9 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 4. 경고 규칙의 **이름**을 지정하고 **설명**을 선택합니다. 알림 이메일에도 표시되는 항목입니다.
 5. 모니터링할 **메트릭**을 선택하고 해당 메트릭에 대한 **조건** 및 **임계값**을 선택합니다. 경고를 트리거하기 전에 메트릭 규칙을 만족해야 하는 **기간**도 선택합니다. 예를 들어, "PT5M" 기간을 사용하고 경고가 80% 이상인 CPU를 찾는 경우 **평균** CPU가 5분 동안 80%를 넘으면 이 경고가 트리거됩니다. 첫 번째 트리거가 발생한 후 평균 CPU가 5분 동안 80% 미만을 유지하면 다시 트리거됩니다. CPU 측정은 1 분마다 발생합니다. 지원되는 시간 창 그리고 모든 경고가 아닌 각각의 경고가 평균 값을 사용하는 집계 유형에 대해서는 아래의 테이블을 확인합니다.   
 6. 경고가 발생했을 때 관리자 및 공동 관리자에게 이메일을 보내려면 **소유자에게 이메일 보내기...** 를 선택합니다.
-7. 경고가 발생했을 때 다른 이메일 주소에서 알림을 받으려면 해당 이메일을 **추가 관리자 이메일** 필드에 추가합니다. 여러 전자 메일을 세미콜론으로 구분 하 *여\@전자 메일 contoso.com; email2\@contoso.com*
+7. 경고가 발생했을 때 다른 이메일 주소에서 알림을 받으려면 해당 이메일을 **추가 관리자 이메일** 필드에 추가합니다. 여러 전자 메일을 세미콜론으로 구분 하 여 *전자 메일\@email2\@contoso.com* 를 사용 합니다.
 8. 경고가 발생했을 때 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
-9. 경고 만들기가 완료되면 **확인**을 선택합니다.   
+9. 경고 만들기가 완료되면 **확인** 을 선택합니다.   
 
 앞서 설명한 대로 몇 분 안에 경고가 활성화 및 트리거됩니다.
 
@@ -76,42 +76,42 @@ Azure 서비스 또는 Azure 서비스의 이벤트에 대한 모니터링 메�
 
 | 리소스 종류 | 메트릭 이름 | 친숙한 이름 | 집계 형식 | 최소 경고 시간 창|
 | --- | --- | --- | --- | --- |
-| SQL 데이터베이스(SQL database) | cpu_percent | CPU 비율 | 평균 | 5분 |
-| SQL 데이터베이스(SQL database) | physical_data_read_percent | 데이터 IO 백분율 | 평균 | 5분 |
-| SQL 데이터베이스(SQL database) | log_write_percent | 로그 IO 백분율 | 평균 | 5분 |
-| SQL 데이터베이스(SQL database) | dtu_consumption_percent | DTU 백분율 | 평균 | 5분 |
-| SQL 데이터베이스(SQL database) | 스토리지 | 총 데이터베이스 크기 | 최대값 | 30분 |
-| SQL 데이터베이스(SQL database) | connection_successful | 성공적인 연결 | Total | 10분 |
-| SQL 데이터베이스(SQL database) | connection_failed | 연결 실패 | Total | 10분 |
-| SQL 데이터베이스(SQL database) | blocked_by_firewall | 방화벽에 의해 차단 | Total | 10분 |
-| SQL 데이터베이스(SQL database) | 교착 상태 | 교착 상태 | Total | 10분 |
-| SQL 데이터베이스(SQL database) | storage_percent | 데이터베이스 크기 비율 | 최대값 | 30분 |
-| SQL 데이터베이스(SQL database) | xtp_storage_percent | 메모리 내 OLTP 스토리지 백분율(미리 보기) | 평균 | 5분 |
-| SQL 데이터베이스(SQL database) | workers_percent | 작업자 백분율 | 평균 | 5분 |
-| SQL 데이터베이스(SQL database) | sessions_percent | 세션 백분율 | 평균 | 5분 |
+| SQL 데이터베이스 | cpu_percent | CPU 비율 | 평균 | 5분 |
+| SQL 데이터베이스 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 5분 |
+| SQL 데이터베이스 | log_write_percent | 로그 IO 비율 | 평균 | 5분 |
+| SQL 데이터베이스 | dtu_consumption_percent | DTU 비율 | 평균 | 5분 |
+| SQL 데이터베이스 | 스토리지 | 총 데이터베이스 크기 | 최대 | 30분 |
+| SQL 데이터베이스 | connection_successful | 성공적인 연결 | 합계 | 10분 |
+| SQL 데이터베이스 | connection_failed | 실패한 연결 | 합계 | 10분 |
+| SQL 데이터베이스 | blocked_by_firewall | 방화벽에 의해 차단 | 합계 | 10분 |
+| SQL 데이터베이스 | 교착 상태 | 교착 상태 | 합계 | 10분 |
+| SQL 데이터베이스 | storage_percent | 데이터베이스 크기 비율 | 최대 | 30분 |
+| SQL 데이터베이스 | xtp_storage_percent | 메모리 내 OLTP 스토리지 백분율(미리 보기) | 평균 | 5분 |
+| SQL 데이터베이스 | workers_percent | 작업자 백분율 | 평균 | 5분 |
+| SQL 데이터베이스 | sessions_percent | 세션 백분율 | 평균 | 5분 |
 | SQL 데이터베이스 | dtu_limit | DTU 제한 | 평균 | 5분 |
-| SQL 데이터베이스(SQL database) | dtu_used | DTU 사용됨 | 평균 | 5분 |
+| SQL 데이터베이스 | dtu_used | DTU 사용됨 | 평균 | 5분 |
 ||||||
-| Elastic Pool | cpu_percent | CPU 비율 | 평균 | 10분 |
-| Elastic Pool | physical_data_read_percent | 데이터 IO 백분율 | 평균 | 10분 |
-| Elastic Pool | log_write_percent | 로그 IO 백분율 | 평균 | 10분 |
-| Elastic Pool | dtu_consumption_percent | DTU 백분율 | 평균 | 10분 |
-| Elastic Pool | storage_percent | 스토리지 비율 | 평균 | 10분 |
-| Elastic Pool | workers_percent | 작업자 백분율 | 평균 | 10분 |
-| Elastic Pool | eDTU_limit | eDTU 제한 | 평균 | 10분 |
-| Elastic Pool | storage_limit | 스토리지 제한 | 평균 | 10분 |
-| Elastic Pool | eDTU_used | eDTU 사용 | 평균 | 10분 |
-| Elastic Pool | storage_used | 스토리지 사용됨 | 평균 | 10분 |
+| 탄력적 풀 | cpu_percent | CPU 비율 | 평균 | 10분 |
+| 탄력적 풀 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 10분 |
+| 탄력적 풀 | log_write_percent | 로그 IO 비율 | 평균 | 10분 |
+| 탄력적 풀 | dtu_consumption_percent | DTU 비율 | 평균 | 10분 |
+| 탄력적 풀 | storage_percent | 스토리지 비율 | 평균 | 10분 |
+| 탄력적 풀 | workers_percent | 작업자 백분율 | 평균 | 10분 |
+| 탄력적 풀 | eDTU_limit | eDTU 제한 | 평균 | 10분 |
+| 탄력적 풀 | storage_limit | 스토리지 제한 | 평균 | 10분 |
+| 탄력적 풀 | eDTU_used | eDTU 사용 | 평균 | 10분 |
+| 탄력적 풀 | storage_used | 스토리지 사용됨 | 평균 | 10분 |
 ||||||               
-| SQL Data Warehouse | cpu_percent | CPU 비율 | 평균 | 10분 |
-| SQL Data Warehouse | physical_data_read_percent | 데이터 IO 백분율 | 평균 | 10분 |
-| SQL 데이터 웨어하우스 | connection_successful | 성공적인 연결 | Total | 10분 |
-| SQL Data Warehouse | connection_failed | 연결 실패 | Total | 10분 |
-| SQL Data Warehouse | blocked_by_firewall | 방화벽에 의해 차단 | Total | 10분 |
-| SQL Data Warehouse | service_level_objective | 데이터베이스의 서비스 계층 | Total | 10분 |
-| SQL Data Warehouse | dwu_limit | dwu 제한 | 최대값 | 10분 |
-| SQL Data Warehouse | dwu_consumption_percent | DWU 백분율 | 평균 | 10분 |
-| SQL Data Warehouse | dwu_used | DWU 사용됨 | 평균 | 10분 |
+| SQL 데이터 웨어하우스 | cpu_percent | CPU 비율 | 평균 | 10분 |
+| SQL 데이터 웨어하우스 | physical_data_read_percent | 데이터 IO 비율 | 평균 | 10분 |
+| SQL 데이터 웨어하우스 | connection_successful | 성공적인 연결 | 합계 | 10분 |
+| SQL 데이터 웨어하우스 | connection_failed | 실패한 연결 | 합계 | 10분 |
+| SQL 데이터 웨어하우스 | blocked_by_firewall | 방화벽에 의해 차단 | 합계 | 10분 |
+| SQL 데이터 웨어하우스 | service_level_objective | 데이터베이스의 서비스 계층 | 합계 | 10분 |
+| SQL 데이터 웨어하우스 | dwu_limit | dwu 제한 | 최대 | 10분 |
+| SQL 데이터 웨어하우스 | dwu_consumption_percent | DWU 백분율 | 평균 | 10분 |
+| SQL 데이터 웨어하우스 | dwu_used | DWU 사용됨 | 평균 | 10분 |
 ||||||
 
 

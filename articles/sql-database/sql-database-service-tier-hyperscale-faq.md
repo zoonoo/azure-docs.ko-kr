@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 하이퍼스케일 FAQ | Microsoft Docs
+title: Azure SQL Database Hyperscale FAQ
 description: 일반적으로 하이퍼스케일 데이터베이스라고 하는 하이퍼스케일 서비스 계층의 Azure SQL 데이터베이스에 대해 고객이 하는 일반적인 질문에 대한 답변입니다.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: ''
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/12/2019
-ms.openlocfilehash: 379629cfe3c742bd247e02cdf7a891afab08107f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c7960ca4e2dc2e676bc8668981108ce0f8589c0d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496176"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687340"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Azure SQL Database Hyperscale FAQ
 

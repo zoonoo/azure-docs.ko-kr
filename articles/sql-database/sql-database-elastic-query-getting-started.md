@@ -1,5 +1,5 @@
 ---
-title: 확장된 클라우드 데이터베이스에서 보고(수평 분할) | Microsoft Docs
+title: 확장 된 클라우드 데이터베이스에서 보고 (수평 분할)
 description: 복수 데이터베이스에 대해 보고하려면 교차 데이터베이스 쿼리를 사용합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 10/10/2019
-ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1adc7757edc6d5abc50ed31ea2227711db60fcfe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264241"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690423"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "72264241"
 
 쿼리에 필요한 SQL 개체를 알아보려면 [수평 분할된 데이터베이스에 쿼리](sql-database-elastic-query-horizontal-partitioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [Elastic Database 도구 샘플 시작](sql-database-elastic-scale-get-started.md)을 다운로드하고 실행하세요.
 
@@ -114,7 +114,7 @@ ElasticDBQuery 데이터베이스에서 다음쿼리를 실행 합니다.
 3. **기타 원본에서**을 클릭하고 **SQL Server에서**를 클릭합니다.
 
    ![다른 원본에서 Excel 가져오기][5]
-4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. 그리고 **다음**을 클릭합니다.
+4. **데이터 연결 마법사** 에서 서버 이름 및 로그인 자격 증명을 입력합니다. 그런 후 **Next**를 클릭합니다.
 5. 대화 상자에서 **원하는 데이터를 포함하는 데이터베이스를 선택**하고 **ElasticDBQuery** 데이터베이스를 선택합니다.
 6. 목록 보기에서 **사용자**테이블을 선택하고 **다음**을 클릭합니다. **마침**을 클릭합니다.
 7. **데이터 가져오기** 양식에서, **통합 문서에서 원하는 데이터를 보는 방법을 선택**하고 **테이블**을 선택하고 **확인**을 클릭합니다.

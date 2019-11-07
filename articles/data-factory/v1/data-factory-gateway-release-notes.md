@@ -1,5 +1,5 @@
 ---
-title: 데이터 관리 게이트웨이 릴리스 정보 | Microsoft 문서
+title: 데이터 관리 게이트웨이에 대한 릴리스 정보
 description: 데이터 관리 게이트웨이 릴리스 정보
 services: data-factory
 author: nabhishek
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 865bfdae199bca7ebee888be527db239d34511d1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bb89ed08b05f9a8f271ceee400bc609881e7048d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60486467"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682580"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
 
 최신 데이터 통합의 과제 중 하나는 온-프레미스 간 및 온-프레미스에서 클라우드로 데이터를 이동하는 것입니다. Data Factory를 사용하면 하이브리드 데이터 이동을 지원하기 위해 온-프레미스에 설치할 수 있는 에이전트인 데이터 관리 게이트웨이와 이러한 통합을 수행할 수 있습니다.
 
@@ -42,32 +42,32 @@ ms.locfileid: "60486467"
 ### <a name="enhancements-"></a>향상된 기능
 - 필요한 경우 방화벽의 모든 Azure IP 주소를 허용 목록에 포함하는 대신 DNS 항목을 추가하여 서비스 버스를 허용 목록에 포함할 수 있습니다. Azure Portal에서 각각의 DNS 항목을 찾을 수 있습니다(Data Factory -> '작성자 및 배포' -> '게이트웨이' -> JSON의 “serviceUrls”).
 - 이제 HDFS 커넥터는 SSL 유효성 검사를 건너뛸 수 있도록 하여 자체 서명된 공용 인증서를 지원합니다.
-- 수정됨: 업데이트 중에 클록 오차(clock skew)로 인해 발생하는 게이트웨이 오프라인 문제
+- 업데이트 중에 클록 오차(clock skew)로 인해 발생하는 게이트웨이 오프라인 문제가 수정되었습니다.
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>향상된 기능
 -   (필요한 경우) 방화벽의 모든 Azure IP 주소를 허용 목록에 포함하는 대신 DNS 항목을 추가해 Service Bus를 허용 목록에 추가할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 -   이제, 단일 블록 Blob에/에서 데이터를 최대 4.75TB까지 복사할 수 있습니다. 이 크기는 단일 블록 Blob에 대해 지원되는 최대값입니다. 이전에는 195GB까지로 제한되었습니다.
--   수정됨: 복사 작업 중 작은 파일 여러 개의 압축을 푸는 동안 발생하는 메모리 부족 문제.
--   수정됨: 멱등 기능을 사용하여 DocumentDB에서 온-프레미스 SQL Server로 복사하는 중에 범위를 벗어나는 인덱스 문제.
--   수정됨: SQL 정리 스크립트가 복사 마법사에서 온-프레미스 SQL Server와 작동하지 않는 문제.
--   수정됨: 끝에 공백이 있는 열 이름이 복사되지 않는 문제.
+-   복사 작업 중 작은 파일 여러 개의 압축을 푸는 동안 발생하는 메모리 부족 문제가 수정되었습니다.
+-   멱등 기능을 사용하여 DocumentDB에서 온-프레미스 SQL Server로 복사하는 중에 범위를 벗어나는 인덱스 문제가 수정되었습니다.
+-   SQL 정리 스크립트가 복사 마법사에서 온-프레미스 SQL Server와 작동하지 않는 문제가 수정되었습니다.
+-   끝에 공백이 있는 열 이름이 복사되지 않는 문제가 수정되었습니다.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>향상된 기능
-- 수정됨: 게이트웨이 머신을 다시 부팅할 때 자격 증명이 누락되는 문제.
-- 수정됨: 백업 파일을 사용하여 게이트웨이를 복원하는 중에 발생하는 등록 문제.
+- 게이트웨이 컴퓨터를 다시 부팅할 때 자격 증명이 누락되는 문제가 수정되었습니다.
+- 백업 파일을 사용하여 게이트웨이를 복원하는 중에 발생하는 등록 문제가 수정되었습니다.
 
 
 ## <a name="2762401"></a>2.7.6240.1
 ### <a name="enhancements-"></a>향상된 기능
-- 수정됨: Oracle에서 10진수 null 값을 원본으로 잘못 읽는 문제.
+- Oracle에서 10진수 null 값을 원본으로 잘못 읽는 문제가 수정되었습니다.
 
 ## <a name="2661922"></a>2.6.6192.2
 ### <a name="whats-new"></a>새로운 기능
 - 고객이 게이트웨이 등록 경험에 대한 피드백을 제공할 수 있습니다.
-- 새 압축 형식 지원: ZIP(Deflate)
+- 새 압축 형식 지원: ZIP (Deflate)
 
 ### <a name="enhancements-"></a>향상된 기능
 - Oracle Sink, HDFS 원본에 대한 성능 개선

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 SQL Server 간에 데이터 복사 Microsoft Docs
+title: Azure Data Factory를 사용 하 여 SQL Server 간에 데이터 복사
 description: Azure Data Factory를 사용 하 여 온-프레미스 또는 Azure VM에 있는 SQL Server 데이터베이스 간에 데이터를 이동 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: b87676e773c4b7714a3b5ef21a6be703e0e3761a
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 424007c6bd34c0d582af8cd4df00ce7f5fc7fb0f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001385"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680157"
 ---
 # <a name="copy-data-to-and-from-sql-server-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SQL Server 간에 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -48,7 +48,7 @@ SQL Server 데이터베이스에서 지원 되는 모든 싱크 데이터 저장
 >[!NOTE]
 >지금은이 커넥터에서 SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) 지원 되지 않습니다. 이 문제를 해결 하려면 [일반 odbc 커넥터](connector-odbc.md) 와 SQL Server ODBC 드라이버를 사용할 수 있습니다. ODBC 드라이버 다운로드 및 연결 문자열 구성에서 [이 지침](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) 을 따르세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -94,7 +94,7 @@ SQL Server 연결 된 서비스에 대해 지원 되는 속성은 다음과 같�
 }
 ```
 
-**예제 2: Azure Key Vault @ no__t에서 암호를 사용 하 여 SQL 인증 사용-0
+**예제 2: Azure Key Vault에서 암호를 사용 하 여 SQL 인증 사용**
 
 ```json
 {
@@ -159,7 +159,7 @@ SQL Server 데이터베이스에서 데이터를 복사 하려면 다음 속성�
 |:--- |:--- |:--- |
 | type | 데이터 세트의 type 속성을 **SqlServerTable**로 설정해야 합니다. | 예 |
 | schema | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
-| table | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
+| 테이블 | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`을 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 **예제**
@@ -194,8 +194,8 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **SqlSource**로 설정해야 합니다. | 예 |
-| sqlReaderQuery |사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제입니다. `select * from MyTable` |아니요 |
-| sqlReaderStoredProcedureName |이 속성은 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니오 |
+| SqlReaderQuery |사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `select * from MyTable`입니다. |아니요 |
+| sqlReaderStoredProcedureName |이 속성은 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니요 |
 | storedProcedureParameters |저장 프로시저용 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대/소문자 구분은 저장 프로시저 매개 변수의 이름 및 대/소문자와 일치 해야 합니다. |아니요 |
 
 **주의할 사항:**
@@ -203,7 +203,7 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 - **Sqlreaderquery** 가 **sqlsource**에 지정 되 면 복사 작업은 SQL Server 원본에 대해이 쿼리를 실행 하 여 데이터를 가져옵니다. 저장 프로시저가 매개 변수를 사용하는 경우에는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수도 있습니다.
 - **Sqlreaderquery** 또는 **sqlReaderStoredProcedureName**를 지정 하지 않으면 JSON 데이터 집합의 "structure" 섹션에 정의 된 열이 쿼리를 생성 하는 데 사용 됩니다. 쿼리 `select column1, column2 from mytable`은 SQL Server에 대해 실행 됩니다. 데이터 세트 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
 
-**예제: SQL 쿼리 사용 @ no__t-0
+**예: SQL 쿼리 사용**
 
 ```json
 "activities":[
@@ -235,7 +235,7 @@ SQL Server의 데이터를 복사하려면 복사 작업의 원본 형식을 **S
 ]
 ```
 
-**예제: 저장 프로시저 사용**
+**예: 저장 프로시저 사용**
 
 ```json
 "activities":[
@@ -342,7 +342,7 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 ]
 ```
 
-**예제 2: Copy @ no__t에서 저장 프로시저 호출-0
+**예 2: 복사 하는 동안 저장 프로시저 호출**
 
 자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)을 참조하세요.
 
@@ -386,10 +386,10 @@ SQL Server에 데이터를 복사하려면 복사 작업의 싱크 형식을 **S
 
 SQL Server에 데이터를 복사 하는 경우 다른 쓰기 동작이 필요할 수 있습니다.
 
-- [추가](#append-data): 원본 데이터에는 새 레코드만 있습니다.
-- [Upsert](#upsert-data): 원본 데이터에는 삽입과 업데이트가 모두 포함 됩니다.
-- [덮어쓰기](#overwrite-the-entire-table): 매번 전체 차원 테이블을 다시 로드 하려고 합니다.
-- [사용자 지정 논리를 사용 하 여 작성](#write-data-with-custom-logic): 대상 테이블을 마지막으로 삽입 하기 전에 추가 처리가 필요 합니다.
+- [추가](#append-data): 내 원본 데이터에는 새 레코드만 있습니다.
+- [Upsert](#upsert-data): 내 원본 데이터에는 삽입과 업데이트가 모두 포함 됩니다.
+- [덮어쓰기](#overwrite-the-entire-table): 매번 전체 차원 테이블을 다시 로드 합니다.
+- [사용자 지정 논리를 사용 하 여 작성](#write-data-with-custom-logic): 대상 테이블에 최종 삽입 하기 전에 추가 처리가 필요 합니다.
 
 Azure Data Factory 및 모범 사례에서 구성 하는 방법에 대해서는 해당 섹션을 참조 하세요.
 
@@ -408,7 +408,7 @@ Azure Data Factory 및 모범 사례에서 구성 하는 방법에 대해서는 
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-데이터베이스에서 이전 저장 프로시저 작업에서 가리키는 다음 예와 같이 병합 논리를 사용 하 여 저장 프로시저를 정의 합니다. 대상이 다음 세 개의 열이 있는 **마케팅** 테이블 이라고 가정 합니다. **ProfileID**, **State** 및 **Category**. **프로필 id** 열을 기반으로 upsert를 수행 합니다.
+데이터베이스에서 이전 저장 프로시저 작업에서 가리키는 다음 예와 같이 병합 논리를 사용 하 여 저장 프로시저를 정의 합니다. 대상이 **프로필 id**, **State**및 **Category**라는 세 개의 열이 있는 **마케팅** 테이블인 것으로 가정 합니다. **프로필 id** 열을 기반으로 upsert를 수행 합니다.
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -449,7 +449,7 @@ SQL Server 데이터베이스에 데이터를 복사 하는 경우 추가 매개
 
 기본 제공 복사 메커니즘이 용도에 적합하지 않은 경우, 저장 프로시저를 사용할 수 있습니다. 원본 데이터를 대상 테이블에 마지막으로 삽입 하기 전에 추가 처리를 적용 하려는 경우를 예로 들 수 있습니다. 몇 가지 추가 처리 예는 열을 병합 하 고, 추가 값을 조회 하 고, 둘 이상의 테이블에 데이터를 삽입 하려는 경우입니다.
 
-다음 샘플에서는 저장 프로시저를 사용하여 SQL Server 데이터베이스 내 테이블에 간단한 삽입을 수행하는 방법을 보여줍니다. 입력 데이터와 싱크 **마케팅** 테이블에 각각 3 개의 열이 있다고 가정 합니다. **ProfileID**, **State** 및 **Category**. **프로필 id** 열을 기반으로 upsert를 수행 하 고 "ProductA" 이라는 특정 범주에 대해서만 적용 합니다.
+다음 샘플에서는 저장 프로시저를 사용하여 SQL Server 데이터베이스 내 테이블에 간단한 삽입을 수행하는 방법을 보여줍니다. 입력 데이터와 싱크 **마케팅** 테이블에 각각 **프로필 id**, **State**및 **Category**라는 세 개의 열이 있다고 가정 합니다. **프로필 id** 열을 기반으로 upsert를 수행 하 고 "ProductA" 이라는 특정 범주에 대해서만 적용 합니다.
 
 1. 데이터베이스에서 **sqlwritertabletype과**와 동일한 이름을 사용 하 여 테이블 형식을 정의 합니다. 테이블 형식의 스키마는 입력 데이터에서 반환된 스키마와 같아야 합니다.
 
@@ -502,30 +502,30 @@ SQL Server에서로 데이터를 복사 하는 경우 SQL Server 데이터 형�
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |부울 |
 | char |String, Char[] |
 | date |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
-| Decimal |Decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Datetimeoffset |Datetimeoffset |
+| 10진수 |10진수 |
+| FILESTREAM 특성(varbinary(max)) |Byte[] |
 | Float |Double |
-| image |Byte[] |
+| 이미지 |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |10진수 |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |10진수 |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |단일 |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimal |
+| smallmoney |10진수 |
 | sql_variant |Object |
-| text |String, Char[] |
-| time |TimeSpan |
+| 텍스트 |String, Char[] |
+| 실시간 |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
@@ -559,9 +559,9 @@ SQL Server에서로 데이터를 복사 하는 경우 SQL Server 데이터 형�
     TCP/IP 프로토콜을 사용 하도록 설정 하는 방법 및 다른 방법에 대 한 자세한 내용은 [서버 네트워크 프로토콜 설정 또는 해제](https://msdn.microsoft.com/library/ms191294.aspx)를 참조 하세요.
 
 3. 동일한 창에서 **tcp/ip** 를 두 번 클릭 하 여 **tcp/ip 속성** 창을 시작 합니다.
-4. **IP 주소** 탭으로 전환합니다. 아래로 스크롤하여 **Ipall** 섹션이 표시 되도록 합니다. **TCP 포트**를 기록 합니다. 기본값은 **1433**입니다.
+4. **IP 주소** 탭으로 전환 합니다. **ipall** 섹션을 보려면 아래로 스크롤합니다. **TCP 포트**를 기록 합니다. 기본값은 **1433**입니다.
 5. 컴퓨터에 **Windows 방화벽에 대한 규칙** 을 만들어 이 포트를 통해 들어오는 트래픽을 허용합니다. 
-6. **연결 확인**: 정규화 된 이름을 사용 하 여 SQL Server에 연결 하려면 다른 컴퓨터의 SQL Server Management Studio를 사용 합니다. 예제입니다. `"<machine>.<domain>.corp.<company>.com,1433"`
+6. **연결 확인**: 정규화 된 이름을 사용 하 여 SQL Server에 연결 하려면 다른 컴퓨터의 SQL Server Management Studio를 사용 합니다. 예는 `"<machine>.<domain>.corp.<company>.com,1433"`입니다.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md##supported-data-stores-and-formats)를 참조하세요.

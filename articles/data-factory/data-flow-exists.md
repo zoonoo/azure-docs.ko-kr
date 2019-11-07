@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름에 존재 하는 변환 | Microsoft Docs
+title: Azure Data Factory 매핑 데이터 흐름에 존재 하는 변환
 description: Azure Data Factory 매핑 데이터 흐름에서 exists 변환을 사용 하 여 기존 행을 확인 합니다.
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 79bdfc84310686b2648e12d73d783de049e9d2fa
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: a477eba246c4ebcfbd32e92f1fd30c301ea1cc5b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596503"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676725"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 존재 변환
 
@@ -54,7 +54,7 @@ ms.locfileid: "72596503"
 
 ### <a name="example"></a>예제
 
-아래 예에서는 왼쪽 스트림 `NameNorm2` 및 오른쪽 스트림 `TypeConversions`을 사용 하는 `checkForChanges` 라는 존재 변형이 있습니다.  Exists 조건은 각 스트림의 `EMPID` 및 `Region` 열이 모두 일치 하는 경우 true를 반환 하는 식 `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region`입니다. 존재 여부를 확인 하는 동안 `negate` false입니다. 최적화 탭에서 브로드캐스트를 사용 하도록 설정 하지 않으므로 `broadcast` 값 `'none'` 있습니다.
+아래 예에서는 왼쪽 스트림 `NameNorm2` 및 오른쪽 스트림 `TypeConversions`을 사용 하는 `checkForChanges` 라는 존재 변형이 있습니다.  Exists 조건은 각 스트림의 `EMPID` 및 `Region` 열이 모두 일치 하는 경우 true를 반환 하는 식 `NameNorm2@EmpID == TypeConversions@EmpID && NameNorm2@Region == DimEmployees@Region`입니다. 존재 여부를 확인 하는 동안 `negate` false입니다. 최적화 탭에서 브로드캐스트를 사용 하도록 설정 하지 않으므로 `broadcast` 값 `'none'`있습니다.
 
 Data Factory UX에서이 변환은 아래 이미지와 같습니다.
 

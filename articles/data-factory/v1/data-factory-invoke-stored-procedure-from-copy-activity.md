@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 복사 작업에서 저장 프로시저 호출 | Microsoft Docs
+title: Azure Data Factory 복사 작업에서 저장 프로시저 호출
 description: Azure SQL Database 또는 Azure Data Factory 복사 작업의 SQL Server에서 저장 프로시저를 호출하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 35e9347039a7b9939ab4d2719f9738429dec168c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0c5bb7ab4e8932c9568293620352435c7259d810
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60824255"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682503"
 ---
 # <a name="invoke-stored-procedure-from-copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업에서 저장 프로시저 호출
 > [!NOTE]
@@ -30,7 +30,7 @@ ms.locfileid: "60824255"
 다음 샘플에서는 Data Factory 파이프라인(복사 작업)에서 SQL Server Database의 저장 프로시저를 호출하는 방법을 보여 줍니다.  
 
 ## <a name="output-dataset-json"></a>출력 데이터 세트 JSON
-출력 데이터 세트 JSON에서 **type**을 **SqlServerTable**로 설정합니다. Azure SQL 데이터베이스에 사용하기 위해 이 항목을 **AzureSqlTable**로 설정합니다. **tableName** 속성 값은 저장 프로시저의 첫 번째 매개 변수 이름과 일치해야 합니다.  
+출력 데이터 세트 JSON에서 **형식**을 **SqlServerTable**로 설정합니다. Azure SQL 데이터베이스에 사용하기 위해 이 항목을 **AzureSqlTable**로 설정합니다. **tableName** 속성 값은 저장 프로시저의 첫 번째 매개 변수 이름과 일치해야 합니다.  
 
 ```json
 {

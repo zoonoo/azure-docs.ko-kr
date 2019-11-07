@@ -1,5 +1,5 @@
 ---
-title: SQL Database 관리 되는 인스턴스-지정 시간 복원 | Microsoft Docs
+title: SQL Database 관리 되는 인스턴스-지정 시간 복원
 description: 관리 되는 인스턴스의 SQL 데이터베이스를 이전 시점으로 복원 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 61249d8ac21c3bb698deb92e5f46a8998205ced9
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 44f99b6a5201e91e37ace0f5aa4c5c2eb8e3b1db
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529668"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687976"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>관리 되는 인스턴스의 SQL 데이터베이스를 이전 시점으로 복원
 
@@ -48,17 +48,17 @@ PITR (지정 시간 복원)을 사용 하 여 과거의 특정 시점에서 다�
 
 |           |기존 DB를 동일한 관리 되는 인스턴스로 복원| 기존 DB를 다른 관리 되는 인스턴스로 복원|삭제 된 DB를 동일한 관리 되는 인스턴스로 복원|삭제 된 DB를 다른 관리 되는 인스턴스로 복원|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure 포털**| yes|아닙니다. |아닙니다.|아닙니다.|
-|**Azure CLI**|yes |yes |아닙니다.|아닙니다.|
-|**PowerShell**| yes|yes |yes|yes|
+|**Azure Portal**| 예|아니요 |아니요|아니요|
+|**Azure CLI**|예 |예 |아니요|아니요|
+|**PowerShell**| 예|예 |예|예|
 
 ## <a name="restore-an-existing-database"></a>기존 데이터베이스 복원
 
 Azure Portal, Powershell 또는 Azure CLI를 사용 하 여 기존 데이터베이스를 동일한 인스턴스로 복원 합니다. 다른 인스턴스로 데이터베이스를 복원 하려면 대상 관리 되는 인스턴스 및 리소스 그룹에 대 한 속성을 지정할 수 있도록 Powershell 또는 Azure CLI를 사용 합니다. 이러한 매개 변수를 지정 하지 않으면 기본적으로 데이터베이스가 기존 인스턴스로 복원 됩니다. Azure Portal는 현재 다른 인스턴스로의 복원을 지원 하지 않습니다.
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
 2. 관리 되는 인스턴스로 이동 하 여 복원 하려는 데이터베이스를 선택 합니다.
 3. 데이터베이스 페이지에서 **복원** 을 선택 합니다.
 
@@ -197,7 +197,7 @@ DROP DATABASE WorldWideImporters;
 - [지점 및 사이트 간](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [공용 엔드포인트](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal에서 관리 되는 인스턴스에서 데이터베이스를 선택 하 고 **삭제**를 선택 합니다.
 

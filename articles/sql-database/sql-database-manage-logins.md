@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 로그인 및 사용자 | Microsoft Docs
+title: Azure SQL 로그인 및 사용자
 description: SQL Database 및 SQL Data Warehouse 보안 관리, 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리하는 방법에 대해 알아봅니다.
 keywords: sql 데이터베이스 보안,데이터베이스 보안 관리,로그인 보안,데이터베이스 보안,데이터베이스 액세스
 services: sql-database
@@ -12,19 +12,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/26/2019
-ms.openlocfilehash: 9dae1e3864f5f1cf745bfe9b0872f15f61471a1c
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 501df95b80bd651020fa044970f6bc701959a6a5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69014495"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689485"
 ---
 # <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 액세스 제어 및 권한 부여
 
 방화벽 규칙이 구성된 후에는 관리자 계정 중 하나로, 데이터베이스 소유자로 또는 데이터베이스의 데이터베이스 사용자로 [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결할 수 있습니다.  
 
 > [!NOTE]  
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하자면, SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. 
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용 됩니다. 
 > [!TIP]
 > 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요. 이 자습서는 **Azure SQL Database Managed Instance**에 적용되지 않습니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "69014495"
 - 이들은 서버에서 모든 SQL Database에 자동으로 연결할 수 있는 유일한 계정입니다. (사용자 데이터베이스에 연결하려면 다른 계정은 데이터베이스의 소유자이거나 사용자 데이터베이스에 사용자 계정이 있어야 합니다.)
 - 이러한 계정은 `dbo` 사용자로 사용자 데이터베이스에 들어가고 사용자 데이터베이스에서 모든 권한을 갖습니다. (사용자 데이터베이스의 소유자는 또한 `dbo` 사용자로 데이터베이스에 들어갑니다.) 
 - `master` 데이터베이스에 `dbo` 사용자로 들어가지 마세요. 그리고 master에서는 제한된 사용 권한을 갖습니다. 
-- SQL 데이터베이스에서 사용할 수 없는 표준 SQL Server `sysadmin` 고정 서버 역할의 멤버가 **아닙니다**.  
+- SQL 데이터베이스에서 사용할 수 없는 표준 SQL Server **고정 서버 역할의 멤버가**아닙니다`sysadmin`.  
 - 데이터베이스, 로그인, master의 사용자 및 서버 수준 IP 방화벽 규칙을 만들고 변경하고 삭제할 수 있습니다.
 - `dbmanager` 및 `loginmanager` 역할에 멤버를 추가하고 제거할 수 있습니다.
 - `sys.sql_logins` 시스템 테이블을 볼 수 있습니다.
@@ -97,7 +97,7 @@ SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이
 
    성능 향상을 위해 로그인(서버 수준 보안 주체)이 데이터베이스 수준에서 일시적으로 캐시됩니다. 인증 캐시를 새로 고치려면 [DBCC FLUSHAUTHCACHE](https://msdn.microsoft.com/library/mt627793.aspx)를 참조하세요.
 
-3. `master` 데이터베이스에서 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 문을 사용하여 사용자를 만듭니다. 사용자는 Azure Active Directory 인증 포함된 데이터베이스 사용자(Azure AD 인증에 대한 환경을 구성한 경우)이거나, SQL Server 인증 포함된 데이터베이스 사용자 또는 SQL Server 인증 로그인 기반 SQL Server 인증 사용자(이전 단계에서 만든)일 수 있습니다. 샘플 문:
+3. `master` 데이터베이스에서 [CREATE USER](https://msdn.microsoft.com/library/ms173463.aspx) 문을 사용하여 사용자를 만듭니다. 사용자는 Azure Active Directory 인증 포함 된 데이터베이스 사용자 (Azure AD 인증용 환경을 구성한 경우) 또는 SQL Server 인증 포함 된 데이터베이스 사용자 또는 SQL Server 기반 SQL Server 인증 사용자 일 수 있습니다. 인증 로그인 (이전 단계에서 만들어짐) 샘플 문:
 
    ```sql
    CREATE USER [mike@contoso.com] FROM EXTERNAL PROVIDER; -- To create a user with Azure Active Directory
@@ -105,7 +105,7 @@ SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이
    CREATE USER Mary FROM LOGIN Mary;  -- To create a SQL Server user based on a SQL Server authentication login
    ```
 
-4. [ALTER ROLE](https://msdn.microsoft.com/library/ms189775.aspx) 문을 사용하여 `master`의 **dbmanager** 데이터베이스 역할에 새 사용자를 추가합니다. 샘플 문:
+4. **ALTER ROLE** 문을 사용하여 `master`의 [dbmanager](https://msdn.microsoft.com/library/ms189775.aspx) 데이터베이스 역할에 새 사용자를 추가합니다. 샘플 문:
 
    ```sql
    ALTER ROLE dbmanager ADD MEMBER Mary; 
@@ -125,7 +125,7 @@ SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이
 
 ## <a name="non-administrator-users"></a>비관리자 사용자
 
-일반적으로 비관리자 계정은 master 데이터베이스에 액세스할 필요가 없습니다. [CREATE USER(Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) 문을 사용하여 데이터베이스 수준에서 포함된 데이터베이스 사용자를 만듭니다. 사용자는 Azure Active Directory 인증 포함된 데이터베이스 사용자(Azure AD 인증에 대한 환경을 구성한 경우)이거나, SQL Server 인증 포함된 데이터베이스 사용자 또는 SQL Server 인증 로그인 기반 SQL Server 인증 사용자(이전 단계에서 만든)일 수 있습니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요. 
+일반적으로 비관리자 계정은 master 데이터베이스에 액세스할 필요가 없습니다. [CREATE USER(Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) 문을 사용하여 데이터베이스 수준에서 포함된 데이터베이스 사용자를 만듭니다. 사용자는 Azure Active Directory 인증 포함 된 데이터베이스 사용자 (Azure AD 인증용 환경을 구성한 경우) 또는 SQL Server 인증 포함 된 데이터베이스 사용자 또는 SQL Server 기반 SQL Server 인증 사용자 일 수 있습니다. 인증 로그인 (이전 단계에서 만들어짐) 자세한 내용은 [포함 된 데이터베이스 사용자-데이터베이스를 이식 가능 하 게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조 하세요. 
 
 사용자를 만들고 데이터베이스에 연결하려면 다음 예제와 유사한 문을 실행합니다.
 
@@ -177,7 +177,7 @@ EXEC sp_addrolemember 'db_owner', 'Mary';
 
 데이터베이스 역할은 **db_owner**, **db_ddladmin**, **db_datawriter**, **db_datareader**, **db_denydatawriter**, **db_denydatareader**와 같은 기본 제공된 역할일 수 있습니다. **db_owner**는 일반적으로 일부 사용자에게만 전체 권한을 부여하는 데 사용됩니다. 기타 고정된 데이터베이스 역할은 개발에서 단순한 데이터베이스를 신속하게 가져오는 데 유용하지만 대부분의 프로덕션 데이터베이스에는 권장되지 않습니다. 예를 들어 **db_datareader** 고정된 데이터베이스 역할은 데이터베이스에 있는 모든 테이블에 대한 읽기 액세스 권한을 부여하며 일반적으로 그 이상이 필요합니다. [CREATE ROLE](https://msdn.microsoft.com/library/ms187936.aspx) 문을 사용하여 고유의 사용자 정의된 데이터베이스 역할을 만들고 각 역할에 비즈니스 요구에 필요한 최소한의 권한을 신중하게 부여하는 것이 좋습니다. 사용자가 여러 역할의 멤버인 경우 모두에 대한 권한을 집계합니다.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 SQL Database에는 개별적으로 부여하거나 거부할 수 있는 100개가 넘는 사용 권한이 있습니다. 이러한 사용 권한은 대부분 중첩됩니다. 예를 들어 스키마에 대한 `UPDATE` 권한에는 해당 스키마 내에 있는 각 테이블에 대한 `UPDATE` 권한이 포함됩니다. 대부분의 사용 권한 시스템에서와 같이 사용 권한 거부는 권한 부여를 재정의합니다. 중첩된 특성과 사용 권한 수로 인해 데이터베이스를 제대로 보호할 적절한 사용 권한 시스템을 설계하는 데 신중을 기할 수 있습니다. [사용 권한(데이터베이스 엔진)](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)에서 사용 권한 목록부터 시작하여 사용 권한의 [포스터 크기 그래픽](https://docs.microsoft.com/sql/relational-databases/security/media/database-engine-permissions.png)을 검토하세요.
 
@@ -186,7 +186,7 @@ SQL Database에는 개별적으로 부여하거나 거부할 수 있는 100개�
 
 SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항을 고려합니다.
 
-- `CREATE/ALTER/DROP DATABASE` 문을 실행할 경우 **master** 데이터베이스에 연결해야 합니다.   
+- **문을 실행할 경우**master`CREATE/ALTER/DROP DATABASE` 데이터베이스에 연결해야 합니다.   
 - **Server 관리자** 로그인에 해당하는 데이터베이스 사용자를 변경 또는 삭제할 수 없습니다. 
 - **Server 관리자** 로그인의 기본 언어는 미국 영어입니다.
 - 관리자(**Server 관리자** 로그인 또는 Azure AD 관리자) 및 **master** 데이터베이스에서 **dbmanager** 데이터베이스 역할의 멤버만 `CREATE DATABASE` 및 `DROP DATABASE` 문을 실행할 사용 권한이 있습니다.
@@ -213,7 +213,7 @@ SQL Database에서 로그인 및 사용자를 관리하는 경우 다음 사항�
 - `CREATE USER`문을 `FOR/FROM LOGIN` 옵션과 함께 실행하는 경우 Transact-SQL 배치에서 유일한 문이어야 합니다.
 - `ALTER USER`문을 `WITH LOGIN` 옵션과 함께 실행하는 경우 Transact-SQL 배치에서 유일한 문이어야 합니다.
 - `CREATE/ALTER/DROP`에 사용자가 `ALTER ANY USER` 데이터베이스에 대한 권한을 요청합니다.
-- 데이터베이스 역할의 소유자가 해당 데이터베이스 역할에서 다른 데이터베이스 사용자를 추가 또는 제거하려고 하면 다음 오류가 발생할 수 있습니다. **사용자 또는 역할 '이름'이 데이터베이스에 존재하지 않습니다.** 사용자가 소유자에게 표시되지 않기 때문에 이 오류가 발생합니다. 이 문제를 해결하려면 역할 소유자에게 사용자에 대한 `VIEW DEFINITION` 권한을 부여합니다. 
+- 데이터베이스 역할의 소유자가 해당 데이터베이스 역할에서 다른 데이터베이스 사용자를 추가 또는 제거하려고 할 때 다음과 같은 오류가 발생할 수 있습니다. **사용자 또는 역할 '이름'이 데이터베이스에 존재하지 않습니다.** 사용자가 소유자에게 표시되지 않기 때문에 이 오류가 발생합니다. 이 문제를 해결하려면 역할 소유자에게 사용자에 대한 `VIEW DEFINITION` 권한을 부여합니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

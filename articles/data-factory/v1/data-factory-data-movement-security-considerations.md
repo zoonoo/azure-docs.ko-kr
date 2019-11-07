@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory의 데이터 이동에 대한 보안 고려 사항 | Microsoft Docs
+title: Azure Data Factory에서 데이터 이동을 위한 보안 고려 사항
 description: Azure Data Factory에서 데이터 이동 보안에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b425db761375c705d3c810002234a937bac46d78
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 7f18505e02c5d65d21e93759eb5da480c20e2eb3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610173"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682634"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - 데이터 이동을 위한 보안 고려 사항
 
@@ -98,7 +98,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 - [AzDataFactoryEncryptValue](/powershell/module/az.datafactory/New-azDataFactoryEncryptValue) PowerShell cmdlet을 사용 하 여 자격 증명을 암호화 합니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 이 cmdlet이 반환 하는 암호화 된 자격 증명을 사용 하 여 [AzDataFactoryLinkedService](/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet 또는의 json 코드 조각에서 사용 하는 json 파일에서 **ConnectionString** 의 **encryptedcredential** 요소에 추가할 수 있습니다. 포털에서 편집기를 Data Factory 합니다. 이 옵션과 클릭 1회 애플리케이션은 가장 안전한 옵션입니다. 
 
 #### <a name="javascript-cryptography-library-based-encryption"></a>JavaScript 암호화 라이브러리 기반 암호화
-[복사 마법사](data-factory-copy-wizard.md)의 [JavaScript Cryptography 라이브러리](https://www.microsoft.com/download/details.aspx?id=52439)를 사용하여 데이터 저장소 자격 증명을 암호화할 수 있습니다. 이 옵션을 선택하면 복사 마법사가 게이트웨이의 공개 키를 검색하여 이를 사용하여 데이터 저장소 자격 증명을 암호화합니다. 자격 증명은 게이트웨이 컴퓨터에 의해 해독되고 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)에 의해 보호됩니다.
+[복사 마법사](https://www.microsoft.com/download/details.aspx?id=52439)의 [JavaScript Cryptography 라이브러리](data-factory-copy-wizard.md)를 사용하여 데이터 저장소 자격 증명을 암호화할 수 있습니다. 이 옵션을 선택하면 복사 마법사가 게이트웨이의 공개 키를 검색하여 이를 사용하여 데이터 저장소 자격 증명을 암호화합니다. 자격 증명은 게이트웨이 컴퓨터에 의해 해독되고 Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx)에 의해 보호됩니다.
 
 **지원되는 브라우저:** IE8, IE9, IE10, IE11, Microsoft Edge 및 최신 Firefox, Chrome, Opera, Safari 브라우저를 지원합니다. 
 
@@ -127,7 +127,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 다음 표는 하이브리드 데이터 이동을 위한 원본 및 대상 위치의 다양한 조합에 따라 네트워크 및 게이트웨이 구성 권장 사항을 요약한 것입니다.
 
-| Source | Destination | 네트워크 구성 | 게이트웨이 설치 |
+| 원본 | 대상 | 네트워크 구성 | 게이트웨이 설치 |
 | ------ | ----------- | --------------------- | ------------- | 
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | IPSec VPN(지점 및 사이트 간 또는 사이트 간) | 게이트웨이는 Vnet의 온-프레미스 또는 Azure 가상 머신(VM)에 설치할 수 있습니다. | 
 | 온-프레미스 | 가상 네트워크에 배포된 가상 머신 및 클라우드 서비스 | ExpressRoute(프라이빗 피어링) | 게이트웨이는 VNet의 Azure VM 또는 온-프레미스 환경에 설치할 수 있습니다. | 
@@ -150,7 +150,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 다음 표는 **아웃바운드 포트** 및 **회사 방화벽**에 대한 도메인 요구 사항을 제공합니다.
 
-| 도메인 이름 | 아웃바운드 포트 | Description |
+| 도메인 이름 | 아웃바운드 포트 | 설명 |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Data Factory에서 데이터 이동 서비스에 연결하기 위해 게이트웨이가 필요합니다. |
 | `*.core.windows.net` | 443 | [복사 준비](data-factory-copy-activity-performance.md#staged-copy) 기능을 사용할 때 게이트웨이가 Azure Storage 계정에 연결하는 데 사용합니다. | 
@@ -163,7 +163,7 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 다음 표에서는 **Windows 방화벽**에 대한 **인바운드 포트** 요구 사항을 제공합니다.
 
-| 인바운드 포트 | Description | 
+| 인바운드 포트 | 설명 | 
 | ------------- | ----------- | 
 | 8050(TCP) | 게이트웨이의 온-프레미스 데이터 저장소에 대한 신임을 안전하게 설정하기 위해 신임 관리자 애플리케이션에서 필요합니다. | 
 
@@ -176,14 +176,14 @@ Salesforce는 모든 파일, 첨부 파일, 사용자 정의 필드의 암호화
 
 - [Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Azure Data Lake Storage](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 **질문:** 게이트웨이를 다른 데이터 팩터리에서 공유할 수 있습니까?
-**대답:** 이 기능을 지원하지 않습니다. 적극적으로 노력하고 있습니다.
+**대답:** 이 기능은 아직 지원하지 않습니다. 적극적으로 노력하고 있습니다.
 
 **질문:** 게이트웨이가 작동하는 데 필요한 포트 요구 사항은 무엇입니까?
 **대답:** 게이트웨이는 인터넷을 열 수 있는 HTTP 기반 연결을 만듭니다. 이 연결을 만들기 위해 게이트웨이에서 **443 및 80 아웃바운드 포트**를 열어야 합니다. Credential Manager 애플리케이션의 경우(회사 방화벽 수준이 아닌) 시스템 수준에서만 **8050 인바운드 포트**를 엽니다. Azure SQL Database 또는 Azure SQL Data Warehouse가 원본/대상으로 사용되는 경우 **1433** 포트도 열어야 합니다. 자세한 내용은 [방화벽 구성 및 허용 IP 주소](#firewall-configurations-and-whitelisting-ip-address-of gateway) 섹션을 참조하세요. 

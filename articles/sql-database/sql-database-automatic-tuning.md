@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database - 자동 조정 | Microsoft Docs
+title: Azure SQL Database-자동 조정
 description: Azure SQL Database는 SQL 쿼리를 분석하고 사용자 워크로드에 자동으로 적용됩니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 03/06/2019
-ms.openlocfilehash: b6c2885f0919752f7ede7f5a15121be2f8a953ca
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: bfac5a0eba68469d912efd02699624e1335e40e5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162331"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691120"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Azure SQL Database에서 자동 조정
 
@@ -69,9 +69,9 @@ Azure SQL Database에서 사용 가능한 자동 조정 옵션은 다음과 같�
 | :----------------------------- | ----- | ----- |
 | **인덱스 만들기** -작업의 성능을 향상 시키고 인덱스를 만들며 쿼리 성능이 향상 되었는지 자동으로 확인할 수 있는 인덱스를 식별 합니다. | 예 | 아니요 | 
 | **DROP INDEX** -고유 인덱스를 제외한 매일 중복 인덱스와 중복 인덱스를 식별 하 고, 오랜 시간 (> 90 일) 동안 사용 되지 않은 인덱스를 식별 합니다. 이 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다. Premium 및 중요 비즈니스용 서비스 계층에서는 사용 하지 않는 인덱스를 삭제할 수 없습니다. | 예 | 아니요 |
-| **마지막으로 성공한 계획 강제 적용** (자동 계획 수정)-이전 좋은 계획 보다 느린 실행 계획을 사용 하 여 SQL 쿼리를 식별 하 고 회귀 된 계획 대신 마지막으로 알려진 좋은 계획을 사용 하 여 쿼리 합니다. | 예 | 예 |
+| **마지막으로 성공한 계획 강제 적용** (자동 계획 수정)-이전 양호한 계획 보다 느린 실행 계획을 사용 하 여 SQL 쿼리를 식별 하 고 회귀 된 계획 대신 마지막으로 알려진 좋은 계획을 사용 하 여 쿼리 합니다. | 예 | 예 |
 
-자동 조정은 데이터베이스 성능을 최적화하여 [Azure Portal](sql-database-advisor-portal.md)에 표시할 수 있는 **CREATE INDEX**, **DROP INDEX** 및 **FORCE LAST GOOD PLAN** 권장 사항을 식별하고 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 및 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)를 통해 노출합니다. 마지막 양호한 계획을 적용 하 고 T-sql을 통한 자동 조정 옵션을 구성 하는 방법에 대 한 자세한 내용은 자동 [조정에서 자동 계획 수정이 도입](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)되었습니다 .를 참조 하세요.
+자동 조정은 데이터베이스 성능을 최적화하여 **Azure Portal**에 표시할 수 있는 **CREATE INDEX**, **DROP INDEX** 및 [FORCE LAST GOOD PLAN](sql-database-advisor-portal.md) 권장 사항을 식별하고 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 및 [REST API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning)를 통해 노출합니다. 마지막 양호한 계획을 적용 하 고 T-sql을 통한 자동 조정 옵션을 구성 하는 방법에 대 한 자세한 내용은 자동 [조정에서 자동 계획 수정이 도입](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/)되었습니다 .를 참조 하세요.
 
 포털을 사용하여 조정 권장 사항을 수동으로 적용하거나 자동 조정을 통해 조정 권장 사항이 자율적으로 적용되도록 할 수 있습니다. 시스템에서 조정 권장 사항이 자율적으로 적용되도록 하는 경우 좋은 점은 워크로드 성능에 긍정적인 이득이 있는지 자동으로 확인하고, 뛰어난 성능 향상이 감지되지 않는 경우에는 조정 권장 사항을 자동으로 되돌립니다. 자주 실행되지 않는 조정 권장 사항의 영향을 받는 쿼리에 대한 유효성 검사 단계는 최대 72시간이 소요될 수 있습니다.
 

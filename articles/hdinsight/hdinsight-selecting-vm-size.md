@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: d93c3599bb4a52a03d4ac436ca664ce6be1c55b9
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: a21e8d6c76c93b3084619c09f6a7664a25c1929c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200828"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682200"
 ---
 # <a name="selecting-the-right-vm-size-for-your-azure-hdinsight-cluster"></a>Azure HDInsight 클러스터에 적합 한 VM 크기 선택
 
@@ -38,14 +38,14 @@ VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시
 
 Azure의 가상 머신 제품군은 다양 한 사용 사례에 맞게 최적화 됩니다. 아래 표에서 가장 인기 있는 사용 사례와 일치 하는 VM 제품군 중 일부를 찾을 수 있습니다.
 
-| Type                     | 크기           |    설명       |
+| 형식                     | 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [항목 수준](../virtual-machines/linux/sizes-general.md)          | A, Av2  | 개발 및 테스트와 같은 항목 수준 작업에 가장 적합 한 CPU 성능 및 메모리 구성이 있습니다. A 시리즈 VM은 경제적이며, Azure를 시작하기 위한 저비용 옵션을 제공합니다. |
 | [범용](../virtual-machines/linux/sizes-general.md)          | D, DSv2, Dv2  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
 | [컴퓨팅 최적화](../virtual-machines/linux/sizes-compute.md)        | F           | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 애플리케이션 서버에 적합합니다.        |
-| [메모리에 최적화](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | 메모리 대 CPU 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합니다.                 |
+| [메모리에 최적화](../virtual-machines/linux/sizes-memory.md)         | Esv3, Ev3  | 메모리 대 CPU 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
 
-- HDInsight 지원 지역에서 사용 가능한 VM 인스턴스의 가격 책정에 대 한 자세한 내용은 [Hdinsight 가격 책정](https://azure.microsoft.com/en-us/pricing/details/hdinsight/)을 참조 하세요.
+- HDInsight 지원 지역에서 사용 가능한 VM 인스턴스의 가격 책정에 대 한 자세한 내용은 [Hdinsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조 하세요.
 
 ## <a name="cost-saving-vm-types-for-light-workloads"></a>간단한 워크 로드에 대 한 VM 유형 저장 비용
 
@@ -55,10 +55,10 @@ Azure의 가상 머신 제품군은 다양 한 사용 사례에 맞게 최적화
 
 | 클러스터 유형 | 버전 | 작업자 노드 | 헤드 노드 | Zookeeper 노드 |
 |---|---|---|---|---|
-| Spark | 전체 | F4 이상 | no | no |
-| Hadoop | 전체 | F4 이상 | no | no |
-| Kafka | 전체 | F4 이상 | no | no |
-| HBase | 전체 | F4 이상 | no | no |
+| Spark | 모두 | F4 이상 | no | no |
+| Hadoop은 | 모두 | F4 이상 | no | no |
+| Kafka | 모두 | F4 이상 | no | no |
+| HBase | 모두 | F4 이상 | no | no |
 | LLAP | disabled | no | no | no |
 | Storm | disabled | no | no | no |
 | ML 서비스 | HDI 3.6만 해당 | F4 이상 | no | no |

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse의 테이블 분할 | Microsoft Docs
+title: 테이블 분할
 description: Azure SQL Data Warehouse의 테이블 파티션을 사용하기 위한 권장 사항 및 예제
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 6791ff2f2a9719a19d2c9abc4ff480435de7bb00
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 7ec313094a9ebc05f966e0c49f44284909ca778f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477068"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685411"
 ---
 # <a name="partitioning-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 분할
 Azure SQL Data Warehouse의 테이블 파티션을 사용하기 위한 권장 사항 및 예제
@@ -225,8 +226,8 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
-### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>한 번에 데이터를 포함하는 파티션으로 새 데이터를 로드
-파티션 전환을 사용하여 파티션에 데이터를 로드하는 것은 새 데이터의 스위치를 사용자가 볼 수 없는 테이블의 새 데이터를 스테이징하는 편리한 방법입니다.  바쁜 시스템에서 파티션 전환과 관련된 잠금 경합을 처리하는 것은 어려울 수 있습니다.  파티션의 기존 데이터를 지우려면 `ALTER TABLE` 을 사용하여 데이터를 전환해야 했습니다.  그런 다음 새 데이터에서 전환하려면 다른 `ALTER TABLE` 이 필요했습니다.  SQL Data Warehouse에서 `TRUNCATE_TARGET` 옵션은 지원는 `ALTER TABLE` 명령에서 지원됩니다.  `TRUNCATE_TARGET` 을 사용하면 `ALTER TABLE` 명령은 파티션의 기존 데이터를 새 데이터로 덮어씁니다.  다음은 `CTAS` 를 사용하여 기존 데이터로 새 테이블을 만들고 새 데이터를 삽입한 다음 모든 데이터를 대상 테이블로 다시 전환하여 기존 데이터를 덮어쓰는 예제입니다.
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>한 단계로 데이터를 포함 하는 파티션으로 새 데이터 로드
+파티션 전환을 사용 하 여 파티션에 데이터를 로드 하는 것은 새 데이터의 스위치를 사용자에 게 표시 되지 않는 테이블의 새 데이터를 준비 하는 편리한 방법입니다.  사용 중인 시스템에서 파티션 전환과 관련 된 잠금 경합을 처리 하는 것이 어려울 수 있습니다.  파티션의 기존 데이터를 지우려면 데이터를 전환 하는 데 필요한 `ALTER TABLE` 사용 됩니다.  그런 다음 새 데이터를 전환 하는 데 다른 `ALTER TABLE` 필요 했습니다.  SQL Data Warehouse에서 `TRUNCATE_TARGET` 옵션은 `ALTER TABLE` 명령에서 지원 됩니다.  `TRUNCATE_TARGET` `ALTER TABLE` 명령은 파티션의 기존 데이터를 새 데이터로 덮어씁니다.  다음은 `CTAS`를 사용 하 여 기존 데이터로 새 테이블을 만들고 새 데이터를 삽입 한 다음 모든 데이터를 다시 대상 테이블로 전환 하 여 기존 데이터를 덮어쓰는 예제입니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]

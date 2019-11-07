@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 데이터베이스 복사 | Microsoft Docs
+title: Azure SQL 데이터베이스 복사
 description: 기존 Azure SQL 데이터베이스에 대한 트랜잭션 일치 복사본을 같거나 다른 서버에 만듭니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 09/04/2019
-ms.openlocfilehash: de56e66046bb61ac31c1842ae6ce7a9c6720760d
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d49896d8088ae1352cb2785d061cde6c8647cb89
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934212"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690810"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Azure SQL 데이터베이스에 대한 트랜잭션 일치 복사본 복사
 
@@ -86,16 +86,16 @@ New-AzSqlDatabaseCopy -ResourceGroupName "myResourceGroup" `
    
 Azure Portal를 사용 하 여 데이터베이스 복사를 관리 하려면 다음 사용 권한도 필요 합니다.
 
-&nbsp;&nbsp; Microsoft.resources/&nbsp; subscription/resources/read   
-&nbsp;&nbsp; Microsoft.resources/&nbsp; subscription/resources/write   
-&nbsp;&nbsp; Microsoft&nbsp; .resources/배포/읽기   
-&nbsp;&nbsp; Microsoft&nbsp; .resources/배포/쓰기   
-&nbsp;&nbsp; Microsoft.resources/배포&nbsp; /operationstatuses/읽기    
+Microsoft .Resources/subscription/resources &nbsp; &nbsp; &nbsp;   
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/subscription/resources/write   
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/배포/읽기   
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/배포/쓰기   
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/배포/operationstatuses/읽기    
 
 포털에서 리소스 그룹의 배포 아래에 있는 작업, SQL 작업을 비롯 한 여러 리소스 공급자의 작업을 확인 하려면 다음과 같은 추가 RBAC 역할이 필요 합니다. 
 
-&nbsp;&nbsp; Microsoft.resources/subscription/resourcegroups/&nbsp; 배포/작업/읽기   
-&nbsp;&nbsp; Microsoft.resources/subscription/resourcegroups/배포&nbsp; /operationstatuses/읽기
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/subscription/resourcegroups/배포/작업/읽기   
+&nbsp; &nbsp; &nbsp; Microsoft .Resources/subscription/resourcegroups/배포/operationstatuses/읽기
 
 
 

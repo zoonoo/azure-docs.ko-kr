@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Oracle Responsys에서 데이터 복사(미리 보기) | Microsoft Docs
+title: Azure Data Factory를 사용하여 Oracle Responsys에서 데이터 복사(미리 보기)
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Oracle Responsys에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 40a6c81008c7e4edefff94101022338590fe971b
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 9fdf031b5cd215cee5ed7d76e4fc320c824f3755
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089873"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680540"
 ---
 # <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Oracle Responsys에서 데이터 복사(미리 보기)
 
@@ -49,7 +49,7 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성을 다음으로 설정해야 합니다. **Responsys** | 예 |
+| type | 형식 속성은 **Responsys**로 설정해야 합니다. | 예 |
 | endpoint | Responsys 서버의 엔드포인트입니다.  | 예 |
 | clientId | Responsys 애플리케이션과 연결된 클라이언트 ID입니다.  | 예 |
 | clientSecret | Responsys 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 예 |
@@ -88,7 +88,7 @@ Oracle Responsys에서 데이터를 복사하려면 데이터 세트의 type 속
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **ResponsysObject** | 예 |
+| type | 데이터 집합의 type 속성은 **ResponsysObject** 로 설정 해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -119,8 +119,8 @@ Oracle Responsys에서 데이터를 복사하려면 복사 작업의 원본 형�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 형식 속성을 다음으로 설정해야 합니다. **ResponsysSource** | 예 |
-| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| type | 복사 작업 원본의 형식 속성을 **ResponsysSource**로 설정해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

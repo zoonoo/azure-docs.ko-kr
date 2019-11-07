@@ -1,5 +1,5 @@
 ---
-title: 복사 작업을 사용하여 데이터 이동 | Microsoft 문서
+title: 복사 활동을 사용하여 데이터 이동
 description: Data Factory 파이프라인에서 데이터를 이동하는 방법(클라우드 저장소 간/온-프레미스 저장소와 클라우드 저장소 간에 데이터 마이그레이션)에 대해 알아봅니다. 또한 복사 활동을 사용하는 방법을 살펴봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bfb15e717e3cb726aba782d9a9506330d7ea39fe
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 0f7771c55bfdc837921fb731b29e88c970b5d283
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839327"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682641"
 ---
 # <a name="move-data-by-using-copy-activity"></a>복사 활동을 사용하여 데이터 이동
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](data-factory-data-movement-activities.md)
 > * [버전 2(현재 버전)](../copy-activity-overview.md)
 
@@ -78,7 +78,7 @@ Azure Data Factory에서는 복사 작업을 사용해 온-프레미스 및 클�
 ### <a name="supported-file-formats"></a>지원 파일 형식
 복사 활동을 사용해서 파일 기반 데이터 저장소 간에 **파일을 있는 그대로 복사**하고, 입력 및 출력 데이터 세트 정의 둘 다에서 [형식 섹션](data-factory-create-datasets.md)을 건너뛸 수 있습니다. 그러면 데이터가 직렬화/역직렬화되지 않고 효율적으로 복사됩니다.
 
-또한 복사 작업에서는 지정된 형식의 파일을 읽고 씁니다. **텍스트, JSON, Avro, ORC 및 Parquet**, 압축 코덱 **GZip, Deflate, BZip2 및 ZipDeflate**가 지원됩니다. 자세한 내용은 [지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md)을 참조하세요.
+복사 작업은 지정된 형식의 파일에서 읽고 씁니다. **텍스트, JSON, Avro, ORC 및 Parquet**, 압축 코덱 **GZip, Deflate, BZip2 및 ZipDeflate**가 지원됩니다. 자세한 내용은 [지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md)을 참조하세요.
 
 예를 들어 다음 복사 작업을 수행할 수 있습니다.
 
@@ -95,7 +95,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 
 | 대상 데이터 저장소의 지리적 위치 | 대상 데이터 저장소의 지역 | 데이터 이동에 사용되는 지역 |
 |:--- |:--- |:--- |
-| 미국 | East US | East US |
+| 미국 | 미국 동부 | 미국 동부 |
 | &nbsp; | 미국 동부 2 | 미국 동부 2 |
 | &nbsp; | 미국 중부 | 미국 중부 |
 | &nbsp; | 미국 중북부 | 미국 중북부 |
@@ -119,10 +119,10 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 | &nbsp; | 인도 남부 | 인도 중부 |
 | 일본 | 일본 동부 | 일본 동부 |
 | &nbsp; | 일본 서부 | 일본 동부 |
-| 대한민국 | 한국 중부 | 한국 중부 |
+| 한국 | 한국 중부 | 한국 중부 |
 | &nbsp; | 한국 남부 | 한국 중부 |
 
-또는 복사 작업 `typeProperties`에서 `executionLocation` 속성을 지정하여 복사를 수행하는 데 사용할 Data Factory 서비스의 지역을 명시적으로 지정할 수 있습니다. 이 속성에 대한 지원되는 값은 위의 **데이터 이동에 사용되는 지역** 열에 나열됩니다. 데이터는 복사 동안 유선을 통해 해당 하위 지역으로 이동됩니다. 예를 들어 영국의 Azure 저장소 간을 복사하려면 `"executionLocation": "Japan East"`를 지정하여 일본을 통해 라우팅되도록 할 수 있습니다([샘플 JSON](#by-using-json-scripts) 참조).
+또는 복사 작업 `executionLocation`에서 `typeProperties` 속성을 지정하여 복사를 수행하는 데 사용할 Data Factory 서비스의 지역을 명시적으로 지정할 수 있습니다. 이 속성에 대한 지원되는 값은 위의 **데이터 이동에 사용되는 지역** 열에 나열됩니다. 데이터는 복사 동안 유선을 통해 해당 하위 지역으로 이동됩니다. 예를 들어 영국의 Azure 저장소 간을 복사하려면 `"executionLocation": "Japan East"`를 지정하여 일본을 통해 라우팅되도록 할 수 있습니다([샘플 JSON](#by-using-json-scripts) 참조).
 
 > [!NOTE]
 > 대상 데이터 저장소의 지역이 위의 목록에 없거나 검색 가능하지 않을 경우 `executionLocation`을 지정하지 않을 경우 기본적으로 복사 작업이 대체 지역을 거치지 않고 실패합니다. 지원되는 지역 목록은 시간이 지남에 따라 확장됩니다.
@@ -138,7 +138,7 @@ Azure Data Factory는 미국 서부, 미국 동부 및 북유럽 지역에서만
 Data Factory 복사 마법사를 사용하면 복사 활동을 포함하는 파이프라인을 만들 수 있습니다. 이 파이프라인에서는 연결된 서비스, 데이터 세트 및 파이프라인에 대한 *JSON 정의를 작성하지 않고도* 지원되는 소스에서 대상으로 데이터를 복사할 수 있습니다. 마법사에 대한 자세한 내용은 [Data Factory 복사 마법사](data-factory-copy-wizard.md) 를 참조하세요.  
 
 ### <a name="by-using-json-scripts"></a>JSON 스크립트 사용
-(사용 하 여 복사 작업) 파이프라인에 대 한 JSON 정의 만들려면 Visual Studio 또는 Azure PowerShell에서 Data Factory 편집기를 사용할 수 있습니다. 그런 다음 해당 정의를 배포하여 Data Factory에서 파이프라인을 만들 수 있습니다. 단계별 지침은 [자습서: Azure Data Factory 파이프라인에서 복사 활동 사용](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)을 참조하세요.    
+Visual Studio에서 Data Factory 편집기를 사용 하거나 Azure PowerShell 하 여 복사 작업을 사용 하 여 파이프라인에 대 한 JSON 정의를 만들 수 있습니다. 그런 다음 해당 정의를 배포하여 Data Factory에서 파이프라인을 만들 수 있습니다. 단계별 지침이 포함된 자습서는 [자습서: Azure Data Factory 파이프라인에서 복사 활동 사용](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) 을 참조하세요.    
 
 이름, 설명, 입력/출력 테이블, 정책 등의 JSON 속성은 모든 형식의 활동에 사용할 수 있습니다. 활동의 `typeProperties` 섹션에서 사용 가능한 속성은 각 활동 형식에 따라 다릅니다.
 
