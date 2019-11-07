@@ -1,6 +1,6 @@
 ---
-title: Azure Database for PostgreSQL - 하이퍼스케일(Citus)(미리 보기)을 사용하여 실시간 대시보드 설계 자습서
-description: 이 자습서에서는 Azure Database for PostgreSQL 하이퍼스케일(Citus)(미리 보기)에서 분산된 테이블을 만들고, 채우고, 쿼리하는 방법을 보여줍니다.
+title: Azure Database for PostgreSQL - 하이퍼스케일(Citus)을 사용하여 실시간 대시보드 설계 자습서
+description: 이 자습서에서는 Azure Database for PostgreSQL 하이퍼스케일(Citus)에서 분산된 테이블을 만들고, 채우고, 쿼리하는 방법을 보여 줍니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: a5e4b2073a29785ee851b2733c12d6331afe59d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 32487d65397a96d9e96ae3bf3476eed23ddb8adc
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65791326"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482880"
 ---
-# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>자습서: Azure Database for PostgreSQL - 하이퍼스케일(Citus)(미리 보기)을 사용하여 실시간 분석 대시보드 설계
+# <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL - 하이퍼스케일(Citus)을 사용하여 실시간 분석 대시보드 설계
 
-이 자습서에서는 Azure Database for PostgreSQL – 하이퍼스케일(Citus)(미리 보기)을 사용하여 다음 작업을 수행하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Database for PostgreSQL – 하이퍼스케일(Citus)을 사용하여 다음 작업을 수행하는 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 하이퍼스케일(Citus) 서버 그룹 만들기
@@ -34,7 +34,7 @@ ms.locfileid: "65791326"
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>psql 유틸리티를 사용하여 스키마 만들기
 
-psql을 사용하여 Azure Database for PostgreSQL - 하이퍼스케일(Citus)(미리 보기)에 연결되면 몇 가지 기본 작업을 완료할 수 있습니다. 이 자습서에서는 웹 분석의 트래픽 데이터를 수집한 다음, 데이터를 롤업하여 해당 데이터를 기반으로 실시간 대시보드를 제공하는 방법을 설명합니다.
+psql을 사용하여 Azure Database for PostgreSQL - 하이퍼스케일(Citus)에 연결되면 몇 가지 기본 작업을 완료할 수 있습니다. 이 자습서에서는 웹 분석의 트래픽 데이터를 수집한 다음, 데이터를 롤업하여 해당 데이터를 기반으로 실시간 대시보드를 제공하는 방법을 설명합니다.
 
 모든 원시 웹 트래픽 데이터를 사용할 테이블을 만들겠습니다. psql 터미널에서 다음 명령을 실행합니다.
 

@@ -2,7 +2,6 @@
   href: index.yml
 - name: 아키텍처 및 디자인
   href: overview.md
-  expanded: false
   items:
     - name: 클라우드의 공동 책임
       href: shared-responsibility.md
@@ -23,6 +22,7 @@
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: 보안 기술 기능
       href: technical-capabilities.md
+  expanded: false
 - name: 데이터 보안 및 암호화
   href: encryption-overview.md
   items:
@@ -128,19 +128,6 @@
         - name: 원격 관리 보안
           href: management.md
         - name: Azure 로그 통합
-          items:
-            - name: 소개
-              href: azure-log-integration-overview.md
-            - name: 시작하기
-              href: azure-log-integration-get-started.md
-            - name: Azure AD 감사 로그 통합
-              displayName: active directory
-              href: azure-log-integration-ad.md
-            - name: Key Vault의 로그 통합
-              displayName: keyvault
-              href: azure-log-integration-keyvault-eventhub.md
-            - name: FAQ
-              href: azure-log-integration-faq.md
     - name: 운영 보안
       href: operational-overview.md
       items:
