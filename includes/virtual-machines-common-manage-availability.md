@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 0879cb33a0796e19724bd143e57780d6ce27bfcf
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7c884d3c7102fc47f6efad86d9fe3704afd0edcf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657829"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73591106"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -60,7 +60,7 @@ Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA
 장애 도메인은 공통 전원과 네트워크 스위치를 공유하는 가상 머신 그룹을 정의합니다. 기본적으로 가용성 집합 안에 구성된 가상 머신은 Resource Manager 배포의 경우 최대 3개의 장애 도메인(클래식의 경우 2개의 장애 도메인)으로 분리됩니다. 가상 머신을 가용성 집합에 배치한다고 해서 애플리케이션이 운영 체제 또는 애플리케이션 고유의 오류로부터 보호되는 것은 아닙니다. 잠재적인 물리적 하드웨어 오류, 네트워크 중단, 전력 차단의 영향이 제한될 뿐입니다.
 
 <!--Image reference-->
-   ![업데이트 도메인 및 장애 도메인 구성의 개념 그리기](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
+   업데이트 도메인 및 장애 도메인 구성의 개념적 그리기를 ![](./media/virtual-machines-common-manage-availability/ud-fd-configuration.png)
 
 ## <a name="use-managed-disks-for-vms-in-an-availability-set"></a>가용성 집합에서 VM에 Managed Disks 사용
 현재 관리되지 않는 디스크에서 VM을 사용하는 경우 [가용성 집합에서 VM을 변환하여 Managed Disks를 사용](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md)하는 것이 좋습니다.
@@ -72,6 +72,13 @@ Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA
 > 관리되는 가용성 집합에 대한 장애 도메인 수는 지역에 따라 다르며 - 지역마다 2개 또는 3개입니다. 다음 표는 지역별 수를 보여줍니다.
 
 [!INCLUDE [managed-disks-common-fault-domain-region-list](managed-disks-common-fault-domain-region-list.md)]
+
+> 참고: 특정 상황에서는 동일한 가용성 집합의 두 Vm 부분이 동일한 FaultDomain을 공유 하는 경우 발생할 수 있습니다. 가용성 집합으로 이동 하 여 "장애 도메인" 열을 확인 하 여 확인할 수 있습니다.
+> Vm을 배포 하는 동안 다음 시퀀스가 발생 하면이 동작을 관찰할 수 있습니다.
+> - 첫 번째 VM 배포
+> - 첫 번째 VM 중지/할당 취소
+> - 두 번째 vm을 배포 하는 경우 두 번째 vm의 OS 디스크는 첫 번째 VM과 동일한 장애 도메인에 생성 될 수 있으므로 두 번째 vm은 동일한 FaultDomain에도 적용 됩니다. 
+> 이 문제를 방지 하려면 배포 간에 VM을 중지/할당 취소 하지 않는 것이 좋습니다.
 
 비관리 디스크에서 VM을 사용하려는 경우 VM의 VHD(가상 하드 디스크)를 [페이지 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)으로 저장하는 스토리지 계정에 대한 아래의 모범 사례를 따릅니다.
 
@@ -89,7 +96,7 @@ Azure는 가용성 영역을 통해 업계 최고의 99.99% VM 작동 시간 SLA
 예를 들어 단일 가용성 영역 또는 집합에서 IIS, Apache 및 Nginx를 실행 하는 응용 프로그램의 프런트 엔드에 모든 가상 머신을 배치할 수 있습니다. 프런트 엔드 가상 머신만 동일한 가용성 영역 또는 집합에 배치 되어 있는지 확인 합니다. 마찬가지로, 복제 된 SQL Server 가상 머신 또는 MySQL 가상 머신과 같이 데이터 계층 가상 머신만 자체 가용성 영역 또는 집합에 배치 해야 합니다.
 
 <!--Image reference-->
-   ![응용 프로그램 계층](./media/virtual-machines-common-manage-availability/application-tiers.png)
+   응용 프로그램 계층을 ![](./media/virtual-machines-common-manage-availability/application-tiers.png)
 
 ## <a name="combine-a-load-balancer-with-availability-zones-or-sets"></a>가용성 영역 또는 집합과 부하 분산 장치 결합
 [Azure Load Balancer](../articles/load-balancer/load-balancer-overview.md) 를 가용성 영역에 결합 하거나를 설정 하 여 응용 프로그램 복원 력을 극대화 합니다. Azure 부하 분산 장치는 트래픽을 여러 가상 머신에 분산시킵니다. 표준 계층 가상 머신의 경우 Azure 부하 분산 장치가 포함되어 있습니다. 모든 가상 머신 계층에 Azure Load Balancer가 포함되어 있는 것은 아닙니다. 가상 머신 부하 분산에 대한 자세한 내용은 [가상 머신 부하 분산](../articles/virtual-machines/virtual-machines-linux-load-balance.md)을 참조하세요.

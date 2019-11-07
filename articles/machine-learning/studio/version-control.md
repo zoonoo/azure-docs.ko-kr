@@ -1,6 +1,6 @@
 ---
 title: 애플리케이션 수명 주기 관리
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 클래식 버전의 Azure Machine Learning Studio에서 응용 프로그램 수명 주기 관리 모범 사례 적용
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 10/27/2016
-ms.openlocfilehash: ce1a398939a65bb47c74f00159b667c3659f5a93
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d5e2ee72c30933305356cd2a7792d1972fa938da
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467009"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684715"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio의 애플리케이션 수명 주기 관리 (클래식)
 Azure Machine Learning Studio (클래식)은 Azure 클라우드 플랫폼에서 조작 가능한 기계 학습 실험을 개발 하기 위한 도구입니다. 단일 플랫폼으로 병합된 Visual Studio IDE 및 확장 가능한 서비스와 같습니다. 다양 한 자산 버전 관리에서 자동화 된 실행 및 배포에 이르는 표준 ALM (응용 프로그램 수명 주기 관리) 사례를 Azure Machine Learning Studio 클래식 버전으로 통합할 수 있습니다. 이 문서는 몇 가지 옵션과 접근 방법에 대해 다룹니다.
@@ -96,4 +96,4 @@ ALM의 중요한 부분은 애플리케이션의 실행 및 배포 프로세스�
 ## <a name="next-steps"></a>다음 단계
 * [Azure Machine Learning Studio (클래식) PowerShell](https://aka.ms/amlps) 모듈을 다운로드 하 고 ALM 작업을 자동화 하기 시작 합니다.
 * PowerShell 및 재학습 API를 통해 [단일 실험을 사용하여 여러 ML 모델을 만들고 관리](create-models-and-endpoints-with-powershell.md)하는 방법에 대해 알아봅니다.
-* [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)에 대해 자세히 알아봅니다.
+* [Azure Machine Learning 웹 서비스 배포](deploy-a-machine-learning-web-service.md)에 대해 자세히 알아봅니다.

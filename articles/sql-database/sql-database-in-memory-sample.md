@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 메모리 내 샘플 | Microsoft Docs
+title: 메모리 내 샘플 Azure SQL Database
 description: OLTP 및 columnstore 샘플에서 Azure SQL Database 메모리 내 기술을 사용해보세요.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: e3e819fc90e8900219ebc7809adb293369084a72
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8526236afdb0a312879cb3c1635a7fd85985278f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828205"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689812"
 ---
 # <a name="in-memory-sample"></a>메모리 내 샘플
 
@@ -51,7 +51,7 @@ Azure SQL Database에서 메모리 내 기술을 사용하면 애플리케이션
 
 3. [메모리 내 OLTP Transact-SQL 스크립트](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) 를 클립보드에 복사합니다. T-SQL 스크립트는 1단계에서 만든 AdventureWorksLT 샘플 데이터베이스에서 필요한 메모리 내 개체를 만듭니다.
 
-4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+4. SSMS에 T-SQL 스크립트를 붙여 넣고 스크립트를 실행합니다. `MEMORY_OPTIMIZED = ON` 절 CREATE TABLE 문이 중요합니다. 예:
 
 
 ```sql
@@ -100,7 +100,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**고유하게 컴파일된 저장 프로시저.** : 카탈로그 뷰 쿼리를 통해 SalesLT.usp_InsertSalesOrder_inmem을 검사할 수 있습니다.
+**고유하게 컴파일된 저장 프로시저**: 카탈로그 뷰 쿼리를 통해 SalesLT.usp_InsertSalesOrder_inmem을 검사할 수 있습니다.
 
 
 ```sql
@@ -256,7 +256,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 
 #### <a name="expected-comparison-results"></a>예상된 비교 결과
 
-데이터베이스와 동일한 Azure 지역의 Azure VM에서 `ostress`를 실행할 때 이렇게 간단한 워크로드에서 메모리 내 테스트의 성능이 **9배**까지 향상되었습니다.
+데이터베이스와 동일한 Azure 지역의 Azure VM에서 **를 실행할 때 이렇게 간단한 워크로드에서 메모리 내 테스트의 성능이** 9배`ostress`까지 향상되었습니다.
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
@@ -382,14 +382,14 @@ P2 가격 책정 계층의 데이터베이스에서 클러스터형 columnstore 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작 1: 더 빠른 T-SQL 성능을 위한 메모리 내 OLTP 기술](https://msdn.microsoft.com/library/mt694156.aspx)
+- [빠른 시작 1: 더 빠른 T-sql 성능을 위한 메모리 내 OLTP 기술](https://msdn.microsoft.com/library/mt694156.aspx)
 
 - [기존 Azure SQL 애플리케이션에서 메모리 내 OLTP 사용](sql-database-in-memory-oltp-migration.md)
 
 - 메모리 내 OLTP에 대한 [메모리 내 OLTP 스토리지 모니터링](sql-database-in-memory-oltp-monitoring.md).
 
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 #### <a name="deeper-information"></a>자세한 정보
 

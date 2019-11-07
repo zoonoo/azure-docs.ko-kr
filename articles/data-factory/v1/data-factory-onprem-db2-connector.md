@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 DB2에서 데이터 이동 | Microsoft Docs
+title: Azure Data Factory를 사용 하 여 DB2에서 데이터 이동
 description: Azure Data Factory 복사 활동을 사용하여 온-프레미스 DB2 데이터베이스에서 데이터를 이동하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,27 +13,27 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e473858ed02afce89313c0bfeffd95c785120d40
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 0d066e66e4b9600eb5734ef2f3c6031dbc44f17a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839029"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666597"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Azure Data Factory 복사 활동을 사용하여 DB2에서 데이터 이동
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](data-factory-onprem-db2-connector.md)
 > * [버전 2(현재 버전)](../connector-db2.md)
 
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 DB2 커넥터](../connector-db2.md)를 참조하세요.
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 DB2 커넥터](../connector-db2.md)를 참조하세요.
 
 
 이 문서에서는 Azure Data Factory에서 복사 활동을 사용하여 온-프레미스 DB2 데이터베이스에서 데이터 저장소로 데이터를 복사하는 방법에 대해 설명합니다. [Data Factory 데이터 이동 활동](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 문서에서 지원되는 싱크로 나열되는 저장소로 데이터를 복사할 수 있습니다. 이 항목은 복사 활동을 사용한 데이터 이동에 대해 간략히 설명하고 지원되는 데이터 저장소 조합을 나열하는 Data Factory 문서를 기반으로 하여 작성되었습니다. 
 
 Data Factory는 현재 DB2 데이터베이스에서 [지원되는 싱크 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats)로 데이터를 이동하는 작업만 지원하고, 다른 데이터 저장소에서 DB2 데이터베이스로 데이터를 이동하는 작업은 지원하지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 Data Factory는 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md)를 사용하여 온-프레미스 DB2 데이터베이스에 연결하는 작업을 지원합니다. 데이터를 이동하기 위해 게이트웨이 데이터 파이프라인을 설정하는 단계별 지침은 [온-프레미스에서 클라우드로 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
 DB2가 Azure IaaS VM에 호스팅되는 경우에도 게이트웨이가 필요합니다. 데이터 저장소와 동일한 IaaS VM에 게이트웨이를 설치할 수 있습니다. 게이트웨이에서 데이터베이스에 연결할 수 있으면 다른 VM에 게이트웨이를 설치할 수 있습니다.
@@ -57,14 +57,14 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 > [!TIP]
 > "SQL 문 실행 요청에 해당하는 패키지가 없습니다. SQLSTATE=51002 SQLCODE=-805"라는 오류 메시지가 표시되면 OS에 일반 사용자에게 필요한 패키지가 만들어지지 않은 것입니다. 이 문제를 해결하려면 DB2 서버 유형에 대한 다음 지침을 따릅니다.
-> - i용 DB2(AS400): 복사 활동을 실행하기 전에 고급 사용자가 일반 사용자에 대한 컬렉션을 만들 수 있도록 합니다. 컬렉션을 만들려면 `create collection <username>` 명령을 사용합니다.
+> - i(AS400)용 DB2: 복사 활동을 실행하기 전에 고급 사용자가 일반 사용자에 대한 컬렉션을 만들 수 있도록 합니다. 컬렉션을 만들려면 `create collection <username>` 명령을 사용합니다.
 > - z/OS 또는 LUW용 DB2: 높은 권한 계정(패키지 권한 및 BIND, BINDADD, GRANT EXECUTE TO PUBLIC 권한이 있는 고급 사용자 또는 관리자)을 사용하여 복사를 한 번 실행합니다. 필요한 패키지는 복사 중에 자동으로 만들어집니다. 나중에 후속 복사 실행을 위해 일반 사용자로 다시 전환할 수 있습니다.
 
 ## <a name="getting-started"></a>시작
 여러 도구/API를 사용하여 복사 활동이 포함된 파이프라인을 만들어 온-프레미스 DB2 데이터 저장소의 데이터를 이동할 수 있습니다. 
 
 - 파이프라인을 만드는 가장 쉬운 방법은 Azure Data Factory 복사 마법사를 사용하는 것입니다. 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 
-- 또한 Visual Studio, Azure PowerShell, Azure Resource Manager 템플릿을,.NET API 및 REST API를 포함 하 여 파이프라인을 만드는 도구를 사용할 수 있습니다. 복사 활동이 포함된 파이프라인을 만드는 단계별 지침은 [복사 활동 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. 
+- 도구를 사용 하 여 Visual Studio, Azure PowerShell, Azure Resource Manager 템플릿, .NET API 및 REST API를 비롯 한 파이프라인을 만들 수도 있습니다. 복사 활동이 포함된 파이프라인을 만드는 단계별 지침은 [복사 활동 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. 
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -72,7 +72,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 2. 복사 활동의 입력 및 출력 데이터를 나타내는 데이터 세트를 만듭니다. 
 3. 입력과 출력으로 각각의 데이터 세트를 사용하는 복사 활동이 포함된 파이프라인을 만듭니다. 
 
-복사 마법사를 사용하는 경우 Data Factory 연결된 서비스, 데이터 세트 및 파이프라인 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. JSON 예제: DB2에서 Azure Blob Storage로 데이터 복사에서는 온-프레미스 DB2 데이터 스토리지에서 데이터를 복사하는 데 사용되는 Data Factory 엔터티에 대한 JSON 정의를 보여줍니다.
+복사 마법사를 사용하는 경우 Data Factory 연결된 서비스, 데이터 세트 및 파이프라인 엔터티에 대한 JSON 정의가 자동으로 만들어집니다. 도구 또는 API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 Data Factory 엔터티를 정의합니다. JSON 예제: DB2에서 Azure Blob storage로 데이터 복사는 온-프레미스 DB2 데이터 저장소에서 데이터를 복사 하는 데 사용 되는 Data Factory 엔터티에 대 한 JSON 정의를 보여 줍니다.
 
 다음 섹션에서는 DB2 데이터 저장소와 관련된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -85,9 +85,9 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | **server** |DB2 서버의 이름입니다. |예 |
 | **database** |DB2 데이터베이스의 이름입니다. |예 |
 | **schema** |DB2 데이터베이스의 스키마 이름입니다. 대/소문자를 구분합니다. |아니요 |
-| **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 다음과 같습니다. 익명, 기본 및 Windows입니다. |예 |
-| **username** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니요 |
-| **password** |사용자 계정의 암호입니다. |아니요 |
+| **authenticationType** |DB2 데이터베이스에 연결하는 데 사용되는 인증 유형입니다. 가능한 값은 Anonymous, Basic 및 Windows입니다. |예 |
+| **사용자 이름** |Basic 또는 Windows 인증을 사용하는 경우 사용자 계정의 이름입니다. |아니요 |
+| **암호** |사용자 계정의 암호입니다. |아니요 |
 | **gatewayName** |Data Factory 서비스에서 온-프레미스 DB2 데이터베이스에 연결하는 데 사용해야 하는 게이트웨이의 이름입니다. |예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
@@ -104,7 +104,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 
 복사 활동의 경우 원본이 **RelationalSource** 형식인 경우(DB2 포함) **typeProperties** 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
 | **query** |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. |SQL 쿼리 문자열. 예: `"query": "select * from "MySchema"."MyTable""` |아니요(데이터 세트의 **tableName** 속성이 지정된 경우) |
 
@@ -112,15 +112,15 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 > 스키마 및 테이블 이름은 대/소문자를 구분합니다. 쿼리 문에서 ""(큰 따옴표)를 사용하여 속성 이름을 묶습니다.
 
 ## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>JSON 예제: DB2에서 Azure Blob Storage로 데이터 복사
-이 예제에서는 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의 제공 합니다 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)합니다. DB2 데이터베이스에서 Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory 복사 활동을 사용하여 [지원되는 데이터 저장소 싱크 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 데이터를 복사할 수 있습니다.
+이 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. DB2 데이터베이스에서 Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory 복사 활동을 사용하여 [지원되는 데이터 저장소 싱크 형식](data-factory-data-movement-activities.md#supported-data-stores-and-formats)에 데이터를 복사할 수 있습니다.
 
 샘플에 포함된 Data Factory 엔터티는 다음과 같습니다.
 
 - [OnPremisesDb2](data-factory-onprem-db2-connector.md) 형식의 DB2 연결된 서비스
 - [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 Azure Blob 스토리지 연결된 서비스
-- [RelationalTable](data-factory-onprem-db2-connector.md#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
-- [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-- [RelationalSource](data-factory-onprem-db2-connector.md#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties) 속성을 사용하는 복사 활동이 있는 [파이프라인](data-factory-create-pipelines.md)
+- [RelationalTable](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](data-factory-onprem-db2-connector.md#dataset-properties)
+- [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+- [RelationalSource](data-factory-create-pipelines.md) 및 [BlobSink](data-factory-onprem-db2-connector.md#copy-activity-properties) 속성을 사용하는 복사 활동이 있는 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)
 
 샘플은 DB2 데이터베이스의 쿼리 결과에서 Azure Blob에 매시간 데이터를 복사합니다. 샘플에 사용된 JSON 속성은 엔터티 정의 뒤에 나오는 섹션에서 설명됩니다.
 
@@ -146,7 +146,7 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 }
 ```
 
-**비디오: Linux에서 Azure File Storage 사용**
+**Azure Blob Storage 연결된 서비스**
 
 ```json
 {
@@ -309,43 +309,43 @@ Data Factory DB2 커넥터는 DRDA(Distributed Relational Database Architecture)
 | DB2 데이터베이스 형식 | .NET Framework 형식 |
 | --- | --- |
 | SmallInt |Int16 |
-| 정수 |Int32 |
+| Integer |Int32 |
 | BigInt |Int64 |
-| Real |Single |
+| Real |단일 |
 | Double |Double |
 | Float |Double |
-| Decimal |Decimal |
-| DecimalFloat |Decimal |
-| Numeric |Decimal |
-| 날짜 |DateTime |
-| 시간 |TimeSpan |
-| Timestamp |Datetime |
+| 10진수 |10진수 |
+| DecimalFloat |10진수 |
+| 숫자 |10진수 |
+| Date |DateTime |
+| Time |TimeSpan |
+| Timestamp |DateTime |
 | Xml |Byte[] |
-| Char |String |
+| Char |문자열 |
 | VarChar |문자열 |
-| LongVarChar |String |
-| DB2DynArray |String |
-| 이항 |Byte[] |
+| LongVarChar |문자열 |
+| DB2DynArray |문자열 |
+| 이진 |Byte[] |
 | VarBinary |Byte[] |
 | LongVarBinary |Byte[] |
-| Graphic |String |
+| Graphic |문자열 |
 | VarGraphic |문자열 |
-| LongVarGraphic |String |
-| Clob |String |
+| LongVarGraphic |문자열 |
+| Clob |문자열 |
 | Blob |Byte[] |
-| DbClob |String |
+| DbClob |문자열 |
 | SmallInt |Int16 |
-| 정수 |Int32 |
+| Integer |Int32 |
 | BigInt |Int64 |
-| Real |Single |
+| Real |단일 |
 | Double |Double |
 | Float |Double |
-| Decimal |Decimal |
-| DecimalFloat |Decimal |
-| Numeric |Decimal |
-| 날짜 |DateTime |
-| 시간 |TimeSpan |
-| Timestamp |Datetime |
+| 10진수 |10진수 |
+| DecimalFloat |10진수 |
+| 숫자 |10진수 |
+| Date |DateTime |
+| Time |TimeSpan |
+| Timestamp |DateTime |
 | Xml |Byte[] |
 | Char |문자열 |
 

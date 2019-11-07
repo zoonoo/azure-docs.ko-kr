@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory |의 Parquet 형식 Microsoft Docs
+title: Azure Data Factory Parquet 형식
 description: 이 항목에서는 Azure Data Factory에서 Parquet 형식을 처리 하는 방법을 설명 합니다.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 92950a79be43bc656d50e2ced106a2fdb47f53bf
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 9047e82713b709027275c75b17eb955877c62f08
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387716"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674779"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure Data Factory Parquet 형식
 
@@ -26,11 +26,11 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Parquet 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-| 자산         | 설명                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 데이터 집합의 type 속성은 **Parquet**로 설정 해야 합니다. | yes      |
-| location         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`에서 고유한 위치 유형 및 지원 되는 속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | yes      |
-| compressionCodec | Parquet 파일에 쓸 때 사용할 압축 코덱입니다. Parquet 파일에서 읽을 때 파일 메타 데이터를 기반으로 압축 코덱을 자동으로 결정 Data Factory.<br>지원 되는 형식은 "**none**", "**gzip**", "**snappy**" (기본값) 및 "**lzo**"입니다. 참고 현재 복사 작업은 LZO를 지원 하지 않습니다. | 아닙니다.       |
+| type             | 데이터 집합의 type 속성은 **Parquet**로 설정 해야 합니다. | 예      |
+| location         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`에서 고유한 위치 유형 및 지원 되는 속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
+| compressionCodec | Parquet 파일에 쓸 때 사용할 압축 코덱입니다. Parquet 파일에서 읽을 때 파일 메타 데이터를 기반으로 압축 코덱을 자동으로 결정 Data Factory.<br>지원 되는 형식은 "**none**", "**gzip**", "**snappy**" (기본값) 및 "**lzo**"입니다. 참고 현재 복사 작업은 LZO를 지원 하지 않습니다. | 아니요       |
 
 > [!NOTE]
 > Parquet 파일에는 열 이름에 공백이 지원 되지 않습니다.
@@ -65,21 +65,21 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 ### <a name="parquet-as-source"></a>원본으로 Parquet
 
-복사 작업 ***\*source @ no__t-2*** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 ***\*원본\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 자산      | 설명                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 작업 원본의 type 속성은 **ParquetSource**로 설정 해야 합니다. | yes      |
-| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
+| type          | 복사 작업 원본의 type 속성은 **ParquetSource**로 설정 해야 합니다. | 예      |
+| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
 
 ### <a name="parquet-as-sink"></a>Parquet
 
-복사 작업 ***\*sink @ no__t-2*** 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업 ***\*싱크\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 자산      | 설명                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 작업 원본의 type 속성은 **ParquetSink**로 설정 해야 합니다. | yes      |
-| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 자체 지원 되는 쓰기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
+| type          | 복사 작업 원본의 type 속성은 **ParquetSink**로 설정 해야 합니다. | 예      |
+| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터의 `storeSettings`에는 자체 지원 되는 쓰기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
 
 ## <a name="mapping-data-flow-properties"></a>데이터 흐름 속성 매핑
 

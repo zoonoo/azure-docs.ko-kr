@@ -1,21 +1,21 @@
 ---
-title: Azure HPC Cache 만들기(미리 보기)
+title: Azure HPC Cache 만들기
 description: Azure HPC Cache 인스턴스를 만드는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: aaa939051a1aeafdb0650119772fc7214506aa8d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255273"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582191"
 ---
 # <a name="plan-the-aggregated-namespace"></a>집계형 네임스페이스 계획
 
-Azure HPC Cache (미리 보기)를 사용 하면 클라이언트가 백 엔드 저장소 시스템의 세부 정보를 숨기는 가상 네임 스페이스를 통해 다양 한 저장소 시스템에 액세스할 수 있습니다.
+Azure HPC 캐시를 사용 하면 클라이언트가 백 엔드 저장소 시스템의 세부 정보를 숨기는 가상 네임 스페이스를 통해 다양 한 저장소 시스템에 액세스할 수 있습니다.
 
 저장소 대상을 추가 하는 경우 클라이언트 지향 파일 경로를 설정 합니다. 클라이언트 컴퓨터는이 파일 경로를 탑재 하 고 저장소 시스템을 직접 탑재 하는 대신 캐시로 파일 읽기 요청을 수행할 수 있습니다.
 

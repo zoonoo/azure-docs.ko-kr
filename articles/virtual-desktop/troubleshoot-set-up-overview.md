@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱 문제 해결 개요, 사용자 의견 및 지원-Azure
+title: Windows 가상 데스크톱 문제 해결 개요-Azure
 description: Windows 가상 데스크톱 테 넌 트 환경을 설정 하는 동안 발생 하는 문제 해결에 대 한 개요입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: b16d993717529953da1dc31604e6112f53ed7ac9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: aa4254673d426579a5e5f0e90e389db7c6cadff0
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679430"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607343"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>문제 해결 개요, 피드백 및 지원
 
@@ -29,7 +29,7 @@ ms.locfileid: "71679430"
 >[!NOTE]
 > 제품 팀 및 활성 커뮤니티 구성원의 문제를 논의 하기 위해 방문할 수 있는 기술 커뮤니티 포럼이 있습니다. [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 를 방문 하 여 
 
-| **문제점**                                                            | **제안 된 솔루션**  |
+| **문제**                                                            | **제안 된 솔루션**  |
 |----------------------------------------------------------------------|-------------------------------------------------|
 | 테 넌 트 만들기                                                    | Azure 중단이 있는 경우 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의 하세요. 그렇지 않으면 **Windows 가상 데스크톱 (Compute)에 대 한 지원 요청을 엽니다**.|
 | Azure Portal에서 Marketplace 템플릿 액세스       | Azure 중단이 있는 경우 [Azure 지원](https://azure.microsoft.com/support/options/)에 문의 하세요. <br> <br> Azure Marketplace Windows 가상 데스크톱 템플릿을 무료로 사용할 수 있습니다.|
@@ -52,6 +52,6 @@ ms.locfileid: "71679430"
 - Windows 가상 데스크톱 클라이언트 연결 문제를 해결 하려면 [원격 데스크톱 클라이언트 연결](troubleshoot-client-connection.md)을 참조 하세요.
 - Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하세요.
 - 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)을 참조 하세요.
-- 문제 해결 자습서를 진행하려면 [자습서: 리소스 관리자 템플릿 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)문제를 해결 합니다.
+- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)을 참조 하세요.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
 - 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)를 참조하세요.

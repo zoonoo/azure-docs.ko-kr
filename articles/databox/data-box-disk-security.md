@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure Data Box Disk 개요 | Microsoft Docs
-description: 많은 양의 데이터를 Azure로 전송할 수 있는 클라우드 솔루션인 Azure Data Box Disk에 대해 설명합니다.
+title: Microsoft Azure Data Box Disk 보안 기능 | 데이터의 Microsoft Docs
+description: Azure로 많은 양의 데이터를 전송할 수 있도록 하는 클라우드 솔루션인 Azure Data Box Disk에 대해 구현 된 보안 기능에 대해 설명 합니다.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: disk
-ms.topic: overview
-ms.date: 01/09/2019
+ms.topic: conceptual
+ms.date: 11/04/2019
 ms.author: alkohli
-ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 5db65ab6f1c96ff816252ecaba2170adf358001c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093459"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606570"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Azure Data Box Disk 보안 및 데이터 보호
 

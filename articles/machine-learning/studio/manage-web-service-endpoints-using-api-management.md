@@ -1,6 +1,6 @@
 ---
 title: API Management를 사용 하 여 웹 서비스 관리
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: API Management를 사용하여 AzureML 웹 서비스를 관리하는 방법에 대한 가이드입니다. 사용자 액세스, 사용량 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 60f890912874cfda993ae45f84fa3d1c04503d00
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 227a7205788194cc507dcd9dab7e5cad57abc7f9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489255"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671585"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>API Management를 사용 하 여 Azure Machine Learning Studio (클래식) 웹 서비스 관리
 ## <a name="overview"></a>개요
@@ -29,7 +29,7 @@ Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모�
 
 * Azure 계정.
 * AzureML 계정.
-* AzureML 실험에 대한 작업 영역, 서비스 및 api_key는 웹 서비스로 배포됩니다. AzureML 실험을 만드는 방법에 대 한 자세한 내용은 [Studio 빠른](create-experiment.md)시작을 참조 하세요. Studio (클래식) 실험을 웹 서비스로 배포 하는 방법에 대 한 자세한 내용은 [studio 배포 방법](publish-a-machine-learning-web-service.md) 에서 AzureML 실험을 웹 서비스로 배포 하는 방법에 대 한 자세한 내용을 참조 하세요. 또는 간단한 AzureML 실험을 만들고 테스트하고 이를 웹 서비스로 배포하는 방법에 대한 지침이 부록 A에 있습니다.
+* AzureML 실험에 대한 작업 영역, 서비스 및 api_key는 웹 서비스로 배포됩니다. AzureML 실험을 만드는 방법에 대 한 자세한 내용은 [Studio 빠른](create-experiment.md)시작을 참조 하세요. Studio (클래식) 실험을 웹 서비스로 배포 하는 방법에 대 한 자세한 내용은 [studio 배포 방법](deploy-a-machine-learning-web-service.md) 에서 AzureML 실험을 웹 서비스로 배포 하는 방법에 대 한 자세한 내용을 참조 하세요. 또는 간단한 AzureML 실험을 만들고 테스트하고 이를 웹 서비스로 배포하는 방법에 대한 지침이 부록 A에 있습니다.
 
 ## <a name="create-an-api-management-instance"></a>API Management 인스턴스 만들기
 

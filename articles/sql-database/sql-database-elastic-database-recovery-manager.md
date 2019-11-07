@@ -1,5 +1,5 @@
 ---
-title: Recovery Manager를 사용하여 분할된 데이터베이스 맵 문제 해결 | Microsoft Docs
+title: Recovery Manager를 사용 하 여 분할 맵 문제 해결
 description: RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵의 문제 해결
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: cbc4985f032c228db7a9ddf719390bbf2d0166b9
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5920f0a3f08d83b1300956ca830b3b9b827fa5e2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568694"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690475"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>RecoveryManager 클래스를 사용하여 분할된 데이터베이스 맵 문제 해결
 
@@ -76,7 +76,7 @@ Azure SQL Database Elastic Database 도구, 지역 복제 및 복원에 대한 �
    rm.DetachShard(s.Location, customerMap);
    ```
 
-분할된 데이터베이스 맵에 분할된 데이터베이스를 삭제하기 전에 GSM에서의 분할된 데이터베이스 위치가 반영됩니다. 분할된 데이터베이스는 삭제되었기 때문에 의도적인 것으로 간주되며 분할 키 범위는 더 이상 사용 중이 아닙니다. 그렇지 않은 경우 특정 시점 복원을 실행할 수 있습니다. 이전 시점에서 분할된 데이터베이스를 복구할 수 있습니다. (이 경우, 다음 섹션을 검토하여 분할된 데이터베이스의 불일치를 감지하세요.) 복구하려면 [특정 시점 복구](sql-database-recovery-using-backups.md)를 참조하세요.
+분할된 데이터베이스 맵에 분할된 데이터베이스를 삭제하기 전에 GSM에서의 분할된 데이터베이스 위치가 반영됩니다. 분할된 데이터베이스는 삭제되었기 때문에 의도적인 것으로 간주되며 분할 키 범위는 더 이상 사용 중이 아닙니다. 그렇지 않은 경우 특정 시점 복원을 실행할 수 있습니다. 이전 시점에서 분할된 데이터베이스를 복구할 수 있습니다. 이 경우 다음 섹션을 검토 하 여 분할 된 항목 불일치를 검색 합니다. 복구 하려면 특정 [시점 복구](sql-database-recovery-using-backups.md)를 참조 하세요.
 
 데이터베이스 삭제를 의도적인 것으로 가정하므로 최종 관리 정리 작업은 분할된 데이터베이스 맵 관리자에서 분할된 데이터베이스에 대한 항목을 삭제하는 것입니다. 이렇게 하면 애플리케이션에서 예기치 않은 범위에 정보를 실수록 기록하는 일을 방지할 수 있습니다.
 

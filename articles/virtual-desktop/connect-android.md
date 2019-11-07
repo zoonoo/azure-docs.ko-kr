@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
-ms.openlocfilehash: c19aa6e0acc936c5b03afdab99ce0b9230838ce2
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 41b0c1ced9e66bd58d73683865b2c40afc16c5d3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71339011"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605861"
 ---
 # <a name="connect-with-the-android-client"></a>Android 클라이언트와 연결
 
@@ -33,9 +33,9 @@ ms.locfileid: "71339011"
 
 피드를 구독 하려면 다음을 수행 합니다.
 
-1. 연결 센터에서 **+** 을 탭 한 다음 **원격 리소스 피드**를 누릅니다.
+1. 연결 센터에서 **+** 를 탭 한 다음 **원격 리소스 피드**를 누릅니다.
 2. **피드 url 필드에** 피드 url을 입력 합니다. 피드 URL은 URL 또는 전자 메일 주소일 수 있습니다.
-   - URL을 사용 하는 경우 관리자가 제공한 URL을 사용 합니다. 일반적으로 <https://rdweb.wvd.microsoft.com>입니다.
+   - URL을 사용 하는 경우 관리자가 제공한 URL을 사용 합니다. 일반적으로 <https://rdweb.wvd.microsoft.com>합니다.
    - 전자 메일을 사용 하려면 전자 메일 주소를 입력 하세요. 관리자가 서버를 구성한 경우 클라이언트는 전자 메일 주소와 연결 된 URL을 검색 합니다.
 3. **다음**을 탭 합니다.
 4. 자격 증명을 입력하라는 메시지가 표시되면 입력합니다.

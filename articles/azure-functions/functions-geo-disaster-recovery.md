@@ -1,6 +1,6 @@
 ---
-title: Azure Functions 지역 재해 복구 | Microsoft Docs
-description: 지리적 지역을 사용 하 여 장애 조치 (failover) 하 고 Azure Functions에서 재해 복구를 사용 하는 방법입니다.
+title: Azure Functions 지역 재해 복구 및 고가용성 | Microsoft Docs
+description: 지리적 지역을 사용 하 여 중복성을 Azure Functions 하 고 장애 조치 (failover)를 수행 하는 방법입니다.
 services: functions
 documentationcenter: na
 author: wesmc7777
@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: jehollan
-ms.openlocfilehash: 87f8b2fac3a123f2b92f77a70535f952b25557e0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 1d75d58a6df622ffb1b277f75ceedc2c2a66369d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310270"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576224"
 ---
 # <a name="azure-functions-geo-disaster-recovery"></a>지역 재해 복구 Azure Functions
 

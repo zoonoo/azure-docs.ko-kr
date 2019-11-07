@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e17a99a522c6ab960c2ccd0cc2729076c54ed07f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 8c8bfa5fc31ce8500d1ed339ba28afeed21e25a0
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151855"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603501"
 ---
 # <a name="passwordless-authentication-options"></a>Passwordless 인증 옵션
 
@@ -52,7 +52,7 @@ MFA (multi-factor authentication)는 조직을 보호 하는 훌륭한 방법 �
 
 FIDO2 보안 키는 모든 폼 팩터에서 제공 될 수 있는 unphishable 표준 기반 암호 없는 인증 방법입니다. Fast Identity Online (FIDO)은 암호 없는 인증을 위한 개방형 표준입니다. 이 기능을 사용 하면 사용자와 조직이 외부 보안 키 또는 장치에 기본 제공 되는 플랫폼 키를 사용 하 여 사용자 이름 또는 암호 없이 해당 리소스에 로그인 할 수 있습니다.
 
-공개 미리 보기의 경우 직원은 보안 키를 사용 하 여 Azure AD 또는 하이브리드 Azure AD에 가입 된 Windows 10 장치에 로그인 하 고 클라우드 및 온-프레미스 리소스에 대 한 single sign-on을 사용할 수 있습니다. 지원 되는 브라우저에 로그인 할 수도 있습니다.
+공개 미리 보기의 경우 직원은 보안 키를 사용 하 여 Azure AD에 가입 된 Windows 10 장치에 로그인 하 고 해당 클라우드 및 온-프레미스 리소스에 대 한 single sign-on을 받을 수 있습니다. 지원 되는 브라우저에 로그인 할 수도 있습니다.
 
 ![보안 키를 사용 하 여 Microsoft Edge에 로그인](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -64,12 +64,12 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만, Microsoft는 
 | --- | --- | --- |
 | 1 | 상주 키 | 이 기능을 통해 보안 키를 이식할 수 있습니다. 여기서 자격 증명은 보안 키에 저장 됩니다. |
 | 2 | 클라이언트 pin | 이 기능을 사용 하면 두 번째 요소로 자격 증명을 보호 하 고 사용자 인터페이스가 없는 보안 키에 적용할 수 있습니다. |
-| 3 | hmac-비밀 | 이 확장을 통해 오프 라인 이거나 비행기 모드에서 장치에 로그인 할 수 있습니다. |
+| 3 | hmac-secret | 이 확장을 통해 오프 라인 이거나 비행기 모드에서 장치에 로그인 할 수 있습니다. |
 | 4 | RP 당 여러 계정 | 이 기능을 사용 하면 Microsoft 계정 및 Azure Active Directory 같은 여러 서비스에서 동일한 보안 키를 사용할 수 있습니다. |
 
 다음 공급자는 암호 없는 환경과 호환 되는 것으로 알려진 다양 한 폼 팩터를 FIDO2 보안 키를 제공 합니다. Microsoft는 고객이 FIDO 동맹 뿐만 아니라 공급 업체에 연락 하 여 이러한 키의 보안 속성을 평가 하도록 권장 합니다.
 
-| 공급자 | 지원 문의 |
+| 공급자 | 연락처 |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |

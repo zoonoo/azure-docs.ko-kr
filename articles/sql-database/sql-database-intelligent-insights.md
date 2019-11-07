@@ -1,5 +1,5 @@
 ---
-title: Intelligent Insights를 사용하여 데이터베이스 성능 모니터링 - Azure SQL Database | Microsoft Docs
+title: Intelligent Insights를 사용 하 여 데이터베이스 성능 모니터링-Azure SQL Database
 description: Azure SQL Database Intelligent Insights는 기본 제공 인텔리전스를 사용하여 지속적으로 인공 지능을 통해 데이터베이스 사용량을 모니터링하고 성능 저하의 원인이 되는 중단 이벤트를 검색합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 70498c5f4c824681ee59b7232e9409235d7f6a93
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c073b535271ba8f9f11e17ba5203b13e257e211b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262169"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689686"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>AI를 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights
 
@@ -48,7 +48,7 @@ Intelligent Insights는 마지막 1시간의 데이터베이스 워크로드와 
 
 확인된 SQL Database 성능 저하는 다음 속성으로 구성된 지능형 항목과 함께 진단 로그에 기록됩니다.
 
-| 속성             | 설명              |
+| 속성             | 세부 정보              |
 | :------------------- | ------------------- |
 | 데이터베이스 정보 | 리소스 URI와 같이 정보가 검색된 데이터베이스에 대한 메타데이터 |
 | 관찰된 시간 범위 | 검색된 정보 기간에 대한 시작 및 종료 시간 |
@@ -83,7 +83,7 @@ Intelligent Insights 로깅을 사용하도록 설정하고 로그 데이터가 
 Azure SQL Analytics 솔루션은 Intelligent Insights 진단 로그 데이터와 함께 데이터베이스 성능에 대한 그래픽 사용자 인터페이스, 보고 및 경고 기능을 제공합니다.
 
 > [!TIP]
-> 빠른 시작: Intelligent Insights를 시작하는 가장 쉬운 방법은 데이터베이스 성능 문제에 대한 그래픽 사용자 인터페이스를 제공하는 Azure SQL 분석과 함께 사용하는 것입니다. 마켓플레이스에서 Azure SQL Analytics 솔루션을 추가하고, 이 솔루션 내에서 작업 영역을 만든 다음, Intelligent Insights를 사용하도록 설정할 각 데이터베이스에 대해 데이터베이스의 [진단 설정] 블레이드에서 Azure SQL analytics 작업 영역으로의 "SQLInsights" 로그 스트리밍을 구성합니다.
+> 빠른 시작: Intelligent Insights를 시작하는 가장 쉬운 방법은 데이터베이스 성능 문제에 대한 그래픽 사용자 인터페이스를 제공하는 Azure SQL Analytics와 함께 사용하는 것입니다. 마켓플레이스에서 Azure SQL Analytics 솔루션을 추가하고, 이 솔루션 내에서 작업 영역을 만든 다음, Intelligent Insights를 사용하도록 설정할 각 데이터베이스에 대해 데이터베이스의 [진단 설정] 블레이드에서 Azure SQL analytics 작업 영역으로의 "SQLInsights" 로그 스트리밍을 구성합니다.
 >
 
 사전 요구 사항으로 마켓플레이스에서 Azure SQL Analytics를 Azure Portal 대시보드에 추가하고 작업 영역을 만들어야 합니다. 자세한 내용은 [Azure SQL Analytics 구성](../azure-monitor/insights/azure-sql.md#configuration)을 참조하세요.
@@ -153,7 +153,7 @@ Intelligent Insights 진단 로그는 성능이 저하된 쿼리의 쿼리 해�
 - 탄력적 풀 리소스 제한에 도달
 - 과도한 작업자 또는 세션 스레드 수
 - 과도한 데이터베이스 잠금
-- 메모리 가중
+- 메모리 압력
 - 다른 대기 통계
 
 리소스 제한이나 탄력적 풀 리소스 제한에 도달하면 구독 또는 탄력적 풀에서 사용할 수 있는 리소스 소모량이 절대 임계값 이상으로 증가했음을 나타냅니다. 이러한 통계는 워크로드 성능 저하를 나타냅니다. 과도한 작업자 또는 세션 스레드 수는 시작된 작업자 스레드 또는 세션 수가 절대 임계값 이상에 도달한 상태를 나타냅니다. 이러한 통계는 워크로드 성능 저하를 나타냅니다.

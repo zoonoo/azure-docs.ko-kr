@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2019
 ms.author: spelluru
-ms.openlocfilehash: 33b4ed3974c3e4e88e5d74ff31a3b8008ab565e9
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 0f45af2730b05998fc82212c63778c89bb16b6ef
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69657321"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585098"
 ---
 # <a name="use-remote-desktop-for-linux-virtual-machines-in-a-classroom-lab-of-azure-lab-services"></a>Azure Lab Services의 클래스 룸 랩에서 Linux 가상 머신에 대 한 원격 데스크톱 사용
 이 문서에서는 학생이 RDP/SSH를 사용 하 여 랩에서 Linux VM (가상 머신)에 연결할 수 있는 방법을 보여 줍니다. 
@@ -32,8 +32,8 @@ ms.locfileid: "69657321"
 학생은 랩 소유자 (교사/교수)가 컴퓨터에 설치 된 RDP 및 GUI 패키지를 사용 하 여 템플릿 VM을 **게시** 한 후 해당 Linux VM에 rdp 할 수 있습니다. 단계는 다음과 같습니다. 
 
 1. 학생이 실습 포털에 직접 로그인 (`https://labs.azure.com`) 하거나 등록 링크 (`https://labs.azure.com/register/<registrationCode>`)를 사용 하 여 학생 들이 액세스할 수 있는 각 랩에 대 한 타일이 표시 됩니다. 
-2. 타일에서 VM이 중지 되 면 **시작** 을 선택 합니다. 
-3. **연결**을 선택합니다. VM에 연결 하는 두 가지 옵션이 표시 됩니다. **SSH** 및 **원격 데스크톱**.
+2. 타일에서 VM이 중지 됨 상태인 경우 VM을 시작 하려면 단추를 전환 합니다. 
+3. **연결**을 선택합니다. VM에 연결 하는 두 가지 옵션은 **SSH** 및 **원격 데스크톱**입니다.
 
     ![학생 VM-연결 옵션](../media/how-to-enable-remote-desktop-linux/student-vm-connect-options.png)
 

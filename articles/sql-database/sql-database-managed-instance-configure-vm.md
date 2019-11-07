@@ -1,5 +1,5 @@
 ---
-title: 클라이언트 VM 연결 - Azure SQL Database Managed Instance | Microsoft Docs
+title: '클라이언트 VM 연결-Azure SQL Database Managed Instance '
 description: Azure 가상 머신에서 SQL Server Management Studio를 사용하여 Azure SQL Database Managed Instance에 연결합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,24 +11,24 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: ddcac56671e145728f02d31bf23c657ea172e4c0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fb45df869bc9ecbe6584837894844c29bafa6223
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567656"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689399"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성
 
 이 빠른 시작에서는 SSMS(SQL Server Management Studio)를 사용하여 Azure SQL Database Managed Instance에 연결하도록 Azure 가상 머신을 구성하는 방법을 보여 줍니다. 지점 및 사이트 간 연결을 사용하여 온-프레미스 클라이언트 컴퓨터에서 연결하는 방법을 보여주는 빠른 시작은 [지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작에서는 [Managed Instance 만들기](sql-database-managed-instance-get-started.md)에서 만든 리소스를 시작점으로 사용합니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Managed Instance VNet에 새 서브넷 만들기
 
@@ -44,9 +44,9 @@ ms.locfileid: "68567656"
 
 3. 이 표의 정보를 사용하여 양식을 작성합니다.
 
-   | 설정| 제안된 값 | 설명 |
+   | 설정| 제안 값 | 설명 |
    | ---------------- | ----------------- | ----------- |
-   | **이름** | 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
+   | **이름** | 모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
    | **주소 범위(CIDR 블록)** | 유효 범위 | 이 빠른 시작에는 기본값이 적합합니다.|
    | **네트워크 보안 그룹** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
    | **경로 테이블** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
@@ -67,22 +67,22 @@ SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Serv
 
 필요한 도구가 모두 포함된 클라이언트 가상 머신을 만드는 가장 쉬운 방법은 Azure Resource Manager 템플릿을 사용하는 것입니다.
 
-1. 다른 브라우저 탭에서 Azure Portal에 로그인되었는지 확인하세요. 그러고 나서 다음 단추를 선택하여 클라이언트 가상 머신을 만들고 SQL Server Management Studio를 설치합니다.
+1. 다른 브라우저 탭의 Azure Portal에 로그인 했는지 확인 합니다. 그런 다음, 다음 단추를 선택 하 여 클라이언트 가상 머신을 만들고 SQL Server Management Studio를 설치 합니다.
 
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 2. 다음 표의 정보를 사용하여 양식을 작성합니다.
 
-   | 설정| 제안된 값 | 설명 |
+   | 설정| 제안 값 | 설명 |
    | ---------------- | ----------------- | ----------- |
    | **구독** | 유효한 구독 | 새 리소스를 만들 권한이 있는 구독이어야 합니다. |
    | **리소스 그룹** |[Managed Instance 만들기](sql-database-managed-instance-get-started.md) 빠른 시작에서 지정한 리소스 그룹입니다.|이 리소스 그룹은 VNet이 있는 리소스 그룹이어야 합니다.|
-   | **위치** | 리소스 그룹의 위치 | 이 값은 선택한 리소스 그룹에 따라 채워집니다. |
-   | **가상 머신 이름**  | 유효한 이름 | 유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
+   | **위치**: | 리소스 그룹의 위치 | 이 값은 선택한 리소스 그룹에 따라 채워집니다. |
+   | **가상 머신 이름**  | 모든 유효한 이름 | 유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
    |**관리 사용자 이름**|유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.<br>이 사용자 이름은 [VM에 연결](#connect-to-virtual-machine)할 때마다 사용됩니다.|
    |**암호**|유효한 암호|암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.<br>이 암호는 [VM에 연결](#connect-to-virtual-machine)할 때마다 사용됩니다.|
    | **가상 머신 크기** | 모든 유효한 크기 | 이 빠른 시작에서는 이 템플릿의 기본값인 **Standard_B2s**로 충분합니다. |
-   | **위치**|[resourceGroup().location].| 이 값은 변경하지 마세요. |
+   | **위치**:|[resourceGroup().location].| 이 값은 변경하지 마세요. |
    | **가상 네트워크 이름**|Managed Instance를 만든 가상 네트워크입니다.|
    | **서브넷 이름**|이전 절차에서 만든 서브넷의 이름| Managed Instance를 만든 서브넷을 선택하지 마세요.|
    | **아티팩트 위치** | [deployment().properties.templateLink.uri] | 이 값은 변경하지 마세요. |
@@ -107,7 +107,7 @@ SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Serv
 
     ![VM](./media/sql-database-managed-instance-configure-vm/vm.png)  
 
-2.           **연결**을 선택합니다.
+2. **연결**을 선택합니다.
 
    가상 머신의 공용 IP 주소 및 포트 번호를 사용하여 원격 데스크톱 프로토콜 파일(.rdp 파일) 양식이 나타납니다.
 

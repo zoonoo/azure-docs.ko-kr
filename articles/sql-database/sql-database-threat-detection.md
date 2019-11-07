@@ -1,20 +1,21 @@
 ---
-title: Advanced Threat Protection - Azure SQL Database | Microsoft Docs
+title: Advanced Threat Protection 구성-Azure SQL Database
 description: Advanced Threat Protection은 단일 데이터베이스 또는 탄력적 풀의 데이터베이스에 대 한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색 합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: seo-dt-2019
 ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 08/05/2019
-ms.openlocfilehash: 755a3b391cb7b4909169b034cc8d89892ec2ed05
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 8a6d40f37dec3488009a702d52d6437cd345717b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816555"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686948"
 ---
 # <a name="azure-sql-database-advanced-threat-protection-for-single-or-pooled-databases"></a>단일 또는 풀링된 데이터베이스에 대 한 Advanced Threat Protection Azure SQL Database
 

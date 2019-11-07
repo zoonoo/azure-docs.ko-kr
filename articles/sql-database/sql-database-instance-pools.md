@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 인스턴스 풀 (미리 보기) | Microsoft Docs
+title: Azure SQL Database 인스턴스 풀 (미리 보기)
 description: 이 문서에서는 Azure SQL Database 인스턴스 풀 (미리 보기)에 대해 설명 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,18 +11,18 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 34e779f04f59b23733c6fbfa3450931fccb442b1
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 7d8c316d5c78cfe09bcf134b5a5c513e1c007d74
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70294257"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689777"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>SQL Database 인스턴스 풀 (미리 보기) 이란 무엇 인가요?
 
 인스턴스 풀은 더 작은 SQL 인스턴스를 대규모로 클라우드로 마이그레이션하는 편리 하 고 비용 효율적인 방법을 제공 하는 Azure SQL Database의 새로운 리소스입니다.
 
-인스턴스 풀을 사용 하면 총 마이그레이션 요구 사항에 따라 계산 리소스를 미리 프로 비전 할 수 있습니다. 그런 다음 미리 프로 비전 된 계산 수준까지 여러 개별 관리 되는 인스턴스를 배포할 수 있습니다. 예를 들어 vCores 8 개를 사전 프로 비전 하는 경우 2 개의 Vcores와 4 개의 Vcores 인스턴스를 배포한 후 데이터베이스를 이러한 인스턴스로 마이그레이션할 수 있습니다. 인스턴스 풀을 사용할 수 있기 전에는 더 작고 적은 계산 집약적인 워크 로드를 클라우드로 마이그레이션할 때 더 큰 관리 되는 인스턴스로 통합 해야 하는 경우가 많습니다. 데이터베이스 그룹을 대형 인스턴스로 마이그레이션하려면 일반적으로 용량 계획 및 리소스 관리, 추가 보안 고려 사항 및 인스턴스 수준에서의 추가 데이터 통합 작업을 수행 해야 합니다.
+인스턴스 풀을 사용하면 총 마이그레이션 요구 사항에 따라 계산 리소스를 미리 프로비전할 수 있습니다. 그런 다음 미리 프로비전된 계산 수준까지 여러 개의 개별 관리되는 인스턴스를 배포할 수 있습니다. 예를 들어 vCores 8 개를 사전 프로 비전 하는 경우 2 개의 Vcores와 4 개의 Vcores 인스턴스를 배포한 후 데이터베이스를 이러한 인스턴스로 마이그레이션할 수 있습니다. 인스턴스 풀을 사용할 수 있기 전에는 더 작고 적은 계산 집약적인 워크 로드를 클라우드로 마이그레이션할 때 더 큰 관리 되는 인스턴스로 통합 해야 하는 경우가 많습니다. 데이터베이스 그룹을 대형 인스턴스로 마이그레이션하려면 일반적으로 용량 계획 및 리소스 관리, 추가 보안 고려 사항 및 인스턴스 수준에서의 추가 데이터 통합 작업을 수행 해야 합니다.
 
 또한 인스턴스 풀은 기본 VNet 통합을 지원 하므로 동일한 서브넷에 여러 인스턴스 풀 및 여러 개의 단일 인스턴스를 배포할 수 있습니다.
 
@@ -31,7 +31,7 @@ ms.locfileid: "70294257"
 
 인스턴스 풀은 다음과 같은 이점을 제공 합니다.
 
-1. VCore 인스턴스 2 개를 호스트할 수 있습니다. 인스턴스 풀의 인스턴스에서만 해당 됩니다.  *\**
+1. VCore 인스턴스 2 개를 호스트할 수 있습니다. *인스턴스 풀의 인스턴스에 대해서만\** 합니다.
 2. 예측 가능 하 고 빠른 인스턴스 배포 시간 (최대 5 분)
 3. 최소 IP 주소 할당.
 
@@ -59,7 +59,7 @@ ms.locfileid: "70294257"
 
 ## <a name="architecture-of-instance-pools"></a>인스턴스 풀의 아키텍처
 
-인스턴스 풀의 아키텍처는 일반적인 관리 되는 인스턴스 (*단일 인스턴스*)와 유사 합니다.   [Azure vnet (가상 네트워크) 내에서 배포](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks)를 지원 하 고 고객에 대 한 격리 및 보안을 제공 하기 위해 인스턴스 풀은 [가상 클러스터](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)에도 의존 합니다. 가상 클러스터는 고객의 가상 네트워크 서브넷 내에 배포 된 격리 된 가상 머신의 전용 집합을 나타냅니다.
+인스턴스 풀의 아키텍처는 일반적인 관리 되는 인스턴스 (*단일 인스턴스*)와 유사 합니다.  [Azure vnet (가상 네트워크 ) 내에서 배포](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) 를 지원 하 고 고객에 대 한 격리 및 보안을 제공 하기 위해 인스턴스 풀은 [가상 클러스터](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)를 사용 하기도 합니다. 가상 클러스터는 고객의 가상 네트워크 서브넷 내에 배포 된 격리 된 가상 머신의 전용 집합을 나타냅니다.
 
 두 배포 모델의 주요 차이점은 인스턴스 풀은 [Windows 작업 개체](https://docs.microsoft.com/windows/desktop/ProcThread/job-objects)를 사용 하 여 리소스를 관리 하는 동일한 가상 컴퓨터 노드에서 여러 SQL Server 프로세스 배포를 허용 하지만, 단일 인스턴스는 항상 독립적입니다. 가상 컴퓨터 노드입니다.
 
@@ -71,7 +71,7 @@ ms.locfileid: "70294257"
 
 ## <a name="instance-pools-resource-limitations"></a>인스턴스 풀 리소스 제한 사항
 
-풀 내의 인스턴스 풀 및 인스턴스에 대 한 몇 가지 리소스 제한이 있습니다.
+인스턴스 풀 및 풀 내의 인스턴스에 대한 몇 가지 리소스 제한이 있습니다.
 
 - 인스턴스 풀은 Gen5 하드웨어 에서만 사용할 수 있습니다.
 - 풀 내의 인스턴스에는 전용 CPU와 RAM이 있으므로 모든 인스턴스의 집계 된 vCores 수는 풀에 할당 된 vCores의 수보다 작거나 같아야 합니다.
@@ -136,8 +136,8 @@ ms.locfileid: "70294257"
 
 계산 가격 (vCores로 측정)의 경우 두 가지 가격 책정 옵션을 사용할 수 있습니다.
 
-  1. *포함 된 라이선스*: 소프트웨어 보증이 있는 기존 SQL Server 라이선스를 적용 합니다.
-  2. *Azure 하이브리드 혜택*: SQL Server에 대 한 Azure 하이브리드 혜택를 포함 하는 절감 된 가격입니다. 고객은 소프트웨어 보증이 있는 기존 SQL Server 라이선스를 사용 하 여이 가격을 옵트인 (opt in) 할 수 있습니다. 자격 및 기타 세부 정보는 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 참조 하세요.
+  1. *라이선스 포함*: 소프트웨어 보증이 있는 기존 SQL Server 라이선스를 적용 합니다.
+  2. *Azure 하이브리드 혜택*: SQL Server의 Azure 하이브리드 혜택를 포함 하는 절감 된 가격입니다. 고객은 소프트웨어 보증이 있는 기존 SQL Server 라이선스를 사용 하 여이 가격을 옵트인 (opt in) 할 수 있습니다. 자격 및 기타 세부 정보는 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 참조 하세요.
 
 풀의 개별 인스턴스에 대해 다른 가격 책정 옵션을 설정할 수 없습니다. 부모 풀의 모든 인스턴스는 라이선스 포함 가격 또는 Azure 하이브리드 혜택 가격 중 하나 여야 합니다. 풀을 만든 후에 풀의 라이선스 모델을 변경할 수 있습니다.
 

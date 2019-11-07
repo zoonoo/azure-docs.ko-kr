@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 5e8dc6629cfbbc3e42aeeb4dc94f33d13867ca9f
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 8c9258f099587ba4dbdfe3a7e46f72cd7a825024
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024807"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603831"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid의 이벤트 원본
 
@@ -129,7 +129,7 @@ Service Bus 이벤트를 구독하여 활성 수신기 없이 메시지에 응�
 | [개요: Azure Service Bus-Event Grid 통합](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Event Grid와 Service Bus 통합의 개요입니다. |
 | [이벤트 스키마](event-schema-service-bus.md) | Service Bus 이벤트의 필드를 표시합니다. |
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 
 Blob Storage 이벤트를 구독하여 만든 blob 및 삭제된 이벤트에 대해 응답합니다.
 
@@ -153,7 +153,7 @@ Azure Maps 이벤트를 구독하여 지오펜스 이벤트에 응답합니다. 
 | [자습서: 지 오를 설정 합니다.](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 이 자습서에서는 Azure Maps를 사용하여 지오펜스를 설정하는 기본 단계를 안내합니다. Azure Event Grid를 사용하여 지오펜스 결과를 스트림하고, 지오펜스 결과를 기반으로 하는 알림을 설정합니다. |
 | [이벤트 스키마](event-schema-azure-maps.md) | Azure Maps 이벤트의 필드를 표시합니다. |
 
-## <a name="app-configuration"></a>App Configuration
+## <a name="app-configuration"></a>앱 구성
 Azure 앱 구성 이벤트를 구독 하 여 키-값 수정 이벤트에 응답 합니다.
 
 |제목 | 설명 |
@@ -171,7 +171,14 @@ Azure SignalR Service 이벤트를 구독 하 여 클라이언트 연결 이벤�
 | [Event Grid에 Azure SignalR Service 이벤트를 보내는 방법](../azure-signalr/signalr-howto-event-grid-integration.md) | Event Grid를 통해 Azure SignalR Service 이벤트를 응용 프로그램에 보내는 방법을 보여 줍니다. |
 | [이벤트 스키마](event-schema-azure-signalr.md) | Azure SignalR Service 이벤트의 필드를 표시 합니다. |
 
+## <a name="azure-machine-learning"></a>Azure Machine Learning
 
+Azure Machine Learning 작업 영역 이벤트를 구독 하 여 모델 등록에 응답 합니다.
+
+| 제목 | 설명 |
+| ----- | ----- |
+| [Azure Machine Learning 이벤트 사용](../machine-learning/service/concept-event-grid-integration.md) | Event Grid와 Azure Machine Learning 통합에 대 한 개요입니다. |
+| [Azure Machine Learning에 대 한 Azure Event Grid 이벤트 스키마](event-schema-machine-learning.md) | Azure Machine Learning 이벤트의 필드를 표시 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

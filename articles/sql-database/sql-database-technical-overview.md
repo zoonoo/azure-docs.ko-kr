@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 서비스란? | Microsoft Docs
+title: Azure SQL Database 서비스란?
 description: 'SQL Database에 대 한 소개: 클라우드에서 Microsoft RDBMS (관계형 데이터베이스 관리 시스템)의 기술 세부 정보 및 기능을 소개 합니다.'
 keywords: sql 소개, sql 소개, sql 데이터베이스란
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: e5782ba016cf58335de17cdacabbcca95914f59a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d22408904ae21bc7512d4ebe8792666227893337
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066273"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687015"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Azure SQL Database 서비스란?
 
@@ -99,7 +99,7 @@ Azure SQL Database는 작업 특성에 대 한 심층적인 통찰력을 얻는 
 
 Azure는 성능 등급과 결합 된 [기본 제공 성능 모니터링](sql-database-performance.md) 및 [경고](sql-database-insights-alerts-portal.md) 도구를 제공 하 여 수천 개의 데이터베이스 상태를 모니터링할 수 있도록 합니다. 이러한 도구를 사용 하면 현재 또는 예상 되는 성능 요구 사항에 따라 확장 또는 축소의 영향을 신속 하 게 평가할 수 있습니다. 또한 SQL Database는 쉬운 모니터링을 위해 [메트릭 및 진단 로그를 내보낼](sql-database-metrics-diag-logging.md) 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 이러한 Azure 리소스 중 하나에 저장하도록 SQL Database를 구성할 수 있습니다.
 
-- **Azure Storage**: 작은 가격으로 방대한 양의 원격 분석을 보관 합니다.
+- **Azure Storage**: 저렴한 가격으로 방대한 양의 원격 분석을 보관할 수 있습니다.
 - **Azure Event Hubs**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합 하는 데 사용 됩니다.
 - **Azure Monitor 로그**: 보고, 경고 및 완화 기능을 사용 하는 기본 제공 모니터링 솔루션의 경우
 
@@ -117,7 +117,7 @@ Azure 가용성 영역는 단일 지역 내에서 단일 데이터 센터 빌드
 
 실제로 Microsoft에서 관리 하는 데이터 센터의 글로벌 네트워크에서 제공 하는 Azure의 [SLA (](https://azure.microsoft.com/support/legal/sla/) 서비스 수준 계약)는 앱이 24/7을 계속 실행 하는 데 도움이 됩니다. Azure 플랫폼은 모든 데이터베이스를 완벽 하 게 관리 하 고 데이터 손실 및 높은 비율의 데이터 가용성을 보장 하지 않습니다. Azure는 패치, 백업, 복제, 오류 감지, 기본 하드웨어, 소프트웨어 또는 네트워크 오류, 배포 버그 픽스, 장애 조치(failover), 데이터베이스 업그레이드 및 기타 유지 관리 작업을 자동으로 처리합니다. 표준 가용성은 컴퓨팅 계층과 스토리지 계층을 분리하여 달성합니다. 프리미엄 가용성은 성능 향상을 위해 단일 노드에 계산 및 저장소를 통합 한 다음 Always On 가용성 그룹과 유사한 기술을 구현 하 여 수행 됩니다. Azure SQL Database의 고가용성 기능에 대한 자세한 내용은 [SQL Database 가용성](sql-database-high-availability.md)을 참조하세요. 
 
-또한 SQL Database는 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공 합니다. 이러한 개체는 다음과 같습니다.
+또한 SQL Database는 기본 제공 [비즈니스 연속성 및 글로벌 확장성](sql-database-business-continuity.md) 기능을 제공 합니다. 내용은 다음과 같습니다.
 
 - [자동 백업](sql-database-automated-backups.md):
 
@@ -184,7 +184,7 @@ SQL Database는 다양한 [기본 제공 보안 및 규정 준수 기능](sql-da
 
 [감사](sql-database-auditing.md)는 데이터베이스 이벤트를 추적하고 Azure Storage 계정의 감사 로그에 이벤트를 씁니다. 감사는 규정 준수를 유지 관리하고, 데이터베이스 작업을 이해하고, 비즈니스 문제나 의심스러운 보안 위반을 나타낼 수 있는 불일치 및 이상 활동을 파악하는 데 도움이 될 수 있습니다.
 
-### <a name="data-encryption"></a>데이터 암호화
+### <a name="data-encryption"></a>데이터 암호화.
 
 SQL Database는 암호화를 제공 하 여 데이터를 보호 합니다. 동작 중인 데이터의 경우 [전송 계층 보안](https://support.microsoft.com/kb/3135244)을 사용 합니다. 미사용 데이터의 경우 [투명 한 데이터 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)를 사용 합니다. 사용 중인 데이터의 경우 [상시 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine)를 사용 합니다.
 
@@ -251,7 +251,7 @@ SQL Database 고객에 게는 SQL Server에 대 한 Azure 하이브리드 혜택
 ## <a name="engage-with-the-sql-server-engineering-team"></a>SQL Server 엔지니어링 팀에 문의
 
 - [DBA 스택 교환](https://dba.stackexchange.com/questions/tagged/sql-server): 데이터베이스 관리 질문을 요청 합니다.
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): 개발 질문을 해 보세요.
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): 개발 질문을 합니다.
 - [MSDN 포럼](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): 기술에 대해 문의 하세요.
 - [사용자 의견](https://aka.ms/sqlfeedback): 버그 및 요청 기능을 보고 합니다.
 - [Reddit](https://www.reddit.com/r/SQLServer/): SQL Server에 대해 논의 합니다.

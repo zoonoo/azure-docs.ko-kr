@@ -1,6 +1,6 @@
 ---
-title: Machine Learning Studio 용 PowerShell 모듈 (클래식)
-titleSuffix: Azure Machine Learning Studio (classic)
+title: PowerShell 모듈
+titleSuffix: ML Studio (classic) Azure
 description: PowerShell을 사용 하 여 Azure Machine Learning Studio (클래식) 작업 영역, 실험, 웹 서비스 등을 만들고 관리할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: xiaoharper
 ms.author: amlstudiodocs
 ms.date: 04/25/2019
-ms.openlocfilehash: dae20a86c7a16e1d989b529a3f2dd4e32253a354
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7de760e9bdaaf9a00cf170b3383e0e93e8806a87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496806"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670845"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 용 PowerShell 모듈 (클래식)
 

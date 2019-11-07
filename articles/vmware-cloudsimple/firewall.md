@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 798f95281740213ac23892eb3b54ff780ca18395
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 411b4bb74c21a445f4001c949e1c7811af212453
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772338"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606446"
 ---
 # <a name="set-up-firewall-tables-and-rules-for-private-clouds"></a>사설 클라우드에 대 한 방화벽 테이블 및 규칙 설정
 
@@ -33,6 +33,9 @@ ms.locfileid: "70772338"
 4. 테이블의 이름을 입력 합니다.
 5. 테이블에 대 한 기본 규칙이 나열 됩니다. **새 규칙 만들기** 를 클릭 하 여 추가 규칙을 만듭니다. 자세한 내용은 다음 절차를 참조 하세요.
 6. **완료** 를 클릭 하 여 방화벽 테이블을 저장 합니다.
+
+> [!IMPORTANT]
+> 사설 클라우드 당 최대 2 개의 방화벽 테이블을 만들 수 있습니다.
 
 ## <a name="firewall-rules"></a>방화벽 규칙
 
@@ -62,6 +65,9 @@ ms.locfileid: "70772338"
 
 3. **완료** 를 클릭 하 여 규칙을 저장 하 고 방화벽 테이블의 규칙 목록에 추가 합니다.
 
+> [!IMPORTANT]
+> 각 방화벽 테이블에는 최대 10 개의 인바운드 규칙과 20 아웃 바운드 규칙이 있을 수 있습니다. [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)하 여 이러한 제한을 늘릴 수 있습니다.
+
 ## <a name="attach-vlanssubnets"></a>Vlan/서브넷 연결
 
 방화벽 테이블을 정의한 후에는 테이블의 규칙에 적용 되는 서브넷을 지정할 수 있습니다.
@@ -70,4 +76,4 @@ ms.locfileid: "70772338"
 2. **연결 된 vlan/서브넷** 탭을 엽니다.
 3. **VLAN/서브넷에 연결을**클릭 합니다.
 4. 사설 클라우드 및 VLAN을 선택 합니다. 연결 된 서브넷 이름 및 CIDR 블록이 표시 됩니다.
-5. **제출**을 클릭합니다.
+5. **Submit**를 클릭합니다.

@@ -4,16 +4,16 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 10/23/2019
 ms.author: lugoldbe
-ms.openlocfilehash: 9aca01b24bc3351460c462c08689fdaa41e3a755
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: d0cef9f8ec4d7afde4f83e4f83bccdb44d5615ca
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73057287"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581831"
 ---
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 리소스 그룹, 저장소 계정 및 컨테이너, 이벤트 허브 및 Azure 데이터 탐색기 클러스터와 데이터베이스를 만듭니다. 코드 예제를 실행 하는 데 사용 되는 이름이 `template.json`인 파일에 다음 콘텐츠를 저장 합니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 리소스 그룹, 저장소 계정 및 컨테이너, 이벤트 허브 및 Azure 데이터 탐색기 클러스터와 데이터베이스를 만듭니다. `template.json`이름이 있는 파일에 다음 콘텐츠를 저장 합니다. 이 파일을 사용 하 여 코드 예제를 실행 합니다.
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 24ce6de63d06402e24abdeb33996a3853175ce91
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 4e04ae7d9594ac064c9f3707c797fb2709a79cb6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954410"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582947"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결
 
@@ -57,7 +57,7 @@ Azure IoT Central 응용 프로그램에서 **MXChip** 장치 템플릿의 실�
 
 1. 장치 연결 정보, **범위 ID**, **장치 id**및 **기본 키**를 가져오려면 장치 페이지에서 **연결** 을 선택 합니다.
 
-    ![연결 세부 정보](media/howto-connect-devkit/device-connect.png)
+    ![연결 정보](media/howto-connect-devkit/device-connect.png)
 
 1. 연결 정보를 적어 둡니다. 다음 단계에서 DevKit 장치를 준비할 때 인터넷에서 일시적으로 연결을 끊었습니다.
 
@@ -119,7 +119,7 @@ DevKit 디바이스가 다시 시작되면 디바이스에 다음과 같은 화�
 
 원격 분석 측정값 및 reported 속성 값을 확인하고, Azure IoT Central에서 설정을 구성할 수 있습니다.
 
-1. **Device Explorer**를 사용하여 추가한 실제 MXChip 디바이스에 대한 **측정값** 페이지로 이동합니다.
+1. **장치** 를 사용 하 여 추가한 실제 MXChip 장치에 대 한 **측정** 페이지로 이동 합니다.
 
     ![실제 디바이스로 이동](media/howto-connect-devkit/realdevicenew.png)
 
@@ -184,7 +184,7 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 **Azureiotclient .cpp** 소스 파일의 코드는 [Microsoft Azure IoT sdk 및 C 용 라이브러리](https://github.com/Azure/azure-iot-sdk-c) 의 함수를 사용 하 여 IoT Hub와 상호 작용 합니다.
 
-샘플 코드를 수정하고, 빌드하고, 디바이스에 업로드하는 방법은 `MXCHIP/mxchip_advanced` 폴더에 있는 **readme.md** 파일을 참조하세요.
+샘플 코드를 수정하고, 빌드하고, 디바이스에 업로드하는 방법은 **폴더에 있는**readme.md`MXCHIP/mxchip_advanced` 파일을 참조하세요.
 
 ## <a name="mxchip-device-template-details"></a>MXChip 디바이스 템플릿 세부 정보
 
@@ -194,7 +194,7 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 #### <a name="telemetry"></a>원격 분석
 
-| 필드 이름     | 단위  | 최소 | 최대 | 소수 자릿수 |
+| 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidity       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -210,12 +210,12 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 | gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
 
 #### <a name="states"></a>상태 
-| name          | 표시 이름   | 정상 | 주의 | 위험 | 
+| Name          | 표시 이름   | 정상 | 주의 | 위험 | 
 | ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | 디바이스 상태   | 녹색  | Orange  | 빨강    | 
+| DeviceState   | 디바이스 상태   | 녹색  | 주황색  | 빨강    | 
 
 #### <a name="events"></a>이벤트 
-| name             | 표시 이름      | 
+| Name             | 표시 이름      | 
 | ---------------- | ----------------- | 
 | ButtonBPressed   | 단추 B 누름  | 
 
@@ -223,7 +223,7 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 숫자 설정
 
-| 표시 이름 | 필드 이름 | 단위 | 소수 자릿수 | 최소 | 최대 | Initial |
+| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 전압      | setVoltage | 볼트 | 0              | 0       | 240     | 0       |
 | Current      | setCurrent | 암페어  | 0              | 0       | 100     | 0       |
@@ -233,21 +233,21 @@ Azure IoT Central 응용 프로그램에 속성 값을 보고 하는 방법을 �
 
 | 표시 이름 | 필드 이름 | 온 텍스트 | 오프 텍스트 | Initial |
 | ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | 켜기      | 끄기      | 해제     |
+| IR           | activateIR | 켜기      | 끄기      | 꺼짐     |
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>속성
 
-| Type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| 형식            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
 | 디바이스 속성 | 디바이스 위치   | location  | location    |
-| 텍스트            | 제조 일자     | manufacturedIn   | N/A       |
+| 텍스트            | 제조 일자     | manufacturedIn   | 해당 없음       |
 
 ### <a name="commands"></a>명령
 
 | 표시 이름 | 필드 이름 | 반환 형식 | 입력 필드 표시 이름 | 입력 필드 이름 | 입력 필드 형식 |
 | ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| 울림         | echo       | text        | 표시할 값         | displayedValue   | text             |
+| 울림         | echo       | 텍스트        | 표시할 값         | displayedValue   | 텍스트             |
 | 다운    | 다운  | number      | 개수               | countFrom        | number           |
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,5 +1,5 @@
 ---
-title: Advanced Threat Protection - Azure SQL Database | Microsoft Docs
+title: Advanced Threat Protection-Azure SQL Database
 description: Advanced Threat Protection은 Azure SQL Database 잠재적 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 03/31/2019
-ms.openlocfilehash: de802d17f57077e2b4df195e04f35cbf9665f6b3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fca68fbc1ee30b1df100255e463eca2fc895980b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566345"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686962"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database"></a>Azure SQL Database의 Advanced Threat Protection
 
@@ -25,7 +25,7 @@ ms.locfileid: "68566345"
 Advanced Threat Protection은 고급 SQL 보안 기능을 위한 통합 패키지인 광고 ( [advanced data security](sql-database-advanced-data-security.md) ) 제품의 일부입니다. 고급 위협 방지는 중앙 SQL ADS 포털을 통해 액세스 하 고 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하자면, SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용 됩니다.
 
 ## <a name="what-is-advanced-threat-protection"></a>Advanced Threat Protection 이란?
 
@@ -37,16 +37,16 @@ Advanced Threat Protection은 고급 SQL 보안 기능을 위한 통합 패키�
 
 Azure SQL Database에 대 한 Advanced Threat Protection은 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 비정상적인 시도를 감지 하 고 다음 경고를 트리거할 수 있습니다.
 
-- **SQL 삽입에 대한 취약성**: 애플리케이션에서 데이터베이스에 잘못된 SQL 문을 생성하면 이 경고가 트리거됩니다. 이 경고는 SQL 삽입 공격에 대한 가능한 취약점을 나타낼 수 있습니다. 잘못된 문 생성에 대한 두 가지 가능한 이유가 있습니다.
+- **SQL 삽입에 대 한 취약점**:이 경고는 응용 프로그램이 데이터베이스에서 잘못 된 SQL 문을 생성할 때 트리거됩니다. 이 경고는 SQL 삽입 공격에 대한 가능한 취약점을 나타낼 수 있습니다. 잘못된 문 생성에 대한 두 가지 가능한 이유가 있습니다.
 
   - 잘못된 SQL문을 구성하는 애플리케이션 코드의 결함
   - 애플리케이션 코드 또는 저장 프로시저는 SQL 삽입에 악용될 수 있는 잘못된 SQL문을 생성할 때 사용자 입력을 삭제하지 않습니다.
-- **잠재적 SQL 삽입**: SQL 삽입에 대해 식별된 애플리케이션 취약성으로 인해 활성 악용이 발생하면 이 경고가 트리거됩니다. 즉 공격자가 취약한 애플리케이션 코드 또는 저장 프로시저를 사용하여 악성 SQL문을 삽입하려고 하는 것을 의미합니다.
-- **비정상적인 위치에서 액세스**: 비정상적인 지리적 위치에서 누군가가 SQL Server에 로그온한 위치에 SQL Server 액세스 패턴에 변경이 있는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(새 애플리케이션 또는 개발자 유지 관리)을 검색합니다. 하고 악의적인 작업(퇴사 직원, 외부 공격자)을 감지하기도 합니다.
-- **비정상적인 Azure 데이터 센터에서 액세스**: 최근 기간 동안 이 서버에 표시된 비정상적인 Azure 데이터 센터에서 누군가가 SQL Server에 로그온한 위치에 SQL Server 액세스 패턴에 변경이 있는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(Azure, Power BI, Azure SQL Query Editor의 새 애플리케이션)을 검색합니다. 다른 경우에서 경고는 Azure 리소스/서비스의 악의적인 작업(퇴사 직원, 외부 공격자)을 감지합니다.
-- **알 수 없는 보안 주체에서 액세스**: 비정상적인 보안 주체(SQL 사용자)를 사용하여 누군가가 SQL Server에 로그온한 위치에 SQL Server 액세스 패턴에 변경이 있는 경우 이 경고가 트리거됩니다. 경고는 합법적인 작업(새 애플리케이션, 개발자 유지 관리)을 감지하기도 하고 악의적인 작업(퇴사 직원, 외부 공격자)을 감지하기도 합니다. 하고 악의적인 작업(퇴사 직원, 외부 공격자)을 감지하기도 합니다.
-- **잠재적으로 위험한 애플리케이션에서 액세스**: 잠재적으로 위험한 애플리케이션이 데이터베이스에 액세스하는 데 사용되면 이 경고가 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 감지합니다. 다른 경우에서 경고는 일반적인 공격 도구를 사용하는 공격을 감지합니다.
-- **무차별 암호 대입 SQL 자격 증명**: 자격 증명이 다른 로그인의 실패 횟수가 비정상적으로 많으면 이 경고가 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 감지합니다. 다른 경우에서 경고는 무차별 암호 대입 공격(brute force attack)을 검색합니다.
+- **잠재적인 SQL 삽입**: 활성 악용이 SQL 삽입에 대한 식별된 애플리케이션 취약성에 대해 발생할 때 이 경고가 트리거됩니다. 즉 공격자가 취약한 애플리케이션 코드 또는 저장 프로시저를 사용하여 악성 SQL문을 삽입하려고 하는 것을 의미합니다.
+- **비정상적인 위치에서 액세스**: 비정상적인 지리적 위치에서 누군가가 SQL 서버에 로그온한 위치에 SQL 서버에 대한 액세스 패턴에 변경이 있는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(새 애플리케이션 또는 개발자 유지 관리)을 검색합니다. 다른 경우에서 경고는 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
+- **비정상적인 Azure 데이터 센터에서 액세스**: 최근 기간 동안 이 서버에 표시된 비정상적인 Azure 데이터 센터에서 누군가가 SQL 서버에 로그온한 위치에 SQL 서버에 대한 액세스 패턴에 변경이 있는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(Azure, Power BI, Azure SQL Query Editor의 새 애플리케이션)을 검색합니다. 다른 경우에서 경고는 Azure 리소스/서비스의 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
+- **잘 모르는 보안 주체에서 액세스**: 비정상적인 보안 주체(SQL 사용자)를 사용하여 누군가가 SQL 서버에 로그온한 위치에 SQL 서버에 대한 액세스 패턴에 변경이 있는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 합법적인 작업(새 애플리케이션, 개발자 유지 관리)을 검색합니다. 다른 경우에서 경고는 악의적인 작업(퇴사 직원, 외부 공격자)을 검색합니다.
+- **잠재적으로 위험한 애플리케이션에서 액세스**: 잠재적으로 위험한 애플리케이션이 데이터베이스에 액세스하는 데 사용되는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 검색합니다. 다른 경우에서 경고는 일반적인 공격 도구를 사용하여 공격을 검색합니다.
+- **무차별 암호 대입 SQL 자격 증명**: 서로 다른 자격 증명을 사용하는 비정상적인 많은 수의 실패한 로그인이 있는 경우 이 경고가 트리거됩니다. 일부 경우에서 경고는 작업의 침투 테스트를 검색합니다. 다른 경우에서 경고는 무차별 암호 대입 공격(brute force attack)을 검색합니다.
 
 ## <a name="explore-anomalous-database-activities-upon-detection-of-a-suspicious-event"></a>의심스러운 이벤트 감지 시 비정상적인 데이터베이스 활동 살펴보기
 
@@ -80,5 +80,5 @@ Advanced Threat Protection은 경고를 [Azure security center](https://azure.mi
 - [관리 되는 인스턴스의 Advanced Threat Protection](sql-database-managed-instance-threat-detection.md)에 대해 자세히 알아보세요.
 - [고급 데이터 보안](sql-database-advanced-data-security.md)에 대해 자세히 알아보세요.
 - [Azure SQL Database 감사](sql-database-auditing.md)에 대한 자세한 정보
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대해 자세히 알아봅니다.
+- [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대해 자세히 알아보기
 - 가격 책정에 대한 자세한 내용은 [SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/)를 참조하세요.  

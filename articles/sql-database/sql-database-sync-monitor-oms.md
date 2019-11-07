@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 로그를 사용 하 여 Azure SQL 데이터 동기화 모니터링 | Microsoft Docs
+title: 'Azure Monitor 로그를 사용 하 여 Azure SQL 데이터 동기화 모니터링 '
 description: Azure Monitor 로그를 사용 하 여 Azure SQL 데이터 동기화를 모니터링 하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 26dc1ebef1c627ed2b20eb0fda68b2ca2d01b82a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9e89ad8e6ac556df87a674efdf2d3bbc2041c38b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791751"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687036"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 SQL 데이터 동기화 모니터링 
 
@@ -61,7 +61,7 @@ Azure Portal이나 PowerShell 또는 REST API를 통해 로그를 수동으로 �
 
 -   [데이터 동기화 Azure Monitor 보기](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 다음 항목을 설정했는지 확인합니다.
 
@@ -135,7 +135,7 @@ Azure Monitor 로그를 사용 하는 경고를 만들려면 다음 작업을 �
 
 1.  Azure Portal에서 **Log Search**를 선택합니다.
 
-2.  선택한 간격 내에서 동기화 그룹별로 오류와 경고를 선택하는 쿼리를 만듭니다. 다음은 그 예입니다.
+2.  선택한 간격 내에서 동기화 그룹별로 오류와 경고를 선택하는 쿼리를 만듭니다. 예:
 
     `DataSyncLog_CL | where TimeGenerated > ago(60m) | where LogLevel_s != "Success" | summarize count() by SyncGroupName_s`
 
@@ -149,7 +149,7 @@ Azure Monitor 로그를 사용 하는 경고를 만들려면 다음 작업을 �
 
 5.  **작업** 아래에서 **전자 메일 알림**을 "예"로 설정합니다. 원하는 전자 메일 받는 사람을 입력합니다.
 
-6.  페이지 맨 아래에 있는 **저장**을 참조하세요. 이제 오류가 발생하면 지정된 받는 사람이 전자 메일 알림을 받습니다.
+6.  **Save**를 클릭합니다. 이제 오류가 발생하면 지정된 받는 사람이 전자 메일 알림을 받습니다.
 
 ## <a name="create-an-azure-monitor-view-for-monitoring"></a>모니터링할 Azure Monitor 보기 만들기
 

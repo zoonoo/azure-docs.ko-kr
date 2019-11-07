@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory에서 데이터 흐름 매핑 | Microsoft Docs
+title: Azure Data Factory에서 데이터 흐름 매핑
 description: Azure Data Factory에서 데이터 흐름을 매핑하는 방법에 대 한 개요
 author: kromerm
 ms.author: makromer
@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 7f6c131737ca63d120e111b3ef4504a36dbd7fc1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ed2502ffebbacf5e66e3e4738e2e88ce7fb8a562
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754703"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681552"
 ---
-# <a name="what-are-mapping-data-flows"></a>데이터 흐름 매핑이란?
+# <a name="what-are-mapping-data-flows"></a>매핑 데이터 흐름 이란?
 
 데이터 흐름 매핑은 Azure Data Factory에서 시각적으로 디자인 된 데이터 변환입니다. 데이터 흐름을 통해 데이터 엔지니어는 코드를 작성 하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있습니다. 결과 데이터 흐름은 확장 된 Spark 클러스터를 사용 하는 Azure Data Factory 파이프라인 내에서 작업으로 실행 됩니다. 기존 Data Factory 일정, 제어, 흐름 및 모니터링 기능을 통해 데이터 흐름 활동을 조작 가능한 수 있습니다.
 
@@ -32,13 +32,13 @@ ms.locfileid: "72754703"
 
 데이터 흐름 캔버스는 위쪽 막대, 그래프 및 구성 패널의 세 부분으로 구분 됩니다. 
 
-![캔버스](media/data-flow/canvas1.png "캔버스")
+![캔버스](media/data-flow/canvas1.png "Canvas")
 
 ### <a name="graph"></a>그래프
 
 그래프는 변환 스트림을 표시 합니다. 하나 이상의 싱크로 전달 되는 원본 데이터의 계보를 보여 줍니다. 새 원본을 추가 하려면 **원본 추가**를 선택 합니다. 새 변환을 추가 하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택 합니다.
 
-![캔버스](media/data-flow/canvas2.png "캔버스")
+![캔버스](media/data-flow/canvas2.png "Canvas")
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Azure integration runtime 데이터 흐름 속성
 

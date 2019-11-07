@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: a6326b2ea9b4c2247df4f93eba904b7527666131
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996382"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576395"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time을 사용하여 가상 머신 액세스 관리
 
@@ -61,12 +61,12 @@ VM에서 JIT 정책을 구성 하는 방법에는 다음 세 가지가 있습니
 - [Azure VM 블레이드에서 JIT 액세스 구성](#jit-vm)
 - [프로그래밍 방식으로 VM에서 JIT 정책 구성](#jit-program)
 
-## <a name="configure-jit-in-asc"></a>ASC에서 JIT 구성
+## <a name="configure-jit-in-security-center"></a>Security Center에서 JIT 구성
 
-ASC에서 jit 정책을 구성 하 고 JIT 정책을 사용 하 여 VM에 대 한 액세스를 요청할 수 있습니다.
+Security Center에서 jit 정책을 구성 하 고 JIT 정책을 사용 하 여 VM에 대 한 액세스를 요청할 수 있습니다.
 
 
-### ASC에서 VM에 대 한 JIT 액세스 구성<a name="jit-asc"></a>
+### Security Center에서 VM에 대 한 JIT 액세스 구성<a name="jit-asc"></a>
 
 1. **Security Center** 대시보드를 엽니다.
 
@@ -108,15 +108,15 @@ ASC에서 jit 정책을 구성 하 고 JIT 정책을 사용 하 여 VM에 대 �
 
      3. **확인**을 클릭합니다.
 
-1. **저장**을 클릭합니다.
+1. **Save**를 클릭합니다.
 
 > [!NOTE]
 >VM에 대 한 JIT VM 액세스를 사용 하도록 설정 하면 연결 된 네트워크 보안 그룹과 연결 된 Azure 방화벽에서 선택한 포트에 대 한 "모든 인바운드 트래픽 거부" 규칙을 Azure Security Center 만들어집니다. 선택한 포트에 대해 다른 규칙을 만든 경우 기존 규칙은 새 "모든 인바운드 트래픽 거부" 규칙 보다 우선적으로 적용 됩니다. 선택한 포트에 기존 규칙이 없는 경우 새 "모든 인바운드 트래픽 거부" 규칙은 네트워크 보안 그룹 및 Azure 방화벽에서 가장 높은 우선 순위를 사용 합니다.
 
 
-## <a name="request-jit-access-via-asc"></a>ASC를 통해 JIT 액세스 요청
+## <a name="request-jit-access-via-security-center"></a>Security Center를 통해 JIT 액세스 요청
 
-ASC를 통해 VM에 대 한 액세스를 요청 하려면 다음을 수행 합니다.
+Security Center를 통해 VM에 대 한 액세스를 요청 하려면:
 
 1. **Just-In-Time VM 액세스**에서 **구성됨** 탭을 선택합니다.
 
@@ -140,7 +140,7 @@ ASC를 통해 VM에 대 한 액세스를 요청 하려면 다음을 수행 합�
 > [!NOTE]
 > 액세스를 요청하는 사용자가 프록시 뒤에 있으면 **내 IP** 옵션이 작동하지 않습니다. 조직의 전체 IP 주소 범위를 정의해야 할 수 있습니다.
 
-## <a name="edit-a-jit-access-policy-via-asc"></a>ASC를 통해 JIT 액세스 정책 편집
+## <a name="edit-a-jit-access-policy-via-security-center"></a>Security Center를 통해 JIT 액세스 정책 편집
 
 해당 VM에 대해 보호할 새 포트를 추가 및 구성하거나 이미 보호된 포트와 관련된 다른 설정을 변경하여 VM의 기존 Just-In-Time 정책을 변경할 수 있습니다.
 
@@ -151,7 +151,7 @@ VM의 기존 Just-In-Time 정책을 편집하려면
 1. **JIT VM 액세스 구성**에서 포트를 클릭하여 이미 보호된 포트의 기존 설정을 편집하거나 새로운 사용자 지정 포트를 추가할 수 있습니다. 
   ![jit vm 액세스](./media/security-center-just-in-time/edit-policy.png)
 
-## <a name="audit-jit-access-activity-in-asc"></a>ASC에서 JIT 액세스 활동 감사
+## <a name="audit-jit-access-activity-in-security-center"></a>Security Center에서 JIT 액세스 작업 감사
 
 로그 검색을 사용하여 VM 활동에 대한 정보를 얻을 수 있습니다. 로그를 보려면
 
@@ -168,11 +168,11 @@ VM의 기존 Just-In-Time 정책을 편집하려면
 
 
 
-## Azure VM 블레이드에서 JIT 액세스 구성<a name="jit-vm"></a>
+## Azure VM의 페이지에서 JIT 액세스 구성<a name="jit-vm"></a>
 
-편의를 위해 Azure의 VM 블레이드 내에서 직접 JIT를 사용하여 VM에 연결할 수 있습니다.
+편의상 Security Center의 VM 페이지 내에서 직접 JIT를 사용 하 여 VM에 연결할 수 있습니다.
 
-### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-blade"></a>Azure VM 블레이드를 통해 VM에 대 한 JIT 액세스 구성
+### <a name="configure-jit-access-on-a-vm-via-the-azure-vm-page"></a>Azure VM 페이지를 통해 VM에 대 한 JIT 액세스 구성
 
 VM에서 Just-In-Time 액세스를 쉽게 롤아웃할 수 있도록 하려면 VM 내에서 직접 Just-In-Time 액세스만 허용하도록 VM을 설정하면 됩니다.
 

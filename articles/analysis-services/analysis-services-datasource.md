@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services에서 지원되는 데이터 원본 | Microsoft Docs
-description: Azure Analysis Services의 데이터 모델에 지원되는 데이터 원본에 대해 설명합니다.
+description: Azure Analysis Services에서 테이블 형식 1200 이상 데이터 모델에 대해 지원 되는 데이터 원본 및 커넥터에 대해 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: cc47ff50aa7bb6dce58ed83f75f69fb600ad040b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146930"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572953"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -20,16 +20,16 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 
 ## <a name="azure-data-sources"></a>Azure 데이터 원본
 
-|데이터 원본  |메모리 내  |DirectQuery  |
+|데이터 원본  |메모리 내  |직접 연결  |
 |---------|---------|---------|
-|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   yes      |    yes      |
-|Azure SQL Data Warehouse     |   yes      |   yes       |
-|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   yes       |    아닙니다.      |
-|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   yes       |    아닙니다.      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  yes        |  아닙니다.        |
-|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   yes       |    아닙니다.      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     yes     |   아닙니다.       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   yes       |   아닙니다.       |
+|Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예      |    예      |
+|Azure SQL Data Warehouse     |   예      |   예       |
+|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예       |    아니요      |
+|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예       |    아니요      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아니요        |
+|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   예       |    아니요      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     예     |   아니요       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예       |   아니요       |
 ||||
 
 <a name="tab1400a">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.   
@@ -71,7 +71,7 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 |IBM Informix<sup>[1](#tab1400b)</sup>(베타) |
 |JSON 문서<sup>[1](#tab1400b)</sup>     |  
 |이진의 줄<sup>[1](#tab1400b)</sup>     | 
-|MySQL Database     | 
+|MySQL 데이터베이스     | 
 |OData 피드<sup>[1](#tab1400b)</sup>     |  
 |ODBC 쿼리     | 
 |OLE DB     |   

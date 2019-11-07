@@ -7,15 +7,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: a5a19910d101f3f30afcafa049056c78cd976f75
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 8850aef8b5d45f236385551a1455e6fe7b540340
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933072"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614454"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor 로그 쿼리 예제
-이 문서에는 [Kusto 쿼리 언어](/azure/kusto/query/)를 사용하여 Azure Monitor에서 여러 형식의 로그 데이터를 검색하는 [쿼리](log-query-overview.md)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  
+이 문서에는 [Kusto 쿼리 언어](log-query-overview.md)를 사용하여 Azure Monitor에서 여러 형식의 로그 데이터를 검색하는 [쿼리](/azure/kusto/query/)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  
 
 이러한 샘플에서 사용되는 다양한 키워드에 대한 자세한 내용은 [Kusto 언어 참조](https://docs.microsoft.com/azure/kusto/query/)를 참조하세요. Azure Monitor를 처음 사용하는 경우에는 [쿼리 작성 단원](get-started-queries.md)을 진행하세요.
 
@@ -164,7 +164,7 @@ NetworkMonitoring
 | distinct Computer
 ```
 
-## <a name="performance"></a>성능 중심
+## <a name="performance"></a>성능
 
 ### <a name="join-computer-perf-records-to-correlate-memory-and-cpu"></a>컴퓨터 성능 레코드를 조인하여 메모리와 CPU의 상관 관계 설정
 이 예제에서는 특정 컴퓨터의 **perf** 레코드 상관 관계를 설정하고 시간 차트 2개(평균 CPU/최대 메모리)를 만듭니다.
@@ -175,7 +175,6 @@ let EndTime = now()-4d;
 Perf
 | where CounterName == "% Processor Time"  
 | where TimeGenerated > StartTime and TimeGenerated < EndTime
-and TimeGenerated < EndTime
 | project TimeGenerated, Computer, cpu=CounterValue 
 | join kind= inner (
    Perf
@@ -243,7 +242,7 @@ SecurityEvent
 ```
 
 ### <a name="count-security-events-related-to-permissions"></a>권한 관련 보안 이벤트 개수 계산
-이 예제에서는 **Activity** 열에 _Permissions_ 라는 용어 전체가 포함된 **securityEvent** 레코드의 수를 표시합니다. 쿼리는 지난 30분 동안 생성된 레코드에 적용됩니다.
+이 예제에서는 **Activity** 열에 **Permissions** 라는 용어 전체가 포함된 _securityEvent_ 레코드의 수를 표시합니다. 쿼리는 지난 30분 동안 생성된 레코드에 적용됩니다.
 
 ```Kusto
 SecurityEvent
@@ -375,7 +374,7 @@ let suspicious_users_that_later_logged_in =
 suspicious_users_that_later_logged_in
 ```
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 
 ### <a name="calculate-the-average-size-of-perf-usage-reports-per-computer"></a>컴퓨터당 성능 사용량 보고서의 평균 크기 계산
 
@@ -403,7 +402,7 @@ Usage
 ```
 
 ### <a name="usage-of-specific-computers-today"></a>오늘의 특정 컴퓨터 사용량
-이 예제에서는 _ContosoFile_ 문자열이 포함된 컴퓨터 이름의 전날 **Usage** 데이터를 검색합니다. 결과는 **TimeGenerated**를 기준으로 정렬됩니다.
+이 예제에서는 **ContosoFile** 문자열이 포함된 컴퓨터 이름의 전날 _Usage_ 데이터를 검색합니다. 결과는 **TimeGenerated**를 기준으로 정렬됩니다.
 
 ```Kusto
 Usage

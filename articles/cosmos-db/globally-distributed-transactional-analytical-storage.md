@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: abf222b7a6d6e8fd053fa83c066d2b7850f575ab
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
-ms.translationtype: HT
+ms.openlocfilehash: 22bb36e3b22f65bbf9922bd31e4b2e041cdb8979
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756900"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601226"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Azure Cosmos 컨테이너에 대 한 전역 분산 트랜잭션 및 분석 저장소
 
@@ -34,10 +34,10 @@ Azure Cosmos 컨테이너는 내부적으로 트랜잭션 저장소 엔진과 �
 |저장소 인코딩  |   내부 형식을 사용 하는 행 기반입니다.   |   Apache Parquet format을 사용 하는 열 기반. |
 |저장소 위치 |   로컬/클러스터 간 Ssd에서 지원 되는 복제 된 저장소입니다. |  저렴 한 원격/오프 클러스터 Ssd에서 지원 되는 복제 된 저장소입니다.       |
 |내구성  |    99.99999 (7-9 s)     |  99.99999 (7-9 s)       |
-|데이터에 액세스 하는 Api  |   SQL, MongoDB, Cassandra, Gremlin, Tables 및 Etcd가 있습니다.       | Apache Spark         |
+|데이터에 액세스 하는 Api  |   SQL, MongoDB, Cassandra, Gremlin, Tables 및 etcd가 있습니다.       | Apache Spark         |
 |보존 (TTL (time-to-live) 또는 TTL)   |  `DefaultTimeToLive` 속성을 사용 하 여 Azure Cosmos 컨테이너에 구성 된 정책 기반입니다.       |   `ColumnStoreTimeToLive` 속성을 사용 하 여 Azure Cosmos 컨테이너에 구성 된 정책 기반입니다.      |
-|GB당 가격    |   $0.25/GB      |  $0.02/GB       |
-|저장소 트랜잭션 가격    | 프로 비전 된 처리량은 시간당 청구와 함께 100 r u/초 단위로 요금이 $0.008 부과 됩니다.        |  소비 기반 처리량은 1만 쓰기 트랜잭션의 경우 $0.05로 청구 되 고 1만 읽기 트랜잭션에는 $0.004로 청구 됩니다.       |
+|GB당 가격    |   [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
+|저장소 트랜잭션 가격    |  [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)         |   [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
 
 ## <a name="benefits-of-transactional-and-analytical-storage"></a>트랜잭션 및 분석 저장소의 이점
 
@@ -66,53 +66,6 @@ Azure Cosmos 계정이 단일 지역으로 범위가 지정 된 경우 컨테이
 지정 된 지역에서 트랜잭션 워크 로드는 컨테이너의 트랜잭션/행 저장소에 대해 작동 합니다. 반면에 분석 워크 로드는 컨테이너의 분석/열 저장소에 대해 작동 합니다. 두 저장소 엔진은 독립적으로 작동 하며 워크 로드 간에 엄격한 성능 격리를 제공 합니다.
 
 트랜잭션 워크 로드는 프로 비전 된 처리량 (RUs)을 사용 합니다. 트랜잭션 워크 로드와 달리 분석 작업 처리량은 실제 사용량을 기준으로 합니다. 분석 워크 로드는 주문형 리소스를 사용 합니다.
-
-### <a name="on-demand-snapshots-and-time-travel-analytics"></a>주문형 스냅숏 및 시간 이동 분석
-
-언제 든 지 컨테이너에서 `CreateSnapshot (name, timestamp)` 명령을 호출 하 여 Azure Cosmos 컨테이너의 분석 저장소에 저장 된 데이터의 스냅숏을 만들 수 있습니다. 스냅숏은 컨테이너에서 수행 된 업데이트의 기록에서 "책갈피"로 지정 됩니다.
-
-![주문형 스냅숏 및 시간 이동 분석](./media/globally-distributed-transactional-analytical-storage/ondemand-analytical-data-snapshots.png)
-
-스냅숏을 만들 때 이름 외에 업데이트 기록의 컨테이너 상태를 정의 하는 타임 스탬프를 지정할 수 있습니다. 그런 다음 스냅숏 데이터를 Spark로 로드 하 고 쿼리를 수행할 수 있습니다.
-
-현재는 컨테이너에서 언제 든 지 스냅숏을 만들 수 있습니다. 일정 또는 사용자 지정 정책에 따라 자동으로 스냅숏을 생성 하는 기능은 아직 지원 되지 않습니다.
-
-### <a name="configure-and-tier-data-between-transactional-and-analytical-storage-independently"></a>트랜잭션 및 분석 저장소 간 데이터를 독립적으로 구성 및 계층 구성
-
-시나리오에 따라 두 개의 저장소 엔진을 개별적으로 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 다음은 각 시나리오에 대 한 구성입니다.
-
-|시나리오 |트랜잭션 저장소 설정  |분석 저장소 설정 |
-|---------|---------|---------|
-|분석 워크 로드를 독점적으로 실행 (무한 보존) |  DefaultTimeToLive = 0       |  ColumnStoreTimeToLive =-1       |
-|트랜잭션 워크 로드를 단독으로 실행 (무한 보존)  |   DefaultTimeToLive =-1      |  ColumnStoreTimeToLive = 0       |
-|트랜잭션 및 분석 워크 로드 실행 (무한 보존)   |   DefaultTimeToLive =-1      | ColumnStoreTimeToLive =-1        |
-|트랜잭션 및 분석 워크 로드를 실행 합니다 (다른 보존 간격 (저장소 계층화 라고도 함)).  |  DefaultTimeToLive = <Value1>       |     ColumnStoreTimeToLive = <Value2>    |
-
-1. **분석 워크 로드 전용으로 컨테이너 구성 (무한 보존 포함)**
-
-   분석 워크 로드에 대 한 Azure Cosmos 컨테이너를 독점적으로 구성할 수 있습니다. 이 구성에는 트랜잭션 저장소에 대 한 비용을 지불할 필요가 없는 장점이 있습니다. 분석 워크 로드에만 컨테이너를 사용 하는 것 이라면 Cosmos 컨테이너에서 `DefaultTimeToLive`를 0으로 설정 하 여 트랜잭션 저장소를 사용 하지 않도록 설정 하 고 `ColumnStoreTimeToLive`을-1로 설정 하 여 영구 보존이 있는 분석 저장소를 사용 하도록 설정할 수 있습니다.
-
-   ![무기한 보존을 포함 하는 분석 워크 로드](./media/globally-distributed-transactional-analytical-storage/analytical-workload-configuration.png)
-
-1. **트랜잭션 워크 로드 전용으로 컨테이너 구성 (무한 보존 포함)**
-
-   Azure Cosmos 컨테이너는 트랜잭션 워크 로드에 대해서만 구성할 수 있습니다. 컨테이너에서 `ColumnStoreTimeToLive`를 0으로 설정 하 여 분석 저장소를 사용 하지 않도록 설정 하 고 `DefaultTimeToLive`을-1로 설정 하 여 무한 보존이 있는 분석 저장소를 사용 하도록 설정할 수 있습니다.
-
-   ![영구 보존이 있는 트랜잭션 워크 로드](./media/globally-distributed-transactional-analytical-storage/transactional-workload-configuration.png)
-
-1. **트랜잭션 및 분석 워크 로드 모두에 대해 컨테이너 구성 (무한 보존 포함)**
-
-   트랜잭션 및 분석 워크 로드에 대 한 Azure Cosmos 컨테이너를 전체 성능 격리로 구성할 수 있습니다. `ColumnStoreTimeToLive`를-1로 설정 하 여 분석 저장소를 사용 하도록 설정 하 고 `DefaultTimeToLive `을-1로 설정 하 여 영구 보존이 있는 트랜잭션 저장소를 사용 하도록 설정할 수 있습니다.
-
-   ![무기한 보존을 포함 하는 트랜잭션 및 분석 워크 로드](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-infinite-retention.png)
-
-1. **저장소 계층화를 사용 하 여 트랜잭션 및 분석 작업에 대 한 컨테이너 구성**
-
-   서로 다른 보존 간격을 사용 하 여 트랜잭션 및 분석 워크 로드 간 전체 성능 격리를 통해 Azure Cosmos 컨테이너를 구성할 수 있습니다. Azure Cosmos DB는 분석 저장소가 트랜잭션 저장소 보다 긴 기간 동안 항상 유지 되도록 적용 합니다.
-
-   `DefaultTimeToLive`을 < 값 1 > 설정 하 고 `ColumnStoreTimeToLive`를 < 값 2 >로 설정 하 여 분석 저장소를 사용 하도록 설정 하 여 트랜잭션 저장소에서 무한 보존을 사용 하도록 설정할 수 있습니다. Azure Cosmos DB은 < 값 2 >를 < 값 1 > 보다 항상 큰지를 적용 합니다.
-
-   ![저장소 계층화를 사용 하는 트랜잭션 및 분석 워크 로드](./media/globally-distributed-transactional-analytical-storage/analytical-transactional-configuration-specified-retention.png)
 
 ## <a name="next-steps"></a>다음 단계
 

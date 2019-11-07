@@ -1,5 +1,5 @@
 ---
-title: Power BI Microsoft Azure로 SQL Data Warehouse 데이터 시각화
+title: Power BI Microsoft Azure를 사용 하 여 데이터 시각화
 description: Power BI로 SQL Data Warehouse 데이터 시각화
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,13 @@ ms.subservice: integration
 ms.date: 04/17/2018
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 4650e171c180653e94d78451d66bba1bcc71b136
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: eea4e3b0b1f0e4ec3eaf3e0aba8952f6693d2921
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66241279"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685799"
 ---
 # <a name="visualize-data-with-power-bi"></a>Power BI를 사용하여 데이터 시각화
 이 자습서에서는 Power BI를 사용하여 SQL Data Warehouse에 연결하고 몇 가지 기본적인 시각화를 만드는 방법을 보여줍니다.
@@ -29,10 +30,10 @@ ms.locfileid: "66241279"
 
 * AdventureWorksDW 데이터베이스로 미리 로드된 SQL Data Warehouse. 데이터 웨어하우스를 프로비전하려면 [SQL Data Warehouse 만들기](create-data-warehouse-portal.md)를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [WideWorldImportersDW를 로드](load-data-wideworldimportersdw.md)할 수 있습니다.
 
-## <a name="1-connect-to-your-database"></a>1. 데이터베이스 연결
+## <a name="1-connect-to-your-database"></a>1. 데이터베이스에 연결
 Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **SQL 데이터베이스** 를 클릭하고 AdventureWorks SQL Data Warehouse 데이터베이스를 선택합니다.
    
     ![데이터베이스 찾기](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-find-database.png)
@@ -60,7 +61,7 @@ Power BI를 열고 AdventureWorksDW 데이터베이스에 연결하려면
    
     ![Power BI 맵](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-map.png)
 
-2. 이 단계에서는 고객 수익당 매출액을 보여주는 막대 그래프를 만듭니다. 막대 그래프를 만들려면 확장된 AggregateSales 보기로 이동합니다. SalesAmount 필드를 클릭합니다. CustomerIncome 필드를 왼쪽으로 끌어 축에 놓습니다.
+2. 이 단계에서는 고객 수익당 매출액을 보여주는 막대 그래프를 만듭니다. 막대 그래프를 만들려면 확장된 AggregateSales 보기로 이동합니다. SalesAmount 필드를 클릭합니다. 고객 수익 필드를 왼쪽으로 끌어 축에 놓습니다.
    
     ![Power BI가 축 선택](media/sql-data-warehouse-get-started-visualize-with-power-bi/pbi-chooseaxis.png)
    
@@ -93,4 +94,4 @@ Azure SQL Database와 함께, SQL Data Warehouse 직접 연결을 사용하면 P
 환경이 개선되면서 이러한 제한 및 참고 사항은 변경될 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-이제 샘플 데이터를 사용 하 여 준비 하는 데 시간이 제공한를 참조 하는 방법 [개발](sql-data-warehouse-overview-develop.md) 또는 [로드](design-elt-data-loading.md)합니다. 또는 [Power BI 웹 사이트](https://www.powerbi.com/)를 살펴보세요.
+이제 샘플 데이터를 준비 하는 데 약간의 시간이 제공 되었으므로 [개발](sql-data-warehouse-overview-develop.md) 또는 [로드](design-elt-data-loading.md)하는 방법을 참조 하세요. 또는 [Power BI 웹 사이트](https://www.powerbi.com/)를 살펴보세요.

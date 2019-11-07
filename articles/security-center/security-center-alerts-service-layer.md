@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center에서 Azure 서비스 계층에 대 한 위협 감지 | Microsoft Docs
+title: Azure 서비스 계층 위협 검색-Azure Security Center
 description: 이 항목에서는 Azure Security Center에서 사용할 수 있는 Azure 서비스 계층 경고를 제공 합니다.
 services: security-center
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 9a600b6b45dbef49f600a5e9e913c9d1839eff93
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b82eab9d20966ddd0678c9213bf25a14b5313f58
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202451"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686462"
 ---
 # <a name="threat-detection-for-the-azure-service-layer-in-azure-security-center"></a>Azure Security Center에서 Azure 서비스 계층에 대 한 위협 감지
 
@@ -33,7 +33,7 @@ Security Center 네트워크 계층 분석은 Azure core 라우터가 수집 하
 
 > [!div class="mx-tableFixed"]
 
-|알림|설명|
+|경고|설명|
 |---|---|
 |**의심 스러운 나가는 RDP 네트워크 활동**|샘플링 된 네트워크 트래픽 분석은 배포의 리소스에서 시작 된 비정상적인 RDP (보내는 원격 데스크톱 프로토콜) 통신을 검색 했습니다. 이 작업은이 환경에서 비정상으로 간주 됩니다. 리소스가 손상 된 것을 나타낼 수 있으며, 이제는 외부 RDP 끝점의 무차별 암호 대입 공격에 사용 됩니다. 이 유형의 작업을 수행 하면 외부 엔터티에서 악의적인 사용자로 IP에 플래그가 지정 될 수 있습니다.|
 |**여러 대상으로 의심 스러운 나가는 RDP 네트워크 활동**|샘플링 된 네트워크 트래픽 분석은 배포의 리소스에서 여러 대상으로 향하는 비정상적인 나가는 RDP 통신을 검색 했습니다. 이 작업은이 환경에서 비정상으로 간주 됩니다. 리소스가 손상 된 것을 나타낼 수 있으며, 이제는 외부 RDP 끝점의 무차별 대입 공격에 사용 됩니다. 이 유형의 작업을 수행 하면 외부 엔터티에서 악의적인 사용자로 IP에 플래그가 지정 될 수 있습니다.|
@@ -59,7 +59,7 @@ Security Center는 Azure Resource Manager 이벤트를 사용 하 여 추가 보
 
 > [!div class="mx-tableFixed"]
 
-|알림|설명|
+|경고|설명|
 |---|---|
 |**마이크로 버스트 도구 키트 실행**|사용자 환경에서 알려진 클라우드 환경 정찰 도구 키트를 실행 했습니다. 도구 [마이크로 버스트](https://github.com/NetSPI/MicroBurst) 는 공격자 (또는 침투 테스터)가 구독의 리소스를 매핑하고, 안전 하지 않은 구성을 식별 하 고, 기밀 정보를 누출 하는 데 사용할 수 있습니다.|
 |**Azurite toolkit 실행**|사용자 환경에서 알려진 클라우드 환경 정찰 도구 키트를 실행 했습니다. 공격자 (또는 침투 테스터)는 [Azurite](https://github.com/mwrlabs/Azurite) 도구를 사용 하 여 구독의 리소스를 매핑하고 안전 하지 않은 구성을 식별할 수 있습니다.|

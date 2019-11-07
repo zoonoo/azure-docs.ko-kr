@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 캐시 (미리 보기) 필수 조건
+title: Azure HPC 캐시 필수 조건
 description: Azure HPC 캐시를 사용 하기 위한 필수 구성 요소
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ca7a12f45f8d907ee65df85e349883e4c14af47a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709966"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582143"
 ---
-# <a name="prerequisites-for-azure-hpc-cache-preview"></a>Azure HPC 캐시 (미리 보기)에 대 한 필수 구성 요소
+# <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
 
 Azure Portal를 사용 하 여 새 Azure HPC 캐시를 만들기 전에 사용자 환경이 이러한 요구 사항을 충족 하는지 확인 합니다.
 
@@ -22,7 +22,7 @@ Azure Portal를 사용 하 여 새 Azure HPC 캐시를 만들기 전에 사용�
 유료 구독을 권장 합니다.
 
 > [!NOTE]
-> Preview 릴리스 중에 Azure HPC 캐시 팀은 액세스 목록에 구독을 추가 해야 캐시 인스턴스를 만드는 데 사용할 수 있습니다. 이 절차를 통해 각 고객이 테스트 캐시에서 고품질의 응답성을 유지할 수 있습니다. 액세스를 요청 하려면 [이 양식을](https://aka.ms/onboard-hpc-cache) 작성 하세요.
+> GA 릴리스의 처음 몇 달 동안 Azure HPC 캐시 팀은 액세스 목록에 구독을 추가 해야 캐시 인스턴스를 만드는 데 사용할 수 있습니다. 이 절차를 수행 하면 각 고객이 해당 캐시에서 고품질의 응답성을 유지할 수 있습니다. 액세스를 요청 하려면 [이 양식을](https://aka.ms/onboard-hpc-cache) 작성 하세요.
 
 ## <a name="network-infrastructure"></a>네트워크 인프라
 
@@ -52,13 +52,13 @@ Blob 저장소에만 액세스 해야 하는 경우에는 캐시에 대 한 기�
 
 Azure 가상 네트워크 [의 리소스에 대 한 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)의 azure virtual NETWORK 및 DNS 서버 구성에 대해 자세히 알아보세요.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 캐시 만들기를 시작 하기 전에 이러한 사용 권한 관련 필수 구성 요소를 확인 하십시오.
 
 * 캐시 인스턴스는 가상 Nic (네트워크 인터페이스)를 만들 수 있어야 합니다. 캐시를 만드는 사용자에 게는 Nic를 만들기 위해 구독에서 충분 한 권한이 있어야 합니다.
 
-* Blob storage를 사용 하는 경우 Azure HPC 캐시는 저장소 계정에 액세스 하기 위한 권한 부여가 필요 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 Blob 저장소에 대 한 캐시 액세스를 제공할 수 있습니다. 다음 두 가지 역할이 필요 합니다. 저장소 계정 기여자 및 저장소 Blob 데이터 참가자. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 지침에 따라 역할을 추가 합니다.
+* Blob storage를 사용 하는 경우 Azure HPC 캐시는 저장소 계정에 액세스 하기 위한 권한 부여가 필요 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 Blob 저장소에 대 한 캐시 액세스를 제공할 수 있습니다. 저장소 계정 참가자 및 저장소 Blob 데이터 참가자 라는 두 개의 역할이 필요 합니다. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 지침에 따라 역할을 추가 합니다.
 
 ## <a name="storage-infrastructure"></a>저장소 인프라
 
@@ -80,13 +80,13 @@ NFS 백 엔드 저장소는 호환 되는 하드웨어/소프트웨어 플랫폼
 
 호환 되는 저장소 계정을 만들려면 다음 설정을 사용 합니다.
 
-* 성능도 **Standard**
+* 성능: **표준**
 * 계정 종류: **StorageV2 (범용 v2)**
-* 복제: **LRS(로컬 중복 스토리지)**
+* 복제: **LRS (로컬 중복 저장소)**
 * 액세스 계층 (기본값): **핫**
 
 캐시와 동일한 위치에 있는 저장소 계정을 사용 하는 것이 좋습니다.
-<!-- need to clarify location - same region or same resource group or same virtual network? -->
+<!-- clarify location - same region or same resource group or same virtual network? -->
 
 또한 Azure storage 계정에 대 한 캐시 응용 프로그램 액세스 권한을 부여 해야 합니다. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 설명에 따라 액세스 역할 저장소 계정 참가자 및 저장소 Blob 데이터 참가자를 캐시에 제공 합니다. 저장소 계정 소유자가 아닌 경우 소유자가이 단계를 수행 하도록 합니다.
 

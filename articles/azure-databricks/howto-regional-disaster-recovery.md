@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 06ab1783a6e0f4884ab46d3f00a26c47f28d02b0
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596894"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601754"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 클러스터의 지역 재해 복구
 
@@ -21,7 +21,7 @@ ms.locfileid: "72596894"
 
 ## <a name="azure-databricks-architecture"></a>Azure Databricks 아키텍처
 
-간략하게 설명하자면, Azure Portal에서 Azure Databricks 작업 영역을 만들면 선택한 Azure 지역(예: 미국 서부)에 [관리되는 어플라이언스](../managed-applications/overview.md)가 구독의 Azure 리소스로 배포됩니다. 이 어플라이언스는 구독에서 사용할 수 있는 [네트워크 보안 그룹](../virtual-network/manage-network-security-group.md) 및 Azure Storage 계정을 사용하여 [Azure Virtual Network](../virtual-network/virtual-networks-overview.md)에 배포됩니다. 가상 네트워크는 Databricks 작업 영역에 경계 수준 보안을 제공하며 네트워크 보안 그룹을 통해 보호됩니다. 작업 영역 내에서, 작업자 및 드라이버 VM 유형과 Databricks 런타임 버전을 제공하여 Databricks 클러스터를 만들 수 있습니다. 지속형 데이터는 저장소 계정에서 사용할 수 있으며, Azure Blob Storage 하거나 Azure Data Lake Storage 수 있습니다. 클러스터가 만들어지면 작업을 특정 클러스터에 연결하여 노트북, REST API, ODBC/JDBC 엔드포인트를 통해 작업을 실행할 수 있습니다.
+간략하게 설명하자면, Azure Portal에서 Azure Databricks 작업 영역을 만들면 선택한 Azure 지역(예: 미국 서부)에 [관리되는 어플라이언스](../managed-applications/overview.md)가 구독의 Azure 리소스로 배포됩니다. 이 어플라이언스는 구독에서 사용할 수 있는 [네트워크 보안 그룹](../virtual-network/virtual-networks-overview.md) 및 Azure Storage 계정을 사용하여 [Azure Virtual Network](../virtual-network/manage-network-security-group.md)에 배포됩니다. 가상 네트워크는 Databricks 작업 영역에 경계 수준 보안을 제공하며 네트워크 보안 그룹을 통해 보호됩니다. 작업 영역 내에서, 작업자 및 드라이버 VM 유형과 Databricks 런타임 버전을 제공하여 Databricks 클러스터를 만들 수 있습니다. 지속형 데이터는 저장소 계정에서 사용할 수 있으며, Azure Blob Storage 하거나 Azure Data Lake Storage 수 있습니다. 클러스터가 만들어지면 작업을 특정 클러스터에 연결하여 노트북, REST API, ODBC/JDBC 엔드포인트를 통해 작업을 실행할 수 있습니다.
 
 Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모니터링합니다. 클러스터 만들기 같은 관리 작업은 제어 평면에서 시작됩니다. 예약된 작업 같은 모든 메타데이터는 내결함성을 위해 지역 복제 기능을 갖춘 Azure Database에 저장됩니다.
 
@@ -47,7 +47,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
    이 문서에서는 Azure Databricks REST API보다 간편한 래퍼인 명령줄 인터페이스를 대부분의 자동화된 단계에 사용하는 다양한 예제를 보여줍니다.
 
-   마이그레이션 단계를 수행하기 전에, 작업에 사용할 데스크톱 컴퓨터 또는 가상 머신에 databricks-cli를 설치합니다. 자세한 내용은 [Databricks CLI 설치](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)를 참조하세요.
+   마이그레이션 단계를 수행하기 전에, 작업에 사용할 데스크톱 컴퓨터 또는 가상 머신에 databricks-cli를 설치합니다. 자세한 내용은 [Databricks CLI 설치](/azure/databricks/dev-tools/databricks-cli)를 참조하세요.
 
    ```bash
    pip install databricks-cli
@@ -286,7 +286,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
 8. **Azure blob 저장소 및 Azure Data Lake Storage 탑재 마이그레이션**
 
-   노트북 기반 솔루션을 사용 하 여 모든 [Azure Blob storage](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Storage (Gen 2)](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 탑재 위치를 수동으로 다시 탑재 합니다. 스토리지 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
+   노트북 기반 솔루션을 사용 하 여 모든 [Azure Blob storage](/azure/databricks/data/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html) 탑재 위치를 수동으로 다시 탑재 합니다. 스토리지 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
 
 9. **클러스터 init 스크립트 마이그레이션**
 
@@ -302,7 +302,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
 10. **액세스 제어를 수동으로 다시 구성 및 다시 적용**
 
-    프리미엄 계층(SKU)을 사용하도록 기존 주 작업 영역을 구성한 경우 [액세스 제어 기능](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control)을 사용할 가능성이 높습니다.
+    프리미엄 계층(SKU)을 사용하도록 기존 주 작업 영역을 구성한 경우 [액세스 제어 기능](/azure/databricks/administration-guide/access-control/index)을 사용할 가능성이 높습니다.
 
     액세스 제어 기능을 사용하는 경우 리소스(노트북, 클러스터, 작업, 테이블)에 대한 액세스 제어를 수동으로 다시 적용합니다.
 
@@ -312,4 +312,4 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 [Azure Databricks 설명서](https://docs.azuredatabricks.net/user-guide/index.html)를 참조하세요.
+자세한 내용은 [Azure Databricks 설명서](index.yml)를 참조하세요.

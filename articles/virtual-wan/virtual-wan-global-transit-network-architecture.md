@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: article
 ms.date: 10/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 63ab30c83db692d00e292828b8a8203fa33e7e74
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 9b736e897278c4656df83c30388efc812ac6193d
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499768"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607360"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 가상 WAN
 
@@ -143,4 +143,4 @@ VNet 간 또는 타사 보안 전송에서는 Vnet가 가상 WAN 허브의 Azure
 
 * [가상 WAN을 사용 하 여 사이트 간 연결](virtual-wan-site-to-site-portal.md)
 * [가상 WAN을 사용한 Express 경로 연결](virtual-wan-expressroute-portal.md)
-* [Azure 방화벽 관리자에서 VWAN에 Azure FW 배포] (https://go.microsoft.com/fwlink/?linkid=2107683)
+* [VWAN에서 Azure FW를 배포 하는 azure 방화벽 관리자](https://go.microsoft.com/fwlink/?linkid=2107683)

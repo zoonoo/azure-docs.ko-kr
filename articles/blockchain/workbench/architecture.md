@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 09/05/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: d50ee0fa06f34167cd4be9e787f6e351d3ef7e3b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 4613d441fd0d363654073d4832de19139a7781e7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845203"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579736"
 ---
 # <a name="azure-blockchain-workbench-preview-architecture"></a>Azure Blockchain 워크 벤치 미리 보기 아키텍처
 
@@ -84,7 +84,7 @@ DLT(분산 원장 기술) 메시지에는 블록체인에 쓰여지는 트랜잭
 
 ## <a name="transaction-builder-and-signer"></a>트랜잭션 작성기 및 서명자
 
-인바운드 메시지 브로커의 메시지를 블록체인에 기록해야 하는 경우 DLT 소비자가 처리합니다. DLT 소비자는 실행하려고 하는 트랜잭션에 대한 메타데이터가 포함된 메시지를 검색한 다음, 해당 정보를 *트랜잭션 작성기 및 서명자*에게 전송하는 서비스입니다. *트랜잭션 작성기 및 서명자*는 데이터 및 원하는 블록체인 대상을 기반으로 블록체인 트랜잭션을 어셈블합니다. 어셈블되면 트랜잭션이 서명됩니다. 프라이빗 키는 Azure Key Vault에 저장됩니다.
+인바운드 메시지 브로커의 메시지를 블록체인에 기록해야 하는 경우 DLT 소비자가 처리합니다. DLT 소비자는 실행하려고 하는 트랜잭션에 대한 메타데이터가 포함된 메시지를 검색한 다음 해당 정보를 *트랜잭션 작성기 및 서명자*에게 전송하는 서비스입니다. *트랜잭션 작성기 및 서명자*는 데이터 및 원하는 블록체인 대상을 기반으로 블록체인 트랜잭션을 어셈블합니다. 어셈블되면 트랜잭션이 서명됩니다. 프라이빗 키는 Azure Key Vault에 저장됩니다.
 
  Blockchain Workbench는 Key Vault에서 적절한 프라이빗 키를 검색하고 Key Vault 외부에서 트랜잭션에 서명합니다. 서명되면 트랜잭션 라우터와 원장으로 트랜잭션이 전송됩니다.
 

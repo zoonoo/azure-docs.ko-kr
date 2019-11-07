@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse에서 워크 로드 관리를 위한 리소스 클래스 Microsoft Docs
+title: 워크로드 관리를 위한 리소스 클래스
 description: Azure SQL Data Warehouse의 쿼리에 대한 컴퓨팅 리소스 및 동시성 리소스를 관리하는 리소스 클래스 사용 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,15 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 11/04/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 5ef95faf162a6774e42b7cf258515757fdc9c7eb
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 558a6e3faa207e15000657a17bec99a7b1ac99e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035087"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685933"
 ---
 # <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 리소스 클래스로 워크로드 관리
 
@@ -23,7 +24,7 @@ Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및
 
 ## <a name="what-are-resource-classes"></a>리소스 클래스 정의
 
-쿼리의 성능 용량은 사용자의 리소스 클래스에 의해 결정됩니다.  리소스 클래스는 쿼리 실행을 위한 계산 리소스와 동시성을 관리하는, Azure SQL Data Warehouse에 사전 정의된 리소스 제한입니다. 리소스 클래스를 사용하면 동시에 실행되는 쿼리 수와 각 쿼리에 할당된 계산 리소스에 대한 제한을 설정하여 워크로드를 관리할 수 있습니다.  메모리와 동시성 사이에는 상충 관계가 있습니다.
+쿼리의 성능 용량은 사용자의 리소스 클래스에 의해 결정됩니다.  리소스 클래스는 쿼리 실행을 위한 컴퓨팅 리소스와 동시성을 관리하는, Azure SQL Data Warehouse에 미리 결정된 리소스 제한입니다. 리소스 클래스를 통해 동시에 실행 되는 쿼리 수와 각 쿼리에 할당 된 계산 리소스에 대 한 제한을 설정 하 여 작업을 관리할 수 있습니다.  메모리와 동시성은 절충 됩니다.
 
 - 리소스 클래스가 작을수록 쿼리당 최대 메모리가 줄어들고 동시성은 높아집니다.
 - 리소스 클래스가 클수록 쿼리당 최대 메모리가 증가 하지만 동시성이 줄어듭니다.
@@ -31,11 +32,11 @@ Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및
 리소스 클래스에는 두 가지 유형이 있습니다.
 
 - 정적 리소스 클래스 - 고정된 데이터 집합 크기의 동시성이 높은 경우에 적합합니다.
-- 동적 리소스 클래스- 크기가 증가하고 서비스 수준의 확장으로 향상된 성능이 필요한 데이터 집합에 적합합니다.
+- 동적 리소스 클래스는 크기가 증가 하 고 서비스 수준이 확장 될 때 성능이 향상 되어야 하는 데이터 집합에 적합 합니다.
 
 리소스 클래스는 리소스 소비를 측정하기 위해 동시성 슬롯을 사용합니다.  [동시성 슬롯](#concurrency-slots)은 이 문서의 뒷부분에 설명되어 있습니다.
 
-- 리소스 클래스의 리소스 사용률을 보려면 [ 메모리 및 동시성 제한](memory-and-concurrency-limits.md#concurrency-maximums)을 참조하세요.
+- 리소스 클래스에 대 한 리소스 사용률을 보려면 [메모리 및 동시성 제한] 메모리-limits.md)를 참조 하세요.
 - 리소스 클래스를 조정하려면 다른 사용자로 쿼리를 실행하거나 [현재 사용자의 리소스 클래스](#change-a-users-resource-class) 멤버 자격을 변경합니다.
 
 ### <a name="static-resource-classes"></a>정적 리소스 클래스
@@ -96,7 +97,7 @@ Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및
 - SELECT(사용자 테이블을 쿼리하는 경우)
 - ALTER INDEX - REBUILD 또는 REORGANIZE
 - ALTER TABLE REBUILD
-- CREATE  INDEX
+- CREATE INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT (CTAS)
 - 데이터 로드
@@ -112,7 +113,7 @@ Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및
 다음은 리소스 클래스에서 제외되고 항상 smallrc에서 실행되는 문입니다.
 
 - CREATE 또는 DROP TABLE
-- ALTER TABLE ... SWITCH, SPLIT 또는 MERGE PARTITION
+- ALTER TABLE ... 파티션 전환, 분할 또는 병합
 - ALTER INDEX DISABLE
 - DROP INDEX
 - CREATE, UPDATE 또는 DROP STATISTICS
@@ -134,7 +135,7 @@ Removed as these two are not confirmed / supported under SQL DW
 - REDISTRIBUTE
 -->
 
-## <a name="concurrency-slots"></a>동시성 슬롯
+## <a name="concurrency-slots"></a>동시성 슬롯 수
 
 동시성 슬롯은 쿼리 실행에 사용할 수 있는 리소스를 추적하는 편리한 방법입니다. 동시성 슬롯은 콘서트의 좌석이 제한되어 있으므로 좌석을 예약하기 위해 구매하는 티켓과 같습니다. 데이터 웨어하우스 당 동시성 슬롯의 총 수는 서비스 수준에 의해 결정됩니다. 쿼리를 실행하려면 먼저 충분한 동시성 슬롯을 예약할 수 있어야 합니다. 쿼리가 완료되면 해당 동시성 슬롯을 해제합니다.  
 
@@ -155,15 +156,15 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 ## <a name="change-a-users-resource-class"></a>사용자의 리소스 클래스 변경
 
-데이터베이스 역할에 사용자를 할당하여 리소스 클래스를 구현합니다. 사용자가 쿼리를 실행하면 사용자의 리소스 클래스를 사용하여 쿼리가 실행됩니다. 예를 들어 사용자가 staticrc10 데이터베이스 역할의 멤버인 경우 해당 쿼리는 적은 양의 메모리를 사용하여 실행됩니다. 데이터베이스 사용자가 xlargerc 또는 staticrc80 데이터베이스 역할의 멤버인 경우 해당 쿼리는 많은 양의 메모리를 사용하여 실행됩니다.
+데이터베이스 역할에 사용자를 할당하여 리소스 클래스를 구현합니다. 사용자가 쿼리를 실행하면 사용자의 리소스 클래스를 사용하여 쿼리가 실행됩니다. 예를 들어 사용자가 staticrc10 데이터베이스 역할의 멤버인 경우 해당 쿼리는 적은 양의 메모리로 실행 됩니다. 데이터베이스 사용자가 xlargerc 또는 staticrc80 데이터베이스 역할의 멤버인 경우 해당 쿼리는 많은 양의 메모리를 사용 하 여 실행 됩니다.
 
-사용자의 리소스 클래스를 높이려면 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)를 사용하여 큰 리소스 클래스의 데이터베이스 역할에 사용자를 추가합니다.  아래 코드는 largerc 데이터베이스 역할에 사용자를 추가합니다.  각 요청은 시스템 메모리의 22%를 가져옵니다.
+사용자의 리소스 클래스를 늘리려면 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) 를 사용 하 여 사용자를 large resource 클래스의 데이터베이스 역할에 추가 합니다.  아래 코드는 largerc 데이터베이스 역할에 사용자를 추가 합니다.  각 요청은 시스템 메모리의 22%를 가집니다.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
 ```
 
-리소스 클래스를 줄이려면 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql)를 사용합니다.  'Loaduser'가 다른 리소스 클래스 또는 구성원이 아닌 경우 3% 메모리가 부여되는 기본 smallrc 리소스 클래스를 이동합니다.  
+리소스 클래스를 줄이려면 [sp_droprolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql)를 사용합니다.  ' Loaduser '가 멤버 또는 다른 리소스 클래스가 아니면 3% 메모리 부여를 사용 하 여 기본 smallrc 리소스 클래스로 이동 합니다.  
 
 ```sql
 EXEC sp_droprolemember 'largerc', 'loaduser';
@@ -176,29 +177,29 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 - 동적 리소스 클래스가 정적 리소스 클래스보다 우선합니다. 예를 들어 사용자가 mediumrc(동적) 및 staticrc80(정적) 둘 다의 구성원인 경우 쿼리는 mediumrc를 사용하여 실행됩니다.
 - 큰 리소스 클래스가 작은 리소스 클래스보다 우선합니다. 예를 들어 사용자가 mediumrc 및 largerc의 구성원인 경우 쿼리는 largerc를 사용하여 실행됩니다. 마찬가지로 사용자가 staticrc20 및 statirc80 둘 다의 구성원인 경우 쿼리는 statirc80 리소스 할당을 사용하여 실행됩니다.
 
-## <a name="recommendations"></a>권장 사항
+## <a name="recommendations"></a>추천
 
-로드 작업 또는 특정 유형의 쿼리를 실행하는 전용 사용자를 만드는 것이 좋습니다. 리소스 클래스를 자주 변경하는 대신 해당 사용자에게 영구 리소스 클래스를 제공합니다. 정적 리소스 클래스를 사용하면 워크로드를 전반적으로 더 잘 제어할 수 있으므로 동적 리소스 클래스를 고려하기 전에 정적 리소스 클래스를 사용하는 것이 좋습니다.
+특정 유형의 쿼리 또는 로드 작업을 실행 하기 위한 전용 사용자를 만드는 것이 좋습니다. 리소스 클래스를 자주 변경 하는 대신 해당 사용자에 게 영구 리소스 클래스를 제공 합니다. 정적 리소스 클래스는 워크 로드에 대 한 전반적인 제어를 강화 하므로 동적 리소스 클래스를 고려 하기 전에 정적 리소스 클래스를 사용 하는 것이 좋습니다.
 
 ### <a name="resource-classes-for-load-users"></a>로드 사용자를 위한 리소스 클래스
 
-`CREATE TABLE`은 기본적으로 클러스터형 columnstore 인덱스를 사용합니다. columnstore 인덱스로 데이터를 압축하는 작업은 메모리 사용량이 많은 작업이며 메모리 압력으로 인해 인덱스 품질이 저하될 수 있습니다. 메모리 압력은 데이터 로드 시 더 높은 리소스 클래스가 필요하도록 할 수 있습니다. 로드 작업의 메모리가 충분하도록 하려면 로드를 실행하도록 지정된 사용자를 만들고 해당 사용자에게 더 높은 리소스 클래스를 할당하면 됩니다.
+`CREATE TABLE`은 기본적으로 클러스터형 columnstore 인덱스를 사용합니다. columnstore 인덱스로 데이터를 압축하는 작업은 메모리 사용량이 많은 작업이며 메모리 압력으로 인해 인덱스 품질이 저하될 수 있습니다. 메모리 부족으로 인해 데이터를 로드할 때 더 높은 리소스 클래스가 필요 합니다. 로드 작업의 메모리가 충분하도록 하려면 로드를 실행하도록 지정된 사용자를 만들고 해당 사용자에게 더 높은 리소스 클래스를 할당하면 됩니다.
 
 로드를 효율적으로 처리하는 데 필요한 메모리는 로드된 테이블의 특성과 데이터의 크기에 따라 다릅니다. 메모리 요구 사항에 대한 자세한 내용은 [행 그룹 품질 최대화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
 
 메모리 요구 사항이 결정되면 로드 사용자에게 정적 또는 동적 리소스 클래스를 할당할지 선택합니다.
 
 - 테이블 메모리 요구 사항이 특정 범위에 속하는 경우 정적 리소스 클래스를 사용합니다. 적절한 메모리로 로드가 실행됩니다. 데이터 웨어하우스의 크기를 조정할 때 로드 작업에 추가 메모리가 필요하지 않습니다. 정적 리소스 클래스를 사용하면 메모리 할당이 일정하게 유지됩니다. 이러한 일관성으로 메모리를 절약하여 더 많은 쿼리를 동시에 실행할 수 있습니다. 이처럼 새로운 솔루션에는 제어 기능이 더 나은 정적 리소스 클래스를 우선 사용하는 것이 좋습니다.
-- 테이블 메모리 요구 사항이 매우 광범위한 경우 동적 리소스 클래스를 사용합니다. 로드 작업은 현재 DWU 또는 cDWU 수준에서 제공하는 것보다 더 많은 메모리를 필요로 할 수 있습니다. 데이터 웨어하우스를 확장하면 로드 작업에 메모리를 더 추가해 로드를 더 빠르게 수행할 수 있습니다.
+- 테이블 메모리 요구 사항이 매우 광범위한 경우 동적 리소스 클래스를 사용합니다. 로드 작업은 현재 DWU 또는 cDWU 수준에서 제공하는 것보다 더 많은 메모리를 필요로 할 수 있습니다. 데이터 웨어하우스의 크기를 조정 하면 로드 작업에 더 많은 메모리를 추가 하 여 로드를 더 빠르게 수행할 수 있습니다.
 
 ### <a name="resource-classes-for-queries"></a>쿼리에 대한 리소스 클래스
 
-일부 쿼리는 계산 집약적이고 일부는 그렇지 않습니다.  
+일부 쿼리는 계산 집약적 이며 일부는 그렇지 않습니다.  
 
-- 쿼리는 복잡하지만 높은 동시성을 요구하지 않는 경우 동적 리소스 클래스를 선택합니다.  예를 들어 매일 또는 매주 보고서를 생성하는 경우 리소스는 가끔 필요합니다. 보고서가 많은 양의 데이터를 처리하는 경우 데이터 웨어하우스를 확장하면 사용자의 기존 리소스 클래스에 더 많은 메모리를 제공할 수 있습니다.
+- 쿼리가 복잡 하지만 높은 동시성이 필요 하지 않은 경우 동적 리소스 클래스를 선택 합니다.  예를 들어 매일 또는 매주 보고서를 생성하는 경우 리소스가 가끔 필요합니다. 보고서가 많은 양의 데이터를 처리하는 경우 데이터 웨어하우스 크기를 조정하면 사용자의 기존 리소스 클래스에 더 많은 메모리를 제공할 수 있습니다.
 - 하루 중 리소스 요구 사항이 다른 경우 정적 리소스 클래스를 선택합니다. 예를 들어 데이터 웨어하우스가 여러 사용자에 의해 쿼리되는 경우에는 정적 리소스 클래스가 잘 작동합니다. 데이터 웨어하우스의 크기를 조정 하는 경우 사용자에 게 할당 된 메모리 양이 변경 되지 않습니다. 따라서 시스템에서 더 많은 쿼리를 동시에 실행할 수 있습니다.
 
-적절한 메모리 부여는 쿼리되는 데이터의 양, 테이블 스키마의 특성 및 다양한 조인, 선택 및 그룹 조건자 등의 많은 요인에 따라 달라집니다. 일반적으로 더 많은 메모리를 할당하면 쿼리를 더 빠르게 완료할 수 있지만 전체적인 동시성은 떨어집니다. 동시성이 문제가 되지 않는 경우 메모리를 과도하게 할당해도 처리량에는 문제가 없습니다.
+적절 한 메모리 부여는 쿼리 되는 데이터의 양, 테이블 스키마의 특성, 다양 한 조인, 선택 및 그룹 조건자와 같은 여러 요인에 따라 달라 집니다. 일반적으로 더 많은 메모리를 할당하면 쿼리를 더 빠르게 완료할 수 있지만 전체적인 동시성은 떨어집니다. 동시성이 문제가 되지 않을 경우 메모리를 과도하게 할당해도 처리량은 괜찮습니다.
 
 성능을 튜닝하려면 다른 리소스 클래스를 사용합니다. 다음 섹션에서는 최상의 리소스 클래스를 파악하는 데 도움이 되는 저장 프로시저를 제공합니다.
 
@@ -209,16 +210,16 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 이 저장 프로시저의 용도는 다음과 같습니다.
 
 1. 지정된 SLO에서 리소스 클래스별로 메모리 부여 및 동시성을 파악하도록 도와줍니다. 사용자는 이 예제에 나와 있는 것처럼 스키마 및 테이블 이름 둘 다에 대해 NULL을 제공해야 합니다.  
-2. 지정된 리소스 클래스에서 분할되지 않은 CCI 테이블의 메모리 집약적 CCI 작업(로드, 테이블 복사, 인덱스 다시 작성 등)에 대한 최상의 리소스 클래스를 확인합니다. 저장 프로시저는 테이블 스키마를 사용하여 필요한 메모리 부여량을 확인합니다.
+2. 지정 된 리소스 클래스의 분할 되지 않은 CCI 테이블에 대해 메모리 집약적 CCI 작업 (로드, 테이블 복사, 인덱스 다시 작성 등)에 대 한 최상의 리소스 클래스를 보려면 저장 프로시저는 테이블 스키마를 사용하여 필요한 메모리 부여량을 확인합니다.
 
 ### <a name="dependencies--restrictions"></a>종속성 & 제한 사항
 
-- 이 저장 프로시저는 분할된 cci 테이블의 메모리 요구 사항을 계산하도록 디자인되지 않았습니다.
-- 이 저장 프로시저는 CTAS/INSERT-SELECT의 SELECT 부분에 대한 메모리 요구사항을 고려하지 않으며 SELECT로 가정합니다.
+- 이 저장 프로시저는 분할 된 cci 테이블의 메모리 요구 사항을 계산 하도록 디자인 되지 않았습니다.
+- 이 저장 프로시저는 CTAS/삽입-선택의 SELECT 부분에 대 한 메모리 요구 사항을 고려 하지 않으며 SELECT 인 것으로 가정 합니다.
 - 이 저장 프로시저는 이 저장 프로시저가 만들어진 세션에서 사용 가능한 임시 테이블을 사용합니다.
-- 이 저장 프로시저는 현재 제공(예를 들어, 하드웨어 구성, DMS 구성)에 따라 다르며 변경될 경우 이 저장된 프로시저는 올바르게 작동하지 않습니다.  
-- 이 저장 프로시저는 기존 동시성 한도 기능에 따라 다르며 변경되는 경우 이 저장 프로시저는 올바르게 작동하지 않습니다.  
-- 이 저장 프로시저는 기존 리소스 클래스 제공에 따라 다르며 변경되는 경우 이 저장 프로시저는 올바르게 작동하지 않습니다.  
+- 이 저장 프로시저는 현재 제품 (예: 하드웨어 구성, DMS 구성)에 따라 달라 지 며, 변경 내용이 있으면이 저장 프로시저가 제대로 작동 하지 않습니다.  
+- 이 저장 프로시저는 기존 동시성 제한 제공에 따라 달라 지 며, 이러한 변경 내용을 적용 하면이 저장 프로시저가 제대로 작동 하지 않습니다.  
+- 이 저장 프로시저는 기존 리소스 클래스 제공에 따라 달라 지 며, 이러한 변경 내용을 적용 하면이 저장 프로시저가 제대로 작동 하지 않습니다.  
 
 >[!NOTE]  
 >제공된 매개 변수로 저장 프로시저를 실행한 후에 출력이 표시되지 않으면 다음 2가지 경우로 가정할 수 있습니다.
@@ -331,7 +332,7 @@ SELECT 'DW100c' AS DWU,4 AS max_queries,4 AS max_slots,1 AS slots_used_
     SELECT 'DW30000c', 128, 1200, 36, 120, 264, 840, 1, 2, 4, 8, 16, 32, 64, 128 
 )
 -- Creating workload mapping to their corresponding slot consumption and default memory grant.
-,map
+,map  
 AS
 (
   SELECT CONVERT(varchar(20), 'SloDWGroupSmall') AS wg_name, slots_used_smallrc AS slots_used FROM alloc WHERE DWU = @DWU
@@ -580,7 +581,7 @@ SELECT  CASE
 GO
 ```
 
-## <a name="next-step"></a>다음 단계
+## <a name="next-steps"></a>다음 단계
 
 데이터베이스 사용자 및 보안을 관리하는 방법에 대한 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호][Secure a database in SQL Data Warehouse]를 참조하세요. 더 큰 리소스 클래스가 클러스터형 columnstore 인덱스 품질을 향상시키는 방법에 대한 자세한 내용은 [Columnstore 압축을 위한 메모리 최적화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
 

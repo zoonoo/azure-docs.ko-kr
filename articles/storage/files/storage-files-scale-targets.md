@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 766dacb69a3f1857197684f552d05a1376e94509
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 267a63eba90c74b79078a7c04c1d2d8929cf2a44
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514871"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615766"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -79,9 +79,9 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 |-|-|
 | CPU | 64개의 MiB L3 캐시를 포함한 64개의 가상 코어 |
 | 메모리 | 128GiB |
-| Disk | 배터리 지원 캐시를 사용하는 RAID 10을 포함한 SAS 디스크 |
+| 디스크 | 배터리 지원 캐시를 사용하는 RAID 10을 포함한 SAS 디스크 |
 | 네트워크 | 1Gbps 네트워크 |
-| 작업 | 범용 파일 서버|
+| 워크로드 | 범용 파일 서버|
 
 | 일회성 초기 프로비전  |  |
 |-|-|
@@ -98,7 +98,7 @@ Azure 파일 동기화의 경우 다음과 같은 두 단계에서 성능이 중
 | 동기화된 개체 수| 125000개 개체(~1% 변동) |
 | 데이터 세트 크기| 50GiB |
 | 평균 파일 크기 | ~500KiB |
-| 처리량 업로드 | 초당 30개 개체 |
+| 처리량 업로드 | 초당 20개 개체 |
 | 전체 다운로드 처리량* | 초당 개체 60개 |
 
 *클라우드 계층화를 사용하면 일부 파일 데이터만을 다운로드할 때 성능이 더 개선될 수도 있습니다. Azure 파일 동기화는 엔드포인트 중 하나에서 캐시된 파일의 데이터가 변경될 때에만 해당 데이터를 다운로드합니다. 계층되거나 새로 생성된 파일의 경우 에이전트는 파일 데이터를 다운로드하지 않습니다. 대신 모든 서버 엔드포인트에 네임스페이스만을 동기화합니다. 에이전트는 사용자가 액세스할 때 계층화된 파일의 부분 다운로드도 지원합니다. 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8ec61a04d6bb7289f12becf8baebae5e47150897
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c8e4027bd8892ff3bf5c598573b7736aea42953f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802086"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602569"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: 사용자 마이그레이션
 
@@ -27,7 +27,7 @@ Azure AD B2C를 사용 하 여 [AZURE AD Graph API][B2C-GraphQuickStart]를 통�
 
 - **사전 마이그레이션**: 이 흐름은 사용자의 자격 증명(사용자 이름 및 암호)에 대한 명확한 액세스 권한이 있거나 자격 증명이 암호화되어 있지만 암호를 해독할 수 있는 경우에 적용됩니다. 사전 마이그레이션 프로세스에는 이전 ID 공급자의 사용자를 읽고 Azure AD B2C 디렉터리에 새 계정을 만드는 작업이 포함됩니다.
 
-- **사전 마이그레이션 및 암호 재설정**: 이 흐름은 사용자의 암호에 액세스할 수 없을 경우에 적용됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+- **사전 마이그레이션 및 암호 재설정** - 이 흐름은 사용자의 암호에 액세스할 수 없을 경우에 적용됩니다. 예:
   - 암호는 해시 형식으로 저장됩니다.
   - 암호는 액세스할 수 없는 ID 공급자에 저장됩니다. 이전 ID 공급자는 웹 서비스를 호출하여 사용자 자격 증명의 유효성을 검사합니다.
 
@@ -55,13 +55,13 @@ Graph API와 통신하려면 먼저 관리자 권한이 있는 서비스 계정�
 
 [!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
-### <a name="step-12-grant-administrative-permission-to-your-application"></a>1\.2단계: 애플리케이션에 관리 권한 부여
+### <a name="step-12-grant-administrative-permission-to-your-application"></a>1\.2 단계: 응용 프로그램에 관리 권한 부여
 
 다음으로, 디렉터리에 쓰는 데 필요한 Azure AD Graph API 권한을 응용 프로그램에 부여 합니다.
 
 [!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
-### <a name="step-13-create-the-application-secret"></a>1\.3단계: 애플리케이션 비밀 만들기
+### <a name="step-13-create-the-application-secret"></a>1\.3 단계: 응용 프로그램 암호 만들기
 
 이후 단계에서 구성 하는 사용자 마이그레이션 응용 프로그램에서 사용할 클라이언트 암호 (키)를 만듭니다.
 
@@ -177,12 +177,12 @@ JSON 파일을 편집하려면 `AADB2C.UserMigration.sln` Visual Studio 솔루�
    1. **Azure AD B2C**를 열고 **사용자**를 선택 합니다.
    1. 검색 상자에 사용자의 표시 이름을 입력한 다음 사용자 프로필을 확인합니다.
 
-- 로그인 이메일 주소로 사용자를 검색하려면 이 애플리케이션 예제를 사용합니다.
+- 로그인 전자 메일 주소로 사용자를 검색 하려면 샘플 응용 프로그램을 사용 합니다.
 
    1. 다음 명령을 실행합니다.
 
       ```Console
-          UserMigration.exe 3 {email address}
+          UserMigration.exe 3 {email address} > UserProfile.json
       ```
 
       > [!TIP]
@@ -217,7 +217,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 1. **응용 프로그램 선택** 드롭다운에서 응용 프로그램을 선택 합니다.
 
     > [!NOTE]
-    > **이제를 실행** 하려면 하나 이상의 응용 프로그램을 테 넌 트에 등록 해야 합니다. 응용 프로그램을 등록 하는 방법에 대 한 자세한 내용은 [Tutorial: Azure Active Directory B2C @ no__t에 응용 프로그램을 등록 합니다.
+    > **이제를 실행** 하려면 하나 이상의 응용 프로그램을 테 넌 트에 등록 해야 합니다. 응용 프로그램을 등록 하는 방법에 대 한 자세한 내용은 [자습서: 응용 프로그램을 Azure Active Directory B2C에 등록][B2C-AppRegister]을 참조 하세요.
 
 1. **지금 실행 끝점** 텍스트 상자에 표시 된 URL을 복사 하 여 사용자에 게 보냅니다.
 
@@ -228,9 +228,9 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 > [!NOTE]
 > 사용자 마이그레이션 상태를 확인하고 변경하려면 사용자 지정 정책을 사용해야 합니다. [사용자 지정 정책 시작][B2C-GetStartedCustom] 의 설정 지침을 완료 해야 합니다.
 
-사용자가 먼저 암호를 재설정하지 않고 로그인하려고 하면 정책은 친절한 오류 메시지를 반환해야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+사용자가 먼저 암호를 재설정하지 않고 로그인하려고 하면 정책은 친절한 오류 메시지를 반환해야 합니다. 예:
 
-> *암호가 만료되었습니다. 다시 설정하려면 암호 다시 설정 링크를 선택하세요.*
+> *암호가 만료 되었습니다. 다시 설정 하려면 암호 다시 설정 링크를 선택 합니다.*
 
 이 선택적 단계에서는 [사용자 지정 정책 시작][B2C-GetStartedCustom] 문서에 설명된 대로 Azure AD B2C 사용자 지정 정책을 사용해야 합니다.
 
@@ -238,7 +238,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 
 암호 변경을 추적하려면 Azure 테이블을 사용합니다. 명령줄 매개 변수 `2`로 사전 마이그레이션 프로세스를 실행할 때 Azure 테이블에 사용자 엔터티를 만듭니다. 서비스는 다음을 수행합니다.
 
-- 로그인 시 Azure AD B2C 정책은 마이그레이션 RESTful 서비스를 호출하여 전자 메일 메시지를 입력 클레임으로 보냅니다. 서비스는 Azure 테이블에서 이메일 주소를 검색합니다. 주소가 존재하면 서비스에서 *암호를 변경해야 합니다*라는 오류 메시지를 throw합니다.
+- 로그인 시 Azure AD B2C 정책은 마이그레이션 RESTful 서비스를 호출하여 전자 메일 메시지를 입력 클레임으로 보냅니다. 서비스는 Azure 테이블에서 이메일 주소를 검색합니다. 주소가 존재하면 서비스는 *암호를 변경해야 합니다.* 라는 오류 메시지를 throw합니다.
 
 - 사용자가 암호를 성공적으로 변경한 후에 해당 엔터티를 Azure 테이블에서 제거합니다.
 
@@ -248,7 +248,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 ### <a name="41-update-your-application-setting"></a>4.1: 애플리케이션 설정 업데이트
 
 1. RESTful API 데모를 테스트하려면 Visual Studio에서 `AADB2C.UserMigration.sln`을 엽니다.
-1. @No__t-0 프로젝트에서 *web.config 파일을 엽니다.* 설정을 [2.2단계](#step-22-configure-the-application-settings)에서 구성된 것으로 바꿉니다.
+1. `AADB2C.UserMigration.API` 프로젝트에서 *web.config 파일을 엽니다.* 설정을 [2.2단계](#step-22-configure-the-application-settings)에서 구성된 것으로 바꿉니다.
 
     ```json
     {
@@ -264,8 +264,8 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 ### <a name="step-43-add-a-technical-profile-and-technical-profile-validation-to-your-policy"></a>4\.3단계: 정책에 기술 프로필 및 기술 프로필 유효성 검사 추가
 
 1. 솔루션 탐색기에서 "솔루션 항목"을 확장하고, *TrustFrameworkExtensions.xml* 정책 파일을 엽니다.
-1. `yourtenant.onmicrosoft.com`에서 `TenantId`, `PublicPolicyUri` 및 `<TenantId>` 필드를 테넌트의 이름으로 변경합니다.
-1. @No__t-0 요소에서 `ProxyIdentityExperienceFrameworkAppId` 및 `IdentityExperienceFrameworkAppId`의 모든 인스턴스를 [사용자 지정 정책 시작][B2C-GetStartedCustom]에 구성 된 응용 프로그램 id로 바꿉니다.
+1. `TenantId`에서 `PublicPolicyUri`, `<TenantId>` 및 `yourtenant.onmicrosoft.com` 필드를 테넌트의 이름으로 변경합니다.
+1. `<TechnicalProfile Id="login-NonInteractive">` 요소 아래에서 `ProxyIdentityExperienceFrameworkAppId` 및 `IdentityExperienceFrameworkAppId`의 모든 인스턴스를 [사용자 지정 정책 시작][B2C-GetStartedCustom]에 구성 된 응용 프로그램 id로 바꿉니다.
 1. `<ClaimsProviders>` 노드에서 다음 XML 코드 조각을 찾습니다. `ServiceUrl` 값을 변경하여 Azure App Service URL을 가리킵니다.
 
     ```XML
@@ -306,7 +306,7 @@ Azure AD 테넌트를 정리하고 Azure AD 디렉터리에서 사용자를 제�
 
 앞의 기술 프로필은 하나의 `signInName` 입력 클레임을 정의합니다(전자 메일로 보내기). 로그인 시 클레임은 RESTful 엔드포인트에 전송됩니다.
 
-RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책에 해당 기술 프로필을 호출하도록 지시합니다. XML 코드 조각은 `SelfAsserted-LocalAccountSignin-Email`을 재정의합니다. 해당 항목은 기본 정책에서 정의됩니다. XML 코드 조각은 `LocalAccountUserMigration` 기술 프로필을 가리키는 ReferenceId를 사용하여 `ValidationTechnicalProfile`을 추가합니다.
+RESTful API에 대한 기술 프로필을 정의한 후에 Azure AD B2C 정책에 해당 기술 프로필을 호출하도록 지시합니다. XML 코드 조각은 `SelfAsserted-LocalAccountSignin-Email`을 재정의합니다. 해당 항목은 기본 정책에서 정의됩니다. XML 코드 조각은 `ValidationTechnicalProfile` 기술 프로필을 가리키는 ReferenceId를 사용하여 `LocalAccountUserMigration`을 추가합니다.
 
 ### <a name="step-44-upload-the-policy-to-your-tenant"></a>4\.4단계: 테넌트에 정책 업로드
 
