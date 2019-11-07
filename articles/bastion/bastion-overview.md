@@ -5,24 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: overview
-ms.date: 06/17/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: d153c876366c8c747e06bf50a0ea26bcdcea10eb
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 4cee16a4b6d4f87c8f09ad742d9a504cfc5fc394
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303587"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498327"
 ---
-# <a name="what-is-azure-bastion-preview"></a>Azure Bastion 정보 (미리 보기)
+# <a name="what-is-azure-bastion"></a>Azure Bastion 정보
 
 Azure Bastion 서비스는 가상 네트워크 내에서 프로비저닝하는 새로운 완전 플랫폼 관리형 PaaS 서비스입니다. SSL을 통해 Azure Portal에서 직접 가상 머신에 안전하고 원활한 RDP/SSH 연결을 제공합니다. Azure Bastion을 통해 연결하는 경우에는 가상 머신에 공용 IP 주소가 필요하지 않습니다.
 
  Bastion은 프로비저닝된 가상 네트워크의 모든 VM에 대한 안전한 RDP 및 SSH 연결을 제공합니다. Azure Bastion을 사용하면 가상 머신에서 RDP/SSH를 사용하여 안전한 액세스 권한을 계속 제공하며 RDP/SSH 포트가 외부 환경에 노출되는 상황으로부터 보호합니다. Azure Bastion을 통해 Azure Portal에서 직접 가상 머신에 연결합니다. 다른 클라이언트, 에이전트 또는 소프트웨어가 필요하지 않습니다.
-
-> [!IMPORTANT]
-> 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
->
 
 ## <a name="architecture"></a>아키텍처
 
@@ -42,7 +38,7 @@ RDP 및 SSH는 Azure에서 실행 중인 워크로드에 연결하는 데 사용
 
 ## <a name="key-features"></a>주요 기능
 
-공개 미리 보기 중에는 다음 기능을 테스트해 볼 수 있습니다.
+사용할 수 있는 기능은 다음과 같습니다.
 
 * **Azure Portal에서 직접 RDP 및 SSH:** 단 한 번의 클릭으로 원활한 환경을 사용하여 Azure Portal에서 직접 RDP 및 SSH 세션을 가져올 수 있습니다.
 * **RDP/SSH를 위한 SSL 및 방화벽 통과를 통한 원격 세션:** Azure Bastion은 로컬 디바이스에 자동으로 스트리밍하는 HTML5 기반 웹 클라이언트를 사용하므로, 포트 443의 SSL을 통해 RDP/SSH 세션을 가져와 안전하게 회사 방화벽을 통과할 수 있습니다.

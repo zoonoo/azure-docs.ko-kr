@@ -11,13 +11,13 @@ ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/28/2019
-ms.openlocfilehash: 3702c88d0a5cdc7aa1f854f71e3aee8a42d9c22c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/24/2019
+ms.openlocfilehash: 433f2a190cf24a7e59dcd1d5a5aba0d3aa4e8588
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569170"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492127"
 ---
 # <a name="quickstart-use-the-azure-portals-sql-query-editor-to-connect-and-query-data"></a>빠른 시작: Azure Portal의 SQL 쿼리 편집기를 사용하여 데이터 연결 및 쿼리
 
@@ -46,41 +46,47 @@ SQL 쿼리 편집기는 Azure SQL Database 또는 Azure SQL Data Warehouse에서
 
 ## <a name="connect-using-sql-authentication"></a>SQL 인증을 사용하여 연결
 
-1. 왼쪽 메뉴에서 **SQL 데이터베이스**를 선택한 다음, **mySampleDatabase**를 선택합니다.
+1. Azure Portal로 이동하여 SQL 데이터베이스에 연결합니다. **SQL 데이터베이스**를 검색하고 선택합니다.
 
-2. 왼쪽 메뉴에서 **쿼리 편집기(미리 보기)** 를 찾아 선택합니다. **로그인** 페이지가 나타납니다.
+    ![SQL 데이터베이스 목록인 Azure Portal을 탐색합니다.](./media/sql-database-connect-query-portal/search-for-sql-databases.png)
+
+2. SQL 데이터베이스를 선택합니다.
+
+    ![SQL 데이터베이스인 Azure Portal을 선택합니다.](./media/sql-database-connect-query-portal/select-a-sql-database.png)
+
+3. **SQL 데이터베이스** 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다.
 
     ![쿼리 편집기 찾기](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. **인증 형식** 드롭다운 메뉴에서 **SQL Server 인증**을 선택하고 데이터베이스를 만드는 데 사용되는 서버 관리자 계정의 사용자 ID 및 암호를 입력합니다.
+4. **로그인** 페이지의 **SQL Server 인증** 레이블 아래에서 데이터베이스를 만드는 데 사용되는 서버 관리자 계정의 **로그인** ID와 **암호**를 입력합니다. 그런 다음 **확인**을 선택합니다.
 
     ![로그인](./media/sql-database-connect-query-portal/login-menu.png)
 
-4. **확인**을 선택합니다.
-
-
 ## <a name="connect-using-azure-active-directory"></a>Azure Active Directory를 사용하여 연결
 
-AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure Portal 및 SQL 데이터베이스에 로그인할 수 있습니다. 다음 단계에 따라 SQL Server에 대한 AD 관리자를 구성합니다.
+Azure Active Directory(Azure AD) 관리자를 구성하면 단일 ID를 사용하여 Azure Portal과 SQL 데이터베이스에 로그인할 수 있습니다. 다음 단계에 따라 SQL Server에 대한 Azure AD 관리자를 구성합니다.
 
 > [!NOTE]
-> * 메일 계정(예: outlook.com, gmail.com, yahoo.com 등)은 아직 AD 관리자로 지원되지 않습니다. Azure AD에서 기본적으로 만들어지거나 Azure AD에 페더레이션된 사용자를 선택해야 합니다.
+> * 이메일 계정(예: outlook.com, gmail.com, yahoo.com 등)은 아직 Azure AD 관리자로 지원되지 않습니다. Azure AD에서 기본적으로 만들어지거나 Azure AD에 페더레이션된 사용자를 선택해야 합니다.
 > * Azure AD 관리자 로그인은 2단계 인증이 사용되는 계정에서 작동하지 않습니다.
 
-1. 왼쪽 메뉴에서 **모든 리소스**를 선택한 다음, SQL Server를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **모든 리소스**를 선택합니다.
 
-2. SQL Server의 **설정** 메뉴에서 **Active Directory 관리자**를 선택합니다.
+2. SQL Server를 선택합니다.
 
-3. AD 관리자 페이지 도구 모음에서 **관리자 설정**을 선택하고 사용자 또는 그룹을 AD 관리자로 선택합니다.
+3. **SQL Server** 메뉴의 **설정** 아래에서 **Active Directory 관리자**를 선택합니다.
+
+4. SQL Server **Active Directory 관리자** 페이지 도구 모음에서 **관리자 설정**을 선택하고 사용자나 그룹을 Azure AD 관리자로 선택합니다.
 
     ![Active Directory 선택](./media/sql-database-connect-query-portal/select-active-directory.png)
 
-4. AD 관리자 페이지 도구 모음에서 **저장**을 선택합니다.
+5. **관리자 추가** 페이지의 검색 상자에서 찾을 사용자나 그룹을 입력하고 관리자 권한으로 선택한 다음, **선택** 단추를 선택 합니다.
 
-5. **mySampleDatabase** 데이터베이스로 이동하고 왼쪽 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. **로그인** 페이지가 나타납니다. AD 관리자인 경우 오른쪽에 있는 **Active Directory Single Sign-On**에 로그인되었다는 메시지가 나타납니다.
+6. 다시 SQL Server **Active Directory 관리자** 페이지 도구 모음에서 **저장**을 선택합니다.
 
-6. **확인**을 선택합니다.
+7. **SQL Server** 메뉴에서 **SQL 데이터베이스**를 선택하고 SQL 데이터베이스를 선택합니다.
 
+8. **SQL 데이터베이스** 메뉴에서 **쿼리 편집기(미리 보기)** 를 선택합니다. Azure AD 관리자인 경우 **로그인** 페이지의 **Active Directory 인증** 레이블 아래에 로그인되었다는 메시지가 나타납니다. \<**사용자 또는 그룹 ID>(으)로 계속** 단추를 선택합니다  .
 
 ## <a name="view-data"></a>데이터 보기
 
@@ -95,7 +101,7 @@ AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure P
 
 2. 도구 모음에서 **실행**을 선택한 다음, **결과** 창에서 출력을 검토합니다.
 
-![쿼리 편집기 결과](./media/sql-database-connect-query-portal/query-editor-results.png)
+   ![쿼리 편집기 결과](./media/sql-database-connect-query-portal/query-editor-results.png)
 
 ## <a name="insert-data"></a>데이터 삽입
 
@@ -103,8 +109,8 @@ AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure P
 
 1. 이전 쿼리를 다음 쿼리로 바꿉니다.
 
-   ```sql
-   INSERT INTO [SalesLT].[Product]
+    ```sql
+    INSERT INTO [SalesLT].[Product]
            ( [Name]
            , [ProductNumber]
            , [Color]
@@ -113,7 +119,7 @@ AD(Active Directory) 관리자를 구성하면 단일 ID를 사용하여 Azure P
            , [ListPrice]
            , [SellStartDate]
            )
-     VALUES
+    VALUES
            ('myNewProduct'
            ,123456789
            ,'NewColor'

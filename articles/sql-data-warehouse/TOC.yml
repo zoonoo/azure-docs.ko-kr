@@ -47,10 +47,10 @@
           href: quickstart-scale-compute-tsql.md
     - name: 워크로드 관리
       items:
-        - name: 워크로드 분류자 만들기
+        - name: 워크로드 격리 만들기
           items:
             - name: T-SQL
-              href: quickstart-create-a-workload-classifier-tsql.md
+              href: quickstart-configure-workload-isolation-tsql.md
 - name: 개념
   items:
     - name: 보안
@@ -213,14 +213,18 @@
           href: sql-data-warehouse-develop-label.md
     - name: 워크로드 관리
       items:
-        - name: 리소스 클래스 및 워크로드 관리
-          href: resource-classes-for-workload-management.md
+        - name: 개요
+          href: sql-data-warehouse-workload-management.md
         - name: 워크로드 분류
           href: sql-data-warehouse-workload-classification.md
         - name: 워크로드 중요도
           href: sql-data-warehouse-workload-importance.md
+        - name: 워크로드 격리
+          href: sql-data-warehouse-workload-isolation.md
         - name: 메모리 및 동시성 제한
-          href: memory-and-concurrency-limits.md
+          href: memory-concurrency-limits.md
+        - name: 리소스 클래스
+          href: resource-classes-for-workload-management.md
     - name: 관리 효율성 및 모니터링
       items:
         - name: 개요
@@ -303,6 +307,8 @@
           href: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
         - name: 워크로드 중요도 구성
           href: sql-data-warehouse-how-to-configure-workload-importance.md
+        - name: 리소스 클래스를 작업 그룹으로 변환
+          href: sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md
     - name: 관리 및 모니터링
       items:
         - name: Gen2로 업그레이드

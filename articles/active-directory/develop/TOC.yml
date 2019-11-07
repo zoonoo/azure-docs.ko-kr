@@ -436,7 +436,7 @@
                   href: msal-js-prompt-behavior.md
             - name: iOS 및 macOS용 MSAL
               items:
-                - name: iOS 및 macOS용 Microsoft 인증 라이브러리 차이점
+                - name: iOS 및 macOS용 MSAL 간 차이점
                   href: msal-differences-ios-macos.md
                 - name: 키 집합 구성
                   href: howto-v2-keychain-objc.md

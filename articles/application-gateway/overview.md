@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 5/31/2019
 ms.author: victorh
-ms.openlocfilehash: 725b284fa58296aea310f618c000e77d9a0fb4c9
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146614"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469751"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -52,6 +52,13 @@ WAF(웹 애플리케이션 방화벽)는 일반적인 악용 및 취약점으로
 웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 애플리케이션 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 애플리케이션 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 애플리케이션 방화벽을 통해 보안 관리가 훨씬 간단해지고 애플리케이션 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 애플리케이션을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 애플리케이션 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
 
 자세한 내용은 [Application Gateway의 WAF(웹 애플리케이션 방화벽)](https://docs.microsoft.com/azure/application-gateway/waf-overview)를 참조하세요.
+
+## <a name="ingress-controller-for-aks"></a>AKS용 Ingress Controller
+AGIC(Application Gateway Ingress Controller)에서는 Application Gateway를 [AKS(Azure Kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/) 클러스터용 Ingress Controller로 사용할 수 있습니다. 
+
+Ingress Controller는 AKS 클러스터 내에서 Pod로 실행되고 [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/)를 사용하며 게이트웨이가 Kubernetes Pod로 트래픽을 부하 분산할 수 있게 해주는 Application Gateway로 변환합니다. Ingress Controller는 Application Gateway V2 SKU만 지원합니다. 
+
+자세한 내용은 [AGIC(Application Gateway Ingress Controller)](ingress-controller-overview.md)를 참조하세요.
 
 ## <a name="url-based-routing"></a>URL 기반 라우팅
 
@@ -96,12 +103,6 @@ Application Gateway는 WebSocket 및 HTTP/2 프로토콜에 대한 네이티브 
 WebSocket 및 HTTP/2 프로토콜을 사용하면 장기 실행 TCP 연결을 통해 서버와 클라이언트 간의 전이중 통신을 수행할 수 있습니다. 이를 사용하면 웹 서버와 클라이언트 간의 대화형 통신이 가능하며, HTTP 기반 구현에서 필요에 따라 폴링하지 않고도 양방향 통신을 수행할 수 있습니다. 이러한 프로토콜은 HTTP와 달리 오버헤드가 낮고 여러 요청/응답에 대해 동일한 TCP 연결을 다시 사용하므로 리소스를 보다 효율적으로 사용할 수 있습니다. 이러한 프로토콜은 기존의 HTTP 포트 80 및 443을 통해 작동하도록 디자인되었습니다.
 
 자세한 내용은 [WebSocket 지원](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) 및 [HTTP/2 지원](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support)을 참조하세요.
-
-## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>AKS(Azure Kubernetes Service) 수신 컨트롤러 미리 보기 
-
-AKS 클러스터 내에서 Pod로 실행되는 Application Gateway 수신 컨트롤러를 사용하면 Application Gateway가 AKS 클러스터에 대한 입구로 작동할 수 있습니다. 이는 Application Gateway v2에서만 지원됩니다.
-
-자세한 내용은 [Azure Application Gateway 수신 컨트롤러](https://azure.github.io/application-gateway-kubernetes-ingress/)를 참조하세요.
 
 ## <a name="connection-draining"></a>연결 드레이닝
 

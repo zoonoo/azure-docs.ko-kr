@@ -1,9 +1,9 @@
 ### YamlMime:Landing
-title: Azure Data Box 설명서 - 온라인 전송
-summary: Azure Data Box Gateway 및 Azure Data Box Edge 디바이스를 사용하여 네트워크를 통해 빠르게 데이터를 전송합니다. 클라우드 아카이브, 재해 복구를 위해 또는 클라우드 규모에서 데이터를 처리하도록 데이터를 보내려면 Data Box Gateway를 선택합니다. 데이터를 Azure로 이동하기 전에 필터링, 분석 및 변환을 수행하려면 Data Box Edge를 사용합니다.
+title: Azure Stack Edge 및 Azure Data Box Gateway 설명서 - 온라인 전송
+summary: Azure Data Box Gateway 및 Azure Stack Edge 디바이스를 사용하여 네트워크를 통해 고성능 데이터를 전송합니다. 클라우드 아카이브, 재해 복구를 위해 또는 클라우드 규모에서 데이터를 처리하도록 데이터를 보내려면 Data Box Gateway를 선택합니다. 데이터를 Azure로 이동하기 전에 필터링, 분석 및 변환을 수행하려면 Azure Stack Edge를 사용합니다. Azure Data Box Edge는 최근 Azure Stack Edge로 재브랜드되었습니다.
 metadata:
-  title: Azure Data Box 설명서 - 온라인 전송
-  description: Azure로 네트워크 데이터 전송을 통해 고성능을 발휘하기 위한 Data Box Gateway, Data Box Edge 설명서
+  title: Azure Stack Edge 및 Azure Data Box Gateway 설명서 - 온라인 전송
+  description: Azure로 네트워크 데이터 전송을 통해 고성능을 발휘하기 위한 Data Box Gateway, Azure Stack Edge (재브랜드된 Data Box Edge) 설명서입니다.
   services: databox
   ms.service: databox
   ms.subservice: edge
@@ -11,21 +11,21 @@ metadata:
   ms.collection: collection
   author: alkohli
   ms.author: alkohli
-  ms.date: 08/15/2019
-  ms.openlocfilehash: f1b3c4f8473807b7bbffa2b40f1d3a89b6acff5a
-  ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 61cda4ccab69396c13581598f399104b0a4fb181
+  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 08/23/2019
-  ms.locfileid: "70012876"
+  ms.lasthandoff: 11/04/2019
+  ms.locfileid: "73570108"
 landingContent:
-- title: Data Box 제품군 정보
+- title: Azure Stack Edge 및 Data Box Gateway 정보
   linkLists:
   - linkListType: overview
     links:
     - text: Data Box Gateway란?
       url: data-box-gateway-overview.md
-    - text: Data Box Edge란?
+    - text: Azure Stack Edge란?
       url: data-box-edge-overview.md
   - linkListType: architecture
     links:
@@ -43,11 +43,11 @@ landingContent:
     links:
     - text: Data Box Gateway 요구 사항
       url: data-box-gateway-system-requirements.md
-    - text: Data Box Edge 요구 사항
+    - text: Azure Stack Edge 요구 사항
       url: data-box-edge-system-requirements.md
     - text: Data Box Gateway 제한 사항
       url: data-box-gateway-limits.md
-    - text: Data Box Edge 제한 사항
+    - text: Azure Stack Edge 제한 사항
       url: data-box-edge-limits.md
 - title: 배포
   linkLists:
@@ -55,7 +55,7 @@ landingContent:
     links:
     - text: Data Box Gateway
       url: data-box-gateway-deploy-prep.md
-    - text: Data Box Edge
+    - text: Azure Stack Edge
       url: data-box-edge-deploy-prep.md
 - title: 개발
   linkLists:
@@ -65,7 +65,7 @@ landingContent:
       url: data-box-edge-create-iot-edge-module.md
   - linkListType: download
     links:
-    - text: 샘플 - Data Box Edge용 C#
+    - text: 샘플 - Azure Stack Edge용 C#
       url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
 - title: 관리
   linkLists:
@@ -73,7 +73,7 @@ landingContent:
     links:
     - text: Data Box Gateway 공유
       url: data-box-gateway-manage-shares.md
-    - text: Data Box Edge 공유
+    - text: Azure Stack Edge 공유
       url: data-box-edge-manage-shares.md
     - text: Edge 컴퓨팅
       url: data-box-edge-manage-compute.md
@@ -85,11 +85,11 @@ landingContent:
     links:
     - text: Data Box Gateway
       url: data-box-gateway-troubleshoot.md
-    - text: Data Box Edge
+    - text: Azure Stack Edge
       url: data-box-edge-troubleshoot.md
     - text: Edge 컴퓨팅 모듈
       url: data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules
-    - text: Data Box Edge 반환 또는 바꾸기
+    - text: Azure Stack Edge 반환 또는 바꾸기
       url: data-box-edge-return-device.md
     - text: 지원 티켓 열기
       url: data-box-edge-contact-microsoft-support.md

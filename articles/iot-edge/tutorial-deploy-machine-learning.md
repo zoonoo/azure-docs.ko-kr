@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 04c09c60a8b633c9ddb51fbe97ac02a319472448
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 28e5e09ea64f7ac1272e8ed126d5b4153b952c1d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434687"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494030"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
 Azure Notebooks를 사용하여 기계 학습 모듈을 개발하고 Azure IoT Edge를 실행하는 Linux 디바이스에 배포합니다. 
 
-비즈니스 논리를 직접 IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 디바이스가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure Machine Learning 서비스에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/service/how-to-deploy-to-iot.md)를 참조하세요.
+비즈니스 논리를 직접 IoT Edge 디바이스에 구현하는 코드를 배포하려면 IoT Edge 모듈을 사용할 수 있습니다. 이 자습서에서는 시뮬레이션된 컴퓨터 온도 데이터에 따라 디바이스가 실패하는 경우를 예측하는 Azure Machine Learning 모듈을 배포하는 과정을 안내합니다. IoT Edge의 Azure Machine Learning에 대한 자세한 내용은 [Azure Machine Learning 설명서](../machine-learning/service/how-to-deploy-to-iot.md)를 참조하세요.
 
 이 자습서에서 만드는 Azure Machine Learning 모듈은 디바이스에서 생성된 환경 데이터를 읽고, 메시지에 비정상 레이블을 지정하기도 합니다.
 
@@ -55,10 +55,10 @@ Azure IoT Edge 디바이스:
 
 ## <a name="create-and-deploy-azure-machine-learning-module"></a>Azure Machine Learning 모듈 만들기 및 배포
 
-이 섹션에서는 학습된 기계 학습 모델 파일을 Azure Machine Learning Service 컨테이너로 변환합니다. Docker 이미지에 필요한 모든 구성 요소는 [Azure IoT Edge용 AI 도구 키트](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)에 있습니다. 다음 단계에 따라 Microsoft Azure Notebook에 해당 리포지토리를 업로드하고 컨테이너를 만들어서 Azure Container Registry에 푸시합니다.
+이 섹션에서는 학습된 Machine Learning 모델 파일을 Azure Machine Learning 컨테이너로 변환합니다. Docker 이미지에 필요한 모든 구성 요소는 [Azure IoT Edge용 AI 도구 키트](https://github.com/Azure/ai-toolkit-iot-edge/tree/master/IoT%20Edge%20anomaly%20detection%20tutorial)에 있습니다. 다음 단계에 따라 Microsoft Azure Notebook에 해당 리포지토리를 업로드하고 컨테이너를 만들어서 Azure Container Registry에 푸시합니다.
 
 
-1. Azure Notebooks 프로젝트로 이동합니다. [Azure Portal](https://portal.azure.com)의 Azure Machine Learning Service 작업 영역에서 또는 Azure 계정으로 [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects)에 로그인하여 가져올 수 있습니다.
+1. Azure Notebooks 프로젝트로 이동합니다. [Azure Portal](https://portal.azure.com)의 Azure Machine Learning 작업 영역에서 또는 Azure 계정으로 [Microsoft Azure Notebooks](https://notebooks.azure.com/home/projects)에 로그인하여 가져올 수 있습니다.
 
 2. **GitHub 리포지토리 업로드**를 선택합니다.
 
@@ -72,7 +72,7 @@ Azure IoT Edge 디바이스:
 
 6. **aml_config/config.json** 파일을 엽니다.
 
-7. Azure 구독 ID, 구독의 리소스 그룹 및 Azure Machine Learning Service 작업 영역 이름의 값이 포함되도록 구성 파일을 편집합니다. 이 값은 Azure 작업 영역의 **개요** 섹션에서 찾을 수 있습니다. 
+7. Azure 구독 ID, 구독의 리소스 그룹 및 Azure Machine Learning 작업 영역 이름의 값이 포함되도록 구성 파일을 편집합니다. 이 값은 Azure 작업 영역의 **개요** 섹션에서 찾을 수 있습니다. 
 
 8. 구성 파일을 저장합니다.
 
@@ -149,7 +149,7 @@ IoT Edge 디바이스에서 모든 개별 모듈에서 보낸 메시지를 볼 �
 
 5. 5초마다 tempSensor에서 보낸 메시지를 관찰합니다. 메시지 본문에 machinelearningmodule이 true 또는 false 값을 제공하는 **anomaly**라는 속성이 포함되어 있습니다. **AzureMLResponse** 속성에는 모델이 성공적으로 실행된 경우 값 "OK"가 포함됩니다.
 
-   ![메시지 본문의 Azure Machine Learning 서비스 응답](./media/tutorial-deploy-machine-learning/ml-output.png)
+   ![메시지 본문의 Azure Machine Learning 응답](./media/tutorial-deploy-machine-learning/ml-output.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -9,20 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 87e4fe3671f419383cb342fdb7dca55a8d2eb45d
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: a917176cb06e833745996326520341c1f819c5bf
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376261"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73465410"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>자습서: 단순 엔터티 및 구 목록을 사용하여 이름 추출
 
 이 자습서에서는 **단순** 엔터티를 사용하여 발화에서 배포 작업 이름의 기계 학습 데이터를 추출합니다. 추출 정확도를 높이려면 간단한 엔터티에 특정된 용어의 구 목록을 추가합니다.
 
 간단한 엔터티는 단어 또는 구에 포함된 단일 데이터 개념을 검색합니다.
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
@@ -93,7 +95,7 @@ ms.locfileid: "70376261"
 
 1. `I want to apply for the new accounting job` 발화에서 `accounting`을 선택하고, 팝업 메뉴의 위쪽 필드에서 `Job`을 입력한 다음, 팝업 메뉴에서 **새 엔터티 만들기**를 선택합니다. 
 
-    [![엔터티 만들기 단계가 강조 표시된 LUIS의 ‘ApplyForJob’ 의도 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "엔터티 만들기 단계가 강조 표시된 LUIS의 ‘ApplyForJob’ 의도 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
+    [![엔터티 만들기 단계가 강조 표시된 LUIS의 'ApplyForJob' 의도 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png "엔터티 만들기 단계가 강조 표시된 LUIS의 'ApplyForJob' 의도 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-entity.png#lightbox)
 
 1. 팝업 창에서 엔터티 이름과 형식을 확인하고 **완료**를 선택합니다.
 
@@ -231,7 +233,7 @@ Azure-Samples GitHub 리포지토리에서 [jobs-phrase-list.csv](https://github
 
 1. 새 구 목록의 이름을 `JobNames`로 지정하고, **값** 텍스트 상자에 jobs-phrase-list.csv의 목록을 복사합니다.
 
-    [![새 구 목록 만들기 대화 상자 팝업의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "새 구 목록 만들기 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
+    [![새 구 목록 대화 상자 팝업의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png "새 구 목록 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-1.png#lightbox)
 
     구 목록에 더 많은 단어를 추가하려면 **권장**을 선택한 다음, 새 **관련 값**을 검토하고 관련된 내용을 추가합니다. 
 
@@ -239,7 +241,7 @@ Azure-Samples GitHub 리포지토리에서 [jobs-phrase-list.csv](https://github
 
 1. **완료**를 선택하여 구 목록을 활성화합니다.
 
-    [![구 목록 값 상자에 단어가 포함된 새 구 목록 만들기 대화 상자 팝업의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "구 목록 값 상자에 단어가 포함된 새 구 목록 만들기 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
+    [![구 목록 값 상자에 단어가 포함된 새 구 목록 대화 상자 팝업의 스크린샷](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "구 목록 값 상자에 단어가 포함된 새 구 목록 대화 상자 팝업의 스크린샷")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
 1. 구 목록을 사용할 수 있도록 앱을 다시 학습 및 게시합니다.
 

@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 09/02/2018
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 00eb6f40e77cbdb64249600e35ca8531f1a744a8
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1effd07cef439a6257028549b7b7114b742eb478
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258183"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488801"
 ---
 ## <a name="sign-in-to-luis-portal"></a>LUIS 포털에 로그인
 
@@ -41,8 +41,8 @@ LUIS에 대한 새 사용자는 다음 절차를 수행해야 합니다.
 
 1. 만들 리소스에 대한 요약이 표시됩니다. **다음**을 선택합니다.
 
-    ![제작 리소스 만들기](./media/sign-in-confirm-key-selection.png)
+    ![제작 리소스 만들기](../media/sign-in/sign-in-confirm-key-selection.png)
 
-1. 3단계는 확인입니다. **계속**을 선택하여 선택을 확인합니다. 
+1. **계속**을 선택하여 확인합니다. 
 
-    ![제작 리소스 만들기](./media/sign-in-confirm-continue.png)
+    ![제작 리소스 만들기](../media/sign-in/sign-in-confirm-continue.png)

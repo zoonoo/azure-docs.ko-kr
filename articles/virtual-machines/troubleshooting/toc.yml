@@ -174,7 +174,7 @@
 - name: 부트 오류
   href: boot-error-troubleshoot.md
   items:
-    - name: Azure Virtual Machine 부트 오류
+    - name: Grub 복구
       href: troubleshoot-vm-boot-error.md
     - name: 부트 진단
       href: boot-diagnostics.md

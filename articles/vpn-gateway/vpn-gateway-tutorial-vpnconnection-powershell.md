@@ -5,19 +5,19 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: tutorial
-ms.date: 02/11/2019
+ms.date: 10/17/2019
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: b59d58eb2c387e5ba1f71748751110bf932837b9
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 1f2cbe447508ca6939fcdb997a9536ea91a7953f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66727118"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495641"
 ---
 # <a name="tutorial-create-and-manage-s2s-vpn-connections-using-powershell"></a>자습서: PowerShell을 사용하여 S2S VPN 연결 만들기 및 관리
 
-Azure S2S VPN 연결은 고객 프레미스와 Azure 사이에 안전한 프레미스 간 연결을 제공합니다. 이 자습서에서는 S2S VPN 연결을 만들고 관리하는 등의 IPsec S2S VPN 연결 수명 주기를 연습합니다. 다음 방법에 대해 알아봅니다.
+Azure S2S VPN 연결은 고객 프레미스와 Azure 사이에 안전한 프레미스 간 연결을 제공합니다. 이 자습서에서는 S2S VPN 연결을 만들고 관리하는 등의 IPsec S2S VPN 연결 수명 주기를 연습합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * S2S VPN 연결 만들기
@@ -99,10 +99,10 @@ $lng1 = Get-AzLocalNetworkGateway   -Name $LNG1 -ResourceGroupName $RG1
 
 New-AzVirtualNetworkGatewayConnection -Name $Connection1 -ResourceGroupName $RG1 `
   -Location $Location1 -VirtualNetworkGateway1 $vng1 -LocalNetworkGateway2 $lng1 `
-  -ConnectionType IPsec -SharedKey "Azure@!b2C3"
+  -ConnectionType IPsec -SharedKey "Azure@!b2C3" -ConnectionProtocol IKEv2
 ```
 
-BGP를 사용하는 경우 연결에 BGP를 사용하려면 선택적 " **-EnableBGP $True**" 속성을 추가합니다. 기본적으로 사용하지 않도록 설정되어 있습니다.
+BGP를 사용하는 경우 연결에 BGP를 사용하려면 선택적 " **-EnableBGP $True**" 속성을 추가합니다. 기본적으로 사용하지 않도록 설정되어 있습니다. 매개 변수 '-ConnectionProtocol'은 기본적으로 IKEv2를 사용하는 선택 사항입니다. **-ConnectionProtocol IKEv1**을 지정하여 IKEv1 프로토콜과의 연결을 만들 수 있습니다.
 
 ## <a name="update-the-vpn-connection-pre-shared-key-bgp-and-ipsecike-policy"></a>VPN 연결 미리 공유한 키, BGP 및 IPsec/IKE 정책 업데이트
 

@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 27578e50c56a9c7dac3d74b88e14d0f8fbe9d402
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 97622df578b6c1357601b32a22c806e9eef77c96
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784987"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466862"
 ---
-# <a name="introduction-to-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강 소개
+# <a name="introduction-to-ai-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 소개
 
-AI 보강은 이미지, Blob 및 기타 비정형 데이터 원본에서 텍스트를 추출하는 데 사용되는 Azure Cognitive Search 인덱싱 기능이며, 인덱스 또는 지식 저장소에서 더 쉽게 검색할 수 있도록 콘텐츠를 보강합니다. 추출 및 보강은 인덱싱 파이프라인에 연결된 ‘인식 기술’을 통해 구현됩니다.  인지 기술은 다음과 같은 범주로 분류됩니다. 
+AI 보강은 이미지, Blob 및 기타 비정형 데이터 원본에서 텍스트를 추출하는 데 사용되는 Azure Cognitive Search 인덱싱 기능이며, 인덱스 또는 지식 저장소에서 더 쉽게 검색할 수 있도록 콘텐츠를 보강합니다. 추출 및 보강은 인덱싱 파이프라인에 연결된 ‘인식 기술’을 통해 구현됩니다.  서비스에서 기본 제공되는 인식 기술은 다음 범주로 구분됩니다. 
 
 + **자연어 처리** 기술에는 [엔터티 인식](cognitive-search-skill-entity-recognition.md), [언어 감지](cognitive-search-skill-language-detection.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), 텍스트 조작 및 [감성 인식](cognitive-search-skill-sentiment.md)이 포함됩니다. 해당 기술을 사용하면 비정형 텍스트가 인덱스에서 검색 및 필터링 가능한 필드로 매핑되는 새 양식을 가정할 수 있습니다.
 
@@ -36,6 +36,12 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API의 기계 학�
 
 ## <a name="when-to-use-cognitive-skills"></a>인지 기술을 사용하는 경우
 
+원시 콘텐츠가 구조화되지 않은 텍스트, 이미지 콘텐츠 또는 언어 감지 및 번역이 필요한 콘텐츠인 경우 기본 제공되는 인지 기술을 사용하는 것이 좋습니다. 기본 제공되는 인지 기술을 통해 AI를 적용하면 이 콘텐츠가 잠금 해제되어 검색 및 데이터 과학 앱에서의 가치 및 효용성이 늘어날 수 있습니다. 
+
+또한 파이프라인에 통합하고 싶은 오픈 소스, 타사 또는 자사 코드가 있을 경우, 사용자 지정 기술을 추가하는 것이 좋을 수 있습니다. 여러 문서 유형의 핵심 특성을 식별하는 분류 모델이 이 범주에 포함되지만, 콘텐츠에 가치를 부여하는 어떤 패키지라도 사용할 수 있습니다.
+
+### <a name="more-about-built-in-skills"></a>기본 제공 기술 추가 정보
+
 기본 제공 기술을 사용하여 어셈블되는 기술 세트는 다음과 같은 애플리케이션 시나리오에 적합합니다.
 
 + 전체 텍스트를 검색 가능하게 만들고 싶은 스캔한 문서(JPEG). OCR(광학 문자 인식) 기술을 연결하여 JPEG 파일의 텍스트를 식별, 추출 및 수집할 수 있습니다.
@@ -49,6 +55,8 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API의 기계 학�
   특히 Blob은 단일 "필드"로 압축된 큰 콘텐츠 본문을 포함하는 경우가 많습니다. 이미지 및 자연어 처리 기술을 인덱서에 연결하면 원시 콘텐츠에 존재하지만, 그렇지 않은 경우 별도의 필드로 표시되는 새 정보를 만들 수 있습니다. 즉시 사용 가능한 기본 제공 인식 기술로는 핵심 문구 추출, 감정 분석 및 엔터티 인식(사람, 조직 및 위치)이 있습니다.
 
   또한 기본 제공 기술을 사용하여 텍스트 분할, 병합 및 셰이프 작업을 통해 콘텐츠를 재구성하는 데 사용할 수도 있습니다.
+
+### <a name="more-about-custom-skills"></a>사용자 지정 기술 추가 정보
 
 사용자 지정 기술은 양식 인식, 또는 [사용자 지정 기술 웹 인터페이스](cognitive-search-custom-skill-interface.md)에서 제공하고 래핑하는 모델을 사용하는 사용자 지정 엔터티 검색처럼 좀 더 복잡한 시나리오를 지원할 수 있습니다. 사용자 지정 기술의 예로는 [Form Recognizer](/azure/cognitive-services/form-recognizer/overview), [Bing Entity Search API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) 통합, [사용자 지정 엔터티 인식](https://github.com/Microsoft/SkillsExtractorCognitiveSearch) 등이 있습니다.
 

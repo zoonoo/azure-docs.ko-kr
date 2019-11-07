@@ -1,6 +1,6 @@
 ---
-title: Azure Database for PostgreSQL – 하이퍼스케일(Citus)(미리 보기) 빠른 시작
-description: Azure Database for PostgreSQL 하이퍼스케일(Citus)(미리 보기)에서 분산된 테이블을 만들고 쿼리하는 빠른 시작입니다.
+title: Azure Database for PostgreSQL – 하이퍼스케일(Citus) 빠른 시작
+description: Azure Database for PostgreSQL 하이퍼스케일(Citus)에서 분산된 테이블을 만들고 쿼리하는 빠른 시작입니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,16 +8,16 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 05/14/2019
-ms.openlocfilehash: fe981167249e24a43a8cb14c51c9b7c1eb081225
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 6b5bfbf16e76cbf90a5536332d8e3bf1035f983a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70164024"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500069"
 ---
-# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-preview-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 하이퍼스케일(Citus)(미리 보기)
+# <a name="quickstart-create-an-azure-database-for-postgresql---hyperscale-citus-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Database for PostgreSQL - 하이퍼스케일(Citus) 만들기
 
-PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정하는 데 사용하는 관리 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Database for PostgreSQL - 하이퍼스케일(Citus)(미리 보기) 서버 그룹을 만드는 방법을 보여줍니다. 분산된 데이터를 살펴보겠습니다. 노드 간에 테이블을 분할하고, 샘플 데이터를 수집하고, 여러 노드에서 실행되는 쿼리를 실행할 것입니다.
+PostgreSQL용 Azure Database는 클라우드에서 항상 사용 가능한 PostgreSQL 데이터베이스를 실행, 관리 및 크기 조정하는 데 사용하는 관리 서비스입니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Database for PostgreSQL - 하이퍼스케일(Citus) 서버 그룹을 만드는 방법을 보여줍니다. 분산된 데이터를 살펴보겠습니다. 노드 간에 테이블을 분할하고, 샘플 데이터를 수집하고, 여러 노드에서 실행되는 쿼리를 실행할 것입니다.
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 

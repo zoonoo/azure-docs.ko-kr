@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 268def74a354b19427849738549fbc0c6b197746
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: e07b1d7e01d743bb46c8d5a21664bf68184c97dd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813389"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488467"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 
@@ -158,7 +158,7 @@ ms.locfileid: "70813389"
 
 ## <a name="create-a-replication-policy"></a>복제 정책 만들기
 
-1. [Azure Portal](https://portal.azure.com)을 열고 **모든 리소스**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)을 엽니다. **Recovery Services 자격 증명 모음**을 검색하여 선택합니다.
 2. Recovery Services 자격 증명 모음 선택(이 자습서에서는 **ContosoVMVault**).
 3. 복제 정책을 만들려면 **Site Recovery 인프라** > **복제 정책** >  **+복제 정책**을 선택합니다.
 4. **복제 정책 만들기**에서 정책 이름을 입력합니다. **VMwareRepPolicy**를 사용합니다.

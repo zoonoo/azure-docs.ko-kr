@@ -121,11 +121,17 @@
     - name: U-SQL 개발자를 위한 Apache Spark 이해
       items:
         - name: U-SQL 개발자를 위한 Apache Spark 이해
-          href: data-lake-analytics-understand-spark-for-usql-developers.md
+          href: understand-spark-for-usql-developers.md
         - name: Apache Spark 데이터 형식 이해
-          href: data-lake-analytics-understand-spark-data-formats.md
+          href: understand-spark-data-formats.md
         - name: Apache Spark 코드 개념 이해
-          href: data-lake-analytics-understand-spark-code-concepts.md
+          href: understand-spark-code-concepts.md
+    - name: U-SQL 작업 문제 해결
+      items:
+        - name: U-SQL 런타임 오류 문제 해결
+          href: runtime-troubleshoot.md
+        - name: .NET 업그레이드 문제 해결
+          href: dotnet-upgrade-troubleshoot.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell

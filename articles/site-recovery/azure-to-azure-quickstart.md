@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d23d16d1315eeaf224a5291641ab088212fcdc77
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: b06cae5bcb07831ba79b805802a7851c2b6ad2b3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70146948"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467990"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정        
 
@@ -32,11 +32,11 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="enable-replication-for-the-azure-vm"></a>Azure VM에 대해 복제 사용
 
-1. Azure Portal에서 **가상 머신**를 클릭한 다음 복제할 VM을 선택합니다.
-2. **작업**에서 **재해 복구**를 클릭합니다.
+1. Azure Portal 메뉴에서 **가상 머신**을 선택하거나 모든 페이지에서*가상 머신*을 검색하여 선택합니다. 복제할 VM을 선택합니다.
+2. **작업**에서 **재해 복구**를 선택합니다.
 3. **재해 복구 구성** > **대상 지역**에서 복제할 대상 지역을 선택합니다.
 4. 이 빠른 시작에서는 다른 기본 설정을 그대로 적용합니다.
-5. **복제 활성화**를 클릭합니다. VM에 대해 복제를 활성화하는 작업이 시작됩니다.
+5. **검토 + 복제 시작**을 선택합니다. 그런 다음, **복제 시작**을 선택하여 VM에 대해 복제를 활성화하는 작업을 시작합니다.
 
     ![복제 활성화](media/azure-to-azure-quickstart/enable-replication1.png)
 
@@ -44,8 +44,10 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 복제 작업이 완료되면 복제 상태를 확인하고, 복제 설정을 수정하고, 배포를 테스트할 수 있습니다.
 
-1. **작업**에서 **재해 복구**를 클릭합니다.
-2. 복제 상태, 생성된 복구 지점, 원본 및 대상 지역을 지도에서 확인할 수 있습니다.
+1. Azure Portal 메뉴에서 **가상 머신**을 선택하거나 모든 페이지에서*가상 머신*을 검색하여 선택합니다. 확인할 VM을 선택합니다.
+2. **작업**에서 **재해 복구**를 선택합니다.
+
+   복제 상태, 생성된 복구 지점, 원본 및 대상 지역을 지도에서 확인할 수 있습니다.
 
    ![복제 상태](media/azure-to-azure-quickstart/replication-status.png)
 
@@ -58,8 +60,8 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 다음과 같이 복제를 중지합니다.
 
-1. VM을 선택합니다.
-2. **재해 복구**에서 **복제 사용 안 함**을 클릭합니다.
+1. Azure Portal 메뉴에서 **가상 머신**을 선택하거나 모든 페이지에서*가상 머신*을 검색하여 선택합니다. 수정할 VM을 선택합니다.
+2. **재해 복구**에서 **복제 사용 안 함**을 선택합니다.
 
    ![복제 사용 안 함](media/azure-to-azure-quickstart/disable2-replication.png)
 

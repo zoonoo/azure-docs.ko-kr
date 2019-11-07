@@ -345,6 +345,8 @@
           maintainContext: true
         - name: 배포 센터 시작 관리자
           href: deployment-center-launcher.md
+        - name: Kubernetes에 대한 GitHub 작업
+          href: ../aks/kubernetes-action.md
     - name: 문제 해결
       items:
         - name: 일반적인 문제

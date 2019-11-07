@@ -1,10 +1,10 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Bing Custom Search 설명서
+summary: Bing Custom Search 포털 및 API를 사용하여 사용자 지정 검색 환경을 만드는 방법을 알아봅니다.
 metadata:
-  title: 'Bing Custom Search API 설명서 - 자습서, 빠른 시작, API 참조'
+  title: Bing Custom Search API 설명서 - 자습서, 빠른 시작, API 참조
   titleSuffix: Azure Cognitive Services
-  description: Bing Custom Search 포털 및 API를 사용하여 사용자 지정 검색 환경을 만드는 방법 알아보기
+  description: Bing Custom Search API를 사용하여 관심 있는 항목에 대한 검색 인스턴스를 만드세요. 도메인 및 웹 페이지가 검색되도록 지정하고 검색 순위를 조정하여 검색 환경을 완전히 사용자 지정합니다.
   services: cognitive-services
   author: aahill
   manager: nitinme
@@ -12,72 +12,94 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: bing-custom-search
   ms.topic: landing-page
-  ms.date: 07/25/2019
+  ms.date: 10/31/2019
   ms.author: aahill
-abstract:
-  description: Bing Custom Search API를 사용하여 관심 있는 항목에 대한 검색 인스턴스를 만드세요. 도메인 및 웹 페이지가 검색되도록 지정하고 검색 순위를 조정하여 검색 환경을 완전히 사용자 지정합니다.
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/bing-custom-search/overview
-            html: <p>Bing Custom Search API에 대한 자세한 정보</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Bing Custom Search API란?
-          - href: /azure/cognitive-services/bing-custom-search/quick-start
-            html: <p>사용자 검색 환경을 조정하여 웹의 사용자 지정 보기를 만드는 방법을 알아봅니다.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: 사용자 지정 Bing 검색 인스턴스 만들기
-          - href: /azure/cognitive-services/bing-custom-search/hosted-ui
-            html: <p>호스트된 UI를 웹 페이지 및 웹앱으로 쉽게 통합하는 방법을 알아봅니다.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: 호스팅된 UI 환경 구성
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: 다음을 사용하여 웹의 사용자 지정 보기를 검색합니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/logo_Csharp.svg
-            href: sdk-csharp-quick-start
-            text: 'C&#35;'
-          - image:
-              src: media/logo_java.svg
-            href: call-endpoint-java
-            text: Java
-          - image:
-              src: media/logo_nodejs.svg
-            href: call-endpoint-nodejs
-            text: Node.js
-          - image:
-              src: media/logo_python.svg
-            href: call-endpoint-python
-            text: Python
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: Bing Custom Search API를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
-      - type: paragraph
-        text: <a href="tutorials/custom-search-web-page">Custom Search 웹 페이지 빌드</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference">Custom Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference">Custom Autosuggest API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference">Custom Image Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference">Custom Video Search API v7</a></p>'
-          - title: SDK
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable">Java - Custom Search</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable">Java - Custom Image Search</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-customsearch?view=azure-node-latest">Node.JS</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch">Go - Custom Search</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch">Go - Custom Image Search</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'
+  ms.openlocfilehash: 5555aca9308b9854b7189b483e996792c24852c5
+  ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73746073"
+landingContent:
+- title: Bing Custom Search API 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Bing Custom Search API란?
+      url: overview.md
+    - text: Bing Search 애플리케이션 비교
+      url: ../bing-web-search/bing-api-comparison.md
+- title: 웹의 사용자 지정 보기 통합
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 검색 인스턴스 구성
+      url: define-your-custom-view.md
+    - text: 이미지 검색 결과 가져오기
+      url: get-images-from-instance.md
+    - text: 비디오 검색 결과 가져오기
+      url: get-videos-from-instance.md
+    - text: 사용자 지정 검색 인스턴스 호출
+      url: search-your-custom-view.md
+    - text: 페이징 검색 결과
+      url: ../bing-web-search/paging-search-results.md
+    - text: 적중 항목 강조 표시 처리
+      url: ../bing-web-search/hit-highlighting.md
+    - text: 호스트된 UI 구성 및 통합
+      url: hosted-ui.md
+    - text: 사용자 지정 자동 제안 정의
+      url: define-custom-suggestions.md
+    - text: 사용자 지정 검색 인스턴스 공유
+      url: share-your-custom-search.md
+- title: SDK 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: .NET
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet
+    - text: Python
+      url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python
+    - text: Go - Custom Search
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch
+    - text: Go - Custom Image
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch
+    - text: Java - Custom Search
+      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable
+    - text: Java - Custom Image Search
+      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable
+    - text: Node.js
+      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-customsearch/?view=azure-node-latest
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services
+    - text: Azure CLI
+      url: /cli/azure/cognitiveservices#az-cognitiveservices-list
+- title: 웹에서 사용자 지정 검색 결과 가져오기
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: 사용자 지정 검색 인스턴스 만들기
+      url: quick-start.md
+  - linkListType: quickstart
+    links:
+    - text: C# 사용
+      url: sdk-csharp-quick-start.md
+    - text: Python 사용
+      url: sdk-python-quickstart.md
+    - text: Java 사용
+      url: sdk-java-quickstart.md
+  - linkListType: tutorial
+    links:
+    - text: 사용자 지정 검색 웹 페이지 빌드
+      url: tutorials/custom-search-web-page.md
+- title: REST API 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Custom Search REST API v7
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference
+    - text: Custom Autosuggest REST API v7
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference
+    - text: Custom Image Search REST API v7
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference
+    - text: Custom Video Search REST API v7
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference

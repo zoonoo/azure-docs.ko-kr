@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5100af99046a03345230ed0468071766aae1c77b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 30b0649f23403363ca4ab4101a2d5cf7a42d505b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389618"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73473691"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>빠른 시작: 웹 API에 액세스하는 클라이언트 애플리케이션 구성
 
@@ -57,7 +57,8 @@ ms.locfileid: "72389618"
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 계정에서 둘 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위 모서리에서 있는 계정을 선택하고 포털 세션을 원하는 Azure AD 테넌트로 설정합니다.
-1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스, **앱 등록**을 차례로 선택합니다.
+1. **Azure Active Directory**를 검색하여 선택합니다. 
+1. 왼쪽 창에서 **앱 등록**을 선택합니다.
 1. 구성하려는 애플리케이션을 찾아 선택합니다. 앱을 선택하면 볼 **개요** 또는 기본 등록 페이지가 나타납니다.
 1. 웹 API에 액세스하도록 애플리케이션을 구성하는 단계를 따릅니다.
     * [리디렉션 URL을 애플리케이션에 추가](#add-redirect-uris-to-your-application)

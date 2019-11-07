@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: victorh
-ms.openlocfilehash: 53a4fca0c05cd54bae6d01d07e72e1033a247a05
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: afdb5d256c33042655c122e9c84a4ab07c94f14c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327357"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470043"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 SSL 종료로 애플리케이션 게이트웨이 구성
 
@@ -62,7 +62,7 @@ E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
 > .pfx 파일 암호에 특수 문자를 사용하지 마세요. 영숫자 문자만 지원됩니다.
 
 ```powershell
-$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+$pwd = ConvertTo-SecureString -String "Azure123456" -Force -AsPlainText
 Export-PfxCertificate `
   -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
   -FilePath c:\appgwcert.pfx `
@@ -150,7 +150,7 @@ Export-PfxCertificate `
 
    - **PFX 인증서 파일** - 앞에서 만든 c:\appgwcert.pfx 파일을 찾아 선택합니다.
    - **인증서 이름** - 인증서 이름으로 *mycert1*을 입력합니다.
-   - **암호** - *Azure123456!* 를 입력합니다. 암호
+   - **암호** - 암호로*Azure123456*을 입력합니다.
   
         **수신기** 탭에서 다른 설정에 대해 기본값을 그대로 적용한 다음, **백 엔드 대상** 탭을 선택하여 나머지 라우팅 규칙을 구성합니다.
 
@@ -194,7 +194,7 @@ Export-PfxCertificate `
     - **리소스 그룹**: 리소스 그룹 이름으로 **myResourceGroupAG**를 선택합니다.
     - **가상 머신 이름**: 가상 머신의 이름으로 *myVM*을 입력합니다.
     - **사용자 이름**: 관리자 사용자 이름으로 *azureuser*를 입력합니다.
-    - **암호**: 관리자 암호로 *Azure123456!* 를 입력합니다.
+    - **암호**: 관리자 암호로 *Azure123456*을 입력합니다.
 4. 나머지는 기본값으로 두고 **다음: 디스크**를 선택합니다.  
 5. **디스크** 탭을 기본값으로 두고 **다음: 네트워킹**을 선택합니다.
 6. **네트워킹** 탭에서 **가상 네트워크**로 **myVNet**이 선택되었고 **서브넷**이 **myBackendSubnet**으로 설정되었는지 확인합니다. 나머지는 기본값으로 두고 **다음: 관리**를 선택합니다.

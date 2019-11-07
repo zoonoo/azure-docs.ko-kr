@@ -245,7 +245,7 @@
             - name: Apache Spark 커넥터를 사용하는 Azure SQL Database
               href: /azure/databricks/data/data-sources/sql-databases-azure
               maintainContext: true
-            - name: Azure Blob Storage
+            - name: Linux에서 File Storage 사용에 대한 자세한 내용은 Linux에서 Azure 파일 스토리지 사용 방법을 참조하세요.
               href: /azure/databricks/data/data-sources/azure/azure-storage
               maintainContext: true
             - name: Azure Data Lake Storage Gen2
@@ -260,7 +260,7 @@
             - name: Cosmos DB
               href: /azure/databricks/data/data-sources/azure/cosmosdb-connector
               maintainContext: true
-            - name: SQL Data Warehouse
+            - name: Azure SQL Data Warehouse
               href: /azure/databricks/data/data-sources/azure/sql-data-warehouse
               maintainContext: true
             - name: 이진 파일
@@ -272,7 +272,7 @@
             - name: Couchbase
               href: /azure/databricks/data/data-sources/couchbase
               maintainContext: true
-            - name: 탄력적 검색
+            - name: ElasticSearch
               href: /azure/databricks/data/data-sources/elasticsearch
               maintainContext: true
             - name: 이미지
@@ -434,7 +434,7 @@
         - name: Python 데이터 프레임 소개
           href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-python
           maintainContext: true
-        - name: Scala 데이터 프레임 소개
+        - name: Scala DataFrames 소개
           href: /azure/databricks/spark/latest/dataframes-datasets/introduction-to-dataframes-scala
           maintainContext: true
         - name: 데이터 세트 소개
@@ -708,14 +708,17 @@
             - name: 의사 결정 트리 예제
               href: /azure/databricks/applications/machine-learning/mllib/decision-trees
               maintainContext: true
-            - name: MLib 파이프라인 및 Structured Streaming
+            - name: MLlib 파이프라인 및 Structured Streaming
               href: /azure/databricks/applications/machine-learning/mllib/mllib-pipelines-and-stuctured-streaming
               maintainContext: true
-            - name: 고급 MLib 예제
+            - name: 고급 MLlib 예제
               href: /azure/databricks/applications/machine-learning/mllib/advanced-mllib
               maintainContext: true
         - name: 자동 ML
           items:
+            - name: 자동 ML 개요
+              href: /azure/databricks/applications/machine-learning/automl/index
+              maintainContext: true
             - name: Hyperopt
               items:
                 - name: Hyperopt 개요
@@ -730,8 +733,16 @@
                 - name: 분산 Hyperopt를 사용하여 모델 검색
                   href: /azure/databricks/applications/machine-learning/automl/hyperopt/hyperopt-model-selection
                   maintainContext: true
-            - name: MLib 및 자동화된 MLflow 추적
+            - name: MLlib 및 자동화된 MLflow 추적
               href: /azure/databricks/applications/machine-learning/automl/mllib-mlflow-integration
+              maintainContext: true
+        - name: ML 모델 내보내기 및 가져오기
+          items:
+            - name: 내보내기 및 가져오기 개요
+              href: /azure/databricks/applications/machine-learning/model-export-import/index
+              maintainContext: true
+            - name: MLeap ML 모델 내보내기
+              href: /azure/databricks/applications/machine-learning/model-export-import/mleap-model-export
               maintainContext: true
         - name: 타사 기계 학습 통합
           href: /azure/databricks/applications/machine-learning/third-party/index
@@ -826,33 +837,39 @@
         - name: MLflow 개요
           href: /azure/databricks/applications/mlflow/index
           maintainContext: true
-        - name: MLflow 시작
-          href: /azure/databricks/applications/mlflow/quick-start
-          maintainContext: true
-        - name: MLflow Java 및 Scala 시작
-          href: /azure/databricks/applications/mlflow/quick-start-java-scala
-          maintainContext: true
-        - name: MLflow Python 시작
-          href: /azure/databricks/applications/mlflow/quick-start-python
-          maintainContext: true
-        - name: MLflow R 시작
-          href: /azure/databricks/applications/mlflow/quick-start-r
-          maintainContext: true
+        - name: 시작
+          items:
+            - name: MLflow 시작
+              href: /azure/databricks/applications/mlflow/quick-start
+              maintainContext: true
+            - name: MLflow Java 및 Scala 시작
+              href: /azure/databricks/applications/mlflow/  quick-start-java-scala
+              maintainContext: true
+            - name: MLflow Python 시작
+              href: /azure/databricks/applications/mlflow/  quick-start-python
+              maintainContext: true
+            - name: MLflow R 시작
+              href: /azure/databricks/applications/mlflow/quick-start-r
+              maintainContext: true
         - name: 기계 학습 모델의 학습 실행 추적
-          href: /azure/databricks/applications/mlflow/tracking
-          maintainContext: true
-        - name: MLflow 추적 예제
-          href: /azure/databricks/applications/mlflow/tracking-examples
-          maintainContext: true
-        - name: 외부 액세스 추적
-          href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
-          maintainContext: true
+          items:
+            - name: 추적 개요
+              href: /azure/databricks/applications/mlflow/tracking
+              maintainContext: true
+            - name: MLflow 추적 예제
+              href: /azure/databricks/applications/mlflow/  tracking-examples
+              maintainContext: true
+            - name: 외부 액세스 추적
+              href: /azure/databricks/applications/mlflow/  access-hosted-tracking-server
+              maintainContext: true
         - name: '모델 저장, 로드 및 배포'
-          href: /azure/databricks/applications/mlflow/models
-          maintainContext: true
-        - name: MLflow 모델 예제
-          href: /azure/databricks/applications/mlflow/model-examples
-          maintainContext: true
+          items:
+            - name: '저장, 로드 및 배포 개요'
+              href: /azure/databricks/applications/mlflow/models
+              maintainContext: true
+            - name: MLflow 모델 예제
+              href: /azure/databricks/applications/mlflow/  model-examples
+              maintainContext: true
         - name: MLflow 프로젝트를 사용하여 실행 재현
           href: /azure/databricks/applications/mlflow/projects
           maintainContext: true
@@ -880,9 +897,6 @@
         - name: Genomics 개요
           href: /azure/databricks/applications/genomics/index
           maintainContext: true
-        - name: Genomics ETL 개요
-          href: /azure/databricks/applications/genomics/etl/index
-          maintainContext: true
         - name: 2차 분석
           items:
             - name: 2차 분석 개요
@@ -908,6 +922,9 @@
               maintainContext: true
         - name: ETL
           items:
+            - name: Genomics ETL 개요
+              href: /azure/databricks/applications/genomics/etl/index
+              maintainContext: true
             - name: Apache Spark SQL을 사용한 변형 IO
               href: /azure/databricks/applications/genomics/etl/variant-data
               maintainContext: true
@@ -1211,10 +1228,7 @@
               maintainContext: true
             - name: JSON에서 인코딩을 검색하지 못함
               href: /azure/databricks/kb/data-sources/json-unicode
-              maintainContext: true
-            - name: Oracle Database에 대한 JDBC 쿼리 옵션이 작동하지 않음
-              href: /azure/databricks/kb/data-sources/query-option-not-work-oracle
-              maintainContext: true
+              maintainContext: true j
         - name: DBFS
           items:
             - name: DBFS 루트에 저장된 개체를 읽을 수 없음
@@ -1293,6 +1307,9 @@
               maintainContext: true
             - name: 작업 실패(maxresultsize)
               href: /azure/databricks/kb/jobs/job-fails-maxresultsize-exception
+              maintainContext: true
+            - name: 멱등성 확인
+              href: /azure/databricks/kb/jobs/jobs-idempotency
               maintainContext: true
         - name: 라이브러리
           items:

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/27/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 0a2bf306ccfa3a4a4fc80d0d55493f284185bba9
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 26793c91c85ba4cc33a07358ab8ff318becb325f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648535"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490667"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -42,8 +42,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 빠른 시작에서는 Azure 스토리지 계정의 이름이 필요합니다. 다음 프로시저에서는 스토리지 계정 이름을 가져오는 단계를 제공합니다. 
 
 1. 웹 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동하고 Azure 사용자 이름 및 암호를 사용하여 로그인합니다.
-2. **모든 서비스** > **스토리지** > **스토리지 계정**을 선택합니다.
+2. Azure Portal 메뉴에서 **모든 서비스**를 선택한 다음, **스토리지** > **스토리지 계정**을 선택합니다. 모든 페이지에서 *스토리지 계정*을 검색하여 선택할 수도 있습니다.
 3. **스토리지 계정** 페이지에서 스토리지 계정(필요한 경우)을 필터링한 다음, 사용자의 스토리지 계정을 선택합니다. 
+
+모든 페이지에서 *스토리지 계정*을 검색하여 선택할 수도 있습니다.
 
 #### <a name="create-a-blob-container"></a>Blob 컨테이너 만들기
 이 섹션에서는 Azure Blob Storage에 **adftutorial**이라는 Blob 컨테이너를 만듭니다.
@@ -64,7 +66,12 @@ Jane, Doe
 
 **C:\ADFv2QuickStartPSH** 폴더에 이 파일을 저장합니다. 이 폴더가 아직 없으면 만듭니다. 그런 후 Azure Portal로 돌아가 다음 단계를 따릅니다.
 
-1. 작업을 중단했던 *\<Account name>*  - **Blob** 페이지의 업데이트된 컨테이너 목록에서 **adftutorial**을 선택합니다. 창을 닫거나 다른 페이지로 이동했으면 다시 [Azure Portal](https://portal.azure.com)에 로그인하고 **모든 서비스** > **스토리지** > **스토리지 계정**을 선택한 후 본인의 스토리지 계정을 선택하고 **Blob** > **adftutorial**을 선택합니다.
+1. 작업을 중단했던 *\<Account name>*  - **Blob** 페이지의 업데이트된 컨테이너 목록에서 **adftutorial**을 선택합니다.
+
+   1. 창을 닫거나 다른 페이지로 이동한 경우 [Azure Portal](https://portal.azure.com)에 다시 로그인합니다.
+   1. Azure Portal 메뉴에서 **모든 서비스**를 선택한 다음, **스토리지** > **스토리지 계정**을 선택합니다. 모든 페이지에서 *스토리지 계정*을 검색하여 선택할 수도 있습니다.
+   1. 스토리지 계정을 선택한 다음, **Blobs** > **adftutorial**을 선택합니다.
+
 2. **adftutorial** 컨테이너 페이지의 도구 모음에서 **업로드**를 선택합니다.
 3. **Blob 업로드** 페이지에서 **파일** 상자를 선택한 다음, **emp.txt** 파일을 선택합니다.
 4. **고급** 제목을 펼칩니다. 이제 페이지가 다음과 같이 표시됩니다.

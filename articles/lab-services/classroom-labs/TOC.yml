@@ -52,6 +52,8 @@
       items:
         - name: 클래스룸 랩 만들기 및 관리
           href: how-to-manage-classroom-labs.md
+        - name: 대시보드 사용
+          href: use-dashboard.md
         - name: '템플릿 설정, 사용자 지정 및 게시'
           href: how-to-create-manage-template.md
         - name: 가상 머신 풀 설정 및 관리
@@ -80,6 +82,8 @@
   items:
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/labservices/'
+    - name: Az.LabServices PowerShell 모듈(미리 보기)
+      href: reference-powershell-module.md
 - name: 리소스
   items:
     - name: Azure 업데이트

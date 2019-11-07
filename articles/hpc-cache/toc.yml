@@ -30,6 +30,8 @@
                   href: hpc-cache-ingest-msrsync.md
                 - name: 수동 파일 복사를 사용하여 캐시 채우기
                   href: hpc-cache-ingest-manual.md
+        - name: 스토리지 대상 편집
+          href: hpc-cache-edit-storage.md
     - name: 캐시에 연결
       href: hpc-cache-mount.md
     - name: 캐시 관리

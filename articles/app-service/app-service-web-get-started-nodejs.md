@@ -16,12 +16,12 @@ ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 380e587fc8c921b395d63d1dbca10e2f5fb1b9ba
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 98d939c69bb03666dbeed124778b06f8a7e73532
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72433194"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471461"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기 
 
@@ -124,13 +124,13 @@ code .
 1. 배포하려는 운영 체제에 따라 만들기 옵션을 선택합니다.
 
     - Linux: **새 웹앱 만들기**를 선택합니다.
-    - Windows: **새 웹앱 만들기...고급**을 선택합니다.
+    - Windows: **새 웹앱 만들기**를 선택하고 **고급** 옵션을 선택합니다.
 
 1. 웹앱에 대해 전역적으로 고유한 이름을 입력하고, Enter 키를 누릅니다. 앱 이름에 유효한 문자는 'a-z', '0-9' 및 '-'입니다.
 
 1. Linux를 대상으로 하는 경우 메시지가 표시되면 Node.js 버전을 선택합니다. **LTS** 버전을 권장합니다.
 
-1. *고급* 옵션을 사용하는 Windows를 대상으로 하는 경우 추가 프롬프트를 따릅니다.
+1. **고급** 옵션을 사용하여 Windows를 대상으로 지정하는 경우 추가 프롬프트를 따릅니다.
     1. **새 리소스 그룹 만들기**를 선택한 다음, 리소스 그룹의 이름을 입력합니다.
     1. 운영 체제에 대해 **Windows**를 선택합니다.
     1. 기존 App Service 계획을 선택하거나 새로 만듭니다. 새 계획을 만들 때 가격 책정 계층을 선택할 수 있습니다.

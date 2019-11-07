@@ -39,6 +39,8 @@
       href: security-overview.md
     - name: 라우팅
       href: virtual-networks-udr-overview.md
+    - name: 서비스 태그
+      href: service-tags-overview.md
     - name: 서비스 엔드포인트
       href: virtual-network-service-endpoints-overview.md
     - name: 서비스 엔드포인트 정책
@@ -65,6 +67,8 @@
       href: ipv6-public-ip-address-prefix.md
     - name: DDoS 보호
       href: ddos-protection-overview.md
+    - name: 서브넷 확장
+      href: subnet-extension.md
     - name: 백 엔드 연결 상호 운용성
       items:
         - name: 접두사 및 테스트 설정
@@ -297,6 +301,8 @@
           href: diagnose-network-routing-problem.md
         - name: 처리량 테스트
           href: virtual-network-bandwidth-testing.md
+        - name: VM 네트워크 대기 시간 테스트
+          href: virtual-network-test-latency.md
         - name: 가상 네트워크를 삭제할 수 없음
           href: virtual-network-troubleshoot-cannot-delete-vnet.md
         - name: VM 간 연결 문제

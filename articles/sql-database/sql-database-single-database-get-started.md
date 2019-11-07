@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 831ebbd3f85ffa9b78ac3e97a6ec68a8c41bceb5
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 0035495d9dd3b82b65aa3b4a7b1d918c73288df8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845301"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496144"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>빠른 시작: Azure Portal, PowerShell 및 Azure CLI를 사용하여 Azure SQL Database에서 단일 데이터베이스를 만듭니다.
 
@@ -28,7 +28,7 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
 
 ## <a name="create-a-single-database"></a>단일 데이터베이스 만들기
 
-단일 데이터베이스는 서버리스(미리 보기) 또는 프로비저닝된 컴퓨팅 계층에서 만들 수 있습니다.
+단일 데이터베이스는 서버리스 또는 프로비저닝된 컴퓨팅 계층에서 만들 수 있습니다.
 
 - 프로비저닝된 컴퓨팅 계층의 단일 데이터베이스에는 두 가지 [구매 모델](sql-database-purchase-models.md) 중 하나를 사용하여 CPU 및 메모리를 비롯한 정해진 양의 컴퓨팅 리소스가 미리 할당되어 있습니다.
 - 서버리스 컴퓨팅 계층의 단일 데이터베이스에는 자동으로 크기가 조정되고 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)에서만 제공되는, CPU 및 메모리를 비롯한 다양한 컴퓨팅 리소스가 있습니다.

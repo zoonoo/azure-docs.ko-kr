@@ -1,5 +1,5 @@
 ---
-title: ODBC 드라이버와 PowerShell로 Apache Hive 쿼리 - Azure HDInsight
+title: ODBC 드라이버 및 PowerShell로 Apache Hive 쿼리 - Azure HDInsight
 description: Microsoft Hive ODBC 드라이버와 PowerShell을 사용하여 Azure HDInsight에서 Apache Hive 클러스터를 쿼리합니다.
 keywords: hive,hive odbc,powershell
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 06/27/2019
-ms.openlocfilehash: 04771ddc633c210ce8c7b3c42a9e46cb2f1ed349
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f6139bb98fa0272e43c8e180d4ec029f7a7538bb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122169"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494320"
 ---
 # <a name="tutorial-query-apache-hive-with-odbc-and-powershell"></a>자습서: ODBC와 PowerShell로 Apache Hive 쿼리
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="install-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버 설치
 
-[Microsoft Hive ODBC 드라이버](https://go.microsoft.com/fwlink/?LinkID=286698)를 다운로드하고 설치합니다.
+[Microsoft Hive ODBC 드라이버](https://www.microsoft.com/download/details.aspx?id=40886)를 다운로드하고 설치합니다.
 
 ## <a name="create-apache-hive-odbc-data-source"></a>Apache Hive ODBC 데이터 원본 만들기
 

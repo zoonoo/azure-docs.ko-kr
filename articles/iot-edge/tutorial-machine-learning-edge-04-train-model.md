@@ -8,19 +8,19 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: acf0b1984eb3e68858be6ed68731612448e672f4
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 6e1ee1fda658ef0884975e4055891f705c4f5058
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67432702"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493987"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>자습서: Azure Machine Learning 모델 학습 및 배포
 
 > [!NOTE]
 > 이 문서는 IoT Edge에서 Azure Machine Learning을 사용하는 방법에 대한 자습서 시리즈의 일부입니다. 이 문서로 바로 이동한 경우에는 학습 효과를 극대화할 수 있도록 시리즈의 [첫 번째 문서](tutorial-machine-learning-edge-01-intro.md)부터 시작하는 것이 좋습니다.
 
-이 문서에서는 Azure Notebooks에서 먼저 Azure Machine Learning을 사용하여 기계 학습 모델을 학습한 후 Azure IoT Edge 모듈로 배포할 수 있는 컨테이너 이미지로 모델을 패키지화합니다. Azure Notebooks는 기계 학습 모델을 실험, 학습 및 배포하는 데 사용되는 기본 블록인 Azure Machine Learning 서비스 작업 영역을 활용합니다.
+이 문서에서는 Azure Notebooks에서 먼저 Azure Machine Learning을 사용하여 기계 학습 모델을 학습한 후 Azure IoT Edge 모듈로 배포할 수 있는 컨테이너 이미지로 모델을 패키지화합니다. Azure Notebooks는 기계 학습 모델을 실험, 학습 및 배포하는 데 사용되는 기본 블록인 Azure Machine Learning 작업 영역을 활용합니다.
 
 자습서 이 부분은 두 개의 Notebook으로 작업이 분리되어 있습니다.
 
@@ -72,7 +72,7 @@ Azure Notebook 계정은 Azure 구독에서 독립적입니다. Azure Notebooks�
 
 * **01-turbofan\_regression.ipynb**: Azure 스토리지 계정에서 디바이스 도구에 의해 생성된 데이터를 다운로드하고, 분류자 학습을 위한 데이터를 살펴보고 준비하며, 모델을 학습하고, Test\_FD003.txt 파일에 있는 테스트 데이터 세트를 사용하여 데이터를 테스트하고, 마지막으로 Machine Learning Service 작업 영역에 분류자 모델을 저장하는 과정을 안내하는 Jupyter Notebook 파일입니다.
 
-* **02-turbofan\_deploy\_model.ipynb:** Machine Learning Service 작업 영역에 저장된 분류자 모델을 사용하여 컨테이너 이미지를 생성하는 과정을 안내하는 Jupyter Notebook입니다. 이미지가 생성되면 Notebook이이미지를 웹 서비스로 배포하는 과정을 안내하기 때문에 이미지가 예상대로 작동하는지 확인할 수 있습니다. 검사된 이미지는 이 자습서의 [사용자 지정 IoT Edge 모듈 만들기 및 배포](tutorial-machine-learning-edge-06-custom-modules.md) 부분에서 Edge 디바이스에 배포됩니다.
+* **02-turbofan\_deploy\_model.ipynb:** Machine Learning Service 작업 영역에 저장된 분류자 모델을 사용하여 컨테이너 이미지를 생성하는 과정을 안내하는 Jupyter Notebook입니다. 이미지가 생성되면 Notebook이이미지를 웹 서비스로 배포하는 과정을 안내하기 때문에 이미지가 예상대로 작동하는지 확인할 수 있습니다. 검사된 이미지는 이 자습서의 [사용자 지정 IoT Edge 모듈 만들기 및 배포](tutorial-machine-learning-edge-06-custom-modules.md) 부분에서 IoT Edge 디바이스에 배포됩니다.
 
 * **Test\_FD003.txt:** 이 파일은 학습된 분류자의 유효성을 검사할 때 테스트 세트로 사용할 데이터를 포함합니다. 예제의 단순성을 위해, 원래 컨테스트에 제공된 테스트 데이터가 테스트 세트로 사용됩니다.
 

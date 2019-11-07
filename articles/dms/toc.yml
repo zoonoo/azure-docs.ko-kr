@@ -8,6 +8,8 @@
   items:
     - name: 서비스 만들기 - 포털
       href: quickstart-create-data-migration-service-portal.md
+    - name: 하이브리드 모드에서 서비스 만들기 – 포털
+      href: quickstart-create-data-migration-service-hybrid-portal.md
 - name: 자습서
   items:
     - name: SQL Server를 Azure SQL DB 단일 데이터베이스로 오프라인 마이그레이션

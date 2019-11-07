@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 09/19/2019
+ms.date: 10/14/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: b42634aa86f210382adb1ae224c847a92d89109b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 587848c6718a003bf781f81d0298c73ef1549bb3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103319"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474909"
 ---
 # <a name="tutorial-enable-authentication-in-a-web-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 웹 애플리케이션에서 인증을 사용하도록 설정
 
@@ -35,9 +35,15 @@ ms.locfileid: "71103319"
 * [사용자 흐름을 생성](tutorial-create-user-flows.md)하여 애플리케이션에 사용자 환경을 사용하도록 설정합니다.
 * **ASP.NET 및 웹 개발** 워크로드가 있는 [Visual Studio 2019](https://www.visualstudio.com/downloads/)를 설치합니다.
 
-## <a name="update-the-application"></a>애플리케이션 업데이트
+## <a name="update-the-application-registration"></a>애플리케이션 등록 업데이트
 
-필수 조건의 일부로 완료한 자습서에서 Azure AD B2C에 웹 애플리케이션을 추가했습니다. 이 자습서에서 샘플과의 통신을 사용하도록 설정하려면 Azure AD B2C의 애플리케이션에 리디렉트 URI를 추가해야 합니다.
+필수 조건의 일부로 완료한 자습서에서 Azure AD B2C에 웹 애플리케이션을 등록했습니다. 이 자습서에서 샘플과의 통신을 사용하도록 설정하려면 리디렉션 URI를 추가하고 등록된 애플리케이션에 대해 클라이언트 암호(키)를 만들어야 합니다.
+
+### <a name="add-a-redirect-uri-reply-url"></a>리디렉션 URI 추가(회신 URL)
+
+현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용하여 애플리케이션을 업데이트할 수 있습니다. [미리 보기 환경에 대해 자세히 알아보세요](http://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
@@ -45,8 +51,26 @@ ms.locfileid: "71103319"
 1. **애플리케이션**을 선택한 후 *webapp1* 애플리케이션을 선택합니다.
 1. **회신 URL** 아래에서 `https://localhost:44316`을 추가합니다.
 1. **저장**을 선택합니다.
-1. 속성 페이지에서 웹 애플리케이션을 구성할 때 사용할 애플리케이션 ID를 기록합니다.
-1. **키**, **키 생성**을 차례로 선택하고 **저장**을 선택합니다. 웹 애플리케이션을 구성할 때 사용할 키를 기록합니다.
+1. 속성 페이지에서 웹 애플리케이션을 구성하는 이후 단계에 사용할 수 있도록 애플리케이션 ID를 기록합니다.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. **앱 등록(미리 보기)** 를 선택하고, **소유한 애플리케이션** 탭을 선택한 후 *webapp1* 애플리케이션을 선택합니다.
+1. **인증**을 선택한 후 **새 환경을 체험해 보세요**(표시된 경우)를 선택합니다.
+1. **웹** 아래에서 **URI 추가** 링크를 선택하고, `https://localhost:44316`을 입력한 후 **저장**을 선택합니다.
+1. **개요**를 선택합니다.
+1. 웹 애플리케이션을 구성하는 이후 단계에 사용할 수 있도록 **애플리케이션(클라이언트) ID**를 기록합니다.
+
+* * *
+
+### <a name="create-a-client-secret"></a>클라이언트 비밀 만들기
+
+그런 후 등록된 웹 애플리케이션에 대해 클라이언트 암호를 만듭니다. 웹 애플리케이션 코드 샘플은 토큰을 요청할 때 이를 사용하여 ID를 입증합니다.
+
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 ## <a name="configure-the-sample"></a>샘플 구성
 

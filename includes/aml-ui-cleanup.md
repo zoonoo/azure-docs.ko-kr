@@ -7,16 +7,16 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 10/16/2019
-ms.openlocfilehash: 0071b0df2c2e173eced1722372f88b1de2708afa
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/22/2019
+ms.openlocfilehash: 5a66212122745d0f4426e48e9487e9d674cec53f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692277"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73489965"
 ---
 >[!IMPORTANT]
->직접 만든 리소스는 다른 Azure Machine Learning Service 자습서 및 방법 문서에 대한 필수 조건으로 사용할 수 있습니다.
+>직접 만든 리소스는 다른 Azure Machine Learning 자습서 및 방법 문서에 대한 필수 조건으로 사용할 수 있습니다.
 
 ### <a name="delete-everything"></a>모든 항목 삭제
 
@@ -32,7 +32,7 @@ ms.locfileid: "72692277"
 
 1. **리소스 그룹 삭제**를 선택합니다.
 
-리소스 그룹을 삭제하면 시각적 인터페이스에서 만든 모든 리소스도 삭제됩니다.  
+리소스 그룹을 삭제하면 디자이너에서 만든 모든 리소스도 삭제됩니다.  
 
 ### <a name="delete-only-the-compute-target"></a>컴퓨팅 대상만 삭제
 
@@ -48,6 +48,12 @@ ms.locfileid: "72692277"
 
 ### <a name="delete-individual-assets"></a>개별 자산 삭제
 
-실험을 만든 시각적 인터페이스에서 개별 자산을 선택한 후 **삭제** 단추를 선택하여 자산을 삭제합니다. 각 데이터 세트를 선택하고 **등록 취소**를 선택하면 작업 영역에서 데이터 세트를 등록 취소할 수 있습니다.
+실험을 만든 디자이너에서 개별 자산을 선택한 다음, **삭제** 단추를 선택하여 자산을 삭제합니다.
 
 ![자산 삭제](./media/aml-ui-cleanup/delete-asset.png)
+
+각 데이터 세트를 선택하고 **등록 취소**를 선택하면 작업 영역에서 데이터 세트를 등록 취소할 수 있습니다.
+
+![데이터 세트 등록 취소](./media/aml-ui-cleanup/unregister-dataset.png)
+
+

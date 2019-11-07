@@ -1,0 +1,20 @@
+---
+title: '빠른 시작: 음성 대 음성 번역 - Speech Service'
+titleSuffix: Azure Cognitive Services
+description: TBD
+services: cognitive-services
+author: erhopf
+manager: nitinme
+ms.service: cognitive-services
+ms.subservice: speech-service
+ms.topic: quickstart
+ms.date: 10/28/2019
+ms.author: erhopf
+ms.openlocfilehash: d9f3d7197f36de0fb5a19d1560eec1abe3e18803
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.translationtype: HT
+ms.contentlocale: ko-KR
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73500557"
+---
+GitHub에서 모든 <a href="https://aka.ms/speech/github">Speech SDK 샘플</a>을 보거나 다운로드합니다.

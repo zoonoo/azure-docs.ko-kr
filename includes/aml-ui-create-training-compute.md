@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/09/2019
-ms.openlocfilehash: 3f969fb346ce341e694458dcc38bf193f012226b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f7cdfb8b9edbce5ef2b094cf6a603904d39a7404
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792645"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493633"
 ---
 작업 영역에 연결된 컴퓨팅 리소스인 컴퓨팅 대상에서 파이트라인이 실행됩니다. 컴퓨팅 대상을 만든 후 이후 실행에 다시 사용할 수 있습니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "72792645"
     사용 가능한 컴퓨팅 대상이 이미 있는 경우 파이프라인을 실행하도록 선택할 수 있습니다.
 
     > [!NOTE]
-    > 그래픽 인터페이스는 Machine Learning 컴퓨팅 대상에서만 실험을 실행할 수 있으며, 다른 컴퓨팅 대상은 표시되지 않습니다.
+    > 디자이너는 Machine Learning 컴퓨팅 대상에서만 실험을 실행할 수 있습니다. 다른 컴퓨팅 대상은 표시되지 않습니다.
 
 1. 컴퓨팅 리소스에 이름을 제공합니다.
 

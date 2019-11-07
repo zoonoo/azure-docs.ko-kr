@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f010e7564f097f28269070d85e2895e73f454054
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 2f815d99c32c2dcaa1fd35d00110b27a90f53ab4
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415568"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471218"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드
 
@@ -84,7 +84,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 **App Service 만들기** 대화 상자에서 **계정 추가**를 클릭한 다음 Azure 구독에 로그인합니다. 이미 Microsoft 계정에 로그인한 경우 계정에 Azure 구독이 있는지 확인합니다. 로그인된 Microsoft 계정에 Azure 구독이 없는 경우 클릭하여 올바른 계정을 추가합니다. 
 
 > [!NOTE]
-> 이미 로그인한 경우 **만들기**를 선택하지 마십시오.
+> 이미 로그인한 경우 아직 **만들기**를 선택하지 마십시오.
 >
 >
    
@@ -119,7 +119,7 @@ Visual Studio에서 *dotnet-sqldb-tutorial-master/DotNetAppSqlDb.sln* 파일을 
 | 설정  | 제안 값 | Blob에 대한 자세한 내용은 |
 | ----------------- | ------------ | ----|
 |**App Service 계획**| myAppServicePlan | [App Service 계획](../app-service/overview-hosting-plans.md) |
-|**위치**:| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
+|**위치**| 서유럽 | [Azure 지역](https://azure.microsoft.com/regions/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) |
 |**크기**| 무료 | [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)|
 
 ### <a name="create-a-sql-server-instance"></a>SQL Server 인스턴스 만들기
@@ -201,7 +201,7 @@ Visual Studio에서 SQL Database 인스턴스에 대한 방화벽 설정을 만�
 
 여기에서 쿼리 실행, 뷰 및 저장 프로시저 만들기 등의 가장 일반적이 데이터베이스 작업을 수행할 수 있습니다. 
 
-연결 > **데이터베이스** > **&lt;데이터베이스 >** > **테이블**로 확장합니다. `Todoes` 테이블을 마우스 오른쪽 단추로 클릭하고 **데이터 보기**를 선택합니다. 
+연결 > **데이터베이스** >  **&lt;데이터베이스 >**  > **테이블**로 확장합니다. `Todoes` 테이블을 마우스 오른쪽 단추로 클릭하고 **데이터 보기**를 선택합니다. 
 
 ![SQL Database 개체 탐색](./media/app-service-web-tutorial-dotnet-sqldatabase/explore-sql-database.png)
 
@@ -313,7 +313,7 @@ _Views\Todos\Index.cshtml_을 엽니다.
 
 SQL Database에 대한 연결 문자열이 **MyDatabaseContext (MyDbConnection)** 로 채워졌는지 확인합니다. 드롭다운에서 **myToDoAppDb** 데이터베이스를 선택해야 할 수 있습니다. 
 
-**Execute Code First Migrations (runs on application start)**(Code First 마이그레이션 실행(애플리케이션 시작 시 실행))를 선택한 다음, **저장**을 클릭합니다.
+**Execute Code First Migrations (runs on application start)** (Code First 마이그레이션 실행(애플리케이션 시작 시 실행))를 선택한 다음, **저장**을 클릭합니다.
 
 ![Azure 앱에서 Code First 마이그레이션 사용](./media/app-service-web-tutorial-dotnet-sqldatabase/enable-migrations.png)
 
@@ -392,11 +392,11 @@ Application: 2017-04-06T23:30:54  PID[8132] Verbose     GET /Todos/Index
 
 ## <a name="manage-your-azure-app"></a>Azure 앱 관리
 
-[Azure Portal](https://portal.azure.com)로 이동하여 만든 앱을 확인합니다. 
+웹앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동합니다. **App Services**를 검색하여 선택합니다. 
 
+![Azure App Services 검색](./media/app-service-web-tutorial-dotnet-sqldatabase/azure-portal-navigate-app-services.png)
 
-
-왼쪽 메뉴에서 **App Service**를 클릭한 다음 사용자의 Azure 앱 이름을 클릭합니다.
+Azure 앱의 이름을 선택합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-dotnet-sqldatabase/access-portal.png)
 

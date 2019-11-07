@@ -2,7 +2,7 @@
 title: Azure Open Datasets 설명서
 summary: Azure Open Datasets는 ML 모델을 보강하기 위해 최소한의 준비로 사용할 수 있는 날씨, 인구 조사 및 휴일을 포함하여 큐레이팅되고 정리된 데이터를 제공합니다.
 metadata:
-  title: Open Datasets 설명서 - Azure
+  title: Open Datasets 설명서 - 자습서, API 참조 - Azure
   description: Azure Open Datasets는 ML 모델을 보강하기 위해 최소한의 준비로 사용할 수 있는 날씨, 인구 조사 및 휴일을 포함하여 큐레이팅되고 정리된 데이터를 제공합니다.
   services: machine-learning
   ms.service: machine-learning
@@ -12,12 +12,12 @@ metadata:
   author: cjgronlund
   ms.author: cgronlun
   ms.date: 11/04/2019
-  ms.openlocfilehash: b6813c3fd521b12ec91eddb0176efedb8c5c120a
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.openlocfilehash: 76baa1362eb1eaa4c062fccd4eea84815cb08c50
+  ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73496631"
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73603651"
 landingContent:
 - title: Open Datasets 정보
   linkLists:

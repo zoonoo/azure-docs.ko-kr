@@ -1,9 +1,9 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Bing Autosuggest 설명서
+summary: Bing Autosuggest API를 사용하면 일부 검색 쿼리를 Bing에 보내고, 사용자 의도 및 과거 검색에 따라 제안 목록을 가져올 수 있습니다. 사용자가 입력하는 대로 API를 호출하여 앱의 검색 상자 및 드롭다운 목록을 제안으로 채웁니다.
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
-  title: 'Bing Autosuggest 설명서 - 자습서, 빠른 시작, API 참조'
+  title: Bing Autosuggest 설명서 - 자습서, 빠른 시작, API 참조
   titleSuffix: Azure Cognitive Services
   description: Bing Autosuggest API를 사용하여 부분 쿼리에 따라 제안된 쿼리를 가져오는 방법을 알아봅니다. 자습서에서는 서비스를 사용하는 앱을 빌드하는 방법을 보여줍니다.
   services: cognitive-services
@@ -12,80 +12,58 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: bing-autosuggest
   ms.topic: landing-page
-  ms.date: 07/25/2019
+  ms.date: 10/28/2019
   ms.author: aahi
-abstract:
-  description: 'Bing Autosuggest API를 통해 부분 검색 쿼리 용어를 Bing에 전송하고 다른 사용자가 검색한 제안된 쿼리 목록을 다시 가져올 수 있습니다.  예를 들어 사용자가 해당 검색 용어의 각 문자를 입력하면 이 API를 호출하고 제안된 내용으로 검색 상자의 드롭다운 목록을 채울 수 있습니다. 빠른 시작, 자습서 및 샘플에서 Autosuggest API를 사용하는 방법을 알아봅니다.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/bing-autosuggest/get-suggested-search-terms
-            html: <p>Bing Autosuggest API에 대한 자세한 내용</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Bing Autosuggest API란?
-          - href: /azure/cognitive-services/bing-autosuggest/concepts/get-suggestions
-            html: <p>실시간으로 검색 제안을 가져오는 방법 알아보기</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: Bing Autosuggest API에서 제안 가져오기
-          - href: /azure/cognitive-services/bing-autosuggest/language-support
-            html: <p>API에서 지원되는 언어에 대해 알아봅니다.</p>
-            image:
-              src: ../media/index/i_guidelines.svg
-            title: 지원되는 언어
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: 쿼리를 수행하고 JSON 응답을 확인하여 Bing Autosuggest API를 사용하기 시작합니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_csharp.svg
-            href: quickstarts/csharp
-            text: 'C&#35;'
-          - image:
-              src: media/index/logo_java.svg
-            href: quickstarts/java
-            text: Java
-          - image:
-              src: media/index/logo_nodejs.svg
-            href: quickstarts/nodejs
-            text: Node.js
-          - image:
-              src: media/index/logo_php.svg
-            href: quickstarts/php
-            text: PHP
-          - image:
-              src: media/index/logo_python.svg
-            href: quickstarts/python
-            text: Python
-          - image:
-              src: media/index/logo_ruby.svg
-            href: quickstarts/ruby
-            text: Ruby
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: Bing Autosuggest API를 사용하여 애플리케이션을 개발하는 방법을 알아봅니다.
-      - type: paragraph
-        text: <a href="tutorials/autosuggest.md">단일 페이지 웹앱</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: API
-            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference">Bing Autosuggest API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference">Bing Autosuggest API v5</p>'
-          - title: SDK
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet">.NET</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable">Java</a></p>'
-          - title: PowerShell
-            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'
+  ms.openlocfilehash: b0618f5bd0ed9deb1241dd3ff752a49686ca9073
+  ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73746128"
+landingContent:
+- title: Bing Autosuggest API 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Bing Autosuggest API란?
+      url: get-suggested-search-terms.md
+    - text: Bing Search API 비교
+      url: ../bing-web-search/bing-api-comparison.md
+- title: 제안된 검색어 가져오기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: C# 사용
+      url: quickstarts/csharp.md
+    - text: Python 사용
+      url: quickstarts/python.md
+    - text: Java 사용
+      url: quickstarts/java.md
+    - text: Node.js 사용
+      url: quickstarts/nodejs.md
+  - linkListType: tutorial
+    links:
+    - text: 단일 페이지 웹앱 빌드
+      url: tutorials/autosuggest.md
+  - linkListType: how-to-guide
+    links:
+    - text: 제안된 용어 사용
+      url: concepts/get-suggestions.md
+    - text: API 요청 보내기
+      url: concepts/sending-requests.md
+- title: 참고 자료
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Autosuggest REST API v7
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference
+    - text: Autosuggest REST API v5
+      url: https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v5-reference
+    - text: .NET SDK
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-dotnet
+    - text: Java SDK
+      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingautosuggest?view=azure-java-stable
+    - text: Go SDK
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/autosuggest
+    - text: Node.js SDK
+      url: https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-autosuggest/?view=azure-node-latest

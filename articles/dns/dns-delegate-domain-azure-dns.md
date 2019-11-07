@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: c0c5c5fe899c9b9b898973a88c7dac4256959ee4
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 99a3ca0115611f45ed080c39767d13e087b8efb8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779779"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464232"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>자습서: Azure DNS에서 도메인 호스트
 
@@ -30,7 +30,7 @@ Azure DNS를 사용하여 DNS 도메인을 호스트하고 DNS 레코드를 관�
 > * 위임이 작동하는지 확인합니다.
 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -40,11 +40,11 @@ Azure DNS에서 호스트할 수 있는 도메인 이름으로 테스트할 수 
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
-1. Azure 포털에 로그인합니다.
-1. 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **DNS 영역**을 선택하고 **DNS 영역 만들기** 페이지를 엽니다.
+1. [Azure Portal](https://portal.azure.com/)로 이동하여 DNS 영역을 만듭니다. **DNS 영역**을 검색하여 선택합니다.
 
    ![DNS 영역](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
+1. **DNS 영역 만들기**를 선택합니다.
 1. **DNS 영역 만들기** 페이지에서 다음 값을 입력한 다음 **만들기**를 선택합니다.
 
    | **설정** | **값** | **세부 정보** |
@@ -52,7 +52,7 @@ Azure DNS에서 호스트할 수 있는 도메인 이름으로 테스트할 수 
    |**Name**|[해당 도메인 이름] |구입한 도메인 이름입니다. 예를 들어 이 자습서에서는 contoso.net을 사용합니다.|
    |**구독**|[구독 이름]|영역을 만들 구독을 선택합니다.|
    |**리소스 그룹**|**새로 만들기:** contosoRG|리소스 그룹을 만듭니다. 리소스 그룹 이름은 선택한 구독 내에서 고유해야 합니다.<br>리소스 그룹의 위치는 DNS 영역에 영향을 미치지 않습니다. DNS 영역 위치는 항상 "글로벌"이므로 표시되지 않습니다.|
-   |**위치**:|미국 동부||
+   |**위치**|미국 동부||
 
 ## <a name="retrieve-name-servers"></a>이름 서버 검색
 

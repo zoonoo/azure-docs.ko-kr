@@ -1,22 +1,22 @@
 ---
 title: 공개 데이터 세트란? 큐레이팅된 공개 데이터 세트
-titleSuffix: Azure Open Datasets (preview)
-description: 공개 도메인에서 얻은 데이터 세트를 기계 학습 및 분석 솔루션에 바로 사용할 수 있도록 큐레이팅한 Azure Open Datasets(미리 보기)에 대해 알아봅니다. 데이터 세트에는 예측 솔루션을 보강하는 데 도움이 되는 날씨, 인구, 휴일, 위치 등의 공개 데이터가 포함되어 있습니다.
+titleSuffix: Azure Open Datasets
+description: 예측 솔루션을 보강하기 위해 날씨, 인구 조사, 휴일 및 위치와 같은 공용 도메인에서 큐레이팅된 데이터세트인 Azure Open Datasets에 대해 알아봅니다.
 ms.service: open-datasets
 ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
-ms.date: 05/02/2019
-ms.openlocfilehash: 0c4bf3143bbf1ceb2f2f3c4a22477daa03690a0e
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.date: 11/04/2019
+ms.openlocfilehash: b8633bd91abc1f336870158f54d75829ed5cf6a0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70213583"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496613"
 ---
-# <a name="what-are-azure-open-datasets-preview-and-how-can-you-use-them"></a>Azure Open Datasets(미리 보기)란 무엇이며 사용하려면 어떻게 해야 하나요?
+# <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Azure Open Datasets란 무엇이며 사용하려면 어떻게 해야 하나요?
 
-[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/)는 기계 학습 솔루션에 시나리오별 기능을 추가하여 보다 정확한 모델을 만들 수 있는 큐레이팅된 공개 데이터 세트입니다. Open Datasets는 Microsoft Azure의 클라우드에 있으며 Azure Databricks, Machine Learning Service 및 Machine Learning Studio에서 즉시 사용할 수 있습니다. API를 통해 데이터 세트에 액세스하고 Power BI나 Azure Data Factory 같은 다른 제품에서 데이터 세트를 사용할 수도 있습니다.
+[Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/)는 기계 학습 솔루션에 시나리오별 기능을 추가하여 보다 정확한 모델을 만들 수 있는 큐레이팅된 공개 데이터 세트입니다. Open Datasets는 Microsoft Azure의 클라우드에 있고 Azure Machine Learning에 통합되어 있으며, Azure Databricks 및 Machine Learning Studio(클래식)에서 즉시 사용할 수 있습니다. API를 통해 데이터 세트에 액세스하고 Power BI나 Azure Data Factory 같은 다른 제품에서 데이터 세트를 사용할 수도 있습니다.
 
 데이터 세트에는 기계 학습 모델을 학습시키고 예측 솔루션을 보강할 수 있는 날씨, 인구, 휴일, 공공 안전 및 위치에 대한 공개 도메인 데이터가 포함되어 있습니다. 또한 공개 데이터 세트를 Azure Open Datasets에 공유할 수 있습니다. 
 
@@ -47,7 +47,7 @@ Azure Open Datasets의 큐레이팅된 공개 데이터 세트는 기계 학습 
 ## <a name="access-to-datasets"></a>데이터 세트 액세스  
 Azure 계정이 있으면 코드를 사용하여 또는 Azure 서비스 인터페이스를 통해 공개 데이터 세트에 액세스할 수 있습니다. 데이터는 기계 학습 솔루션에 사용할 수 있도록 Azure 클라우드 컴퓨팅 리소스와 함께 배치됩니다.  
 
-Open Datasets는 Azure Machine Learning Service 및 Azure Databricks에 데이터를 연결하는 데 사용할 수 있는 Azure Notebooks 및 Azure Databricks Notebook을 제공합니다. Python SDK를 통해 데이터 세트에 액세스할 수도 있습니다. 
+Open Datasets는 Azure Machine Learning UI 및 SDK를 통해 제공됩니다. Open Datasets는 또한 Azure Machine Learning 및 Azure Databricks에 데이터를 연결하기 위해 사용할 수 있는 Azure Notebooks 및 Azure Databricks 노트북을 제공합니다. Python SDK를 통해 데이터 세트에 액세스할 수도 있습니다. 
 
 그러나 Open Datasets에 액세스하기 위한 Azure 계정이 필요하지 않습니다. Spark와 상관없이 모든 Python 환경에서 액세스할 수 있습니다.
 

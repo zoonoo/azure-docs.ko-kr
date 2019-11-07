@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure HDInsight에서 Spark Machine Learning 애플리케이션 빌드'
+title: '자습서: Spark 기계 학습 앱 빌드 - Azure HDInsight'
 description: 자습서 - Jupyter Notebook을 사용하여 HDInsight Spark 클러스터에서 Apache Spark Machine Learning 애플리케이션을 빌드하는 방법에 대한 단계별 지침입니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: e77414da964d548b64250bbf98f86bee1529f2ab
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 6e46d7403e251bccd69467cfcdaa1d5073b4e454
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327001"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494569"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>자습서: Azure HDInsight에서 Apache Spark Machine Learning 애플리케이션 빌드
 
@@ -141,7 +141,7 @@ ms.locfileid: "71327001"
 
     원시 CSV 파일에 대한 출력을 비교합니다. 예를 들어 CSV 파일의 첫 번째 행에는 다음 데이터가 있습니다.
 
-    ![Spark 기계 학습 예제에 대한 출력 데이터 스냅샷](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Spark 기계 학습 예제에 대한 출력 데이터 스냅샷")
+    ![Spark 기계 학습 예제의 출력 데이터 스냅샷](./media/apache-spark-ipython-notebook-machine-learning/spark-machine-learning-output-data.png "Spark 기계 학습 예제의 출력 데이터 스냅샷")
 
     실제 온도가 건물이 춥다는 것을 의미하는 대상 온도보다 얼마나 작은지 확인합니다. 학습 결과에 따르면 첫 번째 행의 **label** 값이 **0.0**이며, 이는 건물이 덥지 않다는 것을 의미합니다.
 

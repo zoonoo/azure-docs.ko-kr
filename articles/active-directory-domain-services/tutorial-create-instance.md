@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: b99eafeae60e81fd7d902289a47190a2cbe1daa3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2a1fbe8d47af8a2215b0d0a3d81fbe67a62d4755
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786994"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474406"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>자습서: Azure Active Directory Domain Services 인스턴스 만들기 및 구성
 
@@ -55,7 +55,7 @@ Azure AD DS에는 필요하지 않지만 Azure AD 테넌트에 대해 [SSPR(셀�
 
 **Azure AD Domain Services** 마법사를 시작하려면 다음 단계를 완료합니다.
 
-1. Azure Portal의 왼쪽 위 모서리에서 **+ 리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
 1. 검색 창에서 *Domain Services*를 입력한 다음, 검색 제안에서 *Azure AD Domain Services*를 선택합니다.
 1. Azure AD Domain Services 페이지에서 **만들기**를 선택합니다. **Azure AD Domain Services 사용** 마법사가 시작됩니다.
 1. 관리되는 도메인을 만들려는 Azure **구독**을 선택합니다.
@@ -87,7 +87,11 @@ Azure AD DS 인스턴스를 만드는 경우 DNS 이름을 지정해야 합니�
 Azure Portal의 *기본* 창에 있는 필드를 완성하여 Azure AD DS 인스턴스를 만듭니다.
 
 1. 이전 사항을 고려하여 관리되는 도메인의 **DNS 도메인 이름**을 입력합니다.
-1. 관리되는 도메인을 만들어야 하는 Azure **위치**를 선택합니다.
+1. 관리되는 도메인을 만들어야 하는 Azure **위치**를 선택합니다. 가용성 영역을 지원하는 지역을 선택하면 Azure AD DS 리소스가 추가 중복성을 위해 여러 영역에 배포됩니다.
+
+    가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다.
+
+    Azure AD DS를 영역 간에 배포하기 위해 구성해야 할 항목은 없습니다. Azure 플랫폼은 리소스의 영역 배포를 자동으로 처리합니다. 자세한 내용을 보고 지역 가용성을 확인하려면 [Azure에서 가용성 영역이란?][availability-zones]을 참조하세요.
 
     ![Azure AD Domain Services 인스턴스에 대한 기본 설정 구성](./media/tutorial-create-instance/basics-window.png)
 
@@ -117,7 +121,7 @@ Azure AD DS 관리형 도메인을 신속하게 만들려면 **검토 + 만들�
 
     ![성공적으로 프로비저닝된 Domain Services 상태](./media/tutorial-create-instance/successfully-provisioned.png)
 
-저희 쪽에서 Azure Active Directory 테넌트에 Azure AD Domain Services을 프로비저닝하면 연결된 Azure 구독 내에 서비스용 Azure AD Domain Services 리소스가 생성됩니다. 프로비저닝 프로세스 중에 Azure AD DS는 Azure AD 도메인 서비스를 사용하도록 설정된 Azure Active Directory 인스턴스에 *Domain Controller Services* 및 *AzureActiveDirectoryDomainControllerServices*라는 두 개의 엔터프라이즈 애플리케이션을 만듭니다. 이러한 Enterprise 애플리케이션은 관리되는 도메인을 제공하는 데 필요합니다.  이러한 애플리케이션은 언제든지 삭제되지 않아야 합니다.
+관리되는 도메인이 Auzre AD 테넌트와 연결되어 있습니다. 프로비저닝 프로세스 중에 Azure AD DS는 *도메인 컨트롤러 서비스* 및 *AzureActiveDirectoryDomainControllerServices*라는 두 개의 엔터프라이즈 애플리케이션을 Azure AD 테넌트에 만듭니다. 이러한 Enterprise 애플리케이션은 관리되는 도메인을 제공하는 데 필요합니다. 이러한 애플리케이션을 삭제하지 마세요.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Azure 가상 네트워크에 대한 DNS 설정 업데이트
 
@@ -188,6 +192,7 @@ VM을 도메인에 가입하고 Azure AD DS 관리형 도메인을 사용하는 
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

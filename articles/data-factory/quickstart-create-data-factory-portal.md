@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: jingwang
-ms.openlocfilehash: 5baa8c78ad581a00a3601706f31cf815359120c7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3dee054f6c382a00a55e4acf07e2a188c5cc6a07
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70077058"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490696"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>빠른 시작: Azure Data Factory UI를 사용하여 데이터 팩터리 만들기
 
@@ -39,7 +39,10 @@ ms.locfileid: "70077058"
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. [Azure 포털](https://portal.azure.com)로 이동합니다. 
-1. 왼쪽 메뉴에서 **리소스 만들기**, **분석**, **데이터 팩터리**를 차례로 선택합니다. 
+1. Azure Portal 메뉴에서 **리소스 만들기**를 선택합니다.
+   
+   ![Azure Portal 메뉴에서 리소스 만들기 선택](./media/doc-common-process/create-a-resource.png)
+1. **Analytics**를 선택한 다음, **Data Factory**를 선택합니다. 
    
    !["새로 만들기" 창에서 데이터 팩터리 선택](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. **새 데이터 팩터리** 페이지에서 **이름**에 대해 **ADFTutorialDataFactory**를 입력합니다. 
@@ -132,7 +135,7 @@ ms.locfileid: "70077058"
 
     f. **계속**을 선택합니다.   
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다. 
+## <a name="create-a-pipeline"></a>파이프라인을 만들기 
 이 절차에서는 입력 및 출력 데이터 세트를 사용하는 복사 활동이 있는 파이프라인을 만들고 유효성을 검사합니다. 복사 작업은 입력 데이터 세트 설정에 지정된 파일의 데이터를 출력 데이터 세트 설정에 지정된 파일로 복사합니다. 입력 데이터 세트에서 폴더(파일 이름 제외)만 지정하면 복사 활동에서 원본 폴더의 모든 파일을 대상에 복사합니다. 
 
 1. **+** (더하기) 단추를 선택한 다음 **파이프라인**을 선택합니다. 

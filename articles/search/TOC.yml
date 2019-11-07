@@ -195,6 +195,8 @@
           href: search-blob-storage-integration.md
         - name: Blob 인덱서 설정
           href: search-howto-indexing-azure-blob-storage.md
+        - name: Azure Data Lake Storage Gen2 인덱서 설정
+          href: search-howto-index-azure-data-lake-storage.md
         - name: 일대다 Blob 인덱스
           href: search-howto-index-one-to-many-blobs.md
         - name: 인덱스 CSV blob

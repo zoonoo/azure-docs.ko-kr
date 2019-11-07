@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: fe40eb27b07304aba48be4a47fb22168cb60434c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5bf8aea05855d81e88face1dd507f0006cc19cab
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332250"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483886"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -111,11 +111,11 @@ ms.locfileid: "72332250"
 1. **일정** 페이지로 전환한 다음, 도구 모음에서 **예약된 이벤트 추가**를 선택합니다. 
 
     ![일정 페이지의 일정 추가 단추](../media/how-to-create-schedules/add-schedule-button.png)
-2. **이벤트 유형**에 대해 **표준**이 선택되었는지 확인합니다. VM의 시작 시간만 지정하려면 **시작만**을 선택합니다. VM의 중지 시간만 지정하려면 **중지만**을 선택합니다. 
-7. **반복** 섹션에서 현재 일정을 선택합니다. 
+2. **이벤트 유형**으로 **표준**이 선택되었는지 확인합니다. VM의 시작 시간만 지정하려면 **시작만**을 선택합니다. VM의 중지 시간만 지정하려면 **중지만**을 선택합니다. 
+3. **반복** 섹션에서 현재 일정을 선택합니다. 
 
     ![일정 페이지의 일정 추가 단추](../media/how-to-create-schedules/select-current-schedule.png)
-5. **반복** 대화 상자에서 다음 단계를 수행합니다.
+4. 일정을 선택하면 **반복** 대화 상자가 열립니다. 이 대화 상자에서 다음 단계를 수행합니다.
     1. **반복** 필드에 대해 **매주**가 설정되었는지 확인합니다. 
     3. **시작 날짜**를 지정합니다.
     4. VM을 시작할 **시작 시간**을 지정합니다.
@@ -124,10 +124,8 @@ ms.locfileid: "72332250"
     2. 일정을 적용하려는 요일을 선택합니다. 다음 예에서는 월요일-목요일이 선택되었습니다. 
     8. **저장**을 선택합니다. 
 
-        ![반복 일정 설정](../media/how-to-create-schedules/set-repeat-schedule.png)
-
-3. 이제 **예약된 이벤트 추가** 페이지의 **메모(선택 사항)** 에서 예약에 대한 설명 또는 메모를 입력합니다. 
-4. **예약된 이벤트 추가** 페이지에서 **저장**을 선택합니다. 
+5. 이제 **예약된 이벤트 추가** 페이지의 **메모(선택 사항)** 에서 예약에 대한 설명 또는 메모를 입력합니다. 
+6. **예약된 이벤트 추가** 페이지에서 **저장**을 선택합니다. 
 
     ![주별 일정](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 

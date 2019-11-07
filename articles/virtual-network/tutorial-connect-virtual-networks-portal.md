@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: cbf19d941e63429b6a5edcc6745d04834cf18621
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b32f3762f2546a4d4956bf38c914173657e9d3da
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164061"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499895"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -44,7 +44,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 ## <a name="create-virtual-networks"></a>가상 네트워크 만들기
 
-1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
 2. **네트워킹**을 선택한 다음 **가상 네트워크**를 선택합니다.
 3. **기본** 페이지에서 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용합니다.
 
@@ -54,7 +54,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |Resource group| **새로 만들기**를 선택하고 *myResourceGroup*을 입력합니다.|
     |지역| **미국 동부**를 선택합니다.|
     |Name|myVirtualNetwork1|
-   
+
 4. **IP 주소** 페이지에서 **주소 공간** 필드에 10.0.0.0/16을 입력합니다. 아래 **서브넷 추가** 단추를 클릭하고 **서브넷 이름**에 Subnet1을 입력하고 **서브넷 주소 범위**에 대해 10.0.0.0/24를 입력합니다.
    
 5. 다음과 같은 변경 내용을 사용하여 다시 1~3단계를 완료합니다.
@@ -69,7 +69,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 ## <a name="peer-virtual-networks"></a>가상 네트워크 피어링
 
 1. Azure Portal 맨 위에 있는 검색 상자에 *MyVirtualNetwork1*을 입력하기 시작합니다. 검색 결과에 **myVirtualNetwork1**이 표시되면 선택합니다.
-2. **설정**에서 **피어링**을 선택한 다음, 다음 그림에 표시된 대로 **+추가**를 선택합니다.
+2. **설정**에서 **피어링**을 선택한 후, 다음 그림에 표시된 대로 **추가**를 선택합니다.
 
     ![피어링 만들기](./media/tutorial-connect-virtual-networks-portal/create-peering.png)
 
@@ -96,7 +96,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 ### <a name="create-the-first-vm"></a>첫 번째 VM 만들기
 
-1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
 2. **Compute**를 선택한 다음, **Windows Server 2016 Datacenter**를 선택합니다. 다른 운영 체제를 선택할 수 있지만 나머지 단계에서는 **Windows Server 2016 Datacenter**를 선택했다고 가정합니다. 
 3. **기본 사항**에 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
 

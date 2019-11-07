@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a863c8fe81a08f00385cb267bf360994918fe82
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9adf083f8e4c8c269b895dac87b4e4613ec1b023
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212113"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474386"
 ---
 # <a name="quickstart-self-service-password-reset"></a>빠른 시작: 셀프 서비스 암호 재설정
 
@@ -33,7 +33,7 @@ ms.locfileid: "71212113"
 
 [이 프로세스를 YouTube의 비디오로 보기](https://youtu.be/Pa0eyqjEjvQ)
 
-1. 기존 Azure AD 테넌트의 **Azure Portal**에 있는 **Azure Active Directory** 아래에서 **암호 재설정**을 선택합니다.
+1. 기존 Azure AD 테넌트의 Azure Portal 메뉴 또는 **홈** 페이지에서 **Azure Active Directory**를 선택합니다. 그런 다음, **암호 재설정**을 선택합니다.
 
 2. **속성** 페이지의 **셀프 서비스 암호 재설정이 사용하도록 설정됨** 옵션에서 **선택함**을 선택합니다.
     * **그룹 선택**에서 이 문서의 필수 구성 요소 섹션에서 만든 파일럿 그룹을 선택합니다.

@@ -10,14 +10,17 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: ff666437790a1e32dde83f9e3be90b4c62637181
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 6888c53122e649d6a0e91f8ece30101f051c08e8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307739"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488800"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 새 앱 만들기
+
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 이 빠른 시작에서는 [LUIS 포털](https://www.luis.ai)에서 새 앱을 작성합니다. 우선 앱, **의도** 및 **엔터티**의 기본적인 부분을 만듭니다. 그런 다음, 예측된 의도를 얻기 위해 대화형 테스트 패널에 샘플 사용자 발언을 제공하여 앱을 테스트합니다.
 
@@ -27,7 +30,7 @@ ms.locfileid: "70307739"
 
 ## <a name="create-an-app"></a>앱 만들기
 
-1. 상황에 맞는 도구 모음에서 **새 앱 만들기**를 선택합니다.
+1. 컨텍스트 도구 모음에서 **+ 만들기**를 선택합니다.
 
    [![LUIS 포털에서 새 앱 만들기](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
 

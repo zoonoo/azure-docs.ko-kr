@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 07/05/2019
+ms.date: 11/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 993064a36bd12c95e83ffb7c9635c3e4dfcec0f0
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 46e9182d9660729dbf65367f52483d96428760ff
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803338"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467396"
 ---
 # <a name="what-are-the-speech-services"></a>Speech Services란?
 
@@ -35,7 +35,7 @@ Speech Services는 음성-텍스트 변환, 텍스트-음성 변환 및 음성 �
 | [텍스트 음성 변환](text-to-speech.md) | 텍스트 음성 변환 | 텍스트 음성 변환은 [SSML(Speech Synthesis Markup Language)](text-to-speech.md#speech-synthesis-markup-language-ssml)을 사용하여 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다. 표준 음성 및 인공신경망 음성 중에서 선택합니다([언어 지원](language-support.md) 참조). | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | | [사용자 지정 음성 만들기](#customize-your-speech-experience) | 브랜드 또는 제품에 고유한 사용자 지정 음성 글꼴을 만듭니다. | 아니요 | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 | [Speech Translation](speech-translation.md) | 음성 번역 | 음성 번역을 사용하면 음성에 대한 실시간 엔드투엔드 다중 언어 번역을 애플리케이션, 도구 및 디바이스에 추가할 수 있습니다. 이 서비스는 음성을 음성으로 변환 및 음성을 텍스트로 변환을 위해 사용합니다. | [예](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) | 아니요 |
-| [음성 우선 가상 도우미](voice-first-virtual-assistants.md) | 음성 우선 가상 도우미 | Azure Speech Services를 사용하는 사용자 지정 가상 도우미는 개발자가 자신의 애플리케이션과 환경을 위해 자연스럽고 인간과 유사한 대화형 인터페이스를 만들 수 있도록 해줍니다. Bot Framework의 Direct Line Speech 채널은 짧은 대기 시간 및 높은 안정성으로 음성 입력, 음성 출력 상호 작용을 가능하게 하는 호환 가능 봇에 조정되고 조율된 진입점을 제공함으로써 이러한 기능을 향상시킵니다. | [예](voice-first-virtual-assistants.md) | 아니요 |
+| [음성 도우미](voice-assistants.md) | 음성 도우미 | Azure Speech Services를 사용하는 음성 도우미는 개발자가 자신의 애플리케이션과 환경을 위해 자연스럽고 인간과 유사한 대화형 인터페이스를 만들 수 있도록 해줍니다. 음성 도우미는 작업 완료를 위해 Bot Framework의 Direct Line Speech 채널 또는 통합 사용자 지정 명령(미리 보기) 서비스를 사용하는 도우미 구현과 디바이스 사이에 빠르고 안정적인 상호 작용을 제공합니다. | [예](voice-assistants.md) | 아니요 |
 
 ## <a name="news-and-updates"></a>새로운 기능 및 업데이트 사항
 
@@ -48,7 +48,7 @@ Azure Speech Services의 새로운 기능에 대해 알아봅니다.
   * `en-US-JessaNeural` 음성에 대해 새 말하기 스타일 [`chat`](speech-synthesis-markup.md#adjust-speaking-styles)를 추가했습니다. 
 * 2019년 6월
   * Speech SDK 1.6.0이 릴리스되었습니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
-* 2019년 5월 - 이제 [대화 기록](conversation-transcription-service.md), [호출 센터 전사](call-center-transcription.md) 및 [음성 우선 가상 도우미](voice-first-virtual-assistants.md)에 대한 설명서를 사용할 수 있습니다.
+* 2019년 5월 - 이제 [대화 기록](conversation-transcription-service.md), [호출 센터 전사](call-center-transcription.md) 및 [음성 도우미](voice-assistants.md)에 대한 설명서를 사용할 수 있습니다.
 * 2019년 5월
   * Speech SDK 1.5.1이 릴리스되었습니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
   * Speech SDK 1.5.0이 릴리스되었습니다. 업데이트, 향상된 기능 및 알려진 문제의 전체 목록은 [릴리스 정보](releasenotes.md)를 참조하세요.
@@ -59,10 +59,9 @@ Azure Speech Services의 새로운 기능에 대해 알아봅니다.
 
 | 음성 텍스트 변환(SDK) | 텍스트 음성 변환(SDK) | 번역(SDK) |
 |----------------------|----------------------|-------------------|
-| [C#, .NET Core(Windows)](quickstart-csharp-dotnet-windows.md) | [C#, .NET Framework(Windows)](quickstart-text-to-speech-dotnet-windows.md) | [Java(Windows, Linux)](quickstart-translate-speech-java-jre.md) |
-| [JavaScript(브라우저)](quickstart-js-browser.md) | [C++(Windows)](quickstart-text-to-speech-cpp-windows.md) | [C#, .NET Core(Windows)](quickstart-translate-speech-dotnetcore-windows.md) |
-| [Python(Windows, Linux, macOS)](quickstart-python.md) | [C++(Linux)](quickstart-text-to-speech-cpp-linux.md) | [C#, .NET Framework(Windows)](quickstart-translate-speech-dotnetframework-windows.md) |
-| [Java(Windows, Linux)](quickstart-java-jre.md) | | [C++(Windows)](quickstart-translate-speech-cpp-windows.md) |
+| [오디오 파일에서 음성 인식](quickstarts/speech-to-text-from-file.md) | [오디오 파일로 음성 합성](quickstarts/text-to-speech-audio-file.md) | [음성을 텍스트로 변환](quickstarts/translate-speech-to-text.md) |
+| [마이크에서 음성 인식](quickstarts/speech-to-text-from-microphone.md) | [스피커로 음성 합성](quickstarts/text-to-speech.md) | [음성을 여러 대상 언어로 번역](quickstarts/translate-speech-to-text-multiple-languages.md) |
+| [Blob 스토리지에 저장된 음성 인식](quickstarts/from-blob.md) | [긴 형식의 오디오에 대한 비동기 합성](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [음성을 음성으로 번역](quickstarts/translate-speech-to-speech.md) |
 
 > [!NOTE]
 > 음성 텍스트 변환 및 텍스트 음성 변환은 REST 엔드포인트와 연결된 빠른 시작일 수도 있습니다.
@@ -80,7 +79,7 @@ Speech Services를 사용해본 경우 Speech SDK 및 LUIS를 사용하여 음�
 * [음성 텍스트 변환, 텍스트 음성 변환 및 음성 번역 샘플(SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 * [일괄 처리 기록 샘플(REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 * [텍스트 음성 변환 샘플(REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
-* [음성 우선 가상 도우미 샘플(SDK)](https://aka.ms/csspeech/samples)
+* [음성 도우미 샘플(SDK)](https://aka.ms/csspeech/samples)
 
 ## <a name="customize-your-speech-experience"></a>음성 환경 사용자 지정
 

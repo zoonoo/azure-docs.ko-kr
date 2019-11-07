@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: c9b72c90bc23cfac6f064445c4f6f98d05d7fe16
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: afc026ccb602538b0749fa294cee763efa3d27d0
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331781"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73483224"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>빠른 시작: Windows용 Data Science Virtual Machine 설정
 
@@ -34,7 +34,7 @@ DSVM 인스턴스를 만들려면
 
 1. 아래쪽에 있는 **만들기** 단추를 선택합니다.
 
-    [![](media/provision-vm/create-windows.png "Windows 머신을 만드는 단추")](media/provision-vm/create-windows-expanded.png#lightbox)
+    [![](media/provision-vm/create-windows.png "Button to create a Windows machine")](media/provision-vm/create-windows-expanded.png#lightbox)
 
 1. "가상 머신 만들기" 블레이드로 리디렉션됩니다.
    ![Windows Virtual Machine에 해당하는 기본 탭](./media/provision-vm/review-create-windows.png)
@@ -72,7 +72,7 @@ VM에 설치되고 구성된 도구를 사용할 준비가 되었습니다. 대�
 ## <a name="next-steps"></a>다음 단계
 
 * **시작** 메뉴를 열어서 DSVM의 도구를 살펴봅니다.
-* [Azure Machine Learning Service란?](../service/overview-what-is-azure-ml.md)을 참조하여 Azure Machine Learning Service에 대해 알아보고 [자습서](../index.yml)를 사용해 보세요.
+* [Azure Machine Learning이란?](../service/overview-what-is-azure-ml.md)을 참조하여 Azure Machine Learning에 대해 알아보고 [자습서](../index.yml)를 사용해 보세요.
 * 엔터프라이즈 규모의 데이터 분석을 지원하는 R에서 RevoScaleR 라이브러리를 사용하는 샘플을 보려면 파일 탐색기에서 C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts로 이동합니다. 
 * [Data Science Virtual Machine으로 할 수 있는 10가지 작업](https://aka.ms/dsvmtenthings) 문서를 참조합니다.
 * [팀 데이터 과학 프로세스](../team-data-science-process/index.yml)를 사용하여 엔드투엔드 분석 솔루션을 체계적으로 빌드하는 방법을 알아봅니다.

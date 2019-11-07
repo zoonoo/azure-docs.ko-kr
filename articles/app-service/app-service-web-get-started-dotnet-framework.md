@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 10/21/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 258e547c58016cb449c74b058d02f2a2e4d7d683
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 04dd7cb55f9a6d4ceb722606f0eb90792413e414
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792773"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471756"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Azure에서 ASP.NET Framework 웹앱 만들기
 
@@ -131,9 +131,11 @@ Visual Studio 2019를 이미 설치한 경우:
 
 ## <a name="manage-the-azure-app"></a>Azure 앱 관리
 
-1. 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
+1. 웹앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동하여 **App Services**를 검색하여 선택합니다.
 
-2. 왼쪽 메뉴에서 **App Services**를 선택한 다음, Azure 앱의 이름을 선택합니다.
+   ![앱 서비스 선택](./media/app-service-web-get-started-dotnet-framework/app-services.png)
+
+2. **App Services** 페이지에서 웹앱의 이름을 선택합니다.
 
    ![Azure 앱에 대한 포털 탐색](./media/app-service-web-get-started-dotnet-framework/access-portal-framework-vs2019.png)
 

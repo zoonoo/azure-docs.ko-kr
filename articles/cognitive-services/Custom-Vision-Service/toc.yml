@@ -56,7 +56,7 @@
       href: getting-started-improving-your-classifier.md
     - name: 예측 API 사용
       href: use-prediction-api.md
-    - name: 제안된 태그 사용
+    - name: 스마트 레이블 지정자 사용
       href: suggested-tags.md
     - name: 모델 내보내기
       items:

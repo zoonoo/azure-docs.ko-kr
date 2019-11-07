@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/27/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 748c51e74db20ac101dc2dff0d924567acded114
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 4acf6e4df978ffee6e0f8320bafbb64994aa0639
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703234"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73495393"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 빌드된 홈 자동화 앱 사용
 
@@ -31,48 +31,44 @@ ms.locfileid: "71703234"
 ## <a name="create-a-new-app"></a>새 앱 만들기
 애플리케이션은 **내 앱**에서 만들고 관리할 수 있습니다. 
 
-1. **새 앱 만들기**를 선택합니다.
+1. LUIS 포털의 내 앱 목록에서 **+ 만들기**를 선택합니다.
 
-    [![앱 목록 스크린샷](media/luis-quickstart-new-app/app-list.png "앱 목록 스크린샷")](media/luis-quickstart-new-app/app-list.png)
+    ![LUIS 포털의 내 앱 목록에서 '+ 만들기'를 선택합니다.](./media/create-app-in-portal.png)
 
-1. 대화 상자에서 애플리케이션 이름을 "Home Automation"으로 지정합니다.
+1. 대화 상자에서 애플리케이션 이름을 `Home Automation`으로 지정한 후 **완료**를 선택합니다. LUIS가 앱을 만듭니다.
 
-    [![새 앱 만들기 팝업 대화 상자 스크린샷](media/luis-quickstart-new-app/create-new-app-dialog.png "새 앱 만들기 팝업 대화 상자 스크린샷")](media/luis-quickstart-new-app/create-new-app-dialog.png)
-
-1. 애플리케이션 문화권을 선택합니다. Home Automation 앱의 경우 영어를 선택합니다. 그런 후 **완료**를 선택합니다. LUIS에서 Home Automation 앱이 만들어집니다. 
+    ![대화 상자에서 애플리케이션 이름을 'Home Automation'으로 지정합니다.](./media/create-new-app-details.png)
 
     >[!NOTE]
     >애플리케이션을 만든 후에는 문화권을 변경할 수 없습니다. 
 
 ## <a name="add-prebuilt-domain"></a>미리 빌드된 도메인 추가
 
-왼쪽 탐색 창에서 **미리 작성된 도메인**을 선택합니다. 그런 다음, "Home"을 검색합니다. **도메인 추가**를 선택합니다.
+**미리 빌드된 도메인**을 선택한 후 **HomeAutomation**을 검색합니다. HomeAutomation 카드에서 **도메인 추가**를 선택합니다.
 
-[![미리 빌드된 도메인 메뉴에서 호출된 홈 자동화 도메인의 스크린샷](media/luis-quickstart-new-app/home-automation.png "미리 빌드된 도메인 메뉴에서 호출된 홈 자동화 도메인의 스크린샷")](media/luis-quickstart-new-app/home-automation.png)
+!['미리 빌드된 도메인'을 선택한 후 'HomeAutomation'을 검색합니다. HomeAutomation 카드에서 '도메인 추가'를 선택합니다.](media/luis-quickstart-new-app/home-automation.png)
 
 도메인 추가에 성공하면 미리 작성된 도메인 상자에 **도메인 제거** 단추가 표시됩니다.
 
-[![제거 단추가 있는 홈 자동화 도메인의 스크린샷](media/luis-quickstart-new-app/remove-domain.png "제거 단추가 있는 홈 자동화 도메인의 스크린샷")](media/luis-quickstart-new-app/remove-domain.png)
-
 ## <a name="intents-and-entities"></a>의도 및 엔터티
 
-왼쪽 탐색 창에서 **의도**를 선택하여 HomeAutomation 도메인 의도를 검토합니다. 의도마다 예제 발언이 있습니다.
+**의도**를 선택하여 HomeAutomation 도메인 의도를 검토합니다. 미리 빌드된 도메인 의도에 샘플 발언이 포함되어 있습니다.
 
-![HomeAutomation 의도 목록의 스크린샷](media/luis-quickstart-new-app/home-automation-intents.png "HomeAutomation 의도 목록의 스크린샷")]
+![HomeAutomation 의도 목록의 스크린샷](media/luis-quickstart-new-app/home-automation-intents.png "HomeAutomation 의도 목록의 스크린샷")
 
 > [!NOTE]
 > **없음**은 모든 LUIS 앱에 제공되는 의도입니다. 이것은 앱에 제공되는 기능과 일치하지 않는 발언을 처리하는 데 사용됩니다. 
 
 **HomeAutomation.TurnOff** 의도를 선택합니다. 엔터티를 사용하여 레이블이 지정된 발언 목록이 의도에 포함된 것을 볼 수 있습니다.
 
-[![HomeAutomation.TurnOff 의도 스크린샷](media/luis-quickstart-new-app/home-automation-turnoff.png "HomeAutomation.TurnOff 의도 스크린샷")](media/luis-quickstart-new-app/home-automation-turnoff.png)
+[![HomeAutomation.TurnOff 의도의 스크린샷](media/luis-quickstart-new-app/home-automation-turnoff.png "HomeAutomation.TurnOff 의도의 스크린샷")](media/luis-quickstart-new-app/home-automation-turnoff.png)
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-your-app"></a>앱 테스트
-앱을 학습시킨 후에는 테스트할 수 있습니다. 맨 위 탐색에서 **테스트**를 선택합니다. 대화형 테스트 창에 테스트 발언(예: "Turn off the lights")을 입력하고 Enter 키를 누릅니다. 
+앱을 학습시킨 후에는 테스트할 수 있습니다. **테스트**를 선택합니다. 대화형 테스트 창에 테스트 발언(예: `Turn off the lights`)을 입력하고 Enter 키를 누릅니다. 
 
 ```
 Turn off the lights
@@ -82,12 +78,11 @@ Turn off the lights
 
 이 예제에서 `Turn off the lights`는 **HomeAutomation.TurnOff**의 최고 득점 의도로 올바르게 확인되었습니다.
 
-[![발화가 강조 표시된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/test.png "발화가 강조 표시된 테스트 패널의 스크린샷")](media/luis-quickstart-new-app/test.png)
-
+![발언이 강조 표시된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
 
 **검사**를 선택하여 예측에 대한 자세한 정보를 검토합니다.
 
-![발언이 강조 표시된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/review-test-inspection-pane-in-portal.png)
+![검사 정보가 포함된 테스트 패널의 스크린샷](media/luis-quickstart-new-app/test.png)
 
 **테스트**를 다시 선택하여 테스트 창을 접습니다. 
 
@@ -95,75 +90,96 @@ Turn off the lights
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>앱을 게시하여 엔드포인트 URL 가져오기
 
-[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](./includes/howto-publish.md)]
 
-## <a name="query-the-v2-api-prediction-endpoint"></a>V2 API 예측 엔드포인트 쿼리
+<a name="query-the-v2-api-prediction-endpoint"></a>
 
-1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+## <a name="query-the-v3-api-prediction-endpoint"></a>V3 API 예측 엔드포인트 쿼리
 
-1. 주소의 URL 끝으로 이동하고 `turn off the living room light`를 입력한 다음, Enter 키를 누릅니다. 
+[!INCLUDE [LUIS How to get endpoint first step](./includes/v3-prediction-endpoint.md)] 
 
-    #### <a name="v2-prediction-endpointtabv2"></a>[V2 예측 엔드포인트](#tab/V2)
+1. 브라우저 주소 표시줄에서 쿼리 문자열에 대해 다음 이름 및 값 표시줄이 URL에 있는지 확인합니다. 쿼리 문자열에 없으면 추가하세요.
 
-    `https://<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/<appID>?subscription-key=<YOUR_KEY>&**q=<user-utterance-text>**`
+    |이름/값 쌍|
+    |--|
+    |`verbose=true`|
+    |`show-all-intents=true`|
 
-    브라우저에서 HTTP 엔드포인트의 JSON 응답 **V2 API** 버전이 표시됩니다.
-
-    ```json
-    {
-      "query": "turn off the lights",
-      "topScoringIntent": {
-        "intent": "HomeAutomation.TurnOff",
-        "score": 0.995867
-      },
-      "entities": [
-        {
-          "entity": "lights",
-          "type": "HomeAutomation.DeviceType",
-          "startIndex": 13,
-          "endIndex": 18,
-          "resolution": {
-            "values": [
-              "light"
-            ]
-          }
-        }
-      ]
-    }
-    ```
-    
-    #### <a name="v3-prediction-endpointtabv3"></a>[V3 예측 엔드포인트](#tab/V3)
-
-    [V3 API 쿼리](luis-migration-api-v3.md)의 경우, 브라우저에서 꺾쇠괄호 안의 값을 고유한 값으로 변경하여 GET 메서드 HTTPS 요청을 변경합니다.     
-
-    `https://<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/<appID>/**slots**/**production**/**predict**?subscription-key=<YOUR_KEY>&**query=<user-utterance-text>**`
+1. 브라우저 주소 표시줄에서 URL 끝으로 이동하고 _쿼리_ 값에 대해 `turn off the living room light`를 입력한 후 Enter 키를 누릅니다.
 
     ```json
     {
-        "query": "turn off the lights",
+        "query": "turn off the living room light",
         "prediction": {
-            "normalizedQuery": "turn off the lights",
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.99649024
+                    "score": 0.967174649
                 }
             },
             "entities": {
+                "HomeAutomation.Location": [
+                    "living room"
+                ],
+                "HomeAutomation.DeviceName": [
+                    [
+                        "living room light"
+                    ]
+                ],
                 "HomeAutomation.DeviceType": [
                     [
                         "light"
                     ]
-                ]
+                ],
+                "$instance": {
+                    "HomeAutomation.Location": [
+                        {
+                            "type": "HomeAutomation.Location",
+                            "text": "living room",
+                            "startIndex": 13,
+                            "length": 11,
+                            "score": 0.9494325,
+                            "modelTypeId": 1,
+                            "modelType": "Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "HomeAutomation.DeviceName": [
+                        {
+                            "type": "HomeAutomation.DeviceName",
+                            "text": "living room light",
+                            "startIndex": 13,
+                            "length": 17,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ],
+                    "HomeAutomation.DeviceType": [
+                        {
+                            "type": "HomeAutomation.DeviceType",
+                            "text": "light",
+                            "startIndex": 25,
+                            "length": 5,
+                            "modelTypeId": 5,
+                            "modelType": "List Entity Extractor",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
             }
         }
     }
     ```
 
-
     [V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
     
-    * * * 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

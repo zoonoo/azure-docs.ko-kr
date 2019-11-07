@@ -12,12 +12,12 @@ metadata:
   author: memildin
   ms.author: memildin
   ms.date: 11/04/2019
-  ms.openlocfilehash: 48140c014492383fd4c714669b070df1fa6214e6
-  ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+  ms.openlocfilehash: 8174498a5cc94eca0883102c95b543630cd37fdf
+  ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73521166"
+  ms.lasthandoff: 11/05/2019
+  ms.locfileid: "73607498"
 landingContent:
 - title: Security Center 정보
   linkLists:
@@ -27,6 +27,22 @@ landingContent:
       url: security-center-intro.md
     - text: 지원되는 Windows 서버 및 Linux 버전은 무엇인가요?
       url: security-center-os-coverage.md
+- title: 최신 상태 유지
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: 컨테이너 보호
+      url: container-security.md
+    - text: 동적 규정 준수 패키지 추가
+      url: update-regulatory-compliance-packages.md
+    - text: Windows Admin Center와 통합
+      url: windows-admin-center-integration.md
+    - text: 경고 및 권장 사항에 대한 응답 자동화
+      url: workflow-automation.md
+    - text: 보안 경고 및 권장 사항 내보내기
+      url: continuous-export.md
+    - text: Azure Key Vault에 대한 고급 위협 방지 설정
+      url: advanced-threat-protection-key-vault.md
 - title: 시작하기
   linkLists:
   - linkListType: get-started

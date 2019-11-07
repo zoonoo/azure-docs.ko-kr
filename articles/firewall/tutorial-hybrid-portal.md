@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 11/02/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 50f1d0bca958ef4504394cad1d771459cc8be27d
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018969"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73468471"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -107,14 +107,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 9. **서브넷** 아래의 **이름**에 대해 **SN-Workload**를 입력합니다.
 10. **주소 범위**에 대해 **10.6.0.0/24**를 입력합니다.
 11. 다른 기본 설정을 유지한 다음, **만들기**를 선택합니다.
-
-이제 게이트웨이에 대한 두 번째 서브넷을 만듭니다.
-
-1. **VNet-Spoke** 페이지에서 **서브넷**을 선택합니다.
-2. **+서브넷**을 선택합니다.
-3. **이름**에 대해 **GatewaySubnet**을 입력합니다.
-4. **주소 범위(CIDR 블록)** 에 대해 **10.6.1.0/24**를 입력합니다.
-5. **확인**을 선택합니다.
 
 ## <a name="create-the-on-premises-virtual-network"></a>온-프레미스 가상 네트워크 만들기
 
@@ -341,7 +333,7 @@ SpoketoHub 피어링에서 **전달된 트래픽 허용**을 사용하도록 설
 2. 경로 테이블이 만들어지면 해당 테이블을 선택하여 경로 테이블 페이지를 엽니다.
 3. 왼쪽 열에서 **경로**를 선택합니다.
 4. **추가**를 선택합니다.
-5. 경로 이름에 대해 **ToSpoke**를 입력합니다.
+5. 경로 이름에 대해 **ToHub**를 입력합니다.
 6. 주소 접두사에 대해 **0.0.0.0/0**을 입력합니다.
 7. 다음 홉 형식에 대해 **가상 어플라이언스**를 선택합니다.
 8. 다음 홉 주소에 대해 앞에서 적어둔 방화벽의 개인 IP 주소를 입력합니다.
@@ -384,7 +376,7 @@ SpoketoHub 피어링에서 **전달된 트래픽 허용**을 사용하도록 설
 ### <a name="install-iis"></a>IIS 설치
 
 1. Azure Portal에서 Cloud Shell을 열고, **PowerShell**로 설정되어 있는지 확인합니다.
-2. 다음 명령을 실행하여 가상 머신에 IIS를 설치합니다.
+2. 다음 명령을 실행하여 가상 머신에 IIS를 설치하고 필요한 경우 위치를 변경합니다.
 
    ```azurepowershell-interactive
    Set-AzVMExtension `
@@ -420,7 +412,7 @@ SpoketoHub 피어링에서 **전달된 트래픽 허용**을 사용하도록 설
 
 ## <a name="test-the-firewall"></a>방화벽 테스트
 
-1. 먼저 **VM-spoke-01** 가상 머신의 개인 IP 주소를 가져와 기록합니다.
+1. 먼저 **VM-spoke-01** 가상 머신의 개인 IP 주소를 기록합니다.
 
 2. Azure Portal에서 **VM-Onprem** 가상 머신에 연결합니다.
 <!---2. Open a Windows PowerShell command prompt on **VM-Onprem**, and ping the private IP for **VM-spoke-01**.

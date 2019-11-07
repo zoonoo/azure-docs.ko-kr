@@ -1,25 +1,25 @@
 ---
-title: Azure Data Share 미리 보기란?
-description: Azure Data Share 미리 보기를 사용하여 여러 고객 및 파트너와 간단하고 안전하게 데이터를 공유하는 방법에 대해 알아봅니다.
+title: Azure Data Share란?
+description: Azure Data Share를 사용하여 여러 고객 및 파트너와 간단하고 안전하게 데이터를 공유하는 방법에 대해 알아봅니다.
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: 6ba6e9df7b3fd2992891f4b085581c51fe900744
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 43972bc8e64e0bf88aae00126735d3e0c8751254
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169083"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499363"
 ---
-# <a name="what-is-azure-data-share-preview"></a>Azure Data Share 미리 보기란?
+# <a name="what-is-azure-data-share"></a>Azure Data Share란?
 
 오늘날의 세계에서 데이터는 많은 조직에서 고객 및 파트너와 간단하고 안전하게 공유해야 하는 핵심 전략 자산으로 간주됩니다. 현재 고객이 FTP, 이메일, API에서 이름에 이르기까지 몇 가지 항목을 통해 이러한 작업을 수행하는 여러 가지 방법이 있습니다. 조직은 데이터를 공유한 사람을 쉽게 추적할 수 없습니다. FTP를 통하거나 자체 API 인프라를 구축하여 데이터를 공유하면 프로비저닝 및 관리 비용이 많이 드는 경우가 많습니다. 이러한 공유 메서드를 대규모로 사용하는 것과 관련된 관리 오버헤드가 있습니다. 
 
 대부분의 조직에서는 공유한 데이터에 대해 책임을 져야 합니다. 책임 외에도, 대부분의 조직에서는 모든 데이터 공유를 간단한 방법으로 제어, 관리 및 모니터링할 수 있기를 원합니다. 데이터가 기하급수적으로 증가할 것으로 예상되는 오늘날의 환경에서 조직에는 빅 데이터를 공유할 수 있는 간단한 방법이 필요합니다. 고객은 시기적절한 인사이트를 끌어낼 수 있도록 최신 데이터를 요구합니다.
 
-Azure Data Share 미리 보기를 사용하면 조직에서 여러 고객 및 파트너와 간단하고 안전하게 데이터를 공유할 수 있습니다. 단 몇 번의 클릭만으로 새 데이터 공유 계정을 프로비저닝하고, 데이터 세트를 추가하며, 고객 및 파트너를 데이터 공유에 초대할 수 있습니다. 데이터 공급자는 항상 공유하는 데이터를 제어합니다. Azure Data Share를 사용하면 공유된 데이터, 시기 및 공유 주체를 간단하게 관리하고 모니터링할 수 있습니다. 
+Azure Data Share를 사용하면 조직에서 여러 고객 및 파트너와 간단하고 안전하게 데이터를 공유할 수 있습니다. 단 몇 번의 클릭만으로 새 데이터 공유 계정을 프로비저닝하고, 데이터 세트를 추가하며, 고객 및 파트너를 데이터 공유에 초대할 수 있습니다. 데이터 공급자는 항상 공유하는 데이터를 제어합니다. Azure Data Share를 사용하면 공유된 데이터, 시기 및 공유 주체를 간단하게 관리하고 모니터링할 수 있습니다. 
 
 데이터 공급자는 데이터 공유에 대한 사용 약관을 지정하여 데이터를 처리하는 방법을 제어할 수 있습니다. 데이터 소비자는 데이터를 받기 전에 이러한 약관에 동의해야 합니다. 데이터 공급자는 데이터 소비자가 업데이트를 받는 빈도를 지정할 수 있습니다. 데이터 공급자는 언제든지 새 업데이트에 대한 액세스를 취소할 수 있습니다. 
 
@@ -37,19 +37,23 @@ Azure Data Share의 또 다른 사용 사례는 데이터 컨소시엄을 구축
 
 ## <a name="how-it-works"></a>작동 방법
 
-Azure Data Share는 데이터 공급자의 Azure 구독에서 데이터를 이동하여 데이터 소비자의 Azure 구독에 전달하는 스냅샷 기반 공유 방법을 사용합니다. 데이터 공급자는 데이터 공유를 프로비저닝하고 받는 사람을 해당 데이터 공유에 초대합니다. 데이터 소비자는 이메일을 통해 데이터 공유에 대한 초대를 받습니다. 데이터 소비자가 초대를 수락하면 공유한 데이터의 전체 스냅샷을 트리거할 수 있습니다. 이 데이터는 데이터 소비자 스토리지 계정에서 받습니다. 데이터 소비자는 항상 최신 버전의 데이터를 사용할 수 있도록 데이터 공유에 대한 정기적인 증분 업데이트를 받을 수 있습니다. 
+Azure Data Share는 현재 스냅샷 기반 공유와 현재 위치 공유(제한된 미리 보기로)를 제공합니다. 
+
+스냅샷 기반 공유에서는 데이터가 데이터 공급자의 Azure 구독에서 이동하여 데이터 소비자의 Azure 구독에 전달됩니다. 데이터 공급자는 데이터 공유를 프로비저닝하고 받는 사람을 해당 데이터 공유에 초대합니다. 데이터 소비자는 이메일을 통해 데이터 공유에 대한 초대를 받습니다. 데이터 소비자가 초대를 수락하면 공유한 데이터의 전체 스냅샷을 트리거할 수 있습니다. 이 데이터는 데이터 소비자 스토리지 계정에서 받습니다. 데이터 소비자는 항상 최신 버전의 데이터를 사용할 수 있도록 데이터 공유에 대한 정기적인 증분 업데이트를 받을 수 있습니다. 
 
 데이터 공급자는 데이터 소비자에게 스냅샷 일정을 통해 공유되는 데이터에 대한 증분 업데이트를 제공할 수 있습니다. 스냅샷 일정은 시간별 또는 일별 단위로 제공됩니다. 데이터 소비자는 데이터 공유를 수락하고 구성하면 스냅샷 일정을 구독할 수 있습니다. 이는 공유 데이터가 정기적으로 업데이트되고 데이터 소비자가 최신 데이터를 필요로 하는 시나리오에서 유용합니다. 
 
 ![데이터 공유 흐름](media/data-share-flow.png)
 
-데이터 소비자가 데이터 공유를 수락하면 데이터를 자신이 선택한 스토리지 계정으로 받을 수 있습니다. 예를 들어 데이터 공급자가 Azure Blob Storage를 사용하여 데이터를 공유하는 경우 데이터 소비자는 이 데이터를 Azure Data Lake Store에서 받을 수 있습니다. 
+데이터 소비자가 데이터 공유를 수락하면 데이터를 자신이 선택한 데이터 저장소로 받을 수 있습니다. 예를 들어 데이터 공급자가 Azure Blob Storage를 사용하여 데이터를 공유하는 경우 데이터 소비자는 이 데이터를 Azure Data Lake Store에서 받을 수 있습니다. 마찬가지로 데이터 공급자가 Azure SQL Data Warehouse에서 데이터를 공유하는 경우 데이터 소비자는 데이터를 Azure Data Lake Store, Azure SQL Database 및 Azure SQL Data Warehouse 중 어느 것으로 받을지 선택할 수 있습니다. SQL 기반 소스에서 공유하는 경우 데이터 소비자는 parquet과 csv 중 어느 형식으로 데이터를 받을지도 선택할 수 있습니다. 
+
+현재 위치 공유는 현재 Azure Data Explorer의 제한된 미리 보기로 제공됩니다. 바로 가기 링크를 통해 데이터 공급자가 데이터 이동 없이 데이터가 상주하는 위치에서 데이터를 공유할 수 있습니다. [여기](https://aka.ms/azuredatasharepreviewsignup)에서 Azure Data Explorer의 제한된 미리 보기로 제공되는 현재 위치 공유에 가입하세요. 
 
 ## <a name="key-capabilities"></a>주요 기능
 
 Azure Data Share를 사용하는 경우 데이터 공급자가 수행할 수 있는 작업은 다음과 같습니다.
 
-* Azure Storage 및 Azure Data Lake Store의 데이터를 조직 외부의 고객 및 파트너와 공유
+* 조직 외부의 고객 및 파트너와 [지원되는 데이터 저장소](supported-data-stores.md) 목록의 데이터 공유
 
 * 데이터를 공유한 사용자에 대한 추적
 
@@ -69,24 +73,24 @@ Azure Data Share를 사용하는 경우 데이터 소비자가 수행할 수 있
 
 * 데이터 공유를 구독하여 증분 스냅샷 복사본을 통해 데이터의 최신 데이터 복사본 받기
 
-* Azure Blob Storage 또는 Azure Data Lake Gen2 계정에 공유된 데이터 수락
+* [지원되는 데이터 저장소](supported-data-stores.md)로 공유되는 데이터 받기
 
 위에 나열된 주요 기능은 모두 Azure 또는 REST API를 통해 지원됩니다. REST API를 통해 Azure Data Share를 사용하는 방법에 대한 자세한 내용은 참조 설명서를 확인하세요. 
 
 ## <a name="security"></a>보안
 
-Azure Data Share는 Azure에서 제공하는 기본 보안을 활용하여 저장 데이터와 전송 중 데이터를 보호합니다. 기본 스토리지 메커니즘에서 지원하는 저장 데이터는 암호화됩니다. 전송 중 데이터도 암호화됩니다. 데이터 공유에 대한 메타데이터도 저장 상태 및 전송 중 상태에서 암호화됩니다. 
+Azure Data Share는 Azure에서 제공하는 기본 보안을 활용하여 저장 데이터와 전송 중 데이터를 보호합니다. 기본 데이터 저장소에서 지원하는 경우 미사용 데이터는 암호화됩니다. 전송 중 데이터도 암호화됩니다. 데이터 공유에 대한 메타데이터도 저장 상태 및 전송 중 상태에서 암호화됩니다. 
 
 권한이 부여된 사용자가 액세스할 수 있도록 액세스 제어는 Azure Data Share 리소스 수준에서 설정할 수 있습니다. 
 
-Azure Data Share는 Azure Resources(이전의 MSI)용 관리 ID를 활용하여 Azure Active Directory에서 ID를 자동으로 관리합니다. Azure Resources용 관리 ID는 데이터 공유에 사용되는 스토리지 계정에 액세스하는 데 활용됩니다. 자격 증명은 데이터 공급자와 데이터 소비자 간에 교환되지 않습니다. 자세한 내용은 [Azure Resources용 관리 ID 페이지](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조하세요. 
+Azure Data Share는 Azure Resources(이전의 MSI)용 관리 ID를 활용하여 Azure Active Directory에서 ID를 자동으로 관리합니다. Azure Resources용 관리 ID는 데이터 공유에 사용되는 데이터 저장소에 액세스하는 데 활용됩니다. 자격 증명은 데이터 공급자와 데이터 소비자 간에 교환되지 않습니다. 자세한 내용은 [Azure Resources용 관리 ID 페이지](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities)를 참조하세요. 
 
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Azure Data Share를 사용할 수 있는 Azure 지역 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/) 페이지를 참조하고 Azure Data Share를 검색하세요. 
+Azure Data Share를 사용할 수 있는 Azure 지역 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=data-share/) 페이지를 참조하고 Azure Data Share를 검색하세요. 
 
-Azure Data Share는 데이터 자체를 전혀 저장하지 않습니다. 데이터는 공유되는 기본 스토리지 계정에 저장됩니다. 예를 들어 데이터 생산자가 데이터를 미국 서부에 있는 Azure Data Lake Store 계정에 저장하면 데이터가 여기에 저장됩니다. 데이터를 서유럽에 있는 Azure Storage 계정과 공유하는 경우 데이터는 서유럽에 있는 Azure Storage 계정으로 직접 전송됩니다. 
+Azure Data Share는 데이터 자체를 전혀 저장하지 않습니다. 데이터는 공유되는 기본 데이터 저장소에 저장됩니다. 예를 들어 데이터 생산자가 데이터를 미국 서부에 있는 Azure Data Lake Store 계정에 저장하면 데이터가 여기에 저장됩니다. 데이터를 서유럽에 있는 Azure Storage 계정과 공유하는 경우 데이터는 서유럽에 있는 Azure Storage 계정으로 직접 전송됩니다. 
 
 Azure Data Share 서비스를 활용하기 위해 해당 지역에서 이 서비스를 사용할 필요가 없습니다. 예를 들어 Azure Data Share를 아직 사용할 수 없는 지역에 위치한 Azure Storage 계정에 데이터가 저장된 경우에도 이 서비스를 활용하여 데이터를 공유할 수 있습니다. 
 

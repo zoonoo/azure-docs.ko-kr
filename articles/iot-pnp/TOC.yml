@@ -7,10 +7,14 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: 디바이스 기능 모델을 사용하여 디바이스 만들기
+    - name: 디바이스 만들기 - Windows
       href: quickstart-create-pnp-device.md
-    - name: 디바이스를 IoT Hub에 연결
+    - name: 디바이스 만들기 - Linux
+      href: quickstart-create-pnp-device-linux.md
+    - name: IoT Hub에 디바이스 연결 - Windows
       href: quickstart-connect-pnp-device.md
+    - name: IoT Hub에 디바이스 연결 - Linux
+      href: quickstart-connect-pnp-device-linux.md
     - name: 디바이스를 IoT Central에 연결
       href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
     - name: 솔루션에서 디바이스에 연결

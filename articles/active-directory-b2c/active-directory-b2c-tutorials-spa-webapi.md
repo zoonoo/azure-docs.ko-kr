@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9ac95896e67338437325e8290a96b8e42b2fa3a7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 30e7059605ef86e6afd86251db0e416c9143a9ec
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374242"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475124"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션에서 ASP.NET Core 웹 API로의 액세스 권한 부여
 
@@ -46,7 +46,7 @@ ms.locfileid: "72374242"
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-나중의 단계에서 단일 페이지 애플리케이션을 구성할 때 사용하기 위해 `demo.read` 범위의 **전체 범위 값**을 적어둡니다. 전체 범위 값은 `https://yourtenant.onmicrosoft.com/api/demo.read`와 비슷합니다.
+나중의 단계에서 단일 페이지 애플리케이션을 구성할 때 사용할 `demo.read` 범위에 대해 **SCOPES** 아래의 값을 기록합니다. 전체 범위 값은 `https://contosob2c.onmicrosoft.com/api/demo.read`와 비슷합니다.
 
 ## <a name="grant-permissions"></a>권한 부여
 
@@ -133,8 +133,8 @@ SPA의 설정을 변경하려면 다음을 수행합니다.
 
 1. 이전 자습서에서 다운로드하거나 복제한 [active-directory-b2c-javascript-msal-singlepageapp][github-js-spa] 프로젝트에서 *index.html* 파일을 엽니다.
 1. 앞에서 만든 *demo.read* 범위의 URI와 웹 API의 URL을 사용하여 샘플을 구성합니다.
-    1. `appConfig` 정의에서 `b2cScopes` 값을 범위의 전체 URI(앞에서 적어둔 **전체 범위 값**)로 바꿉니다.
-    1. `webApi` 값을 이전 섹션에서 지정한 `applicationURL` 값으로 변경합니다.
+    1. `appConfig` 정의에서 `b2cScopes` 값을 범위의 전체 URI(앞에서 적어둔 **SCOPE** 값)로 바꿉니다.
+    1. 이전 단계에서 웹 API 애플리케이션을 등록할 때 추가한 리디렉션 URI로 `webApi` 값을 변경합니다.
 
     `appConfig` 정의는 다음 코드 블록과 비슷해야 합니다(`<your-tenant-name>` 대신 테넌트 이름 사용).
 

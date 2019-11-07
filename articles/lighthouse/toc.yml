@@ -18,6 +18,9 @@
     - name: 테넌트 간 관리 환경
       displayName: scenarios
       href: ./concepts/cross-tenant-management-experience.md
+    - name: '테넌트, 역할 및 사용자'
+      displayName: 'Azure AD, Azure Active Directory'
+      href: ./concepts/tenants-users-roles.md
     - name: Azure Marketplace의 관리형 서비스 솔루션
       displayName: 'azure marketplace, marketplace, managed service, private, plan'
       href: ./concepts/managed-services-offers.md

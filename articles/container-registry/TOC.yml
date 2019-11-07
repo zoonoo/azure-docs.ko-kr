@@ -98,11 +98,15 @@
             - name: Azure Container Instances에서 인증
               href: container-registry-auth-aci.md
             - name: AKS(Azure Kubernetes Service)에서 인증
-              href: ../aks/cluster-container-registry-integration.md
-        - name: 역할 및 권한
+              href: ../aks/cluster-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
+        - name: 역할 기반 액세스 제어
           href: container-registry-roles.md
+        - name: 리포지토리 범위 권한(미리 보기)
+          href: container-registry-repository-scoped-permissions.md
         - name: 콘텐츠 신뢰
           href: container-registry-content-trust.md
+        - name: Security Center를 사용하여 이미지 검색(미리 보기)
+          href: ../security-center/azure-container-registry-integration.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
     - name: ACR 작업
       items:
         - name: ACR 작업 개요
@@ -162,7 +166,7 @@
     - name: 웹후크 스키마
       href: container-registry-webhook-reference.md
     - name: Event Grid 스키마
-      href: ../event-grid/event-schema-container-registry.md
+      href: ../event-grid/event-schema-container-registry.md?toc=/azure/container-registry/toc.json&bc=/azure/container-registry/breadcrumb/toc.json
     - name: 상태 확인 오류
       href: container-registry-health-error-reference.md
       maintainContext: true

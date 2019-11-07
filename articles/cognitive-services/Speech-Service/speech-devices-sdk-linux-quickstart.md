@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/10/2019
 ms.author: erhopf
-ms.openlocfilehash: 3ee39f4cf0c78850b0128fc5e497f2b2aee57bbc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5c881551648e8fc6078405e34fa3280723009b20
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559099"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490972"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>빠른 시작: Linux에서 Speech Devices SDK 샘플 앱 실행
 
@@ -113,14 +113,14 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
     ```
 
-1. 기본 절전 모드 해제 단어(키워드)는 "Computer"입니다. "Machine" 또는 "Assistant"와 같이 제공되는 다른 절전 모드 해제 단어 중 하나를 시도할 수도 있습니다. 이러한 대체 절전 모드 해제 단어에 대한 리소스 파일은 Speech Devices SDK의 keyword 폴더에 있습니다. 예를 들어, `/home/wcaltest/JRE-Sample-Release/keyword/Computer`에는 “컴퓨터”라는 절전 모드 해제 단어에 사용되는 파일이 포함되어 있습니다.
+1. 기본 키워드(키워드)는 "Computer"입니다. "Machine" 또는 "Assistant"와 같이 제공되는 다른 키워드 중 하나를 사용해 볼 수도 있습니다. 이러한 대체 키워드에 대한 리소스 파일은 Speech Devices SDK의 키워드 폴더에 있습니다. 예를 들어, `/home/wcaltest/JRE-Sample-Release/keyword/Computer`에는 키워드 "Computer"에 사용되는 파일이 포함되어 있습니다.
 
    > [!TIP]
-   > [사용자 지정 절전 모드 해제 단어를 만들](speech-devices-sdk-create-kws.md) 수도 있습니다.
+   > [사용자 지정 키워드를 만들](speech-devices-sdk-create-kws.md) 수도 있습니다.
 
-    새로운 절전 모드 해제 단어를 사용하려면 `FunctionsList.java`에서 다음 두 줄을 업데이트하고 절전 모드 해제 단어 패키지를 앱에 복사합니다. 예를 들어 절전 모드 해제 단어 패키지 `kws-machine.zip`에서 절전 모드 해제 단어 ‘Machine’을 사용하려면 다음을 수행합니다.
+    새 키워드를 사용하려면 `FunctionsList.java`에서 다음 두 줄을 업데이트하고 키워드 패키지를 앱에 복사합니다. 예를 들어 키워드 패키지 `kws-machine.zip`에서 키워드 'Machine'을 사용하려면 다음을 수행합니다.
 
-   * 절전 모드 해제 단어 패키지를 프로젝트 폴더 **target/classes**에 복사합니다.
+   * 키워드 패키지를 프로젝트 폴더 **target/classes**에 복사합니다.
 
    * `FunctionsList.java`를 키워드와 패키지 이름으로 업데이트합니다.
 

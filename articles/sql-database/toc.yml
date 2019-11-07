@@ -502,6 +502,8 @@
           href: sql-database-elastic-pool-failover-group-tutorial.md
         - name: 보안 구성
           href: sql-database-security-tutorial.md
+        - name: Stream Analytics로 데이터 스트리밍
+          href: sql-database-stream-analytics.md
     - name: 개념
       items:
         - name: 단일 데이터베이스 리소스

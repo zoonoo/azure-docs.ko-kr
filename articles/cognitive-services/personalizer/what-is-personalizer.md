@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 09/19/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: e2af5cb193653736a0d75b4194e09d42282d2fa6
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203795"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467196"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
-Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 사용자의 실시간 동작을 통해 학습합니다.
+Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 공통 실시간 동작을 통해 학습합니다.
 
 * 사용자 및 콘텐츠에 대한 정보를 제공하고 사용자에게 표시할 상위 작업을 받으세요. 
 * Personalizer를 사용하기 전에 데이터를 지우고 레이블을 지정할 필요가 없습니다.
 * 불편하지 않다면 Personalizer에 대한 피드백을 보내주세요. 
 * 실시간 분석 보기 
-* Personalizer를 보다 큰 데이터 과학 작업의 일환으로 사용하여 기존 실험의 유효성을 검사합니다.
+
+[Personalizer의 작동 원리](https://personalizercontentdemo.azurewebsites.net/) 데모를 참조하세요.
 
 ## <a name="how-does-personalizer-work"></a>Personalizer의 작동 원리
 
@@ -37,9 +38,9 @@ Personalizer는 기계 학습 모델을 사용하여 컨텍스트에서 가장 �
 
 1. 앱에서 개인 설정할 환경을 선택합니다.
 1. Azure Portal에서 개인 설정 서비스의 인스턴스를 만들고 구성합니다. 각 인스턴스는 Personalizer 루프입니다.
-1. SDK를 사용하여 사용자에 대한 정보(_기능_)와 콘텐츠(_작업_)를 통해 Personalizer를 호출합니다. Personalizer를 사용하기 전에 깨끗하고 레이블이 지정된 데이터를 제공할 필요가 없습니다. 
+1. [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)를 사용하여 사용자에 대한 정보(_기능_)와 콘텐츠(_작업_)를 통해 Personalizer를 호출합니다. Personalizer를 사용하기 전에 깨끗하고 레이블이 지정된 데이터를 제공할 필요가 없습니다. API는 직접 호출하거나 다른 프로그래밍 언어에 사용할 수 있는 SDK를 사용하여 호출할 수 있습니다.
 1. 클라이언트 애플리케이션에서, Personalizer가 선택한 작업을 사용자에게 표시합니다.
-1. SDK를 사용하여 사용자가 Personalizer의 작업을 선택했는지 여부를 나타내는 피드백을 Personalizer에 제공합니다. 이는 _[보상 점수](concept-rewards.md)_ 입니다.
+1. [Reward API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)를 사용하여 사용자가 Personalizer의 작업을 선택했는지 여부를 나타내는 피드백을 Personalizer에 제공합니다. 이는 _[보상 점수](concept-rewards.md)_ 입니다.
 1. Azure Portal에서 분석 결과를 살펴보면서 시스템이 어떻게 작동하고 데이터가 어떻게 개인 설정을 도와주는지 평가합니다.
 
 ## <a name="where-can-i-use-personalizer"></a>Personalizer는 어디서 사용할 수 있나요?

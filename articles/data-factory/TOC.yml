@@ -518,6 +518,8 @@
           href: data-movement-security-considerations.md
         - name: Azure Key Vault에 자격 증명 저장
           href: store-credentials-in-key-vault.md
+        - name: 파이프라인 작업에서 Azure Key Vault 비밀 사용
+          href: how-to-use-azure-key-vault-secrets-pipeline-activities.md
         - name: 자체 호스팅되는 통합 런타임에 대한 자격 증명 암호화
           href: encrypt-credentials-self-hosted-integration-runtime.md
         - name: Data Factory에 대한 관리 ID

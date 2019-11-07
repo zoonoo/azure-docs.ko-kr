@@ -1,5 +1,5 @@
 ---
-title: '자습서: HDInsight의 Apache Spark로 Azure Event Hubs의 데이터 처리'
+title: '자습서: Azure Event Hubs 데이터 및 Apache Spark - HDInsight'
 description: 자습서 - Azure HDInsight의 Apache Spark를 Azure Event Hubs에 연결하고 스트리밍 데이터를 처리합니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 05/24/2019
-ms.openlocfilehash: be21b809272a132ee6e63582036c36ad5dcdf4ad
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.date: 10/17/2019
+ms.openlocfilehash: 0b24d1b0215564fb9f6063d4a2d091bb7a9a1c3e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "71266205"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494630"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-apache-spark-in-hdinsight"></a>자습서: HDInsight에서 Azure Event Hubs 및 Apache Spark를 사용하여 트윗 처리
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * HDInsight의 Spark에서 Jupyter Notebook을 사용하는 방법 이해. 자세한 내용은 [HDInsight의 Apache Spark로 데이터 로드 및 쿼리 실행](./apache-spark-load-data-run-query.md)을 참조하세요.
 
-* [Twitter 계정](https://twitter.com/i/flow/signup)입니다.
+* [Twitter 계정](https://twitter.com/i/flow/signup) 및 Twitter 사용 경험.
 
 ## <a name="create-a-twitter-application"></a>Twitter 애플리케이션 만들기
 
@@ -40,45 +40,45 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. [Twitter 애플리케이션 관리](https://apps.twitter.com/)로 이동합니다.
 
-1. **새 앱 만들기**를 선택합니다.
+1. **앱 만들기**를 선택합니다.
 
-1. 다음 값을 제공합니다.
+1. 다음과 같은 필수 값을 제공합니다.
 
     |자산 |값 |
     |---|---|
-    |Name|애플리케이션 이름을 제공합니다. 이 자습서에 사용되는 값은 **HDISparkStreamApp0423**입니다. 이 이름은 고유한 이름이어야 합니다.|
-    |설명|애플리케이션에 대한 간단한 설명을 제공합니다. 이 자습서에 사용되는 값은 **간단한 HDInsight Spark 스트리밍 애플리케이션**입니다.|
-    |Website|애플리케이션의 웹 사이트를 제공합니다. 유효한 웹 사이트를 입력하지 않아도 됩니다.  이 자습서에 사용되는 값은 `http://www.contoso.com`입니다.|
-    |콜백 URL|비워 둘 수 있습니다.|
+    |앱 이름|애플리케이션 이름을 제공합니다. 이 자습서에 사용되는 값은 **HDISparkStreamApp0423**입니다. 이 이름은 고유한 이름이어야 합니다.|
+    |애플리케이션 설명|애플리케이션에 대한 간단한 설명을 제공합니다. 이 자습서에 사용되는 값은 **간단한 HDInsight Spark 스트리밍 애플리케이션**입니다.|
+    |웹 사이트 URL|애플리케이션의 웹 사이트를 제공합니다. 유효한 웹 사이트를 입력하지 않아도 됩니다.  이 자습서에 사용되는 값은 `http://www.contoso.com`입니다.|
+    |이 앱의 사용 방법 알리기|테스트 전용. Apache Spark 스트리밍 애플리케이션을 만들어 Azure Event Hubs에 트윗 보내기.|
 
-1. **예, Twitter 개발자 계약을 읽고 동의합니다**를 선택한 다음, **Twitter 애플리케이션 만들기**를 선택합니다.
+1. **만들기**를 선택합니다.
 
-1. **Keys and Access Tokens** 탭을 선택합니다.
+1. **개발자 용어 검토** 팝업에서 **만들기**를 선택합니다.
 
-1. 페이지의 끝에서 **내 액세스 토큰 만들기**를 선택합니다.
+1. **키와 토큰** 탭을 선택합니다.
 
-1. 페이지에서 다음 값을 기록합니다.  자습서의 뒷부분에서 이러한 값이 필요합니다.
+1. **액세스 토큰 및 액세스 토큰 비밀** 아래에서 **만들기**를 선택합니다.
 
-    - **소비자 키(API 키)**    
-    - **소비자 비밀(API 비밀)**  
+1. 나중에 사용하기 위해 현재 페이지에 표시되는 다음 4가지 값을 기록합니다.
+
+    - **소비자 키(API 키)**
+    - **소비자 비밀(API 비밀 키)**
     - **액세스 토큰**
-    - **액세스 토큰 비밀**   
+    - **액세스 토큰 암호**
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>Azure Event Hubs 네임스페이스 만들기
 
 이 이벤트 허브를 사용하여 트윗을 저장합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.  
-
-3. **사물 인터넷** 아래에서 **Event Hubs**를 선택합니다. 
+1. 왼쪽 메뉴에서 **모든 서비스** > **사물 인터넷** > **Event Hubs**로 이동합니다.  
 
     ![Spark 스트리밍 예제에 대한 이벤트 허브 만들기](./media/apache-spark-eventhub-streaming/hdinsight-create-event-hub-for-spark-streaming.png "Spark 스트리밍 예제에 대한 이벤트 허브 만들기")
 
-4. **+추가**를 선택합니다.
+1. **+추가**를 선택합니다.
 
-5. 새 Event Hubs 네임스페이스에 다음 값을 입력합니다.
+1. 새 Event Hubs 네임스페이스에 다음 값을 입력합니다.
 
     |자산 |값 |
     |---|---|
@@ -92,26 +92,26 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Spark 스트리밍 예제에 대한 이벤트 허브 이름 제공")
 
-6. **만들기**를 선택하여 네임스페이스를 만듭니다.  몇 분 안에 배포가 완료됩니다.
+1. **만들기**를 선택하여 네임스페이스를 만듭니다.  몇 분 안에 배포가 완료됩니다.
 
 ## <a name="create-an-azure-event-hub"></a>Azure 이벤트 허브 만들기
+
 Event Hubs 네임스페이스가 배포된 후에 이벤트 허브를 만듭니다.  포털에서 다음을 수행합니다.
 
-1. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.  
+1. 왼쪽 메뉴에서 **모든 서비스** > **사물 인터넷** > **Event Hubs**로 이동합니다.
 
-1. **사물 인터넷** 아래에서 **Event Hubs**를 선택합니다.  
-
-1. 목록에서 Event Hubs 네임스페이스를 선택합니다.  
+1. 목록에서 Event Hubs 네임스페이스를 선택합니다.
 
 1. **Event Hubs 네임스페이스** 페이지에서 **+ Event Hub**를 선택합니다.  
+
 1. **Event Hubs 만들기** 페이지에 다음 값을 입력합니다.
 
-    - **이름**: Event Hubs의 이름을 지정합니다. 
- 
+    - **이름**: Event Hubs의 이름을 지정합니다.
+
     - **파티션 수**: 10.  
 
-    - **메시지 보존**: 1.   
-   
+    - **메시지 보존**: 1.
+
       ![Spark 스트리밍 예제에 대한 이벤트 허브 세부 정보 제공](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Spark 스트리밍 예제에 대한 이벤트 허브 세부 정보 제공")
 
 1. **만들기**를 선택합니다.  몇 초 내에 배포가 완료되고 Event Hubs 네임스페이스 페이지로 돌아갑니다.
@@ -119,17 +119,16 @@ Event Hubs 네임스페이스가 배포된 후에 이벤트 허브를 만듭니�
 1. **설정**에서 **공유 액세스 정책**을 선택합니다.
 
 1. **RootManageSharedAccessKey**를 선택합니다.
-    
+
      ![Spark 스트리밍 예제에 대한 Event Hub 정책 설정](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Spark 스트리밍 예제에 대한 Event Hub 정책 설정")
 
-1. **기본 키** 및 **연결 문자열-기본 키**의 값을 저장하여 자습서의 뒷부분에서 사용합니다.
+1. 자습서의 뒷부분에서 사용하기 위해 **기본 키** 및 **연결 문자열-기본 키**의 값을 저장합니다.
 
      ![Spark 스트리밍 예제에 대한 Event Hub 정책 키 보기](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "Spark 스트리밍 예제에 대한 Event Hub 정책 키 보기")
 
-
 ## <a name="send-tweets-to-the-event-hub"></a>이벤트 허브에 트윗 보내기
 
-Jupyter Notebook을 만들고, **SendTweetsToEventHub**라는 이름을 지정합니다. 
+1. `https://CLUSTERNAME.azurehdinsight.net/jupyter`로 이동합니다. 여기에서 `CLUSTERNAME`은 Apache Spark 클러스터의 이름입니다. Jupyter Notebook을 만들고, **SendTweetsToEventHub**라는 이름을 지정합니다.
 
 1. 다음 코드를 실행하여 외부 Apache Maven 라이브러리를 추가합니다.
 
@@ -138,53 +137,53 @@ Jupyter Notebook을 만들고, **SendTweetsToEventHub**라는 이름을 지정�
     {"conf":{"spark.jars.packages":"com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.13,org.twitter4j:twitter4j-core:4.0.6"}}
     ```
 
-2. `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>` 및 `<TOKEN SECRET>`을 적절한 값으로 대체하여 아래 코드를 편집합니다. 편집된 코드를 실행하여 이벤트 허브에 트윗을 보냅니다.
+1. `<Event hub name>`, `<Event hub namespace connection string>`, `<CONSUMER KEY>`, `<CONSUMER SECRET>`, `<ACCESS TOKEN>` 및 `<TOKEN SECRET>`을 적절한 값으로 대체하여 아래 코드를 편집합니다. 편집된 코드를 실행하여 이벤트 허브에 트윗을 보냅니다.
 
     ```scala
     import java.util._
     import scala.collection.JavaConverters._
     import java.util.concurrent._
-    
+
     import org.apache.spark._
     import org.apache.spark.streaming._
     import org.apache.spark.eventhubs.ConnectionStringBuilder
 
     // Event hub configurations
-    // Replace values below with yours        
+    // Replace values below with yours
     val eventHubName = "<Event hub name>"
     val eventHubNSConnStr = "<Event hub namespace connection string>"
-    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build 
-    
+    val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build
+
     import com.microsoft.azure.eventhubs._
     val pool = Executors.newFixedThreadPool(1)
     val eventHubClient = EventHubClient.create(connStr.toString(), pool)
-    
+
     def sendEvent(message: String) = {
           val messageData = EventData.create(message.getBytes("UTF-8"))
           eventHubClient.get().send(messageData)
           println("Sent event: " + message + "\n")
     }
-    
+
     import twitter4j._
     import twitter4j.TwitterFactory
     import twitter4j.Twitter
     import twitter4j.conf.ConfigurationBuilder
 
     // Twitter application configurations
-    // Replace values below with yours   
+    // Replace values below with yours
     val twitterConsumerKey = "<CONSUMER KEY>"
     val twitterConsumerSecret = "<CONSUMER SECRET>"
     val twitterOauthAccessToken = "<ACCESS TOKEN>"
     val twitterOauthTokenSecret = "<TOKEN SECRET>"
-    
+
     val cb = new ConfigurationBuilder()
     cb.setDebugEnabled(true).setOAuthConsumerKey(twitterConsumerKey).setOAuthConsumerSecret(twitterConsumerSecret).setOAuthAccessToken(twitterOauthAccessToken).setOAuthAccessTokenSecret(twitterOauthTokenSecret)
-    
+
     val twitterFactory = new TwitterFactory(cb.build())
     val twitter = twitterFactory.getInstance()
 
     // Getting tweets with keyword "Azure" and sending them to the Event Hub in realtime!
-    
+
     val query = new Query(" #Azure ")
     query.setCount(100)
     query.lang("en")
@@ -202,16 +201,16 @@ Jupyter Notebook을 만들고, **SendTweetsToEventHub**라는 이름을 지정�
       }
       query.setMaxId(lowestStatusId - 1)
     }
-    
+
     // Closing connection to the Event Hub
     eventHubClient.get().close()
     ```
 
-3. Azure Portal에서 이벤트 허브를 엽니다.  **개요**에 이벤트 허브로 전송된 메시지를 보여주는 일부 차트가 표시됩니다.
+1. Azure Portal에서 이벤트 허브를 엽니다.  **개요**에 이벤트 허브로 전송된 메시지를 보여주는 일부 차트가 표시됩니다.
 
 ## <a name="read-tweets-from-the-event-hub"></a>이벤트 허브에서 트윗 읽기
 
-또 다른 Jupyter Notebook을 만들고, **ReadTweetsFromEventHub**라는 이름을 지정합니다. 
+또 다른 Jupyter Notebook을 만들고, **ReadTweetsFromEventHub**라는 이름을 지정합니다.
 
 1. 다음 코드를 실행하여 외부 Apache Maven 라이브러리를 추가합니다.
 
@@ -225,24 +224,24 @@ Jupyter Notebook을 만들고, **SendTweetsToEventHub**라는 이름을 지정�
     ```scala
     import org.apache.spark.eventhubs._
     // Event hub configurations
-    // Replace values below with yours        
+    // Replace values below with yours
     val eventHubName = "<Event hub name>"
     val eventHubNSConnStr = "<Event hub namespace connection string>"
     val connStr = ConnectionStringBuilder(eventHubNSConnStr).setEventHubName(eventHubName).build
-    
+
     val customEventhubParameters = EventHubsConf(connStr).setMaxEventsPerTrigger(5)
     val incomingStream = spark.readStream.format("eventhubs").options(customEventhubParameters.toMap).load()
-    //incomingStream.printSchema    
-    
+    //incomingStream.printSchema
+
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._
-    
+
     // Event Hub message format is JSON and contains "body" field
     // Body is binary, so you cast it to string to see the actual content of the message
     val messages = incomingStream.withColumn("Offset", $"offset".cast(LongType)).withColumn("Time (readable)", $"enqueuedTime".cast(TimestampType)).withColumn("Timestamp", $"enqueuedTime".cast(LongType)).withColumn("Body", $"body".cast(StringType)).select("Offset", "Time (readable)", "Timestamp", "Body")
-    
+
     messages.printSchema
-    
+
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
     ```
 

@@ -1,4 +1,4 @@
-- name: Azure Data Box 설명서 - 온라인 전송
+- name: Azure Stack Edge 및 Data Box Gateway 설명서
   href: /azure/databox-online/
   expanded: true
 - name: Data Box Gateway
@@ -57,11 +57,11 @@
           href: data-box-gateway-1905-release-notes.md
         - name: GA(일반 공급)
           href: data-box-gateway-release-notes.md
-- name: Data Box Edge
+- name: Azure Stack Edge
   items:
     - name: 개요
       items:
-        - name: Azure Data Box Edge란?
+        - name: Azure Stack Edge란?
           href: data-box-edge-overview.md
     - name: 자습서
       items:
@@ -125,9 +125,9 @@
           href: data-box-gateway-release-notes.md
 - name: 리소스
   items:
-    - name: 'Data Box Edge C# 모듈 샘플(.NET)'
+    - name: 'Azure Stack Edge C# 모듈 샘플(.NET)'
       href: 'https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/'
-    - name: Data Box Edge/Gateway 제품
+    - name: Azure Stack Edge/Data Box Gateway 제품
       href: 'https://azure.microsoft.com/services/storage/databox/edge/'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/storage/databox/edge/'

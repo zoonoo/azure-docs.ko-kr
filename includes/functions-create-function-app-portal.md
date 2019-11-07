@@ -8,22 +8,18 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3204387a8e0920d2a7196edbad229bf811a9ba0a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: cd118def8b9caf97f26aaa5ad5dc1f6fb015316d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958680"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469280"
 ---
-1. [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal 열기
+1. Azure Portal 메뉴에서 **리소스 만들기**를 선택합니다.
 
-1. **리소스 만들기** 단추 선택
+    ![Azure Portal 메뉴를 사용하여 리소스 추가](./media/functions-create-function-app-portal/create-function-app-resource.png)
 
-    ![리소스 만들기](./media/functions-create-function-app-portal/function-app-create-resource.png)
-
-1. **컴퓨팅** > **함수 앱**을 선택합니다.
-
-    ![Azure Portal에서 함수 앱 만들기](./media/functions-create-function-app-portal/function-app-create-start.png)
+1. **새로 만들기** 페이지에서 **컴퓨팅** > **함수 앱**을 선택합니다.
 
 1. 이미지 아래 표에 지정된 것처럼 함수 앱 설정을 사용합니다.
 

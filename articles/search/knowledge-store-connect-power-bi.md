@@ -8,27 +8,30 @@ ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7852eda849dfb05343829875ba5a66fa47970e7e
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 03f28cb40708b7ec77a0a342b5ec1b6faeaa8e3b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790079"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73485150"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Power BI를 사용하여 지식 저장소 연결
 
 > [!Note]
-> 지식 저장소는 미리 보기로 있으므로 프로덕션 환경에서 사용하면 안 됩니다. 이 기능은 [Azure Cognitive Search REST API 버전 2019-05-06-Preview](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
+> 지식 저장소는 미리 보기로 있으므로 프로덕션 환경에서 사용하면 안 됩니다. 이 기능은 포털 및 [Search REST API 버전 2019-05-06-Preview](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
 >
-이 문서에서는 Power BI Desktop 앱에서 파워 쿼리를 사용하여 지식 저장소에 연결하고 검색하는 방법을 알아봅니다. 이 연습에 사용되는 지식 저장소 샘플을 만들려면 [Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md)를 참조하세요.
+
+이 문서에서는 Power BI Desktop 앱에서 파워 쿼리를 사용하여 지식 저장소에 연결하고 검색하는 방법을 알아봅니다. 템플릿을 사용해서 빠르게 시작하거나 사용자 지정 대시보드를 처음부터 만들 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-+ [Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md)의 단계에 따라 이 연습에 사용되는 샘플 지식 저장소를 만듭니다. 지식 저장소를 만들 때 사용한 Azure 스토리지 계정의 이름과 Azure Portal의 계정 액세스 키도 필요합니다.
-
 + [Power BI Desktop 설치](https://powerbi.microsoft.com/downloads/)
 
-## <a name="connect-with-power-bi"></a>Power BI로 연결
++ Azure 테이블 스토리지에 대한 프로젝션을 포함하는 지식 저장소가 필요합니다. 또한 Azure Portal의 액세스 키와 함께 지식 저장소를 만들기 위해 사용되는 Azure Storage 계정의 이름도 필요합니다.
+
+샘플 지식 저장소를 사용하려면 지침에 따라 [지식 저장소를 만듭니다](knowledge-store-create-portal.md).
+
+## <a name="create-a-custom-report"></a>사용자 지정 보고서 만들기
 
 1. Power BI Desktop을 시작하고 **데이터 가져오기**를 클릭합니다.
 

@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5fa13f209d6f4df0ebd531f803e75cdb657abf5c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 731abdde2160c16123ed648b5e552e9e62378438
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163130"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494004"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>자습서: 사용자 지정 IoT Edge 모듈 만들기 및 배포
 
@@ -172,7 +172,7 @@ IoT Edge 디바이스는 다음 4가지 작업을 수행하는 데 필요합니�
 4. Docker 이미지 리포지토리를 묻는 메시지가 표시되면 기계 학습 작업 영역의 레지스트리를 사용합니다(*deployment.template.json* 파일의 registryCredentials 노드에서 레지스트리를 찾을 수 있음). 이 값은 **\<your registry\>.azurecr.io/turbofanrouter**와 같은 레지스트리의 정규화된 주소입니다.
 
     > [!NOTE]
-    > 이 문서에서는 분류자를 학습시키고 배포하는 데 사용한 Azure Machine Learning Service 작업 영역에서 만든 Azure Container Registry를 사용합니다. 이는 순전히 편의를 위한 것입니다. 새 컨테이너 레지스트리를 만들어 여기에 모듈을 게시할 수 있었습니다.
+    > 이 문서에서는 분류자를 학습시키고 배포하는 데 사용한 Azure Machine Learning 작업 영역에서 만든 Azure Container Registry를 사용합니다. 이는 순전히 편의를 위한 것입니다. 새 컨테이너 레지스트리를 만들어 여기에 모듈을 게시할 수 있었습니다.
 
 5. Visual Studio Code(**보기** > **터미널**)에서 새 터미널 창을 열고, 모듈 디렉터리에서 파일을 복사합니다.
 
@@ -752,7 +752,7 @@ IoT Edge 디바이스와 모듈을 시스템에 도입함으로써 허브에 보
 
 빌드가 성공적으로 완료되면 Azure Portal을 사용하여 게시된 모듈을 검토할 수 있습니다.
 
-1. Azure Portal에서 Azure Machine Learning Service 작업 영역으로 이동하여 **레지스트리**에 대한 하이퍼링크를 클릭합니다.
+1. Azure Portal에서 Azure Machine Learning 작업 영역으로 이동하여 **레지스트리**에 대한 하이퍼링크를 클릭합니다.
 
     ![기계 학습 서비스 작업 영역에서 레지스트리로 이동](media/tutorial-machine-learning-edge-06-custom-modules/follow-registry-link.png)
 

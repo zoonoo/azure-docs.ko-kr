@@ -7,15 +7,15 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 05/06/2019
-ms.openlocfilehash: 5194cf51fd7f1debeba76edb48e8377919ae448a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 9d4389ed2c0cc5d7b632380fba691ae2e9a6b257
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177960"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466742"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>PostgreSQL용 Azure Database란?
-Azure Database for PostgreSQL은 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. 오픈 소스 [PostgreSQL](https://www.postgresql.org/) 데이터베이스 엔진의 커뮤니티 버전을 기반으로 하며, 단일 서버 및 하이퍼스케일(Citus)(미리 보기)의 두 가지 배포 옵션으로 사용할 수 있습니다.
+Azure Database for PostgreSQL은 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다. 오픈 소스 [PostgreSQL](https://www.postgresql.org/) 데이터베이스 엔진의 커뮤니티 버전을 기반으로 하며, 단일 서버 및 하이퍼스케일(Citus)의 두 가지 배포 옵션으로 사용할 수 있습니다.
 
 ## <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL - 단일 서버
 단일 서버 배포 옵션은 다음과 같은 이점을 누릴 수 있습니다.
@@ -32,7 +32,7 @@ Azure Database for PostgreSQL은 개발자용으로 빌드된 Microsoft 클라�
 
 단일 서버 배포 옵션에서 제공하는 세 가지 가격 책정 계층은 기본, 범용 및 메모리 최적화의 세 가지 가격 책정 계층 중 하나에서 만들 수 있습니다. 각 계층에서는 데이터베이스 작업을 지원하는 다양한 리소스 기능을 제공합니다. 한 달에 몇 달러로 작은 데이터베이스에 첫 번째 앱을 빌드하고 솔루션의 요구에 맞게 규모를 조정할 수 있습니다. 동적 확장성을 사용하면 데이터베이스가 빠르게 변화하는 리소스 요구 사항에 투명하게 대응할 수 있습니다. 필요할 경우 필요한 리소스에 대해서만 요금을 지불합니다. 자세한 내용은  [가격 책정 계층](concepts-pricing-tiers.md)을 참조하세요.
 
-## <a name="azure-database-for-postgresql---hyperscale-citus-preview"></a>Azure Database for PostgreSQL – 하이퍼스케일(Citus)(미리 보기)
+## <a name="azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL – 하이퍼스케일(Citus)
 하이퍼스케일(Citus) 옵션은 분할을 사용하여 여러 머신에 걸쳐 쿼리 크기를 수평으로 조정합니다. 쿼리 엔진은 들어오는 SQL 쿼리를 이러한 서버 간에 병렬 처리하여 큰 데이터 세트에서 더 빠르게 응답합니다. 이 옵션은 더 뛰어난 크기 조정과 성능이 필요한 애플리케이션, 일반적으로 100GB의 데이터에 이르거나 이미 초과한 워크로드를 처리합니다.
 
 하이퍼스케일(Citus) 배포 옵션은 다음과 같은 이점을 누릴 수 있습니다.
@@ -42,8 +42,6 @@ Azure Database for PostgreSQL은 개발자용으로 빌드된 Microsoft 클라�
 - 다중 테넌트 애플리케이션, 실시간 운영 분석 및 높은 처리량 트랜잭션 워크로드에 대한 탁월한 지원
 
 PostgreSQL용으로 빌드된 애플리케이션은 표준 [연결 라이브러리](./concepts-connection-libraries.md) 및 최소한의 변경을 통해 하이퍼스케일(Citus)에서 분산 쿼리를 실행할 수 있습니다.
-
-하이퍼스케일(Citus)은 공개 미리 보기로 있으며, 아직 SLA를 제공하지 않습니다.
 
 ## <a name="data-security"></a>데이터 보안
 Azure Database for PostgreSQL은 Azure 데이터베이스 서비스의 기존 데이터 보안을 유지합니다. 액세스를 제한하고, 미사용 및 이동 중 데이터를 보호하며, 작업을 모니터링하는 데 유용한 기능을 갖추고 있습니다. Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://azure.microsoft.com/overview/trusted-cloud/)를 방문하세요.
@@ -59,5 +57,5 @@ Azure Database for PostgreSQL 작업에 대한 질문이나 제안 사항이 있
 
 ## <a name="next-steps"></a>다음 단계
 - 비용 비교 및 계산기는 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/postgresql/)를 참조하세요.
-- 첫 번째 Azure Database for PostgreSQL [단일 서버](./quickstart-create-server-database-portal.md) 또는 [하이퍼스케일(Citus)(미리 보기)](./quickstart-create-hyperscale-portal.md)을 만들어 시작합니다.
+- 첫 번째 Azure Database for PostgreSQL [단일 서버](./quickstart-create-server-database-portal.md) 또는 [하이퍼스케일(Citus)](./quickstart-create-hyperscale-portal.md)을 만들어 시작합니다.
 - Python, PHP, Ruby, C\#, Java, Node.js에서 첫 번째 앱을 빌드합니다([연결 라이브러리](./concepts-connection-libraries.md)).

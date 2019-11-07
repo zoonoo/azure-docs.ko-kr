@@ -5,17 +5,17 @@ services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.author: marsma
-ms.date: 07/24/2019
+ms.date: 10/14/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9b3d18a7f59415b27b1a70067c9a8a610140ca25
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: f6a417e33ac9c60c978d8638539a1e5a0772a034
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672931"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475071"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>자습서: Azure AD B2C(Azure Active Directory B2C)를 사용하여 단일 페이지 애플리케이션에서 인증 활성화
 
@@ -48,6 +48,10 @@ ms.locfileid: "71672931"
 
 필수 조건의 일부로 완료한 두 번째 자습서에서 Azure AD B2C에 웹 애플리케이션을 등록했습니다. 이 자습서에서 샘플과의 통신을 사용하도록 설정하려면 Azure AD B2C의 애플리케이션에 리디렉트 URI를 추가해야 합니다.
 
+현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용하여 애플리케이션을 업데이트할 수 있습니다. [미리 보기 환경에 대해 자세히 알아보세요](http://aka.ms/b2cappregintro).
+
+#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **Azure AD B2C**를 검색하여 선택합니다.
@@ -55,6 +59,19 @@ ms.locfileid: "71672931"
 1. **회신 URL** 아래에서 `http://localhost:6420`을 추가합니다.
 1. **저장**을 선택합니다.
 1. 속성 페이지에서 **애플리케이션 ID**를 기록해둡니다. 앱 ID는 나중에 나오는 단계에서 단일 페이지 웹 애플리케이션의 코드를 업데이트할 때 사용됩니다.
+
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. **앱 등록(미리 보기)** 를 선택하고, **소유한 애플리케이션** 탭을 선택한 후 *webapp1* 애플리케이션을 선택합니다.
+1. **인증**을 선택한 후 **새 환경을 체험해 보세요**(표시된 경우)를 선택합니다.
+1. **웹** 아래에서 **URI 추가** 링크를 선택하고, `http://localhost:6420`을 입력한 후 **저장**을 선택합니다.
+1. **개요**를 선택합니다.
+1. 단일 페이지의 웹 애플리케이션에서 코드를 업데이트하는 이후 단계에 사용할 수 있도록 **애플리케이션(클라이언트) ID**를 기록합니다.
+
+* * *
 
 ## <a name="get-the-sample-code"></a>샘플 코드 가져오기
 
@@ -115,13 +132,16 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="sign-up-using-an-email-address"></a>전자 메일 주소를 사용하여 등록
 
+> [!WARNING]
+> 등록 또는 로그인 후 [권한 부족 오류](#error-insufficient-permissions)가 표시될 수 있습니다. 이 오류는 코드 샘플의 현재 구현 상태 때문에 발생합니다. 이 문제는 코드 샘플의 이후 버전에서 해결되고 경고도 그 때 제거될 예정입니다.
+
 1. **로그인**을 선택하여 이전 단계에서 지정한 *B2C_1_signupsignin1* 사용자 흐름을 시작합니다.
 1. Azure AD B2C에서 등록 링크가 있는 로그인 페이지를 제공합니다. 아직 계정이 없으므로 **지금 가입** 링크를 선택합니다.
 1. 등록 워크플로에서 이메일 주소를 사용하여 사용자의 ID를 수집하고 확인하는 페이지를 제공합니다. 또한 가입 워크플로에서도 사용자 흐름에 정의된 사용자의 암호와 요청된 특성을 수집합니다.
 
     유효한 이메일 주소를 사용하고 확인 코드를 사용하여 유효성을 검사합니다. 암호를 설정합니다. 요청된 특성에 대한 값을 입력합니다.
 
-    ![로그인/등록 사용자 흐름에서 제공되는 등록 페이지](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
+    ![로그인/등록 사용자 흐름에서 제공되는 등록 페이지](./media/active-directory-b2c-tutorials-spa/azure-ad-b2c-sign-up-workflow.png)
 
 1. **만들기**를 선택하여 로컬 계정을 Azure AD B2C 디렉터리에 만듭니다.
 
@@ -131,7 +151,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-
 
 ### <a name="error-insufficient-permissions"></a>오류: 권한 부족
 
-로그인하면 앱에 권한 부족 오류가 표시됩니다. - 이것은 **예상된** 상황입니다.
+로그인 후 애플리케이션에 권한 부족 오류가 반환될 수 있습니다.
 
 ```Output
 ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
@@ -139,7 +159,7 @@ Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
 Timestamp: 2019-07-20 22:17:27Z
 ```
 
-웹 애플리케이션이 데모 디렉터리인 *fabrikamb2c*로 보호되는 웹 API에 액세스하려고 하기 때문에 이 오류가 발생합니다. 액세스 토큰이 Azure AD 디렉터리에만 유효하므로 API 호출에 권한이 부여되지 않습니다.
+웹 애플리케이션이 데모 디렉터리인 *fabrikamb2c*로 보호되는 웹 API에 액세스하려고 하기 때문에 이 오류가 발생합니다. 액세스 토큰이 Azure AD 디렉터리에만 유효하기 때문에 API 호출에 권한이 부여되지 않습니다.
 
 이 오류를 수정하려면 시리즈의 다음 자습서를 계속 진행하여([다음 단계](#next-steps) 참조) 디렉터리에 대한 보호되는 웹 API 키를 만드세요.
 

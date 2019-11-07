@@ -1,26 +1,21 @@
 ---
-title: Azure Functions를 사용하여 첫 번째 PowerShell 함수 만들기
+title: Azure에서 첫 번째 PowerShell 함수 만들기
 description: Visual Studio Code를 사용하여 Azure에서 첫 번째 PowerShell 함수를 만드는 방법을 알아봅니다.
-services: functions
-keywords: ''
 author: joeyaiello
-manager: jeconnoc
+manager: gwallace
 ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.devlang: powershell
-ms.openlocfilehash: c9de4cec417625bb8451457652dacb61550c31b0
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 1d6d641e141862b12fed40b800589aad70af2789
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248325"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469417"
 ---
-# <a name="create-your-first-powershell-function-in-azure-preview"></a>Azure에서 첫 번째 PowerShell 함수 만들기(미리 보기)
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
+# <a name="create-your-first-powershell-function-in-azure"></a>Azure에서 첫 번째 PowerShell 함수 만들기
 
 이 빠른 시작 문서에서는 Visual Studio Code를 사용하여 첫 번째 [서버리스](https://azure.com/serverless) PowerShell 함수를 만드는 방법을 안내합니다.
 
@@ -66,7 +61,7 @@ Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함�
     > [!NOTE]
     > 이 문서는 작업 영역 외부에서 완료하도록 설계되었습니다. 이 경우 작업 영역에 포함된 프로젝트 폴더를 선택하지 마십시오.
 
-1. 함수 앱 프로젝트의 언어로 **Powershell(미리 보기)** 을 선택하고 **Azure Functions v2**를 선택합니다.
+1. 함수 앱 프로젝트의 언어로 **Powershell**을 선택한 다음, **Azure Functions v2**를 선택합니다.
 
 1. **HTTP 트리거**를 첫 번째 함수의 템플릿으로 선택하고 `HTTPTrigger`를 함수 이름으로 지정한 후 권한 부여 수준으로 **함수**를 선택합니다.
 
@@ -104,9 +99,9 @@ Azure Functions Core Tools는 Visual Studio Code와 통합되어 사용자가 Az
 
 > [!NOTE]
 > Azure에 함수를 게시하기 전에 `Wait-Debugger` 호출을 제거해야 합니다. 
-
-> [!NOTE]
-> Azure에서 함수 앱을 만드는 경우 함수 앱 이름을 지정하라는 메시지만 표시됩니다. 다른 값을 지정하라는 메시지를 표시하려면 azureFunctions.advancedCreation을 true로 설정합니다.
+>
+> Azure에서 함수 앱을 만들면 함수 앱 이름을 지정하라는 메시지만 표시됩니다. 다른 값은 사용자에 대해 정의됩니다.
+> 다른 모든 값을 입력하라는 메시지가 표시되도록 `azureFunctions.advancedCreation`을 `true`로 설정합니다.
 
 [!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
 

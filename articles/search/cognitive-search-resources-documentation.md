@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 5fb1050fed2ab7318ad5b4ecafec7a96a9324575
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: cf0332909e053a0875d41a00d15f196b193ba15e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792064"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73466721"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강에 대한 설명서 리소스
 
@@ -22,8 +22,8 @@ AI 보강은 텍스트가 아닌 원본 및 구분되지 않는 텍스트에서 
 다음 문서는 AI 보강에 대한 전체 설명서입니다.
 
 ## <a name="getting-started"></a>시작
-+ [Azure Cognitive Search에서 AI 보강 소개](cognitive-search-concept-intro.md)
-+ [빠른 시작: 포털에서 AI 보강 체험](cognitive-search-quickstart-blob.md)
++ [Azure Cognitive Search의 AI 소개](cognitive-search-concept-intro.md)
++ [빠른 시작: Azure Portal에서 인지 기술 세트 만들기](cognitive-search-quickstart-blob.md)
 + [자습서: AI를 사용하는 보강 인덱싱](cognitive-search-tutorial-blob.md)
 + [예제: AI 보강에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 
@@ -49,6 +49,7 @@ AI 보강은 텍스트가 아닌 원본 및 구분되지 않는 텍스트에서 
   + [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md)
   + [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md)
   + [Microsoft.Skills.Util.ConditionalSkill](cognitive-search-skill-conditional.md)
+  + [Microsoft.Skills.Util.DocumentExtractionSkill](cognitive-search-skill-document-extraction.md)
   + [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md)
 
 + 사용자 지정 기술

@@ -295,7 +295,7 @@
                 - name: 예외
                   href: app/asp-net-exceptions.md
                 - name: 로그 추적
-                  href: app/java-trace-logs.md
+                  href: app/asp-net-trace-logs.md
                 - name: Unix 메트릭
                   href: app/java-collectd.md
                 - name: 종속성
@@ -318,6 +318,8 @@
                   href: app/opencensus-python.md
                 - name: 종속성
                   href: app/opencensus-python-dependency.md
+                - name: 요청
+                  href: app/opencensus-python-request.md
             - name: 웹 페이지
               items:
                 - name: 클라이언트 쪽 JavaScript
@@ -593,26 +595,39 @@
         - name: 리소스 로그
           items:
             - name: 개요
+              displayname: Resource logs
               href: platform/resource-logs-overview.md
             - name: Azure Monitor 로그에서 수집
+              displayname: Resource logs
               href: platform/resource-logs-collect-workspace.md
             - name: 스토리지에 보관
+              displayname: Resource logs
               href: platform/resource-logs-collect-storage.md
             - name: Event Hubs로 스트림
+              displayname: Resource logs
               href: platform/resource-logs-stream-event-hubs.md
         - name: 활동 로그
           items:
             - name: 개요
+              displayname: Activity log
               href: platform/activity-logs-overview.md
+            - name: 진단 설정으로 수집
+              displayname: Activity log
+              href: platform/diagnostic-settings-subscription.md
             - name: 보기 및 검색
+              displayname: Activity log
               href: platform/activity-log-view.md
             - name: 수집 및 분석
+              displayname: Activity log
               href: platform/activity-log-collect.md
             - name: 테넌트 간에 수집
+              displayname: Activity log
               href: platform/activity-log-collect-tenants.md
             - name: 내보내기
+              displayname: Activity log
               href: platform/activity-log-export.md
             - name: 스키마
+              displayname: Activity log
               href: platform/activity-log-schema.md
         - name: 진단 설정
           items:
@@ -621,6 +636,7 @@
             - name: Resource Manager를 사용하여 진단 설정 만들기
               href: platform/diagnostic-settings-template.md
             - name: Blob 스토리지 형식으로 변경
+              displayname: Diagnostic settings
               href: platform/resource-logs-blob-format.md
         - name: Event Hubs로 데이터 스트리밍
           href: platform/stream-monitoring-data-event-hubs.md

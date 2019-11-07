@@ -9,18 +9,20 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 09/03/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 25882f2aaa5d32dfb594d5f8fdb9cdc46f2ad958
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9531e86e63fa8d944aa216fddd0c8215b73038a9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307608"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492711"
 ---
 # <a name="tutorial-get-exact-text-matched-data-from-an-utterance"></a>자습서: 발언과 텍스트가 정확히 일치하는 데이터 구하기
 
 이 자습서에서는 미리 정의된 항목 목록과 일치하는 엔터티 데이터를 가져오는 방법을 이해합니다. 
+
+[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
@@ -78,7 +80,7 @@ ms.locfileid: "70307608"
     |Steve Standish를 1234로|
     |Tanner Thompson을 3456으로|
 
-    [![예제 발언이 있는 의도의 스크린샷](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "예제 발언이 있는 의도의 스크린샷")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
+    [![예제 발화가 있는 의도 스크린샷](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png "예제 발화가 있는 의도 스크린샷")](media/luis-quickstart-intent-and-list-entity/intent-transfer-employee-to-department.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
@@ -104,7 +106,7 @@ ms.locfileid: "70307608"
 
 1. 엔터티 팝업 대화 상자에서 엔터티 이름으로 `Department`를 입력하고 엔터티 형식으로 **목록**을 입력합니다. **완료** 를 선택합니다.  
 
-    [![새 엔터티 만들기 대화 상자의 스크린샷](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "새 엔터티 만들기 대화 상자의 스크린샷")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
+    [![새 엔터티 팝업 대화 상자 만들기 스크린샷](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png "새 엔터티 팝업 대화 상자 만들기 스크린샷")](media/luis-quickstart-intent-and-list-entity/create-new-list-entity-named-department.png#lightbox)
 
 1. 부서 엔터티 페이지에 `Accounting`을 새 값으로 입력합니다.
 

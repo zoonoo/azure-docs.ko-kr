@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
-ms.date: 10/04/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 7c0dc40ee2d748b1f48c3254a3e3a6e197069c08
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515178"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467236"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>자습서: Azure Notebook에서 Personalizer 사용
 
@@ -81,7 +81,7 @@ Personalizer 서비스에 대한 수천 개의 호출마다 Azure Notebook은 **
 
 ## <a name="configure-personalizer-resource"></a>Personalizer 리소스 구성
 
-Azure Portal에서 **모델 업데이트 빈도**와 **보상 대기 시간**이 각각 15초로 설정된 [Personalizer 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)를 구성합니다. 이러한 설정은 **[설정](how-to-settings.md#configure-service-settings-in-the-azure-portal)** 페이지에 있습니다. 
+Azure Portal에서 **모델 업데이트 빈도**와 **보상 대기 시간**이 각각 15초로 설정된 [Personalizer 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesPersonalizer)를 구성합니다. 이러한 값은 **[구성](how-to-settings.md#configure-service-settings-in-the-azure-portal)** 페이지에서 찾을 수 있습니다. 
 
 |설정|값|
 |--|--|
@@ -170,7 +170,7 @@ def get_last_updated(currentModifiedDate):
 
 이러한 두 개의 REST 호출을 통해 서비스 상태를 확인합니다.
 
-이러한 셀에는 출력이 없습니다. 이 함수가 호출되면 서비스 설정을 출력합니다.
+이러한 셀에는 출력이 없습니다. 이 함수는 호출될 때 서비스 값을 출력합니다.
 
 ```python
 def get_service_settings():
@@ -574,11 +574,11 @@ createChart(count,rewards)
 ![이 차트에서는 테스트 기간 동안 현재 학습 정책의 성공을 보여 줍니다.](./media/tutorial-azure-notebook/azure-notebook-chart-results.png)
 
 
-이상적인 목표는 테스트의 끝에서 루프가 평균적으로 100%에 가까운 검색 성공률을 달성하는 것입니다. 검색의 기본 설정은 20%입니다. 
+이상적인 목표는 테스트의 끝에서 루프가 평균적으로 100%에 가까운 검색 성공률을 달성하는 것입니다. 탐색의 기본 값은 20%입니다. 
 
 `100-20=80`
 
-이 검색 설정은 Personalizer 리소스에 대한 Azure Portal의 **설정** 페이지에 있습니다. 
+이 탐색 값은 Personalizer 리소스에 대한 Azure Portal의 **구성** 페이지에 있습니다. 
 
 순위 API에 대한 데이터를 기반으로 하여 더 나은 학습 정책을 찾으려면 포털에서 Personalizer 루프에 대한 [오프라인 평가](how-to-offline-evaluation.md)를 실행합니다.
 
@@ -598,7 +598,7 @@ createChart(count,rewards)
 
 ## <a name="change-update-model-frequency-to-5-minutes"></a>모델 업데이트 빈도를 5분으로 변경
 
-1. 여전히 Azure Portal의 Personalizer 리소스에서 **설정** 페이지를 선택합니다. 
+1. 여전히 Azure Portal의 Personalizer 리소스에서 **구성** 페이지를 선택합니다. 
 1. **모델 업데이트 빈도** 및 **보상 대기 시간**을 5분으로 변경하고, **저장**을 선택합니다.
 
 [보상 대기 시간](concept-rewards.md#reward-wait-time) 및 [모델 업데이트 빈도](how-to-settings.md#model-update-frequency)에 대해 자세히 알아보세요.

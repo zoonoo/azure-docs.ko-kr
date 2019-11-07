@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: 사용자 지정 비전 설명서
-summary: Custom Vision은 사용자 고유의 이미지 분류자를 빌드, 배포 및 개선할 수 있는 인지 서비스입니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(클래스를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다.
+summary: Custom Vision을 사용하면 사용자 고유의 이미지 분류자를 빌드, 배포 및 개선할 수 있습니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(클래스를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다.
 metadata:
   title: Custom Vision 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
-  description: Custom Vision은 사용자 고유의 이미지 분류자를 빌드, 배포 및 개선할 수 있는 인지 서비스입니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(클래스를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다.
+  description: Custom Vision을 사용하면 사용자 고유의 이미지 분류자를 빌드, 배포 및 개선할 수 있습니다. 이미지 분류자는 이미지의 시각적 특성에 따라 레이블(클래스를 나타냄)을 해당 이미지에 적용하는 AI 서비스입니다.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: custom-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 21e4c324b947cb863614f50bb2ee0bfe09246372
-  ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+  ms.openlocfilehash: 2ef22176b64638dc43a4a45096cf072a7c79931e
+  ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/25/2019
-  ms.locfileid: "72931631"
+  ms.lasthandoff: 11/06/2019
+  ms.locfileid: "73647588"
 landingContent:
 - title: Custom Vision 정보
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
       url: test-your-model.md
     - text: 모델 개선
       url: getting-started-improving-your-classifier.md
-    - text: 제안된 태그 사용
+    - text: 스마트 레이블 지정자 사용
       url: suggested-tags.md
 - title: 모델 내보내기
   linkLists:

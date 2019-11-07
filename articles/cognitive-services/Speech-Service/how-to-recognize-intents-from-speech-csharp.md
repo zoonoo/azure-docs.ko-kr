@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: cf5bf3dfd7b6a408179bb267156433168e562a8e
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 7f42d5914a2ec7f479a8b3d1df1b8672f318036b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326845"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464630"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>자습서: C#용 Speech SDK를 사용하여 음성에서 의도 인식
 
@@ -45,11 +45,12 @@ Cognitive Services [Speech SDK](speech-sdk.md)는 [LUIS(Language Understanding) 
 
 LUIS는 Speech Services와 통합되어 음성에서 의도를 인식합니다. Speech Services 구독은 필요 없고 LUIS만 있으면 됩니다.
 
-LUIS는 다음과 같은 두 종류의 키를 사용합니다.
+LUIS는 다음과 같은 세 종류의 키를 사용합니다.
 
 |키 유형|목적|
 |--------|-------|
 |작성|프로그래밍 방식으로 LUIS 앱을 만들고 수정할 수 있음|
+|Starter|텍스트만 사용하여 LUIS 애플리케이션을 테스트할 수 있습니다.|
 |엔드포인트 |특정 LUIS 앱에 대한 액세스 권한 부여|
 
 이 자습서에서는 엔드포인트 키 형식이 필요합니다. 이 자습서에서는 [미리 빌드된 홈 자동화 앱 사용](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) 빠른 시작의 단계에 따라 만들 수 있는 홈 자동화 LUIS 앱 예제를 사용합니다. LUIS 앱을 직접 만든 경우 그 앱을 사용해도 됩니다.
@@ -195,4 +196,4 @@ result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_Js
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [음성을 인식하는 방법](quickstart-csharp-dotnetcore-windows.md)
+> [음성을 인식하는 방법](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

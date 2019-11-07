@@ -31,6 +31,8 @@
       href: publish-marketplace-app.md
     - name: 사용자 지정 공급자를 사용하여 관리되는 애플리케이션 만들기
       href: tutorial-create-managed-app-with-custom-provider.md
+    - name: 사용자 지정 공급자를 통한 리소스 온보딩
+      href: tutorial-custom-providers-resource-onboarding.md
 - name: 샘플
   items:
     - name: Azure CLI
@@ -45,6 +47,10 @@
       href: custom-providers-overview.md
     - name: 보기 정의 아티팩트
       href: concepts-view-definition.md
+    - name: 역할 정의 아티팩트
+      href: concepts-custom-role-definition.md
+    - name: 리소스 온보딩
+      href: concepts-custom-providers-resourceonboarding.md
 - name: 방법 가이드
   items:
     - name: 사용자 지정 공급자
