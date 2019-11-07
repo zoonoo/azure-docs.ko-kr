@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 41a626ba602ad33f22c3ea4acc39dd4f3438cbd0
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: eb4f607672c39d45b7791ccaeeb6f7cff9393cb9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935691"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571011"
 ---
 # <a name="install-and-use-the-azure-iot-extension-for-the-azure-cli"></a>Azure CLI에 대 한 Azure IoT 확장 설치 및 사용
 
@@ -44,7 +44,7 @@ Azure CLI에 대 한 Azure IoT 확장은 IoT 플러그 앤 플레이 미리 보�
 
 ## <a name="use-azure-iot-extension-for-the-azure-cli"></a>Azure CLI에 대 한 Azure IoT 확장 사용
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 Azure 구독에 로그인 하려면 다음 명령을 실행 합니다.
 
@@ -60,9 +60,9 @@ Azure CLI에 대 한 Azure IoT 확장을 사용 하려면 다음이 필요 합�
 - Azure IoT Hub - Azure 구독에 IoT hub를 추가 하는 방법에는 여러 가지가 있습니다. 예를 들어 [Azure CLI를 사용 하 여 iot hub를 만들](../iot-hub/iot-hub-create-using-cli.md)수 있습니다. Azure IoT 확장 명령을 실행 하려면 IoT hub의 연결 문자열이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
     > [!NOTE]
-    > 공개 미리 보기 중 IoT 플러그 앤 플레이 기능은 **미국 중부**, **유럽**, **일본 동부** 지역에서 만든 iot hub 에서만 사용할 수 있습니다.
+    > 공개 미리 보기 기간에는 **미국 중부**, **북유럽** 및 **일본 동부** 지역에서 만든 IoT 허브에서만 IoT 플러그 앤 플레이를 사용할 수 있습니다.
 
-- IoT hub에 등록 된 장치입니다. 다음 Azure CLI 명령을 사용 하 여 장치를 등록할 수 있습니다. 및 `{YourIoTHubName}` `{YourDeviceID}` 자리 표시자를 사용자의 값으로 바꾸어야 합니다.
+- IoT hub에 등록 된 장치입니다. 다음 Azure CLI 명령을 사용 하 여 장치를 등록할 수 있습니다. `{YourIoTHubName}` 및 `{YourDeviceID}` 자리 표시자를 값으로 바꾸어야 합니다.
 
     ```cmd/sh
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -131,26 +131,26 @@ az iot dt list-commands --hub-name {YourIoTHubName} --device-id {YourDeviceID} -
 명령 호출:
 
 ```cmd/sh
-az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --command-name {CommandName} --command-payload {CommandPayload or FilePath}
+az iot dt invoke-command --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --cn {CommandName} --command-payload {CommandPayload or FilePath}
 ```
 
-#### <a name="telemetry"></a>원격 분석
+#### <a name="digital-twin-events"></a>디지털 쌍 이벤트
 
-**$Default** event hub 끝점으로 이동 하는 특정 장치 및 인터페이스에서 모든 IoT 플러그 앤 플레이 원격 분석 모니터링:
+**$Default** event hub 소비자 그룹으로 이동 하는 특정 장치 및 인터페이스에서 모든 IoT 플러그 앤 플레이 디지털 쌍 이벤트를 모니터링 합니다.
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID}
 ```
 
-특정 장치에서 모든 IoT 플러그 앤 플레이 원격 분석을 모니터링 하 고 특정 소비자 그룹으로 이동 합니다.
+특정 장치에서 모든 IoT 플러그 앤 플레이 디지털 쌍 이벤트를 모니터링 하 고 특정 소비자 그룹으로 이동 합니다.
 
 ```cmd/sh
-az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --source private --repo-login {YourCompanyModelRepoConnectionString} --consumer-group {YourConsumerGroup}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --interface {YourInterfaceID} --consumer-group {YourConsumerGroup}
 ```
 
 ### <a name="manage-interfaces-in-a-model-repository"></a>모델 리포지토리에서 인터페이스 관리
 
-다음 명령은 공용 IoT 플러그 앤 플레이 모델 리포지토리를 사용 합니다. 회사 모델 리포지토리를 사용 하려면 모델 리포지토리 연결 `--login` 문자열과 함께 인수를 추가 합니다.
+다음 명령은 공용 IoT 플러그 앤 플레이 모델 리포지토리를 사용 합니다. 회사 모델 리포지토리를 사용 하려면 모델 리포지토리 연결 문자열과 함께 `--login` 인수를 추가 합니다.
 
 공용 IoT 플러그 앤 플레이 모델 리포지토리의 인터페이스 나열:
 
@@ -190,7 +190,7 @@ Microsoft 파트너만 인터페이스를 공용 모델 리포지토리에 게�
 
 ### <a name="manage-device-capability-models-in-a-model-repository"></a>모델 리포지토리에서 장치 기능 모델 관리
 
-다음 명령은 공용 IoT 플러그 앤 플레이 모델 리포지토리를 사용 합니다. 회사 모델 리포지토리를 사용 하려면 모델 리포지토리 연결 `--login` 문자열과 함께 인수를 추가 합니다.
+다음 명령은 공용 IoT 플러그 앤 플레이 모델 리포지토리를 사용 합니다. 회사 모델 리포지토리를 사용 하려면 모델 리포지토리 연결 문자열과 함께 `--login` 인수를 추가 합니다.
 
 IoT 플러그 앤 플레이 공용 모델 리포지토리에서 장치 기능 모델 나열:
 

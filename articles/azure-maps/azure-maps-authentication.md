@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8a6bc8b71f5f8edda76faa1a8d1b20417dfba1d1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 84af496a92bd3c7b30062e965335782f7661aa4a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478659"
+ms.locfileid: "73575648"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
@@ -49,7 +49,7 @@ Azure Maps는 각 Azure Maps 계정에 대해 *고유 식별자(클라이언트 
 | Azure Government    | https://login.microsoftonline.us |
 
 
-Azure AD를 구성하고 Azure Maps에 대한 토큰을 요청하는 방법에 대한 자세한 내용은 [Azure Maps의 인증 관리](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)를 참조하세요.
+Azure AD를 구성하고 Azure Maps에 대한 토큰을 요청하는 방법에 대한 자세한 내용은 [Azure Maps의 인증 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)를 참조하세요.
 
 Azure AD에 토큰을 요청하는 방법에 대한 일반적인 정보를 보려면 [인증이란?](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)을 참조하세요.
 
@@ -92,6 +92,6 @@ RBAC 설정을 보는 방법에 대한 내용은 [Azure Maps에 대한 RBAC 구�
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure AD 및 Azure Maps를 사용하여 애플리케이션을 인증하는 방법을 자세히 알아보려면 [Azure Maps의 인증 관리](https://review.docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)를 참조하세요.
+* Azure AD 및 Azure Maps를 사용하여 애플리케이션을 인증하는 방법을 자세히 알아보려면 [Azure Maps의 인증 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)를 참조하세요.
 
 * Azure Maps, 맵 컨트롤 및 Azure AD 인증에 대한 자세한 내용은 [Azure Maps 맵 컨트롤 사용](https://aka.ms/amaadmc)을 참조하세요.

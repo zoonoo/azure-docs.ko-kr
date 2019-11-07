@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: cb8a8238c4daac6370d47bb9e99b3503ebb68783
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 7f9e1b6b8518ebc03f051e379e4707dd1864e003
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176556"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73578966"
 ---
 # <a name="resolve-error-when-deployment-count-exceeds-800"></a>배포 수가 800를 초과 하는 경우 오류 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "72176556"
 
 배포 하는 동안 현재 배포가 800 배포의 할당량을 초과 한다는 오류가 표시 됩니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -35,7 +35,7 @@ az group deployment delete --resource-group exampleGroup --name deploymentName
 
 ```azurecli-interactive
 startdate=$(date +%F -d "-5days")
-deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp>'$startdate'].name" --output tsv)
+deployments=$(az group deployment list --resource-group exampleGroup --query "[?properties.timestamp<'$startdate'].name" --output tsv)
 
 for deployment in $deployments
 do

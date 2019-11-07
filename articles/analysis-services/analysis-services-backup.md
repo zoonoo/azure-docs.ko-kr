@@ -1,20 +1,20 @@
 ---
 title: Azure Analysis Services 데이터베이스 백업 및 복원 | Microsoft Docs
-description: Azure Analysis Services 데이터베이스를 백업하고 복원하는 방법에 대해 설명합니다.
+description: 이 문서에서는 Azure Analysis Services 데이터베이스에서 모델 메타 데이터 및 데이터를 백업 하 고 복원 하는 방법을 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fde545f3764f5910d00da5a8ce7f0e8c1772c7ea
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3f63ecf560a14248fed6dea53c30a27acdf9a938
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295424"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573442"
 ---
-# <a name="backup-and-restore"></a>Backup 및 Restore 메서드
+# <a name="backup-and-restore"></a>Backup 및 복원
 
 Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백업하는 것은 온-프레미스 Analysis Services의 경우와 매우 유사합니다. 주요 차이점은 백업 파일을 저장하는 위치입니다. Backup 파일은 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)의 컨테이너에 저장해야 합니다. 이미 있는 스토리지 계정과 컨테이너를 사용하거나 서버에 대한 스토리지 설정을 구성할 때 만들 수 있습니다.
 
@@ -49,7 +49,7 @@ Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백�
 
     ![백업 설정 저장](./media/analysis-services-backup/aas-backup-save.png)
 
-## <a name="backup"></a>백업
+## <a name="backup"></a>Backup
 
 ### <a name="to-backup-by-using-ssms"></a>SSMS를 사용하여 백업하려면
 

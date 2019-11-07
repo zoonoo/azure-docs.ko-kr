@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services 리소스 및 개체 제한 | Microsoft Docs
-description: Azure Analysis Services 리소스 및 개체 제한에 대해 설명합니다.
+description: 이 문서에서는 Azure Analysis Services 서버에 대 한 리소스 및 개체 제한을 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fe43602c66af72357e16822ee9d4b5a741d3f86
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f309c9863eb2f3065251537380a2977839f990d8
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298693"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573207"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services 리소스 및 개체 제한
 
@@ -30,7 +30,7 @@ ms.locfileid: "72298693"
 |------------|----------------------------|  
 |인스턴스의 데이터베이스|16,000|  
 |데이터베이스 내 테이블 및 열을 합한 수|16,000|  
-|테이블의 행|Unlimited<br /><br /> **경고:** 테이블에 있는 단일 열이 1,999,999,997개가 넘는 고유 값을 가질 수 없는 제한 사항이 있습니다.|  
+|테이블의 행|무제한<br /><br /> **경고:** 테이블에 있는 단일 열이 1,999,999,997개가 넘는 고유 값을 가질 수 없는 제한 사항이 있습니다.|  
 |테이블 내의 계층 구조|15,999|  
 |계층 구조 내의 수준|15,999|  
 |관계|8,000|  

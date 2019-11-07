@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/11/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 2990917243507d93cb6a86da11cf771f3a42eebd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a9444847fb75bdf01cabba98057605afbe03c9fc
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298419"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577440"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Azure Blockchain 서비스 개발 개요
 
@@ -39,7 +39,7 @@ Geth는 Go에서 구현 된 전체 Ethereum 노드를 실행 하기 위한 명�
 
 Truffle는 Ethereum blockchain에서 분산 된 응용 프로그램을 작성, 컴파일, 배포 및 테스트 하기 위한 인기 있는 blockchain 개발 프레임 워크입니다. 또한 스마트 계약 개발과 기존 웹 개발을 원활 하 게 통합 하려고 하는 프레임 워크로 Truffle을 생각할 수 있습니다.
 
-가장 작은 프로젝트도 두 개 이상의 blockchain 노드와 상호 작용 합니다. 하나는 개발자의 컴퓨터에 있고, 다른 하나는 개발자가 응용 프로그램을 배포 하는 네트워크를 나타냅니다. 예를 들어, main public Ethereum network 또는 Azure Blockchain Service입니다. Truffle는 각 네트워크에 대 한 컴파일 및 배포 아티팩트를 관리 하는 시스템을 제공 하며, 최종 응용 프로그램 배포를 간소화 하는 방식으로 수행 합니다. 자세한 내용은 [빠른 시작: Truffle를 사용 하 여 Azure Blockchain 서비스 네트워크 @ no__t-0에 연결 합니다.
+가장 작은 프로젝트도 두 개 이상의 blockchain 노드와 상호 작용 합니다. 하나는 개발자 컴퓨터에 있고 다른 하나는 개발자가 응용 프로그램을 배포 하는 네트워크를 나타냅니다. 예를 들어, main public Ethereum network 또는 Azure Blockchain Service입니다. Truffle는 각 네트워크에 대 한 컴파일 및 배포 아티팩트를 관리 하는 시스템을 제공 하며, 최종 응용 프로그램 배포를 간소화 하는 방식으로 수행 합니다. 자세한 내용은 [빠른 시작: Truffle를 사용 하 여 Azure Blockchain 서비스 네트워크에 연결](connect-truffle.md)을 참조 하세요.
 
 ## <a name="ethereum-quorum-private-transaction"></a>Ethereum 쿼럼 개인 트랜잭션
 
@@ -51,14 +51,14 @@ Truffle는 Ethereum blockchain에서 분산 된 응용 프로그램을 작성, �
 * 피어 권한 부여-스마트 계약을 사용 하 여 노드 및 피어 권한 부여-알려진 당사자만 네트워크에 연결할 수 있도록 합니다.
 * 높은 성능-쿼럼이 공개 지역 보다 높은 성능을 제공 합니다.
 
-단계별 지침은 [자습서: 개인 트랜잭션 예제를 보려면 Azure Blockchain Service @ no__t-0을 사용 하 여 트랜잭션을 보냅니다.
+개인 트랜잭션 예제는 [자습서: Azure Blockchain 서비스를 사용 하 여 트랜잭션 보내기](send-transaction.md) 를 참조 하세요.
 
 ## <a name="block-explorers"></a>블록 탐색기
 
 블록 탐색기는 개별 블록 콘텐츠, 트랜잭션 주소 데이터 및 기록을 표시 하는 온라인 blockchain 브라우저입니다. 기본 블록 정보는 Azure Blockchain 서비스의 Azure Monitor를 통해 사용할 수 있지만, 개발 하는 동안 자세한 정보를 필요로 하는 경우 블록 탐색기가 유용할 수 있습니다.  사용할 수 있는 인기 있는 오픈 소스 블록 탐색기가 있습니다. 다음은 Azure Blockchain 서비스를 사용 하는 블록 탐색기의 목록입니다.
 
 * Web3 Labs의 [Epirus Azure Blockchain 서비스 탐색기](https://azuremarketplace.microsoft.com/marketplace/apps/blk-technologies.azure-blockchain-explorer-template?tab=Overview)
-* [BlockScout](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
+* [블록 정찰](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
 
 ## <a name="tps-measurement"></a>TPS 측정
 
@@ -66,4 +66,4 @@ Truffle는 Ethereum blockchain에서 분산 된 응용 프로그램을 작성, �
 
 ## <a name="next-steps"></a>다음 단계
 
-[빠른 시작: Truffle를 사용 하 여 Azure Blockchain 서비스 네트워크에 연결 @ no__t-0
+[빠른 시작: Truffle를 사용 하 여 Azure Blockchain 서비스 네트워크에 연결](connect-truffle.md)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8da27773cc74324c1dde5a95de1abef3256c1f1c
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 06de71776cdf503ff0df9fbf3b28cf9e01a12e01
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811670"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575283"
 ---
 # <a name="provision-throughput-on-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너의 프로비전 처리량
 
@@ -19,7 +19,7 @@ ms.locfileid: "71811670"
 
 ## <a name="provision-throughput-using-azure-portal"></a>Azure Portal을 사용하여 처리량 프로비전
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 1. [새 Azure Cosmos 계정을 만들거나](create-sql-api-dotnet.md#create-account) 기존 Azure Cosmos 계정을 선택합니다.
 
@@ -67,14 +67,23 @@ await client.CreateDocumentCollectionAsync(
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/ContainerDocsSampleCode.cs?name=ContainerCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>Cassandra API
+CQL 규격 드라이버를 통해 비슷한 명령을 실행할 수 있습니다.
 
 ```csharp
 // Create a Cassandra table with a partition (primary) key and provision throughput of 400 RU/s
-session.Execute(CREATE TABLE myKeySpace.myTable(
+session.Execute("CREATE TABLE myKeySpace.myTable(
     user_id int PRIMARY KEY,
     firstName text,
-    lastName text) WITH cosmosdb_provisioned_throughput=400);
+    lastName text) WITH cosmosdb_provisioned_throughput=400");
+
 ```
+### <a name="alter-or-change-throughput-for-cassandra-table"></a>Cassandra 테이블에 대 한 처리량 변경 또는 변경
+
+```csharp
+// Altering the throughput too can be done through code by issuing following command
+session.Execute("ALTER TABLE myKeySpace.myTable WITH cosmosdb_provisioned_throughput=5000");
+```
+
 
 ## <a name="next-steps"></a>다음 단계
 

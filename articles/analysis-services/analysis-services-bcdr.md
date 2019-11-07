@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services 고가용성 | Microsoft 문서
-description: Azure Analysis Services 고가용성 보장.
+description: 이 문서에서는 Azure Analysis Services 서비스 중단 중에 고가용성을 제공 하는 방법을 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 151739c77939ab98b0cdca6d75692267ef0d4385
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 2e750dce804ea93f3d3068ffd36bc7a73a50906a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295321"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573353"
 ---
 # <a name="analysis-services-high-availability"></a>Analysis Services 고가용성
 

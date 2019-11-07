@@ -6,16 +6,16 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 10/14/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 04ea4a4ebecec958ba9d9a72711e101adb3690ab
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ddb3f02662c0c71ebc90e1a740b4068d6fbcded4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329283"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577503"
 ---
 # <a name="azure-blockchain-service-consortium"></a>Azure Blockchain 서비스 컨소시엄
 
@@ -37,14 +37,14 @@ Azure Blockchain 서비스의 컨소시엄 관리를 사용 하 여 consortium �
 
 컨소시엄의 참여자는 개인 또는 조직 일 수 있으며 사용자 역할 또는 관리자 역할을 할당할 수 있습니다. 다음 표에서는 두 역할 간의 높은 수준의 차이점을 보여 줍니다.
 
-| 실행력 | 사용자 역할 | 관리자 역할
+| 액션(Action) | 사용자 역할 | 관리자 역할
 |--------|:----:|:------------:|
-| 새 멤버 만들기 | yes | yes |
-| 새 구성원 초대 | 아닙니다. | yes |
-| 구성원 참가자 역할 설정 또는 변경 | 아닙니다. | yes |
+| 새 멤버 만들기 | 예 | 예 |
+| 새 구성원 초대 | 아니요 | 예 |
+| 구성원 참가자 역할 설정 또는 변경 | 아니요 | 예 |
 | 멤버 표시 이름 변경 | 멤버 전용 | 멤버 전용 |
-| 구성원 제거 | 멤버 전용 | yes |
-| 블록 체인 트랜잭션에 참여 | yes | yes |
+| 구성원 제거 | 멤버 전용 | 예 |
+| 블록 체인 트랜잭션에 참여 | 예 | 예 |
 
 ### <a name="user-role"></a>사용자 역할
 

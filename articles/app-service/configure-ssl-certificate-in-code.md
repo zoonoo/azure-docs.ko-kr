@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램 코드에서 SSL 인증서 사용-Azure App Service | Microsoft Docs
+title: 코드에서 SSL 인증서 사용-Azure App Service | Microsoft Docs
 description: 클라이언트 인증서를 사용하여 해당 인증서가 필요한 원격 리소스에 연결하는 방법을 알아봅니다.
 services: app-service
 documentationcenter: ''
@@ -10,22 +10,22 @@ ms.service: app-service
 ms.workload: web
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/16/2019
+ms.date: 11/04/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1f042f72f82d2198472fe81670c697c0c4b28321
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 93dfe784d45cd9cd93d22c5e8c3275c563f7f88b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513693"
+ms.locfileid: "73572090"
 ---
-# <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용
+# <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Azure App Service에서 코드에 SSL 인증서를 사용 합니다.
 
-App Service 앱 코드는 클라이언트 역할을 하며 인증서 인증을 요구 하는 외부 서비스에 액세스할 수 있습니다. 이 방법 가이드에서는 응용 프로그램 코드에서 공용 또는 개인 인증서를 사용 하는 방법을 보여 줍니다.
+응용 프로그램 코드에서 [App Service에 추가 하는 공용 또는 개인 인증서](configure-ssl-certificate.md)에 액세스할 수 있습니다. 앱 코드는 클라이언트 역할을 하며 인증서 인증을 필요로 하는 외부 서비스에 액세스 하거나 암호화 작업을 수행 해야 할 수 있습니다. 이 방법 가이드에서는 응용 프로그램 코드에서 공용 또는 개인 인증서를 사용 하는 방법을 보여 줍니다.
 
-코드에서 인증서를 사용 하는이 방법은 App Service에서 SSL 기능을 사용 합니다 .이 기능을 사용 하면 앱이 **기본** 계층 이상 이어야 합니다. 또는 [앱 리포지토리에 인증서 파일을 포함할](#load-certificate-from-file)수 있지만 개인 인증서에는 권장 되지 않습니다.
+코드에서 인증서를 사용 하는이 방법은 App Service에서 SSL 기능을 사용 합니다 .이 기능을 사용 하면 앱이 **기본** 계층 이상 이어야 합니다. 앱이 **무료** 또는 **공유** 계층에 있는 경우 [앱 리포지토리에 인증서 파일을 포함할](#load-certificate-from-file)수 있습니다.
 
 App Service에서 SSL 인증서를 관리할 수 있는 경우 인증서 및 애플리케이션 코드를 별도로 유지 관리하여 중요한 데이터를 보호할 수 있습니다.
 
@@ -46,9 +46,9 @@ App Service에서 SSL 인증서를 관리할 수 있는 경우 인증서 및 애
 
 ![인증서 지문 복사](./media/configure-ssl-certificate/create-free-cert-finished.png)
 
-## <a name="load-the-certificate"></a>인증서 로드
+## <a name="make-the-certificate-accessible"></a>인증서에 액세스할 수 있도록 설정
 
-앱 코드에서 인증서를 사용 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 `WEBSITE_LOAD_CERTIFICATES` 앱 설정에 지문을 추가 합니다.
+앱 코드에서 인증서에 액세스 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 `WEBSITE_LOAD_CERTIFICATES` 앱 설정에 해당 지문을 추가 합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
@@ -56,15 +56,14 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 모든 인증서에 액세스할 수 있도록 하려면 값을 `*`로 설정 합니다.
 
-> [!NOTE]
-> 이 설정은 [현재 User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) 저장소에 지정 된 인증서를 대부분의 가격 책정 계층에 배치 하지만 **격리** 계층 (즉, 앱이 [App Service Environment](environment/intro.md)에서 실행 됨)에서 [로컬 Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) 에 인증서를 배치 합니다. 보관.
->
+## <a name="load-certificate-in-windows-apps"></a>Windows 앱에서 인증서 로드
 
-이제 코드에서 구성 된 인증서를 사용할 준비가 되었습니다.
+`WEBSITE_LOAD_CERTIFICATES` 앱 설정은 Windows 인증서 저장소의 Windows 호스팅된 앱에서 지정 된 인증서에 액세스할 수 있도록 하며, 위치는 [가격 책정 계층](overview-hosting-plans.md)에 따라 달라 집니다.
 
-## <a name="load-the-certificate-in-code"></a>코드에서 인증서 로드
+- **격리** 된 계층- [로컬 Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores). 
+- 다른 모든 계층- [현재 User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores).
 
-인증서에 액세스할 수 있게 되면 인증서 지문이 C# 코드에서 액세스할 수 있습니다. 다음 코드는 `E661583E8FABEF4C0BEF694CBC41C28FB81CD870` 지문으로 인증서를 로드합니다.
+코드 C# 에서는 인증서 지 문으로 인증서에 액세스 합니다. 다음 코드는 `E661583E8FABEF4C0BEF694CBC41C28FB81CD870` 지문으로 인증서를 로드합니다.
 
 ```csharp
 using System;
@@ -89,30 +88,74 @@ certStore.Close();
 ...
 ```
 
-<a name="file"></a>
-## <a name="load-certificate-from-file"></a>파일에서 인증서 로드
+Java 코드에서는 주체 일반 이름 필드 ( [공개 키 인증서](https://en.wikipedia.org/wiki/Public_key_certificate)참조)를 사용 하 여 "WINDOWS-MY" 저장소에서 인증서에 액세스 합니다. 다음 코드에서는 개인 키 인증서를 로드 하는 방법을 보여 줍니다.
 
-응용 프로그램 디렉터리에서 인증서 파일을 로드 해야 하는 경우 [Git](deploy-local-git.md)대신 [FTPS](deploy-ftp.md) 를 사용 하 여 업로드 하는 것이 좋습니다 (예:). 원본 제어에서 벗어난 개인 인증서와 같은 중요 한 데이터를 유지 해야 합니다.
+```java
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import java.security.KeyStore;
+import java.security.cert.Certificate;
+import java.security.PrivateKey;
 
-.NET 코드에서 직접 파일을 로드 하는 경우에도 라이브러리는 현재 사용자 프로필이 로드 되었는지 확인 합니다. 현재 사용자 프로필을 로드 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 사용 하 여 `WEBSITE_LOAD_USER_PROFILE` 앱 설정을 설정 합니다.
+...
+KeyStore ks = KeyStore.getInstance("Windows-MY");
+ks.load(null, null); 
+Certificate cert = ks.getCertificate("<subject-cn>");
+PrivateKey privKey = (PrivateKey) ks.getKey("<subject-cn>", ("<password>").toCharArray());
 
-```azurecli-interactive
-az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
+// Use the certificate and key
+...
 ```
 
-이 설정이 설정 되 면 다음 C# 예제에서는 `mycert.pfx` 이라는 인증서를 앱 리포지토리의 `certs` 디렉터리에서 로드 합니다.
+지원 하지 않거나 Windows 인증서 저장소에 대 한 충분 한 지원을 제공 하지 않는 언어의 경우 [파일에서 인증서 로드](#load-certificate-from-file)를 참조 하세요.
+
+## <a name="load-certificate-in-linux-apps"></a>Linux 앱에서 인증서 로드
+
+`WEBSITE_LOAD_CERTIFICATES` 앱 설정은 Linux에서 호스팅된 앱 (사용자 지정 컨테이너 앱 포함)에서 지정 된 인증서에 액세스할 수 있도록 합니다. 파일은 다음 디렉터리에 있습니다.
+
+- 개인 인증서-`/var/ssl/private` (`.p12` 파일)
+- 공용 인증서-`/var/ssl/certs` (`.der` 파일)
+
+인증서 파일 이름은 인증서 지문입니다. 다음 C# 코드에서는 Linux 앱에서 공용 인증서를 로드 하는 방법을 보여 줍니다.
 
 ```csharp
 using System;
 using System.Security.Cryptography.X509Certificates;
 
 ...
-// Replace the parameter with "~/<relative-path-to-cert-file>".
-string certPath = Server.MapPath("~/certs/mycert.pfx");
+var bytes = System.IO.File.ReadAllBytes("/var/ssl/certs/<thumbprint>.der");
+var cert = new X509Certificate2(bytes);
 
-X509Certificate2 cert = GetCertificate(certPath, signatureBlob.Thumbprint);
-...
+// Use the loaded certificate
 ```
+
+Node.js, PHP, Python, Java 또는 Ruby의 파일에서 SSL 인증서를 로드 하는 방법을 보려면 해당 언어 또는 웹 플랫폼에 대 한 설명서를 참조 하세요.
+
+## <a name="load-certificate-from-file"></a>파일에서 인증서 로드
+
+수동으로 업로드 하는 인증서 파일을 로드 해야 하는 경우 [Git](deploy-local-git.md)대신 [FTPS](deploy-ftp.md) 를 사용 하 여 인증서를 업로드 하는 것이 좋습니다 (예:). 원본 제어에서 벗어난 개인 인증서와 같은 중요 한 데이터를 유지 해야 합니다.
+
+> [!NOTE]
+> 파일에서 인증서를 로드 하는 경우에도 Windows의 ASP.NET 및 ASP.NET Core는 인증서 저장소에 액세스 해야 합니다. Windows .NET 앱에서 인증서 파일을 로드 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 사용 하 여 현재 사용자 프로필을 로드 합니다.
+>
+> ```azurecli-interactive
+> az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
+> ```
+
+다음 C# 예제에서는 앱의 상대 경로에서 공용 인증서를 로드 합니다.
+
+```csharp
+using System;
+using System.Security.Cryptography.X509Certificates;
+
+...
+var bytes = System.IO.File.ReadAllBytes("~/<relative-path-to-cert-file>");
+var cert = new X509Certificate2(bytes);
+
+// Use the loaded certificate
+```
+
+Node.js, PHP, Python, Java 또는 Ruby의 파일에서 SSL 인증서를 로드 하는 방법을 보려면 해당 언어 또는 웹 플랫폼에 대 한 설명서를 참조 하세요.
 
 ## <a name="more-resources"></a>추가 리소스
 

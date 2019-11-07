@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: glenga
-ms.openlocfilehash: 89709edf085e1c424156fb68bd86fbc66b6ae8a7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 614e02e4ba2599154cd3308d6a4fe222b6f63d3d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934326"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576144"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Azure Functions 1.x에 대한 host.json 참조
 
@@ -140,11 +140,11 @@ ms.locfileid: "72934326"
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------|
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
 |프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.|
-|leasePrefix|n/a|앱의 모든 함수에서 사용할 접두사를 임대합니다.|
+|leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -156,7 +156,7 @@ ms.locfileid: "72934326"
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>functions
 
 작업 호스트가 실행하는 함수 목록입니다. 빈 배열은 모든 함수를 실행한다는 의미입니다. [로컬로 실행](functions-run-local.md)할 때만 사용할 수 있습니다. Azure의 함수 앱에서는 이 설정을 사용하는 대신 [Azure Functions에서 함수를 사용하지 않도록 설정하는 방법](disable-function.md)의 단계를 수행하여 특정 함수를 사용하지 않도록 설정해야 합니다.
 
@@ -192,7 +192,7 @@ ms.locfileid: "72934326"
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |사용|true|기능의 사용 여부를 지정합니다. | 
 |healthCheckInterval|10초|정기적인 백그라운드 상태 검사 사이의 간격 | 
@@ -215,11 +215,14 @@ ms.locfileid: "72934326"
 }
 ```
 
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
+|속성  |기본값 | 설명 |
+|---------|---------|---------| 
+|dynamicThrottlesEnabled|false|사용 설정되면, 이 설정은 요청 처리 파이프라인에서 주기적으로 시스템 성능 카운터(연결/스레드/프로세스/메모리/cpu/등)를 확인하고 해당 카운터 중 하나가 기본 제공 임계값(80%)을 초과하는 경우, 요청은 카운터가 일반 수준으로 반환될 때까지 429 "작업 초과" 응답을 표시하여 거부됩니다.|
+|maxConcurrentRequests|바인딩되지 않음 (`-1`)|병렬로 실행될 http 함수의 최대 수입니다. 그러면 리소스 사용률을 관리하는 데 도움이 되는 동시성을 제어할 수 있습니다. 예를 들어 많은 시스템 리소스(메모리/cpu/소켓)를 사용하는 http 함수가 있으면 동시성이 너무 높은 문제가 발생할 수 있습니다. 또는 타사 서비스에 아웃바운드 요청을 하는 함수가 있는 경우 해당 호출의 속도가 제한되어야 합니다. 이러한 경우 여기에서 제한을 적용하는 것이 좋습니다.|
+|maxOutstandingRequests|바인딩되지 않음 (`-1`)|지정된 시간에 보유할 미해결 요청의 최대 수입니다. 이 제한에는 대기 중이지만 실행이 시작되지 않은 요청과 진행 중인 모든 실행이 포함됩니다. 이 한도를 초과하여 들어오는 요청이 있으면 429 "Too Busy" 응답으로 거부됩니다. 그러면 호출자가 시간 기반 다시 시도 전략을 사용할 수 있고 최대 요청 대기 시간을 제어할 수 있습니다. 이 옵션은 스크립트 호스트 실행 경로 내에서 발생하는 큐만을 제어합니다. ASP.NET 요청 큐와 같은 다른 큐는 여전히 적용되며 이 설정의 영향을 받지 않습니다.|
+|routePrefix|api|모든 경로에 적용되는 경로 접두사입니다. 기본 접두사를 제거하려면 빈 문자열을 사용하십시오. |
 
 ## <a name="id"></a>id
-
-*버전 1.x 전용*입니다.
 
 작업 호스트의 고유 ID입니다. 대시가 제거된 소문자 GUID일 수 있습니다. 로컬에서 실행될 때 필요합니다. Azure에서 실행할 때는 ID 값을 설정하지 않는 것이 좋습니다. `id`를 생략하면 ID가 Azure에서 자동으로 생성됩니다. 
 
@@ -250,11 +253,11 @@ ms.locfileid: "72934326"
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
-|categoryFilter|n/a|범주별 필터링을 지정합니다.| 
+|categoryFilter|해당 없음|범주별 필터링을 지정합니다.| 
 |defaultLevel|정보|`categoryLevels` 배열에 지정되지 않은 범주가 있으면 이 수준 이상의 로그를 Application Insights로 보내십시오.| 
-|categoryLevels|n/a|각 범주에 대해 Application Insight에 보낼 최소 로그 수준을 지정하는 범주 배열입니다. 여기에 지정된 범주는 동일한 값으로 시작하는 모든 범주를 제어하며 긴 값이 우선합니다. 앞의 샘플 *host.json* 파일에서 "Host.Aggregator"로 시작하는 모든 범주는 `Information` 수준으로 기록됩니다. "Host.Executor"와 같이 "Host"로 시작하는 다른 모든 범주는 `Error` 수준으로 기록됩니다.| 
+|categoryLevels|해당 없음|각 범주에 대해 Application Insight에 보낼 최소 로그 수준을 지정하는 범주 배열입니다. 여기에 지정된 범주는 동일한 값으로 시작하는 모든 범주를 제어하며 긴 값이 우선합니다. 앞의 샘플 *host.json* 파일에서 "Host.Aggregator"로 시작하는 모든 범주는 `Information` 수준으로 기록됩니다. "Host.Executor"와 같이 "Host"로 시작하는 다른 모든 범주는 `Error` 수준으로 기록됩니다.| 
 
 ## <a name="queues"></a>queues
 
@@ -272,7 +275,7 @@ ms.locfileid: "72934326"
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |maxPollingInterval|60000|큐 폴링 사이 최대 간격(밀리초)입니다.| 
 |visibilityTimeout|0|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다.| 
@@ -291,9 +294,9 @@ ms.locfileid: "72934326"
     }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
-|from|n/a|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
+|원본|해당 없음|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -309,10 +312,10 @@ ms.locfileid: "72934326"
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |maxConcurrentCalls|16|메시지 펌프가 시작되어야 하는 콜백에 대한 최대 동시 호출 수입니다. 기본적으로 함수 런타임은 여러 개의 메시지를 동시에 처리합니다. 런타임이 큐 또는 토픽 메시지를 한 번에 하나만 처리하도록 하려면, `maxConcurrentCalls`를 1로 설정합니다. | 
-|prefetchCount|n/a|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.| 
+|prefetchCount|해당 없음|기본 MessageReceiver에서 사용할 기본 PrefetchCount입니다.| 
 |autoRenewTimeout|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.| 
 
 ## <a name="singleton"></a>singleton
@@ -331,13 +334,13 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|함수 수준 잠금이 적용되는 기간입니다. 잠금은 자동 갱신됩니다.| 
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 
 |listenerLockRecoveryPollingInterval|00:01:00|시작할 때 수신기 잠금을 가져올 수 없는 경우 수신기 잠금 복구에 사용되는 시간 간격입니다.| 
 |lockAcquisitionTimeout|00:01:00|런타임이 잠금을 확보하려고 시도하는 최대 시간입니다.| 
-|lockAcquisitionPollingInterval|n/a|잠금 확보 시도 사이의 간격입니다.| 
+|lockAcquisitionPollingInterval|해당 없음|잠금 확보 시도 사이의 간격입니다.| 
 
 ## <a name="tracing"></a>tracing
 
@@ -354,7 +357,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |consoleLevel|info|콘솔 로깅의 추적 수준입니다. 옵션은 `off`, `error`, `warning`, `info` 및 `verbose`입니다.|
 |fileLoggingMode|debugOnly|파일 로깅에 대한 추적 수준입니다. 옵션은 `never`, `always`, `debugOnly`입니다.| 

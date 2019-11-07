@@ -1,28 +1,28 @@
 ---
-title: Visual Studio를 사용 하 여 Azure Analysis Services에 배포 | Microsoft Docs
+title: Visual Studio를 사용 하 여 Azure Analysis Services에 모델 배포 | Microsoft Docs
 description: Visual Studio를 사용 하 여 Azure Analysis Services 서버에 테이블 형식 모델을 배포 하는 방법을 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 60681739854515078a521a4ff795e52aa7d74183
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 71b3b7815d2a4b0b4de3afdca9db93156f505445
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146958"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572890"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Visual Studio에서 모델 배포
 
 Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이터베이스를 배포할 준비가 되었습니다. Visual Studio를 Analysis Services 프로젝트와 함께 사용 하 여 작업 중인 테이블 형식 모델 프로젝트를 빌드하고 배포할 수 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작하려면 다음이 필요합니다.
 
-* Azure의 **Analysis Services 서버** - 자세한 내용은 [Azure Analysis Services 서버 만들기](analysis-services-create-server.md)를 참조하세요.
+* Azure의 **Analysis Services 서버** 자세한 내용은 [Azure Analysis Services 서버 만들기](analysis-services-create-server.md)를 참조하세요.
 * Visual Studio의 **테이블 형식 모델 프로젝트** 또는 1200 이상 호환성 수준의 기존 테이블 형식 모델 만들어 본 적이 없나요? [Adventure Works Internet Sales Tabular Modeling 자습서](https://docs.microsoft.com/analysis-services/tutorial-tabular-1400/as-adventure-works-tutorial)를 사용해 보세요.
 * **온-프레미스 게이트웨이** - 하나 이상의 데이터 원본이 조직 네트워크의 온-프레미스에 있는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 설치해야 합니다. 온-프레미스 데이터 원본에 대한 클라우드 연결에 있는 서버가 모델에서 데이터를 처리하고 새로 고치는 데 게이트웨이가 필요합니다.
 
@@ -33,7 +33,7 @@ Azure 구독에서 서버를 만들면 여기에 테이블 형식 모델 데이�
 
 ## <a name="get-the-server-name"></a>서버 이름 가져오기
 
-**Azure 포털** > 서버 > **개요** > **서버 이름**에서 서버 이름을 복사합니다.
+**Azure Portal** > 서버 > **개요** > **서버 이름**에서 서버 이름을 복사합니다.
    
 ![Azure에서 서버 이름 가져오기](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 

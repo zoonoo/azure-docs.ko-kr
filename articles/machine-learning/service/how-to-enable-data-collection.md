@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 845d271c60762177ea88912f2100f3b47aedde46
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 2ca091a1bbf56e2d2850a464d0109020b06483d0
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489989"
+ms.locfileid: "73576686"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -124,7 +124,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 되는 모델에 �
 
    ![서비스 편집](media/how-to-enable-data-collection/EditService.PNG)
 
-1. **고급 설정**에서 **모델 데이터 컬렉션 사용** 선택을 취소합니다. 
+1. **고급 설정**에서 **모델 데이터 수집 사용**을 선택 합니다. 
 
     [![데이터 수집 선택](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 

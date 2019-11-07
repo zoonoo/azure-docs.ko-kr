@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services에 대 한 온-프레미스 데이터 게이트웨이 설치 | Microsoft Docs
-description: 온-프레미스 데이터 게이트웨이를 설치 및 구성하는 방법을 알아봅니다.
+description: 온-프레미스 데이터 게이트웨이를 설치 및 구성 하 여 Azure Analysis Services 서버에서 온-프레미스 데이터 원본에 연결 하는 방법을 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 99b5a0ff9cc0fd7fdc3b8a0e453ed287c45e1c60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: HT
+ms.openlocfilehash: 37658ea6b94d6369d282c49f79947a1f183b61c7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147118"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572849"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 

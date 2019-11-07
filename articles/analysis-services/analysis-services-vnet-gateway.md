@@ -1,22 +1,22 @@
 ---
-title: Azure Virtual Network 데이터 원본에 온-프레미스 데이터 게이트웨이 사용 | Microsoft Docs
-description: VNet에 대한 데이터 원본에 게이트웨이를 사용하도록 서버를 구성하는 방법을 알아봅니다.
+title: VNet 데이터 원본에 대 한 Azure Analysis Services 구성 | Microsoft Docs
+description: VNet (Azure Virtual Network)에서 데이터 원본에 대 한 게이트웨이를 사용 하도록 Azure Analysis Services 서버를 구성 하는 방법에 대해 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: d1993996c0f982624d6976b50871fa8c4592e2f6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 384f4c2ee3021678c530aa5c98eaf4dbfd661e95
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301207"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572272"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Azure VNet(Virtual Network)에서 데이터 원본에 게이트웨이 사용
 
-이 문서에서는 데이터 원본이 [Azure VNet(Virtual Network)](../virtual-network/virtual-networks-overview.md)에 있는 경우 사용을 위한 **AlwaysUseGateway** 서버 속성을 설명합니다.
+이 문서에서는 데이터 원본이 [Azure Virtual Network (VNet)](../virtual-network/virtual-networks-overview.md)에 있는 경우 사용할 Azure Analysis Services **AlwaysUseGateway** 서버 속성에 대해 설명 합니다.
 
 ## <a name="server-access-to-vnet-data-sources"></a>VNet 데이터 원본에 대한 서버 액세스
 
@@ -35,7 +35,7 @@ Azure SQL Database Managed Instance 데이터 소스는 개인 IP 주소를 사�
     ![항상 게이트웨이 속성 사용](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)   
 [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)   
 [Azure VNET(Virtual Network)](../virtual-network/virtual-networks-overview.md)   

@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services에 대한 진단 로깅 | Microsoft Docs
-description: Azure Analysis Services에 진단 로깅을 설정하는 방법을 알아봅니다.
+description: Azure Analysis Services 서버를 모니터링 하기 위해 Azure 리소스 진단 로깅을 설정 하는 방법을 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9684042a76c9c906a75334c319b4ca8ee0b727b
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b8ae2c529bebebae4ebc2d7b0b8a7e420fe9bcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298613"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572784"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
@@ -32,28 +32,28 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 |XEvent 범주 |이벤트 이름  |
 |---------|---------|
-|보안 감사    |   Audit Login      |
-|보안 감사    |   Audit Logout      |
-|보안 감사    |   Audit Server Starts And Stops      |
+|보안 감사    |   로그인 감사      |
+|보안 감사    |   로그아웃 감사      |
+|보안 감사    |   서버 시작 및 중지 감사      |
 |진행률 보고서     |   진행률 보고 시작      |
 |진행률 보고서     |   진행률 보고 종료      |
-|진행률 보고서     |   Progress Report Current      |
-|쿼리     |  Query Begin       |
-|쿼리     |   쿼리 끝      |
-|명령     |  Command Begin       |
-|명령     |  Command End       |
-|오류 및 경고     |   Error      |
-|검색     |   Discover End      |
+|진행률 보고서     |   진행률 보고 현재      |
+|쿼리     |  쿼리 시작       |
+|쿼리     |   쿼리 종료      |
+|명령     |  명령 시작       |
+|명령     |  명령 종료       |
+|오류 및 경고     |   오류      |
+|검색     |   검색 종료      |
 |알림     |    알림     |
-|세션     |  Session Initialize       |
-|잠금    |  Deadlock       |
-|쿼리 처리     |   VertiPaq SE Query Begin      |
-|쿼리 처리     |   VertiPaq SE Query End      |
-|쿼리 처리     |   VertiPaq SE Query Cache Match      |
-|쿼리 처리     |   Direct Query Begin      |
-|쿼리 처리     |  Direct Query End       |
+|세션     |  세션 초기화       |
+|잠금    |  교착 상태       |
+|쿼리 처리     |   VertiPaq SE 쿼리 시작      |
+|쿼리 처리     |   VertiPaq SE 쿼리 종료      |
+|쿼리 처리     |   VertiPaq SE 쿼리 캐시 일치      |
+|쿼리 처리     |   직접 쿼리 시작      |
+|쿼리 처리     |  직접 쿼리 종료       |
 
-### <a name="service"></a>서비스
+### <a name="service"></a>부여
 
 |작업 이름  |발생 시기  |
 |---------|---------|
@@ -70,7 +70,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 ## <a name="setup-diagnostics-logging"></a>진단 로깅 설정
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com) > 서버의 왼쪽 탐색 영역에서 **진단 로그**를 클릭한 다음 **진단 로그 켜기**를 클릭합니다.
 
@@ -88,7 +88,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
     * **서비스**. 서비스 수준 이벤트를 기록하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
     * **메트릭**. [Metrics](analysis-services-monitor.md#server-metrics)에 자세한 데이터를 저장하려면 이 옵션을 선택합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다.
 
-3. **저장**을 클릭합니다.
+3. **Save**를 클릭합니다.
 
     “\<작업 영역 이름>의 진단을 업데이트하지 못했습니다. \<subscription id> 구독은 microsoft.insights를 사용하도록 등록되지 않았습니다.” 오류를 수신하는 경우 [Azure Diagnostics 문제 해결](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) 지침을 따라 계정을 등록한 다음, 이 절차를 다시 시도합니다.
 
@@ -162,7 +162,7 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
 ### <a name="example-queries"></a>쿼리 예
 
-#### <a name="example-1"></a>예제 1
+#### <a name="example-1"></a>예 1
 
 다음 쿼리는 모델 데이터베이스 및 서버에 대 한 각 쿼리 종료/새로 고침 종료 이벤트에 대 한 기간을 반환 합니다. 스케일 아웃 하는 경우 복제본 번호가 ServerName_s에 포함 되어 있으므로 결과는 복제본으로 구분 됩니다. RootActivityId_g를 기준으로 그룹화 하면 Azure 진단 REST API에서 검색 되는 행 수가 줄어들고 [Log Analytics Rate 제한](https://dev.loganalytics.io/documentation/Using-the-API/Limits)에 설명 된 대로 제한 내에서 유지 됩니다.
 
@@ -177,7 +177,7 @@ window
 | order by StartTime_t asc
 ```
 
-#### <a name="example-2"></a>예제 2
+#### <a name="example-2"></a>예 2
 
 다음 쿼리는 서버에 대 한 메모리 및 QPU 소비량을 반환 합니다. 스케일 아웃 하는 경우 복제본 번호가 ServerName_s에 포함 되어 있으므로 결과는 복제본으로 구분 됩니다.
 
@@ -215,7 +215,7 @@ window
 
 이 빠른 자습서에서는 Analysis Service 서버와 동일한 구독 및 리소스 그룹에서 스토리지 계정을 만듭니다. 그런 다음 AzDiagnosticSetting를 사용 하 여 진단 로깅을 설정 하 고 출력을 새 저장소 계정으로 보냅니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음 리소스가 필요합니다.
 
 * 기존 Azure Analysis Services 서버 서버 리소스를 만드는 방법에 대한 지침은 [Azure Portal에서 서버 만들기](analysis-services-create-server.md) 또는 [PowerShell을 사용하여 Azure Analysis Services 서버 만들기](analysis-services-create-powershell.md)를 참조하세요.

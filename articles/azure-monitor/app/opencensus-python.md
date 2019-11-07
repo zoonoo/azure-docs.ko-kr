@@ -8,27 +8,25 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0d848027d6c754df371b4d87cf01c5b2fdbc8c02
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7fb436ef8d915898bc8f36dd10766e71f63e4a59
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820744"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575566"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Python 응용 프로그램에 대 한 Azure Monitor 설정 (미리 보기)
 
 Azure Monitor는 [OpenCensus](https://opencensus.io)와의 통합을 통해 분산 추적, 메트릭 수집 및 Python 응용 프로그램의 로깅을 지원 합니다. 이 문서에서는 Python 용 OpenCensus를 설정 하 고 모니터링 데이터를 Azure Monitor으로 전송 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - Python 설치. 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/)를 사용 하지만, 이전 버전은 사소한 변경 내용으로 작업할 가능성이 높습니다.
 
+## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
 
-
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
-
-[Azure portal](https://portal.azure.com/)에 로그인합니다.
+[Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Azure Monitor에서 Application Insights 리소스 만들기
 
@@ -40,11 +38,11 @@ Azure Monitor는 [OpenCensus](https://opencensus.io)와의 통합을 통해 분�
 
 1. 구성 상자가 표시 됩니다. 다음 표를 사용 하 여 입력 필드를 채웁니다.
 
-   | 설정        | Value           | 설명  |
+   | 설정        | 값           | 설명  |
    | ------------- |:-------------|:-----|
-   | **Name**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별 하는 이름입니다. |
+   | **이름**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별 하는 이름입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스트할 새 리소스 그룹의 이름입니다. |
-   | **위치** | 미국 동부 | 가까운 위치 또는 앱이 호스트 되는 위치 근처 |
+   | **위치**: | 미국 동부 | 가까운 위치 또는 앱이 호스트 되는 위치 근처 |
 
 1. **만들기**를 선택합니다.
 
@@ -55,6 +53,8 @@ OpenCensus Azure Monitor 내보내기를 설치 합니다.
 ```console
 python -m pip install opencensus-ext-azure
 ```
+
+패키지 및 통합의 전체 목록은 [OpenCensus 패키지](https://docs.microsoft.com/azure/azure-monitor/app/nuget#common-packages-for-python-using-opencensus)를 참조 하세요.
 
 > [!NOTE]
 > `python -m pip install opencensus-ext-azure` 명령은 Python 설치를 위한 `PATH` 환경 변수가 설정 되어 있다고 가정 합니다. 이 변수를 구성 하지 않은 경우 Python 실행 파일이 있는 위치에 대 한 전체 디렉터리 경로를 제공 해야 합니다. 결과는 `C:\Users\Administrator\AppData\Local\Programs\Python\Python37-32\python.exe -m pip install opencensus-ext-azure`와 같은 명령입니다.
@@ -127,6 +127,10 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     ```
 
 4. 이제 Python 스크립트를 실행할 때 값을 입력 하 라는 메시지가 표시 되지만 값만 셸에 인쇄 됩니다. 만든 `SpanData` Azure Monitor으로 전송 됩니다. `dependencies`에서 내보낸 범위 데이터를 찾을 수 있습니다.
+
+5. OpenCensus 샘플링에 대 한 자세한 내용은 [OpenCensus의 샘플링](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python)을 참조 하세요.
+
+6. 추적 데이터의 원격 분석 상관 관계에 대 한 자세한 내용은 OpenCensus [원격 분석 상관 관계](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)를 참조 하세요.
 
 ### <a name="metrics"></a>메트릭
 
@@ -291,6 +295,8 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     ```
 
 4. 내보내기가 로그 데이터를 Azure Monitor으로 보냅니다. `traces`에서 데이터를 찾을 수 있습니다.
+
+5. 추적 컨텍스트 데이터로 로그를 보강 하는 방법에 대 한 자세한 내용은 OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation)을 참조 하세요.
 
 ## <a name="start-monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링 시작
 

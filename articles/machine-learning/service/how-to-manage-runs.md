@@ -11,12 +11,12 @@ author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 525fc8beafbdbe15435c59697d136ae06c91c135
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 32b477a108649abd3faedd70d1a3b54b31089b9a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489698"
+ms.locfileid: "73574305"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Python에서 학습 실행 시작, 모니터링 및 취소
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -343,3 +343,4 @@ Azure CLI 결과를 쿼리 하는 방법에 대 한 자세한 내용은 [쿼리 
 ## <a name="next-steps"></a>다음 단계
 
 * 실험에 대 한 메트릭을 기록 하는 방법에 대 한 자세한 내용은 [학습 실행 중의 로그 메트릭](how-to-track-experiments.md)을 참조 하세요.
+* Azure Machine Learning에서 리소스와 로그를 모니터링 하는 방법을 알아보려면 [Azure Machine Learning 모니터링](monitor-azure-machine-learning.md)을 참조 하세요.

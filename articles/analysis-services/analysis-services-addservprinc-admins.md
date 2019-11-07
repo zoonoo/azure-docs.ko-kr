@@ -1,18 +1,18 @@
 ---
-title: Azure Analysis Services 서버 관리자 역할에 서비스 사용자 추가 | Microsoft Docs
-description: 서버 관리자 역할에 자동화 서비스 사용자를 추가하는 방법을 알아봅니다.
+title: Azure Analysis Services 관리자 역할에 서비스 주체 추가 | Microsoft Docs
+description: Azure Analysis Services 서버 관리자 역할에 automation 서비스 주체를 추가 하는 방법에 대해 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: c141bcea030f5afcc3cb33adba32f4a96c335eec
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: HT
+ms.openlocfilehash: 0a3a86283c8ec9876fbec049a2a1a110eb1a80f3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147390"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573608"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>서버 관리자 역할에 서비스 사용자 추가 
 
