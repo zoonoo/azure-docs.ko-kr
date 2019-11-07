@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 리소스 제한 사항 - 관리되는 인스턴스 | Microsoft Docs
+title: Azure SQL Database 리소스 제한-관리 되는 인스턴스
 description: 이 문서는 관리되는 인스턴스의 Azure SQL Database 리소스 제한 사항에 대한 개요를 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 10/02/2019
-ms.openlocfilehash: 17ffc07bb5632b1b56b7bff1e843e5955d396089
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 723704b6b81aacf086ff42b02c32259d0e2f1c6d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372206"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687924"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -74,11 +74,11 @@ ms.locfileid: "72372206"
 | 인스턴스당 데이터베이스 파일의 최대 수 | 인스턴스 저장소 크기 또는 [Azure Premium Disk storage 할당 공간](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) 제한에 도달 하지 않는 한 최대 280입니다. | 32767 인스턴스 저장소 크기 제한에 도달 하지 않으면 데이터베이스당 파일 수입니다. |
 | 최대 데이터 파일 크기 | 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 2tb, 648TB) 및 [Azure Premium Disk storage 할당 공간](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files)으로 제한 됩니다. | 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 1tb-4 TB)로 제한 됩니다. |
 | 최대 로그 파일 크기 | 2tb 및 현재 사용할 수 있는 인스턴스 저장소 크기로 제한 됩니다. | 2tb 및 현재 사용할 수 있는 인스턴스 저장소 크기로 제한 됩니다. |
-| 데이터/로그 IOPS(근사치) | 인스턴스당 최대 30-40 K IOPS *, 500-7500/파일<br/>\*은[더 많은 IOPS를 얻기 위해 파일 크기를 늘립니다](#file-io-characteristics-in-general-purpose-tier) .| 5.5 k-110 K (1375 IOPS/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
+| 데이터/로그 IOPS(근사치) | 인스턴스당 최대 30-40 K IOPS *, 500-7500/파일<br/>[더 많은 IOPS를 얻기 위해 파일 크기를 늘립니다](#file-io-characteristics-in-general-purpose-tier) \*| 5.5 k-110 K (1375 IOPS/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
 | 로그 쓰기 처리량 한도 (인스턴스당) | vCore당 3MB/초<br/>최대 22 m b/초 | vCore 당 4mb/s<br/>최대 48MB/초 |
-| 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>\*[IO 성능을 향상 시키려면 파일 크기를 늘립니다](#file-io-characteristics-in-general-purpose-tier) . | 제한 되지 않습니다. |
+| 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>[더 나은 IO 성능을 얻기 위해 파일 크기를 늘릴](#file-io-characteristics-in-general-purpose-tier) \* | 제한 되지 않습니다. |
 | 저장소 IO 대기 시간 (근사치) | 5~10ms | 1~2ms |
-| 메모리 내 OLTP | 지원하지 않음 | 사용 가능, [크기는 vCore의 수에 따라 다릅니다](#in-memory-oltp-available-space) . |
+| 메모리 내 OLTP | 지원되지 않음 | 사용 가능, [크기는 vCore의 수에 따라 다릅니다](#in-memory-oltp-available-space) . |
 | 최대 세션 | 30000 | 30000 |
 | [읽기 전용 복제본](sql-database-read-scale-out.md) | 0 | 1 (가격에 포함 됨) |
 
@@ -137,14 +137,14 @@ ms.locfileid: "72372206"
 |종량제|3|320|
 |CSP |8 (일부 지역의 경우 15 * *)|960 (일부 지역에서 1440 * *)|
 |종량제 개발/테스트|3|320|
-|엔터프라이즈 개발/테스트|3|320|
+|Enterprise 개발/테스트|3|320|
 |EA|8 (일부 지역의 경우 15 * *)|960 (일부 지역에서 1440 * *)|
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional 및 MSDN 플랫폼|2|32|
 
 \* 배포 계획에서 BC (중요 비즈니스용) 서비스 계층에는 일반 용도 (GP) 서비스 계층 보다 4 배 더 많은 vCore 용량이 필요 하다는 점을 고려 하세요. 예: 1 GP vCore = 1 vCore 단위 및 1 BC vCore = 4 vCore 단위 기본 제한에 대해 사용량 분석을 간소화 하기 위해는 관리 되는 인스턴스가 배포 된 지역의 모든 서브넷에서 vCore 단위를 요약 하 고 해당 결과를 구독 유형에 대 한 인스턴스 단위 제한과 비교 합니다. **최대 vCore 단위 수** 제한은 한 지역의 각 구독에 적용 됩니다. 여러 서브넷에 배포 된 모든 **Vcores의 합계가 최대 vcores 단위 수**와 같거나 작아야 한다는 점만 제외 하 고 개별 서브넷 당 제한이 없습니다.
 
-\* @ no__t-1 큰 서브넷 및 vCore 제한은 오스트레일리아 동부, 미국 동부, 미국 동부 2, 서유럽, 미국 동부, 동남 아시아, 영국 남부, 유럽 서부, 미국 서 부 2 지역에서 사용할 수 있습니다.
+오스트레일리아 동부, 미국 동부, 미국 동부 2, 서유럽, 미국 동부, 동남 아시아, 영국 남부, 유럽 서부, 미국 서 부 2 지역에서 더 큰 서브넷 및 vCore 제한을 \* \*있습니다.
 
 ## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>SQL 관리 되는 인스턴스의 더 큰 할당량 가져오기
 

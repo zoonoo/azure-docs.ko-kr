@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse의 GROUP BY 옵션 사용 | Microsoft Docs
+title: Group by 옵션 사용
 description: 솔루션 개발을 위한 Azure SQL Data Warehouse의 GROUP BY 옵션 구현을 위한 팁.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: query
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2f6614f32c31338c9cf4f00307c475db4e02f553
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8d5d0f28fa210a56460ced25323b96a68f245895
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479644"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685843"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>SQL Data Warehouse의 GROUP BY 옵션
 솔루션 개발을 위한 Azure SQL Data Warehouse의 GROUP BY 옵션 구현을 위한 팁.
@@ -27,13 +28,13 @@ ms.locfileid: "68479644"
 이들 옵션은
 
 * GROUP BY with ROLLUP
-* GROUPING SETS
+* 그룹화 집합
 * GROUP BY with CUBE
 
-## <a name="rollup-and-grouping-sets-options"></a>ROLLUP 및 GROUPING SETS 옵션
+## <a name="rollup-and-grouping-sets-options"></a>롤업 및 그룹화 집합 옵션
 여기서 가장 간단한 옵션은 명시적 구문에 의존하는 대신 UNION ALL을 사용하여 롤업을 수행하는 것입니다. 결과는 완전히 동일합니다.
 
-다음은 ROLLUP 옵션과 함께 GROUP BY 문을 사용하는 예제입니다.
+다음은 ROLLUP 옵션과 함께GROUP BY 문을 사용하는 예제입니다.
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -50,7 +51,7 @@ GROUP BY ROLLUP (
 ROLLUP을 사용하여, 앞의 예제는 다음과 같은 집계를 요청합니다.
 
 * 국가 및 지역
-* Country
+* 국가
 * 총합계
 
 ROLLUP을 대체하고 동일한 결과를 반환하려면 UNION ALL을 사용하고 필요한 집계를 명시적으로 지정합니다.
@@ -82,7 +83,7 @@ JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritor
 
 GROUPING SETS를 바꾸려면 샘플 원칙이 적용됩니다. 보려는 집계 수준에 대한 UNION ALL 섹션만 만들면 됩니다.
 
-## <a name="cube-options"></a>CUBE 옵션
+## <a name="cube-options"></a>큐브 옵션
 UNION ALL 접근방식을 사용하여 GROUP BY WITH CUBE를 만들 수 있습니다. 문제는 코드가 금세 번거롭고 다루기 힘들게 될 수 있다는 것입니다. 이 문제를 완화하기 위해 보다 발전된 접근 방식을 사용할 수 있습니다.
 
 위의 예제를 사용해 보겠습니다.

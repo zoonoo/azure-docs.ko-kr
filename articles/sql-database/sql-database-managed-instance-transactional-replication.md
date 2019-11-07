@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database를 사용한 트랜잭션 복제 | Microsoft Docs"
+title: Azure SQL Database "로 트랜잭션 복제
 description: Azure SQL Database에서 단일 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스와 함께 SQL Server 트랜잭션 복제를 사용하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 02/08/2019
-ms.openlocfilehash: 86bd479eff48a7feb42557eb1d175345728f0a69
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 016b4f2ee191443cf608af18d1be6a94b6d53a39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879049"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687824"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스, 풀링된 데이터베이스 및 인스턴스 데이터베이스와 함께 트랜잭션 복제
 
@@ -142,7 +142,7 @@ ms.locfileid: "68879049"
 
 1. [두 개의 관리 되는 인스턴스 간에 복제를 구성](replication-with-sql-database-managed-instance.md)합니다. 
 1. [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-1. 구독자로 Azure SQL Database 서버 이름(예: `N'azuresqldbdns.database.windows.net`) 및 대상 데이터베이스로 Azure SQL Database 이름(예: **Adventureworks**)을 사용하여 [밀어넣기 구독을 만듭니다](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription). )
+1. 구독자로 Azure SQL Database 서버 이름(예: [) 및 대상 데이터베이스로 Azure SQL Database 이름(예: ](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription)Adventureworks`N'azuresqldbdns.database.windows.net`)을 사용하여 **밀어넣기 구독을 만듭니다**. )
 1. [관리 되는 인스턴스의 트랜잭션 복제](sql-database-managed-instance-transact-sql-information.md#replication) 에 대 한 제한 사항에 대 한 자세한 정보
 
 
@@ -152,7 +152,7 @@ ms.locfileid: "68879049"
 - [MI 및 장애 조치 (failover) 그룹을 사용 하 여 복제](sql-database-managed-instance-transact-sql-information.md#replication)
 - [SQL Database로 복제](replication-to-sql-database.md)
 - [관리 되는 인스턴스로 복제](replication-with-sql-database-managed-instance.md)
-- [Create a Publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [게시 만들기](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [밀어넣기 구독 만들기](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [복제 유형](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [모니터링(복제)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)

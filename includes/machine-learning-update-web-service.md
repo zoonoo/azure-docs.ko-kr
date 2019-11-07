@@ -2,14 +2,14 @@
 author: larryfr
 ms.service: machine-learning
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 11/06/2019
 ms.author: larryfr
-ms.openlocfilehash: 11cc93e0eb11d0422fae4fbbbf0a549df067daca
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 694d7e6afbf7bd4b219d52254159dcf2e02f8769
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390600"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682108"
 ---
 웹 서비스를 업데이트 하려면 `update` 메서드를 사용 합니다. 새 모델, 새 항목 스크립트 또는 유추 구성에서 지정할 수 있는 새 종속성을 사용 하도록 웹 서비스를 업데이트할 수 있습니다. 자세한 내용은 [웹 서비스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#update--args-)에 대 한 설명서를 참조 하십시오.
 

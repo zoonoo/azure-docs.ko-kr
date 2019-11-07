@@ -1,21 +1,21 @@
 ---
-title: 'Azure Backup: REST API를 사용 하 여 Azure Vm 백업'
+title: 'Azure Backup: REST API를 사용하여 Azure VM 백업'
 description: REST API를 사용하여 Azure VM 백업의 백업 작업 관리
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
-keywords: REST API, Azure VM 백업, Azure VM 복원,
+keywords: REST API; Azure VM 백업; Azure VM 복원;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 701972c32f3e80682e2a20d04b02bcd555532e08
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 837401256aa264a527e2323b055713f4bd8e8d1c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954991"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671680"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
@@ -41,16 +41,16 @@ POST URI에는 `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>응답
 
 '새로 고침' 작업은 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
-두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
+이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |형식  |Description  |
+|Name  |형식  |설명  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
-|202 수락됨     |         |     동의함    |
+|202 수락됨     |         |     수락됨    |
 
 ##### <a name="example-responses"></a>예제 응답
 
@@ -110,7 +110,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ##### <a name="responses-1"></a>보낸
 
-|이름  |형식  |설명  |
+|Name  |형식  |설명  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       확인 |
 
@@ -155,7 +155,7 @@ X-Powered-By: ASP.NET
 > [!TIP]
 > *GET* 응답에서 값의 개수는 '페이지'당 200개로 제한됩니다. 'nextLink' 필드를 사용하여 다음 집합의 응답에 대한 URL을 가져옵니다.
 
-이 응답에는 보호되지 않는 모든 Azure VM 목록이 포함되며 각 `{value}`에는 Azure Recovery Service에서 백업을 구성하는 데 필요한 모든 정보가 포함됩니다. Backup을 구성하려면 `{properties}` 섹션에서 `{name}` 필드 및 `{virtualMachineId}` 필드를 참고합니다. 아래에 설명된 대로 이러한 필드 값에서 두 개의 변수를 생성합니다.
+이 응답에는 보호되지 않는 모든 Azure VM 목록이 포함되며 각 `{value}`에는 Azure Recovery Service에서 백업을 구성하는 데 필요한 모든 정보가 포함됩니다. Backup을 구성하려면 `{name}` 섹션에서 `{virtualMachineId}` 필드 및 `{properties}` 필드를 참고합니다. 아래에 설명된 대로 이러한 필드 값에서 두 개의 변수를 생성합니다.
 
 - containerName = "iaasvmcontainer;"+`{name}`
 - protectedItemName = "vm;"+ `{name}`
@@ -179,16 +179,16 @@ https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaul
 `{containerName}` 및 `{protectedItemName}`은 위에서 생성됩니다. `{fabricName}`은 "Azure"입니다. 예를 들어 이렇게 하면 다음으로 변환됩니다.
 
 ```http
-PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
+PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
 #### <a name="create-the-request-body"></a>요청 본문 만들기
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |형식  |Description  |
+|Name  |형식  |설명  |
 |---------|---------|---------|
-|속성     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
+|properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
 요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [보호된 항목 REST API 문서 만들기](https://docs.microsoft.com/rest/api/backup/protecteditems/createorupdate#request-body)를 참조하세요.
 
@@ -206,18 +206,18 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-`{sourceResourceId}`는 [보호 가능한 항목 목록의 응답](#example-responses-1)의 위에서 설명한 `{virtualMachineId}`입니다.
+`{sourceResourceId}`는 `{virtualMachineId}`보호 가능한 항목 목록의 응답[의 위에서 설명한 ](#example-responses-1)입니다.
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>응답
 
 보호된 항목 만들기는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
-두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
+이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |형식  |Description  |
+|Name  |형식  |설명  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  확인       |
-|202 수락됨     |         |     동의함    |
+|202 수락됨     |         |     수락됨    |
 
 ##### <a name="example-responses"></a>예제 응답
 
@@ -227,7 +227,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 HTTP/1.1 202 Accepted
 Pragma: no-cache
 Retry-After: 60
-Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 X-Content-Type-Options: nosniff
 x-ms-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-client-request-id: e1f94eef-9b2d-45c4-85b8-151e12b07d03; e1f94eef-9b2d-45c4-85b8-151e12b07d03
@@ -237,7 +237,7 @@ x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
-Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+Location: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationResults/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
@@ -293,16 +293,16 @@ POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/
 `{containerName}` 및 `{protectedItemName}`은 [위에서](#responses-1) 생성됩니다. `{fabricName}`은 "Azure"입니다. 예를 들어 이렇게 하면 다음으로 변환됩니다.
 
 ```http
-POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2016-12-01
+POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM/backup?api-version=2019-05-13
 ```
 
 ### <a name="create-the-request-body"></a>요청 본문 만들기
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |형식  |Description  |
+|Name  |형식  |설명  |
 |---------|---------|---------|
-|속성     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
+|properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
 요청 본문 및 기타 세부 정보에 대한 전체 정의 목록은 [보호된 항목 REST API 문서의 백업 트리거](https://docs.microsoft.com/rest/api/backup/backups/trigger#request-body)를 참조하세요.
 
@@ -319,15 +319,15 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 }
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>응답
 
 주문형 백업의 트리거는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
-두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
+이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |형식  |Description  |
+|Name  |형식  |설명  |
 |---------|---------|---------|
-|202 수락됨     |         |     동의함    |
+|202 수락됨     |         |     수락됨    |
 
 ##### <a name="example-responses-3"></a>예제 응답
 
@@ -337,7 +337,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 HTTP/1.1 202 Accepted
 Pragma: no-cache
 Retry-After: 60
-Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testVaultRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/b8daecaa-f8f5-44ed-9f18-491a9e9ba01f?api-version=2016-12-01
+Azure-AsyncOperation: https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testVaultRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/b8daecaa-f8f5-44ed-9f18-491a9e9ba01f?api-version=2019-05-13
 X-Content-Type-Options: nosniff
 x-ms-request-id: 7885ca75-c7c6-43fb-a38c-c0cc437d8810
 x-ms-client-request-id: 7df8e874-1d66-4f81-8e91-da2fe054811d; 7df8e874-1d66-4f81-8e91-da2fe054811d
@@ -354,7 +354,7 @@ X-Powered-By: ASP.NET
 그런 다음, 간단한 *GET* 명령으로 위치 헤더 또는 Azure-AsyncOperation 헤더를 사용하여 결과 작업을 추적합니다.
 
 ```http
-GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2016-12-01
+GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;testRG;testVM/operationsStatus/a0866047-6fc7-4ac3-ba38-fb0ae8aa550f?api-version=2019-05-13
 ```
 
 작업이 완료되면 응답 본문에서 결과 백업 작업의 ID를 사용하여 200(정상)을 반환합니다.
@@ -393,7 +393,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="changing-the-policy-of-protection"></a>보호 정책 변경
 
-VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protection-for-the-azure-vm)과 동일한 형식을 사용할 수 있습니다. [요청 본문](#example-request-body)의 새 정책 ID를 제공하고 요청을 제출합니다. 예를 들어: TestVM의 정책을 ' DefaultPolicy '에서 ' ProdPolicy '로 변경 하려면 요청 본문에 ' ProdPolicy ' ID를 제공 합니다.
+VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protection-for-the-azure-vm)과 동일한 형식을 사용할 수 있습니다. [요청 본문](#example-request-body)의 새 정책 ID를 제공하고 요청을 제출합니다. 예: testVM의 정책을 ' DefaultPolicy '에서 ' ProdPolicy '로 변경 하려면 요청 본문에 ' ProdPolicy ' ID를 제공 합니다.
 
 ```http
 {
@@ -430,25 +430,25 @@ VM을 보호하는 정책을 변경하려면 [보호 사용](#enabling-protectio
 보호 중지 및 데이터 삭제는 *DELETE* 작업입니다.
 
 ```http
-DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2016-12-01
+DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13
 ```
 
 `{containerName}` 및 `{protectedItemName}`은 [위에서](#responses-1) 생성됩니다. `{fabricName}`은 "Azure"입니다. 예를 들어 이렇게 하면 다음으로 변환됩니다.
 
 ```http
-DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2016-12-01
+DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/iaasvmcontainer;iaasvmcontainerv2;testRG;testVM/protectedItems/vm;iaasvmcontainerv2;testRG;testVM?api-version=2019-05-13
 ```
 
 ### <a name="responses-2"></a>보낸
 
 보호 *DELETE* 작업은 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
-두 응답을 반환합니다. 다른 작업이 생성 되 면 202 (수락 됨)이 고, 해당 작업이 완료 되 면 204 (NoContent)입니다.
+이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 204(NoContent)의 두 응답을 반환합니다.
 
-|이름  |형식  |Description  |
+|Name  |형식  |설명  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
-|202 수락됨     |         |     동의함    |
+|202 수락됨     |         |     수락됨    |
 
 ## <a name="next-steps"></a>다음 단계
 

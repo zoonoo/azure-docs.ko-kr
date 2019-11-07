@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center에서 머신 및 애플리케이션 보호 | Microsoft Docs
+title: Azure Security Center에서 컴퓨터 및 응용 프로그램 보호
 description: 이 문서에서는 가상 머신, 컴퓨터, 웹 앱 및 App Service 환경을 보호하는 데 도움이 되는 Security Center의 권장 사항을 설명합니다.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 2317d0206e3fc4a342606d17c172ac42cbe82870
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 803e64c9df1b52a33a1b50714f77b005032bf200
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520684"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686348"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Azure Security Center에서 머신 및 애플리케이션 보호
 Azure Security Center는 Azure 리소스, 비 Azure 서버 및 가상 컴퓨터의 보안 상태를 분석 합니다. 보안 센터가 잠재적인 보안 취약점을 식별하는 경우 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다. 이러한 권장 사항은 VM(가상 머신)과 컴퓨터, 애플리케이션, 네트워킹, SQL과 ID 및 액세스 등의 Azure 리소스 유형에 적용됩니다.
@@ -143,7 +143,7 @@ App Service 정보를 보려면 구독에서 App Service를 사용 하도록 설
 
 1. 웹 애플리케이션을 선택합니다. 요약 보기는 다음과 같은 세 개의 탭으로 열립니다.
 
-   - **권장 사항**: 실패한 Security Center에서 수행된 평가를 기반으로 합니다.
+   - **권장 사항**: 실패 한 Security Center에서 수행 하는 평가를 기준으로 합니다.
    - **통과된 평가**: 전달된 Security Center에서 수행된 평가의 목록입니다.
    - **사용할 수 없는 평가**: 오류로 인해 실행하지 못한 평가 목록 또는 특정 App Service와 관련이 없는 권장 사항입니다.
 
@@ -153,7 +153,7 @@ App Service 정보를 보려면 구독에서 App Service를 사용 하도록 설
 
 2. 권장 사항을 선택하여 권장 사항에 대한 설명, 비정상 리소스, 정상 리소스, 검사되지 않은 리소스 목록을 확인합니다.
 
-   - **통과된 평가** 열에는 통과된 평가의 목록이 나와 있습니다.  이러한 평가의 심각도는 항상 녹색입니다.
+   - **통과된 평가** 열에는 통과된 평가의 목록이 나와 있습니다. 이러한 평가의 심각도는 항상 녹색입니다.
 
    - 평가에 대한 설명, 비정상 및 정상 리소스 목록 및 검사되지 않은 리소스 목록에서 통과된 평가를 선택합니다. 비정상 리소스에 대한 탭이 있지만 평가를 통과하기 때문에 이 목록은 항상 비어 있습니다.
 
@@ -198,7 +198,7 @@ Microsoft Monitoring Agent를 설치하도록 기존의 모든 확장 집합을 
 |Compute 리소스(Batch)|5|Batch 계정에서 진단 로그 사용|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
 |Compute 리소스(이벤트 허브)|5|이벤트 허브의 진단 로그를 사용 하도록 설정 해야 합니다.|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
 |Compute 리소스(Logic Apps)|5|Logic Apps에서 진단 로그 사용|로그를 사용하도록 설정하고 최대 1년 간 보존합니다. 이렇게 하면 보안 인시던트가 발생하거나 네트워크가 손상된 경우 조사 목적으로 활동 내역을 다시 만들 수 있습니다. |
-|Compute 리소스(Service Fabric)|15|Service Fabric에서 ClusterProtectionLevel 속성을 EncryptAndSign으로 설정|Service Fabric은 기본 클러스터 인증서를 사용하여 노드 간 통신을 위한 3단계 보호(None, Sign 및 EncryptAndSign)를 제공합니다.  모든 노드 간 메시지가 암호화되고 디지털로 서명될 수 있게 보호 수준을 설정합니다. |
+|Compute 리소스(Service Fabric)|15|Service Fabric에서 ClusterProtectionLevel 속성을 EncryptAndSign으로 설정|Service Fabric은 기본 클러스터 인증서를 사용하여 노드 간 통신을 위한 3단계 보호(None, Sign 및 EncryptAndSign)를 제공합니다. 모든 노드 간 메시지가 암호화되고 디지털로 서명될 수 있게 보호 수준을 설정합니다. |
 |Compute 리소스(Service Bus)|1|Service Bus 네임스페이스에서 RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙 제거 |Service Bus 클라이언트는 네임스페이스의 모든 큐 및 토픽에 대한 액세스를 제공하는 네임스페이스 수준 액세스 정책을 사용하지 않아야 합니다. 최소 권한 보안 모델에 맞게 큐 및 토픽에 대한 엔터티 수준의 액세스 정책을 만들어 특정 엔터티에만 액세스를 제공해야 합니다.|
 |Compute 리소스(이벤트 허브)|1|RootManageSharedAccessKey를 제외한 모든 권한 부여 규칙은 Event Hub 네임 스페이스에서 제거 해야 합니다.|이벤트 허브 클라이언트는 네임스페이스의 모든 큐 및 토픽에 대한 액세스를 제공하는 네임스페이스 수준 액세스 정책을 사용하지 않아야 합니다. 최소 권한 보안 모델에 맞게 큐 및 토픽에 대한 엔터티 수준의 액세스 정책을 만들어 특정 엔터티에만 액세스를 제공해야 합니다.|
 |Compute 리소스(이벤트 허브)|5|이벤트 허브 엔터티에 대 한 권한 부여 규칙을 정의 해야 합니다.|최소 액세스 권한을 부여하기 위해 이벤트 허브 엔터티에 대한 권한 부여 규칙을 감사합니다.|
@@ -220,7 +220,7 @@ Microsoft Monitoring Agent를 설치하도록 기존의 모든 확장 집합을 
 |컴퓨터|15|웹 애플리케이션 방화벽 추가| WAF(웹 애플리케이션 방화벽) 솔루션을 배포하여 웹 애플리케이션을 보호합니다. |
 |컴퓨터|30|취약성 평가 솔루션으로 취약성을 수정해야 합니다.|취약성 평가 타사 솔루션이 배포된 가상 머신이 애플리케이션 및 OS 취약성에 대해 연속적으로 평가됩니다. 이러한 취약성 항목이 발견될 때마다 이 내용을 자세한 권장 구성의 일부로 사용할 수 있습니다.|
 |컴퓨터|30|가상 머신에 취약성 평가 솔루션 설치|가상 머신에 취약성 평가 솔루션 설치|
-|컴퓨터|1|가상 컴퓨터를 새 AzureRM 리소스에 마이그레이션해야 합니다.|가상 머신에 Azure Resource Manager를 사용하여 더 강력한 액세스 제어(RBAC), 더욱 효율적인 감사, Resource Manager 기반 배포 및 관리, 관리 ID 액세스, 비밀용 Key Vault 액세스, Azure AD 기반 인증, 더욱 쉬운 보안 관리를 위한 태그 및 리소스 그룹 지원과 같이 향상된 보안 기능을 제공합니다. |
+|컴퓨터|1|가상 컴퓨터를 새 AzureRM 리소스에 마이그레이션해야 합니다.|가상 컴퓨터에 대 한 Azure Resource Manager를 사용 하 여 더 강력한 액세스 제어 (RBAC), 향상 된 감사, 리소스 관리자 기반 배포 및 거 버 넌 스, 관리 되는 id에 대 한 액세스, 비밀에 대 한 key vault 액세스 등의 향상 된 보안 기능 제공 보다 쉬운 보안 관리를 위해 Azure AD 기반 인증 및 태그 및 리소스 그룹에 대 한 지원을 제공 합니다. |
 |컴퓨터|30|취약성 평가 솔루션으로 취약성을 수정해야 합니다.|취약성 평가 타사 솔루션이 배포된 가상 머신이 애플리케이션 및 OS 취약성에 대해 연속적으로 평가됩니다. 이러한 취약성 항목이 발견될 때마다 이 내용을 자세한 권장 구성의 일부로 사용할 수 있습니다.|
 |가상 머신 크기 집합 |4|Virtual Machine Scale Sets의 진단 로그를 사용 하도록 설정 해야 합니다.|로그를 사용하도록 설정하고 최대 1년간 보존합니다. 이 옵션을 사용하면 조사를 위해 작업 내역을 다시 만들 수 있습니다. 이 옵션은 보안 인시던트가 발생하거나 네트워크가 손상된 경우에 유용합니다.|
 |가상 머신 크기 집합|35|가상 머신 확장 집합에서 보안 구성의 취약성을 수정해야 합니다.|가상 머신 확장 집합의 보안 구성에서 취약성을 수정하여 공격으로부터 보호합니다. |

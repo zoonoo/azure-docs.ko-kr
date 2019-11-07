@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 시각적 모니터링 | Microsoft Docs
+title: Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
 description: Azure 데이터 팩터리를 시각적으로 모니터링 하는 방법 알아보기
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: f7c27bde3806684045bc43f8ff99eefb14c8d04a
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7b79fd9c87e97e624cce567b57c1c65fefcc151e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029148"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684630"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Azure Data Factory를 시각적으로 모니터링하는 방법에 대해 알아봅니다
 Azure Data Factory는 클라우드 기반 데이터 통합 서비스입니다. 데이터 이동 및 데이터 변환을 오케스트레이션 하 고 자동화 하기 위해 클라우드에서 데이터 기반 워크플로를 만드는 데 사용할 수 있습니다. Azure Data Factory를 사용 하 여 다음을 수행할 수 있습니다.
@@ -42,12 +42,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 | **열 이름** | **설명** |
 | --- | --- |
-| 파이프라인 이름 | 파이프라인 이름입니다. |
-| 동작 | 활동 실행을 보는 데 사용할 수 있는 단일 작업 |
+| 파이프라인 이름 | 파이프라인의 이름 |
+| 작업 | 활동 실행을 보는 데 사용할 수 있는 단일 작업 |
 | 실행 시작 | 파이프라인 실행에 대 한 시작 날짜 및 시간 (MM/DD/YYYY, HH: MM: SS AM/PM) |
-| Duration | 실행 기간 (HH:MM:SS) |
+| 기간 | 실행 기간 (HH:MM:SS) |
 | 트리거 주체 | 수동 트리거 또는 예약 된 트리거 |
-| Status | **실패**, **성공**또는 **진행 중** |
+| 가동 상태 | **실패**, **성공**또는 **진행 중** |
 | 매개 변수 | 파이프라인 실행에 대 한 매개 변수 (이름/값 쌍) |
 | 오류 | 파이프라인 실행 오류 (있는 경우) |
 | 실행 ID | 파이프라인 실행 ID입니다. |
@@ -62,8 +62,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | 작업 이름 | 파이프라인 내의 활동 이름 |
 | 작업 유형 | 활동의 유형 (예: **Copy**, **HDInsightSpark**또는 **HDInsightHive** ) |
 | 실행 시작 | 작업 실행에 대 한 시작 날짜 및 시간 (MM/DD/YYYY, HH: MM: SS AM/PM) |
-| Duration | 실행 기간 (HH:MM:SS) |
-| Status | **실패**, **성공**또는 **진행 중** |
+| 기간 | 실행 기간 (HH:MM:SS) |
+| 가동 상태 | **실패**, **성공**또는 **진행 중** |
 | 입력 | 활동 입력을 설명 하는 JSON 배열입니다. |
 | 출력 | 활동 출력을 설명 하는 JSON 배열입니다. |
 | 오류 | 작업 실행 오류 (있는 경우) |
@@ -90,7 +90,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | --- | --- |
 | 파이프라인 이름 | 파이프라인의 이름입니다. 옵션에는 **지난 24 시간**, **지난 주**및 **지난 30 일**에 대 한 빠른 필터가 포함 됩니다. 또는 사용자 지정 날짜 및 시간을 선택 합니다. |
 | 실행 시작 | 파이프라인 실행의 시작 날짜 및 시간입니다. |
-| 실행 상태 | 상태별로 실행 필터: **성공**, **실패**또는 **진행 중**입니다. |
+| 실행 상태 | 상태별로 실행 된 필터: **성공**, **실패**또는 **진행**중. |
 
 ![필터링 옵션](media/monitor-visually/filter.png)
 
@@ -159,7 +159,7 @@ Gantt 보기를 사용 하 여 파이프라인 및 활동 실행을 빠르게 �
 
 ![사용자 의견](media/monitor-visually/feedback.png)
 
-## <a name="alerts"></a>,
+## <a name="alerts"></a>경고
 
 Data Factory의 지원되는 메트릭에 대해 경고를 발생시킬 수 있습니다. Data Factory 모니터링 페이지에서 **모니터링** > **경고 & 메트릭을** 선택 하 여 시작 합니다.
 

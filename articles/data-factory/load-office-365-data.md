@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Office 365에서 데이터 로드 | Microsoft Docs
+title: Azure Data Factory를 사용하여 Office 365에서 데이터 로드
 description: Azure Data Factory를 사용하여 Office 365에서 데이터 복사
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: da3d407b39ef00154b717b54213a3b40d2d110bb
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0c938caef81063409d3c8d6632cd7e8df99f1ea1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754644"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672612"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Office 365에서 데이터 로드
 
@@ -45,7 +45,7 @@ ms.locfileid: "72754644"
 
 5. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
 
-## <a name="create-a-pipeline"></a>파이프라인을 만들기
+## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
 
 1. "시작하기" 페이지에서 **파이프라인 만들기**를 선택합니다.
  
@@ -77,7 +77,7 @@ ms.locfileid: "72754644"
 
     ![Office 365 데이터 세트 테이블 구성](./media/load-office-365-data/edit-dataset.png)
 
-8. 이제 **파이프라인**  > **원본 탭** 으로 돌아가서 Office 365 데이터 추출에 대 한 추가 속성을 계속 구성 합니다.  사용자 범위 및 사용자 범위 필터는 Office 365에서 추출 하려는 데이터를 제한 하기 위해 정의할 수 있는 선택적 조건자입니다. 이러한 설정을 구성 하는 방법은 [Office 365 데이터 집합 속성](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) 섹션을 참조 하세요.
+8. 이제 **파이프라인** > **원본 탭** 으로 돌아가서 Office 365 데이터 추출에 대 한 추가 속성을 계속 구성 합니다.  사용자 범위 및 사용자 범위 필터는 Office 365에서 추출 하려는 데이터를 제한 하기 위해 정의할 수 있는 선택적 조건자입니다. 이러한 설정을 구성 하는 방법은 [Office 365 데이터 집합 속성](https://docs.microsoft.com/azure/data-factory/connector-office-365#dataset-properties) 섹션을 참조 하세요.
 
 9. 날짜 필터 중 하나를 선택 하 고 시작 시간 및 종료 시간 값을 제공 해야 합니다.
 
@@ -128,7 +128,7 @@ ms.locfileid: "72754644"
 
 ![작업 모니터링](./media/load-office-365-data/activity-status.png) 
 
-이 컨텍스트에 대 한 데이터를 처음으로 요청 하는 경우 (액세스 하는 데이터 테이블의 조합, 데이터 액세스를 요청 하는 대상 계정 및 데이터 액세스 요청을 만드는 사용자 id) 복사 작업이 표시 됩니다. **진행**중인 상태 이며, "세부 정보" 링크를 클릭 하면 상태가 **RequesetingConsent**로 표시 됩니다.  데이터 액세스 승인자 그룹의 멤버가 데이터 추출이 진행되기 전에 Privileged Access Management에서 요청을 승인해야 합니다.
+이 컨텍스트에 대 한 데이터를 처음으로 요청 하는 경우 (액세스 하는 데이터 테이블의 조합, 데이터 액세스를 요청 하는 대상 계정 및 데이터 액세스 요청을 만드는 사용자 id) 복사 작업이 표시 됩니다. **진행**중인 상태 이며, "세부 정보" 링크를 클릭 하면 상태가 **RequesetingConsent**로 표시 됩니다.  데이터 액세스 승인자 그룹의 구성원이 Privileged Access Management에서 요청을 승인해야 데이터 추출을 진행할 수 있습니다.
 
 _동의 요청 중 상태:_ 
 ![활동 실행 세부 정보 - 요청 동의](./media/load-office-365-data/activity-details-request-consent.png) 

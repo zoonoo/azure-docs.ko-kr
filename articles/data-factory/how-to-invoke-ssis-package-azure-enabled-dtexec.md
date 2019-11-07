@@ -1,5 +1,5 @@
 ---
-title: Azure 지원 dtexec 유틸리티를 사용 하 여 SQL Server Integration Services (SSIS) 패키지 실행 | Microsoft Docs
+title: Azure 지원 dtexec 유틸리티를 사용 하 여 SQL Server Integration Services (SSIS) 패키지 실행
 description: Azure 지원 dtexec 유틸리티를 사용 하 여 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 472792351b8b7ab96e055bacd64141840ce7a630
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 9ab308d0e2145a0d0b40e8b37c8c5be07b55dac6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596958"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673549"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Azure 지원 dtexec 유틸리티를 사용 하 여 SQL Server Integration Services 패키지 실행
 이 문서에서는 Azure 지원 dtexec (AzureDTExec) 명령 프롬프트 유틸리티에 대해 설명 합니다. Azure Data Factory에서 IR (Azure-SSIS Integration Runtime)에 SQL Server Integration Services (SSIS) 패키지를 실행 하는 데 사용 됩니다.
@@ -30,11 +30,11 @@ AzureDTExec는 Data Factory 파이프라인에서 SSIS 패키지 실행 작업�
 
 SSMS를 통해 AzureDTExec를 구성 하 여 데이터 팩터리에 파이프라인을 생성 하는 Azure Active Directory (Azure AD) 응용 프로그램을 사용할 수 있습니다. 또한 패키지를 저장 하는 파일 시스템, 파일 공유 또는 Azure Files에 액세스 하도록 구성할 수 있습니다. 사용자가 호출 옵션에 대해 지정한 값에 따라 AzureDTExec는 SSIS 패키지 실행 작업을 사용 하 여 고유한 Data Factory 파이프라인을 생성 하 고 실행 합니다. 해당 옵션에 대해 동일한 값을 사용 하 여 AzureDTExec를 호출 하면 기존 파이프라인이 다시 실행 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 AzureDTExec를 사용 하려면 최신 버전의 SSMS (버전 18.3 이상)를 다운로드 하 여 설치 합니다. [이 웹 사이트](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)에서 다운로드 합니다.
 
 ## <a name="configure-the-azuredtexec-utility"></a>AzureDTExec 유틸리티 구성
-로컬 컴퓨터에 SSMS를 설치 하면 AzureDTExec도 설치 됩니다. 설정을 구성 하려면 **관리자 권한으로 실행** 옵션을 사용 하 여 SSMS를 시작 합니다. 그런 다음 azure**로 마이그레이션을**  >  **도구** 를 선택 하  > **azure 지원 DTExec를 구성**합니다.
+로컬 컴퓨터에 SSMS를 설치 하면 AzureDTExec도 설치 됩니다. 설정을 구성 하려면 **관리자 권한으로 실행** 옵션을 사용 하 여 SSMS를 시작 합니다. 그런 다음 azure **로 마이그레이션을** > **도구** 를 선택 하 > **azure 지원 DTExec를 구성**합니다.
 
 ![Azure 사용 dtexec 메뉴 구성](media/how-to-invoke-ssis-package-azure-enabled-dtexec/ssms-azure-enabled-dtexec-menu.png)
 
@@ -86,7 +86,7 @@ AzureDTExec를 호출 하면 dtexec 호출과 비슷한 옵션이 제공 됩니�
 - **/Arys [igFile]** : 값을 추출할 구성 파일을 지정 합니다. 이 옵션을 사용 하면 디자인 타임에 지정 된 것과 다른 패키지에 대 한 런타임 구성을 설정할 수 있습니다. XML 구성 파일에 다른 설정을 저장 한 다음 패키지를 실행 하기 전에 로드할 수 있습니다. 자세한 내용은 [SSIS 패키지 구성](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017)을 참조 하세요. 이 옵션의 값을 지정 하려면 파일 시스템, 파일 공유 또는 Ssistutorial.dtsconfig 확장을 사용 하 여 Azure Files 구성 파일에 대 한 UNC 경로를 사용 합니다. 지정 된 UNC 경로에 공백이 있으면 전체 경로 주위에 따옴표를 추가 합니다.
 - **/Conn [사용자 이름]** : 패키지의 기존 연결 관리자에 대 한 연결 문자열을 지정 합니다. 이 옵션을 사용 하면 디자인 타임에 지정 된 연결 관리자와 다른 패키지의 기존 연결 관리자에 대 한 런타임 연결 문자열을 설정할 수 있습니다. 이 옵션의 값을 다음과 같이 지정 합니다. `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`.
 - **/Set**: 패키지에서 매개 변수, 변수, 속성, 컨테이너, 로그 공급자, Foreach 열거자 또는 연결의 구성을 재정의 합니다. 이 옵션은 여러 번 지정할 수 있습니다. 이 옵션의 값을 다음과 같이 지정 합니다. `property_path;value`. 예를 들어 `\package.variables[counter].Value;1`은 `counter` 변수 값을 1로 재정의 합니다. 패키지 **구성** 마법사를 사용 하 여 패키지에서 값을 재정의 하려는 항목에 대 한 `property_path` 값을 찾고 복사 하 고 붙여넣을 수 있습니다. 자세한 내용은 [패키지 구성 마법사](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014)를 참조 하세요.
-- **/De [** / **EncryptAllWithPassword** ]:**EncryptSensitiveWithPassword** 보호 수준으로 구성 된 패키지에 대 한 암호 해독 암호를 설정 합니다.
+- **/De [** /**EncryptAllWithPassword** ]: **EncryptSensitiveWithPassword** 보호 수준으로 구성 된 패키지에 대 한 암호 해독 암호를 설정 합니다.
 
 > [!NOTE]
 > 해당 옵션에 대 한 새 값을 사용 하 여 AzureDTExec를 호출 하면 옵션 **/De [c)]** 를 제외 하 고 새 파이프라인이 생성 됩니다.

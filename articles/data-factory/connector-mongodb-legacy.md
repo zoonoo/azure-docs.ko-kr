@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 MongoDB에서 데이터 복사 | Microsoft Docs
+title: Azure Data Factory를 사용하여 MongoDB에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Mongo DB에서 지원되는 싱크 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 77d0f632c763651004efa46edf027719040f4760
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 0c2c2d9ad78bb09a37faaa5825f8dae3e27370ea
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967476"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680682"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -38,7 +38,7 @@ MongoDB 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 - MongoDB **버전 2.4, 2.6, 3.0, 3.2, 3.4 및 3.6**
 - **Basic** 또는 **Anonymous** 인증을 사용하여 데이터를 복사합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -56,16 +56,16 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type |type 속성을 다음으로 설정해야 합니다. **MongoDb** |예 |
+| type |형식 속성은 **MongoDb**로 설정해야 합니다. |예 |
 | server |MongoDB 서버의 IP 주소 또는 호스트 이름입니다. |예 |
-| port |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요(기본값: 27017) |
+| 포트 |MongoDB 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요(기본값: 27017) |
 | databaseName |액세스하려는 MongoDB 데이터베이스의 이름입니다. |예 |
-| authenticationType | MongoDB 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **기본** 및 **익명**. |예 |
-| username |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
-| password |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예(기본 인증을 사용하는 경우) |
+| authenticationType | MongoDB 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. |예 |
+| 사용자 이름 |MongoDB에 액세스하는 사용자 계정입니다. |예(기본 인증을 사용하는 경우) |
+| password |사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. |예(기본 인증을 사용하는 경우) |
 | authSource |인증에 대한 자격 증명을 확인하는 데 사용하려는 MongoDB 데이터베이스의 이름입니다. |아니요. 기본 인증의 경우 기본값은 관리자 계정 및 databaseName 속성을 사용하여 지정된 데이터베이스를 사용하는 것입니다. |
-| enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 false입니다.  | 아니요 |
-| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 false입니다.  | 아니요 |
+| enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
+| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 **예제:**
@@ -99,7 +99,7 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **MongoDbCollection** | 예 |
+| type | 데이터 세트의 type 속성을 **MongoDbCollection**으로 설정해야 합니다. | 예 |
 | collectionName |MongoDB 데이터베이스에 있는 컬렉션의 이름입니다. |예 |
 
 **예제:**
@@ -130,8 +130,8 @@ MongoDB 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **MongoDbSource** | 예 |
-| query |사용자 지정 SQL-92 쿼리를 사용하여 데이터를 읽습니다. 예: select * from MyTable. |아니요(데이터 세트의 "collectionName"이 지정된 경우) |
+| type | 복사 작업 원본의 type 속성을 **MongoDbSource**로 설정해야 합니다. | 예 |
+| 쿼리 |사용자 지정 SQL-92 쿼리를 사용하여 데이터를 읽습니다. 예: select * from MyTable. |아니요(데이터 세트의 "collectionName"이 지정된 경우) |
 
 **예제:**
 
@@ -178,21 +178,21 @@ MongoDB에서 데이터를 복사하는 경우 MongoDB 데이터 형식에서 Az
 
 | MongoDB 데이터 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| Binary |Byte[] |
-| Boolean |Boolean |
-| 날짜 |DateTime |
+| 이진 |Byte[] |
+| 부울 |부울 |
+| Date |DateTime |
 | NumberDouble |Double |
 | NumberInt |Int32 |
 | NumberLong |Int64 |
 | ObjectID |문자열 |
-| String |String |
+| 문자열 |문자열 |
 | UUID |Guid |
 | Object |중첩 구분 기호로 "_"를 사용한 평면화된 열에 다시 정규화 |
 
 > [!NOTE]
 > 가상 테이블을 사용한 배열 지원에 대해 알아보려면 [가상 테이블을 사용하는 복합 형식에 대한 지원](#support-for-complex-types-using-virtual-tables) 섹션을 참조하세요.
 >
-> 현재 다음 MongoDB 데이터 형식은 지원되지 않습니다. DBPointer, JavaScript, 최댓값/최솟값 키, 정규식, 기호, 타임스탬프, Undefined.
+> 현재 DBPointer, JavaScript, 최대/최소 키, 정규식, 기호, 타임 스탬프, 그리고 정의되지 않은 MongoDB 데이터 형식은 지원되지 않습니다.
 
 ## <a name="support-for-complex-types-using-virtual-tables"></a>가상 테이블을 사용하는 복합 형식에 대한 지원
 
@@ -209,8 +209,8 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 
 | _id | 고객 이름 | 송장 | 서비스 수준 | 등급 |
 | --- | --- | --- | --- | --- |
-| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", 할인: "0.2"}] |Silver |[5,6] |
-| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", 할인: "0.0"}] |금 |[1,2] |
+| 1111 |ABC |[{invoice_id:"123", item:"toaster", price:"456", discount:"0.2"}, {invoice_id:"124", item:"oven", price: "1235", discount: "0.2"}] |Silver |[5,6] |
+| 2222 |XYZ |[{invoice_id:"135", item:"fridge", price: "12543", discount: "0.0"}] |Gold |[1,2] |
 
 드라이버는 이 단일 테이블을 나타내는 여러 개의 가상 테이블을 생성합니다. 첫 번째 가상 테이블은 예제에 표시된 "ExampleTable"이라는 기본 테이블입니다. 기본 테이블에는 모든 원본 테이블의 데이터가 있지만, 배열의 데이터는 생략되었으며 가상 테이블에서 확장됩니다.
 
@@ -227,7 +227,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 MongoDB �
 
 **테이블 "ExampleTable_Invoices":**
 
-| _id | ExampleTable_Invoices_dim1_idx | 송장_id | item | 가격 | 할인 |
+| _id | ExampleTable_Invoices_dim1_idx | 송장_id | 항목 | 가격 | 할인 |
 | --- | --- | --- | --- | --- | --- |
 | 1111 |0 |123 |토스터 |456 |0.2 |
 | 1111 |1 |124 |오븐 |1235 |0.2 |

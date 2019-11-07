@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름의 집계 변환 | Microsoft Docs
+title: Azure Data Factory 매핑 데이터 흐름의 집계 변환
 description: 매핑 데이터 흐름 집계 변환을 사용 하 여 Azure Data Factory에서 대규모로 데이터를 집계 하는 방법에 대해 알아봅니다.
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: add548a184440c408b8b74e131f2249b4f616ddc
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 3f21367c36ae31aa2115c109933a581bef464baf
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514836"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676907"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 집계 변환 
 
@@ -42,7 +42,7 @@ Group by 절은 집계 변환에서 선택 사항입니다.
 
 집계 변환은 SQL 집계 select 쿼리와 유사 합니다. Group by 절 또는 집계 함수에 포함 되지 않은 열은 집계 변환의 출력으로 이동 하지 않습니다. 집계 된 출력에 다른 열을 포함 하려는 경우 다음 방법 중 하나를 수행 합니다.
 
-* @No__t_0 또는 `first()`와 같은 집계 함수를 사용 하 여 추가 열을 포함 합니다.
+* `last()` 또는 `first()`와 같은 집계 함수를 사용 하 여 추가 열을 포함 합니다.
 * [자체 조인 패턴](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/)을 사용 하 여 열을 출력 스트림에 다시 조인 합니다.
 
 ## <a name="data-flow-script"></a>데이터 흐름 스크립트
@@ -68,7 +68,7 @@ Group by 절은 집계 변환에서 선택 사항입니다.
 
 ### <a name="example"></a>예제
 
-아래 예제에서는 `MoviesYear` 들어오는 스트림을 사용 하 여 열 `year` 행을 그룹화 합니다. 이 변환은 열 `Rating`의 평균으로 계산 되는 집계 열 `avgrating`를 만듭니다. 이 집계 변환의 이름은 `AvgComedyRatingsByYear`입니다.
+아래 예제에서는 `MoviesYear` 들어오는 스트림을 사용 하 여 열 `year`행을 그룹화 합니다. 이 변환은 열 `Rating`의 평균으로 계산 되는 집계 열 `avgrating`를 만듭니다. 이 집계 변환의 이름은 `AvgComedyRatingsByYear`입니다.
 
 Data Factory UX에서이 변환은 아래 이미지와 같습니다.
 

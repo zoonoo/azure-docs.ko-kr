@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: 질문과 대답 | Microsoft Docs'
+title: 'Azure Data Factory: 질문과 대답 '
 description: Azure Data Factory에 대한 질문과 대답입니다.
 services: data-factory
 documentationcenter: ''
@@ -9,20 +9,20 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 7ebcf865ad23e75b2aa9070fe14fc3ee8f1397c7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2da12bbc760ff06ad0737ed9d48e12ea81260655
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481147"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674723"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ
 이 아티클에서는 Azure Data Factory에 대한 질문과 대답을 제공합니다.  
 
 ## <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요? 
-Data Factory는 데이터의 이동과 변환을 자동화하는 완전히 관리되는 클라우드 기반 데이터 통합 서비스입니다. 장비를 작동하여 원자재를 완제품으로 변형하는 공장처럼 Azure Data Factory는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다. 
+Data Factory은 데이터의 이동과 변환을 자동화 하는 완전히 관리 되는 클라우드 기반의 데이터 통합 ETL 서비스입니다. 장비를 작동하여 원자재를 완제품으로 변형하는 공장처럼 Azure Data Factory는 원시 데이터를 수집하여 바로 사용할 수 있는 정보로 변환하는 기존 서비스를 오케스트레이션합니다. 
 
-Azure Data Factory를 사용하여 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는 데이터 기반 워크플로를 만들 수 있습니다. Azure HDInsight, Azure Data Lake Analytics 및 SQL Server Integration Services (SSIS) Integration runtime과 같은 계산 서비스를 사용 하 여 데이터를 처리 하 고 변환할 수 있습니다. 
+Azure Data Factory를 사용하여 온-프레미스와 클라우드 데이터 저장소 간에 데이터를 이동하는 데이터 기반 워크플로를 만들 수 있습니다. 데이터 흐름을 사용 하 여 데이터를 처리 하 고 변환할 수 있습니다. 또한 ADF는 Azure HDInsight, Azure Databricks 및 SQL Server Integration Services (SSIS) Integration runtime과 같은 계산 서비스를 사용 하 여 직접 코딩 된 변환에 대 한 외부 계산 엔진을 지원 합니다. 
 
 Data Factory를 사용하여 Azure 기반 클라우드 서비스에서 데이터 처리를 실행하거나 SSIS, SQL Server 및 Oracle과 같은 자체 호스팅 컴퓨팅 환경을 활용할 수 있습니다. 필요한 작업을 수행 하는 파이프라인을 만든 후 정기적 (예: 매시간, 매일 또는 매주), 시간 창 일정에 따라 실행 되도록 예약 하거나 이벤트 발생 시 파이프라인을 트리거할 수 있습니다. 자세한 내용은 [Azure Data Factory 소개](introduction.md)를 참조하세요.
 
@@ -108,6 +108,9 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 Data 
 
 ### <a name="pipelines"></a>파이프라인
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 작업 단위를 수행하는 작업의 논리적 그룹입니다. 파이프라인의 활동이 모여 작업을 수행합니다. 예를 들어 Azure Blob에서 데이터를 수집한 다음 HDInsight 클러스터에서 Hive 쿼리를 실행하여 데이터를 분할하는 작업 그룹이 파이프라인에 포함될 수 있습니다. 이점은 각 작업을 개별적으로 관리하는 대신, 파이프라인을 사용하여 여러 작업을 하나의 집합으로 관리할 수 있다는 것입니다. 파이프라인의 작업을 서로 연결하여 순차적으로 작동하거나 독립적으로 병렬 작동할 수 있습니다.
+
+### <a name="data-flows"></a>데이터 흐름
+데이터 흐름은 백 엔드 Spark 서비스에서 대규모로 데이터를 변환 하는 Data Factory에서 시각적으로 작성 하는 개체입니다. 프로그래밍 또는 Spark 내부를 이해할 필요가 없습니다. 그래프 (매핑) 또는 스프레드시트 (랭 글 링)를 사용 하 여 데이터 변환 의도를 디자인 하기만 하면 됩니다.
 
 ### <a name="activities"></a>활동
 작업은 파이프라인의 처리 단계를 나타냅니다. 예를 들어 복사 작업을 사용 하 여 한 데이터 저장소에서 다른 데이터 저장소로 데이터를 복사할 수 있습니다. 마찬가지로 데이터를 변환하거나 분석하기 위해서 Azure HDInsight 클러스터에서 Hive 쿼리를 실행하는 Hive 작업을 사용할 수 있습니다. Data Factory는 데이터 이동 작업, 데이터 변환 작업 및 제어 작업이라는 세 종류의 작업을 지원합니다.

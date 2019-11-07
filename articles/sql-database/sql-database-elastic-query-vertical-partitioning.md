@@ -1,5 +1,5 @@
 ---
-title: 여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리 | Microsoft Docs
+title: 여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리
 description: 수직 분할을 통해 데이터베이스 간 쿼리를 설정하는 방법
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: 5657490474a401d9e3074ed6ab250a34ef0a5d8d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 998513c942cf1b6ceae861160abfe3dc6dac7792
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568533"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690323"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리(미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "68568533"
 
 수직 분할 데이터베이스는 서로 다른 데이터베이스에서 다양한 테이블 집합을 사용합니다. 즉 스키마가 데이터베이스마다 서로 다릅니다. 예를 들어, 재고의 모든 테이블은 한 데이터베이스 안에 있지만 모든 회계 관련 테이블은 보조 데이터베이스에 있습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 사용자는 모든 외부 데이터 원본 ALTER 권한이 있어야 합니다. 이 사용 권한은 ALTER DATABASE 권한에 포함됩니다.
 * 기본 데이터 원본을 참조하기 위해 ALTER ANY EXTERNAL DATA SOURCE 권한이 필요합니다.
@@ -55,7 +55,7 @@ ms.locfileid: "68568533"
 
 ## <a name="create-external-data-sources"></a>외부 데이터 원본 만들기
 
-구문:
+구문
 
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH 
@@ -88,7 +88,7 @@ ms.locfileid: "68568533"
 
 ### <a name="external-tables"></a>외부 테이블
 
-구문:
+구문
 
     CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name . ] table_name  
     ( { <column_definition> } [ ,...n ])     
@@ -127,7 +127,7 @@ ms.locfileid: "68568533"
 탄력적 쿼리는 기존 외부 테이블 구문을 확장하여 RDBMS 형식의 외부 데이터 원본을 사용하는 외부 테이블을 정의합니다. 수직 분할에 대한 외부 테이블 정의에서는 다음과 같은 측면을 다룹니다. 
 
 * **스키마**: 외부 테이블 DDL은 쿼리가 사용할 수 있는 스키마를 정의합니다. 외부 테이블 정의에서 제공한 스키마는 실제 데이터가 저장되는 원격 데이터베이스의 테이블 스키마와 일치해야 합니다. 
-* **원격 데이터베이스 참조**: 외부 테이블 DDL은 외부 데이터 원본을 가리킵니다. 외부 데이터 원본은 실제 테이블 데이터가 저장된 원격 데이터베이스의 SQL Database 서버 이름과 데이터베이스 이름을 지정합니다. 
+* **원격 데이터 참조**: 외부 테이블 DDL은 외부 데이터 원본을 가리킵니다. 외부 데이터 원본은 실제 테이블 데이터가 저장된 원격 데이터베이스의 SQL Database 서버 이름과 데이터베이스 이름을 지정합니다. 
 
 이전 섹션에서 설명한 대로 외부 데이터 소스를 사용하여 외부 테이블을 만드는 구문은 다음과 같습니다. 
 
@@ -165,18 +165,18 @@ SCHEMA_NAME 및 OBJECT_NAME 절은 각각 외부 테이블 정의를 원격 데�
     WHERE c_id = 100
 ```
 
-## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>원격 T-SQL 실행을 위한 저장 프로시저: sp\_execute_remote
+## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>원격 T-SQL 실행을 위한 저장 프로시저: sp\_execute_remote
 
 또한 탄력적 쿼리는 원격 데이터베이스에 대한 직접 액세스를 제공하기 위해 저장 프로시저를 사용합니다. 저장 프로시저는 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)라고 하며, 원격 데이터베이스에서 원격 저장 프로시저 또는 T-SQL 코드를 실행하는 데 사용될 수 있습니다. 사용되는 매개 변수는 다음과 같습니다. 
 
 * 데이터 원본 이름(nvarchar): RDBMS 형식의 외부 데이터 원본 이름입니다. 
-* 쿼리(nvarchar): 원격 데이터베이스에서 실행할 T-SQL 쿼리입니다. 
-* 매개 변수 선언(nvarchar) - 선택 사항: 쿼리 매개 변수(예: sp_executesql)에 사용된 매개 변수에 대한 데이터 형식 정의가 있는 문자열입니다. 
-* 매개 변수 값 목록 - 선택 사항: 쉼표로 구분된 매개 변수 값(예: sp_executesql) 목록입니다.
+* 쿼리(nvarchar): T-SQL 쿼리를 원격 데이터베이스에서 실행할 수 있습니다. 
+* 매개 변수 선언(nvarchar), 선택 사항: 쿼리 매개 변수(예: sp_executesql)에 사용된 매개 변수에 대한 데이터 형식 정의가 있는 문자열입니다. 
+* 매개 변수 값 목록, 선택 사항: 쉼표로 구분한 매개 변수 값(예: sp_executesql) 목록.
 
 sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본을 사용하여 원격 데이터베이스에서 지정된 T-SQL 문을 실행합니다. 외부 데이터 원본의 자격 증명을 사용하여 원격 데이터베이스에 연결합니다.  
 
-예제: 
+예: 
 
 ```sql
     EXEC sp_execute_remote

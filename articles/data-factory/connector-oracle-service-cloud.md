@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory(미리 보기)를 사용하여 Oracle Service Cloud에서 데이터 복사 | Microsoft Docs
+title: Azure Data Factory(미리 보기)를 사용하여 Oracle Service Cloud에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Oracle Service Cloud에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: a50f2d9bc50b235b2b7375b90288e72609f36eff
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 2b2d41d7ef2c42fea90555d2b24f6d055712bfc5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089905"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680517"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 Oracle Service Cloud에서 데이터 복사
 
@@ -49,9 +49,9 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 형식 속성을 다음으로 설정해야 합니다. **OracleServiceCloud** | 예 |
-| 호스트 | Oracle Service Cloud 인스턴스의 URL입니다.  | 예 |
-| username | Oracle Service Cloud 서버에 액세스하는 데 사용하는 사용자 이름입니다.  | 예 |
+| type | 형식 속성은 **OracleServiceCloud**로 설정해야 합니다. | 예 |
+| host | Oracle Service Cloud 인스턴스의 URL입니다.  | 예 |
+| 사용자 이름 | Oracle Service Cloud 서버에 액세스하는 데 사용하는 사용자 이름입니다.  | 예 |
 | password | 사용자 이름 키에서 제공한 사용자 이름에 해당하는 암호입니다. 이 필드는 SecureString으로 표시하여 ADF에 안전하게 저장할 수도 있고, Azure Key Vault에 암호를 저장하여 ADF 복사 활동에서 데이터 복사를 수행할 때 Key Vault에서 암호를 끌어오도록 할 수도 있습니다. 자세한 내용은 [Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md)에서 확인하세요. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
@@ -88,7 +88,7 @@ Oracle Service Cloud에서 데이터를 복사하려면 데이터 세트의 형�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 형식 속성을 다음으로 설정해야 합니다. **OracleServiceCloudObject** | 예 |
+| type | 데이터 집합의 type 속성은 **OracleServiceCloudObject** 로 설정 해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -119,8 +119,8 @@ Oracle Service Cloud에서 데이터를 복사하려면 복사 작업의 원본 
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 형식 속성을 다음으로 설정해야 합니다. **OracleServiceCloudSource** | 예 |
-| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| type | 복사 작업 원본의 형식 속성을 **OracleServiceCloudSource**로 설정해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

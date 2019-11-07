@@ -1,6 +1,6 @@
 ---
-title: 다양한 원본에서 데이터 가져오기
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 학습 데이터 가져오기
+titleSuffix: ML Studio (classic) Azure
 description: 다양 한 데이터 원본에서 Azure Machine Learning Studio (클래식)로 데이터를 가져오는 방법 지원되는 데이터 형식에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: 6e84f5c8cab6323234b81126ad3e8b1299e10171
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 453efc1129ad9ef2a8b68a571c98e3f5620a671f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492893"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684798"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>다양 한 데이터 원본에서 Azure Machine Learning Studio (클래식)으로 학습 데이터 가져오기
 

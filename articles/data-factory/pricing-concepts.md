@@ -1,5 +1,5 @@
 ---
-title: 예제를 통해 Azure Data Factory 가격 책정 이해 | Microsoft Docs
+title: 예제를 통한 Azure Data Factory 가격 이해
 description: 이 문서에서는 자세한 예제와 함께 Azure Data Factory 가격 책정 모델을 설명하고 보여줍니다.
 documentationcenter: ''
 author: djpmsft
@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.openlocfilehash: 168d977b9dc0ea6117796cf98a8562f168258d28
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c42946733ee49ed6acf2c8deadf850208e003339
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387447"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684527"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
 
@@ -153,7 +153,7 @@ ms.locfileid: "72387447"
 | 파이프라인 만들기 | 3개의 읽기/쓰기 엔터티(파이프라인 만들기에 대해 1개, 데이터 세트 참조에 대해 2개) |
 | 파이프라인 가져오기 | 1개의 읽기/쓰기 엔터티 |
 | 파이프라인 실행 | 2개의 활동 실행(트리거 실행에 대해 1개, 활동 실행에 대해 1개) |
-| 데이터 흐름 가정: 실행 시간 = 10 분 + 10 분 TTL | 10 \* 8 TTL이 10 인 일반 계산의 코어 |
+| 데이터 흐름 가정: 실행 시간 = 10 분 + 10 분 TTL | 10 \* 8의 TTL을 사용 하는 일반 계산의 코어 8 개 |
 | 파이프라인 모니터링 가정: 하나의 실행만 발생했습니다. | 다시 시도되는 2개의 모니터링 실행 기록(파이프라인 실행에 대해 1개, 활동 실행에 대해 1개) |
 
 **총 시나리오 가격: $0.3011**

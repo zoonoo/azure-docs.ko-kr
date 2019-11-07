@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory |의 ORC 형식 Microsoft Docs
+title: Azure Data Factory ORC 형식
 description: 이 항목에서는 Azure Data Factory에서 ORC 형식을 처리 하는 방법을 설명 합니다.
 author: linda33wj
 manager: craigg
@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: beff81b7e8d207a2173497d039b915b7614fc30e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a5125b53d960ddead063435666de5b26ce0bc291
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952278"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73674755"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Azure Data Factory ORC 형식
 
@@ -26,10 +26,10 @@ ORC 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](connector
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 ORC 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-| 자산         | 설명                                                  | 필수 |
+| 속성         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 데이터 집합의 type 속성은 **Orc**로 설정 해야 합니다. | yes      |
-| location         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`에서 고유한 위치 유형 및 지원 되는 속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | yes      |
+| type             | 데이터 집합의 type 속성은 **Orc**로 설정 해야 합니다. | 예      |
+| location         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`에서 고유한 위치 유형 및 지원 되는 속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
 
 다음은 Azure Blob Storage ORC 데이터 집합의 예입니다.
 
@@ -68,19 +68,19 @@ ORC 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](connector
 
 복사 작업 ***\*원본\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 자산      | 설명                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 작업 원본의 type 속성은 **Orcsource**로 설정 해야 합니다. | yes      |
-| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
+| type          | 복사 작업 원본의 type 속성은 **Orcsource**로 설정 해야 합니다. | 예      |
+| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
 
 ### <a name="orc-as-sink"></a>ORC
 
 복사 작업 ***\*싱크\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 자산      | 설명                                                  | 필수 |
+| 속성      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 작업 원본의 type 속성은 **Orcsink**로 설정 해야 합니다. | yes      |
-| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 자체 지원 되는 쓰기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
+| type          | 복사 작업 원본의 type 속성은 **Orcsink**로 설정 해야 합니다. | 예      |
+| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터의 `storeSettings`에는 자체 지원 되는 쓰기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
 
 ## <a name="using-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 사용
 

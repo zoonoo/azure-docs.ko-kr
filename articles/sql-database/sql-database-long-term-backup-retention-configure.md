@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 장기 백업 보존 관리 | Microsoft Docs
+title: 'Azure SQL Database 장기 백업 보존 관리 '
 description: 자동화된 백업을 SQL Azure Storage에 저장한 다음, 복원하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 08/21/2019
-ms.openlocfilehash: b90e364442e46269fc949ef4aecd9a756cff5595
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 32eb021ecd584e0b1b734abb236f383a32b79131
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904632"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689541"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Azure SQL Database 장기 백업 보존 관리
 
@@ -61,7 +61,7 @@ LTR 정책으로 특정 데이터베이스에 보존된 백업을 보고 해당 
 
 4. 복원에 사용할 백업을 선택한 다음, 새 데이터베이스 이름을 지정합니다.
 
-   ![복원(restore)](./media/sql-database-long-term-retention/ltr-restore.png)
+   ![복원](./media/sql-database-long-term-retention/ltr-restore.png)
 
 5. **확인**을 클릭하여 Azure SQL 스토리지의 백업에서 새 데이터베이스로 데이터베이스를 복원합니다.
 
@@ -79,7 +79,7 @@ LTR 정책으로 특정 데이터베이스에 보존된 백업을 보고 해당 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 다음 섹션에서는 PowerShell을 사용하여 장기 백업 보존을 구성하고 Azure SQL 스토리지에서 백업을 확인하고 Azure SQL 스토리지의 백업에서 복원하는 방법을 보여줍니다.
 

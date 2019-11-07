@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 서비스 계층 - DTU 기반 구매 모델 | Microsoft Docs
+title: 'Azure SQL Database 서비스 계층-DTU 기반 구매 모델 '
 description: 컴퓨팅 및 스토리지 크기를 제공하기 위한 단일 및 풀링된 데이터베이스에 대한 DTU 기반 구매 모델의 서비스 계층에 대해 알아보세요.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: e735d8832912f5b512b7cfe015ca47efbe641da7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 43f4f9e0d1e5f33dde32e5274dddf9d17776db21
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000432"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687308"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 
@@ -31,16 +31,16 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 서비스 계층을 선택하는 작업은 주로 비즈니스 연속성, 스토리지 및 성능 요구 사항에 따라 다릅니다.
 
-||기본|표준|Premium|
+||Basic|Standard|Premium|
 | :-- | --: |--:| --:|
 |대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션|
 |작동 시간 SLA|99.99%|99.99%|99.99%|
-|최대 백업 보존|7일|35일|35일|
+|최대 백업 보존|7 일|35일|35일|
 |CPU|낮음|낮음, 보통, 높음|보통, 높음|
 |IO 처리량(근사치) |DTU 당 1-5 IOPS| DTU 당 1-5 IOPS | DTU 당 25iops|
 |IO 대기 시간(근사치)|5ms(읽기), 10ms(쓰기)|5ms(읽기), 10ms(쓰기)|2ms(읽기/쓰기)|
-|Columnstore 인덱싱 |해당 사항 없음|S3 이상|지원됨|
-|메모리 내 OLTP|해당 사항 없음|해당 사항 없음|지원됨|
+|Columnstore 인덱싱 |해당 없음|S3 이상|지원됨|
+|메모리 내 OLTP|해당 없음|해당 없음|지원됨|
 |||||
 
 > [!NOTE]
@@ -50,9 +50,9 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 컴퓨팅 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-purchase-models.md#dtu-based-purchasing-model)을 참조하세요.
 
-||기본|표준|Premium|
+||Basic|Standard|Premium|
 | :-- | --: | --: | --: |
-| 최대 스토리지 크기 | 2GB | 1TB | 4 TB  |
+| 최대 스토리지 크기 | 2 GB | 1TB | 4TB  |
 | 최대 DTU | 5 | 3000 | 4000 | 
 |||||
 
@@ -61,17 +61,17 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>탄력적 풀 eDTU, 스토리지 및 풀링된 데이터베이스 제한
 
-| | **기본** | **Standard** | **Premium** |
+| | **Basic** | **Standard** | **Premium** |
 | :-- | --: | --: | --: |
-| 데이터베이스당 최대 스토리지 크기  | 2GB | 1TB | 1TB |
-| 풀당 최대 스토리지 크기 | 156GB | 4 TB | 4 TB |
+| 데이터베이스당 최대 스토리지 크기  | 2 GB | 1TB | 1TB |
+| 풀당 최대 스토리지 크기 | 156GB | 4TB | 4TB |
 | 데이터베이스당 최대 eDTU | 5 | 3000 | 4000 |
 | 풀당 최대 eDTU | 1600 | 3000 | 4000 |
 | 풀당 최대 데이터베이스 수 | 500  | 500 | 100 |
 |||||
 
 > [!IMPORTANT]
-> 현재 다음 지역을 제외한 모든 지역에서 프리미엄 계층의 스토리지 1TB 이상을 사용할 수 있습니다. 중국 동부, 중국 북부, 독일 중부, 독일 북동부, 미국 중서부, 미국 DoD 지역 및 미국 중앙 정부 이러한 지역에서 프리미엄 계층 저장소 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
+> 프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 미국 서 부, US DoD 지역 및 미국 정부 중부를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
 
@@ -99,7 +99,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 데이터베이스는 "배율"을 기준으로 크기를 조정합니다. 배율(약어: SF)은 확장 및 증가 테이블의 카디널리티를 결정합니다. 아래의 사용자 및 속도 섹션에 설명된 대로 데이터베이스 크기, 사용자 수, 최대 성능은 모두 서로에 비례하여 확장됩니다.
 
-### <a name="transactions"></a>의
+### <a name="transactions"></a>트랜잭션
 
 워크로드는 아래 표와 같이 9가지 트랜잭션 유형으로 구성되어 있습니다. 각 트랜잭션은 다른 트랜잭션과 크게 대비되도록 데이터베이스 엔진 및 시스템 하드웨어에서 특정 시스템 집합의 특성을 강조하도록 설계되었습니다. 이 방식에서는 다양한 구성 요소가 전반적 성능에 미치는 영향을 쉽게 평가할 수 있습니다. 예를 들어 "읽기 작업이 많은" 트랜잭션은 디스크에서 많은 읽기 작업을 만듭니다.
 
@@ -155,7 +155,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 유효한 벤치마크를 실행하려면 한 시간 이상의 안정적 측정 기간이 필요합니다.
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>메트릭
 
 벤치마크의 핵심 메트릭은 처리량과 응답 시간입니다.
 
@@ -166,7 +166,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 | --- | --- | --- |
 | Premium |초당 트랜잭션 수 |0\.5초에서 95 백분위수 |
 | Standard |분당 트랜잭션 수 |1\.0초에서 90 백분위수 |
-| 기본 |시간당 트랜잭션 수 |2\.0초에서 80 백분위수 |
+| Basic |시간당 트랜잭션 수 |2\.0초에서 80 백분위수 |
 
 ## <a name="next-steps"></a>다음 단계
 

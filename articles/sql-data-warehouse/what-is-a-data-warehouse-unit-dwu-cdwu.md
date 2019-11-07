@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics (이전 SQL DW)의 데이터 웨어하우스 단위 (DWUs, Cdwu) | Microsoft Docs
+title: Azure Synapse Analytics (이전 SQL DW)의 데이터 웨어하우스 단위 (DWUs, Cdwu)
 description: 가격 및 성능을 최적화하기 위한 이상적인 데이터 웨어하우스 단위(DWU, cDWU) 수 선택에 대한 권장 사항 및 단위 수를 변경하는 방법
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,13 +10,13 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-mscustom: sqlfreshmay19
-ms.openlocfilehash: 32e75b78b8a5c304fc65a9c20d16fb85b4f8307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f3415522a6ae80723500ba2d38867322fdef0dd7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475747"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685334"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWU(데이터 웨어하우스 단위) 및 cDWU(컴퓨팅 데이터 웨어하우스 단위)
 
@@ -215,4 +215,4 @@ DWU 변경 상태를 확인하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-성능 관리에 대한 자세한 내용은 [워크로드 관리에 대한 리소스 클래스](resource-classes-for-workload-management.md) 및 [메모리와 동시성 제한](memory-and-concurrency-limits.md)을 참조하세요.
+성능 관리에 대 한 자세한 내용은 [워크 로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md) 및 [메모리 및 동시성 제한] 메모리-limits.md)를 참조 하세요.

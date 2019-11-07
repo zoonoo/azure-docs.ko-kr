@@ -1,6 +1,6 @@
 ---
 title: 웹 서비스 사용
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Azure Machine Learning Studio (클래식)에서 machine learning 서비스를 배포한 후에는 실시간 요청-응답 서비스 또는 일괄 처리 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: a5f73e9814adeb44c2838a1fd3bd9c9fd34d4de5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b955b274f3e96eab7e6075b0e966117c2871bbf8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493311"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671429"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스를 사용 하는 방법
 
@@ -24,7 +24,7 @@ Azure Machine Learning Studio (클래식) 예측 모델을 웹 서비스로 배�
 Machine Learning 웹 서비스를 만들고 배포 하는 방법에 대 한 자세한 내용은 여기에서 Machine Learning Studio (클래식)을 참조 하세요.
 
 * Machine Learning Studio (클래식)에서 실험을 만드는 방법에 대 한 자습서는 [첫 번째 실험 만들기](create-experiment.md)를 참조 하세요.
-* 웹 서비스를 배포하는 방법에 대한 자세한 내용은 [Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
+* 웹 서비스를 배포하는 방법에 대한 자세한 내용은 [Machine Learning 웹 서비스 배포](deploy-a-machine-learning-web-service.md)를 참조하세요.
 * Machine Learning에 대한 자세한 내용은 [Machine Learning 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
 
@@ -32,12 +32,12 @@ Machine Learning 웹 서비스를 만들고 배포 하는 방법에 대 한 자�
 ## <a name="overview"></a>개요
 Azure Machine Learning 웹 서비스를 통해 외부 애플리케이션에서 Machine Learning 워크플로 점수 매기기 모델과 실시간으로 통신할 수 있습니다. Machine Learning 웹 서비스 호출은 외부 애플리케이션에 예측 결과를 반환합니다. Machine Learning 웹 서비스를 호출하려면 예측을 배포할 때 만들어진 API 키를 전달합니다. Machine Learning 웹 서비스는 웹 프로그래밍 프로젝트에 일반적으로 사용되는 아키텍처인 REST를 기반으로 합니다.
 
-Azure Machine Learning Studio 클래식 버전의 화면이 어떻게 보일지에는 두 가지 유형의 서비스가 있습니다.
+클래식 버전의 Azure Machine Learning Studio에는 두 가지 유형의 서비스가 있습니다.
 
 * RR (요청-응답 서비스)-대기 시간이 짧고 확장성이 뛰어난 서비스로, Machine Learning Studio (클래식)에서 생성 및 배포 된 상태 비저장 모델에 대 한 인터페이스를 제공 합니다.
 * BES(일괄 처리 실행 서비스) – 데이터 레코드의 점수를 일괄적으로 매기는 비동기 서비스입니다.
 
-Machine Learning 웹 서비스에 대한 자세한 내용은 [Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
+Machine Learning 웹 서비스에 대한 자세한 내용은 [Machine Learning 웹 서비스 배포](deploy-a-machine-learning-web-service.md)를 참조하세요.
 
 ## <a name="get-an-authorization-key"></a>권한 부여 키 가져오기
 실험을 배포할 때 웹 서비스에 API 키가 생성됩니다. 여러 위치에서 키를 검색할 수 있습니다.

@@ -1,5 +1,5 @@
 ---
-title: Data Factory를 사용하여 Azure SQL Database에서 데이터 복사 | Microsoft Docs
+title: Data Factory를 사용 하 여 Azure SQL Database 간에 데이터 복사
 description: Data Factory를 사용하여 지원되는 원본 데이터 저장소에서 Azure SQL Database로 또는 SQL Database에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: 0f80d40c07d50063a20483b0e07edc1b476c35c3
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 4ef47bc1064c095792a90ed69880106af77e9dfd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010171"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681118"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -61,20 +61,20 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | **type** 속성은 **AzureSqlDatabase**로 설정해야 합니다. | 예 |
-| connectionString | Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. <br/>이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 합니다. Azure Key Vault에서 암호나 서비스 주체 키를 입력할 수도 있습니다. SQL 인증 인 경우 연결 문자열에서 `password` 구성을 끌어옵니다. 자세한 내용은 표 다음에 나오는 JSON 예를 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다. | 예 |
+| connectionString | Azure SQL Database 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. <br/>이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 합니다. Azure Key Vault에서 암호나 서비스 주체 키를 입력할 수도 있습니다. SQL 인증 인 경우 연결 문자열에서 `password` 구성을 가져옵니다. 자세한 내용은 표 다음에 나오는 JSON 예를 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다. | 예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
-| 테넌트(tenant) | 응용 프로그램이 상주 하는 도메인 이름 또는 테 넌 트 ID와 같은 테 넌 트 정보를 지정 합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 가져가면 검색 합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
+| 테넌트 | 응용 프로그램이 상주 하는 도메인 이름 또는 테 넌 트 ID와 같은 테 넌 트 정보를 지정 합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 가져가면 검색 합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
 | connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. 데이터 저장소가 개인 네트워크에 있는 경우 Azure integration runtime 또는 자체 호스팅 integration runtime을 사용할 수 있습니다. 지정 하지 않으면 기본 Azure 통합 런타임이 사용 됩니다. | 아니요 |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
 - [SQL 인증](#sql-authentication)
 - [Azure AD 애플리케이션 토큰 인증: 서비스 주체](#service-principal-authentication)
-- [Azure AD 애플리케이션 토큰 인증: Azure 리소스에 대한 관리 ID](#managed-identity)
+- [Azure AD 애플리케이션 토큰 인증: Azure 리소스용 관리 ID](#managed-identity)
 
 >[!TIP]
->오류 코드 "usererrorfailedtoconnecttosqlserver"와 함께 오류가 발생 하 고 "데이터베이스에 대 한 세션 한도는 XXX 이며이에 도달 했습니다." 라는 메시지가 표시 되 `Pooling=false` 면 연결 문자열에를 추가 하 고 다시 시도 합니다.
+>오류 코드 "UserErrorFailedToConnectToSqlServer"와 함께 오류가 발생 하 고 "데이터베이스에 대 한 세션 제한 값이 XXX 이며이에 도달 했습니다" 라는 메시지가 표시 되 면 연결 문자열에 `Pooling=false`을 추가 하 고 다시 시도 합니다.
 
 ### <a name="sql-authentication"></a>SQL 인증
 
@@ -128,7 +128,7 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 }
 ```
 
-### <a name="service-principal-authentication"></a>사용자 주체 인증
+### <a name="service-principal-authentication"></a>서비스 주체 인증
 
 서비스 주체 기반의 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
@@ -182,7 +182,7 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
 }
 ```
 
-### <a name="managed-identity"></a>Azure 리소스 인증용 관리 ID
+### <a name="managed-identity"></a> Azure 리소스 인증용 관리 ID
 
 특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. Azure SQL Database 인증에이 관리 되는 id를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터베이스의 데이터에 액세스하고 복사할 수 있습니다.
 
@@ -235,8 +235,8 @@ Azure SQL Database에서 또는로 데이터를 복사 하려면 다음 속성�
 |:--- |:--- |:--- |
 | type | 데이터 세트의 **type** 속성을 **AzureSqlTable**로 설정해야 합니다. | 예 |
 | schema | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
-| table | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
-| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`를 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
+| 테이블 | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
+| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`을 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 #### <a name="dataset-properties-example"></a>데이터 세트 속성 예제
 
@@ -270,14 +270,14 @@ Azure SQL Database에서 데이터를 복사 하려면 복사 작업 **원본** 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 **type** 속성은 **AzureSqlSource**로 설정 해야 합니다. "SqlSource" 형식은 이전 버전과의 호환성을 위해 계속 지원 됩니다. | 예 |
-| sqlReaderQuery | 이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제입니다. `select * from MyTable` | 아니요 |
-| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니오 |
+| SqlReaderQuery | 이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `select * from MyTable`입니다. | 아니요 |
+| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니요 |
 | storedProcedureParameters | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대/소문자 구분은 저장 프로시저 매개 변수의 이름 및 대/소문자와 일치 해야 합니다. | 아니요 |
 
 **주의할 사항:**
 
 - **AzureSqlSource**에 대해 **sqlreaderquery** 를 지정 하는 경우 복사 작업은 데이터를 가져오기 위해 Azure SQL Database 원본에 대해이 쿼리를 실행 합니다. 저장 프로시저가 매개 변수를 사용하는 경우에는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수도 있습니다.
-- **Sqlreaderquery** 또는 **sqlReaderStoredProcedureName**를 지정 하지 않으면 JSON 데이터 집합의 "structure" 섹션에 정의 된 열이 쿼리를 생성 하는 데 사용 됩니다. 쿼리가 `select column1, column2 from mytable` Azure SQL Database에 대해 실행 됩니다. 데이터 세트 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
+- **Sqlreaderquery** 또는 **sqlReaderStoredProcedureName**를 지정 하지 않으면 JSON 데이터 집합의 "structure" 섹션에 정의 된 열이 쿼리를 생성 하는 데 사용 됩니다. 쿼리 `select column1, column2 from mytable` Azure SQL Database에 대해 실행 됩니다. 데이터 세트 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
 
 #### <a name="sql-query-example"></a>SQL 쿼리 예제
 
@@ -383,8 +383,8 @@ Azure SQL Database에 데이터를 복사 하려면 복사 작업 **싱크** 섹
 | storedProcedureTableTypeParameterName |저장 프로시저에 지정 된 테이블 형식의 매개 변수 이름입니다.  |아니요 |
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름입니다. 복사 작업에서는 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 사용할 수 있습니다. 그러면 저장 프로시저 코드가 복사 중인 데이터를 기존 데이터와 병합할 수 있습니다. |아니요 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
-| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정 합니다. 싱크가 저장 프로시저를 지정 하거나 준비 된 복사본이 복사 작업에 구성 되어 있으면 자동 테이블 만들기가 지원 되지 않습니다. 허용 되는 값 `none` 은 (기본값) `autoCreate`,입니다. |아니요 |
-| disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 Azure SQL Database Dtu와 같은 메트릭을 수집 합니다. 이 동작에 관심이 있으면를 지정 `true` 하 여 해제 합니다. | 아니요(기본값: `false`) |
+| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정 합니다. 싱크가 저장 프로시저를 지정 하거나 준비 된 복사본이 복사 작업에 구성 되어 있으면 자동 테이블 만들기가 지원 되지 않습니다. 허용 되는 값은 `none` (기본값), `autoCreate`입니다. |아니요 |
+| disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 Azure SQL Database Dtu와 같은 메트릭을 수집 합니다. 이 동작에 관심이 있는 경우 `true` 지정 하 여 해제 합니다. | 아니요(기본값: `false`) |
 
 **예제 1: 데이터 추가**
 
@@ -419,7 +419,7 @@ Azure SQL Database에 데이터를 복사 하려면 복사 작업 **싱크** 섹
 ]
 ```
 
-**예제 2: 복사 하는 동안 저장 프로시저 호출**
+**예 2: 복사 하는 동안 저장 프로시저 호출**
 
 자세한 내용은 [SQL 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)을 참조하세요.
 
@@ -463,10 +463,10 @@ Azure SQL Database에 데이터를 복사 하려면 복사 작업 **싱크** 섹
 
 Azure SQL Database에 데이터를 복사 하는 경우 다른 쓰기 동작이 필요할 수 있습니다.
 
-- [추가](#append-data): 원본 데이터에는 새 레코드만 있습니다.
-- [Upsert](#upsert-data): 원본 데이터에는 삽입과 업데이트가 모두 포함 됩니다.
-- [덮어쓰기](#overwrite-the-entire-table): 매번 전체 차원 테이블을 다시 로드 하려고 합니다.
-- [사용자 지정 논리를 사용 하 여 작성](#write-data-with-custom-logic): 대상 테이블을 마지막으로 삽입 하기 전에 추가 처리가 필요 합니다.
+- [추가](#append-data): 내 원본 데이터에는 새 레코드만 있습니다.
+- [Upsert](#upsert-data): 내 원본 데이터에는 삽입과 업데이트가 모두 포함 됩니다.
+- [덮어쓰기](#overwrite-the-entire-table): 매번 전체 차원 테이블을 다시 로드 합니다.
+- [사용자 지정 논리를 사용 하 여 작성](#write-data-with-custom-logic): 대상 테이블에 최종 삽입 하기 전에 추가 처리가 필요 합니다.
 
 Azure Data Factory 및 모범 사례에서 구성 하는 방법에 대 한 해당 섹션을 참조 하세요.
 
@@ -485,7 +485,7 @@ Azure Data Factory 및 모범 사례에서 구성 하는 방법에 대 한 해�
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-데이터베이스에서 이전 저장 프로시저 작업에서 가리키는 다음 예와 같이 병합 논리를 사용 하 여 저장 프로시저를 정의 합니다. 대상이 다음 세 개의 열이 있는 **마케팅** 테이블 이라고 가정 합니다. **ProfileID**, **State** 및 **Category**. **프로필 id** 열을 기반으로 upsert를 수행 합니다.
+데이터베이스에서 이전 저장 프로시저 작업에서 가리키는 다음 예와 같이 병합 논리를 사용 하 여 저장 프로시저를 정의 합니다. 대상이 **프로필 id**, **State**및 **Category**라는 세 개의 열이 있는 **마케팅** 테이블인 것으로 가정 합니다. **프로필 id** 열을 기반으로 upsert를 수행 합니다.
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -526,7 +526,7 @@ Azure SQL Database에 데이터를 복사 하는 경우 추가 매개 변수를 
 
 기본 제공 복사 메커니즘이 용도에 적합하지 않은 경우, 저장 프로시저를 사용할 수 있습니다. 원본 데이터를 대상 테이블에 마지막으로 삽입 하기 전에 추가 처리를 적용 하려는 경우를 예로 들 수 있습니다. 몇 가지 추가 처리 예는 열을 병합 하 고, 추가 값을 조회 하 고, 둘 이상의 테이블에 삽입 하려고 하는 경우입니다.
 
-다음 샘플에서는 저장 프로시저를 사용하여 Azure SQL Database의 테이블에 upsert(업데이트/삽입)를 수행하는 방법을 보여 줍니다. 입력 데이터와 싱크 **마케팅** 테이블에 각각 3 개의 열이 있다고 가정 합니다. **ProfileID**, **State** 및 **Category**. **프로필 id** 열을 기반으로 upsert를 수행 하 고 "ProductA" 이라는 특정 범주에 대해서만 적용 합니다.
+다음 샘플에서는 저장 프로시저를 사용하여 Azure SQL Database의 테이블에 upsert(업데이트/삽입)를 수행하는 방법을 보여 줍니다. 입력 데이터와 싱크 **마케팅** 테이블에 각각 **프로필 id**, **State**및 **Category**라는 세 개의 열이 있다고 가정 합니다. **프로필 id** 열을 기반으로 upsert를 수행 하 고 "ProductA" 이라는 특정 범주에 대해서만 적용 합니다.
 
 1. 데이터베이스에서 **sqlwritertabletype과**와 동일한 이름을 사용 하 여 테이블 형식을 정의 합니다. 테이블 형식의 스키마는 입력 데이터에서 반환된 스키마와 같아야 합니다.
 
@@ -583,30 +583,30 @@ Azure SQL Database에 데이터를 복사 하는 경우 추가 매개 변수를 
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |부울 |
 | char |String, Char[] |
 | date |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
-| Decimal |Decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Datetimeoffset |Datetimeoffset |
+| 10진수 |10진수 |
+| FILESTREAM 특성(varbinary(max)) |Byte[] |
 | Float |Double |
-| image |Byte[] |
+| 이미지 |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |10진수 |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |10진수 |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |단일 |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimal |
+| smallmoney |10진수 |
 | sql_variant |Object |
-| text |String, Char[] |
-| time |TimeSpan |
+| 텍스트 |String, Char[] |
+| 실시간 |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |

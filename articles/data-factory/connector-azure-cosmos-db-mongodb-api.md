@@ -1,5 +1,5 @@
 ---
-title: Data Factory를 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터 복사 | Microsoft Docs
+title: Data Factory를 사용 하 여 Azure Cosmos DB의 MongoDB API에 데이터 복사
 description: Data Factory를 사용하여 지원되는 원본 데이터 저장소에서 MongoDB용 Azure Cosmos DB API로, 또는 이러한 데이터 저장소나 API에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory, cosmosdb
 documentationcenter: ''
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: dfacecbaaf627b05d7706f60b4eb86cca9d856ba
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: d0c90562c5e0810e5ed4898f6b2ec09ee52d16a0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68720847"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681316"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-dbs-api-for-mongodb-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터 복사
 
 이 문서에서는 Azure Data Factory의 복사 활동을 사용하여 MongoDB용 Azure Cosmos DB API에서/API로 데이터를 복사하는 방법을 간략하게 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [Azure Data Factory의 복사 작업](copy-activity-overview.md)을 기반으로 합니다.
 
 >[!NOTE]
->이 커넥터는 MongoDB용 Azure Cosmos DB API에서/API로 데이터를 복사하는 작업만 지원합니다. SQL API는 [Cosmos DB SQL API 커넥터](connector-azure-cosmos-db.md)를 참조하세요. 기타 API 형식은 이제 지원되지 않습니다.
+>이 커넥터는 MongoDB용 Azure Cosmos DB API에서/API로 데이터를 복사하는 작업만 지원합니다. SQL API는 [Cosmos DB SQL API 커넥터](connector-azure-cosmos-db.md)를 참조하세요. 다른 API 형식은 이제 지원되지 않습니다.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -173,7 +173,7 @@ MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 
 | type | 복사 작업 싱크의 **type** 속성은 **CosmosDbMongoDbApiSink**로 설정해야 합니다. |예 |
 | writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert**입니다.<br/><br/>**upsert**의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: ID가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 ID를 자동으로 생성합니다. 즉, **upsert**가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |아니요<br />(기본값: **insert**) |
 | writeBatchSize | **writeBatchSize** 속성은 각 일괄 처리에서 작성할 문서의 크기를 제어합니다. 성능을 개선하기 위해 **writeBatchSize**에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄여 볼 수 있습니다. |아니요<br />(기본값: **10,000**) |
-| writeBatchTimeout | 시간 초과되기 전에 배치 삽입 작업을 완료하기 위한 대기 시간입니다. 허용되는 값은 시간 범위입니다. | 아니요<br/>(기본값은 **00:30:00** - 30분) |
+| writeBatchTimeout | 제한 시간이 초과 되기 전에 일괄 삽입 작업이 완료 될 때까지 대기 하는 시간입니다. 허용 되는 값은 timespan입니다. | 아니요<br/>(기본값은 **00:30:00** - 30분) |
 
 **예제**
 
@@ -218,7 +218,7 @@ MongoDB용 Azure Cosmos DB API 연결된 서비스에서 지원되는 속성은 
 * Azure Cosmos DB 컬렉션에서 다양한 파일 기반 저장소로 JSON 문서 내보내기
 * 두 Azure Cosmos DB 컬렉션 간에 문서를 있는 그대로 복사
 
-이러한 스키마 독립적 복사를 완수하려면 데이터 세트 및 복사 작업의 스키마 매핑에서 "구조"(*스키마*라고도 함) 섹션을 건너뛰세요.
+이러한 스키마 독립적 복사를 완수하려면 데이터 세트 및 복사 작업의 스키마 매핑에서 "structure"(*스키마*라고도 함) 섹션을 건너뜁니다.
 
 ## <a name="schema-mapping"></a>스키마 매핑
 

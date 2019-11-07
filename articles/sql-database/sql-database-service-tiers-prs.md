@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Premium RS 서비스 계층 회수 | Microsoft Docs
+title: 서비스 계층 사용 중지 프리미엄 RS Azure SQL Database
 description: 프리미엄 RS 서비스 계층이 더 이상 사용되지 않으며 지원이 종료될 예정입니다. 마이그레이션 옵션을 참조하세요.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/07/2019
-ms.openlocfilehash: d2637618ea9e2a0a0d0369eddce01fae073be221
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 688fd3fdefb54fc25d5236277c85dd4262df5f34
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566633"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687234"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>Azure SQL Database Premium RS 서비스 계층(미리 보기)이 더 이상 사용되지 않음 - 마이그레이션 옵션
 
@@ -26,7 +26,7 @@ ms.locfileid: "68566633"
 
 - vCore 서비스 계층
 
-  [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)의 **범용** 및 **중요 비즈니스** 서비스 계층입니다. 이러한 두 서비스 계층은 일반 공급됩니다. 또한 vCore 기반 구매 모델은 데이터베이스당 최대 100 TB의 자동 확장을 사용 하 여 워크 로드의 요구에 맞게 적응 하는 하이퍼 **규모** 의 서비스 계층을 제공 합니다. 하이퍼스케일 서비스 계층은 프리미엄 RS 서비스 계층과 비슷한 가격으로 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)의 프리미엄 서비스 계층에 필적할만한 IO 성능을 제공합니다.
+  **vCore 기반 구매 모델**의 **범용** 및 [중요 비즈니스](sql-database-service-tiers-vcore.md) 서비스 계층입니다. 이러한 두 서비스 계층은 일반 공급됩니다. 또한 vCore 기반 구매 모델은 데이터베이스당 최대 100 TB의 자동 확장을 사용 하 여 워크 로드의 요구에 맞게 적응 하는 하이퍼 **규모** 의 서비스 계층을 제공 합니다. 하이퍼스케일 서비스 계층은 프리미엄 RS 서비스 계층과 비슷한 가격으로 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)의 프리미엄 서비스 계층에 필적할만한 IO 성능을 제공합니다.
 - 개발/테스트 가격
 
   [개발/테스트 가격](https://azure.microsoft.com/pricing/dev-test/)은 최대 55% 비용 절감 효과를 가져오거나 Visual Studio 구독을 통한 라이선스 포함 요금이 됩니다.

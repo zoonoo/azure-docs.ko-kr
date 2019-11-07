@@ -1,5 +1,5 @@
 ---
-title: Advanced Threat Protection 구성-Azure SQL Database 관리 되는 인스턴스 | Microsoft Docs
+title: Advanced Threat Protection 구성-관리 되는 인스턴스 Azure SQL Database
 description: Advanced Threat Protection은 관리 되는 인스턴스의 데이터베이스에 대 한 잠재적인 보안 위협을 나타내는 비정상적인 데이터베이스 활동을 검색 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: eb6d8229e85e54a6a3fc8591dc4688a73773fd8b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 8e419031c34a693bac7ab9f9825c24576e80ba14
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816565"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687888"
 ---
 # <a name="configure-advanced-threat-protection-in-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스에서 Advanced Threat Protection 구성
 
@@ -37,7 +37,7 @@ Advanced [Threat Protection](sql-database-threat-detection-overview.md) 은 고�
    - 구성할 **고급 위협 방지 유형을** 선택 합니다. [Advanced Threat Protection 경고](sql-database-threat-detection-overview.md)에 대해 자세히 알아보세요.
 4. **저장** 을 클릭 하 여 새로운 또는 업데이트 된 고급 데이터 보안 정책을 저장 합니다.
 
-   ![Advanced Threat Protection](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
+   ![고급 위협 보호](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
 
    > [!NOTE]
    > 스크린샷의 가격은 항상 현재 가격을 반영 하지는 않으며 예입니다.

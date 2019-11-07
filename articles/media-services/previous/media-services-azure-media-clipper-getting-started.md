@@ -2,19 +2,19 @@
 title: Azure Media Clipper 시작 | Microsoft Docs
 description: AMS 자산에서 비디오 클립을 빌드하는 도구인 Azure Media Clipper 시작
 services: media-services
-keywords: 클립, 하위 클립, 인코딩, 미디어
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: 클립;서브클립;인코딩;미디어
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 51848b9ba4d18b3ac7d652cfbd97cab6b85f2ee8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45ecc81967d6a95f817b10bce7f8396d9379bc94
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61466275"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685085"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Clipper를 사용하여 클립 만들기
 이 섹션에서는 Azure Media Clipper를 시작하는 기본 단계를 보여 줍니다. 이후 섹션에서는 Azure Media Clipper 구성 방법에 대한 세부 정보를 제공합니다.
@@ -91,7 +91,7 @@ var subclipper = new subclipper({
 - `selector` {REQUIRED, string}: 위젯을 렌더링해야 하는 일치하는 HTML 요소의 CSS 선택기입니다.
 - `restVersion` {REQUIRED, string}: 대상으로 지정할 Azure Media Services REST API 버전입니다. REST 버전은 위젯에서 생성된 출력 형식을 정의합니다. 현재는 2.0만 지원됩니다.
 - `submitSubclipCallback` {REQUIRED, promise}: 위젯의 “제출” 단추를 클릭할 때 호출되는 콜백 함수입니다. 콜백 함수에는 위젯(렌더링 작업 구성 또는 필터 정의)에서 생성된 출력이 필요합니다. 자세한 내용은 서브클립 콜백 제출을 참조하세요.
-- `logLevel` {OPTIONAL, {'info', 'warn', 'error'}}: 브라우저 콘솔에 표시할 로깅 수준을 설정합니다. 기본값: error
+- `logLevel` {OPTIONAL, {'info', 'warn', 'error'}}: 브라우저 콘솔에 표시되는 로깅 수준입니다. 기본값: error
 - `minimumMarkerGap` {OPTIONAL, int}: 서브클립의 최소 값입니다(초). 참고: 값은 기본값인 6보다 크거나 같아야 합니다.
 - `singleBitrateMp4Profile` {OPTIONAL, JSON object}: 위젯에서 생성된 렌더링 작업 구성에 사용할 단일 비트 전송률 mp4 프로필입니다. 제공하지 않으면 [기본 단일 비트 전송률 MP4 프로필](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-single-bitrate-1080p)이 사용됩니다.
 - `multiBitrateMp4Profile` {OPTIONAL, JSON object}: 위젯에서 생성된 렌더링 작업 구성에 사용할 다중 비트 전송률 mp4 프로필입니다. 제공하지 않으면 [기본 다중 비트 전송률 MP4 프로필](https://docs.microsoft.com/azure/media-services/media-services-mes-preset-h264-multiple-bitrate-1080p)이 사용됩니다.

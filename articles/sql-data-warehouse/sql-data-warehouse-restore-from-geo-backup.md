@@ -1,5 +1,5 @@
 ---
-title: 지역 백업에서 Azure SQL Data Warehouse 복원 | Microsoft Docs
+title: 지리적 백업에서 데이터 웨어하우스 복원
 description: Azure SQL Data Warehouse 지역 복원에 대 한 방법 가이드입니다.
 services: sql-data-warehouse
 author: anumjs
@@ -10,18 +10,19 @@ ms.subservice: manage
 ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
-ms.openlocfilehash: 768646522c2589c302fd7a58031d4ebdb7fcdc12
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 69eb1221686da61868df8b06ed80664ae76d1627
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68426656"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685509"
 ---
 # <a name="geo-restore-azure-sql-data-warehouse"></a>지역 복원 Azure SQL Data Warehouse
 
 이 문서에서는 Azure Portal 및 PowerShell을 통해 지리적 백업에서 데이터 웨어하우스를 복원 하는 방법을 알아봅니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -79,12 +80,12 @@ $GeoRestoredDatabase.status
 1. **+ 리소스 만들기** 를 클릭 하 고 SQL Data Warehouse를 검색 한 후 **만들기**를 클릭 합니다.
 
     ![새 DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
-1. **기본 사항** 탭에서 요청 된 정보를 입력 하 고 **다음을 클릭 합니다. 추가 설정**입니다.
+1. **기본 사항** 탭에서 요청 된 정보를 입력 하 고 **다음: 추가 설정**을 클릭 합니다.
 
     ![기본 사항](./media/sql-data-warehouse-restore-from-geo-backup/georestore-dw-1.png)
 1. **기존 데이터** 매개 변수 사용에 대해 **백업** 을 선택 하 고 아래로 스크롤 옵션에서 적절 한 백업을 선택 합니다. **검토 + 만들기**를 클릭 합니다.
  
-   ![백업(backup)](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
+   ![backup](./media/sql-data-warehouse-restore-from-geo-backup/georestore-select.png)
 2. 데이터 웨어하우스가 복원 되 면 **상태가** 온라인 인지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계

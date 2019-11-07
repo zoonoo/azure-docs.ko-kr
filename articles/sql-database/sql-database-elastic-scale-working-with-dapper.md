@@ -1,5 +1,5 @@
 ---
-title: Dapper와 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용 | Microsoft Docs
+title: Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
 description: Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
 services: sql-database
 ms.service: sql-database
@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 1eafb123014effad9daca89dc1b852367d9cbbf1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3b1fa6ab046845e2fd95e8d4b5611ca2f5d12562
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568270"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690090"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
 이 문서는 Dapper를 기반으로 애플리케이션을 작성하는 개발자뿐만 아니라 데이터 계층 규모를 확장하도록 분할을 구현하는 애플리케이션을 만들기 위해 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md)를 받아들이려는 개발자를 대상으로 합니다.  이 문서에서는 탄력적 데이터베이스 도구와 통합하기 위해 Dapper 기반 애플리케이션에서 수행해야 하는 변경에 대해 설명합니다. 여기서는 Dapper를 사용하여 탄력적 데이터베이스 분할 관리 및 데이터 종속 라우팅을 작성하는 방법에 대해 중점적으로 설명합니다. 
 
-**샘플 코드**: [Azure SQL Database-Dapper 통합에 대한 Elastic Database 도구](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
+**샘플 코드**: [Azure SQL Database - Dapper 통합에 대한 Elastic Database 도구](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-e19fc77f).
 
-**Dapper**와 **DapperExtensions**는 Azure SQL Database의 탄력적 데이터베이스 클라이언트와 쉽게 통합할 수 있습니다. 애플리케이션에서는 새로운 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 개체를 만들고 열 때 [클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn765902.aspx)의 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn807226.aspx) 호출을 사용하도록 변경하여 데이터 종속 라우팅을 사용할 수 있습니다. 이 경우 애플리케이션에서 새 연결을 만들고 열 때만 해당 호출을 사용하도록 변경됩니다. 
+**Dapper**와 **DapperExtensions**는 Azure SQL Database의 탄력적 데이터베이스 클라이언트와 쉽게 통합할 수 있습니다. 애플리케이션에서는 새로운 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection.aspx) 개체를 만들고 열 때 [클라이언트 라이브러리](https://msdn.microsoft.com/library/azure/dn807226.aspx)의 [OpenConnectionForKey](https://msdn.microsoft.com/library/azure/dn765902.aspx) 호출을 사용하도록 변경하여 데이터 종속 라우팅을 사용할 수 있습니다. 이 경우 애플리케이션에서 새 연결을 만들고 열 때만 해당 호출을 사용하도록 변경됩니다. 
 
 ## <a name="dapper-overview"></a>Dapper 개요
 **Dapper** 는 개체 관계형 매퍼입니다. 애플리케이션의 .NET 개체와 관계형 데이터베이스를 서로 매핑합니다. 샘플 코드의 첫 부분에서는 탄력적 데이터베이스 클라이언트 라이브러리를 Dapper 기반 애플리케이션과 통합할 수 있는 방법을 보여 줍니다. 그리고 두 번째 부분에서는 Dapper와 DapperExtensions를 통합하는 방법이 나와 있습니다.  
@@ -48,7 +48,7 @@ Dapper 어셈블리를 확인하려면 [Dapper.net](https://www.nuget.org/packag
 ### <a name="requirements-for-dapper-integration"></a>Dapper 통합을 위한 요구 사항
 탄력적 데이터베이스 클라이언트 라이브러리와 Dapper API를 모두 사용할 때는 다음 속성을 유지해야 합니다.
 
-* **규모 확장**: 애플리케이션의 용량 요구 사항에 따라 분할된 애플리케이션의 데이터 계층에서 데이터베이스를 필요한 만큼 추가하거나 제거하려고 합니다. 
+* **규모 확장**: 애플리케이션의 용량 요구 사항에 따라 분할된 애플리케이션의 데이터 계층에서 데이터베이스를 필요한 만큼 추가하거나 제거합니다. 
 * **일관성**: 애플리케이션은 분할을 사용하여 규모가 확장되므로 데이터 종속 라우팅을 수행해야 합니다. 이를 위해 라이브러리의 데이터 종속 라우팅 기능을 사용합니다. 특히 손상이나 잘못된 쿼리 결과를 방지하기 위해 분할된 데이터베이스 맵을 통해 조정되는 연결에서 보장하는 유효성 검사 및 일관성을 유지해야 합니다. 이렇게 하면 예를 들어 지정된 shardlet이 분할/병합 API를 사용하여 현재 다른 분할된 데이터베이스로 이동되어 있는 경우 해당 shardlet에 대한 연결이 거부되거나 중지됩니다.
 * **개체 매핑**: 애플리케이션의 클래스와 기본 데이터베이스 구조 간 변환을 수행하기 위해 Dapper에서 제공하는 편리한 매핑 기능을 유지합니다. 
 
@@ -136,7 +136,7 @@ Dapper에는 데이터베이스 애플리케이션을 개발할 때 데이터베
     }
 
 ### <a name="handling-transient-faults"></a>일시적인 오류 처리
-Microsoft Patterns &amp; Practices 팀은 애플리케이션 개발자들이 클라우드에서 실행 시에 일반적으로 발생하는 일시적인 오류 상황을 완화할 수 있도록 [일시적인 오류 처리 애플리케이션 블록](https://msdn.microsoft.com/library/hh680934.aspx)을 게시했습니다. 자세한 내용은 [모든 성공의 인내와 비밀: 일시적인 오류 처리 애플리케이션 블록 사용](https://msdn.microsoft.com/library/dn440719.aspx)(영문)을 참조하세요.
+Microsoft Patterns &amp; Practices 팀은 애플리케이션 개발자들이 클라우드에서 실행 시에 일반적으로 발생하는 일시적인 오류 상황을 완화할 수 있도록 [일시적인 오류 처리 애플리케이션 블록](https://msdn.microsoft.com/library/hh680934.aspx)을 게시했습니다. 더 자세한 정보는 [인내, 모든 승리의 비밀: 일시적인 오류 처리 애플리케이션 블록 사용](https://msdn.microsoft.com/library/dn440719.aspx)(영문)을 참조하세요.
 
 코드 샘플에서는 일시적인 오류 라이브러리를 사용하여 일시적인 오류를 방지합니다. 
 

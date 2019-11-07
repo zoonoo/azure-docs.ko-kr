@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 관리형 인스턴스 감사 | Microsoft Docs
+title: Azure SQL Database 관리 되는 인스턴스 감사
 description: T-SQL을 사용하여 Azure SQL Database 관리형 인스턴스 감사를 시작하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: 23e3a15ac26cdf0950ee31fddad2af4a3b7414c2
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 915d804cd3ae67848b4b9aa2f50fb5f1b4f1f092
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025378"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689434"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database 관리형 인스턴스 감사 시작
 
@@ -171,7 +171,7 @@ ms.locfileid: "73025378"
 
 5. 감사 이벤트의 대상 (이벤트 허브, Azure Monitor 로그 또는 둘 다)을 선택 합니다. 각 대상에 대해 필수 매개 변수(예: Log Analytics 작업 영역)를 구성합니다.
 
-6. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+6. **Save**를 클릭합니다.
 
     ![진단 설정 구성](./media/sql-managed-instance-auditing/9_mi_configure_diagnostics.png)
 

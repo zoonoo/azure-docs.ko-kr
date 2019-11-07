@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Cassandra에서 데이터 복사 | Microsoft Docs
+title: Azure Data Factory를 사용하여 Cassandra에서 데이터 복사
 description: Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Cassandra에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: 1531f2530af9c2fbc90d1bf25f04962fb4148a8d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 9068874704233b3bbb5f38345648bc3455433768
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090477"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681104"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Cassandra에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -43,7 +43,7 @@ Cassandra 데이터베이스에서 지원되는 모든 싱크 데이터 저장�
 >[!NOTE]
 >자체 호스팅 Integration Runtime에서 활동 실행의 경우 Cassandra 3.x는 IR 버전 3.7 이상에서 지원됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -61,12 +61,12 @@ Cassandra 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type |type 속성을 다음으로 설정해야 합니다. **Cassandra** |예 |
-| 호스트 |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
-| port |Cassandra 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요(기본값: 9042) |
-| authenticationType | Cassandra 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **기본** 및 **익명**. |예 |
-| username |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
-| password |사용자 계정으로 password를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예. authenticationType은 Basic으로 설정됩니다. |
+| type |형식 속성은 **Cassandra**로 설정해야 합니다. |예 |
+| host |Cassandra 서버에 대한 하나 이상의 IP 주소 또는 호스트 이름.<br/>모든 서버에 동시에 연결하려면 쉼표로 구분된 IP 주소 또는 호스트 이름 목록을 지정합니다. |예 |
+| 포트 |Cassandra 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. |아니요(기본값: 9042) |
+| authenticationType | Cassandra 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. |예 |
+| 사용자 이름 |사용자 계정의 사용자 이름을 지정합니다. |예. authenticationType은 Basic으로 설정됩니다. |
+| password |사용자 계정으로 password를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. |예. authenticationType은 Basic으로 설정됩니다. |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 >[!NOTE]
@@ -104,7 +104,7 @@ Cassandra에서 데이터를 복사하려면 데이터 세트의 type 속성을 
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **CassandraTable** | 예 |
+| type | 데이터 세트의 type 속성을 **CassandraTable**로 설정해야 합니다. | 예 |
 | keyspace |Cassandra 데이터베이스의 키스페이스 또는 스키마의 이름입니다. |아니요("CassandraSource"에 대해 "query"가 지정되지 않은 경우) |
 | tableName |Cassandra 데이터베이스에 있는 테이블의 이름입니다. |아니요("CassandraSource"에 대해 "query"가 지정되지 않은 경우) |
 
@@ -139,9 +139,9 @@ Cassandra에서 데이터를 복사하려면 복사 작업의 원본 형식을 *
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **CassandraSource** | 예 |
-| query |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. SQL-92 쿼리 또는 CQL 쿼리입니다. [CQL 참조](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)를 참조하세요. <br/><br/>SQL 쿼리를 사용할 경우 **keyspace name.table name** 을 지정하여 쿼리하려는 테이블을 나타냅니다. |아니요(데이터 세트의 "tableName" 및 "keyspace"가 정의된 경우). |
-| consistencyLevel |일관성 수준은 클라이언트 애플리케이션에 데이터를 반환하기 전에 읽기 요청에 응답해야 하는 복제본 수를 지정합니다. Cassandra는 데이터의 지정된 수의 복제본이 읽기 요청을 충족하는지 확인합니다. 자세한 내용은 [데이터 일관성 구성](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 을 참조하세요.<br/><br/>허용되는 값은 다음과 같습니다. **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** 및 **LOCAL_ONE**. |아니요(기본값: `ONE`) |
+| type | 복사 작업 원본의 type 속성을 **CassandraSource**로 설정해야 합니다. | 예 |
+| 쿼리 |사용자 지정 쿼리를 사용하여 데이터를 읽습니다. SQL-92 쿼리 또는 CQL 쿼리입니다. [CQL 참조](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html)를 참조하세요. <br/><br/>SQL 쿼리를 사용할 경우 **keyspace name.table name** 을 지정하여 쿼리하려는 테이블을 나타냅니다. |아니요(데이터 세트의 "tableName" 및 "keyspace"가 정의된 경우). |
+| consistencyLevel |일관성 수준은 클라이언트 애플리케이션에 데이터를 반환하기 전에 읽기 요청에 응답해야 하는 복제본 수를 지정합니다. Cassandra는 데이터의 지정된 수의 복제본이 읽기 요청을 충족하는지 확인합니다. 자세한 내용은 [데이터 일관성 구성](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) 을 참조하세요.<br/><br/>허용되는 값은 **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** 및 **LOCAL_ONE**입니다. |아니요(기본값: `ONE`) |
 
 **예제:**
 
@@ -184,18 +184,18 @@ Cassandra에서 데이터를 복사하는 경우 Cassandra 데이터 형식에�
 | ASCII |문자열 |
 | BIGINT |Int64 |
 | BLOB |Byte[] |
-| BOOLEAN |BOOLEAN |
-| DECIMAL |Decimal |
-| DOUBLE |DOUBLE |
-| FLOAT |Single |
-| INET |String |
+| BOOLEAN |부울 |
+| DECIMAL |10진수 |
+| DOUBLE |Double |
+| FLOAT |단일 |
+| INET |문자열 |
 | INT |Int32 |
-| TEXT |String |
+| TEXT |문자열 |
 | TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |문자열 |
-| VARINT |DECIMAL |
+| VARINT |10진수 |
 
 > [!NOTE]
 > 컬렉션 형식(맵, 집합, 목록 등)에 대해서는 [가상 테이블을 사용하여 Cassandra 컬렉션 형식으로 작업](#work-with-collections-using-virtual-table) 섹션을 참조하세요.
@@ -218,7 +218,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 Cassandra 
 
 예를 들어 다음 "ExampleTable"은 "pk_int"라는 정수 기본 키 열, value라는 텍스트 열, 목록 열, 맵 열, 집합 열("StringSet")을 포함하는 Cassandra 데이터베이스 테이블입니다.
 
-| pk_int | 값 | List | Map | StringSet |
+| pk_int | 값 | 나열 | Map | StringSet |
 | --- | --- | --- | --- | --- |
 | 1 |"sample value 1" |["1", "2", "3"] |{"S1": "a", "S2": "b"} |{"A", "B", "C"} |
 | 3 |"sample value 3" |["100", "101", "102", "105"] |{"S1": "t"} |{"A", "E"} |
@@ -252,7 +252,7 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 Cassandra 
 
 | pk_int | Map_key | Map_value |
 | --- | --- | --- |
-| 1 |S1 |변수를 잠그기 위한 |
+| 1 |S1 |문자열(UTF-8 형식) 또는 |
 | 1 |S2 |b |
 | 3 |S1 |t |
 
@@ -260,10 +260,10 @@ Azure Data Factory는 기본 제공 ODBC 드라이버를 사용하여 Cassandra 
 
 | pk_int | StringSet_value |
 | --- | --- |
-| 1 |A |
+| 1 |문자열(UTF-8 형식) 또는 |
 | 1 |b |
 | 1 |C |
-| 3 |변수를 잠그기 위한 |
+| 3 |문자열(UTF-8 형식) 또는 |
 | 3 |E |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성

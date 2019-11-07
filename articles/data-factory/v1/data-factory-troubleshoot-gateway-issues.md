@@ -1,5 +1,5 @@
 ---
-title: 데이터 관리 게이트웨이 문제 해결 | Microsoft Docs
+title: 데이터 관리 Gateway 문제 해결
 description: 데이터 관리 게이트웨이와 관련된 문제를 해결하기 위한 팁을 제공합니다.
 services: data-factory
 author: nabhishek
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0559d89bd691323a95713d518df05e58283cef39
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 34930061189c11c9cea9c2cd0feb2ede9aade74d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61252440"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682331"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>데이터 관리 게이트웨이 사용 관련 문제 해결
 이 문서에서는 데이터 관리 게이트웨이 사용과 관련된 문제 해결에 대한 정보를 제공합니다.
 
 > [!NOTE]
-> 이 아티클은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
+> 이 문서의 내용은 Azure Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
 
 게이트웨이에 대한 자세한 내용은 [데이터 관리 게이트웨이](data-factory-data-management-gateway.md) 문서를 참조하세요. 게이트웨이를 사용하여 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 이동하는 연습은 [온-프레미스와 클라우드 간 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
 
@@ -168,7 +168,7 @@ Azure Portal에서 **이 컴퓨터에 바로 설치**를 클릭하여 게이트�
 #### <a name="resolution"></a>해결 방법
 게이트웨이를 다시 온라인으로 가져오려면 다음 단계를 따릅니다.
 
-1. 게이트웨이 컴퓨터와 회사 방화벽에서 IP 주소 아웃바운드 규칙을 허용합니다. 다음과 같은 Windows 이벤트 로그에서 IP 주소를 찾을 수 있습니다(ID == 401). 액세스 권한 XX.XX.XX.XX:9350에 의해 숨겨진 소켓에 액세스를 시도했습니다.
+1. 게이트웨이 컴퓨터와 회사 방화벽에서 IP 주소 아웃바운드 규칙을 허용합니다. “Windows 이벤트 로그(ID == 401): XX.XX.XX.XX:9350 액세스 권한에 의해 숨겨진 소켓에 액세스를 시도했습니다.”에서 IP 주소를 찾을 수 있습니다.
 1. 게이트웨이에 프록시 설정 구성 자세한 내용은 프록시 서버 고려 사항 섹션을 참조하세요.
 1. 게이트웨이 컴퓨터의 Windows 방화벽 및 회사 방화벽 모두에서 5671 및 9350-9354 아웃바운드 포트를 사용하도록 설정합니다. 자세한 내용은 포트 및 방화벽 섹션을 참조하세요. 이 단계는 선택 사항이지만 성능을 고려하여 권장됩니다.
 

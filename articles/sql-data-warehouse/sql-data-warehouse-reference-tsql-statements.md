@@ -1,5 +1,5 @@
 ---
-title: T-SQL 문 - Azure SQL Data Warehouse | Microsoft Docs
+title: T-SQL 문
 description: Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: query
 ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 5704ee4bf84b396dcef5a4f9edd887128ba95fb1
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 861675941693697a20da189edebe33d91918782c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479382"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685527"
 ---
 # <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 지원되는 T-SQL 문
 Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
@@ -23,19 +24,19 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 ## <a name="data-definition-language-ddl-statements"></a>데이터 정의 언어(DDL) 문
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
 * [ALTER INDEX](https://msdn.microsoft.com/library/ms188388.aspx)
-* [ALTER 구체화 된 뷰](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) 모드 
+* [ALTER 구체화 된 뷰](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) (미리 보기) 
 * [ALTER PROCEDURE](https://msdn.microsoft.com/library/ms189762.aspx)
 * [ALTER SCHEMA](https://msdn.microsoft.com/library/ms173423.aspx)
 * [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)
 * [CREATE COLUMNSTORE INDEX](https://msdn.microsoft.com/library/gg492153.aspx)
 * [CREATE DATABASE](https://msdn.microsoft.com/library/mt204021.aspx)
-* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
+* [데이터베이스 범위 자격 증명 만들기](https://msdn.microsoft.com/library/mt270260.aspx)
 * [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 * [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx)
 * [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 * [CREATE FUNCTION](https://msdn.microsoft.com/library/mt203952.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [구체화 된 뷰를 SELECT로 만들기](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) 모드 
+* [구체화 된 뷰를 SELECT로 만들기](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (미리 보기) 
 * [CREATE PROCEDURE](https://msdn.microsoft.com/library/ms187926.aspx)
 * [CREATE SCHEMA](https://msdn.microsoft.com/library/ms189462.aspx)
 * [CREATE STATISTICS](https://msdn.microsoft.com/library/ms188038.aspx)
@@ -65,12 +66,12 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 
 ## <a name="database-console-commands"></a>데이터베이스 콘솔 명령
 * [DBCC DROPCLEANBUFFERS](https://msdn.microsoft.com/library/ms187762.aspx)
-* [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) 모드
+* [DBCC DROPRESULTSETCACHE](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest) (미리 보기)
 * [DBCC FREEPROCCACHE](https://msdn.microsoft.com/library/mt204018.aspx)
 * [DBCC SHRINKLOG](https://msdn.microsoft.com/library/mt204020.aspx)
 * [DBCC PDW_SHOWEXECUTIONPLAN](https://msdn.microsoft.com/library/mt204017.aspx)
 * [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest)
-* [DBCC SHOWRESULTCACHESPACEUSED](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql) 모드
+* [DBCC SHOWRESULTCACHESPACEUSED](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql) (미리 보기)
 * [DBCC PDW_SHOWPARTITIONSTATS](https://msdn.microsoft.com/library/mt204013.aspx)
 * [DBCC PDW_SHOWSPACEUSED](https://msdn.microsoft.com/library/mt204028.aspx)
 * [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/mt204043.aspx)

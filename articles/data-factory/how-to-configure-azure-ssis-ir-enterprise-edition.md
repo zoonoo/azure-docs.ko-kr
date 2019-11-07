@@ -1,5 +1,5 @@
 ---
-title: Azure-SSIS Integration Runtime Enterprise 버전 프로비전 | Microsoft Docs
+title: 'Azure-SSIS Integration Runtime Enterprise 버전 프로비전 '
 description: 이 문서에서는 Azure-SSIS Integration Runtime Enterprise 버전의 기능 및 프로비전하는 방법을 설명합니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: d2b06d044f68972ef72dd9b53401980e84ef779f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8c9db18d416d508dd5a98cbacc14b7db6c075a55
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66152440"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673965"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime Enterprise 버전 프로비전
 
@@ -35,8 +35,8 @@ Azure-SSIS Integration Runtime Enterprise 버전에서는 다음과 같은 고�
 | **엔터프라이즈 기능** | **설명** |
 |---|---|
 | CDC 구성 요소 | CDC Source, Control Task 및 Splitter Transformation은 Azure-SSIS IR Enterprise Edition에 미리 설치됩니다. Oracle에 연결하려면 다른 컴퓨터에 CDC Designer 및 Service를 설치해야 합니다. |
-| Oracle 커넥터 | Oracle Connection Manager, Source 및 Destination은 Azure-SSIS IR Enterprise Edition에 미리 설치됩니다. 또한 OCI(Oracle Call Interface) 드라이버를 설치하고, 필요한 경우 Azure-SSIS IR에서 Oracle TNS(Transport Network Substrate)를 구성해야 합니다. 자세한 내용은 [Azure-SSIS Integration Runtime 사용자 지정 설정](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요. |
-| Teradata 커넥터 | Azure-SSIS IR Enterprise Edition에 Teradata Connection Manager, Source 및 Destination 뿐 아니라 TPT(Teradata Parallel Transporter) API와 Teradata ODBC 드라이버를 설치해야 합니다. 자세한 내용은 [Azure-SSIS Integration Runtime 사용자 지정 설정](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요. |
+| Oracle 커넥터 | Oracle Connection Manager, Source 및 Destination은 Azure-SSIS IR Enterprise Edition에 미리 설치됩니다. 또한 OCI(Oracle Call Interface) 드라이버를 설치하고, 필요한 경우 Azure-SSIS IR에서 Oracle TNS(Transport Network Substrate)를 구성해야 합니다. 자세한 내용은 [Azure-SSIS 통합 런타임 사용자 지정 설정](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요. |
+| Teradata 커넥터 | Azure-SSIS IR Enterprise Edition에 Teradata Connection Manager, Source 및 Destination 뿐 아니라 TPT(Teradata Parallel Transporter) API와 Teradata ODBC 드라이버를 설치해야 합니다. 자세한 내용은 [Azure-SSIS 통합 런타임 사용자 지정 설정](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요. |
 | SAP BW 커넥터 | SAP BW Connection Manager, Source 및 Destination은 Azure-SSIS IR Enterprise Edition에 미리 설치됩니다. 또한 Azure-SSIS IR에서 SAP BW 드라이버를 설치해야 합니다. 이러한 커넥터는 SAP BW 7.0 또는 이전 버전을 지원합니다. 이후 버전의 SAP BW 또는 기타 SAP 제품에 연결하려면 타사 ISV에서 SAP 커넥터를 구입한 후 Azure-SSIS IR에 설치할 수 있습니다. 추가 구성 요소를 설치하는 방법에 대한 자세한 내용은 [Azure-SSIS 통합 런타임 사용자 지정 설정](how-to-configure-azure-ssis-ir-custom-setup.md)을 참조하세요. |
 | Analysis Services 구성 요소               | 데이터 마이닝 모델 학습 대상, 차원 처리 대상 및 파티션 처리 대상과 데이터 마이닝 쿼리 변환은 Azure-SSIS IR Enterprise Edition에 미리 설치됩니다. 이러한 모든 구성 요소는 SSAS(SQL Server Analysis Services)를 지원하지만 AAS(Azure Analysis Services)는 파티션 처리 대상만 지원합니다. SSAS에 연결하려면 [SSISDB에서 Windows 인증 자격 증명도 구성](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth)해야 합니다. 이러한 구성 요소 외에, Analysis Services DDL 실행 태스크, Analysis Services 처리 태스크 및 데이터 마이닝 쿼리 태스크도 Azure-SSIS IR Standard/Enterprise Edition에 미리 설치됩니다. |
 | 유사 항목 그룹화 및 유사 항목 조회 변환  | 유사 항목 그룹화 및 유사 항목 조회 변환은 Azure-SSIS IR Enterprise Edition에 미리 설치됩니다. 이러한 구성 요소는 참조 데이터를 저장하기 위해 SQL Server와 Azure SQL Database를 둘 다 지원합니다. |
@@ -48,7 +48,7 @@ Azure-SSIS Integration Runtime Enterprise 버전에서는 다음과 같은 고�
 
 1.  [Azure PowerShell](/powershell/azure/install-az-ps)를 다운로드하여 설치합니다.
 
-2.  PowerShell을 사용하여 Azure-SSIS IR을 프로비전하거나 다시 구성하는 경우 Azure-SSIS IR을 시작하기 전에 **Edition** 매개 변수 값으로 **Enterprise**를 지정하여 `Set-AzDataFactoryV2IntegrationRuntime`을 실행합니다. 샘플 스크립트는 다음과 같습니다.
+2.  PowerShell을 사용하여 Azure-SSIS IR을 프로비전하거나 다시 구성하는 경우 Azure-SSIS IR을 시작하기 전에 `Set-AzDataFactoryV2IntegrationRuntime`Edition**매개 변수 값으로**Enterprise**를 지정하여** 을 실행합니다. 샘플 스크립트는 다음과 같습니다.
 
     ```powershell
     $MyAzureSsisIrEdition = "Enterprise"

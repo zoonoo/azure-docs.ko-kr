@@ -1,5 +1,5 @@
 ---
-title: P2S 구성 - Azure SQL Database Managed Instance | Microsoft Docs
+title: 'P2S 구성-Azure SQL Database Managed Instance '
 description: 온-프레미스 클라이언트 컴퓨터에서 지점 및 사이트 간 연결을 사용하여 SQL Server Management Studio를 통해 Azure SQL Database Managed Instance에 연결합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,20 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova, jovanpop
 ms.date: 03/13/2019
-ms.openlocfilehash: 3ba5190050d45385ad17a87f6dce88ffd601e83d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3b3a0ce28c4a936e185ac5f07ba3810c93f4c866
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567684"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689406"
 ---
 # <a name="quickstart-configure-a-point-to-site-connection-to-an-azure-sql-database-managed-instance-from-on-premises"></a>빠른 시작: 온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성
 
 이 빠른 시작에서는 온-프레미스 클라이언트 컴퓨터에서 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)를 사용하여 지점 및 사이트 간 연결을 통해 Azure SQL Database Managed Instance에 연결하는 방법을 보여줍니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](../vpn-gateway/point-to-site-about.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작의 특징은 다음과 같습니다.
+이 빠른 시작의 필수 조건은 다음과 같습니다.
 
 - [Managed Instance 만들기](sql-database-managed-instance-get-started.md)에서 만든 리소스를 시작점으로 사용합니다.
 - 온-프레미스 클라이언트 컴퓨터에서 PowerShell 5.1 및 AZ PowerShell 1.4.0 이상이 필요 합니다. 필요한 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps#install-the-azure-powershell-module) 지침을 참조하세요.
@@ -63,7 +63,7 @@ ms.locfileid: "68567684"
 
 ## <a name="create-a-vpn-connection-to-your-managed-instance"></a>Managed Instance에 대한 VPN 연결 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 가상 네트워크 게이트웨이를 만든 리소스 그룹을 연 다음, 가상 네트워크 게이트웨이 리소스를 엽니다.
 3. **지점 및 사이트 간 구성**을 선택하고 **VPN 클라이언트 다운로드**를 선택합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "68567684"
 1. 온-프레미스 클라이언트 컴퓨터의 **네트워크 & 인터넷** 에서 **VPN** 으로 이동 하 고 Managed Instance 가상 네트워크를 선택 하 여이 VNet에 대 한 연결을 설정 합니다. 다음 이미지에서 VNet 이름은 **MyNewVNet**입니다.
 
     ![VPN 연결](./media/sql-database-managed-instance-configure-p2s/vpn-connection.png)  
-2.           **연결**을 선택합니다.
+2. **연결**을 선택합니다.
 3. 대화 상자에서 **연결**을 선택합니다.
 
     ![VPN 연결](./media/sql-database-managed-instance-configure-p2s/vpn-connection2.png)  

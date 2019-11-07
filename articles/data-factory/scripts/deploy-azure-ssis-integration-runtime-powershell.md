@@ -1,5 +1,5 @@
 ---
-title: PowerShell 스크립트 ‑ Azure‑SSIS 통합 런타임 배포 | Microsoft Docs
+title: PowerShell 스크립트 ‑ Azure‑SSIS 통합 런타임 배포
 description: 이 PowerShell 스크립트는 클라우드에서 SSIS 패키지를 실행할 수 있는 Azure-SSIS 통합 런타임을 만듭니다.
 services: data-factory
 ms.service: data-factory
@@ -10,12 +10,12 @@ ms.date: 09/12/2017
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: a2d53ddb9f55942cd6ad396d42cc926f20c2d396
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: beba0a8d01d7d10910716f03602116fe7673ffc8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66166362"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684365"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell 스크립트 ‑ Azure‑SSIS 통합 런타임 배포
 
@@ -46,13 +46,13 @@ Remove-AzDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupN
 
 이 스크립트는 다음 명령을 사용합니다.
 
-| 명령 | 메모 |
+| 명령 | 참고 사항 |
 |---|---|
 | [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [Set-AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | 데이터 팩터리를 만듭니다. |
-| [Set-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | 클라우드에서 SSIS 패키지를 실행할 수 있는 Azure-SSIS 통합 런타임을 만듭니다. |
-| [Start-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Azure-SSIS 통합 런타임을 시작합니다. |
-| [Get-AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Azure-SSIS 통합 런타임에 대한 정보를 가져옵니다. |
+| [AzDataFactoryV2](/powershell/module/az.datafactory/set-Azdatafactoryv2) | 데이터 팩터리를 만듭니다. |
+| [AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/set-Azdatafactoryv2integrationruntime) | 클라우드에서 SSIS 패키지를 실행할 수 있는 Azure-SSIS 통합 런타임을 만듭니다. |
+| [AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/start-Azdatafactoryv2integrationruntime) | Azure-SSIS 통합 런타임을 시작합니다. |
+| [AzDataFactoryV2IntegrationRuntime](/powershell/module/az.datafactory/get-Azdatafactoryv2integrationruntime) | Azure-SSIS 통합 런타임에 대한 정보를 가져옵니다. |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 |||
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory |에서 Azure SSIS 통합 런타임 만들기 Microsoft Docs
+title: Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 description: Azure에 SSIS 패키지를 배포하고 실행할 수 있도록 Azure Data Factory에서 Azure-SSIS 통합 런타임을 만드는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: ddc91a3317d362f6b56e486556f2edf6cdb85131
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: ce688248a205981f4a4c60ad01231c0b8f6bae3d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326685"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73677368"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 Azure Integration Runtime 만들기 | Microsoft Docs
 
@@ -26,7 +26,7 @@ ms.locfileid: "72326685"
 - Azure SQL Database 서버 또는 관리 되는 인스턴스 (프로젝트 배포 모델)에서 호스팅하는 SSIS 카탈로그 (SSISDB)에 배포 된 패키지를 실행 합니다.
 - 파일 시스템, 파일 공유 또는 Azure Files (패키지 배포 모델)에 배포 된 패키지 실행 
 
-Azure-SSIS IR 프로 비전 된 후에는 익숙한 도구를 사용 하 여 Azure에서 패키지를 배포 하 고 실행할 수 있습니다. 이러한 도구에는 SQL Server Data Tools, SQL Server Management Studio 및 `dtinstall`, `dtutil`, `dtexec`와 같은 명령줄 도구가 포함 됩니다.
+Azure-SSIS IR 프로 비전 된 후에는 익숙한 도구를 사용 하 여 Azure에서 패키지를 배포 하 고 실행할 수 있습니다. 이러한 도구에는 SQL Server Data Tools, SQL Server Management Studio, `dtinstall`, `dtutil`, `dtexec`등의 명령줄 도구가 포함 됩니다.
 
 [프로 비전 Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md) 자습서에서는 Azure Portal 또는 Data Factory 앱을 통해 Azure-SSIS IR을 만드는 방법을 보여 줍니다. 또한 필요에 따라 Azure SQL Database 서버 또는 관리 되는 인스턴스를 사용 하 여 SSISDB를 호스트 하는 방법도 보여 줍니다. 이 문서는 자습서를 확장 하 고 다음과 같은 선택적 작업을 수행 하는 방법을 설명 합니다.
 
@@ -38,7 +38,7 @@ Azure-SSIS IR 프로 비전 된 후에는 익숙한 도구를 사용 하 여 Azu
 
 이 문서에서는 Azure Portal, Azure PowerShell 및 Azure Resource Manager 템플릿을 사용 하 여 Azure-SSIS IR를 프로 비전 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -102,11 +102,11 @@ Azure Portal를 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
     b. **설명**에는 통합 런타임에 대한 설명을 입력합니다.
 
-    다. **위치**에는 통합 런타임의 위치를 선택합니다. 지원되는 위치만 표시됩니다. SSISDB를 호스트하는 데이터베이스의 서버와 동일한 위치를 선택하는 것이 좋습니다.
+    c. **위치**에는 통합 런타임의 위치를 선택합니다. 지원되는 위치만 표시됩니다. SSISDB를 호스트하는 데이터베이스의 서버와 동일한 위치를 선택하는 것이 좋습니다.
 
-    d. **노드 크기**에 대해 integration runtime 클러스터의 노드 크기를 선택 합니다. 지원되는 노드 크기만 표시됩니다. 많은 계산 집약적 또는 메모리 집약적 패키지를 실행 하려면 큰 노드 크기 (수직 확장)를 선택 합니다.
+    ㄹ. **노드 크기**에 대해 integration runtime 클러스터의 노드 크기를 선택 합니다. 지원되는 노드 크기만 표시됩니다. 많은 계산 집약적 또는 메모리 집약적 패키지를 실행 하려면 큰 노드 크기 (수직 확장)를 선택 합니다.
 
-    ㅁ. **노드 수**로는 통합 런타임 클러스터의 노드 수를 선택합니다. 지원되는 노드 수만 표시됩니다. 많은 패키지를 동시에 실행 하려는 경우 여러 노드가 있는 대규모 클러스터 (규모 확장)를 선택 합니다.
+    e. **노드 수**로는 통합 런타임 클러스터의 노드 수를 선택합니다. 지원되는 노드 수만 표시됩니다. 많은 패키지를 동시에 실행 하려는 경우 여러 노드가 있는 대규모 클러스터 (규모 확장)를 선택 합니다.
 
     f. **버전/라이선스**의 경우 통합 런타임의 SQL Server 버전 (Standard 또는 Enterprise)을 선택 합니다. 통합 런타임에 고급 기능을 사용 하려는 경우 Enterprise를 선택 합니다.
 
@@ -124,15 +124,15 @@ Azure Portal를 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
    
    b. **구독**에서는 SSISDB를 호스트하는 데이터베이스 서버가 있는 Azure 구독을 선택합니다. 
 
-   다. **위치**에서는 SSISDB를 호스트하는 데이터베이스 서버의 위치를 선택합니다. 통합 런타임과 동일한 위치를 선택하는 것이 좋습니다. 
+   c. **위치**에서는 SSISDB를 호스트하는 데이터베이스 서버의 위치를 선택합니다. 통합 런타임과 동일한 위치를 선택하는 것이 좋습니다. 
 
-   d. **카탈로그 데이터베이스 서버 엔드포인트**로는 SSISDB를 호스트하는 데이터베이스 서버의 엔드포인트를 선택합니다. 
+   ㄹ. **카탈로그 데이터베이스 서버 엔드포인트**로는 SSISDB를 호스트하는 데이터베이스 서버의 엔드포인트를 선택합니다. 
     
    선택한 데이터베이스 서버에 따라 SSISDB 인스턴스는 사용자를 대신 하 여 단일 데이터베이스, 탄력적 풀의 일부 또는 관리 되는 인스턴스에 만들 수 있습니다. 공용 네트워크에서 또는 가상 네트워크에 가입 하 여 액세스할 수 있습니다. SSISDB를 호스팅할 데이터베이스 서버 유형을 선택 하는 방법에 대 한 지침은이 문서의 [Azure SQL Database 단일 데이터베이스, 탄력적 풀 및 관리 되는 인스턴스 비교](#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance) 섹션을 참조 하세요. 
     
    가상 네트워크 서비스 끝점을 사용 하는 Azure SQL Database 서버 또는 SSISDB를 호스트 하는 개인 끝점이 포함 된 관리 되는 인스턴스를 선택 하거나 자체 호스팅 IR을 구성 하지 않고 온-프레미스 데이터에 액세스 해야 하는 경우 Azure-SSIS IR를에 조인 해야 합니다. 가상 네트워크. 자세한 내용은 [가상 네트워크에 Azure-SSIS IR 가입](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조 하세요. 
 
-   ㅁ. **ADF에 대해 관리 되는 id** 를 사용 하 여 AAD 인증 사용 확인란을 선택 하 여 SSISDB를 호스팅할 데이터베이스 서버에 대 한 인증 방법을 선택 합니다. 데이터 팩터리에 대 한 관리 되는 id를 사용 하 여 SQL 인증 또는 Azure AD 인증을 선택 합니다. 
+   e. **ADF에 대해 관리 되는 id** 를 사용 하 여 AAD 인증 사용 확인란을 선택 하 여 SSISDB를 호스팅할 데이터베이스 서버에 대 한 인증 방법을 선택 합니다. 데이터 팩터리에 대 한 관리 되는 id를 사용 하 여 SQL 인증 또는 Azure AD 인증을 선택 합니다. 
     
    이 확인란을 선택 하는 경우 데이터베이스 서버에 대 한 액세스 권한이 있는 Azure AD 그룹에 데이터 팩터리에 대 한 관리 되는 id를 추가 해야 합니다. 자세한 내용은 [Azure-SSIS IR에 대해 AZURE AD 인증 사용](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)을 참조 하세요. 
 
@@ -164,11 +164,11 @@ Azure Portal를 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
    b. **위치**에는 통합 런타임의 동일한 위치가 선택됩니다.
 
-   다. **유형**에 대해 가상 네트워크의 유형 (클래식 또는 Azure Resource Manager)을 선택 합니다. 클래식 가상 네트워크는 곧 사용 되지 않으므로 Azure Resource Manager 가상 네트워크를 선택 하는 것이 좋습니다.
+   c. **유형**에 대해 가상 네트워크의 유형 (클래식 또는 Azure Resource Manager)을 선택 합니다. 클래식 가상 네트워크는 곧 사용 되지 않으므로 Azure Resource Manager 가상 네트워크를 선택 하는 것이 좋습니다.
 
-   d. **VNet 이름**에서 가상 네트워크의 이름을 선택합니다. 이 가상 네트워크는 가상 네트워크 서비스 끝점을 사용 하는 Azure SQL Database 서버 또는 가상 네트워크에서 SSISDB를 호스트 하는 관리 되는 인스턴스를 사용 하는 것과 동일 해야 합니다. 또는이 가상 네트워크는 온-프레미스 네트워크에 연결 된 가상 네트워크와 동일 해야 합니다.
+   ㄹ. **VNet 이름**에서 가상 네트워크의 이름을 선택합니다. 이 가상 네트워크는 가상 네트워크 서비스 끝점을 사용 하는 Azure SQL Database 서버 또는 가상 네트워크에서 SSISDB를 호스트 하는 관리 되는 인스턴스를 사용 하는 것과 동일 해야 합니다. 또는이 가상 네트워크는 온-프레미스 네트워크에 연결 된 가상 네트워크와 동일 해야 합니다.
 
-   ㅁ. **서브넷 이름**에서 가상 네트워크의 서브넷 이름을 선택합니다. 이 서브넷은 SSISDB를 호스트 하기 위해 가상 네트워크에서 관리 되는 인스턴스에 사용 되는 서브넷과 다른 서브넷 이어야 합니다.
+   e. **서브넷 이름**에서 가상 네트워크의 서브넷 이름을 선택합니다. 이 서브넷은 SSISDB를 호스트 하기 위해 가상 네트워크에서 관리 되는 인스턴스에 사용 되는 서브넷과 다른 서브넷 이어야 합니다.
 
 6. **Azure-SSIS Integration Runtime에 대 한 프록시로 자체 호스팅 Integration Runtime 설정** 확인란을 선택 하 여 자체 호스팅 IR을 Azure-SSIS IR 프록시로 구성할 지 여부를 선택 합니다. 자세한 내용은 [자체 호스팅 IR을 프록시로 설정](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)을 참조 하세요. 
 
@@ -180,9 +180,9 @@ Azure Portal를 통해 데이터 팩터리를 만들려면 [UI를 통해 데이�
 
    b. **스테이징 저장소 연결 된 서비스**의 경우 기존 Azure Blob 저장소 연결 된 서비스를 선택 합니다. 또는 준비를 위해 새 항목을 만듭니다.
 
-   다. **준비 경로**의 경우 선택한 Azure blob storage 계정에 blob 컨테이너를 지정 합니다. 또는 스테이징에 기본 항목을 사용 하려면 비워 두세요.
+   c. **준비 경로**의 경우 선택한 Azure blob storage 계정에 blob 컨테이너를 지정 합니다. 또는 스테이징에 기본 항목을 사용 하려면 비워 두세요.
 
-7. **VNet 유효성 검사** > **다음**을 선택 합니다. 
+7. **다음** > **VNet 유효성 검사** 를 선택 합니다. 
 
 8. **요약** 페이지에서 모든 프로 비전 설정을 검토 하 고, 권장 되는 설명서 링크를 책갈피를 선택 하 고, **마침** 을 선택 하 여 통합 런타임 만들기를 시작 합니다.
 
@@ -355,13 +355,13 @@ Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 
 다음 명령을 실행하여 Azure에서 SSIS 패키지를 실행하는 Azure-SSIS 통합 런타임을 만듭니다.
 
-SSISDB를 사용 하지 않는 경우 `CatalogServerEndpoint`, `CatalogPricingTier` 및 `CatalogAdminCredential` 매개 변수를 생략할 수 있습니다.
+SSISDB를 사용 하지 않는 경우 `CatalogServerEndpoint`, `CatalogPricingTier`및 `CatalogAdminCredential` 매개 변수를 생략할 수 있습니다.
 
-가상 네트워크 서비스 끝점 또는 가상 네트워크 서비스 끝점을 사용 하는 관리 되는 인스턴스 또는 SSISDB를 호스트 하는 개인 끝점이 있는 Azure SQL Database 서버를 사용 하지 않거나 온-프레미스 데이터에 액세스 해야 하는 경우 `VNetId` 및 `Subnet` 매개 변수를 생략 하거나 다음에 대 한 빈 값을 전달할 수 있습니다. 하. 사용자가 온-프레미스 데이터에 액세스 하는 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR을 구성 하는 경우에도이를 생략할 수 있습니다. 그렇지 않으면 생략할 수 없으며 가상 네트워크 구성에서 유효한 값을 전달 해야 합니다. 자세한 내용은 [가상 네트워크에 Azure-SSIS IR 가입](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조 하세요.
+가상 네트워크 서비스 끝점 또는 가상 네트워크 서비스 끝점을 사용 하는 관리 되는 인스턴스 또는 SSISDB를 호스트 하는 개인 끝점이 있는 Azure SQL Database 서버를 사용 하지 않거나 온-프레미스 데이터에 액세스 해야 하는 경우 `VNetId` 및 `Subnet` 매개 변수를 생략 하거나에 대해 빈 값을 전달할 수 있습니다. 하. 사용자가 온-프레미스 데이터에 액세스 하는 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR을 구성 하는 경우에도이를 생략할 수 있습니다. 그렇지 않으면 생략할 수 없으며 가상 네트워크 구성에서 유효한 값을 전달 해야 합니다. 자세한 내용은 [가상 네트워크에 Azure-SSIS IR 가입](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조 하세요.
 
 관리 되는 인스턴스를 사용 하 여 SSISDB를 호스트 하는 경우 `CatalogPricingTier` 매개 변수를 생략 하거나 빈 값을 전달할 수 있습니다. 그렇지 않으면 생략할 수 없으며 Azure SQL Database에 대해 지원 되는 가격 책정 계층 목록에서 유효한 값을 전달 해야 합니다. 자세한 내용은 [SQL Database 리소스 제한](../sql-database/sql-database-resource-limits.md)을 참조 하세요.
 
-데이터 팩터리에 대 한 관리 id와 함께 Azure AD 인증을 사용 하 여 데이터베이스 서버에 연결 하는 경우 `CatalogAdminCredential` 매개 변수를 생략할 수 있습니다. 그러나 데이터베이스 서버에 대 한 액세스 권한이 있는 Azure AD 그룹에 데이터 팩터리에 대 한 관리 되는 id를 추가 해야 합니다. 자세한 내용은 [Azure-SSIS IR에 대해 AZURE AD 인증 사용](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)을 참조 하세요. 그렇지 않으면 생략할 수 없으며 SQL 인증을 위해 서버 관리자 사용자 이름 및 암호에서 형성 된 유효한 개체를 전달 해야 합니다.
+데이터베이스 서버에 연결 하기 위해 데이터 팩터리에 대 한 관리 id와 함께 Azure AD 인증을 사용 하는 경우 `CatalogAdminCredential` 매개 변수를 생략할 수 있습니다. 그러나 데이터베이스 서버에 대 한 액세스 권한이 있는 Azure AD 그룹에 데이터 팩터리에 대 한 관리 되는 id를 추가 해야 합니다. 자세한 내용은 [Azure-SSIS IR에 대해 AZURE AD 인증 사용](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir)을 참조 하세요. 그렇지 않으면 생략할 수 없으며 SQL 인증을 위해 서버 관리자 사용자 이름 및 암호에서 형성 된 유효한 개체를 전달 해야 합니다.
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
@@ -664,11 +664,11 @@ write-host("If any cmdlet is unsuccessful, please consider using -Debug option f
 
 SSISDB를 사용 하는 경우 패키지를 배포 하 고 SQL Server Data Tools 또는 SQL Server Management Studio 도구를 사용 하 여 Azure-SSIS IR에서 실행할 수 있습니다. 이러한 도구는 서버 끝점을 통해 데이터베이스 서버에 연결 됩니다. 
 
-- 전용 끝점을 포함 하는 Azure SQL Database 서버의 경우 서버 끝점 형식은-0 @no__t.
-- Private 끝점이 포함 된 관리 되는 인스턴스의 경우 서버 끝점 형식은 `<server name>.<dns prefix>.database.windows.net`입니다.
-- 공용 끝점을 사용 하는 관리 되는 인스턴스의 경우 서버 끝점 형식은 `<server name>.public.<dns prefix>.database.windows.net,3342`입니다. 
+- 전용 끝점을 포함 하는 Azure SQL Database 서버의 경우 서버 끝점 형식이 `<server name>.database.windows.net`됩니다.
+- Private 끝점이 포함 된 관리 되는 인스턴스의 경우 서버 끝점 형식이 `<server name>.<dns prefix>.database.windows.net`됩니다.
+- 공용 끝점을 사용 하는 관리 되는 인스턴스의 경우 서버 끝점 형식이 `<server name>.public.<dns prefix>.database.windows.net,3342`됩니다. 
 
-SSISDB를 사용 하지 않는 경우 파일 시스템, 파일 공유 또는 Azure Files에 패키지를 배포할 수 있습니다. @No__t-0, `dtutil` 및 @no__t 명령줄 도구를 사용 하 여 Azure-SSIS IR에서 실행할 수 있습니다. 자세한 내용은 [SSIS 패키지 배포](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server)를 참조하세요. 
+SSISDB를 사용 하지 않는 경우 파일 시스템, 파일 공유 또는 Azure Files에 패키지를 배포할 수 있습니다. 그런 다음 `dtinstall`, `dtutil`및 `dtexec` 명령줄 도구를 사용 하 여 Azure-SSIS IR에서 실행할 수 있습니다. 자세한 내용은 [SSIS 패키지 배포](/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages#deploy-packages-to-integration-services-server)를 참조하세요. 
 
 두 경우 모두 Data Factory 파이프라인에서 SSIS 패키지 실행 작업을 사용 하 여 Azure-SSIS IR에서 배포 된 패키지를 실행할 수도 있습니다. 자세한 내용은 [SSIS 패키지 실행을 첫 번째 클래스 Data Factory 작업으로 호출](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)을 참조 하세요.
 

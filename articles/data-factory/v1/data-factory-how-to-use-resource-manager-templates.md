@@ -1,5 +1,5 @@
 ---
-title: Data Factory에서 Resource Manager 템플릿 사용 | Microsoft 문서
+title: Data Factory에서 리소스 관리자 템플릿 사용
 description: Azure Resource Manager 템플릿을 만들고 사용하여 데이터 팩터리 엔터티를 만드는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: d2360efe71327f02d5cb7d16cb8141f47c304b0c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d9ee060b7d1f7a443357c7116c01e8aaf972e666
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164674"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682530"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>템플릿을 사용하여 Azure Data Factory 엔터티 만들기
 > [!NOTE]
-> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 
+> 이 아티클은 Data Factory 버전 1에 적용됩니다. 
 
 ## <a name="overview"></a>개요
 데이터 통합 요구에 Azure Data Factory를 사용하면서 다양한 환경에서 동일한 패턴을 재사용하거나 동일한 작업을 동일한 솔루션에서 반복적으로 구현하는 상황이 발생할 수 있습니다. 템플릿을 사용하면 이러한 시나리오에서 간편하게 구현 및 관리할 수 있습니다. Azure Data Factory의 템플릿은 재사용 및 반복이 관계된 시나리오에 적합합니다.

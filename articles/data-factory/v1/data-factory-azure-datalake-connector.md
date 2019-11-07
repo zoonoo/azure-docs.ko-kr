@@ -1,5 +1,5 @@
 ---
-title: Azure Data Lake Storage Gen1 간 데이터 복사 | Microsoft Docs
+title: Azure Data Lake Storage Gen1 간 데이터 복사
 description: Azure Data Factory를 사용하여 Data Lake Store 간 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d8637a2711c0301d9e9f409e169ed04fb3d65783
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 4cafc9cf67255d44e5c89947f3da8a7b7b3e4b5f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67839536"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683169"
 ---
 # <a name="copy-data-to-and-from-data-lake-storage-gen1-by-using-data-factory"></a>Data Factory를 사용하여 Data Lake Storage Gen1 간 데이터 복사
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](data-factory-azure-datalake-connector.md)
 > * [버전 2(현재 버전)](../connector-azure-data-lake-store.md)
 
@@ -54,7 +54,7 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 
 데이터를 복사하기 위한 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 자습서는 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
-또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell**를 **Azure Resource Manager 템플릿을**를 **.NET API**, 및 **REST API**합니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -63,7 +63,7 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다. 마지막 단계에서 설명한 예제에서는 입력 데이터가 포함된 BLOB 컨테이너 및 폴더를 지정하는 데이터 세트를 만듭니다. 그리고 Blob Storage에서 복사한 데이터를 포함하는 Data Lake Store의 폴더 및 파일 경로를 지정하는 또 다른 데이터 세트를 만듭니다. Azure Data Lake Store와 관련된 데이터 세트 속성은 [데이터 세트 속성](#dataset-properties) 섹션을 참조하세요.
 3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다. 앞에서 언급한 예제에서는 BlobSource를 원본으로, AzureDataLakeStoreSink를 복사 작업의 싱크로 사용합니다. 마찬가지로 Azure Data Lake Store에서 Azure Blob Storage로 복사하는 경우 복사 작업에서 AzureDataLakeStoreSource 및 BlobSink를 사용합니다. Azure Data Lake Store와 관련된 복사 작업 속성은 [복사 작업 속성](#copy-activity-properties) 섹션을 참조하세요. 원본 또는 싱크로 데이터 저장소를 사용하는 방법에 대한 자세한 내용을 보려면 데이터 저장소에 대한 이전 섹션의 링크를 클릭하세요.
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다. 다른 곳에서 Azure Data Lake Store로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples-for-copying-data-to-and-from-data-lake-store) 섹션을 참조하세요.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다. 다른 곳에서 Azure Data Lake Store로 또는 그 반대로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의가 포함된 샘플은 이 문서의 [JSON 예](#json-examples-for-copying-data-to-and-from-data-lake-store) 섹션을 참조하세요.
 
 다음 섹션에서는 Data Lake Store에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -149,7 +149,7 @@ Data Lake Store 커넥터는 다음 인증 유형을 지원합니다.
 #### <a name="token-expiration"></a>토큰 만료
 **권한 부여** 단추를 사용하여 생성한 권한 부여 코드는 특정 시간 후에 만료됩니다. 다음과 같은 메시지는 인증 토큰이 만료되었음을 의미합니다.
 
-자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명의 유효성 검사 오류. AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21-09-31Z.
+자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명의 유효성 검사 오류. "자격 증명 작업 오류: invalid_grant - AADSTS70002: 자격 증명의 유효성 검사 오류 AADSTS70008: 제공된 액세스 권한 부여가 만료되었거나 해지됩니다. 추적 ID: d18629e8-af88-43c5-88e3-d8419eb1fca1 상관관계 ID: fac30a0c-6be6-4e02-8d69-a776d2ffefd7 타임스탬프: 2015-12-15 21-09-31Z
 
 다음 표에는 다양한 유형의 사용자 계정에 대한 만료 시간이 나와 있습니다.
 
@@ -187,7 +187,7 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
     }
 }
 ```
-코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. 코드에 사용되는 `WindowsFormsWebAuthenticationDialog` 클래스에 대해 `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll`의 버전 `2.9.10826.1824`에 대한 참조를 추가합니다.
+코드에 사용되는 Data Factory 클래스에 대한 세부 정보는 [AzureDataLakeStoreLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakestorelinkedservice.aspx), [AzureDataLakeAnalyticsLinkedService 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.azuredatalakeanalyticslinkedservice.aspx) 및 [AuthorizationSessionGetResponse 클래스](https://msdn.microsoft.com/library/microsoft.azure.management.datafactories.models.authorizationsessiongetresponse.aspx) 항목을 참조하세요. 코드에 사용되는 `2.9.10826.1824` 클래스에 대해 `Microsoft.IdentityModel.Clients.ActiveDirectory.WindowsForms.dll`의 버전 `WindowsFormsWebAuthenticationDialog`에 대한 참조를 추가합니다.
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 
@@ -204,16 +204,16 @@ if (linkedService.Properties.TypeProperties is AzureDataLakeStoreLinkedService |
 
 **해결 방법:**
 
-1. 연결된 서비스 `typeProperties`에 지정한 `subscriptionId` 및 `resourceGroupName`이 실제로 Data Lake 계정이 속한 항목인지 확인합니다.
+1. 연결된 서비스 `subscriptionId`에 지정한 `resourceGroupName` 및 `typeProperties`이 실제로 Data Lake 계정이 속한 항목인지 확인합니다.
 
 2. Data Lake 계정에 있는 사용자 또는 서비스 주체에 하나 이상의 **읽기 권한자** 역할을 부여해야 합니다. 이렇게 하려면 다음을 수행합니다.
 
-    1. Azure portal로 이동-Data Lake Store 계정 >
+    1. Data Lake Store 계정 > Azure Portal으로 이동 합니다.
     2. Data Lake Store의 블레이드에서 **액세스 제어(IAM)** 클릭
     3. **역할 할당 추가** 클릭
     4. **역할**을 **읽기 권한자**로 설정하고 복사 권한을 부여할 사용자 또는 서비스 주체 선택
 
-3. 권한을 부여 하지 않을 경우 **판독기** 역할을 사용자 또는 서비스 주체를 대체 하는 것 [명시적으로 실행 위치를 지정](data-factory-data-movement-activities.md#global) Data Lake Store의 위치를 사용 하 여 복사 활동의 합니다. 예제:
+3. 사용자 또는 서비스 주체에 게 **읽기 권한자** 역할을 부여 하지 않으려는 경우에는 Data Lake Store 위치를 사용 하 여 복사 작업의 [실행 위치를 명시적으로 지정](data-factory-data-movement-activities.md#global) 하는 방법이 있습니다. 예:
 
     ```json
     {
@@ -240,9 +240,9 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | **folderPath** |Data Lake Store의 컨테이너 및 폴더에 대한 경로입니다. |예 |
-| **fileName** |Azure Data Lake Store에 있는 파일의 이름입니다. **fileName** 속성은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>**fileName**을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>**fileName**을 지정하지 않으면 복사는 입력 데이터 세트에 대한 **folderPath**에 모든 파일을 포함합니다.<br/><br/>때 **fileName** 출력 데이터 집합을 지정 하지 않으면 및 **preserveHierarchy** 형식으로 생성된 된 파일 이름이 활동 싱크에 지정 하지 않으면 `Data._Guid_.txt`합니다. 예를 들어: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt. |아니요 |
+| **fileName** |Azure Data Lake Store에 있는 파일의 이름입니다. **fileName** 속성은 선택 사항이며 대/소문자를 구분합니다. <br/><br/>**fileName**을 지정하는 경우 활동(복사 포함)은 특정 파일에서 작동합니다.<br/><br/>**fileName**을 지정하지 않으면 복사는 입력 데이터 세트에 대한 **folderPath**에 모든 파일을 포함합니다.<br/><br/>**FileName** 이 출력 데이터 집합에 대해 지정 되지 않고 **preserveHierarchy** 가 활동 싱크에 지정 되지 않은 경우 생성 된 파일의 이름은 `Data._Guid_.txt`형식으로 되어 있습니다. 예제: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
 | **partitionedBy** |**partitionedBy** 속성은 선택 사항입니다. 시계열 데이터에 대한 동적 경로 및 파일 이름을 지정하는 데 사용할 수 있습니다. 예를 들어 **folderPath**는 매시간 데이터에 대한 매개 변수화됩니다. 자세한 내용과 예제는 partitionedBy 속성을 참조하세요. |아니요 |
-| **format** | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** **format**의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서의 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [ORC 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 “있는 그대로” 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 `format` 섹션을 건너뜁니다. |아니요 |
+| **format** | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** 및 **ParquetFormat** 서식 유형이 지원됩니다. **format**의 **type** 속성을 이 값 중 하나로 설정합니다. 자세한 내용은 [Azure Data Factory에서 지원하는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#text-format) 문서의 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#json-format), [JSON 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#orc-format), [ORC 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 파일을 “있는 그대로” 복사하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 `format` 섹션을 건너뜁니다. |아니요 |
 | **compression** | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. **Optimal** 및 **Fastest** 수준이 지원됩니다. 자세한 내용은 [Azure Data Factory에서 지원되는 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
 
 ### <a name="the-partitionedby-property"></a>partitionedBy 속성
@@ -287,9 +287,9 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정�
 
 **AzureDataLakeStoreSink**는 **typeProperties** 섹션에서 다음 속성을 지원합니다.
 
-| 속성 | Description | 허용되는 값 | 필수 |
+| 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| **copyBehavior** |복사 동작을 지정합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy</b>: 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/><b>MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않은 경우 파일 이름이 자동으로 생성됩니다. |아니요 |
+| **copyBehavior** |복사 동작을 지정합니다. |<b>PreserveHierarchy</b>: 대상 폴더에서 파일 계층 구조를 유지합니다. 원본 폴더의 원본 파일 상대 경로는 대상 폴더의 대상 파일 상대 경로와 동일합니다.<br/><br/><b>FlattenHierarchy:</b> 원본 폴더의 모든 파일이 대상 폴더의 첫 번째 수준에 만들어집니다. 대상 파일은 자동 생성된 이름으로 만들어집니다.<br/><br/><b>MergeFiles</b>: 원본 폴더의 모든 파일을 하나의 파일로 병합합니다. 병합되는 파일 이름은 지정된 파일 또는 Blob 이름이 적용됩니다. 그렇지 않은 경우 파일 이름이 자동으로 생성됩니다. |아니요 |
 
 ### <a name="recursive-and-copybehavior-examples"></a>recursive 및 copyBehavior 예제
 이 섹션에서는 다양한 recursive 및 copyBehavior 값 조합에 대한 복사 작업의 결과 동작을 설명합니다.
@@ -307,16 +307,16 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정�
 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서를 참조하세요.
 
 ## <a name="json-examples-for-copying-data-to-and-from-data-lake-store"></a>Data Lake Store로/에서 데이터를 복사하는 JSON 예제
-다음 예제에서는 샘플 JSON 정의를 제공합니다. 이러한 샘플 정의 사용 하 여 사용 하 여 파이프라인을 만드는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 하거나 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)합니다. 이 예제에서는 Data Lake Store 및 Azure Blob Storage 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 임의의 원본에서 지원되는 싱크로 _직접_ 데이터를 복사할 수 있습니다. 자세한 내용은 [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md) 문서에서 "지원되는 데이터 저장소 및 형식" 섹션을 참조하세요.
+다음 예제에서는 샘플 JSON 정의를 제공합니다. 이러한 샘플 정의를 사용 하 여 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만들 수 있습니다. 이 예제에서는 Data Lake Store 및 Azure Blob Storage 간에 데이터를 복사하는 방법을 보여 줍니다. 그러나 임의의 원본에서 지원되는 싱크로 _직접_ 데이터를 복사할 수 있습니다. 자세한 내용은 [복사 작업을 사용하여 데이터 이동](data-factory-data-movement-activities.md) 문서에서 "지원되는 데이터 저장소 및 형식" 섹션을 참조하세요.
 
 ### <a name="example-copy-data-from-azure-blob-storage-to-azure-data-lake-store"></a>예제: Azure Blob Storage에서 Azure Data Lake Store로 데이터 복사
 이 섹션의 예제 코드는 다음을 보여 줍니다.
 
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
 * [AzureDataLakeStore](#linked-service-properties) 형식의 연결된 서비스입니다.
-* [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)입니다.
-* [AzureDataLakeStore](#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)입니다.
-* [BlobSource](data-factory-azure-blob-connector.md#copy-activity-properties) 및 [AzureDataLakeStoreSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+* [AzureBlob](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)입니다.
+* [AzureDataLakeStore](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](#dataset-properties)입니다.
+* [BlobSource](data-factory-create-pipelines.md) 및 [AzureDataLakeStoreSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](#copy-activity-properties)입니다.
 
 이 예제에서는 Azure Blob Storage에서 Data Lake Store로 매시간 시계열 데이터가 복사되는 방법을 보여 줍니다.
 
@@ -498,9 +498,9 @@ Data Lake Store에서 입력 데이터를 표시할 데이터 세트를 지정�
 
 * [AzureDataLakeStore](#linked-service-properties) 형식의 연결된 서비스입니다.
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-* [AzureDataLakeStore](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)입니다.
-* [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-* [AzureDataLakeStoreSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+* [AzureDataLakeStore](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)입니다.
+* [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+* [AzureDataLakeStoreSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)입니다.
 
 이 코드는 Data Lake Store에서 Azure Blob로 매시간 시계열 데이터를 복사합니다.
 

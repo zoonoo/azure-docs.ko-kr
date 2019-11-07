@@ -1,5 +1,5 @@
 ---
-title: SQL Data Warehouse의 사용자 정의 스키마 사용 | Microsoft Docs
+title: 사용자 정의 스키마 사용
 description: 솔루션 개발을 위해 Azure SQL Data Warehouse의 T-SQL 사용자 정의 스키마 사용을 위한 팁입니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: e0ae00e0fca5ed4c6fba04444e5c50424462d297
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 697bffa36e9b208c1a027654df81fb356ddfc8ed
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479577"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685809"
 ---
 # <a name="using-user-defined-schemas-in-sql-data-warehouse"></a>SQL Data Warehouse의 사용자 정의 스키마 사용
 솔루션 개발을 위해 Azure SQL Data Warehouse의 T-SQL 사용자 정의 스키마 사용을 위한 팁입니다.
@@ -31,7 +32,7 @@ ms.locfileid: "68479577"
 > 
 > 
 
-## <a name="recommendations"></a>권장 사항
+## <a name="recommendations"></a>추천
 사용자 정의 스키마를 사용하여 워크로드, 보안, 도메인 및 기능 경계를 통합하기 위한 권장 사항입니다.
 
 1. SQL Data Warehouse 데이터베이스를 사용하여 전체 데이터 웨어하우스 워크로드를 실행합니다.
@@ -51,7 +52,7 @@ ms.locfileid: "68479577"
 > 
 > 
 
-### <a name="examples"></a>예를 들면 다음과 같습니다.
+### <a name="examples"></a>예제:
 데이터베이스 이름을 기반으로 사용자 정의 스키마를 구현합니다.
 
 ```sql

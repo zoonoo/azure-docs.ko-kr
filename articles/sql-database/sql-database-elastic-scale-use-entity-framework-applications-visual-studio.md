@@ -1,5 +1,5 @@
 ---
-title: Entity Framework와 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용 | Microsoft Docs
+title: Entity Framework와 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
 description: 데이터베이스 코딩을 위해 Elastic Database 클라이언트 라이브러리 및 Entity Framework 사용
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: 8ae264f7da84336d5f786d2ff060aa89bbe75837
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a6ed6eb2596663dd276fe580c9f2574163589b1d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568301"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690117"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>엔터티 프레임 작업과 함께 Elastic Database 클라이언트 라이브러리
 
-이 문서에서는 [Elastic Database 도구](sql-database-elastic-scale-introduction.md)의 기능을 통합하는 데 필요한 Entity Framework 애플리케이션의 변경 내용을 보여줍니다. 여기서는 Entity Framework **Code First** 접근 방식으로 [공유된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md) 및 [데이터 종속 라우팅](sql-database-elastic-scale-data-dependent-routing.md)을 작성하는 데 집중합니다. 이 문서 전체에서는 EF용 [Code First – New Database](https://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적 데이터베이스 도구의 샘플 세트 일부입니다.
+이 문서에서는 [Elastic Database 도구](sql-database-elastic-scale-introduction.md)의 기능을 통합하는 데 필요한 Entity Framework 애플리케이션의 변경 내용을 보여줍니다. 여기서는 Entity Framework [Code First](sql-database-elastic-scale-shard-map-management.md) 접근 방식으로 [공유된 데이터베이스 맵 관리](sql-database-elastic-scale-data-dependent-routing.md) 및 **데이터 종속 라우팅**을 작성하는 데 집중합니다. 이 문서 전체에서는 EF용 [Code First – New Database](https://msdn.microsoft.com/data/jj193542.aspx) 자습서를 실행 예제로 사용합니다. 이 문서와 함께 제공되는 샘플 코드는 Visual Studio 코드 샘플에 포함된 탄력적 데이터베이스 도구의 샘플 세트 일부입니다.
 
 ## <a name="downloading-and-running-the-sample-code"></a>샘플 코드 다운로드 및 실행
 
@@ -44,7 +44,7 @@ ms.locfileid: "68568301"
 
 Entity Framework 개발자는 다음 4개의 워크플로 중 하나를 사용하여 애플리케이션을 빌드하고 애플리케이션 개체의 지속성을 확인합니다.
 
-* **Code First(New Database)** : EF 개발자가 애플리케이션 코드에서 모델을 만들면 EF가 해당 모델에서 데이터베이스를 생성합니다. 
+* **Code First (New Database)** : EF 개발자가 애플리케이션 코드에서 모델을 만들면 EF가 해당 모델에서 데이터베이스를 생성합니다. 
 * **Code First(Existing Database)** : EF가 기존 데이터베이스에서 모델에 대한 애플리케이션 코드를 생성하도록 지정합니다.
 * **Model First**: 개발자가 EF 디자이너에서 모델을 만들면 EF가 해당 모델에서 데이터베이스를 만듭니다.
 * **Database First**: 개발자가 EF 도구를 사용하여 기존 데이터베이스에서 모델을 유추합니다. 
@@ -63,10 +63,10 @@ Entity Framework 개발자는 다음 4개의 워크플로 중 하나를 사용�
 
 탄력적 데이터베이스 클라이언트 라이브러리와 엔터티 프레임 워크 API를 모두 사용할 때는 다음 속성을 유지해야 합니다. 
 
-* **스케일 아웃**: 애플리케이션의 용량 요구 사항에 따라 분할된 애플리케이션의 데이터 계층에서 데이터베이스를 필요한 만큼 추가하거나 제거합니다. 즉, 데이터베이스 작성 및 삭제를 제어하는 동시에 탄력적 데이터베이스가 분할된 데이터베이스 맵 관리자 API를 사용하여 데이터베이스와 shardlet 매핑을 관리합니다. 
-* **일관성**: 애플리케이션은 분할을 사용하며 탄력적인 확장의 데이터 종속 라우팅 기능을 사용합니다. 손상되었거나 잘못된 쿼리 결과를 방지하기 위해 분할된 데이터베이스 맵 관리자를 통해 연결이 조정됩니다. 또한 유효성 검사 및 일관성도 유지됩니다.
+* **Scale-out**: 애플리케이션의 용량 요구 사항에 따라 분할된 애플리케이션의 데이터 계층에서 데이터베이스를 필요한 만큼 추가하거나 제거합니다. 즉, 데이터베이스 작성 및 삭제를 제어하는 동시에 탄력적 데이터베이스가 분할된 데이터베이스 맵 관리자 API를 사용하여 데이터베이스와 shardlet 매핑을 관리합니다. 
+* **Consistency**: 애플리케이션은 분할을 사용하며 탄력적인 확장의 데이터 종속 라우팅 기능을 사용합니다. 손상되었거나 잘못된 쿼리 결과를 방지하기 위해 분할된 데이터베이스 맵 관리자를 통해 연결이 조정됩니다. 또한 유효성 검사 및 일관성도 유지됩니다.
 * **Code First**: EF의 Code First 패러다임의 편의성을 유지합니다. Code First에서 애플리케이션의 클래스는 기본 데이터베이스 구조에 매핑됩니다. 애플리케이션 코드는 기본 데이터베이스 처리와 관련된 대부분의 측면을 마스킹하는 DbSet와 상호 작용합니다.
-* **스키마**: Entity Framework는 초기 데이터베이스 스키마 생성과 마이그레이션을 통한 후속 스키마 전개를 처리합니다. 이러한 기능을 유지하면 데이터가 전개될 때 그에 맞춰 응용 프로그램을 쉽게 조정할 수 있습니다. 
+* **Schema**: Entity Framework는 초기 데이터베이스 스키마 생성과 마이그레이션을 통한 후속 스키마 전개를 처리합니다. 이러한 기능을 유지하면 데이터가 전개될 때 그에 맞춰 응용 프로그램을 쉽게 조정할 수 있습니다. 
 
 다음 지침에서는 탄력적 데이터베이스 도구를 사용하여 Code First 애플리케이션에 대한 이러한 요구 사항을 충족하는 방법을 제공합니다. 
 
@@ -133,7 +133,7 @@ public DbSet<Blog> Blogs { get; set; }
   * 분할된 데이터베이스 맵은 지정된 분할 키용 shardlet을 유지하는 분할된 데이터베이스에 대해 열린 연결을 만듭니다.
   * 이 열린 연결은 DbContext의 기본 클래스 생성자로 다시 전달되어 EF를 통해 새 연결을 자동으로 만드는 대신 이 연결이 EF에서 사용되도록 지정합니다. 이러한 방식으로 분할된 데이터베이스 맵 관리 작업에서 일관성이 보장되도록 탄력적 데이터베이스 클라이언트 API에서 연결 태그를 지정합니다.
 
-코드에서 기본 생성자 대신 DbContext 서브클래스의 새로운 생성자를 사용합니다. 다음 예를 참조하세요. 
+코드에서 기본 생성자 대신 DbContext 서브클래스의 새로운 생성자를 사용합니다. 다음은 예제입니다. 
 
 ```csharp
 // Create and save a new blog.
@@ -190,7 +190,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 위의 코드 예제는 애플리케이션에서 Entity Framework와 함께 데이터 종속 라우팅을 사용하는 데 필요한 기본 생성자 다시 작성 방법을 보여 줍니다. 다음 표에서는 다른 생성자에 대한 이 접근 방식을 일반화합니다. 
 
-| 현재 생성자 | 데이터에 맞게 다시 작성된 생성자 | 기본 생성자 | 참고 |
+| 현재 생성자 | 데이터에 맞게 다시 작성된 생성자 | 기본 생성자 | 참고 사항 |
 | --- | --- | --- | --- |
 | MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |연결은 분할된 데이터베이스 맵 및 데이터 종속 라우팅 키의 한 기능이어야 합니다. EF를 통한 자동 연결 생성을 무시하고 분할된 데이터베이스 맵을 사용하여 연결을 조정해야 합니다. |
 | MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |연결은 분할된 데이터베이스 맵 및 데이터 종속 라우팅 키의 한 기능입니다. 고정 데이터베이스 이름 또는 연결 문자열은 분할된 데이터베이스 맵에 의한 유효성 검사를 무시하므로 작동하지 않습니다. |
@@ -204,7 +204,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 자동 스키마 관리는 Entity Framework에서 제공하는 편리한 기능입니다. 탄력적 데이터베이스 도구를 사용한 애플리케이션의 컨텍스트에서, 데이터베이스가 분할된 애플리케이션에 추가될 때 새로 생성된 분할된 데이터베이스에 스키마를 자동으로 프로 비전하는 이 기능을 유지하려고 합니다. 기본 사용 사례는 EF를 사용하여 분할된 애플리케이션에 대한 데이터 계층의 용량을 늘리는 것입니다. 스키마 관리에 EF의 기능을 사용하면 EF를 기반으로 하는 분할된 애플리케이션에 대한 데이터베이스 관리 작업이 줄어듭니다. 
 
-EF 마이그레이션을 통한 스키마 배포는 **열려 있지 않은 연결**에서 가장 효율적으로 작동합니다. 이 시나리오는 탄력적 데이터베이스 클라이언트 API에서 제공하는 열린 연결을 사용하는 데이터 종속 라우팅 시나리오와 대조적입니다. 또 다른 차이점은 일관성 요구사항입니다. 동시 분할된 데이터베이스 맵 조작을 방지하기 위해 모든 데이터 종속 라우팅 연결에 대해 일관성을 유지하는 것이 바람직하긴 하지만 아직 분할된 데이터베이스 맵에 등록되지 않았고 shardlet을 유지하도록 아직 할당되지 않은 새 데이터베이스에 초기 스키마를 배포할 경우에는 문제가 없습니다. 따라서 데이터 종속 라우팅과 달리 이 시나리오에 대한 일반 데이터베이스 연결을 사용할 수 있습니다.  
+EF 마이그레이션을 통한 스키마 배포는 **열려 있지 않은 연결**에서 가장 효율적으로 작동합니다. 이 시나리오는 탄력적 데이터베이스 클라이언트 API에서 제공하는 열린 연결을 사용하는 데이터 종속 라우팅 시나리오와 대조적입니다. 또 다른 차이점은 일관성 요구사항입니다: 동시 분할된 데이터베이스 맵 조작을 방지하기 위해 모든 데이터 종속 라우팅 연결에 대해 일관성을 유지하는 것이 바람직하긴 하지만 아직 분할된 데이터베이스 맵에 등록되지 않았고 shardlet을 유지하도록 아직 할당되지 않은 새 데이터베이스에 초기 스키마를 배포할 경우에는 문제가 없습니다. 따라서 데이터 종속 라우팅과 달리 이 시나리오에 대한 일반 데이터베이스 연결을 사용할 수 있습니다.  
 
 그 결과, 이 접근 방식에서는 EF 마이그레이션을 통한 스키마 배포는 새 데이터베이스를 애플리케이션의 분할된 데이터베이스 맵에 분할된 데이터베이스로 등록하는 과정과 밀접하게 결합됩니다. 다음 필수 구성 요소가 충족되어야 합니다. 
 

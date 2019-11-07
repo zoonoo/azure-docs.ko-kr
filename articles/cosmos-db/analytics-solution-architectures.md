@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: cosmos-db
 ms.date: 09/26/2019
 ms.reviewer: sngun
-ms.openlocfilehash: d50b946e67bbcc171850b71021165356011f58e3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d0b5042c1401a95cc75f4c01ace843659b6babfe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755194"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681706"
 ---
 # <a name="solutions-using-globally-distributed-analytics-in-azure-cosmos-db"></a>Azure Cosmos DB에서 전역적으로 분산 분석을 사용 하는 솔루션
 
@@ -34,12 +34,12 @@ Azure Cosmos DB의 Spark 지원을 사용하여 실시간 추천 사항과 제�
 
 다음 이미지에서는 Azure Cosmos DB Spark 지원을 사용하여 가격 책정 및 판촉을 최적화하는 방법을 보여 줍니다.
 
-![Azure Cosmos DB Spark 지원을 통한 가격 책정 및 판촉 최적화](./media/spark-api-introduction/optimize-pricing-and-promotions.png)
+![Azure Cosmos DB Spark 지원을 통한 가격 책정 및 판촉 최적화](./media/analytics-solution-architectures/optimize-pricing-and-promotions.png)
 
 
 다음 이미지에서는 Azure Cosmos DB Spark 지원이 실시간 추천 엔진에서 사용되는 방법을 보여 줍니다.
 
-![실시간 추천 엔진의 Azure Cosmos DB Spark 지원](./media/spark-api-introduction/real-time-recommendation-engine.png)
+![실시간 추천 엔진의 Azure Cosmos DB Spark 지원](./media/analytics-solution-architectures/real-time-recommendation-engine.png)
 
 ## <a name="manufacturing-and-iot"></a>제조 및 IoT
 
@@ -49,9 +49,9 @@ Azure Cosmos DB의 기본 제공 분석 플랫폼을 사용하면 전 세계 수
 
 다음 이미지에서는 Azure Cosmos DB Spark 지원을 사용하여 IoT 디바이스의 메트릭스를 읽고 스마트 그리드 분석을 적용하는 방법을 보여 줍니다.
 
-![Azure Cosmos DB Spark 지원을 통한 IoT 디바이스의 메트릭스 읽기](./media/spark-api-introduction/read-metrics-from-iot-devices.png)
+![Azure Cosmos DB Spark 지원을 통한 IoT 디바이스의 메트릭스 읽기](./media/analytics-solution-architectures/read-metrics-from-iot-devices.png)
 
-## <a name="predictive-maintenance"></a>예측적 유지관리
+## <a name="predictive-maintenance"></a>예측 유지 관리
 
 * 소형 시추 장치에 사용되는 압축기와 같은 자산을 심해 플랫폼에 유지하는 것은 복잡한 노력입니다. 이러한 자산은 전 세계에 있으며 페타바이트 단위의 데이터를 생성합니다. Azure Cosmos DB를 사용하면 Spark 스트리밍을 통해 대량의 센서 원격 분석, 자산 부품 저장 및 센서 매핑 데이터를 처리하는 엔드투엔드 예측 데이터 파이프라인을 작성할 수 있습니다.
 
@@ -59,11 +59,11 @@ Azure Cosmos DB의 기본 제공 분석 플랫폼을 사용하면 전 세계 수
 
 다음 이미지에서는 Azure Cosmos DB Spark 지원을 사용하여 예측 유지 관리 시스템을 구축하는 방법을 보여 줍니다.
 
-![Azure Cosmos DB Spark 지원을 통한 예측 유지 관리 시스템 구축](./media/spark-api-introduction/predictive-maintenance-system.png)
+![Azure Cosmos DB Spark 지원을 통한 예측 유지 관리 시스템 구축](./media/analytics-solution-architectures/predictive-maintenance-system.png)
 
 다음 이미지에서는 Azure Cosmos DB Spark 지원을 사용하여 실시간 차량 진단 시스템을 구축하는 방법을 보여 줍니다.
 
-![Azure Cosmos DB Spark 지원을 통한 실시간 차량 진단 시스템 구축](./media/spark-api-introduction/real-time-vehicle-diagnostic-system.png)
+![Azure Cosmos DB Spark 지원을 통한 실시간 차량 진단 시스템 구축](./media/analytics-solution-architectures/real-time-vehicle-diagnostic-system.png)
 
 ## <a name="gaming"></a>게임
 
@@ -75,7 +75,7 @@ Azure Cosmos DB의 기본 제공 분석 플랫폼을 사용하면 전 세계 수
 
 다음 이미지에서는 Azure Cosmos DB Spark 지원이 게임 분석에서 사용되는 방법을 보여 줍니다.
 
-![게임 분석의 Azure Cosmos DB Spark 지원](./media/spark-api-introduction/gaming-analytics.png)
+![게임 분석의 Azure Cosmos DB Spark 지원](./media/analytics-solution-architectures/gaming-analytics.png)
 
 ## <a name="next-steps"></a>다음 단계
 

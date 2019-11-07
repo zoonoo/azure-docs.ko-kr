@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory의 대기 작업 | Microsoft Docs
+title: Azure Data Factory의 대기 작업
 description: 대기 작업은 지정된 기간 동안 파이프라인의 실행을 일시 중지합니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 48a722979e61209a855dd1fec22fcdcc756ae1ce
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f9dd53fded06eec169219d00993620a0f2aa2bf0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142430"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678237"
 ---
 # <a name="execute-wait-activity-in-azure-data-factory"></a>Azure Data Factory에서 대기 작업 실행
 파이프라인에서 대기 작업을 사용하는 경우 파이프라인은 후속 작업을 계속 실행하기 전에 지정된 기간 동안 대기합니다. 
@@ -38,17 +38,17 @@ ms.locfileid: "70142430"
 
 속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | `Wait` 작업의 이름입니다. | String | 예
-type | **대기**로 설정해야 합니다. | String | 예
-waitTimeInSeconds | 계속 처리하기 전에 파이프라인이 대기하는 시간(초)입니다. | 정수 | 예
+name | `Wait` 작업의 이름입니다. | 문자열 | 예
+type | **대기**로 설정해야 합니다. | 문자열 | 예
+waitTimeInSeconds | 계속 처리하기 전에 파이프라인이 대기하는 시간(초)입니다. | Integer | 예
 
 ## <a name="example"></a>예제
 
 > [!NOTE]
-> 이 섹션에서는 파이프라인을 실행하는 JSON 정의 및 샘플 PowerShell 명령을 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
+> 이 섹션에서는 JSON 정의 및 파이프라인을 실행하는 PowerShell 명령 예제를 제공합니다. Azure PowerShell 및 JSON 정의를 사용하여 Data Factory 파이프라인을 만드는 단계별 지침이 포함된 연습은 [자습서: Azure PowerShell을 사용하여 Data Factory 만들기](quickstart-create-data-factory-powershell.md)를 참조하세요.
 
 ### <a name="pipeline-with-wait-activity"></a>대기 작업을 포함하는 파이프라인
-이 예제에서 파이프라인에는 두 개의 활동인 **다음까지** 및 **대기**가 있습니다. 대기 작업은 1초 동안 대기하도록 구성됩니다. 파이프라인은 각 실행 간에 1초 동안 대기하는 루프에서 웹 작업을 실행합니다. 
+이 예제에서 파이프라인에는 **Until** 및 **대기**라는 두 개의 작업이 있습니다. 대기 작업은 1초 동안 대기하도록 구성됩니다. 파이프라인은 각 실행 간에 1초 동안 대기하는 루프에서 웹 작업을 실행합니다. 
 
 ```json
 {

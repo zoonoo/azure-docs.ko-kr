@@ -1,5 +1,5 @@
 ---
-title: 메모리 내 OLTP이 SQL txn 성능 개선 | Microsoft Docs
+title: 메모리 내 OLTP는 SQL 트랜잭션 성능 향상
 description: 메모리 내 OLTP를 채택하여 기존 SQL 데이터베이스의 트랜잭션 성능을 향상합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: MightyPen
 ms.date: 11/07/2018
-ms.openlocfilehash: e869b2bba3bd64b58d9063e9445889ef709efdc3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 82b24b51a103d31bf20bbb7a9fc304095be523d5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567944"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689830"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>메모리 내 OLTP를 사용하여 SQL Database에서 애플리케이션의 성능 향상
 
@@ -28,7 +28,7 @@ ms.locfileid: "68567944"
 
 기존 데이터베이스에서 메모리 내 OLTP를 채택하려면 다음 단계를 따르세요.
 
-## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>1단계: 프리미엄 및 중요 비즈니스용 계층 데이터베이스를 사용하고 있는지 확인
+## <a name="step-1-ensure-you-are-using-a-premium-and-business-critical-tier-database"></a>1단계: 프리미엄 및 중요 비즈니스용 계층 데이터베이스를 사용하고 있는지 확인합니다.
 
 메모리 내 OLTP는 프리미엄 및 중요 비즈니스용 계층 데이터베이스에서만 지원됩니다. 반환된 결과가 1인 경우(0이 아님) 메모리 내가 지원됩니다.
 
@@ -40,7 +40,7 @@ SELECT DatabasePropertyEx(Db_Name(), 'IsXTPSupported');
 
 
 
-## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>2단계: 메모리 내 OLTP로 마이그레이션할 개체 식별
+## <a name="step-2-identify-objects-to-migrate-to-in-memory-oltp"></a>2단계: 개체를 식별하여 메모리 내 OLTP로 마이그레이션
 SSMS는 활성 워크로드를 사용하여 데이터베이스에 대해 실행할 수 있는 **트랜잭션 성능 분석 개요** 보고서를 포함합니다. 보고서는 메모리 내 OLTP로 마이그레이션하기 위한 후보인 테이블 및 저장된 프로시저를 식별합니다.
 
 SSMS에서 보고서를 생성합니다.
@@ -79,7 +79,7 @@ SSMS에서 보고서를 생성합니다.
 2. **개체 탐색기**에서 테이블을 마우스 오른쪽 단추로 클릭한 다음 **메모리 최적화 관리자**를 클릭합니다.
    
    * **테이블 메모리 최적화 관리자** 마법사가 표시됩니다.
-3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)를 클릭하여 메모리 최적화 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 참조 항목:
+3. 마법사에서 **마이그레이션 유효성 검사**(또는 **다음** 단추)를 클릭하여 메모리 최적화 테이블에서 지원하지 않는 지원되지 않는 기능이 테이블에 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
    
    * *메모리 최적화 관리자* 의 [메모리 최적화 검사 목록](https://msdn.microsoft.com/library/dn284308.aspx).
    * [메모리 내 OLTP에서 지원되지 않는 TRANSACT-SQL 항목](https://msdn.microsoft.com/library/dn246937.aspx).
@@ -162,7 +162,7 @@ CREATE PROCEDURE schemaname.procedurename
 
 네트워크 대기 시간을 최소화하려면 데이터베이스가 있는 동일한 Azure 지리적 지역에 있는 테스트를 실행합니다.
 
-## <a name="step-7-post-implementation-monitoring"></a>7단계: 구현 후 모니터링
+## <a name="step-7-post-implementation-monitoring"></a>7단계: 사후 실현 모니터링
 프로덕션에서 메모리 내 구현의 성능 효과를 모니터링하는 것이 좋습니다.
 
 * [메모리 내 스토리지 모니터링](sql-database-in-memory-oltp-monitoring.md).

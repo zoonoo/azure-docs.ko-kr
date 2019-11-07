@@ -1,5 +1,5 @@
 ---
-title: SQL Server 인스턴스에서 Azure SQL Database 관리 되는 인스턴스로 데이터베이스 마이그레이션 | Microsoft Docs
+title: SQL Server 인스턴스에서 Azure SQL Database 관리 인스턴스로 데이터베이스 마이그레이션
 description: SQL Server 인스턴스에서 Azure SQL Database 관리 되는 인스턴스로 데이터베이스를 마이그레이션하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: f877306170b45d65a52a4c76afd7f064e83f240a
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 228b22d9d283fe8c23cbf7a82036b7f3782cbf25
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937300"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688002"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server 인스턴스를 Azure SQL Database 관리형 인스턴스로 마이그레이션
 
-이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [Azure SQL Database 관리형 인스턴스](sql-database-managed-instance.md)로 마이그레이션하는 방법에 대해 설명합니다. 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하는 방법에 대한 자세한 내용은 [단일 또는 풀링된 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure Database 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
+이 문서에서는 SQL Server 2005 이상 버전 인스턴스를 [Azure SQL Database 관리형 인스턴스](sql-database-managed-instance.md)로 마이그레이션하는 방법에 대해 설명합니다. 단일 데이터베이스 또는 탄력적 풀로 마이그레이션하는 방법에 대한 자세한 내용은 [단일 또는 풀링된 데이터베이스로 마이그레이션](sql-database-cloud-migrate.md)을 참조하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure 데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
 
 > [!NOTE]
 > 신속 하 게 시작 하 고 Managed Instance 하려는 경우이 페이지 대신 [빠른 시작 가이드](sql-database-managed-instance-quickstart-guide.md) 로 이동 하는 것이 좋습니다. 
@@ -119,7 +119,7 @@ SQL Server 온-프레미스에서 SSIS(SQL Server Integration Services)를 사�
 
 ### <a name="native-restore-from-url"></a>URL에서 네이티브 복원
 
-[Azure Storage](https://azure.microsoft.com/services/storage/)에서 사용 가능한 온-프레미스 SQL Server 또는 [Virtual Machines의 SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/)에서 가져온 네이티브 백업(.bak 파일)의 복원은 SQL DB 관리되는 인스턴스 배포 옵션의 주요 기능 중 하나이며, 오프라인 데이터베이스 마이그레이션을 빠르고 쉽게 수행할 수 있도록 합니다.
+[Azure Storage](https://azure.microsoft.com/services/virtual-machines/sql-server/)에서 사용 가능한 온-프레미스 SQL Server 또는 [Virtual Machines의 SQL Server](https://azure.microsoft.com/services/storage/)에서 가져온 네이티브 백업(.bak 파일)의 복원은 SQL DB 관리되는 인스턴스 배포 옵션의 주요 기능 중 하나이며, 오프라인 데이터베이스 마이그레이션을 빠르고 쉽게 수행할 수 있도록 합니다.
 
 다음 다이어그램은 프로세스의 상위 수준 개요를 제공합니다.
 
@@ -181,7 +181,7 @@ Managed Instance에 대 한 데이터베이스 마이그레이션은 대부분�
 Managed Instance는 모니터링 및 문제 해결을 위한 다양 한 고급 도구를 제공 하며, 이러한 도구를 사용 하 여 인스턴스의 성능을 모니터링 해야 합니다. 모니터링 해야 하는 매개 변수 중 일부는 다음과 같습니다.
 - 인스턴스의 CPU 사용량은 프로 비전 한 vCores 수가 워크 로드와 적절 한지 확인 합니다.
 - [추가 메모리가 필요한](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Do-you-need-more-memory-on-Azure-SQL-Managed-Instance/ba-p/563444)지 여부를 확인 하기 위해 Managed Instance의 페이지 수명 예상
-- `INSTANCE_LOG_GOVERNOR` 또는`PAGEIOLATCH` 와 같은 대기 통계를 통해 저장소 io 문제가 있음을 알 수 있습니다. 특히, 더 나은 IO 성능을 얻기 위해 파일을 미리 할당 해야 하는 일반적인 용도의 계층에 있습니다.
+- 특히 IO 성능을 향상 시키기 위해 파일을 미리 할당 해야 하는 일반적인 용도의 계층에서 저장소 IO 문제가 있음을 알리는 `INSTANCE_LOG_GOVERNOR` 또는 `PAGEIOLATCH`와 같은 대기 통계입니다.
 
 ## <a name="leverage-advanced-paas-features"></a>고급 PaaS 기능 활용
 

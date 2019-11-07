@@ -9,16 +9,18 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 992e3f7aa53fdd006d29c06113cd30b07a406f3b
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 5cb4602ac0431e09208953122f13b30124ab77f5
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734347"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614760"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
 모니터링 패턴은 워크플로의 유연한 되풀이(예: 특정 조건이 충족될 때까지 폴링) 프로세스를 말합니다. 이 문서에서는 [지속성 함수](durable-functions-overview.md)를 사용하여 모니터링을 구현하는 샘플에 대해 설명합니다.
+
+[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -53,11 +55,11 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 이 문서에서는 샘플 앱의 다음 함수에 대해 설명합니다.
 
-* `E3_Monitor`: `E3_GetIsClear`를 주기적으로 호출하는 오케스트레이터 함수입니다. `E3_GetIsClear`가 true를 반환하면 `E3_SendGoodWeatherAlert`를 호출합니다.
+* `E3_Monitor`: `E3_GetIsClear`를 주기적으로 호출하는 오케스트레이터 함수입니다. `E3_SendGoodWeatherAlert`가 true를 반환하면 `E3_GetIsClear`를 호출합니다.
 * `E3_GetIsClear`: 특정 위치의 현재 기상 조건을 확인하는 작업 함수입니다.
 * `E3_SendGoodWeatherAlert`: Twilio를 통해 SMS 메시지를 보내는 작업 함수입니다.
 
-다음 섹션에서는 C# 스크립팅 및 JavaScript에 사용되는 구성 및 코드에 대해 설명합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
+다음 섹션에서는 스크립팅 및 JavaScript에 C# 사용 되는 구성 및 코드에 대해 설명 합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
 
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>날씨 모니터링 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드)
 
@@ -71,18 +73,18 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
 이 오케스트레이터 함수는 다음 작업을 수행합니다.
 
-1. 모니터링할 위치와 SMS 알림을 보낼 전화 번호로 구성된 **MonitorRequest**를 가져옵니다.
+1. 모니터링할 위치와 SMS 알림을 보낼 전화 번호로 구성된 *MonitorRequest*를 가져옵니다.
 2. 모니터의 만료 시간을 결정합니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
 3. **E3_GetIsClear**를 호출하여 요청 받은 위치에 하늘이 맑은지 확인합니다.
 4. 날씨가 맑으면 **E3_SendGoodWeatherAlert**를 호출하여 요청 받은 전화 번호로 SMS 알림을 보냅니다.
 5. 다음 폴링 간격에서 오케스트레이션을 다시 시작하도록 지속성 타이머를 만듭니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
-6. [CurrentUtcDateTime](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html#Microsoft_Azure_WebJobs_DurableOrchestrationContext_CurrentUtcDateTime)(C#) 또는 `currentUtcDateTime`(JavaScript)이 모니터의 만료 시간을 지나거나 SMS 알림이 전송될 때까지 계속 실행합니다.
+6. `CurrentUtcDateTime` (.NET) 또는 `currentUtcDateTime` (JavaScript)가 모니터의 만료 시간을 전달 하거나 SMS 경고가 전송 될 때까지 계속 실행 됩니다.
 
 **MonitorRequests**를 여러 개 보내면 오케스트레이터 인스턴스를 동시에 여러 개 실행할 수 있습니다. 모니터링할 위치와 SMS 알림을 보낼 전화 번호를 지정할 수 있습니다.
 
@@ -107,7 +109,7 @@ JavaScript 샘플은 매개 변수로 기본 JSON 개체를 사용합니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -121,7 +123,7 @@ SMS 메시지를 보내는 코드는 다음과 같습니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
@@ -140,10 +142,10 @@ Content-Type: application/json
 ```
 HTTP/1.1 202 Accepted
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={SystemKey}
+Location: https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={SystemKey}
 RetryAfter: 10
 
-{"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
+{"id": "f6893f25acf64df2ab53a35c09d52635", "statusQueryGetUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "sendEventPostUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/raiseEvent/{eventName}?taskHub=SampleHubVS&connection=Storage&code={systemKey}", "terminatePostUri": "https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason={text}&taskHub=SampleHubVS&connection=Storage&code={systemKey}"}
 ```
 
 **E3_Monitor** 인스턴스가 시작되어 요청 받은 위치의 현재 기상 조건을 쿼리합니다. 날씨가 맑으면 알림을 보낼 작업 함수를 호출하고 그렇지 않으면 타이머를 설정합니다. 타이머가 만료되면 오케스트레이션이 다시 시작됩니다.
@@ -169,7 +171,7 @@ Azure Functions 포털의 함수 로그를 검토하여 오케스트레이션의
 오케스트레이션은 시간 제한에 도달하거나 맑은 하늘이 감지되면 [종료](durable-functions-instance-management.md)됩니다. 또 다른 함수 내의 `TerminateAsync`(.NET) 또는 `terminate`(JavaScript)를 사용하거나 위의 202 응답에서 참조된 **terminatePostUri** HTTP POST 웹후크를 호출하여 `{text}`를 종료 이유로 대체할 수도 있습니다.
 
 ```
-POST https://{host}/admin/extensions/DurableTaskExtension/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
+POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
 ```
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio 샘플 코드

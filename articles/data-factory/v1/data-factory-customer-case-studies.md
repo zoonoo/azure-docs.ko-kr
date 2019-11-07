@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory - 고객 사례 연구 | Microsoft Docs
+title: Azure Data Factory - 고객 사례 연구
 description: 고객들이 Azure 데이터 팩터리를 어떻게 사용하고 있는지 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4944a870d27fd9ca0b64234b303906739bdc0d04
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9b0318cf293428f0d2ce125b190b0b8625c9df97
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139960"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682681"
 ---
 # <a name="azure-data-factory---customer-case-studies"></a>Azure Data Factory - 고객 사례 연구
 데이터 팩터리는 데이터의 이동과 변환을 자동화하는 클라우드 기반 정보 관리 서비스입니다. 많은 산업 분야의 고객들이 분석 파이프라인을 제작하고 비즈니스 문제를 해결하기 위해 데이터 팩터리와 기타 Azure 서비스를 사용합니다.  고객으로부터 직접 데이터 팩터리를 사용하는 이유와 방법에 대해 알아봅니다.
@@ -28,7 +28,7 @@ ms.locfileid: "70139960"
 [빅데이터 솔루션으로 최대 90%의 비용을 절감하고 있는 산업 Automation 회사](https://customers.microsoft.com/en-us/story/726192-industrial-automation-firm-cuts-costs-up-to-90-percent)
 
 ## <a name="ziosk"></a>Ziosk
-[햄버거를 먹으며 즐길 게임은 어떤 것이 좋을까요? Ziosk는 이미 알고 있습니다.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
+[해당 먹으며 즐길을 사용할 게임을 선택 하세요. Ziosk 이미 알고 있을 수 있습니다.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)
 
 ## <a name="alaska-airlines"></a>Alaska Airlines
 [더 매력적인 기내 엔터테인먼트를 위해 태블릿과 Cloud Services를 사용하는 항공사](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=19357)

@@ -1,5 +1,5 @@
 ---
-title: 재방문 주기 정책 사용하여 Temporal Tables에서 과거 데이터 관리 | Microsoft Docs
+title: 재방문 주기 정책 사용하여 Temporal Tables에서 과거 데이터 관리
 description: 임시 재방문 주기 정책을 사용하여 과거 데이터를 제어하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 72022510676548fad79031d4334a2c95571fc16d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2568f3be96604856d5353f7f5f94926162880bfd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566375"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687001"
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>재방문 주기 정책 사용하여 Temporal Tables에서 과거 데이터 관리
 
@@ -73,7 +73,7 @@ CREATE TABLE dbo.WebsiteUserInfo
  );
 ```
 
-Azure SQL Database를 통해 다른 시간 단위를 사용하여 재방문 주기 기간을 지정할 수 있습니다. DAYS, WEEKS, MONTHS 및 YEARS HISTORY_RETENTION_PERIOD가 생략되면 재방문 주기를 INFINITE로 가정합니다. 또한 INFINITE 키워드를 명시적으로 사용할 수 있습니다.
+Azure SQL Database를 통해 다른 시간 단위인 DAYS, WEEKS, MONTHS, YEARS를 사용하여 재방문 주기 기간을 지정할 수 있습니다. HISTORY_RETENTION_PERIOD가 생략되면 재방문 주기를 INFINITE로 가정합니다. 또한 INFINITE 키워드를 명시적으로 사용할 수 있습니다.
 
 일부 시나리오에서는 테이블을 만든 후 재방문 주기를 구성하거나 앞서 구성된 값을 변경해도 좋습니다. 이 경우 ALTER TABLE 문을 사용합니다.
 
@@ -116,11 +116,11 @@ rowstore(B-트리) 클러스터형 인덱스에 대한 정리 논리를 사용�
 
 Rowstore 클러스터형 인덱스가 있는 테이블에 대한 정리 작업은 SYSTEM_TIME 기간의 끝에 해당하는 열로 시작하는 인덱스를 필요로 합니다. 이러한 인덱스가 없는 경우 한정된 재방문 주기 기간을 구성할 수 없습니다.
 
-*Msg 13765, Level 16, State 1 <br></br> 한정된 재방문 주기 기간 설정은 'temporalstagetestdb.dbo.WebsiteUserInfoHistory' 기록 테이블에 필수 클러스터형 인덱스가 없기 때문에 'temporalstagetestdb.dbo.WebsiteUserInfo’ 시스템 버전 임시 테이블에서 실패했습니다. 기록 테이블에 SYSTEM_TIME의 끝 부분과 일치하는 열로 시작하는 클러스터형 columnstore 또는 B-트리 인덱스를 만드는 것이 좋습니다.*
+*메시지 13765, 수준 16, 상태 1 <br></br> 시스템 버전 관리 된 temporal 테이블 ' temporalstagetestdb. WebsiteUserInfo '에서 유한 보존 기간을 설정 하지 못했습니다. 필요한 클러스터형 인덱스를 포함 합니다. 기록 테이블에서 SYSTEM_TIME 기간의 끝과 일치 하는 열로 시작 하는 클러스터형 columnstore 또는 B-트리 인덱스를 만드는 것이 좋습니다.*
 
 Azure SQL Database에서 만든 기본 기록 테이블에 재방문 주기 정책과 호환되는 클러스터형 인덱스가 이미 있는지 유의해야 합니다. 재방문 주기 기간이 한정된 테이블에서 해당 인덱스를 제거하려 하면 다음 오류와 함께 작업이 실패합니다.
 
-*Msg 13766, Level 16, State 1 <br></br> 'WebsiteUserInfoHistory.IX_WebsiteUserInfoHistory' 클러스터형 인덱스가 오래된 데이터의 자동 정리를 위해 사용되고 있으므로 삭제할 수 없습니다. 이 인덱스를 삭제해야 할 경우 해당 시스템 버전 임시 테이블에서 HISTORY_RETENTION_PERIOD를 INFINITE로 설정하는 것이 좋습니다.*
+*메시지 13766, 수준 16, 상태 1 <br></br>는 오래 된 데이터를 자동으로 정리 하는 데 사용 되 고 있으므로 클러스터형 인덱스 ' WebsiteUserInfoHistory. IX_WebsiteUserInfoHistory '를 삭제할 수 없습니다. 이 인덱스를 삭제 해야 하는 경우 해당 시스템 버전 임시 테이블에서 HISTORY_RETENTION_PERIOD를 INFINITE로 설정 하는 것이 좋습니다.*
 
 클러스터형 columnstore 인덱스 상의 정리는 기록 행이 오름차순(기간 열 끝의 순서로 정렬됨)으로 삽입된 경우 최적으로 작동합니다. 특히 기록 테이블이 SYSTEM_VERSIONIOING 메커니즘에 의해 단독으로 채워질 때 항상 그렇습니다. 기록 테이블의 행이 기간 열(기존 과거 데이터를 마이그레이션한 경우에 해당될 수 있음)의 끝을 기준으로 정렬되지 경우, 최적의 성능을 얻으려면 제대로 정렬된 B-트리 rowstore 인덱스 위에 클러스터형 columnstore 인덱스를 다시 만들어야 합니다.
 

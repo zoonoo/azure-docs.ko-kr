@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 SFTP 서버에서 데이터 이동 | Microsoft Docs
+title: Azure Data Factory를 사용 하 여 SFTP 서버에서 데이터 이동
 description: Azure Data Factory를 사용하여 온-프레미스 또는 클라우드 SFTP 서버에서 데이터를 이동하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d35c4f410c29bba7848dde53d206cdd2ccd980ca
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1a75b3af46d79cc7a028fa5d36ef1653b1619e8d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836165"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682338"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SFTP 서버에서 데이터 이동
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](data-factory-sftp-connector.md)
 > * [버전 2(현재 버전)](../connector-sftp.md)
 
@@ -42,9 +42,9 @@ ms.locfileid: "67836165"
 ## <a name="getting-started"></a>시작
 다른 도구/API를 사용하여 SFTP 원본의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습을 볼 수 있습니다.
+- 파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
 
-- 또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell**를 **Azure Resource Manager 템플릿을**를 **.NET API**, 및 **REST API**합니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. SFTP 서버에서 Azure Blob Storage로 데이터를 복사하는 JSON 샘플은 이 문서의 [JSON 예: SFTP 서버에서 Azure Blob으로 데이터 복사](#json-example-copy-data-from-sftp-server-to-azure-blob) 섹션을 참조하세요.
+- 또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요. SFTP 서버에서 Azure Blob Storage로 데이터를 복사하는 JSON 샘플은 이 문서의 [JSON 예제: SFTP 서버에서 Azure blob으로 데이터 복사](#json-example-copy-data-from-sftp-server-to-azure-blob) 섹션을 참조하세요.
 
 ## <a name="linked-service-properties"></a>연결된 서비스 속성
 다음 테이블은 FTP 연결 서비스에 특정한 JSON 요소에 대한 설명을 제공합니다.
@@ -52,9 +52,9 @@ ms.locfileid: "67836165"
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
 | type | type 속성을 `Sftp`로 설정해야 합니다. |예 |
-| 호스트 | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
-| port |SFTP 서버가 수신하는 포트입니다. 기본값은 다음과 같습니다. 21 |아니요 |
-| authenticationType |인증 유형을 지정합니다. 허용되는 값은 다음과 같습니다. **Basic**, **SshPublicKey**. <br><br> 더 많은 속성 및 각 속성의 JSON 샘플은 [기본 인증 사용](#using-basic-authentication) 및 [SSH 공개 키 인증 사용](#using-ssh-public-key-authentication) 섹션을 참조하세요. |예 |
+| host | SFTP 서버의 이름 또는 IP 주소입니다. |예 |
+| 포트 |SFTP 서버가 수신하는 포트입니다. 기본값은 21입니다. |아니요 |
+| authenticationType |인증 유형을 지정합니다. 허용되는 값은 **기본** 및 **SshPublicKey**입니다. <br><br> 더 많은 속성 및 각 속성의 JSON 샘플은 [기본 인증 사용](#using-basic-authentication) 및 [SSH 공개 키 인증 사용](#using-ssh-public-key-authentication) 섹션을 참조하세요. |예 |
 | skipHostKeyValidation | 호스트 키 유효성 검사를 건너뛸지 여부를 지정합니다. | 아니요. 기본값: false |
 | hostKeyFingerprint | 호스트 키의 지문을 지정합니다. | `skipHostKeyValidation`이 false로 지정되면 필수입니다.  |
 | gatewayName |온-프레미스 SFTP 서버에 연결하기 위한 데이터 관리 게이트웨이의 이름입니다. | 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에는 필수입니다. |
@@ -66,10 +66,10 @@ ms.locfileid: "67836165"
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| username | SFTP 서버에 액세스하는 사용자. |예 |
+| 사용자 이름 | SFTP 서버에 액세스하는 사용자. |예 |
 | password | 사용자(사용자 이름) 암호. | 예 |
 
-#### <a name="example-basic-authentication"></a>예제: 기본 인증
+#### <a name="example-basic-authentication"></a>예: 기본 인증 사용
 ```json
 {
     "name": "SftpLinkedService",
@@ -89,7 +89,7 @@ ms.locfileid: "67836165"
 }
 ```
 
-#### <a name="example-basic-authentication-with-encrypted-credential"></a>예제: 암호화된 자격 증명으로 기본 인증
+#### <a name="example-basic-authentication-with-encrypted-credential"></a>예: 암호화된 자격 증명으로 기본 인증 사용
 
 ```JSON
 {
@@ -116,7 +116,7 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| username |SFTP 서버에 액세스하는 사용자 |예 |
+| 사용자 이름 |SFTP 서버에 액세스하는 사용자 |예 |
 | privateKeyPath | 게이트웨이에서 액세스할 수 있는 프라이빗 키 파일의 절대 경로를 지정합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. <br><br> 온-프레미스 SFTP 서버에서 데이터를 복사하는 경우에만 적용됩니다. |
 | privateKeyContent | 프라이빗 키 콘텐츠의 직렬화된 문자열입니다. 복사 마법사는 프라이빗 키 파일을 읽고 프라이빗 키 콘텐츠를 자동으로 추출할 수 있습니다. 다른 도구/SDK를 사용하는 경우 privateKeyPath 속성을 대신 사용합니다. | `privateKeyPath` 또는 `privateKeyContent`를 지정합니다. |
 | passPhrase | 키 파일이 암호문으로 보호되는 경우 프라이빗 키를 해독하는 암호문/암호를 지정합니다. | 프라이빗 키 파일이 암호문으로 보호되는 경우에는 필수입니다. |
@@ -124,7 +124,7 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 > [!NOTE]
 > SFTP 커넥터는 RSA/DSA OpenSSH 키를 지원합니다. 키 파일 콘텐츠는 "-----BEGIN [RSA/DSA] PRIVATE KEY-----"로 시작되어야 합니다. 프라이빗 키 파일이 ppk 형식 파일인 경우 Putty 도구를 사용하여 .ppk를 OpenSSH 형식으로 변환합니다.
 
-#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>예제: 프라이빗 키 filePath를 사용한 SshPublicKey 인증
+#### <a name="example-sshpublickey-authentication-using-private-key-filepath"></a>예: 프라이빗 키 파일 경로를 사용하여 SshPublicKey 인증
 
 ```json
 {
@@ -145,7 +145,7 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 }
 ```
 
-#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>예제: 프라이빗 키 콘텐츠를 사용한 SshPublicKey 인증
+#### <a name="example-sshpublickey-authentication-using-private-key-content"></a>예: 프라이빗 키 콘텐츠를 사용하여 SshPublicKey 인증
 
 ```json
 {
@@ -172,13 +172,13 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| folderPath |폴더에 대한 하위 경로. 문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
-| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt`(예: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
+| folderPath |폴더에 대한 하위 경로. 문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예제를 살펴보려면 연결된 서비스 및 데이터 세트 정의 샘플을 참조하세요.<br/><br/>이 속성을 **partitionBy** 와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
+| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt` (예: 0a405f8a-93ff-4c6f-b3be-f69616f1df7a |아니요 |
 | fileFilter |모든 파일이 아닌 folderPath의 파일 하위 집합을 선택하는데 사용할 필터를 지정합니다.<br/><br/>허용 되는 값은 `*`(여러 문자) 및 `?`(하나의 문자)입니다.<br/><br/>예 1: `"fileFilter": "*.log"`<br/>예 2: `"fileFilter": 2014-1-?.txt"`<br/><br/> fileFilter는 FileShare 입력 데이터 세트에 적용할 수 있습니다. 이 속성은 HDFS에는 지원되지 않습니다. |아니요 |
 | partitionedBy |동적 folderPath, 시계열 데이터에 대한 filename을 지정하는 데 partitionedBy를 사용할 수 있습니다. 예를 들어 매시간 데이터에 대한 매개 변수가 있는 folderPath입니다. |아니요 |
-| format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
-| compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
-| useBinaryTransfer |이전 전송 모드를 사용할지 여부를 지정합니다. 이진 모드인 경우 true이고 ASCII인 경우 false입니다. 기본값: True입니다. 이 속성은 연결된 서비스 유형이 다음과 같은 경우에만 사용할 수 있습니다. FtpServer. |아니요 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
+| useBinaryTransfer |이전 전송 모드를 사용할지 여부를 지정합니다. 이진 모드인 경우 true이고 ASCII인 경우 false입니다. 기본값은 True입니다. 이 속성은 연결된 서비스 유형이 FtpServer인 경우에만 사용할 수 있습니다. |아니요 |
 
 > [!NOTE]
 > filename 및 fileFilter는 동시에 사용할 수 없습니다.
@@ -224,8 +224,8 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 ## <a name="supported-file-and-compression-formats"></a>지원되는 파일 및 압축 형식
 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서를 참조하세요.
 
-## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>JSON 예제: SFTP 서버에서 Azure Blob으로 데이터 복사
-다음 예에서는 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 하거나 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)합니다. SFTP 원본에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
+## <a name="json-example-copy-data-from-sftp-server-to-azure-blob"></a>JSON 예: SFTP 서버에서 Azure Blob으로 데이터 복사
+다음 예제에서는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공 합니다. SFTP 원본에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure 데이터 팩터리의 복사 작업을 사용하여 임의의 원본에서 **여기**에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.
 
 > [!IMPORTANT]
 > 이 샘플은 JSON 코드 조각을 제공합니다. 데이터 팩터리를 만들기 위한 단계별 지침은 포함하지 않습니다. 단계별 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서를 참조하세요.
@@ -234,9 +234,9 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 
 * [sftp](#linked-service-properties) 형식의 연결된 서비스
 * [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-* [FileShare](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
-* [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-* [FileSystemSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+* [FileShare](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)
+* [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+* [FileSystemSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)입니다.
 
 샘플은 1시간마다 SFTP 서버의 데이터를 Azure Blob으로 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
@@ -308,7 +308,7 @@ SSH 공개 키 인증을 사용하려면 `authenticationType`을 `SshPublicKey`�
 
 **Azure Blob 출력 데이터 세트**
 
-데이터는 1시간마다 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
+데이터는 매시간 새 blob에 기록됩니다.(빈도: 1시간, 간격:1회) Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
 ```JSON
 {

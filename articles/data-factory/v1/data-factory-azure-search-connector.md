@@ -1,5 +1,5 @@
 ---
-title: 데이터 팩터리를 사용하여 Search 인덱스에 데이터 푸시 | Microsoft Docs
+title: Data Factory를 사용 하 여 검색 인덱스에 데이터 푸시
 description: Azure 데이터 팩터리를 사용하여 Azure Search 인덱스에 데이터를 푸시하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 30a5bc9c5f0b7d1443e7ca2a16d9f0e0d1120dd8
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 09b891ba753291511bb1f203b7ac4437e6b2c542
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836639"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683105"
 ---
 # <a name="push-data-to-an-azure-search-index-by-using-azure-data-factory"></a>Azure 데이터 팩터리를 사용하여 Azure Search 인덱스에 데이터 푸시
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](data-factory-azure-search-connector.md)
 > * [버전 2(현재 버전)](../connector-azure-search.md)
 
@@ -38,9 +38,9 @@ ms.locfileid: "67836639"
 ## <a name="getting-started"></a>시작
 다른 도구/API를 사용하여 원본 데이터 저장소에서 Azure Search 인덱스로 데이터를 푸시하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습을 볼 수 있습니다.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
 
-또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell**를 **Azure Resource Manager 템플릿을**를 **.NET API**, 및 **REST API**합니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -48,7 +48,7 @@ ms.locfileid: "67836639"
 2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다.
 3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다.
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  Azure Search 인덱스로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON의 예: 온-프레미스 SQL Server에서 Azure Search 인덱스로 데이터 복사](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) 섹션을 참조하세요.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다.  Azure Search 인덱스로 데이터를 복사하는 데 사용되는 Data Factory 엔터티의 JSON 정의에 대한 샘플은 이 문서의 [JSON 예: 온-프레미스 SQL Server에서 Azure Search 인덱스로 데이터 복사](#json-example-copy-data-from-on-premises-sql-server-to-azure-search-index) 섹션을 참조하세요.
 
 다음 섹션에서는 Azure Search 인덱스에 한정된 Data Factory 엔터티를 정의하는 데 사용되는 JSON 속성에 대해 자세히 설명합니다.
 
@@ -58,9 +58,9 @@ ms.locfileid: "67836639"
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| type | type 속성을 다음으로 설정해야 합니다. **AzureSearch**. | 예 |
-| url | Azure Search 서비스의 URL입니다. | 예 |
-| Key | Azure Search 서비스의 관리자 키입니다. | 예 |
+| type | 형식 속성은 **AzureSearch**로 설정되어야 합니다. | 예 |
+| URL | Azure Search 서비스의 URL입니다. | 예 |
+| key | Azure Search 서비스의 관리자 키입니다. | 예 |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
@@ -79,8 +79,8 @@ ms.locfileid: "67836639"
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.| 병합(기본값)<br/>Upload| 아니요 |
-| WriteBatchSize | 버퍼 크기가 writeBatchSize에 도달한 경우 Azure Search 인덱스에 데이터를 업로드합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요. | 1~1,000입니다. 기본값은 1,000입니다. | 아니요 |
+| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.| 병합(기본값)<br/>업로드| 아니요 |
+| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달한 경우 Azure Search 인덱스에 데이터를 업로드합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요. | 1~1,000입니다. 기본값은 1,000입니다. | 아니요 |
 
 ### <a name="writebehavior-property"></a>WriteBehavior 속성
 데이터를 쓸 때 AzureSearchSink가 삽입됩니다. 즉, 문서를 작성할 때 문서 키가 Azure Search 인덱스가 이미 있는 경우 Azure Search는 충돌 예외를 throw하지 않는 대신 기존 문서를 업데이트합니다.
@@ -100,24 +100,24 @@ Azure Search 서비스는 일괄 처리로 문서 작성을 지원합니다. 일
 
 | Azure Search 데이터 형식 | Azure Search 싱크에서 지원됨 |
 | ---------------------- | ------------------------------ |
-| String | Y |
+| 문자열 | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
-| Boolean | Y |
+| 부울 | Y |
 | DataTimeOffset | Y |
-| String Array | N |
+| 문자열 배열 | N |
 | GeographyPoint | N |
 
-## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>JSON 예제: 온-프레미스 SQL Server에서 Azure Search 인덱스로 데이터 복사
+## <a name="json-example-copy-data-from-on-premises-sql-server-to-azure-search-index"></a>JSON 예: 온-프레미스 SQL Server에서 Azure Search 인덱스로 데이터 복사
 
 다음 샘플은 다음과 같은 내용을 보여 줍니다.
 
 1. [AzureSearch](#linked-service-properties) 형식의 연결된 서비스
 2. [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties)형식의 연결된 서비스
-3. [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
-4. [AzureSearchIndex](#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-4. [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) 및 [AzureSearchIndexSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
+3. [SqlServerTable](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](data-factory-sqlserver-connector.md#dataset-properties)
+4. [AzureSearchIndex](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](#dataset-properties)
+4. [SqlSource](data-factory-create-pipelines.md) 및 [AzureSearchIndexSink](data-factory-sqlserver-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](#copy-activity-properties)
 
 이 샘플은 온-프레미스 SQL Server 데이터베이스에서 Azure Search 인덱스로 1시간마다 시계열 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 

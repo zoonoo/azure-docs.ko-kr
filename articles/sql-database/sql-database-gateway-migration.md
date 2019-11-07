@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database에 대 한 게이트웨이 트래픽 마이그레이션 알림 Microsoft Docs
+title: Azure SQL Database에 대 한 게이트웨이 트래픽 마이그레이션 알림
 description: 문서에서는 사용자에 게 Azure SQL Database 게이트웨이 IP 주소 마이그레이션에 대 한 알림을 제공 합니다.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: a2064e0012abea237c1b4c0c6f7e35119c1aeff5
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 37c6c8e0f26d0281c3f6e76cb891fe14eb2ef04e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686815"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690000"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 
@@ -28,17 +28,17 @@ Azure 인프라가 개선 됨에 따라 Microsoft는 최상의 고객 환경을 
 새 게이트웨이에 대 한 트래픽 마이그레이션의 첫 번째 라운드는 다음 지역에서 **2019 년 10 월 14 일** 에 대해 예약 됩니다.
 - 브라질 남부
 - 미국 서부
-- 유럽 서부
-- East US
+- 서유럽
+- 미국 동부
 - 미국 중부
-- 아시아 남동부
+- 동남아시아
 - 미국 중남부
-- 유럽 북부
+- 북유럽
 - 미국 중북부
 - 일본 서부
 - 일본 동부
 - 미국 동부 2
-- 아시아 동부
+- 동아시아
 
 트래픽 마이그레이션은 DNS가 SQL Database에 대해 확인 하는 공용 IP 주소를 변경 합니다.
 다음이 있는 경우 영향을 받게 됩니다.
@@ -56,7 +56,7 @@ TCP 포트 1433 및 포트 범위 11000-11999에서 지역의 모든 [Azure SQL 
 
 Microsoft JDBC Driver 버전 4.0을 사용 하 여 응용 프로그램에서 만든 연결은 인증서 유효성 검사에 실패할 수 있습니다. 낮은 버전의 Microsoft JDBC는 인증서의 주체 필드에 CN (일반 이름)을 사용 합니다. 완화 방법은 hostNameInCertificate 속성이 *. database.windows.net로 설정 되어 있는지 확인 하는 것입니다. HostNameInCertificate 속성을 설정 하는 방법에 대 한 자세한 내용은 [SSL 암호화를 사용 하 여 연결](/sql/connect/jdbc/connecting-with-ssl-encryption)을 참조 하세요.
 
-위의 완화 방법이 작동 하지 않는 경우 다음 URL을 사용 하 여 SQL Database에 대 한 지원 요청을 파일에 제공 합니다. https://aka.ms/getazuresupport
+위의 완화 방법이 작동 하지 않는 경우 다음 URL을 사용 하 여 SQL Database에 대 한 지원 요청을 파일에 만듭니다. https://aka.ms/getazuresupport
 
 ## <a name="next-steps"></a>다음 단계
 

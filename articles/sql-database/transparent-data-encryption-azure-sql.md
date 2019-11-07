@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 및 Data Warehouse에 대한 투명한 데이터 암호화 | Microsoft Docs
+title: 'Azure SQL Database 및 데이터 웨어하우스의 투명 한 데이터 암호화 '
 description: SQL Database 및 Data Warehouse에 대한 투명한 데이터 암호화를 간략히 설명하는 개요입니다. 이 문서에서는 이점 및 서비스 관리 투명한 데이터 암호화 및 Bring Your Own Key를 포함한 구성 옵션을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-ms.date: 08/27/2019
-ms.openlocfilehash: b63a8c9defdf154f35a847f29182b49ff94ff3a6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/01/2019
+ms.openlocfilehash: ff712f956278a2a54584c0b0346f8f1147add189
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933200"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686794"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>SQL Database 및 Data Warehouse에 대한 투명한 데이터 암호화
 
@@ -42,10 +42,10 @@ Azure에서 투명한 데이터 암호화의 기본 설정은 기본 제공 서�
 
 ## <a name="customer-managed-transparent-data-encryption---bring-your-own-key"></a>고객 관리형 투명한 데이터 암호화 - Bring Your Own Key
 
-[Azure Key Vault에서 고객 관리형 키와 TDE(투명한 데이터 암호화)](transparent-data-encryption-byok-azure-sql.md)를 통해 TDE 보호기라는 고객 관리형 비대칭 키를 사용하여 DEK(데이터베이스 암호화 키)를 암호화할 수 있습니다.  일반적으로 투명한 데이터 암호화를 위한 BYOK(Bring Your Own Key) 지원이라고도 합니다. BYOK 시나리오에서 TDE 보호기는 고객이 소유하고 관리하는 Azure 클라우드 기반 외부 키 관리 시스템인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)에 저장됩니다. TDE 보호기는 key vault에 의해 생성 되거나 온-프레미스 HSM 장치에서 [주요 자격 증명 모음으로 전송](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) 될 수 있습니다. 데이터베이스의 부팅 페이지에 저장되는 TDE DEK는 TDE 보호기를 통해 암호화 및 암호 해독되고, 보호기는 Azure Key Vault에 저장되며 절대 Key Vault를 벗어나지 않습니다.  SQL Database가 DEK를 암호화 및 암호 해독하려면 고객 소유의 Key Vault에 대한 권한이 부여되어야 합니다. Key Vault에 대한 논리 SQL 서버의 권한이 철회되면 데이터베이스에 액세스할 수 없게 되고 모든 데이터가 암호화됩니다. Azure SQL Database의 경우 TDE 보호기는 논리 SQL 서버 수준에서 설정되며 해당 서버와 연결된 모든 데이터베이스에서 상속됩니다. [AZURE SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance) (미리 보기의 byok 기능)의 경우 tde 보호기는 인스턴스 수준에서 설정 되 고 해당 인스턴스의 모든 *암호화* 된 데이터베이스에서 상속 됩니다. *서버*라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
+[Azure Key Vault에서 고객 관리형 키와 TDE(투명한 데이터 암호화)](transparent-data-encryption-byok-azure-sql.md)를 통해 TDE 보호기라는 고객 관리형 비대칭 키를 사용하여 DEK(데이터베이스 암호화 키)를 암호화할 수 있습니다.  일반적으로 투명한 데이터 암호화를 위한 BYOK(Bring Your Own Key) 지원이라고도 합니다. BYOK 시나리오에서 TDE 보호기는 고객이 소유하고 관리하는 Azure 클라우드 기반 외부 키 관리 시스템인 [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)에 저장됩니다. TDE 보호기는 key vault에 의해 생성 되거나 온-프레미스 HSM 장치에서 [주요 자격 증명 모음으로 전송](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-keys) 될 수 있습니다. 데이터베이스의 부팅 페이지에 저장되는 TDE DEK는 TDE 보호기를 통해 암호화 및 암호 해독되고, 보호기는 Azure Key Vault에 저장되며 절대 Key Vault를 벗어나지 않습니다.  SQL Database가 DEK를 암호화 및 암호 해독하려면 고객 소유의 Key Vault에 대한 권한이 부여되어야 합니다. Key Vault에 대한 논리 SQL 서버의 권한이 철회되면 데이터베이스에 액세스할 수 없게 되고 모든 데이터가 암호화됩니다. Azure SQL Database의 경우 TDE 보호기는 논리 SQL 서버 수준에서 설정되며 해당 서버와 연결된 모든 데이터베이스에서 상속됩니다. [Azure SQL Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-howto-managed-instance)의 경우 TDE 보호기는 인스턴스 수준에서 설정되며 해당 인스턴스의 모든 *암호화된* 데이터베이스에 의해 상속됩니다. *서버*라는 용어는 달리 언급하지 않는 한, 이 문서 전체에서 서버와 인스턴스를 모두 나타냅니다.
 
 TDE와 Azure Key Vault가 통합되면 사용자는 키 회전, Key Vault 권한, 키 백업을 포함한 키 관리 작업을 제어하고, Azure Key Vault 기능을 사용하여 모든 TDE 보호기에 감사/보고를 사용하도록 설정할 수 있습니다. Key Vault는 중앙 집중식 키 관리를 제공하고, 철저하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하고, 보안 정책 규정을 준수하도록 키 관리와 데이터 관리의 책임을 분리합니다.
-Azure SQL Database, SQL Managed Instance (미리 보기의 BYOK 기능) 및 데이터 웨어하우스의 Azure Key Vault 통합 (Bring Your Own Key 지원)을 사용 하 여 투명 한 데이터 암호화에 대 한 자세한 내용은 [Azure Key Vault을 사용 하 여 투명 한 데이터 암호화를 참조 하세요. 통합](transparent-data-encryption-byok-azure-sql.md).
+Azure SQL Database, SQL Managed Instance 및 Data Warehouse에 Azure Key Vault 통합(Bring Your Own Key 지원)을 사용하는 투명한 데이터 암호화에 대해 자세히 알아보려면 [Azure Key Vault 통합으로 투명한 데이터 암호화](transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
 
 Azure Key Vault 통합(Bring Your Own Key 지원)을 통해 투명한 데이터 암호화 사용을 시작하려면 [PowerShell을 통해 Key Vault에서 사용자 고유 키를 사용하여 투명한 데이터 암호화를 설정하는 방법](transparent-data-encryption-byok-azure-sql-configure.md) 가이드를 참조하세요.
 
@@ -71,7 +71,7 @@ Azure 내에서 작업용 데이터베이스를 해독할 필요가 없습니다
 
 
 ## <a name="manage-transparent-data-encryption"></a>투명 한 데이터 암호화 관리
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 Azure Portal에서 투명 한 데이터 암호화를 관리 합니다.
 
 Azure Portal을 통해 투명한 데이터 암호화를 구성하려면 사용자가 Azure 소유자, 기여자 또는 SQL 보안 관리자 권한으로 연결되어야 합니다.
@@ -89,7 +89,7 @@ PowerShell을 사용 하 여 투명 한 데이터 암호화를 관리 합니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> PowerShell Azure Resource Manager 모듈은 Azure SQL Database에서 계속 지원 되지만 모든 향후 개발은 Az. Sql 모듈에 대 한 것입니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 실질적으로 동일 합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 PowerShell을 통해 투명한 데이터 암호화를 구성하려면 사용자가 Azure 소유자, 기여자 또는 SQL 보안 관리자 권한으로 연결되어야 합니다.
 

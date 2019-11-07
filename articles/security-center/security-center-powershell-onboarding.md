@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용하여 Azure Security Center를 온보딩 및 네트워크 보호 | Microsoft Docs
+title: PowerShell을 사용 하 여 Azure Security Center에 등록
 description: 이 문서에서는 PowerShell cmdlet을 사용하여 Azure Security Center 온보딩 프로세스를 단계별로 안내합니다.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2018
 ms.author: memildin
-ms.openlocfilehash: 8e2f7b87efe89166175748cec310f24575b7f102
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b20b3c1e4216fe8065fbc8ac24c7d8097903fc5a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201212"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686377"
 ---
 # <a name="automate-onboarding-of-azure-security-center-using-powershell"></a>PowerShell을 사용하여 Azure Security Center 온보딩 자동화
 
@@ -31,17 +31,17 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 이 예제에서는 ID가 d07c0080-170c-4c24-861d-9c817742786c인 구독에서 Security Center를 사용하도록 설정하고 고급 위협 보호 및 검색 기능을 제공하는 Security Center의 표준 계층을 구현하여 높은 수준의 보호를 제공합니다.
 
-1. [보호의 ASC 표준 수준](https://azure.microsoft.com/pricing/details/security-center/)을 설정합니다. 
+1. [Security Center 표준 보호 수준을](https://azure.microsoft.com/pricing/details/security-center/)설정 합니다. 
  
 2. Microsoft Monitoring Agent가 구독과 연결된 VM에서 수집하는 데이터를 보낼 Log Analytics 작업 영역을 설정합니다(이 예제에서는 기존 사용자 정의 작업 영역(myWorkspace)).
 
 3. [Microsoft Monitoring Agent를 배포](security-center-enable-data-collection.md#auto-provision-mma)하는 Security Center의 자동 에이전트 프로비저닝을 활성화합니다.
 
-5. 조직의 [CISO를 ASC 경고 및 주요 이벤트의 보안 연락처](security-center-provide-security-contact-details.md)로 설정합니다.
+5. [Security Center 경고 및 주목할 만한 이벤트에 대 한 보안 연락처로 조직의 ciso](security-center-provide-security-contact-details.md)을 설정 합니다.
 
 6. Azure Security Center의 [기본 보안 정책](tutorial-security-policy.md)을 할당합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 다음 단계는 Security Center cmdlet을 실행하기 전에 수행해야 합니다.
 
@@ -97,7 +97,7 @@ PowerShell을 사용하여 Azure Security Center를 온보딩하면 Azure 리소
 
 
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 PowerShell을 사용하여 Security Center에 대한 온보딩을 자동화하는 방법을 자세히 알아보려면 다음 문서를 참조하세요.
 
 * [Az.Security](https://docs.microsoft.com/powershell/module/az.security).

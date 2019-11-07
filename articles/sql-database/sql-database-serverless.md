@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 서버를 사용 하지 않음 | Microsoft Docs
+title: Azure SQL Database 서버리스
 description: 이 문서에서는 새 서버리스 컴퓨팅 계층에 대해 설명하고 이를 기존의 프로비저닝된 컴퓨팅 계층과 비교합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: e8629baa3487795349844229b26d80321c1316ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fcd79182e046d94f9e67acecebd5cf6a45f2706f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496244"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687393"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database 서버리스
 
@@ -174,8 +174,6 @@ Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 �
    |최소 vCores|구성 된 최대 vCores에 따라 다름- [리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)을 참조 하세요.|0.5개 vCore|
    |자동 일시 중지 지연|최소: 60 분 (1 시간)<br>최대: 10080 분 (7 일)<br>증가: 60 분<br>자동 일시 중지 사용 안 함: -1|60분|
 
-> [!NOTE]
-> T-SQL을 사용하여 기존 데이터베이스를 서버리스로 이동하거나 컴퓨팅 크기를 변경하는 기능은 현재 지원되지 않지만 Azure Portal 또는 PowerShell을 통해 수행할 수 있습니다.
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>서버를 사용 하지 않는 계산 계층에서 새 데이터베이스 만들기 
 
@@ -200,6 +198,17 @@ New-AzSqlDatabase `
   -AutoPauseDelayInMinutes 720
 ```
 
+#### <a name="use-transact-sql-t-sql"></a>Transact-sql 사용 (T-sql)
+
+다음 예에서는 서버를 사용 하지 않는 계산 계층에 새 데이터베이스를 만듭니다.
+
+```sql
+CREATE DATABASE testdb
+( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
+```
+
+자세한 내용은 [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)를 참조 하세요.  
+
 ### <a name="move-database-from-provisioned-compute-tier-into-serverless-compute-tier"></a>프로 비전 된 계산 계층에서 서버를 사용 하지 않는 계산 계층으로 데이터베이스 이동
 
 #### <a name="use-powershell"></a>PowerShell 사용
@@ -218,6 +227,17 @@ Set-AzSqlDatabase `
   -MaxVcore 4 `
   -AutoPauseDelayInMinutes 1440
 ```
+
+#### <a name="use-transact-sql-t-sql"></a>Transact-sql 사용 (T-sql)
+
+다음 예에서는 프로 비전 된 계산 계층에서 서버를 사용 하지 않는 계산 계층으로 데이터베이스를 이동 합니다. 
+
+```sql
+ALTER DATABASE testdb 
+MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
+```
+
+자세한 내용은 [ALTER database](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current)를 참조 하세요.
 
 ### <a name="move-database-from-serverless-compute-tier-into-provisioned-compute-tier"></a>서버를 사용 하지 않는 계산 계층에서 프로 비전 된 계산 계층으로 데이터베이스 이동
 
@@ -323,6 +343,10 @@ VCore 단가는 초당 vCore 당 비용입니다. 지정된 지역의 특정 단
 |24 시간 동안 청구 되는 총 vCore 시간 (초)||||50400 vCore 초|
 
 컴퓨팅 단가가 $0.000073/vCore/초라고 가정합니다.  그러면이 24 시간 동안 청구 되는 계산은 계산 단위 가격 및 vCore 초 청구 됩니다. $0.000073/vCore/second * 50400 vCore seconds = $3.68
+
+### <a name="azure-hybrid-benefit-and-reserved-capacity"></a>Azure 하이브리드 혜택 및 예약 된 용량
+
+서버를 사용 하지 않는 계산 계층에는 Azure 하이브리드 혜택 (AHB) 및 예약 된 용량 할인이 적용 되지 않습니다.
 
 ## <a name="available-regions"></a>사용 가능한 지역
 

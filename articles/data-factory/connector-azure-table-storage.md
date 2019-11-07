@@ -1,5 +1,5 @@
 ---
-title: Data Factory를 사용하여 Azure Table Storage 간 데이터 복사 | Microsoft Docs
+title: Data Factory를 사용 하 여 Azure Table storage 간에 데이터 복사
 description: Data Factory를 사용하여 지원되는 원본 스토리지에서 Azure Table Storage로 데이터를 복사하거나, Table Storage에서 지원되는 싱크 스토리지로 데이터를 복사하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/27/2019
 ms.author: jingwang
-ms.openlocfilehash: 30685e59f6f8318c66a8500f33e8200743e487aa
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 9960c8cba2f1b9eb8c427163d02ecb337ef5ddfe
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009896"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681128"
 ---
 # <a name="copy-data-to-and-from-azure-table-storage-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Table Storage 간 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -49,7 +49,7 @@ ms.locfileid: "71009896"
 
 ### <a name="use-an-account-key"></a>계정 키 사용
 
-계정 키를 사용하여 Azure Storage 연결된 서비스를 만들 수 있습니다. 데이터 팩터리에 Storage에 대한 전역 액세스를 제공합니다. 다음과 같은 속성이 지원됩니다.
+계정 키를 사용하여 Azure Storage 연결된 서비스를 만들 수 있습니다. 데이터 팩터리에 Storage에 대한 전역 액세스를 제공합니다. 지원되는 속성은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -195,7 +195,7 @@ ms.locfileid: "71009896"
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Azure Table 데이터 세트에서 지원되는 속성의 목록을 제공합니다.
 
-Azure Table 간에 데이터를 복사하려면 데이터 세트의 type 속성을 **AzureTable**로 설정합니다. 다음과 같은 속성이 지원됩니다.
+Azure Table 간에 데이터를 복사하려면 데이터 세트의 type 속성을 **AzureTable**로 설정합니다. 지원되는 속성은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
@@ -240,7 +240,7 @@ Azure Table에서 데이터를 복사하려면 복사 작업의 원본 형식을
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 활동 source의 type 속성은 **AzureTableSource**로 설정해야 합니다. |예 |
-| azureTableSourceQuery |사용자 지정 Table Storage 쿼리를 사용하여 데이터를 읽습니다. 다음 섹션의 예제를 참조하세요. |아니요 |
+| AzureTableSourceQuery |사용자 지정 Table Storage 쿼리를 사용하여 데이터를 읽습니다. 다음 섹션의 예제를 참조하세요. |아니요 |
 | azureTableSourceIgnoreTableNotFound |테이블의 예외가 존재하지 않도록 허용할지 여부를 나타냅니다.<br/>허용되는 값은 **True** 및 **False**(기본값)입니다. |아니요 |
 
 ### <a name="azuretablesourcequery-examples"></a>azureTableSourceQuery 예제
@@ -343,11 +343,11 @@ Azure Table에서 데이터를 이동하는 경우 Azure Table OData 형식에�
 | Edm.Guid |Guid |전역적으로 고유한 128 비트 식별자입니다. |
 | Edm.Int32 |Int32 |32비트 정수입니다. |
 | Edm.Int64 |Int64 |64비트 정수입니다. |
-| Edm.String |String |UTF-16으로 인코딩된 값입니다. 문자열 값은 최대 64KB입니다. |
+| Edm.String |문자열 |UTF-16으로 인코딩된 값입니다. 문자열 값은 최대 64KB입니다. |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 
 속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Data Factory에서 복사 활동을 통해 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.
+데이터 팩터리에서 복사 활동을 통해 원본 및 싱크로 지원되는 데이터 저장소의 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

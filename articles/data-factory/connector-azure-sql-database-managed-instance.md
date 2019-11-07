@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Azure SQL Database Managed Instance 간에 데이터 복사 | Microsoft Docs
+title: Azure Data Factory를 사용하여 Azure SQL Database Managed Instance 간에 데이터 복사
 description: Azure Data Factory를 사용하여 Azure SQL Database Managed Instance 간에 데이터를 이동하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: jingwang
-ms.openlocfilehash: af207c460c47c07d11a80ad64dc6c0944ebf6aa4
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 6dadb84b5323568ff736d9e39a1297515f33368c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71009937"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681176"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Database Managed Instance 간에 데이터 복사
 
@@ -45,7 +45,7 @@ Azure SQL Database Managed Instance에서 지원되는 싱크 데이터 저장�
 >[!NOTE]
 >현재이 커넥터에서 서비스 사용자 및 관리 id 인증을 지원 하지 않습니다. 해결 하려면 Azure SQL Database 커넥터를 선택 하 고 관리 되는 인스턴스의 서버를 수동으로 지정 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Azure SQL Database Managed Instance [공용 끝점](../sql-database/sql-database-managed-instance-public-endpoint-securely.md)에 액세스 하려면 Azure Data Factory 관리 되는 Azure integration runtime을 사용할 수 있습니다. 공용 끝점을 사용 하도록 설정 하 고, Azure Data Factory 데이터베이스에 연결할 수 있도록 네트워크 보안 그룹에 대 한 공용 끝점 트래픽만 허용 해야 합니다. 자세한 내용은 [이 지침](../sql-database/sql-database-managed-instance-public-endpoint-configure.md)을 참조 하세요.
 
@@ -64,17 +64,17 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | Type 속성은 **AzureSqlMI**로 설정 해야 합니다. | 예 |
-| connectionString |이 속성은 SQL 인증을 사용 하 여 관리 되는 인스턴스에 연결 하는 데 필요한 **connectionString** 정보를 지정 합니다. 자세한 내용은 다음 예제를 참조하세요. <br/>기본 포트는 1433입니다. 공용 끝점을 사용 하 여 Azure SQL Database Managed Instance를 사용 하는 경우 포트 3342을 명시적으로 지정 합니다.<br>이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 합니다. Azure Key Vault에 암호를 입력할 수도 있습니다. SQL 인증 인 경우 연결 문자열에서 `password` 구성을 끌어옵니다. 자세한 내용은 표 다음에 나오는 JSON 예를 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다. |예 |
+| connectionString |이 속성은 SQL 인증을 사용 하 여 관리 되는 인스턴스에 연결 하는 데 필요한 **connectionString** 정보를 지정 합니다. 자세한 내용은 다음 예제를 참조하세요. <br/>기본 포트는 1433입니다. 공용 끝점을 사용 하 여 Azure SQL Database Managed Instance를 사용 하는 경우 포트 3342을 명시적으로 지정 합니다.<br>이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 합니다. Azure Key Vault에 암호를 입력할 수도 있습니다. SQL 인증 인 경우 연결 문자열에서 `password` 구성을 가져옵니다. 자세한 내용은 표 다음에 나오는 JSON 예를 참조 하 고 [Azure Key Vault에 자격 증명을 저장](store-credentials-in-key-vault.md)합니다. |예 |
 | servicePrincipalId | 애플리케이션의 클라이언트 ID를 지정합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
 | servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 **SecureString** 으로 표시 하 여 Azure Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
-| 테넌트(tenant) | 응용 프로그램이 상주 하는 도메인 이름 또는 테 넌 트 ID와 같은 테 넌 트 정보를 지정 합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 가져가면 검색 합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
+| 테넌트 | 응용 프로그램이 상주 하는 도메인 이름 또는 테 넌 트 ID와 같은 테 넌 트 정보를 지정 합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 가져가면 검색 합니다. | 예, 서비스 주체와 함께 Azure AD 인증을 사용 하는 경우 |
 | connectVia | 이 [Integration Runtime](concepts-integration-runtime.md)은 데이터 저장소에 연결하는 데 사용됩니다. 관리 되는 인스턴스에 공용 끝점이 있고 Azure Data Factory에서 액세스할 수 있도록 허용 하는 경우 자체 호스팅 통합 런타임 또는 Azure integration runtime을 사용할 수 있습니다. 지정 하지 않으면 기본 Azure 통합 런타임이 사용 됩니다. |예 |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
 - [SQL 인증](#sql-authentication)
 - [Azure AD 애플리케이션 토큰 인증: 서비스 주체](#service-principal-authentication)
-- [Azure AD 애플리케이션 토큰 인증: Azure 리소스에 대한 관리 ID](#managed-identity)
+- [Azure AD 애플리케이션 토큰 인증: Azure 리소스용 관리 ID](#managed-identity)
 
 ### <a name="sql-authentication"></a>SQL 인증
 
@@ -128,7 +128,7 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 }
 ```
 
-### <a name="service-principal-authentication"></a>사용자 주체 인증
+### <a name="service-principal-authentication"></a>서비스 주체 인증
 
 서비스 주체 기반의 Azure AD 애플리케이션 토큰 인증을 사용하려면 다음 단계를 따르세요.
 
@@ -187,7 +187,7 @@ Azure SQL Database Managed Instance 연결된 서비스에서 지원되는 속�
 }
 ```
 
-### <a name="managed-identity"></a>Azure 리소스 인증용 관리 ID
+### <a name="managed-identity"></a> Azure 리소스 인증용 관리 ID
 
 특정 데이터 팩터리를 나타내는 [Azure 리소스용 관리 ID](data-factory-service-identity.md)와 데이터 팩터리를 연결할 수 있습니다. Azure SQL Database Managed Instance 인증에이 관리 되는 id를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터베이스의 데이터에 액세스하고 복사할 수 있습니다.
 
@@ -246,8 +246,8 @@ Azure SQL Database Managed Instance 간에 데이터를 복사 하려면 다음 
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **AzureSqlMITable**로 설정 해야 합니다. | 예 |
 | schema | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
-| table | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
-| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`를 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
+| 테이블 | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
+| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`을 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 **예제**
 
@@ -281,8 +281,8 @@ Azure SQL Database Managed Instance에서 데이터를 복사 하려면 복사 �
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성을 **Sql오 ource**로 설정 해야 합니다. | 예 |
-| sqlReaderQuery |이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제입니다. `select * from MyTable` |아니요 |
-| sqlReaderStoredProcedureName |이 속성은 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니오 |
+| SqlReaderQuery |이 속성은 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예는 `select * from MyTable`입니다. |아니요 |
+| sqlReaderStoredProcedureName |이 속성은 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. |아니요 |
 | storedProcedureParameters |저장 프로시저용 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대/소문자는 저장 프로시저 매개변수의 이름 및 대/소문자와 일치해야 합니다. |아니요 |
 
 **주의 사항:**
@@ -290,7 +290,7 @@ Azure SQL Database Managed Instance에서 데이터를 복사 하려면 복사 �
 - **Sqlreaderquery** 가 **sql오 ource**에 대해 지정 된 경우 복사 작업은 데이터를 가져오기 위해 관리 되는 인스턴스 원본에 대해이 쿼리를 실행 합니다. 저장 프로시저가 매개 변수를 사용하는 경우에는 **sqlReaderStoredProcedureName** 및 **storedProcedureParameters**를 지정하여 저장 프로시저를 지정할 수도 있습니다.
 - **sqlReaderQuery** 또는 **sqlReaderStoredProcedureName** 중 하나를 지정하지 않는 경우, 데이터 세트 JSON의 "structure" 섹션에 정의된 열이 쿼리를 생성하는 데 사용됩니다. `select column1, column2 from mytable` 쿼리는 Managed Instance에 대해 실행됩니다. 데이터 세트 정의에 "structure"가 없는 경우 테이블에서 모든 열이 선택됩니다.
 
-**예제: SQL 쿼리 사용**
+**예: SQL 쿼리 사용**
 
 ```json
 "activities":[
@@ -322,7 +322,7 @@ Azure SQL Database Managed Instance에서 데이터를 복사 하려면 복사 �
 ]
 ```
 
-**예제: 저장 프로시저 사용**
+**예: 저장 프로시저 사용**
 
 ```json
 "activities":[
@@ -394,7 +394,7 @@ Azure SQL Database Managed Instance에 데이터를 복사 하려면 복사 작�
 | storedProcedureTableTypeParameterName |저장 프로시저에 지정 된 테이블 형식의 매개 변수 이름입니다.  |아니요 |
 | sqlWriterTableType |저장 프로시저에 사용할 테이블 형식 이름입니다. 복사 작업에서는 이동 중인 데이터를 이 테이블 형식의 임시 테이블에서 사용할 수 있습니다. 그러면 저장 프로시저 코드가 복사 중인 데이터를 기존 데이터와 병합할 수 있습니다. |아니요 |
 | storedProcedureParameters |저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 및 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요 |
-| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정 합니다. 싱크가 저장 프로시저를 지정 하거나 준비 된 복사본이 복사 작업에 구성 되어 있으면 자동 테이블 만들기가 지원 되지 않습니다. 허용 되는 값 `none` 은 (기본값) `autoCreate`,입니다. |아니요 |
+| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정 합니다. 싱크가 저장 프로시저를 지정 하거나 준비 된 복사본이 복사 작업에 구성 되어 있으면 자동 테이블 만들기가 지원 되지 않습니다. 허용 되는 값은 `none` (기본값), `autoCreate`입니다. |아니요 |
 
 **예제 1: 데이터 추가**
 
@@ -429,7 +429,7 @@ Azure SQL Database Managed Instance에 데이터를 복사 하려면 복사 작�
 ]
 ```
 
-**예제 2: 복사 하는 동안 저장 프로시저 호출**
+**예 2: 복사 하는 동안 저장 프로시저 호출**
 
 [SQL MI 싱크에서 저장 프로시저 호출](#invoke-a-stored-procedure-from-a-sql-sink)에서 자세한 내용을 알아보세요.
 
@@ -473,10 +473,10 @@ Azure SQL Database Managed Instance에 데이터를 복사 하려면 복사 작�
 
 Azure SQL Database Managed Instance에 데이터를 복사 하는 경우 다른 쓰기 동작이 필요할 수 있습니다.
 
-- [추가](#append-data): 원본 데이터에는 새 레코드만 있습니다.
-- [Upsert](#upsert-data): 원본 데이터에는 삽입과 업데이트가 모두 포함 됩니다.
-- [덮어쓰기](#overwrite-the-entire-table): 매번 전체 차원 테이블을 다시 로드 하려고 합니다.
-- [사용자 지정 논리를 사용 하 여 작성](#write-data-with-custom-logic): 대상 테이블을 마지막으로 삽입 하기 전에 추가 처리가 필요 합니다. 
+- [추가](#append-data): 내 원본 데이터에는 새 레코드만 있습니다.
+- [Upsert](#upsert-data): 내 원본 데이터에는 삽입과 업데이트가 모두 포함 됩니다.
+- [덮어쓰기](#overwrite-the-entire-table): 매번 전체 차원 테이블을 다시 로드 합니다.
+- [사용자 지정 논리를 사용 하 여 작성](#write-data-with-custom-logic): 대상 테이블에 최종 삽입 하기 전에 추가 처리가 필요 합니다. 
 
 Azure Data Factory 및 모범 사례에서 구성 하는 방법에 대해서는 해당 섹션을 참조 하세요.
 
@@ -495,7 +495,7 @@ Azure Data Factory 및 모범 사례에서 구성 하는 방법에 대해서는 
 
 ![Upsert](./media/connector-azure-sql-database/azure-sql-database-upsert.png)
 
-데이터베이스에서 이전 저장 프로시저 작업에서 가리키는 다음 예와 같이 병합 논리를 사용 하 여 저장 프로시저를 정의 합니다. 대상이 다음 세 개의 열이 있는 **마케팅** 테이블 이라고 가정 합니다. **ProfileID**, **State** 및 **Category**. **프로필 id** 열을 기반으로 upsert를 수행 합니다.
+데이터베이스에서 이전 저장 프로시저 작업에서 가리키는 다음 예와 같이 병합 논리를 사용 하 여 저장 프로시저를 정의 합니다. 대상이 **프로필 id**, **State**및 **Category**라는 세 개의 열이 있는 **마케팅** 테이블인 것으로 가정 합니다. **프로필 id** 열을 기반으로 upsert를 수행 합니다.
 
 ```sql
 CREATE PROCEDURE [dbo].[spMergeData]
@@ -536,7 +536,7 @@ Azure SQL Database Managed Instance에 데이터를 복사 하는 경우 추가 
 
 기본 제공 복사 메커니즘이 용도에 적합하지 않은 경우, 저장 프로시저를 사용할 수 있습니다. 원본 데이터를 대상 테이블에 마지막으로 삽입 하기 전에 추가 처리를 적용 하려는 경우를 예로 들 수 있습니다. 몇 가지 추가 처리 예는 열을 병합 하 고, 추가 값을 조회 하 고, 둘 이상의 테이블에 데이터를 삽입 하려는 경우입니다.
 
-다음 샘플에서는 저장 프로시저를 사용하여 SQL Server 데이터베이스 내 테이블에 간단한 삽입을 수행하는 방법을 보여줍니다. 입력 데이터와 싱크 **마케팅** 테이블에 각각 3 개의 열이 있다고 가정 합니다. **ProfileID**, **State** 및 **Category**. **프로필 id** 열을 기반으로 upsert를 수행 하 고 "ProductA" 이라는 특정 범주에 대해서만 적용 합니다.
+다음 샘플에서는 저장 프로시저를 사용하여 SQL Server 데이터베이스 내 테이블에 간단한 삽입을 수행하는 방법을 보여줍니다. 입력 데이터와 싱크 **마케팅** 테이블에 각각 **프로필 id**, **State**및 **Category**라는 세 개의 열이 있다고 가정 합니다. **프로필 id** 열을 기반으로 upsert를 수행 하 고 "ProductA" 이라는 특정 범주에 대해서만 적용 합니다.
 
 1. 데이터베이스에서 **sqlwritertabletype과**와 동일한 이름을 사용 하 여 테이블 형식을 정의 합니다. 테이블 형식의 스키마는 입력 데이터에서 반환된 스키마와 같아야 합니다.
 
@@ -589,30 +589,30 @@ Azure SQL Database Managed Instance에 데이터를 복사 하는 경우 추가 
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |부울 |
 | char |String, Char[] |
 | date |DateTime |
 | DateTime |DateTime |
 | datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
-| Decimal |Decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Datetimeoffset |Datetimeoffset |
+| 10진수 |10진수 |
+| FILESTREAM 특성(varbinary(max)) |Byte[] |
 | Float |Double |
-| image |Byte[] |
+| 이미지 |Byte[] |
 | int |Int32 |
-| money |Decimal |
+| money |10진수 |
 | nchar |String, Char[] |
 | ntext |String, Char[] |
-| numeric |Decimal |
+| numeric |10진수 |
 | nvarchar |String, Char[] |
-| real |Single |
+| real |단일 |
 | rowversion |Byte[] |
 | smalldatetime |DateTime |
 | smallint |Int16 |
-| smallmoney |Decimal |
+| smallmoney |10진수 |
 | sql_variant |Object |
-| text |String, Char[] |
-| time |TimeSpan |
+| 텍스트 |String, Char[] |
+| 실시간 |TimeSpan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |

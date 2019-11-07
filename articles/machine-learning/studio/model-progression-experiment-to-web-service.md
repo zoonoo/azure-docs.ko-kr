@@ -1,6 +1,6 @@
 ---
 title: 모델이 웹 서비스가 되는 방법
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Azure Machine Learning Studio (클래식) 모델이 개발 실험에서 웹 서비스로 진행 되는 방식에 대 한 개요입니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: c82e636b06d33140ca6dae606d39855084aac04d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 24a2c31271d123d6378732bd9f85f6341a78d65c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496846"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671244"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>실험에서 웹 서비스로 Machine Learning Studio (클래식) 모델을 진행 하는 방법
 Azure Machine Learning Studio (클래식)은 예측 분석 모델을 나타내는 ***실험*** 을 개발, 실행, 테스트 및 반복 하는 데 사용할 수 있는 대화형 캔버스를 제공 합니다. 다음 작업에 사용할 수 있는 모듈을 매우 다양하게 갖추고 있습니다.
@@ -108,7 +108,7 @@ Azure Machine Learning Studio (클래식)은 *예측 분석 모델*을 개발 �
 개발 및 실험 프로세스에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * 실험 변환- [Azure Machine Learning Studio에서 배포용 모델을 준비 하는 방법 (클래식)](convert-training-experiment-to-scoring-experiment.md)
-* 웹 서비스 배포 - [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)
+* 웹 서비스 배포 - [Azure Machine Learning 웹 서비스 배포](deploy-a-machine-learning-web-service.md)
 * 모델 재학습 - [프로그래밍 방식으로 Machine Learning 모델 다시 학습](/azure/machine-learning/studio/retrain-machine-learning-model)
 
 전체 프로세스에 대한 예는 다음을 참조하세요.

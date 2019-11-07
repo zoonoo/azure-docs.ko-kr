@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory에서 파이프라인 실행 작업 | Microsoft Docs
+title: Azure Data Factory 파이프라인 실행 작업
 description: 파이프라인 실행 작업을 사용하여 하나의 Data Factory 파이프라인에서 다른 Data Factory 파이프라인을 호출하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 1611f740f6b55ecf9f15ecd234d63b5e95baeba1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 093050952ed826a540c35b2b73acd107fafc45ab
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141716"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679931"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Azure Data Factory에서 파이프라인 실행 작업
 파이프라인 실행 작업을 사용하면 하나의 Data Factory 파이프라인에서 다른 파이프라인을 호출할 수 있습니다.
@@ -59,15 +59,15 @@ ms.locfileid: "70141716"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | Description | 허용되는 값 | 필수
+속성 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-name | 파이프라인 실행 작업의 이름입니다. | String | 예
-type | 다음으로 설정되어야 합니다. **ExecutePipeline**. | 문자열 | 예
-pipeline(파이프라인) | 이 파이프라인을 호출하는 종속 파이프라인에 대한 파이프라인 참조입니다. 파이프라인 참조 개체에는 두 가지 속성(**referenceName** 및 **type**)이 있습니다. referenceName 속성은 참조 파이프라인의 이름을 지정합니다. type 속성은 PipelineReference로 설정되어야 합니다. | PipelineReference | 예
-parameters | 호출된 파이프라인으로 전달될 매개 변수 | 매개 변수 이름을 인수 값에 매핑하는 JSON 개체 | 아니요
-waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 실행을 기다릴지 여부를 정의합니다. 기본값은 false입니다. | Boolean | 아니요
+name | 파이프라인 실행 작업의 이름입니다. | 문자열 | 예
+type | **ExecutePipeline**으로 설정되어야 합니다. | 문자열 | 예
+pipeline | 이 파이프라인을 호출하는 종속 파이프라인에 대한 파이프라인 참조입니다. 파이프라인 참조 개체에는 두 가지 속성(**referenceName** 및 **type**)이 있습니다. referenceName 속성은 참조 파이프라인의 이름을 지정합니다. type 속성은 PipelineReference로 설정되어야 합니다. | PipelineReference | 예
+매개 변수 | 호출된 파이프라인으로 전달될 매개 변수 | 매개 변수 이름을 인수 값에 매핑하는 JSON 개체 | 아니요
+waitOnCompletion | 종속 파이프라인 실행이 완료될 때까지 작업 실행을 기다릴지 여부를 정의합니다. 기본값은 false입니다. | 부울 | 아니요
 
-## <a name="sample"></a>예제
+## <a name="sample"></a>샘플
 이 시나리오에는 두 개의 파이프라인이 있습니다.
 
 - **마스터 파이프라인** - 이 파이프라인에는 호출된 파이프라인을 호출하는 하나의 파이프라인 실행 작업이 있습니다. 마스터 파이프라인에는 두 개의 매개 변수, `masterSourceBlobContainer`와 `masterSinkBlobContainer`가 필요합니다.

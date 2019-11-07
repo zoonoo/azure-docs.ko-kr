@@ -1,5 +1,5 @@
 ---
-title: 탄력적 데이터베이스 클라이언트 라이브러리에 대한 자격 증명 관리 | Microsoft Docs
+title: 탄력적 데이터베이스 클라이언트 라이브러리에서 자격 증명 관리
 description: 탄력적 데이터베이스 확장 앱에 대해 올바른 수준의 자격 증명(관리자부터 읽기 전용까지)을 설정하는 방법입니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: d89e83092775828016c2c47a96164319f5474c1e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8856b827ad2c6719cdc6e8c387be1b63b3f44b22
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568416"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690216"
 ---
 # <a name="credentials-used-to-access-the-elastic-database-client-library"></a>Elastic Database 클라이언트 라이브러리 액세스에 사용되는 자격 증명
 
@@ -72,7 +72,7 @@ using (SqlConnection conn = rangeMap.OpenConnectionForKey<int>(targetWarehouse, 
 
 관리 자격 증명과 마찬가지로 "username@server" 형태의 값을 사용하지 않습니다. 대신 "username"만 사용합니다.  또한 서버 이름과 데이터베이스 이름은 연결 문자열에 포함되지 않습니다. **OpenConnectionForKey** 호출은 키에 따라 올바른 분할된 데이터베이스로 연결을 자동으로 지정하기 때문입니다. 따라서 데이터베이스 이름과 서버 이름이 제공되지 않습니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 [Azure SQL Database에서 데이터베이스 및 로그인 관리](sql-database-manage-logins.md)
 

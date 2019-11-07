@@ -1,5 +1,5 @@
 ---
-title: 확장된 클라우드 데이터베이스에서 보고 | Microsoft Docs
+title: 확장 된 클라우드 데이터베이스에서 보고
 description: 행 분할에서 탄력적 쿼리를 설정하는 방법
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: 1416cbdc29d355e2ed83737140b46306de734127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 37b19cd86cd13dd2bdc8b3a38abf61898b81d01b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568580"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690376"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>확장된 클라우드 데이터베이스에서 보고(미리 보기)
 
@@ -28,7 +28,7 @@ ms.locfileid: "68568580"
 
 비분할 데이터베이스의 경우 [여러 스키마를 사용하여 클라우드 데이터베이스에서 쿼리](sql-database-elastic-query-vertical-partitioning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 탄력적 데이터베이스 클라이언트 라이브러리를 사용하여 분할된 데이터베이스 맵을 만듭니다. [분할된 데이터베이스 맵 관리](sql-database-elastic-scale-shard-map-management.md)를 참조하세요. 또는 [탄력적 데이터베이스 도구 시작하기](sql-database-elastic-scale-get-started.md)의 샘플 앱을 사용하세요.
 * 또는 [기존 데이터베이스를 확장된 데이터베이스로 마이그레이션](sql-database-elastic-convert-to-use-elastic-tools.md)을 참조합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "68568580"
 
 ## <a name="12-create-external-data-sources"></a>1.2 외부 데이터 원본 만들기
 
-구문:
+구문
 
     <External_Data_Source> ::=
     CREATE EXTERNAL DATA SOURCE <data_source_name> WITH
@@ -90,7 +90,7 @@ ms.locfileid: "68568580"
 
 ## <a name="13-create-external-tables"></a>1.3 외부 테이블 만들기
 
-구문:  
+구문  
 
     CREATE EXTERNAL TABLE [ database_name . [ schema_name ] . | schema_name. ] table_name  
         ( { <column_definition> } [ ,...n ])
@@ -175,18 +175,18 @@ DISTRIBUTION 절은 이 테이블에 사용되는 데이터 배포를 지정합�
     group by w_id, o_c_id
 ```
 
-## <a name="stored-procedure-for-remote-t-sql-execution-spexecuteremote"></a>원격 T-SQL 실행을 위한 저장 프로시저: sp\_execute_remote
+## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>원격 T-SQL 실행을 위한 저장 프로시저: sp\_execute_remote
 
 또한 탄력적 쿼리는 분할된 데이터베이스에 대한 직접 액세스를 제공하기 위해 저장 프로시저를 사용합니다. 저장 프로시저는 [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714)라고 하며, 원격 데이터베이스에서 원격 저장 프로시저 또는 T-SQL 코드를 실행하는 데 사용될 수 있습니다. 사용되는 매개 변수는 다음과 같습니다.
 
 * 데이터 원본 이름(nvarchar): RDBMS 형식의 외부 데이터 원본 이름입니다.
-* 쿼리(nvarchar): 분할된 각 데이터베이스에서 실행할 T-SQL 쿼리입니다.
-* 매개 변수 선언(nvarchar) - 선택 사항: 쿼리 매개 변수(예: sp_executesql)에 사용된 매개 변수에 대한 데이터 형식 정의가 있는 문자열입니다.
-* 매개 변수 값 목록 - 선택 사항: 쉼표로 구분된 매개 변수 값(예: sp_executesql) 목록입니다.
+* 쿼리(nvarchar): T-SQL 쿼리를 각 분할된 데이터베이스에서 실행할 수 있습니다.
+* 매개 변수 선언(nvarchar), 선택 사항: 쿼리 매개 변수(예: sp_executesql)에 사용된 매개 변수에 대한 데이터 형식 정의가 있는 문자열입니다.
+* 매개 변수 값 목록, 선택 사항: 쉼표로 구분한 매개 변수 값(예: sp_executesql) 목록.
 
 sp\_execute\_remote는 호출 매개 변수에 제공된 외부 데이터 원본을 사용하여 원격 데이터베이스에서 지정된 T-SQL 문을 실행합니다. 또한 외부 데이터 원본의 자격 증명을 사용하여 분할 맵 관리자 데이터베이스 및 원격 데이터베이스에 연결합니다.  
 
-예제:
+예:
 
 ```sql
     EXEC sp_execute_remote

@@ -1,5 +1,5 @@
 ---
-title: Azure.NET SDK를 사용하여 데이터 파이프라인 만들기 | Microsoft Docs
+title: Azure .NET SDK를 사용 하 여 데이터 파이프라인 만들기
 description: 데이터 팩터리 SDK를 사용하여 프로그래밍 방식으로 Azure Data Factory를 만들고, 모니터링하고, 관리하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 11120a84f2796061d76d8d813ba906da073b57c6
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: cabeb6314c16aa5bc37f1139954f8829a37af5bb
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140209"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682770"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Azure Data Factory .NET SDK를 사용하여 Azure Data Factory 만들기, 모니터링 및 관리
 > [!NOTE]
@@ -29,7 +29,7 @@ ms.locfileid: "70140209"
 > [!NOTE]
 > 이 문서는 모든 데이터 팩터리 .NET API를 다루지 않습니다. 데이터 팩터리용 .NET API에 대한 포괄적인 설명서는 [데이터 팩터리 .NET API 참조](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1)를 참조하세요. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -101,7 +101,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 
 * 테넌트 ID
 * 구독 ID
-* 애플리케이션 ID
+* 애플리케이션 UI
 * (첫 번째 명령에 지정된)암호
 
 ## <a name="walkthrough"></a>연습
@@ -111,12 +111,12 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 
 1. Visual Studio 2012/2013/2015를 사용하여 C# .NET 콘솔 애플리케이션을 만듭니다.
    1. **Visual Studio** 2012/2013/2015를 실행합니다.
-   2. **파일**을 클릭하고 **새로 만들기**를 가리킨 다음 **프로젝트**를 클릭합니다.
-   3. **템플릿**을 확장하고 **Visual C#** 을 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.
+   2. **File**을 클릭하고 **New**를 가리킨 다음 **프로젝트**를 클릭합니다.
+   3. **템플릿**을 확장하고 **Visual C#** 를 선택합니다. 이 연습에서는 C#을 사용하지만 모든 .NET 언어를 사용할 수 있습니다.
    4. 오른쪽의 프로젝트 형식 목록에서 **콘솔 애플리케이션**을 선택합니다.
    5. 이름에 **DataFactoryAPITestApp** 을 입력합니다.
    6. **C:\ADFGetStarted**를 [위치]로 선택합니다.
-   7. **확인**을 클릭해 프로젝트를 만듭니다.
+   7. **확인** 을 클릭하여 프로젝트를 만듭니다.
 2. **도구**를 클릭하고 **NuGet 패키지 관리자**를 가리킨 다음 **패키지 관리자 콘솔**을 클릭합니다.
 3. **패키지 관리자 콘솔**에서 다음 단계를 수행합니다.
    1. 다음 명령을 실행하여 Data Factory 패키지를 설치합니다. `Install-Package Microsoft.Azure.Management.DataFactories`
@@ -221,7 +221,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     ```
 9. **입력 및 출력 데이터 세트**를 만드는 다음 코드를 **Main** 메서드에 추가합니다.
 
-    비디오: Windows에서 Azure File Storage 사용 이제 File Storage에 파일 공유가 있습니다.
+    입력 Blob의 **FolderPath**는 **adftutorial/** 로 설정됩니다. 여기서 **adftutorial**은 Blob Storage에 있는 컨테이너의 이름입니다. 이제 File Storage에 파일 공유가 있습니다.
 
     출력 Blob의 FolderPath는 **adftutorial/apifactoryoutput/{Slice}** 로 설정됩니다. 여기서 **Slice**는 **SliceStart**(각 조각의 시작 날짜-시간) 값을 기반으로 동적으로 계산됩니다.
 
@@ -446,7 +446,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
     }
     ```
 
-15. 솔루션 탐색기에서 솔루션 탐색기에서 **DataFactoryAPITestApp** 프로젝트를 확장하고 **참조**를 마우스 오른쪽 단추로 클릭하고 **참조 추가**를 클릭합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
+15. 솔루션 탐색기에서 프로젝트 **DataFactoryAPITestApp**을 확장하고 **참조**를 마우스 오른쪽 단추로 클릭한 다음 **참조 추가**를 클릭합니다. `System.Configuration` 어셈블리에 대한 확인란을 선택하고 **확인**을 클릭합니다.
 15. 콘솔 애플리케이션을 빌드합니다. 메뉴에서 **빌드**를 클릭하고 **솔루션 빌드**를 클릭합니다.
 16. 이 시작 자습서에서는 Microsoft Azure File Storage 사용에 대한 기본 사항을 설명합니다. 그렇지 않은 경우 메모장에서 다음 내용이 포함된 Emp.txt 파일을 만들어 adftutorial 컨테이너에 업로드합니다.
 
@@ -457,7 +457,7 @@ Azure Active Directory 애플리케이션을 만든 다음 애플리케이션의
 17. 메뉴에서 **디버그** -> **디버깅 시작**을 클릭하여 샘플을 실행합니다. **데이터 조각의 실행 정보 가져오기**가 표시되면 몇 분 동안 기다린 다음 **ENTER** 키를 누릅니다.
 18. Azure 포털을 사용하여 데이터 팩터리 **APITutorialFactory** 가 다음 아티팩트로 생성되었는지 확인합니다.
     * 연결된 서비스: **AzureStorageLinkedService**
-    * 데이터 세트: **DatasetBlobSource** 및 **DatasetBlobDestination**.
+    * 데이터 세트: **DatasetBlobSource** 및 **DatasetBlobDestination**
     * 파이프라인: **PipelineBlobSample**
 19. 출력 파일이 **adftutorial** 컨테이너의 "**apifactoryoutput**" 폴더에 만들어졌는지 확인합니다.
 

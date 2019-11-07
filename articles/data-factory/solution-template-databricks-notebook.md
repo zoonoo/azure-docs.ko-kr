@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory의 Databricks를 사용하여 데이터 변환 | Microsoft Docs
+title: Azure Data Factory의 Databricks를 사용하여 데이터 변환
 description: 솔루션 템플릿을 사용하여 Azure Data Factory의 Databricks 노트북을 통해 데이터를 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 562ce675acc43002ce468d60f8a8c412410be86c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 471c1d9610fa346b0eac44c73fe02f4510bd2889
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395404"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684242"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Azure Data Factory의 Databricks를 사용하여 데이터 변환
 
@@ -39,7 +39,7 @@ ms.locfileid: "60395404"
 
 2.  **Azure Databricks 작업 영역**이 있는지 확인하거나, 새 작업 영역을 만듭니다.
 
-1.  **ETL에 사용할 노트북을 가져옵니다**. 아래 변환 노트북을 Databricks 작업 영역으로 가져옵니다. 아래와 동일한 위치에 있을 필요는 없지만 나중을 위해 선택한 경로를 기억해 두세요. URL 필드에 이 URL(`https://adflabstaging1.blob.core.windows.net/share/Transformations.html`)을 입력하여 URL에서 노트북을 가져옵니다. **가져오기**를 선택합니다.
+1.  **ETL에 사용할 노트북을 가져옵니다**. 아래 변환 노트북을 Databricks 작업 영역으로 가져옵니다. (아래와 동일한 위치에 있을 필요는 없지만 나중에 선택한 경로를 기억할 수 있습니다.) URL 필드에 다음 url을 입력 하 여 다음 URL에서 노트북을 가져옵니다: `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`. **가져오기**를 선택합니다.
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "60395404"
 
 ## <a name="create-linked-services-and-datasets"></a>연결된 서비스 및 데이터 세트를 만듭니다.
 
-1.  Data Factory UI에서 ‘연결에 연결된 서비스 + 새로 만들기’로 이동하여 **연결된 서비스**를 새로 만듭니다. 
+1.  Data Factory UI에서 ‘연결에 연결된 서비스 + 새로 만들기’로 이동하여 **연결된 서비스**를 새로 만듭니다.
 
     1.  **원본** - 원본 데이터에 액세스하는 데 사용합니다. 이 샘플의 소스 파일을 포함하는 공용 Blob Storage를 사용할 수 있습니다.
 

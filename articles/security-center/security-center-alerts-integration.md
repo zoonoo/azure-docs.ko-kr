@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center에서 Azure 보안 제품 통합 | Microsoft Docs
+title: Azure Security Center와 Azure 보안 제품 통합
 description: 이 항목에서는 Azure Security Center와 통합 된 Azure 보안 제품을 제공 합니다.
 services: security-center
 documentationcenter: na
@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: 6560db7e2f1cb363e0b8ca7af3a08f6babd9b36b
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: dc1cb5cde06314e52ac886c1be1bb46b5f4bbd73
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202419"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686472"
 ---
 # <a name="integration-of-azure-security-products-in-azure-security-center"></a>Azure Security Center에서 Azure 보안 제품 통합
 
@@ -42,7 +42,7 @@ DDoS Protection 표준은 다음 유형의 공격을 완화할 수 있습니다.
 
 > [!div class="mx-tableFixed"]
 
-|알림|설명|
+|경고|설명|
 |---|---|
 |**대규모 공격 감지 됨**|이 공격의 목표는 상당한 양의 합법적인 트래픽으로 네트워크 계층을 초과 하는 것입니다. 여기에는 UDP 서비스 장애, 증폭 서비스 장애 및 기타 스푸핑된 패킷 서비스 장애가 포함됩니다. DDoS Protection Standard는 글로벌 네트워크 규모를 사용 하 여 자동으로 이러한 잠재적 흡수 공격을 완화 하 고 삭제 합니다.|
 |**프로토콜 공격 감지 됨**|이러한 공격은 계층 3 및 계층 4 프로토콜 스택의 취약점을 악용 하 여 대상을 액세스할 수 없게 렌더링 합니다. SYN 홍수 공격, 리플렉션 공격 및 기타 프로토콜 공격을 포함 합니다. DDoS Protection 표준은 클라이언트와의 상호 작용을 통해 악성 트래픽과 정상 트래픽을 구분하고 악성 트래픽을 차단하여 이러한 공격을 완화합니다.|

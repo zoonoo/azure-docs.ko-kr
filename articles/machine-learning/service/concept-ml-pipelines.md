@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/04/2019
-ms.openlocfilehash: 85346a2334d240eceb0daa4519ce69b4eb4906cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: f1b061e92ce0650da4d5b95643eb6e9df917e3b8
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497452"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671538"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
@@ -119,7 +119,7 @@ Azure Machine Learning에서 계산 대상은 ML 단계가 수행 되는 환경�
 
 파이프라인을 시각적으로 디자인 하는 경우 단계의 입력 및 출력이 눈에 띄게 표시 됩니다. 데이터 연결을 끌어서 놓을 수 있으므로 파이프라인의 데이터 흐름을 빠르게 이해 하 고 수정할 수 있습니다.
  
-![Azure Machine Learning 디자이너 예제](./media/concept-ml-pipelines/visual-design-surface.gif)
+![Azure Machine Learning 디자이너 예제](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ### <a name="understanding-the-execution-graph"></a>실행 그래프 이해
 

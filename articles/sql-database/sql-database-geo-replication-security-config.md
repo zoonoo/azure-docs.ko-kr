@@ -1,5 +1,5 @@
 ---
-title: 재해 복구를 위해 Azure SQL Database 보안 구성 | Microsoft Docs
+title: 재해 복구에 대 한 보안 Azure SQL Database 구성
 description: 데이터베이스를 복원하거나 보조 서버로 장애 조치 후 보안을 구성하고 관리하기 위한 보안 고려 사항을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 4d4939b7a0179216d11f594ce12f384276d15e05
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3c08ba1a37d7b0d16042d6496c27e0de8d070b75
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568125"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689979"
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>지역 복원 또는 장애 조치(failover)를 위해 Azure SQL Database 보안 구성 및 관리
 
@@ -48,7 +48,7 @@ master 데이터베이스에서 로그인에 매핑되어야 하는 기존 사�
 
 대상 서버에서 로그인을 설정하는 작업은 아래에서 설명할 세 가지 단계를 포함합니다.
 
-#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. 주 데이터베이스에 대한 액세스를 사용하여 로그인 확인
+#### <a name="1-determine-logins-with-access-to-the-primary-database"></a>1. 주 데이터베이스에 대 한 액세스 권한이 있는 로그인 확인
 
 프로세스의 첫 번째 단계는 대상 서버에 중복되어야 하는 로그인을 결정하는 것입니다. 이는 원본 서버의 논리적 master 데이터베이스에 있는 하나와 주 데이터베이스 자체에 있는 하나로 이루어진 SELECT 문 쌍으로 수행됩니다.
 
@@ -64,7 +64,7 @@ db_owner 데이터베이스 역할의 멤버, dbo 사용자 또는 서버 관리
     FROM [sys].[database_principals]
     WHERE [type_desc] = 'SQL_USER'
 
-#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2. 1단계에서 확인된 로그인에 대한 SID 찾기
+#### <a name="2-find-the-sid-for-the-logins-identified-in-step-1"></a>2.1 단계에서 확인 된 로그인에 대 한 SID를 찾습니다.
 
 이전 섹션에서 쿼리의 출력을 비교하고 SID와 일치하여 서버 로그인을 데이터베이스 사용자에 매핑할 수 있습니다. 일치하는 SID가 있는 데이터베이스 사용자를 가진 로그인은 해당 데이터베이스 사용자 계정으로 해당 데이터베이스에 대한 사용자 액세스를 가집니다.
 
@@ -75,7 +75,7 @@ db_owner 데이터베이스 역할의 멤버, dbo 사용자 또는 서버 관리
     WHERE [type_desc] = 'SQL_USER'
 
 > [!NOTE]
-> **INFORMATION_SCHEMA** 및 **sys** 사용자는 *NULL* SID가 있으며 **게스트** SID는 **0x00**입니다. 데이터베이스 작성자가 **DbManager**의 멤버가 아닌 서버 관리자인 경우 **dbo** SID는 *0x01060000000001648000000000048454*로 시작할 수 있습니다.
+> **INFORMATION_SCHEMA** 및 **sys** 사용자는 *NULL* SID가 있으며 **게스트** SID는 **0x00**입니다. 데이터베이스 작성자가 **DbManager**의 멤버가 아닌 서버 관리자인 경우 *dbo* SID는 **0x01060000000001648000000000048454**로 시작할 수 있습니다.
 
 #### <a name="3-create-the-logins-on-the-target-server"></a>3. 대상 서버에서 로그인 만들기
 

@@ -1,5 +1,5 @@
 ---
-title: 자습서에서 Azure SQL Data Warehouse으로 Azure Data Lake Storage 로드 | Microsoft Docs
+title: 자습서 Azure Data Lake Storage에서 데이터 로드
 description: PolyBase 외부 테이블을 사용 하 여 Azure Data Lake Storage Azure SQL Data Warehouse에 데이터를 로드 합니다.
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,12 +10,13 @@ ms.subservice: load-data
 ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 3db355cf5782620bda3a9e04afbee073c8929856
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 522cb9b75d5c0db270f8ba4a65850e35a2e8c4fd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935114"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685686"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Azure Data Lake Storage에서 SQL Data Warehouse 데이터 로드
 PolyBase 외부 테이블을 사용 하 여 Azure Data Lake Storage Azure SQL Data Warehouse에 데이터를 로드 합니다. Data Lake Storage에 저장 된 데이터에 대해 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 데이터를 SQL Data Warehouse으로 가져오는 것이 좋습니다.
@@ -27,14 +28,14 @@ PolyBase 외부 테이블을 사용 하 여 Azure Data Lake Storage Azure SQL Da
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 이 자습서를 시작하기 전에 최신 버전의 SSMS([SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms))를 다운로드하여 설치합니다.
 
 이 자습서를 실행하려면 다음이 필요합니다.
 
 * 서비스 간 인증에 사용할 Azure Active Directory 애플리케이션. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
 
-* Azure SQL Data Warehouse. [Azure SQL Data Warehouse 만들기 및 쿼리](create-data-warehouse-portal.md)를 참조합니다.
+* Azure SQL Data Warehouse입니다. [Azure SQL Data Warehouse 쿼리 및 만들기](create-data-warehouse-portal.md)를 참조합니다.
 
 * Data Lake Storage 계정. [Azure Data Lake Storage 시작을](../data-lake-store/data-lake-store-get-started-portal.md)참조 하세요. 
 
@@ -113,7 +114,7 @@ WITH (
 
 ## <a name="configure-data-format"></a>데이터 형식 구성
 Data Lake Storage에서 데이터를 가져오려면 외부 파일 형식을 지정 해야 합니다. 이 개체는 Data Lake Storage에서 파일을 작성 하는 방법을 정의 합니다.
-전체 목록은 [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)의 T-SQL 설명서를 참조합니다.
+전체 목록은 [외부 파일 형식 만들기](/sql/t-sql/statements/create-external-file-format-transact-sql)의 T-SQL 설명서 참조
 
 ```sql
 -- D: Create an external file format
@@ -134,7 +135,7 @@ WITH
 ```
 
 ## <a name="create-the-external-tables"></a>외부 테이블 만들기
-이제 데이터 원본과 파일 형식을 지정했으니 외부 테이블을 만들 준비가 완료되었습니다. 외부 테이블은 외부 데이터와 상호 작용하는 방식입니다. LOCATION  매개 변수는 파일 또는 디렉터리를 지정할 수 있습니다. 디렉터리를 지정하는 경우 해당 디렉터리의 모든 파일을 로드합니다.
+이제 데이터 원본과 파일 형식을 지정했으니 외부 테이블을 만들 준비가 완료되었습니다. 외부 테이블은 외부 데이터와 상호 작용하는 방식입니다. 위치 매개 변수는 파일 또는 디렉터리를 지정할 수 있습니다. 디렉터리를 지정하는 경우 해당 디렉터리의 모든 파일을 로드합니다.
 
 ```sql
 -- D: Create an External Table
@@ -170,12 +171,12 @@ WITH
 
 REJECT_TYPE 및 REJECT_VALUE 옵션을 사용하면 최종 테이블에 있어야 하는 행 수 또는 데이터의 비율을 정의할 수 있습니다. 로드 중 거부 값에 도달하는 경우 로드는 실패합니다. 거부된 행의 가장 일반적인 원인은 스키마 정의 불일치입니다. 예를 들어 파일의 데이터가 문자열일 때 열이 int의 스키마로 잘못 지정된 경우 모든 행을 로드하지 못합니다.
 
-Data Lake Storage Gen1은 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 LOCATION 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드할 수 있습니다. 
+Data Lake Storage Gen1은 RBAC(역할 기반 액세스 제어)를 사용하여 데이터에 대한 액세스를 제어합니다. 즉, 서비스 주체는 위치 매개 변수에서 정의된 디렉터리와 최종 디렉터리 및 파일의 자식 항목에 대해 읽기 권한이 있어야 합니다. 이 경우 PolyBase는 해당 데이터를 인증하고 로드할 수 있습니다. 
 
 ## <a name="load-the-data"></a>데이터 로드
 Data Lake Storage에서 데이터를 로드 하려면 [SELECT (transact-sql) 문을 CREATE TABLE](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 사용 합니다. 
 
-CTAS는 새 테이블을 만들고 select 문의 결과로 새 테이블을 채웁니다. CTAS는 select 문의 결과와 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
+CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
 이 예제에서는 외부 테이블 DimProduct_external에서 DimProduct라는 해시 분산 테이블을 만듭니다.
 
@@ -190,7 +191,7 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 
 
 ## <a name="optimize-columnstore-compression"></a>Columnstore 압축을 최적화합니다.
-기본적으로 SQL Data Warehouse는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
+기본적으로 SQL Data Warehouse는 클러스터형 columnstore 인덱스로 테이블을 저장합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  여기에는 다양한 이유가 있습니다. 자세한 내용은 [Columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
 
 로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다.
 
@@ -203,7 +204,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## <a name="optimize-statistics"></a>통계를 최적화합니다.
 로드 직후 단일 열 통계를 만드는 것이 가장 좋습니다. 통계에 대한 몇 가지 선택 사항이 있습니다. 예를 들어 모든 열에 단일 열 통계를 만드는 경우 모든 통계를 다시 작성하는 데 시간이 오래 걸릴 수 있습니다. 쿼리 조건자에 위치하지 않을 특정 열에 대해 알고 있다면 이들 열에 대한 통계 생성 과정은 건너뛸 수 있습니다.
 
-단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계](sql-data-warehouse-tables-statistics.md) 문서의 저장 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
+단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 `prc_sqldw_create_stats`통계[ 문서에 저장된 프로시저 코드 샘플 ](sql-data-warehouse-tables-statistics.md)를 사용할 수 있습니다.
 
 다음 예제는 통계를 만들기 위한 좋은 출발점이 됩니다. 차원 테이블의 각 열과 팩트 테이블의 각 조인 열의 단일 열 통계를 생성합니다. 이후 언제라도 다른 팩트 테이블 열에 단일 또는 여러 열 통계를 추가할 수 있습니다.
 

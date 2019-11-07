@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/15/2019
-ms.openlocfilehash: 31d7299b0c14b35aad7a29c875630d8a7fa4827e
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: d8d5ecd64ba689dc9cce342513702d8359038162
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200595"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682253"
 ---
 # <a name="capacity-planning-for-hdinsight-clusters"></a>HDInsight 클러스터의 용량 계획
 
@@ -31,13 +31,13 @@ HDInsight 클러스터를 배포하기 전에 필요한 성능 및 크기를 확
 
 Azure 지역은 클러스터가 물리적으로 프로비전되는 위치를 결정합니다. 읽기 및 쓰기 대기 시간을 최소화하려면 클러스터가 데이터 근처에 있어야 합니다.
 
-HDInsight는 여러 Azure 지역에서 사용할 수 있습니다. 가장 가까운 지역을 찾으려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=hdinsight/)을 참조 하세요.
+HDInsight는 여러 Azure 지역에서 사용할 수 있습니다. 가장 가까운 지역을 찾으려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=hdinsight)을 참조 하세요.
 
 ## <a name="choose-storage-location-and-size"></a>스토리지 위치 및 크기 선택
 
 ### <a name="location-of-default-storage"></a>기본 스토리지의 위치
 
-Azure Storage 계정 또는 Azure Data Lake Storage에 해당하는 기본 스토리지는 클러스터와 동일한 위치에 있어야 합니다. Azure Storage는 모든 위치에서 사용할 수 있습니다. Data Lake Storage Gen1는 일부 지역에서 사용할 수 있습니다. 현재 [Data Lake Storage 가용성](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=storage)을 확인 하세요.
+Azure Storage 계정 또는 Azure Data Lake Storage에 해당하는 기본 스토리지는 클러스터와 동일한 위치에 있어야 합니다. Azure Storage는 모든 위치에서 사용할 수 있습니다. Data Lake Storage Gen1는 일부 지역에서 사용할 수 있습니다. 현재 [Data Lake Storage 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=storage)을 확인 하세요.
 
 ### <a name="location-of-existing-data"></a>기존 데이터의 위치
 
@@ -83,7 +83,7 @@ Azure Storage에는 일부 [용량 제한](../azure-subscription-service-limits.
 클러스터의 수명은 사용자의 책임입니다. 특정 시간에만 클러스터를 가동하고 실행해야 하는 경우 [Azure Data Factory를 사용하여 요청 시 클러스터를 만들 수 있습니다](hdinsight-hadoop-create-linux-clusters-adf.md). 클러스터를 프로비전하고 삭제하는 PowerShell 스크립트를 만든 다음 [Azure Automation](https://azure.microsoft.com/services/automation/)을 사용하여 해당 스크립트를 예약할 수도 있습니다.
 
 > [!NOTE]  
-> 클러스터를 삭제하면 해당 기본 Hive 메타스토어도 삭제됩니다. 다음에 클러스터를 다시 만들 때를 대비해서 metastore를 보존하려면 Azure Database 또는 [Apache Oozie](https://oozie.apache.org/)와 같은 외부 메타데이터 저장소를 사용합니다.
+> 클러스터를 삭제하면 해당 기본 Hive metastore도 삭제됩니다. 다음에 클러스터를 다시 만들 때를 대비해서 metastore를 보존하려면 Azure Database 또는 [Apache Oozie](https://oozie.apache.org/)와 같은 외부 메타데이터 저장소를 사용합니다.
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### <a name="isolate-cluster-job-errors"></a>클러스터 작업 오류 격리
@@ -94,7 +94,7 @@ Azure Storage에는 일부 [용량 제한](../azure-subscription-service-limits.
 
 대상 클러스터 VM 크기, 확장 및 유형을 결정했으면 구독의 현재 할당량 용량 제한을 확인합니다. 할당량 제한에 도달하면 새 클러스터를 배포하거나, 작업자 노드를 더 추가하여 기존 클러스터를 확장하지 못할 수 있습니다. 유일한 할당량 제한은 각 구독에 대한 지역 수준에서 존재하는 CPU 코어 할당량입니다. 예를 들어 구독에는 미국 동부 지역에서 30 코어 제한이 있을 수 있습니다. 할당량 증가를 요청해야 하는 경우 다음 단계를 수행합니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 1. 페이지 왼쪽 아래에서 **도움말 + 지원** 을 선택 합니다.
 1. **새 지원 요청**을 선택합니다.
 1. **새 지원 요청** 페이지의 **기본 사항** 탭에서 다음 옵션을 선택합니다.

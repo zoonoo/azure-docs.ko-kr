@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 IBM Informix 원본에서 데이터 복사 Microsoft Docs
+title: Azure Data Factory를 사용 하 여 IBM Informix 원본에서 데이터 복사
 description: Azure Data Factory 파이프라인에서 복사 작업을 사용 하 여 IBM Informix 원본에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: jingwang
-ms.openlocfilehash: a0b89bb21400de74107e49988395f36a1c897dbd
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: b5d6543f1d559f26926e9bbb98f10a67e71b5675
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090182"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680772"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-data-stores-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 IBM Informix 데이터 저장소 간 데이터 복사
 
@@ -32,7 +32,7 @@ ms.locfileid: "71090182"
 
 Informix 원본에서 지원 되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 Informix 커넥터를 사용 하려면 다음을 수행 해야 합니다.
 
@@ -51,12 +51,12 @@ Informix 원본에서 지원 되는 모든 싱크 데이터 저장소로 데이�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **Informix** | 예 |
-| connectionString | 자격 증명 부분을 제외한 ODBC 연결 문자열입니다. 연결 문자열을 지정 하거나 Integration Runtime 컴퓨터에서 설정한 시스템 DSN (데이터 원본 이름)을 사용할 수 있습니다 .이에 따라 연결 된 서비스에서 자격 증명 부분을 계속 지정 해야 합니다.<br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다.| 예 |
-| authenticationType | Informix 데이터 저장소에 연결 하는 데 사용 되는 인증 유형입니다.<br/>허용되는 값은 다음과 같습니다. **기본** 및 **익명**. | 예 |
-| userName | 기본 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아닙니다. |
-| password | userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
-| credential | 드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 이 필드를 SecureString으로 표시합니다. | 아니요 |
+| type | Type 속성은 **Informix** 로 설정 해야 합니다. | 예 |
+| connectionString | 자격 증명 부분을 제외한 ODBC 연결 문자열입니다. 연결 문자열을 지정 하거나 Integration Runtime 컴퓨터에서 설정한 시스템 DSN (데이터 원본 이름)을 사용할 수 있습니다 .이에 따라 연결 된 서비스에서 자격 증명 부분을 계속 지정 해야 합니다.<br>이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다.| 예 |
+| authenticationType | Informix 데이터 저장소에 연결 하는 데 사용 되는 인증 유형입니다.<br/>허용되는 값은 **Basic** 및 **Anonymous**입니다. | 예 |
+| userName | 기본 인증을 사용하는 경우 사용자 이름을 지정합니다. | 아니요 |
+| password | userName에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
+| 자격 증명 | 드라이버 관련 속성 값 형식에 지정된 연결 문자열의 액세스 자격 증명 부분입니다. 이 필드를 SecureString으로 표시합니다. | 아니요 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
@@ -94,7 +94,7 @@ Informix에서 데이터를 복사 하기 위해 지원 되는 속성은 다음�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **InformixTable** | 예 |
+| type | 데이터 집합의 type 속성은 **InformixTable** 로 설정 해야 합니다. | 예 |
 | tableName | Informix에 있는 테이블의 이름입니다. | 원본: 아니요(작업 원본에서 "query"가 지정된 경우)<br/>싱크: 예 |
 
 **예제**
@@ -125,8 +125,8 @@ Informix에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **InformixSource** | 예 |
-| query | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. 예를 들어 `"SELECT * FROM MyTable"`을 참조하십시오. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| type | 복사 작업 원본의 type 속성은 **InformixSource** 로 설정 해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 쿼리를 사용하여 데이터를 읽습니다. 예제: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

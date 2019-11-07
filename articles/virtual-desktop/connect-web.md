@@ -1,5 +1,5 @@
 ---
-title: 웹 브라우저에서 Windows 가상 데스크톱에 연결-Azure
+title: Windows 가상 데스크톱 웹 클라이언트 연결-Azure
 description: 웹 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결 하는 방법
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: e7fa1d2b21bfde6495a63676bc2aa1faa07e6bc5
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a29081f77587a96dc48930eab359610a42fc0be5
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676764"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605828"
 ---
 # <a name="connect-with-the-web-client"></a>웹 클라이언트를 사용하여 연결
 
@@ -25,7 +25,7 @@ ms.locfileid: "71676764"
 
 HTML5 지원 브라우저가 제대로 작동 하는 동안에는 다음 운영 체제 및 브라우저를 공식적으로 지원 합니다.
 
-| 브라우저           | 지원되는 OS                     | 참고               |
+| 브라우저           | 지원되는 OS                     | 참고 사항               |
 |-------------------|----------------------------------|---------------------|
 | Microsoft Edge    | Windows                          |                     |
 | Internet Explorer | Windows                          |                     |

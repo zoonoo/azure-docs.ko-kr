@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center에서 Endpoint protection 솔루션 검색 및 상태 평가 | Microsoft Docs
+title: Azure Security Center의 Endpoint protection 권장 사항
 description: Endpoint protection 솔루션을 검색 하 고 정상으로 식별 하는 방법입니다.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: memildin
-ms.openlocfilehash: 8de0caa5db4a7e1d97c7d6c055bcb01fed635821
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: dad8c6173495d11abd6c9f5babb4ef8bc789e4ce
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202266"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686425"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure Security Center의 Endpoint protection 평가 및 권장 사항
 
@@ -29,29 +29,29 @@ Azure Security Center은 [지원 되](https://docs.microsoft.com/azure/security-
 
 ## <a name="windows-defender"></a>Windows Defender
 
-* [Get mpcomputerstatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) 를 실행 하 고 결과를 **amserviceenabled로 설정 하는 경우 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center. 허위**
+* [Get MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) 를 실행 하 고 결과를 **amserviceenabled: False로 설정** 하는 경우 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center
 
 * [Get MpComputerStatus](https://docs.microsoft.com/powershell/module/defender/get-mpcomputerstatus?view=win10-ps) 를 실행 하 고 다음 중 하나를 수행 하는 경우 " **컴퓨터에서 endpoint Protection 상태 문제 해결"** 을 권장 Security Center.
 
   * 다음 속성은 모두 false입니다.
 
-     **AMServiceEnabled**
+    **AMServiceEnabled**
 
-     **AntispywareEnabled**
+    **AntispywareEnabled**
 
-     **RealTimeProtectionEnabled**
+    **RealTimeProtectionEnabled**
 
-     **BehaviorMonitorEnabled**
+    **BehaviorMonitorEnabled**
 
-     **IoavProtectionEnabled**
+    **IoavProtectionEnabled**
 
-     **OnAccessProtectionEnabled**
+    **OnAccessProtectionEnabled**
 
   * 다음 속성 중 하나 또는 둘 다가 7 이상인 경우
 
-     **AntispywareSignatureAge**
+    **AntispywareSignatureAge**
 
-     **AntivirusSignatureAge**
+    **AntivirusSignatureAge**
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Microsoft System Center endpoint protection
 
@@ -61,23 +61,23 @@ Azure Security Center은 [지원 되](https://docs.microsoft.com/azure/security-
 
     * 다음 속성 중 하나 이상이 false입니다.
 
-       **AMServiceEnabled**
+            **AMServiceEnabled**
+
+            **AntispywareEnabled**
     
-       **AntispywareEnabled**
+            **RealTimeProtectionEnabled**
     
-       **RealTimeProtectionEnabled**
+            **BehaviorMonitorEnabled**
     
-       **BehaviorMonitorEnabled**
+            **IoavProtectionEnabled**
     
-       **IoavProtectionEnabled**
-    
-       **OnAccessProtectionEnabled**
+            **OnAccessProtectionEnabled**
           
     * 다음 서명 업데이트 중 하나 또는 둘 다가 7 보다 크거나 같은 경우 
 
-       **AntispywareSignatureAge**
+            **AntispywareSignatureAge**
     
-       **AntivirusSignatureAge**
+            **AntivirusSignatureAge**
 
 ## <a name="trend-micro"></a>Trend Micro
 
@@ -92,27 +92,27 @@ Azure Security Center은 [지원 되](https://docs.microsoft.com/azure/security-
 
 * **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 또는
 
 * **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 다음 검사 중 하나라도 충족 되지 않으면 **"컴퓨터에서 endpoint protection 상태 문제 해결"** 을 권장 Security Center.
 
-* Symantec 버전 > = 12를 확인 합니다.  레지스트리 위치: **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion "-Value" PRODUCTVERSION "**
+* Symantec 버전 > = 12: 레지스트리 위치: **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion "-Value" PRODUCTVERSION "를** 확인 합니다.
 
-* 실시간 보호 상태를 확인 합니다. **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff == 1**
+* 실시간 보호 상태 확인: **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\AV\Storages\Filesystem\RealTimeScan\OnOff = = 1**
 
 * 서명 업데이트 상태 확인: **HKLM\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LatestVirusDefsDate < = 7 일**
 
-* 전체 검사 상태를 확인 합니다. **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime < = 7 일**
+* 전체 검사 상태 확인: **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\LastSuccessfulScanDateTime < = 7 일**
 
-* Symantec 12에 대 한 서명 버전 번호 검색 경로: **Registry Paths+ "CurrentVersion\SharedDefs" -Value "SRTSP"** 
+* Symantec 12: **레지스트리 경로 + "CurrentVersion\SharedDefs"-Value "SRTSP"** 의 서명 버전에 대 한 서명 버전 번호를 찾습니다. 
 
-* Symantec 14의 서명 버전 경로: **Registry Paths+ "CurrentVersion\SharedDefs\SDSDefs" -Value "SRTSP"**
+* Symantec 14의 서명 버전 경로: **레지스트리 경로 + "CurrentVersion\SharedDefs\SDSDefs"-값 "SRTSP"**
 
 레지스트리 경로:
 
@@ -123,19 +123,19 @@ Azure Security Center은 [지원 되](https://docs.microsoft.com/azure/security-
 
 다음 검사 중 하나가 충족 되지 않으면 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center.
 
-* **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
+* **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
 
-* **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
+* **HKLM: \ SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
 다음 검사 중 하나라도 충족 되지 않으면 **"컴퓨터에서 endpoint protection 상태 문제 해결"** 을 권장 Security Center.
 
-* McAfee 버전: **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion >= 10**
+* McAfee 버전: **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion > = 10**
 
-* 서명 버전 찾기: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "dwContentMajorVersion"**
+* 서명 버전 찾기: **HKLM: \ Software\McAfee\AVSolution\DS\DS-Value "dwContentMajorVersion"**
 
-* 서명 날짜 찾기: **HKLM:\Software\McAfee\AVSolution\DS\DS -Value "szContentCreationDate" >= 7 days**
+* 서명 찾기 날짜: **HKLM: \ Software\McAfee\AVSolution\DS\DS-Value "szContentCreationDate" > = 7 일**
 
-* 검색 날짜 찾기: **HKLM:\Software\McAfee\Endpoint\AV\ODS -Value "LastFullScanOdsRunTime" >= 7 days**
+* 검색 날짜 찾기: **HKLM: \ Software\McAfee\Endpoint\AV\ODS-Value "LastFullScanOdsRunTime" > = 7 일**
 
 ## <a name="mcafee-endpoint-security-for-linux-threat-prevention"></a>Linux 위협 방지를 위한 McAfee 끝점 보안 
 
@@ -143,7 +143,7 @@ Azure Security Center은 [지원 되](https://docs.microsoft.com/azure/security-
 
 - 파일 **/opt/isec/ens/threatprevention/bin/isecav** 종료 
 
-- **"/opt/isec/ens/threatprevention/bin/isecav--version"** 출력은 다음과 같습니다. **McAfee 이름 = McAfee Endpoint Security for Linux 위협 방지 및 McAfee 버전 > = 10**
+- **"/opt/isec/ens/threatprevention/bin/isecav--version"** 출력: **McAfee Name = Mcafee 끝점 보안 Linux 위협 방지 및 mcafee 버전 > = 10**
 
 다음 검사 중 하나라도 충족 되지 않으면 **"컴퓨터에서 endpoint protection 상태 문제 해결"** 을 권장 Security Center.
 
@@ -163,22 +163,21 @@ Azure Security Center은 [지원 되](https://docs.microsoft.com/azure/security-
 
 다음 검사 중 하나라도 충족 되지 않으면 **"컴퓨터에서 endpoint protection 상태 문제 해결"** 을 권장 Security Center.
 
-- **"/opt/sophos-av/bin/savlog--maxage = 7 | grep-i "예약 된 검사입니다. "\* | tail-1"** 이 (가) 완료 되었습니다. 값을 반환 합니다.   
+- **"/opt/sophos-av/bin/savlog--maxage = 7 | grep-i "예약 된 검사입니다.\* 완료 됨 "| 비상-1 "** 은 값을 반환 합니다.
 
-- **"/opt/sophos-av/bin/savlog--maxage = 7 | grep "검사 완료"** | 비상-1 "은 값을 반환 합니다.   
+- **"/opt/sophos-av/bin/savlog--maxage = 7 | grep "검사 완료"** | 비상-1 "은 값을 반환 합니다.
 
 - **"/opt/sophos-av/bin/savdstatus--lastupdate"** 는 < = 7 일 이어야 하는 lastupdate를 반환 합니다. 
 
 - **"/opt/sophos-av/bin/savdstatus-v"** 는 **"액세스 시 검색을 실행 중입니다."** 와 같습니다. 
 
-- **"/opt/sophos-av/bin/savconfig Get LiveProtection"** 반환 사용  
+- **"/opt/sophos-av/bin/savconfig Get LiveProtection"** 반환 사용
 
 ## <a name="troubleshoot-and-support"></a>문제 해결 및 지원
 
 ### <a name="troubleshoot"></a>문제 해결
 
-Microsoft 맬웨어 방지 확장 로그는 다음 위치에서 제공 됩니다.  
-**%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware(Or PaaSAntimalware)\1.5.5.x(version#)\CommandExecution.log**
+Microsoft 맬웨어 방지 확장 로그는 **%Systemdrive%\WindowsAzure\Logs\Plugins\Microsoft.Azure.Security.IaaSAntimalware (또는 PaaSAntimalware 방지) \1.5.5.x (버전 #) \CommandExecution.log** 에서 사용할 수 있습니다.
 
 ### <a name="support"></a>지원
 

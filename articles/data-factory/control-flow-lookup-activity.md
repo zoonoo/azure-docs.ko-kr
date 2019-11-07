@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory에서 조회 작업 | Microsoft Docs
+title: Azure Data Factory에서 조회 작업
 description: 조회 작업을 사용하여 외부 소스의 값을 조회하는 방법을 배웁니다. 이 출력을 이후 작업에서 계속 참조할 수 있습니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 9658987092027b38ab0cab1feb3df4be0a91e350
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 04285de6fa7ef678e36767b7336f732ed9b45329
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141656"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73679714"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Azure Data Factory에서 조회 작업
 
@@ -53,11 +53,11 @@ ms.locfileid: "70141656"
 
 ## <a name="type-properties"></a>형식 속성
 
-이름 | 설명 | 형식 | 필수 여부
+Name | 설명 | 형식 | Required?
 ---- | ----------- | ---- | --------
-데이터 세트 | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
-source | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
-firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | Boolean | 아니요. 기본값은 `true`입니다.
+dataset | 조회를 위한 데이터 세트 참조를 제공합니다. 자세한 내용은 해당하는 각 커넥터 문서의 **데이터 세트 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
+원본 | 복사 작업 원본과 동일한 데이터 세트 관련 원본 속성을 포함하고 있습니다. 자세한 내용은 해당하는 각 커넥터 문서의 **복사 작업 속성** 섹션에서 확인하세요. | 키/값 쌍 | 예
+firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반환할 것인지 여부를 나타냅니다. | 부울 | 아니요. 기본값은 `true`입니다.
 
 > [!NOTE]
 > 
@@ -81,7 +81,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
     }
     ```
 
-* **`firstRowOnly`가 `false`로 설정되면** 출력 형식은 다음 코드와 같습니다. `count` 필드는 반환되는 레코드 수를 나타냅니다. 자세한 값은 고정 `value` 배열 아래에 표시됩니다. 이 경우 조회 작업 후에 [Foreach 작업](control-flow-for-each-activity.md)이 이어집니다. `@activity('MyLookupActivity').output.value` 패턴을 사용하여 `value` 배열을 ForEach 작업 `items` 필드에 전달합니다. `value` 배열의 요소에 액세스하려면 `@{activity('lookupActivity').output.value[zero based index].propertyname}` 구문을 따릅니다. 예제입니다. `@{activity('lookupActivity').output.value[0].tablename}`
+* **`firstRowOnly`가 `false`로 설정되면** 출력 형식은 다음 코드와 같습니다. `count` 필드는 반환되는 레코드 수를 나타냅니다. 자세한 값은 고정 `value` 배열 아래에 표시됩니다. 이 경우 조회 작업 후에 [Foreach 작업](control-flow-for-each-activity.md)이 이어집니다. `value` 패턴을 사용하여 `items` 배열을 ForEach 작업 `@activity('MyLookupActivity').output.value` 필드에 전달합니다. `value` 배열의 요소에 액세스하려면 `@{activity('lookupActivity').output.value[zero based index].propertyname}` 구문을 따릅니다. 예는 `@{activity('lookupActivity').output.value[0].tablename}`입니다.
 
     ```json
     {
@@ -105,7 +105,7 @@ firstRowOnly | 첫 번째 행만 반환할 것인지 아니면 모든 행을 반
 이 예제는 첫 번째 행만 조회합니다. 모든 행을 조회하고 결과를 ForEach 작업과 연결하려면 [Azure Data Factory를 사용하여 여러 테이블 대량 복사](tutorial-bulk-copy.md)의 샘플을 참조하세요.
 
 ### <a name="pipeline"></a>파이프라인
-이 파이프라인은 조회 및 복사 작업을 포함합니다. 
+이 파이프라인은 조회 및 복사 작업을 포함하고 있습니다. 
 
 - 조회 작업은 Azure Blob Storage의 위치를 참조하는 **LookupDataset**를 사용하도록 구성됩니다. 조회 작업은 이 위치에 있는 JSON 파일에서 SQL 테이블의 이름을 읽습니다. 
 - 복사 작업은 SQL 테이블의 이름인 조회 작업의 출력을 사용합니다. **SourceDataset**의 **tableName** 속성은 조회 작업의 출력을 사용하도록 구성됩니다. 복사 작업은 SQL 테이블의 데이터를 Azure Blob Storage의 위치로 복사합니다. 위치는 **SinkDataset** 속성을 통해 지정합니다. 

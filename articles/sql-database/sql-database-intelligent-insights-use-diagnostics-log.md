@@ -1,5 +1,5 @@
 ---
-title: Intelligent Insights 성능 진단 로그 - Azure SQL Database | Microsoft Docs
+title: Intelligent Insights 성능 진단 로그-Azure SQL Database
 description: Intelligent Insights는 Azure SQL Database 성능 문제의 진단 로그를 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c25d37a4d1695ab94cc0667a13e36e4da640e12a
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 86381f5670f09b5e6a215793dc1ea4eab7ecbb8e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262140"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689706"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent Insights Azure SQL Database 성능 진단 로그 사용
 
@@ -87,7 +87,7 @@ Intelligent Insights 성능 로그의 다음 섹션에는 기본 제공 인공 �
 | 새 쿼리 | <li>새 쿼리의 쿼리 해시</li> |
 | 비정상적인 대기 통계 | <li>비정상적인 대기 형식</li><li>쿼리 해시</li><li>쿼리 대기 시간</li> |
 | TempDB 경합 | <li>경합을 초래하는 쿼리의 쿼리 해시</li><li>전제 데이터베이스 페이지 래치 경합 대기 시간에 대한 쿼리 특성[%]</li> |
-| 탄력적 풀 DTU 부족 | <li>Elastic Pool</li><li>최상위 DTU 사용 데이터베이스</li><li>최상위 소비자가 사용한 풀 DTU 비율</li> |
+| 탄력적 풀 DTU 부족 | <li>탄력적 풀</li><li>최상위 DTU 사용 데이터베이스</li><li>최상위 소비자가 사용한 풀 DTU 비율</li> |
 | 계획 회귀 | <li>쿼리 해시</li><li>적절한 계획 ID</li><li>부적절한 계획 ID</li> |
 | 데이터베이스 범위 구성 값 변경 | <li>기본값 대비 데이터베이스 범위 구성 변경</li> |
 | 느린 클라이언트 | <li>쿼리 해시</li><li>대기 시간</li> |
@@ -97,9 +97,9 @@ Intelligent Insights 성능 로그의 다음 섹션에는 기본 제공 인공 �
 
 영향(impact) 속성은 검색된 동작이 데이터베이스의 문제에 얼마나 많은 영향을 미쳤는지를 설명합니다. 영향 범위는 1에서 3까지이며 3이 가장 높은 영향, 2가 보통, 1이 가장 낮은 영향을 의미합니다. 특정 요구 사항에 따라 영향 값이 사용자 지정 경고 자동화의 입력으로 사용될 수 있습니다. 영향받는 쿼리(QueryHashes) 속성은 특정 검색이 영향을 미친 쿼리 해시 목록을 제공합니다.
 
-### <a name="impacted-queries"></a>영향을 받는 쿼리
+### <a name="impacted-queries"></a>영향받는 쿼리
 
-Intelligent Insights 로그의 다음 섹션에서는 검색된 성능 문제가 영향을 미친 특정 쿼리에 대한 정보를 제공합니다. 이 정보는 impact_s 속성에 포함된 개체 배열로 공개됩니다. 영향 속성은 엔터티 및 메트릭으로 구성됩니다. 엔터티는 특정 쿼리(형식: Query)를 나타냅니다. 고유한 쿼리 해시는 값(Value) 속성을 통해 공개됩니다. 또한 공개된 각 쿼리 뒤에 검색된 성능 문제를 나타내는 메트릭 및 값이 옵니다.
+Intelligent Insights 로그의 다음 섹션에서는 검색된 성능 문제가 영향을 미친 특정 쿼리에 대한 정보를 제공합니다. 이 정보는 impact_s 속성에 포함된 개체 배열로 공개됩니다. 영향 속성은 엔터티 및 메트릭으로 구성됩니다. 엔터티는 특정 쿼리(Type: Query)를 나타냅니다. 고유한 쿼리 해시는 값(Value) 속성을 통해 공개됩니다. 또한 공개된 각 쿼리 뒤에 검색된 성능 문제를 나타내는 메트릭 및 값이 옵니다.
 
 다음 로그 예제에서는 해시가 0x9102EXZ4인 쿼리의 실행 기간이 증가한 것으로 감지되었습니다(메트릭: DurationIncreaseSeconds). 값 110초는 값이 특정 쿼리를 실행하는 데 110초가 더 걸린 것을 나타냅니다. 여러 쿼리 항목이 포함될 수 있으므로 이 특정 로그 섹션에 여러 쿼리가 포함될 수 있습니다.
 
@@ -113,7 +113,7 @@ Intelligent Insights 로그의 다음 섹션에서는 검색된 성능 문제가
 }]
 ```
 
-### <a name="metrics"></a>metrics
+### <a name="metrics"></a>메트릭
 
 보고된 각 메트릭의 측정 단위는 메트릭(metric) 속성 아래에 가능한 값인 초, 수, 백분율과 함께 제공됩니다. 측정된 메트릭 값은 값(value) 속성으로 보고됩니다.
 

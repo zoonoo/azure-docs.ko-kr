@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 성능 튜닝 지침 | Microsoft Docs
+title: Azure SQL Database 성능 조정 지침
 description: Azure SQL Database 쿼리 성능을 수동으로 튜닝하기 위한 권장 사항 사용 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 4ea5d6c734659d36822f62237a42a8fbe332c996
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 971b35838f370f31d6e2d2da06dfdbced2fafb02
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567107"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687682"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Azure SQL Database에서 쿼리 성능 수동 튜닝
 

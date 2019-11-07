@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Sybase에서 데이터 복사 | Microsoft Docs
+title: Azure Data Factory를 사용하여 Sybase에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Sybase에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f6fcdddb2da005d563ee0a10381e7aa4f26487d0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4877706c487f389539e8e5c73bb984b01d200f38
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089249"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680115"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Sybase에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -40,7 +40,7 @@ Sybase 데이터베이스에서 지원되는 모든 싱크 데이터 저장소�
 - SAP Sybase SQL ASA(Anywhere) **버전 16 이상**. IQ 및 ASE는 지원되지 않습니다.
 - **Basic** 또는 **Windows** 인증을 사용한 데이터 복사
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 Sybase 커넥터를 사용하려면 다음을 수행해야 합니다.
 
@@ -59,12 +59,12 @@ Sybase 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **Sybase** | 예 |
+| type | 형식 속성은 **Sybase**로 설정되어야 합니다. | 예 |
 | server | Sybase 서버의 이름입니다. |예 |
 | database | Sybase 데이터베이스의 이름입니다. |예 |
-| authenticationType | Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 다음과 같습니다. **Basic** 및 **Windows**. |예 |
-| username | Sybase 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
-| password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| authenticationType | Sybase 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic** 및 **Windows**입니다. |예 |
+| 사용자 이름 | Sybase 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
+| password | 사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. |예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
 
 **예제:**
@@ -100,7 +100,7 @@ Sybase에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **SybaseTable** | 예 |
+| type | 데이터 집합의 type 속성은 **SybaseTable** 로 설정 해야 합니다. | 예 |
 | tableName | Sybase 데이터베이스의 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -120,7 +120,7 @@ Sybase에서 데이터를 복사 하기 위해 지원 되는 속성은 다음과
 }
 ```
 
-형식화 된 데이터 집합 `RelationalTable` 을 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+형식화 된 데이터 집합 `RelationalTable` 사용 하 고 있는 경우에는 계속 해 서 새 데이터 집합을 사용 하는 것이 좋습니다.
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
 
@@ -132,8 +132,8 @@ Sybase에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **SybaseSource** | 예 |
-| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| type | 복사 작업 원본의 type 속성은 **Sybasesource** 로 설정 해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 
@@ -167,7 +167,7 @@ Sybase에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션�
 ]
 ```
 
-형식화 된 소스를 `RelationalSource` 사용 하는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
+형식화 된 원본 `RelationalSource` 사용 하 고 있는 경우에는 계속 해 서 새 항목을 사용 하는 것이 좋습니다.
 
 ## <a name="data-type-mapping-for-sybase"></a>Sybase에 대한 데이터 형식 매핑
 

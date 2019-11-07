@@ -1,5 +1,5 @@
 ---
-title: LastModifiedDate를 사용 하 여 새 파일 및 변경 된 파일 복사 Azure Data Factory | Microsoft Docs
+title: LastModifiedDate를 사용 하 여 새 파일 및 변경 된 파일 복사 Azure Data Factory
 description: 솔루션 템플릿을 사용 하 여 LastModifiedDate Azure Data Factory으로 새 파일 및 변경 된 파일을 복사 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: a2a8f0478d1ae4fb19cb911b02572145ff59839b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030063"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684223"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>LastModifiedDate를 사용 하 여 새 파일 및 변경 된 파일 복사 Azure Data Factory
 
@@ -62,8 +62,8 @@ ms.locfileid: "72030063"
 6. **디버그**를 선택 하 고 **매개 변수에** 대 한 값을 작성 한 다음 **마침**을 선택 합니다.  아래 그림에서 다음과 같이 매개 변수를 설정 합니다.
    - **FolderPath_Source** =  **/source/**
    - **FolderPath_Destination** =  **/destination/**
-   - **LastModified_From** =  **2019-02-01T00:00:00Z**
-   - **LastModified_To** = **2019-03-01T00:00:00Z**
+   - **LastModified_From** =  **2019-02-01t00:00:00z**
+   - **LastModified_To** = **2019-03-01t00:00:00z**
     
      예는 *2019-02-01T00:00:00z* 와 *2019-03-01t00:00:00z* 사이의 timespan 내에 마지막으로 수정 된 파일이 폴더 */source/* *에서 폴더로 복사*되는 것을 나타냅니다.  사용자 고유의 매개 변수로 바꿀 수 있습니다.
     

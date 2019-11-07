@@ -1,5 +1,5 @@
 ---
-title: Hyperscale 서비스 계층의 Azure SQL Database 성능 진단 | Microsoft Docs
+title: Hyperscale 서비스 계층의 Azure SQL Database 성능 진단
 description: 이 문서에서는 Azure SQL Database에서 하이퍼 규모의 성능 문제를 해결 하는 방법을 설명 합니다.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: fa8b02cf5ee6f24bcc77aae057f41842da721981
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b8acdbc63098ae99355e8874f7c1585759e5fb7f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521144"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689853"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL Hyperscale 성능 문제 해결 진단
 

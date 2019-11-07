@@ -1,6 +1,6 @@
 ---
-title: 웹 서비스 학습 및 배포
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 웹 서비스 재연습
+titleSuffix: ML Studio (classic) Azure
 description: Azure Machine Learning Studio (클래식)에서 새로 학습 된 기계 학습 모델을 사용 하도록 웹 서비스를 업데이트 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,18 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
-ms.openlocfilehash: 55b054ffe55430ea106c72cdd91fdfba3a457cf5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e35ab4b3a45edd5a1172bc3a07d7c31abd2135f7
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482998"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684779"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>기계 학습 모델 재학습 및 배포
 
 기계 학습 모델 다시 학습은 사용 가능한 가장 관련성 있는 데이터를 기반으로 계속 정확성을 유지하는 한 가지 방법입니다. 이 문서에서는 Studio (클래식)에서 machine learning 모델을 다시 학습 하 고 새 웹 서비스로 배포 하는 방법을 보여 줍니다. 클래식 웹 서비스를 다시 학습하려는 경우 [이 방법 문서를 확인](retrain-classic-web-service.md)하세요.
 
-이 문서는 예측 웹 서비스를 이미 배포했다고 가정합니다. 예측 웹 서비스가 아직 없는 경우 [여기에서 Studio (클래식) 웹 서비스를 배포 하는 방법을 알아보세요.](publish-a-machine-learning-web-service.md)
+이 문서는 예측 웹 서비스를 이미 배포했다고 가정합니다. 예측 웹 서비스가 아직 없는 경우 [여기에서 Studio (클래식) 웹 서비스를 배포 하는 방법을 알아보세요.](deploy-a-machine-learning-web-service.md)
 
 다음 단계에 따라 기계 학습의 새 웹 서비스를 다시 학습하고 배포합니다.
 

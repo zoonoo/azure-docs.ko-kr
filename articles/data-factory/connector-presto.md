@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Presto에서 데이터 복사(미리 보기) | Microsoft Docs
+title: Azure Data Factory를 사용하여 Presto에서 데이터 복사(미리 보기)
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Presto에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: f584112ae10493a5aed8a74fe62783bcbf1bc2a1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: aeb1e8b2bd4491a8124d95907308f014b7a36656
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089748"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680381"
 ---
 # <a name="copy-data-from-presto-using-azure-data-factory-preview"></a>Azure Data Factory를 사용하여 Presto에서 데이터 복사(미리 보기)
 
@@ -49,19 +49,19 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **Presto** | 예 |
-| 호스트 | Presto 서버의 IP 주소 또는 호스트 이름입니다. 즉, 192.168.222.160입니다.  | 예 |
+| type | type 속성은 **Presto**로 설정해야 합니다. | 예 |
+| host | Presto 서버의 IP 주소 또는 호스트 이름입니다. 즉, 192.168.222.160입니다.  | 예 |
 | serverVersion | Presto 서버의 버전입니다. 즉, 0.148-t입니다.  | 예 |
-| 카탈로그 | 서버에 대한 모든 요청의 카탈로그 컨텍스트입니다.  | 예 |
-| port | Presto 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 8080입니다.  | 아니요 |
-| authenticationType | Presto 서버에 연결하는 데 사용되는 인증 메커니즘입니다. <br/>허용되는 값은 다음과 같습니다. **Anonymous**, **LDAP** | 예 |
-| username | Presto에 연결하는 데 사용되는 사용자 이름입니다.  | 아니요 |
-| password | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
-| enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 false입니다.  | 아니요 |
+| catalog | 서버에 대한 모든 요청의 카탈로그 컨텍스트입니다.  | 예 |
+| 포트 | Presto 서버가 클라이언트 연결을 수신하는 데 사용하는 TCP 포트입니다. 기본값은 8080입니다.  | 아니요 |
+| authenticationType | Presto 서버에 연결하는 데 사용되는 인증 메커니즘입니다. <br/>허용되는 값은 **Anonymous**, **LDAP**입니다. | 예 |
+| 사용자 이름 | Presto에 연결하는 데 사용되는 사용자 이름입니다.  | 아니요 |
+| password | 사용자 이름에 해당하는 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 아니요 |
+| enableSsl | 서버에 대한 연결이 SSL을 사용하여 암호화되는지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
 | trustedCertPath | SSL을 통해 연결할 때 서버를 확인하기 위한 신뢰할 수 있는 CA 인증서를 포함하는 .pem 파일의 전체 경로입니다. 이 속성은 자체 호스팅 IR에서 SSL을 사용하는 경우에만 설정할 수 있습니다. 기본값은 IR과 함께 설치된 cacerts.pem 파일입니다.  | 아니요 |
-| useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 false입니다.  | 아니요 |
-| allowHostNameCNMismatch | SSL을 통해 연결할 때 CA 발급 인증서 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 false입니다.  | 아니요 |
-| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 false입니다.  | 아니요 |
+| useSystemTrustStore | 시스템 신뢰 저장소 또는 지정된 PEM 파일의 CA 인증서를 사용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
+| allowHostNameCNMismatch | SSL을 통해 연결할 때 CA 발급 인증서 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
+| allowSelfSignedServerCert | 서버의 자체 서명된 인증서를 허용할지 여부를 지정합니다. 기본값은 False입니다.  | 아니요 |
 | timeZoneID | 연결에서 사용되는 현지 표준 시간대입니다. 이 옵션에 유효한 값은 IANA 표준 시간대 데이터베이스에 지정되어 있습니다. 기본값은 시스템 표준 시간대입니다.  | 아니요 |
 
 **예제:**
@@ -96,10 +96,10 @@ Presto에서 데이터를 복사하려면 데이터 세트의 type 속성을 **P
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **PrestoObject** | 예 |
+| type | 데이터 집합의 type 속성은 **Prestoobject** 로 설정 되어야 합니다. | 예 |
 | schema | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
-| table | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
-| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 `schema` 워크 `table` 로드에 및를 사용 합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
+| 테이블 | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드에 `schema` 및 `table`를 사용 합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
 
@@ -128,8 +128,8 @@ Presto에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Pr
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **PrestoSource** | 예 |
-| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| type | 복사 작업 원본의 type 속성은 **PrestoSource**로 설정해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제: `"SELECT * FROM MyTable"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

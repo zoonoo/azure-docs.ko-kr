@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 관리 되는 인스턴스 연결 형식 | Microsoft Docs
+title: Azure SQL Database 관리 되는 인스턴스 연결 형식
 description: 관리 되는 인스턴스 연결 형식에 대 한 자세한 정보
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 4ebd81f9c04bd739f1c18f636094040882b5ce36
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: c810f1f07587c84a5900460d4a865b0de16ae208
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001771"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688220"
 ---
 # <a name="azure-sql-database-managed-instance-connection-types"></a>Azure SQL Database 관리 되는 인스턴스 연결 형식
 

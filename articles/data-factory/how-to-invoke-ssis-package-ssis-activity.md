@@ -1,5 +1,5 @@
 ---
-title: SSIS 패키지 실행 작업을 사용 하 여 SSIS 패키지 실행-Azure | Microsoft Docs
+title: SSIS 패키지 실행 작업을 사용 하 여 SSIS 패키지 실행-Azure
 description: 이 문서에서는 SSIS 패키지 실행 작업을 사용 하 여 Azure Data Factory 파이프라인에서 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다.
 services: data-factory
 documentationcenter: ''
@@ -13,21 +13,21 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 965bb0641aac3224ac98820006f308e6b5fb0f71
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: b8ed0a04d2d13556f38873ef5f346d49ba4d1845
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255649"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73673743"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 이 문서에서는 SSIS 패키지 실행 작업을 사용 하 여 Azure Data Factory 파이프라인에서 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-@No__t-0Tutorial의 단계별 지침을 수행 하 여 아직 없는 경우 Azure SSIS IR (통합 런타임)을 만듭니다. Azure-SSIS IR 프로비저닝](tutorial-create-azure-ssis-runtime-portal.md)을 참조하세요.
+[자습서: 프로 비전 Azure-SSIS IR](tutorial-create-azure-ssis-runtime-portal.md)의 단계별 지침을 수행 하 여 아직 없는 경우 AZURE SSIS IR (통합 런타임)을 만듭니다.
 
 ## <a name="run-a-package-in-the-azure-portal"></a>Azure Portal에서 패키지 실행
 이 섹션에서는 Data Factory UI (사용자 인터페이스) 또는 앱을 사용 하 여 SSIS 패키지를 실행 하는 SSIS 패키지 실행 작업으로 Data Factory 파이프라인을 만듭니다.
@@ -55,7 +55,7 @@ ms.locfileid: "72255649"
 
     또는 Azure 키 자격 증명 모음에 저장 된 암호를 해당 값으로 사용할 수 있습니다. 이렇게 하려면 관련 자격 증명 옆의 **AZURE KEY VAULT** 확인란을 선택 합니다. 기존 key vault 연결 된 서비스를 선택 하거나 편집 하거나 새로 만듭니다. 그런 다음 자격 증명 값에 대 한 보안 이름 또는 버전을 선택 합니다.
 
-    Key vault 연결 된 서비스를 만들거나 편집할 때 기존 주요 자격 증명 모음을 선택 하거나 편집 하거나 새 자격 증명 모음을 만들 수 있습니다. 아직 수행 하지 않은 경우 키 자격 증명 모음에 대 한 Data Factory 관리 id 액세스 권한을 부여 해야 합니다. @No__t-0 형식으로 암호를 직접 입력할 수도 있습니다. 패키지에서 32 비트 런타임을 실행 해야 하는 경우 **32 비트 런타임** 확인란을 선택 합니다.
+    Key vault 연결 된 서비스를 만들거나 편집할 때 기존 주요 자격 증명 모음을 선택 하거나 편집 하거나 새 자격 증명 모음을 만들 수 있습니다. 아직 수행 하지 않은 경우 키 자격 증명 모음에 대 한 Data Factory 관리 id 액세스 권한을 부여 해야 합니다. `<Key vault linked service name>/<secret name>/<secret version>`형식으로 암호를 직접 입력할 수도 있습니다. 패키지에서 32 비트 런타임을 실행 해야 하는 경우 **32 비트 런타임** 확인란을 선택 합니다.
 
    **패키지 위치**에서 **SSISDB**, **파일 시스템 (패키지)** 또는 **파일 시스템 (프로젝트)** 을 선택 합니다. Azure SQL Database 서버 또는 관리 되는 인스턴스에서 호스팅되는 SSIS 카탈로그 (SSISDB)를 사용 하 여 Azure-SSIS IR 프로 비전 된 경우 자동으로 선택 되는 패키지 위치로 **ssisdb** 를 선택 하는 경우 배포 된 패키지를 실행할 패키지를 지정 합니다. SSISDB로 전환 합니다. 
 
@@ -65,21 +65,21 @@ ms.locfileid: "72255649"
 
    ![설정 탭의 속성 설정 - 자동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
-   Azure-SSIS IR 실행 중이 아니거나 **수동 항목** 확인란이 선택 되어 있는 경우 SSISDB의 패키지 및 환경 경로를 `<folder name>/<project name>/<package name>.dtsx` 및 `<folder name>/<environment name>` 형식으로 직접 입력 합니다.
+   Azure-SSIS IR 실행 되 고 있지 않거나 **수동 항목** 확인란이 선택 되어 있는 경우 SSISDB의 패키지 및 환경 경로를 `<folder name>/<project name>/<package name>.dtsx` 및 `<folder name>/<environment name>`형식으로 직접 입력 합니다.
 
    ![설정 탭의 속성 설정 - 수동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
-   Azure-SSIS IR SSISDB 없이 프로 비전 된 경우 자동으로 선택 되는 패키지 위치로 **파일 시스템 (패키지)** 을 선택 하는 경우 패키지 파일에 대 한 UNC (범용 명명 규칙) 경로를 제공 하 여 실행할 패키지를 지정 합니다 (@no __t-1)을 (를) **패키지 경로** 상자에 있습니다. 예를 들어 Azure Files에 패키지를 저장 하는 경우 패키지 경로는-0 @no__t 됩니다. 
+   Azure-SSIS IR SSISDB 없이 프로 비전 된 경우 자동으로 선택 되는 패키지 위치로 **파일 시스템 (패키지)** 을 선택 하는 경우 패키지 파일에 대 한 UNC (범용 명명 규칙) 경로를 제공 하 여 실행할 패키지를 지정 합니다 (@no __t_1_)를 **패키지 경로** 상자에 배치 합니다.`.dtsx` 예를 들어 Azure Files에 패키지를 저장 하는 경우 패키지 경로가 `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`됩니다. 
    
-   패키지를 별도의 파일에 구성 하는 경우 구성 **경로** 상자에 구성 파일에 대 한 UNC 경로 (`.dtsConfig`)도 제공 해야 합니다. 예를 들어 Azure Files에 구성을 저장 하는 경우 해당 구성 경로는-0 @no__t 됩니다.
+   패키지를 별도의 파일에 구성 하는 경우 구성 **경로** 상자에 구성 파일에 대 한 UNC 경로 (`.dtsConfig`)도 제공 해야 합니다. 예를 들어 Azure Files에 구성을 저장 하는 경우 해당 구성 경로가 `\\<storage account name>.file.core.windows.net\<file share name>\<configuration name>.dtsConfig`됩니다.
 
    ![설정 탭의 속성 설정 - 수동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
 
-   패키지 위치로 **파일 시스템 (프로젝트)** 을 선택 하는 경우 프로젝트 **경로** 상자에 프로젝트 @no__t 파일에 대 한 UNC 경로를 제공 하 고 패키지 **이름** 에 프로젝트의 패키지 파일 (`.dtsx`)을 제공 하 여 실행할 패키지를 지정 합니다. box. 예를 들어 Azure Files에 프로젝트를 저장 하는 경우 프로젝트 경로는-0 @no__t 됩니다.
+   패키지 위치로 **파일 시스템 (프로젝트)** 을 선택 하는 경우 프로젝트 **경로** 상자에 프로젝트`.ispac`파일에 대 한 UNC 경로를 제공 하 고 패키지 **이름** 에 프로젝트의 패키지 파일 (`.dtsx`)을 제공 하 여 실행할 패키지를 지정 합니다. box. 예를 들어 Azure Files에 프로젝트를 저장 하는 경우 프로젝트 경로가 `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`됩니다.
 
    ![설정 탭의 속성 설정 - 수동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
-   그런 다음 프로젝트, 패키지 또는 구성 파일에 액세스 하기 위한 자격 증명을 지정 합니다. 이전에 패키지 실행 자격 증명의 값을 입력 한 경우 (이전 참조) **패키지 실행 자격 증명과 동일** 확인란을 선택 하 여 다시 사용할 수 있습니다. 그렇지 않으면 **도메인**, **사용자 이름**및 **암호** 상자에 패키지 액세스 자격 증명 값을 입력 합니다. 예를 들어 Azure Files에서 프로젝트, 패키지 또는 구성을 저장 하는 경우 @no__t 도메인은-0이 고, 사용자 @no__t 이름은-1이 고, 암호는 `<storage account key>`입니다. 
+   그런 다음 프로젝트, 패키지 또는 구성 파일에 액세스 하기 위한 자격 증명을 지정 합니다. 이전에 패키지 실행 자격 증명의 값을 입력 한 경우 (이전 참조) **패키지 실행 자격 증명과 동일** 확인란을 선택 하 여 다시 사용할 수 있습니다. 그렇지 않으면 **도메인**, **사용자 이름**및 **암호** 상자에 패키지 액세스 자격 증명 값을 입력 합니다. 예를 들어 Azure Files에서 프로젝트, 패키지 또는 구성을 저장 하는 경우 도메인이 `Azure`되 고 사용자 이름은 `<storage account name>`되며 암호는 `<storage account key>`됩니다. 
 
    또는 키 자격 증명 모음에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (이전 참조). 이러한 자격 증명은 패키지 실행 태스크의 패키지 및 자식 패키지에 액세스 하는 데 사용 됩니다. 여기에는 패키지에 지정 된 구성 뿐만 아니라 자체 경로 또는 동일한 프로젝트도 포함 됩니다. 
    
@@ -87,9 +87,9 @@ ms.locfileid: "72255649"
 
    **EncryptAllWithUserKey** 보호 수준을 사용 하는 경우 지원 되지 않습니다. SQL Server Data Tools 또는 `dtutil` 명령줄 유틸리티를 통해 다른 보호 수준을 사용 하려면 패키지를 다시 구성 해야 합니다. 
    
-   **로깅 수준**에서 패키지 실행에 대해 사전 정의된 로깅 범위를 선택합니다. 사용자 지정 된 로깅 이름을 대신 입력 하려면 **사용자 지정** 확인란을 선택 합니다. 패키지에 지정할 수 있는 표준 로그 공급자를 사용 하 여 패키지 실행을 기록 하려면 **로깅 경로** 상자에 UNC 경로를 제공 하 여 로그 폴더를 지정 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 로깅 경로는-0 @no__t 됩니다. 하위 폴더는 각 개별 패키지 실행에 대해이 경로에 만들어지고 SSIS 패키지 실행 작업 실행 ID (5 분 마다 로그 파일이 생성 됨) 이후에 이름이 지정 됩니다. 
+   **로깅 수준**에서 패키지 실행에 대해 사전 정의된 로깅 범위를 선택합니다. 사용자 지정 된 로깅 이름을 대신 입력 하려면 **사용자 지정** 확인란을 선택 합니다. 패키지에 지정할 수 있는 표준 로그 공급자를 사용 하 여 패키지 실행을 기록 하려면 **로깅 경로** 상자에 UNC 경로를 제공 하 여 로그 폴더를 지정 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 로깅 경로가 `\\<storage account name>.file.core.windows.net\<file share name>\<log folder name>`됩니다. 하위 폴더는 각 개별 패키지 실행에 대해이 경로에 만들어지고 SSIS 패키지 실행 작업 실행 ID (5 분 마다 로그 파일이 생성 됨) 이후에 이름이 지정 됩니다. 
    
-   마지막으로 로그 폴더에 액세스 하기 위한 자격 증명을 지정 합니다. 이전에 패키지 액세스 자격 증명에 대 한 값을 입력 한 경우 (이전 참조) **패키지 액세스 자격 증명과 동일** 확인란을 선택 하 여 다시 사용할 수 있습니다. 그렇지 않으면 **도메인**, **사용자 이름**및 **암호** 상자에 로깅 액세스 자격 증명 값을 입력 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 @no__t 도메인은-0이 고 사용자 @no__t 이름은-1 이며 암호는 `<storage account key>`가 됩니다. 
+   마지막으로 로그 폴더에 액세스 하기 위한 자격 증명을 지정 합니다. 이전에 패키지 액세스 자격 증명에 대 한 값을 입력 한 경우 (이전 참조) **패키지 액세스 자격 증명과 동일** 확인란을 선택 하 여 다시 사용할 수 있습니다. 그렇지 않으면 **도메인**, **사용자 이름**및 **암호** 상자에 로깅 액세스 자격 증명 값을 입력 합니다. 예를 들어 Azure Files에 로그를 저장 하는 경우 도메인이 `Azure`되 고 사용자 이름은 `<storage account name>`되며 암호는 `<storage account key>`됩니다. 
 
     또는 키 자격 증명 모음에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (이전 참조). 이러한 자격 증명은 로그를 저장 하는 데 사용 됩니다. 
    
@@ -166,7 +166,7 @@ ms.locfileid: "72255649"
 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/install-az-ps)의 단계별 지침에 따라 최신 Azure PowerShell 모듈을 설치합니다.
 
 ### <a name="create-a-data-factory-with-azure-ssis-ir"></a>Azure-SSIS IR를 사용 하 여 데이터 팩터리 만들기
-이미 Azure-SSIS IR 프로 비전 된 기존 데이터 팩터리를 사용 하거나 Azure-SSIS IR를 사용 하 여 새 데이터 팩터리를 만들 수 있습니다. @No__t-0Tutorial의 단계별 지침을 따르세요. PowerShell을 통해 Azure에 SSIS 패키지 배포](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell)의 단계별 지침에 따라 Azure-SSIS IR이 있는 새 ADF를 만들 수 있습니다.
+이미 Azure-SSIS IR 프로 비전 된 기존 데이터 팩터리를 사용 하거나 Azure-SSIS IR를 사용 하 여 새 데이터 팩터리를 만들 수 있습니다. [자습서: PowerShell을 통해 Azure에 SSIS 패키지 배포](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure-powershell)의 단계별 지침을 따릅니다.
 
 ### <a name="create-a-pipeline-with-an-execute-ssis-package-activity"></a>SSIS 패키지 실행 작업으로 파이프라인 만들기 
 이 단계에서는 SSIS 패키지 실행 작업으로 파이프라인을 만듭니다. 이 작업은 SSIS 패키지를 실행합니다. 

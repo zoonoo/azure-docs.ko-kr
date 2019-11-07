@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database의 단일/풀링된 데이터베이스로 SQL Server 데이터베이스 마이그레이션 | Microsoft Docs
+title: Azure SQL Database에서 단일/풀링된 데이터베이스로 데이터베이스 마이그레이션 SQL Server
 description: Azure SQL Database에서 단일 데이터베이스 또는 탄력적 풀로 SQL Server 데이터베이스를 마이그레이션하는 방법을 알아봅니다.
 keywords: 데이터베이스 마이그레이션, SQL Server 데이터베이스 마이그레이션, 데이터베이스 마이그레이션 도구, 데이터베이스 마이그레이션, SQL 데이터베이스 마이그레이션
 services: sql-database
@@ -12,16 +12,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: a156d73c7eedcbdf7c703b946a26d46ca9129632
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 67030d14670ccc51c89a04863f8b39ab6a9bb183
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566610"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687192"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 
-이 문서에서는 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 또는 풀링된 데이터베이스로 마이그레이션하는 주요 방법에 대해 배웁니다. Managed Instance로 마이그레이션하는 방법에 대한 내용은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure Database 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
+이 문서에서는 Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 또는 풀링된 데이터베이스로 마이그레이션하는 주요 방법에 대해 배웁니다. Managed Instance로 마이그레이션하는 방법에 대한 내용은 [SQL Server 인스턴스를 Azure SQL Database Managed Instance로 마이그레이션](sql-database-managed-instance-migrate.md)을 참조하세요. 다른 플랫폼에서 마이그레이션하는 방법에 대한 마이그레이션 정보는 [Azure 데이터베이스 마이그레이션 가이드](https://datamigration.microsoft.com/)를 참조하세요.
 
 ## <a name="migrate-to-a-single-database-or-a-pooled-database"></a>단일 데이터베이스 또는 풀링된 데이터베이스로 마이그레이션
 
@@ -40,7 +40,7 @@ Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 
 
   ![VSSSDT 마이그레이션 다이어그램](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [DMA(Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 [평가](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)합니다.
+1. [DMA(Data Migration Assistant)](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem)의 최신 버전을 사용하여 데이터베이스 호환성에 대해 [평가](https://www.microsoft.com/download/details.aspx?id=53595)합니다.
 2. Transact-SQL 스크립트와 같은 필요한 수정 프로그램을 준비합니다.
 3. 마이그레이션 진행되는 동안 원본 데이터베이스에 대해 일관된 트랜잭션의 복사본을 만들거나, 원본 데이터베이스에서 새 트랜잭션이 발생하지 않도록 합니다. 이 두 번째 방식을 진행하는 방법에는 클라이언트 연결을 사용하지 않도록 설정하거나 [데이터베이스 스냅샷](https://msdn.microsoft.com/library/ms175876.aspx)을 만드는 경우가 포함됩니다. 마이그레이션 후에 트랜잭션 복제를 사용하여 마이그레이션된 데이터베이스를 마이그레이션 구분 지점 이후에 발생한 변경 내용으로 업데이트할 수 있습니다. [트랜잭션 마이그레이션을 사용하여 마이그레이션](sql-database-single-database-migrate.md#method-2-use-transactional-replication)을 참조하세요.  
 4. Transact-SQL 스크립트를 배포하여 데이터베이스 복사본에는 수정 내용을 적용합니다.
@@ -88,10 +88,10 @@ Azure SQL Server 2005 이상 데이터베이스를 Azure SQL Database의 단일 
 
 2. 게시물 만들기
    - [SSMS(SQL Server Management Studio) 사용](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_1)
-   - [Transact-SQL 사용](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
+   - [TRANSACT-SQL 사용](https://msdn.microsoft.com/library/ms151160.aspx#Anchor_2)
 3. 구독 만들기
    - [SSMS(SQL Server Management Studio) 사용](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_0)
-   - [Transact-SQL 사용](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
+   - [TRANSACT-SQL 사용](https://msdn.microsoft.com/library/ms152566.aspx#Anchor_1)
 
 SQL Database로 마이그레이션하기 위한 몇 가지 팁과 차이점
 

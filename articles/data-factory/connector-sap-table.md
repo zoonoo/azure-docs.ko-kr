@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사 Microsoft Docs
+title: Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사
 description: Azure Data Factory 파이프라인에서 복사 작업을 사용 하 여 SAP 테이블에서 지원 되는 싱크 데이터 저장소로 데이터를 복사 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: 87f97d674b1dd4334ac0ca07648baa1e7cc6607a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 9c4e22e997b4ad8c36d8aaf84d1bb8aacb5c5529
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089550"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680236"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP 테이블에서 데이터 복사
 
@@ -48,7 +48,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 - SNC가 구성 된 경우 기본 인증 또는 SNC (Secure Network Communications)를 사용 하 여 데이터를 복사 합니다.
 - SAP 응용 프로그램 서버 또는 SAP 메시지 서버에 연결 하는 중입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 SAP 테이블 커넥터를 사용 하려면 다음을 수행 해야 합니다.
 
@@ -75,7 +75,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| `type` | 합니다 `type` 속성으로 설정 되어 있어야 `SapTable`합니다. | 예 |
+| `type` | `type` 속성은 `SapTable`으로 설정 해야 합니다. | 예 |
 | `server` | SAP 인스턴스가 있는 서버의 이름입니다.<br/>를 사용 하 여 SAP 응용 프로그램 서버에 연결 합니다. | 아니요 |
 | `systemNumber` | SAP 시스템의 시스템 번호입니다.<br/>를 사용 하 여 SAP 응용 프로그램 서버에 연결 합니다.<br/>허용 되는 값: 문자열로 표현 되는 두 자리 10 진수입니다. | 아니요 |
 | `messageServer` | SAP 메시지 서버의 호스트 이름입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
@@ -83,17 +83,17 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 | `systemId` | 테이블이 있는 SAP 시스템의 ID입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
 | `logonGroup` | SAP 시스템에 대 한 로그온 그룹입니다.<br/>를 사용 하 여 SAP 메시지 서버에 연결 합니다. | 아니요 |
 | `clientId` | SAP 시스템의 클라이언트 ID입니다.<br/>허용 되는 값: 문자열로 표현 되는 세 자리 10 진수입니다. | 예 |
-| `language` | SAP 시스템에서 사용 하는 언어입니다.<br/>기본값은 `EN`여야 합니다.| 아니요 |
+| `language` | SAP 시스템에서 사용 하는 언어입니다.<br/>기본값은 `EN`입니다.| 아니요 |
 | `userName` | SAP 서버에 대 한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
-| `password` | 사용자에 대 한 암호입니다. 이 필드를 `SecureString` 형식으로 표시 하 여 Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| `sncMode` | 테이블이 있는 SAP 서버에 액세스 하기 위한 SNC 활성화 표시기입니다.<br/>SNC를 사용 하 여 SAP 서버에 연결 하려는 경우에 사용 합니다.<br/>허용 되는 `0` 값은 (해제, 기본값) `1` 또는 (의 경우)입니다. | 아니요 |
-| `sncMyName` | 테이블이 있는 SAP 서버에 액세스 하기 위한 개시자의 SNC 이름입니다.<br/>가 on `sncMode` 일 때 적용 됩니다. | 아니요 |
-| `sncPartnerName` | 테이블이 있는 SAP 서버에 액세스 하기 위한 통신 파트너의 SNC 이름입니다.<br/>가 on `sncMode` 일 때 적용 됩니다. | 아니요 |
-| `sncLibraryPath` | 테이블이 있는 SAP 서버에 액세스할 외부 보안 제품의 라이브러리입니다.<br/>가 on `sncMode` 일 때 적용 됩니다. | 아니요 |
-| `sncQop` | 적용할 보호 수준의 SNC입니다.<br/>가 On `sncMode` 일 때 적용 됩니다. <br/>허용 되는 `1` 값은 (인증 `2` ), (무결성 `3` ), (개인 `8` 정보), ( `9` 기본값), (최대)입니다. | 아니요 |
+| `password` | 이 사용자에 대한 암호입니다. 이 필드를 `SecureString` 형식으로 표시 하 여 Data Factory에 안전 하 게 저장 하거나 [Azure Key Vault에 저장 된 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| `sncMode` | 테이블이 있는 SAP 서버에 액세스 하기 위한 SNC 활성화 표시기입니다.<br/>SNC를 사용 하 여 SAP 서버에 연결 하려는 경우에 사용 합니다.<br/>허용 되는 값은 `0` (해제, 기본값) 또는 `1` (설정)입니다. | 아니요 |
+| `sncMyName` | 테이블이 있는 SAP 서버에 액세스 하기 위한 개시자의 SNC 이름입니다.<br/>`sncMode`가 on 인 경우 적용 됩니다. | 아니요 |
+| `sncPartnerName` | 테이블이 있는 SAP 서버에 액세스 하기 위한 통신 파트너의 SNC 이름입니다.<br/>`sncMode`가 on 인 경우 적용 됩니다. | 아니요 |
+| `sncLibraryPath` | 테이블이 있는 SAP 서버에 액세스할 외부 보안 제품의 라이브러리입니다.<br/>`sncMode`가 on 인 경우 적용 됩니다. | 아니요 |
+| `sncQop` | 적용할 보호 수준의 SNC입니다.<br/>`sncMode`가 On 인 경우 적용 됩니다. <br/>허용 되는 값은 `1` (인증), `2` (무결성), `3` (개인 정보), `8` (기본값), `9` (최대)입니다. | 아니요 |
 | `connectVia` | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. 앞서 설명한 [필수 구성 요소](#prerequisites)에서 설명한 대로 자체 호스팅 통합 런타임이 필요 합니다. |예 |
 
-**예제 1: SAP 응용 프로그램 서버에 연결**
+**예 1: SAP 응용 프로그램 서버에 연결**
 
 ```json
 {
@@ -118,7 +118,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 }
 ```
 
-### <a name="example-2-connect-to-an-sap-message-server"></a>예제 2: SAP 메시지 서버에 연결
+### <a name="example-2-connect-to-an-sap-message-server"></a>예 2: SAP 메시지 서버에 연결
 
 ```json
 {
@@ -145,7 +145,7 @@ SAP 테이블에서 지원 되는 모든 싱크 데이터 저장소로 데이터
 }
 ```
 
-### <a name="example-3-connect-by-using-snc"></a>예제 3: SNC를 사용 하 여 연결
+### <a name="example-3-connect-by-using-snc"></a>예 3: SNC를 사용 하 여 연결
 
 ```json
 {
@@ -183,7 +183,7 @@ SAP BW 연결 된 허브 연결 된 서비스에서 데이터를 복사 하려�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| `type` | 합니다 `type` 속성으로 설정 되어 있어야 `SapTableResource`합니다. | 예 |
+| `type` | `type` 속성은 `SapTableResource`으로 설정 해야 합니다. | 예 |
 | `tableName` | 데이터를 복사할 SAP 테이블의 이름입니다. | 예 |
 
 ### <a name="example"></a>예제
@@ -215,35 +215,35 @@ SAP 테이블에서 데이터를 복사 하기 위해 지원 되는 속성은 �
 
 | 속성                         | 설명                                                  | 필수 |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
-| `type`                             | 합니다 `type` 속성으로 설정 되어 있어야 `SapTableSource`합니다.         | 예      |
+| `type`                             | `type` 속성은 `SapTableSource`으로 설정 해야 합니다.         | 예      |
 | `rowCount`                         | 검색할 행의 수입니다.                              | 아니요       |
-| `rfcTableFields`                   | SAP 테이블에서 복사할 필드 (열)입니다. 예를 들어, `column0, column1`을 입력합니다. | 아니요       |
-| `rfcTableOptions`                  | SAP 테이블의 행을 필터링 하는 옵션입니다. 예를 들어, `COLUMN0 EQ 'SOMEVALUE'`을 입력합니다. 이 문서의 뒷부분에 나오는 SAP 쿼리 연산자 표를 참조 하세요. | 아니요       |
-| `customRfcReadTableFunctionModule` | SAP 테이블에서 데이터를 읽는 데 사용할 수 있는 사용자 지정 RFC 함수 모듈입니다.<br>사용자 지정 RFC 함수 모듈을 사용 하 여 SAP 시스템에서 데이터를 검색 하 여 Data Factory로 반환 하는 방법을 정의할 수 있습니다. 사용자 지정 함수 모듈에는 Data Factory에서 사용 하는 기본 인터페이스인와 비슷한 `/SAPDS/RFC_READ_TABLE2`구현 된 인터페이스 (가져오기, 내보내기, 테이블)가 있어야 합니다. | 아니요       |
-| `partitionOption`                  | SAP 테이블에서 읽을 파티션 메커니즘입니다. 지원 되는 옵션은 다음과 같습니다. <ul><li>`None`</li><li>`PartitionOnInt`(와 `0000012345`같이 왼쪽의 안쪽 여백이 0 인 법선 정수 또는 정수 값)</li><li>`PartitionOnCalendarYear`("YYYY" 형식의 4 자리 숫자)</li><li>`PartitionOnCalendarMonth`("YYYYMM" 형식의 6 자리 숫자)</li><li>`PartitionOnCalendarDate`("YYYYMMDD" 형식의 8 진수)</li></ul> | 아니요       |
+| `rfcTableFields`                   | SAP 테이블에서 복사할 필드 (열)입니다. 예: `column0, column1` | 아니요       |
+| `rfcTableOptions`                  | SAP 테이블의 행을 필터링 하는 옵션입니다. 예: `COLUMN0 EQ 'SOMEVALUE'` 이 문서의 뒷부분에 나오는 SAP 쿼리 연산자 표를 참조 하세요. | 아니요       |
+| `customRfcReadTableFunctionModule` | SAP 테이블에서 데이터를 읽는 데 사용할 수 있는 사용자 지정 RFC 함수 모듈입니다.<br>사용자 지정 RFC 함수 모듈을 사용 하 여 SAP 시스템에서 데이터를 검색 하 여 Data Factory로 반환 하는 방법을 정의할 수 있습니다. 사용자 지정 함수 모듈에는 Data Factory에서 사용 되는 기본 인터페이스인 `/SAPDS/RFC_READ_TABLE2`와 유사한 인터페이스 (가져오기, 내보내기, 테이블)가 구현 되어 있어야 합니다. | 아니요       |
+| `partitionOption`                  | SAP 테이블에서 읽을 파티션 메커니즘입니다. 지원 되는 옵션은 다음과 같습니다. <ul><li>`None`</li><li>`PartitionOnInt` (`0000012345`와 같이 왼쪽에서 안쪽 여백이 0 인 법선 정수 또는 정수 값)</li><li>`PartitionOnCalendarYear` ("YYYY" 형식의 4 자리)</li><li>`PartitionOnCalendarMonth` ("YYYYMM" 형식의 6 자리 숫자)</li><li>`PartitionOnCalendarDate` ("YYYYMMDD" 형식의 8 진수)</li></ul> | 아니요       |
 | `partitionColumnName`              | 데이터를 분할 하는 데 사용 되는 열의 이름입니다.                | 아니요       |
-| `partitionUpperBound`              | 분할을 계속 하는 데 사용 될 `partitionColumnName` 에 지정 된 열의 최대값입니다. | 아니요       |
-| `partitionLowerBound`              | 분할을 계속 하는 데 사용 되 `partitionColumnName` 는에 지정 된 열의 최소값입니다. | 아니요       |
+| `partitionUpperBound`              | 분할을 계속 하는 데 사용 되는 `partitionColumnName`에 지정 된 열의 최대값입니다. | 아니요       |
+| `partitionLowerBound`              | 분할을 계속 하는 데 사용 되는 `partitionColumnName`에 지정 된 열의 최소값입니다. | 아니요       |
 | `maxPartitionsNumber`              | 데이터를 분할할 최대 파티션 수입니다.     | 아니요       |
 
 >[!TIP]
->SAP 테이블에 몇 억 개의 행과 같은 많은 양의 데이터가 있는 경우 및 `partitionOption` `partitionSetting` 를 사용 하 여 데이터를 더 작은 파티션으로 분할 합니다. 이 경우 파티션당 데이터를 읽고, 각 데이터 파티션은 단일 RFC 호출을 통해 SAP 서버에서 검색 됩니다.<br/>
+>SAP 테이블에 몇 억 개의 행과 같은 많은 양의 데이터가 있는 경우 `partitionOption` 및 `partitionSetting`를 사용 하 여 데이터를 더 작은 파티션으로 분할 합니다. 이 경우 파티션당 데이터를 읽고, 각 데이터 파티션은 단일 RFC 호출을 통해 SAP 서버에서 검색 됩니다.<br/>
 <br/>
->`maxPartitionsNumber` `partitionLowerBound` `partitionUpperBound` 예를 들어, 각 파티션에 있는 행의 수는 다음 수식으로 계산 됩니다. (총 행 수와)/. `partitionOption` `partitionOnInt`<br/>
+>예를 들어 `partitionOnInt`로 `partitionOption`을 수행 하면 각 파티션의 행 수가 다음 수식으로 계산 됩니다. (총 행 수는 `partitionUpperBound`와 `partitionLowerBound`)/`maxPartitionsNumber`입니다.<br/>
 <br/>
->복사 속도를 높이기 위해 데이터 파티션을 병렬로 로드 하려면 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 따라 병렬 처리 수준이 제어 됩니다. 예를 들어를 4로 `parallelCopies` 설정 하는 경우 Data Factory는 지정 된 파티션 옵션 및 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며 각 쿼리는 SAP 테이블에서 데이터의 일부를 검색 합니다. 속성의 값을 `maxPartitionsNumber` 여러 개 만드는 것이 좋습니다. `parallelCopies` 파일 기반 데이터 저장소로 데이터를 복사 하는 경우에는 폴더에 여러 파일로 기록 (폴더 이름만 지정) 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
+>복사 속도를 높이기 위해 데이터 파티션을 병렬로 로드 하려면 복사 작업의 [`parallelCopies`](copy-activity-performance.md#parallel-copy) 설정에 따라 병렬 수준이 제어 됩니다. 예를 들어 `parallelCopies`를 4로 설정 하는 경우 Data Factory는 지정 된 파티션 옵션과 설정을 기반으로 4 개의 쿼리를 동시에 생성 하 고 실행 하며 각 쿼리는 SAP 테이블에서 데이터의 일부를 검색 합니다. `parallelCopies` 속성 값의 배수를 `maxPartitionsNumber` 하는 것이 좋습니다. 파일 기반 데이터 저장소로 데이터를 복사 하는 경우에는 폴더에 여러 파일로 기록 (폴더 이름만 지정) 하는 것이 좋습니다 .이 경우에는 단일 파일에 쓰는 것 보다 성능이 좋습니다.
 
-에서 `rfcTableOptions`다음과 같은 일반적인 SAP 쿼리 연산자를 사용 하 여 행을 필터링 할 수 있습니다.
+`rfcTableOptions`에서 다음과 같은 일반적인 SAP 쿼리 연산자를 사용 하 여 행을 필터링 할 수 있습니다.
 
-| 연산자 | Description |
+| 연산자 | 설명 |
 | :------- | :------- |
-| `EQ` | 같음 |
-| `NE` | 같지 않음 |
-| `LT` | 보다 작음 |
-| `LE` | 작거나 같음 |
-| `GT` | 보다 큼 |
-| `GE` | 크거나 같음 |
-| `LIKE` | 의 경우`LIKE 'Emma%'` |
+| `EQ` | 다음과 같음 |
+| `NE` | 다음과 같지 않음 |
+| `LT` | 다음보다 적음 |
+| `LE` | 다음보다 작거나 같음 |
+| `GT` | 다음보다 큼 |
+| `GE` | 다음보다 크거나 같음 |
+| `LIKE` | `LIKE 'Emma%'`와 마찬가지로 |
 
 ### <a name="example"></a>예제
 
@@ -290,14 +290,14 @@ SAP 테이블에서 데이터를 복사 하는 경우 SAP 테이블 데이터 �
 
 | SAP ABAP 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| `C`문자열 | `String` |
-| `I`값 | `Int32` |
-| `F`F | `Double` |
-| `D`날 | `String` |
-| `T`런타임 | `String` |
-| `P`(BCD 압축, 통화, 10 진수, 수량) | `Decimal` |
-| `N`번호 | `String` |
-| `X`(이진 및 원시) | `String` |
+| `C` (문자열) | `String` |
+| `I` (정수) | `Int32` |
+| `F` (부동 소수점) | `Double` |
+| `D` (Date) | `String` |
+| `T` (시간) | `String` |
+| `P` (BCD 압축, 통화, 10 진수, 수량) | `Decimal` |
+| `N` (숫자) | `String` |
+| `X` (이진 및 원시) | `String` |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 서버 리소스 한도 | Microsoft Docs
+title: Azure SQL Database 서버 리소스 제한
 description: 이 문서에서는 단일 데이터베이스 및 탄력적 풀에 대한 Azure SQL Database 서버 리소스 한도를 간략하게 설명합니다. 또한 이러한 리소스 한도에 도달하거나 초과할 때 발생하는 사항에 대한 정보도 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 04/18/2019
-ms.openlocfilehash: 175f694cbe46f871349136c9ce91888b6de48d21
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b358e69df1df579e91a9098c120c7e6b4e3f2ead
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566851"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687491"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 서버의 SQL Database 리소스 한도
 
@@ -51,13 +51,13 @@ ms.locfileid: "68566851"
 
 ### <a name="compute-dtus-and-edtus--vcores"></a>Compute(DTU 및 eDTU / vCore)
 
-데이터베이스 컴퓨팅 사용량(DTU 및 eDTU 또는 vCore로 측정)이 높아지면 쿼리 대기 시간이 늘어나고 시간이 초과될 수 있습니다. 이러한 상황에서는 쿼리가 서비스에서 대기될 수 있으며 리소스가 사용 가능해질 경우 실행될 수 있게 리소스가 제공됩니다.
+데이터베이스 계산 사용률 (Dtu 및 Edtu 또는 vCores로 측정)이 높으면 쿼리 대기 시간이 늘어나고 시간이 초과 될 수도 있습니다. 이러한 조건에서 쿼리는 서비스에 의해 큐에 대기 될 수 있으며 리소스가 사용 가능 해질 때 실행 되는 리소스를 제공 합니다.
 높은 컴퓨팅 사용률에 도달할 경우 완화하는 방법에는 다음이 포함됩니다.
 
 - 데이터베이스 또는 탄력적 풀의 컴퓨팅 크기를 늘려 데이터베이스에 더 많은 컴퓨팅 리소스를 제공합니다. [단일 데이터베이스 리소스 확장](sql-database-single-database-scale.md) 및 [탄력적 풀 리소스 확장](sql-database-elastic-pool-scale.md)을 참조하세요.
 - 쿼리를 최적화하여 각 쿼리당 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](sql-database-performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 사용된 데이터베이스 공간이 최대 크기 제한에 도달하면 데이터 크기 증가를 가져오는 데이터베이스 삽입 및 업데이트가 실패하고 클라이언트에 [오류 메시지](sql-database-develop-error-messages.md)가 표시됩니다. 데이터베이스 선택 및 삭제는 계속 성공적으로 수행됩니다.
 
@@ -88,9 +88,9 @@ ms.locfileid: "68566851"
 
 런타임에 적용 되는 실제 로그 생성 요금은 피드백 메커니즘의 영향을 받을 수 있으므로 시스템이 안정화 될 수 있도록 허용 가능한 로그 비율을 일시적으로 줄일 수 있습니다. 로그 파일 공간 관리를 사용 하 여 로그 공간 부족 상태를 방지 하 고 가용성 그룹 복제 메커니즘을 통해 전체 시스템 제한을 일시적으로 낮출 수 있습니다. 
 
-로그 전송률 관리자 트래픽 셰이핑은 다음 대기 유형 ( [sys. dm](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) _db_stststst_ststst_ststst_ststnstn_stn_st
+로그 전송률 관리자 트래픽 셰이핑은 다음 대기 유형 ( [sys. dm _db_stststst_ststst_ststst_ststnstn_stn_st](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)
 
-| 대기 유형 | 참고 |
+| 대기 유형 | 참고 사항 |
 | :--- | :--- |
 | LOG_RATE_GOVERNOR | 데이터베이스 제한 |
 | POOL_LOG_RATE_GOVERNOR | 풀 제한 |
