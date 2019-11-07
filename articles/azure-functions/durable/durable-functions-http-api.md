@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/07/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 094ae511337556ef0c67c86f6d8692cae005430a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: ad2b1b9236f88f99542f8705372af664cc299ee0
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033961"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614813"
 ---
 # <a name="http-api-reference"></a>HTTP API 참조
 
@@ -22,13 +22,13 @@ Durable Functions 확장은 [오케스트레이션](durable-functions-types-feat
 
 확장에서 구현 하는 모든 HTTP Api에는 다음 매개 변수가 필요 합니다. 모든 매개 변수의 데이터 형식은 `string`입니다.
 
-| 매개 변수        | 매개 변수 유형  | Description |
+| 매개 변수        | 매개 변수 형식  | 설명 |
 |------------------|-----------------|-------------|
 | **`taskHub`**    | 쿼리 문자열    | [작업 허브](durable-functions-task-hubs.md)의 이름입니다. 지정하지 않으면 현재 함수 앱의 작업 허브 이름이 사용됩니다. |
 | **`connection`** | 쿼리 문자열    | 스토리지 계정에 대한 연결 문자열의 **이름**입니다. 지정하지 않으면 함수 앱에 대한 기본 연결 문자열이 사용됩니다. |
 | **`systemKey`**  | 쿼리 문자열    | API를 호출하는 데 필요한 권한 부여 키입니다. |
 
-`systemKey`는 Azure Functions 호스트에서 자동으로 생성 되는 인증 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 권한 부여 키](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)와 동일한 방식으로 관리할 수 있습니다. .NET의 `CreateCheckStatusResponse` 및 `CreateHttpManagementPayload` APIs 또는 JavaScript의 `createCheckStatusResponse` 및 `createHttpManagementPayload`와 같은 [오케스트레이션 클라이언트 바인딩](durable-functions-bindings.md#orchestration-client) APIs를 사용하여 올바른 `taskHub`, `connection` 및 `systemKey` 쿼리 문자열 값을 포함 하는 url을 생성할 수 있습니다.
+`systemKey`은 Azure Functions 호스트에서 자동으로 생성 되는 인증 키입니다. 특히 지속성 작업 확장 API에 대한 액세스 권한을 부여하고 [다른 권한 부여 키](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Key-management-API)와 동일한 방식으로 관리할 수 있습니다. .NET의 `taskHub` 및 `connection` APIs 또는 JavaScript의 `systemKey` 및 [와 같은 ](durable-functions-bindings.md#orchestration-client)오케스트레이션 클라이언트 바인딩`CreateCheckStatusResponse` APIs를 사용하여 올바른 `CreateHttpManagementPayload`, `createCheckStatusResponse` 및 `createHttpManagementPayload` 쿼리 문자열 값을 포함 하는 url을 생성할 수 있습니다.
 
 다음 몇 가지 섹션에서는 확장에서 지원되는 특정 HTTP API에 대해 설명하고 이 API를 사용하는 방법에 대한 예제를 제공합니다.
 
@@ -58,20 +58,20 @@ POST /runtime/webhooks/durabletask/orchestrators/{functionName}/{instanceId?}
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드              | 매개 변수 유형  | Description |
+| 필드              | 매개 변수 형식  | 설명 |
 |--------------------|-----------------|-------------|
 | **`functionName`** | URL             | 시작할 오 케 스트레이 터 함수의 이름입니다. |
-| **`instanceId`**   | URL             | 선택적 매개 변수입니다. 오케스트레이션 인스턴스의 ID입니다. 지정 하지 않으면 오 케 스트레이 터 함수는 임의의 인스턴스 ID로 시작 됩니다. |
-| **`{content}`**    | 콘텐츠 요청 | 선택 사항입니다. JSON 형식의 orchestrator 함수 입력입니다. |
+| **`instanceId`**   | URL             | 선택적 매개 변수. 오케스트레이션 인스턴스의 ID입니다. 지정 하지 않으면 오 케 스트레이 터 함수는 임의의 인스턴스 ID로 시작 됩니다. |
+| **`{content}`**    | 요청 콘텐츠 | 선택 사항입니다. JSON 형식의 orchestrator 함수 입력입니다. |
 
 ### <a name="response"></a>응답
 
 몇 가지 가능한 상태 코드 값을 반환할 수 있습니다.
 
-* **HTTP 202(수락됨)** : 지정 된 오 케 스트레이 터 함수가 실행을 시작 하도록 예약 되었습니다. `Location` 응답 헤더에는 오케스트레이션 상태 폴링을 위한 URL이 포함 되어 있습니다.
-* **HTTP 400(잘못된 요청)** : 지정 된 오 케 스트레이 터 함수가 없거나, 지정한 인스턴스 ID가 올바르지 않거나, 요청 콘텐츠가 유효한 JSON이 아닙니다.
+* **HTTP 202 (수락 됨)** : 지정한 오 케 스트레이 터 함수가 실행을 시작 하도록 예약 되었습니다. `Location` 응답 헤더에는 오케스트레이션 상태 폴링을 위한 URL이 포함 되어 있습니다.
+* **HTTP 400 (잘못 된 요청)** : 지정한 오 케 스트레이 터 함수가 없거나, 지정한 인스턴스 ID가 올바르지 않거나, 요청 콘텐츠가 유효한 JSON이 아닙니다.
 
-다음은 orchestrator 함수를 `RestartVMs` 시작 하 고 JSON 개체 페이로드를 포함 하는 요청 예제입니다.
+다음은 `RestartVMs` orchestrator 함수를 시작 하 고 JSON 개체 페이로드를 포함 하는 요청 예제입니다.
 
 ```http
 POST /runtime/webhooks/durabletask/orchestrators/RestartVMs?code=XXX
@@ -86,7 +86,7 @@ Content-Length: 83
 
 **HTTP 202** 케이스에 대 한 응답 페이로드는 다음 필드를 포함 하는 JSON 개체입니다.
 
-| 필드                       | Description                          |
+| 필드                       | 설명                          |
 |-----------------------------|--------------------------------------|
 | **`id`**                    |오케스트레이션 인스턴스의 ID입니다. |
 | **`statusQueryGetUri`**     |오케스트레이션 인스턴스의 상태 URL입니다. |
@@ -97,7 +97,7 @@ Content-Length: 83
 
 모든 필드의 데이터 형식은 `string`입니다.
 
-다음은를 ID로 사용 하 여 `abc123` 오케스트레이션 인스턴스에 대 한 응답 페이로드 예제입니다 (가독성을 위해 지정).
+다음은 `abc123`를 ID로 사용 하 여 오케스트레이션 인스턴스에 대 한 응답 페이로드 예제입니다 (읽기 쉽도록 서식 지정).
 
 ```http
 {
@@ -111,7 +111,7 @@ Content-Length: 83
 
 Http 응답은 *폴링 소비자 패턴과*호환 되도록 설계 되었습니다. 또한 다음과 같은 주목할 만한 응답 헤더를 포함 합니다.
 
-* **위치**: 상태 끝점의 URL입니다. 이 URL에는 `statusQueryGetUri` 필드와 같은 값이 포함 됩니다.
+* **Location**: 상태 끝점의 URL입니다. 이 URL에는 `statusQueryGetUri` 필드와 동일한 값이 포함 됩니다.
 * **다시 시도-후**: 폴링 작업 사이에 대기 하는 시간 (초)입니다. 기본값은 `10`입니다.
 
 비동기 HTTP 폴링 패턴에 대 한 자세한 내용은 [http 비동기 작업 추적](durable-functions-http-features.md#async-operation-tracking) 설명서를 참조 하세요.
@@ -148,15 +148,15 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드                   | 매개 변수 유형  | Description |
+| 필드                   | 매개 변수 형식  | 설명 |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | 오케스트레이션 인스턴스의 ID입니다. |
-| **`showInput`**         | 쿼리 문자열    | 선택적 매개 변수입니다. 로 `false`설정 된 경우 함수 입력은 응답 페이로드에 포함 되지 않습니다.|
-| **`showHistory`**       | 쿼리 문자열    | 선택적 매개 변수입니다. `true`로 설정하면 오케스트레이션 실행 기록이 응답 페이로드에 포함됩니다.|
-| **`showHistoryOutput`** | 쿼리 문자열    | 선택적 매개 변수입니다. 로 `true`설정 된 경우 함수 출력이 오케스트레이션 실행 기록에 포함 됩니다.|
-| **`createdTimeFrom`**   | 쿼리 문자열    | 선택적 매개 변수입니다. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 이후에 생성 된 반환 된 인스턴스 목록을 필터링 합니다.|
-| **`createdTimeTo`**     | 쿼리 문자열    | 선택적 매개 변수입니다. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 그 이전에 생성 된 반환 된 인스턴스의 목록을 필터링 합니다.|
-| **`runtimeStatus`**     | 쿼리 문자열    | 선택적 매개 변수입니다. 지정하면 런타임 상태를 기반으로 반환된 인스턴스 목록을 필터링합니다. 가능한 런타임 상태 값 목록을 보려면 [인스턴스 쿼리](durable-functions-instance-management.md) 문서를 참조 하세요. |
+| **`showInput`**         | 쿼리 문자열    | 선택적 매개 변수. `false`로 설정 된 경우 함수 입력은 응답 페이로드에 포함 되지 않습니다.|
+| **`showHistory`**       | 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 오케스트레이션 실행 기록이 응답 페이로드에 포함됩니다.|
+| **`showHistoryOutput`** | 쿼리 문자열    | 선택적 매개 변수. `true`로 설정 된 경우 함수 출력이 오케스트레이션 실행 기록에 포함 됩니다.|
+| **`createdTimeFrom`**   | 쿼리 문자열    | 선택적 매개 변수. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 이후에 생성 된 반환 된 인스턴스 목록을 필터링 합니다.|
+| **`createdTimeTo`**     | 쿼리 문자열    | 선택적 매개 변수. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 그 이전에 생성 된 반환 된 인스턴스의 목록을 필터링 합니다.|
+| **`runtimeStatus`**     | 쿼리 문자열    | 선택적 매개 변수. 지정하면 런타임 상태를 기반으로 반환된 인스턴스 목록을 필터링합니다. 가능한 런타임 상태 값 목록을 보려면 [인스턴스 쿼리](durable-functions-instance-management.md) 문서를 참조 하세요. |
 
 ### <a name="response"></a>응답
 
@@ -170,15 +170,15 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 
 **HTTP 200** 및 **HTTP 202** 사례에 대한 응답 페이로드는 다음 필드가 있는 JSON 개체입니다.
 
-| 필드                 | 데이터 형식 | Description |
+| 필드                 | 데이터 형식 | 설명 |
 |-----------------------|-----------|-------------|
 | **`runtimeStatus`**   | string    | 인스턴스의 런타임 상태입니다. *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed* 값이 포함됩니다. |
-| **`input`**           | JSON      | 인스턴스를 초기화하는 데 사용되는 JSON 데이터입니다. `showInput` 쿼리 문자열 매개 변수가 `false`로 설정되면 이 필드는 `null`입니다.|
+| **`input`**           | JSON      | 인스턴스를 초기화하는 데 사용되는 JSON 데이터입니다. `null` 쿼리 문자열 매개 변수가 `showInput`로 설정되면 이 필드는 `false`입니다.|
 | **`customStatus`**    | JSON      | 사용자 지정 오케스트레이션 상태에 사용되는 JSON 데이터입니다. 이 필드는 설정하지 않으면 `null`입니다. |
 | **`output`**          | JSON      | 인스턴스의 JSON 출력입니다. 인스턴스가 완료된 상태가 아닌 경우 이 필드는 `null`입니다. |
 | **`createdTime`**     | string    | 인스턴스를 만든 시간입니다. ISO 8601 확장 표기법을 사용합니다. |
 | **`lastUpdatedTime`** | string    | 인스턴스가 마지막으로 유지된 시간입니다. ISO 8601 확장 표기법을 사용합니다. |
-| **`historyEvents`**   | JSON      | 오케스트레이션 실행 기록이 포함된 JSON 배열입니다. `showHistory` 쿼리 문자열 매개 변수가 `true`로 설정되지 않으면 이 필드는 `null`입니다. |
+| **`historyEvents`**   | JSON      | 오케스트레이션 실행 기록이 포함된 JSON 배열입니다. `null` 쿼리 문자열 매개 변수가 `showHistory`로 설정되지 않으면 이 필드는 `true`입니다. |
 
 다음은 오케스트레이션 실행 기록 및 작업 출력을 포함하는 응답 페이로드 예제입니다(읽기 쉽게 형식이 지정됨).
 
@@ -235,13 +235,13 @@ GET /runtime/webhooks/durabletask/instances/{instanceId}
 }
 ```
 
-**HTTP 202** 응답에는 앞에서 언급한 `statusQueryGetUri` 필드와 동일한 URL을 참조하는 **위치** 응답 헤더도 포함됩니다.
+**HTTP 202** 응답에는 앞에서 언급한 **필드와 동일한 URL을 참조하는**위치`statusQueryGetUri` 응답 헤더도 포함됩니다.
 
 ## <a name="get-all-instances-status"></a>모든 인스턴스 상태 가져오기
 
-' 인스턴스 상태 가져오기 ' 요청에서을 `instanceId` 제거 하 여 모든 인스턴스의 상태를 쿼리할 수도 있습니다. 이 경우 기본 매개 변수는 ' 인스턴스 상태 가져오기 '와 동일 합니다. 필터링을 위한 쿼리 문자열 매개 변수도 지원 됩니다.
+' 인스턴스 상태 가져오기 ' 요청에서 `instanceId`를 제거 하 여 모든 인스턴스의 상태를 쿼리할 수도 있습니다. 이 경우 기본 매개 변수는 ' 인스턴스 상태 가져오기 '와 동일 합니다. 필터링을 위한 쿼리 문자열 매개 변수도 지원 됩니다.
 
-기억해야 할 한 가지는 `connection` 및 `code`가 선택 사항이라는 점입니다. 함수에 대 한 익명 인증이 있는 경우은 필요 `code` 하지 않습니다.
+기억해야 할 한 가지는 `connection` 및 `code`가 선택 사항이라는 점입니다. 함수에 대 한 익명 인증이 있는 경우 `code` 필요 하지 않습니다.
 AzureWebJobsStorage 앱 설정에서 정의 되지 않은 다른 저장소 연결 문자열을 사용 하지 않으려는 경우 연결 쿼리 문자열 매개 변수를 안전 하 게 무시할 수 있습니다.
 
 ### <a name="request"></a>요청
@@ -276,16 +276,16 @@ GET /runtime/webhooks/durableTask/instances?
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드                   | 매개 변수 유형  | Description |
+| 필드                   | 매개 변수 형식  | 설명 |
 |-------------------------|-----------------|-------------|
 | **`instanceId`**        | URL             | 오케스트레이션 인스턴스의 ID입니다. |
-| **`showInput`**         | 쿼리 문자열    | 선택적 매개 변수입니다. 로 `false`설정 된 경우 함수 입력은 응답 페이로드에 포함 되지 않습니다.|
-| **`showHistory`**       | 쿼리 문자열    | 선택적 매개 변수입니다. `true`로 설정하면 오케스트레이션 실행 기록이 응답 페이로드에 포함됩니다.|
-| **`showHistoryOutput`** | 쿼리 문자열    | 선택적 매개 변수입니다. 로 `true`설정 된 경우 함수 출력이 오케스트레이션 실행 기록에 포함 됩니다.|
-| **`createdTimeFrom`**   | 쿼리 문자열    | 선택적 매개 변수입니다. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 이후에 생성 된 반환 된 인스턴스 목록을 필터링 합니다.|
-| **`createdTimeTo`**     | 쿼리 문자열    | 선택적 매개 변수입니다. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 그 이전에 생성 된 반환 된 인스턴스의 목록을 필터링 합니다.|
-| **`runtimeStatus`**     | 쿼리 문자열    | 선택적 매개 변수입니다. 지정하면 런타임 상태를 기반으로 반환된 인스턴스 목록을 필터링합니다. 가능한 런타임 상태 값 목록을 보려면 [인스턴스 쿼리](durable-functions-instance-management.md) 문서를 참조 하세요. |
-| **`top`**               | 쿼리 문자열    | 선택적 매개 변수입니다. 지정 된 경우 쿼리에서 반환 되는 인스턴스 수를 제한 합니다. |
+| **`showInput`**         | 쿼리 문자열    | 선택적 매개 변수. `false`로 설정 된 경우 함수 입력은 응답 페이로드에 포함 되지 않습니다.|
+| **`showHistory`**       | 쿼리 문자열    | 선택적 매개 변수. `true`로 설정하면 오케스트레이션 실행 기록이 응답 페이로드에 포함됩니다.|
+| **`showHistoryOutput`** | 쿼리 문자열    | 선택적 매개 변수. `true`로 설정 된 경우 함수 출력이 오케스트레이션 실행 기록에 포함 됩니다.|
+| **`createdTimeFrom`**   | 쿼리 문자열    | 선택적 매개 변수. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 이후에 생성 된 반환 된 인스턴스 목록을 필터링 합니다.|
+| **`createdTimeTo`**     | 쿼리 문자열    | 선택적 매개 변수. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 그 이전에 생성 된 반환 된 인스턴스의 목록을 필터링 합니다.|
+| **`runtimeStatus`**     | 쿼리 문자열    | 선택적 매개 변수. 지정하면 런타임 상태를 기반으로 반환된 인스턴스 목록을 필터링합니다. 가능한 런타임 상태 값 목록을 보려면 [인스턴스 쿼리](durable-functions-instance-management.md) 문서를 참조 하세요. |
+| **`top`**               | 쿼리 문자열    | 선택적 매개 변수. 지정 된 경우 쿼리에서 반환 되는 인스턴스 수를 제한 합니다. |
 
 ### <a name="response"></a>응답
 
@@ -346,7 +346,7 @@ GET /runtime/webhooks/durableTask/instances?
 
 더 많은 결과가 있는 경우 응답 헤더에 연속 토큰이 반환 됩니다.  헤더의 이름은 `x-ms-continuation-token`입니다.
 
-다음 요청 헤더에서 연속 토큰 값을 설정 하면 다음 결과 페이지를 가져올 수 있습니다. 요청 헤더의 이름도 이기도 `x-ms-continuation-token`합니다.
+다음 요청 헤더에서 연속 토큰 값을 설정 하면 다음 결과 페이지를 가져올 수 있습니다. 요청 헤더의 이름도 `x-ms-continuation-token`입니다.
 
 ## <a name="purge-single-instance-history"></a>단일 인스턴스 기록 제거
 
@@ -374,7 +374,7 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드             | 매개 변수 유형  | Description |
+| 필드             | 매개 변수 형식  | 설명 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 오케스트레이션 인스턴스의 ID입니다. |
 
@@ -382,14 +382,14 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 다음 HTTP 상태 코드 값을 반환할 수 있습니다.
 
-* **HTTP 200(OK)** : 인스턴스 기록을 제거 했습니다.
-* **HTTP 404(찾을 수 없음)** : 지정 된 인스턴스가 없습니다.
+* **HTTP 200 (OK)** : 인스턴스 기록을 제거 했습니다.
+* **HTTP 404 (찾을 수 없음)** : 지정 된 인스턴스가 없습니다.
 
 **HTTP 200** 케이스에 대 한 응답 페이로드는 다음 필드를 포함 하는 JSON 개체입니다.
 
-| 필드                  | 데이터 형식 | Description |
+| 필드                  | 데이터 형식 | 설명 |
 |------------------------|-----------|-------------|
-| **`instancesDeleted`** | integer   | 삭제 된 인스턴스 수입니다. 단일 인스턴스 사례에 대해서는이 값이 항상 이어야 `1`합니다. |
+| **`instancesDeleted`** | 정수   | 삭제 된 인스턴스 수입니다. 단일 인스턴스를 사용할 경우이 값은 항상 `1`이어야 합니다. |
 
 다음은 응답 페이로드 예제입니다(읽기 쉽도록 서식 지정).
 
@@ -401,7 +401,7 @@ DELETE /runtime/webhooks/durabletask/instances/{instanceId}
 
 ## <a name="purge-multiple-instance-histories"></a>여러 인스턴스 기록 제거
 
-' 단일 인스턴스 기록 제거 ' 요청에서을 `{instanceId}` 제거 하 여 작업 허브 내의 여러 인스턴스에 대 한 기록 및 관련 아티팩트를 삭제할 수도 있습니다. 인스턴스 기록을 선택적으로 제거 하려면 ' 모든 인스턴스 상태 가져오기 ' 요청에 설명 된 것과 동일한 필터를 사용 합니다.
+' 단일 인스턴스 기록 제거 ' 요청에서 `{instanceId}`를 제거 하 여 작업 허브 내의 여러 인스턴스에 대 한 기록 및 관련 아티팩트를 삭제할 수도 있습니다. 인스턴스 기록을 선택적으로 제거 하려면 ' 모든 인스턴스 상태 가져오기 ' 요청에 설명 된 것과 동일한 필터를 사용 합니다.
 
 ### <a name="request"></a>요청
 
@@ -431,11 +431,11 @@ DELETE /runtime/webhooks/durabletask/instances
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드                 | 매개 변수 유형  | 설명 |
+| 필드                 | 매개 변수 형식  | 설명 |
 |-----------------------|-----------------|-------------|
 | **`createdTimeFrom`** | 쿼리 문자열    | 지정 된 ISO8601 타임 스탬프 또는 이후에 만들어진 제거 된 인스턴스의 목록을 필터링 합니다.|
-| **`createdTimeTo`**   | 쿼리 문자열    | 선택적 매개 변수입니다. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 그 이전에 생성 된 제거 된 인스턴스의 목록을 필터링 합니다.|
-| **`runtimeStatus`**   | 쿼리 문자열    | 선택적 매개 변수입니다. 지정 된 경우 런타임 상태에 따라 제거 된 인스턴스 목록을 필터링 합니다. 가능한 런타임 상태 값 목록을 보려면 [인스턴스 쿼리](durable-functions-instance-management.md) 문서를 참조 하세요. |
+| **`createdTimeTo`**   | 쿼리 문자열    | 선택적 매개 변수. 지정 된 경우 지정 된 ISO8601 타임 스탬프 또는 그 이전에 생성 된 제거 된 인스턴스의 목록을 필터링 합니다.|
+| **`runtimeStatus`**   | 쿼리 문자열    | 선택적 매개 변수. 지정 된 경우 런타임 상태에 따라 제거 된 인스턴스 목록을 필터링 합니다. 가능한 런타임 상태 값 목록을 보려면 [인스턴스 쿼리](durable-functions-instance-management.md) 문서를 참조 하세요. |
 
 > [!NOTE]
 > 인스턴스 및/또는 기록 테이블에 많은 행이 있는 경우이 작업은 i/o Azure Storage 면에서 매우 비용이 많이 들 수 있습니다. 이러한 테이블에 대 한 자세한 내용은 [Durable Functions Azure Functions (성능 및 규모 조정)](durable-functions-perf-and-scale.md#instances-table) 설명서에서 찾을 수 있습니다.
@@ -444,14 +444,14 @@ DELETE /runtime/webhooks/durabletask/instances
 
 다음 HTTP 상태 코드 값을 반환할 수 있습니다.
 
-* **HTTP 200(OK)** : 인스턴스 기록을 제거 했습니다.
-* **HTTP 404(찾을 수 없음)** : 필터 식과 일치 하는 인스턴스를 찾을 수 없습니다.
+* **HTTP 200 (OK)** : 인스턴스 기록을 제거 했습니다.
+* **HTTP 404 (찾을 수 없음)** : 필터 식과 일치 하는 인스턴스가 없습니다.
 
 **HTTP 200** 케이스에 대 한 응답 페이로드는 다음 필드를 포함 하는 JSON 개체입니다.
 
-| 필드                   | 데이터 형식 | Description |
+| 필드                   | 데이터 형식 | 설명 |
 |-------------------------|-----------|-------------|
-| **`instancesDeleted`**  | integer   | 삭제 된 인스턴스 수입니다. |
+| **`instancesDeleted`**  | 정수   | 삭제 된 인스턴스 수입니다. |
 
 다음은 응답 페이로드 예제입니다(읽기 쉽도록 서식 지정).
 
@@ -487,11 +487,11 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드             | 매개 변수 유형  | 설명 |
+| 필드             | 매개 변수 형식  | 설명 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 오케스트레이션 인스턴스의 ID입니다. |
 | **`eventName`**   | URL             | 대상 오케스트레이션 인스턴스가 대기 중인 이벤트의 이름입니다. |
-| **`{content}`**   | 콘텐츠 요청 | JSON 형식 이벤트 페이로드입니다. |
+| **`{content}`**   | 요청 콘텐츠 | JSON 형식 이벤트 페이로드입니다. |
 
 ### <a name="response"></a>응답
 
@@ -500,9 +500,9 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}
 * **HTTP 202(수락됨)** : 발생된 이벤트를 처리하도록 수락되었습니다.
 * **HTTP 400(잘못된 요청)** : 요청 콘텐츠가 `application/json` 형식이 아니거나 유효한 JSON이 아니었습니다.
 * **HTTP 404(찾을 수 없음)** : 지정된 인스턴스를 찾을 수 없습니다.
-* **HTTP 410(없음)** : 지정된 인스턴스가 완료되었거나 실패했으며 발생한 이벤트를 처리할 수 없습니다.
+* **HTTP 410(없음)** : 지정된 인스턴스가 완료되었거나 실패했으며 발생된 이벤트를 처리할 수 없습니다.
 
-다음은 **operation**이라는 이벤트를 기다리는 인스턴스에 `"incr"` JSON 문자열을 보내는 요청 예제입니다.
+다음은 `"incr"`operation**이라는 이벤트를 기다리는 인스턴스에**  JSON 문자열을 보내는 요청 예제입니다.
 
 ```http
 POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/raiseEvent/operation?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
@@ -542,7 +542,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드             | 매개 변수 유형  | Description |
+| 필드             | 매개 변수 형식  | 설명 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 오케스트레이션 인스턴스의 ID입니다. |
 | **`reason`**      | 쿼리 문자열    | 선택 사항입니다. 오케스트레이션 인스턴스를 종료하는 이유입니다. |
@@ -591,7 +591,7 @@ POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드             | 매개 변수 유형  | 설명 |
+| 필드             | 매개 변수 형식  | 설명 |
 |-------------------|-----------------|-------------|
 | **`instanceId`**  | URL             | 오케스트레이션 인스턴스의 ID입니다. |
 | **`reason`**      | 쿼리 문자열    | 선택 사항입니다. 오케스트레이션 인스턴스를 되감는 이유입니다. |
@@ -633,14 +633,14 @@ POST /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 이 API에 대한 요청 매개 변수에는 앞에서 언급한 기본 집합과 다음과 같은 고유한 매개 변수가 포함됩니다.
 
-| 필드             | 매개 변수 유형  | 설명 |
+| 필드             | 매개 변수 형식  | 설명 |
 |-------------------|-----------------|-------------|
 | **`entityType`**  | URL             | 엔터티의 형식입니다. |
 | **`entityKey`**   | URL             | 엔터티의 고유한 이름입니다. |
 | **`op`**          | 쿼리 문자열    | 선택 사항입니다. 호출할 사용자 정의 작업의 이름입니다. |
-| **`{content}`**   | 콘텐츠 요청 | JSON 형식 이벤트 페이로드입니다. |
+| **`{content}`**   | 요청 콘텐츠 | JSON 형식 이벤트 페이로드입니다. |
 
-`Counter` 이라는`steps`엔터티에 사용자 정의 "추가" 메시지를 보내는 예제 요청은 다음과 같습니다. 메시지의 내용은 값 `5`입니다. 엔터티가 아직 없는 경우이 요청에 의해 생성 됩니다.
+다음은 `steps`이라는 `Counter` 엔터티에 사용자 정의 "추가" 메시지를 보내는 요청 예제입니다. 메시지의 내용은 `5`값입니다. 엔터티가 아직 없는 경우이 요청에 의해 생성 됩니다.
 
 ```http
 POST /runtime/webhooks/durabletask/entities/Counter/steps?op=Add
@@ -653,9 +653,9 @@ Content-Type: application/json
 
 이 작업에는 몇 가지 가능한 응답이 있습니다.
 
-* **HTTP 202(수락됨)** : 비동기 처리에 대해 신호 작업을 수락 했습니다.
-* **HTTP 400(잘못된 요청)** : 요청 콘텐츠가 형식이 `application/json`아니거나, 잘못 된 JSON 이거나, 잘못 `entityKey` 된 값을가지고 있습니다.
-* **HTTP 404(찾을 수 없음)** : 지정된 `entityType`를 찾을 수 없는 경우
+* **HTTP 202 (수락 됨)** : 비동기 처리에 대해 신호 작업이 수락 되었습니다.
+* **HTTP 400 (잘못 된 요청)** : 요청 콘텐츠가 `application/json`형식이 아니거나, 잘못 된 JSON 이거나, `entityKey` 값이 잘못 되었습니다.
+* **HTTP 404 (찾을 수 없음)** : 지정 된 `entityType`를 찾을 수 없습니다.
 
 성공적인 HTTP 요청에 응답에 콘텐츠가 포함 되어 있지 않습니다. 실패 한 HTTP 요청은 응답 콘텐츠에 JSON 형식 오류 정보를 포함할 수 있습니다.
 
@@ -678,19 +678,19 @@ GET /runtime/webhooks/durabletask/entities/{entityType}/{entityKey}
 
 이 작업에는 두 가지 가능한 응답이 있습니다.
 
-* **HTTP 200(OK)** : 지정 된 엔터티가 있습니다.
-* **HTTP 404(찾을 수 없음)** : 지정한 엔터티를 찾을 수 없습니다.
+* **HTTP 200 (OK)** : 지정 된 엔터티가 있습니다.
+* **HTTP 404 (찾을 수 없음)** : 지정 된 엔터티를 찾을 수 없습니다.
 
 성공적인 응답에는 엔터티의 JSON serialize 된 상태가 해당 콘텐츠로 포함 됩니다.
 
 ### <a name="example"></a>예제
-다음 예제 HTTP 요청은 이라는 `Counter` `steps`기존 엔터티의 상태를 가져옵니다.
+다음 예제 HTTP 요청은 `steps`이라는 기존 `Counter` 엔터티의 상태를 가져옵니다.
 
 ```http
 GET /runtime/webhooks/durabletask/entities/Counter/steps
 ```
 
-`Counter` 엔터티에 필드`currentValue` 에 저장 된 여러 단계가 포함 된 경우 응답 콘텐츠는 다음과 같을 수 있습니다 (가독성을 위해 서식 지정).
+`Counter` 엔터티에 `currentValue` 필드에 저장 된 여러 단계가 포함 된 경우 응답 콘텐츠는 다음과 같을 수 있습니다 (읽기 쉽도록 서식 지정).
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.date: 11/04/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 1f46fe92fd6650daa3ba4b9a930c4d781925d3fc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 484322fb0486eeb4ab67366d32350c69a18da743
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518256"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605915"
 ---
 # <a name="configure-blockchain-data-manager-using-the-azure-portal"></a>Azure Portal를 사용 하 여 블록 체인 Data Manager 구성
 
@@ -53,7 +53,7 @@ Blockchain Data Manager 인스턴스는 Azure Blockchain 서비스 트랜잭션 
 
 1. **확인**을 선택합니다.
 
-    블록 체인 Data Manager 인스턴스를 만드는 데 1 분 미만이 걸립니다. 인스턴스가 배포 된 후에는 자동으로 시작 됩니다. 실행 중인 Blockchain Data Manager 인스턴스는 트랜잭션 노드에서 Blockchain 이벤트를 캡처하고 아웃 바운드 연결에 데이터를 보냅니다. 또한 트랜잭션 노드에서 디코딩된 이벤트 및 속성 데이터를 캡처하려면 Blockchain Data Manager 인스턴스에 대 한 블록 체인 응용 프로그램을 만듭니다.
+    블록 체인 Data Manager 인스턴스를 만드는 데 1 분 미만이 걸립니다. 인스턴스가 배포 된 후에는 자동으로 시작 됩니다. 실행 중인 Blockchain Data Manager 인스턴스는 트랜잭션 노드에서 Blockchain 이벤트를 캡처하고 아웃 바운드 연결에 데이터를 보냅니다.
 
     새 인스턴스는 Azure Blockchain 서비스 구성원의 블록 체인 Data Manager 인스턴스 목록에 표시 됩니다.
 
@@ -63,7 +63,10 @@ Blockchain Data Manager 인스턴스는 Azure Blockchain 서비스 트랜잭션 
 
 Blockchain 응용 프로그램을 추가 하는 경우 Blockchain Data Manager 응용 프로그램에 대 한 이벤트 및 속성 상태를 디코딩합니다. 그렇지 않으면 원시 블록 및 원시 트랜잭션 데이터만 전송 됩니다. Blockchain Data Manager 계약을 배포할 때 계약 주소도 검색 합니다. 블록 체인 Data Manager 인스턴스에 여러 블록 체인 응용 프로그램을 추가할 수 있습니다.
 
-Blockchain Data Manager에는 응용 프로그램을 추가 하는 스마트 계약 ABI 및 바이트 코드 파일이 필요 합니다.
+> [!IMPORTANT]
+> 현재는 농담 [배열 형식](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) 또는 [매핑 형식을](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) 선언 하는 블록 체인 응용 프로그램은 완전히 지원 되지 않습니다. 배열 또는 매핑 형식으로 선언 된 속성은 *ContractPropertiesMsg* 또는 *DecodedContractEventsMsg* 메시지에서 디코딩되 지 않습니다.
+
+Blockchain Data Manager에는 응용 프로그램을 추가할 스마트 계약 ABI 및 배포 된 바이트 코드 파일이 필요 합니다.
 
 ### <a name="get-contract-abi-and-bytecode"></a>계약 ABI 및 바이트 코드 가져오기
 
@@ -79,17 +82,15 @@ Blockchain Data Manager에는 응용 프로그램을 추가 하는 스마트 계
 
 1. **Abi** 배열을 JSON 파일로 저장 합니다. 예: *abi*. 이후 단계에서 파일을 사용 합니다.
 
-계약 바이트 코드는 Ethereum 가상 머신에서 실행 하는 컴파일된 스마트 계약입니다. 확장을 사용 하 여 계약 바이트 코드를 클립보드에 복사할 수 있습니다.
+Blockchain Data Manager에는 스마트 계약에 대 한 배포 된 바이트 집합이 필요 합니다. 배포 된 바이트 코드는 스마트 계약 바이트 코드와 다릅니다. 컴파일된 계약 메타 데이터 파일에서 배포 된 바이트 코드를 가져올 수 있습니다.
 
-1. Visual Studio Code 탐색기 창에서 농담 프로젝트의 **빌드/계약** 폴더를 확장 합니다.
-1. 계약 메타 데이터 JSON 파일을 마우스 오른쪽 단추로 클릭 합니다. 파일 이름은 스마트 계약 이름 뒤에 **.** i n i n 확장명을 입력 합니다.
-1. **계약 바이트 코드 복사**를 선택 합니다.
+1. 농담 프로젝트의 **빌드/계약** 폴더에 포함 된 계약 메타 데이터 파일을 엽니다. 파일 이름은 스마트 계약 이름 뒤에 **.** i n i n 확장명을 입력 합니다.
+1. JSON 파일에서 **Deployedbytecode 코드** 요소를 찾습니다.
+1. 따옴표 없이 16 진수 값을 복사 합니다.
 
-    ![복사본 계약 바이트 코드를 선택 하는 Visual Studio Code 창](./media/data-manager-portal/bytecode-devkit.png)
+    ![메타 데이터에 바이트 코드를 사용 하는 Visual Studio Code 창](./media/data-manager-portal/bytecode-metadata.png)
 
-    계약 바이트 코드는 클립보드에 복사 됩니다.
-
-1. **바이트 코드** 값을 JSON 파일로 저장 합니다. 예를 들면 *바이트 코드*입니다. 16 진수 값만 저장 합니다. 이후 단계에서 파일을 사용 합니다.
+1. **바이트 코드** 값을 JSON 파일로 저장 합니다. 예를 들면 *바이트 코드*입니다. 이후 단계에서 파일을 사용 합니다.
 
 다음 예제에서는 VS Code 편집기에 열려 있는 *abi* 및 *바이트 코드의 json* 파일을 보여 줍니다. 파일이 유사 하 게 표시 됩니다.
 
@@ -169,4 +170,7 @@ Azure Storage 계정을 삭제 하거나,이를 사용 하 여 더 많은 블록
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Event Grid에서 이벤트 처리기](../../event-grid/event-handlers.md)에 대해 자세히 알아보세요.
+Blockchain Data Manager 및 Azure Cosmos DB를 사용 하 여 blockchain 트랜잭션 메시지 탐색기를 만들어 보세요.
+
+> [!div class="nextstepaction"]
+> [자습서: 블록 체인 Data Manager를 사용 하 여 데이터를 Azure Cosmos DB에 전송](data-manager-cosmosdb.md)

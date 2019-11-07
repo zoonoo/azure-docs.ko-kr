@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 10/30/2019
+ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: b91309d070aee1497bdc30656459dbe775b41f4e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 851fbf52571b12b60345a78af3e26a875919fb14
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73154630"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585221"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -72,7 +72,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 다음 테이블에서는 서비스 공급자별 위치를 보여 줍니다. 위치별 사용 가능한 공급자를 보려는 경우 [위치별 서비스 공급자](expressroute-locations-providers.md)를 참조하세요.
 
 
-### <a name="production-azure"></a>프로덕션 Azure
+### <a name="global-commercial-azure"></a>글로벌 상용 Azure
 
 | **서비스 공급자** | **무료 평가판** | **Office 365**  | **위치** |
 | --- | --- | --- | --- |
@@ -131,7 +131,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)** |지원됨 |지원됨 |시카고, 실리콘밸리, 워싱턴 DC |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |지원됨 |지원됨 |시카고, 홍콩 특별 행정구, 런던 |
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |지원됨 |지원됨 |서울 |
-| **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | 지원됨 |지원됨 | 워싱턴 D.C. |
+| **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | 지원됨 |지원됨 | 워싱턴 DC |
 | **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |지원됨 |지원됨 |첸나이, 뭄바이2 |
 | **[SingTel](https://www.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |지원됨 |지원됨 |싱가포르, 싱가포르 2 |
 | **[Softbank](https://www.softbank.jp/biz/cloud/cloud_access/direct_access_for_az/)** |지원됨 |지원됨 |오사카, 도쿄 |
@@ -160,6 +160,8 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
  **+** 는 서비스 예정을 나타냄
 
 ### <a name="national-cloud-environment"></a>국가별 클라우드 환경
+
+Azure 국가별 클라우드는 서로 격리 되며 전역 주석 erical Azure에서 격리 됩니다. 한 Azure 클라우드의 Express 경로는 다른 azure 지역에 연결할 수 없습니다. 
 
 ### <a name="us-government-cloud"></a>미국 정부 클라우드
 
@@ -208,7 +210,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 * 연결 공급자가 선택한 피어링 위치로 네트워크를 확장합니다.
   * 연결 공급자는 단일 실패 지점이 없도록 항상 사용 가능한 방식으로 연결을 확장하는지 확인합니다.
 * Microsoft에 연결할 연결 공급자로 Exchange를 지정하여 ExpressRoute 회로를 정렬합니다.
-  * [ExpressRoute 회로 만들기](expressroute-howto-circuit-classic.md)의 단계에 따라 연결을 설정합니다.
+  * [ExpressRoute 회로 만들기](expressroute-howto-circuit-classic.md) 의 단계에 따라 연결을 설정합니다.
 
 ## <a name="connectivity-through-satellite-operators"></a>위성 연산자를 통한 연결
 원격이 고 파이버 연결이 없거나 다른 연결 옵션을 탐색 하려는 경우 다음 위성 연산자를 확인할 수 있습니다. 
@@ -246,7 +248,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[지수 E](https://www.exponential-e.com/services/connectivity-services/cloud-connect-exchange)** | Equinix | 런던 |
 | **[Fastweb S.p.A](https://www.fastweb.it/grandi-aziende/connessione-voce-e-wifi/scheda-prodotto/rete-privata-virtuale/)** | Equinix | 암스테르담 |
 | **[Fibrenoire](https://www.fibrenoire.ca/en/cloudextn)** | Megaport | 퀘벡 시티 |
-| **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | 워싱턴 D.C. |
+| **[Gtt Communications Inc](https://www.gtt.net)** |Equinix | 워싱턴 DC |
 | **[걸프 브리지 인터내셔널](https://www.gbiinc.com/microsoft-azure-expressroute/)** | Equinix | 암스테르담 |
 | **[HSO](https://www.hso.co.uk/products/cloud-direct)** |Equinix | 런던, 슬라우 |
 | **[IVedha Inc](http://www.ivedha.com/cloud/manage-azure-cloud/express-route-4/)**| Equinix | 토론토 |
@@ -255,7 +257,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[Macroview Telecom](http://www.macroview.com/en/scripts/catitem.php?catid=solution&sectionid=expressroute)** |Equinix |홍콩 특별 행정구 
 | **[Macquarie Telecom Group](https://macquariegovernment.com/secure-cloud/secure-cloud-exchange/)** | Megaport | 시드니 |
 | **[MainOne](https://www.mainone.net/services/connectivity/cloud-connect/)** |Equinix | 암스테르담 |
-| **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | 워싱턴 D.C. |
+| **[Masergy](https://www.masergy.com/solutions/hybrid-networking/cloud-marketplace/microsoft-azure)** | Equinix | 워싱턴 DC |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** | Teraco | 케이프타운, 요하네스버그 |
 | **[NexGen Networks](https://www.nexgen-net.com/nexgen-networks-direct-connect-microsoft-azure-expressroute.html)** | Interxion | 런던 |
 | **[Nianet](https://nianet.dk/produkter/internet/microsoft-expressroute)** |Equinix | 암스테르담, 프랑크푸르트 |
@@ -322,9 +324,9 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[Avanade Inc.](https://www.avanade.com/)** | 아시아, 유럽, 북아메리카, 남미 |
 | **[Bright Skies GmbH](https://bskies.io/expressroute)** | 유럽
 | **[Ensyst](https://www.ensyst.com.au)** | 아시아
-| **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | 북미 |
-| **[FlexManage](https://www.flexmanage.com/cloud)** | 북미 |
-| **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | 북미 |
+| **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | 북아메리카 |
+| **[FlexManage](https://www.flexmanage.com/cloud)** | 북아메리카 |
+| **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | 북아메리카 |
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | 오스트레일리아 |
 | **[MOQdigital](https://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | 오스트레일리아 |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | 유럽(독일) |
@@ -332,10 +334,10 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[새 서명](https://newsignature.com/technologies/express-route/)** | 유럽 |
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | 아시아 |
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | 유럽 |
-| **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | 북미 |
-| **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | 북미 |
+| **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | 북아메리카 |
+| **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | 북아메리카 |
 | **[sol-tec](https://www.sol-tec.com/services)** | 유럽 |
-| **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | 남아메리카 |
+| **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | 남미 |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | 오스트레일리아 |
 
 ## <a name="next-steps"></a>다음 단계

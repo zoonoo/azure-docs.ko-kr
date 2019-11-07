@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1ab8f881aaee9e29519e99a5cd2a0e6fdbc9846
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: b3d5a61b93175559bce92a17e27602a4f79d88ad
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489411"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603969"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 심층 학습 모델 빌드
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,7 +30,7 @@ TensorFlow 모델을 처음부터 개발 하 든, [기존 모델](how-to-deploy-
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
- - Azure Machine Learning 계산 인스턴스-다운로드 또는 설치 필요 없음
+ - Azure Machine Learning 노트북 VM-다운로드 또는 설치 필요 없음
 
      - [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
     - 노트북 서버의 샘플 심층 학습 폴더에서 다음 디렉터리로 이동 하 여 완료 되 고 확장 된 노트북을 찾습니다. **사용 방법-azureml > ml > tensorflow > 배포 > 학습-하이퍼 매개 변수-tensorflow** 폴더 
@@ -158,6 +158,9 @@ est = TensorFlow(source_directory=script_folder,
                  compute_target=compute_target,
                  use_gpu=True)
 ```
+
+> [!TIP]
+> Tensorflow 평가기 클래스에 **Tensorflow 2.0** 에 대 한 지원이 추가 되었습니다. 자세한 내용은 [블로그 게시물](https://azure.microsoft.com/blog/tensorflow-2-0-on-azure-fine-tuning-bert-for-question-tagging/) 을 참조 하세요.
 
 ## <a name="submit-a-run"></a>실행 제출
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services 규모 확장 | Microsoft Docs
-description: 규모 확장으로 Azure Analysis Services 서버 복제
+description: 확장을 사용 하 여 Azure Analysis Services 서버를 복제 합니다. 그러면 클라이언트 쿼리를 스케일 아웃 쿼리 풀의 여러 쿼리 복제본 간에 배포할 수 있습니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: af1a0db397510014301a58aea7238b695a6c0740
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: HT
+ms.openlocfilehash: 1b40238dfc579e42d0389ae14fdea4b5692ede06
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146438"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572630"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 

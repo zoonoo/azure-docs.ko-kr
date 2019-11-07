@@ -8,12 +8,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 4f1b8b116cf2a8411a90946dd5801dd1e541323c
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: bcdc6633980ec3684217c8c19b4799befe2af3a3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063978"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576863"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -35,7 +35,7 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 ## <a name="example"></a>예제
 
-`Stock`이라는 외부 API를 사용하여 주식의 현재 시가를 보여 주는 '주가(Stock Prices)'라는 애플리케이션의 예제를 살펴보겠습니다. 주가 애플리케이션에는 `GET /Home/Stock`을 사용하여 클라이언트 웹 브라우저에서 열리는 `Stock page` 페이지가 있습니다. 애플리케이션에서 `GET /api/stock/value` HTTP 호출을 사용하여 `Stock` API를 쿼리합니다.
+`Stock`이라는 외부 API를 사용하여 주식의 현재 시가를 보여 주는 '주가(Stock Prices)'라는 애플리케이션의 예제를 살펴보겠습니다. 주가 애플리케이션에는 `Stock page`을 사용하여 클라이언트 웹 브라우저에서 열리는 `GET /Home/Stock` 페이지가 있습니다. 애플리케이션에서 `Stock` HTTP 호출을 사용하여 `GET /api/stock/value` API를 쿼리합니다.
 
 쿼리를 실행하여 결과 원격 분석을 분석할 수 있습니다.
 
@@ -47,7 +47,7 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 결과에서 모든 원격 분석 항목은 루트 `operation_Id`를 공유합니다. 페이지에서 Ajax 호출이 수행되면 새 고유 ID(`qJSXU`)가 종속성 원격 분석에 할당되고 pageView의 ID가 `operation_ParentId`로 사용됩니다. 그러면 서버 요청에서 Ajax ID를 `operation_ParentId`로 사용합니다.
 
-| itemType   | 이름                      | ID           | operation_ParentId | operation_Id |
+| itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
 | dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -207,9 +207,9 @@ public void ConfigureServices(IServiceCollection services)
 |------------------------------------   |-------------------------------------------------  |
 | `Request`, `PageView`                 | `Span`(`span.kind = server` 사용)                  |
 | `Dependency`                          | `Span`(`span.kind = client` 사용)                  |
-| `Request` 및 `Dependency`의 `Id`    | `SpanId`                                          |
+| `Id` 및 `Request`의 `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `ChildOf` 유형의 `Reference`(상위 범위)   |
+| `Operation_ParentId`                  | `Reference` 유형의 `ChildOf`(상위 범위)   |
 
 자세한 내용은 [Application Insights 원격 분석 데이터 모델](../../azure-monitor/app/data-model.md)을 참조하세요. 
 
@@ -244,14 +244,14 @@ if __name__ == '__main__':
     app.run(host='localhost', port=8080, threaded=True)
 ```
 
-이렇게 하면 로컬 컴퓨터에서 샘플 `flask` 응용 프로그램을 실행 하 `8080` 포트를 수신 대기 합니다. 추적 컨텍스트의 상관 관계를 위해 끝점에 요청을 보냅니다. 이 예제에서는 `curl` 명령을 사용할 수 있습니다.
+이렇게 하면 로컬 컴퓨터에서 샘플 `flask` 응용 프로그램을 실행 하 `8080`포트를 수신 대기 합니다. 추적 컨텍스트의 상관 관계를 위해 끝점에 요청을 보냅니다. 이 예제에서는 `curl` 명령을 사용할 수 있습니다.
 ```
 curl --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" localhost:8080
 ```
-[추적 컨텍스트 헤더 형식을](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)살펴보면 다음 정보를 파생 합니다. `version`: `00` 
- `trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736` 
- `parent-id/span-id`: `00f067aa0ba902b7` 
- 0: 1
+[추적 컨텍스트 헤더 형식을](https://www.w3.org/TR/trace-context/#trace-context-http-headers-format)살펴보면 다음 정보를 파생 합니다. `version`: `00`
+`trace-id`: `4bf92f3577b34da6a3ce929d0e0e4736`
+`parent-id/span-id`: `00f067aa0ba902b7`
+`trace-flags`: `01`
 
 Azure Monitor로 전송 된 요청 항목을 살펴보면 추적 헤더 정보로 채워진 필드를 볼 수 있습니다. Azure Monitor Application Insights 리소스의 로그 (분석)에서이 데이터를 찾을 수 있습니다.
 
@@ -263,7 +263,7 @@ Azure Monitor로 전송 된 요청 항목을 살펴보면 추적 헤더 정보�
 
 ### <a name="logs-correlation"></a>로그 상관 관계
 
-OpenCensus Python에서는 추적 ID, 범위 ID 및 샘플링 플래그를 사용 하 여 로그 레코드를 보강 로그의 상관 관계를 지정할 수 있습니다. 이 작업은 OpenCensus [로깅 통합](https://pypi.org/project/opencensus-ext-logging/)을 설치 하 여 수행 됩니다. 다음 특성은 Python `LogRecord`s에 추가 됩니다. `traceId`, `spanId` 및 `traceSampled`. 이는 통합 후에 생성 된로 거에만 적용 됩니다.
+OpenCensus Python에서는 추적 ID, 범위 ID 및 샘플링 플래그를 사용 하 여 로그 레코드를 보강 로그의 상관 관계를 지정할 수 있습니다. 이 작업은 OpenCensus [로깅 통합](https://pypi.org/project/opencensus-ext-logging/)을 설치 하 여 수행 됩니다. 다음 특성은 Python `LogRecord`s: `traceId`, `spanId` 및 `traceSampled`에 추가 됩니다. 이는 통합 후에 생성 된로 거에만 적용 됩니다.
 다음은이를 보여 주는 샘플 응용 프로그램입니다.
 
 ```python
@@ -304,7 +304,7 @@ logger.warning('After the span')
 
 그러나 이러한 방법에서는 자동 분산 추적 지원을 사용하도록 설정하지 않았습니다. `DiagnosticSource`는 머신 간 자동 상관 관계를 지원하는 한 가지 방법입니다. .NET 라이브러리는 'DiagnosticSource'를 지원하고, HTTP와 같은 전송을 통해 상관 관계 컨텍스트의 머신 간 자동 전파를 허용합니다.
 
-`DiagnosticSource`의 [활동 가이드](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)는 활동 추적의 기본 사항에 대해 설명하고 있습니다.
+[의 ](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md)활동 가이드`DiagnosticSource`는 활동 추적의 기본 사항에 대해 설명하고 있습니다.
 
 ASP.NET Core 2.0은 HTTP 헤더 추출 및 새 활동 시작을 지원합니다.
 
@@ -334,25 +334,22 @@ Application Insights SDK는 버전 2.4.0-beta1부터 `DiagnosticSource` 및 `Act
 
 경우에 따라, [애플리케이션 맵](../../azure-monitor/app/app-map.md)에 구성 요소 이름에 표시되는 방식을 사용자 지정하려고 할 수 있습니다. 이렇게 하려면 다음 중 하나를 수행하여 `cloud_RoleName`을 수동으로 설정할 수 있습니다.
 
+- Application Insights Java SDK 2.5.0부터 `ApplicationInsights.xml` 파일에 `<RoleName>`를 추가 하 여 클라우드 역할 이름을 지정할 수 있습니다 (예:).
+
+  ```XML
+  <?xml version="1.0" encoding="utf-8"?>
+  <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+     <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+     <RoleName>** Your role name **</RoleName>
+     ...
+  </ApplicationInsights>
+  ```
+
 - Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경우 application.properties 파일에서 애플리케이션에 대한 사용자 지정 이름을 설정하도록 변경하기만 하면 됩니다.
 
   `spring.application.name=<name-of-app>`
 
   Spring Boot 스타터는 `cloudRoleName`을 `spring.application.name` 속성에 대해 입력한 값에 자동으로 할당합니다.
-
-- `WebRequestTrackingFilter`를 사용하는 경우 `WebAppNameContextInitializer`에서 애플리케이션 이름을 자동으로 설정합니다. 구성 파일(ApplicationInsights.xml)에 다음을 추가합니다.
-
-  ```XML
-  <ContextInitializers>
-    <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebAppNameContextInitializer" />
-  </ContextInitializers>
-  ```
-
-- 클라우드 컨텍스트 클래스를 사용하는 경우:
-
-  ```Java
-  telemetryClient.getContext().getCloud().setRole("My Component Name");
-  ```
 
 ## <a name="next-steps"></a>다음 단계
 

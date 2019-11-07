@@ -1,6 +1,6 @@
 ---
-title: Microsoft Flow에서 Azure Logic Apps 흐름 내보내기
-description: Azure Resource Manager 템플릿으로 내보내 Microsoft Flow에서 Azure Logic Apps로 흐름 마이그레이션
+title: 전원 자동화에서 Azure Logic Apps로 흐름 내보내기
+description: Azure Resource Manager 템플릿으로 내보내 전원 자동화에서 Azure Logic Apps로 흐름 마이그레이션
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,31 +9,31 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 82c4e55eff36a7da70e0304fc8152491a8030e04
-ms.sourcegitcommit: a874064e903f845d755abffdb5eac4868b390de7
+ms.openlocfilehash: e0dda5c2097243143d18851c47e7006c81769c87
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68440998"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583248"
 ---
-# <a name="export-flows-from-microsoft-flow-and-deploy-to-azure-logic-apps"></a>Microsoft Flow에서 흐름을 내보내고 Azure Logic Apps에 배포
+# <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>전원 자동화에서 흐름을 내보내고 Azure Logic Apps에 배포
 
-흐름의 기능을 확장 하 고 확장 하려면 [Microsoft Flow](https://flow.microsoft.com) 에서 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 흐름을 마이그레이션할 수 있습니다. 논리 앱에 대 한 Azure Resource Manager 템플릿으로 흐름을 내보내고, 해당 논리 앱 템플릿을 Azure 리소스 그룹에 배포한 다음 논리 앱 디자이너에서 해당 논리 앱을 열 수 있습니다.
+흐름의 기능을 확장 하 고 확장 하려면 [전원 자동화](https://flow.microsoft.com) 에서 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 흐름을 마이그레이션할 수 있습니다. 논리 앱에 대 한 Azure Resource Manager 템플릿으로 흐름을 내보내고, 해당 논리 앱 템플릿을 Azure 리소스 그룹에 배포한 다음 논리 앱 디자이너에서 해당 논리 앱을 열 수 있습니다.
 
 > [!NOTE]
-> 모든 Microsoft Flow 커넥터를 Azure Logic Apps에서 사용할 수 있는 것은 아닙니다. Azure Logic Apps에 [동일한 커넥터가](../connectors/apis-list.md) 있는 흐름을 가져올 수 있습니다. 예를 들어 단추 트리거, 승인 커넥터 및 알림 커넥터는 Microsoft Flow에만 해당 됩니다.
+> 모든 전원 자동화 커넥터를 Azure Logic Apps에서 사용할 수 있는 것은 아닙니다. Azure Logic Apps에 [동일한 커넥터가](../connectors/apis-list.md) 있는 흐름을 가져올 수 있습니다. 예를 들어 단추 트리거, 승인 커넥터 및 알림 커넥터는 전원 자동화에만 적용 됩니다.
 >
-> Microsoft Flow에서 내보낸 OpenAPI 기반 흐름은 현재 논리 앱 템플릿으로 배포 하도록 지원 되지 않습니다. 
+> 전원 자동화에서 내보낸 OpenAPI 기반 흐름은 현재 논리 앱 템플릿으로 배포에 대해 지원 되지 않습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* Microsoft Flow에서 내보내려는 흐름입니다.
+* 전원 자동화에서 내보내려는 흐름
 
 ## <a name="export-a-flow"></a>흐름 내보내기
 
-1. [Microsoft Flow](https://flow.microsoft.com)에 로그인 하 고 **내 흐름**을 선택 합니다. 흐름을 찾아 선택 합니다. 도구 모음에서 줄임표 ( **...** ) 단추를 선택 합니다. Logic Apps 템플릿 **내보내기** >  **(json)** 를 선택 합니다.
+1. [Power 자동화](https://flow.microsoft.com)에 로그인 하 고 **내 흐름**을 선택 합니다. 흐름을 찾아 선택 합니다. 도구 모음에서 줄임표 ( **...** ) 단추를 선택 합니다. **내보내기** > **Logic Apps 템플릿 (json)** 을 선택 합니다.
 
    ![흐름 내보내기](./media/export-from-microsoft-flow-logic-app-template/export-flow.png)
 
@@ -53,7 +53,7 @@ ms.locfileid: "68440998"
 
    !["편집기에서 사용자 고유의 템플릿 빌드"를 선택 합니다.](./media/export-from-microsoft-flow-logic-app-template/build-template-in-editor.png)
 
-1. **템플릿 편집** 도구 모음에서 **파일 로드**를 선택 합니다. Microsoft Flow에서 내보낸 JSON 템플릿을 찾아 선택 하 고 **열기**를 선택 합니다.
+1. **템플릿 편집** 도구 모음에서 **파일 로드**를 선택 합니다. 전원 자동화에서 내보낸 JSON 템플릿을 찾아 선택 하 고 **열기**를 선택 합니다.
 
    !["파일 로드"를 선택 합니다.](./media/export-from-microsoft-flow-logic-app-template/load-file.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "68440998"
   
    ![템플릿에 대 한 입력 매개 변수 지정](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
-   Azure는 지정 된 리소스 그룹에 템플릿을 논리 앱으로 배포 합니다. Microsoft Flow에서 마이그레이션하는 모든 논리 앱은 사용 안 함 상태로 배포 됩니다.
+   Azure는 지정 된 리소스 그룹에 템플릿을 논리 앱으로 배포 합니다. 전원 자동화에서 마이그레이션하는 모든 논리 앱은 사용 안 함 상태로 배포 됩니다.
 
 1. 논리 앱을 활성화 하기 전에 다음 단계를 수행 하 여 새 연결에 대 한 권한을 부여 합니다.
 
@@ -102,9 +102,9 @@ ms.locfileid: "68440998"
 
 논리 앱을 만들기 위한 [필수 구성 요소](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites) 를 사용 하 여 visual studio를 설정한 경우 내보낸 템플릿을 visual studio에서 Azure Logic Apps로 배포할 수 있습니다.
 
-1. Visual Studio에서 Microsoft Flow에서 내보낸 템플릿 파일을 엽니다.
+1. Visual Studio에서 Power 자동화에서 내보낸 템플릿 파일을 엽니다.
 
-1. Visual Studio에서 Azure 리소스 그룹 프로젝트를 만들고 빠른 시작의 [단계를 수행 하 여 **논리 앱** 템플릿을 선택 합니다. Azure Logic Apps Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)를 사용 하 여 자동화 된 작업, 프로세스 및 워크플로를 만듭니다. 예를 들면 다음과 같습니다.
+1. Visual Studio에서 Azure 리소스 그룹 프로젝트를 만들고 [빠른 시작: Azure Logic Apps 사용 하 여 자동화 된 작업, 프로세스 및 워크플로 만들기](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)의 단계를 수행 하 여 **논리 앱** 템플릿을 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![Azure 리소스 그룹 프로젝트 만들기](./media/export-from-microsoft-flow-logic-app-template/create-azure-resource-group-project.png)
 
@@ -134,7 +134,7 @@ ms.locfileid: "68440998"
 
    1. 논리 앱을 배포 하기 전에 솔루션을 저장 합니다.
 
-1. 솔루션 탐색기에서 프로젝트 바로 가기 메뉴를 열고**새로** **배포** > 를 선택 합니다. 메시지가 표시되면 Azure 계정으로 로그인합니다.
+1. 솔루션 탐색기에서 프로젝트 바로 가기 메뉴를 열고 **배포** > **새로 만들기**를 선택 합니다. 메시지가 표시되면 Azure 계정으로 로그인합니다.
 
 1. 메시지가 표시 되 면 Azure 구독, Azure 리소스 그룹 및 배포에 사용 하려는 기타 설정 (예: 템플릿 매개 변수 값을 전달 하는 데 사용할 [매개 변수 파일](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) )을 확인 한 후 **배포**를 선택 합니다.
 
@@ -158,7 +158,7 @@ ms.locfileid: "68440998"
 
 1. 중복 워크플로를 실행 하지 않으려면 원래 흐름을 비활성화 하거나 삭제 해야 합니다.
 
-이러한 배포 단계 [에 대 한 자세한 내용은 빠른 시작: Azure Logic Apps를 사용 하 여 자동화 된 작업, 프로세스 및 워크플로 만들기-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-to-Azure)
+이러한 배포 단계에 대 한 자세한 내용은 [빠른 시작: Azure Logic Apps 사용 하 여 자동화 된 작업, 프로세스 및 워크플로 만들기-Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#deploy-to-Azure) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,17 +1,17 @@
 ---
-title: Azure HPC 캐시로 지역 중복 및 장애 조치 (failover) 복구 (미리 보기)
+title: Azure HPC 캐시로 지역 중복 및 장애 조치 (failover) 복구
 description: Azure HPC 캐시로 재해 복구를 위한 장애 조치 (failover) 기능을 제공 하는 기술
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: ca771ceed433c6eb0ed26bba6fcb1bf11db211f0
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e0ff9bc66c7d185f8fe07b4b4574833fcd7e2604
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031618"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582076"
 ---
 # <a name="use-multiple-caches-for-regional-failover-recovery"></a>지역 장애 조치 (failover) 복구에 여러 캐시 사용
 

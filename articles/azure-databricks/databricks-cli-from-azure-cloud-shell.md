@@ -9,22 +9,22 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: mamccrea
-ms.openlocfilehash: b327403b29f26f6c1f43f9dfe7aabd5c3c7e0a68
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: efb0d3222bfd98b15502163979425d47fa459e07
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299898"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605713"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Azure Cloud Shell에서 Databricks CLI 사용
 
 Azure Cloud Shell에서 Databricks CLI를 사용하여 Databricks에서 작업을 수행하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure Databricks 작업 영역 및 클러스터. 지침은 [Azure Databricks 시작](quickstart-create-databricks-workspace-portal.md)을 참조하세요. 
 
-* Databricks에서 개인용 액세스 토큰을 설정합니다. 지침은 [토큰 관리](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management)를 참조하세요.
+* Databricks에서 개인용 액세스 토큰을 설정합니다. 지침은 [토큰 관리](/azure/databricks/dev-tools/api/latest/authentication)를 참조하세요.
 
 ## <a name="use-the-azure-cloud-shell"></a>Azure Cloud Shell 사용
 
@@ -32,11 +32,11 @@ Azure Cloud Shell에서 Databricks CLI를 사용하여 Databricks에서 작업�
  
 2. 오른쪽 위 모서리에서 **Cloud Shell** 아이콘을 클릭합니다.
 
-   ![Cloud Shell 시작](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Azure Cloud Shell 시작")
+   ![시작 Cloud Shell](./media/databricks-cli-from-azure-cloud-shell/launch-azure-cloud-shell.png "Azure Cloud Shell 시작")
 
 3. Cloud Shell 환경에 대해 **Bash**를 선택해야 합니다. 다음 스크린샷과 같이 드롭다운 옵션에서 선택할 수 있습니다.
 
-   ![Cloud Shell 환경에 대해 Bash 선택](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Bash 선택") 
+   ![Cloud Shell 환경의 Bash를 선택 합니다.](./media/databricks-cli-from-azure-cloud-shell/select-bash-for-shell.png "Bash 선택") 
 
 4. Databricks CLI를 설치할 수 있는 가상 환경을 만듭니다. 아래 코드 조각에서는 `databrickscli`라는 가상 환경을 만듭니다.
 
@@ -73,13 +73,13 @@ Azure Cloud Shell에서 Databricks CLI를 사용하여 Databricks에서 작업�
     databricks fs ls
 
 
-명령에 대한 전체 참조는 [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)를 참조하세요.
+명령에 대한 전체 참조는 [Databricks CLI](/azure/databricks/dev-tools/databricks-cli)를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 * Azure CLI에 대한 자세한 내용은 [Azure CLI 개요](../cloud-shell/overview.md)를 참조하세요.
 * Azure CLI에 대한 명령 목록을 보려면 [Azure CLI 참조](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest)를 참조하세요.
-* Databricks CLI에 대한 명령 목록을 보려면 [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html)를 참조하세요.
+* Databricks CLI에 대한 명령 목록을 보려면 [Databricks CLI](/azure/databricks/dev-tools/databricks-cli)를 참조하세요.
 
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory에서 소스 제어 | Microsoft Docs
+title: Azure Data Factory의 소스 제어
 description: Azure Data Factory에서 소스 제어를 구성 하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: f3d443eed43cc1e131cd3dc47407ce2dfb023ce8
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 46c983fcf863c6948c6107b2213879c65396ed39
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326391"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684040"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 
@@ -71,7 +71,7 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 
 구성 창에는 다음 Azure Repos 코드 리포지토리 설정이 표시 됩니다.
 
-| 설정 | 설명 | Value |
+| 설정 | 설명 | 값 |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -142,8 +142,8 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다. | GitHub |
 | **GitHub Enterprise 사용** | GitHub Enterprise를 선택하기 위한 확인란 | 선택 하지 않음 (기본값) |
-| **GitHub Enterprise URL** | GitHub Enterprise 루트 URL입니다. 예: https://github.mydomain.com. **GitHub Enterprise 사용** 을 선택한 경우에만 필요 | `<your GitHub enterprise url>` |                                                           
-| **GitHub 계정** | 사용자 GitHub 계정 이름. 이 이름은 https: \//github/{account name}/{repository name}에서 찾을 수 있습니다. 이 페이지로 이동하면 GitHub 계정에 GitHub OAuth 자격 증명을 입력하라는 메시지가 표시됩니다. | `<your GitHub account name>` |
+| **GitHub Enterprise URL** | GitHub Enterprise 루트 URL입니다. 예제: https://github.mydomain.com. **GitHub Enterprise 사용** 을 선택한 경우에만 필요 | `<your GitHub enterprise url>` |                                                           
+| **GitHub 계정** | 사용자 GitHub 계정 이름. 이 이름은 https:\//r e s t e r s name}/{저장소 이름}에서 찾을 수 있습니다. 이 페이지로 이동하면 GitHub 계정에 GitHub OAuth 자격 증명을 입력하라는 메시지가 표시됩니다. | `<your GitHub account name>` |
 | **리포지토리 이름**  | GitHub 코드 리포지토리 이름입니다. GitHub 계정은 소스 코드를 관리하기 위한 Git 리포지토리를 포함합니다. 새 리포지토리를 만들거나 계정에 이미 있는 기존 리포지토리를 사용할 수 있습니다. | `<your repository name>` |
 | **협업 분기** | 게시에 사용되는 GitHub 협업 분기입니다. 기본적으로 마스터입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다. | `<your collaboration branch>` |
 | **루트 폴더** | GitHub 협업 분기의 루트 폴더입니다. |`<your root folder name>` |
@@ -186,7 +186,7 @@ _원본 제어_라고도 하는 버전 제어 시스템을 통해 개발자는 �
 
 ### <a name="configure-publishing-settings"></a>게시 설정 구성
 
-게시 분기(Resource Manager 템플릿이 저장되는 분기)를 구성하려면 협업 분기의 루트 폴더에 `publish_config.json` 파일을 추가합니다. Data Factory는 이 파일을 읽고 `publishBranch` 필드를 찾은 다음 제공된 값을 사용하여 새 분기(없는 경우)를 만듭니다. 그런 다음 지정된 위치에 모든 Resource Manager 템플릿을 저장합니다. 다음은 그 예입니다.
+게시 분기(Resource Manager 템플릿이 저장되는 분기)를 구성하려면 협업 분기의 루트 폴더에 `publish_config.json` 파일을 추가합니다. Data Factory는 이 파일을 읽고 `publishBranch` 필드를 찾은 다음 제공된 값을 사용하여 새 분기(없는 경우)를 만듭니다. 그런 다음 지정된 위치에 모든 Resource Manager 템플릿을 저장합니다. 예:
 
 ```json
 {
@@ -201,7 +201,7 @@ _원본 제어_라고도 하는 버전 제어 시스템을 통해 개발자는 �
 
 ### <a name="publish-code-changes"></a>코드 변경 내용 게시
 
-공동 작업 분기에 변경 내용을 병합 한 후 (`master`이 기본값) **게시** 를 클릭 하 여 마스터 분기의 코드 변경 내용을 Data Factory 서비스에 수동으로 게시 합니다.
+공동 작업 분기에 변경 내용을 병합 한 후 (`master` 기본값) **게시** 를 클릭 하 여 마스터 분기의 코드 변경 내용을 Data Factory 서비스에 수동으로 게시 합니다.
 
 ![Data Factory 서비스에 변경 내용 게시](media/author-visually/publish-changes.png)
 
@@ -251,10 +251,10 @@ Azure Key Vault 사용 하 여 Data Factory 연결 된 서비스에 대 한 연�
 1. 공동 작업 분기에서 모든 리소스 삭제
 1. 변경 내용을 공동 작업 분기에 병합 하는 끌어오기 요청 만들기 
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 기능에 대한 의견을 남기거나 Microsoft에 도구 관련 문제를 알리려면 **피드백**을 선택하세요.
 
-![피드백](media/author-visually/provide-feedback.png)
+![사용자 의견](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>다음 단계
 

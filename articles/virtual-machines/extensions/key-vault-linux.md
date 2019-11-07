@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 60d5b8197e142306a51922ce0e042ed2463457d6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 5991d3d2197822b239b946de66f020dd258f835a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301231"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584373"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux 용 가상 머신 확장 Key Vault
 
@@ -29,7 +29,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Key Vault VM 확장에 대한 스키마를 보여 줍니다. 확장에는 protected 설정이 필요하지 않습니다. 모든 설정은 보안의 영향을 받지 않는 정보로 간주됩니다. 확장에는 모니터링되는 비밀 목록, 폴링 빈도 및 대상 인증서 저장소가 필요합니다. 구체적으로는 다음과 같습니다.  
+다음 JSON은 Key Vault VM 확장에 대한 스키마를 보여 줍니다. 확장에는 protected 설정이 필요하지 않습니다. 모든 설정은 보안의 영향을 받지 않는 정보로 간주됩니다. 확장에는 모니터링되는 비밀 목록, 폴링 빈도 및 대상 인증서 저장소가 필요합니다. 구체적으로 살펴보면 다음과 같습니다.  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -61,22 +61,22 @@ Key Vault VM 확장은 다음 Linux 배포를 지원 합니다.
 > [!NOTE]
 > 관찰 된 인증서 Url은 `https://myVaultName.vault.azure.net/secrets/myCertName` 형식 이어야 합니다.
 > 
-> @No__t-0 경로는 개인 키를 포함 하 여 전체 인증서를 반환 하지만 `/certificates` 경로는 그렇지 않기 때문입니다. 인증서에 대 한 자세한 내용은 다음을 참조 하세요. [인증서 Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> `/secrets` 경로는 개인 키를 포함 하 여 전체 인증서를 반환 하지만 `/certificates` 경로는 반환 하지 않기 때문입니다. 인증서에 대 한 자세한 내용은 [Key Vault 인증서](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates) 를 참조 하세요.
 
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 | 데이터 형식 |
+| Name | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault.Edp | string |
 | type | KeyVaultForLinux | string |
 | typeHandlerVersion | 1.0 | int |
-| pollingIntervalInS | 3600 | int |
+| pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
-| linkOnRenewal | false | boolean |
+| linkOnRenewal | false | 부울 |
 | certificateStoreLocation  | LocalMachine | string |
-| requiredInitialSync | true | boolean |
+| requiredInitialSync | true | 부울 |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | 문자열 배열
 
 

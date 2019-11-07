@@ -1,18 +1,18 @@
 ---
-title: Azure Analysis Services의 인증 및 사용자 권한 | Microsoft Docs
-description: Azure Analysis Services의 인증 및 사용자 권한에 대해 알아봅니다.
+title: Azure Analysis Services 인증 및 사용자 권한 | Microsoft Docs
+description: 이 문서에서는 Azure Analysis Services에서 id 관리 및 사용자 인증에 Azure Active Directory (Azure AD)를 사용 하는 방법을 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a48292b7600d8b9e400bf1e2d61aec313ce29f4b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4a054c3c042e18f1679acd75e5ba5ad74f66edff
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146863"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572758"
 ---
 # <a name="authentication-and-user-permissions"></a>인증 및 사용자 권한
 
@@ -22,7 +22,7 @@ Azure Analysis Services는 [Azure AD B2B 협업](../active-directory/active-dire
 
 ![Azure Analysis Services 인증 아키텍처](./media/analysis-services-manage-users/aas-manage-users-arch.png)
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 모든 클라이언트 애플리케이션 및 도구에서 하나 이상의 Analysis Services [클라이언트 라이브러리](analysis-services-data-providers.md)(AMO, MSOLAP, ADOMD)를 사용하여 서버에 연결합니다. 
 

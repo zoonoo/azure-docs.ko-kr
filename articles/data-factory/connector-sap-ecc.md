@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 SAP ECC에서 데이터 복사 Microsoft Docs
+title: Azure Data Factory를 사용 하 여 SAP ECC에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 활동을 사용하여 데이터를 SAP ECC에서 지원되는 싱크 데이터 저장소로 복사하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
 ms.author: jingwang
-ms.openlocfilehash: c2b9fcc3f75b8f310532978061c887776f007ff0
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 526f85ca4b8854a36232c75a55847a73a8d372cc
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089542"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680304"
 ---
 # <a name="copy-data-from-sap-ecc-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP ECC에서 데이터 복사
 
@@ -50,7 +50,7 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 >[!TIP]
 >Sap 테이블 또는 뷰를 통해 SAP ECC에서 데이터를 복사 하려면 더 빠르고 확장 가능한 [sap 테이블](connector-sap-table.md) 커넥터를 사용 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 일반적으로 SAP ECC는 SAP 게이트웨이를 통해 OData 서비스를 통해 엔터티를 공개합니다. 이 SAP ECC 커넥터를 사용하려면 다음을 수행해야 합니다.
 
@@ -58,7 +58,7 @@ SAP ECC에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복
 
 - **SAP OData 서비스를 활성화 하 고 구성**합니다. 몇 초 안에 TCODE SICF를 통해 OData 서비스를 활성화할 수 있습니다. 노출 해야 하는 개체를 구성할 수도 있습니다. 자세한 내용은 단계별 [지침](https://blogs.sap.com/2012/10/26/step-by-step-guide-to-build-an-odata-service-based-on-rfcs-part-1/)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -74,7 +74,7 @@ SAP ECC 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| `type` | 합니다 `type` 속성으로 설정 되어 있어야 `SapEcc`합니다. | 예 |
+| `type` | `type` 속성은 `SapEcc`으로 설정 해야 합니다. | 예 |
 | `url` | SAP ECC OData 서비스의 URL입니다. | 예 |
 | `username` | SAP ECC에 연결 하는 데 사용 되는 사용자 이름입니다. | 아니요 |
 | `password` | SAP ECC에 연결 하는 데 사용 되는 일반 텍스트 암호입니다. | 아니요 |
@@ -107,7 +107,7 @@ SAP ECC 연결 된 서비스에 대해 지원 되는 속성은 다음과 같습�
 
 데이터 집합을 정의 하는 데 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 집합](concepts-datasets-linked-services.md)을 참조 하세요. 다음 섹션에서는 SAP ECC 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-SAP ECC에서 데이터를 복사 하려면 데이터 집합 `type` 의 속성을로 `SapEccResource`설정 합니다.
+SAP ECC에서 데이터를 복사 하려면 데이터 집합의 `type` 속성을 `SapEccResource`로 설정 합니다.
 
 다음과 같은 속성이 지원됩니다.
 
@@ -140,13 +140,13 @@ SAP ECC에서 데이터를 복사 하려면 데이터 집합 `type` 의 속성�
 
 ### <a name="sap-ecc-as-a-source"></a>SAP ECC를 원본으로
 
-SAP ECC에서 데이터를 복사 하려면 복사 작업 `type` 의 `source` 섹션에서 속성을로 `SapEccSource`설정 합니다.
+SAP ECC에서 데이터를 복사 하려면 복사 작업의 `source` 섹션에서 `type` 속성을 `SapEccSource`로 설정 합니다.
 
-복사 활동의 `source` 섹션에서 지원 되는 속성은 다음과 같습니다.
+복사 작업의 `source` 섹션에서 지원 되는 속성은 다음과 같습니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| `type` | 복사 작업 섹션의 속성을로 `SapEccSource`설정 해야 합니다. `type` `source` | 예 |
+| `type` | 복사 작업의 `source` 섹션의 `type` 속성을 `SapEccSource`로 설정 해야 합니다. | 예 |
 | `query` | 데이터를 필터링 하는 OData 쿼리 옵션입니다. 예:<br/><br/>`"$select=Name,Description&$top=10"`<br/><br/>SAP ECC 커넥터는 결합 된 URL에서 데이터를 복사 합니다.<br/><br/>`<URL specified in the linked service>/<path specified in the dataset>?<query specified in the copy activity's source section>`<br/><br/>자세한 내용은 [OData URL 구성 요소](https://www.odata.org/documentation/odata-version-3-0/url-conventions/)를 참조하세요. | 아니요 |
 
 ### <a name="example"></a>예제

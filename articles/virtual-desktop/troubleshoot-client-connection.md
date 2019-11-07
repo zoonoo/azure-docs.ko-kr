@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 데스크톱에서 원격 데스크톱 클라이언트 연결-Azure
+title: 원격 데스크톱 Windows 가상 데스크톱 문제 해결-Azure
 description: Windows 가상 데스크톱 테 넌 트 환경에서 클라이언트 연결을 설정할 때 발생 하는 문제를 해결 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 22590a7ecc94efbfad5eefe27f284bdb191e876d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3aae74a4fed499674f015ed0adb59016877583f3
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676396"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607381"
 ---
 # <a name="remote-desktop-client-connections"></a>원격 데스크톱 클라이언트 연결
 
@@ -38,19 +38,19 @@ Windows 7 또는 Windows 10 용 원격 데스크톱 클라이언트와 같은 �
 
 **원인:** 네트워크 문제 및/또는 중단.
 
-**방법을** 네트워크 지원에 문의 하십시오.
+**해결 방법:** 네트워크 지원에 문의 하십시오.
 
 ### <a name="error-nslookup-cannot-resolve-the-name"></a>오류: Nslookup에서 이름을 확인할 수 없습니다.
 
 **원인:** 네트워크 문제 및/또는 중단.
 
-**방법을** 네트워크 지원에 문의
+**해결 방법:** 네트워크 지원에 문의
 
-### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>오류: 연결할 수는 없지만 다른 클라이언트는 연결할 수 있습니다.
+### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>오류: 연결할 수 없지만 다른 클라이언트는 연결할 수 있습니다.
 
 **원인:** 브라우저가 예상 대로 작동 하지 않고 작동을 중지 했습니다.
 
-**방법을** 브라우저 문제를 해결 하려면 다음 지침을 따르세요.
+**해결 방법:** 브라우저 문제를 해결 하려면 다음 지침을 따르세요.
 
 1. 브라우저를 다시 시작 합니다.
 2. 브라우저 쿠키를 지웁니다. [Internet Explorer에서 쿠키 파일을 삭제 하는 방법을](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)참조 하세요.
@@ -61,11 +61,11 @@ Windows 7 또는 Windows 10 용 원격 데스크톱 클라이언트와 같은 �
 
 다른 브라우저 또는 클라이언트를 사용 하 여 연결 해 보세요.
 
-### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>오류: 다른 브라우저 및 클라이언트도 작동 하지 않거나 열리지 않습니다.
+### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>오류: 다른 브라우저 및 클라이언트도 오작동 하거나 열지 못했습니다.
 
 **원인:** 네트워크 및/또는 운영 체제 문제 또는 중단
 
-**방법을** 지원 팀에 문의 하세요.
+**해결 방법:** 지원 팀에 문의 하세요.
 
 ## <a name="web-client-keeps-prompting-for-credentials"></a>웹 클라이언트는 자격 증명을 묻는 메시지를 표시 합니다.
 
@@ -135,28 +135,28 @@ Windows 7 및 Windows 10 용 원격 데스크톱 클라이언트를 제거 하 �
     Time              : <Timestampt>
     ```
 
-### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>오류: O_ADD_USER_TO_GROUP_FAILED/사용자 = ≤ username ≥을 GROUP = Remote Desktop Users에 추가 하지 못했습니다. 원인: Win32.ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>오류: O_ADD_USER_TO_GROUP_FAILED/사용자 = ≤ username ≥을 GROUP = Remote Desktop Users에 추가 하지 못했습니다. 이유: ERROR_NO_SUCH_MEMBER
 
 **원인:** VM이 사용자 개체가 인 도메인에 가입 되어 있지 않습니다.
 
-**방법을** VM을 올바른 도메인에 추가 합니다. [Windows Server 가상 컴퓨터를 관리 되는 도메인에 가입](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)을 참조 하세요.
+**해결 방법:** VM을 올바른 도메인에 추가 합니다. [Windows Server 가상 컴퓨터를 관리 되는 도메인에 가입](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)을 참조 하세요.
 
 ### <a name="error-nslookup-cannot-resolve-the-name"></a>오류: Nslookup에서 이름을 확인할 수 없습니다.
 
 **원인:** 네트워크 문제 또는 중단.
 
-**방법을** 네트워크 지원에 문의
+**해결 방법:** 네트워크 지원에 문의
 
 ### <a name="error-connectionfailedclientprotocolerror"></a>오류: ConnectionFailedClientProtocolError
 
 **원인:** 사용자가 연결 하려고 하는 Vm은 도메인에 가입 되지 않습니다.
 
-**방법을** 호스트 풀의 일부인 모든 Vm을 도메인 컨트롤러에 가입 시킵니다.
+**해결 방법:** 호스트 풀의 일부인 모든 Vm을 도메인 컨트롤러에 가입 시킵니다.
 
 ### <a name="error-connectionfailedusersidinformationmismatch"></a>오류: ConnectionFailedUserSIDInformationMismatch
 **원인:** 사용자가 원격 로그인을 사용 하도록 설정 하려고 할 때 사용자의 AD (Azure Active Directory) 토큰에서 SID가 도메인 컨트롤러에서 반환 된 SID와 일치 하지 않습니다. 이 오류는 일반적으로 Windows Server AD에서 원본으로 사용 하는 사용자로 Azure Active Directory Domain Services (Azure AD DS) 환경에 로그인을 시도할 때 발생 합니다.
 
-**방법을** 지금은이 시나리오를 지원 하지 않습니다. Azure Active Directory에서 소스인 사용자만 Azure AD DS에 연결 된 Windows 가상 데스크톱 Vm에 로그인 할 수 있습니다.
+**해결 방법:** 지금은이 시나리오를 지원 하지 않습니다. Azure Active Directory에서 소스인 사용자만 Azure AD DS에 연결 된 Windows 가상 데스크톱 Vm에 로그인 할 수 있습니다.
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>사용자가 연결 되어 있지만 아무것도 표시 되지 않습니다 (피드 없음).
 
@@ -178,4 +178,4 @@ Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 - Windows 가상 데스크톱 환경에서 테 넌 트 및 호스트 풀을 만드는 동안 발생 하는 문제를 해결 하려면 [테 넌 트 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조 하세요.
 - Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration.md)을 참조 하세요.
 - Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하세요.
-- 문제 해결 자습서를 진행하려면 [자습서: 리소스 관리자 템플릿 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)문제를 해결 합니다.
+- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)을 참조 하세요.

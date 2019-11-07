@@ -1,5 +1,5 @@
 ---
-title: 'SaaS 앱: 재해 복구용 Azure SQL Database 지역 중복 백업 | Microsoft Docs'
+title: 'SaaS 앱: 재해 복구를 위한 지역 중복 백업 Azure SQL Database '
 description: 가동 중단 시 Azure SQL Database 지역 중복 백업을 사용하여 다중 테넌트 SaaS 앱을 복구하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/14/2019
-ms.openlocfilehash: c8990e5183d09e8f530fdef952a80a09104d3617
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f058a5cd20fff845a1feafe42b66beb1afef766
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570490"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692204"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>데이터베이스 백업에서 지역 복원을 사용하여 다중 테넌트 SaaS 애플리케이션 복구
 
@@ -29,7 +29,7 @@ ms.locfileid: "68570490"
 > [!NOTE]
 > 지역 복원 대신 지역 복제를 사용하여 가능한 가장 낮은 RPO 및 RTO를 통해 애플리케이션을 복구합니다.
 
-이 자습서에서는 복원 및 송환 워크플로를 살펴봅니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
+이 자습서에서는 복원 및 송환 워크플로를 살펴봅니다. 다음 방법에 대해 알아봅니다.
 > [!div class="checklist"]
 > 
 > * 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그로 동기화합니다.
@@ -79,7 +79,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 ## <a name="review-the-healthy-state-of-the-application"></a>애플리케이션의 정상 상태 검토
 복구 프로세스를 시작하기 전에 애플리케이션의 정상 상태를 검토합니다.
 
-1. 웹 브라우저에서 Wingtip Tickets 이벤트 허브(http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net, replace &lt; user&gt; 를 사용자 배포의 사용자 값으로 바꿈)를 엽니다.
+1. 웹 브라우저에서 Wingtip Tickets 이벤트 허브(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net, replace &lt;user&gt;를 사용자 배포의 사용자 값으로 바꿈)를 엽니다.
     
    페이지 아래쪽으로 스크롤하여 바닥글에서 카탈로그 서버 이름과 위치를 확인합니다. 위치는 앱을 배포한 지역입니다.    
 
@@ -199,7 +199,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
  
     ![복구 프로세스](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-  * 테넌트가 오프라인 상태인 동안 테넌트의 이벤트 페이지를 직접 열면 해당 페이지에 테넌트 오프라인 알림이 표시됩니다. 예를 들어 Contoso Concert Hall이 오프라인인 경우 http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall을 열어 봅니다.
+  * 테넌트가 오프라인 상태인 동안 테넌트의 이벤트 페이지를 직접 열면 해당 페이지에 테넌트 오프라인 알림이 표시됩니다. 예를 들어 Contoso Concert Hall이 오프라인인 경우 http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall을 열어 봅니다.
 
     ![복구 프로세스](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -208,7 +208,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 1. PowerShell ISE의 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-RestoreFromBackup\Demo-RestoreFromBackup.ps1 스크립트에서 다음 속성을 설정합니다.
 
-    $DemoScenario = 3: 복구 지역에서 새 테넌트를 프로비전합니다.
+    $DemoScenario = 3: 복구 지역에 새 테넌트를 프로비전합니다.
 
 2. 스크립트를 실행하려면 F5 키를 누릅니다.
 
@@ -265,7 +265,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 3. 스크립트를 실행하려면 F5 키를 누릅니다.
 
-4. Contoso Concert Hall 이벤트 페이지(http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/contosoconcerthall)를 새로 고치고, Seriously Strauss 이벤트가 누락되어 있는지 확인합니다.
+4. Contoso Concert Hall 이벤트 페이지(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/contosoconcerthall)를 새로 고치고, Seriously Strauss 이벤트가 누락되어 있는지 확인합니다.
 
 자습서의 이 시점에서는 이제 복구 지역에서 실행되는 애플리케이션을 복구했습니다. 복구 지역에 새 테넌트를 프로비전하고 복원된 테넌트 중 하나의 데이터를 수정했습니다.  
 
@@ -325,11 +325,11 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 2.  그런 다음, 송환 프로세스를 시작하려면 다음을 설정합니다.
 
-    $DemoScenario = 5: 앱을 원래 지역으로 되돌립니다.
+    $DemoScenario = 5: 앱을 원래 지역으로 송환합니다.
 
     새 PowerShell 창에서 복구 스크립트를 실행하려면 F5 키를 누릅니다. 송환에는 몇 분 정도 걸리며, PowerShell 창에서 모니터링할 수 있습니다.
 
-3. 스크립트가 실행되는 동안 이벤트 허브 페이지(http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net)를 새로 고칩니다.
+3. 스크립트가 실행되는 동안 이벤트 허브 페이지(http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net)를 새로 고칩니다.
 
     모든 테넌트가 온라인 상태이며 이 프로세스를 통해 액세스할 수 있습니다.
 
@@ -364,7 +364,7 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아보았습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 > [!div class="checklist"]
 > 
 > * 테넌트 카탈로그를 사용하여 정기적으로 새로 고친 구성 정보를 보관하면 다른 지역에 미러 이미지 복구 환경을 만들 수 있습니다.
@@ -375,6 +375,6 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 지역 복제를 사용하여 대규모 다중 테넌트 애플리케이션을 복구하는 데 필요한 시간을 대폭 줄이는 방법을 알아보려면 [데이터베이스 지역 복제를 사용하여 다중 테넌트 SaaS 애플리케이션에 대한 재해 복구](saas-dbpertenant-dr-geo-replication.md)를 시도합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 [Wingtip SaaS 애플리케이션을 빌드하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

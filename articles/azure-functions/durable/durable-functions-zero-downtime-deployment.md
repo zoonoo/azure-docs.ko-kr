@@ -8,27 +8,32 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5e6e51d2a058f89a04a81800b81f3c316be4eab7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: b47604f2c8703ba587e98d68dc30552e5944f562
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301491"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614493"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Durable Functions에 대 한 가동 중지 시간이 0 인 배포
+
 Durable Functions의 신뢰할 수 있는 [실행 모델](durable-functions-checkpointing-and-replay.md) 에서는 오케스트레이션이 결정적 이어야 하므로 업데이트를 배포할 때 고려해 야 할 추가 과제가 생성 됩니다. 배포에 작업 함수 서명 또는 orchestrator 논리에 대 한 변경 내용이 포함 된 경우 진행 중인 오케스트레이션 인스턴스가 실패 합니다. 이 상황은 시간이 나 작업일을 나타낼 수 있는 장기 실행 오케스트레이션의 인스턴스에 대 한 문제입니다.
 
 이러한 오류가 발생 하지 않도록 하려면 실행 중인 모든 오케스트레이션 인스턴스가 완료 될 때까지 배포를 지연 하거나 실행 중인 오케스트레이션 인스턴스가 기존 버전의 함수를 사용 하는지 확인 해야 합니다. 버전 관리에 대 한 자세한 내용은 [Durable Functions의 버전 관리](durable-functions-versioning.md)를 참조 하세요.
 
+> [!NOTE]
+> 이 문서에서는 Durable Functions 1.x를 대상으로 하는 함수 앱에 대 한 지침을 제공 합니다. Durable Functions 2.x에 도입 된 변경 내용을 고려 하도록 아직 업데이트 되지 않았습니다. 확장 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+
 다음 차트에서는 Durable Functions에 대 한 가동 중지 시간이 0 인 배포를 구현 하는 세 가지 주요 전략을 비교 합니다. 
 
-| 전략 |  사용 시기 | 전문가 | 단점 |
+| 전략 |  사용하는 경우 | 장점 | 단점 |
 | -------- | ------------ | ---- | ---- |
 | **[버전 관리](#versioning)** |  자주 발생 하지 않는 응용 프로그램은 크게 변경 되지 않습니다 [.](durable-functions-versioning.md) | 간단히 구현할 수 있습니다. |  메모리의 함수 앱 크기와 함수 수를 늘립니다.<br/>코드 중복. |
 | **[슬롯으로 상태 검사](#status-check-with-slot)** | 장기 실행 오케스트레이션이 24 시간 넘게 지속 되거나 자주 겹치는 오케스트레이션이 없는 시스템입니다. | 간단한 코드 베이스입니다.<br/>추가 함수 앱 관리가 필요 하지 않습니다. | 추가 저장소 계정 또는 작업 허브 관리가 필요 합니다.<br/>오케스트레이션이 실행 되지 않는 기간이 필요 합니다. |
 | **[응용 프로그램 라우팅](#application-routing)** | 오케스트레이션이 24 시간 이상 지속 되지 않거나 자주 겹치는 오케스트레이션이 있는 경우와 같이 오케스트레이션이 실행 되지 않는 시간이 없는 시스템 | 지속적으로 변경 되는 오케스트레이션을 지속적으로 실행 하는 새 버전의 시스템을 처리 합니다. | 지능형 응용 프로그램 라우터가 필요 합니다.<br/>구독에서 허용 하는 함수 앱의 수를 최대로 확장할 수 있습니다 (기본값 100). |
 
 ## <a name="versioning"></a>버전 관리
+
 함수의 새 버전을 정의 하 고 함수 앱에 이전 버전을 그대로 둡니다. 다이어그램에서 볼 수 있듯이 함수의 버전은 해당 이름의 일부가 됩니다. 이전 버전의 함수는 유지 되므로 진행 중인 오케스트레이션 인스턴스는 계속 해 서 참조할 수 있습니다. 한편, 새 오케스트레이션 인스턴스에 대 한 요청은 오케스트레이션 클라이언트 함수가 앱 설정에서 참조할 수 있는 최신 버전을 호출 합니다.
 
 ![버전 관리 전략](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
@@ -62,7 +67,7 @@ Durable Functions의 신뢰할 수 있는 [실행 모델](durable-functions-chec
 
 다음 JSON 조각은 호스트 json 파일에 있는 연결 문자열 설정의 예입니다.
 
-#### <a name="functions-2x"></a>Functions 2.x
+#### <a name="functions-20"></a>함수 2.0
 
 ```json
 {
@@ -146,7 +151,7 @@ Azure Pipelines는 배포를 시작 하기 전에 함수 앱에서 오케스트�
 
 ![응용 프로그램 라우팅 (첫 번째 시간)](media/durable-functions-zero-downtime-deployment/application-routing.png)
 
-라우터는 요청과 함께 전송 된 @no__t를 기준으로 적절 한 함수 앱에 배포 및 오케스트레이션 요청을 지시 하 고 패치 버전을 무시 합니다.
+라우터는 패치 버전을 무시 하 고 요청과 함께 전송 된 `version`를 기준으로 적절 한 함수 앱에 배포 및 오케스트레이션 요청을 보냅니다.
 
 주요 변경 내용 *없이* 새 버전의 앱을 배포 하는 경우 패치 버전을 증가 시킬 수 있습니다. 라우터는 기존 함수 앱에 배포 되 고 이전 버전의 코드에 대 한 요청을 보내고 새 버전의 코드는 동일한 함수 앱으로 라우팅됩니다.
 
@@ -160,7 +165,7 @@ Azure Pipelines는 배포를 시작 하기 전에 함수 앱에서 오케스트�
 
 ### <a name="tracking-store-settings"></a>추적 저장소 설정
 
-각 함수 앱은 별도의 저장소 계정으로 별도의 일정 큐를 사용 해야 합니다. 그러나 모든 버전의 응용 프로그램에서 모든 오케스트레이션 인스턴스를 쿼리하려면 함수 앱에서 인스턴스 및 기록 테이블을 공유할 수 있습니다. @No__t-0 및 `trackingStoreNamePrefix`을 구성 하 여 모든 것이 동일한 값을 사용 하도록 하려면-0을 구성 하 여 테이블을 공유할 수 있습니다 [.](durable-functions-bindings.md#host-json)
+각 함수 앱은 별도의 저장소 계정으로 별도의 일정 큐를 사용 해야 합니다. 그러나 모든 버전의 응용 프로그램에서 모든 오케스트레이션 인스턴스를 쿼리하려면 함수 앱에서 인스턴스 및 기록 테이블을 공유할 수 있습니다. `trackingStoreConnectionStringName`를 구성 하 고, 모두 동일한 값을 사용 하도록 [호스트나 설정](durable-functions-bindings.md#host-json) 파일에서 `trackingStoreNamePrefix` 하 여 테이블을 공유할 수 있습니다.
 
 자세한 내용은 [Azure에서 Durable Functions 인스턴스 관리](durable-functions-instance-management.md)를 참조 하세요.
 

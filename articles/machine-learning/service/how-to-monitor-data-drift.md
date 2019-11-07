@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 536f3ab506dcbe2b8997f2c1870f25244b6c070f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: eddfddc994482bcb6e60604703e7f306fee9c32b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489657"
+ms.locfileid: "73574353"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -161,14 +161,13 @@ datadrift.disable_schedule()
 
 데이터 드리프트 탐지기의 구성은 [Azure Machine Learning studio](https://ml.azure.com)에서 작업 영역의 **세부 정보** 탭에 있는 **모델** 에서 볼 수 있습니다.
 
-![Azure Machine Learning studio 데이터 드리프트](media/how-to-monitor-data-drift/drift-config.png)
+[![Azure Machine Learning studio 데이터 드리프트](media/how-to-monitor-data-drift/drift-config.png)](media/how-to-monitor-data-drift/drift-config-expanded.png)
 
 ## <a name="view-results-in-your-azure-machine-learning-studio"></a>Azure Machine Learning studio에서 결과 보기
 
 [Azure Machine Learning studio](https://ml.azure.com)에서 작업 영역에 결과를 보려면 모델 페이지로 이동 합니다. 모델의 자세히 탭에 데이터 드리프트 구성이 표시 됩니다. 이제 **데이터 드리프트 탭을** 사용 하 여 데이터 드리프트 메트릭을 시각화할 수 있습니다. 
 
 [![Azure Machine Learning studio 데이터 드리프트](media/how-to-monitor-data-drift/drift-ui.png)](media/how-to-monitor-data-drift/drift-ui-expanded.png)
-
 
 ## <a name="receiving-drift-alerts"></a>드리프트 경고 수신
 

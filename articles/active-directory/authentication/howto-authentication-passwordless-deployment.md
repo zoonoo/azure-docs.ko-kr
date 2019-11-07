@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5aab9d8c2b7993598c602ae6b730baff06d807e1
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 9b6f07e1dd8e9252d2b6e00b85a47ba2e19f8bd8
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73151637"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73603462"
 ---
 # <a name="complete-a-passwordless-authentication-deployment"></a>암호 없는 인증 배포 완료
 
@@ -67,11 +67,11 @@ Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용
 
 **장치 등록** -암호 없는 인증을 위해 인증자 앱을 사용 하려면 장치가 Azure AD 테 넌 트에 등록 되어 있어야 하 고 공유 장치 일 수 없습니다. 장치는 단일 테 넌 트에만 등록할 수 있습니다. 이 제한은 Authenticator 앱을 사용 하 여 휴대폰 로그인에 대해 하나의 회사 또는 학교 계정만 지원 됨을 의미 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 조직에서 암호 없는 배포를 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-| 필수 조건 | 인증자 앱 | FIDO2 보안 키 |
+| 필수 요소 | 인증자 앱 | FIDO2 보안 키 |
 | --- | --- | --- |
 | [AZURE MFA에 대 한 결합 된 등록과 SSPR (셀프 서비스 암호 재설정)](howto-registration-mfa-sspr-combined.md) 사용 (미리 보기 기능) | √ | √ |
 | [사용자가 Azure MFA를 수행할 수 있습니다.](howto-mfa-getstarted.md) | √ | √ |
@@ -110,15 +110,6 @@ FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설�
    - Intune 배포를 수행할 수 없는 경우 관리자는 자격 증명 공급자 기능을 사용 하려면 각 컴퓨터에 패키지를 배포 해야 합니다. 다음 옵션 중 하나를 수행 하 여 패키지를 설치할 수 있습니다.
       - 그룹 정책 또는 System Center Configuration Manager (SCCM)
       - Windows 10 컴퓨터에 로컬 설치
-- [그룹 정책 자격 증명 공급자 사용](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
-   - 하이브리드 Azure AD 조인 장치에 대해서만 지원 됩니다.
-
-#### <a name="enable-on-premises-integration"></a>온-프레미스 통합 사용
-
-온-프레미스 리소스에 대 한 액세스를 사용 하도록 설정 하려면 [암호 없는 보안 키에서 온-프레미스 리소스에 로그인 (미리 보기)](howto-authentication-passwordless-security-key-on-premises.md) 문서의 단계를 수행 합니다.
-
-> [!IMPORTANT]
-> Windows 10 로그인에 대 한 FIDO2 보안 키를 활용 하려면 하이브리드 Azure AD 조인 장치에 대해서도 이러한 단계를 완료 해야 합니다.
 
 ### <a name="register-security-keys"></a>보안 키 등록
 
@@ -134,13 +125,13 @@ FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설�
 
 비즈니스 요구 사항과 각 인증 방법에 대 한 사용 사례를 고려 합니다. 그런 다음 사용자의 요구에 가장 적합 한 방법을 선택 합니다.
 
-### <a name="use-cases"></a>사례 사용
+### <a name="use-cases"></a>사용 사례
 
 다음 표에서는이 프로젝트 중에 구현 되는 사용 사례를 간략하게 설명 합니다.
 
 | 영역 | 설명 |
 | --- | --- |
-| **Access** | Passwordless 로그인은 회사 네트워크 내부 또는 외부의 회사 또는 개인 장치에서 사용할 수 있습니다. |
+| **액세스** | Passwordless 로그인은 회사 네트워크 내부 또는 외부의 회사 또는 개인 장치에서 사용할 수 있습니다. |
 | **감사** | 사용 현황 데이터는 관리자가 거의 실시간으로 감사 하는 데 사용할 수 있습니다. <br> 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 되거나 SIEM 도구가 사용 됩니다. |
 | **관리가** | 적절 한 인증 방법 및 관련 그룹에 대 한 사용자 할당의 수명 주기를 정의 하 고 모니터링 합니다. |
 | **보안** | 적절 한 인증 방법에 대 한 액세스는 사용자 및 그룹 할당을 통해 제어 됩니다. <br> 권한 있는 사용자만 암호 없는 로그인을 사용할 수 있습니다. |
@@ -269,7 +260,7 @@ Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가 합니다.
 
 ### <a name="troubleshoot-phone-sign-in"></a>휴대폰 로그인 문제 해결
 
-| 시나리오 | 솔루션 |
+| 시나리오 | 해결 방법 |
 | --- | --- |
 | 사용자는 결합 된 등록을 수행할 수 없습니다. | [결합 된 등록이](concept-registration-mfa-sspr-combined.md) 활성화 되어 있는지 확인 합니다. |
 | 사용자가 휴대폰 로그인 인증 앱을 사용 하도록 설정할 수 없음 | 사용자가 배포 범위 내에 있는지 확인 |
@@ -277,7 +268,7 @@ Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가 합니다.
 
 ### <a name="troubleshoot-security-key-sign-in"></a>보안 키 로그인 문제 해결
 
-| 시나리오 | 솔루션 |
+| 시나리오 | 해결 방법 |
 | --- | --- |
 | 사용자는 결합 된 등록을 수행할 수 없습니다. | [결합 된 등록이](concept-registration-mfa-sspr-combined.md) 활성화 되어 있는지 확인 합니다. |
 | 사용자가 [보안 설정](https://aka.ms/mysecurityinfo) 에서 보안 키를 추가할 수 없습니다. | [보안 키](howto-authentication-passwordless-security-key.md) 를 사용할 수 있는지 확인 합니다. |

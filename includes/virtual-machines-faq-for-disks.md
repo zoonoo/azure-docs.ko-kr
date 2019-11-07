@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8c049cc8d2b09cb37dbd444427b03c1013da65c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523339"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612128"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
 
@@ -170,15 +170,6 @@ Azure 디스크 예약은 특정 지역 및 SKU (미국 동부 2의 P30 처럼)�
 만료 전에 30 일 후에 만료 날짜에 다시 전자 메일 알림을 받게 됩니다. 예약이 만료 되 면 배포 된 디스크는 계속 실행 되 고 최신 [종 량 제 요금](https://azure.microsoft.com/pricing/details/managed-disks/)으로 청구 됩니다.
 
 ## <a name="ultra-disks"></a>Ultra disks
-
-**현재 어떤 지역에서 ultra disks를 지원 하나요?**
-- 미국 동부 2
-- 동남 아시아
-- 북유럽
-
-**현재 어떤 VM 시리즈에서 ultra disks를 지원 하나요?**
-- ESv3
-- DSv3
 
 **Ultra disk 처리량을로 설정 해야 하는 사항은 무엇 인가요?**
 디스크 처리량을로 설정 하는 것이 확실 하지 않은 경우에는 IO 크기를 16 KiB 가정 하 고 응용 프로그램을 모니터링 하는 것에서 성능을 조정 하 여 시작 하는 것이 좋습니다. 수식은 MBps의 처리량 (MBps = IOPS * 16/1000)입니다.

@@ -9,16 +9,16 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: e2b866ddd888261e7d8817c73952d4830a4f8147
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: cd7b8c3de46cb88833f27cbebb7d07f944a711e4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464012"
+ms.locfileid: "73580847"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
-이 문서에서는 Azure Logic Apps를 사용하여 자동화된 워크플로를 만들고 실행하기 위한 제한 및 구성 세부 사항에 대해 설명합니다. Microsoft Flow의 경우 [Microsoft Flow의 제한 및 구성](https://docs.microsoft.com/flow/limits-and-config)을 참조하세요.
+이 문서에서는 Azure Logic Apps를 사용하여 자동화된 워크플로를 만들고 실행하기 위한 제한 및 구성 세부 사항에 대해 설명합니다. 전원 자동화를 위해 [전원 자동화의 제한 및 구성](https://docs.microsoft.com/flow/limits-and-config)을 참조 하세요.
 
 <a name="definition-limits"></a>
 
@@ -267,7 +267,7 @@ ISE에 포함 된 통합 계정 외에 추가 하는 통합 계정에 추가 비
 들어오고 나가는 호출에 사용 하는 Azure Logic Apps IP 주소는 논리 앱이 있는 지역에 따라 달라 집니다. 동일한 지역에 있는 *모든* 논리 앱은 동일한 IP 주소 범위를 사용 합니다.
 
 > [!NOTE]
-> **Http** 및 **Http + openapi** 요청과 같은 일부 Microsoft Flow 호출은 Azure Logic Apps 서비스를 통해 직접 이동 하 여 여기에 나열 된 IP 주소에서 제공 됩니다. Microsoft Flow에서 사용 하는 IP 주소에 대 한 자세한 내용은 [Microsoft Flow의 제한 및 구성](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)을 참조 하세요.
+> **Http** 및 **Http + openapi** 요청과 같은 일부 전원 자동화 호출은 Azure Logic Apps 서비스로 직접 이동 하 여 여기에 나열 된 IP 주소에서 제공 됩니다. 전원 자동화에 사용 되는 IP 주소에 대 한 자세한 내용은 [전원 자동화의 제한 및 구성](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration)을 참조 하세요.
 
 * 논리 앱에서 [http](../connectors/connectors-native-http.md), [http + SWAGGER](../connectors/connectors-native-http-swagger.md)및 기타 http 요청을 사용 하 여 직접 수행 하는 호출을 지원 하려면 Logic Apps에서 사용 하는 *모든* [인바운드](#inbound) *및* [아웃 바운드](#outbound) IP 주소를 사용 하 여 방화벽을 설정 합니다. 서비스, 논리 앱이 있는 지역을 기반으로 합니다. 이러한 주소는 이 섹션의 **인바운드** 및 **아웃바운드** 제목 아래에 표시되고 지역별로 정렬됩니다.
 

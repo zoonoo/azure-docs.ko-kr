@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: glenga
 ms.reviewer: azfuncdf
-ms.openlocfilehash: b765e7a03f84211d4a86c4242e9484b3517c95f9
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 238969b320608c08491c3d3e85870d57f41c1589
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933555"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614973"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
 
@@ -51,7 +51,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
     ```json
     {
       "dependencies": {
-        "durable-functions": "^1.1.2"
+        "durable-functions": "^1.3.1"
       }
     }
     ```
@@ -64,7 +64,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 ## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
-1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
+1. 함수 앱을 확장한 후 **함수+ 옆의**  단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
 
    ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 
@@ -82,7 +82,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 1. 이번에는 **Durable Functions 오케스트레이터** 템플릿을 사용하여 이 함수 앱에서 다른 함수를 만듭니다. 새 오케스트레이션 함수 `HelloSequence`에 이름을 지정합니다.
 
-1. **Durable Functions 활동** 템플릿을 사용하여 `Hello`라는 이름의 세 번째 함수를 만듭니다.
+1. `Hello`Durable Functions 활동**템플릿을 사용하여**라는 이름의 세 번째 함수를 만듭니다.
 
 ## <a name="test-the-durable-function-orchestration"></a>Durable Functions 오케스트레이션 테스트
 
@@ -118,7 +118,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
         }
     ```
 
-1. 상태가 **완료됨**으로 변경될 때까지 `statusQueryGetUri` 엔드포인트를 계속 호출하면 다음 예제와 같은 응답이 표시됩니다.
+1. 상태가 `statusQueryGetUri`완료됨**으로 변경될 때까지**  엔드포인트를 계속 호출하면 다음 예제와 같은 응답이 표시됩니다.
 
     ```json
     {

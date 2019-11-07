@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory에서 반복적인 개발 및 디버깅 | Microsoft Docs
+title: Azure Data Factory의 반복적인 개발 및 디버깅
 description: Azure Portal에서 Data Factory 파이프라인을 반복적으로 개발하고 디버깅하는 방법을 알아봅니다.
 ms.date: 09/26/2018
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 author: djpmsft
 ms.author: daperlov
 manager: craigg
-ms.openlocfilehash: a1c4bf55fbb8242293fc0e30bbe16a6884b901cb
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 38e51e33ef487da8879132eb1ce9cf1e63a814e4
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178636"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672838"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Azure Data Factory를 사용한 반복적인 개발 및 디버깅
 
@@ -58,7 +58,7 @@ Azure Data Factory를 사용하면 Data Factory 파이프라인을 반복적인 
 
 ## <a name="monitoring-debug-runs"></a>디버그 실행 모니터링
 
-**디버그** 기능으로 시작된 테스트 실행은 **모니터** 탭의 목록에서 사용할 수 없습니다. **모니터** 탭에서 **지금 트리거**, **예약** 또는 **연속 창** 트리거로 트리거된 실행만 볼 수 있습니다. 파이프라인 캔버스의 **출력** 창에서 **디버그** 기능으로 시작된 마지막 테스트 실행을 볼 수 있습니다.
+**디버그** 기능으로 시작 된 테스트 실행은 **모니터** 탭의 목록에서 사용할 수 없습니다. **모니터** 탭에서 **지금 트리거**, **일정**또는 **연속 창** 트리거로 트리거된 실행만 볼 수 있습니다. 파이프라인 캔버스의 **출력** 창에서 **디버그** 기능으로 시작 된 마지막 테스트 실행을 볼 수 있습니다.
 
 ## <a name="setting-breakpoints-for-debugging"></a>디버깅을 위한 중단점 설정
 

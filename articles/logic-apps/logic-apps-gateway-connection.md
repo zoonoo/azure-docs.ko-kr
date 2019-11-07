@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 6a01999eff6accf1b8d7f56729d9dce77fbedb0a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 49ed6eedf55a8a3c0faa2fa1ff60b9894af78285
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988760"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580863"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -28,13 +28,13 @@ ms.locfileid: "72988760"
 다른 서비스에서 게이트웨이를 사용하는 방법에 대한 내용은 다음 문서를 참조하세요.
 
 * [Microsoft Power BI 온-프레미스 데이터 게이트웨이](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft Flow 온-프레미스 데이터 게이트웨이](https://flow.microsoft.com/documentation/gateway-manage/)
-* [Microsoft PowerApps 온-프레미스 데이터 게이트웨이](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [온-프레미스 데이터 게이트웨이 전원 자동화](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Microsoft Power Apps 온-프레미스 데이터 게이트웨이](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services 온-프레미스 데이터 게이트웨이](../analysis-services/analysis-services-gateway.md)
 
 <a name="supported-connections"></a>
 
-## <a name="supported-data-sources"></a>지원된 데이터 원본
+## <a name="supported-data-sources"></a>지원되는 데이터 원본
 
 Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이터 원본에 대 한 [온-프레미스 커넥터](../connectors/apis-list.md#on-premises-connectors) 를 지원 합니다.
 
@@ -53,7 +53,7 @@ Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이�
 
 Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업을 지원 합니다. 그러나 이러한 작업 [은 페이로드 크기에 제한이](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)있습니다. 게이트웨이 자체는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 이미 [로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)했습니다.
 
@@ -81,12 +81,12 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
 1. **연결 게이트웨이 만들기**에서 게이트웨이 리소스에 대해이 정보를 제공 합니다. 완료되면 **만들기**를 선택합니다.
 
-   | 자산 | 설명 |
+   | 속성 | 설명 |
    |----------|-------------|
    | **리소스 이름** | 문자, 숫자, 하이픈 (`-`), 밑줄 (`_`), 괄호 (`(`, `)`) 또는 마침표 (`.`)만 포함 하는 게이트웨이 리소스의 이름을 제공 합니다. |
    | **구독** | 게이트웨이 설치에 사용 된 Azure 계정에 대 한 Azure 구독을 선택 합니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기반으로 합니다. |
    | **리소스 그룹** | 사용 하려는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) |
-   | **위치** | [게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)하는 동안 게이트웨이 클라우드 서비스에 대해 선택한 것과 동일한 지역 또는 위치입니다. 그렇지 않으면 게이트웨이 설치가 **설치 이름** 목록에 표시 되지 않습니다. 논리 앱 위치는 게이트웨이 리소스 위치와 다를 수 있습니다. |
+   | **위치**: | [게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)하는 동안 게이트웨이 클라우드 서비스에 대해 선택한 것과 동일한 지역 또는 위치입니다. 그렇지 않으면 게이트웨이 설치가 **설치 이름** 목록에 표시 되지 않습니다. 논리 앱 위치는 게이트웨이 리소스 위치와 다를 수 있습니다. |
    | **설치 이름** | 이러한 조건이 충족 될 때만 목록에 표시 되는 게이트웨이 설치를 선택 합니다. <p><p>-만들려는 게이트웨이 리소스와 동일한 지역에 있습니다. <br>-다른 Azure 게이트웨이 리소스와의 연결을 끊었습니다. <br>-게이트웨이 리소스를 만드는 데 사용 하는 것과 동일한 Azure 계정에 연결 됨 <p><p>자세한 내용은 질문과 [대답](#faq) 섹션을 참조 하세요. |
    |||
 
@@ -96,7 +96,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
 <a name="connect-logic-app-gateway"></a>
 
-## <a name="connect-to-on-premises-data"></a>온-프레미스 데이터에 연결
+## <a name="connect-to-on-premises-data"></a>온-프레미스 데이터 연결
 
 게이트웨이 리소스를 만들고 이 리소스에 Azure 구독을 연결한 후에는 해당 게이트웨이 사용하여 논리 앱과 온-프레미스 데이터 원본 간에 연결을 만들 수 있습니다.
 
@@ -153,13 +153,13 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
 1. 게이트웨이 리소스 메뉴에서 아직 선택하지 않은 경우 **온-프레미스 데이터 게이트웨이**를 선택합니다. 게이트웨이 리소스 도구 모음에서 **삭제**를 선택 합니다.
 
-   다음은 그 예입니다.
+   예:
 
    ![Azure에서 게이트웨이 리소스 삭제](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
 
 <a name="faq"></a>
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 **Q**: Azure에서 게이트웨이 리소스를 만들 때 게이트웨이 설치가 나타나지 않는 이유는 무엇 인가요? <br/>
 **A**: 이 문제는 다음과 같은 이유 때문에 발생할 수 있습니다.

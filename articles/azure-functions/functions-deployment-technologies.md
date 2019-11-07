@@ -1,21 +1,19 @@
 ---
 title: Azure Functions |의 배포 기술 Microsoft Docs
 description: Azure Functions 코드를 배포할 수 있는 다양 한 방법을 알아봅니다.
-services: functions
-documentationcenter: .net
 author: ColbyTresness
-manager: dariac
+manager: gwallace
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 4d32a652219d48a2cc101259ea6b76fbfa910821
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: ce8287626b390d6eac4a3461d928c24f515f4023
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72674956"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576133"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -31,7 +29,7 @@ Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호�
 
 각 계획 마다 동작이 다릅니다. Azure Functions의 각 버전에 대 한 모든 배포 기술이 제공 되는 것은 아닙니다. 다음 차트는 운영 체제 및 호스팅 계획의 각 조합에 대해 지원 되는 배포 기술을 보여 줍니다.
 
-| 배포 기술 | Windows 사용량 | Windows Premium (미리 보기) | Windows 전용  | Linux 소비 | Linux 프리미엄 (미리 보기) | Linux 전용 |
+| 배포 기술 | Windows 사용량 | Windows Premium | Windows 전용  | Linux 소비 | Linux 프리미엄 | Linux 전용 |
 |-----------------------|:-------------------:|:-------------------------:|:------------------:|:---------------------------:|:-------------:|:---------------:|
 | 외부 패키지 URL<sup>1</sup> |✔|✔|✔|✔|✔|✔|
 | Zip 배포 |✔|✔|✔|✔|✔|✔|
@@ -56,7 +54,7 @@ Azure Functions는 Windows 및 Linux에서 플랫폼 간 로컬 개발 및 호�
 
 * Azure Portal에서 함수 앱을 다시 시작 합니다.
 * [마스터 키](functions-bindings-http-webhook.md#authorization-keys)를 사용 하 여 `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>`에 대 한 HTTP POST 요청을 보냅니다.
-* @No__t_0에 HTTP POST 요청을 보냅니다. 자리 표시자를 구독 ID, 리소스 그룹 이름 및 함수 앱의 이름으로 바꿉니다.
+* `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`에 HTTP POST 요청을 보냅니다. 자리 표시자를 구독 ID, 리소스 그룹 이름 및 함수 앱의 이름으로 바꿉니다.
 
 ### <a name="remote-build"></a>원격 빌드
 
@@ -82,11 +80,11 @@ Linux에서 원격 빌드를 사용 하도록 설정 하려면 다음 [응용 �
 
 앱이 Linux에서 원격으로 빌드되면 [배포 패키지에서 실행](run-functions-from-deployment-package.md)됩니다. 
 
-##### <a name="consumption-plan"></a>사용량 과금 플랜
+##### <a name="consumption-plan"></a>소비 계획
 
 소비 계획에서 실행 되는 Linux 함수 앱은 배포 옵션을 제한 하는 SCM/Kudu 사이트를 포함 하지 않습니다. 그러나 소비 계획에서 실행 되는 Linux의 함수 앱은 원격 빌드를 지원 합니다.
 
-##### <a name="dedicated-and-premium-preview-plans"></a>전용 및 프리미엄 (미리 보기) 요금제
+##### <a name="dedicated-and-premium-plans"></a>전용 및 프리미엄 계획
 
 [전용 (App Service) 요금제](functions-scale.md#app-service-plan) 및 [Premium 요금제](functions-scale.md#premium-plan) 에서 Linux에서 실행 되는 함수 앱에는 제한 된 SCM/Kudu 사이트도 있습니다.
 
@@ -183,13 +181,13 @@ FTP를 사용 하 여 파일을 Azure Functions로 직접 전송할 수 있습�
 
 다음 표에서는 포털 편집을 지 원하는 운영 체제 및 언어를 보여 줍니다.
 
-| | Windows 사용량 | Windows Premium (미리 보기) | Windows 전용 | Linux 소비 | Linux 프리미엄 (미리 보기)| Linux 전용 |
-|-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
+| | Windows 사용량 | Windows Premium | Windows 전용 | Linux 소비 | Linux 프리미엄 | Linux 전용 |
+|-|:-----------------: |:----------------:|:-----------------:|:-----------------:|:-------------:|:---------------:|
 | C# | | | | | |
-| C# 스크립트 |✔|✔|✔| |✔<sup> \*</sup> |✔<sup> \*</sup>|
+| C# 스크립트 |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
 | F# | | | | | | |
 | Java | | | | | | |
-| JavaScript(Node.js) |✔|✔|✔| |✔<sup> \*</sup>|✔<sup> \*</sup>|
+| JavaScript(Node.js) |✔|✔|✔| |✔<sup>\*</sup>|✔<sup>\*</sup>|
 | Python(미리 보기) | | | | | | |
 | PowerShell (미리 보기) |✔|✔|✔| | | |
 | TypeScript (node.js) | | | | | | |

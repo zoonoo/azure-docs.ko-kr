@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 3f619caf7e2713e1c9251550b06c8bdefba5936f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 1854599956755716955a6e691c3266ac54ddafd9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493391"
+ms.locfileid: "73581560"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>자습서: CLI에서 모델 학습 및 배포
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -183,7 +183,7 @@ az ml folder attach -w <workspace-name> -g <resource-group-name>
 
 ## <a name="create-the-compute-target-for-training"></a>학습을 위한 계산 대상 만들기
 
-이 예제에서는 Azure Machine Learning 계산 클러스터를 사용 하 여 모델을 학습 합니다. 새 계산 클러스터를 만들려면 다음 명령을 사용 합니다.
+이 예제에서는 Azure Machine Learning 노트북 VM을 사용 하 여 모델을 학습 합니다. 새 노트북 VM을 만들려면 다음 명령을 사용 합니다.
 
 ```azurecli-interactive
 az ml computetarget create amlcompute -n cpu --max-nodes 4 --vm-size Standard_D2_V2
@@ -239,7 +239,7 @@ Cleaning up all outstanding Run operations, waiting 300.0 seconds
 
 `train-sklearn.py`를 검사 하는 경우 학습 된 모델을 파일에 저장할 때 알파 값도 사용 하는 것을 알 수 있습니다. 이 경우 여러 모델을 학습 합니다. 가장 높은 알파를 사용 하는 것은 가장 적합 한 항목 이어야 합니다. 위의 출력과 코드를 살펴보면 알파 0.95이 인 모델이 `./outputs/ridge_0.95.pkl`로 저장 되었습니다.
 
-모델이 학습 된 계산 대상의 `./outputs` 디렉터리에 저장 되었습니다. 이 경우 Azure 클라우드의 Azure Machine Learning 계산 인스턴스가 있습니다. 학습 프로세스는 Azure Machine Learning 작업 영역에 대 한 학습을 수행 하는 계산 대상에서 `./outputs` 디렉터리의 콘텐츠를 자동으로 업로드 합니다. 실험의 일부로 저장 됩니다 (이 예제에서는`myexperiment`).
+모델이 학습 된 계산 대상의 `./outputs` 디렉터리에 저장 되었습니다. 이 경우 Azure 클라우드의 Azure Machine Learning 노트북 VM입니다. 학습 프로세스는 Azure Machine Learning 작업 영역에 대 한 학습을 수행 하는 계산 대상에서 `./outputs` 디렉터리의 콘텐츠를 자동으로 업로드 합니다. 실험의 일부로 저장 됩니다 (이 예제에서는`myexperiment`).
 
 ## <a name="register-the-model"></a>모델 등록
 

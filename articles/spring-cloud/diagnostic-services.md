@@ -1,20 +1,17 @@
 ---
 title: Azure 스프링 클라우드에서 로그 및 메트릭 분석 | Microsoft Docs
 description: Azure 스프링 클라우드에서 진단 데이터를 분석 하는 방법 알아보기
-services: spring-cloud
 author: jpconnock
-manager: gwallace
-editor: ''
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 955641f3511989baa5bfc3c0fa4d7df7ccbf9bfa
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ebe438bd2dc5b4921ce733001f3c9df19bc592fe
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554586"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607853"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용 하 여 로그 및 메트릭 분석
 

@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 05bae18d35eafc47eddc7c1450eb06af5bbe5562
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: e1bb84c142fb24086cf6c11a7b1070bdd29ae3f2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497174"
+ms.locfileid: "73581307"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 자동화 된 기계 학습 실험 만들기, 탐색 및 배포
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -104,7 +104,7 @@ ms.locfileid: "73497174"
 
     **다음**을 선택합니다.
 
-1. **작업 유형 및 설정** 양식에서 작업 유형: 분류, 회귀 또는 예측을 선택 합니다. 
+1. **작업 유형 및 설정** 양식에서 작업 유형: 분류, 회귀 또는 예측을 선택 합니다. 자세한 내용은 [작업 유형을 정의 하는 방법을](how-to-define-task-type.md) 참조 하세요.
 
     1. 분류의 경우 텍스트 featurizations 사용 되는 심층 학습을 사용 하도록 설정할 수도 있습니다.
 
@@ -141,7 +141,7 @@ ms.locfileid: "73497174"
 형식|열의 유추 유형입니다. 가능한 값에는 문자열, 부울, 날짜 및 소수 자릿수가 있습니다.
 Min| 열의 최소값입니다. 형식에 고유 순서 (예: 부울)가 없는 기능에 대 한 빈 항목이 표시 됩니다.
 max| 열의 최대값입니다. 
-카운트| 열에서 누락 되거나 누락 된 항목의 총 수입니다.
+개수| 열에서 누락 되거나 누락 된 항목의 총 수입니다.
 누락되지 않은 수| 열에서 누락 된 항목의 수입니다. 빈 문자열 및 오류는 값으로 처리 되므로 "누락 된 개수"에 영향을 주지 않습니다.
 변 위치| 각 변 위치의 근사 값을 통해 데이터의 분포를 파악할 수 있습니다.
 평균| 열의 산술 평균 또는 평균입니다.
@@ -205,12 +205,17 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 
     필드| 값
     ----|----
-    배포 이름| 배포에 대 한 고유한 이름을 입력 합니다.
-    배포 설명| 이 배포의 용도를 더 잘 파악 하기 위한 설명을 입력 합니다.
-    채점 스크립트| 사용자 고유의 점수 매기기 파일을 자동 생성 하거나 업로드 합니다. [점수 매기기 스크립트에 대해 자세히 알아보세요](how-to-deploy-and-where.md#script).
-    환경 스크립트| 사용자 고유의 환경 파일을 자동 생성 하거나 업로드 합니다.
+    Name| 배포에 대 한 고유한 이름을 입력 합니다.
+    설명| 이 배포의 용도를 더 잘 파악 하기 위한 설명을 입력 합니다.
+    계산 형식| 배포할 끝점의 유형 ( *Azure Kubernetes Service)* 또는 *ACI (azure Container Instance)* 를 선택 합니다.
+    Name| *AKS에만 적용 됩니다.* 배포 하려는 AKS 클러스터의 이름을 선택 합니다.
+    인증 사용 | 토큰 기반 인증 또는 키 기반 인증을 허용 하려면 선택 합니다.
+    사용자 지정 배포 자산 사용| 사용자 고유의 점수 매기기 스크립트 및 환경 파일을 업로드 하려는 경우이 기능을 사용 하도록 설정 합니다. [점수 매기기 스크립트에 대해 자세히 알아보세요](how-to-deploy-and-where.md#script).
+
     >[!Important]
     > 파일 이름은 32 자 미만 이어야 하며 영숫자를 사용 하 여 시작 하 고 끝나야 합니다. 에는 대시, 밑줄, 점 및 영숫자 ()가 포함 될 수 있습니다. 공백은 허용 되지 않습니다.
+
+    *고급* 메뉴에는 데이터 수집 및 리소스 사용률 설정과 같은 기본 배포 기능이 제공 됩니다. 이러한 기본값을 재정의 하려는 경우이 메뉴에서이 작업을 수행 합니다.
 
 1. **배포**를 선택합니다. 배포를 완료 하는 데 약 20 분이 걸릴 수 있습니다.
 

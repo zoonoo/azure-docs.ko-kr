@@ -2,20 +2,20 @@
 title: Azure Blockchain 제한
 description: Azure Blockchain 서비스의 서비스 및 기능 제한 개요
 services: azure-blockchain
-keywords: 블록체인
+keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: aeed84f19da3843d043eafef9d7444661901c53e
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 20c26db9453220270d17801b74d904384c74cb36
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147136"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577213"
 ---
 # <a name="limits-in-azure-blockchain-service"></a>Azure Blockchain 서비스의 제한
 
@@ -28,11 +28,11 @@ Azure Blockchain 서비스에는 구성원에 게 포함할 수 있는 노드 �
 | 가격 책정 계층 | 최대 트랜잭션 노드 | 최대 유효성 검사기 노드 |
 |:---|:---:|:---:|
 | Basic | 10 | 1 |
-| 표준 | 10 | 2 |
+| Standard | 10 | 2 |
 
 멤버를 만든 후에 기본 및 표준 간에 가격 책정 계층을 변경 하는 것은 지원 되지 않습니다.
 
-## <a name="storage-capacity"></a>스토리지 용량
+## <a name="storage-capacity"></a>Storage 용량
 
 원장 데이터 및 로그에 노드당 사용할 수 있는 최대 저장소 크기는 1.8입니다.
 

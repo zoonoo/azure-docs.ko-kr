@@ -1,20 +1,17 @@
 ---
 title: Azure 스프링 클라우드 지역 재해 복구 | Microsoft Docs
 description: 지역 가동 중단 으로부터 스프링 클라우드 응용 프로그램을 보호 하는 방법을 알아봅니다.
-services: spring-cloud
 author: jpconnock
-manager: gwallace
-editor: ''
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 4752cba6081d376bd006406a154b9b182c6a3a72
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 54289e808461e6374dee57763ef7ba0d0429c54c
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73164966"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607839"
 ---
 # <a name="azure-spring-cloud-disaster-recovery"></a>Azure 스프링 클라우드 재해 복구
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: ba6d81596cd8a690f5c17e1ca55b91c5ff27b916
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 36c496b77be5bfda83b3ed424a7fdf2b53101aa4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497528"
+ms.locfileid: "73580626"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -56,7 +56,7 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 
 ## <a name="glossary"></a>용어
 + <a href="#activities">활동</a>
-+ <a href="#compute-instance">계산 인스턴스</a>
++ <a href="#compute-instance">노트북 VM</a>
 + <a href="#compute-targets">계산 대상</a>
 + <a href="#datasets-and-datastores">데이터 집합 & 데이터 저장소</a>
 + <a href="#endpoints">엔드포인트</a>
@@ -84,15 +84,11 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 
 작업은 SDK 또는 웹 UI를 통해 알림을 제공할 수 있으므로, 사용자가 이러한 조작의 진행 상황을 쉽게 모니터링할 수 있습니다.
 
-### <a name="compute-instance"></a>계산 인스턴스
+### <a name="compute-instance"></a>노트북 VM
 
-> [!NOTE]
-> 계산 인스턴스는 **미국 중 북부** 또는 **영국 남부**지역이 있는 작업 영역에만 사용할 수 있습니다.
->작업 영역이 다른 지역에 있는 경우 계속 해 서 [노트북 VM](concept-compute-instance.md#notebookvm) 을 만들고 사용할 수 있습니다. 
+**Azure Machine Learning 노트북 VM** 은 기계 학습을 위해 설치 된 여러 도구 및 환경을 포함 하는 완전히 관리 되는 클라우드 기반 워크스테이션입니다. 노트북 Vm은 더 작은 학습 및 추론 작업을 위한 계산 대상으로 사용할 수 있습니다. 대량 작업의 경우 다중 노드 크기 조정 기능을 사용 하는 [계산 클러스터 Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) 계산 대상이 더 나은 선택입니다.
 
-**Azure Machine Learning 계산 인스턴스** (이전의 노트북 VM)는 기계 학습을 위해 설치 된 여러 도구 및 환경을 포함 하는 완전히 관리 되는 클라우드 기반 워크스테이션입니다. 계산 인스턴스는 학습 및 추론 작업에 대 한 계산 대상으로 사용할 수 있습니다. 대량 작업의 경우 다중 노드 크기 조정 기능을 사용 하는 [계산 클러스터 Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) 계산 대상이 더 나은 선택입니다.
-
-[계산 인스턴스에](concept-compute-instance.md)대해 자세히 알아보세요.
+노트북 Vm에 대해 자세히 알아보세요.
 
 ### <a name="compute-targets"></a>컴퓨팅 대상
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션 | Microsoft Docs
+title: Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션
 description: Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터를 마이그레이션합니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 9ea8326b10536cb91b9dc67f637664f0fc055e74
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c5b36a04501b417af4e4527968a082da8a061804
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122841"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73675797"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션 
 
@@ -120,7 +120,7 @@ Azure Data Factory 복사 작업을 사용 하 여 원본 및 싱크 데이터 �
 
 작은 테이블 (즉, 볼륨이 100 GB 미만 이거나 2 시간 내에 Azure로 마이그레이션할 수 있는 테이블)의 경우 각 복사 작업에서 테이블당 데이터를 로드 하도록 할 수 있습니다. 처리량을 높이기 위해 여러 Azure Data Factory 복사 작업을 실행 하 여 별도의 테이블을 동시에 로드할 수 있습니다. 
 
-각 복사 작업 내에서 병렬 쿼리를 실행 하 고 파티션 별로 데이터를 복사 하려면 다음 데이터 파티션 옵션 중 하나를 사용 하 여 [ `parallelCopies` 속성 설정을](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) 사용 하 여 병렬 처리 수준에 도달할 수도 있습니다.
+각 복사 작업 내에서 병렬 쿼리를 실행 하 고 파티션 별로 데이터를 복사 하려면 다음 데이터 파티션 옵션 중 하나를 사용 하 여 [`parallelCopies` 속성 설정을](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) 사용 하 여 병렬 처리 수준에 도달할 수도 있습니다.
 
 - 효율성을 높이기 위해 데이터 조각에서 시작 하는 것이 좋습니다.  `parallelCopies` 설정의 값이 Netezza 서버에 있는 테이블의 전체 데이터 조각 파티션 수보다 적은지 확인 합니다.  
 
@@ -150,13 +150,13 @@ Netezza 서버에서 Azure로 데이터를 마이그레이션하는 경우, 서�
 
 모범 사례로, 대표적인 샘플 데이터 집합을 사용 하 여 개념 증명 (POC)을 수행 하 여 각 복사 작업에 적절 한 파티션 크기를 결정할 수 있습니다. 2 시간 내에 각 파티션을 Azure로 로드 하는 것이 좋습니다.  
 
-테이블을 복사 하려면 단일 자체 호스팅 IR 컴퓨터를 사용 하는 단일 복사 작업으로 시작 합니다. 테이블의 데이터 `parallelCopies` 조각 파티션 수에 따라 설정을 점차적으로 늘립니다. 복사 작업에서 발생 하는 처리량에 따라 2 시간 내에 전체 테이블을 Azure에 로드할 수 있는지 여부를 확인 합니다. 
+테이블을 복사 하려면 단일 자체 호스팅 IR 컴퓨터를 사용 하는 단일 복사 작업으로 시작 합니다. 테이블의 데이터 조각 파티션 수에 따라 `parallelCopies` 설정을 점차적으로 늘립니다. 복사 작업에서 발생 하는 처리량에 따라 2 시간 내에 전체 테이블을 Azure에 로드할 수 있는지 여부를 확인 합니다. 
 
 2 시간 내에 Azure에 로드할 수 없는 경우 자체 호스팅 IR 노드 및 데이터 저장소의 용량이 완전히 사용 되지 않으면 네트워크 제한 또는 데이터 저장소의 대역폭 제한에 도달할 때까지 동시 복사 작업의 수를 점진적으로 증가 시킵니다. server 
 
 자체 호스팅 IR 컴퓨터의 CPU 및 메모리 사용량을 계속 모니터링 하 고, CPU 및 메모리가 모두 사용 되는 것이 확인 되 면 컴퓨터를 확장 하거나 여러 컴퓨터로 확장할 수 있습니다. 
 
-Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생할 경우 Azure Data Factory에서 동시성 또는 `parallelCopies` 설정을 낮추거나 네트워크의 대역폭 또는 IOPS (초당 i/o 작업 수) 제한을 늘립니다. 데이터 저장소. 
+Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생할 경우 Azure Data Factory에서 동시성 또는 `parallelCopies` 설정을 줄이거나 네트워크 및 데이터의 대역폭 또는 IOPS (초당 i/o 작업 수) 제한을 늘려야 합니다. 정보가. 
 
 
 ### <a name="estimate-your-pricing"></a>가격 책정 예측 
@@ -173,7 +173,7 @@ Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생
 
 - 50-TB 볼륨은 500 파티션으로 나뉘어 있으며 각 복사 작업은 하나의 파티션을 이동 합니다.
 
-- 각 복사 작업은 4 대의 컴퓨터에 대해 하나의 자체 호스팅 IR로 구성 되며 MBps (초당 20mb)의 처리량을 달성 합니다. 복사 작업 `parallelCopies` 내에서는 4로 설정 되 고 테이블에서 데이터를 로드 하는 각 스레드는 5 MBps 처리량을 달성 합니다.
+- 각 복사 작업은 4 대의 컴퓨터에 대해 하나의 자체 호스팅 IR로 구성 되며 MBps (초당 20mb)의 처리량을 달성 합니다. 복사 작업 내에서 `parallelCopies` 4로 설정 되 고 테이블에서 데이터를 로드 하는 각 스레드가 5 MBps 처리량을 달성 합니다.
 
 - ForEach 동시성은 3으로 설정 되 고 집계 처리량은 60 MBps입니다.
 

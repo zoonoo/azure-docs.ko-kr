@@ -1,5 +1,5 @@
 ---
-title: Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결 | Microsoft Docs
+title: Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 description: Intelligent Insights는 Azure SQL Database 성능 문제를 해결하는 데 도움을 줍니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: f884b39db92f44f7cff938e0ac4b9c2e22dc36cb
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fef1ed386dbf3acccc09b9bba743b6b33492da0e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262202"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689724"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
@@ -108,7 +108,7 @@ SQL Database의 리소스는 일반적으로 [DTU](sql-database-what-is-a-dtu.md
 
 또한 워크로드를 최적화하거나 여러 데이터베이스에 분산하여 워크로드를 줄일 수 있습니다. 또는 여러 데이터베이스에 워크로드를 분산할 수도 있습니다. 이러한 방법을 사용할 수 없는 경우 SQL 데이터베이스 구독의 가격 책정 계층을 높여 데이터베이스에 사용 가능한 메모리 리소스의 양을 늘려 보십시오.
 
-추가 문제 해결 제안 사항은 [메모리 부여 명상: 많은 이름을 가진 특이한 SQL Server 메모리 소비자](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/)를 참조하세요.
+문제 해결에 대한 자세한 제안 사항은 [메모리 부여에 대한 명상: 다양한 이름으로 정체를 알 수 없는 SQL Server 메모리 소비자(영문)](https://blogs.msdn.microsoft.com/sqlmeditation/20../../memory-meditation-the-mysterious-sql-server-memory-consumer-with-many-names/)를 참조하세요.
 
 ## <a name="locking"></a>잠금
 
@@ -128,7 +128,7 @@ SQL 엔진에서 실행한 트랜잭션이 사용할 수 없도록 잠긴 리소
 
 자세한 제안 사항은 [SQL Server 잠금 에스컬레이션으로 인해 발생하는 차단 문제를 해결하는 방법](https://support.microsoft.com/help/323630/how-to-resolve-blocking-problems-that-are-caused-by-lock-escalation-in)을 참조하세요.
 
-## <a name="increased-maxdop"></a>MAXDOP 증가
+## <a name="increased-maxdop"></a>증가한 MAXDOP
 
 ### <a name="what-is-happening"></a>설명
 
@@ -222,11 +222,11 @@ SQL 데이터베이스에는 사용할 수 있는 다양한 유형의 래치가 
 
 ### <a name="what-is-happening"></a>설명
 
-검색 가능한 이 성능 패턴은 TempDB 리소스에 액세스하려는 스레드의 병목 현상이 있는 데이터베이스 성능 상태를 나타냅니다. (이 상태는 IO와 관련이 없습니다.) 이 성능 문제가 발생하는 일반적인 시나리오는 수백 개의 동시 쿼리가 모두 작은 TempDB 테이블을 만들고 사용하고 삭제하는 경우입니다. 시스템이 지난 7일간의 성능 기준과 비교하여 동일한 TempDB 테이블을 사용하는 많은 수의 동시 쿼리가 데이터베이스 성능에 영향을 줄 만큼 통계적으로 유의미한 수준으로 증가했음을 감지했습니다.
+검색 가능한 이 성능 패턴은 TempDB 리소스에 액세스하려는 스레드의 병목 현상이 있는 데이터베이스 성능 상태를 나타냅니다. 이 조건은 IO와 관련이 없습니다. 이러한 성능 문제에 대 한 일반적인 시나리오는 작은 tempDB 테이블을 만들고 사용 하 고 삭제 하는 수백 개의 동시 쿼리입니다. 시스템이 지난 7일간의 성능 기준과 비교하여 동일한 TempDB 테이블을 사용하는 많은 수의 동시 쿼리가 데이터베이스 성능에 영향을 줄 만큼 통계적으로 유의미한 수준으로 증가했음을 감지했습니다.
 
 ### <a name="troubleshooting"></a>문제 해결
 
-진단 로그는 TempDB 경합 세부 정보를 출력합니다. 문제를 해결할 때 가장 먼저 이 정보를 참고할 수 있습니다. 이러한 유형의 경합을 완화하고 전체 워크로드의 처리량을 늘리려는 경우 두 가지 방법을 시도할 수 있습니다. 임시 테이블 사용을 중지할 수 있습니다. 또는 메모리 최적화 테이블을 사용할 수 있습니다. 
+진단 로그는 TempDB 경합 세부 정보를 출력합니다. 문제를 해결할 때 가장 먼저 이 정보를 참고할 수 있습니다. 이러한 유형의 경합을 완화하고 전체 워크로드의 처리량을 늘리려는 경우 두 가지 방법을 시도할 수 있습니다. 임시 테이블 사용을 중단합니다. 또는 메모리 최적화 테이블을 사용할 수 있습니다. 
 
 자세한 내용은 [메모리 최적화 테이블 소개(영문)](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables)를 참조하세요. 
 
@@ -325,7 +325,7 @@ Azure SQL 분석으로 이동하여 Azure Portal을 통해 Intelligent Insight�
 > [!TIP]
 > PDF 버전을 다운로드하려면 순서도를 선택하세요.
 
-Intelligent Insights는 일반적으로 성능 문제에 대한 근본 원인 분석을 수행하는 데 1시간이 필요합니다. Intelligent Insights에서 문제를 찾을 수 없고 사용자에게 중요한 경우 쿼리 저장소를 사용하여 성능문제의 근본 원인을 수동으로 식별합니다. (일반적으로 이러한 문제는 1시간 이전에 발생한 것입니다.) 자세한 내용은 [쿼리 저장소를 사용하여 성능 모니터링](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)을 참조하세요.
+Intelligent Insights는 일반적으로 성능 문제에 대한 근본 원인 분석을 수행하는 데 1시간이 필요합니다. Intelligent Insights에서 문제를 찾을 수 없고 사용자에게 중요한 경우 쿼리 저장소를 사용하여 성능문제의 근본 원인을 수동으로 식별합니다. (일반적으로 이러한 문제는 1 시간 이내입니다.) 자세한 내용은 [쿼리 저장소를 사용 하 여 성능 모니터링](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [Intelligent Insights](sql-database-intelligent-insights.md) 개념을 알아봅니다.

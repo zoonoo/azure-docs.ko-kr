@@ -1,5 +1,5 @@
 ---
-title: '디자이너 예제 #3: 가격에 대 한 회귀 및 비교 알고리즘'
+title: '디자이너: 자동차 가격 예측 (회귀)'
 titleSuffix: Azure Machine Learning
 description: 이 문서에서는 디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 복잡 한 기계 학습 파이프라인을 빌드하는 방법을 보여 줍니다. 여러 회귀 모델을 학습 하 고 비교 하 여 기술 기능에 따라 자동차 가격을 예측 하는 방법을 알아봅니다.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fb2e4c5c96c0c4c1b4d8ef14de65e470d545638
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d73f6d67afff13696de78d026ff65228fd68fb28
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515435"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647946"
 ---
 # <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>샘플 2-회귀: 가격 예측 및 비교 알고리즘
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

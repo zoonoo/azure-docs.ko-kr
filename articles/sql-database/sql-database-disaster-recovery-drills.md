@@ -1,5 +1,5 @@
 ---
-title: SQL Database 재해 복구 훈련 | Microsoft Docs
+title: SQL Database 재해 복구 훈련
 description: Azure SQL Database를 사용하여 재해 복구 훈련을 수행하는 방법에 대한 지침 및 모범 사례를 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 12/18/2018
-ms.openlocfilehash: 2923ae8b9b25932ae214cfa45780dffb8780dd39
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bf337b1312abc59048649aabe3e4f895d07a8d51
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568853"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690612"
 ---
 # <a name="performing-disaster-recovery-drill"></a>재해 복구 훈련 수행
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0f8e605db3d647b5907c8c6741e4e2200bf14c4f
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 56e0f720221f8de531087e8b8d0476688feb2547
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772357"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601492"
 ---
 # <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>사설 클라우드에 대 한 Vlan/서브넷 만들기 및 관리
 
@@ -31,9 +31,13 @@ ms.locfileid: "70772357"
 5. VLAN ID를 입력 하십시오.
 6. 서브넷 이름을 입력 합니다.
 7. VLAN (서브넷)에서 라우팅을 사용 하도록 설정 하려면 서브넷 CIDR 범위를 지정 합니다. CIDR 범위가 온-프레미스 서브넷, Azure 서브넷 또는 게이트웨이 서브넷과 겹치지 않는지 확인 합니다.
-8. **제출**을 클릭합니다.
+8. **Submit**를 클릭합니다.
 
     ![VLAN/서브넷 만들기](media/create-new-vlan-subnet-details.png)
+
+
+> [!IMPORTANT]
+> 사설 클라우드 당 30 Vlan의 할당량이 있습니다. [지원에 문의](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)하 여 이러한 제한을 늘릴 수 있습니다.
 
 ## <a name="use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere"></a>VLAN 정보를 사용 하 여 vSphere 분산 포트 그룹 설정
 

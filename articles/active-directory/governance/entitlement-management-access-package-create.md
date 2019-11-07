@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8a2752302e5f6c3428139a0faa30ce347fc21f2
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 71aa999809ba3d3e32d38162dfaba869d9716031
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174916"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73602715"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 새 액세스 패키지 만들기
 
@@ -57,14 +57,14 @@ ms.locfileid: "73174916"
 
 **필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
 
 1. 왼쪽 메뉴에서 **액세스 패키지**를 클릭합니다.
 
 1. **새 액세스 패키지**를 클릭합니다.
-
+   
     ![Azure Portal에서 권한 관리](./media/entitlement-management-shared/access-packages-list.png)
 
 ## <a name="basics"></a>기본 사항

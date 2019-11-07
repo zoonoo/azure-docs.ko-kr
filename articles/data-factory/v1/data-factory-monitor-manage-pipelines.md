@@ -1,5 +1,5 @@
 ---
-title: Azure Portal 및 PowerShell을 사용하여 파이프라인 모니터링 및 관리| Microsoft Docs
+title: Azure Portal 및 PowerShell을 사용 하 여 파이프라인 모니터링 및 관리
 description: Azure Portal과 Azure PowerShell을 사용하여 사용자가 만든 Azure Data Factory와 파이프라인을 모니터링하고 관리하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 8e8215d9737087cf1a5632dc8514c12988ff999f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 44aadecfa80524345932c03abb51e8ebd040a902
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70139665"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73666976"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Azure Portal 및 PowerShell을 사용하여 Azure Data Factory 파이프라인 모니터링 및 관리
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 이 섹션은 데이터 세트 조각이 하나의 상태에서 다른 상태로 전환되는 방식을 설명합니다.   
 
 ### <a name="navigate-to-your-data-factory"></a>데이터 팩터리로 이동
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽의 메뉴에서 **데이터 팩터리**를 클릭합니다. 데이터 팩터리가 보이지 않으면 **더 많은 서비스 >** 를 클릭하고 **인텔리전스 + 분석** 범주 아래에 있는 **데이터 팩터리**를 클릭합니다.
 
    ![모두 찾아보기 -> 데이터 팩터리](./media/data-factory-monitor-manage-pipelines/browseall-data-factories.png)
@@ -61,7 +61,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 #### <a name="diagram-view-of-your-data-factory"></a>데이터 팩터리의 다이어그램 뷰
 데이터 팩터리의 **다이어그램** 뷰에는 데이터 팩터리와 그 자산을 모니터링하고 관리하기 위한 단일 돋보기 창이 제공됩니다. 데이터 팩터리의 **다이어그램** 뷰를 보려면 데이터 팩터리 홈 페이지에서 **다이어그램**을 클릭합니다.
 
-![다이어그램 보기](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
+![다이어그램 뷰](./media/data-factory-monitor-manage-pipelines/diagram-view.png)
 
 확대, 축소, 크기에 맞게, 100% 확대, 다이어그램 레이아웃 고정, 파이프라인과 데이터 세트 자동 배치가 가능합니다. 또한 데이터 계보 정보도 볼 수 있습니다(즉, 선택한 항목의 업스트림 및 다운스트림 항목 표시).
 
@@ -87,7 +87,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 <table>
 <tr>
-    <th align="left">State</th><th align="left">하위 상태</th><th align="left">Description</th>
+    <th align="left">시스템 상태</th><th align="left">하위 상태</th><th align="left">설명</th>
 </tr>
 <tr>
     <td rowspan="8">대기</td><td>ScheduleTime</td><td>아직 조각이 실행할 시간이 되지 않습니다.</td>
@@ -105,7 +105,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>ActivityResume</td><td>활동이 일시 중지되어 재개될 때까지 조각을 실행할 수 없습니다.</td>
 </tr>
 <tr>
-<td>다시 시도</td><td>작업 실행을 다시 시도하는 중입니다.</td>
+<td>Retry</td><td>작업 실행을 다시 시도하는 중입니다.</td>
 </tr>
 <tr>
 <td>유효성 검사</td><td>유효성 검사가 아직 시작되지 않았습니다.</td>
@@ -121,7 +121,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <td>조각이 처리되고 있습니다.</td>
 </tr>
 <tr>
-<td rowspan="4">실패</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
+<td rowspan="4">Failed</td><td>TimedOut</td><td>활동 실행이 활동에서 허용하는 것보다 오래 걸렸습니다.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>이 조각은 사용자 동작으로 취소되었습니다.</td>
@@ -132,10 +132,10 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 <tr>
 <td>-</td><td>조각 생성 및 유효성 검사가 실패했습니다.</td>
 </tr>
-<td>준비</td><td>-</td><td>조각을 사용할 준비가 되었습니다.</td>
+<td>Ready</td><td>-</td><td>조각을 사용할 준비가 되었습니다.</td>
 </tr>
 <tr>
-<td>건너 뜀</td><td>없음</td><td>조각이 처리되고 있지 않습니다.</td>
+<td>생략</td><td>없음</td><td>조각이 처리되고 있지 않습니다.</td>
 </tr>
 <tr>
 <td>없음</td><td>-</td><td>다른 상태와 함께 존재하기 위해 사용되는 조각이지만, 재설정되었습니다.</td>
@@ -150,7 +150,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 조각이 여러 번 실행된 경우 **활동 실행** 목록에 여러 행이 표시됩니다. **활동 실행** 목록에서 실행 항목을 클릭하면 활동 실행에 대한 세부 사항을 볼 수 있습니다. 목록에 모든 로그 파일과 함께 오류 메시지가 있다면 표시됩니다. 이 기능은 데이터 팩터리를 벗어나지 않고 로그를 보면서 디버그하기에 매우 유용합니다.
 
-![활동 실행 세부 정보](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
+![작업 실행 세부 정보](./media/data-factory-monitor-manage-pipelines/activity-run-details.png)
 
 조각이 **준비** 상태가 아닌 경우 **준비되지 않은 업스트림** 목록에서 [준비] 상태가 아니고 현재 조각의 실행을 차단하는 업스트림 조각을 확인할 수 있습니다. 이 기능은 조각이 **대기 중** 상태일 때 조각이 기다리고 있는 업스트림 종속성을 이해하려는 경우에 유용합니다.
 
@@ -161,7 +161,7 @@ Azure Portal을 사용하여 다음을 수행할 수 있습니다.
 
 ![상태 다이어그램](./media/data-factory-monitor-manage-pipelines/state-diagram.png)
 
-데이터 팩터리의 데이터 세트 상태 전환 흐름은 대기 중 -> 진행 중/진행 중(유효성 검사 중) -> 준비/실패입니다.
+데이터 팩터리의 데이터 세트 상태 전환 흐름에는 Waiting(대기)-&gt; In-Progress/In-Progress (Validating)(진행 중/진행 중(확인 중)) -&gt; Ready/Failed(준비/실패)가 포함됩니다.
 
 조각은 **Waiting**(대기) 상태로 시작하여 실행 전에 사전 조건이 충족되기를 기다립니다. 그런 다음 작업은 실행을 시작하고 조각은 **In-Progress**(진행 중) 상태가 됩니다. 작업 실행이 성공 또는 실패할 수 있습니다. 조각은 실행 결과에 따라 **Ready**(준비) 또는 **Failed**(실패)로 표시됩니다.
 
@@ -178,7 +178,7 @@ Azure PowerShell을 사용하여 파이프라인을 관리할 수 있습니다. 
 ```powershell
 Suspend-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들어:
+예:
 
 ```powershell
 Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -189,7 +189,7 @@ Suspend-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrec
 ```powershell
 Resume-AzDataFactoryPipeline [-ResourceGroupName] <String> [-DataFactoryName] <String> [-Name] <String>
 ```
-예를 들어:
+예:
 
 ```powershell
 Resume-AzDataFactoryPipeline -ResourceGroupName ADF -DataFactoryName productrecgamalbox1dev -Name PartitionProductsUsagePipeline
@@ -236,7 +236,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
     <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
     ```
 
-    예를 들어:
+    예:
 
     ```powershell   
     Get-AzDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
@@ -278,7 +278,7 @@ Azure Data Factory는 Azure Portal 및 Azure PowerShell을 사용하여 파이�
 > [!IMPORTANT]
 > 모니터링 및 관리 앱을 사용하여 오류를 해결하고 실패한 조각을 다시 실행하는 것이 더 쉽습니다. 애플리케이션 사용에 대한 자세한 내용은 [모니터링 및 관리 앱을 사용하여 데이터 팩터리 파이프라인 모니터링 및 관리](data-factory-monitor-manage-app.md)를 참조하세요. 
 
-### <a name="use-the-azure-portal"></a>Azure 포털 사용
+### <a name="use-the-azure-portal"></a>Azure Portal 사용
 파이프라인에서 실패에 대한 문제를 해결하고 디버그한 후에는 오류 조각으로 이동하고 명령 모음의 **실행** 단추를 클릭하여 실패한 항목을 다시 실행할 수 있습니다.
 
 ![실패한 조각 다시 실행](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
@@ -309,7 +309,7 @@ Set-AzDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -Da
 
     ![새 경고 만들기](media/data-factory-monitor-manage-pipelines/v1alerts-image2.png)
 
-3.  **경고 조건**을 정의합니다. (**리소스 종류별로 필터링**에서 **데이터 팩터리**를 선택해야 합니다.) 또한 **차원**에 대한 값을 지정할 수도 있습니다.
+3.  **경고 조건**을 정의합니다. ( **리소스 유형별 필터** 필드에서 **데이터 팩터리** 를 선택 해야 합니다.) **차원**에 대 한 값을 지정할 수도 있습니다.
 
     ![경고 조건 정의 - 대상 선택](media/data-factory-monitor-manage-pipelines/v1alerts-image3.png)
 

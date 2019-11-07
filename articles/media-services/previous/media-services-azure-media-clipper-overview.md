@@ -2,19 +2,19 @@
 title: Azure Media Clipper를 사용하여 클립 만들기 | Microsoft Docs
 description: 자산을 사용하여 미디어 클립을 빌드하는 도구인 Azure Media Clipper 개요
 services: media-services
-keywords: 클립, 하위 클립, 인코딩, 미디어
-author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
+keywords: 클립;서브클립;인코딩;미디어
+author: Juliako
+manager: femila
+ms.author: juliako
 ms.date: 03/14/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 35f1f359b44af00000ccd9047673b80ca541d376
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 51f85dffd48e451b477018ef20491f8619a30f25
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61243879"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685003"
 ---
 # <a name="create-clips-with-azure-media-clipper"></a>Azure Media Clipper를 사용하여 클립 만들기 
 

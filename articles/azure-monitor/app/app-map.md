@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 49efad50b988da263a715c1aba9d53ad4b4a7121
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678384"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577072"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -142,7 +142,7 @@ ApplicationInsights에서 다음을 수행 합니다.
 ```
 
 > [!NOTE]
-> @No__t_0 또는 `TelemetryConfiguration.Active`를 사용 하 여 이니셜라이저를 추가 하는 것은 ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
+> `ApplicationInsights.config` 또는 `TelemetryConfiguration.Active`를 사용 하 여 이니셜라이저를 추가 하는 것은 ASP.NET Core 응용 프로그램에 적합 하지 않습니다. 
 
 **ASP.NET Core apps: TelemetryConfiguration에 이니셜라이저를 로드 합니다.**
 
@@ -180,13 +180,22 @@ appInsights.defaultClient.addTelemetryProcessor(envelope => {
 
 ### <a name="java"></a>Java
 
+Application Insights Java SDK 2.5.0부터 `ApplicationInsights.xml` 파일에 `<RoleName>`를 추가 하 여 클라우드 역할 이름을 지정할 수 있습니다 (예:).
+
+```XML
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+   <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+   <RoleName>** Your role name **</RoleName>
+   ...
+</ApplicationInsights>
+```
+
 Application Insights Spring Boot 스타터에서 Spring Boot를 사용하는 경우 application.properties 파일에서 애플리케이션에 대한 사용자 지정 이름을 설정하도록 변경하기만 하면 됩니다.
 
 `spring.application.name=<name-of-app>`
 
 스프링 부팅 스타터는 spring.application.name 속성에 대해 사용자가 입력 한 값에 클라우드 역할 이름을 자동으로 할당 합니다.
-
-Java 상관 관계 및 SpringBoot 되지 않는 응용 프로그램에 대 한 클라우드 역할 이름을 구성 하는 방법에 대 한 자세한 내용은 상관 관계에서이 [섹션](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) 을 체크 아웃 합니다.
 
 ### <a name="clientbrowser-side-javascript"></a>클라이언트/브라우저 쪽 JavaScript
 

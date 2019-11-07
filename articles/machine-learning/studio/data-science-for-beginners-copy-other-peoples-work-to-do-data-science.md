@@ -1,6 +1,6 @@
 ---
 title: 다른 사용자의 데이터 과학 예제 복사
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: '데이터 과학의 비밀: 다른 사람들이 사용자의 작업을 수행하도록 유도 Azure AI 갤러리에서 Machine Learning 예제를 가져옵니다.'
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 248696188c2f93104987e395479fdee49cdecf94
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6004a3092856b0dbe55e044676b6a93e77debb1e
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493155"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619513"
 ---
 # <a name="copy-other-peoples-work-to-do-data-science"></a>데이터 과학을 수행하기 위해 다른 사람의 작품 복사
 ## <a name="video-5-data-science-for-beginners-series"></a>비디오 5: 초급자를 위한 데이터 과학 시리즈

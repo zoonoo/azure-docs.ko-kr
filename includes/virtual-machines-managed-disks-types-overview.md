@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3dfc3c309fe3583ddd4307cbfe4e55bf6522ffc3
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 60d0425a7dbc532e856c7bf3c91065d2548c9b9a
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955870"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601407"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Azure에서 사용할 수 있는 디스크 유형
 
@@ -26,10 +26,10 @@ Azure managed disks는 현재 4 개의 디스크 유형을 제공 합니다. 각
 |   | Ultra disk   | 프리미엄 SSD   | 표준 SSD   | 표준 HDD   |
 |---------|---------|---------|---------|---------|
 |디스크 유형   |SSD   |SSD   |SSD   |HDD   |
-|시나리오   |IO 집약적 워크로드 - SAP HANA, 최상위 계층 데이터베이스(예: SQL, Oracle) 및 다른 트랜잭션 집약적 워크로드   |프로덕션 및 성능이 중요한 워크로드   |웹 서버, 적게 사용되는 엔터프라이즈 애플리케이션 및 개발/테스트   |백업, 중요하지 않음, 가끔 액세스   |
+|시나리오   |[SAP HANA](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md), 최상위 계층 데이터베이스 (예: SQL, Oracle) 및 기타 트랜잭션 집약적 워크 로드 등의 IO 집약적 워크 로드   |프로덕션 및 성능이 중요한 워크로드   |웹 서버, 적게 사용되는 엔터프라이즈 애플리케이션 및 개발/테스트   |백업, 중요하지 않음, 가끔 액세스   |
 |최대 디스크 크기   |65536 개 (GiB)    |32,767GiB    |32,767GiB   |32,767GiB   |
 |최대 처리량   |2000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|최대 IOPS   |160,000    |20,000   |6,000   |2,000   |
+|최대 IOPS   |160,000    |20,000   |6,000   |2, 000   |
 
 ## <a name="ultra-disk"></a>Ultra disk
 
@@ -43,7 +43,7 @@ Azure ultra disks는 Azure IaaS Vm에 대해 높은 처리량, 높은 IOPS 및 �
 
 - 디스크 용량: Ultra disks 용량은 GiB 4부터 64 TiB까지 범위를 가집니다.
 - 디스크 IOPS: Ultra disks는 디스크당 300 IOPS/160 GiB의 IOPS 제한을 지원 합니다. 프로 비전 된 IOPS를 얻으려면 선택한 디스크 IOPS가 VM IOPS 제한 보다 적은지 확인 합니다. 디스크당 최소 IOPS는 2 IOPS/GiB 이며 전체 기준이 최소 100 IOPS입니다. 예를 들어 GiB 울트라 디스크가 4 개 있는 경우 8 IOPS 대신 최소 100 IOPS를 갖게 됩니다.
-- 디스크 처리량: Ultra disks를 사용 하는 경우 단일 디스크의 처리량 제한은 각 프로 비전 된 2000 IOPS에 대해 256 KiB/s입니다 (초당 MBps = 10 ^ 6 바이트). 디스크당 최소 처리량은 프로 비전 된 각 IOPS에 대해 4KiB/s 이며, 최소 1 MBps의 전체 기준이 사용 됩니다.
+- 디스크 처리량: ultra disks에서 단일 디스크의 처리량 제한은 각 프로 비전 된 2000 IOPS에 대해 256 KiB/s입니다 (초당 MBps = 10 ^ 6 바이트). 디스크당 최소 처리량은 프로 비전 된 각 IOPS에 대해 4KiB/s 이며, 최소 1 MBps의 전체 기준이 사용 됩니다.
 - Ultra disks는 가상 머신에서 디스크를 분리 하지 않고도 런타임에 디스크 성능 특성 (IOPS 및 처리량) 조정을 지원 합니다. 디스크 성능 크기 조정 작업이 디스크에서 실행된 후 변경 내용이 실제로 적용되려면 최대 한 시간이 걸릴 수 있습니다. 24 시간 동안 성능 크기 조정 작업은 4 개로 제한 됩니다. 성능 대역폭 용량이 부족 하기 때문에 성능 크기 조정 작업이 실패할 수 있습니다.
 
 ### <a name="disk-size"></a>디스크 크기
@@ -53,22 +53,13 @@ Azure ultra disks는 Azure IaaS Vm에 대해 높은 처리량, 높은 IOPS 및 �
 |4     |1,200         |300         |
 |8     |2,400         |600         |
 |16     |4,800         |1,200         |
-|32     |9,600         |2,000         |
-|64     |19,200         |2,000         |
-|128     |38,400         |2,000         |
-|256     |76,800         |2,000         |
-|512     |80,000         |2,000         |
-|1,024-65,536(1TiB의 단위로 증가하는 이 범위의 크기)     |160,000         |2,000         |
+|32     |9,600         |2, 000         |
+|64     |19,200         |2, 000         |
+|128     |38,400         |2, 000         |
+|256     |76,800         |2, 000         |
+|512     |80,000         |2, 000         |
+|1,024-65,536(1TiB의 단위로 증가하는 이 범위의 크기)     |160,000         |2, 000         |
 
 ### <a name="ga-scope-and-limitations"></a>GA 범위 및 제한 사항
 
-지금은 ultra disks에는 다음과 같은 추가 제한 사항이 있습니다.
-
-- 지역 당 두 개의 가용성 영역에서 미국 동부 2, 동남 아시아 및 서유럽에서 지원 됩니다.  
-- 가용성 영역에서만 사용할 수 있음(영역 외부의 가용성 집합 및 단일 VM 배포에는 울트라 디스크를 연결하는 기능이 없음)
-- ES/DS v3 VM에서만 지원됨
-- 데이터 디스크로만 사용 가능하며 4k 물리적 섹터 크기만 지원함  
-- 빈 디스크로만 만들 수 있음  
-- 디스크 스냅숏, VM 이미지, 가용성 집합, 가상 머신 확장 집합 및 Azure disk encryption은 아직 지원 하지 않습니다.
-- Azure Backup 또는 Azure Site Recovery와의 통합을 아직 지원 하지 않습니다.
-- GA Vm에서 현재 IOPS의 최대 제한은 8만입니다.
+[!INCLUDE [managed-disks-ultra-disks-GA-scope-and-limitations](managed-disks-ultra-disks-GA-scope-and-limitations.md)]

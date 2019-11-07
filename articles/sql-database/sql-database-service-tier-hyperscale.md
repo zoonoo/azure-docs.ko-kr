@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 하이퍼스케일 개요 | Microsoft Docs
+title: Azure SQL Database Hyperscale 개요
 description: 이 문서에서는 Azure SQL Database의 vCore 기반 구매 모델에 포함된 하이퍼스케일 서비스 계층에 대해 설명하고 범용 및 중요 비즈니스용 서비스 계층과의 차이점을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: stevestein
-ms.author: sstein
+author: dimitri-furman
+ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: db6e47b39b7ebe35a6c0fef42af53f91e96c363f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 38402d6ccf5c5582fff878ad60bf1c9fd4a07118
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496203"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73687315"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -82,7 +82,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 다음 다이어그램은 하이퍼스케일 데이터베이스에 있는 여러 유형의 노드를 보여 줍니다.
 
-![아키텍처](./media/sql-database-hyperscale/hyperscale-architecture.png)
+![아키텍처](./media/sql-database-hyperscale/hyperscale-architecture2.png)
 
 Hyperscale 데이터베이스에는 다음과 같은 다양 한 유형의 구성 요소가 포함 됩니다.
 
@@ -104,7 +104,7 @@ Azure Storage는 데이터베이스의 모든 데이터 파일을 포함 합니�
 
 ## <a name="backup-and-restore"></a>Backup 및 복원
 
-백업은 파일-스냅숏 기반 이므로 거의 즉각적입니다. 저장소 및 계산 분리를 사용 하면 백업/복원 작업을 저장소 계층에 푸시하여 기본 계산 복제본의 처리 부담을 줄일 수 있습니다. 따라서 데이터베이스 백업은 기본 계산 노드의 성능에 영향을 주지 않습니다. 마찬가지로 복원 작업은 파일 스냅숏으로 되돌리고 데이터 작업의 크기와는 다른 방식으로 수행 됩니다. 복원은 일정 시간 작업이 며 몇 시간 또는 며칠이 아닌 몇 분만에 여러 테라바이트 데이터베이스를 복원할 수 있습니다. 기존 백업을 복원 하 여 새 데이터베이스를 만들면이 기능이 활용 됩니다. 또한 1tb 크기의 데이터베이스를 포함 하 여 개발 또는 테스트 목적으로 데이터베이스 복사본을 만드는 작업은 몇 분 안에 심지어 됩니다.
+백업은 파일-스냅숏 기반 이므로 거의 즉각적입니다. 저장소 및 계산 분리를 사용 하면 백업/복원 작업을 저장소 계층에 푸시하여 기본 계산 복제본의 처리 부담을 줄일 수 있습니다. 따라서 데이터베이스 백업은 기본 계산 노드의 성능에 영향을 주지 않습니다. 마찬가지로 복원 작업은 파일 스냅숏으로 되돌리고 데이터 작업의 크기와는 다른 방식으로 수행 됩니다. 복원은 일정 시간 작업이 며 몇 시간 또는 며칠이 아닌 몇 분만에 여러 테라바이트 데이터베이스를 복원할 수 있습니다. 기존 백업을 복원 하 여 새 데이터베이스를 만들면이 기능이 활용 됩니다. 즉, 개발 또는 테스트 목적으로 동일한 논리 서버 내에 데이터베이스 복사본을 만들 때 테라바이트 크기의 데이터베이스를 사용 하는 경우에도 몇 분이 심지어 됩니다.
 
 ## <a name="scale-and-performance-advantages"></a>확장 및 성능상의 이점
 

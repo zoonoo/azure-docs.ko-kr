@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 5d21d3800655cc0be78a2b63d13a3616b1d0f2f8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e4f1797d600a226eb152a464efe4da8ddbdb6207
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372722"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606247"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기
 
@@ -41,15 +41,15 @@ IoT Hub는 현재 다음과 같은 서비스를 사용자 지정 엔드포인트
 
 표준 [Event Hubs 통합 및 SDK](iot-hub-devguide-messages-read-builtin.md)를 사용하여 기본 제공 엔드포인트(**메시지/이벤트**)에서 디바이스-클라우드 메시지를 수신할 수 있습니다. 경로를 만든 후에는 해당 끝점에 대 한 경로를 만들지 않는 한 데이터는 기본 끝점으로의 이동이 중지 됩니다.
 
-### <a name="azure-blob-storage"></a>Azure Blob Storage
+### <a name="azure-storage"></a>Azure Storage
 
-IoT Hub에서는 데이터를 JSON 형식 뿐만 아니라 [Apache Avro](https://avro.apache.org/) 형식으로 Azure Blob Storage에 쓸 수 있습니다. JSON 형식을 인코딩하는 기능은 IoT Hub을 사용할 수 있는 모든 지역에서 일반적으로 사용할 수 있습니다. 기본값은 AVRO입니다. 인코딩 형식은 blob storage 끝점이 구성 된 경우에만 설정할 수 있습니다. 기존 끝점에 대 한 형식을 편집할 수 없습니다. JSON 인코딩을 사용 하는 경우 메시지 [시스템 속성](iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType을 **application/JSON** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다. 이러한 두 값은 대/소문자를 구분 하지 않습니다. 콘텐츠 인코딩이 설정 되지 않은 경우 IoT Hub는 메시지를 base 64 인코딩 형식으로 씁니다. IoT Hub 만들거나 업데이트 REST API, 특히 [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)또는 [Azure Powershell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0)을 사용 하 여 인코딩 형식을 선택할 수 있습니다. 다음 다이어그램에서는 Azure Portal에서 인코딩 형식을 선택 하는 방법을 보여 줍니다.
+메시지를 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) 및 [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2) 계정으로 라우팅할 수 IoT Hub 두 개의 저장소 서비스가 있습니다. Azure Data Lake Storage 계정은 blob storage를 기반으로 구축 된 [계층적 네임 스페이스](../storage/blobs/data-lake-storage-namespace.md)사용 저장소 계정입니다. 둘 다 저장소에 blob을 사용 합니다.
+
+IoT Hub에서는 데이터를 JSON 형식 뿐만 아니라 [Apache Avro](https://avro.apache.org/) 형식으로 Azure Storage에 쓸 수 있습니다. 기본값은 AVRO입니다. 인코딩 형식은 blob storage 끝점이 구성 된 경우에만 설정할 수 있습니다. 기존 끝점에 대 한 형식을 편집할 수 없습니다. JSON 인코딩을 사용 하는 경우 메시지 [시스템 속성](iot-hub-devguide-routing-query-syntax.md#system-properties)에서 contentType을 **application/JSON** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다. 이러한 두 값은 대/소문자를 구분 하지 않습니다. 콘텐츠 인코딩이 설정 되지 않은 경우 IoT Hub는 메시지를 base 64 인코딩 형식으로 씁니다. IoT Hub 만들거나 업데이트 REST API, 특히 [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, [Azure CLI](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)또는 [Azure Powershell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0)을 사용 하 여 인코딩 형식을 선택할 수 있습니다. 다음 다이어그램에서는 Azure Portal에서 인코딩 형식을 선택 하는 방법을 보여 줍니다.
 
 ![Blob storage 끝점 인코딩](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-또한 IoT Hub는 Blob Storage를 기반으로 구축 된 [계층적 네임 스페이스](../storage/blobs/data-lake-storage-namespace.md)사용 저장소 계정인 ADLS ( [Azure Data Lake Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-introduction) ) Gen2 계정에 대 한 메시지 라우팅을 지원 합니다. 이 기능은 공개 미리 보기 상태 이며 미국 서 부 2 및 미국 서 부에서 새로운 ADLS Gen2 계정에 사용할 수 있습니다. 이를 미리 보려면 [등록](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u) 하세요. 모든 클라우드 지역에이 기능을 곧 롤아웃할 예정입니다. 
-
-IoT Hub는 메시지를 일괄 처리하고, 일괄 처리가 특정 크기에 도달하거나 일정 시간이 경과할 때마다 Blob에 데이터를 씁니다. IoT Hub는 기본적으로 다음 파일 명명 규칙을 따릅니다. 
+일괄 처리가 특정 크기에 도달 하거나 특정 시간이 경과할 때마다 메시지를 일괄 처리 하 고 저장소에 데이터를 기록 IoT Hub 합니다. IoT Hub는 기본적으로 다음 파일 명명 규칙을 따릅니다. 
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -57,23 +57,28 @@ IoT Hub는 메시지를 일괄 처리하고, 일괄 처리가 특정 크기에 �
 
 원하는 파일 명명 규칙을 사용할 수 있지만, 나열된 토큰은 모두 사용해야 합니다. 쓸 데이터가 없으면 IoT Hub가 빈 Blob을 작성합니다.
 
-Blob Storage로 라우팅 시 파티션을 가정하지 않고 모든 컨테이너를 읽을 수 있도록, Blob을 등록한 다음, 반복하는 것이 좋습니다. 파티션 범위는 [Microsoft 시작 장애 조치(failover)](iot-hub-ha-dr.md#microsoft-initiated-failover) 또는 IoT Hub [수동 장애 조치(failover)](iot-hub-ha-dr.md#manual-failover) 중에 변경할 수 있습니다. Blob [목록 API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 를 사용 하 여 blob 목록을 열거할 수 있습니다. 지침으로 다음 샘플을 참조 하세요.
+저장소 컨테이너를 등록 한 다음이를 반복 하 여 파티션 가정 없이 모든 컨테이너를 읽도록 합니다. 파티션 범위는 [Microsoft 시작 장애 조치(failover)](iot-hub-ha-dr.md#microsoft-initiated-failover) 또는 IoT Hub [수동 장애 조치(failover)](iot-hub-ha-dr.md#manual-failover) 중에 변경할 수 있습니다. Blob [목록 API](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 를 사용 하 여 blob 목록을 열거할 수 있습니다. 지침으로 다음 샘플을 참조 하세요.
 
-   ```csharp
-        public void ListBlobsInContainer(string containerName, string iothub)
+```csharp
+public void ListBlobsInContainer(string containerName, string iothub)
+{
+    var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
+    var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
+    if (cloudBlobContainer.Exists())
+    {
+        var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
+        foreach (IListBlobItem item in results)
         {
-            var storageAccount = CloudStorageAccount.Parse(this.blobConnectionString);
-            var cloudBlobContainer = storageAccount.CreateCloudBlobClient().GetContainerReference(containerName);
-            if (cloudBlobContainer.Exists())
-            {
-                var results = cloudBlobContainer.ListBlobs(prefix: $"{iothub}/");
-                foreach (IListBlobItem item in results)
-                {
-                    Console.WriteLine(item.Uri);
-                }
-            }
+            Console.WriteLine(item.Uri);
         }
-   ```
+    }
+}
+```
+
+Azure Data Lake Gen2 호환 저장소 계정을 만들려면 새 V2 저장소 계정을 만들고 다음 이미지와 같이 **고급** 탭의 *계층 구조 네임 스페이스* 필드에서 *사용* 을 선택 합니다.
+
+![Azure Date Lake Gen2 storage를 선택 합니다.](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
+
 
 ### <a name="service-bus-queues-and-service-bus-topics"></a>Service Bus 큐 및 Service Bus 토픽
 
@@ -101,13 +106,13 @@ IoT Hub으로 사용되는 Service Bus 큐 및 토픽에는 **세션** 또는 **
 
 ## <a name="fallback-route"></a>대체(fallback) 경로
 
-대체(fallback) 경로는 기존 경로에서 쿼리 조건을 충족하지 않는 모든 메시지를 [Event Hubs](/azure/event-hubs/)와 호환되는 기본 제공 Event Hubs(**messages/events**)로 보냅니다. 메시지 라우팅이 설정되어 있으면 대체 경로 기능을 사용하도록 설정할 수 있습니다. 경로를 만든 후에는 해당 끝점에 대 한 경로를 만들지 않는 한 데이터를 기본 끝점으로 이동 하지 않습니다. 기본 제공 엔드포인트에 대한 경로가 없고 대체(fallback) 경로를 사용할 수 있는 경우 경로의 모든 쿼리 조건을 충족하지 않는 메시지만 기본 제공 엔드포인트로 전송됩니다. 또한 기존 경로가 모두 삭제된 경우에는 대체(fallback) 경로가 기본 제공 엔드포인트에서 모든 데이터를 수신하도록 설정해야 합니다.
+대체(fallback) 경로는 기존 경로에서 쿼리 조건을 충족하지 않는 모든 메시지를 **Event Hubs**와 호환되는 기본 제공 Event Hubs([messages/events](/azure/event-hubs/))로 보냅니다. 메시지 라우팅이 설정되어 있으면 대체 경로 기능을 사용하도록 설정할 수 있습니다. 경로를 만든 후에는 해당 끝점에 대 한 경로를 만들지 않는 한 데이터를 기본 끝점으로 이동 하지 않습니다. 기본 제공 엔드포인트에 대한 경로가 없고 대체(fallback) 경로를 사용할 수 있는 경우 경로의 모든 쿼리 조건을 충족하지 않는 메시지만 기본 제공 엔드포인트로 전송됩니다. 또한 기존 경로가 모두 삭제된 경우에는 대체(fallback) 경로가 기본 제공 엔드포인트에서 모든 데이터를 수신하도록 설정해야 합니다.
 
 Azure Portal > 메시지 라우팅 블레이드에서 대체 경로를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. [FallbackRouteProperties](/rest/api/iothub/iothubresource/createorupdate#fallbackrouteproperties)에 Azure Resource Manager를 사용하여 대체(fallback) 경로에 대해 사용자 지정 엔드포인트를 사용할 수도 있습니다.
 
 ## <a name="non-telemetry-events"></a>비-원격 분석 이벤트
 
-장치 원격 분석 외에도 메시지 라우팅을 통해 장치 쌍 변경 이벤트, 장치 수명 주기 이벤트 및 디지털 쌍 변경 이벤트 (공개 미리 보기)를 보낼 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트**로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **장치 수명 주기 이벤트**로 설정 된 데이터 원본을 사용 하 여 경로를 만들 경우 IoT Hub는 장치를 삭제 하거나 만들었는지 여부를 나타내는 메시지를 보냅니다. 마지막으로, 개발자는 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 디지털 쌍 **변경 IoT Hub 이벤트** 로 설정 된 데이터 원본이 있는 경로를 만들고 디지털 쌍 [속성이](../iot-pnp/iot-plug-and-play-glossary.md) 설정 되거나 변경 될 때마다 디지털 쌍으로 메시지를 보낼 수 있습니다. [ ](../iot-pnp/iot-plug-and-play-glossary.md)가 대체 되거나 기본 장치 쌍에 대해 변경 이벤트가 발생 하는 경우
+장치 원격 분석 외에도 메시지 라우팅을 통해 장치 쌍 변경 이벤트, 장치 수명 주기 이벤트 및 디지털 쌍 변경 이벤트 (공개 미리 보기)를 보낼 수 있습니다. 예를 들어, **디바이스 쌍 변경 이벤트**로 설정된 데이터 원본으로 경로가 생성되면, IoT Hub는 디바이스 쌍의 변경 사항을 포함하는 엔드포인트로 메시지를 전송합니다. 마찬가지로 **장치 수명 주기 이벤트**로 설정 된 데이터 원본을 사용 하 여 경로를 만들 경우 IoT Hub는 장치를 삭제 하거나 만들었는지 여부를 나타내는 메시지를 보냅니다. 마지막으로, 개발자는 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 디지털 쌍 **변경 IoT Hub 이벤트** 로 설정된 데이터 원본이 있는 경로를 만들고 디지털 쌍 [속성](../iot-pnp/iot-plug-and-play-glossary.md)이 설정 되거나 변경 될 때마다 디지털 쌍으로 메시지를 보낼 수 있습니다. [digital twin](../iot-pnp/iot-plug-and-play-glossary.md)이 대체 되거나 기본 장치 쌍에 대해 변경 이벤트가 발생하는 경우
 
 또한 IoT Hub는 이러한 이벤트를 기반으로 워크플로의 실시간 통합 및 자동화를 지 원하는 장치 이벤트를 게시 하 [는 Azure Event Grid와 통합](iot-hub-event-grid.md) 됩니다. [메시지 라우팅과 Event Grid 간의 주요 차이점](iot-hub-event-grid-routing-comparison.md)을 확인하고 내 시나리오에 무엇이 가장 적합한지 알아보세요.
 
@@ -131,7 +136,7 @@ IoT Hub 메시지 라우팅은 순서 대로 메시지를 끝점으로 배달 �
 
 IoT Hub는 허브 및 전송 메시지의 상태에 대 한 개요를 제공 하기 위해 라우팅 및 끝점과 관련 된 몇 가지 메트릭을 제공 합니다. 여러 메트릭의 정보를 결합하여 문제의 근본 원인을 식별할 수 있습니다. 예를 들어 메트릭 **라우팅 사용: 원격 분석 메시지 삭제** 또는 **d2c** 를 사용 하 여 경로 및 대체 (fallback) 경로에 대 한 쿼리와 일치 하지 않을 때 삭제 된 메시지 수를 식별 합니다. [IoT Hub 메트릭](iot-hub-metrics.md)에는 기본적으로 IoT Hub에 대해 활성화된 모든 메트릭이 나열됩니다.
 
-REST API [가져오기 끝점 상태](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth) 를 사용 하 여 [끝점 상태를 가져올 수](iot-hub-devguide-endpoints.md#custom-endpoints) 있습니다. 끝점 상태가 비정상 이거나 비정상 상태인 경우 라우팅 메시지 대기 시간과 관련 된 [IoT Hub 메트릭을](iot-hub-metrics.md) 사용 하 여 오류를 식별 하 고 디버그 하는 것이 좋습니다. 예를 들어 끝점 형식 Event Hubs의 경우 **D2c eventHubs**를 모니터링할 수 있습니다. IoT Hub가 궁극적으로 일관 된 상태 상태를 설정 하면 비정상 끝점의 상태가 정상으로 업데이트 됩니다.
+REST API [Endpoint Health 가져오기](https://docs.microsoft.com/rest/api/iothub/iothubresource/getendpointhealth#iothubresource_getendpointhealth)를 사용 하 여 Endpoint의 [Health 상태](iot-hub-devguide-endpoints.md#custom-endpoints) 를 가져올 수 있습니다. 끝점 상태가 비정상 이거나 비정상 상태인 경우 라우팅 메시지 대기 시간과 관련 된 [IoT Hub 메트릭을](iot-hub-metrics.md) 사용 하 여 오류를 식별 하 고 디버그 하는 것이 좋습니다. 예를 들어 끝점 형식 Event Hubs의 경우 **D2c eventHubs**를 모니터링할 수 있습니다. IoT Hub가 궁극적으로 일관 된 상태 상태를 설정 하면 비정상 끝점의 상태가 정상으로 업데이트 됩니다.
 
 Azure Monitor [진단 설정](../iot-hub/iot-hub-monitor-resource-health.md)에서 **경로** 진단 로그를 사용 하 여, 라우팅 쿼리를 평가 하는 동안 발생 하는 오류를 추적할 수 있습니다. 예를 들어 끝점이 중단 된 경우와 같이 IoT Hub에서 인식 되는 끝점 상태를 추적할 수 있습니다. 이러한 진단 로그는 사용자 지정 처리를 위해 Azure Monitor 로그, Event Hubs 또는 Azure Storage으로 전송 될 수 있습니다.
 

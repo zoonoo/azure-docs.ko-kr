@@ -6,18 +6,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: mjbrown
-ms.openlocfilehash: 683da62ad78cde1a4f72b2ac0554e90d78b3ac6e
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 92aaa42aeca294db62445a9434d0b5838a1f3855
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815021"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606528"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB MongoDB API 리소스 관리
 
+이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너의 관리를 자동화 하는 다양 한 작업을 수행 하는 방법을 설명 합니다. 이 문서에는 Azure Cosmos DB의 MongoDB 용 API에 대 한 예제만 있습니다. 다른 API 형식 계정에 대 한 예제를 찾으려면 Azure Cosmos DB의 API를 사용 하 여 [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [SQL](manage-sql-with-resource-manager.md), [테이블](manage-table-with-resource-manager.md) 아티클에 대 한 리소스 관리자 템플릿 사용을 참조 하세요.
+
 ## MongoDB 계정, 데이터베이스 및 컬렉션에 대 한 Azure Cosmos DB API 만들기<a id="create-resource"></a>
 
-Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 만듭니다. 이 템플릿은 데이터베이스 수준에서 400 r u/s 처리량을 공유 하는 두 개의 컬렉션을 사용 하 여 MongoDB API 용 Azure Cosmos 계정을 만듭니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb/) 를 방문 하 여 Azure Portal에서 배포 합니다. 템플릿을 로컬 컴퓨터에 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
+Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 만듭니다. 이 템플릿은 데이터베이스 수준에서 400 r u/s 처리량을 공유 하는 두 개의 컬렉션을 사용 하 여 MongoDB API 용 Azure Cosmos 계정을 만듭니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb/) 를 방문 하 여 Azure Portal에서 배포 합니다. 로컬 컴퓨터에 템플릿을 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
 
 > [!NOTE]
 > 계정 이름은 소문자 여야 하 고 31 자 < 합니다.
@@ -48,11 +50,11 @@ az group deployment create --resource-group $resourceGroupName \
 az cosmosdb show --resource-group $resourceGroupName --name accountName --output tsv
 ```
 
-`az cosmosdb show` 명령은 프로 비전 된 후 새로 만든 Azure Cosmos 계정을 보여 줍니다. CloudShell을 사용 하는 대신 로컬로 설치 된 Azure CLI 버전을 사용 하도록 선택 하는 경우 [AZURE CLI (명령줄 인터페이스)](/cli/azure/) 문서를 참조 하세요.
+`az cosmosdb show` 명령은 프로 비전 된 후 새로 만든 Azure Cosmos 계정을 보여 줍니다. CloudShell을 사용 하는 대신 로컬로 설치 된 Azure CLI 버전을 사용 하도록 선택 하는 경우 [Azure 명령줄 인터페이스 (CLI)](/cli/azure/) 문서를 참조 하세요.
 
 ## 데이터베이스의 업데이트 처리량 (r u/초)<a id="database-ru-update"></a>
 
-다음 템플릿은 데이터베이스의 처리량을 업데이트 합니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-database-ru-update/) 를 방문 하 여 Azure Portal에서 배포 합니다. 템플릿을 로컬 컴퓨터에 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
+다음 템플릿은 데이터베이스의 처리량을 업데이트 합니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-database-ru-update/) 를 방문 하 여 Azure Portal에서 배포 합니다. 로컬 컴퓨터에 템플릿을 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
 
 [!code-json[cosmosdb-mongodb-database-ru-update](~/quickstart-templates/101-cosmosdb-mongodb-database-ru-update/azuredeploy.json)]
 
@@ -73,7 +75,7 @@ az group deployment create --resource-group $resourceGroupName \
 
 ## 컬렉션의 업데이트 처리량 (r u/초)<a id="collection-ru-update"></a>
 
-다음 템플릿은 컬렉션의 처리량을 업데이트 합니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-collection-ru-update/) 를 방문 하 여 Azure Portal에서 배포 합니다. 템플릿을 로컬 컴퓨터에 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
+다음 템플릿은 컬렉션의 처리량을 업데이트 합니다. 템플릿을 복사 하 고 아래와 같이 배포 하거나 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-mongodb-collection-ru-update/) 를 방문 하 여 Azure Portal에서 배포 합니다. 로컬 컴퓨터에 템플릿을 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
 
 [!code-json[cosmosdb-mongodb-collection-ru-update](~/quickstart-templates/101-cosmosdb-mongodb-collection-ru-update/azuredeploy.json)]
 

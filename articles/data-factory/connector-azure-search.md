@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 Search 인덱스에 데이터 복사 | Microsoft Docs
+title: Azure Data Factory를 사용 하 여 검색 인덱스로 데이터 복사
 description: Azure Data Factory 파이프라인에서 복사 작업을 사용하여 Azure Search 인덱스에 데이터를 푸시하거나 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 703dcb5fee0c31328eee91c9673e62653d7aa698
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: f4e9e9f66d9bf1fecd4565d5eb469703e7a83d0d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286349"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681178"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Search 인덱스에 데이터 복사
 
@@ -43,9 +43,9 @@ Azure Search 연결된 서비스에 다음 속성이 지원됩니다.
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **AzureSearch** | 예 |
-| url | Azure Search 서비스의 URL입니다. | 예 |
-| Key | Azure Search 서비스의 관리자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| type | 형식 속성은 **AzureSearch**로 설정되어야 합니다. | 예 |
+| URL | Azure Search 서비스의 URL입니다. | 예 |
+| key | Azure Search 서비스의 관리자 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 Integration Runtime을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
 
 > [!IMPORTANT]
@@ -81,7 +81,7 @@ Azure Search에 데이터를 복사 하기 위해 지원 되는 속성은 다음
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **AzureSearchIndex** | 예 |
+| type | 데이터 세트의 type 속성을 **AzureSearchIndex**로 설정해야 합니다. | 예 |
 | indexName | Azure Search 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 예 |
 
 **예제:**
@@ -113,8 +113,8 @@ Azure Search에 데이터를 복사하려면 복사 작업의 원본 형식을 *
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **AzureSearchIndexSink** | 예 |
-| writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 다음과 같습니다. **Merge**(기본값) 및 **Upload**. | 아니요 |
+| type | 복사 작업 원본의 type 속성을 **AzureSearchIndexSink**로 설정해야 합니다. | 예 |
+| writeBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.<br/><br/>허용되는 값은 **Merge**(기본값) 및 **Upload**입니다. | 아니요 |
 | writeBatchSize | 버퍼 크기가 writeBatchSize에 도달한 경우 Azure Search 인덱스에 데이터를 업로드합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요.<br/><br/>허용되는 값은 정수 1~1,000이고 기본값은 1,000입니다. | 아니요 |
 
 ### <a name="writebehavior-property"></a>WriteBehavior 속성
@@ -170,13 +170,13 @@ Azure Search 서비스는 일괄 처리로 문서 작성을 지원합니다. 일
 
 | Azure Search 데이터 형식 | Azure Search 싱크에서 지원됨 |
 | ---------------------- | ------------------------------ |
-| String | Y |
+| 문자열 | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
-| Boolean | Y |
+| 부울 | Y |
 | DataTimeOffset | Y |
-| String Array | N |
+| 문자열 배열 | N |
 | GeographyPoint | N |
 
 현재 다른 데이터 형식 (예: ComplexType)은 지원 되지 않습니다. 지원 되는 Azure Search 데이터 형식의 전체 목록은 [지원 되는 데이터 형식 (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types)을 참조 하세요.

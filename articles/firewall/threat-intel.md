@@ -1,39 +1,36 @@
 ---
 title: Azure 방화벽 위협 인텔리전스 기반 필터링
-description: Azure 방화벽 위협 인텔리전스 필터링에 대해 알아봅니다
+description: Azure 방화벽 위협 인텔리전스 필터링에 대해 알아보기
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f6a60d7c29fc7e482e32233aa86d65a801e3f55c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60194050"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582245"
 ---
-# <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Azure 방화벽 위협 인텔리전스 기반 필터링-공개 미리 보기
+# <a name="azure-firewall-threat-intelligence-based-filtering"></a>Azure 방화벽 위협 인텔리전스 기반 필터링
 
 방화벽에서 알려진 악성 IP 주소 및 도메인과 주고받는 트래픽을 경고하고 거부할 수 있도록 하기 위해 위협 인텔리전스 기반 필터링을 사용하도록 설정할 수 있습니다. IP 주소 및 도메인은 Microsoft 위협 인텔리전스 피드에서 제공됩니다. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) Microsoft 위협 인텔리전스를 구동 하 고 Azure Security Center를 비롯 한 여러 서비스에서 사용 됩니다.
 
 ![방화벽 위협 인텔리전스](media/threat-intel/firewall-threat.png)
 
-> [!IMPORTANT]
-> 위협 인텔리전스 기반 필터링은 현재 공개 미리 보기로 제공 하 고 미리 보기 서비스 수준 계약을 사용 하 여 제공 됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.  자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+위협 인텔리전스 기반 필터링을 사용 하는 경우 연결 된 규칙이 NAT 규칙, 네트워크 규칙 또는 응용 프로그램 규칙 보다 먼저 처리 됩니다.
 
-위협 인텔리전스 기반 필터링을 사용 하는 경우 연결 된 규칙의 NAT 규칙, 네트워크 규칙을 응용 프로그램 규칙 보다 먼저 처리 됩니다. 미리 보기에서 가장 높은 신뢰도 레코드만 포함 됩니다.
+규칙이 트리거되는 경우에만 경고를 기록 하도록 선택 하거나 경고 및 거부 모드를 선택할 수 있습니다.
 
-규칙이 트리거되면 하거나 경고를 선택 하 고 모드를 거부 될 때만 경고를 기록 하도록 선택할 수 있습니다.
-
-기본적으로 위협 인텔리전스에 따라 필터링 하는 경고 모드로 사용 됩니다. 이 기능을 해제 하 하거나 해당 지역의 포털 인터페이스를 사용할 수 있게 될 때까지 모드를 변경할 수 없습니다.
+기본적으로 위협 인텔리전스 기반 필터링은 경고 모드에서 사용 하도록 설정 됩니다. 사용자의 지역에서 포털 인터페이스를 사용할 수 있게 될 때까지이 기능을 끄거나 모드를 변경할 수 없습니다.
 
 ![위협 인텔리전스 기반 필터링 포털 인터페이스](media/threat-intel/threat-intel-ui.png)
 
 ## <a name="logs"></a>로그
 
-다음 로그 발췌문에 트리거 규칙:
+다음 로그 발췌문에서는 트리거된 규칙을 보여 줍니다.
 
 ```
 {
@@ -49,12 +46,12 @@ ms.locfileid: "60194050"
 
 ## <a name="testing"></a>테스트
 
-- **아웃 바운드 테스트** -환경의 손상 된 것 처럼 아웃 바운드 트래픽 경고는 드물게 발생 해야 합니다. 하는 데 테스트 아웃 바운드 경고도 작업 하는 경고를 트리거하는 테스트 FQDN을 만들었습니다. 사용 하 여 **testmaliciousdomain.eastus.cloudapp.azure.com** 아웃 바운드 테스트 합니다.
+- **아웃 바운드 테스트** -아웃 바운드 트래픽 경고는 환경이 손상 된 것 처럼 드물게 발생 합니다. 아웃 바운드 경고가 작동 하는지 테스트 하는 데 도움이 되도록 경고를 트리거하는 테스트 FQDN이 생성 되었습니다. 아웃 바운드 테스트에 **testmaliciousdomain.eastus.cloudapp.azure.com** 를 사용 합니다.
 
-- **테스트 인바운드** -DNAT 규칙 방화벽에서 구성 된 경우 들어오는 트래픽을 경고 표시 될 수 있습니다. 특정 원본만 DNAT 규칙에서 허용 되지 않으며 트래픽 그렇지 않으면 거부 됩니다 하는 경우에 마찬가지입니다. Azure 방화벽이 모든 알려진된 포트 스캐너;에 대해 경고 하지 않습니다. 스캐너에만 알려진 악의적인 활동에도 참여.
+- **인바운드 테스트** -dnat 규칙이 방화벽에 구성 된 경우 들어오는 트래픽에 대 한 경고를 볼 수 있습니다. DNAT 규칙에서 특정 원본만 허용 되 고 트래픽이 거부 되는 경우에도 마찬가지입니다. Azure 방화벽은 알려진 모든 포트 스캐너에 대해 경고 하지 않습니다. 악의적인 작업에도 참여 하는 것으로 알려진 스캐너 에서만.
 
 ## <a name="next-steps"></a>다음 단계
 
-- 참조 [Azure 방화벽 Log Analytics 샘플](log-analytics-samples.md)
-- 자세한 방법 [배포 하 고 Azure 방화벽 구성](tutorial-firewall-deploy-portal.md)
-- 검토를 [Microsoft 보안 인텔리전스 보고서](https://www.microsoft.com/en-us/security/operations/security-intelligence-report)
+- [Azure 방화벽 Log Analytics 샘플](log-analytics-samples.md) 을 참조 하세요.
+- [Azure 방화벽을 배포 및 구성](tutorial-firewall-deploy-portal.md) 하는 방법 알아보기
+- [Microsoft 보안 인텔리전스 보고서](https://www.microsoft.com/en-us/security/operations/security-intelligence-report) 검토

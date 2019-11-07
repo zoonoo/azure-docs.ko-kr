@@ -1,6 +1,6 @@
 ---
 title: 배포 및 사용
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Azure Machine Learning Studio (클래식)를 사용 하 여 기계 학습 워크플로 및 모델을 웹 서비스로 배포할 수 있습니다. 그런 다음, 이러한 웹 서비스를 실시간으로 또는 배치 모드로 예측을 수행하도록 인터넷을 통해 애플리케이션에서 기계 학습 모델을 호출하는 데 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: bf169a9b7064bd83caf0c9f8ec6dd6dd55894d67
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 47cd04615919fcc9db757ed4b9e8fd06eb297592
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493017"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684830"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (클래식) 웹 서비스: 배포 및 소비
 
@@ -31,8 +31,8 @@ Studio (클래식) 포털과 Microsoft Azure Machine Learning 웹 서비스 포�
 
 다음 링크는 새 웹 서비스를 배포하는 방법에 대한 일반 정보를 제공합니다.
 
-* Azure Resource Manager를 기준으로 하는 새 웹 서비스를 배포하는 방법에 대한 개요는 [새 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
-* 웹 서비스를 배포하는 방법에 대한 연습은 [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
+* Azure Resource Manager를 기준으로 하는 새 웹 서비스를 배포하는 방법에 대한 개요는 [새 웹 서비스 배포](deploy-a-machine-learning-web-service.md)를 참조하세요.
+* 웹 서비스를 배포하는 방법에 대한 연습은 [Azure Machine Learning 웹 서비스 배포](deploy-a-machine-learning-web-service.md)를 참조하세요.
 * 웹 서비스를 만들고 배포 하는 방법에 대 한 전체 연습은 [자습서 1: 신용 위험 예측](tutorial-part1-credit-risk.md)을 시작 합니다.
 * 웹 서비스 배포의 특정 예제는 다음을 참조하세요.
 
@@ -87,8 +87,8 @@ Cmdlet을 사용 하려면 먼저 [AzAccount](/powershell/module/az.accounts/con
 
 Azure Machine Learning 웹 서비스 포털에서 웹 서비스를 테스트할 수 있습니다. 여기에는 RR(요청-응답 서비스) 및 BES(일괄 처리 실행 서비스) 인터페이스가 포함됩니다.
 
-* [새 웹 서비스 배포](publish-a-machine-learning-web-service.md)
-* [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)
+* [새 웹 서비스 배포](deploy-a-machine-learning-web-service.md)
+* [Azure Machine Learning 웹 서비스 배포](deploy-a-machine-learning-web-service.md)
 * [자습서 3: 신용 위험 모델 배포](tutorial-part3-credit-risk-deploy.md)
 
 ### <a name="from-excel"></a>엑셀에서

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: takamath
-ms.openlocfilehash: 22d7afa889994068c3f906d0b9adbc1a74bc4839
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1bb5d979ff7c9fe6e2afec4c7ebd81649b4488e3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69642592"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73581225"
 ---
 # <a name="connect-to-your-virtual-machines-through-a-browser"></a>브라우저를 통해 가상 컴퓨터에 연결 
 
@@ -26,8 +26,6 @@ DevTest Labs는 브라우저를 통해 가상 컴퓨터에 연결할 수 있도�
 
 *브라우저 연결* 을 사용 하도록 설정 하면 랩 사용자는 브라우저를 통해 가상 컴퓨터에 액세스할 수 있습니다.  
 
-> [!NOTE]
-> 랩 가상 컴퓨터에서 브라우저 연결을 사용 하도록 설정 하는 것이 미리 보기 상태입니다.
 
 ## <a name="create-a-lab-virtual-machine"></a>랩 가상 컴퓨터 만들기
 

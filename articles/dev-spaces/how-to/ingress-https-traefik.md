@@ -9,18 +9,18 @@ ms.date: 08/13/2019
 ms.topic: conceptual
 description: 사용자 지정 traefik 수신 컨트롤러를 사용 하 고 해당 수신 컨트롤러를 사용 하 여 HTTPS를 구성 하도록 Azure Dev Spaces를 구성 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 50908bde65b69cb475391cd30bca758dd571f114
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: c015fe8e7108f07d66d2464c4f8b6287e8f54446
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036944"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582316"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>사용자 지정 traefik 수신 컨트롤러 사용 및 HTTPS 구성
 
 이 문서에서는 사용자 지정 traefik 수신 컨트롤러를 사용 하도록 Azure Dev Spaces를 구성 하는 방법을 보여 줍니다. 또한이 문서에서는 HTTPS를 사용 하도록 사용자 지정 수신 컨트롤러를 구성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독. 계정이 없는 경우 [무료 계정][azure-account-create]에 만들 수 있습니다.
 * [Azure CLI 설치][az-cli]
@@ -45,7 +45,7 @@ NAME                                STATUS   ROLES   AGE    VERSION
 aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.1
 ```
 
-Traefik 수신 컨트롤러에 대 한 Kubernetes 네임 스페이스를 만들고를 사용 `helm`하 여 설치 합니다.
+Traefik 수신 컨트롤러에 대 한 Kubernetes 네임 스페이스를 만들고 `helm`를 사용 하 여 설치 합니다.
 
 ```console
 kubectl create ns traefik
@@ -87,7 +87,7 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
-*REPLACE_ME_WITH_HOST_SUFFIX > <* 모든 인스턴스를 traefik로 교체 하 고 값을 엽니다 [.][values-yaml]  *MY_CUSTOM_DOMAIN* 도메인을 사용 하 여 *MY_CUSTOM_DOMAIN*합니다. 또한 *kubernetes.io/ingress.class: traefik # Custom 수신*과 *kubernetes.io/ingress.class: traefik-Azds # Dev Spaces* 를 바꿉니다. 업데이트 `values.yaml` 된 파일의 예는 다음과 같습니다.
+*REPLACE_ME_WITH_HOST_SUFFIX > <* 모든 인스턴스를 traefik로 교체 하 고 값을 엽니다 [.][values-yaml]  *MY_CUSTOM_DOMAIN* 도메인을 사용 하 여 *MY_CUSTOM_DOMAIN*합니다. 또한 *kubernetes.io/ingress.class: traefik # Custom 수신*과 *kubernetes.io/ingress.class: traefik-Azds # Dev Spaces* 를 바꿉니다. 다음은 업데이트 된 `values.yaml` 파일의 예입니다.
 
 ```yaml
 # This is a YAML-formatted file.
@@ -110,7 +110,7 @@ gateway:
 
 변경 내용을 저장하고 파일을 닫습니다.
 
-을 사용 하 여 `helm install`샘플 응용 프로그램을 배포 합니다.
+`helm install`를 사용 하 여 샘플 응용 프로그램을 배포 합니다.
 
 ```console
 helm install -n bikesharing . --dep-up --namespace dev --atomic
@@ -118,14 +118,14 @@ helm install -n bikesharing . --dep-up --namespace dev --atomic
 
 위의 예제에서는 *dev* 네임 스페이스에 샘플 응용 프로그램을 배포 합니다.
 
-을 사용 `azds space select` 하 여 샘플 응용 프로그램에서 개발 공간을 선택 하 고를 사용 하 여 `azds list-uris`샘플 응용 프로그램에 액세스 하는 url을 표시 합니다.
+`azds space select`를 사용 하 여 샘플 응용 프로그램에서 *개발* 공간을 선택 하 고 `azds list-uris`를 사용 하 여 샘플 응용 프로그램에 액세스 하는 url을 표시 합니다.
 
 ```console
 azds space select -n dev
 azds list-uris
 ```
 
-아래 출력은의 `azds list-uris`예제 url을 보여 줍니다.
+아래 출력은 `azds list-uris`의 Url 예제를 보여 줍니다.
 
 ```console
 Uri                                                  Status
@@ -134,16 +134,16 @@ http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-`azds list-uris` 명령에서 공용 URL을 열어 *bikesharingweb* 서비스로 이동합니다. 위의 예제에서 *bikesharingweb* 서비스에 대한 공용 URL은 `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`입니다.
+*명령에서 공용 URL을 열어*bikesharingweb`azds list-uris` 서비스로 이동합니다. 위의 예제에서 *bikesharingweb* 서비스에 대한 공용 URL은 `http://dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`입니다.
 
-명령을 사용 하 여 개발 중인 하위 공간을 만들고 url을 나열 하 여 자식 dev 공간에 액세스 합니다. `azds space select`
+`azds space select` 명령을 사용 하 여 *개발* 중인 하위 공간을 만들고 url을 나열 하 여 자식 dev 공간에 액세스 합니다.
 
 ```console
 azds space select -n dev/azureuser1 -y
 azds list-uris
 ```
 
-아래 출력은의 `azds list-uris` 예제 url을 표시 하 여 *azureuser1* 자식 개발 공간의 샘플 응용 프로그램에 액세스 합니다.
+아래 출력은 *azureuser1* 자식 개발 공간의 샘플 응용 프로그램에 액세스 하기 위해 `azds list-uris`의 url 예제를 보여 줍니다.
 
 ```console
 Uri                                                  Status
@@ -152,11 +152,11 @@ http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/  Available
 http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/         Available
 ```
 
-`azds list-uris` 명령에서 공용 URL을 열어 *azureuser1* 자식 개발 공간의 *bikesharingweb* 서비스로 이동 합니다. 위의 예제에서 *azureuser1* 자식 `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`개발 공간의 *BIKESHARINGWEB* 서비스에 대 한 공용 URL은입니다.
+`azds list-uris` 명령에서 공용 URL을 열어 *azureuser1* 자식 개발 공간의 *bikesharingweb* 서비스로 이동 합니다. 위의 예제에서 *azureuser1* 자식 개발 공간의 *bikesharingweb* 서비스에 대 한 공용 URL은 `http://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/`입니다.
 
 ## <a name="configure-the-traefik-ingress-controller-to-use-https"></a>HTTPS를 사용 하도록 traefik 수신 컨트롤러 구성
 
-아래 예제 `dev-spaces/samples/BikeSharingApp/traefik-values.yaml` 와 비슷한 파일을 만듭니다. 사용자 고유의 전자 메일을 사용 하 여 *전자 메일* 값을 업데이트 합니다. 그러면 암호화를 통해 인증서를 생성 하는 데 사용 됩니다.
+아래 예제와 비슷한 `dev-spaces/samples/BikeSharingApp/traefik-values.yaml` 파일을 만듭니다. 사용자 고유의 전자 메일을 사용 하 여 *전자 메일* 값을 업데이트 합니다. 그러면 암호화를 통해 인증서를 생성 하는 데 사용 됩니다.
 
 ```yaml
 fullnameOverride: traefik
@@ -201,7 +201,7 @@ ssl:
     - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
 ```
 
-만든 *traefik* 파일을 포함 `helm repo update` 하 여 *traefik* 서비스를 업데이트 합니다.
+만든 *traefik* 파일을 포함 하 여 `helm repo update`를 사용 하 여 *traefik* 서비스를 업데이트 합니다.
 
 ```console
 cd ..
@@ -211,9 +211,9 @@ helm upgrade traefik stable/traefik --namespace traefik --values traefik-values.
 위의 명령은 *traefik* 의 값을 사용 하 여 새 버전의 traefik 서비스를 실행 하 고 이전 서비스를 제거 합니다. 또한 traefik 서비스는 HTTPS를 사용 하도록 웹 트래픽 리디렉션을 암호화 하 고 시작 하 여 TLS 인증서를 만듭니다.
 
 > [!NOTE]
-> 새 버전의 traefik 서비스를 시작 하는 데 몇 분 정도 걸릴 수 있습니다. 을 사용 하 여 `kubectl get pods --namespace traefik --watch`진행률을 확인할 수 있습니다.
+> 새 버전의 traefik 서비스를 시작 하는 데 몇 분 정도 걸릴 수 있습니다. `kubectl get pods --namespace traefik --watch`를 사용 하 여 진행률을 확인할 수 있습니다.
 
-*Dev/azureuser1* 자식 공간의 샘플 응용 프로그램으로 이동 하 여 HTTPS를 사용 하도록 리디렉션됩니다. 또한 페이지가 로드 되지만 브라우저에 몇 가지 오류가 표시 됩니다. 브라우저 콘솔을 열면 HTTP 리소스를 로드 하려는 HTTPS 페이지와 관련 된 오류가 표시 됩니다. 예를 들어:
+*Dev/azureuser1* 자식 공간의 샘플 응용 프로그램으로 이동 하 여 HTTPS를 사용 하도록 리디렉션됩니다. 또한 페이지가 로드 되지만 브라우저에 몇 가지 오류가 표시 됩니다. 브라우저 콘솔을 열면 HTTP 리소스를 로드 하려는 HTTPS 페이지와 관련 된 오류가 표시 됩니다. 예:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.traefik.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.
@@ -261,7 +261,7 @@ Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.traefik.MY_C
 ...
 ```
 
-디렉터리로 이동 하 고를 사용 `azds up` 하 여 업데이트 된 BikeSharingWeb 서비스를 실행 합니다. `BikeSharingWeb`
+`BikeSharingWeb` 디렉터리로 이동 하 여 `azds up`를 사용 하 여 업데이트 된 BikeSharingWeb 서비스를 실행 합니다.
 
 ```console
 cd BikeSharingWeb/
@@ -288,7 +288,7 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 애플리케�
 
 [azds-yaml]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/azds.yaml
 [azure-account-create]: https://azure.microsoft.com/free
-[helm-installed]: https://github.com/helm/helm/blob/master/docs/install.md
+[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [helpers-js]: https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/BikeSharingWeb/pages/helpers.js#L7
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get

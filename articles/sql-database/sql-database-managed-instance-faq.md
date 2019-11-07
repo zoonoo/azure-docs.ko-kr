@@ -1,5 +1,5 @@
 ---
-title: SQL Database 관리 되는 인스턴스 FAQ | Microsoft Docs
+title: SQL Database 관리 되는 인스턴스 FAQ
 description: SQL Database 관리 되는 인스턴스 FAQ (질문과 대답)
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 7e341cf8a4ff2a18e44e36d73ad5dbc642582802
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 214b35cf5b56dcfc268ee26e8ca892b7814c2547
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496287"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688103"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 관리 되는 인스턴스 FAQ (질문과 대답)
 
@@ -164,7 +164,7 @@ DNS 구성은 결국 새로 고쳐집니다.
 
 관리 되는 인스턴스가 처음으로 프로 비전 되 면 표준 시간대 구성을 설정할 수 있습니다. 기존 관리 되는 인스턴스의 표준 시간대를 변경 하는 것은 지원 되지 않습니다. 자세한 내용은 [표준 시간대 제한 사항](sql-database-managed-instance-timezone.md#limitations)을 참조 하세요.
 
-해결 방법에는 적절 한 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만든 다음 수동 백업 및 복원을 수행 하거나 권장 사항을 수행 [하는 것](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/)이 포함 됩니다.
+해결 방법에는 적절 한 표준 시간대를 사용 하 여 관리 되는 인스턴스를 새로 만든 다음 수동 백업 및 복원을 수행 하거나 권장 사항을 [cross-instance point-in-time restore](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) 수행하는 것이 포함 됩니다.
 
 
 ## <a name="how-do-i-resolve-performance-issues-with-my-managed-instance"></a>관리 되는 인스턴스를 사용 하 여 성능 문제 해결 어떻게 할까요?

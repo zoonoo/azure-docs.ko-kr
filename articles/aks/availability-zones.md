@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: eb48afb15e1314dcf670ba04afd9609876dc9539
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3790511bf3f71cdeb01853e4051a013719502d9f
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472830"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605083"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역를 사용 하는 AKS (Azure Kubernetes Service) 클러스터 만들기
 
@@ -72,9 +72,9 @@ Azure managed disks를 사용 하는 볼륨은 현재 영역 리소스가 아닙
 
 ## <a name="create-an-aks-cluster-across-availability-zones"></a>가용성 영역에서 AKS 클러스터 만들기
 
-[Az aks create][az-aks-create] 명령을 사용 하 여 클러스터를 만들 때 `--zones` 매개 변수는 배포할 영역 에이전트 노드를 정의 합니다. 클러스터에 대 한 AKS 제어 평면 구성 요소는 `--zones` 매개 변수를 지정 하는 클러스터를 만들 때 사용 가능한 가장 높은 구성의 영역에도 분산 됩니다.
+[Az aks create][az-aks-create] 명령을 사용 하 여 클러스터를 만들 때 `--zones` 매개 변수는 배포할 영역 에이전트 노드를 정의 합니다. 클러스터에 대 한 AKS 제어 평면 구성 요소는 클러스터를 만들 때 `--zones` 매개 변수를 정의할 때 사용 가능한 가장 높은 구성의 영역에도 분산 됩니다.
 
-AKS 클러스터를 만들 때 기본 에이전트 풀에 대 한 영역을 정의 하지 않으면 클러스터의 AKS 제어 평면 구성 요소가 가용성 영역을 사용 하지 않습니다. [Az aks nodepool add][az-aks-nodepool-add] 명령을 사용 하 여 노드 풀을 더 추가 하 고 이러한 새 에이전트 노드에 대해 `--zones` 지정할 수 있지만, 제어 평면 구성 요소는 가용성 영역을 인식 하지 않고 유지 됩니다. 노드 풀 또는 AKS 제어 평면 구성 요소를 배포한 후에는 영역 인식 기능을 변경할 수 없습니다.
+AKS 클러스터를 만들 때 기본 에이전트 풀에 대 한 영역을 정의 하지 않으면 클러스터의 AKS 제어 평면 구성 요소가 가용성 영역을 사용 하지 않습니다. [Az aks nodepool add][az-aks-nodepool-add] 명령을 사용 하 여 노드 풀을 더 추가 하 고 이러한 새 노드에 대해 `--zones` 지정할 수 있지만, 제어 평면 구성 요소는 가용성 영역을 인식 하지 않고 유지 됩니다. 노드 풀 또는 AKS 제어 평면 구성 요소를 배포한 후에는 영역 인식 기능을 변경할 수 없습니다.
 
 다음 예제에서는 *Myresourcegroup*이라는 리소스 그룹에 *myAKSCluster* 라는 AKS 클러스터를 만듭니다. 총 *3* 개의 노드가 생성 됩니다. 1 개의 에이전트는 영역 *1*에 있고, 하나는 *2*로, *3은 3*입니다. AKS 제어 평면 구성 요소는 클러스터 만들기 프로세스의 일부로 정의 되므로 사용 가능한 가장 높은 구성의 영역에도 분산 됩니다.
 

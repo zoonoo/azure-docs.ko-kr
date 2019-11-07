@@ -1,5 +1,5 @@
 ---
-title: 원격 데스크톱의 그래픽 성능 문제 진단-Azure
+title: 그래픽 성능 문제 진단 원격 데스크톱-Azure
 description: 이 문서에서는 원격 데스크톱 프로토콜 세션에서 RemoteFX 그래픽 카운터를 사용 하 여 Windows 가상 데스크톱의 그래픽에서 성능 문제를 진단 하는 방법을 설명 합니다.
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: b6a78fbf2fcb12962b42537965deea6c7912315d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: c41a433ee19969546e1db2aa583c72ed166b7ebf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676540"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607471"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>원격 데스크톱의 그래픽 성능 문제 진단
 
@@ -24,7 +24,7 @@ ms.locfileid: "71676540"
 
 1. 원격 세션에서 Windows 명령 프롬프트를 엽니다.
 2. **Qwinsta** 명령을 실행 하 고 세션 이름을 찾습니다.
-    - 세션이 다중 세션 VM (가상 컴퓨터)에서 호스트 되는 경우: 각 카운터의 인스턴스는 세션 이름 (예: "rdp-tcp 37")을 접미사 하는 번호를 갖습니다.
+    - 세션이 다중 세션 VM (가상 컴퓨터)에서 호스트 되는 경우 각 카운터의 인스턴스는 세션 이름에 접미사를 표시 하는 숫자 (예: "rdp-tcp 37")를 갖습니다.
     - 세션이 vGPU (가상 그래픽 처리 장치)를 지 원하는 VM에서 호스트 되는 경우: 각 카운터의 인스턴스는 VM이 아닌 서버에 저장 됩니다. 카운터 인스턴스는 세션 이름에 "Win8 Enterprise VM"과 같은 VM 이름을 포함 합니다.
 
 >[!NOTE]
@@ -34,7 +34,7 @@ ms.locfileid: "71676540"
 
 원격 세션 이름을 확인 한 후 다음 지침에 따라 원격 세션에 대 한 RemoteFX 그래픽 성능 카운터를 수집 합니다.
 
-1. **시작** > **관리**도구성능 > **모니터**를 선택 합니다.
+1. **시작** > **관리 도구** > **성능 모니터**를 선택 합니다.
 2. **성능 모니터** 대화 상자에서 **모니터링 도구**를 확장 하 고 **성능 모니터**를 선택한 다음 **추가**를 선택 합니다.
 3. **카운터 추가** 대화 상자의 **사용 가능한 카운터** 목록에서 RemoteFX 그래픽에 대 한 섹션을 확장 합니다.
 4. 모니터링할 카운터를 선택 합니다.
@@ -77,7 +77,7 @@ RDP는 33 밀리초의 평균 인코딩 시간을 지원 하므로 초당 최대
 
 프레임 품질 카운터를 사용 하 여 프레임 품질 문제를 진단 합니다. 이 카운터는 출력 프레임의 품질을 원본 프레임의 품질에 대 한 백분율로 나타냅니다. 품질 손실은 RemoteFX 때문 이거나 그래픽 원본에 내재 될 수도 있습니다. RemoteFX가 품질 손실을 야기 하는 경우이 문제는 더 높은 품질의 콘텐츠를 전송 하기 위해 네트워크 또는 서버 리소스가 부족할 수 있습니다.
 
-## <a name="mitigation"></a>완화
+## <a name="mitigation"></a>해결 방법
 
 서버 리소스에서 병목 현상이 발생 하는 경우 다음 방법 중 하나를 수행 하 여 성능을 향상 시킵니다.
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce91d53bec3c74a8a55d46fd53bc3cf0ccd7e28a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: bf713029f26ac7ec0b6c043fb887fa5190083888
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550631"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576069"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -45,12 +45,12 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 
 다음 표는 Windows 또는 Linux에서 실행 되는 경우 세 가지 호스팅 계획에 대 한 현재 지원 수준을 나타냅니다.
 
-| | 사용량 과금 플랜 | 프리미엄 플랜 | 전용 계획 |
+| | 소비 계획 | 프리미엄 플랜 | 전용 계획 |
 |-|:----------------:|:------------:|:----------------:|
-| Windows | GA | 미리 보기 | GA |
-| Linux | GA | 미리 보기 | GA |
+| Windows | GA | GA | GA |
+| Linux | GA | GA | GA |
 
-## <a name="consumption-plan"></a>사용량 과금 플랜
+## <a name="consumption-plan"></a>소비 계획
 
 소비 계획을 사용 하는 경우 Azure Functions 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가 및 제거 됩니다. 이 서버리스 계획은 자동으로 규모를 조정하며, 함수를 실행하는 경우에만 컴퓨팅 리소스에 대한 요금이 청구됩니다. 소비 계획에서 구성 가능한 시간 후 함수 실행 시간이 초과됩니다.
 
@@ -65,7 +65,7 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 
 소비 계획에서 실행 하는 경우 비용을 계산 하는 방법에 대 한 자세한 내용은 [소비 계획 비용 이해](functions-consumption-costs.md)를 참조 하세요.
 
-## <a name="premium-plan"></a>프리미엄 요금제 (미리 보기)
+## <a name="premium-plan"></a>프리미엄 요금제
 
 프리미엄 요금제를 사용 하는 경우에는 소비 계획과 마찬가지로 들어오는 이벤트 수에 따라 Azure Functions 호스트의 인스턴스가 추가 되 고 제거 됩니다.  프리미엄 요금제는 다음과 같은 기능을 지원 합니다.
 
@@ -113,11 +113,11 @@ App Service 계획에서 실행하는 경우 함수 앱이 올바르게 실행�
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 
-Always On이 설정된 경우에도 개별 함수의 실행 시간 초과는 [host.json](functions-host-json.md#functiontimeout) 프로젝트 파일의 `functionTimeout` 설정에 의해 제어됩니다.
+Always On이 설정된 경우에도 개별 함수의 실행 시간 초과는 `functionTimeout`host.json[ 프로젝트 파일의 ](functions-host-json.md#functiontimeout) 설정에 의해 제어됩니다.
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>기존 응용 프로그램의 호스팅 계획 결정
 
-함수 앱에서 사용하는 호스팅 계획을 결정하려면 [Azure Portal](https://portal.azure.com)의 함수 앱에 대한 **개요** 탭에서 **App Service 계획/가격 책정 계층**을 참조하세요. App Service 계획의 경우 가격 책정 계층도 표시됩니다.
+함수 앱에서 사용하는 호스팅 계획을 결정하려면 **Azure Portal**의 함수 앱에 대한 **개요** 탭에서 [App Service 계획/가격 책정 계층](https://portal.azure.com)을 참조하세요. App Service 계획의 경우 가격 책정 계층도 표시됩니다.
 
 ![포털에서 크기 조정 계획 보기](./media/functions-scale/function-app-overview-portal.png)
 
@@ -128,7 +128,7 @@ appServicePlanId=$(az functionapp show --name <my_function_app_name> --resource-
 az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output tsv
 ```  
 
-이 명령의 출력이 `dynamic`인 경우 함수 앱은 소비 계획 상태입니다. 이 명령의 출력을 `ElasticPremium` 경우 함수 앱은 프리미엄 계획에 있습니다. 다른 모든 값은 App Service 계획의 다른 계층을 표시 합니다.
+이 명령의 출력이 `dynamic`인 경우 함수 앱은 소비 계획 상태입니다. 이 명령의 출력을 `ElasticPremium`경우 함수 앱은 프리미엄 계획에 있습니다. 다른 모든 값은 App Service 계획의 다른 계층을 표시 합니다.
 
 ## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 

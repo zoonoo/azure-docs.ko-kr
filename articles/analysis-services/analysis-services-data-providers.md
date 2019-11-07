@@ -1,18 +1,18 @@
 ---
-title: Azure Analysis Services에 연결하는 데 필요한 클라이언트 라이브러리 | Microsoft Docs
+title: Azure Analysis Services 클라이언트 라이브러리 | Microsoft Docs
 description: 클라이언트 애플리케이션 및 도구에서 Azure Analysis Services를 연결하는 데 필요한 클라이언트 라이브러리에 대해 설명합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ce5083d444aa05b59677fb46e7aa80200835412
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: HT
+ms.openlocfilehash: f78ac8686f23c47995cab9686c2ca3f6cf88fa6b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147083"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573049"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Azure Analysis Services에 연결하기 위한 클라이언트 라이브러리
 

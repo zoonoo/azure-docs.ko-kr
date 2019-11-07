@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d9a879e92f78275f2366ccfc008068afbe208e5a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 276e741a9462c19a3cba9ad1f9ac44e2da7ef1d3
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497389"
+ms.locfileid: "73580696"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -181,7 +181,7 @@ best_run, fitted_model = local_run.get_output()
 
 예측을 위해 DNNs를 활용 하려면 AutoMLConfig의 `enable_dnn` 매개 변수를 true로 설정 해야 합니다. 
 
-DNNs를 사용 하려면 GPU Sku와 2 개 이상의 노드가 있는 AML 계산 클러스터를 계산 대상으로 사용 하는 것이 좋습니다. 자세한 내용은 [AML 계산 설명서](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute) 를 참조 하세요. Gpu를 포함 하는 VM 크기에 대 한 자세한 내용은 [gpu 최적화 가상 머신 크기](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-gpu) 를 참조 하세요.
+DNNs를 사용 하려면 GPU Sku와 2 개 이상의 노드가 있는 AML 계산 클러스터를 계산 대상으로 사용 하는 것이 좋습니다. 자세한 내용은 [AML 계산 설명서](how-to-set-up-training-targets.md#amlcompute) 를 참조 하세요. Gpu를 포함 하는 VM 크기에 대 한 자세한 내용은 [gpu 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) 를 참조 하세요.
 
 DNN 교육이 완료 될 때까지 충분 한 시간을 허용 하려면 실험 시간 제한을 몇 시간 이상으로 설정 하는 것이 좋습니다.
 

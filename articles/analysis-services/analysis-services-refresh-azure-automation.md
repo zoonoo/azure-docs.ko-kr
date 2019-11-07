@@ -1,17 +1,17 @@
 ---
 title: Azure Automation를 사용 하 여 Azure Analysis Services 모델 새로 고침 Microsoft Docs
-description: Azure Automation를 사용 하 여 모델 새로 고침을 코딩 하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Automation를 사용 하 여 Azure Analysis Services에 대 한 모델 새로 고침을 코딩 하는 방법을 설명 합니다.
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: ed1634ef1009149dc2937174b20248eab9cd335f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a79123d57f80474e1871ef68f9a92ea9417089ac
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294788"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572364"
 ---
 # <a name="refresh-with-azure-automation"></a>Azure Automation을 사용하여 새로 고침
 
@@ -27,7 +27,7 @@ Azure Automation 및 PowerShell Runbook을 사용 하 여 Azure 분석 테이블
 
 서비스 주체를 만드는 방법에 대 한 자세한 내용은 [Azure Portal를 사용 하 여 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 > [!IMPORTANT]
 > 다음 예에서는 Azure Analysis Services 방화벽을 사용 하지 않는 것으로 가정 합니다. 방화벽을 사용 하는 경우 요청 개시자의 공용 IP 주소를 방화벽에서 허용 목록 해야 합니다.
@@ -101,7 +101,7 @@ Runbook이 성공적으로 실행 되 면 다음과 같은 출력이 표시 됩�
  
     ![일정 만들기](./media/analysis-services-refresh-azure-automation/14.png)
 
-2. **일정** > **새 일정 만들기**를 클릭 한 다음 세부 정보를 입력 합니다.
+2. **일정** 을 클릭 하 > **새 일정을 만든**다음 세부 정보를 입력 합니다.
 
     ![일정 구성](./media/analysis-services-refresh-azure-automation/15.png)
 
@@ -146,9 +146,9 @@ Azure Data Factory를 사용 하 여 runbook을 사용 하려면 먼저 runbook�
 
 |속성  |값  |
 |---------|---------|
-|**AnalysisServicesDatabase**     |Azure Analysis Services 데이터베이스의 이름입니다. <br/> 예: AdventureWorksDB         |
+|**AnalysisServicesDatabase**     |Azure Analysis Services 데이터베이스의 이름입니다. <br/> 예: Adventureworksdb.msi         |
 |**AnalysisServicesServer**     |Azure Analysis Services 서버 이름입니다. <br/> 예: https: \//westus/servers/myserver/모델/AdventureWorks/         |
-|**DatabaseRefreshType**     |수행할 새로 고침의 유형입니다. <br/> 예: 전체         |
+|**DatabaseRefreshType**     |수행할 새로 고침의 유형입니다. <br/> 예: Full         |
 
 예제 JSON 본문:
 
@@ -175,7 +175,7 @@ Azure Data Factory를 사용 하 여 runbook을 사용 하려면 먼저 runbook�
 >
 >Azure Automation Hybrid Worker를 구성 하는 방법에 대 한 자세한 내용은 [Hybrid Runbook Worker를 사용 하 여 데이터 센터 또는 클라우드에서 리소스 자동화](../automation/automation-hybrid-runbook-worker.md#install-a-hybrid-runbook-worker)를 참조 하세요.
 
-Hybrid Worker 구성 되 면 [Data Factory 사용](#consume-with-data-factory)섹션에 설명 된 대로 Webhook를 만듭니다.  여기에서 유일한 차이점은 웹 후크를 구성할 때  >  **에서 실행** **Hybrid Worker** 옵션을 선택 하는 것입니다.
+Hybrid Worker 구성 되 면 [Data Factory 사용](#consume-with-data-factory)섹션에 설명 된 대로 Webhook를 만듭니다.  여기에서 유일한 차이점은 웹 후크를 구성할 때 > **에서 실행** **Hybrid Worker** 옵션을 선택 하는 것입니다.
 
 Hybrid Worker를 사용 하는 webhook 예:
 

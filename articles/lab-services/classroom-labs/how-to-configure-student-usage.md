@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 691907d1c221283f99ba59f0937cfbaf673f427a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 0ab8d8688c7856eeae7d75527620c2b77ae78029
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72324534"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584018"
 ---
 # <a name="add-and-manage-lab-users"></a>랩 사용자 추가 및 관리
 이 문서에서는 랩에 사용자를 추가하고, 사용자를 랩에 등록하고, VM을 사용할 수 있는 시간을 제어하는 방법 등을 설명합니다. 
@@ -36,6 +36,9 @@ ms.locfileid: "72324534"
 4. **저장**을 선택합니다. 목록에서 사용자의 이메일 주소 및 해당 상태(등록됨 또는 등록 해제됨)를 확인합니다. 
 
     ![사용자 목록](../media/how-to-configure-student-usage/users-list-new.png)
+
+    > [!NOTE]
+    > 랩에 등록 되 면 목록에 사용자 이름이 표시 됩니다. 목록에 표시 되는 이름은 Azure Active Directory 사용자의 이름과 성을 사용 하 여 생성 됩니다. 
 
 ### <a name="add-users-by-uploading-a-csv-file"></a>CSV 파일을 업로드하여 사용자 추가
 사용자의 이메일 주소가 있는 CSV 파일을 업로드하여 사용자를 추가할 수도 있습니다.
@@ -60,15 +63,16 @@ ms.locfileid: "72324534"
 랩에서 **액세스 제한**을 사용하도록 설정하면 사용자 목록의 사용자만 등록 링크를 사용하여 랩에 등록할 수 있습니다. 이 옵션은 기본적으로 사용 하도록 설정 되어 있습니다. 
 
 ### <a name="invite-all-users"></a>모든 사용자 초대
+1. 이미 페이지에 있지 않은 경우 **사용자** 보기로 전환 하 고 도구 모음에서 **모두 초대** 를 선택 합니다. 
 
-1. 랩의 **사용자** 페이지로 전환 합니다. 
-2. 도구 모음에서 **모두 초대** 를 선택 합니다. 
-3. 사용자에 게 **메시지** 를 입력 합니다. 선택적 단계입니다.
-4. 그런 다음 **보내기**를 선택 합니다.
+    ![학생 선택](../media/tutorial-setup-classroom-lab/invite-all-button.png)
 
-    ![모든 사용자 초대](../media/how-to-configure-student-usage/invite-all.png)
+1. **전자 메일로 초대 보내기** 페이지에서 선택적 메시지를 입력 하 고 **보내기**를 선택 합니다. 이메일에는 등록 링크가 자동으로 포함됩니다. ...를 선택 하 여이 등록 링크를 가져올 수 있습니다.  **(줄임표)** 도구 모음 및 **등록 링크**. 
 
-    **사용자** 목록의 **초대** 열에이 작업의 상태가 표시 됩니다. 초대 전자 메일에는 사용자가 랩에 등록 하는 데 사용할 수 있는 등록 링크가 포함 됩니다. 
+    ![이메일로 등록 링크 보내기](../media/tutorial-setup-classroom-lab/send-email.png)
+4. **사용자** 목록에 **초대** 상태가 표시 됩니다. 상태가 **전송 중** 으로 변경 되 고 **\<날짜 >에서 전송**됩니다. 
+
+    학생을 클래스에 추가 하 고 랩의 용도를 관리 하는 방법에 대 한 자세한 내용은 [학생 사용을 구성 하는 방법](how-to-configure-student-usage.md)을 참조 하세요.
 
 ### <a name="invite-selected-users"></a>선택한 사용자 초대
 
@@ -80,9 +84,9 @@ ms.locfileid: "72324534"
 
     ![선택한 사용자에 게 전자 메일 보내기](../media/how-to-configure-student-usage/send-invitation-to-selected-users.png)
 
-    **사용자** 목록의 **초대** 열에이 작업의 상태가 표시 됩니다. 초대 전자 메일에는 사용자가 랩에 등록 하는 데 사용할 수 있는 등록 링크가 포함 됩니다.
+    **사용자** 목록의 **초대** 열에서이 작업의 상태를 볼 수 있습니다. 초대 전자 메일은 사용자가 랩에 등록 하는 데 사용할 수 있는 등록 링크를 포함 합니다.
 
-1. 페이지에 아직 표시되지 않으면 **사용자** 보기로 전환합니다. 
+1. 페이지에 아직 없는 경우 **사용자** 보기로 전환 합니다. 
 
 ## <a name="get-registration-link"></a>등록 링크 가져오기
 포털에서 등록 링크를 가져와 자신의 전자 메일 클라이언트 응용 프로그램을 사용 하 여 보낼 수도 있습니다. 
@@ -107,19 +111,21 @@ ms.locfileid: "72324534"
 다음 단계를 사용하여 사용자당 할당량을 설정할 수 있습니다. 
 
 1. 페이지가 아직 활성화되지 않은 경우 왼쪽 메뉴에서 **사용자**를 선택합니다. 
-2. 도구 모음에서 **사용자 당 할당량 (&lt;number @ no__t-2 시간)** 을 선택 합니다. 
+2. 도구 모음에서 **사용자 당 할당량: \<number > 시간** 을 선택 합니다. 
 3. **사용자 당 할당량** 페이지에서 예약 된 클래스 시간 외에 각 사용자 (학생)에 게 제공할 시간 수를 지정한 다음 **저장**을 선택 합니다.
 
     ![사용자당 할당량](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. 이제 도구 모음에 변경 된 값이 표시 됩니다. **사용자 당 할당량: &lt;number number @ no__t-2**. 
+5. 도구 모음에 변경 된 값이 표시 됩니다. **사용자 당 할당량: \<시간 >** 입니다. 
 
     ![사용자 당 할당량-이후](../media/how-to-configure-student-usage/quot-per-user-after.png)
 
     > [!IMPORTANT]
-    > [VM의 예약된 실행 시간](how-to-create-schedules.md)은 사용자에게 할당된 할당량에 계산되지 않습니다. 할당량은 학생이 VM을 사용하는 일정 시간 이외의 시간을 반영합니다. 
+    > [VM의 예약된 실행 시간](how-to-create-schedules.md)은 사용자에게 할당된 할당량에 계산되지 않습니다. 할당량은 학생이 VM을 사용하는 일정 시간 이외의 시간입니다. 
 
 ## <a name="set-additional-quota-for-a-specific-user"></a>특정 사용자에 대 한 추가 할당량 설정
-사용자에 대 한 별도의 할당량을 설정할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
+사용자에 대 한 추가 할당량을 지정할 수 있습니다. 이 할당량은 이전 섹션의 모든 사용자에 대해 설정 된 공통 할당량에 추가 됩니다. 예를 들어 (강사)가 모든 사용자에 대 한 할당량을 10 시간으로 설정 하 고 특정 사용자에 대해 5 시간의 추가 할당량을 설정 하는 경우 해당 사용자는 15 시간 (10 + 5)의 할당량을 가집니다. 나중에 15로 일반 할당량을 변경 하는 경우 사용자에 게 20 (15 + 5)의 할당량이 표시 됩니다. 이 전체 할당량은 예약 된 시간을 벗어납니다. 예약 시간 동안 학생이 랩 VM에서 소비한 시간은이 할당량에 대해 계산 되지 않습니다. 
+
+이렇게 하려면 다음 단계를 따르십시오.
 
 1. **사용자 페이지의** 사용자 목록에서 사용자 (학생)를 선택 합니다.
 2. 그런 다음 도구 모음에서 **할당량 조정** 을 선택 합니다. 
@@ -128,10 +134,42 @@ ms.locfileid: "72324534"
 3. 선택한 사용자에 대 한 **추가 시간** 을 입력 한 다음 **적용**을 선택 합니다. 
 
     ![사용자에 대 한 추가 할당량](../media/how-to-configure-student-usage/additional-quota.png)
-4. **사용** 열에 사용자에 대 한 업데이트 된 사용이 표시 됩니다. 
+4. **사용** 열에서 사용자에 대 한 업데이트 된 사용이 표시 됩니다. 
 
     ![사용자에 대 한 새로운 사용](../media/how-to-configure-student-usage/new-usage-hours.png)
 
+## <a name="student-accounts"></a>학생 계정
+교실 랩에 학생을 추가 하려면 전자 메일 계정을 사용 합니다. 다음과 같은 유형의 전자 메일 계정을 사용할 수 있습니다.
+
+- 대학 AAD (Office 365 Azure Active Directory)에서 제공 하는 학생 전자 메일 계정입니다. 
+- `@outlook.com`, `@hotmail.com`, `@msn.com`, `@live.com`등의 Microsoft 전자 메일 계정입니다.
+- Yahoo 또는 Google에서 제공 하는 것과 같은 타사 전자 메일 계정. 그러나 이러한 유형의 계정은 Microsoft 계정 연결 해야 합니다.
+- GitHub 계정. 이 계정은 Microsoft 계정 연결 해야 합니다.
+
+### <a name="using-a-non-microsoft-email-account"></a>타사 전자 메일 계정 사용
+학생 들은 Microsoft 이외의 전자 메일 계정을 사용 하 여 교실 랩에 등록 하 고 로그인 할 수 있습니다.  그러나 등록을 위해서는 학생 들이 타사 전자 메일 주소에 연결 된 Microsoft 계정를 먼저 만들어야 합니다.
+
+많은 학생 들에 게 Microsoft 이외의 전자 메일 주소에 연결 된 Microsoft 계정 이미 있을 수 있습니다. 예를 들어 학생 들이 Microsoft의 다른 제품 또는 서비스 (예: Office, Skype, OneDrive, Windows)와 전자 메일 주소를 사용한 경우 이미 Microsoft 계정 있습니다.  
+
+학생이 등록 URL을 클릭 하 여 교실에 로그인 하면 전자 메일 주소 및 암호를 입력 하 라는 메시지가 표시 됩니다. 학생이 Microsoft 계정 연결 되어 있지 않은 Microsoft 계정를 사용 하 여 로그인 하려고 하면 학생은 다음 오류 메시지를 받게 됩니다. 
+
+![오류 메시지](../media/how-to-configure-student-usage/cant-find-account.png)
+
+Microsoft 계정에 등록 하려면 학생이 [http://signup.live.com](http://signup.live.com)으로 이동 해야 합니다.  
+
+> [!IMPORTANT]
+> 학생이 교실 랩에 로그인 하는 경우 Microsoft 계정를 만들 수 있는 옵션이 제공 되지 않습니다. 따라서 Microsoft가 아닌 계정을 사용 하는 학생 들에 게 보내는이 등록 링크를 교실 랩 등록 전자 메일에 포함 하는 것이 좋습니다.
+
+### <a name="using-a-github-account"></a>GitHub 계정 사용
+학생은 기존 GitHub 계정을 사용 하 여 교실 랩에 등록 하 고 로그인 할 수도 있습니다. 학생에 게 GitHub 계정에 연결 된 Microsoft 계정 이미 있는 경우 이전 섹션에 표시 된 대로 로그인 하 고 암호를 제공할 수 있습니다. 아직 GitHub 계정을 Microsoft 계정에 연결 하지 않은 경우 **로그인 옵션**을 선택 해야 합니다.
+
+![로그인 옵션 링크](../media/how-to-configure-student-usage/signin-options.png)
+
+**로그인 옵션** 페이지에서 **GitHub로 로그인**을 선택 합니다.
+
+![GitHub 링크를 사용 하 여 로그인](../media/how-to-configure-student-usage/signin-github.png)
+
+마지막으로, GitHub 계정에 연결 된 Microsoft 계정를 만들라는 메시지가 표시 됩니다. 학생 들이 **다음**을 선택 하면 자동으로 발생 합니다.  그러면 학생이 즉시 로그인 되어 교실 랩에 연결 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.

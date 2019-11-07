@@ -9,27 +9,27 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/18/2019
-ms.openlocfilehash: 6467937e2aca08e234cb136c5f610503627921fb
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: d515982dc2937b660de75ee723cebe39b33bec7d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042187"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580895"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
-[Azure Logic Apps에서 온-프레미스 데이터 원본에 연결](../logic-apps/logic-apps-gateway-connection.md)하기 전에 로컬 컴퓨터에 [온-프레미스 데이터 게이트웨이](https://aka.ms/on-premises-data-gateway-installer) 를 다운로드 하 여 설치 합니다. 게이트웨이는 온-프레미스 데이터 원본과 논리 앱 간에 빠른 데이터 전송 및 암호화를 제공 하는 브리지로 작동 합니다. Power BI, Microsoft Flow, PowerApps 및 Azure Analysis Services와 같은 다른 클라우드 서비스와 동일한 게이트웨이 설치를 사용할 수 있습니다. 이러한 서비스에서 게이트웨이를 사용 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+[Azure Logic Apps에서 온-프레미스 데이터 원본에 연결](../logic-apps/logic-apps-gateway-connection.md)하기 전에 로컬 컴퓨터에 [온-프레미스 데이터 게이트웨이](https://aka.ms/on-premises-data-gateway-installer) 를 다운로드 하 여 설치 합니다. 게이트웨이는 온-프레미스 데이터 원본과 논리 앱 간에 빠른 데이터 전송 및 암호화를 제공 하는 브리지로 작동 합니다. Power BI, 전원 자동화, Power Apps 및 Azure Analysis Services와 같은 다른 클라우드 서비스와 동일한 게이트웨이 설치를 사용할 수 있습니다. 이러한 서비스에서 게이트웨이를 사용 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
 * [Microsoft Power BI 온-프레미스 데이터 게이트웨이](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [Microsoft PowerApps 온-프레미스 데이터 게이트웨이](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [Microsoft Flow 온-프레미스 데이터 게이트웨이](https://flow.microsoft.com/documentation/gateway-manage/)
+* [Microsoft Power Apps 온-프레미스 데이터 게이트웨이](https://powerapps.microsoft.com/tutorials/gateway-management/)
+* [온-프레미스 데이터 게이트웨이 전원 자동화](https://flow.microsoft.com/documentation/gateway-manage/)
 * [Azure Analysis Services 온-프레미스 데이터 게이트웨이](../analysis-services/analysis-services-gateway.md)
 
 이 문서에서는 온-프레미스 데이터 게이트웨이를 다운로드, 설치 및 설정 하 여 Azure Logic Apps에서 온-프레미스 데이터 원본에 액세스할 수 있도록 하는 방법을 보여 줍니다. 이 항목의 뒷부분에서 [데이터 게이트웨이가 작동 하는 방식](#gateway-cloud-service) 에 대해 자세히 알아볼 수도 있습니다. 게이트웨이에 대 한 자세한 내용은 [온-프레미스 게이트웨이](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)란?을 참조 하세요.
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 계정 및 구독 구독이 있는 Azure 계정이 없는 경우 [무료 azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -40,10 +40,10 @@ ms.locfileid: "73042187"
     > [!NOTE]
     > 하나의 게이트웨이 설치와 하나의 Azure 게이트웨이 리소스를 서로 연결할 수 있습니다. 동일한 게이트웨이 설치를 여러 Azure 계정 또는 Azure 게이트웨이 리소스에 연결할 수 없습니다. 그러나 Azure 계정은 여러 게이트웨이 설치 및 Azure gateway 리소스에 연결할 수 있습니다. 온-프레미스 트리거 또는 작업에서 다양 한 Azure 구독을 선택 하 고 연결 된 게이트웨이 리소스를 선택할 수 있습니다.
 
-  * 회사 계정 또는 학교 계정으로 로그인 해야 합니다. *조직* 계정이 라고도 합니다 .이 계정에는 `username@contoso.com` 같습니다. Azure B2B (게스트) 계정 또는 개인 Microsoft 계정 (예: @hotmail.com 또는 @outlook.com)을 사용할 수 없습니다.
+  * 회사 계정 또는 학교 계정으로 로그인 해야 합니다. *조직* 계정이 라고도 합니다 .이 계정에는 `username@contoso.com`같습니다. Azure B2B (게스트) 계정 또는 개인 Microsoft 계정 (예: @hotmail.com 또는 @outlook.com)을 사용할 수 없습니다.
 
     > [!TIP]
-    > Office 365 제품에 등록 하 고 회사 메일 주소를 제공 하지 않은 경우 주소는 `username@domain.onmicrosoft.com` 처럼 보일 수 있습니다. 사용자 계정은 Azure Active Directory (Azure AD)의 테 넌 트 내에 저장 됩니다. 대부분의 경우 Azure AD 계정의 UPN (사용자 계정 이름)은 전자 메일 주소와 동일 합니다.
+    > Office 365 제품에 등록 하 고 회사 메일 주소를 제공 하지 않은 경우 주소는 `username@domain.onmicrosoft.com`처럼 보일 수 있습니다. 사용자 계정은 Azure Active Directory (Azure AD)의 테 넌 트 내에 저장 됩니다. 대부분의 경우 Azure AD 계정의 UPN (사용자 계정 이름)은 전자 메일 주소와 동일 합니다.
     >
     > Microsoft 계정에 연결 된 [Visual Studio 표준 구독](https://visualstudio.microsoft.com/vs/pricing/) 을 사용 하려면 먼저 [Azure AD에서 테 넌 트를 만들거나](../active-directory/develop/quickstart-create-new-tenant.md) 기본 디렉터리를 사용 합니다. 디렉터리에 암호를 가진 사용자를 추가한 다음 해당 사용자에 게 Azure 구독에 대 한 액세스 권한을 부여 합니다. 그런 다음 이 사용자 이름 및 암호를 사용하여 게이트웨이 설치 중에 로그인할 수 있습니다.
 
@@ -105,7 +105,7 @@ ms.locfileid: "73042187"
 
    게이트웨이 설치는 하나의 Azure 계정에만 연결할 수 있습니다.
 
-1. **이 컴퓨터에 새 게이트웨이 등록**  > **다음**을 선택 합니다. 이 단계에서는 게이트웨이 [클라우드 서비스](#gateway-cloud-service)에 게이트웨이 설치를 등록 합니다.
+1. **이 컴퓨터에 새 게이트웨이 등록** > **다음**을 선택 합니다. 이 단계에서는 게이트웨이 [클라우드 서비스](#gateway-cloud-service)에 게이트웨이 설치를 등록 합니다.
 
    ![로컬 컴퓨터에 게이트웨이 등록](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -140,7 +140,7 @@ ms.locfileid: "73042187"
 
       ![게이트웨이 서비스의 다른 지역 선택](./media/logic-apps-gateway-install/select-region-gateway-install.png)
 
-1. 최종 확인 창에서 정보를 검토 합니다. 이 예에서는 Logic Apps, Power BI, PowerApps 및 Microsoft Flow에 동일한 계정을 사용 하므로 이러한 모든 서비스에 대해 게이트웨이를 사용할 수 있습니다. 준비가 되 면 **닫기**를 선택 합니다.
+1. 최종 확인 창에서 정보를 검토 합니다. 이 예에서는 Logic Apps, Power BI, Power Apps 및 파워 자동화에 동일한 계정을 사용 하므로 이러한 모든 서비스에 대해 게이트웨이를 사용할 수 있습니다. 준비가 되 면 **닫기**를 선택 합니다.
 
    ![데이터 게이트웨이 정보 확인](./media/logic-apps-gateway-install/finished-gateway-default-location.png)
 
@@ -179,7 +179,7 @@ ms.locfileid: "73042187"
 
 1. 설치 관리자가 열리면 게이트웨이를 설치 하는 데 사용 된 것과 동일한 Azure 계정으로 로그인 합니다.
 
-1. **다음**예와 같이 **기존 게이트웨이  >  마이그레이션, 복원 또는 인수** 를 선택 합니다.
+1. **다음**예와 같이 **기존 게이트웨이 > 마이그레이션, 복원 또는 인수** 를 선택 합니다.
 
    ![Migrate, restore, or takeover an existing gateway(기존 게이트웨이 마이그레이션, 복원 또는 인수) 선택](./media/logic-apps-gateway-install/migrate-recover-take-over-gateway.png)
 

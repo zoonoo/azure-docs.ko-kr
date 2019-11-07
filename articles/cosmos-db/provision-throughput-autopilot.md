@@ -1,19 +1,19 @@
 ---
-title: Autopilot 모드의 처리량을 사용 하 여 Azure Cosmos 컨테이너 및 데이터베이스를 만듭니다.
+title: Autopilot 모드에서 Azure Cosmos 컨테이너 및 데이터베이스를 만듭니다.
 description: Autopilot 모드에서 이점, 사용 사례 및 Azure Cosmos 데이터베이스 및 컨테이너를 프로 비전 하는 방법에 대해 알아봅니다.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 598dc6394e8be8b3372f4ed61a522454830a22d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 3e2d9b892ad42563b481a0b1fe6a468daefad672
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512276"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606417"
 ---
-# <a name="create-azure-cosmos-containers-and-databases-with-provisioned-throughput-in-autopilot-mode-preview"></a>Autopilot 모드에서 프로 비전 된 처리량을 사용 하 여 Azure Cosmos 컨테이너 및 데이터베이스 만들기 (미리 보기)
+# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Autopilot 모드에서 Azure Cosmos 컨테이너 및 데이터베이스 만들기 (미리 보기)
 
 Azure Cosmos DB를 사용 하면 수동 모드 또는 autopilot 모드에서 컨테이너에 대 한 처리량을 프로 비전 할 수 있습니다. 이 문서에서는 autopilot 모드의 이점 및 사용 사례에 대해 설명 합니다.
 
@@ -24,7 +24,9 @@ Azure Cosmos DB를 사용 하면 수동 모드 또는 autopilot 모드에서 컨
 
 더 이상 프로 비전 된 처리량을 수동으로 관리 하거나 속도 제한 문제를 처리할 필요가 없습니다. Autopilot 모드로 구성 된 Azure Cosmos 컨테이너는 워크 로드의 가용성, 대기 시간, 처리량 또는 성능에 영향을 주지 않고 워크 로드에 대 한 응답으로 즉시 크기를 조정할 수 있습니다. 높은 사용률에서 autopilot 모드로 구성 된 Azure Cosmos 컨테이너는 진행 중인 작업에 영향을 주지 않고 확장 하거나 축소할 수 있습니다.
 
-Autopilot 모드에서 컨테이너 및 데이터베이스를 구성할 때 초과 하지 `Tmax` 최대 처리량을 지정 해야 합니다. 그러면 컨테이너는 `0.1*Tmax < T < Tmax` 범위 내에서 워크 로드 요구 사항에 따라 즉시 크기를 조정할 수 있습니다. 즉, 컨테이너 및 데이터베이스는 구성 된 처리량 값의 최소 10%에서 구성 된 최대 값까지 작업 요구 사항에 따라 즉시 크기를 조정 합니다. 언제 든 지 autopilot 데이터베이스 또는 컨테이너의 최대 처리량 (Tmax) 설정을 변경할 수 있습니다.
+Autopilot 모드에서 컨테이너 및 데이터베이스를 구성할 때 초과 하지 `Tmax` 최대 처리량을 지정 해야 합니다. 그러면 컨테이너는 `0.1*Tmax < T < Tmax` 범위 내에서 워크 로드 요구 사항에 따라 즉시 크기를 조정할 수 있습니다. 즉, 컨테이너와 데이터베이스는 워크 로드 요구 사항에 따라 즉시 크기를 조정 하며, 구성 된 최대 처리량 값의 10%에서 낮은 값까지, 그리고 구성 된 최대 처리량 값에 따라 조정 됩니다. 언제 든 지 autopilot 데이터베이스 또는 컨테이너의 최대 처리량 (Tmax) 설정을 변경할 수 있습니다.
+
+Autopilot 미리 보기 중에는 컨테이너 또는 데이터베이스에 대해 지정 된 최대 처리량에 대해 시스템이 계산 된 저장소 제한 내에서 작동할 수 있습니다. 저장소 제한을 초과 하는 경우 최대 처리량이 더 높은 값으로 자동 조정 됩니다. Autopilot 모드에서 데이터베이스 수준 처리량을 사용 하는 경우 데이터베이스 내에서 허용 되는 컨테이너 수는 (0.001 * 최대 처리량)로 계산 됩니다. 예를 들어 2만 autopilot r u/s를 프로 비전 하는 경우 데이터베이스에는 20 개의 컨테이너가 있을 수 있습니다.
 
 ## <a name="benefits-of-autopilot-mode"></a>Autopilot 모드의 이점
 
@@ -60,11 +62,21 @@ Autopilot 모드로 구성 된 Azure Cosmos 컨테이너에 대 한 사용 사�
 
 |  | 수동 모드에서 구성 된 컨테이너  | Autopilot 모드로 구성 된 컨테이너 |
 |---------|---------|---------|
-| **프로 비전 된 처리량** | 수동으로 프로 비전 됨 | 워크 로드 사용 패턴에 따라 사전에 대응적 조정 됩니다. |
-| **요청/작업의 요율 제한 (429)**  | 소비가 프로 비전 된 용량을 초과 하는 경우 발생할 수 있습니다. | 는 발생 하지 않습니다.  |
+| **프로 비전 된 처리량** | 수동으로 프로 비전 됨 | 워크 로드 사용 패턴을 기반으로 자동으로 즉시 확장 됩니다. |
+| **요청/작업의 요율 제한 (429)**  | 소비가 프로 비전 된 용량을 초과 하는 경우 발생할 수 있습니다. | 소비 된 처리량이 autopilot 모드에서 선택 하는 최대 처리량 내에 있는 경우에는 발생 하지 않습니다.   |
 | **용량 계획** |  초기 용량 계획을 수행 하 고 필요한 처리량을 프로 비전 해야 합니다. |    용량 계획에 대해 걱정할 필요가 없습니다. 시스템은 용량 계획 및 용량 관리를 자동으로 처리 합니다. |
 | **가격 책정** | 시간당 수동 프로 비전 된 r u/초 | 단일 쓰기 지역 계정의 경우 시간당 autopilot p s/s를 사용 하 여 시간 단위로 사용 되는 처리량에 대 한 비용을 지불 합니다. <br/><br/>여러 쓰기 지역이 있는 계정의 경우 autopilot에 대 한 추가 요금이 부과 되지 않습니다. 동일한 다중 마스터 r u/시간 급여를 사용 하 여 시간별로 사용 된 처리량에 대 한 비용을 지불 합니다. |
 | **작업 유형에 가장 적합 합니다.** |  예측 가능 하 고 안정적인 작업|   예측할 수 없는 작업 및 가변 작업  |
+
+## <a name="enable-autopilot-from-azure-portal"></a>Azure Portal에서 autopilot 사용
+
+Azure Portal에서를 사용 하 여 Azure Cosmos 계정에서 autopilot를 사용해 볼 수 있습니다. Autopilot 옵션을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
+
+1. Azure Portal에 로그인 [합니다.](https://portal.azure.com)
+
+2. Azure Cosmos 계정으로 이동 하 여 **새 기능** 탭을 엽니다. 다음 스크린샷에 표시 된 것 처럼 **자동 파일럿** 을 선택 하 고 **등록** 합니다.
+
+![Autopilot 모드에서 컨테이너 만들기](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
 
 ## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Autopilot 모드를 사용 하 여 데이터베이스 또는 컨테이너 만들기
 
@@ -74,13 +86,13 @@ Autopilot 모드로 구성 된 Azure Cosmos 컨테이너에 대 한 사용 사�
 
 1. Azure Cosmos 계정으로 이동 하 여 **데이터 탐색기** 탭을 엽니다.
 
-1. **새 데이터베이스**를 선택 하 고 데이터베이스의 이름을 입력 합니다. **Autopilot** 옵션에 대해 **Enabled** 를 선택 하 고 Autopilot 옵션을 사용 하는 경우 데이터베이스에서 초과할 수 없는 최대 처리량을 지정 합니다.
+1. **새 컨테이너**를 선택 하 고 컨테이너의 이름, 파티션 키를 입력 합니다. **Autopilot** 옵션을 선택 하 고 Autopilot 옵션을 사용 하는 경우 컨테이너가 초과할 수 없는 최대 처리량을 선택 합니다.
 
-   ![Autopilot 모드에서 데이터베이스 만들기](./media/provision-throughput-autopilot/create-database-autopilot-mode.png)
+   ![Autopilot 모드에서 컨테이너 만들기](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
 1. **확인**을 선택합니다.
 
-비슷한 단계를 사용 하 여 autopilot 모드에서 프로 비전 된 처리량으로 컨테이너를 만들 수도 있습니다.
+비슷한 단계를 통해 autopilot 모드에서 프로 비전 된 처리량을 사용 하 여 데이터베이스를 만들 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

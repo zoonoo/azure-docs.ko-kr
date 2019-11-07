@@ -1,17 +1,17 @@
 ---
 title: Azure Analysis Services 모델에 대 한 Logic Apps를 사용 하 여 새로 고침 | Microsoft Docs
-description: Azure Logic Apps를 사용 하 여 비동기 새로 고침을 코딩 하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Logic Apps를 사용 하 여 Azure Analysis Services에 대 한 비동기 새로 고침을 코딩 하는 방법을 설명 합니다.
 author: chrislound
 ms.service: analysis-services
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/30/2019
 ms.author: chlound
-ms.openlocfilehash: acf31bf3e7e8c3a0835640dee36f8435a1eba625
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a44aa5b355bea675f5d99761d97b8876a9b2a7d7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294623"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572334"
 ---
 # <a name="refresh-with-logic-apps"></a>Logic Apps를 사용하여 새로 고침
 
@@ -28,7 +28,7 @@ Azure Analysis Services에서 REST Api를 사용 하는 방법에 대 한 자세
 > [!IMPORTANT]
 > 다음 예에서는 Azure Analysis Services 방화벽을 사용 하지 않는 것으로 가정 합니다.  방화벽이 사용 되는 경우 요청 개시자의 공용 IP 주소를 Azure Analysis Services 방화벽에서 허용 목록 해야 합니다. 지역별 논리 앱 IP 범위에 대해 자세히 알아보려면 [Azure Logic Apps에 대 한 제한 및 구성 정보](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses)를 참조 하세요.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 
 #### <a name="create-a-service-principal-spn"></a>SPN (서비스 사용자) 만들기
 
@@ -64,13 +64,13 @@ HTTP 작업을 다음과 같이 구성 합니다.
 
 |속성  |값  |
 |---------|---------|
-|**메서드**     |올리기         |
+|**메서드**     |POST         |
 |**URI**     | *서버 지역*/servers/https://*서버 이름*/models/*데이터베이스 이름*/새로 고침 <br /> <br /> 예: https: \//westus/서버/p s/모델/AdventureWorks/새로 고침|
 |**헤더**     |   Content-type, application/json <br /> <br />  ![헤더](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**본문**     |   요청 본문을 형성 하는 방법에 대 한 자세한 내용은 [REST API-사후 게시/새로 고침을 사용 하 여 비동기 새로 고침](analysis-services-async-refresh.md#post-refreshes)을 참조 하세요. |
 |**인증**     |Active Directory OAuth         |
 |**넌**     |Azure Active Directory TenantId를 입력 합니다.         |
-|**대상**     |https://*.asazure.windows.net         |
+|**대상**     |https://* .casoms. net         |
 |**클라이언트 ID**     |서비스 사용자 이름 ClientID 입력         |
 |**자격 증명 유형**     |Secret         |
 |**비밀**     |서비스 사용자 이름 암호를 입력 하세요.         |

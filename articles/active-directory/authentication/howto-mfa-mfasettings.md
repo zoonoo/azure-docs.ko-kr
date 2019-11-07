@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfca7ef1dabb8c6021c9df2e3174d3e208a839b5
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 29ea89af780df72b97fef553cf79b84c4b28da05
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042106"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569867"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -64,7 +64,7 @@ _사용자 차단 및 차단 해제_ 기능을 사용하여 사용자가 인증 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **MFA** > **사용자 차단/차단 해제**로 이동합니다.
 3. **추가**를 선택하여 사용자를 차단합니다.
-4. **복제 그룹**을 선택합니다. **Domain.com\@사용자 이름**으로 차단 된 사용자의 사용자 이름을 입력 합니다. **이유** 필드에 주석을 입력 합니다.
+4. **복제 그룹**을 선택합니다. **Domain.com\@사용자 이름**으로 차단 된 사용자의 사용자 이름을 입력 합니다. **이유** 필드에 주석을 입력합니다.
 5. **추가**를 선택하여 사용자 차단을 완료합니다.
 
 ### <a name="unblock-a-user"></a>사용자 차단 해제
@@ -75,7 +75,7 @@ _사용자 차단 및 차단 해제_ 기능을 사용하여 사용자가 인증 
 4. **차단 해제 이유** 필드에서 주석을 입력합니다.
 5. **차단 해제**를 선택하여 사용자 차단 해제를 완료합니다.
 
-## <a name="fraud-alert"></a>사기 경고
+## <a name="fraud-alert"></a>사기 행위 경고
 
 사용자가 자신의 리소스에 액세스하려는 사기성 시도를 보고할 수 있도록 _사기 행위 경고_ 기능을 구성합니다. 사용자가 모바일 앱 또는 자신의 전화를 사용하여 사기 행위 시도를 보고할 수 있습니다.
 
@@ -97,10 +97,10 @@ _사용자 차단 및 차단 해제_ 기능을 사용하여 사용자가 인증 
 
 ### <a name="view-fraud-reports"></a>사기 행위 보고 보기
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **로그인**을 선택 합니다. 사기 보고서는 이제 표준 Azure AD 로그인 보고서의 일부입니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 사기 행위 경고 전자 메일을 받을 사용자를 위해 여기에서 전자 메일 주소를 구성 합니다.
 
@@ -192,7 +192,7 @@ _일회성 바이패스_ 기능을 통해 사용자는 2단계 인증을 수행�
 
 ### <a name="view-the-one-time-bypass-report"></a>일회성 바이패스 보고서 보기
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **MFA** > **일회성 바이패스**로 이동합니다.
 
 ## <a name="caching-rules"></a>캐싱 규칙
@@ -231,7 +231,7 @@ Microsoft Office 2013 클라이언트 이상에 대해 최신 인증이 지원�
 앱 암호를 사용하는 경우 다음과 같은 중요한 사항을 고려하세요.
 
 * 앱 암호는 애플리케이션당 한 번만 입력됩니다. 사용자는 암호를 추적하거나 매번 입력할 필요가 없습니다.
-* 실제 암호는 자동으로 생성되고 사용자가 제공하지 않습니다. 자동으로 생성된 암호는 공격자가 추측하기 어렵고 더 안전합니다.
+* 실제 암호는 자동으로 생성되며 사용자가 제공하지 않습니다. 자동으로 생성된 암호는 공격자가 추측하기 어렵고 더 안전합니다.
 * 사용자당 40개의 암호로 제한되어 있습니다.
 * 앱 암호는 회사 또는 학교 계정 외부에 알려지지 않기 때문에 암호를 캐시하고 온-프레미스 시나리오에서 사용하는 애플리케이션은 실패하기 시작할 수 있습니다. 이러한 시나리오의 예로 온-프레미스에 있지만 보관된 메일은 클라우드에 있는 Exchange 전자 메일이 있습니다. 이 시나리오에서 동일한 암호는 작동하지 않습니다.
 * 사용자 계정에서 Multi-Factor Authentication을 사용하도록 설정하면 Outlook 및 Microsoft Skype for Business 등 대부분의 비 브라우저 클라이언트에서 앱 암호를 사용할 수 있습니다. Windows PowerShell과 같은 비 브라우저 애플리케이션을 통해 앱 암호를 사용하여 관리 작업을 수행할 수 없습니다. 이 작업은 사용자가 관리자 계정을 가지고 있는 경우에도 수행할 수 없습니다. PowerShell 스크립트를 실행하려면 강력한 암호로 서비스 계정을 만들고 해당 계정에 2단계 인증을 사용하도록 설정하지 않습니다.
@@ -275,7 +275,7 @@ Azure AD는 온-프레미스 Windows Server Active Directory Domain Services(AD 
 
 기본적으로 사용자가 앱 암호를 만들 수 없습니다. 앱 암호 기능을 사용하도록 설정해야 합니다. 사용자에게 앱 암호를 만드는 기능을 제공하려면 다음 절차를 수행합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **사용자**를 선택합니다.
 3. **Multi-Factor Authentication**을 선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
@@ -298,7 +298,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 | Microsoft Azure Active Directory 테넌트 유형 | 신뢰할 수 있는 IP 기능 옵션 |
 |:--- |:--- |
-| Managed |**특정 IP 주소 범위**: 관리자는 회사 인트라넷에서 로그인하는 사용자에 대해 2단계 인증을 바이패스할 수 있는 IP 주소의 범위를 지정할 수 있습니다.|
+| 관리 |**특정 IP 주소 범위**: 관리자는 회사 인트라넷에서 로그인하는 사용자에 대해 2단계 인증을 바이패스할 수 있는 IP 주소의 범위를 지정할 수 있습니다. 최대 50의 신뢰할 수 있는 IP 범위를 구성할 수 있습니다.|
 | 페더레이션 |**모든 페더레이션된 사용자**: 조직 내에서 로그인하는 모든 페더레이션된 사용자는 2단계 인증을 바이패스할 수 있습니다. 사용자는 AD FS(Active Directory Federation Services)에서 발급된 클레임을 사용하여 인증을 바이패스합니다.<br/>**특정 IP 주소 범위**: 관리자는 회사 인트라넷에서 로그인하는 사용자에 대해 2단계 인증을 바이패스할 수 있는 IP 주소의 범위를 지정할 수 있습니다. |
 
 신뢰할 수 있는 IP 바이패스는 회사 인트라넷 내부에서만 작동합니다. **모든 페더레이션된 사용자** 옵션을 선택하고 사용자가 회사 인트라넷 외부에서 로그인한 경우 해당 사용자는 2단계 인증을 사용하여 인증해야 합니다. 이 프로세스는 사용자가 AD FS 클레임을 제시하는 경우에도 동일합니다. 
@@ -315,7 +315,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 ### <a name="enable-named-locations-by-using-conditional-access"></a>조건부 액세스를 사용 하 여 명명 된 위치 사용
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **보안** > **조건부 액세스** > **명명 된 위치**를 선택 합니다.
 3. **새 위치**를 선택합니다.
 4. 위치에 대한 이름을 입력합니다.
@@ -325,7 +325,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 ### <a name="enable-the-trusted-ips-feature-by-using-conditional-access"></a>조건부 액세스를 사용 하 여 신뢰할 수 있는 Ip 기능 사용
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **보안** >  **조건부 액세스** > **명명 된 위치**를 선택 합니다.
 3. **MFA에서 신뢰할 수 있는 IP 구성**을 선택합니다.
 4. **서비스 설정** 페이지의 **신뢰할 수 있는 IP** 아래에 있는 다음 두 가지 옵션 중에서 선택합니다.
@@ -343,7 +343,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>서비스 설정을 사용하여 신뢰할 수 있는 IP 기능을 사용하도록 설정
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **사용자**를 선택합니다.
 3. **Multi-Factor Authentication**을 선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
@@ -366,7 +366,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 사용자가 Azure Multi-Factor Authentication에 자신의 계정을 등록한 경우, 사용하도록 설정한 옵션에서 원하는 인증 방법을 선택합니다. 사용자 등록 프로세스에 대한 지침은 [2단계 인증에 내 계정 설정](../user-help/multi-factor-authentication-end-user-first-time.md)에 제공됩니다.
 
-| 방법 | 설명 |
+| 메서드 | 설명 |
 |:--- |:--- |
 | 휴대폰에 전화 걸기 |자동 음성 전화를 겁니다. 사용자가 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다. 이 전화 번호는 온-프레미스 Active Directory와 동기화되지 않습니다. |
 | 휴대폰에 문자 메시지 전송 |확인 코드를 포함하는 문자 메시지를 보냅니다. 로그인 인터페이스에 이 확인 코드를 입력하라는 메시지가 표시됩니다. 이 프로세스를 단방향 SMS라고 합니다. 양방향 SMS는 사용자가 특정 코드를 다시 문자로 보내야 함을 의미합니다. 양방향 SMS는 2018년 11월 14일 이후 사용되지 않으며 지원되지 않습니다. 이때 양방향 SMS로 구성된 사용자는 _휴대폰에 전화 걸기_ 인증으로 자동 전환됩니다.|
@@ -375,12 +375,12 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 
 ### <a name="enable-and-disable-verification-methods"></a>인증 방법 사용 및 사용 안 함
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **사용자**를 선택합니다.
 3. **Multi-Factor Authentication**을 선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.
 5. **서비스 설정** 페이지의 **인증 옵션** 아래에서 사용자에게 제공하는 방법을 선택/선택 취소합니다.
-6. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+6. **Save**를 클릭합니다.
 
 인증 방법 사용에 대한 자세한 내용은 [인증 방법이란?](concept-authentication-methods.md) 문서에서 찾을 수 있습니다.
 
@@ -411,7 +411,7 @@ Multi-Factor Authentication 저장 기능은 사용자가 로그인 시 **X일 �
 
 ### <a name="enable-remember-multi-factor-authentication"></a>Multi-Factor Authentication 저장 사용
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽에서 **Azure Active Directory** > **사용자**를 선택합니다.
 3. **Multi-Factor Authentication**을 선택합니다.
 4. Multi-Factor Authentication 섹션 아래에서 **서비스 설정**을 선택합니다.

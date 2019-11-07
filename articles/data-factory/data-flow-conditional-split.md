@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름의 조건부 분할 변환 | Microsoft Docs
+title: Azure Data Factory 매핑 데이터 흐름의 조건부 분할 변환
 description: Azure Data Factory 매핑 데이터 흐름에서 조건부 분할 변환을 사용 하 여 데이터를 여러 스트림으로 분할
 author: kromerm
 ms.author: makromer
@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 2d794714f27340e8886843988b6c075dd8d3366e
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 9ace415aa725a82d8feda5702d25d7e5ff9875d9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72527429"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73676824"
 ---
 # <a name="conditional-split-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 조건부 분할 변환
 
@@ -42,7 +42,7 @@ ms.locfileid: "72527429"
 
 ### <a name="example"></a>예제
 
-아래 예제는 들어오는 스트림 `CleanData`를 사용 하는 `SplitByYear` 이라는 조건부 분할 변환입니다. 이 변환에는 두 개의 분할 조건 `year < 1960` 및 `year > 1980` 있습니다. 데이터가 첫 번째 일치 조건으로 이동 하기 때문에 `disjoint` false입니다. 첫 번째 조건과 일치 하는 모든 행이 출력 스트림 `moviesBefore1960`로 이동 합니다. 두 번째 조건과 일치 하는 나머지 행은 모두 출력 스트림 `moviesAFter1980`로 이동 합니다. 다른 모든 행은 기본 스트림 `AllOtherMovies`를 통해 흐릅니다.
+아래 예제는 들어오는 스트림 `CleanData`를 사용 하는 `SplitByYear` 이라는 조건부 분할 변환입니다. 이 변환에는 두 개의 분할 조건 `year < 1960` 및 `year > 1980`있습니다. 데이터가 첫 번째 일치 조건으로 이동 하기 때문에 `disjoint` false입니다. 첫 번째 조건과 일치 하는 모든 행이 출력 스트림 `moviesBefore1960`로 이동 합니다. 두 번째 조건과 일치 하는 나머지 행은 모두 출력 스트림 `moviesAFter1980`로 이동 합니다. 다른 모든 행은 기본 스트림 `AllOtherMovies`를 통해 흐릅니다.
 
 Data Factory UX에서이 변환은 아래 이미지와 같습니다.
 

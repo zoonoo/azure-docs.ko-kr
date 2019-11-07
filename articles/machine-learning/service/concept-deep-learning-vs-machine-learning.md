@@ -1,6 +1,6 @@
 ---
 title: 심층 학습 및 기계 학습
-titleSuffix: Azure Machine Learning
+titleSuffix: Azure
 description: 딥 러닝이 기계 학습 및 인공 지능과 어떻게 관련이 있는지 알아보세요. 심층 학습은 사기 감지, 음성 & 얼굴 인식, 감정 분석 및 시계열 예측과 같은 시나리오에서 사용 됩니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: cc98e620194c5bf67d2efa12d61af44d5527bafc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ed9f933e790aa70b257e27fa2bbbc04f6a2e077
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497489"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73648005"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>심층 학습 및 기계 학습
 

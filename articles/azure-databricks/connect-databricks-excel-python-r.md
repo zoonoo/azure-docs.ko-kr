@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: mamccrea
-ms.openlocfilehash: 1805f04d7833dea180847defadd865cb23e9df62
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: f7494d36cf9b16ac6c7a1287a6ff96dd2285c6e2
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67340849"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601940"
 ---
 # <a name="connect-to-azure-databricks-from-excel-python-or-r"></a>Excel, Python 또는 R에서 Azure Databricks에 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "67340849"
 
 * [Databricks 드라이버 다운로드 페이지](https://databricks.com/spark/odbc-driver-download)에서 Databricks ODBC 드라이버를 다운로드합니다. Azure Databricks에 연결하려는 애플리케이션에 따라 32비트 또는 64비트 버전을 설치합니다. 예를 들어 Excel에서 연결하려면 32비트 버전의 드라이버를 설치합니다. R 및 Python에서 연결하려면 64비트 버전의 드라이버를 설치합니다.
 
-* Databricks에서 개인용 액세스 토큰을 설정합니다. 지침은 [토큰 관리](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management)를 참조하세요.
+* Databricks에서 개인용 액세스 토큰을 설정합니다. 지침은 [토큰 관리](/azure/databricks/dev-tools/api/latest/authentication)를 참조하세요.
 
 ## <a name="set-up-a-dsn"></a>DSN 설정
 
@@ -54,13 +54,13 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
 
     다음 표에서는 대화 상자에서 제공하는 값에 대해 설명합니다.
     
-    |필드  | Value  |
+    |필드  | 값  |
     |---------|---------|
     |**데이터 원본 이름**     | 데이터 원본의 이름을 제공합니다.        |
     |**호스트**     | *서버 호스트 이름*으로 Databricks 작업 영역에서 복사한 값을 제공합니다.        |
     |**포트**     | *443*을 입력합니다.        |
     |**인증** > **메커니즘**     | *사용자 이름 및 암호*를 선택합니다.        |
-    |**사용자 이름**     | *token*을 입력합니다.        |
+    |**사용자 이름**     | *토큰*을 입력합니다.        |
     |**암호**     | Databricks 작업 영역에서 복사한 토큰 값을 입력합니다. |
     
     DSN 설정 대화 상자에서 다음과 같은 추가 단계를 수행합니다.
@@ -86,18 +86,18 @@ DSN(데이터 원본 이름)은 특정 데이터 원본에 대한 정보를 포�
 
 3. 자격 증명을 묻는 메시지가 표시되면 사용자 이름에 대한 **토큰**을 입력합니다. 암호의 경우 Databricks 작업 영역에서 검색한 토큰 값을 제공합니다.
 
-    ![Databricks에 대한 자격 증명 제공](./media/connect-databricks-excel-python-r/excel-databricks-token.png "DSN 선택")
+    ![Databricks에 대 한 자격 증명 제공](./media/connect-databricks-excel-python-r/excel-databricks-token.png "DSN 선택")
 
 4. 탐색기 창에서 Excel에 로드하려는 테이블을 Databricks로 선택한 다음, **로드**를 클릭합니다. 
 
-    ![Excel에 데이터 로드](./media/connect-databricks-excel-python-r/excel-load-data.png "Excel에 데이터 로드")
+    ![Excel로 dta 로드](./media/connect-databricks-excel-python-r/excel-load-data.png "Excel로 dta 로드")
 
 Excel 통합 문서에 데이터가 있으면 분석 작업을 수행할 수 있습니다.
 
 ## <a name="connect-from-r"></a>R에서 연결
 
 > [!NOTE]
-> 이 섹션에서는 Azure Databricks를 사용하여 데스크톱에서 실행되는 R Studio 클라이언트를 통합하는 방법에 대해 설명합니다. Azure Databricks 클러스터에서 R Studio를 사용하는 방법에 대한 지침은 [Azure Databricks의 R Studio](https://docs.azuredatabricks.net/spark/latest/sparkr/rstudio.html)를 참조하세요.
+> 이 섹션에서는 Azure Databricks를 사용하여 데스크톱에서 실행되는 R Studio 클라이언트를 통합하는 방법에 대해 설명합니다. Azure Databricks 클러스터에서 R Studio를 사용하는 방법에 대한 지침은 [Azure Databricks의 R Studio](/azure/databricks/spark/latest/sparkr/rstudio)를 참조하세요.
 
 이 섹션에서는 R 언어 IDE를 사용하여 Azure Databricks에서 사용할 수 있는 데이터를 참조합니다. 시작하기 전에 컴퓨터에 다음을 설치해야 합니다.
 
@@ -134,7 +134,7 @@ RStudio를 열고 다음 단계를 수행합니다.
 
 * [여기](https://www.python.org/downloads/)에서 Python을 설치합니다. 이 링크에서 Python을 설치하면 IDLE도 설치됩니다.
 
-* 컴퓨터의 명령 프롬프트에서 `pyodbc` 패키지를 설치합니다. 다음 명령 실행:
+* 컴퓨터의 명령 프롬프트에서 `pyodbc` 패키지를 설치합니다. 다음 명령을 실행합니다.
 
       pip install pyodbc
 
@@ -165,6 +165,6 @@ for row in cursor.fetchall():
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Databricks에 데이터를 가져올 수 있는 원본에 대해 알아보려면 [Azure Databricks용 데이터 원본](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html#)을 참조하세요.
+* Azure Databricks에 데이터를 가져올 수 있는 원본에 대해 알아보려면 [Azure Databricks용 데이터 원본](/azure/databricks/data/data-sources/index)을 참조하세요.
 
 

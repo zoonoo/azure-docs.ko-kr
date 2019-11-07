@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: f5d214d58c1d2123acabda797b576e8ad961d3f2
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1fcad7d3d0cc45f0cfdc0d6523d5fdbc8f573fe2
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990814"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577005"
 ---
 # <a name="azure-maps-mobility-coverage"></a>Azure Maps 모바일 범위
 
@@ -35,7 +35,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 아르헨티나       | <p>Bahía Blanca, 부에노스아이레스, Caleta Olivia, Chivilcoy, Comodoro Rivadavia, 코르도바, Corrientes, General Pico, La Rioja-jp, Mar del Plata, 멘도사, MiNeuquén Ar, Oberá, Olavarría, Paraná, Posadas, Rio, Rosario Tercero, Salta, Carlos, San Bariloche de Luis, San, San Pedro, 산타 Fe, Tandil, Ushuaia, 빅토리아, Villa María</p>|
 | 바베이도스       |  바베이도스 |
 | 브라질         | <p>Angra dos Reis, Anápolis, Apucarana, Aracaju, Araraquara, Araxa, Araçatuba, Bage, Araxa, Bauru, 벨렘, Belo Horizonte, Blumenau, 보아 비스타 Vista, 브라질리아, Caldas Novas, Campina 그란데, Campinas, 캄 푸 Belo, 캄 푸 그란데, Caraguatatuba, Cascavel, Cataguases,,,,,,, Leopoldina e Região, Catalão, Caxias do Sul, Chapecó, Cianorte, Conselheiro Lafaiete, Corumbá, Criciúma, Cruzeiro do Sul, Cuiabá, Curitiba, Curitibanos, Curvelo, Diamantina, Divinópolis, Dourados, Estde a, 김철수 de 노로냐, Florianópolis, 포르탈레자, Anz do Iguaçu, 대표, Garanhuns, Goiania, Governador Valadares, Guarapuava, Imperatriz, Ipatinga, Irati, Itabira, Itabuna, Itajaí, Ituiutaba, Jaraguá do Sul, Joao Pessoa, Joinville, Juazeiro do Norte, Juiz de Fora, Jundiaí, Lages, Londrina, Macapa, Macapa, Maceise, Mafra e Rio Negro, 마나우스, Manhuacu, Maringá, Marília, Monte Carmelo, Montes Claros, Mossoró, Natal, Osorio, Ourinhos, Ouro Preto, Palmas, Paracatu, Parnaíba, Patos, Patrocínio, Pelotas, Piracicaba,,,,,, Pocos de Caldas, Ponta Grossa, 포르토 Alegre, 포르토 Ferreira, 포르토 Seguro, 포르토 포르토, Praia 그란데, 레시페, Ribeirão Preto, Rio, Rio 리오, Rondonópolis, Salinas, 엘살바도르, 산타 Cruz do Sul, 산타 민, 산타 Rita do Sapucaí, Santarem, Santos, 상 Gabriel do Oeste, 상 Joao del Rei , Tiradentes e Regiao, 상 Jose do Rio Preto, 상 Mateus, 상 파울로, Sorocaba, 상투메 Carlos, 상투메 샌프란시스코 do Sul, 상투메 José dos Campos, 상투메 Lourenço, 상투메 Luís, Taubaté, Borba, Otoni, Teresina Lagoas, Tucurui, Toledo, Três, Uberlândia, Ubá, Uruguaiana, Varginha, Vicosa, Videira & Fraiburgo, Vitória, Vitória da Conquista, Volta Redonda, Votuporanga </p>|
-| 캐나다 | Banff (AB), Brandon (MB), 캘거리 (AB), Comox 계곡 (BC), Cowichan 유역 (BC), 에드먼턴 (AB), 요새 세인트 John, Frederic7(NB), Sudbury (ON), 밴쿠버 (BC), Halifax (NS), 캠룹스 (BC), Kelowna (BC), Kingston (ON), 런던 (켜 드), Moncton (NB), 몬트리올 (QC), Nanaimo (BC), (), 프린스 George (BC), Québec City (QC), 레드 Deer (AB), 리자이나 (대만), Rimouski (QC), 새스커툰 (), Sherbrooke (QC), Squamish (BC), 상트페테르부르크 (NL), 햇빛과 해안, 썬 베이 (켜기), (설정), 빅토리아 (BC), 휘슬러 (bc), (bc) ), Windsor (ON), 위니펙 (MB), Woodstock</p>|
+| 캐나다 | Banff (AB), Brandon (MB), 캘거리 (AB), Comox 계곡 (BC), Cowichan 유역 (BC), 에드먼턴 (AB), 요새 세인트 John, Frederi(NB), Sudbury (ON), 밴쿠버 (BC), Halifax (NS), 캠룹스 (BC), Kelowna (BC), Kingston (ON), 런던 (켜 드), Moncton (NB), 몬트리올 (QC), Nanaimo (BC), (), 프린스 George (BC), Québec City (QC), 레드 Deer (AB), 리자이나 (대만), Rimouski (QC), 새스커툰 (), Sherbrooke (QC), Squamish (BC), 상트페테르부르크 (NL), 햇빛과 해안, 썬 베이 (켜기), (설정), 빅토리아 (BC), 휘슬러 (bc), (bc) ), Windsor (ON), 위니펙 (MB), Woodstock</p>|
 | 칠레  | <p>Antofagasta, Arica, Aysén, Chillán, Concepción, Constitución, Iquique, Serena, Coquimbo, Linares, 로스앤젤레스 (칠레), 시야가 라고스, Punta 아레나스, Rancagua, 산티아고, Talca, Temuco, Valdivia, Valparaíso, Viña del Mar</p>|
 | 콜롬비아 | <p>Barranquilla, Bogotá, Bucaramanga, Cali, Cartagena, Ibagué, Medellín, Popayán, Marta, 산타 Sincelejo,, Valledupa</p>|  
 | 코스타리카 | San José|
@@ -57,7 +57,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 오스트레일리아      | <p>애들레이드, Alice 스프링, Bowen, 브리즈번, Bundaberg QLD, Burnie, Cairns, 캔버라, 다윈, 고가 나, 호바트, Innisfail, Launceston, Mackay, 자기 섬, Maryborough-Hervey 베이, 멜버른, 새 남부 Wales, 퍼스, RockHampton, 남부 동부 Queensland, 시드니, Toowoomba, Townsville, 빅토리아, Warwick, Yeppoon</p> |
 | 중국 | <p> Changchun, Changsha, Chengdu, 충칭, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, 상하이, 베이징, Guangzhou, Shenzhen, Zhengzhou</P>| 
 | 홍콩 특별 행정구 | 홍콩 특별 행정구 *|
-| 마카오 특별 행정구 | 마카오 특별 행정구 *|
+| 마카오 | 마카오 특별 행정구 *|
 | 인도 | Ahmedabad, Bengaluru, 뭄바이, Mysuru|
 | 인도네시아 | Bandung, Banyuwangi, 바 탐, Denpasar, 자카르타, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
 | 일본 | Shizuoka 현, 도쿄, Wakkanai, Yamanashi 현 |
@@ -65,7 +65,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 뉴질랜드 | 오클랜드, Christchurch, Dunedin, Queenstown, Timaru, 웰링턴|
 | 필리핀 | 마닐라 |
 | 싱가포르 | 싱가포르 |
-| 한국 | 부산, 서울 |
+| 대한민국 | 부산, 서울 |
 | 대만 | Changhua 군, 타이베이 | 
 | 태국 | 방콕, Chiang Mai | 
 | 베트남 | 하노이, 호 카이 호치민 도시 | 
@@ -85,7 +85,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 불가리아       | <p>Balchik, Blagoevgrad, 삼 간, Dobrich, Gabrovo, Haskovo, Kardzhali, Lovech, Nessebar, Pazardzhik, Pleven, Plovdiv, Ruse, Shumen, Sliven, Stara Zagora, Vratsa, Yambol, Varna, Veliko, 소피아</P> |
 | 크로아티아 | Crikvenica, Dubrovnik, Rijeka, Slovanski Brod, 자그레브 | 
 | 키프로스 | Larnaca, Limassol, 니코시아 | 
-| 체코 공화국 | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, 프라하 | 
+| 체코 | Brno, Jablonec, Karlovy Vary, Liberec, Ostrava, 프라하 | 
 | 덴마크   | 덴마크 |
 | 에스토니아   | 에스토니아 |   
 | 핀란드   | Hämeenlinna, 헬싱키, Joensuu, Jyväskylä, Kajaani, Kouvola-k, Kuopio, Lappeenranta, Mikkeli, Oulu, Seinäjoki, Tampere, Turku, Vaasa|
@@ -133,7 +133,7 @@ Azure Maps은 모든 도시와 국가/지역에 대해 동일한 수준의 정�
 | 마다가스카르 | 안타나나리보 |
 | 모로코 | 카사블랑카, Khouribga, Tétouan|
 | 사우디아라비아 | Thuwal |
-| 남아프리카 공화국 | 케이프타운 |
+| 남아프리카 | 케이프타운 |
 | 튀니지 | Kairouan |
 | 아랍에미리트  | 아부다비, Dubai |
 

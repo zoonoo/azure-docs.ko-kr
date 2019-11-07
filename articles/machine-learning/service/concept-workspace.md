@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 9fbe4f34bb27d2de662f11dbdd047356ff3d3941
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497359"
+ms.locfileid: "73580758"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 이란 무엇 인가요?
 
@@ -32,7 +32,7 @@ ms.locfileid: "73497359"
 
 다이어그램에는 작업 영역의 다음 구성 요소가 표시 됩니다.
 
-+ 작업 영역에는 Azure Machine Learning를 실행 하는 데 필요한 Python 환경으로 구성 된 클라우드 리소스 [Azure Machine Learning 계산 인스턴스가](concept-compute-instance.md)포함 될 수 있습니다.
++ 작업 영역에는 Azure Machine Learning 노트북 Vm, Azure Machine Learning를 실행 하는 데 필요한 Python 환경으로 구성 된 클라우드 리소스 등이 포함 될 수 있습니다.
 + [사용자 역할](how-to-assign-roles.md) 을 사용 하면 작업 영역을 다른 사용자, 팀 또는 프로젝트와 공유할 수 있습니다.
 + [계산 대상은](concept-azure-machine-learning-architecture.md#compute-targets) 실험을 실행 하는 데 사용 됩니다.
 + 작업 영역을 만들 때 [연결 된 리소스도](#resources) 생성 됩니다.
@@ -75,11 +75,8 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 | 작업 영역 액세스 관리    | **&check;**   || |  **&check;**    |
 | Enterprise edition으로 업그레이드    | **&check;** |  | |     |
 | 계산 리소스 만들기 및 관리    |   | **&check;** | **&check;** |  **&check;**   |
-| 계산 인스턴스 만들기 | **&check;**  | **&check;** | **&check;** |     |
+| 노트북 VM 만들기 |   | **&check;** | |     |
 
-> [!NOTE]
-> 계산 인스턴스는 **미국 중 북부** 또는 **영국 남부**지역이 있는 작업 영역에만 사용할 수 있습니다.
->작업 영역이 다른 지역에 있는 경우 계속 해 서 [노트북 VM](concept-compute-instance.md#notebookvm) 을 만들고 사용할 수 있습니다.
 
 ## <a name='create-workspace'></a>작업 영역 만들기
 
@@ -101,7 +98,7 @@ Azure Portal를 사용 하 여 [기본에서 Enterprise edition으로 작업 영
 새 작업 영역을 만들면 작업 영역에서 사용되는 여러 Azure 리소스가 자동으로 생성됩니다.
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): 학습 중에 또는 모델을 배포할 때 사용 하는 docker 컨테이너를 등록 합니다. 비용을 최소화 하기 위해 ACR은 배포 이미지를 만들 때까지 **지연 로드** 됩니다.
-+ [Azure Storage 계정](https://azure.microsoft.com/services/storage/): 작업 영역에 대 한 기본 데이터 저장소로 사용 됩니다.  Azure Machine Learning 계산 인스턴스와 함께 사용 되는 jupyter 노트북도 여기에 저장 됩니다.
++ [Azure Storage 계정](https://azure.microsoft.com/services/storage/): 작업 영역에 대 한 기본 데이터 저장소로 사용 됩니다.  Azure Machine Learning 노트북 VM과 함께 사용 되는 jupyter 노트북도 여기에 저장 됩니다.
 + [Azure 애플리케이션 Insights](https://azure.microsoft.com/services/application-insights/): 모델에 대 한 모니터링 정보를 저장 합니다.
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): 계산 대상에서 사용 하는 암호 및 작업 영역에 필요한 기타 중요 한 정보를 저장 합니다.
 

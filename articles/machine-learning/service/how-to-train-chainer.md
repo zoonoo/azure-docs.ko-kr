@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 91278bdc1748615c91675e3894ebae4cf5fce1e4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 8427bd8532895e95de82a6ed577052971f15a25d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489505"
+ms.locfileid: "73584520"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 체 이너 모델 학습 및 등록
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
-- Azure Machine Learning 계산 인스턴스-다운로드 또는 설치 필요 없음
+- Azure Machine Learning 노트북 VM-다운로드 또는 설치 필요 없음
 
     - [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
     - 노트북 서버의 샘플 심층 학습 폴더에 있는 **사용 방법-azureml > ml 프레임 워크 > 체 이너 > 배포 > 학습-hyperparameter 변수-튜닝-배포-** 대/소문자를 구분 하는 폴더)에서 완성 된 노트북 및 파일을 찾습니다.  노트북에는 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 노트북 위젯을 다루는 확장 된 섹션이 포함 되어 있습니다.

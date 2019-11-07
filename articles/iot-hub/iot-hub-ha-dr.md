@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
-ms.openlocfilehash: f1944e06989844528a55c89f82c3db3b3a28dca1
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 533a199f75baa5a27ed06698f22d4d046be45507
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876906"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607885"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 
@@ -62,7 +62,7 @@ IoT Hub에 대한 장애 조치(failover) 작업이 완료되면 해당 디바�
 > [!CAUTION]
 > - 장애 조치(failover) 후에는 Event Hub 호환 이름 및 IoT Hub 기본 제공 이벤트 엔드포인트가 변경됩니다. 이벤트 허브 클라이언트나 이벤트 프로세서 호스트를 사용하여 기본 제공 엔드포인트로부터 원격 분석 메시지를 수신할 때는 [IoT Hub 연결 문자열](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint)을 사용하여 연결을 설정해야 합니다. 이를 통해 장애 조치(failover) 후에 수동 개입 없이 백엔드 애플리케이션이 계속 작동하게 됩니다. 백엔드 애플리케이션에서 직접 Event Hub 호환 이름과 엔드포인트를 사용할 경우, 계속 작동하려면 장애 조치(failover) 후 [새 Event Hub 호환 이름 및 엔드포인트를 페치하여](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) 애플리케이션을 다시 구성해야 합니다.
 >
-> - Blob Storage로 라우팅 시 파티션을 가정하지 않고 모든 컨테이너를 읽을 수 있도록, Blob을 등록한 다음, 반복하는 것이 좋습니다. Microsoft에서 시작한 장애 조치 (failover) 또는 수동 장애 조치 (failover) 중에 파티션 범위가 변경 될 수 있습니다. Blob 목록을 열거 하는 방법을 알아보려면 [blob storage로 라우팅](iot-hub-devguide-messages-d2c.md#azure-blob-storage)을 참조 하세요.
+> - 저장소로 라우팅할 때 저장소 컨테이너를 등록 한 다음이를 반복 하 여 파티션을 가정 하지 않고 모든 컨테이너를 읽도록 합니다. Microsoft에서 시작한 장애 조치 (failover) 또는 수동 장애 조치 (failover) 중에 파티션 범위가 변경 될 수 있습니다. Blob 목록을 열거 하는 방법을 알아보려면 [Azure storage로 라우팅](iot-hub-devguide-messages-d2c.md#azure-storage)을 참조 하세요.
 
 ## <a name="microsoft-initiated-failover"></a>Microsoft 시작 장애 조치
 
@@ -81,7 +81,7 @@ Microsoft에서 시작한 장애 조치 (failover)가 제공 하는 RTO에의 �
 >
 > - 수동 장애 조치(failover)는 Azure 지역 쌍을 이루는 지역 간에 허브를 영구적으로 마이그레이션하는 메커니즘으로 사용하지 않아야 합니다. 이렇게 하면 이전 주 지역에 상주하는 디바이스로부터 허브에 대해 작업을 수행하는 데 대기 시간이 길어집니다.
 
-## <a name="failback"></a>장애 복구(failback)
+## <a name="failback"></a>장애 복구
 
 이전 주 지역으로의 장애 복구는 다른 시간에 장애 조치(failover)를 트리거하여 수행할 수 있습니다. 원래의 장애 조치(failover) 작업이 원래의 주 지역에서 연장된 중단으로부터 복구하기 위해 수행되었다면 위치가 중단 상황에서 복구된 후에는 원래의 위치로 허브를 장애 복구하는 것이 좋습니다.
 
@@ -108,14 +108,14 @@ IoT 솔루션으로 배포 토폴로지를 완벽하게 수행하는 것은 이 
 
 높은 수준에서 IoT Hub로 국가별 장애 조치를 구현하려면 다음 단계를 수행해야 합니다.
 
-* **보조 IoT hub 및 장치 라우팅 논리**: 주 지역의 서비스가 중단 되 면 장치는 보조 지역에 대 한 연결을 시작 해야 합니다. 관련된 대부분의 서비스가 상태를 인식하는 특성이 있으므로 일반적으로 솔루션 관리자는 지역 간 장애 조치(failover) 프로세스를 트리거합니다. 프로세스에 대한 제어를 유지하면서 새 엔드포인트에서 디바이스로 통신하는 가장 좋은 방법은 현재 활성 엔드포인트에 대해 *안내자* 서비스를 정기적으로 확인하는 것입니다. 안내자 서비스는 DNS-리디렉션 기술(예: [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md))을 사용하여 복제되고 연결을 유지할 수 있는 웹 애플리케이션입니다.
+* **보조 IoT Hub 및 디바이스 라우팅 논리**: 주 지역에서 서비스 중단이 발생하는 경우 디바이스는 보조 지역으로 연결을 시작해야 합니다. 관련된 대부분의 서비스가 상태를 인식하는 특성이 있으므로 일반적으로 솔루션 관리자는 지역 간 장애 조치(failover) 프로세스를 트리거합니다. 프로세스에 대한 제어를 유지하면서 새 엔드포인트에서 디바이스로 통신하는 가장 좋은 방법은 현재 활성 엔드포인트에 대해 *안내자* 서비스를 정기적으로 확인하는 것입니다. 안내자 서비스는 DNS-리디렉션 기술(예: [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md))을 사용하여 복제되고 연결을 유지할 수 있는 웹 애플리케이션입니다.
 
    > [!NOTE]
    > IoT Hub 서비스는 Azure Traffic Manager에서 지원되는 엔드포인트 유형이 아닙니다. 엔드포인트 상태 프로브 API를 구현하여 Azure Traffic Manage와 제안된 컨시어지 서비스를 통합하는 것이 좋습니다.
 
-* **Id 레지스트리 복제**: 사용할 수 있도록 보조 IoT hub는 솔루션에 연결할 수 있는 모든 장치 id를 포함 해야 합니다. 솔루션은 지역에서 복제된 디바이스 ID의 백업을 유지하고 이를 보조 IoT Hub로 업로드한 후 디바이스에 대한 활성 엔드포인트를 전환해야 합니다. 이 경우 IoT Hub의 디바이스 ID 내보내기 기능은 유용합니다. 자세한 내용은 [IoT Hub 개발자 가이드 - ID 레지스트리](iot-hub-devguide-identity-registry.md)를 참조하세요.
+* **ID 레지스트리 복제**: 사용하려면 보조 IoT Hub가 솔루션에 연결할 수 있는 모든 디바이스 ID를 포함해야 합니다. 솔루션은 지역에서 복제된 디바이스 ID의 백업을 유지하고 이를 보조 IoT Hub로 업로드한 후 디바이스에 대한 활성 엔드포인트를 전환해야 합니다. 이 경우 IoT Hub의 디바이스 ID 내보내기 기능은 유용합니다. 자세한 내용은 [IoT Hub 개발자 가이드 - ID 레지스트리](iot-hub-devguide-identity-registry.md)를 참조하세요.
 
-* **병합 논리**: 주 지역을 다시 사용할 수 있게 되 면 보조 사이트에서 만든 모든 상태 및 데이터를 주 지역으로 다시 마이그레이션해야 합니다. 이러한 상태 및 데이터는 주로 디바이스 ID 및 애플리케이션 메타데이터와 관련되며 기본 IoT Hub 및 주 지역의 기타 가능한 애플리케이션별 스토리지에 병합되어야 합니다. 
+* **논리 병합**: 주 지역을 다시 사용할 수 있게 된 경우 보조 사이트에 생성된 모든 상태 및 데이터를 주 지역으로 다시 마이그레이션해야 합니다. 이러한 상태 및 데이터는 주로 디바이스 ID 및 애플리케이션 메타데이터와 관련되며 기본 IoT Hub 및 주 지역의 기타 가능한 애플리케이션별 스토리지에 병합되어야 합니다. 
 
 이러한 단계를 간소화하려면 멱등 연산을 사용해야 합니다. 멱등 연산은 최후의 일관적인 이벤트 배포 및 중복되거나 비순차적인 이벤트 배달로 인한 부작용을 최소화합니다. 또한 애플리케이션 논리는 잠재적인 불일치 또는 약간 오래된 상태를 허용할 수 있도록 설계되어야 합니다. 이러한 상황은 시스템이 RPO(복구 지점 목표)에 기반하여 치료하는 데 추가로 소요되는 시간으로 인해 발생할 수 있습니다.
 

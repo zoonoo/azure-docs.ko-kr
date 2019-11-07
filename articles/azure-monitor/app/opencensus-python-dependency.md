@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.openlocfilehash: 00ebf86bf6d0d57b29d660f78aae3dd828d44ded
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: c28ef627e9ef65f9985a520c8c4f3facc7a160da
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819131"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73575507"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>OpenCensus Python으로 종속성 추적
 
-종속성은 응용 프로그램에서 호출 하는 외부 구성 요소입니다. 종속성 데이터는 OpenCensus Python 및 다양 한 통합을 사용 하 여 수집 됩니다. 그런 다음 데이터는 Azure Monitor에서 Application Insights 전송 됩니다.
+종속성은 응용 프로그램에서 호출 하는 외부 구성 요소입니다. 종속성 데이터는 OpenCensus Python 및 다양 한 통합을 사용 하 여 수집 됩니다. 그런 다음 데이터는 Application Insights Azure Monitor `dependencies` 원격 분석으로 전송 됩니다.
 
 먼저 최신 [OpenCensus PYTHON SDK](../../azure-monitor/app/opencensus-python.md)를 사용 하 여 python 응용 프로그램을 계측 합니다.
 

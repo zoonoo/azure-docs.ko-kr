@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: eae1ac9c4e4b5a5a8927aa45e898c6f1c47a052d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 19045b54b97fdb69f9fdab3d17066faa5dbcc435
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497286"
+ms.locfileid: "73580728"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,10 +27,10 @@ ms.locfileid: "73497286"
 
 | Environment | 장점 | 단점 |
 | --- | --- | --- |
-| [클라우드 기반 Azure Machine Learning 계산 인스턴스](#compute-instance) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
+| [클라우드 기반 Azure Machine Learning 노트북 VM](#notebookvm) | 시작 하는 가장 쉬운 방법입니다. 전체 SDK는 작업 영역 VM에 이미 설치 되어 있으며, 노트북 자습서는 미리 복제 되어 실행할 준비가 되었습니다. | 개발 환경 및 종속성에 대 한 제어가 부족 합니다. Linux VM에 대해 발생 하는 추가 비용입니다 (요금을 방지 하기 위해 사용 하지 않을 때 VM을 중지할 수 있음). [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/virtual-machines/linux/)를 참조하세요. |
 | [로컬 환경](#local) | 개발 환경 및 종속성에 대 한 모든 권한 원하는 빌드 도구, 환경 또는 IDE를 사용 하 여를 실행 합니다. | 시작 하는 데 시간이 더 오래 걸립니다. 필요한 SDK 패키지를 설치 해야 하 고, 아직 설치 되어 있지 않은 경우에도 환경을 설치 해야 합니다. |
 | [Azure Databricks](#aml-databricks) | 확장 가능한 Apache Spark 플랫폼에서 대규모의 집약적 기계 학습 워크플로를 실행 하는 데 적합 합니다. | 실험적 기계 학습 또는 작은 규모의 실험 및 워크플로를 위한 과잉. Azure Databricks에 대해 발생 하는 추가 비용입니다. [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/databricks/)를 참조하세요. |
-| [Data Science Virtual Machine (DSVM)](#dsvm) | 클라우드 기반 계산 인스턴스 (Python 및 SDK는 사전 설치 됨)와 비슷하지만 널리 사용 되는 추가 데이터 과학 및 기계 학습 도구가 미리 설치 되어 있습니다. 쉽게 확장 하 고 다른 사용자 지정 도구 및 워크플로와 결합할 수 있습니다. | 클라우드 기반 계산 인스턴스와 비교 하 여 더 느린 시작 환경을 제공 합니다. |
+| [Data Science Virtual Machine (DSVM)](#dsvm) | 클라우드 기반 노트북 VM (Python 및 SDK는 사전 설치 됨)과 유사 하지만 추가 인기 있는 데이터 과학 및 기계 학습 도구가 사전 설치 되어 있습니다. 쉽게 확장 하 고 다른 사용자 지정 도구 및 워크플로와 결합할 수 있습니다. | 클라우드 기반 노트북 VM과 비교 하 여 더 느린 시작 환경을 제공 합니다. |
 
 
 또한이 문서에서는 다음 도구에 대 한 추가 사용 팁을 제공 합니다.
@@ -41,7 +41,7 @@ ms.locfileid: "73497286"
 
 ## <a name="prerequisites"></a>필수 조건
 
-Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요. 작업 영역은 사용자 고유의 [클라우드 기반 노트북 서버](#compute-instance), [dsvm](#dsvm)또는 [Azure Databricks](#aml-databricks)를 시작 하는 데 필요 합니다.
+Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요. 작업 영역은 사용자 고유의 [클라우드 기반 노트북 서버](#notebookvm), [dsvm](#dsvm)또는 [Azure Databricks](#aml-databricks)를 시작 하는 데 필요 합니다.
 
 [로컬 컴퓨터](#local)에 대 한 SDK 환경을 설치 하려면 [Jupyter Notebook 서버](#jupyter) 또는 [Visual Studio Code](#vscode) 도 필요 합니다.
 
@@ -54,20 +54,16 @@ Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machin
 
 - Windows에서는 명령 프롬프트 또는 Anaconda 프롬프트(Anaconda 및 Miniconda를 통해 설치한)가 필요합니다.
 
-## <a id="compute-instance"></a>사용자 고유의 클라우드 기반 계산 인스턴스
+## <a id="notebookvm"></a>사용자 고유의 클라우드 기반 노트북 VM
 
-Azure Machine Learning [계산 인스턴스](concept-compute-instance.md) 는 Jupyter 노트북 서버, JupyterLab 및 완전히 준비 된 ML 환경을 사용 하 여 데이터 과학자을 제공 하는 안전한 클라우드 기반 Azure 워크스테이션입니다.
+Azure Machine Learning 노트북 VM은 Jupyter 노트북 서버, JupyterLab 및 완전히 준비 된 ML 환경을 사용 하 여 데이터 과학자을 제공 하는 클라우드 기반의 안전한 Azure 워크스테이션입니다.
 
-> [!NOTE]
-> 계산 인스턴스는 **미국 중 북부** 또는 **영국 남부**지역이 있는 작업 영역에만 사용할 수 있습니다.
->작업 영역이 다른 지역에 있는 경우 계속 해 서 [노트북 VM](concept-compute-instance.md#notebookvm) 을 만들고 사용할 수 있습니다.
+노트북 VM은 다음과 같습니다.
 
 계산 인스턴스를 설치 하거나 구성할 수 없습니다.  Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. [설정 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md)을 사용 하 여 지금 사용해 보세요.
 
 
-[계산 인스턴스에](concept-compute-instance.md)대해 자세히 알아보세요.
-
-계산 요금이 발생 하지 않도록 하려면 [계산 인스턴스를 중지](tutorial-1st-experiment-sdk-train.md#clean-up-resources)합니다.
+계산 요금이 발생 하지 않도록 하려면 [노트북 VM을 중지](tutorial-1st-experiment-sdk-train.md#clean-up-resources)합니다.
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 

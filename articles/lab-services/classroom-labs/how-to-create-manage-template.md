@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: f0fc1e143ce7d271d5faaa8dda0eb40cdfc9e006
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fd3396a98359aef966cd8bb2f984e556fc6abcc7
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332789"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73584843"
 ---
 # <a name="create-and-manage-a-classroom-template-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 템플릿 만들기 및 관리
 랩의 템플릿은 모든 사용자의 가상 머신이 만들어지는 기본 가상 머신 이미지입니다. 랩 사용자에게 제공하려는 구성과 정확히 일치하도록 템플릿 가상 머신을 설정합니다. 랩 사용자에게 표시되는 템플릿의 이름 및 설명을 제공할 수 있습니다. 그런 후 랩 사용자가 템플릿 VM의 인스턴스를 사용할 수 있도록 템플릿을 게시합니다. 템플릿을 게시하면 Azure Lab Services가 템플릿을 사용하여 랩에 VM을 만듭니다. 이 과정에서 만들어지는 VM 수는 랩에 허용되는 최대 사용자 수와 같으며, 이 값은 랩의 사용 정책에서 설정할 수 있습니다. 모든 가상 머신은 템플릿과 구성이 동일합니다.
@@ -40,12 +40,10 @@ ms.locfileid: "72332789"
 다음 단계를 사용 하 여 템플릿 VM을 업데이트 합니다.  
 
 1. **템플릿** 페이지의 도구 모음에서 **템플릿 사용자 지정** 을 선택 합니다. 
-
-    ![템플릿 사용자 지정 단추](../media/how-to-create-manage-template/customize-template-button.png)
 2. **템플릿 사용자 지정** 대화 상자에서 **계속**을 선택 합니다. 템플릿을 시작 하 고 변경한 후에는 더 이상 사용자에 게 마지막으로 게시 한 가상 머신과 동일한 설정이 적용 되지 않습니다. 다시 게시 하기 전 까지는 사용자의 기존 가상 컴퓨터에 템플릿 변경 내용이 반영 되지 않습니다.
 
     ![사용자 지정 대화 상자](../media/how-to-create-manage-template/customize-template-dialog.png)
-1. 도구 모음에서 **템플릿에 연결** 단추를 선택 하 여 템플릿 VM에 연결 하 고 지침을 따릅니다. Windows 컴퓨터의 경우 RDP 파일을 다운로드 하는 옵션이 표시 됩니다. 
+1. 템플릿 VM이 시작 될 때까지 기다린 후 도구 모음에서 **템플릿에 연결** 을 선택 하 여 템플릿 vm에 연결 하 고 지침을 따릅니다. Windows 컴퓨터의 경우 RDP 파일을 다운로드 하는 옵션이 표시 됩니다. 
 
     ![템플릿 VM에 연결](../media/how-to-create-manage-template/connect-template-vm.png)
 1. 학생들이 랩을 사용하는 데 필요한 소프트웨어를 설치합니다(예: Visual Studio, Azure Storage Explorer 등). 

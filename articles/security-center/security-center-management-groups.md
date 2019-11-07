@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 730ccd7c64ac9ca87fb6da5add130feb3b6ce502
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73b99b9ebcd18e1eb5b670d0809d1f0f6cbf8f9a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201959"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582921"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Azure Security Center에 대한 테넌트 수준 가시성 얻기
 이 문서에서는 Azure Security Center에서 제공하는 혜택을 최대화하는 여러 작업을 수행하여 시작하도록 돕습니다. 이러한 작업을 수행하면 Azure Active Directory 테넌트에 연결된 모든 Azure 구독에 대한 가시성을 얻고 집합적 방식으로 여러 구독에 보안 정책을 적용하여 모든 규모에서 조직의 보안 상태를 효율적으로 관리할 수 있습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "71201959"
 Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 효율적으로 관리하는 기능을 제공하고 루트 관리 그룹에서 작업을 수행하여 전체 Azure 공간을 효율적으로 관리합니다. 각 Azure AD 테넌트에는 루트 관리 그룹이라고 하는 단일 최상위 관리 그룹이 부여됩니다. 이 루트 관리 그룹은 모든 관리 그룹과 구독이 루트 관리 그룹까지 접히도록 만들어집니다. 이 그룹은 전역 정책 및 RBAC 할당을 디렉터리 수준에서 적용하는 것을 허용합니다. 
 
 루트 관리 그룹은 다음 작업 중 하나를 실행할 때 자동으로 만들어집니다. 
-1. [Azure Portal](https://portal.azure.com)에서 **관리 그룹**으로 이동하여 Azure 관리 그룹을 사용하도록 옵트인합니다.
+1. **Azure Portal**에서 [관리 그룹](https://portal.azure.com)으로 이동하여 Azure 관리 그룹을 사용하도록 옵트인합니다.
 2. API 호출을 통해 관리 그룹을 만듭니다.
 3. PowerShell을 사용하여 관리 그룹을 만듭니다.
 
@@ -40,7 +40,7 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
 관리 그룹에 구독을 구성하고 거버넌스 정책을 관리 그룹에 적용합니다. 관리 그룹에 속하는 모든 구독은 관리 그룹에 적용되는 정책을 자동으로 상속합니다. 관리 그룹은 Security Center에 등록할 필요가 없지만 루트 관리 그룹이 생성되도록 적어도 하나의 관리 그룹을 만드는 것이 좋습니다. 그룹이 만들어진 후 Azure AD 테넌트 아래의 모든 하위 구독이 연결됩니다. PowerShell에 대한 지침 및 추가 정보는 [리소스 및 조직 관리를 위한 관리 그룹 만들기](../azure-resource-manager/management-groups-create.md)를 참조하세요.
 
  
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스** > **관리 그룹**을 선택합니다.
 3. 주 페이지에서 **새 관리 그룹**을 선택합니다. 
 
@@ -49,11 +49,11 @@ Azure 관리 그룹은 액세스, 정책 및 구독 그룹에 대한 보고를 �
     - **관리 그룹 ID**는 이 관리 그룹에 명령을 전송하는 데 사용되는 디렉터리 고유 식별자입니다. 이 식별자는 Azure 시스템 전체에서 이 그룹을 식별하는 데 사용되므로 만든 후에 편집할 수 없습니다. 
     - 표시 이름 필드는 Azure Portal 내에 표시되는 이름을 포함합니다. 별도 표시 이름은 관리 그룹을 만들 때 사용되는 선택적 필드로, 언제든지 변경할 수 있습니다.  
 
-      ![만들기](./media/security-center-management-groups/create_context_menu.png)  
+      ![생성](./media/security-center-management-groups/create_context_menu.png)  
 5.  **저장**을 선택합니다.
 
 ### <a name="view-management-groups-in-the-azure-portal"></a>Azure Portal에서 관리 그룹 보기
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 관리 그룹을 보려면 Azure 주 메뉴 아래에서 **모든 서비스**를 선택합니다.
 3. **일반** 아래에서 **관리 그룹**을 선택합니다.
 
@@ -94,7 +94,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 
 #### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Azure Portal을 통해 사용자에게 RBAC 역할 할당: 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
 1. 관리 그룹을 보려면 Azure 주 메뉴에서 **모든 서비스**를 선택한 다음, **관리 그룹**을 선택합니다.
 1.  관리 그룹을 선택하고 **세부 정보**를 클릭합니다.
 
@@ -114,7 +114,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 1. [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
-2. 다음 명령을 실행 합니다. 
+2. 다음 명령을 실행합니다. 
 
     ```azurepowershell
     # Login to Azure as a Global Administrator user
@@ -141,7 +141,7 @@ Azure Active Directory 테넌트 관리자는 Azure 구독에 대한 직접 액�
 ### <a name="open-or-refresh-security-center"></a>Security Center 열기 또는 새로 고치기
 액세스 권한을 승격하면 Azure Security Center를 열거나 새로 고쳐 Azure AD 테넌트 아래의 모든 구독에 대한 가시성이 있는지 확인합니다. 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
 2. Security Center에서 보려는 모든 구독을 구독 선택기에서 선택해야 합니다.
 
     ![구독 선택기 스크린샷](./media/security-center-management-groups/subscription-selector.png)
@@ -168,7 +168,7 @@ RBAC 역할이 사용자에게 할당되면 테넌트 관리자는 사용자 액
 
 
 
-## <a name="adding-subscriptions-to-a-management-groups"></a>관리 그룹에 구독 추가
+## <a name="adding-subscriptions-to-a-management-group"></a>관리 그룹에 구독 추가
 만든 관리 그룹에 구독을 추가할 수 있습니다. 이러한 단계는 테넌트 수준의 가시성과 글로벌 정책 및 액세스 관리를 얻는 데 필수적이지 않습니다.
 
 1. **관리 그룹** 아래에서 구독을 추가할 관리 그룹을 선택합니다.

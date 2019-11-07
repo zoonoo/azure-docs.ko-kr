@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 762d6991eb8c45abc7de4f331f1b9335d68c0143
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 0659e57f5a5b223c199becf492b27c7a70cbdc63
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "73034532"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612119"
 ---
 Azure managed disks는 클라우드로 데이터를 유지할 때 기본적으로 데이터를 자동으로 암호화 합니다. 서버 쪽 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. Azure managed disks의 데이터는 256 비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용 하 여 투명 하 게 암호화 되 고, 사용 가능한 가장 강력한 블록 암호화 중 하나 이며, FIPS 140-2 규격입니다.   
 
@@ -157,6 +157,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName `
 $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName 
 $disk = Get-AzDisk -DiskName $diskName -ResourceGroupName $rgName
 $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun 1
+Update-AzVM -ResourceGroupName $rgName -VM $vm
 ```
 
 

@@ -1,19 +1,19 @@
 ---
-title: Azure HPC 캐시 미리 보기 데이터 수집-수동 복사
+title: Azure HPC 캐시 데이터 수집-수동 복사
 description: Azure HPC 캐시에서 cp 명령을 사용 하 여 Blob 저장소 대상으로 데이터를 이동 하는 방법
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 7e29cbd202b32897026bed074743de543d3fd587
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: b2514eaaf70d13d3be63963f24ea7be99c4fbcce
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254475"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582278"
 ---
-# <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Azure HPC 캐시 (미리 보기) 데이터 수집-수동 복사 방법
+# <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC 캐시 데이터 수집-수동 복사 방법
 
 이 문서에서는 Azure HPC 캐시에서 사용할 수 있도록 Blob storage 컨테이너에 데이터를 수동으로 복사 하는 방법에 대 한 자세한 지침을 제공 합니다. 다중 스레드 병렬 작업을 사용 하 여 복사 속도를 최적화 합니다.
 
@@ -81,7 +81,7 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ## <a name="when-to-add-mount-points"></a>탑재 지점을 추가하는 경우
 
-단일 대상 파일 시스템 탑재 지점에 대 한 병렬 스레드가 충분 한 경우 더 많은 스레드를 추가 하면 더 이상 처리량이 제공 되지 않습니다. (처리량은 데이터 형식에 따라 파일 수/초 또는 바이트 수/초로 측정됩니다.) 또는 더 심각한 경우, 과도한 스레딩으로 인해 때로는 처리량이 저하될 수 있습니다.  
+단일 대상 파일 시스템 탑재 지점에 대 한 병렬 스레드가 충분 한 경우 더 많은 스레드를 추가 하면 더 이상 처리량이 제공 되지 않습니다. 데이터의 형식에 따라 처리량은 파일/초 또는 바이트/초 단위로 측정 됩니다. 이상 스레딩을 통해 처리량 저하가 발생할 수 있습니다.  
 
 이 경우 동일한 원격 파일 시스템 탑재 경로를 사용 하 여 다른 Azure HPC 캐시 탑재 주소에 클라이언트 쪽 탑재 위치를 추가할 수 있습니다.
 
@@ -136,7 +136,7 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## <a name="create-file-manifests"></a>매니페스트 파일 만들기
 
-위의 방법을 이해 한 후 (대상 당 다중 복사 스레드, 클라이언트 당 여러 대상, 네트워크 액세스 가능 소스 파일 시스템용 다중 클라이언트) 다음 권장 사항을 고려 합니다. 파일 매니페스트를 작성한 다음, 여러 클라이언트에서 복사 명령과 함께 이를 사용하세요.
+위의 방법을 이해 한 후 (대상 당 다중 복사 스레드, 클라이언트 당 여러 대상, 네트워크 액세스에 액세스할 수 있는 소스 파일 시스템 당 여러 클라이언트) 여러 클라이언트에서 명령
 
 이 시나리오에서는 ``find`` UNIX 명령을 사용하여 파일 또는 디렉터리의 매니페스트를 만듭니다.
 
@@ -208,13 +208,13 @@ for i in 1 2 3 4 ; do sed -n ${i}~4p /tmp/foo > /tmp/client${i}; done
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-그리고 6개가 있는 경우 필요에 따라 추정합니다.
+6 ... 필요에 따라 외삽 합니다.
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-`find` 명령에서 출력의 일부로 얻은 수준 4 디렉터리에 대한 경로 이름을 가진 *N*개의 클라이언트 각각에 대해 하나씩 *N*개의 결과 파일을 받게 됩니다. 
+*명령에서 출력의 일부로 얻은 수준 4 디렉터리에 대한 경로 이름을 가진*N*개의 클라이언트 각각에 대해 하나씩* N`find`개의 결과 파일을 받게 됩니다. 
 
 각 파일을 사용하여 복사 명령을 작성합니다.
 

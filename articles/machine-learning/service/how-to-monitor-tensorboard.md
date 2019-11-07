@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
 ms.date: 06/28/2019
-ms.openlocfilehash: a45548d3698d28a0189be4f46c26e418da8c91ef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 272dbbbc335574456feebfb85e4c5eafd544f8d6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489635"
+ms.locfileid: "73574287"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning를 사용 하 여 실험 실행 및 메트릭 시각화
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,13 +28,16 @@ Azure Machine Learning 실험을 통해 TensorBoard를 시작 하는 방법은 �
 
 + TensorBoard 사용 파일을 기본적으로 출력 하지 않는 실험 (예: Scikit-학습 또는 Azure Machine Learning 실험)의 경우 [`export_to_tensorboard()` 메서드](#export) 를 사용 하 여 실행 기록을 TensorBoard logs로 내보내고 여기에서 TensorBoard를 실행 합니다. 
 
+> [!TIP]
+> 이 문서의 정보는 주로 모델 학습 프로세스를 모니터링 하려는 데이터 과학자 및 개발자를 위한 것입니다. 할당량, 완료 된 학습 실행 또는 완료 된 모델 배포와 같이 Azure Machine learning의 리소스 사용 및 이벤트를 모니터링 하는 데 관심이 있는 관리자는 [모니터링 Azure Machine Learning](monitor-azure-machine-learning.md)을 참조 하세요.
+
 ## <a name="prerequisites"></a>필수 조건
 
 * TensorBoard을 시작 하 고 실험 실행 기록을 보려면 실험에서 이전에 로깅을 사용 하도록 설정 하 여 해당 메트릭과 성능을 추적 해야 합니다.  
 
-* 이 방법의 코드는 다음 환경 중 하나에서 실행할 수 있습니다. 
+* 이 문서의 코드는 다음 환경 중 하나에서 실행할 수 있습니다. 
 
-    * Azure Machine Learning 계산 인스턴스-다운로드 또는 설치 필요 없음
+    * Azure Machine Learning 노트북 VM-다운로드 또는 설치 필요 없음
 
         * [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
 
@@ -216,7 +219,7 @@ data = {
 
 ### <a name="run-experiment-and-log-metrics"></a>실험 및 로그 메트릭 실행
 
-이 코드의 경우 실행 기록에서 선형 회귀 모델 및 로그 키 메트릭, 알파 계수 `alpha` 및 평균 제곱 오차 (`mse`)를 학습 합니다.
+이 코드의 경우 실행 기록에서 선형 회귀 모델 및 로그 키 메트릭, 알파 계수, `alpha`및 평균 제곱 오차 (`mse`)를 학습 합니다.
 
 ```Python
 from tqdm import tqdm

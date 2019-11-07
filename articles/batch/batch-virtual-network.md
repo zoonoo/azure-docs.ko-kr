@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: b4be715bd910326b3d06837508e7a07ac853189f
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 78f29bacaadac5f01e4a8dd26bf03b2bda84f2bf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68322631"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73577570"
 ---
 # <a name="create-an-azure-batch-pool-in-a-virtual-network"></a>가상 네트워크에서 Azure Batch 만들기
 
@@ -22,9 +22,9 @@ Azure Batch 풀을 만들 때는 지정한 [Azure 가상 네트워크](../virtua
 
 ## <a name="why-use-a-vnet"></a>VNet을 사용하는 이유
 
-Azure Batch 풀에는 다중 인스턴스 작업 처리 등, 컴퓨팅 노드가 서로 통신할 수 있게 하는 설정이 있습니다. 이러한 설정에는 별도의 VNet이 필요하지 않습니다. 그러나 기본적으로 노드는 라이선스 서버나 파일 서버 등, Batch 풀에 속하지 않는 가상 머신과는 통신할 수 없습니다. 풀 계산 노드가 다른 가상 머신 또는 온-프레미스 네트워크와 안전하게 통신하게 하기 위해 Azure VNet의 서브넷에서 풀을 프로비전할 수 있습니다. 
+Azure Batch 풀에는 다중 인스턴스 작업 처리 등, 컴퓨팅 노드가 서로 통신할 수 있게 하는 설정이 있습니다. 이러한 설정에는 별도의 VNet이 필요하지 않습니다. 그러나 기본적으로 노드는 라이선스 서버나 파일 서버 등, Batch 풀에 속하지 않는 가상 머신과는 통신할 수 없습니다. 풀 컴퓨팅 노드가 다른 가상 머신 또는 온-프레미스 네트워크와 안전하게 통신하게 하기 위해 Azure VNet의 서브넷에서 풀을 프로비전할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * **인증**. Azure VNet을 사용하려면 Batch 클라이언트 API가 Azure AD(Active Directory) 인증을 사용해야 합니다. Azure AD에 대한 Azure Batch 지원은 [Active Directory를 사용하여 Batch 서비스 솔루션 인증](batch-aad-auth.md)에 설명되어 있습니다. 
 
@@ -54,13 +54,13 @@ VNet을 만들고 서브넷을 할당한 후에는 해당 VNet으로 Batch 풀�
 
 조직에서 검사와 로깅을 위해 서브넷에서 인터넷으로 가는 트래픽을 온-프레미스 위치로 다시 리디렉션(강제)해야 하는 요구 사항이 있을 수 있습니다. VNet에서 서브넷에 강제 터널링을 사용할 수 있습니다. 
 
-강제 터널링을 사용하는 VNet에서 Azure Batch 풀 계산 노드가 작동하도록 해당 서브넷에 대해 다음 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md)를 추가해야 합니다.
+강제 터널링을 사용하는 VNet에서 Azure Batch 풀 컴퓨팅 노드가 작동하도록 해당 서브넷에 대해 다음 [사용자 정의 경로](../virtual-network/virtual-networks-udr-overview.md)를 추가해야 합니다.
 
-* Batch 서비스는 작업 예약을 위해 풀 컴퓨팅 노드와 통신해야 합니다. 이 통신을 사용하려면 Batch 계정이 존재하는 지역의 Batch 서비스에서 사용하는 각 IP 주소에 대해 사용자 정의 경로를 추가해야 합니다. Batch 서비스의 IP 주소 목록을 가져오는 방법에 대해 알아보려면 [온-프레미스의 서비스 태그](../virtual-network/security-overview.md#service-tags-in-on-premises) 를 참조 하세요.
+* Batch 서비스는 작업 예약을 위해 풀 컴퓨팅 노드와 통신해야 합니다. 이 통신을 사용하려면 Batch 계정이 존재하는 지역의 Batch 서비스에서 사용하는 각 IP 주소에 대해 사용자 정의 경로를 추가해야 합니다. Batch 서비스의 IP 주소 목록을 가져오는 방법에 대해 알아보려면 [온-프레미스의 서비스 태그](../virtual-network/service-tags-overview.md) 를 참조 하세요.
 
 * 온-프레미스 네트워크 장비에서 Azure Storage에 대한 아웃바운드 트래픽(특히 `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` 및 `<account>.blob.core.windows.net`)이 차단되지 않는지 확인합니다.
 
-사용자 정의 경로를 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 **다음 홉 유형**을 **인터넷**으로 설정합니다. 다음 예제를 참조하십시오.
+사용자 정의 경로를 추가할 때 관련된 각 Batch IP 주소 접두사에 대한 경로를 정의하고 **다음 홉 유형**을 **인터넷**으로 설정합니다. 다음 예제를 참조하세요.
 
 ![사용자 정의 경로](./media/batch-virtual-network/user-defined-route.png)
 
