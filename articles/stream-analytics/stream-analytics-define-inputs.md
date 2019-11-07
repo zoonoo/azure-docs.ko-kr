@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 8f64b3381f22c31b58604477260b5dae4b84d19a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df111d605b7c05bcb934771b6063f2be04770ea9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988260"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606473"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream Analytics에 입력으로 데이터 스트리밍
 
@@ -48,7 +48,7 @@ Azure Event Hubs는 확장성 있는 게시-구독 이벤트 수집기를 제공
 
 다음 표는 이벤트 허브에서 데이터 입력을 스트리밍하는 Azure Portal의 **새 입력** 페이지의 각 속성을 설명합니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 | --- | --- |
 | **입력 별칭** |이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다. |
 | **구독** | 이벤트 허브 리소스가 있는 구독을 선택합니다. | 
@@ -62,7 +62,7 @@ Azure Event Hubs는 확장성 있는 게시-구독 이벤트 수집기를 제공
 
 데이터가 이벤트 허브 스트림 입력에서 오는 경우 Stream Analytics 쿼리의 다음 메타데이터 필드에 액세스할 수 있습니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 | --- | --- |
 | **EventProcessedUtcTime** |이벤트가 Stream Analytics으로 처리되는 날짜 및 시간입니다. |
 | **EventEnqueuedUtcTime** |Event Hubs에서 이벤트를 받은 날짜 및 시간입니다. |
@@ -96,7 +96,7 @@ Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프는 
 
 다음 표에서는 스트림 입력으로 IoT Hub를 구성할 때 Azure Portal의 **새 입력** 페이지에서 각 속성을 설명합니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 | --- | --- |
 | **입력 별칭** | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다.|
 | **구독** | IoT Hub 리소스가 있는 구독을 선택합니다. | 
@@ -112,7 +112,7 @@ Stream Analytics의 IoT Hub에서 오는 이벤트의 기본 타임스탬프는 
 
 IoT Hub에서 스트림 데이터를 사용하는 경우 Stream Analytics 쿼리에서 다음 메타데이터 필드에 액세스할 수 있습니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 | --- | --- |
 | **EventProcessedUtcTime** | 이벤트가 처리되는 날짜 및 시간입니다. |
 | **EventEnqueuedUtcTime** | IoT Hub에서 이벤트를 받은 날짜 및 시간입니다. |
@@ -129,7 +129,13 @@ IoT Hub에서 스트림 데이터를 사용하는 경우 Stream Analytics 쿼리
 
 로그 처리는 Stream Analytics와 함께 Blob Storage 입력을 사용하기 위해 일반적으로 사용되는 시나리오입니다. 이 시나리오에서는 시스템에서 원격 분석 데이터 파일이 캡처되고 유의미한 데이터를 추출하기 위해 구문 분석 및 처리되어야 합니다.
 
-Stream Analytics에서 Blob Storage 이벤트의 기본 타임 스탬프는 Blob이 마지막으로 수정된 타임스탬프로 `BlobLastModifiedUtcTime`입니다. 이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 키워드를 사용해야 합니다. Stream Analytics 작업은 Blob 파일을 사용할 수 있는 경우 1초 간격으로 Azure Blob Storage 입력에서 데이터를 가져옵니다. Blob 파일을 사용할 수 없는 경우 최대 시간 지연 시간 90초 동안 지수 백오프가 발생합니다.
+Stream Analytics에서 Blob Storage 이벤트의 기본 타임 스탬프는 Blob이 마지막으로 수정된 타임스탬프로 `BlobLastModifiedUtcTime`입니다. Blob이 13:00의 저장소 계정에 업로드 되 고 Azure Stream Analytics 작업이 *이제* 13:01에서 옵션을 사용 하 여 시작 되는 경우 수정 된 시간이 작업 실행 기간을 벗어나서 blob이 선택 되지 않습니다.
+
+13:00의 저장소 계정 컨테이너에 blob을 업로드 하 고 13:00 또는 그 이전 버전에서 *사용자 지정 시간* 을 사용 하 여 Azure Stream Analytics 작업을 시작 하는 경우 수정 된 시간이 작업 실행 기간 내에 있으므로 blob이 선택 됩니다.
+
+Azure Stream Analytics 작업을 *지금* 13:00에서 사용 하 여 시작 하 고 blob이 13:01의 저장소 계정 컨테이너에 업로드 된 경우 Azure Stream Analytics는 blob을 선택 합니다.
+
+이벤트 페이로드에서 타임스탬프를 사용하여 스트림으로 데이터를 처리하려면 [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) 키워드를 사용해야 합니다. Stream Analytics 작업은 Blob 파일을 사용할 수 있는 경우 1초 간격으로 Azure Blob Storage 입력에서 데이터를 가져옵니다. Blob 파일을 사용할 수 없는 경우 최대 시간 지연 시간 90초 동안 지수 백오프가 발생합니다.
 
 CSV 형식의 입력은 데이터 집합에 대 한 필드를 정의 하는 머리글 행이 필요 하며 모든 머리글 행 필드는 고유 해야 합니다.
 
@@ -142,14 +148,14 @@ CSV 형식의 입력은 데이터 집합에 대 한 필드를 정의 하는 머�
 
 다음 표에서는 스트림 입력으로 Blob Storage를 구성할 때 Azure Portal의 **새 입력** 페이지에서 각 속성을 설명합니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 | --- | --- |
 | **입력 별칭** | 이 입력을 참조하도록 작업 쿼리에서 사용할 친숙한 이름입니다. |
 | **구독** | IoT Hub 리소스가 있는 구독을 선택합니다. | 
 | **Storage 계정** | Blob 파일이 위치한 스토리지 계정의 이름입니다. |
 | **Storage 계정 키** | 스토리지 계정과 연결된 비밀 키입니다. Blob Storage 설정을 수동으로 제공하는 옵션을 선택하지 않으면 이 옵션이 자동으로 채워집니다. |
 | **컨테이너** | Blob 입력에 대한 컨테이너입니다. 컨테이너는 Microsoft Azure Blob service에 저장된 Blob에 대한 논리적 그룹화를 제공합니다. Azure Blob Storage 서비스에 Blob을 업로드하는 경우 해당 Blob에 대한 컨테이너를 지정해야 합니다. **기존 컨테이너 사용** 또는 **새로 만들기**를 선택하여 새 컨테이너를 만들 수 있습니다.|
-| **경로 패턴**(선택 사항) | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로입니다. 경로 내에서 세 변수(`{date}`, `{time}`, `{partition}`)의 인스턴스 중 하나 이상을 지정할 수도 있습니다.<br/><br/>예 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>예 2: `cluster1/logs/{date}`<br/><br/>`*` 문자는 경로 접두사에 대해 허용된 값이 아닙니다. 유효한 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob 문자</a>만 허용됩니다. 컨테이너 이름 또는 파일 이름은 포함하지 않습니다. |
+| **경로 패턴**(선택 사항) | 지정된 컨테이너 내에서 Blob을 찾는 데 사용되는 파일 경로입니다. 컨테이너의 루트에서 blob을 읽으려면 경로 패턴을 설정 하지 마십시오. 경로 내에서 세 변수(`{date}`, `{time}`, `{partition}`)의 인스턴스 중 하나 이상을 지정할 수도 있습니다.<br/><br/>예 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>예 2: `cluster1/logs/{date}`<br/><br/>`*` 문자는 경로 접두사에 대해 허용된 값이 아닙니다. 유효한 <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Azure Blob 문자</a>만 허용됩니다. 컨테이너 이름 또는 파일 이름은 포함하지 않습니다. |
 | **날짜 형식**(선택 사항) | 경로에서 날짜 변수를 사용하는 경우 파일이 구성된 날짜 형식입니다. 예: `YYYY/MM/DD` |
 | **시간 형식**(선택 사항) |  경로에서 시간 변수를 사용하는 경우 파일이 구성된 시간 형식입니다. 현재 지원되는 유일한 값은 몇 시간 동안 `HH`입니다. |
 | **이벤트 직렬화 형식** | 들어오는 데이터 스트림의 serialization 형식 (JSON, CSV, Avro 또는 [기타 (Protobuf, XML, 독점적인 ...)](custom-deserializer.md))입니다.  JSON 형식이 사양을 준수하고 10진수 앞에 0이 없는지 확인하세요. |
@@ -158,7 +164,7 @@ CSV 형식의 입력은 데이터 집합에 대 한 필드를 정의 하는 머�
 
 데이터를 Blob Storage 원본에서 가져온 경우 Stream Analytics 쿼리에서 다음 메타데이터 필드에 액세스할 수 있습니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 | --- | --- |
 | **BlobName** |이 이벤트가 발생한 입력 Blob의 이름입니다. |
 | **EventProcessedUtcTime** |이벤트가 Stream Analytics으로 처리되는 날짜 및 시간입니다. |

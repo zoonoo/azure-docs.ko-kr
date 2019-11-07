@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 복사 마법사 | Microsoft 문서
+title: Data Factory Azure 복사 마법사
 description: Data Factory Azure 복사 마법사를 사용하여 지원되는 데이터 소스의 데이터를 싱크로 복사하는 방법에 대해 알아보세요.
 services: data-factory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d13e304b0d10e8bd34d306426f1f9164bcc6be94
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b2ec8e2cc09b6deb236bd83cb5cca99fead97279
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60567676"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683226"
 ---
 # <a name="azure-data-factory-copy-wizard"></a>Azure Data Factory 복사 마법사
 > [!NOTE]
@@ -30,7 +30,7 @@ Azure Data Factory 복사 마법사는 일반적으로 엔드투엔드 데이터
 ![복사 마법사](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
 ## <a name="designed-for-big-data"></a>빅 데이터를 위한 설계
-이 마법사를 사용하면 다양한 원본에서 대상으로 데이터를 몇 분만에 쉽게 이동할 수 있습니다. 마법사를 완료하면 종속 Data Factory 엔터티(연결된 서비스 및 데이터 집합)와 함께 복사 작업을 포함한 파이프라인이 자동으로 만들어집니다. 파이프라인을 만드는 데 필요한 추가 단계는 없습니다.   
+이 마법사를 사용하면 다양한 원본에서 대상으로 데이터를 몇 분만에 쉽게 이동할 수 있습니다. 마법사를 완료하면 종속 Data Factory 엔터티(연결된 서비스 및 데이터 집합)와 함께 복사 작업을 포함한 파이프라인이 자동으로 만들어집니다. 파이프라인을 만드는 데 필요한 추가 단계가 없습니다.   
 
 ![데이터 원본 선택](./media/data-factory-copy-wizard/select-data-source-page.png)
 

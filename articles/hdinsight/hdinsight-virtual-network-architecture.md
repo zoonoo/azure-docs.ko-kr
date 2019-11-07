@@ -2,17 +2,17 @@
 title: Azure HDInsight 가상 네트워크 아키텍처
 description: Azure Virtual Network에서 HDInsight 클러스터를 만들 때 사용할 수 있는 리소스를 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: 340974201d62f97669db442f4a95439a6ac90a5e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.date: 10/31/2019
+ms.openlocfilehash: 0a1139f7bf1711a5f6d980e67a8a9027bfd3af52
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70960609"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665315"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Azure HDInsight 가상 네트워크 아키텍처
 
@@ -22,7 +22,7 @@ ms.locfileid: "70960609"
 
 Azure HDInsight 클러스터에는 서로 다른 유형의 가상 머신 또는 노드가 있습니다. 각 노드 유형은 시스템 작업에서 역할을 수행 합니다. 다음 표에는 클러스터의 노드 유형과 해당 역할에 대 한 설명이 요약 되어 있습니다.
 
-| 형식 | Description |
+| 형식 | 설명 |
 | --- | --- |
 | 헤드 노드 |  Apache Storm를 제외한 모든 클러스터 유형에 대해 헤드 노드는 배포 응용 프로그램의 실행을 관리 하는 프로세스를 호스팅합니다. 헤드 노드는 또한 SSH로 이동 하 여 클러스터 리소스에서 실행 되도록 조정 된 응용 프로그램을 실행할 수 있는 노드입니다. 모든 클러스터 유형에 대해 헤드 노드 수는 2로 고정 됩니다. |
 | 사육 아웃 노드 | 사육 사가 데이터 처리를 수행 하는 노드 간에 작업을 조정 합니다. 또한 헤드 노드의 지도자 선택을 수행 하 고 특정 마스터 서비스를 실행 중인 헤드 노드를 추적 합니다. 사육 사 노드 수는 3에서 고정 됩니다. |
@@ -42,28 +42,28 @@ HDInsight가 Azure Virtual Network에 배포 될 때 제공 되는 기본 리소
 
 다음 표에서는 HDInsight가 사용자 지정 Azure Virtual Network에 배포 될 때 생성 되는 9 개의 클러스터 노드를 요약 합니다.
 
-| 리소스 형식 | 표시 번호 | 세부 정보 |
+| 리소스 종류 | 표시 번호 | 세부 정보 |
 | --- | --- | --- |
-|헤드 노드 | 이 |    |
-|Zookeeper 노드 | 삼 | |
-|작업자 노드 | 이 | 이 수는 클러스터 구성 및 크기 조정에 따라 달라질 수 있습니다. Apache Kafka에는 최소 3 개의 작업자 노드가 필요 합니다.  |
-|게이트웨이 노드 | 이 | 게이트웨이 노드는 Azure에서 생성 되지만 구독에는 표시 되지 않는 Azure 가상 컴퓨터입니다. 이러한 노드를 다시 부팅 해야 하는 경우 지원 담당자에 게 문의 하세요. |
+|헤드 노드 | two |    |
+|Zookeeper 노드 | three | |
+|작업자 노드 | two | 이 수는 클러스터 구성 및 크기 조정에 따라 달라질 수 있습니다. Apache Kafka에는 최소 3 개의 작업자 노드가 필요 합니다.  |
+|게이트웨이 노드 | two | 게이트웨이 노드는 Azure에서 생성 되지만 구독에는 표시 되지 않는 Azure 가상 컴퓨터입니다. 이러한 노드를 다시 부팅 해야 하는 경우 지원 담당자에 게 문의 하세요. |
 
 다음 네트워크 리소스는 HDInsight에서 사용 되는 가상 네트워크 내에 자동으로 만들어집니다.
 
 | 네트워킹 리소스 | 표시 번호 | 세부 정보 |
 | --- | --- | --- |
-|부하 분산 장치 | 삼 | |
-|네트워크 인터페이스 | 구 | 이 값은 각 노드에 고유한 네트워크 인터페이스가 있는 일반 클러스터를 기반으로 합니다. 9 개의 인터페이스는 두 헤드 노드, 3 개의 사육 아웃 노드, 두 개의 작업자 노드 및 위의 표에 언급 된 두 개의 게이트웨이 노드에 대 한 것입니다. |
-|공용 IP 주소 | 이 |    |
+|부하 분산 장치 | three | |
+|네트워크 인터페이스 | 커서나 | 이 값은 각 노드에 고유한 네트워크 인터페이스가 있는 일반 클러스터를 기반으로 합니다. 9 개의 인터페이스는 두 헤드 노드, 3 개의 사육 아웃 노드, 두 개의 작업자 노드 및 위의 표에 언급 된 두 개의 게이트웨이 노드에 대 한 것입니다. |
+|공용 IP 주소 | two |    |
 
 ## <a name="endpoints-for-connecting-to-hdinsight"></a>HDInsight에 연결 하기 위한 끝점
 
 다음 세 가지 방법으로 HDInsight 클러스터에 액세스할 수 있습니다.
 
-- 의 가상 네트워크 `CLUSTERNAME.azurehdinsight.net`외부에 있는 HTTPS 끝점입니다.
-- 에서 `CLUSTERNAME-ssh.azurehdinsight.net`헤드 노드에 직접 연결 하기 위한 SSH 끝점입니다.
-- 가상 네트워크 `CLUSTERNAME-int.azurehdinsight.net`내의 HTTPS 끝점입니다. 이 URL의 "-int"를 확인 합니다. 이 끝점은 해당 가상 네트워크의 개인 IP로 확인 되 고 공용 인터넷에서 액세스할 수 없습니다.
+- `CLUSTERNAME.azurehdinsight.net`의 가상 네트워크 외부에 있는 HTTPS 끝점입니다.
+- `CLUSTERNAME-ssh.azurehdinsight.net`에서 헤드 노드에 직접 연결 하기 위한 SSH 끝점입니다.
+- `CLUSTERNAME-int.azurehdinsight.net`가상 네트워크 내의 HTTPS 끝점입니다. 이 URL의 "-int"를 확인 합니다. 이 끝점은 해당 가상 네트워크의 개인 IP로 확인 되 고 공용 인터넷에서 액세스할 수 없습니다.
 
 이러한 세 끝점은 각각 부하 분산 장치에 할당 됩니다.
 
@@ -74,4 +74,4 @@ HDInsight가 Azure Virtual Network에 배포 될 때 제공 되는 기본 리소
 
 ## <a name="next-steps"></a>다음 단계
 
-* [개인 끝점을 사용 하 여 가상 네트워크에서 HDInsight 클러스터에 들어오는 트래픽 보안](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)
+- [개인 끝점을 사용 하 여 가상 네트워크에서 HDInsight 클러스터에 들어오는 트래픽 보안](https://azure.microsoft.com/blog/secure-incoming-traffic-to-hdinsight-clusters-in-a-vnet-with-private-endpoint/)

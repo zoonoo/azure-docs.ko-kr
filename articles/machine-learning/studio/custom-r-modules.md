@@ -1,6 +1,6 @@
 ---
 title: 사용자 지정 R 모듈 정의
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 이 항목에서는 사용자 지정 R Studio (클래식)를 작성 하 고 배포 하는 방법에 대해 설명 합니다. 사용자 지정 R 모듈의 정의와 이를 정의하는 데 사용되는 파일을 설명합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 92a6e0fec07c5e90c1e64a8c4a9e7470cf9fd634
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dba1b092d9a12f189ce7b4a207c362cad2bf8858
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493188"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73619491"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에 대 한 사용자 지정 R 모듈 정의 (클래식)
 

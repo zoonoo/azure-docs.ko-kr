@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 930a0c6e854823189bc3bf561bd42027e56f5600
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 06f2019dbaff390e88c73d1aae7a635a34a64721
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086922"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614620"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>WebJobs로 Durable Functions를 실행 하는 방법
 
@@ -22,11 +22,11 @@ ms.locfileid: "70086922"
 
 [Azure Functions](../functions-overview.md) 및 [지속성 함수](durable-functions-overview.md) 확장은 [WebJobs SDK](../../app-service/webjobs-sdk-how-to.md)에 기본 제공됩니다. WebJobs SDK의 작업 호스트는 Azure Functions의 런타임입니다. Azure Functions에서 불가능 한 방식으로 동작을 제어 해야 하는 경우 WebJobs SDK를 직접 사용 하 여 Durable Functions을 개발 하 고 실행할 수 있습니다.
 
-WebJobs SDK의 버전 2.x에서 호스트는의 `IHost`구현 이며, 버전 2.x에서는 개체를 `JobHost` 사용 합니다.
+WebJobs SDK의 버전 2.x에서 호스트는 `IHost`의 구현 이며, 버전 2.x에서 `JobHost` 개체를 사용 합니다.
 
 연결 Durable Functions 샘플은 WebJobs SDK 2.x 버전에서 사용할 수 있습니다. [Durable Functions 리포지토리](https://github.com/azure/azure-functions-durable-extension/)를 다운로드 하거나 복제 하 고 *samples\\\\webjobss00ststststststststststststststststststst*
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 사용자가 WebJobs SDK의 기본 사항, Azure Functions에 대한 C# 클래스 라이브러리 개발 및 지속성 함수에 대해 익숙한 것으로 가정합니다. 이러한 항목에 대한 소개가 필요한 경우 다음 리소스를 참조하세요.
 
@@ -38,7 +38,7 @@ WebJobs SDK의 버전 2.x에서 호스트는의 `IHost`구현 이며, 버전 2.x
 
 * **Azure 개발** 워크 로드를 사용 하 여 [Visual Studio 2019을 설치](https://docs.microsoft.com/visualstudio/install/) 합니다.
 
-  Visual Studio가 이미 있지만 해당 워크 로드가 없는 경우 **도구** > **도구 및 기능 가져오기**를 선택 하 여 작업을 추가 합니다.
+  Visual Studio가 이미 있지만 해당 워크 로드가 없는 경우 도구 > 도구 **및 기능 가져오기**를 선택 **하 여** 작업을 추가 합니다.
 
   (대신 [Visual Studio Code](https://code.visualstudio.com/)를 사용할 수 있지만 지침 중 일부는 Visual Studio에 국한됩니다.)
 
@@ -63,10 +63,10 @@ WebJobs SDK에 대한 NuGet 패키지, 코어 바인딩, 로깅 프레임워크 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions -version 2.2.0
 Install-Package Microsoft.Extensions.Logging -version 2.0.1
-Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.4.0
+Install-Package Microsoft.Azure.WebJobs.Extensions.DurableTask -version 1.8.3
 ```
 
-또한 로깅 공급자가 필요합니다. 다음 명령은 Azure 애플리케이션 Insights 공급자 및를 `ConfigurationManager`설치 합니다. `ConfigurationManager`를 사용하면 앱 설정에서 Application Insights 계측 키를 가져올 수 있습니다.
+또한 로깅 공급자가 필요합니다. 다음 명령은 Azure 애플리케이션 Insights 공급자와 `ConfigurationManager`를 설치 합니다. `ConfigurationManager`를 사용하면 앱 설정에서 Application Insights 계측 키를 가져올 수 있습니다.
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -version 2.2.0
@@ -83,7 +83,7 @@ Install-Package Microsoft.Extensions.Logging.Console -version 2.0.1
 
 콘솔 앱을 만들고 필요한 NuGet 패키지를 설치 했으므로 Durable Functions 사용할 준비가 되었습니다. JobHost 코드를 사용 하 여이 작업을 수행 합니다.
 
-지속성 함수 확장을 사용하려면 `Main` 메서드의 `JobHostConfiguration` 개체에서 `UseDurableTask`를 호출합니다.
+지속성 함수 확장을 사용하려면 `UseDurableTask` 메서드의 `JobHostConfiguration` 개체에서 `Main`를 호출합니다.
 
 ```cs
 var config = new JobHostConfiguration();
@@ -124,7 +124,7 @@ static void Main(string[] args)
 }
 ```
 
-## <a name="functions"></a>함수
+## <a name="functions"></a>Functions
 
 WebJobs의 컨텍스트에서 Durable Functions는 Azure Functions 컨텍스트에서 Durable Functions는 약간 다릅니다. 코드를 작성할 때의 차이점을 파악 하는 것이 중요 합니다.
 
@@ -162,7 +162,7 @@ WebJobs SDK 프로젝트에서 HTTP 요청을 전송 하는 대신 orchestration
 * `RaiseEventAsync`
 * `TerminateAsync`
 
-샘플 프로젝트의 오케스트레이션 클라이언트 함수는 오 케 스트레이 터 함수를 시작한 후 2 초 마다를 호출 `GetStatusAsync` 하는 루프로 이동 합니다.
+샘플 프로젝트의 orchestration 클라이언트 함수는 orchestrator 함수를 시작한 후 2 초 마다 `GetStatusAsync`를 호출 하는 루프로 이동 합니다.
 
 ```cs
 string instanceId = await client.StartNewAsync(nameof(HelloSequence), input: null);
@@ -207,11 +207,11 @@ WebJob으로 실행 되도록 설정 Durable Functions 했으며, 이제는이�
 
 1. 웹앱 및 스토리지 계정을 만듭니다.
 
-1. 웹 앱에서 라는 `AzureWebJobsStorage`앱 설정에 저장소 연결 문자열을 저장 합니다.
+1. 웹 앱에서 `AzureWebJobsStorage`이라는 앱 설정에 저장소 연결 문자열을 저장 합니다.
 
 1. Application Insights 리소스를 만들고 해당 리소스에 대 한 **일반** 앱 유형을 사용 합니다.
 
-1. 이라는 `APPINSIGHTS_INSTRUMENTATIONKEY`앱 설정에 계측 키를 저장 합니다.
+1. `APPINSIGHTS_INSTRUMENTATIONKEY`라는 앱 설정에 계측 키를 저장 합니다.
 
 1. WebJob으로 배포합니다.
 
@@ -221,7 +221,7 @@ WebJob으로 실행 되도록 설정 Durable Functions 했으며, 이제는이�
 
 도입 된 주요 변경 내용은 .NET Framework 대신 .NET Core를 사용 하는 것입니다. WebJobs SDK 3.x 프로젝트를 만들기 위해 지침은 동일 하지만 다음과 같은 예외가 있습니다.
 
-1. .NET Core 콘솔 앱을 만듭니다. Visual Studio **새 프로젝트** 대화 상자에서 **.net core** > **콘솔 앱 (.net core)** 을 선택 합니다. 프로젝트 파일은 해당 `TargetFramework`가 `netcoreapp2.x`이 되도록 지정합니다.
+1. .NET Core 콘솔 앱을 만듭니다. Visual Studio **새 프로젝트** 대화 상자에서 **.Net Core** > **콘솔 앱 (.net core)** 을 선택 합니다. 프로젝트 파일은 해당 `TargetFramework`가 `netcoreapp2.x`이 되도록 지정합니다.
 
 1. 다음 패키지의 릴리스 버전 WebJobs SDK 3.x를 선택 합니다.
 
@@ -238,7 +238,7 @@ WebJob으로 실행 되도록 설정 Durable Functions 했으며, 이제는이�
         }
     ```
 
-1. 이 작업 `Main` 을 수행 하도록 메서드 코드를 변경 합니다. 예를 들면 다음과 같습니다.
+1. 이 작업을 수행 하려면 `Main` 메서드 코드를 변경 합니다. 예를 들면 다음과 같습니다.
 
    ```cs
    static void Main(string[] args)

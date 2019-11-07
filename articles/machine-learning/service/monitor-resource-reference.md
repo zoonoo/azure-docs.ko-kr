@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 11/04/2019
-ms.openlocfilehash: 1fb16f6ef58efc5c63e743e557558dc60cf52f86
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/06/2019
+ms.openlocfilehash: 178c60d82c8337987e9858a409fcdef7063c9559
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514239"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684903"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Azure machine learning 모니터링 데이터 참조
 
@@ -54,7 +54,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | JobErrorMessage | 작업 오류에 대 한 자세한 메시지 |
 | NodeId | 작업이 실행 되는 위치에 생성 된 노드의 ID입니다. |
 
-### <a name="amlcomputerclusterevents-table"></a>AmlComputerClusterEvents 테이블
+### <a name="amlcomputeclusterevents-table"></a>AmlComputeClusterEvents 테이블
 
 | 속성 | 설명 |
 |:--- |:--- |

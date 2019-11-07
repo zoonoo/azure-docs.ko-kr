@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 06/12/2019
-ms.openlocfilehash: f51dbce3c251f4e89483d925ac657aac7eb928d8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b23e844cb550a98328951bc6efae3c5039ff73bf
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804107"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607531"
 ---
 # <a name="view-definition-artifact-in-azure-managed-applications"></a>Azure Managed Applications에서 뷰 정의 아티팩트
 
@@ -26,7 +26,7 @@ ms.locfileid: "72804107"
 
 ## <a name="view-definition-schema"></a>정의 스키마 보기
 
-**Viewdefinition. json** 파일에는 뷰의 배열인 최상위 `views` 속성이 하나만 있습니다. 각 보기는 관리 되는 응용 프로그램 사용자 인터페이스에 목차에서 별도의 메뉴 항목으로 표시 됩니다. 각 뷰에는 뷰의 유형을 설정 하는 `kind` 속성이 있습니다. [개요](#overview), [메트릭](#metrics), [customresources](#custom-resources)값 중 하나로 설정 해야 합니다. 자세한 내용은 [viewDefinition에 대 한 현재 json 스키마 (json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#))를 참조 하세요.
+**Viewdefinition. json** 파일에는 뷰의 배열인 최상위 `views` 속성이 하나만 있습니다. 각 보기는 관리 되는 응용 프로그램 사용자 인터페이스에 목차에서 별도의 메뉴 항목으로 표시 됩니다. 각 뷰에는 뷰의 유형을 설정 하는 `kind` 속성이 있습니다. [개요](#overview), [메트릭](#metrics), [customresources](#custom-resources), [association](#associations)값 중 하나로 설정 해야 합니다. 자세한 내용은 [viewDefinition에 대 한 현재 json 스키마 (json](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#))를 참조 하세요.
 
 뷰 정의에 대 한 샘플 JSON:
 
@@ -91,10 +91,18 @@ ms.locfileid: "72804107"
                     {"key": "properties.myProperty2", "displayName": "Property 2", "optional": true}
                 ]
             }
+        },
+        {
+            "kind": "Associations",
+            "properties": {
+                "displayName": "Test association resource type",
+                "version": "1.0.0",
+                "targetResourceType": "Microsoft.Compute/virtualMachines",
+                "createUIDefinition": { }
+            }
         }
     ]
 }
-
 ```
 
 ## <a name="overview"></a>개요
@@ -119,11 +127,11 @@ ms.locfileid: "72804107"
 }
 ```
 
-|자산|필수|설명|
+|속성|필수|설명|
 |---------|---------|---------|
-|머리글|아닙니다.|개요 페이지의 머리글입니다.|
-|description|아닙니다.|관리 되는 응용 프로그램에 대 한 설명입니다.|
-|명령을|아닙니다.|개요 페이지의 추가 도구 모음 단추에 대 한 배열입니다. [명령](#commands)을 참조 하십시오.|
+|머리글|아니요|개요 페이지의 머리글입니다.|
+|description|아니요|관리 되는 응용 프로그램에 대 한 설명입니다.|
+|명령을|아니요|개요 페이지의 추가 도구 모음 단추에 대 한 배열입니다. [명령](#commands)을 참조 하십시오.|
 
 ![개요](./media/view-definition/overview.png)
 
@@ -158,29 +166,29 @@ ms.locfileid: "72804107"
 }
 ```
 
-|자산|필수|설명|
+|속성|필수|설명|
 |---------|---------|---------|
-|displayName|아닙니다.|표시 된 뷰의 제목입니다.|
-|버전|아닙니다.|뷰를 렌더링 하는 데 사용 되는 플랫폼의 버전입니다.|
-|그래프|yes|메트릭 페이지의 차트 배열입니다.|
+|displayName|아니요|표시 된 뷰의 제목입니다.|
+|버전|아니요|뷰를 렌더링 하는 데 사용 되는 플랫폼의 버전입니다.|
+|그래프|예|메트릭 페이지의 차트 배열입니다.|
 
 ### <a name="chart"></a>차트
 
-|자산|필수|설명|
+|속성|필수|설명|
 |---------|---------|---------|
-|displayName|yes|표시 된 차트의 제목입니다.|
-|chartType|아닙니다.|이 차트에 사용할 시각화입니다. 기본적으로 꺾은선형 차트를 사용 합니다. 지원 되는 차트 종류: `Bar, Line, Area, Scatter`.|
-|메트릭|yes|이 차트에 그릴 메트릭의 배열입니다. Azure Portal에서 지원 되는 메트릭에 대 한 자세한 내용은 [Azure Monitor에서 지원 되는 메트릭](../azure-monitor/platform/metrics-supported.md) 을 참조 하세요.|
+|displayName|예|표시 된 차트의 제목입니다.|
+|chartType|아니요|이 차트에 사용할 시각화입니다. 기본적으로 꺾은선형 차트를 사용 합니다. 지원 되는 차트 종류: `Bar, Line, Area, Scatter`.|
+|메트릭|예|이 차트에 그릴 메트릭의 배열입니다. Azure Portal에서 지원 되는 메트릭에 대 한 자세한 내용은 [Azure Monitor에서 지원 되는 메트릭](../azure-monitor/platform/metrics-supported.md) 을 참조 하세요.|
 
 ### <a name="metric"></a>메트릭
 
-|자산|필수|설명|
+|속성|필수|설명|
 |---------|---------|---------|
-|이름|yes|메트릭의 이름입니다.|
-|aggregationType|yes|이 메트릭에 사용할 집계 유형입니다. 지원 되는 집계 유형: `none, sum, min, max, avg, unique, percentile, count`|
-|namespace|아닙니다.|올바른 메트릭 공급자를 결정할 때 사용할 추가 정보입니다.|
-|resourceTagFilter|아닙니다.|메트릭이 표시 되는 리소스 태그 배열을 `or` 단어로 구분 됩니다. 리소스 종류 필터의 위에 적용 됩니다.|
-|resourceType|yes|메트릭이 표시 되는 리소스 종류입니다.|
+|name|예|메트릭의 이름입니다.|
+|aggregationType|예|이 메트릭에 사용할 집계 유형입니다. 지원 되는 집계 유형: `none, sum, min, max, avg, unique, percentile, count`|
+|namespace|아니요|올바른 메트릭 공급자를 결정할 때 사용할 추가 정보입니다.|
+|resourceTagFilter|아니요|메트릭이 표시 되는 리소스 태그 배열을 `or` 단어로 구분 됩니다. 리소스 종류 필터의 위에 적용 됩니다.|
+|resourceType|예|메트릭이 표시 되는 리소스 종류입니다.|
 
 ![메트릭](./media/view-definition/metrics.png)
 
@@ -218,15 +226,15 @@ ms.locfileid: "72804107"
 }
 ```
 
-|자산|필수|설명|
+|속성|필수|설명|
 |---------|---------|---------|
-|displayName|yes|표시 된 뷰의 제목입니다. 제목은 Viewdefinition의 각 CustomResources 뷰에 대해 **고유** 해야 합니다 **. json**.|
-|버전|아닙니다.|뷰를 렌더링 하는 데 사용 되는 플랫폼의 버전입니다.|
-|resourceType|yes|사용자 지정 리소스 형식입니다. 사용자 지정 공급자의 **고유한** 사용자 지정 리소스 형식 이어야 합니다.|
-|icon|아닙니다.|뷰의 아이콘입니다. 예제 아이콘 목록은 [JSON 스키마](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)에 정의 되어 있습니다.|
-|createUIDefinition|아닙니다.|사용자 지정 리소스 만들기 명령에 대 한 UI 정의 스키마를 만듭니다. UI 정의를 만드는 방법에 대 한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md) 하기를 참조 하세요.|
-|명령을|아닙니다.|CustomResources 뷰의 추가 도구 모음 단추에 대 한 배열입니다. [명령](#commands)을 참조 하십시오.|
-|열|아닙니다.|사용자 지정 리소스의 열 배열입니다. 정의 되지 않은 경우 기본적으로 `name` 열이 표시 됩니다. 열에 `"key"` 및 `"displayName"`있어야 합니다. 키에 대해 뷰에 표시할 속성의 키를 제공 합니다. 중첩 된 경우 점을 구분 기호로 사용 합니다 (예: `"key": "name"` 또는 `"key": "properties.property1"`). 표시 이름에는 뷰에 표시할 속성의 표시 이름을 제공 합니다. `"optional"` 속성을 제공할 수도 있습니다. True로 설정 하면 기본적으로 뷰에서 열이 숨겨집니다.|
+|displayName|예|표시 된 뷰의 제목입니다. 제목은 Viewdefinition의 각 CustomResources 뷰에 대해 **고유** 해야 합니다 **. json**.|
+|버전|아니요|뷰를 렌더링 하는 데 사용 되는 플랫폼의 버전입니다.|
+|resourceType|예|사용자 지정 리소스 형식입니다. 사용자 지정 공급자의 **고유한** 사용자 지정 리소스 형식 이어야 합니다.|
+|icon|아니요|뷰의 아이콘입니다. 예제 아이콘 목록은 [JSON 스키마](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)에 정의 되어 있습니다.|
+|createUIDefinition|아니요|사용자 지정 리소스 만들기 명령에 대 한 UI 정의 스키마를 만듭니다. UI 정의를 만드는 방법에 대 한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md) 하기를 참조 하세요.|
+|명령을|아니요|CustomResources 뷰의 추가 도구 모음 단추에 대 한 배열입니다. [명령](#commands)을 참조 하십시오.|
+|열|아니요|사용자 지정 리소스의 열 배열입니다. 정의 되지 않은 경우 기본적으로 `name` 열이 표시 됩니다. 열에 `"key"` 및 `"displayName"`있어야 합니다. 키에 대해 뷰에 표시할 속성의 키를 제공 합니다. 중첩 된 경우 점을 구분 기호로 사용 합니다 (예: `"key": "name"` 또는 `"key": "properties.property1"`). 표시 이름에는 뷰에 표시할 속성의 표시 이름을 제공 합니다. `"optional"` 속성을 제공할 수도 있습니다. True로 설정 하면 기본적으로 뷰에서 열이 숨겨집니다.|
 
 ![CustomResources](./media/view-definition/customresources.png)
 
@@ -247,12 +255,39 @@ ms.locfileid: "72804107"
 }
 ```
 
-|자산|필수|설명|
+|속성|필수|설명|
 |---------|---------|---------|
-|displayName|yes|명령 단추의 표시 이름입니다.|
-|경로|yes|사용자 지정 공급자 작업 이름입니다. 작업은 **maintemplate.json**에서 정의 해야 합니다.|
-|icon|아닙니다.|명령 단추의 아이콘입니다. 예제 아이콘 목록은 [JSON 스키마](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)에 정의 되어 있습니다.|
-|createUIDefinition|아닙니다.|명령에 대 한 UI 정의 스키마를 만듭니다. UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.|
+|displayName|예|명령 단추의 표시 이름입니다.|
+|path|예|사용자 지정 공급자 작업 이름입니다. 작업은 **maintemplate.json**에서 정의 해야 합니다.|
+|icon|아니요|명령 단추의 아이콘입니다. 예제 아이콘 목록은 [JSON 스키마](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#)에 정의 되어 있습니다.|
+|createUIDefinition|아니요|명령에 대 한 UI 정의 스키마를 만듭니다. UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.|
+
+## <a name="associations"></a>사이의
+
+`"kind": "Associations"`
+
+이 형식의 뷰를 여러 개 정의할 수 있습니다. 이 보기에서는 **maintemplate.json**에서 정의한 사용자 지정 공급자를 통해 기존 리소스를 관리 되는 응용 프로그램에 연결할 수 있습니다. 사용자 지정 공급 기업에 대한 소개는 [Azure 사용자 지정 공급 기업 미리 보기 개요](custom-providers-overview.md)를 참조하세요.
+
+이 보기에서 `targetResourceType`기반으로 기존 Azure 리소스를 확장할 수 있습니다. 리소스를 선택 하면 리소스에 부작용을 적용할 수 있는 **공용** 사용자 지정 공급자에 대 한 온 보 딩 요청이 생성 됩니다. 
+
+```json
+{
+    "kind": "Associations",
+    "properties": {
+        "displayName": "Test association resource type",
+        "version": "1.0.0",
+        "targetResourceType": "Microsoft.Compute/virtualMachines",
+        "createUIDefinition": { }
+    }
+}
+```
+
+|속성|필수|설명|
+|---------|---------|---------|
+|displayName|예|표시 된 뷰의 제목입니다. 제목은 Viewdefinition의 각 연결 뷰에 대해 **고유** 해야 합니다 **. json**.|
+|버전|아니요|뷰를 렌더링 하는 데 사용 되는 플랫폼의 버전입니다.|
+|targetResourceType|예|대상 리소스 종류입니다. 리소스 온 보 딩에 대해 표시 되는 리소스 종류입니다.|
+|createUIDefinition|아니요|연결 리소스 만들기 명령에 대 한 UI 정의 스키마를 만듭니다. UI 정의를 만드는 방법에 대 한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md) 하기를 참조 하세요.|
 
 ## <a name="looking-for-help"></a>도움말 찾기
 

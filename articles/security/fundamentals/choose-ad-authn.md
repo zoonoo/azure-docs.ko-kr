@@ -2,25 +2,25 @@
 title: Azure AD 하이브리드 ID 솔루션에 적합한 인증 방법 선택 | Microsoft Docs
 description: 이 가이드는 CEO, CIO, CISO, CIA(Chief Identity Architects), 엔터프라이즈 설계자 그리고 보안 및 IT 의사 결정자 등, 중소 규모 기업 또는 대규모 기업에서 Azure AD 하이브리드 ID 솔루션의 인증 방법 선택을 담당하는 이들에게 유용합니다.
 keywords: ''
-author: martincoetzer
-ms.author: martinco
+author: TerryLanfear
+ms.author: terrylan
 ms.date: 10/30/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 524e923f005e2631e42f1d6b89b13cafdd646c2a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 564175141a8076d2ac4324b0dccf02cc250a613c
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159699"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621187"
 ---
-# <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택 
+# <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Azure Active Directory 하이브리드 ID 솔루션에 적합한 인증 방법 선택
 
 올바른 인증 방법을 선택하는 것은 앱에서 클라우드로 이동하려는 조직이 첫 번째로 고려해야 할 사항입니다. 이 결정을 가볍게 여겨서는 안 되는 이유는 다음과 같습니다.
 
-1. 클라우드로 이동하려는 조직에서 내려야 하는 첫 번째 의사 결정입니다. 
+1. 클라우드로 이동하려는 조직에서 내려야 하는 첫 번째 의사 결정입니다.
 
 2. 인증 방법은 클라우드에서 조직의 존재 여부에 매우 중요한 구성 요소이며, 모든 클라우드 데이터와 리소스에 대한 액세스를 제어합니다.
 
@@ -34,23 +34,23 @@ ID는 IT 보안의 새로운 제어 평면입니다. 따라서 인증은 새로�
 기존 온-프레미스 디렉터리 공간이 없는 조직은 이 문서의 대상이 아닙니다. 일반적으로 이러한 기업은 클라우드에서만 ID를 생성하므로 하이브리드 ID 솔루션이 필요하지 않습니다. 클라우드 전용 ID는 클라우드에서만 존재하며 해당 온-프레미스 ID와 연결되지 않습니다.
 
 ## <a name="authentication-methods"></a>인증 방법
-Azure AD 하이브리드 ID 솔루션이 새 제어 평면인 경우 인증은 클라우드 액세스의 기초입니다. 따라서 올바른 인증 방법을 선택하는 것은 Azure AD 하이브리드 ID 솔루션 설정에서 매우 중요한 첫 번째 결정입니다. 클라우드에서 사용자를 프로비저닝하기도 하는 Azure AD Connect를 사용하여 구성되는 인증 방법을 구현하세요.
+Azure AD 하이브리드 ID 솔루션이 새 제어 평면인 경우 인증은 클라우드 액세스의 기초입니다. 따라서 올바른 인증 방법을 선택하는 것은 Azure AD 하이브리드 ID 솔루션 설정에서 매우 중요한 첫 번째 결정입니다. 클라우드에서 사용자를 프로비전하는 Azure AD Connect를 사용하여 구성되는 인증 방법을 구현하세요.
 
-인증 방법을 선택하려면 시간, 기존 인프라, 복잡성 및 선택을 구현하는 데 드는 비용을 고려해야 합니다. 이러한 요소는 조직마다 다르며 시간이 흐름에 따라 변경될 수 있습니다. 
+인증 방법을 선택하려면 시간, 기존 인프라, 복잡성 및 선택을 구현하는 데 드는 비용을 고려해야 합니다. 이러한 요소는 조직마다 다르며 시간이 흐름에 따라 변경될 수 있습니다.
 
 >[!VIDEO https://www.youtube.com/embed/YtW2cmVqSEw]
 
 Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증 방법을 지원합니다.
 
 ### <a name="cloud-authentication"></a>클라우드 인증
-이 인증 방법을 선택하면 Azure AD가 사용자의 로그인 프로세스를 처리합니다. 원활한 SSO(Single Sign-On)와 결합되어 있으므로, 사용자는 자격 증명을 다시 입력하지 않고도 클라우드 앱에 로그인할 수 있습니다. 클라우드 인증을 사용할 경우 다음 두 가지 옵션 중에서 선택할 수 있습니다. 
+이 인증 방법을 선택하면 Azure AD가 사용자의 로그인 프로세스를 처리합니다. 원활한 SSO(Single Sign-On)와 결합되어 있으므로, 사용자는 자격 증명을 다시 입력하지 않고도 클라우드 앱에 로그인할 수 있습니다. 클라우드 인증을 사용할 경우 다음 두 가지 옵션 중에서 선택할 수 있습니다.
 
 **Azure AD 암호 해시 동기화**. Azure AD에서 온-프레미스 디렉터리 개체에 대한 인증을 사용하는 가장 간단한 방법입니다. 사용자는 추가 인프라를 배포하지 않고도 온-프레미스에서 사용하는 것과 동일한 사용자 이름과 암호를 사용할 수 있습니다. Id 보호 및 [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md)같은 Azure AD의 일부 프리미엄 기능에는 선택한 인증 방법에 관계 없이 암호 해시 동기화가 필요 합니다.
 
-> [!NOTE] 
-> 암호는 일반 텍스트로 저장되거나 Azure AD에서 복원 가능한 알고리즘을 사용하여 암호화되지 않습니다. 암호 해시 동기화의 실제 프로세스에 대한 자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요. 
+> [!NOTE]
+> 암호는 일반 텍스트로 저장되거나 Azure AD에서 복원 가능한 알고리즘을 사용하여 암호화되지 않습니다. 암호 해시 동기화의 실제 프로세스에 대한 자세한 내용은 [Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)을 참조하세요.
 
-**Azure AD 통과 인증**. 하나 이상의 온-프레미스 서버에서 실행되는 소프트웨어 에이전트를 사용하여 Azure AD 인증 서비스에 대한 간단한 암호 유효성 검사를 제공합니다. 서버가 온-프레미스 Active Directory에서 직접 사용자를 검증하므로 클라우드에서는 암호 유효성 검사가 수행되지 않습니다. 
+**Azure AD 통과 인증**. 하나 이상의 온-프레미스 서버에서 실행되는 소프트웨어 에이전트를 사용하여 Azure AD 인증 서비스에 대한 간단한 암호 유효성 검사를 제공합니다. 서버가 온-프레미스 Active Directory에서 직접 사용자를 검증하므로 클라우드에서는 암호 유효성 검사가 수행되지 않습니다.
 
 온-프레미스 사용자 계정 상태, 암호 정책 및 로그인 시간을 즉시 적용해야 하는 보안 요구 사항이 있는 회사에서 이 인증 방법을 사용할 수 있습니다. 실제 통과 인증 프로세스에 대한 자세한 내용은 [Azure AD 통과 인증으로 사용자 로그인](../../active-directory/hybrid/how-to-connect-pta.md)을 참조하세요.
 
@@ -106,21 +106,21 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 ### <a name="cloud-authentication-pass-through-authentication"></a>클라우드 인증: 통과 인증  
 
-* **활동**. 통과 인증에서는 하나 이상(3개 권장)의 경량 에이전트가 기존 서버에 설치되어 있어야 합니다. 이러한 에이전트는 온-프레미스 AD 도메인 컨트롤러를 포함하여 온-프레미스 Active Directory Domain Services에 대한 액세스 권한이 있어야 하며, 인터넷에 대한 아웃바운드 액세스 및 사용자 도메인 컨트롤러에 대한 액세스가 필요합니다. 이러한 이유로 경계 네트워크에 에이전트를 배포하는 것은 지원되지 않습니다. 
+* **활동**. 통과 인증에서는 하나 이상(3개 권장)의 경량 에이전트가 기존 서버에 설치되어 있어야 합니다. 이러한 에이전트는 온-프레미스 AD 도메인 컨트롤러를 포함하여 온-프레미스 Active Directory Domain Services에 대한 액세스 권한이 있어야 하며, 인터넷에 대한 아웃바운드 액세스 및 사용자 도메인 컨트롤러에 대한 액세스가 필요합니다. 이러한 이유로 경계 네트워크에 에이전트를 배포하는 것은 지원되지 않습니다.
 
     통과 인증에는 도메인 컨트롤러에 대한 무제한 네트워크 액세스가 필요합니다. 모든 네트워크 트래픽은 암호화되고 인증 요청을 제한합니다. 이 프로세스에 대한 자세한 내용은 통과 인증에 대한 [보안 심층 분석](../../active-directory/hybrid/how-to-connect-pta-security-deep-dive.md)을 참조하세요.
 
 * **사용자 환경**. 사용자의 로그인 환경을 개선하려면 통과 인증을 사용하는 원활한 SSO를 배포합니다. 원활한 SSO는 사용자가 로그인한 후 불필요한 프롬프트를 방지합니다.
 
-* **고급 시나리오**. 통과 인증은 로그인 시 온-프레미스 계정 정책을 적용 합니다. 예를 들어, 온-프레미스 사용자의 계정이 사용 안 함, 잠김 또는 [암호 만료됨](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) 상태이거나 사용자의 허용된 로그온 시간을 벗어난 상태인 경우 액세스가 거부됩니다. 
+* **고급 시나리오**. 통과 인증은 로그인 시 온-프레미스 계정 정책을 적용 합니다. 예를 들어, 온-프레미스 사용자의 계정이 사용 안 함, 잠김 또는 [암호 만료됨](../../active-directory/hybrid/how-to-connect-pta-faq.md#what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication) 상태이거나 사용자의 허용된 로그온 시간을 벗어난 상태인 경우 액세스가 거부됩니다.
 
     통과 인증을 사용 하는 다단계 인증을 요구 하는 조직은 MFA (Azure Multi-Factor Authentication) 또는 [조건부 액세스 사용자 지정 컨트롤](../../active-directory/conditional-access/controls.md#custom-controls-preview)을 사용 해야 합니다. 이러한 조직에서는 페더레이션을 기반으로 하는 타사 또는 온-프레미스 다단계 인증 방법을 사용할 수 없습니다. ID 보호의 유출된 자격 증명 보고서 등과 같은 고급 기능을 사용하려면 통과 인증 선택 여부에 관계없이 암호 해시 동기화를 배포해야 합니다.
 
-* **비즈니스 연속성**. Azure AD Connect 서버의 첫 번째 에이전트 외에 두 개의 추가적인 통과 인증 에이전트를 배포하는 것이 좋습니다. 이러한 추가 배포는 인증 요청의 높은 가용성을 보장합니다. 세 개의 에이전트를 배포하면 유지 관리를 위해 에이전트 하나가 중지된 경우에도 다른 에이전트가 실패해도 괜찮습니다. 
+* **비즈니스 연속성**. Azure AD Connect 서버의 첫 번째 에이전트 외에 두 개의 추가적인 통과 인증 에이전트를 배포하는 것이 좋습니다. 이러한 추가 배포는 인증 요청의 높은 가용성을 보장합니다. 세 개의 에이전트를 배포하면 유지 관리를 위해 에이전트 하나가 중지된 경우에도 다른 에이전트가 실패해도 괜찮습니다.
 
     통과 인증에 추가하여 암호 해시 동기화를 배포했을 때의 또 다른 이점은 더 이상 기본 인증 방법을 사용할 수 없을 때 백업 인증 방법으로 작동한다는 점입니다.
 
-* **고려 사항**. 특정 온-프레미스 오류 때문에 에이전트에서 사용자 자격 증명의 유효성을 검사할 수 없는 경우 암호 해시 동기화를 통과 인증에 대한 백업 인증 방법으로 사용할 수 있습니다. 암호에 대 한 장애 조치 (failover) 해시 동기화가 자동으로 수행 되지 않으므로 Azure AD Connect를 사용 하 여 로그온 방법을 수동으로 전환 해야 합니다. 
+* **고려 사항**. 특정 온-프레미스 오류 때문에 에이전트에서 사용자 자격 증명의 유효성을 검사할 수 없는 경우 암호 해시 동기화를 통과 인증에 대한 백업 인증 방법으로 사용할 수 있습니다. 암호에 대 한 장애 조치 (failover) 해시 동기화가 자동으로 수행 되지 않으므로 Azure AD Connect를 사용 하 여 로그온 방법을 수동으로 전환 해야 합니다.
 
     대체 ID 지원을 포함하여 통과 인증에 대한 기타 고려 사항은 [질문과 대답](../../active-directory/hybrid/how-to-connect-pta-faq.md)을 참조하세요.
 
@@ -128,7 +128,7 @@ Azure AD에서는 하이브리드 ID 솔루션에 대해 다음과 같은 인증
 
 ### <a name="federated-authentication"></a>페더레이션 인증
 
-* **활동**. 페더레이션 인증 시스템은 신뢰할 수 있는 외부 시스템을 통해 사용자를 인증합니다. 일부 기업은 Azure AD 하이브리드 ID 솔루션과 함께 자사의 기존 페더레이션 시스템 투자를 재사용하려고 합니다. 페더레이션 시스템의 유지 및 관리는 Azure AD의 제어를 벗어납니다. 페더레이션 시스템이 안전하게 배포되어 인증 부하를 처리할 수 있도록 하는 것은 해당 페더레이션 시스템을 사용하는 조직의 책임입니다. 
+* **활동**. 페더레이션 인증 시스템은 신뢰할 수 있는 외부 시스템을 통해 사용자를 인증합니다. 일부 기업은 Azure AD 하이브리드 ID 솔루션과 함께 자사의 기존 페더레이션 시스템 투자를 재사용하려고 합니다. 페더레이션 시스템의 유지 및 관리는 Azure AD의 제어를 벗어납니다. 페더레이션 시스템이 안전하게 배포되어 인증 부하를 처리할 수 있도록 하는 것은 해당 페더레이션 시스템을 사용하는 조직의 책임입니다.
 
 * **사용자 환경**. 페더레이션 인증의 사용자 환경은 기능, 토폴로지 및 페더레이션 팜 구성의 구현 방식에 따라 달라집니다. 일부 조직에서는 페더레이션 팜에 대한 액세스를 보안 요구 사항에 맞춰 적용 및 구성할 수 있는 유연성이 필요합니다. 예를 들어 자격 증명을 확인하지 않고 사용자가 자동으로 로그인되도록 내부적으로 연결된 사용자 및 디바이스를 구성할 수 있는데, 이 구성은 해당 사용자는 이미 디바이스에 로그인되었기 때문에 작동합니다. 필요한 경우 일부 고급 보안 기능을 사용하면 사용자의 로그인 프로세스가 더 어려워집니다.
 
@@ -149,7 +149,7 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 
 배포 단계에 대해서는 [페더레이션 서버 배포](https://docs.microsoft.com/windows-server/identity/ad-fs/deployment/deploying-federation-servers)를 참조하세요.
 
-> [!NOTE] 
+> [!NOTE]
 > Azure AD 하이브리드 ID 솔루션을 배포하는 경우 Azure AD Connect에서 지원되는 토폴로지 중 하나를 구현해야 합니다. [Azure AD Connect에 대한 토폴로지](../../active-directory/hybrid/plan-connect-topologies.md)에서 지원되는 구성 및 지원되지 않는 구성을 알아보세요.
 
 ## <a name="architecture-diagrams"></a>아키텍처 다이어그램
@@ -175,9 +175,9 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 |인증은 어디서 수행되나요?|클라우드|클라우드에서 온-프레미스 인증 에이전트와 보안 암호 확인을 교환한 후|온-프레미스|
 |프로비저닝 시스템(Azure AD Connect) 이외의 온-프레미스 서버 요구 사항은 무엇인가요?|없음|각 추가 인증 에이전트마다 서버 1개|둘 이상의 AD FS 서버<br><br>경계/DMZ 네트워크에 둘 이상의 WAP 서버|
 |프로비저닝 시스템 이외의 온-프레미스 인터넷 및 네트워킹 요구 사항은 무엇인가요?|없음|인증 에이전트를 실행하는 서버의[아웃바운드 인터넷 액세스](../../active-directory/hybrid/how-to-connect-pta-quick-start.md)|경계에 있는 WAP 서버에 대한 [인바운드 인터넷 액세스](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-requirements)<br><br>경계에 있는 WAP 서버에서 AD FS 서버로의 인바운드 네트워크 액세스<br><br>네트워크 부하 분산|
-|SSL 인증서 요구 사항이 있나요?|아닙니다.|아닙니다.|yes|
-|상태 모니터링 솔루션이 있나요?|필요 없음|[Azure Active Directory 관리 센터](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)에서 제공한 에이전트 상태|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
-|사용자가 회사 네트워크 내의 도메인 가입 디바이스에서 Single Sign-On 방식으로 클라우드 리소스에 액세스할 수 있나요?|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|yes|
+|SSL 인증서 요구 사항이 있나요?|아니요|아니요|예|
+|상태 모니터링 솔루션이 있나요?|필요하지 않음|[Azure Active Directory 관리 센터](../../active-directory/hybrid/tshoot-connect-pass-through-authentication.md)에서 제공한 에이전트 상태|[Azure AD Connect Health](../../active-directory/hybrid/how-to-connect-health-adfs.md)|
+|사용자가 회사 네트워크 내의 도메인 가입 디바이스에서 Single Sign-On 방식으로 클라우드 리소스에 액세스할 수 있나요?|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md)의 경우 예|예|
 |지원되는 로그인 유형은 무엇인가요?|UserPrincipalName + 암호<br><br>[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md) 를 사용 하 여 Windows 통합 인증<br><br>[대체 로그인 ID](../../active-directory/hybrid/how-to-connect-install-custom.md)|UserPrincipalName + 암호<br><br>[원활한 SSO](../../active-directory/hybrid/how-to-connect-sso.md) 를 사용 하 여 Windows 통합 인증<br><br>[대체 로그인 ID](../../active-directory/hybrid/how-to-connect-pta-faq.md)|UserPrincipalName + 암호<br><br>sAMAccountName + 암호<br><br>Windows 통합 인증<br><br>[인증서 및 스마트 카드 인증](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[대체 로그인 ID](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
 |비즈니스용 Windows Hello가 지원되나요?|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br>*Windows Server 2016 도메인 기능 수준 필요*|[키 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[인증서 신뢰 모델](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |다단계 인증 옵션은 무엇인가요?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스를 사용 하는 사용자 지정 컨트롤 *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[조건부 액세스를 사용 하는 사용자 지정 컨트롤 *](../../active-directory/conditional-access/controls.md)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Azure MFA 서버](../../active-directory/authentication/howto-mfaserver-deploy.md)<br><br>[타사 MFA](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[조건부 액세스를 사용 하는 사용자 지정 컨트롤 *](../../active-directory/conditional-access/controls.md)|
@@ -187,15 +187,15 @@ Azure AD에서 확인할 수 없는 라우팅 불가능한 도메인의 경우 �
 |로그인 페이지에서 로고, 이미지 및 설명을 사용자 지정할 수 있나요?|[예(Azure AD Premium의 경우)](../../active-directory/fundamentals/customize-branding.md)|[예(Azure AD Premium의 경우)](../../active-directory/fundamentals/customize-branding.md)|[예](../../active-directory/hybrid/how-to-connect-fed-management.md)|
 |지원되는 고급 시나리오는 무엇인가요?|[스마트 암호 잠금](../../active-directory/authentication/concept-sspr-howitworks.md)<br><br>[손실된 자격 증명 보고서, Azure AD Premium P2 사용](../../active-directory/reports-monitoring/concept-risk-events.md)|[스마트 암호 잠금](../../active-directory/authentication/howto-password-smart-lockout.md)|다중 사이트 낮은 대기 시간 인증 시스템<br><br>[AD FS 엑스트라넷 잠금](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[타사 ID 시스템과 통합](../../active-directory/hybrid/how-to-connect-fed-compatibility.md)|
 
-> [!NOTE] 
+> [!NOTE]
 > Azure AD 조건부 액세스의 사용자 지정 컨트롤은 현재 장치 등록을 지원 하지 않습니다.
 
-## <a name="recommendations"></a>권장 사항
+## <a name="recommendations"></a>추천
 ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도록 만든 클라우드 앱 및 LOB(기간 업무) 앱에 사용자가 액세스할 수 있도록 해줍니다. 권한 있는 사용자가 생산성을 유지하고 악의적인 행위자가 조직의 중요한 데이터에 접근하지 못하도록 하기 위해 인증은 앱에 대한 액세스를 제어합니다.
 
 다음과 같은 이유로, 선택한 인증 방법에 관계없이 암호 해시 동기화를 사용하거나 사용하도록 설정합니다.
 
-1. **고가용성 및 재해 복구**. 통과 인증 및 페더레이션은 온-프레미스 인프라에 의존합니다. 통과 인증의 경우, 통과 인증 에이전트에 필요한 서버 하드웨어 및 네트워크가 온-프레미스 공간에 포함됩니다. 페더레이션의 경우, 경계 네트워크의 서버에서 인증 요청 및 내부 페더레이션 서버를 프록시해야 하므로 온-프레미스 공간이 훨씬 커집니다. 
+1. **고가용성 및 재해 복구**. 통과 인증 및 페더레이션은 온-프레미스 인프라에 의존합니다. 통과 인증의 경우, 통과 인증 에이전트에 필요한 서버 하드웨어 및 네트워크가 온-프레미스 공간에 포함됩니다. 페더레이션의 경우, 경계 네트워크의 서버에서 인증 요청 및 내부 페더레이션 서버를 프록시해야 하므로 온-프레미스 공간이 훨씬 커집니다.
 
     단일 실패 지점을 방지하려면 중복 서버를 배포합니다. 그러면 어떤 구성 요소가 실패한 경우에도 인증 요청이 항상 처리됩니다. 또한 통과 인증과 페더레이션 둘 다에서 도메인 컨트롤러를 사용하여 인증 요청에 응답하며, 실패할 수도 있습니다. 이러한 많은 구성 요소를 정상적인 상태로 유지하려면 유지 관리가 필요하며, 유지 관리가 제대로 계획 및 구현되지 않은 경우 중단이 발생할 가능성이 커집니다. Microsoft Azure AD 클라우드 인증 서비스는 전 세계로 확장되어 있으며 항상 사용할 수 있기 때문에 암호 해시 동기화를 사용하면 중단을 방지할 수 있습니다.
 
@@ -209,7 +209,7 @@ ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도
 
 ## <a name="conclusion"></a>결론
 
-이 문서에서는 조직에서 클라우드 앱에 대한 액세스를 지원하기 위해 구성하여 배포할 수 있는 다양한 인증 옵션을 설명합니다. 다양한 비즈니스, 보안 및 기술적 요구 사항을 충족하기 위해 조직은 암호 해시 동기화, 통과 인증 및 페더레이션 중에서 선택할 수 있습니다. 
+이 문서에서는 조직에서 클라우드 앱에 대한 액세스를 지원하기 위해 구성하여 배포할 수 있는 다양한 인증 옵션을 설명합니다. 다양한 비즈니스, 보안 및 기술적 요구 사항을 충족하기 위해 조직은 암호 해시 동기화, 통과 인증 및 페더레이션 중에서 선택할 수 있습니다.
 
 비즈니스 요구 사항이 솔루션 배포 활동 및 로그인 프로세스의 사용자 환경에 의해 해결될지 여부를 고려하여 인증 방법을 선택해야 합니다. 또한 조직에 각 인증 방법의 고급 시나리오 및 비즈니스 연속성 기능이 필요한지 여부도 평가해야 합니다. 마지막으로, 각 인증 방법에서 고려할 사항을 평가하여 선택한 방법을 구현하지 못하도록 하는 요소가 있는지 확인해야 합니다.
 
@@ -219,4 +219,4 @@ ID 시스템은 마이그레이션하여 클라우드에서 사용할 수 있도
 
 Azure AD로 [시작](../../active-directory/fundamentals/get-started-azure-ad.md)하여 조직에 맞는 올바른 인증 솔루션을 배포하세요.
 
-페더레이션 인증에서 클라우드 인증으로 마이그레이션을 고려하는 경우 [로그인 방법 변경](../../active-directory/hybrid/plan-connect-user-signin.md)에 대해 자세히 알아보세요. 마이그레이션을 계획 하 고 구현 하는 데 도움이 되도록 [이러한 프로젝트 배포 계획](https://aka.ms/deploymentplans) 을 사용 하거나 새로운 [준비 된 롤아웃](../../active-directory/hybrid/how-to-connect-staged-rollout.md) 기능을 사용 하 여 준비 된 방법으로 페더레이션된 사용자를 클라우드 인증 사용으로 마이그레이션해야 합니다.
+페더레이션 인증에서 클라우드 인증으로 마이그레이션를 고려하는 경우 [로그인 방법 변경](../../active-directory/hybrid/plan-connect-user-signin.md)에 대해 자세히 알아보세요. 마이그레이션을 계획 하 고 구현 하는 데 도움이 되도록 [이러한 프로젝트 배포 계획](https://aka.ms/deploymentplans) 을 사용 하거나 새로운 [준비 된 롤아웃](../../active-directory/hybrid/how-to-connect-staged-rollout.md) 기능을 사용 하 여 준비 된 방법으로 페더레이션된 사용자를 클라우드 인증 사용으로 마이그레이션해야 합니다.

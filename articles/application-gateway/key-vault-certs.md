@@ -7,21 +7,18 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 725a9d67e6a6412fc48a4278b5a8a163272e5133
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 76807c8ed10e30c554b6aa06ec096c830a86e36e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000994"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571990"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Key Vault 인증서를 사용 하 여 SSL 종료
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) 는 암호, 키 및 SSL 인증서를 보호 하는 데 사용할 수 있는 플랫폼 관리 암호 저장소입니다. Azure 애플리케이션 Gateway는 HTTPS 사용 수신기에 연결 된 서버 인증서에 대 한 Key Vault (공개 미리 보기)와의 통합을 지원 합니다. 이 지원은 Application Gateway의 v2 SKU로 제한 됩니다.
+[Azure Key Vault](../key-vault/key-vault-overview.md) 는 암호, 키 및 SSL 인증서를 보호 하는 데 사용할 수 있는 플랫폼 관리 암호 저장소입니다. Azure 애플리케이션 Gateway는 HTTPS 사용 수신기에 연결 된 서버 인증서에 대 한 Key Vault와의 통합을 지원 합니다. 이 지원은 Application Gateway의 v2 SKU로 제한 됩니다.
 
-> [!IMPORTANT]
-> Key Vault와 Application Gateway의 통합은 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기는 SLA (서비스 수준 계약) 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
-이 공개 미리 보기는 SSL 종료를 위한 두 가지 모델을 제공 합니다.
+Key Vault 통합은 SSL 종료를 위한 두 가지 모델을 제공 합니다.
 
 - 수신기에 연결 된 SSL 인증서를 명시적으로 제공할 수 있습니다. 이 모델은 ssl 인증서를 SSL 종료를 위해 Application Gateway에 전달 하는 일반적인 방법입니다.
 - HTTPS 사용 수신기를 만들 때 필요에 따라 기존 Key Vault 인증서 또는 암호에 대 한 참조를 제공할 수 있습니다.

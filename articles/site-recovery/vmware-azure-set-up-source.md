@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 VMware의 소스 환경을 Azure 복제로 설정 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 Azure에 대 한 VMware 재해 복구를 위한 원본 설정 설정
 description: 이 아티클에서는 Azure Site Recovery를 사용하여 Azure에 VMware VM을 복제하도록 온-프레미스 환경을 설정하는 방법을 설명합니다.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,23 +8,23 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: bf1ff4dfba105b6c90ab949217453e1db82d109d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ff01aed92669acb193ff149ea9298550134f42a3
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791766"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622203"
 ---
 # <a name="set-up-the-source-environment-for-vmware-to-azure-replication"></a>Azure 복제에 대한 VMware의 원본 환경 설정
 
 이 아티클에서는 VMware VM을 Azure에 복제하도록 원본 온-프레미스 환경을 설정하는 방법을 설명합니다. 이 문서에는 복제 시나리오를 선택 하 고, 온-프레미스 컴퓨터를 Site Recovery 구성 서버로 설정 하 고, 온-프레미스 Vm을 자동으로 검색 하는 단계가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 사용자가 다음 작업을 이미 수행한 것으로 가정합니다.
 
 - [Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md)를 활용하여 배포 계획을 세웠습니다. 이 경우 일별 데이터 변경률에 따라 원하는 RPO(복구 지점 목표)를 충족할 수 있는 충분한 대역폭을 할당할 수 있습니다.
-- [Azure Portal](https://portal.azure.com)에서 [리소스 설정](tutorial-prepare-azure.md)
+- [Azure Portal](tutorial-prepare-azure.md)에서 [리소스 설정](https://portal.azure.com)
 - 자동 검색용 전용 계정을 포함하는 [온-프레미스 VMware 설정](vmware-azure-tutorial-prepare-on-premises.md)
 
 ## <a name="choose-your-protection-goals"></a>보호 목표 선택

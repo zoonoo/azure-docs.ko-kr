@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 96c346db74c1e6c43c3501b657621d09e019309c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 584fb7b97b8342289d7ca2f23b0479eb1169867a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469209"
+ms.locfileid: "73575888"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x에 대한 host.json 참조  
 
@@ -182,23 +182,7 @@ ms.locfileid: "73469209"
 
 ## <a name="http"></a>http
 
-구성 설정은 [http 트리거 및 바인딩](functions-bindings-http-webhook.md)에서 찾을 수 있습니다.
-
-```json
-{
-    "extensions": {
-        "http": {
-            "routePrefix": "api",
-            "maxOutstandingRequests": 200,
-            "maxConcurrentRequests": 100,
-            "dynamicThrottlesEnabled": true
-        }
-    }
-}
-```
-
-
-[!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
+구성 설정은 [http 트리거 및 바인딩](functions-bindings-http-webhook.md#hostjson-settings)에서 찾을 수 있습니다.
 
 ## <a name="logging"></a>logging
 
@@ -206,7 +190,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 
 ```json
 "logging": {
-    "fileLoggingMode": "debugOnly",
+    "fileLoggingMode": "debugOnly"
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"
@@ -223,9 +207,9 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 |속성  |기본값 | 설명 |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|활성화할 파일 로깅의 수준을 정의합니다.  옵션은 `never`, `always`, `debugOnly`입니다. |
-|logLevel|n/a|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x는 로그 범주 필터링용 ASP.NET Core 레이아웃을 따릅니다. 따라서 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
-|console|n/a| [콘솔](#console) 로깅 설정입니다. |
-|applicationInsights|n/a| [applicationInsights](#applicationinsights) 설정입니다. |
+|logLevel|해당 없음|앱의 함수에 대한 로그 범주 필터링을 정의하는 개체입니다. 버전 2.x는 로그 범주 필터링용 ASP.NET Core 레이아웃을 따릅니다. 따라서 특정 함수의 로깅을 필터링할 수 있습니다. 자세한 내용은 ASP.NET Core 설명서의 [로그 필터링](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering)을 참조하세요. |
+|console|해당 없음| [콘솔](#console) 로깅 설정입니다. |
+|applicationInsights|해당 없음| [applicationInsights](#applicationinsights) 설정입니다. |
 
 ## <a name="console"></a>console
 
@@ -293,7 +277,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 |listenerLockPeriod|00:01:00|수신기 잠금이 적용되는 기간입니다.| 
 |listenerLockRecoveryPollingInterval|00:01:00|시작할 때 수신기 잠금을 가져올 수 없는 경우 수신기 잠금 복구에 사용되는 시간 간격입니다.| 
 |lockAcquisitionTimeout|00:01:00|런타임이 잠금을 확보하려고 시도하는 최대 시간입니다.| 
-|lockAcquisitionPollingInterval|n/a|잠금 확보 시도 사이의 간격입니다.| 
+|lockAcquisitionPollingInterval|해당 없음|잠금 확보 시도 사이의 간격입니다.| 
 
 ## <a name="version"></a>버전
 

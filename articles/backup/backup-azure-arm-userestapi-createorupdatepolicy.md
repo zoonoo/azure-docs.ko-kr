@@ -1,25 +1,25 @@
 ---
-title: 'Azure Backup: REST API를 사용 하 여 백업 정책 만들기'
+title: 'Azure Backup: REST API를 사용하여 백업 정책 만들기'
 description: REST API를 사용하여 백업 정책(일정 및 보존) 관리
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
-keywords: REST API, Azure VM 백업, Azure VM 복원,
+keywords: REST API; Azure VM 백업; Azure VM 복원;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 8b812ea053cb8e9da7cd3ef021ab6b74196d36ca
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 50cc327c69529e420837571fdd60c1b2a1364b10
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954959"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670132"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 백업 정책 만들기
 
-Azure Recovery Services 자격 증명 모음에 대한 백업 정책을 만드는 단계는 [백업 정책 REST API 문서](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate)에 간략하게 설명돼 있습니다. Azure VM 백업에 대한 정책을 만들려면 이 문서를 참조로 사용하겠습니다.
+Azure Recovery Services 자격 증명 모음에 대한 백업 정책을 만드는 단계는 [백업 정책 REST API 문서](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate)에 간략하게 설명돼 있습니다. Azure VM 백업에 대한 정책을 만들려면 이 문서를 참조로 사용하겠습니다.
 
 ## <a name="backup-policy-essentials"></a>백업 정책 기본 정보
 
@@ -30,8 +30,8 @@ Azure Recovery Services 자격 증명 모음에 대한 백업 정책을 만드�
   - Azure 파일 공유
 - 다양한 리소스에 정책을 할당할 수 있습니다. 여러 Azure VM을 보호하는 데 Azure VM 백업 정책을 사용할 수 있습니다.
 - 두 구성 요소로 이루어진 정책
-  - 일정과 백업을 수행 해야 하는 경우
-  - 보존 각 백업 보존 기간을 지정 합니다.
+  - 일정: 백업을 수행하는 경우
+  - 보존: 각 백업을 보존해야 할 기간
 - 특정 시점을 사용하여 "매일" 또는 "매주"로 일정을 정의할 수 있습니다.
 - "매일", "매주", "매월", "매년" 단위로 백업 지점에 대한 보존을 정의할 수 있습니다.
 - "매주"는 그 주의 특정 날짜의 백업을 참조하고, "매월"은 그 달의 특정 날짜의 백업을 의미하며, "매년"은 그 해의 특정 날짜의 백업을 참조합니다.
@@ -41,7 +41,7 @@ Azure Recovery Services 자격 증명 모음에 대한 백업 정책을 만드�
 Azure Backup 정책을 만들거나 업데이트하려면 다음 *PUT* 작업을 사용합니다.
 
 ```http
-PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2016-12-01
+PUT https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupPolicies/{policyName}?api-version=2019-05-13
 ```
 
 URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 추가 정보를 제공합니다.
@@ -50,12 +50,12 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 예를 들어 Azure VM 백업의 백업을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |필수  |형식  |설명  |
+|Name  |필수  |형식  |설명  |
 |---------|---------|---------|---------|
-|속성     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
+|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
 |tags     |         | Object        |  리소스 태그       |
 
-요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate)를 참조하세요.
+요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate)를 참조하세요.
 
 ### <a name="example-request-body"></a>요청 본문 예제
 
@@ -152,16 +152,16 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 > [!IMPORTANT]
 > 일정 및 보존에 대한 시간 형식은 날짜/시간만 지원하고 시간 형식만 따로 지원하지 않습니다.
 
-## <a name="responses"></a>Responses
+## <a name="responses"></a>응답
 
 백업 정책 만들기/업데이트는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
-두 응답을 반환합니다. 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)
+다른 작업을 만들 때 202 (수락 됨) 두 개의 응답을 반환 하 고 해당 작업이 완료 되 면 200 (OK)를 반환 합니다.
 
-|이름  |형식  |설명  |
+|Name  |형식  |설명  |
 |---------|---------|---------|
-|200 정상     |    [보호 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  확인       |
-|202 수락됨     |         |     동의함    |
+|200 정상     |    [보호 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  확인       |
+|202 수락됨     |         |     수락됨    |
 
 ### <a name="example-responses"></a>예제 응답
 
@@ -181,14 +181,14 @@ x-ms-correlation-request-id: db785be0-bb20-4598-bc9f-70c9428b170b
 x-ms-routing-request-id: SOUTHINDIA:20180521T073907Z:db785be0-bb20-4598-bc9f-70c9428b170b
 Cache-Control: no-cache
 Date: Mon, 21 May 2018 07:39:06 GMT
-Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+Location: https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 X-Powered-By: ASP.NET
 ```
 
 그런 다음, 간단한 *GET* 명령으로 위치 헤더 또는 Azure-AsyncOperation 헤더를 사용하여 결과 작업을 추적합니다.
 
 ```http
-GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2016-06-01
+GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/SwaggerTestRg/providers/Microsoft.RecoveryServices/vaults/testVault/backupPolicies/testPolicy1/operationResults/00000000-0000-0000-0000-000000000000?api-version=2019-05-13
 ```
 
 작업이 완료되면 응답 본문에서 정책 콘텐츠를 사용하여 200(정상)을 반환합니다.

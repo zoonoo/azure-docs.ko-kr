@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: b92975e3fe73fb1c882bdfc4338fd8e169728e8b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 58eb5abc9a8857b81ada65c96eb7deaaa5cc5aeb
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387644"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622675"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Resource Graph로 Azure 리소스 탐색
 
@@ -308,10 +308,10 @@ az graph query -q="Resources | where type =~ 'Microsoft.Network/publicIPAddresse
 Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Network/publicIPAddresses' | where id in ('$($ips.publicIp -join "','")') | project ip = tostring(properties['ipAddress']) | where isnotempty(ip) | distinct ip"
 ```
 
-@No__t-0 연산자를 사용 하 여 단일 쿼리에서 이러한 단계를 수행 하는 방법을 보려면 [네트워크 인터페이스를 사용 하 여 가상 컴퓨터 나열 및 공용 IP](../samples/advanced.md#join-vmpip) 샘플을 참조 하세요.
+`join` 연산자를 사용 하 여 단일 쿼리에서 이러한 단계를 수행 하는 방법을 보려면 [네트워크 인터페이스를 사용 하 여 가상 컴퓨터 나열 및 공용 IP](../samples/advanced.md#join-vmpip) 샘플을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [쿼리 언어](query-language.md)에 대해 자세히 알아보기
-- [시작 쿼리](../samples/starter.md)에 사용되는 언어 알아보기
-- [고급 쿼리](../samples/advanced.md)의 고급 사용법 알아보기
+- [쿼리 언어](query-language.md)에 대해 자세히 알아보세요.
+- [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
+- [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.

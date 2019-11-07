@@ -1,5 +1,5 @@
 ---
-title: Windows 10 또는 Windows 7에서 Windows 가상 데스크톱에 연결-Azure
+title: Windows 가상 데스크톱 Windows 10 또는 7에 연결-Azure
 description: Windows 데스크톱 클라이언트를 사용 하 여 Windows 가상 데스크톱에 연결 하는 방법
 services: virtual-desktop
 author: Heidilohr
@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: helohr
-ms.openlocfilehash: 1d7f08dbaa9b91cd2dbac28daf5c17ea85d09985
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 2552fcbd860a0cc98aa7e2a6c7f92796a8d588ca
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482215"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605780"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Windows Desktop 클라이언트와 연결
 

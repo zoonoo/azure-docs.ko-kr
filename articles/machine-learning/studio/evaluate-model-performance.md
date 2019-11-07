@@ -1,6 +1,6 @@
 ---
 title: 모델 성능 평가
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 이 문서에서는 Azure Machine Learning Studio (클래식)에서 모델의 성능을 평가 하는 방법을 설명 하 고이 작업에 사용할 수 있는 메트릭에 대해 간략하게 설명 합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 7947c1be552e72cea9fb0b9214e82a1ecc481fb1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0a3ceb8c46c883e76c06053e395dca1310a86419
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493083"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621738"
 ---
 # <a name="how-to-evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 모델 성능을 평가 하는 방법 (클래식)
 

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/25/2019
-ms.openlocfilehash: 1f2380748c4feea6321bd8df1c29bd599f19b089
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 2559a3cbd786c737b316a860e9c75434c6c719a4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489900"
+ms.locfileid: "73576567"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,7 +46,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
 가상 네트워크의 작업 영역에 대 한 Azure storage 계정을 사용 하려면 다음을 수행 합니다.
 
-1. 가상 네트워크 뒤에 계산 리소스 (예: Machine Learning 계산 인스턴스 또는 클러스터)를 만들거나 작업 영역 (예: HDInsight 클러스터, 가상 머신 또는 Azure Kubernetes Service 클러스터)에 계산 리소스를 연결 합니다. 실험 또는 모델 배포의 경우 계산 리소스를 사용할 수 있습니다.
+1. 가상 네트워크 뒤에 계산 리소스 (예: Machine Learning 클러스터)를 만들거나 작업 영역 (예: HDInsight 클러스터, 가상 머신 또는 Azure Kubernetes Service 클러스터)에 계산 리소스를 연결 합니다. 실험 또는 모델 배포의 경우 계산 리소스를 사용할 수 있습니다.
 
    자세한 내용은이 문서에서 [a Machine Learning Compute 사용](#amlcompute), [가상 머신 또는 HDInsight 클러스터 사용](#vmorhdi)및 [Azure Kubernetes Service](#aksvnet) 사용 섹션을 참조 하세요.
 
@@ -63,7 +63,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
     - __가상 네트워크__에서 __기존 가상 네트워크 추가__ 링크를 선택 합니다. 이 작업을 수행 하면 계산이 있는 가상 네트워크가 추가 됩니다 (1 단계 참조).
 
         > [!IMPORTANT]
-        > 저장소 계정은 학습 또는 유추에 사용 되는 계산 인스턴스 또는 클러스터와 동일한 가상 네트워크에 있어야 합니다.
+        > 저장소 계정은 학습 또는 유추에 사용 되는 노트북 Vm 또는 클러스터와 동일한 가상 네트워크에 있어야 합니다.
 
     - __신뢰할 수 있는 Microsoft 서비스에서이 저장소 계정에 액세스 하도록 허용__ 확인란을 선택 합니다.
 
@@ -73,12 +73,6 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
     > 저장소 계정에 대 한 액세스를 사용 하도록 설정 하려면 *개발 클라이언트의 웹 브라우저에서*저장소 계정에 대 한 __방화벽 및 가상 네트워크__ 를 방문 하세요. 그런 다음 __클라이언트 ip 주소 추가__ 확인란을 사용 하 여 클라이언트의 ip 주소를 __주소 범위__에 추가 합니다. __주소 범위__ 필드를 사용 하 여 개발 환경의 IP 주소를 수동으로 입력할 수도 있습니다. 클라이언트의 IP 주소가 추가 되 면 SDK를 사용 하 여 저장소 계정에 액세스할 수 있습니다.
 
    [Azure Portal에서 "방화벽 및 가상 네트워크" 창을 ![합니다.](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png)](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png#lightbox)
-
-1. __실험을 실행__하는 경우 실험 코드에서 Azure Blob storage를 사용 하도록 실행 구성을 변경 합니다.
-
-    ```python
-    run_config.source_directory_data_store = "workspaceblobstore"
-    ```
 
 > [!IMPORTANT]
 > Azure Machine Learning에 대 한 _기본 저장소 계정_ 또는 가상 네트워크에 기본이 _아닌 저장소 계정을_ 둘 다 지정할 수 있습니다.
@@ -114,20 +108,16 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
 ## <a name="use-a-machine-learning-compute"></a>Machine Learning 컴퓨팅 사용
 
-> [!NOTE]
-> 계산 인스턴스는 **미국 중 북부** 또는 **영국 남부**지역이 있는 작업 영역에만 사용할 수 있습니다.
-> 이러한 영역 중 하나를 사용 하 여 가상 네트워크에 추가할 수 있는 계산 인스턴스를 만듭니다.
-
-가상 네트워크에서 Azure Machine Learning 계산 인스턴스 또는 계산 클러스터를 사용 하려면 다음 네트워크 요구 사항을 충족 해야 합니다.
+가상 네트워크에서 Azure Machine Learning 노트북 VM 또는 계산 클러스터를 사용 하려면 다음 네트워크 요구 사항을 충족 해야 합니다.
 
 > [!div class="checklist"]
 > * 가상 네트워크는 Azure Machine Learning 작업 영역과 동일한 구독 및 지역에 있어야 합니다.
-> * 계산 인스턴스 또는 클러스터에 대해 지정 된 서브넷에는 대상으로 지정 된 Vm 수를 수용 하기에 충분 한 할당 되지 않은 IP 주소가 있어야 합니다. 서브넷에 할당 되지 않은 IP 주소가 충분 하지 않으면 계산 클러스터가 부분적으로 할당 됩니다.
+> * 계산 클러스터에 대해 지정 된 서브넷에는 대상으로 지정 된 Vm 수를 수용 하기에 충분 한 할당 되지 않은 IP 주소가 있어야 합니다. 서브넷에 할당 되지 않은 IP 주소가 충분 하지 않으면 계산 클러스터가 부분적으로 할당 됩니다.
 > * 가상 네트워크의 구독 또는 리소스 그룹에 대 한 보안 정책 또는 잠금이 가상 네트워크를 관리할 수 있는 권한을 제한 하는지 확인 하십시오. 트래픽을 제한 하 여 가상 네트워크를 보호 하려는 경우 계산 서비스에 대해 일부 포트를 열어 둡니다. 자세한 내용은 [필수 포트](#mlcports) 섹션을 참조하세요.
-> * 단일 가상 네트워크에 여러 계산 인스턴스 또는 클러스터를 배치 하려는 경우 하나 이상의 리소스에 대해 할당량 증가를 요청 해야 할 수 있습니다.
-> * 작업 영역에 대 한 Azure Storage 계정도 가상 네트워크에서 보호 되는 경우 Azure Machine Learning 계산 인스턴스 또는 클러스터와 동일한 가상 네트워크에 있어야 합니다.
+> * 단일 가상 네트워크에 여러 계산 클러스터를 배치 하려는 경우 하나 이상의 리소스에 대해 할당량 증가를 요청 해야 할 수 있습니다.
+> * 작업 영역에 대 한 Azure Storage 계정도 가상 네트워크에서 보호 되는 경우 Azure Machine Learning 계산 클러스터와 동일한 가상 네트워크에 있어야 합니다.
 
-Machine Learning 계산 인스턴스 또는 클러스터는 가상 네트워크를 포함 하는 리소스 그룹에 추가 네트워킹 리소스를 자동으로 할당 합니다. 각 계산 인스턴스 또는 클러스터에 대해 서비스는 다음 리소스를 할당 합니다.
+Machine Learning 계산 클러스터는 가상 네트워크를 포함 하는 리소스 그룹에 추가 네트워킹 리소스를 자동으로 할당 합니다. 각 계산 클러스터에 대해 서비스는 다음 리소스를 할당 합니다.
 
 * 네트워크 보안 그룹 1개
 * 공용 IP 주소 1개

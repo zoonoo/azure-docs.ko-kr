@@ -1,5 +1,5 @@
 ---
-title: XTP 메모리 내 스토리지 모니터링 | Microsoft Docs
+title: XTP 메모리 내 저장소 모니터링
 description: XTP 메모리 내 스토리지 사용, 용량을 예측 및 모니터링합니다. 41823 용량 오류를 해결합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 1c5a57f634c01cc42934a98decd8f392334dede6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d67a6d151f65252faab40f8f7289fe9e884eff17
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567980"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73689804"
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>메모리 내 OLTP 스토리지 모니터링
 

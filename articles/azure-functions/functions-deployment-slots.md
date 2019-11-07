@@ -1,8 +1,6 @@
 ---
 title: Azure Functions 배포 슬롯
 description: Azure Functions를 사용 하 여 배포 슬롯을 만들고 사용 하는 방법을 알아봅니다.
-services: functions
-documentationcenter: na
 author: craigshoemaker
 manager: gwallace
 keywords: azure 함수, 함수
@@ -10,12 +8,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 08/12/2019
 ms.author: cshoe
-ms.openlocfilehash: 50337745b008cdd38dd860a0329e44ee712e7acd
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 23a4870332266ce180c2e94aeb0b5ca24073878b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70085677"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73576313"
 ---
 # <a name="azure-functions-deployment-slots"></a>Azure Functions 배포 슬롯
 
@@ -27,7 +25,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 - 교환 중에 함수를 실행 하는 경우 실행이 계속 되 고 후속 트리거가 스왑 된 앱 인스턴스로 라우팅됩니다.
 
 > [!NOTE]
-> Linux 소비 계획에는 슬롯을 사용할 수 없습니다.
+> 슬롯은 현재 Linux 소비 계획에 사용할 수 없습니다.
 
 ## <a name="why-use-slots"></a>슬롯을 사용 하는 이유
 
@@ -86,7 +84,7 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 슬롯은 슬롯을 만들 때 비어 있습니다. [지원 되는 배포 기술](./functions-deployment-technologies.md) 중 하나를 사용 하 여 응용 프로그램을 슬롯에 배포할 수 있습니다.
 
-## <a name="scaling"></a>크기 조정
+## <a name="scaling"></a>확장
 
 모든 슬롯은 프로덕션 슬롯과 동일한 수의 작업자로 확장 됩니다.
 
@@ -111,8 +109,8 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 1. 함수 앱으로 이동 합니다.
 1. 교환 하려는 원본 슬롯 이름을 클릭 합니다.
-1. *개요* 탭에서 **교환** 단추를 클릭 하 ![Swap Azure Functions 배포 슬롯을 클릭 ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
-1. 교환에 대 한 구성 설정을 확인 하 고 **교체** ![Swap Azure Functions 배포 슬롯을 클릭 ](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
+1. *개요* 탭에서 **교환** 단추 ![클릭 하 Azure Functions 배포 슬롯을 교체](./media/functions-deployment-slots/azure-functions-deployment-slots-swap.png)
+1. 교환에 대 한 구성 설정을 확인 하 고 **교환** ![교체를 클릭 하 Azure Functions 배포 슬롯](./media/functions-deployment-slots/azure-functions-deployment-slots-swap-config.png)
 
 교환 작업을 실행 하는 동안 작업이 잠시 소요 될 수 있습니다.
 
@@ -134,10 +132,10 @@ Azure Functions 배포 슬롯을 사용 하면 함수 앱에서 "슬롯" 이라�
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest)를 사용 하 여 슬롯에 대해 다음 작업을 자동화할 수 있습니다.
 
-- [만들기](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
+- [create](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-create)
 - [delete](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-delete)
 - [list](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-list)
-- [스왑을](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
+- [swap](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-swap)
 - [자동 교환](https://docs.microsoft.com/cli/azure/functionapp/deployment/slot?view=azure-cli-latest#az-functionapp-deployment-slot-auto-swap)
 
 ## <a name="change-app-service-plan"></a>App service 계획 변경
@@ -169,7 +167,7 @@ App Service 계획으로 실행 되는 함수 앱을 사용 하는 경우 슬롯
 Azure Functions 배포 슬롯에는 다음과 같은 제한 사항이 있습니다.
 
 - 앱에 사용할 수 있는 슬롯 수는 계획에 따라 다릅니다. 소비 계획은 배포 슬롯을 하나만 허용 합니다. App Service 계획에서 실행 되는 앱에 대 한 추가 슬롯을 사용할 수 있습니다.
-- 슬롯을 교환 하면 `AzureWebJobsSecretStorageType` 앱 설정이 `files` 같은 앱에 대 한 키가 다시 설정 됩니다.
+- 슬롯을 교환 하면 `AzureWebJobsSecretStorageType` 앱 설정이 `files`같은 앱에 대 한 키가 다시 설정 됩니다.
 - Linux 소비 계획에는 슬롯을 사용할 수 없습니다.
 
 ## <a name="support-levels"></a>지원 수준
@@ -182,10 +180,10 @@ Azure Functions 배포 슬롯에는 다음과 같은 제한 사항이 있습니�
 | OS/호스팅 계획           | 지원 수준     |
 | ------------------------- | -------------------- |
 | Windows 사용량       | 일반 공급 |
-| Windows Premium (미리 보기) | 미리 보기              |
+| Windows Premium           | 일반 공급  |
 | Windows 전용         | 일반 공급 |
 | Linux 소비         | 지원되지 않음          |
-| Linux 프리미엄 (미리 보기)   | 미리 보기              |
+| Linux 프리미엄             | 일반 공급  |
 | Linux 전용           | 일반 공급 |
 
 ## <a name="next-steps"></a>다음 단계

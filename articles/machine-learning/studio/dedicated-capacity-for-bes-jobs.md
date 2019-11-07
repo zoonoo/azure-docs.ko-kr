@@ -1,6 +1,6 @@
 ---
 title: Azure Batch 서비스 작업
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: Machine Learning Studio (클래식) 작업에 대 한 Azure Batch 서비스 개요. Batch 풀 처리를 사용하면 배치 작업을 제출할 수 있는 풀을 만들 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: 1de7ad10a54c34595f69a543843097cee1377067
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a0e829f61117df25f8643301a0acdadeafd7c267
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493031"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73684806"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Azure Machine Learning Studio (클래식) 작업에 대 한 Azure Batch 서비스
 
@@ -43,7 +43,7 @@ CSS에서 제공한 풀 서비스 URL에서 풀 만들기 작업을 호출하여
 
 새 Resource Manager 기반 웹 서비스를 사용할 수 있지만, 작업에 대한 요금 청구가 해당 서비스와 연결된 청구 계획과 대조하여 부과된다는 점에 유의하세요. 특히 Batch 풀 작업을 실행하기 위한 웹 서비스와 새로운 청구 계획을 만들 수 있습니다.
 
-웹 서비스 만들기에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
+웹 서비스 만들기에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](deploy-a-machine-learning-web-service.md)를 참조하세요.
 
 풀을 생성하면 웹 서비스의 Batch 요청 URL을 사용하여 BES 작업을 제출합니다. 풀 또는 클래식 일괄 처리에 제출하도록 선택할 수 있습니다. Batch 풀 처리에 작업을 제출하려면 작업 제출 요청 본문에 다음 매개 변수를 추가합니다.
 

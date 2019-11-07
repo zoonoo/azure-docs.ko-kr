@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비저닝을 위한 Workplace by Facebook 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Workplace by Facebook 구성 | Microsoft Docs'
 description: Azure Active Directory와 Workplace by Facebook 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationCenter: na
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f040ff4c8e59f764676aa6fdd9460ec94641684a
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 7ee091d1c8f0f477354f6bb422d041278ec5668e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881791"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73574261"
 ---
-# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝을 위한 Workplace by Facebook 구성
+# <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Workplace by Facebook으로 자동으로 프로비전 및 프로비전 해제하도록 Workplace by Facebook 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Workplace by Facebook과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -43,7 +43,7 @@ Workplace by Facebook과 Azure AD 통합을 구성하려면 다음 항목이 필
 
 ## <a name="assigning-users-to-workplace-by-facebook"></a>Workplace by Facebook에 사용자 할당
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 “할당된” 사용자 및 그룹만 동기화됩니다.
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 "할당된" 사용자 및 그룹만 동기화됩니다.
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Workplace by Facebook 앱에 액세스해야 하는 사용자를 나타내는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지시에 따라 이러한 사용자를 Workplace by Facebook 앱에 할당할 수 있습니다.
 
@@ -99,10 +99,10 @@ Azure AD는 할당된 사용자의 계정 세부 정보를 Workplace by Facebook
 이제 테스트 계정을 만들 수 있습니다. 이제 최대 20분 동안 기다린 후 계정이 Workplace by Facebook에 동기화되었는지 확인합니다.
 
 > [!NOTE]
-> Microsoft는 Facebook 팀과 긴밀 하 게 협력 하 여 Azure AD 응용 프로그램이 승인 되 고 새 지침을 충족 하는지 확인 합니다.   
+> Microsoft는 Facebook 팀과 긴밀 하 게 협력 하 여 Azure AD 응용 프로그램이 승인 되 고 새 지침을 충족 하는지 확인 합니다. Facebook의 작업 공간에는 12 월 16 일이 있으며이를 충족 해야 합니다. 이 시점에서는 고객이 기대 하는 작업이 없습니다. 2 월 28 일-2020 고객은 새 통합으로 전환 해야 합니다. 마이그레이션 경로를 사용할 수 있게 되 면 바로 여기에 게시 합니다.    
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
 * [Single Sign-On 구성](workplacebyfacebook-tutorial.md)

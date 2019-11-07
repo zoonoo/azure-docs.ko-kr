@@ -1,24 +1,24 @@
 ---
 title: Azure Analysis Services의 서버 관리자 관리 | Microsoft Docs
-description: Azure에서 Analysis Services 서버 관리자를 관리하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Portal, PowerShell 또는 REST Api를 사용 하 여 Azure Analysis Services 서버에 대 한 서버 관리자를 관리 하는 방법을 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f597bc9e34a606a6e40a57e5fc7af791d972c68e
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f7c57a5751f2ff34abb26b7653070ce4ee5010fe
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73146284"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572618"
 ---
 # <a name="manage-server-administrators"></a>서버 관리자 관리
 
 서버 관리자는 서버가 상주하는 테넌트의 Azure AD(Azure Active Directory)에서 유효한 사용자 또는 보안 그룹이어야 합니다. Azure Portal 또는 SSMS의 [서버 속성], PowerShell 또는 REST API에서 서버에 대한 **Analysis Services 관리자**를 사용하여 서버 관리자를 관리할 수 있습니다. 
 
-**보안 그룹** 은 `MailEnabled` 속성이 `True`로 설정 된 상태에서 [메일을 사용 하도록](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) 설정 되어야 합니다. 전자 메일 주소를 기준으로 그룹을 지정 하는 경우 `obj:groupid@tenantid`를 사용 합니다.
+**보안 그룹** 은 `MailEnabled` 속성이 `True`로 설정 된 상태에서 [메일을 사용 하도록](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) 설정 되어야 합니다. 전자 메일 주소를 기준으로 그룹을 지정 하는 경우 `obj:groupid@tenantid`을 사용 합니다.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Azure Portal을 사용하여 서버 관리자를 추가하려면
 

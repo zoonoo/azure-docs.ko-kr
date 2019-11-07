@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 0262be687b74ec1b97cb508f6da1b95cd5d7a533
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 639a3f89e470a832279add8d2ed7cf49441611f4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596930"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571795"
 ---
 # <a name="azure-security-center-for-iot-frequently-asked-questions"></a>IoT에 대 한 질문과 대답 Azure Security Center  
 
@@ -66,11 +66,11 @@ IoT 에이전트에 대 한 Azure Security Center 장치 구성, 동작 및 액�
 
 ## <a name="where-can-i-get-the-azure-security-center-for-iot-security-agent"></a>IoT Security agent에 대 한 Azure Security Center는 어디에서 얻을 수 있나요?
 
-IoT 보안 에이전트의 Azure Security Center은 오픈 소스 이며 GitHub에서 32 비트 및 64 비트 Windows 및 Linux 버전 https://github.com/Azure/Azure-Security-IoT 으로 제공 됩니다.
+IoT 보안 에이전트에 대 한 Azure Security Center는 오픈 소스 이며 GitHub에서 32 비트 및 64 비트 Windows 및 Linux 버전: https://github.com/Azure/Azure-Security-IoT으로 제공 됩니다.
 
 ## <a name="where-does-the-azure-security-center-for-iot-agent-get-installed"></a>IoT agent에 대 한 Azure Security Center는 어디에 설치 되나요? 
 
-자세한 설치 및 에이전트 배포 정보는 GitHub https://github.com/Azure/Azure-Security-IoT 에서 찾을 수 있습니다.
+자세한 설치 및 에이전트 배포 정보는 GitHub: https://github.com/Azure/Azure-IoT-Security에서 찾을 수 있습니다.
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>에이전트의 종속성 및 필수 구성 요소는 무엇 인가요?
 
@@ -92,7 +92,7 @@ IoT에 대 한 Azure Security Center는 구성 가능한 에이전트 검색, �
 
 예. 에이전트 전송 데이터는 IoT Hub 할당량으로 계산 됩니다. 
 
-## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>다음은 뭔가요? 에이전트를 설치 했 고 활동 또는 로그가 표시 되지 않습니다 ...
+## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>다음 단계 에이전트를 설치 했 고 활동 또는 로그가 표시 되지 않습니다 ...
 
 1. [에이전트 유형이 장치의 지정 된 OS 플랫폼에 맞는지](how-to-deploy-agent.md) 확인 합니다.
 

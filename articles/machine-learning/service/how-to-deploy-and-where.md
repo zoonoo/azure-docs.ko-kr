@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 856f00b17a5ee994f8864c5d46ce4d796d68d367
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: df2f22f91cbed17035485d25369965d3284dbaf7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496999"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622405"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델 배포
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -254,7 +254,7 @@ model_path = Model.get_model_path('sklearn_mnist')
 * `pyspark`
 * 표준 Python 개체
 
-스키마 생성을 사용 하려면 Conda 환경 파일에 `inference-schema` 패키지를 포함 합니다.
+스키마 생성을 사용 하려면 Conda 환경 파일에 `inference-schema` 패키지를 포함 합니다. 이 패키지에 대 한 자세한 내용은 [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema)를 참조 하세요.
 
 ##### <a name="example-dependencies-file"></a>예제 종속성 파일
 
@@ -608,9 +608,9 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 자세한 내용은 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) 설명서를 참조 하세요.
 
-### <a id="notebookvm"></a>계산 인스턴스 웹 서비스 (개발/테스트)
+### <a id="notebookvm"></a>노트북 VM 웹 서비스 (개발/테스트)
 
-[Azure Machine Learning 계산 인스턴스에 모델 배포를](how-to-deploy-local-container-notebook-vm.md)참조 하세요.
+[Azure Machine Learning 노트북 VM에 모델 배포를](how-to-deploy-local-container-notebook-vm.md)참조 하세요.
 
 ### <a id="aci"></a>Azure Container Instances (개발/테스트)
 
@@ -999,10 +999,12 @@ docker kill mycontainer
 자세한 내용은 [WebService. delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) 및 [Model. delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)설명서를 참조 하십시오.
 
 ## <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
+
 코드 없는 모델 배포는 현재 미리 보기로 제공 되며 다음과 같은 기계 학습 프레임 워크를 지원 합니다.
 
 ### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel 형식
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1017,10 +1019,12 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 ### <a name="onnx-models"></a>ONNX 모델
+
 ONNX 모델 등록 및 배포는 모든 ONNX 유추 그래프에 대해 지원 됩니다. 전처리 및 postprocess 단계는 현재 지원 되지 않습니다.
 
 MNIST ONNX 모델을 등록 하 고 배포 하는 방법의 예는 다음과 같습니다.
-```
+
+```python
 from azureml.core import Model
 
 model = Model.register(workspace=ws,
@@ -1033,11 +1037,14 @@ model = Model.register(workspace=ws,
 service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
+
 ### <a name="scikit-learn-models"></a>Scikit-모델 배우기
+
 모든 기본 제공 scikit 모델 유형에 대해서는 코드 모델 배포가 지원 되지 않습니다.
 
 추가 코드 없이 추가 코드 없이 등록 하 고 배포 하는 방법의 예는 다음과 같습니다.
-```
+
+```python
 from azureml.core import Model
 from azureml.core.resource_configuration import ResourceConfiguration
 
@@ -1055,7 +1062,8 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 참고: 이러한 종속성은 미리 작성 된 다음에 포함 되어 있습니다.
-```
+
+```yaml
     - azureml-defaults
     - inference-schema[numpy-support]
     - scikit-learn
@@ -1063,6 +1071,7 @@ service = Model.deploy(ws, service_name, [model])
 ```
 
 ## <a name="next-steps"></a>다음 단계
+
 * [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)

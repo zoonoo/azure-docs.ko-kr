@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance VNet/서브넷 크기 결정 | Microsoft Docs
+title: Azure SQL Database Managed Instance VNet/서브넷 크기 확인
 description: 이 항목에서는 Azure SQL Database Managed Instance가 배포될 서브넷의 크기를 계산하는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 02/22/2019
-ms.openlocfilehash: 167e243b1fe4ea5ba9403ac3ca1fcea42f02f59a
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: fb0d79a82553349d5dad547a2d78a460301cbd6d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273548"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73688125"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance의 VNet 서브넷 크기 결정
 
@@ -39,7 +39,7 @@ Managed Instance를 만들 때 Azure에서는 프로비전하는 동안 선택�
 - 범용 인스턴스마다 두 개의 주소가 필요합니다.
 - 각 중요 비즈니스용 인스턴스에는 4개의 주소가 필요합니다.
 
-**예제**: 세 개의 범용 및 두 개의 중요 비즈니스용 Managed Instance를 포함하도록 계획합니다. 즉, 5 + 3 * 2 + 2 * 4 = 19개 IP 주소가 필요합니다. IP 범위가 2의 거듭제곱으로 정의되므로 32개(2^5)의 IP 주소라는 IP 범위가 필요합니다. 따라서 /27 서브넷 마스크를 포함하는 서브넷을 예약해야 합니다.
+**예**: 세 개의 범용 및 두 개의 중요 비즈니스용 Managed Instance를 포함하도록 계획합니다. 즉, 5 + 3 * 2 + 2 * 4 = 19개 IP 주소가 필요합니다. IP 범위가 2의 거듭제곱으로 정의되므로 32개(2^5)의 IP 주소라는 IP 범위가 필요합니다. 따라서 /27 서브넷 마스크를 포함하는 서브넷을 예약해야 합니다.
 
 > [!IMPORTANT]
 > 위에 표시된 계산은 추가적인 개선의 등장으로 사용하지 않게 됩니다.

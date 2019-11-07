@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory(미리 보기)를 사용하여 PayPal에서 데이터 복사 | Microsoft Docs
+title: Azure Data Factory(미리 보기)를 사용하여 PayPal에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 PayPal에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 9c15f942d10b0535540bdd03ec6d64aa4d99f528
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 106fa42fc7c9feb51ab6bf7f1be5a13a08d234a0
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71089808"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73680481"
 ---
 # <a name="copy-data-from-paypal-using-azure-data-factory-preview"></a>Azure Data Factory(미리 보기)를 사용하여 PayPal에서 데이터 복사
 
@@ -49,10 +49,10 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성을 다음으로 설정해야 합니다. **PayPal** | 예 |
-| 호스트 | PayPal 인스턴스의 URL입니다. 즉, api.sandbox.paypal.com입니다.  | 예 |
+| type | type 속성은 **PayPal**로 설정해야 합니다. | 예 |
+| host | PayPal 인스턴스의 URL입니다. 즉, api.sandbox.paypal.com입니다.  | 예 |
 | clientId | PayPal 애플리케이션과 연결된 클라이언트 ID입니다.  | 예 |
-| clientSecret | PayPal 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| clientSecret | PayPal 애플리케이션과 연결된 클라이언트 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
 | useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
 | usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니요 |
@@ -84,7 +84,7 @@ PayPal에서 데이터를 복사하려면 데이터 세트의 type 속성을 **P
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성을 다음으로 설정해야 합니다. **PayPalObject** | 예 |
+| type | 데이터 집합의 type 속성은 **Paypalobject** 로 설정 되어야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -114,8 +114,8 @@ PayPal에서 데이터를 복사하려면 복사 작업의 원본 형식을 **Pa
 
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성을 다음으로 설정해야 합니다. **PayPalSource** | 예 |
-| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Payment_Experience"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| type | 복사 작업 원본의 type 속성은 **PayPalSource**로 설정해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제: `"SELECT * FROM Payment_Experience"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예제:**
 

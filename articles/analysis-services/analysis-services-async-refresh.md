@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services 모델에 대한 비동기 새로 고침 | Microsoft Docs
-description: REST API를 사용하여 비동기 새로 고침을 코딩하는 방법을 알아봅니다.
+description: Azure Analysis Services REST API를 사용 하 여 모델 데이터의 비동기 새로 고침을 코딩 하는 방법을 설명 합니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5fbb3f2cbc0e53ab1bc04d57b583802e26b92a60
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
-ms.translationtype: HT
+ms.openlocfilehash: 7c6fba10264939335cdef26f288973f8217f340b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147357"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73573388"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>REST API를 사용한 비동기 새로 고침
 

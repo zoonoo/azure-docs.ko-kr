@@ -9,16 +9,24 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: dddc39a0b7b3c43f283750c95d4feaef2cf15b36
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: d9b7a433dd7392e83719f09815f736dbd85f9c7f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514278"
+ms.locfileid: "73582902"
 ---
 # <a name="monitoring-azure-machine-learning"></a>모니터링 Azure Machine Learning
 
 이 문서에서는 Azure Machine Learning에서 생성 하는 모니터링 데이터를 설명 합니다. 또한 Azure Monitor 사용 하 여 데이터를 분석 하 고 경고를 정의 하는 방법을 설명 합니다.
+
+> [!TIP]
+> 이 문서의 정보는 Azure Machine Learning 서비스에 대 한 모니터링을 설명 하므로 주로 관리자를 위한 것입니다. 데이터 과학자 또는 개발자 이며 모델 학습 실행과 관련 된 정보를 모니터링 하려는 경우 다음 문서를 참조 하세요.
+>
+> * [학습 실행 시작, 모니터링 및 취소](how-to-manage-runs.md)
+> * [학습 실행에 대 한 로그 메트릭](how-to-track-experiments.md)
+> * [MLflow를 사용 하 여 eexperiments 추적](how-to-use-mlflow.md)
+> * [TensorBoard를 사용 하 여 실행 시각화](how-to-monitor-tensorboard.md)
 
 ## <a name="azure-monitor"></a>Azure Monitor
 

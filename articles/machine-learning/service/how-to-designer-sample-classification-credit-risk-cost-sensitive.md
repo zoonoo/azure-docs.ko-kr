@@ -1,5 +1,5 @@
 ---
-title: '디자이너 예제 #4: 신용 위험을 예측 하는 분류 (비용 구분)'
+title: '디자이너: 신용 위험 예측 (비용 구분)'
 titleSuffix: Azure Machine Learning
 description: 이 문서에서는 디자이너 (미리 보기)를 사용 하 여 복잡 한 기계 학습 파이프라인을 빌드하는 방법을 보여 줍니다. 사용자 지정 Python 스크립트를 구현 하 고 여러 모델을 비교 하 여 가장 적합 한 옵션을 선택 하는 방법을 배웁니다.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 92f8acf56d79cd641222fc897bd2c9dba4ed0940
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7af0ee31c7d7e5dae4a38db7f6c74ff3e5f964bb
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515552"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647980"
 ---
 # <a name="sample-4---classification-with-custom-python-script-predict-credit-risk"></a>샘플 4-사용자 지정 Python 스크립트를 사용 하 여 분류: 신용 위험 예측
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

@@ -1,5 +1,5 @@
 ---
-title: '디자이너 예제 #3: 신용 위험을 예측 하는 분류'
+title: '디자이너: 분류, 수입 예측'
 titleSuffix: Azure Machine Learning
 description: 디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 분류자를 빌드하는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 2709c2e0da154a8530175144070ad560c8921b85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 383cbc11955598505730a4613c50536afac75f95
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515539"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647973"
 ---
 # <a name="sample-3---classification-with-feature-selection-income-prediction"></a>샘플 3-기능 선택이 포함 된 분류: 수입 예측
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

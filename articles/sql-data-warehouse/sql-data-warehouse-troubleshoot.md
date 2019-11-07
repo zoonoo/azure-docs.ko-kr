@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse 문제 해결 | Microsoft Docs
+title: 문제 해결
 description: Azure SQL Data Warehouse 문제 해결
 services: sql-data-warehouse
 author: kevinvngo
@@ -10,34 +10,35 @@ ms.subservice: manage
 ms.date: 7/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a6a6fdf6e63bf8c063f8dd6f23ae380e9ce7b98d
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 2aa7926286be277c7ad0aa7054b4bd6fceb8229f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575520"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685408"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse 문제 해결
 이 문서에서는 일반적인 문제 해결 질문을 나열합니다.
 
-## <a name="connecting"></a>Connecting
-| 문제점                                                        | 해결 방법                                                   |
+## <a name="connecting"></a>연결
+| 문제                                                        | 해결 방법                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 'NT AUTHORITY\ANONYMOUS LOGON' 사용자에 대해 로그인 실패 (Microsoft SQL Server, 오류: 18456) | 이 오류는 AAD 사용자가 마스터 데이터베이스에 연결하려고 하는데 마스터에 사용자가 없는 경우에 발생합니다.  이 문제를 해결하려면 연결 시에 연결하려는 SQL Data Warehouse를 지정하거나 마스터 데이터베이스에 사용자를 추가합니다.  자세한 내용은 [보안 개요][Security overview] 를 참조하세요. |
 | 현재 보안 컨텍스트로는 서버 보안 주체 "MyUserName" 이(가) 데이터베이스 "master" 에 액세스할 수 없습니다. 사용자 기본 데이터베이스를 열 수 없습니다. 로그인이 실패했습니다. 사용자 'MyUserName'에 대한 로그인이 실패했습니다. (Microsoft SQL Server, 오류: 916) | 이 오류는 AAD 사용자가 마스터 데이터베이스에 연결하려고 하는데 마스터에 사용자가 없는 경우에 발생합니다.  이 문제를 해결하려면 연결 시에 연결하려는 SQL Data Warehouse를 지정하거나 마스터 데이터베이스에 사용자를 추가합니다.  자세한 내용은 [보안 개요][Security overview] 를 참조하세요. |
 | CTAIP 오류                                                  | 이 오류는 로그인이 SQL Data Warehouse 데이터베이스가 아닌 SQL 서버 마스터 데이터베이스에서 만들어진 경우에 발생할 수 있습니다.  이 오류가 발생하는 경우 [보안 개요][Security overview] 문서를 살펴보세요.  이 문서에서는 마스터 데이터베이스에서 로그인과 사용자를 만드는 방법과 SQL Data Warehouse 데이터베이스에서 사용자를 만드는 방법을 차례로 설명합니다. |
-| 방화벽에서 차단됨                                          | Azure SQL 데이터베이스가 알려진 IP 주소만 데이터베이스에 액세스할 수 있도록 서버 및 데이터베이스 수준 방화벽으로 보호됩니다. 방화벽은 기본적으로 안전하며 이는 연결하기 전에 IP 주소 또는 주소 범위를 명시적으로 설정해야 한다는 의미입니다.  액세스를 위해 방화벽을 구성 하려면 [프로 비전 지침][Provisioning instructions]의 [클라이언트 IP에 대 한 서버 방화벽 액세스 구성][Configure server firewall access for your client IP] 의 단계를 따르세요. |
+| 방화벽에 의해 차단                                          | Azure SQL 데이터베이스가 알려진 IP 주소만 데이터베이스에 액세스할 수 있도록 서버 및 데이터베이스 수준 방화벽으로 보호됩니다. 방화벽은 기본적으로 안전하며 이는 연결하기 전에 IP 주소 또는 주소 범위를 명시적으로 설정해야 한다는 의미입니다.  액세스를 위해 방화벽을 구성 하려면 [프로 비전 지침][Provisioning instructions]의 [클라이언트 IP에 대 한 서버 방화벽 액세스 구성][Configure server firewall access for your client IP] 의 단계를 따르세요. |
 | 도구 또는 드라이버에 연결할 수 없음                           | SQL Data Warehouse [SSMS][SSMS], [Visual Studio 용 SSDT][SSDT for Visual Studio]또는 [sqlcmd][sqlcmd] 를 사용 하 여 데이터를 쿼리 하는 것이 좋습니다. 드라이버에 대 한 자세한 내용 및 SQL Data Warehouse에 연결 하는 방법에 대 한 자세한 내용은 [Azure SQL Data Warehouse 드라이버][Drivers for Azure SQL Data Warehouse] 및 [Azure SQL Data Warehouse 문서에 연결][Connect to Azure SQL Data Warehouse] 을 참조 하세요. |
 
-## <a name="tools"></a>Tools
-| 문제점                                                        | 해결 방법                                                   |
+## <a name="tools"></a>도구
+| 문제                                                        | 해결 방법                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Visual Studio 개체 탐색기에 AAD 사용자가 없음           | 이는 알려진 문제입니다.  해결 방법으로 [sys.database_principals][sys.database_principals]에서 사용자를 봅니다.  SQL Data Warehouse에서 Azure Active Directory를 사용하는 방법에 대한 자세한 내용을 [Azure SQL Data Warehouse에 대한 인증][Authentication to Azure SQL Data Warehouse] 을 참조하세요. |
 | 수동 스크립팅, 스크립팅 마법사 사용 또는 SSMS를 통한 연결 속도가 느리거나 응답 하지 않거나 오류를 생성 하는 경우 | 사용자가 master 데이터베이스에서 만들어졌는지 확인합니다. 스크립팅 옵션에서 엔진 버전이 “Microsoft Azure SQL Data Warehouse 버전”으로 설정되고 엔진 유형이 “Microsoft Azure SQL Database”로 설정되어 있는지도 확인합니다. |
 | SSMS에서 스크립트 생성 실패                               | "종속 개체에 대 한 스크립트 생성" 옵션을 "True"로 설정 하면 SQL Data Warehouse에 대 한 스크립트를 생성할 수 없습니다. 이 문제를 해결하려면 사용자가 수동으로 도구 -> 옵션 -> SQL Server 개체 탐색기 -> 종속 개체에 대한 스크립트 생성 옵션으로 이동하여 false로 설정해야 합니다 |
 
 ## <a name="performance"></a>성능
-| 문제점                                                        | 해결 방법                                                   |
+| 문제                                                        | 해결 방법                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | 쿼리 성능 문제 해결                            | 특정 쿼리 문제를 해결하려는 경우 [쿼리 모니터링 방법 알아보기][Learning how to monitor your queries]문서부터 참조합니다. |
 | 쿼리 성능 및 계획이 부적합하여 종종 통계가 누락됨 | 성능 저하의 가장 일반적인 원인은 테이블에 대한 통계 부족입니다.  통계를 만드는 방법 및 이러한 통계가 성능에 중요 한 이유에 대 한 자세한 내용은 [테이블 통계 유지 관리][Statistics] 를 참조 하세요. |
@@ -47,7 +48,7 @@ ms.locfileid: "69575520"
 | 인덱스 품질 저하로 인한 쿼리 성능 저하     | 경우에 따라 [columnstore 인덱스 품질 저하][Poor columnstore index quality]로 인해 쿼리가 느려질 수 있습니다.  자세한 내용 및 [세그먼트 품질을 개선하기 위해 인덱스 다시 작성][Rebuild indexes to improve segment quality]방법에 대해서는 이 문서를 참조하세요. |
 
 ## <a name="system-management"></a>시스템 관리
-| 문제점                                                        | 해결 방법                                                   |
+| 문제                                                        | 해결 방법                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | Msg 40847: 서버가 허용되는 데이터베이스 트랜잭션 단위 할당량인 45000을 초과하므로 작업을 수행할 수 없습니다. | 만들려는 데이터베이스의 [Dwu][DWU] 를 줄이거나 [할당량 증가를 요청][request a quota increase]하십시오. |
 | 공간 사용률 조사                              | 시스템의 공간 사용률을 이해하려면 [테이블 크기][Table sizes] 를 참조하세요. |
@@ -56,7 +57,7 @@ ms.locfileid: "69575520"
 
 
 ## <a name="differences-from-sql-database"></a>SQL Database와의 차이점
-| 문제점                                 | 해결 방법                                                   |
+| 문제                                 | 해결 방법                                                   |
 | :------------------------------------ | :----------------------------------------------------------- |
 | 지원되지 않는 SQL Database 기능     | [지원되지 않는 테이블 기능][Unsupported table features]을 참조하세요. |
 | 지원되지 않는 SQL Database 데이터 형식   | [지원되지 않는 데이터 형식][Unsupported data types]을 참조하세요.        |
@@ -68,7 +69,7 @@ ms.locfileid: "69575520"
 ## <a name="next-steps"></a>다음 단계
 문제 해결 방법을 찾는 데 도움이 필요한 경우 다음과 같은 리소스를 사용해 보세요.
 
-* [Blogs]
+* [블로그]
 * [기능 요청]
 * [비디오]
 * [CAT 팀 블로그]
@@ -120,7 +121,7 @@ ms.locfileid: "69575520"
 [sqlcmd]: sql-data-warehouse-get-started-connect-sqlcmd.md
 
 <!--Other Web references-->
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
+[블로그]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
 [CAT 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [MSDN 포럼]: https://social.msdn.microsoft.com/Forums/home?forum=AzureSQLDataWarehouse

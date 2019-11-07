@@ -7,16 +7,16 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: 44e7bbde40dbd4b79a6ce3735ab5a1ac81421d3b
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274208"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622569"
 ---
 # <a name="get-resource-changes"></a>리소스 변경 내용 가져오기
 
-리소스는 매일 사용, 재구성 및 심지어 재배포 하는 과정을 통해 변경 됩니다.
+리소스는 매일의 사용, 재구성 및 재배포를 통해 변경됩니다.
 변경 내용은 개별 또는 자동화 된 프로세스에서 가져올 수 있습니다. 대부분의 변경은 의도적 이지만 때로는 그렇지 않습니다. 최근 14 일간의 변경 기록으로 Azure 리소스 그래프를 통해 다음 작업을 수행할 수 있습니다.
 
 - Azure Resource Manager 속성에서 변경 내용이 검색 된 경우 찾기
@@ -44,9 +44,9 @@ ms.locfileid: "72274208"
 
 **ResourceChanges** 끝점은 요청 본문에서 다음 매개 변수를 허용 합니다.
 
-- **resourceId** \[required @ no__t: 변경 내용을 찾을 Azure 리소스입니다.
-- **간격** \[required @ no__t-2: **줄루어 표준 시간대 (Z)** 를 사용 하 여 변경 이벤트를 확인 하는 경우 _시작_ 및 _종료_ 날짜가 포함 된 속성입니다.
-- **Fetchpropertychanges** (옵션): 응답 개체에 속성 변경 내용이 포함 되어 있으면를 설정 하는 부울 속성입니다.
+- **resourceId** \[필수\]: 변경 내용을 찾을 Azure 리소스입니다.
+- **interval** \[required\]: **줄루어 표준 시간대 (Z)** 를 사용 하 여 변경 이벤트를 확인 하는 경우 _시작_ 및 _종료_ 날짜가 포함 된 속성입니다.
+- **Fetchpropertychanges** (선택 사항): 응답 개체에 속성 변경 내용이 포함 된 경우를 설정 하는 부울 속성입니다.
 
 요청 본문 예제:
 
@@ -149,12 +149,12 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 - **Changeid** -이 값은 해당 리소스에 대해 고유 합니다. **Changeid** 문자열은 경우에 따라 다른 속성을 포함할 수 있지만 고유 하 게 보장 됩니다.
 - **beforeSnapshot** -변경이 검색 되기 전에 수행 된 리소스 스냅숏의 **snapshotId** 및 **타임 스탬프** 를 포함 합니다.
 - **Aftersnapshot** -변경이 검색 된 후에 수행 된 리소스 스냅숏의 **snapshotId** 및 **타임 스탬프** 를 포함 합니다.
-- **beforeSnapshot** **-전체** 변경 레코드에 대해 검색 되는 변경 내용 유형을 설명 **합니다.** 값은 다음과 같습니다. _만들기_, _업데이트_및 _삭제_ **Propertychanges** 속성 **배열은가를** _업데이트할_때만 포함 됩니다.
+- **beforeSnapshot** **-전체** 변경 레코드에 대해 검색 되는 변경 내용 유형을 설명 **합니다.** 값은 _Create_, _Update_및 _Delete_입니다. **Propertychanges** 속성 **배열은가를** _업데이트할_때만 포함 됩니다.
 - **Propertychanges** -이 속성 배열은 **BeforeSnapshot** 와 **aftersnapshot**간에 업데이트 된 모든 리소스 속성을 자세히 설명 합니다.
   - **propertyName** -변경 된 리소스 속성의 이름입니다.
-  - **changeCategory** -변경 내용을 설명 합니다. 값은 다음과 같습니다. _시스템_ 및 _사용자_입니다.
+  - **changeCategory** -변경 내용을 설명 합니다. 값은 _시스템_ 및 _사용자_입니다.
   - 이상 **-개별** 리소스 속성에 대해 검색 된 변경 형식을 설명 합니다.
-    값은 다음과 같습니다. _Insert_, _Update_, _Remove_.
+    값은 _삽입_, _업데이트_, _제거_입니다.
   - **beforeValue** - **beforeSnapshot**의 리소스 속성 값입니다. 가를 _삽입_하는 경우에는 표시 **되지 않습니다.**
   - **Aftervalue** - **aftervalue**의 리소스 속성 값입니다. 가를 _제거_하는 경우에는 표시 **되지 않습니다.**
 
@@ -165,7 +165,7 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 **ResourceChangeDetails** 끝점에는 요청 본문에 두 개의 매개 변수가 필요 합니다.
 
 - **resourceId**: 변경 내용을 비교할 Azure 리소스입니다.
-- **changeId**: **ResourceChanges**에서 수집 된 **resourceId** 에 대 한 고유 변경 이벤트입니다.
+- **Changeid**: **resourceChanges**에서 수집 된 **resourceId** 에 대 한 고유 변경 이벤트입니다.
 
 요청 본문 예제:
 
@@ -292,4 +292,4 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 
 - [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
 - [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.
-- 리소스를 [탐색](../concepts/explore-resources.md)하는 방법을 알아봅니다.
+- [리소스를 탐색](../concepts/explore-resources.md)하는 방법에 대해 자세히 알아보세요.

@@ -6,22 +6,22 @@ keywords: ''
 author: PatAltimore
 ms.author: patricka
 ms.date: 05/02/2019
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: seal
 manager: femila
-ms.openlocfilehash: 00d4911c0f2541ea5c64eccca3ab1b1505e06390
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 63e61844ddb5bd0f0ed52b67e26ea5bf1857fd2b
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608536"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73579915"
 ---
 # <a name="azure-blockchain-service-security"></a>Azure Blockchain 서비스 보안
 
-Azure Blockchain 서비스는 데이터를 안전 하 고 사용 가능 하 게 유지 하기 위해 여러 Azure 기능을 사용 합니다. 데이터는 격리, 암호화 및 인증을 사용 하 여 보안이 유지 됩니다.
+Azure Blockchain Service는 여러 가지 Azure 기능을 사용하여 데이터를 안전하고 사용 가능하도록 유지합니다. 데이터는 격리, 암호화 및 인증을 사용하여 보안이 유지됩니다.
 
-## <a name="isolation"></a>격리성
+## <a name="isolation"></a>격리
 
 Azure Blockchain 서비스 리소스는 개인 가상 네트워크에서 격리 됩니다. 각 트랜잭션 및 유효성 검사 노드는 VM (가상 머신)입니다. 한 가상 네트워크의 Vm은 다른 가상 네트워크의 Vm과 직접 통신할 수 없습니다. 격리는 가상 네트워크 내에서 통신이 개인 상태로 유지 되도록 합니다. Azure 가상 네트워크 격리에 대 한 자세한 내용은 [Azure 공용 클라우드에서 격리](../../security/fundamentals/isolation-choices.md#networking-isolation)를 참조 하세요.
 
@@ -29,7 +29,7 @@ Azure Blockchain 서비스 리소스는 개인 가상 네트워크에서 격리 
 
 ## <a name="encryption"></a>암호화
 
-사용자 데이터는 Azure storage에 저장 됩니다. 사용자 데이터는 보안 및 기밀성을 위해 동작 및 미사용에서 암호화 됩니다. 참조 항목: [Azure Storage 보안 가이드](../../storage/common/storage-security-guide.md).
+사용자 데이터는 Azure storage에 저장 됩니다. 사용자 데이터는 보안 및 기밀성을 위해 동작 및 미사용에서 암호화 됩니다. 자세한 내용은 [Azure Storage 보안 가이드](../../storage/common/storage-security-guide.md)를 참조 하세요.
 
 ## <a name="authentication"></a>인증
 
@@ -49,7 +49,7 @@ RPC 액세스에는 세 가지 인증 모드가 있습니다.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Azure ad (Azure Active Directory)는 azure ad 사용자 자격 증명을 사용 하 여 Azure AD에서 사용자를 인증 하는 클레임 기반 인증 메커니즘을 사용 합니다. Azure AD는 클라우드 기반 id 관리를 제공 하며, 고객이 전체 기업에서 단일 id를 사용 하 고 클라우드의 응용 프로그램에 액세스할 수 있도록 합니다. Azure Blockchain 서비스는 ID 페더레이션, single sign-on 및 multi-factor authentication을 사용 하도록 설정 하는 Azure AD와 통합 됩니다. 사용자, 그룹 및 응용 프로그램 역할을 조직에서 blockchain 구성원 및 노드 액세스에 할당할 수 있습니다.
+Azure ad (Azure Active Directory)는 azure ad 사용자 자격 증명을 사용 하 여 Azure AD에서 사용자를 인증 하는 클레임 기반 인증 메커니즘을 사용 합니다. Azure AD는 클라우드 기반 id 관리를 제공 하며, 고객이 전체 기업에서 단일 id를 사용 하 고 클라우드의 응용 프로그램에 액세스할 수 있도록 합니다. Azure Blockchain 서비스는 ID 페더레이션, Single Sign-On 및 multi-factor authentication을 사용 하도록 설정 하는 Azure AD와 통합 됩니다. 사용자, 그룹 및 응용 프로그램 역할을 조직에서 blockchain 구성원 및 노드 액세스에 할당할 수 있습니다.
 
 Azure AD 클라이언트 프록시는 [GitHub](https://github.com/Microsoft/azure-blockchain-connector/releases)에서 사용할 수 있습니다. 클라이언트 프록시는 사용자를 Azure AD 로그인 페이지로 안내 하 고 인증에 성공 하면 전달자 토큰을 가져옵니다. 그런 다음 사용자는 Geth 또는 Truffle와 같은 Ethereum 클라이언트 응용 프로그램을 클라이언트 프록시의 끝점에 연결 합니다. 마지막으로 트랜잭션이 제출 되 면 클라이언트 프록시는 http 헤더에 전달자 토큰을 삽입 하 고 역방향 프록시는 OAuth 프로토콜을 사용 하 여 토큰의 유효성을 검사 합니다.
 

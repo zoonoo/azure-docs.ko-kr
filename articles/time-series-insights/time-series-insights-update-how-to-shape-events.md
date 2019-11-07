@@ -8,18 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 10/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: f8a50e062d2dac1f30f8b745f351570262daac53
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8b9dd10a4017d821794af037e502c784b10cd62f
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990887"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585284"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑
 
-이 문서는 Azure Time Series Insights 미리 보기 쿼리의 효율성을 최대화하도록 JSON 파일을 셰이핑하는 데 도움이 됩니다.
+이 문서에서는 수집을 위해 JSON 파일의 모양을 만들고 Azure Time Series Insights 미리 보기 쿼리의 효율성을 최대화 하는 방법을 설명 합니다.
 
 ## <a name="best-practices"></a>모범 사례
 
@@ -36,7 +36,9 @@ Time Series Insights 미리 보기로 이벤트를 보내는 방법에 대해 �
 * 여러 배열 중첩을 사용하지 않습니다. Time Series Insights 미리 보기는 개체를 포함 하는 중첩 배열의 최대 두 수준을 지원 합니다. Time Series Insights 미리 보기에서는 메시지의 배열을 속성 값 쌍이 있는 여러 이벤트로 평면화합니다.
 * 대부분 또는 모든 이벤트에 몇 가지 측정값이 존재하는 경우 이러한 측정값을 동일한 개체 내에서 별도 속성으로 전송하는 것이 좋습니다. 이러한 이벤트를 개별적으로 전송 하면 이벤트 수가 감소 하 고 처리 해야 하는 이벤트 수가 줄어들기 때문에 쿼리 성능이 향상 될 수 있습니다.
 
-## <a name="example"></a>예제
+수집 하는 동안 중첩이 포함 된 페이로드가 평면화 되어 열 이름이 delineator 인 단일 값이 됩니다. Time Series Insights 미리 보기에서는 경계에 밑줄을 사용 합니다. 이는 기간을 사용 하는 제품의 GA 버전에서 변경 된 사항입니다. 미리 보기 중에는 아래 두 번째 예제에서 설명 하는 평면화에 주의 해야 합니다.
+
+## <a name="examples"></a>예
 
 다음 예제는 둘 이상의 디바이스가 측정값 또는 신호를 보내는 시나리오를 기반으로 합니다. 측정 또는 신호는 *흐름 요금*, *엔진 오일 압력*, *온도*및 *습도*가 될 수 있습니다.
 
@@ -44,75 +46,78 @@ Time Series Insights 미리 보기로 이벤트를 보내는 방법에 대해 �
 
 시계열 인스턴스는 장치 메타 데이터를 포함 합니다. 이 메타 데이터는 모든 이벤트에 대해 변경 되지 않지만 데이터 분석에 대 한 유용한 속성을 제공 합니다. 네트워크를 통해 전송 되는 바이트를 절약 하 고 메시지의 효율성을 향상 시키려면 공통 차원 값을 일괄 처리 하 고 시계열 인스턴스 메타 데이터를 사용 하는 것이 좋습니다.
 
-### <a name="example-json-payload"></a>예제 JSON 페이로드
+### <a name="example-1"></a>예제 1:
 
 ```JSON
 [
-    {
-        "deviceId": "FXXX",
-        "timestamp": "2018-01-17T01:17:00Z",
-        "series": [
-            {
-                "Flow Rate ft3/s": 1.0172575712203979,
-                "Engine Oil Pressure psi ": 34.7
-            },
-            {
-                "Flow Rate ft3/s": 2.445906400680542,
-                "Engine Oil Pressure psi ": 49.2
-            }
-        ]
-    },
-    {
-        "deviceId": "FYYY",
-        "timestamp": "2018-01-17T01:18:00Z",
-        "series": [
-            {
-                "Flow Rate ft3/s": 0.58015072345733643,
-                "Engine Oil Pressure psi ": 22.2
-            }
-        ]
-    }
+  {
+    "deviceId":"FXXX",
+    "timestamp":"2018-01-17T01:17:00Z",
+    "series":[
+      {
+        "Flow Rate ft3/s":1.0172575712203979,
+        "Engine Oil Pressure psi ":34.7
+      },
+      {
+        "Flow Rate ft3/s":2.445906400680542,
+        "Engine Oil Pressure psi ":49.2
+      }
+    ]
+  },
+  {
+    "deviceId":"FYYY",
+    "timestamp":"2018-01-17T01:18:00Z",
+    "series":[
+      {
+        "Flow Rate ft3/s":0.58015072345733643,
+        "Engine Oil Pressure psi ":22.2
+      }
+    ]
+  }
 ]
 ```
 
 ### <a name="time-series-instance"></a>Time Series Instance 
+
 > [!NOTE]
 > 시계열 ID는 *deviceId*입니다.
 
 ```JSON
-{
-    "timeSeriesId": [
+[
+  {
+    "timeSeriesId":[
       "FXXX"
     ],
-    "typeId": "17150182-daf3-449d-adaf-69c5a7517546",
-    "hierarchyIds": [
+    "typeId":"17150182-daf3-449d-adaf-69c5a7517546",
+    "hierarchyIds":[
       "b888bb7f-06f0-4bfd-95c3-fac6032fa4da"
     ],
-    "description": null,
-    "instanceFields": {
-      "L1": "REVOLT SIMULATOR",
-      "L2": "Battery System",
+    "description":null,
+    "instanceFields":{
+      "L1":"REVOLT SIMULATOR",
+      "L2":"Battery System"
     }
   },
   {
-    "timeSeriesId": [
+    "timeSeriesId":[
       "FYYY"
     ],
-    "typeId": "17150182-daf3-449d-adaf-69c5a7517546",
-    "hierarchyIds": [
+    "typeId":"17150182-daf3-449d-adaf-69c5a7517546",
+    "hierarchyIds":[
       "b888bb7f-06f0-4bfd-95c3-fac6032fa4da"
     ],
-    "description": null,
-    "instanceFields": {
-      "L1": "COMMON SIMULATOR",
-      "L2": "Battery System",
+    "description":null,
+    "instanceFields":{
+      "L1":"COMMON SIMULATOR",
+      "L2":"Battery System"
     }
-  },
+  }
+]
 ```
 
 Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 조인합니다(평면화 후). 테이블에는 **유형** 등의 추가 열이 포함됩니다. 다음 예제에서는 원격 분석 데이터의 [모양을](./time-series-insights-send-events.md#supported-json-shapes) 지정할 수 있는 방법을 보여 줍니다.
 
-| deviceId  | Type | L1 | L2 | timestamp | series.Flow Rate ft3/s | series.Engine Oil Pressure psi |
+| deviceId  | 형식 | L1 | L2 | timestamp | series_Flow Rate ft3/s | series_Engine 석유 압력 프 프 |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | 시뮬레이터 | 배터리 시스템 | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | 시뮬레이터 |   배터리 시스템 |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
@@ -123,11 +128,31 @@ Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 �
 * 정적 속성은 네트워크를 통해 전송되는 데이터를 최적화하기 위해 Time Series Insights 미리 보기에 저장됩니다.
 * Time Series Insights 미리 보기 데이터는 인스턴스에 정의 된 시계열 ID를 통해 쿼리 시간에 조인 됩니다.
 * 두 개의 중첩 계층이 사용 됩니다. 이 번호는 Time Series Insights 미리 보기에서 지 원하는 가장 많은 값입니다. 여러 중첩된 배열을 방지해야 합니다.
-* 측정값이 거의 없으므로 동일한 개체 내의 개별 속성으로 전송됩니다. 여기에서 **series.Flow Rate psi**, **series.Engine Oil Pressure psi** 및 **series.Flow Rate ft3/s**는 고유한 열입니다.
+* 측정값이 거의 없으므로 동일한 개체 내의 개별 속성으로 전송됩니다. 이 예에서는 **Series_Flow rate psi**, **series_Engine 석유 압력 프 프**및 **series_Flow rate ft3/s** 가 고유 열입니다.
 
 >[!IMPORTANT]
 > 인스턴스 필드는 원격 분석과 함께 저장 되지 않습니다. 이러한 데이터는 시계열 모델에서 메타 데이터와 함께 저장 됩니다.
 > 앞의 표는 쿼리 보기를 나타냅니다.
+
+### <a name="example-2"></a>예 2:
+
+다음 JSON을 고려 하십시오.
+
+```JSON
+{
+  "deviceId": "FXXX",
+  "timestamp": "2019-01-18T01:17:00Z",
+  "data": {
+        "flow": 1.0172575712203979,
+    },
+  "data_flow" : 1.76435072345733643
+}
+```
+위의 예제에서 평면화 된 `data_flow` 속성은 `data_flow` 속성과 명명 충돌을 표시 합니다. 이 경우 *최신* 속성 값이 이전 속성 값을 덮어씁니다. 이 동작으로 비즈니스 시나리오에 대 한 과제가 있는 경우 TSI 팀에 문의 하세요.
+
+> [!WARNING] 
+> 평면화 나 다른 메커니즘으로 인해 동일한 이벤트 페이로드에 중복 속성이 있는 경우 최신 속성 값이 저장 overwritting 이전 값이 저장 됩니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

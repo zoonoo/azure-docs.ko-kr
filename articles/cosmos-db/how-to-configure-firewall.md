@@ -4,14 +4,14 @@ description: Azure Cosmos 계정에서 방화벽을 지원하도록 IP 액세스
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: d4fab572f31d3187135ea3ac406431ced98828b1
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 8522a537301c1d35da2a2eb46b4374fa4daf6a27
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815925"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580695"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Azure Cosmos DB에서 IP 방화벽 구성
 
@@ -36,11 +36,11 @@ IP 액세스 제어가 켜지면 Azure Portal에서는 IP 주소, IP 주소 범�
 
 프로그래밍 방식으로 IP 액세스 제어 정책을 사용하도록 설정할 경우 Azure Portal의 IP 주소를 **ipRangeFilter** 속성에 추가해야 액세스가 유지됩니다. 포털 IP 주소는 다음과 같습니다.
 
-|Region|IP 주소|
+|지역|IP 주소|
 |------|----------|
 |독일|51.4.229.218|
 |중국|139.217.8.252|
-|US Gov|52.244.48.71|
+|미국 정부|52.244.48.71|
 |다른 모든 하위 지역|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
 다음 스크린샷에 표시된 대로 **Azure Portal에서 액세스하도록 허용** 옵션을 선택하여 Azure Portal에 대한 액세스를 사용하도록 설정할 수 있습니다.
@@ -100,7 +100,7 @@ Azure Cosmos DB 계정에 대한 액세스 제어를 구성하려면 Resource Ma
 {
   "type": "Microsoft.DocumentDB/databaseAccounts",
   "name": "[variables('accountName')]",
-  "apiVersion": "2016-03-31",
+  "apiVersion": "2019-08-01",
   "location": "[parameters('location')]",
   "kind": "GlobalDocumentDB",
   "properties": {
@@ -108,8 +108,7 @@ Azure Cosmos DB 계정에 대한 액세스 제어를 구성하려면 Resource Ma
     "locations": "[variables('locations')]",
     "databaseAccountOfferType": "Standard",
     "enableAutomaticFailover": "[parameters('automaticFailover')]",
-    "enableMultipleWriteLocations": "[parameters('multipleWriteLocations')]",
-    "ipRangeFilter":"183.240.196.255,104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
+    "ipRangeFilter":"40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26"
   }
 }
 ```
@@ -164,7 +163,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
 
 다음 옵션을 사용하여 IP 액세스 제어 정책 관련 문제를 해결할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Azure Cosmos DB 계정에 대해 IP 액세스 제어 정책을 사용하도록 설정하면 허용되는 IP 주소 범위 목록 이외의 머신에서 시도하는 계정에 대한 모든 요청이 차단됩니다. 컨테이너 탐색 및 문서 쿼리와 같은 포털 데이터 평면 작업을 사용하도록 설정하려면 포털의 **방화벽** 창을 사용하여 Azure Portal 액세스를 명시적으로 허용해야 합니다.
 

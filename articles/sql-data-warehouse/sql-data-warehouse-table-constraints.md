@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse |의 기본 키, 외래 키 및 고유 키 Microsoft Docs
+title: 기본 키, 외래 키 및 고유 키
 description: 의 테이블 제약 조건 지원 Azure SQL Data Warehouse
 services: sql-data-warehouse
 author: XiaoyuMSFT
@@ -10,12 +10,13 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: b02f219e549f2206f71c08c9d465b2bc05a6d526
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8f3102425c6f984df0f50bc05eeb6f9a5e66d3dd
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310296"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685482"
 ---
 # <a name="primary-key-foreign-key-and-unique-key-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 기본 키, 외래 키 및 고유 키
 

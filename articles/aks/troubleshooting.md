@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 2c25069ce5231a1f89027dea69579231f0fe4bcd
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517087"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604738"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -30,13 +30,13 @@ pod, 노드, 클러스터 등의 문제 해결과 관련해서 Microsoft 엔지�
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>AKS의 노드당 최대 Pod 설정이란?
 
 노드당 최대 Pod 설정은 Azure Portal에서 AKS 클러스터를 배포하는 경우 기본적으로 30입니다.
-노드당 최대 Pod 설정은 Azure CLI에서 AKS 클러스터를 배포하는 경우 기본적으로 110입니다. Azure CLI의 최신 버전을 사용하도록 합니다. 이 기본 설정은 `az aks create` 명령에서 `–-max-pods` 플래그를 사용하여 변경할 수 있습니다.
+노드당 최대 Pod 설정은 Azure CLI에서 AKS 클러스터를 배포하는 경우 기본적으로 110입니다. Azure CLI의 최신 버전을 사용하도록 합니다. 이 기본 설정은 `–-max-pods` 명령에서 `az aks create` 플래그를 사용하여 변경할 수 있습니다.
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>고급 네트워킹을 사용하여 AKS 클러스터를 배포하는 동안 insufficientSubnetSize 오류가 발생합니다. 어떻게 해야 하나요?
 
-Azure CNI(고급 네트워킹)를 사용하는 경우 AKS는 구성된 노드당 “max-pods”에 따라 IP 주소를 미리 할당합니다. AKS 클러스터의 노드 수는 1~110개 사이일 수 있습니다. 구성된 노드당 최대 Pod 수를 기준으로, 서브넷 크기는 “노드 수와 노드당 최대 Pod 수를 곱한 값”보다 커야 합니다. 다음 기본 수식은 이 내용을 요약해서 보여 줍니다.
+Azure CNI (고급 네트워킹)를 사용 하는 경우 AKS는 구성 된 노드당 "최대 pod"를 기반으로 IP 주소를 할당 합니다. 노드당 구성 된 max pod을 기반으로 하는 서브넷 크기는 노드 수와 노드당 최대 pod 설정의 곱 보다 커야 합니다. 다음 수식은이에 대해 간략하게 설명 합니다.
 
-서브넷 크기 > 클러스터의 노드 수(향후 크기 조정 요구 사항 고려) * 노드당 최대 Pod 수
+서브넷 크기 > 클러스터의 노드 수 (향후 크기 조정 요구 사항을 고려 하 여) * 노드 집합 당 최대 pod.
 
 자세한 내용은 [클러스터에 대한 IP 주소 지정 계획](configure-azure-cni.md#plan-ip-addressing-for-your-cluster)을 참조하세요.
 
@@ -65,7 +65,7 @@ Kubernetes 대시보드가 표시되지 않으면 `kube-proxy` pod가 `kube-syst
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>kubectl logs를 사용하여 로그를 가져올 수 없고 API 서버에 연결할 수 없습니다. "서버에서 오류가 발생 했습니다. 오류를 전화 접속 하는 중입니다." 라는 오류가 발생 합니다. 어떻게 해야 하나요?
 
-기본 네트워크 보안 그룹이 수정 되지 않고 API 서버에 연결 하기 위해 포트 22 및 9000이 모두 열려 있는지 확인 합니다. @No__t_0 pod가 `kubectl get pods --namespace kube-system` 명령을 사용 하 여 *kube* 네임 스페이스에서 실행 중인지 확인 합니다. 실행되지 않으면 pod를 강제로 삭제합니다. 그러면 다시 시작됩니다.
+기본 네트워크 보안 그룹이 수정 되지 않고 API 서버에 연결 하기 위해 포트 22 및 9000이 모두 열려 있는지 확인 합니다. `tunnelfront` pod가 `kubectl get pods --namespace kube-system` 명령을 사용 하 여 *kube* 네임 스페이스에서 실행 중인지 확인 합니다. 실행되지 않으면 pod를 강제로 삭제합니다. 그러면 다시 시작됩니다.
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>업그레이드 하거나 크기를 조정 하는 중입니다. "메시지: ' imageReference ' 속성이 변경 될 수 없습니다." 오류가 발생 합니다. 이 문제를 어떻게 해결하나요?
 
@@ -73,22 +73,22 @@ AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문�
 
 ## <a name="im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed"></a>내 클러스터가 실패 상태에 있는 오류를 수신 하 고 있으며, 문제가 해결 될 때까지 업그레이드 또는 확장이 작동 하지 않습니다.
 
-*이 문제 해결 지원은 https://aka.ms/aks-cluster-failed 에서 전송 됩니다.*
+*이 문제 해결 지원은 https://aka.ms/aks-cluster-failed에서 전송 됩니다.*
 
 이 오류는 여러 가지 이유로 클러스터가 실패 상태를 입력 하는 경우에 발생 합니다. 이전에 실패 한 작업을 다시 시도 하기 전에 다음 단계를 수행 하 여 클러스터 실패 상태를 확인 합니다.
 
-1. 클러스터가 `failed` 상태가 될 때까지 `upgrade` 및 `scale` 작업이 성공 하지 않습니다. 일반적인 근본 문제 및 해결 방법은 다음과 같습니다.
+1. 클러스터가 `failed` 상태를 초과할 때까지 `upgrade` 및 `scale` 작업이 실패 합니다. 일반적인 근본 문제 및 해결 방법은 다음과 같습니다.
     * **계산 (CRP) 할당량이 부족**한 크기 조정 문제를 해결 하려면 먼저 할당량 내에서 안정적인 목표 상태로 클러스터를 다시 확장 합니다. 그런 다음 초기 할당량 한도를 초과 하 여 다시 확장 하기 전에 [계산 할당량 증가를 요청 하려면 다음 단계를](../azure-supportability/resource-manager-core-quotas-request.md) 수행 합니다.
     * 고급 네트워킹으로 클러스터 크기를 조정 하 고 **서브넷 (네트워킹) 리소스가 부족**합니다. 문제를 해결 하려면 먼저 할당량 내에서 안정적인 목표 상태로 클러스터를 다시 확장 합니다. 그런 후에 다음 단계에 따라 초기 할당량 한도를 초과 하 여 다시 확장 하기 전에 [리소스 할당량 증가를 요청](../azure-resource-manager/resource-manager-quota-errors.md#solution) 합니다.
 2. 업그레이드 실패의 근본 원인이 해결 되 면 클러스터가 성공 상태 여야 합니다. 성공 상태가 확인 되 면 원래 작업을 다시 시도 합니다.
 
 ## <a name="im-receiving-errors-when-trying-to-upgrade-or-scale-that-state-my-cluster-is-being-currently-being-upgraded-or-has-failed-upgrade"></a>클러스터가 현재 업그레이드 중이거나 업그레이드에 실패 한 상태를 업그레이드 하거나 크기를 조정 하려고 할 때 오류가 발생 합니다.
 
-*이 문제 해결 지원은 https://aka.ms/aks-pending-upgrade 에서 전송 됩니다.*
+*이 문제 해결 지원은 https://aka.ms/aks-pending-upgrade에서 전송 됩니다.*
 
 단일 노드 풀 또는 [여러 노드 풀](use-multiple-node-pools.md) 을 포함 하는 클러스터에서 클러스터에 대 한 업그레이드 및 크기 조정 작업은 함께 사용할 수 없습니다. 클러스터 또는 노드 풀을 동시에 업그레이드 하 고 확장할 수 없습니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 따라서 활성 업그레이드 또는 크기 조정 작업이 발생 하거나 시도한 후에 실패 하는 경우 작업이 제한 됩니다. 
 
-문제를 진단 하는 데 도움이 되도록 `az aks show -g myResourceGroup -n myAKSCluster -o table`를 실행 하 여 클러스터에서 자세한 상태를 검색 합니다. 결과에 따라:
+문제를 진단 하는 데 도움이 되도록 `az aks show -g myResourceGroup -n myAKSCluster -o table`을 실행 하 여 클러스터에서 자세한 상태를 검색 합니다. 결과에 따라:
 
 * 클러스터가 적극적으로 업그레이드 되는 경우 작업이 종료 될 때까지 기다립니다. 성공 하면 이전에 실패 한 작업을 다시 시도 합니다.
 * 클러스터가 업그레이드에 실패 한 경우 이전 섹션에 설명 된 단계를 수행 합니다.
@@ -118,7 +118,7 @@ AKS 클러스터가 다음 예제와 같이 가상 머신 확장 집합에 없�
 
 명명 제한은 Azure 플랫폼과 AKS 모두에 의해 구현 됩니다. 리소스 이름 또는 매개 변수가 이러한 제한 중 하나를 중단 하는 경우 다른 입력을 제공 하 라는 오류가 반환 됩니다. 다음과 같은 일반적인 명명 지침이 적용 됩니다.
 
-* AKS *MC_* 리소스 그룹 이름은 리소스 그룹 이름 및 리소스 이름을 결합 합니다. @No__t_0의 자동 생성 구문은 80 자이 하 여야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름 길이를 줄이십시오.
+* AKS *MC_* 리소스 그룹 이름은 리소스 그룹 이름 및 리소스 이름을 결합 합니다. `MC_resourceGroupName_resourceName_AzureRegion`의 자동 생성 구문은 80 자이 하 여야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름 길이를 줄이십시오.
 * *DnsPrefix* 는 영숫자 값으로 시작 하 고 끝나야 합니다. 유효한 문자에는 영숫자 값과 하이픈 (-)이 포함 됩니다. *DnsPrefix* 에는 마침표 (.)와 같은 특수 문자를 포함할 수 없습니다.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>클러스터를 만들거나, 업데이트 하거나, 크기를 삭제 하거나, 업그레이드 하는 동안 오류가 발생 하는 경우 다른 작업이 진행 중 이므로 해당 작업이 허용 되지 않습니다.
@@ -172,14 +172,14 @@ AKS 클러스터에서 송신 트래픽을 제한 하는 경우 [필수 및 선�
 
 Kubernetes 버전 1.10에서 MountVolume는 Azure 디스크가 다시 탑재 되어 실패할 수 있습니다.
 
-Linux에서 잘못 된 DevicePath format 오류가 표시 될 수 있습니다. 다음은 그 예입니다.
+Linux에서 잘못 된 DevicePath format 오류가 표시 될 수 있습니다. 예:
 
 ```console
 MountVolume.WaitForAttach failed for volume "pvc-f1562ecb-3e5f-11e8-ab6b-000d3af9f967" : azureDisk - Wait for attach expect device path as a lun number, instead got: /dev/disk/azure/scsi1/lun1 (strconv.Atoi: parsing "/dev/disk/azure/scsi1/lun1": invalid syntax)
   Warning  FailedMount             1m (x10 over 21m)   kubelet, k8s-agentpool-66825246-0  Unable to mount volumes for pod
 ```
 
-Windows에서 잘못 된 DevicePath (LUN) 번호 오류가 표시 될 수 있습니다. 다음은 그 예입니다.
+Windows에서 잘못 된 DevicePath (LUN) 번호 오류가 표시 될 수 있습니다. 예:
 
 ```console
 Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.WaitForAttach failed for volume "disk01" : azureDisk - WaitForAttach failed within timeout node (15282k8s9010) diskId:(andy-mghyb
@@ -192,7 +192,7 @@ Warning  FailedMount             1m    kubelet, 15282k8s9010    MountVolume.Wait
 | -- | :--: |
 | 1.10 | 1.10.2 이상 |
 | 1.11 | 1.11.0 이상 |
-| 1.12 이상 | N/A |
+| 1.12 이상 | 해당 없음 |
 
 ### <a name="failure-when-setting-uid-and-gid-in-mountoptions-for-azure-disk"></a>Azure 디스크에 대해 mountOptions에서 uid 및 gid를 설정 하는 동안 오류가 발생 했습니다.
 
@@ -225,7 +225,7 @@ spec:
   >[!NOTE]
   > Gid와 uid는 기본적으로 root 또는 0으로 탑재 됩니다. Gid 또는 uid가 루트가 아닌 것으로 설정 된 경우 (예: 1000) Kubernetes는 `chown`을 사용 하 여 해당 디스크 아래의 모든 디렉터리와 파일을 변경 합니다. 이 작업을 수행 하는 데 시간이 오래 걸릴 수 있으며 디스크를 매우 느리게 탑재할 수 있습니다.
 
-* InitContainers의 `chown`를 사용 하 여 gid 및 uid를 설정 합니다. 다음은 그 예입니다.
+* InitContainers의 `chown`를 사용 하 여 gid 및 uid를 설정 합니다. 예:
 
 ```yaml
 initContainers:
@@ -239,7 +239,7 @@ initContainers:
 
 ### <a name="error-when-deleting-azure-disk-persistentvolumeclaim-in-use-by-a-pod"></a>Pod에서 사용 중인 Azure Disk PersistentVolumeClaim를 삭제 하는 동안 오류 발생
 
-Pod에서 사용 중인 Azure Disk PersistentVolumeClaim를 삭제 하려고 하면 오류가 표시 될 수 있습니다. 다음은 그 예입니다.
+Pod에서 사용 중인 Azure Disk PersistentVolumeClaim를 삭제 하려고 하면 오류가 표시 될 수 있습니다. 예:
 
 ```console
 $ kubectl describe pv pvc-d8eebc1d-74d3-11e8-902b-e22b71bb1c06
@@ -266,7 +266,7 @@ MountVolume.WaitForAttach failed for volume "pvc-12b458f4-c23f-11e8-8d27-46799c2
 | 1.11 | 1.11.5 이상 |
 | 1.12 | 1.12.3 이상 |
 | 1.13 | 1.13.0 이상 |
-| 1.14 이상 | N/A |
+| 1.14 이상 | 해당 없음 |
 
 이 문제에 대 한 해결 방법이 없는 Kubernetes 버전을 사용 하는 경우 몇 분 동안 기다린 후 다시 시도 하 여 문제를 완화할 수 있습니다.
 
@@ -287,7 +287,7 @@ Kubernetes 버전 1.9.2부터 여러 연결/분리 작업을 병렬로 실행 �
 | 1.11 | 1.11.6 이상 |
 | 1.12 | 1.12.4 이상 |
 | 1.13 | 1.13.0 이상 |
-| 1.14 이상 | N/A |
+| 1.14 이상 | 해당 없음 |
 
 이 문제에 대 한 해결 방법이 없는 Kubernetes 버전을 사용 하는 경우 다음을 시도 하 여 문제를 완화할 수 있습니다.
 
@@ -295,7 +295,7 @@ Kubernetes 버전 1.9.2부터 여러 연결/분리 작업을 병렬로 실행 �
 
 ### <a name="azure-disk-waiting-to-detach-indefinitely"></a>무기한 분리 대기 중인 Azure 디스크
 
-첫 번째 시도에서 Azure Disk detach 작업이 실패 하는 경우에는 분리 작업을 다시 시도 하지 않고 원래 노드 VM에 연결 된 상태로 유지 됩니다. 이 오류는 한 노드에서 다른 노드로 디스크를 이동 하는 경우에 발생할 수 있습니다. 다음은 그 예입니다.
+첫 번째 시도에서 Azure Disk detach 작업이 실패 하는 경우에는 분리 작업을 다시 시도 하지 않고 원래 노드 VM에 연결 된 상태로 유지 됩니다. 이 오류는 한 노드에서 다른 노드로 디스크를 이동 하는 경우에 발생할 수 있습니다. 예:
 
 ```console
 [Warning] AttachVolume.Attach failed for volume “pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9” : Attach volume “kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9" to instance “/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-0” failed with compute.VirtualMachinesClient#CreateOrUpdate: Failure sending request: StatusCode=0 -- Original Error: autorest/azure: Service returned an error. Status= Code=“ConflictingUserInput” Message=“Disk ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-7b7976d7-3a46-11e9-93d5-dee1946e6ce9’ cannot be attached as the disk is already owned by VM ‘/subscriptions/XXX/resourceGroups/XXX/providers/Microsoft.Compute/virtualMachines/aks-agentpool-57634498-1’.”
@@ -308,7 +308,7 @@ Kubernetes 버전 1.9.2부터 여러 연결/분리 작업을 병렬로 실행 �
 | 1.11 | 1.11.9 이상 |
 | 1.12 | 1.12.7 이상 |
 | 1.13 | 1.13.4 이상 |
-| 1.14 이상 | N/A |
+| 1.14 이상 | 해당 없음 |
 
 이 문제에 대 한 해결 방법이 없는 Kubernetes 버전을 사용 하는 경우 디스크를 수동으로 분리 하 여 문제를 완화할 수 있습니다.
 
@@ -323,7 +323,7 @@ Azure 디스크를 분리 하지 못하면 지 수 백오프를 사용 하 여 �
 | 1.12 | 1.12.9 이상 |
 | 1.13 | 1.13.6 이상 |
 | 1.14 | 1.14.2 이상 |
-| 1.15 이상 | N/A |
+| 1.15 이상 | 해당 없음 |
 
 이 문제에 대 한 해결 방법이 없는 Kubernetes의 버전을 사용 하는 경우 노드 VM에 사용 되지 않는 디스크 목록이 있으면 VM의 모든 비 기존 디스크를 단일 대량 작업으로 분리 하 여 문제를 완화할 수 있습니다. **존재 하지 않는 디스크를 개별적으로 분리 하면 실패할 수 있습니다.**
 
@@ -343,7 +343,7 @@ Azure 디스크를 분리 하지 못하면 지 수 백오프를 사용 하 여 �
 | 1.12 | 1.12.10 이상 |
 | 1.13 | 1.13.8 이상 |
 | 1.14 | 1.14.4 이상 |
-| 1.15 이상 | N/A |
+| 1.15 이상 | 해당 없음 |
 
 이 문제에 대 한 해결 방법이 없는 Kubernetes의 버전을 사용 중이 고 노드 VM이 실패 한 상태 이면 아래 중 하나를 사용 하 여 VM 상태를 수동으로 업데이트 하 여 문제를 완화할 수 있습니다.
 
@@ -460,7 +460,7 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 | -- | :--: |
 | 1.12 | 1.12.6 이상 |
 | 1.13 | 1.13.4 이상 |
-| 1.14 이상 | N/A |
+| 1.14 이상 | 해당 없음 |
 
 ### <a name="azure-files-mount-fails-due-to-storage-account-key-changed"></a>저장소 계정 키가 변경 되어 Azure Files 탑재 실패
 
@@ -468,13 +468,13 @@ E0118 08:15:52.041014    2112 nestedpendingoperations.go:267] Operation for "\"k
 
 Base64 인코딩 저장소 계정 키를 사용 하 여 Azure 파일 암호에서 수동으로 *azurestorageaccountkey* 필드를 수동으로 업데이트 하 여 문제를 완화할 수 있습니다.
 
-Base64에서 저장소 계정 키를 인코딩하려면 `base64`를 사용할 수 있습니다. 다음은 그 예입니다.
+Base64에서 저장소 계정 키를 인코딩하려면 `base64`를 사용할 수 있습니다. 예:
 
 ```console
 echo X+ALAAUgMhWHL7QmQ87E1kSfIqLKfgC03Guy7/xk9MyIg2w4Jzqeu60CVw2r/dm6v6E0DWHTnJUEJGVQAoPaBc== | base64
 ```
 
-Azure 비밀 파일을 업데이트 하려면 `kubectl edit secret`을 사용 합니다. 다음은 그 예입니다.
+Azure 비밀 파일을 업데이트 하려면 `kubectl edit secret`을 사용 합니다. 예:
 
 ```console
 kubectl edit secret azure-storage-account-{storage-account-name}-secret

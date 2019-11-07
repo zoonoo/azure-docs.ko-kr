@@ -1,5 +1,5 @@
 ---
-title: 재해 복구 솔루션 설계 - Azure SQL Database | Microsoft Docs
+title: 재해 복구 솔루션 디자인-Azure SQL Database
 description: 올바른 장애 조치 패턴을 선택하여 재해 복구를 위한 클라우드 솔루션을 설계하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: ccdd2443254da065a15911f567577672492ddb4f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 535397dcf32a617038ab4bef4ec7aa227f4563b1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568881"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73690657"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>SQL Database 탄력적 풀을 사용하는 애플리케이션에 대한 재해 복구 전략
 
@@ -24,7 +24,7 @@ ms.locfileid: "68568881"
 
 이 문서에서는 다음과 같은 canonical SaaS ISV 애플리케이션 패턴을 사용합니다.
 
-최신 클라우드 기반 웹 애플리케이션은 각 최종 사용자에 대해 하나의 SQL Database를 프로비전합니다. ISV에는 많은 고객이 있으므로 테넌트 데이터베이스라고 하는 많은 데이터베이스를 사용합니다. 일반적으로 테넌트 데이터베이스에는 예측할 수 없는 활동 패턴이 있으므로 ISV는 데이터베이스 비용을 확장된 기간 동안 잘 예측할 수 있도록 탄력적 풀을 사용합니다. 또한 탄력적 풀은 사용자 활동이 급증하는 경우 성능 관리를 단순화합니다. 테넌트 데이터베이스 외에도 애플리케이션은 사용자 프로필, 보안을 관리하고 사용 패턴 등을 수집하는 데 여러 데이터베이스도 사용합니다. 개별 테넌트의 가용성은 애플리케이션의 전체 가용성에 영향을 주지 않습니다. 하지만, 관리 데이터베이스의 성능과 가용성은 애플리케이션의 기능에 중요하며 관리 데이터베이스가 오프라인 상태이면 전체 애플리케이션도 오프라인 상태입니다.
+최신 클라우드 기반 웹 애플리케이션은 각 최종 사용자에 대해 하나의 SQL Database를 프로비전합니다. ISV에는 많은 고객이 있으므로 테넌트 데이터베이스라고 하는 많은 데이터베이스를 사용합니다. 일반적으로 테넌트 데이터베이스에는 예측할 수 없는 활동 패턴이 있으므로 ISV는 데이터베이스 비용을 확장된 기간 동안 잘 예측할 수 있도록 탄력적 풀을 사용합니다. 또한 탄력적 풀은 사용자 활동이 급증하는 경우 성능 관리를 단순화합니다. 테 넌 트 데이터베이스 외에도 응용 프로그램은 여러 데이터베이스를 사용 하 여 사용자 프로필, 보안, 사용 패턴 수집 등을 관리 합니다. 개별 테 넌 트의 가용성은 응용 프로그램의 전체 가용성에 영향을 주지 않습니다. 하지만, 관리 데이터베이스의 성능과 가용성은 애플리케이션의 기능에 중요하며 관리 데이터베이스가 오프라인 상태이면 전체 애플리케이션도 오프라인 상태입니다.
 
 이 문서에서는 비용에 민감한 시작 애플리케이션에서 엄격한 가용성 요구 사항이 포함된 애플리케이션에 걸친 시나리오를 다루는 DR 전략을 설명합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "68568881"
 
 단순성 요구 사항을 충족하려면 모든 테넌트 데이터베이스를 선택한 Azure 지역에서 하나의 탄력적 풀로 배포하고 관리 데이터베이스를 지역 복제된 단일 데이터베이스로 배포합니다. 테넌트의 재해 복구를 위해 추가 비용 없이 제공되는 지역 복원을 사용합니다. 관리 데이터베이스의 가용성을 보장하려면 자동 장애 조치(failover) 그룹을 사용하여 다른 지역으로 지역 복제합니다(1단계). 이 시나리오에서 재해 복구를 구성하는 지속적인 비용은 보조 데이터베이스의 총 비용과 같습니다. 이 구성은 다음 다이어그램에 나와 있습니다.
 
-![그림 1](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
+![그림 1에서는](./media/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool/diagram-1.png)
 
 주 지역에서 중단이 발생한 경우 애플리케이션을 온라인 상태로 복구하는 단계는 다음 다이어그램에 설명되어 있습니다.
 
@@ -164,7 +164,7 @@ DR 지역에서 애플리케이션을 복원한 *후* Azure에 의해 주 지역
 
 ## <a name="summary"></a>요약
 
-이 문서는 SaaS ISV 다중 테넌트 애플리케이션에서 사용하는 데이터베이스 계층에 대한 재해 복구 전략에 중점을 둡니다. 비즈니스 모델, 고객에게 제공할 SLA, 예산 제약 등 애플리케이션의 요구에 따라 전략을 선택합니다. 각 설명된 전략에는 장단점이 나와 있어 합리적인 의사 결정이 가능합니다. 또한 특정 애플리케이션은 다른 Azure 구성 요소를 포함할 가능성이 높습니다. 따라서 해당 비즈니스 연속성 지침을 검토하고 데이터베이스 계층의 복구를 오케스트레이션합니다. Azure에서 데이터베이스 애플리케이션 복구를 관리하는 방법에 대해 자세히 알아보려면 [재해 복구를 위한 클라우드 솔루션 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)를 참조하세요.  
+이 문서는 SaaS ISV 다중 테넌트 애플리케이션에서 사용하는 데이터베이스 계층에 대한 재해 복구 전략에 중점을 둡니다. 비즈니스 모델, 고객에 게 제공할 SLA, 예산 제약 등 응용 프로그램의 요구에 따라 전략을 선택 합니다. 설명 된 각 전략은 이점 및 장단점을 간략하게 설명 하 여 의사 결정을 내릴 수 있습니다. 또한 특정 애플리케이션은 다른 Azure 구성 요소를 포함할 가능성이 높습니다. 따라서 해당 비즈니스 연속성 지침을 검토하고 데이터베이스 계층의 복구를 오케스트레이션합니다. Azure에서 데이터베이스 애플리케이션 복구를 관리하는 방법에 대해 자세히 알아보려면 [재해 복구를 위한 클라우드 솔루션 설계](sql-database-designing-cloud-solutions-for-disaster-recovery.md)를 참조하세요.  
 
 ## <a name="next-steps"></a>다음 단계
 

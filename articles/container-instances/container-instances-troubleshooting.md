@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 28a391fded422b00508e006bfd613d6c98d82f17
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1fda05ffcac8952ee5a12c23383aad1a04d36b97
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166464"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601312"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Azure Container Instances에서 일반적인 문제 해결
 
@@ -26,7 +26,7 @@ ms.locfileid: "72166464"
 
 컨테이너 사양을 정의할 때 특정 매개 변수에는 명명 제한 사항을 준수해야 합니다. 컨테이너 그룹 속성에 대한 특정 요구 사항이 포함된 테이블은 다음과 같습니다. Azure 명명 규칙에 대한 자세한 내용은 Azure 아키텍처 센터에서 [명명 규칙][azure-name-restrictions]을 참조하세요.
 
-| Scope | 길이 | 대/소문자 구분 | 유효한 문자 | 제안된 패턴 | 예제 |
+| 범위 | 길이 | 대/소문자 구분 | 유효한 문자 | 제안된 패턴 | 예제 |
 | --- | --- | --- | --- | --- | --- |
 | 컨테이너 그룹 이름 | 1-64 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | 컨테이너 이름 | 1-64 |대/소문자 구분하지 않음 |첫 번째 또는 마지막 문자를 제외한 모든 위치의 영숫자 및 하이픈 |`<name>-<role>-CG<number>` |`web-batch-CG1` |
@@ -176,7 +176,7 @@ mcr.microsoft.com/azuredocs/aci-helloworld    latest    7367f3256b41    15 month
 
 ### <a name="cached-images"></a>캐시 된 이미지
 
-Azure Container Instances는 캐싱 메커니즘을 사용 하 여 `nanoserver:1809`, `servercore:ltsc2019` 및 `servercore:1809`을 비롯 한 일반적인 [Windows 기반 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)를 기반으로 하는 이미지에 대 한 컨테이너 시작 시간을 단축할 수 있습니다. @No__t-0 및 `alpine:3.6`과 같이 일반적으로 사용 되는 Linux 이미지도 캐시 됩니다. 캐시 된 이미지 및 태그의 최신 목록을 보려면 [캐시 된 이미지 나열][list-cached-images] API를 사용 합니다.
+Azure Container Instances는 캐싱 메커니즘을 사용 하 여 `nanoserver:1809`, `servercore:ltsc2019`및 `servercore:1809`를 비롯 하 여 일반적인 [Windows 기반 이미지](container-instances-faq.md#what-windows-base-os-images-are-supported)에 구축 된 이미지의 컨테이너 시작 시간을 단축할 수 있습니다. `ubuntu:1604` 및 `alpine:3.6`와 같은 일반적으로 사용 되는 Linux 이미지도 캐시 됩니다. 캐시 된 이미지 및 태그의 최신 목록을 보려면 [캐시 된 이미지 나열][list-cached-images] API를 사용 합니다.
 
 > [!NOTE]
 > Azure Container Instances에서 Windows Server 2019 기반 이미지 사용은 미리 보기에 있습니다.
@@ -206,16 +206,16 @@ Azure Container Instances는 컨테이너 그룹을 호스트하는 기본 인�
 
 Azure Container Instances는 일반 docker 구성과 같은 포트 매핑을 아직 지원 하지 않습니다. 컨테이너 그룹의 IP 주소에 액세스할 수 없는 것으로 판단 되는 경우, 컨테이너 그룹에 표시 되는 것과 동일한 포트를 수신 대기 하도록 컨테이너 이미지를 구성 하 고 `ports` 속성으로 컨테이너를 구성 했는지 확인 합니다.
 
-컨테이너가 컨테이너 이미지에 구성 된 포트에서 수신 대기할 수 있는지 확인 하려면 포트를 노출 하는 `aci-helloworld` 이미지의 배포를 테스트 Azure Container Instances 합니다. 또한 포트에서 수신 대기 하도록 `aci-helloworld` 앱을 실행 합니다. `aci-helloworld`은 선택적 환경 변수 `PORT`을 허용 하 여 수신 대기 하는 기본 포트 80을 재정의 합니다. 예를 들어 포트 9000을 테스트 하려면 다음을 수행 합니다.
+컨테이너가 컨테이너 이미지에 구성 된 포트에서 수신 대기할 수 있는지 확인 하려면 포트를 노출 하는 `aci-helloworld` 이미지의 배포를 테스트 Azure Container Instances 합니다. 또한 포트에서 수신 대기 하도록 `aci-helloworld` 앱을 실행 합니다. `aci-helloworld`은 선택적 환경 변수 `PORT`을 허용 하 여 수신 대기 하는 기본 포트 80을 재정의 합니다. 예를 들어 포트 9000을 테스트 하려면 컨테이너 그룹을 만들 때 [환경 변수](container-instances-environment-variables.md) 를 설정 합니다.
 
-1. 컨테이너 그룹을 설정 하 여 포트 9000를 표시 하 고 포트 번호를 환경 변수의 값으로 전달 합니다.
+1. 컨테이너 그룹을 설정 하 여 포트 9000를 노출 하 고 포트 번호를 환경 변수의 값으로 전달 합니다. 이 예제는 Bash 셸에 대해 형식이 지정 됩니다. PowerShell 또는 명령 프롬프트와 같은 다른 셸을 선호 하는 경우에는 변수 할당을 적절 하 게 조정 해야 합니다.
     ```azurecli
     az container create --resource-group myResourceGroup \
     --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --ip-address Public --ports 9000 \
     --environment-variables 'PORT'='9000'
     ```
-1. @No__t-0의 명령 출력에서 컨테이너 그룹의 IP 주소를 찾습니다. **Ip**값을 찾습니다. 
+1. `az container create`의 명령 출력에서 컨테이너 그룹의 IP 주소를 찾습니다. **Ip**값을 찾습니다. 
 1. 컨테이너가 성공적으로 프로 비전 되 면 브라우저에서 컨테이너 앱의 IP 주소와 포트 (예: `192.0.2.0:9000`)로 이동 합니다. 
 
     "시작 Azure Container Instances!"가 표시 되어야 합니다. 웹 앱에 표시 되는 메시지입니다.
