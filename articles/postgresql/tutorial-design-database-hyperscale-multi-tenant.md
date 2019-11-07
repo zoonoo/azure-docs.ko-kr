@@ -1,6 +1,6 @@
 ---
-title: Azure Database for PostgreSQL – 하이퍼스케일(Citus)(미리 보기)을 사용하여 다중 테넌트 데이터베이스 설계 자습서
-description: 이 자습서에서는 Azure Database for PostgreSQL 하이퍼스케일(Citus)(미리 보기)에서 분산된 테이블을 만들고, 채우고, 쿼리하는 방법을 보여줍니다.
+title: Azure Database for PostgreSQL – 하이퍼스케일(Citus)을 사용하여 다중 테넌트 데이터베이스 설계 자습서
+description: 이 자습서에서는 Azure Database for PostgreSQL 하이퍼스케일(Citus)에서 분산된 테이블을 만들고, 채우고, 쿼리하는 방법을 보여 줍니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,16 +9,16 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: ba20a048faecc9e37a2bfbe750de0fbeba88d538
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 130c3e9f5abb24ffcc4e0c4ad6b96af5fca62090
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70163996"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496533"
 ---
-# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus-preview"></a>자습서: Azure Database for PostgreSQL – 하이퍼스케일(Citus)(미리 보기)을 사용하여 다중 테넌트 데이터베이스 설계
+# <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL – 하이퍼스케일(Citus)을 사용하여 다중 테넌트 데이터베이스 설계
 
-이 자습서에서는 Azure Database for PostgreSQL – 하이퍼스케일(Citus)(미리 보기)을 사용하여 다음 작업을 수행하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Database for PostgreSQL – 하이퍼스케일(Citus)을 사용하여 다음 작업을 수행하는 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 하이퍼스케일(Citus) 서버 그룹 만들기
@@ -35,7 +35,7 @@ ms.locfileid: "70163996"
 
 ## <a name="use-psql-utility-to-create-a-schema"></a>psql 유틸리티를 사용하여 스키마 만들기
 
-psql을 사용하여 Azure Database for PostgreSQL - 하이퍼스케일(Citus)(미리 보기)에 연결되면 몇 가지 기본 작업을 완료할 수 있습니다. 이 자습서에서는 광고주가 자신의 캠페인을 추적할 수 있는 웹앱을 만드는 과정을 안내합니다.
+psql을 사용하여 Azure Database for PostgreSQL - 하이퍼스케일(Citus)에 연결되면 몇 가지 기본 작업을 완료할 수 있습니다. 이 자습서에서는 광고주가 자신의 캠페인을 추적할 수 있는 웹앱을 만드는 과정을 안내합니다.
 
 여러 회사에서 이 앱을 사용할 수 있으므로 회사를 보관할 테이블과 자신의 캠페인을 보관할 다른 테이블을 만들어 보겠습니다. psql 콘솔에서 다음 명령을 실행합니다.
 

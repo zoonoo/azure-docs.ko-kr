@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 82a1dc293a019e4a48760ccbce830d067f2d620d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 919e717811b3b04ca7407772fcf11f293d58508c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240930"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471611"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure에서 ASP.NET Core 웹앱 만들기
 
@@ -139,17 +139,19 @@ Visual Studio 2019를 이미 설치한 경우:
 
 ## <a name="manage-the-azure-app"></a>Azure 앱 관리
 
-1. 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
+웹앱을 관리하려면 [Azure Portal](https://portal.azure.com)로 이동하여 **App Services**를 검색하여 선택합니다.
 
-1. 왼쪽 메뉴에서 **App Services**를 선택한 다음, Azure 앱의 이름을 선택합니다.
+![App Service 선택](./media/app-service-web-get-started-dotnet/app-services.png)
 
-   ![Azure 앱에 대한 포털 탐색](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
+**App Service** 페이지에서 웹앱의 이름을 선택합니다.
 
-   웹앱의 개요 페이지가 표시됩니다. 여기서 찾아보기, 중지, 시작, 다시 시작 및 삭제와 같은 기본 관리를 수행할 수 있습니다.
+![Azure 앱에 대한 포털 탐색](./media/app-service-web-get-started-dotnet/access-portal-vs2019.png)
 
-   ![Azure Portal의 App Service](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+웹앱의 개요 페이지가 표시됩니다. 여기서 찾아보기, 중지, 시작, 다시 시작 및 삭제와 같은 기본 관리를 수행할 수 있습니다.
 
-   왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다.
+![Azure Portal의 App Service](./media/app-service-web-get-started-dotnet/web-app-general-vs2019.png)
+
+왼쪽 메뉴로 앱 구성을 위한 여러가지 페이지를 볼 수 있습니다.
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

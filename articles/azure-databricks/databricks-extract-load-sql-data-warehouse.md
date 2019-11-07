@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: c2d7d7d97dce974ad8d72cc98f9ec6d3d554fb6d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 39f71e109b0d9d7b3b0375c0ec2c4d1e4a657994
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72783991"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469503"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>자습서: Azure Databricks를 사용하여 데이터 추출, 변환 및 로드
 
@@ -89,9 +89,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 섹션에서는 Azure Portal을 사용하여 Azure Databricks 서비스를 만듭니다.
 
-1. Azure Portal에서 **리소스 만들기** > **분석** > **Azure Databricks**를 차례로 선택합니다.
+1. Azure Portal 메뉴에서 **리소스 만들기**를 선택합니다.
 
-    ![Azure Portal의 Databricks](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Azure Portal의 Databricks")
+    ![Azure Portal에서 리소스 만들기](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png)
+
+    그런 다음, **Analytics** > **Azure Databricks**를 선택합니다.
+
+    ![Azure Portal에서 Azure Databricks 만들기](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-resource-create.png)
+
+
 
 2. **Azure Databricks 서비스** 아래에서 다음 값을 입력하여 Databricks 서비스를 만듭니다.
 

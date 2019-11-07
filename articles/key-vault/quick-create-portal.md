@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3c0b9ad774d336da9bc60d2ef9f7ff2645602b6c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2530fb0bd27cd98b702d804b0cb5a1dc60419f2f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259215"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490404"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -29,9 +29,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-vault"></a>자격 증명 모음 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **리소스 만들기** 옵션을 선택합니다.
-
-    ![Key Vault 만들기 완료 후 출력](./media/quick-create-portal/search-services.png)
+1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
 2. 검색 상자에 **Key Vault**를 입력합니다.
 3. 결과 목록에서 **Key Vault**를 선택합니다.
 4. Key Vault 섹션에서 **만들기**를 선택합니다.
@@ -84,9 +82,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서를 참조하세요.
+이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
 - [Azure Key Vault 개요](key-vault-overview.md) 읽기
-- [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md)를 참조하세요.
-- [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md)에 대해 알아보기
+- [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md) 참조
+- [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md) 알아보기
 - [Azure Key Vault 모범 사례](key-vault-best-practices.md) 검토

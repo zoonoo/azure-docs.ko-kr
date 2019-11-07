@@ -65,6 +65,10 @@
               href: rest-speech-to-text.md
             - name: 일괄 처리 전사 REST API
               href: batch-transcription.md
+    - name: 리소스
+      items:
+        - name: 음성 텍스트 변환 FAQ
+          href: faq-stt.md
 - name: 텍스트 음성 변환
   exanded: false
   items:
@@ -112,6 +116,10 @@
           items:
             - name: Text-to-Speech REST API
               href: rest-text-to-speech.md
+    - name: 리소스
+      items:
+        - name: 텍스트 음성 변환 FAQ
+          href: faq-text-to-speech.md
 - name: 의도 인식
   exanded: false
   items:
@@ -182,6 +190,10 @@
               href: 'https://aka.ms/csspeech/pythonref'
             - name: 릴리스 정보
               href: releasenotes.md
+    - name: 리소스
+      items:
+        - name: 음성 번역 FAQ
+          href: 'https://www.microsoft.com/translator/faq.aspx'
 - name: 대화 전사
   expanded: false
   items:
@@ -254,7 +266,7 @@
       items:
         - name: 음성 SDK를 사용하여 봇에서 음성을 사용하도록 설정
           href: tutorial-voice-enable-your-bot-speech-sdk.md
-    - name: 참고 자료
+    - name: 리소스
       items:
         - name: 음성 도우미 FAQ
           href: faq-voice-assistants.md
@@ -368,6 +380,8 @@
           href: scenario-availability.md
     - name: 빠른 시작
       items:
+        - name: 프로젝트 만들기
+          href: quickstarts/create-project.md
         - name: 'C#을 사용하여 음성 SDK 설치'
           href: quickstarts/setup-platform.md?pivots=programming-language-csharp
         - name: C++를 사용하여 음성 SDK 설치

@@ -1,7 +1,7 @@
 ---
 title: '자습서 1: 신용 위험 예측'
-titleSuffix: Azure Machine Learning Studio
-description: Azure Machine Learning Studio의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여 주는 구체적인 자습서입니다. 이 자습서는 3부로 구성된 자습서 시리즈 중 제1부입니다.  작업 영역을 만들고, 데이터를 업로드하고, 실험을 만드는 방법을 보여 줍니다.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Azure Machine Learning Studio 클래식 버전의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여 주는 구체적인 자습서입니다. 이 자습서는 3부로 구성된 자습서 시리즈 중 제1부입니다.  작업 영역을 만들고, 데이터를 업로드하고, 실험을 만드는 방법을 보여 줍니다.
 keywords: 신용 위험, 예측 분석 솔루션, 위험 평가
 author: sdgilley
 ms.author: sgilley
@@ -10,66 +10,65 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f9746dae4cdf10a10922be41602f4ecd7f032f5b
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: b861fbca1f8b4fd6b313e770b1636674767e406a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65949797"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492617"
 ---
-# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>자습서 1: 신용 위험 예측 - Azure Machine Learning Studio
+# <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio-classic"></a>자습서 1: 신용 위험 예측 - Azure Machine Learning Studio(클래식)
 
-이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제1부**입니다.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제1부**입니다.
 
 신용대출 지원 시 애플리케이션에서 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
-신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Microsoft Azure Machine Learning Studio를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Azure Machine Learning Studio 및 Machine Learning 웹 서비스가 사용됩니다.  
+신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Microsoft Azure Machine Learning Studio(클래식)를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Azure Machine Learning Studio 클래식 버전 및 Machine Learning 웹 서비스가 사용됩니다.  
 
 이 3부로 구성된 자습서에서는 공개적으로 사용 가능한 신용 위험 데이터부터 시작합니다.  그런 다음, 예측 모델을 개발하고 학습합니다.  마지막으로 모델을 웹 서비스로 배포합니다.
 
 1부 자습서에서 수행하는 작업은 다음과 같습니다. 
  
 > [!div class="checklist"]
-> * Machine Learning Studio 작업 영역 만들기
+> * Machine Learning Studio(클래식) 작업 영역 만들기
 > * 기존 데이터 업로드
 > * 실험 만들기
 
 그런 다음, 이 실험을 사용하여 [2부 자습서에서 모델을 학습](tutorial-part2-credit-risk-train.md)하고, [3부 자습서에서 배포](tutorial-part3-credit-risk-deploy.md)할 수 있습니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서에서는 이전에 Machine Learning Studio를 한 번 이상 사용한 경험이 있으며, 기계 학습 개념에 대해 어느 정도 이해하고 있다고 가정합니다. 그러나 어느 쪽이든 전문가는 아니라고 가정합니다.
+이 자습서에서는 이전에 Machine Learning Studio(클래식)를 한 번 이상 사용한 경험이 있으며, 기계 학습 개념에 대해 어느 정도 이해하고 있다고 가정합니다. 그러나 어느 쪽이든 전문가는 아니라고 가정합니다.
 
-**Azure Machine Learning Studio**를 사용한 경험이 없는 경우 [Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기](create-experiment.md) 빠른 시작을 시작하는 것이 좋습니다. 빠른 시작을 사용하면 Machine Learning Studio를 처음으로 익힐 수 있습니다. 이 자습서는 실험에 모듈을 끌어 놓고 서로 연결하고 실험을 실행하고 결과를 확인하는 방법의 기본 사항을 보여 줍니다.
+**Azure Machine Learning Studio(클래식)** 를 사용한 경험이 없는 경우 [Azure Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기](create-experiment.md) 빠른 시작을 시작하는 것이 좋습니다. 빠른 시작을 사용하면 Machine Learning Studio(클래식)를 처음으로 익힐 수 있습니다. 이 자습서는 실험에 모듈을 끌어 놓고 서로 연결하고 실험을 실행하고 결과를 확인하는 방법의 기본 사항을 보여 줍니다.
 
 
 > [!TIP] 
-> 이 자습서에서 개발한 실험의 작업 복사본은 [Azure AI Gallery](https://gallery.azure.ai)에서 찾을 수 있습니다. **[자습서 - 신용 위험 예측](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** 으로 이동하고, **Studio에서 열기**를 클릭하여 실험의 복사본을 Machine Learning Studio 작업 영역으로 다운로드합니다.
+> 이 자습서에서 개발한 실험의 작업 복사본은 [Azure AI Gallery](https://gallery.azure.ai)에서 찾을 수 있습니다. **[자습서 - 신용 위험 예측](https://gallery.azure.ai/Experiment/Walkthrough-Credit-risk-prediction-1)** 으로 이동하고, **Studio에서 열기**를 클릭하여 실험의 복사본을 Machine Learning Studio(클래식) 작업 영역으로 다운로드합니다.
 > 
 
 
-## <a name="create-a-machine-learning-studio-workspace"></a>Machine Learning Studio 작업 영역 만들기
+## <a name="create-a-machine-learning-studio-classic-workspace"></a>Machine Learning Studio(클래식) 작업 영역 만들기
 
-Machine Learning Studio를 사용하려면 Microsoft Azure Machine Learning Studio 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.  
+Machine Learning Studio(클래식)를 사용하려면 Microsoft Azure Machine Learning Studio(클래식) 작업 영역이 있어야 합니다. 이 작업 영역에는 실험을 만들고 관리, 게시하는 데 필요한 도구가 들어 있습니다.  
 
-작업 영역을 만들려면 [Azure Machine Learning Studio 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
+작업 영역을 만들려면 [Azure Machine Learning Studio(클래식) 작업 영역 만들기 및 공유](create-workspace.md)를 참조하세요.
 
-작업 영역을 만든 후 Machine Learning Studio([https://studio.azureml.net/Home](https://studio.azureml.net/Home))를 엽니다. 둘 이상의 작업 영역이 있는 경우 창의 오른쪽 위 모서리에 있는 도구 모음에서 작업 영역을 선택할 수 있습니다.
+작업 영역을 만든 후 Machine Learning Studio(클래식)([https://studio.azureml.net/Home](https://studio.azureml.net/Home))를 엽니다. 둘 이상의 작업 영역이 있는 경우 창의 오른쪽 위 모서리에 있는 도구 모음에서 작업 영역을 선택할 수 있습니다.
 
-![Studio에서 작업 영역 선택](./media/tutorial-part1-credit-risk/open-workspace.png)
+![Studio(클래식)에서 작업 영역 선택](./media/tutorial-part1-credit-risk/open-workspace.png)
 
 > [!TIP]
-> 작업 영역의 소유자인 경우 다른 사용자를 작업 영역에 초대하여 작업 중인 실험을 공유할 수 있습니다. Machine Learning Studio의 **SETTINGS** 페이지에서 이 작업을 할 수 있습니다. 각 사용자에 대한 Microsoft 계정 또는 조직 계정만 있으면 됩니다.
+> 작업 영역의 소유자인 경우 다른 사용자를 작업 영역에 초대하여 작업 중인 실험을 공유할 수 있습니다. Machine Learning Studio(클래식)의 **설정** 페이지에서 이 작업을 할 수 있습니다. 각 사용자에 대한 Microsoft 계정 또는 조직 계정만 있으면 됩니다.
 > 
 > **설정** 페이지에서 **사용자**를 클릭한 다음 창의 아래쪽에 있는 **더 많은 사용자 초대**를 클릭합니다.
 > 
 
 ## <a name="upload"></a>기존 데이터 업로드
 
-신용 위험에 대한 예측 모델을 개발하려면 모델을 학습하고 테스트하는 데 사용할 수 있는 데이터가 필요합니다. 이 자습서에서는 UC Irvine Machine Learning 리포지토리의 "UCI Statlog(독일 신용 데이터) 데이터 세트"를 사용합니다. 이 데이터 집합은   
+신용 위험에 대한 예측 모델을 개발하려면 모델을 학습하고 테스트하는 데 사용할 수 있는 데이터가 필요합니다. 이 자습서에서는 UC Irvine Machine Learning 리포지토리의 "UCI Statlog(독일 신용 데이터) 데이터 세트"를 사용합니다. 이 데이터 집합은  
 <a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 **german.data**라는 파일을 사용합니다. 로컬 하드 드라이브로 이 파일을 다운로드하세요.  
@@ -96,7 +95,7 @@ UCI 웹 사이트의 데이터 세트에 대한 설명은 개인의 신용 위�
 
 ### <a name="convert-the-dataset-format"></a>데이터 세트 형식 변환
 
-원래 데이터 세트는 공백으로 구분된 형식을 사용합니다. Machine Learning Studio는 CSV(쉼표로 구분된 값) 파일에서 더 효율적으로 작동하므로 공백을 쉼표로 바꿔서 데이터 세트를 변환합니다.  
+원래 데이터 세트는 공백으로 구분된 형식을 사용합니다. Machine Learning Studio 클래식 버전은 CSV(쉼표로 구분된 값) 파일에서 더 효율적으로 작동하므로 공백을 쉼표로 바꿔서 데이터 세트를 변환합니다.  
 
 여러 가지 방법으로 이 데이터를 변환할 수 있습니다. 한 가지 방법은 다음 Windows PowerShell 명령을 사용하는 것입니다.   
 
@@ -108,11 +107,11 @@ UCI 웹 사이트의 데이터 세트에 대한 설명은 개인의 신용 위�
 
 두 경우 모두 쉼표로 구분된 데이터 버전을 실험에 사용할 수 있는 **german.csv**라는 파일에 만들었습니다.
 
-### <a name="upload-the-dataset-to-machine-learning-studio"></a>Machine Learning Studio에 데이터 세트 업로드
+### <a name="upload-the-dataset-to-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에 데이터 세트 업로드
 
-데이터가 CSV 형식으로 변환되면 이를 Machine Learning Studio에 업로드해야 합니다. 
+데이터가 CSV 형식으로 변환되면 이를 Machine Learning Studio 클래식 버전에 업로드해야 합니다. 
 
-1. Machine Learning Studio 홈페이지([https://studio.azureml.net](https://studio.azureml.net))를 엽니다. 
+1. Machine Learning Studio(클래식) 홈페이지([https://studio.azureml.net](https://studio.azureml.net))를 엽니다. 
 
 2. 창의 왼쪽 상단 모서리에 있는 ![메뉴](./media/tutorial-part1-credit-risk/menu.png)를 클릭하고 **Azure Machine Learning**을 클릭하고 **Studio**를 선택한 다음 로그인합니다.
 
@@ -138,17 +137,17 @@ UCI 웹 사이트의 데이터 세트에 대한 설명은 개인의 신용 위�
 
 그러면 데이터가 실험에 사용할 수 있는 데이터 세트 모듈에 업로드됩니다.
 
-스튜디오 창 왼쪽의 **데이터 세트** 탭을 클릭하여 스튜디오에 업로드된 데이터 세트를 관리할 수 있습니다.
+Studio(클래식) 창 왼쪽의 **데이터 세트** 탭을 클릭하여 Studio(클래식)에 업로드된 데이터 세트를 관리할 수 있습니다.
 
 ![데이터 세트 관리](./media/tutorial-part1-credit-risk/dataset-list.png)
 
-다른 데이터 형식을 실험으로 가져오는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio로 학습 데이터 가져오기](import-data.md)를 참조하세요.
+다른 데이터 형식을 실험으로 가져오는 방법에 대한 자세한 내용은 [Azure Machine Learning Studio(클래식)로 학습 데이터 가져오기](import-data.md)를 참조하세요.
 
 ## <a name="create-an-experiment"></a>실험 만들기
 
-이 자습서의 다음 단계는 업로드한 데이터 세트를 사용하는 Machine Learning Studio에서 실험을 만드는 것입니다.  
+이 자습서의 다음 단계는 업로드한 데이터 세트를 사용하는 Machine Learning Studio 클래식 버전에서 실험을 만드는 것입니다.  
 
-1. 스튜디오의 창 하단에 있는 **+새로 만들기**를 클릭합니다.
+1. Studio(클래식)의 창 하단에 있는 **+새로 만들기**를 클릭합니다.
 1. **실험**을 선택하고 "빈 실험"을 선택합니다. 
 
     ![새로운 실험 만들기](./media/tutorial-part1-credit-risk/create-new-experiment.png)
@@ -174,7 +173,7 @@ UCI 웹 사이트의 데이터 세트에 대한 설명은 개인의 신용 위�
 
 데이터의 처음 100개 행 및 전체 데이터 세트에 대한 일부 통계 정보를 볼 수 있습니다. 데이터 세트(맨 아래에 작은 원)의 출력 포트를 클릭하고 **시각화**를 선택합니다.  
 
-데이터 파일에는 열 제목이 없으므로 스튜디오에서 일반적인 제목(Col1, Col2, *등*)을 제공했습니다. 적합한 제목은 모델 작성 시 필수 사항은 아니지만 제목이 있으면 실험에서 데이터를 더 쉽게 사용할 수 있습니다. 또한 최종적으로 이 모델을 웹 서비스에 게시할 때 제목을 사용하면 서비스 사용자에 대한 열을 식별할 수 있습니다.  
+데이터 파일에는 열 제목이 없으므로 Studio(클래식)에서 일반적인 제목(Col1, Col2, *등*)을 제공했습니다. 적합한 제목은 모델 작성 시 필수 사항은 아니지만 제목이 있으면 실험에서 데이터를 더 쉽게 사용할 수 있습니다. 또한 최종적으로 이 모델을 웹 서비스에 게시할 때 제목을 사용하면 서비스 사용자에 대한 열을 식별할 수 있습니다.  
 
 열 제목은 [메타데이터 편집][edit-metadata] 모듈을 사용하여 추가할 수 있습니다.
 
@@ -221,7 +220,7 @@ UCI 웹 사이트의 데이터 세트에 대한 설명은 개인의 신용 위�
    ![메타데이터 편집에 대한 속성](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
    > [!TIP]
-   > 열 제목을 확인하려면 실험을 실행(실험 캔버스 아래의 **실행** 클릭)합니다. 실행이 완료되면([메타데이터 편집][edit-metadata]에 녹색 확인 표시가 나타남) [메타데이터 편집][edit-metadata] 모듈의 출력 포트를 클릭하고 **시각화**를 선택합니다. 같은 방법으로 모듈의 출력을 표시하여 실험을 통해 데이터 진행률을 확인할 수 있습니다.
+   > 열 제목을 확인하려면 실험을 실행(실험 캔버스 아래의 **실행** 클릭)합니다. 실행이 완료되면([메타데이터 편집][edit-metadata]에 녹색 확인 표시가 나타남) **메타데이터 편집** 모듈의 출력 포트를 클릭하고 [시각화][edit-metadata]를 선택합니다. 같은 방법으로 모듈의 출력을 표시하여 실험을 통해 데이터 진행률을 확인할 수 있습니다.
    > 
    > 
 
@@ -296,7 +295,7 @@ UCI 웹 사이트의 데이터 세트에 대한 설명은 개인의 신용 위�
 이 자습서에서는 다음 단계를 완료했습니다. 
  
 > [!div class="checklist"]
-> * Machine Learning Studio 작업 영역 만들기
+> * Machine Learning Studio(클래식) 작업 영역 만들기
 > * 작업 영역에 기존 데이터 업로드
 > * 실험 만들기
 

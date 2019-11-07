@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9f9fe78db2d8bcf50a076fdfc3eba7b1f347201
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 6d8f67cf94e143cd67a525fa2cc675650fb59e65
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965387"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494017"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 
@@ -75,9 +75,9 @@ ms.locfileid: "72965387"
 
 인증서를 안전하게 저장하고 여러 디바이스에서 액세스할 수 있도록 Azure Key Vault에 인증서를 업로드하겠습니다. 위의 목록에서 볼 수 있듯이, 두 가지 형식의 인증서 파일이 있습니다. 하나는 PFX이고 다른 하나는 PEM입니다. PFX는 Key Vault에 업로드할 Key Vault 인증서로 처리하겠습니다. PEM 파일은 일반 텍스트이며 Key Vault 비밀로 처리하겠습니다. [Azure Notebooks](tutorial-machine-learning-edge-04-train-model.md#run-azure-notebooks)를 실행하여 만든 Azure Machine Learning 작업 영역과 연결된 Key Vault를 사용할 것입니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 Azure Machine Learning 서비스 작업 영역으로 이동합니다.
+1. [Azure Portal](https://portal.azure.com)에서 Azure Machine Learning 작업 영역으로 이동합니다.
 
-2. Azure Machine Learning 서비스 작업 영역의 개요 페이지에서 **Key Vault** 이름을 찾습니다.
+2. Azure Machine Learning 작업 영역의 개요 페이지에서 **Key Vault** 이름을 찾습니다.
 
     ![키 자격 증명 모음 이름 복사](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 

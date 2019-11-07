@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: ac0fe7a77496a0dae8606e4599bcb262a191196c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 12c034e6521a1afd25e2390502faec39461bf5b5
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067316"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471492"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 
@@ -117,9 +117,11 @@ az webapp up --location westeurope --name <app_name>
 
 ## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
-만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
+만든 웹앱을 관리하려면 [Azure Portal](https://portal.azure.com)에서 **App Services**를 검색하여 선택합니다. 
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
+![Azure Portal에서 App Services 선택](./media/app-service-web-get-started-html/portal0.png)
+
+**App Service** 페이지에서 Azure 앱의 이름을 선택합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-get-started-html/portal1.png)
 
@@ -131,7 +133,7 @@ az webapp up --location westeurope --name <app_name>
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이전 단계에서 Azure 리소스를 리소스 그룹에 만들었습니다. 나중에 이러한 리소스가 필요하지 않을 것으로 생각되는 경우 Cloud Shell에서 다음 명령을 실행하여 리소스 그룹을 삭제합니다. 리소스 그룹 이름은 [웹앱 만들기](#create-a-web-app) 단계에서 자동으로 생성된 것입니다.
+이전 단계에서 Azure 리소스를 리소스 그룹에 만들었습니다. 나중에 이러한 리소스가 필요하지 않을 것으로 생가 생각되는 경우 Cloud Shell에서 다음 명령을 실행하여 리소스 그룹을 삭제합니다. 리소스 그룹 이름은 [웹앱 만들기](#create-a-web-app) 단계에서 자동으로 생성된 것입니다.
 
 ```bash
 az group delete --name appsvc_rg_Windows_westeurope

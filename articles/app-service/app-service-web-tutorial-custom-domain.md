@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bbb064c358eba2dd64ba9ae86540a30cb56adb66
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595023"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471352"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -60,9 +60,13 @@ ms.locfileid: "67595023"
 
 [Azure 포털](https://portal.azure.com)에서 Azure 계정으로 로그인합니다.
 
-### <a name="navigate-to-the-app-in-the-azure-portal"></a>Azure Portal에서 앱으로 이동합니다.
+### <a name="select-the-app-in-the-azure-portal"></a>Azure Portal에서 앱 선택
 
-왼쪽 메뉴에서 **App Services**를 선택한 다음 앱 이름을 선택합니다.
+**App Services**를 검색하여 선택합니다.
+
+![App Service 선택](./media/app-service-web-tutorial-custom-domain/app-services.png)
+
+**App Service** 페이지에서 Azure 앱의 이름을 선택합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
@@ -156,7 +160,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 ![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added.png)
 
 > [!NOTE]
-> 사용자 지정 도메인에 대한 **안전하지 않음** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> 사용자 지정 도메인에 대한 **안전하지 않음** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에서 SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조하세요.
 
 이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
 
@@ -240,7 +244,7 @@ Azure Portal에서 해당 앱의 **사용자 지정 도메인** 페이지로 돌
 ![추가된 A 레코드](./media/app-service-web-tutorial-custom-domain/a-record-added.png)
 
 > [!NOTE]
-> 사용자 지정 도메인에 대한 **안전하지 않음** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> 사용자 지정 도메인에 대한 **안전하지 않음** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에서 SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조하세요.
 
 이전에 단계를 잊었거나 철자를 잘못 입력한 경우에는 페이지 아래쪽에 확인 오류가 표시됩니다.
 
@@ -295,7 +299,7 @@ Azure Portal의 앱 페이지 왼쪽 탐색 영역에서 **사용자 지정 도�
 ![추가된 CNAME 레코드](./media/app-service-web-tutorial-custom-domain/cname-record-added-wildcard2.png)
 
 > [!NOTE]
-> 사용자 지정 도메인에 대한 **Note Secure** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)을 참조하세요.
+> 사용자 지정 도메인에 대한 **Note Secure** 레이블은 SSL 인증서에 아직 바인딩되지 않았음을 의미하며 브라우저에서 사용자 지정 도메인에 대한 HTTPS 요청은 브라우저에 따라 오류 또는 경고를 받습니다. SSL 바인딩을 추가하려면 [Azure App Service에서 SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)를 참조하세요.
 
 ## <a name="test-in-browser"></a>브라우저에서 테스트
 
@@ -374,4 +378,4 @@ Set-AzWebApp `
 다음 자습서로 이동하여 사용자 지정 SSL 인증서를 웹앱에 바인딩하는 방법을 알아봅니다.
 
 > [!div class="nextstepaction"]
-> [Azure App Service에 기존 사용자 지정 SSL 인증서 바인딩](app-service-web-tutorial-custom-ssl.md)
+> [Azure App Service에서 SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)

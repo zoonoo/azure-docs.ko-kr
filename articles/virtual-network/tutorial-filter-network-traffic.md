@@ -14,12 +14,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 12/13/2018
 ms.author: kumud
-ms.openlocfilehash: 2d0519abdf25a6fc8373f9d1a3a7232a9783d316
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: a700cc83c6bd34f5f726b9cc1c97bd7e1476963b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984899"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73519290"
 ---
 # <a name="tutorial-filter-network-traffic-with-a-network-security-group-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 네트워크 보안 그룹을 통해 네트워크 트래픽 필터링
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다. 
 2. **네트워킹**을 선택한 다음 **가상 네트워크**를 선택합니다.
 3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
 
@@ -59,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 애플리케이션 보안 그룹을 사용하면 웹 서버와 같은 유사한 기능을 갖는 서버를 함께 그룹화할 수 있습니다.
 
-1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다. 
 2. **Marketplace 검색** 상자에서 *애플리케이션 보안 그룹*을 입력합니다. 검색 결과에 표시되는 **애플리케이션 보안 그룹**을 선택하고 **모든 항목** 아래에서 **애플리케이션 보안 그룹**을 다시 선택한 다음, **만들기**를 선택합니다.
 3. 다음 정보를 입력하거나 선택하고 **만들기**를 선택합니다.
 
@@ -81,7 +81,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-1. Azure Portal의 왼쪽 위에서 **+ 리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다. 
 2. **네트워킹**을 선택하고 **네트워크 보안 그룹**을 선택합니다.
 3. 다음 정보를 입력하거나 선택하고 **만들기**를 선택합니다.
 
@@ -138,7 +138,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="create-the-first-vm"></a>첫 번째 VM 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에 있는 **+ 리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다. 
 2. **Compute**를 선택한 다음, **Windows Server 2016 Datacenter**를 선택합니다.
 3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용합니다.
 

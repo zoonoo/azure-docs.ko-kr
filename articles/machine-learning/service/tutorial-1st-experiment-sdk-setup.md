@@ -1,7 +1,7 @@
 ---
 title: '자습서: 첫 번째 ML 실험 만들기: 설정'
 titleSuffix: Azure Machine Learning
-description: 이 자습서 시리즈에서는 Jupyter Notebook에서 실행되는 Azure Machine Learning Python SDK를 시작하기 위한 엔드투엔드 단계를 수행합니다.  1부에서는 클라우드 Notebook 서버 환경을 만들고 실험 및 기계 학습 모델을 관리하는 작업 영역을 만드는 과정을 다룹니다.
+description: 이 자습서에서는 Jupyter Notebook에서 실행되는 Azure Machine Learning Python SDK를 시작합니다.  1부에서는 실험 및 ML 모델을 관리할 작업 영역을 만듭니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,23 +10,25 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 3bbda22689bb330acc836173162a64b840f1bbd8
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 891615ea301348b83124823b10403964d394c224
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828045"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476040"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>자습서: Python SDK로 첫 번째 ML 실험 만들기 시작
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 자습서에서는 Jupyter Notebook에서 실행되는 Azure Machine Learning Python SDK를 시작하기 위한 엔드투엔드 단계를 수행합니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다. Python 환경 설정 및 구성에 대해 설명하고, 실험 및 기계 학습 모델을 관리하기 위한 작업 영역을 만듭니다. [**2부**](tutorial-1st-experiment-sdk-train.md)에서는 이를 기반으로 하여 여러 기계 학습 모델을 학습시키고 Azure Portal과 SDK를 모두 사용하여 모델 관리 프로세스를 소개합니다.
+이 자습서에서는 Jupyter Notebook에서 실행되는 Azure Machine Learning Python SDK를 시작하기 위한 엔드투엔드 단계를 수행합니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다. Python 환경 설정 및 구성에 대해 설명하고, 실험 및 기계 학습 모델을 관리하기 위한 작업 영역을 만듭니다. [**2부**](tutorial-1st-experiment-sdk-train.md)에서는 이를 기반으로 하여 여러 기계 학습 모델을 학습시키고 Azure Machine Learning Studio와 SDK를 모두 사용하여 모델 관리 프로세스를 소개합니다.
 
 이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * 다음 자습서에서 사용할 [Azure Machine Learning 작업 영역](concept-workspace.md)을 만듭니다.
 > * 자습서 Notebook을 작업 영역의 사용자 폴더로 복제합니다.
-> * Azure Machine Learning Python SDK가 설치되고 미리 구성된 클라우드 기반 Jupyter Notebook VM을 만듭니다.
+> * Azure Machine Learning Python SDK가 설치되고 미리 구성된 클라우드 기반 컴퓨팅 인스턴스를 만듭니다.
+
 
 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -46,23 +48,27 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 이 예에서는 작업 영역의 클라우드 Notebook 서버를 설치하지 않는 미리 구성된 환경으로 사용합니다. 환경, 패키지 및 종속성을 제어하려면 [사용자 고유의 환경](how-to-configure-environment.md#local)을 사용합니다.
 
-모든 기술 수준의 데이터 과학 전문가용 데이터 과학 시나리오를 수행하기 위한 기계 학습 도구를 포함하는 통합 인터페이스인 작업 영역 방문 페이지(미리 보기)에서 다음 실험 설정 및 실행 단계를 완료합니다.
+모든 기술 수준의 데이터 과학 전문가용 데이터 과학 시나리오를 수행하기 위한 기계 학습 도구를 포함하는 통합 인터페이스인 Azure Machine Learning Studio에서 다음 실험 설정 및 실행 단계를 완료합니다.
 
-1. [작업 영역 방문 페이지](https://ml.azure.com/)에 로그인합니다.
+1. [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인합니다.
 
 1. 해당 구독과 직접 만든 작업 영역을 선택합니다.
 
-1. 왼쪽에서 **Notebooks 및 파일**을 선택합니다.
+1. 왼쪽에서 **Notebook**을 선택합니다.
 
-1. **samples** 폴더를 엽니다.
+1. **Samples** 폴더를 엽니다.
+
+1. **Python** 폴더를 엽니다.
+
+1. 버전 번호가 있는 폴더를 엽니다.  이 번호는 Python SDK의 현재 릴리스를 나타냅니다.
 
 1. **tutorials** 폴더의 오른쪽에 있는 **“...”** 을 선택한 다음, **복제**를 선택합니다.
 
     ![폴더 복제](media/tutorial-1st-experiment-sdk-setup/clone-tutorials.png)
 
-1. 작업 영역에 액세스하는 각 사용자에 대해 표시되는 폴더가 있습니다.  **tutorial** 폴더를 복제할 폴더를 선택합니다.
+1. 작업 영역에 액세스하는 각 사용자를 표시하는 폴더 목록이 표시됩니다.  **tutorials** 폴더를 복제할 폴더를 선택합니다.
 
-## <a name="a-nameopenselect-a-vm-to-run-the-notebook"></a><a name="open">Notebook을 실행할 VM 선택
+## <a name="a-nameopenopen-the-cloned-notebook"></a><a name="open">복제된 Notebook 열기
 
 1. **사용자 파일**에서 폴더를 연 다음, 복제된 **tutorials** 폴더를 엽니다.
 
@@ -73,11 +79,9 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
     
 1. **tutorials** 폴더에서 **tutorial-1st-experiment-sdk-train.ipynb** 파일을 선택합니다.
 
-1. 위쪽 바에서 Notebook을 실행하는 데 사용할 Notebook VM을 선택합니다. 이러한 VM은 Azure Machine Learning을 실행하는 데 필요한 모든 항목을 사용하여 미리 구성됩니다. 작업 영역의 사용자가 만든 VM 중에서 선택할 수 있습니다. 
+1. 위쪽 바에서 Notebook을 실행하는 데 사용할 컴퓨팅 인스턴스를 선택합니다. 이러한 VM은 [Azure Machine Learning을 실행하는 데 필요한 모든 항목](concept-compute-instance.md#contents)을 사용하여 미리 구성됩니다. 작업 영역의 사용자가 만든 VM 중에서 선택할 수 있습니다. 
 
-1. VM을 찾을 수 없는 경우 **+ 새 VM**을 선택하여 VM을 만듭니다.
-
-    ![VM 만들기](media/tutorial-1st-experiment-sdk-setup/no-vm.png)
+1. VM을 찾을 수 없는 경우 **+컴퓨팅 추가**를 선택하여 VM을 만듭니다.
 
     1. VM을 만들 때 이름을 입력합니다.  이름은 2~16자 사이여야 합니다. 유효한 문자는 문자, 숫자 및 문자이며 Azure 구독에서 고유해야 합니다.
 
@@ -85,6 +89,9 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 1. VM을 사용할 수 있게 되면 맨 위 도구 모음에 표시됩니다.  이제 도구 모음에서 **모두 실행**을 사용하거나 Notebook의 코드 셀에 **Shift + Enter**를 사용하여 Notebook을 실행할 수 있습니다.
 
+> [!NOTE]
+> 컴퓨팅 인스턴스는 **미국 중북부** 또는 **영국 남부** 지역이 있는 작업 영역에서만 사용할 수 있습니다.
+>작업 영역이 다른 지역에 있으면 [Notebook VM](concept-compute-instance.md#notebookvm)을 계속 만들어 사용할 수 있습니다.  Notebook VM 또는 컴퓨팅 인스턴스를 사용하여 Notebook을 실행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

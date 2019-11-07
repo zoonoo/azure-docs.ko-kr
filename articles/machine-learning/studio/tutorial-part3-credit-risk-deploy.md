@@ -1,7 +1,7 @@
 ---
 title: '자습서 3: 신용 위험 모델 배포'
-titleSuffix: Azure Machine Learning Studio
-description: Azure Machine Learning Studio의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여주는 구체적인 자습서입니다. 이 자습서는 3부로 구성된 자습서 시리즈 중 제3부입니다. 이 자습서에서는 모델을 웹 서비스로 배포하는 방법을 보여줍니다.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Azure Machine Learning Studio 클래식 버전의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여 주는 구체적인 자습서입니다. 이 자습서는 3부로 구성된 자습서 시리즈 중 제3부입니다. 이 자습서에서는 모델을 웹 서비스로 배포하는 방법을 보여줍니다.
 keywords: 신용 위험, 예측 분석 솔루션, 위험 평가, 배포, 웹 서비스
 author: sdgilley
 ms.author: sgilley
@@ -10,24 +10,24 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 34b0e783b3655aba52cc3d40957b63dd3b0e03b9
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620517"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492515"
 ---
-# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>자습서 3: 신용 위험 모델 배포 - Azure Machine Learning Studio
+# <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>자습서 3: 신용 위험 모델 배포 - Azure Machine Learning Studio(클래식)
 
-이 자습서에서는 예측 분석 솔루션을 개발하는 과정을 자세히 살펴보겠습니다. Machine Learning Studio에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이렇게 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제3부**입니다.
+이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. Machine Learning Studio(클래식)에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이렇게 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제3부**입니다.
 
 신용대출 지원 시 애플리케이션에서 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
-신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Microsoft Azure Machine Learning Studio를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Azure Machine Learning Studio 및 Machine Learning 웹 서비스가 사용됩니다. 
+신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Microsoft Azure Machine Learning Studio(클래식)를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Azure Machine Learning Studio 클래식 버전 및 Machine Learning 웹 서비스가 사용됩니다. 
 
 이 3부로 구성된 자습서에서는 공개적으로 사용 가능한 신용 위험 데이터부터 시작합니다.  그런 다음, 예측 모델을 개발하고 학습합니다.  마지막으로 모델을 웹 서비스로 배포합니다.
 
-[이 자습서의 제1부](tutorial-part1-credit-risk.md)에서는 Machine Learning Studio 작업 영역을 만들고, 데이터를 업로드하고, 실험을 만들었습니다.
+[이 자습서의 제1부](tutorial-part1-credit-risk.md)에서는 Machine Learning Studio(클래식) 작업 영역을 만들고, 데이터를 업로드하고, 실험을 만들었습니다.
 
 [이 자습서의 제2부](tutorial-part2-credit-risk-train.md)에서는 모델을 학습시키고 평가했습니다.
 
@@ -39,8 +39,6 @@ ms.locfileid: "58620517"
 > * 웹 서비스 테스트
 > * 웹 서비스 관리
 > * 웹 서비스 액세스
-
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -91,7 +89,7 @@ ms.locfileid: "58620517"
 이 작업을 수동으로 수행할 수 있지만, 다행히도 실험 캔버스의 맨 아래에 있는 **웹 서비스 설정**을 클릭하여 세 단계를 모두 수행할 수 있습니다(및 **예측 웹 서비스** 옵션 선택).
 
 > [!TIP]
-> 학습 실험을 예측 실험으로 변환할 때 발생하는 결과를 자세히 알아보려면 [Azure Machine Learning Studio에서 배포 모델을 준비하는 방법](convert-training-experiment-to-scoring-experiment.md)을 참조하세요.
+> 학습 실험을 예측 실험으로 변환할 때 발생하는 결과를 자세히 알아보려면 [Azure Machine Learning Studio(클래식)에서 배포 모델을 준비하는 방법](convert-training-experiment-to-scoring-experiment.md)을 참조하세요.
 
 **웹 서비스 설정**을 클릭하면 다음과 같은 결과가 발생합니다.
 
@@ -109,7 +107,7 @@ ms.locfileid: "58620517"
 
 이 특정 실험과 관련하여 한 가지 추가 단계를 수행해야 합니다.
 두 개의 [R 스크립트 실행][execute-r-script] 모듈을 추가하여 데이터에 가중치 기능을 제공했습니다. 이 모듈은 학습 및 테스트에만 필요하므로 최종 모델에서는 삭제할 수 있습니다.
-Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립트 실행][execute-r-script] 모듈을 하나 제거했습니다. 이제 다른 모듈을 제거하고 [메타데이터 편집기][metadata-editor]를 [채점 모델][score-model]에 직접 연결할 수 있습니다.    
+Machine Learning Studio(클래식)는 [분할][split] 모듈을 제거할 때 [R 스크립트 실행][execute-r-script] 모듈을 하나 제거했습니다. 이제 다른 모듈을 제거하고 [메타데이터 편집기][metadata-editor]를 [채점 모델][score-model]에 직접 연결할 수 있습니다.    
 
 이제 실험은 다음과 같이 표시됩니다.  
 
@@ -130,7 +128,7 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 실험을 Azure Resource Manager에 기반하는 기존 웹 서비스 또는 새 웹 서비스로 배포할 수 있습니다.
 
 ### <a name="deploy-as-a-classic-web-service"></a>기존 웹 서비스로 배포
-실험에서 파생된 기존 웹 서비스를 배포하려면 캔버스에서 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]** 를 선택합니다. Machine Learning Studio에서 실험을 웹 서비스로 배포하고 웹 서비스에 대한 대시보드로 이동합니다. 이 페이지에서 실험으로 돌아가서(**스냅샷 보기** 또는 **최신 항목 보기**) 간단한 웹 서비스 테스트를 실행할 수 있습니다(아래 **웹 서비스 테스트** 참조). 여기에는 웹 서비스에 액세스할 수 있는 애플리케이션 만들기에 관한 정보도 있습니다(자세한 내용은 이 자습서의 다음 단계 참조).
+실험에서 파생된 기존 웹 서비스를 배포하려면 캔버스에서 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[기존]** 를 선택합니다. Machine Learning Studio(클래식)에서 실험을 웹 서비스로 배포하고 웹 서비스에 대한 대시보드로 이동합니다. 이 페이지에서 실험으로 돌아가서(**스냅샷 보기** 또는 **최신 항목 보기**) 간단한 웹 서비스 테스트를 실행할 수 있습니다(아래 **웹 서비스 테스트** 참조). 여기에는 웹 서비스에 액세스할 수 있는 애플리케이션 만들기에 관한 정보도 있습니다(자세한 내용은 이 자습서의 다음 단계 참조).
 
 ![웹 서비스 대시보드](./media/tutorial-part3-credit-risk-deploy/publish6.png)
 
@@ -147,7 +145,7 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 
 실험에서 파생된 새 웹 서비스를 배포하려면:
 
-1. 캔버스 아래에서 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]** 를 선택합니다. Machine Learning Studio를 통해 Azure Machine Learning 웹 서비스 **배포 실험** 페이지로 이동합니다.
+1. 캔버스 아래에서 **웹 서비스 배포**를 클릭하고 **웹 서비스 배포[신규]** 를 선택합니다. Machine Learning Studio(클래식)를 통해 Azure Machine Learning 웹 서비스 **배포 실험** 페이지로 이동합니다.
 
 1. 웹 서비스의 이름을 입력합니다. 
 
@@ -172,11 +170,11 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 결과가 웹 서비스로부터 **웹 서비스 출력** 모듈을 거쳐 사용자에게 반환됩니다.
 
 > [!TIP]
-> 예측 실험을 구성한 방법대로, [모델 점수 매기기][score-model] 모듈의 전체 결과가 반환됩니다. 여기에는 모든 입력 데이터와 신용 위험 값 및 점수 매기기 확률이 포함됩니다. 하지만 원하는 경우 다른 것을 반환할 수 있습니다. 예를 들어 신용 위험 값만 반환할 수 있습니다. 이를 수행하려면 [모델 점수 매기기][score-model]와 **웹 서비스 출력** 사이에 [열 선택][select-columns] 모듈을 삽입하여 웹 서비스에서 반환하지 않으려는 열을 제거합니다. 
+> 예측 실험을 구성한 방법대로, [모델 점수 매기기][score-model] 모듈의 전체 결과가 반환됩니다. 여기에는 모든 입력 데이터와 신용 위험 값 및 점수 매기기 확률이 포함됩니다. 하지만 원하는 경우 다른 것을 반환할 수 있습니다. 예를 들어 신용 위험 값만 반환할 수 있습니다. 이를 수행하려면 **모델 점수 매기기**와 [웹 서비스 출력][score-model] 사이에 [열 선택][select-columns] 모듈을 삽입하여 웹 서비스에서 반환하지 않으려는 열을 제거합니다. 
 > 
 > 
 
-**Machine Learning Studio** 또는 **Azure Machine Learning 웹 서비스** 포털에서 기존 웹 서비스를 테스트할 수 있습니다.
+**Machine Learning Studio(클래식)** 또는 **Azure Machine Learning 웹 서비스** 포털에서 기존 웹 서비스를 테스트할 수 있습니다.
 **Machine Learning 웹 서비스** 포털에서만 새 웹 서비스를 테스트할 수 있습니다.
 
 > [!TIP]
@@ -184,9 +182,9 @@ Machine Learning Studio는 [분할][split] 모듈을 제거할 때 [R 스크립�
 
 ### <a name="test-a-classic-web-service"></a>기존 웹 서비스 테스트
 
-Machine Learning Studio 또는 Machine Learning 웹 서비스 포털에서 기존 웹 서비스를 테스트할 수 있습니다. 
+Machine Learning Studio(클래식) 또는 Machine Learning 웹 서비스 포털에서 기존 웹 서비스를 테스트할 수 있습니다. 
 
-#### <a name="test-in-machine-learning-studio"></a>Machine Learning Studio에서 테스트
+#### <a name="test-in-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)에서 테스트
 
 1. 웹 서비스에 대한 **대시보드** 페이지에서 **기본 엔드포인트**의 **테스트** 단추를 클릭합니다. 서비스에 대한 입력 데이터를 요청하는 대화 상자가 나타납니다. 이는 원래 신용 위험 데이터 세트에 나타난 열과 같습니다.  
 

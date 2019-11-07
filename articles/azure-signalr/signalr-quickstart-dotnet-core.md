@@ -5,19 +5,19 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/01/2019
+ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 3dc893ea10e47e867110f674a458498a6bd24a4f
-ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.openlocfilehash: 022780f2b37c8bed49c81774d443b69bae41e5e7
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65560710"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476748"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>빠른 시작: SignalR Service를 사용하여 대화방 만들기
 
 
-Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애플리케이션을 빌드할 수 있게 하는 Azure 서비스입니다. 이 서비스는 [ASP.NET Core 2.0용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)을 기준으로 합니다.
+Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애플리케이션을 빌드할 수 있게 하는 Azure 서비스입니다. 이 서비스는 [ASP.NET Core 2.1용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-2.1)을 기준으로 하지만 [ASP.NET Core 3.0용 SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction?view=aspnetcore-3.0)도 지원합니다.
 
 이 문서에서는 Azure SignalR Service를 시작하는 방법을 보여줍니다. 이 빠른 시작에서는 ASP.NET Core MVC 웹앱을 사용하여 채팅 애플리케이션을 만듭니다. 이 앱은 Azure SignalR Service 리소스와 연결하여 실시간 콘텐츠 업데이트를 사용하도록 설정합니다. 웹 애플리케이션을 로컬로 호스팅하고 여러 브라우저 클라이언트에 연결합니다. 각 클라이언트는 다른 모든 클라이언트에 콘텐츠 업데이트 푸시할 수 있습니다. 
 
@@ -95,7 +95,7 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
     이 비밀은 구성 API를 사용하여 액세스됩니다. 콜론(:)은 지원되는 모든 플랫폼에서 구성 API를 통해 구성 이름에서 작동합니다. [환경별 구성](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0)을 참조하세요. 
 
 
-4. *Startup.cs*를 열고, `services.AddSignalR().AddAzureSignalR()` 메서드를 호출하여 Azure SignalR 서비스를 사용하도록 `ConfigureServices` 메서드를 업데이트합니다.
+4. *Startup.cs*를 열고, `services.AddSignalR().AddAzureSignalR()` 메서드를 호출하여 Azure SignalR 서비스를 사용하도록 `ConfigureServices` 메서드를 업데이트합니다(ASP.NET Core 2만 해당).
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -104,10 +104,11 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
         services.AddSignalR().AddAzureSignalR();
     }
     ```
+    ASP.NET Core 3+의 경우 `ConfigureServices` 메서드에 필요한 변경 내용이 없습니다.
 
     매개 변수를 `AddAzureSignalR()`에 전달하지 않으면 이 코드에서 SignalR Service 리소스 연결 문자열에 대한 기본 구성 키를 사용합니다. 기본 구성 키는 *Azure:SignalR:ConnectionString*입니다
 
-5. 또한 *Startup.cs*에서 `app.UseStaticFiles()` 호출을 다음 코드로 바꾸어 `Configure` 메서드를 업데이트한 후 파일을 저장합니다.
+5. 또한 *Startup.cs*에서 `app.UseStaticFiles()` 호출을 다음 코드로 바꾸어 `Configure` 메서드를 업데이트한 후 파일을 저장합니다(ASP.NET Core 2만 해당).
 
     ```csharp
     app.UseFileServer();
@@ -116,6 +117,18 @@ Azure SignalR Service는 개발자가 실시간 기능으로 손쉽게 웹 애�
         routes.MapHub<Chat>("/chat");
     });
     ```            
+    ASP.NET Core 3+의 경우 위의 코드를 다음으로 바꿉니다.
+
+    ```csharp
+    app.UseFileServer();
+    app.UseRouting();
+    app.UseAuthorization();
+
+    app.UseEndpoints(routes =>
+    {
+        routes.MapHub<Chat>("/chat");
+    });
+    ```
 
 ### <a name="add-a-hub-class"></a>허브 클래스 추가
 

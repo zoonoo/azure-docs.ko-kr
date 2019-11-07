@@ -1,7 +1,7 @@
 ---
 title: '자습서 2: 신용 위험 모델 학습'
-titleSuffix: Azure Machine Learning Studio
-description: Azure Machine Learning Studio의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여주는 구체적인 자습서입니다. 이 자습서는 3부로 구성된 자습서 시리즈 중 제2부입니다. 이 자습서에서는 모델을 학습하고 평가하는 방법을 보여줍니다.
+titleSuffix: Azure Machine Learning Studio (classic)
+description: Azure Machine Learning Studio 클래식 버전의 신용 위험 평가에 대한 예측 분석 솔루션을 만드는 방법을 보여 주는 구체적인 자습서입니다. 이 자습서는 3부로 구성된 자습서 시리즈 중 제2부입니다. 이 자습서에서는 모델을 학습하고 평가하는 방법을 보여줍니다.
 keywords: 신용 위험, 예측 분석 솔루션, 위험 평가
 author: sdgilley
 ms.author: sgilley
@@ -10,26 +10,26 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 45407e183c70fe67e6bd59e3fd86a50a31844c47
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: ce3661a75d35ab39b7e8b551cc0b84b57a76e032
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453490"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492561"
 ---
-# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio"></a>자습서 2: 신용 위험 모델 학습 - Azure Machine Learning Studio
+# <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>자습서 2: 신용 위험 모델 학습 - Azure Machine Learning Studio(클래식)
 
-이 자습서에서는 예측 분석 솔루션을 개발하는 과정을 자세히 살펴보겠습니다. Machine Learning Studio에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이렇게 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제2부**입니다.
+이 자습서에서는 예측 분석 솔루션을 개발하는 프로세스를 자세히 살펴봅니다. 클래식 버전의 Machine Learning Studio에서 간단한 모델을 개발합니다.  그런 다음, 모델을 Azure Machine Learning 웹 서비스로 배포합니다.  이렇게 배포된 모델은 새 데이터를 사용하여 예측을 수행할 수 있습니다. 이 자습서는 **3부로 구성된 자습서 시리즈 중 제2부**입니다.
 
 신용대출 지원 시 애플리케이션에서 제공한 정보를 기반으로 개인의 신용 위험을 예측해야 한다고 가정합니다.  
 
-신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Microsoft Azure Machine Learning Studio를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Azure Machine Learning Studio 및 Machine Learning 웹 서비스가 사용됩니다.  
+신용 위험 평가는 복잡한 문제이지만, 이 자습서에서는 약간 간소화하여 살펴보겠습니다. 이 신용 위험 평가는 Microsoft Azure Machine Learning Studio(클래식)를 사용하는 예측 분석 솔루션을 만드는 방법의 예로 사용합니다. 이 솔루션에는 Azure Machine Learning Studio 클래식 버전 및 Machine Learning 웹 서비스가 사용됩니다.  
 
 이 3부로 구성된 자습서에서는 공개적으로 사용 가능한 신용 위험 데이터부터 시작합니다.  그런 다음, 예측 모델을 개발하고 학습합니다.  마지막으로 모델을 웹 서비스로 배포합니다.
 
-[이 자습서의 제1부](tutorial-part1-credit-risk.md)에서는 Machine Learning Studio 작업 영역을 만들고, 데이터를 업로드하고, 실험을 만들었습니다.
+[이 자습서의 제1부](tutorial-part1-credit-risk.md)에서는 Machine Learning Studio(클래식) 작업 영역을 만들고, 데이터를 업로드하고, 실험을 만들었습니다.
 
-이번 파트에서는 다음과 같은 일을 합니다.
+1부 자습서에서 수행하는 작업은 다음과 같습니다.
  
 > [!div class="checklist"]
 > * 여러 모델 학습시키기
@@ -38,23 +38,20 @@ ms.locfileid: "56453490"
 
 [이 자습서의 제3부](tutorial-part3-credit-risk-deploy.md)에서는 모델을 웹 서비스로 배포할 것입니다.
 
-[!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
-
 ## <a name="prerequisites"></a>필수 조건
 
 [이 자습서의 제1부](tutorial-part1-credit-risk.md)를 완료합니다.
 
 ## <a name="train"></a>여러 모델 학습시키기
 
-Azure Machine Learning Studio를 사용하여 기계 학습 모델을 만들 때의 이점 중 단일 실험에서 한 번에 두 개 이상의 모델 유형을 시도하고 결과를 비교할 수 있다는 점입니다. 이 유형의 실험을 사용하면 문제에 대한 최상의 솔루션을 찾을 수 있습니다.
+Azure Machine Learning Studio 클래식 버전을 사용하여 기계 학습 모델을 만들 때의 이점 중 단일 실험에서 한 번에 두 개 이상의 모델 유형을 시도하고 결과를 비교할 수 있다는 점입니다. 이 유형의 실험을 사용하면 문제에 대한 최상의 솔루션을 찾을 수 있습니다.
 
 이 자습서에서 개발하고 있는 실험에서는 두 가지 유형의 모델을 만들고 채점 결과를 비교하여 최종 실험에서 사용할 알고리즘을 결정할 것입니다.  
 
 다양한 모델 중에 선택할 수 있습니다. 사용할 수 있는 모델을 보려면 모듈 팔레트에서 **Machine Learning** 노드를 확장하고 **모델 초기화** 및 그 아래 노드를 확장합니다. 이 실험에서는 [2클래스 SVM(Support Vector Machine)][two-class-support-vector-machine] 및 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈을 선택할 것입니다.
 
 > [!TIP]
-> 해결하려는 특정 문제에 가장 적합한 Machine Learning 알고리즘을 결정하는 데 대한 도움말을 보려면 [Microsoft Azure Machine Learning Studio를 위한 알고리즘 선택 방법](algorithm-choice.md)을 참조하세요.
+> 해결하려는 특정 문제에 가장 적합한 Machine Learning 알고리즘을 결정하는 데 대한 도움말을 보려면 [Microsoft Azure Machine Learning Studio(클래식)를 위한 알고리즘 선택 방법](algorithm-choice.md)을 참조하세요.
 > 
 > 
 
@@ -66,11 +63,11 @@ Azure Machine Learning Studio를 사용하여 기계 학습 모델을 만들 때
 
 1. 모듈 팔레트에서 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈을 찾고 캔버스로 끌어서 놓습니다.
 
-1. [모델 학습][train-model] 모듈을 찾고 캔버스로 끌고 나서 [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈의 출력을 [모델 학습][train-model] 모듈의 왼쪽 입력 포트에 연결합니다.
+1. [모델 학습][train-model] 모듈을 찾고 캔버스로 끌고 나서 [2클래스 향상된 의사 결정 트리][train-model] 모듈의 출력을 [모델 학습][two-class-boosted-decision-tree] 모듈의 왼쪽 입력 포트에 연결합니다.
    
    [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈은 일반 모델을 초기화하고 [모델 학습][train-model]에서는 학습 데이터를 사용하여 모델을 학습합니다. 
 
-1. 왼쪽 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력을 [모델 학습][train-model] 모듈의 오른쪽 입력 포트에 연결합니다(이 자습서에서는 학습할 데이터 분할 모듈의 [왼쪽에서 오는 데이터를 사용함](#train)).
+1. 왼쪽 [R 스크립트 실행][execute-r-script] 모듈의 왼쪽 출력을 [모델 학습](#train) 모듈의 오른쪽 입력 포트에 연결합니다(이 자습서에서는 학습할 데이터 분할 모듈의 [왼쪽에서 오는 데이터를 사용함][train-model]).
    
    > [!TIP]
    > 이 실험에서는 [R 스크립트 실행][execute-r-script] 모듈의 입력 중 두 개와 출력 중 하나가 필요 없으므로 연결되지 않은 상태로 두면 됩니다. 
@@ -85,7 +82,7 @@ Azure Machine Learning Studio를 사용하여 기계 학습 모델을 만들 때
 
 1. [모델 학습][train-model] 모듈을 선택합니다. **속성** 창에서 **열 선택기 시작**을 클릭합니다.
 
-1. **단일 열 선택** 대화 상자에서 **사용 가능한 열** 아래의 검색 필드에 "신용 위험"을 입력하고 오른쪽 화살표 단추(**>**)를 클릭하여 "신용 위험"을 **선택한 열**로 이동합니다. 
+1. **단일 열 선택** 대화 상자에서 **사용 가능한 열** 아래의 검색 필드에 "신용 위험"을 입력하고 오른쪽 화살표 단추( **>** )를 클릭하여 "신용 위험"을 **선택한 열**로 이동합니다. 
 
     ![모델 학습 모듈에 대한 신용 위험 열 선택](./media/tutorial-part2-credit-risk-train/train-model-select-column.png)
 
@@ -138,7 +135,7 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 
 1. [모델 점수 매기기][score-model] 모듈을 찾아 캔버스로 끌어서 놓습니다.
 
-1. [2클래스 향상된 의사 결정 트리][two-class-boosted-decision-tree] 모듈에 연결되어 있는 [모델 학습l][train-model] 모듈을 [모델 점수 매기기][score-model] 모듈의 왼쪽 입력 포트에 연결합니다.
+1. [2클래스 향상된 의사 결정 트리][score-model] 모듈에 연결되어 있는 [모델 학습l][train-model] 모듈을 [모델 점수 매기기][two-class-boosted-decision-tree] 모듈의 왼쪽 입력 포트에 연결합니다.
 
 1. [모델 점수 매기기][score-model] 모듈의 오른쪽 입력 포트에 오른쪽 [R 스크립트 실행][execute-r-script] 모듈(테스트 데이터)을 연결합니다.
 
@@ -149,7 +146,7 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 
 1. [모델 점수 매기기][score-model] 모듈을 복사하고 붙여넣어 두 번째 복사본을 만듭니다.
 
-1. SVM 모델의 출력(즉, [2클래스 Support Vector Machine][two-class-support-vector-machine] 모듈에 연결된 [모델 학습][train-model] 모듈의 출력 포트)을 두 번째 [모델 점수 매기기][score-model] 모듈의 입력 부분에 연결합니다.
+1. SVM 모델의 출력(즉, [2클래스 Support Vector Machine][score-model] 모듈에 연결된 [모델 학습][train-model] 모듈의 출력 포트)을 두 번째 [모델 점수 매기기][two-class-support-vector-machine] 모듈의 입력 부분에 연결합니다.
 
 1. SVM 모델의 경우 학습 데이터에서 했던 것과 똑같이 테스트 데이터를 변환해야 합니다. 따라서 [데이터 정규화][normalize-data] 모듈을 복사하고 붙여넣고 두 번째 복사본을 만들고 오른쪽 [R 스크립트 실행][execute-r-script] 모듈에 연결합니다.
 
@@ -191,9 +188,9 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 이러한 값을 검토하면 찾고 있는 결과에 가장 근접한 모델을 결정할 수 있습니다. 돌아가서 다른 모델에서 매개 변수 값을 변경하여 실험을 반복할 수 있습니다. 
 
 이러한 결과를 해석하고 모델 성능을 조정하는 과학 및 기술은 이 연습의 범위를 벗어납니다. 추가 도움말을 보려면 다음 문서를 확인할 수 있습니다.
-- [Azure Machine Learning Studio에서 모델 성능을 평가하는 방법](evaluate-model-performance.md)
-- [Azure Machine Learning Studio에서 알고리즘을 최적화하는 매개 변수 선택](algorithm-parameters-optimize.md)
-- [Azure Machine Learning Studio에서 모델 결과 해석](interpret-model-results.md)
+- [Azure Machine Learning Studio(클래식)에서 모델 성능을 평가하는 방법](evaluate-model-performance.md)
+- [Azure Machine Learning Studio(클래식)에서 알고리즘을 최적화하는 매개 변수 선택](algorithm-parameters-optimize.md)
+- [Azure Machine Learning Studio(클래식)에서 모델 결과 해석](interpret-model-results.md)
 
 > [!TIP]
 > 실험을 실행할 때마다 해당 반복에 대한 레코드가 실행 기록에서 유지됩니다. 이러한 반복을 확인하고 캔버스 아래에서 **실행 기록 보기**를 클릭하여 원하는 반복으로 돌아갈 수 있습니다. **속성** 창에서 **이전 실행**을 클릭하여 열었던 반복의 바로 이전 반복으로 돌아갈 수도 있습니다.
@@ -201,7 +198,7 @@ SVM 모델을 설정하려면 다음을 수행합니다.
 > 캔버스 아래에서 **다른 이름으로 저장**을 클릭하여 실험을 반복하도록 복사본을 만들 수 있습니다. 
 > 실험의 **요약** 및 **설명** 속성을 사용하면 실험 반복에서 시도한 항목을 기록할 수 있습니다.
 > 
-> 자세한 내용은 [Azure Machine Learning Studio에서 반복 실험 관리](manage-experiment-iterations.md)를 참조하세요.  
+> 자세한 내용은 [Azure Machine Learning Studio(클래식)에서 반복 실험 관리](manage-experiment-iterations.md)를 참조하세요.  
 > 
 > 
 

@@ -16,12 +16,12 @@ ms.date: 06/27/2019
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4a48b5c413f6dfb58a1ba3f896ded49250cde306
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 15ac201a078864717d8e0079801507cf5fc0fe3b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286250"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73481117"
 ---
 # <a name="tutorial-create-a-cicd-pipeline-for-your-existing-code-by-using-azure-devops-projects"></a>자습서: Azure DevOps Projects를 사용하여 기존 코드용 CI/CD 파이프라인 만들기
 
@@ -48,7 +48,11 @@ Azure DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-2. 왼쪽 창의 왼쪽 탐색 모음에서 **+리소스 만들기**를 선택한 다음, **DevOps Projects**를 검색하고 **만들기**를 선택합니다.
+2. Azure Portal 메뉴에서 **리소스 만들기**를 선택합니다.
+
+   ![Azure Portal 메뉴 - 리소스 만들기](_img/azure-devops-project-github/createaresource.png)
+
+3. **DevOps > DevOps 프로젝트**를 선택합니다.
 
    ![DevOps Projects 대시보드](_img/azure-devops-project-github/azuredashboard.png)
 

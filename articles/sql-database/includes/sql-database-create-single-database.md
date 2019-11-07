@@ -3,14 +3,14 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 11/04/2019
 ms.author: mathoma
-ms.openlocfilehash: ff5505c2cb35d088565773e8d0ba01e8abb4b8c3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933223"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496153"
 ---
 이 단계에서는 Azure SQL Database 단일 데이터베이스를 만듭니다. 
 
@@ -55,12 +55,12 @@ Azure Portal를 사용하여 리소스 그룹 및 단일 데이터베이스를 �
 
      ![SQL Database 세부 정보](../media/sql-database-get-started-portal/sql-db-basic-db-details.png)
 
-   - **프로비저닝**을 선택하고 **Gen5**를 선택합니다.
+   - **프로비저닝**을 선택합니다.
 
      ![프로비저닝된 Gen4](../media/sql-database-get-started-portal/create-database-provisioned.png)
 
-   - **최대 vCore 수**, **최소 vCore 수**, **자동 일시 중지 지연** 및 **데이터 최대 크기**에 대한 설정을 검토합니다. 원하는 대로 변경합니다.
-   - 미리 보기 조건을 수락하고 **확인**을 클릭합니다.
+   - **vCore** 및 **데이터 최대 크기**에 대한 설정을 검토합니다. 원하는 대로 변경합니다. 
+     - 필요에 따라 **구성 변경**을 선택하여 하드웨어 생성을 변경할 수도 있습니다.
    - **적용**을 선택합니다.
 
 5. **추가 설정** 탭을 선택합니다. 

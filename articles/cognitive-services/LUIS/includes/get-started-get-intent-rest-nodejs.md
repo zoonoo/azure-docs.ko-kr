@@ -6,14 +6,14 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/27/2019
+ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: a6dfe21cd92c5bf5580d7b121f33f68fb4e135fa
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 5d8ed625e13d31e148ef1e54d8028fc7d13a6ede
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838514"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499662"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -21,45 +21,136 @@ ms.locfileid: "71838514"
 * [Visual Studio Code](https://code.visualstudio.com/)
 * 공용 앱 ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
-
-> [!NOTE] 
-> 전체 Node.js 솔루션은 [**Azure-Samples** GitHub 리포지토리](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/analyze-text/node)에서 사용할 수 있습니다.
-
 ## <a name="get-luis-key"></a>LUIS 키 가져오기
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 ## <a name="get-intent-programmatically"></a>프로그래밍 방식으로 의도 가져오기
 
-Node.js를 사용하여 이전 단계의 브라우저 창에서 본 것과 동일한 결과에 액세스할 수 있습니다.
+Node.js를 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [API](https://aka.ms/luis-apim-v3-prediction)를 쿼리합니다.
 
-1. 다음 코드 조각을 복사합니다.
+1. 다음 코드 조각을 `predict.js` 파일에 복사합니다.
 
-   [!code-nodejs[Console app code that calls a LUIS endpoint for Node.js](~/samples-luis/documentation-samples/quickstarts/analyze-text/node/call-endpoint.js)]
-
-2. 다음 텍스트로 `.env` 파일을 만들거나 시스템 환경에서 해당하는 값을 설정합니다.
-
-    ```CMD
-    LUIS_APP_ID=df67dcdb-c37d-46af-88e1-8b97951ca1c2
-    LUIS_ENDPOINT_KEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+    ```javascript
+    var request = require('request');
+    var requestpromise = require('request-promise');
+    var querystring = require('querystring');
+    
+    // Analyze text
+    //
+    getPrediction = async () => {
+    
+        // YOUR-KEY - Language Understanding starter key
+        var endpointKey = "YOUR-KEY";
+    
+        // YOUR-ENDPOINT Language Understanding endpoint URL, an example is westus2.api.cognitive.microsoft.com
+        var endpoint = "YOUR-ENDPOINT";
+    
+        // Set the LUIS_APP_ID environment variable 
+        // to df67dcdb-c37d-46af-88e1-8b97951ca1c2, which is the ID
+        // of a public sample application.    
+        var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2";
+    
+        var utterance = "turn on all lights";
+    
+        // Create query string 
+        var queryParams = {
+            "show-all-intents": true,
+            "verbose":  true,
+            "query": utterance,
+            "subscription-key": endpointKey
+        }
+    
+        // append query string to endpoint URL
+        var URI = `https://${endpoint}/luis/prediction/v3.0/apps/${appId}/slots/production/predict?${querystring.stringify(queryParams)}`
+    
+        // HTTP Request
+        const response = await requestpromise(URI);
+    
+        // HTTP Response
+        console.log(response);
+    
+    }
+    
+    // Pass an utterance to the sample LUIS app
+    getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-3. `LUIS_ENDPOINT_KEY` 환경 변수를 키로 설정합니다.
+1. 다음 값을 설정합니다.
 
-4. 명령줄에서 다음 명령을 실행하여 종속성을 설치합니다. `npm install`.
+    * `YOUR-KEY`를 시작 키로
+    * `YOUR-ENDPOINT`를 엔드포인트 URL로
 
-5. `npm start`로 코드를 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 값을 표시합니다.
+1. 명령줄에서 다음 명령을 실행하여 종속성을 설치합니다. 
 
+    ```console
+    npm install request request-promise querystring
+    ```
+
+1. 다음 명령을 사용하여 코드를 실행합니다.
+
+    ```console
+    node predict.js
+    ```
+
+ 1. JSON 형식의 예측 응답을 검토합니다.   
+    
+    ```console
+    {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}
+    ```
+
+    가독성을 위한 JSON 응답 형식: 
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
 
 ## <a name="luis-keys"></a>LUIS 키
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작을 마치면 Visual Studio를 닫고 프로젝트 디렉터리를 파일 시스템에서 제거하세요. 
+이 빠른 시작을 완료한 후 파일 시스템에서 파일을 삭제합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Node.js로 발언 및 학습 추가](../luis-get-started-node-add-utterance.md)
+> [발화 및 학습 추가](../luis-get-started-node-add-utterance.md)

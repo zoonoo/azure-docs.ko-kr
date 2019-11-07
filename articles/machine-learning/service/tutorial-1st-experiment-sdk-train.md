@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/03/2019
-ms.openlocfilehash: c78a45cedbeb5cfa0f0cc7c5c976fceb36f1da2a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.date: 11/04/2019
+ms.openlocfilehash: b5b3ca127aba62b39bd7236412d4c6a542347db3
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173297"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476179"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>자습서: 첫 번째 ML 모델 학습
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 자습서는 **2부로 구성된 자습서 시리즈 중 제2부**입니다. 이전 자습서에서는 [작업 영역을 만들고 개발 환경을 선택](tutorial-1st-experiment-sdk-setup.md)했습니다. 이 자습서에서는 Azure Machine Learning의 기본 디자인 패턴을 알아보고, 당뇨병 데이터 세트를 기반으로 하는 간단한 scikit-learn 모델을 학습합니다. 이 자습서가 완료되면 SDK에 대한 실용적인 지식을 습득하여 더 복잡한 실험과 워크플로를 개발하도록 크기 조정할 수 있습니다.
 
@@ -37,7 +39,7 @@ ms.locfileid: "72173297"
 
 ## <a name="open-the-notebook"></a>Notebook 열기
 
-1. [작업 영역 방문 페이지](https://ml.azure.com/)에 로그인합니다.
+1. [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인합니다.
 
 1. [1부](tutorial-1st-experiment-sdk-setup.md#open)에 표시된 대로 폴더에서 **tutorial-1st-experiment-sdk-train.ipynb**를 엽니다.
 
@@ -62,7 +64,7 @@ from azureml.core import Workspace
 ws = Workspace.from_config()
 ```
 
-이제 실험을 작업 영역에 만듭니다. 실험은 시험(개별 모델 실행)의 컬렉션을 나타내는 또 다른 기반 클라우드 리소스입니다. 이 자습서에서는 Azure Portal에서 실험을 사용하여 실행을 만들고 모델 학습을 추적할 수 있습니다. 매개 변수에는 작업 영역 참조와 실험에 대한 문자열 이름이 포함됩니다.
+이제 실험을 작업 영역에 만듭니다. 실험은 시험(개별 모델 실행)의 컬렉션을 나타내는 또 다른 기반 클라우드 리소스입니다. 이 자습서에서는 Azure Machine Learning Studio에서 실험을 사용하여 실행을 만들고 모델 학습을 추적할 수 있습니다. 매개 변수에는 작업 영역 참조와 실험에 대한 문자열 이름이 포함됩니다.
 
 
 ```python
@@ -72,15 +74,17 @@ experiment = Experiment(workspace=ws, name="diabetes-experiment")
 
 ## <a name="load-data-and-prepare-for-training"></a>데이터 로드 및 학습 준비
 
-이 자습서에서는 scikit-learn에 포함되어 미리 정규화된 데이터 세트인 당뇨병 데이터 세트를 사용합니다. 이 데이터 세트는 나이와 성별, BMI 같은 기능을 사용하여 당뇨병의 진행을 예측합니다. `load_diabetes()` 정적 함수에서 데이터를 로드하고 `train_test_split()`을 사용하여 학습 및 테스트 세트로 분할합니다. 이 함수는 모델이 학습 후 테스트에 사용할 보지 않은 데이터를 제공하기 위해 데이터를 분리합니다.
+이 자습서에서는 나이와 성별, BMI 같은 특징을 사용하는 당뇨병 데이터 세트를 통해 당뇨병의 진행을 예측합니다. [Azure Open Dataset](https://azure.microsoft.com/services/open-datasets/) 클래스에서 데이터를 로드하고 `train_test_split()`을 사용하여 학습 및 테스트 세트로 분할합니다. 이 함수는 모델이 학습 후 테스트에 사용할 보지 않은 데이터를 제공하기 위해 데이터를 분리합니다.
 
 
 ```python
-from sklearn.datasets import load_diabetes
+from azureml.opendatasets import Diabetes
 from sklearn.model_selection import train_test_split
 
-X, y = load_diabetes(return_X_y = True)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=66)
+x_df = Diabetes.get_tabular_dataset().to_pandas_dataframe().dropna()
+y_df = x_df.pop("Y")
+
+X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=66)
 ```
 
 ## <a name="train-a-model"></a>모델 학습
@@ -193,19 +197,9 @@ best_run.download_file(name="model_alpha_0.1.pkl")
 
 다른 Azure Machine Learning 자습서를 실행하려면 이 섹션을 완료하지 마세요.
 
-### <a name="stop-the-notebook-vm"></a>Notebook VM 중지
+### <a name="stop-the-compute-instance"></a>컴퓨팅 인스턴스 중지
 
-클라우드 Notebook 서버를 사용한 경우 비용을 줄이기 위해 VM을 사용하지 않을 때는 해당 VM을 중지합니다.
-
-1. 작업 영역에서 **Notebook VM**을 선택합니다.
-
-   ![VM 서버 중지](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
-
-1. 목록에서 VM을 선택합니다.
-
-1. **중지**를 선택합니다.
-
-1. 서버를 다시 사용할 준비가 되면 **시작**을 선택합니다.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>모든 항목 삭제
 

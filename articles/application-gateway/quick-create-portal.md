@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6d12b006583c004d12c50bda171c82397ff7949f
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 565620f477382ff81f854336dbee7bdb1ad06f01
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68276597"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469719"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure Portal
 
@@ -30,7 +30,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 ## <a name="create-an-application-gateway"></a>애플리케이션 게이트웨이 만들기
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 만들기**를 선택합니다. **새로 만들기** 창이 나타납니다.
+1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다. **새로 만들기** 창이 나타납니다.
 
 2. **네트워킹**을 선택한 다음, **추천** 목록에서 **Application Gateway**를 선택합니다.
 
@@ -43,7 +43,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
      ![새 애플리케이션 게이트웨이 만들기: 기본 사항](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2.  Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워크가 필요합니다. 새 가상 네트워크를 만들거나 기존 가상 네트워크를 선택할 수 있습니다. 이 예제에서는 애플리케이션 게이트웨이를 만들면서 새 가상 네트워크를 만듭니다. 별도의 서브넷으로 Application Gateway 인스턴스가 만들어집니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다.
+2. Azure가 사용자가 만든 리소스 간에 통신하려면 가상 네트워크가 필요합니다. 새 가상 네트워크를 만들거나 기존 가상 네트워크를 선택할 수 있습니다. 이 예제에서는 애플리케이션 게이트웨이를 만들면서 새 가상 네트워크를 만듭니다. 별도의 서브넷으로 Application Gateway 인스턴스가 만들어집니다. 이 예제에서는 두 개의 서브넷을 만듭니다. 하나는 애플리케이션 게이트웨이용이고, 다른 하나는 백 엔드 서버용입니다.
 
     **가상 네트워크 구성**에서 **새로 만들기**를 선택하여 새 가상 네트워크를 만듭니다. **가상 네트워크 만들기** 창이 열리면 다음 값을 입력하여 가상 네트워크 및 두 개의 서브넷을 만듭니다.
 
@@ -135,7 +135,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 ### <a name="create-a-virtual-machine"></a>가상 머신 만들기
 
-1. Azure Portal에서 **리소스 만들기**를 선택합니다. **새로 만들기** 창이 나타납니다.
+1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다. **새로 만들기** 창이 나타납니다.
 2. **컴퓨팅**을 선택한 다음, **인기** 목록에서 **Windows Server 2016 Datacenter**를 선택합니다. **가상 머신 만들기** 페이지가 표시됩니다.<br>Application Gateway는 백 엔드 풀에서 사용한 가상 머신 유형에 관계없이 트래픽을 라우팅할 수 있습니다. 이 예제에서는 Windows Server 2016 Datacenter를 사용합니다.
 3. **기본 사항** 탭에서 다음 가상 머신 설정의 값을 입력합니다.
 
@@ -176,7 +176,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 ### <a name="add-backend-servers-to-backend-pool"></a>백 엔드 풀에 백 엔드 서버 추가
 
-1. **모든 리소스**를 선택한 다음, **myAppGateway**를 선택합니다.
+1. Azure Portal 메뉴에서 **모든 리소스**를 선택하거나 *모든 서비스*를 검색하여 선택합니다. 그런 후 **myAppGateway**를 선택합니다.
 
 2. 왼쪽 메뉴에서 **백 엔드 풀**을 선택합니다.
 
@@ -205,7 +205,8 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 애플리케이션 게이트웨이로 만든 리소스가 더 이상 필요 없으면 리소스 그룹을 제거합니다. 리소스 그룹을 제거하면 애플리케이션 게이트웨이 및 모든 관련 리소스도 함께 제거됩니다. 
 
 리소스 그룹을 제거하려면:
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+
+1. Azure Portal 메뉴에서 **리소스 그룹**을 선택하거나 *리소스 그룹*을 검색하여 선택합니다.
 2. **리소스 그룹** 페이지의 목록에서 **myResourceGroupAG**를 검색하여 선택합니다.
 3. **리소스 그룹** 페이지에서 **리소스 그룹 삭제**를 선택합니다.
 4. **리소스 그룹 이름 입력**에 *myResourceGroupAG*를 입력하고 **삭제**를 선택합니다.

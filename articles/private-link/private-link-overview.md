@@ -7,15 +7,15 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 0c5541d7a80c3b6157ccadd979412163122ca8a2
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9e6206e6f7e09ebe03659eb6e515a9b26d3469bd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300740"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73475932"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Azure Private Link란? (미리 보기)
-Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage 및 SQL Database)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. VNet(가상 네트워크)에서 자체 [Private Link Service](private-link-service-overview.md)를 만들어 고객에게 개인적으로 제공할 수도 있습니다. Azure Private Link를 사용하는 설정 및 사용 환경은 Azure PaaS, 고객 소유/공유 파트너 서비스에서 일관적입니다.
+Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage, Azure Cosmos DB 및 SQL Database)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. VNet(가상 네트워크)에서 자체 [Private Link Service](private-link-service-overview.md)를 만들어 고객에게 개인적으로 제공할 수도 있습니다. Azure Private Link를 사용하는 설정 및 사용 환경은 Azure PaaS, 고객 소유/공유 파트너 서비스에서 일관적입니다.
 
 > [!IMPORTANT]
 > 이 공개 미리 보기는 Service Level Agreement(서비스 수준 약정)없이 제공되므로 프로덕션 워크로드에 사용하지 말아야 합니다. 특정 기능은 지원되지 않을 수 있거나, 기능이 제한될 수 있거나 모든 Azure 위치에서 사용하지는 못할 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 알려진 제한은 [프라이빗 엔드포인트](private-endpoint-overview.md#limitations) 및 [Private Link Service](private-link-service-overview.md#limitations)를 참조하세요.
@@ -45,8 +45,9 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 |  | Azure Data Lake Storage Gen2        |  미국 동부, 미국 서부, 미국 중서부       | 미리 보기         |
 |  |  Azure SQL Database         | 미국 중서부, 미국 서부, 미국 중남부, 미국 동부, 미국 중북부      |   미리 보기      |
 ||Azure SQL Data Warehouse| 미국 중서부, 미국 서부, 미국 중남부, 미국 동부, 미국 중북부 |미리 보기|
+||Azure Cosmos DB| 미국 중서부, 미국 서부, 미국 동부, 미국 북중부, 미국 동부 2, 미국 서부 2 |미리 보기|
 
-최신 알림은 [Azure Virtual Network 업데이트 페이지](https://azure.microsoft.com/updates/?product=virtual-network)를 확인하세요. 
+최신 알림은 [Azure Virtual Network 업데이트 페이지](https://azure.microsoft.com/updates/?product=virtual-network)를 확인하세요.
 
 ## <a name="logging-and-monitoring"></a>로깅 및 모니터링
 
@@ -71,6 +72,7 @@ FAQ는 [Azure Private Link FAQ](private-link-faq.md)를 참조하세요.
 - [PowerShell을 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-powershell.md)
 - [CLI를 사용하여 SQL Database Server용 프라이빗 엔드포인트 만들기](create-private-endpoint-cli.md)
 - [포털을 사용하여 스토리지 계정용 프라이빗 엔드포인트 만들기](create-private-endpoint-storage-portal.md)
+- [포털을 사용하여 Azure Cosmos 계정용 프라이빗 엔드포인트 만들기](../cosmos-db/how-to-configure-private-endpoints.md)
 - [Azure PowerShell를 사용하여 고유의 Private Link 서비스 만들기](create-private-link-service-powershell.md)
 
 

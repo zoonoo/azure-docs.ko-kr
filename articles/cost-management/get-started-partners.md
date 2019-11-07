@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/22/2019
+ms.date: 11/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 6d59964013a2631430ecd7e46d1ce0f6be60a05f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 611b3e608d9b0de9423c861ec70e9fc2e7ad67d5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802035"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720761"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너에 대 한 Azure Cost Management 시작
 
@@ -37,7 +37,7 @@ CSP 파트너는 Cost Management을 사용 하 여 다음을 수행 합니다.
 
 Azure Cost Management에서 사용할 수 있는 모든 기능을 REST Api와 함께 사용할 수도 있습니다. Api를 사용 하 여 비용 관리 작업을 자동화 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Azure Cost Management에는 청구 계정 또는 구독에 대 한 읽기 권한이 필요 합니다. 액세스는 리소스의 상위 수준, 즉 청구 계정 또는 관리 그룹에서 앱을 관리 하는 개별 리소스 그룹까지 부여할 수 있습니다. 청구 계정의 Azure Cost Management에 대 한 액세스를 설정 하 고 할당 하는 방법에 대 한 자세한 내용은 [사용자 역할 및 사용 권한 할당](/partner-center/permissions-overview)을 참조 하세요. **전역 관리자** 및 **관리 에이전트** 역할은 청구 계정에 대 한 비용을 관리할 수 있습니다.
 
@@ -84,8 +84,8 @@ Microsoft 고객 계약에 고객을 등록 한 후 Microsoft 고객 계약에 �
 
 - 필터링 된 특정 송장
 - 고객
-- Subscription
-- Resource group
+- 구독
+- 리소스 그룹
 - 리소스
 - Azure 서비스
 - 미터
@@ -139,7 +139,7 @@ Azure Portal에서 파트너 테 넌 트에 로그인 하 고 **Cost Management 
 ![Azure 구독 고객 선택](./media/get-started-partners/subscriptions-select-customer.png)
 
 **비용 분석** 을 클릭 하 고 비용 검토를 시작 합니다.
-이제 종 량 제 요금 기반 비용으로 구독 및 리소스 그룹 RBAC 범위에서 비용 분석, 예산 및 경고를 사용할 수 있습니다.
+비용 분석, 예산 및 경고는 종 량 제 요금 기반 비용으로 구독 및 리소스 그룹 RBAC 범위에서 사용할 수 있습니다.
 
 ![고객으로 비용 분석 보기 ](./media/get-started-partners/customer-tenant-view-cost-analysis.png)
 
@@ -147,21 +147,22 @@ RBAC 범위에서 예약 된 인스턴스에 대 한 분할 상환 보기 및 �
 
 ## <a name="analyze-costs-in-cost-analysis"></a>비용 분석에서 비용 분석
 
-파트너는 특정 고객 또는 청구서에 대해 고객 전체의 비용 분석 비용을 탐색 하 고 분석할 수 있습니다. 필터 및 그룹화 방법 기능을 사용 하면 다음을 비롯 한 여러 필드를 기준으로 비용을 분석할 수 있습니다.
+파트너는 특정 고객 또는 청구서에 대해 고객 전체의 비용 분석 비용을 탐색 하 고 분석할 수 있습니다.
 
-| **필드** | **설명** |
+다음 필드는 사용 현황 정보 파일 및 Cost Management Api에 있습니다. 비용 분석에서 필터 및 그룹화 기능을 사용 하 여 여러 필드를 기준으로 비용을 분석할 수 있습니다. 필드의 전체 목록을 보려면 [Cost Management 데이터 필드](understand-cost-mgt-data.md#cost-management-data-fields)를 참조 하세요.
+
+| 필드 이름 | 설명 |
 | --- | --- |
-| 대 여 | 파트너 Azure Active Directory 테 넌 트의 식별자 |
-| PartnerName | 파트너 Azure Active Directory 테 넌 트의 이름 |
-| CustomerTenantID | 고객 구독의 Azure Active Directory 테 넌 트 식별자 |
-| CustomerName | 고객의 구독을 포함 하는 Azure Active Directory 테 넌 트의 이름입니다. |
-| ResellerMPNID | 구독과 연결 된 재판매인의 MPNID |
-| 구독 ID | Azure 구독에 대 한 고유한 Microsoft 생성 식별자 |
-| subscriptionName | Azure 구독의 이름 |
-| billingProfileID | 청구 프로필의 식별자입니다. 고객 간에 단일 요금 청구 통화로 청구서에서 비용을 그룹화 합니다.
-| invoiceID | 특정 트랜잭션이 표시 되는 송장의 청구서 ID |
-| resourceGroup | Azure 리소스 그룹의 이름입니다. 리소스 수명 주기 관리에 사용 됩니다. |
-| partnerEarnedCreditRate | 파트너 관리자 링크 액세스를 기반으로 하는 파트너 획득 신용 (PEC)가 있는 경우 할인 요금이 적용 됩니다. |
+| CustomerTenantID | 고객&#39;구독의 Azure Active Directory 테 넌 트 식별자입니다. |
+| CustomerName | 고객&#39;구독에 대 한 Azure Active Directory 테 넌 트의 이름입니다. |
+| CustomerTenantDomainName | 고객&#39;구독의 Azure Active Directory 테 넌 트에 대 한 도메인 이름입니다. |
+| 대 여 | 파트너&#39;Azure Active Directory 테 넌 트의 식별자입니다. |
+| PartnerName | 파트너 Azure Active Directory 테 넌 트의 이름입니다. |
+| ResellerMPNID | 구독과 연결 된 대리점에 대 한 MPNID입니다. |
+| costinUSD | 세율의 세금 이전 예상 ExtendedCost 또는 혼합 비용입니다. |
+| paygCostInBillingCurrency | 가격 책정이 소매 가격 인 경우 비용을 표시 합니다. 청구 통화로 종 량 제 가격을 표시 합니다. RBAC 범위 에서만 사용할 수 있습니다. |
+| paygCostInUSD | 가격 책정이 소매 가격 인 경우 비용을 표시 합니다. USD로 종 량 제 가격을 표시 합니다. RBAC 범위 에서만 사용할 수 있습니다. |
+| partnerEarnedCreditRate | 파트너 관리자 링크 액세스를 기반으로 하는 파트너 획득 신용 (PEC)가 있는 경우 적용 되는 할인 률입니다. |
 | partnerEarnedCreditApplied | 파트너의 획득 크레딧을 적용 했는지 여부를 나타냅니다. |
 
 [비용 분석](quick-acm-cost-analysis.md) 보기에서는 [보기를 저장](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) 하 고 데이터를 [CSV 및 PNG 파일로](quick-acm-cost-analysis.md#automation-and-offline-analysis)내보낼 수도 있습니다.
@@ -203,36 +204,67 @@ Azure Portal에서 파트너 테 넌 트에 로그인 하 고 **Cost Management 
 #### <a name="to-get-a-list-of-billing-accounts"></a>청구 계정 목록을 가져오려면
 
 ```
-armclient get "providers/Microsoft.billing/billingAccounts?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-version=2019-10-01-preview
 ```
 
 #### <a name="to-get-a-list-of-customers"></a>고객 목록을 가져오려면
 
 ```
-armclient get "providers/Microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers?api-version=2019-10-01-preview
 ```
+
 #### <a name="to-get-a-list-of-subscriptions"></a>구독 목록을 가져오려면
 
 ```
-armclient get "/providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/billingSubscriptions?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions?api-version=2019-10-01-preview
 ```
+
+#### <a name="to-get-a-list-of-invoices-for-a-period-of-time"></a>일정 기간에 대 한 청구서 목록을 가져오려면
+
+```
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/invoices?api-version=2019-10-01-preview&periodStartDate={periodStartDate}&periodEndDate={periodEndDate}
+```
+
+API 호출은 다음 JSON 코드와 유사한 요소가 포함 된 청구서의 배열을 반환 합니다.
+
+```
+    {
+      "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountID}/billingProfiles/{BillingProfileID}/invoices/{InvoiceID}",
+      "name": "{InvoiceID}",
+      "properties": {
+        "amountDue": {
+          "currency": "USD",
+          "value": x.xx
+        },
+        ...
+    }
+```
+
+위의 반환 된 ID 필드 값을 사용 하 고 다음 예제에서 사용 세부 정보를 쿼리할 범위로 바꿉니다.
+
+```
+GET https://management.azure.com/{id}/providers/Microsoft.Consumption/UsageDetails?api-version=2019-10-01
+```
+
+이 예에서는 특정 송장과 연결 된 사용 레코드를 반환 합니다.
+
 
 #### <a name="to-get-the-policy-for-customers-to-view-costs"></a>고객이 비용을 볼 수 있는 정책을 가져오려면
 
 ```
-armclient get "providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/policies/default?api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
 #### <a name="to-set-the-policy-for-customers-to-view-costs"></a>비용을 볼 수 있도록 고객에 대 한 정책을 설정 하려면
 
 ```
-armclient put "providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/policies/default?api-version=2019-10-01-preview" @policy.json
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/policies/default?api-version=2019-10-01-preview
 ```
 
 #### <a name="to-get-azure-service-usage-for-a-billing-account"></a>청구 계정에 대 한 Azure 서비스 사용을 가져오려면
 
 ```
-armclient GET /providers/Microsoft.Billing/BillingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/providers/Microsoft.Consumption/usageDetails?api-version=2019-10-01
+GET https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/providers/Microsoft.Consumption/usageDetails?api-version=2019-10-01
 ```
 
 #### <a name="to-download-a-customers-azure-service-usage"></a>고객의 Azure 서비스 사용을 다운로드 하려면
@@ -240,7 +272,7 @@ armclient GET /providers/Microsoft.Billing/BillingAccounts/XXXXXXXX-XXXX-XXXX-XX
 다음 get 호출은 비동기 작업입니다.
 
 ```
-armclient get providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/YYYYYYYY-YYYY-YYYY-YYYY-YYYYYYYYYYYY/providers/Microsoft.Consumption/usageDetails/download?api-version=2019-10-01 -verbose
+GET https://management.azure.com/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/usageDetails/download?api-version=2019-10-01 -verbose
 ```
 
 응답에서 반환 된 `Location` URI를 호출 하 여 작업 상태를 확인 합니다. 상태가 *완료*됨 인 경우 `downloadUrl` 속성에는 생성 된 보고서를 다운로드 하는 데 사용할 수 있는 링크가 포함 되어 있습니다.
@@ -251,50 +283,40 @@ armclient get providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXX
 먼저 다음 게시물을 사용 합니다.
 
 ```
-armclient post "/providers/Microsoft.Billing/BillingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/billingProfiles/YYYY-YYYY-YYY-YYYY-YYY/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
+POST https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
 ```
 
-그런 다음 비동기 작업 속성 값을 호출 합니다. 다음은 그 예입니다.
+그런 다음 비동기 작업 속성 값을 호출 합니다. 예:
 
 ```
-armclient get "providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/billingProfiles/YYYY-YYYY-YYY-YYYY-YYY/pricesheetDownloadOperations/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX?sessiontoken=0:11186&api-version=2019-10-01-preview"
+GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheetDownloadOperations/{operation}?sessiontoken=0:11186&api-version=2019-10-01-preview
 ```
 위의 get 호출은 가격표를 포함 하는 다운로드 링크를 반환 합니다.
 
-#### <a name="to-get-customer-costs-for-the-last-two-months-sorted-by-month"></a>지난 2 달 동안의 고객 비용을 얻으려면 월별로 정렬 합니다.
+
+#### <a name="to-get-aggregated-costs"></a>집계 된 비용을 얻으려면
 
 ```
-armclient post providers/microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQueryCustomer.json
-```
-
-#### <a name="to-get-azure-subscription-costs-for-the-last-two-months-sorted-by-month"></a>지난 2 달 동안 Azure 구독 비용을 얻으려면 월별로 정렬 합니다.
-
-```
-armclient post providers/microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQuerySubscription.json
-```
-
-#### <a name="to-get-daily-costs-for-the-current-month"></a>이번 달에 대 한 일별 비용을 얻으려면
-
-```
-armclient post providers/microsoft.billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31//providers/microsoft.costmanagement/query?api-version=2019-10-01 @CCMQueryDaily.json
+POST https://management.azure.com/providers/microsoft.billing/billingAccounts/{billingAccountName}/providers/microsoft.costmanagement/query?api-version=2019-10-01
 ```
 
 #### <a name="create-a-budget-for-a-partner"></a>파트너에 대 한 예산 만들기
 
 ```
-armclient put providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/providers/Microsoft.CostManagement/budgets/partnerworkshopbudget?api-version=2019-10-01 @budgetCreate.json
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/providers/Microsoft.CostManagement/budgets/partnerworkshopbudget?api-version=2019-10-01
 ```
-
 
 #### <a name="create-a-budget-for-a-customer"></a>고객에 대 한 예산 만들기
 
 ```
-armclient put providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/customers/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/providers/Microsoft.Consumption/budgets/test-partner-demo?api-version=2019-10-01 @budgetCreate.json
+PUT https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/customers/{customerID}/providers/Microsoft.Consumption/budgets/{budgetName}?api-version=2019-10-01
 ```
+
 #### <a name="delete-a-budget"></a>예산 삭제
 
 ```
-armclient delete providers/Microsoft.Billing/billingAccounts/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX:XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXXXXXXX_2019-05-31/providers/Microsoft.CostManagement/budgets/partnerworkshopbudget?api-version=2019-10-01
+PUT
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.CostManagement/budgets/{budgetName}?api-version=2019-10-01
 ```
 
 

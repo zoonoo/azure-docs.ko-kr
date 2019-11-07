@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 109c838d903faee7510441a8b3d502a7e95d8bb4
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 4bdf482357789b71b2f87bb74afd76d9ebc7f7d1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533677"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73476791"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포
 
@@ -36,11 +36,15 @@ Resource Manager 템플릿을 처음부터 새로 만드는 작업은 쉽지 않
 
 숙련된 많은 템플릿 개발자는 익숙하지 않은 Azure 리소스를 배포하려고 할 때 이 메서드를 사용하여 템플릿을 생성합니다. 포털을 사용하여 템플릿을 내보내는 방법에 대한 자세한 내용은 [템플릿에 리소스 그룹 내보내기](./manage-resource-groups-portal.md#export-resource-groups-to-templates)를 참조하세요. 작업 템플릿을 찾는 다른 방법은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 찾는 것입니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **리소스 만들기** > **스토리지** > **스토리지 계정 - Blob, 파일, 테이블, 큐**를 차례로 선택합니다.
+1. 웹 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동한 후 로그인합니다.
+2. Azure Portal 메뉴에서 **리소스 만들기**를 선택합니다.
 
-    ![Azure Portal을 사용하여 Azure Storage 계정 만들기](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
-3. 다음 정보를 입력합니다.
+    ![Azure Portal 메뉴에서 리소스 만들기 선택](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-a-resource.png)
+
+3. **스토리지** > **스토리지 계정**을 선택합니다.
+
+    ![Azure Storage 계정 만들기](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
+1. 다음 정보를 입력합니다.
 
     |Name|값|
     |----|----|
@@ -54,8 +58,8 @@ Resource Manager 템플릿을 처음부터 새로 만드는 작업은 쉽지 않
     > [!NOTE]
     > 내보낸 템플릿 중 일부는 배포하기 전에 편집해야 합니다.
 
-4. 화면 아래쪽에서 **검토 + 만들기**를 선택합니다. 다음 단계에서 **만들기**를 선택하지 마십시오.
-5. 화면 아래쪽에서 **자동화 템플릿 다운로드**를 선택합니다. 생성된 템플릿이 포털에 표시됩니다.
+5. 화면 아래쪽에서 **검토 + 만들기**를 선택합니다. 다음 단계에서 **만들기**를 선택하지 마십시오.
+6. 화면 아래쪽에서 **자동화 템플릿 다운로드**를 선택합니다. 생성된 템플릿이 포털에 표시됩니다.
 
     ![포털에서 템플릿 생성](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
 
@@ -64,9 +68,9 @@ Resource Manager 템플릿을 처음부터 새로 만드는 작업은 쉽지 않
     매개 변수 6개가 정의되어 있습니다. 그 중 하나는 **storageAccountName**입니다. 이전 스크린샷에서 강조 표시된 두 번째 부분은 템플릿에서 이 매개 변수를 참조하는 방법을 보여줍니다. 다음 섹션에서는 생성된 이름을 스토리지 계정에 사용하도록 템플릿을 편집합니다.
 
     템플릿에는 Azure 리소스 하나가 정의되어 있습니다. 유형은 `Microsoft.Storage/storageAccounts`입니다. 리소스가 정의되는 방법 및 정의 구조를 살펴보세요.
-6. 화면 맨 위에서 **다운로드**를 선택하세요.
-7. 다운로드한 zip 파일을 열어서 **template.json**을 사용자의 컴퓨터에 저장합니다. 다음 섹션에서는 템플릿 배포 도구를 사용하여 템플릿을 편집합니다.
-8. **매개 변수** 탭을 선택하여 매개 변수에 대해 입력한 값을 확인합니다. 이러한 값을 적어 두면, 다음 섹션에서 템플릿을 배포할 때 필요합니다.
+7. 화면 맨 위에서 **다운로드**를 선택하세요.
+8. 다운로드한 zip 파일을 열어서 **template.json**을 사용자의 컴퓨터에 저장합니다. 다음 섹션에서는 템플릿 배포 도구를 사용하여 템플릿을 편집합니다.
+9. **매개 변수** 탭을 선택하여 매개 변수에 대해 입력한 값을 확인합니다. 이러한 값을 적어 두면, 다음 섹션에서 템플릿을 배포할 때 필요합니다.
 
     ![포털에서 템플릿 생성](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
@@ -81,7 +85,7 @@ Azure Portal은 기본적인 템플릿 편집 작업에 사용할 수 있습니�
 
 Azure의 각 Azure 서비스에는 고유한 이름이 필요합니다. 이미 존재하는 스토리지 계정 이름을 입력한 경우 배포에 실패할 수 있습니다. 이 문제를 방지하기 위해 템플릿 함수 호출 `uniquestring()`을 사용하도록 템플릿을 수정하여 고유한 스토리지 계정 이름을 생성합니다.
 
-1. Azure Portal에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
 2. **Marketplace 검색**에서 **템플릿 배포**를 입력하고 **ENTER**를 누릅니다.
 3. **템플릿 배포**를 선택합니다.
 

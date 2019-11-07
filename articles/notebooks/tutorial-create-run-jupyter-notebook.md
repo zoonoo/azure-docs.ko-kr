@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 827338c299b19d04245d7114a99d946d0332c82f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 42072894b99ebf1cfcbb5e622c2a9c3a4321a944
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973039"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73496650"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>자습서: Python을 사용하여 Jupyter Notebook을 만들고 실행
 
@@ -430,4 +430,4 @@ Notebook의 *.ipynb* 파일을 다운로드하여 Python 확장을 사용해 Vis
 - [슬라이드 쇼 제공](present-jupyter-notebooks-slideshow.md)
 - [데이터 파일 작업](work-with-project-data-files.md)
 - [데이터 리소스에 액세스](access-data-resources-jupyter-notebooks.md)
-- [Azure Machine Learning Services 사용](use-machine-learning-services-jupyter-notebooks.md)
+- [Azure Machine Learning 사용](use-machine-learning-services-jupyter-notebooks.md)

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행'
+title: '자습서: Apache Spark를 사용하여 쿼리 실행 및 데이터 로드 - Azure HDInsight'
 description: 자습서 - Azure HDInsight의 Spark 클러스터에서 데이터를 로드하고 대화형 쿼리를 실행하는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8c5fe1970857a04c7b237a101ac228dea024815b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027800"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494495"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행
 
@@ -36,7 +36,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
 2. Jupyter 웹 페이지에서 **새로 만들기** > **PySpark**를 선택하여 노트북을 만듭니다.
 
-   ![Jupyter Notebook을 만들어서 대화형 Spark SQL 쿼리 실행](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Jupyter Notebook을 만들어서 대화형 Spark SQL 쿼리 실행")
+   ![대화형 Spark SQL 쿼리 실행을 위해 Jupyter Notebook 만들기](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "대화형 Spark SQL 쿼리 실행을 위해 Jupyter Notebook 만들기")
 
    새 노트북이 만들어지고 이름 Untitled(`Untitled.ipynb`)로 열립니다.
 
@@ -47,7 +47,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
 애플리케이션은 Azure Storage, Azure Data Lake Storage 같은 원격 스토리지의 파일 또는 폴더에서, Hive 테이블에서 또는 Spark에서 지원하는 Cosmos DB, Azure SQL DB, DW 등의 기타 데이터 원본에서 직접 데이터 프레임을 만들 수 있습니다. 다음 스크린샷에서는 이 자습서에 사용되는 HVAC.csv 파일의 스냅샷을 보여줍니다. csv 파일에는 모든 HDInsight Spark 클러스터가 함께 제공됩니다. 이 데이터는 건물의 온도 변화를 캡처합니다.
 
-![대화형 Spark SQL 쿼리용 데이터의 스냅샷](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "대화형 Spark SQL 쿼리용 데이터의 스냅샷")
+![대화형 Spark SQL 쿼리를 위한 데이터의 스냅샷](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "대화형 Spark SQL 쿼리를 위한 데이터의 스냅샷")
 
 1. Jupyter Notebook의 빈 셀에 다음 코드를 붙여넣은 다음 **Shift+Enter**를 눌러 해당 코드를 실행합니다. 코드는 이 시나리오에 필요한 형식을 가져옵니다.
 
@@ -85,7 +85,7 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
 2. 다른 시각화로 결과를 볼 수도 있습니다. 동일한 출력에 대한 영역형 그래프를 보려면 **영역**을 선택한 다음 표시된 것처럼 다른 값을 설정합니다.
 
-    ![대화형 Spark 쿼리 결과의 영역 그래프](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "대화형 Spark 쿼리 결과의 영역 그래프")
+    ![대화형 Spark 쿼리 결과의 영역형 그래프](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "대화형 Spark 쿼리 결과의 영역형 그래프")
 
 3. Notebook 메뉴 모음에서 **파일** > **저장 및 검사점**으로 이동합니다.
 

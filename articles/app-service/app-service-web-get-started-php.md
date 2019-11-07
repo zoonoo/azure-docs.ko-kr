@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 90f83e3e6fa1910641b3e384460cf4aa14016c1a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 386229bc272a520ec8093c95bc861704ce9ea7eb
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70067338"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471395"
 ---
 # <a name="create-a-php-web-app-in-azure"></a>Azure에서 PHP 웹앱 만들기
 
@@ -182,17 +182,19 @@ git push azure master
 
 ## <a name="manage-your-new-azure-app"></a>새 Azure 앱 관리
 
-만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다.
+1. 만든 웹앱을 관리하려면 <a href="https://portal.azure.com" target="_blank">Azure Portal</a>로 이동합니다. **App Services**를 검색하여 선택합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
+    ![App Services 검색, Azure Portal, PHP 웹앱 만들기](media/app-service-web-get-started-php/navigate-to-app-services-in-the-azure-portal.png)
 
-![Azure 앱에 대한 포털 탐색](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
+2. Azure 앱의 이름을 선택합니다.
 
-웹앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
+    ![Azure 앱에 대한 포털 탐색](./media/app-service-web-get-started-php/php-docs-hello-world-app-service-list.png)
 
-![Azure Portal의 App Service 페이지](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+    웹앱의 **개요** 페이지가 표시됩니다. 여기에서 **찾아보기**, **중지**, **다시 시작** 및 **삭제**와 같은 기본 관리 작업을 수행할 수 있습니다.
 
-왼쪽 메뉴는 앱 구성을 위한 서로 다른 옵션을 제공합니다. 
+    ![Azure Portal의 App Service 페이지](media/app-service-web-get-started-php/php-docs-hello-world-app-service-detail.png)
+
+    웹앱 메뉴는 앱 구성을 위한 서로 다른 옵션을 제공합니다. 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 

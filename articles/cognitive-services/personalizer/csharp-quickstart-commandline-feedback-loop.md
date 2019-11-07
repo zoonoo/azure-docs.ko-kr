@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/24/2019
 ms.author: diberry
-ms.openlocfilehash: 4308ed6d00bd3900986f08a93a686f0d7d00bcfb
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: b86a8df86b7f9b8a5936752a5f0413aa863ae85f
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515604"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73490797"
 ---
 # <a name="quickstart-personalizer-client-library-for-net"></a>빠른 시작: .NET용 Personalizer 클라이언트 라이브러리
 
@@ -38,19 +38,18 @@ ms.locfileid: "72515604"
 이 빠른 시작을 사용하는 몇 가지 단계가 있습니다.
 
 * Azure Portal에서 Personalizer 리소스 만들기
-* Azure Portal의 Personalizer 리소스에 대한 **설정 페이지**에서 모델 업데이트 빈도 변경
+* Azure Portal의 Personalizer 리소스에 대한 **구성** 페이지에서 모델 업데이트 빈도 변경
 * 코드 편집기에서 코드 파일을 만들고 코드 파일을 편집합니다.
 * 명령줄 또는 터미널의 명령줄에서 SDK 설치
 * 명령줄 또는 터미널에서 코드 파일 실행
 
 ## <a name="create-a-personalizer-azure-resource"></a>Personalizer Azure 리소스 만들기
 
-Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Personalizer용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
+로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Personalizer용 리소스를 만듭니다. 또한 다음을 수행할 수 있습니다.
 
 * 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services)를 가져옵니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
 
-<!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
 평가판 구독 또는 리소스에서 키를 가져오면 다음 두 가지 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
 * 리소스 키에 대한 `PERSONALIZER_RESOURCE_KEY`
@@ -60,7 +59,7 @@ Azure Portal의 **빠른 시작** 페이지에서 키와 엔드포인트 값을 
 
 ## <a name="change-the-model-update-frequency"></a>모델 업데이트 빈도 변경
 
-Azure Portal의 **설정 페이지**에 있는 Personalizer 리소스에서 **모델 업데이트 빈도**를 10초로 변경합니다. 이렇게 하면 서비스가 빠르게 학습되어 각 반복에 대한 상위 작업이 변경되는 상태를 확인할 수 있습니다.
+Azure Portal의 **구성** 페이지에 있는 Personalizer 리소스에서 **모델 업데이트 빈도**를 10초로 변경합니다. 이 짧은 기간 동안 서비스가 빠르게 학습되어 각 반복에 대한 상위 작업이 변경되는 상태를 확인할 수 있습니다.
 
 ![모델 업데이트 빈도 변경](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -110,7 +109,7 @@ Personalizer 클라이언트는 키가 포함된 Microsoft.Rest.ServiceClientCre
 
 보상을 Personalizer에 보내려면 [RewardRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest?view=azure-dotnet-preview)를 만든 다음, [client.Reward](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward?view=azure-dotnet-preview) 메서드에 전달합니다. 
 
-이 빠른 시작에서 보상을 결정하는 것은 간단합니다. 프로덕션 시스템에서 [보상 점수](concept-rewards.md)에 영향을 주는 요소와 크기를 결정하는 것은 복잡한 프로세스일 수 있으며, 시간이 지남에 따라 변경될 수 있습니다. 이는 Personalizer 아키텍처에서 기본 설계 결정 중 하나여야 합니다. 
+이 빠른 시작에서 보상을 결정하는 것은 간단합니다. 프로덕션 시스템에서 [보상 점수](concept-rewards.md)에 영향을 주는 요소와 크기를 결정하는 것은 복잡한 프로세스일 수 있으며, 시간이 지남에 따라 변경될 수 있습니다. 이 설계 결정은 Personalizer 아키텍처에서 기본 설계 결정 중 하나여야 합니다. 
 
 ## <a name="code-examples"></a>코드 예제
 

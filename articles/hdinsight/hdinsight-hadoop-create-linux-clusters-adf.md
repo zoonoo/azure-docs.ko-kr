@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure HDInsight의 주문형 Apache Hadoop 클러스터 - Data Factory'
+title: '자습서: Data Factory를 사용하는 Azure HDInsight의 주문형 클러스터'
 description: 자습서 - Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터를 만드는 방법을 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 10/09/2019
-ms.openlocfilehash: 00937197536ede7d6eed168e0a84bad294800159
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1d1ddb84c000efaf58356ffdd15382e0b74aa744
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264570"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494869"
 ---
 # <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>자습서: Azure Data Factory를 사용하여 HDInsight에서 주문형 Apache Hadoop 클러스터 만들기
 
@@ -274,7 +274,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     그런 다음 **만들기**를 선택합니다.
 
-    ![HDInsight 연결된 서비스의 값 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service-details.png "HDInsight 연결된 서비스의 값 제공")
+    ![HDInsight 연결된 서비스에 대한 값 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-linked-service-details.png "HDInsight 연결된 서비스에 대한 값 제공")
 
 ## <a name="create-a-pipeline"></a>파이프라인을 만들기
 
@@ -288,7 +288,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
 3. Hive 활동을 선택했는지 확인하고, **HDI 클러스터** 탭을 선택하고 **HDInsight 연결된 서비스** 드롭다운 목록에서 HDInsight에 대해 이전에 만든 연결된 서비스, **HDInsightLinkedService**를 선택합니다.
 
-    ![파이프라인의 HDInsight 클러스터에 대한 자세한 설명 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "파이프라인의 HDInsight 클러스터에 대한 자세한 설명 제공")
+    ![파이프라인에 대한 HDInsight 클러스터 세부 정보 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-hive-activity-select-hdinsight-linked-service.png "파이프라인에 대한 HDInsight 클러스터 세부 정보 제공")
 
 4. **스크립트** 탭을 선택하고 다음 단계를 완료합니다.
 
@@ -296,7 +296,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 
     1. **파일 경로**로 **스토리지 찾아보기**를 선택하고 샘플 Hive 스크립트를 사용할 수 있는 위치로 이동합니다. 이전에 PowerShell 스크립트를 실행한 경우 이 위치는 `adfgetstarted/hivescripts/partitionweblogs.hql`입니다.
 
-        ![파이프라인의 Hive 스크립트 세부 정보 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "파이프라인의 Hive 스크립트 세부 정보 제공")
+        ![파이프라인에 대한 Hive 스크립트 세부 정보 제공](./media/hdinsight-hadoop-create-linux-clusters-adf/hdinsight-data-factory-provide-script-path.png "파이프라인에 대한 Hive 스크립트 세부 정보 제공")
 
     1. **고급** > **매개 변수** 아래에서 **스크립트에서 자동 채우기**를 선택합니다. 이 옵션은 런타임에 값을 필요로 하는 Hive 스크립트의 매개 변수를 찾습니다. 사용 하는 스크립트(**partitionweblogs.hql**)에는 **Output** 매개 변수가 있습니다. `wasbs://adfgetstarted@<StorageAccount>.blob.core.windows.net/outputfolder/` 형식을 사용하여 Azure Storage의 기존 폴더를 가리키는 **값**을 제공합니다. 경로는 대/소문자를 구분합니다. 스크립트의 출력을 저장할 경로입니다. 이제 스토리지 계정이 기본적으로 필요한 보안 전송을 사용하도록 설정되어 있으므로 `wasbs` 스키마가 필요합니다.
     
@@ -356,7 +356,7 @@ Azure Data Factory에서 데이터 팩터리에는 하나 이상의 데이터 �
 1. **리소스** 타일에서 리소스 그룹을 다른 프로젝트와 공유하지 않는 한 기본 스토리지 계정과 데이터 팩터리가 나열됩니다.
 1. **리소스 그룹 삭제**를 선택합니다. 이렇게 하면 스토리지 계정 및 스토리지 계정에 저장된 데이터도 삭제됩니다.
 
-    ![Azure Portal 리소스 그룹 삭제](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "리소스 그룹 삭제")
+    ![Azure Portal에서 리소스 그룹 삭제](./media/hdinsight-hadoop-create-linux-clusters-adf/delete-resource-group.png "리소스 그룹 삭제")
 
 1. 삭제를 확인하려면 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
 

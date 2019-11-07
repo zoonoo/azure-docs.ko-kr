@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: c6ad1cd7af02f281c53ece23a018f8b5ec0c7da9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 18e7e75b259475b9e360dc3441ed83ccb577e557
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640946"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73492020"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>자습서: SSMS를 사용하여 Azure SQL Database 내에서 단일 데이터베이스의 관계형 데이터베이스 디자인
 
@@ -52,7 +52,7 @@ Azure SQL Database의 단일 데이터베이스는 정의된 컴퓨팅 및 스�
 
 빈 단일 데이터베이스를 만들려면 다음 단계를 수행합니다.
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
 2. **새로 만들기** 페이지의 Azure Marketplace 섹션에서 **데이터베이스**를 선택한 다음, **추천** 섹션에서 **SQL Database**를 클릭합니다.
 
    ![빈 데이터베이스 만들기](./media/sql-database-design-first-database/create-empty-database.png)
@@ -73,7 +73,7 @@ Azure SQL Database의 단일 데이터베이스는 정의된 컴퓨팅 및 스�
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
     | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 사용해야 합니다. |
-    | **위치**: | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
+    | **위치** | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
     ![create database-server](./media/sql-database-design-first-database/create-database-server.png)
 
@@ -97,21 +97,23 @@ SQL Database 서비스는 서버 수준에서 IP 방화벽을 만듭니다. 방�
 > [!IMPORTANT]
 > SQL Database 서비스는 포트 1433을 통해 통신합니다. 회사 네트워크 내에서 이 서비스에 연결을 시도하면 포트 1433을 통한 아웃바운드 트래픽을 네트워크 방화벽에서 허용하지 않을 수 있습니다. 이 경우 관리자가 1433 포트를 열지 않으면 단일 데이터베이스에 연결할 수 없습니다.
 
-1. 배포가 완료되면 왼쪽 메뉴에서 **SQL 데이터베이스**를 클릭한 다음, **SQL 데이터베이스** 페이지에서 *yourDatabase*를 클릭합니다. 정규화된 **서버 이름**(예: *yourserver.database.windows.net*)을 표시하고 추가 구성 옵션을 제공하는 데이터베이스 개요 페이지가 열립니다.
+1. 배포가 완료되면 Azure Portal 메뉴에서 **SQL 데이터베이스**를 선택하거나아무 페이지에서 *SQL 데이터베이스*를 선택합니다.  
 
-2. SQL Server Management Studio에서 서버 및 데이터베이스에 연결하는 데 사용할 수 있도록 이 정규화된 서버 이름을 복사합니다.
+1. **SQL 데이터베이스** 페이지에서 *데이터베이스*를 선택합니다. 데이터베이스에 대한 개요 페이지가 열리고, 정규화된 **서버 이름**(예: `contosodatabaseserver01.database.windows.net`)을 표시하고, 추가 구성 옵션을 제공합니다.
 
    ![서버 이름](./media/sql-database-design-first-database/server-name.png)
 
-3. 도구 모음에서 **서버 방화벽 설정**을 클릭합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다.
+1. SQL Server Management Studio에서 서버 및 데이터베이스에 연결하는 데 사용할 수 있도록 이 정규화된 서버 이름을 복사합니다.
+
+1. 도구 모음에서 **서버 방화벽 설정**을 클릭합니다. SQL Database 서버에 대한 **방화벽 설정** 페이지가 열립니다.
 
    ![서버 수준 IP 방화벽 규칙](./media/sql-database-design-first-database/server-firewall-rule.png)
 
-4. 도구 모음에서 **클라이언트 IP 추가**를 클릭하여 현재 IP 주소를 새 IP 방화벽 규칙에 추가합니다. IP 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
+1. 도구 모음에서 **클라이언트 IP 추가**를 클릭하여 현재 IP 주소를 새 IP 방화벽 규칙에 추가합니다. IP 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-5. **저장**을 클릭합니다. SQL Database 서버에서 1433 포트를 여는 현재 IP 주소에 대한 서버 수준 IP 방화벽 규칙이 생성됩니다.
+1. **저장**을 클릭합니다. SQL Database 서버에서 1433 포트를 여는 현재 IP 주소에 대한 서버 수준 IP 방화벽 규칙이 생성됩니다.
 
-6. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
+1. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
 
 이제 IP 주소가 IP 방화벽을 통과할 수 있습니다. 이제 SQL Server Management Studio 또는 원하는 다른 도구를 사용하여 단일 데이터베이스에 연결할 수 있습니다. 이전에 만든 서버 관리자 계정을 사용해야 합니다.
 

@@ -8,20 +8,21 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 08/20/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8f3277d76709fe14a5eaa28cc0f562d95c1e4004
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: dd215e754b7e72c9ac424a53015955332068558e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128938"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493567"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 자습서에서는 원격 컴퓨팅 리소스에 대해 기계 학습 모델을 학습합니다. Python Jupyter Notebook에서 Azure Machine Learning에 대한 학습 및 배포 워크플로를 사용합니다.  그런 다음, 이 노트를 템플릿으로 사용하여 자신의 데이터로 고유한 Machine Learning 모델을 학습할 수 있습니다. 이 자습서는 **2부로 구성된 자습서 시리즈 중 제1부**입니다.  
 
-이 자습서에서는 Azure Machine Learning과 함께 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 세트 및 [scikit-learn](https://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀 분석을 학습합니다. MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 세트입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28 픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하는 다중 클래스 분류자를 만드는 것입니다.
+이 자습서에서는 Azure Machine Learning과 함께 [MNIST](http://yann.lecun.com/exdb/mnist/) 데이터 세트 및 [scikit-learn](https://scikit-learn.org)을 사용하여 간단한 로지스틱 회귀 분석을 학습합니다. MNIST는 70,000개의 회색조 이미지로 구성된 인기 있는 데이터 세트입니다. 각 이미지는 0-9의 숫자를 나타내는 28x28 픽셀의 필기체 숫자입니다. 목표는 지정된 이미지가 나타내는 숫자를 식별하기 위한 다중 클래스 분류자를 만드는 것입니다.
 
 다음 작업을 수행하는 방법에 대해 알아봅니다.
 
@@ -33,22 +34,28 @@ ms.locfileid: "71128938"
 
 모델을 선택하고 배포하는 방법은 이 [자습서의 제2부](tutorial-deploy-models-with-aml.md)에서 알아봅니다.
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 >[!NOTE]
-> 이 문서의 코드는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 버전 1.0.57로 테스트되었습니다.
+> 이 문서의 코드는 [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 버전 1.0.65로 테스트되었습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * 이 자습서를 시작하기 전에 [자습서: 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)을 완료하여 다음을 수행합니다.
     * 작업 영역 만들기
-    * 클라우드 Notebook 서버 만들기
-    * Jupyter Notebook 대시보드 시작
+    * 자습서 Notebook을 작업 영역의 사용자 폴더로 복제합니다.
+    * 클라우드 기반 컴퓨팅 인스턴스를 만듭니다.
 
-* Jupyter Notebook 대시보드를 시작한 후 **tutorials/img-classification-part1-training.ipynb** Notebook을 엽니다.
+* 복제된 **tutorials** 폴더에서 **img-classification-part1-training.ipynb** Notebook을 엽니다. 
 
-자습서 및 함께 제공되는 **utils.py** 파일은 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 사용하려는 경우 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서도 사용할 수 있습니다.  사용자 환경에 `matplotlib` 및 `scikit-learn`을 설치했는지 확인합니다.
 
+자습서 및 함께 제공되는 **utils.py** 파일은 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 사용하려는 경우 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서도 사용할 수 있습니다. `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib`를 실행하여 이 자습서에 대한 종속성을 설치합니다.
+
+> [!Important]
+> 이 문서의 나머지 부분에는 Notebook에 표시되는 것과 동일한 콘텐츠가 포함되어 있습니다.  
+>
+> 코드를 실행할 때 함께 읽도록 하려면 지금 Jupyter Notebook으로 전환합니다. 
+> Notebook에서 단일 코드 셀을 실행하려면 코드 셀을 클릭하고 **Shift+Enter** 키를 누릅니다. 또는 상단 도구 모음에서 **모두 실행**을 선택하여 전체 Notebook을 실행합니다.
 
 ## <a name="start"></a>개발 환경 설정
 
@@ -143,51 +150,48 @@ else:
 
 ## <a name="explore-data"></a>데이터 탐색
 
-모델을 학습하기 전에 학습하는 데 사용할 데이터를 파악해야 합니다. 또한 클라우드 학습 환경에서 액세스할 수 있도록 데이터를 클라우드에 업로드해야 합니다. 이 섹션에서는 다음 작업을 수행하는 방법에 대해 알아봅니다.
+모델을 학습하기 전에 학습하는 데 사용할 데이터를 파악해야 합니다. 이 섹션에서는 다음을 수행하는 방법을 알아봅니다.
 
 * MNIST 데이터 세트 다운로드
 * 일부 샘플 이미지 표시
-* 클라우드의 작업 영역에 데이터 업로드
 
 ### <a name="download-the-mnist-dataset"></a>MNIST 데이터 세트 다운로드
 
-MNIST 데이터 세트를 다운로드하고 파일을 `data` 디렉터리에 로컬로 저장합니다. 학습 및 테스트용 이미지와 레이블이 모두 다운로드됩니다.
+Azure Open Datasets를 사용하여 원시 MNIST 데이터 파일을 가져옵니다. [Azure Open Datasets](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets)는 기계 학습 솔루션에 시나리오별 기능을 추가하여 보다 정확한 모델을 만들 수 있는 큐레이팅된 공개 데이터 세트입니다. 각 데이터 세트에는 여러 다른 방식으로 데이터를 검색하기 위한 해당 클래스(이 경우에는 `MNIST`)가 있습니다.
+
+이 코드는 `Dataset`의 하위 클래스인 `FileDataset` 개체로 데이터를 검색합니다. `FileDataset`는 데이터 저장소 또는 퍼블릭 URL 형식의 단일 또는 여러 파일을 참조합니다. 이 클래스는 데이터 원본 위치에 대한 참조를 만들어 컴퓨팅에 파일을 다운로드하거나 탑재하는 기능을 제공합니다. 또한 학습 중에 쉽게 검색할 수 있도록 작업 영역에 데이터 세트를 등록합니다.
+
+[방법](how-to-create-register-datasets.md)에 따라 SDK에서 데이터 세트 및 사용법에 대해 자세히 알아보세요.
 
 ```python
-import urllib.request
-import os
+from azureml.core import Dataset
+from azureml.opendatasets import MNIST
 
 data_folder = os.path.join(os.getcwd(), 'data')
 os.makedirs(data_folder, exist_ok=True)
 
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
-                           filename=os.path.join(data_folder, 'train-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
-                           filename=os.path.join(data_folder, 'train-labels.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
-                           filename=os.path.join(data_folder, 'test-images.gz'))
-urllib.request.urlretrieve('http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz',
-                           filename=os.path.join(data_folder, 'test-labels.gz'))
-```
+mnist_file_dataset = MNIST.get_file_dataset()
+mnist_file_dataset.download(data_folder, overwrite=True)
 
-```('./data/test-labels.gz', <http.client.HTTPMessage at 0x7f40864c77b8>)``` 같은 출력이 표시됩니다.
+mnist_file_dataset = mnist_file_dataset.register(workspace=ws,
+                                                 name='mnist_opendataset',
+                                                 description='training and test dataset',
+                                                 create_new_version=True)
+```
 
 ### <a name="display-some-sample-images"></a>일부 샘플 이미지 표시
 
-압축된 파일을 `numpy` 배열로 로드합니다. 그런 다음, `matplotlib`를 사용하여 데이터 세트에 있는 30개의 무작위 이미지를 그리고, 위에 레이블을 표시합니다. 이 단계를 수행하려면 `util.py` 파일에 포함된 `load_data` 함수가 필요합니다. 이 파일은 샘플 폴더에 포함되어 있습니다. 이 Notebook과 동일한 폴더에 있는지 확인합니다. `load_data` 함수는 압축 파일을 numpy 배열로만 간단히 구문 분석합니다.
+압축된 파일을 `numpy` 배열로 로드합니다. 그런 다음, `matplotlib`를 사용하여 데이터 세트에 있는 30개의 무작위 이미지를 그리고, 위에 레이블을 표시합니다. 이 단계를 수행하려면 `util.py` 파일에 포함된 `load_data` 함수가 필요합니다. 이 파일은 샘플 폴더에 포함되어 있습니다. 이 Notebook과 동일한 폴더에 있는지 확인합니다. `load_data` 함수는 압축 파일을 numpy 배열로 간단히 구문 분석합니다.
 
 ```python
 # make sure utils.py is in the same directory as this code
 from utils import load_data
 
 # note we also shrink the intensity values (X) from 0-255 to 0-1. This helps the model converge faster.
-X_train = load_data(os.path.join(
-    data_folder, 'train-images.gz'), False) / 255.0
-X_test = load_data(os.path.join(data_folder, 'test-images.gz'), False) / 255.0
-y_train = load_data(os.path.join(
-    data_folder, 'train-labels.gz'), True).reshape(-1)
-y_test = load_data(os.path.join(
-    data_folder, 'test-labels.gz'), True).reshape(-1)
+X_train = load_data(os.path.join(data_folder, "train-images-idx3-ubyte.gz"), False) / 255.0
+X_test = load_data(os.path.join(data_folder, "t10k-images-idx3-ubyte.gz"), False) / 255.0
+y_train = load_data(os.path.join(data_folder, "train-labels-idx1-ubyte.gz"), True).reshape(-1)
+y_test = load_data(os.path.join(data_folder, "t10k-labels-idx1-ubyte.gz"), True).reshape(-1)
 
 # now let's show some randomly chosen images from the traininng set.
 count = 0
@@ -209,33 +213,6 @@ plt.show()
 
 이제 이러한 이미지의 모양과 예상되는 예측 결과를 이해할 수 있을 것입니다.
 
-### <a name="create-a-filedataset"></a>FileDataset 만들기
-
-`FileDataset` 개체는 작업 영역 데이터 저장소 또는 공용 URL에서 하나 이상의 파일을 참조합니다. 파일은 모든 형식일 수 있으며, 클래스는 컴퓨팅에 파일을 다운로드하거나 탑재하는 기능을 제공합니다. `FileDataset`를 생성하여 데이터 원본 위치에 대한 참조를 만듭니다. 데이터 세트에 변환을 적용한 경우 데이터 세트에도 저장됩니다. 데이터는 기존 위치에 그대로 남아 있으므로 추가 스토리지 비용이 발생하지 않습니다. 자세한 내용은 `Dataset` 패키지에 대한 [방법](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-register-datasets) 가이드를 참조하세요.
-
-```python
-from azureml.core.dataset import Dataset
-
-web_paths = [
-            'http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz',
-            'http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz'
-            ]
-dataset = Dataset.File.from_files(path=web_paths)
-```
-
-`register()` 메서드를 사용하여 데이터 세트를 다른 사용자와 공유하고, 다양한 실험에서 재사용하고, 학습 스크립트에서 이름으로 참조할 수 있도록 작업 영역에 데이터 세트를 등록할 수 있습니다.
-
-```python
-dataset = dataset.register(workspace=ws,
-                           name='mnist dataset',
-                           description='training and test dataset',
-                           create_new_version=True)
-```
-
-이제 모델 학습을 시작하는 데 필요한 모든 준비가 갖추어졌습니다.
-
 ## <a name="train-on-a-remote-cluster"></a>원격 클러스터에서 학습
 
 이 태스크의 경우 이전에 설정한 원격 학습 클러스터로 작업을 제출하세요.  작업을 제출하는 방법은 아래와 같습니다.
@@ -249,7 +226,6 @@ dataset = dataset.register(workspace=ws,
 필요한 코드를 컴퓨터에서 원격 리소스로 전달하기 위한 디렉터리를 만듭니다.
 
 ```python
-import os
 script_folder = os.path.join(os.getcwd(), "sklearn-mnist")
 os.makedirs(script_folder, exist_ok=True)
 ```
@@ -351,7 +327,7 @@ env.python.conda_dependencies = cd
 from azureml.train.sklearn import SKLearn
 
 script_params = {
-    '--data-folder': dataset.as_named_input('mnist').as_mount(),
+    '--data-folder': mnist_file_dataset.as_named_input('mnist_opendataset').as_mount(),
     '--regularization': 0.5
 }
 

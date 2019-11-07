@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 데이터 과학 실험 만들기'
-titleSuffix: Azure Machine Learning Studio
+titleSuffix: Azure Machine Learning Studio (classic)
 description: 이 기계 학습 빠른 시작에서는 간단한 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,16 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: e5c004b69f24b50ed2eb3a10dbd0a7915c0773ce
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: c95954bbe96b947312a952ebaab4e6bfc2b2f5a8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515105"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493286"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>빠른 시작: Azure Machine Learning Studio에서 첫 번째 데이터 과학 실험 만들기
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>빠른 시작: Azure Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
 
-이 빠른 시작에서는 [Azure Machine Learning Studio](what-is-ml-studio.md)에서 제조업체 및 기술 사양과 같은 다양한 변수에 따라 자동차 가격을 예측하는 기계 학습 실험을 만듭니다.
+[!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
+
+이 빠른 시작에서는 [Azure Machine Learning Studio(클래식)](what-is-ml-studio.md)에서 제조업체 및 기술 사양과 같은 다양한 변수에 따라 자동차 가격을 예측하는 기계 학습 실험을 만듭니다.
 
 기계 학습을 처음 사용하는 경우 [초급자를 위한 데이터 과학](data-science-for-beginners-the-5-questions-data-science-answers.md) 비디오 시리즈는 일상적인 언어와 개념을 사용하는 기계 학습에 대한 훌륭한 소개입니다.
 
@@ -40,20 +42,18 @@ ms.locfileid: "68515105"
 [알고리즘 선택 및 적용]: #choose-and-apply-an-algorithm
 [새 자동차 가격 예측]: #predict-new-automobile-prices
 
-Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)로 이동하고, **여기서 등록**을 선택하여 체험 계정을 만듭니다. 체험 작업 영역에는 이 빠른 시작에 필요한 모든 기능이 있습니다.
-
 ## <a name="get-the-data"></a>데이터 가져오기
 
 기계 학습에 가장 먼저 필요한 것은 데이터입니다.
-사용할 수 있는 몇 가지 데이터 세트 샘플이 Studio에 포함되어 있거나 여러 원본에서 데이터를 가져올 수 있습니다. 이 예제에서는 작업 영역에 포함되어 있는 샘플 데이터 세트, 즉 **자동차 가격 데이터(원시)** 를 사용합니다.
+사용할 수 있는 몇 가지 데이터 세트 샘플이 Studio 클래식 버전에 포함되어 있거나 여러 원본에서 데이터를 가져올 수 있습니다. 이 예제에서는 작업 영역에 포함되어 있는 샘플 데이터 세트, 즉 **자동차 가격 데이터(원시)** 를 사용합니다.
 이 데이터 세트에는 제조업체, 모델, 기술 사양 및 가격과 같은 정보를 포함하여 여러 개별 자동차에 대한 항목이 포함되어 있습니다.
 
 > [!TIP]
-> 다음 실험의 작업 복사본은 [Azure AI Gallery](https://gallery.azure.ai)에서 찾을 수 있습니다. Go to **[Walkthrough - Credit risk prediction](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
+> 다음 실험의 작업 복사본은 [Azure AI Gallery](https://gallery.azure.ai)에서 찾을 수 있습니다. **[첫 번째 데이터 과학 실험 - 자동차 자격 예측](https://gallery.azure.ai/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** 으로 이동하고, **Studio에서 열기**를 클릭하여 실험의 복사본을 Machine Learning Studio(클래식) 작업 영역으로 다운로드합니다.
 
 실험에 데이터 세트를 가져오는 방법은 다음과 같습니다.
 
-1. Machine Learning Studio 창의 아래쪽에서 **+새로 만들기**를 클릭하여 새 실험을 만듭니다. **실험** >  **빈 실험**을 차례로 선택합니다.
+1. Machine Learning Studio(클래식) 창의 아래쪽에서 **+새로 만들기**를 클릭하여 새 실험을 만듭니다. **실험** >  **빈 실험**을 차례로 선택합니다.
 
 1. 실험은 캔버스의 위쪽에서 볼 수 있는 기본 이름이 지정됩니다. 이 텍스트를 선택하고 **자동차 가격 예측**과 같이 의미 있는 것으로 이름을 바꿉니다. 이름은 고유할 필요가 없습니다.
 
@@ -240,7 +240,7 @@ Studio 계정이 없는 경우 [Studio 홈페이지](https://studio.azureml.net)
 이 빠른 시작에서는 샘플 데이터 세트 샘플을 사용하여 간단한 실험을 만들었습니다. 모델을 만들고 배포하는 프로세스를 자세히 살펴보려면 예측 솔루션 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: Studio에서 예측 솔루션 개발](tutorial-part1-credit-risk.md)
+> [자습서: Studio(클래식)에서 예측 솔루션 개발](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
 [evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/

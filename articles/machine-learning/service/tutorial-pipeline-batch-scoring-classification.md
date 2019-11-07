@@ -9,15 +9,17 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 09/05/2019
-ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.date: 11/04/2019
+ms.openlocfilehash: f693a80726c9185bbd75d5fb99eb7e5f3ccad987
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695624"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493508"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드 및 사용
+
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 자습서에서는 Azure Machine Learning에서 파이프라인을 사용하여 일괄 처리 채점 작업을 실행합니다. 예제에서는 미리 학습된 [Inception-V3](https://arxiv.org/abs/1512.00567) 나선형 신경망 Tensorflow 모델을 사용하여 레이블이 지정되지 않은 이미지를 분류합니다. 파이프라인이 빌드되어 게시되면 모든 플랫폼의 모든 HTTP 라이브러리에서 해당 파이프라인을 트리거하는 데 사용할 수 있는 REST 엔드포인트를 구성합니다.
 
@@ -463,7 +465,7 @@ df.head(10)
 
 ## <a name="publish-and-run-from-a-rest-endpoint"></a>REST 엔드포인트에서 게시 및 실행
 
-다음 코드를 실행하여 파이프라인을 작업 영역에 게시합니다. Azure Portal의 작업 영역에서 실행 기록 및 기간을 포함하여 파이프라인에 대한 메타데이터를 볼 수 있습니다. 포털에서 파이프라인을 수동으로 실행할 수도 있습니다.
+다음 코드를 실행하여 파이프라인을 작업 영역에 게시합니다. Azure Machine Learning Studio의 작업 영역에서 실행 기록 및 기간을 포함하여 파이프라인에 대한 메타데이터를 볼 수 있습니다. 이 Studio에서 파이프라인을 수동으로 실행할 수도 있습니다.
 
 파이프라인을 게시하면 모든 플랫폼의 모든 HTTP 라이브러리에서 파이프라인을 실행하는 데 사용할 수 있는 REST 엔드포인트를 사용할 수 있습니다.
 
@@ -487,7 +489,7 @@ interactive_auth = InteractiveLoginAuthentication()
 auth_header = interactive_auth.get_authentication_header()
 ```
 
-REST URL은 게시된 파이프라인 개체의 `endpoint` 속성에서 가져옵니다. 또한 이 REST URL은 Azure Portal의 작업 영역에서도 찾을 수 있습니다. 
+REST URL은 게시된 파이프라인 개체의 `endpoint` 속성에서 가져옵니다. 또한 이 REST URL은 Azure Machine Learning Studio의 작업 영역에서도 찾을 수 있습니다. 
 
 엔드포인트에 대한 HTTP POST 요청을 빌드합니다. 인증 헤더를 요청에 지정합니다. 실험 이름과 일괄 처리 크기 매개 변수가 있는 JSON 페이로드 개체를 추가합니다. 자습서의 앞부분에서 설명한 대로 `param_batch_size`는 단계 구성에서 `PipelineParameter` 개체로 정의했으므로 `batch_scoring.py` 스크립트에 전달됩니다.
 
@@ -520,14 +522,9 @@ RunDetails(published_pipeline_run).show()
 
 다른 Azure Machine Learning 자습서를 실행하려면 이 섹션을 수행하지 마세요.
 
-### <a name="stop-the-notebook-vm"></a>Notebook VM 중지
+### <a name="stop-the-compute-instance"></a>컴퓨팅 인스턴스 중지
 
-클라우드 Notebook 서버를 사용한 경우 비용을 줄이기 위해 VM을 사용하지 않을 때는 해당 VM을 중지합니다.
-
-1. 작업 영역에서 **Notebook VM**을 선택합니다.
-1. VM 목록에서 중지하려는 VM을 선택합니다.
-1. **중지**를 선택합니다.
-1. 서버를 다시 사용할 준비가 되면 **시작**을 선택합니다.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>모든 항목 삭제
 

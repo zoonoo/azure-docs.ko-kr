@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/26/2019
+ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: ee647668e8b5826706e8d9bb8a82acaf53fd3d8c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: f7667ce99ceaa713332ad9419ffab9d57aa0f075
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515200"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494467"
 ---
 # <a name="quickstart-personalizer-client-library-for-nodejs"></a>빠른 시작: Node.js용 Personalizer 클라이언트 라이브러리
 
@@ -39,7 +39,7 @@ Node.js용 Personalizer 클라이언트 라이브러리를 시작합니다. 이�
 이 빠른 시작을 사용하는 몇 가지 단계가 있습니다.
 
 * Azure Portal에서 Personalizer 리소스 만들기
-* Azure Portal의 Personalizer 리소스에 대한 **설정 페이지**에서 모델 업데이트 빈도 변경
+* Azure Portal의 Personalizer 리소스에 대한 **구성** 페이지에서 모델 업데이트 빈도 변경
 * 코드 편집기에서 코드 파일을 만들고 코드 파일을 편집합니다.
 * 명령줄 또는 터미널의 명령줄에서 SDK 설치
 * 명령줄 또는 터미널에서 코드 파일 실행
@@ -90,7 +90,7 @@ npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 
 ## <a name="change-the-model-update-frequency"></a>모델 업데이트 빈도 변경
 
-Azure Portal의 **설정 페이지**에 있는 Personalizer 리소스에서 **모델 업데이트 빈도**를 10초로 변경합니다. 이렇게 하면 서비스가 빠르게 학습되어 각 반복에 대한 상위 작업이 변경되는 상태를 확인할 수 있습니다.
+Azure Portal의 **구성** 페이지에 있는 Personalizer 리소스에서 **모델 업데이트 빈도**를 10초로 변경합니다. 이렇게 하면 서비스가 빠르게 학습되어 각 반복에 대한 상위 작업이 변경되는 상태를 확인할 수 있습니다.
 
 ![모델 업데이트 빈도 변경](./media/settings/configure-model-update-frequency-settings.png)
 

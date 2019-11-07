@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1b8bdde64ee003d93ad15df8f1d4d8b1e3a2b5f9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 32aa2c8f4c97f247bfcff5fc82a3f810b8005591
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814350"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73488561"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
 
@@ -54,16 +54,17 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
-1. Azure Portal에서 **+리소스 만들기**를 클릭하고, Marketplace에서 **복구**를 검색합니다.
-2. **Backup 및 Site Recovery**를 클릭하고, Backup 및 Site Recovery 페이지에서 **만들기**를 클릭합니다. 
-1. **Recovery Services 자격 증명 모음** > **이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이 자습서의 집합의 경우 **ContosoVMVault**를 사용합니다.
-2. 기존 **리소스 그룹**을 선택하거나 새 리소스 그룹을 만듭니다. 이 자습서에서는 **contosoRG**를 사용합니다.
-3. **위치**에서 자격 증명 모음을 배치할 지역을 선택합니다. **유럽 서부**를 사용합니다.
-4. 대시보드에서 자격 증명 모음에 빠르게 액세스하려면 **대시보드에 고정** > **만들기**를 선택합니다.
+1. Azure Portal 메뉴에서 **리소스 만들기**를 선택하고, Marketplace에서 **복구**를 검색합니다.
+2. 검색 결과에서 **Backup 및 Site Recovery**를 클릭하고, Backup 및 Site Recovery 페이지에서 **만들기**를 클릭합니다. 
+3. **Recovery Services 자격 증명 모음 만들기** 페이지에서 **구독**을 선택합니다. 지금은 **Contoso 구독**을 사용하고 있습니다.
+4. 기존 **리소스 그룹**을 선택하거나 새 리소스 그룹을 만듭니다. 이 자습서에서는 **contosoRG**를 사용합니다.
+5. **자격 증명 모음 이름**에 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이 자습서의 집합의 경우 **ContosoVMVault**를 사용합니다.
+6. **지역**에서 자격 증명 모음을 배치할 지역을 선택합니다. **유럽 서부**를 사용합니다.
+7. **검토 + 만들기**를 선택합니다.
 
    ![새 자격 증명 모음 만들기](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-   새 자격 증명 모음이 **대시보드** > **모든 리소스** 및 주 **Recovery Services 자격 증명 모음** 페이지에 표시됩니다.
+   이제 **대시보드** > **모든 리소스**와 주 **Recovery Services 자격 증명 모음** 페이지에 새 자격 증명 모음이 표시됩니다.
 
 ## <a name="set-up-an-azure-network"></a>Azure 네트워크를 설정합니다
 
@@ -72,16 +73,17 @@ Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 관리자
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 선택합니다.
 2. 배포 모델로 선택되어 있는 **리소스 관리자**를 유지합니다.
 3. **이름**에 네트워크 이름을 입력합니다. 이름은 Azure 리소스 그룹 내에서 고유해야 합니다. 이 자습서에서는 **ContosoASRnet**을 사용합니다.
-4. 네트워크를 만들 리소스 그룹을 지정합니다. 기존 리소스 그룹인 **contosoRG**를 사용합니다.
-5. **주소 범위**에 네트워크 범위를 입력합니다. 여기서는 **10.1.0.0/24**를 사용하고 서브넷은 사용하지 않습니다.
-6. **구독**에서 네트워크를 만드는 데 사용할 구독을 선택합니다.
+4. **주소 공간**에 가상 네트워크의 주소 범위를 CDR 표기법으로 입력합니다. 현재 **10.1.0.0/24**를 사용하고 있습니다.
+5. **구독**에서 네트워크를 만드는 데 사용할 구독을 선택합니다.
+6. 네트워크를 만들 **리소스 그룹**을 지정합니다. 기존 리소스 그룹인 **contosoRG**를 사용합니다.
 7. **위치**에서 Recovery Services 자격 증명 모음이 생성된 지역과 동일한 지역을 선택합니다. 이 자습서에서는 **서유럽**입니다. 네트워크는 자격 증명 모음과 동일한 지역에 있어야 합니다.
-8. 네트워크에 서비스 엔드포인트가 없는 기본 DDoS 보호의 기본 옵션을 그대로 둡니다.
-9. **만들기**를 클릭합니다.
+8. **주소 범위**에 네트워크 범위를 입력합니다. 여기서는 **10.1.0.0/24**를 사용하고 서브넷은 사용하지 않습니다.
+9. 네트워크에 서비스 엔드포인트 또는 방화벽이 없는 기본 DDoS 보호의 기본 옵션을 그대로 둡니다.
+9. **만들기**를 선택합니다.
 
    ![가상 네트워크 만들기](media/tutorial-prepare-azure/create-network.png)
 
-가상 네트워크를 만드는 데 몇 초 정도 걸립니다. 만들어지면 Azure Portal 대시보드에 표시됩니다.
+가상 네트워크를 만드는 데 몇 초 정도 걸립니다. 가상 네트워크가 만들어지면 Azure Portal 대시보드에 표시됩니다.
 
 
 

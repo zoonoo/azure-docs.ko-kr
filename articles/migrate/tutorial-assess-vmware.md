@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/12/2019
+ms.date: 10/11/2019
 ms.author: hamusa
-ms.openlocfilehash: 04162f074dba05ac6492c16acb446912296cd673
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952090"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73521248"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Azure Migrate를 사용하여 VMware VM 평가: 서버 평가
 
@@ -104,7 +104,7 @@ Azure Migrate: 서버 평가는 경량 VMware VM 어플라이언스를 실행합
 2. 다음 명령을 실행하여 OVA에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 2\.19.07.30 버전의 경우 생성된 해시는 다음 값과 일치해야 합니다. 
+3. 2\.19.07.30 버전의 경우 생성된 해시는 다음 값과 일치해야 합니다.
 
   **알고리즘** | **해시 값**
   --- | ---
@@ -166,17 +166,30 @@ Azure Migrate: 서버 평가는 경량 VMware VM 어플라이언스를 실행합
 3. 어플라이언스의 이름을 지정합니다. 이름은 14자 이하의 영숫자여야 합니다.
 4. **등록**을 클릭합니다.
 
-
 ## <a name="start-continuous-discovery"></a>연속 검색 시작
 
-이제 어플라이언스에서 vCenter Server에 연결하고, VM 검색을 시작합니다.
+어플라이언스는 VM의 구성 및 성능 데이터를 검색하기 위해 vCenter Server에 연결해야 합니다.
 
+### <a name="specify-vcenter-server-details"></a>vCenter Server 세부 정보 지정
 1. **vCenter Server 세부 정보 지정**에서 vCenter Server의 이름(FQDN) 또는 IP 주소를 지정합니다. 기본 포트를 그대로 유지하거나 vCenter Server에서 수신하는 사용자 지정 포트를 지정할 수 있습니다.
 2. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server에서 VM을 검색하는 데 사용할 읽기 전용 계정 자격 증명을 지정합니다. 계정에 [필요한 검색 권한](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)이 있는지 확인합니다. 이에 따라 vCenter 계정에 대한 액세스를 제한하여 검색 범위를 지정할 수 있습니다. 검색 범위를 지정하는 방법에 대한 자세한 내용은 [여기](tutorial-assess-vmware.md#scoping-discovery)를 참조하세요.
 3. **연결 유효성 검사**를 클릭하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
-4. 연결이 설정되면 **저장 및 검색 시작**을 클릭합니다.
 
-그러면 검색을 시작합니다. 검색된 VM의 메타데이터가 포털에 표시되는 데 약 15분이 걸립니다.
+### <a name="specify-vm-credentials"></a>VM 자격 증명 지정
+애플리케이션, 역할 및 기능을 검색하고 VM의 종속성을 시각화하는 경우 VMware VM에 대한 액세스 권한이 있는 VM 자격 증명을 제공할 수 있습니다. Windows VM용 자격 증명과 Linux VM용 자격 증명을 각각 1개씩 추가할 수 있습니다. 필요한 액세스 권한에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions).
+
+> [!NOTE]
+> 이 입력은 선택 사항이며 애플리케이션 검색 및 에이전트 없는 종속성 시각화를 사용하도록 설정하는 데 필요합니다.
+
+1. **VM에서 애플리케이션 및 종속성 검색** 에서 **자격 증명 추가**를 클릭합니다.
+2. **운영 체제**를 선택합니다.
+3. 자격 증명의 이름을 제공합니다.
+4. **사용자 이름** 및 **암호**에서 VM에 대해 게스트 액세스 권한이 있는 계정을 지정합니다.
+5. **추가**를 클릭합니다.
+
+vCenter Server 및 VM 자격 증명(선택 사항)을 지정한 후에는 **저장 및 검색 시작**을 클릭하여 온-프레미스 환경의 검색을 시작합니다.
+
+검색된 VM의 메타데이터가 포털에 표시되는 데 약 15분이 걸립니다. 설치된 애플리케이션, 역할 및 기능을 검색하는 데 다소 시간이 소요되며, 기간은 검색되는 VM의 수에 따라 달라집니다. VM이 500개 있는 경우 애플리케이션 인벤토리가 Azure Migrate 포털에 표시되는 데 약 1시간이 걸립니다.
 
 ### <a name="scoping-discovery"></a>검색 범위 지정
 
@@ -205,18 +218,18 @@ Azure Migrate: 서버 평가는 경량 VMware VM 어플라이언스를 실행합
 **vCenter 개체에 대한 권한 할당**
 
 역할이 할당되어 있는 vCenter 사용자 계정에 vCenter의 인벤토리 개체에 대한 권한을 할당하는 방법은 2가지입니다.
-- 서버 평가의 경우, 검색할 VM이 호스팅되는 모든 부모 개체의 vCenter 사용자 계정에 **읽기 전용** 역할을 적용해야 합니다. 데이터 센터까지의 계층 구조에 있는 모든 부모 개체(호스트, 호스트 폴더, 클러스터, 클러스터 폴더)가 포함됩니다. 이러한 권한은 계층 구조의 자식 개체로 전파됩니다. 
+- 서버 평가의 경우, 검색할 VM이 호스팅되는 모든 부모 개체의 vCenter 사용자 계정에 **읽기 전용** 역할을 적용해야 합니다. 데이터 센터까지의 계층 구조에 있는 모든 부모 개체(호스트, 호스트 폴더, 클러스터, 클러스터 폴더)가 포함됩니다. 이러한 권한은 계층 구조의 자식 개체로 전파됩니다.
 
     마찬가지로 서버 마이그레이션의 경우, 이러한 [권한](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)이 할당되어 있는 사용자 정의 역할(<em>Azure _Migrate</em>이라고 할 수 있음)을 마이그레이션할 VM이 호스팅되는 모든 부모 개체의 vCenter 사용자 계정에 적용해야 합니다.
 
 ![권한 할당](./media/tutorial-assess-vmware/assign-perms.png)
 
 - 대안으로 데이터 센터 수준에서 사용자 계정 및 역할을 할당하고 자식 개체에 전파하는 것이 있습니다. 그런 다음, 이러한 계정은 검색/마이그레이션하지 않을 모든 개체(예: VM)에 대해 **액세스 못함** 역할을 부여합니다. 이 구성은 복잡합니다. 모든 새로운 자식 개체에게는 부모로부터 상속된 액세스도 자동으로 부여되므로 우발적인 액세스 제어를 공개합니다. 따라서 첫 번째 방법을 사용하는 것이 좋습니다.
- 
+
 > [!NOTE]
 > 현재 vCenter 계정에 vCenter VM 폴더 수준의 액세스 권한이 부여된 경우 서버 평가에서 VM을 검색할 수 없습니다. 검색 범위를 VM 폴더로 지정하려는 경우 vCenter 계정에 VM 수준의 읽기 전용 액세스 권한이 할당되도록 하여 검색을 수행할 수 있습니다.  이 작업을 수행하는 방법에 대한 지침은 다음과 같습니다.
 >
-> 1. 검색 범위를 지정하려는 VM 폴더의 모든 VM에 읽기 전용 권한을 할당합니다. 
+> 1. 검색 범위를 지정하려는 VM 폴더의 모든 VM에 읽기 전용 권한을 할당합니다.
 > 2. VM이 호스팅되는 모든 부모 개체에 대한 읽기 전용 액세스 권한을 부여합니다. 데이터 센터까지의 계층 구조에 있는 모든 부모 개체(호스트, 호스트 폴더, 클러스터, 클러스터 폴더)가 포함됩니다. 이 권한은 모든 자식 개체에 전파할 필요가 없습니다.
 > 3. 데이터 센터를 *컬렉션 범위*로 선택하는 검색에 대한 자격 증명을 사용합니다. RBAC를 설정하면 해당 vCenter 사용자가 테넌트별 VM에만 액세스할 수 있습니다.
 >
@@ -331,7 +344,7 @@ Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * Azure Migrate 어플라이언스 설정

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: ad0c510244c78fa3bdba41690c2284d0650c4b55
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: c82cad30fcc2aa80eea52ab13f60fc0c4da33cd1
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019334"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471332"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -218,29 +218,31 @@ Azure Active Directory를 ID 공급자로 사용합니다. 자세한 내용은 [
 
 ### <a name="enable-authentication-and-authorization-for-back-end-app"></a>백 엔드 앱에 대한 인증 및 권한 부여 사용
 
-[Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **리소스 그룹** > **myAuthResourceGroup** >  **_\<back-end-app-name>_** 을 클릭하여 백 엔드 앱의 관리 페이지를 엽니다.
+1. *Azure Portal* 메뉴에서 [리소스 그룹](https://portal.azure.com)을 선택하거나 검색하여 어느 페이지에서든 **리소스 그룹**을 선택합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
+1. **리소스 그룹**에서 리소스 그룹을 찾아 선택합니다. **개요**에서 백 엔드 앱의 관리 페이지를 선택합니다.
 
-백 엔드 앱의 왼쪽 메뉴에서 **인증/권한 부여**을 클릭한 다음 **설정**을 클릭하여 App Service 인증을 사용하도록 설정합니다.
+   ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/portal-navigate-back-end.png)
 
-**요청이 인증되지 않은 경우 수행할 작업**에서 **Azure Active Directory로 로그인**을 선택합니다.
+1. 백 엔드 앱의 왼쪽 메뉴에서 **인증/권한 부여**을 선택하고 **설정**을 선택하여 App Service 인증을 사용하도록 설정합니다.
 
-**인증 공급자** 아래에서 **Azure Active Directory**를 클릭합니다. 
+1. **요청이 인증되지 않은 경우 수행할 작업**에서 **Azure Active Directory로 로그인**을 선택합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
+1. **인증 공급자**에서 **Azure Active Directory**를 선택합니다. 
 
-**기본**을 클릭한 다음 기본 설정을 그대로 사용하여 새 AD 앱을 만들고 **확인**을 클릭합니다.
+   ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/configure-auth-back-end.png)
 
-**인증/권한 부여** 페이지에서 **저장**을 클릭합니다. 
+1. **기본**을 선택하고 기본 설정을 그대로 사용하여 새 AD 앱을 만든 후 **확인**을 선택합니다.
 
-`Successfully saved the Auth Settings for <back-end-app-name> App` 메시지가 포함된 알림이 표시되면 페이지를 새로 고칩니다.
+1. **인증/권한 부여** 페이지에서 **저장**을 선택합니다.
 
-**Azure Active Directory**를 다시 클릭한 다음, **Azure AD 앱**을 클릭합니다.
+   `Successfully saved the Auth Settings for <back-end-app-name> App` 메시지가 포함된 알림이 표시되면 페이지를 새로 고칩니다.
 
-Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
+1. **Azure Active Directory**를 다시 선택한 다음, **Azure AD 앱**을 선택합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
+1. Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합니다. 이 값은 나중에 필요합니다.
+
+   ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/get-application-id-back-end.png)
 
 ### <a name="enable-authentication-and-authorization-for-front-end-app"></a>프런트 엔드 앱에 대한 인증 및 권한 부여 사용
 
@@ -259,15 +261,17 @@ Azure AD 애플리케이션의 **클라이언트 ID**를 메모장에 복사합�
 
 두 앱에 대해 인증 및 권한 부여를 사용하도록 설정했으므로 각 앱은 AD 애플리케이션으로 지원됩니다. 이 단계에서는 프런트 엔드 앱에 사용자 대신 백 엔드 액세스 권한을 부여합니다. (기술적으로 프런트 엔드의 _AD 애플리케이션_ 에 사용자를 대신하여 백 엔드의 _AD 애플리케이션_ 에 액세스할 수 있는 권한을 부여합니다.)
 
-포털의 왼쪽 메뉴에서 **Azure Active Directory** > **앱 등록** > **소유 애플리케이션** >  **\<front-end-app-name>**  > **API 권한**을 선택합니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴에서 **Azure Active Directory**를 선택하거나 아무 페이지에서 *Azure Active Directory*를 검색한 후 선택합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
+1. **앱 등록** > **소유한 애플리케이션**을 선택합니다. 프런트 엔드 앱 이름을 선택하고 **API 사용 권한**을 선택합니다.
 
-**권한 추가**를 선택한 다음, **내 API** >  **\<back-end-app-name>** 을 선택합니다.
+   ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/add-api-access-front-end.png)
 
-백 엔드 앱에 대한 **API 권한 요청** 페이지에서 **위임된 권한** 및 **user_impersonation**를 선택한 다음, **권한 추가**를 선택합니다.
+1. **권한 추가**를 선택한 다음, **내 API** >  **\<back-end-app-name>** 을 선택합니다.
 
-![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
+1. 백 엔드 앱에 대한 **API 권한 요청** 페이지에서 **위임된 권한** 및 **user_impersonation**를 선택한 다음, **권한 추가**를 선택합니다.
+
+   ![Azure App Service에서 실행되는 ASP.NET Core API](./media/app-service-web-tutorial-auth-aad/select-permission-front-end.png)
 
 ### <a name="configure-app-service-to-return-a-usable-access-token"></a>사용 가능한 액세스 토큰을 반환하도록 App Service 구성
 

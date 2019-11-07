@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9e51249bdcfa3cf506700cd3032b1ca39b773d82
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7c31c04137a8d36adfe41a18cbc276a45483b05b
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73102360"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467169"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>액세스 제어 정책을 사용하여 Key Vault 인증 제공
 
@@ -162,7 +162,7 @@ Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys
 
 Azure AD 그룹을 만들고, 애플리케이션과 사용자를 그룹에 추가하고, 키 자격 증명 모음에 대한 액세스 권한을 그룹에 부여할 수 있습니다.  이렇게 하면 여러 애플리케이션을 단일 액세스 정책 항목으로 키 자격 증명 모음에 추가할 수 있으며, 사용자가 키 자격 증명 모음에 직접 액세스(추천되지 않음)할 필요가 없습니다. 자세한 내용은 [Azure Active Directory 그룹을 사용하여 앱 및 리소스 액세스 관리](../active-directory/fundamentals/active-directory-manage-groups.md)를 참조하세요.
 
-### <a name="addition-prerequisites"></a>추가 필수 조건
+### <a name="additional-prerequisites"></a>추가 필수 조건
 
 [위의 필수 조건](#prerequisites) 외에도 Azure Active Directory 테넌트에서 그룹을 만들거나 편집할 수 있는 권한이 필요합니다. 권한이 없는 경우 Azure Active Directory 관리자에게 문의합니다.
 

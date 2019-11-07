@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d2eeada500de0f174178234ab92b51bcf16b3502
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 61b4f41a0b36945413e45a357a5ca73ac75ceb98
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176740"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73480128"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
-이 문서에서는 [Azure Migrate 서버 마이그레이션](migrate-services-overview.md#azure-migrate-server-migration)을 사용하여 Azure로 마이그레이션하기 전에 온-프레미스 및 클라우드 기반 머신을 준비하는 방법에 대해 설명합니다.
+이 문서에서는 [Azure Migrate 서버 마이그레이션](migrate-services-overview.md#azure-migrate-server-migration-tool)을 사용하여 Azure로 마이그레이션하기 전에 온-프레미스 머신을 준비하는 방법에 대해 설명합니다.
 
 
 이 문서에서는 다음 작업을 수행합니다.

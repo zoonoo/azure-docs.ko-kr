@@ -1,5 +1,5 @@
 ---
-title: '자습서: IntelliJ를 사용한 Spark용 Scala Maven 애플리케이션 - Azure HDInsight'
+title: '자습서: Spark 및 IntelliJ용 Scala Maven 앱 - Azure HDInsight'
 description: 자습서 - Apache Maven을 빌드 시스템으로 사용하여 Scala에서 작성된 Spark 애플리케이션 및 IntelliJ IDEA에서 제공하는 Scala에 대한 기존 Maven 원형을 만듭니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
-ms.openlocfilehash: 667590120bba4676cbedf3d3bb2ff08e31656e1d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 156892a4785bf1644d29b82e98c3b2ae202c5a49
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71147014"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494701"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>자습서: IntelliJ를 사용하여 HDInsight의 Apache Spark용 Scala Maven 애플리케이션 만들기
 

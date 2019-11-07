@@ -9,15 +9,16 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 08/21/2019
-ms.openlocfilehash: f08f2f07137e518925ee4dbe9b128e100be870c9
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 11/04/2019
+ms.openlocfilehash: a7bd735a808532ed0e61cf42dca2d7a797092487
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003972"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73493700"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측
+[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 자습서에서는 Azure Machine Learning의 자동화된 기계 학습을 사용하여 NYC 택시 요금 가격을 예측하는 회귀 모델을 만듭니다. 이 프로세스는 학습 데이터 및 구성 설정을 적용하며 다양한 기능 정규화/표준화 메서드, 모델 및 하이퍼 매개 변수 설정의 결합을 자동으로 반복하여 최선의 모델에 도달합니다.
 
@@ -891,14 +892,15 @@ x_train, x_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, r
 
 ### <a name="define-training-settings"></a>학습 설정 정의
 
-학습을 위해 실험 매개 변수 및 모델 설정을 정의합니다. [설정](how-to-configure-auto-train.md)의 전체 목록을 확인합니다. 이러한 기본 설정을 사용하여 실험을 제출하는 데 약 5~10분이 걸리지만 짧은 실행 시간을 원하는 경우 `iterations` 매개 변수를 줄입니다.
+학습을 위해 실험 매개 변수 및 모델 설정을 정의합니다. [설정](how-to-configure-auto-train.md)의 전체 목록을 확인합니다. 이러한 기본 설정을 사용하여 실험을 제출하는 데 약 5~20분이 걸리지만 짧은 실행 시간을 원하는 경우 `experiment_timeout_minutes` 매개 변수를 줄입니다.
 
 |자산| 이 자습서의 값 |설명|
 |----|----|---|
 |**iteration_timeout_minutes**|2|각 반복에 대한 분 단위 시간 제한 총 런타임을 줄이기 위해 이 값을 줄입니다.|
-|**iterations**|20|반복 횟수입니다. 각 반복에서 데이터를 사용하여 새 기계 학습 모델을 학습합니다. 총 실행 시간에 영향을 주는 기본 값입니다.|
+|**experiment_timeout_minutes**|20|실험을 종료하기까지 모든 반복 조합에 소요되는 최대 시간(분)입니다.|
+|**enable_early_stopping**|True|점수가 단기간에 개선되지 않는 경우 조기 종료를 설정하는 플래그입니다.|
 |**primary_metric**| spearman_correlation | 최적화하려는 메트릭입니다. 이 메트릭에 따라 최적화된 모델이 선택됩니다.|
-|**preprocess**| True | **True**를 사용하여 실험은 입력 데이터를 전처리할 수 있습니다(누락 데이터 처리, 텍스트를 숫자로 변환 등).|
+|**기능화**| auto | **auto**를 사용하면 실험은 입력 데이터를 전처리할 수 있습니다(누락 데이터 처리, 텍스트를 숫자로 변환 등).|
 |**verbosity**| logging.INFO | 로깅 수준을 제어합니다.|
 |**n_cross_validations**|5|유효성 검사 데이터가 지정되지 않은 경우 수행할 교차 유효성 검사 분할 수입니다.|
 
@@ -907,9 +909,10 @@ import logging
 
 automl_settings = {
     "iteration_timeout_minutes": 2,
-    "iterations": 20,
+    "experiment_timeout_minutes": 20,
+    "enable_early_stopping": True,
     "primary_metric": 'spearman_correlation',
-    "preprocess": True,
+    "featurization": 'auto',
     "verbosity": logging.INFO,
     "n_cross_validations": 5
 }
@@ -1057,16 +1060,11 @@ print(1 - mean_abs_percent_error)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-다른 Azure Machine Learning 자습서를 실행할 계획이라면 이 섹션을 완료하지 마세요.
+다른 Azure Machine Learning 자습서를 실행하려면 이 섹션을 완료하지 마세요.
 
-### <a name="stop-the-notebook-vm"></a>Notebook VM 중지
+### <a name="stop-the-compute-instance"></a>컴퓨팅 인스턴스 중지
 
-클라우드 Notebook 서버를 사용한 경우 비용을 줄이기 위해 VM을 사용하지 않을 때는 해당 VM을 중지합니다.
-
-1. 작업 영역에서 **Notebook VM**을 선택합니다.
-1. 목록에서 VM을 선택합니다.
-1. **중지**를 선택합니다.
-1. 서버를 다시 사용할 준비가 되면 **시작**을 선택합니다.
+[!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 
 ### <a name="delete-everything"></a>모든 항목 삭제
 

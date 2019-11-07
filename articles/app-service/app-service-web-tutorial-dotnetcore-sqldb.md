@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9a4d4f84626eafdfbc5cc21eef1968a9ed64fcad
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a52a842bbd8ba9d8b22cdcf6792ec7e45a06e964
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "71055622"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73471132"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
@@ -408,13 +408,15 @@ ASP.NET Core 로그를 사용자 지정하는 방법은 [ASP.NET Core에서 로�
 
 ## <a name="manage-your-azure-app"></a>Azure 앱 관리
 
-[Azure Portal](https://portal.azure.com)로 이동하여 만든 앱을 확인합니다.
+만든 앱을 보려면 [Azure Portal](https://portal.azure.com)에서 **App Services**를 검색하여 선택합니다.
 
-왼쪽 메뉴에서 **App Services**를 클릭한 다음, Azure 앱의 이름을 클릭합니다.
+![Azure Portal에서 App Services 선택](./media/app-service-web-tutorial-dotnetcore-sqldb/app-services.png)
+
+**App Services** 페이지에서 Azure 앱의 이름을 선택합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 
-기본적으로 포털에 앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에 있는 탭에서는 열 수 있는 여러 구성 페이지를 보여 줍니다.
+기본적으로 포털에 앱의 **개요** 페이지가 표시됩니다. 이 페이지에서는 앱이 어떻게 작동하고 있는지를 보여 줍니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다. 페이지의 왼쪽에는 열 수 있는 여러 구성 페이지가 표시됩니다.
 
 ![Azure Portal의 App Service 페이지](./media/app-service-web-tutorial-dotnetcore-sqldb/web-app-blade.png)
 

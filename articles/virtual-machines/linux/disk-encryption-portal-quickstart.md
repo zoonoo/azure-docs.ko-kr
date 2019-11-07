@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.service: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 83446d30de17973352e836d6107ad545b2da63e3
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: a480e459fdbbf135b00ee46d1513eddb0f36e09e
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72550321"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73479617"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 머신 만들기 및 암호화
 
@@ -56,7 +56,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 새로 만들기 페이지의 인기에서 **Ubuntu Server 18.04 LTS**를 선택합니다.
 1. **기본** 탭의 **프로젝트 세부 정보**에서 올바른 구독이 선택되어 있는지 확인합니다.
 1. **리소스 그룹**의 경우 위의 Key Vault를 만들 때 만든 리소스 그룹을 선택합니다(예: **myResourceGroup**).
-1. **가상 머신 이름**에 대해 *MyVM*을 입력하고 선택합니다. 
+1. **가상 머신 이름**에 대해 *MyVM*을 입력합니다.
 1. **영역**의 경우 위의 Key Vault를 만들 때 사용한 것과 동일한 영역을 선택합니다(예: **미국 동부**).
 1. **크기**가 *표준 D2s v3*인지 확인합니다.
 1. **관리자 계정**에서 **암호**를 선택합니다. 사용자 이름 및 암호를 입력합니다.
