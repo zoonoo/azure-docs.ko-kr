@@ -4,12 +4,12 @@ ms.date: 10-19-2019
 ms.topic: hub-page
 title: Speech Service 설명서
 description: Speech Service를 시작합니다.
-ms.openlocfilehash: 0a878e3ad736347e61ea62aed96a15a1c2167a4a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0a07125764908b661216c20279ab4bdf80ae91ca
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508094"
+ms.locfileid: "73580325"
 ---
 <div id="main" class="v2">    
     <div class="container">
@@ -560,32 +560,13 @@ ms.locfileid: "73508094"
                                 </a>
                             </li>
                             <li>
-                                <a href="https://aka.ms/speech/va-no-code">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_conversational_agent.jpg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>도우미 작성(코드 필요 없음)</h3>
-                                                    <p>코드 줄을 작성하지 않고 음성 사용 도우미를 만듭니다.</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>          
-                            <li>
                                 <a href="https://aka.ms/speech/va-bot-framework">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage bgdAccent1">
-                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                        <img src="media/hub/speech_conversational_agent.jpg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -596,7 +577,26 @@ ms.locfileid: "73508094"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
+                            <li>
+                                <a href="https://aka.ms/speech/va-no-code">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>사용자 지정 명령 사용</h3>
+                                                    <p>언어 이해 및 오류 수정을 통해 간단하고 강력한 명령을 빌드하고 상호 작용을 제어하는 방법을 알아봅니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -748,7 +748,7 @@ ms.locfileid: "73508094"
                                 </a>
                             </li>
                             <li>
-                                <a href="https://aka.ms/speech/custom-tts-overview">
+                                <a href="https://aka.ms/speech/custom-tts-audio-content-creation">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
