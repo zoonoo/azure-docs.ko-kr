@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/07/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 8d8f796fa7db9cab5bcac88a293dd1b98707a571
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8c3c0574389fc9808af3cd70c928ede82d375076
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025765"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720717"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -36,7 +36,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 > * Azure Portal에서 예산 만들기
 > * 예산 편집
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 예산은 다양한 유형의 Azure 계정에 대해 지원됩니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 예산을 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다.
 
@@ -52,7 +52,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+- [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure Portal에서 예산 만들기
 
@@ -78,7 +78,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ![월별 비용 데이터로 예산 생성을 보여 주는 예 ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-예산 금액을 구성한 후 **다음** 을 클릭 하 여 예산 경고를 구성 합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다. 예산 임계값이 충족 되 면 전자 메일 알림은 일반적으로 20 시간 이내에 수신 됩니다. 알림에 대한 자세한 내용은 [비용 경고 사용](cost-mgt-alerts-monitor-usage-spending.md)을 참조하세요. 아래 예제에서는 예산의 90%에 도달 하면 전자 메일 경고가 생성 됩니다.
+예산 금액을 구성한 후 **다음** 을 클릭 하 여 예산 경고를 구성 합니다. 예산은 1개 이상의 비용 임계값(예산의 %) 및 해당하는 이메일 주소가 필요합니다. 필요에 따라 단일 예산에 최대 5개의 임계값과 5개의 이메일 주소를 포함할 수 있습니다. 예산 임계값이 충족 되 면 전자 메일 알림은 일반적으로 20 시간 이내에 수신 됩니다. 알림에 대한 자세한 내용은 [비용 경고 사용](cost-mgt-alerts-monitor-usage-spending.md)을 참조하세요. 아래 예제에서는 예산의 90%에 도달 하면 전자 메일 경고가 생성 됩니다. 예산 API를 사용 하 여 예산을 만드는 경우 사용자에 게 경고를 받을 역할을 할당할 수도 있습니다. 사용자에 게 역할 할당은 Azure Portal 지원 되지 않습니다. Azure 예산 API에 대 한 자세한 내용은 [예산 api](/rest/api/consumption/budgets)를 참조 하세요.
 
 ![경고 조건을 보여 주는 예제](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 
@@ -112,9 +112,11 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ![다양 한 작업 그룹 및 동작 유형을 사용 하 여 구성 된 경고 조건을 보여 주는 예제](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
+작업 그룹에 대 한 예산 통합은 공통 경고 스키마를 사용 하지 않는 작업 그룹에 대해서만 작동 합니다. 스키마를 사용 하지 않도록 설정 하는 방법에 대 한 자세한 내용은 [일반적인 경고 스키마 사용 어떻게 할까요?](../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) 을 참조 하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아보았습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 예산 만들기

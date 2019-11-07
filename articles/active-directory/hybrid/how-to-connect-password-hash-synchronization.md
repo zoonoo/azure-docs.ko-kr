@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcc704e7027903a1ede14c787a64c35d6b5fd9c0
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1d8caafe312c123a9d572e9a5f4c5cf64a05f7ea
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373472"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721047"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -32,7 +32,7 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 암호 해시 동기화 과정의 실제 데이터 흐름은 사용자 데이터의 동기화와 비슷합니다. 그러나 암호는 다른 특성에 대한 표준 디렉터리 동기화 창보다 더 자주 동기화됩니다. 암호 해시 동기화 프로세스는 2분마다 실행됩니다. 이 프로세스의 빈도를 수정할 수 없습니다. 암호를 동기화할 경우 기존 클라우드 암호를 덮어씁니다.
 
-암호 해시 동기화 기능을 사용하도록 처음으로 설정하면 범위 내 모든 사용자 암호에 대한 초기 동기화를 수행합니다. 동기화할 사용자 암호의 하위 집합을 명시적으로 정의할 수 없습니다.
+암호 해시 동기화 기능을 사용하도록 처음으로 설정하면 범위 내 모든 사용자 암호에 대한 초기 동기화를 수행합니다. 동기화할 사용자 암호의 하위 집합을 명시적으로 정의할 수 없습니다. 그러나 커넥터가 여러 개인 경우에는 일부 커넥터에 대해서는 암호 해시 동기화를 사용 하지 않도록 설정할 수 있지만, 다른 커넥터에는 암호 해시 동기화를 사용 하지 않도록 [설정할](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) 수 있습니다.
 
 온-프레미스 암호를 변경하면, 업데이트된 암호는 대개 몇 분 내에 동기화됩니다.
 암호 해시 동기화 기능은 실패한 사용자 암호 동기화를 자동으로 다시 시도합니다. 암호를 동기화하는 동안 오류가 발생하면 이벤트 뷰어에 오류가 기록됩니다.
@@ -102,7 +102,7 @@ EnforceCloudPasswordPolicyForPasswordSyncedUsers 기능을 사용 하도록 설�
 
 `Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers  $true`
 
-사용 하도록 설정 되 면 Azure AD는 동기화 된 각 사용자로 이동 하지 않으므로 PasswordPolicies 특성에서 `DisablePasswordExpiration` 값을 제거 합니다. 대신, 사용자가 온-프레미스 AD에서 다음 암호를 변경할 때 각 사용자에 대 한 다음 암호 동기화 중에 값이 `None`으로 설정 됩니다.  
+사용 하도록 설정 되 면 Azure AD는 동기화 된 각 사용자로 이동 하지 않으므로 PasswordPolicies 특성에서 `DisablePasswordExpiration` 값을 제거 합니다. 대신, 다음에 온-프레미스 AD에서 암호를 변경할 때 각 사용자에 대 한 다음 암호 동기화 중에 값이 `None`로 설정 됩니다.  
 
 암호 해시 동기화를 사용 하도록 설정 하기 전에 EnforceCloudPasswordPolicyForPasswordSyncedUsers를 사용 하도록 설정 하 여 암호 해시의 초기 동기화에서 사용자의 PasswordPolicies 특성에 `DisablePasswordExpiration` 값을 추가 하지 않도록 하는 것이 좋습니다.
 

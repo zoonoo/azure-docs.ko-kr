@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 1186fec8d50d7e986d1c613cd96f741c34ca181a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.date: 11/05/2019
+ms.openlocfilehash: 65e9e6235fd974a7731fa5e86322793f1b680ad9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372609"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721331"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
 
@@ -78,7 +78,7 @@ Digital Twins 개체 모델은 다음과 같은 주요 범주를 지원합니다
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| name | 다음 항목으로 교체 |
+| Name | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 인스턴스의 이름 |
 | YOUR_LOCATION | 인스턴스를 호스팅하는 서버 지역 |

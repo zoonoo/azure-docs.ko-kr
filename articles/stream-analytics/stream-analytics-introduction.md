@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: c50ad2b045f32daf53033318123b68e4b2d58db5
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 0982cc90d26c9f04e8d547c7d634e09280d7fca2
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329330"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73467906"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Azure Stream Analytics란?
 
@@ -61,7 +61,7 @@ Azure Stream Analytics는 강력한 임시 제약 조건으로 강화된 간단�
 
 Stream Analytics 쿼리 언어는 스트리밍 데이터를 분석하고 처리하기 위한 다양한 배열의 함수를 제공합니다. 이 쿼리 언어는 간단한 데이터 조작, 집계 함수 및 복잡한 지리 공간적 함수를 지원합니다. 포털에서 쿼리를 편집하고 라이브 스트림에서 추출된 샘플 데이터를 사용하여 테스트할 수 있습니다.
 
-추가 함수를 정의하고 호출하여 쿼리 언어의 기능을 확장할 수 있습니다. Azure Machine Learning Service에서 함수 호출을 정의하여 Azure Machine Learning 솔루션을 활용하고, JavaScript/C# UDF(사용자 정의 함수) 또는 사용자 정의 집계를 통합하여 Stream Analytics 쿼리의 일환으로 복잡한 계산을 수행할 수 있습니다.
+추가 함수를 정의하고 호출하여 쿼리 언어의 기능을 확장할 수 있습니다. Azure Machine Learning에서 함수 호출을 정의하여 Azure Machine Learning 솔루션을 활용하고, JavaScript/C# UDF(사용자 정의 함수) 또는 사용자 정의 집계를 통합하여 Stream Analytics 쿼리의 일환으로 복잡한 계산을 수행할 수 있습니다.
 
 ## <a name="fully-managed"></a>완전히 관리
 

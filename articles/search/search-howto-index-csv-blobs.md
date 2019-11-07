@@ -1,7 +1,7 @@
 ---
-title: Azure Cognitive Search Blob 인덱서를 사용 하 여 CSV blob 인덱싱
+title: DelimitedText 구문 분석 모드를 사용 하 여 CSV blob 인덱싱 (미리 보기)
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 인덱스를 사용 하 여 전체 텍스트 검색을 위해 Azure Blob storage에서 CSV blob을 탐색 합니다. 인덱서는 Azure Blob Storage와 같은 선택된 데이터 원본에 대해 데이터 수집을 자동화합니다.
+description: 현재 공개 미리 보기로 제공 되는 delimitedText 구문 분석 모드를 사용 하 여 Azure Blob storage에서 CSV를 추출 하 고 가져옵니다.
 manager: nitinme
 author: mgottein
 ms.author: magottei
@@ -9,18 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 18d0eb704deba80bf83b5cae0a598f47181700f7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4edeb8d535504c305319aad35637bb1b09f65984
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793774"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719241"
 ---
-# <a name="how-to-index-csv-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 Blob 인덱서를 사용 하 여 CSV blob을 인덱싱하는 방법 
+# <a name="how-to-index-csv-blobs-using-delimitedtext-parsing-mode-and-blob-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 delimitedText 구문 분석 모드 및 Blob 인덱서를 사용 하 여 CSV blob을 인덱싱하는 방법 
 
-> [!Note]
-> delimitedText 구문 분석 모드는 미리 보기로 제공 되며 프로덕션 용도로는 사용할 수 없습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
->
+> [!IMPORTANT] 
+> DelimitedText 구문 분석 모드는 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 현재 포털 또는 .NET SDK가 지원 되지 않습니다.
 
 기본적으로 [Azure Cognitive Search blob 인덱서](search-howto-indexing-azure-blob-storage.md) 는 분리 된 텍스트 blob을 텍스트의 단일 청크로 구문 분석 합니다. 그러나 CSV 데이터를 포함하는 Blob을 사용하는 경우 Blob의 각 줄을 별도 파일로 처리하려고 합니다. 예를 들어, 다음 구분 기호로 분리된 텍스트를 각각 "id", "datePublished" 및 "tags" 필드가 포함된 두 개의 문서로 구문 분석할 수 있습니다. 
 
@@ -28,7 +27,7 @@ ms.locfileid: "72793774"
     1, 2016-01-12, "azure-search,azure,cloud" 
     2, 2016-07-07, "cloud,mobile" 
 
-이 문서에서는 `delimitedText` 구문 분석 모드를 설정 하 여 Azure Cognitive Search blob indexerby를 사용 하 여 CSV blob을 구문 분석 하는 방법을 알아봅니다. 
+이 문서에서는 `delimitedText` 구문 분석 모드를 설정 하 여 Azure Cognitive Search blob 인덱서를 사용 하 여 CSV blob을 구문 분석 하는 방법을 설명 합니다. 
 
 > [!NOTE]
 > 일대다 [인덱싱](search-howto-index-one-to-many-blobs.md) 의 인덱서 구성 권장 사항에 따라 하나의 Azure blob에서 여러 검색 문서를 출력 합니다.
@@ -47,7 +46,7 @@ Blob이 초기 헤더 줄을 포함하지 않는 경우 헤더는 인덱서 구�
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextHeaders" : "id,datePublished,tags" } } 
 
-`delimitedTextDelimiter` 구성 설정을 사용하여 구분 기호 문자를 사용자 지정할 수 있습니다. 다음은 그 예입니다.
+`delimitedTextDelimiter` 구성 설정을 사용하여 구분 기호 문자를 사용자 지정할 수 있습니다. 예:
 
     "parameters" : { "configuration" : { "parsingMode" : "delimitedText", "delimitedTextDelimiter" : "|" } }
 

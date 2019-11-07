@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: lobrien
 ms.author: laobri
-ms.date: 05/02/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d653d1cd719ac59bf6c98bee588c41858052bc61
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 34ff3f9704b9c84a7daddcfd14fb9cd3e990f794
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489862"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716521"
 ---
 # <a name="export-or-delete-your-machine-learning-service-workspace-data"></a>Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -243,17 +243,16 @@ Azure Machine Learning에서 개인 데이터는 서비스와 일부 사용자 �
 
 1. 목록에서 삭제할 개별 파이프라인 초안을 선택 합니다.
 
-1. 아래쪽에서 **삭제**를 선택 합니다.
+1. **삭제**를 선택합니다.
 
-## <a name="unregister-data-in-the-designer"></a>디자이너에서 데이터 등록 취소
+### <a name="delete-datasets-in-the-designer"></a>디자이너에서 데이터 집합 삭제
+
+디자이너에서 데이터 집합을 삭제 하려면 Azure Portal 또는 Storage 탐색기를 사용 하 여 연결 된 저장소 계정으로 이동 하 고 여기에서 데이터 집합을 삭제 합니다. 디자이너에서 데이터 집합의 등록을 취소 하면 저장소의 참조 지점만 제거 됩니다. 
+
+## <a name="export-data-in-the-designer"></a>디자이너에서 데이터 내보내기
 
 실험을 만든 디자이너에서 추가한 데이터를 내보냅니다.
 
 1. 왼쪽에서 **데이터 집합**을 선택 합니다.
 
-
-
     ![데이터 다운로드](media/how-to-export-delete-data.md/unregister-dataset.png)
-
-1. 목록에서 개별 데이터 집합을 선택 하 고 등록 취소를 클릭 합니다.
-

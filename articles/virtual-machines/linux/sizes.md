@@ -12,27 +12,27 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/08/2019
+ms.date: 11/06/2019
 ms.author: jonbeck
-ms.openlocfilehash: 034d322b31b2704e5f9351912f46c2b0ccb0e8b8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 468ae6f249f21f04681d56c660d03a8cd7806634
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100820"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719095"
 ---
 # <a name="sizes-for-linux-virtual-machines-in-azure"></a>Azure에서 Linux 가상 머신에 대한 크기
 이 문서에서는 Linux 앱 및 워크로드를 실행하는 데 사용할 수 있는 Azure 가상 머신에 대한 크기 및 옵션을 설명합니다. 또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다.또한 이러한 리소스의 사용 계획을 세울 때 알아야 할 배포 고려 사항도 제공합니다. 이 문서는 [Windows 가상 머신](../windows/sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에도 적용됩니다.
 
 
-| 형식                     | 크기           |    Description       |
+| 형식                     | 크기           |    설명       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](sizes-general.md)          | B, Dsv3, Dv3, Dasv3, Dav3, DSv2, Dv2, Av2, DC  | CPU 대 메모리 비율이 적당합니다. 테스트 및 개발, 중소 규모 데이터베이스 및 트래픽이 적거나 중간 정도인 웹 서버에 적합합니다. |
 | [컴퓨팅 최적화](sizes-compute.md)        | Fsv2           | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 웹 서버, 네트워크 어플라이언스, 일괄 처리 프로세스 및 애플리케이션 서버에 적합합니다.        |
 | [메모리에 최적화](sizes-memory.md)         | Esv3, Ev3, Easv3, Eav3, Mv2, M, DSv2, Dv2  | 메모리 대 CPU 비율이 높습니다. 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합합니다.                 |
 | [Storage에 최적화](sizes-storage.md)        | Lsv2                | 빅 데이터, SQL, NoSQL 데이터베이스, 데이터 웨어하우징, 대형 트랜잭션 데이터베이스에 이상적인 높은 디스크 처리량과 IO.  |
 | [GPU](sizes-gpu.md)            | NC, NCv2, NCv3, ND, NDv2 (Preview), NV, NVv3  | 고급 그래픽 렌더링 및 비디오 편집뿐만 아니라 딥 러닝을 통한 모델 학습 및 추론(ND)도 목표로 하는 특수화된 가상 머신입니다. 한 개 이상의 GPU를 사용할 수 있습니다.       |
-| [고성능 컴퓨팅](sizes-hpc.md) | HB, HC,  H | Microsoft의 가장 빠르고 강력한 CPU 가상 머신으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
+| [고성능 컴퓨팅](sizes-hpc.md) | HB, HC, H | Microsoft의 가장 빠르고 강력한 CPU 가상 머신으로, 필요한 경우 처리량이 높은 네트워크 인터페이스(RDMA)도 제공합니다. |
 
 <br>
 

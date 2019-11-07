@@ -1,64 +1,59 @@
 ---
-title: Azure Site Recovery 서비스에 대해 구성된 Recovery Services 자격 증명 모음 삭제
+title: Azure Site Recovery 자격 증명 모음 삭제
 description: Azure Site Recovery에 대해 구성된 Recovery Services 자격 증명 모음을 삭제하는 방법에 대한 자세한 정보
 author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 11/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: a13dee2010688b02fd86fb05900826470a7d7a08
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: fb1e22b0ca1da00bf2665d863b40f19fa1621771
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67876035"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721305"
 ---
 # <a name="delete-a-site-recovery-services-vault"></a>Site Recovery Services 자격 증명 모음 삭제
 
-종속성으로 인해 Azure Site Recovery 자격 증명 모음을 삭제하지 못할 수 있으며, 수행해야 하는 작업은 Site Recovery 시나리오에 따라 다릅니다. Azure Backup에서 사용되는 자격 증명 모음을 삭제하려면 [Azure에서 백업 자격 증명 모음 삭제](../backup/backup-azure-delete-vault.md)를 참조하세요.
+이 문서에서는 Site Recovery에 대 한 Recovery Services 자격 증명 모음을 삭제 하는 방법을 설명 합니다. Azure Backup에서 사용되는 자격 증명 모음을 삭제하려면 [Azure에서 백업 자격 증명 모음 삭제](../backup/backup-azure-delete-vault.md)를 참조하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="delete-a-site-recovery-vault"></a>Site Recovery 자격 증명 모음 삭제 
-자격 증명 모음을 삭제하려면 시나리오에 맞는 권장 단계를 따릅니다.
-### <a name="azure-vms-to-azure"></a>Azure VM에서 Azure로
 
-1. [VMware에 대한 보호 사용 안 함](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure)의 단계에 따라 보호되는 VM을 모두 삭제합니다.
-2. 자격 증명 모음을 삭제합니다.
+## <a name="before-you-start"></a>시작하기 전에
 
-### <a name="vmware-vms-to-azure"></a>VMware VM에서 Azure로
-
-1. [VMware에 대한 보호 사용 안 함](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure)의 단계에 따라 보호되는 VM을 모두 삭제합니다.
-
-2. [복제 정책 삭제](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy)의 단계에 따라 모든 복제 정책을 삭제합니다.
-
-3. [vCenter Server 삭제](vmware-azure-manage-vcenter.md#delete-a-vcenter-server)의 단계에 따라 vCenter에 대한 참조를 삭제합니다.
-
-4. [구성 서버 서비스 해제](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)의 단계에 따라 구성 서버를 삭제합니다.
-
-5. 자격 증명 모음을 삭제합니다.
+자격 증명 모음을 삭제 하려면 먼저 등록 된 서버 및 자격 증명 모음에 있는 항목을 제거 해야 합니다. 제거 해야 하는 항목은 배포한 복제 시나리오에 따라 달라 집니다. 
 
 
-### <a name="hyper-v-vms-with-vmm-to-azure"></a>Hyper-V VM(VMM 있음)에서 Azure로
-1. [Hyper-V VM(VMM 있음)에 대한 보호 사용 안 함](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario)의 단계에 따라 보호되는 모든 VM을 삭제합니다.
+## <a name="delete-a-vault-azure-vm-to-azure"></a>자격 증명 모음 삭제-azure VM
 
-2. 자격 증명 모음 -> **Site Recovery 인프라** -> **System Center VMM** -> **복제 정책**으로 이동하여 모든 복제 정책을 분리 및 삭제합니다.
+1. [다음 지침](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-azure-vm-azure-to-azure) 에 따라 보호 된 vm을 모두 삭제 합니다.
+2. 그런 다음 자격 증명 모음을 삭제 합니다.
 
-3.  [연결된 VMM 서버 등록 취소](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server)의 단계에 따라 VMM 서버에 대한 참조를 삭제합니다.
+## <a name="delete-a-vault-vmware-vm-to-azure"></a>자격 증명 모음 삭제-VMware VM에서 Azure로
 
-4.  자격 증명 모음을 삭제합니다.
+1. [다음 지침](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) 에 따라 보호 된 vm을 모두 삭제 합니다.
+2. 모든 복제 정책을 삭제 하려면 [다음 단계](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) 를 수행 합니다.
+3. [다음 단계](vmware-azure-manage-vcenter.md#delete-a-vcenter-server)를 사용 하 여 vCenter에 대 한 참조를 삭제 합니다.
+4. [다음 지침](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server) 에 따라 구성 서버를 서비스 해제 합니다.
+5. 그런 다음 자격 증명 모음을 삭제 합니다.
 
-### <a name="hyper-v-vms-without-virtual-machine-manager-to-azure"></a>Hyper-V VM(Virtual Machine Manager 없음)에서 Azure로
-1. [Hyper-V 가상 컴퓨터에 대한 보호 사용 안 함(Hyper-V에서 Azure로)](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure)의 단계에 따라 보호되는 VM을 모두 삭제합니다.
 
-2. 자격 증명 모음 -> **Site Recovery 인프라** -> **Hyper-V 사이트** -> **복제 정책**으로 이동하여 모든 복제 정책을 분리 및 삭제합니다.
+## <a name="delete-a-vault-hyper-v-vm-with-vmm-to-azure"></a>Azure에 대 한 자격 증명 모음 삭제-Hyper-v VM (VMM 포함)
 
-3. [Hyper-V 호스트 등록 취소](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site)의 단계에 따라 Hyper-V 서버에 대한 참조를 삭제합니다.
+1. System Center VMM에서 관리 하는 Hyper-v Vm을 삭제 하려면 [다음 단계](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-azure-using-the-system-center-vmm-to-azure-scenario) 를 수행 합니다.
+2. 모든 복제 정책을 분리 하 고 삭제 합니다. 자격 증명 모음에서 System Center VMM > **복제 정책** **에 대 한** **Site Recovery 인프라** > >이 작업을 수행 합니다.
+3. 연결 된 VMM 서버를 등록 취소 하려면 [다음 단계](site-recovery-manage-registration-and-protection.md##unregister-a-vmm-server) 를 수행 합니다.
+4. 그런 다음 자격 증명 모음을 삭제 합니다.
 
+## <a name="delete-a-vault-hyper-v-vm-to-azure"></a>자격 증명 모음 삭제-Hyper-v VM에서 Azure로
+
+1. 모든 보호 된 Vm을 삭제 하려면 [다음 단계](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-hyper-v-to-azure) 를 수행 합니다.
+2. 모든 복제 정책을 분리 하 고 삭제 합니다. 이 작업을 수행 하려면 자격 증명 모음에서 **Hyper-v 사이트에 대 한** **Site Recovery 인프라** > **복제 정책을** > > 합니다.
+3. Hyper-v 호스트의 등록을 취소 하려면 [다음 지침](site-recovery-manage-registration-and-protection.md#unregister-a-hyper-v-host-in-a-hyper-v-site) 을 따르세요.
 4. Hyper-V 사이트를 삭제합니다.
-
-5. 자격 증명 모음을 삭제합니다.
+5. 그런 다음 자격 증명 모음을 삭제 합니다.
 
 
 ## <a name="use-powershell-to-force-delete-the-vault"></a>PowerShell을 사용하여 자격 증명 모음 강제 삭제 

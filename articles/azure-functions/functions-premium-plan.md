@@ -1,22 +1,20 @@
 ---
-title: Azure Functions Premium 요금제 (미리 보기) | Microsoft Docs
+title: Azure Functions 프리미엄 플랜
 description: Azure Functions 프리미엄 계획에 대 한 세부 정보 및 구성 옵션 (VNet, 콜드 시작 안 함, 실행 기간 제한 없음)입니다.
-services: functions
 author: jeffhollan
-manager: jeconnoc
-ms.assetid: ''
+manager: gwallace
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 4/11/2019
+ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: ce83d521d5bc986be7bb24ef874f1f0e1051e3ae
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 8cda3ce85e6e7e9d5d7787406eb3b9785c1f7724
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755408"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719044"
 ---
-# <a name="azure-functions-premium-plan-preview"></a>Azure Functions 프리미엄 계획 (미리 보기)
+# <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 플랜
 
 Azure Functions Premium 요금제는 함수 앱에 대 한 호스팅 옵션입니다. 프리미엄 요금제는 VNet 연결, 콜드 부팅 및 프리미엄 하드웨어와 같은 기능을 제공 합니다.  여러 함수 앱을 동일한 프리미엄 계획에 배포할 수 있으며,이 계획을 통해 계산 인스턴스 크기, 기본 계획 크기 및 최대 계획 크기를 구성할 수 있습니다.  프리미엄 계획과 기타 계획 및 호스팅 유형을 비교 하는 방법에 대해서는 [함수 크기 조정 및 호스팅 옵션](functions-scale.md)을 참조 하세요.
 
@@ -59,7 +57,7 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 프리미엄 계획에 배포 Azure Functions는 [웹 앱에 대 한 새로운 VNet 통합](../app-service/web-sites-integrate-with-vnet.md)을 활용 합니다.  구성 된 앱은 VNet 내의 리소스와 통신 하거나 서비스 끝점을 통해 보안을 설정할 수 있습니다.  IP 제한은 앱에서 들어오는 트래픽을 제한 하는 데에도 사용할 수 있습니다.
 
-프리미엄 계획의 함수 앱에 서브넷을 할당 하는 경우 각 잠재적 인스턴스에 대해 충분 한 IP 주소가 있는 서브넷이 필요 합니다. 최대 인스턴스 수는 미리 보기 중에 다를 수 있지만 사용 가능한 주소가 100 이상인 IP 블록이 필요 합니다.
+프리미엄 계획의 함수 앱에 서브넷을 할당 하는 경우 각 잠재적 인스턴스에 대해 충분 한 IP 주소가 있는 서브넷이 필요 합니다. 사용 가능한 주소가 100 이상인 IP 블록이 필요 합니다.
 
 자세한 내용은 [VNet과 함수 앱 통합](functions-create-vnet.md)을 참조 하세요.
 
@@ -71,11 +69,9 @@ az resource update -g <resource_group> -n <function_app_name>/config/web --set p
 
 소비 계획의 Azure Functions은 단일 실행에 대해 10 분으로 제한 됩니다.  프리미엄 계획에서 실행 기간은 기본적으로 30 분으로 설정 되어 런어웨이 실행을 방지 합니다. 그러나 프리미엄 계획 앱에 대해이 작업을 수행할 수 없도록 하려면 [호스트 json 구성을 수정할](./functions-host-json.md#functiontimeout) 수 있습니다.
 
-미리 보기에서 지속 시간은 12 분 이전에 보장 되지 않으며, 앱이 최소 작업자 수 이상으로 조정 되지 않은 경우 30 분 이상 실행 될 가능성이 있습니다.
-
 ## <a name="plan-and-sku-settings"></a>요금제 및 SKU 설정
 
-계획을 만들 때 최소 인스턴스 수 (또는 계획 크기)와 최대 버스트 제한의 두 가지 설정을 구성 합니다.  프리미엄 계획의 최소 인스턴스는 1이 고 미리 보기 중의 최대 버스트는 20입니다.  최소 인스턴스는 예약 되어 있으며 항상 실행 중입니다.
+계획을 만들 때 최소 인스턴스 수 (또는 계획 크기)와 최대 버스트 제한의 두 가지 설정을 구성 합니다.  최소 인스턴스는 예약 되어 있으며 항상 실행 중입니다.
 
 > [!IMPORTANT]
 > 함수 실행 여부에 관계 없이 최소 인스턴스 수에 할당 된 각 인스턴스에 대해 요금이 청구 됩니다.
@@ -94,23 +90,23 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 계획을 만들거나 크기를 조정할 때 세 가지 인스턴스 크기 중에서 선택할 수 있습니다.  총 코어 수와 초당 사용 된 메모리에 대 한 요금이 청구 됩니다.  필요에 따라 앱이 여러 인스턴스로 자동 확장 될 수 있습니다.  
 
-|SKU|코어 수|메모리|스토리지|
+|SKU|코어 수|메모리|Storage|
 |--|--|--|--|
 |EP1|1|3.5 g b|250GB|
 |E P 2|2|7GB|250GB|
 |노출할|4|14GB|250GB|
 
-## <a name="regions"></a>개 지역
+## <a name="regions"></a>영역
 
-다음은 각 OS에 대 한 공개 미리 보기에 대해 현재 지원 되는 지역입니다.
+다음은 각 OS에 대해 현재 지원 되는 지역입니다.
 
 |지역| Windows | Linux |
 |--| -- | -- |
-|오스트레일리아 중부| ✔ * | |
-|오스트레일리아 중부 2| ✔ * | |
+|오스트레일리아 중부| ✔<sup>1</sup> | |
+|오스트레일리아 중부 2| ✔<sup>1</sup> | |
 |오스트레일리아 동부| ✔ | |
 |오스트레일리아 남동부 | ✔ | ✔ |
-|브라질 남부| ✔ * * |  |
+|브라질 남부| ✔<sup>2</sup> |  |
 |캐나다 중부| ✔ |  |
 |미국 중부| ✔ |  |
 |동아시아| ✔ |  |
@@ -130,14 +126,11 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |서유럽| ✔ | ✔ |
 |인도 서부| ✔ |  |
 |미국 서부| ✔ | ✔ |
+|미국 서부 2| ✔ |  |
 
-최대 확장 수를 20 개 인스턴스로 제한 \*
+<sup>1</sup> 최대 확장은 20 개 인스턴스로 제한 됩니다.  
+<sup>2</sup> 최대 확장은 60 인스턴스로 제한 됩니다.
 
-\* * 최대 규모 제한이 60 인스턴스로 제한 됨
-
-## <a name="known-issues"></a>알려진 문제
-
-[GitHub에서 공개 미리 보기](https://github.com/Azure/Azure-Functions/wiki/Premium-plan-known-issues)의 알려진 문제 상태를 추적할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

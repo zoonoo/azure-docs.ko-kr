@@ -8,24 +8,24 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 82d12d3f88199a11ec3c53da50b755d90be373d3
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: da47a471ddcf2c083ed127b79e4d3da9713d2ed4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72560475"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719058"
 ---
 메모리 최적화 VM 크기는 관계형 데이터베이스 서버, 중대형 캐시 및 메모리 내 분석에 적합한 높은 메모리 대 CPU 비율을 제공합니다. 이 문서에서는 이 그룹화에서 각 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 
 * Ev3 시리즈는 하이퍼 스레드 구성에서 Intel® Xeon® 8171M 2.1 g h z (Skylake) 또는 Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 프로세서를 제공 하 여 대부분의 범용 워크 로드에 대해 더 나은 가치를 제공 하 고 Ev3을로 전환 합니다. 대부분의 다른 클라우드의 범용 Vm과 맞춥니다.  하이퍼 스레딩으로 이동하기 위해 디스크 및 네트워크 제한이 코어 단위로 조정되는 동안 메모리가 확장되었습니다(7GiB/vCPU에서 8GiB/vCPU로).  Ev3는 D/Dv2 제품군의 상위 메모리 VM 크기에 대한 후속 시리즈입니다.
 
-* Eav3 시리즈 및 Easv3 시리즈의 미리 보기 크기는 최대 256MB L3 캐시가 포함 된 다중 스레드 구성에서 AMD의 2.35 Ghz EPYC<sup>TM</sup> 7452 프로세서를 활용 하 여 대부분의 메모리 액세스에 최적화 된 워크 로드를 실행 하기 위한 옵션을 늘립니다.  Eav3 시리즈와 Easv3 시리즈는 Ev3 & Esv3 시리즈와 동일한 메모리 및 디스크 구성을 포함 합니다.
+* Eav4 시리즈 및 Easv4 시리즈는 최대 256MB L3 캐시가 포함 된 다중 스레드 구성에서 AMD의 2.35 Ghz EPYC<sup>TM</sup> 7452 프로세서를 활용 하 여 대부분의 메모리 액세스에 최적화 된 워크 로드를 실행 하기 위한 옵션을 늘립니다.  Eav4 시리즈와 Easv4 시리즈는 Ev3 & Esv3 시리즈와 동일한 메모리 및 디스크 구성을 포함 합니다.
 
 * Mv2 시리즈는 클라우드에서 VM의 가장 높은 vCPU 수 (최대 416 Vcpu) 및 가장 큰 메모리 (최대 8.19 TiB)를 제공 합니다. 높은 vCPU 개수 및 많은 양의 메모리를 활용하는 매우 큰 데이터베이스 또는 다른 애플리케이션에 이상적입니다.
 
 * M 시리즈는 높은 vCPU 수 (최대 128 Vcpu) 및 많은 양의 메모리 (최대 3.8 TiB)를 제공 합니다. 매우 큰 데이터베이스 또는 높은 vCPU 수 및 많은 양의 메모리를 활용 하는 다른 응용 프로그램에도 적합 합니다.
 
-* Dv2 시리즈, G 시리즈 및 DSv2/GS 항목은 더 빠른 vCPUs를 요구 하거나 더 나은 임시 저장소 성능을 요구 하거나 더 높은 메모리 요구 사항을 충족 하는 응용 프로그램에 적합 합니다. 이러한 시리즈는 대부분 엔터프라이즈급 애플리케이션을 위한 강력한 조합을 제공합니다.
+* Dv2 시리즈, G 시리즈 및 DSv2/GS 항목은 더 빠른 vCPUs를 요구 하거나 더 나은 임시 저장소 성능을 요구 하거나 더 높은 메모리 요구 사항을 충족 하는 응용 프로그램에 적합 합니다. 이들은 많은 엔터프라이즈급 애플리케이션을 위한 강력한 조합을 제공합니다.
 
 * 원래 D 시리즈의 후속판인 Dv2 시리즈는 더 강력한 CPU가 특징입니다. Dv2 시리즈는 D 시리즈 보다 약 35% 더 빠릅니다. Intel® Xeon® 8171M 2.1 GHz (Skylake) 또는 Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4 g h z (Haswell) 프로세서 및 Intel 터보 부스트 기술 2.0에서 실행 됩니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 
@@ -50,7 +50,7 @@ ESv3 시리즈 인스턴스는 Intel® Xeon® 8171M 2.1 g h z (Skylake) 또는 I
 | Standard_E16s_v3&nbsp;<sup>2</sup> | 16     | 128         | 256            | 32             | 32000/256 (400)                                                    | 25600/384                              | 8 / 8000                                       |
 | Standard_E20s_v3                   | 20     | 160         | 320            | 32             | 4만/320 (400)                                                    | 32000/480                              | 8 / 10000                                       |
 | Standard_E32s_v3&nbsp;<sup>2</sup> | 32     | 256         | 512            | 32             | 64000/512 (800)                                                    | 51200/768                              | 8 / 16000                             |
-| Standard_E48s_v3 &nbsp;<sup>2</sup> | 48     | 384         | 768            | 32             | 96000/768 (1200)                                                   | 76800/1152                             | 8 / 24000                             |
+| Standard_E48s_v3&nbsp;<sup>2</sup> | 48     | 384         | 768            | 32             | 96000/768 (1200)                                                   | 76800/1152                             | 8 / 24000                             |
 | Standard_E64s_v3&nbsp;<sup>2</sup> | 64     | 432         | 864            | 32             | 128000/1024 (1600)                                                   | 8만/1200                             | 8 / 30000                             |
 | Standard_E64is_v3&nbsp;<sup>3</sup> | 64     | 432         | 864            | 32             | 128000/1024 (1600)                                                   | 8만/1200                             | 8 / 30000                             |
 
@@ -61,31 +61,35 @@ ESv3 시리즈 인스턴스는 Intel® Xeon® 8171M 2.1 g h z (Skylake) 또는 I
 
 <sup>3</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
-## <a name="easv3-series-preview"></a>Easv3 시리즈 (미리 보기)
+## <a name="easv4-series"></a>Easv4 시리즈
+
+ACU: 230-260
 
 Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원 됨
 
-Easv3 시리즈 크기는 3.35 GHz의 승격 된 Fmax를 실현 하 고 premium storage를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Easv3 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다.
+Easv4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 고 프리미엄 SSD를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Easv4 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다.
 
-[미리 보기에 가입](http://aka.ms/azureamdpreview)하세요.
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (MBps) |
+|-----|-----|-----|-----|-----|-----|-----|-----|
+| Standard_E2as_v4|2|16|32|4|4000/32 (50)|3200/48|2 / 1000 |
+| Standard_E4as_v4|4|32|64|8|8000/64 (100)|6400/96|2 / 2000 |
+| Standard_E8as_v4|8|64|128|16|16000/128 (200)|12800/192|4 / 4000 |
+| Standard_E16as_v4|16|128|256|32|32000/255 (400)|25600/384|8 / 8000 |
+| Standard_E20as_v4|20|160|320|32|4만/320 (500)|32000/480|8 / 10000 |
+| Standard_E32as_v4|32|256|512|32|64000/510 (800)|51200/768|8 / 16000 |
+| Standard_E48as_v4 <sup>**</sup> |48|384|768|32|  | | 
+| Standard_E64as_v4 <sup>**</sup> |64|512|1024|32| | | 
+| Standard_E96as_v4 <sup>**</sup> |96|672|1344|32| | |  
 
-| 크기 | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB |
-|---|---|---|---|
-| Standard_E2as_v3  | 2  | 16  | 32  |
-| Standard_E4as_v3  | 4  | 32  | 64  |
-| Standard_E8as_v3  | 8  | 64  | 128 |
-| Standard_E16as_v3 | 16 | 128 | 256 |
-| Standard_E32as_v3 | 32 | 256 | 512 |
-| Standard_E48as_v3 | 48 | 384 | 768 |
-| Standard_E64as_v3 | 64 | 432 | 864 |
+<sup>**</sup>  이러한 크기는 미리 보기 상태입니다. 이러한 큰 크기를 확인 하려는 경우 [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview)에서 등록 하세요.
 
 ## <a name="ev3-series"></a>Ev3 시리즈 
 
 ACU: 160 - 190 <sup>1</sup>
 
-Premium Storage: 지원되지 않음
+Premium Storage: 지원 되지 않음
 
 Premium Storage 캐싱: 지원 되지 않음
 
@@ -112,25 +116,29 @@ Ev3 시리즈 인스턴스는 intel® Xeon® 8171M 2.1 g h z (Skylake) 또는 In
 
 <sup>3</sup> 인스턴스는 단일 고객 전용의 하드웨어에 격리되어 있습니다.
 
-## <a name="eav3-series-preview"></a>Eav3 시리즈 (미리 보기)
+## <a name="eav4-series"></a>Eav4 시리즈
+
+ACU: 230-260
 
 Premium Storage: 지원 되지 않음
 
 Premium Storage 캐싱: 지원 되지 않음
 
-Eav3 시리즈 크기는 3.35 GHz의 승격 된 Fmax를 실현 하 고 premium storage를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Eav3 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. Premium storage 디스크를 사용 하려면 Easv3 시리즈 크기를 사용 합니다. Easv3 크기에 대 한 가격 책정 및 요금 청구 기준은 Eav3 시리즈와 동일 합니다.
+Eav4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 고 프리미엄 SSD를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Eav4 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. 프리미엄 SSD를 사용 하려면 Easv4 시리즈 크기를 사용 합니다. Easv4 크기에 대 한 가격 책정 및 요금 청구 기준은 Eav3 시리즈와 동일 합니다.
 
-[미리 보기에 가입](http://aka.ms/azureamdpreview)하세요.
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 스토리지 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 Nic/예상 네트워크 대역폭 (MBps) |
+| -----|-----|-----|-----|-----|-----|-----|
+| 표준\_E2a\_v4|2|16|50|4|3000 / 46 / 23|2 / 1000 |
+| 표준\_E4a\_v4|4|32|100|8|6000 / 93 / 46|2 / 2000 |
+| 표준\_E8a\_v4|8|64|200|16|12000 / 187 / 93|4 / 4000 |
+| 표준\_E16a\_v4|16|128|400|32|24000 / 375 / 187|8 / 8000 |
+| 표준\_E20a\_v4|20|160|500|32|3만/468/234|8 / 10000 |
+| 표준\_E32a\_v4|32|256|800|32|48000 / 750 / 375|8 / 16000 |
+| 표준\_E48a\_v4 <sup>**</sup> |48|384|1200|32| | |
+| 표준\_E64a\_v4 <sup>**</sup> |64|512|1600|32| | |
+| 표준\_E96a\_v4 <sup>**</sup> |96|672|2400|32| | |
 
-| 크기             | vCPU | 메모리: GiB | 임시 저장소 (SSD): GiB |
-|------------------|------|-------------|-------------------------|
-| Standard_E2a_v3  | 2    | 16          | 50                      |
-| Standard_E4a_v3  | 4    | 32          | 100                     |
-| Standard_E8a_v3  | 8    | 64          | 200                     |
-| Standard_E16a_v3 | 16   | 128         | 400                     |
-| Standard_E32a_v3 | 32   | 256         | 800                     |
-| Standard_E48a_v3 | 48   | 384         | 1200                    |
-| Standard_E64a_v3 | 64   | 432         | 1600                    |
+<sup>**</sup>  이러한 크기는 미리 보기 상태입니다.  이러한 큰 크기를 확인 하려는 경우 [https://aka.ms/AzureAMDLargeVMPreview](https://aka.ms/AzureAMDLargeVMPreview)에서 등록 하세요.
 
 ## <a name="mv2-series"></a>Mv2 시리즈
 
@@ -190,7 +198,7 @@ Write Accelerator: [지원됨](https://docs.microsoft.com/azure/virtual-machines
 
 <sup>1</sup> M 시리즈 VM은 Intel® 하이퍼 스레딩 기술 제공
 
-<sup>2</sup> 64개 이상의 vCPU에는 Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 및 Red Hat Enterprise Linux, LIS 4.2.1을 사용하는 CentOS 7.3 또는 Oracle Linux 7.3과 같이 지원되는 게스트 OS 중 하나가 필요합니다.
+<sup>2</sup> 개 64 이상의 vcpu에는 지원 되는 게스트 운영 체제 (Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2, Red Hat Enterprise Linux, CentOS 7.3 또는 Oracle Linux 7.3의 LIS 4.2.1) 중 하나가 필요 합니다.
 
 <sup>3</sup> 사용 가능한 코어 크기 제한
 
@@ -227,7 +235,7 @@ DSv2 시리즈 크기는 Intel® Xeon® 8171M 2.1 GHz (Skylake) 또는 Intel® X
 
 ACU: 210-250
 
-Premium Storage: 지원되지 않음
+Premium Storage: 지원 되지 않음
 
 Premium Storage 캐싱: 지원 되지 않음
 

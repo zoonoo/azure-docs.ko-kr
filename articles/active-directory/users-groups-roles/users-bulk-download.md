@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd0829afca05058892d3a0ceeb50c9955d792dc3
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: d106e803fdef4f054b7e4717ba59a43359d1d68a
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72517069"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720295"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Azure Active Directory 포털에서 사용자 목록 다운로드 (미리 보기)
 
@@ -31,8 +31,9 @@ Azure AD 관리 센터에서 사용자 목록을 다운로드 하려면 Azure AD
 ## <a name="to-download-a-list-of-users"></a>사용자 목록을 다운로드 하려면
 
 1. 조직의 사용자 관리자 계정으로 [AZURE AD 조직에 로그인](https://aad.portal.azure.com) 합니다.
-1. Azure AD에서 **사용자  > ** **다운로드 사용자**를 선택 합니다.
-1. **사용자 다운로드** 페이지에서 **시작** 을 선택 하 여 사용자 프로필 속성을 나열 하는 CSV 파일을 받습니다. 오류가 있는 경우 대량 작업 결과 페이지에서 결과 파일을 다운로드 하 고 볼 수 있습니다. 파일에는 각 오류의 이유가 포함 되어 있습니다.
+2. Azure Active Directory > 사용자로 이동 합니다. 그런 다음, 각 사용자 옆의 왼쪽 열에 있는 상자를 선택 하 여 다운로드에 포함 하려는 사용자를 선택 합니다. 참고: 현재는 내보낼 모든 사용자를 선택할 수 있는 방법이 없습니다. 각 항목은 개별적으로 선택 해야 합니다.
+3. Azure AD에서 **사용자 > ** **다운로드 사용자**를 선택 합니다.
+4. **사용자 다운로드** 페이지에서 **시작** 을 선택 하 여 사용자 프로필 속성을 나열 하는 CSV 파일을 받습니다. 오류가 있는 경우 대량 작업 결과 페이지에서 결과 파일을 다운로드 하 고 볼 수 있습니다. 파일에는 각 오류의 이유가 포함 되어 있습니다.
 
    ![다운로드 하려는 사용자를 나열할 위치를 선택 합니다.](./media/users-bulk-download/bulk-download.png)
 

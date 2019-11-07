@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/23/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 0b93f898924d73636c31826b6b63a228f75fc8ba
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 681ccc768b1fa3d5a968847d11987fbd83898b59
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900161"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721358"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -30,11 +30,11 @@ Azure Cost Management에서 현재 지원되는 [Microsoft Azure 제품](https:/
 | **범주**  | **제품 이름** | **할당량 ID** | **제품 번호** | **데이터 사용 가능** |
 | --- | --- | --- | --- | --- |
 | **Azure Government** | Azure Government Enterprise                                                         | EnterpriseAgreement_2014-09-01 | MS-AZR-USGOV-0017P | 2014 년 5 월<sup>1</sup> |
-| **EA(기업 계약)** | 엔터프라이즈 개발/테스트                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | 2014 년 5 월<sup>1</sup> |
+| **EA(기업 계약)** | Enterprise 개발/테스트                                                        | MSDNDevTest_2014-09-01 | MS-AZR-0148P | 2014 년 5 월<sup>1</sup> |
 | **EA(기업 계약)** | [Microsoft Azure 엔터프라이즈](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | 2014 년 5 월<sup>1</sup> |
-| **Microsoft 고객 계약** | [Microsoft Azure 계획](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | N/A | <sup>3 월 2019</sup> |
-| **Microsoft 고객 계약** | [개발/테스트에 대 한 Microsoft Azure 계획](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | N/A | <sup>3 월 2019</sup> |
-| **파트너에서 지원 되는 Microsoft 고객 계약** | Microsoft Azure 계획 | CSP_2015-05-01, CSP_MG_2017-01 및 CSPDEVTEST_2018-01-01<br><br>할당량 ID는 Microsoft 고객 계약 및 레거시 CSP 구독에 다시 사용 됩니다. 현재 Microsoft 고객 계약 구독만 지원 됩니다. | N/A | 2019년 10월 |
+| **Microsoft 고객 계약** | [Microsoft Azure 계획](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | 해당 없음 | <sup>3 월 2019</sup> |
+| **Microsoft 고객 계약** | [개발/테스트에 대 한 Microsoft Azure 계획](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | 해당 없음 | <sup>3 월 2019</sup> |
+| **파트너에서 지원 되는 Microsoft 고객 계약** | Microsoft Azure 계획 | CSP_2015-05-01, CSP_MG_2017-01 및 CSPDEVTEST_2018-01-01<br><br>할당량 ID는 Microsoft 고객 계약 및 레거시 CSP 구독에 다시 사용 됩니다. 현재 Microsoft 고객 계약 구독만 지원 됩니다. | 해당 없음 | 10 월 2019 |
 | **MSDN(Microsoft Developer Network)** | [MSDN 플랫폼](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2018 년 10 월<sup>2 일</sup> |
 | **종량제** | [종량제](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2018 년 10 월<sup>2 일</sup> |
 | **종량제** | [종량제 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2018 년 10 월<sup>2 일</sup> |
@@ -58,13 +58,13 @@ _<sup>**4**</sup> 신용 기반 및 종 량 제 구독에 대 한 기록 데이�
 
 다음 제안은 아직 지원 되지 않습니다.
 
-| 범주  | **제품 이름** | **할당량 ID** | **제품 번호** |
+| Category  | **제품 이름** | **할당량 ID** | **제품 번호** |
 | --- | --- | --- | --- |
 | **Azure 독일** | [Azure 독일 종량제](https://azure.microsoft.com/offers/ms-azr-de-0003p) | PayAsYouGo_2014-09-01 | MS-AZR-DE-0003P |
 | **CSP(클라우드 솔루션 공급자)** | Microsoft Azure                                    | CSP_2015-05-01 | MS-AZR-0145P |
 | **CSP(클라우드 솔루션 공급자)** | Azure Government CSP                               | CSP_2015-05-01 | MS-AZR-USGOV-0145P |
-| **CSP(클라우드 솔루션 공급자)** | Microsoft Cloud Germany에 대한 Azure Germany in CSP   | CSP_2015-05-01 | MS-AZR-DE-0145P |
-| **종량제**                 | 학생용 Azure 스타터 | DreamSpark_2015-01 | MS-AZR-0144P |
+| **CSP(클라우드 솔루션 공급자)** | Microsoft 클라우드 독일용 CSP의 Azure 독일   | CSP_2015-05-01 | MS-AZR-DE-0145P |
+| **종량제**                 | Azure for Students Starter | DreamSpark_2015-01 | MS-AZR-0144P |
 | **종량제** | [학생용 Azure](https://azure.microsoft.com/offers/ms-azr-0170p)<sup>4</sup> | AzureForStudents_2018-01-01 | MS-AZR-0170P |
 | **종량제**                 | [Microsoft Azure 스폰서쉽](https://azure.microsoft.com/offers/ms-azr-0036p/) | Sponsored_2016-01-01 | MS-AZR-0036P |
 | **지원 플랜** | 표준 지원                    | Default_2014-09-01 | MS-AZR-0041P |
@@ -126,6 +126,79 @@ EA(기업계약) 구독 - 청구 월이 3월 31일에 종료되는 경우 예상
 ### <a name="rerated-data"></a>데이터 재평가
 
 [Cost Management api](index.yml)Power BI를 사용 하 여 데이터를 검색 하는 경우 또는 Azure Portal를 사용 하 여 데이터를 검색 하는 경우에는 송장이 닫힐 때까지 현재 청구 기간의 요금이 계산 되 고 결과적으로 변경 될 수 있습니다.
+
+## <a name="cost-management-data-fields"></a>Cost Management 데이터 필드
+
+다음 데이터 필드는 사용 현황 정보 파일 및 Cost Management Api에 있습니다. 다음 굵게 표시 된 필드의 경우 파트너는 비용 분석에서 필터 및 그룹화 기능을 사용 하 여 여러 필드를 기준으로 비용을 분석할 수 있습니다. 굵게 표시 된 필드는 파트너가 지 원하는 Microsoft 고객 계약에만 적용 됩니다.
+
+| **필드 이름** | **설명** |
+| --- | --- |
+| invoiceId | 특정 트랜잭션에 대해 청구서에 표시 된 청구서 ID입니다. |
+| previousInvoiceID | 원래 청구서에 대 한 참조에는 환불 (음의 비용)이 있습니다. 환불 된 경우에만 채워집니다. |
+| billingAccountName | 파트너를 나타내는 청구 계정의 이름입니다. Microsoft 고객 계약에 등록 하 고 SaaS, Azure Marketplace, 예약 등의 권리를 구매한 고객에 대 한 모든 비용을 발생 시킬 수 있습니다. |
+| billingAccountID | 파트너를 나타내는 청구 계정의 식별자입니다. |
+| billingProfileID | 청구서에 대 한 비용을 청구 하는 청구 프로필에 대 한 식별자로, Microsoft 고객 계약을 등록 하 고 SaaS, Azure Marketplace 및와 같은 권한 부여를 구매한 고객에 게 서 예약. |
+| billingProfileName | 청구서에 대 한 비용을 청구 하는 청구 프로필의 이름으로, Microsoft 고객 계약을 등록 하 고, SaaS, Azure Marketplace 및와 같은 권한 부여를 만든 CSP 고객과 예약. |
+| invoiceSectionName | 청구서에서 청구 되는 프로젝트의 이름입니다. 파트너의 등록 Microsoft 고객 계약에는 적용 되지 않습니다. |
+| invoiceSectionID | 청구서에서 청구 되는 프로젝트의 식별자입니다. 파트너의 등록 Microsoft 고객 계약에는 적용 되지 않습니다. |
+| **CustomerTenantID** | 고객&#39;구독의 Azure Active Directory 테 넌 트 식별자입니다. |
+| **CustomerName** | 고객&#39;구독에 대 한 Azure Active Directory 테 넌 트의 이름입니다. |
+| **CustomerTenantDomainName** | 고객&#39;구독의 Azure Active Directory 테 넌 트에 대 한 도메인 이름입니다. |
+| **대 여** | 파트너&#39;Azure Active Directory 테 넌 트의 식별자입니다. |
+| **PartnerName** | 파트너 Azure Active Directory 테 넌 트의 이름입니다. |
+| **ResellerMPNID** | 구독과 연결 된 대리점에 대 한 MPNID입니다. |
+| costCenter | 구독과 관련 된 비용 센터입니다. |
+| billingPeriodStartDate | 청구서에 표시 된 청구 기간 시작 날짜입니다. |
+| billingPeriodEndDate | 청구서에 표시 된 청구 기간 종료 날짜입니다. |
+| servicePeriodStartDate | 요금 등급이 청구 된 등급 기간의 시작 날짜입니다. Azure 서비스 가격은 평가 기간에 따라 결정 됩니다. |
+| servicePeriodEndDate | 서비스 사용량이 요금으로 평가 된 기간의 종료 날짜입니다. Azure 서비스 가격은 평가 기간에 따라 결정 됩니다. |
+| date | Azure 소비 데이터의 경우 등급이 지정 된 사용량의 날짜를 표시 합니다. 예약 된 인스턴스의 경우 구매한 날짜를 표시 합니다. 반복 요금 및 Marketplace 및 지원과 같은 일회성 요금은 구매 날짜를 표시 합니다. |
+| productID | 소비 또는 구매 별 요금을 계산 하는 제품의 식별자입니다. 파트너 센터에 표시 된 것 처럼 productID 및 SKuID의 연결 된 키입니다. |
+| product | 청구서에 표시 된 대로 소비 또는 구매 별 요금을 계산 하는 제품의 이름입니다. |
+| serviceFamily | 구매한 제품의 서비스 제품군을 표시 합니다. 예를 들면 저장소 또는 계산입니다. |
+| 제품 Orderid | 구독이 속한 자산의 식별자 또는 Azure 계획 이름입니다. 예: Azure 요금제. |
+| productOrderName | 구독이 속한 Azure 계획의 이름입니다. 예: Azure 요금제. |
+| consumedService | 레거시 EA 사용 세부 정보에 사용 되는 서비스 (레거시 분류)를 사용 합니다. |
+| meterID | 측정 된 소비에 대 한 계량 된 식별자입니다. |
+| meterName | 측정 된 사용량에 대 한 미터의 이름을 식별 합니다. |
+| meterCategory | 사용에 대 한 최상위 서비스를 식별 합니다. |
+| meterSubCategory | 요금에 영향을 줄 수 있는 Azure 서비스의 유형 또는 하위 범주를 정의 합니다. |
+| meterRegion | 데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다. |
+| 구독 ID | Azure 구독에 대해 고유한 Microsoft 생성 식별자입니다. |
+| subscriptionName | Azure 구독의 이름입니다. |
+| 용어 | 제품의 유효 기간을 표시합니다. 예를 들어 예약 된 인스턴스는 예약 된 인스턴스의 연간 기간 12 개월을 표시 합니다. 일회성 구매 또는 되풀이 구매의 경우 기간은 SaaS, Azure Marketplace 및 지원에 대해 한 달을 표시 합니다. Azure 소비에는 적용 되지 않습니다. |
+| publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | 자사, 타사 대리점 또는 타사 에이전시로 게시자를 식별 하는 게시자의 유형입니다. |
+| partNumber | 사용 하지 않는 예약 된 인스턴스와 Azure Marketplace 서비스에 대 한 부품 번호입니다. |
+| publisherName | Microsoft 또는 타사 게시자를 포함 하는 서비스의 게시자 이름입니다. |
+| reservationId | 예약 인스턴스 구매의 식별자입니다. |
+| reservationName | 예약 된 인스턴스의 이름입니다. |
+| reservationOrderId | 예약 된 인스턴스의 OrderID입니다. |
+| frequency | 예약 된 인스턴스의 지불 빈도입니다. |
+| resourceGroup | 수명 주기 리소스 관리에 사용 되는 Azure 리소스 그룹의 이름입니다. |
+| instanceID (또는) ResourceID | 리소스 인스턴스의 식별자입니다. |
+| resourceLocation | 리소스 위치의 이름입니다. |
+| 위치 | 리소스의 정규화 된 위치입니다. |
+| effectivePrice | 가격 책정 통화 단위의 서비스의 유효 단가입니다. 제품, 서비스 제품군, 측정기 및 제안에 대해 고유 합니다. 청구 계정에 대 한 가격표의 가격 책정과 함께 사용 됩니다. 계층화 된 가격 책정 또는 포함 된 수량이 있으면 소비에 대 한 혼합 가격이 표시 됩니다. |
+| 수량 | 구매 하거나 사용한 측정 된 수량입니다. 청구 기간 동안 사용 된 측정기의 양입니다. |
+| unitOfMeasure | 서비스 요금이 청구되는 단위를 식별합니다. 예를 들면 GB와 시간입니다. |
+| pricingCurrency | 단가를 정의 하는 통화입니다. |
+| billingCurrency | 청구 된 비용을 정의 하는 통화입니다. |
+| chargeType | 구매 및 환불과 같은 Azure Cost Management 비용을 나타내는 청구 유형을 정의 합니다. |
+| costinBillingCurrency | 세금이 청구 된 통화에 대 한 ExtendedCost 또는 블렌드된 비용입니다. |
+| costinPricingCurrency | 가격과의 상관 관계를 위해 가격 책정 통화의 세금에 대 한 ExtendedCost 또는 혼합 비용. |
+| **costinUSD** | 세율의 세금 이전 예상 ExtendedCost 또는 혼합 비용입니다. |
+| **paygCostInBillingCurrency** | 가격 책정이 소매 가격 인 경우 비용을 표시 합니다. 청구 통화로 종 량 제 가격을 표시 합니다. RBAC 범위 에서만 사용할 수 있습니다. |
+| **paygCostInUSD** | 가격 책정이 소매 가격 인 경우 비용을 표시 합니다. USD로 종 량 제 가격을 표시 합니다. RBAC 범위 에서만 사용할 수 있습니다. |
+| exchangeRate | 가격 책정 통화에서 청구 통화로 변환 하는 데 사용 되는 환율입니다. |
+| exchangeRateDate | 가격 책정 통화에서 청구 통화로 변환&#39;하는 데 사용 되는 환율 날짜입니다. |
+| isAzureCreditEligible | 비용이 Azure 크레딧을 통해 지불 대상이 될 수 있는지 여부를 나타냅니다. |
+| serviceInfo1 | 선택적 서비스 특정 메타데이터를 캡처하는 레거시 필드입니다. |
+| serviceInfo2 | 선택적 서비스 특정 메타데이터를 캡처하는 레거시 필드입니다. |
+| additionalInfo | 서비스 특정 메타데이터입니다. 예를 들어 가상 머신용 이미지 형식입니다. |
+| tags | 미터에 할당 하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다. 예를 들어 측정기를 사용하는 부서는 비용을 배분하는 데 태그를 사용할 수 있습니다. |
+| **partnerEarnedCreditRate** | 파트너 관리자 링크 액세스를 기반으로 하는 파트너 획득 신용 (PEC)가 있는 경우 적용 되는 할인 률입니다. |
+| **partnerEarnedCreditApplied** | 파트너의 획득 크레딧을 적용 했는지 여부를 나타냅니다. |
+
 
 ## <a name="usage-data-update-frequency-varies"></a>사용량 데이터 업데이트 빈도 변동
 

@@ -9,17 +9,17 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b7959beca8a7787a331388b77ebe4060c3675e6d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fdde89f9ff88b15c464af805b81708b268e5ddf5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793465"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721740"
 ---
 # <a name="morelikethis-preview-in-azure-cognitive-search"></a>Azure Cognitive Search의 moreLikeThis (미리 보기)
 
-> [!Note]
-> moreLikeThis는 미리 보기로 제공 되며 프로덕션 용도로는 사용할 수 없습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
+> [!IMPORTANT] 
+> 이 기능은 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 현재 포털 또는 .NET SDK가 지원 되지 않습니다.
 
 `moreLikeThis=[key]`은 문서 키로 지정 된 문서와 유사한 문서를 찾는 [문서 검색 API](https://docs.microsoft.com/rest/api/searchservice/search-documents) 의 쿼리 매개 변수입니다. 검색 요청이 `moreLikeThis`를 사용하여 설정될 경우 지정한 문서에서 추출된 검색 용어 중에서 해당 문서를 가장 잘 설명하는 용어를 사용해서 쿼리가 생성됩니다. 그런 후 생성된 쿼리를 사용해서 검색 요청이 수행됩니다. 기본적으로 `searchFields` 매개 변수를 사용 하 여 지정한 제한 된 필드를 제외한 모든 검색 가능 필드의 내용이 고려 됩니다. `moreLikeThis` 매개 변수와 검색 매개 변수 `search=[string]`을 함께 사용할 수 없습니다.
 
@@ -27,7 +27,7 @@ ms.locfileid: "72793465"
 
 [복합 형식의](search-howto-complex-data-types.md)검색 가능한 하위 필드에는 moreLikeThis을 사용할 수 없습니다.
 
-## <a name="examples"></a>예시 
+## <a name="examples"></a>예 
 
 다음은 moreLikeThis 쿼리의 예입니다. 이 쿼리는 해당 설명 필드가 `moreLikeThis` 매개 변수로 지정된 대로 소스 문서의 필드에 가장 유사한 문서를 찾습니다.
 

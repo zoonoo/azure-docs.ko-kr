@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: raynew
-ms.openlocfilehash: 18032250bc5c321d638ad46204738f49f1a0c744
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 90b1250009e6efdb2f8cb9351fe270c8324cc77a
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480130"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715473"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -34,20 +34,30 @@ Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다
 **배포웹사이트를** | **세부 정보** 
 --- | --- 
 **앱 특정 검색** | VMware Vm에서 실행 되는 앱, 역할 및 기능을 검색할 수 있습니다. 현재이 기능은 검색 으로만 제한 됩니다. 평가는 현재 컴퓨터 수준에 있습니다. 앱, 역할 또는 기능 관련 평가는 아직 제공 되지 않습니다. 
-**온-프레미스 평가** | VMware Vm 및 Hyper-v Vm에서 실행 되는 온-프레미스 워크 로드 및 데이터를 평가 합니다. Cloudamize, Corent 기술 및 Turbonomic 서버를 포함 하는 타사 도구 뿐만 아니라 DMA (Azure Migrate Server 평가 및 Microsoft Data Migration Assistant)를 사용 하 여 평가 합니다.
-**Azure로의 온-프레미스 마이그레이션** | 물리적 서버, VMware Vm, Hyper-v Vm, 물리적 서버 및 클라우드 기반 VM에서 실행 되는 워크 로드 및 데이터를 Azure로 마이그레이션합니다. Azure Migrate Server 평가 및 Azure Database Migration Service (DMS)를 사용 하 고 Carbonite 및 CorentTech를 포함 하는 타사 도구를 사용 하 여 마이그레이션합니다.
+**온-프레미스 평가** | VMware Vm, Hyper-v Vm 및 물리적 서버에서 실행 되는 온-프레미스 워크 로드 및 데이터를 평가 합니다. DMA (Azure Migrate Server 평가 및 Microsoft Data Migration Assistant) 및 기타 도구 및 ISV 제품을 사용 하 여 평가 합니다.
+**Azure로의 온-프레미스 마이그레이션** | 물리적 서버, VMware Vm, Hyper-v Vm, 물리적 서버 및 클라우드 기반 VM에서 실행 되는 워크 로드 및 데이터를 Azure로 마이그레이션합니다. Azure Migrate Server 평가 및 Azure Database Migration Service (DMS)를 사용 하 여 마이그레이션하고 기타 도구 및 ISV 제품을 제공 합니다.
 
-특정 도구 지원은 다음과 같이 요약 됩니다.
 
-**도구** | **평가/마이그레이션** | **세부 정보**
+## <a name="supported-tools"></a>지원 되는 도구
+
+특정 도구 지원이 표에 요약 되어 있습니다.
+
+**도구** | **평가** | **마이그레이션** 
 --- | --- | ---
-Azure Migrate 서버 평가 | 평가 | [Hyper-v](tutorial-prepare-hyper-v.md) 및 [VMware](tutorial-prepare-vmware.md)에 대 한 서버 평가를 시도 합니다.
-Cloudamize | 평가 | [자세히 알아봅니다](https://www.cloudamize.com/platform#tab-0).
-CorentTech | 평가 | [자세히 알아봅니다](https://www.corenttech.com/).
-Turbonomic | 평가 | [자세히 알아봅니다](https://turbonomic.com/solutions/technologies/azure-cloud/).
-Azure Migrate 서버 마이그레이션 | 마이그레이션 | [Hyper-v](tutorial-migrate-hyper-v.md) 및 [VMware](tutorial-migrate-vmware.md)에 대 한 서버 마이그레이션을 시도 합니다.
-Carbonite | 마이그레이션 | [자세히 알아봅니다](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure).
-CorentTech | 마이그레이션 | [자세히 알아봅니다](https://www.corenttech.com/).
+Azure Migrate 서버 평가 | [VMware vm](tutorial-prepare-vmware.md), [hyper-v vm](tutorial-prepare-hyper-v.md)및 [물리적 서버](tutorial-prepare-physical.md)를 평가 합니다. |  사용할 수 없음 (NA)
+Azure Migrate 서버 마이그레이션 | 해당 없음 | [VMware vm](tutorial-migrate-vmware.md), [hyper-v vm](tutorial-migrate-hyper-v.md)및 [물리적 서버](tutorial-migrate-physical-virtual-machines.md)를 마이그레이션합니다.
+[Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | 해당 없음 | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 마이그레이션합니다. 
+[Cloudamize](https://www.cloudamize.com/platform#tab-0)| VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 합니다. | 해당 없음
+[Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 하 고 마이그레이션합니다. |  VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 마이그레이션합니다.
+[Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 합니다.| 해당 없음
+[DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | 온-프레미스 SQL Server 데이터베이스를 평가 합니다. | 해당 없음
+[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | SQL Server, Oracle, MySQL, PostgreSQL, MongoDB를 마이그레이션합니다. | 해당 없음
+[Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | VDI (가상 데스크톱 인프라) 평가 | 해당 없음
+[Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | VMWare Vm, Hyper-v Vm, Xen Vm, 물리적 컴퓨터, 워크스테이션 (VDI 포함), 공용 클라우드 워크 로드 평가 | 해당 없음
+[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | 해당 없음 | VMWare Vm, Hyper-v Vm, Xen Vm, KVM Vm, 물리적 컴퓨터, 공용 클라우드 워크 로드 마이그레이션 
+[Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 합니다. | 해당 없음
+[UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드 및 SQL Server 데이터베이스를 평가 합니다. | 해당 없음
+[Webapp Migration Assistant](https://appmigration.microsoft.com/) | 웹 앱 평가 | 웹 앱을 마이그레이션합니다.
 
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate 프로젝트

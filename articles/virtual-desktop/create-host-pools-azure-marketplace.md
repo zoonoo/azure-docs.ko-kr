@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: f5b40e59a4ed2393e3b9912f8e4caa06ee267428
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 76cb2e0378cc7a005232304174c1de887adfe387
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757514"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73482224"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
 
@@ -40,7 +40,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 
 새 호스트 풀을 프로비저닝하기 위해 Azure Marketplace 제품을 실행하려면 다음을 수행합니다.
 
-1. **+** 또는 **+ 리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
 2. Marketplace 검색 창에 **Windows Virtual Desktop**을 입력합니다.
 3. **Windows Virtual Desktop - 호스트 풀 프로비전**을 선택한 다음, **만들기** 선택합니다.
 

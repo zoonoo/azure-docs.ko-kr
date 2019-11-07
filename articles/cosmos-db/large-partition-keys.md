@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: be639a67f70ab40f8d7dcc0f3793cbbd4a2ec4a3
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e2ea934140322a13f07a90f4246bacd3f9dbe6c9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72436799"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721100"
 ---
 # <a name="create-containers-with-large-partition-key"></a>파티션 키가 많은 컨테이너 만들기
 
@@ -68,10 +68,11 @@ database,
 
 |SDK 형식  | 최소 버전   |
 |---------|---------|
-|.NET     |    1.18     |
+|.Net     |    1.18     |
 |Java 동기화     |   2.4.0      |
 |Java Async   |  2.5.0        |
 | REST API | `x-ms-version` 요청 헤더를 사용 하 여 `2017-05-03` 보다 높은 버전입니다.|
+| Resource Manager 템플릿 | 버전 2는 `partitionKey` 개체 내의 `"version":2` 속성을 사용 합니다. |
 
 현재 Power BI 및 Azure Logic Apps 내에서 파티션 키가 많은 컨테이너를 사용할 수 없습니다. 이러한 응용 프로그램에서 많은 파티션 키가 없는 컨테이너를 사용할 수 있습니다.
 

@@ -7,16 +7,19 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 56e49ab60733c9c0a813ca6e46712bcd8052a2ef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 902e89305aa24e8cbb6d2dd84d6a61c710d11637
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518152"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715379"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>물리적 서버 평가 및 마이그레이션에 대 한 지원 매트릭스
 
 [Azure Migrate 서비스](migrate-overview.md) 를 사용 하 여 컴퓨터를 평가 하 고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 온-프레미스 물리적 서버를 평가 하 고 마이그레이션하기 위한 지원 설정 및 제한 사항을 요약 합니다.
+
+> [!NOTE]
+> Azure Migrate 포털에 표시 되지 않는 기능을 여기에서 설명 하는 경우에는 중단 합니다. 다음 주에 표시 됩니다.
 
 
 ## <a name="physical-server-scenarios"></a>물리적 서버 시나리오

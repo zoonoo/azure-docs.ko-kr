@@ -4,33 +4,44 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 06/10/2019
+ms.date: 10/22/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2c3bc596076f3ec4f9d41f0da819ddd386fee63c
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 1ecd15b36b677e65eadbe4e979925723c9eedd51
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67811047"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498433"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
-[Azure Migrate](migrate-services-overview.md)를 사용하면 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 기능을 요약합니다.
+[Azure Migrate](migrate-services-overview.md)를 사용하면 온-프레미스 서버, 앱 및 데이터를 검색 및 평가하고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate의 새로운 기능을 요약합니다.
 
 
 
-## <a name="azure-migrate-new-version"></a>새 버전의 Azure Migrate
+## <a name="update-november-2019"></a>업데이트(2019년 11월)
 
-새 버전의 Azure Migrate는 2019년 7월에 출시되었습니다. 
+Azure Migrate에 여러 가지 새로운 기능이 추가되었습니다.
 
-- **현재(새) 버전**: 이 버전을 사용하여 Azure Migrate 프로젝트를 만들고, 온-프레미스 컴퓨터를 검색하고, 평가 및 마이그레이션을 오케스트레이션합니다. 
-- **이전 버전**: 이전 버전의 Azure Migrate(온-프레미스 VMware VM의 평가만 지원됨)를 사용하고 있는 고객은 이제 현재 버전을 사용해야 합니다. 이전 버전에서는 더 이상 새 Azure Migrate 프로젝트를 만들거나 새 검색을 수행할 수 없습니다. 기존 프로젝트에 계속 액세스할 수 있습니다. Azure Portal > 모든 서비스에서 이 작업을 수행하려면 Azure Migrate를 검색합니다. Azure Migrate 알림에는 이전 Azure Migrate 프로젝트에 액세스할 수 있는 링크가 있습니다.
+- **물리적 서버 평가**. 이미 지원되는 물리적 서버 마이그레이션 외에도 온-프레미스 물리적 서버의 평가가 지원됩니다.
+- **가져오기 기반 평가**. 이제 CSV 파일로 제공되는 메타데이터 및 성능 데이터를 사용한 컴퓨터 평가가 지원됩니다.
+- **애플리케이션 검색**: Azure Migrate는 이제 Azure Migrate 어플라이언스를 사용하여 애플리케이션 수준의 앱, 역할 및 기능 검색을 지원합니다. 이는 현재 VMware VM에서만 지원되며 검색으로만 제한됩니다(평가는 현재 지원되지 않음). [자세히 알아보기](how-to-discover-applications.md)
+- **에이전트 없는 종속성 시각화**: 종속성 시각화를 위해 더 이상 에이전트를 명시적으로 설치할 필요가 없습니다. 이제 에이전트 없이 또는 에이전트 기반이 모두 지원됩니다.
+- **가상 데스크톱**: ISV 도구를 사용하여 온-프레미스 VDI(가상 데스크톱 인프라)를 평가하고 Azure의 Windows Virtual Desktop으로 마이그레이션합니다.
+- **웹앱**: 이제 웹앱을 평가하고 마이그레이션하는 데 사용되는 Azure App Service Migration Assistant가 Azure Migrate에 통합되었습니다.
+
+## <a name="release-version-july-2019"></a>릴리스 버전(2019년 7월)
+
+현재 버전의 Azure Migrate는 2019년 7월에 출시되었습니다. 
+
+- **현재 버전**: 이 버전을 사용하여 Azure Migrate 프로젝트를 만들고, 온-프레미스 컴퓨터를 검색하고, 평가 및 마이그레이션을 오케스트레이션합니다. 
+- **이전 버전**: 이전 버전의 Azure Migrate(온-프레미스 VMware VM의 평가만 지원됨)를 사용하고 있는 고객은 이제 현재 버전을 사용해야 합니다. 이전 버전에서는 더 이상 새 Azure Migrate 프로젝트를 만들거나 새 검색을 수행할 수 없습니다. 기존 프로젝트에 계속 액세스할 수 있습니다. Azure Portal > **모든 서비스**에서 이 작업을 수행하려면 **Azure Migrate**를 검색합니다. Azure Migrate 알림에는 이전 Azure Migrate 프로젝트에 액세스할 수 있는 링크가 있습니다.
 
 
-## <a name="azure-migrate-features"></a>Azure Migrate 기능
+### <a name="azure-migrate-features"></a>Azure Migrate 기능
 
-새 버전의 Azure Migrate는 다음과 같은 여러 가지 새로운 기능을 제공합니다.
+현재 버전의 Azure Migrate는 다음과 같은 여러 가지 새로운 기능을 제공합니다.
 
 
 - **통합 마이그레이션 플랫폼**: 이제 Azure Migrate는 향상된 배포 흐름과 포털 환경을 통해 Azure에 대한 마이그레이션 과정을 중앙에서 처리하고, 관리 및 추적하는 단일 포털을 제공합니다.

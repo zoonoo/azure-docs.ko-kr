@@ -18,15 +18,15 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 273a8b06b3bd3bf299b47a1cc52fd4660353cec3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d947645b45641b2604e20f18765fd0428a1336ec
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473743"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721056"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>MSAL.NET에서 지원 Active Directory Federation Services
-Windows Server의 Active Directory Federation Services (AD FS)를 사용 하면 개발 중인 응용 프로그램에 Openid connect Connect 및 OAuth 2.0 기반 인증 및 권한 부여를 추가할 수 있습니다. 이러한 응용 프로그램은 AD FS에 대해 직접 사용자를 인증할 수 있습니다. 자세한 내용은 [개발자를 위한 AD FS 시나리오](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios)를 참조 하세요.
+Windows Server의 Active Directory Federation Services (AD FS)를 사용 하면 개발 중인 응용 프로그램에 Openid connect Connect 및 OAuth 2.0 기반 인증 및 권한 부여를 추가할 수 있습니다. 이러한 응용 프로그램은 AD FS에 대해 직접 사용자를 인증할 수 있습니다. 자세한 내용은 [개발자를 위한 AD FS 시나리오](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios)를 참조 하세요.
 
 Microsoft Authentication Library for .NET (MSAL.NET)은 AD FS에 대해 인증 하는 두 가지 시나리오를 지원 합니다.
 

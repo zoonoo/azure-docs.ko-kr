@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/04/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 7f62e437d80f023972327d98b4add193eb7b8dd6
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044412"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73469738"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Azure VM에 대한 업데이트 및 패치 관리
 
@@ -47,8 +47,9 @@ ms.locfileid: "73044412"
 
 먼저 이 자습서에 사용할 VM에서 업데이트 관리를 사용하도록 설정합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **가상 머신**을 선택합니다. 목록에서 VM을 선택합니다.
-2. VM 페이지의 **작업** 아래에서 **업데이트 관리**를 선택합니다. **업데이트 관리 사용** 창이 열립니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴에서 **가상 머신**을 선택하거나 **홈** 페이지에서 **가상 머신**을 검색하여 선택합니다.
+1. 업데이트 관리를 사용하도록 설정할 VM을 선택합니다.
+1. VM 페이지의 **작업** 아래에서 **업데이트 관리**를 선택합니다. **업데이트 관리 사용** 창이 열립니다.
 
 이 VM에 대해 업데이트 관리가 사용되도록 설정되어 있는지를 확인하기 위해 유효성 검사가 수행됩니다. 이 유효성 검사에는 Azure Log Analytics 작업 영역 및 연결된 Automation 계정 검사와 업데이트 관리 솔루션이 작업 영역에 있는지 확인하는 검사가 포함됩니다.
 

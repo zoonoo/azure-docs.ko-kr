@@ -1,25 +1,24 @@
 ---
 title: 기술 자료 저장소에서 프로젝션 사용 (미리 보기)
 titleSuffix: Azure Cognitive Search
-description: 전체 텍스트 검색 이외의 시나리오에서 사용할 보강 데이터를 AI 보강 인덱싱 파이프라인에서 저장 하 고 셰이프를 저장 합니다.
+description: AI 보강 인덱싱 파이프라인의 보강 데이터를 전체 텍스트 검색 이외의 시나리오에서 사용할 정보 저장소로 저장 하 고 셰이프를 저장 합니다. 기술 자료 저장소는 현재 공개 미리 보기로 제공 됩니다.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8e6c285e8917c4224e2007c565d5ac5447b20853
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: bb6af4be232810c1f5d135e459238e2e4f2cd5d8
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790010"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720046"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 자료 저장소에서 프로젝션 사용
 
-> [!Note]
-> 지식 저장소는 미리 보기로 제공되며 프로덕션 용도로는 제공되지 않습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
->
+> [!IMPORTANT] 
+> 기술 자료 저장소는 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-미리](search-api-preview.md) 보기는 미리 보기 기능을 제공 합니다. 현재는 포털 지원이 제한적 이며 .NET SDK를 지원 하지 않습니다.
 
 Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되는 인식 기술 및 사용자 지정 기술을 통해 콘텐츠를 보강 수 있습니다. 강화를 사용 하 여 문서에 구조를 추가 하 고 검색을 더 효과적으로 수행할 수 있습니다. 대부분의 경우 보강 문서는 검색 이외의 시나리오 (예: 기술 자료 마이닝)에 유용 합니다.
 

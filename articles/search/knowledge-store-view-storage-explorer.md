@@ -1,34 +1,34 @@
 ---
-title: Storage Explorer를 사용하여 지식 저장소 보기
+title: Storage 탐색기를 사용 하 여 기술 자료 저장소 (미리 보기) 보기
 titleSuffix: Azure Cognitive Search
-description: Azure Portal의 Storage 탐색기을 사용 하 여 Azure Cognitive Search 기술 자료 저장소를 보고 분석 합니다.
+description: Azure Portal의 Storage 탐색기을 사용 하 여 Azure Cognitive Search 기술 자료 저장소를 보고 분석 합니다. 기술 자료 저장소는 현재 공개 미리 보기로 제공 됩니다.
 manager: nitinme
 author: lisaleib
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9ba11b69a51a5bc563764a7e75189bed67cb2ac6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: e3ea879a419aa14d3a6693e23f4f120aca8d9d51
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484996"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720055"
 ---
 # <a name="view-a-knowledge-store-with-storage-explorer"></a>Storage Explorer를 사용하여 지식 저장소 보기
 
-> [!Note]
-> 지식 저장소는 미리 보기로 있으므로 프로덕션 환경에서 사용하면 안 됩니다. 포털 및 [검색 REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 에서이 기능을 제공 합니다. 지금은 .NET SDK 지원이 없습니다.
->
+> [!IMPORTANT] 
+> 기술 자료 저장소는 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-미리](search-api-preview.md) 보기는 미리 보기 기능을 제공 합니다. 현재는 포털 지원이 제한적 이며 .NET SDK를 지원 하지 않습니다.
+
 이 문서에서는 Azure Portal에서 Storage 탐색기를 사용 하 여 기술 자료 저장소에 연결 하 고 탐색 하는 방법을 설명 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-+ [Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md)의 단계에 따라 이 연습에 사용되는 샘플 지식 저장소를 만듭니다.
++ [Azure Portal에서 기술 자료 저장소 만들기](knowledge-store-create-portal.md) 의 단계를 수행 하거나 [REST를 사용 하 여 Azure Cognitive Search 기술 자료](knowledge-store-create-rest.md) 저장소를 만들어이 연습에서 사용 되는 샘플 기술 자료 저장소를 만듭니다.
 
 + 지식 저장소를 만들 때 사용한 Azure 스토리지 계정의 이름과 Azure Portal의 계정 액세스 키도 필요합니다.
 
-## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Storage Explorer에서 지식 저장소 보기, 편집 및 쿼리
+## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Storage 탐색기에서 기술 자료 저장소 보기, 편집 및 쿼리
 
 1. Azure Portal에서 기술 자료 저장소를 만드는 데 사용한 [저장소 계정을 엽니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) .
 

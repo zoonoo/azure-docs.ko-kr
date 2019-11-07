@@ -1,26 +1,24 @@
 ---
 title: Azure Key Vault에서 고객 관리 키를 사용 하 여 미사용 암호화 (미리 보기)
 titleSuffix: Azure Cognitive Search
-description: Azure Key Vault에서 만들고 관리 하는 키를 통해 Azure Cognitive Search의 인덱스 및 동의어 맵에 대 한 서버 쪽 암호화를 보충 합니다.
+description: Azure Key Vault에서 만들고 관리 하는 키를 통해 Azure Cognitive Search의 인덱스 및 동의어 맵에 대 한 서버 쪽 암호화를 보충 합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
 manager: nitinme
 author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 94c9d94edb9a9ca3f6117bd43ab9cefe1dad52a3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1521abfa327c69648b38f02d1d6313baa369f304
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794365"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721759"
 ---
 # <a name="content-encryption-of-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault에서 고객 관리 키를 사용 하 여 Azure Cognitive Search의 콘텐츠 암호화
 
-> [!Note]
-> 고객 관리 키를 사용 하는 암호화는 미리 보기 상태 이며 프로덕션 용도로는 사용할 수 없습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. .NET SDK 버전 8.0-미리 보기를 사용할 수도 있습니다.
->
-> 무료 서비스에서는이 기능을 사용할 수 없습니다. 2019-01-01 이후 또는 이후에 생성 된 청구 가능 검색 서비스를 사용 해야 합니다. 지금은 포털을 지원 하지 않습니다.
+> [!IMPORTANT] 
+> 미사용 암호화에 대 한 지원은 현재 공개 미리 보기 상태입니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 및 [.net SDK 버전 8.0-미리 보기](search-dotnet-sdk-migration-version-9.md) 는이 기능을 제공 합니다. 현재 포털은 지원 되지 않습니다.
 
 기본적으로 Azure Cognitive Search [는 서비스 관리 키](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models)를 사용 하 여 미사용 사용자 콘텐츠를 암호화 합니다. Azure Key Vault에서 만들고 관리 하는 키를 사용 하 여 추가 암호화 계층으로 기본 암호화를 보완할 수 있습니다. 이 문서에서는 단계를 안내 합니다.
 
@@ -30,7 +28,7 @@ ms.locfileid: "72794365"
 
 다른 키 자격 증명 모음에서 다른 키를 사용할 수 있습니다. 즉, 단일 search 서비스는 서로 다른 고객 관리 키를 사용 하 여 잠재적으로 암호화 된 여러 개의 암호화 된 indexes\synonym 맵을 호스트할 수 있으며,이는 고객 관리 키를 사용 하 여 암호화 되지 않은 indexes\synonym 지도와 함께 사용 됩니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 예제에서 사용 되는 서비스는 다음과 같습니다. 
 

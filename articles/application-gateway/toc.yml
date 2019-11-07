@@ -17,8 +17,6 @@
       href: quick-create-cli.md
 - name: 자습서
   items:
-    - name: 웹 애플리케이션 방화벽 사용
-      href: application-gateway-web-application-firewall-portal.md
     - name: SSL을 통한 보안
       href: create-ssl-portal.md
     - name: 다중 사이트 호스트
@@ -127,12 +125,6 @@
           items:
             - name: SSL 정책 구성
               href: application-gateway-configure-ssl-policy-powershell.md
-    - name: 웹 애플리케이션 방화벽 구성
-      items:
-        - name: Azure PowerShell
-          href: tutorial-restrict-web-traffic-powershell.md
-        - name: Azure CLI
-          href: tutorial-restrict-web-traffic-cli.md
     - name: AKS 수신
       items:
         - name: 기존 Application Gateway로 설정

@@ -3,17 +3,17 @@ title: Azure 디바이스 프로비저닝에서 디바이스 개념 | Microsoft 
 description: Device Provisioning Service 및 IoT Hub를 사용하는 디바이스에 해당하는 디바이스 프로비저닝 개념 설명
 author: nberdy
 ms.author: nberdy
-ms.date: 04/04/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: dc4ffc4965d6a3c05693c7566a2c51538584f372
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0e3557588281cd392a7a8a1c2654f10e8387dd83
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897577"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720540"
 ---
 # <a name="iot-hub-device-provisioning-service-device-concepts"></a>IoT Hub Device Provisioning Service 디바이스 개념
 
@@ -31,7 +31,7 @@ IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터
 Device Provisioning Service는 다음 형식의 증명을 지원합니다.
 * 표준 X.509 인증서 인증 흐름을 기반으로 하는 **X.509 인증서**
 * nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)** 은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 디바이스에서 실제 TPM이 필요하지 않지만 서비스는 [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)당 인증 키를 사용하여 증명하기를 기대합니다.
-* 해시된 서명과 포함된 만료 날짜가 들어 있는 SAS(공유 액세스 서명) [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-tokens)을 기반으로 하는 **대칭 키**. 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
+* 해시된 서명과 포함된 만료 날짜가 들어 있는 SAS(공유 액세스 서명) **보안 토큰**을 기반으로 하는 [대칭 키](../iot-hub/iot-hub-devguide-security.md#security-tokens). 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈
 
@@ -51,7 +51,7 @@ Device Provisioning Service에서 디바이스를 고유하게 식별하는 데 
 
 ## <a name="device-id"></a>디바이스 ID
 
-디바이스 ID는 IoT Hub에 표시되는 ID입니다. 등록 항목에서 원하는 디바이스 ID를 설정할 수 있지만 설정할 필요가 없습니다. 등록 목록에 원하는 디바이스 ID가 지정되지 않은 경우 등록 ID는 디바이스를 등록할 때 디바이스 ID로 사용됩니다. [IoT Hub의 디바이스 ID](../iot-hub/iot-hub-devguide-identity-registry.md)에 대해 자세히 알아봅니다.
+디바이스 ID는 IoT Hub에 표시되는 ID입니다. 등록 항목에서 원하는 디바이스 ID를 설정할 수 있지만 설정할 필요가 없습니다. 원하는 장치 ID 설정은 개별 등록 지원 됩니다. 등록 목록에 원하는 디바이스 ID가 지정되지 않은 경우 등록 ID는 디바이스를 등록할 때 디바이스 ID로 사용됩니다. [IoT Hub의 디바이스 ID](../iot-hub/iot-hub-devguide-identity-registry.md)에 대해 자세히 알아봅니다.
 
 ## <a name="id-scope"></a>ID 범위
 

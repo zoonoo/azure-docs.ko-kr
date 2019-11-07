@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 08a18dc115990ad7d44a8b20412e07995c9af390
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069502"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73470562"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>내부 Load Balancer App Service Environment 만들기 및 사용 
 
@@ -31,7 +31,7 @@ Azure App Service Environment는 Azure App Service를 Azure VNet(가상 네트�
 
 ## <a name="overview"></a>개요 
 
-VNet의 인터넷 액세스 가능 엔드포인트 또는 IP 주소를 사용하여 ASE를 배포할 수 있습니다. IP 주소를 VNet 주소로 설정하려면 ASE는 ILB를 사용하여 배포되어야 합니다. ILB를 사용하여 ASE를 배포하는 경우 ASE 이름을 제공해야 합니다. ASE 이름은 ASE의 앱에 대한 도메인 접미사에 사용됩니다.  ILB ASE의 도메인 접미사는 &lt;ASE 이름&gt;.appservicewebsites.net입니다. ILB ASE에서 만든 앱은 공용 DNS에 포함되지 않습니다. 
+VNet의 인터넷 액세스 가능 엔드포인트 또는 IP 주소를 사용하여 ASE를 배포할 수 있습니다. IP 주소를 VNet 주소로 설정하려면 ASE는 ILB를 사용하여 배포되어야 합니다. ILB를 사용하여 ASE를 배포하는 경우 ASE 이름을 제공해야 합니다. ASE 이름은 ASE의 앱에 대한 도메인 접미사에 사용됩니다.  ILB ASE의 도메인 접미사는 &lt;ASE 이름&gt;.appserviceenvironment.net입니다. ILB ASE에서 만든 앱은 공용 DNS에 포함되지 않습니다. 
 
 이전 버전의 ILB ASE에서는 도메인 접미사와 HTTPS 연결에 대한 기본 인증서를 제공해야 했습니다. 도메인 접미사는 ILB ASE를 만들 때 더 이상 수집되지 않으며, 기본 인증서도 더 이상 수집되지 않습니다. 지금 ILB ASE를 만들면 기본 인증서가 Microsoft에서 제공되며 브라우저에서 신뢰할 수 있습니다. 여전히 ASE의 앱에서 사용자 지정 도메인 이름을 설정하고 인증서를 해당 사용자 지정 도메인 이름으로 설정할 수 있습니다. 
 
@@ -107,9 +107,10 @@ ILB ASE를 만들려면
 DNS를 구성하려면 다음을 수행합니다.
 
 - *&lt;ASE 이름&gt;.appserviceenvironment.net* 영역 만들기
-- 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기 
+- 해당 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
+- 해당 영역에 @로 ILB IP 주소를 가리키는 A 레코드 만들기
 - *&lt;ASE 이름&gt;.appserviceenvironment.net*에 scm이라는 영역 만들기
-- scm 영역에 ILB IP 주소를 가리키는 A 레코드 만들기
+- scm 영역에 *로 ILB IP 주소를 가리키는 A 레코드 만들기
 
 ## <a name="publish-with-an-ilb-ase"></a>ILB ASE로 게시
 
@@ -156,7 +157,7 @@ WAF 디바이스를 사용하여 ILB ASE를 구성하는 방법에 대한 자세
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/resource-group-overview.md
-[ConfigureSSL]: ../web-sites-purchase-ssl-web-site.md
+[ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../application-gateway/application-gateway-web-application-firewall-overview.md

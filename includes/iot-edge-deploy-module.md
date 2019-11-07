@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/04/2019
 ms.author: kgremban
 ms.custom: include file
-ms.openlocfilehash: c20a14ef2bc74d73b93ab39ee52fe1be8a5f984f
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 12661c77c6a950b482187b09e4465c964e6d6652
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182321"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73494048"
 ---
 Azure IoT Edge의 주요 기능 중 하나는 클라우드의 IoT Edge 디바이스에 코드를 배포하는 것입니다. **IoT Edge 모듈**은 컨테이너로 구현된 실행 패키지입니다. 이 섹션에서는 [Azure Marketplace의 IoT Edge 모듈 섹션](https://azuremarketplace.microsoft.com/marketplace/apps/category/internet-of-things?page=1&subcategories=iot-edge-modules)에서 미리 빌드된 모듈을 배포합니다. 
 
@@ -37,7 +37,7 @@ Azure Marketplace에서 첫 번째 모듈을 배포하려면 다음 단계를 �
 
 3. Azure Marketplace에서 IoT Edge 모듈을 선택하고 모듈을 수신할 IoT Edge 디바이스를 선택하면 모듈 배포 방법을 정확하게 정의할 수 있는 3단계 마법사로 이동됩니다. 마법사의 **모듈 추가** 단계에서 **SimulatedTemperatureSensor** 모듈이 자동으로 채워지는 것에 유의합니다. 자습서의 이 페이지를 사용하여 배포에 모듈을 추가합니다. 이 빠른 시작에서는 이 모듈 하나만 배포합니다. **다음**을 선택하여 마법사의 다음 단계로 진행합니다.
 
-4. 마법사의 **경로 지정** 단계에서 모듈과 IoT Hub 사이에서 메시지가 전달되는 방식을 정의합니다. 빠른 시작의 경우, 모든 모듈의 모든 메시지가 IoT Hub(`$upstream`)로 이동하도록 합니다. 자동으로 채워지지 않으면 다음 코드를 추가한 후에 **다음**을 선택합니다.
+4. 마법사의 **경로 지정** 단계에서 모듈과 IoT Hub 사이에서 메시지가 전달되는 방식을 정의합니다. 빠른 시작의 경우, 모든 모듈의 모든 메시지가 IoT Hub(`$upstream`)로 이동하도록 합니다. 자동으로 채워지지 않으면 다음 코드를 추가합니다.
 
    ```json
     {
@@ -46,6 +46,7 @@ Azure Marketplace에서 첫 번째 모듈을 배포하려면 다음 단계를 �
         }
     }
    ```
+   그런 후 **다음**을 선택합니다.
 
 5. 마법사의 **배포 검토** 단계에서 IoT Edge 디바이스에 배포되는 모든 모듈을 정의하는 JSON 파일을 검토할 수 있습니다. **SimulatedTemperatureSensor** 모듈 외에도 **edgeAgent**와 **edgeHub**라는 시스템 모듈 두 개가 추가로 포함됩니다. 검토를 완료하면 **제출**을 선택합니다.
 

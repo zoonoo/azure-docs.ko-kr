@@ -1,25 +1,24 @@
 ---
 title: 증분 인덱싱 소개 (미리 보기)
 titleSuffix: Azure Cognitive Search
-description: AI 보강 파이프라인을 구성 하 여 기술, 기술력과, 인덱서 또는 데이터 원본에 대 한 업데이트를 처리 하는 최종 일관성으로 데이터를 구동 합니다.
+description: AI 보강 파이프라인을 구성 하 여 기술, 기술력과, 인덱서 또는 데이터 원본에 대 한 업데이트를 처리 하는 최종 일관성으로 데이터를 구동 합니다. 이 기능은 현재 공개 미리 보기 상태입니다.
 manager: nitinme
 author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ea3bcfc25040f09b6871d85412ac64061ec2f9e8
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 94ce056185ff6a804521bf583ac4f6ffaa513fb0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73549124"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715426"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 인덱싱 이란?
 
-> [!Note]
-> 증분 인덱싱은 미리 보기 상태 이며 프로덕션 용도로는 사용할 수 없습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
->
+> [!IMPORTANT] 
+> 증분 인덱싱은 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
 
 증분 인덱싱은 보강의 콘텐츠를 기술에 추가 하 여 보강 파이프라인에서 개별 단계를 처리 하 고 다시 처리 하는 기능을 제공 하는 Azure Cognitive Search의 새로운 기능입니다. 이 작업을 수행 하는 경우에도 현금 투자를 처리할 수 있을 뿐만 아니라 더 효율적인 시스템을 만들 수 있습니다. 구조와 콘텐츠를 캐시 하는 경우 인덱서는 변경 된 기술을 확인 하 고 다운스트림 종속 기술 뿐만 아니라 수정 된 기술을 실행할 수 있습니다. 
 

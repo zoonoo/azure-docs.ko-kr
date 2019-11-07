@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e81eaf232e3234ac4de0cfb7412e23709f0c0b99
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
-ms.translationtype: HT
+ms.openlocfilehash: 3a2967ab40da8594b2d6372d5da816a6c76c9109
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73549107"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721723"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -31,16 +31,18 @@ API 버전, Nuget 패키지, 네임 스페이스 및 끝점은 변경 되지 않
 
 2019 년 11 월 4 일-Ignite 회의
 
-+ 현재 미리 보기로 제공 되는 [증분 인덱싱을](cognitive-search-incremental-indexing-conceptual.md)사용 하면 보강 파이프라인을 수정할 때 반드시 필요한 단계만 처리 하거나 다시 처리할 수 있습니다. 이 기능은 이전에 분석 한 이미지 내용이 있는 경우 특히 유용 합니다. 비용이 많이 드는 분석의 출력은 저장 된 후 추가 인덱싱 또는 보강의 기준으로 사용 됩니다.
++ [증분 인덱싱 (미리 보기)](cognitive-search-incremental-indexing-conceptual.md) 을 사용 하면 보강 파이프라인을 수정할 때 반드시 필요한 단계만 처리 하거나 다시 처리할 수 있습니다. 이 기능은 이전에 분석 한 이미지 내용이 있는 경우 특히 유용 합니다. 비용이 많이 드는 분석의 출력은 저장 된 후 추가 인덱싱 또는 보강의 기준으로 사용 됩니다.
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->
 
-+ [문서 추출](cognitive-search-skill-document-extraction.md) 은 기술 내에서 파일의 내용을 추출할 수 있는 인덱싱 중에 사용 되는 인식 기술입니다. 이전에는 문서 크랙 기술 실행 되기 전에 발생 했습니다. 이 기술 외에도 기술 실행 내에서이 작업을 수행할 수 있습니다.
++ [문서 추출 (미리 보기)](cognitive-search-skill-document-extraction.md) 은 기술 내에서 파일의 콘텐츠를 추출할 수 있는 인덱싱 중에 사용 되는 인식 기술입니다. 이전에는 문서 크랙 기술 실행 되기 전에 발생 했습니다. 이 기술 외에도 기술 실행 내에서이 작업을 수행할 수 있습니다.
 
-+ [텍스트 번역](cognitive-search-skill-text-translation.md) 은 텍스트를 평가 하는 인덱싱 중에 사용 되는 인식 기술 이며, 각 레코드에 대해 지정 된 대상 언어로 변환 된 텍스트를 반환 합니다.
++ [텍스트 번역 (미리 보기)](cognitive-search-skill-text-translation.md) 은 텍스트를 평가 하는 인덱싱 중에 사용 되는 인식 기술 이며, 각 레코드에 대해 지정 된 대상 언어로 변환 된 텍스트를 반환 합니다.
 
 + [Power BI 템플릿은](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) Power BI desktop의 기술 자료 저장소에서 보강 콘텐츠를 시각화 하 고 분석할 수 있습니다. 이 템플릿은 [데이터 가져오기 마법사](knowledge-store-create-portal.md)를 통해 만든 Azure table 프로젝션 용으로 설계 되었습니다.
+
++ [Azure Data Lake Storage Gen2 (미리 보기)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (미리](search-howto-index-cosmosdb.md)보기) 및 [Cosmos DB Cassandra API (미리 보기)](search-howto-index-cosmosdb.md) 는 이제 인덱서에 지원 됩니다. [이 양식을](https://aka.ms/azure-cognitive-search/indexer-preview)사용 하 여 등록할 수 있습니다. 미리 보기 프로그램에 동의 하면 확인 전자 메일을 받게 됩니다.
 
 ## <a name="service-updates"></a>서비스 업데이트
 

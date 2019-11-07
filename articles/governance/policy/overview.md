@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: overview
 ms.service: azure-policy
-ms.openlocfilehash: b8628d60110818fe64e5b09b400a1396213147b6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 46d78ca9f82017e1a11642af6e5dcdc68e239c8a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980781"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73498277"
 ---
 # <a name="overview-of-the-azure-policy-service"></a>Azure Policy 서비스 개요
 
@@ -48,12 +48,11 @@ Azure Policy에서 정책을 만들고 구현하는 과정은 정책 정의 만�
 
 Azure Policy에는 기본적으로 사용 가능한 여러 가지 기본 제공 정책이 있습니다. 예:
 
-- **SQL Server 12.0 필요**: 모든 SQL Server가 버전 12.0을 사용하는지 확인합니다. 이 기준에 부합하지 않는 모든 서버를 거부하게 됩니다.
 - **허용되는 스토리지 계정 SKU** 배포 중인 스토리지 계정이 SKU 크기 세트 내에 있는지 여부를 확인합니다. 정의된 SKU 크기 세트를 준수하지 않는 모든 스토리지 계정을 거부하게 됩니다.
 - **허용되는 리소스 유형** 배포할 수 있는 리소스 유형을 정의합니다. 이 정의된 목록에 속하지 않는 모든 리소스를 거부하게 됩니다.
 - **허용되는 위치**: 새 리소스를 사용할 수 있는 위치를 제한합니다. 해당 효과는 지역 규정 준수 요구 사항을 적용하는 데 사용됩니다.
 - **허용되는 가상 머신 SKU**: 배포할 수 있는 가상 머신 SKU 세트를 지정합니다.
-- **태그 및 기본값 적용**: 배포 요청에 의해 지정되지 않은 경우 필수 태그 및 해당 기본값을 적용합니다.
+- **리소스에 태그 추가**: 배포 요청에 의해 지정되지 않은 경우 필수 태그 및 해당 기본값을 적용합니다.
 - **태그 및 해당 값 강제 적용**: 필수 태그 및 해당 값을 리소스에 강제 적용합니다.
 - **허용되지 않는 리소스 유형**: 리소스 종류 목록이 배포되지 않도록 합니다.
 

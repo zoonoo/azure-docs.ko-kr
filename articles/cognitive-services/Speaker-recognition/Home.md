@@ -1,7 +1,7 @@
 ---
 title: Speaker Recognition API란?
 titleSuffix: Azure Cognitive Services
-description: Cognitive Services의 Speaker Recognition API를 사용하여 화자 검증 및 화자 식별에 고급 알고리즘을 사용합니다.
+description: Cognitive Services의 Speaker Recognition API를 사용하여 화자 검증 및 화자 식별을 수행합니다.
 services: cognitive-services
 author: dwlin
 manager: nitinme
@@ -11,50 +11,59 @@ ms.topic: overview
 ms.date: 10/01/2018
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9cdfd5d09451968487bafbcad643e179ffe82aa7
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: f354793e3779f4d9f7be9bae8a21545a15ed1c4c
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707174"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73464909"
 ---
-# <a name="speaker-recognition-api"></a>Speaker Recognition API
+# <a name="speaker-recognition-api---preview"></a>Speaker Recognition API - 미리 보기
 
-Azure Cognitive Services Speaker Recognition API에 오신 것을 환영합니다. Speaker Recognition API는 화자 검증 및 화자 식별을 위해 가장 발전된 알고리즘을 제공하는 클라우드 기반 API입니다. Speaker Recognition은 화자 검증과 화자 식별의 두 가지 범주로 나눌 수 있습니다.
-
+Speaker Recognition API는 화자 검증 및 화자 식별을 위해 고급 AI 알고리즘을 제공하는 클라우드 기반 API입니다. Speaker Recognition은 화자 검증과 화자 식별의 두 가지 범주로 나뉩니다.
 
 ## <a name="speaker-verification"></a>화자 검증
 
-음성에는 지문처럼 사람을 식별하는 데 사용할 수 있는 고유한 특성이 있습니다.  액세스 제어 및 인증 시나리오에 대한 신호로 음성을 사용하는 것은 기본적으로 고객의 인증 환경을 간소화하는 높은 수준의 보안을 제공하는 새로운 혁신적인 도구로 등장했습니다.
+음성에는 개인과 연관지을 수 있는 고유한 특징이 있습니다.  콜 센터 및 웹 서비스와 같은 시나리오에서 애플리케이션은 확인을 위한 추가 요소로 음성을 사용할 수 있습니다.
 
-화자 검증 API는 해당 음성 또는 발화를 사용하여 사용자를 자동으로 검증하고 인증할 수 있습니다.
+Speaker Verification API는 음성 및 음성 암호를 모두 사용하여 사용자를 확인하는 데 도움이 되는 지능형 도구로 사용됩니다.
 
 ### <a name="enrollment"></a>등록
 
 화자 검증에 대한 등록은 텍스트에 따라 다르기 때문에 화자가 등록 및 검증 단계에서 사용할 특정 전달 구를 선택해야 합니다.
 
-등록 단계에서 화자의 음성은 특정 구를 말하도록 기록된 후에 다양한 기능이 추출되고 선택한 구가 인식됩니다. 추출된 기능과 선택한 구가 함께 고유한 음성 시그니처를 구성합니다.
+화자 등록 단계에서 화자의 음성은 특정 문구를 말하여 녹음됩니다. 선택한 문구가 인식되는 동안 고유한 음성 서명을 구성하기 위해 음성 특징이 추출됩니다. 이 화자 등록 데이터를 함께 사용하여 화자를 확인합니다. 화자 등록 데이터는 보안 시스템에 저장됩니다. 보존되는 기간은 고객이 제어합니다. 고객은 API 호출을 통해 개별 화자에 대한 등록 데이터를 만들고, 업데이트하고, 제거할 수 있습니다.  구독이 삭제되면 구독과 연결된 모든 화자 등록 데이터도 삭제됩니다.
+
+고객은 화자 검증을 위해 사용자로부터 적절한 권한을 받았는지 확인해야 합니다.
 
 ### <a name="verification"></a>확인
 
-검증에서는 입력된 음성 및 구를 등록된 음성 서명 및 구와 비교하여 동일한 사람인지 여부와 올바른 구를 말하고 있는지를 확인합니다.
+검증 단계에서 고객은 확인할 개인과 연결된 ID를 사용하여 Speaker Verification API를 호출해야 합니다.  서비스는 입력 음성 녹음에서 음성 특징 및 암호를 추출합니다. 그런 다음 고객이 확인하려는 화자에 대한 화자 등록 데이터의 해당 요소와 특징을 비교하고 일치 여부를 결정합니다.  응답은 다양한 신뢰 수준과 함께 "수락" 또는 "거부"를 반환합니다.  그러면 고객은 이 사용자가 등록된 화자인지 여부를 판단할 수 있도록 결과를 사용하는 방법을 결정합니다.
 
-화자 검증에 대한 자세한 내용은 API  [화자 - 검증](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652)을 참조하세요.
+임계값 신뢰 수준은 사용되는 시나리오 및 기타 확인 요소에 따라 설정되어야 합니다. 신뢰 수준을 시험해 보고 각 애플리케이션에 대해 적절한 설정을 고려하는 것이 좋습니다. 이 API는 오디오가 실제 사용자의 것인지 또는 등록된 화자를 흉내낸 것인지 또는 녹음된 것인지를 결정하기 위한 것이 아닙니다.
+
+서비스는 검증 단계 동안 서비스로 전송되는 음성 녹음 또는 추출된 음성 특징을 보관하지 않습니다.
+
+화자 검증에 대한 자세한 내용은 API [화자 - 검증](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/563309b7778daf06340c9652)을 참조하세요.
 
 ## <a name="speaker-identification"></a>화자 식별
 
-화자 식별 API는 잠재적인 화자 그룹이 지정된 오디오 파일에서 말하는 사람을 자동으로 식별할 수 있습니다. 입력 오디오는 제공된 화자 그룹에 연결되고 일치하는 항목이 있을 경우 화자의 신원이 반환됩니다.
-
-모든 화자는 먼저 등록 프로세스를 통해 시스템에 등록된 음성 가져오고 음성 인쇄를 생성해야 합니다.
-
+애플리케이션은 음성을 사용하여 등록된 화자 그룹에 지정된 "화자"를 식별할 수 있습니다. Speaker Identification API는 모임 생산성, 개인 설정 및 콜 센터 전사 등의 시나리오에서 사용할 수 있습니다.
 
 ### <a name="enrollment"></a>등록
 
-화자 식별 등록은 텍스트와 관련이 없으므로 화자가 오디오에서 말하는 내용에 대한 제한이 없습니다. 화자의 음성이 녹음되고, 고유한 음성 서명을 구성하기 위해 다양한 특징이 추출됩니다.
+화자 식별 등록은 텍스트와 관련이 없으므로 화자가 오디오에서 말하는 내용에 대한 제한이 없습니다. 암호는 필요하지 않습니다.
 
+등록 단계에서 화자의 음성이 녹음되고, 고유한 음성 서명을 구성하기 위해 음성 특징이 추출됩니다. 추출된 음성 오디오 및 특징은 보안 시스템에 저장됩니다. 보존되는 기간은 고객이 제어합니다. 고객은 API 호출을 통해 개별 화자에 대한 이 화자 등록 데이터를 만들고, 업데이트하고, 제거할 수 있습니다. 구독이 삭제되면 구독과 연결된 모든 화자 등록 데이터도 삭제됩니다.
 
-### <a name="recognition"></a>인식
+고객은 화자 식별을 위해 사용자로부터 적절한 권한을 받았는지 확인해야 합니다.
 
-잠재적인 그룹의 화자와 함께 알 수 없는 화자의 오디오는 인식 단계에서 제공됩니다. 누구의 음성인지를 결정하기 위해 모든 화자와 입력 음성을 비교하고 일치를 찾은 경우 화자의 신원을 반환합니다.
+### <a name="identification"></a>Identification(식별)
+
+식별 단계에서 화자 식별 서비스는 입력 음성 녹음에서 음성 특징을 추출합니다. 그런 다음 지정된 화자 목록의 등록 데이터와 특징을 비교합니다. 등록된 화자와 일치하는 항목이 발견되면 응답은 신뢰 수준과 함께 화자 ID를 반환합니다.  반면 등록된 화자와 일치하는 화자가 없는 경우 응답은 "거부"를 반환합니다.
+
+임계값 신뢰 수준은 시나리오에 따라 설정해야 합니다. 신뢰 수준을 시험해 보고 각 애플리케이션에 대해 적절한 설정을 고려하는 것이 좋습니다. 이 API는 오디오가 실제 사용자의 것인지 또는 등록된 화자를 흉내낸 것인지 또는 녹음된 것인지를 결정하기 위한 것이 아닙니다.
+
+서비스는 식별 단계 동안 서비스로 전송되는 음성 녹음 또는 추출된 음성 특징을 보관하지 않습니다.
 
 화자 식별에 대한 자세한 내용은 API  [화자 - 식별](https://westus.dev.cognitive.microsoft.com/docs/services/563309b6778daf02acc0a508/operations/5645c068e597ed22ec38f42e)을 참조하세요.

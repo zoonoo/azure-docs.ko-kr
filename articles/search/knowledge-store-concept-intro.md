@@ -1,25 +1,24 @@
 ---
 title: 기술 자료 저장소 소개 (미리 보기)
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 및 다른 응용 프로그램에서 보강 문서를 보고, 변형 하 고, 사용할 수 있는 Azure storage로 보강 문서를 보냅니다.
+description: Azure Cognitive Search 및 다른 응용 프로그램에서 보강 문서를 보고, 변형 하 고, 사용할 수 있는 Azure storage로 보강 문서를 보냅니다. 이 기능은 공개 미리 보기 상태입니다.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2e6d20a1eca7a6b3281e33d8534ab3456e79ccdf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a1c6f2d869d8d7ad865005ebd319beac56bdbacd
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485088"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720085"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 자료 저장소 소개
 
-> [!Note]
-> 지식 저장소는 미리 보기로 제공되며 프로덕션 용도로는 제공되지 않습니다. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
->
+> [!IMPORTANT] 
+> 기술 자료 저장소는 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-미리](search-api-preview.md) 보기는 미리 보기 기능을 제공 합니다. 현재는 포털 지원이 제한적 이며 .NET SDK를 지원 하지 않습니다.
 
 지식 스토어는 나중에 분석 하거나 다른 다운스트림 처리를 위해 [AI 보강 파이프라인](cognitive-search-concept-intro.md) 의 출력을 유지 하는 Azure Cognitive Search의 기능입니다. *보강 문서* 는 AI 프로세스를 사용 하 여 추출, 구조화 및 분석 된 콘텐츠에서 만들어진 파이프라인의 출력입니다. 표준 AI 파이프라인에서 보강 문서는 일시적 이며 인덱싱 중에만 사용 된 후 삭제 됩니다. 지식 스토어를 사용 하 여 보강 문서는 유지 됩니다. 
 

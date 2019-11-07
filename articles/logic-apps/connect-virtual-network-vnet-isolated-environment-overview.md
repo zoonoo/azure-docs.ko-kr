@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 07/26/2019
-ms.openlocfilehash: 5d42b9fc2dfd7cbee230b65f7d9844c9e7332147
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 11/06/2019
+ms.openlocfilehash: adb89c04a83bbfbd5bddd5c23b0fa88019a88991
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680495"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721377"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -28,7 +28,7 @@ ISE를 만든 후 논리 앱 또는 통합 계정 만들기로 이동 하면 ISE
 
 이제 논리 앱에서 다음 항목 중 하나를 사용 하 여 가상 네트워크 내부 또는 연결 된 시스템에 직접 액세스할 수 있습니다.
 
-* 해당 시스템에 대 한 **ISE**레이블 커넥터 (예: SQL Server
+* 해당 시스템에 대 한 **ISE**레이블 커넥터
 * HTTP 트리거 또는 작업과 같은 **핵심**레이블이 지정 된 기본 제공 트리거 또는 동작입니다.
 * 사용자 지정 커넥터
 
@@ -51,7 +51,7 @@ ISE의 논리 앱은 전역 Logic Apps 서비스와 같은 사용자 환경과 �
 * Azure Blob Storage, File Storage 및 Table Storage
 * Azure Queues, Azure Service Bus, Azure Event Hubs 및 IBM MQ
 * FTP 및 SFTP-SSH
-* SQL Server, SQL Data Warehouse, Azure Cosmos DB
+* SQL Server, Azure SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12 및 EDIFACT
 
 ISE 커넥터와 기타 커넥터의 차이는 트리거와 작업이 실행되는 위치입니다.
@@ -72,7 +72,7 @@ ISE 커넥터와 기타 커넥터의 차이는 트리거와 작업이 실행되�
 
 ISE를 만들 때 개발자 SKU 또는 프리미엄 SKU를 선택할 수 있습니다. 이러한 Sku 간의 차이점은 다음과 같습니다.
 
-* **개발자**
+* **Developer**
 
   는 실험, 개발 및 테스트에 사용할 수 있지만 프로덕션 또는 성능 테스트에는 사용할 수 없는 저렴 한 ISE를 제공 합니다. 개발자 SKU에는 고정 월별 가격에 대 한 기본 제공 트리거 및 작업, 표준 커넥터, 엔터프라이즈 커넥터 및 단일 [무료 계층](../logic-apps/logic-apps-limits-and-config.md#artifact-number-limits) 통합 계정이 포함 되어 있습니다. 그러나이 SKU에는 SLA (서비스 수준 계약), 용량을 확장 하는 옵션 또는 재활용 중 중복성을 포함 하지 않습니다. 즉, 지연 또는 가동 중지 시간이 발생할 수 있습니다.
 
@@ -92,6 +92,7 @@ ISE를 만들 때 개발자 SKU 또는 프리미엄 SKU를 선택할 수 있습�
 ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하도록 선택할 수 있습니다. 이러한 끝점은 ISE의 논리 앱에 대 한 요청 또는 webhook 트리거가 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다. 이러한 끝점은 논리 앱 실행 기록의 입력 및 출력에 대 한 액세스에도 영향을 줍니다.
 
 * **내부**: ISE에서 논리 앱에 대 한 호출을 허용 하 고 *가상 네트워크 내부* 에서만 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 개인 끝점
+
 * **외부**: ISE에서 논리 앱에 대 한 호출을 허용 하 고 *가상 네트워크 외부에서* 실행 기록의 입력 및 출력에 대 한 액세스를 허용 하는 공용 끝점
 
 > [!IMPORTANT]
@@ -103,15 +104,20 @@ ISE를 만들 때 내부 또는 외부 액세스 끝점 중 하나를 사용 하
 
 Azure 가상 네트워크에 연결 된 온-프레미스 시스템의 경우 논리 앱이 다음 항목 중 하나를 사용 하 여 해당 시스템에 직접 액세스할 수 있도록 ISE를 해당 네트워크에 삽입 합니다.
 
-* 해당 시스템에 대 한 ISE 버전 커넥터 (예: SQL Server
 * HTTP 동작
+
+* ISE-해당 시스템용으로 레이블이 지정 된 커넥터
+
+  > [!IMPORTANT]
+  > SQL Server 커넥터에서 Windows 인증을 사용 하려면 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-install.md)를 사용 해야 합니다. SQL Server 커넥터는 ISE에서 논리 앱에 대 한 Windows 인증을 지원 하지 않습니다.
+
 * 사용자 지정 커넥터
 
   * 온-프레미스 데이터 게이트웨이를 필요로 하는 사용자 지정 커넥터를 사용 하 고 ISE 외부에서 커넥터를 만든 경우 ISE의 논리 앱 에서도 이러한 커넥터를 사용할 수 있습니다.
   
   * ISE에서 만든 사용자 지정 커넥터는 온-프레미스 데이터 게이트웨이와 작동 하지 않습니다. 그러나 이러한 커넥터는 ISE를 호스트 하는 가상 네트워크에 연결 된 온-프레미스 데이터 원본에 직접 액세스할 수 있습니다. 따라서 ISE의 논리 앱은 이러한 리소스와 통신할 때 데이터 게이트웨이가 필요 하지 않을 수 있습니다.
 
-가상 네트워크에 연결 되어 있지 않거나 ISE-버전 커넥터가 없는 온-프레미스 시스템의 경우 논리 앱이 해당 시스템에 연결 하기 전에 먼저 [온-프레미스 데이터 게이트웨이를 설정](../logic-apps/logic-apps-gateway-install.md) 해야 합니다.
+가상 네트워크에 연결 되어 있지 않거나 ISE-labled 커넥터가 없는 온-프레미스 시스템의 경우 논리 앱이 해당 시스템에 연결 하기 전에 먼저 [온-프레미스 데이터 게이트웨이를 설정](../logic-apps/logic-apps-gateway-install.md) 해야 합니다.
 
 <a name="create-integration-account-environment"></a>
 

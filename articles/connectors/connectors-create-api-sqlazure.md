@@ -10,13 +10,13 @@ ms.reviewer: klam; LADocs
 manager: carmonm
 ms.topic: conceptual
 tags: connectors
-ms.date: 10/14/2019
-ms.openlocfilehash: 880ae4b661d247889815fc5b9ad08a759fe0aa5b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/06/2019
+ms.openlocfilehash: ed30ba305ec990256625052cb92f1b7524c826e2
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161653"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720964"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 SQL Server 또는 Azure SQL Database에 대 한 워크플로 자동화
 
@@ -26,7 +26,7 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다. 커넥터 관련 기술 정보, 제한 사항 및 알려진 문제에 대해서는 [SQL Server 커넥터 참조 페이지](https://docs.microsoft.com/connectors/sql/)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독. 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -45,6 +45,9 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
 * SQL Server와 같은 온-프레미스 시스템에 논리 앱을 연결 하려면 먼저 [온-프레미스 데이터 게이트웨이를 설정](../logic-apps/logic-apps-gateway-install.md)해야 합니다. 이러한 방식으로 논리 앱에 대한 SQL 연결을 만들 때 게이트웨이를 선택할 수 있습니다.
+
+  > [!IMPORTANT]
+  > 이 커넥터에서 Windows 인증을 사용 하려면 온-프레미스 데이터 게이트웨이를 사용 해야 합니다. 이 커넥터는 [ISE (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에 대 한 Windows 인증을 지원 하지 않습니다.
 
 * SQL 데이터베이스에 액세스해야 하는 논리 앱. SQL 트리거를 통해 논리 앱을 시작하려면 [빈 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)이 필요합니다.
 

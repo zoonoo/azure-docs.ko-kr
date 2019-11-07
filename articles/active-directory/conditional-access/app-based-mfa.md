@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36cb3b1555a339249528e290e376454dd78f1e53
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 7a23f8fc10e0e5a19be1f93cc6d6e5e8e301f86d
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67509064"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73474002"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구
 
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 **조건부 액세스 정책을 구성하려면:**
 
 1. [Azure Portal](https://portal.azure.com)에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
-1. Azure Portal의 왼쪽 탐색 모음에서 **Azure Active Directory**를 클릭합니다.
+1. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
 
    ![Azure Active Directory](./media/app-based-mfa/02.png)
 
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **새로 만들기** 페이지의 **이름** 텍스트 상자에 **Azure Portal에 액세스하려면 MFA 필요**를 입력합니다.
 
-   ![이름](./media/app-based-mfa/05.png)
+   ![Name](./media/app-based-mfa/05.png)
 
 1. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
 

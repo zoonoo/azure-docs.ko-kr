@@ -1,21 +1,24 @@
 ---
-title: 문서 추출 인지 검색 기술
+title: 문서 추출 인지 검색 기술 (미리 보기)
 titleSuffix: Azure Cognitive Search
-description: 보강 파이프라인 내에서 파일의 콘텐츠를 추출 합니다.
+description: 보강 파이프라인 내에서 파일의 콘텐츠를 추출 합니다. 이 기술은 현재 공개 미리 보기로 제공 됩니다.
 manager: nitinme
 author: careyjmac
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: chalton
-ms.openlocfilehash: 8656896fe1a113ab143c43b4d1973e4196c5f087
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e4274f1cb2eacaf78ab83bfb9d637d044d2290bd
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512198"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720133"
 ---
 # <a name="document-extraction-cognitive-skill"></a>문서 추출 인식 기술
+
+> [!IMPORTANT] 
+> 이 기술은 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-미리](search-api-preview.md) 보기는 미리 보기 기능을 제공 합니다. 현재 포털 또는 .NET SDK가 지원 되지 않습니다.
 
 **문서 추출** 기술은 보강 파이프라인 내에서 파일의 콘텐츠를 추출 합니다. 이렇게 하면 다른 기술에서 생성 될 수 있는 파일을 사용 하 여 기술 실행 하기 전에 일반적으로 발생 하는 문서 추출 단계를 활용할 수 있습니다.
 
@@ -63,7 +66,7 @@ Microsoft. DocumentExtractionSkill
 
  - 인덱서 정의의 `allowSkillsetToReadFileData` 매개 변수를 "true"로 설정 합니다.  이렇게 하면 blob 데이터 원본에서 다운로드 한 원래 파일 데이터를 나타내는 개체인 `/document/file_data` 경로가 만들어집니다. 이 매개 변수는 Blob storage의 데이터에만 적용 됩니다.
 
- - 인덱서 정의의 `imageAction` 매개 변수를 `none`이외의 값으로 설정 합니다.  이렇게 하면 개별적으로 전달 되는 경우 (즉, `/document/normalized_images/*`)이 기술에 대 한 입력에 필요한 규칙을 따르는 이미지 배열을 만듭니다 `/document/normalized_images`.
+ - 인덱서 정의의 `imageAction` 매개 변수를 `none`이외의 값으로 설정 합니다.  이렇게 하면 개별적으로 전달 된 경우 (예: `/document/normalized_images/*`)이 기술에 대 한 입력에 필요한 규칙을 따르는 이미지 배열이 생성 됩니다.
 
  - 사용자 지정 기술에서 정확히 위와 같이 정의 된 json 개체를 반환 합니다.  `$type` 매개 변수는 정확 하 게 `file`로 설정 해야 하 고 `data` 매개 변수는 파일 콘텐츠의 기본 64 인코딩 바이트 배열 데이터 여야 합니다.
 

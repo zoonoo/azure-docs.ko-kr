@@ -1,5 +1,5 @@
 ---
-title: MLflow 사용
+title: ML 실험을 위한 MLflow 추적
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning를 사용 하 여 MLflow를 설정 하 여 메트릭을 & 아티팩트를 기록 하 고 Databricks, 로컬 환경 또는 VM 환경에서 모델을 배포 합니다.
 services: machine-learning
@@ -11,27 +11,30 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: d98e45d3ef77fea6b64efef10c20ecce3787b14c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 946350af0c1a4e8140fbf7f926061aae250e9969
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489304"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716475"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 메트릭 추적 및 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure Machine Learning를 사용 하 여 [mlflow 추적](https://mlflow.org/docs/latest/quickstart.html#using-the-tracking-api)URI 및 로깅 API를 사용 하도록 설정 하는 방법을 보여 줍니다. 이렇게 하면 다음 작업을 수행할 수 있습니다.
 
-+ [Azure Machine Learning 작업 영역](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces)에서 실험 메트릭과 아티팩트를 추적 하 고 기록 합니다. 실험에 MLflow 추적을 이미 사용 하 고 있는 경우 작업 영역에서 교육 메트릭과 모델을 저장할 수 있는 중앙 집중화 된 안전 하 고 확장 가능한 위치를 제공 합니다.
++ [Azure Machine Learning 작업 영역](https://docs.microsoft.com/azure/machine-learning/service/concept-azure-machine-learning-architecture#workspaces)에서 실험 메트릭과 아티팩트를 추적 하 고 기록 합니다. 실험을 위해 MLflow 추적을 이미 사용 하 고 있는 경우 작업 영역에서 교육 메트릭과 모델을 저장할 중앙 집중화 된 안전 하 고 확장 가능한 위치를 제공 합니다.
 
 + MLflow 실험을 Azure Machine Learning 웹 서비스로 배포 합니다. 웹 서비스로 배포 하 여 Azure Machine Learning 모니터링 및 데이터 드리프트 검색 기능을 프로덕션 모델에 적용할 수 있습니다. 
 
-[Mlflow](https://www.mlflow.org) 는 machine learning 실험의 수명 주기를 관리 하기 위한 오픈 소스 라이브러리입니다. MLFlow 추적은 실험 환경에 상관 없이 (가상 머신, 원격 계산 클러스터에서 로컬로, Azure Databricks에도 로컬에서) 학습 실행 메트릭과 모델 아티팩트를 기록 하 고 추적 하는 MLflow의 구성 요소입니다.
+[Mlflow](https://www.mlflow.org) 는 machine learning 실험의 수명 주기를 관리 하기 위한 오픈 소스 라이브러리입니다. MLFlow 추적은 실험 환경에 상관 없이 (원격 계산 대상, 컴퓨터에서 로컬로 또는 Azure Databricks 클러스터에서) 학습 실행 메트릭과 모델 아티팩트를 기록 하 고 추적 하는 MLflow의 구성 요소입니다.
 
-다음 다이어그램은 MLflow 추적을 사용 하는 경우 가상 컴퓨터의 원격 계산 대상에 있든, 컴퓨터에서 로컬로 또는 Azure Databricks 클러스터에서 로컬로 실행 되 고, 실행 메트릭과 저장소 모델 아티팩트를 추적 하는 모든 실험을 수행할 수 있음을 보여 줍니다. Azure Machine Learning 작업 영역에 있습니다.
+다음 다이어그램에서는 MLflow 추적을 사용 하 여 Azure Machine Learning 작업 영역에 실험의 실행 메트릭과 모델 아티팩트를 저장 하는 방법을 보여 줍니다.
 
 ![azure machine learning 다이어그램을 사용한 mlflow](media/how-to-use-mlflow/mlflow-diagram-track.png)
+
+> [!TIP]
+> 이 문서의 정보는 주로 모델 학습 프로세스를 모니터링 하려는 데이터 과학자 및 개발자를 위한 것입니다. 할당량, 완료 된 학습 실행 또는 완료 된 모델 배포와 같이 Azure Machine learning의 리소스 사용 및 이벤트를 모니터링 하는 데 관심이 있는 관리자는 [모니터링 Azure Machine Learning](monitor-azure-machine-learning.md)을 참조 하세요.
 
 ## <a name="compare-mlflow-and-azure-machine-learning-clients"></a>MLflow 및 Azure Machine Learning 클라이언트 비교
 
@@ -134,7 +137,7 @@ with mlflow.start_run():
     mlflow.log_metric('example', 1.23)
 ```
 
-이 계산 및 학습 실행 구성을 사용 하 여 `Experiment.submit('train.py')` 메서드를 사용 하 여 실행을 제출 합니다. 그러면 MLflow 추적 URI가 자동으로 설정 되 고 로깅이 MLflow에서 작업 영역으로 전송 됩니다.
+이 계산 및 학습 실행 구성을 사용 하 여 `Experiment.submit('train.py')` 메서드를 사용 하 여 실행을 제출 합니다. 이 메서드는 MLflow 추적 URI를 자동으로 설정 하 고 MLflow에서 작업 영역으로 로깅을 보냅니다.
 
 ```Python
 run = exp.submit(src)
@@ -163,7 +166,7 @@ Azure Databricks를 사용 하 여 Mlflow 실험을 실행 하려면 먼저 [Azu
 
 클러스터가 설정 되 면 실험 노트북을 가져오고 열고 클러스터를 연결 합니다.
 
-다음 코드는 실험 노트북에 있어야 합니다. 작업 영역을 인스턴스화하기 위해 Azure 구독에 대 한 세부 정보를 가져옵니다. 여기에는 기존 리소스 그룹 및 Azure Machine Learning 작업 영역이 있는 것으로 가정 합니다. 그렇지 않은 경우에는 [만들](how-to-manage-workspace.md)수 있습니다. 
+다음 코드는 실험 노트북에 있어야 합니다. 이 코드는 작업 영역을 인스턴스화하기 위해 Azure 구독에 대 한 세부 정보를 가져옵니다. 이 코드는 기존 리소스 그룹 및 Azure Machine Learning 작업 영역을가지고 있는 것으로 가정 합니다. 그렇지 않은 경우에는 [만들](how-to-manage-workspace.md)수 있습니다. 
 
 ```python
 import mlflow
@@ -194,7 +197,7 @@ ws = Workspace.get(name=workspace_name,
 
 ### <a name="link-mlflow-tracking-to-your-workspace"></a>작업 영역에 MLflow 추적 링크
 
-작업 영역을 인스턴스화한 후 MLflow 추적 URI를 설정 합니다. 이렇게 하면 MLflow 추적을 Azure Machine Learning 작업 영역에 연결할 수 있습니다. 그러면 모든 실험은 관리 되는 Azure Machine Learning 추적 서비스에 배치 됩니다.
+작업 영역을 인스턴스화한 후 MLflow 추적 URI를 설정 합니다. 이렇게 하면 MLflow 추적을 Azure Machine Learning 작업 영역에 연결할 수 있습니다. 연결 후 모든 실험은 관리 되는 Azure Machine Learning 추적 서비스에 배치 됩니다.
 
 #### <a name="directly-set-mlflow-tracking-in-your-notebook"></a>노트북에서 MLflow 추적 직접 설정
 
@@ -249,7 +252,7 @@ mlflow.sklearn.log_model(regression_model, model_save_path)
 
 ### <a name="retrieve-model-from-previous-run"></a>이전 실행에서 모델 검색
 
-원하는 실행을 검색 하려면 모델을 저장 한 실행 기록의 실행 ID와 경로가 필요 합니다. 
+실행을 검색 하려면 모델을 저장 한 실행 기록의 실행 ID와 경로가 필요 합니다. 
 
 ```python
 # gets the list of runs for your experiment as an array
@@ -312,7 +315,7 @@ webservice.wait_for_deployment(show_output=True)
 ```
 #### <a name="deploy-to-aks"></a>AKS에 배포
 
-AKS에 배포 하려면 AKS 클러스터를 만들고 배포 하려는 Docker 이미지를 가져와야 합니다. 이 예제에서는 ACI 배포에서 이전에 만든 이미지를 가져옵니다.
+AKS에 배포 하려면 먼저 AKS 클러스터를 만들고 배포 하려는 Docker 이미지를 가져옵니다. 이 예제에서는 ACI 배포에서 이전에 만든 이미지를 가져옵니다.
 
 이전 ACI 배포에서 이미지를 가져오려면 [image](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image.image?view=azure-ml-py) 클래스를 사용 합니다. 
 
@@ -323,7 +326,7 @@ from azureml.core.image import Image
 myimage = Image(workspace=ws, name='sklearn-image') 
 ```
 
-AKS 계산 만들기 새 클러스터를 만드는 데 20-25 분이 걸릴 수 있습니다.
+[ComputeTarget ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-) 메서드를 사용 하 여 AKS 클러스터를 만듭니다. 새 클러스터를 만드는 데 20-25 분이 걸릴 수 있습니다.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget

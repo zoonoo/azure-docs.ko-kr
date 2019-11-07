@@ -7,12 +7,12 @@ ms.service: billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: b2c3fd9b59b371330e37dceb52b2e89b3db6c48e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390153"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499250"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -125,7 +125,7 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 
 ## <a name="when-the-reservation-term-expires"></a>예약 기간이 만료되는 경우
 
-예약 기간이 끝나면 청구 할인이 만료됩니다. 가상 머신, SQL 데이터베이스, Azure Cosmos DB 또는 기타 리소스에 종량제 요금이 청구됩니다. Azure 예약은 자동으로 갱신되지 않습니다. 청구 할인을 계속 받으려면 적격 서비스 및 소프트웨어에 대한 새 예약을 구매해야 합니다.
+예약 기간이 끝나면 청구 할인이 만료되고 리소스는 종량제 요금으로 청구됩니다. 기본적으로 예약은 자동 갱신되도록 설정되지 않습니다. 갱신 설정에서 옵션을 선택하여 예약 자동 갱신을 사용하도록 선택할 수 있습니다. 자동 갱신을 사용하면 기존 예약이 만료될 때 교체 예약이 구매됩니다. 기본적으로 교체 예약은 만료 예약과 동일한 특성을 가지며 필요에 따라 갱신 설정에서 대금 청구 주기, 기간 또는 수량을 변경할 수 있습니다. 청구에 사용된 구독 및 예약에 대한 소유자 액세스 권한이 있는 모든 사용자는 갱신을 설정할 수 있습니다.  
 
 ## <a name="discount-applies-to-different-sizes"></a>여러 크기에 할인 적용
 

@@ -1,19 +1,19 @@
 ---
-title: '자습서: 조직 외부에서 공유 - Azure Data Share 미리 보기'
-description: 자습서 - Azure Data Share 미리 보기를 사용하여 고객 및 파트너와 데이터 공유
+title: '자습서: 조직 외부에서 공유 - Azure Data Share'
+description: 자습서 - Azure Data Share를 사용하여 고객 및 파트너와 데이터 공유
 author: joannapea
 ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: f7df46a6a6f149ef0228fda8c967469a25dc3d50
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 4ef9256404b0d0d4d6379e4f5a76c0d41a38c7cd
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327409"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499316"
 ---
-# <a name="tutorial-share-your-data-using-azure-data-share-preview"></a>자습서: Azure Data Share 미리 보기를 사용하여 데이터 공유
+# <a name="tutorial-share-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 공유  
 
 이 자습서에서는 새로운 Azure Data Share를 설정하여 Azure 조직 외부의 고객 및 파트너와 데이터를 공유하는 방법을 알아봅니다. 
 
@@ -28,9 +28,28 @@ ms.locfileid: "71327409"
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* 수신자 Azure 로그인 이메일 주소(이메일 별칭을 사용하면 작동하지 않음).
+
+### <a name="share-from-a-storage-account"></a>스토리지 계정에서 공유:
+
 * Azure Storage 계정: 아직 없는 경우 [Azure Storage 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)을 만들 수 있습니다.
 * 스토리지 계정에 역할 할당을 추가할 수 있는 권한. 이 권한은 *Microsoft.Authorization/role assignments/write* 권한에 있습니다. 이 권한은 소유자 역할에 있습니다. 
-* 수신자 Azure 로그인 이메일 주소(이메일 별칭을 사용하면 작동하지 않음)
+
+### <a name="share-from-a-sql-based-source"></a>SQL 기반 소스에서 공유:
+
+* 공유하려는 테이블 및 뷰를 포함하는 Azure SQL Database 또는 Azure SQL Data Warehouse.
+* 데이터 웨어하우스에 액세스할 수 있는 데이터 공유에 대한 권한. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
+    1. 서버에 대한 Azure Active Directory 관리자로 설정합니다.
+    1. Azure Active Directory를 사용하여 Azure SQL Database/Data Warehouse에 연결합니다.
+    1. 쿼리 편집기(미리 보기)를 통해 다음 스크립트를 실행하여 Data Share MSI를 db_owner로 추가합니다. SQL Server 인증이 아닌 Active Directory를 사용하여 연결해야 합니다. 
+    
+```sql
+    create user <share_acct_name> from external provider;     
+    exec sp_addrolemember db_owner, <share_acct_name>; 
+```                   
+*<share_acc_name>* 은 Data Share 계정의 이름입니다. 아직 Data Share 계정을 만들지 않은 경우 나중에 이 필수 조건으로 돌아갈 수 있습니다.  
+
+* 클라이언트 IP SQL Server 방화벽 액세스: 이 작업은 다음 단계를 통해 수행할 수 있습니다. 1. *방화벽 및 Virtual Network*로 이동합니다. 1. **켜짐** 토글을 클릭하여 Azure 서비스에 대한 액세스를 허용합니다. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -44,7 +63,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 1. *Data Share*를 검색합니다.
 
-1. Data Share(미리 보기)를 선택하고 **만들기**를 선택합니다.
+1. Data Share를 선택하고 **만들기**를 선택합니다.
 
 1. 다음 정보를 사용하여 Azure Data Share 리소스의 기본 세부 정보를 채웁니다. 
 
@@ -90,7 +109,7 @@ Azure 리소스 그룹에서 Azure Data Share 리소스를 만듭니다.
 
 1. 받는 사람 탭에서 '+ 받는 사람 추가'를 선택하여 데이터 소비자의 이메일 주소를 입력합니다. 
 
-    ![AddRecipients](./media/add-recipient.png "받는 사람 추가") 
+    ![AddRecipients](./media/add-recipient.png "수신자 추가") 
 
 1. **계속**을 선택합니다.
 

@@ -6,14 +6,17 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/23/2019
 ms.author: hamusa
-ms.openlocfilehash: d646187627d74810a846d7126562e2e796c5c9f7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e9f9e812d5463f0a503b100780f9b988e43f748d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512809"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720258"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>평가에 대 한 에이전트 없는 종속성 시각화 설정
+
+> [!NOTE]
+> Azure Migrate 포털에이 기능이 아직 표시 되지 않으면에서 중단 합니다. 다음 주에 표시 됩니다.
 
 이 문서에서는 Azure Migrate: 서버 평가에서 에이전트 없는 종속성 매핑을 설정 하는 방법을 설명 합니다. 이 기능은 현재 Azure Migrate 어플라이언스를 사용 하 여 검색 된 VMware 컴퓨터의 미리 보기에서 사용할 수 있습니다. 
 

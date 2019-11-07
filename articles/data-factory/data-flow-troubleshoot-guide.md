@@ -1,5 +1,5 @@
 ---
-title: 데이터 흐름 Azure Data Factory 문제 해결 | Microsoft Docs
+title: 데이터 흐름 Azure Data Factory 문제 해결
 description: Azure Data Factory에서 데이터 흐름 문제를 해결 하는 방법에 대해 알아봅니다.
 services: data-factory
 author: kromerm
@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 10/08/2019
 ms.author: makromer
-ms.openlocfilehash: 53c38af2208be6bb7cdb794ad0403456613f2df6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486182"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721356"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>데이터 흐름 Azure Data Factory 문제 해결
 
@@ -75,6 +75,15 @@ ms.locfileid: "73486182"
 - **원인**: 데이터 흐름의 필드가 sql database의 열에 매핑되는 값을 저장 하기에 충분 하지 않아 sql 드라이버에서이 오류를 throw 합니다.
 
 - **해결**방법: 파생 열에 ```left()```를 사용 하 여 문자열 열의 데이터 길이를 줄이거나 ["error row" 패턴](how-to-data-flow-error-rows.md) 을 구현할 수 있습니다.
+
+### <a name="error-message-since-spark-23-the-queries-from-raw-jsoncsv-files-are-disallowed-when-the-referenced-columns-only-include-the-internal-corrupt-record-column"></a>오류 메시지: Spark 2.3부터 참조 되는 열에만 내부 손상 된 레코드 열이 포함 된 경우 원시 JSON/CSV 파일의 쿼리를 사용할 수 없습니다. 
+
+- **증상**: JSON 원본에서 읽기 실패
+
+- **원인**: 여러 중첩 된 줄에서 단일 문서를 사용 하 여 JSON 소스에서 읽을 때, ADF를 통해 ADF는 새 문서가 시작 되는 위치를 확인할 수 없으며 이전 문서가 종료 됩니다.
+
+- **해결**방법: json 데이터 집합을 사용 하는 원본 변환에서 "json 설정"을 확장 하 고 "단일 문서"를 설정 합니다.
+
 
 ## <a name="general-troubleshooting-guidance"></a>일반 문제 해결 지침
 

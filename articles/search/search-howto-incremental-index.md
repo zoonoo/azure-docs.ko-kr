@@ -1,7 +1,7 @@
 ---
-title: 보강 내용 기반 변경 추적의 증분 인덱싱 설정
+title: 보강 내용 기반 변경 내용 추적의 증분 인덱싱 (미리 보기) 설정
 titleSuffix: Azure Cognitive Search
-description: 인지 기술에서 제어 되는 처리에 대해 변경 내용 추적을 사용 하도록 설정 하 고 보강 콘텐츠의 상태를 유지 합니다.
+description: 인지 기술에서 제어 되는 처리에 대해 변경 내용 추적을 사용 하도록 설정 하 고 보강 콘텐츠의 상태를 유지 합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
 author: vkurpad
 manager: eladz
 ms.author: vikurpad
@@ -9,24 +9,21 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ac082d6ecb6624dc0d5bc0ab927ff8b91ebdabce
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512185"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719931"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Azure Cognitive Search에서 보강 문서의 증분 인덱싱을 설정 하는 방법
+
+> [!IMPORTANT] 
+> 증분 인덱싱은 현재 공개 미리 보기로 제공 됩니다. 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 이 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 지금은 포털 또는 .NET SDK가 지원 되지 않습니다.
 
 이 문서에서는 Azure Cognitive Search 보강 파이프라인을 통해 이동 하는 보강 문서에 상태 및 캐싱을 추가 하 여 지원 되는 데이터 원본에서 문서를 증분 인덱싱할 수 있도록 하는 방법을 보여 줍니다. 기본적으로 기술는 상태 비저장 이며 해당 컴포지션의 모든 부분을 변경 하려면 인덱서를 전체 다시 실행 해야 합니다. 증분 인덱싱을 사용 하는 경우 인덱서는 변경 된 파이프라인 부분을 확인 하 고, 변경 되지 않은 부분에 대해 기존 강화를 다시 사용 하 고, 변경 하는 단계에 대 한 강화를 개정할 수 있습니다. 캐시 된 콘텐츠는 Azure Storage에 배치 됩니다.
 
 인덱서를 설정 하는 방법을 잘 모르는 경우 [인덱서 개요](search-indexer-overview.md) 를 시작 하 고 [기술력과](cognitive-search-working-with-skillsets.md) 를 계속 진행 하 여 보강 파이프라인에 대해 알아보세요. 주요 개념에 대 한 자세한 배경 정보는 [증분 인덱싱](cognitive-search-incremental-indexing-conceptual.md)을 참조 하세요.
-
-증분 인덱싱은 [SEARCH REST api-version = 2019-05 -06-Preview](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)를 사용 하 여 구성 됩니다.
-
-> [!NOTE]
-> 이 기능은 포털에서 아직 사용할 수 없으며 프로그래밍 방식으로 사용 해야 합니다.
->
 
 ## <a name="modify-an-existing-indexer"></a>기존 인덱서 수정
 

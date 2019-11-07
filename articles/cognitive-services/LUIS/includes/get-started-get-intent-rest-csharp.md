@@ -1,66 +1,181 @@
 ---
-title: C#에서 REST 호출을 사용하여 의도 가져오기
+title: C#에서 REST 호출을 사용하여 예측 가져오기
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/27/2019
+ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: e6ae9590cee3a2ddc3b8e121161fcf84815da28a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 81c95dc58e8cfaddf981e3911e88310cea508115
+ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838527"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73499576"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
-* [Visual Studio Community 2017 버전(Edition)](https://visualstudio.microsoft.com/vs/community/)
-* C# 프로그래밍 언어(VS Community 2017에 포함됨)
+* [.NET Core V2.2 이상](https://dotnet.microsoft.com/download)
+* [Visual Studio Code](https://code.visualstudio.com/)
 * 공용 앱 ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
-
-
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
 ## <a name="get-luis-key"></a>LUIS 키 가져오기
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
 ## <a name="get-intent-programmatically"></a>프로그래밍 방식으로 의도 가져오기
 
-C#을 사용하여 예측 엔드포인트 GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)를 쿼리하여 이전 섹션의 브라우저 창에 표시된 것과 동일한 결과를 냅니다. 
+C#을 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [API](https://aka.ms/luis-apim-v3-prediction)를 쿼리합니다. 
 
-1. Visual Studio에서 새 콘솔 애플리케이션을 만듭니다. 
+1. `predict-with-rest`의 프로젝트 및 폴더 이름을 사용하여 C# 언어를 대상으로 하는 새 콘솔 애플리케이션을 만듭니다. 
 
-    ![Visual Studio에서 새 콘솔 애플리케이션 만들기](../media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+    ```console
+    dotnet new console -lang C# -n predict-with-rest
+    ```
 
-2. Visual Studio 프로젝트의 솔루션 탐색기에서 **참조 추가**를 선택한 다음, 어셈블리 탭에서 **System.Web**을 선택합니다.
+1. 다음 dotnet CLI 명령을 사용하여 필요한 종속성을 설치합니다.
 
-    ![참조 추가를 선택한 다음, 어셈블리 탭에서 System.Web 선택](../media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
-
-3. Program.cs를 다음 코드로 덮어씁니다.
+    ```console
+    dotnet add package System.Net.Http
+    ```
+1. Program.cs를 다음 코드로 덮어씁니다.
     
-   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
+   ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Web;
+    
+    namespace predict_with_rest
+    {
+        class Program
+        {
+            static void Main(string[] args)
+            {
+                // YOUR-KEY: for example, the starter key
+                var key = "YOUR-KEY";
+                
+                // YOUR-ENDPOINT: example is westus2.api.cognitive.microsoft.com
+                var endpoint = "YOUR-ENDPOINT";
 
-4. `YOUR_KEY` 값을 LUIS 키로 대체합니다.
+                // //public sample app
+                var appId = "df67dcdb-c37d-46af-88e1-8b97951ca1c2"; 
+    
+                var utterance = "turn on all lights";
+    
+                MakeRequest(key, endpoint, appId, utterance);
+    
+                Console.WriteLine("Hit ENTER to exit...");
+                Console.ReadLine();
+            }
+            static async void MakeRequest(string key, string endpoint, string appId, string utterance)
+            {
+                var client = new HttpClient();
+                var queryString = HttpUtility.ParseQueryString(string.Empty);
+    
+                // The request header contains your subscription key
+                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+    
+                // The "q" parameter contains the utterance to send to LUIS
+                queryString["query"] = utterance;
+    
+                // These optional request parameters are set to their default values
+                queryString["verbose"] = "true";
+                queryString["show-all-intents"] = "true";
+                queryString["staging"] = "false";
+                queryString["timezoneOffset"] = "0";
+    
+                var endpointUri = String.Format("https://{0}/luis/prediction/v3.0/apps/{1}/slots/production/predict?query={2}", endpoint, appId, queryString);
+    
+                var response = await client.GetAsync(endpointUri);
+    
+                var strResponseContent = await response.Content.ReadAsStringAsync();
+                
+                // Display the JSON result from LUIS
+                Console.WriteLine(strResponseContent.ToString());
+            }
+        }
+    }
 
-5. 콘솔 애플리케이션을 작성하고 실행합니다. 브라우저 창에서 앞서 본 것과 동일한 JSON을 표시합니다.
+   ```
 
-    ![콘솔 창에서는 LUIS의 JSON 결과를 표시합니다.](../media/luis-get-started-cs-get-intent/console-turn-on.png)
+1. 다음 값을 바꿉니다.
 
+    * `YOUR-KEY`를 시작 키로
+    * `YOUR-ENDPOINT`를 엔드포인트로(예: `westus2.api.cognitive.microsoft.com`)
 
+1. 콘솔 애플리케이션을 빌드합니다. 
+
+    ```console
+    dotnet build
+    ```
+
+1. 콘솔 애플리케이션을 실행합니다. 콘솔 출력에 브라우저 창에서 앞서 본 것과 동일한 JSON이 표시됩니다.
+
+    ```console
+    dotnet run
+    ```
+
+1. JSON 형식의 예측 응답을 검토합니다.
+
+    ```console
+    Hit ENTER to exit...
+    {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
+    ```
+
+    가독성을 위한 JSON 응답 형식: 
+
+    ```JSON
+    {
+        "query": "turn on all lights",
+        "prediction": {
+            "topIntent": "HomeAutomation.TurnOn",
+            "intents": {
+                "HomeAutomation.TurnOn": {
+                    "score": 0.5375382
+                },
+                "None": {
+                    "score": 0.08687421
+                },
+                "HomeAutomation.TurnOff": {
+                    "score": 0.0207554
+                }
+            },
+            "entities": {
+                "HomeAutomation.Operation": [
+                    "on"
+                ],
+                "$instance": {
+                    "HomeAutomation.Operation": [
+                        {
+                            "type": "HomeAutomation.Operation",
+                            "text": "on",
+                            "startIndex": 5,
+                            "length": 2,
+                            "score": 0.724984169,
+                            "modelTypeId": -1,
+                            "modelType": "Unknown",
+                            "recognitionSources": [
+                                "model"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+    }
+    ```
 
 ## <a name="luis-keys"></a>LUIS 키
 
-[!INCLUDE [Use authoring key for endpoint](../../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
+[!INCLUDE [Use authoring key for endpoint](../includes/starter-key-explanation.md)]
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작을 마치면 Visual Studio를 닫고 프로젝트 디렉터리를 파일 시스템에서 제거하세요. 
+이 빠른 시작을 완료한 후 파일 시스템에서 파일을 삭제합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [C#으로 발언 및 학습 추가](../luis-get-started-cs-add-utterance.md)
+> [발화 및 학습 추가](../luis-get-started-cs-add-utterance.md)

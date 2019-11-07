@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 10/25/2019
+ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8741a9a362a10dfdb0150c9dc0dfddeed54594a7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0d0e567198fd25243b89245d54bbed5a658cc663
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497447"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73716607"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -126,7 +126,7 @@ Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 �
 Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용할 수 있도록 지원 합니다. 자세한 내용은 [Power BI (미리 보기)의 Azure Machine Learning 통합](https://docs.microsoft.com/power-bi/service-machine-learning-integration)을 참조 하세요.
 
 
-## <a name="monitor-ml-applications-for-operational-and-ml-related-issues"></a>운영 및 ML 관련 문제에 대 한 ML 응용 프로그램 모니터링
+## <a name="monitor-for-operational--ml-issues"></a>운영 & ML 문제에 대 한 모니터
 
 모니터링을 사용 하면 모델에 전송 되는 데이터 및 반환 하는 예측을 이해할 수 있습니다.
 
@@ -135,7 +135,7 @@ Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용�
 자세한 내용은 [모델 데이터 컬렉션을 사용하도록 설정하는 방법](how-to-enable-data-collection.md)을 참조하세요.
 
 
-## <a name="capture-an-end-to-end-audit-trail-of-the-ml-lifecycle"></a>ML 수명 주기의 종단 간 감사 내역 캡처
+## <a name="audit-trail-of-the-ml-lifecycle"></a>ML 수명 주기의 감사 내역
 
 Azure ML은 모든 ML 자산의 종단 간 감사 내역을 추적 하는 기능을 제공 합니다. 구체적으로 살펴보면 다음과 같습니다.
 
@@ -144,7 +144,7 @@ Azure ML은 모든 ML 자산의 종단 간 감사 내역을 추적 하는 기능
 - Azure ML 실행 기록은 모델 학습에 사용 되는 코드, 데이터 및 계산에 대 한 스냅숏을 저장 합니다.
 - Azure ML 모델 레지스트리는 모델과 연결 된 모든 메타 데이터를 캡처합니다 (배포 하는 경우 실험을 통해 배포 되는 위치, 배포가 정상 인 경우).
 
-## <a name="automate-the-end-to-end-ml-lifecycle"></a>종단 간 ML 수명 주기 자동화 
+## <a name="automate-the-ml-lifecycle"></a>ML 수명 주기 자동화 
 
 GitHub 및 Azure Pipelines를 사용 하 여 모델을 학습 하는 연속 통합 프로세스를 만들 수 있습니다. 일반적인 시나리오에서 데이터 과학자 프로젝트에 대 한 Git 리포지토리 변경을 확인 하면 Azure 파이프라인이 학습 실행을 시작 합니다. 그런 다음 실행 결과를 검사 하 여 학습 된 모델의 성능 특성을 확인할 수 있습니다. 모델을 웹 서비스로 배포 하는 파이프라인을 만들 수도 있습니다.
 
@@ -157,8 +157,18 @@ Azure Machine Learning에서 Azure Pipelines를 사용 하는 방법에 대 한 
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning를 사용 하 여 [모델을 배포할 수 있는 방법과 위치](how-to-deploy-and-where.md) 에 대해 자세히 알아보세요. 배포에 대 한 예제는 [자습서: Azure Container Instances에서 이미지 분류 모델 배포](tutorial-deploy-models-with-aml.md)를 참조 하세요.
+다음 리소스를 읽고 탐색 하 여 자세히 알아보세요.
 
-Azure Pipelines를 사용 하 [여 ML 모델의 지속적인 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning)를 만드는 방법에 대해 알아봅니다. 
++ Azure Machine Learning를 사용 하 여 [모델을 배포 하는 위치 &](how-to-deploy-and-where.md)
 
-[웹 서비스로 배포된 모델을 사용](how-to-consume-web-service.md)하는 클라이언트 애플리케이션과 서비스를 만드는 방법을 알아봅니다.
++ [자습서: ACI에서 이미지 분류 모델을 배포](tutorial-deploy-models-with-aml.md)합니다.
+
++ [종단 간 MLOps 예제 리포지토리](https://github.com/microsoft/MLOps)
+
++ [Azure Pipelines 있는 ML 모델의 CI/CD](/azure/devops/pipelines/targets/azure-machine-learning)
+
++ [배포 된 모델을 사용](how-to-consume-web-service.md) 하는 클라이언트 만들기
+
++ [규모에 맞는 기계 학습](/architecture/data-guide/big-data/machine-learning-at-scale)
+
++ [Azure AI 참조 아키텍처 & 모범 사례 담당자](https://github.com/microsoft/AI)
