@@ -1,0 +1,53 @@
+### YamlMime:Hub
+title: Azure용 업계 설명서
+summary: Azure를 사용하여 일반적인 산업 사용 사례에 대한 솔루션을 빌드하는 방법을 알아봅니다.
+brand: azure
+metadata:
+  title: Azure용 업계 설명서
+  description: Azure를 사용하여 일반적인 산업 사용 사례에 대한 솔루션을 빌드하는 방법을 알아봅니다.
+  ms.service: azure-industry
+  ms.topic: hub-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 11/04/2019
+  ms.openlocfilehash: 2777093db7486f17cf19b45db08bbd0168a4e2a8
+  ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 11/07/2019
+  ms.locfileid: "73797077"
+highlightedContent:
+  items:
+  - title: Azure FarmBeats
+    itemType: overview
+    url: ./agriculture/overview.md
+  - title: 커뮤니티 포럼
+    itemType: concept
+    url: https://aka.ms/FarmBeatsMSDN
+  - title: UserVoice(피드백)
+    itemType: get-started
+    url: https://aka.ms/FarmBeatsForum
+productDirectory:
+  title: 업계 솔루션 영역
+  items:
+  - title: Azure FarmBeats
+    imageSrc: ../media/index/industry-agriculture-farmbeats.svg
+    summary: 클라우드에서 디지털 농업 솔루션을 신속하게 빌드합니다.
+    url: ./agriculture/overview.md
+  - title: 금융 서비스
+    imageSrc: ../media/index/industry-financial.png
+    summary: 금융 서비스 산업을 위한 솔루션 및 사용 사례입니다.
+    url: /azure/industry-marketing/financial/
+  - title: 의료 및 생명 서비스
+    imageSrc: ../media/index/industry-health.png
+    summary: 의료 및 생명 과학을 위한 솔루션 및 사용 사례입니다.
+    url: /azure/industry-marketing/health/
+  - title: 제조
+    imageSrc: ../media/index/industry-manufacturing.png
+    summary: 제조 업계를 위한 솔루션 및 사용 사례입니다.
+    url: /azure/industry-marketing/manufacturing/
+  - title: 소매
+    imageSrc: ../media/index/industry-retail.png
+    summary: 소매 업계를 위한 솔루션 및 사용 사례입니다.
+    url: /azure/industry-marketing/retail/

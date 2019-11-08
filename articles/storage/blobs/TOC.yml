@@ -247,6 +247,8 @@
                   href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 이벤트 처리
           href: storage-blob-event-overview.md
+        - name: 변경 피드
+          href: storage-blob-change-feed.md
         - name: 페이지 Blob 기능
           href: storage-blob-pageblob-overview.md
         - name: 정적 웹 사이트
@@ -374,6 +376,8 @@
           href: storage-custom-domain-name.md
         - name: 이벤트를 사용자 지정 엔드포인트에 라우팅
           href: storage-blob-event-quickstart.md
+        - name: 변경 피드 로그 처리
+          href: storage-blob-change-feed-how-to.md
         - name: Azure Search로 Blob Storage 검색
           href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 데이터 전송
@@ -432,24 +436,24 @@
           href: /cli/azure/storage
         - name: .NET
           items:
-            - name: 'Blob, 큐 및 파일'
-              href: /dotnet/api/overview/azure/storage/client
+            - name: Blob(버전 12.x)
+              href: /dotnet/api/azure.storage.blobs
             - name: 데이터 이동
               href: /dotnet/api/microsoft.azure.storage.datamovement
             - name: 스토리지 리소스 공급자
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: 'Blob, 큐 및 파일(버전 12.x - 미리 보기)'
-              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-            - name: 'Blob, 큐 및 파일(버전 8)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: Blob(버전 12.x)
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
+            - name: Blob(버전 8.x)
+              href: /java/api/com.microsoft.azure.storage.blob
             - name: 스토리지 리소스 공급자
               href: /java/api/overview/azure/storage/management
-        - name: Node.js
-          href: /javascript/api/overview/azure/storage
-        - name: Python
-          href: /python/api/overview/azure/storage
+        - name: JavaScript(버전 12.x)
+          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+        - name: Python(버전 12.x)
+          href: /python/api/azure-storage-blob/
         - name: REST (영문)
           items:
             - name: 'Blob, 큐, 테이블 및 파일'
@@ -737,20 +741,24 @@
           href: /cli/azure/storage
         - name: .NET
           items:
-            - name: 'Blob, 큐, 테이블 및 파일'
-              href: /dotnet/api/overview/azure/storage/client
+            - name: Blob(버전 12.x)
+              href: /dotnet/api/azure.storage.blobs
             - name: 데이터 이동
               href: /dotnet/api/microsoft.azure.storage.datamovement
-            - name: 리소스 관리자
+            - name: 스토리지 리소스 공급자
               href: /dotnet/api/overview/azure/storage/management
         - name: Java
           items:
-            - name: 'Blob, 큐 및 파일(버전 12.x - 미리 보기)'
-              href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
-            - name: 'Blob, 큐 및 파일(버전 8)'
-              href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
+            - name: Blob(버전 12.x)
+              href: 'https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/index.html'
+            - name: Blob(버전 8.x)
+              href: /java/api/com.microsoft.azure.storage.blob
             - name: 스토리지 리소스 공급자
               href: /java/api/overview/azure/storage/management
+        - name: JavaScript(버전 12.x)
+          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+        - name: Python(버전 12.x)
+          href: /python/api/azure-storage-blob/
         - name: REST (영문)
           items:
             - name: 'Blob, 큐, 테이블 및 파일'

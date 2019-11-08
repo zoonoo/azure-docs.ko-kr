@@ -39,7 +39,7 @@
           href: container-registry-tutorial-deploy-update.md
 - name: 개념
   items:
-    - name: 컨테이너 레지스트리 SKU
+    - name: 컨테이너 레지스트리 SKU 및 제한
       href: container-registry-skus.md
     - name: '레지스트리, 리포지토리 및 이미지'
       href: container-registry-concepts.md
@@ -75,8 +75,6 @@
               href: container-registry-retention-policy.md
             - name: 태그 및 매니페스트 자동 제거(미리 보기)
               href: container-registry-auto-purge.md
-        - name: 클래식 레지스트리 업그레이드
-          href: container-registry-upgrade.md
         - name: ACR 웹후크 사용
           href: container-registry-webhook.md
         - name: Helm 차트 리포지토리(미리 보기)
