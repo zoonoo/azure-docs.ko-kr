@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2247b7678573594c4929bd33747fffb91203f457
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d071ff071c13637b15479d86a699d0b368119196
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561784"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742555"
 ---
 # <a name="assign-administrator-and-non-administrator-roles-to-users-with-azure-active-directory"></a>Azure Active Directory를 사용하여 사용자에게 관리자 및 비관리자 역할 할당
 조직의 사용자에게 Azure AD(Azure Active Directory) 리소스를 관리할 권한이 필요한 경우 사용자가 해당 권한으로 수행할 작업에 따라 Azure AD에서 사용자에게 적절한 역할을 할당해야 합니다.
@@ -35,13 +35,15 @@ PIM(Privileged Identity Management)을 사용하여 역할을 할당할 수도 �
 
 2. **Azure Active Directory**를 선택하고, **사용자**를 선택한 후, 역할 할당을 받을 사용자를 검색하여 선택합니다. 예를 들면 _Alain Charon_이 있습니다.
 
-3. **Alain Charon - 프로필** 페이지에서 **디렉터리 역할**을 선택합니다.
+      ![모든 사용자 페이지-사용자를 선택 합니다.](media/active-directory-users-assign-role-azure-portal/directory-role-select-user.png)
+
+3. **Alain Charon 프로필** 페이지에서 **할당 된 역할**을 선택 합니다.
 
     **Alain Charon - 디렉터리 역할** 페이지가 표시됩니다.
 
-4. **역할 추가**를 선택하고, Alain에 할당할 역할(예: ‘애플리케이션 관리자’)을 선택한 후, **선택**을 선택합니다.
+4. **할당 추가**를 선택 하 고, alain (예: _응용 프로그램 관리자_)에 할당할 역할을 선택한 후 **선택**을 선택 합니다.
 
-    ![선택한 역할을 보여 주는 디렉터리 역할 페이지](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
+    ![할당 된 역할 페이지-선택한 역할을 표시 합니다.](media/active-directory-users-assign-role-azure-portal/directory-role-select-role.png)
 
     애플리케이션 관리자 역할이 Alain Charon에 할당되고 **Alain Charon - 디렉터리 역할** 페이지에 표시됩니다.
 
@@ -52,9 +54,9 @@ PIM(Privileged Identity Management)을 사용하여 역할을 할당할 수도 �
 
 1. **Azure Active Directory**를 선택하고, **사용자**를 선택한 후, 역할 할당을 제거할 사용자를 검색하여 선택합니다. 예를 들면 _Alain Charon_이 있습니다.
 
-2. **디렉터리 역할**을 선택하고, **애플리케이션 관리자**를 선택한 후, **역할 제거**를 선택합니다.
+2. **할당 된 역할**을 선택 하 고 **응용 프로그램 관리자**를 선택한 후 **할당 제거**를 선택 합니다.
 
-    ![선택한 역할 및 제거 옵션을 보여 주는 디렉터리 역할 페이지](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
+    ![할당 된 역할 페이지, 선택한 역할 및 제거 옵션 표시](media/active-directory-users-assign-role-azure-portal/directory-role-remove-role.png)
 
     애플리케이션 관리자 역할이 Alain Charon에서 제거되고 **Alain Charon - 디렉터리 역할** 페이지에 더 이상 표시되지 않습니다.
 

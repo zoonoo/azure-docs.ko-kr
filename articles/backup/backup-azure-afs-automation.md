@@ -1,6 +1,6 @@
 ---
 title: Azure Backup 및 PowerShell을 사용 하 여 Azure Files 백업 및 복원
-description: Azure Backup 및 PowerShell을 사용 하 여 Azure Files를 백업 하 고 복원 합니다.
+description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용 하 여 Azure Files를 백업 하 고 복원 하는 방법에 대해 알아봅니다.
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
 ms.reviewer: pullabhk
-ms.openlocfilehash: bfaecc5fe9fbbd68ba0f138b7b40b2507d729635
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 491e27f85d00ce512995a63e43b9e248798e5d0f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968646"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747637"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>PowerShell을 사용 하 여 Azure Files 백업 및 복원
 
@@ -22,6 +22,7 @@ ms.locfileid: "72968646"
 이 자습서에서는 다음을 수행하는 방법을 설명합니다.
 
 > [!div class="checklist"]
+>
 > * PowerShell을 설정 하 고 Azure Recovery Services 공급자를 등록 합니다.
 > * Recovery Services 자격 증명 모음을 만듭니다.
 > * Azure 파일 공유에 대 한 백업을 구성 합니다.
@@ -277,7 +278,7 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 
 주문형 백업은 10 년 동안 스냅숏을 유지 하는 데 사용할 수 있습니다. Scheduler를 사용 하 여 선택한 보존으로 주문형 PowerShell 스크립트를 실행 하 여 매주, 월 또는 연도 마다 스냅숏을 정기적으로 수행할 수 있습니다. 정기적으로 스냅숏을 만드는 동안 Azure backup을 사용 하 여 [주문형 백업의 제한 사항을](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share-) 참조 하세요.
 
-샘플 스크립트를 찾고 있는 경우 주기적으로 백업을 예약 하 고 최대 10 년까지 유지할 수 있도록 하는 Azure Automation runbook을 사용 하 여 github에서 샘플 스크립트를 참조할 수 있습니다 (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)>.
+샘플 스크립트를 찾고 있는 경우 주기적으로 백업을 예약 하 고 최대 10 년까지 유지할 수 있도록 하는 Azure Automation runbook을 사용 하 여 GitHub에서 샘플 스크립트를 참조할 수 있습니다 (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup)>.
 
 ### <a name="modify-the-protection-policy"></a>보호 정책 수정
 

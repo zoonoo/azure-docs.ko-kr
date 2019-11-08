@@ -1,6 +1,6 @@
 ---
 title: Azure 가상 머신의 백업 오류 문제 해결
-description: Azure 가상 머신의 백업 및 복원 문제 해결
+description: 이 문서에서는 Azure 가상 컴퓨터의 백업 및 복원에서 발생 하는 오류를 해결 하는 방법에 대해 알아봅니다.
 ms.reviewer: srinathv
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: fba9a42bd3b4eb86f2951793a8fcd03e6a1dd0ec
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 78de85cede228f4b1c6ff01388fd7a08f78aa74f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162150"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747182"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -28,18 +28,18 @@ ms.locfileid: "73162150"
 * VM 에이전트 (WA 에이전트)가 [최신 버전](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)인지 확인 합니다.
 * Windows 또는 Linux VM OS 버전이 지원 되는지 확인 하세요. [IAAS Vm Backup 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas)를 참조 하세요.
 * 다른 백업 서비스가 실행 되 고 있지 않은지 확인 합니다.
-   * 스냅숏 확장 문제가 없는지 확인 하려면 확장을 제거 하 여 [강제로 다시 로드 한 후 백업을 다시 시도](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load)하세요.
+  * 스냅숏 확장 문제가 없는지 확인 하려면 확장을 제거 하 여 [강제로 다시 로드 한 후 백업을 다시 시도](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-backup-extension-fails-to-update-or-load)하세요.
 * VM이 인터넷에 연결 되어 있는지 확인 합니다.
-   * 다른 백업 서비스가 실행 되 고 있지 않은지 확인 하십시오.
+  * 다른 백업 서비스가 실행 되 고 있지 않은지 확인 하십시오.
 * `Services.msc`에서 **Windows Azure 게스트 에이전트** 서비스가 **실행**중인지 확인 합니다. **Microsoft Azure 게스트 에이전트** 서비스가 없는 경우 [Recovery Services 자격 증명 모음에 Azure vm 백업](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms-prepare#install-the-vm-agent)에서 설치 합니다.
 * **이벤트 로그** 에는 다른 백업 제품의 백업 오류 (예: Windows Server 백업)가 표시 될 수 있으며, Azure 백업으로 인 한 것이 아닙니다. 다음 단계를 사용 하 여 문제가 Azure Backup 있는지 여부를 확인 합니다.
-   * 이벤트 원본 또는 메시지에 항목을 **백업** 하는 동안 오류가 발생 하는 경우 AZURE IaaS VM 백업 백업에 성공 했는지 여부 및 원하는 스냅숏 유형으로 복원 지점을 만들었는지 여부를 확인 합니다.
-    * Azure Backup 작동 하는 경우 다른 백업 솔루션에 문제가 있을 수 있습니다.
-    * 다음은 Azure 백업이 정상적으로 작동 하지만 "Windows Server 백업"이 실패 한 이벤트 뷰어 오류 517의 예입니다.<br>
+  * 이벤트 원본 또는 메시지에 항목을 **백업** 하는 동안 오류가 발생 하는 경우 AZURE IaaS VM 백업 백업에 성공 했는지 여부 및 원하는 스냅숏 유형으로 복원 지점을 만들었는지 여부를 확인 합니다.
+  * Azure Backup 작동 하는 경우 다른 백업 솔루션에 문제가 있을 수 있습니다.
+  * 다음은 Azure 백업이 정상적으로 작동 하지만 "Windows Server 백업"이 실패 한 이벤트 뷰어 오류 517의 예입니다.<br>
     ![Windows Server 백업 실패](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
-    * Azure Backup 실패 하면이 문서의 일반적인 VM 백업 오류 섹션에서 해당 오류 코드를 찾습니다.
+  * Azure Backup 실패 하면이 문서의 일반적인 VM 백업 오류 섹션에서 해당 오류 코드를 찾습니다.
 
-## <a name="common-issues"></a>일반 문제
+## <a name="common-issues"></a>일반적인 문제
 
 다음은 Azure virtual machines에서의 백업 실패와 관련 된 일반적인 문제입니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "73162150"
 오류 코드: UserErrorVmNotInDesirableState <br/>
 오류 메시지: VM이 백업을 허용 하는 상태가 아닙니다.<br/>
 
-VM이 실패 상태 여 서 백업 작업이 실패 했습니다. 성공적으로 백업 하려면 VM 상태가 실행 중, 중지 됨 또는 중지 됨 (할당 취소 됨) 이어야 합니다.
+VM이 실패 상태 여 서 백업 작업이 실패 했습니다. 백업이 성공하려면 VM 상태가 실행 중, 중지됨 또는 중지됨(할당 취소)이어야 합니다.
 
 * VM이 **실행 중**에서 **종료** 상태로 전환되고 있으면 상태가 변경될 때까지 기다립니다. 그런 다음, 백업 작업을 트리거합니다.
 * VM이 Linux 에이전트이고 Security-Enhanced Linux 커널 모듈을 사용하는 경우 보안 정책에서 Azure Linux 에이전트 경로 **/var/lib/waagent**를 제외하여 백업 확장이 설치되도록 합니다.
@@ -86,11 +86,11 @@ Windows 서비스 **Com + 시스템** 응용 프로그램 문제로 인해 백�
 * Windows 서비스 **Com + 시스템 응용 프로그램** 을 시작/다시 시작 해 보세요 (관리자 권한 명령 프롬프트에서 **Net Start comsysapp**).
 * **DTC(Distributed Transaction Coordinator)** 서비스가 **네트워크 서비스** 계정으로 실행 되 고 있는지 확인 합니다. 그렇지 않으면 **네트워크 서비스** 계정으로 실행으로 변경 하 고 **Com + 시스템 응용 프로그램**을 다시 시작 합니다.
 * 에서 서비스를 다시 시작할 수 없는 경우 다음 단계를 수행 하 여 **DTC(Distributed Transaction Coordinator)** 서비스를 다시 설치 합니다.
-    * MSDTC 서비스를 중지합니다.
-    * 명령 프롬프트(cmd)를 엽니다.
-    * "Msdtc-uninstall" 명령을 실행 합니다.
-    * "Msdtc-install" 명령을 실행 합니다.
-    * MSDTC 서비스를 시작합니다.
+  * MSDTC 서비스를 중지합니다.
+  * 명령 프롬프트(cmd)를 엽니다.
+  * "Msdtc-uninstall" 명령을 실행 합니다.
+  * "Msdtc-install" 명령을 실행 합니다.
+  * MSDTC 서비스를 시작합니다.
 * **COM+ 시스템 애플리케이션** Windows 서비스를 시작합니다. **COM+ 시스템 애플리케이션**이 시작되면 Azure Portal에서 백업 작업을 트리거합니다.</ol>
 
 ## <a name="extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state"></a>VSS 기록기가 잘못 된 상태 여 서 ExtensionFailedVssWriterInBadState-스냅숏 작업에 실패 했습니다.
@@ -100,8 +100,8 @@ Windows 서비스 **Com + 시스템** 응용 프로그램 문제로 인해 백�
 
 잘못된 상태의 VSS 기록기를 다시 시작합니다. 관리자 권한의 명령 프롬프트에서 ```vssadmin list writers```를 실행합니다. 출력에는 모든 VSS 기록기와 해당 상태가 포함됩니다. **[1] 안정** 상태가 아닌 모든 VSS 기록기는 관리자 권한 명령 프롬프트에서 다음 명령을 실행하여 다시 시작합니다.
 
-  * ```net stop serviceName```
-  * ```net start serviceName```
+* ```net stop serviceName```
+* ```net start serviceName```
 
 ## <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure-백업 확장에 대 한 구성의 구문 분석에 실패 했습니다.
 
@@ -112,6 +112,7 @@ Windows 서비스 **Com + 시스템** 응용 프로그램 문제로 인해 백�
 다음 명령을 실행 하 고 **Machinekeys** 디렉터리에 대 한 사용 권한이 기본값 인지 확인 합니다.**icacls%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys**.
 
 기본 권한은 다음과 같습니다.
+
 * 모든 사람: (R, W)
 * BUILTIN\Administrators: (F)
 
@@ -119,17 +120,18 @@ Windows 서비스 **Com + 시스템** 응용 프로그램 문제로 인해 백�
 
 1. **MachineKeys** 디렉터리에 대한 권한을 수정합니다. 디렉터리에서 탐색기 보안 속성 및 고급 보안 설정을 사용하여 권한을 기본값으로 다시 설정합니다. 디렉터리에서 기본값을 제외한 모든 사용자 개체를 제거하고 **Everyone** 사용 권한이 다음과 같은 특수한 액세스 권한을 갖는지 확인합니다.
 
-    * 폴더 나열/데이터 읽기
-    * 특성 읽기
-    * 확장된 특성 읽기
-    * 파일 만들기/데이터 쓰기
-    * 폴더 만들기/데이터 추가
-    * 특성 쓰기
-    * 확장된 특성 쓰기
-    * 읽기 권한
+   * 폴더 나열/데이터 읽기
+   * 특성 읽기
+   * 확장된 특성 읽기
+   * 파일 만들기/데이터 쓰기
+   * 폴더 만들기/데이터 추가
+   * 특성 쓰기
+   * 확장된 특성 쓰기
+   * 읽기 권한
 2. **발급 대상**이 클래식 배포 모델 또는 **Windows Azure CRP Certificate Generator**인 모든 인증서를 삭제합니다.
-    * [로컬 머신 콘솔에서 인증서를 엽니다](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
-    * **개인** > **인증서**에서 **발급 대상**이 클래식 배포 모델 또는 **Windows Azure CRP Certificate Generator**인 모든 인증서를 삭제합니다.
+
+   * [로컬 머신 콘솔에서 인증서를 엽니다](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx).
+   * **개인** > **인증서**에서 **발급 대상**이 클래식 배포 모델 또는 **Windows Azure CRP Certificate Generator**인 모든 인증서를 삭제합니다.
 3. VM 백업 작업을 트리거합니다.
 
 ## <a name="extensionstuckindeletionstate---extension-state-is-not-supportive-to-backup-operation"></a>ExtensionStuckInDeletionState-확장 상태는 백업 작업에 협력적인 되지 않습니다.
@@ -140,9 +142,9 @@ Windows 서비스 **Com + 시스템** 응용 프로그램 문제로 인해 백�
 백업 확장의 상태가 일관 되지 않아 백업 작업에 실패 했습니다. 이 문제를 해결하려면 다음 단계를 따릅니다.
 
 * 게스트 에이전트가 설치되어 있고 응답하는지 확인합니다.
-* Azure Portal에서 **Virtual Machine** > **모든 설정** > **확장**으로 이동합니다.
+* Azure Portal에서 **가상 머신** > **모든 설정** > **확장** 으로 이동 합니다.
 * 백업 확장 VmSnapshot 또는 VmSnapshotLinux를 선택하고 **제거**를 클릭합니다.
-* 백업 확장을 삭제한 후 백업 작업을 다시 시도합니다.
+* 백업 확장을 삭제 한 후 백업 작업을 다시 시도 하세요.
 * 후속 백업 작업은 새 확장을 원하는 상태로 설치할 것입니다.
 
 ## <a name="extensionfailedsnapshotlimitreachederror---snapshot-operation-failed-as-snapshot-limit-is-exceeded-for-some-of-the-disks-attached"></a>ExtensionFailedSnapshotLimitReachedError-연결 된 일부 디스크에 대 한 스냅숏 제한을 초과 하 여 스냅숏 작업이 실패 했습니다.
@@ -154,10 +156,10 @@ Windows 서비스 **Com + 시스템** 응용 프로그램 문제로 인해 백�
 
 * 필요 하지 않은 디스크 blob-스냅숏을 삭제 합니다. 디스크 blob을 삭제 하지 않도록 주의 해야 합니다. 스냅숏 blob만 삭제 해야 합니다.
 * 일시 삭제를 VM 디스크 저장소 계정에서 사용 하도록 설정한 경우에는 기존 스냅숏이 언제 든 지 허용 되는 최대 크기 보다 작은 것으로 소프트 삭제 보존을 구성 합니다.
-* 백업 된 VM에서 Azure Site Recovery 사용 하도록 설정 된 경우에는 다음을 수행 합니다.
+* 백업 된 VM에서 Azure Site Recovery 사용 하도록 설정 된 경우 다음 단계를 수행 합니다.
 
-    * /Etc/azure/vmbackup.conf에서 **isanysnapshotfailed** 의 값이 false로 설정 되어 있는지 확인 합니다.
-    * 다른 시간에 Azure Site Recovery 예약 하 여 백업 작업과 충돌 하지 않도록 합니다.
+  * /Etc/azure/vmbackup.conf에서 **isanysnapshotfailed** 의 값이 false로 설정 되어 있는지 확인 합니다.
+  * 다른 시간에 Azure Site Recovery 예약 하 여 백업 작업과 충돌 하지 않도록 합니다.
 
 ## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive-VM 리소스가 부족 하 여 스냅숏 작업에 실패 했습니다.
 
@@ -193,10 +195,9 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 | **오류 코드**: VmNotInDesirableState <br/> **오류 메시지**: VM이 백업을 허용 하는 상태가 아닙니다. |<ul><li>VM이 **실행 중**에서 **종료** 상태로 전환되고 있으면 상태가 변경될 때까지 기다립니다. 그런 다음, 백업 작업을 트리거합니다. <li> VM이 Linux 에이전트이고 Security-Enhanced Linux 커널 모듈을 사용하는 경우 보안 정책에서 Azure Linux 에이전트 경로 **/var/lib/waagent**를 제외하여 백업 확장이 설치되도록 합니다.  |
 | VM 에이전트가 가상 머신에 없습니다. <br>모든 필수 구성 요소 및 VM 에이전트를 설치합니다. 그런 다음, 작업을 다시 시작합니다. |[VM 에이전트 설치 및 VM 에이전트 설치의 유효성을 검사하는 방법](#vm-agent)에 대해 자세히 알아보세요. |
 | **오류 코드**: ExtensionSnapshotFailedNoSecureNetwork <br/> **오류 메시지**: 보안 네트워크 통신 채널을 만드는 동안 오류가 발생 하 여 스냅숏 작업이 실패 했습니다. | <ol><li> 관리자 권한 모드에서 **regedit.exe**를 실행하여 레지스트리 편집기를 엽니다. <li> 시스템에 있는 모든 버전의 .NET Framework를 파악합니다. 이러한 버전은 레지스트리 키 **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft**의 계층 구조 아래에 있습니다. <li> 레지스트리 키에 있는 각 .NET Framework에 대해 다음 키를 추가합니다. <br> **SchUseStrongCrypto"=dword:00000001** </ol>|
-| **오류 코드**: ExtensionVCRedistInstallationFailure <br/> **오류 메시지**: visual Studio 2012에 대 한 시각적 C++ 재배포 가능 패키지 설치에 실패 하 여 스냅숏 작업에 실패 했습니다. | C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion으로 이동 하 여 vcredist2013_x64를 설치 합니다.<br/>서비스 설치를 허용 하는 레지스트리 키 값이 올바른 값으로 설정 되어 있는지 확인 합니다. 즉, **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** 의 **시작** 값을 **4**가 아닌 **3** 으로 설정 합니다. <br><br>설치하는 데 여전히 문제가 발생할 경우 관리자 권한 명령 프롬프트에서 **MSIEXEC /UNREGISTER**를 실행한 후 **MSIEXEC /REGISTER**를 실행하여 설치 서비스를 다시 시작합니다.  |
+| **오류 코드**: ExtensionVCRedistInstallationFailure <br/> **오류 메시지**: visual Studio 2012에 대 한 시각적 C++ 재배포 가능 패키지 설치에 실패 하 여 스냅숏 작업에 실패 했습니다. | C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion으로 이동 하 여 vcredist2013_x64를 설치 합니다.<br/>서비스 설치를 허용 하는 레지스트리 키 값이 올바른 값으로 설정 되어 있는지 확인 합니다. 즉, **HKEY_LOCAL_MACHINE \system\currentcontrolset\services\msiserver** 의 **시작** 값을 **4**가 아닌 **3** 으로 설정 합니다. <br><br>설치하는 데 여전히 문제가 발생할 경우 관리자 권한 명령 프롬프트에서 **MSIEXEC /UNREGISTER**를 실행한 후 **MSIEXEC /REGISTER**를 실행하여 설치 서비스를 다시 시작합니다.  |
 
-
-## <a name="jobs"></a>교육
+## <a name="jobs"></a>작업
 
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |
@@ -222,10 +223,13 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 | Backup 서비스에 구독의 리소스에 액세스할 수 있는 권한이 없습니다. |이 오류를 해결하려면 먼저 [백업된 디스크 복원](backup-azure-arm-restore-vms.md#restore-disks)의 단계를 사용하여 디스크를 복원합니다. 그런 다음, [복원된 디스크에서 VM 만들기](backup-azure-vms-automation.md#restore-an-azure-vm)의 PowerShell 단계를 사용합니다. |
 
 ## <a name="backup-or-restore-takes-time"></a>백업 또는 복원에 시간이 걸림
-백업하는 데 12시간을 초과하거나 복원하는 데 6시간을 초과하는 경우 [모범 사례](backup-azure-vms-introduction.md#best-practices) 및 [성능 고려 사항](backup-azure-vms-introduction.md#backup-performance)을 검토합니다.
+
+백업에 12 시간 이상 소요 되는 경우 또는 복원에 6 시간 이상 소요 되 면 [모범 사례](backup-azure-vms-introduction.md#best-practices)및 [성능 고려 사항을](backup-azure-vms-introduction.md#backup-performance) 검토 하세요.
 
 ## <a name="vm-agent"></a>VM 에이전트
+
 ### <a name="set-up-the-vm-agent"></a>VM 에이전트 설정
+
 일반적으로, Azure 갤러리에서 만든 VM에는 VM 에이전트가 이미 있습니다. 그러나 온-프레미스 데이터 센터에서 마이그레이션되는 가상 머신에는 VM 에이전트가 설치되어 있지 않습니다. 이러한 VM의 경우 VM 에이전트를 명시적으로 설치해야 합니다.
 
 #### <a name="windows-vms"></a>Windows VM
@@ -239,6 +243,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 * 클래식 배포 모델을 사용하여 생성된 VM의 경우 [이 블로그를 사용](https://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx)하여 VM 속성을 업데이트하고 에이전트가 설치되어 있는지 확인합니다. Resource Manager 가상 머신의 경우 이 단계가 필요하지 않습니다.
 
 ### <a name="update-the-vm-agent"></a>VM 에이전트 업데이트
+
 #### <a name="windows-vms"></a>Windows VM
 
 * VM 에이전트를 업데이트하려면 [VM 에이전트 이진 파일](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)을 다시 설치합니다. 에이전트를 업데이트하기 전에 VM 에이전트 업데이트 동안 백업 작업이 발생하지 않는지 확인합니다.
@@ -260,21 +265,23 @@ Windows VM에서 VM 에이전트 버전을 확인합니다.
 2. 해당 파일을 마우스 오른쪽 단추로 클릭하고 **속성**으로 이동합니다. 그런 다음 **세부 정보** 탭을 선택 합니다. **제품 버전** 필드는 2.6.1198.718 이상 이상 이어야 합니다.
 
 ## <a name="troubleshoot-vm-snapshot-issues"></a>VM 스냅샷 문제 해결
+
 VM 백업은 기본 스토리지에 대한 스냅샷 명령 실행을 사용합니다. 스토리지에 액세스할 수 없거나 스냅샷 작업 실행이 지연되는 경우 백업 작업이 실패할 수 있습니다. 다음 조건으로 인해 스냅샷 작업 오류가 발생할 수 있습니다.
 
-- **NSG를 사용하여 스토리지에 대한 네트워크 액세스가 차단되었습니다**. 허용 된 Ip 목록 또는 프록시 서버를 사용 하 여 저장소에 대 한 [네트워크 액세스를 설정](backup-azure-arm-vms-prepare.md#establish-network-connectivity) 하는 방법에 대해 자세히 알아보세요.
-- **SQL Server 백업이 구성된 VM이 스냅샷 작업을 지연시킬 수 있습니다**. 기본적으로 VM 백업은 Windows VM에서 VSS 전체 백업을 만듭니다. SQL Server 백업이 구성된 SQL Server를 실행하는 VM에서는 스냅샷 지연이 발생할 수 있습니다. 스냅샷 지연으로 인해 백업이 실패하는 경우 다음 레지스트리 키를 설정합니다.
+* **NSG를 사용하여 스토리지에 대한 네트워크 액세스가 차단되었습니다**. 허용 된 Ip 목록 또는 프록시 서버를 사용 하 여 저장소에 대 한 [네트워크 액세스를 설정](backup-azure-arm-vms-prepare.md#establish-network-connectivity) 하는 방법에 대해 자세히 알아보세요.
+* **SQL Server 백업이 구성된 VM이 스냅샷 작업을 지연시킬 수 있습니다**. 기본적으로 VM 백업은 Windows VM에서 VSS 전체 백업을 만듭니다. SQL Server 백업이 구성된 SQL Server를 실행하는 VM에서는 스냅샷 지연이 발생할 수 있습니다. 스냅샷 지연으로 인해 백업이 실패하는 경우 다음 레지스트리 키를 설정합니다.
 
    ```text
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```
 
-- **VM이 RDP에서 종료되므로 VM 상태가 잘못 보고됩니다**. 원격 데스크톱을 사용하여 가상 머신을 종료한 경우 포털의 VM 상태가 올바른지 확인합니다. 상태가 올바르지 않은 경우 포털 VM 대시보드에서 **종료** 옵션을 사용하여 VM을 종료합니다.
-- **5개 이상의 VM이 동일한 클라우드 서비스를 공유하는 경우 여러 백업 정책에 걸쳐 VM을 분산합니다**. 5개 이상의 VM 백업이 동시에 시작되지 않도록 백업 시간을 엇갈려 지정합니다. 정책의 시작 시간을 1시간 이상 간격으로 지정합니다.
-- **VM이 높은 CPU 또는 메모리에서 실행됩니다**. 가상 머신이 높은 메모리 또는 CPU 사용량(90% 초과)에서 실행 중인 경우 스냅샷 작업이 큐 대기되고 지연됩니다. 결국 시간 초과 됩니다. 이 문제가 발생 하면 주문형 백업을 시도 하세요.
+* **VM이 RDP에서 종료되므로 VM 상태가 잘못 보고됩니다**. 원격 데스크톱을 사용하여 가상 머신을 종료한 경우 포털의 VM 상태가 올바른지 확인합니다. 상태가 올바르지 않은 경우 포털 VM 대시보드에서 **종료** 옵션을 사용하여 VM을 종료합니다.
+* **5개 이상의 VM이 동일한 클라우드 서비스를 공유하는 경우 여러 백업 정책에 걸쳐 VM을 분산합니다**. 5개 이상의 VM 백업이 동시에 시작되지 않도록 백업 시간을 엇갈려 지정합니다. 정책의 시작 시간을 1시간 이상 간격으로 지정합니다.
+* **VM이 높은 CPU 또는 메모리에서 실행됩니다**. 가상 머신이 높은 메모리 또는 CPU 사용량(90% 초과)에서 실행 중인 경우 스냅샷 작업이 큐 대기되고 지연됩니다. 결국 시간 초과 됩니다. 이 문제가 발생 하면 주문형 백업을 시도 하세요.
 
 ## <a name="networking"></a>네트워킹
+
 모든 확장과 마찬가지로, Backup 확장이 작동하려면 공용 인터넷에 액세스해야 합니다. 공용 인터넷에 액세스할 수 없는 경우는 다음과 같은 여러 방법으로 확인할 수 있습니다.
 
 * 확장 설치가 실패할 수 있습니다.
@@ -285,18 +292,19 @@ VM 백업은 기본 스토리지에 대한 스냅샷 명령 실행을 사용합�
 
 이름 확인이 올바르게 완료된 후에는 Azure IP에 대한 액세스 권한을 부여해야 합니다. Azure 인프라에 대한 액세스 차단을 해제하려면 다음 단계 중 하나를 따르세요.
 
-- Azure 데이터 센터 IP 범위 목록을 허용 합니다.
+* Azure 데이터 센터 IP 범위 목록을 허용 합니다.
    1. 허용 목록에 있는 [Azure 데이터 센터 ip](https://www.microsoft.com/download/details.aspx?id=41653) 목록을 가져옵니다.
    1. [New-NetRoute](https://docs.microsoft.com/powershell/module/nettcpip/new-netroute) cmdlet을 사용하여 IP 차단을 해제합니다. 관리자 권한 PowerShell 창을 통해 Azure VM 내에서 이 cmdlet을 실행합니다. 관리자 권한으로 실행합니다.
    1. IP에 대한 액세스를 허용하도록 NSG(있는 경우)에 규칙을 추가합니다.
-- HTTP 트래픽을 보내는 경로 만들기:
+* HTTP 트래픽을 보내는 경로 만들기:
    1. 일부 네트워크 제한이 있는 경우 트래픽을 라우팅하는 HTTP 프록시 서버를 배포합니다. 예제는 네트워크 보안 그룹입니다. [네트워크 연결 설정](backup-azure-arm-vms-prepare.md#establish-network-connectivity)에서 HTTP 프록시 서버를 배포하는 단계를 참조하세요.
    1. HTTP 프록시에서 인터넷에 액세스할 수 있도록 NSG(있는 경우)에 규칙을 추가합니다.
 
 > [!NOTE]
 > IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. 고정 프라이빗 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성합니다. VM 내 DHCP 옵션이 활성화되었는지 확인합니다.
 > PowerShell을 통해 고정 IP를 설정하는 방법에 대한 자세한 정보를 가져옵니다.
-> - [기존 VM에 고정 내부 IP를 추가하는 방법](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
-> - [네트워크 인터페이스에 할당된 개인 IP 주소의 할당 방법 변경](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
+>
+> * [기존 VM에 고정 내부 IP를 추가하는 방법](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+> * [네트워크 인터페이스에 할당된 개인 IP 주소의 할당 방법 변경](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 >
 >

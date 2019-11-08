@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: raynew
-ms.openlocfilehash: 90b1250009e6efdb2f8cb9351fe270c8324cc77a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e752d52d0f792d39f417031c26d923fce07ccdf8
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715473"
+ms.locfileid: "73747988"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -51,7 +51,7 @@ Azure Migrate 서버 마이그레이션 | 해당 없음 | [VMware vm](tutorial-m
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 하 고 마이그레이션합니다. |  VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 마이그레이션합니다.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 합니다.| 해당 없음
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | 온-프레미스 SQL Server 데이터베이스를 평가 합니다. | 해당 없음
-[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | SQL Server, Oracle, MySQL, PostgreSQL, MongoDB를 마이그레이션합니다. | 해당 없음
+[DMS](https://docs.microsoft.com/azure/dms/dms-overview) | 해당 없음 | SQL Server, Oracle, MySQL, PostgreSQL, MongoDB를 마이그레이션합니다. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | VDI (가상 데스크톱 인프라) 평가 | 해당 없음
 [Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | VMWare Vm, Hyper-v Vm, Xen Vm, 물리적 컴퓨터, 워크스테이션 (VDI 포함), 공용 클라우드 워크 로드 평가 | 해당 없음
 [RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | 해당 없음 | VMWare Vm, Hyper-v Vm, Xen Vm, KVM Vm, 물리적 컴퓨터, 공용 클라우드 워크 로드 마이그레이션 

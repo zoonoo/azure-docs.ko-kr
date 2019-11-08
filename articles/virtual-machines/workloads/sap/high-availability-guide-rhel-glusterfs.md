@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: fd5014de622c37950c15006c2cc4dcbbb27ef8e1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2ae9a1419232cca051f7cab4e9bd8c70f885df73
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101119"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749038"
 ---
 # <a name="glusterfs-on-azure-vms-on-red-hat-enterprise-linux-for-sap-netweaver"></a>SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS
 
@@ -86,7 +86,7 @@ github의 Azure 템플릿을 사용하여 필요한 Azure 리소스(가상 머�
 ### <a name="deploy-linux-via-azure-template"></a>Azure 템플릿을 통해 Linux 배포
 
 Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있는 Red Hat Enterprise Linux용 이미지가 있습니다.
-Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿에서 가상 머신, 가용성 집합 등을 배포합니다. 다음 단계를 따라 템플릿을 배포합니다.
+Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든 리소스를 배포할 수 있습니다. 템플릿은 가상 머신, 가용성 집합 등을 배포 합니다. 템플릿을 배포 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 [SAP 파일 서버 템플릿][template-file-server] 열기
 1. 다음 매개 변수를 입력합니다.
@@ -102,10 +102,10 @@ Github에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Azure Portal을 통해 Linux를 수동으로 배포
 
-먼저 이 클러스터용으로 가상 머신을 만들어야 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
+먼저 이 클러스터용으로 가상 머신을 만들어야 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)를 권장 합니다.  
 
 1. 리소스 그룹 만들기
-1. 가상 네트워크 만들기
+1. Virtual Network 만들기
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. Virtual Machine 1 만들기  

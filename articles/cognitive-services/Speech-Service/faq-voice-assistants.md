@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 7ad3f932e9a10723d6cc1bae2fc4854c932d4c64
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: eccf2a7a1b9c7ea7a21cd5d0cf0f60728284c05d
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500897"
+ms.locfileid: "73579662"
 ---
 # <a name="voice-assistants-frequently-asked-questions"></a>음성 도우미: 질문과 대답
 
@@ -29,7 +29,7 @@ ms.locfileid: "73500897"
 
 **Q: 사용자 지정 명령 (미리 보기)을 사용 해야 하나요, 아니면 직접 줄 음성을 사용 해야 하나요? 차이점은 뭔가요?**
 
-**A:** [사용자 지정 명령 (미리 보기)](custom-commands.md) 은 작업 완료 시나리오에 적합 한 길잡이를 쉽게 만들고 호스팅하기 위한 복잡성이 낮은 도구 집합입니다. [직접 라인 음성](direct-line-speech.md) 은 강력한 대화형 시나리오를 사용할 수 있는 보다 풍부 하 고 정교한 기능을 제공 합니다. 자세한 내용은 [길잡이 솔루션의 비교](voice-assistants.md#comparing-assistant-solutions) 를 참조 하세요.
+**A:** [사용자 지정 명령 (미리 보기)](custom-commands.md) 은 작업 완료 시나리오에 적합 한 길잡이를 쉽게 만들고 호스팅하기 위한 복잡성이 낮은 도구 집합입니다. [직접 라인 음성](direct-line-speech.md) 은 강력한 대화형 시나리오를 사용할 수 있는 보다 풍부 하 고 정교한 기능을 제공 합니다. 자세한 내용은 [길잡이 솔루션의 비교](voice-assistants.md#choosing-an-assistant-solution) 를 참조 하세요.
 
 **Q: 어떻게 시작하나요?**
 
@@ -40,6 +40,17 @@ ms.locfileid: "73500897"
 * [직접 선 음성 채널에 봇 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>디버그
+
+**Q: 내 채널 비밀은 어디에 있나요?**
+
+**A:** 직접 라인 음성의 미리 보기 버전을 사용 했거나 관련 설명서를 읽는 경우 직접 라인 음성 채널 등록 페이지에서 비밀 키를 찾을 수 있습니다. 또한 Speech 1.7 `DialogServiceConfig` factory 메서드 `FromBotSecret`에는이 값이 필요 합니다.
+
+직접 라인 음성의 최신 버전은 장치에서 봇에 연결 하는 프로세스를 간소화 합니다. 채널 등록 페이지에서 위쪽의 드롭다운은 직접 선 음성 채널 등록과 음성 리소스를 연결 합니다. 연결 된 후에는 구독에 연결 된 봇에 연결 하는 `DialogServiceConnector`을 구성 하는 `BotFrameworkConfig::FromSubscription` 팩터리 메서드가 v 1.8 Speech SDK에 포함 되어 있습니다.
+
+클라이언트 응용 프로그램을 v 1.7에서 v 1.8으로 마이그레이션하는 경우에는 사용 했던 이전 암호와 같이 해당 채널 비밀 매개 변수에 대해 null이 아닌 비어 있지 않은 값을 사용 하 여 작업을 계속할 수 `DialogServiceConfig::FromBotSecret`. 최신 채널 등록과 연결 된 음성 구독을 사용 하는 경우에만 무시 됩니다. 이 값은 null이 아니어야 하 고 비어 있지 *않아야* 합니다 .이는 서비스 측 연결이 관련 되기 전에 장치에서 확인 되기 때문입니다.
+
+
+자세한 가이드는 채널 등록을 안내 하는 [자습서 섹션](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) 을 참조 하세요.
 
 **Q: 연결할 때 401 오류가 발생 하 고 아무 작업도 수행 되지 않습니다. 음성 구독 키가 유효함을 알고 있습니다. 무슨 일이죠?**
 

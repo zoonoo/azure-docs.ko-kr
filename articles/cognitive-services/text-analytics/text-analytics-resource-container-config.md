@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: f1c42002343de1dd3b3ef6b9c9e35f458db925f4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 8a39327275dca43ddb6ce0e46a3e3bb51ec4555b
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051141"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795301"
 ---
 # <a name="configure-text-analytics-docker-containers"></a>Text Analytics Docker 컨테이너 구성
 
@@ -31,11 +31,11 @@ Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공
 
 ## <a name="apikey-configuration-setting"></a>ApiKey 구성 설정
 
-`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대한 값을 지정해야 하며 이 값은 [`Billing`](#billing-configuration-setting) 구성 설정에 대해 지정된 _Text Analytics_ 리소스에 대한 유효한 키여야 합니다.
+`ApiKey` 설정은 컨테이너에 대한 청구 정보를 추적하는 데 사용되는 Azure 리소스 키를 지정합니다. ApiKey에 대한 값을 지정해야 하며 이 값은[ 구성 설정에 대해 지정된 `Billing`Text Analytics](#billing-configuration-setting) 리소스에 대한 유효한 키여야 합니다.
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: 리소스 관리 **Text Analytics** **키** 아래
+* Azure Portal: **Text Analytics** 리소스 관리, **키** 아래
 
 ## <a name="applicationinsights-setting"></a>ApplicationInsights 설정
 
@@ -47,11 +47,11 @@ Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공
 
 이 설정은 다음 위치에서 찾을 수 있습니다.
 
-* Azure Portal: **Text Analytics** 개요, 레이블`Endpoint`
+* Azure Portal: **Text Analytics** 개요, 레이블 `Endpoint`
 
 |필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
-|예| `Billing` | String | 필요한 청구 끝점 URI |
+|예| `Billing` | 문자열 | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
 ## <a name="eula-setting"></a>Eula 설정
 
@@ -71,34 +71,34 @@ Text Analytics는 각 컨테이너에 공통된 구성 프레임워크를 제공
 
 ## <a name="mount-settings"></a>탑재 설정
 
-바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 데이터를 읽고 씁니다. [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령의 `--mount`옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다.
+바인딩 탑재를 사용하여 컨테이너에서 또는 컨테이너로 읽고 씁니다. `--mount`Docker 실행[ 명령의 ](https://docs.docker.com/engine/reference/commandline/run/)옵션을 지정하여 입력 탑재 또는 출력 탑재를 지정할 수 있습니다.
 
-Text Analytics 컨테이너는 학습 또는 서비스 데이터를 저장하기 위해 입력 또는 출력 탑재를 사용하지 않습니다. 
+Text Analytics 컨테이너는 입력 또는 출력 탑재를 사용하여 학습 또는 서비스 데이터를 저장하지 않습니다. 
 
 호스트 탑재 위치의 정확한 구문은 호스트 운영 체제에 따라 다릅니다. 또한 [호스트 컴퓨터](how-tos/text-analytics-how-to-install-containers.md#the-host-computer)의 탑재 위치에는 Docker 서비스 계정에서 사용되는 권한과 호스트 탑재 위치 권한 간의 충돌로 인해 액세스할 수 없습니다. 
 
-|Optional| Name | 데이터 형식 | Description |
+|옵션| Name | 데이터 형식 | 설명 |
 |-------|------|-----------|-------------|
-|허용되지 않음| `Input` | String | Text Analytics 컨테이너에는 사용되지 않습니다.|
-|Optional| `Output` | String | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예제:<br>`--mount type=bind,src=c:\output,target=/output`|
+|허용되지 않음| `Input` | 문자열 | Text Analytics 컨테이너에는 사용되지 않습니다.|
+|옵션| `Output` | 문자열 | 출력 탑재의 대상입니다. 기본값은 `/output`입니다. 로그의 위치입니다. 컨테이너 로그가 포함됩니다. <br><br>예:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="example-docker-run-commands"></a>docker run 명령 예제 
+## <a name="example-docker-run-commands"></a>Docker 실행 명령 예제 
 
 다음 예제에서는 구성 설정을 사용하여 `docker run` 명령을 쓰고 사용하는 방법을 설명합니다.  한번 실행되면 컨테이너는 [중지](how-tos/text-analytics-how-to-install-containers.md#stop-the-container)할 때까지 계속 실행됩니다.
 
-* **줄 연속 문자**: 다음 섹션에서 Docker 명령은 줄 연속 문자 같은 백 슬래시, `\`을 사용합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
-* **인수 순서**: Docker 컨테이너에 대해 잘 알고 있지 않은 경우 인수 순서를 변경하지 마세요.
+* **줄 연속 문자**: 다음 섹션의 docker 명령은 백슬래시 (`\`)를 줄 연속 문자로 사용 합니다. 호스트 운영 체제의 요구 사항에서 이 기준을 바꾸거나 제거합니다. 
+* **인수 순서**: docker 컨테이너에 대해 잘 알고 있지 않으면 인수의 순서를 변경 하지 마세요.
 
 {_argument_name_}을(를) 사용자 고유 값으로 바꿉니다.
 
 | Placeholder | 값 | 형식 또는 예 |
 |-------------|-------|---|
-| **{API_KEY}** | Azure `Text Analytics` [키] 페이지에서 사용 가능한 `Text Analytics` 리소스의 끝점 키. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
-| **{ENDPOINT_URI}** | 청구 끝점 값은 Azure의 `Text Analytics` 개요 페이지에서 사용 가능합니다.| 명시적 예제에 대 한 [필수 매개 변수 수집](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) 을 참조 하세요. |
+| **{API_KEY}** | Azure `Text Analytics` 키 페이지에서 사용할 수 있는 `Text Analytics` 리소스의 끝점 키입니다. |`xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`|
+| **{ENDPOINT_URI}** | 청구 끝점 값은 Azure `Text Analytics` 개요 페이지에서 사용할 수 있습니다.| 명시적 예제에 대 한 [필수 매개 변수 수집](how-tos/text-analytics-how-to-install-containers.md#gathering-required-parameters) 을 참조 하세요. |
 
 > [!IMPORTANT]
-> 컨테이너를 실행하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](how-tos/text-analytics-how-to-install-containers.md#billing)을 참조하세요.
-> ApiKey 값은 Azure `Text Analytics` 리소스 [키] 페이지의 **키**입니다. 
+> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](how-tos/text-analytics-how-to-install-containers.md#billing)를 참조하세요.
+> ApiKey 값은 Azure `Text Analytics` 리소스 키 페이지의 **키** 입니다. 
 
 #### <a name="key-phrase-extractiontabkeyphrase"></a>[핵심 구 추출](#tab/keyphrase)
 
@@ -117,4 +117,4 @@ Text Analytics 컨테이너는 학습 또는 서비스 데이터를 저장하기
 ## <a name="next-steps"></a>다음 단계
 
 * [컨테이너 설치 및 실행 방법](how-tos/text-analytics-how-to-install-containers.md)을 리뷰합니다.
-* 더 많은 [Cognitive Services 컨테이너](../cognitive-services-container-support.md)를 사용합니다.
+* 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용

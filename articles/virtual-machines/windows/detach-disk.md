@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: efbb6ccef9096ed89f6ccd16f8d3b37c9a97b278
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: de33ed80055c26870a29b4c4393a9072ec8dda5e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103221"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749480"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-windows-virtual-machine"></a>Windows 가상 컴퓨터에서 데이터 디스크를 분리하는 방법
 
@@ -31,7 +31,7 @@ ms.locfileid: "70103221"
 
 디스크에 있는 기존 데이터를 다시 사용하려는 경우 동일한 또는 다른 가상 머신에 다시 연결할 수 있습니다.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="detach-a-data-disk-using-powershell"></a>PowerShell을 사용하여 데이터 디스크 분리
 

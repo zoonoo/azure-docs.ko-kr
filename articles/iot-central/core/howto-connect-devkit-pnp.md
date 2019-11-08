@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: b7d2e1b08653cb8023ef6a5190ab53ecc3d568a6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: de394a98f78b0bdb7cdf090de5c052cc761aa92d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951511"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748608"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결
 
@@ -25,16 +25,16 @@ ms.locfileid: "72951511"
 - 장치를 준비 하 고 IoT Central 응용 프로그램에 연결 합니다.
 - IoT Central의 장치에서 원격 분석 및 속성을 확인 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 완료 하려면 다음 리소스가 필요 합니다.
 
-1. [Devkit 장치](https://aka.ms/iot-devkit-purchase)입니다.
-1. **Preview 응용 프로그램** 템플릿에서 만든 IoT Central 응용 프로그램입니다. [IoT 플러그 앤 플레이 응용 프로그램 만들기](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)의 단계를 따를 수 있습니다.
+- [Devkit 장치](https://aka.ms/iot-devkit-purchase)입니다.
+- **Preview 응용 프로그램** 템플릿에서 만든 IoT Central 응용 프로그램입니다. [IoT 플러그 앤 플레이 응용 프로그램 만들기](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)의 단계를 따를 수 있습니다.
 
 ## <a name="get-device-connection-details"></a>장치 연결 정보 가져오기
 
-Azure IoT Central 응용 프로그램에서 **관리** 탭을 선택 하 고 **장치 연결**을 선택 합니다. **ID 범위** 및 **기본 키**를 적어둡니다.
+Azure IoT Central 응용 프로그램에서 **관리** 탭을 선택 하 고 **장치 연결**을 선택 합니다. **키 보기** 링크의 **범위 ID** 및 **기본 키** 를 적어둡니다. **자동 승인** 이 사용 하도록 설정 되어 있는지 확인 합니다.
 
 ![장치 그룹 연결 세부 정보](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
@@ -61,7 +61,7 @@ Azure IoT Central 응용 프로그램에서 **관리** 탭을 선택 하 고 **�
 
     - WiFi 네트워크 (SSID)의 이름입니다.
     - 사용자의 WiFi 네트워크 암호입니다.
-    - 연결 세부 정보: 사용자가 선택할 수 있는 **장치 id** 와 이전에 기록해 둔 **ID 범위** 및 **그룹 SAS 기본 키** 입니다.
+    - 연결 세부 정보: 사용자가 선택할 수 있는 **장치 ID** 와 이전에 기록해 둔 **범위 ID** 및 **그룹 SAS 기본 키** 입니다.
 
     > [!NOTE]
     > 현재 IoT DevKit는 2.4 GHz Wi-fi에만 연결할 수 있으며, 하드웨어 제한으로 인해 5ghz는 지원 되지 않습니다.
@@ -82,11 +82,11 @@ DevKit는 먼저 IoT Central 응용 프로그램에 새 장치를 등록 한 다
 
 IoT Central 응용 프로그램에서 **장치** 탭을 선택 하 고 추가한 장치를 선택 합니다. **개요** 탭에서 devkit 장치의 원격 분석을 볼 수 있습니다.
 
-   ![IoT Central 장치 개요](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
+![IoT Central 장치 개요](media/howto-connect-devkit-pnp/mxchip-overview-page.png)
 
 ## <a name="review-the-code"></a>코드 검토
 
-코드를 검토 하거나 코드를 수정 하 고 컴파일하려면 [코드 샘플](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/)로 이동 합니다.
+코드를 검토 하거나 수정 하 고 컴파일하려면 [MXChip IoT DevKit 샘플 코드 GitHub 리포지토리](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp)로 이동 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

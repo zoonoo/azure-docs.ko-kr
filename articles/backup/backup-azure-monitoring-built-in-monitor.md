@@ -1,6 +1,6 @@
 ---
-title: 'Azure Backup: Azure Backup 보호 된 워크 로드 모니터링'
-description: Azure Portal를 사용 하 여 Azure Backup 작업 모니터링
+title: 'Azure Backup: 보호 된 작업 Azure Backup 모니터링'
+description: 이 문서에서는 Azure Portal를 사용 하 여 Azure Backup 작업에 대 한 모니터링 및 알림 기능에 대해 알아봅니다.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/05/2019
 ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: bae05e890ef76ada9f775293c673cb8baa82c8bf
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: f1dc1c7fe6aa5e8d20504427679052f68612f65e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954570"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747365"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Azure Backup 워크 로드 모니터링
 
@@ -31,10 +31,10 @@ Azure Backup은 Azure Backup으로 보호 되는 워크 로드에 대 한 기본
 
 다음 Azure Backup 솔루션의 작업이 여기에 표시 됩니다.
 
-  - Azure VM 백업
-  - Azure 파일 백업
-  - SQL과 같은 Azure 워크 로드 백업
-  - Azure Backup 에이전트(MAB)
+- Azure VM 백업
+- Azure 파일 백업
+- SQL과 같은 Azure 워크 로드 백업
+- Azure Backup 에이전트(MAB)
 
 System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (MABS)의 작업은 표시 되지 않습니다.
 
@@ -46,37 +46,40 @@ System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (M
 경고는 사용자가 관련 작업을 수행할 수 있도록 사용자에 게 알림을 제공 하는 경우 주로 발생 합니다. **백업 경고** 섹션에는 Azure Backup 서비스에 의해 생성 된 경고가 표시 됩니다. 이러한 경고는 서비스에서 정의 되며 사용자가 경고를 만들 수 없습니다.
 
 ### <a name="alert-scenarios"></a>경고 시나리오
+
 다음 시나리오는 했어야 시나리오로 서비스에 의해 정의 됩니다.
 
-  - 백업/복원 실패
-  - Azure Backup 에이전트(MAB)에 대한 경고와 함께 백업 성공
-  - 데이터 삭제로 보호 중지/데이터 삭제로 보호 중지
+- 백업/복원 실패
+- Azure Backup 에이전트(MAB)에 대한 경고와 함께 백업 성공
+- 데이터 삭제로 보호 중지/데이터 삭제로 보호 중지
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>경고가 발생 하지 않는 경우의 예외
+
 오류가 발생 하더라도 경고가 발생 하지 않는 경우 다음과 같은 몇 가지 예외가 있습니다.
 
-  - 사용자가 실행 중인 작업을 명시적으로 취소 함
-  - 다른 백업 작업이 진행 중 이므로 작업이 실패 합니다 (이전 작업이 완료 될 때까지 기다려야 함).
-  - 백업 된 Azure VM이 더 이상 존재 하지 않으므로 VM 백업 작업이 실패 합니다.
+- 사용자가 실행 중인 작업을 명시적으로 취소 함
+- 다른 백업 작업이 진행 중 이므로 작업이 실패 합니다 (이전 작업이 완료 될 때까지 기다려야 함).
+- 백업 된 Azure VM이 더 이상 존재 하지 않으므로 VM 백업 작업이 실패 합니다.
 
 위의 예외는 이러한 작업 (주로 사용자 트리거됨)의 결과가 portal/PS/CLI 클라이언트에 즉시 표시 되는 것을 이해 하는 데 사용 됩니다. 따라서 사용자는 즉시 인식 되며 알림이 필요 하지 않습니다.
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>다음 Azure Backup 솔루션의 경고가 여기에 표시 됩니다.
 
-  - Azure VM 백업
-  - Azure 파일 백업
-  - SQL 같은 Azure 워크로드 백업
-  - Azure Backup 에이전트(MAB)
+- Azure VM 백업
+- Azure 파일 백업
+- SQL 같은 Azure 워크로드 백업
+- Azure Backup 에이전트(MAB)
 
 > [!NOTE]
 > System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (MABS)의 경고는 여기에 표시 되지 않습니다.
 
 ### <a name="alert-types"></a>경고 유형
+
 경고 심각도에 따라 다음과 같은 세 가지 유형으로 경고를 정의할 수 있습니다.
 
-  - **높음**: 원칙적으로 모든 백업 또는 복구 오류 (예약 또는 사용자 트리거)는 경고 생성을 유발 하 고 중요 한 경고로 표시 되며 백업 삭제와 같은 작업을 삭제 합니다.
-  - **경고**: 백업 작업이 성공 하지만 경고가 거의 없으면 경고 경고로 표시 됩니다.
-  - **정보**: 현재는 Azure Backup 서비스에서 어떠한 정보 경고도 생성 하지 않습니다.
+- **중요**: 원칙적으로 모든 백업 또는 복구 오류 (예약 또는 사용자 트리거)가 경고를 생성 하 고 중요 한 경고로 표시 되며 백업 삭제와 같은 작업을 수행 합니다.
+- **경고**: 백업 작업이 성공 하지만 경고가 거의 없으면 경고 경고로 표시 됩니다.
+- **정보**: 현재는 Azure Backup 서비스에서 어떠한 정보 경고도 생성 하지 않습니다.
 
 ## <a name="notification-for-backup-alerts"></a>백업 경고에 대 한 알림
 
@@ -96,16 +99,14 @@ System Center Data Protection Manager (SC-DPM), Microsoft Azure Backup 서버 (M
 
 > [!NOTE]
 >
-> * **데이터 삭제로 보호 중지** 와 같은 파괴적인 작업을 수행 하면 경고가 발생 하 고 복구 서비스 자격 증명 모음에 대해 알림이 구성 되지 않은 경우에도 전자 메일이 구독 소유자, 관리자 및 공동 관리자에 게 전송 됩니다.
-> * 성공한 작업에 대 한 알림을 구성 하려면 [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace)을 사용 합니다.
+> - **데이터 삭제로 보호 중지** 와 같은 파괴적인 작업을 수행 하면 경고가 발생 하 고 복구 서비스 자격 증명 모음에 대해 알림이 구성 되지 않은 경우에도 전자 메일이 구독 소유자, 관리자 및 공동 관리자에 게 전송 됩니다.
+> - 성공한 작업에 대 한 알림을 구성 하려면 [Log Analytics](backup-azure-monitoring-use-azuremonitor.md#using-log-analytics-workspace)을 사용 합니다.
 
 ## <a name="inactivating-alerts"></a>비활성화 경고
 
 활성 경고를 비활성화/해결 하려면 비활성화할 경고에 해당 하는 목록 항목을 클릭 하면 됩니다. 이렇게 하면 경고에 대 한 자세한 정보를 표시 하는 화면이 열리고 맨 위에 ' 비활성화 ' 단추가 표시 됩니다. 이 단추를 클릭 하면 경고 상태가 ' 비활성 '으로 변경 됩니다. 해당 경고에 해당 하는 목록 항목을 마우스 오른쪽 단추로 클릭 하 고 ' 비활성화 '를 선택 하 여 경고를 비활성화할 수도 있습니다.
 
 ![RS Vault 경고 비활성화](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

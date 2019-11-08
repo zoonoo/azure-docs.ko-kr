@@ -1,5 +1,5 @@
 ---
-title: '실패한 회로 다시 설정 - ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: '실패 한 회로를 다시 설정-Express 경로: PowerShell: Azure | Microsoft Docs'
 description: 이 문서는 실패한 상태의 ExpressRoute 회로를 다시 설정하는 데 도움이 됩니다.
 services: expressroute
 author: anzaman
@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 11/28/2018
 ms.author: anzaman
 ms.custom: seodec18
-ms.openlocfilehash: f6fd8e5f0e5730e55fa5bbe13f74be796dd6a4cb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: deeb1c65cae7e3a5b42230dbda1ad8efa717ba0b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66115847"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748112"
 ---
 # <a name="reset-a-failed-expressroute-circuit"></a>실패한 Azure ExpressRoute 회로 다시 설정
 
 ExpressRoute 회로의 작업이 성공적으로 완료되지 않으면 회로가 '실패' 상태가 될 수 있습니다. 이 문서는 실패한 Azure ExpressRoute 회로를 다시 설정하는 데 도움이 됩니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="reset-a-circuit"></a>회로 다시 설정
 

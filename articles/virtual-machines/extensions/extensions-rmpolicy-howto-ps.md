@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: e096982c7bbf4f06b96ef4e3918ca1caa9d481a0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 599417131f228c95168641c54ffbb947e3682f7b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169076"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750016"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Azure Policy를 사용하여 Windows VM의 확장 설치 제한
 
@@ -26,7 +26,7 @@ Windows VM에서 특정 확장을 사용하거나 설치하지 못하도록 하�
 
 이 자습서에서는 지속적으로 최신 버전으로 업데이트되는 Cloud Shell 내의 Azure PowerShell을 사용합니다. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="create-a-rules-file"></a>규칙 파일 만들기
 
@@ -141,7 +141,7 @@ $assignment
 
 ## <a name="test-the-policy"></a>정책 테스트
 
-정책을 테스트하려면 VM 액세스 확장을 사용합니다. 다음은 실패하고 “Set-AzVMAccessExtension: 정책에서 ‘myVMAccess’ 리소스를 거부했습니다.” 메시지가 표시됩니다.
+정책을 테스트하려면 VM 액세스 확장을 사용합니다. 다음은 "AzVMAccessExtension: Resource ' myVMAccess '가 정책에 의해 허용 되지 않았습니다." 라는 메시지와 함께 실패 합니다.
 
 ```azurepowershell-interactive
 Set-AzVMAccessExtension `

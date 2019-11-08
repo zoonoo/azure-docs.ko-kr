@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
-ms.openlocfilehash: b0b8528a8eaf5cab22bb2482bd60e760d8bf5e3d
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 80fd91106530c0150a85d508b24041b2263da925
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058101"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749673"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Azure VM의 BitLocker 부팅 오류
 
  이 문서에서는 Microsoft Azure에서 Windows VM(가상 머신)을 시작할 때 발생할 수 있는 BitLocker 오류에 대해 설명합니다.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="symptom"></a>증상
 
@@ -31,7 +31,7 @@ ms.locfileid: "71058101"
 
 - BitLocker 키가 있는 USB 드라이버 꽂기
 
-- 잠겼습니다. 다시 시작하려면 복구 키를 입력하세요(자판 배열: 미국). 잘못된 로그인 정보를 너무 많이 입력했으므로 개인 정보 보호를 위해 PC가 잠겼습니다. 복구 키를 검색하려면 다른 PC 또는 모바일 디바이스에서 https://windows.microsoft.com/recoverykeyfaq 로 이동합니다. 이 키가 필요한 경우 키 ID는 XXXXXXX입니다. 또는 PC를 초기화할 수 있습니다.
+- 잠겼습니다. 다시 시작하려면 복구 키를 입력하세요(자판 배열: 미국). 잘못된 로그인 정보를 너무 많이 입력했으므로 개인 정보 보호를 위해 PC가 잠겼습니다. 복구 키를 검색하려면 다른 PC 또는 모바일 디바이스에서 https://windows.microsoft.com/recoverykeyfaq로 이동합니다. 이 키가 필요한 경우 키 ID는 XXXXXXX입니다. 또는 PC를 초기화할 수 있습니다.
 
 - 이 드라이브의 잠금을 해제하려면 암호를 입력하세요. [ ] 입력하는 암호를 표시하려면 Insert 키를 누르세요.
 - USB 디바이스에서 복구 키를 로드하려면 복구 키를 입력하세요.
@@ -40,14 +40,14 @@ ms.locfileid: "71058101"
 
 이 문제는 VM이 암호화된 디스크의 암호를 해독하기 위한 BEK(BitLocker 복구 키) 파일을 찾을 수 없는 경우에 발생할 수 있습니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 이 문제를 해결하려면 VM을 중지하고 할당을 취소했다가 다시 시작합니다. 이 작업을 수행하면 VM이 강제로 Azure Key Vault에서 BEK 파일을 검색한 후 암호화된 디스크에 넣습니다. 
 
 이 방법으로 문제가 해결되지 않으면 다음 단계에 따라 BEK 파일을 수동으로 복원합니다.
 
 1. 영향을 받는 VM의 시스템 디스크의 스냅샷을 백업으로 만듭니다. 자세한 내용은 [디스크 스냅샷](../windows/snapshot-copy-managed-disk.md)을 참조하세요.
-2. [복구 VM에 OS 디스크를 연결합니다](troubleshoot-recovery-disks-portal-windows.md). 7 단계에서 [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 명령을 실행 하려면 복구 VM에서 **BitLocker 드라이브 암호화** 기능을 사용 하도록 설정 해야 합니다.
+2. [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md). 7 단계에서 [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) 명령을 실행 하려면 복구 VM에서 **BitLocker 드라이브 암호화** 기능을 사용 하도록 설정 해야 합니다.
 
     관리 디스크를 연결할 때 “암호화 설정이 포함되어 있으므로 데이터 디스크로 사용할 수 없습니다.” 오류 메시지가 표시될 수 있습니다. 이 경우 다음 스크립트를 실행하여 디스크를 다시 연결합니다.
 
@@ -271,19 +271,19 @@ ms.locfileid: "71058101"
                     manage-bde -off F:
 ## <a name="script-troubleshooting"></a>스크립트 문제 해결
 
-**오류: 파일이 나 어셈블리를 로드할 수 없습니다.**
+**오류: 파일 또는 어셈블리를 로드할 수 없습니다.**
 
-이 오류는 ADAL 어셈블리의 경로가 잘못 되었기 때문에 발생 합니다. AZ module이 현재 사용자에 대해 설치 된 경우 ADAL 어셈블리는에 `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`배치 됩니다.
+이 오류는 ADAL 어셈블리의 경로가 잘못 되었기 때문에 발생 합니다. AZ module이 현재 사용자에 대해 설치 된 경우 ADAL 어셈블리는 `C:\Users\<username>\Documents\WindowsPowerShell\Modules\Az.Accounts\<version>`에 배치 됩니다.
 
 `Az.Accounts` 폴더를 검색 하 여 올바른 경로를 찾을 수도 있습니다.
 
 **오류: AzKeyVaultSecret 또는 AzKeyVaultSecret는 cmdlet의 이름으로 인식 되지 않습니다.**
 
-이전 AZ PowerShell 모듈을 사용 하는 경우 두 개의 명령을 및 `Get-AzureKeyVaultSecret` `Get-AzureKeyVaultSecret`로 변경 해야 합니다.
+이전 AZ PowerShell 모듈을 사용 하는 경우 `Get-AzureKeyVaultSecret` 두 개의 명령을 변경 하 여 `Get-AzureKeyVaultSecret`해야 합니다.
 
 **매개 변수 샘플**
 
-| 매개 변수  | 값 샘플  |주석   |
+| 매개 변수  | 값 샘플  |설명   |
 |---|---|---|
 |  $keyVaultName | myKeyVault2112852926  | 키를 저장 하는 키 자격 증명 모음의 이름입니다. |
 |$kekName   |mykey   | VM을 암호화 하는 데 사용 되는 키의 이름입니다.|

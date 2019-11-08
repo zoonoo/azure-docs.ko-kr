@@ -1,18 +1,18 @@
 ---
 title: Azure Backup를 사용 하 여 VM 설정에서 Azure VM 백업
-description: Azure Backup 서비스를 사용하여 Azure VM을 백업하는 방법 알아보기
+description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 단일 Azure VM 또는 여러 Azure vm을 백업 하는 방법에 대해 알아봅니다.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: cfbec94a2922995eed546d526c1f469e2ea54118
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 232c027ef60a031df53f2439586a0ae459ab67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969039"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747244"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>VM 설정에서 Azure VM 백업
 
@@ -35,7 +35,7 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 
 ## <a name="back-up-from-azure-vm-settings"></a>Azure VM 설정에서 백업
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스**를 클릭하고 필터에 **가상 머신**을 입력한 후 **가상 머신**을 클릭합니다.
 3. VM 목록에서 백업하려는 VM을 선택합니다.
 4. VM 메뉴에서 **백업**을 클릭합니다.
@@ -60,7 +60,7 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 8. 포털 알림에서 구성 진행률을 추적할 수 있습니다.
 9. 작업이 완료되면 VM 메뉴에서 **백업**을 클릭합니다. 이 페이지는 VM의 백업 상태, 복구 지점에 대한 정보, 실행 중인 작업 및 발생한 경고를 표시합니다.
 
-   ![Backup 상태](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
+   ![백업 상태](./media/backup-azure-vms-first-look-arm/backup-item-view-update.png)
 
 10. 백업을 사용 하도록 설정 하면 초기 백업이 실행 됩니다. 초기 백업을 즉시 시작하거나, 백업 일정에 따라 시작될 때까지 기다릴 수 있습니다.
     - 초기 백업이 완료될 때까지 **마지막 백업 상태**는 **경고(초기 백업 보류 중)** 으로 표시됩니다.

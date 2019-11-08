@@ -1,7 +1,7 @@
 ---
 title: 모델 테스트 및 다시 학습 - Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: 이미지를 테스트한 다음 모델을 다시 학습하기 위해 사용하는 방법을 알아봅니다.
+description: 이 문서에서는 이미지를 테스트 하 고이를 사용 하 여 Custom Vision 서비스에서 모델을 다시 학습 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 3f78f0b992581a44b030387f1bd0e37664df4cfd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c6ed8869f6d33609381a42fd22d728e9e5542802
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560909"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721193"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Custom Vision Service를 사용하여 모델 테스트 및 다시 학습
 
@@ -35,7 +35,7 @@ ms.locfileid: "68560909"
 
 이제 이 테스트 이미지를 모델에 추가하고 모델을 다시 학습할 수 있습니다.
 
-## <a name="use-the-predicted-image-for-training"></a>학습에 대한 예측된 이미지 사용
+## <a name="use-the-predicted-image-for-training"></a>학습에 예측 이미지 사용
 
 이전에 학습용으로 제출된 이미지를 사용하려면 다음 단계를 따르세요.
 
@@ -51,7 +51,7 @@ ms.locfileid: "68560909"
     > [!TIP]
     > 분류자를 가장 개선할 수 있는 이미지가 맨 위에 오도록 이미지에 순위가 지정됩니다. 다른 정렬을 선택하려면 __정렬__ 섹션을 사용합니다.
 
-    학습 데이터에 이미지를 추가하려면 이미지, 태그, __저장 후 닫기__ 를 차례로 선택합니다. 이미지가 __예측__ 에서 제거되고 학습 이미지에 추가됩니다. __학습 이미지__ 탭을 선택하면 해당 이미지를 볼 수 있습니다.
+    학습 데이터에 이미지를 추가하려면 이미지, 태그, __저장 후 닫기__를 차례로 선택합니다. 이미지가 __예측__에서 제거되고 학습 이미지에 추가됩니다. __학습 이미지__ 탭을 선택하면 해당 이미지를 볼 수 있습니다.
 
     ![태그 지정 페이지 이미지](./media/test-your-model/tag-image.png)
 

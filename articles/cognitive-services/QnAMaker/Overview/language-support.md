@@ -1,7 +1,7 @@
 ---
 title: 언어 지원 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 기술 자료의 언어는 QnA Maker가 원본에서 질문 및 답변을 자동으로 추출하는 기능과 사용자 쿼리에 대한 응답으로 QnA Maker가 제공하는 결과의 관련성에도 영향을 미칩니다. 기술 자료에 대한 QnA Maker에서 지원되는 자연 언어인 문화권의 목록입니다. 동일한 기술 자료에서 언어를 혼합하지 마세요.
+description: 기술 자료에 대한 QnA Maker에서 지원되는 자연 언어인 문화권의 목록입니다. 동일한 기술 자료에서 언어를 혼합하지 마세요.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: f4f7fffdde7d103271fa667bbab11c09ebc54825
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 96440bf0e9c26e6f222f3bc94c8fabb0bc8f488d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285865"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720992"
 ---
 # <a name="language-support-for-a-qna-maker-resource-and-knowledge-bases"></a>QnA Maker 리소스 및 기술 자료에 대 한 언어 지원
 
@@ -29,7 +29,7 @@ ms.locfileid: "72285865"
 
 다음 목록에는 QnA Maker 리소스에 대해 지원 되는 언어가 나와 있습니다. 
 
-|언어|
+|language|
 |--|
 |아랍어|
 |아르메니아어|
@@ -37,13 +37,13 @@ ms.locfileid: "72285865"
 |바스크어|
 |불가리아어|
 |카탈로니아어|
-|중국어 간체|
+|Chinese_Simplified|
 |중국어 번체|
 |크로아티아어|
 |체코어|
 |덴마크어|
 |네덜란드어|
-|한국어|
+|영어|
 |에스토니아어|
 |핀란드어|
 |프랑스어|
@@ -72,7 +72,7 @@ ms.locfileid: "72285865"
 |루마니아어|
 |러시아어|
 |세르비아어 키릴 자모|
-|세르비아어 라틴어|
+|Serbian_Latin|
 |슬로바키아어|
 |슬로베니아어|
 |스페인어|

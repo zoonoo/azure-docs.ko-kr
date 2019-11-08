@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: ec8250f6cdb44af3c99c1d34d1f14fbd2209aac0
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: f70052a62152a20f808c1e491a663d1406fbd407
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530096"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747717"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에 Linkerd 설치
 
@@ -21,7 +21,7 @@ ms.locfileid: "72530096"
 이 문서에서는 Linkerd를 설치 하는 방법을 보여 줍니다. Linkerd `linkerd` 클라이언트 이진 파일은 클라이언트 컴퓨터에 설치 되 고 Linkerd 구성 요소는 AKS의 Kubernetes 클러스터에 설치 됩니다.
 
 > [!NOTE]
-> 이 지침은 Linkerd 버전 `stable-2.6.0` 참조 합니다.
+> 이 지침은 Linkerd 버전 `stable-2.6.0`참조 합니다.
 >
 > Linkerd `stable-2.6.x`는 Kubernetes 버전 `1.13+`에 대해 실행할 수 있습니다. [GitHub-Linkerd 릴리스에서][linkerd-github-releases]추가 안정 및에 지 linkerd 버전을 찾을 수 있습니다.
 
@@ -118,7 +118,7 @@ linkerd-version
 Status check results are √
 ```
 
-이제 Linkerd 구성 요소를 설치 합니다. @No__t_0 및 `kubectl` 이진 파일을 사용 하 여 Linkerd 구성 요소를 AKS 클러스터에 설치 합니다. @No__t_0 네임 스페이스가 자동으로 생성 되 고이 네임 스페이스에 구성 요소가 설치 됩니다.
+이제 Linkerd 구성 요소를 설치 합니다. `linkerd` 및 `kubectl` 이진 파일을 사용 하 여 Linkerd 구성 요소를 AKS 클러스터에 설치 합니다. `linkerd` 네임 스페이스가 자동으로 생성 되 고이 네임 스페이스에 구성 요소가 설치 됩니다.
 
 ```console
 linkerd install | kubectl apply -f -
@@ -248,7 +248,7 @@ Opening Linkerd dashboard in the default browser
 > [!WARNING]
 > 실행 중인 시스템에서 Linkerd를 삭제 하면 서비스 간에 트래픽 관련 문제가 발생할 수 있습니다. 계속 하기 전에 시스템에 대 한 규정이 Linkerd 없이 제대로 작동 하는지 확인 합니다.
 
-먼저 데이터 평면 프록시를 제거 해야 합니다. 작업 네임 스페이스에서 자동 프록시 삽입 [주석을][linkerd-automatic-proxy-injection] 제거 하 고 워크 로드 배포를 롤백합니다. 워크 로드에 연결 된 데이터 평면 구성 요소가 더 이상 없어야 합니다.
+먼저 데이터 평면 프록시를 제거 해야 합니다. 작업 네임 스페이스에서 자동 프록시 삽입 [주석을][linkerd-automatic-proxy-injection] 제거 하 고 워크 로드 배포를 롤아웃 합니다. 워크 로드에 연결 된 데이터 평면 구성 요소가 더 이상 없어야 합니다.
 
 마지막으로 다음과 같이 제어 평면을 제거 합니다.
 

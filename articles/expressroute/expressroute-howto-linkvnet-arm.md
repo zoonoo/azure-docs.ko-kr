@@ -1,5 +1,5 @@
 ---
-title: '가상 네트워크를 ExpressRoute 회로에 연결: PowerShell: Azure | Microsoft Docs'
+title: 'ExpressRoute 회로에 가상 네트워크 연결: PowerShell: Azure | Microsoft Docs'
 description: 이 문서는 리소스 관리자 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 ExpressRoute 회로에 연결하는 방법에 대한 개요를 제공합니다.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 620eff5468d7d3b4bf8ddeea62fa67b39609fce6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d4b746a245fc1ee2b0d3532bfabc973f513c7661
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65950376"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748301"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Virtual Network를 ExpressRoute 회로에 연결
 > [!div class="op_single_selector"]
@@ -40,12 +40,12 @@ ms.locfileid: "65950376"
 * 활성화된 ExpressRoute 회로가 있어야 합니다. 
   * 지침을 수행하여 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-arm.md) 연결 공급자를 통해 회로를 사용하도록 설정합니다. 
   * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-arm.md) 을 참조하세요. 
-  * Azure 프라이빗 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
+  * Azure 개인 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
   * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들어서 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크 게이트웨이를 만듭니다](expressroute-howto-add-gateway-resource-manager.md). ExpressRoute의 가상 네트워크 게이트웨이는 GatewayType으로 VPN이 아닌 'ExpressRoute'를 사용합니다.
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -61,7 +61,7 @@ $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -Resour
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>다른 구독에 있는 가상 네트워크를 회로에 연결
 여러 구독에서 ExpressRoute 회로를 공유할 수 있습니다. 아래 그림에는 여러 구독에서 ExpressRoute 회로에 대한 작업을 공유하는 방법의 간단한 계통도가 나와 있습니다.
 
-큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다. 단일 부서(이 예제에서: IT)는 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 ExpressRoute 회로를 사용할 수 있습니다.
+큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다. 단일 부서(이 예제에서는 IT)가 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 ExpressRoute 회로를 사용할 수 있습니다.
 
 > [!NOTE]
 > ExpressRoute 회로에 대한 연결 및 대역폭 요금은 구독 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.
@@ -176,11 +176,11 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 
 *RoutingWeight*의 범위는 0에서 32000입니다. 기본값은 0입니다.
 
-## <a name="configure-expressroute-fastpath"></a>ExpressRoute FastPath 구성 
-설정할 수 있습니다 [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) ExpressRoute 회로에 있으면 [ExpressRoute 직접](expressroute-erdirect-about.md) 가상 네트워크 게이트웨이 Ultra Performance 인지 ErGw3AZ 합니다. FastPath 패킷 / 초 및 온-프레미스 네트워크와 가상 네트워크 간에 초당 연결 등의 데이터 경로 성능을 향상 됩니다. 
+## <a name="configure-expressroute-fastpath"></a>Express 경로 구성 
+Express 경로 회로가 [express 경로 직접](expressroute-erdirect-about.md) 에 있고 가상 네트워크 게이트웨이가 Ultra Performance 또는 ErGw3AZ 인 경우 [express 경로 fastpath](expressroute-about-virtual-network-gateways.md) 를 사용 하도록 설정할 수 있습니다. FastPath를 통해 온-프레미스 네트워크와 가상 네트워크 간에 초당 패킷 및 초당 연결과 같은 데이터 경로 성능을 향상 시킬 수 있습니다. 
 
 > [!NOTE] 
-> 이미 가상 네트워크에 연결 되어 있지만 FastPath 사용 하도록 설정 하지 않은 경우 새로 만들고 가상 네트워크 연결을 삭제 해야 합니다. 
+> 이미 가상 네트워크에 연결 되어 있지만 FastPath를 사용 하도록 설정 하지 않은 경우 가상 네트워크 연결을 삭제 하 고 새 연결을 만들어야 합니다. 
 > 
 >  
 

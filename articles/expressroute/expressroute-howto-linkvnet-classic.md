@@ -1,5 +1,5 @@
 ---
-title: '가상 네트워크를 ExpressRoute 회로에 연결: PowerShell: 클래식: Azure | Microsoft Docs'
+title: 'ExpressRoute 회로에 가상 네트워크 연결: PowerShell: 클래식: Azure | Microsoft Docs'
 description: 이 문서는 클래식 배포 모델 및 PowerShell을 사용하여 VNet(가상 네트워크)을 ExpressRoute 회로에 연결하는 방법에 대한 개요를 제공합니다.
 services: expressroute
 documentationcenter: na
@@ -8,12 +8,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 21676ff329613f792d6570713f044bb7440e58d4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9365e36cb2beff21e795adecaef5fa41e0d7583c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60370631"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748263"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>PowerShell을 사용하여 ExpressRoute 회로에 가상 네트워크 연결(클래식)
 > [!div class="op_single_selector"]
@@ -35,15 +35,13 @@ ms.locfileid: "60370631"
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
 
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 * 활성화된 ExpressRoute 회로가 있어야 합니다.
    * 지침에 따라 [ExpressRoute 회로를 만들고](expressroute-howto-circuit-classic.md) 연결 공급자가 회로를 사용하도록 설정합니다.
-   * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-classic.md)을 참조하세요.
-   * Azure 프라이빗 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
+   * 회로에 구성된 Azure 프라이빗 피어링이 있는지 확인합니다. 라우팅 지침에 대한 문서는 [라우팅 구성](expressroute-howto-routing-classic.md) 을 참조하세요.
+   * Azure 개인 피어링이 구성되어 있고 네트워크와 Microsoft 간의 BGP 피어링이 엔드투엔드 연결을 사용하도록 작동 중이어야 합니다.
    * 가상 네트워크 및 가상 네트워크 게이트웨이를 만들고 완전히 프로비전해야 합니다. 지침에 따라 [ExpressRoute에 대한 가상 네트워크를 구성합니다](expressroute-howto-vnet-portal-classic.md).
 
 ### <a name="download-the-latest-powershell-cmdlets"></a>최신 PowerShell cmdlet 다운로드
@@ -102,7 +100,7 @@ Remove-AzureDedicatedCircuitLink -ServiceKey "*****************************" -VN
 ## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>다른 구독에 있는 가상 네트워크를 회로에 연결
 여러 구독에서 ExpressRoute 회로를 공유할 수 있습니다. 아래 그림에는 여러 구독에서 ExpressRoute 회로에 대한 작업을 공유하는 방법의 간단한 계통도가 나와 있습니다.
 
-큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 부서는 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다. 단일 부서(이 예제에서: IT)는 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 ExpressRoute 회로를 사용할 수 있습니다.
+큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 부서는 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다. 단일 부서(이 예제에서는 IT)가 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 ExpressRoute 회로를 사용할 수 있습니다.
 
 > [!NOTE]
 > 전용 회로에 대한 연결 및 대역폭 요금은 ExpressRoute 회로 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: d3ea0adb4adf88e557ca360799836555cb90078e
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 709ac3a9f5e7cf0bd13a6e387f0b80caf2608fe0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520938"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748470"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Azure Security Center의 경고 유효성 검사 (EICAR 테스트 파일)
 이 문서에서는 시스템이 Azure Security Center 경고에 대해 제대로 구성되었는지 확인하는 방법을 알아봅니다.
@@ -33,11 +33,11 @@ ms.locfileid: "73520938"
 * [Linux](#validate-linux)
 * [Kubernetes](#validate-kubernetes)
 
-## Windows VM에서 경고 유효성 검사<a name="validate-windows"></a>
+## Windows Vm에서 경고 유효성 검사<a name="validate-windows"></a>
 
 컴퓨터에 에이전트를 설치한 Security Center 후에는 경고의 공격을 받을 컴퓨터에서 다음 단계를 수행 합니다.
 
-1. 실행 파일 ( **예:** ASC_AlertTest_662jfi039N)을 컴퓨터의 바탕 화면이 나 편리한 다른 디렉터리에 복사 하 고 이름을로 바꿉니다.
+1. 실행 파일 (예: **calc**)을 컴퓨터의 바탕 화면이 나 사용자 편의의 다른 디렉터리에 복사 하 고 **ASC_AlertTest_662jfi039N**로 이름을 바꿉니다.
 1. 명령 프롬프트를 열고 인수 (예: 가짜 인수 이름)를 사용 하 여이 파일을 실행 합니다 (예: ```ASC_AlertTest_662jfi039N.exe -foo```
 1. 5~10분 정도 기다렸다가 Security Center 경고를 엽니다. 아래 [예제](#alert-validate) 와 비슷한 경고가 표시 됩니다.
 
@@ -46,10 +46,10 @@ ms.locfileid: "73520938"
 >
 >```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
 
-## Linux VM에 대 한 경고 유효성 검사<a name="validate-linux"></a>
+## Linux Vm에 대 한 경고 유효성 검사<a name="validate-linux"></a>
 
 컴퓨터에 에이전트를 설치한 Security Center 후에는 경고의 공격을 받을 컴퓨터에서 다음 단계를 수행 합니다.
-1. 실행 파일을 편리한 위치에 복사 하 고 **/asc_alerttest_662jfi039n**로 이름을 바꿉니다. 예를 들면 다음과 같습니다.
+1. 실행 파일을 편리한 위치에 복사 하 고 이름을 **./asc_alerttest_662jfi039n**로 바꿉니다. 예를 들면 다음과 같습니다.
 
     ```cp /bin/echo ./asc_alerttest_662jfi039n```
 

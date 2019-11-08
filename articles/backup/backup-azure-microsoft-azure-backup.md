@@ -1,6 +1,6 @@
 ---
 title: Azure Backup Server를 사용하여 Azure에 워크로드 백업
-description: Azure Backup Server를 사용하여 Azure Portal에 작업 부하를 백업하거나 보호합니다.
+description: 이 문서에서는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 워크 로드를 보호 하 고 백업 하기 위해 환경을 준비 하는 방법을 알아봅니다.
 ms.reviewer: kasinh
 author: dcurwin
 manager: carmonm
@@ -8,16 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 7a0f1f7dd79be250370fa97096a0cbf6dfc7f637
-ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
+ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71982845"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747431"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
 > [!div class="op_single_selector"]
+>
 > * [Azure Backup 서버](backup-azure-microsoft-azure-backup.md)
 > * [SCDPM](backup-azure-dpm-introduction.md)
 >
@@ -35,7 +36,7 @@ ms.locfileid: "71982845"
 Azure VM에 배포 된 MABS는 Azure에서 Vm을 백업할 수 있지만 백업 작업을 사용 하려면 동일한 도메인에 있어야 합니다. Azure VM을 백업 하는 프로세스는 온-프레미스에서 Vm을 백업 하는 것과 동일 하지만 Azure에서 MABS를 배포 하는 경우 몇 가지 제한 사항이 있습니다. 제한 사항에 대 한 자세한 내용은 [DPM을 Azure 가상 머신으로](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) 참조 하세요.
 
 > [!NOTE]
-> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [Resource Manager와 클래식](../azure-resource-manager/resource-manager-deployment-model.md) 모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델인 [리소스 관리자와 클래식](../azure-resource-manager/resource-manager-deployment-model.md)모델이 있습니다. 이 문서에서는 리소스 관리자 모델을 사용하여 배포된 VM을 복원하기 위한 정보 및 절차를 제공합니다.
 >
 >
 
@@ -47,7 +48,7 @@ Azure Backup 서버를 작동하고 실행하는 첫 번째 단계는 Windows Se
 
 ### <a name="using-a-server-in-azure"></a>Azure에서 서버 사용
 
-Azure Backup Server를 실행 하기 위한 서버를 선택할 때 Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작 하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 4 개의 코어와 8gb RAM이 있는 Standard_A4_v2.
+Azure Backup Server를 실행 하기 위한 서버를 선택할 때 Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작 하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM (가상 컴퓨터)에 대 한 권장 최소 요구 사항은 4 개의 코어와 8gb RAM이 있는 Standard_A4_v2 이어야 합니다.
 
 Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [Azure 가상 머신으로 DPM 설치](https://technet.microsoft.com/library/jj852163.aspx)문서는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
@@ -60,16 +61,16 @@ Azure에서 기본 서버를 실행하지 않을 경우 Hyper-V VM, VMware VM �
 | Windows Server 2019 |64비트 |Standard, Datacenter, Essentials |
 | Windows Server 2016 및 최신 SP |64비트 |Standard, Datacenter, Essentials  |
 
-
 Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거할 수 있습니다. [DPM 및 중복 제거](https://technet.microsoft.com/library/dn891438.aspx) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > Azure Backup Server는 단일 용도의 전용 서버에서 실행하도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
-> - 도메인 컨트롤러로 실행하는 컴퓨터
-> - 애플리케이션 서버 역할이 설치된 컴퓨터
-> - System Center Operations Manager 관리 서버인 컴퓨터
-> - Exchange Server를 실행하는 컴퓨터
-> - 클러스터의 한 노드인 컴퓨터
+>
+> * 도메인 컨트롤러로 실행하는 컴퓨터
+> * 애플리케이션 서버 역할이 설치된 컴퓨터
+> * System Center Operations Manager 관리 서버인 컴퓨터
+> * Exchange Server를 실행하는 컴퓨터
+> * 클러스터의 한 노드인 컴퓨터
 
 항상 Azure Backup Server를 도메인에 가입시킵니다. 서버를 다른 도메인으로 옮기려는 경우 Azure Backup Server를 먼저 설치한 다음, 서버를 새 도메인에 가입합니다. 배포 후 기존 Azure Backup 서버 컴퓨터를 새 도메인으로 이동하는 것은 *지원되지 않습니다*.
 
@@ -182,11 +183,11 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     사용자 고유의 SQL 2017 인스턴스를 사용 하는 경우 SSRS를 수동으로 구성 해야 합니다. SSRS 구성 후 SSRS의 *IsInitialized* 속성이 *True*로 설정되었는지 확인합니다. True로 설정하면 MABS는 SSRS가 이미 구성되어 있다고 가정하고 SSRS 구성을 건너뜁니다.
 
-    SSRS 구성에 대해 다음 값을 사용합니다. 
-    - 서비스 계정: ' 기본 제공 계정 사용 '은 네트워크 서비스 여야 합니다.
-    - 웹 서비스 URL: ' 가상 디렉터리 '는 ReportServer_ @ no__t-0 이어야 합니다.
-    - 데이터 DatabaseName은 ReportServer $ <SQLInstanceName> 이어야 합니다.
-    - 웹 포털 URL: ' 가상 디렉터리 '는 Reports_ @ no__t-0 이어야 합니다.
+    SSRS 구성에 대해 다음 값을 사용합니다.
+    * 서비스 계정: ' 기본 제공 계정 사용 '은 네트워크 서비스 여야 합니다.
+    * 웹 서비스 URL: ' 가상 디렉터리 '는 ReportServer_<SQLInstanceName>
+    * 데이터베이스: DatabaseName은 ReportServer $<SQLInstanceName>
+    * 웹 포털 URL: ' 가상 디렉터리 '는 Reports_<SQLInstanceName>
 
     SSRS 구성에 대해 [자세히 알아봅니다](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017).
 
@@ -257,10 +258,10 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
 
 스토리지를 유지하면서 MABS를 새 서버로 이동해야 하는 경우 단계는 다음과 같습니다. 모든 데이터가 Modern Backup Storage에 있는 경우에만 수행할 수 있습니다.
 
-
   > [!IMPORTANT]
-  > - 새 서버 이름은 원래 Azure Backup Server 인스턴스와 같은 이름이어야 합니다. 이전 저장소 풀 및 MABS 데이터베이스 (DPMDB)를 사용 하 여 복구 지점은 보존 하려면 새 Azure Backup Server 인스턴스의 이름을 변경할 수 없습니다.
-  > - MABS 데이터베이스 (DPMDB)의 백업이 있어야 합니다. 데이터베이스를 복원해야 합니다.
+  >
+  > * 새 서버 이름은 원래 Azure Backup Server 인스턴스와 같은 이름이어야 합니다. 이전 저장소 풀 및 MABS 데이터베이스 (DPMDB)를 사용 하 여 복구 지점은 보존 하려면 새 Azure Backup Server 인스턴스의 이름을 변경할 수 없습니다.
+  > * MABS 데이터베이스 (DPMDB)의 백업이 있어야 합니다. 데이터베이스를 복원해야 합니다.
 
 1. 표시 창에서 보호 에이전트를 업데이트할 클라이언트 컴퓨터를 선택합니다.
 2. 원래 Azure backup server를 종료 하거나 네트워크를 연결 합니다.
@@ -273,7 +274,7 @@ MABS에서는 System Center Data Protection Manager 보호 에이전트를 사�
 9. SQL에서 DPMDB 복원
 10. 새 서버의 관리 명령줄에서 Microsoft Azure Backup 설치 위치 및 bin 폴더로 cd
 
-    경로 예: C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+    경로 예: C:\system32 > cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
 
 11. Azure backup에서 DPMSYNC-SYNC를 실행 합니다.
 
@@ -289,11 +290,11 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 | 연결 상태 | Azure 구독 | Azure에 백업 | 디스크에 백업 | Azure에서 복구 | 디스크에서 복구 |
 | --- | --- | --- | --- | --- | --- |
-| 연결됨 |Active |허용함 |허용됨 |허용됨 |허용함 |
-| 연결됨 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 연결됨 |Active |허용됨 |허용됨 |허용됨 |허용됨 |
+| 연결됨 |만료됨 |중지됨 |중지됨 |허용됨 |허용됨 |
 | 연결됨 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
-| 손실된 연결 > 15일 |활성 |중지됨 |중지됨 |허용함 |허용함 |
-| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 손실된 연결 > 15일 |Active |중지됨 |중지됨 |허용됨 |허용됨 |
+| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용됨 |허용됨 |
 | 손실된 연결 > 15일 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구
@@ -345,7 +346,7 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 
 3. 보호된 서버에서 보호 에이전트를 업데이트합니다.
 4. 프로덕션 서버를 다시 시작하지 않아도 백업을 계속해야 합니다.
-5. 이제 데이터 보호를 시작할 수 있습니다. 보호하는 동안 Modern Backup Storage로 업그레이드하는 경우 백업을 저장하려는 볼륨을 선택하고, 프로비전된 공간이 부족한지 확인할 수도 있습니다. [자세히 알아보기](backup-mabs-add-storage.md).
+5. 이제 데이터 보호를 시작할 수 있습니다. 보호하는 동안 Modern Backup Storage로 업그레이드하는 경우 백업을 저장하려는 볼륨을 선택하고, 프로비전된 공간이 부족한지 확인할 수도 있습니다. [자세히 알아봅니다](backup-mabs-add-storage.md).
 
 ## <a name="troubleshooting"></a>문제 해결
 

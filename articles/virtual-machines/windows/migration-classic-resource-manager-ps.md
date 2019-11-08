@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: bf964f23b6c38444fb15b61161cb7ed5a2b15e00
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 01d5670add82291cb91264ab41fcd312a338840c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102648"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749333"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 이러한 단계에서는 Azure PowerShell 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다.
@@ -35,7 +35,7 @@ ms.locfileid: "70102648"
 
 ![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="step-1-plan-for-migration"></a>1단계: 마이그레이션 계획
 클래식에서 Resource Manager로 IaaS 리소스 마이그레이션을 평가하는 몇 가지 모범 사례가 있습니다.
@@ -49,7 +49,7 @@ ms.locfileid: "70102648"
 >다른 구독에서 ExpressRoute 회로에 연결하는 ExpressRoute 게이트웨이를 자동으로 마이그레이션할 수 없습니다. 이러한 경우에 ExpressRoute 게이트웨이를 제거하고 가상 네트워크를 마이그레이션한 다음 게이트웨이를 다시 만듭니다. 자세한 내용은 [클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 및 연결된 가상 네트워크 마이그레이션](../../expressroute/expressroute-migration-classic-resource-manager.md)을 참조하세요.
 
 ## <a name="step-2-install-the-latest-version-of-azure-powershell"></a>2단계: Azure PowerShell 최신 버전 설치
-Azure PowerShell을 설치하기 위한 [PowerShell 갤러리](https://www.powershellgallery.com/profiles/azure-sdk/) 또는 [WebPI(웹 플랫폼 설치 관리자)](https://aka.ms/webpi-azps)라는 두 가지 주요 옵션이 있습니다. WebPI는 매월 업데이트를 수신합니다. PowerShell 갤러리는 지속적으로 업데이트를 수신합니다. 이 문서는 Azure PowerShell 버전 2.1.0을 기반으로 합니다.
+Azure PowerShell을 설치하는 두 가지 주요 옵션으로 [PowerShell 갤러리](https://www.powershellgallery.com/profiles/azure-sdk/) 또는 [WebPI(웹 플랫폼 설치 관리자)](https://aka.ms/webpi-azps)가 있습니다. WebPI는 매월 업데이트를 수신합니다. PowerShell 갤러리는 지속적으로 업데이트를 수신합니다. 이 문서는 Azure PowerShell 버전 2.1.0을 기반으로 합니다.
 
 설치 지침은 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
@@ -58,13 +58,13 @@ Azure PowerShell을 설치하기 위한 [PowerShell 갤러리](https://www.power
 ## <a name="step-3-ensure-that-you-are-an-administrator-for-the-subscription-in-azure-portal"></a>3단계: Azure Portal에서 구독에 대한 관리자인지 확인
 이 마이그레이션을 수행하려면 [Azure Portal](https://portal.azure.com)에 구독에 대한 공동 관리자로 추가되어야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 허브 메뉴에서 **구독**을 선택합니다. 표시되지 않으면 **모든 서비스**를 선택합니다.
 3. 적절한 등록 항목을 찾은 다음 **내 역할** 필드를 확인합니다. 공동 관리자의 경우 값은 _계정 관리자_여야 합니다.
 
 공동 관리자를 추가할 수 없으면 구독에 대한 서비스 관리자 또는 공동 관리자에게 추가해 줄 것을 요청합니다.   
 
-## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>4단계: 구독 설정 및 마이그레이션에 가입
+## <a name="step-4-set-your-subscription-and-sign-up-for-migration"></a>4단계: 구독 설정 및 마이그레이션에 등록
 먼저, PowerShell 프롬프트를 시작합니다. 마이그레이션의 경우 클래식 및 Resource Manager에 대한 환경을 설정해야 합니다.
 
 Resource Manager 모델에 대한 계정으로 로그인합니다.

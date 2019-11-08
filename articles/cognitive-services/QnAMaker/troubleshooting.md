@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51d21dca1d8a5223e67cb7ea8489800989cff55c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 7e98fd089ce8ec1285232840a40bb42ac5b81446
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026022"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795437"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -117,13 +117,13 @@ Azure에서 QnA Maker 서비스를 아직 만들지 않았습니다. 만드는 �
 
 ### <a name="when-should-i-restart-my-app-service"></a>내 App Service를 다시 시작해야 하는 경우는 언제인가요? 
 
-**사용자 설정** [페이지](https://www.qnamaker.ai/UserSettings)의 **엔드포인트 키** 테이블에서 기술 자료에 대한 버전 값 옆에 주의 아이콘이 표시되면 App Service를 새로 고칩니다.
+**사용자 설정** **페이지**의 [엔드포인트 키](https://www.qnamaker.ai/UserSettings) 테이블에서 기술 자료에 대한 버전 값 옆에 주의 아이콘이 표시되면 App Service를 새로 고칩니다.
 
 ### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>기존 검색 서비스를 삭제 했습니다. 이 문제를 어떻게 해결할 수 있나요?
 
-Azure Search 인덱스를 삭제한 경우 작업이 최종이며 인덱스를 복구할 수 없습니다. 
+Azure Cognitive Search 인덱스를 삭제 하는 경우 작업이 마지막 이며 인덱스를 복구할 수 없습니다. 
 
-### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>검색 서비스에서 0 @no__t 인덱스를 삭제 했습니다. 이 문제를 어떻게 해결할 수 있나요? 
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>검색 서비스에서 `testkb` 인덱스를 삭제 했습니다. 이 문제를 어떻게 해결할 수 있나요? 
 
 이전 데이터를 복구할 수 없습니다. 새 QnA Maker 리소스를 만들고 기술 자료를 다시 만듭니다.
 
@@ -131,15 +131,15 @@ Azure Search 인덱스를 삭제한 경우 작업이 최종이며 인덱스를 �
 
 엔드포인트 키가 손상되었다고 의심되는 경우 엔드포인트 키를 새로 고칩니다.
 
-### <a name="can-i-use-the-same-azure-search-resource-for-knowledge-bases-using-multiple-languages"></a>여러 언어를 사용하여 기술 자료에 대한 동일한 Azure Search 리소스를 사용할 수 있나요?
+### <a name="can-i-use-the-same-azure-cognitive-search-resource-for-knowledge-bases-using-multiple-languages"></a>여러 언어를 사용 하는 기술 자료에 대해 동일한 Azure Cognitive Search 리소스를 사용할 수 있나요?
 
 여러 언어 및 여러 기술 자료를 사용하려면 사용자는 각 언어에 대한 QnA Maker 리소스를 만들어야 합니다. 이렇게 하면 언어 마다 별도의 Azure search 서비스를 만듭니다. 단일 Azure Search 서비스에서 다른 언어로 된 기술 자료를 혼합하면 결국 성능이 저하된 결과의 관련성이 발생합니다.
 
-### <a name="how-can-i-change-the-name-of-the-azure-search-resource-used-by-qna-maker"></a>QnA Maker에서 사용하는 Azure Search 이름을 변경하려면 어떻게 해야 하나요?
+### <a name="how-can-i-change-the-name-of-the-azure-cognitive-search-resource-used-by-qna-maker"></a>QnA Maker에서 사용 하는 Azure Cognitive Search 리소스의 이름을 변경 하려면 어떻게 해야 하나요?
 
-Azure Search 리소스의 이름은 일부 임의 문자가 끝에 추가되는 QnA Maker 리소스 이름입니다. 이 이름으로는 QnA Maker의 여러 Search 리소스를 구별하기 어렵습니다. 별도의 Azure Search 서비스(원하는 방식으로 명명)를 만들고 QnA 서비스에 연결합니다. 이러한 단계는 [Azure search를 업그레이드](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service)하기 위해 수행 해야 하는 단계와 비슷합니다.
+Azure Cognitive Search 리소스의 이름은 끝에 임의의 문자가 추가 된 QnA Maker 리소스 이름입니다. 이 이름으로는 QnA Maker의 여러 Search 리소스를 구별하기 어렵습니다. 별도의 검색 서비스 (원하는 방식으로 이름 지정)를 만들고 QnA 서비스에 연결 합니다. 이러한 단계는 [Azure search를 업그레이드](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service)하기 위해 수행 해야 하는 단계와 비슷합니다.
 
-### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>QnA Maker에서 @no__t 반환 하는 경우 어떻게 해결 하나요?
+### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>QnA Maker에서 `Runtime core is not initialized,` 반환 하는 경우 어떻게 해결할 수 있나요?
 
 App service에 대 한 디스크 공간이 가득 찼을 수 있습니다. 디스크 공간을 수정 하는 단계:
 
@@ -174,7 +174,7 @@ App service에 대 한 디스크 공간이 가득 찼을 수 있습니다. 디�
 기술 자료에 대 한 다음 정보가 필요 합니다.
 
 * 기술 자료 ID입니다.
-* 기술 자료의 게시 된 끝점 사용자 지정 하위 도메인 이름 (`host` 이라고 함)은 게시 후 **설정** 페이지에서 찾을 수 있습니다.
+* 기술 자료의 게시 된 끝점 사용자 지정 하위 도메인 이름 (`host`이라고 함)은 게시 후 **설정** 페이지에서 찾을 수 있습니다.
 * 기술 자료의 게시 된 끝점 키-게시 후 **설정** 페이지에서 찾을 수 있습니다. 
 
 이 정보를 사용 하 여 Azure Portal에서 봇의 app service로 이동 합니다. **설정-> 구성-> 응용 프로그램 설정**에서 해당 값을 변경 합니다.  

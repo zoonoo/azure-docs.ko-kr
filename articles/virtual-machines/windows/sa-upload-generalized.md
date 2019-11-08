@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ac1572a75a3310afb9d0e0a34c6751ed12d839f9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 24ed7b75dfa8cb09c530a3f4a896aa9ff9aa92b5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102431"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749184"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Azure에 일반화된 VHD를 업로드하여 새 VM 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "70102431"
 
 이 항목에서는 스토리지 계정을 사용하지만 고객은 대신 Managed Disks를 사용하는 것이 좋습니다. 관리 디스크를 사용하여 새 VM을 준비, 업로드 및 만드는 방법에 대한 전체 연습을 보려면 [Managed Disks를 사용하여 Azure에 업로드된 일반화된 VHD에서 새 VM 만들기](upload-generalized-managed.md)를 참조하세요.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="prepare-the-vm"></a>VM 준비
 
@@ -56,7 +56,7 @@ ms.locfileid: "70102431"
 5. **확인**을 클릭합니다.
    
     ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Sysprep이 완료되면 가상 컴퓨터를 종료합니다. 
+6. Sysprep이 완료되면 가상 머신을 종료합니다. 
 
 > [!IMPORTANT]
 > Azure에 VHD를 업로드하거나 VM에서 이미지를 만드는 작업을 완료할 때까지 VM을 다시 시작하지 않습니다. VM이 실수로 다시 시작되면 Sysprep을 실행하여 다시 일반화합니다.
@@ -112,7 +112,7 @@ Get-AzStorageAccount
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 이 리소스 그룹에 **mystorageaccount**라는 이름의 스토리지 계정을 만듭니다.
+2. **New-AzStorageAccount** cmdlet을 사용하여 이 리소스 그룹에 [mystorageaccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)라는 이름의 스토리지 계정을 만듭니다.
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -121,7 +121,7 @@ Get-AzStorageAccount
  
 ### <a name="start-the-upload"></a>업로드 시작 
 
-[Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 이미지를 업로드합니다. 이 예제에서는 `"C:\Users\Public\Documents\Virtual hard disks\"`에서 **myResourceGroup** 리소스 그룹의 **mystorageaccount**라는 스토리지 계정에 파일 **myVHD.vhd**를 업로드합니다. 파일은 **mycontainer**라는 컨테이너에 배치되고 새 파일 이름은 **myUploadedVHD.vhd**가 됩니다.
+[Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 이미지를 업로드합니다. 이 예제에서는 **에서** myResourceGroup`"C:\Users\Public\Documents\Virtual hard disks\"` 리소스 그룹의 **mystorageaccount**라는 스토리지 계정에 파일 **myVHD.vhd**를 업로드합니다. 파일은 **mycontainer**라는 컨테이너에 배치되고 새 파일 이름은 **myUploadedVHD.vhd**가 됩니다.
 
 ```powershell
 $rgName = "myResourceGroup"

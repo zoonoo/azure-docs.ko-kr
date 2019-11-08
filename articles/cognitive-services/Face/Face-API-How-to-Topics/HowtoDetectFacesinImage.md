@@ -1,7 +1,7 @@
 ---
 title: 이미지에서 얼굴 감지-Face API
 titleSuffix: Azure Cognitive Services
-description: 얼굴 감지 기능에 의해 반환되는 다양한 데이터를 사용하는 방법에 알아봅니다.
+description: 이 가이드에서는 얼굴 감지를 사용 하 여 지정 된 이미지에서 성별, age 또는 포즈와 같은 특성을 추출 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: 07089def3290d6d64919ad2551de7584646cc681
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 9b66231d995ffb6980ce36852115c571cd102681
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306624"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744288"
 ---
 # <a name="get-face-detection-data"></a>얼굴 감지 데이터 가져오기
 
@@ -29,7 +29,7 @@ ms.locfileid: "70306624"
 
 ## <a name="setup"></a>설정
 
-이 가이드에서는 얼굴 구독 키와 끝점 URL을 사용하여 `faceClient`라는 [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) 개체를 이미 생성 했다고 가정 합니다. 여기서는이 가이드에서 사용 되는 [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)또는 [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)를 호출 하 여 얼굴 감지 기능을 사용할 수 있습니다. 이 기능을 설정 하는 방법에 대 한 지침은 빠른 시작 중 하나를 수행 합니다.
+이 가이드에서는 얼굴 구독 키와 끝점 URL을 사용하여 [라는 ](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet)FaceClient`faceClient` 개체를 이미 생성 했다고 가정 합니다. 여기서는이 가이드에서 사용 되는 [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet)또는 [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet)를 호출 하 여 얼굴 감지 기능을 사용할 수 있습니다. 이 기능을 설정 하는 방법에 대 한 지침은 빠른 시작 중 하나를 수행 합니다.
 
 이 가이드는 전달할 수 있는 인수와 반환 된 데이터로 수행할 수 있는 작업을 비롯 하 여 검색 호출의 세부 사항을 중점적으로 설명 합니다. 필요한 기능만 쿼리 하는 것이 좋습니다. 각 작업을 완료 하려면 추가 시간이 필요 합니다.
 
@@ -145,9 +145,9 @@ foreach (var face in faces)
 이 가이드에서는 얼굴 검색의 다양 한 기능을 사용 하는 방법을 알아보았습니다. 다음으로, 심층 자습서를 수행 하 여 이러한 기능을 앱에 통합 합니다.
 
 - [자습서: 이미지에 얼굴 데이터를 표시 하는 WPF 앱 만들기](../Tutorials/FaceAPIinCSharpTutorial.md)
-- [자습서: Android 앱을 만들어 이미지에서 얼굴을 감지 하 고 프레임을 검색 합니다.](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
+- [자습서: 이미지에서 얼굴을 감지 하 고 프레임을 검색 하는 Android 앱 만들기](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)
 
-## <a name="related-topics"></a>관련 항목
+## <a name="related-topics"></a>관련된 항목
 
 - [참조 설명서 (REST)](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)
 - [참조 설명서 (.NET SDK)](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet)

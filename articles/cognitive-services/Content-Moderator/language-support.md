@@ -1,7 +1,7 @@
 ---
 title: 언어 지원 - Content Moderator API
 titleSuffix: Azure Cognitive Services
-description: Content Moderator API에서 지원하는 자연어 목록입니다.
+description: Azure Cognitive Services Content Moderator API에서 지 원하는 자연어 목록입니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,30 +10,30 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: b4e6a5ca2dc19671dab3087c0a182925ac8f9a1b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 9574af31c881589668c462099cae46d9e83b454b
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755327"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744372"
 ---
 # <a name="language-support-for-content-moderator-api"></a>Content Moderator API를 위한 언어 지원
 
 > [!NOTE]
-> **language** 매개 변수에 대해 `eng`를 할당하거나, 컴퓨터 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워둡니다. **이 기능은 영어만 지원합니다**.
+> **language** 매개 변수에 대해 `eng`를 할당하거나, 기계 지원 **분류** 응답(미리 보기 기능)을 확인하려면 비워 둡니다. **이 기능은 영어만 지원합니다**.
 >
 > **욕설** 감지의 경우 이 문서에 나열된 지원되는 언어의 [ISO 639-3 코드](http://www-01.sil.org/iso639-3/codes.asp)를 사용하거나 비워둡니다.
 
 
-| 언어 감지 | 욕설   | OCR    | 자동 고침     |
+| 언어 검색 | 욕설   | OCR    | 자동 고침     |
 | -------------------- |-------------|--------|---------------------|
 | 아랍어(로마자)   | 아프리칸스어   | 아랍어   | 아랍어 |
 | 발리어 | 알바니아어 | 중국어 (간체)    | 덴마크어 |
 | 벵골어 | 암하라어 | 중국어 (번체)     | 네덜란드어 |
-| 부기어 | 아랍어 | 체코어                     | 한국어 |
+| 부기어 | 아랍어 | 체코어                     | 영어 |
 | 부히드어 | 아르메니아어 | 덴마크어                     | 핀란드어 |
 | 카리 문자 | 아삼어 | 네덜란드어                     | 프랑스어 |
-| 중국어 (간체) | 아제르바이잔어 | 한국어  | 그리스어(현대) |
+| 중국어 (간체) | 아제르바이잔어 | 영어  | 그리스어(현대) |
 | 중국어 (번체) | 벵골어 - 방글라데시 | 핀란드어  | 이탈리아어 |
 | 고대 교회(슬라브어) | 벵골어 - 인도 | 프랑스어     | 한국어 |
 | 콥트어 | 바스크어 | 독일어                      | 노르웨이어 |
@@ -53,7 +53,7 @@ ms.locfileid: "72755327"
 | 이탈리아어 | 덴마크어 | 스페인어 | |
 | 일본어 | 다리어 | 스웨덴어 | |
 | 한국어 | 네덜란드어 | 터키어 | |
-| 쿠르드어(아랍어) | 한국어 | | |
+| 쿠르드어(아랍어) | 영어 | | |
 | 쿠르드어(라틴 문자) | 에스토니아어 | | |
 | 렙차 문자 | 필리핀어 | | |
 | 림부 문자 | 핀란드어 | | |

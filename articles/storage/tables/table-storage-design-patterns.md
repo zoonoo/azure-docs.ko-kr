@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: 82910bf5c42629c2d4f077ad6df2adbfc9dcf021
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d7d4d7b331198982f7c5513d23420bdde9455c66
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989982"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796658"
 ---
 # <a name="table-design-patterns"></a>테이블 디자인 패턴
 이 아티클에서는 Table service 솔루션에서 사용하기에 적합한 몇 가지 패턴에 대해 알아봅니다. 또한 다른 Table Storage 디자인 아티클에서 설명한 문제 및 장단점 중 일부를 실용적으로 해결할 수 있는 방법도 확인합니다. 다음 다이어그램에는 서로 다른 패턴 간의 관계가 요약되어 있습니다.  
@@ -21,7 +21,7 @@ ms.locfileid: "68989982"
 ![관련 데이터를 조회하려면](media/storage-table-design-guide/storage-table-design-IMAGE05.png)
 
 
-위 패턴 맵에는 이 가이드에 설명된 패턴(파란색)과 안티패턴(주황색) 간의 몇 가지 관계가 강조되어 있습니다. 고려할 만한 다른 많은 패턴도 있습니다. 예를 들어 Table service의 주요 시나리오 중 하나는 [CQRS(Command Query Responsibility Segregation)](https://msdn.microsoft.com/library/azure/jj554200.aspx) 패턴에서 [구체화된 뷰 패턴](https://msdn.microsoft.com/library/azure/dn589782.aspx)을 사용하는 것입니다.  
+위 패턴 맵에는 이 가이드에 설명된 패턴(파란색)과 안티패턴(주황색) 간의 몇 가지 관계가 강조되어 있습니다. 고려할 만한 다른 많은 패턴도 있습니다. 예를 들어 Table service의 주요 시나리오 중 하나는 [CQRS(Command Query Responsibility Segregation)](https://msdn.microsoft.com/library/azure/dn589782.aspx) 패턴에서 [구체화된 뷰 패턴](https://msdn.microsoft.com/library/azure/jj554200.aspx)을 사용하는 것입니다.  
 
 ## <a name="intra-partition-secondary-index-pattern"></a>파티션 간 보조 인덱스 패턴
 서로 다른 **RowKey** 값(동일한 파티션에서)을 사용하여 각 엔터티의 여러 복사본을 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다. EGT를 사용하여 복사본 간의 업데이트를 일관성 있게 유지할 수 있습니다.  
@@ -33,7 +33,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 전자 메일 주소와 같은 다른 속성 값으로 기반으로 직원 엔터티를 찾을 수 있도록 하려면 비효율적인 파티션 검색을 사용하여 일치하는 항목을 찾아야 합니다. 테이블 서비스에서는 보조 인덱스를 제공하지 않기 때문입니다. 또한 **RowKey** 와 다른 순서로 정렬된 직원 목록을 요청하는 옵션도 없습니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 보조 인덱스가 없는 문제를 해결하려면 각 엔터티의 여러 복사본을 다른 **RowKey** 값을 사용하는 각 복사본과 함께 저장하면 됩니다. 아래에 표시된 구조로 엔터티를 저장하면 이메일 주소 또는 직원 ID를 기반으로 직원 엔터티를 효율적으로 검색할 수 있습니다. **Rowkey**"empid_" 및 "email_"의 접두사 값을 사용 하면 전자 메일 주소 또는 직원 id의 범위를 사용 하 여 단일 직원 또는 직원 범위를 쿼리할 수 있습니다.  
 
 ![직원 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE07.png)
@@ -88,7 +88,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 이러한 엔터티에 대해 많은 양의 트랜잭션을 예상 하 고 Table service 클라이언트를 제한 하는 위험을 최소화 하려고 합니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 보조 인덱스가 없는 문제를 해결하려면 각 엔터티의 여러 복사본을 다른 **PartitionKey** 및 **RowKey** 값을 사용하는 각 복사본과 함께 저장하면 됩니다. 아래에 표시된 구조로 엔터티를 저장하면 이메일 주소 또는 직원 ID를 기반으로 직원 엔터티를 효율적으로 검색할 수 있습니다. **PartitionKey**의 접두사 값 "empid_" 및 "email_"은 쿼리에 사용할 수 있는 인덱스를 구분할 수 있도록 해줍니다.  
 
 ![기본 인덱스 및 보조 인덱스](media/storage-table-design-guide/storage-table-design-IMAGE10.png)
@@ -140,9 +140,9 @@ EGT는 동일한 파티션 키를 공유하는 여러 엔터티 간의 원자성
 * 동일한 테이블, 서로 다른 테이블 또는 서로 다른 스토리지 계정의 두 파티션에 저장된 엔터티  
 * Table service에 저장된 엔터티와 Blob service에 저장된 Blob  
 * Table service에 저장된 엔터티와 파일 서비스에 저장된 파일  
-* Azure Search 서비스를 사용하여 아직 인덱싱되지 않은 Table service에 저장된 엔터티  
+* Azure Cognitive Search 서비스를 사용 하 여 아직 인덱싱되는 Table service에 저장 된 엔터티입니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 Azure 큐를 사용하면 둘 이상의 파티션 또는 스토리지 시스템 간에 결과적 일관성을 유지하는 솔루션을 구현할 수 있습니다.
 이 접근 방식을 설명하기 위해 이전 직원 엔터티를 보관할 수 있어야 하는 요구 사항이 있는 것으로 가정합니다. 이전 직원 엔터티는 거의 쿼리되지 않으므로 현재 직원을 다루는 활동에서 제외해야 합니다. 이 요구 사항을 구현 하기 위해 **현재** 테이블에 활성 직원을 저장 하 고 **보관** 테이블에 이전 직원을 저장 합니다. 직원을 보관하려면 **현재** 테이블에서 해당 엔터티를 삭제하고 **보관** 테이블에 엔터티를 추가해야 하지만 EGT를 사용하여 이 두 작업을 수행할 수는 없습니다. 오류로 인해 하나의 엔터티가 두 테이블 모두에 표시되거나 아무 테이블에도 표시되지 않는 위험을 방지하려면 보관 작업이 결과적으로 일관성이 있어야 합니다. 다음 시퀀스 다이어그램에 이 작업의 단계가 요약되어 있습니다. 다음 텍스트에 예외 경로에 대한 자세한 정보가 나와 있습니다.  
 
@@ -190,7 +190,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 이름과 같은 고유하지 않은 다른 속성 값을 기반으로 직원 엔터티 목록을 검색할 수 있도록 하려는 경우에는 인덱스를 사용하여 직접 조회하지 말고 비효율적인 파티션 검색을 사용하여 일치하는 항목을 찾아야 합니다. 테이블 서비스에서는 보조 인덱스를 제공하지 않기 때문입니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 위에 표시 된 엔터티 구조를 사용 하 여 성을 기준으로 조회를 사용 하도록 설정 하려면 직원 Id의 목록을 유지 관리 해야 합니다. Jones와 같이 특정 성을 사용 하 여 직원 엔터티를 검색 하려면 먼저 Jones가 있는 직원의 직원 Id 목록을 찾은 다음 해당 직원 엔터티를 검색 해야 합니다. 직원 Id 목록을 저장 하는 세 가지 주요 옵션은 다음과 같습니다.  
 
 * Blob Storage 사용  
@@ -223,7 +223,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 2. EmployeeIDs 필드에서 직원 ID 목록을 구문 분석합니다.  
 3. 이러한 각 직원에 대한 추가 정보(예: 전자 메일 주소)가 필요한 경우 2단계에서 가져온 직원 목록에서 **PartitionKey** 값 "Sales" 및 **RowKey** 값을 사용하여 각 직원 엔터티를 검색합니다.  
 
-<u>옵션 #3:</u> 별도의 파티션 또는 테이블에 인덱스 엔터티 만들기  
+<u>옵션 3:</u> 별도의 파티션 또는 테이블에 인덱스 엔터티 만들기  
 
 세 번째 옵션의 경우 다음 데이터를 저장하는 인덱스 엔터티를 사용합니다.  
 
@@ -262,8 +262,8 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 ![부서 엔터티 및 직원 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE16.png)
 
-### <a name="solution"></a>솔루션
-두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 예를 들어:  
+### <a name="solution"></a>해결 방법
+두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 예:  
 
 ![부서 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE17.png)
 
@@ -301,7 +301,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 
 이 접근 방식을 사용하면 일부 정보(예: 이름 및 성)를 새 엔터티에 복제하여 단일 요청으로 데이터를 검색할 수 있습니다. 그러나 EGT를 사용하여 두 엔터티를 원자성으로 업데이트할 수 없기 때문에 강력한 일관성을 유지할 수 없습니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 다음 구조의 엔터티를 사용하여 새 엔터티 유형을 원래 테이블에 저장합니다.  
 
 ![직원 엔터티 구조의 솔루션](media/storage-table-design-guide/storage-table-design-IMAGE20.png)
@@ -335,7 +335,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 ### <a name="context-and-problem"></a>컨텍스트 및 문제점
 일반적으로 가장 최근에 만든 엔터티를 검색할 수 있습니다 (예: 직원이 제출한 가장 최근 비용 청구 10 개). 테이블 쿼리는 집합에서 첫 번째 엔터티를 반환하는 **$top** 쿼리 작업을 지원합니다. 집합에 있는 마지막 *n*개의 엔터티를 반환하는 동등한 쿼리 작업은 없습니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 가장 최근 항목이 항상 테이블의 첫 번째 항목이 되도록 날짜/시간 역순으로 자연스럽게 정렬하는 **RowKey** 를 사용하여 엔터티를 정렬합니다.  
 
 예를 들어 직원에 의해 전송 된 최근 비용 청구 10 개를 검색 하려면 현재 날짜/시간에서 파생 된 역방향 틱 값을 사용할 수 있습니다. 다음 C# 코드 샘플은 가장 최근 항목부터 가장 오래된 항목까지 정렬하는 **RowKey** 에 대한 적절한 "반전된 틱" 값을 만드는 한 가지 방법을 보여 줍니다.  
@@ -377,7 +377,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 이 접근 방식을 사용하면 애플리케이션이 각 사용자에 대한 로그인 엔터티를 별도의 파티션에 삽입하고 삭제할 수 있기 때문에 파티션 핫스폿이 방지됩니다. 그러나 이 접근 방식은 엔터티 수가 많은 경우 삭제할 모든 엔터티를 식별하기 위해 먼저 테이블 검색을 수행한 다음 각 이전 엔터티를 삭제해야 하기 때문에 시간과 비용이 많이 들 수 있습니다. 여러 삭제 요청을 EGT로 일괄 처리하면 이전 엔터티를 삭제하는 데 필요한 서버 왕복 횟수를 줄일 수 있습니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 각 로그인 시도 날짜에 별도의 테이블을 사용합니다. 위의 엔터티 디자인을 사용하면 엔터티를 삽입할 때 핫스폿을 방지할 수 있으며, 매일 수십만 개의 개별 로그인 엔터티를 찾아서 삭제하는 대신 매일 하나의 테이블만 삭제하면 되므로(단일 스토리지 작업) 이전 엔터티 삭제가 간편해집니다.  
 
 ### <a name="issues-and-considerations"></a>문제 및 고려 사항
@@ -407,7 +407,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 
 이 디자인을 사용하면 애플리케이션이 메시지 수 값을 업데이트해야 할 때마다 각 직원에 대한 엔터티를 쉽게 찾아서 업데이트할 수 있습니다. 그러나 이전 24시간 동안의 활동에 대한 차트를 그리기 위해 정보를 검색하려면 24개의 엔터티를 검색해야 합니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 개별 속성과 함께 다음 디자인을 사용하여 각 시간에 대한 메시지 수를 저장합니다.  
 
 ![메시지 통계 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE23.png)
@@ -436,7 +436,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 ### <a name="context-and-problem"></a>컨텍스트 및 문제점
 개별 엔터티는 252개가 넘는 속성(필수 시스템 속성 제외)을 가질 수 없으며, 총 1MB가 넘는 데이터를 저장할 수 없습니다. 관계형 데이터베이스는 일반적으로 새 테이블을 추가하고 일대일 관계를 적용하여 행 크기에 대한 제한을 피합니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 Table service를 사용하면 여러 엔터티를 저장하여 252개가 넘는 속성을 가진 대규모 단일 비즈니스 개체를 나타낼 수 있습니다. 예를 들어 각 직원이 지난 365일 동안 보낸 IM 메시지 수를 저장하려는 경우 스키마가 서로 다른 두 개의 엔터티를 사용하는 다음 디자인을 사용할 수 있습니다.  
 
 ![여러 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE24.png)
@@ -463,7 +463,7 @@ Blob Storage를 사용하여 큰 속성 값을 저장합니다.
 ### <a name="context-and-problem"></a>컨텍스트 및 문제점
 개별 엔터티는 총 1MB가 넘는 데이터를 저장할 수 없습니다. 하나 이상의 속성에 엔터티의 총 크기가 이 값을 초과하게 만드는 값이 저장된 경우에는 Table service에 전체 엔터티를 저장할 수 없습니다.  
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 하나 이상의 속성에 많은 데이터가 포함되어 있어 엔터티의 크기가 1MB를 초과하는 경우 Blob service에 데이터를 저장한 다음 엔터티의 속성에 해당 Blob의 주소를 저장할 수 있습니다. 예를 들어 직원의 사진을 Blob Storage에 저장하고 해당 사진의 링크를 직원 엔터티의 **사진** 속성에 저장할 수 있습니다.  
 
 ![사진 속성](media/storage-table-design-guide/storage-table-design-IMAGE25.png)
@@ -493,7 +493,7 @@ Blob Storage를 사용하여 큰 속성 값을 저장합니다.
 
 ![엔터티 구조](media/storage-table-design-guide/storage-table-design-IMAGE26.png)
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 다음 대체 엔터티 구조는 애플리케이션에서 이벤트를 기록할 때 특정 파티션의 핫스폿을 방지합니다.  
 
 ![대안 엔터티 구조](media/storage-table-design-guide/storage-table-design-IMAGE27.png)
@@ -526,13 +526,13 @@ Blob Storage를 사용하여 큰 속성 값을 저장합니다.
 
 이 예제에서 **RowKey**는 로그 메시지가 날짜/시간 순으로 정렬되어 저장되도록 해당 로그 메시지의 날짜 및 시간을 포함하며, 여러 로그 메시지에서 동일한 날짜 및 시간을 공유하는 경우의 메시지 ID를 포함합니다.  
 
-또 다른 접근 방식은 애플리케이션이 파티션 범위에 메시지를 쓰도록 하는 **PartitionKey** 를 사용하는 것입니다. 예를 들어 로그 메시지의 원본이 여러 파티션 간에 메시지를 분산할 수 있는 방법을 제공하는 경우 다음 엔터티 스키마를 사용할 수 있습니다.  
+또 다른 접근 방식은 애플리케이션이 파티션 범위에 메시지를 쓰도록 하는 **PartitionKey**를 사용하는 것입니다. 예를 들어 로그 메시지의 원본이 여러 파티션 간에 메시지를 분산할 수 있는 방법을 제공하는 경우 다음 엔터티 스키마를 사용할 수 있습니다.  
 
 ![대안 로그 메시지 엔터티](media/storage-table-design-guide/storage-table-design-IMAGE29.png)
 
 그러나 이 스키마의 문제점은 특정 시간대의 모든 로그 메시지를 검색하려면 테이블의 모든 파티션을 검색해야 한다는 점입니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 이전 섹션에서는 Table service를 사용하여 로그 항목을 저장하려는 경우의 문제점을 설명하고 불만족스러운 두 가지 디자인을 제시했습니다. 한 가지 솔루션은 로그 메시지 작성 성능의 저하 위험으로 인해 핫 파티션이 발생했으며, 다른 솔루션은 특정 시간대의 로그 메시지를 검색하려면 테이블의 모든 파티션을 검색해야 하기 때문에 쿼리 성능이 저하되었습니다. Blob 스토리지는 이 유형의 시나리오에 보다 효율적인 솔루션을 제공하며, Azure Storage Analytics에서는 수집한 로그 데이터를 이 방법으로 저장합니다.  
 
 이 섹션에서는 일반적으로 범위로 쿼리한 데이터를 저장하는 접근 방식을 보여 주면서 Storage Analytics가 로그 데이터를 Blob 스토리지에 저장하는 방법을 간략하게 설명합니다.  
@@ -588,7 +588,7 @@ using Microsoft.Azure.Cosmos.Table;
 using Microsoft.Azure.Cosmos.Table.Queryable;
 ```
 
-Employeetable&lt는\<\<tablequery itableentity >를 반환 하는 createquery itableentity > () 메서드를 구현 하는 cloudtable 개체입니다. 이 형식의 개체는 IQueryable을 구현 하 고 LINQ 쿼리 식과 점 표기법 구문을 모두 사용할 수 있습니다.
+Employeetable&lt는 itableentity >의 TableQuery\<반환 하는 CreateQuery\<ITableEntity > () 메서드를 구현 하는 CloudTable 개체입니다. 이 형식의 개체는 IQueryable을 구현 하 고 LINQ 쿼리 식과 점 표기법 구문을 모두 사용할 수 있습니다.
 
 **Where** 절이 있는 쿼리를 지정 하 여 여러 엔터티를 검색 하 고 달성할 수 있습니다. 테이블 스캔을 방지하려면 항상 where 절에 **PartitionKey** 값을 포함해야 하며, 가능한 경우 **RowKey** 값을 포함하여 테이블 및 파티션 스캔을 방지해야 합니다. 테이블 서비스에서는 where 절에 사용할 수 있는 비교 연산자 집합(보다 큼, 보다 크거나 같음, 보다 작음, 보다 작거나 같음, 같음 및 같지 않음)이 제한되어 있습니다. 
 
@@ -729,7 +729,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>timestamp</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -741,8 +741,8 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>나이</th>
-<th>EMail</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -761,8 +761,8 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>나이</th>
-<th>EMail</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -798,8 +798,8 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <tr>
 <th>FirstName</th>
 <th>LastName</th>
-<th>나이</th>
-<th>EMail</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td></td>
@@ -821,7 +821,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>timestamp</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -834,8 +834,8 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>나이</th>
-<th>EMail</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -856,8 +856,8 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>나이</th>
-<th>EMail</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -880,7 +880,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <th>EmployeeCount</th>
 </tr>
 <tr>
-<td>Department</td>
+<td>department</td>
 <td></td>
 <td></td>
 </tr>
@@ -897,8 +897,8 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <th>EntityType</th>
 <th>FirstName</th>
 <th>LastName</th>
-<th>나이</th>
-<th>EMail</th>
+<th>Age</th>
+<th>Email</th>
 </tr>
 <tr>
 <td>Employee</td>
@@ -914,7 +914,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 
 **RowKey**앞에 엔터티 유형을 추가하는 첫 번째 옵션은 유형이 서로 다른 두 엔터티의 키 값이 동일할 수 있는 경우에 유용합니다. 또한 이 옵션은 동일한 유형의 엔터티를 파티션에서 그룹화합니다.  
 
-이 아티클에 설명된 기술은 특히 [관계 모델링](table-storage-design-modeling.md) 아티클의 이 가이드 앞부분에 나오는 [상속 관계](table-storage-design-modeling.md#inheritance-relationships) 설명과 관련이 있습니다.  
+이 아티클에 설명된 기술은 특히 [관계 모델링](table-storage-design-modeling.md#inheritance-relationships) 아티클의 이 가이드 앞부분에 나오는 [상속 관계](table-storage-design-modeling.md) 설명과 관련이 있습니다.  
 
 > [!NOTE]
 > 클라이언트 애플리케이션이 POCO 개체를 구체화하고 여러 버전에서 작동하도록 하려면 엔터티 유형 값에 버전 번호를 포함해야 합니다.  

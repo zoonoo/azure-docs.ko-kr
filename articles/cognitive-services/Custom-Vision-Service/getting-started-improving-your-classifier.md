@@ -1,7 +1,7 @@
 ---
 title: 분류자 개선 - Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: 분류자의 품질을 개선하는 방법을 알아봅니다.
+description: 이 문서에서는 Custom Vision 서비스에서 사용자 분류자의 품질을 향상 시킬 수 있는 용량, 품질 및 다양 한 데이터를 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: d71c750185589fd488df70b63fd48e9e674ee3dc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c2858d5f9bca662cbbcd48b2345a7dc2c7ae48b2
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561038"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718537"
 ---
 # <a name="how-to-improve-your-classifier"></a>분류자 개선 방법
 
@@ -53,15 +53,15 @@ ms.locfileid: "68561038"
 
 이 문제를 해결하려면 분류자가 잘 일반화할 수 있도록 다양한 이미지를 포함시킵니다. 학습 집합을 좀 더 다양하게 만들 수 있는 몇 가지 방법은 다음과 같습니다.
 
-* __백그라운드:__ 서로 다른 배경의 개체 이미지를 제공합니다. 컨텍스트가 자연스러운 사진은 분류자에게 더 많은 정보를 제공하므로 자연스러운 배경이 있는 사진보다 더 효과적입니다.
+* __배경:__ 다른 배경 앞에 개체 이미지를 제공 합니다. 컨텍스트가 자연스러운 사진은 분류자에게 더 많은 정보를 제공하므로 자연스러운 배경이 있는 사진보다 더 효과적입니다.
 
     ![배경 샘플 이미지](./media/getting-started-improving-your-classifier/background.png)
 
-* __조명:__ 플래시를 터뜨려 촬영한 이미지, 노출 정도를 높여서 촬영한 이미지 등 다양한 조명이 적용된 이미지를 제공합니다. 특히 예측에 사용되는 이미지의 조명이 서로 다른 경우 이러한 이미지를 제공합니다. 또한 다양한 채도, 색상 및 밝기를 적용한 이미지를 사용하는 것이 유용합니다.
+* __조명:__ 특히 예측에 사용 되는 이미지의 조명이 다른 경우 다양 한 조명이 있는 이미지를 제공 합니다 (즉, 플래시, 높은 노출으로 수행). 또한 다양한 채도, 색상 및 밝기를 적용한 이미지를 사용하는 것이 유용합니다.
 
     ![조명 샘플 이미지](./media/getting-started-improving-your-classifier/lighting.png)
 
-* __개체 크기:__ 개체의 크기와 수가 다양한 이미지를 제공합니다(예: 바나나 다발 사진과 바나나 한 개의 근접 사진). 크기가 다르면 분류자가 일반화를 더 잘 수행할 수 있습니다.
+* __개체 크기:__ 개체의 크기와 수에 따라 달라 지는 이미지를 제공 합니다 (예: bunches의 사진 bananas 및 단일 바나나 확대). 크기가 다르면 분류자가 일반화를 더 잘 수행할 수 있습니다.
 
     ![크기 샘플 이미지](./media/getting-started-improving-your-classifier/size.png)
 
@@ -69,7 +69,7 @@ ms.locfileid: "68561038"
 
     ![각도 샘플 이미지](./media/getting-started-improving-your-classifier/angle.png)
 
-* __스타일:__ 동일한 클래스의 다양한 스타일을 갖는 이미지를 제공합니다(예: 같은 과일의 다른 품종). 단, 개체가 완전히 다른 스타일을 갖는 경우(즉, 미키마우스와 실제 쥐) 별도 클래스로 레이블을 지정하여 고유한 대상을 대표하도록 하는 것이 좋습니다.
+* __스타일:__ 동일한 클래스의 여러 다른 스타일의 이미지를 제공 합니다 (예: 동일한 과일의 다른 종류). 단, 개체가 완전히 다른 스타일을 갖는 경우(즉, 미키마우스와 실제 쥐) 별도 클래스로 레이블을 지정하여 고유한 대상을 대표하도록 하는 것이 좋습니다.
 
     ![스타일 샘플 이미지](./media/getting-started-improving-your-classifier/style.png)
 
@@ -86,13 +86,13 @@ ms.locfileid: "68561038"
 
 예측 엔드포인트에 이미지를 제출하여 이미지 분류자를 사용하거나 테스트하는 경우 Custom Vision Service는 이러한 이미지를 저장합니다. 그런 다음, 해당 이미지를 사용하여 모델을 향상시킬 수 있습니다.
 
-1. 분류자에 제출된 이미지를 보려면 [Custom Vision 웹 페이지](https://customvision.ai)를 열고 프로젝트로 이동한 후 __예측__ 탭을 선택합니다. 기본 보기에는 현재 반복의 이미지가 표시됩니다. __반복__ 드롭다운 메뉴를 사용하여 이전 반복 중에 제출된 이미지를 볼 수 있습니다.
+1. 분류자에 전송 된 이미지를 보려면 [Custom Vision 웹 페이지](https://customvision.ai)를 열고 프로젝트로 이동한 다음 __예측__ 탭을 선택 합니다. 기본 보기에는 현재 반복의 이미지가 표시 됩니다. __반복__ 드롭다운 메뉴를 사용하여 이전 반복 중에 제출된 이미지를 볼 수 있습니다.
 
     ![보기에 이미지가 표시된 예측 탭의 스크린샷](./media/getting-started-improving-your-classifier/predictions.png)
 
 2. 이미지를 마우스로 가리키면 분류자가 예측한 태그가 표시됩니다. 분류자를 가장 개선할 수 있는 이미지가 맨 위에 오도록 이미지가 정렬됩니다. 다른 정렬 메서드를 사용하려면 __정렬__ 섹션에서 항목을 선택합니다. 
 
-    기존 학습 데이터에 이미지를 추가하려면 이미지를 선택하고, 올바른 태그를 설정한 후 __저장 후 닫기__ 를 클릭합니다. 이미지가 __예측__ 에서 제거되고 학습 이미지 세트에 추가됩니다. __학습 이미지__ 탭을 선택하면 해당 이미지를 볼 수 있습니다.
+    기존 학습 데이터에 이미지를 추가하려면 이미지를 선택하고, 올바른 태그를 설정한 후 __저장 후 닫기__를 클릭합니다. 이미지가 __예측__에서 제거되고 학습 이미지 세트에 추가됩니다. __학습 이미지__ 탭을 선택하면 해당 이미지를 볼 수 있습니다.
 
     ![태그 지정 페이지 이미지](./media/getting-started-improving-your-classifier/tag.png)
 

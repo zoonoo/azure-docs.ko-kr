@@ -1,6 +1,6 @@
 ---
 title: System Center Data Protection Manager-Azure Backup 문제 해결
-description: System Center Data Protection Manager 문제 해결
+description: 이 문서에서는 System Center Data Protection Manager를 사용 하는 동안 발생할 수 있는 문제에 대 한 해결 방법을 알아봅니다.
 ms.reviewer: kasinh
 author: dcurwin
 manager: carmonm
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: a348a11d35a8803bb0c01e1736e644847e2a07a1
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 1ff6db463821780975f855488c51663c6a75f83a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968423"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747318"
 ---
 # <a name="troubleshoot-system-center-data-protection-manager"></a>System Center Data Protection Manager 문제 해결
 

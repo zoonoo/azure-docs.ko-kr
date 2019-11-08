@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 78fc9fe34eb3463021dae69990fe1d30668d453f
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 355556e98300ecad6aa3141f0f4ab14b834cd91e
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300518"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794891"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료 란?
 
@@ -25,8 +25,8 @@ QnA Maker 기술 자료는 QnA (질문과 대답) 쌍 및 각 QnA 쌍과 연결 
 ## <a name="key-knowledge-base-concepts"></a>주요 기술 자료 개념
 
 * **질문**: 질문에는 사용자 쿼리를 가장 잘 나타내는 텍스트가 포함 됩니다. 
-* **답변**: 대답은 사용자 쿼리가 관련 질문과 일치 하는 경우에 반환 되는 응답입니다.  
-* **메타데이터**: 메타 데이터는 QnA 쌍과 연결 된 태그 이며 키-값 쌍으로 표현 됩니다. 메타데이터 태그는 QnA 쌍을 필터링하고 쿼리 매칭이 수행되는 집합을 제한하는 데 사용됩니다.
+* **답변**: 대답은 사용자 쿼리가 관련 질문과 일치 하는 경우 반환 되는 응답입니다.  
+* **메타 데이터**: 메타 데이터는 QnA 쌍과 연결 된 태그 이며 키-값 쌍으로 표현 됩니다. 메타데이터 태그는 QnA 쌍을 필터링하고 쿼리 매칭이 수행되는 집합을 제한하는 데 사용됩니다.
 
 숫자 QnA ID로 표현되는 단일 QnA에는 모두 단일 답변에 매핑되는 질문의 여러 변형(대체 질문)이 있습니다. 또한 각 쌍에는 하나의 키와 하나의 값과 연결 된 메타 데이터 필드가 여러 개 있을 수 있습니다.
 
@@ -48,14 +48,14 @@ QnA Maker 기술 자료는 QnA (질문과 대답) 쌍 및 각 QnA 쌍과 연결 
 
 프로세스는 다음 표에 설명 되어 있습니다.
 
-|단계|용도|
+|단계|목적|
 |--|--|
 |1|클라이언트 응용 프로그램이 사용자 쿼리를 [Generateanswer API](/azure/cognitive-services/qnamaker/how-to/metadata-generateanswer-usage)로 보냅니다.|
 |2|QnA Maker 언어 검색, spellers 및 단어 분리기를 사용 하 여 사용자 쿼리를 전처리 합니다.|
 |3|이러한 전처리는 최상의 검색 결과에 대 한 사용자 쿼리를 변경 하는 데 사용 됩니다.|
-|4|이 변경 된 쿼리는 결과 `top` 수를 수신 하는 Azure Search 인덱스에 전송 됩니다. 이러한 결과에 올바른 답변이 없는 경우 값 `top` 을 약간 늘립니다. 일반적으로에 대 한 `top` 값 10은 쿼리의 90%에서 작동 합니다.|
-|5|QnA Maker 고급 기능화 적용 하 여 사용자 쿼리에 대해 인출 된 Azure Search 결과의 정확성을 확인 합니다. |
-|6|학습 된 ranker 모델은 5 단계의 기능 점수를 사용 하 여 Azure Search 결과의 순위를 결정 합니다.|
+|4|이 변경 된 쿼리는 `top` 결과 수를 수신 하는 Azure Cognitive Search 인덱스에 전송 됩니다. 이러한 결과에 올바른 답변이 없으면 `top`의 값을 약간 늘립니다. 일반적으로 `top` 값 10은 쿼리의 90%에서 작동 합니다.|
+|5|QnA Maker 고급 기능화 적용 하 여 사용자 쿼리에 대해 인출 된 검색 결과의 정확성을 확인 합니다. |
+|6|학습 된 ranker 모델은 5 단계의 기능 점수를 사용 하 여 Azure Cognitive Search 결과의 순위를 결정 합니다.|
 |7|새 결과는 순서 대로 클라이언트 응용 프로그램에 반환 됩니다.|
 |||
 
@@ -66,7 +66,7 @@ QnA Maker 기술 자료는 QnA (질문과 대답) 쌍 및 각 QnA 쌍과 연결 
 
 ### <a name="the-user-query-request-to-generate-an-answer"></a>응답을 생성 하는 사용자 쿼리 요청
 
-사용자 쿼리는 최종 사용자가와 `How do I add a collaborator to my app?`같은 기술 자료를 요청 하는 질문입니다. 쿼리는 대개 자연 언어 형식 이거나 질문을 나타내는 몇 가지 키워드 (예:)로 `help with collaborators`되어 있습니다. 클라이언트 응용 프로그램의 HTTP 요청에서 기술 자료로 쿼리를 보냅니다.
+사용자 쿼리는 최종 사용자가 `How do I add a collaborator to my app?`와 같은 기술 자료를 요청 하는 질문입니다. 쿼리는 일반적으로 자연 언어 형식이 나 질문을 나타내는 몇 가지 키워드 (예: `help with collaborators`)로 되어 있습니다. 클라이언트 응용 프로그램의 HTTP 요청에서 기술 자료로 쿼리를 보냅니다.
 
 ```json
 {
@@ -89,7 +89,7 @@ QnA Maker 기술 자료는 QnA (질문과 대답) 쌍 및 각 QnA 쌍과 연결 
 
 ### <a name="the-response-from-a-call-to-generate-an-answer"></a>에 대 한 호출에서 응답을 생성 합니다.
 
-HTTP 응답은 지정 된 사용자 쿼리와 가장 일치 하는 항목에 따라 기술 자료에서 검색 된 대답입니다. 응답에는 대답 및 예측 점수가 포함 됩니다. `top` 속성을 사용 하 여 둘 이상의 최고 답을 요청 하는 경우 각각 점수가 있는 두 개 이상의 최고 답을 얻을 수 있습니다. 
+HTTP 응답은 지정 된 사용자 쿼리와 가장 일치 하는 항목에 따라 기술 자료에서 검색 된 대답입니다. 응답에는 대답 및 예측 점수가 포함 됩니다. `top` 속성을 사용 하 여 둘 이상의 인기 답을 요청 하는 경우 각각 점수가 있는 하나 이상의 인기 답을 얻을 수 있습니다. 
 
 ```json
 {
@@ -122,23 +122,23 @@ HTTP 응답은 지정 된 사용자 쿼리와 가장 일치 하는 항목에 따
 
 기술 자료에는 *테스트* 및 *게시*의 두 가지 상태가 있습니다.
 
-*테스트 기술 자료* 는 응답의 정확성 및 완전성을 위해 편집, 저장 및 테스트 중인 버전입니다. 테스트 기술 자료에 대 한 변경 내용은 응용 프로그램이 나 채팅 봇의 최종 사용자에 게 영향을 주지 않습니다. 테스트 기술 자료는 HTTP 요청에서 `test` 로 알려져 있습니다. 
+*테스트 기술 자료* 는 응답의 정확성 및 완전성을 위해 편집, 저장 및 테스트 중인 버전입니다. 테스트 기술 자료에 대 한 변경 내용은 응용 프로그램이 나 채팅 봇의 최종 사용자에 게 영향을 주지 않습니다. 테스트 기술 자료는 HTTP 요청에서 `test` 이라고 합니다. 
 
-*게시 된 기술 자료* 는 채팅 봇 또는 응용 프로그램에서 사용 되는 버전입니다. 기술 자료를 게시 하는 작업은 테스트 기술 자료의 내용을 게시 된 버전의 기술 자료에 저장 합니다. 게시 된 기술 자료가 끝점을 통해 응용 프로그램에서 사용 하는 버전 이므로 콘텐츠가 올바르고 잘 테스트 되었는지 확인 합니다. 게시 된 기술 자료를 HTTP 요청 `prod` 에서 라고 합니다.
+*게시 된 기술 자료* 는 채팅 봇 또는 응용 프로그램에서 사용 되는 버전입니다. 기술 자료를 게시 하는 작업은 테스트 기술 자료의 내용을 게시 된 버전의 기술 자료에 저장 합니다. 게시 된 기술 자료가 끝점을 통해 응용 프로그램에서 사용 하는 버전 이므로 콘텐츠가 올바르고 잘 테스트 되었는지 확인 합니다. 게시 된 기술 자료를 HTTP 요청에 `prod` 이라고 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [기술 자료의 개발 수명 주기](./development-lifecycle-knowledge-base.md)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 [QnA Maker 개요](../Overview/overview.md)
 
 다음을 사용 하 여 기술 자료 만들기 및 편집: 
-* [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase)
-* [.NET SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
 
 다음을 사용 하 여 답변 생성: 
-* [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
-* [.NET SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)
+* [REST API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

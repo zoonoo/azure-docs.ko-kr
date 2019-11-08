@@ -14,14 +14,14 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 76110fa04441540875e65c8bc056fc21555c5db6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 74ef55fe9a0a6603bd43d68b6b8557dce1bca921
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102272"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749138"
 ---
-# <a name="create-a-snapshot"></a>스냅숏 만들기
+# <a name="create-a-snapshot"></a>스냅샷 만들기
 
 스냅샷은 VHD(가상 하드 드라이브)의 전체 읽기 전용 복사본입니다. 백업으로 사용 또는 VM(가상 머신) 문제 해결을 위해 OS 또는 데이터 디스크 VHD의 스냅샷을 만들 수 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "70102272"
 
 ## <a name="use-the-azure-portal"></a>Azure Portal 사용 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **리소스 만들기**를 선택한 다음, **스냅샷**을 검색하여 선택합니다.
 3. **스냅샷** 창에서 만들기 **만들기**를 선택합니다. **스냅샷 만들기** 창이 나타납니다.
 4. 스냅샷의 **이름**을 입력합니다.
@@ -43,7 +43,7 @@ ms.locfileid: "70102272"
 
 다음 단계에서는 [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) cmdlet을 사용하여 VHD 디스크를 복사하고, 스냅샷 구성을 만들고, 디스크의 스냅샷을 만드는 방법을 보여 줍니다. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 1. 일부 매개 변수를 설정합니다. 
 

@@ -7,22 +7,22 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: fa6b005be91f47f5976dace7fd1e76f6ea7e0b29
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 274697d555974f286c2c71f26280640077c11f81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698840"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749557"
 ---
 # <a name="update-the-storage-type-of-a-managed-disk"></a>관리 디스크의 스토리지 형식 업데이트
 
-Azure managed disks의 네 가지 디스크 유형은 다음과 같습니다. Azure ultra ssd (미리 보기), 프리미엄 SSD, 표준 SSD 및 표준 HDD를 제공 합니다. 성능 요구 사항에 따라 세 가지 GA 디스크 유형 (프리미엄 SSD, 표준 SSD 및 표준 HDD) 간을 전환할 수 있습니다. 아직 또는에서 ultra SSD로 전환할 수 없습니다. 새 항목을 배포 해야 합니다.
+Azure managed disks에는 Azure ultra Ssd (미리 보기), 프리미엄 SSD, 표준 SSD 및 표준 HDD의 네 가지 디스크 유형이 있습니다. 성능 요구 사항에 따라 세 가지 GA 디스크 유형 (프리미엄 SSD, 표준 SSD 및 표준 HDD) 간을 전환할 수 있습니다. 아직 또는에서 ultra SSD로 전환할 수 없습니다. 새 항목을 배포 해야 합니다.
 
 이 기능은 관리 되지 않는 디스크에 대해 지원 되지 않습니다. 하지만 관리 [되지 않는 디스크를 관리 디스크로 쉽게 변환](convert-unmanaged-to-managed-disks.md) 하 여 디스크 유형 간에 전환할 수 있습니다.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 변환 하려면 VM (가상 컴퓨터)을 다시 시작 해야 하므로 기존 유지 관리 기간 동안에는 디스크 저장소의 마이그레이션을 예약 해야 합니다.
 * 디스크가 관리 되지 않는 경우 먼저 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md) 하 여 저장소 옵션 간을 전환할 수 있습니다.
@@ -111,9 +111,9 @@ Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name
 
 ## <a name="convert-managed-disks-from-standard-to-premium-in-the-azure-portal"></a>Azure Portal에서 관리 되는 디스크를 표준에서 프리미엄으로 변환
 
-다음 단계를 수행하십시오.
+다음 단계를 수행하세요.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 2. 포털의 **가상 머신** 목록에서 VM을 선택 합니다.
 3. VM이 중지 되지 않은 경우 VM **개요** 창 맨 위에서 **중지** 를 선택 하 고 vm이 중지 될 때까지 기다립니다.
 3. VM에 대 한 창의 메뉴에서 **디스크** 를 선택 합니다.

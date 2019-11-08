@@ -1,7 +1,7 @@
 ---
 title: 컨테이너 설치 및 실행-FACE API
 titleSuffix: Azure Cognitive Services
-description: 이 연습 자습서에서 Face 용 컨테이너를 다운로드, 설치 및 실행 합니다.
+description: 이 문서에서는이 연습 자습서에서 Face 용 컨테이너를 다운로드, 설치 및 실행 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: f2bf5766dc09b85f276349a5e72f1bc3b8ba23b3
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: b3c064ae2dbc37858ca6fe89742161e0dda1784f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316366"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743278"
 ---
 # <a name="install-and-run-face-containers"></a>Face 컨테이너 설치 및 실행
 
@@ -24,11 +24,11 @@ Azure Cognitive Services Face는 이미지에서 인간 얼굴을 검색 하는 
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Face API 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-|필요한 공간|용도|
+|필수|목적|
 |--|--|
 |Docker 엔진| Docker 엔진이 [호스트 컴퓨터](#the-host-computer)에 설치 되어 있어야 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> Windows에서는 Linux 컨테이너를 지원 하도록 Docker도 구성 해야 합니다.<br><br>|
 |Docker 사용 경험 | 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념을 기본적으로 이해 해야 합니다. 또한 기본 `docker` 명령에 대 한 지식이 필요 합니다.| 
@@ -55,7 +55,7 @@ Face API 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충
 * 각 코어는 2.6 GHz 이상 이어야 합니다.
 * 초당 트랜잭션 수 (TPS).
 
-코어 및 메모리는 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당합니다.
+`--cpus` 명령의 일부로 사용되는 `--memory` 및 `docker run` 설정에 해당하는 코어 및 메모리.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>docker pull를 사용 하 여 컨테이너 이미지 가져오기
 
@@ -77,14 +77,14 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-face:latest
 
 컨테이너를 [호스트 컴퓨터](#the-host-computer)에 설치한 후 다음 프로세스를 사용 하 여 컨테이너 작업을 수행 합니다.
 
-1. 필요한 청구 설정으로 [컨테이너를 실행](#run-the-container-with-docker-run) 합니다. `docker run` 명령의 자세한 [예제](./face-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다. 
-1. [컨테이너의 예측 끝점 쿼리](#query-the-containers-prediction-endpoint). 
+1. 필요한 청구 설정으로 [컨테이너를 실행](#run-the-container-with-docker-run) 합니다. [ 명령의 자세한 ](./face-resource-container-config.md#example-docker-run-commands)예`docker run`를 사용할 수 있습니다. 
+1. [컨테이너의 예측 엔드포인트를 쿼리합니다](#query-the-containers-prediction-endpoint). 
 
 ## <a name="run-the-container-with-docker-run"></a>Docker run을 사용 하 여 컨테이너 실행
 
-[docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요.
+[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. [ 및 ](#gathering-required-parameters) 값을 가져오는 방법에 대한 자세한 내용은 `{ENDPOINT_URI}`필수 매개 변수 수집`{API_KEY}`을 참조 하세요.
 
-`docker run`명령의 [예](face-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
+[명령의 ](face-resource-container-config.md#example-docker-run-commands)예`docker run`를 사용할 수 있습니다.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -101,17 +101,17 @@ ApiKey={API_KEY}
 * 는 TCP 포트 5000를 노출 하 고 컨테이너에 대 한 의사 TTY를 할당 합니다.
 * 종료 후 자동으로 컨테이너를 제거합니다. 컨테이너 이미지는 호스트 컴퓨터에서 계속 사용할 수 있습니다. 
 
-`docker run` 명령의 자세한 [예제](./face-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다. 
+[ 명령의 자세한 ](./face-resource-container-config.md#example-docker-run-commands)예`docker run`를 사용할 수 있습니다. 
 
 > [!IMPORTANT]
-> 컨테이너를 `Billing`실행 하려면 `ApiKey` , 및 옵션을 지정 해야 합니다. 그렇지 않으면 컨테이너가 시작 되지 않습니다. `Eula` 자세한 내용은 [Billing](#billing)을 참조하세요.
+> 컨테이너를 실행 하려면 `Eula`, `Billing`및 `ApiKey` 옵션을 지정 해야 합니다. 그렇지 않으면 컨테이너가 시작 되지 않습니다. 자세한 내용은 [Billing](#billing)를 참조하세요.
 
 [!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
 
-## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 끝점 쿼리
+## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
 
-컨테이너는 REST 기반 쿼리 예측 끝점 API를 제공합니다. 
+컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다. 
 
 컨테이너 API에 대한 호스트, `http://localhost:5000`을 사용합니다.
 
@@ -130,7 +130,7 @@ ApiKey={API_KEY}
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
-## <a name="billing"></a>대금 청구
+## <a name="billing"></a>결제
 
 Face API 컨테이너는 Azure 계정에서 Face API 리소스를 사용 하 여 Azure로 청구 정보를 보냅니다. 
 
@@ -144,7 +144,7 @@ Face API 컨테이너는 Azure 계정에서 Face API 리소스를 사용 하 여
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 Face API 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대 한 개념과 워크플로를 배웠습니다. 요약하자면 다음과 같습니다.
+이 문서에서는 Face API 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대 한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
 
 * 컨테이너 이미지는 Azure Container Registry에서 다운로드 됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
