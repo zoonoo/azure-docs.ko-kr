@@ -2,7 +2,7 @@
 title: Azure Machine Learning 설명서
 summary: Azure Machine Learning은 웹 인터페이스 및 SDK를 제공하므로 기계 학습 모델과 파이프라인을 대규모로 신속하게 학습시키고 배포할 수 있습니다. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요.
 metadata:
-  title: Machine Learning 설명서 - Azure
+  title: Azure Machine Learning 설명서
   description: Azure Machine Learning은 기계 학습 모델과 파이프라인을 대규모로 신속하게 학습시키고 배포할 수 있는 웹 인터페이스 및 SDK를 제공합니다. PyTorch, TensorFlow 및 scikit-learn과 같은 오픈 소스 Python 프레임워크와 함께 이러한 기능을 사용하세요.
   services: machine-learning
   ms.service: machine-learning
@@ -12,12 +12,12 @@ metadata:
   author: j-martens
   ms.author: jmartens
   ms.date: 10/29/2019
-  ms.openlocfilehash: 0b5e264cc7fd2e220e2d6b5b7c4e886f4c8a8d32
-  ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+  ms.openlocfilehash: c6b0b67f206ec335a5e30098dd75b7e71db5770f
+  ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/07/2019
-  ms.locfileid: "73748028"
+  ms.lasthandoff: 11/08/2019
+  ms.locfileid: "73828108"
 landingContent:
 - title: Azure ML 시작
   linkLists:
