@@ -58,11 +58,13 @@
       href: tutorial-train-deploy-model-cli.md
 - name: 샘플
   items:
-    - name: Notebooks
+    - name: Jupyter 노트북
       displayName: 'example, examples, server, jupyter, azure notebooks, python, notebook, github'
       href: samples-notebooks.md
     - name: Azure Open Datasets
       href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
+    - name: 엔드투엔드 MLOps 예제
+      href: 'https://github.com/microsoft/MLOps'
 - name: 개념
   items:
     - name: 작업 영역
@@ -109,14 +111,11 @@
               href: how-to-change-storage-access-key.md
         - name: Azure Machine Learning 모니터링
           href: monitor-azure-machine-learning.md
+        - name: 이벤트 표 통합
+          href: concept-event-grid-integration.md
     - name: 심층 학습
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
-    - name: 이벤트 표 통합
-      href: concept-event-grid-integration.md
-    - name: Git 통합
-      displayName: git github gitlab
-      href: concept-train-model-git-integration.md
 - name: 방법 가이드
   items:
     - name: 작업 영역 만들기 및 관리
@@ -145,6 +144,9 @@
         - name: VS Code 확장 사용
           displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
           href: how-to-vscode-tools.md
+        - name: Git 통합
+          displayName: github gitlab
+          href: concept-train-model-git-integration.md
     - name: 데이터 작업
       items:
         - name: 데이터 저장소에서 데이터 가져오기
@@ -330,21 +332,17 @@
       href: how-to-use-event-grid.md
 - name: 참고 자료
   items:
-    - name: ML SDK(Python)
+    - name: Python SDK
       displayName: 'api, core, package, python, class'
       href: 'https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py'
-    - name: ML SDK(R)
+    - name: R SDK
       displayName: 'api, core, package, R, class'
       href: 'https://azure.github.io/azureml-sdk-for-r/reference/index.html'
-    - name: Machine Learning CLI
+    - name: CLI
       displayName: 'extension, command line, command-line, az, ci/cd, automate, automated'
       href: reference-azure-machine-learning-cli.md
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/azureml/'
-    - name: 데이터 참조 모니터링
-      href: monitor-resource-reference.md
-    - name: Machine Learning 파이프라인 YAML 참조
-      href: reference-pipeline-yaml.md
     - name: 디자이너 모듈
       displayName: 'module, reference, algorithm, studio'
       items:
@@ -478,6 +476,12 @@
               href: ../algorithm-module-reference/summarize-data.md
         - name: 오류 메시지 및 코드
           href: ../algorithm-module-reference/machine-learning-module-error-codes.md
+    - name: 규모에 따른 ML
+      href: /azure/architecture/data-guide/big-data/machine-learning-at-scale
+    - name: 데이터 참조 모니터링
+      href: monitor-resource-reference.md
+    - name: Machine Learning 파이프라인 YAML 참조
+      href: reference-pipeline-yaml.md
 - name: 리소스
   items:
     - name: 릴리스 정보
