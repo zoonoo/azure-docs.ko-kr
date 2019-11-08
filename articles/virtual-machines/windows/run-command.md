@@ -8,18 +8,18 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: bbe236bd4575ffb849b6f4739fc3a27c09aa5e47
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: fa7f72989d47499127714eddfa6b5e98aa80178c
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595156"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749232"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Run 명령을 사용 하 여 Windows VM에서 PowerShell 스크립트 실행
 
 명령 실행 기능은 VM (가상 컴퓨터) 에이전트를 사용 하 여 Azure Windows VM 내에서 PowerShell 스크립트를 실행 합니다. 이러한 스크립트는 일반 컴퓨터 또는 응용 프로그램 관리에 사용할 수 있습니다. VM 액세스 및 네트워크 문제를 신속 하 게 진단 하 고 수정 하 고 VM을 다시 정상 상태로 전환 하는 데 도움을 받을 수 있습니다.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="benefits"></a>혜택
 
@@ -51,7 +51,7 @@ Run 명령을 사용 하는 경우 다음 제한 사항이 적용 됩니다.
 The entity was not found in this Azure location
 ```
 
-|**Name**|**설명**|
+|**이름**|**설명**|
 |---|---|
 |**RunPowerShellScript**|PowerShell 스크립트를 실행 합니다.|
 |**EnableRemotePS**|원격 PowerShell을 사용하도록 설정하려면 컴퓨터를 구성합니다.|
@@ -77,7 +77,7 @@ az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-r
     --scripts @script.ps1 --parameters "arg1=somefoo" "arg2=somebar"
 ```
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 [Azure Portal](https://portal.azure.com) 에서 VM으로 이동 하 고 **작업**아래에서 **명령 실행** 을 선택 합니다. VM에서 실행할 수 있는 명령 목록이 표시 됩니다.
 

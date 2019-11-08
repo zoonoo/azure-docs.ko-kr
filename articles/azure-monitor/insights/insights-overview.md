@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: 3abf3d562b9ca4d6fc9907c065dbaf9a52d58c5f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 81d82ce79130513a2827090a98bfef192c9d7829
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555349"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795715"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Azure Monitor의 정보 개요
 Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정 모니터링 환경을 제공 합니다. [Azure Monitor 데이터 플랫폼](../platform/data-platform.md) 에 데이터를 저장 하 고 분석 및 경고를 위해 다른 Azure Monitor 기능을 활용 하지만, 추가 데이터를 수집 하 고 Azure Portal에서 고유한 사용자 환경을 제공할 수 있습니다. Azure Portal Azure Monitor 메뉴의 **insights** 섹션에서 정보에 액세스 합니다.
@@ -46,6 +46,11 @@ VM용 Azure Monitor는 Azure VM(Virtual Machines) 및 가상 머신 확장 집�
 [VM용 Azure Monitor 정의를 참조 하세요](vminsights-overview.md) .
 
 ![VM용 Azure Monitor](media/insights-overview/vm-insights.png)
+
+## <a name="azure-monitor-for-network-preview"></a>네트워크 (미리 보기)에 대 한 Azure Monitor
+네트워크 Azure Monitor 모든 네트워크 리소스에 대 한 상태 및 메트릭의 포괄적인 보기를 제공 합니다. 고급 검색 기능을 사용 하 여 리소스 종속성을 식별 하 고 웹 사이트 이름을 검색 하기만 하면 웹 사이트를 호스트 하는 리소스를 식별 하는 등의 시나리오를 사용할 수 있습니다.
+
+![네트워크에 대 한 Azure Monitor](media/insights-overview/network-insights.png)
 
 ## <a name="next-steps"></a>다음 단계
 * Insights에서 활용 하는 [Azure Monitor 데이터 플랫폼](../platform/data-platform.md) 에 대해 자세히 알아보세요.

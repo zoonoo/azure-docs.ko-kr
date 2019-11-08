@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 4263afe33caa4d6471848c8e7dbf9bc1eeec4bee
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: da45e24898bc3b5aead250077af69a61bdb33bab
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72332512"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749628"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>VM 시작이 다음 상태에서 중지되었습니다. "Windows가 준비 중입니다. Azure에서 컴퓨터를 끄지 마세요."
 
 이 문서에서는 Microsoft Azure에서 Windows VM (가상 머신)을 부팅할 때 발생할 수 있는 "준비 하기" 및 "Windows 준비" 화면에 대해 설명 합니다. 지원 티켓에 대한 데이터를 수집할 수 있도록 하는 단계를 제공합니다.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="symptoms"></a>증상
 
@@ -100,7 +100,7 @@ Windows VM은 부팅 되지 않습니다. **부팅 진단을** 사용 하 여 vm
 3. [OS 디스크를 분리한 다음, OS 디스크를 영향을 받는 VM에 다시 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
 4. VM을 시작 하 고 직렬 콘솔에 액세스 합니다.
 5. 메모리 덤프를 트리거하기 위해 **비 마스크 인터럽트 보내기 (NMI)** 를 선택 합니다.
-    ![ 마스크 불가능 인터럽트를 보낼 위치에 대 한 이미지 @ no__t-1
+    마스크 불가능 인터럽트를 보낼 위치에 대 한 이미지를 ![](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)
 6. OS 디스크를 복구 VM에 다시 연결 하 고 덤프 파일을 수집 합니다.
 
 ## <a name="contact-microsoft-support"></a>Microsoft 지원에 문의

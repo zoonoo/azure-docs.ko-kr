@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute 회로 만들기 및 수정 - PowerShell: Azure | Microsoft Docs'
+title: 'Express 경로 회로 만들기 및 수정-PowerShell: Azure | Microsoft Docs'
 description: ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제합니다.
 services: expressroute
 author: cherylmc
@@ -9,12 +9,12 @@ ms.date: 02/20/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 2ff22a3c0087ff7e24517f792ba9abacbae76e3a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9d0df2d9eda861a06e2952ff1623fb4ad5160e81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846631"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748321"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>PowerShell을 사용하여 ExpressRoute 회로 만들기 및 수정
 > [!div class="op_single_selector"]
@@ -28,22 +28,22 @@ ms.locfileid: "67846631"
 
 이 문서에서는 PowerShell cmdlet 및 Azure Resource Manager 배포 모델을 사용하여 ExpressRoute 회로를 만듭니다. 상태를 확인하고, 회로를 업데이트, 삭제 또는 프로비전 해제할 수도 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 시작하기 전에, 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
 ## <a name="create"></a>ExpressRoute 회로 만들기 및 프로비전
-### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인하고 구독을 선택합니다.
+### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Azure 계정에 로그인 하 고 구독을 선택 합니다.
 
 [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. 지원되는 공급자, 위치 및 대역폭 목록을 가져옵니다.
+### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. 지원 되는 공급자, 위치 및 대역폭 목록 가져오기
 ExpressRoute 회로를 만들기 전에 지원되는 연결 공급자, 위치 및 대역폭 옵션 목록이 필요합니다.
 
 PowerShell cmdlet **AzExpressRouteServiceProvider** 는 이후 단계에서 사용할이 정보를 반환 합니다.
@@ -54,13 +54,13 @@ Get-AzExpressRouteServiceProvider
 
 연결 공급자가 여기에 나열되었는지 확인합니다. 나중에 회로를 만들 때 필요한 다음 정보를 적어 둡니다.
 
-* 이름
+* Name
 * PeeringLocations
 * BandwidthsOffered
 
 이제 ExpressRoute 회로를 만들 준비가 되었습니다.
 
-### <a name="3-create-an-expressroute-circuit"></a>3. ExpressRoute 회로 만들기
+### <a name="3-create-an-expressroute-circuit"></a>3. Express 경로 회로 만들기
 아직 리소스 그룹이 없는 경우 ExpressRoute 회로를 만들기 전에 먼저 리소스 그룹을 만들어야 합니다. 다음 명령을 실행하여 수행할 수 있습니다.
 
 ```azurepowershell-interactive
@@ -90,7 +90,7 @@ get-help New-AzExpressRouteCircuit -detailed
 ```
 
 
-### <a name="4-list-all-expressroute-circuits"></a>4. 모든 ExpressRoute 회로 나열
+### <a name="4-list-all-expressroute-circuits"></a>4. 모든 Express 경로 회로 나열
 만든 모든 Express 경로 회로 목록을 가져오려면 **AzExpressRouteCircuit** 명령을 실행 합니다.
 
 ```azurepowershell-interactive
@@ -153,7 +153,7 @@ Get-AzExpressRouteCircuit
     Peerings                         : []
 
 
-### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. 프로비전을 위해 연결 공급자에 서비스 키 보내기
+### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. 프로 비전을 위해 연결 공급자에 서비스 키 보내기
 *ServiceProviderProvisioningState* 는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공합니다. 상태는 Microsoft 측의 상태를 제공합니다. 회로 프로비전 상태에 대한 자세한 내용은 [워크플로](expressroute-workflows.md#expressroute-circuit-provisioning-states)를 참조하세요.
 
 새 ExpressRoute 회로를 만들면 회로는 다음 상태가 됩니다.
@@ -173,7 +173,7 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
     ServiceProviderProvisioningState : Provisioned
     CircuitProvisioningState         : Enabled
 
-### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. 회로 키의 상태를 주기적으로 확인
+### <a name="6-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>6. 회로 키의 상태와 상태를 주기적으로 확인 합니다.
 회로 키의 상태를 확인하면 공급자가 회로를 사용하도록 설정한 시점을 알 수 있습니다. 회로가 구성된 후에는 *ServiceProviderProvisioningState*가 아래 예에서처럼 *Provisioned*로 표시됩니다.
 
 ```azurepowershell-interactive
@@ -213,7 +213,7 @@ Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 >
 >
 
-### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. 가상 네트워크를 ExpressRoute 회로에 연결합니다.
+### <a name="8-link-a-virtual-network-to-an-expressroute-circuit"></a>8. 가상 네트워크를 Express 경로 회로에 연결
 그 다음 가상 네트워크를 ExpressRoute 회로에 연결합니다. Resource Manager 배포 모델을 작업하는 경우에는 [ExpressRoute 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md) 문서를 사용할 수 있습니다.
 
 ## <a name="getting-the-status-of-an-expressroute-circuit"></a>ExpressRoute 회로의 상태 가져오기

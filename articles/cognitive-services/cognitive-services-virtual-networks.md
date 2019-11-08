@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: 36e0742101203764a731dd2007d239593a500bfa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1ae3caa2d1f90bbbae1070d95d676eb206a361a0
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501051"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647343"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Azure Cognitive Services 가상 네트워크 구성
 
@@ -24,7 +24,7 @@ Azure Cognitive Services는 계층화 된 보안 모델을 제공 합니다. 이
 
 > [!IMPORTANT]
 > Cognitive Services 계정에 대 한 방화벽 규칙을 설정 하면 기본적으로 들어오는 데이터에 대 한 요청이 차단 됩니다. 에서 요청을 허용 하려면 다음 조건 중 하나를 충족 해야 합니다.
-> * 요청은 대상 Cognitive Services 계정의 허용 된 서브넷 목록에 있는 Azure Virtual Network (VNet) 내에서 작동 하는 서비스에서 시작 해야 합니다.
+> * 요청은 대상 Cognitive Services 계정의 허용 된 서브넷 목록에 있는 Azure Virtual Network (VNet) 내에서 작동 하는 서비스에서 시작 해야 합니다. VNet에서 시작 된 요청의 끝점은 Cognitive Services 계정의 [사용자 지정 하위 도메인](cognitive-services-custom-subdomains.md) 으로 설정 해야 합니다.
 > * 또는 요청이 허용 되는 IP 주소 목록에서 시작 되어야 합니다.
 >
 > 차단되는 요청에는 다른 Azure 서비스, Azure Portal, 로깅 및 메트릭 서비스 등이 포함됩니다.

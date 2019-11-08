@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: c97f6414876441290cade68b8f9a054970586402
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: bd808c0c71e02483b4c4b06e612720c1802869a0
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501017"
+ms.locfileid: "73577972"
 ---
 # <a name="about-voice-assistants"></a>음성 도우미 정보
 
@@ -27,26 +27,29 @@ Azure Speech Services를 사용 하는 음성 도우미는 개발자가 응용 �
 
    ![음성 도우미 오케스트레이션 서비스 흐름의 개념적 다이어그램](media/voice-assistants/overview.png "음성 도우미 흐름")
 
+## <a name="choosing-an-assistant-solution"></a>길잡이 솔루션 선택
+
+음성 도우미를 만드는 첫 번째 단계는 수행할 작업을 결정 하는 것입니다. Azure Speech Services는 길잡이 상호 작용을 작성 하기 위한 여러 보충 솔루션을 제공 합니다. Bot Framework의 [Direct Line Speech](direct-line-speech.md) channel에서 제공 하는 유연성과 유연성을 원하는 지 여부에 관계 없이 간단한 시나리오에 대 한 [사용자 지정 명령 (미리 보기)](custom-commands.md) 을 선택 하면 적절 한 도구를 시작 하는 데 도움이 됩니다.
+
+| 수행하려는 작업 | 다음을 고려 하십시오. | 예를 들어... |
+|-------------------|------------------|----------------|
+|강력한 기술 통합 및 전체 배포 제어를 포함 하는 오픈 대화 종료 | Bot Framework의 [직접 선 음성](direct-line-speech.md) 채널 | <ul><li>"시애틀로 이동 해야 합니다."</li><li>"주문할 수 있는 피자 종류는 무엇 인가요?"</li></ul>
+|간단 하 게 작성 하 고 호스팅하는 명령 및 제어 또는 작업 기반 대화 | [사용자 지정 명령 (미리 보기)](custom-commands.md) | <ul><li>"오버 헤드 조명 켜기"</li><li>"핫을 5도로 설정"</ul>
+
+길잡이에서 처리할 항목을 아직 모를 경우에는 [줄 음성을](direct-line-speech.md) 가장 적합 한 기본 선택으로 선택 하는 것이 좋습니다. 또한 다양 한 도구 집합 및 [가상 길잡이 솔루션, 엔터프라이즈 템플릿](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) 및 QnA Maker 서비스 (예: 일반 패턴을 기반으로 구축 하 고 기존 기술 자료를 사용 하는 [서비스](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) )와의 통합을 제공 합니다.
+
+[사용자 지정 명령 (미리 보기)](custom-commands.md) 은 자연어 명령 및 제어 시나리오에 맞게 특별히 조정 된 효율적인 제작 및 호스팅 환경을 제공 합니다.
+   ![길잡이 솔루션 비교](media/voice-assistants/assistant-solution-comparison.png "Comparison of assistant solutions ")
+
 ## <a name="core-features"></a>핵심 기능
+
+[직접 줄 음성](direct-line-speech.md) 또는 [사용자 지정 명령 (미리 보기)](custom-commands.md) 을 선택 하 여 길잡이 상호 작용을 만들려면 다양 한 사용자 지정 기능 집합을 사용 하 여 사용자의 브랜드, 제품 및 개성에 맞게 길잡이를 사용자 지정할 수 있습니다.
 
 | Category | 기능 |
 |----------|----------|
 |[사용자 지정 키워드](speech-devices-sdk-create-kws.md) | 사용자는 "안녕하세요 Contoso"와 같은 사용자 지정 키워드를 사용 하 여 도우미와 대화를 시작할 수 있습니다. 앱은 [여기에서 생성할 수 있는](speech-devices-sdk-create-kws.md)사용자 지정 키워드를 사용 하 여 구성할 수 있는 Speech SDK의 사용자 지정 키워드 엔진을 사용 하 여이를 수행 합니다. 음성 도우미는 서비스 측 키워드 확인을 사용 하 여 키워드 활성화의 정확도를 향상 시킬 수 있습니다 (장치에 대해서만).
 |[음성 텍스트](speech-to-text.md) | 음성 도우미는 Azure Speech Services의 [음성 텍스트](speech-to-text.md) 를 사용 하 여 실시간 오디오를 인식 된 텍스트로 변환 합니다. 이 텍스트는 길잡이 구현 및 클라이언트 응용 프로그램 모두에 transcribed 수 있습니다.
 |[텍스트 음성 변환](text-to-speech.md) | 길잡이의 텍스트 응답은 Azure Speech Services에서 [텍스트 음성 변환](text-to-speech.md) 을 사용 하 여 합성 됩니다. 이러한 합성은 클라이언트 응용 프로그램에서 오디오 스트림으로 사용할 수 있게 됩니다. Microsoft는 브랜드에 음성을 제공 하는 사용자 지정 고품질 신경망을 빌드하는 기능을 제공 합니다. 자세히 알아보려면 [microsoft에 문의](mailto:mstts@microsoft.com)하세요.
-
-## <a name="comparing-assistant-solutions"></a>길잡이 솔루션 비교
-
-음성 도우미 서비스는 사용자의 장치 응용 프로그램을 고유한 길잡이 구현에 연결 합니다. 개발자는 (1) 봇 Framework의 [Direct Line Speech](direct-line-speech.md) channel 또는 (2) [사용자 지정 명령 (미리 보기)](custom-commands.md) 솔루션을 사용 하 여 음성 도우미를 작성 합니다.
-
-   ![길잡이 솔루션 비교](media/voice-assistants/assistant-solution-comparison.png "길잡이 솔루션 비교")
-
-| 해결 방법 | 기능 |
-|----------|----------|
-|[사용자 지정 명령 (미리 보기)](custom-commands.md) | 사용자 지정 명령 (미리 보기)은 음성 도우미를 위한 간소화 된 제작 및 호스팅 솔루션을 제공 합니다. 작업 완료 및 명령 및 제어 시나리오의 요구 사항에 맞게 조정 됩니다.
-|[직접 줄 음성](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech) | 직접 줄 음성을 사용 하면 (1) 클라이언트 응용 프로그램, (2) 호환 봇, (3) Azure Speech Services의 기능 간에 원활한 원활한 연결을 사용할 수 있습니다. 직접 선 음성 채널을 사용 하도록 봇을 구성 하는 방법에 대 한 자세한 내용은 [Bot Framework 설명서의 해당 페이지](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)를 참조 하세요.
-
-이러한 솔루션 중 하나를 사용 하 여 음성 도우미를 만들었으면 음성 SDK의 `DialogServiceConnector`를 사용 하 여 장치 응용 프로그램에 연결 합니다. 자세한 내용은 각 솔루션에 대 한 빠른 시작 및 샘플을 참조 하세요.
 
 ## <a name="getting-started-with-voice-assistants"></a>음성 도우미 시작
 

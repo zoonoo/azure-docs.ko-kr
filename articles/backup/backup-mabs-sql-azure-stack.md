@@ -1,6 +1,6 @@
 ---
 title: Azure Stack에 SQL Server 워크로드 백업
-description: Azure Backup Server를 사용하여 Azure Stack에서 SQL Server 워크로드를 보호할 수 있습니다.
+description: 이 문서에서는 Azure Stack에서 SQL Server 데이터베이스를 보호 하도록 MABS (Microsoft Azure Backup Server)를 구성 하는 방법에 대해 알아봅니다.
 ms.reviewer: adigan
 author: dcurwin
 manager: carmonm
@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: ab65a1bf371ff8581f347403b49fafed6697374c
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 28d4ad1a94cea6f21d1fe75483357d8788524b88
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210237"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747216"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Azure Stack에 SQL Server 백업
+
 이 문서를 사용하여 Azure Stack에서 SQL Server 데이터베이스를 보호하도록 MABS(Microsoft Azure Backup Server)를 구성할 수 있습니다.
 
 Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베이스를 복구하는 것을 관리하는 작업에는 세 가지 단계가 포함됩니다.
@@ -24,18 +25,19 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 2. 주문형 백업 복사본을 만들기
 3. Azure 및 디스크에서 데이터베이스 복구
 
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 [Azure Backup Server를 설치하고 준비](backup-mabs-install-azure-stack.md)합니다.
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Azure에 대해 SQL server 데이터베이스를 보호하기 위한 백업 정책을 만듭니다.
+
 1. Azure Backup Server UI에서 **보호** 작업 영역을 클릭합니다.
 
 2. 도구 리본에서 **새로 만들기**를 클릭하여 새 보호 그룹을 만듭니다.
 
     ![보호 그룹 만들기](./media/backup-azure-backup-sql/protection-group.png)
 
-    Azure Backup Server가 **보호 그룹**을 만드는 방법을 안내하는 보호 그룹 마법사를 시작합니다. **다음**을 클릭합니다.
+    Azure Backup Server가 **보호 그룹**을 만드는 방법을 안내하는 보호 그룹 마법사를 시작합니다. **다음**을 누릅니다.
 
 3. **보호 그룹 형식 선택** 화면에서 **서버**를 선택합니다.
 
@@ -62,13 +64,13 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
    >
    >
 
-7. **디스크 할당 검토** 화면에서 사용 가능한 전체 스토리지 공간 및 잠재적인 디스크 공간을 확인합니다. **다음**을 클릭합니다.
+7. **디스크 할당 검토** 화면에서 사용 가능한 전체 스토리지 공간 및 잠재적인 디스크 공간을 확인합니다. **다음**을 누릅니다.
 
-8. **복제본 만들기 방법 선택**에서, 첫 번째 복구 지점을 만들 방법을 선택합니다. 대역폭 정체를 방지하기 위해 초기 백업을 수동으로(오프 네트워크) 전송해도 되고 아니면 네트워크를 통해 전송해도 됩니다. 첫 번째 백업이 전송되기를 기다리기로 선택하는 경우 초기 전송의 시간을 지정할 수 있습니다. **다음**을 클릭합니다.
+8. **복제본 만들기 방법 선택**에서, 첫 번째 복구 지점을 만들 방법을 선택합니다. 대역폭 정체를 방지하기 위해 초기 백업을 수동으로(오프 네트워크) 전송해도 되고 아니면 네트워크를 통해 전송해도 됩니다. 첫 번째 백업이 전송되기를 기다리기로 선택하는 경우 초기 전송의 시간을 지정할 수 있습니다. **다음**을 누릅니다.
 
     ![초기 복제 방법](./media/backup-azure-backup-sql/pg-manual.png)
 
-    초기 백업 복사본은 프로덕션 서버(SQL Server 컴퓨터)에서 Azure Backup Server로 전체 데이터 원본(SQL Server 데이터베이스)을 전송해야 합니다. 이 데이터는 규모가 클 수 있으며 네트워크를 통한 데이터 전송이 대역폭을 초과할 수 있습니다. 이러한 이유로 초기 백업을 다음과 같이 전송하도록 선택할 수 있습니다. 대역폭 정체 방지를 위해 이동식 미디어를 사용하여 **수동**으로 전송하거나, 지정된 시간에 **네트워크를 통해 자동**으로 전송할 수도 있습니다.
+    초기 백업 복사본은 프로덕션 서버(SQL Server 컴퓨터)에서 Azure Backup Server로 전체 데이터 원본(SQL Server 데이터베이스)을 전송해야 합니다. 이 데이터는 규모가 클 수 있으며 네트워크를 통한 데이터 전송이 대역폭을 초과할 수 있습니다. 이 때문에 대역폭 혼잡을 방지하기 위해 최초 백업을 **수동**(이동식 미디어 사용)으로 전송해도 되고, **네트워크를 통해 자동으로 전송**(지정된 시간에)해도 됩니다.
 
     초기 백업을 완료하면 백업의 나머지 부분은 초기 백업 복사본의 증분 백업입니다. 증분 백업은 크기가 작으며 네트워크를 통해 간편하게 전송될 수 있습니다.
 
@@ -93,7 +95,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
     >
     >
 
-    **모범 사례**: 로컬 디스크 백업이 완료된 후 Azure로 백업을 시작하도록 예약하면 항상 마지막 디스크 백업이 Azure로 복사됩니다.
+    **모범 사례**: 로컬 디스크 백업이 완료되면 Azure로 백업을 시작하도록 예약하면 항상 마지막 디스크 백업이 Azure로 복사됩니다.
 
 12. 보존 정책 일정을 선택합니다. 보존 정책이 작동하는 방법에 대한 자세한 내용은 [Azure Backup을 사용하여 테이프 인프라 대체 문서](backup-azure-backup-cloud-as-tape.md)에서 제공됩니다.
 
@@ -112,6 +114,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
     ![진행 중인 보호 그룹 만들기](./media/backup-azure-backup-sql/pg-summary.png)
 
 ## <a name="on-demand-backup-of-a-sql-server-database"></a>SQL Server 데이터베이스의 주문형 백업
+
 이전 단계가 백업 정책을 만드는 동안 첫 번째 백업이 발생하면 "복구 지점"을 만듭니다. 스케줄러가 시작되기를 기다리는 대신 다음 단계는 수동으로 복구 지점의 생성을 트리거합니다.
 
 1. 복구 지점을 만들기 전에 보호 그룹 상태가 데이터베이스를 **확인**으로 표시될 때까지 대기합니다.
@@ -128,6 +131,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
     ![콘솔 모니터링](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>Azure에서 SQL Server 데이터베이스 복구
+
 Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하려면 다음 단계가 필요합니다.
 
 1. Azure Backup Server 관리 콘솔을 엽니다. 보호되는 서버를 볼 수 있는 **복구** 작업 영역으로 이동합니다. 필요한 데이터베이스로 이동합니다.(이 경우 ReportServer$ MSDPM2012) **온라인** 지점으로 지정된 **복구 시간**을 선택합니다.
@@ -136,13 +140,13 @@ Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하�
 2. 데이터베이스 이름을 마우스 오른쪽 단추로 클릭하고 **복구**를 클릭합니다.
 
     ![Azure에서 복구](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. MABS에서는 복구 지점에 대한 세부 정보를 보여줍니다. **다음**을 클릭합니다. 데이터베이스를 덮어쓰려면 복구 형식 **SQL Server의 원본 인스턴스에 복구**를 선택합니다. **다음**을 클릭합니다.
+3. MABS에서는 복구 지점에 대한 세부 정보를 보여줍니다. **다음**을 누릅니다. 데이터베이스를 덮어쓰려면 복구 형식 **SQL Server의 원본 인스턴스에 복구**를 선택합니다. **다음**을 누릅니다.
 
     ![원래 위치로 복구](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     이 예제에서 MABS는 다른 SQL Server 인스턴스 또는 독립 실행형 네트워크 폴더로 데이터베이스를 복구합니다.
 
-4. **복구 옵션 지정** 화면에서 네트워크 대역폭 사용 제한을 같은 복구 옵션을 선택하여 복구에서 사용되는 대역폭을 제한할 수 있습니다. **다음**을 클릭합니다.
+4. **복구 옵션 지정** 화면에서 네트워크 대역폭 사용량 제한을 같은 복구 옵션을 선택하여 복구에서 사용되는 대역폭을 제한할 수 있습니다. **다음**을 누릅니다.
 
 5. **요약** 화면에서는 지금까지 제공하는 모든 복구 구성을 표시합니다. **복구**를 클릭합니다.
 

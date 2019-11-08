@@ -1,5 +1,5 @@
 ---
-title: '회로의 피어링 구성 - ExpressRoute: Azure: 클래식 | Microsoft Docs'
+title: '회로에 대 한 피어 링 구성: Azure: 클래식 | Microsoft Docs'
 description: 이 문서에서는 ExpressRoute 회로의 프라이빗, 공용 및 Microsoft 피어링을 만들고 프로비전하는 단계를 안내합니다. 또한 회로의 상태를 확인하고 업데이트 또는 삭제하는 방법을 보여줍니다.
 services: expressroute
 author: cherylmc
@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: a57681cc9f44593ceea6b2c1795274c1b16d3a94
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 01ec721fb7e7dea0e4e31e0c3052cc4246cf14b0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64726204"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748185"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>ExpressRoute 회로의 피어링 만들기 및 수정(클래식)
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [Azure CLI](howto-routing-cli.md)
-> * [비디오 - 개인 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [비디오 - 프라이빗 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [비디오 - 공용 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [비디오 - Microsoft 피어링](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell(클래식)](expressroute-howto-routing-classic.md)
@@ -35,9 +35,6 @@ ms.locfileid: "64726204"
 **Azure 배포 모델 정보**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configuration-prerequisites"></a>필수 구성 요소
 
@@ -117,7 +114,7 @@ Azure 계정에 로그인하려면 다음 예제를 사용합니다.
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **회로에 Azure 개인 피어링을 구성합니다.**
+3. **회로에 Azure 프라이빗 피어링을 구성합니다.**
 
    다음 단계를 계속 진행하기 전에 다음 항목이 있는지 확인합니다.
    
@@ -189,7 +186,7 @@ Remove-AzureBGPPeering -AccessType Private -ServiceKey "************************
 이 섹션에서는 ExpressRoute 회로에 Azure 공용 피어링 구성을 만들고, 가져오며, 업데이트 및 삭제하는 방법에 대한 지침을 제공합니다.
 
 > [!NOTE]
-> 새 회로 대 한 azure 공용 피어 링 하는 사용 되지 않습니다.
+> Azure 공용 피어 링은 새로운 회로에서 사용 되지 않습니다.
 >
 
 ### <a name="to-create-azure-public-peering"></a>Azure 공용 피어링을 만들려면

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: bced7a4b994172a1a2076149d6f25adb39c99b54
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 62d75267421d1f7587f136ea1e76f7c4b4341a37
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015571"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742614"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 언어 사용자 지정
 
@@ -27,9 +27,9 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 
 고객이 볼 수 있는 언어에 대한 제어 수준이 필요하지 않을 수 있습니다. `ui_locales` 매개 변수를 제공하지 않으면 고객의 환경이 브라우저 설정으로 결정됩니다. 언어를 지원 언어로 추가하여 사용자 흐름이 번역된 언어를 계속 제어할 수 있습니다. 고객의 브라우저가 지원하지 않으려는 언어를 표시하도록 설정된 경우 지원되는 문화에서 기본값으로 선택한 언어가 대신 표시됩니다.
 
-* **ui-locales에서 지정한 언어**: 언어 사용자 지정을 사용하도록 설정한 경우 사용자 흐름은 여기에 지정된 언어로 번역됩니다.
-* **브라우저에서 요청한 언어**: `ui_locales` 매개 변수가 지정되지 않으면 사용자 흐름이 브라우저에서 요청한 언어로 번역됩니다(*해당 언어가 지원되는 경우*).
-* **정책 기본 언어**: 브라우저에서 언어를 지정하지 않거나 지원되지 않는 언어를 지정하면 사용자 흐름이 사용자 흐름 기본 언어로 번역됩니다.
+* **ui 로캘 지정 언어**: 언어 사용자 지정을 사용 하도록 설정 하면 사용자 흐름이 여기에 지정 된 언어로 번역 됩니다.
+* **브라우저 요청 언어**: `ui_locales` 매개 변수를 지정 하지 않으면 사용자 흐름이 브라우저가 요청한 언어로 번역 됩니다 ( *언어가 지원 되는 경우*).
+* **정책 기본 언어**: 브라우저에서 언어를 지정 하지 않거나 지원 되지 않는 언어를 지정 하면 사용자 흐름이 사용자 흐름 기본 언어로 변환 됩니다.
 
 > [!NOTE]
 > 사용자 지정 사용자 특성을 사용하는 경우 사용자 고유의 번역을 제공해야 합니다. 자세한 내용은 [문자열 사용자 지정](#customize-your-strings)을 참조하세요.
@@ -145,7 +145,7 @@ Azure AD B2C(Azure Active Directory B2C)의 언어 사용자 지정을 사용하
 
 ## <a name="customize-the-page-ui-by-using-language-customization"></a>언어 사용자 지정을 사용하여 페이지 UI 사용자 지정
 
-HTML 콘텐츠를 지역화하는 방법은 두 가지가 있습니다. 하나는 [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)을 켜는 것입니다. 이 기능을 사용 하도록 설정 하면 Azure AD B2C openid connect Connect 매개 변수 `ui-locales`를 끝점으로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어 관련 사용자 지정된 HTML 페이지를 제공할 수 있습니다.
+HTML 콘텐츠를 지역화하는 방법은 두 가지가 있습니다. 하나는 [언어 사용자 지정](active-directory-b2c-reference-language-customization.md)을 켜는 것입니다. 이 기능을 사용 하도록 설정 하면 Azure AD B2C Openid connect Connect 매개 변수 `ui-locales`를 끝점으로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어 관련 사용자 지정된 HTML 페이지를 제공할 수 있습니다.
 
 또는 사용되는 로캘에 따라 다른 위치에서 콘텐츠를 끌어올 수 있습니다. CORS 사용 엔드포인트에서 특정 언어에 대한 콘텐츠를 호스트하도록 폴더 구조를 설정할 수 있습니다. 와일드 카드 값 `{Culture:RFC5646}`을 사용하는 경우 적합한 구조를 호출합니다. 예를 들어 사용자 지정 페이지 URI가 다음과 같다고 가정해 봅시다.
 
@@ -201,58 +201,58 @@ Chrome과 Firefox는 설정된 언어를 요청합니다. 이 언어가 지원�
 
 Azure AD B2C에는 다음 언어에 대 한 지원이 포함 됩니다. 사용자 흐름 언어는 Azure AD B2C에 의해 제공 됩니다. MFA (multi-factor authentication) 알림 언어는 [AZURE mfa](../active-directory/authentication/concept-mfa-howitworks.md)에 의해 제공 됩니다.
 
-| 언어              | 언어 코드 | 사용자 흐름         | MFA 알림  |
+| language              | 언어 코드 | 사용자 흐름         | MFA 알림  |
 |-----------------------| :-----------: | :----------------: | :----------------: |
-| 아랍어                | ar            | :x:                | :heavy_check_mark: |
-| 불가리아어             | bg            | :x:                | :heavy_check_mark: |
-| 벵골어                | bn            | :heavy_check_mark: | :x:                |
-| 카탈로니아어               | 발급            | :x:                | :heavy_check_mark: |
-| 체코어                 | cs            | :heavy_check_mark: | :heavy_check_mark: |
-| 덴마크어                | da            | :heavy_check_mark: | :heavy_check_mark: |
-| 독일어                | de            | :heavy_check_mark: | :heavy_check_mark: |
-| 그리스어                 | el            | :heavy_check_mark: | :heavy_check_mark: |
-| 영어               | ko-KR            | :heavy_check_mark: | :heavy_check_mark: |
-| 스페인어               | es            | :heavy_check_mark: | :heavy_check_mark: |
-| 에스토니아어              | et            | :x:                | :heavy_check_mark: |
-| 바스크어                | eu            | :x:                | :heavy_check_mark: |
-| 핀란드어               | fi            | :heavy_check_mark: | :heavy_check_mark: |
-| 프랑스어                | fr            | :heavy_check_mark: | :heavy_check_mark: |
-| 갈리시아어              | gl            | :x:                | :heavy_check_mark: |
-| 구자라트어              | gu            | :heavy_check_mark: | :x:                |
-| 히브리어                | he            | :x:                | :heavy_check_mark: |
-| 힌디어                 | 안녕            | :heavy_check_mark: | :heavy_check_mark: |
-| 크로아티아어              | 시간            | :heavy_check_mark: | :heavy_check_mark: |
-| 헝가리어             | hu            | :heavy_check_mark: | :heavy_check_mark: |
-| 인도네시아어            | id            | :x:                | :heavy_check_mark: |
-| 이탈리아어               | it            | :heavy_check_mark: | :heavy_check_mark: |
-| 일본어              | ja            | :heavy_check_mark: | :heavy_check_mark: |
-| 카자흐어                | kk            | :x:                | :heavy_check_mark: |
-| 칸나다어               | kn            | :heavy_check_mark: | :x:                |
-| 한국어                | ko            | :heavy_check_mark: | :heavy_check_mark: |
-| 리투아니아어            | lt            | :x:                | :heavy_check_mark: |
-| 라트비아어               | lv            | :x:                | :heavy_check_mark: |
-| 말라얄람어             | ml            | :heavy_check_mark: | :x:                |
-| 마라티어               | mr            | :heavy_check_mark: | :x:                |
-| 말레이어                 | ms            | :heavy_check_mark: | :heavy_check_mark: |
-| 노르웨이어 복말      | nb            | :heavy_check_mark: | :x:                |
-| 네덜란드어                 | nl            | :heavy_check_mark: | :heavy_check_mark: |
-| 노르웨이어             | no            | :x:                | :heavy_check_mark: |
-| 펀잡어               | pa            | :heavy_check_mark: | :x:                |
-| 폴란드어                | pl            | :heavy_check_mark: | :heavy_check_mark: |
-| 포르투갈어 - 브라질   | pt-br         | :heavy_check_mark: | :heavy_check_mark: |
-| 포르투갈어 - 포르투갈 | pt-pt         | :heavy_check_mark: | :heavy_check_mark: |
-| 루마니아어              | ro            | :heavy_check_mark: | :heavy_check_mark: |
-| 러시아어               | ru            | :heavy_check_mark: | :heavy_check_mark: |
-| 슬로바키아어                | sk            | :heavy_check_mark: | :heavy_check_mark: |
-| 슬로베니아어             | sl            | :x:                | :heavy_check_mark: |
-| 세르비아어-키릴 자모    | cryl-cs    | :x:                | :heavy_check_mark: |
-| 세르비아어-라틴 문자       | latn-cs    | :x:                | :heavy_check_mark: |
-| 스웨덴어               | sv            | :heavy_check_mark: | :heavy_check_mark: |
-| 타밀어                 | ta            | :heavy_check_mark: | :x:                |
-| 텔루구어                | te            | :heavy_check_mark: | :x:                |
-| 태국어                  | 번째            | :heavy_check_mark: | :heavy_check_mark: |
-| 터키어               | tr            | :heavy_check_mark: | :heavy_check_mark: |
-| 우크라이나어             | 영국            | :x:                | :heavy_check_mark: |
-| 베트남어            | vi            | :x:                | :heavy_check_mark: |
-| 중국어 - 간체  | zh-hans       | :heavy_check_mark: | :heavy_check_mark: |
-| 중국어 - 번체 | zh-hant       | :heavy_check_mark: | :heavy_check_mark: |
+| 아랍어                | ar            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 불가리아어             | bg            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 벵골어                | bn            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 카탈로니아어               | 발급            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 체코어                 | cs            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 덴마크어                | da            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 독일어                | de            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 그리스어                 | el            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 영어               | en            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 스페인어               | es            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 에스토니아어              | et            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 바스크어                | eu            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 핀란드어               | fi            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 프랑스어                | fr            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 갈리시아어              | gl            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 구자라트어              | gu            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 히브리어                | he            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 힌디어                 | hi            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 크로아티아어              | hr            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 헝가리어             | hu            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 인도네시아어            | id            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 이탈리아어               | it            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 일본어              | ja            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 카자흐어                | kk            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 칸나다어               | kn            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 한국어                | ko            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 리투아니아어            | lt            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 라트비아어               | lv            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 말라얄람어             | ml            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 마라티어               | mr            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 말레이어                 | ms            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 노르웨이어 복말      | nb            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 네덜란드어                 | nl            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 노르웨이어             | no            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 펀잡어               | pa            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 폴란드어                | pl            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 포르투갈어 - 브라질   | pt-br         | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 포르투갈어 - 포르투갈 | pt-pt         | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 루마니아어              | ro            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 러시아어               | ru            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 슬로바키아어                | sk            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 슬로베니아어             | sl            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 세르비아어-키릴 자모    | cryl-cs    | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 세르비아어-라틴 문자       | latn-cs    | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 스웨덴어               | sv            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 타밀어                 | ta            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 텔루구어                | te            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![no](media/active-directory-b2c-reference-language-customization/no.png) |
+| 태국어                  | th            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 터키어               | tr            | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 우크라이나어             | 영국            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 베트남어            | vi            | ![no](media/active-directory-b2c-reference-language-customization/no.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 중국어 - 간체  | zh-hans       | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |
+| 중국어 - 번체 | zh-hant       | ![예](media/active-directory-b2c-reference-language-customization/yes.png) | ![예](media/active-directory-b2c-reference-language-customization/yes.png) |

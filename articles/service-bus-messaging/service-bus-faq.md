@@ -9,12 +9,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 80809afc9f2a8e8da2f6adecfe916141c4cd3e45
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 8a2a704f39aa678be819a7297b30f8926e414e56
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68278333"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748441"
 ---
 # <a name="service-bus-faq"></a>Service Bus FAQ
 
@@ -65,7 +65,7 @@ Azure Service Bus에서 다음 프로토콜을 사용 하 여 메시지를 보�
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. 에서 `Non-authoritative answer`반환 된 IP 주소를 적어둡니다. 이 IP 주소는 정적입니다. 다른 클러스터에 네임 스페이스를 복원 하는 경우에만 변경 되는 유일한 시점입니다.
+2. `Non-authoritative answer`에서 반환 된 IP 주소를 적어둡니다. 이 IP 주소는 정적입니다. 다른 클러스터에 네임 스페이스를 복원 하는 경우에만 변경 되는 유일한 시점입니다.
 
 네임 스페이스에 영역 중복성을 사용 하는 경우 몇 가지 추가 단계를 수행 해야 합니다. 
 
@@ -112,6 +112,13 @@ Service Bus 가격 책정에 대한 전체 내용은 [Service Bus 가격 책정 
 ### <a name="does-service-bus-charge-for-storage"></a>Service Bus는 스토리지에 대한 요금을 청구하나요?
 아니요, Service Bus는 스토리지에 대한 요금을 청구하지 않습니다. 하지만 큐/항목 당 지속될 수 있는 데이터의 최대 크기를 제한하는 할당량이 있습니다. 다음 FAQ를 참조하세요.
 
+### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Service Bus 표준 네임 스페이스가 있습니다. 리소스 그룹 ' $system '에 요금이 표시 되는 이유는 무엇 인가요?
+최근 청구 구성 요소를 업그레이드 Azure Service Bus. 이로 인해 Service Bus 표준 네임 스페이스가 있는 경우 리소스 그룹 ' $ 아래에 리소스 '/subscriptions/< azure_subscription_id >/Hsourceg/$system/providers/Microsoft.ServiceBus/namespaces/$system '에 대 한 줄 항목이 표시 될 수 있습니다. 시스템 '.
+
+이러한 요금은 Service Bus 표준 네임 스페이스를 프로 비전 한 Azure 구독 당 기본 요금을 나타냅니다. 
+
+이러한 요금은 새로운 요금이 아니라 이전 청구 모델에도 존재 한다는 점에 유의 해야 합니다. 지금은 ' $system ' 아래에 나열 됩니다. 이는 ' $system ' 리소스 id의 특정 리소스와 연결 되지 않은 구독 수준 요금을 그룹화 하는 새로운 청구 시스템의 제약 조건 때문에 수행 됩니다.
+
 ## <a name="quotas"></a>할당량
 
 Service Bus 제한 및 할당량 목록은 [Service Bus 할당량 개요][Quotas overview]를 참조 하세요.
@@ -128,7 +135,7 @@ Service Bus 메시징 서비스(큐 및 토픽/구독)를 사용하면 애플리
 
 ## <a name="troubleshooting"></a>문제 해결
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>네임스페이스를 다른 구독에서 삭제한 후 만들 수 없는 이유는 무엇인가요? 
-구독에서 네임스페이스를 삭제한 후에 다른 구독에서 동일한 이름으로 다시 만들려면 4시간 정도 기다려야 합니다. 그렇지 않으면 다음 오류 메시지가 표시될 수 있습니다. `Namespace already exists` 
+구독에서 네임스페이스를 삭제한 후에 다른 구독에서 동일한 이름으로 다시 만들려면 4시간 정도 기다려야 합니다. 그렇지 않으면 다음 오류 메시지가 표시될 수 있습니다. `Namespace already exists`. 
 
 ### <a name="what-are-some-of-the-exceptions-generated-by-azure-service-bus-apis-and-their-suggested-actions"></a>Azure Service Bus API 및 해당 제안된 작업에 의해 생성된 일부 예외는 무엇인가요?
 가능한 Service Bus 예외의 목록은 [예외 개요][Exceptions overview]를 참조 하세요.

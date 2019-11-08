@@ -1,7 +1,7 @@
 ---
 title: .NET을 사용하여 비디오 대본 만들기 - Content Moderator
 titleSuffix: Azure Cognitive Services
-description: .NET용 Content Moderator SDK를 사용하여 비디오 대본 검토 만들기
+description: .NET 용 Azure Cognitive Services Content Moderator SDK를 사용 하 여 비디오 성적 리뷰를 만드는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: ea1b8af69402aade370725f3a4dfdee4b5595ce6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b2d763454b86570b57a16fb9ae2107a2a2bcd23d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931664"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744385"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>.NET을 사용하여 비디오 대본 검토 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "72931664"
 - 검토에 조정된 대본 추가
 - 검토 게시
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - 아직 수행 하지 않은 경우 Content Moderator [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 사이트에서 로그인 하거나 계정을 만듭니다.
 - 이 문서에서는 사용자 결정을 위한 검토 도구에서 [비디오를 조정](video-moderation-api.md)하고 [비디오 검토를 생성](video-reviews-quickstart-dotnet.md)했다고 가정합니다. 이제 검토 도구에서 조정된 비디오 대본을 추가하려고 합니다.
@@ -44,7 +44,7 @@ SDK 샘플에서 Azure가 제공한 API 키를 사용하려는 경우 [검토 AP
 
 ![비디오 데모 미리 보기](images/ams-video-demo-view.PNG)
 
-- 이 [Azure Media Services 데모](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest) 페이지에서 매니페스트 URL의 **URL**을 복사합니다.
+- 이 **Azure Media Services 데모** 페이지에서 매니페스트 URL의 [URL](https://aka.ms/azuremediaplayer?url=https%3A%2F%2Famssamples.streaming.mediaservices.windows.net%2F91492735-c523-432b-ba01-faba6c2206a2%2FAzureMediaServicesPromo.ism%2Fmanifest)을 복사합니다.
 
 ## <a name="create-your-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
@@ -144,7 +144,7 @@ public static ContentModeratorClient NewClient()
 **CreateVideoReviews**에는 다음 매개 변수가 필요합니다.
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
 1. Content Moderator 팀 이름입니다.
-1. **IList \<CreateVideoReviewsBodyItem >** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
+1. **IList\<CreateVideoReviewsBodyItem >** 개체입니다. 각 **CreateVideoReviewsBodyItem** 개체는 비디오 검토를 나타냅니다. 이 빠른 시작에서는 한 번에 하나씩 검토를 만듭니다.
 
 **CreateVideoReviewsBodyItem**에는 여러 속성이 있습니다. 최소한 다음 속성을 설정합니다.
 - **Content**. 검토할 비디오의 URL입니다.
@@ -152,7 +152,7 @@ public static ContentModeratorClient NewClient()
 - **Status**. 값을 "게시 취소됨"으로 설정합니다. 값을 설정하지 않을 경우 기본값인 "보류 중"으로 설정되며, 이는 비디오 검토가 게시되었으며 사용자 검토 보류 중임을 의미합니다. 비디오 검토가 게시되고 나면 비디오 프레임, 대본 또는 대본 조정 결과를 더 이상 추가할 수 없습니다.
 
 > [!NOTE]
-> **CreateVideoReviews** 는 IList \<string >를 반환 합니다. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다.
+> **CreateVideoReviews** 는 IList\<문자열 > 반환 합니다. 이러한 각 문자열에는 비디오 검토의 ID가 포함되어 있습니다. 이러한 ID는 GUID이며, **ContentId** 속성 값과 동일하지 않습니다.
 
 VideoReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다.
 
@@ -234,15 +234,15 @@ static void AddTranscript(ContentModeratorClient client, string review_id, strin
 1. MIME 형식을 포함하는 문자열로, “application/json”이어야 합니다. 
 1. Content Moderator 팀 이름입니다.
 1. **CreateVideoReviews**에서 반환된 비디오 검토 ID입니다.
-1. IList \<TranscriptModerationBodyItem >입니다. **TranscriptModerationBodyItem**에는 다음 속성이 있습니다.
-1. **Terms**. IList \<TranscriptModerationBodyItemTermsItem >입니다. **TranscriptModerationBodyItemTermsItem**에는 다음 속성이 있습니다.
+1. IList\<TranscriptModerationBodyItem >입니다. **TranscriptModerationBodyItem**에는 다음 속성이 있습니다.
+1. **Terms**. IList\<TranscriptModerationBodyItemTermsItem >입니다. **TranscriptModerationBodyItemTermsItem**에는 다음 속성이 있습니다.
 1. **Index**. 용어의 0부터 시작하는 인덱스입니다.
 1. **Term**. 용어를 포함하는 문자열입니다.
 1. **Timestamp**. 대본에서 용어가 발견된 시간(초)을 포함하는 문자열입니다.
 
 대본은 WebVTT 형식이어야 합니다. 자세한 내용은 [WebVTT: Web Video Text Tracks 형식](https://www.w3.org/TR/webvtt1/)을 참조하세요.
 
-VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다. 이 메서드는 **ContentModeratorClient.TextModeration.ScreenText** 메서드에 대본을 제출합니다. 또한 결과를 IList \<TranscriptModerationBodyItem >으로 변환 하 고 **AddVideoTranscriptModerationResult**에 제출 합니다.
+VideoTranscriptReviews 네임스페이스, Program 클래스에 다음 메서드 정의를 추가합니다. 이 메서드는 **ContentModeratorClient.TextModeration.ScreenText** 메서드에 대본을 제출합니다. 또한 결과를 IList\<TranscriptModerationBodyItem >으로 변환 하 고 **AddVideoTranscriptModerationResult**에 제출 합니다.
 
 ```csharp
 /// <summary>

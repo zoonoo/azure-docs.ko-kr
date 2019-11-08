@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: f08d7bb2087ef4f30b325b3796a13e387ccdea22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 25e2b488d3b6e7e5cabd1a71d1489efaf01231b3
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60725570"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748541"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>구성 서버 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "60725570"
 
 원본 머신은 모바일 에이전트를 설치할 때 구성 서버에 등록됩니다. 이 단계를 수행하는 동안 오류가 발생하면 다음 지침에 따라 디버그할 수 있습니다.
 
-1. C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log 파일을 엽니다. (ProgramData 폴더는 숨겨진 폴더일 수 있습니다. ProgramData 폴더가 보이지 않으면 파일 탐색기의 **보기** 탭에 있는 **표시/숨기기** 섹션에서 **숨긴 항목** 확인란을 선택하십시오.) 오류는 여러 가지 문제로 인해 발생할 수 있습니다.
+1. C:\ProgramData\ASR\home\svsystems\var\configurator_register_host_static_info.log 파일을 엽니다. (ProgramData 폴더는 숨겨진 폴더일 수 있습니다. ProgramData 폴더가 표시 되지 않으면 파일 탐색기에서 **보기** 탭의 **표시/숨기기** 섹션에서 **숨겨진 항목** 확인란을 선택 합니다. 여러 가지 문제로 인해 오류가 발생할 수 있습니다.
 
 2. **No Valid IP Address found** 문자열을 검색합니다. 문자열이 검색되면:
    1. 요청한 호스트 ID가 원본 머신의 호스트 ID와 같은지 확인합니다.
@@ -34,26 +34,26 @@ ms.locfileid: "60725570"
 3. **No Valid IP Address found** 문자열이 검색되지 않으면 **Reason=>NULL** 문자열을 검색합니다. 이 오류는 원본 머신이 빈 호스트를 사용하여 구성 서버에 등록하는 경우 발생합니다. 문자열이 검색되면:
     - 문제를 해결한 후에는 [구성 서버에 원본 머신 등록](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server)의 지침에 따라 등록을 수동으로 다시 시도합니다.
 
-4. **Reason=>NULL** 문자열이 검색되지 않으면, 원본 머신에서 C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log 파일을 엽니다. (ProgramData 폴더는 숨겨진 폴더일 수 있습니다. ProgramData 폴더가 보이지 않으면 파일 탐색기의 **보기** 탭에 있는 **표시/숨기기** 섹션에서 **숨긴 항목** 확인란을 선택하십시오.) 오류는 여러 가지 문제로 인해 발생할 수 있습니다. 
+4. **Reason=>NULL** 문자열이 검색되지 않으면, 원본 머신에서 C:\ProgramData\ASRSetupLogs\UploadedLogs\ASRUnifiedAgentInstaller.log 파일을 엽니다. (ProgramData 폴더는 숨겨진 폴더일 수 있습니다. ProgramData 폴더가 표시 되지 않으면 파일 탐색기에서 **보기** 탭의 **표시/숨기기** 섹션에서 **숨겨진 항목** 확인란을 선택 합니다. 여러 가지 문제로 인해 오류가 발생할 수 있습니다. 
 
-5. **post request: (7) - Couldn't connect to server** 문자열을 검색합니다. 문자열이 검색되면:
+5. 문자열 **게시 요청 검색: (7)-서버에 연결할 수 없습니다**. 문자열이 검색되면:
     1. 원본 머신과 구성 서버 간의 네트워크 문제를 해결합니다. ping, traceroute과 같은 네트워크 도구 또는 웹 브라우저를 사용하여 원본 머신에서 구성 서버에 연결할 수 있는지 확인합니다. 원본 머신이 포트 443을 통해 구성 서버에 연결할 수 있는지 확인합니다.
     2. 원본 머신의 방화벽 규칙이 원본 머신과 구성 서버 간의 연결을 차단하는지 검사합니다. 연결 문제가 있으면 네트워크 관리자와 협력하여 차단을 해제하십시오.
     3. [Site Recovery 폴더에 나열된 폴더가 바이러스 백신 프로그램](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)에서 제외되고 바이러스 백신 소프트웨어에서 제외되도록 해야 합니다.
     4. 네트워크 문제가 해결되면 [구성 서버에 원본 머신 등록](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server)의 지침에 따라 등록을 다시 시도합니다.
 
-6. **post request: (7) - Couldn't connect to server** 문자열이 검색되지 않으면 동일한 로그 파일에서 **request: (60) - Peer certificate cannot be authenticated with given CA certificates** 문자열을 찾아봅니다. 이 오류는 구성 서버 인증서가 만료되었거나 원본 머신이 TLS 1.0 이상 SSL 프로토콜을 지원하지 않기 때문에 발생할 수 있습니다. 또한 방화벽이 원본 머신과 구성 서버 간의 SSL 통신을 차단하면 발생할 수 있습니다. 문자열이 검색되면: 
+6. 문자열 **post 요청 (7)-서버에 연결할 수** 없습니다 .를 찾을 수 없습니다. 동일한 로그 파일에서 문자열 요청을 찾습니다 **. (60)-지정 된 CA 인증서를 사용 하 여 피어 인증서를 인증할 수 없습니다**. 이 오류는 구성 서버 인증서가 만료되었거나 원본 머신이 TLS 1.0 이상 SSL 프로토콜을 지원하지 않기 때문에 발생할 수 있습니다. 또한 방화벽이 원본 머신과 구성 서버 간의 SSL 통신을 차단하면 발생할 수 있습니다. 문자열이 검색되면: 
     1. 해결을 위해, 원본 머신의 웹 브라우저를 사용하여 구성 서버 IP 주소에 연결합니다. https:\/\/<configuration server IP address\>:443/ URI를 사용합니다. 원본 머신이 포트 443을 통해 구성 서버에 연결할 수 있는지 확인합니다.
     2. 원본 머신이 구성 서버와 통신하기 위해 원본 머신에서 방화벽 규칙을 추가하거나 제거해야 하는지 확인합니다. 사용하는 방화벽 소프트웨어가 다양하기 때문에, 필요한 방화벽 구성을 모두 나열할 수는 없습니다. 연결 문제가 있으면 네트워크 관리자와 협력하여 차단을 해제하십시오.
     3. [Site Recovery 폴더에 나열된 폴더가 바이러스 백신 프로그램](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program)에서 제외되고 바이러스 백신 소프트웨어에서 제외되도록 해야 합니다.  
     4. 문제를 해결한 후에 [구성 서버에 원본 머신 등록](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server)의 지침에 따라 등록을 다시 시도합니다.
 
-7. Linux에서 <INSTALLATION_DIR\>/etc/drscout.conf에 있는 플랫폼 값이 손상된 경우에는 등록에 실패합니다. 이 문제를 식별하려면 /var/log/ua_install.log 파일을 엽니다. **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure** 문자열을 검색합니다. 플랫폼은 **VmWare**나 **Azure**로 설정되어야 합니다. drscout.conf 파일이 손상된 경우에는 [모바일 에이전트를 제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)한 다음, 모바일 에이전트를 다시 설치하는 것이 좋습니다. 제거에 실패 하는 경우 다음 단계를 완료 합니다:는 합니다. Installation_Directory/uninstall.sh 파일을 열고 **StopServices** 함수에 대한 호출을 주석으로 처리합니다.
+7. Linux에서 <INSTALLATION_DIR\>/etc/drscout.conf에 있는 플랫폼 값이 손상된 경우에는 등록에 실패합니다. 이 문제를 식별하려면 /var/log/ua_install.log 파일을 엽니다. **Aborting configuration as VM_PLATFORM value is either null or it is not VmWare/Azure** 문자열을 검색합니다. 플랫폼은 **VmWare**나 **Azure**로 설정되어야 합니다. drscout.conf 파일이 손상된 경우에는 [모바일 에이전트를 제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)한 다음, 모바일 에이전트를 다시 설치하는 것이 좋습니다. 제거에 실패 하는 경우 다음 단계를 완료 합니다. a. Installation_Directory/uninstall.sh 파일을 열고 **StopServices** 함수에 대한 호출을 주석으로 처리합니다.
     b. Installation_Directory/Vx/bin/uninstall.sh 파일을 열고 **stop_services** 함수에 대한 호출을 주석으로 처리합니다.
     c. Installation_Directory/Fx/uninstall.sh 파일을 열고 Fx 서비스를 중지하려고 시도하는 전체 섹션을 주석으로 처리합니다.
-    d. 모바일 에이전트를 [제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)합니다. 제거가 완료되면 시스템을 다시 부팅한 다음, 모바일 에이전트를 다시 설치해봅니다.
+    ㄹ. 모바일 에이전트를 [제거](vmware-physical-manage-mobility-service.md#uninstall-mobility-service)합니다. 제거가 완료되면 시스템을 다시 부팅한 다음, 모바일 에이전트를 다시 설치해봅니다.
 
-## <a name="installation-failure-failed-to-load-accounts"></a>설치 실패: 계정을 로드하지 못함
+## <a name="installation-failure-failed-to-load-accounts"></a>설치 오류: 계정을 로드 하지 못했습니다.
 
 이 오류는 모바일 에이전트를 설치하고 구성 서버에 등록하는 동안 서비스가 전송 연결에서 데이터를 읽을 수 없을 때 발생합니다. 이 문제를 해결하려면 원본 머신에 TLS 1.0이 활성화되어 있는지 확인합니다.
 
@@ -65,13 +65,13 @@ vCenter 검색 실패를 해결하려면 vCenter Server를 바이패스 목록 �
 - 명령줄 psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"를 실행하여 시스템 사용자 콘텐츠에서 Internet Explorer를 엽니다.
 - IE에서 프록시 설정을 추가하고 tmanssvc 서비스를 다시 시작합니다.
 - DRA 프록시 설정을 구성하려면 cd C:\Program Files\Microsoft Azure Site Recovery Provider를 실행합니다.
-- 다음으로, DRCONFIGURATOR.EXE /configure /AddBypassUrls를 실행합니다[[구성 서버 배포](vmware-azure-deploy-configuration-server.md#configure-settings)의 **vCenter Server/vSphere ESXi 서버 구성** 단계 동안 제공되는 vCenter Server의 IP 주소/FQDN 추가].
+- 다음으로, DRCONFIGURATOR.EXE /configure /AddBypassUrls를 실행합니다[**구성 서버 배포**의 [vCenter Server/vSphere ESXi 서버 구성](vmware-azure-deploy-configuration-server.md#configure-settings) 단계 동안 제공되는 vCenter Server의 IP 주소/FQDN 추가].
 
 ## <a name="change-the-ip-address-of-the-configuration-server"></a>구성 서버의 IP 주소 변경
 
 구성 서버의 IP 주소는 변경하지 않는 것이 좋습니다. 구성 서버에 할당된 모든 IP 주소는 고정 IP 주소여야 합니다. DHCP IP 주소는 사용하지 마십시오.
 
-## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML 토큰이 잘못되었습니다.
+## <a name="acs50008-saml-token-is-invalid"></a>ACS50008: SAML 토큰이 잘못 되었습니다.
 
 이 오류를 방지하려면, 시스템 시계의 시간이 현지 시간과 15분 넘게 차이가 나지 않도록 해야 합니다. 설치 관리자를 다시 실행하여 등록을 완료합니다.
 
@@ -79,9 +79,9 @@ vCenter 검색 실패를 해결하려면 vCenter Server를 바이패스 목록 �
 
 Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다. 로컬 관리자로 설치 프로그램을 실행하고 있는지 확인한 후에 설치 프로그램을 다시 실행합니다.
 
-## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Windows Server standard Server Standard 평가판 라이선스를 정품 인증에 실패
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>서버 표준 평가에서 서버 표준으로 Windows 라이선스를 활성화 하지 못했습니다.
 
-1. OVF 통해 구성 서버 배포의 일환으로,은 180 일 동안 유효 하는 평가판 라이선스가 사용 됩니다. 만료되기 전에 이 라이선스를 활성화해야 합니다. 그렇지 않은 경우 구성 서버는 자주 종료 고 따라서 복제 작업에 방해가 될 수 있습니다.
+1. 을 사용 하 여 구성 서버를 배포 하는 과정에서 180 일 동안 유효한 평가 라이선스가 사용 됩니다. 만료되기 전에 이 라이선스를 활성화해야 합니다. 이로 인해 구성 서버가 자주 종료 될 수 있으므로 복제 작업을 hindrance 수 있습니다.
 2. Windows 라이선스를 활성화할 수 없는 경우 [Windows 지원 팀](https://aka.ms/Windows_Support)에 문의하여 문제를 해결하세요.
 
 ## <a name="register-source-machine-with-configuration-server"></a>구성 서버에 원본 머신 등록
@@ -122,7 +122,7 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
 
 구성 서버는 단일 용도의 서버여야 하며, 공유 서버로 사용하는 것은 지원되지 않습니다. 
 
-자세한 내용은 [구성 서버 배포](vmware-azure-deploy-configuration-server.md#faq)에서 구성 FAQ를 참조하세요. 
+자세한 내용은 [구성 서버 배포](vmware-azure-deploy-configuration-server.md#faqs)에서 구성 FAQ를 참조하세요. 
 
 ## <a name="remove-the-stale-entries-for-protected-items-from-the-configuration-server-database"></a>구성 서버 데이터베이스에서 보호된 항목에 대한 오래된 항목 제거 
 
@@ -145,7 +145,7 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    "온-프레미스 VM01"의 소스 서버 항목을 10.0.0.4의 ip 주소를 가진 경우 다음 명령을 대신 사용 합니다.
+    Ip 주소가 10.0.0.4 인 "온-프레미스-V M 01"의 원본 서버 항목이 있는 경우 다음 명령을 대신 사용 합니다.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  
@@ -185,13 +185,13 @@ Site Recovery를 인증하는 데 필요한 인증서를 만들 수 없습니다
 
 ## <a name="azure-active-directory-application-creation-failure"></a>Azure Active Directory 애플리케이션 생성 실패
 
-AAD(Azure Active Directory)에서 [OVA(Open Virtualization Application)](vmware-azure-deploy-configuration-server.md#deployment-of-configuration-server-through-ova-template
+AAD(Azure Active Directory)에서 [OVA(Open Virtualization Application)](vmware-azure-deploy-configuration-server.md#deploy-a-configuration-server-through-an-ova-template
 ) 템플릿을 사용하여 애플리케이션을 만들 수 있는 권한이 부족합니다.
 
 이 문제를 해결하려면 Azure Portal에 로그인하고 다음 중 하나를 수행합니다.
 
 - AAD에서 애플리케이션 개발자 역할을 요청합니다. 애플리케이션 개발자 역할에 대한 자세한 내용은 [Azure Active Directory의 관리자 역할 권한](../active-directory/users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
-- AAD에서 **사용자가 애플리케이션을 만들 수 있음** 플래그를 *true*로 설정했는지 확인합니다. 자세한 내용은 [방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)
+- AAD에서 **사용자가 애플리케이션을 만들 수 있음** 플래그를 *true*로 설정했는지 확인합니다. 자세한 내용은 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)를 참조 하세요.
 
 ## <a name="process-servermaster-target-are-unable-to-communicate-with-the-configuration-server"></a>프로세스 서버/마스터 대상이 구성 서버와 통신할 수 없음 
 
@@ -203,7 +203,7 @@ PS(프로세스 서버) 및 MT(마스터 대상) 모듈이 CS(구성 서버)와 
 
 마스터 대상 에이전트가 구성 서버 IP의 TCP 세션을 만들 수 있는지 확인하려면 마스터 대상 에이전트 로그에서 다음과 유사한 추적을 찾습니다.
 
-TCP \<CS 여기 IP를 사용 하 여 대체 IP >: 52739 \<여기 CS IP를 사용 하 여 대체 IP >: 443 SYN_SENT 
+TCP \<IP를 CS IP로 바꿉니다 >: 52739 \<여기에서 IP를 CS IP로 바꿉니다 >: 443 SYN_SENT 
 
 TCP    192.168.1.40:52739     192.168.1.40:443      SYN_SENT  // 여기서 IP를 CS IP로 교체
 

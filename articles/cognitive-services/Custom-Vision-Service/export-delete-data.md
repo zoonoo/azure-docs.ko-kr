@@ -1,7 +1,7 @@
 ---
 title: 데이터 내보내기 또는 삭제 - Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: Custom Vision Service에서 데이터를 내보내거나 삭제하는 방법을 알아봅니다.
+description: 데이터에 대 한 모든 권한을 유지 합니다. 이 문서에서는 Custom Vision Service에서 데이터를 확인, 내보내기 또는 삭제 하는 방법을 설명 합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: b885f359d9416fbc5f778b094610260342a75f65
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 82d9f4508db376ebbe69ef772c15fb732391a31d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564232"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718974"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Custom Vision에서 사용자 데이터 내보내기 또는 삭제
 
-Custom Vision은 서비스를 운영하는 사용자 데이터를 수집하지만 고객은 Custom Vision [Training API](https://go.microsoft.com/fwlink/?linkid=865446)를 사용하여 해당 데이터 보기, 내보내기 및 삭제를 완전히 통제합니다.
+Custom Vision은 서비스를 작동 하는 사용자 데이터를 수집 하지만, 고객은 Custom Vision [학습 api](https://go.microsoft.com/fwlink/?linkid=865446)를 사용 하 여 데이터 보기, 내보내기 및 삭제를 완전히 제어할 수 있습니다.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Custom Vision에서 사용자 데이터를 내보내기 및 삭제하는 방법을 알아보려면 다음 표를 참조합니다.
+Custom Vision에서 사용자 데이터를 내보내고 삭제 하는 방법에 대 한 자세한 내용은 다음 표를 참조 하세요.
 
-| 보기 | 내보내기 작업 | 삭제 작업 |
+| Data | 내보내기 작업 | 삭제 작업 |
 | ---- | ---------------- | ---------------- |
 | 계정 정보(구독 키) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Azure Portal(Azure 구독)을 사용하여 삭제합니다. 또는 CustomVision.ai 설정 페이지에서 "계정 삭제" 단추를 사용합니다(Microsoft 계정 구독). | 
 | 반복 세부 정보 | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |

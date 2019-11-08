@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: apimpm
-ms.openlocfilehash: bfb012116f74e451f9479c8c65057e5c8405bbb4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc7e0f7e4e0e80a030a437bc4f0f13360595f32e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513784"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747698"
 ---
 # <a name="deploy-an-azure-api-management-self-hosted-gateway-to-docker"></a>Azure API Management 자체 호스팅 게이트웨이를 Docker에 배포
 
@@ -31,6 +31,9 @@ ms.locfileid: "73513784"
 - 다음 빠른 시작 [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)를 완료합니다.
 - Docker 환경을 만듭니다. [데스크톱에 대 한 Docker](https://www.docker.com/products/docker-desktop) 는 개발 및 평가를 위해 좋은 옵션입니다. Docker 자체에 대 한 모든 Docker 버전, 해당 기능 및 포괄적인 설명서에 대 한 자세한 내용은 [docker 설명서](https://docs.docker.com) 를 참조 하세요.
 - [API Management 인스턴스에서 게이트웨이 리소스 프로 비전](api-management-howto-provision-self-hosted-gateway.md)
+
+> [!NOTE]
+> 자체 호스팅 게이트웨이는 Linux 기반 Docker 컨테이너로 패키지 됩니다.
 
 ## <a name="deploy-the-self-hosted-gateway-to-docker"></a>자체 호스팅 게이트웨이를 Docker에 배포
 
@@ -63,4 +66,5 @@ CONTAINER ID        IMAGE                                                 COMMAN
 
 ## <a name="next-steps"></a>다음 단계
 
-* 자체 호스팅 게이트웨이에 대해 자세히 알아보려면 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md) 를 참조 하세요.
+* 자체 호스팅 게이트웨이에 대해 자세히 알아보려면 [Azure API Management 자체 호스팅 게이트웨이 개요](self-hosted-gateway-overview.md)를 참조 하세요.
+* [자체 호스팅 게이트웨이의 사용자 지정 도메인 이름을 구성](api-management-howto-configure-custom-domain-gateway.md)합니다.

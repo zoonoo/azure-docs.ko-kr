@@ -4,14 +4,14 @@ description: 리소스 그룹에 800 개 이상의 인스턴스를 포함할 수
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 11/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0f9db618b69ff692350f333b8a4a4354f4980169
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: c08b80a841199ed2737f6fe8d7f2b76943c5b269
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249129"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795666"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 800 인스턴스로 제한 되지 않는 리소스
 
@@ -36,8 +36,8 @@ ms.locfileid: "72249129"
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
-* disks
-* 이미지
+* 디스크
+* images
 * 스냅샷
 * virtualMachines
 
@@ -70,12 +70,22 @@ ms.locfileid: "72249129"
 * servers
 * serversv2
 
-## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
+## <a name="microsoftenterpriseknowledgegraph"></a>EnterpriseKnowledgeGraph
 
 * services
 
+## <a name="microsofteventhub"></a>Microsoft.EventHub
+
+* clusters
+* namespaces
+
+## <a name="microsoftexperimentation"></a>Microsoft. 실험
+
+* experimentWorkspaces
+
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
+* configurationprofil
 * guestConfigurationAssignments
 * software
 * softwareUpdateProfile
@@ -141,9 +151,17 @@ ms.locfileid: "72249129"
 
 * workspaceCollections-기본적으로 800 인스턴스로 제한 됩니다. 지원에 문의 하 여이 제한을 늘릴 수 있습니다.
 
+## <a name="microsoftrelay"></a>Microsoft.Relay
+
+* namespaces
+
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 * jobcollections
+
+## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
+
+* namespaces
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
@@ -151,7 +169,7 @@ ms.locfileid: "72249129"
 * containerGroups
 * gateways
 * networks
-* 비밀
+* secrets
 * volumes
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage

@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: fd2b3a8a09ce69c07cc7d4715a4aaeacf64f0817
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 54743b191b0334c92c63f374d38870a7dbfd9a38
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200642"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749627"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
 스토리지 계정에 관리 디스크 또는 비관리 디스크로 저장되는 일반화된 VM(가상 머신)에서 관리 이미지 리소스를 만들 수 있습니다. 여러 VM을 만드는 데 이미지를 사용할 수 있습니다. 관리형 이미지의 청구 방법에 대한 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조하세요. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="generalize-the-windows-vm-using-sysprep"></a>Sysprep을 사용하여 Windows VM 일반화
 
@@ -44,7 +44,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 1. Windows VM에 로그인합니다.
    
-2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 %windir%\system32\sysprep로 변경한 후 `sysprep.exe`를 실행합니다.
+2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 %windir%\system32\sysprep으로 변경한 다음, `sysprep.exe`를 실행합니다.
    
 3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 시작**을 선택하고 **일반화** 확인란을 선택합니다.
    
@@ -54,7 +54,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
    
     ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
 
-6. Sysprep은 작업을 완료하면 VM을 종료합니다. VM을 다시 시작하지 않습니다.
+6. Sysprep은 작업을 완료하면 VM을 종료합니다. VM을 다시 시작하지 마세요.
 
 > [!TIP]
 > **선택 사항** [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) 을 사용 하 여 이미지를 최적화 하 고 VM의 첫 번째 부팅 시간을 줄입니다.
@@ -70,7 +70,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>포털에서 관리 이미지 만들기 
 
-1. [Azure Portal](https://portal.azure.com)을 엽니다.
+1. [Azure 포털](https://portal.azure.com)을 엽니다.
 
 2. 왼쪽 메뉴에서 **가상 머신**을 선택하고 목록에서 VM을 선택합니다.
 
@@ -94,7 +94,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>Powershell을 사용하여 VM 이미지 만들기
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+ 
 
 VM에서 직접 이미지를 만들면 OS 디스크와 데이터 디스크를 포함하여 VM에 연결된 모든 디스크가 이미지에 포함됩니다. 이 예제에서는 VM에서 관리되는 디스크를 사용하는 관리되는 이미지를 만드는 방법을 보여 줍니다.
 
@@ -126,7 +126,7 @@ VM 이미지를 만들려면 다음 단계를 수행합니다.
     Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
-4. 가상 컴퓨터를 가져옵니다. 
+4. 가상 머신을 가져옵니다. 
 
     ```azurepowershell-interactive
     $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName

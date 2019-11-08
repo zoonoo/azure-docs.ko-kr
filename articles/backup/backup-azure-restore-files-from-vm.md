@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: Azure VM 백업에서 파일 및 폴더 복구'
-description: Azure 가상 머신 복구 지점에서 파일 복구
+description: 이 문서에서는 Azure 가상 컴퓨터 복구 지점에서 파일 및 폴더를 복구 하는 방법에 대해 알아봅니다.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: df8e309ecb2a81205684c60076015f79ac8c4c8f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: c6b49e794011d915f8cd7b29e6317e80391f2675
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968477"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747377"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -186,7 +186,7 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 
 |서버 OS | 호환되는 클라이언트 OS  |
 | --------------- | ---- |
-| Windows Server 2016    | Windows 10 |
+| Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
 | Windows Server 2008 R2 | Windows 7   |
@@ -222,7 +222,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 이 섹션에서는 Azure 가상 컴퓨터 백업에서 파일 복구를 수행 하는 방법에 대해 설명 합니다. 디스크 수는 16 >, 각 디스크 크기는 2TB >
 
-파일 복구 프로세스는 백업에서 모든 디스크를 연결 하므로 많은 수의 디스크 (> 16) 또는 대량 디스크 > (각각 4 TB)의 경우에는 다음 동작 지점이 권장 됩니다.
+파일 복구 프로세스는 백업에서 모든 디스크를 연결 하므로 대량 디스크 수 (> 16) 또는 대량 디스크 > (각각 4 TB)를 사용 하는 경우 다음 작업을 수행 하는 것이 좋습니다.
 
 - 파일 복구를 위해 별도의 복원 서버 (Azure VM D2v3 Vm)를 유지 합니다. 파일 복구만 사용할 수 있으며 필요 하지 않은 경우에는 종료할 수 있습니다. VM 자체에 상당한 영향을 주므로 원래 컴퓨터에서 복원 하는 것은 권장 되지 않습니다.
 - 그런 다음 스크립트를 한 번 실행 하 여 파일 복구 작업이 성공 했는지 확인 합니다.
@@ -242,7 +242,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
 
 - 복원 서버가 Linux VM 인 경우
   - /Etc/iscsi/iscsid.conf 파일에서 설정을 변경 합니다.
-    - node.js [0]. timeo = 5 to node. conn [0]. timeo = 30
+    - node.js [0]. timeo. noop_out_timeout = 5 to node. conn [0]. timeo. noop_out_timeout = 30
 - 다음 작업을 수행한 후 스크립트를 다시 실행 합니다. 이러한 변경으로 파일 복구가 성공할 가능성이 높습니다.
 - 사용자가 스크립트를 다운로드할 때마다 다운로드를 위한 복구 지점을 준비 하는 프로세스를 시작 Azure Backup. 디스크가 큰 경우에는 상당한 시간이 소요 됩니다. 요청이 연속 해 서 발생 하는 경우 대상 준비가 다운로드 나선형으로 이동 합니다. 따라서 포털/Powershell/CLI에서 스크립트를 다운로드 하 고 20-30 분 (추론)을 기다린 다음 실행 하는 것이 좋습니다. 이 시점에서는 스크립트에서 대상에 연결할 준비가 된 것으로 예상 됩니다.
 - 파일 복구 후 포털로 돌아가서 볼륨을 탑재할 수 없는 복구 지점의 "디스크 분리"를 클릭 합니다. 기본적으로이 단계는 기존 프로세스/세션을 모두 정리 하 고 복구 가능성을 높입니다.

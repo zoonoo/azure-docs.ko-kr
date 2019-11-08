@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: a15d450d033c04c59f6981a887689f1fc08919f1
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 42c674e236d769d48f6f17fc43494ac006219a8a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958839"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795688"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 암호화 Azure Storage
 
@@ -26,7 +26,7 @@ Azure Storage 암호화는 모든 신규 및 기존 저장소 계정에 대해 �
 
 암호화는 Azure Storage 성능에 영향을 주지 않습니다. Azure Storage 암호화에 대 한 추가 비용은 없습니다.
 
-Azure Storage 암호화의 기본 암호화 모듈에 대 한 자세한 내용은 [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)을 참조하세요.
+암호화 Azure Storage 기본 암호화 모듈에 대 한 자세한 내용은 암호화 [API: 차세대](https://docs.microsoft.com/windows/desktop/seccng/cng-portal)을 참조 하세요.
 
 ## <a name="about-encryption-key-management"></a>암호화 키 관리 정보
 
@@ -40,7 +40,7 @@ Microsoft에서 관리 하는 키를 사용 하 여 저장소 계정의 암호�
 |                                        |    Microsoft에서 관리 하는 키                             |    고객 관리 키                                                                                                                        |    고객이 제공한 키                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    암호화/암호 해독 작업    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    지원 되는 Azure Storage 서비스    |    모두                                                |    Blob storage, Azure Files                                                                                                               |    Blob 스토리지                                                                  |
+|    지원 되는 Azure Storage 서비스    |    모두                                                |    Blob storage, Azure Files                                                                                                               |    Linux 사용자 그룹용 Azure Files는 Linux에서 File Storage를 평가하고 채택할 때 피드백을 공유할 수 있도록 포럼을 제공합니다.                                                                  |
 |    키 저장소                         |    Microsoft 키 저장소    |    Azure Key Vault                                                                                                                              |    Azure Key Vault 또는 다른 키 저장소                                                                 |
 |    키 회전 책임         |    Microsoft                                          |    고객                                                                                                                                     |    고객                                                                      |
 |    키 사용                           |    Microsoft                                          |    Azure Portal, 저장소 리소스 공급자 REST API, Azure Storage 관리 라이브러리, PowerShell, CLI        |    Azure Storage REST API (Blob Storage), Azure Storage 클라이언트 라이브러리    |
@@ -74,7 +74,7 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장 해야 합니다. 
 
 저장소 계정에서 고객이 관리 하는 키에 대 한 액세스를 취소 하려면 [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) 및 [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault)를 참조 하세요. 액세스를 취소 하면 Azure Storage 의해 암호화 키에 액세스할 수 없으므로 저장소 계정의 모든 데이터에 대 한 액세스가 효과적으로 차단 됩니다.
 
-[Azure managed disks](../../virtual-machines/windows/managed-disks-overview.md)에는 고객 관리 키가 지원 되지 않습니다.
+고객 관리 키를 Azure managed disks에서 공개 미리 보기로 사용할 수도 있습니다. 고객 관리 키는 나머지 저장소 보다는 관리 디스크에 대해 약간 다르게 작동 합니다. 자세한 내용은 [주제에](../../virtual-machines/linux/disk-encryption.md#customer-managed-keys-public-preview)대 한 문서를 참조 하세요.
 
 Azure Storage에서 고객 관리 키를 사용 하는 방법을 알아보려면 다음 문서 중 하나를 참조 하세요.
 
@@ -198,7 +198,7 @@ Azure Storage 암호화를 사용 하 여 Azure 가상 머신 디스크를 반�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure 키 자격 증명 모음이란?](../../key-vault/key-vault-overview.md)
+- [Azure Key Vault란?](../../key-vault/key-vault-overview.md)
 - [Azure Portal에서 Azure Storage 암호화를 위해 고객이 관리하는 키 구성](storage-encryption-keys-portal.md)
 - [PowerShell에서 Azure Storage 암호화용 고객 관리형 키 구성](storage-encryption-keys-powershell.md)
 - [Azure CLI에서 Azure Storage 암호화용 고객 관리형 키 구성](storage-encryption-keys-cli.md)

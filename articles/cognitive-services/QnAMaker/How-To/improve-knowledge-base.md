@@ -1,7 +1,7 @@
 ---
 title: 기술 자료 개선 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 활성 학습을 사용하면 사용자가 제출한 정보에 따라 질문과 대답 쌍에 대체 질문을 제안하여 기술 자료 품질을 개선할 수 있습니다. 이 제안을 검토한 다음 기존 질문에 추가하거나 거부합니다. 기술 자료가 자동으로 변경되지는 않습니다. 변경 내용을 적용 하려면 제안 사항에 동의 해야 합니다. 해당 제안과 질문을 수락해도 기존 질문이 변경되거나 제거되지는 않습니다.
+description: 활성 학습을 사용 하 여 기술 자료의 품질을 향상 시킵니다. 기존 질문을 제거 하거나 변경 하지 않고 검토, 수락 또는 거부, 추가 합니다.
 author: diberry
 manager: nitinme
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 83d60487922e3355aab8e34f6a8409c529901d14
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: add4bbead880fb9b74d342abc1d4b3c0e9475fad
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328026"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721186"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>활성 학습을 사용하여 기술 자료 개선
 
@@ -71,7 +71,7 @@ QnA Maker의 암시적 피드백은 알고리즘을 사용 하 여 점수의 유
 
 1. QnA Maker 서비스를 찾은 다음 **활성 학습**을 설정 상태로 전환합니다. 
 
-    [![ 서비스 설정 페이지에서 활성 학습 기능을 설정/해제 합니다. 기능을 설정/해제할 수 없는 경우 서비스를 업그레이드 해야 할 수 있습니다.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![서비스 설정 페이지에서 활성 학습 기능을 설정/해제 합니다. 기능을 설정/해제할 수 없는 경우 서비스를 업그레이드 해야 할 수 있습니다.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     > [!Note]
     > 이전 이미지의 정확한 버전은 예제로만 표시 됩니다. 버전이 다를 수 있습니다. 
@@ -84,15 +84,15 @@ QnA Maker의 암시적 피드백은 알고리즘을 사용 하 여 점수의 유
 
 1. 제안 된 질문을 보려면 기술 자료 **편집** 페이지에서 **보기 옵션**을 선택한 다음 **활성 학습 제안 표시**를 선택 합니다. 
 
-    [![ 포털의 편집 섹션에서 제안 표시를 선택 하 여 활성 학습의 새로운 대체 질문을 확인 합니다.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [포털의 편집 섹션에서 활성 학습의 새로운 질문을 확인 하려면 제안 표시를 선택 합니다. ![](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. 질문과 대답 쌍으로 기술 자료를 필터링 하 여 제안 **별로 필터링**을 선택 하 여 제안을 표시 합니다.
 
-    [@no__t--제안 별 필터 설정/해제를 사용 하 여 활성 학습의 제안 된 질문에 대 한 대체 유형만 표시 합니다.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [제안 별 필터 설정/해제를 사용 하 여 활성 학습의 권장 되는 질문에 대 한 대체 유형만 표시 합니다. ![](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. 각 QnA 쌍은 질문을 수락 하거나 `x`을 사용 하 여 제안을 거부 하는 확인 @no__t 표시로 새로운 질문을 제안 합니다. 질문을 추가하려면 확인 표시를 선택합니다. 
+1. 각 QnA 쌍은 질문을 수락 하거나 `x` 제안을 거부 하기 위해 확인 표시를 사용 하는 새로운 질문 (`✔`)을 제안 합니다. 질문을 추가하려면 확인 표시를 선택합니다. 
 
-    [@no__t 녹색 확인 표시 또는 빨간색 삭제 표시를 선택 하 여 활성 학습의 제안 된 질문 대체를 선택 하거나 거부 합니다.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [녹색 확인 표시 또는 빨간색 삭제 표시를 선택 하 여 활성 학습의 제안 된 질문의 대안을 선택 하거나 거부할 ![.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     상황별 도구 모음에서 모두 **추가** 또는 **모두 거부** 를 선택 하 여 _모든 제안을_ 추가 하거나 삭제할 수 있습니다.
 
@@ -109,7 +109,7 @@ QnA Maker의 암시적 피드백은 알고리즘을 사용 하 여 점수의 유
 
 봇 또는 다른 클라이언트 응용 프로그램은 다음 아키텍처 흐름을 사용 하 여 활성 학습을 사용 해야 합니다.
 
-* Bot `top` 속성을 사용 하 여 [기술 자료에서](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) GENERATEANSWER API를 사용 하 여 답변을 가져와 많은 대답을 가져옵니다.
+* Bot `top` 속성을 사용 하 여 [기술 자료에서](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) GENERATEANSWER API를 사용 하 여 답변을 확인 하 고 많은 대답을 가져옵니다.
 * 봇은 명시적인 피드백을 결정 합니다.
     * [사용자 고유의 사용자 지정 비즈니스 논리](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user)를 사용 하 여 낮은 점수를 필터링 합니다.
     * 봇 또는 클라이언트 응용 프로그램에서 사용자에 게 가능한 답변 목록을 표시 하 고 사용자가 선택한 대답을 가져옵니다.
@@ -130,7 +130,7 @@ QnA Maker의 암시적 피드백은 알고리즘을 사용 하 여 점수의 유
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>비즈니스 논리와 함께 점수 속성을 사용 하 여 사용자 표시에 대 한 답변 목록 가져오기
 
-클라이언트 응용 프로그램 (예: 채팅 봇)이 응답을 받으면 상위 3 개의 질문이 반환 됩니다. @No__t-0 속성을 사용 하 여 점수 사이의 유사성을 분석 합니다. 이러한 근접 범위는 사용자 고유의 비즈니스 논리에 의해 결정 됩니다. 
+클라이언트 응용 프로그램 (예: 채팅 봇)이 응답을 받으면 상위 3 개의 질문이 반환 됩니다. `score` 속성을 사용 하 여 점수 간의 유사성을 분석 합니다. 이러한 근접 범위는 사용자 고유의 비즈니스 논리에 의해 결정 됩니다. 
 
 ```json
 {
@@ -186,21 +186,21 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|name|Type|용도|
+|HTTP 요청 속성|Name|형식|목적|
 |--|--|--|--|
-|URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
-|사용자 지정 하위 도메인|QnAMaker 리소스 이름|문자열|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. @No__t-0으로 나열 됩니다.|
-|헤더|콘텐츠 형식|문자열|API로 전송되는 본문의 미디어 유형입니다. 기본값은 `application/json`입니다.|
-|헤더|권한 부여|문자열|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
+|URL 경로 매개 변수|기술 자료 ID|string|기술 자료를 위한 GUID입니다.|
+|사용자 지정 하위 도메인|QnAMaker 리소스 이름|string|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. `host`으로 나열 됩니다.|
+|헤더|콘텐츠 형식|string|API로 전송되는 본문의 미디어 유형입니다. 기본값은 `application/json`입니다.|
+|헤더|권한 부여|string|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
 |본문 게시|JSON 개체|JSON|학습 피드백|
 
 JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
 
-|JSON 본문 속성|Type|용도|
+|JSON 본문 속성|형식|목적|
 |--|--|--|--|
 |`feedbackRecords`|array|사용자 의견 목록입니다.|
-|`userId`|문자열|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. 선택 사항입니다.|
-|`userQuestion`|문자열|사용자 쿼리의 정확한 텍스트입니다. 필수 사항입니다.|
+|`userId`|string|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. 선택 사항입니다.|
+|`userQuestion`|string|사용자 쿼리의 정확한 텍스트입니다. 필수입니다.|
 |`qnaID`|number|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
 
 예제 JSON 본문은 다음과 같습니다.
@@ -370,7 +370,7 @@ async callTrain(stepContext){
 
 앱에서 활성 학습을 사용 하도록 설정 하 고 앱을 내보내는 경우 tsv 파일의 `SuggestedQuestions` 열은 활성 학습 데이터를 유지 합니다. 
 
-@No__t-0 열은 암시적, `autosuggested` 및 명시적 `usersuggested` 피드백에 대 한 정보의 JSON 개체입니다. @No__t-0의 단일 사용자 전송 질문에 대 한이 JSON 개체의 예는 다음과 같습니다.
+`SuggestedQuestions` 열은 암시적, `autosuggested`및 명시적인 `usersuggested` 피드백 정보에 대 한 JSON 개체입니다. 사용자가 제출한 단일 사용자 `help` 질문에 대 한이 JSON 개체의 예는 다음과 같습니다.
 
 ```JSON
 [

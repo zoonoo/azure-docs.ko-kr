@@ -1,7 +1,7 @@
 ---
 title: 사용자 지정 하위 도메인
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Azure Portal, Azure Cloud Shell 또는 Azure CLI를 통해 생성 된 각 리소스에 대해 사용자 지정 하위 도메인 이름을 사용 합니다. 특정 Azure 지역에 있는 모든 고객에 게 공통적인 지역 끝점과 달리 사용자 지정 하위 도메인 이름은 리소스에 대해 고유 합니다. 사용자 지정 하위 도메인 이름은 인증을 위해 Azure AD (Azure Active Directory)와 같은 기능을 사용 하도록 설정 하는 데 필요 합니다.
+description: 각 인지 서비스 리소스에 대 한 사용자 지정 하위 도메인 이름은 Azure Portal, Azure Cloud Shell 또는 Azure CLI를 통해 생성 됩니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 7153735052f96bef65bf3daaccde4eab3e61b0f9
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 108e5ebfa34db711af4ff33cbf4fbba897b8947d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68473089"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647689"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Cognitive Services에 대 한 사용자 지정 하위 도메인 이름
 
@@ -51,7 +51,7 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 
 ## <a name="what-are-the-requirements-for-a-custom-subdomain-name"></a>사용자 지정 하위 도메인 이름에 대 한 요구 사항은 무엇 인가요?
 
-사용자 지정 하위 도메인 이름은 리소스에 대해 고유 합니다. 이름에는 영숫자 문자와 `-` 문자만 사용할 수 있습니다 .이 이름은 2 ~ 007e; 64 자 사이 여야 하며 `-`로 끝날 수 없습니다.
+사용자 지정 하위 도메인 이름은 리소스에 대해 고유 합니다. 이름에는 영숫자 문자와 `-` 문자만 포함할 수 있습니다. 길이는 2 ~ 64 자 사이 여야 하며 `-`로 끝날 수 없습니다.
 
 ## <a name="can-i-change-a-custom-domain-name"></a>사용자 지정 도메인 이름을 변경할 수 있나요?
 
@@ -68,35 +68,35 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 > [!NOTE]
 > Translator Text API 및 Bing Search API는 전역 끝점을 사용 합니다.
 
-| 엔드포인트 유형 | Region | 엔드포인트 |
+| 엔드포인트 유형 | 지역 | 엔드포인트 |
 |---------------|--------|----------|
-| Public | 전역 (Translator Text & Bing) | `https://api.cognitive.microsoft.com` |
+| 공용 | 전역 (Translator Text & Bing) | `https://api.cognitive.microsoft.com` |
 | | 오스트레일리아 동부 | `https://australiaeast.api.cognitive.microsoft.com` |
 | | 브라질 남부 | `https://brazilsouth.api.cognitive.microsoft.com` |
 | | 캐나다 중부 | `https://canadacentral.api.cognitive.microsoft.com` |
 | | 미국 중부 | `https://centralus.api.cognitive.microsoft.com` |
-| | 아시아 동부 | `https://eastasia.api.cognitive.microsoft.com` |
-| | East US | `https://eastus.api.cognitive.microsoft.com` |
+| | 동아시아 | `https://eastasia.api.cognitive.microsoft.com` |
+| | 미국 동부 | `https://eastus.api.cognitive.microsoft.com` |
 | | 미국 동부 2 | `https://eastus2.api.cognitive.microsoft.com` |
 | | 프랑스 중부 | `https://francecentral.api.cognitive.microsoft.com` |
 | | 인도 중부 | `https://centralindia.api.cognitive.microsoft.com` |
 | | 일본 동부 | `https://japaneast.api.cognitive.microsoft.com` |
 | | 한국 중부 | `https://koreacentral.api.cognitive.microsoft.com` |
 | | 미국 중북부 | `https://northcentralus.api.cognitive.microsoft.com` |
-| | 유럽 북부 | `https://northeurope.api.cognitive.microsoft.com` |
-| | 남아프리카 북부 | `https://southafricanorth.api.cognitive.microsoft.com` |
+| | 북유럽 | `https://northeurope.api.cognitive.microsoft.com` |
+| | 남아프리카 공화국 북부 | `https://southafricanorth.api.cognitive.microsoft.com` |
 | | 미국 중남부 | `https://southcentralus.api.cognitive.microsoft.com` |
 | | 동남아시아 | `https://southeastasia.api.cognitive.microsoft.com` |
 | | 영국 남부 | `https://uksouth.api.cognitive.microsoft.com` |
 | | 미국 중서부 | `https://westcentralus.api.cognitive.microsoft.com` |
-| | 유럽 서부 | `https://westeurope.api.cognitive.microsoft.com` |
+| | 서유럽 | `https://westeurope.api.cognitive.microsoft.com` |
 | | 미국 서부 | `https://westus.api.cognitive.microsoft.com` |
 | | 미국 서부 2 | `https://westus2.api.cognitive.microsoft.com` |
-| US Gov | US Gov 버지니아 | `https://virginia.api.cognitive.microsoft.us` |
+| 미국 정부 | 미국 정부 버지니아 | `https://virginia.api.cognitive.microsoft.us` |
 | 중국 | 중국 동부 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | 중국 북부 | `https://chinanorth.api.cognitive.azure.cn` |
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 * [Cognitive Services은 무엇 인가요?](Welcome.md)
 * [인증](authentication.md)

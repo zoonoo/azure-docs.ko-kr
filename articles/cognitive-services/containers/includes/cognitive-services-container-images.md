@@ -6,14 +6,14 @@ manager: nitinme
 description: 모든 인지 서비스 제공에 대 한 컨테이너 레지스트리, 리포지토리 및 이미지 이름을 나타내는 두 테이블
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: c1593cb3dad7ee1370a66747fa3fe47e93c19957
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: c2e1707c6d757b2bf568f413ce2ab9f7a28ab6e4
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499190"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604427"
 ---
 ### <a name="container-repositories-and-images"></a>컨테이너 리포지토리 및 이미지
 
@@ -40,5 +40,9 @@ Container Preview 레지스트리는 Cognitive Services에 대해 공개적으�
 | [Computer Vision](../../Computer-vision/computer-vision-how-to-install-containers.md) | 읽기 | `containerpreview.azurecr.io/microsoft/cognitive-services-read` |
 | [Face](../../face/face-how-to-install-containers.md) | Face | `containerpreview.azurecr.io/microsoft/cognitive-services-face` |
 | [폼 인식기](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) | Form Recognizer | `containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer` |
-< < < < < < < 헤드 | [Speech SERVICE API](../../speech-service/speech-container-howto.md?tab=stt) | 음성 텍스트 | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` | | [Speech SERVICE API](../../speech-service/speech-container-howto.md?tab=cstt) | Custom Speech-텍스트 | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` | | [Speech SERVICE API](../../speech-service/speech-container-howto.md?tab=tts) | 텍스트 음성 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` | | [Speech SERVICE API](../../speech-service/speech-container-howto.md?tab=ctts) | 사용자 지정 텍스트 음성 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` | ======= | [Speech SERVICE API](../../speech-service/speech-container-howto.md) | 음성 텍스트 | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` | | [Speech SERVICE API](../../speech-service/speech-container-howto.md) | 텍스트 음성 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` | | [Translator Text](../../translator/how-to-install-containers.md) | Translator Text | `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` |
->>>>>>> refs/원격/MicrosoftDocs/master
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=stt) | 음성 텍스트 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-text` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=cstt) | Custom Speech 텍스트 | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=tts) | 텍스트 음성 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
+| [Speech Service API](../../speech-service/speech-container-howto.md?tab=ctts) | 사용자 지정 텍스트 음성 변환 | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
+| [Translator Text](../../translator/how-to-install-containers.md) | Translator Text | `containerpreview.azurecr.io/microsoft/cognitive-services-translator-text` |
+

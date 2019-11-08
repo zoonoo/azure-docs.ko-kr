@@ -1,7 +1,7 @@
 ---
 title: 단순 엔터티 형식-LUIS
 titleSuffix: Azure Cognitive Services
-description: 단순 엔터티는 단일 개념을 설명하고 기계 학습 컨텍스트에서 학습되는 일반 엔터티입니다. 단순한 엔터티는 일반적으로 회사 이름, 제품 이름 또는 다른 이름 범주와 같은 이름을 사용 하므로 간단한 엔터티를 사용 하 여 사용 되는 이름의 신호를 상승 시킬 때 구 목록을 추가 합니다.
+description: 간단한 엔터티는 컴퓨터에서 학습 한 컨텍스트의 단일 개념을 설명 합니다. 간단한 엔터티를 사용 하 여 결과를 개선할 때 구 목록을 추가 합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: 2eb3ff847f9bfc162adfb281d2ac1fad6f8c5093
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 27eb4d827c1488b0d051505e62286fd66d6a286b
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695123"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73671512"
 ---
 # <a name="simple-entity"></a>단순 엔터티 
 
@@ -51,7 +51,7 @@ ms.locfileid: "71695123"
 
 #### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
 
-쿼리 문자열에 `verbose=false`이 설정 된 경우이는 JSON입니다.
+쿼리 문자열에 `verbose=false` 설정 된 경우이 JSON은 다음과 같습니다.
 
 ```json
 "entities": {

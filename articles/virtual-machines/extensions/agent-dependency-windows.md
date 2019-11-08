@@ -14,22 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: b6b1292e4c8874da826740d303cd0de26f9f46ee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b2a86ffab0286559cfcce89252c889c530f00871
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092766"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750104"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Windows 용 Azure Monitor 종속성 가상 머신 확장
 
 VM용 Azure Monitor 맵 기능은 Microsoft Dependency Agent에서 해당 데이터를 가져옵니다. Windows 용 Azure VM 종속성 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원 합니다. 확장은 Azure virtual machines에 종속성 에이전트를 설치 합니다. 이 문서에서는 Windows 용 Azure VM 종속성 에이전트 가상 머신 확장에 대해 지원 되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-### <a name="operating-system"></a>운영 체제
+## <a name="operating-system"></a>운영 체제
 
 Windows 용 Azure VM 종속성 에이전트 확장은 VM용 Azure Monitor 배포 문서의 [지원 되는 운영 체제](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) 섹션에 나열 된 지원 되는 운영 체제에 대해 실행할 수 있습니다.
 
@@ -75,10 +71,10 @@ Windows 용 Azure VM 종속성 에이전트 확장은 VM용 Azure Monitor 배포
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 |
+| Name | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
-| publisher | Microsoft.Azure.Monitoring.DependencyAgent |
+| publisher | DependencyAgent. |
 | type | DependencyAgentWindows |
 | typeHandlerVersion | 9.5 |
 
@@ -109,7 +105,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure VM 확장을 배포할 
 }
 ```
 
-템플릿의 루트에 JSON 확장을 저장 하면 리소스 이름에 부모 가상 머신에 대 한 참조가 포함 됩니다. 형식에 중첩 된 구성을 반영합니다.
+템플릿의 루트에 JSON 확장을 저장 하면 리소스 이름에 부모 가상 머신에 대 한 참조가 포함 됩니다. 형식은 중첩 된 구성을 반영 합니다.
 
 ```json
 {

@@ -1,7 +1,7 @@
 ---
 title: 검토, 워크플로 및 작업 개념-Content Moderator
 titleSuffix: Azure Cognitive Services
-description: 검토, 워크플로 및 작업에 대 한 자세한 정보
+description: 이 문서에서는 검토 도구의 핵심 개념에 대해 설명 합니다. 검토, 워크플로 및 작업.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 917636c8ae339e06321c169979611f74276ca523
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 1aba86efb9ea76fbf060e80b47f9f2f6cdf8ee71
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043997"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744414"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>콘텐츠 중재 검토, 워크플로 및 작업
 
@@ -35,7 +35,7 @@ Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결�
 
 ### <a name="view-workflows"></a>워크플로 보기
 
-기존 워크플로를 보려면 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 로 이동 하 고 **설정**  > **워크플로**를 선택 합니다.
+기존 워크플로를 보려면 [검토 도구](https://contentmoderator.cognitive.microsoft.com/) 로 이동 하 고 **설정** > **워크플로**를 선택 합니다.
 
 ![기본 워크플로](images/default-workflow-listed.PNG)
 
@@ -66,7 +66,7 @@ Content Moderator은 기계 지원 조정을 사용자의 루프 기능과 결�
 
 워크플로 만들기 및 사용을 시작 하려면 [검토 도구 가이드](./review-tool-user-guide/workflows.md) 를 참조 하거나 프로그래밍 방식으로 작업을 수행 하는 방법을 알아보려면 [REST API 가이드](./try-review-api-workflow.md) 를 참조 하세요.
 
-## <a name="jobs"></a>교육
+## <a name="jobs"></a>작업
 
 중재 작업은 콘텐츠 조정, 워크플로 및 검토 기능을 위한 일종의 래퍼 역할을 합니다. 작업은 Content Moderator 이미지 조정 API 또는 텍스트 중재 API를 사용 하 여 콘텐츠를 검색 한 다음 지정 된 워크플로를 사용 하 여 확인 합니다. 워크플로 결과에 따라 [검토 도구](./review-tool-user-guide/human-in-the-loop.md)에서 콘텐츠에 대 한 검토가 생성 되거나 생성 되지 않을 수 있습니다. 검토와 워크플로를 각각의 해당 Api를 사용 하 여 만들고 구성할 수 있지만 작업 API를 사용 하면 지정 된 콜백 끝점에 보낼 수 있는 전체 프로세스에 대 한 자세한 보고서를 가져올 수 있습니다.
 

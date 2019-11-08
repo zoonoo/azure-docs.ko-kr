@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: philmea
-ms.openlocfilehash: 533a199f75baa5a27ed06698f22d4d046be45507
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 173be8207df2f0128dfc9ae3c36aa3c3dc392bee
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607885"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748561"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>IoT Hub 고가용성 및 재해 복구
 
@@ -62,7 +62,7 @@ IoT Hub에 대한 장애 조치(failover) 작업이 완료되면 해당 디바�
 > [!CAUTION]
 > - 장애 조치(failover) 후에는 Event Hub 호환 이름 및 IoT Hub 기본 제공 이벤트 엔드포인트가 변경됩니다. 이벤트 허브 클라이언트나 이벤트 프로세서 호스트를 사용하여 기본 제공 엔드포인트로부터 원격 분석 메시지를 수신할 때는 [IoT Hub 연결 문자열](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint)을 사용하여 연결을 설정해야 합니다. 이를 통해 장애 조치(failover) 후에 수동 개입 없이 백엔드 애플리케이션이 계속 작동하게 됩니다. 백엔드 애플리케이션에서 직접 Event Hub 호환 이름과 엔드포인트를 사용할 경우, 계속 작동하려면 장애 조치(failover) 후 [새 Event Hub 호환 이름 및 엔드포인트를 페치하여](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) 애플리케이션을 다시 구성해야 합니다.
 >
-> - 저장소로 라우팅할 때 저장소 컨테이너를 등록 한 다음이를 반복 하 여 파티션을 가정 하지 않고 모든 컨테이너를 읽도록 합니다. Microsoft에서 시작한 장애 조치 (failover) 또는 수동 장애 조치 (failover) 중에 파티션 범위가 변경 될 수 있습니다. Blob 목록을 열거 하는 방법을 알아보려면 [Azure storage로 라우팅](iot-hub-devguide-messages-d2c.md#azure-storage)을 참조 하세요.
+> - 저장소로 라우팅할 때 blob 또는 파일을 나열 하 고이를 반복 하 여 파티션을 가정 하지 않고 모든 blob 또는 파일을 읽을 수 있습니다. Microsoft에서 시작한 장애 조치 (failover) 또는 수동 장애 조치 (failover) 중에 파티션 범위가 변경 될 수 있습니다. [목록 BLOB api](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 를 사용 하 여 파일 목록에 대 한 Blob 또는 [목록 ADLS Gen2 api](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) 목록을 열거할 수 있습니다. 
 
 ## <a name="microsoft-initiated-failover"></a>Microsoft 시작 장애 조치
 

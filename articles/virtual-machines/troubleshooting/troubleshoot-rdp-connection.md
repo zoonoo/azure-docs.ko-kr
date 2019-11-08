@@ -15,19 +15,19 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/23/2018
 ms.author: akjosh
-ms.openlocfilehash: 0a88c1e4d357f2919635e36a223e79b0407c0b8b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: d3ad0e6d88ed849074989dc36698c01209921449
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168757"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749686"
 ---
 # <a name="troubleshoot-remote-desktop-connections-to-an-azure-virtual-machine"></a>Azure 가상 머신에 대한 원격 데스크톱 연결 문제 해결
 Windows 기반 Azure VM(가상 머신)에 RDP(원격 데스크톱 프로토콜) 연결은 여러 이유로 실패하여 VM에 액세스하지 못할 수 있습니다. 이러한 문제는 VM의 원격 데스크톱 서비스, 네트워크 연결 또는 호스트 컴퓨터의 원격 데스크톱 클라이언트에서 발생할 수 있습니다. 이 문서는 RDP 연결 문제를 해결하기 위한 가장 일반적인 방법 중 일부를 안내합니다. 
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 <a id="quickfixrdp"></a>
 
@@ -86,7 +86,7 @@ Resource Manager 배포 모델을 사용하여 만든 VM 문제를 다음 방법
     ![Azure Portal에서 사용자 자격 증명 다시 설정](./media/troubleshoot-rdp-connection/reset-password.png)
 7. **VM 다시 시작**. 이 문제 해결 단계에서는 VM 자체의 기본 문제를 해결할 수 있습니다.
    
-    Azure Portal에서 VM을 선택하고 **개요** 탭을 클릭합니다. **다시 시작** 단추를 클릭합니다.
+    Azure Portal에서 VM을 선택 하 고 **개요** 탭을 클릭 합니다. **다시 시작** 단추를 클릭 합니다.
    
     ![Azure Portal에서 VM을 다시 시작합니다.](./media/troubleshoot-rdp-connection/restart-vm.png)
 8. **VM 다시 배포**. 이 문제 해결 단계에서는 Azure 내의 다른 호스트에 VM을 다시 배포하여 기본 플랫폼 또는 네트워킹 문제를 해결합니다.
@@ -115,7 +115,7 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
 
 1. **RDP 연결 다시 설정**. 이 문제 해결 단계에서는 원격 연결을 사용할 수 없거나 Windows 방화벽 규칙이 RDP를 차단하는 경우에 RDP 구성을 다시 설정합니다.
    
-    다음 예제에서는 `WestUS` 위치에 있는 `myVM`이라는 VM과 `myResourceGroup`이라는 리소스 그룹에서 RDP 연결을 다시 설정합니다.
+    다음 예제에서는 `myVM` 위치에 있는 `WestUS`이라는 VM과 `myResourceGroup`이라는 리소스 그룹에서 RDP 연결을 다시 설정합니다.
    
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
@@ -123,7 +123,7 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
     ```
 2. **네트워크 보안 그룹 규칙 확인**. 이 문제 해결 단계에서는 네트워크 보안 그룹에 RDP 트래픽을 허용하는 규칙이 있는지 확인합니다. RDP의 기본 포트는 TCP 포트 3389입니다. VM을 만들 때 RDP 트래픽을 허용하는 규칙이 자동으로 생성되지 않을 수도 있습니다.
    
-    첫째, 네트워크 보안 그룹의 모든 구성 데이터를 `$rules` 변수에 할당합니다. 다음 예제에서는 리소스 그룹 `myResourceGroup`의 네트워크 보안 그룹 `myNetworkSecurityGroup`에 대한 정보를 가져옵니다.
+    첫째, 네트워크 보안 그룹의 모든 구성 데이터를 `$rules` 변수에 할당합니다. 다음 예제에서는 리소스 그룹 `myNetworkSecurityGroup`의 네트워크 보안 그룹 `myResourceGroup`에 대한 정보를 가져옵니다.
    
     ```powershell
     $rules = Get-AzNetworkSecurityGroup -ResourceGroupName "myResourceGroup" `
@@ -163,7 +163,7 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
     $cred=Get-Credential
     ```
    
-    이제 VM의 자격 증명을 업데이트합니다. 다음 예제에서는 `WestUS` 위치에 있는 `myVM`이라는 VM과 `myResourceGroup`이라는 리소스 그룹에서 자격 증명을 업데이트합니다.
+    이제 VM의 자격 증명을 업데이트합니다. 다음 예제에서는 `myVM` 위치에 있는 `WestUS`이라는 VM과 `myResourceGroup`이라는 리소스 그룹에서 자격 증명을 업데이트합니다.
    
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" `
@@ -173,14 +173,14 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
     ```
 4. **VM 다시 시작**. 이 문제 해결 단계에서는 VM 자체의 기본 문제를 해결할 수 있습니다.
    
-    다음 예제에서는 리소스 그룹 `myResourceGroup`의 VM `myVM`을 다시 시작합니다.
+    다음 예제에서는 리소스 그룹 `myVM`의 VM `myResourceGroup`을 다시 시작합니다.
    
     ```powershell
     Restart-AzVM -ResourceGroup "myResourceGroup" -Name "myVM"
     ```
 5. **VM 다시 배포**. 이 문제 해결 단계에서는 Azure 내의 다른 호스트에 VM을 다시 배포하여 기본 플랫폼 또는 네트워킹 문제를 해결합니다.
    
-    다음 예제에서는 `WestUS` 위치에 있는 `myVM`이라는 VM과 `myResourceGroup`이라는 리소스 그룹을 다시 배포합니다.
+    다음 예제에서는 `myVM` 위치에 있는 `WestUS`이라는 VM과 `myResourceGroup`이라는 리소스 그룹을 다시 배포합니다.
    
     ```powershell
     Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -224,7 +224,7 @@ RDP 문제가 계속 발생하는 경우 [지원 요청을 열거나](https://az
     ![Azure Portal에서 사용자 자격 증명 다시 설정](./media/troubleshoot-rdp-connection/classic-reset-password.png)
 6. **VM 다시 시작**. 이 문제 해결 단계에서는 VM 자체의 기본 문제를 해결할 수 있습니다.
    
-    Azure Portal에서 VM을 선택하고 **개요** 탭을 클릭합니다. **다시 시작** 단추를 클릭합니다.
+    Azure Portal에서 VM을 선택 하 고 **개요** 탭을 클릭 합니다. **다시 시작** 단추를 클릭 합니다.
    
     ![Azure Portal에서 VM을 다시 시작합니다.](./media/troubleshoot-rdp-connection/classic-restart-vm.png)
 
@@ -238,10 +238,10 @@ RDP를 통해 VM에 연결하려고 할 때 특정 오류 메시지가 나타날
 * [라이선스를 제공할 수 있는 원격 데스크톱 라이선스 서버가 없으므로 원격 세션이 끊겼습니다](troubleshoot-specific-rdp-errors.md#rdplicense).
 * [원격 데스크톱에서 컴퓨터 "이름"을 찾을 수 없습니다](troubleshoot-specific-rdp-errors.md#rdpname).
 * [인증 오류가 발생했습니다. 로컬 보안 기관에 연결할 수 없습니다.](troubleshoot-specific-rdp-errors.md#rdpauth)
-* [Windows 보안 오류: 자격 증명이 작동하지 않았습니다](troubleshoot-specific-rdp-errors.md#wincred).
+* [Windows 보안 오류: 자격 증명이 작동하지 않습니다](troubleshoot-specific-rdp-errors.md#wincred).
 * [이 컴퓨터에서 원격 컴퓨터에 연결할 수 없습니다](troubleshoot-specific-rdp-errors.md#rdpconnect).
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 이러한 오류가 발생하지 않았는데도 여전히 원격 데스크톱을 통해 VM에 연결할 수 없는 경우 [원격 데스크톱에 대한 자세한 문제 해결 가이드](detailed-troubleshoot-rdp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 읽어보세요.
 * VM에서 실행 중인 애플리케이션에 액세스하는 문제 해결 단계는 [Azure VM에서 실행 중인 애플리케이션에 대한 액세스 문제 해결](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
 * SSH(Secure Shell)를 사용하여 Azur에서 Linux VM에 연결하는 데 문제가 있는 경우 [Azure에서 Linux VM에 SSH 연결 문제 해결](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.

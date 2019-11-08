@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: f411771fbf39a99642506253fc025d6b29840423
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 7d5a232d92c37a94ff427a3bf203f6f20764060e
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648636"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748586"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -23,7 +23,7 @@ Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트�
 
 ![Azure Event Grid 아키텍처](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
-## <a name="regional-availability"></a>지역별 가용성
+## <a name="regional-availability"></a>국가별 가용성
 
 Event Grid가지 원되는 지역의 IoT Hub에 대해 Event Grid 통합을 사용할 수 있습니다. 장치 원격 분석 이벤트를 제외한 모든 장치 이벤트는 일반적으로 사용할 수 있습니다. 장치 원격 분석 이벤트는 공개 미리 보기 상태 이며 미국 동부, 미국 서 부, 유럽 서부, [Azure Government](/azure/azure-government/documentation-government-welcome), [azure 중국 21Vianet](/azure/china)및 [azure 독일](https://azure.microsoft.com/global-infrastructure/germany/)을 제외한 모든 지역에서 사용할 수 있습니다. 최신 지역 목록을 보려면 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
 
@@ -31,13 +31,13 @@ Event Grid가지 원되는 지역의 IoT Hub에 대해 Event Grid 통합을 사�
 
 IoT Hub는 다음과 같은 이벤트 유형을 게시합니다.
 
-| 이벤트 유형 | Description |
+| 이벤트 유형 | 설명 |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | IoT 허브에 디바이스를 등록하는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDeleted | IoT 허브에서 디바이스를 삭제하는 경우 게시합니다. |
 | Microsoft.Devices.DeviceConnected | IoT Hub에 디바이스가 연결되는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDisconnected | IoT Hub와 디바이스의 연결이 해제되는 경우 게시합니다. |
-| Microsoft.Devices.DeviceTelemetry | 장치 원격 분석 메시지를 IoT hub로 보낼 때 게시 |
+| DeviceTelemetry | 장치 원격 분석 메시지를 IoT hub로 보낼 때 게시 |
 
 Azure Portal 또는 Azure 명령줄 인터페이스를 사용하여 각 IoT 허브에서 어떤 이벤트를 게시할지 구성할 수 있습니다. 한 예로 자습서 [Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기](../event-grid/publish-iot-hub-events-to-logic-apps.md)를 시도해 봅니다.
 
@@ -204,4 +204,4 @@ IoT Hub 이벤트를 처리하는 애플리케이션은 다음 권장 사항을 
 
 * [IoT Hub 이벤트 라우팅 및 메시지 간의 차이점 비교](iot-hub-event-grid-routing-comparison.md)
 
-* [IoT 원격 분석 이벤트를 사용 하 여 Azure Maps 및 IoT Hub 메시지 라우팅을 통해 IoT 공간 분석을 구현 하는 방법을 알아봅니다.](../azure-maps/tutorial-iot-hub-maps.md#filter-events-using-iot-hub-message-routing)
+* [IoT 원격 분석 이벤트를 사용 하 여 Azure Maps를 사용 하 여 IoT 공간 분석을 구현 하는 방법을 알아봅니다.](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)

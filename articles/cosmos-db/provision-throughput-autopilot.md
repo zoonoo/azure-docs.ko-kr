@@ -6,19 +6,19 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3e2d9b892ad42563b481a0b1fe6a468daefad672
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: e0c3c88119c3d064326442881854920b411f5ed4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606417"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748377"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Autopilot 모드에서 Azure Cosmos 컨테이너 및 데이터베이스 만들기 (미리 보기)
 
 Azure Cosmos DB를 사용 하면 수동 모드 또는 autopilot 모드에서 컨테이너에 대 한 처리량을 프로 비전 할 수 있습니다. 이 문서에서는 autopilot 모드의 이점 및 사용 사례에 대해 설명 합니다.
 
 > [!NOTE]
-> Autopilot 모드는 현재 공개 미리 보기에서 사용할 수 있습니다.
+> Autopilot 모드는 현재 공개 미리 보기에서 사용할 수 있습니다. Azure Cosmos 계정에 대 한 autopilot 기능을 사용 하도록 설정 하려면이 문서의 [autopilot 사용](#enable-autopilot) 섹션을 참조 하세요. 새 데이터베이스 및 컨테이너에 대해서만 autopilot을 사용 하도록 설정할 수 있으며, 기존 컨테이너 및 데이터베이스에 대해서는 사용할 수 없습니다.
 
 이제 처리량 수동 프로 비전 외에도 autopilot 모드에서 Azure cosmos 컨테이너를 구성할 수 있습니다. Autopilot 모드로 구성 된 Azure Cosmos 컨테이너 및 데이터베이스는 **sla를 손상 시 키 지 않고 응용 프로그램 요구 사항에 따라 프로 비전 된 처리량을 자동으로 조정 합니다.**
 
@@ -68,7 +68,7 @@ Autopilot 모드로 구성 된 Azure Cosmos 컨테이너에 대 한 사용 사�
 | **가격 책정** | 시간당 수동 프로 비전 된 r u/초 | 단일 쓰기 지역 계정의 경우 시간당 autopilot p s/s를 사용 하 여 시간 단위로 사용 되는 처리량에 대 한 비용을 지불 합니다. <br/><br/>여러 쓰기 지역이 있는 계정의 경우 autopilot에 대 한 추가 요금이 부과 되지 않습니다. 동일한 다중 마스터 r u/시간 급여를 사용 하 여 시간별로 사용 된 처리량에 대 한 비용을 지불 합니다. |
 | **작업 유형에 가장 적합 합니다.** |  예측 가능 하 고 안정적인 작업|   예측할 수 없는 작업 및 가변 작업  |
 
-## <a name="enable-autopilot-from-azure-portal"></a>Azure Portal에서 autopilot 사용
+## <a name="a-idenable-autopilot-enable-autopilot-from-azure-portal"></a>Azure Portal에서 autopilot을 사용 하도록 설정 <a id="enable-autopilot">
 
 Azure Portal에서를 사용 하 여 Azure Cosmos 계정에서 autopilot를 사용해 볼 수 있습니다. Autopilot 옵션을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
