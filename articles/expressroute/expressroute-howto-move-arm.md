@@ -1,5 +1,5 @@
 ---
-title: '클래식에서 Resource Manager로 회로 이동 - ExpressRoute: PowerShell: Azure | Microsoft Docs'
+title: '클래식에서 리소스 관리자로 회로 이동: PowerShell: Azure | Microsoft Docs'
 description: 이 페이지는 PowerShell을 사용하여 클래식 회로를 Resource Manager 배포 모델로 이동하는 방법을 설명합니다.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 11a84d4ced3232102d262352b84abe1f813e2406
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34dd7ed4c6352ed90793288f918d78b7fb07af80
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60365190"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748234"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>PowerShell을 사용하여 클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
 
@@ -21,9 +21,9 @@ ms.locfileid: "60365190"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
-* 클래식 및 Az Azure PowerShell 모듈을 모두 로컬로 설치한 컴퓨터에서 확인 합니다. 자세한 내용은 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
+* 클래식 및 Az Azure PowerShell 모듈을 모두 컴퓨터에 로컬로 설치 했는지 확인 합니다. 자세한 내용은 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요.
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토했는지 확인합니다.
 * [클래식에서 Resource Manager로 ExpressRoute 회로 이동](expressroute-move.md)에서 제공되는 정보를 검토합니다. 제한 및 제한 사항을 완전히 이해해야 합니다.
 * 클래식 배포 모델에서 회로가 완벽하게 작동되는지 확인합니다.
@@ -92,7 +92,7 @@ Resource Manager 환경에 로그인하고 새 리소스 그룹을 만듭니다.
 Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Location "West US" -ServiceKey "<Service-key>"
 ```
 
-클래식 모드에서 ExpressRoute 회로에는 지역에 연결되는 개념이 없습니다. 그렇지만 Resource Manager에서 모든 리소스를 Azure 지역에 매핑해야 합니다. 이동 AzExpressRouteCircuit cmdlet에서 지정 된 지역 기술적으로 모든 지역 수 있습니다. 조직 용도로 피어링 위치를 가장 잘 나타내는 지역을 선택할 수 있습니다.
+클래식 모드에서 ExpressRoute 회로에는 지역에 연결되는 개념이 없습니다. 그렇지만 Resource Manager에서 모든 리소스를 Azure 지역에 매핑해야 합니다. AzExpressRouteCircuit cmdlet에 지정 된 지역은 기술적으로 모든 지역이 될 수 있습니다. 조직 용도로 피어링 위치를 가장 잘 나타내는 지역을 선택할 수 있습니다.
 
 > [!NOTE]
 > 이동이 완료되면 이전 cmdlet에 나열된 새 이름을 사용하여 리소스 주소를 지정합니다. 회로는 기본적으로 이름이 바뀝니다.

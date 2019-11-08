@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: e2faf444aa411f0e60f1b5c7b1f811abc2f6b63a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1825f9f0f5d525c0129341d800ca5949136ae633
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176678"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73750082"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux용 DSC 확장(Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -35,9 +35,9 @@ DSCForLinux 확장은 Microsoft에서 게시하고 지원합니다. 확장은 OM
 - Linux VM에 사용자 지정 DSC 모듈을 설치합니다(ExtensionAction 설치).
 - Linux VM에서 사용자 지정 DSC 모듈을 제거합니다(ExtensionAction 제거).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -60,11 +60,11 @@ DSCForLinux 확장을 사용하려면 대상 가상 머신이 인터넷에 연�
 
 * `FileUri`: (선택 사항, 문자열) MOF 파일/메타 MOF 파일/사용자 지정 리소스 ZIP 파일의 URI
 * `ResourceName`: (선택 사항, 문자열) 사용자 지정 리소스 모듈의 이름
-* `ExtensionAction`: (선택 사항, 문자열) 확장에서 수행할 작업을 지정합니다. 유효한 값은 Register, Push, Pull, Install, Remove입니다. 지정하지 않으면 기본적으로 푸시 작업으로 간주됩니다.
+* `ExtensionAction`: (선택 사항, 문자열) 확장에서 수행할 작업을 지정합니다. 유효한 값: Register, Push, Pull, Install, Remove. 지정하지 않으면 기본적으로 푸시 작업으로 간주됩니다.
 * `NodeConfigurationName`: (선택 사항, 문자열) 적용할 노드 구성의 이름
 * `RefreshFrequencyMins`: (선택 사항, 정수) DSC가 끌어오기 서버에서 구성을 가져오려고 시도하는 빈도(분)를 지정합니다. 
        끌어오기 서버의 구성이 대상 노드의 현재 구성과 다르면 보류 중인 저장소에 복사되고 적용됩니다.
-* `ConfigurationMode`: (선택 사항, 문자열) DSC에서 구성을 적용해야 하는 방법을 지정합니다. 유효한 값은 ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect입니다.
+* `ConfigurationMode`: (선택 사항, 문자열) DSC에서 구성을 적용해야 하는 방법을 지정합니다. 유효한 값: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect
 * `ConfigurationModeFrequencyMins`: (선택 사항, 정수) DSC에서 구성이 원하는 상태에 있는지 확인하는 빈도(분)를 지정합니다.
 
 > [!NOTE]

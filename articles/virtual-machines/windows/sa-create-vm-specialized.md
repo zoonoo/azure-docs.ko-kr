@@ -15,25 +15,25 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cc3c1d9352d9df44a51a917700c656055b8b8361
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cdbf55aae52cec9df1ba34cbeb34c67b8e5fc5d0
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088618"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749193"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>스토리지 계정의 특수한 VHD에서 VM 만들기
 
 Powershell을 사용하여 특수한 비관리 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD 복사본으로 사용자 계정, 애플리케이션 및 원본 VM의 기타 상태 데이터를 유지합니다. 
 
-두 가지가 있습니다.
+다음 두 가지 옵션을 사용할 수 있습니다.
 * [VHD 업로드](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [기존 Azure VM의 VHD 복사](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 
-## <a name="option-1-upload-a-specialized-vhd"></a>옵션 1: 특수 VHD 업로드
+## <a name="option-1-upload-a-specialized-vhd"></a>옵션 1: 특수한 VHD 업로드
 
 Hyper-V와 같은 온-프레미스 가상화 도구를 사용하여 만든 특수한 VM 또는 다른 클라우드에서 내보낸 VM에서 VHD를 업로드할 수 있습니다.
 
@@ -70,7 +70,7 @@ Get-AzStorageAccount
     New-AzResourceGroup -Name myResourceGroup -Location "West US"
     ```
 
-2. [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 이 리소스 그룹에 **mystorageaccount**라는 이름의 스토리지 계정을 만듭니다.
+2. **New-AzStorageAccount** cmdlet을 사용하여 이 리소스 그룹에 [mystorageaccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount)라는 이름의 스토리지 계정을 만듭니다.
    
     ```powershell
     New-AzStorageAccount -ResourceGroupName myResourceGroup -Name mystorageaccount -Location "West US" `
@@ -78,7 +78,7 @@ Get-AzStorageAccount
     ```
    
 ### <a name="upload-the-vhd-to-your-storage-account"></a>스토리지 계정에 VHD 업로드
-[Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 이미지를 업로드합니다. 이 예제에서는 `"C:\Users\Public\Documents\Virtual hard disks\"`에서 **myResourceGroup** 리소스 그룹의 **mystorageaccount**라는 스토리지 계정에 파일 **myVHD.vhd**를 업로드합니다. 파일은 **mycontainer**라는 컨테이너에 배치되고 새 파일 이름은 **myUploadedVHD.vhd**가 됩니다.
+[Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) cmdlet을 사용하여 스토리지 계정의 컨테이너에 이미지를 업로드합니다. 이 예제에서는 **에서** myResourceGroup`"C:\Users\Public\Documents\Virtual hard disks\"` 리소스 그룹의 **mystorageaccount**라는 스토리지 계정에 파일 **myVHD.vhd**를 업로드합니다. 파일은 **mycontainer**라는 컨테이너에 배치되고 새 파일 이름은 **myUploadedVHD.vhd**가 됩니다.
 
 ```powershell
 $rgName = "myResourceGroup"
@@ -109,7 +109,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 
 중복된 새 VM을 만들 때 사용할 다른 스토리지 계정에 VHD를 복사할 수 있습니다.
 
-### <a name="before-you-begin"></a>시작하기 전 주의 사항
+### <a name="before-you-begin"></a>시작하기 전에
 다음 사항을 확인합니다.
 
 * **원본 및 대상 스토리지 계정**에 대한 정보가 있습니다. 원본 VM의 경우 스토리지 계정 및 컨테이너 이름이 필요합니다. 일반적으로 컨테이너 이름은 **vhds**가 됩니다. 또한 대상 스토리지 계정도 있어야 합니다. 아직 없는 경우 포털(**모든 서비스** > 스토리지 계정 > 추가) 또는 [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/new-azstorageaccount) cmdlet을 사용하여 만들 수 있습니다. 
@@ -119,7 +119,7 @@ C:\Users\Public\Doc...  https://mystorageaccount.blob.core.windows.net/mycontain
 VM 할당을 취소하여 복사할 VHD를 해제합니다. 
 
 * **포털**: **가상 머신** > **myVM** > 중지를 클릭합니다.
-* **Powershell**: [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm)을 사용하여 **myResourceGroup** 리소스 그룹에서 **myVM**으로 명명된 VM을 중지(할당 취소)합니다.
+* **Powershell**: [new-azvm](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm) 를 사용 하 여 **Myvm**리소스 그룹에서 **myvm** 이라는 vm을 중지 (할당 취소) 합니다.
 
 ```powershell
 Stop-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -132,8 +132,8 @@ Azure Portal의 VM에 대한 **상태**가 **중지됨**에서 **중지됨(할�
 
 Azure 포털 또는 Azure PowerShell을 사용하여 URL을 가져옵니다.
 
-* **포털**: **모든 서비스** > **스토리지 계정** > *스토리지 계정* > **Blob**에 대한 **>** 를 클릭하면 원본 VHD 파일이 **vhds** 컨테이너에 있을 것입니다. 컨테이너의 **속성**을 클릭하고 레이블이 **URL**인 텍스트를 복사합니다. 원본 및 대상 컨테이너의 URL이 모두 필요합니다. 
-* **Powershell**: [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)을 사용하여 **myResourceGroup** 리소스 그룹에서 **myVM**으로 명명된 VM에 대한 정보를 가져옵니다. 결과에서 **Vhd Uri**에 대한 **Storage 프로필** 섹션을 살펴봅니다. Uri의 첫 번째 부분은 컨테이너에 대한 URL이고 마지막 부분은 VM에 대한 OS VHD 이름입니다.
+* **포털**: **>** **모든 서비스** > **스토리지 계정** > *스토리지 계정* > **Blob**을 클릭하면 원본 VHD 파일이 **vhds** 컨테이너에 있을 것입니다. 컨테이너의 **속성**을 클릭하고 레이블이 **URL**인 텍스트를 복사합니다. 원본 및 대상 컨테이너의 URL이 모두 필요합니다. 
+* **Powershell**: [new-azvm](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) 를 사용 하 여 **Myvm**리소스 그룹에서 **myvm** 이라는 vm에 대 한 정보를 가져옵니다. 결과에서 **Vhd Uri**에 대한 **Storage 프로필** 섹션을 살펴봅니다. Uri의 첫 번째 부분은 컨테이너에 대한 URL이고 마지막 부분은 VM에 대한 OS VHD 이름입니다.
 
 ```powershell
 Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
@@ -143,7 +143,7 @@ Get-AzVM -ResourceGroupName "myResourceGroup" -Name "myVM"
 원본 및 대상 스토리지 계정에 대한 액세스 키를 찾습니다. 액세스 키에 대한 자세한 내용은 [Azure Storage 계정 방법](../../storage/common/storage-create-storage-account.md)을 참조하세요.
 
 * **포털**: **모든 서비스** > **스토리지 계정** > *스토리지 계정* > **액세스 키**를 클릭합니다. **key1**로 레이블이 지정된 키를 복사합니다.
-* **Powershell**: [Get-AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey)를 사용하여 **myResourceGroup** 리소스 그룹에서 **mystorageaccount** 스토리지 계정에 대한 스토리지 키를 가져옵니다. **key1**로 레이블이 지정된 키를 복사합니다.
+* **Powershell**: [AzStorageAccountKey](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) 를 사용 하 여 **myresourcegroup**리소스 그룹의 **mystorageaccount** 저장소 계정에 대 한 저장소 키를 가져옵니다. **key1**로 레이블이 지정된 키를 복사합니다.
 
 ```powershell
 Get-AzStorageAccountKey -Name mystorageaccount -ResourceGroupName myResourceGroup
@@ -277,7 +277,7 @@ $vm = Add-AzVMNetworkInterface -VM $vmConfig -Id $nic.Id
     $vm = Set-AzVMOSDisk -VM $vm -Name $osDiskName -VhdUri $osDiskUri -CreateOption attach -Windows
     ```
 
-선택 사항: VM에 연결해야 하는 데이터 디스크가 있는 경우 데이터 VHD의 URL과 적절한 Lun(논리 단위 번호)을 사용하여 데이터 디스크를 추가합니다.
+선택 사항: VM에 연결해야 하는 데이터 디스크가 있는 경우 데이터 VHD의 URL과 적절한 LUN(논리 단위 번호)을 사용하여 데이터 디스크를 추가합니다.
 
 ```powershell
 $dataDiskName = $vmName + "dataDisk"

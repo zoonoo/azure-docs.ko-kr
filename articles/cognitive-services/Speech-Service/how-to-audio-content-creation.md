@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 8e3a76abe840a70ba7410855cde1d82ec96c28eb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 6ec98d1f7956ef1460909f62384a931400b596c4
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500875"
+ms.locfileid: "73579640"
 ---
 # <a name="audio-content-creation"></a>오디오 콘텐츠 만들기
 
@@ -29,7 +29,7 @@ ms.locfileid: "73500875"
 
 ![](media/audio-content-creation/audio-content-creation-diagram.jpg)
 
-1. 첫 번째 단계는 [Azure 계정을 만들고, 음성 리소스를 등록 하 고, 구독 키를 가져오는](#create-a-speech-resource)것입니다. 구독 키가 있으면이 키를 사용 하 여 음성 서비스를 호출 하 고 [오디오 콘텐츠 생성](https://aka.ms/audiocontentcreation)에 액세스할 수 있습니다.
+1. 첫 번째 단계는 [Azure 계정을 만들고, 음성 리소스를 등록 하 고, 구독 키를 가져오는](#create-a-speech-resource)것입니다. 구독 키를 받은 후에는이 키를 사용 하 여 음성 서비스를 호출 하 고 [오디오 콘텐츠 생성](https://aka.ms/audiocontentcreation)에 액세스할 수 있습니다.
 2. 일반 텍스트 또는 SSML를 사용 하 여 [오디오 튜닝 파일을 만듭니다](#create-an-audio-tuning-file) .
 3. 조정 하고자 하는 음성 및 언어를 선택 합니다. 오디오 콘텐츠 생성에는 모든 [Microsoft 텍스트 음성 변환 음성이](language-support.md#text-to-speech)포함 됩니다. 표준, 신경망 또는 고유한 사용자 지정 음성을 사용할 수 있습니다.
    >[!NOTE]
@@ -43,7 +43,7 @@ ms.locfileid: "73500875"
 
 음성 리소스를 만들고 Speech Studio와 연결 하려면 다음 단계를 수행 합니다.
 
-1. 다음 지침에 따라 [Azure 계정에 등록 하 고 음성 리소스를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). 가격 책정 계층이 **S0**로 설정 되었는지 확인 합니다. 신경망 중 하나를 사용 하는 경우 [지원 되는 지역](regions.md#standard-and-neural-voices)에서 리소스를 만들어야 합니다.
+1. 다음 지침에 따라 [Azure 계정에 등록](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) 하 고 [음성 리소스를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). 가격 책정 계층이 **S0**로 설정 되었는지 확인 합니다. 신경망 중 하나를 사용 하는 경우 [지원 되는 지역](regions.md#standard-and-neural-voices)에서 리소스를 만들어야 합니다.
 2. [오디오 콘텐츠 생성](https://aka.ms/audiocontentcreation)에 로그인 합니다.
 3. 기존 프로젝트를 선택 하거나 **새로 만들기**를 클릭 합니다.
 4. 위쪽 탐색 창에 있는 **설정** 옵션을 사용 하 여 언제 든 지 구독을 수정할 수 있습니다.

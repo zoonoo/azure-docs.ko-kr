@@ -1,7 +1,7 @@
 ---
 title: 컨테이너 구성 - Computer Vision
 titleSuffix: Azure Cognitive Services
-description: Computer Vision에서 텍스트 인식 컨테이너에 대한 다양한 설정을 구성합니다.
+description: 이 문서에서는 Computer Vision의 텍스트 인식 컨테이너에 대해 필수 설정과 선택적 설정을 모두 구성 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 1df8199abbbc195db873ab3da515cb1dd5fe9761
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ddbee3695c2a7ef7cb63c48cccacbd2d53a8c1a9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484084"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718978"
 ---
 # <a name="configure-computer-vision-docker-containers"></a>Computer Vision Docker 컨테이너 구성
 

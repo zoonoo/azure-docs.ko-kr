@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 7bb4e507df24f50238197b738fd54e6b5c1d05ee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 6ce5a93cdd44af7f199d59d459daa46b4adb0719
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571169"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748046"
 ---
-# <a name="use-azure-iot-tools-for-visual-studio-code"></a>Visual Studio Code 용 Azure IoT 도구 사용
+# <a name="use-visual-studio-and-visual-studio-code-to-build-iot-plug-and-play-devices"></a>Visual Studio 및 Visual Studio Code를 사용 하 여 IoT 플러그 앤 플레이 장치 빌드
 
 Visual Studio Code 용 Azure IoT 도구는 DCM (장치 기능 모델) 및 인터페이스를 작성 하 고, 모델 리포지토리에 게시 하 고, 기본 C 코드를 생성 하 여 장치 응용 프로그램을 구현 하는 통합 환경을 제공 합니다.
 
@@ -69,7 +69,7 @@ VS Code에서 **Ctrl + Shift + P** 를 사용 하 여 명령 팔레트를 열고
 
 코드 생성이 완료 되 면 확장은 코드를 사용 하 여 새 VS Code 창을 엽니다. **기본 .c**와 같은 생성 된 파일을 열면 IntelliSense에서 c SDK 원본 파일을 열 수 없다고 보고 하는 것을 알 수 있습니다. 올바른 IntelliSense 및 코드 탐색을 사용 하도록 설정 하려면 다음 단계를 사용 하 여 C SDK 원본을 포함 합니다.
 
-1. VS Code에서 **Ctrl + Shift + P** 를 사용 하 여 명령 팔레트를 열고를 입력 하 고 **CC++/: Edit 구성 (JSON)** 을 선택 하 여 **c_cpp_properties** 파일을 엽니다.
+1. VS Code에서 **Ctrl + Shift + P** 를 사용 하 여 명령 팔레트를 열고를 입력 하 고 **CC++/: Edit 구성 (json)** 을 선택 하 여 **c_cpp_properties json** 파일을 엽니다.
 
 1. `includePath` 섹션에서 장치 SDK의 경로를 추가 합니다.
 

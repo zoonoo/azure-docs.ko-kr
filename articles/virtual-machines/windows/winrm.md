@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: f7f57a43697a9376062bdd3baa2d5f7333bf4a7f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 25091e8e58fbdba908fb00ece3cd2d3d296c5ab1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100148"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749063"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Azure Resource Manager에서 Virtual Machines에 대한 WinRM 액세스 설정
 
@@ -31,7 +31,7 @@ ms.locfileid: "70100148"
 4. 주요 자격 증명 모음에 자체 서명된 인증서에 대한 URL 가져오기
 5. VM을 만드는 동안 자체 서명된 인증서 URL 참조
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ## <a name="step-1-create-a-key-vault"></a>1단계: 주요 자격 증명 모음 만들기
 아래 명령을 사용하여 주요 자격 증명 모음을 만들 수 있습니다.
@@ -55,7 +55,7 @@ $password = Read-Host -Prompt "Please enter the certificate password." -AsSecure
 Export-PfxCertificate -Cert $cert -FilePath ".\$certificateName.pfx" -Password $password
 ```
 
-## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>3단계: 키 자격 증명 모음에 자체 서명된 인증서 업로드
+## <a name="step-3-upload-your-self-signed-certificate-to-the-key-vault"></a>3단계: 주요 자격 증명 모음에 자체 서명된 인증서 업로드
 1단계에서 만든 주요 자격 증명 모음에 인증서를 업로드하기 전에 먼저 Microsoft.Compute 리소스 공급자가 이해할 수 있는 형식으로 변환해야 합니다. 아래 PowerShell 스크립트를 사용하면 그러한 형식으로 변환할 수 있습니다.
 
 ```
@@ -82,7 +82,7 @@ Set-AzKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretValu
 Microsoft.Compute 리소스 공급자는 VM을 프로비전하는 동안 주요 자격 증명 모음 내에 포함된 암호에 대한 URL이 필요합니다. 이룰 통해 Microsoft.Compute 리소스 공급자는 암호를 다운로드하고 VM에서 해당 인증서를 만들 수 있습니다.
 
 > [!NOTE]
-> 암호의 URL에는 버전도 포함되어야 합니다. URL 예제는 https:/contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve 아래\/와 같습니다.
+> 암호의 URL에는 버전도 포함되어야 합니다. URL 예제는 https:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve와 같습니다.
 
 #### <a name="templates"></a>템플릿
 아래 코드를 사용하여 템플릿의 URL에 대한 링크를 가져올 수 있습니다.

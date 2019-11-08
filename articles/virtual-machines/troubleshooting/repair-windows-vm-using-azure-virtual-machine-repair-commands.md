@@ -6,7 +6,7 @@ documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: ''
+tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: d942f3861eb2fcc4e096248d495b2db2d8119ea1
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 6bda8cb831e84a56c889ed40109954551a34c113
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71132105"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796167"
 ---
-# <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Azure 가상 컴퓨터 복구 명령을 사용 하 여 Windows VM 복구
+# <a name="repair-a-windows-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Azure Virtual Machine 복구 명령을 사용하여 Windows VM 복구
 
 Azure에서 Windows VM (가상 머신)에 부팅 또는 디스크 오류가 발생 하는 경우 디스크 자체에서 완화를 수행 해야 할 수 있습니다. 일반적인 예로는 애플리케이션 업데이트가 실패하여 VM이 성공적으로 부팅되지 않는 경우입니다. 이 문서에서는 Azure VM 복구 명령을 사용 하 여 디스크를 다른 Windows VM에 연결 하 여 오류를 해결 한 다음 원래 VM을 다시 빌드하는 방법을 자세히 설명 합니다.
 
@@ -54,7 +54,7 @@ VM 문제를 해결 하려면 다음 단계를 수행 합니다.
 
    Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 여기에는 계정에 사용 하도록 미리 설치 되 고 구성 된 일반적인 Azure 도구가 포함 됩니다.
 
-   Cloud Shell 열려면 코드 블록의 오른쪽 위 모퉁이에서 **시도** 를 선택 합니다. 을 (를) 방문 [https://shell.azure.com](https://shell.azure.com)하 여 별도의 브라우저 탭에서 Cloud Shell를 열 수도 있습니다.
+   Cloud Shell 열려면 코드 블록의 오른쪽 위 모퉁이에서 **시도** 를 선택 합니다. [https://shell.azure.com](https://shell.azure.com)를 방문 하 여 별도의 브라우저 탭에서 Cloud Shell를 열 수도 있습니다.
 
    **복사** 를 선택 하 여 코드 블록을 복사한 다음 Cloud Shell에 코드를 붙여넣고 **Enter 키** 를 선택 하 여 실행 합니다.
 
@@ -92,7 +92,7 @@ VM 문제를 해결 하려면 다음 단계를 수행 합니다.
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>부팅 진단 확인 및 사용하도록 설정
 
-다음 예제에서는 리소스 그룹 ``myResourceGroup``의 VM ``myVMDeployed``에서 진단 확장을 사용할 수 있습니다.
+다음 예제에서는 리소스 그룹 ``myVMDeployed``의 VM ``myResourceGroup``에서 진단 확장을 사용할 수 있습니다.
 
 Azure CLI
 

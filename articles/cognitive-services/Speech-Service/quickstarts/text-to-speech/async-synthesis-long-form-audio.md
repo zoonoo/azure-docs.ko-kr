@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/26/2019
+ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 52e9fd986973c15d30790b981a5c2ccd1e6974d6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 2c1e6ef84a472ccec5116b12e18ad80c92b68960
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501009"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681877"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>빠른 시작: Python의 긴 형식 오디오에 대 한 비동기 합성 (미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "73501009"
 
 * Python 2.7. x 또는 3(sp3)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download)또는 선호 하는 텍스트 편집기입니다.
-* Azure 구독 및 음성 서비스 구독 키 [계정을 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).
+* Azure 구독 및 음성 서비스 구독 키 [Azure 계정을 만들고](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) [음성 리소스를 만들어](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) 키를 가져옵니다. 음성 리소스를 만들 때 가격 책정 계층이 **S0**로 설정 되어 있고 위치가 지원 되는 [지역](../../regions.md#standard-and-neural-voices)으로 설정 되어 있는지 확인 합니다.
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 
@@ -47,7 +47,7 @@ urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 ```
 
 > [!NOTE]
-> 이러한 모듈을 사용하지 않았다면 프로그램을 실행하기 전에 설치해야 합니다. 이러한 패키지를 설치하려면 `pip install requests`를 실행합니다.
+> 이러한 모듈을 사용하지 않았다면 프로그램을 실행하기 전에 설치해야 합니다. 이러한 패키지를 설치하려면 `pip install requests urllib3`를 실행합니다.
 
 이러한 모듈은 인수를 구문 분석 하 고, HTTP 요청을 생성 하 고, 텍스트 음성 변환 긴 오디오 REST API 호출 하는 데 사용 됩니다.
 

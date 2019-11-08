@@ -1,6 +1,7 @@
 ---
 title: 릴리스 정보 - Custom Vision Service
 titleSuffix: Azure Cognitive Services
+description: Custom Vision 팀에서 새 릴리스에 대 한 최신 정보를 확인 하세요.
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -9,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 79f3f2a5545b8cdcee86e52f35bd22a31e93d387
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b9606c63ec7b53fb0b69918c21bdd9206f34c555
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564081"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647569"
 ---
 # <a name="custom-vision-service-release-notes"></a>Custom Vision Service 릴리스 정보
 
@@ -31,7 +32,7 @@ ms.locfileid: "68564081"
 - 비전 AI Dev Kit에 대 한 개체 검색 내보내기를 추가 했습니다.
 - 프로젝트 검색을 포함 하는 UI 조정
 
-## <a name="april-3-2019"></a>2019 년 4 월 3 일
+## <a name="april-3-2019"></a>2019년 4월 3일
 
 - 이미지 당 경계 상자 수에 대 한 제한이 200로 증가 했습니다. 
 - TensorFlow로 내보낸 모델에 대 한 상당한 성능 업데이트를 포함 하는 버그 수정 
@@ -53,7 +54,7 @@ ms.locfileid: "68564081"
 
 ## <a name="january-22-2019"></a>2019년 1월 22일
 
-- 다음과 같은 새 Azure 지역에 대한 지원이 추가되었습니다. 미국 서부 2, 미국 동부, 미국 동부 2, 유럽 서부, 유럽 북부, 동남 아시아, 오스트레일리아 동부, 인도 중부, 영국 남부, 일본 동부 및 미국 중북부. 미국 중남부에 대한 지원은 계속됩니다.
+- 새 Azure 지역에 대 한 지원 추가: 미국 서 부 2, 미국 동부, 미국 동부 2, 유럽 서부, 유럽, 동남 아시아, 오스트레일리아 동부, 인도 중부, 영국 남부, 일본 동부 및 미국 중 북부 미국 중남부에 대한 지원은 계속됩니다.
 
 ## <a name="december-12-2018"></a>2018년 12월 12일
 
@@ -70,7 +71,7 @@ ms.locfileid: "68564081"
 ## <a name="october-9-2018"></a>2018년 10월 9일
 
 - 개체 감지는 유료 미리 보기로 전환됩니다. 이제 Azure 리소스를 사용하여 개체 감지 프로젝트를 만들 수 있습니다.
-- 제한된 평가판 프로젝트를 Azure 리소스 연결 프로젝트(F0 또는 S0) 링크로 보다 쉽게 업그레이드할 수 있도록 웹 사이트에 “Azure에 이동” 기능이 추가되었습니다. 제품의 설정 페이지에서 이 기능을 찾을 수 있습니다.  
+- 제한된 평가판 프로젝트를 Azure 리소스 연결 프로젝트 (F0 또는 S0) 제품에 대 한 설정 페이지에서이를 찾을 수 있습니다.  
 - Windows ML의 Windows 2018년 10월 업데이트 버전을 지원하도록 ONNX 1.2로의 내보내기가 추가되었습니다.
 특수 문자를 포함 하는 ONNX 내보내기를 포함 하는 버그 수정
 
@@ -107,7 +108,7 @@ ms.locfileid: "68564081"
 
 ## <a name="december-19-2017"></a>2017년 12월 19일
 
-- 이전에 릴리스한 iOS로 내보내기(CoreML)외에 Android로 내보내기(TensorFlow)가 추가되었습니다. 따라서 학습된 컴팩트 모델을 내보내서 애플리케이션에서 오프라인으로 실행할 수 있습니다.
+- 이전에 릴리스된 iOS로 내보내기 (CoreML) 외에도 추가 된 Android (TensorFlow)로 내보내기 이렇게 하면 학습 된 compact 모델을 내보낼 때 응용 프로그램에서 오프 라인으로 실행할 수 있습니다.
 - 소매 및 랜드마크 “컴팩트” 도메인이 추가되어 이러한 도메인에 대한 모델 내보내기가 가능합니다.
 - 버전 [1.2 교육 API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/f2d62aa3b93843d79e948fe87fa89554/operations/5a3044ee08fa5e06b890f11f) 및 [1.1 예측 API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/57982f59b5964e36841e22dfbfe78fc1/operations/5a3044f608fa5e06b890f164)가 릴리스되었습니다. 업데이트된 API는 모델 내보내기, "예측"에 이미지를 저장하지 않는 새로운 예측 작업을 지원하며 교육 API에 일괄 처리 작업을 도입했습니다.
 - 반복 학습에 사용된 도메인을 확인하는 기능을 비롯한 UX가 조정되었습니다.

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: normesta
-ms.openlocfilehash: 3add7e31568831e4c2de6901791d131ff01f43bb
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c7223274417ef4c911c32acbcde1511682d6d9e0
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588110"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796061"
 ---
 # <a name="integrate-azure-data-lake-storage-with-azure-services"></a>Azure 서비스와 Azure Data Lake Storage 통합
 
@@ -29,7 +29,7 @@ Azure 서비스를 사용 하 여 데이터를 수집 하 고 분석을 수행 �
 |Azure Event Hubs 캡처| [Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트를 캡처합니다.](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)|
 |Azure Logic Apps | [개요-Azure Logic Apps 이란?](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)|
 |Azure Machine Learning|[Azure storage 서비스의 데이터에 액세스](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data)|
-|Azure Search (미리 보기)| [Azure Search로 Blob Storage 인덱싱](https://docs.microsoft.com/azure/search/search-blob-storage-integration)|
+|Azure Cognitive Search | [문서 Azure Data Lake Storage Gen2 인덱스 및 검색 (미리 보기)](https://docs.microsoft.com/azure/search/search-howto-index-azure-data-lake-storage)|
 |Azure Stream Analytics| [빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal) <br> [Azure Data Lake Gen2로 송신](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-outputs#blob-storage-and-azure-data-lake-gen2) |
 |Data Box|  [Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage 데이터를 마이그레이션합니다.](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
 |HDInsight | [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Data Lake Storage Gen2에서 HDFS CLI 사용](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[자습서: Azure HDInsight에서 Apache Hive를 사용 하 여 데이터 추출, 변환 및 로드](data-lake-storage-tutorial-extract-transform-load-hive.md) |

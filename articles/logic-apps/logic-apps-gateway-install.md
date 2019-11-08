@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
-ms.date: 10/18/2019
-ms.openlocfilehash: d515982dc2937b660de75ee723cebe39b33bec7d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/06/2019
+ms.openlocfilehash: a8deb7933bb19745bbe4c3b3a209c19c9cc712bd
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580895"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796302"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -33,9 +33,9 @@ ms.locfileid: "73580895"
 
 * Azure 계정 및 구독 구독이 있는 Azure 계정이 없는 경우 [무료 azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-  * 로컬 컴퓨터에서 게이트웨이를 설치 하 고 관리 하려면 동일한 Azure 계정을 사용 해야 합니다.
+  * Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology)에 속해야 합니다. 로컬 컴퓨터에 게이트웨이를 설치 하 고 관리 하려면 동일한 Azure 계정을 사용 해야 합니다.
 
-    게이트웨이 설치 중에 azure 계정으로 로그인 합니다. 그러면 azure 계정 및 해당 계정에만 연결 됩니다. 나중에 Azure Portal에서 게이트웨이 설치를 등록 하 고 클레임 하는 Azure 게이트웨이 리소스를 만들기 위해 동일한 Azure 계정을 사용 해야 합니다. Azure Logic Apps 온-프레미스 트리거 및 작업은 온-프레미스 데이터 원본에 연결 하기 위해 게이트웨이 리소스를 사용 합니다.
+  * 게이트웨이 설치 중에 azure 계정으로 로그인 합니다. 그러면 azure 계정 및 해당 계정에만 연결 됩니다. 나중에 Azure Portal에서 게이트웨이 설치를 등록 하 고 클레임 하는 Azure 게이트웨이 리소스를 만들 때 동일한 Azure 계정 및 Azure AD 테 넌 트를 사용 해야 합니다. Azure Logic Apps 온-프레미스 트리거 및 작업은 온-프레미스 데이터 원본에 연결 하기 위해 게이트웨이 리소스를 사용 합니다.
 
     > [!NOTE]
     > 하나의 게이트웨이 설치와 하나의 Azure 게이트웨이 리소스를 서로 연결할 수 있습니다. 동일한 게이트웨이 설치를 여러 Azure 계정 또는 Azure 게이트웨이 리소스에 연결할 수 없습니다. 그러나 Azure 계정은 여러 게이트웨이 설치 및 Azure gateway 리소스에 연결할 수 있습니다. 온-프레미스 트리거 또는 작업에서 다양 한 Azure 구독을 선택 하 고 연결 된 게이트웨이 리소스를 선택할 수 있습니다.

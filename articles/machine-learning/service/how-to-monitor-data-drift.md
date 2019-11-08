@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: eddfddc994482bcb6e60604703e7f306fee9c32b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 24b1c22d9badc58360b0355bb4ef89017db27f06
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574353"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796729"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -98,7 +98,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>DataDriftDetector 실행 제출
 
-`DataDriftDetector` 개체가 구성 되 면 모델에 대해 지정 된 날짜에 [데이터 드리프트 실행](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) 을 제출할 수 있습니다. 실행의 일부로 `drift_threshold` 매개 변수를 설정 하 여 DataDriftDetector 경고를 사용 하도록 설정 합니다. [Datadrift_coefficient](#metrics) 가 지정 된 `drift_threshold`위에 있으면 전자 메일이 전송 됩니다.
+`DataDriftDetector` 개체가 구성 되 면 모델에 대해 지정 된 날짜에 [데이터 드리프트 실행](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) 을 제출할 수 있습니다. 실행의 일부로 `drift_threshold` 매개 변수를 설정 하 여 DataDriftDetector 경고를 사용 하도록 설정 합니다. [Datadrift_coefficient](#metrics) 지정 된 `drift_threshold`위에 있으면 전자 메일이 전송 됩니다.
 
 ```python
 # adhoc run today
@@ -152,7 +152,7 @@ drift_figures = datadrift.show(with_details=True)
 
 ## <a name="schedule-data-drift-scans"></a>데이터 드리프트 검색 예약 
 
-데이터 드리프트 검색을 사용 하도록 설정 하면 DataDriftDetector가 지정 된 예약 된 빈도로 실행 됩니다. Datadrift_coefficient가 지정 된 `drift_threshold`에 도달 하면 예약 된 각 실행에 대 한 이메일이 전송 됩니다. 
+데이터 드리프트 검색을 사용 하도록 설정 하면 DataDriftDetector가 지정 된 예약 된 빈도로 실행 됩니다. Datadrift_coefficient 지정 된 `drift_threshold`에 도달 하면 예약 된 각 실행에 대 한 이메일이 전송 됩니다. 
 
 ```python
 datadrift.enable_schedule()
@@ -189,6 +189,8 @@ datadrift.disable_schedule()
 
 ## <a name="next-steps"></a>다음 단계
 
-* 데이터 드리프트 사용에 대 한 전체 예제는 [AZURE ML 데이터 드리프트 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/azure-ml-datadrift.ipynb)을 참조 하세요. 이 Jupyter Notebook는 [Azure Open 데이터 집합](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) 을 사용 하 여 날씨를 예측 하 고, AKS에 배포 하 고, 데이터 드리프트를 모니터링 하는 모델을 학습 하는 방법을 보여 줍니다. 
+* 데이터 드리프트 사용에 대 한 전체 예제는 [AZURE ML 데이터 드리프트 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/monitor-models/data-drift/drift-on-aks.ipynb)을 참조 하세요. 이 Jupyter Notebook는 [Azure Open 데이터 집합](https://docs.microsoft.com/azure/open-datasets/overview-what-are-open-datasets) 을 사용 하 여 날씨를 예측 하 고, AKS에 배포 하 고, 데이터 드리프트를 모니터링 하는 모델을 학습 하는 방법을 보여 줍니다. 
+
+* 데이터 [집합 모니터](how-to-monitor-datasets.md)를 사용 하 여 데이터 드리프트를 검색 합니다.
 
 * 데이터 드리프트가 일반 공급으로 전환 될 때 질문, 설명 또는 제안을 크게 감사 합니다. 아래의 제품 사용자 의견 단추를 사용 하세요. 

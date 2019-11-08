@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2019
 ms.author: barclayn
-ms.openlocfilehash: 0fddabc7973fbea147de9f3b6e6da5556407030c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc3c7ea2f0060fc6ab20fa821c9e45d6e5173d4f
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498467"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795793"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure 미사용 데이터 암호화
 
@@ -262,7 +262,7 @@ Azure SQL Database 데이터의 클라이언트 쪽 암호화는 [Always Encrypt
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **서비스 관리 키를 사용하는 서버 쪽**     | **고객이 관리 하는 키를 사용 하는 서버 쪽**             | **클라이언트 쪽에서 클라이언트 관리 키를 사용 하는 경우**      |
 | **AI 및 Machine Learning**      |                    |                    |                    |
-| Azure Search                     | 예                | 미리 보기            | -                  |
+| Azure Cognitive Search                     | 예                | 미리 보기            | -                  |
 | Azure Machine Learning   | 예                | -                  | -                  |
 | Azure Machine Learning Studio    | 예                | 미리 보기, RSA 2048비트 | -               |
 | Power BI                         | 예                | 미리 보기, RSA 2048비트 | -                  |

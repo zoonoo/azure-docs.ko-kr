@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 23519edb61df23c97dfd2162d6cabea6b7fa5d38
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: afbf77014ece981568d4123db7820a2fa0a8f60d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101762"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749115"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -27,7 +27,7 @@ ms.locfileid: "70101762"
 
 갤러리에 VM 리소스를 포함하는 [많은 템플릿](https://azure.microsoft.com/documentation/templates/?term=VM)이 있습니다. 템플릿에 포함될 수 있는 모든 요소가 여기에 설명되어 있지 않습니다.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 이 예제에서는 지정된 수의 VM을 만들기 위한 템플릿의 일반적인 리소스 섹션을 보여 줍니다.
 
@@ -374,7 +374,7 @@ Linux 운영 체제를 만들려는 경우 이 정의를 사용할 수 있습니
 ],
 ```
 
-## <a name="extensions"></a>확장명
+## <a name="extensions"></a>확장
 
 [확장](extensions-features.md)은 별도 리소스이지만 VM에 밀접하게 연결되어 있습니다. 확장은 VM의 자식 리소스 또는 별도 리소스로 추가될 수 있습니다. 예제는 VM에 추가되고 있는 [진단 확장](extensions-diagnostics-template.md)을 보여 줍니다.
 

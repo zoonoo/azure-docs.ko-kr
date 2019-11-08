@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/30/2019
 ms.author: shants
-ms.openlocfilehash: c27d6d65629fb926442377c03ab688b8819aad20
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2e7f51ecb948764f6ac4c3e7a52dc14ef5d00741
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079186"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749361"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Windows 가상 머신에 대한 계획된 유지 관리 알림 처리
 
@@ -76,11 +76,11 @@ Azure Portal, PowerShell, REST API 및 CLI를 사용하여 사용자 VM에 대�
 
 ## <a name="check-maintenance-status-using-powershell"></a>PowerShell을 사용하여 유지 관리 상태 확인
 
-또한 Azure Powershell을 사용하여 VM이 유지 관리에 대해 예약된 시기를 볼 수 있습니다. 계획된 유지 관리 정보는 `-status` 매개 변수를 사용하는 경우 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) cmdlet에서 확인할 수 있습니다.
+또한 Azure Powershell을 사용하여 VM이 유지 관리에 대해 예약된 시기를 볼 수 있습니다. 계획된 유지 관리 정보는 [ 매개 변수를 사용하는 경우 ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)Get-AzVM`-status` cmdlet에서 확인할 수 있습니다.
  
 유지 관리 정보는 계획된 유지 관리가 있는 경우에만 반환됩니다. VM에 영향을 미치는 유지 관리가 예약되지 않은 경우 cmdlet은 유지 관리 정보를 반환하지 않습니다. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 ```powershell
 Get-AzVM -ResourceGroupName rgName -Name vmName -Status
@@ -163,9 +163,9 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **Q: 왜 내 가상 머신을 지금 다시 부팅해야 하나요?**
 
-**A:** Azure 플랫폼에 대한 대부분의 업데이트와 업그레이드는 가상 머신의 가용성에 영향을 주지 않으나, Azure에서 호스트되는 가상 머신을 불가피하게 다시 부팅해야 하는 경우가 있습니다. 서버 재시작이 필요한 여러 변경 사항이 누적되면 가상 머신 다시 부팅이 발생하게 됩니다.
+**A:** Azure 플랫폼에 대한 대부분의 업데이트와 업그레이드는 가상 머신의 가용성에 영향을 주지 않으나, Azure에서 호스팅되는 가상 머신을 불가피하게 다시 부팅해야 하는 경우가 있습니다. 서버 재시작이 필요한 여러 변경 사항이 누적되면 가상 머신 다시 부팅이 발생하게 됩니다.
 
-**Q: 가용성 집합을 사용하여 고가용성 권장 사항을 따르는 경우 안전한가요?**
+**Q: 가용성 집합을 사용한 고가용성 제안을 따르는 것이 안전한가요?**
 
 **A:** 가용성 집합 또는 가상 머신 확장 집합에 배포된 가상 머신에는 UD(업데이트 도메인) 개념이 있습니다. 유지 관리를 수행할 때 Azure는 UD 제약 조건을 적용하고 다른 UD(동일한 가용성 집합 내)의 가상 머신을 다시 부팅하지 않습니다.  또 Azure는 다음 가상 머신 그룹으로 이동하기 전에 30분 이상 대기합니다. 
 
@@ -175,17 +175,17 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **A:** 계획된 유지 관리 주기는 하나 이상의 Azure 지역에 예약을 설정하는 것에서 출발합니다. 곧 이메일 알림이 구독 소유자에게 전달됩니다(구독당 1개 이메일). 이 알림에 대한 추가 채널과 받는 사람은 활동 로그 경고를 통해 구성할 수 있습니다. 계획된 유지 관리가 이미 예약된 지역에 가상 머신을 배포하는 경우 알림이 전달되지 않으므로 VM의 유지 관리 상태를 확인해야 합니다.
 
-**Q: 포털, Powershell 또는 CLI에서 계획된 유지 관리의 표시가 전혀 나타나지 않습니다. 무엇이 문제인가요?.**
+**Q: 포털, Powershell 또는 CLI에서 계획 된 유지 관리의 표시가 표시 되지 않습니다. 무슨 문제 있나요?**
 
 **A:** 계획된 유지 관리 관련 정보는 영향을 받게 되는 VM에 대해서만 계획된 유지 관리 주기 중에 제공됩니다. 즉 데이터가 표시되지 않는다면 유지 관리 주기가 이미 완료되었거나(또는 시작되지 않음) 가상 머신이 이미 업데이트된 서버에서 호스팅되는 것일 수 있습니다.
 
 **Q: 내 가상 머신이 정확히 언제 영향을 받는지 확인할 수 있나요?**
 
-**A:** 예약을 설정할 때 며칠의 기간을 정의합니다. 그러나 이 창 내에서의 정확한 서버(및 VM) 순서는 알 수 없습니다. VM에 해당하는 정확한 시간을 알고자 하는 고객은 [예약된 이벤트](scheduled-events.md)를 사용하고 가상 머신 안에서 쿼리하여 VM이 다시 부팅되기 15분 전에 알림을 수신할 수 있습니다.
+**A:** 예약을 설정할 때 며칠의 시간 창을 정의합니다. 그러나 이 창 내에서의 정확한 서버(및 VM) 순서는 알 수 없습니다. VM에 해당하는 정확한 시간을 알고자 하는 고객은 [예약된 이벤트](scheduled-events.md)를 사용하고 가상 머신 안에서 쿼리하여 VM이 다시 부팅되기 15분 전에 알림을 수신할 수 있습니다.
 
 **Q: 가상 머신을 다시 부팅하는 데 얼마나 걸리나요?**
 
-**A:**  VM의 크기에 따라 다시 부팅은 셀프 서비스 유지 관리 기간 동안 최대 몇 분이 소요될 수 있습니다. Azure가 예약된 유지 관리 기간에서 다시 부팅을 시작하는 동안 다시 부팅은 일반적으로 약 25분 정도가 걸립니다. Cloud Services(웹/작업자 역할), Virtual Machine Scale Sets 또는 가용성 집합을 사용하는 경우 예약된 유지 관리 기간 동안 각 VM 그룹(UD) 사이에 30분이 주어집니다. 
+**A:** VM의 크기에 따라 다시 부팅은 셀프 서비스 유지 관리 기간 동안 최대 몇 분이 소요될 수 있습니다. Azure가 예약된 유지 관리 기간에서 다시 부팅을 시작하는 동안 다시 부팅은 일반적으로 약 25분 정도가 걸립니다. Cloud Services(웹/작업자 역할), Virtual Machine Scale Sets 또는 가용성 집합을 사용하는 경우 예약된 유지 관리 기간 동안 각 VM 그룹(UD) 사이에 30분이 주어집니다. 
 
 **Q: Virtual Machine Scale Sets의 경우에 환경이란?**
 
@@ -195,14 +195,14 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **A:** 이러한 플랫폼은 계획된 유지 관리의 영향을 받지만, 이런 플랫폼을 사용하는 고객은 특정 시간에 단일 UD(업그레이드 도메인)의 VM만 영향을 받는다면 안전하다고 할 수 있습니다. 현재 셀프 서비스 유지 관리는 Cloud Services(웹/작업자 역할) 및 Service Fabric에서 사용할 수 없습니다.
 
-**Q: 내 VM에 관한 유지 관리 정보가 전혀 표시되지 않았습니다. 무엇이 문제인가요?**
+**Q: 내 Vm에 대 한 유지 관리 정보가 표시 되지 않습니다. 무엇이 문제 인가요?**
 
 **A:** VM에 대한 유지 관리 정보가 전혀 표시되지 않는 데는 몇 가지 이유가 있습니다.
 1.  Microsoft 내부로 표시된 구독을 사용하고 있습니다.
 2.  VM에 유지 관리가 예약되어 있지 않습니다. 유지 관리 주기가 종료, 취소 또는 수정되면 VM이 더 이상 해당 주기의 영향을 받지 않습니다.
 3.  VM 목록 보기에 **유지 관리** 열을 추가할 필요는 없습니다. 기본 보기에 이 열을 추가했지만, 기본이 아는 열을 보도록 구성한 고객은 수동으로 **유지 관리** 열을 VM 목록 보기에 추가해야 합니다.
 
-**Q: 내 VM에 두 번째 유지 관리가 예약되었습니다. 이유**
+**Q: 내 VM은 두 번째 유지 관리를 위해 예약 됩니다. 굳이?**
 
 **A:** 유지 관리 재배포를 이미 완료한 후에도 VM에 유지 관리가 예약되는 몇 가지 사용 사례가 있습니다.
 1.  유지 관리 주기를 취소하고 다른 페이로드에서 다시 시작합니다. 오류가 발생한 페이로드를 탐지하여 단순히 추가 페이로드를 배포해야 합니다.

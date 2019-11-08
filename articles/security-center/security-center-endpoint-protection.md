@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2019
 ms.author: memildin
-ms.openlocfilehash: dad8c6173495d11abd6c9f5babb4ef8bc789e4ce
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 140361b7ba3a6a618d4c416447525f8a73690b81
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686425"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748436"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure Security Center의 Endpoint protection 평가 및 권장 사항
 
@@ -84,8 +84,8 @@ Azure Security Center은 [지원 되](https://docs.microsoft.com/azure/security-
 * 다음 검사 중 하나가 충족 되지 않으면 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center.
     * **HKLM: \ SOFTWARE\TrendMicro\Deep 보안 에이전트가 있습니다.**
     * **HKLM: \ SOFTWARE\TrendMicro\Deep Security Agent\설치 폴더가 있습니다.**
-    * Dsq_query 파일은 설치 폴더에 있습니다 **.**
-    * **Dsa_query** 결과를 실행 하는 중입니다. **모드: 온-추세 마이크로 심층 보안 에이전트가 검색 되었습니다** .
+    * Dsa_query 파일은 설치 폴더에 있습니다 **.**
+    * **구성 요소** 를 사용 하 여 **dsa_query** 결과를 실행 하는 중입니다.
 
 ## <a name="symantec-endpoint-protection"></a>Symantec endpoint protection
 다음 검사 중 하나가 충족 되지 않으면 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center.

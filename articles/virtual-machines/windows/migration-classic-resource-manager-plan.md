@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: aa36051f65936f25e4f2cc3bf03619b0f66ce5a6
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 840d7b9534124a4fcc93962e8329dc6ce2bdf1a4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165314"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749352"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다.
@@ -122,7 +122,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
     >
 
   - 네트워크 인터페이스
-  - Load Balancers
+  - 부하 분산 장치
   - 공용 IP
   - 고정 공용 IP
   - 코어 수
@@ -131,7 +131,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
 
     Azure PowerShell의 최신 버전에서 다음 명령을 사용하여 현재 Azure Resource Manager 할당량을 확인할 수 있습니다.
     
-    [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+     
 
     **Compute** *(코어, 가용성 집합)*
 
@@ -145,7 +145,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
     Get-AzUsage /subscriptions/<subscription-id>/providers/Microsoft.Network/locations/<azure-region> -ApiVersion 2016-03-30 | Format-Table
     ```
 
-    **저장소** *(Storage 계정)*
+    **스토리지** *(Storage 계정)*
 
     ```powershell
     Get-AzStorageUsage

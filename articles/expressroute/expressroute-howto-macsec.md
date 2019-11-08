@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: cherylmc
-ms.openlocfilehash: 36cd1bfebe4e5379a1c8cfc551c8e003459ebf5c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 081c448ff09148668dbe5e244e80421a47d77152
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162437"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748282"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Express 경로 직접 포트에서 MACsec 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "73162437"
 
 ### <a name="working-with-azure-powershell"></a>Azure PowerShell 작업
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -47,7 +47,7 @@ ms.locfileid: "73162437"
     $keyVault = New-AzKeyVault -Name "your_key_vault_name" -ResourceGroupName "your_resource_group" -Location "resource_location" -EnableSoftDelete 
     ```
 
-    키 자격 증명 모음 또는 리소스 그룹이 이미 있는 경우 다시 사용할 수 있습니다. 그러나 기존 키 자격 증명 모음에서 [ **일시 삭제** 기능](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-ovw-soft-delete) 을 사용 하도록 설정 하는 것이 중요 합니다. 일시 삭제를 사용 하도록 설정 하지 않은 경우 다음 명령을 사용 하 여 사용 하도록 설정할 수 있습니다.
+    키 자격 증명 모음 또는 리소스 그룹이 이미 있는 경우 다시 사용할 수 있습니다. 그러나 기존 키 자격 증명 모음에서 [ **일시 삭제** 기능](../key-vault/key-vault-ovw-soft-delete.md) 을 사용 하도록 설정 하는 것이 중요 합니다. 일시 삭제를 사용 하도록 설정 하지 않은 경우 다음 명령을 사용 하 여 사용 하도록 설정할 수 있습니다.
 
     ```azurepowershell-interactive
     ($resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "your_existing_keyvault").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"

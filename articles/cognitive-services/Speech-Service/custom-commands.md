@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: e41a037e657a8d2b484a3fcb62eb3bc03f53682d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: HT
+ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500899"
+ms.locfileid: "73579695"
 ---
 # <a name="custom-commands-preview"></a>사용자 지정 명령 (미리 보기)
 
 [음성 도우미](voice-assistants.md) 는 사용자를 수신 하 고 응답으로 작업을 수행 하 여 자주 말하는 경우를 말합니다. [음성 텍스트](speech-to-text.md) 를 사용 하 여 사용자의 음성을 높여줄 다음 텍스트에 대 한 자연어 이해에 대 한 작업을 수행 합니다. 이 작업에는 [텍스트를 음성](text-to-speech.md)으로 생성 하 여 생성 된 비서의 음성 출력이 포함 되는 경우가 많습니다. 장치는 Speech SDK의 `DialogServiceConnector` 개체를 사용 하 여 도우미에 연결 합니다.
 
-**사용자 지정 명령 (미리 보기)** 은 음성 도우미를 만드는 간소화 된 솔루션입니다. 통합 된 제작 환경, 자동 호스팅 모델 및 [직접 줄 음성](direct-line-speech.md)같은 다른 도우미 만들기 옵션과는 상대적으로 낮은 복잡성을 제공 합니다. 그러나이 단순화는 유연성이 줄어듭니다. 따라서 사용자 지정 명령 (미리 보기)은 작업 완료 또는 명령 및 제어 시나리오에 가장 적합 합니다.
+**사용자 지정 명령 (미리 보기)** 은 음성 도우미를 만드는 간소화 된 솔루션입니다. 통합 된 제작 환경, 자동 호스팅 모델 및 [직접 줄 음성](direct-line-speech.md)같은 다른 도우미 만들기 옵션과는 상대적으로 낮은 복잡성을 제공 합니다. 그러나이 단순화는 유연성이 줄어듭니다. 따라서 사용자 지정 명령 (미리 보기)은 작업 완료 또는 명령 및 제어 시나리오에 가장 적합 합니다. 사물 인터넷 (IoT) 및 헤드리스 장치에 대해 특히 잘 일치 합니다.
 
 [가상 길잡이 솔루션 및 엔터프라이즈 템플릿과](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) 같은 다른 솔루션과의 상호 작용 및 복잡 한 대화형 상호 작용을 위해 직접 줄 음성을 사용 하는 것이 좋습니다.
 

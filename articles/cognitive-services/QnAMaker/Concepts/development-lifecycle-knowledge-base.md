@@ -1,7 +1,7 @@
 ---
 title: 기술 자료 수명 주기 - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다.
+description: QnA Maker는 모델 변경, 발언 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 52d4efaba25dcede3322586d05fceb4d166f51e3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 1cb5af13bdd309c762337e64ecde8538afc756b0
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973816"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794853"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker의 기술 자료 수명 주기
-QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다. 
+QnA Maker는 모델 변경, 발언 예제, 게시 및 엔드포인트 쿼리에서 데이터 수집의 반복 주기에서 가장 좋은 사례를 학습합니다. 
 
 ![제작 주기](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
@@ -28,14 +28,14 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>기술 자료 테스트 및 업데이트
 
-편집 또는 자동 추출을 통해 기술 자료에 콘텐츠가 채워지면 기술 자료를 테스트할 수 있습니다. 대화형 테스트는 일반 사용자 쿼리를 입력 하 고 응답에 올바른 응답과 충분 한 신뢰도 점수가 반환 되었는지 확인 하 여 **테스트** 패널을 통해 QnA Maker 포털에서 수행할 수 있습니다. 
+편집을 통해 또는 자동 추출을 통해 기술 자료에 콘텐츠가 채워지면 기술 자료를 즉시 테스트에 사용할 수 있습니다. 대화형 테스트는 일반 사용자 쿼리를 입력 하 고 응답에 올바른 응답과 충분 한 신뢰도 점수가 반환 되었는지 확인 하 여 **테스트** 패널을 통해 QnA Maker 포털에서 수행할 수 있습니다. 
 
 * **낮은 신뢰도 점수를 수정 하려면**: 대체 질문을 추가 합니다. 
 * **쿼리가 잘못 된 [기본 응답](confidence-score.md#change-default-answer)을 반환**하는 경우: 올바른 질문에 새 답변을 추가 합니다. 
 
-이  테스트-업데이트 반복 과정은 사용자가 결과에 만족할 때까지 계속됩니다. [기술 자료 테스트](../How-To/test-knowledge-base.md) 방법을 알아보세요.
+사용자가 결과에 만족할 때까지 이 조밀한 테스트-업데이트 반복이 계속됩니다. [기술 자료 테스트](../How-To/test-knowledge-base.md) 방법을 알아보세요.
 
-대량 Kb 경우 [Generateanswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) 를 사용 하 여 자동화 된 테스트를 사용 하 고 게시 된 기술 자료가 아닌 @no__t 기술 자료를 쿼리 하는 `isTest` 본문 속성을 사용 합니다. 
+대량 Kb 경우 [Generateanswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) 와 함께 자동화 된 테스트를 사용 하 고 게시 된 기술 자료 대신 `test` 기술 자료를 쿼리 하는 `isTest` body 속성을 사용 합니다. 
 
 ```json
 {
@@ -47,9 +47,9 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 ```
 
 ## <a name="publish-the-knowledge-base"></a>기술 자료 게시
-기술 자료 테스트를 마쳤으면 기술 자료를 게시할 수 있습니다. 게시는 테스트를 마친 최신 버전의 기술 자료를 **게시된** 기술 자료를 나타내는 전용 Azure Search 인덱스에 푸시합니다. 또한 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
+기술 자료 테스트를 마쳤으면 기술 자료를 게시할 수 있습니다. Publish는 테스트 된 기술 자료의 최신 버전을 **게시** 된 기술 자료를 나타내는 전용 Azure Cognitive Search 인덱스로 푸시합니다. 또한 애플리케이션 또는 챗봇에서 호출할 수 있는 엔드포인트를 만듭니다.
 
-이러한 방식으로, 테스트 버전의 기술 자료 변경 내용은 프로덕션 애플리케이션에 있을지도 모르는 게시된 버전에 영향을 주지 않습니다.
+이러한 방식으로 테스트 버전 기술 자료를 변경하면 이미 게시된 프로덕션 응용프로그램 기술 자료에 영향을 주지 않습니다.
 
 각각의 기술 자료를 테스트 대상으로 지정할 수 있습니다. Api를 사용 하 여 generateAnswer 호출에서 `isTest` body 속성을 사용 하 여 기술 자료의 테스트 버전을 대상으로 지정할 수 있습니다.
 

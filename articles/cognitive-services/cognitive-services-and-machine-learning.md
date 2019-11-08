@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: diberry
-ms.openlocfilehash: b0345773956a0adc5c7f403195c496a3ea5e6fd6
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 48bac68b518706cf3a23d2283da7cda49846e0a7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982333"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795824"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Cognitive Services 및 기계 학습
 
@@ -22,7 +22,7 @@ Cognitive Services는 감정적 감정의 텍스트 분석 또는 개체나 얼�
 
 [Cognitive Services](welcome.md) 는 각각 서로 다른 일반화 된 예측 기능을 지 원하는 서비스 그룹입니다. 서비스는 올바른 서비스를 찾는 데 도움이 되는 여러 범주로 나뉩니다. 
 
-|서비스 범주|용도|
+|서비스 범주|목적|
 |--|--|
 |[(A](https://azure.microsoft.com/services/cognitive-services/directory/decision/)|합리적이고 효율적인 의사 결정을 위해 권장 사항을 표시하는 앱을 빌드하세요.|
 |[언어](https://azure.microsoft.com/services/cognitive-services/directory/lang/)|앱에서 사전 구축된 스크립트를 통해 자연어를 처리하고, 감성을 평가하며, 사용자가 원하는 것을 인식하는 방법을 학습하도록 지원하세요.|
@@ -40,7 +40,7 @@ Cognitive Services 사용 하는 경우:
 
 * 알고리즘을 선택 하 고 매우 구체적인 데이터를 학습 해야 합니다.
 
-## <a name="what-is-machine-learning"></a>머신 러닝이란 무엇인가요?
+## <a name="what-is-machine-learning"></a>기계 학습이란 무엇인가요?
 
 Machine learning은 데이터와 알고리즘을 함께 가져와서 특정 요구를 해결 하는 개념입니다. 데이터 및 알고리즘을 학습 한 후에는 다른 데이터를 사용 하 여 다시 사용할 수 있는 모델을 출력 합니다. 학습 된 모델은 새 데이터를 기반으로 하는 정보를 제공 합니다. 
 
@@ -79,7 +79,7 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 
 일부 서비스를 사용 하면 사용자 고유의 데이터를 가져온 다음 모델을 학습 시킬 수 있습니다. 이렇게 하면 사용자 고유의 데이터를 사용 하 여 서비스의 데이터 및 알고리즘을 사용 하 여 모델을 확장할 수 있습니다. 출력은 요구 사항과 일치 합니다. 사용자 고유의 데이터를 가져올 때 서비스에 특정 한 방식으로 데이터에 태그를 지정 해야 할 수 있습니다. 예를 들어 꽃을 식별 하는 모델을 학습 하는 경우 각 이미지에서 꽃의 위치와 함께 꽃 이미지 카탈로그를 제공 하 여 모델을 학습할 수 있습니다. 
 
-서비스를 _사용_ 하면 데이터를 제공 하 여 자신의 데이터를 향상할 수 있습니다. 서비스에서 데이터 를 제공 해야 할 수도 있습니다. 
+서비스를 _사용_ 하면 데이터를 제공 하 여 자신의 데이터를 향상할 수 있습니다. 서비스에서 데이터를 _제공 해야 할 수도 있습니다_ . 
 
 ### <a name="real-time-or-near-real-time-data-required"></a>실시간 또는 거의 실시간 데이터 필요
 
@@ -89,10 +89,10 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 
 다음 데이터는 각 서비스에서 허용 하거나 필요로 하는 데이터 종류를 범주화 합니다.
 
-|Cognitive Service|학습 데이터가 필요 하지 않음|일부 또는 모든 학습 데이터를 제공 합니다.|실시간 또는 거의 실시간 데이터 수집|
+|인식 서비스|학습 데이터가 필요 하지 않음|일부 또는 모든 학습 데이터를 제공 합니다.|실시간 또는 거의 실시간 데이터 수집|
 |--|--|--|--|
 |[변칙 탐지기](./Anomaly-Detector/overview.md)|x|x|x|
-|Bing 검색 |x|||
+|Bing Search |x|||
 |[Computer Vision](./Computer-vision/Home.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
 |[Custom Vision](./Custom-Vision-Service/home.md)||x||
@@ -117,9 +117,9 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
  
 서비스는 REST API 또는 SDK 호출을 수행할 수 있는 모든 응용 프로그램에서 사용 됩니다. 응용 프로그램의 예로는 웹 사이트, 봇, 가상 또는 혼합 현실, 데스크톱 및 모바일 응용 프로그램 등이 있습니다. 
 
-## <a name="how-is-cognitive-search-related-to-cognitive-services"></a>Cognitive Services와 관련 된 인지 검색은 어떻게 되나요?
+## <a name="how-is-azure-cognitive-search-related-to-cognitive-services"></a>Azure Cognitive Search Cognitive Services와 관련 된 방법은 무엇 인가요?
 
-[Azure Search](../search/search-what-is-azure-search.md) Cognitive Services를 사용 하 여이 기능을 제공 합니다. Cognitive Services는 개별 Api를 래핑하는 [기본 기술을](../search/cognitive-search-predefined-skills.md) 통해 Azure Search에 노출 됩니다. 연습에 무료 리소스를 사용할 수 있지만, 더 큰 볼륨에 대해 청구 가능한 [리소스](../search/cognitive-search-attach-cognitive-services.md) 를 만들고 연결 하는 계획을 수립할 수 있습니다.
+[Azure Cognitive Search](../search/search-what-is-azure-search.md) 은 선택적으로 Cognitive Services를 사용 하 여 인덱싱 워크 로드에 이미지 및 자연어 처리를 추가 하는 별도의 클라우드 검색 서비스입니다. Cognitive Services는 개별 Api를 래핑하는 [기본 기술을](../search/cognitive-search-predefined-skills.md) 통해 Azure Cognitive Search에서 노출 됩니다. 연습에 무료 리소스를 사용할 수 있지만, 더 큰 볼륨에 대해 청구 가능한 [리소스](../search/cognitive-search-attach-cognitive-services.md) 를 만들고 연결 하는 계획을 수립할 수 있습니다.
 
 ## <a name="how-can-you-use-cognitive-services"></a>Cognitive Services를 어떻게 사용 하나요?
 
@@ -127,7 +127,7 @@ Machine learning은 성공적으로 구현 하는 데 더 오랜 시간이 걸�
 
 다른 기계 학습 도구에 대해 내보낸 모델을 제공 하는 Cognitive Services:
 
-|Cognitive Service|모델 정보|
+|인식 서비스|모델 정보|
 |--|--|
 |[Custom Vision](./custom-vision-service/home.md)|Android 용 Tensorflow에 대 한 [내보내기](./Custom-Vision-Service/export-model-python.md) , IOS11 용 Coreml, Windows ML 용 onnx|
 

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/26/2019
+ms.date: 11/06/2019
 ms.author: apimpm
-ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 88ef235d47a548ce426eaa2e8a8a56fb9dcb01d2
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294348"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796030"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API 가져오기 제한 사항 및 알려진 문제
 
@@ -40,6 +40,8 @@ OpenAPI 문서를 가져올 때 오류가 표시되면 해당 문서의 유효�
 -   이 경우에는 원본 파일 URL(사용 가능한 경우)이 상대 서버 URL에 적용됩니다.
 -   보안 정의는 무시 됩니다.
 -   API 작업에 대 한 인라인 스키마 정의는 지원 되지 않습니다. 스키마 정의는 API 범위에서 정의 되며 API 작업 요청 또는 응답 범위에서 참조할 수 있습니다.
+-   정의 된 URL 매개 변수는 URL 템플릿의 일부 여야 합니다.
+-   API에서 반환 하는 MIME 형식을 설명 하는를 **생성** 합니다 .이 키워드는 지원 되지 않습니다. 
 
 ### <a name="open-api-v2"> </a>OpenAPI 버전 2
 

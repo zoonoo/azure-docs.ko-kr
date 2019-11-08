@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: danlep
-ms.openlocfilehash: dbfadea9bc05614108333ef5a046e11b5280cc68
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7b9d220ac7e507513458eab6b55276b3aa434739
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588435"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73742755"
 ---
 # <a name="repository-scoped-permissions-in-azure-container-registry"></a>Azure Container Registry의 리포지토리 범위 권한 
 
@@ -28,9 +28,8 @@ Azure Container Registry는 전체 레지스트리에 대 한 [역할 기반 액
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-* 이 기능은 **프리미엄** 컨테이너 레지스트리에서만 사용할 수 있습니다. 레지스트리 서비스 계층에 대 한 자세한 내용은 [Azure Container Registry sku](container-registry-skus.md)를 참조 하세요.
+* 이 기능은 **프리미엄** 컨테이너 레지스트리에서만 사용할 수 있습니다. 레지스트리 서비스 계층 및 제한에 대 한 자세한 내용은 [Azure Container Registry sku](container-registry-skus.md)를 참조 하세요.
 * 현재 서비스 주체 또는 관리 id와 같은 Azure Active Directory 개체에 리포지토리 범위 사용 권한을 할당할 수 없습니다.
-* 레지스트리는 최대 2만 범위 맵과 2만 토큰을 허용 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -136,7 +135,7 @@ az acr token create --name MyToken --registry myregistry --scope-map MyScopeMap 
 
 토큰 암호가 없거나 새 암호를 생성 하려는 경우 [az acr token credential generate][az-acr-token-credential-generate] 명령을 실행 합니다.
 
-다음 예에서는 만료 기간 30 일을 사용 하 여 만든 토큰에 대해 새 암호를 생성 합니다. 환경 변수 TOKEN_PWD에 암호를 저장 합니다. 이 예제는 bash 셸에 대해 형식이 지정 됩니다.
+다음 예에서는 만료 기간 30 일을 사용 하 여 만든 토큰에 대해 새 암호를 생성 합니다. TOKEN_PWD 환경 변수에 암호를 저장 합니다. 이 예제는 bash 셸에 대해 형식이 지정 됩니다.
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \

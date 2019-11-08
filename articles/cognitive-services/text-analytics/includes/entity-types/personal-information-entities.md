@@ -8,33 +8,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/21/2019
 ms.author: aahi
-ms.openlocfilehash: 6e46d58b3f1ef33902ab44043e954d9718d865af
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3aa4da9a9cf3d1d4b664e81f1fd18f2b225d731d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501073"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799999"
 ---
 ## <a name="personal-information-entity-types"></a>개인 정보 엔터티 형식:
-
-### <a name="person"></a>사람
-텍스트의 인식 된 이름 및 기타 사람
-언어:
-* 공개 미리 보기: `English`
-
-| 하위 형식 이름 | 설명             |
-|--------------|-------------------------|
-| 해당 없음          | 인식할 수 있는 이름 (예: `Bill Gates``Marie Curie` |
-
-### <a name="organization"></a>조직  
-
-인식 된 조직, 회사, 기관 및 기타 사용자 그룹. 예를 들어 회사, 정치적 그룹, 음악 밴드, 스포츠 클럽, 정부 기관, 공공 단체 등이 있습니다. Nationalities 및 religions는이 엔터티 형식에 포함 되지 않습니다. 언어: 
-
-* 공개 미리 보기: `English`
-
-| 하위 형식 이름 | 설명                                                                                      |
-|--------------|--------------------------------------------------------------------------------------------------|
-| 해당 없음          | 조직 (예: `Microsoft``NASA` `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>전화 번호
 

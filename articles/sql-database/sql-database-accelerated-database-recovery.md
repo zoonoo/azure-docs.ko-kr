@@ -10,12 +10,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: e66b3e6563d796cc7b59e82233bd1b22bc906c6e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: cff481c7c2e09da1dc8c8e2f971d9adb164d54da
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691346"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796113"
 ---
 # <a name="accelerated-database-recovery"></a>가속화 데이터베이스 복구
 
@@ -99,11 +99,11 @@ ADR의 네 가지 주요 구성 요소는 다음과 같습니다.
 
 - **논리적 되돌리기**
 
-  논리적 되돌리기는 모든 버전의 작업에 대해 즉시 트랜잭션 롤백 및 실행 취소를 제공 하는 행 수준 버전 기반 실행 취소를 수행 하는 비동기 프로세스입니다.
+  논리적 되돌리기는 모든 버전의 작업에 대해 즉시 트랜잭션 롤백 및 실행 취소를 제공 하는 행 수준 버전 기반 실행 취소를 수행 하는 비동기 프로세스입니다. 논리적 되돌리기 작업은 다음을 수행 합니다.
 
-  - 중단된 모든 트랜잭션 추적
-  - PVS를 사용하여 모든 사용자 트랜잭션에 대한 롤백 수행
-  - 트랜잭션 중단 직후 모든 잠금 해제
+  - 중단 된 모든 트랜잭션을 추적 하 고 다른 트랜잭션에 표시 되지 않는 상태로 표시 
+  - 트랜잭션 로그를 물리적으로 검사 하 고 변경 내용을 한 번에 하나씩 취소 하지 않고 모든 사용자 트랜잭션에 대해 PVS를 사용 하 여 롤백을 수행 합니다.
+  - 트랜잭션이 중단 된 직후 모든 잠금을 해제 합니다. Abort는 단순히 메모리의 변경 내용만 표시 하므로 프로세스가 매우 효율적 이므로 잠금을 오랫동안 보유 하지 않아도 됩니다.
 
 - **sLog**
 

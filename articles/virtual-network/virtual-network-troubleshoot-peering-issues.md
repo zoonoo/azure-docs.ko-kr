@@ -6,6 +6,7 @@ documentationcenter: na
 author: v-miegge
 manager: dcscontentpm
 editor: ''
+tags: virtual-network
 ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
 ms.service: virtual-network
 ms.devlang: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2019
 ms.author: kaushika
-ms.openlocfilehash: 0898a65323957cbab4c2ab5278e9970cf0c16a90
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 1fddbe908ccebc1384dcccde0810366f1a6d5da7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219230"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796247"
 ---
 # <a name="troubleshoot-virtual-network-peering-issues"></a>가상 네트워크 피어링 문제 해결
 
@@ -66,11 +67,11 @@ ms.locfileid: "71219230"
 
 ### <a name="for-a-site-to-site-connection-or-an-expressroute-connection"></a>사이트 간 연결 또는 Express 경로 연결의 경우
 
-의 단계를 수행 합니다. [가상 네트워크 피어 링에 대 한 VPN gateway 전송을 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)합니다.
+[가상 네트워크 피어 링에 대 한 VPN gateway 전송 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)의 단계를 수행 합니다.
 
 ### <a name="for-point-to-site-connections"></a>지점 및 사이트 간 연결의 경우
 
-1. 의 단계를 수행 합니다. [가상 네트워크 피어 링에 대 한 VPN gateway 전송을 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)합니다.
+1. [가상 네트워크 피어 링에 대 한 VPN gateway 전송 구성](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-peering-gateway-transit?toc=/azure/virtual-network/toc.json)의 단계를 수행 합니다.
 2. 가상 네트워크 피어 링이 설정 되거나 변경 된 후 지점 및 사이트 간 클라이언트에서 스포크 가상 네트워크에 업데이트 된 경로를 가져오도록 지점 및 사이트 간 패키지를 다운로드 하 여 다시 설치 합니다.
 
 ## <a name="configure-virtual-network-peering-with-hub-spoke-topology-virtual-network"></a>허브-스포크 토폴로지 가상 네트워크를 사용 하 여 가상 네트워크 피어 링 구성
@@ -126,7 +127,7 @@ NVA 장치 설정 및 라우팅 문제를 해결 하는 데 도움이 필요한 
    1. 대상 VM에서 네트워크 추적을 시작 합니다. Windows의 경우 **Netsh**를 사용할 수 있습니다. Linux의 경우 **TCPDump**를 사용 합니다.
    2. 원본에서 대상 IP로 **Tcpping** 또는 **psping** 를 실행 합니다.
 
-      다음은 **Tcpping** 명령의 예입니다.`tcping64.exe -t <destination VM address> 3389`
+      다음은 **Tcpping** 명령의 예입니다. `tcping64.exe -t <destination VM address> 3389`
 
    3. **Tcpping** 이 완료 되 면 대상에서 네트워크 추적을 중지 합니다.
    4. 패킷이 원본에서 도착 하는 경우 네트워킹 문제가 발생 하지 않습니다. VM 방화벽과 해당 포트에서 수신 대기 하는 응용 프로그램을 모두 검사 하 여 구성 문제를 찾습니다.
@@ -222,7 +223,7 @@ NVA 장치 설정 및 라우팅 문제를 해결 하는 데 도움이 필요한 
 
 ## <a name="troubleshoot-a-virtual-network-peering-configuration-error-message"></a>가상 네트워크 피어 링 구성 오류 메시지 문제 해결 
 
-### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>현재 테 `<TENANT ID>` 넌 트가 연결 된 구독에 액세스할 수 있는 권한이 없습니다.
+### <a name="current-tenant-tenant-id-isnt-authorized-to-access-linked-subscription"></a>현재 테 넌 트 `<TENANT ID>` 연결 된 구독에 액세스할 수 있는 권한이 없습니다.
 
 이 문제를 해결 하려면 [피어 링-Azure CLI 만들기](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions#cli)를 참조 하세요.
 
