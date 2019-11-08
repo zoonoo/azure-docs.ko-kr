@@ -1,5 +1,5 @@
 ---
-title: Node.js에 대 한 Azure Storage에서 blob 만들기
+title: '빠른 시작: JavaScript 용 Azure Blob storage 클라이언트 라이브러리 v2'
 description: 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음, Node.js v2용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 업로드하고, Blob을 다운로드하고, 컨테이너에 Blob을 나열합니다.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 8d0afc5a224e752bdd745ab4df0473a134b4180b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 12078300b36412a1507991507a39654acdeb7c69
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609100"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825339"
 ---
-# <a name="upload-download-and-list-blobs-using-the-client-library-for-nodejs"></a>Node.js 용 클라이언트 라이브러리를 사용 하 여 blob 업로드, 다운로드 및 나열
+# <a name="quickstart-azure-blob-storage-client-library-v2-for-javascript"></a>빠른 시작: JavaScript 용 Azure Blob storage 클라이언트 라이브러리 v2
 
 이 가이드에서는 Node.js v2용 클라이언트 라이브러리를 사용하여 Blob을 업로드 및 다운로드하고 Azure Blob 스토리지와 함께 나열하는 방법에 대해 알아봅니다.
 

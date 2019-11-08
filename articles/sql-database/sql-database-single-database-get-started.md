@@ -1,5 +1,5 @@
 ---
-title: 단일 데이터베이스 만들기 - Azure SQL Database | Microsoft Docs
+title: 단일 데이터베이스 만들기
 description: Azure Portal, PowerShell 및 Azure CLI를 사용하여 Azure SQL Database에서 단일 데이터베이스를 만들고 쿼리합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
 ms.date: 09/09/2019
-ms.openlocfilehash: 0035495d9dd3b82b65aa3b4a7b1d918c73288df8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 482fc3f08fb986908efcab83a82338ced36ee689
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496144"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821001"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal-powershell-and-azure-cli"></a>빠른 시작: Azure Portal, PowerShell 및 Azure CLI를 사용하여 Azure SQL Database에서 단일 데이터베이스를 만듭니다.
 

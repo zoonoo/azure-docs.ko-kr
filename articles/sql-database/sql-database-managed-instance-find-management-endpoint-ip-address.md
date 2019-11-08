@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance 관리 끝점 검색
+title: 관리 되는 인스턴스 관리 끝점 검색
 description: Azure SQL Database Managed Instance 관리 엔드포인트 공용 IP 주소를 가져오고 해당 기본 제공 방화벽 보호를 확인하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 0cc3ca3a2b8130e52d8c7fc670c0ee7997e4aa47
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 03cd89084c2bae3339311f2f684a0d5e7bac1f68
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688037"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825712"
 ---
 # <a name="determine-the-management-endpoint-ip-address"></a>관리 엔드포인트 IP 주소 확인
 

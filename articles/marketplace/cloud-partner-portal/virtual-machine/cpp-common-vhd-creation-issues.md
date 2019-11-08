@@ -4,16 +4,17 @@ description: VHD 만들기 및 관련 문제에 대한 질문과 대답입니다
 services: Azure Marketplace
 author: HannibalSII
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/02/2018
 ms.author: hascipio
 ms.reviewer: v-divte; v-miclar
-ms.openlocfilehash: bb7e62138dbefdd8ff4933ef10602986a5da2bf6
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 1d4224d8f1f735ecef3d4551e3032b916e81dc3c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875008"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826626"
 ---
 # <a name="common-issues-during-vhd-creation-faq"></a>일반적인 VHD 만들기 문제(FAQ)
 
@@ -44,7 +45,7 @@ ms.locfileid: "67875008"
 
 ## <a name="how-do-you-generate-new-ssh-certificates"></a>새 SSH 인증서를 생성하려면 어떻게 해야 하나요?
 
-인증서 생성은 후속 섹션인 [VM 제안에 대한 기술 자산 만들기](./cpp-create-technical-assets.md)의 [VM 이미지에 대한 공유 액세스 서명 URI 가져오기](./cpp-get-sas-uri.md) 문서에서 설명하고 있습니다.
+인증서 생성은 후속 섹션인 [VM 제안에 대한 기술 자산 만들기](./cpp-get-sas-uri.md)의 [VM 이미지에 대한 공유 액세스 서명 URI 가져오기](./cpp-create-technical-assets.md) 문서에서 설명하고 있습니다.
 
 
 ## <a name="how-do-you-configure-a-virtual-private-network-vpn-to-work-with-my-vms"></a>내 VM에서 작동하도록 VPN(가상 사설망)을 구성하려면 어떻게 해야 하나요?
@@ -67,7 +68,7 @@ Azure Resource Manager 배포 모델을 사용하는 경우 VPN을 설정하는 
 
 ## <a name="in-a-vm-how-do-you-manage-the-custom-script-extension-in-the-startup-task"></a>VM에서 시작 작업에 있는 사용자 지정 스크립트 확장을 어떻게 관리하나요?
 
-다음 문서에서는 Azure PowerShell 모듈, Azure Resource Manager 템플릿을 사용하여 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템의 자세한 문제 해결 단계를 설명합니다. [Windows용 사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/)
+[Windows용 사용자 지정 스크립트 확장](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/) 문서에서 Azure PowerShell 모듈, Azure Resource Manager 템플릿을 통해 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템의 문제 해결 단계에 대해 자세히 설명하고 있습니다.
 
 
 ## <a name="are-32-bit-applications-or-services-supported-in-the-azure-marketplace"></a>Azure Marketplace에서 32비트 애플리케이션 또는 서비스가 지원되나요?

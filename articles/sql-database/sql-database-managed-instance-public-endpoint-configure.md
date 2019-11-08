@@ -1,5 +1,5 @@
 ---
-title: 공용 끝점 구성-관리 되는 Azure SQL Database 인스턴스
+title: 공용 끝점 관리 인스턴스 구성
 description: 관리 되는 인스턴스의 공용 끝점을 구성 하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
 ms.date: 05/07/2019
-ms.openlocfilehash: 6f953e4c549619a30564bdb061e98761474174c3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a35176770a3100a288ad3da52cd89870e0110f63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687972"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828022"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스에서 공용 끝점 구성
 
@@ -110,7 +110,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>관리 되는 인스턴스 공용 끝점 연결 문자열 가져오기
 
 1. 공용 끝점에 대해 사용 하도록 설정 된 SQL 관리 되는 인스턴스 구성 페이지로 이동 합니다. **설정** 구성에서 **연결 문자열** 탭을 선택 합니다.
-1. 공용 끝점 호스트 이름은 < mi_name > 형식으로 제공 됩니다. < dns_zone >를 사용 하 고 연결에 사용 되는 포트는 3342 **입니다.**
+1. 공용 끝점 호스트 이름은 < mi_name > 형식으로 제공 됩니다.< dns_zone >. net.tcp를 사용 하 고 연결에 사용 되는 포트는 3342입니다.
 
     ![mi-public-endpoint-conn-string](media/sql-database-managed-instance-public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 77659fdf93947cfbaa0daa322dccf4e9cb1a41fa
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 3911d4e780e993fdd1c2945b34cd683d47fb884a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844722"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827282"
 ---
 # <a name="use-the-azure-maps-services-module"></a>Azure Maps services 모듈 사용
 
@@ -33,7 +33,7 @@ Azure Maps 웹 SDK는 *서비스 모듈*을 제공 합니다. 이 모듈은 Java
     
         > **npm install azure 맵-rest**
     
-        그런 다음 파일의 `<head>` 요소에 스크립트 참조를 추가 합니다.
+        그런 다음 파일의 `<head>` 요소에 대 한 스크립트 참조를 추가 합니다.
 
          ```html
         <script src="node_modules/azure-maps-rest/dist/js/atlas-service.min.js"></script>
@@ -124,7 +124,7 @@ Azure Maps 웹 SDK는 *서비스 모듈*을 제공 합니다. 이 모듈은 Java
 
     자세한 내용은 [Azure Maps 인증](azure-maps-authentication.md)을 참조 하세요.
 
-1. 다음 코드는 새로 만든 Azure Search 서비스 URL 클라이언트를 사용 하 여 주소를 geocode에 사용 합니다. "1 Microsoft Way, Redmond, WA". 이 코드에서는 함수 `searchAddress` 를 사용 하 고 결과를 페이지 본문에 테이블로 표시 합니다.
+1. 다음 코드는 새로 만든 Azure Maps Search 서비스 URL 클라이언트를 사용 하 여 "1 Microsoft 방식, Redmond, WA"와 같은 주소로 geocode를 사용 합니다. 이 코드는 `searchAddress` 함수를 사용 하 고 결과를 페이지 본문에 테이블로 표시 합니다.
 
     ```javascript
     // Search for "1 microsoft way, redmond, wa".
@@ -160,7 +160,7 @@ Azure Maps 웹 SDK는 *서비스 모듈*을 제공 합니다. 이 모듈은 Java
 <br/>
 
 <iframe height="500" style="width: 100%;" scrolling="no" title="서비스 모듈 사용" src="//codepen.io/azuremaps/embed/zbXGMR/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-<a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)를 <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>사용 하 여 서비스 모듈을 사용 하</a> 여 펜을 확인 하세요.
+<a href='https://codepen.io'>CodePen</a>의 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>)에서 <a href='https://codepen.io/azuremaps/pen/zbXGMR/'>서비스 모듈을 사용 하</a> 여 펜을 확인 하세요.
 </iframe>
 
 ## <a name="next-steps"></a>다음 단계

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 2b8553c4c4b27e70eb5e4aeff447da9526c4ed1e
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d38b11b8fc4351c6b074ccfdf47df06a71e0a0a4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598287"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823965"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Media Indexer에서 Media Indexer 2에서 Video Indexer으로 마이그레이션
 
 [Azure Media Indexer](media-services-index-content.md) 미디어 프로세서는 2020 년 10 월 1 일에 사용 중지 됩니다. [Azure Media Indexer 2 Preview](media-services-process-content-with-indexer2.md) 미디어 프로세서는 2020 년 1 월 1 일에 사용 중지 됩니다.  [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이러한 레거시 미디어 프로세서를 대체 합니다.
 
-Azure Media Services Video Indexer Azure 미디어 분석, Azure Search Cognitive Services (예: Face API, Microsoft Translator, Computer Vision API, Custom Speech Service)를 기반으로 합니다. 이 애플리케이션에서 Video Indexer 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다. 에서 사용할 수 Video Indexer 시나리오, 제공 하는 기능 및 시작 하는 방법에 대 한 자세한 내용은 [비디오 및 오디오 모델 Video Indexer](../video-indexer/video-indexer-overview.md)을 참조 하세요. 
+Azure Media Services Video Indexer Azure 미디어 분석, Azure Cognitive Search, Cognitive Services (예: Face API, Microsoft Translator, Computer Vision API, Custom Speech Service)를 기반으로 합니다. 이 애플리케이션에서 Video Indexer 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다. 에서 사용할 수 Video Indexer 시나리오, 제공 하는 기능 및 시작 하는 방법에 대 한 자세한 내용은 [비디오 및 오디오 모델 Video Indexer](../video-indexer/video-indexer-overview.md)을 참조 하세요. 
 
 [Azure Media Services v3 analyzer 미리 설정을](../latest/analyzing-video-audio-files-concept.md) 사용 하 여 비디오 및 오디오 파일에서 정보를 추출 하거나 [Video Indexer api](https://api-portal.videoindexer.ai/)를 사용 하 여 직접 정보를 추출할 수 있습니다. 현재 Video Indexer Api 및 Media Services v3 Api에서 제공 하는 기능 사이에 중복이 있습니다.
 
@@ -50,7 +50,7 @@ Azure Media Services v3 API를 사용 하면 [Azure Media Services v3 분석기 
 
 **AudioAnalyzerPreset**를 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다. 출력에는 오디오 녹음/출력에 대 한 VTT 또는 TTML 파일과 JSON 파일 (추가 오디오 정보 모두 포함)이 포함 됩니다. 오디오 정보에는 키워드, 스피커 인덱싱 및 음성 감정 분석이 포함 됩니다. AudioAnalyzerPreset는 특정 언어에 대 한 언어 검색도 지원 합니다. 자세한 내용은 [변환](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)을 참조 하세요.
 
-### <a name="get-started"></a>시작하기
+### <a name="get-started"></a>시작
 
 시작 하려면 다음을 참조 하세요.
 
@@ -77,7 +77,7 @@ Video Indexer, Azure Media Services v3 AudioAnalyzerPreset 및 Cognitive Service
 * AIB (오디오 인덱싱 Blob) 파일은 더 이상 지원 되지 않습니다. 이 기능은 인덱서 1 기술에만 적용 되며 더 이상 제공 되지 않습니다.  
 * Cognitive Services Speech Services는 키워드 추출을 지원 하지 않습니다. 그러나 Video Indexer 및 Media Services v3 AudioAnalyzerPreset는 JSON 파일 형식에서 보다 강력한 키워드 집합을 제공 합니다. 
 
-## <a name="need-help"></a>도움이 필요하십니까?
+## <a name="need-help"></a>도움이 필요하세요?
 
 [새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) 으로 이동 하 여 지원 티켓을 열 수 있습니다.
 

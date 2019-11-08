@@ -1,22 +1,22 @@
 ---
-title: '빠른 시작: Java SDK 용 Azure Blob storage 클라이언트 라이브러리 v8'
-description: 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음 Java SDK v8 용 Azure Storage 클라이언트 라이브러리를 사용 하 여 blob을 Azure Storage에 업로드 하 고, blob을 다운로드 하 고, 컨테이너에 blob을 나열 합니다.
+title: '빠른 시작: Java 용 Azure Blob storage 클라이언트 라이브러리 v8'
+description: 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음 Azure Storage client library v8 for Java를 사용 하 여 Azure Storage에 blob을 업로드 하 고, blob을 다운로드 하 고, 컨테이너에 blob을 나열 합니다.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 404599ade960d43ef2cb86777fb41701ce96e11b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a6c4380e44d705e551bc96746a809c57aa02ac5b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609126"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825385"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>빠른 시작: Java SDK 용 Azure Blob storage 클라이언트 라이브러리 v8
+# <a name="quickstart-azure-blob-storage-client-library-v8-for-java"></a>빠른 시작: Java 용 Azure Blob storage 클라이언트 라이브러리 v8
 
-Java 용 Azure Blob Storage 클라이언트 라이브러리를 사용 하 여 시작 하세요. Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
+Java 용 Azure Blob Storage 클라이언트 라이브러리 v8를 시작 하세요. Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화되어 있습니다.
 
 Java 용 Azure Blob Storage 클라이언트 라이브러리를 사용 하 여 다음을 수행 합니다.
 

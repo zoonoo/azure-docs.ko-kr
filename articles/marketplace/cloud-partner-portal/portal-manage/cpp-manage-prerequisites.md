@@ -4,15 +4,16 @@ description: Cloud 파트너 포털에서 Azure Marketplace 계정을 관리 하
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 09bf8479921c9bd55b98e835a19ea995fa37e20b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: b0a9f312ba78e148a573064b81ff1f52fbd85c03
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720077"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826663"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Cloud 파트너 포털에서 계정을 관리 하기 위한 필수 조건 
 
@@ -33,14 +34,14 @@ ms.locfileid: "71720077"
 
 |                   단계                   |  결과 등록 또는 리소스                     |
 |                  ------                  |  -----------------------------------                    |
-| 1. Microsoft 파트너 네트워크에 등록 |  조직의 Microsoft 파트너 네트워크 ID |
-| 2. Microsoft 계정 만들기 *           |  확인 된 Microsoft 계정,, 등 @outlook.com으로 @live.com종료 됩니다. |
-| 3. 마켓플레이스 등록 양식 제출 | Cloud 파트너 포털의 게시자 계정      |
-| 4. Cloud 파트너 포털에 로그인        | 제품을 만들고 게시 하며, 사용자를 관리 하 고, 마켓플레이스 메트릭을 수집 하는 권한 등 |
-| 5. Microsoft 개발자 센터에 등록 * | 확인 된 개발자 센터 계정 marketplace 트랜잭션을 수행할 수 있는 권한  |
+| 1. Microsoft 파트너 네트워크 등록 |  조직의 Microsoft 파트너 네트워크 ID |
+| 2. Microsoft 계정 * 만들기           |  확인 된 Microsoft 계정 @outlook.com, @live.com등으로 끝납니다. |
+| 3. marketplace 등록 양식 제출 | Cloud 파트너 포털의 게시자 계정      |
+| 4. Cloud 파트너 포털 로그인        | 제품을 만들고 게시 하며, 사용자를 관리 하 고, 마켓플레이스 메트릭을 수집 하는 권한 등 |
+| 5. Microsoft 개발자 센터에서 등록 * | 확인 된 개발자 센터 계정 marketplace 트랜잭션을 수행할 수 있는 권한  |
 |   |   |
 
-\*이러한 단계는 Azure Marketplace transact-sql 제공에 필요 하지만 모든 제품에 대해 매우 권장 됩니다.  Microsoft 계정를 설정 하 고 Microsoft 개발자로 등록 한 후에는 추가 Microsoft 고객 및 개발자 리소스 뿐만 아니라 선택적 파트너 제품에도 액세스할 수 있습니다.  
+이러한 단계 \* Azure Marketplace transact-sql 제공에 필요 하지만 모든 제품에 대해 매우 권장 됩니다.  Microsoft 계정를 설정 하 고 Microsoft 개발자로 등록 한 후에는 추가 Microsoft 고객 및 개발자 리소스 뿐만 아니라 선택적 파트너 제품에도 액세스할 수 있습니다.  
 
 
 ## <a name="next-steps"></a>다음 단계

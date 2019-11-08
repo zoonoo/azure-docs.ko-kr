@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 49723a80bb198e8151c7e85a90453183068c9d2b
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: 967d33cb7a9eb3ec922f9d85cfc2581b85bce537
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962815"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825898"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 제안에 대해 선택한 게시 옵션은 적격성 요구 사항 및 마켓플레이스 GTM 혜택 모두와 직접 관련이 있습니다. 더 중요 한 것은 게시 옵션 및 제안 유형을 선택 하는 것으로 사용자가 marketplace 제품을 조작 하는 방법을 정의 하는 것입니다.
@@ -31,11 +32,11 @@ ms.locfileid: "70962815"
 
 ## <a name="selecting-a-storefront-publishing-option-and-offer-type-for-your-solution"></a>솔루션에 대해 상점, 게시 옵션 및 제품 유형 선택
 
-게시 옵션을 선택하기 전에 마켓플레이스 솔루션, 앱 및 서비스에 대한 상점 자격 요구 사항을 이해해야 됩니다.
+게시 옵션을 선택 하기 전에 marketplace 솔루션, 앱 및 서비스에 대 한 storefront 자격 요구 사항을 이해 하는 것이 중요 합니다.
 
 **Azure Marketplace** 응용 프로그램은 기본 제공 또는 기본 제공 되는 Azure 용 기술 "빌딩 블록" 솔루션으로, IT 또는 개발자를 대상으로 합니다. Azure Marketplace 컨설팅 서비스는 고객이 Azure 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
 
-**AppSource** 애플리케이션은 Azure를 바탕으로 빌드되거나 Dynamics 365, Office 365, Power BI 또는 Power Apps. AppSource 컨설팅 서비스는 고객이 Dynamics 365 및 Power BI 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
+**Appsource** 응용 프로그램은 Azure에서 기본 제공 되는 lob (기간 업무) 솔루션으로, Dynamics 365, Office 365, Power BI 또는 Power Apps에 기본 제공 됩니다. AppSource 컨설팅 서비스는 고객이 Dynamics 365 및 Power BI 사용을 시작하거나 가속화하도록 도와주는 전문 서비스 제품입니다.
 
 
 ## <a name="understand-storefront-selection"></a>상점 선택 이해
@@ -43,7 +44,7 @@ ms.locfileid: "70962815"
 제품이 Azure Marketplace 표시 되는 storefront 및/또는 AppSource는 제품을 만들 때 선택한 범주 및 산업 뿐만 아니라 제품 세부 정보 및 대상 대상에 의해 자동으로 결정 됩니다. 
 
 >[!Note]
->"교차 목록"(SaaS 앱 전용): 목록 또는 평가판 제품이 기술 및 비즈니스 사용자 대상 모두의 기준을 충족하는 경우 제품은 두 상점 모두에 나열됩니다. 아래 게시 옵션에 대해 자세히 알아봅니다.
+>"교차 목록" (SaaS 앱에만 해당): 목록 또는 평가판 기반 제품이 기술 및 비즈니스 사용자 대상에 대 한 조건을 충족 하는 경우 제품은 두 상점 모두에 나열 됩니다. 아래 게시 옵션에 대해 자세히 알아봅니다.
 
 ## <a name="choose-a-publishing-option"></a>게시 옵션 선택
 
@@ -54,7 +55,7 @@ ms.locfileid: "70962815"
 | **목록** | Marketplace 사용자가 **연락처** CTA를 통해 고객과 연결하도록 요청할 수 있는 애플리케이션 또는 서비스의 단순한 목록입니다. |
 | **평가판** | Marketplace를 사용 하 여 검색 기능을 향상 하 고 솔루션의 평가판 환경을 자동으로 프로 비전 하 여, 사용자가 구매 하기 전에 제한 된 시간에 무료로 SaaS, IaaS 또는 Microsoft 앱 내 경험을 사용할 수 있도록 합니다. 평가판 게시 옵션에 사용된 CTA(calls-to-action)는 **평가판** 또는 **시험 사용** 중 하나입니다. |
 |**BYOL**  |Marketplace를 사용 하 여 검색 기능을 개선 하 고 솔루션의 프로 비전을 자동화 하며 재무 트랜잭션을 별도로 완료 합니다. BYOL 제품 형식은 온-프레미스에서 클라우드로의 마이그레이션에 적합 합니다. 작업에 대 한 호출은 **지금 가져옵니다**.
-| **거래** | 응용 프로그램은 Azure에서 실행 되며 고객이 **이제** 작업에 대 한 호출을 선택 하는 경우 고객의 azure 구독에 리소스로 직접 프로 비전 할 수 있습니다. 소프트웨어 라이선스 요금은 필요에 따라 고객의 결제 수단 및 조건 선택을 통해 구매 및 청구될 수 있으며, **무료 소프트웨어 평가판**(Azure Marketplace에서만 사용 가능)에 대한 시간 제한 액세스를 제공하도록 선택할 수 있습니다. |
+| **거래** | 응용 프로그램은 Azure에서 실행 되며 고객이 **이제** 작업에 대 한 호출을 선택 하는 경우 고객의 azure 구독에 리소스로 직접 프로 비전 할 수 있습니다. 필요에 따라 고객의 지불 방법 및 약관에 따라 소프트웨어 라이선스 요금을 구입 하 고 요금이 청구 될 수 있으며, **무료 소프트웨어 평가판** 에 시간 제한 된 액세스를 제공 하도록 선택할 수 있습니다 (Azure Marketplace에만 제공 됨). |
 
 >[!Note]
 >Transact 게시 옵션을 사용할 때는 제품 유형을 선택하고 제품을 만들기 전에 가격, 청구, 송장 처리 및 지급 고려 사항을 이해하는 것이 중요합니다. [자세한 내용은 Marketplace 청구 및 상용 고려 사항 문서](./marketplace-commercial-transaction-capabilities-and-considerations.md)를 검토하세요.

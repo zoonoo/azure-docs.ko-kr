@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator 앱을 사용하여 백업 및 복구 - Azure Active Directory | Microsoft Docs
+title: Microsoft Authenticator 앱 백업 및 복구-Azure AD
 description: Microsoft Authenticator 앱을 사용 하 여 계정 자격 증명을 백업 및 복구 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 08/22/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b4e45fbe6533832765e90e5cf244f0dcbcf0b72
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 2404dd443c1e3ede1d3ad5a81888e9f805edb810
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035120"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820253"
 ---
 # <a name="backup-and-recover-account-credentials-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정 자격 증명 백업 및 복구
 
@@ -125,7 +125,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
 계정 자격 증명을 백업하고 새 디바이스에 복구했으니, 계속해서 Microsoft Authenticator 앱을 사용하여 ID를 확인할 수 있습니다. 자세한 내용은 [Microsoft Authenticator 앱을 사용 하 여 계정에 로그인](user-help-sign-in.md)을 참조 하세요.
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
 - [Microsoft Authenticator 앱 이란?](user-help-auth-app-overview.md)
 

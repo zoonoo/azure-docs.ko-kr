@@ -1,22 +1,23 @@
 ---
-title: Azure 응용 프로그램 제품 시험 | Azure Marketplace
+title: 테스트 드라이브를 제공 Azure 애플리케이션 | Azure Marketplace
 description: Azure Marketplace의 Azure 애플리케이션 제품에 대한 시험 사용을 구성하는 방법입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: pabutler
-ms.openlocfilehash: 42e533cdcedfb47a46934f77714d61a640a8d7d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3855c600fe35c37ac15783995551a769e00532be
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942859"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826127"
 ---
 # <a name="azure-applications-test-drive-tab"></a>Azure 애플리케이션 시험 사용 탭
 
-시험 사용 탭을 사용하여 고객에게 체험 환경을 제공합니다.
+[시험 사용] 탭을 사용하여 고객에게 체험 환경을 제공합니다.
 
 ## <a name="test-drive-benefits"></a>시험 사용의 이점
 
@@ -41,7 +42,7 @@ ms.locfileid: "64942859"
 
 ### <a name="to-configure-a-test-drive"></a>시험 사용을 구성하려면
 
-시험 사용을 사용하도록 설정한 후에는 다음 양식을 작성하여 시험 사용을 설정합니다.
+시험 사용을 사용 하도록 설정한 후에는 테스트 드라이브를 설정 하기 위해 다음 양식을 작성 합니다.
   
  - 세부 정보
  - 기술 정보 구성
@@ -51,21 +52,21 @@ ms.locfileid: "64942859"
 
 ![시험 사용 구성](./media/managed-app-configure-testdrive.png)
 
-다음 표에서는 관리되는 애플리케이션에 대해 시험 사용을 설정하는 데 필요한 필드를 설명합니다.  별표를 사용 하 여 추가 된 필드는 필수입니다.
+다음 표에서는 관리되는 애플리케이션에 대해 시험 사용을 설정하는 데 필요한 필드를 설명합니다.  별표가 추가 된 필드가 필요 합니다.
 
 |      필드         |  설명      |
 |  ---------------   |  ---------------  |
 | **설명\***  |  시험 사용에서 수행할 수 있는 작업을 설명합니다. 기본 HTML 태그를 사용하여 이 설명의 서식을 지정할 수 있습니다. 예: &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; 및 제목                |
-| **사용자 설명서\***  |  고객이 시험 사용 환경을 진행하는 데 사용할 수 있는 사용자 설명서를 업로드합니다. 이 문서는 .pdf 파일이어야 합니다.    |
-| **시험 사용 데모 비디오** |  테스트 드라이브의 선택적 비디오 연습입니다. 고객은 시험 사용을 진행하기 전에 이 비디오를 시청할 수 있습니다. YouTube 또는 Vimeo에 비디오 URL을 제공합니다. **+비디오 추가**를 선택하면 다음 정보를 제공하라는 메시지가 표시됩니다.<ul><li>이름</li><li>URL</li><li>썸네일(PNG 형식, 533x324픽셀)</li></ul>  |
+| **사용자 수동\***  |  고객이 시험 사용 환경을 진행하는 데 사용할 수 있는 사용자 설명서를 업로드합니다. 이 문서는 .pdf 파일이어야 합니다.    |
+| **시험 사용 데모 비디오** |  테스트 드라이브의 선택적 비디오 연습입니다. 고객은 시험 사용을 진행하기 전에 이 비디오를 시청할 수 있습니다. YouTube 또는 Vimeo에 비디오 URL을 제공합니다. **+ 비디오 추가**를 선택 하면 다음 정보를 제공 하 라는 메시지가 표시 됩니다.<ul><li>Name</li><li>URL</li><li>썸네일(PNG 형식, 533x324픽셀)</li></ul>  |
 | **인스턴스\***      | 원하는 인스턴스 수, 해당 지역 및 고객이 시험 사용을 가져올 수 있는 속도를 구성합니다. 자세한 내용은 [시험 사용을 게시하는 방법](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive#how-to-publish-a-test-drive)을 참조하세요.           |
 | **테스트 드라이브 기간 (시간)\*** | 시간을 정수로 입력합니다. 허용되는 범위는 1에서 999 사이입니다. |
-| **테스트 드라이브 ARM 템플릿\***     | 앱용 Azure Resource Manager 템플릿을 포함하는 압축(.zip) 파일을 업로드합니다. 자세한 내용은 [Azure Resource Manager 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)을 참조하세요. |
-| **정보에 액세스\***          | 고객이 시험 사용을 가져오면 액세스 정보를 제공합니다. 예를 들어 시험 사용에 액세스하기 위한 URL, 로그인 정보가 여기에 해당합니다. . 기본 HTML 태그를 사용하여 이 설명의 서식을 지정할 수 있습니다. 예: &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; 및 제목 |
-| **Azure 구독 Id\***       | Azure 서비스 및 Azure Portal 액세스 권한을 부여합니다. 해당 구독에서 리소스 사용량이 보고되며 서비스 대금이 청구됩니다. 별도의 시험 사용 전용 Azure 구독이 없으면 구독을 만듭니다.  |
+| **드라이브 ARM 템플릿 테스트\***     | 앱용 Azure Resource Manager 템플릿을 포함하는 압축(.zip) 파일을 업로드합니다. 자세한 내용은 [Azure Resource Manager 시험 사용](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)을 참조하세요. |
+| **액세스 정보\***          | 고객이 시험 사용을 가져오면 액세스 정보를 제공합니다. 예를 들어 시험 사용에 액세스하기 위한 URL, 로그인 정보가 여기에 해당합니다. 에서 수집된 앱의 원격 분석을 통해 유용한 쿼리를 실행할 수 있습니다. 기본 HTML 태그를 사용하여 이 설명의 서식을 지정할 수 있습니다. 예: &lt;p&gt;, &lt;em&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;ol&gt; 및 제목 |
+| **Azure 구독 Id\***       | Azure 서비스 및 Azure Portal 액세스 권한을 부여합니다. 해당 구독에서 리소스 사용량이 보고되며 서비스 대금이 청구됩니다. 테스트 드라이브만을 위한 별도의 Azure 구독이 아직 없는 경우 구독을 만듭니다.  |
 | **Azure AD 테 넌 트 Id\***          | Azure Active Directory의 기존 테넌트를 제공하거나 이 시험 사용을 위한 테넌트를 만듭니다.  |
-| **Azure AD App Id\***             | 새 애플리케이션을 만들고 등록합니다. Microsoft는 이 애플리케이션을 사용하여 시험 사용 인스턴스에 대한 작업을 수행합니다.  |
-| **Azure AD App Key\***            | 앱에 대한 인증 키를 만들고 이 필드에 붙여 넣습니다.   |
+| **Azure AD 앱 Id\***             | 새 애플리케이션을 만들고 등록합니다. Microsoft는 이 애플리케이션을 사용하여 시험 사용 인스턴스에 대한 작업을 수행합니다.  |
+| **Azure AD 앱 키\***            | 앱에 대한 인증 키를 만들고 이 필드에 붙여 넣습니다.   |
 |  |  |
 
 필요한 모든 정보를 제공한 후에 **저장**을 선택하여 시험 사용 설정을 완료합니다.

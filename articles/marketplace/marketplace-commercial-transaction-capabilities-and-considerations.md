@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Transact Offer Type
 author: yijenj
 manager: nuno costa
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: f6f409c42c7ffa5639315e71ff565f9c672e227c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70279751"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823013"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>상업적 marketplace 트랜잭션 기능 및 고려 사항
 
@@ -40,7 +41,7 @@ ms.locfileid: "70279751"
 
 Microsoft는 transact-sql 게시 옵션을 사용할 때 타사 소프트웨어를 판매 하 고 일부 제품 유형을 고객의 Azure 구독에 배포할 수 있도록 합니다. 청구 모델 및 제안 유형을 선택 하는 경우 게시자는 인프라 요금 및 게시자의 소프트웨어 라이선스 요금에 대 한 청구를 고려해 야 합니다.
 
-현재는 다음과 같은 제안 유형에 대해 Transact-sql 게시 옵션이 지원 됩니다. Virtual Machines, Azure 응용 프로그램 및 SaaS 앱.
+현재는 Virtual Machines, Azure 응용 프로그램 및 SaaS 앱 등의 제안 유형에 대해 Transact-sql 게시 옵션이 지원 됩니다.
 
 
 ![[Azure Marketplace에서 거래 중인 기업 거래]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
@@ -49,7 +50,7 @@ Microsoft는 transact-sql 게시 옵션을 사용할 때 타사 소프트웨어�
 
 **Virtual Machines 및 Azure 애플리케이션의 경우**
 
-Virtual Machines 및 Azure 애플리케이션의 경우 Azure 인프라 사용 요금이 고객의 Azure 구독에 청구됩니다.  인프라 사용 요금의 가격이 책정되면 고객 청구서에 소프트웨어 공급 기업의 라이선스 요금과는 별도로 표시됩니다.
+Virtual Machines 및 Azure 응용 프로그램의 경우 Azure 인프라 사용 요금은 고객의 Azure 구독으로 청구 됩니다.  인프라 사용 요금은 고객 청구서에 대 한 소프트웨어 공급자의 라이선스 수수료와 별도로 가격이 책정 되 고 표시 됩니다.
 
 **SaaS 앱의 경우**
 
@@ -57,7 +58,7 @@ SaaS 앱의 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨�
 
 ## <a name="transact-billing-models"></a>거래 청구 모델
 
-사용된 트랜잭션 옵션에 따라 게시자의 소프트웨어 라이선스 요금은 다음과 같이 표시할 수 있습니다.  
+사용 된 트랜잭션 옵션에 따라 게시자의 소프트웨어 라이선스 요금은 다음과 같이 표시 될 수 있습니다.  
 
 * 무료: 소프트웨어 라이선스 요금이 부과되지 않습니다. 
 
@@ -65,7 +66,7 @@ SaaS 앱의 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨�
 
 * 종량제: 소프트웨어 라이선스 요금이 사용된 Azure 인프라를 기준으로 시간당, 코어당(vCPU) 가격 책정 요금으로 표시됩니다. 이는 Virtual Machines 및 Azure 애플리케이션에만 적용됩니다.
 
-* • 구독 가격: 소프트웨어 라이선스 요금은 월별 또는 연간 (정액 요금 또는 사용자 단위)으로 청구 되는 되풀이 요금으로 제공 됩니다. 이는 SaaS 앱 및 Azure 애플리케이션 - 관리형 앱에만 적용됩니다.
+* • 구독 가격: 소프트웨어 라이선스 요금은 정액 요금 또는 사용자 단위로 청구 되는 월별 또는 연간 반복 요금으로 제공 됩니다. 이는 SaaS 앱 및 Azure 응용 프로그램 관리 앱에만 적용 됩니다.
 
 * 평가판 소프트웨어: 30일 또는 90일 동안 소프트웨어 라이선스 요금이 부과되지 않습니다.
 
@@ -84,7 +85,7 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 거래 게시 시나리오의 경우 게시자는 30일 또는 90일 동안 소프트웨어 라이선스를 무료로 사용할 수 있습니다. 이 할인 기능은 파트너 솔루션 사용으로 인한 Azure 인프라 사용 비용은 포함하지 않습니다.
 
-### <a name="private-offers"></a>전용 제품
+### <a name="private-offers"></a>프라이빗 제품
 
 제공 유형 및 청구 모델을 사용 하 여 제품을 수익 창출 하는 것 외에도, 게시자는 개인 제품을 제공 하 고, 협의 된 거래 가격 책정 또는 사용자 지정 구성을 완료할 수 있습니다. 프라이빗 제품은 3가지 거래 게시 옵션 모두에서 지원됩니다.
 
@@ -141,8 +142,8 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 |Microsoft 청구  | 매월 $100.00  |
 |---------|---------|
-|Microsoft는 라이선스 비용의 80%를 지불합니다. <br> \*Microsoft는 정규화 된 SaaS 앱에 대 한 라이선스 비용의 90%를 지불 합니다.   |   매월 $80.00 <br> \*$90.00/월    |
-|Microsoft는 라이선스 비용의 20%를 유지합니다. <br> \*Microsoft는 정규화 된 SaaS 앱에 대 한 라이선스 비용의 10%를 유지 합니다.  |  매월 $20.00 <br> \*$10.00     |
+|Microsoft는 라이선스 비용의 80%를 지불합니다. <br> \* Microsoft는 자격 있는 모든 SaaS 앱에 대 한 라이선스 비용의 90%를 지불 합니다.   |   매월 $80.00 <br> \* $90.00/월    |
+|Microsoft는 라이선스 비용의 20%를 유지합니다. <br> \* Microsoft는 정규화 된 SaaS 앱에 대 한 라이선스 비용의 10%를 유지 합니다.  |  매월 $20.00 <br> \* $10.00     |
 
 * **Marketplace 서비스 요금 감소:** 상업적 Marketplace에 게시 하는 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 10%까지 Marketplace 서비스 요금을 절감 합니다.  제품을 한정 하려면 Microsoft에서 하나 이상의 제품을 IP 공동 판매 준비 또는 IP 공동 판매 우선 순위로 지정 해야 합니다. 이 월에 대해이 감소 하는 Marketplace 서비스 요금을 받으려면 이전 달력 월이 끝날 때까지 최소 5 영업일 영업일 이전에 자격을 충족 해야 합니다. Marketplace 서비스 요금은 Vm, 관리 되는 앱 또는 상용 Marketplace를 통해 제공 되는 기타 제품에는 적용 되지 않습니다.  이 절감 된 Marketplace 서비스 요금은 Microsoft에서 5 월 1 일부 터 2019 년 6 월 30 2020 일 사이에 수집 된 라이선스 요금으로 정규화 된 제안에 제공 될 예정입니다.  이 시간 후에 Marketplace 서비스 요금은 일반적인 금액으로 반환 됩니다.
 
@@ -150,11 +151,11 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 **송장 처리 및 지불**
 
-게시자는 고객의 기본 송장 처리 방법을 사용하여 구독 또는 PAYGO 소프트웨어 라이선스 요금을 제공할 수 있습니다.
+게시자는 고객의 기본 청구 방법을 사용 하 여 구독 또는 PAYGO 소프트웨어 라이선스 요금을 제공할 수 있습니다.
 
 **기업 계약** 
 
-고객의 기본 송장 처리 방법이 Microsoft 기업 계약인 경우 소프트웨어 라이선스 요금은 이 송장 처리 방법을 사용하여 Azure별 사용 요금과는 별도로 항목별 요금으로 청구됩니다.
+고객의 선호 하는 청구 방법이 Microsoft 기업계약 인 경우 Azure 관련 사용 비용과는 별도로이 청구 방법을 항목별 비용으로 사용 하 여 소프트웨어 라이선스 요금은 청구 됩니다.
 
 **신용 카드 및 월별 청구서** 
 
@@ -162,13 +163,13 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 예를 들어, 고객이 신용 카드를 사용하여 구매하는 경우:
 
-|설명    |    날짜  |
+|설명    |    Date  |
 |----------|----------|
 |주문 기간   | 2018년 8월 15일 - 2018년 8월 30일 |
 |기간 종료일(월)   | 2018년 8월 30일 |
 |청구 날짜 | 2018년 9월 1일 |
 |고객 지불 날짜 | 2018년 9월 1일 |
-|에스크로 기간(신용 카드만 해당, 30일) | 2018년 9월 1일 - 2018년 9월 30일 |
+|에스크로 기간(신용 카드만 해당, 30일) | 2018 년 9 월 1 일-9 월 30 2018 일 |
 |수금 기간 시작일 | 2018년 9월 1일 |
 |수금 기간 종료일(최대 30일) | 2018년 9월 30일 |
 |지불 계산 날짜(매월 15일) | 2018년 10월 1일 |
@@ -176,12 +177,12 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 고객이 기업 계약을 사용하여 구매하는 경우:
 
-| 설명 |    날짜  |
+| 설명 |    Date  |
 |----------|----------|
 |주문 기간 | 2018년 8월 15일 - 2018년 8월 30일 |
 |기간 종료일(분기) | 2018년 9월 30일 |
 |청구 날짜 | 2018년 10월 15일 |
-|에스크로 기간(신용 카드만 해당, 30일) | n/a |
+|에스크로 기간(신용 카드만 해당, 30일) | 해당 없음 |
 |수금 기간 시작일 | 2018년 10월 15일 |
 |수금 기간 종료일(최대 90일) | 2019년 1월 15일 |
 |고객 지불 날짜 | 2018년 12월 30일 |
@@ -231,7 +232,7 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 **Virtual Machine** 
 
-평가판, 사용자 라이선스 필요 또는 종량제 가격 책정 모델 중에서 선택하고 제품 수준에서 정의된 SKU로 제공됩니다. 고객의 Azure 청구서에서 Microsoft는 게시자 소프트웨어 라이선스 요금을 기본 Azure 인프라 요금과는 별도로 표시합니다. Azure 인프라 요금은 게시자 소프트웨어 사용으로 발생됩니다.
+평가판, 사용자 라이선스 필요 또는 종량제 가격 책정 모델 중에서 선택하고 제품 수준에서 정의된 SKU로 제공됩니다. 고객의 Azure 청구서에서 Microsoft는 기본 Azure 인프라 비용과 별도로 게시자 소프트웨어 라이선스 요금을 제공 합니다. Azure 인프라 요금은 게시자 소프트웨어 사용으로 발생됩니다.
 
 **Azure 애플리케이션: 솔루션 템플릿 또는 관리형 앱** 
 

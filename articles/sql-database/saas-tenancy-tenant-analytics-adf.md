@@ -1,22 +1,22 @@
 ---
-title: 'Azure SQL Data Warehouse를 사용 하 여 테 넌 트 데이터베이스에 대해 분석 쿼리 실행 '
+title: 테 넌 트 데이터베이스에 대해 분석 쿼리 실행
 description: Azure SQL Database, SQL Data Warehouse, Azure Data Factory 또는 Power BI에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: MightyPen, sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: f4a89029d7ed90f1a2406dcf0f8046a1c651353f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4791cd3a6b6f72c5d9ee4ca828d66b0d361f356c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691884"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816778"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-sql-data-warehouse-data-factory-and-power-bi"></a>Azure SQL Database, SQL Data Warehouse, Data Factory 및 Power BI를 사용한 SaaS 분석 탐색
 

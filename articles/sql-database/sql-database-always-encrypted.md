@@ -1,5 +1,5 @@
 ---
-title: 'Always Encrypted: Azure SQL Database-Windows 인증서 저장소 '
+title: Always Encrypted-Windows 인증서 저장소
 description: 이 문서에서는 SSMS(SQL Server Management Studio)의 상시 암호화 마법사를 사용하여 데이터베이스 암호화로 SQL Database의 중요한 데이터를 보호하는 방법을 보여 줍니다. 그뿐 아니라 Windows 인증서 저장소에 암호화 키를 저장하는 방법을 보여 줍니다.
 keywords: 데이터 암호화, sql 암호화, 데이터베이스 암호화, 중요한 데이터 암호화, 상시 암호화
 services: sql-database
@@ -12,12 +12,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviwer: ''
 ms.date: 03/08/2019
-ms.openlocfilehash: e19055f83ef9b943d5ac0068d38b4f58a2b3b17c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 82c3c3274a8a9d66019ce906ee7be47cedac7470
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691235"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822051"
 ---
 # <a name="always-encrypted-protect-sensitive-data-and-store-encryption-keys-in-the-windows-certificate-store"></a>Always Encrypted: 중요한 데이터 보호 및 Windows 인증서 저장소에 암호화 키 저장
 

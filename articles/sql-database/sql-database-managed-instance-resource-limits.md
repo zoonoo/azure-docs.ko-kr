@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 리소스 제한-관리 되는 인스턴스
+title: 리소스 제한-관리 되는 인스턴스
 description: 이 문서는 관리되는 인스턴스의 Azure SQL Database 리소스 제한 사항에 대한 개요를 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 10/02/2019
-ms.openlocfilehash: 723704b6b81aacf086ff42b02c32259d0e2f1c6d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 08e378c4b5f6d8e17ac67a80401edf69611c0a13
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687924"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823345"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -65,7 +65,7 @@ ms.locfileid: "73687924"
 
 | **기능** | **범용** | **중요 비즈니스** |
 | --- | --- | --- |
-| vCore 수\* | Gen4: 8, 16, 24<br/>Gen5:4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5:4, 8, 16, 24, 32, 40, 64, 80 <br/>\*Vcore의 수는 읽기 전용 쿼리에 전용입니다. |
+| vCore 수\* | Gen4: 8, 16, 24<br/>Gen5:4, 8, 16, 24, 32, 40, 64, 80 | Gen4: 8, 16, 24 <br/> Gen5:4, 8, 16, 24, 32, 40, 64, 80 <br/>동일한 수의 vCores \*읽기 전용 쿼리에 전용입니다. |
 | 최대 메모리 | Gen4:56 g b-168 GB (7GB/vCore)<br/>Gen5:20.4 g b-408 GB (5.1 g b/vCore)<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | Gen4:56 g b-168 GB (7GB/vCore)<br/>Gen5: 읽기-쓰기 쿼리에 20.4 g b-408 GB (5.1 g b/vCore)<br/>+ 읽기 전용 쿼리에 20.4 g b-408 GB (5.1 g b/vCore)가 추가 되었습니다.<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
 | 최대 인스턴스 저장소 크기 (예약 됨) | -4 vCores의 경우 2tb (Gen5만 해당)<br/>-다른 크기의 경우 8TB | Gen4:1TB <br/> Gen5: <br/>-1tb (4, 8, 16 vCores)<br/>- 2TB(24개 vCore용)<br/>- 4TB(32, 40, 64, 80개 vCore용) |
 | 최대 데이터베이스 크기 | 현재 사용할 수 있는 인스턴스 크기 (vCores의 수에 따라 최대 2tb-8gb TB) | 현재 사용 가능한 인스턴스 크기 (vCores의 수에 따라 최대 1tb-4tb) |
@@ -142,7 +142,7 @@ ms.locfileid: "73687924"
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional 및 MSDN 플랫폼|2|32|
 
-\* 배포 계획에서 BC (중요 비즈니스용) 서비스 계층에는 일반 용도 (GP) 서비스 계층 보다 4 배 더 많은 vCore 용량이 필요 하다는 점을 고려 하세요. 예: 1 GP vCore = 1 vCore 단위 및 1 BC vCore = 4 vCore 단위 기본 제한에 대해 사용량 분석을 간소화 하기 위해는 관리 되는 인스턴스가 배포 된 지역의 모든 서브넷에서 vCore 단위를 요약 하 고 해당 결과를 구독 유형에 대 한 인스턴스 단위 제한과 비교 합니다. **최대 vCore 단위 수** 제한은 한 지역의 각 구독에 적용 됩니다. 여러 서브넷에 배포 된 모든 **Vcores의 합계가 최대 vcores 단위 수**와 같거나 작아야 한다는 점만 제외 하 고 개별 서브넷 당 제한이 없습니다.
+배포를 계획할 때 \* (BC) 서비스 계층에는 일반 용도 (GP) 서비스 계층 보다 4 배 더 많은 vCore 용량이 필요 중요 비즈니스용 하다는 점을 고려 하세요. 예: 1 GP vCore = 1 vCore 단위 및 1 BC vCore = 4 vCore 단위 기본 제한에 대해 사용량 분석을 간소화 하기 위해는 관리 되는 인스턴스가 배포 된 지역의 모든 서브넷에서 vCore 단위를 요약 하 고 해당 결과를 구독 유형에 대 한 인스턴스 단위 제한과 비교 합니다. **최대 vCore 단위 수** 제한은 한 지역의 각 구독에 적용 됩니다. 여러 서브넷에 배포 된 모든 **Vcores의 합계가 최대 vcores 단위 수**와 같거나 작아야 한다는 점만 제외 하 고 개별 서브넷 당 제한이 없습니다.
 
 오스트레일리아 동부, 미국 동부, 미국 동부 2, 서유럽, 미국 동부, 동남 아시아, 영국 남부, 유럽 서부, 미국 서 부 2 지역에서 더 큰 서브넷 및 vCore 제한을 \* \*있습니다.
 

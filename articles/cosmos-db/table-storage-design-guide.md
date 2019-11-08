@@ -1,6 +1,6 @@
 ---
 title: 크기 조정 및 성능을 지원하도록 Azure Cosmos DB 테이블 설계
-description: 'Azure Storage 테이블 설계 가이드: Azure Cosmos DB 및 Azure Storage 테이블에 확장성 있는 고성능 테이블 설계'
+description: 'Azure Storage 테이블 디자인 가이드: Azure Cosmos DB 및 Azure Storage 테이블에서 확장 가능 하 고 성능이 뛰어난 테이블 디자인'
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.date: 05/21/2019
 author: wmengmsft
 ms.author: wmeng
 ms.custom: seodec18
-ms.openlocfilehash: 0812828f8d7c0be38fb03c06f4a10019e2ed153c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 499ac3a394339ebb07c36abeaaa761de22927941
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447290"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827767"
 ---
-# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure Storage 테이블 설계 가이드: 확장성 있는 고성능 테이블 설계
+# <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Azure Storage 테이블 디자인 가이드: 확장성이 뛰어난 디자인 및 성능이 뛰어난 테이블
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -37,7 +37,7 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>타임 스탬프</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -132,7 +132,7 @@ Table service란? 이름에서 알 수 있듯이, Table service에서는 테이�
 
 Table service에서 개별 노드는 하나 이상의 전체 파티션을 지원하며, 서비스는 노드 간에 파티션 부하를 동적으로 분산하여 크기가 조정됩니다. 하나의 노드에 부하가 걸려 있는 경우 Table service는 해당 노드가 지원하는 파티션 범위를 여러 노드로 *분할*할 수 있습니다. 트래픽이 진정되면 서비스는 안정된 노드의 파티션 범위를 단일 노드로 다시*병합*할 수 있습니다.  
 
-Table service의 내부 세부 정보, 특히 서비스에서 파티션을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 스토리지 서비스](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) 문서를 참조하세요.  
+Table service의 내부 세부 정보, 특히 서비스에서 파티션을 관리하는 방법에 대한 자세한 내용은 [Microsoft Azure Storage: 강력한 일관성과 함께 항상 사용 가능한 클라우드 Storage 서비스](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)를 참조하세요.  
 
 ### <a name="entity-group-transactions"></a>EGT(엔터티 그룹 트랜잭션)
 Table service에서 EGT(엔터티 그룹 트랜잭션)는 여러 엔터티 간에 원자성 업데이트를 수행하기 위한 유일한 기본 제공 메커니즘입니다. EGT를 일부 문서에서는 *일괄 처리 트랜잭션* 이라고도 합니다. EGT는 동일한 파티션(지정된 테이블에서 동일한 파티션 키 공유)에 저장된 엔터티에서만 작동할 수 있으므로 여러 엔터티에서 원자성 트랜잭션 동작이 필요한 경우 해당 엔터티가 동일한 파티션에 있는지 확인해야 합니다. 따라서 서로 다른 엔터티 유형에 여러 테이블을 사용하지 말고 여러 엔터티 유형을 동일한 테이블(및 파티션)에 유지하는 것이 좋습니다. 단일 EGT는 최대 100개의 엔터티에서 작동할 수 있습니다.  처리를 위해 여러 개의 동시에 발생하는 EGT를 제출하는 경우에 이러한 EGT가 EGT 간에 공통된 엔터티에서 작동되면 처리가 지연될 수 있으므로 그렇지 않도록 주의해야 합니다.
@@ -204,16 +204,16 @@ Table service 솔루션은 읽기 집중적이거나, 쓰기 집중적이거나,
 | **RowKey** (직원 Id) |문자열 |
 | **FirstName** |문자열 |
 | **LastName** |문자열 |
-| **Age** |정수 |
+| **Age** |Integer |
 | **EmailAddress** |문자열 |
 
 이전 섹션 Azure Table service 개요에서는 쿼리를 위한 디자인에 직접적인 영향을 미치는 Azure Table service의 주요 기능에 대해 설명했습니다. 이 섹션의 내용은 Table service 쿼리 디자인에 대한 다음과 같은 일반적인 지침으로 요약됩니다. 아래 예제에 사용된 필터 구문은 Table service REST API에서 가져온 것입니다(자세한 내용은 [엔터티 쿼리](https://msdn.microsoft.com/library/azure/dd179421.aspx)참조).  
 
 * ***지점 쿼리***는 가장 효율적인 조회 방법이며, 대용량 조회 또는 가장 낮은 대기 시간이 필요한 조회에 사용하는 것이 좋습니다. 이러한 쿼리에서는 인덱스를 사용해 **PartitionKey** 및 **RowKey** 값을 지정하여 개별 엔터티를 효율적으로 찾을 수 있습니다. 예: $filter=(PartitionKey eq 'Sales') and (RowKey eq '2')  
-* 두 번째로 좋은 방법은 **PartitionKey**를 사용하고 **RowKey** 값 범위를 필터링하여 둘 이상의 엔터티를 반환하는 ***Range Query***입니다. **PartitionKey** 값은 특정 파티션을 식별하고, **RowKey** 값은 해당 파티션에 있는 엔터티의 하위 집합을 식별합니다. 예: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
-* 세 번째로 좋은 방법은 **PartitionKey**를 사용하고 키가 아닌 다른 속성을 필터링하여 둘 이상의 엔터티를 반환하는 ***파티션 검색***입니다. **PartitionKey** 값은 특정 파티션을 식별하고, 속성 값은 해당 파티션에 있는 엔터티의 하위 집합에 대해 선택됩니다. 예: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
+* 두 번째로 좋은 방법은 ***PartitionKey***를 사용하고 **RowKey** 값 범위를 필터링하여 둘 이상의 엔터티를 반환하는 **Range Query**입니다. **PartitionKey** 값은 특정 파티션을 식별하고, **RowKey** 값은 해당 파티션에 있는 엔터티의 하위 집합을 식별합니다. 예: $filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'  
+* 세 번째로 좋은 방법은 ***PartitionKey***를 사용하고 키가 아닌 다른 속성을 필터링하여 둘 이상의 엔터티를 반환하는 **파티션 검색**입니다. **PartitionKey** 값은 특정 파티션을 식별하고, 속성 값은 해당 파티션에 있는 엔터티의 하위 집합에 대해 선택됩니다. 예: $filter=PartitionKey eq 'Sales' and LastName eq 'Smith'  
 * ***테이블 검색***은 **PartitionKey**를 포함하지 않으며, 테이블을 구성하는 모든 파티션에서 일치하는 모든 엔터티를 검색하기 때문에 비효율적입니다. 필터에서 **RowKey**를 사용하는지 여부에 상관없이 테이블 검색을 수행합니다. 예: $filter=LastName eq 'Jones'  
-* 여러 엔터티를 반환하는 Azure Table Storage 쿼리는 **PartitionKey**와 **RowKey** 순으로 정렬된 엔터티를 반환합니다. 클라이언트에서 엔터티 재정렬을 방지하려면 가장 일반적인 정렬 순서를 정의하는 **RowKey**를 선택합니다. 파티션 키 또는 행 키로 Azure Cosmos DB에서 Azure Table API에서 반환한 쿼리 결과 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
+* 여러 엔터티를 반환하는 Azure Table Storage 쿼리는 **PartitionKey**와 **RowKey** 순으로 정렬된 엔터티를 반환합니다. 클라이언트에서 엔터티 재정렬을 방지하려면 가장 일반적인 정렬 순서를 정의하는 **RowKey**를 선택합니다. Azure Cosmos DB에서 Azure Table API에 의해 반환 된 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
 
 "**or**"을 사용하여 **RowKey** 값을 기반으로 필터를 지정하면 범위 쿼리로 처리되는 것이 아니라 파티션 검색이 수행됩니다. 따라서 다음과 같은 필터를 사용하는 쿼리는 피해야 합니다. $filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')  
 
@@ -255,7 +255,7 @@ Table service는 단일 클러스터형 인덱스의 **PartitionKey** 및 **RowK
 Table service에서 반환되는 쿼리 결과는 **PartitionKey**를 기준으로 오름차순으로 정렬된 다음, **RowKey**를 기준으로 정렬됩니다.
 
 > [!NOTE]
-> 파티션 키 또는 행 키로 Azure Cosmos DB에서 Azure Table API에서 반환한 쿼리 결과 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
+> Azure Cosmos DB에서 Azure Table API에 의해 반환 된 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬 되지 않습니다. 자세한 기능 차이 목록에 대해서는 [Azure Cosmos DB 및 Azure Table Storage의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
 
 Azure Storage 테이블의 키는 문자열 값이며, 숫자 값이 올바르게 정렬되도록 하려면 이를 고정 길이로 변환하고 0으로 채워야 합니다. 예를 들어 **RowKey**로 사용하는 직원 ID 값이 정수 값인 경우 직원 ID를 **123**에서 **00000123**으로 변환해야 합니다. 
 
@@ -303,7 +303,7 @@ Azure Storage 테이블의 키는 문자열 값이며, 숫자 값이 올바르�
 ## <a name="encrypting-table-data"></a>테이블 데이터의 암호화
 .NET Azure Storage 클라이언트 라이브러리는 작업 삽입 및 삭제의 문자열 엔터티 속성 암호화를 지원합니다. 암호화된 문자열은 서비스에 이진 속성으로 저장되고 암호 해독 후에는 다시 문자열로 변환됩니다.    
 
-테이블의 경우, 암호화 정책 외에도 사용자가 암호화할 속성을 지정해야 합니다. 이것은 특성(TableEntity에서 파생 되는 POCO 엔터티)을 지정[EncryptProperty]하거나 암호화 해결 프로그램 요청 옵션에서 수행할 수 있습니다. 암호화 해결 프로그램은 파티션 키, 행 키, 그리고 속성 이름 및 암호화 여부 속성을 나타내는  Bool방식을 반환하는 대표자입니다. 암호화 하는 동안 클라이언트 라이브러리는 네트워크에 쓰는 동안 속성을 암호화 해야 하는지 여부를 결정하는데 이 정보를 사용합니다. 대리자 속성은 암호화 하는 방법 논리의 가능성도 제공 합니다. (예를 들어 X의 경우, A 속성을 암호화하고 그렇지 않은 경우 A와 B 속성을 암호화) 엔터티를 일거나 쿼리하는 동안 이 정보를 제공할 필요가 없습니다.
+테이블의 경우, 암호화 정책 외에도 사용자가 암호화할 속성을 지정해야 합니다. 이것은 특성(TableEntity에서 파생 되는 POCO 엔터티)을 지정[EncryptProperty]하거나 암호화 해결 프로그램 요청 옵션에서 수행할 수 있습니다. 암호화 해결 프로그램은 파티션 키, 행 키, 그리고 속성 이름 및 암호화 여부 속성을 나타내는  Bool방식을 반환하는 대표자입니다. 암호화 하는 동안 클라이언트 라이브러리는 네트워크에 쓰는 동안 속성을 암호화 해야 하는지 여부를 결정하는데 이 정보를 사용합니다. 대리자 속성은 암호화 하는 방법 논리의 가능성도 제공 합니다. 예를 들어 X 인 경우에는 속성 A를 암호화 하 고, 그렇지 않으면 A와 B 속성을 암호화 합니다. 엔터티를 읽거나 쿼리 하는 동안에는이 정보를 제공 하지 않아도 됩니다.
 
 병합은 현재 지원 되지 않습니다. 속성의 하위 집합은 이전에 다른 키를 사용하여 암호화됐을 가능성이 있기 때문에 단순히 새로운 속성을 병합하는 것과 메타데이터를 업데이트 하는 것은 데이터 손실을 불러 올 수 있습니다. 서비스에서 기존 엔터티를 읽을 수 있는 추가 서비스 호출을 수행 하거나 속성 당 새 키를 사용하는 것 모두에 성능상의 이유로 적합하지 않습니다.     
 
@@ -415,7 +415,7 @@ Table service에서 관계를 모델링하는 방법에는 여러 가지가 있�
 
 ![테이블 디자인 패턴 이미지][5]
 
-위 패턴 맵에는 이 가이드에 설명된 패턴(파란색)과 안티패턴(주황색) 간의 몇 가지 관계가 강조되어 있습니다. 물론 고려할 만한 다른 많은 패턴도 있습니다. 예를 들어 Table service의 주요 시나리오 중 하나는 [CQRS(Command Query Responsibility Segregation)](https://msdn.microsoft.com/library/azure/jj554200.aspx) 패턴에서 [구체화된 뷰 패턴](https://msdn.microsoft.com/library/azure/dn589782.aspx)을 사용하는 것입니다.  
+위 패턴 맵에는 이 가이드에 설명된 패턴(파란색)과 안티패턴(주황색) 간의 몇 가지 관계가 강조되어 있습니다. 물론 고려할 만한 다른 많은 패턴도 있습니다. 예를 들어 Table service의 주요 시나리오 중 하나는 [CQRS(Command Query Responsibility Segregation)](https://msdn.microsoft.com/library/azure/dn589782.aspx) 패턴에서 [구체화된 뷰 패턴](https://msdn.microsoft.com/library/azure/jj554200.aspx)을 사용하는 것입니다.  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>파티션 간 보조 인덱스 패턴
 서로 다른 **RowKey** 값(동일한 파티션에서)을 사용하여 각 엔터티의 여러 복사본을 저장하여 빠르고 효율적인 조회를 지원하며, 서로 다른 **RowKey** 값을 사용하여 대체 정렬 순서를 허용합니다. EGT를 사용하여 복사본 간의 업데이트를 일관성 있게 유지할 수 있습니다.  
@@ -428,7 +428,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 전자 메일 주소와 같은 다른 속성 값으로 기반으로 직원 엔터티를 찾을 수 있도록 하려면 비효율적인 파티션 검색을 사용하여 일치하는 항목을 찾아야 합니다. 테이블 서비스에서는 보조 인덱스를 제공하지 않기 때문입니다. 또한 **RowKey** 와 다른 순서로 정렬된 직원 목록을 요청하는 옵션도 없습니다.  
 
 #### <a name="solution"></a>해결 방법
-보조 인덱스가 없는 문제를 해결하려면 각 엔터티의 여러 복사본을 다른 **RowKey** 값을 사용하는 각 복사본과 함께 저장하면 됩니다. 아래에 표시된 구조로 엔터티를 저장하면 전자 메일 주소 또는 직원 ID를 기반으로 직원 엔터티를 효율적으로 검색할 수 있습니다. **RowKey**의 접두사 값 "empid_" 및 "email_"은 전자 메일 주소 또는 직원 ID의 범위를 사용하여 단일 직원 또는 직원 범위를 쿼리할 수 있도록 해줍니다.  
+보조 인덱스가 없는 문제를 해결하려면 각 엔터티의 여러 복사본을 다른 **RowKey** 값을 사용하는 각 복사본과 함께 저장하면 됩니다. 아래 표시 된 구조를 사용 하 여 엔터티를 저장 하는 경우 전자 메일 주소 또는 직원 id를 기준으로 직원 엔터티를 효율적으로 검색할 수 있습니다. **Rowkey**"empid_" 및 "email_"의 접두사 값을 사용 하면 전자 메일 주소 또는 직원 id의 범위를 사용 하 여 단일 직원 또는 직원 범위를 쿼리할 수 있습니다.  
 
 ![다양한 RowKey 값을 가진 직원 엔터티][7]
 
@@ -482,7 +482,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 이러한 엔티티에 대한 대량의 트랜잭션을 예상하고 있으며, 클라이언트를 제한하는 Table service 속도의 위험을 최소화하려고 합니다.  
 
 #### <a name="solution"></a>해결 방법
-보조 인덱스가 없는 문제를 해결하려면 각 엔터티의 여러 복사본을 다른 **PartitionKey** 및 **RowKey** 값을 사용하는 각 복사본과 함께 저장하면 됩니다. 아래에 표시된 구조로 엔터티를 저장하면 전자 메일 주소 또는 직원 ID를 기반으로 직원 엔터티를 효율적으로 검색할 수 있습니다. **PartitionKey**의 접두사 값 "empid_" 및 "email_"은 쿼리에 사용할 수 있는 인덱스를 구분할 수 있도록 해줍니다.  
+보조 인덱스가 없는 문제를 해결하려면 각 엔터티의 여러 복사본을 다른 **PartitionKey** 및 **RowKey** 값을 사용하는 각 복사본과 함께 저장하면 됩니다. 아래 표시 된 구조를 사용 하 여 엔터티를 저장 하는 경우 전자 메일 주소 또는 직원 id를 기준으로 직원 엔터티를 효율적으로 검색할 수 있습니다. **PartitionKey**의 접두사 값 "empid_" 및 "email_"를 사용 하 여 쿼리에 사용할 인덱스를 식별할 수 있습니다.  
 
 ![기본 인덱스가 있는 직원 엔티티 및 보조 인덱스가 있는 직원 엔터티][10]
 
@@ -531,7 +531,7 @@ EGT는 동일한 파티션 키를 공유하는 여러 엔터티 간의 원자성
 * 동일한 테이블, 서로 다른 테이블 또는 서로 다른 스토리지 계정의 두 파티션에 저장된 엔터티  
 * Table service에 저장된 엔터티와 Blob service에 저장된 Blob  
 * Table service에 저장된 엔터티와 파일 서비스에 저장된 파일  
-* Azure Search 서비스를 사용하여 아직 인덱싱되지 않은 Table service에 저장된 엔터티  
+* Azure Cognitive Search 서비스를 사용 하 여 아직 인덱싱되지 않은 Table service의 엔터티 저장소입니다.  
 
 #### <a name="solution"></a>해결 방법
 Azure 큐를 사용하면 둘 이상의 파티션 또는 스토리지 시스템 간에 결과적 일관성을 유지하는 솔루션을 구현할 수 있습니다.
@@ -614,7 +614,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 2. EmployeeIDs 필드에서 직원 ID 목록을 구문 분석합니다.  
 3. 이러한 각 직원에 대한 추가 정보(예: 전자 메일 주소)가 필요한 경우 2단계에서 가져온 직원 목록에서 **PartitionKey** 값 "Sales" 및 **RowKey** 값을 사용하여 각 직원 엔터티를 검색합니다.  
 
-<u>옵션 #3:</u> 별도의 파티션 또는 테이블에 인덱스 엔터티 만들기  
+<u>옵션 3:</u> 별도의 파티션 또는 테이블에 인덱스 엔터티 만들기  
 
 세 번째 옵션의 경우 다음 데이터를 저장하는 인덱스 엔터티를 사용합니다.  
 
@@ -653,7 +653,7 @@ Table service는 **PartitionKey** 및 **RowKey** 값을 사용하여 엔터티�
 ![부서 엔터티 및 직원 엔터티][16]
 
 #### <a name="solution"></a>해결 방법
-두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 예를 들면 다음과 같습니다.  
+두 개의 별도 엔터티에 데이터를 저장하는 대신 데이터를 비정규화하여 부서 엔터티에 관리자 세부 정보의 복사본을 유지합니다. 예:  
 
 ![비정규화되고 결합된 부서 엔터티][17]
 
@@ -723,7 +723,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 날짜 및 시간 역순으로 정렬된 *RowKey* 값을 사용하여 가장 최근에 파티션에 추가된 **n** 개의 엔터티를 검색합니다.  
 
 > [!NOTE]
-> Azure Cosmos DB에서 Azure Table API에서 반환한 쿼리 결과 파티션 키 또는 행 키로 정렬 되지 않습니다. 따라서 이 패턴은 Azure Cosmos DB가 아닌 Azure Table Storage에 적합합니다. 자세한 기능 차이 목록에 대해서는 [Azure Table Storage와 Azure Cosmos DB의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
+> Azure Cosmos DB에서 Azure Table API에 의해 반환 된 쿼리 결과는 파티션 키 또는 행 키를 기준으로 정렬 되지 않습니다. 따라서 이 패턴은 Azure Cosmos DB가 아닌 Azure Table Storage에 적합합니다. 자세한 기능 차이 목록에 대해서는 [Azure Table Storage와 Azure Cosmos DB의 Table API 간 차이점](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior)을 참조하세요.
 
 #### <a name="context-and-problem"></a>컨텍스트 및 문제점
 일반적인 요구 사항은 가장 최근에 생성된 엔터티(예: 직원이 제출한 가장 최근 비용 청구 10개)를 검색할 수 있는 것입니다. 테이블 쿼리는 집합에서 첫 번째 엔터티를 반환하는 **$top** 쿼리 작업을 지원합니다. 집합에 있는 마지막 *n*개의 엔터티를 반환하는 동등한 쿼리 작업은 없습니다.  
@@ -919,7 +919,7 @@ Blob Storage를 사용하여 큰 속성 값을 저장합니다.
 
 이 예제에서 **RowKey** 는 로그 메시지가 날짜/시간 순으로 정렬되어 저장되도록 해당 로그 메시지의 날짜 및 시간을 포함하며, 여러 로그 메시지에서 동일한 날짜 및 시간을 공유하는 경우의 메시지 ID를 포함합니다.  
 
-또 다른 접근 방식은 애플리케이션이 파티션 범위에 메시지를 쓰도록 하는 **PartitionKey** 를 사용하는 것입니다. 예를 들어 로그 메시지의 원본이 여러 파티션 간에 메시지를 분산할 수 있는 방법을 제공하는 경우 다음 엔터티 스키마를 사용할 수 있습니다.  
+또 다른 접근 방식은 애플리케이션이 파티션 범위에 메시지를 쓰도록 하는 **PartitionKey**를 사용하는 것입니다. 예를 들어 로그 메시지의 원본이 여러 파티션 간에 메시지를 분산할 수 있는 방법을 제공하는 경우 다음 엔터티 스키마를 사용할 수 있습니다.  
 
 ![로그 메시지 엔터티][29]
 
@@ -1112,7 +1112,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>타임 스탬프</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -1204,7 +1204,7 @@ Table service는 *스키마가 없는* 테이블 저장소이며 이는 단일 �
 <tr>
 <th>PartitionKey</th>
 <th>RowKey</th>
-<th>타임 스탬프</th>
+<th>Timestamp</th>
 <th></th>
 </tr>
 <tr>
@@ -1516,7 +1516,7 @@ private static async Task SimpleEmployeeUpsertAsync(CloudTable employeeTable,
 클라이언트 애플리케이션은 이와 같은 여러 비동기 메서드를 호출할 수 있으며, 각 메서드 호출은 별도의 스레드에서 실행됩니다.  
 
 ### <a name="credits"></a>크레딧
-도움을 주신 Azure 팀원인 Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah, Serdar Ozler과 Microsoft DX의 Tom Hollander에게 감사드립니다. 
+이 문서에 기여해 주신 Azure 팀원인 Dominic Betts, Jason Hogg, Jean Ghanem, Jai Haridas, Jeff Irwin, Vamshidhar Kommineni, Vinay Shah, Serdar Ozler과 Microsoft DX의 Tom Hollander에게 감사드립니다. 
 
 또한 검토 과정에서 소중한 의견을 제공해 주신 Microsoft MVP인 Igor Papirov 및 Edward Bakker에게도 감사드립니다.
 

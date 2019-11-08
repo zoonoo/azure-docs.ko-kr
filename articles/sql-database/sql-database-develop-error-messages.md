@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/02/2019
-ms.openlocfilehash: 56df04b6e6274a968d81017f712235ad50b385f3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3aec1fd7a5a5cef7e3c5265977fe9ad44f4209c2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690670"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828043"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL Database 클라이언트 애플리케이션의 SQL 오류 코드: 데이터베이스 연결 오류 및 기타 문제
 

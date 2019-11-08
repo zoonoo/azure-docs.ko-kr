@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central 채팅 표시/숨기기 | Microsoft Docs
-description: 사용자로 서 채팅을 표시 하 고 숨기는 방법에 대해 알아봅니다.
+description: 이 문서에서는 IoT Central 응용 프로그램에서 채팅을 표시 하 고 숨기는 방법을 설명 합니다. 라이브 채팅을 사용 하 여 기술 지원에 액세스할 수 있습니다.
 author: v-krghan
 ms.author: v-krghan
 ms.date: 08/23/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 8e1ad4f7f3f41d521b32ba5d92fa13c4f1c4ab9b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d861a5d1da6ebc9cedbe2dff764cd5b6e7dd04e1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952213"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827396"
 ---
 # <a name="toggle-live-chat"></a>라이브 채팅 토글
 

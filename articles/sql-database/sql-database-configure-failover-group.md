@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database에 대 한 장애 조치 (failover) 그룹 구성
+title: 장애 조치 (failover) 그룹 구성
 description: Azure Portal, Az CLI 및 PowerShell을 사용 하 여 Azure SQL Database 단일 데이터베이스, 탄력적 풀 및 관리 되는 인스턴스에 대해 자동 장애 조치 (failover) 그룹을 구성 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein, carlrab
 ms.date: 08/14/2019
-ms.openlocfilehash: 626677ef9444e0ad99fd3678e23bdeec62fd920c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fb9ee2378679c420a7675856ec95e60f6ae1d14f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933385"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827146"
 ---
 # <a name="configure-a-failover-group-for-azure-sql-database"></a>Azure SQL Database에 대 한 장애 조치 (failover) 그룹 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "72933385"
 ## <a name="single-database"></a>단일 데이터베이스
 장애 조치 (failover) 그룹을 만들고 Azure Portal 또는 PowerShell을 사용 하 여 단일 데이터베이스를 추가 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 다음 필수 구성 요소를 고려 합니다.
 
@@ -33,10 +33,10 @@ ms.locfileid: "72933385"
 
 ### <a name="create-failover-group"></a>장애 조치 (failover) 그룹 만들기
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 장애 조치 (failover) 그룹을 만들고 Azure Portal를 사용 하 여 단일 데이터베이스를 추가 합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **Azure Portal**의 왼쪽 메뉴에서 [Azure SQL](https://portal.azure.com)을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. 장애 조치 (failover) 그룹에 추가 하려는 단일 데이터베이스를 선택 합니다. 
 1. 서버 **이름** 아래에서 서버 이름을 선택 하 여 서버에 대 한 설정을 엽니다.
 
@@ -102,15 +102,15 @@ PowerShell을 사용 하 여 장애 조치 그룹을 만들고 단일 데이터�
 
 ---
 
-### <a name="test-failover"></a>테스트 장애 조치 
+### <a name="test-failover"></a>테스트 장애 조치(Failover) 
 
 Azure Portal 또는 PowerShell을 사용 하 여 장애 조치 (failover) 그룹의 장애 조치를 테스트 합니다. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 장애 조치 (failover) 그룹의 장애 조치를 테스트 합니다. 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **Azure Portal**의 왼쪽 메뉴에서 [Azure SQL](https://portal.azure.com)을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. 장애 조치 (failover) 그룹에 추가 하려는 단일 데이터베이스를 선택 합니다. 
 
    ![단일 db에 대해 서버 열기](media/sql-database-single-database-failover-group-tutorial/open-sql-db-server.png)
@@ -183,10 +183,10 @@ PowerShell을 사용 하 여 장애 조치 그룹의 장애 조치를 테스트 
 
 ---
 
-## <a name="elastic-pool"></a>Elastic Pool
+## <a name="elastic-pool"></a>탄력적 풀
 장애 조치 (failover) 그룹을 만들고 Azure Portal 또는 PowerShell을 사용 하 여 탄력적 풀을 추가 합니다.  
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 다음 필수 구성 요소를 고려 합니다.
 
@@ -196,10 +196,10 @@ PowerShell을 사용 하 여 장애 조치 그룹의 장애 조치를 테스트 
 
 Azure Portal 또는 PowerShell을 사용 하 여 탄력적 풀에 대 한 장애 조치 (failover) 그룹을 만듭니다. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 장애 조치 (failover) 그룹을 만들고 Azure Portal를 사용 하 여 탄력적 풀을 추가 합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **Azure Portal**의 왼쪽 메뉴에서 [Azure SQL](https://portal.azure.com)을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. 장애 조치 (failover) 그룹에 추가 하려는 탄력적 풀을 선택 합니다. 
 1. **개요** 창에서 서버 **이름** 아래의 서버 이름을 선택 하 여 서버에 대 한 설정을 엽니다.
   
@@ -263,15 +263,15 @@ Azure Portal 또는 PowerShell을 사용 하 여 탄력적 풀에 대 한 장애
 
 ---
 
-### <a name="test-failover"></a>테스트 장애 조치
+### <a name="test-failover"></a>테스트 장애 조치(Failover)
 
 Azure Portal 또는 PowerShell을 사용 하 여 탄력적 풀의 장애 조치 (failover)를 테스트 합니다. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 장애 조치 (failover) 그룹을 보조 서버로 장애 조치 (failover) 한 다음 Azure Portal를 사용 하 여 장애 복구 (failback) 합니다. 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **Azure Portal**의 왼쪽 메뉴에서 [Azure SQL](https://portal.azure.com)을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. 장애 조치 (failover) 그룹에 추가 하려는 탄력적 풀을 선택 합니다. 
 1. **개요** 창에서 서버 **이름** 아래의 서버 이름을 선택 하 여 서버에 대 한 설정을 엽니다.
   
@@ -334,7 +334,7 @@ Azure Portal 또는 PowerShell을 사용 하 여 두 개의 관리 되는 인스
 
 각 관리 되는 인스턴스의 가상 네트워크에 대 한 게이트웨이를 만들고 두 게이트웨이를 연결한 다음 장애 조치 (failover) 그룹을 만들어야 합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 다음 필수 구성 요소를 고려 합니다.
 
 - 보조 관리 되는 인스턴스는 비어 있어야 합니다.
@@ -346,7 +346,7 @@ Azure Portal 또는 PowerShell을 사용 하 여 두 개의 관리 되는 인스
 
 Azure Portal 또는 PowerShell을 사용 하 여 기본 가상 네트워크 게이트웨이를 만듭니다. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 기본 가상 네트워크 게이트웨이를 만듭니다. 
 
@@ -363,15 +363,15 @@ Azure Portal를 사용 하 여 기본 가상 네트워크 게이트웨이를 만
 
    다음 표에서는 기본 관리 되는 인스턴스의 게이트웨이에 필요한 값을 보여 줍니다.
  
-    | **필드** | Value |
+    | **필드** | 값 |
     | --- | --- |
     | **구독** |  기본 관리 되는 인스턴스가 있는 구독입니다. |
-    | **Name** | 가상 네트워크 게이트웨이의 이름입니다. | 
+    | **이름** | 가상 네트워크 게이트웨이의 이름입니다. | 
     | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
     | **게이트웨이 유형** | **VPN**을 선택합니다. |
     | **VPN 유형** | **경로 기반** 선택 |
     | **SKU**| `VpnGw1`기본값을 그대로 둡니다. |
-    | **위치**| 보조 관리 되는 인스턴스와 보조 가상 네트워크가 있는 위치입니다.   |
+    | **위치**:| 보조 관리 되는 인스턴스와 보조 가상 네트워크가 있는 위치입니다.   |
     | **가상 네트워크**| 보조 관리 되는 인스턴스의 가상 네트워크를 선택 합니다. |
     | **공용 IP 주소**| **새로 만들기**를 선택합니다. |
     | **공용 IP 주소 이름**| IP 주소에 대 한 이름을 입력 합니다. |
@@ -419,20 +419,20 @@ PowerShell을 사용 하 여 기본 가상 네트워크 게이트웨이를 만�
 
 Azure Portal 또는 PowerShell을 사용 하 여 보조 가상 네트워크 게이트웨이를 만듭니다. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 이전 섹션의 단계를 반복 하 여 보조 관리 되는 인스턴스에 대 한 가상 네트워크 서브넷 및 게이트웨이를 만듭니다. 보조 관리 되는 인스턴스에 대 한 게이트웨이를 구성 하는 데 필요한 필드를 입력 합니다. 
 
    다음 표에서는 보조 관리 되는 인스턴스의 게이트웨이에 필요한 값을 보여 줍니다.
 
-   | **필드** | Value |
+   | **필드** | 값 |
    | --- | --- |
    | **구독** |  보조 관리 되는 인스턴스가 있는 구독입니다. |
-   | **Name** | `secondary-mi-gateway`와 같은 가상 네트워크 게이트웨이의 이름입니다. | 
+   | **이름** | `secondary-mi-gateway`와 같은 가상 네트워크 게이트웨이의 이름입니다. | 
    | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
    | **게이트웨이 유형** | **VPN**을 선택합니다. |
    | **VPN 유형** | **경로 기반** 선택 |
    | **SKU**| `VpnGw1`기본값을 그대로 둡니다. |
-   | **위치**| 보조 관리 되는 인스턴스와 보조 가상 네트워크가 있는 위치입니다.   |
+   | **위치**:| 보조 관리 되는 인스턴스와 보조 가상 네트워크가 있는 위치입니다.   |
    | **가상 네트워크**| `vnet-sql-mi-secondary`와 같이 섹션 2에서 만든 가상 네트워크를 선택 합니다. |
    | **공용 IP 주소**| **새로 만들기**를 선택합니다. |
    | **공용 IP 주소 이름**| IP 주소 이름을 입력 합니다 (예: `secondary-gateway-IP`). |
@@ -481,7 +481,7 @@ Azure Portal 또는 PowerShell을 사용 하 여 두 게이트웨이 간의 연�
 
 두 연결 모두에 사용 되는 공유 키는 각 연결에 대해 동일 해야 합니다. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 Azure Portal를 사용 하 여 두 게이트웨이 간의 연결을 만듭니다. 
 
 1. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기** 를 선택 합니다.
@@ -539,11 +539,11 @@ PowerShell을 사용 하 여 두 게이트웨이 간의 연결을 만듭니다.
 ### <a name="create-the-failover-group"></a>장애 조치 (failover) 그룹 만들기 
 Azure Portal 또는 PowerShell을 사용 하 여 관리 되는 인스턴스에 대해 장애 조치 (failover) 그룹을 만듭니다. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 관리 되는 인스턴스에 대해 장애 조치 (failover) 그룹을 만듭니다. 
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
+1. **Azure Portal**의 왼쪽 메뉴에서 [Azure SQL](https://portal.azure.com)을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. 장애 조치 (failover) 그룹에 추가 하려는 기본 관리 되는 인스턴스를 선택 합니다.  
 1. **설정**에서 **인스턴스 장애 조치 (failover) 그룹** 으로 이동한 다음 **그룹 추가** 를 선택 하 여 **인스턴스 장애 조치 (failover) 그룹** 페이지를 엽니다. 
 
@@ -577,11 +577,11 @@ PowerShell을 사용 하 여 관리 되는 인스턴스에 대해 장애 조치 
    ```
 ---
 
-### <a name="test-failover"></a>테스트 장애 조치
+### <a name="test-failover"></a>테스트 장애 조치(Failover)
 
 Azure Portal 또는 PowerShell을 사용 하 여 장애 조치 (failover) 그룹의 장애 조치를 테스트 합니다. 
 
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 사용 하 여 장애 조치 (failover) 그룹의 장애 조치를 테스트 합니다. 
 

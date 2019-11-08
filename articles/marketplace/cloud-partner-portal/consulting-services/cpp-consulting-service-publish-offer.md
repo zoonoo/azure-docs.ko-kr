@@ -1,18 +1,19 @@
 ---
 title: Azure 및 Dynamics 365 컨설팅 서비스 제공 게시 | Azure Marketplace
-description: Azure Marketplace 또는 AppSource에 대 한 클라우드 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 제품을 게시 합니다.
+description: Azure Marketplace 또는 AppSource에 대 한 Cloud 파트너 포털에 Azure 또는 Dynamics 365 컨설팅 서비스 제품을 게시 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: pabutler
-ms.openlocfilehash: 44fe7f11d365761c351e488d834a63392ea9cac1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d2daf68bae5e24dd8ec3501befd186a50c2cb16
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942801"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818102"
 ---
 # <a name="publish-a-consulting-service-offer"></a>컨설팅 서비스 제품 게시
 

@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 35e6c61a8e8537035d70323c85dfc7a76f87cbcd
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 36ca95191e0e6422bd93360b98243393acad8147
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869561"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825486"
 ---
 # <a name="marketplace-metering-service-apis"></a>Marketplace 계량 서비스 API
 
@@ -20,7 +21,7 @@ ms.locfileid: "67869561"
 
 ## <a name="usage-event"></a>사용 이벤트
 
-**POST**:`https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
+**POST**: `https://marketplaceapi.microsoft.com/api/usageEvent?api-version=<ApiVersion>`
 
 *쿼리 매개 변수:*
 
@@ -34,7 +35,7 @@ ms.locfileid: "67869561"
 | ------------------ | ---------------------------- |
 | `x-ms-requestid`     | 클라이언트의 요청을 추적 하기 위한 고유 문자열 값 (가급적 GUID)입니다. 이 값을 제공하지 않으면 값이 하나 생성된 후 응답 헤더에 제공됩니다. |
 | `x-ms-correlationid` | 클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
-| `authorization`   | [JWT (JSON web token) 전달자 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) 참고: HTTP 요청을 만들 때 참조 된 `Bearer` 링크에서 가져온 토큰에 접두사를 붙입니다. |
+| `authorization`   | [JWT (JSON web token) 전달자 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) 참고: HTTP 요청을 만들 때 참조 된 링크에서 가져온 토큰에 `Bearer` 접두사를 붙입니다. |
 
 *요청:*
 
@@ -48,7 +49,7 @@ ms.locfileid: "67869561"
 }
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>응답
 
 코드: 200<br>
 확인 
@@ -95,7 +96,7 @@ ms.locfileid: "67869561"
 ```
 
 코드: 409<br>
-충돌, 사용 리소스 ID에 대 한 사용 호출 및 이미 존재 하는 유효 사용을 받게 됩니다. 응답에는 허용 `additionalInfo` 된 메시지에 대 한 정보가 포함 된 필드가 포함 됩니다.
+충돌, 사용 리소스 ID에 대 한 사용 호출 및 이미 존재 하는 유효 사용을 받게 됩니다. 응답에는 허용 된 메시지에 대 한 정보를 포함 하는 `additionalInfo` 필드가 포함 됩니다.
 
 ```json
 {
@@ -134,7 +135,7 @@ Batch 사용 이벤트 API를 사용 하면 둘 이상의 구매한 엔터티에
 | ------------------ | ------ |
 | `x-ms-requestid`     | 클라이언트의 요청을 추적 하기 위한 고유 문자열 값 (가급적 GUID)입니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
 | `x-ms-correlationid` | 클라이언트에서 작업에 대 한 고유한 문자열 값입니다. 이 매개 변수는 클라이언트 작업의 모든 이벤트를 서버 쪽의 이벤트와 상관 관계를 설정 합니다. 이 값을 제공 하지 않으면 하나는 생성 되 고 응답 헤더에 제공 됩니다. |
-| `authorization`      | [JWT (JSON web token) 전달자 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) 참고: HTTP 요청을 만들 때 참조 된 `Bearer` 링크에서 가져온 토큰에 접두사를 붙입니다.  |
+| `authorization`      | [JWT (JSON web token) 전달자 토큰을 가져옵니다.](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-registration#get-a-token-based-on-the-azure-ad-app) 참고: HTTP 요청을 만들 때 참조 된 링크에서 가져온 토큰에 `Bearer` 접두사를 붙입니다.  |
 
 *요청:*
 ```json
@@ -157,7 +158,7 @@ Batch 사용 이벤트 API를 사용 하면 둘 이상의 구매한 엔터티에
   ]
 }
 ```
-### <a name="responses"></a>Responses
+### <a name="responses"></a>응답
 
 코드: 200<br>
 확인
@@ -192,9 +193,9 @@ Batch 사용 이벤트 API를 사용 하면 둘 이상의 구매한 엔터티에
 }
 ```
 
-API 응답에서 참조 되는 `BatchUsageEvent` 상태 코드에 대 한 설명:
+`BatchUsageEvent` API 응답에서 참조 되는 상태 코드에 대 한 설명:
 
-| status code  | Description |
+| 상태 코드  | 설명 |
 | ---------- | -------------------- |
 | `Accepted` | 허용 된 코드입니다. |
 | `Expired` | 만료 된 사용입니다. |

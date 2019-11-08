@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: d4a16fc3d4c29b1e270fa088af75d287a81180c0
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 04dcdbe6854a386f7edaa04aa9c2912789122a31
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552073"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827449"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -69,7 +69,7 @@ Circonus는 온-프레미스 또는 SaaS 배포용으로 빌드된 마이크로 
 
 시간과 비용을 절감하도록 빌드된 플랫폼을 사용하여 클라우드를 통합하고 자동화합니다. CloudHealth는 클라우드 관리를 위한 탁월한 가시성, 직관적인 최적화 및 견고한 관리 사례를 제공합니다. CloudHealth 플랫폼을 사용 하면 기업 및 MSPs에서 클라우드 투자 수익을 최대화할 수 있습니다. 비용, 사용량, 성능, 보안에 대해 자신 있게 결정할 수 있습니다.
 
-[더 알아보세요.][cloudhealth-doc]
+[자세한 정보.][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -95,7 +95,7 @@ Dynatrace OneAgent는 Azure 확장 메커니즘을 통해 Azure VM 및 App Servi
 
 [설명서로 이동 합니다.][dynatrace-doc]
 
-## <a name="elastic"></a>탄력성
+## <a name="elastic"></a>Elastic
 
 ![탄력적 로고](./media/partners/elastic.png)
 
@@ -228,7 +228,7 @@ Sumo Logic은 안전한 클라우드 기반, 머신 데이터 분석 서비스�
 
 ![Turbonomic 로고](./media/partners/Turbonomic.png)
 
-Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최적화하여 하이브리드 클라우드에 대한 워크로드 자동화를 제공합니다. Turbonomic은 애플리케이션이 IaaS 및 PaaS 계층에 대한 컴퓨팅, 스토리지 및 네트워크 전체에서 해당 SLA를 제공하는 데 필요한 리소스를 계속해서 얻고 불필요한 리소스가 할당되지 않도록 자산을 지속적으로 최적화하여 조직이 해당 Azure 자산을 탄력적으로 활용할 수 있도록 지원합니다. 조직은 마이그레이션을 시뮬레이션하고 워크로드의 규모를 적절히 조정하고 데이터 센터 리소스를 사용 중지하여, 예산을 초과하지 않고 적시에 Azure로 책임감 있게 마이그레이션할 수 있을 뿐 아니라 성능과 준수도 유지할 수 있습니다. Turbonomic은 API 기반으로, Azure 및 온-프레미스에서 에이전트 없는 VM으로 실행됩니다.
+Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최적화하여 하이브리드 클라우드에 대한 워크로드를 자동화합니다. Turbonomic은 애플리케이션이 IaaS 및 PaaS 계층에 대한 컴퓨팅, 스토리지 및 네트워크 전체에서 해당 SLA를 제공하는 데 필요한 리소스를 계속해서 얻고 불필요한 리소스가 할당되지 않도록 자산을 지속적으로 최적화하여 조직이 해당 Azure 자산을 탄력적으로 활용할 수 있도록 지원합니다. 조직은 마이그레이션을 시뮬레이션하고 워크로드의 규모를 적절히 조정하고 데이터 센터 리소스를 사용 중지하여, 예산을 초과하지 않고 적시에 Azure로 책임감 있게 마이그레이션할 수 있을 뿐 아니라 성능과 준수도 유지할 수 있습니다. Turbonomic은 API 기반으로, Azure 및 온-프레미스에서 에이전트 없는 VM으로 실행됩니다.
 
 [자세한 정보][turbonomic-doc]
 
@@ -267,5 +267,5 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [solarwinds-doc]: https://www.solarwinds.com/topics/azure-monitoring "SolarWinds 설명서."
 [splunk-doc]: https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk "Splunk 설명서."
 [sumologic-doc]: https://www.sumologic.com/azure "SumoLogic 설명서."
-[turbonomic-doc]: https://turbonomic.com/solutions/technologies/azure-cloud/ "Turbonomic 소개."
+[turbonomic-doc]: https://turbonomic.com/ "Turbonomic 소개."
 

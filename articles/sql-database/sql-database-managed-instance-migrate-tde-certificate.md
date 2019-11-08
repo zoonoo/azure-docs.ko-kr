@@ -1,5 +1,5 @@
 ---
-title: 'TDE 인증서 마이그레이션-Azure SQL Database Managed Instance '
+title: TDE 인증서 관리 되는 인스턴스 마이그레이션
 description: 투명한 데이터 암호화를 사용하여 데이터베이스의 데이터베이스 암호화 키를 보호하는 인증서를 Azure SQL Database Managed instance로 마이그레이션
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: carlrab, jovanpop
 ms.date: 04/25/2019
-ms.openlocfilehash: 4d931a927888cb96116043a72006ac77cfa7dded
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f0bc66260a0eaa66e71241148591146fa38d4120
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688077"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821784"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-database-managed-instance"></a>TDE 보호 데이터베이스의 인증서를 Azure SQL Database Managed Instance로 마이그레이션
 

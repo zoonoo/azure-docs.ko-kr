@@ -3,6 +3,7 @@ title: Azure IoT Central에서 운영자 대시보드 사용자 지정 | Microso
 description: 이 자습서에서는 IoT Central 애플리케이션에서 운영자 대시보드를 사용자 지정하고 디바이스를 관리하는 방법을 보여 줍니다.
 services: iot-central
 ms.service: iot-central
+ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.custom:
 - iot-storeAnalytics-checkout
@@ -10,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 10/03/2019
-ms.openlocfilehash: c145903d4fee1d0fbb804aa9dbc7b99b141529b3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cb43facfc6b838a6e29a1b08e50648abf0f04911
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495149"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73615289"
 ---
 # <a name="tutorial--customize-the-operator-dashboard-and-manage-devices-in-azure-iot-central"></a>자습서:  Azure IoT Central에서 운영자 대시보드 사용자 지정 및 디바이스 관리
 

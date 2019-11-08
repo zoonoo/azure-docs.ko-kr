@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 메트릭 및 진단 로깅
+title: 메트릭 및 진단 로깅
 description: Azure SQL Database에서 진단을 사용 하 여 리소스 사용률 및 쿼리 실행 통계에 대 한 정보를 저장 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/21/2019
-ms.openlocfilehash: 6c2040a223b7ec33b05ee3c8b3c65bad031aa3c2
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d51acaff89c2a8589b6b524c112c11f9c4f18220
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687800"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821766"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 

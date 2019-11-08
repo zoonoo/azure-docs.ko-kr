@@ -1,5 +1,5 @@
 ---
-title: CSV 파일의 데이터를 Azure SQL Database으로 로드 (bcp)
+title: CSV 파일에서 데이터베이스로 데이터 로드 (bcp)
 description: 작은 데이터 크기의 경우 bcp를 사용하여 Azure SQL Database로 데이터를 가져옵니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: d9c4a6293fe2c52870e61488713455ac6c2ed4a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b0df3d588f1d9b0a50c3ea7a583b0704e7e85c39
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689559"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827483"
 ---
 # <a name="load-data-from-csv-into-azure-sql-database-flat-files"></a>CSV에서 Azure SQL Database(플랫 파일)로 데이터 로드
 

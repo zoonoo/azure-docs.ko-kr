@@ -1,7 +1,7 @@
 ---
-title: AKS 배포에서 데이터 드리프트 (미리 보기) 검색
+title: AKS 배포에서 데이터 드리프트 검색
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 Azure Kubernetes 서비스 배포 모델에 대 한 데이터 드리프트를 검색 합니다.
+description: Azure Machine Learning에서 Azure Kubernetes 서비스 배포 모델에 대 한 데이터 드리프트 (미리 보기)를 검색 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b1c22d9badc58360b0355bb4ef89017db27f06
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: 9ac1c5cb25d6b2ad396c2caed74942988a723a0e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796729"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824250"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

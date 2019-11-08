@@ -4,15 +4,16 @@ description: Azure Marketplace 및 AppSource의 통합 솔루션
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
-ms.openlocfilehash: b6015ce2d52c140a966636b887d021e76e92990d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: a9e6cc42e4bc83cf36aefcf69a5ee700ed9043b7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "70993636"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826493"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource의 통합 솔루션
 

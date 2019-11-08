@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램 연결 Azure SQL Database Managed Instance
+title: 관리 되는 인스턴스 연결 응용 프로그램
 description: 이 아티클에서는 Azure SQL Database Managed Instance에 애플리케이션을 연결하는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 5dc287ab58636b4921c14ae71f9a62ab36d9c596
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9f592c345b7cfcf5f21d816fde1fae6b8e6b98c7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688232"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823392"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>응용 프로그램을 Azure SQL Database 관리 되는 인스턴스에 연결
 

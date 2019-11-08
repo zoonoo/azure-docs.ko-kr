@@ -1,6 +1,6 @@
 ---
 title: Azure IoT 솔루션 가속기 FAQ - Azure | Microsoft Docs
-description: IoT 솔루션 가속기에 대한 질문과 대답
+description: 이 문서에서는 IoT 솔루션 가속기에 대 한 자주 묻는 질문에 답변 합니다. GitHub 리포지토리에 대 한 링크를 포함 합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-ms.openlocfilehash: b2f08e811217572e09a254e9ab3306ab954b14b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b448099dab0e79dca38310396896be46cf2e0ff6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61447969"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826269"
 ---
 # <a name="frequently-asked-questions-for-iot-solution-accelerators"></a>IoT 솔루션 가속기에 대한 질문과 대답
 
@@ -71,9 +71,9 @@ Azure 구독이 있는 것이 확실하다면, 구독에 대한 테넌트 매핑
 
 예, 새로운 원격 모니터링을 동일한 지역에서 사용할 수 있습니다.
 
-### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Azure portal에서 리소스 그룹을 삭제 하면 azureiotsolutions.com의 솔루션 가속기에서 삭제를 클릭 사이의 차이 무엇입니까?
+### <a name="whats-the-difference-between-deleting-a-resource-group-in-the-azure-portal-and-clicking-delete-on-a-solution-accelerator-in-azureiotsolutionscom"></a>Azure Portal에서 리소스 그룹을 삭제 하 고 azureiotsolutions.com의 솔루션 가속기에서 삭제를 클릭 하는 경우의 차이점은 무엇 인가요?
 
-* 솔루션 가속기를 삭제 하는 경우 [azureiotsolutions.com](https://www.azureiotsolutions.com/), 솔루션 가속기를 만들 때 배포 된 모든 리소스를 삭제 합니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
+* [Azureiotsolutions.com](https://www.azureiotsolutions.com/)에서 솔루션 가속기를 삭제 하는 경우 솔루션 가속기를 만들 때 배포 된 모든 리소스를 삭제 합니다. 리소스 그룹에 리소스를 추가하면 이들 역시 삭제됩니다.
 * [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 삭제하는 경우 해당 리소스 그룹의 리소스만 삭제됩니다. 또한 솔루션 가속기와 연결된 Azure Active Directory 애플리케이션을 삭제해야 합니다.
 
 ### <a name="can-i-continue-to-leverage-my-existing-investments-in-azure-iot-solution-accelerators"></a>Azure IoT 솔루션 가속기에 대한 기존 투자를 계속 활용할 수 있나요?

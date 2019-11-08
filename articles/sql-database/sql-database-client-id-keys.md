@@ -1,5 +1,5 @@
 ---
-title: 앱 인증에 대 한 값 가져오기-Azure SQL Database
+title: 앱 인증에 대 한 값 가져오기
 description: 코드에서 SQL Database에 액세스하기 위한 서비스 사용자를 만듭니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 6a8f5263e2f79f130814aa520712f679430440fd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1c2f45aeeaadbbaedc839dd0e2c10804d720a6cd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691005"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827174"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>코드에서 SQL Database에 액세스하는 애플리케이션을 인증하기 위한 필수 값 가져오기
 

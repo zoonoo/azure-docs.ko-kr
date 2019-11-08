@@ -1,5 +1,5 @@
 ---
-title: 모니터링 및 성능 튜닝-Azure SQL Database
+title: 모니터링 및 성능 튜닝
 description: 평가 및 개선을 통한 Azure SQL Database의 성능 튜닝 관련 팁.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: c11112963ec82a0e53df156048495e7b5141bcb7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e77af00dc3352af3265da90685e58b34c96bee81
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687757"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825152"
 ---
 # <a name="monitoring-and-performance-tuning"></a>모니터링 및 성능 튜닝
 
@@ -34,7 +34,7 @@ Azure SQL Database는 사용을 쉽게 모니터링 하 고, 리소스 (예: CPU
 
 Azure에서 SQL 데이터베이스의 성능을 모니터링 하려면 선택한 데이터베이스 성능의 수준을 기준으로 사용 되는 리소스를 모니터링 하 여 시작 합니다. 다음 리소스를 모니터링 합니다.
  - **Cpu 사용량**: 데이터베이스가 오랜 시간 동안 100%의 CPU 사용량에 도달 하 고 있는지 확인 합니다. 높은 CPU 사용량은 가장 많은 계산 능력을 사용 하는 쿼리를 식별 하 고 조정 해야 함을 나타낼 수 있습니다. 높은 CPU 사용량은 데이터베이스 또는 인스턴스를 상위 서비스 계층으로 업그레이드 해야 함을 나타낼 수도 있습니다. 
- - **대기 통계**: [_os_wait_stats (Transact-sql)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 를 사용 하 여 쿼리 대기 시간을 확인 합니다. 쿼리는 리소스, 큐 대기 또는 외부 대기를 기다릴 수 있습니다. 
+ - **대기 통계**: [dm_os_wait_stats (Transact-sql)](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 를 사용 하 여 쿼리 대기 시간을 확인 합니다. 쿼리는 리소스, 큐 대기 또는 외부 대기를 기다릴 수 있습니다. 
  - **IO 사용**: 데이터베이스가 기본 저장소의 IO 제한에 도달 했는지 확인 합니다.
  - **메모리 사용**: 데이터베이스 또는 인스턴스에 사용할 수 있는 메모리 양은 vcores 수에 비례 합니다. 메모리가 작업에 충분 한지 확인 합니다. 페이지 수명 예상은 페이지를 메모리에서 제거 하는 속도를 나타낼 수 있는 매개 변수 중 하나입니다.
 
@@ -91,11 +91,11 @@ Azure SQL Database 서비스에는 문제를 해결 하 고 잠재적인 성능 
 - [Azure Portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) 사용 하 여 CPU 비율 사용량을 모니터링 합니다.
 - 다음 [dmv](sql-database-monitoring-with-dmvs.md)를 사용 합니다.
 
-  - [Sys. dm _db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV는 SQL database에 대 한 CPU, i/o 및 메모리 소비량을 반환 합니다. 데이터베이스에 활동이 없는 경우에도 15 초 간격 마다 하나의 행이 존재 합니다. 기록 데이터는 1시간 동안 유지됩니다.
+  - [Dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV는 SQL database에 대 한 CPU, i/o 및 메모리 소비량을 반환 합니다. 데이터베이스에 활동이 없는 경우에도 15 초 간격 마다 하나의 행이 존재 합니다. 기록 데이터는 1시간 동안 유지됩니다.
   - [Resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) DMV는 Azure SQL Database에 대 한 CPU 사용량 및 저장소 데이터를 반환 합니다. 데이터는 5 분 간격으로 수집 되 고 집계 됩니다.
 
 > [!IMPORTANT]
-> Resource_stats Dmv를 사용 하는 T-sql 쿼리에 대 한 CPU 사용 문제를 해결 하려면 [cpu 성능 문제 확인](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)을 참조 하세요.
+> Dm_db_resource_stats 및 resource_stats Dmv를 사용 하는 T-sql 쿼리에 대 한 CPU 사용 문제를 해결 하려면 [cpu 성능 문제 확인](sql-database-monitoring-with-dmvs.md#identify-cpu-performance-issues)을 참조 하세요.
 
 ### <a name="ParamSniffing"></a>PSP 문제가 있는 쿼리
 
@@ -108,7 +108,7 @@ PSP (매개 변수 구분 계획) 문제는 쿼리 최적화 프로그램이 특
 - 각 쿼리 실행 시 [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용합니다. 이 해결 방법을 사용할 경우 품질은 향상되지만 컴파일 시간 및 CPU가 늘어납니다. 높은 처리량이 필요한 워크 로드의 경우에는 `RECOMPILE` 옵션을 사용할 수 없는 경우가 많습니다.
 - [옵션 (OPTIMIZE for ...)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용 하 여 실제 매개 변수 값을 대부분의 매개 변수 값에 적합 한 계획을 생성 하는 일반 매개 변수 값으로 재정의 합니다. 이 옵션을 사용하려면 최적의 매개 변수 값 및 관련 계획 특성을 적절히 이해해야 합니다.
 - [옵션 (알 수 없는 경우 최적화)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용 하 여 실제 매개 변수 값을 재정의 하 고 대신 밀도 벡터 평균을 사용 합니다. 또한 로컬 변수에서 들어오는 매개 변수 값을 캡처한 다음 매개 변수 자체를 사용 하는 대신 조건자 내에서 지역 변수를 사용 하 여이 작업을 수행할 수 있습니다. 이 수정의 경우 평균 밀도가 *충분*해야 합니다.
-- [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용 하 여 매개 변수 스니핑을 완전히 사용 하지 않도록 설정 합니다.
+- [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용 하 여 매개 변수 검사를 완전히 사용 하지 않도록 설정 합니다.
 - [Keepfixedplan](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 사용 하 여 캐시에서 다시 컴파일이 발생 하지 않도록 합니다. 이 해결 방법에서는 적절 한 일반 계획이 캐시에 이미 있는 것으로 가정 합니다. 자동 통계 업데이트를 사용 하지 않도록 설정 하 여 적합 한 계획이 제거 될 가능성을 줄이고 새로운 잘못 된 계획을 컴파일할 수도 있습니다.
 - 쿼리를 다시 작성 하 고 쿼리 텍스트에 힌트를 추가 하 여 [USE plan](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) 쿼리 힌트를 명시적으로 사용 하 여 계획을 강제로 적용 합니다. 또는 쿼리 저장소를 사용 하거나 [자동 튜닝](sql-database-automatic-tuning.md)을 사용 하 여 특정 계획을 설정 합니다.
 - 단일 프로시저를 각각을 조건부 논리 및 연결된 매개 변수 값을 기준으로 사용할 수 있는 중첩된 프로시저 세트로 바꿉니다.
@@ -181,7 +181,7 @@ RECOMPILE 힌트를 사용 하는 경우에는 계획이 캐시 되지 않습니
 
 - **다른 통계**: 참조 된 개체와 연결 된 통계가 변경 되었거나 원래 시스템의 통계와 별개인 다를 수 있습니다.  통계 변경 및 다시 컴파일이 발생 하면 쿼리 최적화 프로그램은 변경 될 때부터 시작 하 여 통계를 사용 합니다. 수정 된 통계의 데이터 배포 및 빈도는 원래 컴파일과는 다를 수 있습니다.  이러한 변경 내용은 카디널리티 예상치를 만드는 데 사용 됩니다. *카디널리티 예상치* 는 논리적 쿼리 트리를 통해 전달 될 것으로 예상 되는 행 수입니다. 카디널리티 예상치를 변경 하면 다른 물리 연산자 및 관련 작업 순서를 선택할 수 있습니다.  통계를 약간만 변경 해도 변경 된 쿼리 실행 계획이 발생할 수 있습니다.
 
-- **변경 된 데이터베이스 호환성 수준 또는 카디널리티 평가기 버전**: 데이터베이스 호환성 수준에 대 한 변경 내용으로 인해 다른 쿼리 실행 계획을 만들 수 있는 새로운 전략과 기능이 가능 합니다.  데이터베이스 호환성 수준 외에도, 데이터베이스 범위 구성 QUERY_OPTIMIZER_HOTFIXES 비활성화 되거나 설정 된 추적 플래그 4199 또는 변경 된 상태는 컴파일 시간에 쿼리 실행 계획 선택에 영향을 줄 수 있습니다.  추적 플래그 9481 (레거시 CE 강제 적용) 및 2312 (강제 기본 CE)도 계획에 영향을 줍니다. 
+- **변경 된 데이터베이스 호환성 수준 또는 카디널리티 평가기 버전**: 데이터베이스 호환성 수준에 대 한 변경 내용으로 인해 다른 쿼리 실행 계획을 만들 수 있는 새로운 전략과 기능이 가능 합니다.  데이터베이스 호환성 수준 외에도 사용 하지 않거나 사용 하도록 설정 된 추적 플래그 4199 또는 데이터베이스 범위 구성 QUERY_OPTIMIZER_HOTFIXES 변경 된 상태는 컴파일 시간에 쿼리 실행 계획 선택에 영향을 줄 수 있습니다.  추적 플래그 9481 (레거시 CE 강제 적용) 및 2312 (강제 기본 CE)도 계획에 영향을 줍니다. 
 
 ### <a name="resolve-problem-queries-or-provide-more-resources"></a>문제 쿼리 해결 또는 더 많은 리소스 제공
 
@@ -215,16 +215,16 @@ CPU 문제를 구동 하는 작업 볼륨 변경 사항을 항상 식별 하는 
 
 이러한 메서드는 일반적으로 대기 유형의 최상위 범주를 표시 하는 데 사용 됩니다.
 
-- [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 를 사용 하 여 시간에 따른 각 쿼리에 대 한 대기 통계를 찾을 수 있습니다. 쿼리 저장소에서 대기 유형은 대기 범주로 결합됩니다. 대기 범주는 [query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table)의 대기 형식에 대 한 매핑을 찾을 수 있습니다.
-- 작업 중에 실행 된 스레드에 의해 발생 한 모든 대기에 대 한 정보를 반환 하려면 [sys. dm _db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) 를 사용 합니다. 이 집계 뷰를 사용 하 여 Azure SQL Database 및 특정 쿼리 및 일괄 처리와 관련 된 성능 문제를 진단할 수 있습니다.
-- [_Os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) 를 사용 하 여 일부 리소스에서 대기 중인 작업의 큐에 대 한 정보를 반환 합니다.
+- [쿼리 저장소](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) 를 사용 하 여 시간에 따른 각 쿼리에 대 한 대기 통계를 찾을 수 있습니다. 쿼리 저장소에서 대기 유형은 대기 범주로 결합됩니다. 대기 범주는 query_store_wait_stats의 대기 형식에 대 한 매핑을 찾을 수 있습니다 [.](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table)
+- 작업 중 실행 된 스레드에 의해 발생 한 모든 대기에 대 한 정보를 반환 하려면 [dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) 를 사용 합니다. 이 집계 뷰를 사용 하 여 Azure SQL Database 및 특정 쿼리 및 일괄 처리와 관련 된 성능 문제를 진단할 수 있습니다.
+- [Dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) 를 사용 하 여 일부 리소스에서 대기 중인 작업의 큐에 대 한 정보를 반환 합니다.
 
 CPU를 많이 사용 하는 시나리오에서는 다음과 같은 경우 쿼리 저장소 및 대기 통계가 CPU 사용량을 반영 하지 않을 수 있습니다.
 
 - CPU 사용량이 많은 쿼리가 아직 실행 되 고 있습니다.
 - 장애 조치 (failover)가 발생 하면 CPU 사용량이 많은 쿼리가 실행 중입니다.
 
-쿼리 저장소 및 대기 통계를 추적 하는 Dmv는 성공적으로 완료 되 고 시간이 초과 된 쿼리만의 결과만 표시 합니다. 문이 완료 될 때까지 현재 실행 중인 문의 데이터를 표시 하지 않습니다. 동적 관리 뷰 [_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 를 사용 하 여 현재 실행 중인 쿼리와 연결 된 작업자 시간을 추적할 수 있습니다.
+쿼리 저장소 및 대기 통계를 추적 하는 Dmv는 성공적으로 완료 되 고 시간이 초과 된 쿼리만의 결과만 표시 합니다. 문이 완료 될 때까지 현재 실행 중인 문의 데이터를 표시 하지 않습니다. 동적 관리 뷰를 사용 하 여 현재 실행 중인 쿼리와 관련 작업자 시간을 추적 하는 [dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) .
 
 이 문서의 시작 부분에 있는 차트는 가장 일반적인 대기 작업을 보여 줍니다.
 

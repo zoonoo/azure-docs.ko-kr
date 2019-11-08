@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database-범용 및 업무상 중요 '
+title: Ggeneral 및 업무상 중요
 description: 이 문서에서는 vCore 기반 구매 모델의 범용 및 중요 비즈니스용 서비스 계층에 대해 설명 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 10/01/2019
-ms.openlocfilehash: c6af083c4b3d16fa695da0ccc968c90b5480b6c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 85b610969f9e5e85d014f89b90cfd862731aaf0c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687278"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821070"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층
 
@@ -72,13 +72,13 @@ Azure SQL Database는 인프라 오류가 발생 한 경우에도 99.99%의 가�
 - 10gb와 지원 되는 최대의 단일 데이터베이스 크기를 선택할 수 있습니다.
   - Standard 또는 범용 서비스 계층의 저장소의 경우 10gb 증분으로 크기를 늘리거나 줄입니다.
   - 프리미엄 또는 중요 비즈니스용 서비스 계층의 저장소에 대해 250-GB 증가값으로 크기를 늘리거나 줄입니다.
-- 범용 서비스 계층에서 `tempdb`은 연결 된 SSD를 사용 하 고이 저장소 비용은 vCore 가격에 포함 됩니다.
+- 범용 서비스 계층에서 `tempdb` 연결 된 SSD를 사용 하며,이 저장소 비용은 vCore 가격에 포함 됩니다.
 - 업무상 중요 한 서비스 계층에서 `tempdb`는 연결 된 SSD를 MDF 및 LDF 파일과 공유 하 고 `tempdb` 저장소 비용은 vCore 가격에 포함 됩니다.
 
 > [!IMPORTANT]
 > MDF 및 LDF 파일에 대해 할당 된 총 저장소에 대 한 요금이 청구 됩니다.
 
-MDF 및 LDF 파일의 현재 총 크기를 모니터링 하려면 [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)를 사용 합니다. 개별 MDF 및 LDF 파일의 현재 크기를 모니터링하려면 [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql)를 사용합니다.
+MDF 및 LDF 파일의 현재 총 크기를 모니터링 하려면 [sp_spaceused](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-spaceused-transact-sql)을 사용 합니다. 개별 MDF 및 LDF 파일의 현재 크기를 모니터링하려면 [sys.database_files](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql)를 사용합니다.
 
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.

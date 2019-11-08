@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 57eeb9b6ac6eb826e2b371e6ff4dfd71f8cef49c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 371f36e13c244439a583cbeb7ff06c6a1283d272
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66258986"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825945"
 ---
 # <a name="guidelines"></a>지침  
 
@@ -29,7 +30,7 @@ ms.locfileid: "66258986"
 
 >[!IMPORTANT]
 >여러 사용자가 Microsoft 개발자 센터(개발자 센터) 계정에 액세스하도록 권한을 부여하려면 Azure AD(Azure Active Directory)를 사용하여 개별 사용자에게 역할을 할당하는 것이 좋습니다. 각 사용자는 개별 Azure AD 자격 증명으로 로그인하여 계정에 액세스해야 합니다. 회사에 등록된 도메인의 메일 주소를 사용하여 Microsoft ID를 만듭니다. 해당 메일은 개인에게 할당하지 않는 것이 좋습니다. 예는 `windowsapps@fabrikam.com`입니다.  
->*   자세한 내용은 참조는 [문제: Azure AD에서 Microsoft ID 페더레이션 도메인](#issue-microsoft-id-in-an-azure-ad-federated-domain) 섹션입니다.  
+>*   자세한 내용은 [문제: Azure AD 페더레이션된 도메인의 Microsoft ID](#issue-microsoft-id-in-an-azure-ad-federated-domain) 섹션을 참조하세요.  
 
 *   Microsoft ID에 대한 액세스는 최소한의 개발자 수로 제한합니다. 
 *   개발자 센터 계정에 액세스해야 하는 모든 사용자가 포함된 회사 메일 DL(배포 목록)을 설정합니다. 보안 정보에 DL 메일 주소를 추가합니다. DL을 사용하면 목록에 있는 모든 직원이 요청할 때 보안 코드를 받고 Microsoft ID의 보안 정보를 관리할 수 있습니다. 배포 목록 설정이 적절하지 않은 경우, 메시지가 표시되면 개별 메일 계정의 소유자가 보안 코드를 액세스 및 공유할 수 있어야 합니다.  

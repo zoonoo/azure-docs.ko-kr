@@ -1,6 +1,6 @@
 ---
 title: 원격 모니터링 솔루션 가속기 개요 - Azure | Microsoft Docs
-description: 원격 모니터링 솔루션 가속기의 개요입니다.
+description: 이 문서에서는 원격 모니터링 솔루션의 핵심 요소 중 일부에 대 한 개요를 제공 하 여 작동 방식을 이해할 수 있도록 합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: af09ea39f373d518d5600e3fa46adc378fd9236d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 33005bc286f7dc2c0ebed74bd9df0309e71346f5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61442550"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824827"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>원격 모니터링 솔루션 가속기 개요
 
@@ -41,7 +41,7 @@ ms.locfileid: "61442550"
 클라우드 아키텍처는 Microsoft가 솔루션 가속기를 처음 발표한 이후 발전해 왔습니다. [마이크로 서비스](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)는 개발 속도를 저하시키지 않으면서 규모와 유연성을 달성하는 입증된 방법으로 부상했습니다. 일부 Microsoft 서비스는 뛰어난 안정성과 확장성을 제공하는 아키텍처 패턴을 내부적으로 사용합니다. 업데이트된 솔루션 가속기를 통해 혜택을 볼 수 있도록 이러한 내용을 실제로 활용할 수 있습니다.
 
 > [!TIP]
-> 마이크로서비스 아키텍처에 대한 자세한 내용은 [.NET 애플리케이션 아키텍처](https://www.microsoft.com/net/learn/architecture) 및 [마이크로서비스: 클라우드가 지원하는 애플리케이션 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
+> 마이크로 서비스 아키텍처에 대한 자세한 내용은 [.NET 애플리케이션 아키텍처](https://www.microsoft.com/net/learn/architecture) 및 [마이크로 서비스: 클라우드에서 제공하는 애플리케이션 혁명](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/)을 참조하세요.
 
 ## <a name="device-connectivity"></a>디바이스 연결
 
@@ -127,7 +127,7 @@ ASA 작업은 스토리지 및 분석을 위해 원격 분석을 연결된 디�
 [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/)는 솔루션 가속기에 연결된 디바이스의 원격 분석을 저장합니다. 또한 솔루션 웹 UI에서 디바이스 원격 분석을 시각화하고 쿼리할 수 있습니다.
 
 > [!NOTE]
-> Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure 중국 클라우드에서 새 원격 모니터링 솔루션 가속기 배포는 모든 스토리지에 대해 Cosmos DB를 사용합니다.
+> Time Series Insights는 현재 Azure 중국 클라우드에서 사용할 수 없습니다. Azure China 클라우드에서 새 원격 모니터링 솔루션 가속기를 배포하는 경우 모든 스토리지에 Cosmos DB를 사용합니다.
 
 ### <a name="configuration-microservice"></a>구성 마이크로 서비스
 

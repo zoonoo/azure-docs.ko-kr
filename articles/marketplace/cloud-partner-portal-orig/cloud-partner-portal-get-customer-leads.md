@@ -1,18 +1,19 @@
 ---
-title: 잠재 고객 구성 | Azure Marketplace
+title: 고객 리드 구성 | Azure Marketplace
 description: 클라우드 파트너 포털에서 잠재 고객을 구성하는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: c3e483a33d986eff767b3529e30208319ad90b23
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 312e172321c25248f1b0801bdbccf71762319989
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64934997"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818821"
 ---
 <a name="get-customer-leads"></a>리드 가져오기
 ==================
@@ -65,7 +66,7 @@ ms.locfileid: "64934997"
 
 잠재 고객 확보 기회의 형식은 **확보 기회**-**작업** |  **제품**입니다.
 
-**원본**: "AzureMarketplace", "AzurePortal", "테스트" 및 "AppSource (SPZA)"
+**확보 기회**: "AzureMarketplace", "AzurePortal", "TestDrive" 및 "AppSource(SPZA)"
 
 **작업**:
 - "INS" -- 설치. 고객이 제품을 구매할 때 Azure Marketplace 또는 AppSource에서 이 작업이 수행됩니다.
@@ -76,19 +77,19 @@ ms.locfileid: "64934997"
 
 **제품**
 
-다음 예제에서는 게시자 및 특정 제품에 할당 된 고유 식별자를 표시 합니다: checkpoint.check-지점-r77-10sg-byol, bitnami.openedxcypress, 및 docusign.3701c77e-1cfa-4c 56 91e6 3ed0b622145a 합니다.
+다음 예에서는 게시자 및 특정 제안에 할당 된 고유 식별자를 보여 줍니다. r77-10sg-byol, bitnami 및 docusign.
 
 
 ### <a name="customer-info"></a>고객 정보
 
 다음 예제의 필드에는 잠재 고객에 포함된 고객 정보가 나와 있습니다.
 - FirstName: John
-- 성: Smith
+- LastName: Smith
 - Email: jsmith\@microsoft.com
-- 전화 번호: 1234567890
-- 국가: US
-- 회사: Microsoft
-- 제목: CTO
+- Phone: 1234567890
+- Country: US
+- Company: Microsoft
+- Title: CTO
 
 >[!Note]
 >위 예제의 모든 데이터가 각 잠재 고객에 대해 항상 제공되는 것은 아닙니다.

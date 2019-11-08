@@ -1,18 +1,19 @@
 ---
-title: 기존 Azure 응용 프로그램이 제품 업데이트 | Azure Marketplace
+title: 기존 Azure 응용 프로그램 제품 업데이트 | Azure Marketplace
 description: Azure Marketplace에서 기존 Azure 애플리케이션 제품을 업데이트하는 방법입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pabutler
-ms.openlocfilehash: a36df757e3a2682af641101ed82583a0cd293e0a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6854e445ea63639866e9e39a6afc725237bbc8fe
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942812"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826108"
 ---
 # <a name="update-an-existing-azure-application-offer"></a>기존 Azure 애플리케이션 제품 업데이트
 
@@ -66,11 +67,11 @@ ms.locfileid: "64942812"
 
 1. [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 2. **모든 제품** 아래에서 업데이트할 제품을 찾습니다.
-3. **Marketplace** 탭으로 이동합니다. [Azure 애플리케이션 제품 게시](./cpp-publish-offer.md)의 지침에 따라 메타데이터를 변경합니다.
+3. **Marketplace** 탭으로 이동 합니다. 메타 데이터를 변경 하려면 [Azure 응용 프로그램 제품 게시](./cpp-publish-offer.md) 의 지침을 사용 하세요.
 4. **게시**를 선택하여 변경 내용을 게시하는 워크플로를 시작합니다.
  
 >[!Note]
->클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인를 출시 되었습니다.  참조 하세요 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다.
+>이제 CSP (클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) 를 참조 하세요.
 
 ## <a name="deleting-an-existing-offer"></a>기존 제품 삭제
 

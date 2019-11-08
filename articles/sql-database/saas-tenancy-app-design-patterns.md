@@ -1,5 +1,5 @@
 ---
-title: '다중 테 넌 트 SaaS 패턴-Azure SQL Database '
+title: 다중 테 넌 트 SaaS 패턴
 description: Azure 클라우드 환경에서 실행되는 다중 테넌트 SaaS(Software-as-a-Service) 데이터베이스 애플리케이션의 요구 사항 및 일반적인 데이터 아키텍처 패턴에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: ecbcf2cdfea2714e46d0c9cff4066befabddeeb8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ad7bd660ee685b490fb79c7e63fd3c5fce557977
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691936"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822070"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>다중 테넌트 SaaS 데이터베이스 테넌시 패턴
 

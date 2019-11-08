@@ -4,15 +4,16 @@ description: API는 게시자 네임스페이스 내에서 지정된 제안을 �
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: bb6bbd457ff372ad46091f49cf4ae7e4b34b3d83
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 030fb221b9227acf9c5dcda8797b106e51f56d64
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935431"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827343"
 ---
 <a name="retrieve-a-specific-offer"></a>특정 제안 검색
 =========================
@@ -38,11 +39,11 @@ ms.locfileid: "64935431"
 --------------
 
 
-| **Name**    | **설명**                                                                          | **데이터 형식** |
+| **이름**    | **설명**                                                                          | **데이터 형식** |
 |-------------|------------------------------------------------------------------------------------------|---------------|
-| publisherId | publisherId입니다. 예: Contoso                                                        | String        |
-| offerId     | 제안을 고유하게 식별하는 GUID입니다.                                                 | String        |
-| version     | 검색 중인 제안의 버전입니다. 기본적으로 최신 제안 버전이 검색됩니다. | Integer       |
+| publisherid | publisherId입니다. 예: Contoso                                                        | 문자열        |
+| offerId     | 제안을 고유하게 식별하는 GUID입니다.                                                 | 문자열        |
+| 버전     | 검색 중인 제안의 버전입니다. 기본적으로 최신 제안 버전이 검색됩니다. | Integer       |
 | slotId      | 제안이 검색될 슬롯으로, 다음 중 하나일 수 있습니다.      <br/>  - `Draft`(기본값)는 현재 초안에 있는 제안 버전을 검색합니다.  <br/>  -  `Preview`는 현재 미리 보기에 있는 제안 버전을 검색합니다.     <br/>  -  `Production`은 현재 프로덕션 환경에 있는 제안 버전을 검색합니다.          |      enum |
 | api-version | 최신 버전 API                                                                    | Date          |
 |  |  |  |
@@ -51,7 +52,7 @@ ms.locfileid: "64935431"
 <a name="header"></a>헤더
 ------
 
-|  **Name**          |   **값**            |
+|  **이름**          |   **값**            |
 |  ---------------   |  --------------        |
 |  콘텐츠 형식      | `application/json`     |
 |  권한 부여     | `Bearer YOUR_TOKEN`    |
@@ -61,7 +62,7 @@ ms.locfileid: "64935431"
 <a name="body-example"></a>본문 예제
 ------------
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ``` json
 {
@@ -168,13 +169,13 @@ ms.locfileid: "64935431"
 
 ### <a name="response-body-properties"></a>응답 본문 속성
 
-|  **Name**       |   **설명**                                                                                                               |
+|  **이름**       |   **설명**                                                                                                               |
 |  -------------  |   -----------------------------------------------------------------------------------------------------                         |
 |  offerTypeId    | 제안의 형식을 식별합니다.                                                                                                    |
-|  publisherId    | 게시자의 고유 식별자입니다.                                                                                              |
-|  status         | 제안의 상태입니다. 가능한 값 목록을 보려면 아래 [제안 상태](#offer-status)를 참조하세요.                                  |
-|  Id             | 제안을 고유하게 식별하는 GUID입니다.                                                                                         |
-|  version        | 제안의 현재 버전입니다. 버전 속성은 클라이언트가 수정할 수 없습니다. 각 게시 후에 증분됩니다.    |
+|  publisherid    | 게시자의 고유 식별자입니다.                                                                                              |
+|  status         | 제품 상태. 가능한 값 목록을 보려면 아래 [제품 상태](#offer-status)를 참조하세요.                                  |
+|  id             | 제안을 고유하게 식별하는 GUID입니다.                                                                                         |
+|  버전        | 제품의 현재 버전. 버전 속성은 클라이언트가 수정할 수 없습니다. 각 게시 후에 증분됩니다.    |
 |  정의     | 워크로드의 실제 정의입니다.                                                                                               |
 |  changedTime    | 제안을 마지막으로 수정한 UTC 날짜/시간입니다.                                                                                   |
 |  |  |
@@ -193,7 +194,7 @@ ms.locfileid: "64935431"
 
 ### <a name="offer-status"></a>제안 상태
 
-|  **Name**                   |   **설명**                             |
+|  **이름**                   |   **설명**                             |
 | --------------------------- |  -------------------------------------------- |
 |  NeverPublished             | 제안이 게시된 적이 없습니다.               |
 |  NotStarted                 | 제안이 새 제안이지만 시작되지 않았습니다.              |
@@ -201,5 +202,5 @@ ms.locfileid: "64935431"
 |  실행 중                    | 제안 제출을 처리 중입니다.          |
 |  Succeeded                  | 제안 제출 처리를 완료했습니다.    |
 |  Canceled                   | 제안 제출이 취소되었습니다.                |
-|  실패                     | 제안 제출에 실패했습니다.                      |
+|  Failed                     | 제안 제출에 실패했습니다.                      |
 |  |  |

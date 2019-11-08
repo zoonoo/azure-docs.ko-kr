@@ -1,18 +1,19 @@
 ---
 title: Azure Marketplace에 대 한 사용자 페이지
-description: Azure Marketplace에 대 한 클라우드 파트너 포털에서 사용자 페이지의 개요입니다.
+description: Azure Marketplace에 대 한 Cloud 파트너 포털의 사용자 페이지 개요입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 1c420a275efa4bb45ba952a04faafe25e30d64ef
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b5ba95f139963dcf10f7c97ed614ec8f4cf899d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943394"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821445"
 ---
 # <a name="users-page"></a>사용자 페이지
 
@@ -23,7 +24,7 @@ ms.locfileid: "64943394"
 
 ## <a name="example-page"></a>예제 페이지
 
-다음 이미지는 `contoso` 문자열에서 필터링된 **사용자** 페이지입니다.
+다음 이미지는 **문자열에서 필터링된**사용자`contoso` 페이지입니다.
 
 ![사용자 페이지](./media/users-page1.png)
 

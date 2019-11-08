@@ -1,5 +1,5 @@
 ---
-title: 단일 또는 풀링된 Azure SQL 데이터베이스를 BACPAC 파일로 내보내기
+title: 단일 또는 풀링된 데이터베이스를 BACPAC 파일로 내보내기
 description: Azure Portal을 사용하여 Azure SQL 데이터베이스를 BACPAC 파일로 내보내기
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: f3f6071d42d77ffa07dd27080b1bc18d7bbc6952
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b96d2e69b757774afe177341caffe2f3cbf00e2b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690078"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823461"
 ---
 # <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Azure SQL 데이터베이스를 BACPAC 파일로 내보내기
 

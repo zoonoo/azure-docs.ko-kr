@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 애플리케이션 성능을 개선하기 위해 일괄 처리를 사용하는 방법
+title: 일괄 처리를 사용 하 여 응용 프로그램 성능을 개선 하는 방법
 description: 이 토픽에서는 데이터베이스 작업을 일괄 처리하면 Azure SQL Database 애플리케이션의 속도와 확장성이 대폭 향상된다는 증거를 제공합니다. 이러한 일괄 처리 기법은 SQL Server 데이터베이스에 적용되지만 이 문서는 Azure에 중점을 두었습니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 3d18f5b77d08a55bd06656a72cbc02c040b6f127
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566253"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822412"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL Database 애플리케이션 성능을 개선하기 위해 일괄 처리를 사용하는 방법
 
@@ -43,7 +43,7 @@ SQL Database를 사용하는 장점 중 하나는 데이터베이스를 호스�
 > [!NOTE]
 > 결과가 기준은 아니며 **상대적인 성능**을 표시하기 위한 것입니다. 타이밍은 평균적으로 최소 10회의 테스트 실행을 기반으로 합니다. 작업은 빈 테이블로의 삽입니다. 이러한 테스트는 V12 이전 버전에서 측정되었으며, 새로운 [DTU 서비스 계층](sql-database-service-tiers-dtu.md) 또는 [vCore 서비스 계층](sql-database-service-tiers-vcore.md)을 사용하는 V12 데이터베이스에서 경험하는 처리량과 일치하지 않을 수 있습니다. 일괄 처리 기법의 상대적인 장점은 유사합니다.
 
-### <a name="transactions"></a>의
+### <a name="transactions"></a>트랜잭션
 
 일괄 작업에 대한 검토를 트랜잭션에 대한 얘기로 시작하는 것이 생소해 보일 수 있습니다. 하지만 클라이언트 쪽 트랜잭션 사용은 서버 쪽 일괄 처리에 성능을 향상시키는 미묘한 영향을 미칩니다. 트랜잭션은 단지 몇 줄의 코드만으로 추가될 수 있으며, 순차적인 작업의 성능을 향상시키는 빠른 방법을 제공합니다.
 
@@ -167,7 +167,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-이전 예에서 **SqlCommand** 개체는 테이블 반환 매개 변수  **\@TestTvp**의 행을 삽입 합니다. 이전에 만든 **DataTable** 개체는 **SqlCommand.Parameters.Add** 메서드로 이 매개 변수에 할당됩니다. 삽입을 하나의 호출로 일괄 처리하면 순차적인 삽입의 성능을 상당히 향상시킵니다.
+이전 예에서 **SqlCommand** 개체는 **TestTvp\@** 테이블 반환 매개 변수에서 행을 삽입 합니다. 이전에 만든 **DataTable** 개체는 **SqlCommand.Parameters.Add** 메서드로 이 매개 변수에 할당됩니다. 삽입을 하나의 호출로 일괄 처리하면 순차적인 삽입의 성능을 상당히 향상시킵니다.
 
 이전 예제를 더욱 향상시키려면 텍스트 기반 명령 대신 저장 프로시저를 사용합니다. 다음 Transact-SQL 명령은 **SimpleTestTableType** 테이블 반환 매개 변수를 받아들이는 저장 프로시저를 만듭니다.
 
@@ -325,7 +325,7 @@ Entity Framework는 현재 일괄 처리를 지원하지 않습니다. 커뮤니
 
 테스트에 따르면 대량의 배치를 작은 청크로 나누는 장점은 대체적으로 거의 없었습니다. 실제로 이러한 세분화가 큰 배치 하나를 제출하는 것보다 성능을 느리게 하는 결과를 초래하기도 했습니다. 예를 들어, 행 1000개를 삽입하는 시나리오를 생각해 보겠습니다. 다음 테이블은 테이블 반환 매개 변수를 사용하여 행 1000개를 소규모 배치로 나누어  삽입하는데 소요되는 시간을 보여줍니다.
 
-| 일괄 처리 크기 | 반복 횟수 | 테이블 반환 매개 변수(밀리초) |
+| Batch 크기 | 반복 횟수 | 테이블 반환 매개 변수(밀리초) |
 | --- | --- | --- |
 | 1000 |1 |347 |
 | 500 |2 |355 |
@@ -484,7 +484,7 @@ public class NavHistoryDataMonitor
 
 ### <a name="master-detail"></a>마스터-세부 정보
 
-테이블 반환 매개 변수는 간단한 INSERT 시나리오에 유용합니다. 하지만 두 개 이상의 테이블이 연관되는 일괄 처리 삽입은 더 어려울 수 있습니다. “마스터/세부 정보” 시나리오가 좋은 예입니다. 마스터 테이블은 기본 엔터티를 식별합니다. 하나 이상의 세부 정보 테이블은 엔터티에 대한 데이터를 더 많이 저장합니다. 이 시나리오에서 외래 키 관계는 고유 마스터 엔터티에 세부 정보의 관계를 적용합니다. PurchaseOrder 테이블의 간소화된 버전 및 그와 연결된 OrderDetail 테이블을 생각해 보겠습니다. 다음 Transact-SQL은 열 4개(OrderID, OrderDate, CustomerID, Status)가 포함된 PurchaseOrder 테이블을 만듭니다.
+테이블 반환 매개 변수는 간단한 INSERT 시나리오에 유용합니다. 하지만 두 개 이상의 테이블이 연관되는 일괄 처리 삽입은 더 어려울 수 있습니다. “마스터/세부 정보” 시나리오가 좋은 예입니다. 마스터 테이블은 기본 엔터티를 식별합니다. 하나 이상의 세부 정보 테이블은 엔터티에 대한 데이터를 더 많이 저장합니다. 이 시나리오에서 외래 키 관계는 고유 마스터 엔터티에 세부 정보의 관계를 적용합니다. PurchaseOrder 테이블의 간소화된 버전 및 그와 연결된 OrderDetail 테이블을 생각해 보겠습니다. 다음 Transact-SQL은 4개의 열 즉 OrderID, OrderDate, CustomerID, Status를 포함하는 PurchaseOrder 테이블을 생성합니다.
 
 ```sql
 CREATE TABLE [dbo].[PurchaseOrder](
@@ -496,7 +496,7 @@ CONSTRAINT [PrimaryKey_PurchaseOrder]
 PRIMARY KEY CLUSTERED ( [OrderID] ASC ))
 ```
 
-각각의 주문은 하나 이상의 제품 구매를 포함합니다. 이 정보는 PurchaseOrderDetail 테이블에 캡처됩니다. 다음 Transact-SQL은 열 5개(OrderID, OrderDetailID, ProductID, UnitPrice, and OrderQty)가 포함된 PurchaseOrderDetail 테이블을 만듭니다.
+각각의 주문은 하나 이상의 제품 구매를 포함합니다. 이 정보는 PurchaseOrderDetail 테이블에 캡처됩니다. 다음 Transact-SQL은 5개의 열 즉, OrderID, OrderDetailID, ProductID, UnitPrice, OrderQty를 포함하는 PurchaseOrderDetail 테이블을 생성합니다.
 
 ```sql
 CREATE TABLE [dbo].[PurchaseOrderDetail](
@@ -612,7 +612,7 @@ exec sp_InsertOrdersBatch @orders, @details
 
 다른 일괄 작업 시나리오는 동시에 기존 행을 업데이트하고 새 행을 삽입하는 작업을 포함합니다. 이 작업은 “UPSERT”(update + insert) 작업이라고 합니다. 이 작업에 INSERT 및 UPDATE에 대한 호출을 따로 생성하기 보다는 MERGE 문이 가장 적합합니다. MERGE 문은 삽입과 업데이트 작업을 단일 호출로 수행할 수 있습니다.
 
-테이블 반환 매개 변수가 MERGE 문과 함께 사용되어 업데이트와 삽입을 수행할 수 있습니다. EmployeeID, FirstName, LastName, SocialSecurityNumber 열이 포함된 간단한 Employee 테이블이 있다고 가정해 보겠습니다.
+테이블 반환 매개 변수가 MERGE 문과 함께 사용되어 업데이트와 삽입을 수행할 수 있습니다. 예를 들어 EmployeeID, FirstName, LastName, SocialSecurityNumber 열을 포함하는 간소화된 Employee 테이블이 있습니다.
 
 ```sql
 CREATE TABLE [dbo].[Employee](

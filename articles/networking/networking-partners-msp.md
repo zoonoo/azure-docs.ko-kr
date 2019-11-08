@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 83c3c72ad189720b8f0aa554b7804b55f3488b83
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.openlocfilehash: 3151d72c0e74e7eb694ef2bdd5737f65992fe905
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747959"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824374"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
@@ -50,7 +50,7 @@ Azure 네트워킹 MSP 파트너에서 제공 하는 관리 되는 클라우드 
 |[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)|예|예||||
 |[Orixcom]( https://www.orixcom.com/cloud-solutions/)|예|예||||
 |[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)|예|예||||
-|[Tata 통신](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|예|예||||
+|[Tata 통신](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|예|예|예|예||
 |[TCTS](https://www.tatacommunications-ts.com/index.php)|예|예|예|||
 |[Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)|예||||예|
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)|예|예|예|||

@@ -1,18 +1,19 @@
 ---
 title: Azure Marketplace에 대 한 모든 게시자 페이지
-description: Azure Marketplace에 대 한 Cloud 파트너 포털의 모든 게시자의 개요입니다.
+description: Azure Marketplace에 대 한 Cloud 파트너 포털의 모든 게시자에 대 한 개요입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ab42757d91244c0661a6acd02e4e5ebe891929a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c713beaafb47b2e6481ef9358b206dbc2b2e2cf1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64941991"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821571"
 ---
 # <a name="all-publishers-page"></a>모든 게시자 페이지
 

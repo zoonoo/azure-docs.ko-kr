@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: ccab7e59eaa925df4ba46447cef458111dc7e60a
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c4f51adbcaa5e5b750169f53a1333544365fd4f3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869574"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825489"
 ---
 # <a name="marketplace-metering-service-apis---faq"></a>Marketplace 계량 서비스 API - FAQ
 
@@ -47,7 +48,7 @@ SaaS 구독이 삭제 된 후에 marketplace 플랫폼으로 내보내는 모든
 
 ### <a name="can-you-get-a-list-of-all-saas-subscriptions-including-active-and-unsubscribed-subscriptions"></a>활성 구독 및 구독 취소 된 구독을 포함 하 여 모든 SaaS 구독 목록을 가져올 수 있나요?
 
-예, API를 `GET /saas/subscriptions` 호출 하면 모든 SaaS 구독 목록이 포함 됩니다. 각 SaaS 구독에 대 한 응답의 상태 필드는 구독이 활성화 되었는지 아니면 구독 취소 되었는지를 캡처합니다. 구독 목록에 대 한 호출은 시간에 최대 100 개의 구독을 반환 합니다.
+예, `GET /saas/subscriptions` API를 호출 하면 모든 SaaS 구독 목록이 포함 됩니다. 각 SaaS 구독에 대 한 응답의 상태 필드는 구독이 활성화 되었는지 아니면 구독 취소 되었는지를 캡처합니다. 구독 목록에 대 한 호출은 시간에 최대 100 개의 구독을 반환 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

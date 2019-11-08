@@ -1,18 +1,19 @@
 ---
-title: Azure 응용 프로그램 기술 자산을 만들기 | Azure Marketplace
+title: Azure 응용 프로그램 기술 자산 만들기 | Azure Marketplace
 description: Azure 애플리케이션 제품에 대한 기술 자산을 만듭니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: pabutler
-ms.openlocfilehash: cbe1b8c8f1159d90fbf97eeae272c1c50ec9b9bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c9abaab4597e9fea43a2f0dcabc0e4a527ed5a6a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942979"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827600"
 ---
 # <a name="prepare-your-azure-application-technical-assets"></a>Azure 애플리케이션 기술 자산 준비
 
@@ -68,10 +69,10 @@ Azure 애플리케이션을 관리하는 데 도움이 되는 다음 스크립�
 
 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 
-- [Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+- [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 - [Visual Studio Code](https://code.visualstudio.com/)(다음 확장 포함):
 
-  - 확장: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+  - 확장: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
   - 확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
   - 확장: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 

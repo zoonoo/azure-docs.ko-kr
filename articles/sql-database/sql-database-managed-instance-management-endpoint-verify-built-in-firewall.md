@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance 기본 제공 방화벽 검색
+title: 관리 되는 인스턴스 기본 제공 방화벽 검색
 description: Azure SQL Database Managed Instance에서 기본 제공 방화벽 보호를 확인하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 912eeb95895597b9172d50463f380dd511fe196c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 555ef56aafa37a1e1d384f945b04f9237adc5f7d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688015"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821813"
 ---
 # <a name="verifying-the-managed-instance-built-in-firewall"></a>Managed Instance 기본 제공 방화벽 확인
 

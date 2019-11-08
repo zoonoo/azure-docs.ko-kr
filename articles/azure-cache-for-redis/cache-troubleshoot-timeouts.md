@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: d6bf0f788f7c71a55a4c3667023d8b1d9f571baf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 4f577e6497e853d9b75f81b5da4f7121064a9d07
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820974"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826347"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Redis 시간 초과에 대 한 Azure 캐시 문제 해결
 
@@ -34,7 +34,7 @@ ms.locfileid: "72820974"
 
 ## <a name="redis-server-patching"></a>Redis 서버 패치
 
-Redis 용 Azure Cache는 서버 소프트웨어를 제공 하는 관리 되는 서비스 기능의 일부로 정기적으로 업데이트 합니다. 이 [패치](cache-failover.md) 작업은 주로 장면 뒤에 발생 합니다. Redis 서버 노드를 패치 하는 동안 장애 조치 (failover) 중에 이러한 노드에 연결 된 Redis 클라이언트는 이러한 노드 간에 연결이 전환 될 때 임시 시간 초과가 발생할 수 있습니다. 응용 프로그램에 어떤 부작용이 발생할 수 있는지에 대 한 자세한 내용 및 패치 이벤트의 처리를 개선 하는 방법에 대 한 자세한 내용은 [장애 조치 (failover)가 클라이언트 응용 프로그램에 미치는 영향](cache-failover.md#how-does-a-failover-impact-my-client-application) 을 참조 하세요.
+Redis 용 Azure Cache는 서버 소프트웨어를 제공 하는 관리 되는 서비스 기능의 일부로 정기적으로 업데이트 합니다. 이 [패치](cache-failover.md) 작업은 주로 장면 뒤에 발생 합니다. Redis 서버 노드를 패치 하는 동안 장애 조치 (failover) 중에 이러한 노드에 연결 된 Redis 클라이언트는 이러한 노드 간에 연결이 전환 될 때 임시 시간 초과가 발생할 수 있습니다. 응용 프로그램에 어떤 부작용이 발생할 수 있는지에 대 한 자세한 내용 및 패치 이벤트의 처리를 개선 하는 방법에 대 한 자세한 내용은 [장애 조치 (failover)가 클라이언트 응용 프로그램에 미치는 영향](cache-failover.md#how-does-a-failover-affect-my-client-application) 을 참조 하세요.
 
 ## <a name="stackexchangeredis-timeout-exceptions"></a>StackExchange.Redis 시간 제한 예외 조사
 
@@ -111,7 +111,7 @@ Redis는 동기 작업에 `synctimeout` 이라는 구성 설정을 사용 하며
       retryTimeoutInMilliseconds="3000" />
     ```
 
-1. `Used Memory RSS` 및 `Used Memory`를 [모니터링](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)하여 Azure Cache for Redis 서버의 메모리 사용량을 확인합니다. 제거 정책이 구현되었다면, `Used_Memory` 가 캐시 크기에 도달할 때 Redis는 제거 키를 작동합니다. 이상적으로 `Used Memory RSS`는 `Used memory`보다 약간만 높아야 합니다. 큰 차이는 메모리 조각화 (내부 또는 외부)가 있음을 의미 합니다. `Used Memory RSS`가 `Used Memory`보다 작다면 운영 체제가 캐시 메모리의 일부를 스왑했음을 의미합니다. 이 스왑이 발생하는 경우 일부 상당한 대기 시간을 예상할 수 있습니다. Redis는 할당이 메모리 페이지에 매핑되는 방식을 제어할 수 없기 때문에 높은 `Used Memory RSS`은 종종 메모리 사용에 급증 하는 결과입니다. Redis 서버에서 메모리를 해제 하는 경우 할당자는 메모리를 사용 하지만 시스템에 메모리를 다시 제공 하거나 제공 하지 않을 수 있습니다. 운영 체제가 보고하는 `Used Memory` 값과 메모리 소비량 사이에 차이가 있을 수 있습니다. 메모리가 사용 되 고 Redis에 의해 해제 되었지만 시스템에 다시 제공 되지 않았을 수 있습니다. 메모리 문제를 완화 하기 위해 다음 단계를 수행할 수 있습니다.
+1. [ 및 ](cache-how-to-monitor.md#available-metrics-and-reporting-intervals)를 `Used Memory RSS`모니터링`Used Memory`하여 Azure Cache for Redis 서버의 메모리 사용량을 확인합니다. 제거 정책이 구현되었다면, `Used_Memory` 가 캐시 크기에 도달할 때 Redis는 제거 키를 작동합니다. 이상적으로 `Used Memory RSS`는 `Used memory`보다 약간만 높아야 합니다. 큰 차이는 메모리 조각화 (내부 또는 외부)가 있음을 의미 합니다. `Used Memory RSS`가 `Used Memory`보다 작다면 운영 체제가 캐시 메모리의 일부를 스왑했음을 의미합니다. 이 스왑이 발생하는 경우 일부 상당한 대기 시간을 예상할 수 있습니다. Redis는 할당이 메모리 페이지에 매핑되는 방식을 제어할 수 없기 때문에 높은 `Used Memory RSS`은 종종 메모리 사용에 급증 하는 결과입니다. Redis 서버에서 메모리를 해제 하는 경우 할당자는 메모리를 사용 하지만 시스템에 메모리를 다시 제공 하거나 제공 하지 않을 수 있습니다. 운영 체제가 보고하는 `Used Memory` 값과 메모리 소비량 사이에 차이가 있을 수 있습니다. 메모리가 사용 되 고 Redis에 의해 해제 되었지만 시스템에 다시 제공 되지 않았을 수 있습니다. 메모리 문제를 완화 하기 위해 다음 단계를 수행할 수 있습니다.
 
    - 시스템의 메모리 제한에 대해 실행 되지 않도록 캐시를 더 큰 크기로 업그레이드 합니다.
    - 키에 만료 시간을 설정하여 이전 값이 사전에 제거되게 합니다.

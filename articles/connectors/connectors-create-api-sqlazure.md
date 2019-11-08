@@ -10,13 +10,13 @@ ms.reviewer: klam; LADocs
 manager: carmonm
 ms.topic: conceptual
 tags: connectors
-ms.date: 11/06/2019
-ms.openlocfilehash: ed30ba305ec990256625052cb92f1b7524c826e2
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/08/2019
+ms.openlocfilehash: a6367e5897e9bd548550b099c0bd2e6186845d6d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720964"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826312"
 ---
 # <a name="automate-workflows-for-sql-server-or-azure-sql-database-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 SQL Server 또는 Azure SQL Database에 대 한 워크플로 자동화
 
@@ -44,10 +44,11 @@ SQL 데이터베이스 또는 다른 시스템(예: Dynamics CRM Online)의 이�
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
-* SQL Server와 같은 온-프레미스 시스템에 논리 앱을 연결 하려면 먼저 [온-프레미스 데이터 게이트웨이를 설정](../logic-apps/logic-apps-gateway-install.md)해야 합니다. 이러한 방식으로 논리 앱에 대한 SQL 연결을 만들 때 게이트웨이를 선택할 수 있습니다.
+* 이러한 시나리오의 경우, 로컬 컴퓨터에 설치 된 [온-프레미스 데이터 게이트웨이와](../logic-apps/logic-apps-gateway-install.md) [Azure Portal에서 만든 Azure 데이터 게이트웨이 리소스가](../logic-apps/logic-apps-gateway-connection.md) 있습니다.
 
-  > [!IMPORTANT]
-  > 이 커넥터에서 Windows 인증을 사용 하려면 온-프레미스 데이터 게이트웨이를 사용 해야 합니다. 이 커넥터는 [ISE (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)의 논리 앱에 대 한 Windows 인증을 지원 하지 않습니다.
+  * 논리 앱은 [ISE (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 실행 되지 않습니다.
+
+  * 논리 *앱은* 통합 서비스 환경에서 실행 되지만 SQL Server 연결에는 Windows 인증을 사용 해야 합니다. 이 시나리오에서는 ISE 버전이 Windows 인증을 지원 하지 않기 때문에 데이터 게이트웨이와 함께 SQL Server 커넥터의 비 ISE 버전을 사용 합니다.
 
 * SQL 데이터베이스에 액세스해야 하는 논리 앱. SQL 트리거를 통해 논리 앱을 시작하려면 [빈 논리 앱](../logic-apps/quickstart-create-first-logic-app-workflow.md)이 필요합니다.
 

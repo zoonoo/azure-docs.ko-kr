@@ -1,18 +1,19 @@
 ---
-title: Marketo에서 잠재 고객 관리 구성 | Azure Marketplace
-description: Marketo에 대 한 Azure marketplace 고객에 대 한 리드 관리를 구성 합니다.
+title: Marketo에서 리드 관리 구성 | Azure Marketplace
+description: Azure marketplace 고객에 대 한 Marketo에 대 한 리드 관리를 구성 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: d749a92a1837bad053dc586477bfc27fc65299fa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7949507c8c7ef57cded25cde8579c1945aa93a81
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935224"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825210"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Marketo의 잠재 고객 관리 구성
 

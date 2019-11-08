@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6360c7ea5bfdfb2d348cc843288655ed904e6c74
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca9b0289fbc8dd01427de38e0e7b30eec266bb12
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580784"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818602"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -4778,8 +4778,8 @@ ms.locfileid: "73580784"
 > | 액션(Action) | Microsoft.Search/searchServices/delete | Search 서비스를 삭제합니다. |
 > | 액션(Action) | Microsoft.Search/searchServices/deleteQueryKey/delete | 쿼리 키를 삭제합니다. |
 > | 액션(Action) | Microsoft.Search/searchServices/listAdminKeys/action | 관리 키를 읽습니다. |
-> | 액션(Action) | Microsoft. 검색/searchServices/listQueryKeys/action | 지정된 Azure Search 서비스에 대한 쿼리 API 키 목록을 반환합니다. |
-> | 액션(Action) | Microsoft.Search/searchServices/listQueryKeys/read | 지정된 Azure Search 서비스에 대한 쿼리 API 키 목록을 반환합니다. |
+> | 액션(Action) | Microsoft. 검색/searchServices/listQueryKeys/action | 지정 된 Azure Cognitive Search 서비스에 대 한 쿼리 API 키 목록을 반환 합니다. |
+> | 액션(Action) | Microsoft.Search/searchServices/listQueryKeys/read | 지정 된 Azure Cognitive Search 서비스에 대 한 쿼리 API 키 목록을 반환 합니다. |
 > | 액션(Action) | Microsoft.Search/searchServices/read | Search 서비스를 읽습니다. |
 > | 액션(Action) | Microsoft.Search/searchServices/regenerateAdminKey/action | 관리 키를 다시 생성합니다. |
 > | 액션(Action) | Microsoft.Search/searchServices/start/action | Search 서비스를 시작합니다. |

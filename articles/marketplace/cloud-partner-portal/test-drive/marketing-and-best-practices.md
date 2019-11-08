@@ -1,31 +1,32 @@
 ---
-title: 시험 사용 마케팅 모범 사례 | Azure Marketplace
-description: 시험 사용 게시자에 대 한 마케팅 모범 사례
+title: 테스트 드라이브 마케팅 모범 사례 | Azure Marketplace
+description: 게시자에 대 한 테스트 드라이브 마케팅 모범 사례
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 02b2715c813f7814cf8bf5d23414bc14d5ff5a30
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 177b4bd804ad878c8f983eefcd54399d1a72ba19
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939971"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824537"
 ---
 <a name="test-drive-marketing-and-best-practices"></a>Test Drive 마케팅 및 모범 사례
 =======================================
 
 Azure Marketplace Test Drive는 마케팅 담당자를 위한 매우 유용한 도구이므로 제품을 출시할 때 출시 작업에 통합하여 활용하는 것이 좋습니다. 이 문서에서는 제품을 게시할 때 즉시 수행하는 것이 좋은 몇 가지 모범 사례를 제공합니다. 이러한 모범 사례는 Test Drive를 통해 더 많은 잠재 고객을 창출하는 과정을 효율적으로 지원합니다.
 
-- **조회 페이지**: Azure 테스트 드라이브 모두에 대해 설명 하는 웹 서비스에서 페이지를 게시 하 고 시험 사용으로 트래픽을 송신 하는 여러 개의 조회 링크를 게시 합니다.
-- **소셜 미디어**: 정기적으로 테스트 드라이브 프로그램에 대 한 소셜 미디어 채널에 게시는 일정을 만들려면
-- **블로그**: Azure 시험에 대 한 블로그 게시물을 작성 합니다. 이 게시물에서는 사용자가 단시간 내에 무료로 원하는 환경을 사용할 수 있다는 이점과 관련 기능을 중점적으로 설명합니다. 그리고 블로그 복사본의 여러 위치에 Azure Test Drive 페이지의 링크를 포함합니다. Azure Test Drive 관련 샘플 블로그 게시물의 링크를 확인해 보세요. 그것뿐이 아닙니다. 소셜 미디어 채널에 블로그 게시물의 링크를 게시할 수도 있습니다.
-- **전자 메일 육성**: 다른 채널을 통해 브랜드를 사용 하 여 무료로 사용해 시험에 대해 알릴 수 장려 하는 전자 메일을 통해 참여 한 잠재 고객을 게 알립니다.
-- **판매 교육 및 도구**: 테스트 드라이브 환경 데모와 해당 고객과 잠재 고객을 대표할 수 수는 몇 가지 방법을 제공 하 여 영업 팀과 교육 세션을 설정 합니다. 영업 사원은 회사에서 여러 연락처와 함께 데모를 확인하는 일정을 설정한 다음, 나중에 데모를 직접 진행할 수 있도록 Test Drive 링크를 연락처에게 전송할 수 있습니다.
-- **회의 보여 줍니다 거래**: 잠재 고객을 참여는 업계 이벤트에 참가 하 고 계신가요? 부스에서는 노트북 몇 대를 설치하여 Test Drive를 실행하면서 고객이 부스에서 Test Drive를 살펴보도록 한 다음 행사 중과 후에 고객에게 제품을 설명합니다.
+- **추천 페이지**: 웹 서비스에 Azure Test Drive와 관련된 모든 정보를 제공하는 페이지를 게시하고, 트래픽을 Test Drive로 전송하는 여러 추천 링크를 게시합니다.
+- **소셜 미디어**: 정기적으로 Test Drive 관련 게시물을 소셜 미디어 채널에 게시하는 일정을 생성합니다.
+- **블로그**: Azure Test Drive 관련 블로그 게시물을 작성합니다. 이 게시물에서는 사용자가 단시간 내에 무료로 원하는 환경을 사용할 수 있다는 이점과 관련 기능을 중점적으로 설명합니다. 그리고 블로그 복사본의 여러 위치에 Azure Test Drive 페이지의 링크를 포함합니다. Azure Test Drive 관련 샘플 블로그 게시물의 링크를 확인해 보세요. 그것뿐이 아닙니다. 소셜 미디어 채널에 블로그 게시물의 링크를 게시할 수도 있습니다.
+- **전자 메일 관리**: 다른 채널을 통해 브랜드 관련 정보를 검색했던 잠재 고객에게 전자 메일로 Test Drive 관련 알림을 전송하고 무료로 Test Drive 평가판 사용을 권유합니다.
+- **판매 교육 및 도구**: 영업 팀과의 교육 세션을 설정하여 Test Drive 환경을 시연하고 Test Drive를 통해 잠재 고객과 고객을 확보할 수 있는 몇 가지 방법을 제시합니다. 영업 사원은 회사에서 여러 연락처와 함께 데모를 확인하는 일정을 설정한 다음, 나중에 데모를 직접 진행할 수 있도록 Test Drive 링크를 연락처에게 전송할 수 있습니다.
+- **무역 박람회/컨퍼런스 참가**: 잠재 고객이 참석하는 업계 행사에서 부스를 운영합니다. 부스에서는 노트북 몇 대를 설치하여 Test Drive를 실행하면서 고객이 부스에서 Test Drive를 살펴보도록 한 다음 행사 중과 후에 고객에게 제품을 설명합니다.
 
 <a name="lead-management"></a>잠재 고객 관리
 ---------------

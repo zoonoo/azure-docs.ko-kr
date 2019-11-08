@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 크기 조정 리소스
+title: 리소스 크기 조정
 description: 이 문서에서는 할당된 리소스를 추가하거나 제거하여 데이터베이스 크기를 조정하는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: fe93dbac74348166ed623754e5e1460132ca968c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 678096037da69bbddf95933e3fdf988f540ca4a6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687442"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819832"
 ---
 # <a name="dynamically-scale-database-resources-with-minimal-downtime"></a>최소 가동 중지 시간으로 동적으로 데이터베이스 리소스 크기 조정
 

@@ -4,15 +4,16 @@ description: 사용 되지 않는 CPP 문서, PC에 연결 됨 문서 "AppSource
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: 71cea44a428fe9eca40ac70e56e6e0a80362115a
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 34d4886b8913da24177b939d88eb90dd8650542f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033880"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824746"
 ---
 # <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Dynamics 365 for Customer Engagement 제안 설정 탭
 

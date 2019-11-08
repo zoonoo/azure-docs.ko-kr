@@ -7,13 +7,13 @@ ms.service: logic-apps
 ms.topic: include
 ms.author: estfan
 ms.custom: include file
-ms.date: 05/15/2018
-ms.openlocfilehash: d60d7727e0674298fa6da7e7330221318da23efd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/08/2019
+ms.openlocfilehash: 0be29f6f541aa58e57eb665ebaf29e35f42865e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161635"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826305"
 ---
 * Azure SQL Database를 사용하는 경우 [Azure SQL Database에 연결](#connect-azure-sql-db)의 단계를 따릅니다.
 
@@ -44,7 +44,9 @@ SQL 트리거 또는 작업에서 연결 정보를 묻는 메시지가 표시 �
 
 ### <a name="connect-to-sql-server"></a>SQL Server에 연결
 
-SQL 트리거 또는 작업에서 연결 정보를 묻는 메시지가 표시 되 면 트리거와 동작 모두에 대해 작동 하는 다음 단계를 수행 합니다. 그러나 시작 하기 전에 [온-프레미스 데이터 게이트웨이](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection)를 이미 설정 했는지 확인 합니다. 그렇지 않으면 연결을 만들 때 게이트웨이가 게이트웨이 목록에 표시 되지 않습니다.
+SQL 트리거 또는 작업에서 연결 정보를 묻는 메시지가 표시 되 면 트리거와 동작 모두에 대해 작동 하는 다음 단계를 수행 합니다. 로컬 컴퓨터에 [온-프레미스 데이터 게이트웨이](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-install) 를 설치 하 고 [Azure 데이터 게이트웨이 리소스를 만드는](https://docs.microsoft.com/azure/logic-apps/logic-apps-gateway-connection)데 필요한 시나리오의 경우 먼저 이러한 요구 사항을 완료 해야 합니다. 그렇지 않으면 연결을 만들 때 게이트웨이 리소스가 게이트웨이 목록에 표시 되지 않습니다.
+
+또한 [ise (integration service environment)](https://docs.microsoft.com/azure/logic-apps/connect-virtual-network-vnet-isolated-environment-overview)에서 SQL Server 커넥터를 사용 하 여 Windows 인증을 사용 하려면 커넥터의 비 ise 버전 및 온-프레미스 데이터 게이트웨이를 사용 합니다. ISE 레이블이 지정 된 버전은 Windows 인증을 지원 하지 않습니다.
 
 1. **연결 이름**에 연결 이름을 만듭니다.
 

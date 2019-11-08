@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 5ba2255cfe0d5c4220ec2215ac837649af1ba896
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4593ee875f98e2c9f2f9406f8b9d4146e06a573d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521172"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825441"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob storage: 핫, 쿨 및 보관 액세스 계층
 
@@ -59,7 +59,7 @@ Blob storage 및 GPv2 계정은 계정 수준에서 **액세스 계층** 특성�
 
 ## <a name="archive-access-tier"></a>보관 액세스 계층
 
-보관 액세스 계층의 저장소 비용은 가장 낮습니다. 그러나 핫 및 쿨 계층에 비해 데이터 검색 비용이 더 높습니다. 보관 계층의 데이터를 검색 하는 데 몇 시간 정도 걸릴 수 있습니다. 데이터는 최소 180 일 동안 보관 계층에 있어야 하며 초기 삭제 요금이 적용 됩니다.
+보관 액세스 계층의 저장소 비용은 가장 낮습니다. 그러나 핫 및 쿨 계층에 비해 데이터 검색 비용이 더 높습니다. 보관 계층의 데이터를 검색 하는 데 몇 시간 정도 걸릴 수 있습니다. 데이터는 최소 180 일 동안 보관 계층에 유지 되거나 초기 삭제 요금이 적용 되어야 합니다.
 
 Blob이 보관 저장소에 있는 동안 blob 데이터는 오프 라인 상태 이며 읽기, 복사, 덮어쓰기 또는 수정할 수 없습니다. 보관 저장소에서 blob의 스냅숏을 만들 수 없습니다. 그러나 Blob 메타데이터는 온라인 상태로 유지되며 사용할 수 있으므로 Blob 및 해당 속성을 나열할 수 있습니다. 보관에 있는 blob의 경우 유효한 유일한 작업은 GetBlobProperties, Getblobproperties, ListBlobs, SetBlobTier 및 DeleteBlob입니다.
 

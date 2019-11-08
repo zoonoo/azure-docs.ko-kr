@@ -11,12 +11,12 @@ ms.author: sgilley
 ms.reviewer: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 145ab994bbd2ac2445947968ccdeadbb730eb76a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 16066ceeb7196bb181d144cc9529d6db627ed828
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476112"
+ms.locfileid: "73582525"
 ---
 # <a name="explore-azure-machine-learning-with-jupyter-notebooks"></a>Jupyter Notebooks를 사용하여 Azure Machine Learning 검색
 
@@ -24,7 +24,7 @@ ms.locfileid: "73476112"
 
 이 문서는 다음 환경에서 리포지토리에 액세스하는 방법을 보여 줍니다.
 
-- [Azure Machine Learning 컴퓨팅 인스턴스](#notebookvm)
+- [Azure Machine Learning Notebook VM](#notebookvm)
 - [사용자 고유의 Notebook 서버 구현](#byo)
 - [데이터 과학 Virtual Machine](#dsvm)
 
@@ -32,7 +32,7 @@ ms.locfileid: "73476112"
 > 리포지토리를 복제하면 **tutorials** 폴더에서 자습서 Notebook, **how-to-use-azureml** 폴더에서 기능별 Notebook을 확인할 수 있습니다.
 
 <a name="notebookvm"></a>
-## <a name="get-samples-on-azure-machine-learning-compute-instance"></a>Azure Machine Learning 컴퓨팅 인스턴스에 대한 샘플 가져오기
+## <a name="get-samples-on-azure-machine-learning-notebook-vm"></a>Azure Machine Learning Notebook VM에 대한 샘플 가져오기
 
 샘플을 시작하는 가장 쉬운 방법은 [자습서: 환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 완료하는 것입니다. 완료되면 전용 Notebook 서버에 SDK 및 샘플 리포지토리가 사전 로드됩니다. 다운로드 또는 설치가 필요 없습니다.
 

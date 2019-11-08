@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/14/2019
+ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 98a12e6892ac8710ae2195cd2c29df43b4c65aba
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 333bc12c475cedbd98480e3b596bcc7ad4e30ecc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71706291"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824920"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램에 대해 Azure NetApp Files을 사용 하는 Red Hat Enterprise Linux에서 SAP NetWeaver에 대 한 Azure Virtual Machines 고가용성
 
@@ -50,7 +50,7 @@ ms.locfileid: "71706291"
 [glusterfs-ha]:high-availability-guide-rhel-glusterfs.md
 
 이 문서에서는 [Azure NetApp Files](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-introduction/)를 사용 하 여 가상 머신을 배포 하 고, 가상 머신을 구성 하 고, 클러스터 프레임 워크를 설치 하 고, 항상 사용 가능한 SAP NetWeaver 7.50 시스템을 설치 하는 방법을 설명 합니다.
-그리고 예제 구성, 설치 명령 등을 소개합니다. ASCS 인스턴스는 숫자 00 이며, ERS 인스턴스 번호는 01이 고, PAS (주 응용 프로그램 인스턴스)는 02 이며 응용 프로그램 인스턴스 (.AAS)는 03입니다. SAP 시스템 ID QAS 사용. 
+예제 구성, 설치 명령 등에 있습니다. ASCS 인스턴스는 숫자 00 이며, ERS 인스턴스 번호는 01이 고, PAS (주 응용 프로그램 인스턴스)는 02 이며 응용 프로그램 인스턴스 (.AAS)는 03입니다. SAP 시스템 ID QAS 사용. 
 
 데이터베이스 계층은이 문서에 자세히 설명 되어 있지 않습니다.  
 
@@ -78,7 +78,7 @@ ms.locfileid: "71706291"
 * 일반 RHEL 설명서
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)(고가용성 추가 기능 관리)
-  * [고가용성 추가 기능 참조](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)(고가용성 추가 기능 참조)
   * [RHEL 7.5에서 독립 실행형 리소스를 사용하여 SAP Netweaver용 ASCS/ERS 구성](https://access.redhat.com/articles/3569681)
   * [Pacemaker의 RHEL에서 독립 실행형 큐에 넣기 서버 2 (ENSA2)를 사용 하 여 SAP S/4HANA ASCS/ERS 구성](https://access.redhat.com/articles/3974941)
 * Azure 관련 RHEL 설명서:
@@ -95,7 +95,7 @@ SAP Netweaver central services에 대 한 HA (고가용성)에는 공유 저장�
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-rhel/high-availability-guide-rhel-anf.png)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. 다음 목록에서는 (A) SCS 및 ERS에 대 한 별도의 프런트 엔드 Ip를 사용 하는 부하 분산 장치의 구성을 보여 줍니다.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)를 사용 하는 것이 좋습니다. 다음 목록에서는 (A) SCS 및 ERS에 대 한 별도의 프런트 엔드 Ip를 사용 하는 부하 분산 장치의 구성을 보여 줍니다.
 
 > [!IMPORTANT]
 > Azure Vm에서 게스트 운영 체제로 Red Hat Linux를 사용 하는 SAP ASCS/ERS의 다중 SID 클러스터링은 **지원 되지 않습니다**. 다중 SID 클러스터링은 하나의 Pacemaker 클러스터에서 서로 다른 Sid를 사용 하 여 여러 SAP ASCS/ERS 인스턴스를 설치 하는 방법을 설명 합니다.
@@ -109,6 +109,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 * 프로브 포트
   * 포트 620<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
+  * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -126,6 +127,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 * 프로브 포트
   * 포트 621<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
+  * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 33<strong>&lt;nr&gt;</strong> TCP
   * 5<strong>&lt;nr&gt;</strong>13 TCP
@@ -134,7 +136,7 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Azure NetApp Files 인프라 설정 
 
-SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 스토리지가 필요합니다.  Azure NetApp 파일 인프라의 설치를 계속 하기 전에 [Azure NetApp Files 설명서][anf-azure-doc]를 숙지 하세요. 선택한 Azure 지역에서 Azure NetApp Files를 제공 하는지 확인 합니다. 다음 링크는 Azure 지역에서 Azure NetApp Files의 가용성을 보여 줍니다. [Azure 지역별 가용성을 Azure NetApp Files][anf-avail-matrix]합니다.
+SAP NetWeaver에는 전송 및 프로필 디렉터리에 대한 공유 스토리지가 필요합니다.  Azure NetApp 파일 인프라의 설치를 계속 하기 전에 [Azure NetApp Files 설명서][anf-azure-doc]를 숙지 하세요. 선택한 Azure 지역에서 Azure NetApp Files를 제공 하는지 확인 합니다. 다음 링크는 azure 지역에서 Azure NetApp Files의 가용성을 보여 줍니다. [Azure 지역별 Azure NetApp Files 가용성][anf-avail-matrix].
 
 Azure NetApp 파일은 여러 [azure 지역](https://azure.microsoft.com/global-infrastructure/services/?products=netapp)에서 사용할 수 있습니다. Azure NetApp Files를 배포 하기 전에 [Azure NetApp 파일 등록 지침][anf-register]에 따라 Azure NetApp Files에 등록을 요청 합니다. 
 
@@ -180,7 +182,42 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 먼저 Azure NetApp Files 볼륨을 만들어야 합니다. Vm을 배포 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
 
-1. 부하 분산 장치(내부) 만들기  
+1. 부하 분산 장치 만들기 (내부, 표준):  
+   1. 프런트 엔드 IP 주소 만들기
+      1. ASCS에 대 한 IP 주소 192.168.14.9
+         1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
+         1. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **프런트 엔드). QAS. ASCS**)
+         1. 할당을 정적으로 설정 하 고 IP 주소를 입력 합니다 (예: **192.168.14.9**).
+         1. 확인 클릭
+      1. ASCS ERS에 대 한 IP 주소 192.168.14.10
+         * "A"에서 위의 단계를 반복 하 여 **192.168.14.10** 및 프런트 엔드와 같은 사람에 대 한 IP 주소를 만듭니다 **. QAS. ERS**)
+   1. 백 엔드 풀 만들기
+      1. ASCS에 대한 백 엔드 풀 만들기
+         1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
+         1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). QAS**)
+         1. 가상 머신 추가 클릭
+         1. 가상 컴퓨터를 선택 합니다. 
+         1. (A) SCS 클러스터의 가상 머신 및 해당 IP 주소를 선택 합니다.
+         1. 추가를 클릭합니다.
+   1. 상태 프로브 만들기
+      1. 포트: 620**00**(ASCS용)
+         1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
+         1. 새 상태 프로브 (예: 상태)의 이름을 입력 합니다 **. QAS. ASCS**)
+         1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
+         1. 확인 클릭
+      1. ASCS ERS에 대 한 포트 621**01**
+            * "C"에서 위의 단계를 반복 하 여 해당 ERS에 대 한 상태 프로브를 만듭니다 (예: 621**01** 및 **health). QAS. ERS**)
+   1. 부하 분산 규칙
+      1. ASCS에 대 한 부하 분산 규칙
+         1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
+         1. 새 부하 분산 장치 규칙의 이름 (예: lb)을 입력 합니다 **. QAS. ASCS**)
+         1. 이전에 만든 ASCS, 백 엔드 풀 및 상태 프로브에 대 한 프런트 엔드 IP 주소를 선택 합니다 (예: **프런트 엔드). QAS. ASCS**, **백 엔드. QAS** 및 **health. QAS. ASCS**)
+         1. **HA 포트** 선택
+         1. 유휴 상태 시간 제한을 30분으로 증가
+         1. **부동 IP를 사용하도록 설정**
+         1. 확인 클릭
+         * 위의 단계를 반복 하 여 ERS에 대 한 부하 분산 규칙을 만듭니다 (예: **lb. QAS. ERS**)
+1. 또는 시나리오에 기본 부하 분산 장치 (내부)가 필요한 경우 다음 단계를 수행 합니다.  
    1. 프런트 엔드 IP 주소 만들기
       1. ASCS에 대 한 IP 주소 192.168.14.9
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
@@ -219,9 +256,11 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
       1. ASCS ERS에 대한 추가 포트
          * "D"에서 위의 단계를 32**01**, 33**01**, 5**01**13, 5**01**14, 5**01**16 및 TCP (ascs ERS)에 대해 반복 합니다.
 
+> [!Note]
+> 공용 IP 주소가 없는 Vm이 내부 (공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치 되는 경우 공용 끝점으로의 라우팅을 허용 하기 위해 추가 구성을 수행 하지 않는 한 아웃 바운드 인터넷 연결이 없습니다. 아웃 바운드 연결을 설정 하는 방법에 대 한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 여 Virtual Machines에 대 한 공용 끝점 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조 하세요.  
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. 매개 변수 **net.tcp. tcp 타임 스탬프** 를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
+> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. **Tcp_timestamps** 매개 변수를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
@@ -559,7 +598,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
     ```
 
    Sap는 복제를 비롯 하 여 SAP NW 7.52에 대 한 지원 서비스를 도입 했습니다. ABAP Platform 1809부터 시작 하 여 큐에 넣기 서버 2가 기본적으로 설치 됩니다. 큐에 넣기 서버 2 지원에 대해서는 SAP note [2630416](https://launchpad.support.sap.com/#/notes/2630416) 을 참조 하세요.
-   [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(큐에 넣기 서버 2 아키텍처)를 사용 하는 경우 리소스 에이전트 resource-agents-sap-4.1.1 -12를 설치 하 고 다음과 같이 리소스를 정의 합니다.
+   [ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)(큐에 넣기 서버 2 아키텍처)를 사용 하는 경우 리소스 에이전트 resource-agents-sap-4.1.1 x86_64 -12를 설치 하 고 다음과 같이 리소스를 정의 합니다.
 
     ```
     sudo pcs property set maintenance-mode=true
@@ -747,7 +786,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 ## <a name="install-database"></a>데이터베이스 설치
 
-이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에 SAP HANA를 설치 하는 방법에 대 한 자세한 내용은 Red Hat Enterprise Linux . For a list of supported databases, see [SAP Note 1928533][1928533]에서 [Azure vm의 SAP HANA 고가용성][sap-hana-ha]을 참조 하세요.
+이 예제에서는 SAP NetWeaver가 SAP HANA에 설치됩니다. 이 설치에 지원되는 모든 데이터베이스를 사용할 수 있습니다. Azure에 SAP HANA를 설치 하는 방법에 대 한 자세한 내용은 [Red Hat Enterprise Linux. For a list of supported databases, see [SAP Note 1928533][1928533]에서 Azure vm의 SAP HANA 고가용성][sap-hana-ha] 을 참조 하세요.
 
 1. SAP 데이터베이스 인스턴스 설치 실행
 
@@ -805,11 +844,11 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
    hdbuserstore SET DEFAULT qasdb:30313@QAS SAPABAP1 <password of ABAP schema>
    ```
 
-## <a name="test-the-cluster-setup"></a>클러스터 설정 테스트
+## <a name="test-the-cluster-setup"></a>클러스터 설치 테스트
 
 1. 수동으로 ASCS 인스턴스 마이그레이션
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    ```
     rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
@@ -854,7 +893,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 1. 노드 작동 중단 시뮬레이트
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    ```
    rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
@@ -923,7 +962,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 1. 메시지 서버 프로세스 종료
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    ```
    rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
@@ -945,7 +984,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
    [root@anftstsapcl1 ~]# pgrep ms.sapQAS | xargs kill -9
    ```
 
-   메시지 서버를 한 번만 종료 하면 `sapstart`에 의해 다시 시작 됩니다. 충분히 자주 종료하면 Pacemaker는 ASCS 인스턴스를 다른 노드로 이동합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
+   메시지 서버를 한 번만 종료 하면 `sapstart`의해 다시 시작 됩니다. 충분히 자주 종료하면 Pacemaker는 ASCS 인스턴스를 다른 노드로 이동합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    ```
    [root@anftstsapcl1 ~]# pcs resource cleanup rsc_sap_QAS_ASCS00
@@ -970,7 +1009,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 1. 큐에 넣기 서버 프로세스 종료
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    ```
    rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
@@ -1017,7 +1056,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 1. 큐에 넣기 복제 서버 프로세스 종료
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    ```
    rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1
@@ -1039,7 +1078,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
    [root@anftstsapcl2 ~]# pgrep er.sapQAS | xargs kill -9
    ```
 
-   명령을 한 번만 실행 하는 경우 `sapstart` 에서 프로세스를 다시 시작 합니다. 자주 실행 하는 경우에서 `sapstart` 프로세스를 다시 시작 하지 않고 리소스가 중지 된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
+   명령을 한 번만 실행 하는 경우 `sapstart` 프로세스를 다시 시작 합니다. 자주 실행 하는 경우에는 `sapstart` 프로세스를 다시 시작 하지 않고 리소스가 중지 된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    ```
    [root@anftstsapcl2 ~]# pcs resource cleanup rsc_sap_QAS_ERS01
@@ -1063,7 +1102,7 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 1. 큐에 넣기 sapstartsrv 프로세스 종료
 
-   테스트 시작 전 리소스 상태:
+   테스트를 시작하기 전 리소스 상태:
 
    ```
    rsc_st_azure    (stonith:fence_azure_arm):      Started anftstsapcl1

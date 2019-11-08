@@ -4,30 +4,31 @@ description: SEO(검색 엔진 최적화)를 극대화하기 위한 지침을 �
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: pabutler
-ms.openlocfilehash: f5b956ed1197e3898c9536bda3a93a41e8ee35c0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7115798faadc3209413d22a384433417ec0ddff0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935140"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819578"
 ---
 # <a name="azure-marketplace-seo-guidance"></a>Azure Marketplace SEO 지침
 
-이 문서에서 검색 기능을 통해 제품의 검색 기능을 최대화 하는 방법에 설명 합니다 [Azure Marketplace](https://azuremarketplace.microsoft.com) 하 고 [AppSource](https://appsource.microsoft.com)합니다. 
+이 문서에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com) 및 [appsource](https://appsource.microsoft.com)의 검색 기능을 통해 제품의 검색 기능을 최대화 하는 방법을 설명 합니다. 
 
 
 ## <a name="general-explanation-of-algorithm"></a>알고리즘에 대한 일반적인 설명
 
-Microsoft 마켓플레이스 사이트의 검색 기능을 강화 하는 것에 대 한 Azure Search를 활용 합니다. 이 알고리즘은 용어 [TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)(용어 빈도/역 문서 빈도)를 기준으로 합니다. [표준](https://lucene.apache.org/core/) Lucene 분석기가 사용됩니다.
+Microsoft 마켓플레이스는 Azure Cognitive Search를 활용 하 여 사이트의 검색 기능을 제공 합니다. 이 알고리즘은 용어 [TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)(용어 빈도/역 문서 빈도)를 기준으로 합니다. [표준](https://lucene.apache.org/core/) Lucene 분석기가 사용됩니다.
 
 일반적으로 모든 텍스트 필드, 범주 및 산업이 관련성의 가중치에 포함됩니다. 다른 앱과 달리 사용자 앱에서만 자주 사용되는 특수한 용어는 검색을 수행할 때 훨씬 더 높은 일치 점수를 생성합니다. 따라서 “Azure search”는 훨씬 더 전문적이지만 “VM”과 같은 용어를 포함하면 별로 이점이 없습니다.
 다음은 고려해야 할 가장 관련성이 높은 필드입니다.
 
  
-|  필드                   | 중요도 | 지침                                                                                            |
+|  필드                   | 중요도 | 인도                                                                                            |
 |  --------------------    | ----------                   | ---------------                                                                   |
 | 제품 이름               |  높음      | 검색 쿼리와 정확히 일치하거나 완전 일치에 가까우면 높은 순위를 얻습니다.                       |
 | 게시자 이름           |  높음      | 검색 쿼리와 정확히 일치하거나 완전 일치에 가까우면 높은 순위를 얻습니다.                       |

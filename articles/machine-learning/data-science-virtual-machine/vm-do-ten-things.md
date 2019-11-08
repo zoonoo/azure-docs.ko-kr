@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 75a685dc90db9133ee9bc5d52d046246270ea32a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dc8a870d692108f3a33b89a1c3826d421dfd1f63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497609"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824392"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Windows 데이터 과학 Virtual Machine으로 할 수 있는 10가지 작업
 
@@ -441,7 +441,7 @@ USING Outputters.Csv();
 
 Azure Data Lake 데이터 집합을 수집 한 후에는 [U-SQL 언어](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) 를 사용 하 여 데이터를 쿼리하고 탐색할 수 있습니다. U-SQL 언어는 T-sql과 비슷하지만 사용자가 사용자 지정 모듈 및 사용자 정의 C# 함수를 작성할 수 있도록의 일부 기능을 결합 합니다. 이전 단계의 스크립트를 사용할 수 있습니다.
 
-쿼리가 서버에 제출 된 후 tripdata_summary. CSV가 Azure Data Lake 탐색기에 나타납니다. 파일을 마우스 오른쪽 단추로 클릭 하 여 데이터를 미리 볼 수 있습니다.
+쿼리가 서버에 전송 된 후에는 tripdata_summary 합니다. CSV가 Azure Data Lake 탐색기에 나타납니다. 파일을 마우스 오른쪽 단추로 클릭 하 여 데이터를 미리 볼 수 있습니다.
 
 ![Data Lake 탐색기에서 CSV 파일의 스크린샷](./media/vm-do-ten-things/USQL_create_summary.png)
 
@@ -826,7 +826,7 @@ Azure Cosmos DB는 클라우드의 NoSQL 데이터베이스입니다. JSON과 �
 
 1. Azure Cosmos DB Python SDK는 DSVM에 이미 설치 되어 있습니다. 업데이트 하려면 명령 프롬프트에서 ```pip install pydocumentdb --upgrade```를 실행 합니다.
 2. [Azure Portal](https://portal.azure.com)에서 Azure Cosmos DB 계정 및 데이터베이스를 만듭니다.
-3. [Microsoft 다운로드 센터](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) 에서 Azure Cosmos DB 데이터 마이그레이션 도구를 다운로드 하 여 원하는 디렉터리에 추출 합니다.
+3. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=53595) 에서 Azure Cosmos DB 데이터 마이그레이션 도구를 다운로드 하 여 원하는 디렉터리에 추출 합니다.
 4. 다음 명령 매개 변수를 사용 하 여 [공용 blob](https://cahandson.blob.core.windows.net/samples/volcano.json) 에 저장 된 JSON 데이터 (화산 데이터)를 마이그레이션 도구에 Azure Cosmos DB 가져옵니다. (Azure Cosmos DB 데이터 마이그레이션 도구를 설치한 디렉터리에서 node.js를 사용 합니다.) 다음 매개 변수를 사용 하 여 원본 및 대상 위치를 입력 합니다.
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`

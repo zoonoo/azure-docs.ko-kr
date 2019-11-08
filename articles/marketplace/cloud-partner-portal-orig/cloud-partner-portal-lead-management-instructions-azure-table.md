@@ -4,15 +4,16 @@ description: Azure 테이블 저장소에서 리드 관리를 구성 합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: pabutler
-ms.openlocfilehash: a53ed93813215655c4a165faa0bce36d9249e8e6
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 21105d72ccd288faf0fed58019e67afe2e1c9d01
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227895"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825282"
 ---
 # <a name="lead-management-instructions-for-table-storage"></a>테이블 저장소에 대 한 리드 관리 지침
 
@@ -96,7 +97,7 @@ ms.locfileid: "68227895"
 
      ![Azure 테이블 이름에 대한 사용자 지정 값 선택](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-getentities-table-name.png)
 
-   - **필터 쿼리**: 이 필드를 선택 하면 **이전 시간 가져오기** 아이콘이 팝업 창에 표시 됩니다. **이전 시간** 을 선택 하 여이 값을 타임 스탬프로 사용 하 여 쿼리를 필터링 합니다. 또는 필드에 다음 함수를 붙여 넣을 수 있습니다.
+   - **필터 쿼리**:이 필드를 선택 하면 **이전 시간 가져오기** 아이콘이 팝업 창에 표시 됩니다. **이전 시간** 을 선택 하 여이 값을 타임 스탬프로 사용 하 여 쿼리를 필터링 합니다. 또는 필드에 다음 함수를 붙여 넣을 수 있습니다.
    
       `CreatedTime Timestamp gt datetime'@{body('Get_past_time')}'` 
 
@@ -111,7 +112,7 @@ ms.locfileid: "68227895"
      ![조건 컨트롤 추가](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-action-condition-control.png)
 
 1. **조건** 창에서 **값 선택**을 선택 하 고 팝업 창에서 **식** 을 선택 합니다.
-1. Fx `length(body('Get_entities')?['value'])` 필드에 붙여넣습니다. **확인**을 선택하여 이 함수를 추가합니다. 
+1. ***Fx*** 필드에 `length(body('Get_entities')?['value'])`을 붙여넣습니다. **확인**을 선택하여 이 함수를 추가합니다. 
 
 
 
@@ -133,14 +134,14 @@ ms.locfileid: "68227895"
 
       - **받는**사람: 알림을 받을 사람의 전자 메일 주소입니다.
       - **제목**: 전자 메일의 제목입니다. 예: *새 잠재 고객!*
-      - **Body**: 각 전자 메일에 포함 하려는 텍스트입니다 (선택 사항). 또한 잠재 고객 `body('Get_entities')?['value']` 정보를 삽입 하는 함수로 붙여 넣습니다.
+      - **Body**: 각 전자 메일에 포함 하려는 텍스트입니다 (선택 사항). 또한 `body('Get_entities')?['value']`에 추가 하 여 잠재 고객 정보를 삽입 하는 함수로 붙여 넣습니다.
 
         >[!NOTE] 
         >전자 메일의 본문에 추가 정적 또는 동적 데이터 요소를 삽입할 수 있습니다.
 
       ![잠재 고객 알림에 대한 이메일 설정](./media/cloud-partner-portal-lead-management-instructions-azure-table/msflow-emailbody-fx.png)
 
-1. **저장**을 선택하여 흐름을 저장합니다. Microsoft Flow에서 오류를 자동으로 테스트 합니다. 오류가 없으면 흐름이 저장된 후 실행을 시작합니다.
+1. **저장**을 선택하여 흐름을 저장합니다. Microsoft Flow에서 오류를 자동으로 테스트 합니다. 오류가 없으면 흐름이 저장 된 후 실행이 시작 됩니다.
 
     다음 그림은 최종 흐름이 표시 되는 방법의 예를 보여 줍니다.
 

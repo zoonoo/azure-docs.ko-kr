@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 및 SQL Server를 사용하는 Spark 커넥터 | Microsoft Docs
+title: Azure SQL Database 및 SQL Server를 사용 하는 Spark 커넥터
 description: Azure SQL Database 및 SQL Server용 Spark 커넥터를 사용하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: efa31e72811b83c00c1b2ee4a5d1a42fc7089630
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d398019b62078da6943cb98cbafc3ac39640513f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163176"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820868"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Azure SQL Database 및 SQL Server용 Spark 커넥터를 통해 실시간 빅 데이터 분석 가속화
 
@@ -32,7 +32,7 @@ Azure SQL Database 및 SQL Server용 Spark 커넥터를 사용하면 Azure SQL D
 | Apache Spark                         |2.0.2 이상           |
 | 스칼라                                |2.10 이상            |
 | SQL Server용 Microsoft JDBC Driver |6.2 이상             |
-| Microsoft SQL Server에 대한 연결 문자열                 |SQL Server 2008 이상 |
+| Microsoft SQL Server                 |SQL Server 2008 이상 |
 | Azure SQL Database                   |지원됨                |
 
 Azure SQL Database 및 SQL Server용 Spark 커넥터는 SQL Server용 Microsoft JDBC Driver를 사용하여 Spark 작업자 노드와 SQL 데이터베이스 간에 데이터를 이동합니다.

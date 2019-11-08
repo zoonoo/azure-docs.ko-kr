@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: a244e4f7ac406fecd4c053b39a5e9a9cb6ecab2c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 54b59cfecbbba6b71cf301aa4872892825d4b675
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105505"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827921"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Marketplace 계량 서비스를 사용 하 여 요금제 청구
 
@@ -72,8 +73,8 @@ CN 서비스를 구독 하는 Azure 고객은 선택한 계획에 따라 월간 
 
 차원 자체를 정의 하는 특성은 제품에 대 한 모든 계획에서 공유 됩니다.  제품을 게시 하기 전에 계획의 컨텍스트에서 이러한 특성에 대 한 변경 사항은 모든 계획의 차원 정의에 영향을 줍니다.  제품을 게시 한 후에는 이러한 특성을 더 이상 편집할 수 없습니다.  이러한 특성은 다음과 같습니다.
 
-* Identifier
-* 이름
+* 식별자
+* Name
 * 측정 단위
 
 차원의 다른 특성은 각 계획 마다 다르며 계획 마다 다른 값을 가질 수 있습니다.  계획을 게시 하기 전에 이러한 값을 편집할 수 있으며이 계획에만 영향을 줍니다.  계획을 게시 한 후에는 이러한 특성을 더 이상 편집할 수 없습니다.  이러한 특성은 다음과 같습니다.
@@ -102,8 +103,8 @@ Marketplace 계량 서비스에 사용 되는 차원은 고객이 서비스에 �
   
 차원이 포함 된 제품을 게시 한 후에는 해당 차원에 대 한 제품 수준 세부 정보를 더 이상 변경할 수 없습니다.
 
-* Identifier
-* 이름
+* 식별자
+* Name
 * 측정 단위
 
 계획을 게시 한 후에는 계획 수준 세부 정보를 더 이상 변경할 수 없습니다.

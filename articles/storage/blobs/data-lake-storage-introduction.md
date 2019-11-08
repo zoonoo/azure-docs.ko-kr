@@ -8,12 +8,12 @@ ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d843e288297db656cca6e2a07f2e1f3322ebfa89
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 99863f68c20a2f95dfc744e13a977bf3ccbbf639
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299657"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580440"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2 소개
 
@@ -83,7 +83,7 @@ Data Lake Storage Gen2는 몇 가지 오픈 소스 플랫폼에서 지원합니�
 
 ## <a name="supported-azure-services"></a>지원되는 Azure 서비스
 
-Data Lake Storage gen2는 데이터를 수집하고, 분석을 수행하고, 시각적 표현을 만드는 데 사용할 수 있는 여러 Azure 서비스를 지원합니다. 지원되는 Azure 서비스 목록은 [Azure 서비스와 Azure Data Lake Storage 통합](data-lake-store-integrate-with-azure-services.md)을 참조하세요.
+Data Lake Storage gen2는 데이터를 수집하고, 분석을 수행하고, 시각적 표현을 만드는 데 사용할 수 있는 여러 Azure 서비스를 지원합니다. 지원되는 Azure 서비스 목록은 [Azure 서비스와 Azure Data Lake Storage 통합](data-lake-storage-integrate-with-azure-services.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -92,4 +92,4 @@ Data Lake Storage gen2는 데이터를 수집하고, 분석을 수행하고, 시
 - [계층 구조 네임스페이스](data-lake-storage-namespace.md)
 - [스토리지 계정을 만드는](data-lake-storage-quickstart-create-account.md)
 - [Azure Data Lake Storage에 대한 다중 프로토콜 액세스](data-lake-storage-multi-protocol-access.md)
-- [Azure 서비스와 Azure Data Lake Storage 통합](data-lake-store-integrate-with-azure-services.md);
+- [Azure 서비스와 Azure Data Lake Storage 통합](data-lake-storage-integrate-with-azure-services.md);

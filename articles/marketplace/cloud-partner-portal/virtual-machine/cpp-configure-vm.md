@@ -4,15 +4,16 @@ description: Azure에서 호스팅되는 VM을 크기 조정, 업데이트 및 �
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 1270dff0bcb8de117247a454ab9c144250cfb17c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ce7fe49b07dc250a9f56ff73229e347b997f0cc0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880353"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824490"
 ---
 # <a name="configure-the-azure-hosted-vm"></a>Azure 호스팅 VM 구성
 
@@ -22,7 +23,7 @@ ms.locfileid: "68880353"
 ## <a name="sizing-the-vhds"></a>VHD 크기 조정
 
 <!--TD: Check if the following assertion is true. I didn't understand the original content. -->
-운영 체제를 사용 하 여 미리 구성 된 Vm 중 하나를 선택 하 고 (필요에 따라 추가 서비스를 선택 하는 경우), [가상 머신 sku 탭](./cpp-skus-tab.md)에 설명 된 대로 표준 Azure VM 크기를 이미 선택 했습니다.  사전 구성된 OS로 솔루션을 시작하는 것이 좋습니다.  그러나 OS를 설치하는 경우 VM 이미지의 기본 VHD 크기를 조정해야 합니다.
+운영 체제를 사용 하 여 미리 구성 된 Vm 중 하나를 선택 하 고 (필요에 따라 추가 서비스를 선택 하는 경우), [가상 머신 sku 탭](./cpp-skus-tab.md)에 설명 된 대로 표준 Azure VM 크기를 이미 선택 했습니다.  미리 구성 된 OS를 사용 하 여 솔루션을 시작 하는 것은 권장 되는 방법입니다.  그러나 OS를 설치하는 경우 VM 이미지의 기본 VHD 크기를 조정해야 합니다.
 
 - Windows의 경우 운영 체제 VHD는 127-128GB의 고정 형식 VHD로 만들어야 합니다. 
 - Linux의 경우 이 VHD는 30-50GB의 고정 형식 VHD로 만들어야 합니다.
@@ -43,7 +44,7 @@ Linux 배포판의 경우 일반적으로 명령줄 도구 또는 그래픽 유�
 
 ## <a name="perform-additional-security-checks"></a>추가 보안 검사 수행
 
-Azure Marketplace에서 솔루션 이미지에 대한 높은 수준의 보안을 유지해야 합니다.  다음 문서에서는 이 목표를 달성하는 데 도움이 되는 보안 구성 및 절차에 대한 검사 목록을 제공합니다. [Azure Marketplace 이미지에 대한 보안 권장 사항](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images).  이러한 권장 사항 중 일부는 Linux 기반 이미지에만 적용되지만, 대부분은 모든 VM 이미지에 적용됩니다. 
+Azure Marketplace에서 솔루션 이미지에 대한 높은 수준의 보안을 유지해야 합니다.  [Azure Marketplace 이미지에 대한 보안 권장 사항](https://docs.microsoft.com/azure/security/security-recommendations-azure-marketplace-images) 문서에서는 이 목표를 달성하는 데 도움이 되는 보안 구성 및 절차에 대한 검사 목록을 제공합니다.  이러한 권장 사항 중 일부는 Linux 기반 이미지에만 적용되지만, 대부분은 모든 VM 이미지에 적용됩니다. 
 
 
 ## <a name="perform-custom-configuration-and-scheduled-tasks"></a>사용자 지정 구성 및 예약된 작업 수행

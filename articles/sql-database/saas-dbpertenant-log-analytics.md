@@ -1,22 +1,22 @@
 ---
-title: SQL Database 다중 테 넌 트 앱을 사용 하 여 Azure Monitor 로그 사용
+title: 다중 테 넌 트 앱을 사용 하 여 로그 Azure Monitor
 description: 다중 테 넌 트 Azure SQL Database SaaS 앱을 사용 하 여 Azure Monitor 로그 설정 및 사용
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 01/25/2019
-ms.openlocfilehash: d7b568424d5e33c19efc9d9d9c21d0023459b6c7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: eca2dbe7589fdc7d59a84d21ecf59749d986ade9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692142"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826422"
 ---
 # <a name="set-up-and-use-azure-monitor-logs-with-a-multitenant-sql-database-saas-app"></a>다중 테 넌 트 SQL Database SaaS 앱을 사용 하 여 Azure Monitor 로그 설정 및 사용
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL에서 적절 한 배포 옵션 선택
+title: 올바른 배포 옵션 선택
 description: Azure SQL 데이터베이스, SQL 관리 되는 인스턴스 및 Azure 가상 컴퓨터의 SQL Server 간 배포 옵션 중에서 선택 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/22/2019
-ms.openlocfilehash: 791a4e95048bec8b3c5664bb97760f7c852950e0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e642454807511e8e0bc0b6b6ca7af837e03de2cf
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687700"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821343"
 ---
 # <a name="choose-the-right-deployment-option-in-azure-sql"></a>Azure SQL에서 적절 한 배포 옵션 선택
 

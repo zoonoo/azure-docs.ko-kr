@@ -1,5 +1,5 @@
 ---
-title: 활성 지역 복제-Azure SQL Database
+title: 활성 지역 복제
 description: 활성 지역 복제를 사용하여 동일하거나 다른 데이터 센터(Azure 지역)에 개별 데이터베이스의 읽기 기능한 보조 데이터베이스를 만들 수 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 74cbb9fa5a00b287746afd92fe74f50bfa19110b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 33697fd8d3b0c6faea423026e1462834c6b1ef4c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691309"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822652"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>활성 지역 복제 만들기 및 사용
 
@@ -120,7 +120,7 @@ ms.locfileid: "73691309"
 > 보조 데이터베이스가 주 데이터베이스와 동일한 계산 크기로 구성 되지 않은 경우에는 게시 된 RPO = 5 초를 보장할 수 없습니다. 
 
 
-컴퓨팅 크기가 더 작은 보조 데이터베이스를 만들려는 경우 Azure Portal의 로그 IO 백분율 차트에서 복제 로드를 유지하는 데 필요한 보조 데이터베이스의 최소 컴퓨팅 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 또는 [ys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO [_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 데이터베이스 뷰에서 제한이 대기 중 상태로 보고 됩니다. 
+컴퓨팅 크기가 더 작은 보조 데이터베이스를 만들려는 경우 Azure Portal의 로그 IO 백분율 차트에서 복제 로드를 유지하는 데 필요한 보조 데이터베이스의 최소 컴퓨팅 크기를 추정하는 좋은 방법을 제공합니다. 예를 들어 주 데이터베이스가 P6(1000 DTU)이면 해당 로그 IO 백분율은 50%이고 보조 데이터베이스는 최소한 P4(500 DTU) 이상이어야 합니다. [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 또는 [ys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) 데이터베이스 뷰를 사용하여 로그 IO 데이터를 검색할 수도 있습니다.  제한은 [dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys. dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql) 데이터베이스 뷰에서 HADR_THROTTLE_LOG_RATE_MISMATCHED_SLO 대기 상태로 보고 됩니다. 
 
 SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](sql-database-purchase-models.md)를 참조하세요.
 
@@ -150,12 +150,12 @@ SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비
 
 ## <a name="monitoring-geo-replication-lag"></a>지역에서 복제 지연 시간 모니터링
 
-RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에서 [_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 의 *replication_lag_sec* 열을 사용 합니다. 주 데이터베이스에서 커밋되고 보조 데이터베이스에서 지속 되는 트랜잭션 간의 지연 시간 (초)을 보여 줍니다. 예: 지연 값이 1 초 이면 주 복제본이 현재 가동 중단의 영향을 받을 수 있고 장애 조치 (failover)가 시작 됨을 의미 합니다. 최근 전환 중 1 초가 저장 되지 않습니다. 
+RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에서 [dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) 의 *replication_lag_sec* 열을 사용 합니다. 주 데이터베이스에서 커밋되고 보조 데이터베이스에서 지속 되는 트랜잭션 간의 지연 시간 (초)을 보여 줍니다. 예: 지연 값이 1 초 이면 주 복제본이 현재 가동 중단의 영향을 받을 수 있고 장애 조치 (failover)가 시작 됨을 의미 합니다. 최근 전환 중 1 초가 저장 되지 않습니다. 
 
-보조 복제본에서 적용 된 주 데이터베이스의 변경 내용에 대해 지연 시간을 측정 하려면 (즉, 보조 데이터베이스에서 읽기 가능) 보조 데이터베이스의 *last_commit* 시간을 주 데이터베이스의 동일한 값과 비교 합니다.
+보조 복제본에서 적용 된 주 데이터베이스의 변경 내용에 대해 지연 시간을 측정 하려면 (예: 보조 데이터베이스에서 읽기 가능) 보조 데이터베이스의 *last_commit* 시간을 주 데이터베이스의 동일한 값과 비교 합니다.
 
 > [!NOTE]
-> 주 데이터베이스에 대 한 *REPLICATION_LAG_SEC* NULL 값을 가지는 경우가 있습니다. 즉, 주 데이터베이스에는 현재 보조 복제본이 얼마나 떨어져 있는지 알 수 없습니다.   이는 일반적으로 프로세스가 다시 시작 된 후에 발생 하며 일시적인 상태 여야 합니다. *Replication_lag_sec* 에서 오랜 시간 동안 NULL을 반환 하는 경우 응용 프로그램에 경고를 생각해 보세요. 영구적 연결 오류로 인해 보조 데이터베이스가 주 데이터베이스와 통신할 수 없음을 나타낼 수 있습니다. 보조 데이터베이스와 주 데이터베이스에서 *last_commit* 시간 사이의 차이를 일으킬 수 있는 조건도 있습니다. 예: 변경 내용이 없는 긴 기간 후 주 복제본에서 커밋이 수행 되는 경우에는 0으로 빠르게 반환 하기 전에 차이가 큰 값으로 이동 합니다. 이러한 두 값 간의 차이가 오랜 시간 동안 크게 유지 되는 경우 오류 상태를 고려해 야 합니다.
+> 주 데이터베이스에 대 한 *REPLICATION_LAG_SEC* NULL 값을 가지는 경우가 있습니다. 즉, 주 데이터베이스에서 현재 보조 복제본이 얼마나 떨어져 있는지 알 수 없습니다.   이는 일반적으로 프로세스가 다시 시작 된 후에 발생 하며 일시적인 상태 여야 합니다. *Replication_lag_sec* 에서 오랜 시간 동안 NULL을 반환 하는 경우 응용 프로그램을 경고 하는 것이 좋습니다. 영구적 연결 오류로 인해 보조 데이터베이스가 주 데이터베이스와 통신할 수 없음을 나타낼 수 있습니다. 보조 데이터베이스와 주 데이터베이스에서 *last_commit* 시간 사이의 차이를 일으킬 수 있는 조건도 있습니다. 예: 변경 내용이 없는 긴 기간 후 주 복제본에서 커밋이 수행 되는 경우에는 0으로 빠르게 반환 하기 전에 차이가 큰 값으로 이동 합니다. 이러한 두 값 간의 차이가 오랜 시간 동안 크게 유지 되는 경우 오류 상태를 고려해 야 합니다.
 
 
 ## <a name="programmatically-managing-active-geo-replication"></a>활성 지역 복제를 프로그래밍 방식으로 관리

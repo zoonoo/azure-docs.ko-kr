@@ -1,5 +1,5 @@
 ---
-title: '클라이언트 VM 연결-Azure SQL Database Managed Instance '
+title: 클라이언트 VM-관리 되는 인스턴스 연결
 description: Azure 가상 머신에서 SQL Server Management Studio를 사용하여 Azure SQL Database Managed Instance에 연결합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: fb45df869bc9ecbe6584837894844c29bafa6223
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a455607b1459ebc9e37b1df70b454feea76d1f2f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689399"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822770"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database Managed Instance에 연결하도록 Azure VM 구성
 
@@ -46,7 +46,7 @@ ms.locfileid: "73689399"
 
    | 설정| 제안 값 | 설명 |
    | ---------------- | ----------------- | ----------- |
-   | **이름** | 모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
+   | **이름** | 모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요.|
    | **주소 범위(CIDR 블록)** | 유효 범위 | 이 빠른 시작에는 기본값이 적합합니다.|
    | **네트워크 보안 그룹** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
    | **경로 테이블** | 없음 | 이 빠른 시작에는 기본값이 적합합니다.|
@@ -78,8 +78,8 @@ SQL Managed Instance가 프라이빗 Virtual Network에 배치되므로 SQL Serv
    | **구독** | 유효한 구독 | 새 리소스를 만들 권한이 있는 구독이어야 합니다. |
    | **리소스 그룹** |[Managed Instance 만들기](sql-database-managed-instance-get-started.md) 빠른 시작에서 지정한 리소스 그룹입니다.|이 리소스 그룹은 VNet이 있는 리소스 그룹이어야 합니다.|
    | **위치**: | 리소스 그룹의 위치 | 이 값은 선택한 리소스 그룹에 따라 채워집니다. |
-   | **가상 머신 이름**  | 모든 유효한 이름 | 유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
-   |**관리 사용자 이름**|유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.<br>이 사용자 이름은 [VM에 연결](#connect-to-virtual-machine)할 때마다 사용됩니다.|
+   | **가상 머신 이름**  | 모든 유효한 이름 | 유효한 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요.|
+   |**관리 사용자 이름**|유효한 사용자 이름|유효한 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. "serveradmin"을 예약된 서버 수준 역할로 사용하지 않습니다.<br>이 사용자 이름은 [VM에 연결](#connect-to-virtual-machine)할 때마다 사용됩니다.|
    |**암호**|유효한 암호|암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.<br>이 암호는 [VM에 연결](#connect-to-virtual-machine)할 때마다 사용됩니다.|
    | **가상 머신 크기** | 모든 유효한 크기 | 이 빠른 시작에서는 이 템플릿의 기본값인 **Standard_B2s**로 충분합니다. |
    | **위치**:|[resourceGroup().location].| 이 값은 변경하지 마세요. |

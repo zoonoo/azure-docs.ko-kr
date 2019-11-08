@@ -4,15 +4,16 @@ description: Marketplace에 새 IoT Edge 모듈을 게시하는 방법입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
-ms.openlocfilehash: 98eb537a5c064cd22b995ae214c8d61db7a8b6b5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c1e2f5ac6078309b7bd8753a3fc57a592a67dcec
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942491"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826086"
 ---
 # <a name="create-a-new-iot-edge-module-offer-with-the-cloud-partner-portal"></a>Cloud 파트너 포털을 사용하여 새 IoT Edge 모듈 제품 만들기
 
@@ -21,11 +22,11 @@ ms.locfileid: "64942491"
 |  **자산 그룹**   |  **설명**  |
 |  ---------------   |  ---------------  |
 |    SKU            |  제품의 가장 작은 배포 가능한 단위입니다. 단일 제품(product 클래스)은 제품과 관련된 여러 SKU를 가질 수 있습니다. SKU를 사용하여 지원되는 기능과 청구 모델을 구분할 수 있습니다. |
-|  Marketplace       | 마케팅, 법적 정보 및 잠재 고객 관리 자산 및 사양이 포함됩니다.  <ul><li> 마케팅 자산에는 제안 이름, 설명 및 로고가 포함됩니다.</li> <li> 법적 자산은 개인 정보 취급 방침, 사용 약관 및 기타 법률 문서를 포함합니다.</li>  <li> 잠재 고객 관리 정책을 사용하면 Azure Marketplace 최종 사용자 포털에서 잠재 고객을 처리하는 방법을 지정할 수 있습니다.</li> </ul> |
+|  Marketplace       | 마케팅, 법률 및 잠재 고객 관리 자산 및 사양을 포함합니다.  <ul><li> 마케팅 자산에는 제안 이름, 설명 및 로고가 포함됩니다.</li> <li> 법적 정보 자산에는 개인정보처리방침, 사용 약관 및 기타 법률 문서가 포함됩니다.</li>  <li> 잠재 고객 관리 정책을 사용하면 Azure Marketplace 최종 사용자 포털에서 잠재 고객을 처리하는 방법을 지정할 수 있습니다.</li> </ul> |
 | 지원            | 지원 연락처 및 정책 정보가 포함됩니다. |
 
 
-## <a name="new-offer-form"></a>새 제품 양식 
+## <a name="new-offer-form"></a>새 제안 양식 
 
 [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인한 다음, 왼쪽 메뉴 모음에서 **+ 새 제품**을 선택합니다. 새 제품 메뉴에서 **IoT Edge 모듈**을 선택하여 **새 제품** 양식을 표시하고 새 ioT Edge 모듈 제품에 대한 자산을 정의하는 과정을 시작합니다. 
 

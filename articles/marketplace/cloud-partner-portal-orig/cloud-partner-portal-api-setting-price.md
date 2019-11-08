@@ -4,15 +4,16 @@ description: 가상 머신 제품의 가격을 지정하는 세 가지 방법에
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e398b43e679fb6420c2256e77d34359ae537ac1c
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: c7ea5afeb46c30837c2ae53e871bb64f5d8cf292
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868755"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827327"
 ---
 <a name="pricing-for-virtual-machine-offers"></a>가상 머신 제품 가격 책정
 ==================================
@@ -111,7 +112,7 @@ VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 �
 
 다음 표에는 사용자 지정 코어 가격을 지정할 수 있는 지역 및 해당하는 통화 코드가 나와 있습니다.
 
-| **Region** | **이름**             | **통화 코드** |
+| **지역** | **이름**             | **통화 코드** |
 |------------|----------------------|-------------------|
 | DZ         | 알제리              | DZD               |
 | AR         | 아르헨티나            | ARS               |
@@ -152,7 +153,7 @@ VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 �
 | JO         | 요르단               | JOD               |
 | KZ         | 카자흐스탄           | KZT               |
 | KE         | 케냐                | KES               |
-| KR         | 대한민국                | KRW               |
+| KR         | 한국                | KRW               |
 | KW         | 쿠웨이트               | KWD               |
 | LV         | 라트비아               | EUR               |
 | LI         | 리히텐슈타인        | CHF               |
@@ -180,12 +181,12 @@ VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 �
 | QA         | 카타르                | QAR               |
 | RO         | 루마니아              | RON               |
 | RU         | 러시아               | RUB               |
-| SA         | 사우디아라비아         | 특별 행정구               |
+| SA         | 사우디아라비아         | SAR               |
 | RS         | 세르비아               | RSD               |
 | SG         | 싱가포르            | SGD               |
 | SK         | 슬로바키아             | EUR               |
 | SI         | 슬로베니아             | EUR               |
-| ZA         | 남아프리카 공화국         | ZAR               |
+| ZA         | 남아프리카         | ZAR               |
 | ES         | 스페인                | EUR               |
 | LK         | 스리랑카            | USD               |
 | SE         | 스웨덴               | SEK               |
@@ -196,7 +197,7 @@ VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 �
 | TN         | 튀니지              | TND               |
 | TR         | 터키               | TRY               |
 | UA         | 우크라이나              | UAH               |
-| AE         | 아랍 에미리트 연합국 | EUR               |
+| AE         | 아랍에미리트 | EUR               |
 | GB         | 영국       | GBP               |
 | US         | 미국        | USD               |
 | UY         | 우루과이              | UYU               |

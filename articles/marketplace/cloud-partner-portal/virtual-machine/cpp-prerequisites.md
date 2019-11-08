@@ -1,22 +1,23 @@
 ---
-title: Microsoft azure 가상 머신 필수 조건 | Azure Marketplace
+title: Microsoft Azure에 대 한 가상 머신 필수 구성 요소 Azure Marketplace
 description: Azure Marketplace에 VM 제안을 게시하는 데 필요한 필수 조건에 대한 목록입니다.
 services: Azure, Marketplace, Cloud Partner Portal
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: 258d21eae5af50b5dc0bed6887618e2999cae45a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a657ceaacf3680de54dc0d639a3f1a0aff6a6a03
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66257392"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824429"
 ---
 # <a name="virtual-machine-prerequisites"></a>가상 머신 필수 조건
 
-이 문서에서는 두 기술 및 비즈니스 요구 하기 전에 충족 해야 하는 VM 제품을 게시할 수는 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)합니다.  아직 수행 하는 경우 검토 합니다 [가상 머신 제품 게시 가이드](../../marketplace-virtual-machines.md)합니다.
+이 문서에는 VM 제품을 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/)에 게시 하기 전에 충족 해야 하는 기술 및 비즈니스 요구 사항이 모두 나열 되어 있습니다.  아직 수행 하지 않은 경우 [Virtual Machine 제품 게시 가이드](../../marketplace-virtual-machines.md)를 검토 하세요.
 
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항
@@ -42,15 +43,15 @@ VM(가상 머신) 솔루션을 게시하기 위한 기술적인 필수 조건은
     > 동일한 Microsoft 개발자 센터 등록 계정을 사용하여 [Cloud 파트너 포털](https://cloudpartner.azure.com)에 로그온해야 합니다.
     > Azure Marketplace 제품에 대해 Microsoft 계정이 하나만 있으면 됩니다. 개별 서비스 또는 제안에만 한정될 필요가 없습니다.
     
-- 회사 (또는 해당 자회사)는 판매-에서-국가/지역에서 Azure Marketplace에서 지 원하는 있어야 합니다.  이러한 국가/지역 목록은 현재 참조 [Microsoft Azure Marketplace 참가 정책](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)합니다.
+- 회사 (또는 해당 자회사)는 Azure Marketplace에서 지 원하는 판매-국가/지역에 위치 해야 합니다.  이러한 국가/지역의 최신 목록은 [Microsoft Azure Marketplace 참가 정책](https://azure.microsoft.com/support/legal/marketplace/participation-policies/)을 참조 하세요.
 - 제품은 Azure Marketplace에서 지원하는 청구 모델과 호환되는 방식으로 허가를 받아야 합니다.  자세한 내용은 [Azure Marketplace의 청구 옵션](https://docs.microsoft.com/azure/marketplace/billing-options-azure-marketplace)을 참조하세요. 
 - 상업적이고 합리적인 방식으로 고객이 이용할 수 있는 기술 지원을 담당합니다. 이러한 지원은 체험, 유료 또는 커뮤니티 접근 방식을 통해 제공될 수 있습니다.
 - 소프트웨어 및 타사 소프트웨어 종속성에 대해 사용 허가를 받을 책임이 있습니다.
 - Azure Marketplace 및 Azure Portal에 등록할 제안에 대한 조건을 충족하는 콘텐츠를 제공해야 합니다. <!-- TD: Meaning/links? -->
 - [Microsoft Azure Marketplace 참가 정책](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) 및 게시자 계약의 약관에 동의해야 합니다.
-- 준수 해야 합니다 [Microsoft Azure 웹 사이트 사용 약관](https://azure.microsoft.com/support/legal/website-terms-of-use/)를 [Microsoft 개인정보취급방침](https://privacy.microsoft.com/privacystatement), 및 [Microsoft Azure Certified 프로그램 계약](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)합니다.
+- [Microsoft Azure 웹 사이트 사용 약관](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft 개인 정보 취급 방침](https://privacy.microsoft.com/privacystatement)및 [Microsoft Azure 인증 된 프로그램 계약](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/)을 준수 해야 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 필수 구성이 요소를 충족 하면 있습니다 [VM 제품 만들기](./cpp-create-offer.md)합니다.
+이러한 필수 구성 요소를 충족 하면 [VM 제품을 만들](./cpp-create-offer.md)수 있습니다.

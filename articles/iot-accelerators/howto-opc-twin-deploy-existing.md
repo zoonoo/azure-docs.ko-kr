@@ -1,6 +1,6 @@
 ---
 title: OPC 쌍 모듈을 기존 Azure 프로젝트에 배포 하는 방법 | Microsoft Docs
-description: OPC 쌍을 기존 프로젝트에 배포 하는 방법
+description: 이 문서에서는 OPC 쌍을 기존 프로젝트에 배포 하는 방법을 설명 합니다. 배포 오류 문제를 해결 하는 방법에 대해서도 알아볼 수 있습니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 74b502a37081c729c5e33a0db7dc7f26cb44774b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b971ec13c71ccfd7d28ae6987593d09201b9b764
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972277"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824114"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>OPC 쌍을 기존 프로젝트에 배포
 
@@ -28,7 +28,7 @@ OPC UA 장치 레지스트리 마이크로 서비스는 등록 된 OPC UA 응용
 > [!NOTE]
 > 배포 세부 정보 및 지침에 대 한 자세한 내용은 GitHub [리포지토리](https://github.com/Azure/azure-iiot-opc-twin-module)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 PowerShell 및 [AzureRM powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) 확장이 설치 되어 있는지 확인 합니다. 아직 수행 하지 않은 경우이 GitHub 리포지토리를 복제 합니다. PowerShell에서 다음 명령을 실행합니다.
 
@@ -52,7 +52,7 @@ cd azure-iiot-components
 
    출력에는 공용 끝점의 URL이 포함 됩니다. 
 
-3. 스크립트가 성공적으로 완료 되 면 `.env` 파일을 저장할지 여부를 선택 합니다.  콘솔, 개발 `.env` 및 디버깅을 위한 모듈 배포 등의 도구를 사용 하 여 클라우드 끝점에 연결 하려면 환경 파일이 필요 합니다.
+3. 스크립트가 성공적으로 완료 되 면 `.env` 파일을 저장할지 여부를 선택 합니다.  콘솔, 개발 및 디버깅을 위한 모듈 배포 등의 도구를 사용 하 여 클라우드 끝점에 연결 하려면 `.env` 환경 파일이 필요 합니다.
 
 ## <a name="troubleshooting-deployment-failures"></a>배포 오류 문제 해결
 

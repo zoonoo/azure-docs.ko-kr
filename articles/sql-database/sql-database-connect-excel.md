@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database에서 단일 데이터베이스에 Excel 연결
+title: 단일 데이터베이스에 Excel 연결
 description: Azure SQL 데이터베이스의 단일 데이터베이스에 Microsoft Excel을 연결하는 방법을 알아봅니다. 보고 및 데이터 탐색을 위해 Excel로 데이터를 가져옵니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: joseidz
 ms.author: craigg
 ms.reviewer: ''
 ms.date: 02/12/2019
-ms.openlocfilehash: 603aa52aefc4c4d1200d433f7f73f6070849c8f7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: de5f23bf1e8acd8a5fcd0cf8e1526f88667800c1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691025"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827124"
 ---
 # <a name="connect-excel-to-a-single-database-in-azure-sql-database-and-create-a-report"></a>Azure SQL 데이터베이스의 단일 데이터베이스에 Excel을 연결하고 보고서 만들기
 

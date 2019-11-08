@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database에 대한 일반적인 연결 문제 해결
+title: 일반적인 연결 문제 해결
 description: Azure SQL Database에 대한 일반적인 연결 오류를 확인 및 해결하는 단계.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ manager: dcscontentpm
 ms.author: daleche
 ms.reviewer: jrasnik
 ms.date: 01/25/2019
-ms.openlocfilehash: cd0ab6d89d88c594d283dc0718c0f58ebb98bf43
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: dc58e495256bff9521eb6567736700f5ffcd6e4f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090806"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822465"
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Azure SQL Database에 대한 연결 문제 해결
 
@@ -63,10 +63,10 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 
 ### <a name="steps-to-resolve-transient-connectivity-issues"></a>일시적인 연결 문제를 해결하는 단계
 
-1. [Microsoft Azure 서비스 대시보드](https://azure.microsoft.com/status)에서 애플리케이션이 오류를 보고한 시간 동안 발생한 알려진 서비스 중단을 확인합니다.
-2. Azure SQL Database와 같이 클라우드 서비스에 연결하는 애플리케이션에서는 주기적으로 다시 구성 이벤트가 발생하므로, 이러한 이벤트를 사용자에게 애플리케이션 오류로 표시하는 대신 해당 오류를 처리하는 다시 시도 논리를 구현해야 합니다. 자세한 내용과 일반적인 다시 시도 전략을 확인하려면 [일시적인 오류](sql-database-connectivity-issues.md) 섹션과 [SQL Database 개발 개요](sql-database-develop-overview.md)에서 모범 사례 및 설계 지침을 검토하세요. 그런 다음 세부 사항은 [SQL Database 및 SQL Server에 대한 연결 라이브러리](sql-database-libraries.md) 에서 코드 샘플을 참조하세요.
+1. [Microsoft Azure 서비스 대시보드](https://azure.microsoft.com/status) 에서 애플리케이션이 오류를 보고한 시간 동안 발생한 알려진 서비스 중단을 확인합니다.
+2. Azure SQL Database와 같이 클라우드 서비스에 연결하는 애플리케이션에서는 주기적으로 다시 구성 이벤트가 발생하므로, 이러한 이벤트를 사용자에게 애플리케이션 오류로 표시하는 대신 해당 오류를 처리하는 다시 시도 논리를 구현해야 합니다. 자세한 내용과 일반적인 다시 시도 전략을 확인하려면 [일시적인 오류](sql-database-connectivity-issues.md) 섹션과 [SQL Database 개발 개요](sql-database-develop-overview.md)에서 모범 사례 및 설계 지침을 검토하세요. 그런 다음 세부 사항은 [SQL Database 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)에서 코드 샘플을 참조하세요.
 3. 데이터베이스가 리소스 한계에 도달하면 일시적인 연결 문제가 발생한 것처럼 보일 수 있습니다. [리소스 한도](sql-database-resource-limits-database-server.md#what-happens-when-database-resource-limits-are-reached)를 참조하세요.
-4. 연결 문제가 계속 발생하거나 애플리케이션에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options)를 선택하여 Azure 지원 요청을 접수합니다.
+4. 연결 문제가 계속 발생하거나 애플리케이션에서 오류가 발생하는 기간이 60초를 초과하는 경우 또는 특정일에 오류가 여러 번 발생하는 경우에는 **Azure 지원** 사이트에서 [지원 받기](https://azure.microsoft.com/support/options) 를 선택하여 Azure 지원 요청을 접수합니다.
 
 ## <a name="troubleshoot-persistent-errors"></a>영구 오류 문제 해결
 애플리케이션이 Azure SQL Database 연결에 계속 실패하는 경우 일반적으로 다음 문제 중 하나를 나타낼 수 있습니다.
@@ -85,7 +85,7 @@ Error code 40613: "Database <x> on server <y> is not currently available. Please
 * [Microsoft Azure 설명서 검색](https://azure.microsoft.com/search/documentation/)
 * [Azure SQL Database 서비스에 대한 최신 업데이트 보기](https://azure.microsoft.com/updates/?service=sql-database)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 * [SQL Database 개발 개요](sql-database-develop-overview.md)
 * [일반적인 일시적 오류 처리 지침](../best-practices-retry-general.md)
 * [SQL Database 및 SQL Server용 연결 라이브러리](sql-database-libraries.md)

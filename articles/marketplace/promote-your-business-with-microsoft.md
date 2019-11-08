@@ -1,19 +1,20 @@
 ---
-title: Microsoft 비즈니스 승격 | Azure Marketplace
+title: Microsoft로 비즈니스 홍보 | Azure Marketplace
 description: 앱 및 서비스 게시자를 위한 Azure Marketplace 및 AppSource를 사용한 비즈니스 홍보
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: f21c5f94c595fe3718a0a59a80deff8f1c53b9fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0f33402c5ff9f970e2ffebf405178dbc0974690
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64937642"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827802"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Microsoft를 통한 비즈니스 홍보 
 

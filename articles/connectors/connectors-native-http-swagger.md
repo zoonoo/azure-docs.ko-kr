@@ -8,24 +8,24 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 663ef16511269dd61a6567d6570f3445b7da6447
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 030401623a61e7fcff40187f522309255482647f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804248"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824811"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 REST 끝점 호출
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 기본 제공 HTTP + Swagger 커넥터를 사용 하 여 논리 앱을 빌드하여 [Swagger 파일](https://swagger.io) 을 통해 REST 끝점을 정기적으로 호출 하는 워크플로를 자동화할 수 있습니다. HTTP + Swagger 트리거 및 작업은 [http 트리거와](connectors-native-http.md) 작업과 동일 하 게 작동 하지만 Swagger 파일에 설명 된 API 구조와 출력을 노출 하 여 논리 앱 디자이너에서 더 나은 환경을 제공 합니다. 폴링 트리거를 구현 하려면 사용자 지정 Api 만들기에 설명 된 폴링 패턴에 따라 [논리 앱에서 다른 api, 서비스 및 시스템을 호출](../logic-apps/logic-apps-create-api-app.md#polling-triggers)합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* 대상 REST 끝점을 설명 하는 Swagger 파일의 URL입니다.
+* 대상 REST 끝점을 설명 하는 Swagger (OpenAPI 아님) 파일의 URL입니다.
 
   일반적으로 REST 끝점은 커넥터가 작동 하려면이 조건을 충족 해야 합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "72804248"
 
 이 기본 제공 트리거는 REST API을 설명 하 고 해당 파일의 콘텐츠를 포함 하는 응답을 반환 하는 Swagger 파일의 URL에 HTTP 요청을 보냅니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 엽니다.
 
 1. 디자이너의 검색 상자에 "swagger"를 필터로 입력 합니다. **트리거** 목록에서 **HTTP + Swagger** 트리거를 선택 합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "72804248"
 
 이 기본 제공 작업은 REST API를 설명 하는 Swagger 파일의 URL에 대 한 HTTP 요청을 수행 하 고 해당 파일의 콘텐츠를 포함 하는 응답을 반환 합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다. Logic Apps 디자이너에서 논리 앱을 엽니다.
 
 1. HTTP + Swagger 작업을 추가 하려는 단계 아래에서 **새 단계**를 선택 합니다.
 
@@ -125,7 +125,7 @@ ms.locfileid: "72804248"
 
 1. 이제 blob에 CORS를 사용 하도록 설정 합니다. 저장소 계정의 메뉴에서 **CORS**를 선택 합니다. **Blob service** 탭에서 이러한 값을 지정 하 고 **저장**을 선택 합니다.
 
-   | 자산 | Value |
+   | 속성 | 값 |
    |----------|-------|
    | **허용 된 원본** | `*` |
    | **허용 된 메서드** | `GET`, `HEAD`, `PUT` |
@@ -148,9 +148,9 @@ ms.locfileid: "72804248"
 
 HTTP + Swagger 트리거 또는 작업의 출력에 대 한 자세한 내용은 다음과 같습니다. HTTP + Swagger 호출은 다음 정보를 반환 합니다.
 
-| 속성 이름 | Type | 설명 |
+| 속성 이름 | 형식 | 설명 |
 |---------------|------|-------------|
-| 헤더 | object | 요청의 헤더입니다. |
+| headers | object | 요청의 헤더입니다. |
 | body | object | JSON 개체 | 요청의 본문 내용이 포함 된 개체입니다. |
 | 상태 코드 | int | 요청의 상태 코드 |
 |||

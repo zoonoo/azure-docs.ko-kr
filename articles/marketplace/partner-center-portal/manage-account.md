@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: c28469e15841e2675c20868b74cf044159c4e9ca
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 2962f6c5032ba317f9eb8f10c2abddb566aad904
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259184"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825515"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업적 Marketplace 계정을 관리 하는 방법 
 
@@ -49,13 +50,13 @@ ms.locfileid: "70259184"
 
 **계정 설정**내에서 다음을 볼 수 있습니다.
 - **계정 정보**: 계정 유형 및 계정 상태
-- **게시자 id**: 판매자 ID, 사용자 ID, 게시자 ID, Azure AD 테 넌 트 등
+- **게시자**id: 판매자 Id, 사용자 Id, 게시자 Id, Azure AD 테 넌 트 등
 - **연락처 정보**: 게시자 표시 이름, 판매자 연락처 이름, 전자 메일, 휴대폰 및 주소
-- **재무 정보**: 지급 account, 세금 프로필 및 지급 보류 상태
-- **디바이스**: 계정과 연결 된 모든 테스트 장치
-- **추적 guid**: 계정과 연결 된 모든 추적 Guid
+- **재무 정보**: 지급 Account, 세금 프로필 및 지급 보류 상태
+- **장치**: 계정에 연결 된 모든 테스트 장치
+- **추적 guid**: 계정에 연결 된 모든 추적 guid
 
-### <a name="account-details"></a>계정 세부 정보
+### <a name="account-details"></a>계정 정보
 
 계정 정보 섹션에서 계정 **유형** (회사 또는 개인) 및 계정의 **확인 상태** 와 같은 기본 정보를 볼 수 있습니다. 계정 확인 프로세스 중에 이러한 설정에는 전자 메일 확인, 고용 확인 및 비즈니스 확인을 비롯 하 여 필요한 각 단계가 표시 됩니다. 여기에서 전자 메일을 업데이트 하 고 필요한 경우 확인을 다시 보낼 수도 있습니다. 
 
@@ -83,8 +84,8 @@ ms.locfileid: "70259184"
 3. 지급 계정의 설정을 완료 하려면 파트너 센터에서 완전히 로그 아웃 한 다음 회사 계정이 아닌 Microsoft 계정을 사용 하 여 다시 로그인 합니다. 
 
 이제 Microsoft 계정이 연결 되었으므로 지급 계정을 추가 하려면 다음을 수행 해야 합니다.
-- **지불 방법 선택**: 은행 계좌 또는 PayPal
-- **지불 정보 추가**: 여기에는 계정 유형 (확인 또는 절감) 선택, 계정 소유자 이름, 계정 번호, 라우팅 번호, 대금 청구 주소, 전화 번호 또는 PayPal 이메일 주소 입력이 포함 될 수 있습니다. \* PayPal을 계정 지불 방법으로 사용 하는 방법과 시장 지역에서 지원 되는지 여부를 확인 하는 방법에 대 한 자세한 내용은 [paypal 정보](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info)를 참조 하세요.
+- **결제 방법 선택**: 은행 계좌 또는 PayPal
+- **지불 정보 추가**: 계정 유형 (확인 또는 절감)을 선택 하 고, 계정 소유자 이름, 계정 번호, 라우팅 번호, 대금 청구 주소, 전화 번호 또는 PayPal 전자 메일 주소를 입력 하는 것이 여기에 포함 될 수 있습니다. \* PayPal을 계정 지불 방법으로 사용 하는 방법과 시장 지역에서 지원 되는지 여부를 확인 하는 방법에 대 한 자세한 내용은 [paypal 정보](https://docs.microsoft.com/windows/uwp/publish/setting-up-your-payout-account-and-tax-forms#paypal-info)를 참조 하세요.
 
 > [!IMPORTANT]
 > 지급 계좌를 변경하면 한 번의 지불 주기까지 지불을 연기할 수 있습니다. 이 지연은 먼저 지급 계정을 설정할 때와 마찬가지로 계정 변경을 확인 해야 하기 때문에 발생 합니다. 계정 확인 작업이 끝난 후 여전히 전체 금액에 대해 비용을 지불해야 하는 경우 현재 지불 주기에 대한 모든 지불 대금이 다음 주기에 추가됩니다.  
@@ -122,9 +123,9 @@ ms.locfileid: "70259184"
 > [!NOTE]
 > **지급 보류 상태** 선택은 Microsoft 파트너 센터를 통해 지불 되는 **모든** 수익 원본 (Azure Marketplace, appsource, Microsoft Store, 광고 등)에 적용 됩니다. 각 수익 원본에 대해 다른 보류 상태를 선택할 수 없습니다.
 
-### <a name="devices"></a>장치
+### <a name="devices"></a>디바이스
 
-장치 관리 설정은 UWP 게시에만 적용 됩니다. [자세히 알아보기](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
+장치 관리 설정은 UWP 게시에만 적용 됩니다. [자세히 알아봅니다](https://docs.microsoft.com/windows/uwp/publish/manage-account-settings-and-profile#additional-settings-and-info).
 
 ### <a name="tracking-guids"></a>추적 Guid
 
@@ -304,7 +305,7 @@ Azure AD 응용 프로그램이 Microsoft Azure AD에서 데이터를 읽고 쓰
 
 파트너 센터에서 상업적 Marketplace 프로그램에 대해 회사의 사용자에 게 다음 역할 및 권한을 할당할 수 있습니다.
 
-- **관리자**
+- **Manager**
   - 세금 및 지급 설정을 제외한 모든 Microsoft 계정 기능에 액세스할 수 있습니다.
   - 사용자, 역할 및 테 넌 트 (작업 계정)를 관리할 수 있음
 - **Developer**
@@ -357,7 +358,7 @@ Azure Active Directory (AD), CSP (클라우드 솔루션 공급자), CPV (제어
 > 현재 동일한 테 넌 트의 계정을 사용 하 여 파트너 센터에 로그인 한 경우에는 테 넌 트를 제거할 수 없습니다. 테 넌 트를 제거 하려면 계정에 연결 된 다른 테 넌 트의 **관리자로** 파트너 센터에 로그인 해야 합니다. 계정과 연결 된 테 넌 트가 하나만 있는 경우 해당 테 넌 트는 계정을 연 Microsoft 계정으로 로그인 한 후에만 제거할 수 있습니다.
 
 
-## <a name="agreements"></a>계약
+## <a name="agreements"></a>규약
 
 파트너 센터의 **규약** 섹션 ( **계정 설정**)에서는 권한이 부여 된 게시 계약의 목록을 볼 수 있습니다. 이러한 계약은 승인 된 날짜 및 규약을 수락한 사용자의 이름을 포함 하 여 이름 및 버전 번호에 따라 나열 됩니다. 
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 437d1e13bfb0831bb3ece26f761cef4f5e2e0c6f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d8f65bef669e21af96ffe86319602ca5d1eea2c1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676998"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822725"
 ---
 # <a name="managed-identity-for-data-factory"></a>Data Factory에 대한 관리 ID
 
@@ -26,7 +26,7 @@ ms.locfileid: "73676998"
 
 ## <a name="overview"></a>개요
 
-데이터 팩터리를 만들 때 팩터리 생성과 함께 관리 되는 id를 만들 수 있습니다. 관리 id는 Azure 활동 디렉터리에 등록 된 관리 되는 응용 프로그램으로,이 특정 데이터 팩터리를 나타냅니다.
+데이터 팩터리를 만들 때 팩터리 생성과 함께 관리 되는 id를 만들 수 있습니다. 관리 id는 Azure Active Directory에 등록 된 관리 되는 응용 프로그램으로,이 특정 데이터 팩터리를 나타냅니다.
 
 Data Factory에 대 한 관리 id는 다음과 같은 기능을 제공 합니다.
 

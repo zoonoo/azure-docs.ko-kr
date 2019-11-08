@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance에 대 한 관리 API 참조
+title: 관리 되는 인스턴스에 대 한 관리 API 참조
 description: Azure SQL Database Managed Instance를 만들고 관리하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: bdc17dd11269bafa271f69ec001f8dcad484b7b8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 713217a933c646cc4d04759f5697bbc0312827ce
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688181"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823412"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Azure SQL Database Managed Instance에 대한 관리 API 참조
 

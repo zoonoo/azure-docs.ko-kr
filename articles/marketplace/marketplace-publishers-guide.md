@@ -4,15 +4,16 @@ description: 앱 및 서비스 게시자에 대한 Azure Marketplace 및 Microso
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: ellacroi
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: cd6b09a1130e50fae7bd83579a0f176af0b5b9cd
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: fba9c481ad9b3da1eb0dd5d8a4ff2499240a8cfa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962616"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826488"
 ---
 # <a name="azure-marketplace-and-appsource-publishing-guide"></a>Azure Marketplace 및 AppSource 게시 가이드
 
@@ -30,7 +31,7 @@ Marketplace 게시 가이드는 신규 및 기존 게시자가 [Azure Marketplac
 
 이 가이드에는 애플리케이션 및 서비스를 나열하기 전에 수행해야 하는 단계에 대한 기술 및 비즈니스 정보가 포함되어 있습니다. 목차를 사용하여 가이드의 다른 섹션으로 이동하고 핵심 항목으로 직접 이동할 수 있습니다.
 
-Azure Marketplace 및 AppSource에 대한 질문이 있는 경우 **문제 유형** > **Marketplace 온보딩**에서 메시지를 보내주세요.  Marketplace 게시자 온보딩 팀에서 도움을 드리겠습니다. 
+Azure Marketplace 및 AppSource에 대한 질문이 있는 경우 **문제 유형** > **Marketplace 온보딩**에서 메시지를 보내주세요.  Marketplace 게시자 온 보 딩 팀이 도움을 드립니다. 
 
 ## <a name="benefits-of-participating-in-the-marketplace"></a>Marketplace에 참여할 경우의 혜택 
 

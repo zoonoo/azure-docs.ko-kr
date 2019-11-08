@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 탄력적 쿼리 개요
+title: 탄력적 쿼리 개요
 description: 탄력적 쿼리를 사용하여 여러 데이터베이스에 걸쳐 있는 Transact-SQL 쿼리를 실행할 수 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 07/01/2019
-ms.openlocfilehash: 08c191742425c448618db255491c709130df33a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9566ac7169144d984f9200734c99eb10368b3142
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690369"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823746"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 탄력적 쿼리 개요(미리 보기)
 

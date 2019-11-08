@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: b324d3b9dca710dca6f5f99ad50ce4d973a42d2a
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 2f8aa41604ac176181252fb7b30cdeb2f039d10f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67869548"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822885"
 ---
 # <a name="saas-fulfillment-apis---faq"></a>SaaS 처리 API - FAQ
 
@@ -50,7 +51,7 @@ SaaS 제품의 수명 주기에서 transact-sql 시나리오를 처리 하기 �
 
 ### <a name="how-do-you-know-the-saas-offer-to-which-the-user-subscribes-in-azure"></a>사용자가 Azure에서 구독 하는 SaaS 제품을 어떻게 알 수 있나요?
 
-`Resolve` API에 대 한 응답에는 SaaS 구독과 관련 된 제안 및 계획 정보가 포함 됩니다.
+`Resolve` API에 대 한 응답에는 SaaS 구독과 관련 된 제품 및 계획 정보가 포함 됩니다.
 
 ### <a name="how-can-the-azure-user-change-the-plan-associated-with-this-azure-subscription"></a>Azure 사용자가이 Azure 구독과 연결 된 계획을 변경 하려면 어떻게 해야 하나요?
 

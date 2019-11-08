@@ -1,5 +1,5 @@
 ---
-title: SQL Database 관리 되는 인스턴스 FAQ
+title: 관리형 인스턴스 FAQ
 description: SQL Database 관리 되는 인스턴스 FAQ (질문과 대답)
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 214b35cf5b56dcfc268ee26e8ca892b7814c2547
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 34ffcd63879920c3c744deb4cf0b28684081dc25
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688103"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825741"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>SQL Database 관리 되는 인스턴스 FAQ (질문과 대답)
 

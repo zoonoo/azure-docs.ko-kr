@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f6bee53268ea99e99d79e218eaf7a5ae9fcb1d05
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: d8e23188aa07b1b271c3adc7c5550b18c0c60977
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104475"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827695"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -36,7 +36,7 @@ Data Lake Storage Gen2 사용 하 여 클러스터 만들기 옵션을 전체적
 
 사용자 할당 관리 ID가 아직 없는 경우 지금 만듭니다. 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 위에서 **리소스 만들기**를 클릭 합니다.
 1. 검색 상자에 **사용자 할당** 을 입력 하 고 **사용자 할당 관리 id**를 클릭 합니다.
 1. **만들기**를 클릭합니다.
@@ -51,19 +51,19 @@ Azure HDInsight에서 관리 id가 작동 하는 방식에 대 한 자세한 내
 
 Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다. 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 위에서 **리소스 만들기**를 클릭 합니다.
 1. 검색 상자에 **저장소** 를 입력 하 고 **저장소 계정**을 클릭 합니다.
 1. **만들기**를 클릭합니다.
 1. **저장소 계정 만들기** 화면에서 다음을 수행 합니다.
     1. 올바른 구독 및 리소스 그룹을 선택 합니다.
-    1. Data Lake Storage Gen2 계정의 이름을 입력 합니다. 저장소 계정 명명 규칙에 대 한 자세한 내용은 [Azure 리소스에 대 한 명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions#storage)을 참조 하세요.
+    1. Data Lake Storage Gen2 계정의 이름을 입력 합니다. 저장소 계정 명명 규칙에 대 한 자세한 내용은 [Azure 리소스에 대 한 명명 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#storage)을 참조 하세요.
     1. **고급** 탭을 클릭 합니다.
     1. **Data Lake Storage Gen2**에서 **계층적 네임 스페이스** 옆에 있는 **사용** 을 클릭 합니다.
     1. **검토 + 만들기**를 클릭합니다.
     1. **만들기**
 
-저장소 계정을 만드는 [동안 기타 옵션에 대 한 자세한 내용은 빠른 시작: Azure Data Lake Storage Gen2 스토리지 계정 만들기](../storage/blobs/data-lake-storage-quickstart-create-account.md)를 참조하세요.
+저장소 계정을 만드는 동안 기타 옵션에 대 한 자세한 내용은 [빠른 시작: Azure Data Lake Storage Gen2 저장소 계정 만들기](../storage/blobs/data-lake-storage-quickstart-create-account.md)를 참조 하세요.
 
 ![Azure Portal에서 스토리지 계정을 만드는 과정을 보여 주는 스크린샷](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-data-lake-storage-account-create-advanced.png)
 
@@ -100,7 +100,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
 
 [샘플 템플릿 파일을 다운로드](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/hdinsight-adls-gen2-template.json) 하 고 [샘플 매개 변수 파일을 다운로드할](https://github.com/Azure-Samples/hdinsight-data-lake-storage-gen2-templates/blob/master/parameters.json)수 있습니다. 템플릿 및 Azure CLI 코드 조각을 사용 하기 전에 다음 자리 표시자를 올바른 값으로 바꿉니다.
 
-| 자리표시자 | Description |
+| Placeholder | 설명 |
 |---|---|
 | `<SUBSCRIPTION_ID>` | Azure 구독의 ID입니다. |
 | `<RESOURCEGROUPNAME>` | 새 클러스터 및 저장소 계정을 만들 리소스 그룹입니다. |
@@ -116,7 +116,7 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
 1. 새 배포 작업에 대 한 새 리소스 그룹을 만듭니다. 
 1. 사용자 할당 관리 id를 만듭니다.
 1. Azure CLI에 확장을 추가 하 여 Data Lake Storage Gen2 기능을 사용 합니다.
-1. 플래그를 `--hierarchical-namespace true` 사용 하 여 새 Data Lake Storage Gen2 계정을 만듭니다. 
+1. `--hierarchical-namespace true` 플래그를 사용 하 여 새 Data Lake Storage Gen2 계정을 만듭니다. 
 
 ```azurecli
 az login
