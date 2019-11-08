@@ -6,7 +6,7 @@ documentationcenter: ''
 author: v-miegge
 manager: dcscontentpm
 editor: ''
-tags: ''
+tags: virtual-machines
 ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.workload: infrastructure-services
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: 56e420f9641638bfa79ff077be73132b00b934ab
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 49fdfde402938ce8d0ee1b141a47e68c99c502e7
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "71132092"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796210"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Azure Virtual Machine 복구 명령을 사용하여 Linux VM 복구
 
@@ -54,7 +54,7 @@ VM 문제를 해결 하려면 다음 단계를 수행 합니다.
 
    CLI를 로컬에서 설치하여 사용하려면, 빠른 시작에 Azure CLI 버전 2.0.30 이상이 필요합니다. ``az --version``을 실행하여 버전을 찾습니다. Azure CLI를 설치 하거나 업그레이드 해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
 
-2. @No__t-0 명령을 처음 사용 하는 경우 vm 복구 CLI 확장을 추가 합니다.
+2. `az vm repair` 명령을 처음 사용 하는 경우 vm 복구 CLI 확장을 추가 합니다.
 
    ```azurecli-interactive
    az extension add -n vm-repair
@@ -66,7 +66,7 @@ VM 문제를 해결 하려면 다음 단계를 수행 합니다.
    az extension update -n vm-repair
    ```
 
-3. `az vm repair create`. 이 명령은 작동 하지 않는 VM에 대 한 OS 디스크의 복사본을 만들고, 복구 VM을 만들고, 디스크를 연결 합니다.
+3. `az vm repair create`을 실행합니다. 이 명령은 작동 하지 않는 VM에 대 한 OS 디스크의 복사본을 만들고, 복구 VM을 만들고, 디스크를 연결 합니다.
 
    ```azurecli-interactive
    az vm repair create -g MyResourceGroup -n myVM --repair-username username --repair-password password!234 --verbose
@@ -74,7 +74,7 @@ VM 문제를 해결 하려면 다음 단계를 수행 합니다.
 
 4. 만든 복구 VM에서 필요한 모든 완화 단계를 수행한 후 5 단계를 진행 합니다.
 
-5. `az vm repair restore`. 이 명령은 복구 된 OS 디스크를 VM의 원래 OS 디스크와 교환 합니다.
+5. `az vm repair restore`을 실행합니다. 이 명령은 복구 된 OS 디스크를 VM의 원래 OS 디스크와 교환 합니다.
 
    ```azurecli-interactive
    az vm repair restore -g MyResourceGroup -n MyVM --verbose
@@ -82,7 +82,7 @@ VM 문제를 해결 하려면 다음 단계를 수행 합니다.
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>부팅 진단 확인 및 사용하도록 설정
 
-다음 예제에서는 리소스 그룹 ``myResourceGroup``의 VM ``myVMDeployed``에서 진단 확장을 사용할 수 있습니다.
+다음 예제에서는 리소스 그룹 ``myVMDeployed``의 VM ``myResourceGroup``에서 진단 확장을 사용할 수 있습니다.
 
 Azure CLI
 

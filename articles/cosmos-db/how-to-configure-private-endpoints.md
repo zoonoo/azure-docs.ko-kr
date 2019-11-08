@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 254c2645d842a6f6a2eaaeca2369b93a81e1a8cd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
-ms.translationtype: MT
+ms.openlocfilehash: 6602a47a9d1d34b04f37c6b65a3c3f84cd60c845
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681673"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796079"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Azure Cosmos 계정에 대 한 Azure 개인 링크 구성 (미리 보기)
 
@@ -129,6 +129,41 @@ $subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.N
 $privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
 ```
 
+### <a name="integrate-the-private-endpoint-with-private-dns-zone"></a>개인 끝점을 개인 DNS 영역과 통합
+
+개인 끝점을 만든 후 다음 PowerSehll 스크립트를 사용 하 여 개인 DNS 영역과 통합할 수 있습니다.
+
+```azurepowershell-interactive
+Import-Module Az.PrivateDns
+$zoneName = "privatelink.documents.azure.com"
+$zone = New-AzPrivateDnsZone -ResourceGroupName $ResourceGroupName `
+  -Name $zoneName
+
+$link  = New-AzPrivateDnsVirtualNetworkLink -ResourceGroupName $ResourceGroupName `
+  -ZoneName $zoneName `
+  -Name "myzonelink" `
+  -VirtualNetworkId $virtualNetwork.Id  
+ 
+$pe = Get-AzPrivateEndpoint -Name $PrivateEndpointName `
+  -ResourceGroupName $ResourceGroupName
+
+$networkInterface = Get-AzResource -ResourceId $pe.NetworkInterfaces[0].Id `
+  -ApiVersion "2019-04-01"
+ 
+foreach ($ipconfig in $networkInterface.properties.ipConfigurations) { 
+foreach ($fqdn in $ipconfig.properties.privateLinkConnectionProperties.fqdns) { 
+Write-Host "$($ipconfig.properties.privateIPAddress) $($fqdn)"  
+$recordName = $fqdn.split('.',2)[0] 
+$dnsZone = $fqdn.split('.',2)[1] 
+New-AzPrivateDnsRecordSet -Name $recordName `
+  -RecordType A -ZoneName $zoneName  `
+  -ResourceGroupName $ResourceGroupName -Ttl 600 `
+  -PrivateDnsRecords (New-AzPrivateDnsRecordConfig `
+  -IPv4Address $ipconfig.properties.privateIPAddress)  
+}
+}
+```
+
 ### <a name="fetch-the-private-ip-addresses"></a>개인 IP 주소 가져오기
 
 개인 끝점이 프로 비전 된 후 다음 PowerShell 스크립트를 사용 하 여 IP 주소 및 FQDN 매핑을 쿼리할 수 있습니다.
@@ -145,7 +180,7 @@ foreach ($IPConfiguration in $networkInterface.IpConfigurations)
 
 ## <a name="create-a-private-link-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 개인 링크 만들기
 
-가상 네트워크 서브넷에 개인 끝점을 만들어 개인 링크를 설정할 수 있습니다. 이는 Azure Resource Manager 템플릿을 사용 하 여 수행 됩니다. 다음 코드를 사용 하 여 "PrivateEndpoint_template" 라는 리소스 관리자 템플릿을 만듭니다. 이 템플릿은 기존 가상 네트워크에서 기존 Azure Cosmos SQL API 계정에 대 한 개인 끝점을 만듭니다.
+가상 네트워크 서브넷에 개인 끝점을 만들어 개인 링크를 설정할 수 있습니다. 이는 Azure Resource Manager 템플릿을 사용 하 여 수행 됩니다. 다음 코드를 사용 하 여 "PrivateEndpoint_template. json" 이라는 리소스 관리자 템플릿을 만듭니다. 이 템플릿은 기존 가상 네트워크에서 기존 Azure Cosmos SQL API 계정에 대 한 개인 끝점을 만듭니다.
 
 ```json
 {
@@ -206,7 +241,7 @@ foreach ($IPConfiguration in $networkInterface.IpConfigurations)
 
 ### <a name="define-the-template-parameters-file"></a>템플릿 매개 변수 파일 정의
 
-템플릿에 대 한 매개 변수 파일을 만들고 이름을 "PrivateEndpoint_parameters"로 이름을로 합니다. 매개 변수 파일에 다음 코드를 추가 합니다.
+템플릿에 대 한 매개 변수 파일을 만들고 이름을 "PrivateEndpoint_parameters. json"으로 만듭니다. 매개 변수 파일에 다음 코드를 추가 합니다.
 
 ```json
 {

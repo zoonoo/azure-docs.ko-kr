@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.author: dapine
-ms.openlocfilehash: 15739b735b67e29ed07521d31857f1b176447487
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4e09a476398134d92b4492c68ed4ebebc468f272
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491062"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796190"
 ---
 # <a name="configure-speech-service-containers"></a>음성 서비스 컨테이너 구성
 
-음성 컨테이너를 통해 고객은 강력한 클라우드 기능과에 지 집약성을 모두 활용 하도록 최적화 된 하나의 음성 응용 프로그램 아키텍처를 구축할 수 있습니다. 이제 지원 되는 네 가지 음성 컨테이너는 **음성 텍스트**, **사용자 지정 음성-텍스트**, **텍스트 음성 변환**및 **사용자 지정 텍스트 음성 변환**입니다.
+음성 컨테이너를 통해 고객은 강력한 클라우드 기능 및 에지 위치를 활용하기 위해 최적화된 단일 음성 응용 프로그램 아키텍처를 구축할 수 있습니다. 이제 지원 되는 네 가지 음성 컨테이너는 **음성 텍스트**, **사용자 지정 음성-텍스트**, **텍스트 음성 변환**및 **사용자 지정 텍스트 음성 변환**입니다.
 
 **음성** 컨테이너 런타임 환경은 `docker run` 명령 인수를 사용 하 여 구성 됩니다. 이 컨테이너에는 여러 필수 설정과 몇 가지 선택적 설정이 있습니다. 몇 가지 명령의 [예제](#example-docker-run-commands)를 사용할 수 있습니다. 청구 설정은 컨테이너별로 다릅니다. 
 
@@ -52,7 +52,7 @@ ms.locfileid: "73491062"
 
 |필수| Name | 데이터 형식 | 설명 |
 |--|------|-----------|-------------|
-|예| `Billing` | 문자열 | 청구 끝점 URI입니다. 청구 URI에 대 한 자세한 내용은 [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)을 참조 하세요. |
+|예| `Billing` | 문자열 | 청구 끝점 URI입니다. 청구 URI를 얻는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](speech-container-howto.md#gathering-required-parameters)을 참조 하세요. 자세한 내용 및 지역별 엔드포인트의 전체 목록은 [Cognitive Services에 대한 사용자 지정 하위 도메인 이름](../cognitive-services-custom-subdomains.md)을 참조하세요. |
 
 ## <a name="eula-setting"></a>Eula 설정
 
