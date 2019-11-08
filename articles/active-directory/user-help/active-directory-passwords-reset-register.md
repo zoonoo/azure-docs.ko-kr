@@ -1,6 +1,6 @@
 ---
-title: 셀프 서비스 암호 재설정 등록 - Azure Active Directory | Microsoft Docs
-description: Azure AD 셀프 서비스 암호 재설정을 위한 인증 데이터를 등록합니다.
+title: 등록 하 여 고유한 암호 재설정-Azure AD
+description: 관리자 도움 없이 자신의 암호를 재설정할 수 있도록 Azure AD 셀프 서비스 암호 재설정에 대 한 인증 데이터를 등록 합니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f113c42ff45811f31eb77a92873fb187dd51ea6b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 796702b2189dcfb001f72913e4a01c0ae01462ad
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530878"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820444"
 ---
-# <a name="register-for-self-service-password-reset"></a>셀프 서비스 암호 재설정 등록
+# <a name="register-to-reset-your-own-password"></a>등록 하 여 자신의 암호를 재설정 합니다.
 
 > [!IMPORTANT]
 > 로그인할 수 없어서 여기에 있나요? 그렇다면 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md)을 참조하세요.
@@ -34,7 +34,7 @@ ms.locfileid: "60530878"
 3. IT 직원이 작업을 구성한 방식에 따라 구성하고 확인하는 데 다음 옵션 중 하나 이상을 사용할 수 있습니다. 관리자가 사용자 정보를 사용할 수 있는 권한이 있는 경우 사용자의 일부 정보를 채울 수 있습니다.
     * **사무실 전화**: 관리자만 이 옵션을 설정할 수 있습니다.
     * **인증 전화**: 이 옵션을 액세스 권한이 있는 다른 전화 번호로 설정합니다. 예제는 문자 또는 호출을 받을 수 있는 휴대폰입니다.
-    * **인증 메일**: 재설정하려는 암호 없이 액세스할 수 있는 암호 확인용 메일로 이 옵션을 설정합니다.
+    * **인증 전자 메일**: 재설정하려는 암호 없이 액세스할 수 있는 대체 전자 메일 주소로 이 옵션을 설정합니다.
     * **보안 질문**: 사용자가 응답하도록 관리자가 승인한 질문 목록입니다. 같은 질문을 사용하거나 두 번 이상 답변할 수 없습니다.
 4. 관리자가 요구하는 정보를 제공하고 확인합니다. 둘 이상의 옵션을 사용할 수 있는 경우 여러 개의 방법을 등록하는 것이 좋습니다. 이렇게 하면 방법 중 하나를 사용할 수 없을 때 유연하게 작업할 수 있습니다. 출장 중이어서 사무실 전화에 액세스할 수 없는 경우를 예로 들 수 있습니다.
 

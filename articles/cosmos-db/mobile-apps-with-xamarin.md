@@ -1,20 +1,20 @@
 ---
-title: Xamarin 및 Azure Cosmos DB를 사용하여 모바일 애플리케이션 빌드
-description: Azure Cosmos DB를 사용하여 Xamarin iOS, Android 또는 Forms 애플리케이션을 만드는 방법에 대한 자습서입니다. Azure Cosmos DB는 속도가 빠른 세계적 규모의 모바일 앱용 클라우드 데이터베이스입니다.
+title: '자습서: Xamarin 및 Azure Cosmos DB를 사용하여 모바일 애플리케이션 빌드'
+description: '자습서: Azure Cosmos DB를 사용하여 Xamarin iOS, Android 또는 Forms 애플리케이션을 만드는 방법에 대한 자습서입니다. Azure Cosmos DB는 속도가 빠른 세계적 규모의 모바일 앱용 클라우드 데이터베이스입니다.'
 author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: 4a9c0fe09bee553f53c90c9833922746aad35d14
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 40f7de4b4feb2b312705238abd30402edb635ea9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615071"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720897"
 ---
-# <a name="build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>Xamarin 및 Azure Cosmos DB를 사용하여 모바일 애플리케이션 빌드
+# <a name="tutorial-build-mobile-applications-with-xamarin-and-azure-cosmos-db"></a>자습서: Xamarin 및 Azure Cosmos DB를 사용하여 모바일 애플리케이션 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)

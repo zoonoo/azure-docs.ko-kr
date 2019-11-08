@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 메모리 내 기술
+title: 메모리 내 기술
 description: Azure SQL Database 메모리 내 기술은 트랜잭션 및 분석 작업의 성능을 크게 향상시킵니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/19/2019
-ms.openlocfilehash: 7ee643c10c61368ee91692cbddf326ba488f81e6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: de60712451d4c2e8a7d931f7a09352f55be05694
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689780"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810258"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>SQL Database에서 메모리 내 기술을 사용하여 성능 최적화
 

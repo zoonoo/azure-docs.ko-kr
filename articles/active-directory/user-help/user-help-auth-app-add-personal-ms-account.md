@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator 앱에 개인 Microsoft 계정 추가 - Azure Active Directory | Microsoft Docs
+title: Authenticator 앱에 개인 Microsoft 계정 추가-Azure AD
 description: 2단계 인증용으로 Microsoft Authenticator 앱에 Outlook.com 또는 Xbox LIVE와 같은 개인 Microsoft 계정을 추가하는 방법을 설명합니다.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cf4629ca97abc5d4ce508f7078f4691467ba249
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 9ca01aad76bfbeba0cf56be8ee74287a79f6346e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616073"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820251"
 ---
 # <a name="add-your-personal-microsoft-accounts"></a>개인 Microsoft 계정 추가
 
@@ -39,7 +39,7 @@ ms.locfileid: "69616073"
 
 ### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
 
-1. 컴퓨터에서 [보안 기본 사항](https://account.microsoft.com/security) 페이지로 이동한 다음, 개인 Microsoft 계정을 사용하여 로그인합니다. alain@outlook.com )을 입력합니다.
+1. 컴퓨터에서 [보안 기본 사항](https://account.microsoft.com/security) 페이지로 이동한 다음, 개인 Microsoft 계정을 사용하여 로그인합니다. 예: alain@outlook.com
 
 2. **보안 기본 사항** 페이지 아래쪽에서 **추가 보안 옵션** 링크를 선택합니다.
 

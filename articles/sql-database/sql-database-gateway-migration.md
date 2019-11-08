@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database에 대 한 게이트웨이 트래픽 마이그레이션 알림
+title: 게이트웨이 트래픽 마이그레이션 알림
 description: 문서에서는 사용자에 게 Azure SQL Database 게이트웨이 IP 주소 마이그레이션에 대 한 알림을 제공 합니다.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 37c6c8e0f26d0281c3f6e76cb891fe14eb2ef04e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fe35dc4c22f3852934cde0d6f33084b56266d514
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690000"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807699"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>최신 게이트웨이로 트래픽 마이그레이션 Azure SQL Database
 

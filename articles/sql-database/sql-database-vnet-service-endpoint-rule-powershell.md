@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL의 단일 및 풀링된 데이터베이스에 대 한 VNet 끝점 및 규칙에 대 한 PowerShell '
+title: 단일 및 풀링된 데이터베이스에 대 한 VNet 끝점 및 규칙에 대 한 PowerShell
 description: Azure SQL Database 및 SQL Data Warehouse에 대한 가상 서비스 엔드포인트를 만들고 관리할 수 있는 PowerShell 스크립트를 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: genemi, vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: 0f3c44d705cb3d8b6ff2d855686394d9e9f1575e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5c8f46c9066ad4ef0caac0fb19645b6e4b1cf846
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686839"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822399"
 ---
 # <a name="powershell--create-a-virtual-service-endpoint-and-vnet-rule-for-sql"></a>PowerShell: SQL에 대한 가상 서비스 엔드포인트 및 VNet 규칙 만들기
 

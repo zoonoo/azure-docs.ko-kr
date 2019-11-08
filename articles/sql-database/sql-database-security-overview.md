@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 보안 개요
+title: 보안 개요
 description: 클라우드와 온-프레미스 SQL Server 간 차이를 포함하여 Azure SQL Database 및 SQL Server 보안에 대해 알아보세요.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: 2365f9cedef73c61870f6e83fa491de5e950c801
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d952229ab327440771db6cc5ac64db2256491179
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687464"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823249"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Azure SQL Database 보안 기능의 개요
 
@@ -69,7 +69,7 @@ Azure SQL Database는 [가상 네트워크 규칙](sql-database-vnet-service-end
 
 Azure SQL Database 내에서 사용자에게 할당되는 권한을 지칭하는 권한 부여는 사용자가 수행할 수 있는 작업을 결정합니다. 권한은 [데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles) 에 사용자 계정을 추가 하 고 해당 역할에 데이터베이스 수준 사용 권한을 할당 하거나 사용자에 게 특정 [개체 수준 사용 권한을](/sql/relational-databases/security/permissions-database-engine)부여 하 여 제어 됩니다. 자세한 내용은 [로그인 및 사용자](sql-database-manage-logins.md)를 참조하세요.
 
-필요한 경우 사용자 지정 역할을 만드는 것이 가장 좋습니다. 작업 기능을 수행 하는 데 필요한 최소한의 권한만 가진 사용자를 역할에 추가 합니다. 사용자에 게 직접 사용 권한을 할당 하지 마십시오. 서버 관리자 계정은 광범위 한 권한이 있는 기본 제공 db_owner 역할의 구성원이 며, 관리 업무를 사용 하는 소수의 사용자 에게만 부여 되어야 합니다. Azure SQL Database 응용 프로그램의 경우 [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) 를 사용 하 여 호출 된 모듈의 실행 컨텍스트를 지정 하거나 제한 된 권한으로 [응용 프로그램 역할](/sql/relational-databases/security/authentication-access/application-roles) 을 사용 합니다. 이렇게 하면 데이터베이스에 연결 하는 응용 프로그램에 응용 프로그램에 필요한 최소한의 권한만 부여 됩니다. 이러한 모범 사례를 따르면 발전시키도 구분 됩니다.
+필요한 경우 사용자 지정 역할을 만드는 것이 가장 좋습니다. 작업 기능을 수행 하는 데 필요한 최소한의 권한만 가진 사용자를 역할에 추가 합니다. 사용자에 게 직접 사용 권한을 할당 하지 마십시오. 서버 관리자 계정은 다양 한 권한이 있는 기본 제공 db_owner 역할의 구성원이 며, 관리 업무를 사용 하는 소수의 사용자 에게만 부여 되어야 합니다. Azure SQL Database 응용 프로그램의 경우 [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) 를 사용 하 여 호출 된 모듈의 실행 컨텍스트를 지정 하거나 제한 된 권한으로 [응용 프로그램 역할](/sql/relational-databases/security/authentication-access/application-roles) 을 사용 합니다. 이렇게 하면 데이터베이스에 연결 하는 응용 프로그램에 응용 프로그램에 필요한 최소한의 권한만 부여 됩니다. 이러한 모범 사례를 따르면 발전시키도 구분 됩니다.
 
 ### <a name="row-level-security"></a>행 수준 보안
 

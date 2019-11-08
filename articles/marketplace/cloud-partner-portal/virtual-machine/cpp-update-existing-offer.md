@@ -4,15 +4,16 @@ description: Azure Marketplace에서 기존 VM 제안을 업데이트하는 방�
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: ansud
-ms.openlocfilehash: e6099caf949d93abf8c665f61cd9b91d545dd0f4
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 5cbee909b4bd6353ad8fbe9fcbc126dc4a245012
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612549"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823977"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Azure Marketplace에서 기존 VM 제안 업데이트
 
@@ -29,13 +30,13 @@ ms.locfileid: "67612549"
 이러한 수정 작업을 지원하기 위해 포털에서 **비교** 및 **기록** 기능을 제공합니다.  
 
 >[!Note]
->클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인를 출시 되었습니다.  참조 하세요 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다.
+>이제 CSP (클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) 를 참조 하세요.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>VM 제안 또는 SKU에 허용되지 않는 변경
 
 Azure Marketplace에서 제안이 라이브 상태가 되면 수정할 수 없는 몇 가지 VM 제안 또는 SKU 특성이 있습니다. 주로 다음과 같습니다.
 
--  제안의 **제안 ID** 및 **게시자 ID**
+-  해당 제품의 **제품 ID** 및 **게시자 ID**
 -  기존 SKU의 **SKU ID**
 -  기존 SKU의 데이터 디스크 수
 -  기존 SKU에 대한 청구/라이선스 모델 변경
@@ -103,7 +104,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 5.  **게시**를 클릭하여 새 SKU를 게시하는 워크플로를 시작합니다.
 
 
-### <a name="update-offer-marketplace-metadata"></a>제안 마켓플레이스 메타데이터 업데이트
+### <a name="update-offer-marketplace-metadata"></a>제품 마켓플레이스 메타데이터 업데이트
 
 다음 단계를 사용하여 제안과 연결된 마켓플레이스 메타데이터(회사 이름, 로고 등)를 업데이트합니다. 
 
@@ -118,7 +119,7 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 ### <a name="update-pricing-on-published-offers"></a>게시된 제안 가격 업데이트
 
-종량제 제안이 게시되면 SKU 가격을 직접 높일 수 없습니다.  (그러나 동일한 제안 아래에서 새 SKU를 만들고, 이전 SKU를 삭제한 다음, 새 고객에게 제안을 다시 게시할 수 있습니다.)  반면에 다음 단계를 사용하여 게시된 제안의 가격을 낮출 수는 있습니다.
+종량제 제안이 게시되면 SKU 가격을 직접 높일 수 없습니다.  (그러나 동일한 제품에서 새 SKU를 만들고 이전 SKU를 삭제 한 다음 새 고객을 위해 제품을 다시 게시할 수 있습니다.)  반면, 다음 단계에 따라 게시 된 제품의 가격을 낮출 수 있습니다.
 
 1.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 
@@ -126,27 +127,27 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 
 3.  가격을 낮추려는 SKU를 클릭합니다.
 
-4.  1x1 GUI에서 가격 책정을 설정한 경우 UI에서 직접 가격을 변경할 수 있습니다. 스프레드시트 가져오기/내보내기를 통해 가격 책정을 설정하는 경우 가져오기/내보내기 기능을 통해서만 가격을 낮출 수 있습니다.
+4.  1x1 GUI에서 가격을 설정한 경우 UI에서 직접 가격을 변경할 수 있습니다. 스프레드시트 가져오기/내보내기를 통해 가격 책정을 설정하는 경우 가져오기/내보내기 기능을 통해서만 가격을 낮출 수 있습니다.
 
-3.  **Save**을 클릭합니다.
+3.  **Save**를 클릭합니다.
 
 4.  **게시**를 클릭하여 변경 내용을 게시하는 워크플로를 시작합니다.
 
 새로 할인된 가격은 웹 사이트에서 라이브 상태가 되면 새 고객에게 표시됩니다.  이러한 새 가격이 고객에게 영향을 주는 방식은 다음과 같습니다.
 
 - 이러한 새 요율이 새 고객에게 부과됩니다. 
-- 기존 고객의 경우 가격 인하는 발효된 청구 주기 시작 시점까지 소급하여 적용됩니다.
+- 기존 고객의 경우 가격 절감이 유효해진 청구 주기 시작 기간부터 가격 감소가 소급해서 적용됩니다.
 가격 인하가 발생한 주기에 대한 요금이 이미 청구되었으면 다음 청구 주기에 인하된 가격에 대한 환불을 받게 됩니다.
 
 
 <!-- TD: This has been implemented, need to change the SKU Tab topic to reflect and move this section there. -->
 ### <a name="simplified-currency-pricing"></a>간소화된 통화 가격 책정
 
-2018년 9월 1일부터 **간소화된 통화 가격 책정**이라는 새 섹션이 포털에 추가됩니다. Microsoft는 전 세계 고객으로부터의 더욱 예측 가능한 가격 책정 및 요금 징수 방식을 사용하여 Azure Marketplace 비즈니스를 간소화하고 있습니다. 이 간소화에는 고객에게 발급되는 송장의 통화 단위 수를 줄이는 작업이 포함됩니다.
+2018년 9월 1일부터 **간소화된 통화 가격 책정**이라는 새 섹션이 포털에 추가됩니다. Microsoft는 전 세계 고객에게 보다 예측 가능한 가격 책정 및 요금 징수 방식을 사용함으로써 Azure Marketplace 비즈니스를 간소화하고 있습니다. 이 간소화에는 고객에게 발급되는 송장의 통화 단위 수를 줄이는 작업이 포함됩니다.
 
-새로운 섹션에서 가격은 이러한 새 통화로 책정됩니다. 모든 고객이 이러한 새 결제 통화로 마이그레이션되면 원래 가격 책정 섹션은 더 이상 사용되지 않고 간소화된 통화 가격 책정 섹션만 유지됩니다.
+새로운 섹션에서 가격은 이러한 새 통화로 책정됩니다. 모든 고객이 이러한 새 정착지 통화로 마이그레이션된 후에는 원래 가격 책정 섹션이 사용 중지 되며 단순화 된 통화 가격 책정 섹션만 유지 됩니다.
 
-결제 통화가 변경되는 지역에 대한 새로운 가격은 2018년 11월 1일까지 설정해야 합니다. 결제 통화가 변경되지 않는 지역에 대한 가격은 인상할 수 없습니다.
+결제 통화가 변경되는 지역의 경우 2018년 11월 1일까지 새 가격을 설정해야 합니다. 결제 통화가 변경되지 않는 지역에 대한 가격은 인상할 수 없습니다.
 
 > [!NOTE] 
 > API를 사용하여 제안을 게시하는 경우 제안 JSON에 새 섹션이 표시될 수 있습니다. 이 섹션은 제안 유형에 따라 `virtualMachinePricingV2` 또는 `monthlyPricingV2`라는 주석으로 지정됩니다. 
@@ -166,8 +167,8 @@ VM 제안에서 변경할 수 있는 특성은 다양하지만 일반적인 작�
 2.  마케팅 자산과 메타데이터의 버전이 나란히 표시됩니다.
 
 
-## <a name="history-of-publishing-actions"></a>게시 작업 기록
+## <a name="history-of-publishing-actions"></a>게시 작업의 기록
 
-이전의 모든 게시 작업을 보려면 Cloud 파트너 포털의 왼쪽 탐색 메뉴 모음에서 **기록** 항목을 클릭합니다. 여기서는 Azure Marketplace 제안의 수명 동안 수행된 타임스탬프 지정 작업을 확인할 수 있습니다.  
+이전의 모든 게시 작업을 보려면 Cloud 파트너 포털의 왼쪽 탐색 메뉴 모음에서 **기록** 항목을 클릭합니다. 여기에서 Azure Marketplace 제안의 수명 동안 수행된 타임스탬프 지정 작업을 확인할 수 있습니다.  
 <!-- TD: Add after section authored: For more information, see [History page](../portal-tour/cpp-history-page.md). -->
 

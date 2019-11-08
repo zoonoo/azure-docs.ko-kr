@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Hyperscale 개요
+title: Hyperscale 개요
 description: 이 문서에서는 Azure SQL Database의 vCore 기반 구매 모델에 포함된 하이퍼스케일 서비스 계층에 대해 설명하고 범용 및 중요 비즈니스용 서비스 계층과의 차이점을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: 38402d6ccf5c5582fff878ad60bf1c9fd4a07118
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3a448147390ff2dd6a8049e8338a4cbf2bd94ce3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687315"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821110"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 

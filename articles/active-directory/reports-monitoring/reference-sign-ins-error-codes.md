@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 931f2fbe5798966c41378d9b401dcd59cafc5cca
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 9bb7114611ce5c7eabb8124ad11db64d50e12946
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820880"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809816"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
@@ -36,7 +36,7 @@ ms.locfileid: "72820880"
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>실패한 로그인을 표시하려면 어떻게 해야 합니까? 
 
-[Azure Portal](https://portal.azure.com)에서 [로그인 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)로 이동합니다.
+[Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)에서 [로그인 보고서](https://portal.azure.com)로 이동합니다.
 
 ![로그인 활동](./media/reference-sign-ins-error-codes/61.png "로그인 작업")
 
@@ -127,6 +127,7 @@ ms.locfileid: "72820880"
 |50177|통과 사용자에 대한 외부 과제는 지원하지 않습니다.|
 |50178|통과 사용자에 대한 세션 제어는 지원하지 않습니다.|
 |50180|Windows 통합 인증이 필요합니다. Seamless SSO에 대한 테넌트를 사용하도록 설정합니다.|
+|50181|로그인 중에 OTP 관련 오류가 발생 했습니다. |
 |50201|사용자에 게 추가 정보를 제공 해야 하는 경우 로그인 중에이 메시지 프롬프트 인터럽트가 사용자에 게 표시 됩니다.|
 |51001|도메인 힌트에 온-프레미스 보안 식별자와 온-프레미스 UPN이 없습니다.|
 |51004|사용자 계정이 디렉터리에 없습니다.|

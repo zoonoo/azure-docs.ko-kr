@@ -1,20 +1,20 @@
 ---
-title: Azure Cosmos DB에서 데이터를 분석하고 시각화할 수 있는 Notebook 만들기
-description: 기본 제공 Jupyter Notebook을 사용하여 데이터를 Azure Cosmos DB에 가져오고, 데이터를 분석하고, 출력을 시각화하는 방법을 알아봅니다.
+title: '자습서: Azure Cosmos DB에서 데이터를 분석하고 시각화할 수 있는 Notebook 만들기'
+description: '자습서: 기본 제공 Jupyter Notebook을 사용하여 데이터를 Azure Cosmos DB에 가져오고, 데이터를 분석하고, 출력을 시각화하는 방법을 알아봅니다.'
 author: deborahc
 ms.topic: tutorial
 ms.service: cosmos-db
-ms.date: 09/25/2019
+ms.date: 11/05/2019
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: 679887ca6e9ad7713480899d1b40fddf9923c4c0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 45dd4e8dcfd74cdb5d96b935e239b9f4b5094a7c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931509"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720917"
 ---
-# <a name="create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>Azure Cosmos DB에서 데이터를 분석하고 시각화할 수 있는 Notebook 만들기
+# <a name="tutorial-create-a-notebook-in-azure-cosmos-db-to-analyze-and-visualize-the-data"></a>자습서: Azure Cosmos DB에서 데이터를 분석하고 시각화할 수 있는 Notebook 만들기
 
 이 문서에서는 기본 제공 Jupyter Notebook을 사용하여 소매 데이터 샘플을 Azure Cosmos DB에 가져오는 방법에 대해 설명합니다. SQL 및 Azure Cosmos DB 매직 명령을 사용하여 쿼리를 실행하고, 데이터를 분석하고, 결과를 시각화하는 방법을 확인할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 지리적으로 분산된 Azure SQL 데이터베이스 솔루션 구현 | Microsoft Docs
+title: 지리적으로 분산 된 솔루션 구현
 description: Azure SQL 데이터베이스와 애플리케이션을 복제된 데이터베이스로 장애 조치(failover)하도록 구성하고 장애 조치(failover)를 테스트하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,29 +11,29 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4a21fe3ed15d1dc2550f6863611b27d2b36c5c51
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 51380d312c778380602c64cac766b050511cf994
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568097"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810933"
 ---
-# <a name="tutorial-implement-a-geo-distributed-database"></a>자습서: 지리적으로 분산된 데이터베이스 구현
+# <a name="tutorial-implement-a-geo-distributed-database"></a>자습서: 지역 분산 데이터베이스 구현
 
-Azure SQL 데이터베이스와 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성하고 장애 조치(failover) 계획을 테스트합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
+Azure SQL 데이터베이스와 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성하고 장애 조치(failover) 계획을 테스트합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > - [장애 조치(failover) 그룹](sql-database-auto-failover-group.md) 만들기
 > - Java 애플리케이션을 실행하여 Azure SQL 데이터베이스 쿼리
-> - 테스트 장애 조치(failover)
+> - 테스트 장애 조치(Failover)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 이 자습서를 완료하려면 다음 항목을 설치했는지 확인하세요.
 
@@ -133,7 +133,7 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
    </dependency>
    ```
 
-1. `dependencies` 섹션 뒤에 `properties` 섹션을 추가하여 Java 버전을 지정합니다.
+1. `properties` 섹션 뒤에 `dependencies` 섹션을 추가하여 Java 버전을 지정합니다.
 
    ```xml
    <properties>
@@ -142,7 +142,7 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
    </properties>
    ```
 
-1. `properties` 섹션 뒤에 `build` 섹션을 추가하여 매니페스트 파일을 지원합니다.
+1. `build` 섹션 뒤에 `properties` 섹션을 추가하여 매니페스트 파일을 지원합니다.
 
    ```xml
    <build>
@@ -296,7 +296,7 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
    ...
    ```
 
-## <a name="test-failover"></a>테스트 장애 조치(failover)
+## <a name="test-failover"></a>테스트 장애 조치(Failover)
 
 다음 스크립트를 실행하여 장애 조치(failover) 시뮬레이션을 진행한 다음 애플리케이션 결과를 관찰합니다. 데이터베이스 마이그레이션 중에 일부 삽입과 선택이 실패하는 방식을 잘 살펴봅니다.
 
@@ -336,7 +336,7 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
 > [!div class="checklist"]
 > - 지역에서 복제 장애 조치(failover) 그룹 만들기
 > - Java 애플리케이션을 실행하여 Azure SQL 데이터베이스 쿼리
-> - 테스트 장애 조치(failover)
+> - 테스트 장애 조치(Failover)
 
 DMS를 사용한 마이그레이션 방법을 설명하는 다음 자습서를 진행합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 성능 모니터링 및 향상-Azure SQL Database
+title: 성능 모니터링 및 향상
 description: Azure SQL Database는 현재 쿼리 성능을 향상시킬 수 있는 영역을 식별하는 데 도움이 되는 성능 도구를 제공합니다.
 ms.service: sql-database
 ms.subservice: performance
@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 483cd9f185cfa626d21fe0a5b86ba782ebb2f612
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f7e5f698a822cd68d8319102e1b8bddbbfa8ad70
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687658"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821331"
 ---
 # <a name="monitor-and-improve-performance"></a>성능 모니터링 및 향상
 

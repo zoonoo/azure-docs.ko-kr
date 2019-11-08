@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database에 대 한 자동 조정 사용
+title: 자동 조정 사용
 description: Azure SQL Database에서 쉽게 자동 조정을 사용할 수 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 52e3dd01446a6292c3404f14bd8ebfb32aa00dd6
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0abf4bb015be52a10178423a566433b87127a167
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691136"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821905"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>자동 조정을 사용하여 쿼리 모니터링 및 워크로드 성능 향상
 
@@ -25,7 +25,7 @@ Azure SQL Database는 지속적으로 쿼리를 모니터링하고 워크로드�
 자동 조정은 [Azure Portal](sql-database-automatic-tuning-enable.md#azure-portal), [REST API](sql-database-automatic-tuning-enable.md#rest-api) 호출 및 [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) 명령을 통해 서버 또는 데이터베이스 수준에서 사용하도록 설정할 수 있습니다.
 
 > [!NOTE]
-> Managed Instance 지원 되는 옵션인 FORCE_LAST_GOOD_PLAN는 [t-sql](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) 을 통해서만 구성할 수 있습니다. 이 문서에 설명 된 포털 기반 구성 및 자동 인덱스 튜닝 옵션은 Managed Instance 적용 되지 않습니다.
+> Managed Instance의 경우 [t-sql](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) 을 통해 지원 되는 옵션 FORCE_LAST_GOOD_PLAN 구성할 수 있습니다. 이 문서에 설명 된 포털 기반 구성 및 자동 인덱스 튜닝 옵션은 Managed Instance 적용 되지 않습니다.
 
 > [!NOTE]
 > ARM (Azure Resource Manager) 템플릿을 통해 자동 조정 옵션을 구성 하는 것은 현재 지원 되지 않습니다.

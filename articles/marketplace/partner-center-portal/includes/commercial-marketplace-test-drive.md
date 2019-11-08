@@ -7,6 +7,7 @@ author: qianw211
 manager: evansma
 editor: ''
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
@@ -14,12 +15,12 @@ ms.workload: identity
 ms.date: 08/13/2019
 ms.author: v-qiwe
 ms.custom: include file
-ms.openlocfilehash: ee4d253eaa50b4299f4b912ccacbd50307d6fdc5
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 831e3330126d82795cece128c28cb96b7199d69a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72601050"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825580"
 ---
 **시험** 사용 탭에서는 고객이 제품을 구입 하기 전에 제품을 사용해 볼 수 있도록 데모 (또는 "시험 사용")를 설정할 수 있습니다. [테스트 드라이브인 이란?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)문서에서 자세히 알아보세요. 제품에 대 한 시험 사용을 더 이상 제공 하지 않으려는 경우 **제품 설치** 페이지로 돌아가 **테스트 드라이브 사용**을 선택 취소 합니다.
 
@@ -45,7 +46,7 @@ ms.locfileid: "72601050"
 
 - **테스트 드라이브 Azure Resource Manager 템플릿**: Azure Resource Manager 템플릿이 포함 된 .Zip을 업로드 합니다.  빠른 시작 문서 [Azure Portal를 사용 하 여 Azure Resource Manager 템플릿을 만들고 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)하는 방법에 대 한 자세한 정보를 Azure Resource Manager.
 
-- **테스트 드라이브 기간** (필수): 테스트 드라이브가 활성 상태로 유지 되는 시간 (시간)을 입력 합니다. 이 기간이 끝나면 Test Drive는 자동으로 종료됩니다. 이 기간은 전체 시간 (예: "2" 시간, "1.5"은 유효 하지 않음) 으로만 설정할 수 있습니다.
+- **테스트 드라이브 기간** (필수): 테스트 드라이브가 활성 상태로 유지 되는 시간 (시간)을 입력 합니다. 이 기간이 끝나면 시험 사용이 자동으로 종료됩니다. 이 기간은 전체 시간 (예: "2" 시간, "1.5"은 유효 하지 않음) 으로만 설정할 수 있습니다.
 
 #### <a name="technical-configuration-for-dynamics-365-test-drive"></a>Dynamics 365 시험 드라이브에 대 한 기술 구성
 
@@ -55,9 +56,9 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 - **테스트 드라이브 기간** (필수): 시간 수를 정의 하 여 테스트 드라이브가 활성 상태로 유지 되는 시간을 입력 합니다. 이 시간이 지난 후에는 세션이 종료 되 고 더 이상 라이선스 중 하나를 사용 하지 않습니다. 제품의 복잡도에 따라 2-24 시간 값을 설정 하는 것이 좋습니다. 이 기간은 전체 시간 (예: "2" 시간, "1.5"은 유효 하지 않음) 으로만 설정할 수 있습니다.  사용자는 시간이 부족 하 고 테스트 드라이브에 다시 액세스 하려는 경우 새 세션을 요청할 수 있습니다.
 
-- **인스턴스 URL** (필수): 고객이 테스트 드라이브를 시작 하는 url입니다. 일반적으로 샘플 데이터가 설치 된 앱을 실행 하는 Dynamics 365 인스턴스의 URL (예:  https://testdrive.crm.dynamics.com).
+- **인스턴스 URL** (필수): 고객이 테스트 드라이브를 시작 하는 url입니다. 일반적으로 샘플 데이터가 설치 된 앱을 실행 하는 Dynamics 365 인스턴스의 URL (예: https://testdrive.crm.dynamics.com)입니다.
 
-- **인스턴스 웹 API url** (필수): Microsoft 365 계정에 로그인 하 고 **설정** \&gt로 이동 하 여 DYNAMICS 365 인스턴스의 Web API url을 검색 합니다. **사용자 지정** \&gt **개발자 리소스** \&gt; **인스턴스 웹 API (서비스 루트 URL)** 에서 여기에 있는 url을 복사 합니다 (예:  https://testdrive.crm.dynamics.com/api/data/v9.0).
+- **인스턴스 웹 API url** (필수): Microsoft 365 계정에 로그인 하 고 **설정** \&gt;로 이동 하 여 DYNAMICS 365 인스턴스의 Web API url을 검색 합니다. **사용자 지정** \&gt; **개발자 리소스** \&gt; **인스턴스 웹 API (서비스 루트 URL)** 에서 여기에 있는 URL을 복사 합니다 (예: https://testdrive.crm.dynamics.com/api/data/v9.0).
 
 - **역할 이름** (필수): 사용자 지정 Dynamics 365 테스트 드라이브에서 정의한 보안 역할 이름을 제공 합니다. 이는 테스트 드라이브 (예: 테스트-드라이브-역할) 중에 사용자에 게 할당 됩니다.
 
@@ -87,7 +88,7 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 - **Azure 구독 id** (Azure Resource Manager 및 논리 앱에 필요): 리소스 사용량 보고 및 청구를 위해 azure 계정 서비스에 대 한 액세스 권한을 부여 하는 구독 Id를 입력 합니다. 아직 없는 경우 테스트 드라이브에 사용할 [별도의 Azure 구독을 만드는](https://docs.microsoft.com/azure/billing/billing-create-subscription) 것이 좋습니다. [Azure Portal](https://portal.azure.com/) 에 로그인 하 고 왼쪽 메뉴의 **구독** 탭으로 이동 하 여 Azure 구독 ID를 찾을 수 있습니다. 탭을 선택 하면 구독 ID (예: "a83645ac-1234-5ab6-6789-1h234g764
 
-- **AZURE ad 테 넌 트 id** (필수): AZURE ACTIVE DIRECTORY (AD) [테 넌 트 id](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고, 왼쪽 메뉴에서 Active Directory 탭을 선택 하 고, **속성** 을 선택한 다음, 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다. [@No__t_1](https://www.whatismytenantid.com)에서 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다.
+- **AZURE ad 테 넌 트 id** (필수): AZURE ACTIVE DIRECTORY (AD) [테 넌 트 id](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 입력 합니다. 이 ID를 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고, 왼쪽 메뉴에서 Active Directory 탭을 선택 하 고, **속성** 을 선택한 다음, 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다. [https://www.whatismytenantid.com](https://www.whatismytenantid.com)에서 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다.
 
 - **AZURE ad 테 넌 트 이름** (동적 365에 필요): AZURE ACTIVE DIRECTORY (AD) 이름을 입력 합니다. 이 이름을 찾으려면 [Azure Portal](https://portal.azure.com/)에 로그인 하 고, 오른쪽 위 모서리에 있는 테 넌 트 이름이 계정 이름 아래에 나열 됩니다.
 

@@ -1,18 +1,19 @@
 ---
-title: Azure Marketplace에 대 한 모든 제공 페이지
-description: 모든 개요는 Azure Marketplace에 대 한 클라우드 파트너 포털에서 페이지를 제공합니다.
+title: Azure Marketplace에 대 한 모든 제품 페이지
+description: Azure Marketplace에 대 한 Cloud 파트너 포털의 모든 제안 페이지 개요입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/12/2018
 ms.author: pabutler
-ms.openlocfilehash: d674cc154dd46704051c3c75ca2589dfd7a9ca4c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cb67ac44ee73d4d8074b577b2157f5846f451210
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942100"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821580"
 ---
 # <a name="all-offers-page"></a>모든 제품 페이지
 
@@ -21,7 +22,7 @@ ms.locfileid: "64942100"
 
 ## <a name="example-page"></a>예제 페이지
 
-다음 이미지는 `Contoso` 문자열에서 필터링된 **모든 제품** 페이지입니다.
+다음 이미지는 **문자열에서 필터링된**모든 제품`Contoso` 페이지입니다.
 
 ![모든 제품 페이지](./media/all-offers-page1.png)
 

@@ -1,22 +1,22 @@
 ---
-title: Azure SQL Database DTU 리소스 제한 탄력적 풀 | Microsoft Docs
+title: DTU 리소스 제한 탄력적 풀
 description: 이 페이지에서는 Azure SQL Database의 탄력적 풀에 대 한 몇 가지 일반적인 DTU 리소스 제한을 설명 합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 ms.date: 03/14/2019
-ms.openlocfilehash: 08e6c27b359e8fcf48caed6faf21c0aed8fad224
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b5d87d62f1db5e7d472af4cc2153d8841be6241
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521029"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826552"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>DTU 구매 모델을 사용 하 여 탄력적 풀에 대 한 리소스 제한
 
@@ -114,7 +114,7 @@ SQL Database 탄력적 풀과 관련된 다음 표는 각 서비스 계층 및 �
 탄력적 풀의 모든 DTU가 사용되었다면 풀에 있는 각 데이터베이스는 쿼리를 처리할 같은 크기의 리소스를 받습니다. SQL Database 서비스는 같은 분량의 컴퓨팅 시간을 보장하여 데이터베이스 간의 공정성을 공유할 리소스를 제공합니다. 탄력적 풀 리소스 공유 공정성은 데이터베이스당 DTU 최소값이 0이 아닌 값으로 설정될 때 각 데이터베이스에 보장된 리소스에 적용됩니다.
 
 > [!NOTE]
-> `tempdb` 제한은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
+> `tempdb`제한 사항은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
 
 ### <a name="database-properties-for-pooled-databases"></a>풀링된 데이터베이스에 대한 데이터베이스 속성
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 관리 되는 인스턴스 개요
+title: SQL 관리 되는 인스턴스 개요
 description: 이 문서에서는 관리 되는 인스턴스 Azure SQL Database 설명 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 11/04/2019
-ms.openlocfilehash: 6075b07c1ed1e8d53bfe61a424d19e3a2ef6fd08
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687816"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823288"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스는 무엇입니까?
 

@@ -4,15 +4,16 @@ description: Azure 및 AppSource Marketplace의 제품 만들기 및 관리
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: pabutler
-ms.openlocfilehash: 746b1b51d593b21bdf85bca4eeb75c135196093a
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: f1e561e84daed6c24ca0d9b7832af3d975082e25
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962848"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818770"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Azure 및 AppSource Marketplace 제품
 
@@ -34,7 +35,7 @@ ms.locfileid: "70962848"
 
 ## <a name="test-drive"></a>시험 사용
 
-*시험 사용*은 고객에게 설정된 각 제품에 대해 “구입 전 시험 사용” 데모 옵션을 제공하는 마켓플레이스 기능입니다.  시험 사용 기능은 제품 유형의 다음 하위 세트로 제한됩니다. [Azure 애플리케이션](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md), [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [Dynamics 365 for Finance 및 Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), [SaaS 애플리케이션](./saas-app/cpp-saas-offer.md) 및 [가상 머신](./virtual-machine/cpp-virtual-machine-offer.md).  이 기능을 사용하려면 게시자가 해당 제품에 맞게 사용자 지정된 시험 사용 템플릿을 만들어야 합니다.  자세한 내용은 [시험 사용](./test-drive/what-is-test-drive.md) 섹션을 참조하세요.
+*시험 사용*은 고객에게 설정된 각 제품에 대해 “구입 전 시험 사용” 데모 옵션을 제공하는 마켓플레이스 기능입니다.  시험 사용할 수 있는 기능은 [Azure 응용 프로그램](./azure-applications/cpp-azure-app-offer.md), [Dynamics 365 비즈니스 중부](../cloud-partner-portal-orig/cpp-business-central-offer.md), [dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md), [금융 및 운영에 대 한 dynamics 365](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md), SaaS와 같은 제품 형식의 하위 집합으로 제한 됩니다. [ 응용 프로그램](./saas-app/cpp-saas-offer.md)및 [가상 컴퓨터](./virtual-machine/cpp-virtual-machine-offer.md).  이 기능을 사용하려면 게시자가 해당 제품에 맞게 사용자 지정된 시험 사용 템플릿을 만들어야 합니다.  자세한 내용은 [시험 사용](./test-drive/what-is-test-drive.md) 섹션을 참조하세요.
 
 [시험 사용 필터](https://azuremarketplace.microsoft.com/marketplace/apps?filters=test-drive)를 적용하여 시험 사용 데모가 있는 기존 마켓플레이스 제품을 찾아볼 수 있습니다. 
 
@@ -43,7 +44,7 @@ ms.locfileid: "70962848"
 
 다음 표에는 [Cloud 파트너 포털](https://cloudpartner.azure.com)에서 지원되는 현재 제품 유형이 나와 있습니다.  각 제품 유형에 대해 제품을 목록에 추가할 수 있는 마켓플레이스와 제품 솔루션 기술에 대한 일반적인 설명이 나열됩니다.
 
-|                제품 유형                |  Marketplace  |   Description                                                           |
+|                제품 유형                |  Marketplace  |   설명                                                           |
 |                ----------                |  -----------  |   -----------                                                           |
 | [Azure 애플리케이션](./azure-applications/cpp-azure-app-offer.md) | Azure | 솔루션이 Azure Resource Manger 템플릿을 통해 배포된 하나 이상의 VM(가상 머신) 및 선택적 사용자 지정 Azure 코드로 구성됩니다.  배포는 고객이 솔루션 템플릿을 통해 수행하거나 게시자가 관리할 수 있습니다. 이 유형은 제공된 가상 머신 제품 유형보다 많은 유연성을 제공하는 데 사용됩니다.  |
 | [컨설팅 서비스](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | 둘 다 | Microsoft 인증 컨설턴트는 Azure Marketplace 또는 AppSource의 목록에 도메인 특정 서비스를 추가할 수 있습니다.  컨설턴트의 전문 지식은 고객이 문제를 평가하고 비즈니스 목표 달성을 위한 올바른 솔루션을 만들고 배포하는 데 도움이 됩니다.  |

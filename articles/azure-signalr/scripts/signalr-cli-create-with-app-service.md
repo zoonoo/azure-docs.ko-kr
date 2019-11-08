@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 04/20/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: d0f0747aa393475265be4aeb9ca05000fbd5b97b
-ms.sourcegitcommit: d2785f020e134c3680ca1c8500aa2c0211aa1e24
+ms.openlocfilehash: 09855c45f0a621ef1f51ba7c87443c40b02e00bd
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/04/2019
-ms.locfileid: "67565745"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73578857"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>App Service로 SignalR Service 만들기
 
@@ -30,10 +30,45 @@ CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에�
 이 스크립트는 Azure CLI용 *signalr* 확장을 사용합니다. 이 샘플 스크립트를 사용하기 전에 다음 명령을 실행하여 Azure CLI용 *signalr* 확장을 설치합니다.
 
 ```azurecli-interactive
-az extension add -n signalr
-```
+#!/bin/bash
 
-[!code-azurecli-interactive[main](../../../cli_scripts/azure-signalr/create-signalr-with-app-service/create-signalr-with-app-service.sh "Create a new Azure SignalR Service and Web App")]
+# Generate a unique suffix for the service name
+let randomNum=$RANDOM*$RANDOM
+
+# Generate unique names for the SignalR service, resource group, 
+# app service, and app service plan
+SignalRName=SignalRTestSvc$randomNum
+#resource name must be lowercase
+mySignalRSvcName=${SignalRName,,}
+myResourceGroupName=$SignalRName"Group"
+myWebAppName=SignalRTestWebApp$randomNum
+myAppSvcPlanName=$myAppSvcName"Plan"
+
+# Create resource group 
+az group create --name $myResourceGroupName --location eastus
+
+# Create the Azure SignalR Service resource
+az signalr create \
+  --name $mySignalRSvcName \
+  --resource-group $myResourceGroupName \
+  --sku Standard_S1 \
+  --unit-count 1 \
+  --service-mode Default
+
+# Create an App Service plan.
+az appservice plan create --name $myAppSvcPlanName --resource-group $myResourceGroupName --sku FREE
+
+# Create the Web App
+az webapp create --name $myWebAppName --resource-group $myResourceGroupName --plan $myAppSvcPlanName  
+
+# Get the SignalR primary connection string
+primaryConnectionString=$(az signalr key list --name $mySignalRSvcName \
+  --resource-group $myResourceGroupName --query primaryConnectionString -o tsv)
+
+#Add an app setting to the web app for the SignalR connection
+az webapp config appsettings set --name $myWebAppName --resource-group $myResourceGroupName \
+  --settings "AzureSignalRConnectionString=$primaryConnectionString"
+```
 
 새 리소스 그룹에 대해 생성된 실제 이름을 적어 둡니다. 이 이름은 출력에 표시됩니다. 모든 그룹 리소스를 삭제하려는 경우 해당 리소스 그룹 이름을 사용합니다.
 

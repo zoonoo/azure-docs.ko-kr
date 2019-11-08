@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database를 구성 하는 방법-single
+title: 단일 데이터베이스를 구성 하는 방법
 description: Azure SQL Database - 단일 데이터베이스를 구성 및 관리하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 02/08/2019
-ms.openlocfilehash: 45e25641092fae36cd58a59400cea025f74cbc1f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3c03797c97a354eb06b6c3b1d76ba5c39d512c18
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689912"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811216"
 ---
 # <a name="how-to-use-a-single-database-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스를 사용하는 방법
 

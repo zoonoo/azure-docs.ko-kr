@@ -1,18 +1,19 @@
 ---
 title: Azure Marketplace에 대 한 정보 페이지
-description: Azure Marketplace에 대 한 Cloud 파트너 포털 Insights 페이지를 간략하게 설명 합니다.
+description: Azure Marketplace에 대 한 Cloud 파트너 포털의 정보 페이지 개요입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 2cbe3b790197c3f71305e4cb21d0f37fe0404511
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b1b8d716beec17b7da82968ede8d24ced348e04a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943500"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821515"
 ---
 # <a name="insights-page"></a>인사이트 페이지
 
@@ -24,8 +25,8 @@ ms.locfileid: "64943500"
 | **요약**       | 그래프, 추세 및 게시자의 제품에 대한 Marketplace 작업을 요약하는 집계 데이터의 값 |
 | **지급**        | 그래픽 및 다운로드할 수 있는 형식의 지급 및 관련된 트랜잭션 |
 | **주문 및 사용량** | 그래픽 및 다운로드할 수 있는 형식의 주문 및 사용량 |
-| **Customer**      | 해당 구매 프로필을 포함하는 고객 정보 |
-| **배포**    | 그래프와 이벤트 수준 형식으로 표시되는 배포 성공 및 실패 정보 |
+| **고객**      | 해당 구매 프로필을 포함하는 고객 정보 |
+| **배포웹사이트를**    | 그래프와 이벤트 수준 형식으로 표시되는 배포 성공 및 실패 정보 |
 | **다운로드**     | 지난 30일 간 다운로드 요청의 목록 |
 | **분석**     | 웹 분석의 요약 및 캠페인 성능의 분석 |
 |  |  |

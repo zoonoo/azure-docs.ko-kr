@@ -4,15 +4,16 @@ description: Azure Marketplace 및 Microsoft AppSource의 통합 솔루션
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/15/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 8bffb2c71f5e07499338ea32e0c064392af81684
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: eaba5612221e712ad5b14f10876e083729970fde
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71706304"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818554"
 ---
 # <a name="publish-an-integrated-solution"></a>통합 솔루션 게시
 
@@ -61,11 +62,11 @@ ms.locfileid: "71706304"
 1. 솔루션 및 통합 방식을 정의 하기 위해 워크샵 형식으로 핵심 비즈니스 및 기술 토론을 완료 합니다. 
 
     솔루션에 대 한 설명은 다음 사항을 포함 해야 합니다.
-    * Scope
+    * 범위
     * 대상 고객
     * 가치 제안
-    * 가격 책정
-    * 라이선싱
+    * 가격
+    * 라이선스
     * 조건
     * 지원 방법
     * 마케팅 활동
@@ -86,7 +87,7 @@ ms.locfileid: "71706304"
 
     * [비즈니스 의사 결정 워크숍 토론 가이드](https://aka.ms/AA5qicx)
     * [기술 결정 워크숍 토론 가이드](https://aka.ms/AA5qid1)
-    * [Quickstart 스타트 비디오: 비즈니스 및 기술 워크샵 @ no__t-0
+    * [빠른 시작 비디오: 비즈니스 및 기술 워크샵](https://aka.ms/AA5qos9)
 
 1. 비즈니스 및 기술 워크샵에서 개발한 프로젝트 계획 및 타임 라인을 구동 하는 파트너 간 프로젝트 관리자를 식별 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 내 앱 포털에서 프로필 및 계정 정보 업데이트-Azure Active Directory | Microsoft Docs
+title: 내 앱 포털에서 프로필 및 계정 업데이트-Azure AD
 description: 사용자의 프로필 및 회사 또는 학교 계정 정보를 업데이트 하는 방법에 대해 알아봅니다. 여기에는 암호 변경, 암호 재설정 설정, 보안 확인 방법 업데이트, 조직의 사용 약관 보기, 로그 아웃 등이 포함 됩니다. 회사 또는 학교 계정을 사용 하 여 로그인 한 모든 위치
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40cf8e16e08db67c36009435758db36797518d96
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4416b35d2e2204cec2a9ffe2f50e92983d6204c0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160759"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820376"
 ---
-# <a name="update-your-profile-and-account-info-from-the-my-apps-portal"></a>내 앱 포털에서 프로필 및 계정 정보 업데이트
+# <a name="update-your-profile-and-account-info-on-the-my-apps-portal"></a>내 앱 포털에서 프로필 및 계정 정보 업데이트
 
 웹 기반 **My Apps** 포털을 통해 회사 또는 학교 계정을 사용하여 다양한 조직의 클라우드 기반 앱을 확인 및 시작하고, 일부 프로필 및 계정 정보를 업데이트하고, **그룹** 정보를 보고, 앱 및 그룹에 대한 **액세스 검토**를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
 

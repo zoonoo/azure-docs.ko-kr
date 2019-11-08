@@ -1,21 +1,18 @@
 ---
 title: Azure Portal에서 Linux에 함수 앱 만들기 | Microsoft Docs
 description: Azure Portal를 사용하여 서버를 사용하지 않는 실행을 위해 첫 번째 Azure Function을 만드는 방법을 알아봅니다.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 02/28/2019
 ms.author: glenga
-ms.custom: ''
-ms.openlocfilehash: a612505acdc37591377eebf290365b65cc3836cd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 89755e8b70a490f1c5746b23e0d36c5d90b624c1
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098280"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73571663"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Azure App Service 계획에서 Linux로 실행되는 함수 앱 만들기
 
@@ -50,7 +47,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
     | **게시** | 코드 | **런타임 스택**의 기본 Linux 컨테이너가 사용됩니다. 함수 앱 프로젝트 코드만 제공하면 됩니다. 또 다른 옵션은 사용자 지정 [Docker 이미지](functions-create-function-linux-custom-image.md)를 게시하는 것입니다. |
     | **[호스팅 계획](functions-scale.md)** | App Service 계획 | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. App Service 계획에서 실행하는 경우 [함수 앱의 크기 조정](functions-scale.md)을 제어할 수 있습니다.  |
     | **App Service 계획/위치** | 계획 만들기 | **새로 만들기**를 선택하고 **App Service 계획** 이름을 지정합니다. 사용자 또는 함수가 액세스하는 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 **위치**를 선택합니다. 원하는 **[가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/linux/)** 을 선택합니다. <br/>동일한 App Service 계획에서 Linux 및 Windows 함수 앱을 둘 다 실행할 수는 없습니다. |
-    | **런타임 스택** | 기본 설정 언어 | 즐겨찾는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET**을 선택합니다. [Python 지원](functions-reference-python.md)은 현재 미리 보기로 제공됩니다. |
+    | **런타임 스택** | 기본 설정 언어 | 즐겨찾는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET**을 선택합니다. |
     | **[Storage](../storage/common/storage-quickstart-create-account.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](functions-scale.md#storage-account-requirements)을 충족해야 합니다. |
     | **[Application Insights](functions-monitoring.md)** | 사용 | Application Insights는 기본적으로 사용하지 않도록 설정됩니다. 이제 Application Insights 통합을 사용하도록 설정하고 App Service 계획 위치 가까이의 호스팅 위치를 선택하는 것이 좋습니다. 나중에 이 작업을 수행하려는 경우 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.  |
 

@@ -1,5 +1,5 @@
 ---
-title: 단일 테 넌 트 SaaS 자습서-Azure SQL Database
+title: 단일 테 넌 트 SaaS 자습서
 description: Azure SQL Database를 사용하는 독립형 단일 테넌트 SaaS 애플리케이션을 배포 및 탐색합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 11/07/2018
-ms.openlocfilehash: df9c3913851055f1bb477264cf5a7486f79b56b0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e3afc8aa58551b995070ffaca978c8e7c8454da3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691967"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822125"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Azure SQL Database를 사용하는 독립형 단일 테넌트 애플리케이션을 배포 및 탐색합니다.
 

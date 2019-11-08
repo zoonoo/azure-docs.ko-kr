@@ -1,5 +1,5 @@
 ---
-title: SQL Database에 대 한 XEvent 이벤트 파일 코드
+title: XEvent 이벤트 파일 코드
 description: Azure SQL Database에서 확장 이벤트의 이벤트 파일 대상을 보여주는 2단계 코드 샘플에 대해 PowerShell 및 Transact-SQL을 제공합니다. Azure Storage는 이 시나리오의 필수 부분입니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: ea5c90433a4d2928e5fb88df149631c80df9dacf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3b1e8881b2e2004a94064e472690ee40414ea02d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686824"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822378"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 

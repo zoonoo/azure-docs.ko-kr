@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 서버 및 단일 데이터베이스 만들기, 관리
+title: 서버 및 단일 데이터베이스 만들기, 관리
 description: SQL Database 서버 및 단일 데이터베이스를 만들고 관리하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 91a5ca6ef842b364ada24aa4ede5768cf205c776
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 02c4d7ba545282e3654f3889dd8000af33c728c7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687119"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820916"
 ---
 # <a name="create-and-manage-sql-database-servers-and-single-databases-in-azure-sql-database"></a>Azure SQL Database에서 SQL Database 서버 및 단일 데이터베이스 만들기 및 관리
 

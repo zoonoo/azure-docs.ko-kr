@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 84e8f1d7b723bb86b31abb1ff60bce5351d7d996
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 14290e000d5c6251216a6b0a0fc68c8a0897210a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750149"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824030"
 ---
 # <a name="check-the-publishing-status-of-your-commercial-marketplace-offer"></a>상업적 Marketplace 제안의 게시 상태를 확인 합니다.
 

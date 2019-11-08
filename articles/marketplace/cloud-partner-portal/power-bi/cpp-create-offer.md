@@ -4,15 +4,16 @@ description: Microsoft AppSource Marketplace용 Power BI 앱 제품을 만드는
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, Power BI
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pabutler
-ms.openlocfilehash: 702be34a5be69c050b809713a5742c2189892a27
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0ee26672697517556a2f639b533a1217712d03d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943328"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822695"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Power BI 앱 제품 만들기
 
@@ -23,7 +24,7 @@ ms.locfileid: "64943328"
 |   자산 그룹      | 설명                                                                         |
 | ----------------   | ----------------                                                                    |
 | 제품 설정     | 제품의 기본 ID와 이름입니다.                                      |
-| 기술 정보     | 클라이언트의 Power BI 작업 영역에 앱을 설치하는 데 사용하는 설치 관리자 URL입니다. 이 URL을 생성하는 방법에 대한 자세한 내용은 [Power BI 앱 문서](https://go.microsoft.com/fwlink/?linkid=2028636)를 참조하세요. |
+| 기술 정보     | 클라이언트의 Power BI 작업 영역에 앱을 설치 하는 데 사용 하는 설치 관리자 URL입니다. 이 URL을 생성하는 방법에 대한 자세한 내용은 [Power BI 앱 문서](https://go.microsoft.com/fwlink/?linkid=2028636)를 참조하세요. |
 | 상점 세부 정보 | 마케팅, 법적 정보 및 잠재 고객 관리 자산을 포함합니다. 마케팅 자산에는 제품 설명 및 로고가 포함됩니다. 법적 정보 자산에는 개인정보처리방침, 사용 약관 및 기타 법률 문서가 포함됩니다. 잠재 고객 관리 정책을 사용하면 AppSource 사용자 포털에서 잠재 고객을 관리하는 방법을 지정할 수 있습니다. |
 | 연락처           | 지원 연락처 및 정책 정보가 포함됩니다.                                     |
 

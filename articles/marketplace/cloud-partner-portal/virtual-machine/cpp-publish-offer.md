@@ -1,18 +1,19 @@
 ---
-title: 가상 머신 제품은 Azure Marketplace에 게시
+title: Azure Marketplace에 가상 머신 제품 게시
 description: 기존 가상 머신 제안을 Azure Marketplace에 게시하는 데 필요한 단계를 나열합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: pabutler
-ms.openlocfilehash: 6796c2871cf8a5928beed2ab557cefdfe8ecaae9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1b07f3f3edab47f8f75835dffd4cc3f89f17ab63
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938605"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824405"
 ---
 # <a name="publish-a-virtual-machine-offer"></a>가상 머신 제안 게시
 
@@ -30,7 +31,7 @@ ms.locfileid: "64938605"
 | 시험 사용 유효성 검사(선택 사항) | 2시간 | 시험 사용을 사용하도록 선택한 경우 Microsoft는 선택한 지역을 통해 시험 사용 구성, 해당 배포 및 복제의 유효성을 검사합니다. |
 | 인증                  | 3일 | Azure 인증 팀에서 제안을 분석합니다. 이 단계에서는 바이러스, 맬웨어, 안전 규정 준수 및 보안 문제에 대한 검사를 수행합니다. 문제가 발견되면 피드백이 제공됩니다. |
 | 프로비전                   | 4일   | VM 제안이 마켓플레이스 프로덕션 시스템에 복제됩니다.               |
-| 패키징 및 잠재 고객 생성 등록 | 1시간 미만  | 제안의 기술 자산이 고객의 사용에 맞게 패키지되고, 잠재 고객 시스템이 구성 및 설정됩니다. |
+| 패키징 및 잠재 고객 생성 등록 | 1시간 미만  | 제품의 기술 자산은 고객이 사용 하도록 패키지 되며 리드 시스템이 구성 및 설정 됩니다. |
 |  게시자 확인             |  -        | 제안이 라이브 상태가 되기 전에 최종 게시자가 검토 및 확인합니다. 선택한 구독에 제안을 배포하여(제안 정보 단계에서) 모든 요구 사항을 충족하는지 확인할 수 있습니다.  |
 | 프로비전                   | 4일 | 최종적인 VM 제안은 마켓플레이스 프로덕션 시스템 및 지역에 복제됩니다. | 
 | 라이브                           | 4일 | VM 제안이 릴리스되고, 필요한 지역에 복제되며, 공개적으로 사용할 수 있게 됩니다. |

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database에서 단일/풀링된 데이터베이스로 데이터베이스 마이그레이션 SQL Server
+title: 단일/풀링된 데이터베이스로 데이터베이스 마이그레이션 SQL Server
 description: Azure SQL Database에서 단일 데이터베이스 또는 탄력적 풀로 SQL Server 데이터베이스를 마이그레이션하는 방법을 알아봅니다.
 keywords: 데이터베이스 마이그레이션, SQL Server 데이터베이스 마이그레이션, 데이터베이스 마이그레이션 도구, 데이터베이스 마이그레이션, SQL 데이터베이스 마이그레이션
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/11/2019
-ms.openlocfilehash: 67030d14670ccc51c89a04863f8b39ab6a9bb183
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: df1ef21da43bc74809bd9fd71b5dde3906cdb343
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687192"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820969"
 ---
 # <a name="sql-server-database-migration-to-azure-sql-database"></a>Azure SQL Database로 SQL Server 데이터베이스 마이그레이션
 

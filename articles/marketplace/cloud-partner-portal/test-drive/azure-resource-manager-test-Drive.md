@@ -1,25 +1,26 @@
 ---
-title: Azure Resource Manager 시험 | Azure Marketplace
+title: 시험 드라이브 Azure Resource Manager | Azure Marketplace
 description: Azure Resource Manager를 사용하여 Marketplace 시험 사용 빌드
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Patrick .Butler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 03783424544588a4bc147b232d41b103fb2e5b3e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606442"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827558"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 
 이 문서는 Azure Marketplace에 제품이 있는 게시자 또는 AppSource에 있지만 Azure 리소스만 사용해서 시험 사용을 빌드하려는 게시자를 위한 것입니다.
 
-Azure 리소스 관리자 (Resource Manager) 템플릿을 Azure 리소스는 최상의 나타내는에 솔루션을 디자인 하기는 코딩 된 컨테이너입니다. 없는 경우 친숙 한 Resource Manager 템플릿이 사용 하 여를 읽으려는 [Resource Manager 템플릿 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 하 고 [Resource Manager 템플릿 작성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) 빌드 및 테스트 하는 방법을 알고 있는지 확인 하려면 사용자 고유의 템플릿입니다.
+리소스 관리자 (Azure Resource Manager) 템플릿은 솔루션을 가장 잘 나타내도록 설계 된 Azure 리소스의 코딩 된 컨테이너입니다. 리소스 관리자 템플릿이 무엇 인지 잘 모르는 경우 [리소스 관리자 템플릿 이해](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 및 템플릿 [리소스 관리자 작성](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) 에 대 한 자세한 내용을 확인 하 여 고유한 템플릿을 빌드하고 테스트 하는 방법을 알아봅니다.
 
 시험 사용은 제공된 Resource Manager 템플릿을 사용하고 해당 Resource Manager 템플릿에서 필요한 모든 리소스를 리소스 그룹에 배포하는 것입니다.
 
@@ -31,25 +32,25 @@ Azure Resource Manager 시험 사용을 빌드하도록 선택하는 경우 요�
 
 ## <a name="how-to-build-an-azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용을 빌드하는 방법
 
-Azure Resource Manager 시험을 빌드하는 프로세스는 다음과 같습니다.
+Azure Resource Manager 테스트 드라이브를 빌드하기 위한 프로세스는 다음과 같습니다.
 
-1. 원하는 흐름 다이어그램에서 작업을 수행 하도록 고객에 게 디자인 합니다.
-1. 어떤 환경을 원하는 고객은 빌드를 정의 합니다.
-1. 위의 정의 따라 어떤 부분 및 리소스는 이러한 경험을 위해 고객에 게 필요한 결정할: 예를 들어 D365 인스턴스 또는 데이터베이스를 사용 하 여 웹 사이트입니다.
+1. 흐름 다이어그램에서 고객이 수행할 작업을 디자인 합니다.
+1. 고객이 빌드할 환경을 정의 합니다.
+1. 위의 정의에 따라 고객에 게 이러한 환경을 수행 하는 데 필요한 부분과 리소스 (예: D365 instance 또는 데이터베이스가 포함 된 웹 사이트)를 결정 합니다.
 1. 디자인을 로컬로 빌드하고 환경을 테스트 합니다.
-1. 여기에서 한 ARM 템플릿 배포를 사용 하는 환경 패키지 합니다.
-    1. 리소스 부분 입력된 매개 변수 정의
-    1. 변수는 다음과 같습니다.
-    1. 어떤 출력 고객 환경에 제공 됩니다.
-1. 게시 하 고, 테스트 및 라이브로 전환 합니다.
+1. ARM 템플릿 배포에서 환경을 패키지 하 고 여기에서 다음을 수행 합니다.
+    1. 입력 매개 변수인 리소스의 부분을 정의 합니다.
+    1. 변수는 무엇 인가요?
+    1. 사용자 환경에 제공 되는 출력입니다.
+1. 게시, 테스트 및 라이브 전환.
 
 Azure Resource Manager 시험 사용 빌드 시 가장 중요한 부분은 고객이 경험할 시나리오를 정의하는 것입니다. 방화벽 제품 판매자이며 스크립트 삽입 공격을 얼마나 잘 처리하는지 시연하고 싶으신가요? 스토리지 제품 판매자이며 솔루션이 얼마나 빠르고 쉽게 파일을 압축하는지 시연하고 싶으신가요?
 
-충분 한 양의 제품을 자랑 하는 최선의 방법 이란 평가 하는 시간을 소비 해야 합니다. 구체적으로 필요한 리소스를 모두 해결 해야, Resource Manager 템플릿을 충분히 쉽게 패키징 하므로 합니다.
+제품을 표시 하는 데 가장 적합 한 방법을 평가 하는 데 충분 한 시간을 사용 해야 합니다. 특히 필요한 모든 리소스를 사용 하 여 리소스 관리자 템플릿을 더 쉽게 패키지할 수 있습니다.
 
 방화벽 예제를 계속하려면 아키텍처에 서비스에 대한 공용 IP URL과 방화벽으로 보호하는 웹 사이트에 대한 다른 공용 IP URL이 필요할 수 있습니다. 각 IP는 가상 머신에 배포되고 네트워크 보안 그룹 + 네트워크 인터페이스와 함께 연결됩니다.
 
-리소스의 원하는 패키지를 디자인 한 후 테스트 드라이브 Resource Manager 템플릿 작성 및 쓰기를에 되어 제공 됩니다.
+원하는 리소스 패키지를 디자인 한 후에는 테스트 드라이브 리소스 관리자 템플릿을 작성 하 고 작성 하 게 됩니다.
 
 ## <a name="writing-test-drive-resource-manager-templates"></a>시험 사용 Resource Manager 템플릿 작성
 
@@ -84,12 +85,12 @@ Azure Resource Manager 시험 사용 빌드 시 가장 중요한 부분은 고�
 
 | 메타데이터 유형   | 매개 변수 형식  | 설명     | 샘플 값    |
 |---|---|---|---|
-| **baseuri**     | 문자열          | 배포 패키지의 기본 URI| https:\//\<\..\>.blob.core.windows.net/\<\..\> |
-| **사용자 이름**    | 문자열          | 새 임의 사용자 이름입니다.| admin68876      |
+| **baseuri**     | string          | 배포 패키지의 기본 URI| https: /\<\.를\/합니다.\>blob.core.windows.net/\<\..\> |
+| **사용자 이름**    | string          | 새 임의 사용자 이름입니다.| admin68876      |
 | **암호**    | 보안 문자열    | 새 임의 암호 | Lp!ACS\^2kh     |
-| **세션 ID**   | 문자열          | 고유한 시험 사용 세션 ID(GUID)입니다.    | b8c8693e-5673-449c-badd-257a405a6dee |
+| **세션 ID**   | string          | 고유한 시험 사용 세션 ID(GUID)입니다.    | b8c8693e-5673-449c-badd-257a405a6dee |
 
-#### <a name="username"></a>username
+#### <a name="username"></a>사용자 이름
 
 시험 사용은 이 매개 변수를 배포 패키지의 **기본 URI**로 초기화하므로 이 매개 변수를 사용하여 패키지에 포함된 파일의 URI를 구성할 수 있습니다.
 
@@ -116,7 +117,7 @@ Azure Resource Manager 시험 사용 빌드 시 가장 중요한 부분은 고�
 }
 ```
 
-#### <a name="username"></a>username
+#### <a name="username"></a>사용자 이름
 
 시험 사용은 이 매개 변수를 새 임의 사용자 이름으로 초기화합니다.
 
@@ -192,7 +193,7 @@ Azure Resource Manager 시험 사용 빌드 시 가장 중요한 부분은 고�
 
 스토리지 계정 또는 DNS 이름과 같은 일부 Azure 리소스에는 전역적으로 고유한 이름이 필요합니다.
 
-즉, 시험 사용이 Resource Manager 템플릿을 배포할 때마다 모든\' 리소스에 대해 **고유 이름이 지정된 새 리소스 그룹**을 만듭니다. 따라서 리소스 그룹 ID의 변수 이름과 연결된 [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) 함수를 사용하여 임의의 고유 값을 생성해야 합니다.
+즉, 시험 사용이 Resource Manager 템플릿을 배포할 때마다 모든**리소스에 대해**고유 이름이 지정된 새 리소스 그룹\'을 만듭니다. 따라서 리소스 그룹 ID의 변수 이름과 연결된 [uniquestring](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions#uniquestring) 함수를 사용하여 임의의 고유 값을 생성해야 합니다.
 
 ```json
 "variables": {
@@ -265,7 +266,7 @@ Resource Manager 템플릿을 사용하는 경우 일반적으로 출력을 생�
 
 템플릿 출력과 관련된 제한 사항은 없습니다. 단지, 시험 사용은 모든 출력 값을 **문자열**로 변환하므로 개체를 출력으로 보내는 경우 사용자에게 JSON 문자열이 표시됩니다.
 
-예제:
+예:
 
 ```json
 "outputs": {
@@ -300,16 +301,16 @@ Resource Manager 템플릿을 사용하는 경우 일반적으로 출력을 생�
 
 | package.zip                       | 시험 사용 Blob 컨테이너         |
 |---|---|
-| main-template.json                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/main-template.json  |
-| templates/solution.json           | https:\//\<\...\>.blob.core.windows.net/\<\...\>/templates/solution.json |
-| scripts/warmup.ps1                | https:\//\<\...\>.blob.core.windows.net/\<\...\>/scripts/warmup.ps1  |
+| main-template.json                | https:\//\<\..\>blob.core.windows.net/\<\..\>/a s i json  |
+| templates/solution.json           | https:\//\<\..\>blob.core.windows.net/\<\..\>/템플릿 |
+| scripts/warmup.ps1                | https:\//\<\..\>blob.core.windows.net/\<\..\>/scripts/warmup.ps1  |
 
 
 이 Blob 컨테이너의 URI를 기본 URI라고 합니다. 랩의 수정 버전마다 자체 Blob 컨테이너가 있으므로 랩의 수정 버전마다 자체 기본 URI가 있습니다. 시험 사용은 템플릿 매개 변수를 통해 압축을 푼 배포 패키지의 기본 URI를 템플릿에 전달할 수 있습니다.
 
 ## <a name="transforming-template-examples-for-test-drive"></a>시험 사용에 대한 템플릿 변환 예제
 
-리소스의 아키텍처를 시험 사용 Resource Manager 템플릿으로 변환하는 프로세스는 까다로울 수 있습니다. 이 프로세스를 더 쉽게 진행할 수 있도록 [여기서 현재 배포 템플릿을 변환](./transforming-examples-for-test-drive.md)하는 가장 효율적인 방법에 대한 예제를 만들었습니다.
+리소스의 아키텍처를 시험 사용 Resource Manager 템플릿으로 변환하는 프로세스는 까다로울 수 있습니다. 이 프로세스를 더 쉽게 진행할 수 있도록 \'여기서 현재 배포 템플릿을 변환[하는 가장 효율적인 방법에 대한 예제를 만들었습니다.
 
 ## <a name="how-to-publish-a-test-drive"></a>시험 사용 게시 방법
 
@@ -317,19 +318,19 @@ Resource Manager 템플릿을 사용하는 경우 일반적으로 출력을 생�
 
 ![사용자 인터페이스에서 시험 사용 설정](./media/azure-resource-manager-test-drive/howtopub1.png)
 
-첫 번째 필드이자 가장 중요한 필드는 사용자 제품에 시험 사용을 설정할지 여부를 토글하는 것입니다. **예**를 선택하면 모든 필수 필드가 포함된 양식의 나머지 부분을 작성할 수 있습니다. **아니요**를 선택하면 양식을 사용할 수 없게 되며, 시험 사용을 해제하여 다시 게시하면 프로덕션에서 시험 사용이 제거됩니다.
+첫 번째 필드이자 가장 중요한 필드는 사용자 제품에 시험 사용을 설정할지 여부를 토글하는 것입니다. **예를** 선택 하면 필요한 모든 필드가 포함 된 양식의 나머지 부분이 표시 되어 사용자가 작성할 수 있습니다. **아니요를** 선택 하면 양식을 사용할 수 없게 되 고 테스트 드라이브를 사용 하지 않도록 설정 하 여 다시 게시 하면 프로덕션에서 테스트 드라이브가 제거 됩니다.
 
-참고: 사용자가 현재 사용하는 시험 사용은 세션이 만료될 때까지 계속 실행됩니다.
+참고: 사용자가 현재 사용 중인 시험 사용은 세션이 만료될 때까지 계속 실행됩니다.
 
 ### <a name="details"></a>세부 정보
 
-다음 섹션에서는 시험 사용 제품에 대한 세부 정보를 작성합니다.
+다음으로는 Test Drive 제품 관련 세부 정보 섹션을 작성해야 합니다.
 
 ![시험 사용 세부 정보](./media/azure-resource-manager-test-drive/howtopub2.png)
 
 **설명 -** *필수* 시험 사용의 내용에 대한 기본 설명을 작성합니다. 고객은 이 설명을 통해 제품과 관련해서 시험 사용에서 진행되는 시나리오를 확인할 수 있습니다. 
 
-**사용자 매뉴얼 -** *필수* 시험 사용 경험의 심층 연습입니다. 고객은 이 매뉴얼을 열어 시험 사용 전반에 걸쳐 필요한 과정을 정확하게 진행할 수 있습니다. 따라서 쉽게 이해하고 진행할 수 있는 내용을 포함해야 합니다. 매뉴얼 파일은 .pdf 형식이어야 합니다.
+**사용자 매뉴얼 -** *필수* 시험 사용 경험의 심층 연습입니다. 고객은 이 매뉴얼을 열어 Test Drive 전반에 걸쳐 필요한 과정을 정확하게 진행할 수 있습니다. 따라서 쉽게 이해하고 진행할 수 있는 내용을 포함해야 합니다. 매뉴얼 파일은 .pdf 형식이어야 합니다.
 
 **Test Drive 데모 비디오 -** *권장 필드* 사용자 매뉴얼과 마찬가지로 Test Drive 환경의 비디오 자습서를 포함하는 것이 가장 좋습니다. 고객은 Test Drive를 시작하기 전에나 진행하는 중에 이 비디오를 시청하고 Test Drive 전반에 걸쳐 필요한 과정을 정확하게 진행할 수 있습니다. 따라서 쉽게 이해하고 진행할 수 있는 내용을 포함해야 합니다.
 
@@ -350,7 +351,7 @@ Resource Manager 템플릿을 사용하는 경우 일반적으로 출력을 생�
 **인스턴스 -** *필수* 여기서 원하는 인스턴스 수, 해당 지역 및 고객이 시험 사용을 가져올 수 있는 속도를 구성합니다.
 
 - **인스턴스** - 선택 지역에서 시험 사용 Resource Manager 템플릿이 배포되는 위치를 선택합니다. 고객이 있을 가능성이 가장 높은 지역 한 개만 선택하는 것이 좋습니다.
-- **핫** - 선택한 지역당 이미 배포되었으며 액세스 대기 중인 시험 사용 인스턴스 수입니다. 고객은 배포를 기다리지 않고 이 시험 사용에 즉시 액세스할 수 있습니다. 단점은 이러한 인스턴스가 Azure 구독에서 항상 실행되고 있으므로 더 큰 가동 시간 비용이 발생한다는 것입니다. 대부분의 고객은 전체 배포가 완료될 때까지 기다리고 싶어하지 않으며 고객 사용량이 감소하므로 **핫 인스턴스를 하나 이상** 사용하는 것이 좋습니다.
+- **핫** - 선택한 지역당 이미 배포되었으며 액세스 대기 중인 시험 사용 인스턴스 수입니다. 고객은 배포를 기다리지 않고 이 Test Drive에 즉시 액세스할 수 있습니다. 단점은 이러한 인스턴스가 Azure 구독에서 항상 실행되고 있으므로 더 큰 가동 시간 비용이 발생한다는 것입니다. 대부분의 고객은 전체 배포가 완료될 때까지 기다리고 싶어하지 않으며 고객 사용량이 감소하므로 **핫 인스턴스를 하나 이상** 사용하는 것이 좋습니다.
 - **웜** - 배포된 후 VM이 중지되고 Azure Storage에 저장된 지역당 시험 사용 인스턴스 수입니다. 웜 인스턴스의 대기 시간은 핫 인스턴스보다 더 느리지만, 스토리지의 가동 시간 비용도 훨씬 저렴합니다.
 - **콜드** - 배포할 수 있는 지역당 시험 사용 인스턴스 수입니다. 콜드 인스턴스를 사용하려면 고객이 시험 사용을 요청할 때 전체 시험 사용 Resource Manager 템플릿이 배포되어야 하므로 핫 인스턴스 또는 웜 인스턴스보다 더 느립니다. 그러나 장점은 시험 사용의 지속 기간 동안만 요금을 지불하면 된다는 것입니다.
 
@@ -362,7 +363,7 @@ Resource Manager 템플릿을 사용하는 경우 일반적으로 출력을 생�
 
 **시험 사용 Resource Manager 템플릿 -** ‘필수’ 여기서 Resource Manager 템플릿을 업로드합니다. 이 파일은 위의 이전 섹션에서 빌드한 파일입니다. 기본 템플릿 파일의 이름을 “main-template.json”으로 지정하고, Resource Manager 템플릿에 필요한 키 변수에 대한 출력 매개 변수가 포함되어 있는지 확인합니다. 파일은 .zip 형식이어야 합니다.
 
-**액세스 정보 -** ‘필수’ 고객이 시험 사용을 가져오면 액세스 정보가 고객에게 표시됩니다. 이러한 지침은 시험 사용 Resource Manager 템플릿의 유용한 출력 매개 변수를 공유하기 위한 것입니다. 출력 매개 변수를 포함하려면 **{{outputname}}** 과 같이 이중 중괄호를 사용합니다. 그러면 매개 변수가 해당 위치에 올바르게 삽입됩니다. 프런트 엔드에서 렌더링될 수 있도록 여기서는 HTML 문자열 서식을 사용하는 것이 좋습니다.
+**액세스 정보 -** ‘필수’ 고객이 시험 사용을 가져오면 액세스 정보가 고객에게 표시됩니다. 이러한 지침은 Test Drive Resource Manager 템플릿의 유용한 출력 매개 변수를 공유하기 위한 것입니다. 출력 매개 변수를 포함하려면 **{{outputname}}** 과 같이 이중 중괄호를 사용합니다. 그러면 매개 변수가 해당 위치에 올바르게 삽입됩니다. 프런트 엔드에서 렌더링될 수 있도록 여기서는 HTML 문자열 서식을 사용하는 것이 좋습니다.
 
 ### <a name="test-drive-deployment-subscription-details"></a>시험 사용 배포 구독 세부 정보
 
@@ -370,11 +371,11 @@ Resource Manager 템플릿을 사용하는 경우 일반적으로 출력을 생�
 
 ![시험 사용 배포 구독 세부 정보](./media/azure-resource-manager-test-drive/subdetails1.png)
 
-**Azure 구독 ID -** ‘필수’ Azure 서비스 및 Azure Portal 액세스 권한을 부여합니다. 해당 구독에서 리소스 사용량이 보고되며 서비스 대금이 청구됩니다. **별도**의 시험 사용 전용 Azure 구독이 없으면 새로 만드세요. Azure Portal에 로그인하여 왼쪽 메뉴의 구독으로 이동하면 Azure 구독 ID를 확인할 수 있습니다(예: “a83645ac-1234-5ab6-6789-1h234g764ghty”).
+**Azure 구독 ID -** ‘필수’ Azure 서비스 및 Azure Portal 액세스 권한을 부여합니다. 해당 구독에서 리소스 사용량이 보고되며 서비스 대금이 청구됩니다. **별도**의 시험 사용 전용 Azure 구독이 없으면 새로 만드세요. Azure Portal에 로그인하여 왼쪽 메뉴의 구독으로 이동하면 Azure 구독 ID를 확인할 수 있습니다(예: "a83645ac-1234-5ab6-6789-1h234g764ghty").
 
 ![Azure 구독](./media/azure-resource-manager-test-drive/subdetails2.png)
 
-**Azure AD 테넌트 ID -** ‘필수’ 테넌트 ID가 이미 있는 경우 다음 그림과 같이 속성 -\> 디렉터리 ID에서 확인할 수 있습니다.
+**Azure AD 테넌트 ID -** ‘필수’ 테넌트 ID가 이미 있는 경우 다음 그림과 같이 속성 - *디렉터리 ID에서 확인할 수 있습니다.* \>
 
 ![Azure Active Directory 속성](./media/azure-resource-manager-test-drive/subdetails3.png)
 
@@ -382,11 +383,11 @@ ID가 없으면 Azure Active Directory에서 새 테넌트를 만듭니다.
 
 ![Azure Active Directory 테넌트 목록](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Azure AD 테 넌 트에 대 한 조직, 도메인 및 국가/지역 정의](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Azure AD 테 넌 트의 조직, 도메인 및 국가/지역 정의](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![선택 항목을 확인합니다.](./media/azure-resource-manager-test-drive/subdetails6.png)
 
-**Azure AD 앱 ID -** ‘필수’ 다음 단계에서는 새 애플리케이션을 만들고 등록합니다. 이 애플리케이션을 사용하여 시험 사용 인스턴스에 대한 작업을 수행합니다.
+**Azure AD 앱 ID -** ‘필수’ 다음 단계에서는 새 애플리케이션을 만들고 등록합니다. 이 애플리케이션을 사용하여 Test Drive 인스턴스에서 작업을 수행합니다.
 
 1. 새로 만든 디렉터리 또는 이미 있는 디렉터리로 이동하여 필터 창에서 Azure Active Directory를 선택합니다.
 2. “앱 등록”을 검색한 다음, “추가”를 클릭합니다.
@@ -404,20 +405,20 @@ ID가 없으면 Azure Active Directory에서 새 테넌트를 만듭니다.
 
 1. 구독 블레이드로 이동한 다음, 시험 사용 전용으로 사용할 적절한 구독을 선택합니다.
 1. **액세스 제어(IAM)** 를 클릭합니다.
-1. **역할 할당** 탭을 클릭합니다.  ![새 Access Control 보안 주체 추가](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
+1. **역할 할당** 탭을 클릭 합니다.  ![새 Access Control 보안 주체를 추가](./media/azure-resource-manager-test-drive/SetupSub7_1.jpg)
 1. **역할 할당 추가**를 클릭합니다.
 1. 역할을 **기여자**로 설정합니다.
 1. Azure AD 애플리케이션의 이름을 입력하고 역할을 할당할 애플리케이션을 선택합니다.
     ![사용 권한 추가](./media/azure-resource-manager-test-drive/SetupSub7_2.jpg)
-1. **저장**을 클릭합니다.
+1. **Save**를 클릭합니다.
 
-**Azure AD 앱 키 -** ‘필수’ 최종 필드에서는 인증 키를 생성합니다. 키 아래에 키 설명을 추가하고 지속 기간을 사용 기간 제한 없음으로 설정한 다음, 저장을 선택합니다. 만료된 키를 사용해서는 **안 됩니다**. 만료된 키를 사용하면 프로덕션 환경에서 시험 사용이 중단됩니다. 이 값을 복사한 다음, 필요한 시험 사용 필드에 붙여넣습니다.
+**Azure AD 앱 키 -** ‘필수’ 최종 필드에서는 인증 키를 생성합니다. 키 아래에 키 설명을 추가하고 기간을 만료 기한 제한 없음으로 설정한 후에 저장을 선택합니다. 만료된 키를 사용해서는 **안 됩니다**. 만료된 키를 사용하면 프로덕션 환경에서 시험 사용이 중단됩니다. 이 값을 복사한 다음 필요한 Test Drive 필드에 붙여넣습니다.
 
 ![Azure AD 애플리케이션에 대한 키를 표시합니다.](./media/azure-resource-manager-test-drive/subdetails8.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 모든 시험 사용 필드를 작성했으므로 제품을 **다시 게시**합니다. 시험 사용이 인증을 통과하면 제품 **미리 보기**에서 고객 경험을 포괄적으로 테스트해야 합니다. UI에서 시험 사용을 시작한 다음, Azure Portal 내에서 Azure 구독을 열고 시험 사용이 제대로 배포되는지 확인합니다.
+이제 모든 Test Drive 필드를 작성했으므로 제품을 **다시 게시**합니다. 시험 사용이 인증을 통과하면 제품 **미리 보기**에서 고객 경험을 포괄적으로 테스트해야 합니다. UI에서 시험 사용을 시작한 다음, Azure Portal 내에서 Azure 구독을 열고 시험 사용이 제대로 배포되는지 확인합니다.
 
 ![Azure portal](./media/azure-resource-manager-test-drive/subdetails9.png)
 

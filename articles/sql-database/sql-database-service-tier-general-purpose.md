@@ -1,5 +1,5 @@
 ---
-title: 범용 서비스 계층-Azure SQL Database
+title: 범용 서비스 계층
 description: Azure SQL Database 범용 계층에 대해 알아보기
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 02/07/2019
-ms.openlocfilehash: 8223e4061f842e42335777bbd613be2c43fe0857
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7c57755ae63f8af5a2a4faa4764bc6a9597e8c2d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687360"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819218"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>범용 서비스 계층 - Azure SQL Database
 

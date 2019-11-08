@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c59c5ba4e5447d01bb66b9f0ed2edcb948d34d40
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5ae6844cf11ffa095f56c429e17b9c39ad0c76aa
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693072"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822912"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 데이터 로드
 
@@ -61,7 +61,7 @@ Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집
    | ------- | --------------- | ----------- | 
    | **데이터베이스 이름** | SampleDW | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. | 
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
-   | **리소스 그룹** | SampleRG | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
+   | **리소스 그룹** | SampleRG | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. |
    | **원본 선택** | 빈 데이터베이스 | 빈 데이터베이스를 만들려면 지정합니다. 데이터 웨어하우스는 데이터베이스의 한 종류입니다.|
 
     ![데이터 웨어하우스 만들기](media/load-data-wideworldimportersdw/create-data-warehouse.png)
@@ -70,7 +70,7 @@ Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집
 
     | 설정 | 제안 값 | 설명 | 
     | ------- | --------------- | ----------- |
-    | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. | 
+    | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. | 
     | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
     | **위치**: | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
@@ -555,7 +555,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 이 스크립트는 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL 문을 사용하여 Azure Storage Blob에서 데이터 웨어하우스의 새로운 테이블로 데이터를 로드합니다. CTAS는 select 문의 결과에 따라 새 테이블을 만듭니다. 새 테이블은 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 포함합니다. select 문이 외부 테이블에서 선택할 경우 SQL Data Warehouse는 데이터를 데이터 웨어하우스의 관계형 테이블로 가져옵니다. 
 
-이 스크립트는 Wwi 및 fact_Sale 테이블에 데이터를 로드 하지 않습니다. 이러한 테이블은 테이블에 상당한 수의 행이 있도록 하기 위해 이후 단계에서 생성됩니다.
+이 스크립트는 wwi. dimension_Date 및 wwi. fact_Sale 테이블로 데이터를 로드 하지 않습니다. 이러한 테이블은 테이블에 상당한 수의 행이 있도록 하기 위해 이후 단계에서 생성됩니다.
 
 1. 다음 스크립트를 실행하여 데이터를 데이터 웨어하우스의 새 테이블로 로드합니다.
 
@@ -751,7 +751,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 ## <a name="create-tables-and-procedures-to-generate-the-date-and-sales-tables"></a>테이블 및 프로시저를 만들어 Date 및 Sales 테이블 생성
 
-이 섹션에서는 dimension_Date 및 fact_Sale 테이블을 만듭니다. 또한 dimension_Date 및 fact_Sale 테이블에 수백만 개의 행을 생성할 수 있는 저장 프로시저를 만듭니다.
+이 섹션은 wwi. dimension_Date 및 wwi. fact_Sale 테이블을 만듭니다. 또한 wwi. dimension_Date 및 wwi. fact_Sale 테이블에 수백만 개의 행을 생성할 수 있는 저장 프로시저를 만듭니다.
 
 1. dimension_Date 및 fact_Sale 테이블을 만듭니다.  
 
@@ -894,7 +894,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     DROP table #days;
     END;
     ```
-4. Dimension_Date 및 fact_Sale 테이블을 채우는이 프로시저를 만듭니다. 이는 [wwi].[PopulateDateDimensionForYear]를 호출하여 wwi.dimension_Date를 채웁니다.
+4. Dimension_Date 및 wwi. fact_Sale 테이블을 채우는이 프로시저를 만듭니다. 이는 [wwi].[PopulateDateDimensionForYear]를 호출하여 wwi.dimension_Date를 채웁니다.
 
     ```sql
     CREATE PROCEDURE [wwi].[Configuration_PopulateLargeSaleTable] @EstimatedRowsPerDay [bigint],@Year [int] AS
@@ -950,7 +950,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     ```
 
 ## <a name="generate-millions-of-rows"></a>수백만 개의 행 생성
-만든 저장 프로시저를 사용 하 여 fact_Sale 테이블에 수백만 개의 행을 생성 하 고 dimension_Date 테이블에 해당 데이터를 생성 합니다. 
+만든 저장 프로시저를 사용 하 여 wwi. fact_Sale 테이블 및 wwi. dimension_Date 테이블에 있는 해당 데이터에 수백만 개의 행을 생성 합니다. 
 
 
 1. 이 절차를 실행하여 더 많은 행으로 [wwi].[seed_Sale]을 시드합니다.
@@ -959,7 +959,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     EXEC [wwi].[InitialSalesDataPopulation]
     ```
 
-2. 이 절차를 실행 하 여 2000 년의 각 날짜에 대해 fact_Sale를 하루 10만 행으로 채웁니다.
+2. 이 프로시저를 실행 하 여 2000 년의 각 날짜에 대해 하루에 10만 행으로 wwi. fact_Sale을 채웁니다.
 
     ```sql
     EXEC [wwi].[Configuration_PopulateLargeSaleTable] 100000, 2000

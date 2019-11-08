@@ -1,6 +1,6 @@
 ---
 title: Azure CLI에서 IoT Central 관리 | Microsoft Docs
-description: Azure CLI에서 IoT Central를 관리 합니다.
+description: 이 문서에서는 CLI를 사용 하 여 IoT Central 응용 프로그램을 만들고 관리 하는 방법을 설명 합니다. CLI를 사용 하 여 응용 프로그램을 보고, 수정 하 고, 제거할 수 있습니다.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 91ef85a0e74af6488d22345ac056431ad5ba0533
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ddf1cfb1cb3997431b83812d03535ed990c88922
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953422"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73806882"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Azure CLI에서 IoT Central 관리
 
@@ -21,7 +21,7 @@ ms.locfileid: "72953422"
 
 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리 하는 대신 [Azure CLI](/cli/azure/) 를 사용 하 여 응용 프로그램을 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
 
-[Az iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create) 명령을 사용 하 여 Azure 구독에 IoT Central 응용 프로그램을 만듭니다. 다음은 그 예입니다.
+[Az iotcentral app create](/cli/azure/iotcentral/app#az-iotcentral-app-create) 명령을 사용 하 여 Azure 구독에 IoT Central 응용 프로그램을 만듭니다. 예:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application
@@ -50,12 +50,12 @@ az iotcentral app create \
 
 이러한 명령은 먼저 응용 프로그램에 대 한 미국 동부 지역에 리소스 그룹을 만듭니다. 다음 표에서는 **az iotcentral app create** 명령에 사용 되는 매개 변수에 대해 설명 합니다.
 
-| 매개 변수를 포함해야 합니다.         | 설명 |
+| 매개 변수         | 설명 |
 | ----------------- | ----------- |
 | resource-group    | 애플리케이션을 포함하는 리소스 그룹입니다. 리소스 그룹이 구독에 이미 있어야 합니다. |
 | location          | 기본적으로이 명령은 리소스 그룹의 위치를 사용 합니다. 현재 **미국 동부**, **미국 서 부**, **유럽**서 부, **유럽 서부** 지역 또는 **오스트레일리아** 또는 **아시아 태평양** 지역에서 IoT Central 응용 프로그램을 만들 수 있습니다. |
-| 이름              | Azure Portal의 애플리케이션 이름입니다. |
-| 도메인이         | 애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 https://mysubdomain.azureiotcentral.com 입니다. |
+| name              | Azure Portal의 애플리케이션 이름입니다. |
+| 도메인이         | 애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 https://mysubdomain.azureiotcentral.com입니다. |
 | sku               | 현재 유일한 값은 **S1**(표준 계층)입니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
 | template          | 사용할 애플리케이션 템플릿입니다. 자세한 내용은 다음 표를 참조하세요. |
 | display-name      | UI에 표시되는 애플리케이션 이름입니다. |
@@ -87,7 +87,7 @@ az iotcentral app update --name myiotcentralapp \
 
 ## <a name="remove-an-application"></a>애플리케이션 제거
 
-[Az iotcentral app delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) 명령을 사용 하 여 IoT Central 응용 프로그램을 삭제 합니다. 다음은 그 예입니다.
+[Az iotcentral app delete](/cli/azure/iotcentral/app#az-iotcentral-app-delete) 명령을 사용 하 여 IoT Central 응용 프로그램을 삭제 합니다. 예:
 
 ```azurecli-interactive
 az iotcentral app delete --name myiotcentralapp \

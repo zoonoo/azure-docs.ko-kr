@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 서버 리소스 제한
+title: 서버 리소스 제한
 description: 이 문서에서는 단일 데이터베이스 및 탄력적 풀에 대한 Azure SQL Database 서버 리소스 한도를 간략하게 설명합니다. 또한 이러한 리소스 한도에 도달하거나 초과할 때 발생하는 사항에 대한 정보도 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 04/18/2019
-ms.openlocfilehash: b358e69df1df579e91a9098c120c7e6b4e3f2ead
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 907fc89c0d9af01865037f650c407edd97e96645
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687491"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821152"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 서버의 SQL Database 리소스 한도
 
@@ -88,7 +88,7 @@ ms.locfileid: "73687491"
 
 런타임에 적용 되는 실제 로그 생성 요금은 피드백 메커니즘의 영향을 받을 수 있으므로 시스템이 안정화 될 수 있도록 허용 가능한 로그 비율을 일시적으로 줄일 수 있습니다. 로그 파일 공간 관리를 사용 하 여 로그 공간 부족 상태를 방지 하 고 가용성 그룹 복제 메커니즘을 통해 전체 시스템 제한을 일시적으로 낮출 수 있습니다. 
 
-로그 전송률 관리자 트래픽 셰이핑은 다음 대기 유형 ( [sys. dm _db_stststst_ststst_ststst_ststnstn_stn_st](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database)
+로그 전송률 관리자 트래픽 셰이핑은 다음 대기 유형 ( [dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV에 노출 됨)을 통해 표시 됩니다.
 
 | 대기 유형 | 참고 사항 |
 | :--- | :--- |

@@ -1,6 +1,6 @@
 ---
 title: 연결된 팩터리 토폴로지 구성 - Azure | Microsoft Docs
-description: 연결된 팩터리 솔루션 가속기의 토폴로지를 구성하는 방법입니다.
+description: 이 문서에서는 토폴로지를 포함 하 여 연결 된 팩터리 솔루션 가속기를 구성 하는 방법을 설명 합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3ddbf5832424cdafad2c29254f51754203c7f079
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 5fa3d4d4fdfa0dd81cd8ab8772ffb3903dda289f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67428313"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820125"
 ---
 # <a name="configure-the-connected-factory-solution-accelerator"></a>연결된 팩터리 솔루션 가속기 구성
 
@@ -262,14 +262,14 @@ ms.locfileid: "67428313"
 
 ### <a name="visual-appearance"></a>시각적 모양
 
-이 범주의 속성이 연결된 팩터리 대시보드의 시각적 모양을 정의합니다. 다음은 이러한 템플릿의 예입니다.
+이 범주의 속성이 연결된 팩터리 대시보드의 시각적 모양을 정의합니다. 예를 들면 다음과 같습니다.
 
-* 이름
+* Name
 * 설명
 * 이미지
-* Location
+* 위치
 * Units
-* 표시
+* Visible
 
 ### <a name="internal-topology-tree-addressing"></a>내부 토폴로지 트리 주소 지정
 
@@ -282,7 +282,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 * OPC UA 노드 값은 계산에 포함되어야 합니다.
 * 수치가 원격 분석 값에서 계산되는 방식입니다.
 
-연결 된 공장에서 게시 하는 대로 OEE 수식을 사용 합니다 [ http://www.oeefoundation.org ](http://www.oeefoundation.org)합니다.
+연결 된 팩터리는 [http://www.oeefoundation.org](http://www.oeefoundation.org)에서 게시 된 oee 수식을 사용 합니다.
 
 스테이션의 OPC UA 노드 개체를 사용하여 OEE/KPI 계산용으로 태그를 지정할 수 있습니다. **Relevance** 속성은 OPC UA 노드 값을 사용해야 하는 OEE/KPI 수치를 나타냅니다. **OpCode** 속성은 값을 계산에 사용할 방식을 정의합니다.
 
@@ -307,7 +307,7 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 
   OPC UA 서버에서 노드 값을 식별합니다. 속성의 형식은 UA OPC 사양에 지정되어야 합니다. 수집된 메시지에서 이 속성은 **NodeId**로 전송됩니다.
 
-참조 [OPC 게시자 이란](overview-opc-publisher.md) 원격 분석 데이터가 연결 된 팩터리로 수집 되는 방법에 대 한 자세한 내용은 합니다.
+원격 분석 데이터를 연결 된 팩터리에 수집 하는 방법에 대 한 자세한 내용은 [OPC 게시자 란?](overview-opc-publisher.md) 을 참조 하세요.
 
 ## <a name="example-how-kpi1-is-calculated"></a>예제: KPI1 계산 방법
 
@@ -340,4 +340,4 @@ WebApp은 모든 토폴로지 노드의 정보를 포함하는 내부 데이터 
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대해 알아보려면 다음 단계는 권장 하는 방법 [연결 된 팩터리 솔루션 사용자 지정](iot-accelerators-connected-factory-customize.md)합니다.
+제안 된 다음 단계는 [연결 된 팩터리 솔루션을 사용자 지정](iot-accelerators-connected-factory-customize.md)하는 방법을 설명 하는 것입니다.

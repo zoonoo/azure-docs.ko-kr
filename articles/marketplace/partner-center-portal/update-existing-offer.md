@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 9cefdc9354560ac5b7f3789cde2408a4c255c186
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f2cb1907557c2440a5a94c0f4799eac95a8cf507
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191770"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827852"
 ---
 # <a name="update-an-existing-offer-in-the-commercial-marketplace"></a>상업적 Marketplace에서 기존 제품 업데이트
 
@@ -31,7 +32,7 @@ Marketplace에 현재 살고 있는 기존 제품을 업데이트 하려면 다�
 
 - 업데이트 한 제품의 섹션에 대 한 완료 상태를 확인 합니다. 
     - **게시 되지 않은 변경 내용**: 섹션이 업데이트 되었으며 완료 되었습니다. 필요한 데이터를 모두 제공 했으며 업데이트에 오류가 발생 하지 않았습니다.
-    - **불완전**: 섹션에 대 한 업데이트에서 수정 해야 하거나 더 많은 정보를 제공 해야 하는 오류를 도입 했습니다.
+    - **불완전**: 수정 해야 하거나 더 많은 정보를 제공 해야 하는 오류가 도입 된 섹션에 대 한 업데이트입니다.
 - 테스트를 원활 하 게 진행 하려면 인증 테스트 팀에 추가 정보를 제공 하세요.
 - **제출**을 선택 하 여 게시를 위해 업데이트 된 제품을 제출 합니다.  업데이트 된 제품의 미리 보기 버전을 검토 하 고 로그 오프 하는 데 전자 메일을 보낼 수 있습니다.
 

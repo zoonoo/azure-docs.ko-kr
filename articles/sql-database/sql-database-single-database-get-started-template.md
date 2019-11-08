@@ -1,5 +1,5 @@
 ---
-title: 'Azure Resource Manager: 단일 데이터베이스 만들기 - Azure SQL Database | Microsoft Docs'
+title: 'Azure Resource Manager: 단일 데이터베이스 만들기'
 description: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스를 만듭니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: mumian
 ms.author: jgao
 ms.reviewer: carlrab
 ms.date: 06/28/2019
-ms.openlocfilehash: f3e9bb0e9a2c4c58a205798441ddc2208019e7d2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b7888215a2d463c8007168e215179ace898ca1cc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566572"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821031"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure SQL Database에서 단일 데이터베이스 만들기
 

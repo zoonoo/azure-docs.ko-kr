@@ -1,5 +1,5 @@
 ---
-title: 롤링 응용 프로그램 업그레이드-Azure SQL Database
+title: 응용 프로그램 업그레이드 롤링
 description: Azure SQL Database 지역에서 복제를 사용하여 클라우드 애플리케이션의 온라인 업그레이드를 지원하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 253a10e75832cf6ee8294405e34fa93b801c1b49
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9c627c3e597fdcd3859ce02ea208fc7a8b5d612b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689489"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822868"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>SQL Database 활성 지역 복제를 사용하여 클라우드 애플리케이션의 롤링 업그레이드 관리
 

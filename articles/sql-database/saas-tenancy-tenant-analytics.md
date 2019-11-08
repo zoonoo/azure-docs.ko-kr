@@ -1,5 +1,5 @@
 ---
-title: 추출된 데이터를 사용하여 교차 테넌트 분석 실행 | Microsoft Docs
+title: 추출된 데이터를 사용한 교차 테넌트 분석
 description: 단일 테넌트 앱의 여러 Azure SQL Database 데이터베이스에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 12/18/2018
-ms.openlocfilehash: 2c24a87377eb4b893cbcae1b9a36522e586a6d56
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c589d9619da8b5150d0fb4752625571c48393552
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570153"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826373"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 단일 테넌트 앱
  
@@ -64,12 +64,12 @@ ms.locfileid: "68570153"
 
 ## <a name="setup"></a>설정
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>필수 조건
 
 이 자습서를 수행하려면 다음 필수 조건이 충족되었는지 확인합니다.
 
 - Wingtip Tickets SaaS Database Per Tenant 애플리케이션이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip SaaS 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
-- Wingtip Tickets SaaS Database Per Tenant 스크립트와 애플리케이션 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다. Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 확인하세요.
+- Wingtip Tickets SaaS Database Per Tenant 스크립트와 애플리케이션 [소스 코드](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/)를 GitHub에서 다운로드해야 합니다. 다운로드 지침을 참조하세요. 콘텐츠를 추출하기 전에 *zip 파일의 차단을 해제*해야 합니다. [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)에서 Wingtip Tickets SaaS 스크립트를 다운로드하고 차단을 해제하는 단계를 확인하세요.
 - Power BI Desktop이 설치되어 있어야 합니다. [Power BI Desktop 다운로드](https://powerbi.microsoft.com/downloads/)
 - 추가 테넌트 배치가 프로비전되어 있어야 합니다. [**테넌트 프로비전 자습서**](saas-dbpertenant-provision-and-catalog.md)를 참조하세요.
 - 작업 계정과 jobaccount 데이터베이스가 생성되어 있어야 합니다. [**스키마 관리 자습서**](saas-tenancy-schema-management.md#create-a-job-agent-database-and-new-job-agent)에서 해당 단계를 참조하세요.
@@ -90,9 +90,9 @@ ms.locfileid: "68570153"
 2. 선택한 분석 저장소에 맞도록 $DemoScenario 값을 설정합니다.
     - 열 저장소가 없는 SQL 데이터베이스를 사용하려면 **$DemoScenario** = **2**로 설정합니다.
     - 열 저장소가 있는 SQL 데이터베이스를 사용하려면 **$DemoScenario** = **3**으로 설정합니다.  
-3. **F5** 키를 눌러 테 넌 트 분석 저장소를 만드는 데모 스크립트 ( *tenantanalytics\<XX >. ps1* 스크립트)를 실행 합니다. 
+3. **F5** 키를 눌러 테 넌 트 분석 저장소를 만드는 데모 스크립트 ( *TENANTANALYTICS\<XX >. ps1* 스크립트)를 실행 합니다. 
 
-응용 프로그램을 배포 하 고 관심 있는 테 넌 트 데이터로 채운 후에 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 를 사용 하 여 **tenants1-&lt;user&gt;**  및 **user-&lt;user와연결합니다.&gt;** Login = *developer*, Password = *P\@ssword1*를 사용 하는 서버 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
+응용 프로그램을 배포 하 고 관심 있는 테 넌 트 데이터로 채운 후에 [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) 를 사용 하 여 **User-&lt;사용자&gt;** 및 **카탈로그-user-&lt;사용자&gt;** 서버에 연결 합니다. Login = *developer*, Password = *P\@ssword1*를 사용 합니다. 자세한 내용은 [입문용 자습서](saas-dbpertenant-wingtip-app-overview.md)를 참조하세요.
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -117,7 +117,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
 계속하기 전에 작업 계정과 jobaccount 데이터베이스가 배포되었는지 확인해야 합니다. 이어지는 단계에서는 탄력적 작업을 사용하여 각 테넌트 데이터베이스에서 데이터를 추출하고 추출한 데이터를 분석 저장소에 저장합니다. 그런 다음 두 번째 작업을 사용하여 데이터를 단편화하고 단편화된 데이터를 스타 스키마 테이블에 저장합니다. 이 두 개의 작업은 **TenantGroup** 그룹과 **AnalyticsGroup** 그룹이라는 서로 다른 그룹을 대상으로 실행됩니다. 추출 작업은 모든 테넌트 데이터베이스를 포함하는 TenantGroup을 대상으로 실행됩니다. 단편화 작업은 분석 저장소만 포함하는 AnalyticsGroup을 대상으로 실행됩니다. 다음 단계에 따라 대상 그룹을 만듭니다.
 
-1. SSMS에서 catalog-dpt-&lt;User&gt;의 **jobaccount** 데이터베이스에 접속합니다.
+1. SSMS에서 catalog-dpt-**User**의 &lt;jobaccount&gt; 데이터베이스에 접속합니다.
 2. SSMS에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql*을 엽니다. 
 3. 스크립트 상단의 @User 변수를 수정합니다. 즉, Wingtip SaaS 앱을 배포할 때 사용한 사용자 값으로 `<User>`를 변경합니다.
 4. **F5** 키를 눌러 스크립트를 실행하여 두 개의 대상 그룹을 만듭니다.
@@ -131,7 +131,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
 각 작업은 데이터를 추출하고 추출한 데이터를 분석 저장소에 저장합니다. 분석 저장소에서는 데이터가 또 다른 작업에 의해 분석 스타 스키마로 단편화됩니다.
 
-1. SSMS에서 catalog-dpt-&lt;User&gt; 서버의 **jobaccount** 데이터베이스에 접속합니다.
+1. SSMS에서 catalog-dpt-**User** 서버의 &lt;jobaccount&gt; 데이터베이스에 접속합니다.
 2. SSMS에서 *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*을 엽니다.
 3. 스크립트 상단의 @User를 수정합니다. 즉, Wingtip SaaS 앱을 배포할 때 사용한 사용자 이름으로 `<User>`를 변경합니다. 
 4. F5 키를 눌러 스크립트를 실행합니다. 각 테넌트 데이터베이스에서 티켓 및 고객 데이터를 추출하는 작업이 생성되고 실행됩니다. 추출된 데이터는 분석 저장소에 저장됩니다.
@@ -151,7 +151,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
 이 섹션에서는 추출된 원시 데이터와 스타 스키마 테이블의 데이터를 병합하는 작업을 정의하고 실행합니다. 병합 작업이 완료되면 원시 데이터가 삭제되고 테이블에 다음번 테넌트 데이터 추출 작업에 의해 추출된 데이터를 입력할 준비가 됩니다.
 
-1. SSMS에서 catalog-dpt-&lt;User&gt;의 **jobaccount** 데이터베이스에 접속합니다.
+1. SSMS에서 catalog-dpt-**User**의 &lt;jobaccount&gt; 데이터베이스에 접속합니다.
 2. SSMS에서 *…\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql*을 엽니다.
 3. **F5** 키를 눌러 스크립트를 실행합니다. 분석 저장소의 sp_ShredRawExtractedData 저장 프로시저를 호출하는 작업이 정의됩니다.
 4. 작업이 완료될 때까지 기다립니다.
@@ -174,7 +174,7 @@ SSMS 개체 탐색기에서 분석 저장소 노드를 확장하여 다음과 �
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. 왼쪽 창에서 **데이터베이스** 를 선택 하 고 사용자 이름 = *개발자*를 입력 한 다음 password = *P\@ssword1*을 입력 합니다. **연결**을 클릭합니다.  
+5. 왼쪽 창에서 **데이터베이스** 를 선택 하 고 사용자 이름 = *개발자*를 입력 한 다음 password = *P\@ssword1*를 입력 합니다. **Connect**를 클릭합니다.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 
@@ -226,7 +226,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아보았습니다.
+이 자습서에서는 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > - 사전 정의된 스타 스키마 테이블을 사용하여 테넌트 분석 데이터베이스 배포하기
@@ -237,7 +237,7 @@ AverageTicketsSold = AVERAGEX( SUMMARIZE( TableName, TableName[Venue Name] ), CA
 
 축하합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 - [Wingtip SaaS 애플리케이션을 사용하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).
 - [탄력적 작업](elastic-jobs-overview.md).

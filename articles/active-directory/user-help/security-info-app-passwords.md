@@ -1,5 +1,5 @@
 ---
-title: 보안 정보(미리 보기) 페이지에서 앱 암호 설정 - Azure Active Directory | Microsoft Docs
+title: 보안 정보 (미리 보기)에서 앱 암호 만들기-Azure AD
 description: 조직에서 비브라우저 앱 또는 2단계 인증을 지원하지 않는 앱에 사용할 자동 생성 암호(앱 암호)를 설정합니다. 이 앱 암호는 일반 암호와 별개이며 보안 정보 페이지에서 설정할 수 있습니다.
 services: active-directory
 author: eross-msft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9638893c707757cb520acdf18e8e89a6cdf13f08
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: eb26d90772fc9e3e3e506946363c76cf02e6b2ef
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915987"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820336"
 ---
-# <a name="manage-app-passwords-from-your-security-info-preview-page"></a>보안 정보(미리 보기) 페이지에서 앱 암호 관리
+# <a name="create-app-passwords-from-your-security-info-preview-page"></a>보안 정보 (미리 보기) 페이지에서 앱 암호 만들기
 
 Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다. 따라서 조직에서 2단계 인증을 사용하는 경우 앱이 작동하지 않습니다. 이 문제를 해결하려면 사용자의 일반 암호와는 별도로 자동으로 생성된 암호를 만들어 각 비 브라우저 앱과 함께 사용할 수 있습니다.
 
@@ -52,7 +52,7 @@ Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다
 
 2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
 
-    ![방법 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. **방법 추가** 페이지의 드롭다운 목록에서 **앱 암호**를 선택한 다음, **추가**를 선택합니다.
 
@@ -83,6 +83,6 @@ Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다
 
 2. 확인 상자에서 **예**를 선택하여 **앱 암호**를 삭제합니다. 앱 암호가 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다.
 
-## <a name="for-more-information"></a>자세한 내용은 다음을 참조하세요.
+## <a name="for-more-information"></a>Blob에 대한 자세한 내용은
 
 - **보안 정보** 페이지 및 설정 방법에 대한 자세한 내용은 [보안 정보 개요](user-help-security-info-overview.md)를 참조하세요.

@@ -1,21 +1,22 @@
 ---
-title: Azure 관리 솔루션을 Azure Marketplace에 게시
-description: Azure 관리 솔루션을 Azure Marketplace에 게시
+title: Azure Marketplace에 Azure 관리 솔루션 게시
+description: Azure Marketplace에 Azure 관리 솔루션 게시
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: e8ed19d9e90aa0551d8996ddc9a4cba3bc338056
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0d1ba2c95a4f7babe0aca2bda82658e8ada1d983
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935072"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819564"
 ---
-<a name="publish-an-azure-management-solution-to-azure-marketplace"></a>Azure 관리 솔루션을 Azure Marketplace에 게시 
+<a name="publish-an-azure-management-solution-to-azure-marketplace"></a>Azure Marketplace에 Azure 관리 솔루션 게시 
 ========================================================
 
 > [!IMPORTANT]

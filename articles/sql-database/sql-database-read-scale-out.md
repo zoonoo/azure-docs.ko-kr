@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database - 복제본에 대한 쿼리 읽기 | Microsoft Docs
+title: 복제본에 대 한 쿼리 읽기
 description: Azure SQL Database는 읽기 확장 이라는 읽기 전용 복제본의 용량을 사용 하 여 읽기 전용 작업의 부하를 분산 하는 기능을 제공 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: 73c31a60fb14df00f50fefb35ca123298241c61d
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 1f47b01c4a9227d0e2ee45b17645b2ae97e4ba3d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812378"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821222"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>읽기 전용 복제본을 사용 하 여 읽기 전용 쿼리 작업 부하 분산
 
@@ -30,7 +30,7 @@ ms.locfileid: "71812378"
 
 ![읽기 전용 복제본](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-읽기 확장 기능은 새 Premium, 중요 비즈니스용 및 Hyperscale 데이터베이스에서 기본적으로 사용 하도록 설정 됩니다. Hyperscale의 경우 기본적으로 새 데이터베이스에 대해 하나의 보조 복제본이 생성 됩니다. SQL 연결 문자열이를 사용 `ApplicationIntent=ReadOnly`하 여 구성 된 경우 응용 프로그램은 해당 데이터베이스의 읽기 전용 복제본에 대 한 게이트웨이로 리디렉션됩니다. `ApplicationIntent` 속성을 사용 하는 방법에 대 한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조 하세요.
+읽기 확장 기능은 새 Premium, 중요 비즈니스용 및 Hyperscale 데이터베이스에서 기본적으로 사용 하도록 설정 됩니다. Hyperscale의 경우 기본적으로 새 데이터베이스에 대해 하나의 보조 복제본이 생성 됩니다. SQL 연결 문자열이 `ApplicationIntent=ReadOnly`구성 된 경우 해당 데이터베이스의 읽기 전용 복제본에 대 한 응용 프로그램이 해당 데이터베이스의 읽기 전용 복제본으로 리디렉션됩니다. `ApplicationIntent` 속성을 사용 하는 방법에 대 한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조 하세요.
 
 SQL 연결 문자열의 `ApplicationIntent` 설정에 관계 없이 응용 프로그램이 주 복제본에 연결 되도록 하려면 데이터베이스를 만들 때 또는 구성을 변경할 때 읽기 확장을 명시적으로 해제 해야 합니다. 예를 들어 데이터베이스를 Standard 또는 범용 계층에서 Premium, 중요 비즈니스용 또는 Hyperscale 계층으로 업그레이드 하 고 모든 연결이 주 복제본으로 계속 진행 되도록 하려면 읽기 확장을 사용 하지 않도록 설정 합니다. 사용 하지 않도록 설정 하는 방법에 대 한 자세한 내용은 [읽기 확장 사용 및 사용 안 함](#enable-and-disable-read-scale-out)을 참조 하세요.
 
@@ -75,10 +75,10 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 ## <a name="monitoring-and-troubleshooting-read-only-replica"></a>읽기 전용 복제본 모니터링 및 문제 해결
 
-읽기 전용 복제본에 연결 된 경우 `sys.dm_db_resource_stats` DMV를 사용 하 여 성능 메트릭에 액세스할 수 있습니다. 쿼리 계획 통계에 액세스 하려면 `sys.dm_exec_query_stats`, `sys.dm_exec_query_plan` 및 `sys.dm_exec_sql_text` dmv를 사용 합니다.
+읽기 전용 복제본에 연결 된 경우 `sys.dm_db_resource_stats` DMV를 사용 하 여 성능 메트릭에 액세스할 수 있습니다. 쿼리 계획 통계에 액세스 하려면 `sys.dm_exec_query_stats`, `sys.dm_exec_query_plan` 및 `sys.dm_exec_sql_text` Dmv를 사용 합니다.
 
 > [!NOTE]
-> 논리적 master `sys.resource_stats` 데이터베이스의 DMV는 주 복제본의 CPU 사용량 및 저장소 데이터를 반환 합니다.
+> 논리 master 데이터베이스의 DMV `sys.resource_stats`는 주 복제본의 CPU 사용량 및 저장소 데이터를 반환 합니다.
 
 
 ## <a name="enable-and-disable-read-scale-out"></a>읽기 확장 사용 및 사용 안 함
@@ -90,7 +90,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 > [!NOTE]
 > 읽기 확장을 사용 하지 않도록 설정 하는 기능은 이전 버전과의 호환성을 위해 제공 됩니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 데이터베이스 **구성** 블레이드에서 읽기 확장 설정을 관리할 수 있습니다. 
 
@@ -98,7 +98,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 
 Azure PowerShell에서 읽기 확장을 관리하려면 2016년 12월 Azure PowerShell 릴리스 이상이 필요합니다. 최신 PowerShell 버전은 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)을 참조하세요.
 
-[AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet을 호출 하 고 `Enabled` `-ReadScale` 매개 변수에 대해 원하는 값 (또는 `Disabled` --)을 전달 하 여 Azure PowerShell에서 읽기 확장을 사용 하지 않도록 설정 하거나 다시 사용 하도록 설정할 수 있습니다. 
+Azure PowerShell에서 읽기 확장을 사용 하지 않도록 설정 하거나 다시 사용 하도록 설정할 수 있습니다. `-ReadScale` 매개 변수에 대해 원하는 값 – `Enabled` 또는 `Disabled`를 전달 하 여 [AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet을 호출 합니다. 
 
 기존 데이터베이스에서 읽기 확장을 사용 하지 않도록 설정 하려면 다음을 수행 합니다 (꺾쇠 괄호 안의 항목을 사용자 환경에 맞는 값으로 바꾸고 꺾쇠 괄호는 삭제 함).
 
@@ -119,7 +119,7 @@ Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -D
 
 ### <a name="rest-api"></a>REST API
 
-읽기 확장을 사용 하지 않도록 설정 된 데이터베이스를 만들거나 기존 데이터베이스의 설정을 변경 하려면 아래 샘플 요청에서와 같이 `readScale` `Enabled` 또는 `Disabled` 로 설정 된 속성을 사용 하 여 다음 메서드를 사용 합니다.
+읽기 확장을 사용 하지 않도록 설정 된 데이터베이스를 만들거나 기존 데이터베이스의 설정을 변경 하려면 아래 샘플 요청에서와 같이 `readScale` 속성이 `Enabled` 또는 `Disabled`으로 설정 된 다음 메서드를 사용 합니다.
 
 ```rest
 Method: PUT
@@ -141,7 +141,7 @@ TempDB 데이터베이스가 읽기 전용 복제본으로 복제 되지 않습�
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>지역 복제 데이터베이스에서 읽기 확장 사용
 
-장애 조치 (failover) 그룹의 구성원 인 경우와 같이 지역에서 복제 된 데이터베이스에서 읽기 확장을 사용 하 여 읽기 전용 작업 부하를 분산 하는 경우 주 데이터베이스와 지역에서 복제 된 보조 데이터베이스 모두에서 읽기 확장을 사용 하도록 설정 했는지 확인 합니다. 이 구성은 응용 프로그램이 장애 조치 (failover) 후 새 주 복제본에 연결 될 때 동일한 부하 분산 환경을 계속 유지 합니다. 읽기 확장을 사용할 수 있는 지역 복제된 보조 데이터베이스에 연결하는 경우, `ApplicationIntent=ReadOnly`가 있는 세션은 주 데이터베이스에서 연결을 라우팅하는 것과 동일한 방식으로 복제본 중 하나로 라우팅됩니다.  `ApplicationIntent=ReadOnly`가 없는 세션은 역시 읽기 전용인 지역 복제된 보조 데이터베이스의 주 복제본으로 라우팅됩니다. 지리적으로 복제 된 보조 데이터베이스는 주 데이터베이스와 다른 끝점을 사용 하기 때문에 보조 데이터베이스에 액세스 하려면를 설정 `ApplicationIntent=ReadOnly`하지 않아도 됩니다. 이전 버전과의 호환성을 보장하기 위해 `sys.geo_replication_links` DMV에 `secondary_allow_connections=2`(모든 클라이언트 연결이 허용됨)가 표시됩니다.
+장애 조치 (failover) 그룹의 구성원 인 경우와 같이 지역에서 복제 된 데이터베이스에서 읽기 확장을 사용 하 여 읽기 전용 작업 부하를 분산 하는 경우 주 데이터베이스와 지역에서 복제 된 보조 데이터베이스 모두에서 읽기 확장을 사용 하도록 설정 했는지 확인 합니다. 이 구성은 응용 프로그램이 장애 조치 (failover) 후 새 주 복제본에 연결 될 때 동일한 부하 분산 환경을 계속 유지 합니다. 읽기 확장을 사용할 수 있는 지역 복제된 보조 데이터베이스에 연결하는 경우, `ApplicationIntent=ReadOnly`가 있는 세션은 주 데이터베이스에서 연결을 라우팅하는 것과 동일한 방식으로 복제본 중 하나로 라우팅됩니다.  `ApplicationIntent=ReadOnly`가 없는 세션은 역시 읽기 전용인 지역 복제된 보조 데이터베이스의 주 복제본으로 라우팅됩니다. 지리적으로 복제 된 보조 데이터베이스는 주 데이터베이스와 다른 끝점을 사용 하기 때문에 보조 데이터베이스에 액세스 하려면 `ApplicationIntent=ReadOnly`를 설정 하지 않아도 됩니다. 이전 버전과의 호환성을 보장하기 위해 `sys.geo_replication_links` DMV에 `secondary_allow_connections=2`(모든 클라이언트 연결이 허용됨)가 표시됩니다.
 
 > [!NOTE]
 > 보조 데이터베이스의 로컬 복제본 간에 라운드 로빈 또는 다른 부하 분산 라우팅이 지원 되지 않습니다.

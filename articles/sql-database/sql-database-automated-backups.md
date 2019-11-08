@@ -1,5 +1,5 @@
 ---
-title: 자동 지역 중복 백업 Azure SQL Database
+title: 자동 지역 중복 백업
 description: SQL Database는 몇 분마다 로컬 데이터베이스 백업을 자동으로 만들고 Azure 읽기 액세스 지역 중복 스토리지를 사용하여 지리적 중복을 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 09/26/2019
-ms.openlocfilehash: 5dd2cb8d266fcb2a17c50a2213509b968894737e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 114a5bbfd71fc0847c2b1bc65a8ba0bfa0df1add
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691182"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821938"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 

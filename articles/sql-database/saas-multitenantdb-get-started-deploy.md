@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database를 사용 하는 분할 된 다중 테 넌 트 데이터베이스 SaaS 앱 배포 '
+title: 분할 된 다중 테 넌 트 데이터베이스 SaaS 앱 배포
 description: Azure SQL Database를 사용하여 SaaS 패턴을 보여 주는 분할된 Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션을 배포하고 탐색합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, stein
 ms.date: 10/16/2018
-ms.openlocfilehash: aa61c9af2e8fbfbe1caeaffb6231afe5b8be6f3c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3277318e01362df8fc21ff7ca769aaeb8006abc6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692055"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73828002"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>분할된 다중 테넌트 애플리케이션 배포 및 탐색
 

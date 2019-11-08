@@ -1,5 +1,5 @@
 ---
-title: Data Factory 버전 1과 Azure Data Factory 비교 | Microsoft Docs
+title: Data Factory 버전 1과 Azure Data Factory 비교
 description: 이 아티클에서는 Azure Data Factory 버전 1과 Azure Data Factory를 비교합니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: 4cdb517e644d55504bfdafbd3bacdfd4bfa0b36c
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: cab4f156aa1fb2fa4d3b122377be1b28337f15a9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479297"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73681601"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Data Factory 버전 1과 Azure Data Factory 비교
 이 아티클에서는 Data Factory 버전 1과 Data Factory를 비교합니다. Data Factory에 대한 소개는 [Data Factory 소개](introduction.md)를 참조하세요. 데이터 팩터리 버전 1에 대한 소개는 [Azure Data Factory 소개](v1/data-factory-introduction.md)를 참조하세요. 

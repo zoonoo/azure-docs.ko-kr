@@ -1,5 +1,5 @@
 ---
-title: 'Azure Monitor 로그를 사용 하 여 Azure SQL 데이터 동기화 모니터링 '
+title: Azure Monitor 로그를 사용 하 여 SQL 데이터 동기화 모니터링
 description: Azure Monitor 로그를 사용 하 여 Azure SQL 데이터 동기화를 모니터링 하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 12/20/2018
-ms.openlocfilehash: 9e89ad8e6ac556df87a674efdf2d3bbc2041c38b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 031482fc0b87e095fcb19046564e15642050f261
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687036"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820810"
 ---
 # <a name="monitor-sql-data-sync-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 SQL 데이터 동기화 모니터링 
 

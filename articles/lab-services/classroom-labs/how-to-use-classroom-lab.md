@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/19/2019
 ms.author: spelluru
-ms.openlocfilehash: 10813600621293e9f559129230193f81ea0c505a
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 2ac9e8b8d0635eceb7d4f85ad867b102f7d064f5
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161528"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585134"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Azure Lab Services의 클래스룸 랩에 액세스하는 방법
 이 문서에서는 클래스룸 랩에 등록하고, 액세스할 수 있는 모든 랩을 살펴보고, 랩에서 VM을 시작/중지하고, VM에 연결하는 방법을 설명합니다. 
@@ -107,7 +107,7 @@ ms.locfileid: "71161528"
 2. 랩에 등록하는 데 사용한 사용자 계정을 사용하여 서비스에 로그인합니다. 
 3. 액세스 권한이 있는 모든 랩이 표시되는지 확인합니다. 
 
-    ![모든 랩 보기](../media/how-to-use-classroom-lab/all-labs.png)
+    ![모든 랩 보기](../media/how-to-manage-classroom-labs/all-labs.png)
 
 
 ## <a name="next-steps"></a>다음 단계

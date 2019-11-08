@@ -1,5 +1,5 @@
 ---
-title: 가속화 데이터베이스 복구-Azure SQL Database
+title: 가속 데이터베이스 복구
 description: Azure SQL Database에 새로운 기능이 도입되어, Azure SQL Database의 단일 데이터베이스 및 풀링된 데이터베이스와 Azure SQL Data Warehouse의 데이터베이스를 대상으로 신속하고 일관되게 데이터베이스를 복구하고, 즉시 트랜잭션을 롤백하고, 적극적으로 로그를 잘라낼 수 있습니다.
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,12 +10,12 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: cff481c7c2e09da1dc8c8e2f971d9adb164d54da
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: eff81693ff4c34dc00f66e9e5ea22e56d3ff9d77
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796113"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808099"
 ---
 # <a name="accelerated-database-recovery"></a>가속화 데이터베이스 복구
 

@@ -1,18 +1,19 @@
 ---
-title: Azure 클라우드 파트너 포털 둘러보기 | Azure Marketplace
-description: Azure Marketplace에 대 한 클라우드 파트너 포털의 사용자 환경 간략하게 설명 합니다.
+title: Azure Cloud 파트너 포털 둘러보기 | Azure Marketplace
+description: Azure Marketplace Cloud 파트너 포털의 사용자 환경에 대 한 개요입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: pabutler
-ms.openlocfilehash: b0bf7af9b81025202c2fffa2a264982c9986e10b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 85ddf2e2141ad77321710ad03e4d7f67572f3688
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943447"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821460"
 ---
 # <a name="cloud-partner-portal-tour"></a>Cloud 파트너 포털 둘러보기
 

@@ -1,5 +1,5 @@
 ---
-title: 일반적인 2 단계 인증 문제 해결-Azure Active Directory | Microsoft Docs
+title: 일반적인 2 단계 인증 문제 해결-Azure AD
 description: 몇 가지 일반적인 2 단계 인증 문제에 대 한 가능한 해결 방법에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.date: 10/28/2019
 ms.author: lizross
 ms.reviewer: kexia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb510755e7cc163af8ff0cb2c8699e1d2dd04d7f
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: f8d226d61f4b67541a6991fef3a435b4cfff500f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043216"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805294"
 ---
 # <a name="troubleshoot-common-two-factor-verification-problems"></a>일반적인 2 단계 인증 문제 해결
 
@@ -104,9 +104,9 @@ ms.locfileid: "73043216"
 
 이러한 단계를 시도해도 여전히 문제가 발생 하는 경우 지원 센터에 문의 하십시오.
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 
-- [2단계 확인 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
+- [2단계 인증 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
 
 - [2 단계 인증을 위한 계정 설정](multi-factor-authentication-end-user-first-time.md)
 

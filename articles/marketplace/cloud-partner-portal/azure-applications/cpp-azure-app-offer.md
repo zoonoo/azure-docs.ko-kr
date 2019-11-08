@@ -1,18 +1,19 @@
 ---
-title: Azure 응용 프로그램 제품 | Azure Marketplace
+title: Azure 애플리케이션 제품 | Azure Marketplace
 description: Azure 애플리케이션 제품을 Azure Marketplace에 게시하는 프로세스에 대한 개요입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: pabutler
-ms.openlocfilehash: 3691664ee6212f838e7a9b95089893e4b52c689f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9125b5c71b63b27c58ea72b7bfd49f730854b33d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943024"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818799"
 ---
 # <a name="azure-application-offer"></a>Azure 애플리케이션 제품
 
@@ -38,7 +39,7 @@ Azure 애플리케이션에는 관리형 애플리케이션과 솔루션 템플�
 Azure Marketplace 외에, 서비스 카탈로그에 관리형 애플리케이션을 제공할 수 있습니다. 서비스 카탈로그는 조직 내 사용자에 대해 승인된 솔루션의 내부 카탈로그입니다. 조직에 그룹을 위한 솔루션을 제공하면서, 카탈로그를 사용하여 조직의 표준을 준수합니다. 직원은 카탈로그를 사용하여 IT 부서에서 권장하고 승인한 애플리케이션을 손쉽게 찾습니다.
 
 >[!Note]
->클라우드 솔루션 공급자 (CSP) 파트너 채널 옵트인를 출시 되었습니다.  참조 하세요 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) Microsoft CSP를 통해 제품을 마케팅 하는 방법은 채널 파트너입니다.
+>이제 CSP (클라우드 솔루션 공급자) 파트너 채널 옵트인을 사용할 수 있습니다.  Microsoft CSP 파트너 채널을 통한 제품 마케팅에 대 한 자세한 내용은 [클라우드 솔루션 공급자](../../cloud-solution-providers.md) 를 참조 하세요.
 
 관리되는 애플리케이션의 장점 및 유형에 대한 자세한 내용은 [Azure Managed Applications 개요](https://docs.microsoft.com/azure/managed-applications/overview)를 참조하세요.
 

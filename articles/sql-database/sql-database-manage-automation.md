@@ -1,5 +1,5 @@
 ---
-title: Azure Automation를 사용 하 여 Azure SQL database 관리
+title: Azure Automation를 사용 하 여 데이터베이스 관리
 description: Azure Automation 서비스를 사용하여 대규모 Azure SQL 데이터베이스를 관리하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 0e29cd85c63bb2f6e083f9cda9abd48fa6d9975a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d826a75f05cf2031565f89e21d7f3667ecc8f17
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689444"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822817"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure Automation을 사용하여 Azure SQL 데이터베이스 관리
 

@@ -1,22 +1,23 @@
 ---
-title: Azure SQL Database 및 SQL Data Warehouse 연결 아키텍처
+title: 연결 아키텍처
 description: 이 문서에서는 azure 내부 또는 Azure 외부에서의 데이터베이스 연결에 대 한 Azure SQL 연결 아키텍처에 대해 설명 합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
 ms.custom: fasttrack-edit
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.devlang: ''
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: d414276e081407af8ea21ebcbd96909d34455a22
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2140216a27d9c903495da4f7b43f6fdfda62591e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690856"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826901"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 

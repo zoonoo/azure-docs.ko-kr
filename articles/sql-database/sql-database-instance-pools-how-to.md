@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database instance 풀 방법 가이드 (미리 보기)
+title: 인스턴스 풀 방법 가이드 (미리 보기)
 description: 이 문서에서는 Azure SQL Database 인스턴스 풀 (미리 보기)을 만들고 관리 하는 방법을 설명 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 461de4da35905ed860fb2ed9d2c655b55b777683
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 13c58ddf5f51e5b63d2dbe425b3ec795e21dabb8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689741"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810345"
 ---
 # <a name="azure-sql-database-instance-pools-preview-how-to-guide"></a>Azure SQL Database instance 풀 (미리 보기) 방법 가이드
 

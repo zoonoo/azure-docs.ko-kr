@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database-DTU에서 vCore로 마이그레이션
+title: DTU에서 vCore로 마이그레이션
 description: DTU 모델에서 vCore 모델로 마이그레이션합니다. VCore로 마이그레이션하는 것은 표준 계층과 프리미엄 계층 간에 업그레이드 하거나 다운 그레이드 하는 것과 비슷합니다.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 10/08/2019
-ms.openlocfilehash: 73803ed6c583b8f40daa569a75806f54f6f4be45
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: f34439b7750ca1858e71d4a36121eb65001fff50
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690564"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811262"
 ---
 # <a name="migrate-from-the-dtu-based-model-to-the-vcore-based-model"></a>DTU 기반 모델에서 vCore 기반 모델로 마이그레이션
 

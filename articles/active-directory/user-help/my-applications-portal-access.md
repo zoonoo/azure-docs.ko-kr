@@ -1,5 +1,5 @@
 ---
-title: 내 앱 (미리 보기) 포털에서 앱 액세스 및 시작-Azure Active Directory | Microsoft Docs
+title: 내 앱에서 앱 액세스 및 시작 (미리 보기) 포털-Azure AD
 description: 내 앱 (미리 보기) 포털에서 조직의 클라우드 기반 앱에 액세스 하 고이를 시작 하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7eb3dbe3ce82b794a5ed530107781b634ceb32f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ed450f67b152bef4eb68ac8252b586b62992aa0d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573847"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820402"
 ---
 # <a name="access-and-start-apps-from-the-my-apps-preview-portal"></a>내 앱 (미리 보기) 포털에서 앱 액세스 및 시작
 

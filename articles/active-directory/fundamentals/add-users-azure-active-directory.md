@@ -13,15 +13,15 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8b436fbdb0d70318e6820d3f59f1e198c639e5a
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e98b09d8b07c625613e3be149e64ac8f06adc089
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561691"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805556"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Azure Active Directory를 사용한 사용자 추가 또는 삭제
-새 사용자를 추가 하거나 Azure Active Directory (Azure AD) 조직에서 기존 사용자를 삭제 합니다.
+새 사용자를 추가 하거나 Azure Active Directory (Azure AD) 조직에서 기존 사용자를 삭제 합니다. 사용자를 추가 하거나 삭제 하려면 사용자 관리자 또는 전역 관리자 여야 합니다. 
 
 ## <a name="add-a-new-user"></a>새 사용자 추가
 Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습니다.
@@ -39,7 +39,7 @@ Azure Active Directory 포털을 사용하여 새 사용자를 만들 수 있습
 
    - **이름(필수).** 새 사용자의 이름 및 성입니다. 예를 들어, Mary Parker입니다.
 
-   - **사용자 이름(필수).** 새 사용자의 사용자 이름입니다. mary@contoso.com )을 입력합니다.
+   - **사용자 이름(필수).** 새 사용자의 사용자 이름입니다. 예: mary@contoso.com
     
        사용자 이름의 도메인 이름 부분은 초기 기본 도메인 이름 <_yourdomainname_>.onmicrosoft.com이거나 contoso.com과 같은 사용자 지정 도메인 이름을 사용해야 합니다. 사용자 지정 도메인 이름 작성 방법에 대한 자세한 내용은 [Azure Active Directory에 사용자 지정 도메인 이름을 추가하는 방법](add-custom-domain.md)을 참조하세요.
 

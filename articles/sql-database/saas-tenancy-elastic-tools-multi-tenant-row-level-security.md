@@ -1,5 +1,5 @@
 ---
-title: 'RLS 및 탄력적 데이터베이스 도구를 사용 하는 다중 테 넌 트 앱 '
+title: RLS 및 탄력적 데이터베이스 도구를 사용 하는 다중 테 넌 트 앱
 description: 행 수준 보안으로 탄력적 데이터베이스 도구를 사용하여 확장성이 높은 데이터 계층으로 애플리케이션을 빌드합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 4d3f25a6e234c3d3dfd878aaae68cf58684f2fac
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a5fe5d6d4076c5d82d33737d05bb95ede0a89c00
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691853"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822026"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>탄력적 데이터베이스 도구 및 행 수준 보안을 제공하는 다중 테넌트 애플리케이션
 

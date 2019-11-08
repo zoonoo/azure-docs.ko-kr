@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database 서비스-vCore 모델 개요 '
+title: vCore 모델 개요
 description: VCore 구매 모델을 통해 계산 및 저장소 리소스를 독립적으로 확장 하 고, 온-프레미스 성능과 일치 시키고, 가격을 최적화할 수 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: 4795e709e1f43ebd952e37e36e2dc81a428dd539
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b9de02bf0836727ac88b78194641238621e87a79
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687260"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821054"
 ---
 # <a name="vcore-model-overview"></a>vCore 모델 개요
 

@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB를 사용한 Java 애플리케이션 개발 자습서
-description: 이 Java 웹 애플리케이션 자습서에서는 Azure Cosmos DB 및 SQL API를 사용하여 Azure Websites에 호스트된 Java 애플리케이션에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다.
+title: '자습서: Azure Cosmos DB를 사용한 Java 애플리케이션 개발 자습서'
+description: '자습서: 이 Java 웹 애플리케이션 자습서에서는 Azure Cosmos DB 및 SQL API를 사용하여 Azure Websites에 호스트된 Java 애플리케이션에서 데이터를 저장하고 액세스하는 방법을 보여 줍니다.'
 author: tknandu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 12/22/2018
+ms.date: 11/05/2019
 ms.author: ramkris
-ms.openlocfilehash: bd2894c23e206ed5f49fec8aa169d6ed852df4c6
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4a7c307e8a4d4088fe4d2f7800398fda4704219c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616666"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720843"
 ---
-# <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
+# <a name="tutorial-build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>자습서: Azure Cosmos DB 및 SQL API를 사용하여 Java 웹 애플리케이션 빌드
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)

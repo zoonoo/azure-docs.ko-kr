@@ -1,20 +1,21 @@
 ---
-title: Hyperscale 서비스 계층의 Azure SQL Database 성능 진단
+title: Hyperscale의 성능 진단
 description: 이 문서에서는 Azure SQL Database에서 하이퍼 규모의 성능 문제를 해결 하는 방법을 설명 합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
+ms.custom: seo-lt-2019
 ms.topic: troubleshooting
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: b8acdbc63098ae99355e8874f7c1585759e5fb7f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a7c64284c958fa8b3ec89c2b27515fe167a04011
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689853"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811142"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL Hyperscale 성능 문제 해결 진단
 
@@ -27,7 +28,7 @@ ms.locfileid: "73689853"
 
 모든 Azure SQL Database 서비스 수준에는 [로그 전송률 거 버 넌 스](sql-database-resource-limits-database-server.md#transaction-log-rate-governance)를 통해 적용 되는 로그 생성 률 제한이 있습니다. Hyperscale에서 로그 생성 제한은 현재 서비스 수준에 관계 없이 100 m b/초로 설정 됩니다. 그러나 복구 Sla를 유지 하기 위해 기본 계산 복제본의 로그 생성 속도를 제한 해야 하는 경우도 있습니다. 이 제한은 [페이지 서버 또는 다른 계산 복제본](sql-database-service-tier-hyperscale.md#distributed-functions-architecture) 이 로그 서비스에서 새 로그 레코드를 적용 하는 것 보다 훨씬 더 많은 경우에 발생 합니다.
 
-다음 대기 유형 ( [_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/))은 기본 계산 복제본에서 로그 전송률이 제한 될 수 있는 이유를 설명 합니다.
+다음 대기 유형 ( [dm_os_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql/))에서는 기본 계산 복제본에서 로그 전송률이 제한 될 수 있는 이유를 설명 합니다.
 
 |대기 유형    |설명                         |
 |-------------          |------------------------------------|
@@ -49,7 +50,7 @@ ms.locfileid: "73689853"
     - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
     - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
     - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
-    - [_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys. dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
 - 페이지 서버 읽기는 다음과 같은 확장 이벤트에 추가 됩니다.
     - sql_statement_completed
     - sp_statement_completed
@@ -68,12 +69,12 @@ ms.locfileid: "73689853"
 
 ## <a name="virtual-file-stats-and-io-accounting"></a>가상 파일 통계 및 IO 계정
 
-Azure SQL Database에서 [_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF는 SQL Server io를 모니터링 하는 기본 방법입니다. 하이퍼 규모의 IO 특성은 [분산 아키텍처로](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)인해 다릅니다. 이 섹션에서는이 DMF에 표시 된 것 처럼 데이터 파일에 대 한 IO (읽기 및 쓰기)에 중점을 둡니다. Hyperscale에서이 DMF에 표시 되는 각 데이터 파일은 원격 페이지 서버에 해당 합니다. 여기에 언급 된 RBPEX cache는 계산 복제본의 비 포괄 캐시 인 로컬 SSD 기반 캐시입니다.
+Azure SQL Database에서 [dm_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) DMF는 SQL Server io를 모니터링 하는 기본 방법입니다. 하이퍼 규모의 IO 특성은 [분산 아키텍처로](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)인해 다릅니다. 이 섹션에서는이 DMF에 표시 된 것 처럼 데이터 파일에 대 한 IO (읽기 및 쓰기)에 중점을 둡니다. Hyperscale에서이 DMF에 표시 되는 각 데이터 파일은 원격 페이지 서버에 해당 합니다. 여기에 언급 된 RBPEX cache는 계산 복제본의 비 포괄 캐시 인 로컬 SSD 기반 캐시입니다.
 
 
 ### <a name="local-rbpex-cache-usage"></a>로컬 RBPEX cache 사용
 
-로컬 RBPEX 캐시가 로컬 SSD 저장소의 계산 노드에 있습니다. 따라서이 RBPEX cache의 IO는 원격 페이지 서버의 IO 보다 빠릅니다. 현재는 Hyperscale 데이터베이스의 [_io_virtual_file_stats ()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) 에 계산 복제본의 로컬 RBPEX 캐시에서 수행 되는 io를 보고 하는 특별 한 행이 있습니다. 이 행에는 `database_id` 및 `file_id` 열 모두에 대해 값 0이 있습니다. 예를 들어 다음 쿼리는 데이터베이스 시작 이후 RBPEX 사용 통계를 반환 합니다.
+로컬 RBPEX 캐시가 로컬 SSD 저장소의 계산 노드에 있습니다. 따라서이 RBPEX cache의 IO는 원격 페이지 서버의 IO 보다 빠릅니다. 현재는 Hyperscale 데이터베이스의 RBPEX [()](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql/) 에 계산 복제본의 로컬 캐시에서 수행 dm_io_virtual_file_stats 되는 io를 보고 하는 특수 행이 있습니다. 이 행에는 `database_id` 및 `file_id` 열 모두에 대해 값 0이 있습니다. 예를 들어 다음 쿼리는 데이터베이스 시작 이후 RBPEX 사용 통계를 반환 합니다.
 
 `select * from sys.dm_io_virtual_file_stats(0,NULL);`
 
@@ -83,8 +84,8 @@ Azure SQL Database에서 [_io_virtual_file_stats ()](/sql/relational-databases/s
 ### <a name="data-reads"></a>데이터 읽기
 
 - 계산 복제본의 SQL Server 엔진에서 읽기를 실행 하는 경우 로컬 RBPEX 캐시 또는 원격 페이지 서버에서 또는 여러 페이지를 읽는 경우 둘의 조합에 의해 서비스가 제공 될 수 있습니다.
-- 계산 복제본이 특정 파일 (예: file_id 1)에서 일부 페이지를 읽을 때이 데이터가 로컬 RBPEX 캐시에만 있는 경우이 읽기의 모든 IO는 file_id 0 (RBPEX)에 대해 고려 됩니다. 해당 데이터의 일부가 로컬 RBPEX 캐시에 있고 일부 일부가 원격 페이지 서버에 있는 경우 IO는 RBPEX에서 제공 되는 파트에 대해 file_id 0으로 계산 되며 원격 페이지 서버에서 제공 되는 파트는 file_id 1로 계산 됩니다. 
-- 계산 복제본이 페이지 서버에서 특정 [lsn](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) 의 페이지를 요청 하는 경우 페이지 서버가 요청 된 lsn을 catch 하지 않으면 계산 복제본의 읽기는 페이지 서버가 계산 복제본에 반환 되기 전에 페이지 서버가 처리할 때까지 대기 합니다. 계산 복제본의 페이지 서버에서 읽을 경우 해당 IO를 대기 하는 경우 PAGEIOLATCH_ * wait 유형이 표시 됩니다. 이 대기 시간에는 페이지 서버의 요청 된 페이지를 필요한 LSN으로 파악 하는 시간과 페이지를 페이지 서버에서 계산 복제본으로 전송 하는 데 필요한 시간이 모두 포함 됩니다.
+- 계산 복제본이 특정 파일 (예: 1 file_id)에서 일부 페이지를 읽을 때이 데이터가 로컬 RBPEX 캐시에만 있는 경우이 읽기의 모든 IO는 file_id 0 (RBPEX)에 대해 고려 됩니다. 해당 데이터의 일부가 로컬 RBPEX 캐시에 있고 일부는 원격 페이지 서버에 있는 경우 RBPEX에서 제공 하는 파트에 대 한 IO는 0 file_id 하는 것으로, 원격 페이지 서버에서 제공 되는 파트는 file_id 1로 고려 됩니다. 
+- 계산 복제본이 페이지 서버에서 특정 [lsn](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide/) 의 페이지를 요청 하는 경우 페이지 서버가 요청 된 lsn을 catch 하지 않으면 계산 복제본의 읽기는 페이지 서버가 계산 복제본에 반환 되기 전에 페이지 서버가 처리할 때까지 대기 합니다. 계산 복제본의 페이지 서버에서 모든 읽기의 경우 해당 IO를 대기 하는 경우 PAGEIOLATCH_ * 대기 유형이 표시 됩니다. 이 대기 시간에는 페이지 서버의 요청 된 페이지를 필요한 LSN으로 파악 하는 시간과 페이지를 페이지 서버에서 계산 복제본으로 전송 하는 데 필요한 시간이 모두 포함 됩니다.
 - 미리 읽기와 같은 대량 읽기는 종종 ["산 수집" 읽기](/sql/relational-databases/reading-pages/)를 사용 하 여 수행 됩니다. 이를 통해 한 번에 최대 4mb의 페이지를 읽을 수 있으며 SQL Server 엔진에서 단일 읽기로 간주 됩니다. 그러나 읽을 데이터가 RBPEX에 있는 경우 버퍼 풀 및 RBPEX 항상 8kb 페이지를 사용 하기 때문에 이러한 읽기는 여러 개별 8kb 읽기로 사용 됩니다. 결과적으로 RBPEX에 대해 확인 된 Io 수가 엔진에서 수행 하는 실제 Io 수 보다 클 수 있습니다.
 
 
@@ -92,11 +93,11 @@ Azure SQL Database에서 [_io_virtual_file_stats ()](/sql/relational-databases/s
 
 - 기본 계산 복제본은 페이지 서버에 직접 쓰지 않습니다. 대신 로그 서비스의 로그 레코드가 해당 페이지 서버에서 재생 됩니다. 
 - 계산 복제본에서 발생 하는 쓰기는 주로 로컬 RBPEX (file_id 0)에 기록 됩니다. 8kb 보다 큰 논리적 파일 (예: [수집-쓰기](/sql/relational-databases/writing-pages/)를 사용 하 여 쓰기)의 경우, 버퍼 풀 및 RBPEX 항상 8kb 페이지를 사용 하므로 각 쓰기 작업은 RBPEX에 대 한 8kb의 개별 쓰기로 변환 됩니다. 결과적으로 RBPEX에 대해 표시 되는 쓰기 Io 수가 엔진에서 수행 하는 실제 Io 수 보다 클 수 있습니다.
-- RBPEX 않은 파일 또는 페이지 서버에 해당 하는 file_id 0 이외의 데이터 파일은 쓰기도 표시 합니다. Hyperscale 서비스 계층에서는 계산 복제본이 페이지 서버에 직접 쓰지 않으므로 이러한 쓰기가 시뮬레이션 됩니다. 쓰기 IOPS 및 처리량은 계산 복제본에서 발생 하는 것 처럼 보이지만 file_id 0 이외의 데이터 파일에 대 한 대기 시간은 페이지 서버 쓰기의 실제 대기 시간을 반영 하지 않습니다.
+- RBPEX 파일이 나 페이지 서버에 해당 하는 0이 아닌 데이터 file_id 파일은 쓰기도 표시 합니다. Hyperscale 서비스 계층에서는 계산 복제본이 페이지 서버에 직접 쓰지 않으므로 이러한 쓰기가 시뮬레이션 됩니다. 쓰기 IOPS 및 처리량은 계산 복제본에서 발생 하는 것 처럼 보이지만 file_id 0이 아닌 데이터 파일에 대 한 대기 시간은 페이지 서버 쓰기의 실제 대기 시간을 반영 하지 않습니다.
 
 ### <a name="log-writes"></a>로그 쓰기
 
-- 기본 계산에서는 _io_virtual_file_stats의 file_id 2에 대 한 로그 쓰기가 고려 됩니다. 기본 계산에 대 한 로그 쓰기는 로그 방문 영역에 대 한 쓰기입니다.
+- 기본 계산에서는 dm_io_virtual_file_stats의 file_id 2에서 로그 쓰기가 고려 됩니다. 기본 계산에 대 한 로그 쓰기는 로그 방문 영역에 대 한 쓰기입니다.
 - 커밋 시 보조 복제본에서 로그 레코드가 확정 되지 않습니다. Hyperscale에서 log는 Xlog 서비스에 의해 원격 복제본에 적용 됩니다. 로그 쓰기는 실제로 보조 복제본에서 발생 하지 않기 때문에 보조 복제본의 로그 IO는 추적 목적 으로만 사용 됩니다.
 
 ## <a name="additional-resources"></a>추가 리소스

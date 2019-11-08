@@ -4,15 +4,16 @@ description: Azure에서 배포한 VHD에서 VM을 등록하는 방법을 설명
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: c27605d2f9b87a9d4ba3d2326c0ce7ad437d3441
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4adc6f716050e2d792e0a5c022972e4340d2846a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240989"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823118"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Azure Key Vault용 인증서 만들기
 
@@ -76,7 +77,7 @@ Azure Powershell 스크립트를 편집한 후 실행하여 로컬 폴더에 인
 
 ## <a name="create-the-key-vault"></a>Key Vault 만들기
 
-[Key Vault 배포 템플릿](./cpp-key-vault-deploy-template.md)의 내용을 로컬 컴퓨터의 파일에 복사합니다. (아래 예제 스크립트에서 이 리소스는 `C:\certLocation\keyvault.json`입니다.)  다음 Azure Powershell 스크립트를 편집한 후 실행하여 Azure Key Vault 인스턴스 및 연결된 리소스 그룹을 만듭니다.  다음 매개 변수 값을 바꾸어야 합니다.
+[Key Vault 배포 템플릿](./cpp-key-vault-deploy-template.md)의 내용을 로컬 컴퓨터의 파일에 복사합니다. 아래 예제 스크립트에서는이 리소스를 `C:\certLocation\keyvault.json`합니다.  다음 Azure Powershell 스크립트를 편집 하 고 실행 하 여 Azure Key Vault 인스턴스와 연결 된 리소스 그룹을 만듭니다.  다음 매개 변수 값을 바꾸어야 합니다.
 
 |  **매개 변수**        |   **설명**                                                               |
 |  -------------        |   ---------------                                                               |
@@ -205,7 +206,7 @@ Azure Powershell 스크립트를 편집한 후 실행하여 로컬 폴더에 인
             echo $certpassword
             $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
             $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
-            $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText –Force
+            $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
             $objAzureKeyVaultSecret=Set-AzureKeyVaultSecret -VaultName $kvname -Name "ISVSecret$postfix" -SecretValue $secret
             echo $objAzureKeyVaultSecret.Id 
     

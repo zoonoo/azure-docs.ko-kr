@@ -1,26 +1,27 @@
 ---
-title: Azure 컨테이너 이미지에 대 한 marketplace 설정 | Azure Marketplace
+title: Azure 컨테이너 이미지에 대 한 Marketplace 설정 | Azure Marketplace
 description: Azure 컨테이너에 대한 마켓플레이스 설정을 구성합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: f2d735662fcd177f64d1ebc71a25b7d7629db3ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8d7c930f3adcfb4b4d092cc909bf4468ced3271f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942649"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823201"
 ---
 # <a name="container-marketplace-tab"></a>컨테이너 Marketplace 탭
 
-**새 제품** 페이지의 **Marketplace** 탭을 사용하면 잠재 고객에게 마케팅, 판매 및 법적 정보와 계약을 제공하고 마켓플레이스에서 창출된 잠재 고객을 관리할 수 있습니다. **개요** 섹션에 마케팅 관련 콘텐츠를 추가합니다.
+**새 제안** 페이지의 **Marketplace** 탭을 사용하면 잠재 고객에게 마케팅, 판매 및 법적 정보와 계약을 제공하고 마켓플레이스에서 창출된 잠재 고객을 관리할 수 있습니다. **개요** 섹션에 마케팅 관련 콘텐츠를 추가합니다.
 
 ## <a name="overview"></a>개요
 
-이 섹션에서는 Azure Marketplace 제품에 대한 일반적인 정보를 입력합니다.  필드 이름에 추가된 별표(*)는 필수를 나타냅니다.
+이 섹션에서는 Azure Marketplace 제안에 대한 일반적인 정보를 입력합니다.  필드 이름에 추가된 별표(*)는 필수를 나타냅니다.
 
 ![Marketplace 정보](./media/containers-marketplace-tab.png)
 
@@ -33,7 +34,7 @@ ms.locfileid: "64942649"
 | **긴 요약\***          | 제품의 더 긴 요약입니다(**요약**과 동일할 수 있지만).  최대 길이는 256자입니다. |
 | **설명\***           | 제품에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다.
 | **마케팅 식별자**  | 이 제품과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함합니다. 최대 길이는 50자입니다.   |
-| **미리 보기 구독 Id\*** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
+| **구독 Id 미리 보기\*** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
 |  |  |
 
 

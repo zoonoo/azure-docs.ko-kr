@@ -4,15 +4,16 @@ description: Azure Marketplace용 가상 머신 이미지의 사전 유효성 �
 services: Azure, Marketplace, Cloud Partner Portal, Virtual Machine
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pabutler
-ms.openlocfilehash: 46923ecd33a054a36aa6900a415d0b563e5afff0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: fc62875873f38630e592c79aebd6a138665ed6e4
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163265"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809202"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Azure Virtual Machine 이미지의 유효성을 사전 검사하는 자체 테스트 클라이언트 만들기
 
@@ -20,7 +21,7 @@ ms.locfileid: "73163265"
 
 ## <a name="development-and-testing-overview"></a>개발 및 테스트 개요
 
-자체 테스트 프로세스의 일부로 Azure Marketplace에 연결하여 Azure 구독에서 실행되는 VM의 유효성을 검사하는 로컬 클라이언트를 만듭니다. VM은 Windows 또는 Linux 운영 체제를 실행할 수 있습니다.
+자체 테스트 프로세스의 일부로, Azure Marketplace에 연결 하 여 Azure 구독에서 실행 중인 VM의 유효성을 검사 하는 로컬 클라이언트를 만듭니다. VM은 Windows 또는 Linux 운영 체제를 실행할 수 있습니다.
 
 로컬 클라이언트는 자체 테스트 API를 사용하여 인증하고, 연결 정보를 보내며, 테스트 결과를 받는 스크립트를 실행합니다.
 
@@ -64,7 +65,7 @@ Request body:    The Request body parameters should use the following JSON forma
 
 |      필드         |    설명    |
 |  ---------------   |  ---------------  |
-|  권한 부여     |  "Bearer xxxx-xxxx-xxxx-xxxxx" 문자열에는 PowerShell을 사용하여 만들 수 있는 Azure AD(Active Directory) 클라이언트 토큰이 포함됩니다.          |
+|  권한 부여     |  "Xxxxx" 문자열에는 PowerShell을 사용 하 여 만들 수 있는 AD (Azure Active Directory) 클라이언트 토큰이 포함 되어 있습니다.          |
 |  DNSName           |  테스트할 VM의 DNS 이름    |
 |  사용자              |  VM에 로그인하는 데 사용할 사용자 이름         |
 |  암호          |  VM에 로그인하는 데 사용할 암호          |
@@ -99,7 +100,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" -Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 다음 화면 캡처에는 PowerShell에서 API를 호출하는 예가 나와 있습니다.
@@ -109,7 +110,7 @@ $Content = $res | ConvertFrom-Json
 앞의 예제를 사용하여 JSON을 검색하고 이를 구문 분석하여 다음 세부 정보를 얻습니다.
 
 ```powershell
-$testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $res)
+$testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
 
   Write-Host "OSName: $($testresult.OSName)"
   Write-Host "OSVersion: $($testresult.OSVersion)"
@@ -144,7 +145,7 @@ PowerShell에서 API를 호출하려면 다음 단계를 수행합니다.
 다음 코드 예제에서는 API에 대한 PowerShell 호출을 보여 줍니다.
 
 ```powershell
-$accesstoken = “Get token for your Client AAD App”
+$accesstoken = "Get token for your Client AAD App"
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")
 $Body = @{
@@ -156,7 +157,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" -Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 
@@ -167,7 +168,7 @@ $Content = $res | ConvertFrom-Json
 앞의 예제를 사용하여 JSON을 검색하고 이를 구문 분석하여 다음 세부 정보를 얻습니다.
 
 ```powershell
-$testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $res)
+$testresult = ConvertFrom-Json -InputObject (ConvertFrom-Json -InputObject $res)
 
   Write-Host "OSName: $($testresult.OSName)"
   Write-Host "OSVersion: $($testresult.OSVersion)"
@@ -219,7 +220,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 
 다음 단계에 따라 애플리케이션을 만들려는 Azure AD 테넌트를 선택합니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. 위쪽의 메뉴 모음에서 계정을 선택하고, [디렉터리] 목록에서 애플리케이션을 등록하려는 Active Directory 테넌트를 선택합니다. 또는 **디렉터리 + 구독** 아이콘을 선택하여 글로벌 구독 필터를 확인합니다. 다음 화면 캡처에는 이 필터의 예가 나와 있습니다.
 
    ![구독 필터 선택](./media/stclient-subscription-filter.png)
@@ -230,7 +231,7 @@ https://isvapp.azurewebsites.net/selftest-vm
 
    **테넌트 정보를 얻으려면,**
 
-   **Azure Active Directory 개요**에서 "속성"을 검색한 다음, **속성**을 선택합니다. 다음 화면 캡처를 예로 사용합니다.
+   **Azure Active Directory 개요**에서 "속성"을 검색 한 다음 **속성**을 선택 합니다. 다음 화면 캡처를 예로 사용합니다.
 
    - **이름** - 테넌트 이름 또는 디렉터리 이름
    - **디렉터리 ID** - 테넌트 ID 또는 디렉터리 ID입니다. 또는 스크롤 막대를 사용하여 속성을 찾습니다.
@@ -245,9 +246,9 @@ https://isvapp.azurewebsites.net/selftest-vm
 2. **앱 등록** 아래에서 **+ 새 애플리케이션 등록**을 선택합니다.
 3. **만들기** 아래에서 다음 필드에 필요한 정보를 제공합니다.
 
-   - **이름** - 앱에 대한 이름을 입력합니다. 예를 들어 "SelfTestClient"가 있습니다.
-   - **애플리케이션 유형** – **웹앱/API**를 선택합니다.
-   - 로그온 **URL** – "https:\//Isvapp.azurewebsites.net/selftest-vm" 형식
+   - **이름** -앱의 이름을 입력 합니다. 예를 들면 "SelfTestClient"입니다.
+   - **응용 프로그램 종류** - **웹 앱/** a p i 선택
+   - 로그온 **URL** -유형 "https:\//isvapp.azurewebsites.net/selftest-vm"
 
 4. **만들기**를 선택합니다.
 5. **앱 등록** 또는 **등록된 앱** 아래에서 **애플리케이션 ID**를 복사합니다.
@@ -258,18 +259,18 @@ https://isvapp.azurewebsites.net/selftest-vm
 7. **필요한 권한**을 선택하여 애플리케이션에 대한 권한을 구성합니다.
 8. **필요한 권한** 아래에서 **+ 추가**를 선택합니다.
 9. **API 액세스 추가** 아래에서 **API 선택**을 선택합니다.
-10. **API 선택** 아래에서 "Windows Azure 클래식 배포 모델"을 입력하여 API를 검색합니다.
+10. **Api 선택**에서 "microsoft Azure 클래식 배포 모델"을 입력 하 여 api를 검색 합니다.
 11. 검색 결과에서 **Windows Azure 클래식 배포 모델**을 선택한 다음, **선택**을 클릭합니다.
 
     ![앱에 대한 다중 테넌트 구성](./media/stclient-select-api.png)
 
 12. **API 액세스 추가** 아래에서 **권한 선택**을 선택합니다.
-13. **"Windows Azure Service Management API"** 를 선택합니다.
+13. **"Windows Azure Service Management API" 액세스**를 선택 합니다.
 
     ![앱에 대한 API 액세스 사용](./media/stclient-enable-api-access.png)
 
 14. **선택**을 클릭합니다.
-15. **완료** 를 선택합니다.
+15. **완료**를 선택합니다.
 16. **설정** 아래에서 **속성**을 선택합니다.
 17. **속성** 아래에서 **다중 테넌트**까지 아래로 스크롤합니다. **예**를 선택합니다.
 
@@ -279,13 +280,13 @@ https://isvapp.azurewebsites.net/selftest-vm
 19. **설정** 아래에서 **키**를 선택합니다.
 20. 키 **설명** 텍스트 상자를 선택하여 비밀 키를 만듭니다. 다음 필드를 구성합니다.
 
-    - 키 이름을 입력합니다. 예를 들어 "selftestclient"가 있습니다.
-    - **만료** 드롭다운 목록에서 "1년 후"를 선택합니다.
+    - 키 이름을 입력합니다. 예: "selftestclient"
+    - **만료** 드롭다운 목록에서 "1 년 안에"를 선택 합니다.
     - **저장**을 선택하여 키를 생성합니다.
     - **값** 아래에서 키를 복사합니다.
 
       >[!Important]
-      >**키** 양식이 종료되면 키 값을 볼 수 없습니다.
+      >**키 양식을 종료** 한 후에는 키 값을 볼 수 없습니다.
 
     ![키 값 양식](./media/stclient-create-key.png)
 
@@ -377,7 +378,7 @@ var token = JObject.Parse(content)["access_token"];
 
 ```powershell
 $clientId = "Application Id of AD Client APP";
-$clientSecret = "Secret Key of AD Client APP “
+$clientSecret = "Secret Key of AD Client APP "
 $audience = "https://management.core.windows.net";
 $authority = "https://login.microsoftonline.com/common/oauth2/token"
 $grantType = "client_credentials";
@@ -397,8 +398,8 @@ $token.AccessToken
 인증 헤더에 다음 코드를 사용하여 토큰을 자체 테스트 API에 전달합니다.
 
 ```powershell
-$redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
-$accesstoken = ‘place your token here’
+$redirectUri = 'https://isvapp.azurewebsites.net/selftest-vm'
+$accesstoken = 'place your token here'
 
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Authorization", "Bearer $accesstoken")

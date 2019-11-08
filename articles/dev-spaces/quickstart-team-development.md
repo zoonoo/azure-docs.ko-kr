@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Azure에서 컨테이너와 마이크로서비스를 사용하여 Kubernetes 팀 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 15833294e1dd5b75251ad54fa1f33bc4ed5e2c20
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 9bdd52f2c120d338859259b046f7f4b97bbc4eed
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035167"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73585189"
 ---
 # <a name="quickstart-team-development-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용한 Kubernetes의 팀 개발
 
@@ -31,7 +31,7 @@ ms.locfileid: "72035167"
 
 - Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 - [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Helm 2.13 이상 설치](https://github.com/helm/helm/blob/master/docs/install.md)
+- [Helm 2.13 이상 설치][helm-installed]
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기
 
@@ -239,5 +239,5 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 앱을 개발
 > [!div class="nextstepaction"]
 > [여러 컨테이너 작업 및 팀 개발](multi-service-nodejs.md)
 
-
+[helm-installed]: https://helm.sh/docs/using_helm/#installing-helm
 [supported-regions]: about.md#supported-regions-and-configurations

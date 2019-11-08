@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 14e8eb625658eac7f65e976e79669dac4ea1bdbd
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: fcc275b7534ebbfd65b28cbfce170dc6e1b926d9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076161"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823049"
 ---
 # <a name="co-sell-partner-engagement"></a>공동 판매 파트너 참여
 
@@ -22,11 +23,11 @@ Microsoft의 공동 판매 프로그램을 사용 하면 파트너가 공동 판
 
 파트너 판매 동작은 세 가지입니다.
 
-* *파트너를 통해 판매*: 자신의 판매자를 통해 Microsoft 기술을 재판매 수 있습니다.
-* *공동 판매 서비스*: 판매자와 파트너는 Microsoft 기술을 포함 하는 프로젝트 또는 관리 서비스를 판매 하기 위해 공동 작업 합니다.
-* *IP 공동 판매*: 판매자/파트너의 공동 작업을 통해 반복 되 고 패키지 된 IP 솔루션을 판매 합니다. *
+* *파트너를 통해 판매*: 판매자에 게 Microsoft 기술을 재판매 수 있습니다.
+* *서비스 공동 판매*: 판매자와 파트너는 Microsoft 기술을 포함 하는 프로젝트 또는 관리 서비스를 판매 하기 위해 공동 작업 합니다.
+* *IP 공동 판매*: 판매자/파트너는 반복 되 고 패키지 된 ip 솔루션을 판매 하기 위해 공동 작업 합니다.
 
-\*이러한 IP 공동 판매 솔루션 중 일부는 Microsoft의 현장 판매 팀과 함께 성공적으로 판매 및 배포 될 때 추가 성과급을 받을 수 있습니다.
+이러한 IP 공동 판매 솔루션 중 일부는 Microsoft의 현장 판매 팀과 함께 성공적으로 판매 및 배포할 때 추가 성과급을 받을 수 \*.
 
 ![공동 판매 발생](./media/marketplace-publishers-guide/marketplace-co-sell.png)
 

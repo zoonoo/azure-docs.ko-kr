@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 41689b7596c9da350a9e0fec619e49d332a36d5b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170737"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826189"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전을 위한 클라우드 리소스 구성
 
@@ -48,8 +48,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Name** | 고유한 이름 | -- | 
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
-   | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
-   | **위치**: | 모든 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |   
+   | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. |
+   | **위치** | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |   
 
    ![포털에서 Device Provisioning Service에 대한 기본 정보 입력](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 

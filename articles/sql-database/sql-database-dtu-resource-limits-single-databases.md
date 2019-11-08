@@ -1,22 +1,22 @@
 ---
-title: Azure SQL Database DTU 리소스는 단일 데이터베이스를 제한 합니다. | Microsoft Docs
+title: DTU 리소스 제한 단일 데이터베이스
 description: 이 페이지에서는 Azure SQL Database의 단일 데이터베이스에 대 한 몇 가지 일반적인 DTU 리소스 제한을 설명 합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 37cda6dec3f98a195e704808244656f3182b4c2a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3fb021c06369d1f37dad83b3f9b27e039ddf8b5e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520983"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811282"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>DTU 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한
 
@@ -84,7 +84,7 @@ ms.locfileid: "73520983"
 > [!IMPORTANT]
 > 프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 미국 서 부, US DoD 지역 및 미국 정부 중부를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
 > [!NOTE]
-> `tempdb` 제한은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
+> `tempdb`제한 사항은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

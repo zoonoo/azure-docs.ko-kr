@@ -11,12 +11,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: overview
 ms.date: 10/17/2019
-ms.openlocfilehash: 327bc40e5989cc3bca148f415113de32b19a7022
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 325278ee0222070ce7c02c1d72961f0431284677
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500123"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73670538"
 ---
 # <a name="what-is-machine-learning-studio-classic"></a>Machine Learning Studio(클래식)란?
 
@@ -107,7 +107,7 @@ Machine Learning Studio(클래식)에 포함된 샘플 데이터 세트의 목�
 사용 가능한 기계 학습 알고리즘의 대규모 라이브러리를 탐색하는 방법에 대한 도움말은 [Microsoft Azure Machine Learning Studio(클래식)를 위한 알고리즘 선택 방법](algorithm-choice.md)을 참조하세요.
 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>예측 분석 웹 서비스 배포
-예측 분석 모델이 준비되면 Machine Learning Studio(클래식)에서 곧바로 해당 모델을 웹 서비스로 배포할 수 있습니다. 이 프로세스에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](publish-a-machine-learning-web-service.md)를 참조하세요.
+예측 분석 모델이 준비되면 Machine Learning Studio(클래식)에서 곧바로 해당 모델을 웹 서비스로 배포할 수 있습니다. 이 프로세스에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](deploy-a-machine-learning-web-service.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [단계별 빠른 시작](create-experiment.md)을 사용하거나 [샘플 기반 빌드](sample-experiments.md)를 통해 예측 분석 및 기계 학습에 대한 기본 사항을 알아볼 수 있습니다.

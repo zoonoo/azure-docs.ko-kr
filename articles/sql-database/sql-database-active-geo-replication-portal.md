@@ -1,5 +1,5 @@
 ---
-title: 'Azure Portal: SQL Database 지역에서 복제 '
+title: 'Azure Portal: 지역에서 복제'
 description: Azure Portal을 사용하여 Azure SQL Database의 단일 또는 풀링된 데이터베이스에 대해 지역 복제 구성 및 장애 조치(failover) 시작
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 02/13/2019
-ms.openlocfilehash: 2a9d627cb2b51d0d7d0b07052f18a8dbe1dc2f19
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7ddaefb0f65db1cfc828e4baa844f6d8e01f9d2e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691337"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808118"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Azure Portal에서 Azure SQL Database에 대한 활성 지역 복제 구성 및 장애 조치(failover) 시작
 

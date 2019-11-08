@@ -1,18 +1,19 @@
 ---
-title: API 작업을 취소 | Azure Marketplace
+title: 작업 API 취소 | Azure Marketplace
 description: 작업을 취소합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 70ffd13be4ba934b423e3bb5344eea0a9c36886c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 374425dbd2abacb2114b5792d7476bc341fa353a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935556"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819779"
 ---
 # <a name="cancel-operation"></a>작업 취소 
 
@@ -25,10 +26,10 @@ ms.locfileid: "64935556"
 <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
-|  **Name**    |      **설명**                                  |    **데이터 형식**  |
+|  **이름**    |      **설명**                                  |    **데이터 형식**  |
 | ------------ |     ----------------                                  |     -----------   |
-| publisherId  |  게시자 식별자(예: `contoso`)입니다.         |   String          |
-| offerId      |  제안 식별자입니다.                                     |   String          |
+| publisherid  |  게시자 식별자(예: `contoso`)입니다.         |   문자열          |
+| offerId      |  제안 식별자입니다.                                     |   문자열          |
 | api-version  |  API의 현재 버전입니다.                               |    Date           |
 |  |  |  |
 
@@ -36,7 +37,7 @@ ms.locfileid: "64935556"
 <a name="header"></a>헤더
 ------
 
-|  **Name**              |  **값**         |
+|  **이름**              |  **값**         |
 |  ---------             |  ----------        |
 |  콘텐츠 형식          |  application/json  |
 |  권한 부여         |  전달자 사용자 토큰 |
@@ -58,20 +59,20 @@ ms.locfileid: "64935556"
 
 ### <a name="request-body-properties"></a>요청 본문 속성
 
-|  **Name**                |  **설명**                                               |
+|  **이름**                |  **설명**                                               |
 |  --------                |  ---------------                                               |
 |  notification-emails     | 게시 작업의 진행률 알림을 받을 이메일 ID의 쉼표로 구분된 목록입니다. |
 |  |  |
 
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
   `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
 
 
 ### <a name="response-header"></a>응답 헤더
 
-|  **Name**             |    **값**                       |
+|  **이름**             |    **값**                       |
 |  ---------            |    ----------                      |
 | Operation-Location    | 작업의 현재 상태를 확인하기 위해 쿼리할 수 있는 URL입니다. |
 |  |  |

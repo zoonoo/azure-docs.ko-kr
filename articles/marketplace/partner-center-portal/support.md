@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: jamwall
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/17/2019
-ms.openlocfilehash: c0f3fba389f9cb6f55ac5bf7bb81475fa8244cbf
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 53d6b5b43a028d552c95c58aebf7268353621759
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195257"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827896"
 ---
 # <a name="support-for-the-commercial-marketplace-program-in-partner-center"></a>파트너 센터에서 상업적 Marketplace 프로그램 지원
 
@@ -44,9 +45,9 @@ Microsoft는 광범위한 제품 및 서비스에 대한 지원을 제공합니�
 
 파트너 센터의 상업 마켓플레이스 지원 메뉴에서 **추가 도움말** 을 선택 하면 비즈니스용 Microsoft 지원 페이지로 이동 합니다. 몇 가지 드롭다운 메뉴가 표시 됩니다. 처음 몇 개의 드롭다운 메뉴는 자동으로 채워집니다. Marketplace 지원의 경우 제품 제품군을 **클라우드 및 온라인 서비스**, **marketplace 게시자**로, 제품 버전을 **marketplace 게시**로 식별 합니다. 이러한 미리 채워진 드롭다운 메뉴 선택 항목은 변경 하지 마십시오. 
 
-- **문제를 가장 잘 설명 하는 범주를 선택**합니다. 질문이 나 문제에 가장 적합 한 범주를 선택 합니다. 범주를 선택 하면 추가 드롭다운 메뉴가 표시 되어 문제를 가장 잘 설명 하는 문제를 선택 하 라는 메시지가 표시 됩니다.
+- **문제를 가장 잘 설명 하는 범주 선택**: 질문과 문제에 가장 적합 한 범주를 선택 합니다. 범주를 선택 하면 추가 드롭다운 메뉴가 표시 되어 문제를 가장 잘 설명 하는 문제를 선택 하 라는 메시지가 표시 됩니다.
 
-- **문제를 가장 잘 설명 하는 문제를 선택**합니다. 문제에 가장 적합 한 나열 된 옵션에서 문제를 선택 합니다. 문제에 따라 새 섹션이 표시 될 수 있습니다. 여기에는 문제와 관련 된 링크를 제공 하는 데 도움이 될 수 있는 몇 가지 정보가 나와 있습니다. **다음** 단추를 선택 하기 전에 이러한 링크를 검토 하 여 질문이 나 문제가 해결 되었는지 확인 합니다.
+- 문제 **를 가장 잘 설명 하는 문제 선택**: 문제에 가장 적합 한 나열 된 옵션에서 문제를 선택 합니다. 문제에 따라 새 섹션이 표시 될 수 있습니다. 여기에는 문제와 관련 된 링크를 제공 하는 데 도움이 될 수 있는 몇 가지 정보가 나와 있습니다. **다음** 단추를 선택 하기 전에 이러한 링크를 검토 하 여 질문이 나 문제가 해결 되었는지 확인 합니다.
 
 **다음** 단추를 선택 하면 **문제 세부 정보** 페이지로 이동 합니다. 
 

@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: f7f8c94504eef1023939ed41aa6124baef354e39
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 16de2054864a42d978d149353a89d65e8de7d155
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "72791577"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605681"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -85,7 +85,7 @@ ms.locfileid: "72791577"
     
      **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
-클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Databricks에서 Spark 클러스터 만들기](https://docs.azuredatabricks.net/user-guide/clusters/create.html)를 참조하세요.
+클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Databricks에서 Spark 클러스터 만들기](/azure/databricks/clusters/create)를 참조하세요.
 
 ## <a name="run-a-spark-sql-job"></a>Spark SQL 작업 실행
 
@@ -164,7 +164,7 @@ ms.locfileid: "72791577"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure Open Datasets의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. Azure Databricks를 사용하여 ETL 작업(데이터 추출, 변환 및 로드)을 수행하는 방법을 알아보려면 다음 문서로 이동합니다.
+이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure Open Datasets의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](/azure/databricks/data/data-sources/index.html)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. Azure Databricks를 사용하여 ETL 작업(데이터 추출, 변환 및 로드)을 수행하는 방법을 알아보려면 다음 문서로 이동합니다.
 
 > [!div class="nextstepaction"]
 >[Azure Databricks를 사용하여 데이터 추출, 변환 및 로드](databricks-extract-load-sql-data-warehouse.md)

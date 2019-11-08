@@ -1,24 +1,25 @@
 ---
-title: Marketplace 제품의 상태를 보려면 | Azure Marketplace
+title: Marketplace 제품의 상태 보기 | Azure Marketplace
 description: Cloud 파트너 포털을 사용하여 Azure 및 AppSource Marketplace에서 제품의 상태 보기
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pabutler
-ms.openlocfilehash: fff89dd8a17aaf6d45462edeaa22f1d2efc8d02b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e58670d37e01bb6e453b73e42a87e42e890d10d8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67064314"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826696"
 ---
 # <a name="view-the-publishing-status-of-azure-marketplace-and-appsource-offers"></a>Azure Marketplace 및 AppSource 제품의 게시 상태 보기
 
 제품을 만든 후, 특히 게시 프로세스 중에 Cloud 파트너 포털에서 제품 상태를 볼 수 있습니다.  전체 게시 상태는 포털의 [**모든 제품**](../portal-tour/cpp-all-offers-page.md) 및 [**승인**](../portal-tour/cpp-approvals-page.md) 페이지에서 확인할 수 있습니다.  각 제품에 대해 다음 상태 표시기 중 하나가 표시되어야 합니다.  
 
-|            상태              |   설명                                                           |
+|            가동 상태              |   설명                                                           |
 |            ------              |   -----------                                                           |
 | **-**                          | 제품이 생성되었지만 게시 프로세스가 시작되지 않았습니다.            |
 | **게시 진행 중**        | 제품이 게시 프로세스의 단계를 진행 중입니다.   |
@@ -31,7 +32,7 @@ ms.locfileid: "67064314"
 
 ## <a name="publishing-status-details"></a>게시 상태 정보 
 
-게시 프로세스를 진행 중인 제품의 상태에 대한 자세한 내용은 **새 제품** 페이지의 **상태** 탭에서 확인할 수 있습니다.  이 페이지에는 해당 제품 유형의 모든 게시 단계가 표시됩니다.  번호와 특정 단계는 제품 유형마다 다른 경우가 많습니다.   이 페이지에는 Microsoft 유효성 검사 및 검토 단계에서 발생한 미결 문제도 표시되며, 게시자가 작업을 수행해야 게시 프로세스를 진행할 수 있는 경우가 많습니다.  예를 들어 다음 이미지는 새 가상 머신 제품의 **상태** 탭을 보여 줍니다. 
+게시 프로세스를 진행 중인 제품의 상태에 대한 자세한 내용은 **새 제품** 페이지의 **상태** 탭에서 확인할 수 있습니다.  이 페이지에는 해당 제품 유형의 모든 게시 단계가 표시됩니다.  번호와 특정 단계는 제품 유형마다 다른 경우가 많습니다.  이 페이지에는 Microsoft 유효성 검사 및 검토 단계에서 발생한 미결 문제도 표시되며, 게시자가 작업을 수행해야 게시 프로세스를 진행할 수 있는 경우가 많습니다.  예를 들어 다음 이미지는 새 가상 머신 제품의 **상태** 탭을 보여 줍니다. 
 
 ![VM 제품의 상태 탭](./media/vm-offer-pub-steps1.png)
 
@@ -39,7 +40,7 @@ ms.locfileid: "67064314"
 
 ![오류를 표시하는 컨설팅 서비스의 상태 탭](./media/consulting-service-error.png)
 
-Azure 애플리케이션의 최종 예제 상태는 심각한 Microsoft 검토 문제를 보여 줍니다.  이 검토 문제에 대 한 자세한 정보를 포함 하는 Azure DevOps 항목에 대 한 바로 가기 링크를 포함 합니다.  자세한 내용은 [Azure 애플리케이션 제품 게시](cpp-publish-offer.md)를 참조하세요.
+Azure 애플리케이션의 최종 예제 상태는 심각한 Microsoft 검토 문제를 보여 줍니다.  이 검토 문제에 대 한 자세한 정보를 포함 하는 Azure DevOps 항목에 대 한 핫 링크를 포함 합니다.  자세한 내용은 [Azure 애플리케이션 제품 게시](cpp-publish-offer.md)를 참조하세요.
 
 ![검토 문제를 보여 주는 Azure 앱의 상태 탭](../azure-applications/media/status-tab-ms-review.png)
 

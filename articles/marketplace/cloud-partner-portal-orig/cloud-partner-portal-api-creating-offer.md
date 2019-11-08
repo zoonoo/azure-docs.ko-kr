@@ -1,18 +1,19 @@
 ---
-title: 만들기 또는 제품 수정 | Azure Marketplace
+title: 제안 만들기 또는 수정 | Azure Marketplace
 description: 새 제안을 만들거나 기존 제안을 업데이트하기 위한 API입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 55f6aa60c836d55333e1c5b02a44114b91df822d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bfb9cfbe2c63caafef8487015f42a05b98afa29c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935514"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819714"
 ---
 <a name="create-or-modify-an-offer"></a>제안 만들기 또는 수정
 =========================
@@ -25,17 +26,17 @@ ms.locfileid: "64935514"
 <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
-|  **Name**         |  **설명**                      |  **데이터 형식**  |
+|  **이름**         |  **설명**                      |  **데이터 형식**  |
 |  --------         |  ----------------                     |  -------------  |
-| publisherId       |  게시자 식별자입니다(예: `contoso`). |   String |
-| offerId           |  제안 식별자입니다.                     |   String        |
+| publisherid       |  게시자 식별자입니다(예: `contoso`). |   문자열 |
+| offerId           |  제안 식별자입니다.                     |   문자열        |
 | api-version       |  최신 버전의 API입니다.            |   Date           |
 |  |  |  |
 
 <a name="header"></a>헤더
 ------
 
-|  **Name**        |  **값**               |
+|  **이름**        |  **값**               |
 |  ---------       |  ----------              | 
 | 콘텐츠 형식     | `application/json`       |
 | 권한 부여    | `Bearer YOUR_TOKEN`      |
@@ -127,7 +128,7 @@ ms.locfileid: "64935514"
 ```
 
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ``` json
  {
@@ -246,11 +247,11 @@ ms.locfileid: "64935514"
 
 | **코드**  |  **설명**                                                                            |
 | --------  |  ---------------                                                                            |
-|  200      | `OK`. 요청이 성공적으로 처리되었으며 제안이 수정되었습니다.           |
-|  201      | `Created`. 요청이 성공적으로 처리되었으며 제안이 만들어졌습니다.   |
-|  400      | `Bad/Malformed request`. 오류 응답 본문이 자세한 정보를 제공할 수 있습니다.            |
-|  403      | `Forbidden`. 클라이언트에서 요청된 네임스페이스에 액세스할 수 없습니다.                     |
-|  404      | `Not found`. 클라이언트에서 참조한 엔터티가 존재하지 않습니다.                           |
+|  200      | `OK`에 설정해야 합니다에 설정해야 합니다. 요청이 성공적으로 처리되었으며 제안이 수정되었습니다.           |
+|  201      | `Created`에 설정해야 합니다에 설정해야 합니다. 요청이 성공적으로 처리되었으며 제안이 만들어졌습니다.   |
+|  400      | `Bad/Malformed request`에 설정해야 합니다에 설정해야 합니다. 오류 응답 본문이 자세한 정보를 제공할 수 있습니다.            |
+|  403      | `Forbidden`에 설정해야 합니다에 설정해야 합니다. 클라이언트에서 요청된 네임스페이스에 액세스할 수 없습니다.                     |
+|  404      | `Not found`에 설정해야 합니다에 설정해야 합니다. 클라이언트에서 참조한 엔터티가 존재하지 않습니다.                           |
 |  412      | 요청자가 요청에 지정한 사전 조건 중 하나를 서버가 충족하지 않습니다. 클라이언트가 요청과 함께 전송된 ETAG를 확인해야 합니다. |
 |  |  |
 

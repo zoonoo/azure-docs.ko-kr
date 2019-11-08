@@ -4,15 +4,16 @@ description: 사용자 가상 하드 디스크에서 새 Azure 가상 머신을 
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 73f53f72d4db88bc0487999165d25fc952cf4a20
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ddaf9213980e666ea69c700ad26b9db52886c9cb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938282"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821420"
 ---
 # <a name="virtual-hard-disk-deployment-template"></a>가상 하드 디스크 배포 템플릿 
 

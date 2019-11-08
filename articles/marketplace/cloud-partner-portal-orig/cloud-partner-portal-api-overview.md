@@ -1,18 +1,19 @@
 ---
-title: 클라우드 파트너 포털 API 참조 | Azure Marketplace
+title: Cloud 파트너 포털 API 참조 | Azure Marketplace
 description: 사용할 필수 조건에 대한 설명과 Marketplace API 작업 목록입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 9626fdb5dbdf720a65217421565fc559a0cee684
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6591e1780d03cbfaff70fbd19ec3dfd274fae79
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935470"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819610"
 ---
 <a name="cloud-partner-portal-api-reference"></a>Cloud 파트너 포털 API 참조
 ==================================

@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Central의 고객 데이터 요청 기능 | Microsoft Docs
-description: Azure IoT Central의 고객 데이터 요청 기능
+description: 이 문서에서는 Azure IoT Central 응용 프로그램에서 고객 데이터를 식별, 삭제 및 내보내는 방법을 설명 합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/23/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 3c9a3520e6ca97d6f2054e49301d122eb2400682
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 27cd2e58eabcd96414391cac1a517ea242a65c21
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952551"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73809800"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
 

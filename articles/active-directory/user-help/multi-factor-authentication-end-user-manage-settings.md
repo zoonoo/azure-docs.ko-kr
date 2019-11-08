@@ -1,5 +1,5 @@
 ---
-title: 2 단계 인증 설정 관리-Azure Active Directory | Microsoft Docs
+title: 2 단계 인증 설정 관리-Azure AD
 description: 2 단계 인증에 관련 된 보안 확인 방법 세부 정보를 변경 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ed7d812a9c1cba356277a4454234531ce8d41ef
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4c402e0992a3a04d674477bc9dd19e0181fd6775
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616157"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805273"
 ---
 # <a name="manage-your-two-factor-verification-method-settings"></a>2 단계 인증 방법 설정 관리
 
@@ -39,7 +39,7 @@ ms.locfileid: "69616157"
 
 ### <a name="to-get-to-the-additional-security-verification-page"></a>추가 보안 인증 페이지를 가져오려면
 
-- [https://partnercenter.microsoft.com/partner/support](https://aka.ms/mfasetup )로 이동하세요.
+- https://aka.ms/mfasetup로 이동합니다.
 
     ![사용 가능한 보안 확인 방법 세부 정보를 포함 하는 추가 보안 확인 화면](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page.png)
 
@@ -103,7 +103,7 @@ ms.locfileid: "69616157"
 
     ![Microsoft Authenticator 앱에서 회사 또는 학교 계정 설정](./media/multi-factor-authentication-end-user-manage-settings/mfa-security-verification-page-auth-app.png)
 
-2. 모바일 장치를 사용 하 여 QR 코드를 스캔 하는 등 화면의 지시에 따라 다음을 선택 합니다.
+2. 모바일 장치를 사용 하 여 QR 코드를 스캔 하는 등 화면의 지시에 **따라 다음을 선택 합니다**.
 
     사용자 정보를 확인 하기 위해 Microsoft Authenticator 앱을 통해 알림을 승인 하 라는 메시지가 표시 됩니다.
 
@@ -139,6 +139,6 @@ Microsoft Authenticator 앱에서 계정을 삭제할 수 있으며 회사 또�
 
 - 2 단계 인증을 지원 하지 않는 앱에 대 한 [2 단계 인증에 대 한 앱 암호를 관리](multi-factor-authentication-end-user-app-passwords.md) 합니다.
 
-- [2 단계 인증을 사용 하 여 로그인](multi-factor-authentication-end-user-signin.md)
+- [2단계 인증을 사용하여 로그인](multi-factor-authentication-end-user-signin.md)
 
-- [2 단계 인증에 대 한 도움말 보기](multi-factor-authentication-end-user-troubleshoot.md)
+- [2단계 확인에 대한 도움말 보기](multi-factor-authentication-end-user-troubleshoot.md)

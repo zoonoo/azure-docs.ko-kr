@@ -1,6 +1,6 @@
 ---
 title: 처음부터 Azure 용 OPC 쌍 모듈을 배포 하는 방법 | Microsoft Docs
-description: OPC 쌍을 처음부터 배포 하는 방법입니다.
+description: 이 문서에서는 Azure Portal의 IoT Edge 블레이드를 사용 하 여 처음부터 OPC 쌍을 배포 하 고 AZ CLI를 사용 하는 방법을 설명 합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: df1dd45d58baf82710b5e362afaf055aad140b98
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.openlocfilehash: 96a4afff3e58bfa1ebf661909f380aa525fea76e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302637"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820149"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>OPC 쌍 모듈 및 종속성을 처음부터 배포
 
@@ -109,11 +109,11 @@ OPC 쌍 모듈은 IoT Edge에서 실행 되며 OPC 장치 쌍 및 레지스트�
 
 Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 방법은 Azure Portal를 통하는 것입니다.  
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
-1. OPC 쌍 [종속성](howto-opc-twin-deploy-dependencies.md) 을 배포 하 고 결과 `.env` 파일을 가져옵니다. 결과 `PCS_IOTHUBREACT_HUB_NAME` `hub name` 파일에배포된변수`.env` 를 확인 합니다.
+1. OPC 쌍 [종속성](howto-opc-twin-deploy-dependencies.md) 을 배포 하 고 결과 `.env` 파일을 가져옵니다. 결과 `.env` 파일에서 `PCS_IOTHUBREACT_HUB_NAME` 변수의 배포 된 `hub name`를 확인 합니다.
 
-2. [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) 또는 [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge 게이트웨이를 등록 하 고 시작 `device id`하 고이를 확인 합니다.
+2. [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) 또는 [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) IoT Edge 게이트웨이를 등록 하 고 시작 하 여 `device id`을 기록해 둡니다.
 
 ### <a name="deploy-to-an-edge-device"></a>에 지 장치에 배포
 
@@ -127,7 +127,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
 
 5. 페이지의 **배포 모듈** 섹션에서 **추가** 를 선택 하 고 **모듈을 IoT Edge 합니다.**
 
-6. **사용자 지정 모듈 IoT Edge** 대화 상자에서 `opctwin` 모듈의 이름으로 사용 하 고 컨테이너 *이미지 URI* 를로 지정 합니다.
+6. **사용자 지정 모듈 IoT Edge** 대화 상자에서 모듈의 `opctwin` 이름으로 사용 하 고 컨테이너 *이미지 URI* 를로 지정 합니다.
 
    ```bash
    mcr.microsoft.com/iotedge/opc-twin:latest
@@ -143,7 +143,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
 
 7. **저장** 을 선택 하 고 **5**단계를 반복 합니다.  
 
-8. 사용자 지정 모듈 IoT Edge 대화 상자에서 모듈 `opcpublisher` 의 as 이름과 컨테이너 *이미지 URI* 를로 사용 합니다. 
+8. 사용자 지정 모듈 IoT Edge 대화 상자에서 모듈의 이름으로 `opcpublisher`를 사용 하 고 컨테이너 *이미지 URI* 를로 사용 합니다. 
 
    ```bash
    mcr.microsoft.com/iotedge/opc-publisher:latest
@@ -176,7 +176,7 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
 
 ## <a name="deploying-using-azure-cli"></a>Azure CLI를 사용 하 여 배포
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 1. [여기](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에서 [Azure 명령줄 인터페이스 (AZ)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) 의 최신 버전을 설치 합니다.
 
@@ -190,8 +190,8 @@ Azure IoT Edge 게이트웨이 장치에 모듈을 배포 하는 가장 쉬운 �
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content ./deployment.json
    ```
 
-   `device id` 매개 변수는 대/소문자 구분 합니다. 콘텐츠 매개 변수는 저장한 배포 매니페스트 파일을 가리킵니다. 
-    ![az IoT Edge set 모듈 output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
+   `device id` 매개 변수는 대/소문자를 구분 합니다. 콘텐츠 매개 변수는 저장한 배포 매니페스트 파일을 가리킵니다. 
+    ![az IoT Edge set modules output](https://docs.microsoft.com/azure/iot-edge/media/how-to-deploy-cli/set-modules.png)
 
 3. 디바이스에 모듈을 배포하면 다음 명령을 사용하여 모두 볼 수 있습니다.
 

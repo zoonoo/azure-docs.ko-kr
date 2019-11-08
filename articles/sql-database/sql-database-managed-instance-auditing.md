@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 관리 되는 인스턴스 감사
+title: 관리형 인스턴스 감사
 description: T-SQL을 사용하여 Azure SQL Database 관리형 인스턴스 감사를 시작하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -13,12 +13,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 04/08/2019
-ms.openlocfilehash: 915d804cd3ae67848b4b9aa2f50fb5f1b4f1f092
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 41d632b145a7187dd0aeaab740cd8546a3955e7f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689434"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819005"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Azure SQL Database 관리형 인스턴스 감사 시작
 

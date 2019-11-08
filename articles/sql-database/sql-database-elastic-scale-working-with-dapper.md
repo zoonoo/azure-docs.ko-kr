@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 3b1fa6ab046845e2fd95e8d4b5611ca2f5d12562
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 83d24d45d7628a2e02068c8757fa6568d6d3fc37
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690090"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823469"
 ---
 # <a name="using-elastic-database-client-library-with-dapper"></a>Dapper과 함께 탄력적 데이터베이스 클라이언트 라이브러리 사용
 이 문서는 Dapper를 기반으로 애플리케이션을 작성하는 개발자뿐만 아니라 데이터 계층 규모를 확장하도록 분할을 구현하는 애플리케이션을 만들기 위해 [탄력적 데이터베이스 도구](sql-database-elastic-scale-introduction.md)를 받아들이려는 개발자를 대상으로 합니다.  이 문서에서는 탄력적 데이터베이스 도구와 통합하기 위해 Dapper 기반 애플리케이션에서 수행해야 하는 변경에 대해 설명합니다. 여기서는 Dapper를 사용하여 탄력적 데이터베이스 분할 관리 및 데이터 종속 라우팅을 작성하는 방법에 대해 중점적으로 설명합니다. 

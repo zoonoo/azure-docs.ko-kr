@@ -4,22 +4,23 @@ description: Azure Marketplace에서 가상 머신 제안용 VHD를 만드는 �
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pabutler
-ms.openlocfilehash: a47d16108d98c5449d57d1db4892bffcead7e5f2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 37fecb8100ec40ace02960a4f3390420a8bfc735
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67072619"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816813"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Azure 호환 VHD 만들기
 
 이 문서에서는 Azure Marketplace에서 VM(가상 머신) 제안용 VHD(가상 하드 디스크)를 만드는 데 필요한 단계에 대해 자세히 설명합니다.  RDP(원격 데스크톱 프로토콜) 사용, VM 크기 선택, 최신 Windows 업데이트 설치 및 VHD 이미지 일반화와 같은 다양한 측면에 대한 모범 사례도 포함되어 있습니다.  다음 섹션에서는 주로 Windows 기반 VHD에 중점을 두고 있습니다. Linux 기반 VHD를 만드는 방법에 대한 자세한 내용은 [Azure 보증 배포판의 Linux](../../../virtual-machines/linux/endorsed-distros.md)를 참조하세요. 
 
 > [!WARNING]
-> Azure를 사용하여 미리 구성된 보증 운영 체제가 포함된 VM을 만들려면 이 항목의 지침을 따르는 것이 좋습니다.  솔루션을 사용 하 여 호환 되지 않으면 다음 있기을 만들고 승인 된 운영 체제를 사용 하 여 온-프레미스 VM을 구성 합니다.  그런 다음, [Azure에 업로드할 Windows VHD 또는 VHDX 준비](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image)에서 설명한 대로 업로드할 수 있도록 구성하고 준비할 수 있습니다.
+> Azure를 사용하여 미리 구성된 보증 운영 체제가 포함된 VM을 만들려면 이 항목의 지침을 따르는 것이 좋습니다.  솔루션과 호환 되지 않는 경우 승인 된 운영 체제를 사용 하 여 온-프레미스 VM을 만들고 구성할 수 있습니다.  그런 다음, [Azure에 업로드할 Windows VHD 또는 VHDX 준비](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image)에서 설명한 대로 업로드할 수 있도록 구성하고 준비할 수 있습니다.
 
 
 ## <a name="select-an-approved-base"></a>승인된 기본 이미지 선택
@@ -49,7 +50,7 @@ Microsoft [Azure Portal](https://ms.portal.azure.com/)에서 다음 단계를 �
 
 5. 적절한 가상 이미지를 선택한 후 다음 값을 입력합니다.
    * **기본 사항** 블레이드에서 가상 머신에 대한 **이름**을 1-15자의 영숫자로 입력합니다. (이 예에서는 `DemoVm009`를 사용합니다.)
-   * VM에서 로컬 계정을 만드는 데 사용되는 **사용자 이름**과 강력한 **암호**를 입력합니다.  (여기서는 `adminUser`가 사용됩니다.)  암호는 8-123자 길이여야 하며 1개의 소문자, 1개의 대문자, 1개의 숫자 및 1개의 특수 문자 등 네 가지 복잡성 요구 사항 중 적어도 세 가지를 충족해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
+   * VM에서 로컬 계정을 만드는 데 사용되는 **사용자 이름**과 강력한 **암호**를 입력합니다.  여기 `adminUser` 사용 됩니다.  암호는 8-123 자 여야 하며, 대문자 1 자, 대문자 1 자, 숫자 1 개, 특수 문자 1 개 등 4 가지 복잡성 요구 사항 중 3 가지를 충족 해야 합니다. 자세한 내용은 [사용자 이름 및 암호 요구 사항](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-faq#what-are-the-username-requirements-when-creating-a-vm)을 참조하세요.
    * 만든 리소스 그룹을 선택합니다(여기서는 `DemoResourceGroup`).
    * Azure 데이터 센터 **위치**를 선택합니다(여기서는 `West US`).
    * **확인**을 클릭하여 이러한 값을 저장합니다. 
@@ -61,7 +62,7 @@ Microsoft [Azure Portal](https://ms.portal.azure.com/)에서 다음 단계를 �
 
    ![새 VM의 크기 블레이드](./media/publishvm_015.png)
 
-7. **설정** 블레이드에서 **관리 디스크 사용** 옵션을 **아니요**로 설정합니다.  이렇게 하면 새 VHD를 수동으로 관리할 수 있습니다. (**설정** 블레이드를 사용하면 **디스크 유형**에서 **프리미엄(SSD)** 을 선택하는 것처럼 다른 스토리지 및 네트워크 옵션을 변경할 수 있습니다.)  계속하려면 **확인** 을 클릭합니다.
+7. **설정** 블레이드에서 **관리 디스크 사용** 옵션을 **아니요**로 설정합니다.  이렇게 하면 새 VHD를 수동으로 관리할 수 있습니다. ( **설정** 블레이드를 사용 하 여 **디스크 형식**에서 **프리미엄 (SSD)** 를 선택 하는 등의 방법으로 저장소 및 네트워크 옵션을 변경 하는 것도 가능 합니다.)  **확인** 을 클릭 하 여 계속 합니다.
 
     ![새 VM의 설정 블레이드](./media/publishvm_016.png)
 

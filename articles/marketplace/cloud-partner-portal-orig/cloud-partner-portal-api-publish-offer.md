@@ -4,15 +4,16 @@ description: 지정한 제품을 게시하는 API를 소개합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 117a4e5e238e754524ff813ce25ebc1105e2153c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b7ad8086c417cf1f14d9116fa4abcb0a88030922
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64934970"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819649"
 ---
 <a name="publish-an-offer"></a>제안 게시
 ================
@@ -24,10 +25,10 @@ ms.locfileid: "64934970"
 <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
-|  **Name**      |    **설명**                               |  **데이터 형식** |
+|  **이름**      |    **설명**                               |  **데이터 형식** |
 |  ------------- |  ------------------------------------            |   -----------  |
-|  publisherId   | 게시자 식별자입니다(예: `contoso`).      |   String       |
-|  offerId       | 제안 식별자입니다.                                 |   String       |
+|  publisherid   | 게시자 식별자입니다(예: `contoso`).      |   문자열       |
+|  offerId       | 제안 식별자입니다.                                 |   문자열       |
 |  api-version   | 최신 버전의 API입니다.                        |   Date         |
 |  |  |
 
@@ -35,7 +36,7 @@ ms.locfileid: "64934970"
 <a name="header"></a>헤더
 ------
 
-|  **Name**        |    **값**          |
+|  **이름**        |    **값**          |
 |  --------        |    ---------          |
 |  콘텐츠 형식    | `application/json`    |
 |  권한 부여   |  `Bearer YOUR_TOKEN`  |
@@ -58,20 +59,20 @@ ms.locfileid: "64934970"
 
 ### <a name="request-body-properties"></a>요청 본문 속성
 
-|  **Name**               |   **설명**                                                                                 |
+|  **이름**               |   **설명**                                                                                 |
 |  ---------------------  | ------------------------------------------------------------------------------------------------- |
 |  notification-emails    | 게시 작업의 진행률 알림을 받을 전자 메일 주소의 쉼표로 구분된 목록입니다. |
 |  |  |
 
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
    `Operation-Location: /api/operations/contoso$56615b67-2185-49fe-80d2-c4ddf77bb2e8$2$preview?api-version=2017-10-31`
 
 
 ### <a name="response-header"></a>응답 헤더
 
-|  **Name**             |    **값**                                                                 |
+|  **이름**             |    **값**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
 | Operation-Location    | 작업의 현재 상태를 확인하기 위해 쿼리할 수 있는 URL입니다.    |
 |  |  |

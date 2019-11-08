@@ -1,5 +1,5 @@
 ---
-title: SQL Database에 대 한 XEvent 링 버퍼 코드
+title: XEvent 링 버퍼 코드
 description: Azure SQL Database에서 링 버퍼 대상을 사용하여 편리하고 빨라진 Transact-SQL 코드 샘플을 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 8fd04cac394f05a9db18e84117a8647c1a17ba30
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7adffac045ddb2ba369993b1b805e3ce2304fb38
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686819"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822323"
 ---
 # <a name="ring-buffer-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 링 버퍼 대상 코드
 

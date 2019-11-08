@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 863d38f6ea0f071a1c1a6678d025ec5b37a306dc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 127354e55a81e379825b41759f2b6150ba554a12
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466433"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818538"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>여러 검색 문서를 생성 하는 blob 인덱싱
 기본적으로 blob 인덱서는 blob의 내용을 단일 검색 문서로 처리 합니다. 특정 **parsingMode** 값은 개별 blob이 여러 검색 문서를 발생 시킬 수 있는 시나리오를 지원 합니다. 인덱서가 blob에서 둘 이상의 검색 문서를 추출할 수 있는 다양 한 유형의 **parsingMode** 는 다음과 같습니다.
@@ -99,7 +99,7 @@ _Blob2_
 
 ## <a name="next-steps"></a>다음 단계
 
-Blob 인덱싱의 기본 구조와 워크플로에 익숙하지 않은 경우 먼저 [Azure Search를 사용 하 여 Azure Blob Storage 인덱싱](search-howto-index-json-blobs.md) 을 검토 해야 합니다. 다른 blob 내용 유형에 대 한 구문 분석 모드에 대 한 자세한 내용은 다음 문서를 검토 하세요.
+Blob 인덱싱의 기본 구조와 워크플로에 익숙하지 않은 경우 먼저 [Azure Cognitive Search를 사용 하 여 Azure Blob Storage 인덱싱](search-howto-index-json-blobs.md) 을 검토 해야 합니다. 다른 blob 내용 유형에 대 한 구문 분석 모드에 대 한 자세한 내용은 다음 문서를 검토 하세요.
 
 > [!div class="nextstepaction"]
 > [JSON Blob 인덱싱](search-howto-index-json-blobs.md)

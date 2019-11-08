@@ -1,5 +1,5 @@
 ---
-title: 일시적인 오류 작업-Azure SQL Database
+title: 일시적인 오류 작업
 description: SQL 연결 오류 또는 Azure SQL Database의 일시적 오류를 해결, 진단 및 방지하는 방법을 알아봅니다.
 keywords: SQL 연결, 연결 문자열, 연결 문제, 일시적인 오류, 연결 오류
 services: sql-database
@@ -13,12 +13,12 @@ manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
 ms.date: 06/14/2019
-ms.openlocfilehash: 0191506cab9a54ad3978bfa7387c9ba1112ae815
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a943ade4bfc46083fe84274640d979928357a492
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690827"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826806"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL Database 연결 문제 및 일시적 오류 해결
 

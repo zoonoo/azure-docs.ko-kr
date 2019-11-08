@@ -1,20 +1,20 @@
 ---
-title: 스토리지 큐에 사용자 지정 이벤트 보내기 - Event Grid, Azure CLI
-description: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. 스토리지 큐가 엔드포인트에 사용됩니다.
+title: '빠른 시작: 스토리지 큐에 사용자 지정 이벤트 보내기 - Event Grid, Azure CLI'
+description: '빠른 시작: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. 스토리지 큐가 엔드포인트에 사용됩니다.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 01/07/2019
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: 9d1d9caccac0fcdeb4e1d2dae40e677f36de40ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44ffa570cfda39c186966866ee5755ab090083a5
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170241"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721459"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Queue storage로 사용자 지정 이벤트 라우팅
 

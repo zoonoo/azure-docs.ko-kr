@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 09/06/2018
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 869713967a6a89611ab2ea9ca7b7516f090a5f92
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 9f690d23ac4d8c452d731c2f6fd4ae67dc281639
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034215"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805517"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털에서 라이선스 할당 또는 제거
 
@@ -87,6 +87,8 @@ ms.locfileid: "72034215"
 1. **할당**을 선택합니다.
 
     사용자가 사용이 허가된 사용자 목록에 추가되며, 포함된 Azure AD 서비스에 액세스할 수 있습니다.
+    > [!NOTE]
+    > 사용자의 **라이선스** 페이지에서 사용자에 게 직접 라이선스를 할당할 수도 있습니다. 사용자에 게 그룹 멤버 자격을 통해 할당 된 라이선스가 있고 사용자에 게 동일한 라이선스를 직접 할당 하려는 경우 1 단계에 설명 된 **제품** 페이지 에서만이 작업을 수행할 수 있습니다.
 
 ### <a name="to-assign-a-license-to-a-group"></a>그룹에 라이선스를 할당 하려면
 
@@ -118,7 +120,7 @@ ms.locfileid: "72034215"
 
 ### <a name="to-remove-a-license-from-a-user"></a>사용자의 라이선스를 제거 하려면
 
-1. 서비스 계획에 대 한 **사용이 허가 된 사용자** 페이지에서 더 이상 라이선스를 갖지 않는 사용자를 선택 합니다. 예를 들어 _Alain Charon_입니다.
+1. 서비스 계획에 대 한 **사용이 허가 된 사용자** 페이지에서 더 이상 라이선스를 갖지 않는 사용자를 선택 합니다. 예를 들면 _Alain Charon_이 있습니다.
 
 1. **라이선스 제거**를 선택합니다.
 

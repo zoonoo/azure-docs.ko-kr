@@ -1,18 +1,19 @@
 ---
-title: 기술 자산 Azure 컨테이너 이미지 만들기 | Azure Marketplace
+title: Azure 컨테이너 이미지 기술 자산 만들기 | Azure Marketplace
 description: Azure 컨테이너에 대한 기술 자산을 만듭니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: c639389fdd0d4624152fcdfa4432be09a18a97bc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6aae1957a3dcc58339eb4f3c9e250513843ceb18
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65794334"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819060"
 ---
 # <a name="prepare-your-container-technical-assets"></a>컨테이너 기술 자산 준비
 
@@ -43,9 +44,9 @@ ms.locfileid: "65794334"
 
 또한 개발 환경에 다음 도구를 추가하는 것이 좋습니다.
 
--   [Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
+-   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   확장: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   확장: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   확장: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 
@@ -55,8 +56,8 @@ ms.locfileid: "65794334"
 
 자세한 내용은 다음을 참조하세요.
 
-* [자습서: Azure Container Instances에 배포에 대 한 컨테이너 이미지 만들기](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
-* [자습서: 빌드 및 Azure 컨테이너 레지스트리 작업을 사용 하 여 클라우드에서 컨테이너 이미지 배포](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
+* [자습서: Azure Container Instances에 배포할 컨테이너 이미지 만들기](https://docs.microsoft.com/azure/container-instances/container-instances-tutorial-prepare-app)
+* [자습서: Azure Container Registry 작업을 사용 하 여 클라우드에서 컨테이너 이미지 빌드 및 배포](https://docs.microsoft.com/azure/container-registry/container-registry-tutorial-quick-task)
 
 ## <a name="next-steps"></a>다음 단계
 

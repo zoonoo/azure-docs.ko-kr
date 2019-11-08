@@ -4,24 +4,25 @@ description: Cloud 파트너 포털을 사용하여 Azure 및 AppSource Marketpl
 services: Azure, AppSource, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pabutler
-ms.openlocfilehash: 542bc611ac8820385c3f749aa151afc1dcdf6db5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6a75fbb0c4b9c364342a406a8076128346943101
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942127"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826772"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Azure Marketplace 및 AppSource 제품 또는 SKU 삭제
 
 다양한 이유로 인해, 다음 두 가지 형태로 Microsoft 마켓플레이스에서 제품을 철회할 수 있습니다.
 
-- ‘제품 제거’는 새 고객이 더 이상 제품을 구매하거나 배포할 수 없게 하지만, 사용권 계약 및 관련 법률에 따라 지원해야 하는 기존 고객에게는 영향을 주지 않습니다.  
-- ‘제품 종료’는 귀하와 기존 고객 간의 서비스 및/또는 사용권 계약이 종료되는 프로세스입니다.  
+- ‘제품 제거’는 새 고객이 더 이상 제품을 구매하거나 배포할 수 없게 하지만, 사용권 계약 및 관련 법률에 따라 지원해야 하는 기존 고객에게는 영향을 주지 않습니다. 
+- ‘제품 종료’는 귀하와 기존 고객 간의 서비스 및/또는 사용권 계약이 종료되는 프로세스입니다. 
 
-지침 및 제품 제거 및 종료와 관련 된 정책을 받습니다 [Microsoft Marketplace 판매자 계약](https://go.microsoft.com/fwlink/?LinkID=699560) 하며 [참가 정책](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (섹션 [제공 일시 중단 및 제거](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+제안 제거 및 종료와 관련 된 지침 및 정책은 [Microsoft Marketplace 게시자 계약](https://go.microsoft.com/fwlink/?LinkID=699560) 및 [참여 정책](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) ( [일시 중단 및 제거](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal)섹션)에 따라 결정 됩니다. 
 
 이 문서에서는 지원되는 다양한 삭제 시나리오 및 각 시나리오를 수행하는 데 필요한 단계를 설명합니다.  
 
@@ -59,7 +60,7 @@ ms.locfileid: "64942127"
 
 라이브 제품 제거와 관련된 다양한 절차, 비즈니스 및 법적 측면이 있습니다. Azure Marketplace에서 라이브 제품을 제거하려면 다음 단계를 수행하여 지원 팀의 안내를 받으세요.
 
-1.  [인시던트 만들기](https://go.microsoft.com/fwlink/?linkid=844975) 페이지를 사용하거나 [Cloud 파트너 포털](https://cloudpartner.azure.com/)의 오른쪽 위에 있는 **지원**을 클릭하여 지원 티켓을 제기합니다.
+1.  [인시던트 만들기](https://go.microsoft.com/fwlink/?linkid=844975) 페이지를 사용하거나 **Cloud 파트너 포털**의 오른쪽 위에 있는 [지원](https://cloudpartner.azure.com/)을 클릭하여 지원 티켓을 제기합니다.
 
 2.  **문제 유형** 목록에서 특정 제품 유형을 선택하고 **범주** 목록에서 **게시된 제품 제거**를 선택합니다.
 

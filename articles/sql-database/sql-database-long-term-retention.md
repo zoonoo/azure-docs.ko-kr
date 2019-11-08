@@ -1,5 +1,5 @@
 ---
-title: 최대 10년 동안 Azure SQL Database 백업 저장
+title: 최대 10 년 동안 백업 저장
 description: Azure SQL Database에서 최대 10년 동안 전체 데이터베이스 백업을 저장하도록 지원하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 5d6f0797802a622ada1916752bc35c1bae2cde9f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0cd4c45403d59819bf7ba729ea99de76ccf967ca
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689522"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819904"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>최대 10년 동안 Azure SQL Database 백업 저장
 

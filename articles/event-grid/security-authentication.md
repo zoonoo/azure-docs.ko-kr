@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: b9e471928940094b29bdffeb73ea42fe852492cb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8fe85685a41e05b5132157453a6dcbc81c2399af
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665587"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825763"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -204,7 +204,7 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
 
 [사용자 또는 그룹에 이러한 역할을 할당](../role-based-access-control/quickstart-assign-role-user-portal.md)할 수 있습니다.
 
-**EventGrid EventSubscription 기여자(미리 보기)** : Event Grid 구독 작업 관리
+**Eventgrid Eventgrid 참여자**: Event Grid 구독 작업 관리
 
 ```json
 [
@@ -212,7 +212,7 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
     "Description": "Lets you manage EventGrid event subscription operations.",
     "IsBuiltIn": true,
     "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "Name": "EventGrid EventSubscription Contributor",
     "IsServiceRole": false,
     "Permissions": [
       {
@@ -240,7 +240,7 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
 ]
 ```
 
-**EventGrid EventSubscription 읽기 권한자(미기 보기)** : Event Grid 구독 읽기
+**Eventgrid Eventgrid Reader**: Event Grid 구독 읽기
 
 ```json
 [
@@ -248,7 +248,7 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
     "Description": "Lets you read EventGrid event subscriptions.",
     "IsBuiltIn": true,
     "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "Name": "EventGrid EventSubscription Reader",
     "IsServiceRole": false,
     "Permissions": [
       {

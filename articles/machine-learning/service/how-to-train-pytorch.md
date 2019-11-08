@@ -1,5 +1,5 @@
 ---
-title: PyTorch를 사용 하 여 심층 학습 신경망 학습
+title: 심층 학습 PyTorch 모델 학습
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 PyTorch 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 PyTorch 학습 스크립트를 실행 하는 방법을 알아봅니다.  예제 스크립트는 닭 및 터키 이미지를 분류 하 여 PyTorch의 전송 학습 자습서에 따라 심층 학습 신경망을 빌드합니다.
 services: machine-learning
@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: f08e19ac08d39b19838582cdfbb0d00dfde9de62
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2c704e36f4353b34733ccc29b785c752b2a5c559
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584471"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822706"
 ---
 # <a name="train-pytorch-deep-learning-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 Pytorch 심층 학습 모델 학습
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -163,7 +163,7 @@ run.wait_for_completion(show_output=True)
 
 - **크기 조정**: 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
 
-- **실행 중**: 스크립트 폴더의 모든 스크립트를 계산 대상으로 업로드 하 고, 데이터 저장소를 탑재 또는 복사 하 고, entry_script를 실행 합니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
+- **실행 중**: 스크립트 폴더의 모든 스크립트가 계산 대상으로 업로드 되 고, 데이터 저장소가 탑재 되거나 복사 되 고, entry_script 실행 됩니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
 
 - **사후 처리**: 실행의./출력 폴더가 실행 기록에 복사 됩니다.
 

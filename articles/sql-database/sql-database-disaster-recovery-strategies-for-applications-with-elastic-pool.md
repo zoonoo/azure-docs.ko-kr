@@ -1,5 +1,5 @@
 ---
-title: 재해 복구 솔루션 디자인-Azure SQL Database
+title: 재해 복구 솔루션 디자인
 description: 올바른 장애 조치 패턴을 선택하여 재해 복구를 위한 클라우드 솔루션을 설계하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 535397dcf32a617038ab4bef4ec7aa227f4563b1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4eeaa187142a6d0d97b12f685ebc455f3844606f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690657"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825866"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>SQL Database 탄력적 풀을 사용하는 애플리케이션에 대한 재해 복구 전략
 

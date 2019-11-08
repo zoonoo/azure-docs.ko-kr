@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 관리 되는 인스턴스 T-sql 차이점
+title: 관리 되는 인스턴스 T-sql 차이점
 description: 이 문서에서는 Azure SQL Database 관리형 인스턴스 및 SQL Server 간의 T-SQL 차이점에 대해 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 5efa52da0005d0b98820c648dfe7c8489bc39076
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3518404b76625e2557aaefdc6ab5ad7353683984
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687870"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823318"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>관리 되는 인스턴스 T-sql의 차이점, 제한 사항 및 알려진 문제
 
@@ -54,18 +54,18 @@ Managed Instance에서 도입 된 몇 가지 PaaS 제한 사항이 있으며 SQL
 
 - 관리 되는 인스턴스를 사용 하면 Azure Blob storage 계정에만 인스턴스 데이터베이스를 백업할 수 있습니다.
   - `BACKUP TO URL`만 지원됩니다.
-  - `FILE`, `TAPE` 및 백업 장치는 지원 되지 않습니다.
+  - `FILE`, `TAPE`및 백업 장치는 지원 되지 않습니다.
 - 대부분의 일반 `WITH` 옵션이 지원 됩니다.
   - `COPY_ONLY`은 필수입니다.
   - `FILE_SNAPSHOT`은 지원되지 않습니다.
-  - 테이프 옵션: `REWIND`, `NOREWIND`, `UNLOAD` 및 `NOUNLOAD`은 지원 되지 않습니다.
-  - 로그 관련 옵션: `NORECOVERY`, `STANDBY` 및 `NO_TRUNCATE`가 지원 되지 않습니다.
+  - 테이프 옵션: `REWIND`, `NOREWIND`, `UNLOAD`및 `NOUNLOAD`은 지원 되지 않습니다.
+  - 로그 관련 옵션: `NORECOVERY`, `STANDBY`및 `NO_TRUNCATE` 지원 되지 않습니다.
 
 제한 사항: 
 
 - 관리 되는 인스턴스를 사용 하면 최대 32 개의 스트라이프를 사용 하 여 백업에 인스턴스 데이터베이스를 백업할 수 있습니다. 백업 압축을 사용 하는 경우 최대 2TB의 데이터베이스에 충분 합니다.
-- TDE (서비스 관리 투명한 데이터 암호화)를 사용 하 여 암호화 된 데이터베이스에서는 `BACKUP DATABASE ... WITH COPY_ONLY`을 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용 하 여 백업을 암호화 합니다. 키를 내보낼 수 없으므로 백업을 복원할 수 없습니다. 자동 백업 및 지정 시간 복원을 사용 하거나 대신 [고객 관리 (BYOK) TDE](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) 를 사용 합니다. 데이터베이스에서 암호화를 사용 하지 않도록 설정할 수도 있습니다.
-- 관리 되는 인스턴스에서 `BACKUP` 명령을 사용 하는 최대 백업 스트라이프 크기는 최대 blob 크기인 195 GB입니다. 백업 명령에서 스트라이프 수를 늘려 개별 스트라이프 크기를 줄이고 이 제한 내에서 유지합니다.
+- TDE (서비스 관리 투명한 데이터 암호화)를 사용 하 여 암호화 된 데이터베이스에서 `BACKUP DATABASE ... WITH COPY_ONLY`를 실행할 수 없습니다. 서비스 관리 TDE는 내부 TDE 키를 사용 하 여 백업을 암호화 합니다. 키를 내보낼 수 없으므로 백업을 복원할 수 없습니다. 자동 백업 및 지정 시간 복원을 사용 하거나 대신 [고객 관리 (BYOK) TDE](transparent-data-encryption-azure-sql.md#customer-managed-transparent-data-encryption---bring-your-own-key) 를 사용 합니다. 데이터베이스에서 암호화를 사용 하지 않도록 설정할 수도 있습니다.
+- 관리 되는 인스턴스에서 `BACKUP` 명령을 사용 하 여 최대 백업 스트라이프 크기는 최대 blob 크기인 195 GB입니다. 백업 명령에서 스트라이프 수를 늘려 개별 스트라이프 크기를 줄이고 이 제한 내에서 유지합니다.
 
     > [!TIP]
     > 이 제한을 해결 하기 위해 온-프레미스 환경 또는 가상 머신에서 SQL Server에서 데이터베이스를 백업 하는 경우 다음 작업을 수행할 수 있습니다.
@@ -93,7 +93,7 @@ Azure SQL Database의 데이터베이스 및 SQL Server의 데이터베이스에
 Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이점은 다음과 같습니다.
 
 - `.xel` 파일이 배치 되는 Azure Blob 저장소 컨테이너의 URL을 지정 하는 데 사용할 수 있는 `TO URL` 새 구문이 제공 됩니다.
-- 관리 되는 인스턴스에서 Windows 파일 공유에 액세스할 수 없기 때문에 `TO FILE` 구문은 지원 되지 않습니다.
+- 관리 되는 인스턴스에서 Windows 파일 공유에 액세스할 수 없으므로 구문 `TO FILE` 지원 되지 않습니다.
 
 자세한 내용은 다음을 참조하세요. 
 
@@ -136,11 +136,11 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 - `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`및 `FROM SID`를 사용 하 여 만든 SQL 로그인이 지원 됩니다. [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql)을 참조하세요.
 - [CREATE login](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) 구문을 사용 하 여 만든 Azure Active Directory (azure ad) 서버 보안 주체 (로그인) 또는 [로그인에서 사용자 만들기 [Azure ad 로그인]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) 구문이 지원 됩니다. 이러한 로그인은 서버 수준에서 만들어집니다.
 
-    관리 되는 인스턴스는 `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` 구문을 사용 하 여 Azure AD 데이터베이스 보안 주체를 지원 합니다. 이 기능은 Azure AD에 포함 된 데이터베이스 사용자 라고도 합니다.
+    관리 되는 인스턴스는 `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`구문을 사용 하 여 Azure AD 데이터베이스 보안 주체를 지원 합니다. 이 기능은 Azure AD에 포함 된 데이터베이스 사용자 라고도 합니다.
 
 - `CREATE LOGIN ... FROM WINDOWS` 구문을 사용 하 여 만든 Windows 로그인은 지원 되지 않습니다. Azure Active Directory 로그인 및 사용자를 사용합니다.
 - 인스턴스를 만든 Azure AD 사용자에 게는 [무제한 관리자 권한이](sql-database-manage-logins.md#unrestricted-administrative-accounts)있습니다.
-- 비관리자 Azure AD 데이터베이스 수준 사용자는 `CREATE USER ... FROM EXTERNAL PROVIDER` 구문을 사용 하 여 만들 수 있습니다. 사용자 만들기를 참조 하세요. [ 외부 공급자](sql-database-manage-logins.md#non-administrator-users)
+- 관리자가 아닌 Azure AD 데이터베이스 수준 사용자는 `CREATE USER ... FROM EXTERNAL PROVIDER` 구문을 사용 하 여 만들 수 있습니다. 사용자 만들기를 참조 하세요. [ 외부 공급자](sql-database-manage-logins.md#non-administrator-users)
 - Azure AD 서버 보안 주체 (로그인)는 하나의 관리 되는 인스턴스 내 에서만 SQL 기능을 지원 합니다. 동일한 Azure AD 테 넌 트 또는 다른 테 넌 트 내에 있든 관계 없이 크로스 인스턴스 상호 작용이 필요한 기능은 Azure AD 사용자에 대해 지원 되지 않습니다. 이러한 기능의 예는 다음과 같습니다.
 
   - SQL 트랜잭션 복제.
@@ -149,7 +149,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 - Azure AD 그룹에 매핑된 Azure AD 로그인을 데이터베이스 소유자로 설정할 수 없습니다.
 - 다른 Azure AD 주체를 사용 하 여 Azure AD 서버 수준 보안 주체의 가장을 지원 합니다 (예: [EXECUTE as](/sql/t-sql/statements/execute-as-transact-sql) 절). 실행 제한 사항은 다음과 같습니다.
 
-  - 이름이 로그인 이름과 다를 경우 Azure AD 사용자에 대해 EXECUTE AS 사용자가 지원 되지 않습니다. 예를 들어 사용자가 로그인 [john@contoso.com]에서 CREATE USER [myAadUser] 구문을 통해 만들어지고 가장이 EXEC를 USER = _MYAADUSER_로 시도 하는 경우를 들 수 있습니다. Azure AD 서버 보안 주체 (로그인)에서 **사용자** 를 만드는 경우 User_name을 **로그인**에서 동일한 login_name로 지정 합니다.
+  - 이름이 로그인 이름과 다를 경우 Azure AD 사용자에 대해 EXECUTE AS 사용자가 지원 되지 않습니다. 예를 들어 사용자가 로그인 [john@contoso.com]에서 CREATE USER [myAadUser] 구문을 통해 만들어지고 가장이 EXEC를 USER = _MYAADUSER_로 시도 하는 경우를 들 수 있습니다. Azure AD 서버 보안 주체 (로그인)에서 **사용자** 를 만드는 경우 **로그인**에서 동일한 login_name로 user_name를 지정 합니다.
   - `sysadmin` 역할의 일부인 SQL Server 수준 보안 주체 (로그인)만 Azure AD 보안 주체를 대상으로 하는 다음 작업을 실행할 수 있습니다.
 
     - EXECUTE AS USER
@@ -161,20 +161,20 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
     - 관리 되는 인스턴스에서 데이터베이스를 내보내고 동일한 Azure AD 도메인 내의 SQL Database으로 가져옵니다. 
     - SQL Database에서 데이터베이스를 내보내고 동일한 Azure AD 도메인 내에서 관리 되는 인스턴스로 가져옵니다.
     - 관리 되는 인스턴스에서 데이터베이스를 내보내고 SQL Server (버전 2012 이상)으로 가져옵니다.
-      - 이 구성에서는 모든 Azure AD 사용자가 로그인 없이 SQL database 보안 주체 (사용자)로 만들어집니다. 사용자 유형은 SQL로 표시 됩니다 (database_principals에서 SQL_USER로 표시 됨). 해당 사용 권한과 역할은 SQL Server 데이터베이스 메타 데이터에 유지 되며 가장에 사용할 수 있습니다. 그러나 해당 자격 증명을 사용 하 여 SQL Server에 액세스 하 고 로그인 하는 데 사용할 수 없습니다.
+      - 이 구성에서는 모든 Azure AD 사용자가 로그인 없이 SQL database 보안 주체 (사용자)로 만들어집니다. 사용자 유형은 SQL로 표시 됩니다 (database_principals에 SQL_USER으로 표시 됨). 해당 사용 권한과 역할은 SQL Server 데이터베이스 메타 데이터에 유지 되며 가장에 사용할 수 있습니다. 그러나 해당 자격 증명을 사용 하 여 SQL Server에 액세스 하 고 로그인 하는 데 사용할 수 없습니다.
 
-- 관리 되는 인스턴스 프로 비전 프로세스에서 생성 된 서버 수준 보안 주체 로그인, 서버 역할의 멤버 (예: `securityadmin` 또는 `sysadmin`) 또는 서버 수준에서 ALTER ANY LOGIN 권한이 있는 다른 로그인만 Azure AD 서버 보안 주체를 만들 수 있습니다. (로그인) 관리 되는 인스턴스의 master 데이터베이스에 있습니다.
+- 관리 되는 인스턴스 프로 비전 프로세스에서 생성 된 서버 수준 보안 주체 로그인, `securityadmin` 또는 `sysadmin`같은 서버 역할의 멤버 또는 서버 수준의 ALTER ANY LOGIN 권한이 있는 다른 로그인만 Azure AD 서버를 만들 수 있습니다. 관리 되는 인스턴스에 대 한 master 데이터베이스의 보안 주체 (로그인)입니다.
 - 로그인이 SQL 보안 주체가 면 `sysadmin` 역할의 일부인 로그인만 만들기 명령을 사용 하 여 Azure AD 계정에 대 한 로그인을 만들 수 있습니다.
 - Azure AD 로그인은 Azure SQL Database 관리 되는 인스턴스에 사용 되는 것과 동일한 디렉터리 내에서 Azure AD의 멤버 여야 합니다.
 - Azure AD 서버 보안 주체 (로그인)는 개체 탐색기 SQL Server Management Studio 18.0 preview 5부터 표시 됩니다.
 - Azure AD 서버 보안 주체(로그인)를 Azure AD 관리자 계정과 겹칠 수 있습니다. Azure AD 서버 보안 주체 (로그인)는 주 서버를 확인 하 고 관리 되는 인스턴스에 사용 권한을 적용 하는 경우 Azure AD 관리자 보다 우선적으로 적용 됩니다.
 - 인증 하는 동안 다음 시퀀스가 적용 되어 인증 주체를 확인 합니다.
 
-    1. Azure ad 계정이 server_principals에 있는 Azure AD 서버 보안 주체 (로그인)에 직접 매핑되는 경우에는 Azure AD 서버 보안 주체 (로그인)의 액세스 권한 부여 및 권한 부여를 사용 합니다.
-    2. Azure ad 계정이 azure ad 서버 보안 주체 (로그인)에 매핑되는 azure ad 그룹의 멤버 이면 (로그인) server_principals에 "X" 형식으로 액세스 권한을 부여 하 고 Azure AD 그룹 로그인의 사용 권한을 적용 합니다.
+    1. Azure ad 계정이 azure AD 서버 보안 주체 (로그인)에 직접 매핑된 상태로 존재 하는 경우에는 "E" 형식으로 server_principals 하 고, Azure AD 서버 보안 주체 (로그인)의 액세스 권한을 부여 하 고 권한을 적용 합니다.
+    2. Azure ad 계정이 azure ad 서버 보안 주체 (로그인)에 매핑되는 azure ad 그룹의 구성원 인 경우, server_principals에 "X" 형식으로 표시 되 고 Azure AD 그룹 로그인에 대 한 액세스 권한을 부여 하 고 권한을 적용 합니다.
     3. Azure AD 계정이 관리 되는 인스턴스 시스템 뷰에 존재 하지 않는 관리 되는 인스턴스에 대해 특별 한 포털 구성 Azure AD 관리자 인 경우 관리 되는 인스턴스 (레거시 모드)에 대해 Azure AD 관리자의 특수 한 고정 권한을 적용 합니다.
-    4. Azure ad 계정이 database_principals에 있는 데이터베이스의 Azure AD 사용자에 게 직접 매핑된 경우 Azure AD 데이터베이스 사용자의 액세스 권한을 부여 하 고 권한을 부여 합니다.
-    5. Azure AD 계정이 데이터베이스에서 Azure AD 사용자에 매핑되는 Azure ad 그룹의 구성원 인 경우, database_principals에 "X" 형식으로 액세스 권한을 부여 하 고 Azure AD 그룹 로그인의 사용 권한을 적용 합니다.
+    4. Azure ad 계정이 database_principals 데이터베이스에서 Azure AD 사용자에 게 직접 매핑된 것으로 존재 하는 경우 (예를 들어, "E", "Azure AD 데이터베이스 사용자에 대 한 액세스 권한 부여 및 권한 부여).
+    5. Azure AD 계정이 database_principals 데이터베이스에서 Azure AD 사용자에 매핑되는 Azure ad 그룹의 멤버인 경우 (예를 들어, "X"는 "X"로, Azure AD 그룹 로그인에 대 한 액세스 권한을 부여 하 고 권한을 적용 합니다.
     6. 인증 하는 사용자로 확인 되는 azure ad 사용자 계정 또는 azure ad 그룹 계정에 매핑된 Azure AD 로그인이 있는 경우이 Azure AD 로그인의 모든 사용 권한이 적용 됩니다.
 
 ### <a name="service-key-and-service-master-key"></a>서비스 키 및 서비스 마스터 키
@@ -217,7 +217,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 - 다중 로그 파일은 지원되지 않습니다.
 - 메모리 내 개체는 범용 서비스 계층에서 지원되지 않습니다. 
 - 서버당 최대 280 파일을 의미 하는 범용 인스턴스당 280 파일의 제한이 있습니다. 범용 계층의 데이터와 로그 파일은 모두이 제한에 계산 됩니다. [중요 비즈니스용 계층은 데이터베이스당 32767 파일을 지원](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics)합니다.
-- 데이터베이스는 filestream 데이터를 포함 하는 파일 그룹을 포함할 수 없습니다. .Bak에 `FILESTREAM` 데이터가 있으면 복원이 실패 합니다. 
+- 데이터베이스는 filestream 데이터를 포함 하는 파일 그룹을 포함할 수 없습니다. .Bak가 `FILESTREAM` 데이터를 포함 하는 경우 복원이 실패 합니다. 
 - 모든 파일은 Azure Blob Storage에 배치됩니다. 파일별 IO 및 처리량은 각 개별 파일의 크기에 따라 달라집니다.
 
 #### <a name="create-database-statement"></a>CREATE DATABASE 문
@@ -275,7 +275,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 ### <a name="sql-server-agent"></a>SQL Server 에이전트
 
 - SQL Server 에이전트 활성화 및 비활성화는 현재 관리 되는 인스턴스에서 지원 되지 않습니다. SQL 에이전트는 항상 실행되고 있습니다.
-- SQL Server 에이전트 설정은 읽기 전용입니다. 프로시저 `sp_set_agent_properties`은 (는) 관리 되는 인스턴스에서 지원 되지 않습니다. 
+- SQL Server 에이전트 설정은 읽기 전용입니다. `sp_set_agent_properties` 프로시저는 관리 되는 인스턴스에서 지원 되지 않습니다. 
 - 작업
   - T-SQL 작업 단계가 지원됩니다.
   - 다음 복제 작업이 지원됩니다.
@@ -313,7 +313,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 - [FILESTREAM](/sql/relational-databases/blob/filestream-sql-server)
 - [FILETABLE](/sql/relational-databases/blob/filetables-sql-server)
 - [외부 테이블](/sql/t-sql/statements/create-external-table-transact-sql) (Polybase)
-- [MEMORY_OPTIMIZED](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (범용 계층 에서만 지원 됨)
+- [MEMORY_OPTIMIZED](/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (일반적인 용도의 계층 에서만 지원 됨)
 
 테이블을 만들고 변경 하는 방법에 대 한 자세한 내용은 [CREATE TABLE](/sql/t-sql/statements/create-table-transact-sql) 및 [alter TABLE](/sql/t-sql/statements/alter-table-transact-sql)을 참조 하세요.
 
@@ -324,8 +324,8 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 관리 되는 인스턴스는 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 Azure Blob storage에서 파일을 가져와야 합니다.
 
 - `DATASOURCE`은 Azure Blob 저장소에서 파일을 가져오는 동안 `BULK INSERT` 명령에 필요 합니다. [BULK INSERT](/sql/t-sql/statements/bulk-insert-transact-sql)를 참조하세요.
-- `DATASOURCE`은 Azure Blob storage에서 파일의 콘텐츠를 읽을 때 `OPENROWSET` 함수에 필요 합니다. [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
-- `OPENROWSET`은 다른 Azure SQL 단일 데이터베이스, 관리 되는 인스턴스 또는 SQL Server 인스턴스에서 데이터를 읽는 데 사용할 수 있습니다. Oracle 데이터베이스 또는 Excel 파일 등의 다른 원본은 지원 되지 않습니다.
+- Azure Blob storage에서 파일의 콘텐츠를 읽을 때 `OPENROWSET` 함수에 `DATASOURCE` 필요 합니다. [OPENROWSET](/sql/t-sql/functions/openrowset-transact-sql)를 참조하세요.
+- `OPENROWSET`를 사용 하 여 다른 Azure SQL 단일 데이터베이스, 관리 되는 인스턴스 또는 SQL Server 인스턴스로부터 데이터를 읽을 수 있습니다. Oracle 데이터베이스 또는 Excel 파일 등의 다른 원본은 지원 되지 않습니다.
 
 ### <a name="clr"></a>CLR
 
@@ -343,9 +343,9 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 SQL Server에서 사용할 수 있는 문서화 되지 않은 DBCC 문은 관리 되는 인스턴스에서 지원 되지 않습니다.
 
-- 제한 된 수의 전역 추적 플래그도 지원 됩니다. 세션 수준 `Trace flags`은 지원 되지 않습니다. [추적 플래그](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)를 참조 하세요.
+- 제한 된 수의 전역 추적 플래그도 지원 됩니다. 세션 수준 `Trace flags` 지원 되지 않습니다. [추적 플래그](/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql)를 참조 하세요.
 - [DBCC TRACEOFF](/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) 및 [dbcc TRACEON](/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) 는 제한 된 수의 전역 추적 플래그를 사용 하 여 작동 합니다.
-- REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST 및 REPAIR_REBUILD 옵션을 사용한 [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) 는 데이터베이스를 `SINGLE_USER` 모드로 설정할 수 없기 때문에 사용할 수 없습니다. [ALTER database 차이점](#alter-database-statement)을 참조 하십시오. 잠재적 데이터베이스 손상은 Azure 지원 팀에서 처리 합니다. 수정 해야 하는 데이터베이스 손상을 발견 하는 경우 Azure 지원에 문의 하세요.
+- REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST 및 REPAIR_REBUILD 옵션을 사용한 [DBCC CHECKDB](/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) 는 데이터베이스를 `SINGLE_USER` 모드로 설정할 수 없으므로 사용할 수 없습니다. [ALTER database 차이점](#alter-database-statement)을 참조 하십시오. 잠재적 데이터베이스 손상은 Azure 지원 팀에서 처리 합니다. 수정 해야 하는 데이터베이스 손상을 발견 하는 경우 Azure 지원에 문의 하세요.
 
 ### <a name="distributed-transactions"></a>분산 트랜잭션
 
@@ -365,7 +365,7 @@ MSDTC 및 [탄력적 트랜잭션은](sql-database-elastic-transactions-overview
 ### <a name="filestream-and-filetable"></a>Filestream 및 FileTable
 
 - Filestream 데이터는 지원 되지 않습니다.
-- 데이터베이스는 `FILESTREAM` 데이터를 포함 하는 파일 그룹을 포함할 수 없습니다.
+- 데이터베이스에는 `FILESTREAM` 데이터가 있는 파일 그룹이 포함 될 수 없습니다.
 - `FILETABLE`은 지원되지 않습니다.
 - 테이블에 `FILESTREAM` 형식을 사용할 수 없습니다.
 - 지원되지 않는 함수는 다음과 같습니다.
@@ -387,7 +387,7 @@ MSDTC 및 [탄력적 트랜잭션은](sql-database-elastic-transactions-overview
 
 - 지원 되는 대상은 관리 되는 인스턴스, 단일 데이터베이스 및 SQL Server 인스턴스입니다. 
 - 연결 된 서버는 MS DTC (distributed 쓰기 가능 트랜잭션)를 지원 하지 않습니다.
-- 지원 되지 않는 대상은 파일, Analysis Services 및 기타 RDBMS입니다. 파일 가져오기의 대 안으로 `BULK INSERT` 또는 `OPENROWSET`을 사용 하 여 Azure Blob Storage에서 네이티브 CSV 가져오기를 사용해 보세요.
+- 지원 되지 않는 대상은 파일, Analysis Services 및 기타 RDBMS입니다. `BULK INSERT` 또는 `OPENROWSET`를 사용 하 여 Azure Blob Storage에서 네이티브 CSV 가져오기를 사용 하 여 파일을 가져오는 대신 사용 하세요.
 
 작업
 
@@ -454,25 +454,25 @@ HDFS 또는 Azure Blob storage의 파일을 참조 하는 외부 테이블은 �
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - 원본: 
-  - `FROM URL` (Azure Blob storage)은 유일 하 게 지원 되는 옵션입니다.
+  - `FROM URL` (Azure Blob storage) 유일 하 게 지원 되는 옵션입니다.
   - `FROM DISK`/`TAPE`/백업 디바이스는 지원되지 않습니다.
   - 백업 세트는 지원되지 않습니다.
-- `WITH` (예: `DIFFERENTIAL` 또는 `STATS`) 옵션은 지원 되지 않습니다.
-- `ASYNC RESTORE`: 클라이언트 연결이 끊어지는 경우에도 복원이 계속 됩니다. 연결을 삭제 한 경우에는 `sys.dm_operation_status` 뷰에서 복원 작업 상태와 CREATE 및 DROP database를 확인할 수 있습니다. 자세한 내용은 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)를 참조하세요. 
+- `DIFFERENTIAL` 또는 `STATS`없이 `WITH` 옵션이 지원 되지 않습니다.
+- `ASYNC RESTORE`: 클라이언트 연결이 끊어지는 경우에도 복원이 계속 됩니다. 연결이 끊어진 경우 복원 작업의 상태와 CREATE 및 DROP database에 대 한 `sys.dm_operation_status` 보기를 확인할 수 있습니다. 자세한 내용은 [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)를 참조하세요. 
 
 다음 데이터베이스 옵션은 설정 되거나 재정의 되며 나중에 변경할 수 없습니다. 
 
-- 확장명이 .bak 파일에서 사용 되지 않는 경우 `NEW_BROKER`입니다. 
-- 확장명이 .bak 파일에서 사용 되지 않는 경우 `ENABLE_BROKER`입니다. 
+- 확장명이 .bak 파일에서 사용 하도록 설정 되지 않은 경우 `NEW_BROKER` 합니다. 
+- 확장명이 .bak 파일에서 사용 하도록 설정 되지 않은 경우 `ENABLE_BROKER` 합니다. 
 - .bak 파일의 데이터베이스에 `AUTO_CLOSE=ON`있는 경우 `AUTO_CLOSE=OFF` 합니다. 
-- .bak 파일의 데이터베이스에 `SIMPLE` 또는 `BULK_LOGGED` 복구 모드가 있는 경우 `RECOVERY FULL`입니다.
+- .bak 파일의 데이터베이스에 `SIMPLE` 또는 `BULK_LOGGED` 복구 모드가 있는 경우 `RECOVERY FULL` 합니다.
 - 원본 .bak 파일에 없는 경우 메모리 최적화 파일 그룹이 추가 되 고 XTP 라고 합니다. 
 - 모든 기존 메모리 최적화 파일 그룹은 XTP로 이름이 변경 됩니다. 
-- `SINGLE_USER` 및 `RESTRICTED_USER` 옵션은 `MULTI_USER`로 변환 됩니다.
+- `SINGLE_USER` 및 `RESTRICTED_USER` 옵션은 `MULTI_USER`으로 변환 됩니다.
 
 제한 사항: 
 
-- 손상 된 데이터베이스의 백업은 손상 유형에 따라 복원 될 수 있지만 손상이 수정 될 때까지 자동화 된 백업은 사용 되지 않습니다. 원본 인스턴스에서 `DBCC CHECKDB`을 실행 하 고이 문제를 방지 하기 위해 backup `WITH CHECKSUM`을 사용 해야 합니다.
+- 손상 된 데이터베이스의 백업은 손상 유형에 따라 복원 될 수 있지만 손상이 수정 될 때까지 자동화 된 백업은 사용 되지 않습니다. 원본 인스턴스에서 `DBCC CHECKDB`를 실행 하 고이 문제를 방지 하기 위해 백업 `WITH CHECKSUM`를 사용 해야 합니다.
 - 이 문서에서 설명 하는 제한 (예: `FILESTREAM` 또는 `FILETABLE` 개체)을 포함 하는 데이터베이스의 `.BAK` 파일 복원은 Managed Instance에서 복원할 수 없습니다.
 - 여러 백업 세트를 포함 하는 `.BAK` 파일은 복원할 수 없습니다. 
 - 여러 로그 파일이 포함 된 `.BAK` 파일은 복원할 수 없습니다.
@@ -493,7 +493,7 @@ Restore 문에 대 한 자세한 내용은 [restore 문](/sql/t-sql/statements/r
 
 ### <a name="stored-procedures-functions-and-triggers"></a>저장 프로시저, 함수 및 트리거
 
-- `NATIVE_COMPILATION`은 범용 계층에서 지원 되지 않습니다.
+- `NATIVE_COMPILATION`는 범용 계층에서 지원 되지 않습니다.
 - 지원되지 않는 [sp_configure](/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) 옵션은 다음과 같습니다. 
   - `allow polybase export`
   - `allow updates`
@@ -509,10 +509,10 @@ Restore 문에 대 한 자세한 내용은 [restore 문](/sql/t-sql/statements/r
 
 다른 결과를 반환하는 변수, 함수 및 뷰는 다음과 같습니다.
 
-- `SERVERPROPERTY('EngineEdition')`은 값 8을 반환 합니다. 이 속성은 관리되는 인스턴스를 고유하게 식별합니다. [SERVERPROPERTY](/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
-- SQL Server에 대 한 인스턴스 개념이 관리 되는 인스턴스에 적용 되지 않기 때문에 `SERVERPROPERTY('InstanceName')`은 NULL을 반환 합니다. [SERVERPROPERTY('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
+- `SERVERPROPERTY('EngineEdition')`는 값 8을 반환 합니다. 이 속성은 관리되는 인스턴스를 고유하게 식별합니다. [SERVERPROPERTY](/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
+- SQL Server에 대 한 인스턴스 개념이 관리 되는 인스턴스에 적용 되지 않기 때문에 `SERVERPROPERTY('InstanceName')`가 NULL을 반환 합니다. [SERVERPROPERTY('InstanceName')](/sql/t-sql/functions/serverproperty-transact-sql)를 참조하세요.
 - `@@SERVERNAME`는 전체 DNS "연결 가능" 이름 (예: my-managed-instance.wcus17662feb9ce98.database.windows.net)을 반환 합니다. [@@SERVERNAME](/sql/t-sql/functions/servername-transact-sql)을 참조하세요. 
-- `SYS.SERVERS`는 "name" 및 "data_source" 속성에 대 한 `myinstance.domain.database.windows.net`와 같이 전체 DNS "연결 가능" 이름을 반환 합니다. [SYS.SERVERS](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)를 참조하세요.
+- `SYS.SERVERS`는 "name" 및 "data_source" 속성의 `myinstance.domain.database.windows.net`와 같이 전체 DNS "연결 가능" 이름을 반환 합니다. [SYS.SERVERS](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)를 참조하세요.
 - SQL Server에 대해 존재 하는 서비스 개념이 관리 되는 인스턴스에 적용 되지 않기 때문에 `@@SERVICENAME` NULL을 반환 합니다. [@@SERVICENAME](/sql/t-sql/functions/servicename-transact-sql)을 참조하세요.
 - `SUSER_ID`가 지원됩니다. Azure AD 로그인이 sys. syslogins에 없으면 NULL을 반환 합니다. [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql)를 참조하세요. 
 - `SUSER_SID`은 지원되지 않습니다. 잘못 된 데이터가 반환 됩니다 .이는 알려진 문제입니다. [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql)를 참조하세요. 
@@ -553,7 +553,7 @@ Restore 문에 대 한 자세한 내용은 [restore 문](/sql/t-sql/statements/r
 
 **날짜:** 10 월 2019
 
-SQL Server/Managed Instance [사용자가 비어 있지 않은 파일을 삭제할 수](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites)없습니다. `ALTER DATABASE REMOVE FILE` 문을 사용 하 여 비어 있지 않은 데이터 파일을 제거 하려고 하면 `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` 오류가 즉시 반환 되지 않습니다. Managed Instance에서 파일 삭제를 계속 시도 하 고 `Internal server error` 인 30 분 후에 작업이 실패 합니다.
+SQL Server/Managed Instance [사용자가 비어 있지 않은 파일을 삭제할 수](/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites)없습니다. `ALTER DATABASE REMOVE FILE` 문을 사용 하 여 비어 있지 않은 데이터 파일을 제거 하려고 하면 `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` 오류가 즉시 반환 되지 않습니다. Managed Instance은 파일을 삭제 하려고 계속 시도 하며, `Internal server error`에서 30 분 후에 작업이 실패 합니다.
 
 **해결 방법**: `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)` 명령을 사용 하 여 파일의 내용을 제거 합니다. 파일 그룹의 유일한 파일인 경우 파일을 축소 하기 전에이 파일 그룹에 연결 된 테이블이 나 파티션에서 데이터를 삭제 하 고 필요에 따라이 데이터를 다른 테이블/파티션에 로드 해야 합니다.
 
@@ -561,7 +561,7 @@ SQL Server/Managed Instance [사용자가 비어 있지 않은 파일을 삭제�
 
 **날짜:** 9 월 2019
 
-진행 중인 `RESTORE` 문, 데이터 마이그레이션 서비스 마이그레이션 프로세스 및 기본 제공 지정 시간 복원은 복원 프로세스가 완료 될 때까지 서비스 계층 업데이트 또는 기존 인스턴스의 크기 조정 및 새 인스턴스 만들기를 차단 합니다. 복원 프로세스는 복원 프로세스가 실행 되는 동일한 서브넷의 관리 되는 인스턴스 및 인스턴스 풀에서 이러한 작업을 차단 합니다. 인스턴스 풀의 인스턴스는 영향을 받지 않습니다. 서비스 계층 작업을 만들거나 변경 하면 실패 하거나 시간이 초과 되지 않습니다. 복원 프로세스가 완료 되거나 취소 되 면 계속 됩니다.
+진행 중인 `RESTORE` 문, 데이터 마이그레이션 서비스 마이그레이션 프로세스 및 기본 제공 시점 복원은 복원 프로세스가 완료 될 때까지 서비스 계층 업데이트 또는 기존 인스턴스의 크기 조정 및 새 인스턴스 만들기를 차단 합니다. 복원 프로세스는 복원 프로세스가 실행 되는 동일한 서브넷의 관리 되는 인스턴스 및 인스턴스 풀에서 이러한 작업을 차단 합니다. 인스턴스 풀의 인스턴스는 영향을 받지 않습니다. 서비스 계층 작업을 만들거나 변경 하면 실패 하거나 시간이 초과 되지 않습니다. 복원 프로세스가 완료 되거나 취소 되 면 계속 됩니다.
 
 **해결 방법**: 복원 프로세스가 완료 될 때까지 기다리거나, 만들기 또는 업데이트 서비스 계층 작업의 우선 순위가 더 높은 경우 복원 프로세스를 취소 합니다.
 
@@ -603,11 +603,11 @@ SQL Server/Managed Instance [사용자가 비어 있지 않은 파일을 삭제�
 
 **날짜:** 7 월 2019
 
-다음 AAD 보안 주체의 `EXECUTE AS USER` 또는 `EXECUTE AS LOGIN`을 사용 하는 가장은 지원 되지 않습니다.
+다음 AAD 보안 주체의 `EXECUTE AS USER` 또는 `EXECUTE AS LOGIN`를 사용 하는 가장은 지원 되지 않습니다.
 -   별칭이 지정 되는 AAD 사용자입니다. 이 경우 `15517`는 다음과 같은 오류가 반환 됩니다.
-- Aad 응용 프로그램 또는 서비스 주체를 기반으로 하는 AAD 로그인 및 사용자입니다. 이 경우 `15517` 및 `15406`과 같은 오류가 반환 됩니다.
+- Aad 응용 프로그램 또는 서비스 주체를 기반으로 하는 AAD 로그인 및 사용자입니다. 이 경우 `15517` 및 `15406`에는 다음과 같은 오류가 반환 됩니다.
 
-### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query 매개 변수는 sp_send_db_mail에서 지원 되지 않습니다.
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query 매개 변수는에서 지원 되지 않습니다 sp_send_db_mail
 
 **날짜:** 4 월 2019
 
@@ -633,11 +633,11 @@ SQL Server Data Tools Azure Active directory 로그인 및 사용자를 완전�
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>TEMPDB 구조와 콘텐츠를 다시 만들었습니다.
 
-`tempdb` 데이터베이스는 항상 12 개의 데이터 파일로 분할 되며 파일 구조를 변경할 수 없습니다. 파일당 최대 크기를 변경할 수 없으며 `tempdb`에 새 파일을 추가할 수 없습니다. 인스턴스가 시작 되거나 장애 조치 (failover) 될 때 `Tempdb`은 항상 빈 데이터베이스로 다시 생성 되 고 `tempdb`에서 변경한 내용은 유지 되지 않습니다.
+`tempdb` 데이터베이스는 항상 12 개의 데이터 파일로 분할 되며 파일 구조를 변경할 수 없습니다. 파일당 최대 크기를 변경할 수 없으며 `tempdb`에 새 파일을 추가할 수 없습니다. 인스턴스가 시작 되거나 장애 조치 (failover) 될 때 `Tempdb` 항상 빈 데이터베이스로 다시 생성 되 고 `tempdb`에서 변경한 내용은 유지 되지 않습니다.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>작은 데이터베이스 파일이 포함된 스토리지 공간 초과
 
-인스턴스가 Azure Storage 제한에 도달할 수 있으므로 `CREATE DATABASE`, `ALTER DATABASE ADD FILE` 및 `RESTORE DATABASE` 문이 실패할 수 있습니다.
+인스턴스가 Azure Storage 제한에 도달할 수 있으므로 `CREATE DATABASE`, `ALTER DATABASE ADD FILE`및 `RESTORE DATABASE` 문이 실패할 수 있습니다.
 
 범용으로 관리 되는 각 인스턴스에는 Azure Premium 디스크 공간 용으로 예약 된 저장소 최대 35 TB가 있습니다. 각 데이터베이스 파일은 별도의 실제 디스크에 배치 됩니다. 디스크 크기는 128GB, 256GB, 512GB, 1TB 또는 4TB일 수 있습니다. 디스크의 사용 되지 않는 공간은 청구 되지 않지만 Azure Premium 디스크 크기의 총 합계는 35 TB를 초과할 수 없습니다. 경우에 따라 총 8TB가 필요 없는 관리 되는 인스턴스는 내부 조각화로 인해 저장소 크기에 대 한 35 TB Azure 제한을 초과할 수 있습니다.
 
@@ -662,7 +662,7 @@ SQL Server Data Tools Azure Active directory 로그인 및 사용자를 완전�
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>동일한 인스턴스 내에 있는 두 데이터베이스의 트랜잭션 범위는 지원 되지 않습니다.
 
-동일한 트랜잭션 범위에서 동일한 인스턴스 내의 두 개의 데이터베이스에 두 개의 쿼리를 전송 하는 경우 .NET의 `TransactionScope` 클래스가 작동 하지 않습니다.
+.NET의 `TransactionScope` 클래스는 동일한 트랜잭션 범위에서 동일한 인스턴스 내의 두 개의 데이터베이스에 두 개의 쿼리를 전송 하는 경우 작동 하지 않습니다.
 
 ```csharp
 using (var scope = new TransactionScope())

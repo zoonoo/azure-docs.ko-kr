@@ -4,15 +4,16 @@ description: PC에 연결 된 사용 되지 않는 CPP 문서입니다. "Azure M
 services: Dynamics 365 for Customer Engagement offer, Azure, Marketplace, Cloud Partner Portal,
 author: ChJenk
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-chjen
-ms.openlocfilehash: a7d5edeed762da82b20b8bb4dbdd524be34fea3d
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 4ad28b11967f1bc791d02dba5d5e6a613fed2130
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034303"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808918"
 ---
 # <a name="dynamics-365-for-customer-engagement-prerequisites"></a>Dynamics 365 for Customer Engagement 필수 구성 요소
 
