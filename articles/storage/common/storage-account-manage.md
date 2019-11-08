@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/20/2019
+ms.date: 11/06/2019
 ms.author: tamram
-ms.openlocfilehash: 60104496006e790887dd9c4b3e4c3196e0ef6444
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3c01cc870b20c8256b215eb700548e6cd69ad0d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671366"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748994"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Azure Portal에서 스토리지 계정 설정 관리
 
@@ -24,7 +24,7 @@ Azure Storage는 RBAC (역할 기반 액세스 제어)를 통해 Blob storage �
 
 Azure Portal의 **액세스 제어** 설정은 RBAC 역할을 사용자, 그룹, 서비스 주체 및 관리 ID에 할당하는 간단한 방법을 제공합니다. RBAC 역할 할당에 대 한 자세한 내용은 [blob에 대 한 액세스 권한 관리 및 rbac를 사용 하 여 데이터 큐](storage-auth-aad-rbac.md)지정을 참조 하세요.
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>태그
 
 Azure Storage는 사용자 지정된 분류를 사용하여 Azure 리소스 구성을 위한 Azure Resource Manager 태그를 지원합니다. 스토리지 계정에 태그를 적용하여 논리적 방식으로 구독 내에서 그룹화할 수 있습니다.
 

@@ -11,14 +11,38 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 353e0478172ed03cde848d8c5127d2ee41724963
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b40df5878d08b222d145531bfdad1e30b2fe989d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481240"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647393"
 ---
 # <a name="release-notes"></a>릴리스 정보
+
+## <a name="speech-sdk-180-2019-november-release"></a>Speech SDK 1.8.0:2019-11 월 릴리스
+
+**새로운 기능**
+*   온-프레미스 컨테이너 및 소 버린 클라우드에서 쉽게 사용할 수 있도록 FromHost () API를 추가 했습니다.
+*   음성 인식에 대 한 자동 소스 언어 감지 추가 됨 ( C++Java 및)
+*   필요한 원본 언어를 지정 하는 데 사용 되는 음성 인식에 대 한 SourceLanguageConfig C++개체를 추가 했습니다 (Java 및).
+*   Nuget 및 Unity 패키지를 통해 UWP (Windows), Android 및 iOS에서 KeywordRecognizer 지원을 추가 했습니다.
+*   비동기 일괄 처리에서 대화 기록을 수행 하기 위해 원격 대화 Java API가 추가 되었습니다.
+
+**주요 변경 내용**
+*   대화 Transcriber 기능이 Cognitiveservices account 네임 스페이스에서 이동 했습니다.
+*   대화 Transcriber 메서드의 일부가 새 대화 클래스로 이동 합니다.
+*   32 비트 (ARMv7 및 x86) iOS에 대 한 지원 삭제 
+
+**버그 수정**
+*   유효한 음성 서비스 구독 키 없이 로컬 KeywordRecognizer 사용 되는 경우 충돌 해결
+
+**샘플**
+*   KeywordRecognizer 용 Xamarin 샘플
+*   KeywordRecognizer 용 Unity 샘플
+*   C++자동 원본 언어 감지에 대 한 및 Java 샘플입니다.
+
+
 ## <a name="speech-sdk-170-2019-september-release"></a>Speech SDK 1.7.0:2019-9 월 릴리스
 
 **새로운 기능**
@@ -37,7 +61,6 @@ ms.locfileid: "73481240"
 *   일부 연결 속성에서 고유 하지 않은 Uuid와 관련 된 문제가 해결 됨
 *   Swift 바인딩에서 null 허용 여부 지정자에 대 한 몇 가지 경고를 수정 했습니다 (작은 코드를 변경 해야 할 수 있음).
 *   네트워크 로드를 통해 websocket 연결을 비정상적 하는 버그를 수정 했습니다.
-*   iOS: arm7s 아키텍처에 대 한 지원 삭제
 *   때때로 DialogServiceConnector에서 사용 하는 중복 된 임프레션 Id가 발생 하는 Android에서 문제가 해결 되었습니다.
 *   DialogServiceConnector를 사용 하 여 발생 하는 다중 턴 상호 작용 및 오류 보고 (취소 된 이벤트를 통해)의 연결 안정성이 향상 되었습니다.
 *   DialogServiceConnector session 시작은 이제 활성 StartKeywordRecognitionAsync () 동안 ListenOnceAsync ()를 호출 하는 경우를 포함 하 여 이벤트를 정상적으로 제공 합니다.

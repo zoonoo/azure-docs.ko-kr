@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 089d54a2aae288511a283dfb28b03efa34c33b53
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
-ms.translationtype: MT
+ms.openlocfilehash: 83c3c72ad189720b8f0aa554b7804b55f3488b83
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715449"
+ms.locfileid: "73747959"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
@@ -28,7 +28,7 @@ Azure 네트워킹 MSPs는 클라우드 및 하이브리드 네트워킹의 모�
 
 Azure 네트워킹 MSP 파트너에서 제공 하는 관리 되는 클라우드 네트워킹 서비스에 대 한 자세한 내용은이 섹션의 링크를 사용 하세요. 클라우드 네트워크 서비스 파트너가 아래 섹션에 나열 되어 있지 않으면 공급자에 게 문의 하세요. ManagedVirtualWAN@microsoft.com으로 이메일을 전송하여 연락할 수 있습니다. 
 
-| **MSP** | **클라우드 네트워크 변환 서비스** | **관리 되는 Express 경로** | **관리 되는 가상 WAN** | **관리 되는 방화벽** |**관리 되는 네트워크에 지 계산** |
+| **MSP** | **클라우드 네트워크 변환 서비스** | **관리 되는 Express 경로** | **관리 되는 가상 WAN** | **관리 되는 네트워크 보안 서비스** |**관리 되는 네트워크에 지 계산** |
 | ---| ---| ---| ---| ---| ---|
 |[Amdocs](https://www.amdocs.com/)|||||예|
 |[ANS 그룹 영국](https://www.ans.co.uk/)|예|예||||

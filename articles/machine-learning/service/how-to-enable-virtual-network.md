@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/25/2019
-ms.openlocfilehash: 2559a3cbd786c737b316a860e9c75434c6c719a4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e5dee838df2a60bf2038f2c7d2b1cc5958354d29
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576567"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796761"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
     - __가상 네트워크__에서 __기존 가상 네트워크 추가__ 링크를 선택 합니다. 이 작업을 수행 하면 계산이 있는 가상 네트워크가 추가 됩니다 (1 단계 참조).
 
         > [!IMPORTANT]
-        > 저장소 계정은 학습 또는 유추에 사용 되는 노트북 Vm 또는 클러스터와 동일한 가상 네트워크에 있어야 합니다.
+        > 저장소 계정은 학습 또는 유추에 사용 되는 클러스터와 동일한 가상 네트워크에 있어야 합니다.
 
     - __신뢰할 수 있는 Microsoft 서비스에서이 저장소 계정에 액세스 하도록 허용__ 확인란을 선택 합니다.
 
@@ -108,7 +108,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
 ## <a name="use-a-machine-learning-compute"></a>Machine Learning 컴퓨팅 사용
 
-가상 네트워크에서 Azure Machine Learning 노트북 VM 또는 계산 클러스터를 사용 하려면 다음 네트워크 요구 사항을 충족 해야 합니다.
+가상 네트워크에서 Azure Machine Learning 계산 클러스터를 사용 하려면 다음 네트워크 요구 사항을 충족 해야 합니다.
 
 > [!div class="checklist"]
 > * 가상 네트워크는 Azure Machine Learning 작업 영역과 동일한 구독 및 지역에 있어야 합니다.
@@ -156,8 +156,8 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 - NSG 규칙을 사용 하 여 아웃 바운드 인터넷 연결을 거부 합니다.
 
 - 아웃 바운드 트래픽을 다음으로 제한:
-   - Region_Name의 __서비스 태그__ 를 사용 하 여 Azure Storage 합니다 (예: ).
-   - __AzureContainerRegistry Region_Name__ 의 __서비스 태그__ 를 사용 하 여 Azure Container Registry 합니다 (예: AzureContainerRegistry).
+   - 저장소의 __서비스 태그__ 를 사용 하 여 Azure Storage __Region_Name__ (예: 저장소. eastus)
+   - Azure Container Registry AzureContainerRegistry의 __서비스 태그__ 를 사용 하 여 __Region_Name 합니다__ (예: AzureContainerRegistry).
    - __AzureMachineLearning__ 의 __서비스 태그__ 를 사용 하 여 Azure Machine Learning
 
 Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
@@ -246,27 +246,6 @@ except ComputeTargetException:
 
 <a id="vmorhdi"></a>
 
-### <a name="create-a-compute-instance-in-a-virtual-network"></a>가상 네트워크에서 계산 인스턴스 만들기
-
-가상 네트워크에 Azure Machine Learning 계산 인스턴스를 만듭니다. 계산 인스턴스를 만들려면 다음을 수행 합니다.
-
-1. 작업 영역 스튜디오의 왼쪽 창에서 **계산** 을 선택 합니다.
-
-1. 계산 인스턴스 탭에서 **새로** 만들기를 선택 하 여 새 계산 인스턴스 만들기를 시작 합니다.
-
-1. 계산 이름 및 가상 컴퓨터 크기 필드를 설정 하 고 SSH 액세스를 사용/사용 안 함으로 설정 합니다.
-
-1. 가상 네트워크를 사용 하도록이 계산 인스턴스를 구성 하려면 다음을 수행 합니다.
-
-    a.  **고급 설정**을 선택 합니다.
-
-    b.  **리소스 그룹** 드롭다운 목록에서 가상 네트워크가 포함 된 리소스 그룹을 선택 합니다.
-
-    c.  **가상 네트워크** 드롭다운 목록에서 서브넷이 포함 된 가상 네트워크를 선택 합니다.
-
-    ㄹ.  **서브넷** 드롭다운 목록에서 사용할 서브넷을 선택 합니다.
-
-1. **만들기** 를 선택 하 여 가상 네트워크 내에서 계산 인스턴스를 프로 비전 합니다.
 
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>가상 머신 또는 HDInsight 클러스터 사용
 

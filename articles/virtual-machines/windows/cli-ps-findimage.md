@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 645d969d71a0b8707d7969f4bf68a07ab0211d0a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 32264fc6c58dd1cb6c1514af1c07391ab0e9193d
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080021"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749591"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Marketplace에서 Windows VM 이미지 찾기
 
@@ -27,7 +27,7 @@ ms.locfileid: "70080021"
 
 또한 [Azure Marketplace](https://azuremarketplace.microsoft.com/) 상점, [Azure Portal](https://portal.azure.com) 또는 [Azure CLI](../linux/cli-ps-findimage.md)를 사용하여 사용 가능한 이미지와 제품을 찾을 수 있습니다. 
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 [!INCLUDE [virtual-machines-common-image-terms](../../../includes/virtual-machines-common-image-terms.md)]
 
@@ -35,7 +35,7 @@ ms.locfileid: "70080021"
 
 다음 표에는 지정된 게시자 및 제안에 사용할 수 있는 SKU의 하위 집합이 나와 있습니다.
 
-| 게시자 | 제공 | SKU |
+| 게시자 | 제안 | SKU |
 |:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
@@ -176,13 +176,13 @@ $skuName="2019-Datacenter"
 Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-이제 선택한 게시자, 제품, SKU 및 버전을 URN으로(값을 :으로 구분하여) 결합할 수 있습니다. [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet으로 VM을 만들 때 `--image` 매개 변수와 함께 URN을 전달합니다. 필요에 따라 “최신”을 사용하여 URN에서 버전 번호를 바꾸면 이미지의 최신 버전을 가져올 수 있습니다.
+이제 선택한 게시자, 제품, SKU 및 버전을 URN으로(값을 :으로 구분하여) 결합할 수 있습니다. `--image`New-AzVM[ cmdlet으로 VM을 만들 때 ](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) 매개 변수와 함께 URN을 전달합니다. 필요에 따라 “최신”을 사용하여 URN에서 버전 번호를 바꾸면 이미지의 최신 버전을 가져올 수 있습니다.
 
 Resource Manager 템플릿을 사용하여 VM을 배포하는 경우 `imageReference` 속성에 이미지 매개 변수를 개별적으로 설정합니다. [템플릿 참조](/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
 
-### <a name="view-plan-properties"></a>plan 속성 보기
+### <a name="view-plan-properties"></a>플랜 속성 보기
 
 이미지의 구매 계획 정보를 보려면 `Get-AzVMImage` cmdlet을 실행합니다. 출력의 `PurchasePlan` 속성이 `null`이 아닌 경우, 이미지에는 프로그램 방식으로 배포하기 전에 동의해야 하는 약관이 있습니다.  
 
@@ -212,7 +212,7 @@ DataDiskImages   : []
 
 ```
 
-아래 예제는 *Data Science Virtual Machine - Windows 2016* 이미지에 유사한 명령을 보여줍니다. 여기에는 `name`, `product` 및 `publisher`와 같은 `PurchasePlan` 속성이 표시됩니다. 일부 이미지에는 `promotion code` 속성도 있습니다. 이 이미지를 배포하려면 다음 섹션에서 약관에 동의하고 프로그래밍 방식 배포를 사용하도록 설정합니다.
+아래 예제는 *Data Science Virtual Machine - Windows 2016* 이미지에 유사한 명령을 보여줍니다. 여기에는 `PurchasePlan`, `name` 및 `product`와 같은 `publisher` 속성이 표시됩니다. 일부 이미지에는 `promotion code` 속성도 있습니다. 이 이미지를 배포하려면 다음 섹션에서 약관에 동의하고 프로그래밍 방식 배포를 사용하도록 설정합니다.
 
 ```powershell
 Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
@@ -241,7 +241,7 @@ DataDiskImages   : []
 
 ```
 
-### <a name="accept-the-terms"></a>약관 동의
+### <a name="accept-the-terms"></a>약관에 동의
 
 사용 조건을 보려면 [Get-AzMarketplaceterms](https://docs.microsoft.com/powershell/module/az.marketplaceordering/get-azmarketplaceterms) cmdlet을 사용하여 구매 계획 매개 변수를 전달합니다. 출력에는 Marketplace 이미지의 약관 대한 링크가 제공되며 이전에 약관에 동의했는지 여부가 표시됩니다. 매개 변수 값에 모두 소문자를 사용해야 합니다.
 

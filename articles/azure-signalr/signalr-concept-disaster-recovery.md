@@ -6,20 +6,20 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: eb70e65db4a086afc60e91cadf55a8844b102591
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf0f345b0fbf9fea2512f72c1996c9a1597cc0cd
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61402135"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747654"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>복원력 및 재해 복구
 
 복원력 및 재해 복구는 온라인 시스템에 공통적으로 필요합니다. Azure SignalR Service는 이미 99.9% 가용성을 보장하지만 여전히 지역 서비스에 불과합니다.
-서비스 인스턴스 한 지역에서 항상 실행 되 고 및 없습니다 장애 조치 다른 지역에는 전체 지역 가동 중단 될 경우.
+서비스 인스턴스는 항상 한 지역에서 실행 되며 지역 전체 중단이 발생 하면 다른 지역으로 장애 조치 (failover) 되지 않습니다.
 
 Microsoft의 서비스 SDK는 대신 여러 SignalR Service 인스턴스를 지원하고 그 중 일부를 사용할 수 없는 경우 다른 인스턴스로 자동으로 전환하는 기능을 제공합니다.
-이 기능을 사용하면 재해가 발생할 때 복구할 수 있지만 올바른 시스템 토폴로지를 직접 설정해야 합니다. 이 문서에서는 그 방법에 대해 알아봅니다.
+이 기능을 사용 하면 재해가 발생 한 경우 복구할 수 있지만 직접 시스템 토폴로지를 설정 해야 합니다. 이 문서에서는 그 방법에 대해 알아봅니다.
 
 ## <a name="high-available-architecture-for-signalr-service"></a>SignalR Service에 대한 고가용성 아키텍처
 
@@ -28,8 +28,8 @@ SignalR Service에 대한 지역 간 복원력을 위해서는 다른 지역에�
 기본은 온라인 트래픽을 담당하는 인스턴스이며, 보조는 완벽하게 작동하지만 기본에 대한 백업 인스턴스입니다.
 SDK 구현에서 협상은 기본 엔드포인트만 반환하므로, 일반적인 경우 클라이언트는 기본 엔드포인트에만 연결됩니다.
 하지만 기본 인스턴스가 다운되는 경우 협상은 보조 엔드포인트를 반환하므로 클라이언트는 연결을 계속 유지할 수 있습니다.
-기본 인스턴스 및 응용 프로그램 서버는 일반 서버 연결을 통해 연결 되어 있지만 특수 한 유형의 약한 연결 이라는 연결을 통해 연결 된 보조 인스턴스 및 응용 프로그램 서버.
-약한 연결의 주요 차이점은 해당 하지 그대로 사용 하는 클라이언트 연결 라우팅 보조 인스턴스는 다른 지역에 위치 하기 때문입니다. 다른 지역에 클라이언트를 라우팅 (대기 시간이 증가)는 최적의 선택은 아닙니다.
+주 인스턴스 및 앱 서버는 일반 서버 연결을 통해 연결 되지만 보조 인스턴스 및 앱 서버는 약한 연결 이라고 하는 특수 한 유형의 연결을 통해 연결 됩니다.
+약한 연결의 주요 차이점은 보조 인스턴스가 다른 지역에 있기 때문에 클라이언트 연결 라우팅을 허용 하지 않는다는 것입니다. 클라이언트를 다른 지역으로 라우팅하는 것은 최적의 선택이 아닙니다 (대기 시간 증가).
 
 여러 앱 서버에 연결하는 경우 하나의 서비스 인스턴스가 여러 다른 역할을 가질 수 있습니다.
 지역 간 시나리오에 대한 한 가지 일반적인 설정은 SignalR Service 인스턴스와 앱 서버의 쌍을 두 개(또는 이상) 가지는 것입니다.
@@ -51,11 +51,11 @@ SDK 구현에서 협상은 기본 엔드포인트만 반환하므로, 일반적�
 
 ### <a name="through-config"></a>구성을 통해
 
-구성 항목을 통해 환경 변수/앱 settings/web.cofig 통해 SignalR service 연결 문자열을 설정 하는 방법을 알려진 해야 `Azure:SignalR:ConnectionString`합니다.
+`Azure:SignalR:ConnectionString`이라는 구성 항목에서 환경 변수/앱 설정/웹. cofig을 통해 SignalR service 연결 문자열을 설정 하는 방법을 이미 알고 있어야 합니다.
 여러 엔드포인트가 있는 경우 여러 구성 항목에서 각각 다음 형식으로 설정할 수 있습니다.
 
 ```
-Azure:SignalR:Connection:<name>:<role>
+Azure:SignalR:ConnectionString:<name>:<role>
 ```
 
 여기서 `<name>`은 엔드포인트의 이름이며 `<role>`은 해당 역할(기본 또는 보조)입니다.
@@ -63,7 +63,7 @@ Azure:SignalR:Connection:<name>:<role>
 
 ### <a name="through-code"></a>코드를 통해
 
-연결 문자열을 다른 곳에 저장하려는 경우 `AddAzureSignalR()`(ASP.NET Core에서) 또는 `MapAzureSignalR()`(ASP.NET에서)을 호출할 때 코드에서 이를 읽어 매개 변수로 사용할 수 있습니다.
+연결 문자열을 다른 위치에 저장 하려는 경우 코드에서이를 읽고 `AddAzureSignalR()` (ASP.NET Core) 또는 `MapAzureSignalR()` (ASP.NET)를 호출할 때 매개 변수로 사용할 수도 있습니다.
 
 다음은 샘플 코드입니다.
 
@@ -87,6 +87,11 @@ app.MapAzureSignalR(GetType().FullName, hub,  options => options.Endpoints = new
         new ServiceEndpoint("<connection_string2>", EndpointType.Secondary, "region2"),
     };
 ```
+
+주 또는 보조 인스턴스를 여러 개 구성할 수 있습니다. 주 및/또는 보조 인스턴스가 여러 개 있는 경우 negotiate는 다음 순서로 끝점을 반환 합니다.
+
+1. 주 인스턴스가 하나 이상 온라인 상태 이면 임의의 주 온라인 인스턴스를 반환 합니다.
+2. 모든 주 인스턴스가 다운 되 면 임의의 보조 온라인 인스턴스를 반환 합니다.
 
 ## <a name="failover-sequence-and-best-practice"></a>장애 조치(Failover) 시퀀스와 모범 사례
 
@@ -121,7 +126,7 @@ SignalR Service는 두 패턴을 모두 지원하며 주요 차이점은 앱 서
 앱 서버가 활성/수동인 경우 SignalR Service는 활성/수동이 될 수 있습니다(기본 앱 서버는 해당 기본 SignalR Service 인스턴스만 반환하므로).
 앱 서버가 활성/활성인 경우 SignalR Service는 활성/활성이 될 수 있습니다(모든 앱 서버는 자체 기본 SignalR 인스턴스를 반환하므로 모두 트래픽을 받을 수 있음).
 
-사용 하도록 선택 하면 어떤 패턴에 관계 없이 각 SignalR 서비스 인스턴스를 주 응용 프로그램 서버에 연결 해야 확인 합니다.
+사용할 패턴에 관계 없이 각 SignalR 서비스 인스턴스를 앱 서버에 기본으로 연결 해야 합니다.
 
 또한 SignalR 연결의 특성상(긴 연결임) 재해 및 장애 조치(failover)가 발생하는 경우 클라이언트에서 연결이 끊깁니다.
 최종 고객에게 명료하도록 그러한 경우를 클라이언트 쪽에서 처리해야 합니다. 예를 들어 연결을 닫은 후 다시 연결을 수행합니다.
@@ -130,4 +135,4 @@ SignalR Service는 두 패턴을 모두 지원하며 주요 차이점은 앱 서
 
 이 문서에서는 SignalR Service에 대한 복원력을 달성하기 위해 애플리케이션을 구성하는 방법을 알아보았습니다. SignalR Service의 서버/클라이언트 연결 및 연결 라우팅에 대해 자세히 알아보려면 [이 문서](signalr-concept-internals.md)에서 SignalR Service 내부 기능에 대해 읽어보세요.
 
-많은 수의 연결을 처리 하려면 여러 인스턴스를 함께 사용 하는 예: 분할 시나리오를 크기 조정에 대 한 읽을 [여러 인스턴스를 확장 하는 방법을](signalr-howto-scale-multi-instances.md)?
+여러 인스턴스를 함께 사용 하 여 다 수의 연결을 처리 하는 분할와 같은 크기 조정 시나리오의 경우 [여러 인스턴스의 크기를 조정 하는 방법](signalr-howto-scale-multi-instances.md)을 참조 하세요.

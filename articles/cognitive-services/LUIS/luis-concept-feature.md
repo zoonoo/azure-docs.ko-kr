@@ -11,18 +11,20 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: 08f78e4945b612a92d372c832490c380d3749811
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cab6eb38459a632f1e7bd1a21e6a7251d33f683
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487518"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647410"
 ---
 # <a name="machine-learned-features"></a>컴퓨터에서 학습 한 기능 
 
 기계 학습에서 *기능은* 시스템이 학습 & 학습 하는 데이터의 특징 또는 특성입니다. LUIS (Language Understanding)에서 기능은 사용자의 의도 및 엔터티에 대해 중요 한 사항을 설명 하 고 설명 합니다.
 
-## <a name="features-in-language-understanding"></a>Language Understanding의 기능
+[PREVIEW LUIS 포털](https://preview.luis.ai)에서 기능은 의도 또는 엔터티를 _설명_ 하는 데 사용 되기 때문에 _설명자_ 입니다.  
+
+## <a name="features-_descriptors_-in-language-understanding"></a>Language Understanding의 기능 (_설명자_)
 
 설명자 라고도 하는 기능에서는 예제 길이 발언 Language Understanding 식별 하는 데 도움이 되는 단서를 설명 합니다. 기능은 다음과 같습니다. 
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 30e5a7e5953c56ff452b992370e8225ca103abba
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 016b53660499b86de13855cfa994c84d6d9bc702
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079710"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73749494"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
 
@@ -29,7 +29,7 @@ Azure Portal 또는 PowerShell을 사용하여 Azure 관리되는 VM 이미지�
 
 ## <a name="use-the-portal"></a>포털 사용
 
-1. [Azure Portal](https://portal.azure.com)을 엽니다.
+1. [Azure 포털](https://portal.azure.com)을 엽니다.
 2. 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. **형식**별로 리소스를 정렬하여 간편하게 이미지를 찾을 수 있습니다.
 3. 목록에서 사용할 이미지를 선택합니다. 이미지 **개요** 페이지가 열립니다.
 4. 메뉴에서 **VM 만들기**를 선택합니다.
@@ -43,7 +43,7 @@ Azure Portal 또는 PowerShell을 사용하여 Azure 관리되는 VM 이미지�
 
 [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) cmdlet에 설정된 간소화된 매개 변수를 사용하여 이미지에서 VM을 만드는 데 PowerShell을 사용할 수 있습니다. 이미지는 VM을 만들 동일한 리소스 그룹에 있어야 합니다.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+ 
 
 [New-AzVm](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)에 대해 설정된 간소화된 매개 변수를 사용하려면 이름, 리소스 그룹 및 이미지 이름을 제공하여 이미지에서 VM을 만들어야 합니다. New-AzVm은 자동으로 생성하는 모든 리소스의 이름으로 **-Name** 매개 변수의 값을 사용합니다. 이 예제에서는 각 리소스에 보다 자세한 이름을 입력하지만 cmdlet을 통해 자동으로 만들 수 있습니다. 사전에 가상 네트워크와 같은 리소스를 만들고, 리소스 이름을 cmdlet에 전달할 수도 있습니다. New-AzVm은 이름별로 찾을 수 있는 경우 기존 리소스를 사용합니다.
 

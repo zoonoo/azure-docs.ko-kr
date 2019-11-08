@@ -1,40 +1,40 @@
 ---
-title: 제안 된 태그를 사용 하 여 더 빠르게 이미지 레이블
+title: 스마트 Labeler를 사용 하 여 더 빠르게 이미지 레이블
 titleSuffix: Azure Cognitive Services
-description: 이 가이드에서는 Custom Vision 모델을 학습 하는 경우 제안 된 태그를 사용 하 여 많은 수의 이미지에 더 빠르게 레이블을 만드는 방법을 알아봅니다.
+description: 이 가이드에서는 스마트 Labeler를 사용 하 여 이미지에 대 한 제안 된 태그를 생성 하는 방법을 알아봅니다. 이렇게 하면 Custom Vision 모델을 학습할 때 많은 수의 이미지에 더 빠르게 레이블을 지정할 수 있습니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 10/29/2019
 ms.author: pafarley
-ms.openlocfilehash: 06735240729fb2bfd21b87f592e143e9ceabb390
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 94ca47e6114e4f8c3485f6072facd07c25e4b96a
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753478"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647763"
 ---
-# <a name="label-images-faster-with-suggested-tags"></a>제안 된 태그를 사용 하 여 더 빠르게 이미지 레이블
+# <a name="label-images-faster-with-smart-labeler"></a>스마트 Labeler를 사용 하 여 더 빠르게 이미지 레이블
 
-이 가이드에서는 Custom Vision 모델을 학습 하는 경우 제안 된 태그 기능을 사용 하 여 많은 수의 이미지에 더 빠르게 레이블을 만드는 방법을 알아봅니다. 
+이 가이드에서는 스마트 Labeler를 사용 하 여 이미지에 대 한 제안 된 태그를 생성 하는 방법을 알아봅니다. 이렇게 하면 Custom Vision 모델을 학습할 때 많은 수의 이미지에 더 빠르게 레이블을 지정할 수 있습니다.
 
 Custom Vision 모델에 대 한 이미지에 태그를 만들면 서비스는 모델의 최신 학습 된 반복을 사용 하 여 태그가 없는 이미지의 레이블을 예측 합니다. 그런 다음 선택한 신뢰 임계값 및 예측 불확실성을 기준으로 이러한 예측을 제안 된 태그로 표시 합니다. 그런 다음 제안을 확인 하거나 변경 하 여 교육용 이미지에 수동으로 태그를 지정 하는 프로세스를 빠르게 수행할 수 있습니다.
 
-## <a name="when-to-use-suggested-tags"></a>제안 된 태그를 사용 하는 경우
+## <a name="when-to-use-smart-labeler"></a>스마트 Labeler를 사용 하는 경우
 
 다음 제한 사항을 고려 하세요.
 
 * 콘텐츠가 이미 한 번 학습 된 이미지에 대해 제안 된 태그만 요청 해야 합니다. 학습 하기 시작 하 고 있는 새 태그를 제안 하지 않습니다.
 
 > [!IMPORTANT]
-> 제안 된 태그 기능은 일반 예측과 동일한 [가격 책정 모델](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) 을 사용 합니다. 이미지 집합에 대해 제안 된 태그를 처음으로 트리거할 때 예측 호출의 경우와 동일 하 게 청구 됩니다. 그런 다음 서비스는 선택한 이미지에 대 한 결과를 30 일간의 데이터베이스에 저장 하 고, 해당 기간 내에 언제 든 지 언제 든 지 액세스할 수 있습니다. 30 일 후에 제안 된 태그를 다시 요청 하면 요금이 청구 됩니다.
+> 스마트 Labeler 기능은 일반 예측과 동일한 [가격 책정 모델](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) 을 사용 합니다. 이미지 집합에 대해 제안 된 태그를 처음으로 트리거할 때 예측 호출의 경우와 동일 하 게 청구 됩니다. 그런 다음 서비스는 선택한 이미지에 대 한 결과를 30 일간의 데이터베이스에 저장 하 고, 해당 기간 내에 언제 든 지 언제 든 지 액세스할 수 있습니다. 30 일 후에 제안 된 태그를 다시 요청 하면 요금이 청구 됩니다.
 
-## <a name="suggested-tags-workflow"></a>제안 된 태그 워크플로
+## <a name="smart-labeler-workflow"></a>스마트 Labeler 워크플로
 
-다음 단계에서는 제안 된 태그 기능을 사용 하는 방법을 보여 줍니다.
+다음 단계에서는 Smart Labeler를 사용 하는 방법을 보여 줍니다.
 
 1. Custom Vision 프로젝트에 모든 학습 이미지를 업로드 합니다.
 1. 각 태그에 대해 동일한 수의 이미지를 선택 하 여 데이터 집합의 일부를 레이블 합니다.
@@ -44,7 +44,7 @@ Custom Vision 모델에 대 한 이미지에 태그를 만들면 서비스는 �
 1. 학습이 완료 되 면 **태그가** 없는 뷰로 이동 하 여 왼쪽 창에서 **제안 된 태그 가져오기** 단추를 선택 합니다.
     > [!div class="mx-imgBorder"]
     > 제안 된 태그 단추 ![태그 없는 이미지 탭에 표시 됩니다](./media/suggested-tags/suggested-tags-button.png)
-1. 제안 하려는 이미지 집합을 선택 합니다. 태그가 지정 되지 않은 이미지의 일부에 대 한 초기 태그 제안만 가져와야 합니다. 이 프로세스를 반복할 때 더 나은 태그 제안을 받게 됩니다.
+1. 표시 되는 팝업 창에서 제안 하려는 이미지의 수를 설정 합니다. 태그가 지정 되지 않은 이미지의 일부에 대 한 초기 태그 제안만 가져와야 합니다. 이 프로세스를 반복할 때 더 나은 태그 제안을 받게 됩니다.
 1. 제안 된 태그를 확인 하 여 올바르지 않은 문제를 해결 합니다.
     > [!TIP]
     > 제안 된 태그가 있는 이미지는 예측 불확실성을 기준으로 정렬 됩니다 (하위 값은 신뢰도가 높다는 것을 나타냄). **불확실성으로 정렬** 옵션을 사용 하 여 정렬 순서를 변경할 수 있습니다. 순서를 **high에서 low**로 설정 하면 높은 불확실성 예측을 먼저 수정한 다음 낮은 불확실성을 빠르게 확인할 수 있습니다.

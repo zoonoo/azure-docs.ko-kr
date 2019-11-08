@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: REST API를 사용하여 Azure VM 백업'
-description: REST API를 사용하여 Azure VM 백업의 백업 작업 관리
+description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업에 대 한 백업 작업을 구성, 시작 및 관리 하는 방법을 알아봅니다.
 ms.reviewer: pullabhk
 author: dcurwin
 manager: carmonm
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: 837401256aa264a527e2323b055713f4bd8e8d1c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 901ae66281e1d68474304a4f5456a0163fcb6f2a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671680"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747621"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
@@ -108,13 +108,13 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 *GET* URI에는 필요한 모든 매개 변수가 있습니다. 추가 요청 본문이 필요없습니다.
 
-##### <a name="responses-1"></a>보낸
+#### <a name="responses-1"></a>보낸
 
 |Name  |형식  |설명  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       확인 |
 
-##### <a name="example-responses-1"></a>예제 응답
+#### <a name="example-responses-1"></a>예제 응답
 
 *GET* 요청이 제출되면 200(정상) 응답이 반환됩니다.
 
@@ -329,7 +329,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
-##### <a name="example-responses-3"></a>예제 응답
+#### <a name="example-responses-3"></a>예제 응답
 
 주문형 백업에 대한 *POST* 요청을 제출하면 초기 응답은 위치 헤더 또는 Azure-async-header를 사용한 202(수락됨)입니다.
 

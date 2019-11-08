@@ -1,5 +1,5 @@
 ---
-title: 'ARP 테이블 가져오기 - 문제 해결 - ExpressRoute: Azure| Microsoft Docs'
+title: 'ARP 테이블 가져오기-문제 해결-Express 경로: Azure | Microsoft Docs'
 description: 이 페이지는 ExpressRoute 회로의 ARP 테이블을 가져오는 방법을 안내합니다.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e35020923405ec072ac9c42093752ec5a9290824
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66151577"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748153"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.locfileid: "66151577"
 > 
 > 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="address-resolution-protocol-arp-and-arp-tables"></a>주소 확인 프로토콜(ARP) 및 ARP 테이블
 주소 확인 프로토콜(ARP)은 [RFC 826](https://tools.ietf.org/html/rfc826)에 정의된 계층 2 프로토콜입니다. ARP는 IP 주소로 이더넷 주소(MAC 주소)를 매핑하는 데 사용합니다.
@@ -61,7 +61,7 @@ ARP 테이블의 예:
 * 최신 Azure용 PowerShell 모듈(1.50 버전 이상)이 있어야 합니다.
 
 > [!NOTE]
-> 서비스 공급자가 계층 3을 제공 하 고 ARP 테이블은 아래 포털/출력에서 비어 있는 경우 포털에서 새로 고침 단추를 사용 하 여 회로 구성을 새로 고칩니다. 이 작업은 회로에 올바른 라우팅 구성을 적용합니다. 
+> 서비스 공급자가 계층 3을 제공 하 고 아래 포털/출력에서 ARP 테이블이 비어 있는 경우 포털의 새로 고침 단추를 사용 하 여 회로 구성을 새로 고칩니다. 이 작업은 회로에 올바른 라우팅 구성을 적용합니다. 
 >
 >
 
@@ -148,7 +148,7 @@ ARP 테이블의 예:
           0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
 ### <a name="arp-table-when-on-premises--connectivity-provider-side-has-problems"></a>온-프레미스/연결 공급자 측에 문제가 있을 때 ARP 테이블
-온-프레미스를 사용 하 여 문제가 있는 경우 연결 공급자 중 하나의 항목만 ARP 테이블이 나 온-프레미스 MAC 주소가 나타납니다는 불완전 한 표시 됩니다. Microsoft 측에서 사용된 MAC 주소와 IP 주소 사이의 매핑을 보여줍니다. 
+온-프레미스 또는 연결 공급자에 문제가 있는 경우 하나의 항목만 ARP 테이블에 표시 되거나 온-프레미스 MAC 주소가 불완전 하 게 표시 되는 것을 볼 수 있습니다. Microsoft 측에서 사용된 MAC 주소와 IP 주소 사이의 매핑을 보여줍니다. 
   
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------    

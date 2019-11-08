@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute 및 사이트 간 VPN 연결 구성 - 공존: PowerShell: Azure | Microsoft Docs'
+title: 'Express 경로 및 사이트 간 VPN 연결 구성-공존: PowerShell: Azure | Microsoft Docs'
 description: PowerShell을 사용하여 Resource Manager 모델에 대해 공존할 수 있는 ExpressRoute 및 사이트 간 VPN 연결을 구성합니다.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: fdd267937db589156aa5eddc7608323b143266de
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 8a89c5121d5010245ce16cade921bb96346fcbf5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67508847"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73748307"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>PowerShell을 사용하여 사이트 간 연결 및 ExpressRoute 공존 연결 구성
 > [!div class="op_single_selector"]
@@ -77,7 +77,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 [!INCLUDE [working with cloud shell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
@@ -136,7 +136,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
    ```
    
     Azure가 $azureVpn.BgpSettings.BgpPeeringAddress 및 $azureVpn.BgpSettings.Asn에서 VPN Gateway에 사용하는 BGP 피어링 IP 및 AS 번호를 찾을 수 있습니다. 자세한 내용은 Azure VPN Gateway에 대한 [BGP 구성](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md)을 참조하세요.
-5. 로컬 사이트 VPN Gateway 엔터티를 만듭니다. 이 명령은 온-프레미스 VPN Gateway를 구성하지 않습니다. 대신, Azure VPN Gateway를 연결할 수 있도록 공용 IP 주소 및 온-프레미스 주소 공간과 같은 로컬 게이트웨이 설정을 제공할 수 있게 해줍니다.
+5. 로컬 사이트 VPN Gateway 엔터티를 만듭니다. 이 명령은 온-프레미스 VPN Gateway를 구성하지 않습니다. 대신, Azure VPN 게이트웨이를 연결할 수 있도록 공용 IP 주소 및 온-프레미스 주소 공간과 같은 로컬 게이트웨이 설정을 제공할 수 있게 해줍니다.
    
     로컬 VPN 디바이스가 고정 라우팅만을 지원하는 경우 다음과 같은 방식으로 고정 경로를 구성할 수 있습니다.
 
@@ -216,7 +216,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
    ```azurepowershell-interactive
    $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
-4. 이제 게이트웨이 없는 가상 네트워크가 생겼습니다. 새 게이트웨이 만들고 연결을 설정 하려면 다음 예제를 사용 합니다.
+4. 이제 게이트웨이 없는 가상 네트워크가 생겼습니다. 새 게이트웨이를 만들고 연결을 설정 하려면 다음 예제를 사용 합니다.
 
    변수를 설정합니다.
 
@@ -243,7 +243,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>VPN Gateway에 지점 및 사이트 간 구성을 추가하려면
 
-아래 단계에 따라 공존 설정에서 VPN Gateway에 지점 및 사이트 간 구성을 추가할 수 있습니다. VPN 루트 인증서를 업로드 하려면 컴퓨터에 PowerShell을 로컬로 설치 하거나 Azure portal을 사용 해야 합니다.
+아래 단계에 따라 공존 설정에서 VPN Gateway에 지점 및 사이트 간 구성을 추가할 수 있습니다. VPN 루트 인증서를 업로드 하려면 컴퓨터에 로컬로 PowerShell을 설치 하거나 Azure Portal를 사용 해야 합니다.
 
 1. VPN 클라이언트 주소 풀을 추가합니다.
 
@@ -251,7 +251,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
    $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
    Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
    ```
-2. VPN Gateway에 대한 Azure에 VPN 루트 인증서를 업로드합니다. 이 예제에서는 루트 인증서는 다음 PowerShell cmdlet을 실행 되는 로컬 컴퓨터에 저장 되도록 하 고 PowerShell을 로컬로 실행 중인 간주 됩니다. 또한 Azure portal을 사용 하 여 인증서를 업로드할 수 있습니다.
+2. VPN Gateway에 대한 Azure에 VPN 루트 인증서를 업로드합니다. 이 예제에서는 루트 인증서가 다음 PowerShell cmdlet이 실행 되 고 PowerShell을 로컬로 실행 하는 로컬 컴퓨터에 저장 되어 있다고 가정 합니다. Azure Portal를 사용 하 여 인증서를 업로드할 수도 있습니다.
 
    ```powershell
    $p2sCertFullName = "RootErVpnCoexP2S.cer" 

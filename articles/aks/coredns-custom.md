@@ -7,25 +7,25 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jenoller
-ms.openlocfilehash: b4c771b406d635410c22db5c1c4687a34a2e6eb0
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 4f2e1a6f18a83d1e6c691f3fbcb0d85c7afd1575
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130012"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795101"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Azure Kubernetes Service를 사용 하 여 CoreDNS 사용자 지정
 
 AKS (Azure Kubernetes Service)는 모든 *1.12. x* 이상 클러스터에서 클러스터 DNS 관리 및 확인을 위해 [coredns][coredns] 프로젝트를 사용 합니다. 이전에는 kube 프로젝트를 사용 했습니다. 이 kube 프로젝트는 이제 사용 되지 않습니다. CoreDNS 사용자 지정 및 Kubernetes에 대 한 자세한 내용은 [공식 업스트림 설명서][corednsk8s]를 참조 하세요.
 
-AKS는 관리 되는 서비스 이므로 CoreDNS (a *CoreFile*)에 대 한 기본 구성을 수정할 수 없습니다. 대신 Kubernetes *Configmap* 을 사용 하 여 기본 설정을 재정의 합니다. 기본 AKS coredns configmaps를 보려면 `kubectl get configmaps --namespace=kube-system coredns -o yaml` 명령을 사용 합니다.
+AKS는 관리 되는 서비스 이므로 CoreDNS (a *CoreFile*)에 대 한 기본 구성을 수정할 수 없습니다. 대신 Kubernetes *Configmap* 을 사용 하 여 기본 설정을 재정의 합니다. 기본 AKS CoreDNS ConfigMaps를 보려면 `kubectl get configmaps --namespace=kube-system coredns -o yaml` 명령을 사용 합니다.
 
 이 문서에서는 AKS에서 CoreDNS의 기본 사용자 지정 옵션에 대해 ConfigMaps를 사용 하는 방법을 보여 줍니다. 이 방법은 CoreFile를 사용 하는 것과 같은 다른 컨텍스트에서 CoreDNS를 구성 하는 것과 다릅니다. 구성 값이 버전 간에 변경 될 수 있으므로 실행 중인 CoreDNS의 버전을 확인 합니다.
 
 > [!NOTE]
-> `kube-dns`Kubernetes 구성 맵을 통해 다른 [사용자 지정 옵션][kubednsblog] 을 제공 했습니다. CoreDNS는 이전 버전인 kube와 호환 **되지 않습니다** . 이전에 사용 했던 사용자 지정 항목은 CoreDNS에서 사용 하기 위해 업데이트 해야 합니다.
+> `kube-dns` Kubernetes 구성 맵을 통해 다른 [사용자 지정 옵션][kubednsblog] 을 제공 했습니다. CoreDNS는 이전 버전인 kube와 호환 **되지 않습니다** . 이전에 사용 했던 사용자 지정 항목은 CoreDNS에서 사용 하기 위해 업데이트 해야 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
@@ -35,7 +35,7 @@ AKS는 관리 되는 서비스 이므로 CoreDNS (a *CoreFile*)에 대 한 기�
 
 ## <a name="rewrite-dns"></a>DNS 다시 작성
 
-사용자가 수행 하는 한 가지 시나리오는 즉석에서 DNS 이름을 다시 작성 하는 것입니다. 다음 예제에서를 사용자 고유의 `<domain to be written>` 정규화 된 도메인 이름으로 바꿉니다. 이라는 `corednsms.yaml` 파일을 만들고 다음 예제 구성을 붙여넣습니다.
+사용자가 수행 하는 한 가지 시나리오는 즉석에서 DNS 이름을 다시 작성 하는 것입니다. 다음 예에서는 `<domain to be written>`를 고유한 정규화 된 도메인 이름으로 바꿉니다. `corednsms.yaml` 라는 파일을 만들고 다음 예제 구성을 붙여넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -49,7 +49,7 @@ data:
         errors
         cache 30
         rewrite name substring <domain to be rewritten>.com default.svc.cluster.local
-        proxy .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10
+        forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10
     }
 ```
 
@@ -65,18 +65,18 @@ kubectl apply -f corednsms.yaml
 kubectl get configmaps --namespace=kube-system coredns-custom -o yaml
 ```
 
-이제 CoreDNS를 강제로 실행 하 여 ConfigMap을 다시 로드 합니다. [Kubectl delete pod][kubectl delete] 명령은 소거식이 아니며 시간을 발생 시 키 지 않습니다. `kube-dns` Pod가 삭제 되 고 Kubernetes Scheduler에서 다시 만듭니다. 이러한 새 pod TTL 값의 변경 내용을 포함 합니다.
+이제 CoreDNS를 강제로 실행 하 여 ConfigMap을 다시 로드 합니다. [Kubectl delete pod][kubectl delete] 명령은 소거식이 아니며 시간을 발생 시 키 지 않습니다. `kube-dns` pod가 삭제 되 고 Kubernetes Scheduler가 다시 만듭니다. 이러한 새 pod TTL 값의 변경 내용을 포함 합니다.
 
 ```console
 kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
 > [!Note]
-> 위의 명령이 올바릅니다. 변경 `coredns`하는 동안 배포는 **kube** 이름 아래에 있습니다.
+> 위의 명령이 올바릅니다. `coredns`를 변경 하는 동안 배포는 **kube** 이름 아래에 있습니다.
 
-## <a name="custom-proxy-server"></a>사용자 지정 프록시 서버
+## <a name="custom-forward-server"></a>사용자 지정 전달 서버
 
-네트워크 트래픽에 대 한 프록시 서버를 지정 해야 하는 경우 ConfigMap을 만들어 DNS를 사용자 지정할 수 있습니다. 다음 예제에서는 `proxy` 이름 및 주소를 사용자 환경의 값으로 업데이트 합니다. 이라는 `corednsms.yaml` 파일을 만들고 다음 예제 구성을 붙여넣습니다.
+네트워크 트래픽에 대 한 전달 서버를 지정 해야 하는 경우 ConfigMap을 만들어 DNS를 사용자 지정할 수 있습니다. 다음 예제에서는 사용자의 환경에 대 한 값으로 `forward` 이름과 주소를 업데이트 합니다. `corednsms.yaml` 라는 파일을 만들고 다음 예제 구성을 붙여넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -87,7 +87,7 @@ metadata:
 data:
   test.server: | # you may select any name here, but it must end with the .server file extension
     <domain to be rewritten>.com:53 {
-        proxy foo.com 1.1.1.1
+        forward foo.com 1.1.1.1
     }
 ```
 
@@ -95,14 +95,14 @@ data:
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
+kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## <a name="use-custom-domains"></a>사용자 지정 도메인 사용
 
 내부적 으로만 확인할 수 있는 사용자 지정 도메인을 구성할 수 있습니다. 예를 들어 유효한 최상위 도메인이 아닌 사용자 지정 도메인 *puglife*를 확인 하는 것이 좋습니다. 사용자 지정 도메인 ConfigMap이 없으면 AKS 클러스터가 주소를 확인할 수 없습니다.
 
-다음 예제에서는 사용자 지정 도메인 및 IP 주소를 업데이트 하 여 사용자 환경에 대 한 값으로 트래픽을 보냅니다. 이라는 `corednsms.yaml` 파일을 만들고 다음 예제 구성을 붙여넣습니다.
+다음 예제에서는 사용자 지정 도메인 및 IP 주소를 업데이트 하 여 사용자 환경에 대 한 값으로 트래픽을 보냅니다. `corednsms.yaml` 라는 파일을 만들고 다음 예제 구성을 붙여넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -115,7 +115,7 @@ data:
     puglife.local:53 {
         errors
         cache 30
-        proxy . 192.11.0.1  # this is my test/dev DNS server
+        forward . 192.11.0.1  # this is my test/dev DNS server
     }
 ```
 
@@ -123,12 +123,12 @@ data:
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
+kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## <a name="stub-domains"></a>스텁 도메인
 
-CoreDNS는 스텁 도메인을 구성 하는 데도 사용할 수 있습니다. 다음 예제에서는 사용자 지정 도메인 및 IP 주소를 사용자 환경의 값으로 업데이트 합니다. 이라는 `corednsms.yaml` 파일을 만들고 다음 예제 구성을 붙여넣습니다.
+CoreDNS는 스텁 도메인을 구성 하는 데도 사용할 수 있습니다. 다음 예제에서는 사용자 지정 도메인 및 IP 주소를 사용자 환경의 값으로 업데이트 합니다. `corednsms.yaml` 라는 파일을 만들고 다음 예제 구성을 붙여넣습니다.
 
 ```yaml
 apiVersion: v1
@@ -141,12 +141,12 @@ data:
     abc.com:53 {
         errors
         cache 30
-        proxy . 1.2.3.4
+        forward . 1.2.3.4
     }
     my.cluster.local:53 {
         errors
         cache 30
-        proxy . 2.3.4.5
+        forward . 2.3.4.5
     }
 
 ```
@@ -155,7 +155,7 @@ data:
 
 ```console
 kubectl apply -f corednsms.yaml
-kubectl delete pod --namespace kube-system --label k8s-app=kube-dns
+kubectl delete pod --namespace kube-system --selector k8s-app=kube-dns
 ```
 
 ## <a name="hosts-plugin"></a>호스트 플러그 인
@@ -187,8 +187,6 @@ data:
 [coredns]: https://coredns.io/
 [corednsk8s]: https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/#coredns
 [dnscache]: https://coredns.io/plugins/cache/
-[aks-quickstart-cli]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
-[aks-quickstart-portal]: https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough-portal
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl delete]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#delete

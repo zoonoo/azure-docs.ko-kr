@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: 849c919950c57a1df3b0fb76021de6e10254c7b4
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: a818d84bf3df712190ccc6c1721c26933a9fbcdb
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286393"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73793931"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>QnA 작성기에 대한 기술 콘텐츠의 언어 지원
 
@@ -38,16 +38,16 @@ QnA Maker를 사용 하 여 첫 번째 기술 자료를 만드는 동안 QnA 서
 ![첫 번째 기술 자료에 대 한 언어를 선택 하 QnA Maker 포털 스크린샷](../media/language-support/select-language-when-creating-knowledge-base.png)
 
 ## <a name="query-matching-and-relevance"></a>쿼리 일치 및 관련성
-QnA Maker은 결과를 제공 하기 위한 [Azure Search 언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support) 에 따라 다릅니다. 
+QnA Maker은 결과를 제공 하기 위해 [Azure Cognitive Search 언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support) 에 의존 합니다. 
 
-Azure Search 기능은 지원되는 언어에 동일하며 QnA Maker에는 Azure Search 결과의 상위에 있는 추가 랭커(ranker)가 포함되어 있습니다. 이 ranker 모델에서는 다음과 같은 언어에서 특수 한 의미 체계 및 단어 기반 기능을 사용 합니다. 
+Azure Cognitive Search 기능은 지원 되는 언어에 대해 동일 하지만 QnA Maker에는 Azure Search 결과 위에 추가 ranker 있습니다. 이 ranker 모델에서는 다음과 같은 언어에서 특수 한 의미 체계 및 단어 기반 기능을 사용 합니다. 
 
 |추가 ranker 있는 언어|
 |--|
 |중국어|
 |체코어|
 |네덜란드어|
-|한국어|
+|영어|
 |프랑스어|
 |독일어|
 |헝가리어|

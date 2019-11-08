@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 71e4b62ddcb3f144b49b99e6ba95a47971d3f4bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 12e9367ca9e330806af4c7cc5db626edddff5c25
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476958"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795238"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록이 확장 되 고 더 많은 서비스를 포함 하도록 업데이트 됩니다.
@@ -48,6 +48,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [Automation](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
+* [Azure Cognitive Search](#azure-cognitive-search-limits)
 * [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
@@ -60,7 +61,6 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure Search](#azure-search-limits)
 * [Azure SignalR 서비스](#azure-signalr-service-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
@@ -270,7 +270,7 @@ Azure Database for MySQL 제한은 [Azure Database for MySQL의 제한 사항](m
 ### <a name="azure-database-for-postgresql"></a>Azure Database for PostgreSQL
 Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한 사항](postgresql/concepts-limits.md)을 참조하세요.
 
-### <a name="azure-search-limits"></a>Azure Search 제한
+### <a name="azure-cognitive-search-limits"></a>Azure Cognitive Search 제한
 가격 책정 계층은 검색 서비스의 용량 및 제한을 결정합니다. 계층은 다음을 포함합니다.
 
 * 다른 Azure 구독자와 공유 되는 **무료** 다중 테 넌 트 서비스는 평가 및 소규모 개발 프로젝트를 위한 것입니다.
@@ -285,7 +285,7 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-문서 크기, 초당 쿼리, 키, 요청 및 응답을 비롯한 좀 더 자세한 수준의 제한 사항에 대한 자세한 내용은 [Azure Search의 서비스 제한 사항](search/search-limits-quotas-capacity.md)을 참조하세요.
+문서 크기, 초당 쿼리, 키, 요청 및 응답과 같이 보다 세분화 된 수준에 대 한 제한에 대 한 자세한 내용은 [Azure Cognitive Search의 서비스 제한](search/search-limits-quotas-capacity.md)을 참조 하세요.
 
 ### <a name="media-services-limits"></a>Media Services 제한
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
