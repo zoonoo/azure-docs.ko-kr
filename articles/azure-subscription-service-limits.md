@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 12e9367ca9e330806af4c7cc5db626edddff5c25
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: f9fe540611b1b773867e1f92439e13df91ad4bd3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795238"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818342"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록이 확장 되 고 더 많은 서비스를 포함 하도록 업데이트 됩니다.
@@ -130,7 +130,7 @@ Resource Manager API 읽기 및 쓰기 제한은 [Resource Manager 요청 제한
 [!INCLUDE [azure-virtual-machines-limits](../includes/azure-virtual-machines-limits.md)]
 
 #### <a name="virtual-machines-limits---azure-resource-manager"></a>Virtual Machines 제한 - Azure 리소스 관리자
-Azure Resource Manager 및 Azure 리소스 그룹을 사용 하는 경우 다음 제한이 적용 됩니다. Azure Resource Manager 변경 되지 않은 제한은 나열 되지 않습니다. 이러한 제한에 대해서는 이전 표를 참조 하세요.
+Azure Resource Manager 및 Azure 리소스 그룹을 사용 하는 경우 다음 제한이 적용 됩니다.
 
 [!INCLUDE [azure-virtual-machines-limits-azure-resource-manager](../includes/azure-virtual-machines-limits-azure-resource-manager.md)]
 

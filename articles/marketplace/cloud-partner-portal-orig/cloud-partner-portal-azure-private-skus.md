@@ -4,15 +4,16 @@ description: 프라이빗 SKU를 사용하여 제품 가용성을 관리하는 �
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: pabutler
-ms.openlocfilehash: 940b50cf4a04abacd4d7be2104dd97fb8b3db736
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: eb6eac5eafaeea239bfaf9cf2aface3db659dd57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883121"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818828"
 ---
 <a name="private-skus-and-plans"></a>프라이빗 SKU 및 플랜
 ============
@@ -98,7 +99,7 @@ API를 사용 하 고 CSV 파일을 유지 관리 하지 않으려는 경우 아
 
 ###  <a name="managing-subscriptions-with-the-api"></a>API를 사용 하 여 구독 관리
 
-API를 사용 하 여 csv를 업로드 하거나 CSV를 사용 하지 않고 직접 대상 그룹을 관리할 수 있습니다. 일반적으로 제품을 검색 하 고 `restrictedAudience` 개체를 업데이트 한 다음 해당 변경 내용을 제품에 다시 제출 하 여 대상 그룹 멤버를 추가 하거나 제거 해야 합니다.
+API를 사용 하 여 csv를 업로드 하거나 CSV를 사용 하지 않고 직접 대상 그룹을 관리할 수 있습니다. 일반적으로 제품을 검색 하 고 `restrictedAudience` 개체를 업데이트 한 다음 해당 변경 내용을 제품에 다시 제출 하 여 대상 그룹 구성원을 추가 하거나 제거 해야 합니다.
 
 다음은 사용자 그룹 목록을 프로그래밍 방식으로 업데이트 하는 방법입니다.
 
@@ -126,7 +127,7 @@ API를 사용 하 여 csv를 업로드 하거나 CSV를 사용 하지 않고 직
 
     제한 된 각 대상 개체에 대해 다음을 수행 합니다.
 
-    a. 의 `restrictedAudience.uploadedCsvUri`콘텐츠를 다운로드 합니다. 콘텐츠는 헤더를 포함 하는 CSV 파일 일 뿐입니다. 예:
+    a. `restrictedAudience.uploadedCsvUri`의 콘텐츠를 다운로드 합니다. 콘텐츠는 헤더를 포함 하는 CSV 파일 일 뿐입니다. 예:
 
         type,id,description
         subscriptionId,541a269f-3df2-486e-8fe3-c8f9dcf28205,sub1
@@ -136,7 +137,7 @@ API를 사용 하 여 csv를 업로드 하거나 CSV를 사용 하지 않고 직
 
     c. [Azure Blob storage](../../storage/blobs/storage-blobs-overview.md) 또는 [OneDrive](https://onedrive.live.com)와 같은 위치에 업데이트 된 CSV 파일을 업로드 하 고 파일에 대 한 읽기 전용 링크를 만듭니다. 새 *SasUrl*됩니다.
 
-    d. `restrictedAudience.uploadedCsvUri` 새 *SasUrl*키를 업데이트 합니다.
+    ㄹ. `restrictedAudience.uploadedCsvUri` 키를 새 *SasUrl*업데이트 합니다.
 
     **Cloud 파트너 포털에서 개인 제품의 원래 구독 목록을 수동으로 입력 한 경우:**
 
@@ -156,7 +157,7 @@ API를 사용 하 여 csv를 업로드 하거나 CSV를 사용 하지 않고 직
         ]}
     ```
 
-    a. 제한 된 `restrictedAudience.manualEntries` 각 대상 개체에 대해 필요에 따라 목록에서 항목을 추가 하거나 삭제 합니다.
+    a. 제한 된 각 대상 개체의 경우 필요에 따라 `restrictedAudience.manualEntries` 목록에서 항목을 추가 하거나 삭제 합니다.
 
 4. 개인 제품의 각 SKU에 대 한 모든 *restrictedAudience* 개체를 업데이트 하는 작업을 완료 하면 [제품을 업데이트 합니다](cloud-partner-portal-api-creating-offer.md).
 

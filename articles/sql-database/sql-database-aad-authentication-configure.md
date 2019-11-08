@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 인증 구성-SQL
+title: Azure Active Directory 인증 구성
 description: Azure AD를 구성한 후 Azure Active Directory 인증을 사용 하 여 SQL Database, 관리 되는 인스턴스 및 SQL Data Warehouse에 연결 하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 11/06/2019
-ms.openlocfilehash: d23fcb781f5eddd71d5ddce9344d988d2e323611
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 48334d8ce266ddcc92e4d2b27634db3d8c9f1bc9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691379"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816787"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql"></a>SQL을 사용하여 Azure Active Directory 인증 구성 및 관리
 
@@ -161,7 +161,7 @@ Azure Active Directory와 함께 지역에서 복제를 사용할 때 Azure Acti
 | 공개 미리 보기로 제공 되는 MI 용 Azure AD 로그인 관리자 | MI 용 Azure AD 관리자에 대 한 GA 기능 |
 | --- | ---|
 | 는 azure ad 인증을 가능 하 게 하는 SQL Database에 대 한 Azure AD 관리자와 비슷한 방식으로 작동 하지만 Azure ad 관리자는 MI 용 master db에 Azure AD 또는 SQL 로그인을 만들 수 없습니다. | Azure AD 관리자는 sysadmin 권한을 가지 며 MI 용 master db에서 AAD 및 SQL 로그인을 만들 수 있습니다. |
-| Server_principals 뷰에 없습니다. | Server_principals 뷰에 있습니다. |
+| 은 (는) server_principals 뷰에 없습니다. | 는 sys. server_principals 뷰에 있습니다. |
 | 개별 Azure AD 게스트 사용자를 Azure AD admin for MI로 설정할 수 있습니다. 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](../active-directory/b2b/add-users-administrator.md)를 참조 하세요. | 이 그룹을 MI 용 Azure AD 관리자로 설정 하려면 게스트 사용자를 구성원으로 사용 하 여 Azure AD 그룹을 만들어야 합니다. 자세한 내용은 [AZURE AD business to business 지원](sql-database-ssms-mfa-authentication.md#azure-ad-business-to-business-support)을 참조 하세요. |
 
 GA 이전에 만든 MI에 대해 기존 Azure AD 관리자를 사용 하는 것이 가장 좋은 방법으로, 동일한 Azure AD 사용자 또는 그룹에 대 한 "관리자 제거" 및 "관리자 설정" 옵션 Azure Portal 사용 하 여 Azure AD 관리자를 다시 설정 합니다.

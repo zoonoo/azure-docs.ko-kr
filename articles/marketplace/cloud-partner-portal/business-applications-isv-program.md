@@ -4,15 +4,16 @@ description: Business Applications ISV Connect 프로그램에 등록 하는 방
 services: Azure Marketplace, Cloud Partner Portal
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/12/2019
 ms.author: evansma
-ms.openlocfilehash: 349998b53378d00b6524f94578aa11642321d691
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 4a47886176b704cc3bc36cc9fa85d1d3faee4c58
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182549"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819157"
 ---
 # <a name="microsoft-business-applications-independent-software-vendor-isv-connect-program-onboarding-guide"></a>Microsoft Business Applications ISV (독립 소프트웨어 공급 업체) 연결 프로그램 온 보 딩 가이드
 
@@ -58,7 +59,7 @@ Dynamics CE 또는 Dynamics Ops 제안을 이미 게시 한 경우 대부분의 
 
 3. 버전 링크를 선택 하 고 규약을 확인 합니다.
 
-4. 계약 동의를 선택 하 여 계약에 동의 합니다.
+4. 계약 **동의를 선택 하** 여 계약에 동의 합니다.
 
 ## <a name="set-up-your-billing-information"></a>청구 정보 설정
 
@@ -67,7 +68,7 @@ Dynamics CE 또는 Dynamics Ops 제안을 이미 게시 한 경우 대부분의 
 > [!NOTE]
 > 이 단계를 수행 하려면 계정에서 청구 정보를 업데이트 하기 위한 파트너 센터의 *소유자* 또는 *관리자* 역할이 필요 합니다.
 
-1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인합니다.
+1. [파트너 센터](https://partner.microsoft.com/dashboard)에 로그인 합니다.
 
 2. *설정* (기어) 아이콘을 선택 하 고 **개발자 설정**을 선택 합니다.
 

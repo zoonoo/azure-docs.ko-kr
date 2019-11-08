@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 인증-Azure SQL
+title: Azure Active Directory
 description: SQL Database, Managed Instance 및 SQL Data Warehouse에서 인증에 Azure Active Directory를 사용하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 02/20/2019
-ms.openlocfilehash: 4516f75d80345312a6ca3b6dac3e5156d7e239e8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e0eeb48490c869c4a3b46bfd71fca72e0ab1c2ff
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691374"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816531"
 ---
 # <a name="use-azure-active-directory-authentication-for-authentication-with-sql"></a>SQL에서 인증을 위해 Azure Active Directory 인증 사용
 

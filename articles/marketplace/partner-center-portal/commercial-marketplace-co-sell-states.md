@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: f0fa86cc3de9f8c183d7b7a24fb03d02204adc17
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 38dcfe04473e8d2fbd81614908adef9636c44b19
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076148"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812851"
 ---
 # <a name="co-sell-state-codes"></a>공동 판매 상태 코드
 
@@ -23,61 +24,61 @@ ms.locfileid: "70076148"
 |   시/도 이름               |   코드    |
 |-------------------------------------|-----------|
 | Alabama                             | 미국-AL     |
-| Alaska                              | US-AK     |
-| Arizona                             | 미국-AZ     |
-| Arkansas                            | 미국-AR     |
-| California                          | US-CA     |
-| Colorado                            | US-CO     |
+| 알래스카                              | US-AK     |
+| 애리조나                             | 미국-AZ     |
+| 아칸 사스                            | 미국-AR     |
+| 캘리포니아                          | US-CA     |
+| 콜로라도                            | US-CO     |
 | Connecticut                         | 미국-CT     |
 | Delaware                            | 미국-DE     |
-| Florida                             | US-FL     |
-| 그루지야                             | 미국-GA     |
-| Hawaii                              | 미국-안녕하세요.     |
+| 플로리다                             | US-FL     |
+| 조지아                             | 미국-GA     |
+| 하와이                              | 미국-안녕하세요.     |
 | Idaho                               | 미국-ID     |
-| Illinois                            | US-IL     |
-| Indiana                             | US-IN     |
-| Iowa                                | 미국-IA     |
-| Kansas                              | 미국-KS     |
-| Kentucky                            | US-KY     |
-| Louisiana                           | 미국-LA     |
+| 일리노이                            | US-IL     |
+| 인디애나                             | US-IN     |
+| 아이오와                                | 미국-IA     |
+| 캔자스                              | 미국-KS     |
+| 교육부                            | US-KY     |
+| 루이지애나                           | 미국-LA     |
 | Maine                               | US-ME     |
 | Maryland                            | 미국-MD     |
 | Massachusetts                       | 미국-MA     |
-| Michigan                            | 미국-MI     |
-| Minnesota                           | US-MN     |
+| 미시간                            | 미국-MI     |
+| 미네소타                           | US-MN     |
 | Mississippi                         | 미국-MS     |
 | Missouri                            | 미국-MO     |
 | Montana                             | 미국-MT     |
 | Nebraska                            | 미국-NE     |
-| Nevada                              | 미국-NV     |
-| New Hampshire                       | 미국-NH     |
-| New Jersey                          | US-NJ     |
-| New Mexico                          | 미국-NM     |
-| New York                            | 미국-서-     |
-| North Carolina                      | 미국-NC     |
-| North Dakota                        | 미국-ND     |
+| 네바다                              | 미국-NV     |
+| 새 뉴햄프셔                       | 미국-NH     |
+| 새 Jersey                          | US-NJ     |
+| 새 멕시코                          | 미국-NM     |
+| 뉴욕                            | 미국-서-     |
+| 노스캐롤라이나                      | 미국-NC     |
+| 북부 노스다코타                        | 미국-ND     |
 | Ohio                                | 미국-오     |
 | Oklahoma                            | US-정상     |
 | Oregon                              | US-또는     |
-| Pennsylvania                        | 미국-PA     |
-| Rhode Island                        | 미국-RI     |
-| South Carolina                      | 미국-SC     |
-| South Dakota                        | 미국-SD     |
-| Tennessee                           | US-TN     |
-| Texas                               | US-TX     |
+| 펜실베이니아                        | 미국-PA     |
+| 로드 섬                        | 미국-RI     |
+| 남부 Carolina                      | 미국-SC     |
+| 남부 노스다코타                        | 미국-SD     |
+| 테네시                           | US-TN     |
+| 텍사스                               | US-TX     |
 | Utah                                | 미국-전 세계     |
-| Vermont                             | US-VT     |
-| Virginia                            | 미국-VA     |
-| Washington                          | 미국-WA     |
-| West Virginia                       | US-WV     |
-| Wisconsin                           | US-WI-FI     |
-| Wyoming                             | US-WY     |
-| District of Columbia                | US-DC     |
+| 버몬트                             | US-VT     |
+| 버지니아                            | 미국-VA     |
+| 워싱턴                          | 미국-WA     |
+| 서 부 버지니아                       | US-WV     |
+| 위스콘신                           | US-WI-FI     |
+| 와이오밍                             | US-WY     |
+| 특별구의 학구                | US-DC     |
 | 아메리칸 사모아                      | 미국-     |
 | 괌                                | US-GU     |
-| 북마리아나 군도            | US-MP     |
+| 북마리아나 제도            | US-MP     |
 | 푸에르토리코                         | US-PR     |
-| 미국 소수 외부 제도 | US-UM    |
+| 미국령 해외 제도 | US-UM    |
 |미국령 버진 아일랜드                 | 미국-VI     |
 
 ## <a name="next-steps"></a>다음 단계

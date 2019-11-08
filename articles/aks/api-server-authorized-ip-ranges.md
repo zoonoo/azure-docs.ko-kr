@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: mlearned
-ms.openlocfilehash: 558c04be77f911f40be9e8880950d1670a3c169e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.openlocfilehash: aa0cf1ef3f758d7aba4639d779bde90249d039cb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747755"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815666"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 권한이 부여 된 IP 주소 범위를 사용 하 여 API 서버에 대 한 액세스 보호
 
@@ -25,17 +25,9 @@ Kubernetes에서 API 서버는 리소스를 만들거나 노드 수를 조정 �
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 [kubenet][kubenet]를 사용 하는 클러스터로 작업 하는 경우를 가정 합니다.  [Azure 컨테이너 네트워킹 인터페이스 (CNI)][cni-networking] 기반 클러스터를 사용 하는 경우 액세스를 보호 하는 데 필요한 경로 테이블이 없습니다.  경로 테이블을 수동으로 만들어야 합니다.  경로 테이블을 관리 하는 방법에 대 한 자세한 내용은 [경로 테이블 만들기, 변경 또는 삭제][route-tables]를 참조 하세요.
-
 API server 권한 있는 IP 범위는 새로 만든 AKS 클러스터에만 적용 됩니다. 이 문서에서는 Azure CLI를 사용 하 여 AKS 클러스터를 만드는 방법을 보여 줍니다.
 
 Azure CLI 버전 2.0.76 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드 해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조 하세요.
-
-## <a name="limitations"></a>제한 사항
-
-API server 권한 있는 IP 범위를 구성 하는 경우 다음 제한 사항이 적용 됩니다.
-
-* 현재 API 서버와의 통신도 차단 되므로 Azure Dev Spaces를 사용할 수 없습니다.
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>API server 권한 있는 IP 범위 개요
 
@@ -69,6 +61,7 @@ az aks create \
 > 이러한 범위는 허용 목록에 추가 해야 합니다.
 > - 방화벽 공용 IP 주소
 > - 클러스터를 관리할 네트워크를 나타내는 모든 범위
+> - AKS 클러스터에서 Azure Dev Spaces를 사용 하는 경우 [해당 지역에 따라 추가 범위][dev-spaces-ranges]를 허용 해야 합니다.
 
 ### <a name="specify-the-outbound-ips-for-the-standard-sku-load-balancer"></a>표준 SKU 부하 분산 장치에 대 한 아웃 바운드 Ip를 지정 합니다.
 
@@ -141,6 +134,7 @@ az aks update \
 
 <!-- LINKS - external -->
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[dev-spaces-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [kubenet]: https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/network-plugins/#kubenet
 
 <!-- LINKS - internal -->

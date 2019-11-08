@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance의 가상 네트워크 만들기
+title: 관리 되는 인스턴스에 대 한 가상 네트워크 만들기
 description: 이 문서에서는 Azure SQL Database Managed Instance를 배포할 수 있는 가상 네트워크를 만드는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 09/12/2019
-ms.openlocfilehash: ae18671000a2bfd3bedef7805ba5db964fe0cf95
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9f115d51657993562642391a235de79420aa434a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688177"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823371"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Azure SQL Database Managed Instance의 가상 네트워크 만들기
 

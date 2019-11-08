@@ -48,16 +48,6 @@
       href: front-door-url-rewrite.md
     - name: URL 리디렉션
       href: front-door-url-redirect.md
-    - name: WAF
-      items:
-        - name: 개요
-          href: waf-overview.md
-        - name: 사용자 지정 규칙
-          href: waf-front-door-custom-rules.md
-        - name: 정책 설정
-          href: waf-front-door-policy-settings.md
-        - name: 모니터링 및 로깅
-          href: waf-front-door-monitor.md
 - name: 방법 가이드
   items:
     - name: 트래픽 리디렉션
@@ -74,26 +64,10 @@
           href: front-door-troubleshoot-routing.md
         - name: 허용된 인증 기관
           href: front-door-troubleshoot-allowed-ca.md
-    - name: WAF 구성
-      items:
-        - name: WAF 정책 구성 - 포털
-          href: waf-front-door-create-portal.md
-        - name: WAF 정책 구성 - Azure PowerShell
-          href: waf-front-door-custom-rules-powershell.md
-        - name: 봇 보호 구성
-          href: waf-front-door-policy-configure-bot-protection.md
-        - name: 사용자 지정 응답 코드 구성
-          href: waf-front-door-configure-custom-response-code.md
-        - name: IP 제한 구성
-          href: waf-front-door-configure-ip-restriction.md
-        - name: 속도 제한 구성 - Azure PowerShell
-          href: waf-front-door-rate-limit-powershell.md
 - name: FAQ
   items:
     - name: Front Door FAQ
       href: front-door-faq.md
-    - name: WAF FAQ
-      href: waf-faq.md
 - name: 참고 자료
   items:
     - name: Azure CLI

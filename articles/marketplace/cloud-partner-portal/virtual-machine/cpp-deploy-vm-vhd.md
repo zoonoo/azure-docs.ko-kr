@@ -4,15 +4,16 @@ description: Azure에서 배포한 VHD에서 VM을 등록하는 방법을 설명
 services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: evansma
-ms.openlocfilehash: 1aa946c813de41423d4fb2ba5b3aa5274db90f39
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 797c258c963d0daec32a8f9ac7c4e0665dc465d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934959"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813408"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>VHD에서 VM 배포
 
@@ -62,7 +63,7 @@ VM이 배포되면 [VM 이미지를 인증](./cpp-certify-vm.md)할 준비가 �
    | 공용 IP에 대한 DNS 이름      | 공용 IP DNS 이름입니다. VM의 DNS 이름은 제품을 배포한 후 Azure Portal에서 정의 합니다.  |
    | 관리자 사용자 이름             | 새 VM에 대한 관리자 계정의 사용자 이름                                  |
    | 관리자 암호              | 새 VM에 대한 관리자 계정의 암호                                  |
-   | OS 유형                     | VM 운영 체제: `Windows` \| `Linux`                                    |
+   | OS 종류                     | VM 운영 체제: `Windows` \| `Linux`                                    |
    | 구독 ID             | 선택한 구독의 식별자                                      |
    | 위치                    | 배포의 지리적 위치                                        |
    | VM 크기                     | [Azure VM 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)(예: `Standard_A2`) |

@@ -4,15 +4,16 @@ description: Azure marketplace 고객에 대 한 Marketo에 대 한 리드 관�
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: 9470a593f5db564689a0b26601a201874c215aa2
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 8d13e8c3aeabf6d3fdea80ffddbae47b80adc139
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902092"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812131"
 ---
 # <a name="configure-lead-management-in-marketo"></a>Marketo의 잠재 고객 관리 구성
 
@@ -55,7 +56,7 @@ ms.locfileid: "69902092"
     **이러한 값을 파악 하는 또 다른 방법**
 
     - Marketo 인스턴스의 URL (예: "`serverID.marketo.com`")에 서버 ID가 있습니다.
-    - "Munchkin 계정 ID" 필드의 관리 > Munchkin 메뉴로 이동 하거나 Marketo REST API 호스트 하위 도메인 `https://{Munchkin ID}.mktorest.com`의 첫 번째 부분에서 구독의 Munching ID를 가져옵니다.
+    - "Munchkin 계정 ID" 필드의 관리 > Munchkin 메뉴로 이동 하거나 Marketo REST API 호스트 하위 도메인: `https://{Munchkin ID}.mktorest.com`의 첫 번째 부분에서 구독의 Munching ID를 가져옵니다.
     - 양식 ID는 marketplace에서 잠재 고객을 라우팅하는 7 단계에서 만든 Embed 코드 양식의 ID입니다.
 
 ## <a name="configure-your-offer-to-send-leads-to-marketo"></a>Marketo에 잠재 고객을 보내도록 제품 구성

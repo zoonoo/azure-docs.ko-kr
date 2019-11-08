@@ -5,15 +5,16 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: qianw211
 manager: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 5a3724729f85b7917b1559ce2ac3d859881e0de8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b14d40e9b3a2aa1ca71335b60e97f15b3782698f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935157"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823272"
 ---
 <a name="managing-users-on-cloud-partner-portal"></a>클라우드 파트너 포털에서 사용자 관리
 ======================================
@@ -37,13 +38,13 @@ ms.locfileid: "64935157"
 
 새 사용자를 '소유자' 또는 '참가자'로 추가할 수 있습니다.
 
-**메일**: 제품을 게시하는 팀원의 이메일 주소를 추가합니다. Microsoft 계정(예: Outlook, Hotmail 및 Live) 및 조직 ID가 지원됩니다.
+**이메일**: 제품을 게시하는 팀원의 이메일 주소를 추가합니다. Microsoft 계정(예: Outlook, Hotmail 및 Live) 및 조직 ID가 지원됩니다.
 
 o 제품에서 작업을 하는 개별 직원이 조직을 떠날 경우 ‘팀/그룹 전자 메일 별칭/보안 그룹’을 추가합니다.
 
 o 클라우드 파트너 포털에 제공된 전자 메일 ID가 Microsoft의 모든 통신에서 모니터링되는지 확인합니다.
 
-**역할**: 아래 표를 참조하여 적절한 사용자 역할 유형을 파악하세요.
+**역할**: 아래 표를 참조하여 해당 사용자 역할 유형을 파악하세요.
 
 ![역할 할당](./media/cloud-partner-portal-how-to-manage-users/assignrole.png)
 ![역할 수준](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
@@ -54,7 +55,7 @@ o 클라우드 파트너 포털에 제공된 전자 메일 ID가 Microsoft의 �
 ----------------------------------------------------------------------------------------------------------------------------
 
 > [!NOTE]
-> 이메일을 소유자 또는 기여자로 추가한 ‘게시자 이름’이 선택할 수 있게 게시자 드롭다운 목록에 표시됩니다.
+> 전자 메일이 소유자 또는 참가자로 추가 되는 ' 게시자 이름 '은 선택할 게시자의 드롭다운 목록에 표시 됩니다. '
 
 ![역할 할당 - 게시자 선택](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 

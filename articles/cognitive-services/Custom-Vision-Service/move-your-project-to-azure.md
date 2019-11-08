@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: anroth
-ms.openlocfilehash: 5c583270428a459f500ae0e220592805fd1bf454
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
-ms.translationtype: HT
+ms.openlocfilehash: 0a2b48a6c046150f6e685ecda0c0d765342e0194
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718899"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818947"
 ---
 # <a name="how-to-move-your-limited-trial-project-to-azure"></a>제한 된 평가판 프로젝트를 Azure로 이동 하는 방법
 
@@ -46,7 +46,7 @@ Azure에서 Custom Vision Service를 사용 하려면 [Azure Portal](https://por
 
 ## <a name="find-your-limited-trial-project-information"></a>제한 된 평가판 프로젝트 정보 찾기
 
-프로젝트를 이동 하려면 마이그레이션하려는 프로젝트에 대 한 _프로젝트 ID_ 및 _학습 키_ 가 필요 합니다. 이 정보가 없는 경우 [https://limitedtrial.customvision.ai/projects](https://limitedtrial.customvision.ai/projects) 를 방문 하 여 각 프로젝트에 대 한 ID 및 키를 가져옵니다. 
+프로젝트를 이동 하려면 마이그레이션하려는 프로젝트에 대 한 _프로젝트 ID_ 및 _학습 키_ 가 필요 합니다. 이 정보가 없는 경우 [https://www.customvision.ai/projects](https://www.customvision.ai/projects) 를 방문 하 여 각 프로젝트에 대 한 ID 및 키를 가져옵니다. 
 
 ## <a name="use-the-python-sample-code-to-copy-your-project-to-azure"></a>Python 샘플 코드를 사용 하 여 Azure에 프로젝트 복사
 

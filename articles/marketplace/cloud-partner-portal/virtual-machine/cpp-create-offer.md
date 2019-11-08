@@ -1,31 +1,32 @@
 ---
-title: Azure Marketplace에서 가상 머신 제품 만들기
+title: Azure Marketplace에서 가상 컴퓨터 제품 만들기
 description: Azure Marketplace용 새 VM(가상 머신) 제안을 만드는 데 필요한 단계를 나열합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: 4cd635c6f664a5260b79e62ea72bbb86fc4e1e4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1e10bd22b91b51fb811601e49fad06d8f8b30127
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938369"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817092"
 ---
 # <a name="create-virtual-machine-offer"></a>Virtual Machine 제안 만들기
 
-이 섹션에서는 Azure Marketplace용 새 VM(가상 머신) 제안 요청을 만드는 데 필요한 단계를 나열합니다.  모든 제안은 Azure Marketplace에서 자체의 고유한 엔터티로 나타나며 하나 이상의 SKU와 연결됩니다.  VM 제안을 구성하는 자산 및 지원 서비스의 그룹은 다음과 같습니다. 
+이 섹션에서는 Azure Marketplace용 새 VM(가상 머신) 제안 요청을 만드는 데 필요한 단계를 나열합니다.  모든 제품은 Azure Marketplace에 고유 엔터티로 나타나 있으며 하나 이상의 SKU와 연결됩니다.  VM 제안을 구성하는 자산 및 지원 서비스의 그룹은 다음과 같습니다. 
 
 ![VM 제안에 대한 자산](./media/publishvm_002.png)
 
-각 항목이 나타내는 의미는 다음과 같습니다.
+설명:
 
 |  **자산 그룹**   |  **설명**  |
 |  ---------------   |  ---------------  |
 |    SKU            |  제안의 가장 작은 구매 가능 단위입니다. 단일 제안(제품 클래스)은 여러 개의 SKU를 연결하여 지원되는 기능, VM 이미지 유형 및 청구 모델을 구별할 수 있습니다. |
-|  Marketplace       | 마케팅, 법적 정보 및 잠재 고객 관리 자산 및 사양이 포함됩니다.  <ul><li> 마케팅 자산에는 제안 이름, 설명 및 로고가 포함됩니다.</li> <li> 법적 정보 자산에는 개인정보처리방침, 사용 약관 및 기타 법률 문서가 포함됩니다.</li>  <li> 잠재 고객 관리 정책을 사용하면 Azure Marketplace 최종 사용자 포털에서 잠재 고객을 처리하는 방법을 지정할 수 있습니다.</li> </ul> |
+|  Marketplace       | 마케팅, 법률 및 잠재 고객 관리 자산 및 사양을 포함합니다.  <ul><li> 마케팅 자산에는 제안 이름, 설명 및 로고가 포함됩니다.</li> <li> 법적 정보 자산에는 개인정보처리방침, 사용 약관 및 기타 법률 문서가 포함됩니다.</li>  <li> 잠재 고객 관리 정책을 사용하면 Azure Marketplace 최종 사용자 포털에서 잠재 고객을 처리하는 방법을 지정할 수 있습니다.</li> </ul> |
 | 지원            | 지원 연락처 및 정책 정보가 포함됩니다. |
 | 시험 사용         | 최종 사용자가 제안을 구입하기 전에 해당 제안을 테스트할 수 있도록 하는 자산을 정의합니다. |
 |  |  |

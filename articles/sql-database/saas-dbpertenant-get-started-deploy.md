@@ -1,5 +1,5 @@
 ---
-title: 테 넌 트 별 데이터베이스 SaaS 자습서-Azure SQL Database
+title: 테 넌 트 별 데이터베이스 SaaS 자습서
 description: Azure SQL Database를 사용하는 테넌트 패턴당 데이터베이스 및 기타 SaaS 패턴을 보여주는 Wingtip Tickets SaaS 다중 테넌트 애플리케이션을 배포하고 탐색합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: b271c4bbf942bee70c4995ee04ec370591d4f67d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 31f712f80ee2492e4bbaec99bd093d46f9d04e6d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692175"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824006"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>SQL Database로 테넌트별 데이터베이스 패턴을 사용하는 다중 테넌트 SaaS 앱 배포 및 탐색
 

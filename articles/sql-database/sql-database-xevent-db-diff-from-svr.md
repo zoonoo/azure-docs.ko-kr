@@ -1,5 +1,5 @@
 ---
-title: SQL Database의 확장 이벤트
+title: 확장 이벤트
 description: Azure SQL Database의 확장 이벤트(XEvents)와 Microsoft SQL Server의 이벤트 세션 간 차이점에 대해 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 12/19/2018
-ms.openlocfilehash: 64cfcd9451416a6eb35301268b285bd00cf0cad4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cab5b5baf318eb9eadc398ce525e0de716d0df2d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686772"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822294"
 ---
 # <a name="extended-events-in-sql-database"></a>SQL Database의 확장 이벤트
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]

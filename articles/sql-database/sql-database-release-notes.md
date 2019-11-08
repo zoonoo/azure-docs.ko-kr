@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 릴리스 정보 | Microsoft Docs
+title: 릴리스 정보
 description: Azure SQL Database 서비스 및 Azure SQL Database 설명서의 새로운 기능 및 향상 된 기능에 대해 알아봅니다.
 services: sql-database
 author: stevestein
@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 62ec5d4e85a6e72982b49872af59e7b579c4fd77
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 56830e20b190958c1c411f5daa1d2a7e928f0f3d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496275"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821188"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 

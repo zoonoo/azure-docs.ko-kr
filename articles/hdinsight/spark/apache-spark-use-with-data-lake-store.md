@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7c60fdfd4d8e579c24da3c43501e4437806becc6
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: f7a6ab954aff1bcc2e3dae3fc035db4b136ccbbe
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241727"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818177"
 ---
 # <a name="use-hdinsight-spark-cluster-to-analyze-data-in-data-lake-storage-gen1"></a>HDInsight Spark 클러스터를 사용하여 Data Lake Storage Gen1의 데이터 분석
 
 이 문서에서는 HDInsight Spark 클러스터에서 사용할 수 있는 [Jupyter Notebook](https://jupyter.org/) 를 사용 하 여 Data Lake Storage 계정에서 데이터를 읽는 작업을 실행 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure Data Lake Storage Gen1 계정. [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](../../data-lake-store/data-lake-store-get-started-portal.md)에 있는 지침을 따릅니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "73241727"
 > [!NOTE]  
 > 기본 스토리지로 Data Lake Storage를 사용하여 HDInsight 클러스터를 만든 경우 이 단계를 수행할 필요가 없습니다. 클러스터 만들기 프로세스는 클러스터를 만드는 동안 지정된 Data Lake Storage 계정에 몇 가지 샘플 데이터를 추가합니다. Data Lake Storage에서 HDInsight Spark 클러스터 사용 섹션으로 건너뜁니다.
 
-Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토리지로 사용하여 HDInsight 클러스터를 만든 경우 먼저 몇 가지 샘플 데이터를 Data Lake Storage 계정에 복사해야 합니다. HDInsight 클러스터와 연결된 Azure Storage Blob의 샘플 데이터를 사용할 수 있습니다. 이 작업에는 [ADLCopy 도구](https://aka.ms/downloadadlcopy) 를 사용할 수 있습니다. 링크에서 도구를 다운로드하여 설치합니다.
+Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토리지로 사용하여 HDInsight 클러스터를 만든 경우 먼저 몇 가지 샘플 데이터를 Data Lake Storage 계정에 복사해야 합니다. HDInsight 클러스터와 연결된 Azure Storage Blob의 샘플 데이터를 사용할 수 있습니다. 이 작업에는 [ADLCopy 도구](https://www.microsoft.com/download/details.aspx?id=50358) 를 사용할 수 있습니다. 링크에서 도구를 다운로드하여 설치합니다.
 
 1. 명령 프롬프트를 열고 AdlCopy가 설치된 디렉터리로 이동합니다(일반적으로 `%HOMEPATH%\Documents\adlcopy`).
 
@@ -108,7 +108,7 @@ Data Lake Storage를 추가 스토리지로, Azure Storage Blob을 기본 스토
            # Register the data fram as a table to run queries against
            hvacdf.registerTempTable("hvac")
 
-6. PySpark 커널을 사용하기 때문에 이제 `%%sql` 매직을 사용하여 방금 만든 임시 테이블 **hvac**에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 PySpark 커널에서 사용 가능한 기타 매직에 대한 자세한 내용은 [Apache Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
+6. PySpark 커널을 사용하기 때문에 이제 **매직을 사용하여 방금 만든 임시 테이블**hvac`%%sql`에서 SQL 쿼리를 직접 실행할 수 있습니다. `%%sql` 매직 및 PySpark 커널에서 사용 가능한 기타 매직에 대한 자세한 내용은 [Apache Spark HDInsight 클러스터와 함께 Jupyter Notebook에서 사용 가능한 커널](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic)을 참조하세요.
 
         %%sql
         SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"

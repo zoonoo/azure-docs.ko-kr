@@ -4,15 +4,16 @@ description: Azure Marketplace 솔루션에 대한 고객 사용량을 추적하
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: yijenj
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 9/23/2019
 ms.author: pabutler
-ms.openlocfilehash: c077b93b887482dda5ae127bb3dbaec71b2ea11b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c84f5538d2f553a713b52aa795a10acddac9aff8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260078"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819878"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Azure 파트너 고객 사용량 특성
 
@@ -24,7 +25,7 @@ Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스
 
 - Azure Resource Manager 템플릿: 파트너는 리소스 관리자 템플릿을 사용 하 여 파트너의 소프트웨어를 실행 하는 Azure 서비스를 배포할 수 있습니다. 파트너는 Azure 솔루션의 인프라와 구성을 정의하는 Resource Manager 템플릿을 만들 수 있습니다. Resource Manager 템플릿을 사용하면 개발자와 고객이 수명 주기 전반에 걸쳐 솔루션을 배포할 수 있습니다. 리소스가 일관된 상태로 배포된다는 것을 확신할 수 있습니다.
 - Azure Resource Manager API: 파트너는 Resource Manager API를 직접 호출하여 Resource Manager 템플릿을 배포하거나 Azure 서비스를 직접 프로비전할 API 호출을 생성할 수 있습니다.
-- Terraform 파트너는 Terraform과 같은 클라우드 orchestrator를 사용 하 여 리소스 관리자 템플릿을 배포 하거나 Azure 서비스를 직접 배포할 수 있습니다.
+- Terraform: 파트너는 Terraform과 같은 cloud orchestrator를 사용 하 여 리소스 관리자 템플릿을 배포 하거나 Azure 서비스를 직접 배포할 수 있습니다.
 
 고객 사용 특성은 새 배포에 대 한 것 이며 이미 배포 된 기존 리소스에 태그 지정을 지원 하지 않습니다.
 
@@ -34,13 +35,13 @@ Microsoft 파트너는 고객을 대신하여 프로비전하는 Azure 리소스
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-resource-manager-templates"></a>Resource Manager 템플릿 사용
-많은 파트너 솔루션은 Resource Manager 템플릿을 사용하여 고객의 구독에 배포됩니다. Azure Marketplace, GitHub 또는 빠른 시작에서 사용할 수 있는 리소스 관리자 템플릿이 있는 경우 고객 사용 특성을 사용 하도록 템플릿을 수정 하는 프로세스는 바로 앞에와 야 합니다.
+많은 파트너 솔루션이 리소스 관리자 템플릿을 사용 하 여 고객의 구독에 배포 됩니다. Azure Marketplace, GitHub 또는 빠른 시작에서 사용할 수 있는 리소스 관리자 템플릿이 있는 경우 고객 사용 특성을 사용 하도록 템플릿을 수정 하는 프로세스는 바로 앞에와 야 합니다.
 
 솔루션 템플릿을 만들고 게시하는 방법에 대한 자세한 내용은 다음을 참조하세요.
 
 * [첫 번째 Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)
 * [Azure 애플리케이션 제안](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer)
-* 비디오: [Azure Marketplace용 솔루션 템플릿 및 관리형 애플리케이션 빌드](https://channel9.msdn.com/Events/Build/2018/BRK3603)
+* 비디오: [Azure Marketplace에 대 한 솔루션 템플릿 및 관리 되는 응용 프로그램을 빌드합니다](https://channel9.msdn.com/Events/Build/2018/BRK3603).
 
 
 ## <a name="add-a-guid-to-your-template"></a>템플릿에 GUID 추가
@@ -99,7 +100,7 @@ Resource Manager 템플릿을 사용하는 경우 앞에서 설명한 지침에 
 > [!Note]
 > 문자열의 형식이 중요합니다. **pid-** 접두사가 포함되지 않으면 데이터를 쿼리할 수 없습니다. SDK마다 다른 방법으로 추적합니다. 이 방법을 구현하려면 기본 설정 Azure SDK에 대한 지원 및 추적 방법을 검토하세요.
 
-#### <a name="example-the-python-sdk"></a>예: Python SDK
+#### <a name="example-the-python-sdk"></a>예제: Python SDK
 
 Python의 경우 **config** 특성을 사용합니다. 이 특성은 UserAgent에만 추가할 수 있습니다. 예를 들면 다음과 같습니다.
 
@@ -127,9 +128,9 @@ export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 
 ## <a name="use-terraform"></a>Terraform 사용
 
-Terraform에 대 한 지원은 Azure 공급자의 1.21.0 릴리스 [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019)를 통해 제공 됩니다.  이 지원은 Terraform을 통해 솔루션을 배포 하는 모든 파트너와 Azure 공급자 (버전 1.21.0 이상)에서 배포 및 계량 되는 모든 리소스에 적용 됩니다.
+Terraform에 대 한 지원은 Azure 공급자의 1.21.0 release: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019)을 통해 제공 됩니다.  이 지원은 Terraform을 통해 솔루션을 배포 하는 모든 파트너와 Azure 공급자 (버전 1.21.0 이상)에서 배포 및 계량 되는 모든 리소스에 적용 됩니다.
 
-Terraform 용 Azure 공급자는 솔루션에 사용 하는 추적 GUID를 지정 하는 [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) 라는 새 선택적 필드를 추가 했습니다. 이 필드의 값은 *ARM_PARTNER_ID* 환경 변수에서 원본으로 사용할 수도 있습니다.
+Terraform 용 Azure 공급자는 솔루션에 사용 하는 추적 GUID를 지정 하는 [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) 라는 새로운 선택적 필드를 추가 했습니다. 이 필드의 값은 *ARM_PARTNER_ID* 환경 변수에서 원본으로 사용할 수도 있습니다.
 
 ```
 provider "azurerm" {
@@ -137,12 +138,12 @@ provider "azurerm" {
           client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
           ……
           # new stuff for ISV attribution
-          partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
+          partner_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
 고객 사용 특성으로 추적 된 Terraform을 통해 배포 하려는 파트너는 다음을 수행 해야 합니다.
 
 * GUID 만들기 (각 제품 또는 SKU에 대해 GUID를 추가 해야 함)
-* Azure 공급자를 업데이트 하 여 *partner_id* 의 값을 guid로 설정 합니다. guid를 "pid-"로 미리 수정 하지 말고 실제 guid로 설정 하면 됩니다.
+* 해당 Azure 공급자를 업데이트 하 여 *partner_id* 값을 guid로 설정 합니다. guid를 "pid-"로 미리 수정 하지 말고 실제 guid로 설정 하면 됩니다.
 
 ## <a name="create-guids"></a>GUID 만들기
 
@@ -244,17 +245,17 @@ foreach ($deployment in $deployments){
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Resource Manager 템플릿 배포에 대한 알림
 
-이 템플릿을 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter 에 있습니다.
+이 템플릿을 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter에 있습니다.
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>SDK 또는 API 배포 알림
 
-\<PARTNER> 소프트웨어를 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter 에 있습니다.
+\<PARTNER> 소프트웨어를 배포하면 Microsoft에서 배포된 Azure 리소스를 사용하여 \<PARTNER> 소프트웨어의 설치를 식별할 수 있습니다. Microsoft는 소프트웨어를 지원하는 데 사용되는 Azure 리소스를 상호 연결할 수 있습니다. Microsoft는 제품에 최상의 환경을 제공하고 비즈니스를 운영하기 위해 이 정보를 수집합니다. 데이터는 Microsoft 개인 정보 보호 정책에 따라 수집되고 관리되며, https://www.microsoft.com/trustcenter에 있습니다.
 
 ## <a name="get-support"></a>지원 받기
 
 사용자가 직면 한 문제에 따라 두 개의 지원 채널이 있습니다.
 
-파트너 센터에서 고객 사용 특성 보고서 또는 로그인과 같은 문제가 발생 하는 경우 파트너 센터 지원 팀과 함께 지원 요청을 만드세요.[https://partner.microsoft.com/support](https://partner.microsoft.com/support)
+파트너 센터에서 고객 사용 특성 보고서 또는 로그인과 같은 문제가 발생 하는 경우 파트너 센터 지원 팀과 함께 지원 요청을 만드세요. [https://partner.microsoft.com/support](https://partner.microsoft.com/support)
 
 ![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
@@ -273,7 +274,7 @@ foreach ($deployment in $deployments){
 
 1. **요청 시작**을 선택합니다.
 
-1. 다음 페이지에서 필요한 값을 입력합니다. 선택 **계속**합니다.
+1. 다음 페이지에서 필요한 값을 입력합니다. **계속**을 선택합니다.
 
 1. 다음 페이지에서 필요한 값을 입력합니다.
 
@@ -288,7 +289,7 @@ foreach ($deployment in $deployments){
 
 ### <a name="how-to-submit-a-technical-consultation-request"></a>기술 문의 요청을 제출 하는 방법
 
-1. 을 [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney)방문 하세요.
+1. [https://aka.ms/TechnicalJourney](https://aka.ms/TechnicalJourney)을 방문 하세요.
 1. 클라우드 인프라 및 관리를 선택 하면 기술 경험을 볼 수 있는 새 페이지가 열립니다.
 1. 배포 서비스에서 요청 제출 단추를 클릭 합니다.
 1. MSA (MPN 계정) 또는 AAD (파트너 대시보드 계정)를 사용 하 여 로그인 합니다. 로그인 자격 증명에 따라 온라인 요청 양식이 열립니다.
@@ -297,7 +298,7 @@ foreach ($deployment in $deployments){
     * 문제에 대 한 제목 및 설명 (가능한 한 많은 정보 제공)을 입력 합니다.
 1. 전송 클릭
 
-에서 [https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions)스크린샷에 대 한 단계별 지침을 확인 합니다.
+[https://aka.ms/TechConsultInstructions](https://aka.ms/TechConsultInstructions)에서 스크린샷을 사용 하 여 단계별 지침을 확인 하세요.
 
 ### <a name="whats-next"></a>다음 단계
 
@@ -331,7 +332,7 @@ Azure Storage의 GUID 생성기 양식은 필요한 형식의 GUID를 생성하�
 
 **Azure Marketplace에서 솔루션 템플릿 제품에 대해 개인 사용자 지정 VHD를 사용할 수 있나요?**
 
-아니요, 할 수 없습니다. 가상 컴퓨터 이미지는 Azure Marketplace에서 가져와야 [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines)합니다 .를 참조 하십시오.
+아니요, 할 수 없습니다. 가상 컴퓨터 이미지는 Azure Marketplace에서 제공 해야 합니다. [https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines)를 참조 하세요.
 
 사용자 지정 VHD를 사용 하 여 marketplace에서 VM 제안을 만들고 아무도 볼 수 없도록 개인으로 표시할 수 있습니다. 그런 다음 솔루션 템플릿에서이 VM에 대 한 참조를 참조 하세요.
 

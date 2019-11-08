@@ -1,19 +1,19 @@
 ---
-title: 데이터 웨어하우스로 Event Hubs 데이터 보내기 - Event Grid
-description: Azure Event Grid 및 Event Hubs를 사용하여 SQL Data Warehouse로 데이터를 마이그레이션하는 방법을 설명합니다. 캡처 파일을 검색하는 Azure 함수를 사용합니다.
+title: '자습서: 데이터 웨어하우스로 Event Hubs 데이터 보내기 - Event Grid'
+description: '자습서: Azure Event Grid 및 Event Hubs를 사용하여 SQL Data Warehouse로 데이터를 마이그레이션하는 방법을 설명합니다. 캡처 파일을 검색하는 Azure 함수를 사용합니다.'
 services: event-grid
 author: spelluru
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 01/13/2019
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 1ae7a18660d2a7324bc5897d6b3952da42b6c4b2
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 6f5bd129b175210cd5b9415a65b8db06d904e24d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65603450"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718189"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>자습서: 데이터 웨어하우스로 빅 데이터 스트림
 Azure [Event Grid](overview.md)는 앱과 서비스의 알림(이벤트)에 응답하는 데 사용할 수 있는 인텔리전트 이벤트 라우팅 서비스입니다. 예를 들어 Azure Blob Storage 또는 Azure Data Lake Store로 캡처된 Event Hubs 데이터를 처리하도록 Azure Function을 트리거하고, 다른 데이터 리포지토리에 데이터를 마이그레이션할 수 있습니다. 이 [Event Hubs 및 Event Grid 통합 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo)은 Event Grid와 함께 Event Hubs를 사용하여 캡처된 Event Hubs 데이터를 BLOB 스토리지에서 SQL Data Warehouse로 원활하게 마이그레이션하는 방법을 보여줍니다.

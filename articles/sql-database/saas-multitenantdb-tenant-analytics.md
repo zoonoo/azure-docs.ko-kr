@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL 데이터베이스에 대해 분석 쿼리 실행 '
+title: 분석 쿼리 실행
 description: 다중 테넌트 앱의 여러 Azure SQL Database 데이터베이스에서 추출된 데이터를 사용하는 교차 테넌트 분석 쿼리입니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 ms.date: 09/19/2018
-ms.openlocfilehash: 2044e72697526a1c757fa13aeffb85260a9b821e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 067afd09f942b8062825553a3cf90f715e8d3938
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691992"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822139"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>추출된 데이터를 사용하여 교차 테넌트 분석 - 다중 테넌트 앱
  

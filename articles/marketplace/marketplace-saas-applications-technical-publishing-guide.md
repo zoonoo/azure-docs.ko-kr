@@ -4,19 +4,20 @@ description: Azure Marketplace에 SaaS 애플리케이션을 게시하는 단계
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
 author: keithcharlie
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: kevidal
-ms.openlocfilehash: f9ff6e19a0f0091cb5b831279eee90727bbb89fd
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: c213bbcb3c7859aa4718916aafab970b3ffd4613
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742254"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813036"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS 애플리케이션 제품 게시 가이드
 
-SaaS 애플리케이션은 “연락처”, “지금 사용해 보기” 및 “지금 가져오기” 작업에 대한 세 개의 다른 호출을 사용하여 Marketplace에 게시할 수 있습니다. 이 가이드에서는 각각에 대한 요구 사항을 비롯한 세 가지 옵션을 설명합니다. 
+SaaS 애플리케이션은. "연락처", "지금 사용해 보기" 및 "지금 가져오기" 작업에 대한 세 개의 다른 호출을 사용하여 마켓플레이스에 게시할 수 있습니다 이 가이드에서는 각각에 대한 요구 사항을 비롯한 세 가지 옵션을 설명합니다. 
 
 ## <a name="offer-overview"></a>제품 개요  
 
@@ -25,10 +26,10 @@ SaaS 애플리케이션은 모두 Azure 상점에서 사용할 수 있습니다.
 | 상점 옵션 | 나열 | 평가판/거래 |  
 | --- | --- | --- |  
 | AppSource | 예(연락처) | 예(PowerBI/Dynamics) |
-| Azure Marketplace | 아니요 | 예(SaaS 앱) |   
+| Azure 마켓플레이스 | 아니요 | 예(SaaS 앱) |   
 
-**나열:**  나열 게시 옵션은 연락처 제품 형식으로 이루어지고 평가판 또는 트랜잭션 수준의 참여가 불가능할 때 사용됩니다. 이 방식은 마켓 내 솔루션의 게시자가 비즈니스 수익을 창출하는 거래를 할 수 있는 잠재 고객을 바로 받을 수 있다는 장점이 있습니다.  
-**평가판/트랜잭션:**  고객은 솔루션에 대한 평가판을 직접 구입하거나 요청할 수 있습니다. 평가판 환경을 제공하면 고객에게 제공되는 참여 수준이 높아지고 고객이 솔루션을 구입하기 전에 탐색할 수 있습니다. 평가판 환경을 사용할 경우 상점에서 홍보할 기회를 갖고 고객 참여를 통해 보다 풍부하고 많은 잠재 고객을 창출할 수 있습니다. 체험의 경우 적어도 체험 기간 동안 무료 지원이 포함되어야 합니다.  
+**목록:** 나열 게시 옵션은 연락처 제품 형식으로 이루어지고 평가판 또는 거래 수준의 참여가 불가능할 때 사용됩니다. 이 방식은 마켓 내 솔루션의 게시자가 비즈니스 수익을 창출하는 거래를 할 수 있는 잠재 고객을 바로 받을 수 있다는 장점이 있습니다.  
+**평가판/트랜잭션:** 고객은 솔루션에 대한 평가판을 직접 구입하거나 요청할 수 있습니다. 평가판 환경을 제공하면 고객에게 제공되는 참여 수준이 높아지고 고객이 솔루션을 구입하기 전에 탐색할 수 있습니다. 평가판 환경을 사용할 경우 상점에서 홍보할 기회를 갖고 고객 참여를 통해 보다 풍부하고 많은 잠재 고객을 창출할 수 있습니다. 체험의 경우 적어도 체험 기간 동안 무료 지원이 포함되어야 합니다.  
 
 | SaaS 앱 제품 | 비즈니스 요구 사항 | 기술적인 요구 사항 |  
 | --- | --- | --- |  
@@ -104,7 +105,7 @@ Azure AD를 사용하면 다음과 같이 앱 또는 평가판에 대한 원클�
 
 ## <a name="certifying-your-azure-ad-integration-for-marketplace"></a>Marketplace에 대한 Azure AD 통합 인증  
 
-응용 프로그램이 단일 테 넌 트 인지 다중 테 넌 트 인지 여부, Azure AD 페더레이션된 SSO (single sign-on)를 처음 접하는 지 또는 이미 지원 하는지 여부에 따라 몇 가지 방법으로 Azure AD 통합을 인증 합니다.  
+응용 프로그램이 단일 테 넌 트 인지 다중 테 넌 트 인지 여부, Azure AD 페더레이션된 Single Sign-On (SSO)를 처음 사용할 때 또는 이미 지원 하는지 여부에 따라 몇 가지 방법으로 Azure AD 통합을 인증 합니다.  
 
 **다중 테넌트 애플리케이션의 경우:**  
 

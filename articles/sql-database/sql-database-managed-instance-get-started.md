@@ -1,5 +1,5 @@
 ---
-title: 'Azure Portal: SQL Database 관리형 인스턴스 만들기 | Microsoft Docs'
+title: 'Azure Portal: 관리되는 인스턴스 만들기'
 description: SQL Database 관리형 인스턴스, 네트워크 환경 및 액세스용 클라이언트 VM을 만듭니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: 4f9ea699bd6d09f902a3ff97c95ff3455926a9d8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 578ab250d0759aa7216327124417019f2e5f1fc7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350928"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825457"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>빠른 시작: Azure SQL Database 관리형 인스턴스 만들기
 
@@ -54,10 +54,10 @@ Azure 구독이 아직 없는 경우 [무료 계정을 만듭니다](https://azu
    | 설정| 제안 값 | 설명 |
    | ------ | --------------- | ----------- |
    | **구독** | 사용자의 구독. | 새 리소스를 만들 권한을 제공하는 구독입니다. |
-   | **리소스 그룹** | 새 또는 기존 리소스 그룹입니다.|유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
-   | **관리되는 인스턴스 이름** | 모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요.|
+   | **리소스 그룹** | 새 또는 기존 리소스 그룹입니다.|유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요.|
+   | **관리되는 인스턴스 이름** | 모든 유효한 이름|유효한 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요.|
    | **지역** |관리형 인스턴스를 만들 지역.|지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요.|
-   | **Managed Instance 관리자 로그인** | 유효한 사용자 이름. | 유효한 이름은 [명명 규칙 및 제한 사항](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. "serveradmin"은 예약된 서버 수준 역할이므로 사용하지 마세요.|
+   | **Managed Instance 관리자 로그인** | 유효한 사용자 이름. | 유효한 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. "serveradmin"은 예약된 서버 수준 역할이므로 사용하지 마세요.|
    | **암호** | 유효한 암호| 암호는 16자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
 
 - **관리형 인스턴스 구성**을 선택하여 컴퓨팅 및 스토리지 리소스의 크기를 조정하고 가격 책정 계층을 검토합니다. 슬라이더 또는 텍스트 상자를 사용하여 스토리지 공간 및 가상 코어 수를 지정합니다. 모두 마쳤으면 **적용**을 눌러 선택한 내용을 저장합니다. 

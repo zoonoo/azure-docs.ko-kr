@@ -4,19 +4,20 @@ description: Azure Marketplace에서 가상 머신 제안을 만드는 데 사�
 services: Azure, Marketplace, Cloud Partner Portal, virtual machine
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 04/25/2019
 ms.author: pabutler
-ms.openlocfilehash: dceb82af73061b91676ffb7061c7495995e76667
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 101f928e296d0b48b4e077676393772829aa76ab
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868716"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73808980"
 ---
 # <a name="virtual-machine-skus-tab"></a>가상 머신 SKU 탭
 
-**새 제안** 페이지의 **SKU** 탭을 사용하면 하나 이상의 SKU를 만들어 새 제안에 연결할 수 있습니다.  다양한 SKU에서 기능 집합, VM 이미지 유형, 처리량 또는 확장성, 청구 모델 또는 일부 다른 특성에 따라 솔루션을 구별할 수 있습니다.
+**새 제품** 페이지의 **SKU** 탭을 사용하면 하나 이상의 SKU를 만들어 새 제품에 연결할 수 있습니다.  다양한 SKU에서 기능 집합, VM 이미지 유형, 처리량 또는 확장성, 청구 모델 또는 일부 다른 특성에 따라 솔루션을 구별할 수 있습니다.
 
 
 ## <a name="create-a-sku"></a>SKU 만들기
@@ -27,7 +28,7 @@ ms.locfileid: "67868716"
 
 <br/>
 
-**새 SKU** 대화 상자가 표시됩니다.  새 SKU에 대한 식별자를 입력한 다음, **확인**을 클릭합니다. (식별자 명명 규칙은 아래를 참조하세요.)  이제 **SKU** 탭에 편집하는 데 사용할 수 있는 필드가 표시됩니다.    필드 이름에 별표(*)가 추가되면 필수 항목임을 나타냅니다.
+**새 SKU** 대화 상자가 표시됩니다.  새 SKU에 대한 식별자를 입력한 다음, **확인**을 클릭합니다. 식별자 명명 규칙은 아래를 참조 하세요.  이제 **sku** 탭에 편집할 수 있는 필드가 표시 됩니다.    필드 이름에 별표(*)가 추가되면 필수 항목임을 나타냅니다.
 
 <!-- TD: This tab has been updated, now has "Old Pricing" and "Simplified Currency Pricing" sections"! -->
 
@@ -42,21 +43,21 @@ ms.locfileid: "67868716"
 |  *SKU 설정*   |    |
 | **SKU ID\***       | 이 SKU에 대한 식별자입니다.  이 이름은 소문자 영숫자 또는 대시(-)로 구성되며, 최대 50자이지만 대시로 끝날 수 없습니다.  제안이 게시되면 수정할 수 없습니다.  |
 |  *SKU 세부 정보*   |  |
-| **제목과\***        | 마켓플레이스에 표시할 제안에 대한 이름입니다. 최대 길이는 50자입니다. |
-| **정리\***      | 마켓플레이스에 표시할 제안에 대한 간결한 설명입니다. 최대 길이는 100자입니다. |
+| **제목\***        | 마켓플레이스에 표시할 제안에 대한 이름입니다. 최대 길이는 50자입니다. |
+| **요약\***      | 마켓플레이스에 표시할 제안에 대한 간결한 설명입니다. 최대 길이는 100자입니다. |
 | **설명\***  | 제안에 대한 자세한 설명을 제공하는 설명 텍스트입니다.  <!-- TD: max len/guidance? 3k characters -->  |
-| **이 SKU 숨기기\*** | SKU가 마켓플레이스에서 고객에게 표시되어야 하는지 여부를 나타냅니다.  개별적으로 구입하지 않고 솔루션 템플릿을 통해서만 사용할 수 있도록 하려면 SKU를 숨기는 것이 좋습니다.  또한 초기 테스트 또는 임시/계절별 제안에도 유용할 수 있습니다. |
+| **이 SKU\* 숨기기** | SKU가 마켓플레이스에서 고객에게 표시되어야 하는지 여부를 나타냅니다.  개별적으로 구입하지 않고 솔루션 템플릿을 통해서만 사용할 수 있도록 하려면 SKU를 숨기는 것이 좋습니다.  또한 초기 테스트 또는 임시/계절별 제안에도 유용할 수 있습니다. |
 | **클라우드 가용성\*** | SKU를 사용할 수 있는 클라우드를 결정합니다.  기본값은 Azure의 공개 버전입니다.  Microsoft Azure Government는 미국 연방, 주, 지방 또는 부족 정부 및 해당 인증 파트너에 대한 액세스를 제어하는 정부-커뮤니티 클라우드입니다.  정부 클라우드에 대한 자세한 내용은 [Azure Government 시작](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)을 참조하세요. |
 | **사설 SKU 입니까?\*** | SKU가 프라이빗 또는 공개인지 여부를 나타냅니다. 기본값은 **아니요**(공개)입니다.  자세한 내용은 [공개 및 프라이빗 SKU](../../cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)를 참조하세요. |
 | **국가/지역 가용성\*** | SKU를 구입할 수 있는 국가 또는 세계 지역을 결정합니다. 하나 이상의 지역/국가를 선택합니다. <!-- TD: Is this parameter an AMP visibility control or a contractual one, or both? --> |  
-|  *가격*   |  |
+|  *가격 책정*   |  |
 | **라이선스 모델\***| 사용할 표준화된 청구 모델입니다.  **사용량 기반 월별 청구 SKU**를 선택하면 코어당 가격 책정의 세부 정보와 체험 평가판 기간을 제공할지 여부를 지정할 수 있는 접이식 섹션이 열립니다.  이 섹션에서는 이 가격 책정 일정을 Excel로 내보내고 가져올 수도 있습니다. 자세한 내용은 [Azure Marketplace의 청구 옵션](../../billing-options-azure-marketplace.md)을 참조하세요. | 
 |  *VM 이미지*   |  |
 | **운영 체제 제품군\*** | 솔루션 VM이 Windows 또는 Linux 기반인지 여부를 나타냅니다. |
 | **운영 체제 유형 선택** | 지정된 OS의 특정 공급업체 또는 릴리스입니다. |
 | **OS 식별 이름\*** | 고객에게 표시할 운영 체제 이름입니다.  |
 | **권장 VM 크기\*** | 표준화된 목록에서 최대 6개의 권장되는 VM 크기를 선택할 수 있습니다.  이 목록은 Azure Portal 및 Microsoft 마켓플레이스와 함께 전달 됩니다.  이 목록에서 유효한 첫 번째 VM 크기 (해당 고객 구독, 지역, 영역 등)는 해당 잠재 고객에 대 한 기본값으로 설정 됩니다.  사용자는이 크기를 솔루션 이미지와 호환 되는 것으로 변경할 수 있습니다. | 
-| **개방 포트**| 개방할 포트와 SKU를 지원할 프로토콜입니다.  이러한 구성은 솔루션 VM의 네트워크에 대해 구성된 가상 네트워크와 일치해야 합니다. 이러한 설정은 VM을 배포하는 중에 적용됩니다. 그러나 SKU가 게시되면 포트 설정을 수정할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)을 참조하세요. <br/>모든 VM에 추가되는 기본 네트워크 매핑은 다음과 같습니다. &emsp; Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP; &emsp; Linux: 22-> 22, TCP (SSH). |
+| **개방 포트**| 개방할 포트와 SKU를 지원할 프로토콜입니다.  이러한 구성은 솔루션 VM의 네트워크에 대해 구성된 가상 네트워크와 일치해야 합니다. 이러한 설정은 VM을 배포하는 중에 적용됩니다. 그러나 SKU가 게시되면 포트 설정을 수정할 수 있습니다. 자세한 내용은 [Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법](https://docs.microsoft.com/azure/virtual-machines/windows/nsg-quickstart-portal)을 참조하세요. <br/>모든 VM에 추가되는 기본 네트워크 매핑은 다음과 같습니다. &emsp;Windows: 3389 -> 3389 TCP, 5986 -> 5986 TCP, &emsp;Linux: 22 -> 22, TCP (SSH) |
 | **디스크 버전**  | 디스크 버전 번호와 디스크 URL로 지정되는 연결된 솔루션 VM입니다. 디스크 버전은 [의미 체계 버전](https://semver.org/) 형식(`<major>.<minor>.<patch>`)이어야 합니다.  URL은 운영 체제 VHD에 대해 만든 공유 액세스 서명 URI입니다.  SKU당 최대 8개의 디스크 버전을 추가할 수 있지만, SKU에 대한 가장 높은 디스크 버전 번호만 Azure Marketplace에 표시됩니다. 다른 버전은 API를 통해서만 볼 수 있습니다.  <!--TD: Add more specific link to API --> <br/> **새 데이터 디스크** 접이식 섹션을 사용하면 최대 15개의 데이터 디스크를 VM에 연결할 수 있습니다.  지정된 VM 버전 및 연결된 데이터 디스크가 있는 SKU가 게시되면 이 구성을 수정할 수 없습니다.  추가 VM 버전이 SKU에 추가되면 동일한 수의 데이터 디스크도 지원해야 합니다. <br/> Azure 기반 VM 이미지를 만들지 않은 경우 나중에 이 필드 업데이트를 추가할 수 있습니다.  연결된 VM 리소스를 만드는 방법에 대한 자세한 내용은 [VM 기술 자산 만들기](./cpp-create-technical-assets.md) 섹션을 참조하세요.  
 |  |  |
 
@@ -76,7 +77,7 @@ VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 �
 
 ### <a name="simplified-currency-pricing"></a>간소화된 통화 가격 책정
 
-2018년 9월 1일부터 **간소화된 통화 가격 책정**이라는 새 섹션이 포털에 추가됩니다. Microsoft는 전 세계 고객으로부터의 더욱 예측 가능한 가격 책정 및 요금 징수 방식을 사용하여 Azure Marketplace 비즈니스를 간소화하고 있습니다. 이 간소화에는 고객에게 발급되는 송장의 통화 단위 수를 줄이는 작업이 포함됩니다.  자세한 내용은 [Azure Marketplace에서 기존 VM 제안 업데이트](./cpp-update-existing-offer.md)를 참조하세요.
+2018년 9월 1일부터 **간소화된 통화 가격 책정**이라는 새 섹션이 포털에 추가됩니다. Microsoft는 전 세계 고객에게 보다 예측 가능한 가격 책정 및 요금 징수 방식을 사용함으로써 Azure Marketplace 비즈니스를 간소화하고 있습니다. 이 간소화에는 고객에게 발급되는 송장의 통화 단위 수를 줄이는 작업이 포함됩니다.  자세한 내용은 [Azure Marketplace에서 기존 VM 제안 업데이트](./cpp-update-existing-offer.md)를 참조하세요.
 
 
 ### <a name="additional-information-on-taxes-and-prices"></a>세금 및 가격에 대한 추가 정보
@@ -85,7 +86,7 @@ VM 게시자는 새 Azure virtual machine 크기에 대 한 새 가격 (코어 �
 * 제품이 라이브 상태가 된 후에는 가격을 변경할 수 없습니다. 그러나 지원되는 지역은 여전히 추가하거나 제거할 수 있습니다. 
 * Microsoft는 예약된 SKU 요금 외에도 표준 Azure VM 사용 요금을 고객에게 부과합니다.
 * 가격은 모든 하위 지역에 대해 가격을 설정할 당시에 사용 가능한 환율의 현지 통화로 설정됩니다.  <!-- TD: Meaning? - Offer created, published, other? -->
-* 각 지역의 가격을 개별적으로 설정하려면 가격 스프레드시트를 내보내고, 사용자 지정 가격 책정을 적용한 다음, 가져옵니다. 
+* 각 지역의 가격을 개별적으로 설정 하려면 가격 책정 스프레드시트를 내보내고, 사용자 지정 가격 책정을 적용 한 후 가져오기를 클릭 하세요. 
 
 
 ## <a name="next-steps"></a>다음 단계

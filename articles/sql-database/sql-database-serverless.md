@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 서버리스
+title: 서버를 사용하지 않음
 description: 이 문서에서는 새 서버리스 컴퓨팅 계층에 대해 설명하고 이를 기존의 프로비저닝된 컴퓨팅 계층과 비교합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: fcd79182e046d94f9e67acecebd5cf6a45f2706f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fecc394080f54f023529ed2da8c9690c38c1da08
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687393"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818271"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database 서버리스
 

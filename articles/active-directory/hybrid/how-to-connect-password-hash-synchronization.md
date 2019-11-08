@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d8caafe312c123a9d572e9a5f4c5cf64a05f7ea
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ac1b75536e092203490a390860a1cead7ac333b7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721047"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817986"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -100,7 +100,7 @@ Azure AD 통합 서비스와만 상호 작용 하 고 암호 만료 정책을 �
 
 EnforceCloudPasswordPolicyForPasswordSyncedUsers 기능을 사용 하도록 설정 하려면 MSOnline PowerShell 모듈을 사용 하 여 다음 명령을 실행 합니다.
 
-`Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers  $true`
+`Set-MsolDirSyncFeature -Feature EnforceCloudPasswordPolicyForPasswordSyncedUsers -Enable $true`
 
 사용 하도록 설정 되 면 Azure AD는 동기화 된 각 사용자로 이동 하지 않으므로 PasswordPolicies 특성에서 `DisablePasswordExpiration` 값을 제거 합니다. 대신, 다음에 온-프레미스 AD에서 암호를 변경할 때 각 사용자에 대 한 다음 암호 동기화 중에 값이 `None`로 설정 됩니다.  
 

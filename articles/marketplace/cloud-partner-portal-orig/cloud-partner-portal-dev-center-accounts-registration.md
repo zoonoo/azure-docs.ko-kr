@@ -4,15 +4,16 @@ description: Microsoft 개발자 계정을 만들기 위한 요구 사항 및 �
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 4fde5d81fb97bec23fdb46ff53b05874c88d9d67
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 522caa53123ad5ccb8076839d2dfa7dc1236b022
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935857"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818419"
 ---
 <a name="create-a-microsoft-developer-account"></a>Microsoft 개발자 계정 만들기
 ====================================
@@ -99,7 +100,7 @@ Microsoft 개발자 센터는 회사 정보를 등록하는 데 한 번 사용�
    ![국가/지역 선택](./media/cloud-partner-portal-create-dev-center-registration/imgRegisterCo_04.png)
 
     >[!WARNING]
-    >국가/지역 "판매처": Azure Marketplace에서 서비스를 판매 하기 위해 등록 된 법인은 승인 된 "판매처" 국가/지역 드롭다운 목록에 표시 된 것 중 하나에서 가능 해야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. 자세한 내용은 Marketplace 참가 정책을 참조하세요.
+    >"판매" 국가/지역: Azure Marketplace에서 서비스를 판매 하기 위해 등록 된 엔터티는 드롭다운 목록에 표시 된 승인 된 "판매" 국가/지역 중 하나에 있어야 합니다. 이 제한은 지급액 및 세금 때문에 있습니다. 자세한 내용은 Marketplace 참가 정책을 참조하세요.
 
 5. **회사**를 “계정 유형”으로 선택하고 **다음**을 선택합니다.
 

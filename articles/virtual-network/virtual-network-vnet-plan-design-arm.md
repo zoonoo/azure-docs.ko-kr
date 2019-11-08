@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: f7f45e479ad21b27832573b73a5e09e8da1b37b1
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 47da2524f719e53edcbd89686a1a0b76fa6e79cd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756124"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802720"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
 
@@ -27,9 +27,9 @@ ms.locfileid: "72756124"
 
 ## <a name="naming"></a>이름 지정
 
-모든 Azure 리소스에는 이름이 있습니다. 이름은 각 리소스 종류에 따라 다를 수 있는 범위 내에서 고유해야 합니다. 예를 들어 가상 네트워크의 이름은 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) 내에서 고유해야 하지만 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 또는 Azure [지역](https://azure.microsoft.com/regions/#services) 내에서는 중복될 수 있습니다. 리소스 이름을 지정할 때 일관적으로 사용할 수 있는 명명 규칙을 정의하면 시간이 지남에 따라 여러 네트워크 리소스를 관리할 때 유용합니다. 권장 사항은 [명명 규칙](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#virtual-networking)을 참조하세요.
+모든 Azure 리소스에는 이름이 있습니다. 이름은 각 리소스 종류에 따라 다를 수 있는 범위 내에서 고유해야 합니다. 예를 들어 가상 네트워크의 이름은 [리소스 그룹](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) 내에서 고유해야 하지만 [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 또는 Azure [지역](https://azure.microsoft.com/regions/#services) 내에서는 중복될 수 있습니다. 리소스 이름을 지정할 때 일관적으로 사용할 수 있는 명명 규칙을 정의하면 시간이 지남에 따라 여러 네트워크 리소스를 관리할 때 유용합니다. 권장 사항은 [명명 규칙](/azure/architecture/best-practices/resource-naming#networking)을 참조하세요.
 
-## <a name="regions"></a>개 지역
+## <a name="regions"></a>영역
 
 모든 Azure 리소스는 Azure 지역 및 구독에서 만들어집니다. 리소스는 해당 리소스와 동일한 지역 및 구독에 있는 가상 네트워크에서만 만들 수 있습니다. 그러나 다른 구독 및 지역에 있는 가상 네트워크를 연결할 수 있습니다. 자세한 내용은 [연결](#connectivity)을 참조하세요. 리소스를 배포할 지역을 결정할 때는 리소스 사용자가 실제로 있는 위치를 고려해야 합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "72756124"
 - 데이터 상주, 주권, 규정 준수 또는 복원력 요구 사항이 있나요? 그렇다면 요구 사항에 맞는 지역을 선택하는 것이 매우 중요합니다. 자세한 내용은 [Azure 지역](https://azure.microsoft.com/global-infrastructure/geographies/)을 참조하세요.
 - 배포하는 리소스에 대해 동일한 Azure 지역 내의 Azure 가용성 영역에서 복원력이 필요한가요? VM(가상 머신)과 같은 리소스를 동일한 가상 네트워크 내의 여러 가용성 영역에 배포할 수 있습니다. 하지만 일부 Azure 지역은 가용성 영역을 지원하지 않습니다. 가용성 영역 및 이를 지원하는 지역에 대한 자세한 내용은 [가용성 영역](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)을 참조하세요.
 
-## <a name="subscriptions"></a>Subscriptions
+## <a name="subscriptions"></a>구독
 
 각 구독 내에서 [한도](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)까지 필요한 개수의 가상 네트워크를 배포할 수 있습니다. 일부 조직은 예를 들어 부서마다 구독이 다릅니다. 자세한 내용 및 구독에 대한 고려 사항은 [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy)를 참조하세요.
 

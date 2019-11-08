@@ -4,15 +4,16 @@ description: Azure Marketplace 및 AppSource의 지리적 가용성
 services: Azure, Marketplace, Compute, Storage, Networking
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 344479a270119137a256620304d88f139d0b0322
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 0b12e122cef3a05af7a09918ba434d103e33a1a2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619976"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822949"
 ---
 # <a name="geographic-availability-and-currency-support"></a>지리적 가용성 및 통화 지원
 
@@ -26,7 +27,7 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 안도라                             | AD        | EUR          |
 | 앙골라                              | AO        | USD          |
 | 아르헨티나                           | AR        | USD          |
-| 아르메니아                             | 오전        | USD          |
+| 아르메니아                             | AM        | USD          |
 | 오스트레일리아                           | AU        | AUD          |
 | 오스트리아                             | AT        | EUR          |
 | 아제르바이잔                          | AZ        | USD          |
@@ -52,8 +53,8 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 코스타리카                          | CR        | USD          |
 | 코트디부아르                       | CI        | USD          |
 | 크로아티아                             | HR        | EUR          |
-| 쿠라카오                             | CW        | USD          |
-| 사이프러스                              | CY        | EUR          |
+| 퀴라소                             | °        | USD          |
+| 키프로스                              | CY        | EUR          |
 | 체코                      | CZ        | EUR          |
 | 덴마크                             | DK        | DKK          |
 | 도미니카 공화국                  | DO        | USD          |
@@ -66,7 +67,7 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 피지                                | FJ        | AUD          |
 | 핀란드                             | FI        | EUR          |
 | 프랑스                              | FR        | EUR          |
-| 그루지야                             | GE        | USD          |
+| 조지아                             | GE        | USD          |
 | 독일                             | DE        | EUR          |
 | 가나                               | GH        | USD          |
 | 그리스                              | GR        | EUR          |
@@ -95,7 +96,7 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 리히텐슈타인                       | LI        | EUR          |
 | 리투아니아                           | LT        | EUR          |
 | 룩셈부르크                          | LU        | EUR          |
-| 마카오 특별 행정구                           | MO        | USD          |
+| 마카오                           | MO        | USD          |
 | 북마케도니아                     | MK        | USD          |
 | 말레이시아                            | MY        | USD          |
 | 몰타                               | MT        | EUR          |
@@ -104,9 +105,9 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 몰도바                             | MD        | USD          |
 | 모나코                              | MC        | EUR          |
 | 몽골                            | MN        | USD          |
-| 몬테네그로 공화국                          | ME        | USD          |
+| 몬테네그로                          | ME        | USD          |
 | 모로코                             | MA        | USD          |
-| 나미비아                             | NA        | USD          |
+| 나미비아                             | 해당 없음        | USD          |
 | 네팔                               | NP        | USD          |
 | 네덜란드                         | NL        | EUR          |
 | 니카라과                           | NI        | USD          |
@@ -115,7 +116,7 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 노르웨이                              | 아니요        | NOK          |
 | 오만                                | OM        | USD          |
 | 파키스탄                            | PK        | USD          |
-| 팔레스타인 자치정부               | PS        | USD          |
+| 팔레스타인 자치 정부               | PS        | USD          |
 | 파나마                              | PA        | USD          |
 | 파라과이                            | PY        | USD          |
 | 페루                                | PE        | USD          |
@@ -127,14 +128,14 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 루마니아                             | RO        | EUR          |
 | 러시아                              | RU        | RUB          |
 | 르완다                              | RW        | USD          |
-| 세인트 크리스토퍼 네비스               | KN        | USD          |
+| 세인트키츠 네비스               | KN        | USD          |
 | 사우디아라비아                        | SA        | USD          |
 | 세네갈                             | SN        | USD          |
 | 세르비아                              | RS        | USD          |
 | 싱가포르                           | SG        | USD          |
 | 슬로바키아                            | SK        | EUR          |
 | 슬로베니아                            | SI        | EUR          |
-| 남아프리카 공화국                        | ZA        | USD          |
+| 남아프리카                        | ZA        | USD          |
 | 스페인                               | ES        | EUR          |
 | 스리랑카                           | LK        | USD          |
 | 스웨덴                              | SE        | SEK          |
@@ -151,7 +152,7 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 미국령 버진아일랜드 | VI        | USD          |
 | 우간다                              | UG        | USD          |
 | 우크라이나                             | UA        | USD          |
-| 아랍 에미리트 연합국                | AE        | USD          |
+| 아랍에미리트                | AE        | USD          |
 | 영국                      | GB        | GBP          |
 | 미국                       | US        | USD          |
 | 우루과이                             | UY        | USD          |
@@ -163,4 +164,4 @@ Azure Marketplace 및 AppSource 제품은 고객의 청구 주소에서 정의�
 | 짐바브웨                            | ZW        | USD          |
 |   |   |   |
 
-\*브라질 고객의 경우, CSP (클라우드 솔루션 공급자)를 통한 Marketplace에서는 USD를 사용 합니다.
+브라질의 고객을 위한 \*, CSP (클라우드 솔루션 공급자)를 통한 Marketplace에서는 USD를 사용 합니다.

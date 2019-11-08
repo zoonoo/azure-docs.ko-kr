@@ -2,19 +2,19 @@
 title: Azure Active Directory 사용 하 여 암호가 없는 전 세계 이해 | Microsoft Docs
 description: 이 가이드는 ceo, cio, cisos, 최고 id 설계자, 엔터프라이즈 설계자, 보안 및 IT 의사 결정권자가 Azure Active Directory 구현에 대해 암호 없는 인증 방법을 선택 하는 데 도움이 됩니다.
 keywords: passwordless, azuread
-author: TerryLanfear
-ms.author: terrylan
+author: martincoetzer
+ms.author: martinco
 ms.date: 07/09/2019
 ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: a24195dcf8f384db8d78d39ac7100e487f6c9272
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 0fbd8404e326ecc6fabef8c89991009809b1448b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621273"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820522"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Azure Active Directory 암호가 없는 전 세계
 

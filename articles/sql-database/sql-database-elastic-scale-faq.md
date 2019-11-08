@@ -1,5 +1,5 @@
 ---
-title: Azure SQL 탄력적 확장 FAQ
+title: 탄력적 크기 조정 FAQ
 description: Azure SQL Database의 탄력적인 확장에 대한 질문과 대답을 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 8ef99d6d752f1e9474fccea6c00b51b61ae1304b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3eedfb1e9ec59fbe12ee94a65d3702a7ef8ca95a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690268"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823650"
 ---
 # <a name="elastic-database-tools-frequently-asked-questions-faq"></a>Elastic Database 도구 관련 FAQ(질문과 대답)
 

@@ -1,20 +1,20 @@
 ---
-title: 웹 엔드포인트에 사용자 지정 이벤트 보내기 - Event Grid, Azure Portal
-description: Azure Event Grid 및 Azure Portal을 사용하여 사용자 지정 토픽을 게시하고 해당 토픽에 대한 이벤트를 구독합니다. 이벤트는 웹 애플리케이션에서 처리합니다.
+title: '빠른 시작: 웹 엔드포인트에 사용자 지정 이벤트 보내기 - Event Grid, Azure Portal'
+description: '빠른 시작: Azure Event Grid 및 Azure Portal을 사용하여 사용자 지정 토픽을 게시하고 해당 토픽에 대한 이벤트를 구독합니다. 이벤트는 웹 애플리케이션에서 처리합니다.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 03/27/2019
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: afb53ed013af6cd1db2f6ff3d25c350aa2b4f1e8
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 398e63ec9a8b9e1b16d8ffcee538351fc6572de9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638561"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720782"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>빠른 시작: Azure Portal 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
 

@@ -4,15 +4,16 @@ description: VM 이미지에 대한 SAS(공유 액세스 서명) URI를 가져�
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: c242fbcd19187abb608ca80a49d04dae195bd7c6
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: dda074d81857247a922eb7a179b33aa2593e5bf8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374365"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824482"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>VM 이미지에 대한 공유 액세스 서명 URI 가져오기
 
@@ -21,7 +22,7 @@ ms.locfileid: "72374365"
 VHD에 대한 SAS URI를 생성하는 경우 준수해야 하는 요구 사항은 다음과 같습니다.
 
 - 관리되지 않는 VHD만 지원됩니다.
-- `List` 및 `Read` 권한으로 충분합니다. `Write` 또는 `Delete` 액세스는 제공하지 *않습니다*.
+- `List` 및 `Read` 권한으로 충분합니다. *또는* 액세스는 제공하지 `Write`않습니다`Delete`.
 - 액세스 기간(*만료 날짜*)은 SAS URI가 생성된 시점에서 3주 이상이어야 합니다.
 - UTC 시간 변동을 방지하려면 시작 날짜를 현재 날짜보다 하루 전의 날짜로 설정합니다. 예를 들어, 현재 날짜가 2014년 10월 6일이면 2014년 10월 5일을 선택합니다.
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dfe5b886ff389cf2d0f01d402990929c0ef5628
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 247dee2cfbb00b185e941fde05c2198459a05e20
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033987"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815733"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Azure Active Directory에서 그룹에 대한 라이선스 문제 식별 및 해결
 
@@ -29,6 +29,11 @@ Azure AD(Azure Active Directory)의 그룹 기반 라이선스에는 라이선�
 그룹 기반 라이선스를 사용하지 않고 개별 사용자에게 직접 라이선스를 할당하면 할당 작업이 실패할 수 있습니다. 예를 들어 사용자 시스템에 `Set-MsolUserLicense` PowerShell cmdlet을 실행하면 비즈니스 논리와 관련된 여러 가지 이유로 cmdlet이 실패할 수 있습니다. 라이선스 수가 부족하거나 동시에 할당할 수 없는 두 서비스 간에 충돌이 있는 경우를 예로 들 수 있습니다. 문제는 즉시 사용자에게 보고됩니다.
 
 그룹 기반 라이선스를 사용하는 경우 같은 오류가 발생할 수 있지만 Azure AD 서비스에서 라이선스를 할당하면 문제가 백그라운드에서 발생합니다. 이러한 이유로 사용자에게 즉시 오류를 전달 수 없습니다. 대신 오류가 사용자 개체에 기록된 후 관리 포털을 통해 보고됩니다. 사용자에게 라이선스를 부여하는 원래의 의도는 절대 없어지지 않지만 향후 조사 및 문제 해결을 위해 라이선스를 오류 상태로 기록됩니다.
+
+## <a name="licenseassignmentattributeconcurrencyexception-in-audit-logs"></a>감사 로그의 LicenseAssignmentAttributeConcurrencyException
+
+**문제:** 사용자는 감사 로그에 라이선스 할당을 LicenseAssignmentAttributeConcurrencyException 합니다.
+그룹 기반 라이선스가 사용자에 게 동일한 라이선스의 동시 라이선스 할당을 처리 하려고 하면이 예외가 사용자에 게 기록 됩니다. 이는 일반적으로 사용자가 할당 된 라이선스가 같은 두 개 이상의 그룹에 속한 경우에 발생 합니다. AZure AD에서 사용자 라이선스 처리를 다시 시도 하 고 문제를 해결 합니다. 이 문제를 해결 하기 위해 고객에 게 필요한 작업은 없습니다.
 
 ## <a name="find-license-assignment-errors"></a>라이선스 할당 오류 찾기
 

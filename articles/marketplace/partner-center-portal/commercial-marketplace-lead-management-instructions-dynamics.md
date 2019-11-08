@@ -4,15 +4,16 @@ description: 고객 Engagement의 Dynamics 365에 대 한 리드 관리를 구�
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 181a3f3a8d3cabb2fdf6caf79cef16201fab0c68
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 37cf613b6e0bd2ec9910dd3e7431c0feaa02431c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177799"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812302"
 ---
 # <a name="configure-lead-management-for-dynamics-365-for-customer-engagement"></a>고객 Engagement의 Dynamics 365에 대 한 리드 관리 구성
 
@@ -21,7 +22,7 @@ ms.locfileid: "72177799"
 >[!Note]
 >이러한 지침은 고객 참여 환경용 Microsoft 호스트 된 클라우드 Dynamics 365에 적용 됩니다. Dynamics 온-프레미스 환경에 직접 연결 하는 것은 현재 지원 되지 않으며, 잠재 고객을 받기 위해 [https 끝점](./commercial-marketplace-lead-management-instructions-https.md) 또는 [Azure 테이블](./commercial-marketplace-lead-management-instructions-azure-table.md) 을 구성 하는 등의 기타 옵션을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 완료 하려면 다음 사용자 권한이 필요 합니다.
 
@@ -93,7 +94,7 @@ ms.locfileid: "72177799"
 10. 클라이언트 암호를 성공적으로 만든 후에 **클라이언트 암호 값을 복사**합니다. 페이지에서 벗어나 이동한 후에는 값을 검색할 수 없습니다. Marketplace 제품에 대 한 잠재 고객을 받기 위해 게시 포털에서 제공 해야 하는 *클라이언트 암호* 값 이므로이 값을 저장 합니다. 
 11. 앱의 왼쪽 탐색 영역에서 **API 권한** 을 선택 하 고 **사용 권한 추가**를 선택 합니다.
 12. Microsoft Api를 선택 하 고 **DYNAMICS CRM** 을 API로 선택 합니다.
-13. *응용 프로그램에 필요한 사용 권한 유형에*따라 **위임 된 권한** 이 선택 되어 있는지 확인 합니다. *조직 사용자로 user_impersonation Access Common Data Service*의 사용 권한을 확인 합니다. **권한 추가**를 선택 합니다.
+13. *응용 프로그램에 필요한 사용 권한 유형에*따라 **위임 된 권한** 이 선택 되어 있는지 확인 합니다. *조직 사용자로 Common Data Service* **user_impersonation** 액세스 권한을 확인 하십시오. **권한 추가**를 선택 합니다.
 
     ![권한 추가](./media/commercial-marketplace-lead-management-instructions-dynamics/api-permissions.png)
 
@@ -105,7 +106,7 @@ ms.locfileid: "72177799"
 
     ![새 사용자 만들기](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
 
-19. **새 사용자**에서 다음과 같이 사용자를 확인 합니다. 응용 프로그램 사용자가 선택 되었습니다. 이 연결에 사용 하려는 사용자의 사용자 이름, 전체 이름 및 전자 메일 주소를 제공 합니다. 또한 8 단계에서 만든 Azure Portal에서 만든 앱의 **응용 프로그램 ID** 를 붙여 넣습니다. **저장 후 닫기** 를 선택 하 여 사용자 추가를 완료 합니다.
+19. **새 사용자**에서 사용자: 응용 프로그램 사용자가 선택 되어 있는지 확인 합니다. 이 연결에 사용 하려는 사용자의 사용자 이름, 전체 이름 및 전자 메일 주소를 제공 합니다. 또한 8 단계에서 만든 Azure Portal에서 만든 앱의 **응용 프로그램 ID** 를 붙여 넣습니다. **저장 후 닫기** 를 선택 하 여 사용자 추가를 완료 합니다.
 
     ![새 사용자](./media/commercial-marketplace-lead-management-instructions-dynamics/new-user-info.png)
 
@@ -156,11 +157,11 @@ Marketplace 제품에 대 한 잠재 고객을 받기 위해 게시 포털에서
 
     ![보안 역할](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-7. 보안 역할에서 **핵심 레코드** 탭을 선택 합니다. "사용자 엔터티 UI 설정" 엔터티를 검색 하 고 해당 하는 각 원을 클릭 하 여 해당 엔터티에 대 한 사용자 (1/4 노란색 원)에 대해 만들기, 읽기 및 쓰기 권한을 설정 합니다.
+7. 보안 역할에서 **핵심 레코드** 탭을 선택 합니다. "사용자 엔터티 UI 설정" 엔터티를 검색 하 고 해당 하는 각 원을 클릭 하 여 해당 엔터티에 대 한 사용자 (1/4 노란색 원)에 대 한 만들기, 읽기 및 쓰기 권한을 설정 합니다.
 
     ![Microsoft Marketplace 리드 작성기-코어 레코드](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-8. 이제 **사용자 지정** 탭으로 이동 합니다. 검색은 "시스템 작업" 엔터티를 사용 하 고 해당 하는 각 원에 4 번 클릭 하 여 해당 엔터티에 대 한 읽기, 쓰기 및 AppendTo (solid green)를 사용 하도록 설정 합니다.
+8. 이제 [ **사용자 지정** ] 탭으로 이동 합니다. "시스템 작업" 엔터티를 검색 하 고 해당 하는 각 원에서 4 번 클릭 하 여 해당 엔터티에 대 한 읽기, 쓰기 및 appendto (solid green)를 사용 하도록 설정 합니다.
 
     ![Microsoft Marketplace 리드 작성기-사용자 지정](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 
@@ -179,7 +180,7 @@ Marketplace 제품에 대 한 잠재 고객을 받기 위해 게시 포털에서
 
     ![연결 정보-리드 대상](./media/commercial-marketplace-lead-management-instructions-dynamics/connection-details-lead-destination.png)
 
-4. @No__t-1과 같은 **Dynamics 365 인스턴스 URL** 을 제공 합니다.
+4. `https://contoso.crm4.dynamics.com`와 같은 **Dynamics 365 인스턴스 URL** 을 제공 합니다.
 5. **인증**, Azure Active Directory 또는 Office 365의 방법을 선택 합니다. 
 6. Azure Active Directory를 선택한 경우 **응용 프로그램 (클라이언트) id** (예: `23456052-aaaa-bbbb-8662-1234df56788f`), **디렉터리 id** (예: `12345678-8af1-4asf-1234-12234d01db47`) 및 **클라이언트 암호** (예: `1234ABCDEDFRZ/G/FdY0aUABCEDcqhbLn/ST122345nBc=`)를 제공 합니다.
 

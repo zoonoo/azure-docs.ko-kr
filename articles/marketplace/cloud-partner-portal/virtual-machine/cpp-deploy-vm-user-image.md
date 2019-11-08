@@ -1,18 +1,19 @@
 ---
-title: 사용자 VHD에서에서 Azure VM 배포 | Azure Marketplace
+title: 사용자 VHD에서 Azure VM 배포 | Azure Marketplace
 description: 사용자 VHD 이미지를 배포하여 Azure VM 인스턴스를 만드는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pabutler
-ms.openlocfilehash: e4da523fa54a513fe77fda037aea0a5fd530250b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8421e9b7b7e2b7d13054e977da83be044b4e6af7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938236"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816639"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>사용자 VHD에서 Azure VM 배포
 
@@ -31,7 +32,7 @@ ms.locfileid: "64938236"
 | userStorageAccountName     | 스토리지 계정 이름                                                    |
 | sNameForPublicIP           | 공용 IP에 대한 DNS 이름입니다. 소문자여야 합니다.                                  |
 | subscriptionId             | Azure 구독 식별자입니다.                                                  |
-| Location                   | 리소스 그룹의 표준 Azure 지리적 위치입니다.                       |
+| 위치                   | 리소스 그룹의 표준 Azure 지리적 위치입니다.                       |
 | vmName                     | 가상 머신의 이름입니다.                                                    |
 | vaultName                  | Key Vault의 이름입니다.                                                          |
 | vaultResourceGroup         | Key Vault의 리소스 그룹입니다.

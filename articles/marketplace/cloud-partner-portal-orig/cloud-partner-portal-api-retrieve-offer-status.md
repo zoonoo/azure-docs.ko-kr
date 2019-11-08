@@ -1,18 +1,19 @@
 ---
-title: 제공 상태를 검색 합니다. | Azure Marketplace
+title: 제안 상태 검색 | Azure Marketplace
 description: API는 제안의 현재 상태를 검색합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 26ee8b5b1879c505f8200671558fe065ace068a3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5ce546d79497f462f6c262de738036d7e3a30226
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935449"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819658"
 ---
 <a name="retrieve-offer-status"></a>제안 상태 검색 
 =====================
@@ -24,10 +25,10 @@ ms.locfileid: "64935449"
 <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
-|  **Name**       |   **설명**                            |  **데이터 형식** |
+|  **이름**       |   **설명**                            |  **데이터 형식** |
 |  -------------  |  ------------------------------------------  |  ------------  |
-|  publisherId    | 게시자 식별자입니다(예: `Contoso`).  |     String     |
-|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     String     |
+|  publisherid    | 게시자 식별자입니다(예: `Contoso`).  |     문자열     |
+|  offerId        | 제안을 고유하게 식별하는 GUID입니다.      |     문자열     |
 |  api-version    | 최신 버전 API                        |     Date       |
 |  |  |
 
@@ -35,7 +36,7 @@ ms.locfileid: "64935449"
 <a name="header"></a>헤더
 ------
 
-|  이름           |  값               |
+|  Name           |  값               |
 |  -------------  | -------------------  |
 |  콘텐츠 형식   |  `application/json`  |
 |  권한 부여  | `Bearer YOUR_TOKEN`  |
@@ -45,7 +46,7 @@ ms.locfileid: "64935449"
 <a name="body-example"></a>본문 예제
 ------------
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 ``` json
   {
@@ -122,17 +123,17 @@ ms.locfileid: "64935449"
 
 ### <a name="response-body-properties"></a>응답 본문 속성
 
-|  **Name**             |    **설명**                                                                             |
+|  **이름**             |    **설명**                                                                             |
 | --------------------  |   -------------------------------------------------------------------------------------------- |
-|  status               | 제안의 상태입니다. 가능한 값 목록을 보려면 아래 [제안 상태](#offer-status)를 참조하세요. |
-|  메시지의 최대 전달 수             | 제안과 연결된 메시지 배열                                                    |
+|  status               | 제안의 상태입니다. 가능한 값 목록을 보려면 아래 [제품 상태](#offer-status)를 참조하세요. |
+|  messages             | 제안과 연결된 메시지 배열                                                    |
 |  단계                | 제안 게시 동안 제안이 거치는 단계의 배열입니다.                      |
 |  estimatedTimeFrame   | 이 단계를 완료하는 데 걸리는 예상 시간(일반 형식)입니다.                       |
 |  id                   | 단계의 식별자입니다.                                                                         |
 |  stepName             | 단계의 이름입니다.                                                                               |
 |  description          | 단계에 대한 설명입니다.                                                                        |
 |  status               | 단계의 상태입니다. 가능한 값 목록을 보려면 아래의 [단계 상태](#step-status)를 참조하세요.    |
-|  메시지의 최대 전달 수             | 단계와 관련된 메시지의 배열입니다.                                                          |
+|  messages             | 단계와 관련된 메시지의 배열입니다.                                                          |
 |  processPercentage    | 단계의 완료율입니다.                                                              |
 |  previewLinks         | *현재 구현되지 않음*                                                                    |
 |  liveLinks            | *현재 구현되지 않음*                                                                    |
@@ -152,7 +153,7 @@ ms.locfileid: "64935449"
 
 ### <a name="offer-status"></a>제안 상태
 
-|  **Name**                    |    **설명**                                       |
+|  **이름**                    |    **설명**                                       |
 |  --------------------------  |  ------------------------------------------------------  |
 |  NeverPublished              | 제안이 게시된 적이 없습니다.                          |
 |  NotStarted                  | 새 제안이지만 시작되지 않았습니다.                            |
@@ -160,13 +161,13 @@ ms.locfileid: "64935449"
 |  실행 중                     | 제안 제출을 처리 중입니다.                     |
 |  Succeeded                   | 제안 제출 처리를 완료했습니다.               |
 |  Canceled                    | 제안 제출이 취소되었습니다.                           |
-|  실패                      | 제안 제출에 실패했습니다.                                 |
+|  Failed                      | 제안 제출에 실패했습니다.                                 |
 |  |  |
 
 
 ### <a name="step-status"></a>단계 상태
 
-|  **Name**                    |    **설명**                           |
+|  **이름**                    |    **설명**                           |
 |  -------------------------   |  ------------------------------------------  |
 |  NotStarted                  | 단계가 시작되지 않았습니다.                        |
 |  InProgress                  | 단계를 실행 중입니다.                             |

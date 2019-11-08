@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: adb89c04a83bbfbd5bddd5c23b0fa88019a88991
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/08/2019
+ms.openlocfilehash: da68cfe504332ed6641c52322f0df0d2efd95997
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721377"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820666"
 ---
 # <a name="access-to-azure-virtual-network-resources-from-azure-logic-apps-by-using-integration-service-environments-ises"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스
 
@@ -108,8 +108,8 @@ Azure 가상 네트워크에 연결 된 온-프레미스 시스템의 경우 논
 
 * ISE-해당 시스템용으로 레이블이 지정 된 커넥터
 
-  > [!IMPORTANT]
-  > SQL Server 커넥터에서 Windows 인증을 사용 하려면 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-install.md)를 사용 해야 합니다. SQL Server 커넥터는 ISE에서 논리 앱에 대 한 Windows 인증을 지원 하지 않습니다.
+  > [!NOTE]
+  > [Ise (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)에서 SQL Server 커넥터를 사용 하 여 Windows 인증을 사용 하려면 커넥터의 비 ise 버전을 [온-프레미스 데이터 게이트웨이와](../logic-apps/logic-apps-gateway-install.md)함께 사용 합니다. ISE 레이블이 지정 된 버전은 Windows 인증을 지원 하지 않습니다.
 
 * 사용자 지정 커넥터
 

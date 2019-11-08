@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator 앱에 비 Microsoft 계정 추가 - Azure Active Directory | Microsoft Docs
+title: 인증자 앱에 비 Microsoft 계정 추가-Azure AD
 description: 2단계 인증용으로 Microsoft Authenticator 앱에 Google, Facebook, GitHub 등의 비 Microsoft 계정을 추가하는 방법을 설명합니다.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e1521d2b3d47667466636a1ac15f107826e40942
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68942939"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803671"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>비 Microsoft 계정 추가
 
@@ -35,7 +35,7 @@ ms.locfileid: "68942939"
 2. Microsoft Authenticator 앱에 계정을 추가합니다. 이 프로세스의 일부로 QR 코드를 스캔하라는 메시지가 표시될 수 있습니다.
 
     >[!Note]
-    >Microsoft Authenticator 앱을 처음으로 설정 하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지 (iOS) 아니면 앱이 사진을 촬영 하 고 비디오를 녹화 (Android) 할 수 있도록 허용할지 묻는 메시지가 표시 될 수 있습니다. **허용** 을 선택 하 여 인증자 앱이 카메라에 액세스 하 여 다음 단계에서 QR 코드를 그림으로 이동할 수 있도록 해야 합니다. 카메라를 허용 하지 않는 경우에도 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가 해야 합니다. 수동으로 코드를 추가 하는 방법에 대 한 자세한 내용은 [앱에 수동으로 계정 추가](user-help-auth-app-add-account-manual.md)를 참조 하세요.
+    >Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용**을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
 이 문서에서는 Facebook, Google, GitHub 및 Amazon 계정용 프로세스를 설명하지만 Instagram, Netflix, Adobe 등의 기타 앱에서도 동일한 프로세스를 수행하면 됩니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "68942939"
 
 ### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
 
-1. 컴퓨터에서 https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome 으로 이동하여 **시작하기**를 선택한 다음, ID를 확인합니다.
+1. 컴퓨터에서 https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome으로 이동하여 **시작하기**를 선택한 다음, ID를 확인합니다.
 
 2. 페이지에 표시되는 단계에 따라 개인 Google 계정에 2단계 인증을 설정합니다.
 
@@ -187,7 +187,7 @@ ms.locfileid: "68942939"
 
 10. 컴퓨터의 **백업 확인 방법 추가** 페이지에서 백업 확인 방법을 통해 제공된 Amazon 계정용 6자리 확인 코드를 입력한 다음, **코드 확인 후 계속하기**를 선택합니다.
 
-11. **거의 완료** 페이지에서 컴퓨터를 신뢰할 수 있는 장치로 만들지 여부를 결정 한 다음, 파일을 **선택 합니다. 2단계 인증 설정**을 선택합니다.
+11. **거의 완료** 페이지에서 컴퓨터를 신뢰할 수 있는 장치로 만들지 여부를 결정 한 다음, 파일을 선택 **합니다. 2 단계 인증을 설정**합니다.
 
     **고급 보안 설정** 페이지가 나타나고, 업데이트된 2단계 인증 세부 정보가 표시됩니다.
 

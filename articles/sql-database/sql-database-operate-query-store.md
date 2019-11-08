@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database에서 쿼리 저장소 운영
+title: 쿼리 저장소 작동
 description: Azure SQL Database에서 쿼리 저장소를 운영하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b4f999818fe3b3517ee3fb48c22e616ee50f2d88
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fa60992c85e69143bfd65cc1a1f420ed85c8fd93
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68567152"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802761"
 ---
 # <a name="operating-the-query-store-in-azure-sql-database"></a>Azure SQL Database에서 쿼리 저장소 운영
 
@@ -31,7 +31,7 @@ Azure의 쿼리 저장소는 모든 쿼리에 대한 자세한 기록 정보를 
 
 이 섹션은 쿼리 저장소는 물론 [SQL Database 관리자 및 성능 대시보드](https://azure.microsoft.com/updates/sqldatabaseadvisorga/)등과 같은 종속적인 기능의 안정적인 운영을 보장하기 위해 설계된 최적의 구성 기본값을 설명합니다. 기본 구성은 지속적인 데이터 수집을 위해 최적화됩니다(예: OFF/READ_ONLY 상태에 소요되는 시간 최소화).
 
-| Configuration | 설명 | 기본값 | 설명 |
+| 구성 | 설명 | 기본값 | 주석 |
 | --- | --- | --- | --- |
 | MAX_STORAGE_SIZE_MB |쿼리 저장소가 사용자 데이터베이스 내부에서 사용하는 데이터 공간에 대한 제한을 지정합니다. |100 |새 데이터베이스에 적용 |
 | INTERVAL_LENGTH_MINUTES |쿼리 계획에 대해 수집된 런타임 통계가 집계되고 지속되는 기간의 규모를 정의합니다. 모든 활성 쿼리 계획은 이 구성을 통해 정의된 기간에 대해 최대 하나의 행을 갖습니다. |60 |새 데이터베이스에 적용 |
@@ -50,7 +50,7 @@ Azure의 쿼리 저장소는 모든 쿼리에 대한 자세한 기록 정보를 
 
 [SQL Database 성능 Insight](sql-database-performance.md)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 자세한 내용은 다음 문서를 확인하세요.
 

@@ -1,5 +1,5 @@
 ---
-title: 보안 키 (미리 보기)를 사용 하도록 보안 정보 설정-Azure Active Directory | Microsoft Docs
+title: 보안 키에 대 한 보안 정보 (미리 보기) 설정-Azure AD
 description: FIDO2 (Fast Identity Online) 보안 키를 사용 하 여 id를 확인 하는 보안 정보를 설정 하는 방법입니다.
 services: active-directory
 author: eross-msft
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47ae7de87efd787b7d3cba14a33688c4b29637e6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160715"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803782"
 ---
-# <a name="set-up-security-info-to-use-a-security-key-preview"></a>보안 키 (미리 보기)를 사용 하도록 보안 정보 설정
+# <a name="set-up-security-info-preview-for-a-security-key"></a>보안 키에 대 한 보안 정보 (미리 보기) 설정
 
 보안 키를 조직 내에서 암호 없는 로그인 방법으로 사용할 수 있습니다. 보안 키는 회사 또는 학교 계정에 로그인 하기 위해 고유한 PIN과 함께 사용 되는 물리적 장치입니다. 보안 키에는 물리적 장치와 사용자가 알고 있는 것만 필요 하기 때문에 사용자 이름 및 암호 보다 강력한 인증 방법으로 간주 됩니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "73160715"
 
 키를 사용 하 여 회사 또는 학교 계정에 로그인 하려면 보안 키를 만들고 고유한 PIN을 지정 해야 합니다. 계정에 최대 10 개의 키가 등록 되어 있을 수 있습니다. 
 
-1. https://myprofile.microsoft.com 에서 **내 프로필** 페이지로 이동 하 여 아직 로그인 하지 않았으면 로그인 합니다.
+1. https://myprofile.microsoft.com에서 **내 프로필** 페이지로 이동 하 여 아직 로그인 하지 않았으면 로그인 합니다.
 
 2. **보안 정보**를 선택 하 **고 메서드 추가**를 선택한 다음 **방법 추가** 드롭다운 목록에서 **보안 키** 를 선택 합니다.
 

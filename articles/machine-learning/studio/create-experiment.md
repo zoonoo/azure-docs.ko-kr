@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: 데이터 과학 실험 만들기'
-titleSuffix: Azure Machine Learning Studio (classic)
+titleSuffix: ML Studio (classic) Azure
 description: 이 기계 학습 빠른 시작에서는 간단한 데이터 과학 실험을 안내합니다. 회귀 알고리즘을 사용하여 자동차의 가격을 예측합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: c95954bbe96b947312a952ebaab4e6bfc2b2f5a8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 99cc453387ed32c4d7cbba31c1fec2ff24a8255f
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493286"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73621886"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>빠른 시작: Azure Machine Learning Studio(클래식)에서 첫 번째 데이터 과학 실험 만들기
 

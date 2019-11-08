@@ -1,20 +1,20 @@
 ---
-title: Event Hubs에 사용자 지정 이벤트 보내기 - Event Grid, Azure CLI
-description: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. Event Hub는 엔드포인트에 사용됩니다.
+title: '빠른 시작: Event Hubs에 사용자 지정 이벤트 보내기 - Event Grid, Azure CLI'
+description: '빠른 시작: Azure Event Grid 및 Azure CLI를 사용하여 토픽을 게시하고 해당 이벤트를 구독합니다. Event Hub는 엔드포인트에 사용됩니다.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 10/09/2018
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: fd087c2afe50870289b008906b28605fdd558311
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 832c4e453befc9e54051c968e0c364d22afd2bc2
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475189"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721415"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>빠른 시작: Azure CLI 및 Event Grid를 사용하여 Azure Event Hubs로 사용자 지정 이벤트 라우팅
 

@@ -4,15 +4,16 @@ description: Azure Marketplace에서 기존 IoT Edge 모듈 제품을 업데이�
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: pabutler
-ms.openlocfilehash: 1dc6832fe09a610634ad934e3b173be6cc3331e6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cd0167e1af5bf8ef667df88237d83e9f33ed41f9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942170"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813387"
 ---
 # <a name="update-an-existing-iot-edge-module-offer"></a>기존 IoT Edge 모듈 제품 업데이트
 
@@ -29,7 +30,7 @@ ms.locfileid: "64942170"
 
 ## <a name="unpermitted-changes-to-iot-edge-module-offer-or-sku"></a>IoT Edge 모듈 제품 또는 SKU에 대해 허용되지 않는 변경
 
-IoT Edge 모듈 제품 또는 Azure Marketplace에 제품이 라이브 되 면 변경할 수 없는 SKU의 특성이 있습니다. 다음 설정을 변경할 수 없습니다.
+제품이 Azure Marketplace에 살고 있는 후에는 변경할 수 없는 IoT Edge 모듈 제품 또는 SKU의 특성이 있습니다. 다음 설정을 변경할 수 없습니다.
 
 -  해당 제품의 **제품 ID** 및 **게시자 ID**
 -  기존 SKU의 **SKU ID**
@@ -42,7 +43,7 @@ IoT Edge 모듈 제품 또는 Azure Marketplace에 제품이 라이브 되 면 �
 
 ### <a name="update-the-iot-edge-module-image-version-for-a-sku"></a>SKU에 대한 IoT Edge 모듈 이미지 버전 업데이트
 
-보안 패치, 추가 기능 및 등을 사용 하 여 정기적으로 업데이트 하는 IoT Edge 모듈 이미지에 대 한 일반적인 것입니다. 이 시나리오에서는 다음 단계를 사용하여 SKU에서 참조하는 IoT Edge 모듈 이미지를 업데이트하려고 합니다.
+일반적으로 IoT Edge 모듈 이미지는 보안 패치, 추가 기능 등으로 정기적으로 업데이트 됩니다. 이 시나리오에서는 다음 단계를 사용하여 SKU에서 참조하는 IoT Edge 모듈 이미지를 업데이트하려고 합니다.
 
 1.  [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 로그인합니다.
 
@@ -66,7 +67,7 @@ IoT Edge 모듈 제품 또는 Azure Marketplace에 제품이 라이브 되 면 �
 
 3.  **SKU** 탭 아래에서 **새 SKU 추가**를 선택하고 팝업 창에서 **SKU ID**를 제공합니다.
 
-4.  에 설명 된 단계를 사용 하 여 IoT Edge 모듈을 다시 게시할 [IoT Edge 모듈을 Azure Marketplace에 게시](./cpp-publish-offer.md)합니다.
+4.  [Azure Marketplace에 IoT Edge 모듈 게시](./cpp-publish-offer.md)에 설명 된 단계를 사용 하 여 IoT Edge 모듈을 다시 게시 합니다.
 
 5.  **게시**를 선택하여 새 SKU를 게시하는 워크플로를 시작합니다.
 
@@ -79,7 +80,7 @@ IoT Edge 모듈 제품 또는 Azure Marketplace에 제품이 라이브 되 면 �
 
 2.  **모든 제품** 아래에서 업데이트할 제품을 찾습니다.
 
-3.  **Marketplace** 탭으로 이동합니다. 지침을 사용 합니다 [IoT Edge 모듈을 Azure Marketplace에 게시](./cpp-publish-offer.md) 문서 메타 데이터 변경 합니다.
+3.  **Marketplace** 탭으로 이동 하 여 메타 데이터를 변경 하려면 [Azure Marketplace에 IoT Edge 모듈 게시](./cpp-publish-offer.md) 문서에 있는 지침을 사용 합니다.
 
 4.  **게시**를 선택하여 변경 내용을 게시하는 워크플로를 시작합니다.
 

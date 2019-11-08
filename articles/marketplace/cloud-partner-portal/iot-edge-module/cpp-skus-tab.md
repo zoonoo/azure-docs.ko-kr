@@ -4,15 +4,16 @@ description: IoT Edge 모듈에 대한 SKU를 만듭니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pabutler
-ms.openlocfilehash: bf8957c315909785112dea947f2e2e0f7b26349f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 230f3d6438d44c4e1e1721c0cb1453c85958e282
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942186"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813858"
 ---
 # <a name="iot-edge-module-skus-tab"></a>IoT Edge 모듈 SKU 탭
 
@@ -35,7 +36,7 @@ ms.locfileid: "64942186"
 
 |  **필드**       |     **설명**                                                          |
 |  ---------       |     ---------------                                                          |
-| **SKU ID\***       | 이 SKU에 대한 식별자입니다. 이 이름은 소문자 영숫자 또는 대시(-)로 구성되며, 최대 50자이지만 대시로 끝날 수 없습니다. **참고:** 제품의 게시 된 후에이 이름을 변경할 수 없습니다. 이름은 제품 URL에 공개적으로 표시됩니다. |
+| **SKU ID\***       | 이 SKU에 대한 식별자입니다. 이 이름은 소문자 영숫자 또는 대시(-)로 구성되며, 최대 50자이지만 대시로 끝날 수 없습니다. **참고:** 제품이 게시된 후에 이 이름을 변경할 수 없습니다. 이름은 제품 URL에 공개적으로 표시됩니다. |
 |  |  |
 
 
@@ -51,8 +52,8 @@ SKU가 Azure Marketplace 및 Azure Portal 웹 사이트에 표시될 방법을 �
 |  ---------       |     ---------------                                                          |
 | **제목\***        | 이 SKU의 제목입니다. 최대 길이는 50자입니다. <br/> Azure Portal에 표시되고 배포될 때 기본 모듈 이름으로 사용됩니다(공백 및 특수 문자 없이). 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
 | **요약\***      | 이 SKU의 간단한 요약입니다. 최대 길이는 100자입니다. 제품을 요약하지 **마십시오**. SKU만 요약합니다.  이 요약은 Azure Marketplace에 표시됩니다. 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
-| **설명\***  | 이 SKU의 짧은 설명입니다. 최대 길이는 3,000자입니다. 제품을 설명하지 마십시오. 이 SKU만 설명합니다. Azure Marketplace 및 Azure Portal에 표시됩니다. Azure Portal에서 Marketplace 탭에 정의된 제품을 설명하는 Marketplace 설명에 추가됩니다.  SKU 요약과 같을 수 있습니다. 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
-| **이 SKU 숨기기\*** | 기본 설정을 유지합니다. **아니요**입니다. |
+| **설명\***  | 이 SKU의 짧은 설명입니다. 최대 길이는 3,000자입니다. 제품을 설명하지 마십시오. 이 SKU만 설명합니다. Azure Marketplace 및 Azure Portal에 표시됩니다. Azure Portal Marketplace 탭에 정의 된 제품을 설명 하는 Marketplace 설명에 추가 됩니다.  SKU 요약과 동일할 수 있습니다. 이 필드가 표시되는 위치를 정확하게 확인하려면 아래 그림을 참조하세요.|
+| **이 SKU\* 숨기기** | 기본 설정을 유지합니다. **아니요**입니다. |
 |  |  |
 
 
@@ -99,7 +100,7 @@ SKU가 Azure Marketplace 및 Azure Portal 웹 사이트에 표시될 방법을 �
 
 ![IoT Edge 모듈 이미지](./media/iot-edge-module-skus-tab-acr.png)
 
-다음 표에서 설명 목적으로 콘텐츠를 및 섹션에 대 한 필드의 서식을 **이미지 리포지토리 세부 정보** 하 고 **이미지 버전**합니다.  필수 필드는 별표(*)로 표시됩니다.
+다음 표에서는 **이미지 리포지토리 세부 정보** 및 **이미지 버전**섹션의 용도, 내용 및 형식에 대해 설명 합니다.  필수 필드는 별표(*)로 표시됩니다.
 
 
 |  **필드**       |     **설명**                                                          |
@@ -108,7 +109,7 @@ SKU가 Azure Marketplace 및 Azure Portal 웹 사이트에 표시될 방법을 �
 | **구독 ID\***        | ACR의 Azure 구독 ID입니다.|
 | **리소스 그룹 이름\***      | ACR의 리소스 그룹 이름입니다.|
 | **레지스트리 이름\***  | ACR 레지스트리 이름입니다. 로그인 서버 이름이 아닌 레지스트리 이름만을 복사합니다(예: `azurecr.io` 없이). |
-| **리포지토리 이름\***  | IoT Edge 모듈을 포함하는 ACR의 리포지토리 이름입니다. **참고:** 이름을 설정 된 후 나중에 변경할 수 없습니다. 계정에 같은 이름의 다른 제품이 없도록 고유한 이름을 사용합니다. |
+| **리포지토리 이름\***  | IoT Edge 모듈을 포함하는 ACR의 리포지토리 이름입니다. **참고:** 이름이 설정되면 나중에 변경할 수 없습니다. 계정에 같은 이름의 다른 제품이 없도록 고유한 이름을 사용합니다. |
 | **사용자 이름\*** | ACR(관리자 사용자 이름)과 연결된 사용자 이름입니다. |
 | **암호\*** | ACR과 연결된 암호입니다. |
 |    |  ***이미지 버전***   |
@@ -116,7 +117,7 @@ SKU가 Azure Marketplace 및 Azure Portal 웹 사이트에 표시될 방법을 �
 |  |  |
 
 
-### <a name="help-your-customers-launch-by-using-default-settings"></a>기본 설정을 사용 하 여 고객에 게 시작 하는 도움말
+### <a name="help-your-customers-launch-by-using-default-settings"></a>기본 설정을 사용 하 여 고객이 시작 하도록 지원
 
 IoT Edge 모듈을 배포하는 가장 일반적인 설정을 정의합니다. 이러한 기본값으로 IoT Edge 모듈 기본 제공을 시작하도록 하여 고객 배포를 최적화합니다.
 

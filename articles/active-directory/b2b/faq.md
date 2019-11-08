@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 04/10/2019
+ms.date: 11/07/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 523f1adc94870f79d198366059f33ad52f5dad68
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 2fd72aea9087b03dcd5c6072676e8f98e7cfc1ee
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67293064"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73816460"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 협업 FAQ
 
@@ -42,30 +42,36 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질�
 초대하는 조직은 Multi-Factor Authentication을 수행합니다. 초대하는 조직은 Multi-Factor Authentication을 사용하는 자신의 B2B 사용자에게 라이선스를 충분히 제공해야 합니다.
 
 ### <a name="what-if-a-partner-organization-already-has-multi-factor-authentication-set-up-can-we-trust-their-multi-factor-authentication-and-not-use-our-own-multi-factor-authentication"></a>파트너 조직이 이미 Multi-Factor Authentication을 설정한 경우에 어떻게 하나요? 해당 Multi-Factor Authentication을 신뢰하고 자체적인 Multi-Factor Authentication을 사용하지 않나요?
-이 기능은 현재 지원 되지 않습니다. 파트너 조직에 대 한 multi-factor authentication에 등록 해야 조직의 리소스에 대 한 액세스에 다단계 인증이 필요한 경우 사용자 (초대는) 조직입니다.
+이 기능은 현재 지원 되지 않습니다. 조직 리소스에 대 한 액세스가 multi-factor authentication을 요구 하는 경우 파트너 조직은 (초대) 조직에서 multi-factor authentication을 등록 해야 합니다.
 
 ### <a name="how-can-i-use-delayed-invitations"></a>지연된 초대는 어떻게 사용할 수 있나요?
 어떤 조직에서는 B2B 협업 사용자를 추가하고 필요한 경우 애플리케이션에 프로비전한 다음, 초대를 보내려고 합니다. B2B 협업 초대 API를 사용하여 온보딩 워크플로를 사용자 지정할 수 있습니다.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
-예. 게스트 개체에는 기본적으로 조직의 전체 주소 목록 (gal 전체)에 표시 되지 않습니다. 하지만 볼 수 있도록 Azure Active Directory PowerShell을 사용할 수 있습니다. 참조 [하 게 만들려면 게스트 개체 전체 주소 목록에서 볼 수 있습니까?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
+예. 게스트 개체는 기본적으로 조직의 GAL (전체 주소 목록)에 표시 되지 않지만 Azure Active Directory PowerShell을 사용 하 여 표시 되도록 할 수 있습니다. [전체 주소 목록에 게스트 개체를 표시할 수 있나요?를 참조 하세요](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list) .
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>게스트 사용자를 제한된 관리자로 지정할 수 있나요?
 그렇습니다. 자세한 내용은 [역할에 게스트 사용자 추가](add-guest-to-role.md)를 참조하세요.
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Azure AD B2B 협업을 사용하면 B2B 사용자가 Azure Portal에 액세스할 수 있나요?
-사용자의 제한 된 관리자 역할을 할당 하지 않으면 B2B 공동 작업 사용자가 Azure portal에 액세스할이 필요가 없습니다. 그러나 제한 된 관리자 역할이 할당 된 B2B 공동 작업 사용자 포털에 액세스할 수 있습니다. 또한 이러한 관리자 역할 중 하나가 할당되지 않은 게스트 사용자가 포털에 액세스하는 경우 사용자는 특정 부분의 환경에 액세스할 수 있습니다. 게스트 사용자 역할에는 디렉터리에 대한 일부 사용 권한이 있습니다.
+사용자에 게 제한 된 관리자 역할이 할당 되지 않으면 B2B 공동 작업 사용자가 Azure Portal에 액세스할 필요가 없습니다. 그러나 제한 된 관리자의 역할이 할당 된 B2B 공동 작업 사용자는 포털에 액세스할 수 있습니다. 또한 이러한 관리자 역할 중 하나가 할당되지 않은 게스트 사용자가 포털에 액세스하는 경우 사용자는 특정 부분의 환경에 액세스할 수 있습니다. 게스트 사용자 역할에는 디렉터리에 대한 일부 사용 권한이 있습니다.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>게스트 사용자를 위해 Azure Portal에 대한 액세스를 차단할 수 있습니까?
-예! 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
-게스트 사용자의 액세스를 차단 하는 [Azure portal](https://portal.azure.com), Windows Azure 클래식 배포 모델 API에서 조건부 액세스 정책을 사용 합니다.
-1. **모든 사용자** 그룹을 수정하여 구성원만 포함되도록 합니다.
-   ![UserType이 같은 게스트 되지 모든 사용자 그룹을 보여 주는 스크린샷](media/faq/modify-all-users-group.png)
-2. 게스트 사용자를 포함하는 동적 그룹을 만듭니다.
-   ![새 모든 게스트 사용자 그룹을 보여 주는 스크린샷](media/faq/group-with-guest-users.png)
-3. 조건부 액세스 정책을 설정 블록 게스트 사용자에 게 포털에 액세스 하지 못하도록 다음 비디오에서 표시 된 것 처럼:
-  
-   > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
+
+예! 모든 게스트 및 외부 사용자가 Azure Portal에 액세스 하지 못하도록 차단 하는 조건부 액세스 정책을 만들 수 있습니다. 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
+
+1. [Azure Portal](https://portal.azure.com/)에 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
+2. Azure Portal에서 **Azure Active Directory**를 선택합니다. 
+3. **관리**에서 **보안**을 선택 합니다.
+4. **보호**아래에서 **조건부 액세스**를 선택 합니다. **새 정책**을 선택합니다.
+5. **새로 만들기** 페이지의 **이름** 텍스트 상자에 정책의 이름을 입력 합니다 (예: "게스트가 포털에 액세스 하지 못하도록 차단").
+6. **할당** 아래에서 **사용자 및 그룹**을 선택합니다.
+7. **포함** 탭에서 **사용자 및 그룹 선택**을 선택 하 고 **모든 게스트 및 외부 사용자 (미리 보기)** 를 선택 합니다.
+9. **완료**를 선택합니다.
+10. **새로 만들기** 페이지의 **할당** 섹션에서 **클라우드 앱 또는 작업**을 선택 합니다.
+11. **클라우드 앱 또는 작업** 페이지에서 **앱 선택**을 선택한 다음 **선택**을 선택 합니다.
+12. **선택** 페이지에서 **Microsoft Azure 관리**를 선택한 후 **선택**을 선택합니다.
+13. **클라우드 앱 또는 작업** 페이지에서 **완료**를 선택 합니다.
 
 ### <a name="does-azure-ad-b2b-collaboration-support-multi-factor-authentication-and-consumer-email-accounts"></a>Azure AD B2B 협업에서는 Multi-Factor Authentication 및 소비자 이메일 계정을 지원하나요?
 예. Multi-Factor Authentication 및 소비자 이메일 계정은 둘 다 Azure AD B2B 협업에 지원됩니다.
@@ -75,7 +81,7 @@ Azure AD 테넌트가 사용자의 홈 디렉터리이면 Azure portal에서 [�
  
 * Microsoft 계정(예: guestuser@live.com)으로 로그인한 게스트 사용자는 Microsoft 계정 SSPR(셀프 서비스 암호 재설정)을 사용하여 사용자 고유의 암호를 재설정할 수 있습니다. [Microsoft 계정 암호를 재설정하는 방법](https://support.microsoft.com/help/4026971/microsoft-account-how-to-reset-your-password)을 참조하세요.
 * Google 계정 또는 다른 외부 ID 공급자로 로그인한 게스트 사용자는 ID 공급자의 SSPR 메서드를 사용하여 사용자 고유의 암호를 재설정할 수 있습니다. 예를 들어 Google 계정 guestuser@gmail.com을 사용하는 게스트 사용자는 [암호 변경 또는 재설정](https://support.google.com/accounts/answer/41078)의 지침에 따라 자신의 암호를 재설정할 수 있습니다.
-* ID 테넌트가 JIT(Just-In-Time) 또는 “바이럴” 테넌트(별개의 관리되지 않는 Azure 테넌트를 의미)인 경우 게스트 사용자만 암호를 재설정할 수 있습니다. 직원이 회사 이메일 주소를 사용하여 서비스에 가입할 때 생성된 [바이럴 테넌트 관리를 인계](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)받는 조직도 있습니다. 조직이 바이럴 테넌트를 인계받고 나면 해당 조직의 관리자만이 사용자 암호를 재설정하거나 SSPR을 사용하도록 설정할 수 있습니다. 필요한 경우 초대 조직 관리자는 디렉터리에서 게스트 사용자 계정을 제거하고 초대를 다시 보낼 수 있습니다.
+* ID 테넌트가 JIT(Just-In-Time) 또는 “바이럴” 테넌트(별개의 관리되지 않는 Azure 테넌트를 의미)인 경우 게스트 사용자만 암호를 재설정할 수 있습니다. 직원이 회사 이메일 주소를 사용하여 서비스에 등록할 때 생성된 [바이럴 테넌트 관리를 인계](https://docs.microsoft.com/azure/active-directory/users-groups-roles/domains-admin-takeover)받는 조직도 있습니다. 조직이 바이럴 테넌트를 인계받고 나면 해당 조직의 관리자만이 사용자 암호를 재설정하거나 SSPR을 사용하도록 설정할 수 있습니다. 필요한 경우 초대 조직 관리자는 디렉터리에서 게스트 사용자 계정을 제거하고 초대를 다시 보낼 수 있습니다.
 * 게스트 사용자의 홈 디렉터리가 Azure AD 테넌트인 경우 사용자의 암호를 재설정할 수 있습니다. 예를 들어 온-프레미스 Active Directory에서 사용자를 만들거나 동기화하고 UserType을 Guest로 설정할 수 있습니다. 이 사용자는 디렉터리에 속해 있기 때문에 Azure Portal에서 암호를 재설정할 수 있습니다.
 
 ### <a name="does-microsoft-dynamics-365-provide-online-support-for-azure-ad-b2b-collaboration"></a>Microsoft Dynamics 365에서 Azure AD B2B 협업에 대한 온라인 지원을 제공합니까?
@@ -96,10 +102,10 @@ Azure AD에는 모든 Azure AD 클라우드 사용자 계정에 동등하게 적
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>솔루션을 공유하고 아이디어를 제출하는 B2B 협업 커뮤니티를 어디에서 찾을 수 있나요?
 B2B 협업을 개선하기 위해 사용자의 의견을 지속적으로 수렴하고 있습니다. Azure AD B2B 협업에 대한 사용자 시나리오, 모범 사례 및 원하는 기능을 공유해 주세요. [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)에서 토론에 참여합니다.
  
-[B2B 공동 작업 아이디어](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas)에서 아이디어를 제출하고 향후 기능에 대해 투표해 주세요.
+[B2B 협업 아이디어](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B-Ideas/idb-p/AzureAD_B2B_Ideas)에서 아이디어를 제출하고 향후 기능에 대해 투표해 주세요.
 
 ### <a name="can-we-send-an-invitation-that-is-automatically-redeemed-so-that-the-user-is-just-ready-to-go-or-does-the-user-always-have-to-click-through-to-the-redemption-url"></a>사용자가 곧 "준비"될 수 있도록 자동으로 상환되는 초대장을 보낼 수 있나요? 아니면 사용자가 항상 상환 URL을 클릭해야 하나요?
-UI, PowerShell 스크립트 또는 API를 사용하여 파트너 조직의 다른 사용자를 초대할 수 있습니다. 그런 다음, 게스트 사용자에게 공유 앱에 대한 직접 링크를 보낼 수 있습니다. 대부분의 경우에는 이메일 초대를 열고 상환 URL을 클릭할 필요가 없습니다. [Azure Active Directory B2B 공동 작업 초대 상환](redemption-experience.md)을 참조하세요.
+UI, PowerShell 스크립트 또는 API를 사용하여 파트너 조직의 다른 사용자를 초대할 수 있습니다. 그런 다음, 게스트 사용자에게 공유 앱에 대한 직접 링크를 보낼 수 있습니다. 대부분의 경우에는 이메일 초대를 열고 상환 URL을 클릭할 필요가 없습니다. [Azure Active Directory B2B 협업 초대 상환](redemption-experience.md)을 참조하세요.
 
 ### <a name="how-does-b2b-collaboration-work-when-the-invited-partner-is-using-federation-to-add-their-own-on-premises-authentication"></a>초대된 파트너가 페더레이션을 사용하여 자체 온-프레미스 인증을 추가하면 B2B 협업이 어떻게 진행되나요?
 파트너에게 온-프레미스 인증 인프라로 페더레이션된 Azure AD 테넌트가 있는 경우 온-프레미스 SSO(Single Sign-On)가 자동으로 이루어집니다. 파트너에게 Azure AD 테넌트가 없는 경우 새로운 사용자에게 Azure AD 계정이 생성됩니다. 
@@ -108,10 +114,10 @@ UI, PowerShell 스크립트 또는 API를 사용하여 파트너 조직의 다�
 지원되는 ID라는 측면에서 B2B 및 B2C(business-to-consumer) 협업 간의 차이점을 제거하고 있습니다. 사용되는 ID로 B2B를 사용할지 아니면 B2C를 사용할지 결정하는 것은 좋은 기준이 아닙니다. 협업 옵션을 선택하는 방법에 대한 정보는 [Azure Active Directory에서 B2B 협업과 B2C 비교](compare-with-b2c.md)를 참조하세요.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>어떤 애플리케이션 및 서비스에서 Azure B2B 게스트 사용자를 지원하나요?
-모든 Azure AD 통합 응용 프로그램에서 Azure B2B 게스트 사용자를 지원할 수 있지만 게스트 사용자를 인증 하는 테 넌 트로 설정 하는 끝점 사용 해야 합니다. 게스트 사용자가 앱을 인증할 때 발행되는 SAML 토큰에서 [클레임을 사용자 지정](claims-mapping.md)해야 할 수도 있습니다. 
+모든 Azure AD 통합 응용 프로그램은 Azure B2B 게스트 사용자를 지원할 수 있지만, 게스트 사용자를 인증 하려면 테 넌 트로 설정 된 끝점을 사용 해야 합니다. 게스트 사용자가 앱을 인증할 때 발행되는 SAML 토큰에서 [클레임을 사용자 지정](claims-mapping.md)해야 할 수도 있습니다. 
 
 ### <a name="can-we-force-multi-factor-authentication-for-b2b-guest-users-if-our-partners-dont-have-multi-factor-authentication"></a>파트너가 Multi-Factor Authentication을 설치하지 않은 경우 B2B 게스트 사용자에 대해 Multi-Factor Authentication을 강제할 수 있나요?
-예. 자세한 내용은 [B2B 공동 작업 사용자에 대 한 조건부 액세스](conditional-access.md)합니다.
+예. 자세한 내용은 [B2B 공동 작업 사용자에 대 한 조건부 액세스](conditional-access.md)를 참조 하세요.
 
 ### <a name="in-sharepoint-you-can-define-an-allow-or-deny-list-for-external-users-can-we-do-this-in-azure"></a>SharePoint에서 외부 사용자에 대한 "허용" 또는 "거부" 목록을 정의할 수 있습니다. Azure에서 수행할 수 있나요?
 예. Azure AD B2B 협업은 허용 목록 및 거부 목록을 지원합니다. 
@@ -121,5 +127,5 @@ UI, PowerShell 스크립트 또는 API를 사용하여 파트너 조직의 다�
 
 ### <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
+- [Azure AD B2B 협업이란?](what-is-b2b.md)
 

@@ -1,6 +1,6 @@
 ---
 title: 연결된 팩터리 대시보드 사용 - Azure | Microsoft Docs
-description: 연결된 팩터리 대시보드의 기능을 사용하는 방법을 알아봅니다.
+description: 이 문서에서는 연결 된 팩터리 대시보드의 기능을 사용 하 여 산업용 IoT 장치를 모니터링 하 고 관리 하는 방법을 설명 합니다.
 author: dominicbetts
 manager: timlt
 ms.service: iot-accelerators
@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 07/10/2018
 ms.author: dobett
-ms.openlocfilehash: 82045ddcc204fe369b7330fe9b3c2a8cadd56d88
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b53177d578768428665891704269e63bd8edb09e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067924"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820171"
 ---
 # <a name="use-features-in-the-connected-factory-solution-accelerator-dashboard"></a>연결된 팩터리 솔루션 가속기 대시보드의 기능 사용
 

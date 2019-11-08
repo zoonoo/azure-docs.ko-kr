@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracych
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 4390fab3d59706bf692de46d17923dad4f9a8f21
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 615536fbba38279a23516352c69461c19f9972ed
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489621"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796722"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대량의 데이터에 대한 일괄 처리 유추 실행
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -184,7 +184,7 @@ model = Model.register(model_path="models/",
 ## <a name="write-your-inference-script"></a>유추 스크립트 작성
 
 >[!Warning]
->다음 코드는 [샘플 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/notebooks/contrib/batch_inferencing/file-dataset-image-inference-mnist.ipynb)에서 사용하는 샘플일 뿐입니다. 각자 시나리오에 맞는 고유의 스크립트를 만들어야 합니다.
+>다음 코드는 [샘플 Notebook](https://aka.ms/batch-inference-notebooks)에서 사용하는 샘플일 뿐입니다. 각자 시나리오에 맞는 고유의 스크립트를 만들어야 합니다.
 
 스크립트에 다음 두 함수가 *포함되어야 합니다*.
 - `init()`: 이후 유추를 위해 비용이 많이 드는 준비 또는 일반적인 준비에 이 함수를 사용합니다. 예를 들어 모델을 글로벌 개체에 로드하는 데 사용합니다.
@@ -347,7 +347,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## <a name="next-steps"></a>다음 단계
 
-이 프로세스가 작동하는 모습을 처음부터 끝까지 보려면 [일괄 처리 유추 Notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/)을 사용해 보세요. 
+이 프로세스가 작동하는 모습을 처음부터 끝까지 보려면 [일괄 처리 유추 Notebook](https://aka.ms/batch-inference-notebooks)을 사용해 보세요. 
 
 파이프라인의 디버깅 및 문제 해결 지침은 [방법 가이드](how-to-debug-pipelines.md)를 참조하세요.
 

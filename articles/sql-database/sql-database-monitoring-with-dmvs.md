@@ -1,5 +1,5 @@
 ---
-title: Dmv를 사용 하 여 성능 Azure SQL Database 모니터링
+title: Dmv를 사용 하 여 성능 모니터링
 description: 동적 관리 뷰를 사용하여 Microsoft Azure SQL Database를 모니터링하여 일반적인 성능 문제를 감지 및 진단하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c7eed3fc8e9d0328a3e793e1ff4b3652ab86e2bc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bea6a572e55f1a79515c385fd7b79881c54ae65e
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687746"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802912"
 ---
 # <a name="monitoring-performance-azure-sql-database-using-dynamic-management-views"></a>동적 관리 뷰를 사용하여 Azure SQL Database 성능모니터링
 
@@ -237,7 +237,7 @@ GO
 
 ## <a name="identify-tempdb-performance-issues"></a>`tempdb` 성능 문제 식별
 
-IO 성능 문제를 식별할 때 `tempdb` 문제와 관련된 상위 대기 유형은 `PAGELATCH_*`입니다(`PAGEIOLATCH_*` 아님). 그러나 `PAGELATCH_*` 대기는 항상 `tempdb` 경합이 있다는 의미가 아닙니다.  이 대기는 동일한 데이터 페이지를 대상으로 하는 동시 요청으로 인해 사용자 개체 데이터 페이지 경합이 있다는 의미일 수도 있습니다. `tempdb` 경합을 추가로 확인 하려면 [_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 를 사용 하 여 wait_resource 값이 `2:x:y`으로 시작 하는지 확인 합니다. 여기서 2 `tempdb`는 데이터베이스 id이 고, `x`는 파일 id 이며, `y`는 페이지 id입니다.  
+IO 성능 문제를 식별할 때 `tempdb` 문제와 관련된 상위 대기 유형은 `PAGELATCH_*`입니다(`PAGEIOLATCH_*` 아님). 그러나 `PAGELATCH_*` 대기는 항상 `tempdb` 경합이 있다는 의미가 아닙니다.  이 대기는 동일한 데이터 페이지를 대상으로 하는 동시 요청으로 인해 사용자 개체 데이터 페이지 경합이 있다는 의미일 수도 있습니다. `tempdb` 경합을 추가로 확인 하려면 [dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 를 사용 하 여 wait_resource 값이 `2:x:y`로 시작 하는지 확인 합니다. 여기서 2는 데이터베이스 id이 고 `tempdb`는 파일 id 이며 `x`는 페이지 id입니다.`y`  
 
 tempdb 경합의 경우 `tempdb`를 사용하는 애플리케이션 코드를 줄이거나 다시 작성하는 것이 일반적인 방법입니다.  일반적인 `tempdb` 사용량 영역에는 다음이 포함됩니다.
 

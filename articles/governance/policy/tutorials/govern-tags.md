@@ -6,16 +6,16 @@ ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 79219b9405f76e7044a4d403b37ba2f1545dfbea
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 780dbf02fbdb0a607f29c710da9a6320a8626f7b
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510007"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73643769"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>자습서: Azure Policy를 사용하여 태그 거버넌스 관리
 
-[태그](../../../azure-resource-manager/resource-group-using-tags.md)는 Azure 리소스를 분류 체계로 구성하는 데 중요한 부분입니다. [태그 관리 모범 사례](/azure/architecture/cloud-adoption/ready/considerations/name-and-tag#metadata-tags)를 수행하는 동안 태그는 Azure Policy를 통해 비즈니스 정책을 적용하거나 [Cost Management를 통해 비용을 추적](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources)하기 위한 기초가 될 수 있습니다.
+[태그](../../../azure-resource-manager/resource-group-using-tags.md)는 Azure 리소스를 분류 체계로 구성하는 데 중요한 부분입니다. [태그 관리 모범 사례](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging#naming-and-tagging-resources)를 수행하는 동안 태그는 Azure Policy를 통해 비즈니스 정책을 적용하거나 [Cost Management를 통해 비용을 추적](../../../cost-management/cost-mgt-best-practices.md#organize-and-tag-your-resources)하기 위한 기초가 될 수 있습니다.
 태그를 사용하는 방식이나 이유에 관계없이 Azure 리소스에서 태그를 빠르게 추가, 변경 및 제거할 수 있어야 합니다.
 
 Azure Policy의 [Modify](../concepts/effects.md#modify) 효과는 리소스 거버넌스 단계에 상관없이 태그 거버넌스에 도움이 되도록 설계되었습니다. **수정**이 도움이 되는 경우:

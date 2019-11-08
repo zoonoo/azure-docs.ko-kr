@@ -1,19 +1,20 @@
 ---
-title: Microsoft Azure SQL Database 연결 문제 해결 | Microsoft Docs
+title: 연결 문제 해결
 description: Azure SQL Database 연결 문제를 해결 하는 방법을 설명 합니다.
 services: sql-database
 ms.service: sql-database
 ms.topic: troubleshooting
+ms.custom: seo-lt-2019
 author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 9de6d85e1fc54d60f999cfa18665067b3998a432
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 20988296b5eac7152c53abd6d238043288feacc8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390671"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807266"
 ---
 # <a name="troubleshooting-connectivity-issues-with-microsoft-azure-sql-database"></a>Microsoft Azure SQL Database 연결 문제 해결
 
@@ -28,9 +29,9 @@ Azure SQL Database에 대한 연결이 실패하면 오류 메시지가 표시�
 이 문제를 해결하려면:
 
 1. 알려진 작동 중단에 대 한 [Microsoft Azure 서비스 대시보드](https://status.azure.com/status) 를 확인 합니다. 
-2. 알려진 중단이 없으면 [Microsoft Azure 지원 웹 사이트로](http://azure.microsoft.com/support/options) 이동 하 여 지원 사례를 엽니다.
+2. 알려진 중단이 없으면 [Microsoft Azure 지원 웹 사이트로](https://azure.microsoft.com/support/options) 이동 하 여 지원 사례를 엽니다.
 
-자세한 내용은 ["서버에서 데이터베이스를 현재 사용할 수 없습니다." 오류 문제 해결](https://docs.microsoft.com/azure/sql-database/sql-database-troubleshoot-common-connection-issues#troubleshoot-transient-errors)을 참조 하세요.
+자세한 내용은 ["서버에서 데이터베이스를 현재 사용할 수 없습니다." 오류 문제 해결](sql-database-troubleshoot-common-connection-issues.md#troubleshoot-transient-errors)을 참조 하세요.
 
 ## <a name="a-network-related-or-instance-specific-error-occurred-while-establishing-a-connection-to-sql-server"></a>SQL Server에 대 한 연결을 설정 하는 동안 네트워크 관련 또는 인스턴스 관련 오류가 발생 했습니다.
 
@@ -129,7 +130,7 @@ Azure SQL Database에 대한 연결이 실패하면 오류 메시지가 표시�
    ```
    
    > [!NOTE]
-   > @No__t-0을 사용 하 여 특정 사용자를 특정 데이터베이스 역할에 매핑할 수도 있습니다.
+   > `sp_addrolemember`를 사용 하 여 특정 사용자를 특정 데이터베이스 역할에 매핑할 수도 있습니다.
 
 자세한 내용은 [Azure SQL Database에서 데이터베이스 및 로그인 관리](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins)를 참조 하세요.
 
@@ -165,7 +166,7 @@ Azure SQL Database에 대한 연결이 실패하면 오류 메시지가 표시�
 
 ## <a name="transient-errors-errors-40197-40545"></a>일시적인 오류 (오류 40197, 40545)
 
-### <a name="error-40197-the-service-has-encountered-an-error-processing-your-request-please-try-again-error-code--code-"></a>오류 40197: 서비스에서 요청을 처리 하는 동안 오류가 발생 했습니다. 다시 시도하세요. 코드 > 오류 코드 <
+### <a name="error-40197-the-service-has-encountered-an-error-processing-your-request-please-try-again-error-code--code-"></a>오류 40197: 서비스에서 요청을 처리 하는 동안 오류가 발생 했습니다. 나중에 다시 시도하세요. 코드 > 오류 코드 <
 
 백 엔드에서 재구성 또는 장애 조치 (failover) 중에 일시적인 오류가 발생 하 여이 문제가 발생 합니다.
 
@@ -188,7 +189,7 @@ Azure SQL Database에 대한 연결이 실패하면 오류 메시지가 표시�
   > [!NOTE]
   > 이는 문제를 해결 하지 못할 수 있는 전적 방법입니다.
 
-  1. 다음 SQL 쿼리를 실행 하 여 [_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) view를 확인 하 고 차단 요청을 확인 합니다.
+  1. 다음 SQL 쿼리를 실행 하 여 [dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 보기를 확인 하 고 차단 요청을 확인 합니다.
 
              ```
              SELECT * FROM dm_exec_requests
@@ -197,7 +198,7 @@ Azure SQL Database에 대한 연결이 실패하면 오류 메시지가 표시�
   2. 헤드 차단기에 대 한 **입력 버퍼** 를 확인 합니다.
   3. 헤드 차단기 쿼리를 조정 합니다.
 
-    심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
+    심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
 
 * 블로킹 및 장기 실행 쿼리를 처리 하는 것에도 불구 하 고 데이터베이스가 지속적으로 제한에 도달한 경우 새 미리 보기 버전 중 하나로 업그레이드 하는 것이 좋습니다 (예: [Standard 또는 Premium edition](https://azure.microsoft.com/pricing/details/sql-database/)).
 
@@ -265,7 +266,7 @@ SQL Database 가격 책정 옵션에 대 한 자세한 내용은 [Azure SQL Data
 
 이 오류가 반복적으로 발생 하는 경우 다음 단계를 수행 하 여 문제를 해결 해 보십시오. 
 
-1. Total_elapsed_time 열에 대 한 값이 높은 열려 있는 세션을 보려면 _exec_requests 뷰를 확인 합니다. 다음 SQL 스크립트를 실행 하 여이 확인을 수행 합니다.
+1. Total_elapsed_time 열에 대해 값이 높은 열려 있는 세션을 보려면 dm_exec_requests 뷰를 확인 합니다. 다음 SQL 스크립트를 실행 하 여이 확인을 수행 합니다.
 
    ```
    SELECT * FROM dm_exec_requests
@@ -275,7 +276,7 @@ SQL Database 가격 책정 옵션에 대 한 자세한 내용은 [Azure SQL Data
 
 또한 쿼리를 일괄 처리 하는 것이 좋습니다. 일괄 처리에 대 한 자세한 내용은 [일괄 처리를 사용 하 여 SQL Database 응용 프로그램 성능 향상](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance)을 참조 하세요.
 
-심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
+심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>오류 40551: TEMPDB 사용량이 너무 많아 세션이 종료 되었습니다.
 
@@ -311,7 +312,7 @@ SQL Database 가격 책정 옵션에 대 한 자세한 내용은 [Azure SQL Data
 
 이 문제를 해결 하려면 쿼리를 최적화 해 보세요.
 
-심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
+심층 문제 해결 절차는 [내 쿼리가 클라우드에서 제대로 실행 되나요?](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)를 참조 하세요.
 
 
 ### <a name="cannot-open-database-master-requested-by-the-login-the-login-failed"></a>로그인에서 요청한 데이터베이스 "master"를 열 수 없습니다. 로그인이 실패했습니다.
@@ -336,7 +337,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-쿼리가 쿼리 문제에 의해 트리거되는 경우 다음과 유사한 호출 스택이 표시 됩니다. **SqlCommand** 클래스에 대 한 참조를 확인 합니다. 이 경우 쿼리를 [조정](http://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)합니다.
+쿼리가 쿼리 문제에 의해 트리거되는 경우 다음과 유사한 호출 스택이 표시 됩니다. **SqlCommand** 클래스에 대 한 참조를 확인 합니다. 이 경우 쿼리를 [조정](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx)합니다.
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()
@@ -364,7 +365,7 @@ ClientConnectionId:<Client connection ID>
 
 5. 다시 시도 논리가 준비 되어 있는지 확인 하는 것이 가장 좋습니다. 재시도 논리에 대 한 자세한 내용은 [SQL Database 일시적 오류 및 연결 오류 문제 해결](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-issues)을 참조 하세요.
 
-이러한 단계를 수행 해도 문제가 해결 되지 않으면 더 많은 데이터를 수집한 다음 지원 담당자에 게 문의 하세요. 응용 프로그램이 클라우드 서비스인 경우 로깅을 사용 하도록 설정 합니다. 이 단계에서는 실패의 UTC 타임 스탬프를 반환 합니다. 또한 SQL Azure는 추적 ID를 반환 합니다. [Microsoft 고객 지원 서비스](http://azure.microsoft.com/support/options/) 는이 정보를 사용할 수 있습니다. 
+이러한 단계를 수행 해도 문제가 해결 되지 않으면 더 많은 데이터를 수집한 다음 지원 담당자에 게 문의 하세요. 응용 프로그램이 클라우드 서비스인 경우 로깅을 사용 하도록 설정 합니다. 이 단계에서는 실패의 UTC 타임 스탬프를 반환 합니다. 또한 SQL Azure는 추적 ID를 반환 합니다. [Microsoft 고객 지원 서비스](https://azure.microsoft.com/support/options/) 는이 정보를 사용할 수 있습니다. 
 
 로깅을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [Azure App Service에서 앱에 대 한 진단 로깅 사용](https://azure.microsoft.com/documentation/articles/web-sites-enable-diagnostic-log/)을 참조 하세요.
 

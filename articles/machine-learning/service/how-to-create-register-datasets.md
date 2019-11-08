@@ -1,7 +1,7 @@
 ---
-title: Azureml 데이터 집합을 사용 하 여 데이터에 액세스 하는 데이터 집합 만들기
+title: 데이터에 액세스 하는 Azure Machine Learning 데이터 집합 만들기
 titleSuffix: Azure Machine Learning
-description: 다양 한 원본에서 데이터 집합을 만들고 작업 영역에 데이터 집합을 등록 하는 방법에 대해 알아봅니다.
+description: 기계 학습 실험 실행을 위해 데이터에 액세스 하는 Azure Machine Learning 데이터 집합을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,18 +11,18 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 1379085e410ddf119ae4ed1fe45389f00eb1b2a5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 51102962879b43d4ef3ae8662d7c3136bc7441d9
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716580"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818433"
 ---
-# <a name="create-and-access-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합 만들기 및 액세스
+# <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
 
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 Azure Machine Learning 데이터 집합을 만드는 방법 (미리 보기)과 로컬 또는 원격 실험에서 데이터에 액세스 하는 방법에 대해 알아봅니다.
+이 문서에서는 로컬 또는 원격 실험을 위해 데이터에 액세스 하는 Azure Machine Learning 데이터 집합을 만드는 방법에 대해 알아봅니다.
 
 Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 수 있습니다.
 
@@ -43,7 +43,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 * Azureml 데이터 집합 패키지가 포함 된 [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)있습니다.
 
 > [!NOTE]
-> 일부 데이터 집합 클래스 (미리 보기)에는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
+> 일부 데이터 집합 클래스에는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
 
 ## <a name="dataset-types"></a>데이터 세트 형식
 

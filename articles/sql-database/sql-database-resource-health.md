@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Health를 사용 하 여 SQL Database 상태 모니터링
+title: Azure Resource Health를 사용 하 여 데이터베이스 상태 모니터링
 description: Azure Resource Health를 사용하여 SQL Database 상태를 모니터링하면 Azure 문제가 SQL 리소스에 영향을 줄 때 문제를 진단하고 지원을 받는 데 도움이 됩니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 02/26/2019
-ms.openlocfilehash: 10ce2da8ae8bcd8a12f0972d437a84a37a8390b9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1cf14c9e133b7e6e3e0b5219eb9e16bd3a0178dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687513"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821168"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database"></a>Resource Health를 사용하여 Azure SQL Database 연결 문제 해결
 

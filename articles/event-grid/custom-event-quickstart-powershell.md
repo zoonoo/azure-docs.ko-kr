@@ -1,20 +1,20 @@
 ---
-title: 웹 엔드포인트에 사용자 지정 이벤트 보내기 - Event Grid, PowerShell
-description: Azure Event Grid 및 PowerShell을 사용하여 사용자 지정 토픽을 게시하고 해당 토픽에 대한 이벤트를 구독합니다. 이벤트는 웹 애플리케이션에서 처리합니다.
+title: '빠른 시작: 웹 엔드포인트에 사용자 지정 이벤트 보내기 - Event Grid, PowerShell'
+description: '빠른 시작: Azure Event Grid 및 PowerShell을 사용하여 사용자 지정 토픽을 게시하고 해당 토픽에 대한 이벤트를 구독합니다. 이벤트는 웹 애플리케이션에서 처리합니다.'
 services: event-grid
 keywords: ''
 author: spelluru
 ms.author: spelluru
-ms.date: 12/07/2018
+ms.date: 11/05/2019
 ms.topic: quickstart
 ms.service: event-grid
 ms.custom: seodec18
-ms.openlocfilehash: fa703defdda17a69aec99d3fbe479e9867781d68
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bc92e0cf579bc008fdb09c9cbb576d8cac0191cb
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66156009"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721440"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>빠른 시작: PowerShell 및 Event Grid를 사용하여 사용자 지정 이벤트를 웹 엔드포인트로 라우팅
 

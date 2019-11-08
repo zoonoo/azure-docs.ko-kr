@@ -7,13 +7,13 @@ ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
-ms.date: 05/14/2019
-ms.openlocfilehash: 01319de8fd72875ca35bb7a869a6eaedee62f2a7
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.date: 11/04/2019
+ms.openlocfilehash: 4a09a0fe4aa1f04e665aeb71ebece17a8b368090
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285526"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582382"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-cluster"></a>자습서: Azure Red Hat OpenShift 클러스터 만들기
 
@@ -34,8 +34,6 @@ ms.locfileid: "72285526"
 
 > [!IMPORTANT]
 > 이 자습서에서는 Azure CLI 버전 2.0.65가 필요합니다.
->    
-> Azure Red Hat OpenShift를 사용하려면 먼저 [Red Hat OpenShift Azure 개발 환경 설정](howto-setup-environment.md#purchase-azure-red-hat-openshift-application-nodes-reserved-instances)에 설명된 대로 최소 4개의 Azure Red Hat OpenShift 예약 애플리케이션 노드를 구매해야 합니다.
 
 이 자습서를 시작하기 전에:
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 6602a47a9d1d34b04f37c6b65a3c3f84cd60c845
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: HT
+ms.openlocfilehash: 34b54459629560ba80e6a38d10edbab32ea44778
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796079"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820165"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Azure Cosmos 계정에 대 한 Azure 개인 링크 구성 (미리 보기)
 
@@ -330,9 +330,9 @@ PowerShell 스크립트에서 "GroupId" 변수는 계정의 API 유형인 값을
 
 ## <a name="configure-custom-dns"></a>사용자 지정 DNS 구성
 
-개인 연결 미리 보기 중 개인 끝점이 생성 된 서브넷 내에서 개인 DNS를 사용 해야 합니다. 각 개인 IP 주소가 DNS 항목에 매핑되도록 끝점을 구성 합니다 (위에 표시 된 응답의 "fqdn" 속성 참조).
+개인 끝점을 만든 서브넷 내에서 개인 DNS를 사용 해야 합니다. 각 개인 IP 주소가 DNS 항목에 매핑되도록 끝점을 구성 합니다 (위에 표시 된 응답의 "fqdn" 속성 참조).
 
-개인 끝점을 만들 때 Azure의 개인 DNS 영역과 통합할 수 있습니다. 개인 끝점을 Azure의 개인 DNS 영역과 통합 하지 않고 대신 사용자 지정 DNS를 사용 하도록 선택한 경우 새 지역에 해당 하는 개인 IP에 대 한 새 DNS 레코드를 추가 하도록 DNS를 구성 해야 합니다.
+개인 끝점을 만들 때 Azure의 개인 DNS 영역과 통합할 수 있습니다. 개인 끝점을 Azure의 개인 DNS 영역과 통합 하지 않고 대신 사용자 지정 DNS를 사용 하도록 선택한 경우 개인 끝점에 예약 된 모든 개인 IP 주소에 대 한 DNS 레코드를 추가 하도록 DNS를 구성 해야 합니다.
 
 ## <a name="firewall-configuration-with-private-link"></a>개인 링크를 사용 하는 방화벽 구성
 
@@ -374,19 +374,19 @@ Set-AzPrivateEndpoint -PrivateEndpoint $pe
 
 Azure Cosmos 계정에 개인 링크를 사용 하는 경우 다음 제한 사항이 적용 됩니다.
 
+* Azure Cosmos 계정 및 Vnet에 대 한 개인 링크 지원은 특정 지역 에서만 사용할 수 있습니다. 지원 되는 지역 목록은 개인 링크 문서의 [사용 가능한 지역](../private-link/private-link-overview.md#availability) 섹션을 참조 하세요. **VNET 및 Azure Cosmos 계정은 모두 개인 끝점을 만들 수 있도록 지원 되는 지역에**있어야 합니다.
+
 * 직접 모드 연결을 사용 하 여 Azure Cosmos 계정에 개인 링크를 사용 하는 경우 TCP 프로토콜만 사용할 수 있습니다. HTTP 프로토콜은 아직 지원 되지 않습니다.
 
 * MongoDB 계정에 대해 Azure Cosmos DB의 API를 사용 하는 경우 전용 끝점은 서버 버전 3.6의 계정에 대해서만 지원 됩니다. 즉, `*.mongo.cosmos.azure.com`형식의 끝점을 사용 하는 계정입니다. 서버 버전 3.2 (`*.documents.azure.com`형식의 끝점을 사용 하는 계정인 경우)의 계정에 대해서는 개인 링크가 지원 되지 않습니다. 개인 링크를 사용 하려면 이전 계정을 새 버전으로 마이그레이션해야 합니다.
 
 * 개인 링크가 있는 MongoDB 계정에 대해 Azure Cosmos DB의 API를 사용 하는 경우 Robo 3T, 스튜디오 3T, Mongoose 등의 도구를 사용할 수 없습니다. AppName =<account name> 매개 변수가 지정 된 경우에만 끝점이 개인 링크를 지원할 수 있습니다. 예: replicaSet = globaldb & appName = mydbaccountname 이러한 도구는 연결 문자열의 앱 이름을 서비스에 전달 하지 않으므로 개인 링크를 사용할 수 없습니다. 그러나 3.6 버전의 SDK 드라이버를 사용 하 여 이러한 계정에 계속 액세스할 수 있습니다.
 
-* Azure Cosmos 계정 및 Vnet에 대 한 개인 링크 지원은 특정 지역 에서만 사용할 수 있습니다. 지원 되는 지역 목록은 개인 링크 문서의 [사용 가능한 지역](../private-link/private-link-overview.md#availability) 섹션을 참조 하세요. **VNET 및 Azure Cosmos 계정은 모두 개인 끝점을 만들 수 있도록 지원 되는 지역에**있어야 합니다.
-
 * 개인 링크를 포함 하는 경우 가상 네트워크를 이동 하거나 삭제할 수 없습니다.
 
 * Azure Cosmos 계정은 개인 끝점에 연결 된 경우 삭제할 수 없습니다.
 
-* Azure Cosmos 계정은 연결 된 모든 개인 끝점에 매핑되지 않은 지역으로 장애 조치 (failover) 할 수 없습니다. 자세한 내용은 이전 섹션에서 지역 추가 또는 제거를 참조 하세요.
+* Azure Cosmos 계정은 계정에 연결 된 모든 개인 끝점에 매핑되지 않은 지역으로 장애 조치 (failover) 할 수 없습니다. 자세한 내용은 이전 섹션에서 지역 추가 또는 제거를 참조 하세요.
 
 * 관리자는 Azure Cosmos 계정 범위에서 "*/PrivateEndpointConnectionsApproval" 이상의 권한을 부여 받아야 자동으로 승인 된 개인 끝점을 만들 수 있습니다.
 

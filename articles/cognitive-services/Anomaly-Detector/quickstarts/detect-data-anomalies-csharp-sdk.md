@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 10/15/2019
 ms.author: aahi
-ms.openlocfilehash: 04d788160f1bdfd772f48b40b35f6db54cbf87b7
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 67d6bb0bf880de0b4bf6878128e2ed27e130b18d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554778"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718998"
 ---
 # <a name="quickstart-anomaly-detector-client-library-for-net"></a>빠른 시작: .NET용 Anomaly Detector 클라이언트 라이브러리
 
@@ -143,12 +143,6 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 
 * [포털](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-다음 cloud shell 명령을 실행하여 리소스 그룹 및 모든 관련 리소스를 제거할 수도 있습니다. 이 작업을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 
-
-```azurecli-interactive
-az group delete --name example-anomaly-detector-resource-group
-```
 
 ## <a name="next-steps"></a>다음 단계
 

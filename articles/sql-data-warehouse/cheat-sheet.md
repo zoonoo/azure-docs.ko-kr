@@ -1,5 +1,5 @@
 ---
-title: Azure Synapse Analytics 참고 자료(이전의 SQL DW) | Microsoft Docs
+title: Azure Synapse Analytics 참고 자료(이전의 SQL DW)
 description: Azure Synapse Analytics(이전의 SQL DW) 솔루션을 빠르게 구축하는 링크와 모범 사례를 찾습니다.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: be5e8952ddfc6cb831b87f880bc281d6ceb2ba3d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9355ae1522c653924574b94594e894fdaf3f764e
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492267"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73646656"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics 참고 자료(이전의 SQL DW)
 

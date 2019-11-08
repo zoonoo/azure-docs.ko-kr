@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: dfc3ebc0274c87466d6dc27c93880483df023085
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 791821fbfe5854c27b7e3e6927a56a66ac1f1dc2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66242481"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819095"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 Azure Cosmos DB 액세스
 
@@ -44,10 +44,10 @@ Azure Cosmos DB에 대한 서비스 엔드포인트가 서브넷에서 사용하
 Azure Cosmos 계정에 추가된 가상 네트워크 및 해당 서브넷만 액세스할 수 있습니다. 피어링된 가상 네트워크 내 서브넷이 계정에 추가될 때까지는 피어링된 해당 VNet이 계정에 액세스할 수 없습니다.
 
 ### <a name="what-is-the-maximum-number-of-subnets-allowed-to-access-a-single-cosmos-account"></a>단일 Cosmos 계정에 액세스할 수 있는 최대 서브넷 수는? 
-현재 Azure Cosmos 계정에 허용 되는 최대 64 서브넷을 사용할 수 있습니다.
+현재 Azure Cosmos 계정에 대해 허용 되는 최대 64 서브넷이 있을 수 있습니다.
 
 ### <a name="can-i-enable-access-from-vpn-and-express-route"></a>VPN 및 Express Route의 액세스를 사용하도록 설정할 수 있나요? 
-온-프레미스에서 expressroute를 통해 Azure Cosmos 계정에 액세스 하는 것에 대 한 Microsoft 피어 링을 사용 하도록 설정 해야 합니다. IP 방화벽 또는 가상 네트워크 액세스 규칙을 입력한 후에는 Azure Cosmos 계정 IP 방화벽에서 Microsoft 피어링에 사용되는 공용 IP 주소를 추가하여 Azure Cosmos 계정에 대한 온-프레미스 서비스 액세스를 허용할 수 있습니다. 
+온-프레미스에서 Express 경로를 통해 Azure Cosmos 계정에 액세스 하는 경우 Microsoft 피어 링을 사용 하도록 설정 해야 합니다. IP 방화벽 또는 가상 네트워크 액세스 규칙을 입력한 후에는 Azure Cosmos 계정 IP 방화벽에서 Microsoft 피어링에 사용되는 공용 IP 주소를 추가하여 Azure Cosmos 계정에 대한 온-프레미스 서비스 액세스를 허용할 수 있습니다. 
 
 ### <a name="do-i-need-to-update-the-network-security-groups-nsg-rules"></a>NSG(네트워크 보안 그룹) 규칙을 업데이트해야 하나요? 
 NSG 규칙은 가상 네트워크를 사용하여 서브넷 간의 연결을 제한하는 데 사용됩니다. 서브넷에 Azure Cosmos DB에 대한 서비스 엔드포인트를 추가한 경우 Azure Cosmos 계정에 대한 NSG에서 아웃바운드 연결을 열 필요가 없습니다. 
@@ -56,7 +56,7 @@ NSG 규칙은 가상 네트워크를 사용하여 서브넷 간의 연결을 제
 아니요, Azure Resource Manager 가상 네트워크만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. 클래식 가상 네트워크는 서비스 엔드포인트를 지원하지 않습니다.
 
 ### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Azure Cosmos DB에 대해 서비스 엔드포인트 액세스가 가능하면 "공용 Azure 데이터 센터 내에서 연결을 허용"해도 되나요?  
-이는 Azure Data Factory, Azure Search 또는 주어진 Azure 지역에 배포되는 다른 서비스와 같이 다른 Azure 자사 서비스에서 Azure Cosmos DB 계정에 액세스하려는 경우에만 필요합니다.
+이는 Azure Data factory, Azure Cognitive Search 또는 지정 된 Azure 지역에 배포 된 서비스와 같은 다른 Azure 자사 서비스에서 Azure Cosmos DB 계정을 액세스 하려는 경우에만 필요 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계

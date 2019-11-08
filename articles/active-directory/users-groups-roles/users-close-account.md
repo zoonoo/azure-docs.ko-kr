@@ -1,5 +1,5 @@
 ---
-title: 관리 되지 않는 디렉터리에서 회사 또는 학교 계정 닫기-Azure Active Directory | Microsoft Docs
+title: 관리 되지 않는 Azure AD 디렉터리에서 회사 또는 학교 계정 닫기
 description: 관리 되지 않는 Azure Active Directory에서 회사 또는 학교 계정을 종료 하는 방법입니다.
 services: active-directory
 author: rolyon
@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: ''
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0da4c6b1c1434dae564ab4876a3ab3f341a87097
-ms.sourcegitcommit: a3a40ad60b8ecd8dbaf7f756091a419b1fe3208e
+ms.openlocfilehash: 3c101c0ef7932151e675c5c514ac558e6e0f94b2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69891948"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815728"
 ---
 # <a name="close-your-work-or-school-account-in-an-unmanaged-directory"></a>관리 되지 않는 디렉터리에서 회사 또는 학교 계정 닫기
 
@@ -28,7 +28,7 @@ ms.locfileid: "69891948"
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 계정을 닫으려면 먼저 다음 항목을 확인 해야 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 이메일 주소를 사용하도록 보안 정보(미리 보기) 설정 - Azure Active Directory | Microsoft Docs
+title: 전자 메일을 사용 하도록 보안 정보 (미리 보기) 설정-Azure AD
 description: 이메일 주소를 사용하여 본인 여부를 확인하도록 보안 정보를 설정하는 방법입니다.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8f5590cb528082a73cbdf92850218993a1a6b95
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a025005065174d5a6ca5fca27ee06ebb036b7b1d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161008"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820339"
 ---
 # <a name="set-up-security-info-preview-to-use-your-email-address"></a>이메일 주소를 사용하도록 보안 정보(미리 보기) 설정
 
@@ -88,7 +88,7 @@ ms.locfileid: "73161008"
 
 - **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
 
-- **본인 확인 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
+- **보안 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
 
     >[!Note]
     >이러한 옵션 중 일부가 누락된 경우 사용자의 조직에서 해당 방법을 허용하지 않았을 가능성이 있습니다. 이 경우 사용 가능한 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database를 사용하여 규모 확장
+title: 확장
 description: SaaS(Software as a Service) 개발자는 이러한 도구를 사용하여 클라우드에서 확장 가능한 탄력적 데이터베이스를 쉽게 만들 수 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 56556576dffd4e022f919af89459d92e48c6c895
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3e30e54eb18eb5d487da6821d285109b1a22297f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73690247"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823611"
 ---
 # <a name="scaling-out-with-azure-sql-database"></a>Azure SQL Database를 사용하여 규모 확장
 **Elastic Database** 도구를 사용하여 Azure SQL 데이터베이스의 규모를 쉽게 확장할 수 있습니다. 이러한 도구와 기능을 사용하면 **Azure SQL Database**의 데이터베이스 리소스를 사용하여 트랜잭션 워크로드에 대한 솔루션, 특히 SaaS(Software as a Service) 애플리케이션을 만들 수 있습니다. Elastic Database 기능은 다음으로 구성됩니다.

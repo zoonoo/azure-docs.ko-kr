@@ -5,14 +5,14 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
 ms.author: marsma
-ms.openlocfilehash: bdc9c8f5a782704ec7f8cbaa31dd4cc27ed376cc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b5c5fdddeea961858a2c3b8cd69c365bb28f26e
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468980"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73799972"
 ---
-Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용할 수 있습니다. [미리 보기 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
+Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
 

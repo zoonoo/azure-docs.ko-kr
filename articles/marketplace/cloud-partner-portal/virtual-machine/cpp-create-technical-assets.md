@@ -4,22 +4,23 @@ description: Azure Marketplace에서 가상 머신 제안에 대한 기술 자�
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pabutler
-ms.openlocfilehash: c1ef00f846dfad76629b0603ab79fba17249417c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 45d0ff5b7b3fea1566b13b61bd01cc17da61e4b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224518"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824505"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>가상 머신 제안에 대한 기술 자산 만들기
 
 이 섹션에서는 Azure Marketplace의 VM(가상 머신) 제안에 대한 기술 자산을 만들고 구성하는 방법을 안내합니다.  VM에는 솔루션 VHD(가상 하드 디스크)와 선택적인 연결된 데이터 디스크의 두 가지 구성 요소가 있습니다.  
 
 - *VHD(가상 하드 디스크)* - Azure Marketplace 제안을 통해 배포할 운영 체제와 솔루션이 포함되어 있습니다. VHD가 Linux 기반, Windows 기반 또는 사용자 지정 기반 VM인지 여부에 따라 VHD를 준비하는 프로세스가 달라집니다.
-- *데이터 디스크* - 가상 머신에 대한 전용 영구 스토리지를 나타냅니다. 솔루션 VHD(예: `C:` 드라이브)는 영구 정보를 저장하는 데 사용하지 *않습니다*.
+- *데이터 디스크* - 가상 머신에 대한 전용 영구 스토리지를 나타냅니다. 솔루션 VHD(예: *드라이브)는 영구 정보를 저장하는 데 사용하지*않습니다`C:`.
 
 VM 이미지에는 운영 체제 디스크 하나와 0개 이상의 데이터 디스크가 포함되어 있습니다. 디스크당 VHD 하나가 필요합니다. 데이터 디스크가 비어 있는 경우에도 VHD를 만들어야 합니다.
 VM OS, VM 크기, 개방할 포트 및 최대 15개의 연결된 데이터 디스크를 구성해야 합니다.
@@ -52,7 +53,7 @@ VHD 및 VM을 관리하는 데 도움이 되는 다음 스크립팅 환경 중 �
 
 -   [Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)
 -   [Visual Studio Code](https://code.visualstudio.com/)
-    *   확장: [Azure Resource Manager 도구](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
+    *   확장: [Azure Resource Manager Tools](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools)
     *   확장: [Beautify](https://marketplace.visualstudio.com/items?itemName=HookyQR.beautify)
     *   확장: [Prettify JSON](https://marketplace.visualstudio.com/items?itemName=mohsen1.prettify-json)
 

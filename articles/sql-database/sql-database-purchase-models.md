@@ -1,5 +1,5 @@
 ---
-title: 'Azure SQL Database 구매 모델 '
+title: 구매 모델
 description: Azure SQL Database 사용할 수 있는 구매 모델에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 48537ec4c62410565d32350b1e3a11bbc7a2ca6e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: be223245c634b8e38dc5e4c89df4c265c22c0b57
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687565"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821255"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>VCore와 DTU 구매 모델 중에서 선택 합니다.
 
@@ -125,7 +125,7 @@ Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터�
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>워크로드에 필요한 DTU 수 결정
 
-기존 온-프레미스 또는 SQL Server 가상 머신 워크 로드를 Azure SQL Database 마이그레이션하려면 [dtu 계산기](https://dtucalculator.azurewebsites.net/) 를 사용 하 여 필요한 dtu의 수를 대략적으로 계산 합니다. 기존 Azure SQL Database 워크 로드의 경우 [쿼리 성능 정보](sql-database-query-performance.md) 를 사용 하 여 데이터베이스 리소스 사용 (dtu)을 이해 하 고 워크 로드 최적화에 대 한 심층적인 통찰력을 얻습니다. [RESOURCE_STATS](https://msdn.microsoft.com/library/dn800981.aspx) DMV (동적 관리 뷰)를 사용 하 여 지난 1 시간의 리소스 소비량을 볼 수 있습니다. [Resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 카탈로그 뷰는 지난 14 일간의 리소스 사용을 표시 하지만 5 분 분량의 평균을 사용 합니다.
+기존 온-프레미스 또는 SQL Server 가상 머신 워크 로드를 Azure SQL Database 마이그레이션하려면 [dtu 계산기](https://dtucalculator.azurewebsites.net/) 를 사용 하 여 필요한 dtu의 수를 대략적으로 계산 합니다. 기존 Azure SQL Database 워크 로드의 경우 [쿼리 성능 정보](sql-database-query-performance.md) 를 사용 하 여 데이터베이스 리소스 사용 (dtu)을 이해 하 고 워크 로드 최적화에 대 한 심층적인 통찰력을 얻습니다. [Dm_db_ RESOURCE_STATS](https://msdn.microsoft.com/library/dn800981.aspx) DMV (동적 관리 뷰)를 사용 하 여 지난 1 시간의 리소스 소비량을 확인할 수 있습니다. [Sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 카탈로그 뷰는 지난 14 일간의 리소스 사용을 표시 하지만 5 분의 평균에 대 한 낮은 정확도로 표시 됩니다.
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>탄력적 리소스 풀의 이점을 활용할 수 있는 워크로드
 

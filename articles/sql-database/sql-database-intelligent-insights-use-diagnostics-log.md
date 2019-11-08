@@ -1,5 +1,5 @@
 ---
-title: Intelligent Insights 성능 진단 로그-Azure SQL Database
+title: Intelligent Insights 성능 진단 로그
 description: Intelligent Insights는 Azure SQL Database 성능 문제의 진단 로그를 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 86381f5670f09b5e6a215793dc1ea4eab7ecbb8e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9ed2cc8bfb10d916218417a7dd27010638d2a927
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689706"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810278"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent Insights Azure SQL Database 성능 진단 로그 사용
 

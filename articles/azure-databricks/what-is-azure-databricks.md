@@ -10,18 +10,18 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 149b83b9aacf23cde06a2b35aed06c164afe9647
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 1e86658422e444cb7104c3e3428a74d31d453a72
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243321"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605965"
 ---
 # <a name="what-is-azure-databricks"></a>Azure Databricks란?
 
 Azure Databricks는 Microsoft Azure Cloud Services 플랫폼에 대해 최적화된 Apache Spark 기반 분석 플랫폼입니다. Apache Spark의 기반으로 설계된 Databricks는 Azure와 통합되어 원클릭 설정, 간소화된 워크플로 및 데이터 과학자, 데이터 엔지니어, 비즈니스 분석가가 협업할 수 있도록 하는 대화형 작업 영역을 제공합니다.
 
-![Azure Databricks란? ](./media/what-is-azure-databricks/azure-databricks-overview.png "Azure Databricks란?")
+![Azure Databricks란?](./media/what-is-azure-databricks/azure-databricks-overview.png "Azure Databricks란?")
 
 Azure Databricks는 빠르고 쉬운 공동 작업 Apache Spark 기반 분석 서비스입니다. 빅 데이터 파이프라인의 경우 데이터(원시 또는 구조적 데이터)는 Azure Data Factory를 통해 일괄 처리로 수집되거나 Kafka, 이벤트 허브 또는 IoT Hub를 사용하여 거의 실시간으로 스트리밍됩니다. 이 데이터는 Azure Blob Storage 또는 Azure Data Lake Storage에서 장기 저장을 위한 데이터 레이크에 배치됩니다. 분석 워크플로의 일부로, Azure Databricks를 사용하여 [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml), [Azure SQL Data Warehouse](../sql-data-warehouse/index.yml) 등의 여러 데이터 원본에서 데이터를 읽고 Spark를 사용하여 혁신적인 인사이트로 바꿀 수 있습니다.
 
@@ -96,9 +96,9 @@ Power BI와의 풍부한 통합을 통해 Azure Databricks는 유용한 정보�
 ## <a name="next-steps"></a>다음 단계
 
 * [빠른 시작: Azure Databricks에서 Spark 작업 실행](quickstart-create-databricks-workspace-portal.md)
-* [Spark 클러스터 작업](https://docs.azuredatabricks.net/user-guide/clusters/index.html)
-* [Notebooks 작업](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
-* [Spark 작업 만들기](https://docs.azuredatabricks.net/user-guide/jobs.html)
+* [Spark 클러스터 작업](/azure/databricks/clusters/index)
+* [Notebooks 작업](/azure/databricks/notebooks/index)
+* [Spark 작업 만들기](/azure/databricks/jobs)
 
  
 

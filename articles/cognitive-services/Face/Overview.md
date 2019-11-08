@@ -1,7 +1,7 @@
 ---
 title: Face API란?
 titleSuffix: Azure Cognitive Services
-description: Face 서비스를 사용하여 이미지에서 얼굴을 감지하고 분석하는 방법을 알아봅니다.
+description: Azure Cognitive Services Face API는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 데 사용되는 알고리즘을 제공합니다.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 4be33f781dec93fd9fe1b1846322672266cd7350
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 95ea1718682340967d5d39fe5f550f2638273796
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606904"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73743694"
 ---
 # <a name="what-is-the-azure-face-api"></a>Azure Face API란?
 

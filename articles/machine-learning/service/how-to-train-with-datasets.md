@@ -11,14 +11,14 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 53a190a611af42f0eaca8d4348d1d066d3d4f9e4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: f95798241084efdb91993a5add52f84a8a6dc1ec
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584411"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814794"
 ---
-# <a name="train-with-datasets-preview-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습 (미리 보기)
+# <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 연결 문자열 또는 데이터 경로에 대해 걱정 하지 않고 원격 실험 학습 실행에서 [Azure Machine Learning 데이터 집합](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) 을 사용 하는 두 가지 방법을 알아봅니다.
@@ -40,7 +40,7 @@ Azure Machine Learning 데이터 집합은 [평가기](https://docs.microsoft.co
 * Azureml 데이터 집합 패키지가 포함 된 [Python 용 AZURE MACHINE LEARNING SDK가 설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)있습니다.
 
 > [!Note]
-> 일부 데이터 집합 클래스 (미리 보기)에는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
+> 일부 데이터 집합 클래스에는 [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) 패키지에 대 한 종속성이 있습니다. Linux 사용자의 경우 이러한 클래스는 Red Hat Enterprise Linux, Ubuntu, Fedora 및 CentOS 배포판 에서만 지원 됩니다.
 
 ## <a name="option-1-use-datasets-directly-in-training-scripts"></a>옵션 1: 학습 스크립트에서 직접 데이터 집합 사용
 

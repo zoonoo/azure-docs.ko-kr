@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 00d0067fe51efef8efffe31860e16f4530adf3ac
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 1ae2f87a3719853f4a91cb8ba801be6d578597d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972358"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825676"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드 축소
 
 CloudSimple은 사설 클라우드를 동적으로 축소 하는 유연성을 제공 합니다.  사설 클라우드는 하나 이상의 vSphere 클러스터로 구성 됩니다. 각 클러스터에는 3 ~ 16 개의 노드가 있을 수 있습니다. 사설 클라우드를 축소 하는 경우 기존 클러스터에서 노드를 제거 하거나 전체 클러스터를 삭제 합니다. 
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 사설 클라우드의 축소에 대해 다음 조건을 충족 해야 합니다.  사설 클라우드를 만들 때 만든 관리 클러스터 (첫 번째 클러스터)를 삭제할 수 없습니다.
 
@@ -30,7 +30,7 @@ CloudSimple은 사설 클라우드를 동적으로 축소 하는 유연성을 �
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="shrink-a-private-cloud"></a>사설 클라우드 축소
+## <a name="shrink-a-private-cloud"></a>프라이빗 클라우드 축소
 
 1. [CloudSimple 포털에 액세스](access-cloudsimple-portal.md)합니다.
 
@@ -53,6 +53,10 @@ CloudSimple은 사설 클라우드를 동적으로 축소 하는 유연성을 �
 8. **전송** 을 클릭 하 여 사설 클라우드를 축소 합니다.
 
 사설 클라우드의 축소를 시작 합니다.  작업의 진행률을 모니터링할 수 있습니다.  축소 프로세스는 데이터에 따라 몇 시간이 걸릴 수 있으며이는 vSAN에서 resynced 해야 합니다.
+
+> [!NOTE]
+> 데이터 센터에서 마지막 또는 유일한 클러스터를 삭제 하 여 사설 클라우드를 축소 하는 경우에는 데이터 센터가 삭제 되지 않습니다.  
+
 
 ## <a name="next-steps"></a>다음 단계
 

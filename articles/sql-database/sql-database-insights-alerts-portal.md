@@ -1,5 +1,5 @@
 ---
-title: Azure Portal를 사용 하 여 경고 및 알림 설정
+title: 설정 경고 및 알림 (Azure Portal)
 description: Azure Portal을 사용하여 사용자가 지정한 조건에 부합하면 알림이나 자동 작업을 트리거할 수 있는 SQL Database 경고를 만듭니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/02/2018
-ms.openlocfilehash: d68055bc64ea36bd3ad024123a8d5b7b239858dc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ec625f203e9282d070e6c1b3b3d712be7ab789cf
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689758"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810378"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Azure Portal을 사용하여 Azure SQL Database 및 Data Warehouse에 대한 경고 만들기
 

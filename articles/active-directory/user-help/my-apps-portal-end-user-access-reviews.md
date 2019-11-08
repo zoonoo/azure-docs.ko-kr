@@ -1,5 +1,5 @@
 ---
-title: 내 앱 포털에서 액세스 검토를 수행 합니다.-Azure Active Directory | Microsoft Docs
+title: 내 앱 포털-Azure AD에서 액세스 검토를 수행 합니다.
 description: 조직의 앱 및 그룹에 대 한 보안 액세스를 확인 하 고 관리 하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6681720fc7c0fe04c99bf7957be14865c663dd67
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: bf803027aac7c62ea500d1af104ae3234fadf8b5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383156"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73804038"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>내 앱 포털에서 액세스 검토를 수행 합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "68383156"
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. 웹 브라우저를 열고로 https://myapps.microsoft.com 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어와 https://myapps.microsoft.com/contoso.com 같은 조직의 사용자 지정 페이지로 이동할 수 있습니다.
+2. 웹 브라우저를 열고 https://myapps.microsoft.com로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 

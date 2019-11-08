@@ -1,5 +1,5 @@
 ---
-title: Azure의 자동화 된 ML 인터페이스를 사용 하 여 모델을 학습 & 배포
+title: 자동화 된 ML 모델 빌드 & 배포
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning studio에서 자동화 된 machine learning 실험을 만들고, 관리 하 고, 배포 합니다.
 services: machine-learning
@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: e1bb84c142fb24086cf6c11a7b1070bdd29ae3f2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 25e775cf7bfd415768144b28ab2ca6989f360edd
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581307"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818500"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 자동화 된 기계 학습 실험 만들기, 탐색 및 배포
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -215,7 +215,7 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
     >[!Important]
     > 파일 이름은 32 자 미만 이어야 하며 영숫자를 사용 하 여 시작 하 고 끝나야 합니다. 에는 대시, 밑줄, 점 및 영숫자 ()가 포함 될 수 있습니다. 공백은 허용 되지 않습니다.
 
-    *고급* 메뉴에는 데이터 수집 및 리소스 사용률 설정과 같은 기본 배포 기능이 제공 됩니다. 이러한 기본값을 재정의 하려는 경우이 메뉴에서이 작업을 수행 합니다.
+    *고급* 메뉴에는 [데이터 수집](how-to-enable-app-insights.md) 및 리소스 사용률 설정과 같은 기본 배포 기능이 제공 됩니다. 이러한 기본값을 재정의 하려는 경우이 메뉴에서이 작업을 수행 합니다.
 
 1. **배포**를 선택합니다. 배포를 완료 하는 데 약 20 분이 걸릴 수 있습니다.
 

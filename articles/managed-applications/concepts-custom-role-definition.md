@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 09/16/2019
-ms.openlocfilehash: d645eebefde473e404f7760d2bc8a67c7e3e9087
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7f4371bea467d6d4c99a776e03cdf13070d77ac6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609035"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818385"
 ---
 # <a name="custom-role-definition-artifact-in-azure-managed-applications"></a>Azure Managed Applications의 사용자 지정 역할 정의 아티팩트
 
@@ -22,11 +22,11 @@ ms.locfileid: "73609035"
 
 ## <a name="custom-role-definition-artifact"></a>사용자 지정 역할 정의 아티팩트
 
-사용자 지정 역할 정의 아티팩트 이름을 **Customroledefinition. json** 으로 지정 하 고 관리 되는 응용 프로그램 정의를 만드는 .zip 패키지의 **createuidefinition. json** 및 **maintemplate.json** 와 동일한 수준에 배치 해야 합니다. .Zip 패키지를 만들고 관리 되는 응용 프로그램 정의를 게시 하는 방법을 알아보려면 [관리 되는 응용 프로그램 정의 게시](publish-managed-app-definition-quickstart.md) 를 참조 하세요.
+사용자 지정 역할 정의 아티팩트 customRoleDefinition. json의 이름을 지정 해야 합니다. 관리 되는 응용 프로그램 정의를 만드는 .zip 패키지의 createUiDefinition. json 및 Maintemplate.json와 동일한 수준에 놓습니다. .Zip 패키지를 만들고 관리 되는 응용 프로그램 정의를 게시 하는 방법을 알아보려면 [관리 되는 응용 프로그램 정의 게시](publish-managed-app-definition-quickstart.md) 를 참조 하세요.
 
 ## <a name="custom-role-definition-schema"></a>사용자 지정 역할 정의 스키마
 
-**Customroledefinition. json** 파일에는 역할 배열인 최상위 수준의 `roles` 속성이 있습니다. 이러한 각 역할은 관리 되는 응용 프로그램이 작동 해야 하는 사용 권한입니다. 현재 기본 제공 역할만 허용 되지만 여러 역할을 지정할 수 있습니다. 역할 정의의 ID 또는 역할 이름으로 역할을 참조할 수 있습니다.
+CustomRoleDefinition. json 파일에는 역할의 배열인 최상위 `roles` 속성이 있습니다. 이러한 역할은 관리 되는 응용 프로그램이 작동 하는 데 필요한 권한입니다. 현재 기본 제공 역할만 허용 되지만 여러 역할을 지정할 수 있습니다. 역할은 역할 정의의 ID 또는 역할 이름으로 참조할 수 있습니다.
 
 사용자 지정 역할 정의에 대 한 샘플 JSON:
 
@@ -49,7 +49,7 @@ ms.locfileid: "73609035"
 }
 ```
 
-## <a name="role"></a>역할
+## <a name="roles"></a>역할
 
 역할은 `$.properties.roleName` 또는 `id`구성 됩니다.
 
@@ -62,10 +62,10 @@ ms.locfileid: "73609035"
 }
 ```
 
-> [!Note]
-> `id` 또는 `roleName` 필드 중 하나만 필요 합니다. 이러한 필드는 적용할 역할 정의를 조회 하는 데 사용 됩니다. 둘 다 제공 되는 경우 `id` 필드가 사용 됩니다.
+> [!NOTE]
+> `id` 또는 `roleName` 필드 중 하나를 사용할 수 있습니다. 하나만 필요 합니다. 이러한 필드는 적용 해야 하는 역할 정의를 조회 하는 데 사용 됩니다. 둘 다 제공 되는 경우 `id` 필드가 사용 됩니다.
 
-|속성|필수|설명|
+|속성|Required?|설명|
 |---------|---------|---------|
-|ID|*예*|기본 제공 역할의 ID입니다. 이 속성은 전체 ID 또는 GUID만 될 수 있습니다.|
-|RoleName|*예*|기본 제공 역할의 이름입니다.|
+|id|예|기본 제공 역할의 ID입니다. 전체 ID 또는 GUID만 사용할 수 있습니다.|
+|RoleName|예|기본 제공 역할의 이름입니다.|

@@ -1,19 +1,20 @@
 ---
 title: Web Analytics
-description: 을 선택합니다.
+description: 에서 수집된 앱의 원격 분석을 통해 유용한 쿼리를 실행할 수 있습니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: a6b2a7981452b47a3992b6c0efee286878e143fb
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d47a67be157f71a30a6ae155790ed78a78fd6743
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962890"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814653"
 ---
 <a name="web-analytics"></a>Web Analytics
 =============
@@ -43,7 +44,7 @@ ms.locfileid: "70962890"
 
 예를 들어 다음과 같은 주소를 사용할 수 있습니다. <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign>
 
-1. (고급): URL에서 지원 되는 일반 캠페인 Id 중 하나를 사용 합니다. 사용해야 하는 추가 ref 태그를 포함할 수 있도록 다음의 추가 태그를 자동으로 인식하는 규칙이 지원됩니다.
+1. (고급): URL에 지원되는 일반 캠페인 ID 중 하나를 사용합니다. 사용해야 하는 추가 ref 태그를 포함할 수 있도록 다음의 추가 태그를 자동으로 인식하는 규칙이 지원됩니다.
     
     1. **utm\_campaign**
     2. **utm\_source**
@@ -54,7 +55,7 @@ ms.locfileid: "70962890"
 
 이러한 캠페인 ID를 여러 개 조합하여 캠페인의 트래픽을 생성하는 여러 출처(예: 전자 메일, 블로그, 소셜 미디어 소스 등 고객이 유입되는 위치)를 추가로 지정할 수도 있습니다.
 
-예를 들어:
+예:
 
 1. 뉴스레터 참조 페이지: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=newsletter>
 2. LinkedIn 참조 페이지: <https://appsource.microsoft.com/product/dynamics-365/contoso.offername?mktcmpid=NewCampaign&src=LinkedIn>
@@ -63,15 +64,15 @@ ms.locfileid: "70962890"
 
 캠페인의 중간 페이지로 트래픽을 전달한 다음 해당 페이지에서 계속해서 고객을 Marketplace로 이동시키는 시나리오도 있을 수 있습니다. 이러한 경우 Marketplace로 보내는 최종 URL로 초기 캠페인 ID를 전달해야 합니다.
 
-다음 예를 참조하세요.
+다음은 예제입니다.
 
-1. 마케팅 담당 직원이 회사 방문 페이지 <https://contoso.com>으로 트래픽을 전달하기 위해 Google에서 광고를 구매합니다. 이 방문 페이지에는 <https://appsource.com>으로 이동하는 \"제품 사용해 보기\" 링크가 있습니다.
+1. 마케팅 담당 직원이 회사 방문 페이지 \'으로 트래픽을 전달하기 위해 Google에서 광고를 구매합니다. 이 방문 페이지에는 \"으로 이동하는 \"제품 사용해 보기<https://appsource.com> 링크가 있습니다.
 2. 사용자가 광고를 클릭하여 회사 방문 페이지를 방문합니다.
     1.  추천 URL = google.com
     2.  방문 페이지 URL = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
 3. 사용자가 \"제품 사용해 보기\" 링크를 클릭하여 AppSource로 이동합니다.
     1. 추천 URL = <https://contoso.com/?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName>
-    2. 방문 페이지 URL(**이 URL에는 utm\_campaign 및 utm\_이 URL에 추가된 소스**가 있어야 함) = [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_ campaign=MyCampaignAdName&utm\_ source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
+    2. 방문 페이지 URL(**이 URL에는 utm\_campaign 및 utm\_이 URL에 추가된 소스**가 있어야 함) = [https://appsource.microsoft.com/product/dynamics-365/contoso.offername?**utm\_campaign=MyCampaignAdName&utm\_source=MySourceAdName**](https://appsource.microsoft.com/product/dynamics-365/contoso.offername?utm_campaign=MyCampaignAdName&utm_source=MySourceAdName)
 
 <a name="how-to-evaluate-the-success-of-a-campaign"></a>캠페인의 성공 여부를 평가하는 방법
 -----------------------------------------

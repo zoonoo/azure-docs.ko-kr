@@ -1,5 +1,5 @@
 ---
-title: Intelligent Insights를 사용 하 여 데이터베이스 성능 모니터링-Azure SQL Database
+title: Intelligent Insights를 사용 하 여 데이터베이스 성능 모니터링
 description: Azure SQL Database Intelligent Insights는 기본 제공 인텔리전스를 사용하여 지속적으로 인공 지능을 통해 데이터베이스 사용량을 모니터링하고 성능 저하의 원인이 되는 중단 이벤트를 검색합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: c073b535271ba8f9f11e17ba5203b13e257e211b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bd42117b384b9e384d59f9f4298c937135cafd34
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73689686"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73810180"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>AI를 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights
 

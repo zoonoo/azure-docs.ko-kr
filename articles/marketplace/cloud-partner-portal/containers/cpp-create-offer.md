@@ -1,27 +1,28 @@
 ---
-title: Azure 컨테이너 제품을 만드는 | Azure Marketplace
+title: Azure 컨테이너 제안 만들기 | Azure Marketplace
 description: Marketplace에 새 컨테이너 제품을 게시하는 방법입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: pabutler
-ms.openlocfilehash: 1a0a2bd9132ba5d018bc5d45699c052d10c30162
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a9766f234b074fd259eeb7bcc184573e21e390a7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942684"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823213"
 ---
 # <a name="create-a-new-container-offer-with-the-cloud-partner-portal"></a>Cloud 파트너 포털을 사용하여 새 컨테이너 제품 만들기
 
-이 문서에서는 Azure Marketplace에 컨테이너 제품 항목을 만들고 게시하는 방법을 설명합니다. 모든 제안은 Azure Marketplace에서 자체의 고유한 엔터티로 나타나며 하나 이상의 SKU와 연결됩니다.  컨테이너 제품을 구성하는 자산 및 지원 서비스의 그룹은 다음과 같습니다.
+이 문서에서는 Azure Marketplace에 컨테이너 제품 항목을 만들고 게시하는 방법을 설명합니다. 모든 제품은 Azure Marketplace에 고유 엔터티로 나타나 있으며 하나 이상의 SKU와 연결됩니다.  컨테이너 제품을 구성하는 자산 및 지원 서비스의 그룹은 다음과 같습니다.
 
 |  **자산 그룹**   |  **설명**  |
 |  ---------------   |  ---------------  |
 |    SKU            |  제품의 가장 작은 배포 가능한 단위입니다. 단일 제품(product 클래스)은 제품과 관련된 여러 SKU를 가질 수 있습니다. SKU를 사용하여 지원되는 기능과 청구 모델을 구분할 수 있습니다. |
-|  Marketplace       | 마케팅, 법적 정보 및 잠재 고객 관리 자산 및 사양이 포함됩니다.  <ul><li> 마케팅 자산에는 제안 이름, 설명 및 로고가 포함됩니다.</li> <li> 법적 자산은 개인 정보 취급 방침, 사용 약관 및 기타 법률 문서를 포함합니다.</li>  <li> 잠재 고객 관리 정책을 사용하면 Azure Marketplace 최종 사용자 포털에서 잠재 고객을 처리하는 방법을 지정할 수 있습니다.</li> </ul> |
+|  Marketplace       | 마케팅, 법률 및 잠재 고객 관리 자산 및 사양을 포함합니다.  <ul><li> 마케팅 자산에는 제안 이름, 설명 및 로고가 포함됩니다.</li> <li> 법적 정보 자산에는 개인정보처리방침, 사용 약관 및 기타 법률 문서가 포함됩니다.</li>  <li> 잠재 고객 관리 정책을 사용하면 Azure Marketplace 최종 사용자 포털에서 잠재 고객을 처리하는 방법을 지정할 수 있습니다.</li> </ul> |
 | 지원            | 지원 연락처 및 정책 정보가 포함됩니다. |
 
 

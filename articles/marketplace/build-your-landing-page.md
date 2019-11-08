@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: jm-aditi-ms
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: 1b3f987ff54a4b5eeeb1034d1e99302d0d6d43d6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cf7d15ba375faf7dfb38bf5f691799875f2dd6e1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935596"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819821"
 ---
 # <a name="build-your-landing-page"></a>방문 페이지 빌드
 
@@ -24,7 +25,7 @@ ms.locfileid: "64935596"
 *   지금 솔루션 구입
 
 여러 마케팅 전략에서 방문 페이지를 참조할 수 있습니다. 다음 마케팅 전략을 사용할 수 있습니다. 
-*   Events
+*   이벤트
 *   웹 캐스트
 *   소셜 미디어
 *   백서
@@ -33,7 +34,7 @@ ms.locfileid: "64935596"
 
 전달하는 메시지 및 판촉 활동이 일관적일수록 고객이 솔루션을 찾기가 더 쉬워집니다.
 
-## <a name="recommendations"></a>권장 사항
+## <a name="recommendations"></a>추천
 
 캠페인 계획이 준비되면 Marketplace에서 방문 페이지를 만듭니다. 다음 표에는 방문 페이지의 효율성을 최대화하는 방법이 설명되어 있습니다. 
 

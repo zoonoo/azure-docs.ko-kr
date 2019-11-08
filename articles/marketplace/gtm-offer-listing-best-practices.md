@@ -4,15 +4,16 @@ description: 시장 진출 서비스 - 이 섹션에서는 목록에 제품을 �
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 12/21/2018
 ms.author: ellacroi
-ms.openlocfilehash: 9f55abf85803adf0f52bbfa445b9f3e489c9448b
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 439617c07b8059860c6d412cc60d56d4ac8c36a5
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821064"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818658"
 ---
 # <a name="offer-listing-best-practices"></a>목록에 제품 추가 모범 사례
 
@@ -32,7 +33,7 @@ ms.locfileid: "72821064"
 | 앱이 작동 하는 제품 (최대 3 개): AppSource 앱만 | 솔루션에서 사용하거나 확장하는 추가 제품과 기술을 나열합니다. 예: Azure IoT Hub 또는 Azure Machine Learning |
 | 검색 키워드(최대 3개) | 검색 키워드는 비즈니스 사용자가 검색 시 제품을 찾을 수 있도록 도와줍니다. <ul> <li> Azure Marketplace </li> <li> AppSource </li> <li> 검색 엔진 사용 </li> </ul> 목록이 이러한 검색에 표시되려면 다음을 수행해야 합니다. <ul> <li> 제품의 상위 검색 키워드 3개를 식별합니다. </li> <li> 제품 요약 및 설명에 검색 키워드를 통합합니다. </li> <li> 여기에 검색 키워드를 나열합니다. </li> </ul> |
 
-### <a name="category"></a>범주
+### <a name="category"></a>Category
 
 Azure Marketplace 및 Microsoft AppSource는 서로 다른 고유한 고객 요구 사항을 충족 하는 상점입니다. 각 제품에 대 한 올바른 storefront 및 범주를 선택 하 여 역할별로 고객을 대상으로 합니다. 
 
@@ -42,10 +43,10 @@ Azure Marketplace 및 Microsoft AppSource는 서로 다른 고유한 고객 요�
 | :------------------- | :-------------------|
 | \* 자동차     | \* 자동차 |
 | 농업     | \* 기타-분할 되지 않음 |
-| 유통    | \* 도매 <br> \* Parcel & 패키지 전달 |
+| 배포    | \* 도매 <br> \* Parcel & 패키지 전달 |
 | 교육     | \* 높은 교육 <br> \* 기본 & 보조 교육/K-12 <br> \* 라이브러리 & Museums |
 | 금융 서비스     | \* 은행 & 자본 시장 <br> \* 보험 |
-| 정부/공공기관    | \* 방어 & 인텔리전스 (국가 및 공용 보안 이라고 함) <br> \* 공용 안전 & <br> \* Civilian 정부 |
+| 정부    | \* 방어 & 인텔리전스 (국가 및 공용 보안 이라고 함) <br> \* 공용 안전 & <br> \* Civilian 정부 |
 | 의료 (상태를 호출 하는 데 사용 됨)   | \* Health 보험사 <br> \* 상태 제공자 <br> \* Pharmaceuticals |
 | 제조 & 리소스 (제조를 호출 하는 데 사용 됨)   | \* 화학 & Agrochemical <br> \* 불연속 제조 <br> \* 에너지 |
 | 소매 & 소비자 상품 (소매점 이라고 함)  | \* 소비자 상품 <br> \* 소매점 |

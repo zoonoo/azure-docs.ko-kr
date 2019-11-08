@@ -1,5 +1,5 @@
 ---
-title: 체 이너로 심층 학습 신경망 학습
+title: 심층 학습 체 이너 모델 학습
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 체 이너 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 PyTorch 학습 스크립트를 실행 하는 방법을 알아봅니다.  예제 스크립트는 numpy 위에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 심층 학습 신경망을 빌드하기 위해 필기 숫자 이미지를 분류 합니다.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: 8427bd8532895e95de82a6ed577052971f15a25d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: bfe44e552618dfbee13e8c85ef424f52d4b7ae5f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584520"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814988"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 체 이너 모델 학습 및 등록
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭
 
     - [AZURE MACHINE LEARNING SDK를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)합니다.
     - [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
-    - 샘플 스크립트 파일 [chainer_mnist. py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)를 다운로드 합니다.
+    - Py 샘플 스크립트 chainer_mnist 파일을 다운로드 합니다 [.](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-chainer/chainer_mnist.py)
      - GitHub 샘플 페이지에서이 가이드의 전체 [Jupyter Notebook 버전](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/chainer/deployment/train-hyperparameter-tune-deploy-with-chainer/train-hyperparameter-tune-deploy-with-chainer.ipynb) 을 찾을 수도 있습니다. 노트북에는 지능형 하이퍼 매개 변수 튜닝, 모델 배포 및 노트북 위젯을 다루는 확장 된 섹션이 포함 되어 있습니다.
 
 ## <a name="set-up-the-experiment"></a>실험 설정
@@ -81,13 +81,13 @@ os.makedirs(project_folder, exist_ok=True)
 
 ### <a name="prepare-training-script"></a>학습 스크립트 준비
 
-이 자습서에서는 학습 스크립트 **chainer_mnist. py** 가 이미 제공 되어 있습니다. 실제로 사용자 지정 학습 스크립트를 그대로 사용 하 고 코드를 수정 하지 않고도 Azure ML을 사용 하 여 실행할 수 있습니다.
+이 자습서에서는 학습 스크립트 **chainer_mnist py** 이미 제공 되어 있습니다. 실제로 사용자 지정 학습 스크립트를 그대로 사용 하 고 코드를 수정 하지 않고도 Azure ML을 사용 하 여 실행할 수 있습니다.
 
-Azure ML의 추적 및 메트릭 기능을 사용 하려면 교육 스크립트 내에 적은 양의 Azure ML 코드를 추가 합니다.  학습 스크립트 **chainer_mnist** 는 스크립트 내의 `Run` 개체를 사용 하 여 Azure ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
+Azure ML의 추적 및 메트릭 기능을 사용 하려면 교육 스크립트 내에 적은 양의 Azure ML 코드를 추가 합니다.  **Py 학습 chainer_mnist** 스크립트는 스크립트 내에서 `Run` 개체를 사용 하 여 Azure ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
 
 제공 된 학습 스크립트는 체 이너 `datasets.mnist.get_mnist` 함수의 예제 데이터를 사용 합니다.  사용자 고유의 데이터에 대해 데이터 [집합 및 스크립트 업로드](how-to-train-keras.md#data-upload) 와 같은 단계를 사용 하 여 학습 중에 데이터를 사용할 수 있도록 해야 할 수 있습니다.
 
-학습 스크립트 **chainer_mnist** 을 프로젝트 디렉터리에 복사 합니다.
+**Py 학습 chainer_mnist** 스크립트를 프로젝트 디렉터리에 복사 합니다.
 
 ```
 import shutil
@@ -177,7 +177,7 @@ run.wait_for_completion(show_output=True)
 
 - **크기 조정**: 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
 
-- **실행 중**: 스크립트 폴더의 모든 스크립트를 계산 대상으로 업로드 하 고, 데이터 저장소를 탑재 또는 복사 하 고, entry_script를 실행 합니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
+- **실행 중**: 스크립트 폴더의 모든 스크립트가 계산 대상으로 업로드 되 고, 데이터 저장소가 탑재 되거나 복사 되 고, entry_script 실행 됩니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
 
 - **사후 처리**: 실행의./출력 폴더가 실행 기록에 복사 됩니다.
 

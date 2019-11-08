@@ -4,15 +4,16 @@ description: Azure Blob에 대 한 리드 관리 구성
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 7/30/2019
 ms.author: evansma
-ms.openlocfilehash: c67855422808f5ec4c81242edcece4e447f2f44f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5da4e0ab315b3f66a477b816f6fc5d27de7aa339
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902365"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812380"
 ---
 # <a name="lead-management-instructions-for-azure-blob"></a>Azure Blob에 대 한 리드 관리 지침
 
@@ -80,8 +81,8 @@ CRM (고객 관계 관리) 시스템을 파트너 센터에서 명시적으로 �
 
 4. 이러한 지침에 따라 가져온 **컨테이너 이름** 및 **저장소 계정 연결 문자열** 을 제공 합니다.
 
-    * 컨테이너 이름 예:`marketplaceleadcontainer`
-    * 저장소 계정 연결 문자열 예: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`![연결 정보](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
+    * 컨테이너 이름 예: `marketplaceleadcontainer`
+    * 저장소 계정 연결 문자열 예: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![연결 세부 정보](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
 5. **저장**을 선택합니다.
 

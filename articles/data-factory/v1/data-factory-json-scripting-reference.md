@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: bade2e7ac53277b2e23e8cf6847cc30940cd4819
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b72be7026b0b8077cf5bf9f775d10fd03edd9118
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73666823"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815633"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - JSON 스크립팅 참조
 > [!NOTE]
@@ -378,7 +378,7 @@ structure:
 | &nbsp; |[Azure Cosmos DB](#azure-cosmos-db) |
 | &nbsp; |[Azure SQL Database](#azure-sql-database) |
 | &nbsp; |[Azure SQL Data Warehouse](#azure-sql-data-warehouse) |
-| &nbsp; |[Azure Search](#azure-search) |
+| &nbsp; |[Azure Cognitive Search](#azure-cognitive-search) |
 | &nbsp; |[Azure Table Storage](#azure-table-storage) |
 | **데이터베이스** |[Amazon Redshift](#amazon-redshift) |
 | &nbsp; |[IBM DB2](#ibm-db2) |
@@ -1279,15 +1279,15 @@ Azure SQL Data Warehouse에 데이터를 복사하는 경우 복사 활동의 **
 
 자세한 내용은 [Azure SQL Data Warehouse 커넥터](data-factory-azure-sql-data-warehouse-connector.md#copy-activity-properties) 문서를 참조하세요.
 
-## <a name="azure-search"></a>Azure Search
+## <a name="azure-cognitive-search"></a>Azure Cognitive Search
 
 ### <a name="linked-service"></a>연결된 서비스
-Azure Search 연결된 서비스를 정의하려면 연결된 서비스의 **type**을 **AzureSearch**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
+Azure Cognitive Search 연결 된 서비스를 정의 하려면 연결 된 서비스의 **type** 을 **azuresearch**로 설정 하 고 **typeProperties** 섹션에서 다음 속성을 지정 합니다.
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| URL | Azure Search 서비스의 URL입니다. | 예 |
-| key | Azure Search 서비스의 관리자 키입니다. | 예 |
+| URL | 검색 서비스에 대 한 URL입니다. | 예 |
+| key | 검색 서비스에 대 한 관리 키입니다. | 예 |
 
 #### <a name="example"></a>예제
 
@@ -1304,15 +1304,15 @@ Azure Search 연결된 서비스를 정의하려면 연결된 서비스의 **typ
 }
 ```
 
-자세한 내용은 [Azure Search 커넥터](data-factory-azure-search-connector.md#linked-service-properties) 문서를 참조하세요.
+자세한 내용은 [Azure Cognitive Search 커넥터](data-factory-azure-search-connector.md#linked-service-properties) 문서를 참조 하세요.
 
 ### <a name="dataset"></a>데이터 세트
-Azure Search 데이터 세트를 정의하려면 데이터 세트의 **type**을 **AzureSearchIndex**로 설정하고 **typeProperties** 섹션에서 다음 속성을 지정합니다.
+Azure Cognitive Search 데이터 집합을 정의 하려면 데이터 집합의 **type** 을 **azuresearchindex**로 설정 하 고 **typeProperties** 섹션에서 다음 속성을 지정 합니다.
 
 | 속성 | 설명 | 필수 |
 | -------- | ----------- | -------- |
 | type | 형식 속성은 **AzureSearchIndex**로 설정되어야 합니다.| 예 |
-| indexName | Azure Search 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. Azure Search에는 인덱스가 있어야 합니다. | 예 |
+| indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |
 
 #### <a name="example"></a>예제
 
@@ -1333,15 +1333,15 @@ Azure Search 데이터 세트를 정의하려면 데이터 세트의 **type**을
 }
 ```
 
-자세한 내용은 [Azure Search 커넥터](data-factory-azure-search-connector.md#dataset-properties) 문서를 참조하세요.
+자세한 내용은 [Azure Cognitive Search 커넥터](data-factory-azure-search-connector.md#dataset-properties) 문서를 참조 하세요.
 
-### <a name="azure-search-index-sink-in-copy-activity"></a>복사 활동의 Azure Search 인덱스 싱크
-Azure Search 인덱스에 데이터를 복사하는 경우 복사 활동의 **sink type**을 **AzureSearchIndexSink**로 설정하고 **sink** 섹션에서 다음 속성을 지정합니다.
+### <a name="azure-cognitive-search-index-sink-in-copy-activity"></a>복사 활동의 Azure Cognitive Search 인덱스 싱크
+검색 인덱스에 데이터를 복사 하는 경우 복사 작업의 **싱크 유형을** **azuresearchindexsink**로 설정 하 고 **sink** 섹션에서 다음 속성을 지정 합니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
 | WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. | 병합(기본값)<br/>업로드| 아니요 |
-| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달한 경우 Azure Search 인덱스에 데이터를 업로드합니다. | 1~1,000입니다. 기본값은 1,000입니다. | 아니요 |
+| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달할 때 검색 인덱스에 데이터를 업로드 합니다. | 1~1,000입니다. 기본값은 1,000입니다. | 아니요 |
 
 #### <a name="example"></a>예제
 
@@ -1386,7 +1386,7 @@ Azure Search 인덱스에 데이터를 복사하는 경우 복사 활동의 **si
 }
 ```
 
-자세한 내용은 [Azure Search 커넥터](data-factory-azure-search-connector.md#copy-activity-properties) 문서를 참조하세요.
+자세한 내용은 [Azure Cognitive Search 커넥터](data-factory-azure-search-connector.md#copy-activity-properties) 문서를 참조 하세요.
 
 ## <a name="azure-table-storage"></a>Azure Table Storage
 

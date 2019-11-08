@@ -1,18 +1,19 @@
 ---
-title: Microsoft Azure 기반 가상 컴퓨터에 연결 | Azure Marketplace
+title: Microsoft Azure 기반 가상 머신에 연결 | Azure Marketplace
 description: Azure에서 만든 새 가상 머신에 연결하는 방법을 설명합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pabutler
-ms.openlocfilehash: ca002a77fd7252466f604b995af949b54694bc8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 256952d06e8b417be9ab2bc3c6c8c6857d50e2ea
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64938587"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817362"
 ---
 # <a name="connect-to-your-azure-based-virtual-machine"></a>Azure 기반 가상 머신에 연결
 
@@ -22,7 +23,7 @@ ms.locfileid: "64938587"
 
 원격 데스크톱 클라이언트를 사용하여 Azure에서 호스팅되는 Windows 기반 VM에 연결합니다.  대부분의 Windows 버전에는 기본적으로 RDP(원격 데스크톱 프로토콜)에 대한 지원이 포함되어 있습니다.  다른 머신의 경우 [원격 데스크톱 클라이언트](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients)에서 클라이언트에 대한 자세한 정보를 찾을 수 있습니다.  
 
-다음 문서에는 기본 제공 Windows RDP 지원을 사용 하 여 VM에 연결 하는 방법을 자세히 설명: [연결에 Windows를 실행 하는 Azure 가상 머신에 로그온 하는 방법을](../../../virtual-machines/windows/connect-logon.md)합니다.  
+[Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법](../../../virtual-machines/windows/connect-logon.md) 문서에서는 기본 제공 Windows RDP 지원을 사용하여 VM에 연결하는 방법에 대해 자세히 설명합니다.  
 
 >[!TIP]
 > 프로세스 중에 알 수 없는 게시자의 .rdp 파일이거나 사용자 자격 증명을 확인할 수 없다는 것과 같은 보안 경고가 표시될 수 있습니다.  이러한 경고는 무시해도 됩니다.
@@ -32,7 +33,7 @@ ms.locfileid: "64938587"
 
 Linux 기반 VM을 연결하려면 SSH(Secure Shell 프로토콜) 클라이언트가 필요합니다.  이 토론에서는 추가 비용이 들지 않는 [PuTTY](https://www.ssh.com/ssh/putty/) SHH 터미널을 사용합니다.
 
-1. [Azure Portal](https://ms.portal.azure.com)의 **Virtual Machines** 블레이드에서 연결하려는 VM을 선택합니다.  
+1. **Azure Portal**의 [Virtual Machines](https://ms.portal.azure.com) 블레이드에서 연결하려는 VM을 선택합니다.  
 2. VM이 아직 실행되지 않은 경우 VM을 **시작**합니다.
 3. VM의 이름을 클릭하여 **개요** 페이지를 엽니다.
 4. VM의 공용 IP 주소와 DNS 이름을 적어 둡니다.  이러한 값을 설정하지 않으면 [네트워크 인터페이스를 만들어야 합니다](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#create-a-network-interface).
@@ -47,7 +48,7 @@ Linux 기반 VM을 연결하려면 SSH(Secure Shell 프로토콜) 클라이언�
 7. **열기**를 클릭하여 PuTTY 터미널을 엽니다.  
 8. 메시지가 표시되면 Linux VM 계정의 계정 이름과 암호를 입력합니다. 
 
-   연결 문제가 발생 하는 경우 설명서를 참조 하면 SSH 클라이언트에 대 한 예를 들어 [10 장: 일반적인 오류 메시지](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors)합니다.
+   연결 문제가 있는 경우 SSH 클라이언트 설명서(예: [10장: 일반적인 오류 메시지](https://www.ssh.com/ssh/putty/putty-manuals/0.68/Chapter10.html#errors))를 참조하세요.
 
 프로비전된 Linux VM에 데스크톱을 추가하는 방법을 포함한 자세한 내용은 [Azure에서 원격 데스크톱을 설치 및 구성하여 Linux VM에 연결](../../../virtual-machines/linux/use-remote-desktop.md)을 참조하세요.
 

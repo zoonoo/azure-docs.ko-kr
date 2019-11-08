@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 09/26/2019
-ms.openlocfilehash: beaca02807f3ee33022854f17150d8eeff1568ac
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 072fafac7294757afb26511af569ea75ace0d20a
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695601"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811926"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -21,7 +22,7 @@ ms.locfileid: "71695601"
 >[!IMPORTANT]
 >파트너 센터로 이동 된 [Cloud 파트너 포털 (CPP)](https://cloudpartner.azure.com) 의 계정이 있는 경우 새 계정을 만들 필요가 없습니다. 자세한 내용은 [CPP에서 이동](#publishers-moving-from-cpp) 하는 게시자를 참조 하세요.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 파트너 센터에서 계정을 만들려면 다음이 있는지 확인 합니다.
 
@@ -73,7 +74,7 @@ ms.locfileid: "71695601"
 >[!IMPORTANT]
 >*이러한 약관에 동의 하려면 회사를 대신 하 여 작업할 수 있는 권한이 있어야 합니다.*
 
-등록 한 후에는 상업적 Marketplace 개요 페이지로 이동 합니다. **상업적 Marketplace** 가 왼쪽 탐색 모음에 표시 됩니다. **설정** > **파트너**설정프로그램 > 을 선택 하면 상업적 Marketplace가 등록 된 것으로 표시 됩니다.
+등록 한 후에는 상업적 Marketplace 개요 페이지로 이동 합니다. **상업적 Marketplace** 가 왼쪽 탐색 모음에 표시 됩니다. **설정** > **파트너 설정** > **프로그램**을 선택 하면 상용 Marketplace이 등록 된 것으로 표시 됩니다.
 
 파트너 센터에서 상업적 Marketplace 계정을 만들어 주셔서 감사 합니다. 도움말은 [상업적 마켓플레이스 개요](./commercial-marketplace-overview.md)를 참조 하세요. 게시자를 추가 하는 방법에 대 한 도움말 [은 상용 Marketplace 프로그램에 새 게시자 추가](#add-new-publishers-to-the-commercial-marketplace-program)를 참조 하세요.
 
@@ -117,7 +118,7 @@ Microsoft 파트너 센터에 이미 등록 되어 있는 경우이 섹션을 �
     >[!IMPORTANT]
     >*이러한 약관에 동의 하려면 회사를 대신 하 여 작업할 수 있는 권한이 있어야 합니다.*
 
-등록 한 후에는 상업적 Marketplace 개요 페이지로 이동 합니다. **상업적 Marketplace** 가 왼쪽 탐색 모음에 표시 됩니다. **설정** > **파트너**설정프로그램 > 을 선택 하면 상업적 Marketplace가 등록 된 것으로 표시 됩니다.
+등록 한 후에는 상업적 Marketplace 개요 페이지로 이동 합니다. **상업적 Marketplace** 가 왼쪽 탐색 모음에 표시 됩니다. **설정** > **파트너 설정** > **프로그램**을 선택 하면 상용 Marketplace이 등록 된 것으로 표시 됩니다.
 
 파트너 센터에서 계정을 만들어 주셔서 감사 합니다. 도움말은 [상업적 마켓플레이스 개요](./commercial-marketplace-overview.md)를 참조 하세요. 게시자를 추가 하는 방법에 대 한 도움말 [은 상용 Marketplace 프로그램에 새 게시자 추가](#add-new-publishers-to-the-commercial-marketplace-program)를 참조 하세요.
 
@@ -157,10 +158,10 @@ Microsoft 파트너 센터 계정으로 [파트너 센터](https://partner.micro
 
 ## <a name="add-new-publishers-to-the-commercial-marketplace-program"></a>상용 Marketplace 프로그램에 새 게시자 추가
 
-조직에는 상업적 Marketplace 계정과 연결 된 여러 게시자가 있을 수 있습니다. 기존 사용자는 **계정 설정** > **게시자** > **추가 게시자**를 선택 하 여 파트너 센터에 로그인 한 후 더 많은 게시자를 추가할 수 있습니다.
+조직에는 상업적 Marketplace 계정과 연결 된 여러 게시자가 있을 수 있습니다. 기존 사용자는 파트너 센터에 로그인 한 후 게시자 > **계정 설정** 을 선택 하 > **게시자** **추가**를 선택 하 여 더 많은 게시자를 추가할 수 있습니다.
 
 >[!NOTE]
->새 게시자를 추가 하기 전에 파트너 센터에 로그인 하 고 **계정 설정** > **게시자** 를 선택 하 여 기존 게시자를 검토 하 고 기존 게시자 목록을 확인 합니다.
+>새 게시자를 추가 하기 전에 파트너 센터에 로그인 하 고 **게시자** > **계정 설정** 을 선택 하 여 기존 게시자를 검토 하 고 기존 게시자의 목록을 확인 합니다.
 
 동일한 Azure Active Directory 테 넌 트의 다른 사용자가 다음 단계를 수행 하 여 새 게시자를 추가할 수 있습니다.
 
@@ -170,8 +171,8 @@ Microsoft 파트너 센터 계정으로 [파트너 센터](https://partner.micro
 4. 게시자에 연결할 MPN ID를 선택 합니다.
 5. 양식의 **게시자 세부 정보** 를 업데이트 합니다.
 
-   1. **게시자 이름**: 제공 된 Azure Marketplace 또는 AppSource에 표시 되는 이름입니다.
-   1. **PublisherID**: 파트너 센터에서 게시자를 고유 하 게 식별 하는 데 사용 되는 식별자입니다. 이 필드의 기본값은 시스템에서 사용할 수 없는 기존 `PublisherID` 및 고유에 매핑됩니다. 따라서이 필드를 업데이트 해야 합니다.
+   1. **게시자 이름**: 제안에 Azure Marketplace 또는 appsource에 표시 되는 이름입니다.
+   1. **PublisherID**: 파트너 센터에서 게시자를 고유 하 게 식별 하는 데 사용 되는 식별자입니다. 이 필드의 기본값은 시스템에서 다시 사용할 수 없는 기존 및 고유 `PublisherID`에 매핑되고 따라서이 필드를 업데이트 해야 합니다.
    1. **연락처 정보**: 필요한 경우 연락처 정보를 업데이트 합니다.
 
 프로세스를 완료 한 후에는 왼쪽 탐색 메뉴에 나열 된 **상용 Marketplace** 프로그램으로 이동 하 여 새로 만든 게시자를 관리할 수 있습니다. **상업적 Marketplace** 프로그램이 표시 되지 않으면 페이지를 새로 고칩니다. 새 게시자가 **게시자** 목록에 표시 됩니다.

@@ -1,5 +1,5 @@
 ---
-title: 내 앱 포털에서 그룹 정보 업데이트-Azure Active Directory | Microsoft Docs
+title: 내 앱 포털에서 그룹 정보 업데이트-Azure AD
 description: 소유 하 고 있는 그룹을 보고, 새 그룹을 만들고, 이미 구성원 인 그룹을 보고, 이미 속해 있지 않은 그룹을 조인 하는 등 그룹 관련 정보를 보고 업데이트 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a11b43d040dec838de350c23614ae42b6756ec6e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: aa251ee361af12ecf3fef3c7cd437fa06c1cea52
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383175"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803929"
 ---
-# <a name="update-your-groups-info-from-the-my-apps-portal"></a>내 앱 포털에서 그룹 정보 업데이트
+# <a name="update-your-groups-info-on-the-my-apps-portal"></a>내 앱 포털에서 그룹 정보 업데이트
 
 웹 기반 **My Apps** 포털을 통해 회사 또는 학교 계정을 사용하여 다양한 조직의 클라우드 기반 앱을 확인 및 시작하고, 일부 프로필 및 계정 정보를 업데이트하고, **그룹** 정보를 보고, 앱 및 그룹에 대한 **액세스 검토**를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
 
@@ -41,13 +41,13 @@ ms.locfileid: "68383175"
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. 웹 브라우저를 열고로 https://myapps.microsoft.com 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어와 https://myapps.microsoft.com/contoso.com 같은 조직의 사용자 지정 페이지로 이동할 수 있습니다.
+2. 웹 브라우저를 열고 https://myapps.microsoft.com로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
     ![내 앱 포털의 앱 페이지](media/my-apps-portal/my-apps-portal-apps-page-groups-tile.png)
 
-3. 그룹 타일 **을** 선택 하 여 그룹 관련 정보를 확인 합니다.
+3. **그룹 타일을** 선택 하 여 그룹 관련 정보를 확인 합니다.
 
     ![소유 그룹과 구성원 그룹이 모두 포함 된 그룹 페이지](media/my-apps-portal/my-apps-portal-groups-page.png)
 
@@ -101,7 +101,7 @@ ms.locfileid: "68383175"
 
 ### <a name="to-edit-your-details"></a>세부 정보를 편집 하려면
 
-1. **그룹** 페이지에서 편집 하려는 그룹을 선택 하 고 *&lt;group_name&gt;* 페이지에서 **세부 정보 편집** 을 선택 합니다.
+1. **그룹** 페이지에서 편집할 그룹을 선택한 다음 *&lt;group_name&gt;* 페이지에서 **세부 정보 편집** 을 선택 합니다.
 
     **세부 정보 편집** 상자가 나타나고 처음 그룹을 만들 때 추가한 정보를 업데이트할 수 있습니다.
 
@@ -113,7 +113,7 @@ ms.locfileid: "68383175"
 
 ### <a name="to-add-or-remove-a-member"></a>멤버를 추가 하거나 제거 하려면
 
-1. 멤버를 추가 하려는 그룹을 선택 하 고 *&lt;group_name&gt;* 페이지에서를 **+** 선택 합니다.
+1. 멤버를 추가 하려는 그룹을 선택 하 고 *&lt;group_name&gt;* 페이지에서 **+** 를 선택 합니다.
 
     ![\+ 기호가 강조 표시 된 그룹 구성원 추가](media/my-apps-portal/my-apps-portal-add-member-link.png)
 
@@ -123,7 +123,7 @@ ms.locfileid: "68383175"
 
     조직의 앱에 대 한 액세스를 시작 하기 위해 새 구성원에 게 초대가 전송 됩니다.
 
-3. 실수로 구성원을 추가 했거나 구성원이 조직을 떠난 경우  *&lt;&gt; group_name* 페이지에서 멤버 이름 옆의 **멤버 제거** 를 선택 하 여 멤버를 제거할 수 있습니다.
+3. 실수로 멤버를 추가 했거나 구성원이 조직을 떠난 경우 *&lt;group_name&gt;* 페이지에서 멤버 이름 옆의 **멤버 제거** 를 선택 하 여 멤버를 제거할 수 있습니다.
 
     ![제거 링크가 강조 표시 된 멤버를 제거 합니다.](media/my-apps-portal/my-apps-portal-remove-member-link.png)
 
@@ -147,9 +147,9 @@ ms.locfileid: "68383175"
 
 ### <a name="to-delete-the-group"></a>그룹을 삭제 하려면
 
-1. 영구적으로 삭제 하려는 그룹을 선택 하 고  *&lt;&gt; group_name* 페이지에서 **그룹 삭제** 를 선택 합니다.
+1. 영구적으로 삭제 하려는 그룹을 선택 하 고 *&lt;group_name&gt;* 페이지에서 **그룹 삭제** 를 선택 합니다.
 
-    ![그룹 삭제 링크가 강조 표시 된 < Group_name > 페이지](media/my-apps-portal/my-apps-portal-delete-group-link.png)
+    ![그룹 삭제 링크가 강조 표시 된 Group_name > 페이지 <](media/my-apps-portal/my-apps-portal-delete-group-link.png)
 
 2. 확인 메시지에서 **예** 를 선택 합니다.
 

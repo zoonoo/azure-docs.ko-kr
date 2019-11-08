@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: a7e9acbe78ffdca2e615873cc4c33f86b250a429
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: dccf1550052910269efe156b999882234669d7dc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60551517"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815696"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 대시보드의 구조
 이 문서는 다음 대시보드 예제를 사용하여 Azure 대시보드 구조를 안내합니다.
@@ -295,7 +295,7 @@ JSON의 관련 섹션을 분석해 보겠습니다.  최상위 속성, __id__, _
 
 ### <a name="the-id-property"></a>ID 속성
 
-[Azure 리소스의 명명 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)이 적용되는 Azure 리소스 ID입니다. 포털에서 대시보드를 만들 때는 일반적으로 GUID 형식의 ID를 선택하지만 프로그래밍 방식으로 만들 때 유효한 이름을 자유롭게 사용할 수 있습니다. 
+[Azure 리소스의 명명 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)이 적용되는 Azure 리소스 ID입니다. 포털에서 대시보드를 만들 때는 일반적으로 GUID 형식의 ID를 선택하지만 프로그래밍 방식으로 만들 때 유효한 이름을 자유롭게 사용할 수 있습니다. 
 
 ### <a name="the-name-property"></a>name 속성
 이름은 구독, 리소스 종류 또는 리소스 그룹 정보를 포함하지 않는 리소스 ID의 세그먼트입니다. 기본적으로, 리소스 ID의 마지막 세그먼트입니다.
@@ -429,6 +429,6 @@ settings 개체는 파트의 구성 가능한 요소를 포함합니다.  샘플
 ```
 
 ### <a name="the-asset-object"></a>asset 개체
-최고 수준의 관리 가능한 포털 개체(자산이라고 함)에 바인딩되는 타일에는 자산 개체를 통해 표현되는 관계를 포함합니다.  예제 대시보드에서 가상 머신 타일은 이 자산 설명을 포함합니다.  __idInputName__ 속성은 ID 입력이 자산에 대한 고유한 식별자(이 경우 리소스 ID)를 포함함을 포털에 알립니다. 대부분의 Azure 리소스 종류에는 포털에 정의된 자산이 있습니다.
+최고 수준의 관리 가능한 포털 개체(자산이라고 함)에 바인딩되는 타일에는 자산 개체를 통해 표현되는 관계를 포함합니다.  예제 대시보드에서 가상 머신 타일은 이 자산 설명을 포함합니다.  __Idinputname__ 속성은 id 입력에 자산의 고유 식별자 (이 경우 리소스 id)가 포함 되어 있음을 포털에 알려 줍니다. 대부분의 Azure 리소스 종류에는 포털에 정의 된 자산이 있습니다.
 
 `"asset": {    "idInputName": "id",    "type": "VirtualMachine"    }`

@@ -1,5 +1,5 @@
 ---
-title: 전화 통화를 사용하도록 보안 정보(미리 보기) 설정 - Azure Active Directory | Microsoft Docs
+title: 전화 통화에 대 한 보안 정보 (미리 보기) 설정-Azure AD
 description: 전화 통화를 사용하여 본인 여부를 확인하도록 보안 정보를 설정하는 방법입니다.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b28330f8e81efbb496fb30a14e8ae10415ded27f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a5dc5ec06e60112e69a31d1ce4c69e698576609f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160735"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803812"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>전화 통화를 사용하도록 보안 정보(미리 보기) 설정
 
@@ -30,7 +30,7 @@ ms.locfileid: "73160735"
 > [!Note]
 > 보안 정보는 내선 번호 사용을 지원하지 않습니다. 올바른 형식인 +1 4255551234X12345를 추가하더라도, 통화가 되기 전에 내선 번호가 제거됩니다.
 >
-> 전화 옵션이 보이지 않는 경우 전화 번호를 확인에 사용하는 것을 조직에서 허용하지 않기 때문일 수 있습니다. 이 경우 다른 메서드를 선택하거나 관리자에게 도움을 요청해야 합니다.
+> 전화 옵션이 보이지 않는 경우 전화 번호를 확인에 사용하는 것을 조직에서 허용하지 않기 때문일 수 있습니다. 이 경우 다른 방법을 선택하거나 관리자에게 문의하여 추가 도움을 받아야 합니다.
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>보안 정보 페이지에서 전화 통화 설정
 
@@ -59,18 +59,18 @@ ms.locfileid: "73160735"
 
 5. 입력한 전화 번호로 수신되는 확인 전화 통화에 응답하고 지침을 따릅니다.
 
-    완료되면 페이지가 변경됩니다.
+    페이지가 변경되어 성공을 표시합니다.
 
     ![성공 알림, 전화 번호 연결, 전화 통화 수신 선택 및 계정](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
-    보안 정보가 업데이트되며, 2단계 확인 또는 암호 재설정을 사용할 때 전화 통화를 사용하여 본인 여부를 확인할 수 있습니다. 전화 통화를 기본 방법으로 설정하려는 경우 이 문서의 [기본 보안 인증 방식 변경](#change-your-default-security-info-method) 섹션을 참조하세요.
+    보안 정보가 업데이트되며, 2단계 확인 또는 암호 재설정을 사용할 때 전화 통화를 사용하여 본인 여부를 확인할 수 있습니다. 전화 통화를 기본 방법으로 설정하려는 경우 이 문서의 [기본 보안 정보 방법 변경](#change-your-default-security-info-method) 섹션을 참조하세요.
 
-## <a name="delete-phone-calls-from-your-security-info-methods"></a>보안 정보 방법에서 전화 통화 옵션 해제
+## <a name="delete-phone-calls-from-your-security-info-methods"></a>보안 정보 방법에서 전화 통화 삭제
 
 더 이상 전화 통화를 보안 정보 방법으로 사용하지 않으려는 경우 **보안 정보** 페이지에서 제거할 수 있습니다.
 
 >[!Important]
->실수로 전화 통화 옵션을 해제하는 경우, 실행 취소할 수 없습니다. 이 문서의 [전화 통화 설정](#set-up-phone-calls-from-the-security-info-page) 섹션에 있는 단계에 따라 방법을 다시 추가해야 합니다.
+>실수로 전화 통화를 삭제하면 실행 취소할 수 없습니다. 이 문서의 [전화 통화 설정](#set-up-phone-calls-from-the-security-info-page) 섹션에 있는 단계에 따라 방법을 다시 추가해야 합니다.
 
 ### <a name="to-delete-phone-calls"></a>전화 통화 옵션을 해제하려면 다음을 수행합니다.
 
@@ -84,15 +84,15 @@ ms.locfileid: "73160735"
 
 2단계 확인을 사용하거나 암호 재설정 요청을 위해 회사 또는 학교 계정에 로그인할 때 사용되는 기본 방법으로 전화 통화를 설정하려는 경우 **보안 정보** 페이지에서 설정할 수 있습니다.
 
-### <a name="to-change-your-default-security-info-method"></a>기본 보안 인증 방식을 변경하려면 다음을 수행합니다.
+### <a name="to-change-your-default-security-info-method"></a>기본 보안 정보 메서드를 변경하려면
 
 1. **보안 정보** 페이지에서 **기본 로그인 방법** 정보 옆에 있는 **변경** 링크를 선택합니다.
 
-    ![기본 로그인 메서드에 대한 링크 변경](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+    ![기본 로그인 방법의 변경 링크](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
 2. 사용 가능한 방법의 드롭다운 목록에서 **전화 통화( *_your_phone_number_* )** 를 선택한 다음, **확인**을 선택합니다.
 
-    ![기본 로그인 메서드 선택](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
+    ![기본 로그인 방법 선택](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
     로그인에 사용되는 기본 방법이 **전화 통화( *_your_phone_number_* )** 로 바뀝니다.
 
@@ -108,7 +108,7 @@ ms.locfileid: "73160735"
 
 - **이메일 주소.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 
-- **본인 확인 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
+- **보안 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
 
     >[!Note]
     >이러한 옵션 중 일부가 누락된 경우 사용자의 조직에서 해당 방법을 허용하지 않았을 가능성이 있습니다. 이 경우 사용 가능한 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.

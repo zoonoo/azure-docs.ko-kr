@@ -1,19 +1,17 @@
 ---
 title: '자습서: Azure Spring Cloud의 애플리케이션 크기 조정 | Microsoft Docs'
 description: 이 자습서에서는 Azure Portal에서 Azure Spring Cloud의 애플리케이션 크기를 조정하는 방법에 대해 알아봅니다.
-services: spring-cloud
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.reviewer: jeconnoc
-ms.author: v-vasuke
-author: v-vasuke
+ms.author: jeconnoc
+author: jpconnock
 ms.date: 10/06/2019
-ms.openlocfilehash: bca88cac45e1ba8117eb4e10141e32d621434b86
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 31b2322bdf7b7c03ae8974d57ee1b44c2f6137b9
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038635"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607522"
 ---
 # <a name="tutorial-scale-an-application-in-azure-spring-cloud"></a>자습서: Azure Spring Cloud의 애플리케이션 크기 조정
 

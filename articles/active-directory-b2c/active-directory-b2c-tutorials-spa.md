@@ -10,12 +10,12 @@ ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: f6a417e33ac9c60c978d8638539a1e5a0772a034
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f9e4f25c5750ae5c48130140f49f986e20adc745
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475071"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641766"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>자습서: Azure AD B2C(Azure Active Directory B2C)를 사용하여 단일 페이지 애플리케이션에서 인증 활성화
 
@@ -48,7 +48,7 @@ ms.locfileid: "73475071"
 
 필수 조건의 일부로 완료한 두 번째 자습서에서 Azure AD B2C에 웹 애플리케이션을 등록했습니다. 이 자습서에서 샘플과의 통신을 사용하도록 설정하려면 Azure AD B2C의 애플리케이션에 리디렉트 URI를 추가해야 합니다.
 
-현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용하여 애플리케이션을 업데이트할 수 있습니다. [미리 보기 환경에 대해 자세히 알아보세요](http://aka.ms/b2cappregintro).
+현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용하여 애플리케이션을 업데이트할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
 

@@ -4,15 +4,16 @@ description: HTTPS 엔드포인트에 대한 잠재 고객 관리 구성
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: evansma
-ms.openlocfilehash: 6a34bdcab5a13af682515bbae96e9a1800ccc37f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 83efb9cfd1ee7464a334ebc4064dbfaa20ab30de
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902196"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812281"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>HTTPS 엔드포인트를 사용하여 잠개 고객 관리 구성
 
@@ -24,7 +25,7 @@ ms.locfileid: "69902196"
 
 2. 로그인하고 메뉴 모음에서 **내 흐름**을 선택합니다.
 
-3. 선택 **+ 자동 – 비어 있음에서**선택 합니다.
+3. 선택 **+ 자동-비어 있음에서**선택 합니다.
 
     ![내 흐름 + 자동-비어 있음](./media/commercial-marketplace-lead-management-instructions-https/my-flows-automated.png)
 
@@ -106,7 +107,7 @@ ms.locfileid: "69902196"
 ### <a name="to-connect-to-a-crm-system"></a>CRM 시스템에 연결하려면
 
 1. **+ 새 단계**를 선택합니다.
-2. *커넥터 및 작업 검색*을 클릭 하 여 선택한 CRM 시스템을 선택 하 고 작업 섹션에서 새 레코드를 만드는 작업으로 선택 합니다. 다음 화면 캡처는 **Dynamics 365-** 새 레코드를 예제로 만듭니다.
+2. *커넥터 및 작업 검색*을 클릭 하 여 선택한 CRM 시스템을 선택 하 고 작업 섹션에서 새 레코드를 *만드는 작업으로* 선택 합니다. 다음 화면 캡처는 **Dynamics 365-** 새 레코드를 예제로 만듭니다.
 
     ![새 레코드 만들기](./media/commercial-marketplace-lead-management-instructions-https/create-new-record.png)
 
@@ -135,7 +136,7 @@ ms.locfileid: "69902196"
 
 4. **전자 메일 보내기** 창에서 다음 필수 필드를 구성 합니다.
 
-   - 잠재 고객이 전송 될 유효한 전자 메일 주소를 하나 이상 입력 합니다.
+   - 잠재 고객이 전송 될 유효한 전자 메일 **주소를 하나** 이상 입력 합니다.
    - **제목** - Flow에서는 다음 화면 캡처의 **LeadSource**와 같이 동적 콘텐츠를 추가하는 옵션이 제공됩니다. 먼저 필드 이름을 입력 한 다음 팝업 창에서 동적 콘텐츠 선택 목록을 클릭 합니다. 
 
         >[!Note] 
@@ -150,7 +151,7 @@ ms.locfileid: "69902196"
 
 5. **저장**을 선택하여 흐름을 마칩니다. Http POST URL은 만들어지고 *http 요청을 받을 때* 창에서 액세스할 수 있습니다. HTTP POST URL의 오른쪽에 있는 복사 컨트롤을 사용 하 여이 URL을 복사 합니다 .이는 전체 URL의 일부를 실수로 누락 하지 않도록 하는 것이 중요 합니다. 게시 포털에서 잠재 고객 관리를 구성할 때 필요 하므로이 URL을 저장 합니다.
 
-   ![HTTP POST URL ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
+   ![HTTP 게시 URL ](./media/commercial-marketplace-lead-management-instructions-https/http-post-url.png)
 
 ### <a name="testing"></a>테스트
 
@@ -211,7 +212,7 @@ ms.locfileid: "69902196"
 
 ![리드 관리-연결](./media/commercial-marketplace-lead-management-instructions-https/lead-management-connect.png)
 
-![연결 세부 정보](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
+![연결 정보](./media/commercial-marketplace-lead-management-instructions-https/connection-details.png)
 
-![연결 세부 정보](./media/commercial-marketplace-lead-management-instructions-https/connection-details-1.png)
+![연결 정보](./media/commercial-marketplace-lead-management-instructions-https/connection-details-1.png)
 

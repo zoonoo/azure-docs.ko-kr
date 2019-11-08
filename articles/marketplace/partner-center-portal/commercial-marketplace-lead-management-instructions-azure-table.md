@@ -4,15 +4,16 @@ description: Azure 테이블 관련 잠재 고객 관리 구성 지침을 설명
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: evansma
-ms.openlocfilehash: 7151be3ac9f55825fd2e9dde35c9afda6a30726a
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 9b24e6eb714c531b49ba08591bf4ed33d0f10101
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902638"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812333"
 ---
 # <a name="configure-lead-management-using-an-azure-table"></a>Azure 테이블을 사용 하 여 리드 관리 구성
 
@@ -45,7 +46,7 @@ CRM (고객 관계 관리) 시스템을 파트너 센터에서 명시적으로 �
 
     ![Azure Storage 키](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-storage-keys.png)
 
-6. 저장소 계정 창에서 테이블을 선택 하 고 **+ 테이블** 을 선택 하 여 테이블을 만듭니다. 테이블의 이름을 입력 하 고 **확인을**선택 합니다. 잠재 고객이 수신 될 때 전자 메일 알림을 받을 MS Flow를 구성 하려는 경우 필요에 따라이 값을 저장 합니다.
+6. 저장소 계정 창에서 테이블을 선택 **하 고** **+ 테이블** 을 선택 하 여 테이블을 만듭니다. 테이블의 이름을 입력 하 고 **확인을**선택 합니다. 잠재 고객이 수신 될 때 전자 메일 알림을 받을 MS Flow를 구성 하려는 경우 필요에 따라이 값을 저장 합니다.
 
     ![Azure 테이블](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-tables.png)
 
@@ -69,7 +70,7 @@ Azure 테이블에 새 잠재 고객이 추가되면 이메일 알림을 자동�
 5.  *되풀이* 의 *예약 된 흐름 작성* 창에서 간격으로 "1"을 선택 하 고 frequency로 "hour"를 선택 합니다. 또한 원하는 경우 흐름 이름을 지정 합니다. **만들기**를 선택합니다.
 
     >[!Note]
-    >이 예제에서는 1시간 간격을 사용하지만 비즈니스 요구에 가장 적합한 간격 및 빈도를 선택할 수 있습니다.
+    >이 예에서는 1 시간 간격을 사용 하지만 비즈니스 요구에 가장 적합 한 간격 및 빈도를 선택할 수 있습니다.
 
     ![예약 된 흐름을 작성 합니다.](./media/commercial-marketplace-lead-management-instructions-azure-table/build-scheduled-flow.png)
 
@@ -88,25 +89,25 @@ Azure 테이블에 새 잠재 고객이 추가되면 이메일 알림을 자동�
 >[!TIP] 
 >흐름을 검사하여 각 단계가 올바르게 구성됐는지 확인할 수 있습니다. 흐름을 검사하려면 흐름 메뉴 모음에서 **흐름 검사기**를 선택합니다.
 
-다음 단계의 세트에서 Azure 테이블에 연결하고 새 잠재 고객을 처리하는 처리 논리를 설정합니다.
+다음 단계 집합에서는 Azure 테이블에 연결 하 고 새 잠재 고객을 처리 하는 처리 논리를 설정 합니다.
 
 9. 이전 시간 가져오기 단계 후에 **+ 새 단계**를 선택한 다음 *작업 선택* 창에서 "엔터티 가져오기"를 검색 합니다.
 10. **작업**아래에서 **엔터티 가져오기 (Azure Table Storage)** 를 선택 합니다.
 11. **Azure Table Storage** 창에서 다음 필드에 대 한 정보를 제공 하 고 **만들기**를 선택 합니다.
 
-    * *연결 이름* –이 흐름과 Azure 테이블 간에 설정 되는 연결에 대 한 의미 있는 이름을 제공 합니다.
-    * *저장소 계정 이름* – Azure 테이블에 대 한 저장소 계정의 이름을 제공 합니다. 저장소 계정의 **액세스 키** 페이지에서 찾을 수 있습니다.
-    * *공유 저장소 키* – Azure 테이블의 저장소 계정에 대 한 키 값을 제공 합니다. 저장소 계정의 **액세스 키** 페이지에서 찾을 수 있습니다.
+    * *연결 이름* -이 흐름과 Azure 테이블 간에 설정 되는 연결에 대 한 의미 있는 이름을 제공 합니다.
+    * *저장소 계정 이름* -Azure 테이블에 대 한 저장소 계정의 이름을 제공 합니다. 저장소 계정의 **액세스 키** 페이지에서 찾을 수 있습니다.
+    * *공유 저장소 키* -Azure 테이블의 저장소 계정에 대 한 키 값을 제공 합니다. 저장소 계정의 **액세스 키** 페이지에서 찾을 수 있습니다.
 
         ![Azure Table Storage](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-storage.png)
 
     만들기를 클릭 하면 *엔터티 가져오기* 창이 표시 됩니다. 여기에서 **고급 옵션 표시** 를 선택 하 고 다음 필드에 대 한 정보를 제공 합니다.
 
-       * *테이블* – azure 테이블을 구성 하는 방법에 대 한 지침의 6 단계에서 azure Table Storage의 이름을 선택 합니다. 다음 화면 캡처는이 예제에서 "marketplaceleads" 테이블을 선택 하면 프롬프트를 표시 합니다.
+       * *테이블* -azure 테이블을 구성 하는 방법에 대 한 지침의 6 단계에서 azure Table Storage의 이름을 선택 합니다. 다음 화면 캡처는이 예제에서 "marketplaceleads" 테이블을 선택 하면 프롬프트를 표시 합니다.
 
             ![Azure Table 엔터티 가져오기.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities.png)
 
-        * *쿼리 필터* –이 필드를 선택 하 고 필드에 붙여넣습니다.`Timestamp gt datetime'@{body('Get_past_time')}'`
+        * *쿼리 필터* -이 필드를 선택 하 고이 함수를 필드에 붙여 넣습니다. `Timestamp gt datetime'@{body('Get_past_time')}'`
 
             ![Azure Table 엔터티 가져오기-필터 Querry.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-get-entities-filter-query.png)
 
@@ -118,17 +119,17 @@ Azure 테이블에 새 잠재 고객이 추가되면 이메일 알림을 자동�
 
 14. **조건** 창에서 **값 선택** 필드를 선택한 다음, 팝업 창에서 **식**을 선택합니다.
 
-15. ***fx*** 필드에 `length(body('Get_entities')?['value'])`를 붙여넣기합니다. **확인**을 선택하여 이 함수를 추가합니다. 
+15. `length(body('Get_entities')?['value'])`fx***필드에***를 붙여넣기합니다. **확인**을 선택하여 이 함수를 추가합니다. 
 
 16. 조건 설정을 마치려면
-    1. 드롭다운 목록에서 “다음 값보다 큼”을 선택합니다.
+    1. 드롭다운 목록에서 "보다 큼"을 선택 합니다.
     2. 값으로 0 입력
 
         ![Azure 테이블-조건입니다.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition.png)
 
 다음 몇 단계에서는 조건의 결과에 따라 수행할 작업을 설정 합니다.
 
-* 조건이 **아니요인 경우**를 확인하면 아무 것도 수행하지 않습니다.
+* 조건이 **이 아닌 경우**로 확인 되 면 아무 작업도 수행 하지 않습니다.
 * 조건이 **예인 경우**를 확인하면 Office 365 계정에 연결하는 작업을 트리거하여 이메일을 전송합니다. 
 
 17. **예 인 경우**에서 **작업 추가를** 선택 합니다.
@@ -145,15 +146,15 @@ Azure 테이블에 새 잠재 고객이 추가되면 이메일 알림을 자동�
 19. **Office 365 Outlook** 창에서 다음 필드에 대 한 정보를 제공 합니다.
 
     1. **받는 사람** - 이 알림을 받을 모든 사람의 이메일 주소를 입력합니다.
-    1. **제목** – 메일의 제목을 입력합니다. 예를 들어: 새 잠재 고객!
-    1. **본문** -각 전자 메일에 포함할 텍스트 (선택 사항)를 추가한 다음 본문 `body('Get_entities')?['value']`에 붙여넣습니다.
+    1. **제목** -전자 메일의 제목을 입력 합니다. 예: 새 잠재 고객!
+    1. **본문** -각 전자 메일에 포함 하려는 텍스트 (선택 사항)를 추가 하 고 본문 `body('Get_entities')?['value']`에 붙여넣습니다.
 
     >[!Note]
     >이 이메일의 본문에 정적 또는 동적 추가 데이터 요소를 삽입할 수 있습니다.
 
     ![Azure 테이블-조건, * * If 예 * *, Office 365 Outlook 창.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-outlook.png)
 
-20. **저장**을 선택하여 흐름을 저장합니다. Microsoft Flow에서는 흐름을 자동으로 테스트하여 오류를 검색합니다. 오류가 없으면 흐름이 저장된 후 실행을 시작합니다.
+20. **저장**을 선택하여 흐름을 저장합니다. Microsoft Flow에서는 흐름을 자동으로 테스트하여 오류를 검색합니다. 오류가 없으면 흐름이 저장 된 후 실행이 시작 됩니다.
 
 다음 화면 캡처에서는 최종 흐름이 표시되는 방법의 예제를 보여줍니다.
 
@@ -161,13 +162,13 @@ Azure 테이블에 새 잠재 고객이 추가되면 이메일 알림을 자동�
 
 ### <a name="manage-your-flow"></a>흐름 관리
 
-실행된 후 흐름을 관리하기는 쉽습니다. 흐름에 대해 완전히 제어할 수 있습니다. 예를 들어 흐름을 중지하고 편집하고 실행 기록을 확인하고 분석을 얻을 수 있습니다. 다음 화면 캡처에서는 흐름을 관리할 수 있는 옵션을 보여줍니다. 
+흐름을 실행 한 후에는 쉽게 관리할 수 있습니다. 흐름에 대해 완전히 제어할 수 있습니다. 예를 들어 흐름을 중지하고 편집하고 실행 기록을 확인하고 분석을 얻을 수 있습니다. 다음 화면 캡처에서는 흐름을 관리할 수 있는 옵션을 보여줍니다. 
 
  ![흐름 관리](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-manage-completed.png)
 
 흐름은 **흐름 해제** 옵션을 사용하여 중지될 때까지 계속 실행 상태를 유지합니다.
 
-모든 잠재 고객 이메일 알림을 받지 못하는 경우는 새 잠재 고객이 Azure 테이블에 추가되지 않았음을 의미합니다. 모든 흐름이 실패한 경우 다음 화면 캡처의 예제와 같은 이메일을 받습니다.
+잠재 고객 전자 메일 알림을 받지 못하는 경우 Azure 테이블에 새 잠재 고객이 추가 되지 않았음을 의미 합니다. 흐름 오류가 발생 하면 다음 화면 캡처의 예제와 같은 전자 메일을 받게 됩니다.
 
  ![흐름 실패 이메일 알림](./media/commercial-marketplace-lead-management-instructions-azure-table/ms-flow-failure-note.png)
 

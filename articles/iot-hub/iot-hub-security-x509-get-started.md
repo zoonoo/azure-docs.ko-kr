@@ -8,18 +8,18 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 03ac9f878f0869ef33d22f50c6bdba4276bd4d3c
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 32219eeaee7980b685ac3453c6af3beff716abe2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048267"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824078"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Azure IoT Hub의 X.509 보안 설정
 
 이 자습서에서는 *X.509 인증서 인증*을 사용 하 여 Azure IoT hub를 보호 하는 데 필요한 단계를 보여 줍니다. 이에 대 한 설명은 오픈 소스 도구인 OpenSSL를 사용 하 여 Windows 컴퓨터에 로컬로 인증서를 만듭니다. 이 자습서는 테스트용으로만 사용하는 것이 좋습니다. 프로덕션 환경의 경우 *루트 CA(인증 기관)* 에서 인증서를 구입해야 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 사용하려면 다음과 같은 리소스를 준비해야 합니다.
 
@@ -37,7 +37,7 @@ Azure IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인�
 
 * [OpenSSL](https://www.openssl.org/)와 같은 타사 도구를 사용 하 여 고유한 X. x.509 인증서를 만듭니다. 이 기법은 테스트 및 개발 목적으로 충분 합니다. PowerShell 또는 Bash를 사용하여 테스트 CA 인증서를 생성하는 방법에 대한 정보는 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)를 참조합니다. 이 자습서의 나머지 부분에서는 [샘플 및 자습서에 대한 테스트 CA 인증서 관리](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) 지침에 따라 생성된 테스트 CA 인증서를 사용합니다.
 
-* 기존 루트 CA 인증서로 서명 된 [x.509 중간 ca 인증서](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) 를 생성 하 고 허브에 업로드 합니다. 중간 인증서를 업로드 하 고 확인 한 후 아래에 설명 된 대로 루트 CA 인증서 대신 아래에서 사용할 수 있습니다. OpenSSL ([OpenSSL 요청](https://www.openssl.org/docs/manmaster/man1/openssl-req.html) 및 [OpenSSL ca](https://www.openssl.org/docs/manmaster/man1/openssl-ca.html))와 같은 도구를 사용 하 여 중간 ca 인증서를 생성 하 고 서명할 수 있습니다.
+* 기존 루트 CA 인증서로 서명 된 [x.509 중간 ca 인증서](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) 를 생성 하 고 허브에 업로드 합니다. 중간 인증서를 업로드 하 고 확인 한 후 아래에 설명 된 대로 루트 CA 인증서 대신 아래에서 사용할 수 있습니다. OpenSSL ([OpenSSL 요청](https://www.openssl.org/docs/man1.1.0/man1/req.html) 및 [OpenSSL ca](https://www.openssl.org/docs/man1.1.0/man1/ca.html))와 같은 도구를 사용 하 여 중간 ca 인증서를 생성 하 고 서명할 수 있습니다.
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>IoT Hub에 X.509 CA 인증서 등록
 
@@ -53,7 +53,7 @@ Azure IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인�
 
     ![인증서 업로드](./media/iot-hub-security-x509-get-started/iot-hub-add-cert.png)  
 
-   인증서가 확인 되지 않음 상태로 인증서 목록에 표시됩니다.
+   인증서가 확인 되지 않음 상태로 인증서 목록에 표시 **됩니다.**
 
 1. **인증서 세부 정보**를 표시 하기 위해 방금 추가한 인증서를 선택 하 고 **확인 코드 생성**을 선택 합니다.
 
@@ -71,7 +71,7 @@ Azure IoT Hub에서 X.509 인증서 기반 보안을 사용하려면 루트 인�
 
 1. Azure Portal에서 IoT hub로 이동한 다음 **탐색기** > **iot 장치**를 선택 합니다.
 
-1. 새로 만들기를 선택 하 여 새 장치를 추가 합니다.
+1. 새로 **만들기를 선택 하** 여 새 장치를 추가 합니다.
 
 1. **장치 ID**에 표시 이름을 입력 합니다. **인증 유형**에 대해 **x.509 CA 서명**을 선택 하 고 **저장**을 선택 합니다.
 
@@ -91,13 +91,13 @@ X.509 디바이스를 인증하려면 먼저 CA 인증서로 디바이스에 서
 
 1. 솔루션 탐색기에서 **SimulateX509Device** 프로젝트를 마우스 오른쪽 단추로 클릭 한 다음 **NuGet 패키지 관리**를 선택 합니다.
 
-1. **NuGet 패키지 관리자**에서 **찾아보기** 를 선택 하 고을 검색 한 후을 (를) 검색 하 고 선택 합니다. **설치**를 선택합니다.
+1. **NuGet 패키지 관리자**에서 **찾아보기** 를 선택 하 고을 검색 한 후을 (를) 검색 하 **고 선택 합니다.** **설치**를 선택합니다.
 
    ![Visual Studio에서 장치 SDK NuGet 패키지 추가](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
     이 단계에서는 Azure IoT 장치 SDK NuGet 패키지 및 해당 종속성에 대 한 참조를 다운로드, 설치 및 추가 합니다.
 
-1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. `using`Program.cs**파일 위에 다음** 문을 추가합니다.
 
     ```CSharp
         using Microsoft.Azure.Devices.Client;

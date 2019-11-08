@@ -7,6 +7,7 @@ author: qianw211
 manager: evansma
 editor: ''
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
@@ -14,12 +15,12 @@ ms.workload: identity
 ms.date: 08/16/2019
 ms.author: v-qiwe
 ms.custom: include file
-ms.openlocfilehash: 43b551639fface699b1c0ec95500de8ea2089b26
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 059a2691c8e7905295a65daf262338ece65247d1
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900087"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812658"
 ---
 파트너 센터를 통해 marketplace에 제품을 게시 하는 동안 고객에 게 관심이 표시 되 면 즉시 고객 연락처 정보를 받을 수 있도록 제안을 CRM (고객 관계 관리) 시스템에 연결 해야 합니다. 제품을 배포 합니다.
 

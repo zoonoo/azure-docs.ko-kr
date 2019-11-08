@@ -1,21 +1,21 @@
 ---
-title: Azure SQL Database 관리 되는 인스턴스를 삭제 한 후 서브넷 삭제
+title: 관리 되는 인스턴스를 삭제 한 후 서브넷 삭제
 description: Azure SQL Database 관리 되는 인스턴스를 삭제 한 후 Azure 가상 네트워크를 삭제 하는 방법에 대해 알아봅니다.
 services: sql-database
 ms.service: sql-database
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 ms.date: 06/26/2019
-ms.openlocfilehash: 84298e49de2de2ac43c33ec38c22846fd8d1e968
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 496d67a73207fd17182c31c5adad25c1fbe60c4f
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73688129"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820456"
 ---
 # <a name="delete-a-subnet-after-deleting-an-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스를 삭제 한 후 서브넷 삭제
 

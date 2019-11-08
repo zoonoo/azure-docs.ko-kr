@@ -1,18 +1,19 @@
 ---
-title: 작업 API를 검색 합니다. | Azure Marketplace
+title: 작업 API 검색 | Azure Marketplace
 description: 제품에 대한 모든 작업을 검색하거나 지정된 operationId의 특정 작업을 가져옵니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 1fbcc1d50dbc4488c4123be64e85de612233ccc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c3eb77744d61322ca0aed20bb2b3f486cc02ac70
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935773"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819602"
 ---
 <a name="retrieve-operations"></a>작업 검색
 ===================
@@ -31,12 +32,12 @@ ms.locfileid: "64935773"
 <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
-|  **Name**          |      **설명**                                                                                           | **데이터 형식** |
+|  **이름**          |      **설명**                                                                                           | **데이터 형식** |
 |  ----------------  |     --------------------------------------------------------------------------------------------------------   |  -----------  |
-|  publisherId       |  게시자 식별자입니다(예: `Contoso`).                                                                   |  String       |
-|  offerId           |  제안 식별자입니다.                                                                                              |  String       |
+|  publisherid       |  게시자 식별자입니다(예: `Contoso`).                                                                   |  문자열       |
+|  offerId           |  제안 식별자입니다.                                                                                              |  문자열       |
 |  operationId       |  제품에 대한 작업을 고유하게 식별하는 GUID입니다. operationId는 이 API를 사용하여 검색할 수 있으며, [제품 게시](./cloud-partner-portal-api-publish-offer.md) API와 같은 장기 실행 작업에 대한 응답의 HTTP 헤더에도 반환됩니다.  |   Guid   |
-|  filteredStatus    | 이 API가 반환하는 컬렉션을 상태(예: `running`)별로 필터링하는 데 사용되는 선택적 쿼리 매개 변수입니다.  |   String |
+|  filteredStatus    | 이 API가 반환하는 컬렉션을 상태(예: `running`)별로 필터링하는 데 사용되는 선택적 쿼리 매개 변수입니다.  |   문자열 |
 |  api-version       | 최신 버전 API                                                                                           |    Date      |
 |  |  |  |
 
@@ -44,7 +45,7 @@ ms.locfileid: "64935773"
 <a name="header"></a>헤더
 ------
 
-|  **Name**          |  **값**           |
+|  **이름**          |  **값**           |
 |  ---------------   | -------------------- |
 |  콘텐츠 형식      | `application/json`   |
 |  권한 부여     | `Bearer YOUR_TOKEN`  |
@@ -54,7 +55,7 @@ ms.locfileid: "64935773"
 <a name="body-example"></a>본문 예제
 ------------
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 #### <a name="get-operations"></a>작업 가져오기
 
@@ -176,7 +177,7 @@ ms.locfileid: "64935773"
 
 ### <a name="response-body-properties"></a>응답 본문 속성
 
-|  **Name**                    |  **설명**                                                                                  |
+|  **이름**                    |  **설명**                                                                                  |
 |  --------------------        |  ------------------------------------------------------------------------------------------------ |
 |  id                          | 작업을 고유하게 식별하는 GUID입니다.                                                       |
 |  submissionType              | 제품에 대해 보고되는 작업 유형(예: `Publish/GGoLive`)을 식별합니다.      |
@@ -194,5 +195,5 @@ ms.locfileid: "64935773"
 |  200      | `OK` - 요청이 성공적으로 처리되었으며 요청한 작업이 반환되었습니다.        |
 |  400      | `Bad/Malformed request` - 오류 응답 본문에 자세한 정보가 들어 있을 수 있습니다.                    |
 |  403      | `Forbidden` - 클라이언트는 지정된 네임스페이스에 액세스할 수 없습니다.                          |
-|  404      | `Not found` - 지정한 엔터티가 없습니다.                                                 |
+|  404      | `Not found` - 지정된 엔터티가 존재하지 않습니다.                                                 |
 |  |  |

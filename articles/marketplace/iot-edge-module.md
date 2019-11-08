@@ -5,15 +5,16 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, IoT Edge
 author: qianw211
 manager: pabutler
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: pabutler
-ms.openlocfilehash: 54369e0f2c943c146d186605833198253b960022
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: db501c34a4418bc7b08b19105a9b28585288f877
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949535"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823061"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge 모듈
 
@@ -67,7 +68,7 @@ IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요
     - 로고 이미지(PNG 형식 및 40x40px, 90x90px, 115x115px, 255x115px를 포함한 고정 이미지 크기)
     - 사용 약관 및 개인정보처리방침
     - 기본 모듈 구성(경로, 원하는 속성 쌍, createOptions, 환경 변수)
-    - 설명서
+    - 문서화
     - 지원 연락처
 
 **기술 요구 사항**
@@ -76,11 +77,11 @@ IoT Edge 모듈 인증을 받고 Azure Marketplace에 모듈을 게시하기 위
 
 ## <a name="documentation-and-resources"></a>설명서 및 리소스
 
-[IoT Edge 모듈 제품 만들기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) - 클라우드 게시 포털에서 새 IoT Edge 모듈 제품을 게시하는 단계가 나와 있습니다.
+[IoT Edge module 제품 만들기](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/iot-edge-module/cpp-create-offer) -클라우드 게시 포털을 사용 하 여 새 IoT Edge 모듈 제품을 게시 하는 단계입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-아래 작업을 아직 수행하지 않았다면 수행합니다.
+아직 수행하지 않았다면
 
 - Marketplace에 [등록](https://azuremarketplace.microsoft.com/sell).
 

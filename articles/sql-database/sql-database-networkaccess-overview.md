@@ -1,9 +1,10 @@
 ---
-title: Azure SQL Database 및 데이터 웨어하우스 네트워크 액세스 제어
+title: 네트워크 액세스 컨트롤
 description: 액세스를 관리 하 고 단일 또는 풀링된 데이터베이스를 구성 하기 위한 Azure SQL Database 및 데이터 웨어하우스의 네트워크 액세스 제어 개요입니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: deee668c3597047a5d5f0fd153626916c3fd8517
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 16de1d9fcf86459b6bcadd9d8c372e436aad0915
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73687705"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73802930"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Azure SQL Database 및 데이터 웨어하우스 네트워크 액세스 제어
 

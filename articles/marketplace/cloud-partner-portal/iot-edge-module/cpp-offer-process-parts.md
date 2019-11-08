@@ -1,18 +1,19 @@
 ---
-title: Azure IoT Edge 모듈 제품 게시 개요 | Azure Marketplace
+title: Azure IoT Edge 모듈 제공 게시 개요 | Azure Marketplace
 description: Azure Marketplace에서 IoT Edge 모듈 제품을 게시하는 프로세스에 대한 개요입니다.
 services: Azure, Marketplace, Cloud Partner Portal
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: pabutler
-ms.openlocfilehash: 319031ec99d449ea5866bb5234cc617145954173
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97df9a61d15e0d90e81f42cef327aea23873ffa0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942605"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814335"
 ---
 # <a name="iot-edge-module-offer-publishing-overview"></a>IoT Edge 모듈 제품 게시 개요
 
@@ -34,7 +35,7 @@ IoT Edge 모듈 제품을 게시하기 위한 대략적인 단계는 다음과 �
 
 다음 문서에서는 IoT Edge 모듈 제품의 주요 부분을 설명합니다.
 
-- [필수 구성 요소](./cpp-prerequisites.md) <br>이 문서에서는 IoT Edge 모듈 제품을 만들고 게시하기 전에 기술 및 비즈니스 요구 사항을 나열합니다.
+- [필수 조건](./cpp-prerequisites.md) <br>이 문서에서는 IoT Edge 모듈 제품을 만들고 게시하기 전에 기술 및 비즈니스 요구 사항을 나열합니다.
 - [IoT Edge 모듈 기술 자산 준비](./cpp-create-technical-assets.md) <br>이 문서에서는 IoT Edge 모듈에 대한 기술 자산을 준비하는 방법을 설명합니다. 이러한 자산은 IoT Edge 모듈을 Azure Marketplace에 게시하기 전에 모든 필수 기술 조건을 충족해야 합니다.
 - [IoT Edge 모듈 제품 만들기](./cpp-create-offer.md) <br>이 문서에서는 [Cloud 파트너 포털](https://cloudpartner.azure.com)을 사용하여 새 IoT Edge 모듈 제품 항목을 만드는 데 필요한 단계를 나열합니다.
 - [IoT Edge 모듈 제품 게시](./cpp-publish-offer.md)<br> 이 문서에서는 Azure Marketplace에 게시할 제품을 제출하는 방법을 설명합니다.

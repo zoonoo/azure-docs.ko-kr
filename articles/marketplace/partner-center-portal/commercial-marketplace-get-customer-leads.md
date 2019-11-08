@@ -4,15 +4,16 @@ description: 상업적 marketplace에서 고객 리드를 구성 합니다.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: evansma
-ms.openlocfilehash: 31dcc8c1e35b627b231dbe2a62998c8514d05a20
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 7ead8dee12d4376e6e1058b84a25b91c021a937c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69902651"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812665"
 ---
 # <a name="customer-leads-from-your-marketplace-offer"></a>Marketplace 제품의 고객 책임자
 
@@ -48,13 +49,13 @@ ms.locfileid: "69902651"
 
 ## <a name="understand-lead-data"></a>리드 데이터 이해
 
-고객 확보 프로세스에서 수신되는 각 잠재 고객에게는 특정 필드에 데이터가 있습니다. 검색할 첫 번째 필드는 다음 형식을 따르는 `LeadSource` 필드입니다. **원본-작업** | **제안**.
+고객 확보 프로세스에서 수신되는 각 잠재 고객에게는 특정 필드에 데이터가 있습니다. 확인할 첫 번째 필드는 다음 형식을 따르는 `LeadSource` 필드입니다. **원본-동작** | **제품**입니다.
 
-**원본**: 이 필드의 값은 잠재 고객을 생성 한 marketplace를 기준으로 채워집니다. 가능한 값은 `"AzureMarketplace"`, `"AzurePortal"` 및 `"AppSource (SPZA)"`입니다.
+**원본**:이 필드의 값은 잠재 고객을 생성 한 marketplace를 기준으로 채워집니다. 가능한 값은 `"AzureMarketplace"`, `"AzurePortal"`및 `"AppSource (SPZA)"`입니다.
 
-**작업**: 이 필드의 값은 잠재 고객이 생성 한 marketplace에서 고객이 취한 작업을 기반으로 채워집니다. 
+**작업**:이 필드의 값은 잠재 고객이 생성 한 marketplace에서 고객이 취한 작업을 기반으로 채워집니다. 
 
-가능한 값은
+가능한 값은 다음과 같습니다.
 
 - "INS" -- 설치. 고객이 제품을 구매할 때 Azure Marketplace 또는 AppSource에서 이 작업이 수행됩니다.
 - "PLT" -- Partner Led Trial(파트너 진행 체험)의 약어. 고객이가 문의처 옵션을 사용할 때 AppSource에서 이 작업이 수행됩니다.
@@ -62,9 +63,9 @@ ms.locfileid: "69902651"
 - "만들기"-이 작업은 Azure Portal 내에만 포함 되며 고객이 자신의 계정에 제품을 구매할 때 생성 됩니다.
 - “StartTestDrive” -– 이 작업은 시험 사용 시에만 수행되며, 고객이 시험 사용을 시작할 때 생성됩니다.
 
-**제품**: Marketplace에 여러 제품이 있을 수 있습니다. 이 필드의 값은 잠재 고객을 생성 한 제품을 기반으로 채워집니다. 게시자 ID 및 제품 ID는 모두이 필드에서 전송 되며 marketplace에 제품을 게시할 때 제공한 값입니다.
+**제품**: marketplace에 여러 제품이 있을 수 있습니다. 이 필드의 값은 잠재 고객을 생성 한 제품을 기반으로 채워집니다. 게시자 ID 및 제품 ID는 모두이 필드에서 전송 되며 marketplace에 제품을 게시할 때 제공한 값입니다.
 
-다음 예에서는 예상 형식의 `publisherid.offerid`예제 값을 보여 줍니다. 
+다음 예에서는 `publisherid.offerid`예상 형식의 예제 값을 보여 줍니다. 
 
 1. `checkpoint.check-point-r77-10sg-byol`
 1. `bitnami.openedxcypress`
@@ -74,13 +75,13 @@ ms.locfileid: "69902651"
 
 고객 정보는 여러 필드를 통해 전송 됩니다. 다음 예에서는 잠재 고객에 포함 된 고객 정보를 보여 줍니다.
 
-- FirstName John
-- 성이 Smith
+- FirstName: John
+- LastName: Smith
 - Email: jsmith\@microsoft.com
-- 내선 1234567890
-- 국가: US
-- 회사가 Microsoft
-- 제목: CTO
+- Phone: 1234567890
+- Country: US
+- Company: Microsoft
+- Title: CTO
 
 >[!Note]
 >위 예제의 모든 데이터가 각 잠재 고객에 대해 항상 제공되는 것은 아닙니다. 고객 리드 섹션에 설명 된 대로 여러 단계를 수행 하기 위해 잠재 고객을 처리 하는 가장 좋은 방법은 레코드를 중복 제거 하 고 후속 작업을 개인 설정 하는 것입니다. 이렇게 하면 각 고객이 적절한 메시지를 받으며 모든 고객과 고유한 관계를 구축할 수 있습니다.
@@ -104,7 +105,7 @@ ms.locfileid: "69902651"
 
 ### <a name="how-can-i-find-the-test-lead"></a>테스트 리드는 어떻게 찾을 수 있나요?
 
-잠재 고객 대상에서을 검색 합니다. Microsoft의 샘플 테스트 책임자는 다음과 같습니다. `“MSFT_TEST”`
+잠재 고객 대상의 `"MSFT_TEST"`를 검색 합니다. Microsoft의 샘플 테스트 책임자는 다음과 같습니다.
 
 ```
 company = MSFT_TEST_636573304831318844

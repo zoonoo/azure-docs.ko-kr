@@ -5,14 +5,15 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 7364bc41a67d8651c91745a8763fff62fee722fe
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 027a35db9fcb6c0e95be5da276f673b9295ad436
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784807"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73812712"
 ---
 # <a name="co-sell-option-in-partner-center"></a>파트너 센터의 공동 판매 옵션
 
@@ -34,7 +35,7 @@ ms.locfileid: "72784807"
 | :------------------- | :-------------------|
 | 디바이스 | 장치 제조업체에서 하드웨어를 빌드 또는 판매 하는 것을 포함 하는 제품입니다. |
 | IP | 고객 사용에 대 한 라이선스를 받은 앱 또는 기타 copyrightable 자료입니다. 예: 온-프레미스에서 사용이 허가 되 고 설치 될 수 있는 CRM 프로그램입니다. |
-| 서비스 | 컨설턴트를 통해 제공 되는 특정 일회성 프로젝트에 대 한 실습 전문 기술입니다. 예: 클라이언트에 대 한 고객 데이터베이스 설정 (클라이언트에서 배달 후 데이터베이스 작동을 담당 하는 경우). |
+| 부여 | 컨설턴트를 통해 제공 되는 특정 일회성 프로젝트에 대 한 실습 전문 기술입니다. 예: 클라이언트에 대 한 고객 데이터베이스 설정 (클라이언트에서 배달 후 데이터베이스 작동을 담당 하는 경우). |
 | 관리 서비스 | 일반적으로 지속적으로 클라우드 기반 프로젝트에 대 한 실습 기술입니다. 예: 관리 서비스 공급자가 제공 하는 지속적인 관리를 통해 온라인 데이터베이스 실행을 위한 플랫폼과 도구 제공 |
 
 ## <a name="solution-areas"></a>솔루션 영역

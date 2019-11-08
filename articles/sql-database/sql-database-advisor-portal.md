@@ -1,5 +1,5 @@
 ---
-title: 성능 권장 사항 적용-Azure SQL Database
+title: 성능 권장 사항 적용
 description: Azure Portal을 사용하여 Azure SQL Database의 성능을 최적화할 수 있는 성능 권장 사항을 찾을 수 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 24a590a80e768bba2e9b102bdf200e0cd96858f8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5462a03accb3420b3f0fcec4624734c8f6d68859
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691279"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811587"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>성능 권장 사항 찾기 및 적용
 

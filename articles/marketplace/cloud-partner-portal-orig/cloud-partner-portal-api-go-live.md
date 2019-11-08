@@ -1,18 +1,19 @@
 ---
-title: Go Live | Azure Marketplace
+title: 라이브로 전환 | Azure Marketplace
 description: Go Live API는 제품 라이브 목록 추가 프로세스를 시작합니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: ac56f86bad132f3e00a4b5c2507d65c0722c628c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30500e9dfae9411563fc727290d0569998ba3550
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935485"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819678"
 ---
 <a name="go-live"></a>Go Live
 =======
@@ -24,10 +25,10 @@ ms.locfileid: "64935485"
 <a name="uri-parameters"></a>URI 매개 변수
 --------------
 
-|  **Name**      |   **설명**                                                           | **데이터 형식** |
+|  **이름**      |   **설명**                                                           | **데이터 형식** |
 |  --------      |   ---------------                                                           | ------------- |
-| publisherId    | 검색할 제품의 게시자 식별자입니다(예: `contoso`).       |  String       |
-| offerId        | 검색할 제품의 제품 식별자입니다.                                   |  String       |
+| publisherid    | 검색할 제품의 게시자 식별자입니다(예: `contoso`).       |  문자열       |
+| offerId        | 검색할 제품의 제품 식별자입니다.                                   |  문자열       |
 | api-version    | 최신 버전의 API입니다.                                                   |  Date         |
 |  |  |  |
 
@@ -35,7 +36,7 @@ ms.locfileid: "64935485"
 <a name="header"></a>헤더
 ------
 
-|  **Name**       |     **값**       |
+|  **이름**       |     **값**       |
 |  ---------      |     ----------      |
 | 콘텐츠 형식    | `application/json`  |
 | 권한 부여   | `Bearer YOUR_TOKEN` |
@@ -45,14 +46,14 @@ ms.locfileid: "64935485"
 <a name="body-example"></a>본문 예제
 ------------
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 `Operation-Location: https://cloudpartner.azure.com/api/publishers/contoso/offers/contoso-virtualmachineoffer/operations/56615b67-2185-49fe-80d2-c4ddf77bb2e8`
 
 
 ### <a name="response-header"></a>응답 헤더
 
-|  **Name**             |      **값**                                                            |
+|  **이름**             |      **값**                                                            |
 |  --------             |      ----------                                                           |
 | Operation-Location    |  작업의 현재 상태를 확인하기 위해 쿼리할 URL입니다.            |
 |  |  |
@@ -64,5 +65,5 @@ ms.locfileid: "64935485"
 | -------- |  ----------------                                                                        |
 |  202     | `Accepted` - 요청이 성공적으로 수락되었습니다. 응답에는 작업 상태 추적을 위한 위치가 포함됩니다. |
 |  400     | `Bad/Malformed request` -응답 본문 내에서 추가 오류 정보가 확인되었습니다. |
-|  404     |  `Not found` - 지정한 엔터티가 없습니다.                                       |
+|  404     |  `Not found` - 지정된 엔터티가 존재하지 않습니다.                                       |
 |  |  |

@@ -1,5 +1,5 @@
 ---
-title: SaaS 다중 테 넌 트 Azure에서 프로 비전
+title: SaaS 다중 테 넌 트에서 프로 비전
 description: Azure SQL Database 다중 테넌트 SaaS 앱에서 새 테넌트를 프로비전하고 카탈로그로 만드는 방법 알아보기
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
-ms.openlocfilehash: f829c0d734838de42a82343876cefa007dcca04d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cae0b2730a9426b183dc330a18a76122ac87cc66
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692019"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73817936"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>공유 다중 테넌트 Azure SQL 데이터베이스를 사용하여 SaaS 애플리케이션에 새 테넌트를 프로비전하고 카탈로그로 만들기
 

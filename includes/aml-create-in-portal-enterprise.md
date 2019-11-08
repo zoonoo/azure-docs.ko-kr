@@ -9,24 +9,24 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 10/04/2019
-ms.openlocfilehash: 8b333dbd043ea0a0fe6fb1042e255e7e9c07ade5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c1f4b3d60c0b8af96d851ce54c2aac57c76335a7
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493459"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73633708"
 ---
 1. Azure 구독에 대한 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
 1. Azure Portal의 왼쪽 위 모서리에서 **+ 리소스 만들기**를 선택합니다.
 
-      ![새 리소스 만들기](media/aml-create-in-portal/portal-create-resource.png)
+      ![새 리소스 만들기](media/aml-create-in-portal/create-workspace.gif)
 
-1. 검색 창을 사용하여 **Machine Learning Service 작업 영역**을 찾습니다.
+1. 검색 창을 사용하여 **Machine Learning**을 찾습니다.
 
-1. **Machine Learning Service 작업 영역**을 선택합니다.
+1. **Machine Learning**을 선택합니다.
 
-1. **Machine Learning 서비스 작업 영역** 창에서 **만들기**를 선택하여 시작합니다.
+1. **Machine Learning** 창에서 **만들기**를 선택하여 시작합니다.
 
 1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 

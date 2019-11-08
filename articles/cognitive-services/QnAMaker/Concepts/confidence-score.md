@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 08/30/2019
+ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 14339a61e48866d51089db9a0008a3de982b1710
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: a80c61efbcbff569f5fed53734def3979ed70616
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277101"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820764"
 ---
 # <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 신뢰도 점수
 사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다. 
@@ -72,9 +72,9 @@ Bot 프레임 워크에서 또는 [C#](../how-to/metadata-generateanswer-usage.m
 
 
 ## <a name="confidence-score-differences"></a>신뢰도 점수 차이
-콘텐츠가 동일하더라도 기술 자료의 테스트 버전과 게시된 버전 간에 답변의 신뢰도 점수가 사소하게 변경될 수 있습니다. 이는 테스트 및 게시된 기술 자료 콘텐츠가 서로 다른 Azure Search 인덱스에 있기 때문입니다. 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다. [게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 작업의 작동 방식을 알아보세요.
+콘텐츠가 동일하더라도 기술 자료의 테스트 버전과 게시된 버전 간에 답변의 신뢰도 점수가 사소하게 변경될 수 있습니다. 이는 테스트 콘텐츠와 게시 된 기술 자료가 서로 다른 Azure Cognitive Search 인덱스에 있기 때문입니다. 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다. [게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 작업의 작동 방식을 알아보세요.
 
-다른 Azure 지역에 기술 자료가 있는 경우 각 Azure 지역에서는 자체 Azure Search 인덱스를 사용합니다. 다른 인덱스가 사용되므로 점수가 정확하게 일치하지 않습니다. 
+다른 지역에 기술 자료가 있는 경우 각 지역은 자체 Azure Cognitive Search 인덱스를 사용 합니다. 다른 인덱스가 사용되므로 점수가 정확하게 일치하지 않습니다. 
 
 
 ## <a name="no-match-found"></a>일치하는 항목 없음
@@ -88,7 +88,7 @@ Bot 프레임 워크에서 또는 [C#](../how-to/metadata-generateanswer-usage.m
 
     ![Azure Portal에서 QnA Maker에 대한 App service에 액세스](../media/qnamaker-concepts-confidencescore/set-default-response.png)
 
-3. **애플리케이션 설정**을 클릭하고 **DefaultAnswer** 필드를 원하는 기본 응답으로 편집합니다. **Save**을 클릭합니다.
+3. **애플리케이션 설정**을 클릭하고 **DefaultAnswer** 필드를 원하는 기본 응답으로 편집합니다. **Save**를 클릭합니다.
 
     ![애플리케이션 설정을 선택한 다음, QnA Maker에 대한 DefaultAnswer 편집](../media/qnamaker-concepts-confidencescore/change-response.png)
 

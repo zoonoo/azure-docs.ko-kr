@@ -4,19 +4,20 @@ description: IoT Edge 모듈을 게시하기 위한 필수 구성 요소입니�
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: pabutler
-ms.openlocfilehash: a5d1d6fdaf07f8b27820021d4d2ac45ec67c9915
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 610f9bc8d87ac75e2868e247fe1332574480b498
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942076"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73813871"
 ---
 # <a name="iot-edge-module-publishing-prerequisites"></a>IoT Edge 모듈 게시 필수 구성 요소
 
-이 문서에서는 IoT Edge 모듈 제품을 게시하기 위한 필수 구성 요소를 설명합니다.  아직 수행 하는 경우 검토 합니다 [가이드를 게시 하는 IoT Edge 모듈](../..//iot-edge-module.md)합니다.
+이 문서에서는 IoT Edge 모듈 제품을 게시하기 위한 필수 구성 요소를 설명합니다.  아직 수행 하지 않은 경우 [IoT Edge 모듈 게시 가이드](../..//iot-edge-module.md)를 검토 하세요.
 
 
 ## <a name="publishing-prerequisites"></a>게시 필수 구성 요소
@@ -27,7 +28,7 @@ IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요
 - [Cloud 파트너 포털](https://cloudpartner.azure.com/)에 액세스합니다. 자세한 내용은 [Azure Marketplace 및 AppSource 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide)를 참조하세요.
 - [Azure Marketplace 약관](https://azure.microsoft.com/support/legal/marketplace-terms/)에 대한 규약
 - Azure Container Registry에서 IoT Edge 모듈 기술 자산을 호스트합니다.  자세한 내용은 [IoT Edge 모듈 기술 자산을 준비하는 방법](./cpp-create-technical-assets.md)을 참조하세요.
-- IoT Edge 모듈 메타데이터를 사용할 수 있도록 준비합니다. 예를 들어, 다음 자산을 준비 합니다.
+- IoT Edge 모듈 메타데이터를 사용할 수 있도록 준비합니다. 예를 들어 다음과 같은 자산을 준비 합니다.
     - 제목
     - 설명(HTML 형식)
     - 로고 이미지(PNG 형식 및 40x40px, 90x90px, 115x115px, 255x115px를 포함한 고정 이미지 크기)
@@ -39,4 +40,4 @@ IoT Edge 모듈을 Azure Marketplace에 게시하려면 다음 필수 구성 요
 
 ## <a name="next-steps"></a>다음 단계
 
-했으면 [IoT Edge 모듈 기술 자산을 준비](./cpp-create-technical-assets.md), 준비가 됩니다 [IoT Edge 모듈 제품 만들기](./cpp-create-offer.md)합니다. 
+[IoT Edge module 기술 자산을 준비한](./cpp-create-technical-assets.md)후 [IoT Edge 모듈 제품을 만들](./cpp-create-offer.md)준비가 됩니다. 

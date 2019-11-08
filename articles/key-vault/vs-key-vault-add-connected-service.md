@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 27c21171c2a53cb739215dcae070b94c8610a490
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 9331f13bd85d9df0d47f8fa9d0964974764691f7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880891"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815112"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 애플리케이션에 Key Vault 추가
 
@@ -22,7 +22,7 @@ ms.locfileid: "68880891"
 
 Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 서비스에서 수행하는 변경 내용에 대한 자세한 내용은 [Key Vault 연결된 서비스 - 내 ASP.NET 4.7.1 프로젝트에서 변경된 내용](#how-your-aspnet-framework-project-is-modified) 또는 [Key Vault 연결된 서비스 - 내 ASP.NET Core 프로젝트에서 변경된 내용](#how-your-aspnet-core-project-is-modified)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - **Azure 구독**. 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록 합니다.
 - **웹 개발** 워크 로드가 설치 된 **visual studio 2019 버전 16.3 Preview 1** 이상 또는 **visual studio 2017 버전 15.7** 입니다. [여기에서 다운로드하세요](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -33,7 +33,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 시작 하기 전에 Visual Studio에 로그인 했는지 확인 합니다. Azure 구독에 사용 하는 것과 동일한 계정으로 로그인 합니다. ASP.NET 4.7.1 이상 또는 ASP.NET Core 2.0 웹 프로젝트를 열고 다음 단계를 수행 합니다.
 
-1. **솔루션 탐색기**에서 **추가** > **연결된 서비스**를 선택합니다.
+1. **솔루션 탐색기**에서 키 자격 증명 모음 지원을 추가 하려는 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 > **연결 된 서비스** **추가** 를 선택 합니다.
    연결된 서비스 페이지가 프로젝트에 추가할 수 있는 서비스와 함께 표시됩니다.
 1. 사용 가능한 서비스 메뉴에서 **Azure Key Vault로 비밀 보호**를 선택합니다.
 
@@ -65,7 +65,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 ## <a name="access-your-secrets-in-code"></a>코드의 비밀에 액세스
 
-1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다. **찾아보기** 탭에서 다음과 같은 두 NuGet 패키지를 찾아서 설치 합니다. [Microsoft. azure. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [microsoft. Azure. keyvault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
+1. 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **NuGet 패키지 관리**를 선택 합니다. **찾아보기** 탭에서 다음과 같은 두 NuGet 패키지를 찾아서 설치 합니다. [microsoft. Azure. Appauthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) 및 [Microsoft. azure. keyvault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
 1. `Program.cs` 탭을 선택 하 고 Program 클래스를 다음 코드로 바꿉니다.
 
@@ -99,8 +99,8 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
     }
    ```
 
-1. 다음 파일 `About.cshtml.cs` 을 열고 다음 코드를 작성 합니다.
-   1. 이 using 문을 사용 `Microsoft.Extensions.Configuration` 하 여에 대 한 참조를 포함 합니다.
+1. 그런 다음 `About.cshtml.cs` 파일을 열고 다음 코드를 작성 합니다.
+   1. 이 using 문을 사용 하 여 `Microsoft.Extensions.Configuration`에 대 한 참조를 포함 합니다.
 
        ```csharp
        using Microsoft.Extensions.Configuration
@@ -115,7 +115,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
        }
        ```
 
-   1. 메서드를 `OnGet` 업데이트 합니다. 위의 명령에서 만든 비밀 이름을 사용 하 여 여기에 표시 된 자리 표시자 값을 업데이트 합니다.
+   1. `OnGet` 메서드를 업데이트 합니다. 위의 명령에서 만든 비밀 이름을 사용 하 여 여기에 표시 된 자리 표시자 값을 업데이트 합니다.
 
        ```csharp
        public void OnGet()
@@ -149,11 +149,11 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 ### <a name="added-files-for-aspnet-core"></a>ASP.NET Core에 대 한 추가 된 파일
 
-- `ConnectedService.json`연결 된 서비스 공급자, 버전 및 설명서 링크에 대 한 일부 정보를 기록 하는를 추가 했습니다.
+- 추가 `ConnectedService.json` 연결 된 서비스 공급자, 버전 및 설명서 링크에 대 한 일부 정보를 기록 합니다.
 
 ### <a name="project-file-changes-for-aspnet-core"></a>ASP.NET Core에 대 한 프로젝트 파일 변경
 
-- 연결된 서비스 ItemGroup 및 `ConnectedServices.json` file을 추가 했습니다.
+- 연결된 서비스 ItemGroup 및 `ConnectedServices.json` 파일을 추가 했습니다.
 
 ### <a name="launchsettingsjson-changes-for-aspnet-core"></a>launchsettings의 ASP.NET Core에 대 한 json 변경 내용
 
@@ -177,7 +177,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 ### <a name="added-references-for-aspnet-framework"></a>ASP.NET Framework에 대 한 참조 추가
 
-프로젝트 파일 .net 참조 및 `packages.config` (NuGet 참조)에 영향을 줍니다.
+프로젝트 파일 .NET 참조 및 `packages.config` (NuGet 참조)에 영향을 줍니다.
 
 | 형식 | 참조 |
 | --- | --- |
@@ -188,7 +188,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
 ### <a name="added-files-for-aspnet-framework"></a>ASP.NET Framework에 대 한 추가 된 파일
 
-- `ConnectedService.json`연결 된 서비스 공급자, 버전 및 설명서에 대 한 링크와 관련 된 정보를 기록 하는를 추가 했습니다.
+- 추가 `ConnectedService.json` 연결 된 서비스 공급자, 버전 및 설명서에 대 한 링크와 관련 된 일부 정보를 기록 합니다.
 
 ### <a name="project-file-changes-for-aspnet-framework"></a>ASP.NET Framework에 대 한 프로젝트 파일 변경 내용
 

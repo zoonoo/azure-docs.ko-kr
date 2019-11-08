@@ -1,5 +1,5 @@
 ---
-title: Scikit를 사용 하 여 기계 학습 모델 학습-배우기
+title: 학습 scikit-기계 학습 모델 배우기
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 기능을 사용 하는 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 scikit 교육 스크립트를 실행 하는 방법을 알아봅니다. 예제 스크립트는 조리개 꽃 이미지를 분류 하 여 scikit의 조리개 데이터 집합을 기반으로 기계 학습 모델을 작성 합니다.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ed93eff6c137e125c2bc1707de441dc9971d6f3f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ea466486509c4b5dadc48ef830c9f05ec42ab5b3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584455"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814853"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>빌드 scikit-Azure Machine Learning를 사용 하 여 규모에 맞게 모델 학습
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -87,13 +87,13 @@ exp = Experiment(workspace=ws, name='sklearn-iris')
 
 ### <a name="prepare-training-script"></a>학습 스크립트 준비
 
-이 자습서에서는 학습 스크립트 **train_iris. py** 가 이미 제공 되어 있습니다. 실제로 사용자 지정 학습 스크립트를 그대로 사용 하 고 코드를 수정 하지 않고도 Azure ML을 사용 하 여 실행할 수 있습니다.
+이 자습서에서는 학습 스크립트 **train_iris py** 이미 제공 되어 있습니다. 실제로 사용자 지정 학습 스크립트를 그대로 사용 하 고 코드를 수정 하지 않고도 Azure ML을 사용 하 여 실행할 수 있습니다.
 
-Azure ML의 추적 및 메트릭 기능을 사용 하려면 교육 스크립트 내에 적은 양의 Azure ML 코드를 추가 합니다.  학습 스크립트 **train_iris** 는 스크립트 내의 `Run` 개체를 사용 하 여 Azure ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
+Azure ML의 추적 및 메트릭 기능을 사용 하려면 교육 스크립트 내에 적은 양의 Azure ML 코드를 추가 합니다.  **Py 학습 train_iris** 스크립트는 스크립트 내에서 `Run` 개체를 사용 하 여 Azure ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
 
 제공 된 학습 스크립트는 `iris = datasets.load_iris()` 함수의 예제 데이터를 사용 합니다.  사용자 고유의 데이터에 대해 데이터 [집합 및 스크립트 업로드](how-to-train-keras.md#data-upload) 와 같은 단계를 사용 하 여 학습 중에 데이터를 사용할 수 있도록 해야 할 수 있습니다.
 
-학습 스크립트 **train_iris** 을 프로젝트 디렉터리에 복사 합니다.
+**Py 학습 train_iris** 스크립트를 프로젝트 디렉터리에 복사 합니다.
 
 ```
 import shutil
@@ -161,7 +161,7 @@ run.wait_for_completion(show_output=True)
 
 - **크기 조정**: 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
 
-- **실행 중**: 스크립트 폴더의 모든 스크립트를 계산 대상으로 업로드 하 고, 데이터 저장소를 탑재 또는 복사 하 고, entry_script를 실행 합니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
+- **실행 중**: 스크립트 폴더의 모든 스크립트가 계산 대상으로 업로드 되 고, 데이터 저장소가 탑재 되거나 복사 되 고, entry_script 실행 됩니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
 
 - **사후 처리**: 실행의./출력 폴더가 실행 기록에 복사 됩니다.
 
@@ -169,7 +169,7 @@ run.wait_for_completion(show_output=True)
 
 모델을 학습 한 후에는 작업 영역에 저장 하 고 등록할 수 있습니다. 모델 등록을 사용 하면 모델 [관리 및 배포](concept-model-management-and-deployment.md)를 간소화 하기 위해 작업 영역에 모델을 저장 하 고 버전을 지정할 수 있습니다.
 
-학습 스크립트 train_iris py에 다음 코드를 추가 하 여 모델을 저장 합니다. 
+학습 스크립트 train_iris (py)에 다음 코드를 추가 하 여 모델을 저장 합니다. 
 
 ``` Python
 import joblib

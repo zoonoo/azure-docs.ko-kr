@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: fc72c59721a6f244806bf229ebded1e66341a04d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 7558ad2e5a4404db140daff89171af92c6072ef6
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177700"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73805988"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
@@ -68,7 +68,7 @@ VM에서 고가용성의 중요한 애플리케이션을 실행할 경우에는 
 가용성 집합은 해당 집합에 배치한 VM 리소스가 Azure 데이터 센터에 배포될 때 서로 간에 격리되도록 하기 위해 Azure에서 사용할 수 있는 논리적 그룹화입니다. Azure는 가용성 집합에 배치한 VM을 여러 물리적 서버, 컴퓨팅 랙, 스토리지 단위 및 네트워크 스위치에서 실행되도록 합니다. 하드웨어 또는 Azure 소프트웨어 오류가 발생할 경우 VM의 하위 집합에만 영향을 주는 한편 전체 애플리케이션은 고객이 계속 사용할 수 있습니다. 가용성 집합은 안정적인 클라우드 솔루션을 빌드하려고 할 때 필수적인 기능입니다.
 
 ## <a name="protect-against-malware"></a>맬웨어로부터 보호
-맬웨어 방지 보호를 설치하여 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거해야 합니다. [Microsoft Antimalware](antimalware.md) 또는 Microsoft 파트너의 엔드포인트 보호 솔루션([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/en-us/search?q=Windows+defender+endpoint+protection&rtc=1) 및 [System Center Endpoint Protection](https://www.microsoft.com/en-us/search?q=System+Center+endpoint+protection&rtc=1))을 설치할 수 있습니다.
+맬웨어 방지 보호를 설치하여 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거해야 합니다. [Microsoft Antimalware](antimalware.md) 또는 Microsoft 파트너의 엔드포인트 보호 솔루션([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) 및 [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
 
 Microsoft 맬웨어 방지 프로그램에는 실시간 보호, 예약된 검색, 맬웨어 치료, 서명 업데이트, 엔진 업데이트, 샘플 보고 및 제외 이벤트 컬렉션과 같은 기능이 포함됩니다. 프로덕션 환경과는 별도로 호스트되는 환경의 경우 VM 및 클라우드 서비스를 보호하는 데 맬웨어 방지 확장을 사용할 수 있습니다.
 
@@ -181,7 +181,7 @@ VM 다이렉트 인터넷 연결을 모니터링 하 고 제한 합니다. 공�
 **세부 정보**: [JIT (just-in-time) vm 액세스](../../security-center/security-center-just-in-time.md) 를 사용 하 여 Azure vm에 대 한 인바운드 트래픽을 잠글 수 있으며, 필요에 따라 vm에 연결 하는 데 편리한 액세스를 제공 하는 동시에 공격에 대 한 노출을 줄일 수 있습니다. JIT를 사용 하도록 설정 하면 Security Center 네트워크 보안 그룹 규칙을 만들어 Azure Vm에 대 한 인바운드 트래픽을 잠급니다. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. 이러한 포트는 JIT 솔루션에 의해 제어 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 보안 모범 사례 및 패턴](best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.
+[Azure 보안 모범 사례 및 패턴](best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인/배포/관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 확인합니다.
 
 Azure 보안 및 관련 Microsoft 서비스에 대한 보다 일반적인 정보를 제공하는 다음 리소스도 확인할 수 있습니다.
 * [Azure 보안 팀 블로그](https://blogs.msdn.microsoft.com/azuresecurity/) – Azure Security 관련 최신 정보를 확인할 수 있습니다.

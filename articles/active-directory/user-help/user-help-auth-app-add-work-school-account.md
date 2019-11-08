@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator 앱에 회사 또는 학교 계정 추가 - Azure Active Directory | Microsoft Docs
+title: Authenticator 앱에 회사 또는 학교 계정 추가-Azure AD
 description: 2단계 인증을 위해 Microsoft Authenticator 앱에 회사 또는 학교 계정을 추가하는 방법을 설명합니다.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be2ee662a061cdcb6acc58e47eda5feda3b9eee
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: c7c9fa41a1278f0e1e54a06c3930e3bbc3d3d3ae
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880789"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803729"
 ---
 # <a name="add-your-work-or-school-account"></a>회사 또는 학교 계정 추가
 
@@ -42,7 +42,7 @@ ms.locfileid: "68880789"
 3. Microsoft Authenticator 앱을 열고 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가**를 선택한 다음, **회사 또는 학교 계정**을 선택합니다.
 
     >[!Note]
-    >Microsoft Authenticator 앱을 처음으로 설정 하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지 (iOS) 아니면 앱이 사진을 촬영 하 고 비디오를 녹화 (Android) 할 수 있도록 허용할지 묻는 메시지가 표시 될 수 있습니다. **허용** 을 선택 하 여 인증자 앱이 카메라에 액세스 하 여 다음 단계에서 QR 코드를 그림으로 이동할 수 있도록 해야 합니다. 카메라를 허용 하지 않는 경우에도 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가 해야 합니다. 수동으로 코드를 추가 하는 방법에 대 한 자세한 내용은 [앱에 수동으로 계정 추가](user-help-auth-app-add-account-manual.md)를 참조 하세요.
+    >Microsoft Authenticator 앱을 처음으로 설정하는 경우 앱에서 카메라에 액세스할 수 있도록 허용할지(iOS) 아니면 앱에서 사진을 촬영하고 비디오를 녹화할 수 있도록 허용할지(Android) 묻는 메시지를 받을 수 있습니다. 인증자 앱이 카메라에 액세스하여 다음 단계에서 QR 코드의 사진을 찍을 수 있도록 **허용**을 선택해야 합니다. 카메라를 허용하지 않는 경우에도 여전히 인증자 앱을 설정할 수 있지만 코드 정보를 수동으로 추가해야 합니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
 4. 디바이스 카메라를 사용해 컴퓨터의 **모바일 앱 구성** 화면에서 QR 코드를 스캔하고 **완료**를 선택합니다.
 

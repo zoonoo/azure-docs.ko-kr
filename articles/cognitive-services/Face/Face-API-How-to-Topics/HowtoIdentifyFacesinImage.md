@@ -1,7 +1,7 @@
 ---
 title: '예제: 이미지에서 얼굴 식별 - Face API'
 titleSuffix: Azure Cognitive Services
-description: Face API를 사용하여 이미지에서 얼굴을 식별합니다.
+description: 이 가이드에서는 미리 알려진 사람으로부터 만들어진 PersonGroup 개체를 사용하여 알 수 없는 얼굴을 식별하는 방법을 보여 줍니다.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: c21647e3fbbc38e905a6d6ec116551004da20d5c
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 10ab11669569b16293ccf9b8777190cf271e5795
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300525"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744309"
 ---
 # <a name="example-identify-faces-in-images"></a>예제: 이미지에서 얼굴 식별
 

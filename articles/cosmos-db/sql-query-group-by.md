@@ -6,20 +6,20 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: tisande
-ms.openlocfilehash: d92e24836a0eb5757de9bbdb516be290456deb7f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e41e81457421bfe27e3c0313fc06e39e6df4cdce
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333262"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819100"
 ---
 # <a name="group-by-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 GROUP BY 절
 
 GROUP BY 절은 하나 이상의 지정 된 속성 값에 따라 쿼리의 결과를 나눕니다.
 
 > [!NOTE]
-> Azure Cosmos DB 현재 [.NET SDK 3.3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/3.3.0) 이상에서 GROUP BY를 지원 합니다.
-> 다른 언어 SDK 및 Azure Portal에 대 한 지원은 현재 사용할 수 없지만 계획 됩니다.
+> Azure Cosmos DB 현재 .NET SDK 3.3 이상 및 JavaScript SDK 3.4 이상에서 GROUP BY를 지원 합니다.
+> 다른 언어 SDK의 지원은 현재 사용할 수 없지만 계획 되어 있습니다.
 
 ## <a name="syntax"></a>구문
 
@@ -53,7 +53,7 @@ GROUP BY 절은 하나 이상의 지정 된 속성 값에 따라 쿼리의 결�
 - In
 - 집계 시스템 함수 (SELECT 절 에서만 허용 됨)
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 이 예에서는 [Azure Cosmos DB Query Playground](https://www.documentdb.com/sql/demo)를 통해 사용할 수 있는 영양 데이터 집합을 사용 합니다.
 

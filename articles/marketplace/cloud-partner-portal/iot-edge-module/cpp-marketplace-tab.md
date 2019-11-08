@@ -1,27 +1,28 @@
 ---
-title: Azure IoT Edge 모듈에 대 한 marketplace 설명 | Azure Marketplace
+title: Azure IoT Edge 모듈의 Marketplace 설명 | Azure Marketplace
 description: IoT Edge 모듈에 대한 마켓플레이스 설명을 만듭니다.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: pabutler
-ms.openlocfilehash: aa0c908e18233926965d8dc3cd1b474f876b8dda
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 57bae42eb44c174657e59fa8b017da2931ae681b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942422"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73814595"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>IoT Edge 모듈 Marketplace 탭
 
-**새 제품** 페이지의 **Marketplace** 탭을 사용하면 잠재 고객에게 마케팅, 판매 및 법적 정보와 계약을 제공하고 마켓플레이스에서 창출된 잠재 고객을 관리할 수 있습니다. 이 긴 형식 4 개의 섹션으로 구분 됩니다. **개요**, **아티팩트 마케팅**합니다 **잠재 고객 관리**, 및 **법적**합니다.
+**새 제안** 페이지의 **Marketplace** 탭을 사용하면 잠재 고객에게 마케팅, 판매 및 법적 정보와 계약을 제공하고 마켓플레이스에서 창출된 잠재 고객을 관리할 수 있습니다. 이 긴 양식은 **개요**, **마케팅 아티팩트**, **잠재 고객 관리** 및 **법적 정보**의 4개 섹션으로 나뉩니다.
 
 
 ## <a name="overview"></a>개요
 
-이 섹션에서는 Azure Marketplace 제품에 대한 일반적인 정보를 입력합니다.  필드 이름에 추가된 별표(*)는 필수를 나타냅니다.
+이 섹션에서는 Azure Marketplace 제안에 대한 일반적인 정보를 입력합니다.  필드 이름에 추가된 별표(*)는 필수를 나타냅니다.
 
 ![IoT Edge 모듈에 대한 새 제품 양식에 있는 Marketplace 탭의 개요 섹션](./media/iot-edge-module-marketplace-tab-overview.png)
 
@@ -32,11 +33,11 @@ ms.locfileid: "64942422"
 | **제목\***                 | 제품의 제목입니다. 마켓플레이스에서 눈에 띄게 표시됩니다.  최대 길이는 50자입니다. <!--ADD PICTURE IN ACTION-->|
 | **요약\***               | 제품의 간단한 요약입니다. 최대 길이는 100자입니다. <!--ADD PICTURE IN ACTION-->|
 | **긴 요약\***          | 제품의 더 긴 요약입니다(**요약**과 동일할 수 있지만).  최대 길이는 256자입니다. <!--ADD PICTURE IN ACTION-->|
-| **설명\***           | 제품에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다.<br/> 맨 아래에 *최소 하드웨어 요구 사항*을 포함해야 합니다. 예: <br/> <p><u>최소 하드웨어 요구 사항:</u> Linux x64 및 arm32 OS에 1GB 이상의 RAM, 500mb의 저장소</p>
-| **마케팅 식별자\***  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예를 들면 다음과 같습니다. <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
+| **설명\***           | 제품에 대한 설명입니다.  최대 길이는 3,000자이며, 단순 HTML 형식을 지원합니다.<br/> 맨 아래에 *최소 하드웨어 요구 사항*을 포함해야 합니다. 예: <br/> <p><u>최소 하드웨어 요구 사항:</u> Linux x64 및 arm32 OS, 1GB의 RAM, 500Mb의 스토리지</p>
+| **마케팅 식별자\***  | 이 제안과 연결할 고유 URL이며, 일반적으로 조직 및 솔루션 이름을 포함하고 최대 길이는 50자입니다.  예: <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
 | **미리 보기 구독 ID** | 1-100개의 미리 보기 구독 식별자를 추가합니다. 제안이 게시된 후 라이브 상태가 되기 전에 이러한 허용 목록에 추가된 구독에서 해당 제안에 액세스할 수 있습니다. |
-| **유용한 링크**          | 제품이 가장 적합하게 연결될 수 있는 비즈니스 및 기술 범주에 대한 다중 선택입니다.  최대 10개가 허용됩니다. [Azure IoT 디바이스 카탈로그](https://catalog.azureiotsolutions.com/)에서 설명서에 하나 이상의 링크 및 호환 IoT Edge 디바이스에 하나의 링크를 추가해야 합니다. |
-| **권장된 범주\*** | 최대 5개의 범주를 선택합니다. 이러한 범주는 제품 세부 정보 페이지에 표시됩니다. 찾아보기 페이지에서 모든 IoT Edge 모듈이 *사물 인터넷 \> IoT Edge 모듈* 범주에 표시됩니다.|
+| **유용한 링크**          | 제안이 가장 적합하게 연결될 수 있는 비즈니스 및 기술 범주에 대한 다중 선택입니다.  최대 10개가 허용됩니다. [Azure IoT 디바이스 카탈로그](https://catalog.azureiotsolutions.com/)에서 설명서에 하나 이상의 링크 및 호환 IoT Edge 디바이스에 하나의 링크를 추가해야 합니다. |
+| **제안 된 범주\*** | 최대 5개의 범주를 선택합니다. 이러한 범주는 제품 세부 정보 페이지에 표시됩니다. 찾아보기 페이지에서 모든 IoT Edge 모듈이 *사물 인터넷 \> IoT Edge 모듈* 범주에 표시됩니다.|
 |  |  |
 
 
@@ -75,7 +76,7 @@ ms.locfileid: "64942422"
 
 ## <a name="marketing-artifacts"></a>마케팅 아티팩트
 
-이 섹션에는 다음 하위 섹션에 있습니다. **로고**하십시오 **스크린 샷**, 및 **비디오**합니다. 
+이 섹션에는 다음 하위 섹션: **로고**, **스크린샷** 및 **비디오**가 있습니다. 
 
 >[!Note]
 >로고는 유일하게 필요한 마케팅 아티팩트이지만, 모든 아티팩트가 고객에게 가장 적절하게 호소하는 데 권장됩니다.
@@ -88,13 +89,13 @@ ms.locfileid: "64942422"
 | **작음\***                 | 40x40 픽셀 PNG 형식                                                     |
 | **중간\***                | 90x90 픽셀 PNG 형식                                                     |
 | **큼\***                 | 115x115 픽셀 PNG 형식                                                  |
-| **와이드\***                  | 255x115 픽셀 PNG 형식                                                   |
+| **넓은\***                  | 255x115 픽셀 PNG 형식                                                   |
 | **대표**                  | 815x290 픽셀 PNG 형식  선택 사항이지만, 일단 업로드되면 대표 로고를 삭제할 수 없습니다. |
 | *스크린샷*  | 스크린샷은 제품 세부 정보 페이지에 표시됩니다. IoT Edge 모듈의 의미 및 작동 방식을 시각적으로 알려주는 좋은 방법입니다. 아키텍처 다이어그램이나 사용 사례 그림을 예제로 표시할 수 있습니다. 선택 사항이지만, SKU당 최대 5개의 스크린샷을 제공합니다. |
-| **Name**                  | 이름 또는 제목입니다. 최대 길이는 100자입니다.                             |
+| **이름**                  | 이름 또는 제목입니다. 최대 길이는 100자입니다.                             |
 | **이미지**                 | 화면 캡처 이미지, 533x324 픽셀 PNG 형식                               |
 | *비디오*  | 비디오는 제품 세부 정보 페이지에 표시됩니다. IoT Edge 모듈의 의미 및 작동 방식을 시각적으로 알려주는 좋은 방법입니다. |
-| **Name**                  | 이름 또는 제목입니다. 최대 길이는 100자입니다.                             |
+| **이름**                  | 이름 또는 제목입니다. 최대 길이는 100자입니다.                             |
 | **링크**                  | YouTube 또는 Vimeo에서 호스팅되는 비디오 URL입니다.                                        |
 | **썸네일**             | 533x324 픽셀 PNG 형식                                                     |
 |  |  |
@@ -110,7 +111,7 @@ Cloud 파트너 포털에 업로드되는 모든 로고는 다음 지침을 따�
 *  Azure 디자인은 단순한 색 팔레트를 사용합니다. 로고의 기본 색상과 보조 색상 수는 적게 유지합니다.
 *  Azure Portal의 테마 색은 흰색과 검은색입니다. 로고의 배경색으로는 이러한 색을 사용하지 마세요. Azure Portal에서 로고가 돋보이도록 하는 색을 사용합니다. 간단한 기본 색을 사용하는 것이 좋습니다. 투명한 배경을 사용하는 경우 로고/텍스트가 흰색, 검은색 또는 파란색이 아닌지 확인합니다.
 *  로고의 배경에 그라데이션 효과를 사용하지 않습니다.
-*  로고에 회사 또는 브랜드 이름을 포함한 텍스트를 추가하지 않습니다. 로고의 모양과 느낌은 "평면적"이어야 하며 그라데이션은 사용하지 않습니다.
+*  로고에 회사 또는 브랜드 이름이 포함된 텍스트는 배치하지 않습니다. 로고의 모양과 느낌은 "평면적"이어야 하며 그라데이션은 사용하지 않습니다.
 *  로고를 늘리지 않습니다.
 
 
@@ -160,13 +161,13 @@ As an example, the following hero icon is for the Azure Container Service.
 
 ## <a name="legal"></a>법적 정보
 
-이 섹션에서는 각 제품에 필요한 두 법률 문서를 제공할 수 있습니다. 개인정보처리방침 및 사용 약관을 제공할 수 있습니다.
+이 섹션에서는 각 제품에 필요한 두 가지 법적 문서, 즉 개인정보처리방침 및 사용 약관을 제공할 수 있습니다.
 
 |  **필드**                    |     **설명**                                                          |
 |  ---------                    |     ---------------                                                          |
-| **개인정보 처리 방침 URL\***      | 게시된 개인정보처리방침에 대한 URL                                            |
-| **사용 하 여 표준 Constract\***  | 표준 Microsoft 계약 템플릿이 사용 여부를 나타냅니다.  자세한 내용은 [표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract)합니다.   |
-| **사용 약관\***            | *사용 약관* 인라인으로 간단한 HTML 또는 게시 페이지를 사용 약관에 대 한 링크     |
+| **개인 정보 취급 방침 URL\***      | 게시된 개인정보처리방침에 대한 URL입니다.                                            |
+| **표준 Constract\* 사용**  | 표준 Microsoft 계약 템플릿을 사용할지 여부를 지정 합니다.  자세한 내용은 [표준 계약](https://docs.microsoft.com/azure/marketplace/standard-contract)을 참조 하세요.   |
+| **사용 약관\***            | 인라인 간단한 HTML로 *사용 약관* 게시 된 사용 약관 페이지에 연결 합니다.     |
 |  |  |
 
 

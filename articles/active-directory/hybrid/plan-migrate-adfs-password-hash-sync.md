@@ -12,12 +12,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23ba9b06c9a3e6025d7227493713fe9187fba233
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9603cdf11373891aaa3541330cb7f65c09352496
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514898"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818901"
 ---
 # <a name="migrate-from-federation-to-password-hash-synchronization-for-azure-active-directory"></a>Azure Active Directory를 페더레이션에서 암호 해시 동기화로 마이그레이션
 
@@ -99,7 +99,7 @@ Azure AD Connect는 기본 설정 또는 사용자 지정 설치를 사용하여
 Get-MsolDomainFederationSettings -DomainName YourDomain.extention | fl *
 ```
 
-예제:
+예:
 
 ``` PowerShell
 Get-MsolDomainFederationSettings -DomainName Contoso.com | fl *
@@ -161,7 +161,7 @@ AD FS 신속 복원 도구를 사용하지 않도록 선택한 경우 적어도 
 
 장치를 Azure AD에 가입 하는 경우 보안 및 규정 준수에 대 한 액세스 표준을 충족 하는 장치를 적용 하는 조건부 액세스 규칙을 만들 수 있습니다. 또한 사용자가 개인 계정 대신 회사 조직 또는 학교 계정을 사용하여 디바이스에 로그인할 수 있습니다. 하이브리드 Azure AD 조인 디바이스를 사용하는 경우 Active Directory 도메인 조인 디바이스를 Azure AD에 조인할 수 있습니다. 페더레이션 환경에서 이 기능을 사용하도록 설정되었을 수 있습니다.
 
-도메인을 암호 해시 동기화로 변환한 후 도메인에 가입 된 모든 장치에 대해 하이브리드 조인이 계속 작동 하도록 하려면 Windows 10 클라이언트의 경우 Azure AD Connect 장치 옵션을 사용 하 여 SCP를 채운 다음 활성으로 동기화 해야 합니다. Azure AD에 대 한 디렉터리 컴퓨터 계정 
+도메인을 암호 해시 동기화로 변환한 후 도메인에 가입 된 모든 장치에 대해 하이브리드 조인이 계속 작동 하도록 하려면 Windows 10 클라이언트의 경우 Azure AD Connect 장치 옵션을 사용 하 여 Active Directory 컴퓨터를 동기화 해야 합니다. Azure AD에 대 한 계정. 
 
 Windows 8 및 Windows 7 컴퓨터 계정의 경우 하이브리드 조인은 Seamless SSO를 사용하여 Azure AD에서 컴퓨터를 등록합니다. Windows 10 디바이스처럼 Windows 8 및 Windows 7 컴퓨터 계정을 동기화할 필요는 없습니다. 그러나 업데이트된 workplacejoin.exe 파일(.msi 파일을 통해)을 Windows 8 및 Windows 7 클라이언트에 배포해야 Seamless SSO를 사용하여 직접 등록할 수 있습니다. [.msi 파일을 다운로드하세요](https://www.microsoft.com/download/details.aspx?id=53554).
 
@@ -335,9 +335,9 @@ Windows 8 및 Windows 7 컴퓨터 계정의 경우 하이브리드 조인은 Sea
 3. **Azure AD에 연결** 페이지에서 글로벌 관리자 계정의 사용자 이름과 암호를 입력합니다.
 4. **사용자 로그인** 페이지에서 **암호 해시 동기화** 단추를 선택합니다. **Single Sign-On 인증 사용**을 선택하고, **다음**을 선택합니다.
 
-   암호 해시 동기화를 사용 하도록 설정 하기 전에: 사용자 로그인 페이지에서 구성 안 함 옵션을 표시 하는 ![Screenshot ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
+   암호 해시 동기화를 사용 하도록 설정 하기 전에: 사용자 로그인 페이지에서 구성 안 함 옵션을 보여 주는 ![스크린샷](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image12.png)<br />
 
-   암호 해시 동기화를 사용 하도록 설정한 후: 사용자 로그인 페이지에 새 옵션을 표시 하는 ![Screenshot ](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
+   암호 해시 동기화를 사용 하도록 설정한 후: ![사용자 로그인 페이지의 새 옵션을 보여 주는 스크린샷](media/plan-migrate-adfs-password-hash-sync/migrating-adfs-to-phs_image13.png)<br />
    
    > [!NOTE]
    > Azure AD Connect 버전 1.1.880.0부터는 기본적으로 **Seamless Single Sign-On** 확인란이 선택됩니다.

@@ -1,22 +1,22 @@
 ---
-title: Azure SQL Database 지역 복제를 사용 하 여 SaaS 앱에 대 한 재해 복구
+title: 지역 복제를 사용 하는 SaaS 앱에 대 한 재해 복구
 description: 가동 중단 시 Azure SQL Database 지역에서 복제를 사용하여 다중 테넌트 SaaS 앱을 복구하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: AyoOlubeko
 ms.author: craigg
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: f6f8ed39de36ce38b0bc4b879980a054bf480d0e
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0668ccf5ceb972dd120e4e3f37be6d879a12d0a7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692231"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811712"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>데이터베이스 지역에서 복제를 사용하여 다중 테넌트 SaaS 애플리케이션 재해 복구
 

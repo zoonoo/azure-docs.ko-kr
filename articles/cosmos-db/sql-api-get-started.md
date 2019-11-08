@@ -1,21 +1,21 @@
 ---
-title: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
-description: C# 콘솔 애플리케이션을 사용하여 Azure Cosmos DB SQL API 리소스를 만드는 방법을 알아봅니다.
+title: '자습서: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리'
+description: '자습서: C# 콘솔 애플리케이션을 사용하여 Azure Cosmos DB SQL API 리소스를 만드는 방법을 알아봅니다.'
 author: kirankumarkolli
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 09/24/2019
+ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: 35e92ff1591bc5f0427dabbf68e697d9c3c32b48
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 25846bb7a19d29a3a72146d4046b5205183a247e
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299282"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720855"
 ---
-# <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>.NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
+# <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>자습서: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)

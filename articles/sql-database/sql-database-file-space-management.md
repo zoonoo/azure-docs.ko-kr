@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database 단일/풀링된 데이터베이스 파일 공간 관리 | Microsoft Docs
+title: 단일/풀링된 데이터베이스 파일 공간 관리
 description: 이 페이지에서는 Azure SQL Database의 단일 및 풀링된 데이터베이스로 파일 공간을 관리하는 방법을 설명하고, 단일 및 풀링된 데이터베이스를 축소해야 할지 여부를 결정하는 방법은 물론 데이터베이스 축소 작업을 수행하는 방법에 대한 코드 샘플을 제공합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: jrasnick, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: c92ffb6aa6db9c77a859661115d54ff63ea02401
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a8fe58313bce6e9a21b07aa095672ec35ce572d2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568195"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803064"
 ---
 # <a name="manage-file-space-for-single-and-pooled-databases-in-azure-sql-database"></a>Azure SQL Database의 단일 및 풀링된 데이터베이스의 파일 공간 관리
 
@@ -29,7 +29,7 @@ ms.locfileid: "68568195"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 Azure SQL Database의 단일 및 풀링된 데이터베이스를 사용하면, 데이터베이스에 대한 기본 데이터 파일의 할당이 사용되는 데이터 페이지의 양을 초과할 수 있는 워크로드 패턴이 있습니다. 이 상태는 사용되는 공간이 증가하고 그 후에 데이터가 삭제되는 경우 발생할 수 있습니다. 이렇게 되는 이유는 데이터가 삭제될 때 할당되어 있는 파일 공간이 자동으로 회수되지 않기 때문입니다.
 
@@ -62,7 +62,7 @@ SQL Database 서비스는 사용되지 않은 할당된 공간을 회수하기 �
 
 다음 스토리지 공간 수량을 이해하는 것은 데이터베이스의 파일 공간을 관리하는 데 중요합니다.
 
-|데이터베이스 수량|정의|주석|
+|데이터베이스 수량|정의|설명|
 |---|---|---|
 |**사용된 데이터 공간**|8KB 페이지에 데이터베이스 데이터를 저장하는 데 사용된 공간의 크기입니다.|일반적으로 사용된 공간은 삽입(삭제) 시 증가(감소)합니다. 작업 및 조각화와 관련된 데이터의 크기 및 패턴에 따라 삽입 또는 삭제 시 사용된 공간이 변경되지 않는 경우가 있습니다. 예를 들어 모든 데이터 페이지에서 하나의 행을 삭제한다고 해서 사용된 공간이 반드시 감소하지는 않습니다.|
 |**할당된 데이터 공간**|데이터베이스 데이터 저장에 사용할 수 있는 형식화된 파일 공간의 크기입니다.|할당된 공간의 크기는 자동으로 증가하지만 삭제 후에는 감소하지 않습니다. 이 동작은 공간을 다시 형식화할 필요가 없기 때문에 향후 삽입이 더 빨라질 수 있습니다.|
@@ -119,7 +119,7 @@ SELECT DATABASEPROPERTYEX('db1', 'MaxSizeInBytes') AS DatabaseDataMaxSizeInBytes
 
 다음 스토리지 공간 수량을 이해하는 것은 탄력적 풀의 파일 공간을 관리하는 데 중요합니다.
 
-|탄력적 풀 수량|정의|주석|
+|탄력적 풀 수량|정의|설명|
 |---|---|---|
 |**사용된 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 사용되는 데이터 공간의 합계입니다.||
 |**할당된 데이터 공간**|탄력적 풀에서 모든 데이터베이스에 할당된 데이터 공간의 합계입니다.||

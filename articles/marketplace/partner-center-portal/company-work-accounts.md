@@ -5,14 +5,15 @@ author: ChJenk
 manager: evansma
 ms.author: parthp
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 744b4e4975c5d4cec5c705e639e9cc8d252a7dd6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4783d3ac8ef78929621179d87f9c8948f6dd079c
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194287"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73811991"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>회사 회사 계정 및 파트너 센터
 
@@ -23,7 +24,7 @@ ms.locfileid: "70194287"
 회사에서 Azure, Microsoft Intune 또는 Office 365와 같은 Microsoft 클라우드 서비스를 구독 한 경우 파트너 센터에서 사용할 수 있는 회사 전자 메일 계정 도메인 (Azure Active Directory 테 넌 트 라고도 함)이 이미 있습니다.
 
 다음 단계를 수행 하 여 확인 합니다.
-1. 에서 https://portal.azure.com Azure 관리 포털에 로그인 합니다.
+1. https://portal.azure.com에서 Azure 관리 포털에 로그인 합니다.
 2. 왼쪽 탐색 메뉴에서 **Azure Active Directory** 를 선택 하 고 **사용자 지정 도메인 이름**을 선택 합니다.
 3. 회사 계정이 이미 있으면 도메인 이름이 나열 됩니다.
 
@@ -38,11 +39,11 @@ ms.locfileid: "70194287"
 회사에 대 한 새 회사 계정을 만들려면 다음 단계를 수행 합니다. 회사의 Microsoft Azure 계정에 대 한 관리 권한이 있는 사용자에 게 지원을 요청 해야 할 수 있습니다.
 
 1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. 왼쪽 탐색 메뉴에서 **Azure Active Directory** -> **사용자**를 선택 합니다.
+2. 왼쪽 탐색 메뉴에서 **사용자** -> **Azure Active Directory** 을 선택 합니다.
 3. **새 사용자** 를 선택 하 고 이름 및 전자 메일 주소를 입력 하 여 새 Azure 회사 계정을 만듭니다. **디렉터리 역할이** **사용자** 로 설정 되어 있는지 확인 하 고 맨 아래에 있는 **암호 표시** 확인란을 선택 하 여 자동 생성 된 암호를 확인 하 고 기록 합니다.
 4. **만들기** 를 선택 하 여 새 사용자를 저장 합니다.
 
-사용자 계정에 대 한 전자 메일 주소는 디렉터리에서 확인 된 도메인 이름 이어야 합니다. 왼쪽 탐색 메뉴에서**사용자 지정 도메인 이름** **Azure Active Directory** -> 선택 하 여 디렉터리에 확인 된 도메인을 모두 나열할 수 있습니다.
+사용자 계정에 대 한 전자 메일 주소는 디렉터리에서 확인 된 도메인 이름 이어야 합니다. 왼쪽 탐색 메뉴에서 **Azure Active Directory** -> **사용자 지정 도메인 이름** 을 선택 하 여 디렉터리에 확인 된 도메인을 모두 나열할 수 있습니다.
 
 Azure Active Directory에서 사용자 지정 도메인을 추가 하는 방법에 대해 자세히 알아보려면 [AZURE AD에서 도메인 추가 또는 연결](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain)을 참조 하세요.
 
