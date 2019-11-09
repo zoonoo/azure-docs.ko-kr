@@ -32,8 +32,8 @@
 - name: 리소스
   items:
     - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/en-us/updates/?product=cognitive-services'
+      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
     - name: 언어 지원
       href: 'https://aka.ms/ltlangsupport'
     - name: 국가별 가용성
-      href: 'https://azure.microsoft.com/en-us/global-infrastructure/services/?products=cognitive-services'
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'

@@ -1,23 +1,24 @@
 ---
 title: Azure 구독 로그인 문제 해결
 description: Azure Portal 또는 Azure 계정 센터에 로그인할 수 없는 문제를 해결하는 데 도움이 됩니다.
+services: azure
 author: v-miegge
-manager: na
+manager: dcscontentpm
 editor: na
 tags: billing
 ms.service: billing
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
-ms.openlocfilehash: ca641813e8b01a39d31a56e3730424b0fa1d6436
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e2cbaa5cf226eaf9835c1a63d21fae54c7093117
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69657048"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795431"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Azure 구독 로그인 문제 해결
 
@@ -73,7 +74,7 @@ Azure 청구 및 구독에 대한 기타 문제 해결 문서
 - [구독을 찾을 수 없음](billing-no-subscriptions-found.md)
 - [Enterprise 비용 보기 사용 안 함](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 
-## <a name="contact-us-for-help"></a>도움이 필요하면 문의하세요.
+## <a name="contact-us-for-help"></a>도움이 필요한 경우 문의처
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

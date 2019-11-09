@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: ff8f5772880f047bbe0b0d798c944b38da486468
+  ms.openlocfilehash: d769b906324c1022baffff198fea6e4e44821757
   ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
   ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73888789"
+  ms.locfileid: "73891808"
 landingContent:
 - title: Azure IoT Central 정보
   linkLists:
@@ -42,35 +42,37 @@ landingContent:
     - text: 디바이스 템플릿 설정
       url: howto-set-up-template.md
     - text: IoT 플러그 앤 플레이 디바이스 연결
-      url: tutorial-add-device.md
+      url: tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
     links:
     - text: MXChip IoT DevKit 준비 및 연결
       url: howto-connect-devkit.md
     - text: 다른 IoT 클라우드 연결
-      url: howto-build-iotc-device-bridge.md
+      url: ../core/howto-build-iotc-device-bridge.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
 - title: 연결 유지
   linkLists:
   - linkListType: tutorial
     links:
-    - text: 디바이스 설정 사용
-      url: howto-use-device-sets.md
+    - text: 디바이스 그룹 사용
+      url: tutorial-use-device-groups.md
   - linkListType: how-to-guide
     links:
     - text: 디바이스 관리
       url: howto-manage-devices.md
     - text: 작업 실행
-      url: howto-run-a-job.md
+      url: ../core/howto-run-a-job.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - text: 디바이스 데이터 분석
       url: howto-create-analytics.md
 - title: 변환
   linkLists:
   - linkListType: tutorial
     links:
+    - text: 규칙 만들기
+      url: quick-configure-rules.md
     - text: 원격 분석 규칙 만들기
-      url: howto-create-telemetry-rules.md
+      url: tutorial-create-telemetry-rules.md
     - text: Blob Storage 살펴보기
-      url: howto-export-data-blob-storage.md
+      url: howto-export-data.md
   - linkListType: how-to-guide
     links:
     - text: 사용자 지정 규칙 만들기
@@ -90,8 +92,8 @@ landingContent:
     - text: 애플리케이션 UI 사용자 지정
       url: howto-customize-ui.md
     - text: 개인 대시보드 구성
-      url: howto-create-personal-dashboards.md
+      url: ../core/howto-create-personal-dashboards.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - text: 대시보드 타일 사용
-      url: howto-add-tiles-to-your-dashboard.md
+      url: ../core/howto-add-tiles-to-your-dashboard.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json
     - text: 애플리케이션 템플릿 사용
       url: howto-use-app-templates.md

@@ -4,16 +4,16 @@ ms.service: billing
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
-ms.openlocfilehash: 015803c50aab06cadd290783afca6a41673f8be3
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 42e52ac964ec78e12be64d1bda63d7d04ff9beca
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376810"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850427"
 ---
 계약 유형을 검사하여 Microsoft 파트너 계약의 청구 계정에 액세스할 수 있는지 확인합니다.
  
-1. [Azure Portal]( http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
  
 2. **Cost Management + 청구**에서 검색합니다.
  

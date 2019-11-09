@@ -10,72 +10,72 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: cf720d7a526a913cc4c06ee160de3eecbe92e0a1
-  ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+  ms.openlocfilehash: f43c21d483bbb43bb270a7a70c4de6be1fb90f35
+  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/30/2019
-  ms.locfileid: "73176107"
+  ms.lasthandoff: 11/09/2019
+  ms.locfileid: "73890755"
 highlightedContent:
   items:
   - title: IoT Central이란?
     itemType: overview
-    url: ./core/overview-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    url: ./preview/overview-iot-central.md
   - title: 애플리케이션 템플릿이란?
     itemType: concept
-    url: ./core/concepts-app-templates.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    url: ./core/concepts-app-templates.md
   - title: Azure IoT Central 아키텍처
     itemType: architecture
-    url: ./core/concepts-architecture-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    url: ./preview/concepts-architecture.md
   - title: 새 애플리케이션 만들기
     itemType: quickstart
-    url: ./core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    url: ./preview/quick-deploy-iot-central.md
   - title: 디바이스 유형 정의 및 디바이스 추가
     itemType: tutorial
-    url: ./core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    url: ./preview/howto-set-up-template.md
   - title: 디바이스 모니터링
     itemType: tutorial
-    url: ./core/tutorial-create-telemetry-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    url: ./preview/tutorial-create-telemetry-rules.md
 conceptualContent:
   items:
   - title: 연결(미리 보기 기능)
     links:
-    - url: ./core/howto-set-up-template-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - url: ./preview/howto-set-up-template.md
       itemType: how-to-guide
       text: 디바이스 템플릿 설정
-    - url: ./core/tutorial-connect-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - url: ./preview/tutorial-connect-pnp-device.md
       itemType: tutorial
       text: IoT 플러그 앤 플레이 디바이스 연결
     footerLink:
-      url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ./preview/index.yml
       text: 자세히 보기
   - title: 연결 유지(미리 보기 기능)
     links:
-    - url: ./core/tutorial-use-device-groups-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - url: ./preview/tutorial-use-device-groups.md
       itemType: how-to-guide
       text: 디바이스 그룹 사용
-    - url: ./core/howto-manage-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - url: ./preview/howto-manage-devices.md
       itemType: how-to-guide
       text: 디바이스 관리
-    - url: ./core/howto-run-a-job.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - url: ./core/howto-run-a-job.md
       itemType: concept
       text: 작업을 실행하는 방법
-    - url: ./core/howto-create-analytics-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - url: ./preview/howto-create-analytics.md
       itemType: how-to-guide
       text: 디바이스 데이터 분석
     footerLink:
-      url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ./preview/index.yml
       text: 자세히 보기
   - title: 변환(미리 보기 기능)
     links:
-    - url: ./core/howto-create-telemetry-rules.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - url: ./preview/tutorial-create-telemetry-rules.md
       itemType: how-to-guide
       text: 원격 분석 규칙 만들기
-    - url: ./core/howto-export-data-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+    - url: ./preview/howto-export-data.md
       itemType: how-to-guide
       text: 연속 데이터 내보내기 구성
     footerLink:
-      url: ./core/index.yml?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      url: ./preview/index.yml
       text: 자세히 보기
 productDirectory:
   title: 업계 애플리케이션 템플릿을 사용하여 빌드 시작

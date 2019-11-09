@@ -16,7 +16,7 @@
     - name: IoT Hub에 디바이스 연결 - Linux
       href: quickstart-connect-pnp-device-linux.md
     - name: 디바이스를 IoT Central에 연결
-      href: ../iot-central/core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      href: ../iot-central/preview/quick-create-pnp-device.md
     - name: 솔루션에서 디바이스에 연결
       href: quickstart-connect-pnp-device-solution.md
 - name: 자습서

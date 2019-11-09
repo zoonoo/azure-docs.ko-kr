@@ -5,8 +5,6 @@
   items:
     - name: 요금 청구 방식
       href: billing-understand-your-bill.md
-    - name: EA 요금 청구 이해
-      href: billing-understand-your-bill-ea.md
     - name: 요금 청구 방식 - Microsoft 고객 계약
       href: billing-mca-understand-your-bill.md
     - name: 요금 청구 방식 - Microsoft 파트너 계약
@@ -159,6 +157,8 @@
       items:
         - name: Azure EA 포털에서 시작
           href: billing-ea-portal-get-started.md
+        - name: EA 요금 청구 이해
+          href: billing-understand-your-bill-ea.md
         - name: Azure의 EA 역할
           href: billing-understand-ea-roles.md
         - name: Azure EA 포털 관리

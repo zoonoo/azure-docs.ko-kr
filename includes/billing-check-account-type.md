@@ -4,16 +4,16 @@ ms.service: billing
 ms.topic: include
 ms.date: 07/01/2019
 ms.author: amberb
-ms.openlocfilehash: 4b2533131407081b97bb491895d96cf566442090
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 79e5e0bf1476bf049e47ba6aedcc172cea0bb13c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375455"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850429"
 ---
 계약 유형을 검사하여 청구 계정 유형 확인
  
-1. [Azure Portal]( http://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
  
 2. **Cost Management + 청구**에서 검색합니다.
  

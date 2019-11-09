@@ -6,14 +6,14 @@ author: bandersmsft
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: d211334ad2aa760cd63b98c6827fb2512811a1d3
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: b1cc034b4d397f170b57e873cb9a5d74c91f83f4
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806949"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746449"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>월별 결제로 예약 구매
 
@@ -24,6 +24,7 @@ ms.locfileid: "70806949"
 월별 결제는 다음에 사용할 수 있습니다.
 
 - 가상 머신
+- Azure Storage
 - SQL Database
 - SQL Data Warehouse
 - Cosmos DB
@@ -60,20 +61,6 @@ ms.locfileid: "70806949"
 매월 지불하는 예약을 취소하는 경우에는, 취소되는 향후 확정된 지불액에 대해 취소 수수료가 적용될 수 있습니다. 확정된 남은 지불액은 $50,000USD 환불 한도가 될 때까지 누적됩니다.
 
 교환 및 환불에 대한 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](billing-azure-reservations-self-service-exchange-and-refund.md)을 참조하세요.
-
-## <a name="faq"></a>FAQ
-
-Q. Azure에 "부분 선불 예약"이 제공되나요?<br>
-a. 아니요. 선불 및 매달 지불하는 예약 비용은 동일하기 때문에 부분 선불 결제는 지원되지 않습니다.
-
-Q. Microsoft CSP(클라우드 솔루션 공급자) 프로그램에 월별 결제를 사용할 수 있나요?<br>
-a. 예, 파트너는 Azure Portal에서 CSP 고객을 위한 예약을 구매할 수 있습니다. 파트너 센터에서는 월별 청구로 예약을 구매하는 기능을 사용할 수 없습니다.
-
-Q. 미국 Azure Government 고객인데, 예약 구매에 대해 매월 지불할 수 있나요?<br>
-a. 현재는 아닙니다.
-
-Q. 지원 티켓을 만드는 대신 Azure Portal에서 직접 교환하거나 환불할 수 있는 시기는 언제인가요?<br>
-a. 현재는 아닙니다. 월별 결제로 예약을 교환 및 환불해 달라는 요청은 Azure 지원을 통해 처리됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
