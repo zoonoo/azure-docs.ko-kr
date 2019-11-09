@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: absha
-ms.openlocfilehash: 4b233117bc0f967368aeac7baec8c4875aa16826
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: ef2bbf8804e96a3e25f053d189c6d85bfa845b0b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051432"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833185"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>App Service 문제 해결 Application Gateway
 
@@ -42,7 +42,7 @@ App service는 리디렉션 응답을 보낼 때 응용 프로그램 게이트�
 - HTTP 수신기: 기본 또는 다중 사이트
 - 백 엔드 주소 풀: App Service
 - HTTP 설정: **백 엔드 주소에서 호스트 이름 선택**
-- 프로브가 **HTTP 설정에서 호스트 이름 선택** 사용
+- 프로브: **HTTP 설정에서 호스트 이름 선택**
 
 ## <a name="cause"></a>원인
 
@@ -76,14 +76,14 @@ Set-Cookie: ARRAffinity=b5b1b14066f35b3e4533a1974cacfbbd969bf1960b6518aa2c2e2619
 
 X-Powered-By: ASP.NET
 ```
-이전 예제에서 응답 헤더의 상태 코드는 리디렉션에 대해 301입니다. Location 헤더에는 원래 호스트 이름 [www.contoso.com](www.contoso.com) 대신 app service의 호스트 이름이 있습니다.
+이전 예제에서 응답 헤더의 상태 코드는 리디렉션에 대해 301입니다. Location 헤더에는 `www.contoso.com`원래 호스트 이름 대신 app service의 호스트 이름이 있습니다.
 
-## <a name="solution-rewrite-the-location-header"></a>해결책: 위치 헤더 다시 작성
+## <a name="solution-rewrite-the-location-header"></a>해결 방법: 위치 헤더 다시 작성
 
 Location 헤더의 호스트 이름을 application gateway의 도메인 이름으로 설정 합니다. 이렇게 하려면 응답의 location 헤더에 azurewebsites.net가 포함 되어 있는지 여부를 평가 하는 [다시 쓰기 규칙](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) 을 만듭니다. 또한 응용 프로그램 게이트웨이의 호스트 이름을 갖도록 location 헤더를 다시 작성 하는 작업을 수행 해야 합니다. 자세한 내용은 [location 헤더를 다시 작성 하는 방법](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url)에 대 한 지침을 참조 하세요.
 
 > [!NOTE]
-> HTTP 헤더 재작성 지원은 Application Gateway [Standard_v2 및 WAF_V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) 에서만 사용할 수 있습니다. V1 SKU를 사용 하는 경우 v 1에서 v 2 [로 마이그레이션하](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2)는 것이 좋습니다. V2 SKU에서 사용할 수 있는 재작성 및 기타 [고급 기능](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) 을 사용 하려고 합니다.
+> HTTP 헤더 재작성 지원은 Application Gateway의 [Standard_v2 및 WAF_V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) 에서만 사용할 수 있습니다. V1 SKU를 사용 하는 경우 v 1에서 v 2 [로 마이그레이션하](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2)는 것이 좋습니다. V2 SKU에서 사용할 수 있는 재작성 및 기타 [고급 기능](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) 을 사용 하려고 합니다.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>대체 솔루션: 사용자 지정 도메인 이름 사용
 
@@ -97,9 +97,9 @@ V1 SKU를 사용 하는 경우에는 location 헤더를 다시 작성할 수 없
 
     ![App service 사용자 지정 도메인 목록](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 
-- App service에서 호스트 이름 [www.contoso.com](www.contoso.com)을 받아들일 준비가 되었습니다. DNS에서 CNAME 항목을 변경 하 여 응용 프로그램 게이트웨이의 FQDN (예: appgw.eastus.cloudapp.azure.com)으로 다시 가리키도록 합니다.
+- App service에서 호스트 이름 `www.contoso.com`를 받아들일 준비가 되었습니다. DNS에서 CNAME 항목을 변경 하 여 응용 프로그램 게이트웨이의 FQDN (예: `appgw.eastus.cloudapp.azure.com`)으로 다시 가리키도록 합니다.
 
-- DNS 쿼리를 수행할 때 도메인 [www.contoso.com](www.contoso.com) 응용 프로그램 게이트웨이의 FQDN으로 확인 되는지 확인 합니다.
+- DNS 쿼리를 수행할 때 도메인 `www.contoso.com` 응용 프로그램 게이트웨이의 FQDN으로 확인 되는지 확인 합니다.
 
 - 사용자 지정 프로브를 설정 하 여 **백 엔드 HTTP 설정에서 호스트 이름 선택**을 사용 하지 않도록 설정 합니다. Azure Portal에서 프로브 설정의 확인란을 선택 취소 합니다. PowerShell에서 **AzApplicationGatewayProbeConfig** 명령에 **-PickHostNameFromBackendHttpSettings** 스위치를 사용 하지 마세요. 프로브의 호스트 이름 필드에 app service의 FQDN, example.azurewebsites.net를 입력 합니다. Application gateway에서 전송 된 프로브 요청은 호스트 헤더에이 FQDN을 포함 합니다.
 
@@ -110,7 +110,7 @@ V1 SKU를 사용 하는 경우에는 location 헤더를 다시 작성할 수 없
 
 - 사용자 지정 프로브를 백 엔드 HTTP 설정에 다시 연결 하 고 백 엔드가 정상 상태 인지 확인 합니다.
 
-- 이제 application gateway는 동일한 호스트 이름인 [www.contoso.com](www.contoso.com)를 app service에 전달 해야 합니다. 리디렉션이 동일한 호스트 이름에서 발생 합니다. 다음 예제 요청 및 응답 헤더를 확인 합니다.
+- 이제 응용 프로그램 게이트웨이에서 앱 서비스에 동일한 호스트 이름 `www.contoso.com`를 전달 해야 합니다. 리디렉션이 동일한 호스트 이름에서 발생 합니다. 다음 예제 요청 및 응답 헤더를 확인 합니다.
 
 기존 설치를 위해 PowerShell을 사용 하 여 이전 단계를 구현 하려면 다음에 나오는 샘플 PowerShell 스크립트를 사용 합니다. 프로브 및 HTTP 설정 구성에서 **-PickHostname** 스위치를 사용 하지 않은 경우를 확인 합니다.
 

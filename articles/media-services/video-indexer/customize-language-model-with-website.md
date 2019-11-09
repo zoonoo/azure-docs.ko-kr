@@ -1,6 +1,6 @@
 ---
 title: Video Indexer 웹 사이트를 사용하여 언어 모델 사용자 지정 - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 이 문서에서는 Video Indexer 웹 사이트를 사용하여 언어 모델을 사용자 지정하는 방법을 설명합니다.
 services: media-services
 author: anikaz
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: f98cdcab2d108f8dd9d40e3770498ad17b2a8a88
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d92cb02a0ac52b317cf9d4b6c8e0278f9291910
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799625"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838451"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 언어 모델 사용자 지정
 
@@ -72,7 +72,7 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 ### <a name="using-a-language-model-to-reindex"></a>언어 모델을 사용하여 다시 인덱싱
 
-언어 모델을 사용하여 컬렉션의 비디오를 다시 인덱싱하려면 [Video Indexer](https://www.videoindexer.ai/) 홈페이지의 **계정 비디오**로 이동하여 다시 인덱싱할 비디오의 이름을 커서로 가리킵니다.
+언어 모델을 사용하여 컬렉션의 비디오를 다시 인덱싱하려면 **Video Indexer** 홈페이지의 [계정 비디오](https://www.videoindexer.ai/)로 이동하여 다시 인덱싱할 비디오의 이름을 커서로 가리킵니다.
 
 비디오 편집, 비디오 삭제 및 비디오 다시 인덱싱 옵션이 표시됩니다. 비디오를 다시 인덱싱하는 옵션을 클릭합니다.
 
@@ -118,33 +118,33 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 
 이 작업은 사용자 계정에서 언어 모델을 완전히 제거합니다. 삭제된 언어 모델을 사용하던 모든 비디오는 비디오를 다시 인덱싱할 때까지 동일한 인덱스를 유지합니다. 비디오를 다시 인덱싱하는 경우 비디오에 새 언어 모델을 할당할 수 있습니다. 그렇지 않으면 Video Indexer는 기본 모델을 사용하여 비디오를 다시 인덱싱합니다. 
 
-## <a name="customize-language-models-by-correcting-transcripts"></a>대 본을 수정 하 여 언어 모델을 사용자 지정
+## <a name="customize-language-models-by-correcting-transcripts"></a>기록을 수정 하 여 언어 모델 사용자 지정
 
-Video Indexer 실제 수정 사용자를 기반으로 모델의 해당 비디오 기록 하는 언어의 자동 사용자 지정을 지원 합니다.
+Video Indexer는 비디오의 비디오에 대 한 사용자의 실제 수정 작업을 기반으로 언어 모델의 자동 사용자 지정을 지원 합니다.
 
-1. 대 본 수정 되도록 비디오 계정을 비디오에서 편집 하려는 경우를 엽니다. 선택 된 **타임 라인** 탭 합니다.
+1. 성적 증명서를 수정 하려면 계정 비디오에서 편집 하려는 비디오를 엽니다. **타임 라인** 탭을 선택 합니다.
 
     ![언어 모델 사용자 지정](./media/customize-language-model/timeline.png)
-1. 에 기록의 자막을 편집 하려면 연필 아이콘을 클릭 합니다. 
+1. 연필 아이콘을 클릭 하 여 기록에 대 한 기록을 편집 합니다. 
 
     ![언어 모델 사용자 지정](./media/customize-language-model/edits.png)
 
-    Video Indexer 비디오의 기록에서 사용자가 수정 하 고, "에서 기록 편집" 라는 텍스트 파일에 자동으로 추가 하는 모든 줄을 캡처합니다. 이러한 편집이이 비디오를 인덱스에 사용 된 특정 언어 모델 다시 학습 하는 데 사용 됩니다. 
+    Video Indexer는 비디오의 기록에서 자동으로 수정 되는 모든 줄을 캡처하고 "기록 편집 내용에서" 라는 텍스트 파일에 자동으로 추가 합니다. 이러한 편집은이 비디오를 인덱싱하는 데 사용 된 특정 언어 모델을 다시 학습 하는 데 사용 됩니다. 
     
-    이 비디오를 인덱싱할 때 언어 모델을 지정 하지 않은, 경우 모든 편집이이 비디오에 대 한 비디오의 검색된 된 언어 내에서 계정 adaptation를 호출 하는 기본 언어 모델에 저장 됩니다. 
+    이 비디오를 인덱싱할 때 언어 모델을 지정 하지 않은 경우이 비디오에 대 한 모든 편집 내용이 검색 된 언어 내에서 adaptation 계정 이라는 기본 언어 모델에 저장 됩니다. 
     
-    같은 줄에 여러 번의 편집 내용이 경우 언어 모델을 업데이트 하는 것에 대 한 수정 된 줄의 마지막 버전에만 사용 됩니다.  
+    같은 줄에 여러 개의 편집 내용이 있는 경우 수정 된 줄의 마지막 버전만 언어 모델을 업데이트 하는 데 사용 됩니다.  
     
     > [!NOTE]
-    > 텍스트 수정만 사용자 지정에 사용 됩니다. 즉, 실제 단어 (예: 문장 또는 공백)와 관련이 없는 수정 포함 되지 않습니다. 
+    > 사용자 지정에는 텍스트 수정만 사용 됩니다. 즉, 실제 단어 (예: 문장 부호 또는 공백)를 포함 하지 않는 수정이 포함 되지 않습니다. 
     
-1. 콘텐츠 모델 사용자 지정 페이지의 언어 탭에 표시 하는 대 본 수정 사항이 표시 됩니다.
+1. 콘텐츠 모델 사용자 지정 페이지의 언어 탭에는 기록 수정이 표시 됩니다.
 
     ![언어 모델 사용자 지정](./media/customize-language-model/customize.png)
 
-   파일 "에서 기록 편집" 언어 모델의 각를 살펴보려면 클릭 하 여 엽니다. 
+   각 언어 모델에 대 한 "인 증명서 편집" 파일을 보려면 클릭 하 여 엽니다. 
 
-    ![대 본 편집에서](./media/customize-language-model/from-transcript-edits.png)
+    ![기록 편집에서](./media/customize-language-model/from-transcript-edits.png)
 
 ## <a name="next-steps"></a>다음 단계
 

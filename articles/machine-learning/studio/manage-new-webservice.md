@@ -1,6 +1,6 @@
 ---
 title: 웹 서비스 관리
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Microsoft Azure Machine Learning 웹 서비스 포털을 사용 하 여 Machine Learning 새 및 기존 웹 서비스를 관리 합니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/28/2017
-ms.openlocfilehash: cf24c45cb00dfcffa085272a26e401abf78524c2
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 2e72c8a363ee7f58630b1c0d8d0f00434c2e2b7e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618934"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838785"
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-studio-classic-web-services-portal"></a>Azure Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 웹 서비스 관리
 Microsoft Azure Machine Learning 웹 서비스 포털을 사용하여 Machine Learning 새 웹 서비스 및 기존 웹 서비스를 관리할 수 있습니다. 기존 웹 서비스와 새 웹 서비스는 서로 다른 기본 기술에 기반하고 있으므로 서비스 각각에는 약간씩 다른 관리 기능이 있습니다.

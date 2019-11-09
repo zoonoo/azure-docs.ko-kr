@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: b451597d2d91117e11b1becd8b4ab96f981dade8
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce0b917f34cab31227e721e119c72cd5d1f99bff
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931308"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832012"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>네트워크 성능 모니터 솔루션 FAQ
 
@@ -48,7 +48,7 @@ ExpressRoute 모니터 기능의 경우 Azure 노드를 직접 에이전트로�
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>모니터링을 위해 TCP와 ICMP 중 어느 프로토콜을 선택해야 하나요?
 Windows server 기반 노드를 사용 하 여 네트워크를 모니터링 하는 경우 더 나은 정확도를 제공 하므로 TCP를 모니터링 프로토콜로 사용 하는 것이 좋습니다. 
 
-Windows 데스크톱/클라이언트 운영 체제 기반 노드에 ICMP를 사용하는 것이 좋습니다. 이 플랫폼은 does'nt에서 네트워크 토폴로지를 검색 하는 데 사용 하는 원시 소켓을 통해 TCP 데이터를 전송 하도록 허용 합니다.
+Windows 데스크톱/클라이언트 운영 체제 기반 노드에 ICMP를 사용하는 것이 좋습니다. 이 플랫폼에서는 NPM가 네트워크 토폴로지를 검색 하는 데 사용 하는 원시 소켓을 통해 TCP 데이터를 전송 하는 것을 허용 하지 않습니다.
 
 각 프로토콜의 상대적 이점에 대한 세부 정보는 [여기](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol)에서 얻을 수 있습니다.
 
@@ -98,6 +98,42 @@ NPM은 확률적 메커니즘을 사용하여 홉이 속한 비정상 경로 수
 ### <a name="how-can-i-create-alerts-in-npm"></a>NPM에서 경고를 얼마나 많이 만들 수 있나요?
 [설명서의 경고 섹션](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor#alerts)에서 단계별 지침을 참조하세요.
 
+### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>경고에 대 한 기본 Log Analytics 쿼리
+성능 모니터 쿼리
+
+    NetworkMonitoring 
+     | where (SubType == "SubNetwork" or SubType == "NetworkPath") 
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and RuleName == "<<your rule name>>"
+    
+서비스 연결 모니터 쿼리
+
+    NetworkMonitoring                 
+     | where (SubType == "EndpointHealth" or SubType == "EndpointPath")
+     | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or ServiceResponseHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy") and TestName == "<<your test name>>"
+    
+Express 경로 모니터 쿼리: 회로 쿼리
+
+    NetworkMonitoring
+    | where (SubType == "ERCircuitTotalUtilization") and (UtilizationHealthState == "Unhealthy") and CircuitResourceId == "<<your circuit resource ID>>"
+
+프라이빗 피어링
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ExpressRoutePath")   
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == "<<your circuit name>>" and VirtualNetwork == "<<vnet name>>"
+
+Microsoft 피어링
+
+    NetworkMonitoring 
+     | where (SubType == "ExpressRoutePeering" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") and CircuitName == ""<<your circuit name>>" and PeeringType == "MicrosoftPeering"
+
+일반 쿼리   
+
+    NetworkMonitoring
+    | where (SubType == "ExpressRoutePeering" or SubType == "ERVNetConnectionUtilization" or SubType == "ERMSPeeringUtilization" or SubType == "ExpressRoutePath")
+    | where (LossHealthState == "Unhealthy" or LatencyHealthState == "Unhealthy" or UtilizationHealthState == "Unhealthy") 
+
 ### <a name="can-npm-monitor-routers-and-servers-as-individual-devices"></a>NPM은 라우터 및 서버를 개별 디바이스로 모니터링할 수 있나요?
 NPM은 원본 IP와 대상 IP 간의 기본 네트워크 홉(스위치, 라우터, 서버 등)의 IP와 호스트 이름만 식별합니다. 또한 이렇게 식별된 홉 간의 대기 시간도 식별합니다. 이러한 기본 홉을 개별적으로 모니터링하지 않습니다.
 
@@ -110,17 +146,23 @@ NPM은 원본 IP와 대상 IP 간의 기본 네트워크 홉(스위치, 라우�
 ### <a name="can-we-get-incoming-and-outgoing-bandwidth-information-for-the-expressroute"></a>ExpressRoute에 대해 들어오고 나가는 대역폭 정보를 얻을 수 있나요?
 주 및 보조 대역폭 둘 다에 대해 들어오고 나가는 값을 캡처할 수 있습니다.
 
-피어링 수준 정보를 보려면 로그 검색에서 아래와 같은 쿼리를 사용합니다.
+MS 피어 링 수준 정보를 보려면 로그 검색에서 아래 설명 된 쿼리를 사용 하십시오.
 
     NetworkMonitoring 
-    | where SubType == "ExpressRoutePeeringUtilization"
-    | project CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+     | where SubType == "ERMSPeeringUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+    
+개인 피어 링 수준 정보를 보려면 로그 검색에서 아래에 설명 된 쿼리를 사용 하십시오.
+
+    NetworkMonitoring 
+     | where SubType == "ERVNetConnectionUtilization"
+     | project  CircuitName,PeeringName,PrimaryBytesInPerSecond,PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
   
-회로 수준 정보를 보려면 아래와 같은 쿼리를 사용합니다. 
+회로 수준 정보를 보려면 로그 검색에서 아래에서 언급 한 쿼리를 사용 하십시오.
 
     NetworkMonitoring 
-    | where SubType == "ExpressRouteCircuitUtilization"
-    | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
+        | where SubType == "ERCircuitTotalUtilization"
+        | project CircuitName, PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>NPM의 성능 모니터에 대해 지원되는 하위 지역은 어느 지역인가요?
 NPM은 [지원되는 하위 지역](../../azure-monitor/insights/network-performance-monitor.md#supported-regions) 중 하나에서 호스팅되는 작업 영역에서 세계 어느 부분에 있는 네트워크 사이의 연결도 모니터링할 수 있습니다.
@@ -142,8 +184,8 @@ NPM은 경로 추적의 수정된 버전을 사용하여 원본 에이전트에�
 * 네트워크 디바이스가 ICMP_TTL_EXCEEDED 트래픽을 허용하지 않습니다.
 * 방화벽이 네트워크 디바이스에서 ICMP_TTL_EXCEEDED 응답을 차단합니다.
 
-### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy-"></a>비정상 테스트에 대 한 경고를 가져오지만 NPM의 손실 및 대기 시간 그래프에 높은 값이 표시 되지 않습니다. 비정상 상태를 확인 어떻게 할까요?
-NPM는 원본과 대상 간의 종단 간 대기 시간이이 두 경로 간 경로에 대 한 임계값를 교차 하는 경우 경고를 발생 시킵니다. 일부 네트워크에 동일한 원본 및 대상을 연결 하는 경로가 둘 이상 있습니다. NPM는 상태가 비정상 인 경우 경고를 발생 시킵니다. 그래프에 표시 되는 손실 및 대기 시간은 모든 경로의 평균 값 이므로 단일 경로의 정확한 값을 표시 하지 않을 수 있습니다. 임계값이 위반 된 위치를 이해 하려면 경고의 "하위 유형" 열을 찾습니다. 경로 때문에 문제가 발생 하는 경우 하위 유형 값은 NetworkPath (성능 모니터 테스트의 경우), EndpointPath (서비스 연결 모니터 테스트의 경우) 및 ExpressRoutePath (ExpressRotue Monitor 테스트의 경우)입니다. 
+### <a name="i-get-alerts-for-unhealthy-tests-but-i-do-not-see-the-high-values-in-npms-loss-and-latency-graph-how-do-i-check-what-is-unhealthy"></a>비정상 테스트에 대 한 경고를 가져오지만 NPM의 손실 및 대기 시간 그래프에 높은 값이 표시 되지 않습니다. 비정상 상태를 확인 어떻게 할까요?
+NPM는 원본과 대상 사이의 종단 간 대기 시간이 임계값을 초과 하는 경우 경고를 발생 시킵니다. 일부 네트워크에는 동일한 원본 및 대상을 연결 하는 경로가 여러 개 있습니다. NPM는 상태가 비정상 인 경우 경고를 발생 시킵니다. 그래프에 표시 되는 손실 및 대기 시간은 모든 경로의 평균 값 이므로 단일 경로의 정확한 값을 표시 하지 않을 수 있습니다. 임계값이 위반 된 위치를 이해 하려면 경고의 "하위 유형" 열을 찾습니다. 경로 때문에 문제가 발생 하는 경우 하위 유형 값은 NetworkPath (성능 모니터 테스트의 경우), EndpointPath (서비스 연결 모니터 테스트의 경우) 및 ExpressRoutePath (ExpressRotue Monitor 테스트의 경우)입니다. 
 
 경로를 찾는 샘플 쿼리가 비정상 상태입니다.
 
@@ -181,7 +223,7 @@ A에서 B로의 네트워크 경로는 B에서 A로의 네트워크 경로와 �
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>나의 ExpressRoute 회로 및 피어링 연결 중 일부가 검색되지 않는 이유는 무엇인가요?
 NPM은 이제 사용자가 액세스할 수 있는 모든 구독에서 ExpressRoute 회로와 피어링 연결을 검색합니다. Express Route 리소스가 연결된 모든 구독을 선택하고 검색된 각 리소스에 대한 모니터링을 사용하도록 설정합니다. 프라이빗 피어링을 검색하는 경우 NPM에서 연결 개체를 찾으므로 VNET이 피어링과 연결되어 있는지 확인합니다.
 
-### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER 모니터 기능에는 "트래픽이 어떤 회로도 통과하지 않습니다" 진단 메시지가 있습니다. 이것은 무엇을 의미하나요?
+### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER 모니터 기능에는 "트래픽이 어떤 회로도 통과하지 않습니다" 진단 메시지가 있습니다. 이는 무엇을 의미하나요?
 
 온-프레미스 노드와 Azure 노드 간에 정상 연결이 있지만 트래픽이 NPM에서 모니터링하도록 구성된 ExpressRoute 회로를 통해 이동하지 않는 시나리오가 있을 수 있습니다. 
 

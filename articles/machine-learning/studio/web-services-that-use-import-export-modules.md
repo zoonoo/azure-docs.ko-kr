@@ -1,6 +1,6 @@
 ---
 title: 웹 서비스에서 데이터 가져오기/내보내기
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 데이터 가져오기 및 내보내기 데이터 모듈을 사용하여 웹 서비스에서 데이터를 보내고 받는 방법을 알아봅니다.
 services: machine-learning
 author: xiaoharper
@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 3a88d3958378a0746a22e99a817ad9ecebf217dc
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0ae545fd3ecafda74b90a6a4694dd6f506fb44b1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684702"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838812"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>데이터 가져오기 및 데이터 내보내기 모듈을 사용 하는 Azure Machine Learning Studio (클래식) 웹 서비스 배포
 

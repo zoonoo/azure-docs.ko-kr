@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: 93f17ea9d2ffa33d1dca9da3eb60f75165e8ed61
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d5c95e964740978af0db8db233c65adb7eb074f0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973326"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834337"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 문자열 함수
 
@@ -59,7 +59,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | inputString |예 |string |base64 표현으로 반환할 값입니다. |
 
@@ -67,7 +67,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 
 Base64 표현을 포함하는 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64 함수를 사용하는 방법을 보여줍니다.
 
@@ -110,10 +110,10 @@ Base64 표현을 포함하는 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
+| toStringOutput | 문자열 | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="base64tojson"></a>base64ToJson
@@ -124,7 +124,7 @@ base64 표현을 JSON 개체로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | base64Value |예 |string |JSON 개체로 변환할 base64 표현입니다. |
 
@@ -132,7 +132,7 @@ base64 표현을 JSON 개체로 변환합니다.
 
 JSON 개체입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64ToJson 함수를 사용하여 base64 값을 변환합니다.
 
@@ -175,10 +175,10 @@ JSON 개체입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
+| toStringOutput | 문자열 | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="base64tostring"></a>base64ToString
@@ -189,7 +189,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | base64Value |예 |string |문자열로 변환할 base64 표현입니다. |
 
@@ -197,7 +197,7 @@ base64 표현을 문자열로 변환합니다.
 
 변환된 base64 값의 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/base64.json)에서는 base64ToString 함수를 사용하여 base64 값을 변환합니다.
 
@@ -240,10 +240,10 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| base64Output | String | b25lLCB0d28sIHRocmVl |
-| toStringOutput | String | one, two, three |
+| base64Output | 문자열 | b25lLCB0d28sIHRocmVl |
+| toStringOutput | 문자열 | one, two, three |
 | toJsonOutput | Object | {“one”: “a”, “two”: “b”} |
 
 ## <a name="concat"></a>concat
@@ -254,7 +254,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |문자열 또는 배열 |연결할 첫 번째 값입니다. |
 | 추가 인수 |아니요 |string |연결할 추가 값(순서대로)입니다. |
@@ -262,7 +262,7 @@ base64 표현을 문자열로 변환합니다.
 ### <a name="return-value"></a>반환 값
 연결된 값의 문자열 또는 배열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json)에서는 2개의 문자열 값을 결합하고 연결된 문자열을 반환하는 방법을 보여줍니다.
 
@@ -288,9 +288,9 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| concatOutput | String | prefix-5yj4yjf5mbg72 |
+| concatOutput | 문자열 | prefix-5yj4yjf5mbg72 |
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-array.json)에서는 두 개의 배열을 결합하는 방법을 보여줍니다.
 
@@ -329,11 +329,11 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| return | 배열 | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-## <a name="contains"></a>다음 값을 포함하는 경우
+## <a name="contains"></a>contains
 
 `contains (container, itemToFind)`
 
@@ -341,7 +341,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | container |예 |배열, 개체 또는 문자열 |찾을 값을 포함하는 값입니다. |
 | itemToFind |예 |문자열 또는 int |찾을 값입니다. |
@@ -350,7 +350,7 @@ base64 표현을 문자열로 변환합니다.
 
 항목이 있으면 **True**이고, 항목이 없으면 **False**입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/contains.json)에서는 여러 다른 형식의 contains를 사용하는 방법을 보여줍니다.
 
@@ -405,14 +405,14 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
 | stringTrue | Bool | True |
-| stringFalse | Bool | False |
+| stringFalse | Bool | 거짓 |
 | objectTrue | Bool | True |
-| objectFalse | Bool | False |
+| objectFalse | Bool | 거짓 |
 | arrayTrue | Bool | True |
-| arrayFalse | Bool | False |
+| arrayFalse | Bool | 거짓 |
 
 ## <a name="datauri"></a>dataUri
 
@@ -422,7 +422,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToConvert |예 |string |데이터 URI로 변환할 값입니다. |
 
@@ -430,7 +430,7 @@ base64 표현을 문자열로 변환합니다.
 
 데이터 URI로 형식이 지정된 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
 
@@ -464,10 +464,10 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | 문자열 | Hello, World! |
 
 ## <a name="datauritostring"></a>dataUriToString
 
@@ -477,7 +477,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | dataUriToConvert |예 |string |변환할 데이터 URI 값입니다. |
 
@@ -485,7 +485,7 @@ base64 표현을 문자열로 변환합니다.
 
 변환된 값을 포함하는 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/datauri.json)에서는 값을 데이터 URI로 변환하고 데이터 URI를 문자열로 변환합니다.
 
@@ -519,10 +519,10 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| dataUriOutput | String | data:text/plain;charset=utf8;base64,SGVsbG8= |
-| toStringOutput | String | Hello, World! |
+| dataUriOutput | 문자열 | data:text/plain;charset=utf8;base64,SGVsbG8= |
+| toStringOutput | 문자열 | Hello, World! |
 
 ## <a name="empty"></a>empty
 
@@ -532,7 +532,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | itemToTest |예 |배열, 개체 또는 문자열 |비어 있는지 확인할 값입니다. |
 
@@ -540,7 +540,7 @@ base64 표현을 문자열로 변환합니다.
 
 값이 비어 있으면 **True**를 반환하고 비어 있지 않으면 **False**를 반환합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/empty.json)에서는 배열, 개체 및 문자열이 비어 있는지 여부를 확인합니다.
 
@@ -583,7 +583,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayEmpty | Bool | True |
 | objectEmpty | Bool | True |
@@ -597,7 +597,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |string |찾을 값입니다. |
@@ -606,7 +606,7 @@ base64 표현을 문자열로 변환합니다.
 
 마지막 문자 또는 문자열의 문자가 값과 일치하면 **True**이고, 일치하지 않으면 **False**입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
 
@@ -646,14 +646,14 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
-| startsFalse | Bool | False |
+| startsFalse | Bool | 거짓 |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
-| endsFalse | Bool | False |
+| endsFalse | Bool | 거짓 |
 
 ## <a name="first"></a>first
 
@@ -663,7 +663,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |첫 번째 요소 또는 문자를 검색할 값입니다. |
 
@@ -671,7 +671,7 @@ base64 표현을 문자열로 변환합니다.
 
 배열의 첫 번째 문자의 문자열 또는 첫 번째 요소의 형식(문자열, int, 배열 또는 개체)입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/first.json)에서는 배열 및 문자열에 첫 번째 함수를 사용하는 방법을 보여줍니다.
 
@@ -702,10 +702,10 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | String | one |
-| stringOutput | String | O |
+| arrayOutput | 문자열 | one |
+| stringOutput | 문자열 | O |
 
 ## <a name="format"></a>format
 
@@ -715,9 +715,9 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| formatString | 예 | String | 합성 형식 문자열입니다. |
+| formatString | 예 | string | 복합 형식 문자열입니다. |
 | arg1 | 예 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 값입니다. |
 | 추가 인수 | 아니요 | 문자열, 정수 또는 부울 | 서식이 지정 된 문자열에 포함할 추가 값입니다. |
 
@@ -725,7 +725,7 @@ base64 표현을 문자열로 변환합니다.
 
 템플릿에서 문자열의 형식을 지정 하려면이 함수를 사용 합니다. .NET의 [system.string](/dotnet/api/system.string.format) 메서드와 동일한 형식 지정 옵션을 사용 합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 예제 템플릿에서는 format 함수를 사용 하는 방법을 보여 줍니다.
 
@@ -760,9 +760,9 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| formatTest | 문자열 | Hello, User. 형식이 지정 된 숫자: 8,175,133 |
+| formatTest | 문자열 | Hello, User. 형식이 지정 된 숫자: 8175133 |
 
 ## <a name="guid"></a>GUID
 
@@ -772,7 +772,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | baseString |예 |string |해시 함수에서 GUID를 만드는 데 사용되는 값입니다. |
 | 필요에 따라 추가하는 매개 변수 |아니요 |string |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
@@ -805,9 +805,9 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="return-value"></a>반환 값
 
-전 세계적으로 고유한 식별자의 형식으로 된 36자를 포함하는 문자열입니다.
+고유 식별자 형식의 문자 36자를 포함하고 있는 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/guid.json)은 guid의 결과를 반환합니다.
 
@@ -843,7 +843,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |string |찾을 값입니다. |
@@ -852,7 +852,7 @@ base64 표현을 문자열로 변환합니다.
 
 찾을 항목의 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목을 찾을 수 없는 경우-1이 반환 됩니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여줍니다.
 
@@ -888,7 +888,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -904,7 +904,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |배열 또는 문자열 |마지막 요소 또는 문자를 검색할 값입니다. |
 
@@ -912,7 +912,7 @@ base64 표현을 문자열로 변환합니다.
 
 배열의 마지막 문자의 문자열 또는 마지막 요소의 형식(문자열, int, 배열 또는 개체)입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/last.json)에서는 배열 및 문자열에 최근 함수를 사용하는 방법을 보여줍니다.
 
@@ -943,10 +943,10 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | String | three |
-| stringOutput | String | e |
+| arrayOutput | 문자열 | three |
+| stringOutput | 문자열 | e |
 
 ## <a name="lastindexof"></a>lastindexof
 
@@ -956,7 +956,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |string |찾을 값입니다. |
@@ -965,7 +965,7 @@ base64 표현을 문자열로 변환합니다.
 
 찾을 항목의 마지막 위치를 나타내는 정수입니다. 값은 0부터 시작합니다. 항목을 찾을 수 없는 경우-1이 반환 됩니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/indexof.json)에서는 indexOf 및 lastIndexOf 함수를 사용하는 방법을 보여줍니다.
 
@@ -1001,7 +1001,7 @@ base64 표현을 문자열로 변환합니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
 | firstT | int | 0 |
 | lastT | int | 3 |
@@ -1017,7 +1017,7 @@ base64 표현을 문자열로 변환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | arg1 |예 |array, string 또는 object |요소 수를 가져오는 데 사용할 배열, 문자 수를 가져오는 데 사용할 문자열 또는 루트 수준 속성의 수를 가져오는 데 사용할 개체입니다. |
 
@@ -1025,7 +1025,7 @@ base64 표현을 문자열로 변환합니다.
 
 int입니다. 
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/length.json)에서는 배열 및 문자열에 length를 사용하는 방법을 보여줍니다.
 
@@ -1079,11 +1079,11 @@ int입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
 | arrayLength | int | 3 |
 | stringLength | int | 13 |
-| objectLength | Int | 4 |
+| objectLength | int | 4 |
 
 ## <a name="newguid"></a>newGuid
 
@@ -1105,9 +1105,9 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="return-value"></a>반환 값
 
-전 세계적으로 고유한 식별자의 형식으로 된 36자를 포함하는 문자열입니다.
+고유 식별자 형식의 문자 36자를 포함하고 있는 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 예제 템플릿에서는 새 식별자를 포함 하는 매개 변수를 보여 줍니다.
 
@@ -1134,9 +1134,9 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| guidOutput | String | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
+| guidOutput | string | b76a51fc-bd72-4a77-b9a2-3c29e7d2e551 |
 
 다음 예에서는 newGuid 함수를 사용 하 여 저장소 계정에 대 한 고유한 이름을 만듭니다. 이 템플릿은 저장소 계정이 짧은 시간 동안 존재 하 고 다시 배포 되지 않는 테스트 환경에 사용할 수 있습니다.
 
@@ -1177,9 +1177,9 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| nameOutput | String | storagenziwvyru7uxie |
+| nameOutput | string | storagenziwvyru7uxie |
 
 
 ## <a name="padleft"></a>padLeft
@@ -1190,7 +1190,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | valueToPad |예 |문자열 또는 int |오른쪽으로 맞출 값입니다. |
 | totalLength |예 |int |반환된 문자열에서 문자의 총수입니다. |
@@ -1202,7 +1202,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 최소한 지정된 문자의 수를 포함하는 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/padleft.json)에서는 문자열이 총 문자 수에 도달할 때까지 0 문자를 추가하여 사용자가 제공한 매개 변수 값을 채우는 방법을 보여줍니다. 
 
@@ -1228,9 +1228,9 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| stringOutput | String | 0000000123 |
+| stringOutput | 문자열 | 0000000123 |
 
 ## <a name="replace"></a>바꾸기
 
@@ -1240,7 +1240,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalString |예 |string |다른 문자열로 대체한 어떤 문자열의 인스턴스를 포함하는 값입니다. |
 | oldString |예 |string |원래 문자열에서 제거할 문자열입니다. |
@@ -1250,7 +1250,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 문자가 대체된 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/replace.json)에서는 사용자가 제공한 문자열에서 모든 대시를 제거하는 방법 및 문자열의 일부를 다른 문자열로 대체하는 방법을 보여줍니다.
 
@@ -1280,12 +1280,12 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| firstOutput | String | 1231231234 |
+| firstOutput | 문자열 | 1231231234 |
 | secondOutput | 문자열 | 123-123-xxxx |
 
-## <a name="skip"></a>건너뛰기
+## <a name="skip"></a>skip
 
 `skip(originalValue, numberToSkip)`
 
@@ -1293,7 +1293,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |건너뛰는 데 사용할 배열 또는 문자열입니다. |
 | numberToSkip |예 |int |건너뛸 요소 또는 문자 수입니다. 이 값이 0 이하이면 값의 모든 요소 또는 문자가 반환됩니다. 배열이 나 문자열의 길이 보다 크면 빈 배열 또는 문자열이 반환 됩니다. |
@@ -1302,7 +1302,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 배열 또는 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/skip.json)에서는 배열에서 지정된 요소 수 및 문자열에서 지정된 수의 문자를 건너뜁니다.
 
@@ -1348,12 +1348,12 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["three"] |
-| stringOutput | String | two three |
+| arrayOutput | 배열 | ["three"] |
+| stringOutput | 문자열 | two three |
 
-## <a name="split"></a>split
+## <a name="split"></a>분할
 
 `split(inputString, delimiter)`
 
@@ -1361,7 +1361,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | inputString |예 |string |분할할 문자열입니다. |
 | 구분 기호 |예 |문자열 또는 문자열 배열 |문자열 분할에 사용할 구분 기호입니다. |
@@ -1370,7 +1370,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 문자열 배열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/split.json)에서는 쉼표를 사용하여 또는 쉼표 또는 세미콜론을 사용하여 입력 문자열을 분할합니다.
 
@@ -1407,7 +1407,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
 | firstOutput | 배열 | [“one”, “two”, “three”] |
 | secondOutput | 배열 | [“one”, “two”, “three”] |
@@ -1420,7 +1420,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToSearch |예 |string |찾을 값을 포함하는 값입니다. |
 | stringToFind |예 |string |찾을 값입니다. |
@@ -1429,7 +1429,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 첫 번째 문자 또는 문자열의 문자가 값과 일치하면 **True**이고, 일치하지 않으면 **False**입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/startsendswith.json)에서는 startsWith 및 endsWith 함수를 사용하는 방법을 보여 줍니다.
 
@@ -1469,16 +1469,16 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
 | startsTrue | Bool | True |
 | startsCapTrue | Bool | True |
-| startsFalse | Bool | False |
+| startsFalse | Bool | 거짓 |
 | endsTrue | Bool | True |
 | endsCapTrue | Bool | True |
-| endsFalse | Bool | False |
+| endsFalse | Bool | 거짓 |
 
-## <a name="string"></a>String
+## <a name="string"></a>string
 
 `string(valueToConvert)`
 
@@ -1486,7 +1486,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | valueToConvert |예 | 모두 |문자열로 변환할 값입니다. 개체 및 배열을 비롯하여 모든 값 형식을 변환할 수 있습니다. |
 
@@ -1494,7 +1494,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 변환된 값의 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/string.json)에서는 다른 형식의 값을 문자열로 변환하는 방법을 보여 줍니다.
 
@@ -1543,11 +1543,11 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| objectOutput | String | {“valueA”:10,“valueB”:“Example Text”} |
-| arrayOutput | String | [“a”,“b”,“c”] |
-| intOutput | String | 5 |
+| objectOutput | 문자열 | {“valueA”:10,“valueB”:“Example Text”} |
+| arrayOutput | 문자열 | [“a”,“b”,“c”] |
+| intOutput | 문자열 | 5 |
 
 ## <a name="substring"></a>substring
 
@@ -1557,7 +1557,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToParse |예 |string |부분 문자열을 추출할 원래 문자열입니다. |
 | startIndex |아니요 |int |부분 문자열의 0부터 시작하는 문자 위치입니다. |
@@ -1565,11 +1565,11 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="return-value"></a>반환 값
 
-부분 문자열입니다. 또는 길이가 0인 경우 빈 문자열입니다.
+하위 문자열입니다. 또는 길이가 0인 경우 빈 문자열입니다.
 
 ### <a name="remarks"></a>설명
 
-함수는 부분 문자열이 문자열의 끝을 넘어 확장되거나 길이가 0보다 작은 경우 실패합니다. 다음 예제는 "인덱스 및 길이 매개 변수는 문자열 내 위치를 참조해야 합니다. 인덱스 매개 변수: '0', 길이 매개 변수: '11', 문자열 매개 변수의 길이: '10'.".
+함수는 부분 문자열이 문자열의 끝을 넘어 확장되거나 길이가 0보다 작은 경우 실패합니다. 다음 예제는 "인덱스 및 길이 매개 변수는 문자열 내 위치를 참조해야 합니다. 인덱스 매개 변수: '0', 길이 매개 변수: '11', 문자열 매개 변수의 길이: '10'." 오류와 함께 실패합니다.
 
 ```json
 "parameters": {
@@ -1580,7 +1580,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 }
 ```
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/substring.json)에서는 매개 변수에서 하위 문자열을 추출합니다.
 
@@ -1606,9 +1606,9 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| substringOutput | String | two |
+| substringOutput | 문자열 | two |
 
 ## <a name="take"></a>take
 
@@ -1618,7 +1618,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | originalValue |예 |배열 또는 문자열 |요소를 가져올 배열 또는 문자열입니다. |
 | numberToTake |예 |int |수락할 요소 또는 문자의 수입니다. 이 값이 0 이하이면 빈 배열 또는 문자열이 반환됩니다. 지정 된 배열 또는 문자열의 길이 보다 크면 배열 또는 문자열의 모든 요소가 반환 됩니다. |
@@ -1627,7 +1627,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 배열 또는 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/take.json)에서는 배열에서 지정된 수의 요소 및 문자열의 문자를 가져옵니다.
 
@@ -1673,10 +1673,10 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| arrayOutput | Array | ["one", "two"] |
-| stringOutput | String | on |
+| arrayOutput | 배열 | ["one", "two"] |
+| stringOutput | 문자열 | on |
 
 ## <a name="tolower"></a>toLower
 
@@ -1686,7 +1686,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToChange |예 |string |소문자로 변환할 값입니다. |
 
@@ -1694,7 +1694,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 소문자로 변환된 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)에서는 매개 변수 값을 소문자 및 대문자로 변환합니다.
 
@@ -1724,10 +1724,10 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | 문자열 | one two three |
+| toUpperOutput | 문자열 | ONE TWO THREE |
 
 ## <a name="toupper"></a>toUpper
 
@@ -1737,7 +1737,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToChange |예 |string |대문자로 변환할 값입니다. |
 
@@ -1745,7 +1745,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 대문자로 변환된 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/tolower.json)에서는 매개 변수 값을 소문자 및 대문자로 변환합니다.
 
@@ -1775,10 +1775,10 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| toLowerOutput | String | one two three |
-| toUpperOutput | String | ONE TWO THREE |
+| toLowerOutput | 문자열 | one two three |
+| toUpperOutput | 문자열 | ONE TWO THREE |
 
 ## <a name="trim"></a>trim
 
@@ -1788,7 +1788,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToTrim |예 |string |자를 값입니다. |
 
@@ -1796,7 +1796,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 선행 및 후행 공백 문자가 없는 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/trim.json)에서는 매개 변수에서 공백 문자를 자릅니다.
 
@@ -1822,9 +1822,9 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| return | String | one two three |
+| return | 문자열 | one two three |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1834,7 +1834,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | baseString |예 |string |고유한 문자열을 만들기 위해 해시 함수에서 사용되는 값입니다. |
 | 필요에 따라 추가하는 매개 변수 |아니요 |string |고유성 수준을 지정하는 값을 만들기 위해 필요한 만큼 문자열을 추가할 수 있습니다. |
@@ -1882,7 +1882,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 
 13개의 문자를 포함하는 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uniquestring.json)에서는 uniquestring에서 결과를 반환합니다.
 
@@ -1904,7 +1904,7 @@ NewGuid 함수는 매개 변수를 사용 하지 않으므로 [guid](#guid) 함�
 }
 ```
 
-## <a name="uri"></a>URI
+## <a name="uri"></a>uri
 
 `uri (baseUri, relativeUri)`
 
@@ -1912,7 +1912,7 @@ baseUri와 relativeUri 문자열을 결합하여 절대 URI를 만듭니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | baseUri |예 |string |기본 uri 문자열입니다. 이 표 다음에 설명 된 대로 후행 슬래시 ('/')의 처리와 관련 된 동작을 주의 해 서 살펴봅니다.  |
 | relativeUri |예 |string |기본 uri 문자열에 추가할 상대 uri 문자열입니다. |
@@ -1939,7 +1939,7 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 
 기본 및 상대 값에 대한 절대 URI를 나타내는 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 예제에서는 부모 템플릿의 값을 기반으로 중첩된 템플릿에 대한 링크를 생성하는 방법을 보여 줍니다.
 
@@ -1978,11 +1978,11 @@ uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://c
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | 문자열 | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponent"></a>uriComponent
 
@@ -1992,7 +1992,7 @@ URI를 인코딩합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | stringToEncode |예 |string |인코딩할 값입니다. |
 
@@ -2000,7 +2000,7 @@ URI를 인코딩합니다.
 
 URI로 인코딩된 값의 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
 
@@ -2033,11 +2033,11 @@ URI로 인코딩된 값의 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | 문자열 | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="uricomponenttostring"></a>uriComponentToString
 
@@ -2047,7 +2047,7 @@ URI로 인코딩된 값의 문자열을 반환합니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | uriEncodedString |예 |string |문자열로 변환할 URI 인코딩 값입니다. |
 
@@ -2055,7 +2055,7 @@ URI로 인코딩된 값의 문자열을 반환합니다.
 
 URI로 인코딩된 값의 디코딩된 문자열입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/uri.json)에서는 uri, uriComponent 및 uriComponentToString를 사용하는 방법을 보여줍니다.
 
@@ -2088,11 +2088,11 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| uriOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
-| componentOutput | String | http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json |
-| toStringOutput | 문자열 | http://contoso.com/resources/nested/azuredeploy.json |
+| uriOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
+| componentOutput | 문자열 | `http%3A%2F%2Fcontoso.com%2Fresources%2Fnested%2Fazuredeploy.json` |
+| toStringOutput | 문자열 | `http://contoso.com/resources/nested/azuredeploy.json` |
 
 ## <a name="utcnow"></a>utcNow
 
@@ -2102,9 +2102,9 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 ### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| 매개 변수 | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| format |아니요 |String |문자열로 변환할 URI 인코딩 값입니다. [표준 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
+| format |아니요 |string |문자열로 변환할 URI 인코딩 값입니다. [표준 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/standard-date-and-time-format-strings) 또는 [사용자 지정 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 사용 합니다. |
 
 ### <a name="remarks"></a>설명
 
@@ -2118,7 +2118,7 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 현재 UTC 날짜/시간 값입니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 다음 예제 템플릿에서는 datetime 값에 대 한 다양 한 형식을 보여 줍니다.
 
@@ -2161,11 +2161,11 @@ URI로 인코딩된 값의 디코딩된 문자열입니다.
 
 이전 예제의 출력은 각 배포에 따라 다르지만 다음과 유사 합니다.
 
-| 이름 | 형식 | 값 |
+| Name | 형식 | 값 |
 | ---- | ---- | ----- |
-| utcOutput | String | 20190305T175318Z |
-| utcShortOutput | String | 03/05/2019 |
-| utcCustomOutput | String | 3 5 |
+| utcOutput | string | 20190305T175318Z |
+| utcShortOutput | string | 03/05/2019 |
+| utcCustomOutput | string | 3 5 |
 
 다음 예제에서는 태그 값을 설정할 때 함수의 값을 사용 하는 방법을 보여 줍니다.
 

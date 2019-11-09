@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 659c4cb3a6f0d50176875b76eeb2784c711eafd1
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 84a46e66bb6c36950a84fbeb2dacc3a8d6bcc241
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967135"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833362"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>사용자 지정 루트 CA를 사용 하 여 Azure 애플리케이션 게이트웨이 자체 서명 된 인증서 생성
 
@@ -29,7 +29,7 @@ Application Gateway는 잘 알려진 CA (예: GoDaddy 또는 DigiCert)에 의해
 - 사용자 지정 CA로 서명 된 자체 서명 된 인증서 만들기
 - Application Gateway에 자체 서명 된 루트 인증서를 업로드 하 여 백 엔드 서버 인증
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - **Windows 또는 Linux를 실행 하는 컴퓨터의 [OpenSSL](https://www.openssl.org/)** 
 
@@ -40,7 +40,7 @@ Application Gateway는 잘 알려진 CA (예: GoDaddy 또는 DigiCert)에 의해
 
 - **Application Gateway v2 SKU**
    
-  기존 application gateway [가 없는 경우 빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure Portal](quick-create-portal.md)
+  기존 application gateway가 없는 경우 [빠른 시작: Azure 애플리케이션 게이트웨이를 사용 하 여 웹 트래픽 직접 사용-Azure Portal](quick-create-portal.md)을 참조 하세요.
 
 ## <a name="create-a-root-ca-certificate"></a>루트 CA 인증서 만들기
 
@@ -87,7 +87,7 @@ OpenSSL를 사용 하 여 루트 CA 인증서를 만듭니다.
 CSR은 인증서를 요청할 때 CA에 제공 되는 공개 키입니다. CA는이 특정 요청에 대 한 인증서를 발급 합니다.
 
 > [!NOTE]
-> 서버 인증서의 CN (일반 이름)은 발급자의 도메인과 달라 야 합니다. 예를 들어이 경우 발급자의 CN은 www.contoso.com 이 고 서버 인증서의 CN은 www.fabrikam.com 입니다.
+> 서버 인증서의 CN (일반 이름)은 발급자의 도메인과 달라 야 합니다. 예를 들어이 경우 발급자의 CN은 `www.contoso.com` 되며 서버 인증서의 CN은 `www.fabrikam.com`됩니다.
 
 
 1. 다음 명령을 사용 하 여 CSR을 생성 합니다.
@@ -96,7 +96,7 @@ CSR은 인증서를 요청할 때 CA에 제공 되는 공개 키입니다. CA는
    openssl req -new -sha256 -key fabrikam.key -out fabrikam.csr
    ```
 
-1. 메시지가 표시 되 면 루트 키에 대 한 암호를 입력 하 고 사용자 지정 CA에 대 한 조직 정보를 입력 합니다. Country, State, Org, OU 및 정규화 된 도메인 이름입니다. 이는 웹 사이트의 도메인 이며 발급자와 달라 야 합니다.
+1. 메시지가 표시 되 면 루트 키에 대 한 암호를 입력 하 고, 사용자 지정 CA에 대 한 조직 정보 (Country, State, Org, OU 및 정규화 된 도메인 이름)를 입력 합니다. 이는 웹 사이트의 도메인 이며 발급자와 달라 야 합니다.
 
    ![서버 인증서](media/self-signed-certificates/server-cert.png)
 
@@ -130,7 +130,7 @@ CSR은 인증서를 요청할 때 CA에 제공 되는 공개 키입니다. CA는
 
 ### <a name="iis"></a>IIS
 
-인증서를 가져오고 IIS [에서 서버 인증서로 업로드 하는 방법에 대 한 지침은 방법: Windows Server 2003](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server)의 웹 서버에 가져온 인증서를 설치 합니다.
+인증서를 가져오고 IIS에서 서버 인증서로 업로드 하는 방법에 대 한 지침은 [방법: Windows server 2003의 웹 서버에 가져온 인증서 설치](https://support.microsoft.com/help/816794/how-to-install-imported-certificates-on-a-web-server-in-windows-server)를 참조 하세요.
 
 SSL 바인딩 지침은 [IIS 7에서 ssl을 설정 하는 방법](https://docs.microsoft.com/iis/manage/configuring-security/how-to-set-up-ssl-on-iis#create-an-ssl-binding-1)을 참조 하세요.
 
@@ -178,7 +178,7 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 Application Gateway에서 인증서를 업로드 하려면 .crt 인증서를 64로 인코딩된 .cer 형식으로 내보내야 합니다. Crt에는 기본-64 인코딩 형식으로 공개 키가 이미 포함 되어 있으므로 .crt에서 .cer으로 파일 확장명의 이름을 바꿉니다. 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 포털에서 신뢰할 수 있는 루트 인증서를 업로드 하려면 **HTTP 설정을** 선택 하 고 **HTTPS** 프로토콜을 선택 합니다.
 

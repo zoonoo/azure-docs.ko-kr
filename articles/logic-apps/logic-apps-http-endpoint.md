@@ -9,12 +9,12 @@ ms.author: klam
 ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: 41173e088b000530030b24400640f8003f330db6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 27a3bf036cce27a5f215068ff71928cb7e181452
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581015"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833968"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩
 
@@ -143,7 +143,7 @@ HTTP 끝점을 설정 하기 위해 논리 앱에서 들어오는 요청을 받�
 
 ## <a name="accept-parameters-in-endpoint-url"></a>끝점 URL의 매개 변수 허용
 
-끝점 URL에 매개 변수를 허용 하려면 트리거에서 상대 경로를 지정 합니다. 또한 HTTP 요청에 필요한 [메서드를](#set-method) 명시적으로 설정 해야 합니다.
+끝점 URL에 매개 변수를 허용 하려면 트리거에서 상대 경로를 지정 합니다. 또한 HTTP 요청에 필요한 [메서드](#set-method) 를 명시적으로 설정 해야 합니다.
 
 1. 요청 트리거에서 **새 매개 변수 추가** 목록을 열고이 속성을 트리거에 추가 하는 **상대 경로**를 선택 합니다.
 
@@ -178,7 +178,7 @@ HTTP 끝점을 설정 하기 위해 논리 앱에서 들어오는 요청을 받�
     HTTP 엔드포인트 URL은 이제 다음 예와 같은 상대 경로를 포함합니다.
 
     ```http
-    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/postalCode?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
+    https://prod-25.westus.logic.azure.com/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke/address/{postalCode}?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}
     ```
 
 1. HTTP 엔드포인트를 테스트하려면 업데이트된 URL을 복사하여 다른 브라우저 창에 붙여넣되, `{postalCode}`을 `123456`로 바꾸고 Enter 키를 누릅니다.

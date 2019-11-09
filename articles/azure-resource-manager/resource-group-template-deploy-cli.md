@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: c5a07d8b52e83215b2fdc220d76557ca45e1eae9
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: e2f1747b8ae98ce53ce570422044a2f172c1a526
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286020"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834470"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>리소스 관리자 템플릿과 Azure CLI로 리소스 배포
 
@@ -37,9 +37,11 @@ az group deployment create --resource-group <resource-group-name> --template-fil
 az deployment create --location <location> --template-file <path-to-template>
 ```
 
-현재 관리 그룹 배포는 REST API 통해서만 지원 됩니다. [리소스 관리자 템플릿 및 리소스 관리자 REST API를 사용 하 여 리소스 배포를](resource-group-template-deploy-rest.md)참조 하세요.
+구독 수준 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조 하세요.
 
-이 문서의 예제에서는 리소스 그룹 배포를 사용 합니다. 구독 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조 하세요.
+현재 관리 그룹 배포는 REST API 통해서만 지원 됩니다. 관리 그룹 수준 배포에 대 한 자세한 내용은 [관리 그룹 수준에서 리소스 만들기](deploy-to-management-group.md)를 참조 하세요.
+
+이 문서의 예제에서는 리소스 그룹 배포를 사용 합니다.
 
 ## <a name="deploy-local-template"></a>로컬 템플릿 배포
 
@@ -100,7 +102,7 @@ az group deployment create --resource-group examplegroup \
 
 매개 변수 값을 전달하려면 인라인 매개 변수 또는 매개 변수 파일을 사용할 수 있습니다.
 
-### <a name="inline-parameters"></a>인라인 매개 변수입니다.
+### <a name="inline-parameters"></a>인라인 매개 변수
 
 인라인 매개 변수를 전달하려면 `parameters`에 값을 제공합니다. 예를 들어 Bash 셸에서 문자열 및 배열을 템플릿에 전달하려면 다음을 사용합니다.
 
@@ -122,7 +124,7 @@ az group deployment create \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
-파일에서 매개 변수 값을 가져오면 구성 값을 제공해야 하는 경우에 유용합니다. 예를 들어 [Linux 가상 머신에 대한 Cloud-Init 값](../virtual-machines/linux/using-cloud-init.md)을 제공할 수 있습니다.
+파일에서 매개 변수 값을 가져오면 구성 값을 제공해야 하는 경우에 유용합니다. 예를 들어, [Linux 가상 머신에 대한 Cloud-Init 값](../virtual-machines/linux/using-cloud-init.md)을 제공할 수 있습니다.
 
 arrayContent.json 형식은 다음과 같습니다.
 
@@ -151,7 +153,7 @@ az group deployment create \
 
 ## <a name="handle-extended-json-format"></a>확장 JSON 형식 처리
 
-여러 줄 문자열 또는 주석을 사용 하 여 템플릿을 배포 하려면 `--handle-extended-json-format` 스위치를 사용 해야 합니다.  예를 들어 다음과 같은 가치를 제공해야 합니다.
+여러 줄 문자열 또는 주석을 사용 하 여 템플릿을 배포 하려면 `--handle-extended-json-format` 스위치를 사용 해야 합니다.  예:
 
 ```json
 {
@@ -191,7 +193,7 @@ az group deployment validate \
       ...
 ```
 
-오류가 감지되면 명령은 오류 메시지를 반환합니다. 예를 들어, 스토리지 계정 SKU에 대해 잘못된 값을 전달하면 다음 오류가 반환됩니다.
+오류가 감지되면 명령은 오류 메시지를 반환합니다. 예를 들어 스토리지 계정 SKU에 대해 잘못된 값을 전달하면 다음 오류가 반환됩니다.
 
 ```azurecli
 {

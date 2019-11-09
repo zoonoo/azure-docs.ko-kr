@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: afbf77014ece981568d4123db7820a2fa0a8f60d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e1b513344b6ea16c25d829939e64cd5ca1063c87
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749115"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838902"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 가상 머신
 
@@ -282,7 +282,7 @@ Resource Manager는 배포되는 다른 리소스에 종속되지 않는 모든 
 몇 가지 프로필 요소는 가상 머신 리소스를 정의할 때 사용됩니다. 일부는 필요하고 일부는 선택 사항입니다. 예를 들어 hardwareProfile, osProfile, storageProfile 및 networkProfile 요소는 필요하지만 diagnosticsProfile은 선택 사항입니다. 이러한 프로필은 다음과 같은 설정을 정의합니다.
    
 - [크기](sizes.md)
-- [이름](/azure/architecture/best-practices/naming-conventions) 및 자격 증명
+- [이름](/azure/architecture/best-practices/resource-naming) 및 자격 증명
 - 디스크 및 [운영 체제 설정](cli-ps-findimage.md)
 - [네트워크 인터페이스](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
 - 부트 진단

@@ -1,6 +1,6 @@
 ---
 title: Video Indexer에서 음성 언어를 자동으로 식별-Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 이 문서에서는 Video Indexer 언어 식별 모델을 사용 하 여 비디오에서 음성 언어를 자동으로 식별 하는 방법을 설명 합니다.
 services: media-services
 author: juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ellbe
-ms.openlocfilehash: 729ac9fc7c8ec6a85b3497c51888d3b5a6fc8558
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: ce3e488a6387f9a823d7c1b514b52af24944776b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147184"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839001"
 ---
 # <a name="automatically-identify-the-spoken-language-with-language-identification-model"></a>언어 식별 모델을 사용 하 여 음성 언어 자동 식별
 
@@ -23,7 +23,7 @@ Video Indexer는 오디오에서 음성 언어 콘텐츠를 자동으로 식별 
 
 ## <a name="choosing-auto-language-identification-on-indexing"></a>인덱싱에서 자동 언어 식별 선택
 
-API를 사용 하 여 [비디오를 인덱싱하거나 인덱싱할 때](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) `auto detect` `sourceLanguage` 매개 변수에서 옵션을 선택 합니다.
+API를 사용 하 여 [비디오를 인덱싱하거나 인덱싱할 때](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-Index-Video?) `sourceLanguage` 매개 변수에서 `auto detect` 옵션을 선택 합니다.
 
 포털을 사용 하는 경우 [Video Indexer](https://www.videoindexer.ai/) 홈 페이지의 **계정 비디오** 로 이동 하 여 다시 인덱싱할 비디오의 이름을 마우스로 가리킵니다. 오른쪽 아래 모서리에서 인덱스 다시 설정 단추를 클릭 합니다. 비디오 **다시 인덱싱** 대화 상자의 **비디오 원본 언어** 드롭다운 상자에서 *자동 검색* 을 선택 합니다.
 
@@ -31,9 +31,9 @@ API를 사용 하 여 [비디오를 인덱싱하거나 인덱싱할 때](https:/
 
 ## <a name="model-output"></a>모델 출력
 
-해당 언어에 대 한 신뢰도가 `> 0.6`speech 면 가장 가능성이 높은 언어에 따라 비디오를 합니다. Video Indexer 언어가 자신을 식별할 수 없는 경우 음성 언어는 영어 라고 가정 합니다. 
+해당 언어에 대 한 신뢰가 `> 0.6`되는 경우 가장 가능성이 높은 언어에 따라 비디오를 speech Video Indexer. 언어가 자신을 식별할 수 없는 경우 음성 언어는 영어 라고 가정 합니다. 
 
-모델 기준 언어는 insights JSON에서 `sourceLanguage` 특성으로 사용할 수 있습니다 (root/비디오/정보에서). `sourceLanguageConfidence` 특성에서 해당 신뢰 점수를 사용할 수도 있습니다.
+모델 기준 언어는 `sourceLanguage` 특성 (루트/비디오/정보에서)으로 insights JSON에서 사용할 수 있습니다. 해당 신뢰 점수는 `sourceLanguageConfidence` 특성 에서도 사용할 수 있습니다.
 
 ```json
 "insights": {

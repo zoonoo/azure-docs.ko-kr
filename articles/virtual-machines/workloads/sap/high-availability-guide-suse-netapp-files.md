@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/07/2019
 ms.author: radeltch
-ms.openlocfilehash: 3764ae9ff3a20de6d31f0438b73597933080e372
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 910ffc1a94b78fec259dcf30a3c7284716809355
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791744"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832594"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -78,7 +78,7 @@ ms.locfileid: "72791744"
 * SAP Note [2243692][2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
 * SAP Note [1984787][1984787]은 SUSE LINUX Enterprise Server 12에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [1999351][1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
-* SAP Community WIKI] (https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 에는 Linux에 필요한 모든 SAP 노트가 있습니다.
+* SAP Community WIKI] (https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)에는 Linux에 필요한 모든 SAP 노트가 있습니다.
 * [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide]
 * [Linux에서 SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
@@ -96,7 +96,7 @@ SAP Netweaver central services에 대 한 HA (고가용성)에는 공유 저장�
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-suse-anf/high-availability-guide-suse-anf.PNG)
 
-SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서 [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 는 가상 IP 주소를 사용 하는 데 필요 합니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
+SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서 [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) 는 가상 IP 주소를 사용 하는 데 필요 합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)를 사용 하는 것이 좋습니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
 
 > [!IMPORTANT]
 > Azure Vm에서 게스트 운영 체제로 SUSE Linux를 사용 하는 SAP ASCS/ERS의 다중 SID 클러스터링은 **지원 되지 않습니다**. 다중 SID 클러스터링은 하나의 Pacemaker 클러스터에서 서로 다른 Sid를 사용 하 여 여러 SAP ASCS/ERS 인스턴스를 설치 하는 방법을 설명 합니다.
@@ -111,13 +111,15 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 * 프로브 포트
   * 포트 620<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 36<strong>&lt;nr&gt;</strong> TCP
-  * 39<strong>&lt;nr&gt;</strong> TCP
-  * 81<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
+  * 기본 Load Balancer 사용 하는 경우 다음 포트에 대 한 부하 분산 규칙을 만듭니다.
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 36<strong>&lt;nr&gt;</strong> TCP
+    * 39<strong>&lt;nr&gt;</strong> TCP
+    * 81<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ### <a name="ers"></a>ERS
 
@@ -128,11 +130,13 @@ SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터�
 * 프로브 포트
   * 포트 621<strong>&lt;nr&gt;</strong>
 * 부하 분산 규칙
-  * 32<strong>&lt;nr&gt;</strong> TCP
-  * 33<strong>&lt;nr&gt;</strong> TCP
-  * 5<strong>&lt;nr&gt;</strong>13 TCP
-  * 5<strong>&lt;nr&gt;</strong>14 TCP
-  * 5<strong>&lt;nr&gt;</strong>16 TCP
+  * 표준 Load Balancer 사용 하는 경우 **HA 포트** 를 선택 합니다.
+  * 기본 Load Balancer 사용 하는 경우 다음 포트에 대 한 부하 분산 규칙을 만듭니다.
+    * 32<strong>&lt;nr&gt;</strong> TCP
+    * 33<strong>&lt;nr&gt;</strong> TCP
+    * 5<strong>&lt;nr&gt;</strong>13 TCP
+    * 5<strong>&lt;nr&gt;</strong>14 TCP
+    * 5<strong>&lt;nr&gt;</strong>16 TCP
 
 ## <a name="setting-up-the-azure-netapp-files-infrastructure"></a>Azure NetApp Files 인프라 설정 
 
@@ -207,7 +211,42 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 먼저 Azure NetApp Files 볼륨을 만들어야 합니다. Vm을 배포 합니다. 그런 다음, 부하 분산 장치를 만들고 백 엔드 풀의 가상 머신을 사용합니다.
 
-1. 부하 분산 장치(내부) 만들기  
+1. 부하 분산 장치 만들기 (내부, 표준):  
+   1. 프런트 엔드 IP 주소 만들기
+      1. ASCS에 대 한 IP 주소 10.1.1.20
+         1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
+         1. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **프런트 엔드). QAS. ASCS**)
+         1. 할당을 정적으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.1.1.20**).
+         1. 확인 클릭
+      1. ASCS ERS에 대 한 IP 주소 10.1.1.21
+         * "A"에서 위의 단계를 반복 하 여 **10.1.1.21** 및 프런트 엔드와 같은 사람에 대 한 IP 주소를 만듭니다 **. QAS. ERS**)
+   1. 백 엔드 풀 만들기
+      1. ASCS에 대한 백 엔드 풀 만들기
+         1. 부하 분산 장치를 열고 백 엔드 풀을 선택한 다음 추가 클릭
+         1. 새 백 엔드 풀의 이름을 입력 합니다 (예: **백 엔드). QAS**)
+         1. 가상 머신 추가 클릭
+         1. 가상 컴퓨터 선택
+         1. (A) SCS 클러스터의 가상 머신 및 해당 IP 주소를 선택 합니다.
+         1. 추가를 클릭합니다.
+   1. 상태 프로브 만들기
+      1. 포트: 620**00**(ASCS용)
+         1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
+         1. 새 상태 프로브 (예: 상태)의 이름을 입력 합니다 **. QAS. ASCS**)
+         1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
+         1. 확인 클릭
+      1. ASCS ERS에 대 한 포트 621**01**
+            * "C"에서 위의 단계를 반복 하 여 해당 ERS에 대 한 상태 프로브를 만듭니다 (예: 621**01** 및 **health). QAS. ERS**)
+   1. 부하 분산 규칙
+      1. ASCS에 대한 백 엔드 풀 만들기
+         1. 부하 분산 장치를 열고 부하 분산 규칙을 선택한 다음 추가를 클릭 합니다.
+         1. 새 부하 분산 장치 규칙의 이름 (예: lb)을 입력 합니다 **. QAS. ASCS**)
+         1. 이전에 만든 ASCS, 백 엔드 풀 및 상태 프로브에 대 한 프런트 엔드 IP 주소를 선택 합니다 (예: **프런트 엔드). QAS. ASCS**, **백 엔드. QAS** 및 **health. QAS. ASCS**)
+         1. **HA 포트** 선택
+         1. 유휴 상태 시간 제한을 30분으로 증가
+         1. **부동 IP를 사용하도록 설정**
+         1. 확인 클릭
+         * 위의 단계를 반복 하 여 ERS에 대 한 부하 분산 규칙을 만듭니다 (예: **lb. QAS. ERS**)
+1. 또는 시나리오에 기본 부하 분산 장치 (내부)가 필요한 경우 다음 단계를 수행 합니다.  
    1. 프런트 엔드 IP 주소 만들기
       1. ASCS에 대 한 IP 주소 10.1.1.20
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
@@ -246,8 +285,11 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
       1. ASCS ERS에 대한 추가 포트
          * "D"에서 위의 단계를 33**01**, 5**01**13, 5**01**14, 5**01**16 및 TCP (ascs ERS)에 대 한 TCP로 반복 합니다.
 
+> [!Note]
+> 공용 IP 주소가 없는 Vm이 내부 (공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치 되는 경우 공용 끝점으로의 라우팅을 허용 하기 위해 추가 구성을 수행 하지 않는 한 아웃 바운드 인터넷 연결이 없습니다. 아웃 바운드 연결을 설정 하는 방법에 대 한 자세한 내용은 [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 여 Virtual Machines에 대 한 공용 끝점 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections)을 참조 하세요.  
+
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. 매개 변수 **net.tcp. tcp 타임 스탬프** 를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
+> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. **Tcp_timestamps** 매개 변수를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
 
 ### <a name="create-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
 
@@ -434,9 +476,9 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
   
 2. **[1]** SAP NetWeaver ASCS 설치  
 
-   ASCS에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소 (예: <b>anftstsapvh</b>, <b>10.1.1.20</b> 및에 사용한 인스턴스 번호)에 매핑되는 가상 호스트 이름을 사용 하 여 첫 번째 노드에서 루트로 SAP NetWeaver ascs를 설치 합니다. 부하 분산 장치 프로브 (예: <b>00</b>)
+   ASCS에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소 (예: <b>anftstsapvh</b>, <b>10.1.1.20</b> 및 부하 분산 장치의 프로브에 사용한 인스턴스 번호 (예: <b>00</b>)에 매핑되는 가상 호스트 이름을 사용 하 여 첫 번째 노드에 SAP NetWeaver ascs를 설치 합니다.
 
-   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. SAPINST_USE_HOSTNAME 매개 변수를 사용 하 여 가상 호스트 이름을 사용 하 여 SAP를 설치할 수 있습니다.
+   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. 매개 변수 SAPINST_USE_HOSTNAME를 사용 하 여 가상 호스트 이름을 사용 하 여 SAP를 설치할 수 있습니다.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>
@@ -495,9 +537,9 @@ SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files �
 
 4. **[2]** SAP NetWeaver ERS 설치
 
-   사용자에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소 (예: <b>anftstsapers</b>, <b>10.1.1.21</b> 및에 사용한 인스턴스 번호)에 매핑되는 가상 호스트 이름을 사용 하 여 두 번째 노드에 SAP NetWeaver ERS를 루트로 설치 합니다. 부하 분산 장치 프로브 (예: <b>01</b>)
+   사용자에 대 한 부하 분산 장치 프런트 엔드 구성의 IP 주소에 매핑되는 가상 호스트 이름 (예: <b>anftstsapers</b>, <b>10.1.1.21</b> 및 부하 분산 장치의 프로브에 사용한 인스턴스 번호 (예: <b>01</b>)를 사용 하 여 두 번째 노드에 SAP NetWeaver ERS를 루트로 설치 합니다.
 
-   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. SAPINST_USE_HOSTNAME 매개 변수를 사용 하 여 가상 호스트 이름을 사용 하 여 SAP를 설치할 수 있습니다.
+   sapinst 매개 변수 SAPINST_REMOTE_ACCESS_USER를 사용하면 루트 권한이 없는 사용자의 sapinst 연결을 허용할 수 있습니다. 매개 변수 SAPINST_USE_HOSTNAME를 사용 하 여 가상 호스트 이름을 사용 하 여 SAP를 설치할 수 있습니다.
 
    <pre><code>sudo &lt;swpm&gt;/sapinst SAPINST_REMOTE_ACCESS_USER=<b>sapadmin</b> SAPINST_USE_HOSTNAME=<b>virtual_hostname</b>
    </code></pre>

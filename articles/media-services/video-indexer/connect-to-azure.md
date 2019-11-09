@@ -1,6 +1,6 @@
 ---
 title: Azure Portal에서 Video Indexer 계정 만들기
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 이 문서에서는 Azure Portal에서 Video Indexer 계정을 만드는 방법을 설명합니다.
 services: media-services
 author: Juliako
@@ -10,20 +10,20 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 08/05/2019
 ms.author: juliako
-ms.openlocfilehash: 0f67b2e37e264febf11f3fa55b4469d392c59712
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: dc844392d64178cb9000db15af39f923521efc19
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815675"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838391"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Azure에 연결되는 Video Indexer 계정 만들기
 
-Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
+Video Indexer 계정을 만들 때 평가판 계정(일정한 무료 인덱싱 시간(분)을 가져올 수 있음) 또는 유료 옵션(할당량으로 제한되지 않음)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
 
 이 문서에서는 Azure 구독 및 Azure Media Services 계정에 연결되는 Video Indexer 계정을 만드는 방법에 대해 설명합니다. 이 토픽에서는 자동(기본값) 흐름을 사용하여 Azure에 연결하는 단계를 설명합니다. Azure에 수동으로 연결하는 방법도 보여줍니다(고급).
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독.
 
@@ -72,7 +72,7 @@ Azure Portal을 사용하여 EventGrid 리소스 공급자를 등록합니다.
 
     ![Video Indexer를 Azure에 연결](./media/create-account/connect-vi-to-azure-subscription.png)
 
-4. 지원되는 위치에서 Azure 지역: 미국 서부 2, 북유럽 또는 동아시아를 선택합니다.
+4. 지원되는 위치에서 Azure 지역(미국 서부 2, 북유럽 또는 동아시아)을 선택합니다.
 5. **Azure Media Services 계정** 아래에서 다음 옵션 중 하나를 선택합니다.
 
     * 새 Media Services 계정을 만들려면 **새 리소스 그룹 만들기**를 선택합니다. 리소스 그룹에 대한 이름을 제공합니다.
@@ -136,19 +136,19 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 ### <a name="connect-manually"></a>수동으로 연결
 
-[Video Indexer](https://www.videoindexer.ai/) 페이지의 **Video Indexer를 Azure 구독에 연결** 대화 상자에서 **수동 구성으로 전환** 링크를 선택합니다.
+**Video Indexer** 페이지의 [Video Indexer를 Azure 구독에 연결](https://www.videoindexer.ai/) 대화 상자에서 **수동 구성으로 전환** 링크를 선택합니다.
 
 대화 상자에서 다음 정보를 입력합니다.
 
-|설정|Description|
+|설정|설명|
 |---|---|
-|Video Indexer 계정 영역|Video Indexer 계정 지역의 이름입니다. 성능을 향상시키고 비용을 절감하려면 Azure Media Services 리소스와 Azure Storage 계정이 있는 지역의 이름을 지정하는 것이 좋습니다. |
+|Video Indexer 계정 지역|Video Indexer 계정 지역의 이름입니다. 성능을 향상시키고 비용을 절감하려면 Azure Media Services 리소스와 Azure Storage 계정이 있는 지역의 이름을 지정하는 것이 좋습니다. |
 |AAD(Azure Active Directory) 테넌트|Azure AD 테넌트의 이름입니다(예: "contoso.onmicrosoft.com"). Azure Portal에서 테넌트 정보를 검색할 수 있습니다. 오른쪽 위 모서리에서 로그인한 사용자의 이름 위로 커서를 이동합니다. **도메인** 오른쪽에서 이름을 찾습니다.|
 |구독 ID|이 연결을 만들어야 하는 Azure 구독입니다. 구독 ID는 Azure Portal에서 검색할 수 있습니다. 왼쪽 패널에서 **모든 서비스**를 클릭하고 "구독"을 검색합니다. **구독**을 선택하고 구독 목록에서 원하는 ID를 선택합니다.|
 |Azure Media Services 리소스 그룹 이름|Media Services 계정을 만든 리소스 그룹의 이름입니다.|
 |Media Services 리소스 이름|이전 섹션에서 만든 Azure Media Services 계정의 이름입니다.|
-|애플리케이션 ID|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
-|응용 프로그램 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
+|애플리케이션 UI|이전 섹션에서 만든 Azure AD 애플리케이션 ID(지정된 Media Services 계정에 대한 권한이 있는)입니다.|
+|애플리케이션 키|이전 섹션에서 만든 Azure AD 애플리케이션 키입니다. |
 
 ## <a name="considerations"></a>고려 사항
 
@@ -173,7 +173,7 @@ Azure 연결이 실패한 경우 수동으로 연결하여 문제를 해결할 �
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 지침에 따라 평가판 계정 및/또는 Azure에 연결된 Video Indexer 계정과 프로그래밍 방식으로 상호 작용할 수 있습니다. [API 사용](video-indexer-use-apis.md).
+[API 사용](video-indexer-use-apis.md)의 지침에 따라 평가판 계정 및/또는 Azure에 연결된 Video Indexer 계정과 프로그래밍 방식으로 상호 작용할 수 있습니다.
 
 Azure에 연결할 때 사용한 것과 동일한 Azure AD 사용자를 사용해야 합니다.
 

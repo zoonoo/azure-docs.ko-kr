@@ -1,6 +1,6 @@
 ---
 title: Azure Video Indexer를 사용하여 브랜드 모델 사용자 지정
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 이 문서에서는 Azure Video Indexer를 사용하여 브랜드 모델을 사용자 지정하는 방법을 보여 줍니다.
 services: media-services
 author: anikaz
@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 8d0806bc0262cd45a49e4f97ea629683ac239aa8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4289c592644d7570ff0dd9ce6aed0cd77f51f25e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799632"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838330"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-api"></a>Video Indexer API를 사용하여 브랜드 모델 사용자 지정
 
-Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱 동안 연설 및 시각적 텍스트에서 브랜드를 검색하도록 지원합니다. 브랜드 검색 기능은 Bing의 브랜드 데이터베이스에서 제안하는 제품, 서비스 및 회사의 멘션을 식별합니다. 예를 들어 Microsoft가 비디오 또는 오디오 콘텐츠에 멘션되거나, 비디오의 시각적 텍스트에 표시되는 경우 Video Indexer는 콘텐츠에서 해당 항목을 브랜드로 검색합니다. 사용자 지정 브랜드 모델을 사용하면 특정 브랜드가 검색되지 않도록 제외하고, Bing 브랜드 데이터베이스에 없을 수 있으며 모델에 포함되어야 하는 브랜드를 포함할 수 있습니다.
+Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱 동안 음성 및 시각적 텍스트에서 브랜드를 검색하도록 지원합니다. 브랜드 검색 기능은 Bing의 브랜드 데이터베이스에서 제안하는 제품, 서비스 및 회사의 멘션을 식별합니다. 예를 들어 Microsoft가 비디오 또는 오디오 콘텐츠에 멘션되거나, 비디오의 시각적 텍스트에 표시되는 경우 Video Indexer는 콘텐츠에서 해당 항목을 브랜드로 검색합니다. 사용자 지정 브랜드 모델을 사용하면 특정 브랜드가 검색되지 않도록 제외하고, Bing 브랜드 데이터베이스에 없을 수 있으며 모델에 포함되어야 하는 브랜드를 포함할 수 있습니다.
 
 자세한 개요를 보려면 [개요](customize-brands-model-overview.md)를 참조하세요.
 
@@ -39,11 +39,11 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**Name**|**형식**|**필수**|**설명**|
+|**이름**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -59,13 +59,13 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 }
 ```
 
-**enabled**를 true로 설정하면 Video Indexer에서 검색할 ‘포함’ 목록에 브랜드가 배치됩니다.  **enabled**를 false로 설정하면 ‘제외’ 목록에 브랜드가 배치되므로 Video Indexer에서 검색하지 않습니다. 
+**enabled**를 true로 설정하면 Video Indexer에서 검색할 ‘포함’ 목록에 브랜드가 배치됩니다. **enabled**를 false로 설정하면 ‘제외’ 목록에 브랜드가 배치되므로 Video Indexer에서 검색하지 않습니다.
 
 **referenceUrl** 값은 해당 Wikipedia 페이지의 링크처럼, 브랜드의 참조 웹 사이트일 수 있습니다.
 
-**tags** 값은 브랜드의 태그 목록입니다. 이 값은 Video Indexer 웹 사이트의 브랜드 ‘범주’ 필드에 표시됩니다.  예를 들어 “Azure” 브랜드는 “클라우드”로 태그를 지정하거나 분류할 수 있습니다.
+**tags** 값은 브랜드의 태그 목록입니다. 이 값은 Video Indexer 웹 사이트의 브랜드 ‘범주’ 필드에 표시됩니다. 예를 들어, "Azure" 브랜드는 "클라우드"로 태그를 지정하거나 분류할 수 있습니다.
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 응답은 방금 만든 브랜드에 대한 정보를 아래 예제 형식으로 제공합니다.
 
@@ -89,7 +89,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="delete-a-brand"></a>브랜드 삭제
 
-지정된 계정의 사용자 지정 브랜드 모델에서 브랜드를 제거합니다. 계정은 **accountId** 매개 변수에 지정됩니다. 성공적으로 호출하면 브랜드가 더 이상 ‘포함’ 또는 ‘제외’ 브랜드 목록에 없습니다.  
+지정된 계정의 사용자 지정 브랜드 모델에서 브랜드를 제거합니다. 계정은 **accountId** 매개 변수에 지정됩니다. 성공적으로 호출하면 브랜드가 더 이상 ‘포함’ 또는 ‘제외’ 브랜드 목록에 없습니다.
 
 ### <a name="request-url"></a>요청 URL
 
@@ -101,18 +101,18 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**Name**|**형식**|**필수**|**설명**|
+|**이름**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
 |id|정수|예|브랜드 ID(브랜드를 만들 때 생성됨)|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
 이 호출에 필요한 추가 요청 본문은 없습니다.
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 브랜드를 성공적으로 삭제한 경우 반환되는 콘텐츠가 없습니다.
 
@@ -130,18 +130,18 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**Name**|**형식**|**필수**|**설명**|
+|**이름**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
 |id|정수|예|브랜드 ID(브랜드를 만들 때 생성됨)|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
 이 호출에 필요한 추가 요청 본문은 없습니다.
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 응답은 브랜드 ID를 사용하여 검색한 브랜드에 대한 정보를 아래 예제 형식으로 제공합니다.
 
@@ -164,7 +164,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 
 > [!NOTE]
-> **enabled**를 **true**로 설정하면 브랜드가 Video Indexer에서 검색할 ‘포함’ 목록에 배치되고, **enabled**를 false로 설정하면 브랜드가 ‘제외’ 목록에 배치되어 Video Indexer에서 검색하지 않습니다.  
+> **enabled**를 **true**로 설정하면 브랜드가 Video Indexer에서 검색할 ‘포함’ 목록에 배치되고, *enabled*를 false로 설정하면 브랜드가 ‘제외’ 목록에 배치되어 Video Indexer에서 검색하지 않습니다.
 
 ## <a name="update-a-specific-brand"></a>특정 브랜드 업데이트
 
@@ -180,12 +180,12 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**Name**|**형식**|**필수**|**설명**|
+|**이름**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
 |id|정수|예|브랜드 ID(브랜드를 만들 때 생성됨)|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -205,9 +205,9 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 
 > [!NOTE]
-> 이 예제에서는 **브랜드 만들기** 섹션에서 예제 요청 본문에 만든 브랜드가 새 태그 및 새 설명으로 업데이트됩니다. 또한 ‘제외’ 목록에 배치하기 위해 **enabled** 값이 false로 변경되었습니다. 
+> 이 예제에서는 **브랜드 만들기** 섹션에서 예제 요청 본문에 만든 브랜드가 새 태그 및 새 설명으로 업데이트됩니다. 또한 ‘제외’ 목록에 배치하기 위해 **enabled** 값이 false로 변경되었습니다.
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 응답은 업데이트한 브랜드에 대한 업데이트된 정보를 아래 예제 형식으로 제공합니다.
 
@@ -231,7 +231,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ## <a name="get-all-of-the-brands"></a>모든 브랜드 가져오기
 
-브랜드가 ‘포함’ 또는 ‘제외’ 브랜드 목록에 배치되는지에 관계없이 지정된 계정의 사용자 지정 브랜드 모델에 있는 모든 브랜드를 반환합니다.  
+브랜드가 ‘포함’ 또는 ‘제외’ 브랜드 목록에 배치되는지에 관계없이 지정된 계정의 사용자 지정 브랜드 모델에 있는 모든 브랜드를 반환합니다.
 
 ### <a name="request-url"></a>요청 URL
 
@@ -243,17 +243,17 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**Name**|**형식**|**필수**|**설명**|
+|**이름**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
 이 호출에 필요한 추가 요청 본문은 없습니다.
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 응답은 계정의 모든 브랜드 목록과 각 세부 정보를 아래 예제의 형식으로 제공합니다.
 
@@ -287,7 +287,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 ```
 
 > [!NOTE]
-> *Example* 브랜드는 Video Indexer에서 검색할 ‘포함’ 목록에 있고, *Example2* 브랜드는 ‘제외’ 목록에 있으므로 Video Indexer에서 검색하지 않습니다.  
+> *Example* 브랜드는 Video Indexer에서 검색할 ‘포함’ 목록에 있고, *Example2* 브랜드는 ‘제외’ 목록에 있으므로 Video Indexer에서 검색하지 않습니다.
 
 ## <a name="get-brands-model-settings"></a>브랜드 모델 설정 가져오기
 
@@ -303,17 +303,17 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**Name**|**형식**|**필수**|**설명**|
+|**이름**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
 이 호출에 필요한 추가 요청 본문은 없습니다.
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 응답은 Bing 브랜드의 사용 여부를 아래 예제 형식으로 표시합니다.
 
@@ -340,11 +340,11 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 
 ### <a name="request-parameters"></a>요청 매개 변수
 
-|**Name**|**형식**|**필수**|**설명**|
+|**이름**|**형식**|**필수**|**설명**|
 |---|---|---|---|
-|location|문자열|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
-|accountId|문자열|예|계정의 GUID(Globally Unique Identifier)입니다.|
-|accessToken|문자열|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
+|location|string|예|호출을 라우팅할 Azure 지역입니다. 자세한 내용은 [Azure 지역 및 Video Indexer](regions.md)를 참조하세요.|
+|accountId|string|예|계정의 GUID(Globally Unique Identifier)입니다.|
+|accessToken|string|예|호출에 대해 인증할 액세스 토큰([계정 액세스 토큰](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?) 범위여야 함)입니다. 액세스 토큰은 1시간 내에 만료됩니다.|
 
 ### <a name="request-body"></a>요청 본문
 
@@ -359,7 +359,7 @@ https://api.videoindexer.ai/{location}/Accounts/{accountId}/Customization/Brands
 > [!NOTE]
 > **useBuiltIn**을 true로 설정하면 Bing 브랜드가 사용됩니다. *useBuiltin*이 false이면 Bing 브랜드가 사용되지 않습니다.
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
 브랜드 모델 설정을 성공적으로 업데이트한 경우 반환되는 콘텐츠가 없습니다.
 

@@ -8,12 +8,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: raynew
-ms.openlocfilehash: 2a8a19dfd2cdc7a64a5ea90b96808963b19f73bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4b07252aed2205917f6b43e3e09a2877663e5bab
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498647"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838906"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 평가 및 마이그레이션 지원 매트릭스
 
@@ -112,7 +112,7 @@ dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그�
 *.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
 *.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Azure Migrate 어플라이언스 업데이트에 사용 됩니다.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Azure Migrate 어플라이언스 업데이트에 사용 됩니다.
 
 ## <a name="assessment-port-requirements"></a>평가-포트 요구 사항
 
@@ -168,7 +168,7 @@ VirtualMachine.SnapshotManagement.* | 복제에 대 한 VM 스냅숏 만들기 �
 **지원** | **세부 정보**
 --- | ---
 **지원되는 운영 체제** | Azure에서 지원 되는 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제는 에이전트 없는 마이그레이션을 사용 하 여 마이그레이션할 수 있습니다.
-**Azure에 대 한 필수 변경 내용** | 일부 Vm은 Azure에서 실행할 수 있도록 변경 해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 이상<br/> -CentOS 6.5 이상, 7.0 이상</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다.
+**Azure에 대 한 필수 변경 내용** | 일부 Vm은 Azure에서 실행할 수 있도록 변경 해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다.
 **Linux 부팅** | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다.
 **UEFI 부팅** | UEFI 부팅이 포함 된 Vm은 마이그레이션을 지원 하지 않습니다.
 **디스크 크기** | 2TB OS 디스크 데이터 디스크의 경우 4tb
@@ -177,7 +177,7 @@ VirtualMachine.SnapshotManagement.* | 복제에 대 한 VM 스냅숏 만들기 �
 **공유된 디스크 클러스터** | 지원되지 않습니다.
 **독립 디스크** | 지원되지 않습니다.
 **RDM/통과 디스크** | Vm에 RDM 또는 통과 디스크가 있는 경우 이러한 디스크는 Azure에 복제 되지 않습니다.
-**용** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
+**NFS** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
 **iSCSI 대상** | ISCSI 대상을 사용 하는 Vm은 에이전트 없는 마이그레이션에 대해 지원 되지 않습니다.
 **다중 경로 IO** | 지원되지 않습니다.
 **저장소 vMotion** | 지원되지 않습니다. VM에서 저장소 vMotion를 사용 하는 경우 복제가 작동 하지 않습니다.
@@ -215,7 +215,7 @@ dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그�
 *.servicebus.windows.net | 어플라이언스와 Azure Migrate 서비스 간의 통신.
 *.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> *.hypervrecoverymanager.windowsazure.com | Azure Migrate 서비스 Url에 연결 합니다.
 *.blob.core.windows.net | 저장소 계정에 데이터를 업로드 합니다.
-http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Azure Migrate 어플라이언스 업데이트에 사용 됩니다.
+https://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/download | Azure Migrate 어플라이언스 업데이트에 사용 됩니다.
 
 
 ## <a name="agentless-migration-port-requirements"></a>에이전트 없는 마이그레이션-포트 요구 사항
@@ -323,7 +323,7 @@ Azure Migrate에서 다운로드 및 설치 | 어플라이언스를 설치할 �
 **공유된 디스크 클러스터** | 지원되지 않습니다.
 **독립 디스크** | 지원됩니다.
 **통과 디스크** | 지원됩니다.
-**용** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
+**NFS** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
 iSCSI 대상 | ISCSI 대상을 사용 하는 Vm은 에이전트 없는 마이그레이션에 대해 지원 되지 않습니다.
 **다중 경로 IO** | 지원되지 않습니다.
 **저장소 vMotion** | 지원됨

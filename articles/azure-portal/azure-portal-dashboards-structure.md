@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: dccf1550052910269efe156b999882234669d7dc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5933521993b598ae3758df6e2e7dbf61bf424779
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815696"
+ms.locfileid: "73832785"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Azure 대시보드의 구조
 이 문서는 다음 대시보드 예제를 사용하여 Azure 대시보드 구조를 안내합니다.
@@ -295,7 +295,7 @@ JSON의 관련 섹션을 분석해 보겠습니다.  최상위 속성, __id__, _
 
 ### <a name="the-id-property"></a>ID 속성
 
-[Azure 리소스의 명명 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)이 적용되는 Azure 리소스 ID입니다. 포털에서 대시보드를 만들 때는 일반적으로 GUID 형식의 ID를 선택하지만 프로그래밍 방식으로 만들 때 유효한 이름을 자유롭게 사용할 수 있습니다. 
+[Azure 리소스의 명명 규칙](/azure/architecture/best-practices/resource-naming)이 적용되는 Azure 리소스 ID입니다. 포털에서 대시보드를 만들 때는 일반적으로 GUID 형식의 ID를 선택하지만 프로그래밍 방식으로 만들 때 유효한 이름을 자유롭게 사용할 수 있습니다. 
 
 ### <a name="the-name-property"></a>name 속성
 이름은 구독, 리소스 종류 또는 리소스 그룹 정보를 포함하지 않는 리소스 ID의 세그먼트입니다. 기본적으로, 리소스 ID의 마지막 세그먼트입니다.

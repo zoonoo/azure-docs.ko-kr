@@ -1,5 +1,6 @@
 ---
 title: Python 스크립트 실행
+titleSuffix: ML Studio (classic) - Azure
 description: Python 스크립트 실행 모듈을 사용 하 여 Machine Learning Studio (클래식) 실험 및 웹 서비스에서 Python 코드를 사용 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/12/2019
-ms.openlocfilehash: dea8fd7971f0572350306ea11ee1f9d897438d11
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6079f904002f00a39d3ee9d70dedd9d261e2825f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684870"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837633"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 Python 기계 학습 스크립트 실행 (클래식)
 
@@ -132,7 +133,7 @@ MatplotLib에서 이미지를 생성 하려면 다음 단계를 수행 해야 �
 1. 축을 가져오고 모든 플롯을 생성 합니다.
 1. 그림을 PNG 파일에 저장 합니다.
 
-이 프로세스는 Pandas의 scatter_matrix 함수를 사용 하 여 산 점도 행렬을 만드는 다음 이미지에 나와 있습니다.
+이 프로세스는 Pandas에서 scatter_matrix 함수를 사용 하 여 산 점도 행렬을 만드는 다음 그림에 나와 있습니다.
 
 ![이미지에 MatplotLib 그림을 저장 하는 코드](./media/execute-python-scripts/figure-v1-8.png)
 

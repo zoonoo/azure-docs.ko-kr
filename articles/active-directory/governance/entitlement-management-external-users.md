@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9107471448a58dc7866fb2cd6052abf168437d2b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e76e5c5d2cfcfd983f2b5cdc279f0c13fa6706e4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174168"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832701"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 외부 사용자에 대 한 액세스 제어
 
@@ -97,7 +97,7 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../b2b/what-is-b2b.md) 를
 
 ### <a name="review-your-sharepoint-online-external-sharing-settings"></a>SharePoint Online 외부 공유 설정 검토
 
-- 외부 사용자에 대 한 액세스 패키지에 SharePoint Online 사이트를 포함 하려면 조직 수준 외부 공유 설정이 **모든** 사용자 (로그인이 필요 하지 않음) 또는 **신규 및 기존 게스트** (게스트가 서명 해야 함)로 설정 되어 있는지 확인 합니다. 또는에서 확인 코드를 제공 합니다.) 자세한 내용은 [외부 공유 설정 또는 해제](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)를 참조 하세요.
+- 외부 사용자에 대 한 액세스 패키지에 SharePoint Online 사이트를 포함 하려면 조직 수준 외부 공유 설정이 **모든** 사용자 (로그인이 필요 하지 않음) 또는 **신규 및 기존 게스트** (게스트가 로그인 하거나 확인 코드를 제공 해야 함)로 설정 되어 있는지 확인 합니다. 자세한 내용은 [외부 공유 설정 또는 해제](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)를 참조 하세요.
 
 - 자격 관리 외부에서 외부 공유를 제한 하려는 경우 외부 공유 설정을 **기존 게스트**로 설정할 수 있습니다. 그런 다음 자격 관리를 통해 초대 된 새 사용자만 이러한 사이트에 대 한 액세스 권한을 얻을 수 있습니다. 자세한 내용은 [외부 공유 설정 또는 해제](https://docs.microsoft.com/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting)를 참조 하세요.
 
@@ -113,7 +113,7 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../b2b/what-is-b2b.md) 를
 
 ### <a name="review-your-teams-sharing-settings"></a>팀 공유 설정 검토
 
-- 외부 사용자에 대 한 액세스 패키지에 팀을 포함 하려면 게스트 **액세스를 허용** 하도록 **Microsoft 팀의 게스트 액세스 허용** 이 설정 되어 있는지 확인 합니다. 자세한 내용은 [Microsoft 팀 관리 센터에서 게스트 액세스 구성](https://docs.microsoft.com/microsoftteams/set-up-guests#configure-guest-access-in-the-microsoft-teams-admin-center)을 참조 하세요.
+- 외부 사용자에 대 한 액세스 패키지에 팀을 포함 하려면 게스트 **액세스를 허용** 하도록 **Microsoft 팀의 게스트 액세스 허용** 이 설정 되어 있는지 확인 합니다. 자세한 내용은 [Microsoft 팀 관리 센터에서 게스트 액세스 구성](/microsoftteams/set-up-guests#configure-guest-access-in-the-teams-admin-center)을 참조 하세요.
 
 ## <a name="manage-the-lifecycle-of-external-users"></a>외부 사용자의 수명 주기 관리
 
@@ -143,7 +143,7 @@ Azure AD 자격 관리는 [AZURE AD b2b (기업 간)](../b2b/what-is-b2b.md) 를
 
 1. 이 디렉터리에서 게스트 사용자 계정을 제거 하려면 제거 전 일 수를 설정할 수 있습니다. 액세스 패키지에 대 한 마지막 할당이 손실 되는 즉시 게스트 사용자 계정을 제거 하려면 **이 디렉터리에서 외부 사용자를 제거 하기 전까지 남은 일 수** 를 **0**으로 설정 합니다.
 
-1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+1. **Save**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

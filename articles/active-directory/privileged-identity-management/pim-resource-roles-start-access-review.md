@@ -1,26 +1,26 @@
 ---
-title: Privileged Identity Management-Azure Active Directory에서 Azure 리소스 역할에 대 한 액세스 검토를 만듭니다. Microsoft Docs
+title: PIM에서 Azure 리소스 역할에 대 한 액세스 검토 만들기-Azure AD | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM)에서 Azure 리소스 역할에 대 한 액세스 검토를 만드는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56ccab2162a8f0ea9405d834e3f25558d8236b52
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ae70b8386b1dc3ebd570d2651cded3eda75dfc53
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895421"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847081"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 액세스 검토 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "72895421"
 
 이 문서에서는 권한 있는 Azure 리소스 역할에 대 한 하나 이상의 액세스 검토를 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 

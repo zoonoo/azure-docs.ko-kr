@@ -1,6 +1,6 @@
 ---
 title: Video Indexer 개념
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 이 항목에서는 Video Indexer 서비스의 몇 가지 개념을 설명합니다.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 156eceba856bf159d4821360639a0641d3ed02be
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e3795b699f5518efdbef117fb24d118041ed3e78
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799068"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839572"
 ---
 # <a name="video-indexer-concepts"></a>Video Indexer 개념
  

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 88aabb676d3a15dd2efff3acd751818301519ae1
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0634b069c79495ad6de536b27ebd9981eeb36128
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972699"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837087"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포
 
@@ -33,11 +33,13 @@ New-AzResourceGroupDeployment -ResourceGroupName <resource-group-name> -Template
 New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 ```
 
-현재 관리 그룹 배포는 REST API 통해서만 지원 됩니다. [리소스 관리자 템플릿 및 리소스 관리자 REST API를 사용 하 여 리소스 배포를](resource-group-template-deploy-rest.md)참조 하세요.
+구독 수준 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조 하세요.
 
-이 문서의 예제에서는 리소스 그룹 배포를 사용 합니다. 구독 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조 하세요.
+현재 관리 그룹 배포는 REST API 통해서만 지원 됩니다. 관리 그룹 수준 배포에 대 한 자세한 내용은 [관리 그룹 수준에서 리소스 만들기](deploy-to-management-group.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+이 문서의 예제에서는 리소스 그룹 배포를 사용 합니다.
+
+## <a name="prerequisites"></a>필수 조건
 
 배포할 템플릿이 필요 합니다. 아직 없는 경우 Azure 빠른 시작 템플릿 리포지토리에서 [예제 템플릿을](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) 다운로드 하 고 저장 합니다. 이 문서에 사용된 로컬 파일 이름은 **c:\MyTemplates\azuredeploy.json**입니다.
 
@@ -76,7 +78,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json
 ```
 
-앞의 예제에서는 템플릿에 중요한 데이터가 포함되어 있지 않으므로 대부분의 시나리오에 적합한 이 템플릿에 대해 공개적으로 액세스할 수 있는 URI가 필요합니다. 중요한 데이터(예: 관리자 암호)를 지정해야 하는 경우 해당 값을 안전한 매개 변수로 전달합니다. 그러나 템플릿에 공개적으로 액세스할 수 있도록 하지 않으려면 프라이빗 스토리지 컨테이너에 저장하여 보호할 수 있습니다. SAS(공유 액세스 서명) 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 템플릿 배포](resource-manager-powershell-sas-token.md)를 참조하세요. 자습서를 진행하려면 [자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합](./resource-manager-tutorial-use-key-vault.md)을 참조하세요.
+앞의 예제에서는 템플릿에 중요한 데이터가 포함되어 있지 않으므로 대부분의 시나리오에 적합한 이 템플릿에 대해 공개적으로 액세스할 수 있는 URI가 필요합니다. 중요한 데이터(예: 관리자 암호)를 지정해야 하는 경우 해당 값을 안전한 매개 변수로 전달합니다. 그러나 템플릿에 공개적으로 액세스할 수 있도록 하지 않으려면 프라이빗 스토리지 컨테이너에 저장하여 보호할 수 있습니다. SAS(공유 액세스 서명) 토큰이 필요한 템플릿을 배포하는 데 관한 내용은 [SAS 토큰으로 프라이빗 템플릿 배포](resource-manager-powershell-sas-token.md)를 참조하세요. 자습서를 진행 하려면 [자습서: 리소스 관리자 템플릿 배포의 Azure Key Vault 통합](./resource-manager-tutorial-use-key-vault.md)을 참조 하세요.
 
 ## <a name="deploy-from-azure-cloud-shell"></a>Azure Cloud shell에서 배포
 
@@ -99,7 +101,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 매개 변수 값을 전달하려면 인라인 매개 변수 또는 매개 변수 파일을 사용할 수 있습니다.
 
-### <a name="inline-parameters"></a>인라인 매개 변수입니다.
+### <a name="inline-parameters"></a>인라인 매개 변수
 
 인라인 매개 변수를 전달하려면 `New-AzResourceGroupDeployment` 명령을 사용하여 매개 변수 이름을 제공합니다. 예를 들어, 문자열 및 배열을 템플릿에 전달하려면 다음을 사용합니다.
 
@@ -165,7 +167,7 @@ Test-AzResourceGroupDeployment -ResourceGroupName ExampleResourceGroup `
   -TemplateFile c:\MyTemplates\azuredeploy.json -storageAccountType Standard_GRS
 ```
 
-오류가 감지되지 않으면 명령은 응답 없이 완료됩니다. 오류가 감지되면 명령은 오류 메시지를 반환합니다. 예를 들어, 스토리지 계정 SKU에 대해 잘못된 값을 전달하면 다음 오류가 반환됩니다.
+오류가 감지되지 않으면 명령은 응답 없이 완료됩니다. 오류가 감지되면 명령은 오류 메시지를 반환합니다. 예를 들어 스토리지 계정 SKU에 대해 잘못된 값을 전달하면 다음 오류가 반환됩니다.
 
 ```powershell
 Test-AzResourceGroupDeployment -ResourceGroupName testgroup `

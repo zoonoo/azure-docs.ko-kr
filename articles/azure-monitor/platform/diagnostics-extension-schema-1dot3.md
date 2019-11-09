@@ -7,12 +7,12 @@ ms.topic: reference
 author: rboucher
 ms.author: robb
 ms.date: 09/20/2018
-ms.openlocfilehash: 1d378571a02f30c223338eef5c7d142ed02ff4c8
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 3d79fe6a415b7d1f862797bf41caed89bfe50a41
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555556"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834740"
 ---
 # <a name="azure-diagnostics-13-and-later-configuration-schema"></a>Azure Diagnostics 1.3 이상 구성 스키마
 > [!NOTE]
@@ -411,12 +411,12 @@ PublicConfig와 PrivateConfig는 구분되는데, 대부분의 json 사용 사�
 진단 구성 파일의 최상위 요소입니다.  
 
 **특성** xmlns - 진단 구성 파일에 대한 XML 네임스페이스는 다음과 같습니다.  
-http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration  
+`http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**PublicConfig**|필수 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**PublicConfig**|필수입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**PrivateConfig**|선택 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**IsEnabled**|부울 값입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
@@ -427,7 +427,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**WadCfg**|필수 사항입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**WadCfg**|필수입니다. 이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**StorageAccount**|데이터를 저장할 Azure Storage 계정의 이름입니다. Set-AzureServiceDiagnosticsExtension cmdlet을 실행할 때 매개 변수로 지정할 수도 있습니다.|  
 |**StorageType**|*Table*, *Blob* 또는 *TableAndBlob*일 수 있습니다. Table이 기본값입니다. TableAndBlob을 선택하면 진단 데이터는 각 형식당 한 번씩, 두 번 기록됩니다.|  
 |**LocalResourceDirectory**|모니터링 에이전트가 이벤트 데이터를 저장하는 가상 컴퓨터의 디렉터리입니다. 설정되어 있지 않은 경우 기본 디렉터리가 사용됩니다.<br /><br /> 작업자/웹 역할의 경우: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Virtual Machine의 경우: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> 필수 특성은 다음과 같습니다.<br /><br /> - **경로** - Azure Diagnostics에서 사용되는 시스템의 디렉터리입니다.<br /><br /> - **expandEnvironment** - 환경 변수가 경로 이름에서 확장되는지 여부를 제어합니다.|  
@@ -458,7 +458,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**DiagnosticInfrastructureLogs**|Azure Diagnostics에 의해 생성된 로그의 컬렉션을 사용하도록 설정합니다. 진단 인프라 로그는 진단 시스템 자체의 문제 해결에 유용합니다. 선택적 특성은 다음과 같습니다.<br /><br /> - **scheduledTransferLogLevelFilter** - 수집된 로그의 최소 심각도 수준을 구성합니다.<br /><br /> - **scheduledTransferPeriod** - 스토리지에 예약된 전송 사이의 간격으로 가장 가까운 시간(분)으로 반올림됩니다. 값은 [XML "기간 데이터 형식"](https://www.w3schools.com/xml/schema_dtypes_date.asp)입니다. |  
 |**Directories**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**EtwProviders**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
-|**Metrics**(메트릭)|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**metrics**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**PerformanceCounters**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 |**WindowsEventLog**|이 페이지의 다른 곳에 있는 설명을 참조하세요.|
 |**DockerSources**|이 페이지의 다른 곳에 있는 설명을 참조하세요. |
@@ -478,7 +478,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**CrashDumpConfiguration**|필수 사항입니다. 각 프로세스에 대한 구성 값을 정의합니다.<br /><br /> 다음과 같은 특성도 필요합니다.<br /><br /> **processName** - Azure Diagnostics에서 크래시 덤프를 수집하도록 할 프로세스의 이름입니다.|  
+|**CrashDumpConfiguration**|필수입니다. 각 프로세스에 대한 구성 값을 정의합니다.<br /><br /> 다음과 같은 특성도 필요합니다.<br /><br /> **processName** - Azure Diagnostics에서 크래시 덤프를 수집하도록 할 프로세스의 이름입니다.|  
 
 ## <a name="directories-element"></a>Directories 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
@@ -503,7 +503,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
-|**DirectoryConfiguration**|필수 사항입니다. 필수 특성:<br /><br /> **containerName** - 로그 파일을 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|  
+|**DirectoryConfiguration**|필수입니다. 필수 특성:<br /><br /> **containerName** - 로그 파일을 저장하는 데 사용할 Azure Storage 계정의 blob 컨테이너의 이름입니다.|  
 
 
 
@@ -560,7 +560,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  빠른 쿼리를 위해 최적화된 성능 카운터 테이블을 생성할 수 있습니다. **PerformanceCounters** 요소에 정의되어 있는 각 성능 카운터는 성능 카운터 테이블에 추가된 메트릭 테이블에 저장되어 있습니다.  
 
- **resourceId** 특성이 필요합니다.  Azure Diagnostics를 배포하는 가상 머신 또는 Virtual Machine Scale Set의 리소스 ID입니다. [Azure Portal](https://portal.azure.com)에서 **resourceID**를 가져옵니다. **찾아보기** -> **리소스 그룹** ->  **<이름\>** 을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
+ **resourceId** 특성이 필요합니다.  Azure Diagnostics를 배포하는 가상 머신 또는 Virtual Machine Scale Set의 리소스 ID입니다. **Azure Portal**에서 [resourceID](https://portal.azure.com)를 가져옵니다. **찾아보기** -> **리소스 그룹** ->  **<이름\>** 을 선택합니다. **속성** 타일을 클릭하고 **ID** 필드에서 값을 복사합니다.  
 
 |자식 요소|설명|  
 |--------------------|-----------------|  
@@ -594,7 +594,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |자식 요소|설명|  
 |-------------------|-----------------|  
-|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 다음은 그 예입니다.<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다.|  
+|**DataSource**|수집할 Windows 이벤트 로그입니다. 필수 특성:<br /><br /> **name** - 수집할 Windows 이벤트를 설명하는 XPath 쿼리입니다. 예:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> 모든 이벤트를 수집하려면 “*”를 지정합니다.|  
 
 
 
@@ -606,7 +606,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  기본 Azure 로그의 버퍼 구성을 정의합니다.  
 
-|특성|Type|설명|  
+|특성|형식|설명|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**unsignedInt**|선택 사항입니다. 지정된 데이터에 사용할 수 있는 파일 시스템 스토리지의 최대 크기를 지정합니다.<br /><br /> 기본값은 0입니다.|  
 |**scheduledTransferLogLevelFilter**|**string**|선택 사항입니다. 전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
@@ -638,14 +638,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|Type|설명|  
+|특성|형식|설명|  
 |---------------|----------|-----------------|  
-|**name**|문자열|sinkname을 식별하는 문자열입니다.|  
+|**name**|string|sinkname을 식별하는 문자열입니다.|  
 
-|요소|Type|설명|  
+|요소|형식|설명|  
 |-------------|----------|-----------------|  
-|**Application Insights**|문자열|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
-|**Channels**|문자열|스트림하는 각 추가 필터링에 대한|  
+|**Application Insights**|string|데이터를 Application Insights로 전송하는 경우에만 사용됩니다. 액세스 권한이 있는 활성 Application Insights 계정에 대한 계측 키를 포함합니다.|  
+|**Channels**|string|스트림하는 각 추가 필터링에 대한|  
 
 ## <a name="channels-element"></a>Channels 요소  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels*
@@ -654,9 +654,9 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  싱크를 통해 전달되는 로그 데이터의 스트림에 대한 필터를 정의합니다.  
 
-|요소|Type|설명|  
+|요소|형식|설명|  
 |-------------|----------|-----------------|  
-|**채널**|문자열|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
+|**채널**|string|이 페이지의 다른 곳에 있는 설명을 참조하세요.|  
 
 ## <a name="channel-element"></a>채널 요소
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - SinksConfig - Sink - Channels - Channel*
@@ -665,7 +665,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
  진단 데이터를 보낼 위치를 정의합니다. 예를 들어 Application Insights 서비스입니다.  
 
-|특성|Type|설명|  
+|특성|형식|설명|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|전송되는 로그 항목에 대한 최소 심각도 수준을 지정합니다. 기본값은 **Undefined**로, 모든 로그를 전송합니다. 정보가 적은 순서대로 사용 가능한 다른 값을 나열하면 다음과 같습니다. **자세한 정보**, **정보**, **경고**, **오류**, **중요**|  
 |**name**|**string**|참조 하는 채널의 고유 이름|  

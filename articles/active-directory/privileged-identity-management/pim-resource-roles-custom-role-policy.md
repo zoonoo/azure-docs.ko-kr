@@ -1,25 +1,25 @@
 ---
-title: Privileged Identity Management에서 Azure 리소스에 대 한 사용자 지정 역할 사용-Azure Active Directory | Microsoft Docs
+title: PIM에서 Azure 리소스에 대 한 사용자 지정 역할 사용-Azure AD | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스에 사용자 지정 역할을 사용하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e940dd0e4c653ed4921a9e8f245aab34107ba95
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fbe08cff2b57155f8f3315f5d3454abfbdad47a0
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895706"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847056"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스에 대 한 사용자 지정 역할 사용
 
@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) 조직에서 권한 있는 역할의 일부 �
 
 Azure AD 조직에서 역할을 만든 후 Azure Portal에서 **Privileged Identity Management-Azure 리소스** 페이지로 이동 합니다. 역할을 적용하는 리소스를 선택합니다.
 
-!["Privileged Identity Management - Azure 리소스" 창](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
+![“Privileged Identity Management - Azure 리소스” 창](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 
 역할의 이러한 멤버에 적용 해야 하는 [Privileged Identity Management 역할 설정을 구성](pim-resource-roles-configure-role-settings.md) 합니다.
 

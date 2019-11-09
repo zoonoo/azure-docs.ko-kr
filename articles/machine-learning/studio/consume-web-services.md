@@ -1,6 +1,6 @@
 ---
 title: 웹 서비스 사용
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Azure Machine Learning Studio (클래식)에서 machine learning 서비스를 배포한 후에는 실시간 요청-응답 서비스 또는 일괄 처리 실행 서비스로 RESTFul 웹 서비스를 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: b955b274f3e96eab7e6075b0e966117c2871bbf8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1a567e8f910ccf539038a19eef0319f21833f336
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671429"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839699"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스를 사용 하는 방법
 

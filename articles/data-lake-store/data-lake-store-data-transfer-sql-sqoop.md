@@ -1,5 +1,5 @@
 ---
-title: Sqoop를 사용하여 Data Lake Storage Gen1과 Azure SQL 데이터베이스 간에 데이터 복사 | Microsoft Docs
+title: Data Lake Storage Gen1와 Azure SQL-Sqoop 간에 데이터 복사 | Microsoft Docs
 description: Sqoop를 사용하여 Azure SQL Database와 Azure Data Lake Storage Gen1 간에 데이터 복사
 services: data-lake-store
 author: twooley
@@ -7,12 +7,12 @@ ms.service: data-lake-store
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: twooley
-ms.openlocfilehash: 22789deca0934a9d4e88d587cd24aacacc9b12c6
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: cf3893706afcb4c4cc5b90dd3d2431ecedc71d0a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619997"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839070"
 ---
 # <a name="copy-data-between-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Sqoop를 사용 하 여 Data Lake Storage Gen1와 Azure SQL Database 간에 데이터 복사
 
@@ -24,11 +24,11 @@ Apache Sqoop를 사용하여 Azure SQL Database와 Azure Data Lake Storage Gen1 
 
 [Apache Sqoop](https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html)는 Data Lake Storage Gen1과 같은 빅 데이터 리포지토리와 관계형 데이터베이스 간에 데이터를 전송하도록 설계된 도구입니다. 이 도구를 사용하여 Azure SQL Database와 같은 RDBMS(관계형 데이터베이스 관리 시스템)에서 Data Lake Storage Gen1로 데이터를 가져올 수 있습니다. 그런 다음 빅 데이터 작업을 사용 하 여 데이터를 변환 하 고 분석 한 다음 데이터를 RDBMS로 다시 내보낼 수 있습니다. 이 문서에서는 가져오기/내보내기를 위해 Azure SQL database를 관계형 데이터베이스로 사용 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음이 있어야 합니다.
 
-* **Azure 구독**. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * **Azure Data Lake Storage Gen1 계정**. 계정을 만드는 방법에 대 한 지침은 [Azure Data Lake Storage Gen1 시작](data-lake-store-get-started-portal.md) 을 참조 하세요.
 * Data Lake Storage Gen1 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Data Lake Storage Gen1을 사용하여 HDInsight 클러스터 만들기](data-lake-store-hdinsight-hadoop-use-portal.md)를 참조하세요. 이 문서에서는 Data Lake Storage Gen1 액세스 권한이 있는 HDInsight Linux 클러스터가 있다고 가정합니다.
 * **Azure SQL Database**. 데이터베이스를 만드는 방법에 대한 지침은 [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started.md)
@@ -69,7 +69,7 @@ Apache Sqoop를 사용하여 Azure SQL Database와 Azure Data Lake Storage Gen1 
 
 ## <a name="use-sqoop-from-an-hdinsight-cluster-with-access-to-data-lake-storage-gen1"></a>Data Lake Storage Gen1 액세스 권한이 있는 HDInsight 클러스터에서 Sqoop 사용
 
-HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습니다. Data Lake Storage Gen1 추가 저장소로 사용 하도록 HDInsight 클러스터를 구성한 경우 Sqoop (구성 변경 없이)를 사용 하 여 Azure SQL Database 및 Data Lake Storage Gen1 계정과 같은 관계형 데이터베이스 간에 데이터를 가져오거나 내보낼 수 있습니다. .
+HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습니다. Data Lake Storage Gen1 추가 저장소로 사용 하도록 HDInsight 클러스터를 구성한 경우 Sqoop (구성 변경 없이)를 사용 하 여 Azure SQL Database 및 Data Lake Storage Gen1 계정과 같은 관계형 데이터베이스 간에 데이터를 가져오거나 내보낼 수 있습니다.
 
 1. 이 문서에서는 Linux 클러스터를 만들었으므로 SSH를 사용 하 여 클러스터에 연결 해야 한다고 가정 합니다. [Linux 기반 HDInsight 클러스터에 연결](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -81,7 +81,7 @@ HDInsight 클러스터에는 사용 가능한 Sqoop 패키지가 이미 있습�
 
 ### <a name="import-data-from-azure-sql-database-into-data-lake-storage-gen1"></a>Azure SQL Database에서 Data Lake Storage Gen1로 데이터 가져오기
 
-1. Sqoop 패키지를 사용할 수 있는 디렉터리로 이동합니다. 일반적으로이 위치는 `/usr/hdp/<version>/sqoop/bin`입니다.
+1. Sqoop 패키지를 사용할 수 있는 디렉터리로 이동합니다. 일반적으로이 위치는 `/usr/hdp/<version>/sqoop/bin`됩니다.
 
 1. **Table1**에서 Data Lake Storage Gen1 계정으로 데이터를 가져옵니다. 다음 구문을 사용합니다.
 
@@ -138,5 +138,5 @@ Data Lake Storage Gen1로 데이터를 복사 하는 Sqoop 작업을 조정 하�
 
 * [Azure Storage Blob에서 Data Lake Storage Gen1로 데이터 복사](data-lake-store-copy-data-azure-storage-blob.md)
 * [Data Lake Storage Gen1의 데이터 보호](data-lake-store-secure-data.md)
-* [Data Lake Storage Gen1에서 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Data Lake Storage Gen1을 통해 Azure Data Lake Analytics 사용](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Data Lake Storage Gen1에서 Azure HDInsight 사용](data-lake-store-hdinsight-hadoop-use-portal.md)

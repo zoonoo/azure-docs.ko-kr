@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/08/2019
-ms.openlocfilehash: 24a2b8a3c190ed440684ea3aa0ab35ebbf93fca0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0a6322edccc2047ffd9d67e4e3ed113e668898da
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161962"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834702"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
 이 문서에서는 Azure Diagnostics 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure Diagnostics 개요](diagnostics-extension-overview.md)를 참조하세요.
@@ -216,7 +216,7 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 ## <a name="references"></a>참조
 
 ### <a name="how-to-check-diagnostics-extension-configuration"></a>진단 확장 구성을 확인하는 방법
-확장 구성을 확인하는 가장 쉬운 방법은 [Azure Resource Explorer](http://resources.azure.com)로 이동한 다음, Azure Diagnostics 확장(IaaSDiagnostics / PaaDiagnostics)이 있는 가상 머신 또는 클라우드 서비스로 이동하는 것입니다.
+확장 구성을 확인하는 가장 쉬운 방법은 [Azure Resource Explorer](https://resources.azure.com)로 이동한 다음, Azure Diagnostics 확장(IaaSDiagnostics / PaaDiagnostics)이 있는 가상 머신 또는 클라우드 서비스로 이동하는 것입니다.
 
 또는 원격 데스크톱을 머신에 연결하고 로그 아티팩트 경로 섹션에서 설명하는 Azure Diagnostics 구성 파일을 살펴보는 것입니다.
 

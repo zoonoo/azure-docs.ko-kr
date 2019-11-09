@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: victorh
-ms.openlocfilehash: 9efda8d81c4e6cb3bf478b05c261a99dc8e1aec0
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 2fcfac582000056a1ef82e8fe5dcaed99dfee068
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232095"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835014"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 내부 리디렉션으로 애플리케이션 게이트웨이 만들기
 
-Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](application-gateway-introduction.md)를 만들 때 [웹 트래픽 리디렉션](application-gateway-multi-site-overview.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 정의합니다. 그런 다음, 웹 트래픽이 적절한 풀에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 사용자가 여러 도메인을 소유 하 고 *[www.contoso.com](www.contoso.com)* 및 *www\.contoso.org*의 예제를 사용 한다고 가정 합니다.
+Azure PowerShell을 사용하여 [애플리케이션 게이트웨이](application-gateway-multi-site-overview.md)를 만들 때 [웹 트래픽 리디렉션](application-gateway-introduction.md)을 구성할 수 있습니다. 이 자습서에서는 가상 머신 확장 집합을 사용하여 백 엔드 풀을 정의합니다. 그런 다음, 웹 트래픽이 적절한 풀에 도착하도록 소유한 도메인을 기준으로 수신기와 규칙을 구성합니다. 이 자습서에서는 사용자가 여러 도메인을 소유 하 고 *www.contoso.com* 및 *www\.contoso.org*의 예제를 사용 한다고 가정 합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -50,7 +50,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-[New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet*에 대한 서브넷 구성을 만듭니다. 서브넷 구성으로 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 *myVNet*이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
+*New-AzVirtualNetworkSubnetConfig*를 사용하여 *myBackendSubnet* 및 [myAGSubnet](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)에 대한 서브넷 구성을 만듭니다. 서브넷 구성으로 *New-AzVirtualNetwork*를 사용하여 [myVNet](/powershell/module/az.network/new-azvirtualnetwork)이라는 가상 네트워크를 만듭니다. 마지막으로 *New-AzPublicIpAddress*를 사용하여 [myAGPublicIPAddress](/powershell/module/az.network/new-azpublicipaddress)라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -76,7 +76,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
-[New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 사용하여 이전에 애플리케이션 게이트웨이에 만든 *myAGSubnet*을 연결합니다. [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)를 사용하여 *myAGPublicIPAddress*를 애플리케이션 게이트웨이에 할당합니다. 그런 후 [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport)를 사용하여 HTTP 포트를 만들 수 있습니다.
+*New-AzApplicationGatewayIPConfiguration*을 사용하여 이전에 애플리케이션 게이트웨이에 만든 [myAGSubnet](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 연결합니다. *New-AzApplicationGatewayFrontendIPConfig*를 사용하여 [myAGPublicIPAddress](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)를 애플리케이션 게이트웨이에 할당합니다. 그런 후 [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport)를 사용하여 HTTP 포트를 만들 수 있습니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -114,9 +114,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-first-listener-and-rule"></a>첫 번째 수신기 및 규칙 만들기
 
-애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *[www.contoso.com](www.contoso.com)* 및 *www\.contoso.org*의 도메인에 대해 수신기가 생성 됩니다.
+애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 도메인에 대해 두 개의 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 *www\.contoso.org*의 도메인에 대해 수신기가 생성 됩니다.
 
-이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트와 함께 [AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) 를 사용 하 여 *contosoComListener* 라는 첫 번째 수신기를 만듭니다. 수신기에서 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)를 사용 하 여 *contosoComRule* 이라는 기본 규칙을 만듭니다.
+이전에 만든 프런트 엔드 구성 및 프런트 엔드 포트와 함께 [AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) 를 사용 하 여 *contosoComListener* 라는 첫 번째 수신기를 만듭니다. 수신기에 들어오는 트래픽에 사용할 백 엔드 풀을 알려면 규칙이 필요합니다. [AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)를 사용 하 여 *contosoComRule* 이라는 기본 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $contosoComlistener = New-AzApplicationGatewayHttpListener `
@@ -135,7 +135,7 @@ $frontendRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-필요한 지원 리소스를 만들었으므로 [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway)를 사용하여 만듭니다.
+필요한 지원 리소스를 만들었으므로 *New-AzApplicationGatewaySku*를 사용하여 [myAppGateway](/powershell/module/az.network/new-azapplicationgatewaysku)라는 애플리케이션 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway)를 사용하여 만듭니다.
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -298,11 +298,11 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예:, [http://www.contoso.com](http://www.contoso.com).
+브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: `http://www.contoso.com`
 
 ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/tutorial-internal-site-redirect-powershell/application-gateway-iistest.png)
 
-주소를 다른 도메인(예: http://www.contoso.org ) 으로 변경하면 트래픽이 [www.contoso.com](www.contoso.com)의 수신기로 다시 리디렉션되었다고 표시됩니다.
+주소를 다른 도메인으로 변경 합니다. 예를 들어 `http://www.contoso.org` 트래픽이 `www.contoso.com`의 수신기로 다시 리디렉션되는 것을 볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

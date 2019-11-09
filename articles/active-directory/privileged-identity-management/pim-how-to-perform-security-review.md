@@ -1,10 +1,10 @@
 ---
-title: PIM에서 Azure AD 역할에 대 한 액세스 검토-Azure Active Directory | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 액세스를 검토 하는 방법을 알아봅니다.
+title: PIM에서 Azure AD 역할에 대 한 액세스 검토-Azure AD | Microsoft Docs
+description: PIM (Azure AD Privileged Identity Management)의 Azure Active Directory 역할에 대 한 액세스를 검토 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8b9f16d6c7f738e64f154506228c832e31e0f5b
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 76eccb5d62b68865b7a117312be62753f203e2cb
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809059"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847100"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 액세스 검토
 
@@ -33,7 +33,7 @@ PIM (Privileged Identity Management)은 기업에서 AD (Azure Active Directory)
 
 Azure AD Privileged Identity Management 서비스를 Azure Portal 대시보드에 고정 하지 않은 경우 다음 단계를 수행 하 여 시작 하세요.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 2. Azure 포털의 오른쪽 위에서 사용자 이름을 선택하고 작동할 디렉터리를 선택합니다.
 3. **모든 서비스**를 선택하고 필터 텍스트 상자를 사용하여 **Azure AD Privileged Identity Management**를 검색합니다.
 4. **대시보드에 고정** 옵션을 선택하고 **만들기**를 클릭합니다. Privileged Identity Management 애플리케이션이 열립니다.

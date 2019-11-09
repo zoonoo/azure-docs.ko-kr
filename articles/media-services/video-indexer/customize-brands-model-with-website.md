@@ -1,6 +1,6 @@
 ---
 title: Video Indexer 웹 사이트를 사용하여 브랜드 모델 사용자 지정 - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 이 문서에서는 Video Indexer 웹 사이트를 사용하여 브랜드 모델을 사용자 지정하는 방법을 설명합니다.
 services: media-services
 author: anikaz
@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 721fde63aeae8704761b3c21f489dcad77cb89e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4b2f7a8b43c1723beb0dd8da82814f74cd7b135
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799607"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838357"
 ---
 # <a name="customize-a-brands-model-with-the-video-indexer-website"></a>Video Indexer 웹 사이트를 사용하여 브랜드 모델 사용자 지정
 
-Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱 동안 음성 및 시각적 텍스트에서 브랜드를 검색하도록 지원합니다. 브랜드 검색 기능은 Bing의 브랜드 데이터베이스에서 제안하는 제품, 서비스 및 회사의 멘션을 식별합니다. 예를 들어, Microsoft가 비디오 또는 오디오 콘텐츠에 멘션되거나, 비디오의 시각적 텍스트에 표시되는 경우 Video Indexer는 콘텐츠에서 해당 항목을 브랜드로 감지합니다. 사용자 지정 브랜드 모델을 사용하여 Video Indexer가 Bing 브랜드 데이터베이스에서 브랜드를 검색할지, 특정 브랜드를 검색되지 않도록 제외할지(브랜드의 차단 목록 생성), Bing의 브랜드 데이터베이스에 없을 수 있는 모델 부분에 해당하는 브랜드를 포함할지(브랜드의 허용 목록 생성)를 선택할 수 있습니다.
+Video Indexer는 비디오 및 오디오 콘텐츠의 인덱싱 및 재인덱싱 동안 음성 및 시각적 텍스트에서 브랜드를 검색하도록 지원합니다. 브랜드 검색 기능은 Bing의 브랜드 데이터베이스에서 제안하는 제품, 서비스 및 회사의 멘션을 식별합니다. 예를 들어 Microsoft가 비디오 또는 오디오 콘텐츠에 멘션되거나, 비디오의 시각적 텍스트에 표시되는 경우 Video Indexer는 콘텐츠에서 해당 항목을 브랜드로 검색합니다. 사용자 지정 브랜드 모델을 사용하여 Video Indexer가 Bing 브랜드 데이터베이스에서 브랜드를 검색할지, 특정 브랜드를 검색되지 않도록 제외할지(브랜드의 차단 목록 생성), Bing의 브랜드 데이터베이스에 없을 수 있는 모델 부분에 해당하는 브랜드를 포함할지(브랜드의 허용 목록 생성)를 선택할 수 있습니다.
 
 자세한 개요를 보려면 [개요](customize-brands-model-overview.md)를 참조하세요.
 

@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 97265a83a73d45f45a4bd1183df61521f4ca29bf
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: e660db5db3d1afc14a3c895e6786d1b6a8b82c13
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989680"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832417"
 ---
 # <a name="data-querying"></a>데이터 쿼리
 
@@ -39,9 +39,9 @@ Time Series Insights은 계산을 표현 하는 데 사용 되는 다양 한 문
 
 다음과 같은 Environment API를 사용할 수 있습니다.
 
-* [환경 API 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environments-api): 호출자에 게 액세스 권한이 부여 된 환경 목록을 반환 합니다.
-* [환경 가용성 API 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-environment-availability-api): `$ts` 이벤트 타임 스탬프에 대 한 이벤트 수의 분포를 반환 합니다. 이 API는 이벤트가 있는 경우 이벤트 수를 반환하여 타임스탬프에 이벤트가 있는지 확인합니다.
-* [이벤트 스키마 가져오기 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-env#get-event-schema-api): 지정 된 검색 범위에 대 한 이벤트 스키마 메타 데이터를 반환 합니다. 이 API는 지정된 검색 범위의 스키마에서 사용 가능한 모든 메타데이터 및 속성을 검색할 수 있습니다.
+* [환경 API 가져오기](/rest/api/time-series-insights/management/environments/get): 호출자에 게 액세스 권한이 부여 된 환경 목록을 반환 합니다.
+* [환경 가용성 API 가져오기](/rest/api/time-series-insights/dataaccess(preview)/query/getavailability): `$ts`이벤트 타임 스탬프에 대 한 이벤트 수의 분포를 반환 합니다. 이 API는 이벤트가 있는 경우 이벤트 수를 반환하여 타임스탬프에 이벤트가 있는지 확인합니다.
+* [이벤트 스키마 가져오기 API](/rest/api/time-series-insights/dataaccess(preview)/query/geteventschema): 지정 된 검색 범위에 대 한 이벤트 스키마 메타 데이터를 반환 합니다. 이 API는 지정된 검색 범위의 스키마에서 사용 가능한 모든 메타데이터 및 속성을 검색할 수 있습니다.
 
 ## <a name="time-series-model-query-tsm-q-apis"></a>TSM-Q(Time Series Model-Query) API
 
@@ -58,16 +58,16 @@ Time Series Insights은 계산을 표현 하는 데 사용 되는 다양 한 문
 
 다음 시계열 쿼리 Api를 사용할 수 있습니다. 이러한 Api는 Time Series Insights에서 지원 되는 모든 다중 계층 저장소에서 사용할 수 있습니다. 쿼리 URL 매개 변수를 사용 하 여 쿼리를 실행 해야 하는 [저장소 유형을](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#uri-parameters) 지정 합니다.
 
-* [Get EVENTS API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-events-api): 소스 공급자의 Time Series Insights에 기록 될 때 이벤트에서 Time Series Insights 데이터를 쿼리하고 검색할 수 있도록 합니다. 이 API는 지정 된 시계열 ID 및 검색 범위에 대 한 원시 이벤트 검색을 허용 합니다. 이 API는 선택한 입력에 대 한 전체 데이터 집합을 검색 하는 페이지 매김을 지원 합니다. 
+* [Get EVENTS API](/rest/api/time-series-insights/dataaccess(preview)/query/execute#getevents): 소스 공급자의 Time Series Insights에 기록 될 때 이벤트에서 Time Series Insights 데이터를 쿼리하고 검색할 수 있도록 합니다. 이 API는 지정 된 시계열 ID 및 검색 범위에 대 한 원시 이벤트 검색을 허용 합니다. 이 API는 선택한 입력에 대 한 전체 데이터 집합을 검색 하는 페이지 매김을 지원 합니다. 
 
-* [SERIES API 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#get-series-api): 연결 된 데이터를 사용 하 여 캡처된 이벤트에서 Time Series Insights 데이터를 쿼리하고 검색할 수 있도록 합니다. 반환되는 값은 모델에 정의된 변수 또는 인라인으로 제공된 변수를 기반으로 합니다. 이 API는 선택한 입력에 대 한 전체 데이터 집합을 검색 하는 페이지 매김을 지원 합니다. 이 API는 계산 된 속성이 나 열을 정의 하는 데 도움이 됩니다.
+* [SERIES API 가져오기](/rest/api/time-series-insights/dataaccess(preview)/query/execute#getseries): 연결 된 데이터를 사용 하 여 캡처된 이벤트에서 Time Series Insights 데이터를 쿼리하고 검색할 수 있도록 합니다. 반환되는 값은 모델에 정의된 변수 또는 인라인으로 제공된 변수를 기반으로 합니다. 이 API는 선택한 입력에 대 한 전체 데이터 집합을 검색 하는 페이지 매김을 지원 합니다. 이 API는 계산 된 속성이 나 열을 정의 하는 데 도움이 됩니다.
 
     >[!NOTE]
     > 집계 절은 모델에 정의되거나 인라인으로 제공된 경우에도 무시됩니다.
 
   Get Series API는 각 간격의 값에 대한 Time Series 값을 반환합니다. 시계열 값은 쿼리에서 출력 JSON에 사용 Time Series Insights 하는 형식입니다. 반환되는 값은 Time Series ID 및 제공된 변수 세트를 기반으로 합니다.
 
-* [집계 시리즈 API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): 기록 된 데이터를 샘플링 하 고 집계 하 여 캡처된 이벤트에서 Time Series Insights 데이터를 쿼리하고 검색할 수 있도록 합니다. 이 API는 [연속 토큰](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage)을 사용 하 여 비연속적 실행을 지원 합니다.
+* [집계 시리즈 API](/rest/api/time-series-insights/dataaccess(preview)/query/execute#aggregatevariable): 기록 된 데이터를 샘플링 하 고 집계 하 여 캡처된 이벤트에서 Time Series Insights 데이터를 쿼리하고 검색할 수 있도록 합니다. 이 API는 [연속 토큰](https://docs.microsoft.com/rest/api/time-series-insights/dataaccess(preview)/query/execute#queryresultpage)을 사용 하 여 비연속적 실행을 지원 합니다.
 
   Aggregate Series API는 각 간격의 값에 대한 Time Series 값을 반환합니다. 값은 Time Series ID 및 제공된 변수 세트를 기반으로 합니다. Aggregate Series API는 Time Series Model에 저장된 값 또는 인라인으로 제공된 값을 사용하여 데이터를 집계 또는 샘플링함으로써 크기를 줄입니다.
 

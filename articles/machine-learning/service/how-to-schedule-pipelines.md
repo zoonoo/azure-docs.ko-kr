@@ -8,19 +8,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 10/15/2019
-ms.openlocfilehash: 31c3cd944651b9ba4ca4fcaa275e5b0ccedd947c
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.date: 11/06/2019
+ms.openlocfilehash: ded95800c482d43fcaf27993869f1e71eee68f47
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72559438"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831808"
 ---
 # <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Python 용 Azure Machine Learning SDK를 사용 하 여 기계 학습 파이프라인 예약
 
 이 문서에서는 Azure에서 실행 하기 위해 프로그래밍 방식으로 파이프라인을 예약 하는 방법을 알아봅니다. 경과 된 시간 또는 파일 시스템 변경 내용에 따라 일정을 만들도록 선택할 수 있습니다. 시간 기반 일정을 사용 하 여 데이터 드리프트 모니터링과 같은 일상적인 작업을 처리할 수 있습니다. 변경 기반 일정을 사용 하 여 새 데이터를 업로드 하거나 이전 데이터를 편집 하는 등의 비정상 또는 예기치 않은 변경 내용에 대응할 수 있습니다. 일정을 만드는 방법을 학습 한 후에는이를 검색 및 비활성화 하는 방법을 배웁니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독. Azure 구독이 아직 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
 
@@ -54,11 +54,11 @@ pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"
 
 ## <a name="create-a-schedule"></a>일정 만들기
 
-반복 하 여 파이프라인을 실행 하려면 일정을 만듭니다. @No__t_0은 파이프라인, 실험 및 트리거를 연결 합니다. 트리거는 실행 간 대기를 설명 하는 `ScheduleRecurrence` 이거나, 변경 내용을 감시 하는 디렉터리를 지정 하는 데이터 저장소 경로 일 수 있습니다. 두 경우 모두 일정을 만들 실험의 이름과 파이프라인 식별자가 필요 합니다.
+반복 하 여 파이프라인을 실행 하려면 일정을 만듭니다. `Schedule`은 파이프라인, 실험 및 트리거를 연결 합니다. 트리거는 실행 간 대기를 설명 하는`ScheduleRecurrence` 이거나, 변경 내용을 감시 하는 디렉터리를 지정 하는 데이터 저장소 경로 일 수 있습니다. 두 경우 모두 일정을 만들 실험의 이름과 파이프라인 식별자가 필요 합니다.
 
 ### <a name="create-a-time-based-schedule"></a>시간 기반 일정 만들기
 
-@No__t_0 생성자에는 "Minute", "Hour", "Day", "Week" 또는 "Month" 문자열 중 하나 여야 하는 필수 `frequency` 인수가 있습니다. 또한 일정 시작 사이에 경과 해야 하는 `frequency` 단위의 수를 지정 하는 정수 `interval` 인수도 필요 합니다. 선택적 인수를 사용 하면 [SCHEDULERECURRENCE SDK 문서](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py)에 설명 된 대로 시작 시간에 대해 보다 구체적으로 지정할 수 있습니다.
+`ScheduleRecurrence` 생성자에는 "Minute", "Hour", "Day", "Week" 또는 "Month" 문자열 중 하나 여야 하는 필수 `frequency` 인수가 있습니다. 또한 일정 시작 사이에 경과 해야 하는 `frequency` 단위의 수를 지정 하는 정수 `interval` 인수도 필요 합니다. 선택적 인수를 사용 하면 [SCHEDULERECURRENCE SDK 문서](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py)에 설명 된 대로 시작 시간에 대해 보다 구체적으로 지정할 수 있습니다.
 
 15 분 마다 실행을 시작 하는 `Schedule`을 만듭니다.
 
@@ -77,7 +77,7 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
 
 파일-사후 `Schedule`을 만들려면 [Schedule. 만들기](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-)에 대 한 호출에서 `datastore` 매개 변수를 설정 해야 합니다. 폴더를 모니터링 하려면 `path_on_datastore` 인수를 설정 합니다.
 
-@No__t_0 인수를 사용 하면 데이터 저장소에서 변경 내용이 확인 되는 빈도 (분)를 지정할 수 있습니다.
+`polling_interval` 인수를 사용 하면 데이터 저장소에서 변경 내용이 확인 되는 빈도 (분)를 지정할 수 있습니다.
 
 파이프라인이 [데이터 경로](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py)를 사용 하 여 생성 된 경우 `data_path_parameter_name` 인수를 설정 하 여 해당 변수를 변경 된 파일의 이름으로 설정할 수 있습니다.
 
@@ -94,9 +94,9 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
 
 ## <a name="view-your-scheduled-pipelines"></a>예약 된 파이프라인 보기
 
-웹 브라우저에서 Machine Learning 서비스 작업 영역으로 이동 합니다. 탐색 패널의 **자산** 섹션에서 **파이프라인**을 선택 합니다. 이 링크를 누르면 작업 영역에 게시 된 파이프라인의 목록으로 이동 합니다.
+웹 브라우저에서 Azure Machine Learning로 이동 합니다. 탐색 패널의 **끝점** 섹션에서 **파이프라인 끝점**을 선택 합니다. 그러면 작업 영역에 게시 된 파이프라인의 목록으로 이동 합니다.
 
-![작업 영역의 파이프라인 페이지](media/how-to-schedule-a-pipeline/pipelines-list.png)
+![AML의 파이프라인 페이지](media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
 이 페이지에서 이름, 설명, 상태 등의 작업 영역에 있는 모든 파이프라인에 대 한 요약 정보를 볼 수 있습니다. 파이프라인을 클릭 하 여 드릴업 합니다. 결과 페이지에 파이프라인에 대 한 자세한 내용이 있으며 개별 실행으로 드릴 다운할 수 있습니다.
 
@@ -117,7 +117,7 @@ for s in ss:
     print(s)
 ```
 
-@No__t_0를 사용 하지 않도록 설정 하려는 경우 다음을 실행 합니다.
+`schedule_id`를 사용 하지 않도록 설정 하려는 경우 다음을 실행 합니다.
 
 ```python
 def stop_by_schedule_id(ws, schedule_id):
@@ -134,7 +134,7 @@ stop_by_schedule(ws, schedule_id)
 
 이 문서에서는 Python 용 Azure Machine Learning SDK를 사용 하 여 두 가지 다른 방법으로 파이프라인을 예약 했습니다. 경과 된 클록 시간에 따라 일정 하나가 되풀이 됩니다. 지정 된 `Datastore` 또는 해당 저장소의 디렉터리 내에서 파일이 수정 된 경우에는 다른 일정이 실행 됩니다. 포털을 사용 하 여 파이프라인 및 개별 실행을 검사 하는 방법을 살펴보았습니다. 마지막으로, 파이프라인의 실행이 중지 되도록 일정을 사용 하지 않도록 설정 하는 방법을 알아보았습니다.
 
-자세한 내용은
+자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [일괄 처리 점수 매기기에 Azure Machine Learning 파이프라인 사용](tutorial-pipeline-batch-scoring-classification.md)

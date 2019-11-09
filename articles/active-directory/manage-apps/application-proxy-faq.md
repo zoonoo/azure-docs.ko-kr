@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 9743f25d89bed4e54b3deed815d1cf29030caff6
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 612b6caf47ec4764aa2bbef162592100198ed0c4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955472"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832206"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -87,7 +87,7 @@ Azure AD 응용 프로그램 프록시을 사용 하려면 Azure AD Premium P1 �
 
 아니요, 게시 된 응용 프로그램에 대 한 IIS 요구 사항은 없습니다. Windows Server가 아닌 서버에서 실행 되는 웹 응용 프로그램을 게시할 수 있습니다. 그러나 웹 서버에서 Negotiate (Kerberos 인증)를 지원 하는지 여부에 따라 비 Windows 서버에서 사전 인증을 사용 하지 못할 수도 있습니다. 커넥터가 설치 된 서버에는 IIS가 필요 하지 않습니다.
 
-## <a name="integrated-windows-authentication"></a>통합 Windows 인증
+## <a name="integrated-windows-authentication"></a>Windows 통합 인증
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>KCD (Kerberos 제한 위임)를 설정할 때 PrincipalsAllowedToDelegateToAccount 메서드를 사용 해야 하는 경우는 언제 인가요?
 
@@ -95,7 +95,7 @@ PrincipalsAllowedToDelegateToAccount 메서드는 커넥터 서버가 웹 응용
 커넥터 서버와 웹 응용 프로그램 서비스 계정이 동일한 도메인에 있는 경우 사용자 및 컴퓨터 Active Directory를 사용 하 여 각 커넥터 컴퓨터 계정에 대 한 위임 설정을 구성 하 여 대상 SPN에 위임할 수 있습니다.
 
 커넥터 서버와 웹 응용 프로그램 서비스 계정이 서로 다른 도메인에 있는 경우 리소스 기반 위임이 사용 됩니다. 위임 권한은 대상 웹 서버 및 웹 응용 프로그램 서비스 계정에서 구성 됩니다. 이 제한 된 위임 방법은 비교적 새로운 방법입니다. 메서드는 리소스 (웹 서비스) 소유자가 위임할 수 있는 컴퓨터 및 서비스 계정을 제어 하도록 허용 하 여 도메인 간 위임을 지 원하는 Windows Server 2012에서 도입 되었습니다. 이 구성에 도움이 되는 UI가 없으므로 PowerShell을 사용 해야 합니다.
-자세한 내용은 [응용 프로그램 프록시를 사용 하 여 Kerberos 제한 된 위임 이해](http://aka.ms/kcdpaper)백서를 참조 하십시오.
+자세한 내용은 [응용 프로그램 프록시를 사용 하 여 Kerberos 제한 된 위임 이해](https://aka.ms/kcdpaper)백서를 참조 하십시오.
 
 ## <a name="pass-through-authentication"></a>통과 인증
 
@@ -145,7 +145,7 @@ Azure AD에서 성공적으로 미리 인증 된 사용자에 대해서만 조�
 
 ### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>WebSocket은 QlikSense 이외의 응용 프로그램에 대해 작업을 지원 하나요?
 
-현재 WebSocket 프로토콜 지원은 아직 공개 미리 보기 상태 이며 다른 응용 프로그램에서 작동 하지 않을 수 있습니다. 일부 고객의 경우 WebSocket 프로토콜을 사용 하 여 다른 응용 프로그램과의 성공을 혼합 했습니다. 이러한 시나리오를 테스트 하는 경우 결과를 듣고 싶습니다. @No__t-0에서 피드백을 보내 주세요.
+현재 WebSocket 프로토콜 지원은 아직 공개 미리 보기 상태 이며 다른 응용 프로그램에서 작동 하지 않을 수 있습니다. 일부 고객의 경우 WebSocket 프로토콜을 사용 하 여 다른 응용 프로그램과의 성공을 혼합 했습니다. 이러한 시나리오를 테스트 하는 경우 결과를 듣고 싶습니다. aadapfeedback@microsoft.com에서 사용자 의견을 보내 주시기 바랍니다.
 
 ## <a name="link-translation"></a>링크 변환
 

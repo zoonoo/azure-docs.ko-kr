@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에 대 한 Azure Resource Manager 템플릿
 description: Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB을 만들고 구성 합니다.
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: ecdfe89e899e0d416784ae32a0d66b335c09e2b6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/07/2019
+ms.author: thvankra
+ms.openlocfilehash: 7c508d736c7c04cc6df2b42e0a90a2906052adbc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582819"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835513"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Azure Resource Manager 템플릿
 
@@ -37,8 +37,6 @@ ms.locfileid: "73582819"
 |**템플릿**|**설명**|
 |---| ---|
 |[Azure Cosmos account, keyspace, table 만들기](manage-cassandra-with-resource-manager.md#create-resource) | 이 템플릿은 다중 마스터가 설정 된 두 지역에 Cassandra API 계정을 만듭니다. Azure Cosmos 계정에는 keyspace 수준 처리량을 공유 하는 두 개의 테이블이 포함 됩니다. |
-|[Keyspace에 대 한 업데이트 처리량 (r u/초)](manage-cassandra-with-resource-manager.md#keyspace-ru-update) | 이 템플릿은 Cassandra API 계정에서 keyspace의 처리량을 업데이트 합니다. |
-|[테이블에 대 한 업데이트 처리량 (r u/초)](manage-cassandra-with-resource-manager.md#table-ru-update) | 이 템플릿은 Cassandra API 계정에서 테이블에 대 한 처리량을 업데이트 합니다. |
 
 ## <a name="gremlin-api"></a>Gremlin API
 

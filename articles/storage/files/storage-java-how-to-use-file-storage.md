@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/19/2017
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 00130114b793b5f4d4459eee3404fc4adaf6a8b4
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 28a280ea7c3bf9ef84a1fff05da5090ed526fb12
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699404"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837468"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Java를 사용하여 Azure Files 개발
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -227,7 +227,7 @@ if ( file.deleteIfExists() ) {
 * [Java 개발자용 Azure](/java/azure)/)
 * [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java)
 * [Android용 Azure Storage SDK](https://github.com/azure/azure-storage-android)
-* [Azure Storage 클라이언트 SDK 참조](http://dl.windowsazure.com/storage/javadoc/)
+* [Azure Storage 클라이언트 SDK 참조](https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html)
 * [Azure Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage 팀 블로그](https://blogs.msdn.com/b/windowsazurestorage/)
 * [AzCopy 명령줄 유틸리티로 데이터 전송](../common/storage-use-azcopy.md)

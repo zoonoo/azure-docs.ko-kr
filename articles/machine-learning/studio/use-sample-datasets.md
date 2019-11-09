@@ -1,6 +1,6 @@
 ---
 title: 샘플 데이터 세트 사용
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Machine Learning Studio (클래식)에 포함 된 샘플 모델에 사용 된 데이터 집합에 대 한 설명입니다. 실험에 대해 이 샘플 데이터 세트를 사용할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: f22d27f7900ce9dda3a8e65451acb9b743a25811
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 84ac2b43c9ec2e46bcd2967cf411f1bb1f60f42a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73618919"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839399"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에서 샘플 데이터 집합 사용
 [top]: #machine-learning-sample-datasets

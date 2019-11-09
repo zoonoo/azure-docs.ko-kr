@@ -1,25 +1,25 @@
 ---
 title: Linux 기반 HDInsight에서 Hadoop 사용 팁 - Azure
 description: Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Linux 기반 HDInsight(Hadoop) 클러스터를 사용하기 위한 구현 팁을 제공합니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: f50702688b9a261ed98c2eb3a5892d1bdbe8d11b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: daaf5763bde560250ddf70e70466fc9f4ed3e1c2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308077"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834098"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Apache Hadoop을 제공합니다. 대부분의 작업에 대해 Linux 설치에서 모든 다른 Hadoop으로 정확하게 작동해야 합니다. 이 문서를 알고 있어야 하는 특정 차이점을 호출합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계 대부분은 많은 시스템에 설치해야 할 수 있는 다음과 같은 유틸리티를 사용합니다.
 
@@ -36,19 +36,19 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 ## <a name="domain-names"></a>도메인 이름
 
-인터넷에서 클러스터에 연결할 때 사용할 FQDN (정규화 된 도메인 이름)이 `CLUSTERNAME.azurehdinsight.net` 또는 `CLUSTERNAME-ssh.azurehdinsight.net` (SSH의 경우에만)입니다.
+인터넷에서 클러스터에 연결할 때 사용할 FQDN (정규화 된 도메인 이름)이 `CLUSTERNAME.azurehdinsight.net` 또는 `CLUSTERNAME-ssh.azurehdinsight.net` (SSH 전용)입니다.
 
 내부적으로 클러스터의 각 노드 이름은 클러스터 구성 중에 할당됩니다. 클러스터 이름을 찾으려면 Ambari 웹 UI의 **호스트** 페이지를 참조하세요. 다음을 사용하여 Ambari REST API에서 호스트 목록을 반환할 수도 있습니다.
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/hosts" | jq '.items[].Hosts.host_name'
 
-`CLUSTERNAME`을 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 관리자 계정에 대한 암호를 입력합니다. 이 명령은 클러스터의 호스트 목록을 포함하는 JSON 문서를 반환합니다. [jq](https://stedolan.github.io/jq/) 는 각 호스트에 대 `host_name` 한 요소 값을 추출 하는 데 사용 됩니다.
+`CLUSTERNAME`을 클러스터의 이름으로 바꿉니다. 메시지가 표시되면 관리자 계정에 대한 암호를 입력합니다. 이 명령은 클러스터의 호스트 목록을 포함하는 JSON 문서를 반환합니다. [jq](https://stedolan.github.io/jq/) 는 각 호스트에 대 한 `host_name` 요소 값을 추출 하는 데 사용 됩니다.
 
 특정 서비스에 대한 노드의 이름을 찾으려면 해당 구성 요소에 대해 Ambari를 쿼리하면 됩니다. 예를 들어 HDFS 이름 노드에 대한 호스트를 찾으려면 다음 명령을 사용합니다.
 
     curl -u admin -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/HDFS/components/NAMENODE" | jq '.host_components[].HostRoles.host_name'
 
-이 명령은 서비스를 설명 하는 JSON 문서를 반환한 다음 [jq](https://stedolan.github.io/jq/) 에서 호스트에 대 `host_name` 한 값만 가져옵니다.
+이 명령은 서비스를 설명 하는 JSON 문서를 반환한 다음 [jq](https://stedolan.github.io/jq/) 에서 호스트에 대 한 `host_name` 값만 가져옵니다.
 
 ## <a name="remote-access-to-services"></a>서비스에 대한 원격 액세스
 
@@ -70,7 +70,7 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
     >
     > 인증은 일반 텍스트입니다. 항상 HTTPS를 사용하여 연결의 보안을 유지합니다.
 
-* **WebHCat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
+* **Webhcat (Templeton)**  - https://CLUSTERNAME.azurehdinsight.net/templeton
 
     > [!NOTE]  
     > 클러스터 관리자 계정 및 암호를 사용하여 인증합니다.
@@ -89,7 +89,7 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있습니다. 이 디렉터리에는 다음과 같은 하위 디렉터리가 포함됩니다.
 
 * **2.6.5.3006-29**: 디렉터리 이름은 HDInsight에서 사용 하는 Hadoop 플랫폼의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
-* **current**: 이 디렉터리에는 **2.6.5.3006-29** 디렉터리 아래의 하위 디렉터리에 대 한 링크가 포함 되어 있습니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
+* **current**:이 디렉터리에는 **2.6.5.3006-29** 디렉터리 아래의 하위 디렉터리에 대 한 링크가 포함 되어 있습니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
 
 예제 데이터 및 JAR 파일은 `/example` 및 `/HdiSamples`의 HDFS(Hadoop 분산 파일 시스템)에서 찾을 수 있습니다.
 
@@ -111,12 +111,11 @@ Azure Storage 또는 Data Lake Storage를 사용하는 경우 HDInsight에서 �
 
 HDInsight에서 데이터 스토리지 리소스(Azure Blob Storage 및 Azure Data Lake Storage)는 컴퓨팅 리소스와는 분리됩니다. 따라서 필요에 따라 계산을 수행하는 HDInsight 클러스터를 만들고 나중에 작업이 완료되면 클러스터를 삭제할 수 있습니다. 그 동안 데이터 파일은 클라우드 스토리지에서 필요한 시간 동안 안전하게 유지됩니다.
 
-
 ### <a name="URI-and-scheme"></a>URI 및 체계
 
 일부 명령에서는 파일에 액세스할 때 URI의 일부로 구성표를 지정해야 할 수도 있습니다. 예를 들어 Storm-HDFS 구성 요소를 사용하려면 구성표를 지정해야 합니다. 기본값이 아닌 스토리지(클러스터에 &quot;추가&quot; 스토리지로 추가된 스토리지)를 사용할 때는 항상 URI의 일부로 구성표를 사용해야 합니다.
 
-__Azure Storage__를 사용하는 경우 다음 URI 체계 중 하나를 사용합니다.
+[**Azure Storage**](./hdinsight-hadoop-use-blob-storage.md)사용 하는 경우 다음 URI 체계 중 하나를 사용 합니다.
 
 * `wasb:///`: 암호화되지 않은 통신을 사용하여 기본 스토리지에 액세스합니다.
 
@@ -124,13 +123,13 @@ __Azure Storage__를 사용하는 경우 다음 URI 체계 중 하나를 사용�
 
 * `wasb://<container-name>@<account-name>.blob.core.windows.net/`: 기본이 아닌 스토리지 계정과 통신할 때 사용됩니다. 예를 들어 추가 스토리지 계정이 있거나 공개적으로 액세스할 수 있는 스토리지 계정에 저장된 데이터에 액세스하는 경우입니다.
 
-__Azure Data Lake Storage Gen2__사용 하는 경우 다음 URI 체계를 사용 합니다.
+[**Azure Data Lake Storage Gen2**](./hdinsight-hadoop-use-data-lake-storage-gen2.md)사용 하는 경우 다음 URI 체계를 사용 합니다.
 
 * `abfs://`: 암호화된 통신을 사용하여 기본 스토리지에 액세스합니다.
 
 * `abfs://<container-name>@<account-name>.dfs.core.windows.net/`: 기본이 아닌 스토리지 계정과 통신할 때 사용됩니다. 예를 들어 추가 스토리지 계정이 있거나 공개적으로 액세스할 수 있는 스토리지 계정에 저장된 데이터에 액세스하는 경우입니다.
 
-__Azure Data Lake Storage Gen1__을 사용하는 경우 다음 URI 체계 중 하나를 사용합니다.
+[**Azure Data Lake Storage Gen1**](./hdinsight-hadoop-use-data-lake-store.md)사용 하는 경우 다음 URI 체계 중 하나를 사용 합니다.
 
 * `adl:///`: 클러스터의 기본 Data Lake Storage에 액세스합니다.
 
@@ -187,7 +186,7 @@ HDInsight 클러스터 외부에서 데이터에 액세스하는 다양한 방�
 __Azure Storage__를 사용하는 경우 다음 링크를 참조하여 데이터에 액세스할 수 있습니다.
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-az-cli2): Azure로 작업하기 위한 명령줄 인터페이스 명령입니다. 설치 후 스토리지 사용에 대한 도움말은 `az storage`를 참조하고 Blob 관련 명령에 대한 도움말은 `az storage blob`을 참조하세요.
-* [blobxfer.py](https://github.com/Azure/blobxfer): Azure Storage의 Blob 작업을 위한 Python 스크립트입니다.
+* [blobxfer.py](https://github.com/Azure/blobxfer): Azure Storage의 Blob 작업을 위한 python 스크립트입니다.
 * 다양한 SDK:
 
     * [Java](https://github.com/Azure/azure-sdk-for-java)
@@ -230,7 +229,7 @@ __Azure Data Lake Storage__를 사용하는 경우 다음 링크를 참조하여
 
 * **Storm**: 크기 조정 작업을 수행한 후 실행 중인 모든 Storm 토폴로지 균형을 다시 맞추어야 합니다. 균형을 다시 조정하면 토폴로지를 새 클러스터의 노드 수에 따라 병렬 처리 설정을 다시 조정할 수 있습니다. 실행 중인 토폴로지의 균형을 다시 조정하려면 다음 옵션 중 하나를 사용합니다.
 
-    * **SSH**: 서버에 연결하고 다음 명령을 사용하여 토폴로지 균형을 다시 맞춥니다.
+    * **SSH**: 서버에 연결하고 다음 명령을 사용하여 토폴로지 균형을 다시 조정합니다.
 
             storm rebalance TOPOLOGYNAME
 
@@ -238,7 +237,7 @@ __Azure Data Lake Storage__를 사용하는 경우 다음 링크를 참조하여
 
     * **Storm UI**: Storm UI를 사용하여 토폴로지 균형을 다시 맞추려면 다음 단계를 사용합니다.
 
-        1. 웹 `https://CLUSTERNAME.azurehdinsight.net/stormui` 브라우저에서를 엽니다. 여기서 `CLUSTERNAME` 는 스톰 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
+        1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/stormui`를 엽니다. 여기서 `CLUSTERNAME`은 스톰 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
         2. 균형을 다시 맞추려는 토폴로지를 선택한 다음 **균형 다시 맞추기** 단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
 
 * **Kafka**: 크기 조정 작업 후 파티션 복제본의 균형을 다시 조정해야 합니다. 자세한 내용은 [HDInsight에서 Apache Kafka를 사용한 데이터의 고가용성](./kafka/apache-kafka-high-availability.md) 문서를 참조하세요.

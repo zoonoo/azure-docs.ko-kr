@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: a1c3bec4b32a9d3450e307f42958bb19263c3d7a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ddd631b809d4a0635107069f48281db4c0a2e7e0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717147"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837548"
 ---
 # <a name="permutation-feature-importance"></a>순열 기능 중요도
 
@@ -24,7 +24,7 @@ ms.locfileid: "73717147"
 
 모듈에서 반환 하는 점수는 순열의 후 학습 된 모델의 성능 *변화* 를 나타냅니다. 중요 한 기능은 일반적으로 순서 섞기 프로세스에 더 중요 하므로 중요도 점수가 높아집니다. 
 
-이 문서에서는 기계 학습: [순열 기능 중요도](http://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx)의 순열 기능, 이론상의 해당 응용 프로그램에 대 한 개요를 제공 합니다.  
+이 문서에서는 기계 학습: [순열 기능 중요도](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx)의 순열 기능, 이론상의 해당 응용 프로그램에 대 한 개요를 제공 합니다.  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>순열 기능 중요도를 사용 하는 방법
 

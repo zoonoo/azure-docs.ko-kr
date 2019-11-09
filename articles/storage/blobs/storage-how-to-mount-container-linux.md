@@ -1,18 +1,18 @@
 ---
 title: Azure Blob Storage를 Linux의 파일 시스템으로 탑재하는 방법 | Microsoft Docs
 description: Linux에 FUSE가 있는 Azure Blob Storage 컨테이너를 탑재합니다.
-author: normesta
+author: rishabpoh
 ms.service: storage
 ms.topic: conceptual
 ms.date: 2/1/2019
-ms.author: normesta
+ms.author: ripohane
 ms.reviewer: dineshm
-ms.openlocfilehash: 88002999baacf38b4afd40b574686457c48546e4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 35a4313d10231aec74685069a67d803ea32e68b1
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845013"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847555"
 ---
 # <a name="how-to-mount-blob-storage-as-a-file-system-with-blobfuse"></a>blobfuse를 사용하여 Blob Storage를 파일 시스템으로 탑재하는 방법
 
@@ -51,7 +51,7 @@ sudo dpkg -i packages-microsoft-prod.deb
 sudo apt-get update
 ```
 
-마찬가지로 URL을 또는 `.../ubuntu/16.04/...` `.../ubuntu/18.04/...` 로 변경 하 여 다른 Ubuntu 버전을 참조 합니다.
+마찬가지로 URL을 `.../ubuntu/16.04/...` 또는 `.../ubuntu/18.04/...`으로 변경 하 여 다른 Ubuntu 버전을 참조 합니다.
 
 ### <a name="install-blobfuse"></a>blobfuse 설치
 
@@ -97,7 +97,7 @@ accountName myaccount
 accountKey storageaccesskey
 containerName mycontainer
 ```
-는 `accountName` 저장소 계정에 대 한 접두사 이며 전체 URL이 아닙니다.
+`accountName`는 저장소 계정에 대 한 접두사 이며 전체 URL이 아닙니다.
 
 다음을 사용 하 여이 파일을 만듭니다.
 

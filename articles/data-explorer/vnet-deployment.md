@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 293a90591a77825279c8ebbae64516b6126d8621
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a7a9efbf6fd9c3dbe6b16d12a54f743d5b0820ba
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588266"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838208"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Virtual Network (미리 보기)에 Azure 데이터 탐색기 배포
 
@@ -121,7 +121,7 @@ Azure 데이터 탐색기 클러스터를 서브넷에 배포 하면 Azure 데�
 | 한국 남부 | 40.80.234.9 |
 | 미국 중북부 | 40.81.45.254 |
 | 북유럽 | 52.142.91.221 |
-| 남아프리카 공화국 북부 | 102.133.129.138 |
+| 남아프리카 북부 | 102.133.129.138 |
 | 남아프리카 공화국 서부 | 102.133.0.97 |
 | 미국 중남부 | 20.45.3.60 |
 | 동남아시아 | 40.119.203.252 |
@@ -220,30 +220,32 @@ Express 경로를 사용 하 여 온-프레미스 네트워크를 Azure Virtual 
 
 [Azure 방화벽](/azure/firewall/overview) 또는 가상 어플라이언스를 사용 하 여 도메인 이름을 제한 하는 아웃 바운드 트래픽을 보호 하려면 다음 FQDN (정규화 된 도메인 이름)이 방화벽에서 허용 되어야 합니다.
 
-* prod.warmpath.msftcloudes.com:443
-* production.diagnostics.monitoring.core.windows.net:443
-* graph.windows.net:443
-* *. update.microsoft.com:443
-* shavamanifestcdnprod1.azureedge.net:443
-* login.live.com:443
-* wdcp.microsoft.com:443
-* login.microsoftonline.com:443
-* azureprofilerfrontdoor.cloudapp.net:443
-* *. core.windows.net:443
-* *. servicebus.windows.net:443
-* shoebox2.metrics.nsatc.net:443
-* production.diagnostics.monitoring.core.windows.net:443
-* prod-dsts.dsts.core.windows.net:443
-* ocsp.msocsp.com:80
-* *. windowsupdate.com:80
-* ocsp.digicert.com:80
-* go.microsoft.com:80
-* dmd.metaservices.microsoft.com:80
-* www.msftconnecttest.com:80
-* crl.microsoft.com:80
-* www.microsoft.com:80
-* adl.windows.com:80
-* crl3.digicert.com:80
+```
+prod.warmpath.msftcloudes.com:443
+production.diagnostics.monitoring.core.windows.net:443
+graph.windows.net:443
+*.update.microsoft.com:443
+shavamanifestcdnprod1.azureedge.net:443
+login.live.com:443
+wdcp.microsoft.com:443
+login.microsoftonline.com:443
+azureprofilerfrontdoor.cloudapp.net:443
+*.core.windows.net:443
+*.servicebus.windows.net:443
+shoebox2.metrics.nsatc.net:443
+production.diagnostics.monitoring.core.windows.net:443
+prod-dsts.dsts.core.windows.net:443
+ocsp.msocsp.com:80
+*.windowsupdate.com:80
+ocsp.digicert.com:80
+go.microsoft.com:80
+dmd.metaservices.microsoft.com:80
+www.msftconnecttest.com:80
+crl.microsoft.com:80
+www.microsoft.com:80
+adl.windows.com:80
+crl3.digicert.com:80
+```
 
 또한 비대칭 경로 문제를 방지 하기 위해 다음 홉 *인터넷* 을 사용 하는 [관리 주소](#azure-data-explorer-management-ip-addresses) 및 [상태 모니터링 주소](#health-monitoring-addresses) 를 사용 하 여 서브넷에서 [경로 테이블](/azure/virtual-network/virtual-networks-udr-overview) 을 정의 해야 합니다.
 

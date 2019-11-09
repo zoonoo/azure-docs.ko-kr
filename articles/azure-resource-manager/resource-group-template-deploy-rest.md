@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5b3170d640257774339697ee7915169c2f5e451f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0472510801f5827327ac06a3927ca597b6caa612
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973344"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834349"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>리소스 관리자 템플릿과 리소스 관리자 REST API로 리소스 배포
 
@@ -35,13 +35,17 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourcegroups/{
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
+구독 수준 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조 하세요.
+
 **관리 그룹**에 배포 하려면 [배포-관리 그룹 범위에서 만들기](/rest/api/resources/deployments/createorupdateatmanagementgroupscope)를 사용 합니다. 요청은 다음으로 전송 됩니다.
 
 ```HTTP
 PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Resources/deployments/{deploymentName}?api-version=2019-05-01
 ```
 
-이 문서의 예제에서는 리소스 그룹 배포를 사용 합니다. 구독 배포에 대 한 자세한 내용은 [구독 수준에서 리소스 그룹 및 리소스 만들기](deploy-to-subscription.md)를 참조 하세요.
+관리 그룹 수준 배포에 대 한 자세한 내용은 [관리 그룹 수준에서 리소스 만들기](deploy-to-management-group.md)를 참조 하세요.
+
+이 문서의 예제에서는 리소스 그룹 배포를 사용 합니다.
 
 ## <a name="deploy-with-the-rest-api"></a>REST API를 사용하여 배포
 

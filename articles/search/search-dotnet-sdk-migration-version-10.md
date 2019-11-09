@@ -1,7 +1,7 @@
 ---
-title: Azure Search .NET SDK 버전 10으로 업그레이드
+title: Azure Cognitive Search .NET SDK 버전 10으로 업그레이드
 titleSuffix: Azure Cognitive Search
-description: 이전 버전에서 Azure Search .NET SDK 버전 10으로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
+description: 이전 버전에서 Azure Cognitive Search .NET SDK 버전 10으로 코드를 마이그레이션합니다. 새로운 기능과 필요한 코드 변경 내용을 알아봅니다.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,30 +9,30 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a8550a7f9c6a684a172da6f384039c6050797f6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ad912eb0b26354d40a654a1c8782dfcb960235e5
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793048"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847515"
 ---
-# <a name="upgrade-to-azure-search-net-sdk-version-10"></a>Azure Search .NET SDK 버전 10으로 업그레이드
+# <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Azure Cognitive Search .NET SDK 버전 10으로 업그레이드
 
 [Azure Search .NET SDK](https://aka.ms/search-sdk)버전 9.0 이전 버전을 사용 하는 경우이 문서를 통해 응용 프로그램을 업그레이드 하 여 버전 10을 사용할 수 있습니다.
 
-예제를 비롯하여 SDK에 대한 보다 일반적인 연습은 [.NET 애플리케이션에서 Azure Search를 사용하는 방법](search-howto-dotnet-sdk.md)을 참조하세요.
+Azure Search은 버전 10에서 Azure Cognitive Search로 이름이 변경 되지만 네임 스페이스와 패키지 이름은 변경 되지 않습니다. 이전 버전의 SDK (9.0 및 이전 버전)는 계속 해 서 이전 이름을 사용 합니다. 예제를 포함 하 여 SDK를 사용 하는 방법에 대 한 자세한 내용은 [.Net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법](search-howto-dotnet-sdk.md)을 참조 하세요.
 
 버전 10은 여러 기능과 버그 수정을 추가 하 여 REST API 버전 `2019-05-06`의 최신 릴리스와 동일한 기능 수준으로 제공 합니다. 변경이 기존 코드를 중단 하는 경우 [문제를 해결 하는 데 필요한 단계](#UpgradeSteps)를 안내 합니다.
 
 > [!NOTE]
 > 버전 8.0-preview 또는 이전 버전을 사용 하는 경우 먼저 버전 9로 업그레이드 한 후 버전 10으로 업그레이드 해야 합니다. 지침은 [Azure Search .NET SDK 버전 9로 업그레이드를](search-dotnet-sdk-migration-version-9.md) 참조 하세요.
 >
-> Azure Search 서비스 인스턴스는 최신 버전을 포함한 여러 REST API 버전을 지원합니다. 더 이상 최신 버전이 아닌 버전을 계속 사용할 수는 있지만 코드를 마이그레이션하여 최신 버전을 사용하는 것이 좋습니다. REST API를 사용하는 경우 api-version 매개 변수를 통해 모든 요청에 API 버전을 지정해야 합니다. .NET SDK를 사용하는 경우 사용 중인 SDK의 버전에 따라 해당하는 REST API 버전이 결정됩니다. 이전 버전의 SDK를 사용하는 경우 최신 API 버전을 지원하기 위해 서비스가 업그레이드된 경우에도 변경 내용 없이 해당 코드를 계속 실행할 수 있습니다.
+> 검색 서비스 인스턴스는 최신 버전을 포함 하 여 여러 REST API 버전을 지원 합니다. 더 이상 최신 버전이 아닌 버전을 계속 사용할 수는 있지만 코드를 마이그레이션하여 최신 버전을 사용하는 것이 좋습니다. REST API를 사용하는 경우 api-version 매개 변수를 통해 모든 요청에 API 버전을 지정해야 합니다. .NET SDK를 사용하는 경우 사용 중인 SDK의 버전에 따라 해당하는 REST API 버전이 결정됩니다. 이전 버전의 SDK를 사용하는 경우 최신 API 버전을 지원하기 위해 서비스가 업그레이드된 경우에도 변경 내용 없이 해당 코드를 계속 실행할 수 있습니다.
 
 <a name="WhatsNew"></a>
 
 ## <a name="whats-new-in-version-10"></a>버전 10의 새로운 기능
-Azure Search .NET SDK 버전 10은 이러한 업데이트로 인해 일반적으로 사용 가능한 최신 버전의`2019-05-06`(Azure Search REST API)를 대상으로 합니다.
+Azure Cognitive Search .NET SDK 버전 10은 이러한 업데이트로 인해 일반적으로 사용 가능한 최신 버전의 REST API (`2019-05-06`)를 대상으로 합니다.
 
 * 두 가지 새로운 기술- [조건부 기술](cognitive-search-skill-conditional.md) 및 [텍스트 번역](cognitive-search-skill-text-translation.md)기술을 소개 합니다.
 * [Shaper 기술](cognitive-search-skill-shaper.md) 입력은 중첩 된 컨텍스트에서 통합을 수용할 수 있도록 재구성 되었습니다. 자세한 내용은이 [예제 JSON 정의](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts)를 참조 하세요.
@@ -62,7 +62,7 @@ Azure Search .NET SDK 버전 10은 이러한 업데이트로 인해 일반적으
 버전 10에서는 응용 프로그램을 다시 빌드하는 것 외에도 코드를 변경 해야 할 수 있는 몇 가지 주요 변경 사항이 있습니다.
 
 > [!NOTE]
-> 아래 변경 목록은 완전 하지 않습니다. 일부 변경 내용으로 인해 빌드 오류가 발생 하지는 않지만, 이전 버전의 Azure Search .NET SDK 어셈블리에 종속 된 어셈블리와의 이진 호환성이 중단 되기 때문에 기술적으로 중단 됩니다. 이 범주에 속하는 중요 한 변경 내용도 권장 사항과 함께 나열 됩니다. 이진 호환성 문제를 방지 하려면 버전 10으로 업그레이드할 때 응용 프로그램을 다시 빌드 하세요.
+> 아래 변경 목록은 완전 하지 않습니다. 일부 변경 내용은 빌드 오류가 발생 하지 않을 수 있지만, 이전 버전의 Azure Cognitive Search .NET SDK 어셈블리에 종속 된 어셈블리와 이진 호환성이 중단 되기 때문에 기술적으로 중단 됩니다. 이 범주에 속하는 중요 한 변경 내용도 권장 사항과 함께 나열 됩니다. 이진 호환성 문제를 방지 하려면 버전 10으로 업그레이드할 때 응용 프로그램을 다시 빌드 하세요.
 
 ### <a name="custom-web-api-skill-definition"></a>사용자 지정 Web API 기술 정의
 
@@ -139,7 +139,7 @@ var skillset = new Skillset()
 }
 ```
 
-`SentimentSkill` `#1`이름이 할당 되 고, `WebApiSkill` `#2`할당 되며, `ShaperSkill` 할당 됩니다.
+`SentimentSkill` `#1`이름이 할당 되 고, `WebApiSkill` `#2`할당 되며, `ShaperSkill` 할당 됩니다.`#3`
 
 사용자 지정 이름으로 기술을 식별 하도록 선택 하는 경우 먼저 클라이언트의 모든 인스턴스를 SDK 버전 10으로 업데이트 해야 합니다. 그렇지 않으면 이전 버전의 SDK를 사용 하는 클라이언트가 기술에 대 한 `Name` 속성을 `null` 하 여 클라이언트가 기본 이름 지정 체계를 대체 하도록 할 가능성이 있습니다.
 

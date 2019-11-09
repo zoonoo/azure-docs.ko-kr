@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: e1f7aeb5615c1a22c1970f118c24c996ac936870
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3c70d2086fc5866b07c31966343397f8ccc809be
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826815"
+ms.locfileid: "73846741"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -169,7 +169,7 @@ Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버"
 > 데이터 중복 제거 및 클라우드 계층화는 향후 업데이트에서 수정 될 버그로 인해 현재 서버 2019의 동일한 볼륨에서 지원 되지 않습니다.
 
 **Windows Server 2012 R2**  
-Azure File Sync는 동일한 볼륨에서 데이터 중복 제거 및 클라우드 계층화를 지원 하지 않습니다. 볼륨에서 데이터 중복 제거를 사용 하는 경우 클라우드 계층화를 사용 하지 않도록 설정 해야 합니다. 
+Azure File Sync는 Windows Server 2012 r 2의 동일한 볼륨에서 데이터 중복 제거 및 클라우드 계층화를 지원 하지 않습니다. 볼륨에서 데이터 중복 제거를 사용 하는 경우 클라우드 계층화를 사용 하지 않도록 설정 해야 합니다. 
 
 **참고 사항**
 - Azure File Sync 에이전트를 설치 하기 전에 데이터 중복 제거를 설치한 경우 동일한 볼륨에서 데이터 중복 제거 및 클라우드 계층화를 지원 하려면 다시 시작 해야 합니다.
@@ -267,7 +267,7 @@ Azure 파일 동기화는 다음 지역에서만 사용할 수 있습니다.
 | 일본 서부 | 오사카 |
 | 미국 중북부 | 일리노이 |
 | 북유럽 | 아일랜드 |
-| 남아프리카 공화국 북부 | 요하네스버그 |
+| 남아프리카 북부 | 요하네스버그 |
 | 남아프리카 공화국 * | 케이프타운 |
 | 미국 중남부 | 텍사스 |
 | 인도 남부 | 첸나이 |
@@ -316,8 +316,8 @@ Azure 지역의 손실에 대해 보호하려면 Azure 파일 동기화가 [GRS(
 | 한국 남부         | 한국 중부      |
 | 북유럽        | 서유럽        |
 | 미국 중북부    | 미국 중남부   |
-| 남아프리카 공화국 북부  | 남아프리카 공화국 서부  |
-| 남아프리카 공화국 서부   | 남아프리카 공화국 북부 |
+| 남아프리카 북부  | 남아프리카 공화국 서부  |
+| 남아프리카 공화국 서부   | 남아프리카 북부 |
 | 미국 중남부    | 미국 중북부   |
 | 인도 남부         | 인도 중부      |
 | 동남아시아      | 동아시아          |

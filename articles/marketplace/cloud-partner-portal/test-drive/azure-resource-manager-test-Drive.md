@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 03783424544588a4bc147b232d41b103fb2e5b3e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 610673c548294f875ca70edb8ab26b1fdeb41cb6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827558"
+ms.locfileid: "73838070"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager 시험 사용
 
@@ -208,7 +208,7 @@ Azure Resource Manager 시험 사용 빌드 시 가장 중요한 부분은 고�
 
 예를 들어, 대부분의 리소스 이름은 숫자로 시작할 수 없지만, 고유한 문자열 함수는 숫자로 시작하는 문자열을 반환할 수 있습니다. 따라서 원시 고유 문자열 출력을 사용하는 경우 배포에 실패합니다. 
 
-[이 문서](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions)에서 리소스 명명 규칙 및 제한 사항에 대한 추가 정보를 확인할 수 있습니다.
+[이 문서](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)에서 리소스 명명 규칙 및 제한 사항에 대한 추가 정보를 확인할 수 있습니다.
 
 ### <a name="deployment-location"></a>배포 위치
 

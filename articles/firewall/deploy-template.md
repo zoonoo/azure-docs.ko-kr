@@ -7,18 +7,18 @@ ms.service: firewall
 ms.topic: article
 ms.date: 7/9/2018
 ms.author: victorh
-ms.openlocfilehash: b39174152e427e408e7dfbbc353baf5f96ec7c01
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: c0a6cda54a58e3cc03ba31e221fb57fc725dd779
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67657086"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839382"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>템플릿을 사용하여 Azure Firewall 배포
 
-[AzureFirewall 샌드박스 설정 만들기 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox)은 방화벽을 사용하여 테스트 네트워크 환경을 만듭니다. 네트워크에는 다음 세 개의 서브넷이 있는 하나의 VNet(가상 네트워크)이 포함됩니다. *AzureFirewallSubnet*, *ServersSubnet* 및 *JumpboxSubnet*. *ServersSubnet* 및 *JumpboxSubnet* 서브넷에는 각각 하나의 2개 코어 Windows Server 가상 머신이 있습니다.
+[AzureFirewall 샌드박스 설정 만들기 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-with-zones-sandbox)은 방화벽을 사용하여 테스트 네트워크 환경을 만듭니다. 네트워크에는 세 개의 서브넷 ( *AzureFirewallSubnet*, *ServersSubnet*및 *JumpboxSubnet*)이 있는 하나의 VNet (가상 네트워크)이 있습니다. *ServersSubnet* 및 *JumpboxSubnet* 서브넷에는 각각 하나의 2개 코어 Windows Server 가상 머신이 있습니다.
 
-방화벽은 *AzureFirewallSubnet* 서브넷에 있으며, *www.microsoft.com* 에 대한 액세스를 허용하는 단일 규칙이 포함된 애플리케이션 규칙 컬렉션이 포함됩니다.
+방화벽은 *AzureFirewallSubnet* 서브넷에 있고 `www.microsoft.com`에 대 한 액세스를 허용 하는 단일 규칙을 포함 하는 응용 프로그램 규칙 컬렉션을 포함 합니다.
 
 사용자 정의 경로는 방화벽 규칙이 적용된 방화벽을 통해 *ServersSubnet* 서브넷에서의 네트워크 트래픽을 가리킵니다.
 
@@ -41,10 +41,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 포털의 **AzureFirewall의 샌드박스 설정 만들기** 페이지에서 다음 값을 입력하거나 선택합니다.
    
-   - **리소스 그룹**: **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력하고 **확인**을 선택합니다. 
-   - **가상 네트워크 이름**: 새 VNet의 이름을 입력합니다. 
-   - **관리자 사용자 이름**: 관리자 사용자 계정에 대한 사용자 이름을 입력합니다.
-   - **관리자 암호**: 관리자 암호를 입력합니다. 
+   - **리소스 그룹**: **새로 만들기**를 선택 하 고, 리소스 그룹의 이름을 입력 하 고, **확인**을 선택 합니다. 
+   - **Virtual Network 이름**: 새 VNet의 이름을 입력 합니다. 
+   - 관리자 **사용자 이름**: 관리자 사용자 계정의 사용자 이름을 입력 합니다.
+   - 관리자 **암호**: 관리자 암호를 입력 합니다. 
    
 1. 사용 약관을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
    
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-실행 하 여 리소스 그룹, 방화벽 및 모든 관련된 리소스 더 이상 필요할 때를 제거할 수 없습니다 합니다 [제거 AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell 명령입니다. *MyResourceGroup*이라는 리소스 그룹을 제거하려면 다음을 실행합니다. 
+더 이상 필요 하지 않은 경우 [AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) PowerShell 명령을 실행 하 여 리소스 그룹, 방화벽 및 관련 된 모든 리소스를 제거할 수 있습니다. *MyResourceGroup*이라는 리소스 그룹을 제거하려면 다음을 실행합니다. 
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup

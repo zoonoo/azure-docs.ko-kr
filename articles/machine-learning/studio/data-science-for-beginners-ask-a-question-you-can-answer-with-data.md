@@ -1,6 +1,6 @@
 ---
 title: 데이터가 대답할 수 있는 질문하기
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 초급자를 위한 데이터 과학 비디오 3에서 정확한 데이터 과학 질문을 작성하는 방법을 알아봅니다. 분류 및 회귀 질문에 대한 비교가 포함되어 있습니다.
 services: machine-learning
 ms.service: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: a2c5dea20ca55f4b04cf8b1d1693c8614a6440bf
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 26837337b49d79a26404fd6709b036f6907720f8
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621797"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838845"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>데이터로 대답할 수 있는 질문하기
 ## <a name="video-3-data-science-for-beginners-series"></a>비디오 3: 초급자를 위한 데이터 과학 시리즈

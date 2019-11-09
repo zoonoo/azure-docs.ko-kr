@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 2962f6c5032ba317f9eb8f10c2abddb566aad904
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: 2edc644f003af2b33054a5cbdbaee81c9baa38cd
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825515"
+ms.locfileid: "73847444"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업적 Marketplace 계정을 관리 하는 방법 
 
@@ -145,6 +145,11 @@ Guid (Globally Unique Identifier)는 Azure 사용량을 추적 하는 데 사용
 자세한 내용은 [guid를 사용 하 여 Azure 고객 사용 추적 질문과 대답](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq)을 참조 하세요.
 
 
+## <a name="establish-a-billing-profile"></a>청구 프로필 설정
+
+[고객 Engagement & Power Apps](./create-new-customer-engagement-offer.md) 또는 [Dynamics 365 For Operations](./create-new-operations-offer.md) 제안의 dynamics 365을 게시 하는 경우 **청구 프로필**을 완료 해야 합니다.
+
+청구 주소는 MPN ID 로부터 미리 채워져 있으며 나중에이 주소를 업데이트할 수 있습니다. 세금 및 VAT ID 필드는 선택 사항입니다.  국가 이름 및 회사 이름을 편집할 수 없습니다.
 
 ## <a name="multi-user-account-management"></a>다중 사용자 계정 관리
 

@@ -16,12 +16,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6968379722dc7f2deda95e8d3804a03d4dbc8686
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 38235e90ccf79cf1322ce0f26ed426d8c3a693cc
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176005"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847173"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 
 이 테이블은 관련 항목 목록입니다.
 
-주제 |  세부 정보
+항목 |  세부 정보
 --------- | --------- |
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](how-to-upgrade-previous-version.md) 하는 다른 방법입니다.
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
@@ -80,8 +80,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - 커넥터 속성 페이지에서 sync service manager에 대 한 사용 중단 경고가 추가 되었습니다. 이 경고는 AADC 마법사를 통해 변경 해야 함을 사용자에 게 알립니다.
 - 사용자의 암호 정책과 관련 된 문제에 대 한 새 오류가 추가 되었습니다.
 - 도메인 및 OU 필터로 그룹 필터링의 잘못 된 구성을 방지 합니다. 입력 한 그룹의 도메인/OU가 이미 필터링 되어 문제가 해결 될 때까지 사용자가 앞으로 이동 하지 않는 경우 그룹 필터링에 오류가 표시 됩니다.
-- 사용자는 더 이상 이전 UI에서 Active Directory Domain Services 또는 Windows Azure Active Directory에 대 한 커넥터를 만들 수 없습니다.
-- 동기화 Service Manager에서 사용자 지정 UI 컨트롤의 접근성이 수정 됨
+- 사용자는 더 이상 Synchronization Service Manager UI에서 Active Directory Domain Services 또는 Windows Azure Active Directory에 대 한 커넥터를 만들 수 없습니다.
+- Synchronization Service Manager에서 사용자 지정 UI 컨트롤의 접근성을 수정 했습니다.
 - Azure AD Connect의 모든 로그인 메서드에 대해 6 개의 페더레이션 관리 작업을 사용 하도록 설정 했습니다.  (이전에는 "AD FS SSL 인증서 업데이트" 작업을 모든 로그인에 사용할 수 있었습니다.)
 - 모든 Azure AD 도메인 및 사용자가 관리 되는 인증으로 변환 되는 페더레이션에서 PHS 또는 PTA로 로그인 방법을 변경 하는 경우 경고가 추가 되었습니다.
 - "Azure AD 및 AD FS 트러스트 다시 설정" 작업에서 토큰 서명 인증서를 제거 하 고 이러한 인증서를 업데이트 하기 위한 별도의 하위 작업을 추가 했습니다.
@@ -111,8 +111,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 > 이 문제를 해결 하려면 **Adsync** 모듈을 가져온 다음 Azure AD Connect 서버에서`Set-ADSyncDirSyncConfiguration` powershell cmdlet을 실행 해야 합니다.  다음 단계를 사용할 수 있습니다.
 >
 >1. 관리자로 모드에서 Powershell 열기
->2. `Import-Module "ADSync"`을 실행합니다.
->3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`을 실행합니다.
+>2. `Import-Module "ADSync"` 실행
+>3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""` 실행
  
 ### <a name="release-status"></a>릴리스 상태 
 
@@ -133,7 +133,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - 도메인 새로 고침에 대 한 지원 추가 
 - Exchange 메일 공용 폴더 기능이 GA로 이동 
 - 서비스 오류에 대 한 마법사 오류 처리 향상 
-- 커넥터 속성 페이지에서 이전 UI에 대 한 경고 링크를 추가 했습니다. 
+- 커넥터 속성 페이지에서 Synchronization Service Manager UI에 대 한 경고 링크를 추가 했습니다. 
 - 통합 그룹 쓰기 저장 기능은 이제 GA입니다. 
 - DC에 LDAP 컨트롤이 없는 경우 SSPR 오류 메시지가 개선 됨 
 - 설치 하는 동안 DCOM 레지스트리 오류에 대 한 진단 추가  
@@ -159,7 +159,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 - LocalDB를 사용 하 여 VSS 오류 수정  
 - 개체 형식이 범위 내에 있지 않을 때 잘못 된 오류 메시지 수정 
 - 서버에 Azure AD PowerShell을 설치 했을 때 잠재적으로 어셈블리가 Azure AD Connect와 충돌 하는 문제를 해결 했습니다. 
-- 이전 UI에서 커넥터 자격 증명이 업데이트 되 면 준비 서버에서 PHS 버그를 수정 했습니다. 
+- Synchronization Service Manager UI에서 커넥터 자격 증명이 업데이트 될 때 준비 서버에서 PHS 버그를 수정 했습니다. 
 - 약간의 메모리 누수 문제를 수정 했습니다. 
 - 기타 Autoupgrade 수정 
 - 내보내기 및 확인 되지 않은 가져오기 처리를 위한 기타 수정 사항 
@@ -465,7 +465,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-Type     | name                          | 액세스               | 적용 대상
+형식     | Name                          | Access               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 허용    | SYSTEM                        | 모든 권한         | 이 개체  |
 허용    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
@@ -499,7 +499,7 @@ Where
 >[!NOTE] 
 >$credential.UserName은 FQDN\username 형식이어야 합니다. 예: contoso.com\admin 
 
-##### <a name="example"></a>예제:
+##### <a name="example"></a>예:
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
@@ -630,7 +630,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 ### <a name="seamless-single-sign-on"></a>Seamless Single Sign-On
 #### <a name="fixed-issues"></a>해결된 문제
-* [원활한 Single Sign-On](how-to-connect-sso.md) 활성화를 시도하는 경우 Azure AD Connect 마법사가 오류를 반환하도록 하는 문제가 해결되었습니다. 오류 메시지는 *“Microsoft Azure AD Connect 인증 에이전트 구성에 실패했습니다”* 입니다. 이 문제는 이 [아티클](how-to-connect-pta-upgrade-preview-authentication-agents.md)에서 설명된 단계에 따라 [통과 인증](how-to-connect-sso.md)을 위해 인증 에이전트의 미리 보기 버전을 수동으로 업그레이드한 기존 고객에게 영향을 미칩니다.
+* [원활한 Single Sign-On](how-to-connect-sso.md) 활성화를 시도하는 경우 Azure AD Connect 마법사가 오류를 반환하도록 하는 문제가 해결되었습니다. 오류 메시지는 *“Microsoft Azure AD Connect 인증 에이전트 구성에 실패했습니다”* 입니다. 이 문제는 이 [아티클](how-to-connect-sso.md)에서 설명된 단계에 따라 [통과 인증](how-to-connect-pta-upgrade-preview-authentication-agents.md)을 위해 인증 에이전트의 미리 보기 버전을 수동으로 업그레이드한 기존 고객에게 영향을 미칩니다.
 
 
 ## <a name="115610"></a>1.1.561.0
@@ -656,7 +656,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 * OU 기반 필터링을 사용하는 경우에도 Azure AD Connect 마법사에서 [도메인 및 OU 필터링 화면](how-to-connect-install-custom.md#domain-and-ou-filtering)이 *모든 도메인 및 OU 동기화* 옵션이 선택되었음을 표시하는 문제가 해결되었습니다.
 
-*   *새로 고침* 단추를 클릭한 경우 Synchronization Service Manager에서 [디렉터리 파티션 구성 화면](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering)이 오류를 반환하는 문제가 해결되었습니다. 오류 메시지는 다음과 같습니다. *“도메인을 새로 고치는 동안 오류가 발생했습니다. ‘System.Collections.ArrayList’ 형식의 개체를 캐스트하여 ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject를 입력할 수 없습니다.”* 새 AD 도메인을 기존 AD 포리스트에 추가하고 새로 고침 단추를 사용하여 Azure AD Connect를 업데이트하려는 경우에 이 오류가 발생합니다.
+*   [새로 고침](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) 단추를 클릭한 경우 Synchronization Service Manager에서 *디렉터리 파티션 구성 화면*이 오류를 반환하는 문제가 해결되었습니다. 오류 메시지는 다음과 같습니다. *“도메인을 새로 고치는 동안 오류가 발생했습니다. ‘System.Collections.ArrayList’ 형식의 개체를 캐스트하여 ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject를 입력할 수 없습니다.”* 새 AD 도메인을 기존 AD 포리스트에 추가하고 새로 고침 단추를 사용하여 Azure AD Connect를 업데이트하려는 경우에 이 오류가 발생합니다.
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
@@ -684,7 +684,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 * OU 기반 필터링을 사용하는 경우에도 Azure AD Connect 마법사에서 [도메인 및 OU 필터링 화면](how-to-connect-install-custom.md#domain-and-ou-filtering)이 *모든 도메인 및 OU 동기화* 옵션이 선택되었음을 표시하는 문제가 해결되었습니다.
 
-*   *새로 고침* 단추를 클릭한 경우 Synchronization Service Manager에서 [디렉터리 파티션 구성 화면](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering)이 오류를 반환하는 문제가 해결되었습니다. 오류 메시지는 다음과 같습니다. *“도메인을 새로 고치는 동안 오류가 발생했습니다. ‘System.Collections.ArrayList’ 형식의 개체를 캐스트하여 ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject를 입력할 수 없습니다.”* 새 AD 도메인을 기존 AD 포리스트에 추가하고 새로 고침 단추를 사용하여 Azure AD Connect를 업데이트하려는 경우에 이 오류가 발생합니다.
+*   [새로 고침](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) 단추를 클릭한 경우 Synchronization Service Manager에서 *디렉터리 파티션 구성 화면*이 오류를 반환하는 문제가 해결되었습니다. 오류 메시지는 다음과 같습니다. *“도메인을 새로 고치는 동안 오류가 발생했습니다. ‘System.Collections.ArrayList’ 형식의 개체를 캐스트하여 ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject를 입력할 수 없습니다.”* 새 AD 도메인을 기존 AD 포리스트에 추가하고 새로 고침 단추를 사용하여 Azure AD Connect를 업데이트하려는 경우에 이 오류가 발생합니다.
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
@@ -808,9 +808,9 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|선택|
+    |CertVersion|CertSignatureAlgorithmOid|여기서|
     |CertKeyAlgorithmParams|CertHashString|Where|
-    |||사용|
+    |||With|
 
 * 고객이 그룹 개체에 대한 sAMAccountName, domainNetBios 및 domainFQDN과 사용자 개체에 대한 distinguishedName을 전달하는 사용자 지정 동기화 규칙을 만들 수 있도록 스키마가 다음과 같이 변경되었습니다.
 
@@ -1129,8 +1129,8 @@ AD FS 관리
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) 기능
 * 설치 마법사에서 Azure Multi-Factor Authentication 및 Privileged Identity Management를 사용하여 전역 관리자를 지원합니다.
-  * Multi-Factor Authentication을 사용하는 경우 프록시에서 https://secure.aadcdn.microsoftonline-p.com 에 대한 트래픽을 허용하도록 설정해야 합니다.
-  * Multi-Factor Authentication이 제대로 작동하려면 신뢰할 수 있는 사이트 목록에 https://secure.aadcdn.microsoftonline-p.com 을 추가해야 합니다.
+  * Multi-Factor Authentication을 사용하는 경우 프록시에서 https://secure.aadcdn.microsoftonline-p.com에 대한 트래픽을 허용하도록 설정해야 합니다.
+  * Multi-Factor Authentication이 제대로 작동하려면 신뢰할 수 있는 사이트 목록에 https://secure.aadcdn.microsoftonline-p.com을 추가해야 합니다.
 * 초기 설치 후 사용자의 로그인 방법 변경을 허용합니다.
 * 설치 마법사에서 [도메인 및 OU 필터링](how-to-connect-install-custom.md#domain-and-ou-filtering) 을 허용합니다. 이는 일부 도메인을 사용할 수 없는 포리스트로의 연결도 허용합니다.
 * 동기화 엔진에 [Scheduler](how-to-connect-sync-feature-scheduler.md)가 기본 제공됩니다.

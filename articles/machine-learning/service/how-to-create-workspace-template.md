@@ -10,13 +10,15 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9d966c7a4e9c56529b36eb87ecc46dbd6b5bab6a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f20c7955856e2e848d331d857d2564649c837bb0
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497033"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847470"
 ---
+[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning에 대 한 작업 영역을 만듭니다.
 
 이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning 작업 영역을 만드는 여러 가지 방법을 알아봅니다. Resource Manager 템플릿을 사용하면 조정된 단일 작업으로 리소스를 쉽게 만들 수 있습니다. 템플릿은 배포에 필요한 리소스를 정의하는 JSON 문서입니다. 배포 매개 변수도 지정할 수 있습니다. 매개 변수는 템플릿 사용 시 입력 값을 제공하는 데 사용됩니다.

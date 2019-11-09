@@ -1,22 +1,26 @@
 ---
-title: 'P2S VPN 연결에 대 한 VPN 클라이언트 구성: Azure AD 인증 | Microsoft Docs'
+title: 'OpenVPN 프로토콜 P2S 연결에 대 한 VPN 클라이언트 구성: Azure AD 인증 | Microsoft Docs'
 description: Azure AD 인증을 사용 하 여 VNet에 연결 하는 데 P2S VPN을 사용할 수 있습니다.
 services: vpn-gateway
-author: cherylmc
+author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 10/08/2019
-ms.author: cherylmc
-ms.openlocfilehash: 704dcd6335766a6058de4e520b8dcbca0d304c9d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/07/2019
+ms.author: alzam
+ms.openlocfilehash: da863144da5ec4361673c913392495d3d622f5a9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721463"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837976"
 ---
-# <a name="configure-a-vpn-client-for-p2s-vpn-connections-azure-ad-authentication-preview"></a>P2S VPN 연결에 대 한 VPN 클라이언트 구성: Azure AD 인증 (미리 보기)
+# <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>P2S OpenVPN 프로토콜 연결용 VPN 클라이언트 구성: Azure AD 인증 (미리 보기)
 
 이 문서에서는 지점 및 사이트 간 VPN 및 Azure Active Directory 인증을 사용 하 여 가상 네트워크에 연결 하도록 VPN 클라이언트를 구성 하는 방법을 설명 합니다. Azure AD를 사용 하 여 연결 하 고 인증 하려면 먼저 Azure AD 테 넌 트를 구성 해야 합니다. 자세한 내용은 [AZURE AD 테 넌 트 구성](openvpn-azure-ad-tenant.md)을 참조 하세요.
+
+> [!NOTE]
+> Azure AD 인증은 OpenVPN® 프로토콜 연결에 대해서만 지원 됩니다.
+>
 
 ## <a name="profile"></a>클라이언트 프로필 작업
 

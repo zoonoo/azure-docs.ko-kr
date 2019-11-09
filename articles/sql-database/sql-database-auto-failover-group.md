@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 10/23/2019
-ms.openlocfilehash: 88bcee1cbb23bf298c5ad3920a7744d8da6ce3fb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/07/2019
+ms.openlocfilehash: 16fc15a574655f20e3e6e37f164773b41ffe0b78
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821966"
+ms.locfileid: "73839330"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -246,7 +246,7 @@ ms.locfileid: "73821966"
 
 - **장애 조치 (failover) 그룹의 알려진 제한 사항 승인**
 
-  장애 조치 (failover) 그룹의 인스턴스에서는 데이터베이스 이름 바꾸기 및 인스턴스 크기 조정을 지원 하지 않습니다. 이러한 작업을 수행 수 있으려면 장애 조치 (failover) 그룹을 일시적으로 삭제 해야 합니다.
+  장애 조치 (failover) 그룹의 인스턴스에 대해서는 데이터베이스 이름 바꾸기가 지원 되지 않습니다. 데이터베이스의 이름을 바꾸려면 장애 조치 (failover) 그룹을 일시적으로 삭제 해야 합니다.
 
 ## <a name="failover-groups-and-network-security"></a>장애 조치 그룹 및 네트워크 보안
 
@@ -296,7 +296,7 @@ ms.locfileid: "73821966"
    > [!IMPORTANT]
    > NSG 보안 규칙을 잘못 구성하면 데이터베이스 복사 작업이 중단됩니다.
 
-7. 보조 인스턴스는 올바른 DNS 영역 ID로 구성 됩니다. DNS 영역은 관리 되는 인스턴스의 속성 이며 해당 ID는 호스트 이름 주소에 포함 됩니다. 각 VNet에서 첫 번째 관리 되는 인스턴스를 만들 때 영역 ID가 임의의 문자열로 생성 되며 동일한 서브넷의 다른 모든 인스턴스에 동일한 ID가 할당 됩니다. 할당 되 면 DNS 영역을 수정할 수 없습니다. 동일한 장애 조치 (failover) 그룹에 포함 된 관리 되는 인스턴스는 DNS 영역을 공유 해야 합니다. 보조 인스턴스를 만들 때 기본 인스턴스의 영역 ID를 DnsZonePartner 매개 변수 값으로 전달 하 여이를 수행 합니다. 
+7. 보조 인스턴스는 올바른 DNS 영역 ID로 구성 됩니다. DNS 영역은 관리 되는 인스턴스 및 가상 클러스터의 속성 이며 해당 ID는 호스트 이름 주소에 포함 됩니다. 각 VNet에서 첫 번째 관리 되는 인스턴스를 만들 때 영역 ID가 임의의 문자열로 생성 되며 동일한 서브넷의 다른 모든 인스턴스에 동일한 ID가 할당 됩니다. 할당 되 면 DNS 영역을 수정할 수 없습니다. 동일한 장애 조치 (failover) 그룹에 포함 된 관리 되는 인스턴스는 DNS 영역을 공유 해야 합니다. 보조 인스턴스를 만들 때 기본 인스턴스의 영역 ID를 DnsZonePartner 매개 변수 값으로 전달 하 여이를 수행 합니다. 
 
    > [!NOTE]
    > 관리 되는 인스턴스로 장애 조치 그룹을 구성 하는 방법에 대 한 자세한 자습서는 [장애 조치 (failover) 그룹에 관리 되는 인스턴스 추가](sql-database-managed-instance-failover-group-tutorial.md)

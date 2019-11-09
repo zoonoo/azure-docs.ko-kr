@@ -5,22 +5,22 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 3b552d37ce176e76bc0a4230a24a910543e5ea0d
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 8f3a732d5d6128ff38f81f715113e87710b11c47
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965115"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847266"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
-Standard_v2 및 WAF_v2 SKU 에서도 Application Gateway 및 WAF (웹 응용 프로그램 방화벽)를 사용할 수 있습니다. V2 SKU는 성능 향상을 제공 하 고 자동 크기 조정, 영역 중복성 및 정적 Vip 지원과 같은 중요 한 새 기능에 대 한 지원을 추가 합니다. 표준 및 WAF SKU 아래의 기존 기능은 새 v2 SKU에서 계속 지원 되지만, [비교](#differences-with-v1-sku) 섹션에 몇 가지 예외가 있습니다.
+Application Gateway 및 WAF (웹 응용 프로그램 방화벽)는 Standard_v2 및 WAF_v2 SKU 에서도 사용할 수 있습니다. V2 SKU는 성능 향상을 제공 하 고 자동 크기 조정, 영역 중복성 및 정적 Vip 지원과 같은 중요 한 새 기능에 대 한 지원을 추가 합니다. 표준 및 WAF SKU 아래의 기존 기능은 새 v2 SKU에서 계속 지원 되지만, [비교](#differences-with-v1-sku) 섹션에 몇 가지 예외가 있습니다.
 
 새 v2 SKU에는 다음과 같은 향상 된 기능이 포함 되어 있습니다.
 
-- **자동 크기 조정**: 자동 크기 조정 SKU의 Application Gateway 또는 WAF 배포는 트래픽 부하 패턴의 변화에 따라 강화 또는 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 진정한 탄력성을 제공 합니다. Standard_v2 및 WAF_v2 SKU에서 Application Gateway은 고정 용량 (자동 크기 조정 사용 안 함)과 자동 크기 조정 사용 모드에서 모두 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드는 응용 프로그램 트래픽의 분산을 표시 하는 응용 프로그램에서 유용 합니다.
+- **자동 크기 조정**: 자동 크기 조정 SKU의 Application Gateway 또는 WAF 배포는 트래픽 부하 패턴의 변화에 따라 강화 또는 축소할 수 있습니다. 또한 자동 크기 조정을 사용하면 프로비전 시 배포 크기 또는 인스턴스 수를 선택할 필요가 없습니다. 이 SKU는 진정한 탄력성을 제공 합니다. Standard_v2 및 WAF_v2 SKU에서 Application Gateway는 고정 용량 (자동 크기 조정 사용 안 함)과 자동 크기 조정 사용 모드에서 모두 작동할 수 있습니다. 고정 용량 모드는 워크로드가 일관적이고 예측 가능한 시나리오에 유용합니다. 자동 크기 조정 모드는 응용 프로그램 트래픽의 분산을 표시 하는 응용 프로그램에서 유용 합니다.
 - **영역 중복성**: Application Gateway 또는 waf 배포는 여러 가용성 영역에 걸쳐 있을 수 있으므로 Traffic Manager를 사용 하 여 각 영역에 별도의 Application Gateway 인스턴스를 프로 비전 할 필요가 없습니다. Application Gateway 인스턴스가 배포 되는 단일 영역 또는 여러 영역을 선택할 수 있으며,이로 인해 영역 오류에 대 한 복원 력이 향상 됩니다. 애플리케이션에 대한 백 엔드 풀을 가용성 영역 전반에 유사하게 배포할 수 있습니다.
 
   영역 중복성은 Azure 영역을 사용할 수 있는 경우에만 사용할 수 있습니다. 다른 지역에서는 다른 모든 기능이 지원 됩니다. 자세한 내용은 [Azure에서 가용성 영역이란?](../availability-zones/az-overview.md#services-support-by-region)을 참조하세요.
@@ -35,21 +35,21 @@ Standard_v2 및 WAF_v2 SKU 에서도 Application Gateway 및 WAF (웹 응용 프
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Standard_v2 및 WAF_v2 SKU는 미국 중 북부, 미국 동부, 미국 서 부, 미국 서 부 2, 미국 동부, 미국 동부 2, 미국 중 북부, 미국 동부 2, 미국 중 북부, 유럽 서부 유럽 서 부, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서 부, 오스트레일리아 동부와 같은 지역에서 사용할 수 있습니다. , 오스트레일리아 남동쪽, 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아, 대한민국 중부, 대한민국 남부, 인도 남부, 영국 남부, 인도 중부, 인도 서 부, 인도 남부.
+Standard_v2 및 WAF_v2 SKU는 미국 중 북부, 미국 동부, 미국 서 부, 미국 서 부 2, 미국 동부, 미국 동부 2, 미국 동부, 북부, 유럽 서부, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서 부, 오스트레일리아 동부와 같은 지역에서 사용할 수 있습니다. , 오스트레일리아 남동쪽, 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아, 대한민국 중부, 대한민국 남부, 인도 남부, 영국 남부, 인도 중부, 인도 서 부, 인도 남부.
 
 ## <a name="pricing"></a>가격
 
 V2 SKU를 사용 하는 경우 가격 책정 모델은 사용량에 따라 결정 되며 더 이상 인스턴스 수 나 크기에 연결 되지 않습니다. V2 SKU 가격에는 다음과 같은 두 가지 구성 요소가 있습니다.
 
-- **고정 가격** -Standard_v2 또는 WAF_v2 게이트웨이를 프로 비전 하는 데 매시간 (또는 일부 시간) 가격입니다. 0 개 이상의 추가 최소 인스턴스는 항상 고정 가격이 포함 된 서비스의 고가용성을 보장 합니다.
+- **고정 가격** -Standard_v2 또는 WAF_v2 게이트웨이를 프로 비전 하는 매시간 (또는 일부 시간) 가격입니다. 0 개 이상의 추가 최소 인스턴스는 항상 고정 가격이 포함 된 서비스의 고가용성을 보장 합니다.
 - **용량** 단가-고정 비용 외에 부과 되는 소비 기반 비용입니다. 또한 용량 단위 요금은 시간당 또는 부분 시간당 계산됩니다. 용량 단위에는 컴퓨팅 단위, 영구 연결 및 처리량의 세 가지 차원이 있습니다. 컴퓨팅 단위는 사용된 프로세서 용량의 측정값입니다. 계산 단위에 영향을 주는 요소는 TLS 연결/초, URL 재작성 계산 및 WAF 규칙 처리입니다. 영구 연결은 지정 된 청구 간격으로 application gateway에 설정 된 TCP 연결을 측정 한 것입니다. 처리량은 지정 된 청구 간격에 따라 시스템에서 처리 되는 평균 메가 비트/초입니다.  청구는 예약 된 인스턴스 수 위의 모든 항목에 대 한 용량 단위 수준에서 수행 됩니다.
 
 각 용량 단위는 1 개의 compute 단위 또는 2500 영구 연결 또는 2.22 Mbps 처리량으로 구성 됩니다.
 
 Compute 단위 지침:
 
-- **Standard_v2** -각 계산 단위는 RSA 2048 비트 키 TLS 인증서를 사용 하 여 초당 약 50 개의 연결을 사용할 수 있습니다.
-- **WAF_v2** -각 계산 단위는 초당 약 10 개의 동시 요청을 지원할 수 있습니다. 70-30%의 70 트래픽 혼합은 2 k b 미만의 요청을 받고 WAF 성능은 현재 응답 크기의 영향을 받지 않습니다.
+- **Standard_v2** -각 계산 단위는 RSA 2048 비트 키 TLS 인증서를 사용 하 여 초당 약 50 연결을 사용할 수 있습니다.
+- **WAF_v2** -각각의 compute 단위는 초당 초당 10 개 요청을 지원할 수 있습니다. 70-30%의 70 트래픽 혼합은 2 k b 미만의 요청을 받고 WAF 성능은 현재 응답 크기의 영향을 받지 않습니다.
 
 > [!NOTE]
 > 각 인스턴스는 현재 약 10 개의 용량 단위를 지원할 수 있습니다.
@@ -77,7 +77,7 @@ Application Gateway Standard_v2은 수동 크기 조정 모드에서 자동 크�
 
 **예 2**
 
-Application Gateway standard_v2는 1 개월 동안 프로 비전 되며, 최소 인스턴스는 0이 고,이 시간 동안에는 25 개의 새 SSL 연결을 수신 하 고, 평균 8.88 Mbps 데이터 전송을 수신 합니다. 연결이 수명이 짧은 경우 가격은 다음과 같습니다.
+Application Gateway standard_v2는 1 개월 동안 최소 인스턴스를 사용 하 여 프로 비전 되 고,이 시간 동안에는 25 개의 새 SSL 연결, 평균 8.88 Mbps 데이터 전송을 수신 합니다. 연결이 수명이 짧은 경우 가격은 다음과 같습니다.
 
 고정 가격 = 744 (시간) * $0.20 = $148.8
 
@@ -101,7 +101,7 @@ Application Gateway standard_v2는 최소 5 개 인스턴스를 사용 하 여 �
 
 Total price = $148.80 + 297.60 = $446.4
 
-이 경우 트래픽이 없는 경우에도 5 개의 인스턴스 전체에 대해 요금이 청구 됩니다.
+이 경우 트래픽이 없더라도 5 개의 인스턴스 전체에 대해 요금이 청구 됩니다.
 
 **예제 4**
 
@@ -151,6 +151,7 @@ Application Gateway 및 WAF는 다음과 같은 두 가지 모드로 확장 되�
 | 다중 사이트 호스팅                             | &#x2713; | &#x2713; |
 | 트래픽 리디렉션                               | &#x2713; | &#x2713; |
 | WAF(웹 애플리케이션 방화벽)                    | &#x2713; | &#x2713; |
+| WAF 사용자 지정 규칙                                  |          | &#x2713; |
 | SSL(Secure Sockets Layer) 종료            | &#x2713; | &#x2713; |
 | 종단 간 SSL 암호화                         | &#x2713; | &#x2713; |
 | 세션 선호도                                  | &#x2713; | &#x2713; |
@@ -167,11 +168,11 @@ Application Gateway 및 WAF는 다음과 같은 두 가지 모드로 확장 되�
 |뺀|세부 정보|
 |--|--|
 |인증 인증서|지원되지 않습니다.<br>자세한 내용은 [Application Gateway의 엔드투엔드 SSL 개요](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)를 참조하세요.|
-|동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원하지 않음|
-|Application Gateway 서브넷의 UDR(사용자 정의 경로)|지원하지 않음|
+|동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원되지 않음|
+|Application Gateway 서브넷의 UDR(사용자 정의 경로)|지원되지 않음|
 |인바운드 포트 범위에 대한 NSG| - 65200 ~ 65535(Standard_v2 SKU)<br>- 65503 ~ 65534(Standard SKU)<br>자세한 내용은 [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)을 참조하세요.|
 |Azure 진단의 성능 로그|지원되지 않습니다.<br>Azure 메트릭을 사용해야 합니다.|
-|청구|청구는 2019 년 7 월 1 일에 시작 되도록 예약 됩니다.|
+|결제|청구는 2019 년 7 월 1 일에 시작 되도록 예약 됩니다.|
 |FIPS 모드|현재는 지원되지 않습니다.|
 |ILB 전용 모드|현재는 지원되지 않습니다. 공용 및 ILB 모드가 함께 지원됩니다.|
 |Netwatcher 통합|지원되지 않습니다.|

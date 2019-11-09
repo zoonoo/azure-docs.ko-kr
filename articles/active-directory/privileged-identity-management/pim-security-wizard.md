@@ -1,25 +1,25 @@
 ---
-title: Privileged Identity Management의 Azure AD 역할 보안 마법사-Azure Active Directory | Microsoft Docs
+title: PIM의 Azure AD 역할 보안 마법사-Azure Active Directory | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)을 사용하여 영구 권한 있는 Azure AD 역할 할당을 적격 상태로 변환하는 데 사용할 수 있는 보안 마법사를 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5d1c9905047cb4b234bf80ba82f2395f72f67f1
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 04bd0993873568ba7cce368ddd9277ed356b636c
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895214"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847042"
 ---
 # <a name="azure-ad-roles-security-wizard-in-privileged-identity-management"></a>Privileged Identity Management의 Azure AD 역할 보안 마법사
 
@@ -37,7 +37,7 @@ Azure Active Directory (Azure AD) 조직에서 Privileged Identity Management (P
 
 ## <a name="run-the-wizard"></a>마법사 실행
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Resource Manager를 사용 하 여 Studio (클래식) 작업 영역 배포
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Azure Resource Manager 템플릿을 사용 하 여 Azure Machine Learning Studio (클래식)에 대 한 작업 영역을 배포 하는 방법
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: d4679eb056aaad1c404d0e0f8b7723d7c57ef1d4
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 5ca45d772e3804dce4e27e5a6d4388acca4d1486
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621695"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837685"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 Azure Machine Learning Studio (클래식) 작업 영역 배포
 

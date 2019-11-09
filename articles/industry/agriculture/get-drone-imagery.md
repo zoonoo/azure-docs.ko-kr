@@ -5,16 +5,18 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 598248a0efb3322a9c22a5e38e4986f5ba5142ab
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: MT
+ms.openlocfilehash: 19d709a2eb0af5bdb9d40a2bce96c5716ce3c6f6
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798454"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847422"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>드 론 파트너에서 드 론 이미지 가져오기
 
-이 문서에서는 드 론 이미지 파트너의 orthomosaic 데이터를 Azure FarmBeats data hub에 가져오는 방법을 설명 합니다. 현재 지원 되는 이미지 파트너는 다음과 같습니다.  
+이 문서에서는 드 론 이미지 파트너의 orthomosaic 데이터를 Azure FarmBeats data hub에 가져오는 방법을 설명 합니다. Orthomosaic은 drone에서 수집 된 데이터에서 기하학적으로 수정 되 고 연결 되어는 항공 그림/이미지입니다.
+
+현재 지원 되는 이미지 파트너는 다음과 같습니다.
 
   ![프로젝트 팜 비트](./media/get-drone-imagery-from-drone-partner/drone-partner-1.png)
 

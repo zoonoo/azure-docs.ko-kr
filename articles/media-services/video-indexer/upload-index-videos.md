@@ -1,6 +1,6 @@
 ---
 title: Video Indexer를 사용하여 비디오 업로드 및 인덱싱
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 이 항목에서는 API를 사용하여 Video Indexer에서 비디오를 업로드하고 인덱싱하는 방법을 설명합니다.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
-ms.openlocfilehash: d6338f3840b6f8afe21f8115304ba00bba90c6ea
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 255c98965026266348a66bb98a1741eaf04a1d38
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372368"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839151"
 ---
 # <a name="upload-and-index-your-videos"></a>비디오 업로드 및 인덱싱  
 
@@ -27,7 +27,7 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 
 이 문서에서는 [비디오 업로드](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API를 사용하여 URL에 따라 비디오를 업로드하고 인덱싱하는 방법을 보여 줍니다. 이 문서의 코드 샘플에는 바이트 배열을 업로드하는 방법을 보여 주는 주석 처리된 코드가 포함되어 있습니다. <br/>또한 이 문서에서는 API의 프로세스 및 출력을 변경하기 위해 API에 설정할 수 있는 몇 가지 매개 변수에 대해서도 설명합니다.
 
-비디오가 업로드되면 Video Indexer가 필요에 따라 비디오를 인코딩합니다(이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(특정의 체험 인덱싱 시간(분)을 가져오는 경우) 또는 유료 옵션(할당량으로 제한되지 않은 경우)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
+비디오가 업로드되면 Video Indexer가 필요에 따라 비디오를 인코딩합니다(이 문서에서 설명). Video Indexer 계정을 만들 때 평가판 계정(일정한 무료 인덱싱 시간(분)을 가져올 수 있음) 또는 유료 옵션(할당량으로 제한되지 않음)을 선택할 수 있습니다. 평가판을 사용하면 Video Indexer에서 웹 사이트 사용자에게 최대 600분의 체험 인덱싱을 제공하고, API 사용자에게는 최대 2,400분의 체험 인덱싱을 제공합니다. 유료 옵션을 사용하면 [Azure 구독 및 Azure Media Services 계정에 연결되는](connect-to-azure.md) Video Indexer 계정을 만듭니다. 인덱싱 시간(분) 및 미디어 계정과 관련된 요금을 지불합니다. 
 
 ## <a name="uploading-considerations-and-limitations"></a>고려 사항 및 제한 사항 업로드
  
@@ -37,7 +37,7 @@ Video Indexer API를 사용하여 비디오를 업로드할 때 다음과 같은
 - 요청 URL 길이는 6144 자로 제한 됩니다. 쿼리 문자열 URL 길이는 4096 자로 제한 됩니다.
 - 바이트 배열이 포함 된 업로드 크기 옵션은 2GB로 제한 됩니다.
 - 바이트 배열 옵션은 30 분 후에 시간 초과 됩니다.
-- @No__t-0 매개 변수에서 제공 된 URL을 인코딩해야 합니다.
+- `videoURL` 매개 변수에 제공 된 URL을 인코딩해야 합니다.
 - 인덱싱 Media Services 자산에는 URL의 인덱싱과 동일한 제한이 적용 됩니다.
 - 단일 파일에 대 한 최대 기간 제한은 4 시간 Video Indexer 합니다.
 
@@ -61,24 +61,24 @@ POST 요청을 사용하여 고객에게 다음 이벤트를 알리는 데 사�
 - 인덱싱 상태 변경 
     - 속성    
     
-        |name|설명|
+        |Name|설명|
         |---|---|
         |id|비디오 ID|
         |state|비디오 상태|  
-    - 예: https: \//MyProject/notifyme? projectName = & id = 1234abcd & state = 처리 됨
+    - 예: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - 비디오에서 식별된 사용자
-  - properties
+  - 속성
     
-      |name|설명|
+      |Name|설명|
       |---|---|
       |id| 비디오 ID|
       |faceId|비디오 인덱스에 표시되는 얼굴 ID|
       |knownPersonId|얼굴 모델 내에서 고유한 사람 ID|
       |personName|사람의 이름|
         
-    - 예: https: \//1234abcd notifyme? projectName = MyProject & id = abcd & faceid = 12 & knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5 & personName = Inigo_Montoya 
+    - 예: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
-#### <a name="notes"></a>참고
+#### <a name="notes"></a>참고 사항
 
 - Video Indexer는 원래 URL에 제공된 기존 매개 변수를 반환합니다.
 - 제공된 URL은 인코딩해야 합니다.

@@ -14,22 +14,22 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/15/2018
 ms.author: atsenthi
-ms.openlocfilehash: 3fa40d794d02da08d29b6cac652edf493977f8e1
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: fd1787318e8573183293ddd832a11cf8cfe09cf2
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599737"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832615"
 ---
 # <a name="view-logs-for-a-service-fabric-container-service"></a>Service Fabric 컨테이너 서비스에 대한 로그 보기
 Azure Service Fabric은 컨테이너 오케스트레이터이며 [Windows 및 Linux 컨테이너](service-fabric-containers-overview.md)를 모두 지원합니다.  이 문서에서는 문제를 진단하고 해결할 수 있도록 실행 중인 컨테이너 서비스 또는 비활성 컨테이너의 컨테이너 로그를 보는 방법을 설명합니다.
 
 ## <a name="access-the-logs-of-a-running-container"></a>실행 중인 컨테이너의 로그에 액세스
-컨테이너 로그는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)를 사용하여 액세스할 수 있습니다.  웹 브라우저에서 [http://mycluster.region.cloudapp.azure.com:19080/Explorer](http://mycluster.region.cloudapp.azure.com:19080/Explorer)로 이동하여 클러스터의 관리 엔드포인트에서 Service Fabric Explorer를 엽니다.  
+컨테이너 로그는 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)를 사용하여 액세스할 수 있습니다.  웹 브라우저에서 `http://mycluster.region.cloudapp.azure.com:19080/Explorer`으로 이동 하 여 클러스터의 관리 끝점에서 Service Fabric Explorer를 엽니다.  
 
 컨테이너 로그는 컨테이너 서비스 인스턴스가 실행 중인 클러스터 노드에 있습니다. 예를 들어, [Linux Voting 샘플 애플리케이션](service-fabric-quickstart-containers-linux.md)의 웹 프런트 엔드 컨테이너 로그를 가져옵니다. 트리 보기에서 **Cluster**>**Applications**>**VotingType**>**fabric:/Voting/azurevotefront**를 확장합니다.  그런 다음 파티션(이 예제의 d1aa737e-f22a-e347-be16-eec90be24bc1)을 확장하고 해당 컨테이너가 클러스터 노드 *_lnxvm_0*에서 실행되고 있는지 확인합니다.
 
-트리 보기에서 **Nodes**> **_lnxvm_0**>**fabric:/Voting**>**azurevotfrontPkg**>**Code Packages**>**code**를 확장하여 *_lnxvm_0* 노드에서 코드 패키지를 찾습니다.  그런 후 **컨테이너 로그** 옵션을 선택하여 컨테이너 로그를 표시합니다.
+트리 보기에서 *Nodes*_lnxvm_0>fabric:/Voting>azurevotfrontPkg>Code Packages>code>를 확장하여 **_lnxvm_0** 노드에서 코드 패키지를 찾습니다.  그런 후 **컨테이너 로그** 옵션을 선택하여 컨테이너 로그를 표시합니다.
 
 ![서비스 패브릭 플랫폼][Image1]
 
@@ -46,8 +46,8 @@ v6.2부터 [REST API](/rest/api/servicefabric/sfclient-index) 또는 [SFCTL(Serv
 
 설정 **RunInteractive**는 Docker의 `--interactive` 및 `tty` [플래그](https://docs.docker.com/engine/reference/commandline/run/#options)에 해당합니다. 매니페스트 파일에서 이 설정을 true로 지정하면 이러한 플래그가 컨테이너를 시작하는 데 사용됩니다.  
 
-### <a name="rest"></a>REST(영문)
-[노드에 배포된 컨테이너 로그 가져오기](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) 작업을 사용하여 손상된 컨테이너에 대한 로그를 가져옵니다. 컨테이너가 실행되었던 노드의 이름, 애플리케이션 이름, 서비스 매니페스트 이름 및 코드 패키지 이름을 지정합니다.  `&Previous=true`을 지정합니다. 응답은 코드 패키지 인스턴스의 비활성 컨테이너에 대한 컨테이너 로그를 포함합니다.
+### <a name="rest"></a>REST
+[노드에 배포된 컨테이너 로그 가져오기](/rest/api/servicefabric/sfclient-api-getcontainerlogsdeployedonnode) 작업을 사용하여 손상된 컨테이너에 대한 로그를 가져옵니다. 컨테이너가 실행되었던 노드의 이름, 애플리케이션 이름, 서비스 매니페스트 이름 및 코드 패키지 이름을 지정합니다.  `&Previous=true`를 지정합니다. 응답은 코드 패키지 인스턴스의 비활성 컨테이너에 대한 컨테이너 로그를 포함합니다.
 
 요청 URI의 형식은 다음과 같습니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/23/2016
-ms.openlocfilehash: 1e02e227180bb0082dd87ab8f5d2fe64e19b60f2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 550ac9ff3b425e682fdda16501613aa41a80d765
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677803"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847241"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -25,11 +25,11 @@ Application Insights SDK에 대 한 플러그 인을 작성 하 고 구성 하 �
 
 시작하기 전에 다음을 수행합니다.
 
-* 응용 프로그램에 적합 한 SDK를 설치 합니다. [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), [.net/.Net CORE에 대 한 비 HTTP/작업자](worker-service.md)또는 [Java](../../azure-monitor/app/java-get-started.md).
+* 응용 프로그램에 적합 한 SDK 설치: [ASP.NET](asp-net.md), [ASP.NET Core](asp-net-core.md), .net/.net Core, [Java](../../azure-monitor/app/java-get-started.md) 또는 [JavaScript](javascript.md) [에 대 한 비 HTTP/Worker](worker-service.md)
 
 <a name="filtering"></a>
 
-## <a name="filtering-itelemetryprocessor"></a>필터링: ITelemetryProcessor
+## <a name="filtering"></a>Filtering
 
 이 기법을 사용 하면 원격 분석 스트림에서 포함 되거나 제외 되는 항목을 직접 제어할 수 있습니다. 필터링을 사용 하 여 Application Insights에 보낼 원격 분석 항목을 삭제할 수 있습니다. 샘플링과 함께 사용할 수도 있고 또는 따로 사용할 수도 있습니다.
 
@@ -44,7 +44,7 @@ Application Insights SDK에 대 한 플러그 인을 작성 하 고 구성 하 �
 
 ### <a name="create-a-telemetry-processor-c"></a>원격 분석 프로세서 만들기(C#)
 
-1. 필터를 만들려면 `ITelemetryProcessor`를 구현 합니다.
+1. 필터를 만들려면 `ITelemetryProcessor`을 구현 합니다.
 
     원격 분석 프로세서는 일련의 프로세싱을 생성합니다. 원격 분석 프로세서를 인스턴스화하면 체인의 다음 프로세서에 대 한 참조가 제공 됩니다. 원격 분석 데이터 요소가 Process 메서드로 전달 되 면 해당 작업을 수행한 다음 체인에서 다음 원격 분석 프로세서를 호출 하거나 호출 하지 않습니다.
 
@@ -117,7 +117,7 @@ builder.Build();
 **ASP.NET Core/작업자 서비스 앱**
 
 > [!NOTE]
-> @No__t_0 또는 `TelemetryConfiguration.Active`를 사용 하 여 프로세서를 추가 하는 것은 ASP.NET Core 응용 프로그램에 적합 하지 않거나
+> `ApplicationInsights.config` 또는 `TelemetryConfiguration.Active`를 사용 하 여 프로세서를 추가 하는 것은 ASP.NET Core 응용 프로그램에 적합 하지 않거나
 
 [ASP.NET Core](asp-net-core.md#adding-telemetry-processors) 또는 작업 [서비스](worker-service.md#adding-telemetry-processors)를 사용 하 여 작성 된 앱의 경우 아래와 같이 `IServiceCollection`에서 `AddApplicationInsightsTelemetryProcessor` 확장 메서드를 사용 하 여 새 `TelemetryProcessor`를 추가 합니다. 이 메서드는 `Startup.cs` 클래스의 `ConfigureServices` 메서드에서 호출 됩니다.
 
@@ -198,7 +198,30 @@ public void Process(ITelemetry item)
 
 <a name="add-properties"></a>
 
-## <a name="add-properties-itelemetryinitializer"></a>속성 추가: ITelemetryInitializer
+### <a name="javascript-web-applications"></a>JavaScript 웹 응용 프로그램
+
+**ITelemetryInitializer를 사용 하 여 필터링**
+
+1. 원격 분석 이니셜라이저 콜백 함수를 만듭니다. 콜백 함수는 처리 중인 이벤트 인 `ITelemetryItem` 매개 변수로 사용 합니다. 이 콜백에서 `false` 반환 하면 원격 분석 항목이 필터링 됩니다.  
+
+   ```JS
+   var filteringFunction = (envelope) => {
+     if (envelope.data.someField === 'tobefilteredout') {
+        return false;
+     }
+  
+     return true;
+   };
+   ```
+
+2. 원격 분석 이니셜라이저 콜백을 추가 합니다.
+
+   ```JS
+   appInsights.addTelemetryInitializer(filteringFunction);
+   ```
+
+## <a name="addmodify-properties-itelemetryinitializer"></a>속성 추가/수정: ITelemetryInitializer
+
 
 원격 분석 이니셜라이저를 사용 하 여 추가 정보를 사용 하 여 원격 분석을 보강 하거나 표준 원격 분석 모듈에 의해 설정 된 원격 분석 속성을 재정의 합니다.
 
@@ -276,7 +299,7 @@ protected void Application_Start()
 **ASP.NET Core/Worker 서비스 앱: 이니셜라이저 로드**
 
 > [!NOTE]
-> @No__t_0를 사용 하거나 `TelemetryConfiguration.Active`를 사용 하 여 이니셜라이저를 추가 하는 것은 ASP.NET Core 응용 프로그램에 사용할 수 없으며, 또는 Microsoft의 경우에는 Microsoft ApplicationInsights.
+> `ApplicationInsights.config`를 사용 하거나 `TelemetryConfiguration.Active`를 사용 하 여 이니셜라이저를 추가 하는 것은 ASP.NET Core 응용 프로그램에 사용할 수 없으며, 또는 Microsoft의 경우에는 Microsoft ApplicationInsights.
 
 [ASP.NET Core](asp-net-core.md#adding-telemetryinitializers) 또는 작업 [서비스](worker-service.md#adding-telemetryinitializers)를 사용 하 여 작성 된 앱의 경우 아래와 같이 종속성 주입 컨테이너에 추가 하 여 새 `TelemetryInitializer`를 추가 합니다. 이 작업은 `Startup.ConfigureServices` 메서드에서 수행 됩니다.
 

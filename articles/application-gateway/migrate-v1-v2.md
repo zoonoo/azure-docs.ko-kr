@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/10/2019
 ms.author: victorh
-ms.openlocfilehash: c4bc0ec2bf15a29962909f14f55854c06f0a6561
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: e32443e01e8b44ff5a891afc76378a53b13d7ddd
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932496"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833314"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>V1에서 v2로 Azure 애플리케이션 게이트웨이 및 웹 응용 프로그램 방화벽 마이그레이션
 
@@ -49,10 +49,10 @@ ms.locfileid: "68932496"
 
 로컬 PowerShell 환경 설정 및 기본 설정에 따라 다음과 같은 두 가지 옵션을 사용할 수 있습니다.
 
-* Azure az 모듈이 설치 되어 있지 않거나 azure az 모듈을 제거 하는 것이 아닌 경우 `Install-Script` 옵션을 사용 하 여 스크립트를 실행 하는 것이 가장 좋습니다.
+* Azure Az 모듈이 설치 되어 있지 않거나 Azure Az 모듈을 제거 하지 않는 경우 가장 좋은 방법은 `Install-Script` 옵션을 사용 하 여 스크립트를 실행 하는 것입니다.
 * Azure Az modules를 유지 해야 하는 경우에는 스크립트를 다운로드 하 여 직접 실행 하는 것이 가장 좋습니다.
 
-Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-InstalledModule -Name az`합니다. 설치 된 Az modules가 표시 되지 않으면 메서드를 `Install-Script` 사용할 수 있습니다.
+Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule -Name az`를 실행 합니다. 설치 된 Az 모듈이 표시 되지 않는 경우 `Install-Script` 메서드를 사용할 수 있습니다.
 
 ### <a name="install-using-the-install-script-method"></a>Install-Script 메서드를 사용 하 여 설치
 
@@ -70,11 +70,11 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
 
 스크립트를 실행하려면
 
-1. 를 `Connect-AzAccount` 사용 하 여 Azure에 연결 합니다.
+1. `Connect-AzAccount`를 사용 하 여 Azure에 연결 합니다.
 
-1. 를 `Import-Module Az` 사용 하 여 Az 모듈을 가져옵니다.
+1. `Import-Module Az`를 사용 하 여 Az 모듈을 가져옵니다.
 
-1. 을 `Get-Help AzureAppGWMigration.ps1` 실행 하 여 필요한 매개 변수를 검사 합니다.
+1. `Get-Help AzureAppGWMigration.ps1`를 실행 하 여 필요한 매개 변수를 검사 합니다.
 
    ```
    AzureAppGwMigration.ps1
@@ -89,7 +89,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
    ```
 
    스크립트에 대 한 매개 변수:
-   * **resourceId: [String]: 필수** -기존 표준 v1 또는 waf v1 게이트웨이에 대 한 Azure 리소스 ID입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동 하 고 응용 프로그램 게이트웨이 또는 WAF 리소스를 선택한 다음 게이트웨이에 대 한 **속성** 링크를 클릭 합니다. 리소스 ID는 해당 페이지에 있습니다.
+   * **resourceId: [String]: 필수** -기존 표준 V1 또는 waf v1 게이트웨이에 대 한 AZURE 리소스 ID입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동 하 고 응용 프로그램 게이트웨이 또는 WAF 리소스를 선택한 다음 게이트웨이에 대 한 **속성** 링크를 클릭 합니다. 리소스 ID는 해당 페이지에 있습니다.
 
      다음 Azure PowerShell 명령을 실행 하 여 리소스 ID를 가져올 수도 있습니다.
 
@@ -98,9 +98,9 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [String]:  필수** -새 v2 게이트웨이를 포함 하는 새 서브넷에 할당 했거나 할당 하려고 하는 IP 주소 공간입니다. CIDR 표기법으로 지정 해야 합니다. 예를 들어: 10.0.0.0/24. 이 서브넷을 미리 만들 필요는 없습니다. 스크립트가 존재 하지 않는 경우 만듭니다.
-   * **appgwName: [String]: 선택**사항입니다. 새 Standard_v2 또는 WAF_v2 게이트웨이의 이름으로 사용 하도록 지정 하는 문자열입니다. 이 매개 변수를 지정 하지 않으면 기존 v1 게이트웨이의 이름이 *_v2* 접미사를 추가 하 여 사용 됩니다.
-   * **sslCertificates: [PSApplicationGatewaySslCertificate]: 선택**사항입니다.  V1 게이트웨이의 SSL 인증서를 나타내기 위해 만드는 쉼표로 구분 된 PSApplicationGatewaySslCertificate 개체 목록은 새 v2 게이트웨이에 업로드 해야 합니다. 표준 v1 또는 waf v1 게이트웨이에 대해 구성 된 각 SSL 인증서에 대해 여기에 표시 된 `New-AzApplicationGatewaySslCertificate` 명령을 통해 새 PSApplicationGatewaySslCertificate 개체를 만들 수 있습니다. SSL 인증서 파일의 경로와 암호를 입력 해야 합니다.
+   * **subnetAddressRange: [String]: 필수** -새 v2 게이트웨이를 포함 하는 새 서브넷에 할당 했거나 할당 하려고 하는 IP 주소 공간입니다. CIDR 표기법으로 지정 해야 합니다. 예: 10.0.0.0/24. 이 서브넷을 미리 만들 필요는 없습니다. 스크립트가 존재 하지 않는 경우 만듭니다.
+   * **appgwName: [String]: 선택 사항**입니다. 새 Standard_v2 또는 WAF_v2 게이트웨이의 이름으로 사용 하도록 지정 하는 문자열입니다. 이 매개 변수를 지정 하지 않으면 기존 v1 게이트웨이의 이름이 접미사 *_v2* 추가 된 상태로 사용 됩니다.
+   * **Sslcertificates: [PSApplicationGatewaySslCertificate]: 선택 사항**입니다.  V1 게이트웨이의 SSL 인증서를 나타내기 위해 만드는 쉼표로 구분 된 PSApplicationGatewaySslCertificate 개체 목록은 새 v2 게이트웨이에 업로드 해야 합니다. 표준 v1 또는 WAF v1 게이트웨이에 대해 구성 된 각 SSL 인증서에 대해 여기에 표시 된 `New-AzApplicationGatewaySslCertificate` 명령을 통해 새 PSApplicationGatewaySslCertificate 개체를 만들 수 있습니다. SSL 인증서 파일의 경로와 암호를 입력 해야 합니다.
 
        이 매개 변수는 v1 게이트웨이 또는 WAF에 대해 구성 된 HTTPS 수신기가 없는 경우에만 선택 사항입니다. 하나 이상의 HTTPS 수신기를 설정 하는 경우이 매개 변수를 지정 해야 합니다.
 
@@ -114,14 +114,14 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
         -Password $password
       ```
 
-      이전 예의 `$mySslCert1, $mySslCert2` (쉼표로 구분)을 스크립트의이 매개 변수에 대 한 값으로 전달할 수 있습니다.
-   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: 선택**사항입니다. V2 게이트웨이에서 백 엔드 인스턴스를 인증 하기 위해 [신뢰할 수 있는 루트 인증서](ssl-overview.md) 를 나타내기 위해 만드는 PSApplicationGatewayTrustedRootCertificate 개체의 쉼표로 구분 된 목록입니다.  
+      이전 예제의 `$mySslCert1, $mySslCert2` (쉼표로 구분)을 스크립트의이 매개 변수에 대 한 값으로 전달할 수 있습니다.
+   * 서브넷에 있는 **rootcertificate: [PSApplicationGatewayTrustedRootCertificate]: 선택 사항**입니다. V2 게이트웨이에서 백 엔드 인스턴스를 인증 하기 위해 [신뢰할 수 있는 루트 인증서](ssl-overview.md) 를 나타내기 위해 만드는 PSApplicationGatewayTrustedRootCertificate 개체의 쉼표로 구분 된 목록입니다.  
 
       PSApplicationGatewayTrustedRootCertificate 개체 목록을 만들려면 [AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0)를 참조 하세요.
-   * **privateIpAddress: [String]: 선택**사항입니다. 새 v2 게이트웨이에 연결할 특정 개인 IP 주소입니다.  새 v2 게이트웨이에 할당 하는 것과 동일한 VNet에서 가져와야 합니다. 이를 지정 하지 않으면 스크립트에서 v2 게이트웨이에 대 한 개인 IP 주소를 할당 합니다.
-    * **publicIpResourceId: [String]: 선택**사항입니다. 새 v2 게이트웨이에 할당 하려는 구독에 있는 공용 IP 주소 (표준 SKU) 리소스의 resourceId입니다. 이를 지정 하지 않으면 스크립트는 동일한 리소스 그룹에 새 공용 IP를 할당 합니다. 이름은 *-IP* 가 추가 된 v2 게이트웨이의 이름입니다.
-   * **validateMigration: [스위치]: 선택**사항입니다. 이 매개 변수를 사용 하 여 스크립트에서 v2 게이트웨이 만들기 및 구성 복사 후에 몇 가지 기본적인 구성 비교 유효성 검사를 수행 하도록 합니다. 기본적으로 유효성 검사는 수행 되지 않습니다.
-   * **enableAutoScale: [switch]: 선택**사항입니다. 스크립트를 만든 후 새 v2 게이트웨이에서 자동 크기 조정을 사용 하도록 설정 하려면이 매개 변수를 사용 합니다. 기본적으로 자동 크기 조정을 사용 하지 않도록 설정 되어 있습니다. 새로 만든 v2 게이트웨이에서는 나중에 언제 든 지 수동으로 사용 하도록 설정할 수 있습니다.
+   * **privateIpAddress: [String]: 선택 사항**입니다. 새 v2 게이트웨이에 연결할 특정 개인 IP 주소입니다.  새 v2 게이트웨이에 할당 하는 것과 동일한 VNet에서 가져와야 합니다. 이를 지정 하지 않으면 스크립트에서 v2 게이트웨이에 대 한 개인 IP 주소를 할당 합니다.
+    * **publicIpResourceId: [String]: 선택 사항**입니다. 새 v2 게이트웨이에 할당 하려는 구독에 있는 공용 IP 주소 (표준 SKU) 리소스의 resourceId입니다. 이를 지정 하지 않으면 스크립트는 동일한 리소스 그룹에 새 공용 IP를 할당 합니다. 이름은 *-IP* 가 추가 된 v2 게이트웨이의 이름입니다.
+   * **validateMigration: [switch]: 선택 사항**입니다. 이 매개 변수를 사용 하 여 스크립트에서 v2 게이트웨이 만들기 및 구성 복사 후에 몇 가지 기본적인 구성 비교 유효성 검사를 수행 하도록 합니다. 기본적으로 유효성 검사는 수행 되지 않습니다.
+   * **Enableautoscale 크기 조정: [스위치]: 선택 사항**입니다. 스크립트를 만든 후 새 v2 게이트웨이에서 자동 크기 조정을 사용 하도록 설정 하려면이 매개 변수를 사용 합니다. 기본적으로 자동 크기 조정을 사용 하지 않도록 설정 되어 있습니다. 새로 만든 v2 게이트웨이에서는 나중에 언제 든 지 수동으로 사용 하도록 설정할 수 있습니다.
 
 1. 적절 한 매개 변수를 사용 하 여 스크립트를 실행 합니다. 완료 하는 데 5 ~ 7 분 정도 걸릴 수 있습니다.
 
@@ -156,7 +156,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면를 실행 `Get-Insta
 
   * 응용 프로그램 게이트웨이에서 공용 IP 주소를 사용 하는 경우 Traffic Manager 프로필을 사용 하 여 제어 된 세부적인 마이그레이션을 수행 하 여 트래픽 (가중치가 적용 된 트래픽 라우팅 방법)을 새 v2 게이트웨이로 증분 라우팅할 수 있습니다.
 
-    [Traffic Manager 프로필](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)에 v1 및 v2 응용 프로그램 게이트웨이의 DNS 레이블을 추가 하 고 사용자 지정 DNS 레코드 (예: www.contoso.com)를 Traffic Manager 도메인 (예: contoso.trafficmanager.net)에 추가 하 여이 작업을 수행할 수 있습니다. .
+    [Traffic Manager 프로필](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)에 v1 및 v2 응용 프로그램 게이트웨이의 DNS 레이블을 추가 하 고 사용자 지정 DNS 레코드 (예: `www.contoso.com`)를 Traffic Manager 도메인 (예: contoso.trafficmanager.net)에 추가 하 여이 작업을 수행할 수 있습니다.
   * 또는 새 v2 application gateway의 DNS 레이블을 가리키도록 사용자 지정 도메인 DNS 레코드를 업데이트할 수 있습니다. DNS 레코드에 구성 된 TTL에 따라 모든 클라이언트 트래픽이 새 v2 게이트웨이로 마이그레이션될 때까지 시간이 걸릴 수 있습니다.
 * **클라이언트는 application gateway의 프런트 엔드 IP 주소에 연결**합니다.
 
@@ -190,7 +190,7 @@ Azure PowerShell 스크립트는 기존 v1 게이트웨이의 트래픽을 처�
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>이 스크립트를 사용 하는 경우 몇 가지 문제가 발생 했습니다. 도움을 받으려면 어떻게 해야 하나요?
   
-에 appgwmigrationsup@microsoft.com전자 메일을 보내거나 Azure 지원으로 지원 사례를 열거나 둘 다 수행할 수 있습니다.
+appgwmigrationsup@microsoft.com에 전자 메일을 보내거나 Azure 지원으로 지원 사례를 열거나 둘 다 수행할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

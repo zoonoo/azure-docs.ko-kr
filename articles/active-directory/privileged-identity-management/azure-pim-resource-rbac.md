@@ -1,5 +1,5 @@
 ---
-title: PIM에서 Azure 리소스 역할에 대 한 활동 및 감사 기록 보기-Azure Active Directory | Microsoft Docs
+title: PIM에서 Azure 리소스 역할에 대 한 감사 보고서 보기-Azure AD | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할에 대한 작업 및 감사 기록을 봅니다.
 services: active-directory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c9a58fb6cd8591f571b4e65c3ab88cc59e38cda
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 2585457d22b773407c41bb6ea82c30a25fbfb88e
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756323"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847160"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 활동 및 감사 기록 보기
 

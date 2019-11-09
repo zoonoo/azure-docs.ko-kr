@@ -4,20 +4,20 @@ description: Avere vFXT for Azure에 대한 질문과 대답
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 11/06/2019
 ms.author: rohogue
-ms.openlocfilehash: f42a9cf5aaa3256865bcf388aa5bd422664c73dd
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 7839530463ea834ed5f8ae2ae06854985a77c673
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255398"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847361"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Avere vFXT for Azure FAQ
 
-이 문서에서는 Avere vFXT for Azure가 사용자의 요구 사항에 적합한지 판단하는 데 도움이 되는 질문과 답변을 참조할 수 있습니다. Avere vFXT에 대한 기본 정보를 참조하고, 다른 Azure 구성 요소 및 외부 공급업체의 제품에 Avere vFXT가 어떻게 작동하는지 이해할 수 있습니다. 
+이 문서에서는 Avere vFXT for Azure가 사용자의 요구 사항에 적합한지 판단하는 데 도움이 되는 질문과 답변을 참조할 수 있습니다. Avere vFXT에 대한 기본 정보를 참조하고, 다른 Azure 구성 요소 및 외부 공급업체의 제품에 Avere vFXT가 어떻게 작동하는지 이해할 수 있습니다.
 
-## <a name="general"></a>일반 
+## <a name="general"></a>일반
 
 ### <a name="what-is-avere-vfxt-for-azure"></a>Avere vFXT for Azure란?
 
@@ -33,7 +33,7 @@ Avere vFXT는 핫 계층과 쿨 계층 간에 데이터를 자동으로 계층�
 
 ### <a name="how-do-i-know-if-an-environment-is-right-for-avere-vfxt"></a>환경이 Avere vFXT에 적합한지 확인하려면 어떻게 할까요?
 
-이 질문에 답변하려면 워크로드가 캐시 가능한지 자문해보는 것이 좋습니다. 즉, 워크로드의 읽기/쓰기 비율이 높은지 따져보는 것입니다. 80/20 또는 70/30 읽기/쓰기 비율을 예로 들 수 있습니다.
+이 질문에 대해 생각할 수 있는 가장 좋은 방법은 "캐시 가능한 워크로드인가요?"입니다. 즉, 워크로드의 읽기/쓰기 비율이 높은지 따져보는 것입니다. 80/20 또는 70/30 읽기/쓰기 비율을 예로 들 수 있습니다.
 
 많은 수의 Azure 가상 머신에서 실행되는 파일 기반 분석 파이프라인이 있고 다음 조건 중 하나 이상이 충족되는 경우 Avere vFXT for Azure를 사용하는 것이 좋습니다.
 
@@ -67,7 +67,7 @@ Avere vFXT for Azure는 소 버린 지역 (중국, 독일)을 제외 하 고 모
 
 ### <a name="how-do-i-get-help-with-avere-vfxt"></a>Avere vFXT 관련 지원을 받으려면 어떻게 할까요?
 
-전문적인 지원 그룹에서 Avere vFXT for Azure와 관련한 지원을 제공합니다. [시스템 지원 받기](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)의 지침에 따라 Azure Portal에서 지원 티켓을 여세요. 
+전문적인 지원 그룹에서 Avere vFXT for Azure와 관련한 지원을 제공합니다. [시스템 지원 받기](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)의 지침에 따라 Azure Portal에서 지원 티켓을 여세요.
 
 ### <a name="is-avere-vfxt-highly-available"></a>Avere vFXT는 고가용성 시스템인가요?
 
@@ -75,20 +75,20 @@ Avere vFXT for Azure는 소 버린 지역 (중국, 독일)을 제외 하 고 모
 
 ### <a name="does-avere-vfxt-for-azure-also-support-other-cloud-services"></a>Avere vFXT for Azure에서 다른 클라우드 서비스도 지원하나요?
 
-예, 고객은 둘 이상의 클라우드 공급자를 Avere vFXT 클러스터에 사용할 수 있습니다. AWS S3 표준 버킷, Google Cloud Services 표준 버킷 및 Azure Blob 컨테이너를 지원합니다. 
+예, 고객은 둘 이상의 클라우드 공급자를 Avere vFXT 클러스터에 사용할 수 있습니다. AWS S3 표준 버킷, Google Cloud Services 표준 버킷 및 Azure Blob 컨테이너를 지원합니다.
 
 > [!NOTE] 
 > AWS 또는 Google Cloud에서 Avere vFXT를 사용하면 소프트웨어 요금이 적용되지만, Azure에서는 적용되지 않습니다.
 
-## <a name="technical-compute"></a>기술: 컴퓨팅
+## <a name="technical-compute"></a>기술: Compute
 
-### <a name="can-you-describe-what-an-avere-vfxt-environment-looks-like"></a>Avere vFXT 환경의 “모습”을 설명할 수 있나요?
+### <a name="can-you-describe-what-an-avere-vfxt-environment-looks-like"></a>Avere vFXT 환경의 "모양"을 설명할 수 있나요?
 
-Avere vFXT는 여러 개의 Azure 가상 머신으로 클러스터된 어플라이언스입니다. Python 라이브러리에서 클러스터 만들기, 삭제 및 수정을 처리합니다. 자세한 내용은 [Aere vFXT for Azure란?](avere-vfxt-overview.md)을 참조하세요. 
+Avere vFXT는 여러 개의 Azure 가상 머신으로 클러스터된 어플라이언스입니다. Python 라이브러리에서 클러스터 만들기, 삭제 및 수정을 처리합니다. 자세한 내용은 [Aere vFXT for Azure란?](avere-vfxt-overview.md)을 참조하세요.
 
 ### <a name="what-kind-of-azure-virtual-machines-does-avere-vfxt-run-on"></a>Avere vFXT는 어떤 Azure 가상 머신의 종류에서 실행되나요?  
 
-Avere vFXT for Azure cluster는 Microsoft Azure E32s_v3 virtual machines를 사용 합니다. 
+Avere vFXT for Azure 클러스터는 Microsoft Azure E32s_v3 가상 컴퓨터를 사용 합니다.
 
 <!-- ### Can I mix and match virtual machine types for my cluster?
 
@@ -134,7 +134,7 @@ Avere vFXT는 가상 머신 확장 집합 배포를 지원하지 않습니다. �
 
 ### <a name="is-there-a-vm-version-of-the-software-i-can-run-in-my-own-local-environment"></a>내 로컬 환경에서 실행할 수 있는 소프트웨어의 "VM" 버전이 있나요?
 
-아니요, 시스템은 클러스터된 어플라이언스로 제공되며 특정 가상 머신 유형에서 테스트됩니다. 이 제한을 통해 고객이 일반적인 Avere vFXT 워크플로의 고성능 요구 사항을 지원할 수 없는 시스템을 만들지 않도록 방지할 수 있습니다. 
+아니요, 시스템은 클러스터된 어플라이언스로 제공되며 특정 가상 머신 유형에서 테스트됩니다. 이 제한을 통해 고객이 일반적인 Avere vFXT 워크플로의 고성능 요구 사항을 지원할 수 없는 시스템을 만들지 않도록 방지할 수 있습니다.
 
 ## <a name="technical-disks"></a>기술: 디스크
 
@@ -168,8 +168,8 @@ SSD 분리 및 다시 연결은 지원되지 않습니다. 원본의 메타데�
 
 Avere vFXT에서 온-프레미스 스토리지를 사용하는 경우 1Gbps 이상의 네트워크 연결이 있어야 합니다. 데이터의 양이 작고 작업을 실행하기 전에 데이터를 클라우드에 복사하려는 경우 VPN 연결만으로 충분할 수 있습니다. 
 
-> [!TIP] 
-> 네트워크 연결이 느릴수록 초기 콜드 읽기가 느려집니다. 느린 읽기는 작업 파이프라인의 대기 시간을 늘립니다. 
+> [!TIP]
+> 네트워크 연결이 느릴수록 초기 콜드 읽기가 느려집니다. 느린 읽기는 작업 파이프라인의 대기 시간을 늘립니다.
 
 ### <a name="can-i-run-avere-vfxt-in-a-different-virtual-network-than-my-compute-cluster"></a>Avere vFXT는 컴퓨팅 클러스터와 다른 가상 네트워크에서 실행할 수 있나요?
 
@@ -189,30 +189,30 @@ Avere vFXT 환경은 네트워크 게이트웨이 또는 VPN을 통해 고객 �
 
 ### <a name="what-are-the-bandwidth-requirements-for-avere-vfxt"></a>Avere vFXT에 대한 대역폭 요구 사항은 무엇인가요?
 
-전체 대역폭 요구 사항은 다음 두 가지 요인에 따라 달라집니다. 
+전체 대역폭 요구 사항은 다음 두 가지 요인에 따라 달라집니다.
 
-* 원본에서 요청되는 데이터의 양 
+* 원본에서 요청되는 데이터의 양
 * 초기 데이터 로드 중의 대기 시간에 대한 클라이언트 시스템의 허용 오차  
 
 대기 시간에 민감한 환경에서는 최소 연결 속도가 1Gbps인 파이버 솔루션을 사용해야 합니다. 사용 가능한 경우 ExpressRoute를 사용하세요.  
 
 ### <a name="can-i-run-avere-vfxt-with-public-ip-addresses"></a>공용 IP 주소를 사용하여 Avere vFXT를 실행할 수 있나요?
 
-아니요, Avere vFXT는 모범 사례를 적용하여 보호된 네트워크 환경 내에서 작동해야 합니다.  
+아니요, Avere vFXT는 모범 사례를 적용하여 보호된 네트워크 환경 내에서 작동해야 합니다.
 
-### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>클러스터의 가상 네트워크에서 인터넷 액세스를 제한할 수 있나요? 
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>클러스터의 가상 네트워크에서 인터넷 액세스를 제한할 수 있나요?
 
-일반적으로 필요에 따라 vnet에서 추가 보안을 구성할 수 있지만 일부 제한 사항은 클러스터의 작업에 방해가 될 수 있습니다.
+일반적으로 필요에 따라 가상 네트워크에서 추가 보안을 구성할 수 있지만 일부 제한 사항은 클러스터의 작업에 방해가 될 수 있습니다.
 
-예를 들어 vnet에서 아웃 바운드 인터넷 액세스를 제한 하면 AzureCloud에 대 한 액세스를 명시적으로 허용 하는 규칙도 추가 하지 않는 한 클러스터에 문제가 발생 합니다. 이 상황은 [GitHub에 대 한 추가 설명서](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md)에 설명 되어 있습니다.
+예를 들어 가상 네트워크에서 아웃 바운드 인터넷 액세스를 제한 하면 AzureCloud에 대 한 액세스를 명시적으로 허용 하는 규칙도 추가 하지 않는 한 클러스터에 문제가 발생 합니다. 이 상황은 [GitHub에 대 한 추가 설명서](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md)에 설명 되어 있습니다.
 
 사용자 지정 보안에 대 한 도움말을 보려면 시스템에 대 한 [도움말 보기](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt)에 설명 된 대로 지원 담당자에 게 문의 하세요.
 
-## <a name="technical-back-end-storage-core-filers"></a>기술: 백 엔드 스토리지(코어 파일러)
+## <a name="technical-back-end-storage-core-filers"></a>기술: 백 엔드 저장소 (핵심 filers)
 
 ### <a name="how-many-core-filers-does-a-single-avere-vfxt-environment-support"></a>단일 Avere vFXT 환경을 지원하는 코어 파일러의 수는 어떻게 되나요?
 
-Avere vFXT 클러스터는 최대 20개의 코어 파일러를 지원합니다. 
+Avere vFXT 클러스터는 최대 20개의 코어 파일러를 지원합니다.
 
 ### <a name="how-does-the-avere-vfxt-environment-store-data"></a>Avere vFXT 환경에서 데이터는 어떻게 저장되나요?
 
@@ -220,16 +220,16 @@ Avere vFXT는 스토리지가 아닙니다. 즉, 코어 파일러라고 하는 �
 
 ### <a name="which-core-filers-does-avere-vfxt-support"></a>Avere vFXT에서 지원하는 코어 파일러는 어떻게 되나요?
 
-일반적으로 Avere vFXT for Azure에서 코어 파일러로 지원하는 시스템은 다음과 같습니다. 
+일반적으로 Avere vFXT for Azure에서 코어 파일러로 지원하는 시스템은 다음과 같습니다.
 
 * Dell EMC Isilon(OneFS 7.1, 7.2, 8.0 및 8.1) 
-* NetApp ONTAP(Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) 및 (7-Mode 7.*, 8.0-8.3) 
+* NetApp ONTAP(Clustered Mode 9.4, 9.3, 9.2, 9.1P1, 8.0-8.3) 및 (7-Mode 7.*, 8.0-8.3)
 
-  > [!NOTE] 
-  > Azure NetApp Files 현재 지원 되지 않습니다. 
+  > [!NOTE]
+  > Azure NetApp Files 현재 지원 되지 않습니다.
 
-* Azure Blob 컨테이너(로컬 중복 스토리지만 해당) 
-* AWS S3 버킷 
+* Azure Blob 컨테이너(로컬 중복 스토리지만 해당)
+* AWS S3 버킷
 * Google Cloud 버킷
 
 ### <a name="why-doesnt-avere-vfxt-support-all-nfs-filers"></a>Avere vFXT에서 모든 NFS 파일러를 지원하지 않는 이유는 무엇인가요?
@@ -254,11 +254,13 @@ Avere vFXT는 프라이빗 개체 스토리지를 지원하지 않습니다.
 
 ### <a name="can-i-use-archive-blob-storage"></a>보관 Blob Storage를 사용할 수 있나요?
 
-아니요. 보관 스토리지에 대한 SLA(서비스 수준 약정)는 Avere vFXT 시스템의 실시간 디렉터리 및 파일 액세스 요구 사항과 호환되지 않습니다. 
+아니요. 보관 스토리지에 대한 SLA(서비스 수준 약정)는 Avere vFXT 시스템의 실시간 디렉터리 및 파일 액세스 요구 사항과 호환되지 않습니다.
 
 ### <a name="can-i-use-cool-blob-storage"></a>쿨 Blob Storage를 사용할 수 있나요?
 
-쿨 계층은 사용할 수 있으며, 작업 속도가 훨씬 빠릅니다. 
+쿨 계층 blob 저장소는 일반적으로 Azure core 필터의 Avere vFXT에 권장 되지 않습니다. 쿨 계층은 낮은 저장소 비용을 제공 하지만 작업 비용은 더 높습니다. 자세한 내용은 [블록 blob 가격 책정](<https://azure.microsoft.com/pricing/details/storage/blobs/>) 을 참조 하세요. 데이터에 자주 액세스 하 고 수정 하거나 삭제 하는 경우에는 핫 계층을 사용 하십시오.
+
+[액세스 계층](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers#cool-access-tier) 은 vFXT core 필터로 쿨 계층 저장소를 사용 하는 것이 적합할 수 있는 경우에 대 한 자세한 정보를 제공 합니다.
 
 ### <a name="how-do-i-encrypt-the-blob-container"></a>Blob 컨테이너를 암호화하려면 어떻게 할까요?
 
@@ -266,13 +268,13 @@ Blob 암호화는 Azure(기본) 또는 Avere vFXT 코어 파일러 수준에서 
 
 ### <a name="can-i-use-my-own-encryption-key-for-a-blob-core-filer"></a>Blob 코어 파일러에 대해 사용자 고유의 암호화 키를 사용할 수 있나요?
 
-기본적으로 데이터는 Azure Blob, Table 및 Queue Storage와 Azure Files에 대한 Microsoft 관리 키를 통해 암호화됩니다. Blob Storage 및 Azure Files의 암호화를 위해 고유 키를 가져올 수 있습니다. Avere vFXT 암호화를 사용하려는 경우 Avere 생성 키를 사용하여 로컬로 저장해야 합니다. 
+기본적으로 데이터는 Azure Blob, Table 및 Queue Storage와 Azure Files에 대한 Microsoft 관리 키를 통해 암호화됩니다. Blob Storage 및 Azure Files의 암호화를 위해 고유 키를 가져올 수 있습니다. Avere vFXT 암호화를 사용하려는 경우 Avere 생성 키를 사용하여 로컬로 저장해야 합니다.
 
-## <a name="purchasing"></a>Purchasing
+## <a name="purchasing"></a>구매
 
 ### <a name="how-do-i-get-avere-vfxt-for-azure-licensing"></a>Avere vFXT for Azure 라이선싱을 얻으려면 어떻게 할까요?
 
-Avere vFXT for Azure 라이선스는 Azure Marketplace를 통해 쉽게 얻을 수 있습니다. Azure 계정에 등록한 다음, [Avere vFXT 클러스터 배포](avere-vfxt-deploy.md)의 지침에 따라 Avere vFXT 클러스터를 만듭니다. 
+Avere vFXT for Azure 라이선스는 Azure Marketplace를 통해 쉽게 얻을 수 있습니다. Azure 계정에 등록한 다음, [Avere vFXT 클러스터 배포](avere-vfxt-deploy.md)의 지침에 따라 Avere vFXT 클러스터를 만듭니다.
 
 ### <a name="how-much-does-avere-vfxt-cost"></a>Avere vFXT 비용은 어떻게 되나요?
 
@@ -280,7 +282,7 @@ Azure에서는 Avere vFXT 클러스터 사용에 대한 추가 라이선스 요�
 
 ### <a name="can-avere-vfxt-vms-be-run-as-low-priority"></a>Avere vFXT VM을 낮은 우선 순위로 실행할 수 있나요?
 
-아니요, vFXT 클러스터에는 "항상 사용" 서비스가 필요합니다. 필요하지 않은 경우 클러스터를 해제할 수 있습니다. 
+아니요, vFXT 클러스터에는 "항상 사용" 서비스가 필요합니다. 필요하지 않은 경우 클러스터를 해제할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

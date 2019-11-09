@@ -6,16 +6,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24efd9d67e5bcc083ce1a02dcf0850a39189afe8
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 2596091324acde5c4fdc3f7c467849f90266fec9
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173097"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847225"
 ---
 # <a name="cloud-authentication-staged-rollout-public-preview"></a>클라우드 인증: 준비 된 롤아웃 (공개 미리 보기)
 
@@ -33,7 +33,7 @@ ms.locfileid: "73173097"
 
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 -   페더레이션된 도메인을 포함 하는 Azure AD 테 넌 트가 있습니다.
 
@@ -117,18 +117,18 @@ PowerShell을 사용 하 여 AD 포리스트에서 원활한 SSO를 사용 하�
 
 2. % Programfiles%\\Microsoft Azure Active Directory Connect 폴더로 이동 합니다.
 
-3.  `Import-Module .\\AzureADSSO.psd1`명령을 사용 하 여 원활한 SSO PowerShell 모듈을 가져옵니다.
+3.  `Import-Module .\AzureADSSO.psd1`명령을 사용 하 여 원활한 SSO PowerShell 모듈을 가져옵니다.
 
 4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출 합니다. 이 명령은 테 넌 트의 전역 관리자 자격 증명을 입력할 수 있는 대화 상자를 제공 해야 합니다.
 
-5.  `Get-AzureADSSOStatus \| ConvertFrom-Json`를 호출 합니다. 이 명령은이 기능을 사용 하도록 설정 된 AD 포리스트 목록 (\"도메인\" 목록)을 제공 합니다. 기본적으로 테 넌 트 수준에서 false로 설정 됩니다.
+5.  `Get-AzureADSSOStatus | ConvertFrom-Json`를 호출 합니다. 이 명령은이 기능을 사용 하도록 설정 된 AD 포리스트 목록 (\"도메인\" 목록)을 제공 합니다. 기본적으로 테 넌 트 수준에서 false로 설정 됩니다.
 
    > **예:** 
    > ![Windows PowerShell 출력의 예](./media/how-to-connect-staged-rollout/sr3.png)
 
-6.  `\$creds = Get-Credential`를 호출 합니다. 메시지가 표시되면 의도한 AD 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
+6.  `$creds = Get-Credential`를 호출 합니다. 메시지가 표시되면 의도한 AD 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
-7. `Enable-AzureADSSOForest -OnPremCredentials \$creds`을 호출합니다. 이 명령은 원활한 SSO에 필요한이 특정 Active Directory 포리스트에 대해 온-프레미스 도메인 컨트롤러에서 AZUREADSSOACC 컴퓨터 계정을 만듭니다.
+7. `Enable-AzureADSSOForest -OnPremCredentials $creds`를 호출합니다. 이 명령은 원활한 SSO에 필요한이 특정 Active Directory 포리스트에 대해 온-프레미스 도메인 컨트롤러에서 AZUREADSSOACC 컴퓨터 계정을 만듭니다.
 
 8. 원활한 SSO는 Url이 인트라넷 영역에 있어야 합니다. 그룹 정책을 사용 하 여 해당 URL을 배포 하려면 [원활한 Single Sign-On 빠른](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature) 시작을 참조 하세요.
 
@@ -228,7 +228,7 @@ PowerShell을 사용 하 여 AD 포리스트에서 원활한 SSO를 사용 하�
 2.  준비 된 롤아웃 기능을 사용 하지 않도록 설정 하려는 경우 기능을 **' 꺼짐 '** 상태로 다시 전환 하 여 준비 된 롤아웃 기능을 해제 하세요.
 
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 -   **Q: 고객이 프로덕션 환경에서이 기능을 사용할 수 있나요?**
 
@@ -240,7 +240,7 @@ PowerShell을 사용 하 여 AD 포리스트에서 원활한 SSO를 사용 하�
 
 -   **Q: PowerShell을 사용 하 여 스테이징 롤아웃을 수행할 수 있나요?**
 
--   A: 예, PowerShell을 사용 하 여 여기에서 준비 된 출시를 수행 하는 설명서를 찾아보십시오.
+-   A: 예, PowerShell을 사용 하 여 [여기](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout)에서 준비 된 출시를 수행 하는 설명서를 찾아보십시오.
 
 ## <a name="next-steps"></a>다음 단계
 - [AzureAD 2.0 미리 보기](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

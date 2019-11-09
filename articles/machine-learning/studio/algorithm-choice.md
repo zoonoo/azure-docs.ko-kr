@@ -1,6 +1,6 @@
 ---
 title: 알고리즘 선택 방법
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: 클러스터링, 분류 또는 회귀 실험에서 감독 및 자율 학습에 대해 Azure Machine Learning Studio (클래식) 알고리즘을 선택 하는 방법입니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=pakalra, previous-author=pakalra
 ms.date: 03/04/2019
-ms.openlocfilehash: e8d296f8752e06e6e47c349be9c900b9d0489ec5
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c69b4c15397dc13f36a707f932c2464a4ff94ca7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619754"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838476"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에 대 한 알고리즘을 선택 하는 방법 (클래식)
 

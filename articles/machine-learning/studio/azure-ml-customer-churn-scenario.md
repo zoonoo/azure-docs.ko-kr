@@ -1,6 +1,6 @@
 ---
 title: 고객 이탈 분석
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Azure Machine Learning Studio (클래식)를 사용 하 여 고객 이탈을 분석 하 고 점수를 매기는 통합 모델을 개발 하는 사례 연구.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 063b745bbf1c5e8453e0f6abe3cefdc76a60b5f9
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 8fd88c3bfad962f264efa030d0a3aea44e95dc8c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619748"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839756"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)를 사용 하 여 고객 이탈 분석
 ## <a name="overview"></a>개요

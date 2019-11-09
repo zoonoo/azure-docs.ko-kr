@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: thweiss
-ms.openlocfilehash: 34b54459629560ba80e6a38d10edbab32ea44778
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3f987b9e05bcdcda9afe26a1eb1354e5e2450ac5
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820165"
+ms.locfileid: "73846530"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account-preview"></a>Azure Cosmos 계정에 대 한 Azure 개인 링크 구성 (미리 보기)
 
@@ -86,7 +86,7 @@ Azure Cosmos 계정에 대 한 개인 링크 Azure Portal를 승인한 경우 **
 
 ### <a name="fetch-the-private-ip-addresses"></a>개인 IP 주소 가져오기
 
-개인 끝점이 프로 비전 되 면 IP 주소를 쿼리할 수 있습니다. Azure Portal에서 IP 주소를 확인 합니다. **모든 리소스**를 선택 하 고,이 경우 앞에서 만든 개인 끝점을 검색 하 여 "dbPrivateEndpoint3"를 선택 하 고 개요 탭을 선택 하 여 DNS 설정 및 IP 주소를 확인 합니다.
+개인 끝점이 프로 비전 되 면 IP 주소를 쿼리할 수 있습니다. Azure Portal에서 IP 주소를 보려면 **모든 리소스**를 선택 하 고,이 경우 이전에 만든 개인 끝점을 검색 합니다 .이 경우에는 "dbPrivateEndpoint3"이 고, 개요 탭을 선택 하 여 DNS 설정 및 IP 주소를 확인 합니다.
 
 ![Azure Portal의 개인 IP 주소](./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png)
 
@@ -354,7 +354,7 @@ Azure Cosmos 계정에 지역을 추가 하거나 제거 하려면 해당 계정
 
 예를 들어, "미국 서 부", "미국 중부" 및 "유럽 서부"의 3 개 지역에서 Azure Cosmos 계정을 배포 하는 경우입니다. 계정에 대 한 개인 끝점을 만들 때 4 개의 개인 Ip가 서브넷에 예약 되어 있습니다. 각 지역에 대해 하나씩 (총 3 개, 전역/지역에 상관 없는 끝점의 경우)
 
-나중에 Azure Cosmos 계정에 새 지역 (예: "미국 동부")을 추가 합니다. 기본적으로 새 지역은 기존 개인 끝점에서 액세스할 수 없습니다. Azure Cosmos 계정 관리자는 새 지역에 액세스 하기 전에 개인 끝점 연결을 새로 고쳐야 합니다. 
+나중에 Azure Cosmos 계정에 새 지역 (예: "미국 동부")을 추가 합니다. 기본적으로 새 지역은 기존 개인 끝점에서 액세스할 수 없습니다. Azure Cosmos 계정 관리자는 새 지역에서 액세스 하기 전에 개인 끝점 연결을 새로 고쳐야 합니다. 
 
 ` Get-AzPrivateEndpoint -Name <your private endpoint name> -ResourceGroupName <your resource group name>` 명령을 실행 하면 명령의 출력에 "다시 만들기"로 설정 된 `actionsRequired` 매개 변수가 포함 됩니다. 이 값은 개인 끝점을 새로 고쳐야 함을 나타냅니다. 그런 다음 Azure Cosmos 계정 관리자는 `Set-AzPrivateEndpoint` 명령을 실행 하 여 개인 끝점 새로 고침을 트리거합니다.
 

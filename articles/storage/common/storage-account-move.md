@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 76648428e6adcaed579b0e4f1896fdf83e11a8b6
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 8ce949ac997ba7ee38cb057752d89f4b4d22388f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348853"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838713"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Azure Storage 계정을 다른 지역으로 이동
 
@@ -31,7 +31,7 @@ ms.locfileid: "71348853"
 > * 새 저장소 계정으로 데이터를 이동 합니다.
 > * 원본 영역에서 리소스를 삭제 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 계정에서 사용 하는 서비스 및 기능이 대상 지역에서 지원 되는지 확인 합니다.
 
@@ -51,7 +51,7 @@ ms.locfileid: "71348853"
 
 Azure Portal를 사용 하 여 템플릿을 내보내려면:
 
-1. [Azure Portal](http://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 2. **모든 리소스** 를 선택한 다음, 저장소 계정을 선택 합니다.
 
@@ -115,7 +115,7 @@ Azure Portal를 사용 하 여 템플릿을 배포 하려면 다음을 수행 �
 
 6. **파일 로드**를 선택 하 고 지침에 따라 마지막 섹션에서 다운로드 한 **템플릿. json** 파일을 로드 합니다.
 
-7. **템플릿 json** 파일에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예제에서는 저장소 계정 이름의 기본값을 `mytargetaccount`으로 설정 합니다.
+7. **템플릿 json** 파일에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예제에서는 저장소 계정 이름의 기본값을 `mytargetaccount`로 설정 합니다.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -137,13 +137,13 @@ Azure Portal를 사용 하 여 템플릿을 배포 하려면 다음을 수행 �
          "location": "centralus"
          }]          
     ```
-    지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백 없이 **미국** = 중부**centralus**지역 이름입니다.
+    지역 위치 코드를 가져오려면 [Azure 위치](https://azure.microsoft.com/global-infrastructure/locations/)를 참조 하세요.  영역에 대 한 코드는 공백이 없고 **미국 중부** = **centralus**지역 이름입니다.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합니다.
 
-1. **템플릿 json** 파일에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예제에서는 저장소 계정 이름의 기본값을 `mytargetaccount`으로 설정 합니다.
+1. **템플릿 json** 파일에서 저장소 계정 이름의 기본값을 설정 하 여 대상 저장소 계정의 이름을로 설정 합니다. 이 예제에서는 저장소 계정 이름의 기본값을 `mytargetaccount`로 설정 합니다.
     
     ```json
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -156,7 +156,7 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
     },
     ``` 
 
-2. **템플릿. json** 파일의 **location** 속성을 대상 영역으로 편집 합니다. 이 예에서는 대상 지역을 `eastus`으로 설정 합니다.
+2. **템플릿. json** 파일의 **location** 속성을 대상 영역으로 편집 합니다. 이 예에서는 대상 지역을 `eastus`설정 합니다.
 
     ```json
     "resources": [{
@@ -188,9 +188,9 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
 
 - **구독**: Azure 구독을 선택합니다.
 
-- **리소스 그룹**: **새로 만들기** 를 선택하고 리소스 그룹에 이름을 지정합니다.
+- **리소스 그룹**: **새로 만들기**를 클릭하고 리소스 그룹에 이름을 지정합니다.
 
-- **위치**: Azure 위치를 선택합니다.
+- **위치**: Azure 위치를 선택 합니다.
 
 3. **위에 명시 된 사용 약관에 동의 함** 확인란을 클릭 한 다음 **구매 선택** 단추를 클릭 합니다.
 
@@ -234,19 +234,19 @@ PowerShell을 사용 하 여 템플릿을 배포 하려면 다음을 수행 합�
 
 데이터를 이동 하는 몇 가지 방법은 다음과 같습니다.
 
-:heavy_check_mark: **Azure Storage Explorer**
+: heavy_check_mark: **Azure Storage 탐색기**
 
   사용 하기 쉬우며 작은 데이터 집합에 적합 합니다. 컨테이너 및 파일 공유를 복사 하 여 대상 계정에 붙여 넣을 수 있습니다.
 
   [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/)를 참조 하세요.
 
-:heavy_check_mark: **AZCopy**
+: heavy_check_mark: **AzCopy**
 
   이것이 선호 되는 방법입니다. 성능에 최적화 되어 있습니다.  더 빠른 방법 중 하나는 저장소 서버 간에 데이터를 직접 복사 하 여 AzCopy에서 컴퓨터의 네트워크 대역폭을 사용 하지 않도록 하는 것입니다. 명령줄에서 AzCopy를 사용 하거나 사용자 지정 스크립트의 일부로 사용 합니다.
 
   [AzCopy 시작 하기를](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 참조 하세요.
 
-:heavy_check_mark: **Azure 데이터 팩터리** 
+: heavy_check_mark: **Azure Data Factory** 
 
   AzCopy의 현재 릴리스에서 지원 되지 않는 기능이 필요한 경우에만이 도구를 사용 합니다. 예를 들어 AzCopy의 현재 릴리스에서는 계층 구조가 있는 계정 간에 blob을 복사할 수 없습니다. 또한 AzCopy는 파일 액세스 제어 목록 또는 파일 타임 스탬프 (예: 생성 및 수정 된 타임 스탬프)를 유지 하지 않습니다. 
 

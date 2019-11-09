@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 10/25/2019
 ms.author: jingwang
-ms.openlocfilehash: f26c18095dc745b9f562e3678b2f5f25276aec12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 08e6d0c3516f16b72dc58e5dfe3f1e7da2eca154
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523331"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850424"
 ---
 | Category              | 데이터 저장소                                                   | [복사 작업](../articles/data-factory/copy-activity-overview.md) (원본/싱크) | [데이터 흐름 매핑](../articles/data-factory/concepts-data-flow-overview.md) | [조회 작업](../articles/data-factory/control-flow-lookup-activity.md) | [메타데이터 작업 가져오기](../articles/data-factory/control-flow-get-metadata-activity.md) | [활동 삭제](../articles/data-factory/delete-activity.md) |
 | :-------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | :----------------------------------------------------------- | ------------------------------------------------------------ | :----------------------------------------------------------- |
@@ -26,7 +26,7 @@ ms.locfileid: "73523331"
 | &nbsp;                | [Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) | ✓/✓                                                           | ✓ <br> <small>MSI 인증이 지원 되지 않음</small>                                                            | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) | ✓/✓                                                          |                                                              | ✓                                                            | ✓                                                            |                                                              |
 | &nbsp;                | [Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) | ✓/✓                                                          | ✓                                                            | ✓                                                            | ✓                                                            |                                                              |
-| &nbsp;                | [Azure Search 인덱스](../articles/data-factory/connector-azure-search.md) | −/✓                                                          |                                                              |                                                              |                                                              |                                                              |
+| &nbsp;                | [Azure Cognitive Search 인덱스](../articles/data-factory/connector-azure-search.md) | −/✓                                                          |                                                              |                                                              |                                                              |                                                              |
 | &nbsp;                | [Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) | ✓/✓                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | **데이터베이스**          | [Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |
 | &nbsp;                | [DB2](../articles/data-factory/connector-db2.md)             | ✓/−                                                          |                                                              | ✓                                                            |                                                              |                                                              |

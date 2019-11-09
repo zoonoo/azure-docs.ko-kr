@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 851fbf52571b12b60345a78af3e26a875919fb14
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: fa152bb4cfb7ab59daababf267d3da26170119c0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585221"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838140"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -237,9 +237,9 @@ Azure 국가별 클라우드는 서로 격리 되며 전역 주석 erical Azure�
 | **[Chief](https://www.chief.com.tw/dispPageBox/ct.aspx?ddsPageID=ENCLOUDSERVICE&dbid=4852937342)** | Equinix | 홍콩 특별 행정구 |
 | **[Cinia](https://www.cinia.fi/en/services/connectivity-services/direct-public-cloud-connection.html)** | Equinix, Megaport | 프랑크푸르트, 함부르크 |
 | **[CloudXpress](https://www2.telenet.be/fr/business/produits-services/internet/cloudxpress/)** | Equinix | 암스테르담 | 
-| **[CMC 통신]( https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | 싱가포르 | 
+| **[CMC 통신](https://cmctelecom.vn/san-pham/value-added-service-and-it/cmc-telecom-cloud-express-en/)** | Equinix | 싱가포르 | 
 | **[Aptum 기술](https://aptum.com/services/cloud/managed-azure/)**| Equinix | 몬트리올, 토론토 |
-| **[CoreAzure](http://coreazure.com/expressroute)**| Equinix | 런던 |
+| **[CoreAzure](https://coreazure.com/expressroute)**| Equinix | 런던 |
 | **[Cox Business](https://www.cox.com/business/networking/cloud-connectivity.html)**| Equinix | 댈러스, 실리콘밸리, 워싱턴 DC |
 | **[Ccs (crown 성](https://fiber.crowncastle.com/solutions/added/cloud-connect)**| Equinix | 애틀랜타, 시카고, 달라스, 로스앤젤레스, 뉴욕, 워싱턴 DC |
 | **[Data Foundry](https://www.datafoundry.com/services/cloud-connect)** | Megaport | 댈러스 |

@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 04/13/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: aa88bf3bd6c5037b41c09e9ffe47921f1b9dc9be
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: ac5599a38c3fcbc4a6c331d2b14c6b6c55c31d82
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182117"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850425"
 ---
 ## <a name="how-to-create-a-classic-vnet-in-the-azure-portal"></a>Azure 포털에서 클래식 VNet을 만드는 방법
 이전 시나리오에 따라 클래식 VNet을 만들려면 다음 단계를 수행합니다.
 
-1. 브라우저에서 http://portal.azure.com 으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
+1. 브라우저에서 https://portal.azure.com으로 이동하고, 필요한 경우 Azure 계정으로 로그인합니다.
 2. **리소스 만들기** > **네트워킹** > **가상 머신**을 클릭합니다. **배포 모델 선택** 목록에 이미 **클래식**이 표시됩니다. 3. 다음 그림에 표시된 대로 **만들기**를 클릭합니다.
    
     ![Azure 포털에서 VNet 만들기](./media/virtual-networks-create-vnet-classic-pportal-include/vnet-create-pportal-figure1.gif)

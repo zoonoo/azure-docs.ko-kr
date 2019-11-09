@@ -4,14 +4,14 @@ description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드�
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 11/07/2019
 ms.author: tomfitz
-ms.openlocfilehash: d8b1be1d79ae0426d73c45408dd3c4f4f4660afb
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 04a46700b68bcf498956f93c96ce2dccf1b555fe
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532200"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73832723"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "72532200"
 
 구독 수준에서 다음과 같은 리소스 유형을 배포할 수 있습니다.
 
-* [배포](/azure/templates/microsoft.resources/deployments) 
+* [배포](/azure/templates/microsoft.resources/deployments)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
@@ -36,10 +36,16 @@ ms.locfileid: "72532200"
 
 구독 수준 배포에 사용 하는 스키마는 리소스 그룹 배포에 대 한 스키마와 다릅니다.
 
-스키마의 경우 다음을 사용 합니다.
+템플릿의 경우 다음을 사용 합니다.
 
 ```json
 https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#
+```
+
+매개 변수 파일의 경우 다음을 사용 합니다.
+
+```json
+https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentParameters.json#
 ```
 
 ## <a name="deployment-commands"></a>배포 명령
@@ -76,14 +82,14 @@ REST API의 경우 [배포-구독 범위에서 만들기](/rest/api/resources/de
 
 배포 이름을 제공 하거나 기본 배포 이름을 사용할 수 있습니다. 기본 이름은 템플릿 파일의 이름입니다. 예를 들어 **azuredeploy.json**이라는 템플릿을 배포하면 **azuredeploy**라는 기본 배포 이름을 만듭니다.
 
-각 배포 이름에는 위치를 변경할 수 없습니다. 이름이 동일하지만 위치가 다른 기존 배포가 있는 경우 하나의 위치에서 배포를 만들 수 없습니다. 오류 코드 `InvalidDeploymentLocation`을 수신하게 되면 해당 이름의 이전 배포와 다른 이름이나 동일한 위치를 사용합니다.
+각 배포 이름에는 위치를 변경할 수 없습니다. 다른 위치에 동일한 이름의 기존 배포가 있는 경우 한 위치에 배포를 만들 수 없습니다. 오류 코드 `InvalidDeploymentLocation`을 수신하게 되면 해당 이름의 이전 배포와 다른 이름이나 동일한 위치를 사용합니다.
 
 ## <a name="use-template-functions"></a>템플릿 함수 사용
 
 구독 수준 배포의 경우 템플릿 함수를 사용할 때 몇 가지 중요한 고려 사항이 있습니다.
 
 * [resourceGroup()](resource-group-template-functions-resource.md#resourcegroup) 함수는 지원되지 **않습니다**.
-* [resourceId()](resource-group-template-functions-resource.md#resourceid) 함수는 지원됩니다. 이를 사용하여 구독 수준 배포에 사용되는 리소스에 대한 리소스 ID를 가져옵니다. 예를 들어 `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`를 사용하여 정책 정의에 대한 리소스 ID를 가져옵니다.
+* [resourceId()](resource-group-template-functions-resource.md#resourceid) 함수는 지원됩니다. 이를 사용하여 구독 수준 배포에 사용되는 리소스에 대한 리소스 ID를 가져옵니다. 예를 들어 `resourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))`를 사용 하 여 정책 정의에 대 한 리소스 ID를 가져옵니다. 또는 [Subscriptionresourceid ()](resource-group-template-functions-resource.md#subscriptionresourceid) 함수를 사용 하 여 구독 수준 리소스의 리소스 ID를 가져옵니다.
 * [reference()](resource-group-template-functions-resource.md#reference) 및 [list()](resource-group-template-functions-resource.md#list) 함수는 지원됩니다.
 
 ## <a name="create-resource-groups"></a>리소스 그룹 만들기

@@ -1,10 +1,10 @@
 ---
-title: PIM-Azure Active Directory |에서 Azure AD 역할에 대 한 액세스 검토 만들기 Microsoft Docs
+title: PIM에서 Azure AD 역할에 대 한 액세스 검토 만들기-Azure AD | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 액세스 검토를 만드는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,20 +14,20 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72d9f0c7df12bd6746cd5cf0336e7bd58b6cc88d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 2f7e9ef503a9a3469ecbc835be8d9229fbd0167f
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809029"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847105"
 ---
 # <a name="create-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 액세스 검토 만들기
 
-사용자가 권한 있는 Azure Active Directory (Azure AD) 역할에 대 한 액세스 권한을 얻기 위한 요구 사항은 시간이 지남에 따라 변경 될 수 있습니다. 부실 역할 할당과 관련 된 위험을 줄이려면 액세스를 정기적으로 검토 해야 합니다. PIM (Azure AD Privileged Identity Management)을 사용 하 여 권한 있는 Azure AD 역할에 대 한 액세스 검토를 만들 수 있습니다. 자동으로 발생 하는 되풀이 액세스 검토를 구성할 수도 있습니다.
+부실 역할 할당과 관련 된 위험을 줄이려면 액세스를 정기적으로 검토 해야 합니다. PIM (Azure AD Privileged Identity Management)을 사용 하 여 권한 있는 Azure AD 역할에 대 한 액세스 검토를 만들 수 있습니다. 자동으로 발생 하는 되풀이 액세스 검토를 구성할 수도 있습니다.
 
 이 문서에서는 권한 있는 Azure AD 역할에 대 한 액세스 검토를 하나 이상 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)
 

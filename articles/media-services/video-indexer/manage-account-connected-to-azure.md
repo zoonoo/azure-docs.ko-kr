@@ -1,6 +1,6 @@
 ---
 title: Video Indexer 계정 관리
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: 이 문서에는 Azure에 연결된 Video Indexer 계정을 관리하는 방법을 설명합니다.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 37aef7c0ae06aefc69b8a72a80c8ade3951e8b0d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8221cdcf7afe82ee969f645d7f459c69519711d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799528"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838978"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Azure에 연결된 Video Indexer 계정 관리
 
@@ -76,6 +76,6 @@ Video Indexer 계정이 Azure에 연결되면 다음 항목이 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 지침에 따라 평가판 계정 및/또는 Azure에 연결된 Video Indexer 계정과 프로그래밍 방식으로 상호 작용할 수 있습니다. [API 사용](video-indexer-use-apis.md).
+[API 사용](video-indexer-use-apis.md)의 지침에 따라 평가판 계정 및/또는 Azure에 연결된 Video Indexer 계정과 프로그래밍 방식으로 상호 작용할 수 있습니다.
 
 Azure에 연결할 때 사용한 것과 동일한 Azure AD 사용자를 사용해야 합니다.

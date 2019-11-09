@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2018
 ms.author: victorh
-ms.openlocfilehash: 11962d8958811bc87fb94dc6fe78cb760fdaa20e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e96579d52752f75b864c430ea0334a544606998c
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66729702"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835585"
 ---
 # <a name="create-an-application-gateway-with-multiple-site-hosting-using-azure-powershell"></a>Azure PowerShell을 사용하여 여러 사이트를 호스팅하는 애플리케이션 게이트웨이 만들기
 
@@ -52,7 +52,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-[New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용하여 *myBackendSubnet* 및 *myAGSubnet*이라는 서브넷을 구성합니다. 서브넷 구성으로 [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)를 사용하여 *myVNet*이라는 가상 네트워크를 만듭니다. 마지막으로 [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)를 사용하여 *myAGPublicIPAddress*라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
+*New-AzVirtualNetworkSubnetConfig*를 사용하여 *myBackendSubnet* 및 [myAGSubnet](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)이라는 서브넷을 구성합니다. 서브넷 구성으로 *New-AzVirtualNetwork*를 사용하여 [myVNet](/powershell/module/az.network/new-azvirtualnetwork)이라는 가상 네트워크를 만듭니다. 마지막으로 *New-AzPublicIpAddress*를 사용하여 [myAGPublicIPAddress](/powershell/module/az.network/new-azpublicipaddress)라는 공용 IP 주소를 만듭니다. 이러한 리소스는 애플리케이션 게이트웨이 및 연결된 리소스에 대한 네트워크 연결을 제공하는 데 사용됩니다.
 
 ```azurepowershell-interactive
 $backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -78,7 +78,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>IP 구성 및 프론트 엔드 포트 만들기
 
-[New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 사용하여 이전에 애플리케이션 게이트웨이에 만든 *myAGSubnet*을 연결합니다. [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)를 사용하여 *myAGPublicIPAddress*를 애플리케이션 게이트웨이에 할당합니다.
+*New-AzApplicationGatewayIPConfiguration*을 사용하여 이전에 애플리케이션 게이트웨이에 만든 [myAGSubnet](/powershell/module/az.network/new-azapplicationgatewayipconfiguration)을 연결합니다. *New-AzApplicationGatewayFrontendIPConfig*를 사용하여 [myAGPublicIPAddress](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig)를 애플리케이션 게이트웨이에 할당합니다.
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -98,7 +98,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pools-and-settings"></a>백 엔드 풀 및 설정 만들기
 
-라는 백 엔드 풀 만들기 *contosoPool* 하 고 *fabrikamPool* 사용 하 여 응용 프로그램 게이트웨이 [새 AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)합니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 풀에 대한 설정을 구성합니다.
+[AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool)를 사용 하 여 application gateway에 대 한 *contosoPool* 및 *fabrikamPool* 라는 백 엔드 풀을 만듭니다. [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsetting)를 사용하여 풀에 대한 설정을 구성합니다.
 
 ```azurepowershell-interactive
 $contosoPool = New-AzApplicationGatewayBackendAddressPool `
@@ -115,9 +115,9 @@ $poolSettings = New-AzApplicationGatewayBackendHttpSettings `
 
 ### <a name="create-the-listeners-and-rules"></a>수신기 및 규칙 만들기
 
-애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 개의 도메인 각각에 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 *www.fabrikam.com* 의 도메인에 대해 수신기가 생성됩니다.
+애플리케이션 게이트웨이에서 트래픽을 백 엔드 풀로 적절히 라우팅할 수 있는 수신기가 필요합니다. 이 자습서에서는 두 개의 도메인 각각에 수신기를 만듭니다. 이 예제에서는 *www.contoso.com* 및 [www.fabrikam.com](*www.fabrikam.com*)의 도메인에 대해 수신기가 생성됩니다.
 
-라는 수신기를 만듭니다 *contosoListener* 하 고 *fabrikamListener* 사용 하 여 [새로 만들기-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) 프런트 엔드 구성 및 프런트 엔드 이전에 만든 포트입니다. 수신기가 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. 이라는 기본 규칙을 만듭니다 *contosoRule* 하 고 *fabrikamRule* 사용 하 여 [새로 만들기-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)합니다.
+이전에 만든 프런트 엔드 구성 및 프런트 엔드 [포트를 사용 하 여](/powershell/module/az.network/new-azapplicationgatewayhttplistener) *contosoListener* 및 *fabrikamListener* 라는 수신기를 만듭니다. 수신기가 들어오는 트래픽에 사용할 백 엔드 풀을 인식할 수 있는 규칙이 필요합니다. [AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule)를 사용 하 여 *contosoRule* 및 *fabrikamRule* 라는 기본 규칙을 만듭니다.
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `
@@ -148,7 +148,7 @@ $fabrikamRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Application Gateway 만들기
 
-필요한 지원 리소스를 만들었으므로 [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)를 사용하여 *myAppGateway*라는 애플리케이션 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway)를 사용하여 만듭니다.
+필요한 지원 리소스를 만들었으므로 *New-AzApplicationGatewaySku*를 사용하여 [myAppGateway](/powershell/module/az.network/new-azapplicationgatewaysku)라는 애플리케이션 게이트웨이에 대한 매개 변수를 지정한 다음, [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway)를 사용하여 만듭니다.
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -260,7 +260,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
+브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: https://www.contoso.com
 
 ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/application-gateway-create-multisite-azureresourcemanager-powershell/application-gateway-iistest.png)
 

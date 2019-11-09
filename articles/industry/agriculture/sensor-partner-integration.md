@@ -5,21 +5,22 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e7de815b7254fb071b3094f9ae636b712b38684b
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
-ms.translationtype: MT
+ms.openlocfilehash: 7a85ed93d9ee01255d809cce84ebe24e6c3f71d1
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797687"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847405"
 ---
 # <a name="sensor-partner-integration"></a>센서 파트너 통합
-이 문서에서는 Azure FarmBeats **Translator** 구성 요소에 대 한 정보를 제공 합니다.
+
+이 문서에서는 센서 파트너 통합을 가능 하 게 하는 Azure FarmBeats **Translator** 구성 요소에 대 한 정보를 제공 합니다.
 
 파트너는이 구성 요소를 사용 하 여 FarmBeats와 통합 된 센서를 개발 하 고, API를 활용 하 고, 고객 장치 데이터 및 원격 분석을 FarmBeats 데이터 허브로 보낼 수 있습니다. FarmBeats Accelerator를 사용 하 여 데이터를 시각화 합니다. 데이터는 데이터 fusion에 사용 되 고 기계 언어/인공 지능 모델을 빌드하는 데 사용 될 수 있습니다.
 
 ## <a name="link-farmbeats-account"></a>FarmBeats 계정 연결
 
-고객이 장치/센서를 구입 하 고 배포한 후에는 장치 파트너의 SaaS 포털 (Software as a Service)에서 장치 데이터 및 원격 분석에 액세스할 수 있습니다. 장치 파트너는 고객이 자신의 계정을 Azure의 FarmBeats 인스턴스에 연결할 수 있도록 해야 합니다. Customer/SI를 입력 하려면 다음 자격 증명이 필요 합니다.
+고객이 장치/센서를 구입 하 고 배포한 후에는 장치 파트너의 SaaS 포털 (Software as a Service)에서 장치 데이터 및 원격 분석에 액세스할 수 있습니다. 장치 파트너는 고객이 자신의 계정을 Azure의 FarmBeats 인스턴스에 연결할 수 있도록 해야 합니다. 고객/시스템 통합자를 위해 다음 자격 증명을 입력 해야 합니다.
 
    - 표시 이름 (이 통합의 이름을 정의 하는 사용자에 대 한 선택적 필드)
    - API 끝점
@@ -41,14 +42,11 @@ ms.locfileid: "73797687"
 
 ## <a name="edit-farmbeats-integration"></a>FarmBeats 통합 편집
 
-고객은 FarmBeats 통합을 편집할 수 있습니다. 편집에 대 한 주요 시나리오는 만료로 인해 클라이언트 암호 또는 연결 문자열이 변경 되는 경우입니다 .이 경우 고객은 다음 필드만 편집할 수 있습니다.
+고객은 클라이언트 암호 또는 연결 문자열이 변경 되는 경우 FarmBeats 통합 설정을 편집할 수 있습니다. 이 경우 고객은 다음 필드만 편집할 수 있습니다.
 
    - 표시 이름 (해당 하는 경우)
    - 클라이언트 암호 ("2x8 * * * * * * * * * * * *" 형식 또는 일반 텍스트가 아닌 표시/숨기기 기능에 표시 되어야 함)
    - 연결 문자열 ("2x8 * * * * * * * * * * * *" 형식 또는 일반 텍스트가 아닌 표시/숨기기 기능에 표시 되어야 함)
-
-   > [!NOTE]
-   > Edit는 메타 데이터 개체 만들기를 중단 하지 않아야 합니다.
 
 ## <a name="view-last-telemetry-sent"></a>마지막으로 보낸 원격 분석 보기
 
@@ -192,7 +190,7 @@ ParentDeviceId | 이 장치가 연결 된 부모 장치의 ID입니다. 예제: 
   description  | 의미 있는 설명 제공
   properties  | 제조업체의 추가 속성
 
- 각 개체 및 해당 속성에 대 한 자세한 내용은 [swagger](httpa://aka.ms/FarmBeatsDatahubSwagger)를 참조 하십시오.
+ 각 개체 및 해당 속성에 대 한 자세한 내용은 [swagger](https://aka.ms/FarmBeatsDatahubSwagger)를 참조 하십시오.
 
  > [!NOTE]
  > Api는 생성 된 각 인스턴스에 대 한 고유 Id를 반환 합니다. 장치 관리 및 메타 데이터 동기화를 위해 변환기에서이 ID를 유지 해야 합니다.

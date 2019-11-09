@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3dc439c352bb3e6e56fae4b83d783da94720bfe1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4af18eaa0dc5622dcc52603e6fb4e569f505feeb
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818410"
+ms.locfileid: "73838105"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -411,14 +411,14 @@ response = requests.post(published_pipeline1.endpoint,
 ### <a name="view-results-of-a-published-pipeline"></a>게시 된 파이프라인의 결과 보기
 
 게시 된 모든 파이프라인 목록과 해당 실행 세부 정보를 확인 합니다.
-1. [Azure Machine Learning studio](https://ml.azure.com)에 로그인 합니다.
+1. [Azure Machine Learning](https://ml.azure.com)에 로그인 합니다.
 
 1. [작업 영역을 보고](how-to-manage-workspace.md#view) 파이프라인 목록을 찾습니다.
  ![기계 학습 파이프라인 목록](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. 특정 파이프라인을 선택하여 실행 결과를 확인합니다.
 
-이러한 결과는 [Azure Machine Learning studio]] (https://ml.azure.com)의 작업 영역 에서도 사용할 수 있습니다.
+이러한 결과는 [Azure Machine Learning](https://ml.azure.com)의 작업 영역 에서도 사용할 수 있습니다.
 
 ### <a name="disable-a-published-pipeline"></a>게시 된 파이프라인 사용 안 함
 

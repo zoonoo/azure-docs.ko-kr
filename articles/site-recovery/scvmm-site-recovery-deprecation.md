@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: rajanaki
-ms.openlocfilehash: 68881d57f251d2f26996b2a837780106326ec1d3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c126d72720c16d4ba869156e86a6e60110b2c31b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492282"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847487"
 ---
 # <a name="upcoming-deprecation-of-dr-between-customer-owned-sites-using-hyper-v-and-between-sites-managed-by-scvmm-to-azure"></a>Hyper-v를 사용 하는 고객 소유 사이트와 SCVMM에서 관리 하는 사이트 간 Azure 간 DR의 사용 중단 예정
 
@@ -43,7 +43,7 @@ ms.locfileid: "73492282"
 - [Hyper-v 호스트의 vm에 대 한 DR 대상으로 Azure 사용을 시작](hyper-v-azure-tutorial.md)하도록 선택 합니다.
 
 > [!IMPORTANT]
-> 온-프레미스 환경에는 여전히 SCVMMM이 있지만 Hyper-v 호스트에 대 한 참조로 ASR을 구성 합니다.
+> 온-프레미스 환경에는 여전히 SCVMM이 있지만 Hyper-v 호스트에 대 한 참조로 ASR를 구성 합니다.
 
 - 사이트 간 복제를 계속 하 되 기본 [Hyper-v 복제본 솔루션](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)을 사용 하도록 선택 하지만 Azure Portal에서 Azure Site Recovery를 사용 하 여 DR 구성을 관리할 수 없습니다. 
 

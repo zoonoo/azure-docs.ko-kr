@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: 771a4ffde9f3929a55ee8ce48c2b38e16b83ad49
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 4fd6de848756cedf21d7bb1f7f1be31175de6627
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650674"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838246"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -27,7 +27,7 @@ ms.locfileid: "69650674"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 애플리케이션이 포함된 Docker 이미지를 만들고 로컬 머신에서 실행되는 Service Fabric 클러스터에 배포하는 과정을 안내합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. Docker에 대해 알아보려면 [Docker Overview](https://docs.docker.com/engine/understanding-docker/)(Docker 개요)를 읽어보세요.
+Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 애플리케이션이 포함된 Docker 이미지를 만들고 로컬 머신에서 실행되는 Service Fabric 클러스터에 배포하는 과정을 안내합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
 
 > [!NOTE]
 > 이 문서는 Windows 개발 환경에 적용됩니다.  Service Fabric 클러스터 런타임 및 Docker 런타임이 동일한 OS에서 실행되어야 합니다.  Windows 컨테이너는 Linux 클러스터에서 실행할 수 없습니다.
@@ -35,7 +35,7 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * 다음을 실행하는 개발 컴퓨터
   * Visual Studio 2015 또는 Visual Studio 2019.
@@ -48,8 +48,8 @@ Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이
   
 클러스터에 필요한 컨테이너가 포함된 Windows Server의 버전을 확인하려면 개발 컴퓨터의 Windows 명령 프롬프트에서 `ver` 명령을 실행합니다.
 
-* 버전에 *x.x.14323.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServer 2016-Datacenter-with-Containers*를 선택합니다.
-  * 버전에 *x.x.16299.x*가 포함되어 있으면 [클러스터를 만들](service-fabric-cluster-creation-via-portal.md) 때 운영 체제에 대해 *WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers*를 선택합니다.
+* 버전에 *x.x.14323.x*가 포함되어 있으면 *클러스터를 만들* 때 운영 체제에 대해 [WindowsServer 2016-Datacenter-with-Containers](service-fabric-cluster-creation-via-portal.md)를 선택합니다.
+  * 버전에 *x.x.16299.x*가 포함되어 있으면 *클러스터를 만들* 때 운영 체제에 대해 [WindowsServerSemiAnnual Datacenter-Core-1709-with-Containers](service-fabric-cluster-creation-via-portal.md)를 선택합니다.
 
 * Azure Container Registry의 레지스트리 - Azure 구독 내에서 [컨테이너 레지스트리를 만듭니다](../container-registry/container-registry-get-started-portal.md).
 
@@ -120,7 +120,7 @@ if __name__ == "__main__":
 
 <a id="Build-Containers"></a>
 ## <a name="build-the-image"></a>이미지 빌드
-`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 Dockerfile이 있는 디렉터리로 이동합니다. 다음 명령 실행:
+`docker build` 명령을 실행하여 웹 애플리케이션을 실행하는 이미지를 만듭니다. PowerShell 창을 열고 Dockerfile이 있는 디렉터리로 이동합니다. 다음 명령을 실행합니다.
 
 ```
 docker build -t helloworldapp .
@@ -177,7 +177,7 @@ docker rm my-web-site
 
 컨테이너가 개발 컴퓨터에서 실행되었는지 확인한 후에 Azure Container Registry에서 이미지를 레지스트리에 푸시합니다.
 
-을 ``docker login`` 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
+``docker login``를 실행 하 여 [레지스트리 자격 증명](../container-registry/container-registry-authentication.md)을 사용 하 여 컨테이너 레지스트리에 로그인 합니다.
 
 다음 예제는 Azure Active Directory [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md)의 ID와 암호를 전달합니다. 예를 들어 자동화 시나리오를 위해 레지스트리에 서비스 주체를 할당할 수 있습니다. 또는 레지스트리 사용자 이름과 암호를 사용 하 여 로그인 할 수 있습니다.
 
@@ -249,7 +249,7 @@ Service Fabric SDK 및 도구에서는 Service Fabric 클러스터에 컨테이�
 ```
 
 ## <a name="configure-container-port-to-host-port-mapping-and-container-to-container-discovery"></a>컨테이너 포트-호스트 포트 매핑 및 컨테이너-컨테이너 검색 구성
-컨테이너와 통신하는 데 사용되는 호스트 포트를 구성합니다. 포트를 바인딩하면 서비스가 컨테이너 내에서 수신 대기 중인 포트를 호스트의 포트에 매핑합니다. ApplicationManifest.xml 파일의 `ContainerHostPolicies` 요소에 `PortBinding` 요소를 추가합니다. 이 문서에서 `ContainerPort`는 80(Dockerfile에서 지정된 대로 컨테이너에서 80 포트를 노출함)이고, `EndpointRef`는 "Guest1TypeEndpoint"(이전에 서비스 매니페스트에서 정의된 엔드포인트임)입니다. 8081 포트에서 서비스로 들어오는 요청은 컨테이너의 80 포트에 매핑됩니다.
+컨테이너와 통신하는 데 사용되는 호스트 포트를 구성합니다. 포트를 바인딩하면 서비스가 컨테이너 내에서 수신 대기 중인 포트를 호스트의 포트에 매핑합니다. ApplicationManifest.xml 파일의 `PortBinding` 요소에 `ContainerHostPolicies` 요소를 추가합니다. 이 문서에서 `ContainerPort`는 80(Dockerfile에서 지정된 대로 컨테이너에서 80 포트를 노출함)이고, `EndpointRef`는 "Guest1TypeEndpoint"(이전에 서비스 매니페스트에서 정의된 끝점임)입니다. 8081 포트에서 서비스로 들어오는 요청은 컨테이너의 80 포트에 매핑됩니다.
 
 ```xml
 <ServiceManifestImport>
@@ -281,7 +281,7 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
    >
 
 ## <a name="configure-resource-governance"></a>리소스 관리 구성
-[리소스 관리](service-fabric-resource-governance.md)는 호스트에서 사용할 수 있는 리소스를 컨테이너에서 제한합니다. 애플리케이션 매니페스트에 지정된 `ResourceGovernancePolicy` 요소는 서비스 코드 패키지에 대한 리소스 제한을 선언하는 데 사용됩니다. 다음 리소스에 대한 리소스 제한을 설정할 수 있습니다. Memory, MemorySwap, CpuShares(CPU 상대적 가중치), MemoryReservationInMB, BlkioWeight(BlockIO 상대적 가중치). 이 예제에서는 Guest1Pkg 서비스 패키지가 배치된 클러스터 노드에서 하나의 코어를 가져옵니다. 메모리 제한은 절대값이므로 코드 패키지는 1,024MB의 메모리(및 동일한 값의 소프트 보증 예약)로 제한됩니다. 코드 패키지(컨테이너 또는 프로세스)는 이 제한보다 많은 메모리를 할당할 수 없으며, 할당하려고 하면 메모리 부족 예외가 발생합니다. 리소스 제한 적용이 작동하려면 서비스 패키지 내의 모든 코드 패키지에 메모리 제한이 지정되어 있어야 합니다.
+[리소스 관리](service-fabric-resource-governance.md)는 호스트에서 사용할 수 있는 리소스를 컨테이너에서 제한합니다. 애플리케이션 매니페스트에 지정된 `ResourceGovernancePolicy` 요소는 서비스 코드 패키지에 대한 리소스 제한을 선언하는 데 사용됩니다. Memory, MemorySwap, CpuShares(CPU 상대적 가중치), MemoryReservationInMB, BlkioWeight(BlockIO 상대적 가중치) 리소스에 대한 리소스 제한을 설정할 수 있습니다. 이 예제에서는 Guest1Pkg 서비스 패키지가 배치된 클러스터 노드에서 하나의 코어를 가져옵니다. 메모리 제한은 절대값이므로 코드 패키지는 1,024MB의 메모리(및 동일한 값의 소프트 보증 예약)로 제한됩니다. 코드 패키지(컨테이너 또는 프로세스)는 이 제한보다 많은 메모리를 할당할 수 없으며, 할당하려고 하면 메모리 부족 예외가 발생합니다. 리소스 제한 적용이 작동하려면 서비스 패키지 내의 모든 코드 패키지에 메모리 제한이 지정되어 있어야 합니다.
 
 ```xml
 <ServiceManifestImport>
@@ -294,9 +294,9 @@ Windows는 컨테이너, 즉 프로세스 및 Hyper-V에 대한 두 가지 격�
 ```
 ## <a name="configure-docker-healthcheck"></a>Docker HEALTHCHECK 구성 
 
-v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. *health_status*가 *healthy*이면 [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)에서 **OK** 상태 보고서가 표시되고, *health_status*가 *unhealthy*이면 **경고**가 표시됩니다. 
+v6.1을 시작하면 Service Fabric에서 자동으로 [Docker HEALTHCHECK](https://docs.docker.com/engine/reference/builder/#healthcheck) 이벤트를 시스템 상태 보고서에 통합합니다. 즉 컨테이너에 **HEALTHCHECK**를 사용하도록 설정된 경우, Docker에서 보고한 대로 컨테이너의 상태가 변경될 때마다 Service Fabric에서 상태를 보고합니다. **health_status**가 [healthy](service-fabric-visualizing-your-cluster.md)이면 *Service Fabric Explorer*에서 *OK* 상태 보고서가 표시되고, **health_status**가 *unhealthy*이면 *경고*가 표시됩니다. 
 
-V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하는 경우 *health_status* 가 *정상* 상태 이면 정상 상태 보고서가 표시 되 고 *health_status* 가 *비정상*상태가 되 면 **오류가** 표시 됩니다.
+V 6.4의 최신 새로 고침 릴리스부터 docker HEALTHCHECK 평가를 오류로 보고 하도록 지정할 수 있습니다. 이 옵션을 사용 하도록 설정 하면 *health_status* *정상* **상태 이면 정상 상태** 보고서가 표시 되 고 *health_status* *비정상*상태 이면 **오류가** 표시 됩니다.
 
 컨테이너 상태를 모니터링하기 위해 수행되는 실제 검사를 가리키는 **HEALTHCHECK** 명령은 컨테이너 이미지를 생성하는 동안 사용되는 Dockerfile에 있어야 합니다.
 
@@ -320,26 +320,26 @@ ApplicationManifest에서 **ContainerHostPolicies**의 일부로 **HealthConfig*
     </Policies>
 </ServiceManifestImport>
 ```
-기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true**로 설정 되 고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false**로 설정 되며, *TreatContainerUnhealthyStatusAsError* 는 false로 설정 됩니다.. 
+기본적으로 *IncludeDockerHealthStatusInSystemHealthReport* 는 **true**로 설정 되 고, *RestartContainerOnUnhealthyDockerHealthStatus* 는 **false**로 설정 되며, *TreatContainerUnhealthyStatusAsError* 는 **false**로 설정 됩니다. 
 
 *RestartContainerOnUnhealthyDockerHealthStatus*가 **true**로 설정된 경우, 반복적으로 비정상으로 보고하는 컨테이너가 다시 시작됩니다(다른 노드에서도 가능).
 
-*TreatContainerUnhealthyStatusAsError* 를 **true**로 설정 하면 컨테이너의 *health_status* *비정상*상태인 경우 **오류** 상태 보고서가 표시 됩니다.
+*TreatContainerUnhealthyStatusAsError* 가 **true**로 설정 된 경우 컨테이너의 *health_status* *비정상*이면 **오류** 상태 보고서가 표시 됩니다.
 
 전체 Service Fabric 클러스터에 대해 **HEALTHCHECK** 통합을 사용하지 않도록 설정하려면 [EnableDockerHealthCheckIntegration](service-fabric-cluster-fabric-settings.md)을 **false**로 설정해야 합니다.
 
 ## <a name="deploy-the-container-application"></a>컨테이너 애플리케이션 배포
 모든 변경 내용을 저장하고 애플리케이션을 빌드합니다. 애플리케이션을 게시하려면 [솔루션 탐색기]에서 **MyFirstContainer**를 마우스 오른쪽 단추로 클릭하고 **게시**를 선택합니다.
 
-**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예를 들어 "containercluster.westus2.cloudapp.azure.com:19000"이 있습니다. [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
+**연결 엔드포인트**에서 클러스터에 대한 관리 엔드포인트을 입력합니다. 예: `containercluster.westus2.cloudapp.azure.com:19000` [Azure Portal](https://portal.azure.com)에 있는 클러스터의 개요 탭에서 클라이언트 연결 엔드포인트를 찾을 수 있습니다.
 
 **게시**를 클릭합니다.
 
-[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 Service Fabric 클러스터에서 애플리케이션 및 노드를 검사 및 관리하기 위한 웹 기반 도구입니다. 브라우저를 열고 http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/ 로 이동하여 애플리케이션 배포를 수행합니다. 애플리케이션이 배포되지만 이미지가 클러스터 노드에 다운로드될 때까지 오류 상태입니다(이미지 크기에 따라 약간의 시간이 걸릴 수 있음). ![오류][1]
+[Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)는 Service Fabric 클러스터에서 애플리케이션 및 노드를 검사 및 관리하기 위한 웹 기반 도구입니다. 브라우저를 열고 `http://containercluster.westus2.cloudapp.azure.com:19080/Explorer/`로 이동하여 애플리케이션 배포를 수행합니다. 애플리케이션이 배포되지만 이미지가 클러스터 노드에 다운로드될 때까지 오류 상태입니다(이미지 크기에 따라 약간의 시간이 걸릴 수 있음). ![오류][1]
 
 애플리케이션이 ```Ready``` 상태이면 사용할 준비가 되었습니다. ![준비][2]
 
-브라우저를 열고 이동할 http://containercluster.westus2.cloudapp.azure.com:8081 합니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
+브라우저를 열고 `http://containercluster.westus2.cloudapp.azure.com:8081` 로 이동합니다. 제목인 "Hello World!"가 브라우저에 표시됩니다.
 
 ## <a name="clean-up"></a>정리
 
@@ -507,7 +507,7 @@ NtTvlzhk11LIlae/5kjPv95r3lw6DHmV4kXLwiCNlcWPYIWBGIuspwyG+28EWSrHmN7Dt2WqEWqeNQ==
 
 ## <a name="configure-time-interval-before-container-is-force-terminated"></a>컨테이너를 강제로 종료하기 전 시간 간격 구성
 
-서비스 삭제(또는 다른 노드로 이동)가 시작된 후 컨테이너가 제거되기 전에 대기할 런타임 시간 간격을 구성할 수 있습니다. `docker stop <time in seconds>` 명령을 컨테이너로 보내는 시간 간격 구성.  자세한 내용은 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)을 참조하세요. 대기할 시간 간격은 `Hosting` 섹션 아래에 지정됩니다. 섹션 `Hosting` 은 클러스터를 만들 때 또는 나중에 구성 업그레이드에서 추가할 수 있습니다. 다음 클러스터 매니페스트 코드 조각은 대기 간격을 설정하는 방법을 보여 줍니다.
+서비스 삭제(또는 다른 노드로 이동)가 시작된 후 컨테이너가 제거되기 전에 대기할 런타임 시간 간격을 구성할 수 있습니다. `docker stop <time in seconds>` 명령을 컨테이너로 보내는 시간 간격 구성.  자세한 내용은 [docker stop](https://docs.docker.com/engine/reference/commandline/stop/)을 참조하세요. 대기할 시간 간격은 `Hosting` 섹션 아래에 지정됩니다. `Hosting` 섹션은 클러스터를 만들 때 또는 나중에 구성 업그레이드에서 추가할 수 있습니다. 다음 클러스터 매니페스트 코드 조각은 대기 간격을 설정하는 방법을 보여 줍니다.
 
 ```json
 "fabricSettings": [

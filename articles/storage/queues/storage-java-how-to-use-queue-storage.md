@@ -8,12 +8,12 @@ ms.date: 12/08/2016
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 33123c823a2e0d6044e3419f62a512f3e84f953f
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 17d02d8df96927aa506683fef94899e5c5114684
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302993"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839032"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Java에서 Queue Storage를 사용하는 방법
 
@@ -48,7 +48,7 @@ import com.microsoft.azure.storage.queue.*;
 
 ## <a name="set-up-an-azure-storage-connection-string"></a>Azure Storage 연결 문자열 설정
 
-Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우 *AccountName*과 *AccountKey* 값에 대해 [Azure Portal](https://portal.azure.com)에 나열된 스토리지 계정의 이름과 기본 선택키를 사용하여 다음 형식의 스토리지 연결 문자열을 제공해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
+Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 데이터 관리 서비스에 액세스하기 위한 엔드포인트 및 자격 증명을 저장합니다. 클라이언트 애플리케이션에서 실행할 경우 [AccountName](https://portal.azure.com)과 *AccountKey* 값에 대해 *Azure Portal*에 나열된 스토리지 계정의 이름과 기본 선택키를 사용하여 다음 형식의 스토리지 연결 문자열을 제공해야 합니다. 이 예제는 정적 필드가 연결 문자열을 포함할 수 있도록 선언하는 방법을 보여 줍니다.
 
 ```java
 // Define the connection-string with your values.
@@ -69,7 +69,7 @@ String storageConnectionString =
 다음 샘플에서는 스토리지 연결 문자열을 가져오기 위해 위의 두 메서드 중 하나를 사용한 것으로 가정합니다.
 
 ## <a name="how-to-create-a-queue"></a>방법: 큐 만들기
-**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. (참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 [Azure Storage 클라이언트 SDK 참조]에서 **CloudStorageAccout**를 참조하세요.
+**CloudQueueClient** 개체를 통해 큐에 대한 참조 개체를 가져올 수 있습니다. 다음 코드는 **CloudQueueClient** 개체를 만듭니다. (참고: **CloudStorageAccount** 개체를 만들 수 있는 방법이 더 있습니다. 자세한 내용은 **Azure Storage 클라이언트 SDK 참조**에서 [Azure Storage 클라이언트 SDK 참조]를 참조하세요.)
 
 **CloudQueueClient** 개체를 사용하여 사용할 큐에 대한 참조를 가져올 수 있습니다. 큐가 없는 경우 새로 만들 수 있습니다.
 
@@ -96,7 +96,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-add-a-message-to-a-queue"></a>방법: 큐에 메시지 추가
+## <a name="how-to-add-a-message-to-a-queue"></a>큐에 메시지 추가 방법
 기존 큐에 메시지를 삽입하려면 먼저 새 **CloudQueueMessage**를 만듭니다. 그런 다음, **addMessage** 메서드를 호출합니다. **CloudQueueMessage** 는 문자열(UTF-8 형식) 또는 바이트 배열에서 만들 수 있습니다. 큐를 만들고 (없는 경우) 메시지 "Hello, 세계"를 삽입 하는 코드는 다음과 같습니다.
 
 ```java
@@ -273,7 +273,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-dequeue-the-next-message"></a>방법: 큐에서 다음 메시지 제거
+## <a name="how-to-dequeue-the-next-message"></a>큐에서 다음 메시지를 제거하는 방법
 다음 코드는 2단계를 거쳐 큐에서 메시지를 제거합니다. **retrieveMessage**를 호출하면 큐에서 다음 메시지를 가져올 수 있습니다. **retrieveMessage** 에서 반환된 메시지는 이 큐의 메시지를 읽는 다른 코드에는 표시되지 않습니다. 기본적으로, 이 메시지는 30초간 표시되지 않습니다. 큐에서 메시지 제거를 완료하려면 **deleteMessage**도 호출해야 합니다. 메시지를 제거하는 이 2단계 프로세스는 코드가 하드웨어 또는 소프트웨어 오류로 인해 메시지를 처리하지 못하는 경우 코드의 다른 인스턴스가 동일한 메시지를 가져와서 다시 시도할 수 있도록 보장합니다. 코드는 메시지가 처리된 직후에 **deleteMessage** 를 호출합니다.
 
 ```java
@@ -337,7 +337,7 @@ catch (Exception e)
 }
 ```
 
-## <a name="how-to-list-the-queues"></a>방법: 큐 나열
+## <a name="how-to-list-the-queues"></a>큐 나열하는 방법
 현재 큐의 목록을 가져오려면 **CloudQueue** 개체의 컬렉션을 반환하는 **CloudQueueClient.listQueues()** 메서드를 호출합니다.
 
 ```java
@@ -402,6 +402,6 @@ catch (Exception e)
 [Azure SDK for Java]: https://go.microsoft.com/fwlink/?LinkID=525671
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
-[Azure Storage 클라이언트 SDK 참조]: http://dl.windowsazure.com/storage/javadoc/
+[Azure Storage 클라이언트 SDK 참조]: https://javadoc.io/doc/com.microsoft.azure/azure-core/0.8.0/index.html
 [Azure Storage Services REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
 [Azure Storage Team Blog]: https://blogs.msdn.com/b/windowsazurestorage/

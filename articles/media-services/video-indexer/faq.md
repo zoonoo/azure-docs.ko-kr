@@ -1,6 +1,6 @@
 ---
 title: Video Indexer에 대한 질문과 대답 - Azure
-titlesuffix: Azure Media Services
+titleSuffix: Azure Media Services
 description: Video Indexer에 대한 질문과 대답을 확인합니다.
 services: media-services
 author: Juliako
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: f20d718d0b1d3bbdf117e502a380897c79a7905f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 95f2af1b192564290551f9ed31f0fe158b4536f6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799510"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838224"
 ---
 # <a name="frequently-asked-questions"></a>질문과 대답
 
@@ -34,7 +34,7 @@ Video Indexer가 미디어 파일에서 수행할 수 있는 일부 작업은 �
 * 음성을 식별 및 추출하고 화자 식별
 * 비디오에서 화면의 텍스트를 식별 및 추출
 * 비디오 파일에서 개체 감지
-* 오디오 트랙 및 비디오의 화면 텍스트에서 Microsoft와 같은 브랜드 식별
+* 비디오의 오디오 트랙과 화면 텍스트에서 브랜드 (예: Microsoft)를 식별 합니다.
 * 유명인의 데이터베이스 및 얼굴의 사용자 정의 데이터베이스에서 얼굴 검색 및 인식
 * 논의되었으나 오디오 및 비디오 콘텐츠에서 반드시 언급될 필요는 없는 항목 추출
 * 오디오 트랙의 선택 자막 또는 자막 만들기
@@ -71,7 +71,7 @@ Video Indexer API 및 Video Indexer 웹 기반 인터페이스를 사용하여 �
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>사용자 지정 워크플로를 만들어 Video Indexer를 사용한 프로세스를 자동화할 수 있나요?
 
-예, Logic Apps, Flow 및 [Azure Functions](https://azure.microsoft.com/services/functions/)과 같은 서버리스 기술에 Video Indexer를 통합할 수 있습니다. [여기](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/)에서 Video Indexer용 [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 및 [Flow](https://flow.microsoft.com/en-us/) 커넥터에 대한 자세한 정보를 확인할 수 있습니다. 
+예, Logic Apps, Flow 및 [Azure Functions](https://azure.microsoft.com/services/functions/)과 같은 서버리스 기술에 Video Indexer를 통합할 수 있습니다. [여기](https://azure.microsoft.com/services/logic-apps/)에서 Video Indexer용 [Logic Apps](https://flow.microsoft.com/en-us/) 및 [Flow](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) 커넥터에 대한 자세한 정보를 확인할 수 있습니다. 
 
 ### <a name="in-which-azure-regions-is-video-indexer-available"></a>어떤 Azure 지역에서 Video indexer를 사용할 수 있나요?
 
@@ -159,7 +159,7 @@ Video Indexer API는 권한 부여 API 및 작업 API를 포함합니다. 권한
 
 Video Indexer는 인덱싱하는 콘텐츠 입력 기간을 기반으로 하는 간단한 종량제 가격 책정 모델을 사용합니다. 추가 요금은 인코딩, 스트리밍, 스토리지, 네트워크 사용량 및 미디어 예약 단위에 대해 적용될 수 있습니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/video-indexer/) 페이지를 참조하세요.
 
-### <a name="when-am-i-billed-for-using-video-indexer"></a>Video Indexer를 사용 하 여에 대 한 청구 하는 경우
+### <a name="when-am-i-billed-for-using-video-indexer"></a>Video Indexer 사용에 대 한 요금은 어떻게 청구 되나요?
 
 인덱싱할 비디오를 보낼 때 사용자가 인덱싱을 비디오 분석, 오디오 분석 또는 2가지 모두로 정의합니다. 사용자가 인덱싱을 정의하면 어떤 SKU가 청구되는지 결정됩니다. 처리 중 심각한 수준의 오류가 발생하는 경우 오류 코드가 응답으로 반환됩니다. 이 경우 비용이 청구되지 않습니다.  심각한 오류는 코드의 버그 또는 서비스의 내부 종속성에서 발생한 심각한 오류로 인해 발생할 수 있습니다. 잘못된 식별 또는 인사이트 추출과 같은 오류는 심각한 오류로 간주되지 않으며 응답이 반환됩니다. 유효한(오류 코드가 아님) 응답이 반환되는 경우 비용이 청구됩니다.
  

@@ -11,12 +11,12 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 10/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2ca091a1bbf56e2d2850a464d0109020b06483d0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 20bc148e392900aecb63ad393ec6e90cda65585a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576686"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839093"
 ---
 # <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -38,7 +38,7 @@ ms.locfileid: "73576686"
 다음 데이터를 수집할 수 있습니다.
 * AKS(Azure Kubernetes 클러스터)에 배포된 웹 서비스의 모델 **입력** 데이터(음성, 이미지 및 비디오는 수집되지 **않음**) 
   
-* 프로덕션 입력 데이터를 사용하는 모델 예측
+* 프로덕션 입력 데이터를 사용 하 여 모델 예측
 
 > [!Note]
 > 이 데이터의 사전 집계 또는 사전 계산 기능은 현재 서비스에서 제공되지 않습니다.   
@@ -57,22 +57,22 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 체험
 
-- Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경 구성 방법](how-to-configure-environment.md) 문서를 사용하여 이러한 필수 구성 요소를 충족하는 방법을 알아보세요.
+- Azure Machine Learning 작업 영역, 스크립트가 포함된 로컬 디렉터리 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. [개발 환경을 구성 하는 방법](how-to-configure-environment.md) 문서를 사용 하 여 이러한 필수 구성 요소를 가져오는 방법을 알아봅니다.
 
-- AKS(Azure Kubernetes Service)에 배포할 학습된 Machine Learning 모델. 이러한 모델이 없으면 [이미지 분류 모델 학습](tutorial-train-models-with-aml.md) 자습서를 참조하세요.
+- AKS(Azure Kubernetes Service)에 배포할 학습된 Machine Learning 모델. 없는 경우 [학습 이미지 분류 모델](tutorial-train-models-with-aml.md) 자습서를 참조 하세요.
 
-- Azure Kubernetes Service 클러스터입니다. 클러스터를 만들고 배포하는 방법에 대한 자세한 내용은 [배포 방법 및 위치](how-to-deploy-and-where.md) 문서를 참조하세요.
+- Azure Kubernetes Service 클러스터입니다. 를 만들고 배포 하는 방법에 대 한 자세한 내용은 [how to deploy and where](how-to-deploy-and-where.md) document 항목을 참조 하세요.
 
-- [환경을 설정](how-to-configure-environment.md)하고 [모니터링 SDK](https://aka.ms/aml-monitoring-sdk)를 설치합니다.
+- [환경 설정](how-to-configure-environment.md) 및 [모니터링 SDK](https://aka.ms/aml-monitoring-sdk) 설치
 
 ## <a name="enable-data-collection"></a>데이터 컬렉션 활성화
 Azure Machine Learning 또는 다른 도구를 통해 배포 되는 모델에 관계 없이 데이터 수집을 사용 하도록 설정할 수 있습니다. 
 
 데이터 수집을 사용하도록 설정하려면 다음 단계를 수행해야 합니다.
 
-1. 점수 매기기 파일을 엽니다. 
+1. 점수 매기기 파일 열기
 
 1. 파일 맨 위에 [다음 코드](https://aka.ms/aml-monitoring-sdk)를 추가합니다.
 
@@ -90,7 +90,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 되는 모델에 �
 
     *CorrelationId*는 선택적 매개 변수이므로 모델에 필요하지 않으면 설정하지 않아도 됩니다. correlationId가 있으면 다른 데이터와의 매핑을 더 쉽게 수행할 수 있습니다. LoanNumber, CustomerId 등을 예로 들 수 있습니다.
     
-    *Identifier*는 나중에 Blob에서 폴더 구조를 작성하는 데 사용되며 “raw” 데이터와 “processed” 데이터를 분리하는 데 사용할 수 있습니다.
+    *식별자* 는 나중에 Blob에서 폴더 구조를 작성 하는 데 사용 되며 "원시" 데이터와 "처리 된" 데이터를 구분 하는 데 사용할 수 있습니다.
 
 3.  `run(input_df)` 함수에 다음 코드 줄을 추가합니다.
 
@@ -111,45 +111,45 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 되는 모델에 �
     aks_config = AksWebservice.deploy_configuration(collect_model_data=True, enable_app_insights=True)
     ``` 
 
-5. 새 이미지를 만들고 서비스를 배포하려면 [배포 방법 및 위치](how-to-deploy-and-where.md) 문서를 참조하세요.
+5. 새 이미지를 만들고 서비스를 배포 하려면 [How to deploy and where](how-to-deploy-and-where.md) document 항목을 참조 하세요.
 
 
 **환경 파일** 및 **점수 매기기 파일**의 종속성이 설치된 서비스가 이미 있으면 다음 단계를 수행하여 데이터 수집을 사용하도록 설정합니다.
 
-1. [Azure Machine Learning studio](https://ml.azure.com)로 이동 합니다.
+1. [Azure Machine Learning studio](https://ml.azure.com) 로 이동
 
 1. 작업 영역을 엽니다.
 
-1. **배포** -> **서비스 선택** -> **편집**으로 이동합니다.
+1. **배포** 로 이동 -> **서비스** -> **편집** 을 선택 합니다.
 
    ![서비스 편집](media/how-to-enable-data-collection/EditService.PNG)
 
-1. **고급 설정**에서 **모델 데이터 수집 사용**을 선택 합니다. 
+1. **고급 설정**에서 **모델 데이터 수집 사용** 을 선택 합니다.
 
     [![데이터 수집 선택](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
-   이 창에서 “Appinsights 진단 사용”을 선택하여 서비스의 상태를 추적할 수도 있습니다.  
+   이 창에서 "Appinsights 진단 사용"을 선택 하 여 서비스의 상태를 추적할 수도 있습니다.
 
-1. **업데이트**를 선택하여 변경 내용을 적용합니다.
+1. **업데이트** 를 선택 하 여 변경 내용을 적용 합니다.
 
 
 ## <a name="disable-data-collection"></a>데이터 수집 비활성화
 데이터 수집은 언제든지 중지할 수 있습니다. Python 코드 또는 Azure Machine Learning studio를 사용 하 여 데이터 수집을 사용 하지 않도록 설정 합니다.
 
 + 옵션 1-Azure Machine Learning studio에서 사용 안 함: 
-  1. [Azure Machine Learning studio](https://ml.azure.com)에 로그인 합니다.
+  1. [Azure Machine Learning studio](https://ml.azure.com) 에 로그인
 
   1. 작업 영역을 엽니다.
 
-  1. **배포** -> **서비스 선택** -> **편집**으로 이동합니다.
+  1. **배포** 로 이동 -> **서비스** -> **편집** 을 선택 합니다.
 
      [![편집 옵션](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
-  1. **고급 설정**에서 **모델 데이터 컬렉션 사용** 선택을 취소합니다. 
+  1. **고급 설정**에서 **모델 데이터 수집 사용** 을 선택 취소 합니다.
 
      [![데이터 수집 선택 취소](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
-  1. **업데이트**를 선택하여 변경 내용을 적용합니다.
+  1. **업데이트** 를 선택 하 여 변경 내용을 적용 합니다.
 
   [Azure Machine Learning studio](https://ml.azure.com)의 작업 영역에서 이러한 설정에 액세스할 수도 있습니다.
 
@@ -164,10 +164,11 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 되는 모델에 �
 선호하는 도구를 선택하여 Azure Blob에 수집된 데이터를 분석할 수 있습니다.
 
 Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
-1. [Azure Machine Learning studio](https://ml.azure.com)에 로그인 합니다.
+
+1. [Azure Machine Learning studio](https://ml.azure.com) 에 로그인
 
 1. 작업 영역을 엽니다.
-1. **Storage**를 클릭합니다.
+1. **저장소** 를 클릭 합니다.
 
     [![Storage](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
@@ -183,47 +184,47 @@ Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
 
 1. [Power BI Desktop](https://www.powerbi.com) 다운로드 및 열기
 
-1. **데이터 가져오기**를 선택하고 [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources)를 클릭합니다.
+1. **데이터 가져오기** 를 선택 하 고 [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources) 을 클릭 합니다.
 
     [![PBI Blob 설정](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
 
-1. 스토리지 계정 이름을 추가하고 스토리지 키를 입력합니다. Blob의 **설정** >> 액세스 키에서 이 정보를 찾을 수 있습니다. 
+1. 스토리지 계정 이름을 추가하고 스토리지 키를 입력합니다. Blob의 **설정** 에서 > 액세스 키 >이 정보를 찾을 수 있습니다.
 
-1. **modeldata** 컨테이너를 선택하고 **편집**을 클릭합니다. 
+1. 컨테이너 **modeldata** 를 선택 하 고 **편집** 을 클릭 합니다.
 
     [![PBI 탐색기](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
 
 1. 쿼리 편집기에서 “이름” 열 아래를 클릭하고 스토리지 계정 1을 추가합니다. 필터에 대한 경로를 모델링합니다. 참고: 특정 연도 또는 특정 월의 파일만 보려면 필터 경로를 확장하기만 하면 됩니다. 예를 들어 다음과 같이 3 월 데이터를 확인 합니다./modeldata/svv>/resourcegroupname >/workspacename >/webservicename >/modelname >/modelversion >/hv>/3
 
-1. **이름**을 기준으로 관련된 데이터를 필터링합니다. **예측** 및 **입력**을 저장 한 경우 각각에 대 한 쿼리를 만들어야 합니다.
+1. **이름**을 기준으로 관련된 데이터를 필터링합니다. **예측** 및 **입력**을 저장 한 경우 각각에 대해 쿼리를 만들어야 합니다.
 
-1. 파일을 결합하려면 **콘텐츠** 열 옆에 있는 양방향 화살표를 클릭합니다. 
+1. **콘텐츠** 열을 제외 하 고 두 개의 이중 화살표를 클릭 하 여 파일을 결합 합니다.
 
     [![PBI 콘텐츠](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
 
-1. [확인]을 클릭하면 데이터가 미리 로드됩니다.
+1. 확인을 클릭 하면 데이터가 미리 로드 됩니다.
 
     [![pbiCombine](media/how-to-enable-data-collection/pbiCombine.png)](./media/how-to-enable-data-collection/pbiCombine.png#lightbox)
 
-1. 이제 **닫기 및 적용**을 클릭할 수 있습니다.
+1. 이제 **닫기 및 적용** 을 클릭할 수 있습니다.
 
-1.  입력 및 예측을 추가한 경우 테이블은 **RequestId**에 의해 자동으로 상호 연결 됩니다.
+1.  입력 및 예측을 추가한 경우 테이블은 **RequestId** 에 의해 자동으로 상호 연결 됩니다.
 
-1. 모델 데이터에 대한 사용자 지정 보고서 빌드를 시작합니다.
+1. 모델 데이터에 대 한 사용자 지정 보고서 작성 시작
 
 
 ### <a name="analyzing-model-data-using-databricks"></a>Databricks를 사용하여 모델 데이터 분석
 
-1. [Databricks 작업 영역](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)을 만듭니다. 
+1. [Databricks 작업 영역](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) 만들기
 
-1. Databricks 작업 영역으로 이동합니다. 
+1. Databricks 작업 영역으로 이동
 
-1. Databricks 작업 영역에서 **데이터 업로드**를 선택 합니다.
+1. Databricks 작업 영역에서 **데이터 업로드** 를 선택 합니다.
 
     [![DB 업로드](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
 
-1. 새 테이블을 만들고 **기타 데이터 원본** -> Azure Blob Storage -> Create Table in Notebook(Notebook에서 테이블 만들기)을 선택합니다.
+1. 새 테이블을 만들고 **다른 데이터 원본을** 선택 합니다.-> Azure Blob Storage-> 노트에서 테이블 만들기
 
     [![DB 테이블](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
@@ -236,7 +237,7 @@ Blob의 데이터에 빠르게 액세스하려면 다음을 수행합니다.
  
     [![DBsetup](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
-1. 데이터를 보고 분석하려면 템플릿의 단계를 따릅니다. 
+1. 데이터를 보고 분석 하기 위해 템플릿의 단계를 따르세요.
 
 ## <a name="example-notebook"></a>예제 Notebook
 

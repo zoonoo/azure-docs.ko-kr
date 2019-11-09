@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: b81060bc3d8409a9ccb74ba85c85e6f779650ffd
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b18e9688141ee64eb7dfcb82ce58db198e324b5b
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792413"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847532"
 ---
 # <a name="upgrading-versions-of-the-azure-search-net-management-sdk"></a>Azure Search .NET Management SDK 버전 업그레이드
 
@@ -33,7 +33,7 @@ Azure Search .NET Management SDK 버전 2는 이전 SDK 버전(특히 2015-08-19
 
 * 이제 `Services.CreateOrUpdate` 및 해당 비동기 버전은 프로비저닝 `SearchService`를 자동으로 폴링하며, 서비스 프로비저닝이 완료될 때까지 반환되지 않습니다. 따라서 이러한 폴링 코드를 직접 작성하지 않아도 됩니다.
 * 서비스 프로비저닝을 여전히 수동으로 폴링하려는 경우 새로운 `Services.BeginCreateOrUpdate` 메서드 또는 비동기 버전 중 하나를 사용할 수 있습니다.
-* 새 메서드 `Services.Update` 및 해당 비동기 버전이 SDK에 추가되었습니다. 이러한 메서드는 HTTP PATCH를 사용하여 서비스의 증분 업데이트를 지원합니다. 예를 들어, 이제 원하는 `partitionCount` 및 `replicaCount` 속성만 포함하는 `SearchService` 인스턴스를 이러한 메서드에 전달하여 서비스를 크기를 조정할 수 있습니다. `Services.Get`을 호출하고, 반환된 `SearchService`를 수정한 후 `Services.CreateOrUpdate`에 전달하는 이전 방식은 계속 지원되지만 더 이상 필요하지 않습니다. 
+* 새 메서드 `Services.Update` 및 해당 비동기 버전이 SDK에 추가되었습니다. 이러한 메서드는 HTTP PATCH를 사용하여 서비스의 증분 업데이트를 지원합니다. 예를 들어, 이제 원하는 `SearchService` 및 `partitionCount` 속성만 포함하는 `replicaCount` 인스턴스를 이러한 메서드에 전달하여 서비스를 크기를 조정할 수 있습니다. `Services.Get`을 호출하고, 반환된 `SearchService`를 수정한 후 `Services.CreateOrUpdate`에 전달하는 이전 방식은 계속 지원되지만 더 이상 필요하지 않습니다. 
 
 <a name="UpgradeSteps"></a>
 
@@ -46,7 +46,5 @@ NuGet에서 새 패키지와 해당 종속성을 다운로드했으면 프로젝
 
 모든 빌드 오류를 수정했다면 원하는 새 기능을 활용하도록 애플리케이션을 변경할 수 있습니다. SDK의 새로운 기능에 대한 자세한 내용은 [버전 2의 새로운 기능](#WhatsNew)에 나와 있습니다.
 
-## <a name="conclusion"></a>결론
-SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생하면 [Azure Search MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=azuresearch)을 통해 자유롭게 도움을 요청하세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[Azure Search]"라는 접두사를 지정해야 합니다.
-
-Azure Search를 이용해 주셔서 감사합니다!
+## <a name="next-steps"></a>다음 단계
+SDK에 대한 귀하의 피드백을 환영합니다! 문제가 발생 하는 경우 [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cognitive-search?tab=Newest)에 질문을 게시 하세요. 버그를 발견하는 경우 [Azure .NET SDK GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/issues)에 문제를 제출할 수 있습니다. 문제 제목에 "[검색]"으로 레이블을 지정 해야 합니다.

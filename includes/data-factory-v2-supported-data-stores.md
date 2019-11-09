@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 10/25/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 9f82661553f901658e9a5b17aa053bc1e72b44e3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b4cf80f2385a13fb95c563cab678a8fd5136ce78
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72958683"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850423"
 ---
-| 범주 | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) 에서 지원 됨 |
+| Category | 데이터 저장소 | 소스로 지원 | 싱크로 지원 | [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime)에서 지원 | [자체 호스팅 IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) 에서 지원 됨 |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob Storage](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure Cosmos DB(SQL API)](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓ |✓ |✓  |
@@ -30,7 +30,7 @@ ms.locfileid: "72958683"
 | &nbsp; |[Azure SQL Database](../articles/data-factory/connector-azure-sql-database.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Database Managed Instance](../articles/data-factory/connector-azure-sql-database-managed-instance.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Azure SQL Data Warehouse](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓ |✓ |✓ |✓  |
-| &nbsp; |[Azure Search 인덱스](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
+| &nbsp; |[Azure Cognitive Search 인덱스](../articles/data-factory/connector-azure-search.md) | |✓ |✓ |✓  |
 | &nbsp; |[Azure Table Storage](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓ |✓ |✓  |
 | **데이터베이스** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓ | |✓ |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓ |✓  |

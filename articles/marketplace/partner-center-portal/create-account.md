@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
 ms.date: 09/26/2019
-ms.openlocfilehash: 072fafac7294757afb26511af569ea75ace0d20a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: df857fb938ade329a971578ac206f16f1357d7e5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811926"
+ms.locfileid: "73838751"
 ---
 # <a name="create-a-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상용 마켓플레이스 계정 만들기
 
@@ -137,7 +137,7 @@ Microsoft 파트너 센터 계정으로 [파트너 센터](https://partner.micro
 
 1. 파트너 센터에서 **설정** > **개발자 설정** > **프로그램** > **시작**을 선택 하 고 회사 전자 메일 주소를 입력 합니다.
 2. 게시자 프로필 페이지에서 세부 정보를 완료 합니다.
-3. [Microsoft Marketplace 게시자 규약](http://go.microsoft.com/fwlink/?LinkID=699560)에서 사용 약관을 읽은 다음 **동의 함** 을 선택 하 여 등록을 완료 합니다.
+3. [Microsoft Marketplace 게시자 규약](https://go.microsoft.com/fwlink/?LinkID=699560)에서 사용 약관을 읽은 다음 **동의 함** 을 선택 하 여 등록을 완료 합니다.
 
     >[!Important]
     >*이러한 약관에 동의 하려면 회사를 대신 하 여 작업할 수 있는 권한이 있어야 합니다.*

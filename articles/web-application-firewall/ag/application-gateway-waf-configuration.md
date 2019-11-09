@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 10/17/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 91e6f08d1dc3dc829dd7c6a58c651d453121e240
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cfde1355ef5e5a2f9033456ac4089ce3ca3f9d72
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516917"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839965"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록
 
@@ -50,7 +50,7 @@ WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 �
 > [!NOTE]
 > 자세한 내용 및 문제 해결 도움말은 [Waf 문제 해결](web-application-firewall-troubleshoot.md)을 참조 하세요.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -82,7 +82,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-따라서 URL **http://www.contoso.com/?user%281%29=fdafdasfda** 가 waf에 전달 되는 경우 문자열 **fdafdasfda**을 평가 하지 않지만 매개 변수 이름 **사용자 %281 %29**을 (를) 평가 합니다. 
+따라서 URL `http://www.contoso.com/?user%281%29=fdafdasfda`가 WAF에 전달 되는 경우 문자열 **fdafdasfda**을 평가 하지 않지만 매개 변수 이름 **사용자 %281 %29**을 (를) 평가 합니다. 
 
 ## <a name="waf-request-size-limits"></a>WAF 요청 크기 제한
 

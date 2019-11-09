@@ -1,6 +1,6 @@
 ---
 title: 알고리즘 최적화
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Azure Machine Learning Studio (클래식)에서 알고리즘에 대해 최적의 매개 변수 집합을 선택 하는 방법에 대해 설명 합니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 1a0434b0f0768447f9922e651297924ad86f63c8
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 4d44598bd1352ac6d4d98ae73838fbfc9e2485e7
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621913"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838428"
 ---
 # <a name="choose-parameters-to-optimize-your-algorithms-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에서 알고리즘을 최적화 하는 매개 변수 선택
 

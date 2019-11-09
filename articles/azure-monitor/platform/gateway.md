@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 10/30/2019
-ms.openlocfilehash: 87e1995a84ae2b598b8097d4910914831a75a318
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7574f5c17c1b4598336b8db3108946164dc203f2
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162023"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847274"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 
@@ -26,7 +26,7 @@ Log Analytics 게이트웨이는 http CONNECT 명령을 사용 하 여 HTTP 터�
 
 Log Analytics 게이트웨이는 다음을 지원합니다.
 
-* Log Analytics 작업 영역 에이전트를 포함 하 고 있으며 Azure Automation Hybrid Runbook Worker로 구성 된 작업 영역 에이전트를 보고 합니다.  
+* 각 에이전트에 구성 된 동일한 Log Analytics 작업 영역에 보고 하 고 Hybrid Runbook Worker를 사용 하 Azure Automation 여 구성 된 작업 영역을 보고 합니다.  
 * Microsoft Monitoring Agent Azure Monitor의 Log Analytics 작업 영역에 직접 연결 된 Windows 컴퓨터입니다.
 * Linux 용 Log Analytics 에이전트가 Azure Monitor의 Log Analytics 작업 영역에 직접 연결 된 linux 컴퓨터입니다.  
 * System Center Operations Manager 2012 s p 1에서 UR7, Operations Manager 2012 R2 UR3 이상을 또는 Log Analytics와 통합 된 Operations Manager 2016 이상에서 관리 그룹을 사용 합니다.  

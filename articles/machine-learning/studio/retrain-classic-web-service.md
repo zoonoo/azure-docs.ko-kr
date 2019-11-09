@@ -1,6 +1,6 @@
 ---
 title: 기존 웹 서비스 다시 학습
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Azure Machine Learning Studio (클래식)에서 새로 학습 된 모델을 사용 하도록 모델을 다시 학습 하 고 기존 웹 서비스를 업데이트 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: peterclu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 17d15de3df73592c3ce410535235559c8c6fb584
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: eac7674ae4a88621a803c70bd55a88e65b2cb7e9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73670528"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838686"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>클래식 Studio (클래식) 웹 서비스 다시 학습 및 배포
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: 68c991396c92e6f288d1cc17d6b7dcf1ec79343f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 88a914a2a4d3d62918b01674d6d21f2f011e2c2e
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165486"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73834311"
 ---
 # <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Microsoft Azure Recovery Services 에이전트 백업 관리
 
@@ -39,7 +39,7 @@ ms.locfileid: "73165486"
     ![백업할 항목 선택](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 6. **백업할 항목 선택** 페이지에서 **다음**을 클릭 합니다.
-7. **백업 일정 지정** 페이지에서 매일 또는 매주 백업을 수행 하려는 경우를 지정 합니다. 그런 후 **Next** 를 클릭합니다.
+7. **백업 일정 지정** 페이지에서 매일 또는 매주 백업을 수행 하려는 경우를 지정 합니다. 그런 후 **Next**를 클릭합니다.
 
     - 복구 지점은 백업을 수행할 때 생성 됩니다.
     - 사용자 환경에서 생성 되는 복구 지점의 수는 백업 일정에 따라 달라 집니다.
@@ -52,7 +52,7 @@ ms.locfileid: "73165486"
 
     ![주별 일정](./media/backup-configure-vault/week-schedule.png)
 
-10. **보존 정책 선택** 페이지에서 데이터의 기록 복사본을 저장 하는 방법을 지정 합니다. 그런 후 **Next** 를 클릭합니다.
+10. **보존 정책 선택** 페이지에서 데이터의 기록 복사본을 저장 하는 방법을 지정 합니다. 그런 후 **Next**를 클릭합니다.
 
     - 보존 설정은 저장 해야 하는 복구 지점과 저장 해야 하는 기간을 지정 합니다.
     - 예를 들어 일별 보존 설정을 설정 하는 경우 매일 보존에 지정 된 시간에 최신 복구 지점이 지정 된 일 수 동안 보존 됨을 표시 합니다. 또는 매월 30 일에 생성 된 복구 지점을 12 개월 동안 저장 하도록 표시 하는 월별 보존 정책을 지정할 수 있습니다.
@@ -181,7 +181,7 @@ ms.locfileid: "73165486"
 
     ![예약 된 백업을 중지 합니다.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. 수동으로 생성 해야 하는 보안 PIN (개인 식별 번호)을 입력 하 라는 메시지가 표시 됩니다. 이렇게 하려면 먼저 Azure Portal에 로그인 합니다.
-5. **Recovery Services 자격 증명 모음**  > **설정**  > **속성**으로 이동 합니다.
+5. **Recovery Services 자격 증명 모음** > **설정** > **속성**으로 이동 합니다.
 6. **보안 PIN**아래에서 **생성**을 선택 합니다. 이 PIN을 복사 합니다. PIN은 5 분 동안만 유효 합니다.
 7. 관리 콘솔에서 PIN을 붙여넣은 다음 **확인**을 선택 합니다.
 
@@ -209,4 +209,4 @@ ms.locfileid: "73165486"
 ## <a name="next-steps"></a>다음 단계
 
 - 지원 되는 시나리오 및 제한 사항에 대 한 자세한 내용은 [MARS의 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)를 참조 하세요.
-- [임시 백업 정책 보존 동작](https://docs.microsoft.com/azure/backup/backup-configure-vault#ad-hoc-backup-policy-retention-behavior.md)에 대해 자세히 알아보세요.
+- [임시 백업 정책 보존 동작](backup-configure-vault.md#ad-hoc-backup-policy-retention-behavior)에 대해 자세히 알아보세요.

@@ -1,5 +1,5 @@
 ---
-title: PIM-Azure Active Directory에서 Azure AD 역할에 대 한 요청 승인 또는 거부 Microsoft Docs
+title: PIM에서 Azure AD 역할에 대 한 요청 승인 또는 거부 | Azure AD | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 요청을 승인 하거나 거부 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 04/09/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3245f7343a48d3e54795c14dcb23b836c8d9d988
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7f663f7daad19e77dcc1cc95a6a324e881d92b28
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756422"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847122"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 요청 승인 또는 거부
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용
 
 위임 승인자는 Azure AD 역할 요청이 승인 보류 중인 경우 전자 메일 알림을 받게 됩니다. Privileged Identity Management에서 이러한 보류 중인 요청을 볼 수 있습니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 

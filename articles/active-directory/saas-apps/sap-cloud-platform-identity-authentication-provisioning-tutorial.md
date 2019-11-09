@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용 하 여 자동 사용자 프로 비전을 위한 SAP Cloud Platform Identity Authentication 구성 Microsoft Docs'
+title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 SAP Cloud Platform Identity Authentication 구성 Microsoft Docs'
 description: 사용자 계정을 SAP Cloud Platform Identity Authentication으로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: f570cb6f945f403e77a36374cc9f82edb7b640c9
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 266e68b2378db7148649fd4067f1da6172932367
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174813"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833848"
 ---
 # <a name="tutorial-configure-sap-cloud-platform-identity-authentication-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 SAP Cloud Platform Identity Authentication 구성
 
-이 자습서에서는 사용자 및/또는 그룹을 SAP 클라우드에 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure AD를 구성 하기 위해 SAP Cloud Platform Identity Authentication and Azure Active Directory (Azure AD)에서 수행 하는 단계를 설명 합니다. 플랫폼 Id 인증.
+이 자습서에서는 사용자 및/또는 그룹을 SAP Cloud Platform Identity Authentication으로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure AD를 구성 하기 위해 SAP Cloud Platform Identity Authentication and Azure Active Directory (Azure AD)에서 수행 하는 단계를 설명 합니다.
 
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능에 대 한 일반 Microsoft Azure 사용 약관에 대 한 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -99,7 +99,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SAP Cloud Platfor
 
 ### <a name="to-configure-automatic-user-provisioning-for-sap-cloud-platform-identity-authentication-in-azure-ad"></a>Azure AD에서 SAP Cloud Platform Identity Authentication에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -115,7 +115,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SAP Cloud Platfor
 
     ![프로 비전 탭](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에 있는 `https://<tenantID>.accounts.ondemand.com/service/scim ` **테 넌 트 URL**에 입력 합니다. 이전에 **관리자 사용자 이름** 및 **관리자 암호** 에서 각각 검색 된 **사용자 ID** 및 **암호** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 SAP Cloud Platform Identity Authentication에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 SAP Cloud Platform Identity Authentication 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
+5. **관리자 자격 증명** 섹션 아래에 있는 **테 넌 트 URL**에 `https://<tenantID>.accounts.ondemand.com/service/scim `을 입력 합니다. 이전에 **관리자 사용자 이름** 및 **관리자 암호** 에서 각각 검색 된 **사용자 ID** 및 **암호** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 SAP Cloud Platform Identity Authentication에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 SAP Cloud Platform Identity Authentication 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
     ![테 넌 트 URL + 토큰](media/sap-cloud-platform-identity-authentication-provisioning-tutorial/testconnection.png)
 
@@ -123,7 +123,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SAP Cloud Platfor
 
     ![알림 전자 메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **Save**를 클릭합니다.
 
 8. **매핑** 섹션 아래에서 **SAP Cloud Platform Identity Authentication에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
@@ -151,10 +151,14 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 SAP Cloud Platfor
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
+## <a name="connector-limitations"></a>커넥터 제한 사항
+
+* SAP Cloud Platform Identity Authentication의 SCIM 끝점을 사용 하려면 특정 특성이 특정 형식 이어야 합니다. 이러한 특성 및 해당 특정 형식에 대 한 자세한 내용은 [여기](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/b10fc6a9a37c488a82ce7489b1fab64c.html#)에서 확인할 수 있습니다.
+
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 

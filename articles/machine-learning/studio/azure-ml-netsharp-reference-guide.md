@@ -1,6 +1,6 @@
 ---
 title: 네트워크 사용자 지정 신경망
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: Net# 신경망 사양 언어를 위한 구문 가이드 Azure Machine Learning Studio (클래식)에서 사용자 지정 신경망 모델을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 0c413bbc3c3b0bd4b1a6e6d6ff40dc1061bbc834
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7cef92964a4b62c9ed15ddd19778494d6c3be98a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684847"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839739"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에 대 한 Net # 신경망 사양 언어 가이드
 
@@ -24,7 +24,7 @@ Net#은 Microsoft가 개발한 언어로, 심층 신경망 네트워크나 임�
 Net# 아키텍처 사양은 다음 컨텍스트에서 사용할 수 있습니다.
 
 + Microsoft Azure Machine Learning Studio (클래식)의 모든 신경망 모듈: [다중 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [2 클래스 신경망](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)및 [신경망 회귀](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Microsoft ML Server의 신경망 기능은 R 언어용 [Neuralnet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) 및 [Rxneuralnet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)및 Python 용 [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) 입니다.
++ Microsoft ML Server의 신경망 기능: R 언어의 경우 [Neuralnet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) 및 [Rxneuralnet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)및 Python 용 [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) .
 
 
 이 문서에서는 Net#을 사용하여 사용자 지정 신경망을 개발하는 데 필요한 기본 개념과 구문을 설명합니다.
@@ -56,7 +56,7 @@ Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 �
 
 ## <a name="supported-customizations"></a>지원되는 사용자 지정
 
-클래식 버전의 Azure Machine Learning Studio에서 만든 신경망 모델의 아키텍처는 Net #을 사용 하 여 광범위 하 게 사용자 지정할 수 있습니다. 다음을 수행할 수 있습니다.
+클래식 버전의 Azure Machine Learning Studio에서 만든 신경망 모델의 아키텍처는 Net #을 사용 하 여 광범위 하 게 사용자 지정할 수 있습니다. 다음과 같은 기능이 가능합니다.
 
 + 숨겨진 계층을 만들고 각 계층의 노드 수를 제어합니다.
 + 계층이 서로 연결되는 방법을 지정합니다.

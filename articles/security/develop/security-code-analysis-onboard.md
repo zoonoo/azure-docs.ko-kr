@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 8936bc21af951cbabb90188b6a31d610caf80395
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: aaf59de2425e0725958847477f1043a5b7fac68a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241766"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839354"
 ---
 # <a name="onboarding-and-installing"></a>온 보 딩 및 설치
 
@@ -51,7 +51,7 @@ Microsoft 보안 코드 분석을 시작 하기 위한 필수 조건:
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Microsoft 보안 코드 분석 확장 프로그램 설치
 
-1. 확장이 Azure DevOps 조직과 공유 되 면 Azure DevOps 조직 페이지로 이동 합니다. 이러한 페이지에 대 한 URL의 예 http://dev.azure.com/contoso 는입니다.
+1. 확장이 Azure DevOps 조직과 공유 되 면 Azure DevOps 조직 페이지로 이동 합니다. 이러한 페이지에 대 한 URL 예는 `https://dev.azure.com/contoso`합니다.
 1. 이름 옆의 오른쪽 위 모서리에서 쇼핑 모음 아이콘을 선택 하 고 **확장 관리**를 선택 합니다.
 1. Microsoft 보안 코드 분석 확장을 선택한 다음 Azure DevOps UI 마법사를 열어 설치를 시작 합니다.
 1. 드롭다운 목록에서 확장을 설치할 Azure DevOps 조직을 선택 합니다.
@@ -67,9 +67,9 @@ Microsoft 보안 코드 분석을 시작 하기 위한 필수 조건:
 1. Azure DevOps 조직에서 팀 프로젝트를 엽니다.
 1. **파이프라인** > **빌드**를 선택 합니다.
 1. 확장 빌드 작업을 추가 하려는 파이프라인을 선택 합니다.
-   - 새 파이프라인: **새로** 만들기를 선택 하 고 자세히 설명 된 단계에 따라 새 파이프라인을 만듭니다.
+   - 새 파이프라인 **: 새로 만들기를 선택 하** 고 자세히 설명 된 단계에 따라 새 파이프라인을 만듭니다.
    - 파이프라인 편집: 기존 파이프라인을 선택 하 고 **편집** 을 선택 하 여 파이프라인 편집을 시작 합니다.
-1. 을 **+** 선택 하 고 **작업 추가** 창으로 이동 합니다.
+1. **+** 를 선택 하 고 **작업 추가** 창으로 이동 합니다.
 1. 목록에서 또는 검색 상자를 사용 하 여 추가 하려는 빌드 작업을 찾습니다. **추가**를 선택합니다.
 1. 작업에 필요한 매개 변수를 지정 합니다.
 1. 새 빌드를 큐에 넣습니다.

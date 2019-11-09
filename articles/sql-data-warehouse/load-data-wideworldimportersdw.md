@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5ae6844cf11ffa095f56c429e17b9c39ad0c76aa
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5272d9aa77f78d0cef316f9f227f9e269ab7e186
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822912"
+ms.locfileid: "73839892"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 데이터 로드
 
@@ -61,7 +61,7 @@ Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집
    | ------- | --------------- | ----------- | 
    | **데이터베이스 이름** | SampleDW | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. | 
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
-   | **리소스 그룹** | SampleRG | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. |
+   | **리소스 그룹** | SampleRG | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
    | **원본 선택** | 빈 데이터베이스 | 빈 데이터베이스를 만들려면 지정합니다. 데이터 웨어하우스는 데이터베이스의 한 종류입니다.|
 
     ![데이터 웨어하우스 만들기](media/load-data-wideworldimportersdw/create-data-warehouse.png)
@@ -70,7 +70,7 @@ Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집
 
     | 설정 | 제안 값 | 설명 | 
     | ------- | --------------- | ----------- |
-    | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. | 
+    | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. | 
     | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
     | **위치**: | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |

@@ -1,6 +1,6 @@
 ---
 title: 모델에 대 한 여러 끝점 만들기
-titleSuffix: ML Studio (classic) Azure
+titleSuffix: ML Studio (classic) - Azure
 description: PowerShell을 사용하여 알고리즘은 동일하지만 다른 학습 데이터 세트로 여러 Machine Learning 모델 및 웹 서비스 엔드포인트를 만듭니다.
 services: machine-learning
 ms.service: machine-learning
@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/04/2017
-ms.openlocfilehash: 337b90e68d0c88f6d6c0325431e963a3276dc42e
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d7999488302098980ff9306836ec9d54aceac3be
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619585"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837851"
 ---
 # <a name="use-powershell-to-create-studio-classic-models-and-web-service-endpoints-from-one-experiment"></a>PowerShell을 사용 하 여 한 실험에서 Studio (클래식) 모델 및 웹 서비스 끝점 만들기
 

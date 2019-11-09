@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: c58977798fabc120f3a8647774f575bc32515dcd
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 3f358dedea37eb33c2d2bb26a823d3633560d3a0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219039"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850426"
 ---
 다음은 Azure AD(Azure Active Directory) 서비스에 대한 사용 제약 조건 및 기타 서비스 제한입니다.
 
@@ -24,8 +24,9 @@ ms.locfileid: "71219039"
 |리소스 |<ul><li>기본적으로 Azure Active Directory 무료 버전의 사용자는 단일 디렉터리에 최대 5만 개의 Azure AD 리소스를 만들 수 있습니다. 확인 된 도메인이 하나 이상 있는 경우 Azure AD의 기본 디렉터리 서비스 할당량은 30만 Azure AD 리소스로 확장 됩니다. </li><li>비관리자 사용자는 Azure AD 리소스를 250 개 이하로 만들 수 있습니다. 복원에 사용할 수 있는 활성 리소스와 삭제 된 리소스는 모두이 할당량으로 계산 됩니다. 30 일 이내에 삭제 된 Azure AD 리소스를 삭제 한 경우에만 복원할 수 있습니다. 30 일 동안 1 사분기 값에서 더 이상 복원할 수 없는 Azure AD 리소스를이 할당량으로 계산 합니다. 정규 업무를 진행 하는 동안이 할당량을 반복적으로 초과할 가능성이 높은 개발자가 있는 경우 무제한의 앱 등록을 만들 수 있는 권한이 있는 [사용자 지정 역할을 만들고 할당할](../articles/active-directory/users-groups-roles/roles-quickstart-app-registration-limits.md) 수 있습니다.</li></ul> |
 | 스키마 확장 |<ul><li>문자열 형식 확장은 최대 256자까지 가능합니다. </li><li>이진 형식 확장은 256바이트로 제한됩니다.</li><li>*모든* 형식 및 *모든* 응용 프로그램에서 100 확장 값만 단일 Azure AD 리소스에 쓸 수 있습니다.</li><li>User, Group, TenantDetail, Device, Application 및 ServicePrincipal 엔터티만 String 형식 또는 Binary 형식의 단일 값 특성으로 확장할 수 있습니다.</li><li>스키마 확장은 Graph API 버전 1.21 미리 보기에서만 사용할 수 있습니다. 확장을 등록하려면 애플리케이션에 쓰기 권한이 있어야 합니다.</li></ul> |
 | 애플리케이션 |최대 100명의 사용자가 단일 애플리케이션의 소유자가 될 수 있습니다. |
+|애플리케이션 매니페스트 |응용 프로그램 매니페스트에서 최대 1200 항목을 추가할 수 있습니다. |
 | 그룹 |<ul><li>최대 100명의 사용자가 단일 그룹의 소유자가 될 수 있습니다.</li><li>Azure AD 리소스의 수에 관계 없이 단일 그룹의 멤버일 수 있습니다.</li><li>사용자는 모든 그룹의 멤버가 될 수 있습니다.</li><li>Azure AD Connect를 사용하여 온-프레미스 Active Directory에서 Azure Active Directory로 동기화할 수 있는 그룹 내 멤버 수는 50,000으로 제한됩니다.</li></ul> |
-| 응용 프로그램 프록시 | <ul><li>앱 프록시 응용 프로그램당 초당 최대 500 개의 트랜잭션</li><li>테 넌 트의 초당 최대 750 개의 트랜잭션</li></ul><br/>트랜잭션은 단일 http 요청 및 고유 리소스에 대 한 응답으로 정의 됩니다. 제한 되는 경우 클라이언트는 429 응답 (너무 많은 요청)을 수신 합니다. |
+| 애플리케이션 프록시 | <ul><li>앱 프록시 응용 프로그램당 초당 최대 500 개의 트랜잭션</li><li>테 넌 트의 초당 최대 750 개의 트랜잭션</li></ul><br/>트랜잭션은 단일 http 요청 및 고유 리소스에 대 한 응답으로 정의 됩니다. 제한 되는 경우 클라이언트는 429 응답 (너무 많은 요청)을 수신 합니다. |
 | 액세스 패널 |<ul><li>사용자당 액세스 패널에서 볼 수 있는 애플리케이션의 수는 제한이 없습니다. 이는 Azure AD Premium 또는 Enterprise Mobility Suite용 라이선스가 할당된 사용자에게 적용됩니다.</li><li>각 사용자는 액세스 패널에서 최대 10개의 앱 타일을 볼 수 있습니다. 이 제한은 Azure AD Free 라이선스 계획에 대 한 라이선스가 할당 된 사용자에 게 적용 됩니다. 앱 타일의 예로는 Box, Salesforce 또는 Dropbox가 있습니다. 관리자 계정에는 이 제한이 적용되지 않습니다.</li></ul> |
 | 보고서 | 최대 1,000행을 표시하거나 보고서에 다운로드할 수 있습니다. 그 외의 데이터는 잘립니다. |
 | 관리 단위 | Azure AD 리소스는 30 개 이하의 관리 단위 구성원이 될 수 있습니다. |
