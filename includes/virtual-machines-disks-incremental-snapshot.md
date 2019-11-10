@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 72e94b864b15d5c4872ebf6ba9f0d1a00a0e92b0
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f9b9773e595d1ff00d92bd757c4b85eb6c219b26
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72924860"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73897530"
 ---
 # <a name="creating-an-incremental-snapshot-preview-for-managed-disks"></a>관리 디스크에 대 한 증분 스냅숏 (미리 보기) 만들기
 
@@ -45,7 +45,7 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 설치가 완료 되 면 `az login`를 사용 하 여 PowerShell 세션에 로그인 합니다.
 
-Azure PowerShell를 사용 하 여 증분 스냅숏을 만들려면 `-Incremental` 매개 변수를 사용 하 여 [AzSnapShotConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) 로 구성을 설정한 다음 `-Snapshot` 매개 변수를 통해 [AzSnapshot](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) 에 변수로 전달 합니다.
+Azure PowerShell를 사용 하 여 증분 스냅숏을 만들려면 `-Incremental` 매개 변수를 사용 하 여 [AzSnapShotConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) 로 구성을 설정한 다음 `-Snapshot` 매개 변수를 통해 [AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) 에 변수로 전달 합니다.
 
 `<yourDiskNameHere>`, `<yourResourceGroupNameHere>`및 `<yourDesiredSnapShotNameHere>`를 값으로 바꾸고 다음 스크립트를 사용 하 여 증분 스냅숏을 만들 수 있습니다.
 
