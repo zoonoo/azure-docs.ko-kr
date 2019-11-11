@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 04/25/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: cf05468af17a4fafa7c81c7ad8bc89b3306a54af
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: f74d4cbc17e49345534a37e9e6612a36e19be295
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68286335"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903695"
 ---
-공유 이미지 갤러리를 사용 하면 RBAC를 사용 하 여 이미지를 공유할 수 있습니다. RBAC를 사용 하 여 테 넌 트 내에서 이미지를 공유 하 고 테 넌 트 외부의 사용자도 공유할 수 있습니다. 그러나 Azure 테 넌 트 외부에서 이미지를 공유 하려는 경우에는 쉽게 공유할 수 있도록 앱 등록을 만들어야 합니다.  앱 등록을 사용 하면 다음과 같은 보다 복잡 한 공유 시나리오를 사용할 수 있습니다. 
+그러나 Azure 테 넌 트 외부에서 이미지를 공유 하려는 경우에는 쉽게 공유할 수 있도록 앱 등록을 만들어야 합니다.  앱 등록을 사용 하면 다음과 같은 보다 복잡 한 공유 시나리오를 사용할 수 있습니다. 
 
 * 한 회사가 다른 회사를 획득 하 고 Azure 인프라가 별도의 테 넌 트에 걸쳐 있는 경우 공유 이미지를 관리 합니다. 
 * Azure 파트너는 고객을 대신 하 여 Azure 인프라를 관리 합니다. 이미지 사용자 지정은 파트너 테 넌 트 내에서 수행 되지만 인프라 배포는 고객의 테 넌 트에서 수행 됩니다. 
@@ -28,7 +28,7 @@ ms.locfileid: "68286335"
 1. 페이지 맨 위에 있는 메뉴에서 **새 등록** 을 선택 합니다.
 1. **이름**에 *myGalleryApp*를 입력 합니다.
 1. **지원 되는 계정 유형**에서 **조직 디렉터리와 개인 Microsoft 계정의 계정**을 선택 합니다.
-1. **URI 리디렉션**에서을 입력 *https://www.microsoft.com* 한 다음 **등록**을 선택 합니다. 앱 등록을 만든 후 개요 페이지가 열립니다.
+1. **리디렉션 URI**에 *https://www.microsoft.com* 를 입력 한 다음 **등록**을 선택 합니다. 앱 등록을 만든 후 개요 페이지가 열립니다.
 1. 개요 페이지에서 **응용 프로그램 (클라이언트) ID** 를 복사 하 고 나중에 사용 하기 위해 저장 합니다.   
 1. **인증서 & 암호**를 선택 하 고 **새 클라이언트 암호**를 선택 합니다.
 1. **설명**에 *공유 이미지 갤러리 교차 테 넌 트 앱 암호*를 입력 합니다.
@@ -46,7 +46,7 @@ ms.locfileid: "68286335"
 
 ## <a name="give-tenant-2-access"></a>테 넌 트 2 액세스 권한 부여
 
-브라우저를 사용 하 여 로그인을 요청 하 여 테 넌 트 2에 응용 프로그램 액세스 권한을 부여 합니다. *\<Tenant2 ID >* 를 이미지 갤러리를 공유 하려는 테 넌 트의 테 넌 트 id로 바꿉니다. *\<응용 프로그램 (클라이언트) id >* 를 사용자가 만든 앱 등록의 응용 프로그램 id로 바꿉니다. 대체를 수행한 후 URL을 브라우저에 붙여 넣고 로그인 프롬프트에 따라 테 넌 트 2에 로그인 합니다.
+브라우저를 사용 하 여 로그인을 요청 하 여 테 넌 트 2에 응용 프로그램 액세스 권한을 부여 합니다. *\<TENANT2 ID >* 을 이미지 갤러리를 공유 하려는 테 넌 트의 테 넌 트 id로 바꿉니다. *\<응용 프로그램 (클라이언트) id >* 를 만든 앱 등록의 응용 프로그램 id로 바꿉니다. 대체를 수행한 후 URL을 브라우저에 붙여 넣고 로그인 프롬프트에 따라 테 넌 트 2에 로그인 합니다.
 
 ```
 https://login.microsoftonline.com/<Tenant 2 ID>/oauth2/authorize?client_id=<Application (client) ID>&response_type=code&redirect_uri=https%3A%2F%2Fwww.microsoft.com%2F 

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: aa4254673d426579a5e5f0e90e389db7c6cadff0
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7f80fb07bbed3bdb478bce557241a92cd571cc83
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607343"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904890"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>문제 해결 개요, 피드백 및 지원
 
@@ -44,6 +44,7 @@ ms.locfileid: "73607343"
 | 클라이언트 연결                                                                    | [원격 데스크톱 클라이언트 연결](troubleshoot-client-connection.md) 을 참조 하 고, 문제가 해결 되지 않으면 [세션 호스트 가상 머신 구성](troubleshoot-vm-configuration.md)을 참조 하세요. |
 | 원격 응용 프로그램 또는 데스크톱의 응답성                                      | 문제가 특정 응용 프로그램 또는 제품에 연결 된 경우 해당 제품을 담당 하는 팀에 문의 하십시오. |
 | 라이선스 메시지 또는 오류                                                          | 문제가 특정 응용 프로그램 또는 제품에 연결 된 경우 해당 제품을 담당 하는 팀에 문의 하십시오. |
+| GitHub에서 Windows 가상 데스크톱 도구를 사용 하는 경우의 문제 (Azure Resource Manager 템플릿, 진단 도구, 관리 도구) | 문제를 보고 하려면 [원격 데스크톱 서비스에 대 한 ARM 템플릿](https://github.com/Azure/RDS-Templates/blob/master/README.md) 을 참조 하세요. |
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -54,4 +55,4 @@ ms.locfileid: "73607343"
 - 서비스에 대 한 자세한 내용은 [Windows 가상 데스크톱 환경](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)을 참조 하세요.
 - 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)을 참조 하세요.
 - 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)를 참조하세요.
-- 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)를 참조하세요.
+- 배포 하는 동안 오류를 확인 하는 작업에 대해 알아보려면 [배포 작업 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)를 참조 하세요.

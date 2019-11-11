@@ -1,23 +1,25 @@
 ---
 title: .NET-Azure Storage를 사용 하 여 blob 나열
-description: .NET 클라이언트 라이브러리를 사용 하 여 Azure Storage 계정의 컨테이너에 있는 blob을 나열 하는 방법을 알아봅니다.
+description: .NET 클라이언트 라이브러리를 사용 하 여 Azure Storage 계정의 컨테이너에 있는 blob을 나열 하는 방법을 알아봅니다. 코드 예제에서는 플랫 목록에 blob을 나열 하는 방법을 보여 줍니다. 또는 디렉터리 또는 폴더로 구성 된 것 처럼 blob을 계층적으로 나열 하는 방법을 보여 줍니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: bf9d2d59e993de3807a10a6c39f88b2063024bfc
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4b6dc9d80cfe96e501e575d265b9fa383b1c4d2c
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599930"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902010"
 ---
 # <a name="list-blobs-with-net"></a>.NET을 사용 하 여 blob 나열
 
-코드에서 blob을 나열 하는 경우 Azure Storage에서 결과가 반환 되는 방식을 관리 하는 다양 한 옵션을 지정할 수 있습니다. 이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client)를 사용 하 여 blob을 나열 하는 방법을 보여 줍니다.  
+코드에서 blob을 나열 하는 경우 Azure Storage에서 결과가 반환 되는 방식을 관리 하는 다양 한 옵션을 지정할 수 있습니다. 결과의 각 집합에서 반환할 결과 수를 지정 하 고 다음 집합을 검색할 수 있습니다. 이름이 해당 문자 또는 문자열로 시작 하는 blob을 반환 하는 접두사를 지정할 수 있습니다. 플랫 목록 구조 나 계층적으로 blob을 나열할 수 있습니다. 계층적 목록은 폴더로 구성 된 것 처럼 blob을 반환 합니다. 
+
+이 문서에서는 [.net 용 Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage/client)를 사용 하 여 blob을 나열 하는 방법을 보여 줍니다.  
 
 ## <a name="understand-blob-listing-options"></a>Blob 목록 옵션 이해
 
@@ -53,7 +55,7 @@ ms.locfileid: "72599930"
 
 ### <a name="flat-listing-versus-hierarchical-listing"></a>단순 목록 및 계층 구조 목록
 
-Azure Storage blob은 계층적 패러다임 (예: 클래식 파일 시스템)이 아닌 플랫 패러다임으로 구성 됩니다. 그러나 계층적 패러다임을 모방 하기 위해 blob을 *가상 디렉터리로* 구성할 수 있습니다. 가상 디렉터리는 구분 기호 문자로 경계선 blob의 이름에 포함 됩니다.
+Azure Storage blob은 계층적 패러다임 (예: 클래식 파일 시스템)이 아닌 플랫 패러다임으로 구성 됩니다. 그러나 폴더 구조를 모방 하기 위해 blob을 *가상 디렉터리로* 구성할 수 있습니다. 가상 디렉터리는 blob 이름의 일부를 형성 하며 구분 기호 문자로 표시 됩니다.
 
 Blob을 가상 디렉터리로 구성 하려면 blob 이름에 구분 기호 문자를 사용 합니다. 기본 구분 기호 문자는 슬래시 (/) 이지만 구분 기호로 문자를 지정할 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.topic: article
 ms.date: 10/01/2019
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: 275d02219087d07a058f486c263d1886839dd4cf
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5b946e36c5da9f122adce1f8e3b99523a789a66f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72799836"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901142"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Azure Logic Apps에서 Azure 함수를 호출 합니다.
 
@@ -29,9 +29,9 @@ Azure 함수를 만들지 않고 코드 조각을 실행 하려면 [인라인 �
 > [!NOTE]
 > 현재 Logic Apps와 Azure Functions 간의 통합은 슬롯을 사용 하는 경우 작동 하지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독. Azure 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * Azure 함수를 사용 하 여 azure 함수를 위한 컨테이너인 Azure 함수 앱입니다. 함수 앱이 없는 경우 [함수 앱을 먼저 만듭니다](../azure-functions/functions-create-first-azure-function.md). 그런 다음 Azure Portal의 논리 앱 외부에서 또는 논리 앱 디자이너의 [논리 앱 내에서](#create-function-designer) 함수를 만들 수 있습니다.
 
@@ -86,13 +86,13 @@ function convertToDateString(request, response){
 
 이 함수 내에서 수행되는 작업은 다음과 같습니다.
 
-1. 이 함수는 `data` 변수를 만들고 `request` 개체 내의 `body` 개체를 해당 변수에 할당합니다. 이 함수는 점(.) 연산자를 사용하여 `request` 개체 내의 `body` 개체를 참조합니다.
+1. 이 함수는 `data` 변수를 만들고 `body` 개체 내의 `request` 개체를 해당 변수에 할당합니다. 이 함수는 점(.) 연산자를 사용하여 `body` 개체 내의 `request` 개체를 참조합니다.
 
    ```javascript
    var data = request.body;
    ```
 
-1. 이 함수는 이제 `data` 변수를 통해 `date` 속성에 액세스하고, `ToDateString()` 함수를 호출하여 해당 속성 값을 DateTime 형식에서 DateString 형식으로 변환할 수 있습니다. 또한 이 함수는 다음과 같이 함수의 응답에서 `body` 속성을 통해 결과를 반환합니다.
+1. 이 함수는 이제 `date` 변수를 통해 `data` 속성에 액세스하고, `ToDateString()` 함수를 호출하여 해당 속성 값을 DateTime 형식에서 DateString 형식으로 변환할 수 있습니다. 또한 이 함수는 다음과 같이 함수의 응답에서 `body` 속성을 통해 결과를 반환합니다.
 
    ```javascript
    body: data.date.ToDateString();
@@ -114,7 +114,7 @@ function convertToDateString(request, response){
 
    * 논리 앱 워크플로의 기존 단계 사이에서 화살표 위로 마우스를 이동 하 고 더하기 (+) 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
-1. 검색 상자에서 "azure functions"를 필터로 입력합니다. 작업 목록에서 **Azure 함수 선택** 작업을 선택 합니다.
+1. 검색 상자에서 "azure functions"를 필터로 입력합니다. 작업 목록에서 **Azure 함수 선택** 작업을 선택 합니다. 예를 들면 다음과 같습니다.
 
    !["Azure 함수" 찾기](./media/logic-apps-azure-functions/find-azure-functions-action.png)
 
@@ -126,24 +126,24 @@ function convertToDateString(request, response){
 
    1. **함수 이름** 상자에 함수에 대한 이름을 입력합니다.
 
-   1. **코드** 상자에서 함수 실행이 완료 된 후에 논리 앱에 반환 하려는 응답과 페이로드를 포함 하 여 함수 템플릿에 코드를 추가 합니다.
+   1. **코드** 상자에서 함수 실행이 완료 된 후에 논리 앱에 반환 하려는 응답과 페이로드를 포함 하 여 함수 템플릿에 코드를 추가 합니다. 완료되면 **만들기**를 선택합니다.
 
-      ![함수 정의](./media/logic-apps-azure-functions/function-definition.png)
+   예:
 
-      템플릿의 코드에서 *`context` 개체*는 논리 앱이 이후 단계에서 **요청 본문** 필드를 통해 전송하는 메시지를 참조합니다. 함수 내에서 `context` 개체의 속성에 액세스하려면 다음 구문을 사용합니다.
+   ![함수 정의](./media/logic-apps-azure-functions/add-code-function-definition.png)
 
-      `context.body.<property-name>`
+   템플릿의 코드에서 *`context` 개체*는 논리 앱이 이후 단계에서 **요청 본문** 필드를 통해 전송하는 메시지를 참조합니다. 함수 내에서 `context` 개체의 속성에 액세스하려면 다음 구문을 사용합니다.
 
-      예를 들어, `context` 개체 내의 `content` 속성을 참조하려면 다음 구문을 사용합니다.
+   `context.body.<property-name>`
 
-      `context.body.content`
+   예를 들어, `content` 개체 내의 `context` 속성을 참조하려면 다음 구문을 사용합니다.
 
-      또한 템플릿 코드에는 함수가 해당 값에 대해 작업을 수행할 수 있도록 `data` 매개 변수의 값을 저장하는 `input` 변수도 포함되어 있습니다. JavaScript 함수 내에서 `data` 변수는 `context.body`를 빠르게 수행하는 방법이기도 합니다.
+   `context.body.content`
 
-      > [!NOTE]
-      > 여기서 `body` 속성은 `context` 개체에 적용되며, 함수에도 전달될 수 있는 작업의 출력에서 가져온 **Body** 토큰과 다릅니다.
+   또한 템플릿 코드에는 함수가 해당 값에 대해 작업을 수행할 수 있도록 `input` 매개 변수의 값을 저장하는 `data` 변수도 포함되어 있습니다. JavaScript 함수 내에서 `data` 변수는 `context.body`를 빠르게 수행하는 방법이기도 합니다.
 
-   1. 완료되면 **만들기**를 선택합니다.
+   > [!NOTE]
+   > 여기서 `body` 속성은 `context` 개체에 적용되며, 함수에도 전달될 수 있는 작업의 출력에서 가져온 **Body** 토큰과 다릅니다.
 
 1. **요청 본문** 상자에 JSON (JavaScript Notation) 개체로 형식이 지정된 함수 입력을 제공합니다.
 

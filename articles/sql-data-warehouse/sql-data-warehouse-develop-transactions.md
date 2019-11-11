@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 09fc0f7cee38f799322a1914848a5176e9a223a1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 376b7b8a734e5064713237e9250542a4c5cc18f1
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692780"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903082"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>SQL Data Warehouse의 트랜잭션 사용
 솔루션 개발을 위한 Azure SQL Data Warehouse의 트랜잭션 구현을 위한 팁
@@ -35,7 +35,7 @@ SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭
 * 균일한 데이터 분포가 발생했습니다. 
 * 평균 행 길이는 250바이트입니다.
 
-## <a name="gen2"></a>2세대
+## <a name="gen2"></a>Gen2
 
 | [DWU](sql-data-warehouse-overview-what-is.md) | 배포 당 단면 (GB) | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |
@@ -56,7 +56,7 @@ SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭
 | DW15000c |112.5 |60 |6750 |4억5000만 |270억 |
 | DW30000c |225 |60 |13500 |900,000,000 |540억 |
 
-## <a name="gen1"></a>1세대
+## <a name="gen1"></a>Gen1
 
 | [DWU](sql-data-warehouse-overview-what-is.md) | 배포 당 단면 (GB) | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |
@@ -151,8 +151,8 @@ BEGIN TRAN
 
         IF @@TRANCOUNT > 0
         BEGIN
-            PRINT 'ROLLBACK';
             ROLLBACK TRAN;
+            PRINT 'ROLLBACK';
         END
 
         SELECT  ERROR_NUMBER()    AS ErrNumber

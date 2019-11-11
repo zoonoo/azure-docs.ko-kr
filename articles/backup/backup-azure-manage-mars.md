@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: dacurwin
-ms.openlocfilehash: 88a914a2a4d3d62918b01674d6d21f2f011e2c2e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 049b09f7927da2cc841130a0adeaa90768037db8
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834311"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903201"
 ---
 # <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Microsoft Azure Recovery Services 에이전트 백업 관리
 
@@ -39,7 +39,7 @@ ms.locfileid: "73834311"
     ![백업할 항목 선택](./media/backup-azure-manage-mars/selected-items-to-backup.png)
 
 6. **백업할 항목 선택** 페이지에서 **다음**을 클릭 합니다.
-7. **백업 일정 지정** 페이지에서 매일 또는 매주 백업을 수행 하려는 경우를 지정 합니다. 그런 후 **Next**를 클릭합니다.
+7. **백업 일정 지정** 페이지에서 매일 또는 매주 백업을 수행 하려는 경우를 지정 합니다. 그런 후 **다음**을 클릭합니다.
 
     - 복구 지점은 백업을 수행할 때 생성 됩니다.
     - 사용자 환경에서 생성 되는 복구 지점의 수는 백업 일정에 따라 달라 집니다.
@@ -52,7 +52,7 @@ ms.locfileid: "73834311"
 
     ![주별 일정](./media/backup-configure-vault/week-schedule.png)
 
-10. **보존 정책 선택** 페이지에서 데이터의 기록 복사본을 저장 하는 방법을 지정 합니다. 그런 후 **Next**를 클릭합니다.
+10. **보존 정책 선택** 페이지에서 데이터의 기록 복사본을 저장 하는 방법을 지정 합니다. 그런 후 **다음**을 클릭합니다.
 
     - 보존 설정은 저장 해야 하는 복구 지점과 저장 해야 하는 기간을 지정 합니다.
     - 예를 들어 일별 보존 설정을 설정 하는 경우 매일 보존에 지정 된 시간에 최신 복구 지점이 지정 된 일 수 동안 보존 됨을 표시 합니다. 또는 매월 30 일에 생성 된 복구 지점을 12 개월 동안 저장 하도록 표시 하는 월별 보존 정책을 지정할 수 있습니다.
@@ -62,7 +62,7 @@ ms.locfileid: "73834311"
             -월의 마지막 주에 수행 된 토요일 자정 및 오후 6:00에 수행 된 백업은 12 개월 동안 유지 됩니다.
             -3 월의 마지막 주 토요일에 수행 된 백업은 10 년 동안 유지 됩니다.
 
-           ![Retention example](./media/backup-configure-vault/retention-example.png)
+    ![보존 예](./media/backup-configure-vault/retention-example.png)
 
 11. **초기 백업 유형 선택** 에서 네트워크를 통해 초기 백업을 수행 하거나 오프 라인 백업을 사용할지 결정 합니다. 오프 라인 백업에 대 한 자세한 내용은이 [문서](backup-azure-backup-import-export.md)를 참조 하세요. 네트워크를 통해 초기 백업을 수행 하려면 **네트워크를 통해 자동으로** 를 선택 하 고 **다음**을 클릭 합니다.
 

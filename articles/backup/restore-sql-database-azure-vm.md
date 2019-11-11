@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 648c5ca1eb1cb1c0f1832654fc66d436b9318af3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 878658135bdb8844c5c86bc207db580ccd7ff63f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161839"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903610"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Azure VM에서 SQL Server 데이터베이스 복원
 
@@ -27,7 +27,7 @@ ms.locfileid: "73161839"
 - 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
 - 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 데이터베이스를 복원 하기 전에 다음 사항에 유의 하십시오.
 
@@ -51,7 +51,7 @@ ms.locfileid: "73161839"
   - 동일한 VM으로 복원 하는 경우이 VM은 원본 VM입니다.
   - 대체 위치로 복원 하는 경우 새 대상 VM이 됩니다.
 
-복원은 다음과 같이 수행됩니다.
+다음과 같이 복원합니다.
 
 1. SQL Server VM이 등록된 자격 증명 모음을 엽니다.
 2. 자격 증명 모음 대시보드의 **사용 현황** 아래에서 **백업 항목**을 선택합니다.
@@ -76,9 +76,9 @@ ms.locfileid: "73161839"
    - **대체 위치**: 데이터베이스를 대체 위치로 복원 하 고 원래 원본 데이터베이스를 유지 합니다.
    - **DB 덮어쓰기**: 원래 원본과 동일한 SQL Server 인스턴스에 데이터를 복원합니다. 이 옵션은 원본 데이터베이스를 덮어씁니다.
 
-           > [!IMPORTANT]
-           > If the selected database belongs to an Always On availability group, SQL Server doesn't allow the database to be overwritten. Only **Alternate Location** is available.
-           >
+    > [!IMPORTANT]
+    > 선택한 데이터베이스가 Always On 가용성 그룹에 속하면 SQL Server에서 데이터베이스를 덮어쓸 수 없습니다. **대체 위치**만 사용할 수 있습니다.
+    >
    - **파일로 복원**: 데이터베이스로 복원 하는 대신 SQL Server Management Studio를 사용 하 여 파일이 있는 컴퓨터에서 나중에 데이터베이스로 복구할 수 있는 백업 파일을 복원 합니다.
      ![복원 구성 메뉴](./media/backup-azure-sql-database/restore-configuration.png)
 

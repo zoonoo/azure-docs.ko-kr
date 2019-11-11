@@ -1,19 +1,18 @@
 ---
 title: Azure IoT Hub 메시지 라우팅에 대한 쿼리 | Microsoft Docs
-description: 개발자 가이드 - Azure IoT Hub에서 메시지 라우팅을 하는 데 필요한 쿼리 구문입니다.
+description: 중요 한 데이터를 수신 하기 위해 메시지에 다양 한 쿼리를 적용 하는 데 사용할 수 있는 IoT Hub 메시지 라우팅 쿼리 언어에 대해 알아봅니다.
 author: ash2017
-manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 7f6439d79e5d46621b92b1c24ba5caf87889f443
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 859b15954f64f8b481f6b86c04fc28b542599f02
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877068"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890491"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub 메시지 라우팅 쿼리 구문
 
@@ -197,7 +196,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ### <a name="query-expressions"></a>쿼리 식
 
-메시지 본문에 대한 쿼리는 접두사로 `$twin`을 사용해야 합니다. 또한 쿼리 식은 쌍 태그 또는 속성 참조를 본문 참조, 메시지 시스템 속성 및 메시지 애플리케이션 속성 참조와 결합할 수 있습니다. 쿼리가 대/소문자를 구분하지 않으므로 태그 및 속성에 고유한 이름을 사용하는 것이 좋습니다. 또한 속성 이름으로 `twin`, `$twin`, `body` 또는 `$body`를 사용하지 않도록 합니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다. 
+메시지 본문에 대한 쿼리는 접두사로 `$twin`를 사용해야 합니다. 또한 쿼리 식은 쌍 태그 또는 속성 참조를 본문 참조, 메시지 시스템 속성 및 메시지 애플리케이션 속성 참조와 결합할 수 있습니다. 쿼리가 대/소문자를 구분하지 않으므로 태그 및 속성에 고유한 이름을 사용하는 것이 좋습니다. 또한 속성 이름으로 `twin`, `$twin`, `body` 또는 `$body`를 사용하지 않도록 합니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다. 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

@@ -8,25 +8,27 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: danlep
-ms.openlocfilehash: 28205d6db85d7a5051f283445d95dd2375e174c8
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7f9696e9803e9ab168c59b6c5e7413a4f754a6ae
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325861"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904438"
 ---
 # <a name="configure-liveness-probes"></a>활동성 프로브 구성
 
-컨테이너화된 애플리케이션이 장기간 실행되어 손상되면 컨테이너를 다시 시작하여 복구해야 할 수도 있습니다. Azure Container Instances는 중요한 기능이 작동하지 않으면 컨테이너를 다시 시작하는 구성을 포함하는 활동성 프로브를 지원합니다.
+컨테이너 화 된 응용 프로그램은 오랜 시간 동안 실행 될 수 있으며,이로 인해 컨테이너를 다시 시작 하 여 복구 해야 하는 상태가 손상 될 수 있습니다. Azure Container Instances는 선거의 프로브를 지원 하므로 중요 한 기능이 작동 하지 않는 경우 컨테이너 그룹 내에서 컨테이너를 다시 시작 하도록 구성할 수 있습니다. 선거의 프로브는 [Kubernetes 선거의 프로브](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/)처럼 동작 합니다.
 
 이 문서에서는 활동성 프로브가 포함된 컨테이너 그룹을 배포하는 방법을 설명하고, 시뮬레이션된 비정상 컨테이너를 다시 시작하는 방법을 보여줍니다.
+
+또한 Azure Container Instances은 준비가 된 경우에만 트래픽이 컨테이너에 도달할 수 있도록 구성할 수 있는 [준비 프로브](container-instances-readiness-probe.md)를 지원 합니다.
 
 ## <a name="yaml-deployment"></a>YAML 배포
 
 다음 코드 조각이 포함된 `liveness-probe.yaml` 파일을 만듭니다. 이 파일은 결국 비정상 상태가 되는 NGNIX 컨테이너를 구성하는 컨테이너 그룹을 정의합니다.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: livenesstest
 properties:
@@ -63,17 +65,17 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>시작 명령
 
-이 배포는 컨테이너가 처음으로 시작될 때 실행할 시작 명령을 정의하며, 시작 명령은 문자열 배열을 받는 `command` 속성을 통해 정의됩니다. 이 예제에서는 다음 명령을 전달하여 bash 세션을 시작하고 `/tmp` 디렉터리 내에 `healthy` 파일을 만듭니다.
+배포는 컨테이너를 처음 실행 하기 시작할 때 실행 되는 시작 명령을 정의 합니다 .이는 문자열 배열을 수락 하는 `command` 속성으로 정의 됩니다. 이 예제에서는 다음 명령을 전달하여 bash 세션을 시작하고 `healthy` 디렉터리 내에 `/tmp` 파일을 만듭니다.
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- 그 후 30초 동안 대기했다가 파일을 삭제하고 10분간 대기합니다.
+ 그런 다음 파일을 삭제 하기 전에 30 초 동안 대기 하 고 10 분 절전 모드로 전환 됩니다.
 
 ### <a name="liveness-command"></a>활동성 명령
 
-이 배포는 활동성 검사 역할을 하는 `exec` 활동성 명령을 지원하는 `livenessProbe`를 정의합니다. 이 명령이 0이 아닌 값으로 종료되면 컨테이너가 종료되었다가 다시 시작되고, `healthy` 파일을 찾을 수 없다는 신호를 보냅니다. 이 명령이 종료 코드 0으로 무사히 종료되면 아무 작업도 수행되지 않습니다.
+이 배포는 선거의 check 역할을 하는 `exec` 선거의 명령을 지 원하는 `livenessProbe`를 정의 합니다. 이 명령이 0이 아닌 값으로 종료되면 컨테이너가 종료되었다가 다시 시작되고, `healthy` 파일을 찾을 수 없다는 신호를 보냅니다. 이 명령이 종료 코드 0으로 무사히 종료되면 아무 작업도 수행되지 않습니다.
 
 `periodSeconds` 속성은 활동성 명령을 5초마다 실행해야 한다고 지정합니다.
 
@@ -87,7 +89,7 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ![포털 비정상 이벤트][portal-unhealthy]
 
-Azure Portal에서 이벤트를 보면 `Unhealthy` 형식의 이벤트는 활동성 명령이 실패하는 즉시 트리거됩니다. 후속 이벤트는 `Killing` 형식이며, 다시 시작될 수 있도록 컨테이너 삭제를 나타냅니다. 이 이벤트가 발생할 때마다 컨테이너의 다시 시작 횟수가 증가합니다.
+Azure Portal에서 이벤트를 보면 `Unhealthy` 형식의 이벤트는 활동성 명령이 실패하는 즉시 트리거됩니다. 후속 이벤트는 `Killing` 형식이며, 다시 시작될 수 있도록 컨테이너 삭제를 나타냅니다. 컨테이너의 다시 시작 횟수는이 이벤트가 발생할 때마다 증가 합니다.
 
 다시 시작이 즉시 완료되므로 공용 IP 주소나 노드 관련 콘텐츠 같은 리소스는 그대로 유지됩니다.
 
@@ -97,7 +99,7 @@ Azure Portal에서 이벤트를 보면 `Unhealthy` 형식의 이벤트는 활동
 
 ## <a name="liveness-probes-and-restart-policies"></a>활동성 프로브 및 다시 시작 정책
 
-다시 시작 정책은 활동성 프로브에 의해 트리거되는 다시 시작 동작보다 우선합니다. 예를 들어 `restartPolicy = Never` *및* 활동성 프로브를 설정하면 활동성 검사 실패 시 컨테이너 그룹이 다시 시작되지 않습니다. 그 대신 컨테이너 그룹은 컨테이너 그룹의 다시 시작 정책 `Never`를 따릅니다.
+다시 시작 정책은 활동성 프로브에 의해 트리거되는 다시 시작 동작보다 우선합니다. 예를 들어 `restartPolicy = Never` *및* 선거의 프로브를 설정 하는 경우 선거의 검사에 실패 하 여 컨테이너 그룹을 다시 시작 하지 않습니다. 그 대신 컨테이너 그룹은 컨테이너 그룹의 다시 시작 정책 `Never`를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

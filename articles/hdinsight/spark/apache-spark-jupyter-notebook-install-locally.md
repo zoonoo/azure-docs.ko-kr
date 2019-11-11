@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: 46164cfc0c2baff919808a831a67180b65a23ff7
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.date: 11/07/2019
+ms.openlocfilehash: 225ee7028b9610a4974f9bee05da667d78d3355e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337647"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903746"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>컴퓨터에 Jupyter 노트북을 설치하고 HDInsight에서 Apache Spark에 연결
 
@@ -28,11 +28,11 @@ Jupyter를 설치 하 고 HDInsight에서 Apache Spark에 연결 하는 데는 4
 
 HDInsight 클러스터의 Jupyter Notebook에 사용할 수 있는 사용자 지정 커널 및 Spark Magic에 대한 자세한 내용은 [HDInsight의 Apache Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
-여기에 나열된 필수 구성 요소는 Jupyter를 설치하기 위한 것이 아니며 Jupyter 노트북이 설치되면 HDInsight 클러스터를 노트북을 연결하기 위한 것입니다.
+* HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요. 이는 노트북이 설치 된 후 Jupyter 노트북을 HDInsight 클러스터에 연결 하기 위한 필수 구성 요소입니다.
 
-* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Spark에서 Jupyter Notebook을 사용하는 방법 이해.
 
 ## <a name="install-jupyter-notebook-on-your-computer"></a>컴퓨터에 Jupyter 노트북 설치
 
@@ -46,10 +46,10 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. [A
 
     |클러스터 버전 | Install 명령 |
     |---|---|
-    |v 3.6 및 v 3.5 |`pip install sparkmagic==0.12.7`|
-    |v3.4|`pip install sparkmagic==0.2.3`|
+    |v 3.6 및 v 3.5 |`pip install sparkmagic==0.13.1`|
+    |v. 3.4|`pip install sparkmagic==0.2.3`|
 
-1. 다음 `ipywidgets` 명령을 실행 하 여를 제대로 설치 했는지 확인 합니다.
+1. 다음 명령을 실행 하 여 `ipywidgets` 제대로 설치 되었는지 확인 합니다.
 
     ```cmd
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
@@ -57,7 +57,7 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. [A
 
 ## <a name="install-pyspark-and-spark-kernels"></a>PySpark 및 Spark 커널 설치
 
-1. 다음 명령을 `sparkmagic` 입력 하 여가 설치 되는 위치를 식별 합니다.
+1. 다음 명령을 입력 하 여 `sparkmagic` 설치 된 위치를 식별 합니다.
 
     ```cmd
     pip show sparkmagic
@@ -74,7 +74,7 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. [A
     |PySpark|`jupyter-kernelspec install sparkmagic/kernels/pysparkkernel`|
     |PySpark3|`jupyter-kernelspec install sparkmagic/kernels/pyspark3kernel`|
 
-1. (선택 사항) 서버 확장을 사용 하도록 설정 하려면 아래 명령을 입력 합니다.
+1. 선택 사항입니다. 서버 확장을 사용 하도록 설정 하려면 아래 명령을 입력 합니다.
 
     ```cmd
     jupyter serverextension enable --py sparkmagic
@@ -100,7 +100,7 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. [A
     exit()
     ```
 
-3. 폴더 `.sparkmagic`내에서 **app.config** 라는 파일을 만들고 그 안에 다음 json 코드 조각을 추가 합니다.  
+3. `.sparkmagic`폴더 내에서 **app.config** 라는 파일을 만들고 그 안에 다음 json 코드 조각을 추가 합니다.  
 
     ```json
     {
@@ -116,6 +116,10 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. [A
         "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
       },
 
+      "custom_headers" : {
+        "X-Requested-By": "livy"
+      },
+
       "heartbeat_refresh_seconds": 5,
       "livy_server_heartbeat_timeout_seconds": 60,
       "heartbeat_retry_seconds": 1
@@ -128,8 +132,8 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. [A
     |---|---|
     |이름|클러스터 로그인 이며 기본값은 `admin`입니다.|
     |CLUSTERDNSNAME|클러스터 이름|
-    |{BASE64ENCODEDPASSWORD}|실제 암호에 대 한 base64 인코딩 암호입니다.  에서 [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/)base64 암호를 생성할 수 있습니다.|
-    |`"livy_server_heartbeat_timeout_seconds": 60`|을 사용 하 `sparkmagic 0.12.7` 는 경우 유지 합니다 (클러스터 v1.0 및 v 3.6).  (클러스터 `sparkmagic 0.2.3` v 3.4)를 사용 하는 경우 `"should_heartbeat": true`를로 바꿉니다.|
+    |{BASE64ENCODEDPASSWORD}|실제 암호에 대 한 base64 인코딩 암호입니다.  [https://www.url-encode-decode.com/base64-encode-decode/](https://www.url-encode-decode.com/base64-encode-decode/)에서 base64 암호를 생성할 수 있습니다.|
+    |`"livy_server_heartbeat_timeout_seconds": 60`|`sparkmagic 0.12.7`를 사용 하는 경우 유지 합니다 (클러스터 v1.0 및 v 3.6).  `sparkmagic 0.2.3` (클러스터 v 3.4)를 사용 하는 경우를 `"should_heartbeat": true`으로 바꿉니다.|
 
     [샘플 app.config](https://github.com/jupyter-incubator/sparkmagic/blob/master/sparkmagic/example_config.json)에서 전체 예제 파일을 볼 수 있습니다.
 
@@ -144,14 +148,14 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. [A
 
 6. 커널을 사용할 수 있는 Spark magic을 사용할 수 있는지 확인 합니다. 다음 단계를 수행합니다.
 
-    a. 새 Notebook을 만듭니다. 오른쪽 모서리에서 **새로 만들기**를 선택 합니다. 기본 커널 **python 2** 또는 **python 3** 및 사용자가 설치한 커널을 표시 되어야 합니다. 실제 값은 설치 선택 사항에 따라 달라질 수 있습니다.  **PySpark**를 선택 합니다.
+    가. 새 Notebook을 만듭니다. 오른쪽 모서리에서 **새로 만들기**를 선택 합니다. 기본 커널 **python 2** 또는 **python 3** 및 사용자가 설치한 커널을 표시 되어야 합니다. 실제 값은 설치 선택 사항에 따라 달라질 수 있습니다.  **PySpark**를 선택 합니다.
 
-    ![Jupyter 노트북에서 사용할 수 있는 커널](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter 노트북의") 커널
+    ![Jupyter 노트북에서 사용 가능한 커널](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Jupyter 노트북의 커널")
 
     > [!IMPORTANT]  
-    > **새로 만들기** 를 선택한 후 오류에 대 한 셸을 검토 합니다.  오류가 `TypeError: __init__() got an unexpected keyword argument 'io_loop'` 표시 되는 경우 특정 버전의 토네이도에서 알려진 문제가 발생할 수 있습니다.  그렇다면 커널을 중지 한 후 다음 명령을 `pip install tornado==4.5.3`사용 하 여 토네이도 설치를 다운 그레이드 합니다.
+    > **새로 만들기** 를 선택한 후 오류에 대 한 셸을 검토 합니다.  `TypeError: __init__() got an unexpected keyword argument 'io_loop'` 오류가 표시 되는 경우 특정 버전의 토네이도에서 알려진 문제가 발생 했을 수 있습니다.  그렇다면 커널을 중지 한 후 다음 명령을 사용 하 여 토네이도 설치를 다운 그레이드 합니다. `pip install tornado==4.5.3`.
 
-    b. 다음 코드 조각을 실행합니다.
+    나. 다음 코드 조각을 실행합니다.
 
     ```sql
     %%sql
@@ -170,13 +174,13 @@ Jupyter 노트북을 설치하려면 먼저 Python을 설치해야 합니다. [A
 * 로컬에서 사용할 수 있는 Notebook을 사용하여 애플리케이션 요구 사항에 따라 다른 Spark 클러스터에 연결할 수 있습니다.
 * GitHub를 사용하여 원본 제어 시스템을 구현하고 Notebook에 대한 버전을 제어할 수 있습니다. 여러 사용자가 동일한 Notebook으로 작업할 수 있는 공동 작업 환경이 있을 수도 있습니다.
 * 클러스터 없이 로컬로 Notebook을 사용할 수 있습니다. Notebook 또는 개발 환경을 수동으로 관리하기 위해서가 아니라 Notebook을 테스트하기 위해 클러스터가 필요합니다.
-* 클러스터에서 Jupyter 설치를 구성하는 것보다 자체 로컬 개발 환경을 구성하는 것이 더 쉬울 수 있습니다.  하나 이상의 원격 클러스터를 구성하지 않고 로컬로 설치한 모든 소프트웨어를 모두 활용할 수 있습니다.
+* 클러스터에 Jupyter 설치를 구성 하는 것 보다 자체 로컬 개발 환경을 구성 하는 것이 더 쉬울 수 있습니다.  하나 이상의 원격 클러스터를 구성 하지 않고 로컬로 설치한 모든 소프트웨어를 활용할 수 있습니다.
 
 > [!WARNING]  
 > 로컬 컴퓨터에 설치된 Jupyter를 사용하면 여러 사용자가 동일한 Spark 클러스터에서 동시에 동일한 Notebook을 실행할 수 있습니다. 이러한 상황에서 여러 Livy 세션이 생성됩니다. 문제가 발생하여 디버깅하려는 경우 어떤 사용자에게 어떤 Livy 세션이 속하는지를 추적하는 복잡한 작업이 됩니다.  
 
 ## <a name="next-steps"></a>다음 단계
 
-* [개요: Azure HDInsight의 Apache Spark](apache-spark-overview.md)
+* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
 * [BI와 Apache Spark: BI 도구와 함께 HDInsight의 Spark를 사용하여 대화형 데이터 분석 수행](apache-spark-use-bi-tools.md)
-* [Machine Learning과 Apache Spark: HDInsight의 Spark를 사용하여 HVAC 데이터로 건물 온도 분석](apache-spark-ipython-notebook-machine-learning.md)
+* [Machine Learning과 Apache Spark: HVAC 데이터를 사용하여 건물 온도를 분석하는 데 HDInsight의 Spark 사용](apache-spark-ipython-notebook-machine-learning.md)

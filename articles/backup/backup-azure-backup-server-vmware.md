@@ -1,18 +1,18 @@
 ---
 title: Azure Backup Server를 사용하여 VMware VM 백업
-description: Azure Backup Server를 사용하여 VMware vCenter/ESXi 서버에서 실행 중인 VMware VM을 백업할 수 있습니다.
+description: 이 문서에서는 Azure Backup Server를 사용 하 여 VMware vCenter/ESXi 서버에서 실행 되는 VMware Vm을 백업 하는 방법에 대해 알아봅니다.
 author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3d8983835c587ffeec9dd2bc418f1c01afbeb571
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: df41907ee10b54ab3bfaeb548e085617f7d79084
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264512"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903223"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -26,7 +26,7 @@ ms.locfileid: "72264512"
 - Azure Backup Server에 vCenter 또는 ESXi 서버를 추가합니다.
 - 백업할 VMware VM을 포함하는 보호 그룹을 설정하고 백업 설정을 지정한 다음, 백업을 예약합니다.
 
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 - 백업이 지원되는 vCenter/ESXi 버전(버전 6.5, 6.0 및 5.5)을 실행 중인지 확인합니다.
 - Azure Backup Server를 설정했는지 확인합니다. 설정하지 않은 경우 시작하기 전에 [설정](backup-azure-microsoft-azure-backup.md)합니다. 최신 업데이트를 사용하여 Azure Backup Server를 실행해야 합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "72264512"
 
 기본적으로 Azure Backup Server는 HTTPS를 통해 VMware 서버와 통신합니다. HTTPS 연결을 설정하려면 VMware CA(인증 기관) 인증서를 다운로드하여 Azure Backup Server에서 가져옵니다.
 
-### <a name="before-you-begin"></a>시작하기 전 주의 사항
+### <a name="before-you-begin"></a>시작하기 전에
 
 - HTTPS를 사용 하지 않으려는 경우 [모든 VMware 서버에 대해 https 인증서 유효성 검사를 사용 하지 않도록 설정할](backup-azure-backup-server-vmware.md#disable-https-certificate-validation)수 있습니다.
 - 일반적으로 vSphere Web Client를 사용하여 Azure Backup Server 머신의 브라우저에서 vCenter/ESXi 서버로 연결합니다. 처음으로이 작업을 수행 하는 경우 연결이 안전 하지 않으며 다음이 표시 됩니다.
@@ -66,7 +66,7 @@ ms.locfileid: "72264512"
    - .0 및 .1과 같은 숫자가 매겨진 시퀀스로 시작하는 확장명을 가진 루트 인증서 파일.
    - CRL 파일은 .r0 또는 .r1과 같은 시퀀스로 시작하는 확장명을 갖습니다. CRL 파일은 인증서와 연결되어 있습니다.
 
-         ![Downloaded certificates](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
+    ![다운로드한 인증서](./media/backup-azure-backup-server-vmware/extracted-files-in-certs-folder.png)
 
 6. **certs** 폴더에서 루트 인증서 파일을 마우스 오른쪽 단추로 클릭하고 > **이름 바꾸기**를 클릭합니다.
 
@@ -82,7 +82,7 @@ ms.locfileid: "72264512"
 
 10. **인증서 저장소** 페이지에서 **모든 인증서를 다음 저장소에 저장**을 선택한 다음 **찾아보기**를 클릭하여 인증서 저장소를 선택합니다.
 
-         ![Certificate storage](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
+    ![인증서 스토리지](./media/backup-azure-backup-server-vmware/cert-import-wizard-local-store.png)
 
 11. **인증서 저장소 선택**에서 **신뢰할 수 있는 루트 인증 기관**을 인증서 대상 폴더로 선택하고 **확인**을 클릭합니다.
 
@@ -100,11 +100,9 @@ ms.locfileid: "72264512"
 
 1. 다음 텍스트를 복사하여 .txt 파일에 붙여넣습니다.
 
-      ```text
-      Windows Registry Editor Version 5.00
-      [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare]
-      "IgnoreCertificateValidation"=dword:00000001
-      ```
+       ```text
+      Windows 레지스트리 편집기 버전 5.00 [HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Microsoft Data Protection Manager\VMWare] "IgnoreCertificateValidation" = dword: 00000001
+       ```
 
 2. 파일 이름을 **DisableSecureAuthentication.reg**로 지정하여 Azure Backup Server 머신에 저장합니다.
 
@@ -130,7 +128,7 @@ v-Center Server/ESXi 호스트에 액세스할 수 있는 권한을 가진 사�
    - VirtualMachine 권한을 선택하려면 부모 자식 계층으로 여러 개의 수준을 이동해야 합니다.
    - 부모 권한 내 모든 자식 권한을 선택하지 않아도 됩니다.
 
-             ![Parent child privilege hierarchy](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
+    ![부모 자식 권한 계층 구조](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
 ### <a name="role-permissions"></a>역할 권한
 
@@ -165,7 +163,7 @@ VirtualMachine.State.RemoveSnapshot | VirtualMachine.State.RemoveSnapshot
 
 2. **vCenter 사용자 및 그룹** 패널에서 **사용자** 탭을 선택한 다음 사용자 추가 아이콘(+ 기호)을 클릭합니다.
 
-         ![vCenter Users and Groups panel](./media/backup-azure-backup-server-vmware/usersandgroups.png)
+    ![vCenter 사용자 및 그룹 패널](./media/backup-azure-backup-server-vmware/usersandgroups.png)
 
 3. **새 사용자** 대화 상자에서 사용자 정보를 추가하고 > **확인**을 클릭합니다. 이 절차에서 사용자 이름은 BackupAdmin입니다.
 
@@ -221,7 +219,7 @@ Azure Backup Server에 vCenter Server를 추가합니다.
 
 2. **프로덕션 서버 추가 마법사** > **프로덕션 서버 유형 선택** 페이지에서 **VMware 서버**를 선택하고 **다음**을 클릭합니다.
 
-         ![Production Server Addition Wizard](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
+    ![프로덕션 서버 추가 마법사](./media/backup-azure-backup-server-vmware/production-server-add-wizard.png)
 
 3. **컴퓨터 선택** **서버 이름/IP 주소**에서 VMware 서버의 FQDN 또는 IP 주소를 지정합니다. 모든 ESXi 서버를 동일한 vCenter가 관리하는 경우 vCenter 이름을 지정합니다. 그렇지 않으면 ESXi 호스트를 추가합니다.
 
@@ -233,7 +231,7 @@ Azure Backup Server에 vCenter Server를 추가합니다.
 
     ![자격 증명 지정](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그리고 **다음**을 클릭합니다.
+6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그런 후 **다음**을 클릭합니다.
 
     ![VMWare 서버 및 자격 증명 추가](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -261,14 +259,14 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
 1. **보호 그룹 형식 선택** 페이지에서 **서버**를 선택하고 **다음**을 클릭합니다. **그룹 구성원 선택** 페이지가 나타납니다.
 
-1. **그룹 구성원 선택**에서 백업 하려는 vm (또는 vm 폴더)을 선택 합니다. 그리고 **다음**을 클릭합니다.
+1. **그룹 구성원 선택**에서 백업 하려는 vm (또는 vm 폴더)을 선택 합니다. 그런 후 **다음**을 클릭합니다.
 
     - 폴더를 선택하면 해당 폴더 내의 VM 또는 폴더도 백업되도록 선택됩니다. 백업하지 않으려는 폴더 또는 VM을 선택 취소할 수 있습니다.
 1. VM 또는 폴더가 이미 백업 중인 경우에는 선택할 수 없습니다. 이렇게 하면 VM에 대해 중복 복구 지점이 생성 되지 않습니다.
 
-         ![Select group members](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
+    ![그룹 구성원 선택](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그리고 **다음**을 클릭합니다.
+1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그런 후 **다음**을 클릭합니다.
 
     ![데이터 보호 방법 선택](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -286,44 +284,44 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
    - 권장되는 디스크 할당은 지정된 보존 범위, 워크로드의 형식 및 보호된 데이터의 크기를 기반으로 합니다. 필요에 따라 변경하고 **다음**을 클릭합니다.
    - **데이터 크기:** 보호 그룹의 데이터 크기입니다.
    - **디스크 공간:** 보호 그룹에 권장되는 디스크 공간의 크기입니다. 이 설정을 수정하려는 경우 총 공간을 각 데이터 원본의 예상 확장량보다 약간 더 크게 할당해야 합니다.
-   - **데이터 공동 배치:** 공동 배치를 켜면, 보호되는 여러 데이터 원본이 단일 복제본 및 복구 지점 볼륨에 매핑될 수 있습니다. 공동 배치는 모든 워크로드에 지원되는 것은 아닙니다.
-   - **자동 증가:** 이 설정을 켜면 보호된 그룹의 데이터가 초기 할당량을 초과할 경우 Azure Backup Server가 25%까지 디스크 크기 증가를 시도합니다.
+   - **데이터 공동 배치:** 공동 배치를 사용하는 경우 보호되는 여러 데이터 원본은 단일 복제본 및 복구 지점 볼륨에 매핑할 수 있습니다. 공동 배치는 모든 워크로드에 지원되는 것은 아닙니다.
+   - **자동 증가:** 이 설정을 사용 하는 경우 보호 된 그룹의 데이터가 초기 할당을 보다 커지면 Azure Backup Server는 디스크 크기를 25% 증가 하려고 시도 합니다.
    - **스토리지 풀 세부 정보:** 총 디스크 크기 및 남아 있는 디스크 크기를 포함한 스토리지 풀의 상태를 표시합니다.
 
-         ![Review disk allocation](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
+    ![디스크 할당 검토](./media/backup-azure-backup-server-vmware/review-disk-allocation.png)
 
 1. **복제본 만들기 방법 선택** 페이지에서 초기 백업을 수행할 방법을 지정하고 **다음**을 클릭합니다.
    - 기본 설정은 **네트워크를 통해 자동으로** 및 **지금**입니다.
    - 기본값을 사용하는 경우 사용량이 적은 시간을 지정하는 것이 좋습니다. **나중에**를 선택하고 날짜와 시간을 지정합니다.
    - 대용량 데이터이거나 네트워크 상태가 최적화되지 않은 경우 이동식 미디어를 사용하여 데이터를 오프라인으로 복제하는 것을 고려하세요.
 
-         ![Choose replica creation method](./media/backup-azure-backup-server-vmware/replica-creation.png)
+    ![복제본 만들기 방법 선택](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그리고 **다음**을 클릭합니다.
+1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그런 후 **다음**을 클릭합니다.
       - 복제 데이터가 일관성을 잃은 경우 또는 설정된 일정에 따라 일관성 확인을 실행할 수 있습니다.
       - 자동 일관성 확인을 구성하지 않으려면 수동 검사를 실행할 수 있습니다. 이 작업을 수행하려면 보호 그룹을 마우스 오른쪽 단추로 클릭하고 > **일관성 확인 수행**을 클릭합니다.
 
-1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그리고 **다음**을 클릭합니다.
+1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그런 후 **다음**을 클릭합니다.
 
-          ![Specify online protection data](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
+    ![온라인 보호 데이터 지정](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. **온라인 백업 예약 지정** 페이지에서 로컬 스토리지의 데이터를 Azure로 백업할 빈도를 지정합니다.
 
-    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그리고 **다음**을 클릭합니다.
+    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그런 후 **다음**을 클릭합니다.
     - 복구 지점이 생성되면 Azure에서 Recovery Services 자격 증명 모음으로 전송됩니다.
 
-          ![Specify online backup schedule](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
+    ![온라인 백업 일정 지정](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)
 
 1. **온라인 보존 정책 지정** 페이지에서 매일, 매주, 매월 및 매년 백업을 통해 만들어진 복구 지점을 Azure에 유지할 기간을 지정합니다. **다음**을 클릭합니다.
 
     - Azure에서 데이터를 유지할 수 있는 기간에 대한 시간 제한은 없습니다.
     - 보호된 인스턴스당 9999개 이하의 복구 지점을 사용해야 한다는 점이 유일한 제한입니다. 이 예제에서 보호되는 인스턴스는 VMware 서버입니다.
 
-          ![Specify online retention policy](./media/backup-azure-backup-server-vmware/retention-policy.png)
+    ![온라인 보존 정책 지정](./media/backup-azure-backup-server-vmware/retention-policy.png)
 
 1. **요약** 페이지에서 설정을 검토한 다음, **그룹 만들기**를 클릭합니다.
 
-         ![Protection group member and setting summary](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
+    ![보호 그룹 구성원 및 설정 요약](./media/backup-azure-backup-server-vmware/protection-group-summary.png)
 
 ## <a name="vmware-vsphere-67"></a>VMWare vSphere 6.7
 
@@ -335,25 +333,26 @@ VSphere 6.7를 백업 하려면 다음을 수행 합니다.
 
 - 다음과 같이 레지스트리 키를 설정 합니다.
 
-```text
- Windows Registry Editor Version 5.00
+       ```text
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+        Windows Registry Editor Version 5.00
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+        [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v2.0.50727]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
+       [HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft\.NETFramework\v4.0.30319]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
 
-[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
-"SystemDefaultTlsVersions"=dword:00000001
-"SchUseStrongCrypto"=dword:00000001
-```
+       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v2.0.50727]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
+
+       [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319]
+       "SystemDefaultTlsVersions"=dword:00000001
+       "SchUseStrongCrypto"=dword:00000001
+       ```
 
 ## <a name="next-steps"></a>다음 단계
 

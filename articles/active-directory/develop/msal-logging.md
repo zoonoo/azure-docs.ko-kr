@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/05/2019
+ms.date: 10/31/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e12badd84bd929bdeb7b60ad6e99d6b3169e5022
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e9045fd6c1f5dcc4587b6ff85d567584f02421ba
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150455"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73902914"
 ---
 # <a name="logging-in-msal-applications"></a>MSAL 응용 프로그램 로그인
 
@@ -88,7 +88,7 @@ class Program
 - `tag`는 라이브러리에 의해 콜백에 전달 되는 문자열입니다. 로그 항목과 연결 되며 로깅 메시지를 정렬 하는 데 사용할 수 있습니다.
 - `logLevel`를 사용 하 여 원하는 로깅 수준을 결정할 수 있습니다. 지원 되는 로그 수준은 `Error`, `Warning`, `Info`및 `Verbose`입니다.
 - `message`은 로그 항목의 내용입니다.
-- `containsPII` 개인 데이터 또는 조직 데이터를 포함 하는 메시지가 기록 되는지 여부를 지정 합니다. 기본적으로이는 false로 설정 되어 있으므로 응용 프로그램이 개인 데이터를 기록 하지 않습니다. `containsPII` `true`되는 경우이 메서드는 `containsPII` 매개 변수를 `false`로 설정 하 고 개인 데이터를 포함 하지 않는 `message`를 사용 하 고 두 번째는 `containsPii` 매개 변수를 `true`로 설정 하 고 메시지에 포함 될 수 있는 메시지를 두 번 받게 됩니다. 개인 데이터. 경우에 따라(메시지에 개인 데이터가 포함되어 있지 않은 경우) 메시지가 동일합니다.
+- `containsPII` 개인 데이터 또는 조직 데이터를 포함 하는 메시지가 기록 되는지 여부를 지정 합니다. 기본적으로이는 false로 설정 되어 있으므로 응용 프로그램이 개인 데이터를 기록 하지 않습니다. `containsPII` `true`되는 경우이 메서드는 `containsPII` 매개 변수를 `false`로 설정 하 고 개인 데이터를 포함 하지 않는 `message`를 사용 하 고 두 번째는 `containsPii` 매개 변수를 `true`로 설정 하 고 메시지에 개인 데이터가 포함 될 수 있는 메시지를 두 번 받습니다. 경우에 따라(메시지에 개인 데이터가 포함되어 있지 않은 경우) 메시지가 동일합니다.
 
 ```java
 private StringBuilder mLogs;
@@ -117,14 +117,15 @@ Logger.getInstance().setEnablePII(true);
 Logger.getInstance().setEnablePII(false);
 ```
 
-기본적으로 logcat에 로깅은 사용 하지 않도록 설정 됩니다. 사용 하도록 설정 하려면 
+기본적으로 logcat에 로깅은 사용 하지 않도록 설정 됩니다. 사용 하도록 설정 하려면
+
 ```java
 Logger.getInstance().setEnableLogcatLog(true);
 ```
 
 ## <a name="logging-in-msaljs"></a>MSAL.js의 로깅
 
- `UserAgentApplication` 인스턴스를 만들기 위한 구성 중에로 거 개체를 전달 하 여 MSAL .js에서 로깅을 사용 하도록 설정 합니다. 로거 개체의 속성은 다음과 같습니다.
+ `UserAgentApplication` 인스턴스를 만드는 구성 중에로 거 개체를 전달 하 여 MSAL .js (Javascript)에서 로깅을 사용 하도록 설정 합니다. 로거 개체의 속성은 다음과 같습니다.
 
 - `localCallback`: 개발자가 로그를 사용자 지정 방식으로 사용 및 게시 하기 위해 제공할 수 있는 콜백 인스턴스입니다. 로그를 리디렉션하려는 방법에 따라 localCallback 메서드를 구현합니다.
 - `level` (옵션): 구성 가능한 로그 수준입니다. 지원 되는 로그 수준은 `Error`, `Warning`, `Info`및 `Verbose`입니다. 기본값은 `Info`입니다.
@@ -173,7 +174,7 @@ MSAL 로깅을 캡처하도록 콜백을 설정 하 고 자체 응용 프로그�
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-다음은 그 예입니다.
+예:
 
 Objective-C
 ```objc
@@ -202,9 +203,9 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### <a name="personal-identifiable-information-pii"></a>PII (개인 식별이 가능한 정보)
+### <a name="personal-data"></a>개인 데이터
 
-기본적으로 MSAL은 PII를 캡처하거나 기록 하지 않습니다. 라이브러리를 사용 하면 앱 개발자가 MSALLogger 클래스의 속성을 통해이를 설정할 수 있습니다. PII를 켜면 앱은 매우 중요 한 데이터를 안전 하 게 처리 하 고 규정 요구 사항을 준수 합니다.
+기본적으로 MSAL은 PII (개인 데이터)를 캡처하거나 기록 하지 않습니다. 라이브러리를 사용 하면 앱 개발자가 MSALLogger 클래스의 속성을 통해이를 설정할 수 있습니다. `pii.Enabled`를 켜면 앱은 매우 중요 한 데이터를 안전 하 게 처리 하 고 규정 요구 사항을 준수 합니다.
 
 Objective-C
 ```objc
@@ -232,15 +233,15 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 IOS 및 macOS 용 MSAL을 사용 하 여 로깅할 때 로깅 수준을 설정 하려면 다음 값 중 하나를 사용 합니다.
 
-|Level  |설명 |
+|수준  |설명 |
 |---------|---------|
 | `MSALLogLevelNothing`| 모든 로깅 사용 안 함 |
 | `MSALLogLevelError` | 기본 수준은 오류가 발생 한 경우에만 정보를 출력 합니다. |
 | `MSALLogLevelWarning` | 기록 |
 | `MSALLogLevelInfo` |  매개 변수 및 다양 한 키 집합 작업을 포함 하는 라이브러리 진입점 |
-|`MSALLogLevelVerbose`     |  API 추적       |
+|`MSALLogLevelVerbose`     |  API 추적 |
 
-다음은 그 예입니다.
+예:
 
 Objective-C
 ```objc
@@ -256,8 +257,56 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 MSAL 로그 메시지의 메시지 부분은 `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message` 형식입니다.
 
-다음은 그 예입니다.
+예:
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
 상관 관계 Id 및 타임 스탬프를 제공 하면 문제를 추적 하는 데 도움이 됩니다. 로그 메시지에서 타임 스탬프 및 상관 관계 ID 정보를 사용할 수 있습니다. 이를 검색 하는 신뢰할 수 있는 유일한 장소는 MSAL 로깅 메시지입니다.
+
+## <a name="logging-in-msal-for-java"></a>Java 용 MSAL 로그인
+
+Java 용 MSAL (MSAL4J)을 사용 하면 SLF4J와 호환 되는 한 앱에서 이미 사용 하 고 있는 로깅 라이브러리를 사용할 수 있습니다. MSAL4j, [logback](http://logback.qos.ch/) 및 [Log4j](https://logging.apache.org/log4j/2.x/)와 같은 다양 한 로깅 프레임 워크에 대 한 간단한 외관 또는 추상화로 SLF4J ( [java 용 단순 로깅 외관](http://www.slf4j.org/) )를 사용 [합니다.](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html) SLF4J를 사용 하면 최종 사용자가 배포 시 원하는 로깅 프레임 워크를 연결할 수 있습니다.
+
+예를 들어 응용 프로그램의 로깅 프레임 워크로 Logback을 사용 하려면 응용 프로그램에 대 한 Maven pom 파일에 Logback 종속성을 추가 합니다.
+
+```xml
+<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
+```
+
+그런 다음 Logback 구성 파일을 추가 합니다.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+
+</configuration>
+```
+
+SLF4J은 배포 시에 자동으로 Logback에 바인딩합니다. MSAL 로그가 콘솔에 기록 됩니다.
+
+다른 로깅 프레임 워크에 바인딩하는 방법에 대 한 지침은 [SLF4J 설명서](http://www.slf4j.org/manual.html)를 참조 하세요.
+
+### <a name="personal-and-organization-information"></a>개인 및 조직 정보
+
+기본적으로 MSAL 로깅은 개인 데이터 나 조직 데이터를 캡처하거나 로깅하지 않습니다. 다음 예제에서 개인 또는 조직 데이터 로깅은 기본적으로 해제 되어 있습니다.
+
+```java
+    PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+            .authority(AUTHORITY)
+            .build();
+```
+
+클라이언트 응용 프로그램 작성기에서 `logPii()`를 설정 하 여 개인 및 조직 데이터 로깅을 설정 합니다. 개인 또는 조직 데이터 로깅을 설정 하는 경우 앱은 매우 중요 한 데이터를 안전 하 게 처리 하 고 규정 요구 사항을 준수 해야 합니다.
+
+다음 예제에서는 개인 또는 조직 데이터 로깅이 사용 됩니다.
+
+```java
+PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
+        .authority(AUTHORITY)
+        .logPii(true)
+        .build();
+```

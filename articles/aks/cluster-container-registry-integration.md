@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: bbd08e49256886a1df334cbf36e6e468bb8f3895
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: ba52cac4ebe923b7217550ed90948d908d8daf7f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286788"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73900658"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
@@ -21,16 +21,16 @@ AKS(Azure Kubernetes Service)에서 ACR(Azure Container Registry)을 사용할 �
 
 Azure CLI를 사용 하 여 몇 가지 간단한 명령에서 ACR 통합에 AKS를 설정할 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
-이러한 예제에는 다음이 필요합니다.
+이러한 예제에는 다음이 필요 합니다.
 
 * **Azure 구독** 에 대 한 **소유자** 또는 **azure 계정 관리자** 역할
 * Azure CLI 버전 2.0.73 이상
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>ACR 통합을 사용 하 여 새 AKS 클러스터 만들기
 
-AKS 클러스터를 처음 만들 때 AKS 및 ACR 통합을 설정할 수 있습니다.  AKS 클러스터가 ACR과 상호 작용할 수 있도록 Azure Active Directory **서비스 주체가** 사용 됩니다. 다음 CLI 명령을 사용 하 여 구독에서 기존 ACR에 권한을 부여 하 고 서비스 주체에 대 한 적절 한 **Acrpull** 역할을 구성할 수 있습니다. 아래 매개 변수에 대 한 유효한 값을 제공 합니다.  대괄호 안의 매개 변수는 선택 사항입니다.
+AKS 클러스터를 처음 만들 때 AKS 및 ACR 통합을 설정할 수 있습니다.  AKS 클러스터가 ACR과 상호 작용할 수 있도록 Azure Active Directory **서비스 주체가** 사용 됩니다. 다음 CLI 명령을 사용 하 여 구독에서 기존 ACR에 권한을 부여 하 고 서비스 주체에 대 한 적절 한 **Acrpull** 역할을 구성할 수 있습니다. 아래 매개 변수에 대 한 유효한 값을 제공 합니다. 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique
 MYACR=myContainerRegistry
@@ -39,15 +39,15 @@ MYACR=myContainerRegistry
 az acr create -n $MYACR -g myContainerRegistryResourceGroup --sku basic
 
 # Create an AKS cluster with ACR integration
-az aks create -n myAKSCluster -g myResourceGroup --attach-acr $MYACR
+az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr $MYACR
 
 ```
 또는 다음과 같은 형식의 ACR 리소스 ID를 사용 하 여 ACR 이름을 지정할 수 있습니다.
 
-/subscriptions/\<subscription-id @ no__t-1/resourceGroups/\<resource-name @ no__t-3/providers/Microsoft.containerregistry//\<name @-5 
+/subscriptions/\<subscription-id\>/Stgg/\<resource-name\>/providers/Microsoft.ContainerRegistry/registries/\<name\> 
  
 ```azurecli
-az aks create -n myAKSCluster -g myResourceGroup --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
+az aks create -n myAKSCluster -g myResourceGroup --generate-ssh-keys --attach-acr /subscriptions/<subscription-id>/resourceGroups/myContainerRegistryResourceGroup/providers/Microsoft.ContainerRegistry/registries/myContainerRegistry
 ```
 
 이 단계를 완료 하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -68,7 +68,7 @@ az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
 ```
-로 구분하거나 여러
+or
 ```
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```

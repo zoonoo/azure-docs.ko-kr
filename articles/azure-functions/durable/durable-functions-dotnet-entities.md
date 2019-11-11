@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/06/2019
 ms.author: azfuncdf
-ms.openlocfilehash: a59e5443c80c9372f646edfdae2261157a41acc9
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: d854f41ffc883b40f9159a7dacdde0fb3bb7240f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614882"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904058"
 ---
 # <a name="developers-guide-to-durable-entities-in-net"></a>.NET의 내구성이 있는 엔터티에 대 한 개발자 가이드
 
@@ -117,7 +117,7 @@ public class Counter
 
 ## <a name="accessing-entities-directly"></a>엔터티에 직접 액세스
 
-클래스 기반 엔터티는 엔터티의 명시적 문자열 이름 및 해당 작업을 사용 하 여 직접 액세스할 수 있습니다. 몇 가지 예제를 제공 합니다. 기본 개념 (예: 신호 및 호출)에 대 한 자세한 설명은 [엔터티 액세스](durable-functions-entities.md#accessing-entities)의 설명을 참조 하세요. 
+클래스 기반 엔터티는 엔터티의 명시적 문자열 이름 및 해당 작업을 사용 하 여 직접 액세스할 수 있습니다. 몇 가지 예제를 제공 합니다. 기본 개념 (예: 신호와 호출)에 대 한 자세한 설명은 [액세스 엔터티에](durable-functions-entities.md#access-entities)대 한 설명을 참조 하세요. 
 
 > [!NOTE]
 > 가능 하면 더 많은 형식 검사를 제공 하므로 [인터페이스를 통해 엔터티에 액세스](#accessing-entities-through-interfaces)하는 것이 좋습니다.

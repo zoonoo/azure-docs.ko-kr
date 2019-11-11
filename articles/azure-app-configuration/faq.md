@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: dbfb6a1c4c53b1bd255560e688d3dc0cf3835a3a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8d286cbab33a1fb6a2d2a2cb70caed11b21af735
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469624"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904101"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure 앱 구성 FAQ
 
@@ -32,7 +32,7 @@ ms.locfileid: "73469624"
 - 계층적 네임 스페이스
 - 원인은
 - 광범위 한 쿼리
-- 일괄 검색
+- 일괄 처리 검색
 - 특수 관리 작업
 - 기능 관리 사용자 인터페이스
 
@@ -42,9 +42,19 @@ ms.locfileid: "73469624"
 
 앱 구성에서 강화 된 보안을 제공 하지만 Key Vault은 여전히 응용 프로그램 비밀을 저장 하는 가장 좋은 장소입니다. Key Vault 하드웨어 수준 암호화, 세부적인 액세스 정책 및 인증서 회전과 같은 관리 작업을 제공 합니다.
 
+Key Vault에 저장 된 암호를 참조 하는 앱 구성 값을 만들 수 있습니다. 자세한 내용은 [ASP.NET Core 앱에서 Key Vault 참조 사용](./use-key-vault-references-dotnet-core.md)을 참조 하세요.
+
 ## <a name="does-app-configuration-encrypt-my-data"></a>앱 구성이 내 데이터를 암호화 하나요?
 
 예. 앱 구성은 보유 하 고 있는 모든 키 값을 암호화 하 고 네트워크 통신을 암호화 합니다. 키 이름은 구성 데이터 검색을 위한 인덱스로 사용 되며 암호화 되지 않습니다.
+
+## <a name="how-is-app-configuration-different-from-azure-app-service-settings"></a>앱 구성이 Azure App Service 설정과 어떻게 다른가?
+
+Azure App Service를 사용 하 여 각 App Service 인스턴스에 대 한 앱 설정을 정의할 수 있습니다. 이러한 설정은 응용 프로그램 코드에 환경 변수로 전달 됩니다. 원하는 경우 특정 배포 슬롯과 설정을 연결할 수 있습니다. 자세한 내용은 [앱 설정 구성](/azure/app-service/configure-common#configure-app-settings)을 참조 하세요.
+
+반면 Azure 앱 구성을 사용 하면 App Service에서 실행 되는 앱을 포함 하 여 여러 앱 간에 공유할 수 있는 설정을 정의할 수 있습니다. 이러한 설정은 응용 프로그램 코드에서 .NET 및 Java의 구성 공급자를 통해, Azure SDK를 통해 또는 REST Api를 통해 직접 액세스할 수 있습니다.
+
+App Service와 앱 구성 간에 설정을 가져오거나 내보낼 수도 있습니다. 이렇게 하면 기존 App Service 설정에 따라 새 앱 구성 저장소를 신속 하 게 설정 하거나 App Service 설정을 사용 하는 기존 앱과 구성을 쉽게 공유할 수 있습니다.
 
 ## <a name="are-there-any-size-limitations-on-keys-and-values-stored-in-app-configuration"></a>앱 구성에 저장 된 키와 값에 대 한 크기 제한이 있나요?
 
