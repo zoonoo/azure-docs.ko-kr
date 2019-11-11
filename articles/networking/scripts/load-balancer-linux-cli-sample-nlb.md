@@ -3,10 +3,8 @@ title: Azure CLI 스크립트 샘플 - 고가용성을 위해 VM에 트래픽 �
 description: Azure CLI 스크립트 샘플 - 고가용성을 위해 VM에 트래픽 부하 분산
 services: load-balancer
 documentationcenter: load-balancer
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: ''
+author: asudbring
+manager: KumudD
 ms.assetid: ''
 ms.service: load-balancer
 ms.devlang: azurecli
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: kumud
-ms.openlocfilehash: 916e9e1f7287757f19e93ecf7b8cc38f556e2dc8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: bf5f4bb6bd15fa1fd440e679913a370bbe30b663
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60564649"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890304"
 ---
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>고가용성을 위해 VM에 트래픽 부하 분산
 
@@ -46,7 +44,7 @@ az group delete --name myResourceGroup
 
 이 스크립트는 다음 명령을 사용하여 리소스 그룹, 가상 머신, 가용성 집합, 부하 분산 장치 및 모든 관련된 리소스를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 메모 |
+| 명령 | 참고 사항 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) | Azure Virtual Network 및 서브넷을 만듭니다. |
@@ -59,7 +57,7 @@ az group delete --name myResourceGroup
 | [az network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule) | 인바운드 트래픽을 허용하도록 NSG 규칙을 만듭니다. 이 샘플에서 SSH 트래픽에 대해 포트 22가 열립니다. |
 | [az network nic create](https://docs.microsoft.com/cli/azure/network/nic) | 가상 네트워크 카드를 만들고 가상 네트워크, 서브넷 및 NSG에 연결합니다. |
 | [az vm availability-set create](https://docs.microsoft.com/cli/azure/network/lb/rule) | 가용성 집합을 만듭니다. 가용성 집합을 사용하면 오류가 발생하는 경우 물리적 리소스 간에 가상 머신을 분산하여 애플리케이션 가동 시간을 확인합니다. 전체 집합은 영향을 받지 않습니다. |
-| [az vm create](/cli/azure/vm) | 가상 머신을 만들고 네트워크 카드, 가상 네트워크, 서브넷 및 NSG에 연결합니다. 또한 이 명령은 사용할 가상 머신 이미지와 관리 자격 증명을 지정합니다.  |
+| [az vm create](/cli/azure/vm) | 가상 머신을 만들고 네트워크 카드, 가상 네트워크, 서브넷 및 NSG에 연결합니다. 또한 이 명령은 사용할 가상 컴퓨터 이미지와 관리 자격 증명을 지정합니다.  |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | 모든 중첩 리소스를 포함한 리소스 그룹을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

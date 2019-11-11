@@ -9,12 +9,12 @@ ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3717199d2fa342fff5996d97bc5cdaf6da6e9880
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b265ff8831275a9f4b84f7dac28b82ae75630f8b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595199"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889781"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)
 
@@ -47,8 +47,8 @@ Azure Storage는 지역 중복 스토리지 계정에 대해 계정 장애 조�
 
 처음부터 고가용성을 위해 애플리케이션을 디자인하는 것이 중요합니다. 애플리케이션을 디자인하고 재해 복구를 계획하기 위한 지침에 대해서는 다음 Azure 리소스를 참조하세요.
 
-* [Azure 용 복원 력 있는 응용 프로그램 디자인](https://docs.microsoft.com/azure/architecture/resiliency/): azure에서 항상 사용 가능한 응용 프로그램을 설계 하는 주요 개념에 대 한 개요입니다.
-* [가용성 검사 목록](https://docs.microsoft.com/azure/architecture/checklist/availability): 응용 프로그램에서 고가용성을 위한 최상의 디자인 방법을 구현 하는지 확인 하기 위한 검사 목록입니다.
+* [Azure 용 복원 력 있는 응용 프로그램 디자인](/azure/architecture/checklist/resiliency-per-service): azure에서 항상 사용 가능한 응용 프로그램을 설계 하는 주요 개념에 대 한 개요입니다.
+* [가용성 검사 목록](/azure/architecture/checklist/resiliency-per-service): 응용 프로그램에서 고가용성을 위한 최상의 디자인 방법을 구현 하는지 확인 하기 위한 검사 목록입니다.
 * [Ra를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인](storage-designing-ha-apps-with-ragrs.md): RA-GRS를 활용 하는 응용 프로그램을 빌드하기 위한 디자인 지침을 GRS.
 * [자습서: Blob storage를 사용 하 여 항상 사용 가능한 응용 프로그램 빌드](../blobs/storage-create-geo-redundant-storage.md): 오류 및 복구를 시뮬레이션 하는 것으로 끝점 간을 자동으로 전환 하는 고가용성 응용 프로그램을 빌드하는 방법을 보여 주는 자습서입니다. 
 
@@ -186,7 +186,7 @@ VM이 종료되면 임시 디스크에 저장된 데이터가 손실됩니다.
 
 중대한 재해로 인해 지역이 손실되는 극단적인 경우 Microsoft는 지역 장애 조치(failover)를 시작할 수 있습니다. 이 경우에 사용자의 조치가 필요하지 않습니다. Microsoft에서 관리하는 장애 조치(failover)가 완료될 때까지 스토리지 계정에 대한 쓰기 액세스 권한이 없습니다. 애플리케이션은 스토리지 계정이 RA-GRS용으로 구성된 경우 보조 지역에서 읽을 수 있습니다. 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 * [계정 장애 조치(failover) 시작(미리 보기)](storage-initiate-account-failover.md)
 * [RA-GRS를 사용하여 항상 사용 가능한 애플리케이션 디자인](storage-designing-ha-apps-with-ragrs.md)

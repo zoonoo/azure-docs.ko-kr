@@ -1,6 +1,6 @@
 ---
 title: Azure MQTT 클라이언트 라이브러리를 사용하여 MQTT 서버에 메시지 보내기 | Microsoft Docs
-description: DevKit를 클라이언트로 사용하여 MQTT 서버에 메시지 보내기
+description: MQTT 클라이언트 라이브러리를 사용 하 여 MQTT broker에 메시지를 보내는 방법에 대해 알아봅니다. 또한 mXChip IoT DevKit를 MQTT 클라이언트로 구성 하는 방법에 대해 알아봅니다.
 author: liydu
 manager: jeffya
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 6afe0a2fe366b83af45682245776c803c99483d3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4de8b0910a2be48cc626775c5c9bc873c6e780dc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73484022"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889541"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>MQTT 서버에 메시지 보내기
 
@@ -75,12 +75,12 @@ VS Code에서 다음 절차에 따라 직렬 모니터를 열고 설정합니다
 
 ## <a name="problems-and-feedback"></a>문제 및 피드백
 
-문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 채널을 사용하여 문의하세요.
+문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나 다음 채널을 사용하여 문의해주세요.
 
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 * [클라우드의 Azure IoT Hub에 IoT DevKit AZ3166 연결](iot-hub-arduino-iot-devkit-az3166-get-started.md)
 * [흔들기, 흔들어서 트윗 찾기](iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message.md)

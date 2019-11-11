@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f8ddec95b92121c8dad4a39cf0c7b3f1798ec8ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 81e652b90831af0e1e20e716842b4e79f5606d05
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789513"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889861"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 
@@ -65,17 +65,11 @@ JSON 문서를 인덱싱하는 가장 쉬운 방법은 [Azure Portal](https://po
 
    ![Blob 데이터 원본 정의](media/search-howto-index-json/import-wizard-json-data-source.png)
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 - 마법사에서 "인식 검색 추가" 페이지 건너뛰기
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-마법사에서 "콘텐츠 보강" 페이지 건너뛰기
 
-JSON 문서 가져오기를 위해 반드시 인식 기술을 추가할 필요는 없습니다. [AI 보강](cognitive-search-concept-intro.md) 를 인덱싱 파이프라인에 추가 해야 하는 특정 한 이유가 없다면이 단계를 건너뛰어야 합니다.
+인식 기술 (또는 보강)을 추가 하는 것은 가져오기 요구 사항이 아닙니다. [AI 보강](cognitive-search-concept-intro.md) 를 인덱싱 파이프라인에 추가 해야 하는 특정 한 이유가 없다면이 단계를 건너뛰어야 합니다.
 
-단계를 건너뛰려면 먼저 다음 페이지로 이동 합니다.
-
-   ![인식 검색에 대한 다음 페이지 단추](media/search-get-started-portal/next-button-add-cog-search.png)
-
-해당 페이지에서 인덱스 사용자 지정으로 건너뛸 수 있습니다.
-
-   ![인식 기술 단계 건너뛰기](media/search-get-started-portal/skip-cog-skill-step.png)
+단계를 건너뛰려면 페이지 맨 아래에 있는 "다음" 및 "Skip"의 파란색 단추를 클릭 합니다.
 
 ### <a name="5---set-index-attributes"></a>5 - 인덱스 특성 설정
 
@@ -116,7 +110,7 @@ REST API를 사용 하면 Cognitive Search Azure의 모든 인덱서에 공통 �
 
 코드 기반 JSON 인덱싱의 경우 [Postman](search-get-started-postman.md) 및 REST API를 사용 하 여 이러한 개체를 만듭니다.
 
-+ [인덱싱할](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [데이터 원본](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
 + [인덱서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
@@ -296,7 +290,7 @@ JSON blob은 여러 폼을 가정할 수 있습니다. Json 인덱서의 **parsi
 
 문서를 검색 결과의 단일 항목으로 생각할 수 있습니다. 배열의 각 요소가 검색 결과에 독립 된 항목으로 표시 되도록 하려면 `jsonArray` 또는 `jsonLines` 옵션을 적절 하 게 사용 합니다.
 
-인덱서 정의 내에서 [필드 매핑](search-indexer-field-mappings.md)을 사용하여 대상 검색 인덱스를 채우는 데 사용되는 원본 JSON 문서의 속성을 선택할 수도 있습니다. @No__t_0 구문 분석 모드의 경우 배열이 하위 수준 속성으로 존재 하는 경우 blob 내에서 배열이 배치 되는 위치를 나타내는 문서 루트를 설정할 수 있습니다.
+인덱서 정의 내에서 [필드 매핑](search-indexer-field-mappings.md)을 사용하여 대상 검색 인덱스를 채우는 데 사용되는 원본 JSON 문서의 속성을 선택할 수도 있습니다. `jsonArray` 구문 분석 모드의 경우 배열이 하위 수준 속성으로 존재 하는 경우 blob 내에서 배열이 배치 되는 위치를 나타내는 문서 루트를 설정할 수 있습니다.
 
 > [!IMPORTANT]
 > `json`, `jsonArray` 또는 `jsonLines` 구문 분석 모드를 사용 하는 경우 Azure Cognitive Search는 데이터 원본의 모든 blob에 JSON이 포함 되어 있다고 가정 합니다. 동일한 데이터 원본에서 JSON 및 비 JSON BLOB을 지원해야 하는 경우 [UserVoice 사이트](https://feedback.azure.com/forums/263029-azure-search)를 통해 알려주세요.
@@ -393,7 +387,7 @@ JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 �
       "parameters" : { "configuration" : { "parsingMode" : "jsonLines" } }
     }
 
-@No__t_0 구문 분석 모드와 비슷하게 필드 매핑을 생략할 수 있습니다.
+`jsonArray` 구문 분석 모드와 비슷하게 필드 매핑을 생략할 수 있습니다.
 
 ## <a name="add-field-mappings"></a>필드 매핑 추가
 
@@ -411,7 +405,7 @@ JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 �
         }
     }
 
-`Edm.String` 형식의 `text`, `Edm.DateTimeOffset` 형식의 `date` 및 `Collection(Edm.String)` 형식의 `tags` 필드를 포함하는 검색 인덱스가 있다고 가정해 봅니다. 원본의 "datePublished"와 인덱스의 `date` 필드 간에 불일치를 확인합니다. JSON을 원하는 모양으로 매핑하려면 다음 필드 매핑을 사용합니다.
+`text` 형식의 `Edm.String`, `date` 형식의 `Edm.DateTimeOffset` 및 `tags` 형식의 `Collection(Edm.String)` 필드를 포함하는 검색 인덱스가 있다고 가정해 봅니다. 원본의 "datePublished"와 인덱스의 `date` 필드 간에 불일치를 확인합니다. JSON을 원하는 모양으로 매핑하려면 다음 필드 매핑을 사용합니다.
 
     "fieldMappings" : [
         { "sourceFieldName" : "/article/text", "targetFieldName" : "text" },
@@ -430,7 +424,7 @@ JSON 줄의 경우 인덱서 정의는 다음 예제와 유사 하 게 표시 �
 >
 >
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 + [Azure Cognitive Search의 인덱서](search-indexer-overview.md)
 + [Azure Cognitive Search를 사용 하 여 Azure Blob Storage 인덱싱](search-howto-index-json-blobs.md)

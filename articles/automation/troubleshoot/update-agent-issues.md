@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 956e31c157c667acd2f830702467249d869648cb
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: d3099498c3abea428e04d94ca0fcd553e6a0fec6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69971286"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886411"
 ---
 # <a name="understand-the-windows-agent-check-results-in-update-management"></a>업데이트 관리에서 Windows 에이전트 확인 결과 이해
 
@@ -52,7 +52,7 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 운영 체제 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나가 실행 중인지 확인합니다.
 
-|운영 체제  |참고  |
+|운영 체제  |참고 사항  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | 업데이트 평가만 지원합니다.         |
 |Windows Server 2008 R2 SP1 이상 |.NET Framework 4.6.1 이상이 필요합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1이 필요 합니다.  ([Windows Management Framework 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
@@ -107,7 +107,7 @@ Microsoft Monitoring Agent를 다시 설치하려면 [Microsoft Monitoring Agent
 
 ## <a name="troubleshoot-offline"></a>오프라인으로 문제 해결
 
-스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. PowerShell 갤러리에서 [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) 스크립트를 가져올 수 있습니다. 스크립트를 실행 하려면 WMF 4.0 이상 버전이 설치 되어 있어야 합니다. 최신 버전의 PowerShell을 다운로드 하려면 [다양 한 버전의 Powershell 설치](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell)를 참조 하세요.
+스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. PowerShell 갤러리에서 [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) 스크립트를 가져올 수 있습니다. 스크립트를 실행 하려면 WMF 4.0 이상 버전이 설치 되어 있어야 합니다. 최신 버전의 PowerShell을 다운로드 하려면 [다양 한 버전의 Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)를 참조 하세요.
 
 이 스트립트의 출력은 다음 예제와 같이 표시됩니다.
 

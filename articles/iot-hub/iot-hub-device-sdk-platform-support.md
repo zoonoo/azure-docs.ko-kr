@@ -1,18 +1,18 @@
 ---
 title: Azure IoT 디바이스 SDK 플랫폼 지원 | Microsoft Docs
-description: 개념 - Azure IoT 디바이스 SDK에서 지원하는 플랫폼 목록
+description: C, .NET (C#), Java, Node.js 및 Python의 GitHub에서 오픈 소스 장치 sdk를 사용 하 여 장치를 AZURE IOT HUB 및 DPS (장치 프로 비전 서비스)에 연결할 수 있습니다.
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: robinsh
-ms.openlocfilehash: ac5817675d3cfc97a8732ee2e10ec7b9246b12a5
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d39fd95f8704650db16c1dc1553efaba2f727052
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693329"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889419"
 ---
 # <a name="azure-iot-device-sdks-platform-support"></a>Azure IoT 장치 Sdk 플랫폼 지원
 
@@ -50,7 +50,7 @@ Microsoft는 C, .NET (C#), Node.js, Java 및 Python 언어로 GitHub에 오픈 �
 | iOS 12.2            | OpenSSL 또는 네이티브 OSX        | OSX 10.13.4에서 에뮬레이트된 XCode                                                               |
 | Windows 10 제품군   | SChannel                     |                                                                                             |
 | Mbed OS 5.4         | Mbed TLS 2                   | [MXChip IoT dev kit](https://microsoft.github.io/azure-iot-developer-kit/)                  |
-| Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/en-us/services/azure-sphere/get-started/) |
+| Azure Sphere OS     | WolfSSL                      | [Azure Sphere MT3620](https://azure.microsoft.com/services/azure-sphere/get-started/) |
 
 ### <a name="python-sdk"></a>Python SDK
 
@@ -98,7 +98,7 @@ Microsoft는 C, .NET (C#), Node.js, Java 및 Python 언어로 GitHub에 오픈 �
 
 Microsoft는 다양 한 파트너와 협력 하 여 여러 마이크로프로세서 아키텍처에 대 한 개발 키트를 제공 합니다. 이러한 파트너는 Azure IoT C SDK를 플랫폼으로 이식 했습니다. 파트너는 SDK의 PAL (플랫폼 추상화 계층)을 만들고 유지 관리 합니다. Microsoft는 이러한 파트너와 협력 하 여 확장 된 지원을 제공 합니다.
 
-| Partner             | 디바이스                            | 링크                     | 지원 |
+| 파트너             | 디바이스                            | 링크                     | 지원 |
 |---------------------|------------------------------------|--------------------------|---------|
 | Espressif           | ESP32 <br/> ESP8266                              | [Esp-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT 모뎀     | [IoT SDK용 Qualcomm LTE](https://developer.qualcomm.com/software/lte-iot-sdk) | [포럼](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
@@ -115,11 +115,11 @@ Microsoft는 Azure IoT 테스트와 인증 된 장치로 Azure IoT universe를 �
 
 * Azure IoT 인증 장치를 찾아보려면 [IoT용 Microsoft Azure Certified 장치 카탈로그](https://catalog.azureiotsolutions.com/)를 참조 하세요.
 
-* Microsoft 신뢰할 수 있는 파트너에 대 한 자세한 내용을 알아보거나 Microsoft 신뢰할 수 있는 파트너가 되는 방법에 대 한 자세한 내용은 [Microsoft Azure 인증 된 사물 인터넷 신뢰할 수 있는](https://azure.microsoft.com/en-us/marketplace/certified-iot-partners/)파트너를 참조 하세요.
+* Microsoft 신뢰할 수 있는 파트너에 대 한 자세한 내용을 알아보거나 Microsoft 신뢰할 수 있는 파트너가 되는 방법에 대 한 자세한 내용은 [Microsoft Azure 인증 된 사물 인터넷 신뢰할 수 있는](https://azure.microsoft.com/marketplace/certified-iot-partners/)파트너를 참조 하세요.
 
 ## <a name="connecting-to-iot-hub-without-an-sdk"></a>SDK 없이 IoT Hub에 연결
 
-IoT Hub 장치 Sdk 중 하나를 사용할 수 없는 경우 HTTPS 요청 및 응답을 보내고 받을 수 있는 모든 응용 프로그램에서 [IOT HUB REST api](https://docs.microsoft.com/en-us/rest/api/iothub/) 를 사용 하 여 IoT Hub에 직접 연결할 수 있습니다.
+IoT Hub 장치 Sdk 중 하나를 사용할 수 없는 경우 HTTPS 요청 및 응답을 보내고 받을 수 있는 모든 응용 프로그램에서 [IOT HUB REST api](https://docs.microsoft.com/rest/api/iothub/) 를 사용 하 여 IoT Hub에 직접 연결할 수 있습니다.
 
 ## <a name="support-and-other-resources"></a>지원 및 기타 리소스
 

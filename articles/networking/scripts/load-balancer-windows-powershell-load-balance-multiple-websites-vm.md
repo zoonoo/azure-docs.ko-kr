@@ -3,24 +3,21 @@ title: Azure PowerShell 스크립트 샘플 - Azure PowerShell을 통해 여러 
 description: Azure PowerShell 스크립트 샘플 - 동일한 가상 컴퓨터로 여러 웹 사이트 부하 분산
 services: load-balancer
 documentationcenter: load-balancer
-author: georgewallace
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: load-balancer
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
-ms.author: gwallace
-ms.openlocfilehash: 145b5a686b2707b6e60a481c08f187164d788580
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 0b266f5fcad0ef709e29a125f1b9b5ddba7fec90
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121227"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890300"
 ---
 # <a name="load-balance-multiple-websites"></a>여러 웹 사이트 부하 분산
 
@@ -48,7 +45,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 이 스크립트는 다음 명령을 사용하여 리소스 그룹, 가상 네트워크, 부하 분산 장치 및 모든 관련된 리소스를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 메모 |
+| 명령 | 참고 사항 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset) | 고가용성을 제공하기 위해 Azure 가용성 집합을 만듭니다. |

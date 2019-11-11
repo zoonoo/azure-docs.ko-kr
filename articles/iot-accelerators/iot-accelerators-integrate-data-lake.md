@@ -1,5 +1,5 @@
 ---
-title: Data Lake Store에 원격 모니터링 솔루션 통합 - Azure | Microsoft Docs
+title: 원격 모니터링에서 Data Lake Store로 데이터 스트림-Azure | Microsoft Docs
 description: Azure Stream Analytics 작업을 사용하여 원격 모니터링 솔루션을 Azure Data Lake Store와 통합하는 방법을 알아봅니다.
 author: philmea
 manager: timlt
@@ -8,12 +8,12 @@ ms.date: 04/29/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 021f18f588613817110539d408f9260fb9247895
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0a684151e01b298c60ff17ef1470e0648a425850
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61449503"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889245"
 ---
 # <a name="integrate-the-remote-monitoring-solution-with-azure-data-lake-store"></a>원격 모니터링 솔루션을 Azure Data Lake Store와 통합
 
@@ -21,7 +21,7 @@ ms.locfileid: "61449503"
 
 이 방법에서는 Azure Stream Analytics 작업을 사용하여 원격 모니터링 솔루션의 IoT 허브에서 Azure Data Lake Store로 데이터를 스트리밍합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 방법을 완료하려면 다음이 필요합니다.
 
@@ -89,7 +89,7 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
 
     ![입력 선택](./media/iot-accelerators-integrate-data-lake/stream-analytics-new-input.png)
 
-1. **저장**을 클릭합니다.
+1. **Save**를 클릭합니다.
 
 1. 개요 페이지에서 **Outputs**을 클릭합니다.
 
@@ -118,7 +118,7 @@ Azure Stream Analytics 작업을 만들어 IoT 허브에서 Azure Data Lake Stor
     > [!NOTE]
     > 팝업 창에 오류가 표시되면 새 브라우저 창을 Incognito Mode로 열고 다시 시도합니다.
 
-1. **저장**을 클릭합니다.
+1. **Save**를 클릭합니다.
 
 ## <a name="edit-the-stream-analytics-query"></a>Stream Analytics 쿼리 편집
 
@@ -141,7 +141,7 @@ Azure Stream Analytics는 SQL과 유사한 쿼리 언어를 사용하여 데이�
 
     ![Stream Analytics 쿼리](./media/iot-accelerators-integrate-data-lake/stream-analytics-query.png)
 
-1. **저장**을 클릭합니다.
+1. **Save**를 클릭합니다.
 1. **예**을 클릭하여 변경 내용을 허용합니다.
 
 ## <a name="start-the-stream-analytics-job"></a>Stream Analytics 작업 시작

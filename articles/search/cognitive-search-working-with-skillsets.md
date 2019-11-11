@@ -8,18 +8,18 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8a783581394de05fff9f0060e124e8dc59c96b60
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 8fa20608f09b4e3006dad685d2fc52bcc9207b5a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790180"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890155"
 ---
 # <a name="working-with-skillsets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기술력과 사용
 
 이 문서는 보강 파이프라인이 작동 하는 방식을 심층적으로 이해 해야 하 고 AI 보강 프로세스를 개념적으로 이해 하 고 있다고 가정 하는 개발자를 위한 것입니다. 이러한 개념을 처음 접하는 경우 다음으로 시작 합니다.
 + [Azure Cognitive Search의 AI 보강](cognitive-search-concept-intro.md)
-+ [지식 저장소 (미리 보기)](knowledge-store-concept-intro.md)
++ [지식 저장소(미리 보기)](knowledge-store-concept-intro.md)
 
 ## <a name="specify-the-skillset"></a>기술 지정
 기술는 인덱싱 중에 텍스트 또는 이미지 콘텐츠를 분석, 변환 및 보강 하는 데 사용 되는 인식 기술 컬렉션을 지정 하는 Azure Cognitive Search의 재사용 가능한 리소스입니다. 기술를 만들면 데이터 수집 단계에서 텍스트 및 이미지 강화를 연결 하 여 원시 콘텐츠에서 새 정보 및 구조를 추출 하 고 만들 수 있습니다.
@@ -32,25 +32,25 @@ ms.locfileid: "72790180"
 
 
 
-기술력과은 JSON으로 작성 됩니다. [식 언어](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional)를 사용 하 여 루프와 [분기](https://docs.microsoft.com/en-us/azure/search/cognitive-search-skill-conditional) 를 사용 하 여 복잡 한 기술력과을 빌드할 수 있습니다. 식 언어는 보강 트리의 노드를 식별 하기 위해 몇 가지 수정으로 [JSON 포인터](https://tools.ietf.org/html/rfc6901) 경로 표기법을 사용 합니다. ```"/"```는 트리에서 더 낮은 수준으로 이동 하 고 ```"*"```는 컨텍스트에서 각각의 연산자 역할을 합니다. 이러한 개념은 예를 들어 잘 설명 되어 있습니다. 몇 가지 개념과 기능을 설명 하기 위해 [호텔 리뷰 샘플](knowledge-store-connect-powerbi.md) 기술을 살펴보겠습니다. 기술를 보려면 데이터 가져오기 워크플로를 수행한 후에 REST API 클라이언트를 사용 하 여 [기술를 가져와야](https://docs.microsoft.com/en-us/rest/api/searchservice/get-skillset)합니다.
+기술력과은 JSON으로 작성 됩니다. [식 언어](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional)를 사용 하 여 루프와 [분기](https://docs.microsoft.com/azure/search/cognitive-search-skill-conditional) 를 사용 하 여 복잡 한 기술력과을 빌드할 수 있습니다. 식 언어는 보강 트리의 노드를 식별 하기 위해 몇 가지 수정으로 [JSON 포인터](https://tools.ietf.org/html/rfc6901) 경로 표기법을 사용 합니다. ```"/"```는 트리에서 더 낮은 수준으로 이동 하 고 ```"*"```는 컨텍스트에서 각각의 연산자 역할을 합니다. 이러한 개념은 예를 들어 잘 설명 되어 있습니다. 몇 가지 개념과 기능을 설명 하기 위해 [호텔 리뷰 샘플](knowledge-store-connect-powerbi.md) 기술을 살펴보겠습니다. 기술를 보려면 데이터 가져오기 워크플로를 수행한 후에 REST API 클라이언트를 사용 하 여 [기술를 가져와야](https://docs.microsoft.com/rest/api/searchservice/get-skillset)합니다.
 
 ### <a name="enrichment-tree"></a>보강 트리
 
 기술가 문서를 점진적으로 강화 하는 방법을 구상 하기 위해 모든 보강 앞에 문서 모양의 모양을 시작 하겠습니다. 문서 크랙의 출력은 데이터 원본 및 선택한 특정 구문 분석 모드에 따라 달라 집니다. 검색 인덱스에 데이터를 추가할 때 [필드 매핑에서](search-indexer-field-mappings.md) 콘텐츠를 원본으로 지정할 수 있는 문서의 상태 이기도 합니다.
-![파이프라인 다이어그램의 기술 자료 저장소](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "K파이프라인 다이어그램의 nowledge 저장소)
+![파이프라인의 지식 저장소 다이어그램](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "K파이프라인 다이어그램의 nowledge 저장소)
 
 문서가 보강 파이프라인에 있으면 콘텐츠 및 관련 강화 트리로 표시 됩니다. 이 트리는 문서 크랙의 출력으로 인스턴스화됩니다. 보강 트리 형식을 사용 하면 보강 파이프라인이 메타 데이터를 기본 데이터 형식으로 연결 하 고, 유효한 JSON 개체가 아니지만 유효한 JSON 형식으로 프로젝션 할 수 있습니다. 다음 표에서는 보강 파이프라인에 입력 하는 문서의 상태를 보여 줍니다.
 
 |데이터 원본 \ 구문 분석 모드|기본값|JSON, JSON 줄 & CSV|
 |---|---|---|
 |Blob Storage|/문서/내용<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
-|SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
+|SQL -|/document/{column1}<br>/document/{column2}<br>…|해당 없음 |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|해당 없음|
 
  기술이 실행 되 면 보강 트리에 새 노드를 추가 합니다. 이러한 새 노드는 다운스트림 기술에 대 한 입력으로 사용 하거나, 기술 자료 저장소로 프로젝션 하거나, 인덱스 필드에 매핑할 수 있습니다. 강화은 변경할 수 없습니다. 만든 후에는 노드를 편집할 수 없습니다. 기술력과가 더 복잡 하므로 보강 트리가 필요 하지만 보강 트리의 모든 노드가 인덱스나 기술 자료 저장소로 만들어야 하는 것은 아닙니다. 인덱스 또는 기술 자료 저장소에 강화의 하위 집합만 선택적으로 보관할 수 있습니다.
 
 인덱스 또는 기술 자료 저장소에 강화의 하위 집합만 선택적으로 보관할 수 있습니다.
-이 문서의 나머지 부분에서는 [호텔 리뷰 예](https://docs.microsoft.com/en-us/azure/search/knowledge-store-connect-powerbi)를 사용 하는 것으로 가정 하지만 동일한 개념은 다른 모든 데이터 원본의 문서 보강 적용 됩니다.
+이 문서의 나머지 부분에서는 [호텔 리뷰 예](https://docs.microsoft.com/azure/search/knowledge-store-connect-powerbi)를 사용 하는 것으로 가정 하지만 동일한 개념은 다른 모든 데이터 원본의 문서 보강 적용 됩니다.
 
 ### <a name="context"></a>Context
 각 기술에는 컨텍스트가 필요 합니다. 컨텍스트는 다음을 결정 합니다.

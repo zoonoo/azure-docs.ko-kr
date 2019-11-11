@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: fa3cd84978119a5858e63712b4d22c2ea89ea528
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8f6fb9737d3d8dad93a95f31d566f7cc4706ded3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470911"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886039"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Java 앱 구성
 
@@ -76,7 +76,7 @@ Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true
 116 /home/site/wwwroot/app.jar
 ```
 
-아래 명령을 실행 하 여 JVM의 30 초 기록을 시작 합니다. 그러면 JVM이 프로 파일링 되 고 홈 디렉터리에 *jfr_example* 이라는 jfr 파일이 생성 됩니다. (116을 Java 앱의 pid로 대체 합니다.)
+아래 명령을 실행 하 여 JVM의 30 초 기록을 시작 합니다. 그러면 JVM을 프로 파일링 하 고 홈 디렉터리에 *jfr_example. jfr* 이라는 jfr 파일을 만듭니다. (116을 Java 앱의 pid로 대체 합니다.)
 
 ```shell
 jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/home/jfr_example.jfr"
@@ -86,7 +86,7 @@ jcmd 116 JFR.start name=MyRecording settings=profile duration=30s filename="/hom
 
 #### <a name="continuous-recording"></a>연속 녹화
 
-줄루어 비행 레코더를 사용 하 여 런타임 성능 ([원본](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf))에 미치는 영향을 최소화 하면서 Java 응용 프로그램을 지속적으로 프로 파일링 할 수 있습니다. 이렇게 하려면 다음 Azure CLI 명령을 실행 하 여 필요한 구성이 포함 된 JAVA_OPTS 라는 앱 설정을 만듭니다. JAVA_OPTS 앱 설정의 내용은 앱이 시작 될 때 `java` 명령으로 전달 됩니다.
+줄루어 비행 레코더를 사용 하 여 런타임 성능 ([원본](https://assets.azul.com/files/Zulu-Mission-Control-data-sheet-31-Mar-19.pdf))에 미치는 영향을 최소화 하면서 Java 응용 프로그램을 지속적으로 프로 파일링 할 수 있습니다. 이렇게 하려면 다음 Azure CLI 명령을 실행 하 여 필요한 구성을 사용 하 여 JAVA_OPTS 이라는 앱 설정을 만듭니다. 앱이 시작 되 면 JAVA_OPTS 앱 설정의 내용이 `java` 명령에 전달 됩니다.
 
 ```azurecli
 az webapp config appsettings set -g <your_resource_group> -n <your_app_name> --settings JAVA_OPTS=-XX:StartFlightRecording=disk=true,name=continuous_recording,dumponexit=true,maxsize=1024m,maxage=1d
@@ -239,6 +239,24 @@ Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azur
 
 이러한 암호를 스프링 또는 Tomcat 구성 파일에 삽입 하려면 환경 변수 삽입 구문 (`${MY_ENV_VAR}`)을 사용 합니다. 스프링 구성 파일은 [표면화 된 구성](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)에 대 한이 설명서를 참조 하세요.
 
+## <a name="using-the-java-key-store"></a>Java 키 저장소 사용
+
+기본적으로 [App Service Linux에 업로드](../configure-ssl-certificate.md) 된 공용 또는 개인 인증서는 컨테이너가 시작 될 때 Java 키 저장소에 로드 됩니다. 즉, 아웃 바운드 TLS 연결을 만들 때 업로드 된 인증서를 연결 컨텍스트에서 사용할 수 있습니다.
+
+App Service에 대 한 [SSH 연결을 열고](app-service-linux-ssh-support.md) 명령 `keytool`를 실행 하 여 Java 키 도구를 상호 작용 하거나 디버그할 수 있습니다. 명령 목록은 [키 도구 설명서](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) 를 참조 하세요. 인증서는 Java의 기본 키 저장소 파일 위치 `$JAVA_HOME/jre/lib/security/cacerts`에 저장 됩니다.
+
+JDBC 연결을 암호화 하는 데 추가 구성이 필요할 수 있습니다. 선택한 JDBC 드라이버에 대 한 설명서를 참조 하세요.
+
+- [PostgreSQL](https://jdbc.postgresql.org/documentation/head/ssl-client.html)
+- [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
+- [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
+
+### <a name="manually-initialize-and-load-the-key-store"></a>수동으로 키 저장소 초기화 및 로드
+
+키 저장소를 초기화 하 고 인증서를 수동으로 추가할 수 있습니다. `1` 값을 사용 하 여 키 저장소로 인증서를 자동으로 로드할 App Service 사용 하지 않도록 설정 하 `SKIP_JAVA_KEYSTORE_LOAD`앱 설정을 만듭니다. Azure Portal을 통해 App Service에 업로드 된 모든 공용 인증서는 `/var/ssl/certs/`아래에 저장 됩니다. 개인 인증서는 `/var/ssl/private/`에 저장 됩니다.
+
+키 저장소 API에 대 한 자세한 내용은 [공식 설명서](https://docs.oracle.com/javase/8/docs/api/java/security/KeyStore.html)를 참조 하세요.
+
 ## <a name="configure-apm-platforms"></a>APM 플랫폼 구성
 
 이 섹션에서는 NewRelic 및 AppDynamics APM (응용 프로그램 성능 모니터링) 플랫폼과 함께 Linux의 Azure App Service에 배포 된 Java 응용 프로그램을 연결 하는 방법을 보여 줍니다.
@@ -275,7 +293,7 @@ Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azur
 
 기본적으로 App Service는 JAR 응용 프로그램의 이름을 *app.config*로 지정 합니다. 이 이름이 있으면 자동으로 실행 됩니다. Maven 사용자의 경우 *pom .xml*의 `<build>` 섹션에 `<finalName>app</finalName>`를 포함 하 여 JAR 이름을 설정할 수 있습니다. `archiveFileName` 속성을 설정 하 여 [Gradle에서 동일한 작업을 수행할 수](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) 있습니다.
 
-JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. 예: `java -jar my-jar-app.jar` 시작 명령에 대 한 값은 포털의 구성 > 일반 설정 또는 `STARTUP_COMMAND`라는 응용 프로그램 설정으로 설정할 수 있습니다.
+JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. 예: `java -jar my-jar-app.jar`. 시작 명령에 대 한 값은 포털의 구성 > 일반 설정 또는 `STARTUP_COMMAND`라는 응용 프로그램 설정으로 설정할 수 있습니다.
 
 ### <a name="server-port"></a>서버 포트
 

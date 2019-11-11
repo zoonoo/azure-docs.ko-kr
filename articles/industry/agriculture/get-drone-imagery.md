@@ -1,16 +1,16 @@
 ---
-title: 드 론 이미지 가져오기
+title: 드론 이미지 가져오기
 description: 파트너에서 드 론 이미지를 가져오는 방법을 설명 합니다.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 19d709a2eb0af5bdb9d40a2bce96c5716ce3c6f6
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
-ms.translationtype: HT
+ms.openlocfilehash: 6ee4391369744f966ce273697e5ba9e7f0590edd
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847422"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890990"
 ---
 # <a name="get-drone-imagery-from-drone-partners"></a>드 론 파트너에서 드 론 이미지 가져오기
 
@@ -55,7 +55,7 @@ FarmBeats와의 통합을 사용 하도록 설정 하려면 장치 공급자에 
 
     ```azurepowershell-interactive 
 
-    PS> ./generateCredentials.ps1   
+    ./generateCredentials.ps1   
 
     ```
 

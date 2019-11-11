@@ -9,16 +9,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9c67d511f6c94c8b9af034835e149875304e2235
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d68c1ee084efc146d69d8404aadb8acbb4cc33d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918977"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891762"
 ---
 # <a name="test-an-azure-stream-analytics-job-with-sample-data"></a>샘플 데이터를 사용하여 Azure Stream Analytics 작업 테스트
 
-Azure Stream Analytics에서 작업을 시작 하거나 중지 하지 않고 쿼리를 테스트할 수 있습니다. 입력 싱크에서 들어오는 데이터에 대 한 쿼리를 테스트 하거나 Azure Portal의 로컬 파일에서 예제 데이터를 업로드할 수 있습니다. 또한 [Visual Studio](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-live-data-local-testing) 의 로컬 샘플 데이터 또는 라이브 데이터에서 로컬로 쿼리를 테스트 하 고 [Visual Studio Code](https://docs.microsoft.com/en-us/azure/stream-analytics/vscode-local-run)수 있습니다. 
+Azure Stream Analytics에서 작업을 시작 하거나 중지 하지 않고 쿼리를 테스트할 수 있습니다. 입력 싱크에서 들어오는 데이터에 대 한 쿼리를 테스트 하거나 Azure Portal의 로컬 파일에서 예제 데이터를 업로드할 수 있습니다. 또한 [Visual Studio](stream-analytics-live-data-local-testing.md) 의 로컬 샘플 데이터 또는 라이브 데이터에서 로컬로 쿼리를 테스트 하 고 [Visual Studio Code](vscode-local-run.md)수 있습니다. 
 
 ## <a name="sample-incoming-data-from-input"></a>입력에서 들어오는 데이터 샘플링
 
@@ -32,9 +32,9 @@ Azure Stream Analytics은 자동으로 스트리밍 입력에서 이벤트를 �
 
 4. 들어오는 이벤트의 샘플 목록을 보려면 파일을 사용 하 여 입력 아이콘을 선택 합니다. 그러면 샘플 이벤트가 **입력 미리 보기**에 자동으로 표시 됩니다. 
 
-   a. JSON 또는 CSV의 경우 데이터의 serialization 형식이 자동으로 검색 됩니다. 드롭다운 메뉴에서 옵션을 변경 하 여 JSON, CSV, AVRO를 수동으로 변경할 수 있습니다.
+   가. JSON 또는 CSV의 경우 데이터의 serialization 형식이 자동으로 검색 됩니다. 드롭다운 메뉴에서 옵션을 변경 하 여 JSON, CSV, AVRO를 수동으로 변경할 수 있습니다.
     
-   b. 선택기를 사용 하 여 **테이블** 또는 **원시** 형식으로 데이터를 볼 수 있습니다.
+   나. 선택기를 사용 하 여 **테이블** 또는 **원시** 형식으로 데이터를 볼 수 있습니다.
     
    c. 표시 된 데이터가 최신이 아닌 경우 **새로 고침** 을 선택 하 여 최신 이벤트를 확인 합니다.
 
@@ -100,7 +100,7 @@ Azure Stream Analytics은 자동으로 스트리밍 입력에서 이벤트를 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure  Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Azure Stream Analytics 쿼리 언어 참조](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 
 * [일반적인 Stream Analytics 사용 패턴에 대 한 쿼리 예제](stream-analytics-stream-analytics-query-patterns.md)
 

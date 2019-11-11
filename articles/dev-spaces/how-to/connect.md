@@ -1,5 +1,5 @@
 ---
-title: " 개발 컴퓨터를 AKS 클러스터에 연결"
+title: " AKS 클러스터에 개발 머신 연결"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -9,14 +9,14 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 description: Azure Dev Spaces를 사용 하 여 개발 컴퓨터를 AKS 클러스터에 연결 하는 방법을 알아봅니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: 0adaa4266978cf9c9ef42359c0cf4f81c5c5f056
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 15e46fba19d92e08a9c87a63f6f01ec6b0836910
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571748"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888919"
 ---
-# <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>개발 컴퓨터를 AKS 클러스터에 연결 (미리 보기)
+# <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>개발 머신을 AKS 클러스터에 연결(미리 보기)
 
 Azure Dev Spaces를 사용 하 여 개발 컴퓨터에서 컨테이너를 사용 하거나 사용 하지 않고 코드를 실행 하 고 디버그할 수 있으며, 나머지 응용 프로그램 또는 서비스를 사용 하 여 Kubernetes 클러스터에 계속 연결할 수 있습니다. 개발 컴퓨터를 클러스터에 연결 하면 빠르게 응용 프로그램을 개발 하 고 Docker 또는 Kubernetes 구성을 만들지 않고도 종단 간 테스트를 수행할 수 있습니다. 동일한 클러스터를 사용할 수 있는 다른 작업 또는 사용자에 게 영향을 주지 않고 AKS 클러스터에 연결할 수도 있습니다.
 
@@ -39,7 +39,7 @@ Azure Dev Spaces 연결 된 AKS 클러스터와 개발 컴퓨터 간의 트래�
 
 * UDP는 지금은 지원 되지 않습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>선행 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치][azure-cli]
@@ -96,7 +96,7 @@ Azure Dev Spaces 확장을 사용 하려면 *보기* , *명령 팔레트*를 차
 응용 프로그램의 TCP 포트를 선택 하면 Azure Dev Spaces AKS 클러스터에 대 한 연결이 설정 됩니다. Azure Dev Spaces는 AKS 클러스터에 에이전트를 삽입 하 여 AKS 클러스터와 개발 컴퓨터 간에 트래픽을 리디렉션합니다. 이 연결을 설정 하는 데 몇 분 정도 걸릴 수 있습니다. 또한 Azure Dev Spaces는 개발 컴퓨터에서 *호스트* 파일을 수정 하기 위해 관리자 액세스를 요청 합니다.
 
 > [!IMPORTANT]
-> Azure Dev Spaces AKS 클러스터에 대 한 연결이 설정 되 면 개발 컴퓨터에서 서비스를 시작할 때까지 AKS 클러스터의 다른 서비스가 올바르게 작동 하지 않을 수 있습니다. 또한 서비스에 개발 컴퓨터에서 사용할 수 없는 종속성이 있는 경우 응용 프로그램을 수정 하거나 [추가 구성을](#additional-configuration) 제공 해야 할 수 있습니다.
+> AKS 클러스터에 대 한 연결이 설정 되 Azure Dev Spaces 면 연결 모드 *바꾸기* 를 선택 하는 경우 개발 컴퓨터에서 서비스를 시작할 때까지 AKS 클러스터의 다른 서비스가 올바르게 작동 하지 않을 수 있습니다. 대신 *복제* 연결 모드를 선택 하 여 리디렉션에 사용할 자식 개발 공간을 만들고 부모 공간에 대 한 중단을 방지할 수 있습니다. 또한 서비스에 개발 컴퓨터에서 사용할 수 없는 종속성이 있는 경우 응용 프로그램을 수정 하거나 [추가 구성을](#additional-configuration) 제공 해야 할 수 있습니다.
 
 Azure Dev Spaces AKS 클러스터에 대 한 연결을 설정한 후에 *AZDS* 라는 제목의 터미널 창이 열립니다. 이 터미널 창에는 AKS 클러스터에서 구성 된 모든 환경 변수 및 DNS 항목이 있습니다. 이 터미널 창에서 실행 하거나 Visual Studio Code 디버거를 사용 하 여 실행 하는 모든 코드는 AKS 클러스터에 연결 됩니다.
 

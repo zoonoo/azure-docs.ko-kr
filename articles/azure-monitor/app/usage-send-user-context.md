@@ -8,12 +8,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: cf639be5db90e3632b8931564ac397c42e1d8403
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b105e8ba79e99be02420ca1821f6a080b0862d6f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899373"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887404"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application Insights에서 사용 환경을 활성화하도록 사용자 컨텍스트 ID 보내기
 
@@ -32,7 +32,7 @@ Application Insights를 사용하면 제품 사용 현황 도구 집합을 통�
 - 세션: 세션 ID를 포함합니다.
 
 > [!NOTE]
-> Application Insights를 사용하여 사용자 활동을 추적하는 수동 단계를 대략적으로 설명하는 고급 문서입니다. 많은 웹 애플리케이션에서 [클라이언트/브라우저 쪽 JavaScript SDK](../../azure-monitor/app/website-monitoring.md )와 함께 기본 서버 쪽으로 SDK를 사용하면 사용자 활동을 충분히 자동으로 추적 가능하므로 **이러한 단계가 필요하지 않을 수 있습니다**. 서버 쪽 SDK 외에 [클라이언트 쪽 모니터링](../../azure-monitor/app/website-monitoring.md )을 구성하지 않은 경우, 먼저 이러한 기능을 구성하고, 테스트를 통해 사용자 동작 분석 도구가 예상대로 작동하는지 확인합니다.
+> Application Insights를 사용하여 사용자 활동을 추적하는 수동 단계를 대략적으로 설명하는 고급 문서입니다. 많은 웹 애플리케이션에서 **클라이언트/브라우저 쪽 JavaScript SDK**와 함께 기본 서버 쪽으로 SDK를 사용하면 사용자 활동을 충분히 자동으로 추적 가능하므로 [이러한 단계가 필요하지 않을 수 있습니다](../../azure-monitor/app/website-monitoring.md ). 서버 쪽 SDK 외에 [클라이언트 쪽 모니터링](../../azure-monitor/app/website-monitoring.md )을 구성하지 않은 경우, 먼저 이러한 기능을 구성하고, 테스트를 통해 사용자 동작 분석 도구가 예상대로 작동하는지 확인합니다.
 
 ## <a name="choosing-user-ids"></a>사용자 ID 선택
 
@@ -48,7 +48,7 @@ ID가 사용자에 대한 개인 식별 정보를 포함하는 경우 사용자 
 
 ## <a name="aspnet-apps-setting-the-user-context-in-an-itelemetryinitializer"></a>ASP.NET 앱: ITelemetryInitializer에 사용자 컨텍스트 설정
 
-[여기](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)에 설명된 대로 원격 분석 이니셜라이저를 만듭니다. 요청 원격 분석을 통해 세션 ID를 전달하고 Context.User.Id 및 Context.Session.Id를 설정합니다.
+[여기](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer)에 설명된 대로 원격 분석 이니셜라이저를 만듭니다. 요청 원격 분석을 통해 세션 ID를 전달하고 Context.User.Id 및 Context.Session.Id를 설정합니다.
 
 이 예제에서는 세션 후에 만료되는 식별자에 대한 사용자 ID를 설정합니다. 가능하면 세션 간에 유지되는 사용자 ID를 사용합니다.
 

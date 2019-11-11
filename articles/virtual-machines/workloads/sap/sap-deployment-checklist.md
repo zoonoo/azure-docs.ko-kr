@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/15/2019
+ms.date: 11/08/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a77c0e38db06698e714c3d0c3df0d9a5f028787b
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 097429e9c761d447a7164c813a6c84d3f07f0ab6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71672946"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891415"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -128,7 +128,7 @@ ms.locfileid: "71672946"
             - Oracle Linux 7.5. RHCKL 커널을 사용 하는 경우 3.10.0-862.13.1 el7가 필요 합니다. Oracle UEK 커널을 사용 하는 경우 릴리스 5가 필요 합니다.
         - Sap 지원 정보 [#500235](https://launchpad.support.sap.com/#/notes/500235) 및 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)에 따라 Sap 응용 프로그램 계층 vm과 DBMS vm 간의 네트워크 대기 시간을 테스트 하 고 평가 합니다. [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E)의 네트워크 대기 시간 지침에 따라 결과를 평가 합니다. 네트워크 대기 시간은 보통 또는 적절 한 범위에 있어야 합니다. [이 문서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)에서 설명 하는 것 처럼 VM과 HANA Large Instance 단위 간의 트래픽에는 예외가 적용 됩니다.
         - ILB 배포가 Direct Server Return을 사용 하도록 설정 되었는지 확인 합니다. 이 설정은 DBMS 계층에서 고가용성 구성에 Azure ILBs를 사용 하는 경우 대기 시간을 줄입니다.
-        - Linux 게스트 운영 체제와 함께 Azure Load Balancer를 사용 하는 경우 Linux 네트워크 매개 변수 **net.pipe ()** 가 **0**으로 설정 되어 있는지 확인 합니다. 이 권장 사항은 이전 버전의 [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)권장 사항과 충돌 합니다. 이제 SAP note가 Azure 부하 분산 장치를 사용 하려면이 매개 변수를 **0** 으로 설정 해야 한다는 상태를 업데이트 합니다.
+        - Azure Load Balancer를 Linux 게스트 운영 체제와 함께 사용 하는 경우 Linux 네트워크 매개 변수 net.tcp. **tcp_timestamps** 가 **0**으로 설정 되어 있는지 확인 합니다. 이 권장 사항은 이전 버전의 [SAP note #2382421](https://launchpad.support.sap.com/#/notes/2382421)권장 사항과 충돌 합니다. 이제 SAP note가 Azure 부하 분산 장치를 사용 하려면이 매개 변수를 **0** 으로 설정 해야 한다는 상태를 업데이트 합니다.
         - 최적의 네트워크 대기 시간을 얻으려면 [Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location) 을 사용 하는 것이 좋습니다. 자세한 내용은 [SAP 응용 프로그램의 최적의 네트워크 대기 시간에 대 한 Azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)을 참조 하세요.
    4. 고가용성 및 재해 복구 배포.
         - 특정 Azure 가용성 영역을 정의 하지 않고 SAP 응용 프로그램 계층을 배포 하는 경우 sap 대화 상자 인스턴스 또는 단일 SAP 시스템의 미들웨어 인스턴스를 실행 하는 모든 Vm이 [가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)에 배포 되었는지 확인 합니다.
@@ -160,7 +160,7 @@ ms.locfileid: "71672946"
    1.  [네트워크 보안 그룹 및 ASC](https://docs.microsoft.com/azure/virtual-network/security-overview) 규칙이 예상 대로 작동 하는지 확인 하 고 보호 된 리소스를 보호 합니다.
    1.  암호화해야 하는 모든 리소스가 암호화되는지 확인합니다. 인증서를 백업 하 고, 이러한 인증서를 저장 및 액세스 하 고, 암호화 된 엔터티를 복원 하는 프로세스를 정의 하 고 구현 합니다.
    1.  OS 지원 관점에서 가능한 경우 OS 디스크에 대해 [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq) 를 사용 합니다.
-   1.  너무 많은 암호화 계층을 사용 하 고 있지 않아야 합니다. 경우에 따라 DBMS 투명한 데이터 암호화 메서드 중 하 나와 함께 Azure Disk Encryption를 사용 하는 것이 좋습니다.
+   1.  너무 많은 암호화 계층을 사용 하 고 있지 않아야 합니다. 경우에 따라 DBMS 투명한 데이터 암호화 방법 중 하 나와 함께 Azure Disk Encryption를 사용 하 여 동일한 서버에 있는 다른 디스크나 구성 요소를 보호 하는 것이 좋습니다.  예를 들어 SAP DBMS 서버에서 운영 체제 부팅 디스크 (운영 체제에서 ADE를 지 원하는 경우) 및 DBMS 데이터 지 속성 파일에서 사용 하지 않는 데이터 디스크에 대 한 Azure Disk Encryption (ADE)를 사용할 수 있습니다.  예를 들어 DBMS TDE 암호화 키를 보유 하는 디스크에서 ADE를 사용 합니다.
 1. 성능 테스트. Sap에서 SAP 추적 및 측정을 기반으로 다음과 같은 비교를 수행 합니다.
    - 해당 하는 경우 상위 10 개의 온라인 보고서를 현재 구현과 비교 합니다.
    - 해당 하는 경우 상위 10 개의 배치 작업을 현재 구현과 비교 합니다.

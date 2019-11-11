@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c739e827589a9fd6adeb10255f869acef29a4f16
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 9c8219dd9ec971303fb62cf828da91ee877f4ca9
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69562218"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882916"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>방법: Azure AD 조인 구현 계획
 
@@ -24,7 +24,7 @@ Azure AD 조인을 사용하면 사용자의 생산성과 보안을 유지하면
 
 이 문서에서는 Azure AD 조인 구현을 계획하는 데 필요한 정보를 제공합니다.
  
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 이 문서에서는 사용자가 [Azure Active Directory의 디바이스 관리 소개](../device-management-introduction.md)를 잘 알고 있다고 가정합니다.
 
@@ -78,7 +78,7 @@ AD FS를 사용하는 경우 다음 WS-Trust 엔드포인트를 사용하도록 
 ID 공급자가 이러한 프로토콜을 지원하지 않는 경우 Azure AD 조인이 기본적으로 작동하지 않습니다. Windows 10 1809부터는 사용자가 [Windows 10의 웹 로그인](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10)을 통해 Azure AD 조인 디바이스에 SAML 기반 ID 공급자로 로그인할 수 있습니다. 현재 웹 로그인은 미리 보기 기능이 며 프로덕션 배포에는 권장 되지 않습니다.
 
 >[!NOTE]
-> 현재 Azure AD 조인은 [기본 인증 방법으로 외부 인증 공급자를 사용 하 여 구성 된 AD FS 2019](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)에서 작동 하지 않습니다. Azure AD 조인은 기본 방법으로 암호 인증을 기본값으로 설정 하므로이 시나리오에서 인증 오류가 발생 합니다.
+> 현재 Azure AD 조인은 [기본 인증 방법으로 외부 인증 공급자를 사용 하 여 구성 된 AD FS 2019](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/additional-authentication-methods-ad-fs#enable-external-authentication-methods-as-primary)에서 작동 하지 않습니다. Azure AD 조인은 기본 방법으로 암호 인증을 기본값으로 설정 하므로이 시나리오에서 인증 오류가 발생 합니다.
 
 
 ### <a name="smartcards-and-certificate-based-authentication"></a>스마트 카드 및 인증서 기반 인증
@@ -106,7 +106,7 @@ Azure AD 조인:
 - 이전 버전의 Windows 또는 다른 운영 체제에는 적용되지 않습니다. Windows 7/8.1 디바이스의 경우 Azure AD 조인을 배포하려면 Windows 10으로 업그레이드해야 합니다.
 - FIPS 모드에서 TPM을 사용한 디바이스에서 지원되지 않습니다.
  
-**권장 사항**: 항상 최신 Windows 10 릴리스를 사용하여 업데이트된 기능을 활용하는 것이 좋습니다.
+**권장 사항:** 항상 최신 Windows 10 릴리스를 사용하여 업데이트된 기능을 활용하는 것이 좋습니다.
 
 ### <a name="management-platform"></a>관리 플랫폼
 
@@ -197,11 +197,11 @@ Azure AD 조인 디바이스에 원격 데스크톱 연결을 설정하려면 �
  
 |   | 셀프 서비스 설정 | Windows Autopilot | 대량 등록 |
 | --- | --- | --- | --- |
-| 설정에서 사용자 상호 작용이 필요 | 예 | 예 | 아니요 |
-| IT 활동이 필요 | 아니요 | 예 | 예 |
+| 설정에서 사용자 상호 작용이 필요 | 예 | 예 | 아니오 |
+| IT 활동이 필요 | 아니오 | 예 | 예 |
 | 적용 흐름 | OOBE 및 설정 | OOBE만 | OOBE만 |
-| 기본 사용자에 대한 로컬 관리자 권한 | 기본적으로 예 | 구성 가능 여부 | 아니요 |
-| 디바이스 OEM 지원 필요 | 아니요 | 예 | 아니요 |
+| 기본 사용자에 대한 로컬 관리자 권한 | 기본적으로 예 | 구성 가능 여부 | 아니오 |
+| 디바이스 OEM 지원 필요 | 아니오 | 예 | 아니오 |
 | 지원되는 버전 | 1511+ | 1709+ | 1703+ |
  
 위의 표를 검토하고 방법 채택에 대한 다음 고려 사항을 검토하여 배포 접근 방식을 선택합니다.  
@@ -247,7 +247,7 @@ Azure Portal에서 조직의 Azure AD 조인 디바이스 배포를 제어할 �
 1. **애플리케이션 추가**를 클릭합니다.
 1. 목록에서 MDM 공급자를 선택합니다.
 
-   ![응용 프로그램 추가](./media/azureadjoin-plan/04.png)
+   ![애플리케이션 추가](./media/azureadjoin-plan/04.png)
 
 MDM 공급자를 선택하여 관련 설정을 구성합니다. 
 
@@ -270,7 +270,7 @@ MDM 구성과 관련된 세 가지 URL이 있습니다.
 - MDM 검색 URL 
 - MDM 규정 준수 URL
 
-![응용 프로그램 추가](./media/azureadjoin-plan/06.png)
+![애플리케이션 추가](./media/azureadjoin-plan/06.png)
 
 각 URL에는 미리 정의된 기본값이 있습니다. 이러한 필드가 비어 있으면 MDM 공급자에게 자세한 정보를 문의하세요.
 
@@ -288,7 +288,7 @@ MAM은 Azure AD 조인에 적용되지 않습니다.
 
 Azure AD 조인 디바이스에 대한 MDM 공급자가 구성된 경우 공급자는 디바이스 관리가 시작되는 즉시 디바이스에 준수 플래그를 지정합니다. 
 
-![준수 디바이스](./media/azureadjoin-plan/46.png)
+![규정 준수 디바이스](./media/azureadjoin-plan/46.png)
 
 이 구현을 사용 하 여 [조건부 액세스를 통해 클라우드 앱 액세스를 위한 관리 되는 장치를 요구할](../conditional-access/require-managed-devices.md)수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 880b31702cf1c0a92ab7ee536cd88e8e6957f6f8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3414cc54e5023bdeebb2d5536c1408f981e68f19
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430859"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891394"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Veeam B & R을 사용 하 여 CloudSimple 사설 클라우드에서 워크 로드 Vm 백업
 
@@ -54,7 +54,7 @@ Veeam 솔루션에는 다음 구성 요소가 포함 되어 있습니다.
 
 * Veeam 백업 서버 및 프록시 서버가 사설 클라우드의 동일한 VM에 설치 되어 있어야 합니다.
 * Azure의 Linux 기반 기본 백업 리포지토리는 백업 작업의 대상으로 구성 됩니다.
-* `azcopy`은 다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 됩니다.
+* 다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 `azcopy` 합니다.
 
 ![기본 배포 시나리오](media/veeam-basicdeployment.png)
 
@@ -65,7 +65,7 @@ Veeam 솔루션에는 다음 구성 요소가 포함 되어 있습니다.
 * Veeam에 권장 된 대로 vSAN 클러스터의 노드당 하나의 프록시 서버.
 * 빠른 복원을 위해 5 일간의 데이터를 캐시 하는 사설 클라우드의 Windows 기반 주 백업 리포지토리입니다.
 * 더 긴 보존 기간 동안 백업 복사 작업을 위한 대상으로 Azure의 Linux 백업 리포지토리 이 리포지토리는 스케일 아웃 백업 리포지토리로 구성 되어야 합니다.
-* `azcopy`은 다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 됩니다.
+* 다른 지역에 복제 되는 Azure blob 컨테이너에 기본 백업 리포지토리에서 데이터를 복사 하는 데 사용 `azcopy` 합니다.
 
 ![기본 배포 시나리오](media/veeam-advanceddeployment.png)
 
@@ -185,7 +185,7 @@ Express 경로를 [사용 하 여 Azure Virtual Network 연결](azure-expressrou
     sudo mount -t xfs /dev/mapper/backup1-backup1 /backup1
     ```
 
-7. /Sc1을 NFS 탑재 지점으로 노출 하 여 사설 클라우드에서 실행 중인 Veeam 백업 서버에 표시 합니다. 지침은 [CentOS 6에서 NFS 탑재를 설정 하는 방법](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-centos-6)에 대 한 디지털 해양 문서를 참조 하세요. Veeam 백업 서버에서 백업 리포지토리를 구성할 때이 NFS 공유 이름을 사용 합니다.
+7. /S을 NFS 탑재 지점으로 노출 하 여 사설 클라우드에서 실행 중인 Veeam 백업 서버에 표시 합니다. 지침은 [CentOS 6에서 NFS 탑재를 설정 하는 방법](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-nfs-mount-on-centos-6)에 대 한 디지털 해양 문서를 참조 하세요. Veeam 백업 서버에서 백업 리포지토리를 구성할 때이 NFS 공유 이름을 사용 합니다.
 
 8. VM에 대 한 모든 네트워크 트래픽을 명시적으로 허용 하도록 백업 리포지토리 VM에 대 한 NSG의 필터링 규칙을 구성 합니다.
 
@@ -194,7 +194,7 @@ Express 경로를 [사용 하 여 Azure Virtual Network 연결](azure-expressrou
 
 ### <a name="configure-azure-blob-storage-for-long-term-data-retention"></a>장기적인 데이터 보존을 위해 Azure blob storage 구성
 
-1. Microsoft 비디오 [Azure Storage 시작](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)에 설명 된 대로 표준 유형 및 blob 컨테이너의 범용 저장소 계정 (GPv2)을 만듭니다.
+1. Microsoft 비디오 [Azure Storage 시작](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)에 설명 된 대로 표준 유형 및 blob 컨테이너의 범용 저장소 계정 (GPv2)을 만듭니다.
 2. [컨테이너 참조 만들기](https://docs.microsoft.com/rest/api/storageservices/create-container) 에 설명 된 대로 Azure storage 컨테이너를 만듭니다.
 2. Microsoft에서 Linux 용 `azcopy` 명령줄 유틸리티를 다운로드 합니다. CentOS 7.5의 bash 셸에서 다음 명령을 사용할 수 있습니다.
 
@@ -206,7 +206,7 @@ Express 경로를 [사용 하 여 Azure Virtual Network 연결](azure-expressrou
     sudo yum -y install icu
     ```
 
-3. @No__t-0 명령을 사용 하 여 blob 컨테이너에 백업 파일을 복사 합니다.  자세한 명령은 [Linux에서 AzCopy를 사용 하 여 데이터 전송](../storage/common/storage-use-azcopy-linux.md) 을 참조 하세요.
+3. `azcopy` 명령을 사용 하 여 blob 컨테이너에 백업 파일을 복사 합니다.  자세한 명령은 [Linux에서 AzCopy를 사용 하 여 데이터 전송](../storage/common/storage-use-azcopy-linux.md) 을 참조 하세요.
 
 ### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>사설 클라우드의 vCenter 콘솔: Veeam B & R 설치
 
@@ -290,7 +290,7 @@ Veeam 백업 및 복구 서버에 대 한 공용 IP 주소를 만듭니다. 자�
 * [회로와 다른 구독에 VNet 연결](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription)
 * [Azure Portal에서 Linux 가상 머신 만들기](../virtual-machines/linux/quick-create-portal.md)
 * [Azure Portal에서 관리 되는 데이터 디스크를 Windows VM에 연결 하는 방법](../virtual-machines/windows/attach-managed-disk-portal.md)
-* [Azure Storage 시작-비디오](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage)
+* [Azure Storage 시작-비디오](https://azure.microsoft.com/resources/videos/get-started-with-azure-storage)
 * [컨테이너 만들기](https://docs.microsoft.com/rest/api/storageservices/create-container)
 * [Linux에서 AzCopy를 사용하여 데이터 전송](../storage/common/storage-use-azcopy-linux.md)
 

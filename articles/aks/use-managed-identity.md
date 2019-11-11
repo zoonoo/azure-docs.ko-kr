@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
-ms.openlocfilehash: 77655f08350419f0d102c9927b3e09b87edba341
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 16a1f3b8f9ef036bcdc9af122243d313186f99f1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72592865"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885329"
 ---
 # <a name="preview---use-managed-identities-in-azure-kubernetes-service"></a>미리 보기-Azure Kubernetes Service에서 관리 되는 id 사용
 
@@ -55,13 +55,13 @@ az extension list
 az feature register --name MSIPreview --namespace Microsoft.ContainerService
 ```
 
-상태를 **등록 된**것으로 표시 하는 데 몇 분 정도 걸릴 수 있습니다. [Az feature list](https://docs.microsoft.com/en-us/cli/azure/feature?view=azure-cli-latest#az-feature-list) 명령을 사용 하 여 등록 상태를 확인할 수 있습니다.
+상태를 **등록 된**것으로 표시 하는 데 몇 분 정도 걸릴 수 있습니다. [Az feature list](https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest#az-feature-list) 명령을 사용 하 여 등록 상태를 확인할 수 있습니다.
 
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/MSIPreview')].{Name:name,State:properties.state}"
 ```
 
-상태가 등록 됨으로 표시 되 면 [az provider register](https://docs.microsoft.com/en-us/cli/azure/provider?view=azure-cli-latest#az-provider-register) 명령을 사용 하 여 `Microsoft.ContainerService` 리소스 공급자의 등록을 새로 고칩니다.
+상태가 등록 됨으로 표시 되 면 [az provider register](https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest#az-provider-register) 명령을 사용 하 여 `Microsoft.ContainerService` 리소스 공급자의 등록을 새로 고칩니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService

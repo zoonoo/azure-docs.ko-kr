@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 6d90075f866cb65e5428a1641ebd4cf77dd2a887
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5cc4a511d6347d28a1737932c1b4b5b768d3fc4
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73479574"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891566"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2 세대 Vm에 대 한 지원
 
@@ -59,7 +59,8 @@ ms.locfileid: "73479574"
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
-* Ubuntu Server 16.04+
+* Ubuntu Server 16.04, 18.04, 19.04, 19.10 
+* RHEL 8.0
 
 ## <a name="on-premises-vs-azure-generation-2-vms"></a>온-프레미스 및 Azure 2 세대 Vm
 
@@ -101,7 +102,7 @@ Azure는 현재 온-프레미스 Hyper-v에서 2 세대 Vm에 대해 지 원하�
 
 Azure Portal 또는 Azure CLI에서는 UEFI 부팅을 지 원하는 Marketplace 이미지에서 2 세대 Vm을 만들 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure 포털
 
 Windows 및 SLES에 대 한 2 세대 이미지는 Gen1 이미지와 동일한 서버 제품에 포함 되어 있습니다. 흐름 관점에서 볼 때 VM에 대 한 포털에서 제품 및 SKU를 선택 한다는 것을 의미 합니다. SKU에서 1 세대와 2 세대 이미지를 모두 지 원하는 경우 VM 생성 흐름의 *고급* 탭에서 2 세대 vm을 만들도록 선택할 수 있습니다.
 
@@ -139,7 +140,7 @@ OS로 Windows Server 2012를 사용 하 여 VM을 만드는 경우 1 세대 (BIO
 
 1 세대 VM을 만드는 것과 같은 방법으로 관리 되는 이미지 또는 관리 디스크에서 2 세대 VM을 만들 수 있습니다.
 
-### <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
+### <a name="virtual-machine-scale-sets"></a>가상 머신 확장 집합
 
 또한 가상 머신 확장 집합을 사용 하 여 2 세대 Vm을 만들 수 있습니다. Azure CLI에서 Azure 확장 집합을 사용 하 여 2 세대 Vm을 만듭니다.
 

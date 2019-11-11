@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac1b75536e092203490a390860a1cead7ac333b7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0398ff7eb8931acc400b326ff92deaf75f0aa97e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817986"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882833"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -32,7 +32,7 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 암호 해시 동기화 과정의 실제 데이터 흐름은 사용자 데이터의 동기화와 비슷합니다. 그러나 암호는 다른 특성에 대한 표준 디렉터리 동기화 창보다 더 자주 동기화됩니다. 암호 해시 동기화 프로세스는 2분마다 실행됩니다. 이 프로세스의 빈도를 수정할 수 없습니다. 암호를 동기화할 경우 기존 클라우드 암호를 덮어씁니다.
 
-암호 해시 동기화 기능을 사용하도록 처음으로 설정하면 범위 내 모든 사용자 암호에 대한 초기 동기화를 수행합니다. 동기화할 사용자 암호의 하위 집합을 명시적으로 정의할 수 없습니다. 그러나 커넥터가 여러 개인 경우에는 일부 커넥터에 대해서는 암호 해시 동기화를 사용 하지 않도록 설정할 수 있지만, 다른 커넥터에는 암호 해시 동기화를 사용 하지 않도록 [설정할](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) 수 있습니다.
+암호 해시 동기화 기능을 사용하도록 처음으로 설정하면 범위 내 모든 사용자 암호에 대한 초기 동기화를 수행합니다. 동기화할 사용자 암호의 하위 집합을 명시적으로 정의할 수 없습니다. 그러나 커넥터가 여러 개인 경우에는 일부 커넥터에 대해서는 암호 해시 동기화를 사용 하지 않도록 설정할 수 있지만, 다른 커넥터에는 암호 해시 동기화를 사용 하지 않도록 [설정할](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-password-sync-synced-tenant) 수 있습니다.
 
 온-프레미스 암호를 변경하면, 업데이트된 암호는 대개 몇 분 내에 동기화됩니다.
 암호 해시 동기화 기능은 실패한 사용자 암호 동기화를 자동으로 다시 시도합니다. 암호를 동기화하는 동안 오류가 발생하면 이벤트 뷰어에 오류가 기록됩니다.
@@ -155,7 +155,7 @@ Azure AD에서 동기화 된 사용자에 대 한 임시 암호를 지원 하려
 
 ### <a name="additional-advantages"></a>추가적인 이점
 
-- 일반적으로 암호 해시 동기화는 페더레이션 서비스보다 더 쉽게 구현할 수 있습니다. 추가 서버가 필요 없으며, 사용자를 인증하기 위해 고가용성의 페더레이션 서비스에 의존하지 않아도 됩니다.
+- 일반적으로 암호 해시 동기화는 페더레이션 서비스보다 구현에 더 가깝습니다. 추가 서버가 필요 없으며, 사용자를 인증하기 위해 고가용성의 페더레이션 서비스에 의존하지 않아도 됩니다.
 - 페더레이션 외에 암호 해시 동기화를 사용하도록 설정할 수도 있습니다. 페더레이션 서비스에 중단이 발생하는 경우 대체 서비스로 사용될 수 있습니다.
 
 ## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Azure AD Domain Services에 대 한 암호 해시 동기화 프로세스

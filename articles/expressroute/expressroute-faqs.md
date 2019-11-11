@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 4dd4831d6437b7026459dc358455335dd0fa221b
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f27a6df86ebbe2b07b73016f304ac364e88664bb
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063097"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891043"
 ---
 # <a name="expressroute-faq"></a>ExpressRoute FAQ
 
@@ -31,7 +31,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="how-can-i-use-expressroute-to-connect-to-microsoft-if-i-dont-have-partnerships-with-one-of-the-expressroute-carrier-partners"></a>ExpressRoute 통신 업체 중 하나와 파트너의 관계가 아닌 경우, ExpressRoute를 사용하여 Microsoft에 연결할 수 있는 방법이 있나요?
 
-지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 공급자 위치에서 Microsoft와 피어링할 수 있습니다. [ 파트너 및 위치](expressroute-locations.md)의 마지막 섹션을 검사하여 서비스 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 서비스 공급자를 통해 ExpressRoute 회로를 주문할 수 있습니다.
+지역 통신 업체를 선택하고 지원되는 exchange 공급자 위치 중 하나에 이더넷 연결을 제공할 수 있습니다. 그러면 공급자 위치에서 Microsoft와 피어링할 수 있습니다. [ExpressRoute 파트너 및 위치](expressroute-locations.md) 의 마지막 섹션을 검사하여 서비스 공급자가 Exchange 위치 중 하나에 있는지 확인합니다. 그런 다음 Azure에 연결하려면 서비스 공급자를 통해 ExpressRoute 회로를 주문할 수 있습니다.
 
 ### <a name="how-much-does-expressroute-cost"></a>ExpressRoute 비용
 
@@ -39,7 +39,7 @@ ExpressRoute 연결은 공용 인터넷을 통해 이동하지 않습니다. 인
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-does-the-vpn-connection-i-purchase-from-my-network-service-provider-have-to-be-the-same-speed"></a>지정된 대역폭의 ExpressRoute 회로에 대한 비용을 지불하는 경우, 네트워크 서비스 공급자로부터 구입한 VPN 연결은 동일한 속도여야 하나요?
 
-아닙니다. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
+아니요. 서비스 공급자로부터 모든 속도의 VPN 연결을 구입할 수 있습니다. 그러나 Azure에 대한 연결은 구입한 ExpressRoute 회로 대역폭으로 제한됩니다.
 
 ### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>지정된 대역폭의 ExpressRoute 회로에 대해 비용을 지불한다면 필요한 경우 더 높은 속도로 버스트할 수 있나요?
 
@@ -101,7 +101,7 @@ Microsoft는 지정 된 ' 보급 된 공용 접두사 ' 및 ' 피어 ASN ' (또�
 Dynamics 365 및 Common Data Service (CD) 환경은 Azure에서 호스트 되므로 고객은 Azure 리소스에 대 한 기본 Express 경로 지원을 활용 합니다. 라우터 필터에 Dynamics 365/CD 환경이 호스트 되는 Azure 지역이 포함 된 경우 해당 서비스 끝점에 연결할 수 있습니다.
 
 > [!NOTE]
-> [Express 경로 프리미엄](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) 은 Azure express 경로를 통한 Dynamics 365 연결에 필요 **하지 않습니다** .
+> [Express 경로 프리미엄](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#expressroute-premium) 은 Azure express 경로를 통한 Dynamics 365 연결에 필요 **하지 않습니다** .
 
 ## <a name="data-and-connections"></a>데이터 및 연결
 
@@ -137,7 +137,7 @@ Dynamics 365 및 Common Data Service (CD) 환경은 Azure에서 호스트 되므
 
 서로 다른 피어 링 위치의 여러 Express 경로 회로를 동일한 가상 네트워크에 연결 하 여 단일 회로를 사용할 수 없게 되는 경우 고가용성을 제공할 수 있습니다. 그런 다음 특정 회로를 선호 하도록 로컬 연결에 [더 높은 가중치를 할당할](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) 수 있습니다. 단일 실패 지점이 발생 하지 않도록 하기 위해 고객은 두 개 이상의 Express 경로 회로를 설치 하는 것이 좋습니다. 
 
-재해 복구를 위한 디자인 [을 위해 고가용성](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering) 을 위한 설계는 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute) 를 참조 하세요.  
+고가용성을 위한 디자인 설계는 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute)를 재해 복구를 위한 디자인은 [여기](https://docs.microsoft.com/azure/expressroute/designing-for-disaster-recovery-with-expressroute-privatepeering)를 참조하세요.  
 
 ### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>Microsoft 피어 링에서 중복성을 구현 하는 방법
 
@@ -163,7 +163,7 @@ BGP 경로 선택 및 공통 라우터 [구성에서 추가 세부 정보를 참
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>ExpressRoute를 사용하여 Azure에 대한 내 VLAN 중 하나를 확장할 수 있나요?
 
-아닙니다. Azure까지의 계층 2 연결 확장을 지원하지 않습니다.
+아니요. Azure까지의 계층 2 연결 확장을 지원하지 않습니다.
 
 ### <a name="can-i-have-more-than-one-expressroute-circuit-in-my-subscription"></a>내 구독에 둘 이상의 ExpressRoute 회로가 있을 수 있나요?
 
@@ -212,7 +212,7 @@ BGP 경로 선택 및 공통 라우터 [구성에서 추가 세부 정보를 참
 
 ### <a name="are-virtual-networks-connected-to-the-same-circuit-isolated-from-each-other"></a>가상 네트워크가 서로 격리된 동일한 회로에 연결되어 있나요?
 
-아닙니다. 라우팅 관점에서 동일한 ExpressRoute 회로에 연결된 모든 가상 네트워크는 동일한 라우팅 도메인의 일부이며 서로 격리되지 않습니다. 경로 격리가 필요하면 별도의 ExpressRoute 회로를 만들어야 합니다.
+아니요. 라우팅 관점에서 동일한 ExpressRoute 회로에 연결된 모든 가상 네트워크는 동일한 라우팅 도메인의 일부이며 서로 격리되지 않습니다. 경로 격리가 필요하면 별도의 ExpressRoute 회로를 만들어야 합니다.
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>하나의 가상 네트워크를 둘 이상의 ExpressRoute 회로에 연결할 수 있나요?
 
@@ -290,17 +290,17 @@ ExpressRoute Premium은 다음 기능의 모음입니다.
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 
-### <a name="how-do-i-enable-expressroute-premium"></a>ExpressRoute Premium을 사용하려면 어떻게 하나요?
+### <a name="how-do-i-enable-expressroute-premium"></a>ExpressRoute 프리미엄을 사용하려면 어떻게 하나요?
 
 ExpressRoute Premium 기능은 사용하도록 설정되면 활성화할 수 있으며, 회로 상태를 업데이트하여 종료할 수 있습니다. ExpressRoute Premium은 회로를 만들 때 또는 REST API/PowerShell cmdlet을 호출하여 사용하도록 설정할 수 있습니다.
 
-### <a name="how-do-i-disable-expressroute-premium"></a>ExpressRoute Premium을 사용하지 않도록 하려면 어떻게 하나요?
+### <a name="how-do-i-disable-expressroute-premium"></a>ExpressRoute 프리미엄을 사용하지 않도록 하려면 어떻게 하나요?
 
 ExpressRoute Premium은 REST API/PowerShell cmdlet을 호출하여 사용하지 않도록 설정할 수 있습니다. ExpressRoute Premium을 사용하지 않도록 설정하기 전에 기본 제한을 충족하도록 연결 요구 사항을 조정했는지 확인해야 합니다. 사용률이 기본 제한을 초과하면 ExpressRoute Premium을 사용하지 않도록 설정하는 요청이 실패합니다.
 
 ### <a name="can-i-pick-and-choose-the-features-i-want-from-the-premium-feature-set"></a>프리미엄 기능 집합에서 원하는 기능을 선택할 수 있나요?
 
-아닙니다. 기능은 선택할 수 없습니다. ExpressRoute Premium을 켜면 모든 기능을 사용합니다.
+아니요. 기능은 선택할 수 없습니다. ExpressRoute 프리미엄을 켜면 모든 기능을 사용합니다.
 
 ### <a name="how-much-does-expressroute-premium-cost"></a>ExpressRoute Premium 비용
 
@@ -308,7 +308,7 @@ ExpressRoute Premium은 REST API/PowerShell cmdlet을 호출하여 사용하지 
 
 ### <a name="do-i-pay-for-expressroute-premium-in-addition-to-standard-expressroute-charges"></a>표준 ExpressRoute 요금 외에도 ExpressRoute premium에 대한 납부 여부
 
-예. ExpressRoute premium 요금은 ExpressRoute 회로 요금 및 연결 공급자에서 필요한 요금 위에 적용됩니다.
+예. ExpressRoute 프리미엄 요금은 ExpressRoute 회로 요금 및 연결 공급자에서 필요한 요금 위에 적용됩니다.
 
 ## <a name="expressroute-local"></a>Express 경로 로컬
 ### <a name="what-is-expressroute-local"></a>Express 경로 로컬 이란?
@@ -388,7 +388,7 @@ Office 365 서비스를 사용하려면 프리미엄 추가 기능을 사용하�
 
 * 경로 필터를 정의하지 않은 경우에도 2017년 8월 1일 이전에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 Microsoft 피어링을 통해 보급된 모든 서비스 접두사가 포함됩니다.
 
-* 2017년 8월 1일 이후에 구성되는 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터를 회로에 연결할 때까지 접두사가 보급되지 않습니다. 접두사는 기본적으로 표시되지 않습니다.
+* 2017년 8월 1일 이후에 구성된 ExpressRoute 회로의 Microsoft 피어링에는 경로 필터가 회로에 연결될 때까지 접두사가 보급되지 않습니다. 접두사는 기본적으로 표시되지 않습니다.
 
 ## <a name="expressRouteDirect"></a>Express 경로 직접
 

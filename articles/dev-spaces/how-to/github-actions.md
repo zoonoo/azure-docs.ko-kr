@@ -10,12 +10,12 @@ ms.topic: conceptual
 description: GitHub 작업 및 Azure Dev Spaces를 사용 하 여 Azure Kubernetes Service에서 직접 끌어오기 요청에서 변경 내용을 검토 하 고 테스트 합니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, GitHub 작업, 투구, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 590d49f4c189ff48f20369d18b17e0f6e4a46fa2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 09dc9440628ac5d808f90d086bd88e4f90765c28
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571585"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889724"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azure Kubernetes Service & GitHub 작업 (미리 보기)
 
@@ -31,7 +31,7 @@ Azure Dev Spaces는 리포지토리의 주 분기에 끌어오기 요청을 병�
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치][azure-cli-installed]
@@ -93,15 +93,15 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 분기 리포지토리로 이동 하 고 *설정*을 클릭 합니다. 왼쪽 세로 막대에서 *비밀* 을 클릭 합니다. *새 암호 추가* 를 클릭 하 여 아래에 새 암호를 각각 추가 합니다.
 
 1. *AZURE_CREDENTIALS*: 서비스 사용자 만들기의 전체 출력입니다.
-1. *RESOURCE_GROUP*: AKS 클러스터에 대 한 리소스 그룹 (이 예제에서는 *myresourcegroup*).
-1. *CLUSTER_NAME*: AKS 클러스터의 이름 (이 예제에서는 *MyAKS*).
-1. *CONTAINER_REGISTRY*: ACR의 *loginServer* 입니다.
-1. *HOST*: < MASTER_SPACE > 형식으로 사용 되는 개발 공간에 대 한 호스트입니다. *< APP_NAME >. < HOST_SUFFIX >* (이 예제에서는 *dev.bikesharingweb.fedcab0987.eus.azds.io*입니다.
-1. *HOST_SUFFIX*: 개발 공간에 대 한 호스트 접미사 (이 예제에서는 *fedcab0987.eus.azds.io*)입니다.
+1. *RESOURCE_GROUP*: AKS 클러스터에 대 한 리소스 그룹입니다 (이 예에서는 *myresourcegroup*).
+1. *CLUSTER_NAME*: AKS 클러스터의 이름 (이 예에서는 *MyAKS*)입니다.
+1. *CONTAINER_REGISTRY*: ACR에 대 한 *loginServer* 입니다.
+1. *HOST*: < MASTER_SPACE >를 사용 하는 개발 공간에 대 한 호스트 *입니다. <* APP_NAME > < HOST_SUFFIX > 합니다 .이 예제에서는이 예에서는 *dev.bikesharingweb.fedcab0987.eus.azds.io*입니다.
+1. *HOST_SUFFIX*: Dev 공간에 대 한 호스트 접미사 (이 예제에서는 *fedcab0987.eus.azds.io*)입니다.
 1. *IMAGE_PULL_SECRET*: 사용 하려는 비밀의 이름 (예: *데모 암호)* 입니다.
-1. *MASTER_SPACE*:이 예제에서 *Dev*인 부모 개발 공간의 이름입니다.
-1. *REGISTRY_USERNAME*: 서비스 주체 만들기의 JSON 출력에서 *clientId* 입니다.
-1. *REGISTRY_PASSWORD*: 서비스 주체를 만들 때 JSON 출력의 *clientSecret* 입니다.
+1. *MASTER_SPACE*: 부모 개발 공간의 이름으로,이 예제에서는 *dev*입니다.
+1. *REGISTRY_USERNAME*: 서비스 사용자가 만든 JSON 출력의 *clientId* 입니다.
+1. *REGISTRY_PASSWORD*: 서비스 사용자가 만든 JSON 출력의 *clientSecret* 입니다.
 
 > [!NOTE]
 > 이러한 암호는 모두 GitHub 작업에서 사용 되며 [github/워크플로/자전거 .yml][github-action-yaml]에서 구성 됩니다.
@@ -145,7 +145,7 @@ git commit -m "Removing hard coded imageUrl from /bikes/:id route"
 git push origin bike-images
 ```
 
-푸시가 완료 되 면 GitHub의 분기 리포지토리로 이동 하 여 분기 리포지토리의 *dev* 를 *자전거 이미지* 분기와 비교 하 여 기본 분기로 만듭니다.
+푸시가 완료 되 면 GitHub의 분기 리포지토리로 이동 하 여 분기 리포지토리에서 *마스터* 분기를 *자전거 이미지* 분기와 비교 하 여 기본 분기로 사용 하 여 끌어오기 요청을 만듭니다.
 
 끌어오기 요청이 열리면 *작업* 탭으로 이동 합니다. 새 작업이 시작 되었으며 *자전거* 서비스를 빌드하고 있는지 확인 합니다.
 
@@ -158,7 +158,7 @@ git push origin bike-images
 
 주석에서 URL을 열어 *bikesharingweb* 서비스로 이동 합니다. 사용자로 *Aurelia Briggs (고객)* 를 선택 하 고 임대에 대 한 자전거를 선택 합니다. 자전거에 대 한 자리 표시자 이미지가 더 이상 표시 되지 않는지 확인 합니다.
 
-변경 내용을 *dev* 분기에 병합 하는 경우 다른 작업을 실행 하 여 부모 개발 공간에서 전체 응용 프로그램을 다시 빌드하고 실행 합니다. 이 예제에서 부모 공간은 *dev*입니다. 이 작업은 [github/워크플로/bikesharing.clients.core][github-action-bikesharing-yaml]에서 구성 됩니다.
+분기의 *마스터* 분기에 변경 내용을 병합 하는 경우 다른 작업을 실행 하 여 부모 개발 공간에서 전체 응용 프로그램을 다시 빌드하고 실행 합니다. 이 예제에서 부모 공간은 *dev*입니다. 이 작업은 [github/워크플로/bikesharing.clients.core][github-action-bikesharing-yaml]에서 구성 됩니다.
 
 ## <a name="clean-up-your-azure-resources"></a>Azure 리소스 정리
 

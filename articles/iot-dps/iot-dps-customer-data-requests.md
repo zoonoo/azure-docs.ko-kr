@@ -1,18 +1,18 @@
 ---
-title: 고객 데이터 요청 기능
+title: Azure DPS 장치에 대 한 고객 데이터 요청 기능
+description: 개인 인 Azure 장치 프로 비전 서비스 (DPS)에서 관리 되는 장치의 경우이 문서에서는 관리자가 개인 데이터를 내보내거나 삭제 하는 방법을 보여 줍니다.
 author: dominicbetts
 ms.author: dobett
-manager: timlt
 ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 5dd027c886e8102e77ddefe93817daee0e1ec29b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1dcf1b9f62f94b8f75ef2fe77f3e237a387c53eb
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60626437"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890644"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
 

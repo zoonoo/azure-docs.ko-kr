@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: d8fed68d9b830df359f8129d55f1b9911f69e8f1
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802265"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891472"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure의 Oracle 응용 프로그램 및 솔루션 개요
 
@@ -54,9 +54,9 @@ Azure에서 사용할 수 있는 Oracle Linux 되지 않은 이미지에 대 한
 
 ## <a name="backup-oracle-workloads"></a>Oracle 워크 로드 백업
 
-* [Azure Backup](https://docs.microsoft.com/en-us/azure/backup/backup-overview) 를 사용 하 여 Oracle vm 백업
+* [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) 를 사용 하 여 Oracle vm 백업
 
-* Oracle RMAN을 사용 하 여 Oracle Database를 백업 하 고, 필요에 따라 [Azure Blob 퓨즈](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-how-to-mount-container-linux) 를 사용 하 여 [매우 redudant Azure Blob Storage 계정을](https://docs.microsoft.com/en-us/azure/storage/common/storage-redundancy) 탑재 하 고, 추가 복원 력을 위해 rman 백업을 작성 합니다.
+* Oracle RMAN을 사용 하 여 Oracle Database를 백업 하 고, 필요에 따라 [Azure Blob 퓨즈](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-mount-container-linux) 를 사용 하 여 [매우 redudant Azure Blob Storage 계정을](https://docs.microsoft.com/azure/storage/common/storage-redundancy) 탑재 하 고, 추가 복원 력을 위해 rman 백업을 작성 합니다.
 
 ## <a name="integration-of-azure-with-oci-preview"></a>Azure를 OCI와 통합 (미리 보기)
 
@@ -82,7 +82,7 @@ Terraform 템플릿을 사용 하 여 Azure 인프라를 설정 하 고, Oracle 
 Azure에서 실행 되는 Oracle 응용 프로그램과 함께 Oracle Database Cloud Services (자치 데이터베이스, RAC, Exadata, DBaaS, 단일 노드)를 사용 합니다. [OCI 데이터베이스 옵션](https://docs.cloud.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm)에 대해 자세히 알아보세요. 
  
 
-## <a name="licensing"></a>라이선싱
+## <a name="licensing"></a>라이선스
 
 Azure에서 Oracle 응용 프로그램을 배포 하는 것은 "사용자의 라이선스 가져오기" 모델을 기반으로 합니다. Oracle 소프트웨어를 사용 하는 데 적절 한 라이선스가 있으며 Oracle과 현재 지원 계약이 준비 되어 있다고 가정 합니다. Oracle에서는 온-프레미스에서 Azure로의 라이선스 이동을 보장합니다. Oracle-Azure [FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html)를 참조 하세요.
 

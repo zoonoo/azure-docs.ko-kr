@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8a1395c89b047bb120c7f7e2d2d9bb9b4d2b0c50
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 0fc0aeab4e9603995130392e3560325ccaba1ffc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959956"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886813"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -65,7 +65,7 @@ Windows 에이전트에 대해 다음 버전의 Windows 운영 체제가 공식�
 
 ## <a name="configuring-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 구성
 
-솔루션에 컴퓨터를 등록하는 방법을 알아보려면 [Automation 솔루션 온보딩](automation-onboard-solutions-from-automation-account.md)을 방문하세요. 변경 내용 추적과 인벤토리 솔루션을 컴퓨터에 등록한 후에는 추적할 항목을 구성할 수 있습니다. 새 파일 또는 레지스트리 키를 추적하도록 설정하면 변경 내용 추적 및 인벤토리가 모두 활성화됩니다.
+솔루션에 컴퓨터를 등록하는 방법을 알아보려면 [Automation 솔루션 온보드](automation-onboard-solutions-from-automation-account.md)를 방문하세요. 변경 내용 추적 및 인벤토리 솔루션을 사용 하 여 컴퓨터를 온 보 딩 한 후 추적할 항목을 구성할 수 있습니다. 새 파일 또는 레지스트리 키를 추적 하도록 설정 하면 변경 내용 추적 및 인벤토리에 모두 사용 하도록 설정 됩니다.
 
 Windows 및 Linux 모두에서 파일의 변경 내용 추적을 위해 파일의 MD5 해시를 사용합니다. 그런 다음, 이 해시를 사용하여 마지막 인벤토리 이후 변경이 있는지 검색합니다.
 
@@ -80,7 +80,7 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 이미 FIM을 사용 하도록 설정 했 고 전체 변경 내용 추적 솔루션을 사용해 보려는 경우 다음 단계를 수행 해야 합니다. 이 프로세스에서는 설정이 제거 되지 않습니다.
 
 > [!NOTE]
-> 전체 변경 내용 추적 솔루션을 사용 하도록 설정 하면 추가 요금이 발생할 수 있습니다. 자세한 내용은 [Automation 가격 책정](https://azure.microsoft.com/en-us/pricing/details/automation/)을 참조 하세요.
+> 전체 변경 내용 추적 솔루션을 사용 하도록 설정 하면 추가 요금이 발생할 수 있습니다. 자세한 내용은 [Automation 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조 하세요.
 
 1. 작업 영역으로 이동 하 여 [설치 된 모니터링 솔루션 목록](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions)에서 해당 작업 영역을 찾아 모니터링 솔루션을 제거 합니다.
 2. 솔루션 이름을 클릭 하 여 요약 페이지를 열고 [모니터링 솔루션 제거](../azure-monitor/insights/solutions.md#remove-a-monitoring-solution)에 설명 된 대로 삭제를 클릭 합니다.
@@ -97,15 +97,15 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 
 |속성  |설명  |
 |---------|---------|
-|Enabled     | 설정이 적용되는지 여부를 결정합니다.        |
-|항목 이름     | 추적할 파일의 이름입니다.        |
+|사용     | 설정이 적용되는지 여부를 결정합니다.        |
+|Item Name     | 추적할 파일의 이름입니다.        |
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
-|경로 입력     | 파일을 확인할 경로입니다. 예: "/etc/* .conf"       |
+|경로 입력     | 파일을 확인할 경로입니다. 예: "/etc/*.conf"       |
 |경로 유형     | 추적할 항목 유형이며, 가능한 값은 File 및 Directory입니다.        |
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
 |sudo 사용     | 항목을 확인할 때 sudo가 사용되는지 여부를 결정합니다.         |
 |링크     | 디렉터리를 트래버스할 때 기호화된 링크에서 처리하는 방법을 결정합니다.<br> **무시** - 바로 가기 링크가 무시되고 참조된 파일/디렉터리가 포함되지 않습니다.<br>**Follow** - 재귀 중에 기호화된 링크를 따르고 참조된 파일/디렉터리도 포함합니다.<br>**관리** - 기호화된 링크를 따르고 반환된 콘텐츠를 변경할 수 있도록 허용합니다.     |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션은 **True** 또는 **False**입니다.|
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
 
 > [!NOTE]
 > "Manage" 링크 옵션은 권장되지 않습니다. 파일 콘텐츠 검색은 지원되지 않습니다.
@@ -120,12 +120,12 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 
 |속성  |설명  |
 |---------|---------|
-|Enabled     | 설정이 적용되는지 여부를 결정합니다.        |
-|항목 이름     | 추적할 파일의 이름입니다.        |
+|사용     | 설정이 적용되는지 여부를 결정합니다.        |
+|Item Name     | 추적할 파일의 이름입니다.        |
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
 |경로 입력     | 파일을 확인할 경로입니다(예: "c:\temp\\\*.txt").<br>"%winDir%\System32\\\*.*"와 같은 환경 변수도 사용할 수 있습니다.       |
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
-|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션은 **True** 또는 **False**입니다.|
+|모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
 
 ## <a name="wildcard-recursion-and-environment-settings"></a>와일드 카드, 재귀 및 환경 설정
 
@@ -152,10 +152,10 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 
 |속성  |설명  |
 |---------|---------|
-|Enabled     | 설정이 적용되는지 여부를 결정합니다.        |
-|항목 이름     | 추적할 레지스트리 키의 식별 이름입니다.        |
+|사용     | 설정이 적용되는지 여부를 결정합니다.        |
+|Item Name     | 추적할 레지스트리 키의 식별 이름입니다.        |
 |그룹     | 논리적으로 레지스트리 키를 그룹화하는 그룹 이름입니다.        |
-|Windows 레지스트리 키   | 레지스트리 키를 확인할 경로입니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
+|Windows 레지스트리 키   | 레지스트리 키를 확인할 경로입니다. 예: "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |
 
 ## <a name="limitations"></a>제한 사항
 
@@ -182,7 +182,7 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 
 다음 테이블에서는 변경 형식에 대한 데이터 컬렉션 빈도를 보여 줍니다. 모든 유형에 대해 현재 상태의 데이터 스냅샷은 최소한 24시간마다 새로 고쳐집니다.
 
-| **변경 유형** | **빈도** |
+| **변경 유형** | **Frequency(빈도)** |
 | --- | --- |
 | Windows 레지스트리 | 50분 |
 | Windows 파일 | 30분 |
@@ -194,7 +194,7 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 
 다음 표는 변경 내용 추적에 대한 머신당 추적된 항목 한도를 보여 줍니다.
 
-| **Resource** | **제한**| **참고** |
+| **리소스** | **제한**| **참고 사항** |
 |---|---|---|
 |파일|500||
 |레지스트리|250||
@@ -221,7 +221,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 레지스트리 키의 변경 내용을 모니터링하는 목적은 타사 코드 및 맬웨어가 활성화될 수 있는 확장성 지점을 정확하게 찾기 위한 것입니다. 다음 목록에서는 미리 구성된 레지스트리 키의 목록을 보여 줍니다. 이러한 키는 구성되어 있지만 사용할 수 없습니다. 이러한 레지스트리 키를 추적하려면 각 레지스트리 키를 사용하도록 설정해야 합니다.
 
 > [!div class="mx-tdBreakAll"]
-> |레지스트리 키 | 용도 |
+> |레지스트리 키 | 목적 |
 > |---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Windows 탐색기에 직접 연결되고 일반적으로 Explorer.exe를 사용하여 In Process에서 실행되는 일반적인 자동 시작 항목을 모니터링합니다.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | 시작 시 실행되는 스크립트를 모니터링합니다.
@@ -249,7 +249,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|\*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |\* .azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>변경 내용 추적 사용
@@ -272,7 +272,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 
 다음 표에서는 이 솔루션에서 수집된 변경 레코드에 대한 로그 검색 샘플을 제공합니다.
 
-|query  |설명  |
+|쿼리  |설명  |
 |---------|---------|
 |ConfigurationData<br>&#124; where   ConfigDataType == "WindowsServices" and SvcStartupType == "자동"<br>&#124; where SvcState == "중지됨"<br>&#124; summarize arg_max(TimeGenerated, *) by SoftwareName, Computer         | Auto로 설정되었지만 Stopped로 보고된 Windows 서비스에 대한 최근의 인벤토리 레코드를 표시합니다.<br>결과는 해당 SoftwareName 및 Computer에 대한 최근의 레코드로 제한됩니다.      |
 |ConfigurationChange<br>&#124; where ConfigChangeType == "소프트웨어" and ChangeCategory == "제거됨"<br>&#124; order by TimeGenerated desc|제거된 소프트웨어에 대한 변경 레코드를 표시합니다.|
@@ -301,7 +301,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 
 호스트 파일 변경 시에 경고를 표시하는 기능은 변경 내용 추적 또는 인벤토리 데이터에 경고를 적용하는 좋은 예 중 하나입니다. 하지만 아래 섹션에 정의된 사례와 해당 예제 쿼리를 비롯하여 기타 여러 경고 시나리오를 적용할 수도 있습니다.
 
-|query  |설명  |
+|쿼리  |설명  |
 |---------|---------|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"|중요한 파일 시스템의 변경 내용을 추적하는 데 유용 합니다.|
 |ConfigurationChange <br>&#124; where FieldsChanged contains "FileContentChecksum" and FileSystemPath == "c:\\windows\\system32\\drivers\\etc\\hosts"|주요 구성 파일의 수정 내용을 추적하는 데 유용합니다.|
@@ -309,8 +309,8 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Daemons" and SvcName contains "ssh" and SvcState != "Running"|시스템에 중요한 서비스의 변경 내용을 추적하는 데 유용합니다.|
 |ConfigurationChange <br>&#124; where ConfigChangeType == "Software" and ChangeCategory == "Added"|잠긴 소프트웨어 구성이 필요한 환경에 유용합니다.|
 |ConfigurationData <br>&#124; where SoftwareName contains "Monitoring Agent" and CurrentVersion != "8.0.11081.0"|오래되었거나 규정을 준수하지 않는 소프트웨어 버전이 설치된 컴퓨터를 확인하는 데 유용합니다. 변경 내용이 아닌 마지막으로 보고된 구성 상태를 보고합니다.|
-|ConfigurationChange <br>&#124;여기서 RegistryKey = = @ "HKEY_LOCAL_MACHINE @ no__t-1SOFTWARE @ no__t-2Microsoft @ no__t-3Windows @ no__t-4CurrentVersion @ no__t-5QualityCompat"| 중요한 바이러스 백신 키의 변경 내용을 추적하는 데 유용합니다.|
-|ConfigurationChange <br>&#124;여기서 RegistryKey에 @ "HKEY_LOCAL_MACHINE @ no__t-1SYSTEM @ no__t-2CurrentControlSet @ no__t-3Services @ no__t-4SharedAccess @ no__t-5Parameters @ no__t-6FirewallPolicy"가 포함 됩니다.| 방화벽 설정의 변경 내용을 추적하는 데 유용합니다.|
+|ConfigurationChange <br>&#124;where RegistryKey = = @ "HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| 중요한 바이러스 백신 키의 변경 내용을 추적하는 데 유용합니다.|
+|ConfigurationChange <br>&#124;여기서 RegistryKey는 @ "HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"를 포함 합니다.| 방화벽 설정의 변경 내용을 추적하는 데 유용합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

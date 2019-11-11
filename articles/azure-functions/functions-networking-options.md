@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 34759077bd7223d17fea70d32bda63fd1b2595eb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4e55932d47389e09b135d571d0e000b9795e6edc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668133"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884957"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -116,6 +116,12 @@ Azure Functions의 가상 네트워크 통합은 App Service 웹 앱과 공유 �
 함수 앱을 만들 때 Blob, 큐 및 테이블 저장소를 지 원하는 범용 Azure Storage 계정을 만들거나 연결 해야 합니다. 현재이 계정에 대 한 가상 네트워크 제한을 사용할 수 없습니다. 함수 앱에 사용 하는 저장소 계정에서 가상 네트워크 서비스 끝점을 구성 하는 경우 앱이 중단 됩니다.
 
 [저장소 계정 요구 사항에 대해 자세히 알아보세요.](./functions-create-function-app-portal.md#storage-account-requirements)
+
+### <a name="using-key-vault-references"></a>Key Vault 참조 사용 
+
+Key Vault 참조를 사용 하면 코드를 변경할 필요 없이 Azure Functions 응용 프로그램에서 Azure Key Vault의 암호를 사용할 수 있습니다. Azure Key Vault는 중앙 집중화 된 비밀 관리를 제공 하 고 액세스 정책 및 감사 기록에 대 한 모든 권한을 제공 하는 서비스입니다.
+
+Key Vault 서비스 끝점을 사용 하 여 보호 되는 경우 현재 [Key Vault 참조가](../app-service/app-service-key-vault-references.md) 작동 하지 않습니다. 가상 네트워크 통합을 사용 하 여 Key Vault에 연결 하려면 응용 프로그램 코드에서 Key Vault를 호출 해야 합니다.
 
 ## <a name="virtual-network-triggers-non-http"></a>가상 네트워크 트리거 (비 HTTP)
 

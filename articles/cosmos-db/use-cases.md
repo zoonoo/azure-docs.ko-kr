@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: e22b426b2172c169f9343569fffac57f370afbee
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: de2bc551547706fb820813e57996e77bf49148d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219872"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888927"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>일반적인 Azure Cosmos DB 사용 사례
 이 문서에서는 Azure Cosmos DB의 몇 가지 일반적인 사용 사례를 간략하게 설명합니다.  이 문서의 권장 사항은 Cosmos DB로 애플리케이션을 개발할 때 시작점 역할을 합니다.   
@@ -68,7 +68,7 @@ Azure Cosmos DB는 해당 [변경 피드](change-feed.md) 기능을 사용하여
 ## <a name="gaming"></a>게임
 데이터베이스 계층은 게임 애플리케이션의 중요한 구성 요소입니다. 오늘날의 게임은 모바일/콘솔 클라이언트에서 그래픽 처리를 수행하지만 게임 내 통계, 소셜 미디어 통합 및 고득점 순위표와 같은 사용자 지정되고 개인 설정된 콘텐츠를 제공하기 위해 클라우드에 의존합니다. 게임은 몰입도 높은 게임 환경을 제공하기 위해 1밀리초의 읽기 및 쓰기 대기 시간을 요구하는 경우가 종종 있습니다. 게임 데이터베이스는 속도가 빨라야 하며 신규 게임 출시 및 기능 업데이트 동안 요청 속도의 대량 스파이크를 처리할 수 있어야 합니다.
 
-Azure Cosmos DB는 [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/)([Next Games](https://www.nextgames.com/) 및 [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/))와 같은 게임에서 사용됩니다. Azure Cosmos DB는 게임 개발자에게 다음과 같은 이점을 제공합니다.
+Azure Cosmos DB는 [The Walking Dead: No Man's Land](https://azure.microsoft.com/blog/the-walking-dead-no-mans-land-game-soars-to-1-with-azure-documentdb/)([Next Games](https://www.nextgames.com/)), [Halo 5: Guardians](https://azure.microsoft.com/blog/how-halo-5-guardians-implemented-social-gameplay-using-azure-documentdb/) 등의 게임에서 사용됩니다. Azure Cosmos DB는 게임 개발자에게 다음과 같은 이점을 제공합니다.
 
 * Azure Cosmos DB는 성능을 탄력적으로 확장하거나 축소할 수 있습니다. 따라서 게임에서 단일 API 호출을 통해 수십 명부터 수백만 명에 이르는 동시 게이머의 프로필 및 통계를 처리할 수 있습니다.
 * Azure Cosmos DB는 게임 플레이 중 지연을 방지하기 위해 밀리초 단위의 읽기 및 쓰기를 지원합니다.
@@ -101,4 +101,4 @@ Cosmos DB에서 지원되는 형식인 JSON은 간단할 뿐 아니라 JavaScrip
 
 * Azure Cosmos DB를 시작하려면 계정을 만들고 Cosmos DB를 시작하는 과정을 안내하는 [빠른 시작](create-sql-api-dotnet.md)을 따릅니다.
 
-* Azure Cosmos DB를 사용 하는 고객에 대 한 자세한 내용을 알아보려면 [고객 사례 연구](https://azure.microsoft.com/en-us/case-studies/?service=cosmos-db) 페이지를 참조 하세요.
+* Azure Cosmos DB를 사용 하는 고객에 대 한 자세한 내용을 알아보려면 [고객 사례 연구](https://azure.microsoft.com/case-studies/?service=cosmos-db) 페이지를 참조 하세요.

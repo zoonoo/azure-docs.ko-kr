@@ -3,24 +3,20 @@ title: Azure CLI 스크립트 샘플 - VM 네트워크 트래픽 필터링 | Mic
 description: Azure CLI 스크립트 샘플 - 인바운드 및 아웃바운드 VM 네트워크 트래픽을 필터링합니다.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: timlt
-ms.openlocfilehash: 5f33490a360089a301b28479b7707d4b62c7dd83
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: kumud
+ms.openlocfilehash: e91e59e8e8acbf76ed35cff6b2f654103bb763b5
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875484"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888566"
 ---
 # <a name="filter-inbound-and-outbound-vm-network-traffic"></a>인바운드 및 아웃바운드 VM 네트워크 트래픽 필터링
 
@@ -47,7 +43,7 @@ az group delete --name MyResourceGroup --yes
 
 이 스크립트는 다음 명령을 사용하여 리소스 그룹, 가상 네트워크 및 네트워크 보안 그룹을 만듭니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 |
+| 명령 | 참고 사항 |
 |---|---|
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network vnet create](/cli/azure/network/vnet) | Azure 가상 네트워크 및 프런트 엔드 서브넷을 만듭니다. |

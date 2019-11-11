@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5daa1cf04e04507174fa480c785bd15b656541a1
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: d1ef652747dccdcb0e04ac8032dd47e2ebaa6bf2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019099"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886900"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation용 Runbook 및 모듈 갤러리
 
@@ -35,7 +35,7 @@ Azure Portal를 사용 하 여 PowerShell 갤러리에서 직접 가져올 수 �
 
 1. Azure Portal에서 Automation 계정을 엽니다.
 2. **프로세스 자동화**에서 **Runbook 갤러리**를 클릭합니다.
-3. 원본 **선택: PowerShell 갤러리**.
+3. **원본: PowerShell 갤러리**을 선택 합니다.
 4. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다. 왼쪽에서 게시자 및 형식에 대한 추가 검색 매개 변수를 입력할 수 있습니다.
 
    ![갤러리 찾아보기](media/automation-runbook-gallery/browse-gallery.png)
@@ -113,4 +113,4 @@ Python Runbooks는 [스크립트 센터 갤러리](https://gallery.technet.micro
 
 * Runbook을 시작하려면 [Azure Automation에서 Runbook 관리](manage-runbooks.md)를 참조하세요.
 * Runbook용 PowerShell 및 PowerShell 워크플로 간의 차이점을 이해하려면 [PowerShell 워크플로 학습](automation-powershell-workflow.md)
-* 언어 참조 및 학습 모듈을 비롯 한 PowerShell에 대 한 자세한 내용은 [Powershell 문서](https://docs.microsoft.com/en-us/powershell/scripting/overview)를 참조 하세요.
+* 언어 참조 및 학습 모듈을 비롯 한 PowerShell에 대 한 자세한 내용은 [Powershell 문서](https://docs.microsoft.com/powershell/scripting/overview)를 참조 하세요.

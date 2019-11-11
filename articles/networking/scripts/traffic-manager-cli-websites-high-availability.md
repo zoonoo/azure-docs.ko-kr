@@ -3,24 +3,21 @@ title: Azure CLI 스크립트 샘플 - 애플리케이션 고가용성을 위한
 description: Azure CLI 스크립트 샘플 - 애플리케이션 고가용성을 위한 트래픽 라우팅
 services: traffic-manager
 documentationcenter: traffic-manager
-author: KumudD
-manager: timlt
-editor: tysonn
-tags: azure-infrastructure
-ms.assetid: ''
+author: asudbring
+manager: KumudD
 ms.service: traffic-manager
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 06/26/2018
-ms.author: kumud
-ms.openlocfilehash: 3922eb76fa0954b9c02cc86f98acb142cc1d1fee
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: fdd54039cd3e039439c70e02b962e56d72efa715
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565312"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890251"
 ---
 # <a name="route-traffic-for-high-availability-of-applications"></a>애플리케이션 고가용성을 위한 트래픽 라우팅
 
@@ -48,7 +45,7 @@ az group delete --name myResourceGroup2 --yes
 
 이 스크립트는 다음 명령을 사용하여 리소스 그룹, 웹앱, Traffic Manager 프로필 및 모든 관련된 리소스를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 메모 |
+| 명령 | 참고 사항 |
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | App Service 계획을 만듭니다. Azure 웹앱에 대한 서버 팜과 비슷합니다. |

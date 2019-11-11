@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: b8ea5c54afd4b1e2c212422417688e528367d44f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: 0708b1dd2d272757949d014d768c1da649b50146
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949982"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889675"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>데이터 처리 및 사용자 정의 함수
 
@@ -42,35 +42,40 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 
 - **온도** 데이터 형식의 모든 센서는 이스케이프된 문자열 값 `\"Temperature\"`로 표현됩니다.
 - 포트에 `01`이 있습니다.
-- 이스케이프된 문자열 값 `\"GoodCorp\"`로 설정된 확장 속성 키 **제조업체**가 있는 디바이스에 속합니다.
+- 이스케이프된 문자열 값 **로 설정된 확장 속성 키** 제조업체`\"Contoso\"`가 있는 디바이스에 속합니다.
 - 이스케이프된 문자열 `\"Venue\"`에서 지정된 형식의 공간에 속합니다.
 - 상위 **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`의 하위 항목입니다.
 
 ```JSON
 {
-  "SpaceId": "DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
-  "Name": "My custom matcher",
-  "Description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value GoodCorp and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
-  "Conditions": [
+  "id": "23535afafd-f39b-46c0-9b0c-0dd3892a1c30",
+  "name": "My custom matcher",
+  "spaceId": "DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "description": "All sensors of datatype Temperature with 01 in their port that belong to devices with the extended property key Manufacturer set to the value Contoso and that belong to spaces of type Venue that are somewhere below space Id DE8F06CA-1138-4AD7-89F4-F782CC6F69FD",
+  "conditions": [
     {
+      "id": "43898sg43-e15a-4e9c-abb8-2gw464364",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     },
     {
+      "id": "wt3th44-e15a-35sg-seg3-235wf3ga463",
       "target": "Sensor",
       "path": "$.port",
       "value": "01",
       "comparison": "Contains"
     },
     {
+      "id": "735hs33-e15a-37jj-23532-db901d550af5",
       "target": "SensorDevice",
       "path": "$.properties[?(@.name == 'Manufacturer')].value",
-      "value": "\"GoodCorp\"",
+      "value": "\"Contoso\"",
       "comparison": "Equals"
     },
     {
+      "id": "222325-e15a-49fg-5744-463643644",
       "target": "SensorSpace",
       "path": "$.type",
       "value": "\"Venue\"",
@@ -92,7 +97,7 @@ Azure Digital Twins의 데이터 처리는 *검사기*, *사용자 정의 함수
 
 사용자 정의 함수는 격리된 Azure Digital Twins 환경 내에서 실행된 사용자 지정 함수입니다. 사용자 정의 함수는 수신되는 원시 센서 원격 분석 메시지에 액세스할 수 있습니다. 사용자 정의 함수는 공간 그래프 및 디스패처 서비스에 액세스할 수도 있습니다. 사용자 정의 함수가 그래프 내에 등록되면 함수를 실행할 시기를 지정하도록 선택기([위](#matchers)에서 자세히 설명)를 만들어야 합니다. 예를 들어, Azure Digital Twins가 지정 센서에서 새 원격 분석을 수신하는 경우 일치하는 사용자 정의 함수는 마지막 몇 개의 센서 값에 대한 이동 평균을 계산할 수 있습니다.
 
-사용자 정의 함수는 JavaScript로 작성될 수 있습니다. 도우미 메서드는 사용자 정의 실행 환경에서 그래프와 상호 작용합니다. 개발자는 센서 원격 분석 메시지에 대해 사용자 지정 코드 조각을 실행할 수 있습니다. 예를 들면 다음과 같습니다.
+사용자 정의 함수는 JavaScript로 작성될 수 있습니다. 도우미 메서드는 사용자 정의 실행 환경에서 그래프와 상호 작용합니다. 개발자는 센서 원격 분석 메시지에 대해 사용자 지정 코드 조각을 실행할 수 있습니다. 예제는
 
 - 센서 값을 그래프 내의 센서 개체에 직접 설정합니다.
 - 다양한 센서 값을 기반으로 그래프의 공간 내에서 작업을 수행합니다.

@@ -3,24 +3,21 @@ title: Azure PowerShell 스크립트 샘플 - 네트워크 가상 어플라이�
 description: Azure PowerShell 스크립트 샘플 - 방화벽 네트워크 가상 어플라이언스를 통해 트래픽을 라우팅합니다.
 services: virtual-network
 documentationcenter: virtual-network
-author: georgewallace
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
-ms.author: gwallace
-ms.openlocfilehash: 7470ef655e07e2eff2e80bfc104a1b42fa950a0e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: kumud
+ms.openlocfilehash: b31714e62ba0e7a0e4882d9b9fa830b3a14fe855
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156801"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888518"
 ---
 # <a name="route-traffic-through-a-network-virtual-appliance"></a>네트워크 가상 어플라이언스를 통한 트래픽 라우팅
 
@@ -47,7 +44,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 이 스크립트는 다음 명령을 사용하여 리소스 그룹, 가상 네트워크 및 네트워크 보안 그룹을 만듭니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 메모 |
+| 명령 | 참고 사항 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup)  | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Azure 가상 네트워크 및 프런트 엔드 서브넷을 만듭니다. |
@@ -59,7 +56,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 | [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig)| NSG 및 경로 테이블을 서브넷에 연결합니다. |
 | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable)| 모든 경로에 대한 경로 테이블을 만듭니다. |
 | [New-AzRouteConfig](/powershell/module/az.network/new-azrouteconfig)| VM을 통해 서브넷과 인터넷 간 트래픽을 라우팅하는 경로를 만듭니다. |
-| [New-AzVM](/powershell/module/az.compute/new-azvm) | 가상 머신을 만들고 NIC를 이 가상 머신에 연결합니다. 또한 이 명령은 사용할 가상 머신 이미지와 관리 자격 증명을 지정합니다. |
+| [New-AzVM](/powershell/module/az.compute/new-azvm) | 가상 머신을 만들고 NIC를 이 가상 머신에 연결합니다. 또한 이 명령은 사용할 가상 컴퓨터 이미지와 관리 자격 증명을 지정합니다. |
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)  | 리소스 그룹 및 이 그룹에 속한 모든 리소스를 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계

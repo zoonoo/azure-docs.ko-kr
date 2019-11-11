@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c76fd151bf70bfff6eed3b45a673f94777e59467
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 2b15cc56cb4f804fac0b047819ccf166950e1cf3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797908"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890980"
 ---
 # <a name="imagery-partner-integration"></a>이미지 파트너 통합
 
@@ -97,7 +97,7 @@ REST API 요청을 만들려면 HTTP 메서드 (GET/POST/PUT), API 서비스에 
 
 아래 샘플 요청은 장치 목록을 가져오는 것입니다.
 
-```
+```azurepowershell-interactive
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
@@ -108,7 +108,7 @@ curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 아래 샘플 요청은 장치를 만들기 위한 것입니다. 여기에는 요청 본문을 사용 하는 입력 JSON이 있습니다.
 
 
-```json
+```azurepowershell-interactive
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
 "accept: application/json" -H  
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d

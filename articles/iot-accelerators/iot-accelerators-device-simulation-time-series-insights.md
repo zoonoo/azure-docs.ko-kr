@@ -1,5 +1,5 @@
 ---
-title: Time Series Insights로 디바이스 시뮬레이션 원격 분석 시각화 - Azure | Microsoft Docs
+title: Time Series Insights를 사용 하 여 시뮬레이션 된 원격 분석 시각화-Azure | Microsoft Docs
 description: 디바이스 시뮬레이션 솔루션 가속기에서 생성된 원격 분석을 탐색하고 분석하도록 Time Series Insights 환경을 구성하는 방법을 알아봅니다.
 author: dominicbetts
 manager: timlt
@@ -8,20 +8,20 @@ ms.date: 08/20/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 5d20adc11e0d679e12fd060e719593a50180db8e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2bbd7911a40d6a256d478e2533ad2469b8fd6973
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65834809"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889341"
 ---
 # <a name="use-time-series-insights-to-visualize-telemetry-sent-from-the-device-simulation-solution-accelerator"></a>Time Series Insights를 사용하여 디바이스 시뮬레이션 솔루션 가속기에서 보낸 원격 분석 시각화
 
 디바이스 시뮬레이션 솔루션 가속기를 사용하여 IoT 솔루션을 테스트하도록 시뮬레이션된 디바이스에서 원격 분석을 생성할 수 있습니다. 이 방법 가이드에서는 Time Series Insights 환경을 사용하여 시뮬레이션된 원격 분석을 시각화 및 분석하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
-이 방법 가이드의 단계를 수행하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+이 방법 가이드의 단계를 수행하려면 활성 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 이 방법 가이드의 단계에서는 Azure 구독에 디바이스 시뮬레이션 솔루션 가속기를 배포했다고 가정합니다. 솔루션 가속기를 배포하지 않은 경우 [클라우드 기반 디바이스 시뮬레이션 솔루션 배포 및 실행](quickstart-device-simulation-deploy.md) 빠른 시작의 단계를 수행합니다.
 
@@ -167,7 +167,7 @@ Time Series Insights 탐색기는 원격 분석을 시각화하는 데 사용할
 
 더 탐색하려면 솔루션 가속기를 배포된 대로 둡니다.
 
-솔루션 가속기가 더 이상 필요하지 않은 경우 선택한 다음, **솔루션 삭제**를 클릭하여 [프로비전된 솔루션](https://www.azureiotsolutions.com/Accelerators#dashboard) 페이지에서 삭제합니다.
+솔루션 가속기가 더 이상 필요하지 않은 경우 선택한 다음, [솔루션 삭제](https://www.azureiotsolutions.com/Accelerators#dashboard)를 클릭하여 **프로비전된 솔루션** 페이지에서 삭제합니다.
 
 솔루션 가속기의 리소스 그룹에 Time Series Insights 환경을 추가한 경우 솔루션 가속기를 삭제할 때 자동으로 삭제됩니다. 그렇지 않은 경우 Azure Portal에서 Time Series Insights 환경을 수동으로 제거해야 합니다.
 

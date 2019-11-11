@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: f27b910910ca21aa36582506e6c7b2d1d39da88a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ce5d2965d0127eec01620c702d7d83bd0b39416
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472869"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885773"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -122,6 +122,35 @@ az aks update \
 ## <a name="re-enable-a-disabled-cluster-autoscaler"></a>사용 하지 않도록 설정 된 클러스터 autoscaler 다시 사용
 
 기존 클러스터에서 클러스터 autoscaler를 다시 사용 하도록 설정 하려는 경우 [az aks update][az-aks-update] 명령을 사용 하 여 *--enable-autoscaler*, *--min-count*및 *--max-count* 매개 변수를 지정 하 여 다시 사용 하도록 설정할 수 있습니다.
+
+## <a name="retrieve-cluster-autoscaler-logs-and-status"></a>클러스터 autoscaler 로그 및 상태 검색
+
+Autoscaler 이벤트를 진단 하 고 디버그 하려면 autoscaler 추가 기능에서 로그 및 상태를 검색할 수 있습니다.
+
+AKS는 사용자를 대신 하 여 클러스터 autoscaler를 관리 하 고 관리 되는 제어 평면에서 실행 합니다. 마스터 노드 로그를 결과로 표시 되도록 구성 해야 합니다.
+
+Autoscaler 클러스터에서 푸시 되도록 로그를 구성 하려면 다음 단계를 수행 Log Analytics 합니다.
+
+1. Log Analytics에 클러스터 autoscaler 로그를 푸시하는 진단 로그에 대 한 규칙을 설정 합니다. [지침은 여기에 자세히 설명 되어](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs)있습니다. "로그" 옵션을 선택 하는 경우 `cluster-autoscaler`의 확인란을 선택 합니다.
+1. Azure Portal를 통해 클러스터에서 "로그" 섹션을 클릭 합니다.
+1. 다음 예제를 입력 하 Log Analytics에 쿼리 합니다.
+
+```
+AzureDiagnostics
+| where Category == "cluster-autoscaler"
+```
+
+검색할 로그가 있는 경우 반환 되는 것과 유사한 로그가 표시 됩니다.
+
+![Log Analytics 로그](media/autoscaler/autoscaler-logs.png)
+
+또한 클러스터 autoscaler는 `cluster-autoscaler-status`이라는 configmap에 상태를 기록 합니다. 이러한 로그를 검색 하려면 다음 `kubectl` 명령을 실행 합니다. 클러스터 autoscaler 구성 된 각 노드 풀에 대해 상태가 보고 됩니다.
+
+```
+kubectl get configmap -n kube-system cluster-autoscaler-status -o yaml
+```
+
+Autoscaler에서 로깅되는 내용에 대 한 자세한 내용은 [Kubernetes/Autoscaler GitHub 프로젝트](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#ca-doesnt-work-but-it-used-to-work-yesterday-why)에 대 한 FAQ를 참조 하세요.
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>여러 노드 풀을 사용할 수 있는 클러스터 autoscaler 사용
 

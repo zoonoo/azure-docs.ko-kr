@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 1c48e758e9ee69085034f714652632151912f8d4
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d5d0a575c3fb662df034b66a48135ac33393f95c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530629"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885399"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Consul 설치 및 사용
 
@@ -42,7 +42,7 @@ ms.locfileid: "72530629"
 
 ### <a name="install-the-consul-components-on-aks"></a>AKS에 Consul 구성 요소 설치
 
-먼저 Consul 투구 차트의 버전 `v0.10.0`을 다운로드 합니다. 이 버전의 차트에는 `1.6.0` 포함 되어 있습니다.
+먼저 Consul 투구 차트의 버전 `v0.10.0`을 다운로드 합니다. 이 버전의 차트에는 `1.6.0`포함 되어 있습니다.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -95,7 +95,7 @@ ms.locfileid: "72530629"
 
 ::: zone-end
 
-@No__t_0 투구 차트는 많은 개체를 배포 합니다. 위의 `helm install` 명령 출력에서 목록을 볼 수 있습니다. 클러스터 환경에 따라 Consul 구성 요소의 배포를 완료 하는 데 3 분 정도 걸릴 수 있습니다.
+`Consul` 투구 차트는 많은 개체를 배포 합니다. 위의 `helm install` 명령 출력에서 목록을 볼 수 있습니다. 클러스터 환경에 따라 Consul 구성 요소의 배포를 완료 하는 데 3 분 정도 걸릴 수 있습니다.
 
 이 시점에서 AKS 클러스터에 Consul을 배포 했습니다. Consul이 성공적으로 배포 되었는지 확인 하려면 다음 섹션으로 이동 하 여 Consul 설치의 유효성을 검사 해 보겠습니다.
 
@@ -129,7 +129,7 @@ consul-consul-sync-catalog-d846b79c-8ssr8                         1/1     Runnin
 consul-consul-tz2t5                                               1/1     Running   0          3m9s   10.240.0.12   aks-linux-92468653-vmss000000   <none>           <none>
 ```
 
-모든 pod는 `Running` 상태를 표시 해야 합니다. Pod에서 상태가 표시되지 않는 경우 상태가 표시될 때까지 1~2분 정도 걸릴 수 있습니다. Pod에서 문제를 보고 하는 경우 [kubectl 설명 pod][kubectl-describe] 명령을 사용 하 여 출력 및 상태를 검토 합니다.
+모든 pod는 `Running`상태를 표시 해야 합니다. Pod에서 상태가 표시되지 않는 경우 상태가 표시될 때까지 1~2분 정도 걸릴 수 있습니다. Pod에서 문제를 보고 하는 경우 [kubectl 설명 pod][kubectl-describe] 명령을 사용 하 여 출력 및 상태를 검토 합니다.
 
 ## <a name="accessing-the-consul-ui"></a>Consul UI 액세스
 
@@ -150,7 +150,7 @@ kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 
 ### <a name="remove-consul-components-and-namespace"></a>Consul 구성 요소 및 네임 스페이스 제거
 
-AKS 클러스터에서 Consul을 제거 하려면 다음 명령을 사용 합니다. @No__t_0 명령은 `consul` 차트를 제거 하 고 `kubectl delete namespace` 명령은 `consul` 네임 스페이스를 제거 합니다.
+AKS 클러스터에서 Consul을 제거 하려면 다음 명령을 사용 합니다. `helm delete` 명령은 `consul` 차트를 제거 하 고 `kubectl delete namespace` 명령은 `consul` 네임 스페이스를 제거 합니다.
 
 ```azurecli
 helm delete --purge consul
@@ -186,7 +186,7 @@ Consul에 대 한 추가 설치 및 구성 옵션을 살펴보려면 다음 공�
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward
-[kubernetes-node-selectors]: https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cijothomas
 ms.author: cithomas
 ms.date: 09/15/2019
-ms.openlocfilehash: ccc7218575638c7ede2c56a99e41dd68cbd475c0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8dd46d8224567e1883fd2a397d5ba2b00a0fd43d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899226"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887291"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Worker 서비스 응용 프로그램에 대 한 Application Insights (HTTP가 아닌 응용 프로그램)
 
@@ -24,7 +24,7 @@ Application Insights는 메시징, 백그라운드 작업, 콘솔 응용 프로�
 
 [작업자 서비스에 대 한 APPLICATION INSIGHTS SDK](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WorkerService) 는 응용 프로그램이 실행 되는 위치와 관계 없이 비 HTTP 응용 프로그램에 가장 적합 합니다. 응용 프로그램이 실행 중이 고 Azure에 네트워크로 연결 되어 있는 경우 원격 분석을 수집할 수 있습니다. Application Insights 모니터링은 .NET Core가 지원 되는 모든 위치에서 지원 됩니다. 이 패키지는 새로 도입 된 [.Net Core 3.0 Worker 서비스](https://devblogs.microsoft.com/aspnet/dotnet-core-workers-in-azure-container-instances), [Asp.Net Core 2.1/2.2의 백그라운드 작업](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services?view=aspnetcore-2.2), 콘솔 앱 (.net Core/.NET Framework) 등에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 유효한 Application Insights 계측 키입니다. Application Insights에 원격 분석을 보내려면이 키가 필요 합니다. 계측 키를 가져오기 위해 새 Application Insights 리소스를 만들어야 하는 경우 [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource)를 참조 하세요.
 
@@ -296,7 +296,7 @@ Application Insights는 메시징, 백그라운드 작업, 콘솔 응용 프로�
 
 애플리케이션을 실행합니다. 위의 모든 항목의 예제 작업자는 bing.com에 대해 매 초 마다 http 호출을 수행 하 고 ILogger를 사용 하 여 몇 개의 로그를 내보냅니다. 이러한 줄은 작업을 만드는 데 사용 되는 `TelemetryClient`호출 (이 예제에서는 "operation" `RequestTelemetry`) `StartOperation` 내부에 래핑됩니다. Application Insights은 이러한 ILogger 로그 (경고 이상) 및 종속성을 수집 하 고 부모-자식 관계를 사용 하 여 `RequestTelemetry`와 상호 연결 됩니다. 상관 관계는 프로세스 간/네트워크 경계도 작동 합니다. 예를 들어 모니터링 되는 다른 구성 요소에 대 한 호출을 수행한 경우이 부모와도 상관 관계가 지정 됩니다.
 
-이러한 `RequestTelemetry`의 사용자 지정 작업은 일반적인 웹 응용 프로그램에서 들어오는 웹 요청과 동등한 것으로 간주할 수 있습니다. 작업을 사용할 필요는 없지만 [Application Insights 상관 관계 데이터 모델](https://docs.microsoft.com/azure/azure-monitor/app/correlation) 에 가장 적합 합니다. 부모 작업으로 작동 하는 `RequestTelemetry`와 작업자 반복 내에서 생성 되는 모든 원격 분석은 논리적으로 처리 됩니다. 동일한 작업에 속합니다. 또한이 방법을 사용 하면 생성 된 모든 원격 분석 (자동 및 수동)이 동일한 `operation_id`를 갖게 됩니다. 샘플링은 `operation_id`를 기반으로 하므로 샘플링 알고리즘은 단일 반복에서 모든 원격 분석을 유지 하거나 삭제 합니다.
+이러한 `RequestTelemetry`의 사용자 지정 작업은 일반적인 웹 응용 프로그램에서 들어오는 웹 요청과 동등한 것으로 간주할 수 있습니다. 작업을 사용할 필요는 없지만 [Application Insights 상관 관계 데이터 모델](https://docs.microsoft.com/azure/azure-monitor/app/correlation) 에 가장 적합 합니다. 즉, 부모 작업 역할을 하는 `RequestTelemetry`와 작업자 반복 내에서 생성 된 모든 원격 분석은 동일한 작업에 논리적으로 속하는 것으로 처리 됩니다. 또한이 방법을 사용 하면 생성 된 모든 원격 분석 (자동 및 수동)이 동일한 `operation_id`를 갖게 됩니다. 샘플링은 `operation_id`를 기반으로 하므로 샘플링 알고리즘은 단일 반복에서 모든 원격 분석을 유지 하거나 삭제 합니다.
 
 다음은 Application Insights에 의해 자동으로 수집 되는 전체 원격 분석을 나열 합니다.
 
@@ -368,7 +368,7 @@ Application Insights SDK for Worker 서비스는 고정 비율과 적응 샘플�
 
 ### <a name="adding-telemetryinitializers"></a>TelemetryInitializers 추가
 
-모든 원격 분석과 함께 전송 되는 속성을 정의 하려면 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) 를 사용 합니다.
+모든 원격 분석과 함께 전송 되는 속성을 정의 하려면 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) 를 사용 합니다.
 
 `DependencyInjection` 컨테이너에 새 `TelemetryInitializer`를 추가 하면 SDK가 자동으로 `TelemetryConfiguration`에 추가 합니다.
 
@@ -492,7 +492,7 @@ using Microsoft.ApplicationInsights.Channel;
     }
 ```
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-can-i-track-telemetry-thats-not-automatically-collected"></a>자동으로 수집 되지 않는 원격 분석을 추적 하려면 어떻게 해야 하나요?
 
@@ -504,7 +504,7 @@ Visual Studio IDE 온 보 딩은 현재 ASP.NET/ASP.NET Core 응용 프로그램
 
 ### <a name="can-i-enable-application-insights-monitoring-by-using-tools-like-status-monitor"></a>상태 모니터 같은 도구를 사용 하 여 Application Insights 모니터링을 사용 하도록 설정할 수 있나요?
 
-아닙니다. [상태 모니터](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) 및 [상태 모니터 v2](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 는 현재 ASP.NET 4.x만 지원 합니다.
+아니요. [상태 모니터](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now) 및 [상태 모니터 v2](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) 는 현재 ASP.NET 4.x만 지원 합니다.
 
 ### <a name="if-i-run-my-application-in-linux-are-all-features-supported"></a>Linux에서 응용 프로그램을 실행 하는 경우 모든 기능이 지원 되나요?
 

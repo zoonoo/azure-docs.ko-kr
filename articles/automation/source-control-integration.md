@@ -9,14 +9,14 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 52fcd0d928ecbce5c617ff6a27175fccb8fd96f6
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990252"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73886524"
 ---
-# <a name="source-control-integration-in-azure-automation"></a>Azure 자동화의 소스 제어 통합
+# <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
 원본 제어를 사용 하면 GitHub 또는 Azure Repos 소스 제어 리포지토리에서 스크립트를 사용 하 여 Automation 계정의 runbook을 최신 상태로 유지할 수 있습니다. 원본 제어를 사용하면 팀과 쉽게 공동 작업하고 변경 내용을 추적하며 이전 버전의 Runbook으로 롤백할 수 있습니다. 예를 들어, 소스 제어를 사용하면 소스 제어의 여러 다른 분기를 개발, 테스트 또는 프로덕션 Automation 계정과 동기화할 수 있습니다. 이렇게 하면 개발 환경에서 테스트한 코드를 프로덕션 Automation 계정으로 쉽게 승격할 수 있습니다. 소스 제어와 자동화의 통합은 소스 제어 리포지토리에서 단일 방향 동기화를 지원 합니다.
 
@@ -26,7 +26,7 @@ Azure Automation는 다음과 같은 세 가지 형식의 원본 제어를 지�
 * Azure Repos (Git)
 * Azure Repos (TFVC)
 
-## <a name="pre-requisites"></a>필수 조건
+## <a name="pre-requisites"></a>필수 구성 요소
 
 * 소스 제어 리포지토리 (GitHub 또는 Azure Repos)
 * [실행 계정](manage-runas-account.md)
@@ -50,9 +50,9 @@ Automation 계정 내에서 **원본 제어** 를 선택 하 고 **+ 추가** �
 |소스 제어 이름     | 소스 컨트롤에 대 한 친숙 한 이름입니다. *이 이름에는 문자와 숫자만 포함 되어야 합니다.*        |
 |소스 제어 형식     | 소스 제어 소스의 형식입니다. 사용 가능한 옵션은 다음과 같습니다.</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
 |리포지토리     | 리포지토리 또는 프로젝트의 이름입니다. 처음 200 리포지토리가 반환 됩니다. 리포지토리를 검색 하려면 필드에 이름을 입력 하 고 **GitHub에서 검색**을 클릭 합니다.|
-|분기     | 소스 파일을 끌어올 분기입니다. TFVC 소스 제어 형식에 대해 분기 대상 지정을 사용할 수 없습니다.          |
-|폴더 경로     | 동기화할 Runbook이 포함된 폴더입니다. 예: /Runbooks </br>*지정 된 폴더의 runbook만 동기화 됩니다. 재귀는 지원 되지 않습니다.*        |
-|Auto Sync<sup>1</sup>     | 소스 제어 리포지토리에서 커밋이 이루어질 때 자동 동기화를 설정 또는 해제합니다.         |
+|Branch     | 소스 파일을 끌어올 분기입니다. TFVC 소스 제어 형식에 대해 분기 대상 지정을 사용할 수 없습니다.          |
+|폴더 경로     | 동기화 할 runbook을 포함 하는 폴더입니다. 예:/Runbooks </br>*지정 된 폴더의 runbook만 동기화 됩니다. 재귀는 지원 되지 않습니다.*        |
+|자동 동기화<sup>1</sup>     | 소스 제어 리포지토리에서 커밋이 이루어질 때 자동 동기화를 설정 또는 해제합니다.         |
 |Runbook 게시     | **On**으로 설정 된 경우 runbook이 원본 제어에서 동기화 된 후 자동으로 게시 됩니다.         |
 |설명     | 추가 정보를 제공하는 텍스트 필드        |
 
@@ -122,7 +122,7 @@ Azure Repos에서 개인용 액세스 토큰을 만드는 방법에 대 한 자�
 
 **원본 제어** 페이지의 테이블에서 원본을 선택 합니다. **동기화 시작**을 클릭하여 동기화 프로세스를 시작합니다.
 
-**동기화 작업** 탭을 클릭하여 현재 동기화 작업 또는 이전 작업의 상태를 볼 수 있습니다. **소스 제어** 드롭다운 목록에서 소스 제어를 선택합니다.
+**동기화 작업** 탭을 클릭 하 여 현재 동기화 작업 또는 이전 작업의 상태를 볼 수 있습니다. **소스 제어** 드롭다운에서 원본 제어를 선택 합니다.
 
 ![동기화 상태](./media/source-control-integration/sync-status.png)
 
@@ -169,7 +169,7 @@ Source Control Sync Summary:
 
 제거하려는 소스 제어를 선택합니다. **소스 제어 요약** 페이지에서 **삭제**를 클릭합니다.
 
-## <a name="encoding"></a>인코딩
+## <a name="encoding"></a>Encoding
 
 여러 사용자가 서로 다른 편집기를 사용 하 여 소스 제어 리포지토리에서 runbook을 편집 하는 경우에는 인코딩 문제가 발생할 수 있습니다. 이 경우 runbook에서 잘못 된 문자가 발생할 수 있습니다. 이에 대해 자세히 알아보려면 [인코딩 문제의 일반적인 원인](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues) 을 참조 하세요.
 
@@ -177,7 +177,7 @@ Source Control Sync Summary:
 
 현재는 포털에서 원본 제어의 액세스 토큰을 업데이트할 방법이 없습니다. 개인용 액세스 토큰이 만료 되거나 해지 된 후 다음과 같은 방법으로 새 액세스 토큰을 사용 하 여 소스 제어를 업데이트할 수 있습니다.
 
-* [REST Api](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update)를 통해.
+* [REST Api](https://docs.microsoft.com/rest/api/automation/sourcecontrol/update)를 통해.
 * [AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet 사용
 
 ## <a name="next-steps"></a>다음 단계

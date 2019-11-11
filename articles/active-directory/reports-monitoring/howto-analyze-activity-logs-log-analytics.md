@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52ab1bd445f8af0bf58dcb6b1176904aa073877a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 04d9bb8bca64292b73bc14f02d126d384da33780
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820955"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885260"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 Azure AD 활동 로그 분석
 
@@ -32,22 +32,22 @@ ms.locfileid: "72820955"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>선행 조건 
 
 필수 조건을 충족하려면 다음이 필요합니다.
 
 * Azure 구독의 Log Analytics 작업 영역. [Log Analytics 작업 영역을 만드는 방법](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace)을 알아봅니다.
 * 먼저 [Azure AD 활동 로그를 Log Analytics 작업 영역으로 라우팅](howto-integrate-activity-logs-with-log-analytics.md)하는 단계를 완료합니다.
-*  Log analytics 작업 영역에 대 한 [액세스](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions)
+*  Log analytics 작업 영역에 대 한 [액세스](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions)
 * Azure Active Directory에서 다음 역할 (Azure Active Directory 포털을 통해 Log Analytics에 액세스 하는 경우)
     - 보안 관리자
-    - 보안 읽기 권한자
+    - 보안 판독기
     - 보고서 구독자
     - 전역 관리자
     
 ## <a name="navigate-to-the-log-analytics-workspace"></a>Log Analytics 작업 영역으로 이동
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 2. **Azure Active Directory**를 선택한 다음, **모니터링** 섹션에서 **로그**를 선택하여 Log Analytics 작업 영역을 엽니다. 작업 영역이 기본 쿼리로 열립니다.
 

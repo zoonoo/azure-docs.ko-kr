@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a8823a9b354ca4ae9ecab0eeac265b486116bec
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 050bc3cf6b81b9467d9947a4f611477e2fcbcd9a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808959"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885855"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -68,9 +68,9 @@ user.department -eq "Sales"
 
 사용자 또는 디바이스를 그룹에 자동으로 채우는 멤버 자격 규칙은 참 또는 거짓 결과를 가져오는 이진 식입니다. 간단한 규칙의 세 부분은 다음과 같습니다.
 
-- 자산
+- 속성
 - 연산자
-- Value
+- 값
 
 식 내에서 이 세 부분의 순서는 구문 오류를 방지하는 데 중요합니다.
 
@@ -78,22 +78,22 @@ user.department -eq "Sales"
 
 멤버 자격 규칙을 구성하는 데 사용할 수 있는 세 가지 유형의 속성이 있습니다.
 
-- Boolean
-- string
+- 부울
+- 문자열
 - 문자열 컬렉션
 
 단일 식을 만드는 데 사용할 수 있는 사용자 속성은 다음과 같습니다.
 
 ### <a name="properties-of-type-boolean"></a>부울 형식의 속성
 
-| properties | 허용되는 값 | 사용량 |
+| 속성 | 허용되는 값 | 사용 |
 | --- | --- | --- |
 | accountEnabled |true false |user.accountEnabled -eq true |
 | dirSyncEnabled |true false |user.dirSyncEnabled -eq true |
 
 ### <a name="properties-of-type-string"></a>문자열 형식의 속성
 
-| properties | 허용되는 값 | 사용량 |
+| 속성 | 허용되는 값 | 사용 |
 | --- | --- | --- |
 | city |임의의 문자열 값 또는 *null*입니다. |(user.city -eq "value") |
 | country |임의의 문자열 값 또는 *null*입니다. |(user.country -eq "value") |
@@ -105,7 +105,7 @@ user.department -eq "Sales"
 | givenName |임의의 문자열 값 또는 *null*입니다. |(user.givenName -eq "value") |
 | jobTitle |임의의 문자열 값 또는 *null*입니다. |(user.jobTitle -eq "value") |
 | mail |임의의 문자열 값 또는 *null*(사용자의 SMTP 주소)입니다. |(user.mail -eq "value") |
-| mailNickName |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
+| mailNickname |임의의 문자열 값(사용자의 메일 별칭) |(user.mailNickName -eq "value") |
 | mobile |임의의 문자열 값 또는 *null*입니다. |(user.mobile -eq "value") |
 | objectId |사용자 개체의 GUID입니다. |(user.objectId -eq "11111111-1111-1111-1111-111111111111") |
 | onPremisesSecurityIdentifier | 온-프레미스에서 클라우드로 동기화된 사용자의 온-프레미스 SID(보안 식별자)입니다. |(user.onPremisesSecurityIdentifier -eq "S-1-1-11-1111111111-1111111111-1111111111-1111111") |
@@ -124,7 +124,7 @@ user.department -eq "Sales"
 
 ### <a name="properties-of-type-string-collection"></a>문자열 컬렉션 형식의 속성
 
-| properties | 허용되는 값 | 사용량 |
+| 속성 | 허용되는 값 | 사용 |
 | --- | --- | --- |
 | otherMails |임의의 문자열 값입니다. |(user.otherMails -contains "alias@domain") |
 | proxyAddresses |SMTP: alias@domain smtp: alias@domain |(user.proxyAddresses -contains "SMTP: alias@domain") |
@@ -138,14 +138,14 @@ user.department -eq "Sales"
 | 연산자 | 구문 |
 | --- | --- |
 | 같지 않음 |-ne |
-| 같음 |-eq |
+| equals |-eq |
 | 다음으로 시작 안 함 |-notStartsWith |
 | 시작 단어 |-startsWith |
 | 포함하지 않음 |-notContains |
 | contains |-contains |
 | 일치하지 않음 |-notMatch |
 | 일치 |-match |
-| 그런 다음 | -in |
+| 내용 | -in |
 | 속하지 않음 | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>-in 및 -notIn 연산자 사용
@@ -160,7 +160,7 @@ user.department -eq "Sales"
 
 
 ### <a name="using-the--match-operator"></a>-match 연산자 사용 
-**-match** 연산자는 정규식 일치에 사용됩니다. 예시:
+**-match** 연산자는 정규식 일치에 사용됩니다. 예제:
 
 ```
 user.displayName -match "Da.*"   
@@ -249,7 +249,7 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 
 다중 값 속성은 동일한 유형인 개체의 컬렉션입니다. 이 속성은 -any 및 -all 논리 연산자를 사용하여 멤버 자격 규칙을 만드는 데 사용할 수 있습니다.
 
-| properties | 값 | 사용량 |
+| 속성 | 값 | 사용 |
 | --- | --- | --- |
 | assignedPlans | 컬렉션에 있는 각 개체는 다음 문자열 속성을 표시합니다. capabilityStatus, service, servicePlanId |user.assignedPlans -any(assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled") |
 | proxyAddresses| SMTP: alias@domain smtp: alias@domain | (user.proxyAddresses -any (\_ -contains "contoso")) |
@@ -261,7 +261,7 @@ null 값을 참조하는 올바른 방법은 다음과 같습니다.
 * -any(컬렉션에서 적어도 하나의 항목이 조건과 일치하는 경우 충족)
 * -all(컬렉션에서 모든 항목이 조건과 일치하는 경우 충족)
 
-#### <a name="example-1"></a>예 1
+#### <a name="example-1"></a>예제 1
 
 assignedPlans는 사용자에게 할당된 모든 서비스 계획을 나열하는 다중 값 속성입니다. 다음 식은 사용 상태인 Exchange Online(계획 2) 서비스 계획을 GUID 값으로 사용하는 사용자를 선택합니다.
 
@@ -357,7 +357,10 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 
 ## <a name="rules-for-devices"></a>디바이스에 대한 규칙
 
-또한 그룹의 멤버 자격에 대한 디바이스 개체를 선택하는 규칙을 만들 수 있습니다. 사용자와 디바이스는 모두 그룹 멤버로 사용할 수 없습니다. **organizationalUnit** 특성은 더 이상 나열되지 않고 사용할 수 없습니다. 이 문자열은 특정 사례에서 Intune에 의해 설정되지만 Azure AD에서 인식되지 않습니다. 따라서 디바이스는 이 특성을 기반으로 하는 그룹에 추가됩니다.
+또한 그룹의 멤버 자격에 대한 디바이스 개체를 선택하는 규칙을 만들 수 있습니다. 사용자와 디바이스는 모두 그룹 멤버로 사용할 수 없습니다. 
+
+> [!NOTE]
+> **organizationalUnit** 특성은 더 이상 나열되지 않고 사용할 수 없습니다. 이 문자열은 특정 사례에서 Intune에 의해 설정되지만 Azure AD에서 인식되지 않습니다. 따라서 디바이스는 이 특성을 기반으로 하는 그룹에 추가됩니다.
 
 > [!NOTE]
 > systemlabels Intune으로 설정할 수 없는 읽기 전용 특성입니다.
@@ -366,7 +369,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
 
 다음과 같은 디바이스 특성을 사용할 수 있습니다.
 
- 디바이스 특성  | 값 | 예제
+ 디바이스 특성  | 값 | 예
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
  displayName | 임의의 문자열 값입니다. |(장치. displayName-eq "Rob iPhone")
@@ -379,9 +382,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  enrollmentProfileName | Apple 장치 등록 프로필, 장치 등록-회사 장치 식별자 (Android 키오스크) 또는 Windows Autopilot 프로필 이름 | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | MDM(모바일 디바이스)<br>PC(Intune PC 에이전트에 의해 관리되는 컴퓨터) | (device.managementType -eq "MDM")
- organizationalUnit | 유효한 온-프레미스 OU (조직 구성 단위) | (organizationalUnit-"랩톱" 포함)
  deviceId | 유효한 Azure AD 디바이스 ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
- objectId | 유효한 Azure AD 개체 ID |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ objectId | 유효한 Azure AD 개체 ID |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
  devicePhysicalIds | Autopilot에서 사용 하는 모든 문자열 값 (예: 모든 Autopilot devices, OrderID 또는 PurchaseOrderID)  | (devicePhysicalIDs-any _-contains "[Zt\]") (devicePhysicalIds-any _-eq "[OrderID]: 179887111881") (devicePhysicalIds-any _-eq "[PurchaseOrderId]: 76222342342")
  systemLabels | 최신 작업 공간 디바이스의 태그를 지정하는 Intune 디바이스 속성과 일치하는 문자열 | (장치간 레이블-"M365Managed" 포함)
 

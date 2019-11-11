@@ -16,12 +16,12 @@ ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 704e217cd7ddea988b6a9812627aba8c8468fb73
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e3ad689fb57c51d0deb698a723b93e6175bdbb5c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71955498"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882888"
 ---
 # <a name="application-provisioning-in-quarantine-status"></a>격리 상태의 응용 프로그램 프로 비전
 
@@ -33,7 +33,7 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 
 응용 프로그램이 격리 되어 있는지 여부를 확인 하는 방법에는 다음 세 가지가 있습니다.
   
-- Azure Portal에서 **Azure Active Directory** > **엔터프라이즈 응용**프로그램  >  @ no__t-4*응용 프로그램 이름*&gt; @ no__t-7**프로 비전** 으로 이동 하 고 맨 아래에 있는 진행률 표시줄로 스크롤합니다.  
+- Azure Portal에서 **Azure Active Directory** > **Enterprise 응용 프로그램** * > &lt;* **프로 비전&gt;프로 비전** 을 탐색 하 고 맨 아래에 있는 진행률 표시줄로 스크롤합니다. >   
 
   ![격리 상태를 보여 주는 프로 비전 상태 표시줄](media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 
@@ -51,11 +51,11 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 
 프로 비전 작업 상태를 가져오는 Microsoft Graph 요청은 다음과 같은 격리 이유를 표시 합니다.
 
-- `EncounteredQuarantineException`은 잘못 된 자격 증명이 제공 되었음을 나타냅니다. 프로 비전 서비스가 원본 시스템과 대상 시스템 간에 연결을 설정할 수 없습니다.
+- `EncounteredQuarantineException` 잘못 된 자격 증명이 제공 되었음을 나타냅니다. 프로 비전 서비스가 원본 시스템과 대상 시스템 간에 연결을 설정할 수 없습니다.
 
-- `EncounteredEscrowProportionThreshold`은 프로비저닝이 에스크로 임계값을 초과 했음을 나타냅니다. 이 상태는 프로 비전 이벤트의 60% 이상이 실패 한 경우에 발생 합니다.
+- `EncounteredEscrowProportionThreshold`는 프로비저닝이 에스크로 임계값을 초과 했음을 나타냅니다. 이 상태는 프로 비전 이벤트의 60% 이상이 실패 한 경우에 발생 합니다.
 
-- `QuarantineOnDemand`은 응용 프로그램에 대 한 문제를 검색 하 고 수동으로 격리로 설정 했음을 의미 합니다.
+- `QuarantineOnDemand`는 응용 프로그램에 대 한 문제를 검색 하 고이를 수동으로 격리로 설정 했음을 의미 합니다.
 
 ## <a name="how-do-i-get-my-application-out-of-quarantine"></a>응용 프로그램을 격리에서 가져오지 어떻게 할까요??
 
@@ -63,12 +63,12 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 
 - 응용 프로그램의 프로 비전 설정을 확인 하 여 [유효한 관리자 자격 증명을 입력](configure-automatic-user-provisioning-portal.md#configuring-automatic-user-account-provisioning)했는지 확인 합니다. Azure AD는 대상 응용 프로그램을 사용 하 여 트러스트를 설정할 수 있어야 합니다. 유효한 자격 증명을 입력 하 고 계정에 필요한 사용 권한이 있는지 확인 합니다.
 
-- [프로 비전 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) 를 검토 하 여 격리를 발생 시키는 오류를 자세히 조사 하 고 오류를 해결 합니다. **작업** 섹션에서 **Azure Active Directory** &gt; **엔터프라이즈 앱** &gt; **프로 비전 로그 (미리 보기)** 로 이동 하 여 Azure Portal의 프로 비전 로그에 액세스 합니다.
+- [프로 비전 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) 를 검토 하 여 격리를 발생 시키는 오류를 자세히 조사 하 고 오류를 해결 합니다. **작업** 섹션에서 **Azure Active Directory** &gt; **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** 로 이동 하 여 Azure Portal의 프로 비전 로그에 액세스 합니다.
 
 문제를 해결 한 후 프로 비전 작업을 다시 시작 합니다. 특성 매핑 또는 범위 지정 필터와 같은 응용 프로그램의 프로 비전 설정에 대 한 특정 변경 사항은 자동으로 자동으로 프로 비전을 다시 시작 합니다. 응용 프로그램의 **프로 비전** 페이지에 있는 진행률 표시줄에는 프로 비전이 마지막으로 시작 된 시간을 나타냅니다. 프로 비전 작업을 수동으로 다시 시작 해야 하는 경우 다음 방법 중 하나를 사용 합니다.  
 
 - Azure Portal를 사용 하 여 프로 비전 작업을 다시 시작 합니다. 응용 프로그램의 **프로 비전** 페이지 **설정**아래에서 **상태 지우기 및 동기화 다시 시작** 을 선택 하 고 **프로 비전 상태** 를 **켜기**로 설정 합니다. 이 작업은 프로 비전 서비스를 완전히 다시 시작 하며,이 작업은 다소 시간이 걸릴 수 있습니다. Escrows를 지우고 앱을 격리에서 제거 하 고 모든 워터 마크를 제거 하는 전체 초기 주기가 다시 실행 됩니다.
 
-- Microsoft Graph를 사용 하 여 [프로 비전 작업을 다시 시작](https://docs.microsoft.com/en-us/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http)합니다. 다시 시작 하는 작업을 완전히 제어할 수 있습니다. Escrows (격리 상태를 적용 하는 에스크로 카운터를 다시 시작 하려면)를 선택 취소 하거나 격리 (격리에서 응용 프로그램을 제거 하려면)를 지우거 나 워터 마크를 지울 수 있습니다. 다음 요청을 사용합니다.
+- Microsoft Graph를 사용 하 여 [프로 비전 작업을 다시 시작](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http)합니다. 다시 시작 하는 작업을 완전히 제어할 수 있습니다. Escrows (격리 상태를 적용 하는 에스크로 카운터를 다시 시작 하려면)를 선택 취소 하거나 격리 (격리에서 응용 프로그램을 제거 하려면)를 지우거 나 워터 마크를 지울 수 있습니다. 다음 요청을 사용합니다.
  
        `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`

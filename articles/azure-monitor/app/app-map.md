@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 65a257cc4613fb9e4dece09a2544de2e78779ab4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 305de556cc6e50af21cb38aa1b8073b420efbf43
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577072"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887763"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -234,7 +234,7 @@ appInsights.addTelemetryInitializer((envelope) => {
 
 앱이 특정 문제를 찾기에 충분 한 정보가 없을 수 있는 컨테이너 화 된 환경에서 앱이 실행 되는 경우 클라우드 역할 인스턴스의 값을 재정의 하는 것이 좋습니다.
 
-원격 분석 이니셜라이저를 사용 하 여 클라우드 역할 이름 속성을 재정의 하는 방법에 대 한 자세한 내용은 [Add 속성: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer)를 참조 하세요.
+원격 분석 이니셜라이저를 사용 하 여 클라우드 역할 이름 속성을 재정의 하는 방법에 대 한 자세한 내용은 [Add 속성: ITelemetryInitializer](api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)를 참조 하세요.
 
 ## <a name="troubleshooting"></a>문제 해결
 

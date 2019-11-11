@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 8e8e4524034f0a296045691309b065f8547bdaa0
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 057037807a75e50eb2305bfab19d1fcff7fe77ce
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797700"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889604"
 ---
 # <a name="references"></a>참조
 
@@ -85,7 +85,7 @@ API 서비스에 대 한 URL은\<https://> 데이터 허브 URL입니다. 필요
 
 아래 샘플 요청은 장치 목록을 가져오는 것입니다.
 
-```
+```azurepowershell-interactive
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>”
 ```
 
@@ -108,7 +108,6 @@ REST **GET** 호출의 경우 요청 URI에 하나 이상의 쿼리 매개 변�
 
 Azure FarmBeats Data hub API는 표준 HTTP 오류를 반환 합니다. 가장 일반적인 오류 코드는 다음과 같습니다.
 
-
  |오류 코드             | 설명 |
  |---                    | --- |
  |200                    | 성공 |
@@ -121,29 +120,29 @@ Azure FarmBeats Data hub API는 표준 HTTP 오류를 반환 합니다. 가장 �
 
 표준 HTTP 오류 외에도 Azure FarmBeats Data hub Api는 다음과 같은 형식으로 내부 오류를 반환 합니다.
 
-```
-{
-  "message": "<More information on the error>",
-  "status": "<error code>”,
-  "code": "<InternalErrorCode>",
-  "moreInfo": "<Details of the error>"
-}
-```
+    ```
+    {
+      "message": "<More information on the error>",
+      "status": "<error code>”,
+      "code": "<InternalErrorCode>",
+      "moreInfo": "<Details of the error>"
+    }
+    ```
 
 예: 팜을 만들 때 입력 페이로드에 필수 필드 "Name"이 지정 되지 않았습니다. 결과 오류 메시지는 다음과 같습니다.
 
-```
-{
-  "message": "Model validation failed",
-  "status": 400,
-  "code": "ModelValidationFailed",
-  "moreInfo": "[\"The Name field is required.\"]"
-}
-```
+    ```json
+    {
+      "message": "Model validation failed",
+      "status": 400,
+      "code": "ModelValidationFailed",
+      "moreInfo": "[\"The Name field is required.\"]"
+    }
+    ```
 
 ## <a name="adding-users-or-app-registrations-to-azure-active-directory"></a>Azure Active Directory에 사용자 또는 앱 등록 추가
 
- Azure FarmBeats Api는 Azure Active Directory에서 사용자 또는 앱 등록을 통해 액세스할 수 있습니다. Azure Active Directory에서 앱 등록을 만들려면 다음 단계를 수행 합니다.  
+Azure FarmBeats Api는 Azure Active Directory에서 사용자 또는 앱 등록을 통해 액세스할 수 있습니다. Azure Active Directory에서 앱 등록을 만들려면 다음 단계를 수행 합니다.  
 
 1. [Azure Portal](https://portal.azure.com) **Azure Active Directory, 앱 등록**, **새 등록**>로 이동 합니다. 또는 기존 계정을 사용할 수 있습니다.
 2. 새 계정의 경우 다음을 완료 해야 합니다.

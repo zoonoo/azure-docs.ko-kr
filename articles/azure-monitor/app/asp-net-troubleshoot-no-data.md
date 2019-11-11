@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/23/2018
-ms.openlocfilehash: 0bb32486ea3fcfd37337b18b02f4f432effa8f75
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 857188ebb5ddc3c24f6a225819c47fc1643417e6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678338"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887527"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>데이터 없음 문제 해결 - .NET용 Application Insights
 ## <a name="some-of-my-telemetry-is-missing"></a>일부 원격 분석이 누락됨
@@ -29,7 +29,7 @@ ms.locfileid: "72678338"
 
 *앱이 중지 될 때 콘솔 앱 또는 웹 앱에서 데이터 손실이 발생 합니다.*
 
-* SDK 채널은 버퍼에 원격 분석을 유지 하 고 일괄 처리로 보냅니다. 응용 프로그램을 종료 하는 경우 [Flush ()](api-custom-events-metrics.md#flushing-data)를 명시적으로 호출 해야 할 수 있습니다. @No__t_0 동작은 사용한 실제 [채널](telemetry-channels.md#built-in-telemetry-channels) 에 따라 다릅니다.
+* SDK 채널은 버퍼에 원격 분석을 유지 하 고 일괄 처리로 보냅니다. 응용 프로그램을 종료 하는 경우 [Flush ()](api-custom-events-metrics.md#flushing-data)를 명시적으로 호출 해야 할 수 있습니다. `Flush()` 동작은 사용한 실제 [채널](telemetry-channels.md#built-in-telemetry-channels) 에 따라 다릅니다.
 
 ## <a name="no-data-from-my-server"></a>내 서버에서 데이터 없음
 *웹 서버에 이 앱을 설치했지만 지금 원격 분석이 표시되지 않습니다. 내 개발 컴퓨터에서 문제 없이 작동했습니다.*
@@ -94,7 +94,7 @@ Application Insights를 설치하는 동안 문제가 발생했거나 로깅 어
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>Visual Studio에서 Application Insights를 열면 '액세스 거부' 오류
 *'Application Insights 열기' 메뉴 명령을 실행하면 Azure 포털로 이동되지만 '액세스 거부' 오류가 발생합니다.*
 
-기본 브라우저에서 마지막으로 사용한 Microsoft 로그인은 [이 앱에 Application Insights를 추가할 때 만들어진 리소스](../../azure-monitor/app/asp-net.md)에 대한 액세스 권한을 갖고 있지 않습니다. 가능한 원인은 두 가지입니다.
+기본 브라우저에서 마지막으로 사용한 Microsoft 로그인이 [이 앱에 Application Insights를 추가할 때 만들어진 리소스](../../azure-monitor/app/asp-net.md)에 대한 액세스 권한을 갖고 있지 않습니다. 가능한 원인은 두 가지입니다.
 
 * Microsoft 계정이 여러 개 있습니다. 예를 들어 회사용 Microsoft 계정과 개인용 Microsoft 계정이 있습니다. 기본 브라우저에서 마지막으로 사용한 로그인이 [프로젝트에 Application Insights를 추가](../../azure-monitor/app/asp-net.md)할 수 있는 액세스 권한을 가진 계정이 아닌 다른 계정의 로그인입니다.
   * Fix: 브라우저 창의 오른쪽 위에 있는 이름을 클릭 하 고 로그 아웃 합니다. 그런 다음 액세스 권한이 있는 계정으로 로그인 합니다. 그런 다음, 왼쪽의 탐색 모음에서 Application Insights를 클릭하고 앱을 선택합니다.
@@ -124,19 +124,19 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 * Visual Studio에서 앱을 디버깅하는 동안 Application Insights 단추를 클릭합니다.
 
 ## <a name="q03"></a> 서버 데이터 없음(데이터가 하나도 없음)
-*앱을 실행한 다음, Microsoft Azure에서 Application Insights 서비스를 열었지만, 모든 차트에 '수집하는 방법을 알아보세요...' 또는 '구성되지 않았습니다' 메시지가 표시됩니다.* 또는 *페이지 보기와 사용자 데이터만 표시되고 서버 데이터는 표시되지 않습니다.*
+*앱을 실행한 다음 Microsoft Azure에서 Application Insights 서비스를 열었지만, 모든 차트에 '수집하는 방법을 알아보세요...' 또는 '구성되지 않았습니다' 메시지가 표시됩니다.* 또는 *페이지 보기와 사용자 데이터만 표시되고 서버 데이터는 표시되지 않습니다.*
 
 * Visual Studio의 디버그 모드에서 애플리케이션을 실행합니다(F5). 애플리케이션을 사용하여 원격 분석을 생성합니다. Visual Studio 출력 창에서 기록된 이벤트를 볼 수 있는지 확인합니다.  
   ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Application Insights 포털에서 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 엽니다. 일반적으로 데이터는 여기에 처음으로 나타납니다.
 * 새로고침 단추를 클릭합니다. 블레이드 자체는 주기적으로 새로 고쳐지지만 수동으로 새로 고칠 수도 있습니다. 시간 범위가 커지면 새로 고침 간격이 길어집니다.
-* 계측 키가 일치하는지 확인합니다. Application Insights 포털에서 내 앱의 기본 블레이드로 이동하여 **Essentials** 드롭다운 목록에서 **계측 키**를 확인합니다. 그런 다음, Visual Studio의 프로젝트에서 ApplicationInsights.config를 열고 `<instrumentationkey>`를 찾습니다. 두 키가 같은지 확인합니다. 같이 않으면  
+* 계측 키가 일치하는지 확인합니다. Application Insights 포털에서 내 앱의 기본 블레이드로 이동하여 **Essentials** 드롭다운 목록에서 **계측 키**를 확인합니다. 그런 다음 Visual Studio의 프로젝트에서 ApplicationInsights.config를 열고 `<instrumentationkey>`를 찾습니다. 두 키가 같은지 확인합니다. 같이 않으면  
   * 포털에서 Application Insights를 클릭하고 오른쪽 키를 사용하여 앱 리소스를 찾아봅니다. 또는
   * Visual Studio 솔루션 탐색기에서 프로젝트를 마우스 오른쪽 단추로 클릭하고 Application Insights, 구성을 차례로 선택합니다. 올바른 리소스에 원격 분석을 보내도록 앱을 다시 설정합니다.
   * 일치하는 키를 찾을 수 없는 경우 포털에서 사용한 것과 동일한 로그인 자격 증명을 Visual Studio에서 사용하고 있는지 확인합니다.
 * [Microsoft Azure 홈 대시보드](https://portal.azure.com)에서 서비스 상태 맵을 살펴봅니다. 어떤 경고 표시가 있는 경우 정상으로 돌아갈 때까지 기다린 후 Application Insights 애플리케이션 블레이드를 닫고 다시 엽니다.
 * 또한 [상태 블로그](https://blogs.msdn.microsoft.com/servicemap-status/)를 확인합니다.
-* `TelemetryClient`인스턴스 또는 `TelemetryContext`의 계측 키가 변경될 수 있는 코드를 [서버 쪽 SDK](../../azure-monitor/app/api-custom-events-metrics.md)에 작성했습니까? 또는 너무 촘촘하게 걸러내는 [필터 또는 샘플링 구성](../../azure-monitor/app/api-filtering-sampling.md)을 작성했습니까?
+* [인스턴스 또는 ](../../azure-monitor/app/api-custom-events-metrics.md)의 계측 키가 변경될 수 있는 코드를 `TelemetryClient`서버 쪽 SDK`TelemetryContext`에 작성했습니까? 또는 너무 촘촘하게 걸러내는 [필터 또는 샘플링 구성](../../azure-monitor/app/api-filtering-sampling.md) 을 작성했습니까?
 * ApplicationInsights.config를 편집한 경우 [TelemetryInitializers 및 TelemetryProcessors](../../azure-monitor/app/api-filtering-sampling.md)의 구성을 신중하게 확인합니다. 형식 또는 매개 변수를 잘못 명명하면 SDK에서 빈 데이터를 보내게 될 수 있습니다.
 
 ## <a name="q04"></a>페이지 보기, 브라우저, 사용량에 데이터 없음
@@ -174,7 +174,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 2018년 2월 5일에 클라이언트 IP 주소의 로깅이 제거되었다고 발표했습니다. 이 조치는 지리적 위치에 영향을 주지 않습니다.
 
 > [!NOTE]
-> IP 주소의 처음 3개의 8진수가 필요하면 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer)를 사용하여 사용자 지정 특성을 추가할 수 있습니다.
+> IP 주소의 처음 3개의 8진수가 필요하면 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#addmodify-properties-itelemetryinitializer)를 사용하여 사용자 지정 특성을 추가할 수 있습니다.
 > 2018년 2월 5일 이전에 수집된 데이터에는 영향을 주지 않습니다.
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>사용자 원격 분석에 잘못된 지리적 데이터
@@ -214,7 +214,7 @@ ApplicationInsights.config의 계측 키는 원격 분석이 전송되는 위치
 
 최신 버전의 AspNetCore는 2.7.1이 고, Microsoft ApplicationInsights 버전 2.10을 참조 합니다. 따라서 설치 될 HostingStartup 버전은 2.10.0 이어야 합니다.
 
-2. `Startup.cs` 클래스의 `ConfigureServices` 메서드를 수정합니다.
+2. `ConfigureServices` 클래스의 `Startup.cs` 메서드를 수정합니다.
 
     ```csharp
     services.AddSingleton<ITelemetryModule, FileDiagnosticsTelemetryModule>();

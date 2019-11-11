@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: dca653bfaf625ff31e4dd7f43752219b312779d1
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 57303c41d90f6205c284c7de67bb8643aa3cd368
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286770"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888061"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Advanced Threat Protection
 
@@ -32,7 +32,7 @@ Azure Cosmos DB에 대 한 Advanced Threat Protection은 Azure Cosmos DB 계정�
 
 ### <a name="set-up-atp-using-the-portal"></a>포털을 사용 하 여 ATP 설정
 
-1. [@No__t-1](https://portal.azure.com/)에서 Azure Portal를 시작 합니다.
+1. [https://portal.azure.com](https://portal.azure.com/)에서 Azure Portal를 시작 합니다.
 
 2. Azure Cosmos DB 계정의 **설정** 메뉴에서 **고급 보안**을 선택 합니다.
 
@@ -61,7 +61,7 @@ Rest API 명령을 사용 하 여 특정 Azure Cosmos DB 계정에 대 한 Advan
 ### <a name="using-azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿 사용
 
 Azure Resource Manager 템플릿을 사용 하 여 Advanced Threat Protection을 사용 하도록 설정 된 Cosmos DB를 설정 합니다.
-자세한 내용은 [Advanced Threat Protection을 사용 하 여 CosmosDB 계정 만들기](https://azure.microsoft.com/en-us/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/)를 참조 하세요.
+자세한 내용은 [Advanced Threat Protection을 사용 하 여 CosmosDB 계정 만들기](https://azure.microsoft.com/resources/templates/201-cosmosdb-advanced-threat-protection-create-account/)를 참조 하세요.
 
 ### <a name="using-azure-policy"></a>Azure Policy 사용
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6fc70b55b3e672ecc67eb1145bb751de33d998a1
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
-ms.translationtype: HT
+ms.openlocfilehash: e6bd9b5c09e1af5ec587e1f0e52ab25d21d2293b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847430"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889605"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -50,11 +50,14 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
     ![프로젝트 팜 비트](./media/for-tutorials/power-shell-two-1.png)
 
-5. 파일이 업로드 된 디렉터리로 이동 합니다 (기본적으로 홈 디렉터리/home/username/. 업로드 됨).
+5. 파일이 업로드 된 디렉터리로 이동 합니다.
+
+   >[!NOTE]
+   > 기본적으로 파일은 홈 디렉터리/home/username/. 업로드 됩니다.
 6. 명령을 사용 하 여 스크립트를 실행 합니다.  
 
     ```azurepowershell-interactive
-    PS> ./generateCredentials.ps1
+    ./generateCredentials.ps1
     ```
 
 7. 화면의 지시에 따라 절차를 완료 합니다.
@@ -77,16 +80,16 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 |          제조업체            |         별 2개     |
 |  ProductCode                    |  장치 제품 코드 또는 모델 이름/번호입니다. 예: EnviroMonitor # 6800.  |
 |            포트          |     포트 이름 및 유형 (디지털/아날로그)
-|     Name                 |  리소스를 식별 하는 이름입니다. 예를 들어 모델 이름/제품 이름입니다.
+|     이름                 |  리소스를 식별 하는 이름입니다. 예를 들어 모델 이름/제품 이름입니다.
       설명     | 모델에 대 한 의미 있는 설명 제공
 |    속성          |    제조업체의 추가 속성   |
 |    **디바이스**             |                      |
 |   DeviceModelId     |     연결 된 장치 모델의 ID  |
 |  hardwareId          | MAC 주소 등의 장치에 대 한 고유 ID
 |  reportingInterval        |   보고 간격 (초)
-|  위치            |  장치 위도 (-90 ~ + 90)/경도 (-180 ~ 180)/상승 (미터)   
+|  Location            |  장치 위도 (-90 ~ + 90)/경도 (-180 ~ 180)/상승 (미터)   
 |ParentDeviceId       |    이 장치가 연결 된 부모 장치의 ID입니다. 예를 들어 게이트웨이에 연결 된 노드입니다. 노드는 게이트웨이로 parentDeviceId를 포함 합니다.  |
-|    Name            | 리소스를 식별 하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의 이면 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다.|
+|    이름            | 리소스를 식별 하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의 이면 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다.|
 |     설명       |      의미 있는 설명 제공  |
 |     속성    |  제조업체의 추가 속성
 |     **센서 모델**        |          |
@@ -98,7 +101,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 |    sensorMeasures > 형식    |센서 원격 분석 데이터의 측정 유형입니다. AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, 압력, Raingge, RelativeHumidity, Salinity, SoilMoisture 등의 시스템 정의 형식은 다음과 같습니다. SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, Uvradiation, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration,와 동일 합니다. 추가 정보를 추가 하려면/ExtendedType API를 참조 하세요.|
 |        SensorMeasures > Unit              | 센서 원격 분석 데이터의 단위입니다. 다음은 시스템 정의 단위입니다. NoUnit, 섭씨로, 화씨, 켈빈, Rankine, 파스칼식, 이란, PSI, 밀리미터, 센티미터, 미터, 인치, 피트, 마일, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, 학위, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, 백분율, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, 리터, MilliLiter, Seconds,, MicroMolPerMeterSquaredPerSecond, InchesPerHour,를 추가 하려면 다음을 참조 하세요. ExtendedType API.|
 |    SensorMeasures > aggregationType    |  값은 없음, 평균, 최대값, 최소값 또는 StandardDeviation 일 수 있습니다.  |
-|          Name            | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름/제품 이름입니다.  |
+|          이름            | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름/제품 이름입니다.  |
 |    설명        | 모델에 대 한 의미 있는 설명 제공  |
 |   속성       |  제조업체의 추가 속성  |
 |    **수신**      |          |
@@ -107,7 +110,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 | location          |  센서 위도 (-90 ~ + 90)/경도 (-180 ~ 180)/상승 (미터)|
 |   포트 > 이름        |  장치에서 센서가 연결 된 포트의 이름 및 유형입니다. 이 이름은 장치 모델에 정의 된 이름과 동일 해야 합니다. |
 |    DeviceID  |    센서가 연결 된 장치의 ID     |
-| Name            |   리소스를 식별 하는 이름입니다. 예를 들어 센서 이름/제품 이름 및 모델 번호/제품 코드를 사용할 수 있습니다.|
+| 이름            |   리소스를 식별 하는 이름입니다. 예를 들어 센서 이름/제품 이름 및 모델 번호/제품 코드를 사용할 수 있습니다.|
 |    설명      | 의미 있는 설명 제공 |
 |    속성        |제조업체의 추가 속성 |
 
@@ -127,7 +130,9 @@ FarmBeats Data hub는 위의 섹션에서 생성 한 다음 자격 증명을 필
 
 호출자는 위의 자격 증명을 사용 하 여 다음과 같이 헤더 섹션의 후속 API 요청에서 전송 해야 하는 액세스 토큰을 요청할 수 있습니다.
 
-헤더 = *{"Authorization": "전달자" + access_token, ...}*
+```
+headers = *{"Authorization": "Bearer " + access_token, …}*
+```
 
 **HTTP 요청 헤더**:
 
@@ -161,8 +166,10 @@ FarmBeats Data hub에 대 한 API 호출을 만들 때 지정 해야 하는 가�
     "additionalProp3": {}
   }
 }
+```
 
-Device
+디바이스
+
 ```json
 {
   "deviceModelId": "string",
@@ -242,7 +249,7 @@ SensorModel
 ```
 아래 샘플 요청은 장치를 만들기 위한 것입니다. 여기에는 입력 json이 요청 본문과 함께 페이로드로 포함 됩니다.  
 
-```
+```azurepowershell-interactive
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
 "accept: application/json" -H  "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>" -d "
@@ -266,6 +273,7 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 
 EventHub 클라이언트로 설정 된 연결이 있으면 EventHub로 메시지를 json으로 보낼 수 있습니다.  
 기록 센서 데이터 형식을 Azure FarmBeats에서 인식 하는 정식 형식으로 변환 합니다. 정식 메시지 형식은 다음과 같습니다.  
+
 
 
  ```

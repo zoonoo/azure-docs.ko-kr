@@ -3,24 +3,21 @@ title: Azure CLI 스크립트 샘플 - 다중 계층 애플리케이션용 네�
 description: Azure CLI 스크립트 샘플 - 다중 계층 애플리케이션을 위한 가상 네트워크를 만듭니다.
 services: virtual-network
 documentationcenter: virtual-network
-author: jimdial
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
-ms.author: timlt
-ms.openlocfilehash: 1cdc10157fb324ac9167860b9786f4902b1b8b81
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.author: kumud
+ms.openlocfilehash: c211a476c31e386c9c74fcb0139fc61dad0a8eb8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68295568"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889400"
 ---
 # <a name="create-a-network-for-multi-tier-applications"></a>다중 계층 애플리케이션을 위한 네트워크 만들기
 
@@ -48,7 +45,7 @@ az group delete --name MyResourceGroup --yes
 
 이 스크립트는 다음 명령을 사용하여 리소스 그룹, 가상 네트워크 및 네트워크 보안 그룹을 만듭니다. 표에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 참고 |
+| 명령 | 참고 사항 |
 |---|---|
 | [az group create](/cli/azure/group) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
 | [az network vnet create](/cli/azure/network/vnet) | Azure 가상 네트워크 및 프런트 엔드 서브넷을 만듭니다. |

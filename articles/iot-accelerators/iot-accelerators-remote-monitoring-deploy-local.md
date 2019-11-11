@@ -1,5 +1,5 @@
 ---
-title: 로컬로 원격 모니터링 솔루션 배포(Visual Studio IDE를 통해) - Azure | Microsoft Docs
+title: 로컬로 원격 모니터링 솔루션 배포-VS IDE-Azure | Microsoft Docs
 description: 이 방법 가이드에서는 테스트 및 개발을 위해 Visual Studio를 사용하여 원격 모니터링 솔루션 가속기를 로컬 머신에 배포하는 방법을 보여줍니다.
 author: avneet723
 manager: hegate
@@ -8,28 +8,28 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 1adf59feca7db4c5903b04c59e1bd23290c1855e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a1eba1fceb959bd475d205176c2c53f6409fdc77
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65967513"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890883"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>로컬에 원격 모니터링 솔루션 가속기 배포 - Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. Visual Studio에서 마이크로 서비스를 실행하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 클라우드에서 IoT Hub, Cosmos DB, Azure Streaming Analytics, 클라우드의 Azure Time Series Insights 서비스 등과 같은 클라우드 서비스를 사용합니다.
+이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. Visual Studio에서 마이크로 서비스를 실행하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 클라우드에서 클라우드 서비스 IoT Hub, Cosmos DB, Azure Streaming Analytics 및 Azure Time Series Insights 서비스를 사용합니다.
 
 로컬 머신의 Docker에서 원격 모니터링 솔루션 가속기를 실행하려면 [로컬로 원격 모니터링 솔루션 가속기 배포 - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-### <a name="machine-setup"></a>머신 설치
+### <a name="machine-setup"></a>머신 설정
 
 로컬 배포를 완료하기 위해 로컬 개발 컴퓨터에 설치되어 있어야 하는 도구는 다음과 같습니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "65967513"
 * [Docker](https://www.docker.com)
 * [Visual Studio](https://visualstudio.microsoft.com/)
 * [Nginx](https://nginx.org/en/download.html)
-* [Node.js v8](https://nodejs.org/) - 이 소프트웨어는 스크립트에서 Azure 리소스를 만드는 데 사용하는 PCS CLI에 대한 필수 구성 요소입니다. Node.js v10은 사용하지 마세요.
+* [Node.js v8](https://nodejs.org/) - 이 소프트웨어는 스크립트에서 Azure 리소스를 만드는 데 사용하는 PCS CLI에 대한 필수 구성 요소입니다. Node.js v10을 사용하지 마세요.
 
 > [!NOTE]
 > Visual Studio는 Windows 및 Mac에 사용할 수 있습니다.
@@ -60,7 +60,7 @@ ms.locfileid: "65967513"
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>그 외의 모든 마이크로 서비스를 로컬 머신에 배포
 
-다음 단계를 Visual Studio에서 원격 모니터링 마이크로 서비스를 실행 하는 방법을 보여 줍니다.
+다음 단계는 Visual Studio에서 원격 모니터링 마이크로 서비스를 실행 하는 방법을 보여 줍니다.
 
 1. Visual Studio를 시작합니다.
 1. 리포지토리의 로컬 복사본에서 **services** 폴더의 **remote-monitoring.sln** 솔루션을 엽니다.
@@ -80,12 +80,12 @@ ms.locfileid: "65967513"
 
 ### <a name="start-the-stream-analytics-job"></a>Stream Analytics 작업 시작
 
-다음 단계에 따라 Stream Analytics 작업을 시작합니다.
+Stream Analytics 작업을 시작하려면 다음 단계를 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 1. 솔루션에 대해 만든 **리소스 그룹**으로 이동합니다. 리소스 그룹의 이름은 **start.cmd** 스크립트를 실행할 때 선택한 솔루션 이름입니다.
 1. 리소스 목록에서 **Stream Analytics 작업**을 클릭합니다.
-1. Stream Analytics 작업 **개요** 페이지에서 **시작** 단추를 클릭합니다. 그런 다음, **시작**을 클릭하여 지금 작업을 시작합니다.
+1. Stream Analytics 작업 **개요** 페이지에서 **시작** 단추를 클릭합니다. 이제 **시작**을 클릭하여 작업을 시작합니다.
 
 ### <a name="run-the-web-ui"></a>웹 UI 실행
 
@@ -96,7 +96,7 @@ npm install
 npm start
 ```
 
-시작이 완료 되 면 브라우저 페이지를 표시 하는 **http:\//localhost:3000 / 대시보드**합니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
+시작이 완료 되 면 브라우저에서 **http:\//locals: 3000/dashboard**페이지가 표시 됩니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
 
 ### <a name="configure-and-run-nginx"></a>NGINX 구성 및 실행
 
@@ -109,11 +109,11 @@ npm start
 
 ### <a name="connect-to-the-dashboard"></a>대시보드에 연결
 
-원격 모니터링 솔루션 대시보드에 액세스 하려면 http로 이동:\//localhost:9000 브라우저에서 합니다.
+원격 모니터링 솔루션 대시보드에 액세스 하려면 브라우저에서 http:\//localhost: 9000로 이동 합니다.
 
 ## <a name="clean-up"></a>정리
 
-불필요한 요금을 방지하려면 테스트를 마친 후 Azure 구독에서 클라우드 서비스를 제거합니다. 서비스를 제거하려면 [Azure Portal](https://ms.portal.azure.com)로 이동하여 **start.cmd** 스크립트에서 만든 리소스 그룹을 삭제합니다.
+불필요한 요금을 피하려면 테스트를 마친 후 Azure 구독에서 클라우드 서비스를 제거하세요. 서비스를 제거하려면 [Azure Portal](https://ms.portal.azure.com)로 이동하여 **start.cmd** 스크립트에서 만든 리소스 그룹을 삭제합니다.
 
 또한 GitHub에서 소스 코드를 복제할 때 만들어진 원격 모니터링 리포지토리의 로컬 복사본을 삭제할 수도 있습니다.
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 83c185a6ba8f1c5e6edf095db5baf575f750fa3b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 9c7084954fe58351a6f9af40552714faa34685ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176478"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887058"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -56,7 +56,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-[PSCredential 일반 매개 변수](/powershell/module/psworkflow/about/about_workflowcommonparameters)에 지정된 자격 증명을 사용하여 다른 컴퓨터에서 코드 블록을 실행할 수 있는 [InlineScript](automation-powershell-workflow.md#inlinescript)를 사용할 수도 있습니다.
+[PSCredential 일반 매개 변수](automation-powershell-workflow.md#inlinescript)에 지정된 자격 증명을 사용하여 다른 컴퓨터에서 코드 블록을 실행할 수 있는 [InlineScript](/powershell/module/psworkflow/about/about_workflowcommonparameters)를 사용할 수도 있습니다.
 
 ### <a name="runas-account"></a>실행 계정
 
@@ -103,7 +103,7 @@ Get-AzureRmVm | Select Name
 ```
 
 > [!NOTE]
-> `Connect-AzureRMAccount -Identity`은 시스템 할당 id 및 단일 사용자 할당 id를 사용 하 여 Hybrid Runbook Worker에 대해 작동 합니다. HRW에서 여러 사용자 할당 id를 사용 해야 하는 경우 `-AccountId` 매개 변수를 지정 하 여 특정 사용자 할당 id를 선택 해야 합니다.
+> `Connect-AzureRMAccount -Identity`는 시스템 할당 id 및 단일 사용자 할당 id를 사용 하 여 Hybrid Runbook Worker에 대해 작동 합니다. HRW에서 여러 사용자 할당 id를 사용 해야 하는 경우에는 `-AccountId` 매개 변수를 지정 하 여 특정 사용자 할당 id를 선택 해야 합니다.
 
 ### <a name="runas-script"></a>Automation 실행 계정
 
@@ -284,7 +284,7 @@ sudo chown -R nxautomation ~/.gnupg
 
 #### <a name="make-the-keyring-available-the-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 사용할 수 있도록 인증 키 설정
 
-인증 키가 만들어지면 Hybrid Runbook Worker에서 인증 키를 사용할 수 있도록 만들어야 합니다. `[worker-optional]` 섹션에서 다음 예제를 포함하도록 설정 파일(`/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf`)을 수정합니다.
+인증 키가 만들어지면 Hybrid Runbook Worker에서 인증 키를 사용할 수 있도록 만들어야 합니다. `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` 섹션에서 다음 예제를 포함하도록 설정 파일(`[worker-optional]`)을 수정합니다.
 
 ```bash
 gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx
@@ -315,4 +315,4 @@ gpg –-clear-sign <runbook name>
 * Runbook을 시작하는 데 사용할 수 있는 여러 가지 방법에 대해 자세히 알아보려면 [Azure Automation에서 Runbook 시작](automation-starting-a-runbook.md)을 참조하세요.
 * 텍스트 편집기를 사용하여 Azure Automation에서 PowerShell Runbook을 작업하기 위한 여러 가지 방법을 알아보려면 [Azure Automation에서 Runbook 편집](automation-edit-textual-runbook.md)을 참조하세요.
 * Runbook이 성공적으로 완료되지 않으면 [Runbook 실행 실패](troubleshoot/hybrid-runbook-worker.md#runbook-execution-fails)에 대한 문제 해결 가이드를 검토하세요.
-* 언어 참조 및 학습 모듈을 비롯 한 PowerShell에 대 한 자세한 내용은 [Powershell 문서](https://docs.microsoft.com/en-us/powershell/scripting/overview)를 참조 하세요.
+* 언어 참조 및 학습 모듈을 비롯 한 PowerShell에 대 한 자세한 내용은 [Powershell 문서](https://docs.microsoft.com/powershell/scripting/overview)를 참조 하세요.

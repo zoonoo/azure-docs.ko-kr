@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: dc572d29b4e6d95525959becad0ed8069735e33c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ed297a1005f67a14db1da15aba2c47c98e83df9c
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606041"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885058"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -31,11 +31,15 @@ ms.locfileid: "73606041"
 
 ![변경 분석에서 변경 데이터를 가져오고 클라이언트 도구에 제공 하는 방법에 대 한 아키텍처 다이어그램](./media/change-analysis/overview.png)
 
-현재 변경 분석은 App Service 웹 앱의 **진단 및 문제 해결** 환경에 통합 되어 있습니다. 웹 앱에서 변경 내용 검색을 사용 하도록 설정 하 고 변경 내용을 확인 하려면이 문서의 뒷부분에 있는 *Web Apps 기능에 대 한 변경 분석* 섹션을 참조 하세요.
+현재 변경 분석은 App Service 웹 앱의 **진단 및 문제 해결** 환경에 통합 되어 있으며 Azure Portal에서 독립 실행형 블레이드로 사용할 수 있습니다.
+이 문서의 뒷부분에 나오는 웹 앱 포털 내에서 사용 하는 *Web Apps 기능 섹션에 대* 한 변경 분석 블레이드 및 변경 분석에 액세스 하려면 *Azure에서 모든 리소스에 대 한 변경 내용 보기* 섹션을 참조 하세요.
 
-### <a name="azure-resource-manager-deployment-changes"></a>Azure Resource Manager 배포 변경 내용
+### <a name="azure-resource-manager-tracked-properties-changes"></a>추적 된 속성 변경 내용 Azure Resource Manager
 
-[Azure 리소스 그래프](https://docs.microsoft.com/azure/governance/resource-graph/overview)를 사용 하 여 변경 분석을 통해 응용 프로그램을 호스트 하는 azure 리소스가 시간에 따라 어떻게 변경 되었는지에 대 한 기록 기록을 제공 합니다. 변경 분석은 예를 들어, IP 구성 규칙의 변경, 관리 되는 id 및 SSL 설정을 검색할 수 있습니다. 따라서 웹 앱에 태그를 추가 하는 경우 변경 내용 분석에서 변경 내용을 반영 합니다. 이 정보는 Azure 구독에서 `Microsoft.ChangeAnalysis` 리소스 공급자를 사용 하도록 설정한 경우에만 사용할 수 있습니다.
+[Azure 리소스 그래프](https://docs.microsoft.com/azure/governance/resource-graph/overview)를 사용 하 여 변경 분석을 통해 응용 프로그램을 호스트 하는 azure 리소스가 시간에 따라 어떻게 변경 되었는지에 대 한 기록 기록을 제공 합니다. 관리 되는 id, 플랫폼 OS 업그레이드 및 호스트 이름과 같은 추적 된 설정을 검색할 수 있습니다.
+
+### <a name="azure-resource-manager-proxied-setting-changes"></a>프록시 설정 변경 Azure Resource Manager
+IP 구성 규칙, SSL 설정 및 확장 버전 등의 설정은 ARG에서 아직 사용할 수 없으므로 분석 쿼리를 변경 하 고 이러한 변경 내용을 안전 하 게 계산 하 여 앱에서 변경 된 내용에 대 한 자세한 정보를 제공 합니다. 이러한 정보는 Azure 리소스 그래프에서 아직 사용할 수 없지만 곧 제공 될 예정입니다.
 
 ### <a name="changes-in-web-app-deployment-and-configuration-in-guest-changes"></a>웹 앱 배포 및 구성의 변경 내용 (게스트 내 변경)
 
@@ -50,6 +54,10 @@ ms.locfileid: "73606041"
 - Web Apps
 - Azure Storage
 - Azure SQL
+
+### <a name="enablement"></a>사용 여부
+"Microsoft. ChangeAnalysis" 리소스 공급자는 Azure Resource Manager 추적 속성 및 프록시 설정 변경 데이터를 사용할 수 있도록 구독에 등록 해야 합니다. 웹 앱에서 문제를 진단 하 고 해결 하거나 변경 분석 독립형 블레이드를 표시 하면이 리소스 공급자가 자동으로 등록 됩니다. 구독에 대 한 성능 및 비용 구현이 없습니다.
+웹 앱 게스트 변경의 경우 웹 앱 내에서 코드 파일을 검색 하는 데 별도의 기능이 필요 합니다. 자세한 내용은이 문서의 뒷부분에 나오는 *문제 진단 및 해결 도구 섹션에서 변경 분석 사용* 을 참조 하세요.
 
 ## <a name="viewing-changes-for-all-resources-in-azure"></a>Azure에서 모든 리소스에 대 한 변경 내용 보기
 Azure Monitor에는 정보 및 응용 프로그램 종속성 리소스의 모든 변경 내용을 볼 수 있는 변경 분석에 대 한 독립 실행형 블레이드가 있습니다.
@@ -70,7 +78,7 @@ Azure Portal의 검색 창에서 변경 분석을 검색 하 여 블레이드를
 - Azure 네트워킹 리소스
 - 게스트 내 파일 추적 및 환경 변수가 변경 된 웹 앱
 
-피드백을 보려면 블레이드 또는 메일 changeanalysisteam@microsoft.com에서 사용자 의견 보내기 단추를 사용 하세요. 
+피드백을 보려면 블레이드 또는 메일 changeanalysisteam@microsoft.com에서 사용자 의견 보내기 단추를 사용 하세요.
 
 ![변경 분석 블레이드의 피드백 단추 스크린샷](./media/change-analysis/change-analysis-feedback.png)
 
@@ -94,12 +102,12 @@ Azure Monitor에서 변경 분석은 셀프 서비스 **진단 및 문제 해결
 
    !["응용 프로그램 작동 중단" 옵션 스크린샷](./media/change-analysis/enable-changeanalysis.png)
 
-1. **변경 분석** 을 설정 하 고 **저장**을 선택 합니다.
+1. **변경 분석** 을 설정 하 고 **저장**을 선택 합니다. 도구는 App Services 계획의 모든 웹 앱을 표시 합니다. 계획 수준 스위치를 사용 하 여 계획의 모든 웹 앱에 대 한 변경 분석을 켤 수 있습니다.
 
     !["변경 분석 설정" 사용자 인터페이스의 스크린샷](./media/change-analysis/change-analysis-on.png)
 
 
-1. 변경 분석에 액세스 하려면 **응용 프로그램 작동 중단** > **가용성 및 성능** > **진단 및 해결** 을 선택 합니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다.
+1. 변경 분석에 액세스 하려면 **응용 프로그램 작동 중단** > **가용성 및 성능** > **진단 및 해결** 을 선택 합니다. 시간에 따른 변경 내용 유형과 해당 변경 내용에 대 한 세부 정보를 요약 하는 그래프가 표시 됩니다. 기본적으로 지난 24 시간 동안의 변경 내용은 즉각적인 문제를 해결 하기 위해 표시 됩니다.
 
      ![Diff 뷰 변경의 스크린샷](./media/change-analysis/change-view.png)
 

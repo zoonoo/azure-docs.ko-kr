@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 11/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 24b7f05bc59f3eb951897f5e36030b531d8f3aa9
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 5271b14ec008579d18a152a229b9768339927bb7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959090"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888855"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 만드는 방법
 
@@ -54,16 +54,18 @@ JSON 본문:
 
 ```JSON
 {
-  "Name": "Temperature Matcher",
-  "Conditions": [
+  "id": "3626464-f39b-46c0-d9b0c-436aysj55",
+  "name": "Temperature Matcher",
+  "spaceId": "YOUR_SPACE_IDENTIFIER",
+  "conditions": [
     {
+      "id": "ag7gq35cfu3-e15a-4e9c-6437-sj6w68sy44s",
       "target": "Sensor",
       "path": "$.dataType",
       "value": "\"Temperature\"",
       "comparison": "Equals"
     }
-  ],
-  "SpaceId": "YOUR_SPACE_IDENTIFIER"
+  ]
 }
 ```
 
@@ -124,7 +126,7 @@ function process(telemetry, executionContext) {
 
 ### <a name="example-functions"></a>예제 함수
 
-`sensor.DataType`에 해당하는 **Temperature** 데이터 형식을 사용하여 센서에 대한 직접 센서 원격 분석 읽기를 설정합니다.
+**에 해당하는** Temperature`sensor.DataType` 데이터 형식을 사용하여 센서에 대한 직접 센서 원격 분석 읽기를 설정합니다.
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -205,7 +207,7 @@ function process(telemetry, executionContext) {
    원하는 역할 ID를 유지합니다. 아래와 같이 JSON 본문 특성 **roleId**(`YOUR_DESIRED_ROLE_IDENTIFIER`)로 전달됩니다.
 
 1. **objectId**(`YOUR_USER_DEFINED_FUNCTION_ID`)는 앞서 만든 사용자 정의 함수 ID가 됩니다.
-1. `fullpath`로 공백을 쿼리하여 **path**(`YOUR_ACCESS_CONTROL_PATH`) 값을 찾습니다.
+1. **로 공백을 쿼리하여** path`YOUR_ACCESS_CONTROL_PATH`(`fullpath`) 값을 찾습니다.
 1. 반환된 `spacePaths` 값을 복사합니다. 아래와 같이 이 값을 사용합니다. 인증된 HTTP GET 요청을 확인합니다.
 
     ```plaintext

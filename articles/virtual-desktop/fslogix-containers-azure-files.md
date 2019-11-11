@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: cf4274931d83b51afb4a8ada7d1c9040ccce3c14
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7003e5b8574d2caa05bfe66e500b93db0c1cdcfa
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606842"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891633"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
@@ -48,11 +48,11 @@ UPD 및 RUP는 RDSH (원격 데스크톱 세션 호스트) 및 VHD (가상 하�
 
 | 기술 | 최신 설정 | Win32 설정 | OS 설정 | 사용자 데이터 | 서버 SKU에서 지원 됨 | Azure의 백 엔드 저장소 | 백 엔드 저장소 온-프레미스 | 버전 지원 | 후속 로그인 시간 |참고 사항|
 | ---------- | :-------------: | :------------: | :---------: | --------: | :---------------------: | :-----------------------: | :--------------------------: | :-------------: | :---------------------: |-----|
-| **사용자 프로필 디스크 (UPD)** | 예 | 예 | 예 | 예 | 예 | 아니요 | 예 | Win 7 이상 | 예 | |
-| **로밍 사용자 프로필 (RUP), 유지 관리 모드** | 아니요 | 예 | 예 | 예 | 예| 아니요 | 예 | Win 7 이상 | 아니요 | |
-| **Enterprise State Roaming (ESR)** | 예 | 아니요 | 예 | 아니요 | 참고 사항 보기 | 예 | 아니요 | Win 10 | 아니요 | 서버 SKU에서 함수를 사용 하지만 지원 사용자 인터페이스를 지원 하지 않습니다. |
-| **UE-V (사용자 환경 가상화)** | 예 | 예 | 예 | 아니요 | 예 | 아니요 | 예 | Win 7 이상 | 아니요 |  |
-| **OneDrive 클라우드 파일** | 아니요 | 아니요 | 아니요 | 예 | 참고 사항 보기 | 참고 사항 보기  | 참고 참조 | Win 10 RS3 | 아니요 | 서버 SKU에서 테스트 되지 않았습니다. Azure의 백 엔드 저장소는 동기화 클라이언트에 따라 달라 집니다. 백 엔드 저장소 온-프레미스에 동기화 클라이언트가 필요 합니다. |
+| **사용자 프로필 디스크 (UPD)** | 예 | 예 | 예 | 예 | 예 | 아니오 | 예 | Win 7 이상 | 예 | |
+| **로밍 사용자 프로필 (RUP), 유지 관리 모드** | 아니오 | 예 | 예 | 예 | 예| 아니오 | 예 | Win 7 이상 | 아니오 | |
+| **Enterprise State Roaming (ESR)** | 예 | 아니오 | 예 | 아니오 | 참고 사항 보기 | 예 | 아니오 | Win 10 | 아니오 | 서버 SKU에서 함수를 사용 하지만 지원 사용자 인터페이스를 지원 하지 않습니다. |
+| **UE-V (사용자 환경 가상화)** | 예 | 예 | 예 | 아니오 | 예 | 아니오 | 예 | Win 7 이상 | 아니오 |  |
+| **OneDrive 클라우드 파일** | 아니오 | 아니오 | 아니오 | 예 | 참고 사항 보기 | 참고 사항 보기  | 참고 참조 | Win 10 RS3 | 아니오 | 서버 SKU에서 테스트 되지 않았습니다. Azure의 백 엔드 저장소는 동기화 클라이언트에 따라 달라 집니다. 백 엔드 저장소 온-프레미스에 동기화 클라이언트가 필요 합니다. |
 
 #### <a name="performance"></a>성능
 
@@ -78,7 +78,7 @@ S2D 클러스터에는 보안 상태에서 패치, 업데이트 및 유지 관�
 
 ## <a name="azure-files-integration-with-azure-active-directory-domain-service"></a>Azure Files Azure Active Directory 도메인 서비스와 통합
 
-FSLogix 프로필 컨테이너의 성능 및 기능은 클라우드를 활용 합니다. 2019 7 월 7 일에 Microsoft Azure 파일은 [AD DS (Azure Active Directory 도메인 서비스)를 사용 하 여 Azure Files 인증](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-active-directory-overview)의 일반 공급을 발표 했습니다. 비용 및 관리 오버 헤드를 모두 해결 함으로써 Azure AD DS 인증을 사용 하는 Azure Files Windows 가상 데스크톱 서비스의 사용자 프로필에 대 한 프리미엄 솔루션입니다.
+FSLogix 프로필 컨테이너의 성능 및 기능은 클라우드를 활용 합니다. 2019 7 월 7 일에 Microsoft Azure 파일은 [AD DS (Azure Active Directory 도메인 서비스)를 사용 하 여 Azure Files 인증](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)의 일반 공급을 발표 했습니다. 비용 및 관리 오버 헤드를 모두 해결 함으로써 Azure AD DS 인증을 사용 하는 Azure Files Windows 가상 데스크톱 서비스의 사용자 프로필에 대 한 프리미엄 솔루션입니다.
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 모범 사례
 

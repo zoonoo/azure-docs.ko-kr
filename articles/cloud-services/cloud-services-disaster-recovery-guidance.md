@@ -9,12 +9,12 @@ ms.workload: cloud-services
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: memccror
-ms.openlocfilehash: 269bb59210e24623a16b27d21d7276c084e4cca7
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: a014c3d5ada2024609e9262d8943090ac7b205c6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359666"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888320"
 ---
 # <a name="what-to-do-in-the-event-of-an-azure-service-disruption-that-impacts-azure-cloud-services"></a>Azure Cloud Services에 영향을 주는 Azure 서비스 중단 발생 시 수행할 작업
 Microsoft에서는 서비스가 필요할 때 서비스를 항상 사용할 수 있도록 하기 위해 많은 노력을 기울입니다. 다만 경우에 따라 계획되지 않은 서비스 중단이 발생하여 강제적으로 제어 영향을 벗어날 때가 있습니다.
@@ -38,7 +38,7 @@ Azure에는 항상 사용 가능한 애플리케이션을 지원하는 많은 �
 
 하위 지역의 손실에 가장 빠르게 대처하기 위해서는 Traffic Manager의 [엔드포인트 모니터링](../traffic-manager/traffic-manager-monitoring.md)을 구성하는 것이 중요합니다.
 
-## <a name="option-2-deploy-your-application-to-a-new-region"></a>옵션 2: 새 지역에 응용 프로그램 배포
+## <a name="option-2-deploy-your-application-to-a-new-region"></a>옵션 2: 새 하위 지역에 애플리케이션 배포
 이전 옵션에 설명된 대로 여러 활성 배포를 유지 관리하면 추가적인 비용이 지속적으로 발생합니다. RTO(복구 시간 목표)가 충분히 유연하고 원래 코드 또는 컴파일된 Cloud Services 패키지가 있는 경우에는 다른 하위 지역에 애플리케이션의 새 인스턴스를 만든 후 새 배포를 가리키도록 DNS 레코드를 업데이트할 수 있습니다.
 
 클라우드 서비스 애플리케이션을 만들고 배포하는 방법에 대한 자세한 내용은 [클라우드 서비스를 만들고 배포하는 방법](cloud-services-how-to-create-deploy-portal.md)을 참조하세요.
@@ -46,7 +46,7 @@ Azure에는 항상 사용 가능한 애플리케이션을 지원하는 많은 �
 애플리케이션 데이터 원본에 따라 애플리케이션 데이터 원본에 대한 복구 절차를 확인해야 할 수 있습니다.
 
 * Azure Storage 데이터 원본의 대해서는 [Azure Storage 복제](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 를 참조하여 애플리케이션에 대해 선택한 복제 모델에 따라 사용할 수 있는 옵션을 확인합니다.
-* SQL Database 소스는 개요를 [참조 하세요. 응용 프로그램에 대해 선택한 복제 모델에 따라](../sql-database/sql-database-business-continuity.md) 사용할 수 있는 옵션을 확인 하기 위해 SQL Database를 사용 하 여 클라우드 비즈니스 연속성 및 데이터베이스 재해 복구를 수행할 수 있습니다.
+* SQL Database 원본에 대해서는 [개요: SQL Database를 사용한 클라우드 비즈니스 연속성 및 데이터베이스 재해 복구](../sql-database/sql-database-business-continuity.md) 를 참조하여 애플리케이션에 대해 선택한 복제 모델에 따라 사용할 수 있는 옵션을 확인합니다.
 
 
 ## <a name="option-3-wait-for-recovery"></a>옵션 3: 복구 대기
@@ -55,4 +55,4 @@ Azure에는 항상 사용 가능한 애플리케이션을 지원하는 많은 �
 ## <a name="next-steps"></a>다음 단계
 재해 복구 및 고가용성 전략을 구현하는 방법에 관해 자세히 알아보려면 [Azure 애플리케이션에 대한 재해 복구 및 고가용성](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)을 참조하세요.
 
-클라우드 플랫폼의 기능에 대한 자세한 기술적 이해를 높이려면 [Azure 복원력 기술 지침](../resiliency/resiliency-technical-guidance.md)을 참조하세요.
+클라우드 플랫폼의 기능에 대한 자세한 기술적 이해를 높이려면 [Azure 복원력 기술 지침](/azure/architecture/checklist/resiliency-per-service)을 참조하세요.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2019
-ms.openlocfilehash: 7131cf1902cc92fed66ae4db59449700973c6913
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: aa37717c5037294c2b5ec61f7815b007cbf74992
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899428"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884818"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Application Insights를 사용하여 사용량 분석
 
@@ -125,7 +125,7 @@ ms.locfileid: "72899428"
 
 Application Insights 포털에서 속성 값에 대해 데이터를 필터링하고 분할하여 다른 버전과 비교할 수 있습니다.
 
-이렇게 하려면 [원격 분석 이니셜라이저를 설정](../../azure-monitor/app/api-filtering-sampling.md#add-properties-itelemetryinitializer)합니다.
+이렇게 하려면 [원격 분석 이니셜라이저를 설정](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)합니다.
 
 **ASP.NET 앱**
 

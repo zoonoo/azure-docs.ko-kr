@@ -9,16 +9,16 @@ tags: complex data types; compound data types; aggregate data types
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: af68f232c893259747e6ed106eced70fd8b89351
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: c7578b84fe1d23d2b4d97aa263cac576305db240
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792239"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889926"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-cognitive-search"></a>Azure Cognitive Search에서 복합 데이터 형식을 모델링 하는 방법
 
-Azure Cognitive Search 인덱스를 채우는 데 사용 되는 외부 데이터 집합은 많은 셰이프에서 제공 될 수 있습니다. 계층적 또는 중첩 된 하위 구조체를 포함 하는 경우도 있습니다. 예에는 단일 고객에 대 한 여러 주소, 단일 SKU에 대 한 여러 색 및 크기, 단일 책의 여러 작성자 등이 포함 될 수 있습니다. 모델링 용어에서 *복합*, *복합*, *복합*또는 *집계* 데이터 형식 이라고 하는 이러한 구조를 볼 수 있습니다. 이 개념에 사용 되는 Azure Cognitive Search 용어는 **복합 유형**입니다. Azure 인식 Cognitive Search에서 복합 형식은 **복합 필드**를 사용 하 여 모델링 됩니다. 복합 필드는 다른 복합 형식을 포함 하 여 모든 데이터 형식일 수 있는 자식 (하위 필드)을 포함 하는 필드입니다. 이는 프로그래밍 언어에서 구조화 된 데이터 형식과 비슷한 방식으로 작동 합니다.
+Azure Cognitive Search 인덱스를 채우는 데 사용 되는 외부 데이터 집합은 많은 셰이프에서 제공 될 수 있습니다. 계층적 또는 중첩 된 하위 구조체를 포함 하는 경우도 있습니다. 예에는 단일 고객에 대 한 여러 주소, 단일 SKU에 대 한 여러 색 및 크기, 단일 책의 여러 작성자 등이 포함 될 수 있습니다. 모델링 용어에서 *복합*, *복합*, *복합*또는 *집계* 데이터 형식 이라고 하는 이러한 구조를 볼 수 있습니다. 이 개념에 사용 되는 Azure Cognitive Search 용어는 **복합 유형**입니다. Azure Cognitive Search에서 복합 형식은 **복합 필드**를 사용 하 여 모델링 됩니다. 복합 필드는 다른 복합 형식을 포함 하 여 모든 데이터 형식일 수 있는 자식 (하위 필드)을 포함 하는 필드입니다. 이는 프로그래밍 언어에서 구조화 된 데이터 형식과 비슷한 방식으로 작동 합니다.
 
 복합 필드는 데이터 형식에 따라 문서의 단일 개체 또는 개체의 배열을 나타냅니다. `Edm.ComplexType` 형식의 필드는 단일 개체를 나타내고, `Collection(Edm.ComplexType)` 형식의 필드는 개체의 배열을 나타냅니다.
 

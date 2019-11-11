@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 6c61bc6075b3f0713dd790f1b3aa1a47af9d8e6c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: 723fe14db9089e1127f39eae3ed7b10bbddf70bf
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950028"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889722"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>디바이스 연결 및 원격 분석 수신
 
@@ -45,7 +45,7 @@ IoT Hub 디바이스 연결 문자열을 가져오려면 `includes=ConnectionStr
 YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 ```
 
-| 매개 변수 | 다음 항목으로 교체 |
+| 매개 변수를 포함해야 합니다. | 다음 항목으로 교체 |
 | --- | --- |
 | *YOUR_DEVICE_GUID* | 디바이스 ID |
 
@@ -67,12 +67,12 @@ YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=Con
 
  **Message**의 페이로드 콘텐츠는 최대 256KB의 임의 데이터일 수 있습니다. [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) 형식의 속성에 대한 요구 사항으로 몇 가지가 예상됩니다. 이 표는 시스템에서 지원하는 필수 속성 및 선택적 속성을 보여줍니다.
 
-| 속성 이름 | 값 | 필요한 공간 | 설명 |
+| 속성 이름 | 값 | 필수 | 설명 |
 |---|---|---|---|
 | **DigitalTwins-Telemetry** | 1.0 | 예 | 시스템에 메시지를 식별하는 상수 값입니다. |
-| **DigitalTwins-SensorHardwareId** | `string(72)` | 예 | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. 예를 들어, `00FF0643BE88-CO2`을 입력합니다. |
-| **CreationTimeUtc** | `string` | 아니요 | 페이로드의 샘플링 시간을 식별하는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 날짜 문자열입니다. 예를 들어, `2018-09-20T07:35:00.8587882-07:00`을 입력합니다. |
-| **CorrelationId** | `string` | 아니요 | 시스템에서 이벤트를 추적하는 데 사용되는 UUID입니다. 예를 들어, `cec16751-ab27-405d-8fe6-c68e1412ce1f`을 입력합니다.
+| **DigitalTwins-SensorHardwareId** | `string(72)` | 예 | **Message**를 보내는 센서의 고유 식별자입니다. 이 값은 시스템에서 처리하려면 개체의 **HardwareId** 속성과 일치해야 합니다. 예: `00FF0643BE88-CO2`. |
+| **CreationTimeUtc** | `string` | 아니오 | 페이로드의 샘플링 시간을 식별하는 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 날짜 문자열입니다. 예: `2018-09-20T07:35:00.8587882-07:00`. |
+| **CorrelationId** | `string` | 아니오 | 시스템에서 이벤트를 추적하는 데 사용되는 UUID입니다. 예: `cec16751-ab27-405d-8fe6-c68e1412ce1f`.
 
 ### <a name="send-your-message-to-digital-twins"></a>Digital Twins로 메시지 보내기
 

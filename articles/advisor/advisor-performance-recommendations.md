@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: c8647e316cc77e7e1eed5108fafccd6d70d181cf
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 1fec8a10a6699dc1360494cc7ac66e13f5d37ff0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898193"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885748"
 ---
 # <a name="improve-performance-of-azure-applications-with-azure-advisor"></a>Azure Advisor로 Azure 애플리케이션의 성능 향상
 
@@ -27,7 +27,7 @@ Azure Advisor는 긴 TTL이 구성된 Traffic Manager 프로필을 식별하여 
 
 ## <a name="improve-database-performance-with-sql-db-advisor"></a>SQL DB Advisor로 데이터베이스 성능 개선
 
-Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다. SQL Database Azure와 통합되므로 SQL Azure Database의 성능을 향상시키기 위한 권장 사항이 표시됩니다. SQL Database Advisor는 사용 기록을 분석하여 SQL Azure Database의 성능을 평가합니다. 그런 후 데이터베이스의 일반적인 워크로드를 실행하는 데 가장 적합한 권장 사항을 제공합니다.
+Advisor는 모든 Azure 리소스에 대한 권장 사항을 일관되고 통합된 보기로 표시합니다. SQL Database Azure와 통합되므로 SQL Azure Database의 성능을 향상시키기 위한 권장 사항이 표시됩니다. SQL Database Advisor은 사용 기록을 분석 하 여 SQL Azure 데이터베이스의 성능을 평가 합니다. 그런 후 데이터베이스의 일반적인 워크로드를 실행하는 데 가장 적합한 권장 사항을 제공합니다.
 
 > [!NOTE]
 > 권장 사항을 가져오려면 데이터베이스에 일주일의 사용 기간이 필요하고, 그 기간 내에 일관된 활동이 필요합니다. SQL Database Advisor는 일관성 있는 쿼리 패턴을 임의 활동 버스트보다 더욱 쉽게 최적화할 수 있습니다.
@@ -73,7 +73,7 @@ Advisor는 복제된 테이블이 아니지만 변환을 통해 이득을 얻을
 스토리지 계정 배포 모델을 Azure Resource Manager(Resource Manager)로 마이그레이션하여 템플릿 배포, 추가 보안 옵션, Azure Storage의 최신 기능 활용을 위해 GPv2 계정으로 업그레이드하는 기능을 활용하세요. Advisor는 Classic 배포 모델을 사용 중인 독립형 스토리지 계정을 식별하고 Resource Manager 배포 모델로 마이그레이션할 것을 권장합니다.
 
 > [!NOTE]
-> Azure Monitor의 클래식 경고는 2019 년 8 월에 사용이 중지 되었습니다. 새 플랫폼에서 경고 기능을 유지하려면 Resource Manager를 사용하도록 클래식 스토리지 계정을 업그레이드하는 것이 좋습니다. 자세한 내용은 [클래식 경고 사용 중지](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform)를 참조하세요.
+> Azure Monitor의 클래식 경고는 2019 년 8 월에 사용이 중지 되었습니다. 새 플랫폼에서 경고 기능을 유지하려면 Resource Manager를 사용하도록 클래식 스토리지 계정을 업그레이드하는 것이 좋습니다. 자세한 내용은 [클래식 경고 사용 중지](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement#retirement-of-classic-monitoring-and-alerting-platform)를 참조하세요.
 
 ## <a name="design-your-storage-accounts-to-prevent-hitting-the-maximum-subscription-limit"></a>최대 구독 제한에 도달 하지 않도록 저장소 계정 디자인
 
@@ -88,7 +88,7 @@ Azure 지역은 구독 당 최대 250 개의 저장소 계정을 지원할 수 �
 낮은 캐시 적중률으로 인해 쿼리 성능이 느려지고 IOPS가 증가할 수 있습니다. 이는 잘못 된 쿼리 계획 이거나 메모리 집약적 작업 실행으로 인해 발생할 수 있습니다. 쿼리 계획을 수정 하거나 Azure Database for PostgreSQL 데이터베이스 서버, Azure MySQL 데이터베이스 서버 또는 Azure MariaDB 서버의 [메모리를 늘려서](https://docs.microsoft.com/azure/postgresql/concepts-pricing-tiers) 데이터베이스 작업의 실행을 최적화 하는 데 도움이 됩니다. Azure Advisor는이 높은 버퍼 풀 변동으로 인해 영향을 받는 서버를 식별 하 고 쿼리 계획을 수정 하거나 더 많은 메모리를 사용 하 여 상위 SKU로 이동 하거나 저장소 크기를 늘려서 더 많은 IOPS를 가져옵니다.
 
 ### <a name="use-a-azure-mysql-or-azure-postgresql-read-replica-to-scale-out-reads-for-read-intensive-workloads"></a>Azure MySQL 또는 Azure PostgreSQL 읽기 복제본을 사용 하 여 읽기 집약적 워크 로드에 대 한 읽기 확장
-Azure Advisor는 지난 7 일간 서버에서 쓰기에 대 한 읽기의 비율과 같은 작업 기반 추론을 활용 하 여 읽기 집약적인 작업을 식별 합니다. 읽기/쓰기 비율이 매우 높은 azure database for PostgreSQL 리소스 또는 Azure database for MySQL 리소스는 CPU 및/또는 메모리 경합이 증가 하 여 쿼리 성능이 저하 될 수 있습니다.  [복제본](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) 을 추가 하면 복제본 서버에 대 한 읽기를 확장 하 여 주 서버에서 CPU 및/또는 메모리 제약 조건을 방지할 수 있습니다. Advisor는 이러한 높은 읽기 집약적 워크 로드를 사용 하 여 서버를 식별 하 고 읽기 [복제본](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 을 추가 하 여 일부 읽기 작업을 오프 로드 하는 것이 좋습니다.
+Azure Advisor는 지난 7 일간 서버에서 쓰기에 대 한 읽기의 비율과 같은 작업 기반 추론을 활용 하 여 읽기 집약적인 작업을 식별 합니다. 읽기/쓰기 비율이 매우 높은 azure database for PostgreSQL 리소스 또는 Azure database for MySQL 리소스는 CPU 및/또는 메모리 경합이 증가 하 여 쿼리 성능이 저하 될 수 있습니다.  [복제본](https://docs.microsoft.com/azure/postgresql/howto-read-replicas-portal) 을 추가 하면 복제본 서버에 대 한 읽기를 확장 하 여 주 서버에서 CPU 및/또는 메모리 제약 조건을 방지할 수 있습니다. Advisor는 이러한 높은 읽기 집약적인 작업을 사용 하 여 서버를 식별 하 고 읽기 [복제본](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 추가 하 여 일부 읽기 작업을 오프 로드 하는 것이 좋습니다.
 
 
 ### <a name="scale-your-azure-mysql-azure-postgresql-or-azure-mariadb-server-to-a-higher-sku-to-prevent-connection-constraints"></a>연결 제약 조건을 방지 하기 위해 Azure MySQL, Azure PostgreSQL 또는 Azure MariaDB 서버를 상위 SKU로 크기 조정

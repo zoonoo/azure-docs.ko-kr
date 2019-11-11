@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 11e2a02277a47e070f91e8f057f0d8493235c5ce
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 183b85ad8a61c76942981ebb764512b8a090b0a8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821344"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890452"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -44,7 +44,7 @@ MQTT 프로토콜을 지 원하는 [장치 sdk](https://github.com/Azure/azure-i
 
 | 언어 | 프로토콜 매개 변수 |
 | --- | --- |
-| [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
+| [Node.JS](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) |azure-iot-device-mqtt |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |IotHubClientProtocol.MQTT |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
@@ -132,7 +132,7 @@ MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채�
 
 • DeviceTwinMQTTWin32: Windows 컴퓨터의 Azure IoT hub에서 장치의 장치 쌍 이벤트를 쿼리하고 구독 하는 코드를 포함 합니다.
 
-• PnPMQTTWin32: IoT 플러그 & Play preview 장치 기능을 사용 하 여 Azure IoT hub에 원격 분석 메시지를 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다. IoT 플러그인에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/en-us/azure/iot-pnp/overview-iot-plug-and-play) 에서 &.
+• PnPMQTTWin32: IoT 플러그 & Play preview 장치 기능을 사용 하 여 Azure IoT hub에 원격 분석 메시지를 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다. IoT 플러그인에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) 에서 &.
 
 **Linux의 경우:**
 
@@ -140,11 +140,11 @@ MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채�
 
 • LinuxConsoleVS2019: 동일한 코드를 포함 하지만 WSL (Windows Linux sub system)을 대상으로 하는 VS2019 프로젝트에 포함 됩니다. 이 프로젝트를 사용 하 여 Visual Studio의 단계별 Linux에서 실행 되는 코드를 디버그할 수 있습니다.
 
-**Mosquito_pub의 경우:**
+**Mosquito_pub:**
 
 •이 폴더에는 Mosquitto.org에서 제공 하는 mosquitto_pub 유틸리티 도구로 사용 되는 두 개의 샘플 명령이 있습니다.
 
-Mosquitto_sendmessage: 장치 역할을 하는 Azure IoT hub에 간단한 문자 메시지를 전송 합니다.
+Mosquitto_sendmessage: 장치 역할을 하는 Azure IoT hub에 간단한 문자 메시지를 보냅니다.
 
 Mosquitto_subscribe: Azure IoT hub에서 발생 하는 이벤트를 확인 합니다.
 
@@ -256,7 +256,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>디바이스-클라우드 메시지 보내기
 
-성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 다음은 그 예입니다.
+성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 예:
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -287,7 +287,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 ## <a name="retrieving-a-device-twins-properties"></a>디바이스 쌍 속성 검색
 
-먼저 작업의 응답을 수신하기 위해 디바이스가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 **요청 ID**에 채워진 값을 사용하여 빈 메시지를 `$iothub/twin/GET/?$rid={request id}` 항목에 보냅니다. 그러면 서비스는 요청과 동일한 **요청 ID**를 사용하여 `$iothub/twin/res/{status}/?$rid={request id}` 항목에 대한 디바이스 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
+먼저 작업의 응답을 수신하기 위해 디바이스가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 `$iothub/twin/GET/?$rid={request id}`요청 ID**에 채워진 값을 사용하여 빈 메시지를**  항목에 보냅니다. 그러면 서비스는 요청과 동일한 `$iothub/twin/res/{status}/?$rid={request id}`요청 ID**를 사용하여**  항목에 대한 디바이스 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
 
 요청 ID는 [IoT Hub 메시징 개발자 가이드](iot-hub-devguide-messaging.md)에 따라 메시지 속성 값에 대 한 유효한 값일 수 있으며 상태는 정수로 유효성이 검사 됩니다.
 
@@ -309,7 +309,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 가능한 상태 코드:
 
-|상태 | 설명 |
+|가동 상태 | 설명 |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 429 | [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 마다 너무 많은 요청 (제한 됨) |
@@ -329,7 +329,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 3. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 동일한 **요청 ID**를 요청으로 사용합니다.
 
-요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 구성원은 디바이스 쌍의 문서에 있는 해당 구성원을 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 다음은 그 예입니다.
+요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 구성원은 디바이스 쌍의 문서에 있는 해당 구성원을 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예:
 
 ```json
 {
@@ -340,7 +340,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | 설명 |
+|가동 상태 | 설명 |
 | ----- | ----------- |
 | 200 | 성공 |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |
@@ -367,7 +367,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 ## <a name="receiving-desired-properties-update-notifications"></a>desired 속성 업데이트 알림 수신
 
-디바이스가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 다음은 그 예입니다.
+디바이스가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예:
 
 ```json
 {

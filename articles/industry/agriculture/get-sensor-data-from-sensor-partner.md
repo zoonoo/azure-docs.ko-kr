@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 380c67e5aeaba9be60e016f173e4da127e4e5f14
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 424df8ac7145129dd70a9a5791648730189b528b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798181"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889666"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -60,7 +60,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
     ```azurepowershell-interactive 
 
-    PS> ./generateCredentials.ps1   
+    ./generateCredentials.ps1   
 
     ```
 7. 화면의 지시에 따라 값을 캡처합니다. (API 끝점, 테 넌 트 ID, 클라이언트 ID, 클라이언트 암호 및 EventHub 연결 문자열).

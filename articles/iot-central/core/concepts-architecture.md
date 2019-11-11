@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 9206bf07a36cc5724b173790eb94037cb86add9c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 25b0ec1b86a59b944cdb895bd536da32a1f8595b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952083"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884496"
 ---
 # <a name="azure-iot-central-architecture"></a>Azure IoT Central 아키텍처
 
@@ -57,7 +57,7 @@ Azure IoT Central은 애플리케이션 데이터를 클라우드에 저장합�
 
 Azure IoT Central은 디바이스에서 보낸 측정값 데이터에 시계열 저장소를 사용합니다. 분석 서비스에서 사용하는 디바이스의 시계열 데이터.
 
-## <a name="analytics"></a>분석기능
+## <a name="analytics"></a>분석
 
 분석 서비스는 애플리케이션에서 표시하는 사용자 지정 보고 데이터를 생성합니다. 운영자는 애플리케이션에 표시되는 [분석을 사용자 지정](howto-create-analytics.md)할 수 있습니다. 분석 서비스는 [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) 위에 빌드되며, 디바이스에서 보낸 측정값 데이터를 처리합니다.
 
@@ -83,7 +83,7 @@ Azure IoT Central 애플리케이션에서 디바이스 템플릿은 디바이�
 
 ## <a name="data-export"></a>데이터 내보내기
 
-Azure IoT Central 응용 프로그램에서 사용자 고유의 Azure Event Hubs 및 Azure Service Bus 인스턴스로 [데이터를 지속적으로 내보낼](howto-export-data-event-hubs-service-bus.md) 수 있습니다. Azure Blob storage 계정에 주기적으로 데이터를 내보낼 수도 있습니다. IoT Central은 측정, 장치 및 장치 템플릿을 내보낼 수 있습니다.
+Azure IoT Central 응용 프로그램에서 사용자 고유의 Azure Event Hubs, Azure Service Bus 및 Azure Blob Storage 인스턴스로 [데이터를 지속적으로 내보낼](howto-export-data-event-hubs-service-bus.md) 수 있습니다. IoT Central은 측정, 장치 및 장치 템플릿을 내보낼 수 있습니다.
 
 ## <a name="batch-device-updates"></a>배치 장치 업데이트
 

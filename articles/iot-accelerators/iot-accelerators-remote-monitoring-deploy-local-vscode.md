@@ -1,5 +1,5 @@
 ---
-title: 로컬로 원격 모니터링 솔루션 배포(Visual Studio Code) - Azure | Microsoft Docs
+title: 로컬로 원격 모니터링 솔루션 배포-Visual Studio Code-Azure | Microsoft Docs
 description: 이 방법 가이드에서는 테스트 및 개발을 위해 Visual Studio Code를 사용하여 원격 모니터링 솔루션 가속기를 로컬 머신에 배포하는 방법을 보여줍니다.
 author: avneet723
 manager: hegate
@@ -8,26 +8,26 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: ed3301eb0e723e05e2a642ffea2f1609032553b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8f1d20e9a6a78d99a23fe4b98aeb4f3eb8359da7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66730191"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890951"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio-code"></a>로컬에 원격 모니터링 솔루션 가속기 배포 - Visual Studio Code
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. Visual Studio Code에서 마이크로 서비스를 실행하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 IoT Hub, Cosmos DB, Azure Streaming Analytics, Azure Time Series Insights 등과 같은 클라우드 서비스를 사용합니다.
+이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. Visual Studio Code에서 마이크로 서비스를 실행하는 방법에 대해 알아봅니다. 로컬 마이크로 서비스 배포는 IoT Hub, Cosmos DB, Azure 스트리밍 분석 및 Azure Time Series Insights 클라우드 서비스를 사용 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-### <a name="machine-setup"></a>머신 설치
+### <a name="machine-setup"></a>머신 설정
 
 로컬 배포를 완료하기 위해 로컬 개발 컴퓨터에 설치되어 있어야 하는 도구는 다음과 같습니다.
 
@@ -59,17 +59,17 @@ dotnet build -c Release
 
 ### <a name="deploy-all-other-microservices-on-local-machine"></a>그 외의 모든 마이크로 서비스를 로컬 머신에 배포
 
-다음 단계를 Visual Studio Code에서 원격 모니터링 마이크로 서비스를 실행 하는 방법을 보여 줍니다.
+다음 단계는 Visual Studio Code에서 원격 모니터링 마이크로 서비스를 실행 하는 방법을 보여 줍니다.
 
 1. Visual Studio Code를 시작합니다.
-1. VS Code에서 엽니다는 **azure-iot-pcs-remote-monitoring-dotnet** 폴더입니다.
-1. 라는 새 폴더를 만듭니다 **.vscode** 에 **azure-iot-pcs-remote-monitoring-dotnet** 폴더입니다.
-1. 파일을 복사 합니다 **launch.json** 하 고 **tasks.json** services\scripts\local\launch\idesettings\vscode 하에서 합니다 **.vscode** 방금 만든 폴더.
-1. 열기는 **디버그 패널** VS Code 및 실행 합니다 **모두 실행 마이크로 서비스** 구성 합니다. 이 구성은 Docker에서 디바이스 시뮬레이션 마이크로 서비스를 실행하고 디버거에서 다른 마이크로 서비스를 실행합니다.
+1. VS Code에서 **azure-iot-원격-모니터링-dotnet** 폴더를 엽니다.
+1. **Azure-iot-pc-원격-모니터링-dotnet** 폴더에. a w a **.**
+1. Services\scripts\local\launch\idesettings\vscode에서 방금 만든 **vscode** 폴더로 파일의 **시작. json** 및 **작업** 을 복사 합니다.
+1. VS Code에서 **디버그 패널** 을 열고 **모든 마이크로 서비스 구성 실행** 을 실행 합니다. 이 구성은 Docker에서 디바이스 시뮬레이션 마이크로 서비스를 실행하고 디버거에서 다른 마이크로 서비스를 실행합니다.
 
-실행의 출력 **모두 실행 마이크로 서비스** 디버그 콘솔에는 다음과 같습니다.
+디버그 콘솔에서 **실행 되는** 출력은 다음과 같습니다.
 
-[![Deploy-Local-Microservices](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
+[![배포-로컬 마이크로 서비스](./media/deploy-locally-vscode/auth-debug-results-inline.png)](./media/deploy-locally-vscode/auth-debug-results-expanded.png#lightbox)
 
 ### <a name="run-the-web-ui"></a>웹 UI 실행
 
@@ -80,7 +80,7 @@ npm install
 npm start
 ```
 
-시작이 완료 되 면 브라우저 페이지를 표시 하는 **http:\//localhost:3000 / 대시보드**합니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
+시작이 완료 되 면 브라우저에서 **http:\//locals: 3000/dashboard**페이지가 표시 됩니다. 이 페이지의 오류는 예상된 것입니다. 애플리케이션을 오류 없이 표시하려면 다음 단계를 완료합니다.
 
 ### <a name="configure-and-run-nginx"></a>NGINX 구성 및 실행
 
@@ -93,11 +93,11 @@ npm start
 
 ### <a name="connect-to-the-dashboard"></a>대시보드에 연결
 
-원격 모니터링 솔루션 대시보드에 액세스 하려면 http로 이동:\//localhost:9000 브라우저에서 합니다.
+원격 모니터링 솔루션 대시보드에 액세스 하려면 브라우저에서 http:\//localhost: 9000로 이동 합니다.
 
 ## <a name="clean-up"></a>정리
 
-불필요한 요금을 방지하려면 테스트를 마친 후 Azure 구독에서 클라우드 서비스를 제거합니다. 서비스를 제거하려면 [Azure Portal](https://ms.portal.azure.com)로 이동하여 **start.cmd** 스크립트에서 만든 리소스 그룹을 삭제합니다.
+불필요한 요금을 피하려면 테스트를 마친 후 Azure 구독에서 클라우드 서비스를 제거하세요. 서비스를 제거하려면 [Azure Portal](https://ms.portal.azure.com)로 이동하여 **start.cmd** 스크립트에서 만든 리소스 그룹을 삭제합니다.
 
 또한 GitHub에서 소스 코드를 복제할 때 만들어진 원격 모니터링 리포지토리의 로컬 복사본을 삭제할 수도 있습니다.
 

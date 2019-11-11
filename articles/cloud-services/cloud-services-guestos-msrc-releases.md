@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/1/2019
 ms.author: raiye
-ms.openlocfilehash: e1d27563d2181a8e094e00295f9506d88e694513
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22e833a1d555057c7e6a2ce46e7a1bb136260851
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500259"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888301"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 업데이트는 항상 도입 된 특정 [제품군][family-explain] 에 대해 항상 전달 됩니다.
@@ -64,11 +64,11 @@ ms.locfileid: "73500259"
 [4512574]: https://support.microsoft.com/kb/4512574
 [4512577]: https://support.microsoft.com/kb/4512577
 
-[6.12]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.36]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.71]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.78]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.91]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.12]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.36]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.71]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.78]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.91]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="september-2019-guest-os"></a>2019 년 9 월 게스트 OS
@@ -106,11 +106,11 @@ ms.locfileid: "73500259"
 [4512488]: https://support.microsoft.com/kb/4512488
 [4512518]: https://support.microsoft.com/kb/4512518
 [4512506]: https://support.microsoft.com/kb/4512506
-[6.11]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.35]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.70]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.77]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.90]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.11]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.35]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.70]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.77]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.90]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="august-2019-guest-os"></a>2019 년 8 월 게스트 OS
@@ -163,11 +163,11 @@ ms.locfileid: "73500259"
 [4507001]: https://support.microsoft.com/kb/4507001
 [4507704]: https://support.microsoft.com/kb/4507704
 
-[6.1]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
-[5.34]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
-[4.69]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
-[3.76]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
-[2.89]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
+[6.1]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5.34]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4.69]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3.76]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2.89]: https://docs.microsoft.com/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="july-2019-guest-os"></a>게스트 OS 7 월 2019
@@ -1305,7 +1305,7 @@ ms.locfileid: "73500259"
 | 해당 없음 |[3004394] |2014년 2월 Windows에서 Windows 루트 인증서 프로그램에 대한 업데이트 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2999323] |이벤트 ID 17에 대한 텍스트가 변경됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[3013488] |Windows Server 2012 R2 또는 Windows Server 2012에서 CSA 파일을 가져올 때 WSUS 서버 재설정의 긴 대기 시간 |4.15, 3.22, 2.34 |2015년 1월 13일 |
-| 해당 없음 |[3012325] |Windows 8.1 및 Windows 8에서 DIGI, Vodafone 및 통신 모바일 운영자에 대한 Windows APN 데이터베이스 항목 업데이트 |4.15, 3.22, 2.34 |2015년 1월 13일 |
+| 해당 없음 |[3012325] |Windows 8.1 및 Windows 8에서 DIGI, Vodafone, 및 통신 모바일 운영자에 대한 Windows APN 데이터베이스 항목 업데이트 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[3007054] |Windows에서 Windows 스토어 애플리케이션 내 문서를 인쇄할 때 PIN으로 보호된 인쇄 옵션을 항상 표시 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2999802] |점선 대신 실선이 Windows에서 인쇄됨 |4.15, 3.22, 2.34 |2015년 1월 13일 |
 | 해당 없음 |[2896881] |Windows에서 로그온 프로세스 중 사용자에 대한 프린터를 매핑하도록 AddPrinterConnection VBScript 명령을 사용하는 경우 로그온에 오랜 시간이 걸림 |4.15, 3.22, 2.34 |2015년 1월 13일 |

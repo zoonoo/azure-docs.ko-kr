@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
-ms.openlocfilehash: 217a1d94a4a5235fc5886f34986ffcb3aef60873
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/07/2019
+ms.openlocfilehash: f2479d9f3e278d23d62275b667f78d1fd70dd151
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949259"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889701"
 ---
 # <a name="routing-events-and-messages"></a>이벤트 라우팅 및 메시지
 
@@ -29,9 +29,11 @@ Azure Digital Twins는 다른 Azure 서비스 또는 비즈니스 응용 프로�
 
 사용자는 이벤트를 보내거나 메시지를 전달하도록 하나 이상의 송신 엔드포인트를 지정할 수 있습니다. 이벤트 및 메시지는 이러한 미리 정의된 라우팅 기본 설정에 따라 엔드포이트로 전송됩니다. 즉, 사용자는 그래프 작업 이벤트를 수신하는 하나의 특정 엔드포인트, 디바이스 원격 분석 이벤트를 수신하는 또 하나의 특정 엔드포인트 등을 지정할 수 있습니다.
 
-[![Azure 디지털 Twins 이벤트 라우팅](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
+[![Azure Digital Twins 이벤트 라우팅](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
-Event Hubs로의 라우팅에서는 원격 분석 메시지가 전송되는 순서를 유지 관리합니다. 따라서 원래 수신된 순서와 동일하게 엔드포인트에 도달합니다. Event Grid 및 Service Bus는 발생했던 것과 동일한 순서로 엔드포인트가 이벤트를 받도록 보장하지 않습니다. 그러나 이벤트 스키마는 이벤트가 엔드포인트에 도착한 후에 순서를 식별하는 데 사용할 수 있는 타임스탬프를 포함합니다.
+Event Hubs로의 라우팅에서는 원격 분석 메시지가 전송되는 순서를 유지 관리합니다. 따라서 원래 수신된 순서와 동일하게 엔드포인트에 도달합니다. 
+
+Event Grid 및 Service Bus는 발생했던 것과 동일한 순서로 엔드포인트가 이벤트를 받도록 보장하지 않습니다. 그러나 이벤트 스키마는 이벤트가 엔드포인트에 도착한 후에 순서를 식별하는 데 사용할 수 있는 타임스탬프를 포함합니다.
 
 ## <a name="route-implementation"></a>경로 구현
 

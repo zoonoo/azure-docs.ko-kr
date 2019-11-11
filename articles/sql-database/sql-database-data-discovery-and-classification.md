@@ -12,12 +12,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 2767b1b5603baa311d480109988d66dd136297ab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b5f839cc6216eb12bfd0a86009ec49e987279d6e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808058"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889829"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>데이터 검색 & 분류 Azure SQL Database 및 SQL Data Warehouse
 
@@ -32,7 +32,7 @@ ms.locfileid: "73808058"
 데이터 검색 & 분류는 고급 SQL 보안 기능을 위한 통합 패키지인 광고 ( [Advanced Data Security](sql-database-advanced-data-security.md) ) 제품의 일부입니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 문서는 Azure SQL Database 및 Azure SQL Data Warehouse와 관련이 있습니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용 됩니다. SQL Server (온-프레미스)에 대해서는 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조 하세요.
+> 이 문서는 Azure SQL Database 및 Azure SQL Data Warehouse와 관련이 있습니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. SQL Server (온-프레미스)에 대해서는 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조 하세요.
 
 ## <a id="subheading-1"></a>데이터 검색 및 분류란?
 
@@ -162,8 +162,8 @@ PowerShell을 사용 하 여 Azure SQL database 및 관리 되는 인스턴스�
 - [AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
 - [AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityrecommendation)
-- [AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/en-us/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
-- [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/en-us/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
+- [AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
+- [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
 ### <a name="powershell-cmdlets-for-managed-instance"></a>관리 되는 인스턴스의 PowerShell Cmdlet
 
@@ -171,8 +171,8 @@ PowerShell을 사용 하 여 Azure SQL database 및 관리 되는 인스턴스�
 - [AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
 - [AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)
 - [AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityrecommendation)
-- [AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/en-us/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
-- [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/en-us/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
+- [AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqlinstancedatabasesensitivityrecommendation)
+- [Disable-AzSqlInstanceDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqlinstancedatabasesensitivityrecommendation)
 
 ## <a name="permissions"></a>권한
 

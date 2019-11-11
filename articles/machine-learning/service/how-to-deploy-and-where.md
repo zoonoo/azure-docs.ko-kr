@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: df2f22f91cbed17035485d25369965d3284dbaf7
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 0d478b56d7be4ae0c7f2403f9960e5eed59e2b4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622405"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888650"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델 배포
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 배포 워크플로와 관련 된 개념에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
@@ -101,7 +101,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
     이 예에서는 `metric` 및 `iteration` 매개 변수가 지정 되지 않으므로 가장 적합 한 기본 메트릭이 포함 된 반복이 등록 됩니다. Run에서 반환 된 `model_id` 값은 모델 이름 대신 사용 됩니다.
 
-    자세한 내용은 [AutoMLRun. register_model](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) 설명서를 참조 하세요.
+    자세한 내용은 [Register_model AutoMLRun](https://review.docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.run.automlrun?view=azure-ml-py&branch=master#register-model-description-none--tags-none--iteration-none--metric-none-) 설명서를 참조 하세요.
 
 + **CLI 사용**
 
@@ -206,7 +206,7 @@ Azure Machine Learning 외부에서 학습 한 모델을 사용 하는 방법에
 
 AZUREML_MODEL_DIR은 서비스 배포 중에 생성 되는 환경 변수입니다. 이 환경 변수를 사용 하 여 배포 된 모델의 위치를 찾을 수 있습니다.
 
-다음 표에서는 배포 된 모델의 수에 따라 AZUREML_MODEL_DIR의 값을 설명 합니다.
+다음 표에서는 배포 된 모델의 수에 따라 AZUREML_MODEL_DIR 값에 대해 설명 합니다.
 
 | 배포 | 환경 변수 값 |
 | ----- | ----- |
@@ -228,7 +228,7 @@ model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklea
 
 ##### <a name="get_model_path"></a>get_model_path
 
-모델을 등록할 때 레지스트리에서 모델을 관리 하는 데 사용 되는 모델 이름을 제공 합니다. 이 이름을 [model. get _model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 메서드와 함께 사용 하 여 로컬 파일 시스템에서 모델 파일의 경로를 검색할 수 있습니다. 폴더 또는 파일 컬렉션을 등록 하는 경우이 API는 해당 파일이 포함 된 디렉터리의 경로를 반환 합니다.
+모델을 등록할 때 레지스트리에서 모델을 관리 하는 데 사용 되는 모델 이름을 제공 합니다. 이 이름을 [model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 메서드와 함께 사용 하 여 로컬 파일 시스템에서 모델 파일의 경로를 검색할 수 있습니다. 폴더 또는 파일 컬렉션을 등록 하는 경우이 API는 해당 파일이 포함 된 디렉터리의 경로를 반환 합니다.
 
 모델을 등록할 때 이름을 지정 합니다. 이름은 모델을 로컬 또는 서비스 배포 중에 배치 하는 위치에 해당 합니다.
 
@@ -858,6 +858,78 @@ CLI:
 az ml model download --model-id mymodel:1 --target-dir model_folder
 ```
 
+## <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
+
+코드 없는 모델 배포는 현재 미리 보기로 제공 되며 다음과 같은 기계 학습 프레임 워크를 지원 합니다.
+
+### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel 형식
+
+```python
+from azureml.core import Model
+
+model = Model.register(workspace=ws,
+                       model_name='flowers',                        # Name of the registered model in your workspace.
+                       model_path='./flowers_model',                # Local Tensorflow SavedModel folder to upload and register as a model.
+                       model_framework=Model.Framework.TENSORFLOW,  # Framework used to create the model.
+                       model_framework_version='1.14.0',            # Version of Tensorflow used to create the model.
+                       description='Flowers model')
+
+service_name = 'tensorflow-flower-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+### <a name="onnx-models"></a>ONNX 모델
+
+ONNX 모델 등록 및 배포는 모든 ONNX 유추 그래프에 대해 지원 됩니다. 전처리 및 postprocess 단계는 현재 지원 되지 않습니다.
+
+MNIST ONNX 모델을 등록 하 고 배포 하는 방법의 예는 다음과 같습니다.
+
+```python
+from azureml.core import Model
+
+model = Model.register(workspace=ws,
+                       model_name='mnist-sample',                  # Name of the registered model in your workspace.
+                       model_path='mnist-model.onnx',              # Local ONNX model to upload and register as a model.
+                       model_framework=Model.Framework.ONNX ,      # Framework used to create the model.
+                       model_framework_version='1.3',              # Version of ONNX used to create the model.
+                       description='Onnx MNIST model')
+
+service_name = 'onnx-mnist-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+### <a name="scikit-learn-models"></a>Scikit-모델 배우기
+
+모든 기본 제공 scikit 모델 유형에 대해서는 코드 모델 배포가 지원 되지 않습니다.
+
+추가 코드 없이 추가 코드 없이 등록 하 고 배포 하는 방법의 예는 다음과 같습니다.
+
+```python
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = Model.register(workspace=ws,
+                       model_name='my-sklearn-model',                # Name of the registered model in your workspace.
+                       model_path='./sklearn_regression_model.pkl',  # Local file to upload and register as a model.
+                       model_framework=Model.Framework.SCIKITLEARN,  # Framework used to create the model.
+                       model_framework_version='0.19.1',             # Version of scikit-learn used to create the model.
+                       resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5),
+                       description='Ridge regression model to predict diabetes progression.',
+                       tags={'area': 'diabetes', 'type': 'regression'})
+                       
+service_name = 'my-sklearn-service'
+service = Model.deploy(ws, service_name, [model])
+```
+
+참고: 이러한 종속성은 미리 작성 된 다음에 포함 되어 있습니다.
+
+```yaml
+    - azureml-defaults
+    - inference-schema[numpy-support]
+    - scikit-learn
+    - numpy
+```
+
 ## <a name="package-models"></a>패키지 모델
 
 경우에 따라 모델을 배포 하지 않고 Docker 이미지를 만들 수 있습니다 (예: [Azure App Service에 배포](how-to-deploy-app-service.md)하려는 경우). 또는 이미지를 다운로드 하 고 로컬 Docker 설치에서 실행할 수 있습니다. 이미지를 빌드하고 검사 하 고 수정 하 고 이미지를 수동으로 빌드하는 데 사용 되는 파일을 다운로드할 수도 있습니다.
@@ -887,7 +959,7 @@ package.wait_for_creation(show_output=True)
 
 패키지를 만든 후 `package.pull()`를 사용 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. 예: 
 
-`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`에 설정해야 합니다에 설정해야 합니다. 
+`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 
 모델을 다운로드 한 후 `docker images` 명령을 사용 하 여 로컬 이미지를 나열 합니다.
 
@@ -997,78 +1069,6 @@ docker kill mycontainer
 등록된 모델을 삭제하려면 `model.delete()`를 사용합니다.
 
 자세한 내용은 [WebService. delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#delete--) 및 [Model. delete ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#delete--)설명서를 참조 하십시오.
-
-## <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
-
-코드 없는 모델 배포는 현재 미리 보기로 제공 되며 다음과 같은 기계 학습 프레임 워크를 지원 합니다.
-
-### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel 형식
-
-```python
-from azureml.core import Model
-
-model = Model.register(workspace=ws,
-                       model_name='flowers',                        # Name of the registered model in your workspace.
-                       model_path='./flowers_model',                # Local Tensorflow SavedModel folder to upload and register as a model.
-                       model_framework=Model.Framework.TENSORFLOW,  # Framework used to create the model.
-                       model_framework_version='1.14.0',            # Version of Tensorflow used to create the model.
-                       description='Flowers model')
-
-service_name = 'tensorflow-flower-service'
-service = Model.deploy(ws, service_name, [model])
-```
-
-### <a name="onnx-models"></a>ONNX 모델
-
-ONNX 모델 등록 및 배포는 모든 ONNX 유추 그래프에 대해 지원 됩니다. 전처리 및 postprocess 단계는 현재 지원 되지 않습니다.
-
-MNIST ONNX 모델을 등록 하 고 배포 하는 방법의 예는 다음과 같습니다.
-
-```python
-from azureml.core import Model
-
-model = Model.register(workspace=ws,
-                       model_name='mnist-sample',                  # Name of the registered model in your workspace.
-                       model_path='mnist-model.onnx',              # Local ONNX model to upload and register as a model.
-                       model_framework=Model.Framework.ONNX ,      # Framework used to create the model.
-                       model_framework_version='1.3',              # Version of ONNX used to create the model.
-                       description='Onnx MNIST model')
-
-service_name = 'onnx-mnist-service'
-service = Model.deploy(ws, service_name, [model])
-```
-
-### <a name="scikit-learn-models"></a>Scikit-모델 배우기
-
-모든 기본 제공 scikit 모델 유형에 대해서는 코드 모델 배포가 지원 되지 않습니다.
-
-추가 코드 없이 추가 코드 없이 등록 하 고 배포 하는 방법의 예는 다음과 같습니다.
-
-```python
-from azureml.core import Model
-from azureml.core.resource_configuration import ResourceConfiguration
-
-model = Model.register(workspace=ws,
-                       model_name='my-sklearn-model',                # Name of the registered model in your workspace.
-                       model_path='./sklearn_regression_model.pkl',  # Local file to upload and register as a model.
-                       model_framework=Model.Framework.SCIKITLEARN,  # Framework used to create the model.
-                       model_framework_version='0.19.1',             # Version of scikit-learn used to create the model.
-                       resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5),
-                       description='Ridge regression model to predict diabetes progression.',
-                       tags={'area': 'diabetes', 'type': 'regression'})
-                       
-service_name = 'my-sklearn-service'
-service = Model.deploy(ws, service_name, [model])
-```
-
-참고: 이러한 종속성은 미리 작성 된 다음에 포함 되어 있습니다.
-
-```yaml
-    - azureml-defaults
-    - inference-schema[numpy-support]
-    - scikit-learn
-    - numpy
-```
 
 ## <a name="next-steps"></a>다음 단계
 

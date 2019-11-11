@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8cc02831fa00a3974da1b74b07daf581f50dd22
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: eb562caf2dfc83841762748f37d1a7ee325de10b
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569620"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73882636"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
 
@@ -158,6 +158,10 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 | `ValidateTokenReplay` | 토큰을 재생 하지 않도록 합니다. Onetime 프로토콜을 사용 하는 특수 한 경우입니다. |
 
 유효성 검사기는 모두 ASP.NET/ASP.NET Core 구성에서 초기화 되는 `TokenValidationParameters` 클래스의 속성과 연결 됩니다. 대부분의 경우 매개 변수를 변경할 필요가 없습니다. 단일 테 넌 트가 아닌 앱에 대 한 한 가지 예외가 있습니다. 즉, 모든 조직이 나 개인 Microsoft 계정의 사용자를 수락 하는 웹 앱입니다. 이 경우 발급자의 유효성을 검사 해야 합니다.
+
+## <a name="token-validation-in-azure-functions"></a>Azure Functions에서 토큰 유효성 검사
+
+또한 Azure 함수에서 들어오는 액세스 토큰의 유효성을 검사할 수 있습니다. [Dotnet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [Nodejs](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)및 [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)의 Azure 함수에서 토큰의 유효성을 검사 하는 예제를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

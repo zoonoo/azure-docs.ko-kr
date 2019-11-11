@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: 24e90ebd2994c5fffc1252167c06783421f2ac33
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: e072923c2c8b1d8e5bb281a5bcff992b25289b4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035256"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888497"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -48,8 +48,8 @@ Recovery Services 자격 증명 모음에는 다음과 같은 기능이 있습�
 - Azure Vm 및 온-프레미스 컴퓨터를 포함 하 여 자격 증명 모음에서 백업 된 항목을 모니터링할 수 있습니다.
 - Azure [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용하여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
-  - **LRS(로컬 중복 스토리지)** : 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **GRS(지역 중복 스토리지)** : 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **LRS (로컬 중복 저장소)** : 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+  - **GRS (지역 중복 저장소)** : 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
   - 기본적으로 Recovery Services 자격 증명 모음은 GRS를 사용 합니다.
 
 ## <a name="backup-agents"></a>백업 에이전트
@@ -65,7 +65,7 @@ Azure Backup는 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 
 다음 표에서는 다양 한 유형의 백업 및 사용 되는 경우를 설명 합니다.
 
-**백업 유형** | **세부 정보** | **Usage**
+**백업 유형** | **세부 정보** | **사용 현황**
 --- | --- | ---
 **전체** | 전체 백업은 전체 데이터 원본을 포함 합니다. 차등 또는 증분 백업 보다 더 많은 네트워크 대역폭을 사용 합니다. | 초기 백업에 사용됩니다.
 **차등** |  차등 백업은 초기 전체 백업 이후 변경 된 블록을 저장 합니다. 는 더 적은 양의 네트워크와 저장소를 사용 하며 변경 되지 않은 데이터의 중복 복사본을 유지 하지 않습니다.<br/><br/> 이후 백업 간에 변경 되지 않은 데이터 블록은 전송 되 고 저장 되기 때문에 비효율적입니다. | Azure Backup에서 사용되지 않습니다.
@@ -75,7 +75,7 @@ Azure Backup는 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 
 다음 표에서는 SQL Server 데이터베이스에 사용 되는 다양 한 유형의 백업 및 사용 빈도에 대해 설명 합니다.
 
-**백업 유형** | **세부 정보** | **Usage**
+**백업 유형** | **세부 정보** | **사용 현황**
 --- | --- | ---
 **전체 백업** | 전체 데이터베이스 백업은 전체 데이터베이스를 백업합니다. 특정 데이터베이스 또는 파일 그룹 또는 파일 집합에 있는 모든 데이터를 포함 합니다. 전체 백업에도 해당 데이터를 복구할 수 있는 충분 한 로그가 포함 되어 있습니다. | 많으면, 하루에 하나의 전체 백업을 트리거할 수 있습니다.<br/><br/> 매일 또는 매주 간격으로 전체 백업을 수행 하도록 선택할 수 있습니다.
 **차등 백업** | 차등 백업은 가장 최근의 이전 전체 데이터 백업을 기반으로 합니다.<br/><br/> 이 백업은 전체 백업 이후 변경된 데이터만 캡처합니다. |  많으면, 하루에 하나의 차등 백업을 트리거할 수 있습니다.<br/><br/> 전체 백업과 차등 백업을 같은 날에 구성할 수 없습니다.
@@ -106,7 +106,7 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
 
 ![테이블 키](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>아키텍처: Azure VM의 직접 백업
+## <a name="architecture-direct-backup-of-azure-vms"></a>아키텍처: Azure Vm의 직접 백업
 
 1. Azure VM에 대 한 백업을 사용 하도록 설정 하면 지정한 일정에 따라 백업이 실행 됩니다.
 1. 첫 번째 백업 중에 VM이 실행 되는 경우 백업 확장이 VM에 설치 됩니다.
@@ -120,7 +120,7 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
     - 마지막 백업 이후에 변경 된 데이터 블록만 복사 됩니다.
     - 데이터가 암호화되지 않습니다. Azure Backup Azure Disk Encryption를 사용 하 여 암호화 된 Azure Vm을 백업할 수 있습니다.
     - 스냅샷 데이터가 자격 증명 모음에 즉시 복사되지 않을 수 있습니다. 사용량이 많은 시간에 백업은 약간의 시간이 걸릴 수 있습니다. 일별 백업 정책에서 VM의 총 백업 시간은 24 시간 미만입니다.
-1. 자격 증명 모음에 데이터가 전송 된 후에는 복구 지점이 생성 됩니다. 기본적으로 스냅숏은 삭제 되기 2 일 동안 보존 됩니다. 이 기능을 통해 이러한 스냅숏에서 복원 작업을 수행할 수 있으므로 복원 시간이 줄어듭니다. 자격 증명 모음에서 데이터를 다시 변환 하 고 복사 하는 데 필요한 시간을 줄일 수 있습니다. [Azure Backup 인스턴트 복원 기능](https://docs.microsoft.com/en-us/azure/backup/backup-instant-restore-capability)을 참조 하세요.
+1. 자격 증명 모음에 데이터가 전송 된 후에는 복구 지점이 생성 됩니다. 기본적으로 스냅숏은 삭제 되기 2 일 동안 보존 됩니다. 이 기능을 통해 이러한 스냅숏에서 복원 작업을 수행할 수 있으므로 복원 시간이 줄어듭니다. 자격 증명 모음에서 데이터를 다시 변환 하 고 복사 하는 데 필요한 시간을 줄일 수 있습니다. [Azure Backup 인스턴트 복원 기능](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability)을 참조 하세요.
 
 Azure Vm은 제어 명령에 대 한 인터넷 액세스가 필요 합니다. VM 내에서 워크 로드를 백업 하는 경우 (예: SQL Server 데이터베이스 백업), 백 엔드 데이터도 인터넷에 액세스할 수 있어야 합니다.
 
@@ -157,15 +157,15 @@ Azure Vm은 제어 명령에 대 한 인터넷 액세스가 필요 합니다. VM
 Azure VM은 디스크를 사용하여 운영 체제, 앱 및 데이터를 저장합니다. 각 Azure VM에는 두 개 이상의 디스크 (운영 체제용 디스크 및 임시 디스크)가 있습니다. Azure Vm에는 앱 데이터에 대 한 데이터 디스크도 있을 수 있습니다. 디스크는 VHD로 저장됩니다.
 
 - Vhd는 Azure의 표준 또는 프리미엄 저장소 계정에 페이지 blob으로 저장 됩니다.
-  - **표준 저장소:** 대기 시간이 중요하지 않은 워크로드를 실행하는 VM에 대한 신뢰할 수 있는 저비용 디스크 지원입니다. Standard storage는 표준 SSD (반도체 드라이브) 디스크 또는 표준 HDD (하드 디스크 드라이브) 디스크를 사용할 수 있습니다.
-  - **Premium storage:** 고성능 디스크 지원입니다. 프리미엄 SSD 디스크를 사용합니다.
+  - **표준 저장소:** 대기 시간이 중요 하지 않은 워크 로드를 실행 하는 Vm에 대 한 안정적이 고 경제적인 디스크 지원입니다. Standard storage는 표준 SSD (반도체 드라이브) 디스크 또는 표준 HDD (하드 디스크 드라이브) 디스크를 사용할 수 있습니다.
+  - **Premium storage:** 고성능 디스크 지원. 프리미엄 SSD 디스크를 사용합니다.
 - 디스크에는 다음과 같은 여러 성능 계층이 있습니다.
-  - **표준 HDD 디스크:** HDD를 통해 지원되며 경제적인 스토리지에 사용됩니다.
+  - **표준 HDD 디스크:** Hdd에서 지원 되며 비용 효율적인 저장소에 사용 됩니다.
   - **표준 SSD 디스크:** 프리미엄 SSD 디스크와 표준 HDD 디스크의 요소를 결합 합니다. 는 HDD 보다 더 일관 된 성능과 안정성을 제공 하지만 여전히 비용 효율적입니다.
   - **프리미엄 SSD 디스크:** Ssd에서 지원 되며 i/o를 많이 사용 하는 워크 로드를 실행 하는 Vm에 대해 고성능 및 낮은 대기 시간을 제공 합니다.
 - 다음과 같은 관리 또는 비관리 디스크가 있습니다.
   - **관리 되지 않는 디스크:** Vm에서 사용 하는 기존의 디스크 유형입니다. 이러한 디스크의 경우 사용자 고유의 스토리지 계정을 만든 다음, 디스크를 만들 때 지정합니다. 그런 다음 Vm에 대 한 저장소 리소스를 최대화 하는 방법을 파악 해야 합니다.
-  - **관리형 디스크:** Azure에서 저장소 계정을 만들고 관리 합니다. 디스크 크기와 성능 계층을 지정 하면 Azure에서 관리 디스크를 만듭니다. 디스크를 추가 하 고 Vm을 확장 하면 Azure에서 저장소 계정을 처리 합니다.
+  - **관리 디스크:** Azure에서 저장소 계정을 만들고 관리 합니다. 디스크 크기와 성능 계층을 지정 하면 Azure에서 관리 디스크를 만듭니다. 디스크를 추가 하 고 Vm을 확장 하면 Azure에서 저장소 계정을 처리 합니다.
 
 디스크 저장소 및 Vm의 사용 가능한 디스크 유형에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
@@ -178,7 +178,7 @@ Azure VM은 디스크를 사용하여 운영 체제, 앱 및 데이터를 저장
 Azure Backup에서 premium storage를 사용 하 여 Azure Vm을 백업할 수 있습니다.
 
 - Premium storage를 사용 하 여 Vm을 백업 하는 과정에서 백업 서비스는 저장소 계정에 *azurebackup-* 이라는 임시 준비 위치를 만듭니다. 준비 위치의 크기는 복구 지점 스냅숏의 크기와 같습니다.
-- Premium Storage 계정에 임시 준비 위치를 수용할 충분한 여유 공간이 있어야 합니다. [자세히 알아보기](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). 준비 위치를 수정하지 마세요.
+- Premium Storage 계정에 임시 준비 위치를 수용할 충분한 여유 공간이 있어야 합니다. [자세히 알아봅니다](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits). 준비 위치를 수정하지 마세요.
 - 백업 작업이 완료되면 준비 위치가 삭제됩니다.
 - 준비 위치에 사용되는 스토리지의 가격은 모든 [Premium Storage 가격 책정](../virtual-machines/windows/disks-types.md#billing)과 일관성이 있습니다.
 

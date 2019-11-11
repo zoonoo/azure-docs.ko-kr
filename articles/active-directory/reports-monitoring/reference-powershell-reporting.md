@@ -17,17 +17,17 @@ ms.date: 07/12/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d34204b936a608158a0ca3e8af2264059ffc6aa
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: dd1d4f86b6223abd3de8fab618e5975ebd33f892
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70136563"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885289"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>보고용 Azure AD PowerShell cmdlet
 
 > [!NOTE] 
-> 이러한 Powershell cmdlet은 현재 [AZURE AD 미리 보기](https://docs.microsoft.com/en-us/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) 모듈 에서만 작동 합니다. 미리 보기 모듈은 프로덕션 환경에서 사용 하지 않는 것이 좋습니다. 
+> 이러한 Powershell cmdlet은 현재 [AZURE AD 미리 보기](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#directory_auditing) 모듈 에서만 작동 합니다. 미리 보기 모듈은 프로덕션 환경에서 사용 하지 않는 것이 좋습니다. 
 
 Azure Active Directory (Azure AD) 보고서를 사용 하 여 사용자 방향 (감사 로그) 및 인증 데이터 (로그인 로그)의 모든 쓰기 작업에 대 한 세부 정보를 얻을 수 있습니다. MS Graph API를 사용 하 여 정보를 사용할 수 있지만 이제는 보고를 위해 Azure AD PowerShell cmdlet을 사용 하 여 동일한 데이터를 검색할 수 있습니다.
 
@@ -43,7 +43,7 @@ Azure Active Directory (Azure AD) 보고서를 사용 하 여 사용자 방향 (
 | 시나리오                      | PowerShell 명령 |
 | :--                           | :--                |
 | 응용 프로그램 표시 이름      | AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName eq ' Azure AD 클라우드 동기화 '" |
-| 범주                      | AzureADAuditDirectoryLogs-Filter "category eq ' Application Management '" |
+| Category                      | AzureADAuditDirectoryLogs-Filter "category eq ' Application Management '" |
 | 작업 날짜 시간            | AzureADAuditDirectoryLogs-Filter "activityDateTime gt 2019-04-18" |
 | 위의 모든 항목              | AzureADAuditDirectoryLogs-Filter "initiatedBy/app/displayName eq ' Azure AD 클라우드 Sync ' 및 category eq ' Application Management ' 및 activityDateTime gt 2019-04-18"|
 
@@ -65,7 +65,7 @@ Azure Active Directory (Azure AD) 보고서를 사용 하 여 사용자 방향 (
 | :--                           | :--                |
 | 사용자 표시 이름             | AzureADAuditSignInLogs-Filter "userDisplayName eq ' TimosPerkins '" |
 | 만든 날짜 시간              | AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (4/18 5:30 pm 이후의 모든 항목) |
-| Status                        | AzureADAuditSignInLogs-Filter "status/errorCode eq 50105" |
+| 가동 상태                        | AzureADAuditSignInLogs-Filter "status/errorCode eq 50105" |
 | 응용 프로그램 표시 이름      | AzureADAuditSignInLogs-Filter "appDisplayName eq ' StoreFrontStudio [wsfed enabled] '" |
 | 위의 모든 항목              | AzureADAuditSignInLogs-Filter "userDisplayName eq ' TimosPerkins ' 및 status/errorCode ne 0 및 appDisplayName eq ' StoreFrontStudio [wsfed enabled] '" |
 

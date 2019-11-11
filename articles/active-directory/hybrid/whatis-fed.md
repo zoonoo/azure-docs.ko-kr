@@ -1,5 +1,5 @@
 ---
-title: Azure AD를 사용한 페더레이션이란? | Microsoft Docs
+title: Azure AD를 사용한 페더레이션이란? | Microsoft 문서
 description: Azure AD를 사용한 페더레이션에 대해 설명합니다.
 services: active-directory
 author: billmath
@@ -13,12 +13,12 @@ ms.date: 11/28/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f9832a4307ea9519df448f192eeca70043a6d6
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: aeb8886987c09b504262d6ea12863a646d6022cc
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035183"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73883642"
 ---
 # <a name="what-is-federation-with-azure-ad"></a>Azure AD를 사용한 페더레이션이란?
 
@@ -35,7 +35,7 @@ Azure AD에서 온-프레미스 환경을 페더레이션하고 인증 및 권�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [하이브리드 ID란?](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity)
+- [하이브리드 ID란?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 - [Azure AD Connect 및 Connect Health란?](whatis-azure-ad-connect.md)
 - [암호 해시 동기화란?](whatis-phs.md)
 - [페더레이션이란?](whatis-fed.md)

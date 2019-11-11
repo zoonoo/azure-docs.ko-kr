@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 9c9dcd567b8632626bf4b1f0bf2ef6b5e69b8a9d
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 245ac3b1fd88b8d2430e9ddefef3562efd16e6d1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530447"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885391"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio 설치 및 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "72530447"
 > [!NOTE]
 > 이러한 지침은 Istio 버전 `1.3.2`를 참조 하 고 최소한의 투구 버전 `2.14.2`를 사용 합니다.
 >
-> Istio `1.3.x` 릴리스는 `1.13`, `1.14`, `1.15` Kubernetes 버전에 대해 Istio 팀에서 테스트 했습니다. [GitHub][istio-github-releases]에서 추가 istio 버전, [istio News][istio-release-notes] 의 각 릴리스에 대 한 정보 및 [istio 일반 FAQ][istio-faq]에서 지원 되는 Kubernetes 버전을 찾을 수 있습니다.
+> Istio `1.3.x` 릴리스는 `1.13`, `1.14`, `1.15`Kubernetes 버전에 대해 Istio 팀에서 테스트 했습니다. [GitHub][istio-github-releases]에서 추가 istio 버전, [istio News][istio-release-notes] 의 각 릴리스에 대 한 정보 및 [istio 일반 FAQ][istio-faq]에서 지원 되는 Kubernetes 버전을 찾을 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -64,7 +64,7 @@ AKS 클러스터에서 Istio를 실행 하기 위한 추가 리소스 요구 사
 
 ## <a name="add-the-istio-helm-chart-repository"></a>Istio 투구 차트 리포지토리 추가
 
-Istio 릴리스에 대 한 Istio 투구 차트 리포지토리를 추가 합니다. @No__t_0를 실행 하 여 차트 리포지토리의 로컬 정보를 업데이트 해야 합니다.
+Istio 릴리스에 대 한 Istio 투구 차트 리포지토리를 추가 합니다. `helm repo update`를 실행 하 여 차트 리포지토리의 로컬 정보를 업데이트 해야 합니다.
 
 ```azurecli
 helm repo add istio.io https://storage.googleapis.com/istio-release/releases/$ISTIO_VERSION/charts/
@@ -94,7 +94,7 @@ istio-init-crd-11-1.3.2   1/1           12s        14s
 istio-init-crd-12-1.3.2   1/1           14s        14s
 ```
 
-이제 작업이 성공적으로 완료 되었음을 확인 했으므로 올바른 Istio CRDs 수가 설치 되어 있는지 확인 합니다. 다음 명령을 실행 하 여 모든 23 Istio CRDs가 설치 되었는지 확인할 수 있습니다. 이 명령은 `23` 수를 반환 해야 합니다.
+이제 작업이 성공적으로 완료 되었음을 확인 했으므로 올바른 Istio CRDs 수가 설치 되어 있는지 확인 합니다. 다음 명령을 실행 하 여 모든 23 Istio CRDs가 설치 되었는지 확인할 수 있습니다. 이 명령은 `23`수를 반환 해야 합니다.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -180,13 +180,13 @@ Istio 구성 요소를 설치 하기 전에 Grafana 및 Kiali 모두에 대 한 
 
 ::: zone-end
 
-@No__t_0 투구 차트는 많은 수의 개체를 배포 합니다. 위의 `helm install` 명령 출력에서 목록을 볼 수 있습니다. Istio 구성 요소의 배포는 클러스터 환경에 따라 완료 하는 데 2 분이 소요 됩니다.
+`istio` 투구 차트는 많은 수의 개체를 배포 합니다. 위의 `helm install` 명령 출력에서 목록을 볼 수 있습니다. Istio 구성 요소의 배포는 클러스터 환경에 따라 완료 하는 데 2 분이 소요 됩니다.
 
 이제 AKS 클러스터에 Istio를 배포 했습니다. Istio를 성공적으로 배포 하기 위해 다음 섹션으로 이동 하 여 [istio 설치의 유효성을 검사](#validate-the-istio-installation)해 보겠습니다.
 
 ## <a name="validate-the-istio-installation"></a>Istio 설치 유효성 검사
 
-먼저 예상 서비스가 만들어졌는지 확인합니다. [Kubectl get svc][kubectl-get] 명령을 사용 하 여 실행 중인 서비스를 볼 수 있습니다. @No__t_1 투구 차트에서 Istio 및 추가 기능 구성 요소가 설치 된 `istio-system` 네임 스페이스를 쿼리 합니다.
+먼저 예상 서비스가 만들어졌는지 확인합니다. [Kubectl get svc][kubectl-get] 명령을 사용 하 여 실행 중인 서비스를 볼 수 있습니다. `istio` 투구 차트에서 Istio 및 추가 기능 구성 요소가 설치 된 `istio-system` 네임 스페이스를 쿼리 합니다.
 
 ```console
 kubectl get svc --namespace istio-system --output wide
@@ -195,7 +195,7 @@ kubectl get svc --namespace istio-system --output wide
 다음 예제 출력에서는 실행되어야 하는 서비스를 보여줍니다.
 
 - `istio-*` 서비스
-- `jaeger-*`, `tracing` 및 `zipkin` 추가 기능 추적 서비스
+- `jaeger-*`, `tracing`및 `zipkin` 추가 기능 추적 서비스
 - 추가 기능 메트릭 서비스 `prometheus`
 - `grafana` 추가 기능 분석 및 모니터링 대시보드 서비스
 - `kiali` 추가 기능 서비스 메시 대시보드 서비스
@@ -252,7 +252,7 @@ kiali-65d55bcfb8-tqrfk                   1/1     Running     0          88s
 prometheus-846f9849bd-br8kp              1/1     Running     0          87s
 ```
 
-Pod 3 개의 `istio-init-crd-*` `Completed` 상태가 있어야 합니다. 이러한 pod는 이전 단계에서 CRDs를 만든 작업을 실행 해야 했습니다. 다른 모든 pod는 `Running` 상태를 표시 해야 합니다. Pod에서 상태가 표시되지 않는 경우 상태가 표시될 때까지 1~2분 정도 걸릴 수 있습니다. Pod에서 문제를 보고 하는 경우 [kubectl 설명 pod][kubectl-describe] 명령을 사용 하 여 출력 및 상태를 검토 합니다.
+Pod 3 개의 `istio-init-crd-*` `Completed` 상태가 있어야 합니다. 이러한 pod는 이전 단계에서 CRDs를 만든 작업을 실행 해야 했습니다. 다른 모든 pod는 `Running`상태를 표시 해야 합니다. Pod에서 상태가 표시되지 않는 경우 상태가 표시될 때까지 1~2분 정도 걸릴 수 있습니다. Pod에서 문제를 보고 하는 경우 [kubectl 설명 pod][kubectl-describe] 명령을 사용 하 여 출력 및 상태를 검토 합니다.
 
 ## <a name="accessing-the-add-ons"></a>추가 항목 액세스
 
@@ -309,7 +309,7 @@ istioctl dashboard envoy <pod-name>.<namespace>
 
 ### <a name="remove-istio-components-and-namespace"></a>Istio 구성 요소 및 네임 스페이스 제거
 
-AKS 클러스터에서 Istio를 제거 하려면 다음 명령을 사용 합니다. @No__t_0 명령을 통해 `istio` 및 `istio-init` 차트가 제거 되 고 `kubectl delete namespace` 명령이 `istio-system` 네임 스페이스를 제거 합니다.
+AKS 클러스터에서 Istio를 제거 하려면 다음 명령을 사용 합니다. `helm delete` 명령을 통해 `istio` 및 `istio-init` 차트가 제거 되 고 `kubectl delete namespace` 명령이 `istio-system` 네임 스페이스를 제거 합니다.
 
 ```azurecli
 helm delete --purge istio
@@ -383,7 +383,7 @@ Application Insights 및 Istio를 사용 하 여 AKS 응용 프로그램을 모�
 [kubernetes-crd]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions
 [kubernetes-jobs]: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
 [kubernetes-secrets]: https://kubernetes.io/docs/concepts/configuration/secret/
-[kubernetes-node-selectors]: https://docs.microsoft.com/en-us/azure/aks/concepts-clusters-workloads#node-selectors
+[kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 [kubectl-port-forward]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#port-forward

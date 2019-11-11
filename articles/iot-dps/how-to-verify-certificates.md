@@ -1,19 +1,18 @@
 ---
-title: Azure IoT Hub Device Provisioning Service를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법 | Microsoft Docs
-description: Device Provisioning 서비스를 사용하여 X.509 CA 인증서를 확인하는 방법
+title: Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 x.509 CA 인증서의 소유 증명을 수행 하는 방법
+description: Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 x.509 CA 인증서의 소유 증명을 수행 하는 방법
 author: wesmc7777
 ms.author: wesmc
 ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: afa4b3861e9fb7f91fd9f5d540353c5fad23efe0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e762a1ab307bdc5ca9369c3f2e424cf6fd35f163
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "54913617"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890641"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Device Provisioning Service를 사용하여 X.509 CA 인증서에 대해 소유 증명을 수행하는 방법
 
@@ -64,9 +63,9 @@ Microsoft는 서명된 확인 인증서를 만들 수 있는 도구 및 샘플�
 
 ## <a name="upload-the-signed-verification-certificate"></a>서명된 확인 인증서 업로드
 
-1. 결과로 생성된 서명을 포털에서 프로비전 서비스에 확인 인증서로 업로드합니다. Azure Portal의 **인증서 세부 정보**에서 **확인 인증서 .pem 또는 .cer 파일** 필드 옆에 있는 _파일 탐색기_ 아이콘을 사용하여 시스템에서 서명된 인증서를 업로드합니다.
+1. 결과로 생성된 서명을 포털에서 프로비전 서비스에 확인 인증서로 업로드합니다. Azure Portal의 **인증서 세부 정보**에서 _확인 인증서 .pem 또는 .cer 파일_ 필드 옆에 있는 **파일 탐색기** 아이콘을 사용하여 시스템에서 서명된 인증서를 업로드합니다.
 
-2. 인증서 업로드가 완료되면 **확인**을 클릭합니다. **인증서 탐색기** 목록에서 인증서의 **상태**가 **_확인됨_** 으로 변경됩니다. 자동으로 업데이트되지 않으면 **새로 고침**을 클릭하십시오.
+2. 인증서 업로드가 완료되면 **확인**을 클릭합니다. **인증서 탐색기** 목록에서 인증서의 **상태_가_** 확인됨으로 변경됩니다. 자동으로 업데이트되지 않으면 **새로 고침**을 클릭하십시오.
 
    ![인증서 업로드 확인](./media/how-to-verify-certificates/upload-cert-verification.png)  
 

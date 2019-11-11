@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션의 시뮬레이션된 디바이스 동작 - Azure | Microsoft Docs
+title: 원격 모니터링 솔루션의 시뮬레이션 된 장치-Azure | Microsoft Docs
 description: 이 문서에서는 JavaScript를 사용하여 원격 모니터링 솔루션의 시뮬레이션된 디바이스 동작을 정의하는 방법을 설명합니다.
 author: dominicbetts
 manager: timlt
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 04d2ad2f0e86ee977600af86a2ffd1e9d7680375
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c39ca0a018bd22844cf7e5350e6d3586319aac16
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65823410"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890855"
 ---
 # <a name="implement-the-device-model-behavior"></a>디바이스 모델 동작 구현
 
@@ -61,7 +61,7 @@ ms.locfileid: "65823410"
 }
 ```
 
-`InitialState` 섹션에 정의된 시뮬레이션된 디바이스의 상태는 시뮬레이션 서비스에 의해 메모리에 보관됩니다. 상태 정보는 **chiller-01-state.js**에 정의된 `main` 함수에 입력으로 전달됩니다. 이 예제에서는 시뮬레이션 서비스가 5초마다 **chiller-01-state.js** 파일을 실행합니다. 스크립트는 시뮬레이션된 디바이스의 상태를 수정할 수 있습니다.
+`InitialState` 섹션에 정의된 시뮬레이션된 디바이스의 상태는 시뮬레이션 서비스에 의해 메모리에 보관됩니다. 상태 정보는 `main`chiller-01-state.js**에 정의된**  함수에 입력으로 전달됩니다. 이 예제에서는 시뮬레이션 서비스가 5초마다 **chiller-01-state.js** 파일을 실행합니다. 스크립트는 시뮬레이션된 디바이스의 상태를 수정할 수 있습니다.
 
 다음은 일반적인 `main` 함수의 개요를 보여 줍니다.
 
@@ -82,7 +82,7 @@ function main(context, previousState, previousProperties) {
 - `deviceId`(예: `Simulated.Chiller.123`)
 - `deviceModel`(예: `Chiller`)
 
-`state` 매개 변수에는 디바이스 시뮬레이션 서비스에서 유지 관리되는 디바이스 상태가 포함됩니다. 이 값은 이전 `main` 호출에서 반환된 `state` 개체입니다.
+`state` 매개 변수에는 디바이스 시뮬레이션 서비스에서 유지 관리되는 디바이스 상태가 포함됩니다. 이 값은 이전 `state` 호출에서 반환된 `main` 개체입니다.
 
 다음 예제에서는 시뮬레이션 서비스에서 유지 관리하는 디바이스 상태를 처리하기 위한 `main` 메서드의 일반적인 구현을 보여줍니다.
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 6cdebb8f6abea2b50dd8aad58ccc9fb5e680cba9
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 635431fb87e5f164f92ab4b7a1027ee96e9d801a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798480"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891018"
 ---
 # <a name="generate-maps"></a>맵 생성
 
@@ -170,7 +170,7 @@ FarmBeats는 팜에 대해 NDVI (정규화 된 차이 Vegetation Index), EVI (�
 토양 습기 열 지도을 생성 하기 전에 다음을 확인 합니다.
 
 - 토양 습기 센서를 세 개 이상 배포 해야 합니다. 센서가 배포 되어 팜에 연결 되기 전에 토양 습기 map을 만들지 않는 것이 좋습니다.  
-- 토양 습기 map이 요청 된 날부터 지난 120 일 동안 하나 이상의 클라우드 사용 가능한 센티널 장면을 사용할 수 있어야 합니다.
+- 토양 습기 열 지도 생성은 센티널의 경로 범위, 클라우드 덮개 및 클라우드 그림자의 영향을 받습니다. 토양 습기 map이 요청 된 날부터 지난 120 일 동안 하나 이상의 클라우드 사용 가능한 센티널 장면을 사용할 수 있어야 합니다.
 - 팜에 배포 된 센서 중 절반 이상이 온라인 상태이 고 데이터 허브에 데이터 스트리밍이 있어야 합니다.
 - 열 지도는 동일한 공급자의 센서 측정값을 사용 하 여 생성 해야 합니다.
 
@@ -220,6 +220,6 @@ FarmBeats는 팜에 대해 NDVI (정규화 된 차이 Vegetation Index), EVI (�
 4. 팜, 날짜, 만든 날짜, 작업 ID 및 작업 유형에 따라 정렬 하려면 테이블 머리글 옆에 있는 **정렬** 아이콘을 선택 합니다.
 5. 페이지 끝의 탐색 단추를 사용 하 여 사용 가능한 지도 목록을 스크롤합니다.
 6. 보려는 맵을 선택 합니다. 선택한 지도의 미리 보기가 팝업 창에 표시 됩니다.
-7. 다운로드 **드롭다운 메뉴** 를 선택 하 여 다운로드 형식을 선택 하면 맵이 다운로드 되어 컴퓨터의 로컬 폴더에 저장 됩니다.
+7. 다운로드 **드롭다운 메뉴** 를 선택 하 여 다운로드 형식을 선택 하면 맵이 다운로드 되어 지정 된 폴더에 저장 됩니다.
 
     ![프로젝트 팜 비트](./media/get-sensor-data-from-sensor-partner/download-soil-moisture-map-1.png)

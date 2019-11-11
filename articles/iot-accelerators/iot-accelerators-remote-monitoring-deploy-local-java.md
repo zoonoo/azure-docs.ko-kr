@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션을 로컬로 배포 (IntelliJ IDE를 통해)-Azure | Microsoft Docs
+title: 원격 모니터링 솔루션을 로컬로 배포-IntelliJ IDE-Azure | Microsoft Docs
 description: 이 방법 가이드에서는 테스트 및 개발을 위해 IntelliJ를 사용 하 여 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포 하는 방법을 보여 줍니다.
 author: v-krghan
 manager: dominicbetts
@@ -8,28 +8,28 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2f3c11763bb2f406caf9d33275fc29b0d140da9a
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 779ee1e057d74b11c5e0ba58dc2fd32b803f1e0e
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "70743306"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888820"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---intellij"></a>로컬로 원격 모니터링 솔루션 가속기 배포 - IntelliJ
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. IntelliJ에서 마이크로 서비스를 실행 하는 방법을 알아봅니다. 로컬 마이크로 서비스 배포는 다음과 같은 클라우드 서비스를 사용 합니다. IoT Hub, Azure Cosmos DB, Azure 스트리밍 분석 및 Azure Time Series Insights.
+이 문서에서는 테스트 및 개발을 위해 원격 모니터링 솔루션 가속기를 로컬 컴퓨터에 배포하는 방법을 보여줍니다. IntelliJ에서 마이크로 서비스를 실행 하는 방법을 알아봅니다. 로컬 마이크로 서비스 배포는 IoT Hub, Azure Cosmos DB, Azure 스트리밍 분석 및 Azure Time Series Insights 클라우드 서비스를 사용 합니다.
 
 로컬 머신의 Docker에서 원격 모니터링 솔루션 가속기를 실행하려면 [로컬로 원격 모니터링 솔루션 가속기 배포 - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 원격 모니터링 솔루션 가속기에 사용되는 Azure 서비스를 배포하려면 활성 Azure 구독이 필요합니다.
 
-계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 참조 하세요 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)합니다.
+계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
-### <a name="machine-setup"></a>머신 설치
+### <a name="machine-setup"></a>머신 설정
 
 로컬 배포를 완료하기 위해 로컬 개발 컴퓨터에 설치되어 있어야 하는 도구는 다음과 같습니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "70743306"
 * [Nginx](https://nginx.org/en/download.html)
 * [Node.js v8](https://nodejs.org/)
 
-Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC CLI의 필수 구성 요소입니다. Node.js v10은 사용하지 마세요.
+Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC CLI의 필수 구성 요소입니다. Node.js v10을 사용하지 마세요.
 
 > [!NOTE]
 > IntelliJ IDE는 Windows 및 Mac에 사용할 수 있습니다.
@@ -98,7 +98,7 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
    또한 스크립트는 로컬 컴퓨터에 환경 변수 집합을 추가 합니다. 각 변수 이름에는 접두사 **pc**가 있습니다. 이러한 환경 변수는 원격 모니터링에서 Azure Key Vault 리소스의 구성 값을 읽을 수 있도록 하는 세부 정보를 제공 합니다.
 
    > [!TIP]
-   > 스크립트가 완료 되 면 환경 변수를  **\<홈 폴더\\\\\>. pc\<솔루션 이름\>env**라는 파일에 저장 합니다. 이후 솔루션 가속기 배포에 사용할 수 있습니다. **Docker 작성**을 실행 하는 경우 로컬 컴퓨터에 설정 된 모든 환경 변수가 **서비스\\스크립트\\local\\env** 파일의 값을 재정의 합니다.
+   > 스크립트가 완료 되 면 \\\>홈 폴더\<이라는 파일에 환경 변수를 저장 **합니다. pc\\\<솔루션 이름\>** 입니다. 이후 솔루션 가속기 배포에 사용할 수 있습니다. **Docker-작성**을 실행할 때 로컬 컴퓨터에 설정 된 환경 변수는 **로컬\\파일\\스크립트\\스크립트** 의 값을 재정의 합니다.
 
 1. 명령줄 환경을 닫습니다.
 
@@ -109,7 +109,7 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
 * **PCS_AAD_APPID**: Azure Active Directory (Azure AD) 응용 프로그램 ID입니다.
 * **PCS_AAD_APPSECRET**: Azure AD 응용 프로그램 암호입니다.
 
-이 Key Vault 리소스에서 구성 값을 읽습니다. 이러한 환경 변수를  **\<홈 폴더\>\\에 저장할 수 있습니다. 배포의\\pc\<솔루션\>이름. env** 파일. **docker-compose**를 실행할 때 로컬 머신에 설정된 환경 변수에서 **services\\scripts\\local\\.env** 파일의 값을 재정의합니다.
+이 Key Vault 리소스에서 구성 값을 읽습니다. 이러한 환경 변수는 홈 폴더\<에 저장할 수 있습니다 **\>\\. pc\\\<솔루션 이름\>.** **docker-compose\\를 실행할 때 로컬 머신에 설정된 환경 변수에서 \\services\\scripts**local **.env** 파일의 값을 재정의합니다.
 
 마이크로 서비스에 필요한 구성 중 일부는 초기 배포 시 생성 된 Key Vault의 인스턴스에 저장 됩니다. 필요에 따라 키 자격 증명 모음에서 해당 변수를 수정 해야 합니다.
 
@@ -159,11 +159,11 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
 
 #### <a name="create-run-configurations"></a>실행 구성 만들기
 
-1. **구성 편집** **실행** > 을 선택 합니다.
-1. **새 구성** > 추가**sbt 작업**을 선택 합니다.
+1. **실행** > **구성 편집**을 선택 합니다.
+1. **새 구성 추가** > **sbt 작업**을 선택 합니다.
 1. **이름**을 입력 하 고 **실행**으로 **작업** 을 입력 합니다.
 1. 실행 하려는 서비스에 기반 하 여 **작업 디렉터리** 를 선택 합니다.
-1. **확인** **적용** > 을 선택 하 여 선택 내용을 저장 합니다.
+1. **적용** > **확인** 을 선택 하 여 선택 내용을 저장 합니다.
 1. 다음 웹 서비스에 대 한 실행 구성을 만듭니다.
     * WebService(services\config)
     * WebService(services\device-telemetry)
@@ -172,17 +172,17 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
 
 예를 들어 다음 이미지는 서비스에 대 한 구성을 추가 하는 방법을 보여 줍니다.
 
-[![왼쪽 창의 sbt 작업 목록에 강조 표시 된 storageAdapter 옵션 및 오른쪽 창의 이름, 작업, 작업 디렉터리 및 VM 매개 변수 상자에 있는 항목을 보여 주는 IntelliJ IDE 실행/디버그 구성 창의 스크린샷](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
+[왼쪽 창의 sbt 작업 목록에 강조 표시 된 storageAdapter 옵션 및 오른쪽 창의 이름, 작업, 작업 디렉터리 및 VM 매개 변수 상자에 있는 항목을 보여 주는 IntelliJ IDE 실행/디버그 구성 창의 스크린샷 ![](./media/deploy-locally-intellij/run-configurations.png)](./media/deploy-locally-intellij/run-configurations.png#lightbox)
 
 #### <a name="create-a-compound-configuration"></a>복합 구성 만들기
 
-1. 모든 서비스를 함께 실행 하려면 **새 구성** > **복합**추가를 선택 합니다.
+1. 모든 서비스를 함께 실행 하려면 **새 구성 추가** > **복합**을 선택 합니다.
 1. **이름**을 입력 한 다음 **추가 sbt 작업**을 선택 합니다.
-1. **확인** **적용** > 을 선택 하 여 선택 내용을 저장 합니다.
+1. **적용** > **확인** 을 선택 하 여 선택 내용을 저장 합니다.
 
 예를 들어 다음 이미지는 단일 구성에 모든 sbt 작업을 추가 하는 방법을 보여 줍니다.
 
-[![왼쪽 창의 복합 목록에 강조 표시 되 고 오른쪽 창에 sbt 작업 ' deviceTelemetry ' 옵션이 강조 표시 된 AllServices 옵션을 보여 주는 IntelliJ IDE 실행/디버그 구성 창의 스크린샷](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
+[왼쪽 창의 복합 목록에 강조 표시 되 고 오른쪽 창에 sbt 작업 ' deviceTelemetry ' 옵션이 강조 표시 된 AllServices 옵션을 표시 하는 IntelliJ IDE 실행/디버그 구성 창의 스크린샷 ![](./media/deploy-locally-intellij/all-services.png)](./media/deploy-locally-intellij/all-services.png#lightbox)
 
 **실행** 을 선택 하 여 로컬 컴퓨터에서 웹 서비스를 빌드하고 실행 합니다.
 
@@ -190,14 +190,14 @@ Node.js v8는 스크립트가 Azure 리소스를 만드는 데 사용 하는 PC 
 
 서비스의 상태에 액세스 하려면 다음 Url로 이동 합니다.
 
-* IoT-허브 관리자:[http://localhost:9002/v1/status](http://localhost:9002/v1/status)
-* 장치 원격 분석:[http://localhost:9004/v1/status](http://localhost:9004/v1/status)
-* config[http://localhost:9005/v1/status](http://localhost:9005/v1/status)
-* 저장소 어댑터:[http://localhost:9022/v1/status](http://localhost:9022/v1/status)
+* IoT-허브 관리자: [http://localhost:9002/v1/status](http://localhost:9002/v1/status)
+* 장치 원격 분석: [http://localhost:9004/v1/status](http://localhost:9004/v1/status)
+* 구성: [http://localhost:9005/v1/status](http://localhost:9005/v1/status)
+* 저장소 어댑터: [http://localhost:9022/v1/status](http://localhost:9022/v1/status)
 
 ### <a name="start-the-stream-analytics-job"></a>Stream Analytics 작업 시작
 
-다음 단계에 따라 Stream Analytics 작업을 시작합니다.
+Stream Analytics 작업을 시작하려면 다음 단계를 수행합니다.
 
 1. [Azure 포털](https://portal.azure.com)로 이동합니다.
 1. 솔루션에 대해 만든 **리소스 그룹** 으로 이동 합니다. 리소스 그룹의 이름은 **start.cmd** 스크립트를 실행할 때 선택한 솔루션 이름입니다.
@@ -213,7 +213,7 @@ npm install
 npm start
 ```
 
-**시작** 명령이 완료 되 면 브라우저에서 주소 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)에 페이지를 표시 합니다. 이 페이지의 오류는 예상된 것입니다. 오류 없이 응용 프로그램을 보려면 다음 단계를 완료 합니다.
+**시작** 명령이 완료 되 면 브라우저는 [http://localhost:3000/dashboard](http://localhost:3000/dashboard)주소에 페이지를 표시 합니다. 이 페이지의 오류는 예상된 것입니다. 오류 없이 응용 프로그램을 보려면 다음 단계를 완료 합니다.
 
 ### <a name="configure-and-run-nginx"></a>Nginx 구성 및 실행
 
@@ -226,7 +226,7 @@ Nginx를 실행 하는 방법에 대 한 자세한 내용은 [Nginx For Windows]
 
 ### <a name="connect-to-the-dashboard"></a>대시보드에 연결
 
-원격 모니터링 솔루션 대시보드에 액세스 하려면 브라우저에서로 http://localhost:9000 이동 합니다.
+원격 모니터링 솔루션 대시보드에 액세스 하려면 브라우저에서 http://localhost:9000로 이동 합니다.
 
 ## <a name="clean-up"></a>정리
 

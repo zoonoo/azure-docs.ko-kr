@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b9d2dda589cc59be24b73ce16dcdcbbe79b31aef
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 7be5e814d8092b523fa69fdd84f0e1476736fda2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259166"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887708"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성) 문제 해결
 
@@ -24,7 +24,7 @@ ms.locfileid: "71259166"
 
 Azure 상태 구성에서 구성을 컴파일하거나 배포 하는 동안 오류가 발생 하는 경우 문제를 진단 하는 데 도움이 되는 몇 가지 단계가 있습니다.
 
-1. **로컬 컴퓨터에서 구성이 성공적으로 컴파일되는지 확인 합니다.**  Azure 상태 구성은 PowerShell DSC를 기반으로 빌드됩니다. [POWERSHELL Dsc 문서](https://docs.microsoft.com/en-us/powershell/scripting/overview)에서 dsc 언어 및 구문에 대 한 설명서를 찾을 수 있습니다.
+1. **로컬 컴퓨터에서 구성이 성공적으로 컴파일되는지 확인 합니다.**  Azure 상태 구성은 PowerShell DSC를 기반으로 빌드됩니다. [POWERSHELL Dsc 문서](https://docs.microsoft.com/powershell/scripting/overview)에서 dsc 언어 및 구문에 대 한 설명서를 찾을 수 있습니다.
 
    로컬 컴퓨터에서 DSC 구성을 컴파일하면 다음과 같은 일반적인 오류를 검색 하 고 해결할 수 있습니다.
 
@@ -45,9 +45,9 @@ Azure 상태 구성에서 구성을 컴파일하거나 배포 하는 동안 오�
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성)으로 작업하는 경우 일반적인 오류 문제
 
-### <a name="unsupported-characters"></a>시나리오: 특수 문자가 포함 된 구성은 포털에서 삭제할 수 없습니다.
+### <a name="unsupported-characters"></a>시나리오: 포털에서 특수 문자를 사용 하 여 구성을 삭제할 수 없습니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 포털에서 DSC 구성을 삭제 하려고 하면 다음과 같은 오류가 표시 됩니다.
 
@@ -63,13 +63,13 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 * Az Cmdlet "AzAutomationDscConfiguration"를 사용 하 여 구성을 삭제 합니다.
 * 이 cmdlet에 대 한 설명서는 아직 업데이트 되지 않았습니다.  그때까지 AzureRM 모듈에 대 한 설명서를 참조 하세요.
-  * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+  * [Export-azurermautomationdscconfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-to-register-agent"></a>시나리오: Dsc 에이전트를 등록 하지 못했습니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
-또는 다른 DSC cmdlet `Set-DscLocalConfigurationManager` 을 실행 하려고 하면 다음과 같은 오류가 표시 됩니다.
+`Set-DscLocalConfigurationManager` 또는 다른 DSC cmdlet을 실행 하려고 하면 다음과 같은 오류가 표시 됩니다.
 
 ```error
 Registration of the Dsc Agent with the server
@@ -92,7 +92,7 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 ### <a name="failed-not-found"></a>시나리오: 노드가 "찾을 수 없음" 오류로 실패한 상태임
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 노드에 **실패** 상태의 보고서가 있으며 오류가 포함되어 있습니다.
 
@@ -114,7 +114,7 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 ### <a name="no-mof-files"></a>시나리오: 구성이 컴파일될 때 생성된 노드 구성(mof 파일)이 없음
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 DSC 컴파일 작업이 오류로 인해 중단됩니다.
 
@@ -135,7 +135,7 @@ DSC 구성에서 **Node** 키워드 다음에 오는 식이 `$null`로 평가되
 
 ### <a name="dsc-in-progress"></a>시나리오: DSC 노드 보고서가 "진행 중" 상태로 중단됨
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 DSC 에이전트 출력:
 
@@ -153,7 +153,7 @@ WMF 버전을 업그레이드했고 WMI가 손상되었습니다.
 
 ### <a name="issue-using-credential"></a>시나리오: DSC 구성에서 자격 증명을 사용할 수 없습니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 DSC 컴파일 작업이 오류로 인해 중단되었습니다.
 
@@ -169,9 +169,9 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 * 구성에 설명 된 각 노드 구성에 대해 적절 한 **ConfigurationData** 를 전달 하 여 **PSDscAllowPlainTextPassword** 를 true로 설정 해야 합니다. 자세한 내용은 [Azure Automation DSC의 자산](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation)을 참조하세요.
 
-### <a name="failure-processing-extension"></a>시나리오: Dsc 확장에서 온 보 딩, "오류 처리 확장" 오류
+### <a name="failure-processing-extension"></a>시나리오: dsc 확장에서 온 보 딩, "오류 처리 확장" 오류
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 DSC 확장을 사용 하 여 온 보 딩 하는 경우 오류를 포함 하는 오류가 발생 합니다.
 
@@ -190,7 +190,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 ### <a name="failure-linux-temp-noexec"></a>시나리오: Linux에서 구성을 적용 하면 일반 오류로 인해 오류가 발생 합니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 Linux에서 구성을 적용할 때 오류가 발생 하는 오류는 다음과 같습니다.
 
@@ -200,15 +200,15 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>원인
 
-`/tmp` 위치가 로`noexec`설정 된 경우 현재 버전의 DSC에서 구성을 적용 하지 못하는 것으로 확인 되었습니다.
+`/tmp` 위치가 `noexec`으로 설정 된 경우 현재 버전의 DSC에서 구성을 적용 하지 못하는 것으로 확인 되었습니다.
 
 #### <a name="resolution"></a>해결 방법
 
-* 위치에서 옵션을 `noexec` 제거 합니다. `/tmp`
+* `/tmp` 위치에서 `noexec` 옵션을 제거 합니다.
 
-### <a name="compilation-node-name-overlap"></a>시나리오: 중복 되는 노드 구성 이름으로 인해 잘못 된 릴리스가 발생할 수 있음
+### <a name="compilation-node-name-overlap"></a>시나리오: 중복 되는 노드 구성 이름이 잘못 된 릴리스를 발생 시킬 수 있습니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 단일 구성 스크립트를 사용 하 여 여러 노드 구성을 생성 하 고 일부 노드 구성의 이름이 다른 하위 집합인 경우 컴파일 서비스의 문제로 인해 잘못 된 구성이 할당 될 수 있습니다.  이는 단일 스크립트를 사용 하 여 노드당 구성 데이터를 사용 하 여 구성을 생성 하는 경우에만 발생 하며, 문자열의 시작 부분에서 이름이 겹치는 경우에만 발생 합니다.
 

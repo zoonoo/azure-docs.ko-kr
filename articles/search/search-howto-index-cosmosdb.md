@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 41da5b59c7d9429a068ecd483aa96edb1141b727
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 0657d3d5aec414b867e85b627fcf77174c8ce789
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719956"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889905"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 사용 하 여 Cosmos DB 데이터를 인덱싱하는 방법 
 
@@ -78,17 +78,11 @@ Azure Cognitive Search 서비스 페이지의 명령 모음에서 [마법사를 
 
    ![Cosmos DB 데이터 원본 정의](media/search-howto-index-cosmosdb/cosmosdb-datasource.png "Cosmos DB 데이터 원본 정의")
 
-### <a name="4---skip-the-add-cognitive-search-page-in-the-wizard"></a>4 - 마법사에서 "인식 검색 추가" 페이지 건너뛰기
+### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-마법사에서 "콘텐츠 보강" 페이지 건너뛰기
 
-문서 가져오기에는 인식 기술 추가가 필요 하지 않습니다. [AI 보강](cognitive-search-concept-intro.md) 를 인덱싱 파이프라인에 추가 해야 하는 특정 한 이유가 없다면이 단계를 건너뛰어야 합니다.
+인식 기술 (또는 보강)을 추가 하는 것은 가져오기 요구 사항이 아닙니다. [AI 보강](cognitive-search-concept-intro.md) 를 인덱싱 파이프라인에 추가 해야 하는 특정 한 이유가 없다면이 단계를 건너뛰어야 합니다.
 
-단계를 건너뛰려면 먼저 다음 페이지로 이동 합니다.
-
-   ![기술 추가에 대 한 다음 페이지 단추](media/search-get-started-portal/next-button-add-cog-search.png)
-
-해당 페이지에서 인덱스 사용자 지정으로 건너뛸 수 있습니다.
-
-   ![인식 기술 단계 건너뛰기](media/search-get-started-portal/skip-cog-skill-step.png)
+단계를 건너뛰려면 페이지 맨 아래에 있는 "다음" 및 "Skip"의 파란색 단추를 클릭 합니다.
 
 ### <a name="5---set-index-attributes"></a>5 - 인덱스 특성 설정
 
@@ -367,7 +361,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 
 ## <a name="NextSteps"></a>다음 단계
 
-축하합니다. 인덱서를 사용 하 여 Azure Cognitive Search와 Azure Cosmos DB를 통합 하는 방법을 알아보았습니다.
+축하합니다! 인덱서를 사용 하 여 Azure Cognitive Search와 Azure Cosmos DB를 통합 하는 방법을 알아보았습니다.
 
 * Azure Cosmos DB에 대한 자세한 내용은 [Azure Cosmos DB 서비스 페이지](https://azure.microsoft.com/services/cosmos-db/)를 참조하세요.
 * Azure Cognitive Search에 대 한 자세한 내용은 [Search 서비스 페이지](https://azure.microsoft.com/services/search/)를 참조 하세요.

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 2edc644f003af2b33054a5cbdbaee81c9baa38cd
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
-ms.translationtype: HT
+ms.openlocfilehash: 60837171e3f59312895a76f68c660228697529ad
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847444"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891088"
 ---
 # <a name="how-to-manage-your-commercial-marketplace-account-in-partner-center"></a>파트너 센터에서 상업적 Marketplace 계정을 관리 하는 방법 
 
@@ -145,11 +145,11 @@ Guid (Globally Unique Identifier)는 Azure 사용량을 추적 하는 데 사용
 자세한 내용은 [guid를 사용 하 여 Azure 고객 사용 추적 질문과 대답](https://docs.microsoft.com/azure/marketplace/azure-partner-customer-usage-attribution#faq)을 참조 하세요.
 
 
-## <a name="establish-a-billing-profile"></a>청구 프로필 설정
+## <a name="create-a-billing-profile"></a>청구 프로필 만들기
 
 [고객 Engagement & Power Apps](./create-new-customer-engagement-offer.md) 또는 [Dynamics 365 For Operations](./create-new-operations-offer.md) 제안의 dynamics 365을 게시 하는 경우 **청구 프로필**을 완료 해야 합니다.
 
-청구 주소는 MPN ID 로부터 미리 채워져 있으며 나중에이 주소를 업데이트할 수 있습니다. 세금 및 VAT ID 필드는 선택 사항입니다.  국가 이름 및 회사 이름을 편집할 수 없습니다.
+청구 주소는 법적 엔터티에서 미리 채워져 있으며 나중에이 주소를 업데이트할 수 있습니다. 세금 및 VAT ID 필드는 선택 사항입니다.  국가 이름 및 회사 이름을 편집할 수 없습니다.
 
 ## <a name="multi-user-account-management"></a>다중 사용자 계정 관리
 
@@ -313,7 +313,7 @@ Azure AD 응용 프로그램이 Microsoft Azure AD에서 데이터를 읽고 쓰
 - **Manager**
   - 세금 및 지급 설정을 제외한 모든 Microsoft 계정 기능에 액세스할 수 있습니다.
   - 사용자, 역할 및 테 넌 트 (작업 계정)를 관리할 수 있음
-- **Developer**
+- **개발자**
   - 제품을 관리 하 고 게시할 수 있음
   - 일부 게시자 보고서를 볼 수 있습니다.
 

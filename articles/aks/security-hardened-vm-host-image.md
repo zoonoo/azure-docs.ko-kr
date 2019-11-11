@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2019
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: 5c2ecd5a53bb77193469ba1135c46d9b5fa65b2c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8b7e50fdc02ab47c50cecb95073f1b51393db898
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202968"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885640"
 ---
 # <a name="security-hardening-in-aks-virtual-machine-hosts"></a>AKS 가상 컴퓨터 호스트의 보안 강화 
 
@@ -30,7 +30,7 @@ AKS 클러스터는 보안에 최적화 된 OS를 실행 하는 호스트 가상
 
 * AKS은 기본적으로 보안에 최적화 된 호스트 OS를 제공 합니다. 현재 다른 운영 체제를 선택할 수 있는 옵션은 없습니다. 
 
-* Azure는 AKS 가상 머신 호스트에 일일 패치 (보안 패치 포함)를 적용 합니다. 이러한 패치 중 일부는 다시 부팅 해야 하지만 다른 패치는 그렇지 않습니다. 필요에 따라 AKS VM 호스트 재부팅을 예약 해야 합니다. AKS 패치를 자동화 하는 방법에 대 한 지침은 [AKS 노드 패치](https://docs.microsoft.com/en-us/azure/aks/node-updates-kured)를 참조 하세요.
+* Azure는 AKS 가상 머신 호스트에 일일 패치 (보안 패치 포함)를 적용 합니다. 이러한 패치 중 일부는 다시 부팅 해야 하지만 다른 패치는 그렇지 않습니다. 필요에 따라 AKS VM 호스트 재부팅을 예약 해야 합니다. AKS 패치를 자동화 하는 방법에 대 한 지침은 [AKS 노드 패치](https://docs.microsoft.com/azure/aks/node-updates-kured)를 참조 하세요.
 
 다음은 보안에 최적화 된 호스트 OS를 생성 하기 위해 AKS에서 구현 되는 이미지 강화 작업의 요약입니다. [이 GitHub 프로젝트에서](https://github.com/Azure/aks-engine/projects/7)작업을 구현 했습니다.  
 
@@ -77,7 +77,7 @@ AKS 엔진은 현재 특정 보안 표준을 준수 하거나 준수 하지 않�
 |5.4.4 |기본 사용자 umask 027 이상 인지 확인 |
 |5.6 |Su 명령에 대 한 액세스가 제한 되어 있는지 확인|
 
-## <a name="additional-notes"></a>추가 참고 사항
+## <a name="additional-notes"></a>추가적인 참고 사항
  
 * 공격 노출 영역을 더 줄이기 위해 일부 불필요 한 커널 모듈 드라이버는 OS에서 사용 하지 않도록 설정 되었습니다. 
 

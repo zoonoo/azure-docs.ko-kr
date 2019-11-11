@@ -3,24 +3,21 @@ title: Azure PowerShell 스크립트 샘플 - 2개 가상 네트워크 피어링
 description: Azure PowerShell 스크립트 샘플 - 2개 가상 네트워크 피어링
 services: virtual-network
 documentationcenter: virtual-network
-author: georgewallace
-manager: timlt
-editor: tysonn
-tags: ''
-ms.assetid: ''
+author: KumudD
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: powershell
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 05/16/2017
-ms.author: gwallace
-ms.openlocfilehash: 65f578a82cba73a21ef8be559c3b229235a073ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: kumud
+ms.openlocfilehash: 53af283813500fc93d3e5fb9d4b00a9c3034af2d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66156869"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890199"
 ---
 # <a name="peer-two-virtual-networks"></a>2개 가상 네트워크 피어링
 
@@ -48,7 +45,7 @@ Remove-AzResourceGroup -Name myResourceGroup
 
 이 스크립트는 다음 명령을 사용하여 리소스 그룹, 가상 컴퓨터 및 모든 관련된 리소스를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-| 명령 | 메모 |
+| 명령 | 참고 사항 |
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. | 
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork)| Azure Virtual Network 및 서브넷을 만듭니다. |

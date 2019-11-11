@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: bee3e24739aa560a43960143d1a18c30ec1ce160
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 356c8389ed486246ce55b5006e1e489ac7c3c1e3
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819438"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73884777"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
 
@@ -124,7 +124,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>원격 분석 이니셜라이저
 
-전체 또는 일부 IP 주소를 기록 하는 `DisableIpMasking` 보다 유연 하 게 대체 해야 하는 경우 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#add-properties-itelemetryinitializer) 를 사용 하 여 ip 전체 또는 일부를 사용자 지정 필드에 복사할 수 있습니다. 
+전체 또는 일부 IP 주소를 기록 하는 `DisableIpMasking` 보다 유연 하 게 대체 해야 하는 경우 [원격 분석 이니셜라이저](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) 를 사용 하 여 ip 전체 또는 일부를 사용자 지정 필드에 복사할 수 있습니다. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 

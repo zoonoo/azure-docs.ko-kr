@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: rogirdh
 ms.custom: seodec18
-ms.openlocfilehash: 4480819a08ef9a7a4ad7257f75a94c5d10a3d312
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 23e638b1d678e6ecf19c23220828185eb0e25a00
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858565"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73891448"
 ---
 # <a name="oracle-vm-images-and-their-deployment-on-microsoft-azure"></a>Oracle VM 이미지 및 Microsoft Azure에 대 한 배포
 
@@ -79,7 +79,7 @@ Azure NetApp Files는 클라우드의 데이터베이스와 같은 고성능 워
 
 ## <a name="licensing-oracle-database--software-on-azure"></a>Azure의 라이선스 Oracle Database & 소프트웨어
 Microsoft Azure은 Oracle Database을 실행할 수 있는 권한이 있는 클라우드 환경입니다. Oracle 데이터베이스를 클라우드에서 라이선스를 라이선싱 하는 경우에는 Oracle Core 요소 테이블을 사용할 수 없습니다. 대신, 엔터프라이즈 버전 데이터베이스에 대해 하이퍼 스레딩 기술을 사용 하도록 설정 된 Vm을 사용 하는 경우 하이퍼 프로세서를 사용 하는 경우 두 개의 vCPUs를 단일 Oracle 프로세서 라이선스 (정책 문서에 명시 된 대로)로 계산 합니다. 정책 세부 정보는 [여기](http://www.oracle.com/us/corporate/pricing/cloud-licensing-070579.pdf)에서 찾을 수 있습니다.
-Oracle 데이터베이스에는 일반적으로 더 높은 메모리와 IO가 필요 합니다. 이러한 이유로 이러한 작업에는 메모리 액세스에 [최적화 된 vm](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory) 을 권장 합니다. 워크 로드를 더 최적화 하기 위해, 높은 메모리, 저장소 및 i/o 대역폭을 필요로 하지만 높은 코어 수가 아닌 Oracle DB 워크 로드에 대해 [제한 된 코어 vCPUs](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/constrained-vcpu) 를 권장 합니다.
+Oracle 데이터베이스에는 일반적으로 더 높은 메모리와 IO가 필요 합니다. 이러한 이유로 이러한 작업에는 메모리 액세스에 [최적화 된 vm](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) 을 권장 합니다. 워크 로드를 더 최적화 하기 위해, 높은 메모리, 저장소 및 i/o 대역폭을 필요로 하지만 높은 코어 수가 아닌 Oracle DB 워크 로드에 대해 [제한 된 코어 vCPUs](https://docs.microsoft.com/azure/virtual-machines/linux/constrained-vcpu) 를 권장 합니다.
 
 Oracle 소프트웨어와 워크 로드를 온-프레미스에서 Microsoft Azure로 마이그레이션하는 경우 Oracle은 [Azure의 ORACLE FAQ](https://www.oracle.com/cloud/technologies/oracle-azure-faq.html) 에 명시 된 대로 라이선스 이동성을 제공 합니다.
 
@@ -90,11 +90,11 @@ Oracle RAC는 온-프레미스 다중 노드 클러스터 구성에서 단일 �
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>높은 가용성 및 재해 복구 고려 사항
 Azure에서 Oracle 데이터베이스를 사용 하는 경우 가동 중지 시간을 방지 하기 위해 고가용성 및 재해 복구 솔루션을 구현 해야 합니다. 
 
-GoldenGate Oracle Database Enterprise Edition에 대 한 고가용성 및 재해 복구 (Oracle RAC를 사용 하지 않음)는 Azure에서 [Data guard, Active Data guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)또는 [oracle](https://www.oracle.com/technetwork/middleware/goldengate)를 사용 하 여 두 개의 개별 가상 컴퓨터에 머신의. 두 가상 머신은 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 동일한 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다.  또한 Azure가 개별 장애 도메인 및 업그레이드 도메인에 가상 머신을 배치할 수 있도록 동일한 가용성 집합에 VM을 배치하는 것이 좋습니다. 지리적 중복성을 사용 하려면 두 개의 서로 다른 지역 간에 복제 하도록 두 데이터베이스를 설정 하 고 VPN Gateway에 두 인스턴스를 연결 합니다.
+GoldenGate Oracle Database Enterprise Edition에 대 한 고가용성 및 재해 복구 (Oracle RAC를 사용 하지 않음)는 [데이터 가드, Active Data guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html)또는 [oracle](https://www.oracle.com/technetwork/middleware/goldengate)를 사용 하 여 Azure에서 두 개의 별도 가상 컴퓨터에 두 개의 데이터베이스를 사용 하 여 구현할 수 있습니다. 두 가상 머신은 영구적인 개인 IP 주소를 통해 서로 액세스할 수 있도록 동일한 [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/)에 있어야 합니다.  또한 Azure가 개별 장애 도메인 및 업그레이드 도메인에 가상 머신을 배치할 수 있도록 동일한 가용성 집합에 VM을 배치하는 것이 좋습니다. 지리적 중복성을 사용 하려면 두 개의 서로 다른 지역 간에 복제 하도록 두 데이터베이스를 설정 하 고 VPN Gateway에 두 인스턴스를 연결 합니다.
 
 [Azure에서 Oracle Data Guard 구현](configure-oracle-dataguard.md) 자습서에서는 azure의 기본 설정 절차를 안내 합니다.  
 
-Oracle 데이터 가드로, 가상 머신에서 주 데이터베이스, 또 다른 가상 머신에서 보조(대기) 데이터 베이스에서 고가용성을 얻을 수 있으며, 양 데이터베이스 간에 단방향 복제를 설정할 수 있습니다. 결과는 해당 데이터 베이스의 복사본에 대한 읽기 엑세스입니다. Oracle 골든 게이트로, 두 개의 데이터베이스 간의 양방향 복제를 구성할 수 있습니다. 이러한 도구를 사용하여 데이터베이스에 대한 고가용성 솔루션을 설정하는 방법을 알아보려면 Oracle 웹 사이트에서 [Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html) 및 [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) 설명서를 참조하세요. 데이터베이스의 복사본에 대한 읽기-쓰기 권한이 필요한 경우 [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)를 사용할 수 있습니다.
+Oracle 데이터 가드로, 가상 컴퓨터에서 주 데이터베이스, 또 다른 가상 컴퓨터에서 보조(대기) 데이터 베이스에서 고가용성을 얻을 수 있으며, 양 데이터베이스 간에 단방향 복제를 설정할 수 있습니다. 결과는 해당 데이터 베이스의 복사본에 대한 읽기 엑세스입니다. Oracle 골든 게이트로, 두 개의 데이터베이스 간의 양방향 복제를 구성할 수 있습니다. 이러한 도구를 사용하여 데이터베이스에 대한 고가용성 솔루션을 설정하는 방법을 알아보려면 Oracle 웹 사이트에서 [Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html) 및 [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) 설명서를 참조하세요. 데이터베이스의 복사본에 대한 읽기-쓰기 권한이 필요한 경우 [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html)를 사용할 수 있습니다.
 
 [Azure에서 Oracle GoldenGate 구현](configure-oracle-golden-gate.md) 자습서에서는 azure의 기본 설정 절차를 안내 합니다.
 
@@ -102,10 +102,10 @@ Azure에서 HA 및 DR 솔루션을 설계 하는 것 외에도 데이터베이�
 
 
 ## <a name="support-for-jd-edwards"></a>JD Edwards 지원
-Oracle 지원 정보 [문서 ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)에 따르면, jd Edwards enterpriseone 버전 9.2 이상이 특정 `Minimum Technical Requirements` (mtr)을 충족 하는 **공용 클라우드 제품** 에서 지원 됩니다.  OS 및 소프트웨어 애플리케이션 호환성에 대한 해당 MTR 사양을 충족하는 사용자 지정 이미지를 만들어야 합니다. 
+Oracle 지원 정보 [문서 ID 2178595.1](https://support.oracle.com/epmos/faces/DocumentDisplay?_afrLoop=573435677515785&id=2178595.1&_afrWindowMode=0&_adf.ctrl-state=o852dw7d_4)에 따라 Jd Edwards enterpriseone 버전 9.2 이상이 특정 `Minimum Technical Requirements` (mtr)를 충족 하는 **공용 클라우드 제품** 에서 지원 됩니다.  OS 및 소프트웨어 애플리케이션 호환성에 대한 해당 MTR 사양을 충족하는 사용자 지정 이미지를 만들어야 합니다. 
 
 
-## <a name="oracle-weblogic-server-virtual-machine-images"></a>Oracle WebLogic Server 가상 머신 이미지
+## <a name="oracle-weblogic-server-virtual-machine-images"></a>Oracle WebLogic Server 가상 컴퓨터 이미지
 
 * **클러스터링은 Enterprise Edition에서만 지원됩니다.** WebLogic Server Enterprise Edition을 사용할 때만 WebLogic 클러스터링을 사용하도록 허가됩니다. WebLogic Server Standard Edition으로 클러스터링을 사용하지 마십시오.
 * **UDP 멀티 캐스트는 지원되지 않습니다.** Azure는 UDP 유니캐스트를 지원하지만 멀티 캐스팅 및 브로드캐스팅은 지원하지 않습니다. WebLogic 서버는 Azure UDP 유니캐스 기능에 의존할 수 있습니다. UDP 유니캐스트를 사용 하는 최상의 결과를 위해서는 WebLogic 클러스터 크기를 정적으로 유지 하거나 관리 되는 서버를 10 개 이하로 유지 하는 것이 좋습니다.
@@ -126,7 +126,7 @@ Oracle 지원 정보 [문서 ID 2178595.1](https://support.oracle.com/epmos/face
     -Dweblogic.rjvm.enableprotocolswitch=true
     ```
 
-관련 정보는 <https://support.oracle.com>에서 KB 문서 **860340.1**을 참조하세요.
+관련 정보는 **에서 KB 문서** 860340.1<https://support.oracle.com>을 참조하세요.
 
 * **동적 클러스터링 및 부하 분산 제한** WebLogic 서버에서 동적 클러스터를 사용하고 Azure에서 단일, 공용 부하 분산 엔드포인트를 통해 노출한다고 가정해 보세요. 각 관리 되는 서버 (범위에서 동적으로 할당 되지 않은)에 대해 고정 포트 번호를 사용 하 고 관리자가 추적 하는 컴퓨터 보다 많은 관리 서버를 시작 하지 않는 한이 작업을 수행할 수 있습니다. 즉, 가상 컴퓨터 마다 관리 되는 서버가 두 개 이상 있는 것은 아닙니다. 구성으로 인해 가상 컴퓨터 보다 더 많은 WebLogic 서버가 시작 되는 경우 (즉, 여러 WebLogic 서버 인스턴스가 동일한 가상 컴퓨터를 공유 하는 경우), 이러한 웹 논리 서버 인스턴스 중 둘 이상을 사용할 수 없습니다. 지정 된 포트 번호에 바인딩합니다. 해당 가상 컴퓨터의 다른 사용자는 실패 합니다.
 

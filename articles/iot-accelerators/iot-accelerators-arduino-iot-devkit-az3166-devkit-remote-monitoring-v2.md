@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션 가속기에 IoT DevKit 연결 - Azure | Microsoft Docs
+title: IoT DevKit를 원격 모니터링 솔루션에 연결-Azure | Microsoft Docs
 description: 이 방법 가이드에서는 모니터링 및 시각화를 위해 IoT DevKit AZ3166 디바이스의 센서에서 원격 모니터링 솔루션 가속기로 원격 분석을 보내는 방법을 알아봅니다.
 author: isabelcabezasm
 manager: ''
@@ -9,12 +9,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: isacabe
-ms.openlocfilehash: 542a0780c0525ee7ceddfd36c3a4f7c348d0574f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 6e9f9c89cf2e5e40d37a1532e688490aae294181
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72930870"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888859"
 ---
 # <a name="connect-an-iot-devkit-device-to-the-remote-monitoring-solution-accelerator"></a>원격 모니터링 솔루션 가속기에 IoT DevKit 디바이스 연결
 
@@ -122,7 +122,7 @@ DevKit LED 중 하나의 색을 변경하려면 **LedColor** 메서드를 사용
 문제가 발생하면 [IoT DevKit FAQ](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/)를 참조하거나, 다음 지원 채널을 사용하여 문의하세요.
 
 * [Gitter.im](https://gitter.im/Microsoft/azure-iot-developer-kit)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/iot-devkit)
+* [스택 오버플로](https://stackoverflow.com/questions/tagged/iot-devkit)
 
 ## <a name="next-steps"></a>다음 단계
 
