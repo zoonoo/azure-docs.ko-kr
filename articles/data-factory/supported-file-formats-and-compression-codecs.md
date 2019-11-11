@@ -450,7 +450,7 @@ Parquet 파일을 구문 분석하거나 데이터를 Parquet 형식으로 쓰�
 
 ### <a name="data-type-mapping-for-parquet-files"></a>Parquet 파일에 대한 데이터 형식 매핑
 
-| Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(Deserialize) | Parquet 원본 형식(Serialize) |
+| Data Factory 중간 데이터 형식 | Parquet 기본 형식 | Parquet 원본 형식(역직렬화) | Parquet 원본 형식(Serialize) |
 |:--- |:--- |:--- |:--- |
 | 부울 | 부울 | 해당 없음 | 해당 없음 |
 | SByte | Int32 | Int8 | Int8 |

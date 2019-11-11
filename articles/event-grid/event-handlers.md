@@ -108,7 +108,7 @@ Queue Storage를 사용하여 끌어와야 할 이벤트를 수신합니다. 응
 | 빠른 시작: [Azure CLI](custom-event-quickstart.md), [PowerShell](custom-event-quickstart-powershell.md) 및 [포털](custom-event-quickstart-portal.md)을 사용하여 사용자 지정 이벤트 만들기 및 라우팅 | 사용자 지정 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
 | 빠른 시작: [Azure CLI](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json), [PowerShell](../storage/blobs/storage-blob-event-quickstart-powershell.md?toc=%2fazure%2fevent-grid%2ftoc.json) 및 [포털](blob-event-quickstart-portal.md)을 사용하여 Blob Storage 이벤트를 사용자 지정 웹 엔드포인트로 라우팅 | Blob Storage 이벤트를 WebHook로 전송하는 방법을 보여줍니다. |
 | [빠른 시작: 컨테이너 레지스트리 이벤트 전송](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Azure CLI를 사용하여 Container Registry 이벤트를 전송하는 방법을 보여줍니다. |
-| [개요: HTTP 엔드포인트에 대한 이벤트 수신](receive-events.md) | 이벤트 구독으로부터 이벤트를 수신하기 위해 HTTP 엔드포인트의 유효성을 검사하고, 이벤트를 수신하고 직렬화를 해제하는 방법을 설명합니다. |
+| [개요: HTTP 엔드포인트에 대한 이벤트 수신](receive-events.md) | 이벤트 구독으로부터 이벤트를 수신하기 위해 HTTP 엔드포인트의 유효성을 검사하고, 이벤트를 수신하고 역직렬화하는 방법을 설명합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
