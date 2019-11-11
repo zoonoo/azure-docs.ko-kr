@@ -45,10 +45,12 @@
       href: azure-netapp-files-set-up-capacity-pool.md
     - name: Azure NetApp Files에 서브넷 위임
       href: azure-netapp-files-delegate-subnet.md
-    - name: Azure NetApp Files에 대한 NFS 볼륨 만들기
-      href: azure-netapp-files-create-volumes.md
     - name: Azure NetApp Files에 대한 SMB 볼륨 만들기
       href: azure-netapp-files-create-volumes-smb.md
+    - name: Azure NetApp Files에 대한 NFS 볼륨 만들기
+      href: azure-netapp-files-create-volumes.md
+    - name: Azure NetApp Files에 대한 NFSv 4.1 기본 도메인 구성
+      href: azure-netapp-files-configure-nfsv41-domain.md
     - name: NFS 볼륨에 대한 내보내기 정책 구성
       href: azure-netapp-files-configure-export-policy.md
     - name: 볼륨 관리
