@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 9adc8b3f96847c346a59905d1a5ec145fadd2f5b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
-ms.translationtype: HT
+ms.openlocfilehash: 883778360bd2315e1424f9f207cbfd994ec1a373
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888713"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901189"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -95,7 +95,7 @@ Azure 가상 네트워크에서 ISE를 사용 하는 경우 일반적인 설치 
 | 진단 로그 및 메트릭 게시 | 아웃바운드 | 443 | VirtualNetwork  | AzureMonitor | |
 | Azure Traffic Manager에서 통신 | 인바운드 | 443 | AzureTrafficManager | VirtualNetwork | |
 | Logic Apps 디자이너 - 동적 속성 | 인바운드 | 454 | 허용 되는 IP 주소는 참고 열을 참조 하세요. | VirtualNetwork | 요청은 해당 지역에 대 한 끝점 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) IP 주소 Logic Apps 액세스 합니다. |
-| 네트워크 상태 검사 | 인바운드 및 아웃바운드 | 454 | 허용 되는 IP 주소는 참고 열을 참조 하세요. | VirtualNetwork | 요청은 해당 지역에 대 한 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) 및 [아웃 바운드](../logic-apps/logic-apps-limits-and-config.md#outbound) IP 주소에 대 한 Logic Apps 액세스 끝점에서 제공 됩니다. |
+| 네트워크 상태 검사 | 인바운드 | 454 | 허용 되는 IP 주소는 참고 열을 참조 하세요. | VirtualNetwork | 요청은 해당 지역에 대 한 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) 및 [아웃 바운드](../logic-apps/logic-apps-limits-and-config.md#outbound) IP 주소에 대 한 Logic Apps 액세스 끝점에서 제공 됩니다. |
 | App Service 관리 종속성 | 인바운드 | 454, 455 | AppServiceManagement | VirtualNetwork | |
 | 커넥터 배포 | 인바운드 | 454 | AzureConnectors | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
 | 커넥터 정책 배포 | 인바운드 | 3443 | 인터넷 | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
