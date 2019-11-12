@@ -11,12 +11,12 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6a6af6d32e0664e66696523f53ac81cd921609e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a61b7e058e485121d87c5d3bb1050b4289e4ceed
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814864"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931062"
 ---
 # <a name="train-and-register-a-keras-classification-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 Keras 분류 모델 학습 및 등록
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ Keras는 기타 인기 있는 DNN 프레임 워크를 실행 하 여 개발을 �
 
 기계 학습 및 심층 학습 간의 차이점에 대 한 자세한 내용은 [개념 문서](concept-deep-learning-vs-machine-learning.md) 를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -189,6 +189,9 @@ DNN 모델을 학습 한 후에는 작업 영역에 등록할 수 있습니다. 
 ```Python
 model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/model')
 ```
+
+> [!TIP]
+> 방금 등록 한 모델은 학습에 사용한 평가기에 관계 없이 Azure Machine Learning에서 등록 된 다른 모델과 정확히 동일한 방식으로 배포 됩니다. 배포 방법에는 모델 등록에 대 한 섹션이 포함 되어 있지만 등록 된 모델이 이미 있기 때문에 배포에 대 한 [계산 대상을 직접 만드는](how-to-deploy-and-where.md#choose-a-compute-target) 것으로 건너뛸 수 있습니다.
 
 모델의 로컬 복사본을 다운로드할 수도 있습니다. 이는 로컬에서 추가 모델 유효성 검사 작업을 수행 하는 데 유용할 수 있습니다. 학습 스크립트에서 `mnist-keras.py`TensorFlow 보호기 개체는 모델을 로컬 폴더 (계산 대상의 로컬 폴더)에 유지 합니다. Run 개체를 사용 하 여 데이터 저장소에서 복사본을 다운로드할 수 있습니다.
 

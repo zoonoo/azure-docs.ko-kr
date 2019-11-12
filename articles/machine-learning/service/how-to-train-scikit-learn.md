@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: ea466486509c4b5dadc48ef830c9f05ec42ab5b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6d71ea59b7094134cc70b9eeea6da89feacb3a14
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73814853"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931047"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>빌드 scikit-Azure Machine Learning를 사용 하 여 규모에 맞게 모델 학습
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ ms.locfileid: "73814853"
 
 처음부터 machine learning scikit 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
  - Azure Machine Learning 노트북 VM-다운로드 또는 설치 필요 없음
@@ -177,20 +177,47 @@ import joblib
 joblib.dump(svm_model_linear, 'model.joblib')
 ```
 
-다음 코드를 사용 하 여 작업 영역에 모델을 등록 합니다.
+다음 코드를 사용 하 여 작업 영역에 모델을 등록 합니다. `model_framework`, `model_framework_version`및 `resource_configuration`매개 변수를 지정 하면 코드 없는 모델 배포를 사용할 수 있게 됩니다. 이렇게 하면 등록 된 모델에서 모델을 웹 서비스로 직접 배포할 수 있으며 `ResourceConfiguration` 개체는 웹 서비스의 계산 리소스를 정의 합니다.
 
 ```Python
-model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = run.register_model(model_name='sklearn-iris', 
+                           model_path='model.joblib',
+                           model_framework=Model.Framework.SCIKITLEARN,
+                           model_framework_version='0.19.1',
+                           resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
+
+## <a name="deployment"></a>배포
+
+방금 등록 한 모델은 학습에 사용한 평가기에 관계 없이 Azure Machine Learning에서 등록 된 다른 모델과 정확히 동일한 방식으로 배포할 수 있습니다. 배포 방법에는 모델 등록에 대 한 섹션이 포함 되어 있지만 등록 된 모델이 이미 있기 때문에 배포에 대 한 [계산 대상을 직접 만드는](how-to-deploy-and-where.md#choose-a-compute-target) 것으로 건너뛸 수 있습니다.
+
+### <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
+
+기존 배포 경로 대신 scikit에 대 한 비 코드 배포 기능 (미리 보기)을 사용할 수도 있습니다. 모든 기본 제공 scikit 모델 형식에 대해 코드 모델 배포가 지원 되지 않습니다. 위에 표시 된 대로 `model_framework`, `model_framework_version`및 `resource_configuration` 매개 변수를 사용 하 여 모델을 등록 하면 단순히 `deploy()` 정적 함수를 사용 하 여 모델을 배포할 수 있습니다.
+
+```python
+web_service = Model.deploy(ws, "scikit-learn-service", [model])
+```
+
+참고: 이러한 종속성은 미리 작성 된 scikit-학습 유추 컨테이너에 포함 되어 있습니다.
+
+```yaml
+    - azureml-defaults
+    - inference-schema[numpy-support]
+    - scikit-learn
+    - numpy
+```
+
+Azure Machine Learning의 배포에 [대 한 자세한 내용을](how-to-deploy-and-where.md) 자세히 설명 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 
+이 문서에서는 scikit 모델에 대해 학습 하 고 등록 했으며 배포 옵션에 대해 알아보았습니다. Azure Machine Learning에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
-이 문서에서는 Azure Machine Learning에서 Keras 모델을 학습 하 고 등록 했습니다. 모델을 배포 하는 방법에 대 한 자세한 내용은 모델 배포 문서를 참조 하세요.
-
-> [!div class="nextstepaction"]
-> [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)
 * [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
 * [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
-* [학습된 모델 배포](how-to-deploy-and-where.md)
 * [Azure의 분산 심층 학습 교육에 대 한 참조 아키텍처](/azure/architecture/reference-architectures/ai/training-deep-learning)

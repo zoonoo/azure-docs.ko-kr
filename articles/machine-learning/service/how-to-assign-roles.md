@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning 작업 영역에서 역할 관리
+title: 작업 영역에서 역할 관리
 titleSuffix: Azure Machine Learning
 description: RBAC (역할 기반 액세스 제어)를 사용 하 여 Azure Machine Learning 작업 영역에 액세스 하는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 07191245c08e26fe884ba237a9e3ef1a080aa069
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b5f42ac015ff492b67aa73c799ec1d952b468ed0
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73671504"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932169"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 액세스 관리
 [!INCLUDE [aml-applies-to-enterprise-sku](../../../includes/aml-applies-to-enterprise-sku.md)]

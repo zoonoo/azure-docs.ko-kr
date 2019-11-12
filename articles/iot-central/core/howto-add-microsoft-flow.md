@@ -1,5 +1,5 @@
 ---
-title: Microsoft Flow에서 Azure IoT Central 커넥터를 사용하여 워크플로 구축 | Microsoft Docs
+title: Microsoft Flow에서 Azure IoT Central 커넥터 사용 Microsoft Docs
 description: Microsoft Flow의 IoT Central 커넥터를 사용 하 여 워크플로를 트리거하고 워크플로의 생성, 가져오기, 업데이트, 삭제 및 명령을 실행 합니다.
 services: iot-central
 author: viv-liu
@@ -8,16 +8,16 @@ ms.date: 08/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: hegate
-ms.openlocfilehash: 258020c8ccd690c524460873387293e73fc89125
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: f1912b90df75f3d85f6ba5d730c723cf42803237
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951732"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930369"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Microsoft Flow에서 IoT Central 커넥터를 사용하여 워크플로 구축
 
-‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’
+*이 항목의 내용은 빌더와 관리자에게 적용됩니다.*
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
@@ -30,7 +30,7 @@ Microsoft Flow를 사용하여 비즈니스 사용자가 의존하는 많은 애
 
 IoT Central을 모바일 알림 및 Microsoft Teams와 같은 다른 서비스에 연결하는 [이러한 Microsoft Flow 템플릿](https://aka.ms/iotcentralflowtemplates)을 확인하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 - 종량제 애플리케이션
 - Microsoft Flow 사용할 Microsoft 개인 또는 회사 또는 학교 계정 ([Microsoft Flow 요금제에 대 한 자세한 정보](https://aka.ms/microsoftflowplans))

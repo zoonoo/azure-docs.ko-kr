@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: efdb2f51058eca456d622afda390dee17fffea0b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b949a0edff7ed6341d10518bc1c38afe2f7efad0
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819410"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929193"
 ---
 # <a name="periodic-backup-and-restore-in-azure-service-fabric"></a>Azure Service Fabric에서 정기적인 백업 및 복원
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 - 일시적으로 백업 일시 중단
 - 백업의 보존 관리(예정)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 * 패브릭 버전 6.4 이상을 사용 하는 클러스터를 Service Fabric 합니다. 필요한 패키지를 다운로드하는 단계는 이 [문서](service-fabric-cluster-creation-for-windows-server.md)를 참조하세요.
 * 백업을 저장하기 위해 스토리지에 연결하는 데 필요한 비밀 암호화를 위한 X.509 인증서. 자체 서명된 X.509 인증서를 획득 또는 만드는 방법을 알아보려면 [문서](service-fabric-windows-cluster-x509-security.md)를 참조하세요.
 
@@ -117,19 +117,7 @@ Service Fabric에서는 정기적 백업 및 복원 기능과 관련된 다음 �
 
 4. 위와 같은 변경 내용으로 클러스터 구성 파일을 업데이트한 후 변경 내용을 적용하고 배포/업그레이드가 완료되도록 합니다. 완료된 후에는 클러스터에서 _Backup 및 Restore 서비스_ 실행이 시작됩니다. 이 서비스의 URI는 `fabric:/System/BackupRestoreService`이고 서비스는 Service Fabric Explorer의 시스템 서비스 섹션 아래에 있을 수 있습니다. 
 
-### <a name="using-service-fabric-explorer"></a>Service Fabric Explorer 사용
 
-1. 고급 모드를 사용 하도록 설정 했는지 확인 합니다.
-
-    ![고급 모드 사용][2]
-
-2. 응용 프로그램을 선택 하 고 작업으로 이동 합니다. 응용 프로그램 백업 사용/업데이트를 클릭 합니다.
-
-    ![응용 프로그램 백업 사용][3] 
-
-3. 마지막으로 원하는 정책을 선택 하 고 백업 사용을 클릭 합니다.
-
-    ![정책 선택][4]
 
 ## <a name="enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors"></a>Reliable Stateful 서비스 및 Reliable Actors에 대해 정기적 백업 사용
 Reliable Stateful 서비스 및 Reliable Actors에 대한 정기적 백업을 사용하도록 설정하는 단계를 살펴보겠습니다. 이러한 단계에서는 다음을 가정합니다.
@@ -207,6 +195,16 @@ $url = "http://localhost:19080/Applications/SampleApp/$/EnableBackup?api-version
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json'
 ``` 
+
+#### <a name="using-service-fabric-explorer"></a>Service Fabric Explorer 사용
+
+1. 응용 프로그램을 선택 하 고 작업으로 이동 합니다. 응용 프로그램 백업 사용/업데이트를 클릭 합니다.
+
+    ![응용 프로그램 백업 사용][3] 
+
+2. 마지막으로 원하는 정책을 선택 하 고 백업 사용을 클릭 합니다.
+
+    ![정책 선택][4]
 
 ### <a name="verify-that-periodic-backups-are-working"></a>정기적 백업이 작동하는지 확인
 
@@ -292,8 +290,6 @@ Service Fabric Explorer에서 백업을 보려면 파티션으로 이동한 후 
 - [백업 복원 REST API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
 [0]: ./media/service-fabric-backuprestoreservice/partition-backedup-health-event.png
-[2]: ./media/service-fabric-backuprestoreservice/advanced-mode.png
 [3]: ./media/service-fabric-backuprestoreservice/enable-app-backup.png
 [4]: ./media/service-fabric-backuprestoreservice/enable-application-backup.png
 [5]: ./media/service-fabric-backuprestoreservice/backup-enumeration.png
-

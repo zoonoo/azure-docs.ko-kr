@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 8ebd91f8f02ad7eacd8440b34a31b78f5cac5741
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c2d652b31c264d7b17fcf303564c327d09d416f9
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472621"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929130"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 표준 SKU 부하 분산 장치 사용
 
@@ -22,7 +22,7 @@ Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사�
 
 이 문서에서는 Kubernetes 및 Azure Load Balancer 개념을 기본적으로 이해 하 고 있다고 가정 합니다. 자세한 내용은 [Kubernetes core 개념에 대 한 AKS (Azure Kubernetes Service)][kubernetes-concepts] 및 [Azure Load Balancer 정의][azure-lb]를 참조 하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -40,7 +40,7 @@ CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서�
 * AKS 클러스터에서 송신 트래픽을 허용 하려면 하나 이상의 공용 IP 또는 IP 접두사가 필요 합니다. 공용 IP 또는 IP 접두사는 AKS의 이전 버전과의 호환성을 유지 하기 위해 제어 평면과 에이전트 노드 간의 연결을 유지 하는 데에도 필요 합니다. *표준* SKU 부하 분산 장치를 사용 하 여 공용 IP 또는 IP 접두사를 지정 하는 다음과 같은 옵션이 있습니다.
     * 사용자 고유의 공용 Ip를 제공 합니다.
     * 사용자 고유의 공용 IP 접두사를 제공 합니다.
-    * AKS 클러스터가 AKS 클러스터로 만든 것과 동일한 리소스 그룹에 많은 *표준* SKU 공용 ip를 만들 수 있도록 허용 하는 100 숫자 (일반적으로 *MC_* 로 이름이 지정 됨)를 지정 합니다. AKS는 *표준* SKU 부하 분산 장치에 공용 IP를 할당 합니다. 공용 ip, 공용 IP 접두사 또는 Ip 수가 지정 되지 않은 경우 기본적으로 하나의 공용 IP가 AKS 클러스터와 동일한 리소스 그룹에 자동으로 만들어집니다. 또한 공용 주소를 허용 하 고 IP 생성을 차단을 하는 Azure Policy를 만들지 않도록 해야 합니다.
+    * AKS 클러스터가 AKS 클러스터로 만든 것과 동일한 리소스 그룹에 여러 *표준* SKU 공용 ip를 만들 수 있도록 허용 하는 숫자를 100까지 지정 합니다 .이는 일반적으로 처음에 *MC_* 으로 명명 됩니다. AKS는 *표준* SKU 부하 분산 장치에 공용 IP를 할당 합니다. 공용 ip, 공용 IP 접두사 또는 Ip 수가 지정 되지 않은 경우 기본적으로 하나의 공용 IP가 AKS 클러스터와 동일한 리소스 그룹에 자동으로 만들어집니다. 또한 공용 주소를 허용 하 고 IP 생성을 차단을 하는 Azure Policy를 만들지 않도록 해야 합니다.
 * 부하 분산 장치에 대 한 *표준* SKU를 사용 하는 경우 Kubernetes 버전 1.13 이상을 사용 해야 합니다.
 * 부하 분산 장치 SKU를 정의 하는 것은 AKS 클러스터를 만들 때만 수행할 수 있습니다. AKS 클러스터를 만든 후에는 부하 분산 장치 SKU를 변경할 수 없습니다.
 * 단일 클러스터에서 하나의 부하 분산 장치 SKU만 사용할 수 있습니다.
@@ -148,6 +148,25 @@ az aks create \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
 
+## <a name="show-the-outbound-rule-for-your-load-balancer"></a>부하 분산 장치에 대 한 아웃 바운드 규칙 표시
+
+부하 분산 장치에서 만든 아웃 바운드 규칙을 표시 하려면 [az network lb 아웃 바운드 규칙 목록을][az-network-lb-outbound-rule-list] 사용 하 고 AKS 클러스터의 노드 리소스 그룹을 지정 합니다.
+
+```azurecli-interactive
+NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
+az network lb outbound-rule list --resource-group $NODE_RG --lb-name kubernetes -o table
+```
+
+이전 명령에는 부하 분산 장치에 대 한 아웃 바운드 규칙이 나열 됩니다. 예를 들면 다음과 같습니다.
+
+```console
+AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name             Protocol    ProvisioningState    ResourceGroup
+------------------------  ----------------  ----------------------  ---------------  ----------  -------------------  -------------
+0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
+```
+
+예제 출력에서 *AllocatedOutboundPorts* 는 0입니다. *AllocatedOutboundPorts* 값은 SNAT 포트 할당이 백 엔드 풀 크기에 따라 자동 할당으로 되돌아갑니다. 자세한 내용은 [Azure에서][azure-lb-outbound-connections] [아웃 바운드 규칙][azure-lb-outbound-rules] 및 아웃 바운드 연결 Load Balancer을 참조 하세요.
+
 ## <a name="next-steps"></a>다음 단계
 
 Kubernetes services에 대 한 자세한 내용은 [Kubernetes services 설명서][kubernetes-services]를 참조 하세요.
@@ -176,11 +195,14 @@ Kubernetes services에 대 한 자세한 내용은 [Kubernetes services 설명�
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-group-create]: /cli/azure/group#az-group-create
 [az-provider-register]: /cli/azure/provider#az-provider-register
+[az-network-lb-outbound-rule-list]: /cli/azure/network/lb/outbound-rule?view=azure-cli-latest#az-network-lb-outbound-rule-list
 [az-network-public-ip-show]: /cli/azure/network/public-ip?view=azure-cli-latest#az-network-public-ip-show
 [az-network-public-ip-prefix-show]: /cli/azure/network/public-ip/prefix?view=azure-cli-latest#az-network-public-ip-prefix-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb]: ../load-balancer/load-balancer-overview.md
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus
+[azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
+[azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
 [install-azure-cli]: /cli/azure/install-azure-cli
 [internal-lb-yaml]: internal-lb.md#create-an-internal-load-balancer
 [kubernetes-concepts]: concepts-clusters-workloads.md

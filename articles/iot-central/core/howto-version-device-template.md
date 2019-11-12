@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central 앱의 디바이스 템플릿 버전 관리 이해 | Microsoft Docs
+title: Azure IoT Central 앱에 대 한 장치 템플릿 버전 관리 | Microsoft Docs
 description: 새 버전을 만들어 라이브 연결된 디바이스에 영향을 주지 않고 디바이스 템플릿을 반복합니다.
 author: sandeeppujar
 ms.author: sandeepu
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 8d4e3b304000113e7ecbf748767780a3fcf17bb3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: feaa8abcb6635573b3680b77befa5ccb462ec73a
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952603"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930116"
 ---
 # <a name="create-a-new-device-template-version"></a>새 디바이스 템플릿 버전 만들기
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager 템플릿을 사용 하 여 작업 영역 만들기
+title: Azure Resource Manager 템플릿으로 작업 영역 만들기
 titleSuffix: Azure Machine Learning
 description: Azure Resource Manager 템플릿을 사용 하 여 새 Azure Machine Learning 작업 영역을 만드는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: f20c7955856e2e848d331d857d2564649c837bb0
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 8bcfb80d42e7cd1fad6ff4c04415bd8627a3293e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847470"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932135"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -25,7 +25,7 @@ ms.locfileid: "73847470"
 
 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 애플리케이션 배포](../../azure-resource-manager/resource-group-template-deploy.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * **Azure 구독**. 없는 경우 [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -205,7 +205,7 @@ ms.locfileid: "73847470"
 * [Azure Resource Manager 템플릿으로 애플리케이션 배포](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Microsoft.MachineLearningServices 리소스 종류](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
-## <a name="use-the-azure-portal"></a>Azure Portal 사용
+## <a name="use-the-azure-portal"></a>Azure 포털 사용
 
 1. [사용자 지정 템플릿에서 리소스 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template)의 단계를 수행합니다. __템플릿 편집__ 화면이 표시되면 이 문서의 템플릿을 붙여넣습니다.
 1. __저장__을 선택하여 템플릿을 사용합니다. 다음 정보를 제공하고 나열된 사용 약관에 동의합니다.

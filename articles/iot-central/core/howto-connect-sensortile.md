@@ -1,5 +1,5 @@
 ---
-title: SensorTile 장치를 Azure IoT Central 응용 프로그램에 연결 | Microsoft Docs
+title: SensorTile 장치를 Azure IoT Central 앱에 연결 | Microsoft Docs
 description: 장치 개발자는 SensorTile 장치를 Azure IoT Central 응용 프로그램에 연결 하는 방법을 알아봅니다.
 author: sarahhubbard
 ms.author: sahubbar
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: sandeep.pujar
-ms.openlocfilehash: 0969ee6dbc035ffa105dd54d34f3b4711d4915cf
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e46d4f99075a0d3fa326c84e17792b8959e23517
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951212"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930230"
 ---
 # <a name="connect-sensortilebox-device-to-your-azure-iot-central-application"></a>SensorTile 장치를 Azure IoT Central 응용 프로그램에 연결
 
@@ -43,7 +43,7 @@ Azure IoT Central 응용 프로그램에서 **SensorTile** 장치 템플릿의 �
 
 1. 장치 연결 정보, **범위 ID**, **장치 id**및 **기본 키**를 가져오려면 장치 페이지에서 **연결** 을 선택 합니다.
 
-    ![연결 세부 정보](media/howto-connect-sensortile/connect-device.png)
+    ![연결 정보](media/howto-connect-sensortile/connect-device.png)
 
 1. 연결 정보를 적어 둡니다. 다음 단계에서 DevKit 장치를 준비할 때 인터넷에서 일시적으로 연결을 끊었습니다.
 
@@ -86,7 +86,7 @@ SensorTile 장치 템플릿에서 만든 응용 프로그램은 다음과 같은
 
 ### <a name="telemetry"></a>원격 분석
 
-| 필드 이름     | 단위  | 최소 | 최대 | 소수 자릿수 |
+| 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidity       | %      | 30       | 90     | 1              |
 | temp           | °C     | 0     | 40     | 1              |

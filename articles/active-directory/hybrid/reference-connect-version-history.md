@@ -16,12 +16,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38235e90ccf79cf1322ce0f26ed426d8c3a693cc
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 52e15aa62043ba394ae6e8cfe2cc7f27709c7d33
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847173"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927448"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -43,9 +43,18 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 이 프로세스를 진행 하는 동안 릴리스 버전 번호는 "1.3. X. 0"과 같이 부 릴리스 번호 위치에 "X"가 표시 됩니다 .이는이 문서의 릴리스 정보가 "1.3"로 시작 하는 모든 버전에 대해 유효 함을 나타냅니다. 릴리스 프로세스를 완료 하는 즉시 릴리스 버전 번호는 가장 최근에 릴리스된 버전으로 업데이트 되 고 릴리스 상태는 "다운로드 및 자동 업그레이드를 위해 릴리스"로 업데이트 됩니다.
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)에 대한 자세한 내용은 이 링크 참조
 
+## <a name="14320"></a>1.4.32.0
+### <a name="release-status"></a>릴리스 상태
+08/11/2019: 다운로드를 위해 릴리스 되었습니다. 자동 업그레이드에 사용할 수 없음
+
+>[!IMPORTANT]
+>이 Azure AD Connect 릴리스의 내부 스키마 변경으로 인해 MSOnline PowerShell을 사용 하 여 ADFS 트러스트 관계 구성 설정을 관리 하는 경우 MSOnline PowerShell 모듈을 1.1.183.57 버전 이상으로 업데이트 해야 합니다.
+### <a name="fixed-issues"></a>해결된 문제
+
+이 버전은 기존 하이브리드 Azure AD 조인 장치와 관련 된 문제를 해결 합니다. 이 릴리스에는이 문제를 해결 하는 새로운 장치 동기화 규칙이 포함 되어 있습니다.
+이 규칙 변경으로 인해 Azure AD에서 사용 되지 않는 장치를 삭제할 수 있습니다. 이러한 장치 개체는 조건부 액세스 권한 부여 중에 Azure AD에서 사용 되지 않기 때문에 문제가 발생 하지 않습니다. 일부 고객의 경우이 규칙 변경을 통해 삭제 되는 장치 수는 삭제 임계값을 초과할 수 있습니다. Azure AD의 장치 개체 삭제가 내보내기 삭제 임계값을 초과 하는 것으로 확인 되는 경우 삭제를 통과 하도록 허용 하는 것이 좋습니다. [삭제 임계값을 초과 하는 삭제를 허용 하는 방법](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+
 ## <a name="14250"></a>1.4.25.0
-
-
 
 ### <a name="release-status"></a>릴리스 상태
 9/28/2019: 테 넌 트를 선택 하기 위해 자동 업그레이드가 릴리스 되었습니다. 다운로드에 사용할 수 없습니다.
@@ -111,8 +120,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 > 이 문제를 해결 하려면 **Adsync** 모듈을 가져온 다음 Azure AD Connect 서버에서`Set-ADSyncDirSyncConfiguration` powershell cmdlet을 실행 해야 합니다.  다음 단계를 사용할 수 있습니다.
 >
 >1. 관리자로 모드에서 Powershell 열기
->2. `Import-Module "ADSync"` 실행
->3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""` 실행
+>2. `Import-Module "ADSync"`
+>3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
  
 ### <a name="release-status"></a>릴리스 상태 
 
@@ -465,7 +474,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-형식     | Name                          | Access               | 적용 대상
+에     | 이름                          | Access               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 허용    | SYSTEM                        | 모든 권한         | 이 개체  |
 허용    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
@@ -1119,7 +1128,7 @@ AD FS 관리
 
 * 설치 파일이 기본 C:\Program Files 폴더에 없는 경우 이전 릴리스에서 업그레이드되지 않습니다.
 * 설치하고 설치 마법사의 마지막 단계에서 **동기화 프로세스 시작**을 선택 취소하면 설치 마법사를 다시 실행해도 스케줄러를 사용할 수 없습니다.
-* 날짜/시간 형식이 US-en이 아닌 서버에서는 스케줄러가 작동하지 않습니다. 또한 올바른 시간을 반환하도록 `Get-ADSyncScheduler`도 차단합니다.
+* 날짜/시간 형식이 US-en이 아닌 서버에서는 스케줄러가 작동하지 않습니다. 또한 올바른 시간을 반환하도록 `Get-ADSyncScheduler` 도 차단합니다.
 * 로그인 옵션으로 AD FS를 사용하는 Azure AD Connect의 이전 릴리스를 설치하고 업그레이드하는 경우 설치 마법사를 다시 실행할 수 없습니다.
 
 ## <a name="111050"></a>1.1.105.0

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: helohr
-ms.openlocfilehash: cf344d6c551ecd3d301d79c29efe9e7adb7f8d83
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: dc93480807f34a79ee02f628f7b6f090c7efa428
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646873"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931715"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -59,7 +59,7 @@ ControlUp은 IT 팀이 단일 콘솔에서 실시간으로 온-프레미스, 하
 
 Windows 가상 데스크톱과 함께 사용 하는 경우 제어 기능을 통해 Windows 가상 데스크톱 환경 및 최종 사용자 환경을 최적화할 수 있는 추가 기능을 제공 합니다. ControlUp 콘솔에서 최종 사용자 환경 가시성을 통해 성능 문제를 효과적으로 모니터링 하 고 해결할 수 있습니다. 직관적인 대시보드는 가상 데스크톱 배포에 대 한 통찰력 및 분석 뿐만 아니라 커뮤니티 벤치 마크를 통해 자동화 된 보고 보강 옵션을 제공 합니다. ControlUp은 여러 데이터 원본 및 유형을 관리 하 고, 계산, 저장소 및 Windows 가상 데스크톱 인프라 전체에서 집계 된 고성능 데이터 집합으로 구성 하 여 단일 창에서 세부적인 가시성을 허용할 수 있습니다.
 
-- [조인 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit)하세요.
+- [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit)하세요.
 - [파트너 웹 사이트로 이동](https://www.controlup.com/solutions/ms_wvd/)합니다.
 
 ## <a name="devicetrust"></a>deviceTRUST

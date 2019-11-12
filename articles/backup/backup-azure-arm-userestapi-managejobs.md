@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: c0ce79c68b9d9cf11ea20c2d6469f4240fb38a95
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5fe0255a8f304061dc970907c651261832fee614
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747551"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929093"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>REST API를 사용하여 백업 및 복원 작업 추적
 
@@ -44,14 +44,14 @@ Azure VM 백업 작업은 “jobId” 필드로 식별되며 [여기](https://do
 ## <a name="tracking-the-job"></a>작업 추적
 
 ```http
-GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2017-07-01
+GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupJobs/{jobName}?api-version=2019-05-13
 ```
 
 `{jobName}`은 위에 언급된 “jobId”입니다. 응답은 항상 작업의 현재 상태를 나타내는 “상태” 필드가 포함된 200 OK입니다. “Completed” 또는 “CompletedWithWarnings”인 경우 ‘extendedInfo’ 섹션에 해당 작업에 관한 자세한 내용이 표시됩니다.
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
-|Name  |형식  |설명  |
+|이름  |에  |설명  |
 |---------|---------|---------|
 |200 정상     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | 확인        |
 

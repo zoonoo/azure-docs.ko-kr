@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 85dbf773a27600fddf8fe7e5570ff332241f0ebc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d1f99be5f21cbf8f1dcfe4a32595a639d3760494
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894956"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929926"
 ---
-# <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Azure IoT Central에서 규칙에 대해 웹후크 작업 만들기
+# <a name="create-webhook-actions-on-rules-in-azure-iot-central-preview-features"></a>Azure IoT Central의 규칙에 대 한 웹 후크 작업 만들기 (미리 보기 기능)
 
 *이 항목의 내용은 빌더와 관리자에게 적용됩니다.*
 

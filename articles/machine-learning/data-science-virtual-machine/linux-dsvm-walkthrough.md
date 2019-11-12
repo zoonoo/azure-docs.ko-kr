@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 59f2db8ec4dd8affe1c87ca2bb85a7ff7b8a4d7c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b073c4244d2a7abc7c2c066c3fad036f0caa5faa
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485386"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929537"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Azure에서 Linux Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -24,7 +24,7 @@ ms.locfileid: "73485386"
 
 이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합을 분석 합니다. Spambase는 스팸 또는 ham (스팸이 아님)로 표시 된 전자 메일 집합입니다. Spambase에도 전자 메일의 내용에 대 한 일부 통계가 포함 되어 있습니다. 이 연습의 뒷부분에서 통계에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 Linux DSVM을 사용 하려면 먼저 다음과 같은 필수 구성 요소가 있어야 합니다.
 
@@ -58,8 +58,8 @@ Linux DSVM을 사용 하려면 먼저 다음과 같은 필수 구성 요소가 �
 
 데이터 집합에는 각 전자 메일에 대 한 여러 유형의 통계가 있습니다.
 
-* Word **\_freq\_* word***와 같은 열은 전자 메일에서 *단어*와 일치 하는 단어의 비율을 표시 합니다. 예를 들어 **word\_freq\_** 이 **1**이면 전자 메일에 있는 모든 단어의 1%가 *설정*된 것입니다.
-* Char **\_freq\_* char***와 같은 열은 전자 메일에서 *char*인 모든 문자의 비율을 표시 합니다.
+* Word **\_freq\__word_**  와 같은 열은 전자 메일에서 *단어*와 일치 하는 단어의 비율을 표시 합니다. 예를 들어 **word\_freq\_** 이 **1**이면 전자 메일에 있는 모든 단어의 1%가 *설정*된 것입니다.
+* Char **\_freq\__char_**  와 같은 열은 전자 메일에서 *char*인 모든 문자의 비율을 표시 합니다.
 * **capital\_run\_length\_longest**는 대문자 시퀀스의 가장 긴 길이입니다.
 * **capital\_run\_length\_average**는 모든 대문자 시퀀스의 평균 길이입니다.
 * **capital\_run\_length\_total**는 모든 대문자 시퀀스의 총 길이입니다.
@@ -381,7 +381,7 @@ Rattle은 탭 기반 인터페이스를 사용합니다. 대부분의 탭은 데
 **탐색** 탭을 사용 하 여 통찰력 있는 플롯을 생성할 수도 있습니다. 데이터의 히스토그램을 나타내려면
 
 1. **배포**를 선택합니다.
-1. **Word_freq_remove** 및 **Word_freq_you**에 대해 **히스토그램**을 선택 합니다.
+1. **Word_freq_remove** 및 **word_freq_you**에 대해서는 **히스토그램**을 선택 합니다.
 1. **실행**을 선택합니다. 단일 그래프 창에 밀도 플롯이 모두 표시 되어야 합니다. _여기서 단어는_ _제거_하는 것 보다 훨씬 자주 전자 메일에 표시 되는 것을 알 수 있습니다.
 
 **상관 관계** 플롯도 흥미롭습니다. 플롯을 만들려면 다음을 수행 합니다.

@@ -1,5 +1,5 @@
 ---
-title: SSL을 사용 하 여 보호
+title: SSL을 사용 하 여 웹 서비스 보안
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning를 통해 배포 된 웹 서비스를 너무 안전 하 게 보호 하기 위해 HTTPS를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 08/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1455ec17898e82ed0f39fea66c44d2e9b4f57280
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1021ad1983f78252d924a5d3cb674419732d66e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489549"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932053"
 ---
 # <a name="use-ssl-to-secure-a--through-azure-machine-learning"></a>SSL을 사용 하 여 Azure Machine Learning를 보호 합니다.
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -71,7 +71,7 @@ SSL 인증서를 가져오는 방법에는 여러 가지가 있습니다 (디지
 
 ## <a id="enable"></a>SSL 사용 및 배포
 
-SSL을 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당 되는 모든 위치에서 *ssl_enabled* 매개 변수를 "True"로 설정 합니다. *Ssl_certificate* 매개 변수를 *인증서* 파일의 값으로 설정 합니다. *Ssl_key* 을 *키* 파일의 값으로 설정 합니다.
+SSL을 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당 되는 모든 위치에서 *ssl_enabled* 매개 변수를 "True"로 설정 합니다. *Ssl_certificate* 매개 변수를 *인증서* 파일의 값으로 설정 합니다. *Ssl_key* 를 *키* 파일의 값으로 설정 합니다.
 
 ### <a name="deploy-on-aks-and-field-programmable-gate-array-fpga"></a>AKS 및 필드 프로그래밍 가능 게이트 배열 (FPGA)에 배포
 
@@ -80,14 +80,14 @@ SSL을 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당
 
 AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를 연결할 수 있습니다. 클러스터를 만들거나 연결 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service 클러스터에 모델 배포](how-to-deploy-azure-kubernetes-service.md)를 참조 하세요.
   
--  새 클러스터를 만드는 경우 **[AksCompute. provisionining_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none-)** 를 사용 합니다.
-- 기존 클러스터를 연결 하는 경우 **[AksCompute. attach_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 를 사용 합니다. 둘 다 **enable_ssl** 메서드가 있는 구성 개체를 반환 합니다.
+-  새 클러스터를 만드는 경우 **[AksCompute ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#provisioning-configuration-agent-count-none--vm-size-none--ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--location-none--vnet-resourcegroup-name-none--vnet-name-none--subnet-name-none--service-cidr-none--dns-service-ip-none--docker-bridge-cidr-none--cluster-purpose-none-)** 를 사용 합니다 provisionining_configuration.
+- 기존 클러스터를 연결 하는 경우 **[AksCompute ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)** 를 사용 합니다 attach_configuration. 둘 다 **enable_ssl** 메서드가 있는 구성 개체를 반환 합니다.
 
-**Enable_ssl** 메서드는 Microsoft에서 제공 하는 인증서 또는 구입한 인증서를 사용할 수 있습니다.
+**Enable_ssl** 방법은 Microsoft에서 제공 하는 인증서 또는 구입한 인증서를 사용할 수 있습니다.
 
   * Microsoft에서 인증서를 사용 하는 경우 *leaf_domain_label* 매개 변수를 사용 해야 합니다. 이 매개 변수는 서비스에 대 한 DNS 이름을 생성 합니다. 예를 들어 "myservice" 값은 "myservice\<6-임의의 문자 >의 도메인 이름을 만듭니다.\<azureregion >. 여기서 \<azureregion >는 서비스를 포함 하는 지역입니다. 필요에 따라 *overwrite_existing_domain* 매개 변수를 사용 하 여 기존 *leaf_domain_label*를 덮어쓸 수 있습니다.
 
-    SSL을 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당 되는 모든 위치에서 *ssl_enabled* 매개 변수를 "True"로 설정 합니다. *Ssl_certificate* 매개 변수를 *인증서* 파일의 값으로 설정 합니다. *Ssl_key* 을 *키* 파일의 값으로 설정 합니다.
+    SSL을 사용 하는 서비스를 배포 (또는 다시 배포) 하려면 해당 되는 모든 위치에서 *ssl_enabled* 매개 변수를 "True"로 설정 합니다. *Ssl_certificate* 매개 변수를 *인증서* 파일의 값으로 설정 합니다. *Ssl_key* 를 *키* 파일의 값으로 설정 합니다.
 
     > [!IMPORTANT]
     > Microsoft에서 인증서를 사용 하는 경우 사용자 고유의 인증서 또는 도메인 이름을 구입할 필요가 없습니다.
@@ -120,7 +120,7 @@ AKS에 배포할 때 새 AKS 클러스터를 만들거나 기존 클러스터를
                                         ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-*Enable_ssl*에 대 한 자세한 내용은 [AksProvisioningConfiguration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) 및 [AksAttachConfiguration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-)를 참조 하세요.
+*Enable_ssl*에 대 한 자세한 내용은 [enable_ssl AksProvisioningConfiguration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksprovisioningconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-) 및 [enable_ssl AksAttachConfiguration () (영문)](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.aksattachconfiguration?view=azure-ml-py#enable-ssl-ssl-cname-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--leaf-domain-label-none--overwrite-existing-domain-false-)를 참조 하세요.
 
 ### <a name="deploy-on-azure-container-instances"></a>Azure Container Instances에 배포
 
@@ -148,7 +148,7 @@ aci_config = AciWebservice.deploy_configuration(
 + **AKS의 경우:**
 
   > [!WARNING]
-  > *Leaf_domain_label* 를 사용 하 여 Microsoft의 인증서를 사용 하 여 서비스를 만든 경우 클러스터에 대 한 DNS 값을 수동으로 업데이트 하지 마십시오. 값은 자동으로 설정 해야 합니다.
+  > Microsoft의 인증서를 사용 하 여 서비스를 만드는 *leaf_domain_label* 사용 하는 경우 클러스터에 대 한 DNS 값을 수동으로 업데이트 하지 마십시오. 값은 자동으로 설정 해야 합니다.
 
   왼쪽 창의 **설정** 아래에 있는 **구성** 탭에서 AKS 클러스터의 공용 IP 주소에 대 한 DNS를 업데이트 합니다. 다음 이미지를 참조 하세요. 공용 IP 주소는 AKS 에이전트 노드 및 기타 네트워킹 리소스를 포함 하는 리소스 그룹에 생성 된 리소스 형식입니다.
 

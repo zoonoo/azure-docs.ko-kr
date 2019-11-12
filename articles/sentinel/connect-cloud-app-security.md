@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 95e38cee8f6995e09dbbb2194cd5a9d0ebc301c1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32e7e79465b68caca9a636019f65b9f08284fc72
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498663"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928208"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Microsoft Cloud App Security에서 데이터 연결 
 
@@ -27,10 +27,10 @@ ms.locfileid: "73498663"
 
 한 번의 클릭으로 [Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) 에서 Azure 센티널로 로그를 스트리밍할 수 있습니다. 이 연결을 통해 Cloud App Security에서 Azure 센티널로 경고를 스트리밍할 수 있습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
-- Cloud Discovery 로그를 Azure 센티널로 스트리밍하려면 [Microsoft Cloud App Security에서 SIEM으로 Azure 센티널을 사용 하도록 설정](aka.ms. https://aka.ms/AzureSentinelMCAS)합니다.
+- Cloud Discovery 로그를 Azure 센티널로 스트리밍하려면 [Microsoft Cloud App Security에서 SIEM으로 Azure 센티널을 사용 하도록 설정](https://aka.ms/AzureSentinelMCAS)합니다.
 
 > [!IMPORTANT]
 > Cloud Discovery 로그 수집은 현재 공개 미리 보기로 제공 됩니다.
@@ -47,7 +47,7 @@ Cloud App Security 배포 하 고 데이터를 수집 경고 데이터를 Azure 
 
 1. Azure 센티널로 스트리밍할 로그를 선택 합니다. **경고** 를 선택 하 고 로그 (미리 보기)를 **Cloud Discovery** 수 있습니다. 
 
-1. **Connect**를 클릭합니다.
+1. **연결**을 클릭합니다.
 
 1. Cloud App Security 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Securityalert**를 검색 합니다.
 

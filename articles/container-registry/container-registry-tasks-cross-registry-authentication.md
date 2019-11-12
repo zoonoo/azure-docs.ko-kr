@@ -1,18 +1,18 @@
 ---
-title: Azure Container Registry 태스크의 크로스 레지스트리 인증
-description: Azure Container Registry (ACR) 작업에서 Azure 리소스에 대해 관리 되는 id를 사용 하도록 설정 하 여 태스크가 다른 개인 컨테이너 레지스트리에 액세스할 수 있도록 합니다.
+title: Azure Container Registry 태스크에서의 크로스 레지스트리 인증
+description: Azure 리소스에 관리 되는 id를 사용 하 여 다른 개인 Azure 컨테이너 레지스트리에 액세스 하는 Azure Container Registry 작업 (ACR 작업) 구성
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/12/2019
 ms.author: danlep
-ms.openlocfilehash: 07fa7f3df5274ae88c93deac75093ead3f32f036
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: f2ffb42ce109f5e6f7186461f931b7f8da57ff32
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509087"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931509"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Azure로 관리 되는 id를 사용 하 여 ACR 작업에서의 크로스 레지스트리 인증 
 
@@ -30,7 +30,7 @@ ms.locfileid: "69509087"
 
 실제 시나리오에서 조직은 모든 개발 팀이 응용 프로그램을 빌드하기 위해 사용 하는 기본 이미지 집합을 유지할 수 있습니다. 이러한 기본 이미지는 회사 레지스트리에 저장 되며, 각 개발 팀에는 끌어오기 권한만 있습니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 이 문서에서는 두 개의 Azure 컨테이너 레지스트리가 필요 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "69509087"
 
 이후 단계에서를 사용자 고유의 레지스트리 이름으로 바꿉니다.
 
-필요한 Azure 컨테이너 레지스트리가 아직 없는 경우 빠른 시작을 참조 하세요 [. Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조하세요. 아직 레지스트리에 이미지를 푸시할 필요는 없습니다.
+필요한 Azure 컨테이너 레지스트리가 아직 없는 경우 [빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요. 아직 레지스트리에 이미지를 푸시할 필요는 없습니다.
 
 ## <a name="prepare-base-registry"></a>기본 레지스트리 준비
 
@@ -56,7 +56,7 @@ az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file D
 
 ## <a name="define-task-steps-in-yaml-file"></a>YAML 파일에서 작업 단계를 정의 합니다.
 
-이 예제 [다단계 작업](container-registry-tasks-multi-step.md) 의 단계는 [yaml 파일](container-registry-tasks-reference-yaml.md)에 정의 되어 있습니다. 로컬 작업 디렉터리에 `helloworldtask.yaml` 이라는 파일을 만들고 다음 내용을 붙여넣습니다. 빌드 단계의 값 `REGISTRY_NAME` 을 기본 레지스트리의 서버 이름으로 업데이트 합니다.
+이 예제 [다단계 작업](container-registry-tasks-multi-step.md) 의 단계는 [yaml 파일](container-registry-tasks-reference-yaml.md)에 정의 되어 있습니다. 로컬 작업 디렉터리에 `helloworldtask.yaml` 라는 파일을 만들고 다음 내용을 붙여넣습니다. 빌드 단계의 `REGISTRY_NAME` 값을 기본 레지스트리의 서버 이름으로 업데이트 합니다.
 
 ```yml
 version: v1.0.0
@@ -66,17 +66,17 @@ steps:
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
 ```
 
-빌드 단계에서는 `Dockerfile-app` [Azure-Samples/acr-helloworld-노드](https://github.com/Azure-Samples/acr-build-helloworld-node.git) 리포지토리의 파일을 사용 하 여 이미지를 빌드합니다. 는 `--build-arg` 기본 이미지를 가져오기 위해 기본 레지스트리를 참조 합니다. 성공적으로 빌드되면 이미지는 작업을 실행 하는 데 사용 되는 레지스트리에 푸시됩니다.
+빌드 단계에서는 [Azure-Samples/acr-helloworld-노드](https://github.com/Azure-Samples/acr-build-helloworld-node.git) 리포지토리의 `Dockerfile-app` 파일을 사용 하 여 이미지를 작성 합니다. `--build-arg`는 기본 이미지를 풀 하는 기본 레지스트리를 참조 합니다. 성공적으로 빌드되면 이미지는 작업을 실행 하는 데 사용 되는 레지스트리에 푸시됩니다.
 
 ## <a name="option-1-create-task-with-user-assigned-identity"></a>옵션 1: 사용자 할당 id를 사용 하 여 작업 만들기
 
-이 섹션의 단계에서는 작업을 만들고 사용자 할당 id를 사용 하도록 설정 합니다. 시스템 할당 id를 대신 [사용 하려면 옵션 2: 시스템이 할당 한 id](#option-2-create-task-with-system-assigned-identity)를 사용 하 여 작업을 만듭니다. 
+이 섹션의 단계에서는 작업을 만들고 사용자 할당 id를 사용 하도록 설정 합니다. 시스템 할당 id를 대신 사용 하도록 설정 하려면 [옵션 2: 시스템 할당 id를 사용 하 여 작업 만들기](#option-2-create-task-with-system-assigned-identity)를 참조 하세요. 
 
 [!INCLUDE [container-registry-tasks-user-assigned-id](../../includes/container-registry-tasks-user-assigned-id.md)]
 
 ### <a name="create-task"></a>작업 만들기
 
-다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *helloworldtask* 작업을 만듭니다. 작업은 소스 코드 컨텍스트 없이 실행 되 고 명령은 작업 디렉터리에 있는 파일 `helloworldtask.yaml` 을 참조 합니다. 매개 `--assign-identity` 변수는 사용자 할당 id의 리소스 ID를 전달 합니다. 
+다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *helloworldtask* 작업을 만듭니다. 소스 코드 컨텍스트 없이 태스크가 실행 되 고 명령이 작업 디렉터리에서 `helloworldtask.yaml` 파일을 참조 합니다. `--assign-identity` 매개 변수는 사용자 할당 id의 리소스 ID를 전달 합니다. 
 
 ```azurecli
 az acr task create \
@@ -89,13 +89,13 @@ az acr task create \
 
 [!INCLUDE [container-registry-tasks-user-id-properties](../../includes/container-registry-tasks-user-id-properties.md)]
 
-## <a name="option-2-create-task-with-system-assigned-identity"></a>옵션 2: 시스템이 할당 한 id를 사용 하 여 작업 만들기
+## <a name="option-2-create-task-with-system-assigned-identity"></a>옵션 2: 시스템 할당 id를 사용 하 여 작업 만들기
 
-이 섹션의 단계에서는 작업을 만들고 시스템 할당 id를 사용 하도록 설정 합니다. 사용자 할당 id를 대신 [사용 하려면 옵션 1: 사용자 할당 id](#option-1-create-task-with-user-assigned-identity)를 사용 하 여 작업을 만듭니다. 
+이 섹션의 단계에서는 작업을 만들고 시스템 할당 id를 사용 하도록 설정 합니다. 사용자 할당 id를 대신 사용 하려면 [옵션 1: 사용자 할당 id를 사용 하 여 작업 만들기](#option-1-create-task-with-user-assigned-identity)를 참조 하세요. 
 
 ### <a name="create-task"></a>작업 만들기
 
-다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *helloworldtask* 작업을 만듭니다. 작업은 소스 코드 컨텍스트 없이 실행 되 고 명령은 작업 디렉터리에 있는 파일 `helloworldtask.yaml` 을 참조 합니다. 값 `--assign-identity` 이 없는 매개 변수는 태스크에 대해 시스템이 할당 한 id를 사용 하도록 설정 합니다. 
+다음 [az acr task create][az-acr-task-create] 명령을 실행 하 여 *helloworldtask* 작업을 만듭니다. 소스 코드 컨텍스트 없이 태스크가 실행 되 고 명령이 작업 디렉터리에서 `helloworldtask.yaml` 파일을 참조 합니다. 값이 없는 `--assign-identity` 매개 변수는 작업에 대해 시스템 할당 id를 사용 하도록 설정 합니다. 
 
 ```azurecli
 az acr task create \
@@ -117,7 +117,7 @@ az acr task create \
 baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
 ```
 
-[Az role assign create][az-role-assignment-create] 명령을 사용 하 여 역할에 `acrpull` 대 한 id를 기본 레지스트리에 할당 합니다. 이 역할에는 레지스트리에서 이미지를 끌어올 수 있는 권한만 있습니다.
+[Az role assign create][az-role-assignment-create] 명령을 사용 하 여 id를 기본 레지스트리에 `acrpull` 역할에 할당 합니다. 이 역할에는 레지스트리에서 이미지를 끌어올 수 있는 권한만 있습니다.
 
 ```azurecli
 az role assignment create --assignee $principalID --scope $baseregID --role acrpull
@@ -125,7 +125,7 @@ az role assignment create --assignee $principalID --scope $baseregID --role acrp
 
 ## <a name="add-target-registry-credentials-to-task"></a>작업에 대상 레지스트리 자격 증명 추가
 
-이제 [az acr task credential add][az-acr-task-credential-add] 명령을 사용 하 여 id의 자격 증명을 작업에 추가 합니다. 이렇게 하면 기본 레지스트리를 사용 하 여 인증할 수 있습니다. 작업에서 사용 하도록 설정 된 관리 id의 형식에 해당 하는 명령을 실행 합니다. 사용자 할당 id를 사용 하도록 설정한 경우 id의 `--use-identity` 클라이언트 id를 전달 합니다. 시스템이 할당 한 id를 사용 하도록 설정한 경우를 `--use-identity [system]`전달 합니다.
+이제 [az acr task credential add][az-acr-task-credential-add] 명령을 사용 하 여 id의 자격 증명을 작업에 추가 합니다. 이렇게 하면 기본 레지스트리를 사용 하 여 인증할 수 있습니다. 작업에서 사용 하도록 설정 된 관리 id의 형식에 해당 하는 명령을 실행 합니다. 사용자 할당 id를 사용 하도록 설정한 경우 id의 클라이언트 ID를 사용 하 여 `--use-identity`를 전달 합니다. 시스템이 할당 한 id를 사용 하도록 설정한 경우 `--use-identity [system]`를 전달 합니다.
 
 ```azurecli
 # Add credentials for user-assigned identity to the task

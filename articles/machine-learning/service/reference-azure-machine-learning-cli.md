@@ -1,7 +1,7 @@
 ---
-title: Machine Learning CLI 확장
+title: CLI 확장
 titleSuffix: Azure Machine Learning
-description: Azure CLI용 Azure Machine Learning CLI 확장에 대해 알아봅니다. Azure CLI는 Azure 클라우드의 리소스로 작업할 수 있도록 해주는 플랫폼 간 명령줄 유틸리티입니다. Machine Learning 확장을 사용 하면 Azure Machine Learning를 사용할 수 있습니다.
+description: Azure CLI용 Azure Machine Learning CLI 확장에 대해 알아봅니다. Azure CLI는 Azure 클라우드의 리소스로 작업할 수 있도록 해주는 플랫폼 간 명령줄 유틸리티입니다. Machine Learning 확장을 사용 하면 Azure Machine Learning를 사용할 수 있습니다. ML CLI는 작업 영역, 데이터 저장소, 데이터 집합, 파이프라인, 모델 및 배포와 같은 리소스를 만들고 관리 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 20ff7d2cb6c185f574494871a986e1bce63536ba
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e775689da93b5197d1c2f7d130466c2afc8391e4
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619951"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932066"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning"></a>Azure Machine Learning에 CLI 확장 사용
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,9 +31,9 @@ Azure Machine Learning CLI는 Azure 플랫폼용 플랫폼 간 명령줄 인터�
 
 CLI는 Azure Machine Learning SDK를 대체하는 것이 아닙니다. 자동화에 잘 맞는 매우 중요 한 작업을 처리 하도록 최적화 된 보완 도구입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
-* CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* CLI를 사용하려면 Azure 구독이 있어야 합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
 
@@ -104,7 +104,7 @@ az extension remove -n azure-cli-ml
     az ml folder attach -w myworkspace -g myresourcegroup
     ```
 
-    이 명령은 .runconfig 및 conda environment 파일 예제를 포함 하는 `.azureml` 하위 디렉터리를 만듭니다. 또한 Azure Machine Learning 작업 영역과 통신 하는 데 사용 되는 `config.json` 파일을 포함 합니다.
+    이 명령은 .runconfig 및 conda environment 파일 예제를 포함 하는 `.azureml` 하위 디렉터리를 만듭니다. 또한 Azure Machine Learning 작업 영역과 통신 하는 데 사용 되는 `config.json` 파일도 포함 되어 있습니다.
 
     자세한 내용은 [az ml folder attach](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/folder?view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach)항목을 참조 하세요.
 

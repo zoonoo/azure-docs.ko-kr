@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central 애플리케이션에 Windows IoT Core 디바이스 연결 | Microsoft Docs
+title: Azure IoT Central 응용 프로그램에 Windows IoT Core 연결 | Microsoft Docs
 description: 디바이스 개발자로서 Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스를 연결하는 방법을 알아봅니다.
 author: miriambrus
 ms.author: miriamb
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d880130e114b2bd3e4f978c2ae3fc7bacf0648c4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 43e99c54249738436f24369ed3525e78ff971a12
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953903"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930203"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 Windows IoT Core 디바이스 연결
 
@@ -90,7 +90,7 @@ Azure IoT Central 응용 프로그램에서 **Device Explorer** 페이지를 사
 [Windows 장치 포털](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) 에는 장치 문제를 해결 하는 데 사용할 수 있는 도구가 포함 되어 있습니다.
 
 - **앱 관리자** 페이지를 사용 하 여 장치에서 실행 되는 앱을 제어할 수 있습니다.
-- 장치에 연결 된 모니터가 없는 경우 장치 **설정** 페이지를 사용 하 여 장치에서 스크린샷을 캡처할 수 있습니다. 다음은 그 예입니다.
+- 장치에 연결 된 모니터가 없는 경우 장치 **설정** 페이지를 사용 하 여 장치에서 스크린샷을 캡처할 수 있습니다. 예:
 
     ![앱 스크린샷](media/howto-connect-windowsiotcore/iot-hub-foreground-client.png)
 
@@ -104,7 +104,7 @@ Azure IoT Central 응용 프로그램에서 **Device Explorer** 페이지를 사
 
 ### <a name="telemetry-measurements"></a>원격 분석 측정값
 
-| 필드 이름     | 단위  | 최소 | 최대 | 소수 자릿수 |
+| 필드 이름     | Units  | 최소 | 최대 | 소수 자릿수 |
 | -------------- | ------ | ------- | ------- | -------------- |
 | humidity       | %      | 0       | 100     | 0              |
 | temp           | °C     | -40     | 120     | 0              |
@@ -114,16 +114,16 @@ Azure IoT Central 응용 프로그램에서 **Device Explorer** 페이지를 사
 
 숫자 설정
 
-| 표시 이름 | 필드 이름 | 단위 | 소수 자릿수 | 최소 | 최대 | Initial |
+| 표시 이름 | 필드 이름 | Units | 소수 자릿수 | 최소 | 최대 | Initial |
 | ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
 | 팬 속도    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-### <a name="properties"></a>properties
+### <a name="properties"></a>속성
 
-| Type            | 표시 이름 | 필드 이름 | 데이터 형식 |
+| 에            | 표시 이름 | 필드 이름 | 데이터 형식 |
 | --------------- | ------------ | ---------- | --------- |
 | 디바이스 속성 | 다이 번호   | dieNumber  | number    |
-| 텍스트            | 위치     | location   | N/A       |
+| 텍스트            | Location     | location   | 해당 없음       |
 
 ## <a name="next-steps"></a>다음 단계
 

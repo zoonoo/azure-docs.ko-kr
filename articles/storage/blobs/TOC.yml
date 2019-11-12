@@ -449,7 +449,7 @@
             - name: 스토리지 리소스 공급자
               href: /java/api/overview/azure/storage/management
         - name: JavaScript(버전 12.x)
-          href: /javascript/api/@azure/storage-blob/?view=azure-node-preview
+          href: /javascript/api/@azure/storage-blob/
         - name: Python(버전 12.x)
           href: /python/api/azure-storage-blob/
         - name: REST (영문)

@@ -1,18 +1,18 @@
 ---
 title: Azure Container Registry의 태그 및 버전 이미지
-description: Docker 컨테이너 이미지 태그 지정 및 버전 관리를 위한 모범 사례
+description: Azure container registry에 이미지를 푸시 하 고 이미지를 끌어올 때 Docker 컨테이너 이미지를 태그 지정 하 고 버전을 관리 하기 위한 모범 사례
 services: container-registry
 author: stevelasker
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: ea7c0831f4ecc345cbcd8a9b8eb6d6566e8c5023
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: 41013fb5831d09d7a4334e94d2b8b39e0cafe4d2
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297760"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931572"
 ---
 # <a name="recommendations-for-tagging-and-versioning-container-images"></a>컨테이너 이미지 태그 지정 및 버전 관리에 대 한 권장 사항
 
@@ -27,14 +27,14 @@ ms.locfileid: "68297760"
 
 *안정적인 태그* 는 개발자 (또는 빌드 시스템)가 계속 해 서 특정 태그를 끌어올 수 있으며, 계속 해 서 업데이트를 받습니다. 안정성은 콘텐츠가 고정 되어 있음을 의미 하지 않습니다. 대신, 안정화는 이미지를 해당 버전의 의도에 대 한 안정적인 것으로 암시 합니다. "안정적인" 상태를 유지 하기 위해 보안 패치 또는 프레임 워크 업데이트를 적용 하도록 서비스를 제공할 수 있습니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 프레임 워크 팀은 버전 1.0을 제공 합니다. 사소한 업데이트를 포함 하 여 업데이트를 제공 한다는 것을 알고 있습니다. 지정 된 주 버전 및 부 버전에 대해 안정적인 태그를 지원 하기 위해 두 개의 안정적인 태그 집합이 있습니다.
 
-* `:1`– 주 버전에 대 한 안정적인 태그입니다. `1`"최신" 또는 "최신" 1. * 버전을 나타냅니다.
+* `:1` – 주 버전에 대 한 안정적인 태그입니다. `1` "최신" 또는 "최신" 1. * 버전을 나타냅니다.
 * `:1.0`-버전 1.0에 대 한 안정적인 태그를 제공 하 여 개발자가 1.0 업데이트에 바인딩할 수 있도록 하 고, 릴리스 시 1.1로 롤포워드할 수 없도록 합니다.
 
-또한 팀은 현재 주 `:latest` 버전에 관계 없이 안정적인 최신 태그를 가리키는 태그를 사용 합니다.
+또한 팀은 현재 주 버전에 관계 없이 안정적인 최신 태그를 가리키는 `:latest` 태그를 사용 합니다.
 
 기본 이미지 업데이트를 사용할 수 있는 경우 또는 프레임 워크의 모든 유형에 서 안정적인 태그가 있는 이미지는 해당 버전의 최신 안정적인 릴리스를 나타내는 최신 다이제스트로 업데이트 됩니다.
 
@@ -51,11 +51,11 @@ ms.locfileid: "68297760"
 * **매니페스트 다이제스트** -컨테이너 레지스트리에 푸시되는 각 컨테이너 이미지는 고유한 SHA-256 해시 또는 다이제스트로 식별 되는 매니페스트와 연결 됩니다. 고유 하지만 다이제스트는 긴 하지만 읽기 어렵고 빌드 환경에서 상관 관계가 없는 됩니다.
 * **빌드 ID** -이 옵션은 증분 가능성이 있으므로이 옵션을 사용 하는 것이 가장 좋을 수 있으며, 모든 아티팩트와 로그를 찾기 위해 특정 빌드와 다시 연관 시킬 수 있습니다. 그러나 매니페스트 다이제스트와 마찬가지로 사람이 읽기 어려울 수 있습니다.
 
-  조직에 여러 빌드 시스템이 있는 경우, 빌드 시스템 이름을 포함 하는 태그는이 옵션 `<build-system>-<build-id>`의 변형입니다. 예를 들어 API 팀의 Jenkins 빌드 시스템과 웹 팀의 Azure Pipelines 빌드 시스템의 빌드를 구분할 수 있습니다.
+  조직에 여러 빌드 시스템이 있는 경우, 빌드 시스템 이름으로 태그를 접두사로 사용 하는 것은이 옵션의 변형 `<build-system>-<build-id>`입니다. 예를 들어 API 팀의 Jenkins 빌드 시스템과 웹 팀의 Azure Pipelines 빌드 시스템의 빌드를 구분할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서의 개념에 대 한 자세한 내용은 블로그 게시물 [Docker 태깅: Docker 이미지](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)에 태그를 지정 하 고 버전을 관리 하기 위한 모범 사례입니다.
+이 문서의 개념에 대 한 자세한 내용은 [Docker 태깅 블로그 게시물 docker 이미지 태그 지정 및 버전 관리에 대 한 모범 사례](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)를 참조 하세요.
 
 Azure container registry의 성능 및 비용 효율적 사용을 최대화 하려면 [Azure Container Registry에 대 한 모범 사례](container-registry-best-practices.md)를 참조 하세요.
 

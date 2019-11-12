@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 102f3e131b20534dc2f192b6485a3fdc95070315
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 801692c53ef268f15edc60d31743aefa6a247a78
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470268"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928498"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
@@ -91,7 +91,7 @@ App Service에는 서비스를 관리 하는 데 사용 되는 여러 끝점이 
 
 ### <a name="access-restrictions"></a>액세스 제한 
 
-액세스 제한 기능을 사용 하면 사용 중인 IP 주소에 따라 **인바운드** 요청을 필터링 할 수 있습니다. 필터링 작업은 작업자의 업스트림에서 앱이 실행 되는 위치를 롤업 하는 프런트 엔드 역할에 대해 수행 됩니다. 프런트 엔드 역할은 작업자의 업스트림 이므로 액세스 제한 기능을 앱에 대 한 네트워크 수준 보호로 간주할 수 있습니다. 이 기능을 사용 하면 우선 순위에 따라 평가 되는 허용 및 거부 주소 블록 목록을 작성할 수 있습니다. Azure 네트워킹에 존재 하는 NSG (네트워크 보안 그룹) 기능과 유사 합니다.  ASE 또는 다중 테 넌 트 서비스에서이 기능을 사용할 수 있습니다. ILB ASE와 함께 사용 하는 경우 개인 주소 블록에서 액세스를 제한할 수 있습니다.
+액세스 제한 기능을 사용 하면 사용 중인 IP 주소에 따라 **인바운드** 요청을 필터링 할 수 있습니다. 필터링 작업은 앱이 실행 되는 작업자 역할에서 업스트림 인 프런트 엔드 역할에 대해 수행 됩니다. 프런트 엔드 역할은 작업자의 업스트림 이므로 액세스 제한 기능을 앱에 대 한 네트워크 수준 보호로 간주할 수 있습니다. 이 기능을 사용 하면 우선 순위에 따라 평가 되는 허용 및 거부 주소 블록 목록을 작성할 수 있습니다. Azure 네트워킹에 존재 하는 NSG (네트워크 보안 그룹) 기능과 유사 합니다.  ASE 또는 다중 테 넌 트 서비스에서이 기능을 사용할 수 있습니다. ILB ASE와 함께 사용 하는 경우 개인 주소 블록에서 액세스를 제한할 수 있습니다.
 
 ![액세스 제한](media/networking-features/access-restrictions.png)
 

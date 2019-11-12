@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
+title: 사용자 지정 Docker 이미지를 사용 하 여 모델 배포
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning 모델을 배포할 때 사용자 지정 Docker 기본 이미지를 사용 하는 방법에 대해 알아봅니다. Azure Machine Learning 기본 이미지를 제공 하는 동안 고유한 기본 이미지를 사용할 수도 있습니다.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 3f822e0089772f06245d80c1323cf1f5dfe10361
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b34ef305a6f1cf41c7b7bdcf415e1a91653ad878
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496923"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932111"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만
 * 사용자 지정 기본 이미지 만들기: 사용자 지정 이미지를 만들고 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry에 대 한 인증을 구성 하는 데 관리자 및 DevOps에 정보를 제공 합니다.
 * 사용자 지정 기본 이미지를 사용 하 여 모델 배포: Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/ML 엔지니어에 게 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * Azure Machine Learning 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다. 
@@ -172,7 +172,7 @@ Azure Container Registry에 기존 이미지를 업로드 하는 방법에 대 �
 * __이미지 이름__입니다. 예를 들어 `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda`은 Microsoft에서 제공 하는 기본 Docker 이미지의 경로입니다.
 * 이미지가 __개인 리포지토리에__있는 경우 다음 정보가 필요 합니다.
 
-    * 레지스트리 __주소__입니다. 예: `myregistry.azureecr.io`
+    * 레지스트리 __주소__입니다. 예: `myregistry.azureecr.io`.
     * 레지스트리에 대 한 읽기 권한이 있는 서비스 사용자 __이름__ 및 __암호__ 입니다.
 
     이 정보가 없는 경우 관리자에 게 이미지를 포함 하는 Azure Container Registry에 대해 문의 하십시오.

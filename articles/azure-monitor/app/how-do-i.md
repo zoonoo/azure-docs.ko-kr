@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/04/2017
-ms.openlocfilehash: 28881403e4938376cc1912227bdff51aa5f069cf
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 61bd5898c494018a2bacbd894d4dc2aac97f53b4
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817375"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928413"
 ---
-# <a name="how-do-i--in-application-insights"></a>Application Insights에서 다음을 수행하는 방법
+# <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
 ### <a name="email-if-my-site-goes-down"></a>내 사이트가 다운되면 전자 메일로 알림
 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 설정합니다.
@@ -72,14 +72,14 @@ ms.locfileid: "72817375"
 [PowerShell을 사용하여 새 경고 만들기](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="use-powershell-to-manage-application-insights"></a>PowerShell을 사용하여 Application Insights 관리
-* [새 리소스 만들기](../../azure-monitor/app/powershell-script-create-resource.md)
+* [새 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [새 경고 만들기](../../azure-monitor/app/alerts.md#automation)
 
 ## <a name="separate-telemetry-from-different-versions"></a>서로 다른 버전에서 별도 원격 분석
 
-* 앱의 여러 역할: 단일 Application Insights 리소스를 사용 하 고 [cloud_Rolename](../../azure-monitor/app/app-map.md)에서 필터링 합니다.
+* 앱의 여러 역할: 단일 Application Insights 리소스를 사용 하 고 [cloud_Rolename](../../azure-monitor/app/app-map.md)를 필터링 합니다.
 * 개발, 테스트 및 릴리스 버전 구분: 다른 Application Insights 리소스 사용. Web.config에서 계측 키를 선택 합니다. [자세히 알아보기](../../azure-monitor/app/separate-resources.md)
-* 빌드 버전 보고: 원격 분석 이니셜라이저를 사용하여 속성 추가. [자세한 정보](../../azure-monitor/app/separate-resources.md)
+* 빌드 버전 보고: 원격 분석 이니셜라이저를 사용하여 속성 추가. [자세히 알아보기](../../azure-monitor/app/separate-resources.md)
 
 ## <a name="monitor-backend-servers-and-desktop-apps"></a>백엔드 서버 및 데스크톱 앱 모니터링
 [Windows Server SDK 모듈을 사용합니다](../../azure-monitor/app/windows-desktop.md).
@@ -98,11 +98,11 @@ or
 <a name="search-specific-users"></a>
 
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>익명 또는 인증된 사용자 필터링
-사용자가 로그인 하는 경우 [인증 된 사용자 id](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다. 자동으로 발생 하지 않습니다.
+사용자가 로그인 하는 경우 [인증 된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다. 이 작업은 자동으로 수행되지 않습니다.
 
 그런 다음 다음을 수행할 수 있습니다.
 
-* 특정 사용자 ID 검색
+* 특정 사용자 Id 검색
 
 ![](./media/how-do-i/110-search.png)
 
@@ -114,12 +114,12 @@ or
 [필터](../../azure-monitor/app/api-filtering-sampling.md#filtering)를 만듭니다. 그러면 원격 분석을 수정하거나 필터링한 후 앱에서 Application Insights로 전송할 수 있습니다.
 
 ## <a name="list-specific-users-and-their-usage"></a>특정 사용자와 그 사용 방법을 나열
-[특정 사용자만 검색](#search-specific-users)하려는 경우 [인증된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다.
+[특정 사용자를 검색](#search-specific-users)하려는 경우 [인증 된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다.
 
 사용자가 보는 페이지, 로그인 빈도 등과 같은 데이터와 사용자 목록이 필요한 경우 두 가지 옵션이 있습니다.
 
-* [인증된 사용자 ID를 설정하고](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) [데이터베이스로 내보내고](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) 적합한 도구를 사용하여 사용자 데이터를 분석합니다.
-* 사용자 수가 적은 경우, 관심이 있는 데이터를 사용하는 사용자 지정 이벤트나 메트릭을 메트릭 값 또는 이벤트 이름 형태로 보내고 사용자 ID를 속성으로 설정합니다. 페이지 보기를 분석하려면 표준 JavaScript trackPageView 호출을 대체합니다. 서버 측 원격 분석을 분석하려면 원격 분석 이니셜라이저를 사용하여 사용자 ID를 모든 서버 원격 분석에 추가합니다. 그런 다음 메트릭과 사용자 ID에 대한 검색을 필터링 및 분할할 수 있습니다.
+* [인증 된 사용자 ID를 설정](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)하 고 [데이터베이스로 내보낸](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) 다음 적합 한 도구를 사용 하 여 사용자 데이터를 분석 합니다.
+* 사용자 수가 적은 경우에는 관심 있는 데이터를 메트릭 값 이나 이벤트 이름으로 사용 하 고 사용자 ID를 속성으로 설정 하 여 사용자 지정 이벤트 또는 메트릭을 보냅니다. 페이지 보기를 분석하려면 표준 JavaScript trackPageView 호출을 대체합니다. 서버 쪽 원격 분석을 분석 하려면 원격 분석 이니셜라이저를 사용 하 여 사용자 ID를 모든 서버 원격 분석에 추가 합니다. 그런 다음 사용자 ID에 대 한 메트릭 및 검색을 필터링 하 고 분할할 수 있습니다.
 
 ## <a name="reduce-traffic-from-my-app-to-application-insights"></a>Application Insights에 대한 내 앱의 트래픽 줄이기
 * [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 성능 카운터 수집기 등 필요하지 않은 모듈을 모두 사용하지 않도록 설정합니다.

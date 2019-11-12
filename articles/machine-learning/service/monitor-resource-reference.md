@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/06/2019
-ms.openlocfilehash: 178c60d82c8337987e9858a409fcdef7063c9559
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 743007d3636516a39dd36caf3d44d3edb650c030
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684903"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929532"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Azure machine learning 모니터링 데이터 참조
 
@@ -63,10 +63,10 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | Category | 로그 이벤트의 이름, AmlComputeClusterNodeEvent |
 | ProvisioningState | 클러스터의 프로 비전 상태 |
 | ClusterName | 클러스터의 이름 |
-| clusterType | 클러스터의 유형입니다. |
+| ClusterType | 클러스터의 유형입니다. |
 | CreatedBy | 클러스터를 만든 사용자 |
 | CoreCount | 클러스터의 코어 수 |
-| vmSize | 클러스터의 Vm 크기 |
+| VmSize | 클러스터의 Vm 크기 |
 | VmPriority | 클러스터 전용/LowPriority 내에서 만든 노드의 우선 순위 |
 | ScalingType | 클러스터 크기 조정 수동/자동 크기 조정 |
 | InitialNodeCount | 클러스터의 초기 노드 수 |
@@ -106,7 +106,7 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 | Category | 로그 이벤트의 이름, AmlComputeClusterNodeEvent |
 | ClusterName | 클러스터의 이름 |
 | NodeId | 만든 클러스터 노드의 ID |
-| vmSize | 노드의 Vm 크기 |
+| VmSize | 노드의 Vm 크기 |
 | VmFamilyName | 노드가 속한 Vm 제품군 |
 | VmPriority | 전용/LowPriority를 만든 노드의 우선 순위입니다. |
 | 게시자 | Vm 이미지 (예: microsoft-dsvm)의 게시자 |
@@ -128,13 +128,13 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 **Model**
 
-| 모델 | 단위 | 설명 |
+| 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
-| 모델 배포 실패 | 카운트 | 실패 한 모델 배포의 수입니다. |
-| 모델 배포가 시작 됨 | 카운트 | 시작 된 모델 배포의 수입니다. |
-| 모델 배포 성공 | 카운트 | 성공한 모델 배포의 수입니다. |
-| 모델 레지스터가 실패 했습니다. | 카운트 | 실패 한 모델 등록 수입니다. |
-| 모델 등록 성공 | 카운트 | 성공한 모델 등록 수입니다. |
+| 모델 배포 실패 | 개수 | 실패 한 모델 배포의 수입니다. |
+| 모델 배포가 시작 됨 | 개수 | 시작 된 모델 배포의 수입니다. |
+| 모델 배포 성공 | 개수 | 성공한 모델 배포의 수입니다. |
+| 모델 레지스터가 실패 했습니다. | 개수 | 실패 한 모델 등록 수입니다. |
+| 모델 등록 성공 | 개수 | 성공한 모델 등록 수입니다. |
 
 **할당량**
 
@@ -142,19 +142,19 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 | 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
-| 활성 코어 | 카운트 | 활성 계산 코어의 수입니다. |
-| 활성 노드 | 카운트 | 활성 노드 수입니다. |
-| 유휴 코어 | 카운트 | 유휴 계산 코어의 수입니다. |
-| 유휴 노드 | 카운트 | 유휴 계산 노드 수입니다. |
-| 코어 탈퇴 | 카운트 | 종료 되는 코어 수입니다. |
-| 노드 종료 | 카운트 | 종료 노드 수입니다. |
-| 선점 코어 | 카운트 | 선점 되는 코어 수입니다. |
-| 선점 노드 | 카운트 | 선점 된 노드 수입니다. |
+| 활성 코어 | 개수 | 활성 계산 코어의 수입니다. |
+| 활성 노드 | 개수 | 활성 노드 수입니다. |
+| 유휴 코어 | 개수 | 유휴 계산 코어의 수입니다. |
+| 유휴 노드 | 개수 | 유휴 계산 노드 수입니다. |
+| 코어 탈퇴 | 개수 | 종료 되는 코어 수입니다. |
+| 노드 종료 | 개수 | 종료 노드 수입니다. |
+| 선점 코어 | 개수 | 선점 되는 코어 수입니다. |
+| 선점 노드 | 개수 | 선점 된 노드 수입니다. |
 | 할당량 사용률 비율 | 백분율 | 사용 된 할당량의 백분율입니다. |
-| 총 코어 수 | 카운트 | 총 코어입니다. |
-| 총 노드 | 카운트 | 총 노드입니다. |
-| 사용할 수 없는 코어 | 카운트 | 사용할 수 없는 코어의 수입니다. |
-| 사용할 수 없는 노드 | 카운트 | 사용할 수 없는 노드 수입니다. |
+| 총 코어 수 | 개수 | 총 코어입니다. |
+| 총 노드 | 개수 | 총 노드입니다. |
+| 사용할 수 없는 코어 | 개수 | 사용할 수 없는 코어의 수입니다. |
+| 사용할 수 없는 노드 | 개수 | 사용할 수 없는 노드 수입니다. |
 
 다음은 할당량 메트릭을 필터링 하는 데 사용할 수 있는 차원입니다.
 
@@ -170,9 +170,9 @@ Azure Machine Learning 작업 영역에서 Azure Monitor 하 여 수집 된 데�
 
 | 메트릭 | 단위 | 설명 |
 | ----- | ----- | ----- |
-| 완료 된 실행 | 카운트 | 완료 된 실행 수입니다. |
-| 실패 한 실행 | 카운트 | 실패 한 실행 수입니다. |
-| 실행 시작 | 카운트 | 시작 된 실행의 수입니다. |
+| 완료 된 실행 | 개수 | 완료 된 실행 수입니다. |
+| 실패 한 실행 | 개수 | 실패 한 실행 수입니다. |
+| 실행 시작 | 개수 | 시작 된 실행의 수입니다. |
 
 다음은 실행 메트릭을 필터링 하는 데 사용할 수 있는 차원입니다.
 

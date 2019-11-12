@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 1e9f852d01d60ead9979b6b1190e285b35d5c312
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: bdbc50983708327cf5d3857282c92fcab1c28b09
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294031"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930538"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB의 진단 로깅 
 
@@ -70,7 +70,7 @@ Azure 진단 로그는 리소스에서 내보내며, 해당 리소스의 작업�
 
 Azure Portal에서 진단 로깅을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
-1. [Azure 포털](https://portal.azure.com)할 수 있습니다. 
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
 
 1. Azure Cosmos 계정으로 이동합니다. **진단 설정** 창을 열고 **진단 설정 추가** 옵션을 선택 합니다.
 
@@ -78,37 +78,37 @@ Azure Portal에서 진단 로깅을 사용 하도록 설정 하려면 다음 단
 
 1. **진단 설정** 페이지에서 다음 세부 정보로 양식을 채웁니다. 
 
-    * **Name**: 만들 로그에 대한 이름을 입력합니다.
+    * **이름**: 만들 로그에 대한 이름을 입력합니다.
 
     * 다음 서비스에 로그를 저장할 수 있습니다.
 
       * **스토리지 계정에 보관**: 이 옵션을 사용하려면 연결할 기존 스토리지 계정이 필요합니다. 포털에서 새 저장소 계정을 만들려면 [저장소 계정 만들기](../storage/common/storage-create-storage-account.md) 문서를 참조 하세요. 그런 다음 포털의 Azure Cosmos Db 진단 설정 창으로 돌아가 저장소 계정을 선택 합니다. 새로 만든 스토리지 계정이 드롭다운 메뉴에 나타나기까지 몇 분 정도 걸릴 수 있습니다.
 
-      * **이벤트 허브로의 스트림**: 이 옵션을 사용하려면 연결할 기존 Event Hubs 네임스페이스 및 이벤트 허브가 필요합니다. Event Hubs 네임스페이스를 만들려면 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의이 페이지로 돌아와서 이벤트 허브 네임 스페이스 및 정책 이름을 선택 합니다.
+      * **이벤트 허브로 스트림**: 이 옵션을 사용하려면 연결할 기존 Event Hub 네임스페이스 및 이벤트 허브가 필요합니다. Event Hubs 네임스페이스를 만들려면 [Azure Portal을 사용하여 Event Hubs 네임스페이스 및 이벤트 허브 만들기](../event-hubs/event-hubs-create.md)를 참조하세요. 그런 다음 포털의이 페이지로 돌아와서 이벤트 허브 네임 스페이스 및 정책 이름을 선택 합니다.
 
       * **Log Analytics에 보내기**: 이 옵션을 사용하려면 기존 작업 영역을 사용하거나 포털에서 [새 작업 영역 만들기](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace) 단계를 따라 새 Log Analytics 작업 영역을 만듭니다. 
 
    * 다음 데이터를 기록할 수 있습니다.
 
-      * **DataPlaneRequests**: SQL, Graph, MongoDB, Cassandra 및 Table API 계정을 포함 하는 모든 Api에 대 한 백 엔드 요청을 Azure Cosmos DB에 기록 하려면이 옵션을 선택 합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다. 다음 JSON 데이터는 DataPlaneRequests을 사용 하 여 기록 된 세부 정보 출력의 예입니다. 유의 해야 할 주요 속성은 다음과 같습니다. Requestcharge, statusCode, clientIPaddress 및 partitionID:
+      * **DataPlaneRequests**: AZURE COSMOS DB에서 SQL, Graph, MongoDB, Cassandra 및 Table API 계정을 포함 하는 모든 api에 백 엔드 요청을 기록 하려면이 옵션을 선택 합니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다. 다음 JSON 데이터는 DataPlaneRequests을 사용 하 여 기록 된 세부 정보 출력의 예입니다. 유의 해야 할 주요 속성은 Requestcharge, statusCode, clientIPaddress 및 partitionID입니다.
 
        ```
        { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372","resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
        ```
 
-      * **MongoRequests**: 프런트 엔드에서 사용자가 시작한 요청을 MongoDB의 API Azure Cosmos DB에 대 한 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. MongoDB 요청은 MongoRequests 및 DataPlaneRequests에도 표시 됩니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다. 다음 JSON 데이터는 MongoRequests을 사용 하 여 기록 된 세부 정보 출력의 예입니다. 유의 해야 할 주요 속성은 다음과 같습니다. Requestcharge, opCode:
+      * **MongoRequests**: 프런트 엔드에서 사용자가 시작한 요청을 MONGODB의 API에 대 한 Azure Cosmos DB 요청을 처리 하도록 기록 하려면이 옵션을 선택 합니다. MongoDB 요청은 MongoRequests 및 DataPlaneRequests에도 표시 됩니다. 스토리지 계정으로 보관하려는 경우 진단 로그의 보존 기간을 선택할 수 있습니다. 보존 기간이 만료되면 로그가 자동으로 삭제됩니다. 다음 JSON 데이터는 MongoRequests을 사용 하 여 기록 된 세부 정보 출력의 예입니다. 유의 해야 할 주요 속성은 Requestcharge, opCode:
 
        ```
        { "time": "2019-04-10T15:10:46.7820998Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "MongoRequests", "operationName": "ping", "properties": {"activityId": "823cae64-0000-0000-0000-000000000000","opCode": "MongoOpCode_OP_QUERY","errorCode": "0","duration": "0","requestCharge": "0.000000","databaseName": "admin","collectionName": "$cmd","retryCount": "0"}}
        ```
 
-      * **QueryRuntimeStatistics**: 실행 된 쿼리 텍스트를 기록 하려면이 옵션을 선택 합니다.  다음 JSON 데이터는 QueryRuntimeStatistics를 사용 하 여 기록 되는 세부 정보의 예제 출력입니다.
+      * **Queryruntimestatistics**: 실행 된 쿼리 텍스트를 기록 하려면이 옵션을 선택 합니다.  다음 JSON 데이터는 QueryRuntimeStatistics를 사용 하 여 기록 되는 세부 정보의 예제 출력입니다.
 
        ```
        { "time": "2019-04-14T19:08:11.6353239Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "QueryRuntimeStatistics", "properties": {"activityId": "278b0661-7452-4df3-b992-8aa0864142cf","databasename": "Tasks","collectionname": "Items","partitionkeyrangeid": "0","querytext": "{"query":"SELECT *\nFROM c\nWHERE (c.p1__10 != true)","parameters":[]}"}}
        ```
 
-      * **파티션**: 이 로그는 파티션 키의 통계를 보고 합니다. 현재 통계는 파티션 키의 저장소 크기 (KB)로 표시 됩니다. 대부분의 데이터 저장소를 차지 하는 처음 세 개의 파티션 키에 대해 로그를 내보냅니다.
+      * 파티션 **키 통계를**보고 하는 로그입니다. 현재 통계는 파티션 키의 저장소 크기 (KB)로 표시 됩니다. 대부분의 데이터 저장소를 차지 하는 처음 세 개의 파티션 키에 대해 로그를 내보냅니다.
 
        ```
        { "time": "2019-10-11T02:33:24.2018744Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "PartitionKeyStatistics", "properties": {"subscriptionId": "<your_subscription_ID>","regionName": "West US 2","databaseName": "KustoQueryResults","collectionname": "CapacityMetrics","partitionkey": "["CapacityMetricsPartition.136"]","sizeKb": "2048270"}}
@@ -132,7 +132,7 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
    az monitor diagnostic-settings create --name DiagStorage --resource <resourceId> --storage-account <storageAccountName> --logs '[{"category": "QueryRuntimeStatistics", "enabled": true, "retentionPolicy": {"enabled": true, "days": 0}}]'
    ```
 
-   `resource`는 Azure Cosmos DB 계정의 이름입니다. 이 리소스는 "/subscriptions/`<subscriptionId>`/resourceGroups/`<resource_group_name>`/providers </> Azure_Cosmos_account_name" 형식으로 되어 있습니다. `storage-account`는 로그를 보낼 저장소 계정의 이름입니다. 범주 매개 변수 값을 "MongoRequests" 또는 "DataPlaneRequests"로 업데이트 하 여 다른 로그를 기록할 수 있습니다. 
+   `resource`는 Azure Cosmos DB 계정의 이름입니다. 리소스는 "/subscriptions/`<subscriptionId>`/Wsourceg/`<resource_group_name>`/providers/Microsoft.DocumentDB/databaseAccounts/< Azure_Cosmos_account_name >" 형식입니다. `storage-account`는 로그를 보낼 저장소 계정의 이름입니다. 범주 매개 변수 값을 "MongoRequests" 또는 "DataPlaneRequests"로 업데이트 하 여 다른 로그를 기록할 수 있습니다. 
 
 - 이벤트 허브로의 진단 로그 스트리밍을 사용하도록 설정하려면 다음 명령을 사용합니다.
 
@@ -140,7 +140,7 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
    az monitor diagnostic-settings create --name cdbdiagsett --resourceId <resourceId> --event-hub-rule <eventHubRuleID> --logs '[{"category":"QueryRuntimeStatistics","enabled":true,"retentionPolicy":{"days":6,"enabled":true}}]'
    ```
 
-   `resource`는 Azure Cosmos DB 계정의 이름입니다. @No__t-0은 이벤트 허브 규칙 ID입니다. 
+   `resource`는 Azure Cosmos DB 계정의 이름입니다. `event-hub-rule`는 이벤트 허브 규칙 ID입니다. 
 
 - 진단 로그를 Log Analytics 작업 영역으로 보낼 수 있게 하려면 다음 명령을 사용합니다.
 
@@ -293,7 +293,7 @@ Name              : resourceId=/SUBSCRIPTIONS/<subscription-ID>/RESOURCEGROUPS/C
 
 여러 리소스에 대한 로그를 수집하는 데 동일한 스토리지 계정을 사용할 수 있으므로 Blob 이름에 있는 정규화된 리소스 ID를 사용하여 필요한 특정 Blob을 액세스하거나 다운로드할 수 있습니다. 이러한 작업을 수행하기 전에, 모든 Blob을 다운로드하는 방법을 다룹니다.
 
-먼저 Blob을 다운로드할 폴더를 만듭니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+먼저 Blob을 다운로드할 폴더를 만듭니다. 예:
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -315,7 +315,7 @@ $blobs | Get-AzStorageBlobContent `
 
 이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만듭니다. 이 폴더 구조는 Blob을 파일로 다운로드하고 저장하는 데 사용됩니다.
 
-선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예:
 
 * 여러 데이터베이스가 있고 **CONTOSOCOSMOSDB3**라는 하나의 데이터베이스에 대한 로그를 다운로드하려는 경우 다음 명령을 사용합니다.
 
@@ -401,61 +401,105 @@ Azure Monitor 로그에서 진단 데이터를 보려면 다음 그림과 같이
 ![최근 10개 로그에 대한 샘플 로그 검색](./media/logging/log-analytics-query.png)
 
 <a id="#queries"></a>
-### <a name="queries"></a>쿼리
+### <a name="cosmosdb-log-analytics-queries-in-azure-monitor"></a>CosmosDB Log Analytics 쿼리 Azure Monitor
 
-Azure Cosmos 컨테이너를 모니터링 하는 데 도움이 되는 **로그 검색** 상자에 입력할 수 있는 몇 가지 추가 쿼리는 다음과 같습니다. 이러한 쿼리는 [새 언어](../log-analytics/log-analytics-log-search-upgrade.md)에서 작동합니다. 
+Azure Cosmos 컨테이너를 모니터링 하는 데 도움이 되는 **로그 검색** 상자에 입력할 수 있는 몇 가지 추가 쿼리는 다음과 같습니다. 이러한 쿼리는 [새 언어](../log-analytics/log-analytics-log-search-upgrade.md)에서 작동합니다.  
 
 각 로그 검색에서 반환된 데이터의 의미를 알아보려면 [Azure Cosmos DB 로그 해석](#interpret)을 참조하세요.
 
 * 지정된 기간 동안 Azure Cosmos DB의 모든 진단 로그를 쿼리하려면
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests"
     ```
 
 * 가장 최근에 로깅된 10개 이벤트를 쿼리하려면
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | take 10
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | limit 10
     ```
 
 * 모든 작업을 쿼리하고 작업 유형별로 그룹화하려면
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by OperationName
     ```
 
 * 모든 작업을 쿼리하고 **리소스**별로 그룹화하려면
 
     ```
-    AzureActivity | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    AzureActivity 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by Resource
     ```
 
 * 모든 사용자 작업을 쿼리하고 리소스별로 그룹화하려면
 
     ```
-    AzureActivity | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by Resource
+    AzureActivity 
+    | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by Resource
     ```
     > [!NOTE]
     > 이 명령은 진단 로그가 아닌 활동 로그용입니다.
 
+* DataPlaneRequests 및 QueryRunTimeStatistics의 데이터로 조인 되는 100 RUs 보다 큰 모든 쿼리를 가져오려면
+
+    ```
+    AzureDiagnostics
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" and todouble(requestCharge_s) > 100.0
+    | project activityId_g, requestCharge_s
+    | join kind= inner (
+           AzureDiagnostics
+           | where ResourceProvider =="MICROSOFT.DOCUMENTDB" and Category == "QueryRuntimeStatistics"
+           | project activityId_g, querytext_s
+    ) on $left.activityId_g == $right.activityId_g
+    | order by requestCharge_s desc
+    | limit 100
+    ```
+    
+      
+
 * 3밀리초보다 오래 소요되는 작업을 쿼리하려면
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics 
+    | where toint(duration_s) > 3 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * 작업을 실행 중인 에이전트를 쿼리하려면
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by OperationName, userAgent_s
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | summarize count() by OperationName, userAgent_s
     ```
 
 * 장기 실행 작업이 수행된 시점을 쿼리하려면
 
     ```
-    AzureDiagnostics | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | project TimeGenerated , duration_s | render timechart
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
+    | project TimeGenerated , duration_s 
+    | render timechart
     ```
+    
+* 파티션 키 통계를 가져와서 데이터베이스 계정에 대 한 상위 3 개 파티션 간의 오차를 평가 하려면:
+
+    ```
+    AzureDiagnostics 
+    | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
+    | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
+    
+   
+    ```
+    
 
 새 로그 검색 언어를 사용 하는 방법에 대 한 자세한 내용은 [Azure Monitor 로그의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md)를 참조 하세요. 
 
@@ -468,10 +512,10 @@ Azure Storage 및 Azure Monitor 로그에 저장 된 진단 데이터는 유사�
 | Azure Storage 필드 또는 속성 | Azure Monitor logs 속성 | 설명 |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | 작업이 발생한 날짜 및 시간(UTC)입니다. |
-| **resourceId** | **Resource** | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
+| **resourceId** | **리소스** | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
 | **category** | **범주** | Azure Cosmos DB 로그의 경우 **DataPlaneRequests**가 사용 가능한 유일한 값입니다. |
 | **operationName** | **OperationName** | 작업의 이름입니다. 이 값은 Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed 또는 Upsert 작업 중 하나일 수 있습니다.   |
-| **properties** | n/a | 이 필드의 내용은 다음 행에 설명되어 있습니다. |
+| **properties** | 해당 없음 | 이 필드의 내용은 다음 행에 설명되어 있습니다. |
 | **activityId** | **activityId_g** | 기록된 작업의 고유 GUID입니다. |
 | **userAgent** | **userAgent_s** | 요청을 수행하는 클라이언트 사용자 에이전트를 지정하는 문자열입니다. 형식은 {사용자 에이전트 이름}/{버전}입니다.|
 | **requestResourceType** | **requestResourceType_s** | 액세스한 리소스 유형입니다. 이 값은 Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction 또는 Offer 같은 리소스 유형 중 하나일 수 있습니다. |
@@ -482,7 +526,7 @@ Azure Storage 및 Azure Monitor 로그에 저장 된 진단 데이터는 유사�
 | **collectionRid** | **collectionId_s** | 컬렉션의 고유 ID입니다.|
 | **duration** | **duration_s** | 작업의 기간 (밀리초)입니다. |
 | **requestLength** | **requestLength_s** | 요청 길이(바이트)입니다. |
-| **responseLength** | **responseLength_s** | 길이 (바이트)에서 응답입니다.|
+| **responseLength** | **responseLength_s** | 응답 길이(바이트)입니다.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | 이 값은 인증에 [리소스 토큰](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens)이 사용될 경우 비어 있지 않습니다. 값은 사용자의 리소스 ID를 가리킵니다. |
 
 ## <a name="next-steps"></a>다음 단계

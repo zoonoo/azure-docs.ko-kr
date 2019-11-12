@@ -1,6 +1,6 @@
 ---
 title: Azure Container Registry 콘텐츠 서식
-description: Azure Container Registry에서 지원되는 콘텐츠 서식에 대해 알아봅니다.
+description: Docker 호환 컨테이너 이미지, 투구 차트, OCI 이미지 및 OCI 아티팩트를 비롯 하 여 Azure Container Registry에서 지 원하는 콘텐츠 형식에 대해 알아봅니다.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: danlep
-ms.openlocfilehash: d49aab89c9568f168808c40508b4fe7d3175e902
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 98bab18f9a8250b99410941a8f865fd7ec1c5fe0
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164530"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931574"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Azure Container Registry에서 지원되는 콘텐츠 서식
 

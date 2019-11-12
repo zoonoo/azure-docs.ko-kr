@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3d5a61b93175559bce92a17e27602a4f79d88ad
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4a055e039e8d7629f3ff1c20c6ce9e4f1533b6b9
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603969"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931043"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 심층 학습 모델 빌드
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,7 +26,7 @@ TensorFlow 모델을 처음부터 개발 하 든, [기존 모델](how-to-deploy-
 
 [심층 학습 vs machine learning](concept-deep-learning-vs-machine-learning.md)에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -177,16 +177,23 @@ run.wait_for_completion(show_output=True)
 
 - **크기 조정**: 클러스터는 현재 사용 가능한 것 보다 더 많은 노드를 실행 하는 Batch AI 클러스터가 필요한 경우 확장을 시도 합니다.
 
-- **실행 중**: 스크립트 폴더의 모든 스크립트를 계산 대상으로 업로드 하 고, 데이터 저장소를 탑재 또는 복사 하 고, entry_script를 실행 합니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
+- **실행 중**: 스크립트 폴더의 모든 스크립트가 계산 대상으로 업로드 되 고, 데이터 저장소가 탑재 되거나 복사 되 고, entry_script 실행 됩니다. Stdout의 출력과./clogs 폴더는 실행 기록으로 스트리밍되 며 실행을 모니터링 하는 데 사용할 수 있습니다.
 
 - **사후 처리**: 실행의./출력 폴더가 실행 기록에 복사 됩니다.
 
 ## <a name="register-or-download-a-model"></a>모델 등록 또는 다운로드
 
-모델을 학습 한 후에는 작업 영역에 등록할 수 있습니다. 모델 등록을 사용 하면 모델 [관리 및 배포](concept-model-management-and-deployment.md)를 간소화 하기 위해 작업 영역에 모델을 저장 하 고 버전을 지정할 수 있습니다.
+모델을 학습 한 후에는 작업 영역에 등록할 수 있습니다. 모델 등록을 사용 하면 모델 [관리 및 배포](concept-model-management-and-deployment.md)를 간소화 하기 위해 작업 영역에 모델을 저장 하 고 버전을 지정할 수 있습니다. `model_framework`, `model_framework_version`및 `resource_configuration`매개 변수를 지정 하면 코드 없는 모델 배포를 사용할 수 있게 됩니다. 이렇게 하면 등록 된 모델에서 모델을 웹 서비스로 직접 배포할 수 있으며 `ResourceConfiguration` 개체는 웹 서비스의 계산 리소스를 정의 합니다.
 
 ```Python
-model = run.register_model(model_name='tf-dnn-mnist', model_path='outputs/model')
+from azureml.core import Model
+from azureml.core.resource_configuration import ResourceConfiguration
+
+model = run.register_model(model_name='tf-dnn-mnist', 
+                           model_path='outputs/model',
+                           model_framework=Model.Framework.TENSORFLOW,
+                           model_framework_version='1.13.0',
+                           resource_configuration=ResourceConfiguration(cpu=1, memory_in_gb=0.5))
 ```
 
 Run 개체를 사용 하 여 모델의 로컬 복사본을 다운로드할 수도 있습니다. 학습 스크립트 `mnist-tf.py`에서 TensorFlow 보호기 개체는 모델을 로컬 폴더 (계산 대상의 로컬 폴더)에 유지 합니다. Run 개체를 사용 하 여 복사본을 다운로드할 수 있습니다.
@@ -292,13 +299,24 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
+## <a name="deployment"></a>배포
+
+방금 등록 한 모델은 학습에 사용한 평가기에 관계 없이 Azure Machine Learning에서 등록 된 다른 모델과 정확히 동일한 방식으로 배포할 수 있습니다. 배포 방법에는 모델 등록에 대 한 섹션이 포함 되어 있지만 등록 된 모델이 이미 있기 때문에 배포에 대 한 [계산 대상을 직접 만드는](how-to-deploy-and-where.md#choose-a-compute-target) 것으로 건너뛸 수 있습니다.
+
+### <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
+
+기존 배포 경로 대신 Tensorflow에 대 한 비 코드 배포 기능 (미리 보기)을 사용할 수도 있습니다. 위에 표시 된 대로 `model_framework`, `model_framework_version`및 `resource_configuration` 매개 변수를 사용 하 여 모델을 등록 하면 단순히 `deploy()` 정적 함수를 사용 하 여 모델을 배포할 수 있습니다.
+
+```python
+service = Model.deploy(ws, "tensorflow-web-service", [model])
+```
+
+Azure Machine Learning의 배포에 [대 한 자세한 내용을](how-to-deploy-and-where.md) 자세히 설명 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 TensorFlow 모델을 학습 하 고 등록 했습니다. GPU 사용 클러스터에 모델을 배포 하는 방법에 대 한 자세한 내용은 GPU 모델 배포 문서를 참조 하세요.
+이 문서에서는 TensorFlow 모델을 학습 하 고 등록 했으며 배포 옵션에 대해 알아보았습니다. Azure Machine Learning에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
 
-> [!div class="nextstepaction"]
-> [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)
 * [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
 * [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
-* [학습된 모델 배포](how-to-deploy-and-where.md)
 * [Azure의 분산 심층 학습 교육에 대 한 참조 아키텍처](/azure/architecture/reference-architectures/ai/training-deep-learning)

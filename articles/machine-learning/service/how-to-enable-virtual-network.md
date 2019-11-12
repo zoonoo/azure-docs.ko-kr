@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 10/25/2019
-ms.openlocfilehash: e5dee838df2a60bf2038f2c7d2b1cc5958354d29
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 5ac741579562b41678c4aeb59bb5ebb425d8405c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796761"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932099"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,7 +34,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 > [!WARNING]
 > Microsoft는 가상 네트워크 내의 리소스에 Azure Machine Learning 디자이너 또는 자동화 된 Machine Learning (스튜디오에서)을 사용 하는 것을 지원 하지 않습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 + Azure Machine Learning [작업 영역](how-to-manage-workspace.md)입니다.
 
@@ -196,9 +196,9 @@ Machine Learning 컴퓨팅 클러스터를 만들려면 다음을 수행 합니�
 
 1. 가상 네트워크를 사용 하도록이 계산 리소스를 구성 하려면 다음을 수행 합니다.
 
-    a. __네트워크 구성__의 경우 __고급__을 선택 합니다.
+    가. __네트워크 구성__의 경우 __고급__을 선택 합니다.
 
-    b. __리소스 그룹__ 드롭다운 목록에서 가상 네트워크가 포함 된 리소스 그룹을 선택 합니다.
+    나. __리소스 그룹__ 드롭다운 목록에서 가상 네트워크가 포함 된 리소스 그룹을 선택 합니다.
 
     c. __가상 네트워크__ 드롭다운 목록에서 서브넷이 포함 된 가상 네트워크를 선택 합니다.
 

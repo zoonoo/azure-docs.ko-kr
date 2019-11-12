@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central 애플리케이션에서 원격 분석 규칙 만들기 및 관리 | Microsoft Docs
+title: Azure IoT Central 응용 프로그램에서 원격 분석 규칙 사용 | Microsoft Docs
 description: Azure IoT Central 원격 분석 규칙을 사용하여 디바이스를 거의 실시간으로 모니터링하고, 규칙이 트리거되면 이메일 보내기 등의 작업을 자동으로 호출합니다.
 author: ankitgupta
 ms.author: ankitgup
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: d586f899a46a1404af6e798eda4d783a5a7ead85
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3b2fff84b70c5c5e37d14faa87143e5dacc82bce
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72953786"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930197"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 원격 분석 규칙을 만들고 알림 설정
 
@@ -70,7 +70,7 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
 
 이 섹션에서는 규칙이 실행될 때 수행할 작업을 설정하는 방법을 보여줍니다. 규칙에 지정된 모든 조건이 true로 평가될 경우 작업이 호출됩니다.
 
-1. **작업** 옆에 있는 **+** 기호를 선택합니다. 사용 가능한 작업 목록을 표시됩니다.  
+1. **작업+ 옆에 있는**  기호를 선택합니다. 사용 가능한 작업 목록을 표시됩니다.  
 
     ![작업 추가](media/howto-create-telemetry-rules/add_action1.png)
 

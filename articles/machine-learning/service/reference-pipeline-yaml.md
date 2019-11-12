@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: sanpil
 author: sanpil
-ms.date: 10/15/2019
-ms.openlocfilehash: a98a0e75c7a03baa663ccb4215e918a87bcc5df7
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.date: 11/11/2019
+ms.openlocfilehash: 474a184b24ca3318a33adb89b25640939a814474
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821776"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73929504"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>YAML에서 기계 학습 파이프라인 정의
 
@@ -25,16 +25,16 @@ ms.locfileid: "72821776"
 
 | 단계 유형 | 되지? |
 | ----- | :-----: |
-| PythonScriptStep | yes |
-| AdlaStep | yes |
-| AzureBatchStep | yes |
-| DatabricksStep | yes |
-| DataTransferStep | yes |
-| AutoMLStep | 아닙니다. |
-| Hyper드라이브 Estep | 아닙니다. |
-| ModuleStep | 아닙니다. |
-| MPIStep | 아닙니다. |
-| EstimatorStep | 아닙니다. |
+| PythonScriptStep | 예 |
+| AdlaStep | 예 |
+| AzureBatchStep | 예 |
+| DatabricksStep | 예 |
+| DataTransferStep | 예 |
+| AutoMLStep | 아니오 |
+| Hyper드라이브 Estep | 아니오 |
+| ModuleStep | 아니오 |
+| MPIStep | 아니오 |
+| EstimatorStep | 아니오 |
 
 ## <a name="pipeline-definition"></a>파이프라인 정의
 
@@ -47,8 +47,6 @@ ms.locfileid: "72821776"
 | `data_reference` | 실행에서 데이터를 사용할 수 있는 방법과 위치를 정의 합니다. |
 | `default_compute` | 파이프라인의 모든 단계가 실행 되는 기본 계산 대상입니다. |
 | `steps` | 파이프라인에 사용 되는 단계입니다. |
-
-다음 YAML은 파이프라인 정의의 예입니다.
 
 ## <a name="parameters"></a>parameters
 
@@ -104,15 +102,15 @@ pipeline:
 
 ## <a name="steps"></a>단계
 
-단계는 환경에서 실행 되는 파일과 함께 계산 환경을 정의 합니다. YAML 정의는 다음 단계를 나타냅니다.
+단계는 환경에서 실행 되는 파일과 함께 계산 환경을 정의 합니다. 단계 유형을 정의 하려면 `type` 키를 사용 합니다.
 
-| YAML 키 | 설명 |
+| 단계 유형 | 설명 |
 | ----- | ----- |
-| `adla_step` | Azure Data Lake Analytics를 사용 하 여 U SQL 스크립트를 실행 합니다. [Adlastep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py) 클래스에 해당 합니다. |
-| `azurebatch_step` | Azure Batch를 사용 하 여 작업을 실행 합니다. [Azurebatchstep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py) 클래스에 해당 합니다. |
-| `databricks_step` | Databricks 노트북, Python 스크립트 또는 JAR을 추가 합니다. [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) 클래스에 해당 합니다. |
-| `data_transfer_step` | 저장소 옵션 간에 데이터를 전송 합니다. [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) 클래스에 해당 합니다. |
-| `python_script_step` | Python 스크립트를 실행 합니다. [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) 클래스에 해당 합니다. |
+| `AdlaStep` | Azure Data Lake Analytics를 사용 하 여 U SQL 스크립트를 실행 합니다. [Adlastep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.adlastep?view=azure-ml-py) 클래스에 해당 합니다. |
+| `AzureBatchStep` | Azure Batch를 사용 하 여 작업을 실행 합니다. [Azurebatchstep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.azurebatchstep?view=azure-ml-py) 클래스에 해당 합니다. |
+| `DatabricsStep` | Databricks 노트북, Python 스크립트 또는 JAR을 추가 합니다. [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) 클래스에 해당 합니다. |
+| `DataTransferStep` | 저장소 옵션 간에 데이터를 전송 합니다. [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py) 클래스에 해당 합니다. |
+| `PythonScriptStep` | Python 스크립트를 실행 합니다. [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep?view=azure-ml-py) 클래스에 해당 합니다. |
 
 ### <a name="adla-step"></a>ADLA 단계
 
@@ -146,15 +144,15 @@ pipeline:
     default_compute: adlacomp
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            adla_step:
-                name: "AdlaStep"
-                script_name: "sample_script.usql"
-                source_directory: "helloworld"
+            type: "AdlaStep"
+            name: "MyAdlaStep"
+            script_name: "sample_script.usql"
+            source_directory: "D:\\scripts\\Adla"
             inputs:
                 employee_data:
                     source: employee_data
@@ -198,18 +196,18 @@ pipeline:
     default_compute: testbatch
     steps:
         Step1:
-            runconfig: "D:\\AzureMlCli\\cli_testing\\default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            azurebatch_step:
-                name: "AzureBatchStep"
-                pool_id: "MyPoolName"
-                create_pool: true
-                executable: "azurebatch.cmd"
-                source_directory: "D:\\AzureMlCli\\cli_testing"
-                allow_reuse: false
+            type: "AzureBatchStep"
+            name: "MyAzureBatchStep"
+            pool_id: "MyPoolName"
+            create_pool: true
+            executable: "azurebatch.cmd"
+            source_directory: "D:\\scripts\\AureBatch"
+            allow_reuse: false
             inputs:
                 input:
                     source: input
@@ -251,18 +249,18 @@ pipeline:
     default_compute: mydatabricks
     steps:
         Step1:
-            runconfig: "D:\\AzureMlCli\\cli_testing\\default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            databricks_step:
-                name: "Databrickstep"
-                run_name: "DatabrickRun"
-                python_script_name: "train-db-local.py"
-                source_directory: "D:\\AzureMlCli\\cli_testing\\databricks_train"
-                num_workers: 1
-                allow_reuse: true
+            type: "DatabricksStep"
+            name: "MyDatabrickStep"
+            run_name: "DatabricksRun"
+            python_script_name: "train-db-local.py"
+            source_directory: "D:\\scripts\\Databricks"
+            num_workers: 1
+            allow_reuse: true
             inputs:
                 blob_test_data:
                     source: blob_test_data
@@ -301,14 +299,14 @@ pipeline:
     default_compute: adftest
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            data_transfer_step:
-                name: "DataTransferStep"
-                adla_compute_name: adftest
+            type: "DataTransferStep"
+            name: "MyDataTransferStep"
+            adla_compute_name: adftest
             source_data_reference:
                 adls_test_data:
                     source: adls_test_data
@@ -345,16 +343,16 @@ pipeline:
     default_compute: cpu-cluster
     steps:
         Step1:
-            runconfig: "yaml/default_runconfig.yml"
+            runconfig: "D:\\Yaml\\default_runconfig.yml"
             parameters:
                 NUM_ITERATIONS_2:
                     source: PipelineParam1
                 NUM_ITERATIONS_1: 7
-            python_script_step:
-                name: "PythonScriptStep"
-                script_name: "train.py"
-                allow_reuse: True
-                source_directory: "helloworld"
+            type: "PythonScriptStep"
+            name: "MyPythonScriptStep"
+            script_name: "train.py"
+            allow_reuse: True
+            source_directory: "D:\\scripts\\PythonScript"
             inputs:
                 InputData:
                     source: DataReference1
@@ -408,7 +406,7 @@ Schedule:
 | `time_zone` | 시작 시간의 표준 시간대입니다. 표준 시간대를 제공 하지 않으면 UTC가 사용 됩니다. |
 | `hours` | `frequency` `"Day"` 또는 `"Week"`경우에는 0에서 23 사이의 정수를 쉼표로 구분 하 여 파이프라인을 실행 해야 하는 시간으로 지정할 수 있습니다. `time_of_day` 또는 `hours` 및 `minutes`만 사용할 수 있습니다. |
 | `minutes` | `frequency` `"Day"` 또는 `"Week"`경우 파이프라인이 실행 되는 시간 (분)으로 0에서 59 사이의 정수 하나 이상을 쉼표로 구분 하 여 지정할 수 있습니다. `time_of_day` 또는 `hours` 및 `minutes`만 사용할 수 있습니다. |
-| `time_of_day` | `frequency` `"Day"` 또는 `"Week"`경우 일정을 실행할 시간을 지정할 수 있습니다. 값의 문자열 형식이 `hh:mm`입니다. `time_of_day` 또는 `hours` 및 `minutes`만 사용할 수 있습니다. |zzs
+| `time_of_day` | `frequency` `"Day"` 또는 `"Week"`경우 일정을 실행할 시간을 지정할 수 있습니다. 값의 문자열 형식이 `hh:mm`입니다. `time_of_day` 또는 `hours` 및 `minutes`만 사용할 수 있습니다. |
 | `week_days` | `frequency` `"Week"`되는 경우 일정을 실행 해야 할 때 하나 이상의 날짜를 쉼표로 구분 하 여 지정할 수 있습니다. 유효한 값은 `"Monday"`, `"Tuesday"`, `"Wednesday"`, `"Thursday"`, `"Friday"`, `"Saturday"`, `"Sunday"`입니다. |
 
 다음 예에서는 되풀이 일정에 대 한 정의를 포함 합니다.

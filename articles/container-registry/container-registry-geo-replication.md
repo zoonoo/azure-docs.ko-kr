@@ -1,6 +1,6 @@
 ---
 title: Azure Container Registry의 지리적 복제
-description: 지리적 복제된 Azure Container Registry 만들기 및 관리를 시작합니다.
+description: 레지스트리가 다중 마스터 지역 복제본을 사용 하 여 여러 지역을 제공할 수 있도록 하는 지리적 복제 Azure container registry 만들기 및 관리를 시작 합니다.
 services: container-registry
 author: stevelas
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: f6d1987012cb401d7167896d9352ba7eae821a04
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: cddd55d3dfc2609b7a32a276e106e152f0868b32
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887982"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931644"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
 
@@ -121,7 +121,7 @@ Azure Portal에서 복제본을 삭제 하려면 다음을 수행 합니다.
  
 지리적으로 복제된 레지스트리에 이미지를 푸시하는 Docker 클라이언트는 모든 이미지 레이어와 해당 매니페스트를 단일 복제 지역에 푸시할 수 없습니다. 이 문제는 Azure Traffic Manager가 레지스트리 요청을 네트워크에서 가장 가까운 복제 레지스트리로 라우팅하기 때문에 발생할 수 있습니다. 레지스트리에 두 개의 *인접* 복제 지역이 있는 경우 이미지 레이어와 매니페스트를 두 사이트에 배포할 수 있으며 매니페스트의 유효성을 검사할 때 푸시 작업이 실패합니다. 이 문제는 일부 Linux 호스트에서 레지스트리의 DNS 이름이 확인되기 때문에 발생합니다. 클라이언트 쪽 DNS 캐시를 제공하는 Windows에서는 이 문제가 발생하지 않습니다.
  
-이 문제가 발생하는 경우 한 가지 해결 방법은 Linux 호스트에서 `dnsmasq`와 같은 클라이언트 쪽 DNS 캐시를 적용하는 것입니다. 이렇게 하면 레지스트리의 이름이 일관되게 확인됩니다. Azure에서 Linux VM을 사용하여 레지스트리에 푸시하는 경우 [Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션](https://docs.microsoft.com/azure/virtual-machines/linux/azure-dns)의 옵션을 참조하세요.
+이 문제가 발생하는 경우 한 가지 해결 방법은 Linux 호스트에서 `dnsmasq`와 같은 클라이언트 쪽 DNS 캐시를 적용하는 것입니다. 이렇게 하면 레지스트리의 이름이 일관되게 확인됩니다. Azure에서 Linux VM을 사용하여 레지스트리에 푸시하는 경우 [Azure의 Linux 가상 머신에 대한 DNS 이름 확인 옵션](../virtual-machines/linux/azure-dns.md)의 옵션을 참조하세요.
 
 이미지를 푸시할 때 가장 가까운 복제본에 대한 DNS 확인을 최적화하려면 Azure 외부에서 작업할 때 푸시 작업의 원본과 동일한 Azure 지역 또는 가장 가까운 지역의 지역 복제 레지스트리를 구성합니다.
 

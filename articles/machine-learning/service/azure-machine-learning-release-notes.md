@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: e0709143f1beb9726fc79eb837d59d7db7cf00d7
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 986e146e2129d26aa6accd747c89e12462d46667
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888574"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931134"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -23,7 +23,54 @@ ms.locfileid: "73888574"
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
+## <a name="2019-11-11"></a>2019-11-11
 
+### <a name="azure-machine-learning-sdk-for-python-v1074"></a>Azure Machine Learning SDK for Python v 1.0.74
+ 
+  + **미리 보기 기능**
+    + **azureml-데이터 집합**
+      + Azureml-데이터 집합을 가져온 후에는 `._Labeled` 대신 `Dataset.Labeled.from_json_lines`를 호출 하 여 레이블이 지정 된 데이터 집합을 만들 수 있습니다.
+      + 다운로드 옵션을 사용 하 여 레이블이 지정 된 데이터 집합에 대 한 `to_pandas_dataframe`를 호출할 때 이제는 기존 파일을 덮어쓸지 여부를 지정할 수 있습니다.
+      + 시계열, label 또는 image 열을 삭제 하는 `keep_columns` 또는 `drop_columns`를 호출 하는 경우 데이터 집합에 대해서도 해당 기능이 삭제 됩니다.
+      + `dataset.to_torchvision()`를 호출할 때 PyTorch loader와 관련 된 문제를 해결 했습니다.
+
++ **버그 수정 및 향상 된 기능**
+  + **azure-cli-ml**
+    + Preview CLI에 모델 프로 파일링을 추가 했습니다.
+    + AzureML CLI가 실패 하는 Azure Storage의 주요 변경 사항을 수정 합니다.
+    + AKS 형식에 대 한 Load Balancer 형식을 MLC에 추가 했습니다.
+  + **azureml-automl-core**
+    + 누락 된 값과 여러 조직 있는 시계열에 대 한 최대 마감일 검색 문제를 해결 했습니다.
+    + 교차 유효성 검사 분할의 실패와 관련 된 문제를 해결 했습니다.
+    + 이 섹션을 릴리스 정보에 표시 되는 markdown 형식의 메시지로 바꿉니다.-예측 데이터 집합에서 짧은 조직의 향상 된 처리.
+    + 로깅하는 동안 일부 사용자 정보를 마스킹 하는 문제를 해결 했습니다. -예측 실행 중에 발생 하는 오류 로깅 향상
+    + 자동 생성 된 iisnode.yml 배포 파일에 conda 종속성으로 psutil 추가
+  + **azureml-mir**
+    + AzureML CLI가 실패 하는 Azure Storage의 주요 변경 사항을 수정 합니다.
+  + **azureml-core**
+    + Azure Functions에 배포 된 모델을 생성 하 여 500s를 생성 하는 버그를 수정 합니다.
+    + Amlignore 파일이 스냅숏에 적용 되지 않은 문제를 수정 했습니다.
+    + 지정 된 amlcompute에서 실행 중 이며 지연 된 실행에 대 한 생성기를 반환 하는 get_active_runs 새 API amlcompute를 추가 했습니다.
+    + AKS 형식에 대 한 Load Balancer 형식을 MLC에 추가 했습니다.
+    + Run.py에서 download_files에 append_prefix bool 매개 변수를 추가 하 고 artifacts_client에서 download_artifacts_from_prefix. 이 플래그는 원본 파일 경로를 선택적으로 평면화 하는 데 사용 되므로 파일 또는 폴더 이름만 output_directory에 추가 됩니다.
+    + 데이터 집합 사용에 대 한 `run_config.yml`의 deserialization 문제를 수정 합니다.
+    + 시계열 열이 삭제 되는 `keep_columns` 또는 `drop_columns`를 호출 하는 경우 데이터 집합에 대해서도 해당 기능이 삭제 됩니다.
+  + **azureml-해석**
+    + 업데이트 된 해석-커뮤니티 버전 0.1.0.3
+  + **azureml-train-automl**
+    + Automl_step 유효성 검사 문제를 인쇄 하지 않을 수 있는 문제를 해결 했습니다.
+    + 모델 환경에 종속성이 로컬에서 누락 된 경우에도 수정 된 register_model 성공 합니다.
+    + 일부 원격 실행이 docker를 사용 하도록 설정 되지 않은 문제를 해결 했습니다.
+    + 로컬 실행이 중간에 실패 하도록 하는 예외의 로깅을 추가 합니다.
+  + **azureml-train-core**
+    + 자동화 된 하이퍼 매개 변수 튜닝 최상의 자식 실행의 계산에서 실행 resume_from을 고려 합니다.
+  + **azureml-pipeline-core**
+    + 파이프라인 인수 생성에서 매개 변수 처리가 수정 되었습니다.
+    + 파이프라인 설명 및 단계 유형 yaml 매개 변수를 추가 했습니다.
+    + 파이프라인 단계의 새 yaml 형식이 며 이전 형식에 대 한 사용 중단 경고가 추가 되었습니다.
+    
+    
+  
 ## <a name="2019-11-04"></a>2019-11-04
 
 ### <a name="web-experience"></a>웹 환경 

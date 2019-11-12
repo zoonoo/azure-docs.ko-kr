@@ -1,5 +1,5 @@
 ---
-title: 가상 네트워크에서 Azure container registry에 대 한 액세스 제한
+title: 가상 네트워크를 사용 하 여 Azure Container Registry에 대 한 액세스 제한
 description: Azure 가상 네트워크의 리소스 또는 공용 IP 주소 범위에서 Azure container registry에 대 한 액세스만 허용 합니다.
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: danlep
-ms.openlocfilehash: 3050a52da4d39657bd7b2fb38e235b9bd418faf4
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 5ba5c180def9539c486fb8727a0a78b4f98fa185
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619890"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931329"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Azure virtual network 또는 방화벽 규칙을 사용 하 여 Azure container registry에 대 한 액세스 제한
 
@@ -38,13 +38,13 @@ ms.locfileid: "68619890"
 
 * 각 레지스트리는 최대 100 개의 가상 네트워크 규칙을 지원 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 * 이 문서의 Azure CLI 단계를 사용 하려면 Azure CLI 버전 2.0.58 이상이 필요 합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
-* 컨테이너 레지스트리가 아직 없는 경우 하나 (프리미엄 SKU 필요)를 만들고 Docker 허브에서와 `hello-world` 같은 샘플 이미지를 푸시합니다. 예를 들어 [Azure Portal][quickstart-portal] 또는 [Azure CLI][quickstart-cli] 를 사용 하 여 레지스트리를 만듭니다. 
+* 컨테이너 레지스트리가 아직 없는 경우 하나 (프리미엄 SKU 필요)를 만들고 Docker 허브에서 `hello-world`와 같은 샘플 이미지를 푸시합니다. 예를 들어 [Azure Portal][quickstart-portal] 또는 [Azure CLI][quickstart-cli] 를 사용 하 여 레지스트리를 만듭니다. 
 
-* 다른 Azure 구독의 가상 네트워크를 사용 하 여 레지스트리 액세스를 제한 하려는 경우 해당 구독에 Azure Container Registry에 대 한 리소스 공급자를 등록 해야 합니다. 예를 들어:
+* 다른 Azure 구독의 가상 네트워크를 사용 하 여 레지스트리 액세스를 제한 하려는 경우 해당 구독에 Azure Container Registry에 대 한 리소스 공급자를 등록 해야 합니다. 예:
 
   ```azurecli
   az account set --subscription <Name or ID of subscription of virtual network>
@@ -54,7 +54,7 @@ ms.locfileid: "68619890"
 
 ## <a name="about-network-rules-for-a-container-registry"></a>컨테이너 레지스트리의 네트워크 규칙 정보
 
-기본적으로 Azure container registry는 네트워크의 호스트에서 인터넷을 통한 연결을 허용 합니다. 가상 네트워크를 사용 하면 네트워크 경계를 거치지 않고 AKS 클러스터 또는 Azure VM과 같은 Azure 리소스만 레지스트리에 안전 하 게 액세스할 수 있습니다. 또한 허용 목록 특정 공용 인터넷 IP 주소 범위에 대 한 네트워크 방화벽 규칙을 구성할 수 있습니다. 
+기본적으로 Azure container registry는 네트워크의 호스트에서 인터넷을 통한 연결을 허용 합니다. 가상 네트워크를 사용 하면 네트워크 경계를 거치지 않고 AKS 클러스터 또는 Azure VM과 같은 Azure 리소스만 레지스트리에 안전 하 게 액세스할 수 있습니다. 또한 특정 공용 인터넷 IP 주소 범위만 허용 하도록 네트워크 방화벽 규칙을 구성할 수 있습니다. 
 
 레지스트리에 대 한 액세스를 제한 하려면 먼저 레지스트리의 기본 동작을 변경 하 여 모든 네트워크 연결을 거부 합니다. 그런 다음 네트워크 액세스 규칙을 추가 합니다. 네트워크 규칙을 통해 액세스 권한을 부여 받은 클라이언트는 계속 [컨테이너 레지스트리에 인증](https://docs.microsoft.com/azure/container-registry/container-registry-authentication) 하 고 데이터에 액세스할 수 있는 권한을 부여 받아야 합니다.
 
@@ -208,7 +208,7 @@ Azure Container Registry에 대 한 서비스 끝점을 서브넷에 추가 하�
 1. **설정**에서 **서브넷**을 선택 합니다.
 1. 가상 컴퓨터가 배포 되는 서브넷을 선택 합니다 (예: *Mydockervmsubnet*).
 1. **서비스 끝점**에서 **microsoft.containerregistry**를 선택 합니다.
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 ![서브넷에 서비스 끝점 추가][acr-subnet-service-endpoint] 
 
@@ -220,7 +220,7 @@ Azure Container Registry에 대 한 서비스 끝점을 서브넷에 추가 하�
 1. **설정**아래에서 **방화벽 및 가상 네트워크**를 선택 합니다.
 1. 기본적으로 액세스를 거부하려면 **선택한 네트워크**에서 액세스를 허용하도록 선택합니다. 
 1. **기존 가상 네트워크 추가**를 선택 하 고 서비스 끝점을 사용 하 여 구성한 가상 네트워크 및 서브넷을 선택 합니다. **추가**를 선택합니다.
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 ![컨테이너 레지스트리에 대 한 가상 네트워크 구성][acr-vnet-portal]
 
@@ -280,14 +280,14 @@ az acr network-rule add --name mycontainerregistry --ip-address <public-IP-addre
   1. **설정**에서 **서브넷**을 선택 합니다.
   1. 가상 컴퓨터가 배포 되는 서브넷을 선택 합니다.
   1. **서비스 끝점**아래에서 **microsoft.containerregistry**에 대 한 확인란을 제거 합니다. 
-  1.           **저장**을 선택합니다.
+  1. **저장**을 선택합니다.
 
 * 서브넷이 레지스트리에 액세스할 수 있도록 허용 하는 네트워크 규칙을 제거 합니다.
 
   1. 포털에서 컨테이너 레지스트리로 이동 합니다.
   1. **설정**아래에서 **방화벽 및 가상 네트워크**를 선택 합니다.
   1. **가상**네트워크에서 가상 네트워크의 이름을 선택 하 고 **제거**를 선택 합니다.
-  1.           **저장**을 선택합니다.
+  1. **저장**을 선택합니다.
 
 #### <a name="add-network-rule-to-registry"></a>레지스트리에 네트워크 규칙 추가
 
@@ -296,7 +296,7 @@ az acr network-rule add --name mycontainerregistry --ip-address <public-IP-addre
 1. 아직 수행 하지 않은 경우 **선택한 네트워크**에서의 액세스를 허용 하도록 선택 합니다. 
 1. **가상 네트워크**에서 네트워크를 선택 하지 않았는지 확인 합니다.
 1. **방화벽**에서 VM의 공용 IP 주소를 입력 합니다. 또는 VM의 IP 주소를 포함 하는 CIDR 표기법으로 주소 범위를 입력 합니다.
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 ![컨테이너 레지스트리에 대 한 방화벽 규칙 구성][acr-vnet-firewall-portal]
 
@@ -310,7 +310,7 @@ az acr network-rule add --name mycontainerregistry --ip-address <public-IP-addre
 az acr login --name mycontainerregistry
 ```
 
-실행 `docker pull` 등의 레지스트리 작업을 수행 하 여 레지스트리에서 샘플 이미지를 끌어올 수 있습니다. 레지스트리 로그인 서버 이름 (모두 소문자)을 접두사로 사용 하 여 레지스트리에 적절 한 이미지 및 태그 값을 대체 합니다.
+`docker pull` 실행과 같은 레지스트리 작업을 수행 하 여 레지스트리에서 샘플 이미지를 끌어올 수 있습니다. 레지스트리 로그인 서버 이름 (모두 소문자)을 접두사로 사용 하 여 레지스트리에 적절 한 이미지 및 태그 값을 대체 합니다.
 
 ```bash
 docker pull mycontainerregistry.azurecr.io/hello-world:v1
@@ -318,7 +318,7 @@ docker pull mycontainerregistry.azurecr.io/hello-world:v1
 
 Docker가 성공적으로 이미지를 VM으로 끌어옵니다.
 
-이 예제에서는 네트워크 액세스 규칙을 통해 개인 컨테이너 레지스트리에 액세스할 수 있는 방법을 보여 줍니다. 그러나 네트워크 액세스 규칙이 구성 되지 않은 다른 로그인 호스트에서 레지스트리에 액세스할 수 없습니다. `az acr login` 명령 또는`docker login` 명령을 사용 하 여 다른 호스트에서 로그인을 시도 하는 경우 출력은 다음과 유사 합니다.
+이 예제에서는 네트워크 액세스 규칙을 통해 개인 컨테이너 레지스트리에 액세스할 수 있는 방법을 보여 줍니다. 그러나 네트워크 액세스 규칙이 구성 되지 않은 다른 로그인 호스트에서 레지스트리에 액세스할 수 없습니다. `az acr login` 명령 또는 `docker login` 명령을 사용 하 여 다른 호스트에서 로그인을 시도 하는 경우 출력은 다음과 유사 합니다.
 
 ```Console
 Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ failed with status: 403 Forbidden
@@ -338,7 +338,7 @@ Error response from daemon: login attempt to https://xxxxxxx.azurecr.io/v2/ fail
 az acr network-rule list--name mycontainerregistry 
 ```
 
-구성 된 각 규칙에 대해 [az acr network-rule remove][az-acr-network-rule-remove] 명령을 실행 하 여 제거 합니다. 예를 들어:
+구성 된 각 규칙에 대해 [az acr network-rule remove][az-acr-network-rule-remove] 명령을 실행 하 여 제거 합니다. 예:
 
 ```azurecli
 # Remove a rule that allows access for a subnet. Substitute the subnet resource ID.
@@ -369,7 +369,7 @@ az acr update --name myContainerRegistry --default-action Allow
 1. **가상 네트워크**에서 각 가상 네트워크를 선택 하 고 **제거**를 선택 합니다.
 1. **방화벽**에서 각 주소 범위를 선택 하 고 삭제 아이콘을 선택 합니다.
 1. 다음 **에서 액세스 허용에서** **모든 네트워크**를 선택 합니다. 
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

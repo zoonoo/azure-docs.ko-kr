@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
-ms.openlocfilehash: bcf741e82e247a5b79a478ef1015a70cccb4d274
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c4d029de782ae408b83c265322a865db7b166c1e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899906"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928293"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>개발, 테스트 및 프로덕션의 원격 분석 구분
 
@@ -51,7 +51,7 @@ ASP.NET 서비스의 global.aspx.cs 같은 초기화 메서드에서 키를 설�
 이 예제에서는 서로 다른 리소스에 대한 ikeys는 다른 버전의 웹 구성 파일에 배치됩니다. 웹 구성 파일 교체는 릴리스 스크립트의 일부로 수행될 수 있고 대상 리소스를 교체합니다.
 
 ### <a name="web-pages"></a>웹 페이지
-iKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-monitor/app/javascript.md)내의 응용 프로그램 웹페이지에서도 사용 가능합니다. 스크립트에 문자 그대로 코딩하는 대신, 서버 상태로부터 생성합니다. 예를 들어, ASP.NET 응용 프로그램에서:
+IKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-monitor/app/javascript.md)의 앱 웹 페이지 에서도 사용 됩니다. 스크립트에 문자 그대로 코딩하는 대신, 서버 상태로부터 생성합니다. 예를 들어, ASP.NET 응용 프로그램에서:
 
 *Razor에서 JavaScript*
 
@@ -81,7 +81,7 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-mo
 
 리소스 생성 시 몇 초 정도 걸립니다. 완료되면 알림이 표시 됩니다.
 
-(리소스를 자동으로 만드는 [PowerShell 스크립트](../../azure-monitor/app/powershell-script-create-resource.md) 를 작성할 수 있습니다).
+(리소스를 자동으로 만드는 [PowerShell 스크립트](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) 를 작성할 수 있습니다).
 
 ### <a name="getting-the-instrumentation-key"></a>계측 키 가져오기
 계측 키는 사용자가 만든 리소스를 식별합니다. 
@@ -134,7 +134,7 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-mo
     MSBuild가 버전 번호를 생성하게 하려면 AssemblyReference.cs에서 `1.0.*` 같이 버전을 설정합니다.
 
 ## <a name="version-and-release-tracking"></a>버전 및 릴리스 추적
-애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. .csproj 파일에서 다음을 추가합니다.  
+애플리케이션 버전을 추적하려면 `buildinfo.config`가 Microsoft Build Engine 프로세스에 의해 생성되도록 해야 합니다. `.csproj` 파일에서 다음을 추가 합니다.  
 
 ```XML
 
@@ -145,7 +145,7 @@ iKey는 [빠른 시작 블레이드에서 가져온 스크립트](../../azure-mo
 
 빌드 정보가 있는 경우 Application Insights 웹 모듈에서 원격 분석의 모든 항목에 **애플리케이션 버전**을 속성으로 자동으로 추가합니다. 이렇게 하면 [진단 검색](../../azure-monitor/app/diagnostic-search.md)을 수행하거나 [메트릭을 탐색](../../azure-monitor/app/metrics-explorer.md)할 때 버전을 기준으로 필터링할 수 있습니다.
 
-그러나 빌드 버전 번호는 Visual Studio의 개발자 빌드가 아니라 Microsoft Build Engine에서만 생성된다는 점에 유의해야 합니다.
+그러나 빌드 버전 번호는 Visual Studio에서 개발자가 작성 하는 것이 아니라 Microsoft Build Engine만 생성 됩니다.
 
 ### <a name="release-annotations"></a>릴리스 주석
 Azure DevOps를 사용하는 경우 새 버전을 릴리스할 때마다 [주석 표식](../../azure-monitor/app/annotations.md)이 차트에 추가됩니다. 다음 이미지는 이러한 표식이 어떻게 나타나는지를 보여줍니다.

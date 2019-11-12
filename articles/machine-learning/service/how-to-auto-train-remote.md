@@ -11,12 +11,12 @@ ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4276a713e62f96cc5340fc7be0e8391939d32342
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5104e6e037341c41a032f80287c6d56d17361d4c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497327"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932190"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>클라우드의 자동화된 기계 학습을 사용하여 모델 학습
 
@@ -103,7 +103,7 @@ y = Dataset.Tabular.from_delimited_files(path=ds.path('digitsdata/y_train.csv'))
 
 ## <a name="create-run-configuration"></a>실행 구성 만들기
 
-Get_data py 스크립트에서 종속성을 사용할 수 있도록 하려면 정의 된 `CondaDependencies`를 사용 하 여 `RunConfiguration` 개체를 정의 합니다. `AutoMLConfig`의 `run_configuration` 매개 변수에이 개체를 사용 합니다.
+Py 스크립트에서 종속성을 사용할 get_data 수 있도록 하려면 정의 된 `CondaDependencies`를 사용 하 여 `RunConfiguration` 개체를 정의 합니다. `AutoMLConfig`의 `run_configuration` 매개 변수에이 개체를 사용 합니다.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
@@ -148,24 +148,6 @@ automl_config = AutoMLConfig(task='classification',
                              X = X,
                              y = y,
                              **automl_settings,
-                             )
-```
-
-### <a name="enable-model-explanations"></a>모델 설명 사용
-
-선택적인 `model_explainability` 매개 변수를 `AutoMLConfig` 생성자에서 설정합니다. 또한 모델 설명 기능을 사용하려면 유효성 검사 데이터 프레임 개체를 매개 변수 `X_valid`로 전달해야 합니다.
-
-```python
-automl_config = AutoMLConfig(task='classification',
-                             debug_log='automl_errors.log',
-                             path=project_folder,
-                             compute_target=compute_target,
-                             run_configuration=run_config,
-                             X = X,
-                             y = y,
-                             **automl_settings,
-                             model_explainability=True,
-                             X_valid=X_test
                              )
 ```
 
@@ -237,59 +219,13 @@ remote_run.get_portal_url()
 
 작업 영역에서 동일한 정보를 사용할 수 있습니다.  이러한 결과에 대해 자세히 알아보려면 자동화 된 [machine learning 결과 이해](how-to-understand-automated-ml.md)를 참조 하세요.
 
-### <a name="view-logs"></a>로그 보기
+## <a name="example"></a>예
 
-`/tmp/azureml_run/{iterationid}/azureml-logs` 아래에서 DSVM에 대한 로그를 찾습니다.
-
-## <a name="explain"></a>최상의 모델 설명
-
-모델 설명 데이터를 검색하면 모델에 대한 자세한 정보를 확인할 수 있으므로 백 엔드에서 실행되는 대상에 대한 투명성이 높아집니다. 이 예제에서는 최적 맞춤 모델에 대해서만 모델 설명을 실행합니다. 파이프라인의 모든 모델에 대해 실행하는 경우 런타임이 크게 늘어납니다. 모델 설명 정보에는 다음이 포함됩니다.
-
-* shap_values: shap lib에서 생성 한 설명 정보입니다.
-* expected_values: X_train 데이터 집합에 적용 된 모델의 예상 값입니다.
-* overall_summary: 모델 수준 기능 중요도 값이 내림차순으로 정렬 되어 있습니다.
-* overall_imp: overall_summary와 동일한 순서로 기능 이름이 정렬 됩니다.
-* per_class_summary: 클래스 수준 기능 중요도 값이 내림차순으로 정렬 되어 있습니다. 분류 사례에 대해서만 사용할 수 있습니다.
-* per_class_imp: per_class_summary와 동일한 순서로 기능 이름이 정렬 됩니다. 분류 사례에 대해서만 사용할 수 있습니다.
-
-다음 코드를 사용하여 반복에서 최상의 파이프라인을 선택합니다. `get_output` 메서드는 마지막 맞춤 호출에 대한 최적의 실행 및 맞춤 모델을 반환합니다.
-
-```python
-best_run, fitted_model = remote_run.get_output()
-```
-
-`retrieve_model_explanation` 함수를 가져오고 최상의 모델에서 실행합니다.
-
-```python
-from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
-    retrieve_model_explanation(best_run)
-```
-
-보려면 `best_run` 설명 변수에 대한 결과를 인쇄합니다.
-
-```python
-print(overall_summary)
-print(overall_imp)
-print(per_class_summary)
-print(per_class_imp)
-```
-
-`best_run` 설명 요약 변수를 인쇄하면 다음 출력이 표시됩니다.
-
-![모델 설명 콘솔 출력](./media/how-to-auto-train-remote/expl-print.png)
-
-위젯 UI를 통해 또는 [Azure Machine Learning studio](https://ml.azure.com)의 작업 영역에서 기능 중요도를 시각화할 수도 있습니다. 
-
-![모델 설명 UI](./media/how-to-auto-train-remote/model-exp.png)
-
-## <a name="example"></a>예제
-
-[How-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/remote-amlcompute/auto-ml-remote-amlcompute.ipynb) 노트북은이 문서의 개념을 보여 줍니다.
+다음 [노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression/auto-ml-regression.ipynb) 은이 문서의 개념을 보여 줍니다.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-[자동 학습용 설정을 구성하는 방법](how-to-configure-auto-train.md)을 알아보세요.
+* [자동 학습용 설정을 구성하는 방법](how-to-configure-auto-train.md)을 알아보세요.
+* 자동화 된 ML 실험에서 모델 interpretability 기능을 사용 하도록 설정 [하는 방법을](how-to-machine-learning-interpretability-automl.md) 참조 하세요.

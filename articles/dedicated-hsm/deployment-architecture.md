@@ -10,16 +10,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 93755ded8f9db27cf8e78079f32e90cccfac2831
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: ff86c25de006495e3536f2ff907e1cf40a216f8e
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883824"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927854"
 ---
-# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure 전용 HSM 배포 아키텍처
+# <a name="azure-dedicated-hsm-deployment-architecture"></a>Azure Dedicated HSM 배포 아키텍처
 
 Azure Dedicated HSM은 Azure에서 암호화 키 스토리지를 제공합니다. 엄격한 보안 요구 사항을 충족합니다. 다음에 해당하는 고객은 Azure Dedicated HSM을 사용하면 혜택을 얻을 수 있습니다.
 
@@ -29,14 +29,15 @@ Azure Dedicated HSM은 Azure에서 암호화 키 스토리지를 제공합니다
 
 HSM은 Microsoft의 데이터 센터에 분산되며 고가용성 솔루션의 기반이 되는 디바이스 쌍으로 쉽게 프로비전할 수 있습니다. 또한 여러 Azure 지역에 배포하여 재해 복구 솔루션을 구현할 수도 있습니다. 현재 Dedicated HSM을 사용할 수 있는 Azure 지역은 다음과 같습니다.
 
-* East US
+* 미국 동부
 * 미국 동부 2
 * 미국 서부
+* 미국 서부 2
 * 미국 중남부
 * 동남아시아
-* 아시아 동부
-* 유럽 북부
-* 유럽 서부
+* 동아시아
+* 북유럽
+* 서유럽
 * 영국 남부
 * 영국 서부
 * 캐나다 중부

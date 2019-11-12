@@ -85,6 +85,8 @@
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
 - name: 리소스
   items:
+    - name: 릴리스 정보
+      href: 'https://github.com/Azure/azure-spatial-anchors-samples/releases'
     - name: Azure Mixed Reality 리소스 관리 REST API
       href: 'https://docs.microsoft.com/rest/api/mixedreality/'
     - name: FAQ

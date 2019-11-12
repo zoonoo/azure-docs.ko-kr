@@ -1,5 +1,5 @@
 ---
-title: Azure Maps Android SDK에서 기능 정보를 표시 하는 방법 Microsoft Docs
+title: Azure Maps Android SDK에 기능 정보를 표시 합니다. Microsoft Docs
 description: Azure Maps Android SDK에 기능 정보를 표시 하는 방법에 대해 알아봅니다.
 author: rbrundritt
 ms.author: richbrun
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: dc72bb43752323576bed6e7991f33c4096ccabd4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 0dcabb0e5141a92394f2be38cbe7e71fa6e03d58
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68977288"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928546"
 ---
 # <a name="display-feature-information"></a>기능 정보 표시
 
-공간 데이터는 종종 점으로, 선 및 다각형을 사용 하 여 표현 됩니다. 이 데이터는 연결 된 메타 데이터 정보를 포함 하는 경우가 많습니다. 예를 들어 지점은 저장소의 위치를 나타내고 식당의 메타 데이터는 해당 이름, 주소 및 사용 되는 음식 형식일 수 있습니다. 이 메타 데이터는를 `JsonObject`사용 하 여 이러한 기능의 속성으로 추가할 수 있습니다. 다음 코드에서는 값이 "Hello World!" 인 `title` 속성을 사용 하 여 간단한 point 기능을 만듭니다.
+공간 데이터는 종종 점으로, 선 및 다각형을 사용 하 여 표현 됩니다. 이 데이터는 연결 된 메타 데이터 정보를 포함 하는 경우가 많습니다. 예를 들어 지점은 저장소의 위치를 나타내고 식당의 메타 데이터는 해당 이름, 주소 및 사용 되는 음식 형식일 수 있습니다. `JsonObject`를 사용 하 여이 메타 데이터를 이러한 기능의 속성으로 추가할 수 있습니다. 다음 코드에서는 값이 "Hello World!" 인 `title` 속성을 사용 하 여 간단한 point 기능을 만듭니다.
 
 ```java
 //Create a data source and add it to the map.
@@ -65,7 +65,7 @@ map.events.add((OnFeatureClick) (features) -> {
 
 <center>
 
-![탭 하는 기능 및 표시 되는 알림 메시지의 애니메이션](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)</center>
+탭 하는 기능의 애니메이션과 표시 되는 알림 메시지를 ![](./media/display-feature-information-android/symbol-layer-click-toast-message.gif)</center>
 
 알림 메시지 외에도 다음과 같은 다양 한 방법으로 기능의 메타 데이터 속성을 표시할 수 있습니다.
 

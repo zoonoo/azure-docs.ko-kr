@@ -7,18 +7,18 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: 0771079eb338c2f22cb0b1f31c48b0b9f80a3ff5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819081"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928575"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md)에서 [경고](../../azure-monitor/app/alerts.md)의 구성을 자동화할 수 있습니다.
+[Application Insights](../../azure-monitor/app/alerts.md)에서 [경고](../../azure-monitor/app/app-insights-overview.md)의 구성을 자동화할 수 있습니다.
 
 또한 [webhook를 설정하여 경고에 대한 응답을 자동화](../../azure-monitor/platform/alerts-webhooks.md)할 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure PowerShell을 시작하고 [구독에 연결](/powershell/azure/overview)�
 
 
 
-## <a name="example-1"></a>예 1
+## <a name="example-1"></a>예제 1
 HTTP 요청에 대한 서버의 응답이 5분 이상 평균 1초보다 느린 경우 전자 메일로 알립니다. Application Insights 리소스의 이름이 IceCreamWebApp이며 리소스 그룹 Fabrikam 내에 있습니다. 제가 Azure 구독의 소유자입니다.
 
 GUID는 구독 ID입니다(애플리케이션의 계측 키 아님).
@@ -122,7 +122,7 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 
 | 메트릭 그룹 | 수집기 모듈 |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>보기 |[브라우저 JavaScript](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[브라우저 JavaScript](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[성능](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[종속성](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[서버 요청](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -130,8 +130,8 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 ## <a name="webhooks"></a>Webhook
 [경고에 대한 응답을 자동화](../../azure-monitor/platform/alerts-webhooks.md)할 수 있습니다. 경고가 발생한 경우 Azure에서 사용자가 선택한 웹 주소를 호출합니다.
 
-## <a name="see-also"></a>참고 항목
-* [Application Insights를 구성하는 스크립트](powershell-script-create-resource.md)
+## <a name="see-also"></a>참고 항목:
+* [Application Insights를 구성하는 스크립트](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](powershell.md)
 * [Application Insights에 Microsoft Azure Diagnostics 결합 자동화](powershell-azure-diagnostics.md)
 * [경고에 대한 응답 자동화](../../azure-monitor/platform/alerts-webhooks.md)

@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ab2180c54f07ff5009e2c57d8522f2eb0b81aad
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c0a73f5257bf763633052aab89f92ea0e5d5c000
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718375"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927109"
 ---
 # <a name="authentication-basics"></a>인증 기본 사항
 
@@ -74,7 +74,7 @@ Microsoft id 플랫폼은 OAuth 2.0 및 Openid connect Connect와 같은 업계 
 
 토큰은 제한 된 시간 동안만 유효 합니다. 일반적으로 STS는 응용 프로그램 또는 보호 된 리소스에 액세스 하기 위한 액세스 토큰과 액세스 토큰이 만료 될 때 액세스 토큰을 새로 고치는 데 사용 되는 새로 고침 토큰을 사용 하 여 토큰 쌍을 제공 합니다. 
 
-액세스 토큰은 웹 API에 `Authenticate` 헤더의 전달자 토큰으로 전달 됩니다. 앱은 STS에 새로 고침 토큰을 제공할 수 있으며, 앱에 대 한 사용자 액세스가 취소 되지 않은 경우 새 액세스 토큰과 새로 고침 토큰을 다시 받게 됩니다. 이는 엔터프라이즈를 종료 하는 사람의 시나리오를 처리 하는 방법입니다. STS는 새로 고침 토큰을 받을 때 사용자에 게 더 이상 권한이 부여 되지 않은 경우 다른 유효한 액세스 토큰을 발급 하지 않습니다.
+액세스 토큰은 웹 API에 `Authorization` 헤더의 전달자 토큰으로 전달 됩니다. 앱은 STS에 새로 고침 토큰을 제공할 수 있으며, 앱에 대 한 사용자 액세스가 취소 되지 않은 경우 새 액세스 토큰과 새로 고침 토큰을 다시 받게 됩니다. 이는 엔터프라이즈를 종료 하는 사람의 시나리오를 처리 하는 방법입니다. STS는 새로 고침 토큰을 받을 때 사용자에 게 더 이상 권한이 부여 되지 않은 경우 다른 유효한 액세스 토큰을 발급 하지 않습니다.
 
 ## <a name="application-model"></a>애플리케이션 모델
 

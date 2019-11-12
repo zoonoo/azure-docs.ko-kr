@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: dd58ec08c6ec372cf53a79b75162748cfe336b23
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/11/2019
+ms.openlocfilehash: f2a33f96f77678e02c5b72c36563781e7d7ac334
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73477126"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928291"
 ---
 # <a name="how-to-enable-azure-monitor-for-containers"></a>컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법
 
@@ -25,7 +25,7 @@ ms.locfileid: "73477126"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 시작하기 전에 다음 항목이 있는지 확인하십시오.
 
@@ -42,6 +42,13 @@ ms.locfileid: "73477126"
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 * 기본적으로는 프로메테우스 메트릭이 수집 되지 않습니다. 에이전트를 수집 하도록 [에이전트를 구성](container-insights-prometheus-integration.md) 하기 전에 먼저 프로메테우스 [설명서](https://prometheus.io/) 를 검토 하 여 정의할 수 있는 항목을 이해 하는 것이 중요 합니다.
+
+## <a name="supported-configurations"></a>지원되는 구성
+
+다음은 Azure Monitor 컨테이너에 대해 공식적으로 지원 됩니다.
+
+- 환경: Kubernetes 온-프레미스, Azure의 AKS 엔진 및 Azure Stack 자세한 내용은 [Azure Stack AKS Engine](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908)을 참조 하세요.
+- Kubernetes 및 지원 정책의 버전은 [지원 되는 AKS](../../aks/supported-kubernetes-versions.md)버전과 동일 합니다. 
 
 ## <a name="network-firewall-requirements"></a>네트워크 방화벽 요구 사항
 

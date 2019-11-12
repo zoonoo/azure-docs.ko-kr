@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: ca1d1a5761e62b2838a474dcb83f450987972998
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327310"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928968"
 ---
 # <a name="azure-security-center-for-iot-event-aggregation"></a>IoT 이벤트 집계를 위한 Azure Security Center
 
@@ -44,7 +44,7 @@ IoT 보안 에이전트에 대 한 Azure Security Center 로컬 장치에서 데
 
 이벤트는 다음 조건이 충족 될 때만 동일 하 게 간주 됩니다. 
 
-* ProcessCreate 이벤트- **명령줄**, **실행 파일**, * * 사용자 이름 및 **userid** 가 동일한 경우
+* ProcessCreate 이벤트- **명령줄**, **실행 파일**, **사용자 이름**및 **userid** 가 동일한 경우
 * ConnectionCreate 이벤트- **명령줄**, **userId**, **방향**, **로컬 주소**, **원격 주소**, * * 프로토콜 및 **대상 포트가** 동일한 경우
 * ProcessTerminate events- **실행 파일** 및 **종료 상태가** 동일한 경우
 
@@ -64,7 +64,7 @@ IoT 보안 에이전트에 대 한 Azure Security Center 로컬 장치에서 데
 ## <a name="event-aggregation-twin-configuration"></a>이벤트 집계 쌍 구성
 **Azureiotsecurity** 모듈의 모듈 쌍 id의 [에이전트 구성 개체](how-to-agent-configuration.md) 내에서 IoT 이벤트 집계에 대 한 Azure Security Center 구성을 변경 합니다.
 
-| 구성 이름 | 가능한 값 | 설명 | 설명 |
+| 구성 이름 | 가능한 값 | 세부 정보 | 설명 |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | 프로세스 생성 이벤트에 대 한 이벤트 집계 사용/사용 안 함 |
 | aggregationIntervalProcessCreate | ISO8601 Timespan 문자열 | 프로세스 생성 이벤트에 대 한 집계 간격 |

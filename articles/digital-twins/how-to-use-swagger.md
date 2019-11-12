@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 06cbdf6fbba89b6666e6fe3162fd591e93dffecd
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6a99693c3f88e94c093910da6ba4a305c26fe39d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958881"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931336"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 참조 설명서
 
@@ -95,14 +95,14 @@ Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드�
 > [!NOTE]
 > * Azure Digital Twins 리소스를 만든 사용자 보안 주체는 공간 관리자 역할 할당을 포함 하 고 다른 사용자에 대 한 추가 역할 할당을 만들 수 있습니다. 이러한 사용자 및 해당 역할은 Api를 호출할 수 있는 권한이 부여 될 수 있습니다.
 
-1. [이 빠른](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) 시작의 단계에 따라 azure AD 응용 프로그램을 만들고 구성 하려면 [Azure Active Directory 레거시를 사용 하 여 Azure Digital Twins 앱을 등록](./how-to-use-legacy-aad.md) 합니다. 또는 기존 앱 등록을 다시 사용할 수 있습니다.
+1. [이 빠른](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) 시작의 단계에 따라 Azure AD 응용 프로그램을 만들고 구성 합니다. 또는 기존 앱 등록을 다시 사용할 수 있습니다.
 
 1. 앱 등록에 다음 회신 url을 추가 합니다.
 
     ```plaintext
     https://YOUR_SWAGGER_URL/ui/oauth2-redirect-html
     ```
-    | 이름  | 다음 항목으로 교체 | 예제 |
+    | 이름  | 다음 항목으로 교체 | 예 |
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | 포털에서 찾을 수 있는 관리 REST API 설명서 URL  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
@@ -112,7 +112,7 @@ Azure Active Directory 등록을 완료 한 후:
 
 1. Swagger 페이지에서 **권한 부여** 단추를 선택 합니다.
 
-    [@no__t Swagger 권한 부여 단추를 선택 합니다.](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Swagger 권한 부여 단추를 선택 합니다.](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 1. 응용 프로그램 ID를 **client_id** 필드에 붙여넣습니다.
 

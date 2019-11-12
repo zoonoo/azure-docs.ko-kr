@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: 7d8ed5ebde946134bc7e4779ec79c9ea853a6ef4
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 178f518ed7ab24fc0d3678f77ae75933a7163b58
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895190"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930141"
 ---
-# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에 MXChip IoT DevKit 디바이스 연결
+# <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application-preview-features"></a>MXChip IoT DevKit 장치를 Azure IoT Central 응용 프로그램에 연결 (미리 보기 기능)
 
 이 문서에서는 DevKit (MXChip IoT DevKit) 장치를 Azure IoT Central 응용 프로그램에 연결 하는 방법을 보여 줍니다. 장치는 DevKit 장치에 대해 인증 된 IoT 플러그 앤 플레이 모델을 사용 하 여 IoT Central에 대 한 연결을 구성 합니다.
 

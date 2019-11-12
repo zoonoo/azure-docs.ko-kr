@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central에 일반 Node.js 클라이언트 애플리케이션 연결 | Microsoft Docs
+title: Azure IoT Central에 일반 node.js 클라이언트 앱 연결 Microsoft Docs
 description: 장치 개발자는 일반 node.js 장치를 Azure IoT Central 응용 프로그램에 연결 하는 방법을 설명 합니다.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 76ab6a229de14af1e3808326c62a7bdbbd188e81
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 87dbd7ab4d75150d09a8c26db50ce2e3b1a085db
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72951368"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930234"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 애플리케이션에 일반 클라이언트 애플리케이션 연결(Node.js)
 
@@ -36,7 +36,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 **측정** 페이지에서 다음 원격 분석을 추가 합니다.
 
-| 표시 이름 | 필드 이름  | 단위 | Min | 최대 | 소수 자릿수 |
+| 표시 이름 | 필드 이름  | Units | Min | max | 소수 자릿수 |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
 | 온도  | 온도 | F     | 60  | 110 | 0              |
 | 습도     | humidity    | %     | 0   | 100 | 0              |
@@ -53,7 +53,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 | 표시 이름 | 필드 이름  | 값 1 | 표시 이름 | 값 2 | 표시 이름 |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| 팬 모드     | fanmode     | 1       | 실행 중      | 0       | 중지됨      |
+| 팬 모드     | fanmode     | 1       | 실행 중      | 0       | 중지      |
 
 > [!NOTE]
 > 상태 측정값의 데이터 형식은 문자열입니다.
@@ -77,7 +77,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 | 표시 이름 | 필드 이름  |
 | ------------ | ----------- |
-| 위치     | location    |
+| Location     | location    |
 
 위치 측정 데이터 형식은 경도 및 위도에 대 한 두 개의 부동 소수점 숫자와 고도의 부동 소수점 수로 구성 됩니다.
 
@@ -89,8 +89,8 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 | 표시 이름        | 필드 이름        | 데이터 형식 |
 | ------------------- | ----------------- | --------- |
-| 일련 번호       | serialNumber      | text      |
-| 디바이스 제조업체 | manufacturer      | text      |
+| 일련 번호       | serialNumber      | 텍스트      |
+| 디바이스 제조업체 | manufacturer      | 텍스트      |
 
 테이블에 표시된 필드 이름을 디바이스 템플릿에 똑같이 입력합니다. 필드 이름이 해당 장치 코드의 속성 이름과 일치 하지 않는 경우에는 응용 프로그램에 속성을 표시할 수 없습니다.
 
@@ -98,7 +98,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 **설정** 페이지에서 다음 **번호** 설정을 추가 합니다.
 
-| 표시 이름    | 필드 이름     | 단위 | 10진수 | Min | 최대  | Initial |
+| 표시 이름    | 필드 이름     | Units | 10진수 | Min | max  | Initial |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | 팬 속도       | fanSpeed       | rpm   | 0        | 0   | 3000 | 0       |
 | 온도 설정 | setTemperature | F     | 0        | 20  | 200  | 80      |
@@ -115,7 +115,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 카운트다운 명령에 다음 입력 필드를 추가 합니다.
 
-| 표시 이름    | 필드 이름     | 데이터 형식 | Value |
+| 표시 이름    | 필드 이름     | 데이터 형식 | 값 |
 | --------------- | -------------- | --------- | ----- |
 | 개수      | countFrom      | number    | 10    |
 
@@ -142,9 +142,9 @@ Azure IoT Central 응용 프로그램에서 이전 섹션에서 만든 장치 �
     npm install azure-iot-device azure-iot-device-mqtt azure-iot-provisioning-device-mqtt azure-iot-security-symmetric-key --save
     ```
 
-1. `connected-air-conditioner-adv` 폴더에 **connectedAirConditionerAdv.js**라는 파일을 만듭니다.
+1. **폴더에**connectedAirConditionerAdv.js`connected-air-conditioner-adv`라는 파일을 만듭니다.
 
-1. **connectedAirConditionerAdv.js** 파일의 시작 부분에 다음 `require` 문을 추가합니다.
+1. `require`connectedAirConditionerAdv.js**파일의 시작 부분에 다음** 문을 추가합니다.
 
     ```javascript
     "use strict";

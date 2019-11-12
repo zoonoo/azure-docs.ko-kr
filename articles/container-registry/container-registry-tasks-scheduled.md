@@ -1,6 +1,6 @@
 ---
 title: 작업 예약 Azure Container Registry
-description: 타이머를 설정 하 여 정의 된 일정에 따라 Azure Container Registry 태스크를 실행 합니다.
+description: 하나 이상의 타이머 트리거를 설정 하 여 정의 된 일정에 Azure Container Registry 작업을 실행 하는 방법을 알아봅니다.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: a4a1099d90b619be383d440067a692c51a2430ac
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69509064"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931460"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>정의 된 일정에 따라 ACR 작업 실행
 
@@ -31,7 +31,7 @@ Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용 하 여이 문서�
 
 * **Cron 식을** 사용 하는 트리거-태스크에 대 한 타이머 트리거에서 *cron 식을*사용 합니다. 식은 작업을 트리거할 분, 시간, 일, 월 및 요일을 지정 하는 5 개의 필드가 포함 된 문자열입니다. 분당 최대 1 개의 주파수가 지원 됩니다.
 
-  예를 들어 식은 `"0 12 * * Mon-Fri"` 각 요일의 정오 UTC로 작업을 트리거합니다. 이 문서의 뒷부분에 있는 [세부 정보](#cron-expressions) 를 참조 하세요.
+  예를 들어 식 `"0 12 * * Mon-Fri"` 각 요일의 정오 UTC로 작업을 트리거합니다. 이 문서의 뒷부분에 있는 [세부 정보](#cron-expressions) 를 참조 하세요.
 * **여러 타이머 트리거** -일정의 차이가 있는 한 작업에 여러 타이머를 추가 하는 작업을 수행할 수 있습니다.
     * 작업을 만들거나 나중에 추가할 때 여러 타이머 트리거를 지정 합니다.
     * 필요에 따라 더 쉽게 관리할 수 있도록 트리거의 이름을 지정 하거나 ACR 작업에서 기본 트리거 이름을 제공 합니다.
@@ -40,9 +40,9 @@ Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용 하 여이 문서�
 
 ## <a name="create-a-task-with-a-timer-trigger"></a>타이머 트리거를 사용 하 여 작업 만들기
 
-[Az acr task create][az-acr-task-create] 명령을 사용 하 여 작업을 만드는 경우 필요에 따라 타이머 트리거를 추가할 수 있습니다. 매개 변수 `--schedule` 를 추가 하 고 타이머에 대 한 cron 식을 전달 합니다.
+[Az acr task create][az-acr-task-create] 명령을 사용 하 여 작업을 만드는 경우 필요에 따라 타이머 트리거를 추가할 수 있습니다. `--schedule` 매개 변수를 추가 하 고 타이머에 대 한 cron 식을 전달 합니다.
 
-간단한 예로, 다음 명령을 실행 하면 매일 Docker 허브에서 `hello-world` 21:00 UTC로 이미지를 실행 하는 것이 트리거됩니다. 소스 코드 컨텍스트 없이 태스크가 실행 됩니다.
+간단한 예제로, 다음 명령은 매일 21:00 UTC에 Docker 허브에서 `hello-world` 이미지 실행을 트리거합니다. 소스 코드 컨텍스트 없이 태스크가 실행 됩니다.
 
 ```azurecli
 az acr task create \
@@ -174,7 +174,7 @@ Cron 식에 사용 되는 표준 시간대는 UTC (협정 세계시)입니다. �
 
 각 필드에는 다음과 같은 형식의 값 중 하나가 포함될 수 있습니다.
 
-|형식  |예제  |트리거될 때  |
+|에  |예  |트리거될 때  |
 |---------|---------|---------|
 |특정 값 |<nobr>`"5 * * * *"`</nobr>|매시간 매 시간 5 분 지난 5 분|
 |모든 값(`*`)|<nobr>`"* 5 * * *"`</nobr>|5:00 UTC부터 1 시간 마다 (60 시간)|
@@ -186,7 +186,7 @@ Cron 식에 사용 되는 표준 시간대는 UTC (협정 세계시)입니다. �
 
 ### <a name="cron-examples"></a>Cron 예제
 
-|예제|트리거될 때  |
+|예|트리거될 때  |
 |---------|---------|
 |`"*/5 * * * *"`|5분마다 한 번|
 |`"0 * * * *"`|1시간이 시작할 때마다 한 번|

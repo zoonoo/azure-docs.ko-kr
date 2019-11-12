@@ -1,6 +1,6 @@
 ---
 title: Azure Portal의 Azure Container Registry 리포지토리
-description: Azure Portal에서 Azure Container Registry 리포지토리를 보는 방법
+description: Azure Portal 사용 하 여 Docker 컨테이너 이미지 및 지원 되는 기타 아티팩트를 호스트 하는 Azure Container Registry 리포지토리를 볼 수 있습니다.
 services: container-registry
 author: cristy
 manager: gwallace
@@ -8,22 +8,22 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: jeconnoc
-ms.openlocfilehash: 22f84efee2b3996734e8e38c73d30ba891b745d9
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 793d8e82ca78c6055a6e956d4f41b7991d5fd700
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68310576"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931524"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Azure Portal의 컨테이너 레지스트리 리포지토리 보기
 
 Azure Container Registry를 통해 리포지토리에 Docker 컨테이너 이미지를 저장할 수 있습니다. 리포지토리에 이미지를 저장하면 격리된 환경에 이미지 그룹(또는 이미지 버전)을 저장할 수 있습니다. 이미지를 레지스트리에 푸시할 때 이러한 리포지토리를 지정하고, Azure Portal에서 해당 콘텐츠를 볼 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
-* **컨테이너 레지스트리**: Azure 구독에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
-* **DOCKER CLI**: Docker 명령줄 인터페이스를 제공 하는 로컬 컴퓨터에 [docker][docker-install] 를 설치 합니다.
-* **컨테이너 이미지**: 컨테이너 레지스트리에 이미지를 푸시합니다. 이미지 밀어넣기 및 끌어오기 방법에 대한 지침은 [이미지 밀어넣기 및 끌어오기](container-registry-get-started-docker-cli.md)를 참조하세요.
+* **컨테이너 레지스트리**: Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
+* **DOCKER CLI**: docker 명령줄 인터페이스를 제공 하는 로컬 컴퓨터에 [docker][docker-install] 를 설치 합니다.
+* **컨테이너 이미지**: 이미지를 컨테이너 레지스트리를 밀어 넣습니다. 이미지 밀어넣기 및 끌어오기 방법에 대한 지침은 [이미지 밀어넣기 및 끌어오기](container-registry-get-started-docker-cli.md)를 참조하세요.
 
 ## <a name="view-repositories-in-azure-portal"></a>Azure Portal에서 리포지토리 보기
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 5ae043c356559b2e675f05af3eb7eb61973eb170
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 2f59b66bacbd0105e5a543b019a5c6646e010c48
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621946"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928529"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용 하 여 Application Insights 리소스 관리
 
@@ -545,7 +545,7 @@ Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <
    
     ![Azure 리소스 탐색기에서 탐색](./media/powershell/01.png)
    
-    *구성 요소*는 애플리케이션을 표시하기 위한 기본 Application Insights 리소스입니다. 연결된 경고 규칙 및 가용성 웹 테스트에 대한 별도의 리소스가 있습니다.
+    *구성 요소* 는 애플리케이션을 표시하기 위한 기본 Application Insights 리소스입니다. 연결된 경고 규칙 및 가용성 웹 테스트에 대한 별도의 리소스가 있습니다.
 2. 구성 요소의 JSON을 `template1.json`의 적절한 위치에 복사합니다.
 3. 다음 속성을 삭제합니다.
    
@@ -565,7 +565,7 @@ Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <
 ### <a name="parameterize-the-template"></a>템플릿 매개 변수화
 이제 특정 이름을 매개 변수로 대체해야 합니다. [템플릿을 매개 변수화](../../azure-resource-manager/resource-group-authoring-templates.md)하려면 [도우미 함수 집합](../../azure-resource-manager/resource-group-template-functions.md)을 사용하여 식을 작성합니다. 
 
-문자열의 일부만 매개 변수화할 수 없으므로 `concat()` 을 사용하여 문자열을 빌드합니다.
+문자열의 일부만 매개 변수화할 수 없으므로 `concat()`을 사용하여 문자열을 빌드합니다.
 
 다음은 만들 수 있는 대체 예제입니다. 각 대체가 여러 번 발생합니다. 템플릿에서 다른 사항이 필요할 수 있습니다. 이러한 예제에서는 템플릿의 위쪽에서 정의한 매개 변수 및 변수를 사용합니다.
 
@@ -595,7 +595,7 @@ Azure에서는 엄격한 순서로 리소스를 설정해야 합니다. 다음 �
 ## <a name="next-steps"></a>다음 단계
 다른 자동화 문서:
 
-* [Application Insights 리소스 만들기](powershell-script-create-resource.md) - 템플릿을 사용하지 않는 빠른 방법입니다.
+* [Application Insights 리소스 만들기](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically) - 템플릿을 사용하지 않는 빠른 방법입니다.
 * [경고 설정](powershell-alerts.md)
 * [웹 테스트 만들기](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Application Insights에 Azure Diagnostics 보내기](powershell-azure-diagnostics.md)

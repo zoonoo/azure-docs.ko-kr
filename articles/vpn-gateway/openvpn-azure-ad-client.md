@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: alzam
-ms.openlocfilehash: da863144da5ec4361673c913392495d3d622f5a9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 714cabc204c9ec9a0c3bbc93be287957c91d1936
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837976"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73932344"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication-preview"></a>P2S OpenVPN 프로토콜 연결용 VPN 클라이언트 구성: Azure AD 인증 (미리 보기)
 
@@ -24,7 +24,11 @@ ms.locfileid: "73837976"
 
 ## <a name="profile"></a>클라이언트 프로필 작업
 
-연결 하려면 Azure VPN 클라이언트를 [다운로드](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) 하 고 VNet에 연결 하려는 모든 컴퓨터에서 vpn 클라이언트 프로필을 구성 해야 합니다. 컴퓨터에서 클라이언트 프로필을 만들어 내보낸 다음 추가 컴퓨터에 가져올 수 있습니다.
+연결 하려면 Azure VPN 클라이언트 (미리 보기)를 다운로드 하 고 VNet에 연결 하려는 모든 컴퓨터에서 VPN 클라이언트 프로필을 구성 해야 합니다. 컴퓨터에서 클라이언트 프로필을 만들어 내보낸 다음 추가 컴퓨터에 가져올 수 있습니다.
+
+### <a name="to-download-the-azure-vpn-client"></a>Azure VPN 클라이언트를 다운로드 하려면
+
+이 [링크](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) 를 사용 하 여 Azure VPN 클라이언트 (미리 보기)를 다운로드 합니다.
 
 ### <a name="cert"></a>인증서 기반 클라이언트 프로필을 만들려면
 

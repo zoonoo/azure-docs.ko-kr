@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 1ec241e261a7710b7a5b92d88f147ce8d148602b
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 230b79a5062262a85d3090e15ed52d67c38ed3e9
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554033"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73928463"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure 리소스 모니터링
 Azure 리소스를 사용 하는 중요 한 응용 프로그램 및 비즈니스 프로세스를 사용 하는 경우 해당 리소스의 가용성, 성능 및 작업을 모니터링 하려고 합니다. 이 문서에서는 Azure 리소스에서 생성 되는 모니터링 데이터와 Azure Monitor 기능을 사용 하 여이 데이터를 분석 하 고 경고 하는 방법에 대해 설명 합니다.
@@ -62,11 +62,19 @@ Azure의 리소스는 다음 다이어그램에 표시 된 [로그](../platform/
 
 
 ## <a name="configuration-requirements"></a>구성 요구 사항
+
+### <a name="configure-monitoring"></a>모니터링 구성
 일부 모니터링 데이터는 자동으로 수집 되지만 요구 사항에 따라 일부 구성을 수행 해야 할 수도 있습니다. 각 유형의 모니터링 데이터에 대 한 구체적인 정보는 아래 정보를 참조 하세요.
 
 - [플랫폼 메트릭](../platform/data-platform-metrics.md) -플랫폼 메트릭은 구성이 필요 없는 [Azure Monitor 메트릭에](../platform/data-platform-metrics.md) 자동으로 수집 됩니다. Azure Monitor 로그에 항목을 보내거나 Azure 외부에서 전달 하는 진단 설정을 만듭니다.
 - [리소스 로그](../platform/resource-logs-overview.md) -리소스 로그는 Azure 리소스에 의해 자동으로 생성 되지만 진단 설정 없이는 수집 되지 않습니다.  Azure Monitor 로그에 항목을 보내거나 Azure 외부에서 전달 하는 진단 설정을 만듭니다.
 - [활동 로그](../platform/activity-logs-overview.md) -작업 로그는 구성이 필요 없는 자동으로 수집 되며 Azure Portal에서 볼 수 있습니다. 진단 설정을 만들어 Azure Monitor 로그에 복사 하거나 Azure 외부에서 전달 합니다.
+
+### <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
+Azure Monitor 로그에 데이터를 수집 하려면 Log Analytics 작업 영역이 필요 합니다. 새 작업 영역을 만들어 서비스 모니터링을 신속 하 게 시작할 수 있지만 다른 서비스에서 데이터를 수집 하는 작업 영역을 사용 하는 경우에는 값이 있을 수 있습니다. 작업 영역 만들기 및 [Azure Monitor 로그 배포 디자인](../platform/design-logs-deployment.md) 에 대 한 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../learn/quick-create-workspace.md) 를 참조 하 여 요구 사항에 가장 적합 한 작업 영역 디자인을 결정 합니다. 조직에서 기존 작업 영역을 사용 하는 경우 [Azure Monitor의 로그 데이터 및 작업 영역에 대 한 액세스 관리](../platform/manage-access.md)에 설명 된 대로 적절 한 사용 권한이 필요 합니다. 
+
+
+
 
 
 ## <a name="diagnostic-settings"></a>진단 설정
@@ -82,20 +90,27 @@ Azure의 리소스는 다음 다이어그램에 표시 된 [로그](../platform/
 ## <a name="monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링
  Azure Portal의 리소스 메뉴에서 대부분의 Azure 리소스에 대 한 모니터링 데이터에 액세스할 수 있습니다. 이를 통해 표준 Azure Monitor 도구를 사용 하 여 단일 리소스의 데이터에 액세스할 수 있습니다. 일부 Azure 서비스는 다른 옵션을 제공 하므로 추가 정보는 해당 서비스에 대 한 설명서를 참조 해야 합니다. **Azure Monitor** 메뉴를 사용 하 여 모니터링 되는 모든 리소스의 데이터를 분석할 수 있습니다. 
 
+### <a name="overview"></a>개요
 대부분의 서비스에는 **개요** 페이지에 대 한 모니터링 데이터가 포함 되어 해당 작업에 대 한 간략 한 보기를 제공 합니다. 이는 일반적으로 Azure Monitor 메트릭에 저장 된 플랫폼 메트릭의 하위 집합을 기반으로 합니다. 다른 모니터링 옵션은 일반적으로 서비스의 **모니터링** 섹션에서 사용할 수 있습니다. 메뉴가.
 
 ![개요 페이지](media/monitor-azure-resource/overview-page.png)
 
-## <a name="analyzing-metrics"></a>메트릭 분석
-[메트릭 탐색기](../platform/metrics-getting-started.md)를 사용 하 여 개별 메트릭을 분석 하 고 여러 메트릭을 상호 연결 하 여 상관 관계 및 추세를 식별 합니다. 일부 서비스는 리소스 메뉴에서 **메트릭을** 열 때 해당 메트릭에 대 한 작업을 수행 하기 위한 사용자 지정 된 환경을 제공 합니다.
+
+### <a name="insights-and-solutions"></a>통찰력 및 솔루션 
+일부 서비스는 Azure Monitor 표준 기능 외의 도구를 제공 합니다. [Insights](../insights/insights-overview.md) 는 Azure Monitor 데이터 플랫폼과 표준 기능을 기반으로 하는 사용자 지정 모니터링 환경을 제공 합니다. [솔루션](../insights/solutions.md) 은 Azure Monitor 로그를 기반으로 하는 미리 정의 된 모니터링 논리를 제공 합니다. 
+
+서비스에 Azure Monitor 정보가 있는 경우 각 리소스 메뉴의 **모니터링** 에서 액세스할 수 있습니다. **Azure Monitor** 메뉴에서 모든 정보 및 솔루션에 액세스 합니다.
+
+![자세한 정보](media/monitor-azure-resource/insights.png)
+
+### <a name="metrics"></a>메트릭
+대부분의 서비스에 대 한 **메트릭** 메뉴 항목에서 사용할 수 있는 [메트릭 탐색기](../platform/metrics-getting-started.md) 를 사용 하 여 Azure Portal에서 메트릭을 분석 합니다. 이 도구를 사용 하면 개별 메트릭에 대해 작업 하거나 여러 개를 결합 하 여 상관 관계 및 추세를 식별할 수 있습니다. 
 
 - 메트릭 탐색기 사용에 대 한 기본 사항은 [Azure 메트릭 탐색기 시작](../platform/metrics-getting-started.md) 을 참조 하세요.
 - 여러 메트릭 사용, 필터 및 분할 적용과 같은 메트릭 탐색기의 고급 기능에 대 한 [Azure 메트릭 탐색기의 고급 기능](../platform/metrics-charts.md) 을 참조 하세요.
 
 ![메트릭](media/monitor-azure-resource/metrics.png)
 
-
-## <a name="analyzing-logs"></a>로그 분석
 
 ### <a name="activity-log"></a>활동 로그 
 현재 리소스로 설정 된 초기 필터를 사용 하 여 Azure Portal의 활동 로그에서 항목을 봅니다. 활동 로그를 Log Analytics 작업 영역에 복사 하 여 로그 쿼리 및 통합 문서에서 사용할 수 있도록 합니다. 
@@ -110,7 +125,6 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용 하 여 분석을 위�
 
 [Log Analytics](../log-query/get-started-portal.md) 를 사용 하면 완전 한 기능을 갖춘 쿼리 언어를 사용 하 여 로그 데이터에 대 한 고급 분석을 수행할 수 있는 강력한 Azure Monitor 기능인 [로그 쿼리](../log-query/log-query-overview.md)를 사용할 수 있습니다. 리소스를 [쿼리 범위로](../log-query/scope.md#query-scope)사용 하 여 로그 쿼리로 작업 하려면 Azure 리소스에 대 한 **모니터링** 메뉴의 **로그** 에서 Log Analytics를 엽니다. 이를 통해 해당 리소스에 대 한 여러 테이블의 데이터를 분석할 수 있습니다. Azure Monitor 메뉴의 **로그** 를 사용 하 여 모든 리소스에 대 한 로그에 액세스할 수 있습니다. 
 
-- Log Analytics를 사용 하 여 쿼리를 작성 하 고 결과에 대 한 작업을 수행 하는 연습은 [Azure Monitor에서 Log Analytics 시작](../log-query/get-started-portal.md) 을 참조 하세요.
 - 로그 쿼리를 작성 하는 데 사용 되는 쿼리 언어를 사용 하는 방법에 대 한 자습서는 [Azure Monitor에서 로그 쿼리 시작](../log-query/get-started-queries.md) 을 참조 하세요.
 - Azure Monitor 로그에서 리소스 로그를 수집 하는 방법에 대 한 자세한 내용과 쿼리에서 액세스 하는 방법에 대 한 자세한 내용은 [Azure Monitor Log Analytics 작업 영역에서 Azure 리소스 로그 수집](../platform/resource-logs-collect-workspace.md) 을 참조 하세요.
 - Azure Monitor 로그에서 리소스 로그 데이터를 구성 하는 방법에 대 한 설명은 [수집 모드](../platform/resource-logs-collect-workspace.md#collection-mode) 를 참조 하세요.
@@ -118,6 +132,19 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용 하 여 분석을 위�
 
 ![로그](media/monitor-azure-resource/logs.png)
 
+## <a name="monitoring-from-command-line"></a>명령줄에서 모니터링
+명령줄에서 리소스에서 수집한 모니터링 데이터에 액세스 하거나 [Azure PowerShell](/powershell/azure/) 또는 [Azure 명령줄 인터페이스](/cli/azure/)를 사용 하 여 스크립트에 포함할 수 있습니다. 
+
+- CLI에서 메트릭 데이터에 액세스 하는 방법에 대 한 [cli 메트릭 참조](/cli/azure/monitor/metrics) 를 참조 하세요.
+- CLI에서 로그 쿼리를 사용 하 여 Azure Monitor 로그 데이터에 액세스 하기 위한 [cli Log Analytics 참조](/cli/azure/ext/log-analytics/monitor/log-analytics) 를 참조 하세요.
+- Azure PowerShell에서 메트릭 데이터에 액세스 하기 위한 [Azure PowerShell 메트릭 참조](/powershell/module/azurerm.insights/get-azurermmetric) 를 참조 하세요.
+- Azure PowerShell에서 로그 쿼리를 사용 하 여 Azure Monitor 로그 데이터에 액세스 하기 위한 [Azure PowerShell log 쿼리 참조](/powershell/module/az.operationalinsights/Invoke-AzOperationalInsightsQuery) 를 참조 하세요.
+
+## <a name="monitoring-from-rest-api"></a>REST API에서 모니터링
+REST API를 사용 하 여 사용자 지정 응용 프로그램에서 리소스에서 수집한 모니터링 데이터를 포함 합니다.
+
+- Azure Monitor REST API에서 메트릭에 액세스 하는 방법에 대 한 자세한 내용은 [Azure Monitoring REST API 연습](../platform/rest-api-walkthrough.md) 을 참조 하세요.
+- Azure PowerShell의 로그 쿼리를 사용 하 여 Azure Monitor 로그 데이터에 액세스 하는 방법에 대 한 자세한 내용은 [Azure Log Analytics REST API](https://dev.loganalytics.io/) 를 참조 하세요.
 
 ## <a name="alerts"></a>경고
 [경고](../platform/alerts-overview.md) 는 모니터링 데이터에서 중요 한 조건이 발견 될 때 사용자에 게 사전에 알리고 잠재적으로 조치를 취합니다. 경고의 대상, 경고를 만들지 여부에 대 한 조건 및 응답으로 수행할 작업을 정의 하는 경고 규칙을 만듭니다.
@@ -133,14 +160,7 @@ Azure Monitor 로그는 강력한 쿼리 도구를 사용 하 여 분석을 위�
 - 경고 규칙을 만드는 방법에 대 한 자세한 내용은 위의 여러 종류의 경고에 대 한 문서를 참조 하세요.
 - 경고에 대 한 응답을 관리할 수 있는 작업 그룹을 만드는 방법에 대 한 자세한 내용은 [Azure Portal에서 작업 그룹 만들기 및 관리](../platform/action-groups.md) 를 참조 하세요.
 
-## <a name="insights-and-solutions"></a>통찰력 및 솔루션 
-일부 서비스는 Azure Monitor 표준 기능 외의 도구를 제공 합니다. [솔루션](../insights/solutions.md) 은 표준 Azure Monitor 기능을 기반으로 하는 미리 정의 된 모니터링 논리를 제공 합니다. [Insights](../insights/insights-overview.md) 는 Azure Monitor 데이터 플랫폼과 표준 기능을 기반으로 하는 사용자 지정 모니터링 환경을 제공 합니다.
 
-리소스에서 정보를 사용할 수 있는 경우 리소스 메뉴의 **정보** 에서 액세스할 수 있습니다. Azure Monitor 메뉴에서 모든 정보 및 솔루션에 액세스 합니다.
-
-- 사용 가능한 정보 또는 솔루션이 있는지 확인 하려면 각 서비스에 대 한 모니터링 설명서를 참조 하세요.
-
-![인사이트](media/monitor-azure-resource/insights.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/29/2019
-ms.openlocfilehash: 33302f3760cc750bfc41386aaf17368abc15ba5d
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 18e03b6828922b3444d9461bef394b5c6682c238
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063282"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930339"
 ---
 # <a name="use-external-metadata-stores-in-azure-hdinsight"></a>Azure HDInsight에서 외부 메타데이터 저장소 사용
 
@@ -56,6 +56,18 @@ HDInsight는 프로덕션 클러스터에 권장되는 사용자 지정 metastor
 * 필요에 따라 metastore를 확장할 수 있습니다.
 
 ![HDInsight Hive 메타데이터 저장소 사용 사례](./media/hdinsight-use-external-metadata-stores/metadata-store-use-case.png)
+
+### <a name="create-and-config-azure-sql-database-for-the-custom-metastore"></a>사용자 지정 metastore 만들기 및 구성 Azure SQL Database
+
+HDInsight 클러스터에 대 한 사용자 지정 Hive metastore를 설정 하기 전에 기존 Azure SQL Database를 만들거나 기존 해야 합니다.  자세한 내용은 [빠른 시작: AZURE SQL DB에서 단일 데이터베이스 만들기](https://docs.microsoft.com/azure/sql-database/sql-database-single-database-get-started?tabs=azure-portal)를 참조 하세요.
+
+HDInsight 클러스터가 연결 된 Azure SQL Database에 액세스할 수 있도록 하려면 Azure SQL Database 방화벽 규칙을 구성 하 여 Azure 서비스 및 리소스가 서버에 액세스할 수 있도록 해야 합니다.
+
+**서버 방화벽 설정**을 클릭 하 여 Azure Portal에서이 옵션을 사용 하도록 설정 하 고 **Azure 서비스 및 리소스** 에서 Azure SQL Database 서버 또는 데이터베이스에 대 한이 서버에 액세스할 수 있음을 **클릭 하** 여이 옵션을 사용할 수 있습니다. 자세한 내용은 [IP 방화벽 규칙 만들기 및 관리](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure#use-the-azure-portal-to-manage-server-level-ip-firewall-rules) 를 참조 하세요.
+
+![서버 방화벽 설정 단추](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall1.png)
+
+![azure 서비스 액세스 허용](./media/hdinsight-use-external-metadata-stores/configure-azure-sql-database-firewall2.png)
 
 ### <a name="select-a-custom-metastore-during-cluster-creation"></a>클러스터를 만드는 동안 사용자 지정 metastore 선택
 

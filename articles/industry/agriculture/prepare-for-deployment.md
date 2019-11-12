@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 55b59802116eb10d2e7eeb3b13ecb3da2d475c6d
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: acc64486ac8bd15a9abab1f2010ea56b752a1e86
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906980"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927679"
 ---
 # <a name="deploy-farmbeats"></a>FarmBeats 배포
 
@@ -60,8 +60,8 @@ Azure FarmBeats는 Azure Marketplace에서 다운로드할 수 있습니다. Azu
 1. Azure Portal에 로그인 하 고 오른쪽 위 모서리에서 사용자의 계정을 선택 하 고 Microsoft Azure FarmBeats를 배포 하려는 Azure AD 테 넌 트로 전환 합니다.
 2. Azure FarmBeats는 Azure Marketplace에서 사용할 수 있습니다. Marketplace 페이지에서 "지금 가져오기"를 선택 합니다.
 3. 만들기를 선택 하 고 다음 정보를 입력 합니다.
-  - 구독 이름입니다.
-  - 기존 리소스 그룹 이름 (빈 리소스 그룹에만 해당) 또는 Azure FarmBeats를 배포 하기 위한 새 리소스 그룹을 만듭니다. 이후 섹션에서이 리소스 그룹을 기록해 둡니다.
+    - 구독 이름입니다.
+    - 기존 리소스 그룹 이름 (빈 리소스 그룹에만 해당) 또는 Azure FarmBeats를 배포 하기 위한 새 리소스 그룹을 만듭니다. 이후 섹션에서이 리소스 그룹을 기록해 둡니다.
 4. Azure FarmBeats를 설치 하려는 지역입니다. 현재 미국 중부, 유럽 서부, 미국 동부 2, 서유럽, 미국 서 부, 동남 아시아, 미국 동부, 오스트레일리아 동부, 미국 서 부 2 지역을 FarmBeats.
 5. **확인**을 선택합니다.
 사용 약관 페이지가 나타납니다. 표준 마켓플레이스 용어를 검토 하거나 하이퍼링크를 선택 하 여 사용 약관을 검토 합니다.
@@ -131,7 +131,7 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
 
 설치 과정에서 다음과 같이 입력 합니다. json 파일을 만듭니다.
 
-    ```
+```json
     {  
        "sku":"both",
        "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx",
@@ -144,7 +144,7 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
        "notificationEmailAddress":"dummy@yourorg.com",
        "updateIfExists":true
     }
-    ```
+```
 
 이 파일은 설치 중에 사용 되는 값을 가진 매개 변수 및 Azure Cloud Shell 하는 입력 파일입니다. Json의 모든 매개 변수를 적절 한 값으로 바꾸거나 제거 해야 합니다. 제거 하는 경우 설치 프로그램에서 설치 중에 메시지를 표시 합니다.
 
@@ -210,9 +210,9 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
 4. Cloud shell의 홈 디렉터리로 이동 합니다. 기본적으로/home/<username>
 5. Cloud Shell에 다음 명령을 입력 하거나 붙여 넣습니다. 입력 경로를 수정 해야 합니다. Json 파일을 입력 하 고 enter 키를 누릅니다.
 
-      ```azurepowershell-interactive
+   ```bash
       wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
-     ```
+    ```
      설치 관리자가 모든 종속성을 자동으로 다운로드 하 고 배포자을 빌드합니다. Azure FarmBeats EULA (최종 사용자 사용권 계약)에 동의 하 라는 메시지가 표시 됩니다.
 
      - 동의 하면 ' Y '를 입력 하 고 다음 단계를 진행 합니다.
@@ -266,7 +266,7 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
 4. Cloud shell의 홈 디렉터리로 이동 합니다. 기본적으로/home/<username>
 5. Cloud Shell에 다음 명령을 입력 하거나 붙여 넣습니다. 입력 경로를 수정 해야 합니다. Json 파일을 입력 하 고 enter 키를 누릅니다.
 
-    ```azurepowershell-interactive
+    ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 
@@ -324,7 +324,7 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
 5. Azure Cloud Shell에 입력 json 파일을 업로드 합니다.
 6. Cloud Shell에 다음 두 명령을 입력 하거나 붙여 넣습니다. 입력. json 파일의 경로를 수정 하 고 enter 키를 누릅니다.
 
-    ```azurepowershell-interactive
+    ```bash
     wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 화면의 지침을 따릅니다.

@@ -295,10 +295,10 @@
           displayName: create client consume request response synchronous
           href: how-to-consume-web-service.md
         - name: 일괄 처리 예측 실행
-          displayName: score scoring asynchronous consume pipeline
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference
           href: how-to-run-batch-predictions.md
         - name: 일괄 처리 예측에 디자이너 사용
-          displayName: score scoring asynchronous consume pipeline
+          displayName: score scoring asynchronous consume pipeline parallelrunstep inference
           href: how-to-run-batch-predictions-ui.md
     - name: 모델 모니터링
       items:

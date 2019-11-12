@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 2b15cc56cb4f804fac0b047819ccf166950e1cf3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 232ade55350ad1ac85612cf8c69117c19cb20d0c
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890980"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927788"
 ---
 # <a name="imagery-partner-integration"></a>이미지 파트너 통합
 
@@ -97,7 +97,7 @@ REST API 요청을 만들려면 HTTP 메서드 (GET/POST/PUT), API 서비스에 
 
 아래 샘플 요청은 장치 목록을 가져오는 것입니다.
 
-```azurepowershell-interactive
+```bash
 curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 "Content-Type: application/json" -H
 "Authorization: Bearer <Access-Token>”
@@ -108,7 +108,7 @@ curl -X GET "https://microsoft-farmbeats.azurewebsites.net/Device" -H
 아래 샘플 요청은 장치를 만들기 위한 것입니다. 여기에는 요청 본문을 사용 하는 입력 JSON이 있습니다.
 
 
-```azurepowershell-interactive
+```bash
 curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  
 "accept: application/json" -H  
 "Content-Type: application/json" -H "Authorization: Bearer <Access-Token>" -d
@@ -326,6 +326,7 @@ FarmBeats에서 형식 및 파일 원본을 사용할 수 있는 경우 Extended
   ]
 }
 ```
+
 이는 일회성 설치 이며이 새 scenetype의 범위는 FarmBeats 프로젝트가 배포 된 구독으로 제한 됩니다.
 
 예: SceneSource: "SlantRange"를 추가 하려면 키: "SceneSource" 입력 페이로드를 사용 하 여/ExtendedType의 ID를 입력 합니다.

@@ -1,5 +1,5 @@
 ---
-title: Azure Container Registry 작업을 사용 하 여 컨테이너 이미지 빌드 및 패치 자동화 (ACR 작업)
+title: Azure Container Registry 작업-개요
 description: 안전 하 고 자동화 된 컨테이너 이미지 빌드, 관리 및 클라우드에서 패치를 제공 하는 Azure Container Registry의 기능 모음인 ACR 작업에 대해 소개 합니다.
 services: container-registry
 author: dlepow
@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: e2686dcd5615c42abf78cbf4575bab6008024718
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 45fdd68273ed2cd5cfccf37765935ce9f7bfdc13
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001391"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931484"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -44,7 +44,7 @@ ACR 작업은 컨테이너 이미지 및 기타 아티팩트를 빌드하고 유
 
 첫 번째 코드 줄을 커밋하기 전에, ACR 작업의 빠른 [작업](container-registry-tutorial-quick-task.md) 기능은 컨테이너 이미지 빌드를 Azure에 오프로드하여 통합 개발 환경을 제공할 수 있습니다. 빠른 작업을 사용하면 코드를 커밋하기 전에 자동화된 빌드 정의를 확인하고 잠재적인 문제점을 발견할 수 있습니다.
 
-친숙 한 `docker build` 형식을 사용 하면 Azure CLI의 [az acr build][az-acr-build] 명령이 [컨텍스트](#context-locations) (빌드할 파일 집합)를 사용 하 여 acr 작업을 보내고, 기본적으로 완료 시 빌드된 이미지를 레지스트리에 푸시합니다.
+친숙 한 `docker build` 형식을 사용 하 여 Azure CLI의 [az acr build][az-acr-build] 명령은 [컨텍스트](#context-locations) (빌드할 파일 집합)를 사용 하 여 acr 작업을 보내고, 기본적으로 완료 되 면 빌드된 이미지를 레지스트리에 푸시합니다.
 
 소개는 Azure Container Registry에서 [컨테이너 이미지를 빌드하고 실행](container-registry-quickstart-task-cli.md) 하는 빠른 시작을 참조 하세요.  
 
@@ -64,7 +64,7 @@ ACR 태스크는 Git 리포지토리를 작업의 컨텍스트로 설정할 때 
 | 트리거 | 기본적으로 사용 |
 | ------- | ------------------ |
 | 커밋 | 예 |
-| 끌어오기 요청 | 아니요 |
+| 끌어오기 요청 | 아니오 |
 
 트리거를 구성 하려면 GitHub 또는 Azure DevOps 리포지토리에서 webhook를 설정 하기 위해 작업에 PAT (개인용 액세스 토큰)를 제공 합니다.
 
@@ -74,7 +74,7 @@ ACR 태스크는 Git 리포지토리를 작업의 컨텍스트로 설정할 때 
 
 컨테이너 빌드 워크플로를 실제로 향상시키는 ACR 작업의 기능은 기본 이미지에 대한 업데이트를 검색하는 기능에서 제공됩니다. 업데이트 된 기본 이미지가 레지스트리에 푸시되는 경우 또는 Docker Hub와 같은 공용 리포지토리에서 기본 이미지가 업데이트 되는 경우 ACR 작업은이에 따라 모든 응용 프로그램 이미지를 자동으로 빌드할 수 있습니다.
 
-컨테이너 이미지는 *기본* 이미지와 *애플리케이션* 이미지로 크게 분류할 수 있습니다. 기본 이미지에는 일반적으로 애플리케이션이 빌드되는 운영 체제 및 애플리케이션 프레임워크가 다른 사용자 지정 항목과 함께 포함됩니다. 이러한 기본 이미지 자체는 일반적으로 [알파인 Linux][base-alpine], [Windows][base-windows], [.net][base-dotnet]또는 [node.js][base-node]. 일부 애플리케이션 이미지에서는 일반적인 기본 이미지를 공유할 수 있습니다.
+컨테이너 이미지는 *기본* 이미지와 *애플리케이션* 이미지로 크게 분류할 수 있습니다. 기본 이미지에는 일반적으로 애플리케이션이 빌드되는 운영 체제 및 애플리케이션 프레임워크가 다른 사용자 지정 항목과 함께 포함됩니다. 이러한 기본 이미지는 일반적으로 공용 업스트림 이미지 (예: [알파인 Linux][base-alpine], [Windows][base-windows], [.net][base-dotnet]또는 [node.js][base-node])를 기반으로 합니다. 일부 애플리케이션 이미지에서는 일반적인 기본 이미지를 공유할 수 있습니다.
 
 중요한 OS 보안 패치와 같이 업스트림 유지 관리자가 OS 또는 응용 프로그램 프레임워크 이미지를 업데이트하는 경우, 중요한 수정 프로그램이 포함되도록 기본 이미지도 업데이트해야 합니다. 그러면 각 애플리케이션 이미지도 이제 기본 이미지에 포함된 이러한 업스트림 수정 프로그램을 포함하도록 다시 빌드해야 합니다.
 
@@ -118,7 +118,7 @@ Dockerfile에서 이미지 빌드의 경우 기본 이미지가 다음 위치 �
 
 다음 표에서는 ACR 작업에 지원되는 컨텍스트 위치의 몇 가지 예를 보여 줍니다.
 
-| 컨텍스트 위치 | 설명 | 예제 |
+| 컨텍스트 위치 | 설명 | 예 |
 | ---------------- | ----------- | ------- |
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 마스터 분기 | GitHub 리포지토리의 마스터(또는 다른 기본) 분기 내에 있는 파일.  | `https://github.com/gituser/myapp-repo.git` |
@@ -129,7 +129,7 @@ Dockerfile에서 이미지 빌드의 경우 기본 이미지가 다음 위치 �
 
 ## <a name="image-platforms"></a>이미지 플랫폼
 
-기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. @No__t-0 태그를 지정 하 여 다른 아키텍처에 대 한 Windows 이미지 또는 Linux 이미지를 빌드합니다. Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처를 지정 합니다 (예: `--platform Linux/arm`). ARM 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예: `--platform Linux/arm64/v8`)에서 variant를 지정 합니다.
+기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. 다른 아키텍처에 대 한 Windows 이미지 또는 Linux 이미지를 빌드하기 위해 `--platform` 태그를 지정 합니다. Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처를 지정 합니다 (예: `--platform Linux/arm`). ARM 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예: `--platform Linux/arm64/v8`)에서 variant를 지정 합니다.
 
 | OS | 아키텍처|
 | --- | ------- | 

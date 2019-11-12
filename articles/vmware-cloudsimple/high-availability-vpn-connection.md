@@ -8,50 +8,27 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0b40c15956dc03209dcab49641af66bc8ae24187
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 6e3118814eacc6cc63b5db59bd7f1877c1d347dc
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845332"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73927299"
 ---
 # <a name="configure-a-high-availability-connection-from-on-premises-to-cloudsimple-vpn-gateway"></a>온-프레미스에서 CloudSimple VPN gateway로 고가용성 연결 구성
 
 네트워크 관리자는 온-프레미스 환경에서 CloudSimple VPN gateway로 고가용성 IPsec 사이트 간 VPN 연결을 구성할 수 있습니다.
 
-이 가이드는 IPsec 사이트 간 VPN 고가용성 연결에 대 한 온-프레미스 방화벽을 구성 하는 단계를 제공 합니다. 자세한 단계는 온-프레미스 방화벽의 유형에 따라 다릅니다. 예를 들어이 가이드는 두 가지 유형의 방화벽에 대 한 단계를 제공 합니다. Cisco GLOBAL.ASA 및 Palo Alto Networks.
+이 가이드는 IPsec 사이트 간 VPN 고가용성 연결에 대 한 온-프레미스 방화벽을 구성 하는 단계를 제공 합니다. 자세한 단계는 온-프레미스 방화벽의 유형에 따라 다릅니다. 예를 들어이 가이드에서는 두 가지 유형의 방화벽 인 Cisco, Palo Alto Networks에 대 한 단계를 제공 합니다.
 
-## <a name="default-configuration-for-cloudsimple-vpn-gateways"></a>CloudSimple VPN gateway에 대 한 기본 구성
-
-기본적으로 CloudSimple VPN 게이트웨이는 다음 1 단계 및 2 단계 특성과 함께 IKEv1 모드에서 구성 됩니다. 다른 VPN 특성을 사용 하거나 IKEV1 대신 IKEv2를 사용 하려는 경우 <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">지원 요청을 엽니다</a>.
-
-### <a name="phase-1"></a>1단계
-
-| 매개 변수 | 값 |
-|-----------|-------|
-| IKE 버전 | IKEv1 |
-| 암호화 | AES 256 |
-| 해시 알고리즘| SHA 256 |
-| Diffie-hellman 그룹 (DH 그룹) | 1 |
-| 수명 시간 | 86400 초 |
-| 데이터 크기 | 4GB |
-
-### <a name="phase-2"></a>2단계
-
-| 매개 변수 | 값 |
-|-----------|-------|
-| 암호화 | AES 256 |
-| 해시 알고리즘| SHA 256 |
-| 완벽 한 전달 보안 그룹 (PFS 그룹) | 없음 |
-| 수명 시간 | 28,800초 |
-| 데이터 크기 | 4GB |
-
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 온-프레미스 방화벽을 구성 하기 전에 다음 작업을 완료 합니다.
 
 1. 조직에서 필요한 노드를 [프로 비전](create-nodes.md) 하 고 하나 이상의 Cloudsimple 사설 클라우드를 만들었는지 확인 합니다.
 2. 온-프레미스 네트워크와 CloudSimple 사설 클라우드 간에 [사이트 간 VPN gateway를 구성](vpn-gateway.md#set-up-a-site-to-site-vpn-gateway) 합니다.
+
+지원 되는 1 단계 및 2 단계 제안에 대 한 [VPN 게이트웨이 개요](cloudsimple-vpn-gateways.md) 를 참조 하세요.
 
 ## <a name="configure-on-premises-cisco-asa-firewall"></a>온-프레미스 Cisco GLOBAL.ASA 방화벽 구성
 
@@ -59,7 +36,7 @@ ms.locfileid: "70845332"
 
 사이트 간 VPN이 작동 하려면 온-프레미스 Cisco GLOBAL.ASA VPN 게이트웨이의 외부 인터페이스에서 CloudSimple 기본 및 보조 공용 IP (피어 IP)에서 UDP 500/4500 및 ESP (IP 프로토콜 50)를 허용 해야 합니다.
 
-### <a name="1-configure-phase-1-ikev1"></a>1. 1 단계 (IKEv1) 구성
+### <a name="1-configure-phase-1-ikev1"></a>1.1 단계 (IKEv1) 구성
 
 외부 인터페이스에서 1 단계 (IKEv1)를 사용 하도록 설정 하려면 Cisco GLOBAL.ASA 방화벽에서 다음 CLI 명령을 입력 합니다.
 
@@ -92,7 +69,7 @@ tunnel-group <secondary peer ip> ipsec-attributes
 ikev1 pre-shared-key *****
 ```
 
-### <a name="4-configure-phase-2-ipsec"></a>4. 2 단계 (IPsec) 구성
+### <a name="4-configure-phase-2-ipsec"></a>4.2 단계 (IPsec) 구성
 
 2 단계 (IPsec)를 구성 하려면 암호화 및 터널링 되는 트래픽을 정의 하는 ACL (액세스 제어 목록)을 만듭니다. 다음 예제에서 관심 있는 트래픽은 온-프레미스 로컬 서브넷 (10.16.1.0/24)에서 사설 클라우드 원격 서브넷 (192.168.0.0/24)으로 시작 하는 터널에서 가져온 것입니다. 사이트 사이에 여러 서브넷이 있는 경우 ACL에 여러 항목이 포함 될 수 있습니다.
 
@@ -120,7 +97,7 @@ access-list ipsec-acl extended permit ip object AZ_inside object CS_inside
 
 ### <a name="5-configure-the-transform-set"></a>5. 변환 집합 구성
 
-키워드 ```ikev1```와 관련 된 변환 집합 (TS)을 구성 합니다. TS에 지정 된 암호화 및 해시 특성은 [CloudSimple VPN gateway에 대 한 기본 구성](#default-configuration-for-cloudsimple-vpn-gateways)에 나열 된 매개 변수와 일치 해야 합니다.
+```ikev1```키워드와 관련 된 변환 집합 (TS)을 구성 합니다. TS에 지정 된 암호화 및 해시 특성은 [CloudSimple VPN gateway에 대 한 기본 구성](cloudsimple-vpn-gateways.md)에 나열 된 매개 변수와 일치 해야 합니다.
 
 ```
 crypto ipsec ikev1 transform-set devtest39 esp-aes-256 esp-sha-hmac 
@@ -146,7 +123,7 @@ crypto map mymap 1 set ikev1 transform-set devtest39
 
 ```crypto map mymap interface outside```
 
-### <a name="8-confirm-applicable-nat-rules"></a>8. 적용 가능한 NAT 규칙 확인
+### <a name="8-confirm-applicable-nat-rules"></a>8. 해당 하는 NAT 규칙 확인
 
 다음은 사용 되는 NAT 규칙입니다. VPN 트래픽이 다른 NAT 규칙에 적용 되지 않는지 확인 합니다.
 
@@ -170,24 +147,24 @@ crypto map mymap 1 set ikev1 transform-set devtest39
 
 ### <a name="1-create-primary-and-secondary-tunnel-interfaces"></a>1. 기본 및 보조 터널 인터페이스 만들기
 
-Palo Alto 방화벽에 로그인 하 고 **네트워크** > **인터페이스** > **터널** > **추가**를 선택 하 고 다음 필드를 구성 하 고 **확인**을 클릭 합니다.
+Palo Alto 방화벽에 로그인 하 고, **네트워크** > **인터페이스** > **터널** 을 선택 하 > 다음 필드를 **추가**하 고 구성 하 고 **확인**을 클릭 합니다.
 
 * 인터페이스 이름입니다. 첫 번째 필드는 ' 터널 ' 키워드를 사용 하 여 채워집니다 합니다. 인접 필드에 1에서 9999 사이의 숫자를 입력 합니다. 이 인터페이스는 기본 터널 인터페이스로 사용 되어 온-프레미스 데이터 센터와 사설 클라우드 사이에서 사이트 간 트래픽을 전달 합니다.
 * 주석의. 터널의 용도를 쉽게 식별할 수 있도록 설명 입력
 * Netflow 프로필. 기본값을 그대로 둡니다.
 * Config. 인터페이스 할당 대상: 가상 라우터: **기본값**을 선택 합니다. 
-        보안 영역: 트러스트 된 LAN 트래픽에 대 한 영역을 선택 합니다. 이 예제에서 LAN 트래픽에 대 한 영역의 이름은 ' 신뢰 '입니다.
+        보안 영역: 신뢰할 수 있는 LAN 트래픽에 대 한 영역을 선택 합니다. 이 예제에서 LAN 트래픽에 대 한 영역의 이름은 ' 신뢰 '입니다.
 * IPv4. **추가** 를 클릭 하 고 사용자 환경에서 사용 되지 않은/32 ip 주소를 추가 합니다 .이 주소는 기본 터널 인터페이스에 할당 되며, 터널 모니터링에 사용 됩니다 (뒷부분에서 설명).
 
-이 구성은 고가용성 VPN을 위한 것 이므로 다음과 같은 두 개의 터널 인터페이스가 필요 합니다. 주 데이터베이스와 보조 복제본이 하나씩 있습니다. 이전 단계를 반복 하 여 보조 터널 인터페이스를 만듭니다. 다른 터널 ID와 사용 되지 않는/32 ip 주소를 선택 합니다.
+이 구성은 고가용성 VPN을 위한 것 이므로 두 개의 터널 인터페이스 (주 1 개와 보조 복제본)가 필요 합니다. 이전 단계를 반복 하 여 보조 터널 인터페이스를 만듭니다. 다른 터널 ID와 사용 되지 않는/32 ip 주소를 선택 합니다.
 
-### <a name="2-set-up-static-routes-for-private-cloud-subnets-to-be-reached-over-the-site-to-site-vpn"></a>2. 사이트 간 VPN을 통해 연결할 사설 클라우드 서브넷의 고정 경로 설정
+### <a name="2-set-up-static-routes-for-private-cloud-subnets-to-be-reached-over-the-site-to-site-vpn"></a>2. 사이트 간 VPN을 통해 연결할 사설 클라우드 서브넷의 고정 경로를 설정 합니다.
 
 온-프레미스 서브넷이 CloudSimple 사설 클라우드 서브넷에 도달 하려면 경로가 필요 합니다.
 
-**네트워크**가상라우터 > 기본 정적 경로추가를선택하고다음필드를구성하고확인을클릭합니다 > . >  > 
+**네트워크** > **가상 라우터** > *기본* > **정적 경로** 를 선택 하 > **추가**하 고 다음 필드를 구성한 다음 **확인**을 클릭 합니다.
 
-* 이름입니다. 경로의 용도를 쉽게 식별할 수 있도록 이름을 입력 합니다.
+* 이름의. 경로의 용도를 쉽게 식별할 수 있도록 이름을 입력 합니다.
 * 대상이. 온-프레미스에서 S2S 터널 인터페이스를 통해 연결할 CloudSimple 사설 클라우드 서브넷을 지정 합니다.
 * 감열재. 드롭다운 목록에서-1 단계에서 만든 기본 터널 인터페이스 (섹션 2)를 선택 합니다. 이 예제에서는 터널. 20입니다.
 * 다음 홉. **없음**을 선택합니다.
@@ -203,9 +180,9 @@ Palo Alto 방화벽에 로그인 하 고 **네트워크** > **인터페이스** 
 
 IKEv1 단계 1에서 VPN 터널을 설정 하는 데 사용 되는 식별, 인증 및 암호화에 대 한 프로토콜 및 알고리즘을 지정 하는 암호화 프로필을 정의 합니다.
 
- >  **네트워크** > 를 선택 하 고 네트워크 프로필 IKE 암호화 추가를 선택 하 고 다음 필드를 구성 하 고 확인을 클릭 합니다. > 
+**네트워크** 를 선택 하 > **네트워크 프로필** > **IKE Crypto** > **추가**하 고 다음 필드를 구성 하 고 **확인**을 클릭 합니다.
 
-* 이름입니다. IKE 암호화 프로필의 이름을 입력 합니다.
+* 이름의. IKE 암호화 프로필의 이름을 입력 합니다.
 * DH 그룹. **추가** 를 클릭 하 고 적절 한 DH 그룹을 선택 합니다.
 * 암호화. **추가** 를 클릭 하 고 적절 한 암호화 방법을 선택 합니다.
 * 인증. **추가** 를 클릭 하 고 적절 한 인증 방법을 선택 합니다.
@@ -216,11 +193,11 @@ IKEv1 단계 1에서 VPN 터널을 설정 하는 데 사용 되는 식별, 인�
 
 VPN 터널의 각 끝에서 피어 간의 통신을 설정 하는 IKE 게이트웨이를 정의 합니다.
 
-**네트워크**확장네트워크 > 프로필**IKE 게이트웨이**추가를 선택 하 고 다음 필드를 구성 하 고 확인을 클릭 합니다. >  > 
+**네트워크** 를 선택 하 > **네트워크 프로필** > **IKE 게이트웨이** 를 확장 > **추가**하 고 다음 필드를 구성 하 고 **확인**을 클릭 합니다.
 
 일반 탭:
 
-* 이름입니다. 기본 CloudSimple VPN 피어와 피어 링 될 IKE 게이트웨이의 이름을 입력 합니다.
+* 이름의. 기본 CloudSimple VPN 피어와 피어 링 될 IKE 게이트웨이의 이름을 입력 합니다.
 * 버전. **IKEv1 only 모드**를 선택 합니다.
 * 주소 유형입니다. **IPv4**를 선택 합니다.
 * 감열재. 공용 연결 또는 외부 인터페이스를 선택 합니다.
@@ -247,9 +224,9 @@ IKEv1
 
 ### <a name="5-define-ipsec-crypto-profiles"></a>5. IPSEC 암호화 프로필 정의
 
- >  **네트워크** > 를 선택 하 고 네트워크 프로필 IPSEC 암호화 추가를 선택 하 고 다음 필드를 구성 하 고 확인을 클릭 합니다. > 
+**네트워크** 를 선택 하 > **네트워크 프로필** > **IPSEC Crypto** > **추가**를 확장 하 고 다음 필드를 구성한 다음 **확인**을 클릭 합니다.
 
-* 이름입니다. IPsec 암호화 프로필의 이름을 입력 합니다.
+* 이름의. IPsec 암호화 프로필의 이름을 입력 합니다.
 * IPsec 프로토콜입니다. **ESP**를 선택 합니다.
 * 암호화. **추가** 를 클릭 하 고 적절 한 암호화 방법을 선택 합니다.
 * 인증. **추가** 를 클릭 하 고 적절 한 인증 방법을 선택 합니다.
@@ -261,20 +238,20 @@ IKEv1
 
 ### <a name="6-define-monitor-profiles-for-tunnel-monitoring"></a>6. 터널 모니터링에 대 한 모니터 프로필 정의
 
-**네트워크**확장네트워크 > 프로필**모니터**추가를 선택 하 고 다음 필드를 구성 하 고 확인을 클릭 합니다. >  > 
+**네트워크** 를 선택 하 > **네트워크 프로필** > **모니터** > **추가**를 확장 하 고 다음 필드를 구성한 다음 **확인**을 클릭 합니다.
 
-* 이름입니다. 실패에 대 한 사전 대응 반응에 대해 터널 모니터링에 사용할 모니터 프로필의 이름을 입력 합니다.
+* 이름의. 실패에 대 한 사전 대응 반응에 대해 터널 모니터링에 사용할 모니터 프로필의 이름을 입력 합니다.
 * 조치. 장애 조치 ( **failover**)를 선택 합니다.
 * 간격은. 값 **3**을 입력 합니다.
 * 고대비. 값 **7**을 입력 합니다.
 
 ### <a name="7-set-up-primary-and-secondary-ipsec-tunnels"></a>7. 기본 및 보조 IPsec 터널을 설정 합니다.
 
-**네트워크**IPsec 터널추가 > 를 선택 하 고 다음 필드를 구성 하 고 확인 > 을 클릭 합니다.
+**네트워크** > **IPsec 터널** > 선택 하 고 다음 필드를 구성한 다음 **확인**을 클릭 합니다.
 
 일반 탭:
 
-* 이름입니다. 기본 CloudSimple VPN 피어와 피어 링 될 기본 IPSEC 터널의 이름을 입력 합니다.
+* 이름의. 기본 CloudSimple VPN 피어와 피어 링 될 기본 IPSEC 터널의 이름을 입력 합니다.
 * 터널 인터페이스입니다. 기본 터널 인터페이스를 선택 합니다.
 * 입력할. 기본값을 그대로 둡니다.
 * 주소 유형입니다. **IPv4**를 선택 합니다.
@@ -286,7 +263,7 @@ IKEv1
 * 대상 IP. 사이트 간 연결을 통해 허용 되는 CloudSimple 사설 클라우드 서브넷에 속하는 IP 주소를 입력 합니다. Palo Alto의 터널 인터페이스 (예: 10.64.5.2/32 및 10.64.6.2/32)가 사이트 간 VPN을 통해 CloudSimple 사설 클라우드 IP 주소에 도달할 수 있는지 확인 합니다. 프록시 Id에 대 한 다음 구성을 참조 하십시오.
 * Profile. 모니터 프로필을 선택 합니다.
 
-프록시 Id 탭: **IPv4** > **추가** 를 클릭 하 고 다음을 구성 합니다.
+프록시 Id 탭: **IPv4** 를 클릭 하 > 다음을 **추가** 하 고 구성 합니다.
 
 * 프록시 ID입니다. 관심 있는 트래픽에 대 한 이름을 입력 합니다. 하나의 IPsec 터널 내에 여러 개의 프록시 Id가 전달 될 수 있습니다.
 * 로컬. 사이트 간 VPN을 통해 사설 클라우드 서브넷과 통신할 수 있는 온-프레미스 로컬 서브넷을 지정 합니다.
@@ -295,7 +272,7 @@ IKEv1
 
 이전 단계를 반복 하 여 보조 CloudSimple VPN 피어에 사용할 다른 IPsec 터널을 만듭니다.
 
-## <a name="references"></a>참조 항목
+## <a name="references"></a>참조
 
 Cisco에서 NAT 구성:
 
@@ -311,7 +288,7 @@ Cisco의 지원 되는 IKEv1 및 IKEv2 특성:
 
 Azure에서 Cisco 적응 보안 어플라이언스 가상 (ASAv) 구성:
 
-<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa96/asav/quick-start-book/asav-96-qsg/asav-azure.html" target="_blank">Cisco 적응 ASAv (보안 가상 어플라이언스) 빠른 시작 가이드</a>
+<a href="https://www.cisco.com/c/en/us/td/docs/security/asa/asa96/asav/quick-start-book/asav-96-qsg/asav-azure.html" target="_blank">Cisco 적응 보안 가상 어플라이언스 (ASAv) 빠른 시작 가이드</a>
 
 Palo Alto에서 프록시 Id를 사용 하 여 사이트 간 VPN 구성:
 
