@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 10ff3cc940ac3d11154f1dec6c06ff3681328d38
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 55b59802116eb10d2e7eeb3b13ecb3da2d475c6d
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890932"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906980"
 ---
 # <a name="deploy-farmbeats"></a>FarmBeats 배포
 
@@ -82,14 +82,13 @@ Azure FarmBeats를 배포 하려면 다음 권한이 필요 합니다.
 배포를 시작 하기 전에 다음이 있는지 확인 합니다.
 
 - 센티널 계정
-- Azure Active Directory (앱 등록)
-- Azure FarmBeats
+- AD (Azure Active Directory) 앱 등록
 
 ## <a name="create-a-sentinel-account"></a>센티널 계정 만들기    
 
 센티널이 있는 계정은 공식 웹 사이트에서 장치에 대 한 센티널 위성 이미지를 다운로드 하는 데 도움이 됩니다. 무료 계정을 만들려면 다음 단계를 따르세요.
 
-1. https://scihub.copernicus.eu/dhus/#/self-registration로 이동합니다. 등록 페이지에서 이름, 성, 사용자 이름, 암호 및 전자 메일을 입력 합니다.
+https://scihub.copernicus.eu/dhus/#/self-registration로 이동합니다. 등록 페이지에서 이름, 성, 사용자 이름, 암호 및 전자 메일을 입력 합니다.
 확인을 위해 등록 된 전자 메일 주소로 확인 전자 메일이 전송 됩니다. 링크를 선택 하 고 확인 합니다. 등록 프로세스가 완료 되었습니다.
 
 ## <a name="create-azure-ad-app-registration"></a>Azure AD 앱 등록 만들기
@@ -103,7 +102,7 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
 
 구독이 이미 있는 경우 다음 절차로 바로 이동할 수 있습니다.
 
-**사례 2**: 구독 내에서 Azure AD 앱 등록을 만들고 구성할 수 있는 충분 한 권한이 없는 경우이 방법이 기본 설정 된 단계입니다. 관리자에 게 [사용자 지정 스크립트](https://aka.ms/FarmBeatsMarketplace)를 사용 하도록 요청 합니다 .이 스크립트는 IT 관리자가 Azure Portal에서 Azure AD 앱 등록을 자동으로 생성 하 고 구성 하는 데 도움이 됩니다. PowerShell 환경을 사용 하 여이 사용자 지정 스크립트를 실행 하는 출력으로 IT 관리자는 Azure Active Directory 응용 프로그램 클라이언트 ID와 암호 암호를 공유 해야 합니다. 이러한 값을 기록해 둡니다.
+**사례 2**: 구독 내에서 Azure AD 앱 등록을 만들고 구성할 수 있는 충분 한 권한이 없는 경우이 방법이 기본 설정 된 단계입니다. 관리자에 게 [사용자 지정 스크립트](https://aka.ms/FarmBeatsAADScript)를 사용 하도록 요청 합니다 .이 스크립트는 IT 관리자가 Azure Portal에서 Azure AD 앱 등록을 자동으로 생성 하 고 구성 하는 데 도움이 됩니다. PowerShell 환경을 사용 하 여이 사용자 지정 스크립트를 실행 하는 출력으로 IT 관리자는 Azure Active Directory 응용 프로그램 클라이언트 ID와 암호 암호를 공유 해야 합니다. 이러한 값을 기록해 둡니다.
 
 다음 단계를 사용 하 여 Azure AD 응용 프로그램 등록 스크립트를 실행 합니다.
 
@@ -132,7 +131,7 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
 
 설치 과정에서 다음과 같이 입력 합니다. json 파일을 만듭니다.
 
-    ```json
+    ```
     {  
        "sku":"both",
        "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx",
@@ -150,24 +149,22 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
 이 파일은 설치 중에 사용 되는 값을 가진 매개 변수 및 Azure Cloud Shell 하는 입력 파일입니다. Json의 모든 매개 변수를 적절 한 값으로 바꾸거나 제거 해야 합니다. 제거 하는 경우 설치 프로그램에서 설치 중에 메시지를 표시 합니다.
 
 
-> [!NOTE]
-> 이 파일은 Azure Cloud Shell 값을 입력 합니다.  시간을 절약 하기 위해 배포 하는 동안이 파일에 추가 하는 매개 변수를 묻는 메시지가 표시 되지 않습니다. 누락 된 매개 변수를 묻는 메시지가 표시 됩니다.
-
 파일을 준비 하기 전에 매개 변수를 검토 합니다.
 
 |명령 | 설명|
 |--- | ---|
 |sku  | Azure FarmBeats의 구성 요소 중 하나 또는 둘 모두를 다운로드할 수 있는 옵션을 제공 합니다. 다운로드할 구성 요소를 지정 합니다. 데이터 허브만 설치 하려면 "onlydatabhub"를 사용 합니다. 데이터 허브 및 가속기를 설치 하려면 "both"를 사용 합니다.|
-|구독  | FarmBeats를 설치 하기 위한 구독을 지정 합니다.|
-|"datahubResourceGroup"  | 데이터 허브 리소스의 리소스 그룹 이름|
-|"acceleratorWebsiteName"  |데이터 허브의 이름을 위한 고유한 URL 접두사|
-|"acceleratorResourceGroup"  | 액셀러레이터 웹 사이트의 이름을 위한 고유한 URL 접두사입니다.|
-|"datahubWebsiteName"  | 데이터 허브 웹 사이트의 이름을 위한 UUnique URL 접두사입니다. |
-|''sentinelUsername'' | 로그인 할 사용자 이름: https://scihub.copernicus.eu/dhus/#/self-registration.|
-|"notificationEmailAddress"  | 데이터 허브 내에서 구성 하는 경고에 대 한 알림을 받을 전자 메일 주소입니다.|
-|"updateIfExists" "  |필드 기존 FarmBeats 인스턴스를 업그레이드 하려는 경우에만 Input. Json에 포함 될 매개 변수입니다. 업그레이드의 경우 기타 세부 정보 (예:)입니다. 리소스 그룹 이름, 위치 등은 동일 해야 합니다.|
-|"aadAppClientId"  | [**선택 사항**] Azure AD 앱이 이미 있는 경우에만 Input. Json에 포함 될 매개 변수입니다.  |
-|"aadAppClientSecret"   | [**선택 사항**] Azure AD 앱이 이미 있는 경우에만 Input. Json에 포함 될 매개 변수입니다.|
+|subscriptionId | FarmBeats를 설치 하기 위한 구독을 지정 합니다.|
+|datahubResourceGroup| 데이터 허브 리소스의 리소스 그룹 이름|
+|location |리소스를 만들려는 위치입니다.|
+|acceleratorWebsiteName |데이터 허브의 이름을 위한 고유한 URL 접두사|
+|acceleratorResourceGroup  | 액셀러레이터 웹 사이트의 이름을 위한 고유한 URL 접두사입니다.|
+|datahubWebsiteName  | 데이터 허브 웹 사이트의 이름을 위한 UUnique URL 접두사입니다. |
+|sentinelUsername | 로그인 할 사용자 이름: https://scihub.copernicus.eu/dhus/#/self-registration.|
+|notificationEmailAddress  | 데이터 허브 내에서 구성 하는 경고에 대 한 알림을 받을 전자 메일 주소입니다.|
+|updateIfExists|필드 기존 FarmBeats 인스턴스를 업그레이드 하려는 경우에만 Input. Json에 포함 될 매개 변수입니다. 업그레이드의 경우 기타 세부 정보 (예:)입니다. 리소스 그룹 이름, 위치 등은 동일 해야 합니다.|
+|aadAppClientId | [**선택 사항**] Azure AD 앱이 이미 있는 경우에만 Input. Json에 포함 될 매개 변수입니다.  |
+|aadAppClientSecret  | [**선택 사항**] Azure AD 앱이 이미 있는 경우에만 Input. Json에 포함 될 매개 변수입니다.|
 
 ## <a name="deploy-within-cloud-shell-browser-based-command-line"></a>Cloud Shell 브라우저 기반 명령줄 내에 배포
 
@@ -193,17 +190,15 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
     ```json
     {  
        "sku":"both", 
-       "subscriptionId": "da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx", 
-       "datahubResourceGroup": "dummy-test-dh1", 
-       "datahubLocation": "westus2", 
-       "datahubWebsiteName": "dummy-test-dh1", 
-       "acceleratorResourceGroup": "dummy-test-acc1", 
-       "acceleratorLocation": "westus2", 
-       "acceleratorWebsiteName": "dummy-test-acc1", 
-       "sentinelUsername": "dummy-dev", 
-       "farmbeatsAppId": "c3cb3xxx-27xx-4xxb-8xx6-3xxx2xxdxxx5c", 
-       "notificationEmailAddress": "dummy@microsoft.com", 
-       "updateIfExists": true
+       "subscriptionId":"da9xxxec-dxxf-4xxc-xxx21-xxx3ee7xxxxx", 
+       "datahubResourceGroup":"dummy-test-dh1", 
+       "location":"eastus2", 
+       "datahubWebsiteName":"dummy-test-dh1", 
+       "acceleratorResourceGroup":" dummy-test-acc1",   
+       "acceleratorWebsiteName":" dummy-test-acc1", 
+       "sentinelUsername":"dummy-dev", 
+       "notificationEmailAddress":" dummy@microsoft.com", 
+       "updateIfExists":true 
     }
     ```
 
@@ -213,10 +208,10 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
     ![프로젝트 팜 비트](./media/prepare-for-deployment/bash-2-1.png)
 
 4. Cloud shell의 홈 디렉터리로 이동 합니다. 기본적으로/home/<username>
-5. Cloud Shell에 다음 두 명령을 입력 하거나 붙여 넣습니다. 입력 경로를 수정 해야 합니다. Json 파일을 입력 하 고 enter 키를 누릅니다.
+5. Cloud Shell에 다음 명령을 입력 하거나 붙여 넣습니다. 입력 경로를 수정 해야 합니다. Json 파일을 입력 하 고 enter 키를 누릅니다.
 
       ```azurepowershell-interactive
-      wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+      wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
      ```
      설치 관리자가 모든 종속성을 자동으로 다운로드 하 고 배포자을 빌드합니다. Azure FarmBeats EULA (최종 사용자 사용권 계약)에 동의 하 라는 메시지가 표시 됩니다.
 
@@ -269,10 +264,10 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
     ![프로젝트 팜 비트](./media/prepare-for-deployment/bash-2-1.png)
 
 4. Cloud shell의 홈 디렉터리로 이동 합니다. 기본적으로/home/<username>
-5. Cloud Shell에 다음 두 명령을 입력 하거나 붙여 넣습니다. 입력 경로를 수정 해야 합니다. Json 파일을 입력 하 고 enter 키를 누릅니다.
+5. Cloud Shell에 다음 명령을 입력 하거나 붙여 넣습니다. 입력 경로를 수정 해야 합니다. Json 파일을 입력 하 고 enter 키를 누릅니다.
 
     ```azurepowershell-interactive
-    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 
 화면의 지침을 따릅니다.
@@ -314,11 +309,6 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
 
 1. Accelerator에서 로그인 하려면 브라우저에서 URL을 복사 하 여 붙여 넣습니다.
 2. Azure Portal 자격 증명으로 로그인 합니다.
-3. 선택적 온전성 테스트를 실행 합니다.
-
-    - 성공적인 배포에 대 한 출력으로 받은 가속기 링크를 사용 하 여 가속기 포털에 성공적으로 로그인 할 수 있는지 확인 합니다.
-    - **팜 만들기**를 선택 합니다.
-    - "?" 아이콘 아래에서 **시작** 단추를 사용 하 여 FarmBeats guide를 엽니다.
 
 ## <a name="upgrade"></a>업그레이드
 
@@ -335,7 +325,7 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
 6. Cloud Shell에 다음 두 명령을 입력 하거나 붙여 넣습니다. 입력. json 파일의 경로를 수정 하 고 enter 키를 누릅니다.
 
     ```azurepowershell-interactive
-    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScriptbash farmbeats-installer.sh /home/<username>/input.json
+    wget -O farmbeats-installer.sh https://aka.ms/AzureFarmbeatsInstallerScript && bash farmbeats-installer.sh /home/<username>/input.json
     ```
 화면의 지침을 따릅니다.
 

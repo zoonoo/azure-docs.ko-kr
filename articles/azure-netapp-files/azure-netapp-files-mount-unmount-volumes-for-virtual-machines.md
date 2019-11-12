@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/07/2019
+ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 76e01055043932f2c7e7d57bd7eed6265d666a8c
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 49c5fc4a9d4fed2176baf220e3fcc8f887757a36
+ms.sourcegitcommit: f226cdd6406372b5693d46b6d04900f2f0cda4e6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302780"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906218"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
 
@@ -32,4 +32,8 @@ ms.locfileid: "72302780"
 
     ![탑재 명령 SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
     
-NFSv 4.1을 사용 하는 경우 다음 명령을 사용 하 여 파일 시스템을 탑재 합니다. `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`
+NFSv 4.1을 사용 하는 경우 다음 명령을 사용 하 여 파일 시스템을 탑재 합니다.  
+
+`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+
+[Azure NetApp Files에 대 한 nfsv 4.1 기본 도메인 구성을](azure-netapp-files-configure-nfsv41-domain.md)참조 하세요.

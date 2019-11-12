@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center에서 데이터 서비스에 대 한 위협 감지 | Microsoft Docs
-description: 이 항목에서는 Azure Security Center에서 사용할 수 있는 데이터 서비스 경고를 제공 합니다.
+description: 이 문서에서는 Azure Security Center에서 사용할 수 있는 데이터 서비스 경고를 제공 합니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,16 +10,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: memildin
-ms.openlocfilehash: c69352b8ff11edfce8bd800a0d3aad4584557572
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d23d9d2712923f37b3ab9da5ae5369342cd82f5d
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621338"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907002"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Azure Security Center에서 데이터 서비스에 대 한 위협 감지
 
- Azure Security Center는 데이터 저장소 서비스의 로그를 분석 하 고 데이터 리소스에 대 한 위협이 감지 되 면 경고를 트리거합니다. 이 항목에서는 다음 서비스에 대해 Security Center에서 생성 하는 경고를 나열 합니다.
+ Azure Security Center는 데이터 저장소 서비스의 로그를 분석 하 고 데이터 리소스에 대 한 위협이 감지 되 면 경고를 트리거합니다. 이 문서에서는 다음 서비스에 대해 Security Center에서 생성 하는 경고를 나열 합니다.
 
 * [Azure SQL Database 및 Azure SQL Data Warehouse](#data-sql)
 * [Azure Storage](#azure-storage)
@@ -53,7 +53,7 @@ Security Center는 Blob 저장소에 대 한 읽기, 쓰기 및 삭제 요청에
 
 |경고|설명|
 |---|---|
-|**비정상적인 위치 액세스 변칙**|샘플링 된 네트워크 트래픽 분석은 배포의 리소스에서 시작 된 비정상적인 RDP (보내는 원격 데스크톱 프로토콜) 통신을 검색 했습니다. 이 작업은이 환경에서 비정상으로 간주 됩니다. 리소스가 손상 된 것을 나타낼 수 있으며, 이제는 외부 RDP 끝점의 무차별 암호 대입 공격에 사용 됩니다. 이 유형의 작업으로 인해 IP가 외부 엔터티에서 악성으로 플래그가 지정 될 수 있습니다.|
+|**비정상적인 위치에서 액세스**|Azure Storage 계정에 대 한 액세스 패턴이 변경 되었음을 나타냅니다. 누군가가 최근 활동과 비교할 때 익숙하지 않은 것으로 간주 되는 IP 주소에서이 계정에 액세스 했습니다. 공격자가 계정에 대 한 액세스 권한을 획득 했거나 합법적인 사용자가 신규 또는 비정상적인 지리적 위치에서 연결 했습니다. 후자는 새 응용 프로그램 또는 개발자의 원격 유지 관리입니다.|
 |**응용 프로그램 액세스 변칙**|비정상적인 응용 프로그램이이 저장소 계정에 액세스 했음을 나타냅니다. 공격자가 새 응용 프로그램을 사용 하 여 저장소 계정에 액세스 하는 것이 원인일 수 있습니다.|
 |**익명 액세스 변칙**|저장소 계정에 대 한 액세스 패턴이 변경 되었음을 나타냅니다. 예를 들어이 계정에 대 한 최근 액세스 패턴과 달리, 계정은 인증 없이 익명으로 액세스 됩니다. 공격자가 blob 저장소를 포함 하는 컨테이너에 대 한 공용 읽기 액세스를 사용 하는 것이 원인일 수 있습니다.|
 |**이상**|은 (익명화 프록시)의 활성 종료 노드인 것으로 알려진 IP 주소에서이 계정이 성공적으로 액세스 되었음을 나타냅니다. 이 경고의 심각도는 사용 된 인증 유형 (있는 경우) 및이가 이러한 액세스의 첫 번째 사례 인지를 고려 합니다. 잠재적 원인은 사용을 사용 하 여 저장소 계정에 액세스 한 공격자 또는 사용을 사용 하 여 저장소 계정에 액세스 한 합법적인 사용자 일 수 있습니다.|

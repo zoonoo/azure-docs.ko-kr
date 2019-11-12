@@ -17,16 +17,16 @@ ms.date: 07/17/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2b30b6463ed3d58ec1565f3c49f98388ad09ed4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a43c5849dcd037915a46de182064b3e630a663ec
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186281"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907175"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
-Azure Active Directory (Azure AD) 보고서를 사용 하 여 환경에서 수행 하는 방법을 결정 하는 데 필요한 정보를 얻을 수 있습니다.
+Azure Active Directory(Azure AD) 보고서를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
 
 보고 아키텍처는 다음과 같은 구성 요소로 구성됩니다.
 
@@ -42,7 +42,7 @@ Azure Active Directory (Azure AD) 보고서를 사용 하 여 환경에서 수�
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
 * **보안 관리자**, **보안 읽기 권한자**, **보고서 구독자** 또는 **전역 관리자** 역할의 사용자
-* 또한 모든 사용자(비관리자)는 감사 활동 자체를 볼 수 있습니다.
+* 또한 모든 사용자 (관리자가 아닌 사용자)는 자신의 로그인 활동을 볼 수 있습니다.
 
 ## <a name="audit-logs"></a>감사 로그
 
@@ -78,10 +78,10 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 
 다음 필드에서 감사 데이터를 필터링할 수 있습니다.
 
-- 서비스
-- 범주
-- 활동
-- Status
+- 부여
+- Category
+- 작업
+- 가동 상태
 - 대상
 - 초기자(작업자)
 - 날짜 범위
@@ -99,7 +99,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - 조건부 액세스
 - 핵심 디렉터리
 - 권한 관리
-- Identity Protection
+- ID 보호
 - 사용자 초대
 - PIM
 - 셀프 서비스 그룹 관리
@@ -112,8 +112,8 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - AdministrativeUnit
 - ApplicationManagement
 - 인증
-- Authorization
-- Contact
+- 권한 부여
+- 연락처
 - 디바이스
 - DeviceConfiguration
 - DirectoryManagement
@@ -127,12 +127,12 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 
 **활동** 필터는 사용자가 선택한 범주 및 활동 리소스 종류를 기준으로 합니다. 보려는 특정 활동을 선택하거나 모두 선택할 수 있습니다. 
 
-Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습니다.`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+Graph API를 사용 하 여 모든 감사 활동의 목록을 가져올 수 있습니다. `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 **상태** 필터를 사용 하면 감사 작업 상태를 기준으로 필터링 할 수 있습니다. 상태는 다음 중 하나일 수 있습니다.
 
 - 모두
-- Success
+- 성공
 - 실패
 
 **대상** 필터를 사용 하면 이름 또는 UPN (사용자 계정 이름)으로 특정 대상을 검색할 수 있습니다. 대상 이름 및 UPN은 대/소문자를 구분 합니다. 
@@ -143,7 +143,7 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 가능한 값은
 
 - 1개월
-- 7일
+- 7 일
 - 24시간
 - 사용자 지정
 
@@ -157,7 +157,7 @@ Graph API를 사용 하 여 모든 감사 작업 목록을 가져올 수 있습�
 
 **Azure Active Directory** 외에도 Azure Portal에서는 감사 데이터에 대한 다음 두 개의 추가 진입점을 제공합니다.
 
-- 사용자 및 그룹
+- 개요
 - Enterprise 애플리케이션
 
 ### <a name="users-and-groups-audit-logs"></a>사용자 및 그룹 감사 로그

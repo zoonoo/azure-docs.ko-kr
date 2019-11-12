@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 7d5a232d92c37a94ff427a3bf203f6f20764060e
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a2bb961989d5bb1cc879b197e45d25b566c56e83
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748586"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906768"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -25,7 +25,7 @@ Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트�
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-Event Grid가지 원되는 지역의 IoT Hub에 대해 Event Grid 통합을 사용할 수 있습니다. 장치 원격 분석 이벤트를 제외한 모든 장치 이벤트는 일반적으로 사용할 수 있습니다. 장치 원격 분석 이벤트는 공개 미리 보기 상태 이며 미국 동부, 미국 서 부, 유럽 서부, [Azure Government](/azure/azure-government/documentation-government-welcome), [azure 중국 21Vianet](/azure/china)및 [azure 독일](https://azure.microsoft.com/global-infrastructure/germany/)을 제외한 모든 지역에서 사용할 수 있습니다. 최신 지역 목록을 보려면 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
+Event Grid가지 원되는 지역의 IoT Hub에 대해 Event Grid 통합을 사용할 수 있습니다. 최신 지역 목록을 보려면 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
 
 ## <a name="event-types"></a>일정 유형
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/11/2019
 ms.author: memildin
-ms.openlocfilehash: 93e52b393db288f5b19afde4a31e08d0bb91b471
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 068fb9f61b7dcb3948e4f03c284ddfa680522c85
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571567"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907016"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Azure Virtual Machines의 SQL server에 대 한 고급 데이터 보안 (미리 보기)
 Azure Virtual Machines의 SQL Server에 대 한 고급 데이터 보안은 고급 SQL 보안 기능을 위한 통합 패키지입니다. 이 미리 보기 기능에는 잠재적 데이터베이스 취약성을 식별 하 고 완화 하 고 데이터베이스에 대 한 위협을 나타낼 수 있는 비정상적인 활동을 검색 하기 위한 기능이 포함 되어 있습니다. 
@@ -54,7 +54,7 @@ Advanced data security는 취약성 평가 및 고급 위협 방지로 구성 �
     선택한 작업 영역 또는 선택한 구독의 기본 작업 영역에 연결 된 모든 SQL server에서 SQL Server에 대 한 고급 데이터 보안을 사용할 수 있습니다.
 
     >[!NOTE]
-    > 이 솔루션은 SQL Server를 처음 다시 시작한 후에 활성화 됩니다. 
+    > SQL Server를 처음 다시 시작한 후 솔루션이 완전히 활성화 됩니다. 
 
 새 작업 영역을 만들려면 [Log Analytics 작업 영역 만들기](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)의 지침을 따르세요.
 
@@ -72,7 +72,7 @@ Security Center 경고가 생성 될 때 전자 메일 알림을 받을 받는 �
 1. 설정 메뉴에서 **전자 메일 알림**을 클릭 합니다. 
 1. **전자 메일 주소** 텍스트 상자에 알림을 받을 전자 메일 주소를 입력 합니다. 전자 메일 주소를 쉼표 (,)로 구분 하 여 전자 메일 주소를 두 개 이상 입력할 수 있습니다.  예 admin1@mycompany.com들어admin2@mycompany.com,admin3@mycompany.com
 
-      ![메일 설정](./media/security-center-advanced-iaas-data/email-settings.png)
+    ![메일 설정](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. **전자 메일 알림** 설정에서 다음 옵션을 설정 합니다.
   
@@ -88,29 +88,27 @@ Security Center 경고가 생성 될 때 전자 메일 알림을 받을 받는 �
 
 취약성 평가 대시보드는 모든 데이터베이스에서 평가 결과의 개요를 제공 합니다. SQL Server 버전에 따라 데이터베이스 배포를 확인 하 고, 실패 대비 데이터베이스 전달 및 위험 분포에 따른 실패 한 검사의 전체 요약을 확인할 수 있습니다.
 
-Log Analytics에서 직접 취약점 평가 결과 및 보고서를 볼 수 있습니다.
+Security Center에서 직접 취약성 평가 결과를 볼 수 있습니다.
 
-1. 고급 데이터 보안 솔루션을 사용 하 여 Log Analytics 작업 영역으로 이동 합니다.
-1. **솔루션** 으로 이동 하 여 **SQL 취약성 평가** 솔루션을 선택 합니다.
-1. **요약** 창에서 **요약 보기** 를 클릭 하 고 **SQL 취약성 평가 보고서**를 선택 합니다.
+1. Security Center의 사이드바에 있는 리소스 보안 예방에서 **데이터 & 저장소**를 선택 합니다.
 
-    ![SQL 평가 보고서](./media/security-center-advanced-iaas-data/ads-sql-server-1.png)
+1. **Vm의 SQL database에 대 한 권장 구성 취약성 (미리 보기)** 을 선택 합니다. 자세한 내용은 [Security Center 권장 사항](security-center-recommendations.md)을 참조 하세요. 
 
-    보고서 대시보드가 로드 됩니다. 표준 시간대 평가 검사가 7 일에 한 번씩 고정 된 일정에 따라 데이터베이스에서 실행 되기 때문에 시간 창이 **지난 7 일** 이상으로 설정 되어 있는지 확인 합니다.
+    [Vm의 SQL database에 대 한 ![* * 취약성을 재구성 해야 함 (미리 보기) * * 권장 사항](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png)](media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png#lightbox)
 
-    ![최근 7 일 설정](./media/security-center-advanced-iaas-data/ads-sql-server-2.png)
+    이 권장 사항에 대 한 상세 뷰가 나타납니다.
 
-1. 세부 정보를 드릴 다운 하려면 대시보드 요소 중 하나를 클릭 합니다. 예:
+    [Vm의 SQL database에 대 한 * * 취약성에 대 한 자세한 내용은 재구성 해야 함 (미리 보기) * * 권장 사항 ![](media/security-center-advanced-iaas-data/all-servers-view.png)](media/security-center-advanced-iaas-data/all-servers-view.png#lightbox)
 
-   1. **실패 한 검사 요약** 섹션에서 취약성 확인을 클릭 하 여 모든 데이터베이스에서이 검사 결과를 포함 하는 Log Analytics 테이블을 표시 합니다. 결과가 있는 항목이 먼저 나열 됩니다.
+1. 자세한 내용을 보려면 드릴 다운 합니다.
 
-   1. 그런 다음이 데이터베이스의 취약점 설명 및 영향, 상태, 관련 된 위험 및 실제 결과를 포함 하 여 각 취약점에 대 한 세부 정보를 보려면 클릭 합니다. 이 확인을 수행 하기 위해 실행 된 실제 쿼리와이 취약성을 해결 하기 위한 재구성 정보를 확인할 수도 있습니다.
+    * 스캔 한 리소스 (데이터베이스)의 개요와 테스트 된 보안 검사 목록을 보려면 관심 있는 서버를 클릭 합니다.
+    [SQL server 별로 그룹화 된 ![취약점](media/security-center-advanced-iaas-data/single-server-view.png)](media/security-center-advanced-iaas-data/single-server-view.png#lightbox)
 
-    ![작업 영역 선택](./media/security-center-advanced-iaas-data/ads-sql-server-3.png)
+    * 특정 SQL 데이터베이스 별로 그룹화 된 취약점의 개요를 보려면 원하는 데이터베이스를 클릭 합니다.
+    [SQL server 별로 그룹화 된 ![취약점](media/security-center-advanced-iaas-data/single-database-view.png)](media/security-center-advanced-iaas-data/single-database-view.png#lightbox)
 
-    ![작업 영역 선택](./media/security-center-advanced-iaas-data/ads-sql-server-4.png)
-
-1. 취약성 평가 결과 데이터에 대 한 모든 Log Analytics 쿼리를 실행 하 여 필요에 따라 데이터를 조각화 및 분석 할 수 있습니다.
+    각 보기에서 보안 검사는 **심각도**를 기준으로 정렬 됩니다. 특정 보안 검사를 클릭 하 여 세부 정보 창에 **설명** **,이를 수정 하는** 방법 및 **영향** 또는 **벤치 마크**와 같은 기타 관련 정보를 표시 합니다.
 
 ## <a name="advanced-threat-protection-for-sql-servers-on-azure-vms-alerts"></a>Azure Vm의 SQL server에 대 한 Advanced threat protection 경고
 경고는 SQL Server에 대 한 액세스 또는 악용을 위한 비정상이 고 잠재적으로 유해한 시도로 생성 됩니다. 이러한 이벤트는 다음과 같은 경고를 트리거할 수 있습니다.

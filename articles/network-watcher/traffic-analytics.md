@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: kumud
 ms.reviewer: vinigam
-ms.openlocfilehash: 831e75ba2d3f6af62496d437da3d1413dc612594
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686559"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907149"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -95,13 +95,17 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * 미국 중서부
 * 미국 동부
 * 미국 동부 2
+* 미국 중북부
 * 미국 중남부
+* 미국 중부
 * 미국 서부
 * 미국 서부 2
 * 미국 중부
 * 프랑스 중부
-* 북유럽
 * 서유럽
+* 북유럽
+* 브라질 남부
+* 영국 서부
 * 영국 남부
 * 오스트레일리아 동부
 * 오스트레일리아 남동부
@@ -113,7 +117,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * 미국 정부 버지니아
 * 중국 동부 2
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 ### <a name="user-access-requirements"></a>사용자 액세스 요구 사항
 
@@ -124,7 +128,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 |리소스 관리자   | 소유자                  |
 |                   | 참여자            |
 |                   | 읽기 권한자                 |
-|                   | 네트워크 참가자    |
+|                   | 네트워크 참여자    |
 
 계정이 기본 제공 역할 중 하나에 할당되지 않은 경우 구독 수준에서 다음 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)에 할당되어야 합니다.
 

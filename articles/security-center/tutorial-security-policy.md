@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 4ac6ac52d6d950d814a37e94ea2801c2ba8e4170
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 45a27be400753b56c42310a340334feba8a420c5
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521193"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73906868"
 ---
 # <a name="working-with-security-policies"></a>보안 정책 작업
 
@@ -104,6 +104,10 @@ Security Center는 Azure에서 사용자, 그룹 및 서비스에 할당할 수 
 
    > [!NOTE]
    > 관리 그룹은 해당 정책을 해당 구독에 적용 합니다. 따라서 구독의 정책을 사용 하지 않도록 설정 하 고 구독이 동일한 정책을 계속 사용 하는 관리 그룹에 속하는 경우 정책 권장 사항을 계속 받게 됩니다. 정책은 여전히 관리 수준에서 적용 되며 권장 사항은 계속 생성 됩니다.
+
+1. **유효 정책 보기**를 클릭 합니다.
+
+   ![정책 사용 안 함](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. 할당 된 정책을 클릭 합니다.
 

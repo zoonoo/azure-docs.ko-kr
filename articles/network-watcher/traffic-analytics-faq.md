@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: kumud
-ms.openlocfilehash: b232df010190a95d12d5a57f076a4c1bf336cea4
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026588"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907105"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -68,7 +68,7 @@ ms.locfileid: "72026588"
 지원되는 다음 지역 중 하나에서 NSG용 트래픽 분석을 사용할 수 있습니다.
 - 캐나다 중부
 - 미국 중서부
-- East US
+- 미국 동부
 - 미국 동부 2
 - 미국 중북부
 - 미국 중남부
@@ -76,14 +76,14 @@ ms.locfileid: "72026588"
 - 미국 서부
 - 미국 서부 2
 - 프랑스 중부
-- 유럽 서부
-- 유럽 북부
+- 서유럽
+- 북유럽
 - 브라질 남부
 - 영국 서부
 - 영국 남부
 - 오스트레일리아 동부
 - 오스트레일리아 남동부 
-- 아시아 동부
+- 동아시아
 - 동남아시아
 - 한국 중부
 - 인도 중부
@@ -91,28 +91,32 @@ ms.locfileid: "72026588"
 - 일본 동부
 - 일본 서부
 - 미국 정부 버지니아
+- 중국 동부 2
 
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 - 캐나다 중부
 - 미국 중서부
-- 미국 서부
-- 미국 서부 2
+- 미국 동부
+- 미국 동부 2
+- 미국 중북부
 - 미국 중남부
 - 미국 중부
-- East US
-- 미국 동부 2
+- 미국 서부
+- 미국 서부 2
 - 프랑스 중부
-- 유럽 서부
-- 유럽 북부
+- 서유럽
+- 북유럽
+- 영국 서부
 - 영국 남부
 - 오스트레일리아 동부
 - 오스트레일리아 남동부
-- 아시아 동부
+- 동아시아
 - 동남아시아 
 - 한국 중부
 - 인도 중부
 - 일본 동부
 - 미국 정부 버지니아
+- 중국 동부 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>흐름 로그를 설정하려는 NSG가 작업 영역과 다른 지역에 있어도 되나요?
 
@@ -151,7 +155,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 대시보드에 처음으로 항목이 표시될 때까지 최대 30분이 걸릴 수 있습니다. 솔루션에서 의미 있는 인사이트를 얻는 데 필요한 데이터를 충분히 수집한 후에야 보고서가 생성됩니다. 
 
-## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>다음 메시지가 표시되면 어떻게 하나요? “선택한 시간 간격에 대해 이 작업 영역의 데이터를 찾을 수 없습니다. 시간 간격을 변경하거나 다른 작업 영역을 선택해 보세요.”
+## <a name="what-if-i-get-this-message-we-could-not-find-any-data-in-this-workspace-for-selected-time-interval-try-changing-the-time-interval-or-select-a-different-workspace"></a>다음 메시지가 표시되면 어떻게 하나요? “이 작업 영역에서 선택한 시간 간격의 데이터를 찾을 수 없습니다. 시간 간격을 변경하거나 다른 작업 영역을 선택해 보세요.”
 
 다음 옵션을 시도해 보세요.
 - 위쪽 메뉴에서 시간 간격을 변경합니다.
@@ -244,7 +248,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 트래픽 분석은 요금이 측정됩니다. 요금은 서비스에서 생성된 흐름 로그 데이터 처리 및 Log Analytics 작업 영역에서 생성된 향상된 로그 저장을 기준으로 측정됩니다. 
 
-예를 들어 [가격 책정 계획](https://azure.microsoft.com/pricing/details/network-watcher/)과 관련해서 미국 중서부 지역을 고려해보겠습니다. 트래픽 분석에 의해 처리되는 스토리지 계정에 저장된 흐름 로그 데이터가 10GB이고 Log Analytics 작업 영역에서 수집된 보강된 로그가 1GB인 경우 해당 요금은 다음과 같습니다. 10 x 2.3$ + 1 x 2.76$ = 25.76$가 됩니다.
+예를 들어 [가격 책정 계획](https://azure.microsoft.com/pricing/details/network-watcher/)과 관련해서 미국 중서부 지역을 고려해보겠습니다. 트래픽 분석에 의해 처리되는 스토리지 계정에 저장된 흐름 로그 데이터가 10GB이고 Log Analytics 작업 영역에서 수집된 보강된 로그가 1GB인 경우 해당 요금은 10 x 2.3$ + 1 x 2.76$ = 25.76$가 됩니다.
 
 ## <a name="how-frequently-does-traffic-analytics-process-data"></a>트래픽 분석에서 데이터를 처리 하는 빈도
 
@@ -266,8 +270,8 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 지역 지도 페이지에는 두 개의 기본 섹션이 있습니다.
     
-- **배너**: 지리적 지도의 맨 위에 있는 배너는 트래픽 분산 필터를 선택 하는 단추를 제공 합니다 (예: 배포, 국가/지역의 트래픽 및 악성). 단추를 선택하면 각 필터가 지도에 적용됩니다. 예를 들어, [활성] 단추를 선택하면 지도에서 배포의 활성 데이터 센터가 강조 표시됩니다.
-- **지도**: 배너 아래에서 맵 섹션에는 Azure 데이터 센터와 국가/지역 간의 트래픽 분포가 표시 됩니다.
+- **배너**: 지역 맵 맨 위에 있는 배너는 트래픽 분산 필터를 선택 하는 단추를 제공 합니다 (예: 배포, 국가/지역의 트래픽 및 악성). 단추를 선택하면 각 필터가 지도에 적용됩니다. 예를 들어, [활성] 단추를 선택하면 지도에서 배포의 활성 데이터 센터가 강조 표시됩니다.
+- **지도**: 배너 아래에서 맵 섹션은 Azure 데이터 센터 및 국가/지역 간의 트래픽 분포를 보여 줍니다.
     
 ### <a name="keyboard-navigation-on-the-banner"></a>배너에서 키보드 탐색
     
@@ -282,7 +286,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 - 지도에서 강조 표시된 다른 노드로 이동하려면 `Tab` 또는 `Right arrow` 키를 사용하여 앞으로 이동합니다. 뒤로 이동하려면 `Shift+Tab` 또는 `Left arrow` 키를 사용합니다.
 - 지도에서 강조 표시된 노드를 선택하려면 `Enter` 또는 `Down arrow` 키를 사용합니다.
 - 노드를 선택하면 해당 노드의 **정보 도구 상자**로 포커스가 이동됩니다. 기본적으로 포커스는 **정보 도구 상자**의 닫힌 단추로 이동합니다. **상자** 보기 내부에서 추가로 이동하려면 `Right arrow` 및 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. `Enter` 키를 누르면 **정보 도구 상자**에서 포커스가 있는 단추를 선택한 것과 동일한 효과가 적용됩니다.
-- **정보 도구 상자**에 포커스가 있는 동안 `Tab` 키를 누르면 선택된 노드와 동일한 대륙의 끝점으로 포커스가 이동합니다. `Right arrow` 및 `Left arrow` 키를 사용하여 이러한 엔드포인트 간을 이동합니다.
+- `Tab`정보 도구 상자**에 포커스가 있는 동안**  키를 누르면 선택된 노드와 동일한 대륙의 끝점으로 포커스가 이동합니다. `Right arrow` 및 `Left arrow` 키를 사용하여 이러한 엔드포인트 간을 이동합니다.
 - 다른 흐름 엔드포인트 또는 대륙 클러스터로 이동하려면 `Tab` 키를 사용하여 앞으로 이동하고 `Shift+Tab` 키를 사용하여 뒤로 이동합니다.
 - **대륙 클러스터**에 포커스가 있을 때 `Enter` 또는 `Down` 화살표 키를 사용하여 대륙 클러스터 내부의 엔드포인트를 강조 표시할 수 있습니다. 대륙 클러스터의 정보 상자에서 엔드포인트와 [닫기] 단추 간을 이동하려면 `Right arrow` 또는 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. 아무 엔드포인트에서 `Shift+L` 키를 사용하여 선택한 노드와 엔드포인트를 잇는 연결선으로 전환할 수 있습니다. `Shift+L`을 다시 누르면 선택한 엔드포인트로 이동할 수 있습니다.
         
