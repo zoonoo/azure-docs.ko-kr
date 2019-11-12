@@ -39,12 +39,15 @@
           href: get-started-get-model-rest-apis.md
 - name: 자습서
   items:
+    - name: 분해 가능한 앱 빌드
+      items:
+        - name: 1. 사용자 의도 확인
+          href: tutorial-intents-only.md
+        - name: 2. 사용자 데이터 내보내기
+          href: tutorial-machine-learned-entity.md
+          displayName: 'n-depth, constraint, descriptor, phrase list, entity'
     - name: 앱 빌드
       items:
-        - name: 사용자 의도 확인
-          href: tutorial-intents-only.md
-        - name: 미리 작성된 모델을 사용하여 일반 사용자 데이터 식별
-          href: luis-tutorial-prebuilt-intents-entities.md
         - name: 사용자 표현에서 감정 가져오기
           href: luis-quickstart-intent-and-sentiment-analysis.md
         - name: 정규식을 사용하여 적절한 형식의 데이터 가져오기

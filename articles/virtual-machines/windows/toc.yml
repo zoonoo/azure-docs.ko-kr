@@ -407,8 +407,8 @@
             - name: 포털
               href: shared-images-portal.md
             - name: CLI
-              href: ../linux/shared-images.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: 테넌트 간에 이미지 공유
+              href: ../linux/shared-images.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: 공유용 앱 등록
               href: share-images-across-tenants.md
             - name: 공유 이미지 문제 해결
               href: troubleshooting-shared-images.md

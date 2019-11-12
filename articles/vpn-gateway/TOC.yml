@@ -134,18 +134,18 @@
               href: point-to-site-vpn-client-configuration-radius.md
             - name: NPS 서버와 P2S VPN RADIUS 인증 통합
               href: vpn-gateway-radiuis-mfa-nsp.md
+        - name: Azure AD 인증
+          items:
+            - name: 테넌트 구성
+              href: openvpn-azure-ad-tenant.md
+            - name: VPN 클라이언트 구성
+              href: openvpn-azure-ad-client.md
         - name: OpenVPN
           items:
             - name: 지점 및 사이트 간 연결을 위한 OpenVPN 구성
               href: vpn-gateway-howto-openvpn.md
             - name: OpenVPN 클라이언트 구성
               href: vpn-gateway-howto-openvpn-clients.md
-            - name: Open VPN - Azure Active Directory 인증
-              items:
-                - name: Azure AD 테넌트 구성
-                  href: openvpn-azure-ad-tenant.md
-                - name: VPN 클라이언트 구성 - Azure AD
-                  href: openvpn-azure-ad-client.md
         - name: P2S용 공용 CA 게이트웨이 인증서로 전환
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Always On VPN 디바이스 터널 구성

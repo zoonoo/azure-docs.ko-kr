@@ -326,7 +326,7 @@
               href: shared-images.md
             - name: 포털
               href: shared-images-portal.md
-            - name: 테넌트 간에 이미지 공유
+            - name: 공유용 앱 등록
               href: share-images-across-tenants.md
             - name: 공유 이미지 문제 해결
               href: troubleshooting-shared-images.md

@@ -96,6 +96,8 @@
       href: troubleshoot-vm-configuration.md
     - name: Windows Virtual Desktop에서 Windows 7 가상 머신 문제 해결
       href: troubleshoot-windows-7-vm.md
+    - name: Windows Virtual Desktop 관리 도구 문제 해결
+      href: troubleshoot-management-tool.md
     - name: 원격 데스크톱 클라이언트 연결
       href: troubleshoot-client-connection.md
     - name: Windows Virtual Desktop PowerShell

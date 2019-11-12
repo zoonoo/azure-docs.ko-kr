@@ -353,6 +353,10 @@
               href: application-sign-in-problem-on-premises-application-proxy.md
             - name: 애플리케이션 프록시의 CORS 문제
               href: application-proxy-understand-cors-issues.md
+    - name: 보안 하이브리드(클라우드 및 온-프레미스)
+      items:
+        - name: 앱 제공 컨트롤러 또는 네트워크를 사용하여 레거시 앱 보호
+          href: secure-hybrid-access.md
 - name: 참고 자료
   items:
     - name: 애플리케이션 프로비저닝(SCIM)

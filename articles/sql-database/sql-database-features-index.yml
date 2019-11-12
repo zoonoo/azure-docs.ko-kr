@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure SQL Database-기능
+title: 기능
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Azure SQL Database-기능
+  title: Azure SQL Database - 기능
   meta.description: Learn about the features in Azure SQL Database.
   services: sql-database
   author: jovanpop-msft
@@ -17,7 +17,7 @@ metadata:
 sections:
   - items:
       - type: paragraph
-        text: Azure SQL Database에는 SQL 언어를 사용 하 여 데이터를 쿼리할 수 있게 해 주는 클래식 관계형 데이터베이스 엔진 보다 큽니다. Azure SQL Database에서 데이터베이스 기능을 사용 하 여 보다 강력한 작업을 수행 하 고 고급 시나리오를 구현할 수 있습니다.
+        text: Azure SQL Database는 기존 관계형 데이터베이스 엔진보다 뛰어나며 SQL 언어를 사용하여 데이터를 쿼리할 수 있습니다. Azure SQL Database의 데이터베이스 기능을 사용하면 보다 강력한 작업을 수행하고 고급 시나리오를 구현할 수 있습니다.
       - type: list
         style: cards
         className: cardsM
@@ -25,26 +25,26 @@ sections:
         items:
           - title: 메모리 내 기술
             href: /azure/sql-database/sql-database-in-memory
-            html: <p>메모리 내 기술을 사용 하 여 고성능 응용 프로그램을 구현 합니다.</p>
+            html: <p>메모리 내 기술을 사용하여 고성능 애플리케이션을 구현합니다.</p>
           - title: 다중 모델 기능
             href: /azure/sql-database/sql-database-multi-model-features
-            html: '<p>그래프, JSON, XML, Azure SQL Database의 공간 기능에 알아봅니다.</p>'
+            html: '<p>Azure SQL Database의 Graph, JSON, XML, 공간 기능에 대해 알아봅니다.</p>'
           - title: 트랜잭션 복제
             href: /azure/sql-database/sql-database-managed-instance-transactional-replication
-            html: <p>Azure SQL Database 및 SQL Server 테이블 간에 데이터를 복제 합니다.</p>
+            html: <p>Azure SQL Database와 SQL Server 테이블 간에 데이터를 복제합니다.</p>
           - title: 데이터 동기화
             href: /azure/sql-database/sql-database-sync-data
-            html: <p>여러 SQL database 및 SQL Server 인스턴스 간에 데이터를 동기화 합니다.</p>
+            html: <p>여러 SQL 데이터베이스와 SQL Server 인스턴스에 걸쳐 데이터를 동기화합니다.</p>
           - title: 작업 자동화
             href: /azure/sql-database/sql-database-job-automation-overview
-            html: <p>SQL 에이전트 및 탄력적 작업을 사용 하 여 반복적인 작업을 예약 합니다.</p>
+            html: <p>SQL 에이전트 및 탄력적 작업을 사용하여 반복 작업을 예약합니다.</p>
           - title: 임시 테이블
             href: /azure/sql-database/sql-database-temporal-tables
-            html: <p>추적 및 데이터에는 변경 내용의 전체 기록을 분석 합니다.</p>
+            html: <p>데이터의 변경 내용 전체 기록을 추적하고 분석합니다.</p>
   - title: 추가 리소스
     items:
       - type: list
         style: ordered
         items:
-          - html: 에 대 한 자세한 합니다 <a href="/azure/sql-database/sql-database-features">차이점 SQL Server 및 Azure SQL 데이터베이스 기능</a>합니다.
-          - html: 이러한 기능을 사용 하는 방법을 알아봅니다 <a href="/azure/sql-database/sql-database-howto">방법 가이드</a>합니다.
+          - html: <a href="/azure/sql-database/sql-database-features">SQL Server와 Azure SQL 데이터베이스 기능의 차이점</a>에 대해 알아봅니다.
+          - html: <a href="/azure/sql-database/sql-database-howto">방법 가이드</a>에서 이러한 기능의 사용 방법을 알아봅니다.

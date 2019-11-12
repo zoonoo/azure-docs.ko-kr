@@ -3,7 +3,7 @@ documentType: LandingData
 title: 'Azure SQL Database: 단일 데이터베이스'
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Azure SQL Database 설명서 - 단일 데이터베이스
+  title: 설명서 - 단일 데이터베이스
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
   requires-business-manager-approval: false

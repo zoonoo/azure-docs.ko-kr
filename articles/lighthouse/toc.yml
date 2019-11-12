@@ -13,10 +13,10 @@
 - name: 개념
   items:
     - name: Azure 위임 리소스 관리
-      displayName: delegation
+      displayName: 'delegation, projection'
       href: ./concepts/azure-delegated-resource-management.md
     - name: 테넌트 간 관리 환경
-      displayName: scenarios
+      displayName: 'scenarios, supported, enhanced, services, limitations, current'
       href: ./concepts/cross-tenant-management-experience.md
     - name: '테넌트, 역할 및 사용자'
       displayName: 'Azure AD, Azure Active Directory'
@@ -39,16 +39,22 @@
       displayName: resource management
       href: ./how-to/onboard-customer.md
     - name: Azure Marketplace에 관리형 서비스 솔루션 게시
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: 'managed services offer, azure marketplace, publish, marketplace'
       href: ./how-to/publish-managed-services-offers.md
     - name: 고객 보기 및 관리
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: my customers
       href: ./how-to/view-manage-customers.md
     - name: 서비스 공급자 보기 및 관리
-      displayName: 'managed services offer, azure marketplace, publish'
+      displayName: 'customer, update'
       href: ./how-to/view-manage-service-providers.md
-    - name: 수정할 수 있는 정책 배포
-      href: ./how-to/deploy-policy-remediation.md
+    - name: Azure Policy 통합
+      items:
+        - name: 규모에 맞는 정책 배포
+          displayName: storage
+          href: ./how-to/policy-at-scale.md
+        - name: 수정할 수 있는 정책 배포
+          displayName: 'deployIfNotExists, modify, managed identities, managed identity'
+          href: ./how-to/deploy-policy-remediation.md
 - name: 참고 자료
   items:
     - name: Azure CLI

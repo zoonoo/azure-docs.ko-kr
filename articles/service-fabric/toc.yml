@@ -876,6 +876,8 @@
       href: service-fabric-common-questions.md
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureServiceFabric'
+    - name: Azure Resource Manager 배포 가드레일
+      href: service-fabric-azure-resource-manager-guardrails.md
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/service-fabric/'
     - name: 요금 계산기

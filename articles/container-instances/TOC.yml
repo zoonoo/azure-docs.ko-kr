@@ -91,6 +91,8 @@
       items:
         - name: 활동성 프로브 구성
           href: container-instances-liveness-probe.md
+        - name: 준비 상태 프로브 구성
+          href: container-instances-readiness-probe.md
         - name: 컨테이너 중지 및 시작
           href: container-instances-stop-start.md
         - name: 실행 중인 컨테이너 업데이트

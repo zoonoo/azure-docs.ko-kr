@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Database for PostgreSQL 설명서
-summary: Azure Database for PostgreSQL은 오픈 소스 Postgres 데이터베이스 엔진을 기반으로 한 관계형 데이터베이스 서비스입니다. 예측 가능한 성능, 보안, 고가용성 및 동적인 확장성으로 중요 업무용 워크로드를 처리할 수 있는 완전 관리형 Database-as-a-Service 제품입니다. 단일 서버와 하이퍼스케일(Citus) 클러스터(미리보기)라는 두 가지 배포 옵션이 제공됩니다. 하이퍼스케일(Citus) 옵션은 분할을 사용하여 쿼리를 여러 머신에 수평으로 확장하고 더 큰 규모와 성능이 필요한 애플리케이션에 사용됩니다. 빠른 시작, 자습서 및 샘플을 통해 PostgreSQL용 Azure 데이터베이스를 사용하는 방법을 알아보세요.
+summary: Azure Database for PostgreSQL은 오픈 소스 Postgres 데이터베이스 엔진을 기반으로 한 관계형 데이터베이스 서비스입니다. 예측 가능한 성능, 보안, 고가용성 및 동적인 확장성으로 중요 업무용 워크로드를 처리할 수 있는 완전 관리형 Database-as-a-Service 제품입니다. 단일 서버와 하이퍼스케일(Citus) 클러스터라는 두 가지 배포 옵션이 제공됩니다. 하이퍼스케일(Citus) 옵션은 분할을 사용하여 쿼리를 여러 머신에 수평으로 확장하고 더 큰 규모와 성능이 필요한 애플리케이션에 사용됩니다. 빠른 시작, 자습서 및 샘플을 통해 PostgreSQL용 Azure 데이터베이스를 사용하는 방법을 알아보세요.
 metadata:
   description: Azure Database for PostgreSQL은 오픈 소스 PostgreSQL 데이터베이스 엔진을 기반으로 개발자용으로 빌드된 Microsoft 클라우드의 관계형 데이터베이스 서비스입니다.
   author: rachel-msft
@@ -8,12 +8,12 @@ metadata:
   ms.date: 08/30/2019
   ms.service: postgresql
   ms.topic: landing-page
-  ms.openlocfilehash: 70888f27f346c930d37652a3ddd02a0c4d5f65c1
-  ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+  ms.openlocfilehash: 4deeec3686d2e3b0a150b74a222f7f1eab0a93fd
+  ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73499909"
+  ms.lasthandoff: 11/12/2019
+  ms.locfileid: "73932236"
 landingContent:
 - title: Azure Database for PostgreSQL 정보
   linkLists:
@@ -57,11 +57,11 @@ landingContent:
       url: /azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json
     - text: 서비스 모니터링 및 튜닝
       url: tutorial-monitor-and-tune.md
-- title: 하이퍼스케일(Citus) 클러스터(미리 보기) 만들기
+- title: 하이퍼스케일(Citus) 클러스터 만들기
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Azure Portal에서 하이퍼스케일(Citus) 클러스터(미리 보기) 만들기
+    - text: Azure Portal에서 하이퍼스케일(Citus) 클러스터 만들기
       url: quickstart-create-hyperscale-portal.md
   - linkListType: tutorial
     links:

@@ -85,3 +85,7 @@ sections:
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-use-cosmos-db-to-store-anchors">Azure Cosmos DB와 영구적 공유.</a>
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-unity-hololens-app">새 Unity HoloLens 앱 시작.</a>
           - html: <a href="/azure/spatial-anchors/tutorials/tutorial-new-android-app">새 Android 앱 시작.</a>
+  - title: 릴리스 정보
+    items:
+      - type: paragraph
+        text: '<a href="https://github.com/Azure/azure-spatial-anchors-samples/releases">GitHub에서 릴리스 정보를 봅니다.</a>'

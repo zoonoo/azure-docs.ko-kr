@@ -1,5 +1,5 @@
 ### YamlMime:Landing
-title: Azure IoT Central 설명서
+title: Azure IoT Central 설명서(미리 보기 기능)
 summary: Azure IoT Central은 IoT 자산을 규모에 맞게 쉽게 연결, 모니터링 및 관리할 수 있는 완전 관리형 SaaS(Software-as-a-Service) 솔루션입니다. Azure IoT Central은 IoT 솔루션의 초기 설정을 단순화하고 일반적인 IoT 프로젝트의 관리 부담, 운영 비용 및 오버헤드를 줄입니다. 빠른 시작 및 자습서를 사용하여 Azure IoT Central 애플리케이션을 생성, 사용자 정의, 관리 및 사용하는 방법에 대해 알아보세요.
 metadata:
   title: Azure IoT Central 설명서
@@ -10,14 +10,14 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: d769b906324c1022baffff198fea6e4e44821757
-  ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+  ms.openlocfilehash: 90faa0b7422814011096a10164a6f2bdfceba4d5
+  ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/09/2019
-  ms.locfileid: "73891808"
+  ms.lasthandoff: 11/12/2019
+  ms.locfileid: "73929857"
 landingContent:
-- title: Azure IoT Central 정보
+- title: Azure IoT Central 정보(미리 보기 기능)
   linkLists:
   - linkListType: overview
     links:

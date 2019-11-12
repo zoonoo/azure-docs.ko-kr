@@ -16,7 +16,7 @@ metadata:
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: 'Azure Media Services Video Indexer는 Azure 미디어 분석, Azure Search, Cognive Services(예: Face API, Microsoft Translator, Computer Vision API 및 Custom Speech Service)에 기반하여 구축된 클라우드 애플리케이션입니다. 이 애플리케이션에서 Video Indexer 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다.<br/>Video Indexer 및 Media Services 분석기 미리 설정을 사용하려는 경우를 이해하려면 <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">비교 문서</a>를 확인하세요.'
+  description: 'Azure Media Services Video Indexer는 Azure 미디어 분석, Azure Cognitive Search, Cognive Services(예: Face API, Microsoft Translator, Computer Vision API 및 Custom Speech Service)를 기반으로 구축된 클라우드 애플리케이션입니다. 이 애플리케이션에서 Video Indexer 비디오 및 오디오 모델을 사용하여 비디오의 인사이트를 추출할 수 있습니다.<br/>Video Indexer 및 Media Services 분석기 미리 설정을 사용하려는 경우를 이해하려면 <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">비교 문서</a>를 확인하세요.'
 sections:
   - items:
       - type: list

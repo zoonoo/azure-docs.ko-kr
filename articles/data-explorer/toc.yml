@@ -150,6 +150,8 @@
               href: check-cluster-health.md
         - name: 데이터베이스
           items:
+            - name: 팔로워 데이터베이스
+              href: follower.md
             - name: 데이터베이스 권한 관리
               href: manage-database-permissions.md
             - name: 정책

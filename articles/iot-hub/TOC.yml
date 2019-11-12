@@ -91,6 +91,8 @@
       href: iot-hub-scaling.md
     - name: 고가용성 및 재해 복구
       href: iot-hub-ha-dr.md
+    - name: 다른 Azure 지역에 IoT Hub를 복제하는 방법
+      href: iot-hub-how-to-clone.md
     - name: IoT 허브 IP 주소 이해
       href: iot-hub-understand-ip-address.md
     - name: 추가 프로토콜 지원

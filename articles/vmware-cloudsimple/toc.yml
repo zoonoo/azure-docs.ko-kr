@@ -134,6 +134,8 @@
               href: azure-expressroute-connection.md
             - name: DNS 이름 확인 구성
               href: on-premises-dns-setup.md
+            - name: 고가용성 사이트 간 VPN 연결 구성
+              href: high-availability-vpn-connection.md
         - name: VMware 플랫폼
           items:
             - name: 프라이빗 클라우드 권한 모델 알아보기
