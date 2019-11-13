@@ -1,26 +1,26 @@
 ---
-title: 송신 및 수신 이동-Azure Event Hubs를 사용 하 여 이벤트 | Microsoft Docs
-description: 이 문서에서는 Azure Event Hubs에서 이벤트를 보내는 Go 애플리케이션을 만드는 연습을 제공합니다.
+title: '빠른 시작: Go를 사용하여 이벤트 보내기 및 받기 - Azure Event Hubs'
+description: '빠른 시작: 이 문서에서는 Azure Event Hubs에서 이벤트를 보내는 Go 애플리케이션을 만드는 연습을 제공합니다.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: kamalb
 ms.service: event-hubs
 ms.workload: core
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 04/15/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 823ebc985c77785f8b48d12d5919dbbd1b2b1459
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: e5f52d0ddbf9a66d974732d6d98ca8a5b09cc2d0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60821682"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720577"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-using-go"></a>이벤트를 보내거나 Go를 사용 하 여 Event Hubs에서 이벤트 수신
+# <a name="quickstart-send-events-to-or-receive-events-from-event-hubs-using-go"></a>빠른 시작: Go를 사용하여 Event Hubs에서 이벤트 보내기 또는 받기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
-이 자습서에서는 이벤트를 보내거나 이벤트 허브에서 이벤트 수신에 Go 응용 프로그램을 작성 하는 방법을 설명 합니다. 
+이 자습서에서는 이벤트 허브와 이벤트를 주고 받는 Go 애플리케이션을 작성하는 방법을 설명합니다. 
 
 > [!NOTE]
 > [GitHub](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/eventhubs)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName` 문자열을 이벤트 허브 값으로 대체하고, 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
@@ -31,14 +31,14 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
 
 - 로컬로 설치된 Go. 필요한 경우 [다음 지침](https://golang.org/doc/install)을 따릅니다.
 - 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][]을 만듭니다.
-- **Event Hubs 네임 스페이스를 만들고 event hub**합니다. 사용 된 [Azure portal](https://portal.azure.com) Event Hubs 형식의 네임 스페이스를 만들고 event hub와 통신 해야 하는 응용 프로그램 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다.
+- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고, 애플리케이션에서 이벤트 허브와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다.
 
 ## <a name="send-events"></a>이벤트 보내기
-이 섹션에서는 이벤트 허브로 이벤트를 보내는 Go 응용 프로그램을 만드는 방법을 보여 줍니다. 
+이 섹션에서는 이벤트 허브로 이벤트를 전송하는 Go 애플리케이션을 만드는 방법을 보여줍니다. 
 
 ### <a name="install-go-package"></a>Go 패키지 설치
 
-`go get` 또는 `dep` 명령을 사용하여 Event Hubs용 Go 패키지를 받습니다. 예를 들면 다음과 같습니다.
+`go get` 또는 `dep` 명령을 사용하여 Event Hubs용 Go 패키지를 받습니다. 예:
 
 ```bash
 go get -u github.com/Azure/azure-event-hubs-go
@@ -137,7 +137,7 @@ log.Printf("got partition IDs: %s\n", info.PartitionIDs)
 
 Go SDK를 사용하여 Storage 아티팩트를 만드는 샘플은 [Go 샘플 리포지토리](https://github.com/Azure-Samples/azure-sdk-for-go-samples/tree/master/storage) 및 이 자습서에 해당하는 샘플에서 사용할 수 있습니다.
 
-### <a name="go-packages"></a>패키지를 이동 합니다.
+### <a name="go-packages"></a>Go 패키지
 
 메시지를 받으려면 `go get` 또는 `dep` 명령을 사용하여 Event Hubs용 Go 패키지를 받으세요.
 
@@ -214,9 +214,9 @@ if err != nil {
 }
 ```
 
-### <a name="create-a-check-pointer-and-a-leaser"></a>확인 포인터와는 leaser 만들기 
+### <a name="create-a-check-pointer-and-a-leaser"></a>확인 포인터 및 leaser 만들기 
 
-만들기는 **leaser**특정 수신기에 파티션을 임대 하는 일을 담당 하는, 및 **포인터 확인**다른 수신기를 시작할 수 있도록 메시지 스트림에 대 한 검사점을 작성 하는 일을 담당 하는, 올바른 오프셋에서 읽는 중입니다.
+다른 수신기가 올바른 오프셋에서 읽기를 시작할 수 있도록 파티션을 특정 수신기에게 임대하는 일을 담당하는 **확인 포인터** 및 메시지 스트림에 대한 검사점을 작성하는 일을 담당하는 **leaser**를 만듭니다.
 
 현재는 동일한 Storage 컨테이너를 사용하여 임대와 검사점을 관리하는 단일 **StorageLeaserCheckpointer**가 제공됩니다. **StorageLeaserCheckpointer**는 컨테이너에 올바르게 액세스하려면 스토리지 계정 및 컨테이너 이름 외에도 이전 단계에서 만든 자격 증명과 Azure 환경 구조체가 필요합니다.
 
@@ -233,7 +233,7 @@ if err != nil {
 
 ### <a name="construct-event-processor-host"></a>구문 이벤트 프로세서 호스트
 
-이제 다음과 같이 EventProcessorHost를 작성하는 데 필요한 방법이 제공됩니다. 동일 **StorageLeaserCheckpointer** 앞에서 설명한 대로 leaser 및 검사에 대 한 포인터를 모두 사용 됩니다.
+이제 다음과 같이 EventProcessorHost를 작성하는 데 필요한 방법이 제공됩니다. 앞에서 설명했듯이, 동일한 **StorageLeaserCheckpointer**가 leaser 및 확인 포인터로 사용됩니다.
 
 ```go
 ctx := context.Background()
@@ -285,7 +285,7 @@ if err != nil {
 다음 문서를 읽어보세요.
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [기능 및 Azure Event Hubs의 용어](event-hubs-features.md)
+- [Azure Event Hubs의 기능 및 용어](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)
 
 
