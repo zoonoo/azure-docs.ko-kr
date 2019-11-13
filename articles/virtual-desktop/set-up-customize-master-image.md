@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 7a0cce6b72240b95943fbece08cfbf61eaee3524
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 30895af3e973fd5c9ae0de559df440f18cec1563
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891696"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013140"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
@@ -101,28 +101,6 @@ Windows 10 Pc에 대 한 시작 레이아웃을 지정 하려면이 명령을 �
 
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
-```
-
-### <a name="configure-session-timeout-policies"></a>세션 제한 시간 정책 구성
-
-호스트 풀의 모든 Vm이 동일한 보안 그룹에 속해 있기 때문에 그룹 정책 수준에 원격 세션 정책을 적용할 수 있습니다.
-
-원격 세션 정책을 구성 하려면:
-
-1. **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** ** > 원격 데스크톱 세션 호스트** **세션 시간 제한**으로 이동 합니다. > 
-2. 오른쪽 패널에서 **활성 및 유휴 원격 데스크톱 서비스 세션에 대 한 시간 제한 설정** 정책을 선택 합니다.
-3. 모달 창이 표시 되 면 정책 옵션을 **구성 되지 않음** 에서 **사용** 으로 변경 하 여 정책을 활성화 합니다.
-4. 드롭다운 메뉴의 정책 옵션 아래에서 시간을 **3 시간**으로 설정 합니다.
-
-다음 명령을 실행 하 여 원격 세션 정책을 수동으로 구성할 수도 있습니다.
-
-```batch
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 10800000 /f
 ```
 
 ### <a name="set-up-time-zone-redirection"></a>표준 시간대 리디렉션 설정

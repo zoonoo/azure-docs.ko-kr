@@ -1,18 +1,18 @@
 ---
-title: Microsoft Azure Site Recovery 공급자 업그레이드 실패 문제 해결 | Microsoft Docs
-description: 이해 및
+title: Microsoft Azure Site Recovery 공급자 업그레이드 문제 해결
+description: Microsoft Azure Site Recovery 공급자를 업그레이드할 때 발생 하는 일반적인 문제 해결
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
-ms.date: 02/05/2019
+ms.date: 11/10/2019
 ms.author: raynew
-ms.openlocfilehash: 6bb8263e7291506be6af7d5af7eda5786274d73c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 73309103d422391aae3d72e3b0267d5d5a85515a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972604"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953764"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Microsoft Azure Site Recovery 공급 기업 업그레이드 오류 문제 해결
 

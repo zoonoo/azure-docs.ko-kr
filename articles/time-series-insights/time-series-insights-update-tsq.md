@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 미리 보기 데이터 쿼리 | Microsoft Docs
-description: Azure Time Series Insights 미리 보기 데이터 쿼리
+title: 미리 보기의 데이터 쿼리-Azure Time Series Insights | Microsoft Docs
+description: 데이터 쿼리 Azure Time Series Insights 미리 보기에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: e660db5db3d1afc14a3c895e6786d1b6a8b82c13
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f44aa5c0a412dc53f4b1a5f127887257a1b0b550
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832417"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006303"
 ---
-# <a name="data-querying"></a>데이터 쿼리
+# <a name="data-querying-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 쿼리
 
 Azure Time Series Insights 미리 보기를 사용하면 공개 화면 API를 통해 환경에 저장된 이벤트 및 메타데이터에 대한 데이터를 쿼리할 수 있습니다. 이러한 API는 [Time Series Insights 미리 보기 탐색기](./time-series-insights-update-explorer.md)에도 사용됩니다.
 

@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74f4e8750497fc1ae9875caeb60de65b5f6cd808
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e993ad17a07ff741ff33073304ed774dcf30203d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896031"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961651"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>비 갤러리 응용 프로그램에 대 한 SAML 기반 Single Sign-On 구성
 
@@ -55,8 +55,8 @@ ms.locfileid: "72896031"
     | **식별자 (엔터티 ID)** | 일부 앱의 경우 필수 | 일부 앱의 경우 필수 | 응용 프로그램을 고유 하 게 식별 합니다. Azure AD는 SAML 토큰의 대상 매개 변수로 애플리케이션에 식별자를 보냅니다. 애플리케이션이 식별자의 유효성을 검사해야 합니다. 또한 이 값은 애플리케이션에서 제공하는 모든 SAML 메타데이터 내에서 엔터티 ID로 표시됩니다. *이 값은 애플리케이션에서 보낸 **AuthnRequest**(SAML 요청)에서 **Issuer**(발급자) 요소로 찾을 수 있습니다.* |
     | **회신 URL** | 필수 | 필수 | 애플리케이션이 SAML 토큰을 수신해야 하는 위치를 지정합니다. 회신 URL은 ACS(Assertion Consumer Service) URL이라고도 합니다. 추가 회신 URL 필드를 사용 하 여 여러 회신 Url을 지정할 수 있습니다. 예를 들어 여러 하위 도메인에 대 한 추가 회신 Url이 필요할 수 있습니다. 또는 테스트를 위해 한 번에 여러 회신 Url (로컬 호스트 및 공용 Url)을 지정할 수 있습니다. |
     | **로그온 URL** | 필수 | 지정하지 않음 | 사용자가 이 URL을 열면 서비스 공급자가 Azure AD를 리디렉션하여 사용자를 인증하고 로그온하도록 합니다. Azure AD는 URL을 사용하여 Office 365 또는 Azure AD 액세스 패널에서 애플리케이션을 시작합니다. 비어 있는 경우 Azure AD는 사용자가 Office 365, Azure AD 액세스 패널 또는 Azure AD SSO URL에서 응용 프로그램을 시작할 때 IdP 시작 로그온을 수행 합니다.|
-    | **릴레이 상태** | 선택 사항 | 선택 사항 | 인증이 완료되면 사용자를 리디렉션할 위치를 애플리케이션에 지정합니다. 일반적으로 이 값은 애플리케이션에 대한 올바른 URL입니다. 그러나 일부 애플리케이션에서는 이 필드를 다르게 사용합니다. 자세한 내용은 애플리케이션 공급 업체에 요청하세요.
-    | **로그아웃 URL** | 선택 사항 | 선택 사항 | SAML 로그아웃 응답을 애플리케이션에 다시 보내는 데 사용됩니다.
+    | **릴레이 상태** | 옵션 | 옵션 | 인증이 완료되면 사용자를 리디렉션할 위치를 애플리케이션에 지정합니다. 일반적으로 이 값은 애플리케이션에 대한 올바른 URL입니다. 그러나 일부 애플리케이션에서는 이 필드를 다르게 사용합니다. 자세한 내용은 애플리케이션 공급 업체에 요청하세요.
+    | **로그아웃 URL** | 옵션 | 옵션 | SAML 로그아웃 응답을 애플리케이션에 다시 보내는 데 사용됩니다.
 
 자세한 내용은 [Single SIGN-ON SAML 프로토콜](../develop/single-sign-on-saml-protocol.md)을 참조 하세요.
 
@@ -102,7 +102,7 @@ Azure AD에서 활성 인증서를 사용 하는 기본 **Single Sign-on 설정 
    - *올바른 서명 옵션 및 알고리즘입니다.*
    - *올바른 알림 전자 메일 주소입니다.* 활성 인증서가 만료 날짜에 가까워지면 Azure AD는이 필드에 구성 된 전자 메일 주소로 알림을 보냅니다.
 
-2. 인증서를 다운로드 하려면 Base64 형식, 원시 형식 또는 페더레이션 메타 데이터 XML에 대 한 옵션 중 하나를 선택 합니다. 또한 Azure AD는 `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>` 형식의 애플리케이션과 관련된 메타데이터에 액세스할 수 있는 **앱 페더레이션 메타데이터 URL**을 제공합니다.
+2. 인증서를 다운로드 하려면 Base64 형식, 원시 형식 또는 페더레이션 메타 데이터 XML에 대 한 옵션 중 하나를 선택 합니다. 또한 Azure AD는 **형식의 애플리케이션과 관련된 메타데이터에 액세스할 수 있는**앱 페더레이션 메타데이터 URL`https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`을 제공합니다.
 
 3. 인증서를 관리, 만들기 또는 가져오려면 **SAML 서명 인증서** 섹션의 오른쪽 위 모퉁이에 있는 **편집** 아이콘 (연필)을 선택 합니다.
 
@@ -122,7 +122,7 @@ Azure AD에서 활성 인증서를 사용 하는 기본 **Single Sign-on 설정 
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>4단계. Azure AD를 사용하도록 애플리케이션 설정
 
-**\<applicationName> 설정** 섹션에는 애플리케이션에서 구성해야 하는 값이 나열되어 있으므로 Azure AD를 SAML ID 공급자로 사용합니다. 필요한 값은 애플리케이션에 따라 달라집니다. 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 설명서를 찾으려면 **응용 프로그램 이름 설정 \<** 제목으로 이동 하 고 단계별 **지침 보기**를 선택 합니다. 설명서는 **로그온 구성** 페이지에 표시 됩니다. 이 페이지에서는 **응용 프로그램 이름 \<설정 >** 제목의 **로그인 URL**, **Azure AD 식별자**및 **로그 아웃 url** 값을 입력 하는 방법을 안내 합니다.
+**\<applicationName> 설정** 섹션에는 애플리케이션에서 구성해야 하는 값이 나열되어 있으므로 Azure AD를 SAML ID 공급자로 사용합니다. 필요한 값은 애플리케이션에 따라 달라집니다. 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 설명서를 찾으려면 **응용 프로그램 이름 설정 \<>** 제목으로 이동 하 고 단계별 **지침 보기**를 선택 합니다. 설명서는 **로그온 구성** 페이지에 표시 됩니다. 이 페이지에서는 **응용 프로그램 이름 \<설정 >** 제목의 **로그인 URL**, **Azure AD 식별자**및 **로그 아웃 url** 값을 입력 하는 방법을 안내 합니다.
 
 1. **\<applicationName> 설정** 섹션까지 아래로 스크롤합니다. 
    

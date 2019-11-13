@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 2cda2c4e640c48d712ea5ebc8534cf5a4e35da7a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 9125c69f9d2f4d7289120f86059ffab3b7f9228a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620536"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961290"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -30,7 +30,7 @@ VMware Vm의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azur
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
-**서버** | **요구 사항** | **세부 정보**
+**Server** | **요구 사항** | **세부 정보**
 --- | --- | ---
 vCenter Server | 버전 6.7, 6.5, 6.0 또는 5.5 | 재해 복구 배포에 vCenter 서버를 사용 하는 것이 좋습니다.
 vSphere 호스트 | 버전 6.7, 6.5, 6.0 또는 5.5 | vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버는 구성 서버에서 실행 됩니다. [자세히 알아봅니다](vmware-physical-azure-config-process-server-overview.md).
@@ -64,6 +64,9 @@ IP 주소 유형 | 정적
 
 Site Recovery는 지원되는 컴퓨터에서 실행되는 모든 워크로드의 복제를 지원합니다.
 
+> [!Note]
+> 다음 표에서는 BIOS 부팅을 사용 하는 컴퓨터에 대 한 지원을 보여 줍니다. UEFI 기반 컴퓨터에 대 한 지원은 [저장소](#storage) 섹션을 참조 하세요.
+
 **구성 요소** | **세부 정보**
 --- | ---
 컴퓨터 설정 | Azure로 복제하는 컴퓨터는 [Azure 요구 사항](#azure-vm-requirements)을 충족해야 합니다.
@@ -76,12 +79,12 @@ Windows Server 2008 SP2 이상 (64 비트/32 비트) |  마이그레이션에만
 Windows 10, Windows 8.1, Windows 8 | 지원됩니다.
 Windows 7 SP1 64 비트 | [업데이트 롤업 36](https://support.microsoft.com/help/4503156) (모바일 서비스 버전 9.22)부터 지원 됩니다. </br></br> 모바일 서비스 에이전트의 버전 9.30 (2019 년 11 월 출시 예정)에서 Windows 7 SP1 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [s h a-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
 Linux | 64 비트 시스템만 지원 됩니다. 32 비트 시스템은 지원 되지 않습니다.<br/><br/>모든 Linux 서버에는 [LIS (linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 설치 되어 있어야 합니다. 테스트 장애 조치/장애 조치 (failover) 후 Azure에서 서버를 부팅 해야 합니다. LIS 구성 요소가 없는 경우 Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다. <br/><br/> Site Recovery는 Azure에서 Linux 서버를 실행하도록 장애 조치(failover)를 오케스트레이션합니다. 그러나 Linux 공급 업체 지원 수명 종료에 해당하지 않는 배포 버전만으로 제한될 수 있습니다.<br/><br/> Linux 배포에서는 배포의 부 버전 릴리스/업데이트에 포함된 스톡 커널만 지원됩니다.<br/><br/> 주요 Linux 배포 버전에서 보호된 시스템을 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 운영 체제를 업그레이드한 다음, 복제를 다시 사용하도록 설정합니다.<br/><br/> Azure에서 Linux 및 오픈 소스 기술에 대 한 지원에 대해 [자세히 알아보세요](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) .
-Linux Red Hat Enterprise | 5.2 ~ 5.11</b><br/> 6.1 ~ 6.10</b><br/> 7.0 ~ 7.7 </br>버전 7.7은 [모바일 에이전트 9.29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) 에서 지원 됩니다.<br/> <br/> Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10을 실행 하는 서버는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
+Linux Red Hat Enterprise | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) <br/> Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10을 실행 하는 서버는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
 Linux: CentOS | 5.2 ~ 5.11</b><br/> 6.1 ~ 6.10</b><br/> 7.0 ~ 7.6<br/> <br/> CentOS 5.2-5.11 & 6.1-6.10을 실행 하는 서버에는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
 Ubuntu | Ubuntu 14.04 LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions) </br> Ubuntu 18.04 LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 [(지원 되는 커널 버전 검토)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(지원 되는 커널 버전 검토)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3 또는 SUSE Linux Enterprise Server 11 SP4<br/> SUSE Linux Enterprise Server 11 SP3에서 s p 4로 복제 된 컴퓨터를 업그레이드할 수 없습니다. 업그레이드 하려면 복제를 사용 하지 않도록 설정 하 고 업그레이드 후 다시 사용 하도록 설정 합니다.
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7<br/><br/> Red Hat 호환 커널 또는 Unbreakable Enterprise 커널 릴리스 3, 4 & 5 (UNBREAKABLE, UEK4, UEK5) 실행 
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery)<br/><br/> Red Hat 호환 커널 또는 Unbreakable Enterprise 커널 릴리스 3, 4 & 5 (UNBREAKABLE, UEK4, UEK5) 실행 
 
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu 커널 버전
@@ -93,6 +96,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 14.04 LTS | [9.26][9.26 UR]| 3.13.0-24-3.13.0-170-제네릭,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-4.4.0-148-제네릭,<br/>4.15.0-4.15.0-1045-azure |
 14.04 LTS | [9.25][9.25 UR]  | 3.13.0-24-3.13.0-169-generic,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-generic to 4.4.0-146-generic,<br/>4.15.0-4.15.0-1042-azure |
 |||
+16.04 LTS | [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.4.0-21-generic to 4.4.0-0.166-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-66-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1061-azure|
 16.04 LTS | [9.28][9.28 UR] | 4.4.0-21-generic to 4.4.0-159-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-58-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1055-azure|
 16.04 LTS | [9.27][9.27 UR] | 4.4.0-21-4.4.0-일반,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic to 4.15.0-54-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure에서 4.15.0로|
 16.04 LTS | [9.26][9.26 UR] | 4.4.0-21-4.4.0-148-제네릭,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-50-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1045-azure|
@@ -100,6 +104,7 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 16.04 LTS | [9.24][9.24 UR] | 4.4.0-21-4.4.0-일반,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-46-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1040-azure|
 |||
 18.04 LTS | [9.29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-4.15.0-62-generic </br> 4.18.0-13-4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-27-generic </br> 4.15.0-1009-4.15.0-1037-azure </br> 4.18.0-1006-4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1018-azure
+18.04 LTS | [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.15.0-20-4.15.0-66-generic </br> 4.18.0-13-4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-32-generic </br> 4.15.0-1009-4.15.0-1037-azure </br> 4.18.0-1006-4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1023-azure
 
 
 ### <a name="debian-kernel-versions"></a>Debian 커널 버전
@@ -140,7 +145,7 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 
 ## <a name="vmdisk-management"></a>VM/디스크 관리
 
-**작업** | **세부 정보**
+**동작** | **세부 정보**
 --- | ---
 복제된 VM에서 디스크 크기 조정 | 지원됩니다.
 복제된 VM에 디스크 추가 | 지원되지 않습니다.<br/> VM에 대해 복제를 사용 하지 않도록 설정 하 고, 디스크를 추가한 다음, 복제를 다시 사용 하도록 설정 합니다.
@@ -174,44 +179,44 @@ Azure Traffic Manager | 예
 IPv4 | 예
 원본 IP 주소 유지 | 예
 Azure 가상 네트워크 서비스 엔드포인트<br/> | 예
-가속된 네트워킹 | 아니요
+가속된 네트워킹 | 아니오
 
 ## <a name="storage"></a>Storage
 **구성 요소** | **지원됨**
 --- | ---
 동적 디스크 | OS 디스크는 기본 디스크 여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
-Docker 디스크 구성 | 아니요
+Docker 디스크 구성 | 아니오
 호스트 NFS | VMware의 경우 예<br/><br/> 물리적 서버의 경우 아니요
 호스트 SAN(iSCSI/FC) | 예
 호스트 vSAN | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 호스트 다중 경로(MPIO) | 예. 테스트 제품: Microsoft DSM, EMC PowerPath 5.7 SP4, EMC PowerPath DSM for CLARiiON
 호스트 가상 볼륨(VVol) | VMware의 경우 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 VMDK | 예
-게스트/서버 공유 클러스터 디스크 | 아니요
-게스트/서버 암호화된 디스크 | 아니요
-게스트/서버 NFS | 아니요
+게스트/서버 공유 클러스터 디스크 | 아니오
+게스트/서버 암호화된 디스크 | 아니오
+게스트/서버 NFS | 아니오
 게스트/서버 iSCSI | 마이그레이션-예<br/>재해 복구의 경우 iSCSI는 VM에 연결 된 디스크로 장애 복구 (failback) 합니다.
-게스트/서버 SMB 3.0 | 아니요
+게스트/서버 SMB 3.0 | 아니오
 게스트/서버 RDM | 예<br/><br/> 물리적 서버의 경우 해당 없음
 게스트/서버 디스크 > 1 TB | 예, 디스크가 1024 MB 보다 커야 합니다.<br/><br/>관리 디스크에 복제 하는 경우 최대 8192 GB (9.26 버전 이상)<br></br> 저장소 계정에 복제 하는 경우 최대 4095 GB
-4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 아니요
-4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | 아니요
+4K 논리적 및 4k 물리적 섹터 크기 포함 게스트/서버 디스크 | 아니오
+4K 논리 및 512 바이트의 실제 섹터 크기를 포함 하는 게스트/서버 디스크 | 아니오
 스트라이프 디스크 포함 게스트/서버 볼륨 4TB 이상 <br/><br/>논리 볼륨 관리(LVM)| 예
-게스트/서버 - 스토리지 공간 | 아니요
-게스트/서버 디스크 핫 추가/제거 | 아니요
+게스트/서버 - 스토리지 공간 | 아니오
+게스트/서버 디스크 핫 추가/제거 | 아니오
 게스트/서버 - 디스크 제외 | 예
-게스트/서버 다중 경로(MPIO) | 아니요
+게스트/서버 다중 경로(MPIO) | 아니오
 게스트/서버 GPT 파티션 | 5 개의 파티션은 [업데이트 롤업 37](https://support.microsoft.com/help/4508614/) (모바일 서비스 버전 9.25)부터 지원 됩니다. 이전에는 4개가 지원되었습니다.
 ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 지원 됩니다.
-게스트/서버 EFI/UEFI 부팅 | -모바일 서비스 버전 9.13 이상을 실행 하는 경우 지원 됩니다.<br/> -Windows Server 2012 이상을 실행 하는 VMware Vm 또는 물리적 서버를 Azure로 마이그레이션할 때 지원 됩니다.<br/> -마이그레이션을 위해 Vm을 복제할 수 있습니다. 온-프레미스로 장애 복구 (Failback)가 지원 되지 않습니다.<br/> -NTFS만 지원 됩니다. <br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. <br/> -디스크 섹터 크기는 실제 섹터 당 512 바이트 여야 합니다.
+게스트/서버 EFI/UEFI 부팅 | -Windows Server 2012 이상, SLES SP4 및 RHEL 8.0에 지원 됨 <br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. 
 
 ## <a name="replication-channels"></a>복제 채널
 
 |**복제 유형**   |**지원됨**  |
 |---------|---------|
-|ODX (오프 로드 된 데이터 전송)    |       아니요  |
-|오프라인 시드        |   아니요      |
-| Azure Data Box | 아니요
+|ODX (오프 로드 된 데이터 전송)    |       아니오  |
+|오프라인 시드        |   아니오      |
+| Azure Data Box | 아니오
 
 ## <a name="azure-storage"></a>Azure Storage
 
@@ -220,12 +225,13 @@ ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 �
 로컬 중복 스토리지 | 예
 지역 중복 스토리지 | 예
 읽기 액세스 지역 중복 스토리지 | 예
-쿨 스토리지 | 아니요
-핫 스토리지| 아니요
-블록 Blob | 아니요
+쿨 스토리지 | 아니오
+핫 스토리지| 아니오
+블록 Blob | 아니오
 미사용 암호화 (SSE)| 예
+미사용 암호화 (CMK)| 아니오
 Premium Storage | 예
-Import/Export 서비스 | 아니요
+Import/Export 서비스 | 아니오
 Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 하는 데 사용 되는 대상 저장소/캐시 저장소 계정에 구성 됩니다.
 범용 v2 저장소 계정 (핫 및 쿨 계층) | 예 (v 2에 비해 트랜잭션 비용이 V1에 비해 크게 높음)
 
@@ -234,9 +240,9 @@ Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 �
 **기능** | **지원됨**
 --- | ---
 가용성 집합 | 예
-가용성 영역 | 아니요
+가용성 영역 | 아니오
 HUB | 예
-Managed Disks | 예
+관리되는 디스크 | 예
 
 ## <a name="azure-vm-requirements"></a>Azure VM 요구 사항
 
@@ -288,12 +294,12 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 ## <a name="vault-tasks"></a>자격 증명 모음 작업
 
-**작업** | **지원됨**
+**동작** | **지원됨**
 --- | ---
-리소스 그룹 간 자격 증명 모음 이동 | 아니요
-구독 내 및 구독 간에 자격 증명 모음 이동 | 아니요
-스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | 아니요
-저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | 아니요
+리소스 그룹 간 자격 증명 모음 이동 | 아니오
+구독 내 및 구독 간에 자격 증명 모음 이동 | 아니오
+스토리지 그룹 간 스토리지, 네트워크, Azure VM 이동 | 아니오
+저장소, 네트워크, Azure Vm을 구독 내 및 구독 간에 이동 합니다. | 아니오
 
 
 ## <a name="obtain-latest-components"></a>최신 구성 요소 가져오기

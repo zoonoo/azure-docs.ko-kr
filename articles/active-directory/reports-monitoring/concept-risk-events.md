@@ -3,7 +3,7 @@ title: Azure Active Directory 위험 검색 | Microsoft Docs
 description: 이 artice는 위험 검색에 대 한 자세한 개요를 제공 합니다.
 services: active-directory
 keywords: Azure Active Directory ID 보호, 보안, 위험, 위험 이벤트, 취약점, 보안 정책
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 523ae8e1ba31a4fe2c9683007f717149dfdc3bc6
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: e1f3755d61b5fa082665cfdb9aa91d1e31e2d4e4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127331"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014474"
 ---
 # <a name="azure-active-directory-risk-detections"></a>Azure Active Directory 위험 탐지
 
@@ -65,7 +65,7 @@ ms.locfileid: "70127331"
 - 기존 위험 검색의 검색 정확도 향상 
 - 향후 추가 될 새로운 위험 검색 유형
 
-### <a name="leaked-credentials"></a>손실된 자격 증명
+### <a name="leaked-credentials"></a>유출된 자격 증명
 
 사이버 범죄자가 합법적인 사용자의 유효한 암호를 손상시키는 경우 범죄자는 종종 이러한 자격 증명을 공유합니다. 보통 이러한 작업은 Dark 웹 또는 붙여넣기 사이트에 공개적으로 게시하거나 암시장에서 자격 증명을 거래 또는 판매하는 방식으로 이루어집니다. Microsoft 유출된 자격 증명 서비스는 공개 및 Dark 웹 사이트를 모니터링하고 다음 대상과 협력하여 사용자 이름/암호 쌍을 획득합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "70127331"
 
 이 위험 검색 유형은 익명 프록시 IP 주소로 식별 된 IP 주소에서 성공적으로 로그인 한 사용자를 식별 합니다. 이 프록시는 해당 디바이스의 IP 주소를 숨기려는 사용자가 사용하며 악의적인 의도로 사용될 수 있습니다.
 
-### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치 간 이동 불가능
+### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치로 불가능한 이동
 
 이 위험 검색 유형은 지리적으로 멀리 떨어진 위치에서 시작 되는 두 개의 로그인을 식별 합니다 .이는 과거의 동작을 고려 하 여 사용자에 대 한 위치 중 하나 이상이 불규칙 해질 수도 있습니다. 다른 요인 중에서 이 Machine Learning 알고리즘은 두 번의 로그인 간 시간과 사용자가 첫 번째 위치에서 두 번째 위치로 이동하는 데 걸리는 시간을 고려하여 서로 다른 사용자가 동일한 자격 증명을 사용하고 있음을 나타냅니다.
 
@@ -133,13 +133,13 @@ ID 보호는 기본 인증/레거시 프로토콜에 대한 일반적이지 않�
 
 * **높음**: 높은 신뢰도 및 높은 심각도 위험 감지. 이러한 이벤트는 사용자의 ID가 손상되었음을 나타내는 확실한 지표이며 영향을 받는 모든 사용자는 즉시 수정되어야 합니다.
 
-* **보통**: 높은 심각도 이지만 신뢰도가 낮은 위험 검색 또는 그 반대의 경우도 마찬가지입니다. 이러한 이벤트는 잠재적으로 위험하며 영향을 받는 사용자 계정은 수정되어야 합니다.
+* **보통**: 높은 심각도 이지만 신뢰 위험 감지 수준이 낮거나 그 반대의 경우도 마찬가지입니다. 이러한 이벤트는 잠재적으로 위험하며 영향을 받는 사용자 계정은 수정되어야 합니다.
 
 * **낮음**: 낮은 신뢰도 및 낮은 심각도 위험 감지. 이 이벤트에는 즉각적인 조치가 필요 하지 않을 수 있지만 다른 위험 검색과 함께 사용 하는 경우 id가 손상 되었다는 강력한 표시를 제공할 수 있습니다.
 
 ![위험 수준](./media/concept-risk-events/01.png)
 
-### <a name="leaked-credentials"></a>손실된 자격 증명
+### <a name="leaked-credentials"></a>유출된 자격 증명
 
 공격자가 사용자 이름과 암호를 사용할 수 있다는 명백한 표시를 제공 하기 때문에 유출 된 자격 증명 위험 검색은 **높은 수준**으로 분류 됩니다.
 
@@ -148,7 +148,7 @@ ID 보호는 기본 인증/레거시 프로토콜에 대한 일반적이지 않�
 익명 IP 주소는 계정 손상에 대 한 강력한 표시가 아니기 때문에이 위험 검색 유형의 위험 수준은 **보통** 입니다. 사용자에게 즉시 문의하여 익명 IP 주소를 사용했는지를 확인하는 것이 좋습니다.
 
 
-### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치 간 이동 불가능
+### <a name="impossible-travel-to-atypical-locations"></a>비정상적 위치로 불가능한 이동
 
 불가능한 이동은 일반적으로 해커가 성공적으로 로그인할 수 있는 훌륭한 지표입니다. 그러나 사용자가 새 디바이스를 사용하거나 조직의 다른 사용자가 일반적으로 사용하지 않는 VPN을 사용하여 이동하는 경우 가양성이 발생할 수 있습니다. 가양성의 다른 원본은 서버 IP 및 클라이언트 IP를 정확하지 않게 전달하는 애플리케이션이며 애플리케이션의 백 엔드가 호스팅되는 데이터 센터에서 발생하는 로그인의 모양을 가져올 수 있습니다(대개 이러한 Microsoft 데이터 센터는 Microsoft에서 소유한 고유의 IP 주소를 발생시키는 로그인의 모양을 제공할 수 있음). 이러한 가양성의 결과로이 위험 검색의 위험 수준은 **보통**입니다.
 

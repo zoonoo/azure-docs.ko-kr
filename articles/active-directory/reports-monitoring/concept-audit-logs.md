@@ -3,7 +3,7 @@ title: Azure Active Directory 포털의 감사 작업 보고서 | Microsoft Docs
 description: Azure Active Directory 포털의 감사 작업 보고서 소개
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 07/17/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a43c5849dcd037915a46de182064b3e630a663ec
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 8883e3ade7e5d52f3a62346bf8be51ac36042f82
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907175"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008531"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
@@ -42,7 +42,6 @@ Azure Active Directory(Azure AD) 보고서를 통해 사용자 환경의 작동 
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
 * **보안 관리자**, **보안 읽기 권한자**, **보고서 구독자** 또는 **전역 관리자** 역할의 사용자
-* 또한 모든 사용자 (관리자가 아닌 사용자)는 자신의 로그인 활동을 볼 수 있습니다.
 
 ## <a name="audit-logs"></a>감사 로그
 
@@ -80,7 +79,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 
 - 부여
 - Category
-- 작업
+- 활동
 - 가동 상태
 - 대상
 - 초기자(작업자)

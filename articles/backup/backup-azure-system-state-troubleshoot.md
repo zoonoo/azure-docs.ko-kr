@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: 71a2b73ab3570539a566f708ea8b1a41963d4e81
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: eb8bf1891f5ce96507c20e196d20ae499f30fe34
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747313"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012121"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
@@ -40,14 +40,14 @@ ms.locfileid: "73747313"
 - 오프 라인 백업의 경우 오프 라인 백업 작업을 시작 하기 전에 원본 컴퓨터와 복사 컴퓨터 모두에 Azure PowerShell 버전 3.7.0가 설치 되어 있는지 확인 하십시오.
 - [Azure 가상 머신에서 백업 에이전트가 실행 되는 경우 고려 사항](https://aka.ms/AB-AA4dwtr)
 
-### <a name="limitation"></a>제한 사항
+### <a name="limitation"></a>V12로 업그레이드하는
 
 - Microsoft에서는 시스템 상태 복구를 사용하여 다른 하드웨어로 복구하는 방법을 권장하지 않습니다.
 - 시스템 상태 백업은 현재 "온-프레미스" Windows 서버를 지원 하며, Azure Vm에는이 기능을 사용할 수 없습니다.
 
-## <a name="pre-requisite"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
-Azure Backup를 사용 하 여 시스템 상태 백업 문제를 해결 하기 전에 다음과 같은 필수 구성 요소 검사를 수행 합니다.  
+Azure Backup를 사용 하 여 시스템 상태 백업 문제를 해결 하기 전에 다음 필수 구성 요소 검사를 수행 합니다.  
 
 ### <a name="verify-windows-server-backup-is-installed"></a>Windows Server 백업 설치 되어 있는지 확인
 

@@ -1,17 +1,14 @@
 ---
 title: Azure 청사진 함수
 description: Azure 청사진 정의 및 할당에 사용 하는 함수에 대해 설명 합니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/15/2019
 ms.topic: reference
-ms.service: blueprints
-ms.openlocfilehash: a3021e79ddfb808db64896d79bb163d42236b295
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 5f4948b55b8889094570574647b7a35ce08f5c12
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978393"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960299"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Azure 청사진과 함께 사용 하는 함수
 
@@ -32,7 +29,7 @@ Azure 청사진은 청사진 정의를 더 동적으로 만드는 함수를 제�
 
 청사진 아티팩트 출력과 함께 채워진 속성의 개체를 반환 합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
@@ -76,7 +73,7 @@ Azure 청사진은 청사진 정의를 더 동적으로 만드는 함수를 제�
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 샘플 출력 속성을 포함 하는 ID _mytemplate 아티팩트가_ 있는 리소스 관리자 템플릿 아티팩트:
 
@@ -108,12 +105,12 @@ _My템플릿 아티팩트_ 샘플에서 데이터를 검색 하는 몇 가지 �
 
 | 식 | 형식 | 값 |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["first", "second"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | String | \["first", "second"\] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | 문자열 | 기본 |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | 문자열 | "my string value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
 |`[artifacts("myTemplateArtifact").outputs.myObject.myProperty]` | 문자열 | "my value" |
-|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | True |
+|`[artifacts("myTemplateArtifact").outputs.myObject.anotherProperty]` | Bool | true |
 
 ## <a name="concat"></a>concat
 
@@ -121,12 +118,12 @@ _My템플릿 아티팩트_ 샘플에서 데이터를 검색 하는 몇 가지 �
 
 여러 문자열 값을 결합하고 연결된 문자열을 반환합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
 | string1 |예 |string |연결할 첫 번째 값입니다. |
-| 추가 인수 |아니요 |string |연결에 대 한 순차적 순서의 추가 값 |
+| 추가 인수 |아니오 |string |연결에 대 한 순차적 순서의 추가 값 |
 
 ### <a name="return-value"></a>반환 값
 
@@ -136,17 +133,17 @@ _My템플릿 아티팩트_ 샘플에서 데이터를 검색 하는 몇 가지 �
 
 Azure Blueprint 함수는 문자열 에서만 작동 한다는 점에서 Azure Resource Manager 템플릿 함수와 다릅니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 `concat(parameters('organizationName'), '-vm')`
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>매개 변수
 
 `parameters(parameterName)`
 
 청사진 매개 변수 값을 반환 합니다. 지정 된 매개 변수 이름은 청사진 정의 또는 청사진 아티팩트에 정의 해야 합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
@@ -160,7 +157,7 @@ Azure Blueprint 함수는 문자열 에서만 작동 한다는 점에서 Azure R
 
 Azure Blueprint 함수는 청사진 매개 변수 에서만 작동 한다는 점에서 Azure Resource Manager 템플릿 함수와 다릅니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 청사진 정의에서 _principalIds_ 매개 변수를 정의 합니다.
 
@@ -199,7 +196,7 @@ Azure Blueprint 함수는 청사진 매개 변수 에서만 작동 한다는 점
 }
 ```
 
-## <a name="resourcegroup"></a>리소스 그룹
+## <a name="resourcegroup"></a>resourceGroup
 
 `resourceGroup()`
 
@@ -218,11 +215,11 @@ Azure Blueprint 함수는 청사진 매개 변수 에서만 작동 한다는 점
 
 ### <a name="remarks"></a>설명
 
-Azure Blueprint 함수는 Azure Resource Manager 템플릿 함수와 다릅니다. @No__t-0 함수는 구독 수준 아티팩트 또는 청사진 정의에서 사용할 수 없습니다. 리소스 그룹 아티팩트의 일부인 청사진 아티팩트에만 사용할 수 있습니다.
+Azure Blueprint 함수는 Azure Resource Manager 템플릿 함수와 다릅니다. `resourceGroup()` 함수는 구독 수준 아티팩트 또는 청사진 정의에서 사용할 수 없습니다. 리소스 그룹 아티팩트의 일부인 청사진 아티팩트에만 사용할 수 있습니다.
 
-@No__t-0 함수는 일반적으로 리소스 그룹 아티팩트와 동일한 위치에 리소스를 만드는 데 사용 됩니다.
+`resourceGroup()` 함수는 일반적으로 리소스 그룹 아티팩트와 동일한 위치에 리소스를 만드는 데 사용 됩니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 리소스 그룹의 위치를 청사진 정의에서 설정 하거나 할당 하는 동안 다른 아티팩트의 위치로 설정 하려면 리소스 그룹 자리 표시자 개체를 청사진 정의에 선언 합니다. 이 예제에서 _Networkingplaceholder_ 은 리소스 그룹 자리 표시자의 이름입니다.
 
@@ -240,7 +237,7 @@ Azure Blueprint 함수는 Azure Resource Manager 템플릿 함수와 다릅니�
 }
 ```
 
-그런 다음 리소스 그룹 자리 표시자 개체를 대상으로 하는 청사진 아티팩트의 컨텍스트에서 `resourceGroup()` 함수를 사용 합니다. 이 예제에서 템플릿 아티팩트는 _Networkingplaceholder_ 리소스 그룹에 배포 되 고 _networkingplaceholder_ 리소스 그룹 위치로 동적으로 채워진 매개 변수 _resourcelocation_ 을 할당량. _Networkingplaceholder_ 리소스 그룹의 위치는 청사진 정의에 정적으로 정의 되거나 할당 중 동적으로 정의 될 수 있습니다. 두 경우 모두 템플릿 아티팩트는 해당 정보를 매개 변수로 제공 하 고이를 사용 하 여 리소스를 올바른 위치에 배포 합니다.
+그런 다음 리소스 그룹 자리 표시자 개체를 대상으로 하는 청사진 아티팩트의 컨텍스트에서 `resourceGroup()` 함수를 사용 합니다. 이 예제에서 템플릿 아티팩트는 _Networkingplaceholder_ 리소스 그룹에 배포 되 고 _networkingplaceholder_ 리소스 그룹 위치로 동적으로 채워진 매개 변수 _resourcelocation_ 을 템플릿에 제공 합니다. _Networkingplaceholder_ 리소스 그룹의 위치는 청사진 정의에 정적으로 정의 되거나 할당 중 동적으로 정의 될 수 있습니다. 두 경우 모두 템플릿 아티팩트는 해당 정보를 매개 변수로 제공 하 고이를 사용 하 여 리소스를 올바른 위치에 배포 합니다.
 
 ```json
 {
@@ -265,9 +262,9 @@ Azure Blueprint 함수는 Azure Resource Manager 템플릿 함수와 다릅니�
 
 `resourceGroups(placeholderName)`
 
-지정 된 리소스 그룹 아티팩트를 나타내는 개체를 반환 합니다. 아티팩트의 컨텍스트가 필요한 `resourceGroup()`과 달리이 함수는 해당 리소스 그룹의 컨텍스트가 아닌 경우 특정 리소스 그룹 자리 표시자의 속성을 가져오는 데 사용 됩니다.
+지정 된 리소스 그룹 아티팩트를 나타내는 개체를 반환 합니다. 아티팩트의 컨텍스트가 필요한 `resourceGroup()`와 달리이 함수는 해당 리소스 그룹의 컨텍스트가 아닌 경우 특정 리소스 그룹 자리 표시자의 속성을 가져오는 데 사용 됩니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
@@ -284,7 +281,7 @@ Azure Blueprint 함수는 Azure Resource Manager 템플릿 함수와 다릅니�
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 리소스 그룹의 위치를 청사진 정의에서 설정 하거나 할당 하는 동안 다른 아티팩트의 위치로 설정 하려면 리소스 그룹 자리 표시자 개체를 청사진 정의에 선언 합니다. 이 예제에서 _Networkingplaceholder_ 은 리소스 그룹 자리 표시자의 이름입니다.
 
@@ -302,7 +299,7 @@ Azure Blueprint 함수는 Azure Resource Manager 템플릿 함수와 다릅니�
 }
 ```
 
-그런 다음 청사진 아티팩트의 컨텍스트에서 `resourceGroups()` 함수를 사용 하 여 리소스 그룹 자리 표시자 개체에 대 한 참조를 가져옵니다. 이 예제에서 템플릿 아티팩트는 _Networkingplaceholder_ 리소스 그룹 외부에 배포 되 고 _networkingplaceholder_ 리소스 그룹 위치로 동적으로 채워지는 매개 변수 _artifactlocation_ 을 제공 합니다. 할당량. _Networkingplaceholder_ 리소스 그룹의 위치는 청사진 정의에 정적으로 정의 되거나 할당 중 동적으로 정의 될 수 있습니다. 두 경우 모두 템플릿 아티팩트는 해당 정보를 매개 변수로 제공 하 고이를 사용 하 여 리소스를 올바른 위치에 배포 합니다.
+그런 다음 청사진 아티팩트의 컨텍스트에서 `resourceGroups()` 함수를 사용 하 여 리소스 그룹 자리 표시자 개체에 대 한 참조를 가져옵니다. 이 예제에서 템플릿 아티팩트는 _Networkingplaceholder_ 리소스 그룹 외부에 배포 되 고 _networkingplaceholder_ 리소스 그룹 위치로 동적으로 채워진 매개 변수 _artifactlocation_ 을 템플릿에 제공 합니다. _Networkingplaceholder_ 리소스 그룹의 위치는 청사진 정의에 정적으로 정의 되거나 할당 중 동적으로 정의 될 수 있습니다. 두 경우 모두 템플릿 아티팩트는 해당 정보를 매개 변수로 제공 하 고이를 사용 하 여 리소스를 올바른 위치에 배포 합니다.
 
 ```json
 {
@@ -323,7 +320,7 @@ Azure Blueprint 함수는 Azure Resource Manager 템플릿 함수와 다릅니�
 }
 ```
 
-## <a name="subscription"></a>구독(subscription)
+## <a name="subscription"></a>(구독당)
 
 `subscription()`
 
@@ -342,7 +339,7 @@ Azure Blueprint 함수는 Azure Resource Manager 템플릿 함수와 다릅니�
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 구독의 표시 이름 및 `concat()` 함수를 사용 하 여 템플릿 아티팩트에 매개 변수 _context.resourcename_ 로 전달 된 명명 규칙을 만듭니다.
 

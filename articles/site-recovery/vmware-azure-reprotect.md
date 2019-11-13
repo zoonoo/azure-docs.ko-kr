@@ -1,5 +1,5 @@
 ---
-title: VMware VM 및 물리적 서버의 재해 복구 중에 Azure에서 온-프레미스 사이트로 VM 다시 보호 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 온-프레미스 사이트에 VMware v m/물리적 서버 다시 보호
 description: VMware VM 및 물리적 서버의 재해 복구 중에 Azure로 장애 조치(failover) 후 Azure에서 온-프레미스 사이트로 장애 복구(failback)하는 방법을 알아봅니다.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: mayg
-ms.openlocfilehash: cf1ccdf953781ca9b9bd17152f2cf32677997d12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f3d5f38d940b99c6a74d784f174c91d4127353dc
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791814"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961338"
 ---
 # <a name="reprotect-and-fail-back-machines-to-an-on-premises-site-after-failover-to-azure"></a>Azure로 장애 조치(failover) 후에 머신을 온-프레미스 사이트로 다시 보호 및 장애 복구(failback)
 
@@ -63,11 +63,11 @@ Azure에서 프로세스 서버를 배포하려면:
 마스터 대상 서버는 장애 복구(Failback) 데이터를 받습니다. 기본적으로 마스터 대상 서버는 온-프레미스 구성 서버에서 실행됩니다. 그러나 장애 복구된 트래픽의 양에 따라 장애 복구를 위한 별도의 마스터 대상 서버를 만들어야 할 수도 있습니다. 만드는 방법은 다음과 같습니다.
 
 * Linux VM의 장애 복구(failback)를 위해 [Linux 마스터 대상 서버를 만듭니다](vmware-azure-install-linux-master-target.md). 이것은 필수입니다. LVM의 마스터 대상 서버는 지원되지 않습니다.
-* 필요에 따라 Windows VM 장애 복구(failback)에 대한 별도의 마스터 대상 서버를 만듭니다. 이 작업을 수행하려면 통합 설치를 다시 실행하고 마스터 대상 서버를 만들도록 선택합니다. [자세히 알아보기](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers). 
+* 필요에 따라 Windows VM 장애 복구(failback)에 대한 별도의 마스터 대상 서버를 만듭니다. 이 작업을 수행하려면 통합 설치를 다시 실행하고 마스터 대상 서버를 만들도록 선택합니다. [자세히 알아봅니다](site-recovery-plan-capacity-vmware.md#deploy-additional-master-target-servers). 
 
 마스터 대상 서버를 만든 후에 다음과 같은 작업을 수행합니다.
 
-- 가상 머신이 vCenter 서버의 온-프레미스에 있는 경우 마스터 대상 서버는 온-프레미스 가상 머신의 VMDK(가상 머신 디스크) 파일에 액세스해야 합니다. 복제된 데이터를 가상 머신의 디스크에 쓰려면 액세스 권한이 필요합니다. 읽기/쓰기 액세스 권한으로 온-프레미스 가상 머신의 데이터 저장소를 마스터 대상의 호스트에 탑재했는지 확인합니다.
+- 가상 머신이 vCenter 서버의 온-프레미스에 있는 경우 마스터 대상 서버는 온-프레미스 가상 머신의 VMDK(가상 머신 디스크) 파일에 액세스해야 합니다. 복제된 데이터를 가상 머신의 디스크에 쓰려면 액세스 권한이 필요합니다. 읽기/쓰기 액세스 권한으로 온-프레미스 가상 컴퓨터의 데이터 저장소를 마스터 대상의 호스트에 탑재했는지 확인합니다.
 - 가상 머신이 vCenter 서버의 온-프레미스에 없는 경우 Site Recovery 서비스를 통해 다시 보호하는 중에 새 가상 머신을 만들어야 합니다. 이 가상 머신은 마스터 대상을 만드는 ESX 호스트에서 만들어집니다. ESX 호스트를 신중하게 선택하여 원하는 호스트에 장애 복구 가상 머신을 만듭니다.
 - 마스터 대상 서버에 Storage vMotion을 사용할 수 없습니다. 마스터 대상 서버에 Storage vMotion을 사용하면 장애 복구가 실패할 수 있습니다. 디스크를 사용할 수 없으므로 가상 머신을 시작할 수 없습니다. 이 문제가 발생하지 않도록 방지하려면 vMotion 목록에서 마스터 대상 서버를 제외합니다.
 - 마스터 대상에서 다시 보호 후 Storage vMotion 작업을 수행하는 경우 마스터 대상에 연결되어 있는 보호된 가상 머신 디스크가 vMotion 작업 대상으로 마이그레이션됩니다. 이 작업 후 장애 복구(failback)를 수행하려고 하면 디스크가 없으므로 디스크 분리에 실패합니다. 그러면 스토리지 계정에서 디스크를 찾기가 어려워집니다. 디스크를 수동으로 찾아 가상 머신에 연결해야 합니다. 그리고 나면 온-프레미스 가상 머신을 부팅할 수 있습니다.
@@ -113,7 +113,7 @@ Azure에서 가상 머신을 부팅한 후 에이전트에서 구성 서버에 �
 
 
 
-## <a name="common-issues"></a>일반 문제
+## <a name="common-issues"></a>일반적인 문제
 
 - 읽기 전용 사용자 vCenter 검색을 수행하고 가상 머신을 보호하면 보호에 성공하고 장애 조치가 작동합니다. 다시 보호 중에는 데이터 저장소를 검색할 수 없기 때문에 장애 조치가 실패합니다. 증상은 다시 보호 중에 데이터 저장소가 나열되지 않는 것입니다. 이 문제를 해결하려면 vCenter 자격 증명을 권한이 있는 적절한 계정으로 업데이트한 다음, 작업을 다시 시도하면 됩니다. 
 - Linux 가상 컴퓨터를 장애 복구하고 온-프레미스에서 실행하면 네트워크 관리자 패키지가 컴퓨터에서 제거되었음을 알 수 있습니다. Azure에서 가상 머신을 복구할 때 네트워크 관리자 패키지가 제거되었기 때문에 이 기능이 제거됩니다.
@@ -122,7 +122,7 @@ Azure에서 가상 머신을 부팅한 후 에이전트에서 구성 서버에 �
 - 프로세스 서버에서 구성 서버에 연결할 수 없는 경우 텔넷을 사용하여 443 포트에서 구성 서버에 대한 연결을 확인합니다. 프로세스 서버에서 구성 서버를 ping할 수도 있습니다. 또한 프로세스 서버에는 구성 서버에 연결될 때 하트비트도 있어야 합니다.
 - 물리적 온-프레미스 서버로 보호되는 Windows Server 2008 R2 SP1 서버는 Azure에서 온-프레미스 사이트로 장애 복구할 수 없습니다.
 - 다음과 같은 경우에 장애 복구(failback)를 수행할 수 없습니다.
-    - Azure에 컴퓨터를 마이그레이션했습니다. [자세히 알아보기](migrate-overview.md#what-do-we-mean-by-migration).
+    - Azure에 컴퓨터를 마이그레이션했습니다. [자세히 알아봅니다](migrate-overview.md#what-do-we-mean-by-migration).
     - 다른 리소스 그룹으로 VM을 이동했습니다.
     - Azure VM을 삭제했습니다.
     - VM의 보호를 해제했습니다.

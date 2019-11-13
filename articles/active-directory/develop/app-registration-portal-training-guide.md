@@ -1,6 +1,7 @@
 ---
-title: 응용 프로그램 등록 포털 앱 등록 교육 가이드-Microsoft identity platform | Microsoft
-description: 응용 프로그램 등록 포털에 익숙한 사용자를 위한 Azure Portal의 앱 등록
+title: 응용 프로그램 등록 포털에서 Azure Portal 새로운 앱 등록 환경으로 전환
+titleSuffix: Microsoft identity platform
+description: Azure Portal의 새로운 앱 등록 환경 소개
 services: active-directory
 documentationcenter: ''
 author: archieag
@@ -17,14 +18,14 @@ ms.author: aragra
 ms.reviewer: lenalepa, alamaral
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1974616c0331203a803e4f13a19297940fb5d42e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0e9c09ce2d997c58e2725c411fff0b87a0f5071b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905473"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013020"
 ---
-# <a name="training-guide-using-app-registrations-in-the-azure-portal-instead-of-application-registration-portal"></a>학습 가이드: 응용 프로그램 등록 포털 대신 Azure Portal에서 앱 등록 사용
+# <a name="transitioning-from-application-registration-portal-to-the-new-app-registrations-experience-in-the-azure-portal"></a>응용 프로그램 등록 포털에서 Azure Portal 새로운 앱 등록 환경으로 전환
 
 Azure Portal의 새로운 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서는 많은 기능이 향상 되었습니다. 이전 경험 이라고 하는 수렴 형 응용 프로그램을 등록 하거나 관리 하는 apps.dev.microsoft.com (응용 프로그램 등록 포털) 환경을 더 잘 알고 있다면이 교육 가이드에서 새로운 환경을 사용 하 여 시작 해 볼 수 있습니다.
 
@@ -83,7 +84,7 @@ Azure Portal의 새로운 환경은 이러한 기능을 개별 페이지로 나�
 
 새 환경에서 **응용 프로그램 암호** 는 **인증서 & 암호**로 이름이 변경 되었습니다. 또한 **공개 키** 를 **인증서** 라고 하며 **암호** 를 **클라이언트**암호 라고도 합니다. 보안상의 이유로이 기능을 새로운 환경에 제공 하지 않도록 선택 했으므로 더 이상 새 키 쌍을 생성할 수 없습니다.
 
-## <a name="platformsauthentication---reply-urlsredirect-uris"></a>플랫폼/인증-회신 Url/리디렉션 Uri
+## <a name="platformsauthentication-reply-urlsredirect-uris"></a>플랫폼/인증: 회신 Url/리디렉션 Uri
 이전 환경에서 앱은 웹, 네이티브 및 웹 API에 대 한 플랫폼 섹션을 포함 하 여 리디렉션 Url, 로그 아웃 URL 및 암시적 흐름을 구성 했습니다.
 
 새 환경에서 회신 Url은 앱\'s 인증 섹션에서 찾을 수 있습니다. 또한 리디렉션 Uri로 참조 되 고 리디렉션 Uri에 대 한 형식이 변경 되었습니다. 앱 유형 (웹 또는 공용 클라이언트-모바일 및 데스크톱)에 연결 해야 합니다. [자세히 알아보기](quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
@@ -111,7 +112,7 @@ Azure Portal의 새로운 환경은 이러한 기능을 개별 페이지로 나�
 ## <a name="new-ui"></a>새 UI
 이전에 매니페스트 편집기나 API를 사용 하 여 설정 하거나 존재 하지 않는 속성에 대 한 새로운 UI가 있습니다.
 
--   Oauth2AllowImplicitFlow (암시적 부여 흐름)는 인증 페이지에서 찾을 수 있습니다. 이전 환경과 달리 액세스 토큰 또는 id 토큰을 사용 하거나 둘 모두를 사용할 수 있습니다.
+-   Oauth2AllowImplicitFlow (암시적 부여 흐름)는 인증 페이지에서 찾을 수 있습니다. 이전 환경과 달리 액세스 토큰 또는 ID 토큰을 사용 하거나 둘 모두를 사용할 수 있습니다.
 
 -   API (oauth2Permissions) 및 권한 있는 클라이언트 응용 프로그램 (preAuthorizedApplications)에서 정의 된 범위는 API 노출 페이지를 통해 구성할 수 있습니다. 앱을 web API로 구성 하 고 사용 권한/범위를 노출 하는 방법에 대 한 자세한 내용은 [이 빠른](quickstart-configure-app-expose-web-apis.md)시작을 참조 하세요.
 

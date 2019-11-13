@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 789cc1d835024babb2482b2601503dbaf7247fc2
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747431"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012924"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -48,7 +48,7 @@ Azure Backup 서버를 작동하고 실행하는 첫 번째 단계는 Windows Se
 
 ### <a name="using-a-server-in-azure"></a>Azure에서 서버 사용
 
-Azure Backup Server를 실행 하기 위한 서버를 선택할 때 Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작 하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 머신 시작에 대한 자습서를 제공합니다. 서버 VM (가상 컴퓨터)에 대 한 권장 최소 요구 사항은 4 개의 코어와 8gb RAM이 있는 Standard_A4_v2 이어야 합니다.
+Azure Backup Server를 실행 하기 위한 서버를 선택할 때 Windows Server 2016 Datacenter 또는 Windows Server 2019 Datacenter의 갤러리 이미지로 시작 하는 것이 좋습니다. [Azure 포털에서 첫 번째 Windows 가상 컴퓨터 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)문서는 Azure를 사용한 경험이 없는 경우 Azure에서 권장된 가상 컴퓨터 시작에 대한 자습서를 제공합니다. 서버 VM (가상 컴퓨터)에 대 한 권장 최소 요구 사항은 4 개의 코어와 8gb RAM이 있는 Standard_A4_v2 이어야 합니다.
 
 Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [Azure 가상 머신으로 DPM 설치](https://technet.microsoft.com/library/jj852163.aspx)문서는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
@@ -95,7 +95,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
 ### <a name="downloading-the-software-package"></a>소프트웨어 패키지 다운로드
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Recovery Services 자격 증명 모음이 이미 열려 있으면 3단계를 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않지만 Azure Portal에 있는 경우 주 메뉴에서 **찾아보기**를 클릭합니다.
 
    * 리소스 목록에서 **Recovery Services**를 입력합니다.
@@ -185,14 +185,14 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
 
     SSRS 구성에 대해 다음 값을 사용합니다.
     * 서비스 계정: ' 기본 제공 계정 사용 '은 네트워크 서비스 여야 합니다.
-    * 웹 서비스 URL: ' 가상 디렉터리 '는 ReportServer_<SQLInstanceName>
-    * 데이터베이스: DatabaseName은 ReportServer $<SQLInstanceName>
-    * 웹 포털 URL: ' 가상 디렉터리 '는 Reports_<SQLInstanceName>
+    * 웹 서비스 URL: ' 가상 디렉터리 '는 SQLInstanceName\<ReportServer_ 해야 >
+    * 데이터베이스: DatabaseName은 ReportServer $\<SQLInstanceName >
+    * 웹 포털 URL: ' 가상 디렉터리 '는 SQLInstanceName\<Reports_ 해야 >
 
     SSRS 구성에 대해 [자세히 알아봅니다](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017).
 
     > [!NOTE]
-    > MABS의 데이터베이스로 사용 되는 SQL Server에 대 한 라이선스는 [Microsoft Online Services 약관](https://www.microsoft.com/en-us/licensing/product-licensing/products) (OST)의 적용을 받습니다. OST에 따라 MABS와 함께 제공 되는 SQL Server는 MABS의 데이터베이스로만 사용할 수 있습니다.
+    > MABS의 데이터베이스로 사용 되는 SQL Server에 대 한 라이선스는 [Microsoft Online Services 약관](https://www.microsoft.com/licensing/product-licensing/products) (OST)의 적용을 받습니다. OST에 따라 MABS와 함께 제공 되는 SQL Server는 MABS의 데이터베이스로만 사용할 수 있습니다.
 
 4. Microsoft Azure Backup 서버 파일을 설치할 위치를 입력하고 **다음**을 클릭합니다.
 
@@ -220,7 +220,7 @@ Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거�
     ![Azure Backup Server PreReq2](./media/backup-azure-microsoft-azure-backup/mars/04.png)
 9. Microsoft Azure Backup 서버 등록이 완료되면 전체 설치 마법사는 SQL Server 및 Azure Backup 서버 구성 요소의 설치 및 구성으로 진행됩니다. SQL Server 구성 요소 설치가 완료되면 Azure Backup 서버 구성 요소가 설치됩니다.
 
-    ![Azure Backup 서버](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
+    ![Azure Backup Server](./media/backup-azure-microsoft-azure-backup/final-install/venus-installation-screen.png)
 
 설치 단계가 완료되면 제품의 바탕 화면 아이콘도 만들어집니다. 제품을 시작하려면 아이콘을 두 번 클릭합니다.
 
@@ -336,7 +336,7 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
    >
    > SQL 인스턴스를 업그레이드하는 동안 종료하지 마십시오. 종료하면 SQL reporting 인스턴스가 제거되므로 MABS 다시 업그레이드 시도가 실패합니다.
 
-   유의해야 할 중요한 사항:
+
 
    > [!IMPORTANT]
    >

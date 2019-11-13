@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 IIS 웹 앱에 대 한 재해 복구 설정
 description: Azure Site Recovery를 사용하여 IIS 웹 팜 가상 머신을 복제하는 방법을 알아봅니다.
 author: mayurigupta13
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 66b9342f1a67c4c9d35fda447a297cc64d048c1e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 513a0f28fc03cbf24e35112245c9756d5ce00783
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480303"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954656"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>다중 계층 IIS 기반 웹 애플리케이션에 대한 재해 복구 설정
 
@@ -26,7 +26,7 @@ ms.locfileid: "66480303"
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 IIS(인터넷 정보 서비스)를 기반으로 하는 웹 애플리케이션을 보호하는 방법에 대해 설명합니다. 그리고 3계층 IIS 기반 웹 애플리케이션을 Azure로 복제하는 방법, 재해 복구 연습을 수행하는 방법 및 애플리케이션을 Azure로 장애 조치하는 방법에 대한 모범 사례를 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
@@ -62,7 +62,7 @@ ARR, IIS 서버, 애플리케이션 서버 및 SQL Server가 있는 IIS 기반 �
 --- | --- | ---
 Hyper-V | 예 | 예
 VMware | 예 | 예
-물리적 서버 | 아닙니다. | 예
+물리적 서버 | 아니오 | 예
 Azure|해당 없음|예
 
 ## <a name="replicate-virtual-machines"></a>가상 머신 복제
@@ -71,7 +71,7 @@ Azure|해당 없음|예
 
 고정 IP 주소를 사용하는 경우 가상 머신에서 사용할 IP 주소를 지정할 수 있습니다. IP 주소를 설정하려면 **컴퓨팅 및 네트워크 설정** > **대상 IP**로 차례로 이동합니다.
 
-![Site Recovery 계산 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
+![Site Recovery 컴퓨팅 및 네트워크 창에서 대상 IP를 설정하는 방법을 보여주는 스크린샷](./media/site-recovery-active-directory/dns-target-ip.png)
 
 ## <a name="create-a-recovery-plan"></a>복구 계획 만들기
 복구 계획은 장애 조치(failover) 시에 다중 계층 애플리케이션에서 여러 계층의 시퀀싱을 지원합니다. 시퀀싱은 애플리케이션의 일관성을 유지하는 데 도움이 됩니다. 다중 계층 웹 애플리케이션에 대한 복구 계획을 생성할 때는 [Site Recovery를 사용하여 복구 계획 만들기](site-recovery-create-recovery-plans.md)에서 설명하는 단계를 수행합니다.
@@ -138,7 +138,7 @@ SSL 인증서가 발급될 수 있는 구성 요소는 다음과 같습니다.
 #### <a name="update-the-dependency-between-the-web-tier-and-the-application-tier"></a>웹 계층과 애플리케이션 계층 간의 종속성 업데이트
 가상 머신의 IP 주소를 기반으로 하는 애플리케이션별 종속성이 있는 경우 이 종속성은 장애 조치 후에 업데이트해야 합니다.
 
-## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
+## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
 
 1. Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 2. IIS 웹 팜에 대해 만든 복구 계획을 선택합니다.
@@ -153,7 +153,7 @@ SSL 인증서가 발급될 수 있는 구성 요소는 다음과 같습니다.
 
 1. Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 1. IIS 웹 팜에 대해 만든 복구 계획을 선택합니다.
-1. **장애 조치**를 선택합니다.
+1. **장애 조치(failover)** 를 선택합니다.
 1. 복구 지점을 선택하여 장애 조치(failover) 프로세스를 시작합니다.
 
 자세한 내용은 [Site Recovery에서 장애 조치(failover)](site-recovery-failover.md)를 참조하세요.

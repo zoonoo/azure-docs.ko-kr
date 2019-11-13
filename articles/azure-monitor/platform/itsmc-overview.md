@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: JYOTHIRMAISURI
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 54f3d76704a1f9bf7fec2f3c6c68c88fffd993b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 094454123a945072bfb6d7fb81cf515816c4f6cb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932263"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936198"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -68,7 +68,7 @@ ITSMC를 사용하면 다음 작업을 수행할 수 있습니다.
 
 5. **만들기**를 클릭합니다.
 
-솔루션 리소스를 배포할 때 창의 오른쪽 상단에 알림이 표시됩니다.
+솔루션 리소스를 배포 하면 창의 오른쪽 위에 알림이 나타납니다.
 
 
 ## <a name="creating-an-itsm--connection"></a>ITSM 연결 만들기
@@ -152,7 +152,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 또한 서비스 맵 솔루션 내에서 영향 받는 컴퓨터에 대해 동기화된 인시던트를 시각화할 수 있습니다.
 
-서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 따라서 생각처럼 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. [자세히 알아보기](../../azure-monitor/insights/service-map.md).
+서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 따라서 생각처럼 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. [자세히 알아봅니다](../../azure-monitor/insights/service-map.md).
 
 서비스 맵 솔루션을 사용하는 경우 다음 예와 같이 ITSM 솔루션에서 만들어진 서비스 데스크 항목을 볼 수 있습니다.
 
@@ -179,7 +179,7 @@ ServiceDeskWorkItemType_s="Incident"
 
 - ServiceDeskConnectionName
 - 서비스 데스크 ID
-- 상태
+- State
 - 긴급도
 - 영향
 - 우선 순위
@@ -189,14 +189,14 @@ ServiceDeskWorkItemType_s="Incident"
 - 종결한 사람
 - 원본
 - 할당 대상
-- 범주
+- Category
 - 제목
 - 설명
 - 만든 날짜
 - 종결한 날짜
 - 해결한 날짜
 - 마지막으로 수정한 날짜
-- 컴퓨터
+- Computer
 
 
 **작업 항목:** **변경 요청**
@@ -211,9 +211,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 원본
 - 할당 대상
 - 제목
-- Type
-- 범주
-- 상태
+- 형식
+- Category
+- State
 - 에스컬레이션
 - 충돌 상태
 - 긴급도
@@ -230,14 +230,14 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 작업 시작 날짜
 - 작업 종료 날짜
 - 설명
-- 컴퓨터
+- Computer
 
 ## <a name="output-data-for-a-servicenow-incident"></a>ServiceNow 인시던트에 대한 출력 데이터
 
 | Log Analytics 필드 | ServiceNow 필드 |
 |:--- |:--- |
-| ServiceDeskId_s| 수 |
-| IncidentState_s | 상태 |
+| ServiceDeskId_s| NUMBER |
+| IncidentState_s | State |
 | Urgency_s |긴급도 |
 | Impact_s |영향|
 | Priority_s | 우선 순위 |
@@ -246,26 +246,26 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | 종결한 사람 |
 | Source_s| 연락처 유형 |
 | AssignedTo_s | 할당 대상  |
-| Category_s | 범주 |
+| Category_s | Category |
 | Title_s|  간단한 설명 |
-| Description_s|  참고 |
+| Description_s|  참고 사항 |
 | CreatedDate_t|  열림 |
 | ClosedDate_t| closed|
 | ResolvedDate_t|해결됨|
-| 컴퓨터  | 구성 항목 |
+| Computer  | 구성 항목 |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>ServiceNow 변경 요청에 대한 출력 데이터
 
 | Log Analytics | ServiceNow 필드 |
 |:--- |:--- |
-| ServiceDeskId_s| 수 |
+| ServiceDeskId_s| NUMBER |
 | CreatedBy_s | 요청자 |
 | ClosedBy_s | 종결한 사람 |
 | AssignedTo_s | 할당 대상  |
 | Title_s|  간단한 설명 |
-| Type_s|  Type |
-| Category_s|  범주 |
-| CRState_s|  상태|
+| Type_s|  형식 |
+| Category_s|  Category |
+| CRState_s|  State|
 | Urgency_s|  긴급도 |
 | Priority_s| 우선 순위|
 | Risk_s| 위험|
@@ -277,7 +277,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | 실제 시작 날짜 |
 | WorkEndDate_t | 실제 종료 날짜|
 | Description_s | 설명 |
-| 컴퓨터  | 구성 항목 |
+| Computer  | 구성 항목 |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>ITSM 연결 문제 해결
@@ -295,11 +295,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Service Manager 웹앱 배포 문제 해결
 1.  웹앱 배포 문제가 발생한 경우 구독에 리소스 생성/배포 권한이 있는지 확인합니다.
-2.  [스크립트](itsmc-service-manager-script.md)를 실행할 때 **"개체 참조가 개체의 인스턴스로 설정되지 않았습니다."** 오류가 발생하는 경우 **사용자 구성** 섹션에서 유효한 값을 입력했는지 확인합니다.
+2.  **스크립트**를 실행할 때 ["개체 참조가 개체의 인스턴스로 설정되지 않았습니다."](itsmc-service-manager-script.md) 오류가 발생하는 경우 **사용자 구성** 섹션에서 유효한 값을 입력했는지 확인합니다.
 3.  Service Bus Relay 네임스페이스 만들기에 실패한 경우 구독에 필요한 리소스 공급자가 등록되어 있는지 확인합니다. 등록되지 않은 경우 Azure Portal에서 수동으로 서비스 버스 릴레이 네임스페이스를 만듭니다. Azure Portal에서 [하이브리드 연결을 만드는](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) 동안 만들 수도 있습니다.
 
 
-## <a name="contact-us"></a>문의하기
+## <a name="contact-us"></a>문의처
 
 IT Service Management Connector에 대해 질문이나 의견이 있는 경우 [omsitsmfeedback@microsoft.com ](mailto:omsitsmfeedback@microsoft.com)으로 문의하세요.
 

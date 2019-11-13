@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 보조 사이트로 Hyper-V VM의 재해 복구 훈련 실행 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 보조 사이트로 NHyper 재해 복구 훈련 실행
 description: Azure Site Recovery를 사용하여 보조 온-프레미스 데이터 센터로 VMM 클라우드의 Hyper-V VM에 대한 DR 훈련을 실행하는 방법을 알아봅니다.
 author: rajani-janaki-ram
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: ef8504f3f79d23fa0d59493c06cfbe133e1c4113
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 444868f1716ae55f1851e50c057b172f5e3eb3d1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933450"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961390"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>보조 사이트로 Hyper-V VM에 대한 DR 훈련 실행
 
@@ -119,7 +119,7 @@ VM 네트워크가 Windows 네트워크 가상화를 사용하여 VMM에서 구�
 
 
 
-## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
+## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
 
 이 절차는 복구 계획에 대한 테스트 장애 조치를 실행하는 방법을 설명합니다. 또는 **Virtual Machines** 탭에서 단일 가상 머신에 대한 장애 조치를 실행할 수 있습니다.
 
@@ -129,7 +129,7 @@ VM 네트워크가 Windows 네트워크 가상화를 사용하여 VMM에서 구�
 4. 장애 조치(failover)가 완료되면 VM이 정상적으로 시작되는지 확인합니다.
 5. 작업이 완료되면 복구 계획에서 **테스트 장애 조치 정리**를 클릭합니다. **참고**에서 테스트 장애 조치와 관련된 모든 관측 내용을 기록하고 저장합니다. 이 단계는 테스트 장애 조치(failover) 중에 Site Recovery에 의해 생성된 VM 및 네트워크를 삭제합니다. 
 
-![테스트 장애 조치](./media/hyper-v-vmm-test-failover/TestFailover.png)
+![테스트 장애 조치(failover)](./media/hyper-v-vmm-test-failover/TestFailover.png)
  
 
 

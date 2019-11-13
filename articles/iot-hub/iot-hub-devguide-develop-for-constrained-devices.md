@@ -1,5 +1,5 @@
 ---
-title: IoT Hub C SDK를 사용하여 제한된 디바이스에 대한 Azure IoT Hub 개발 | Microsoft Docs
+title: IoT Hub C SDK를 사용 하 여 제한 된 장치에 대 한 Azure IoT Hub 개발
 description: 개발자 가이드 - 제한된 디바이스에 Azure IoT SDK를 사용하여 개발하는 방법에 대한 지침입니다.
 author: robinsh
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: robinsh
-ms.openlocfilehash: d69fe6b845d3af04e42ee91daa9359dcb9a88fc5
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: a1918a99efcdcc5764140093ad422f7887ca3c88
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880963"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954693"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Azure IoT C SDK를 사용하여 제한된 디바이스 개발
 
@@ -27,13 +27,13 @@ C SDK는 apt-get, NuGet 및 MBED의 패키지 형태로 사용할 수 있습니�
 
 제한된 디바이스에 대한 C SDK를 빌드합니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>선행 조건
 
 이 [C SDK 설정 가이드](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md)에 따라 C SDK를 빌드하기 위한 개발 환경을 준비합니다. cmake를 사용하여 빌드하는 단계를 시작하기 전에 cmake 플래그를 호출하여 사용하지 않는 기능을 제거할 수 있습니다.
 
 ### <a name="remove-additional-protocol-libraries"></a>추가 프로토콜 라이브러리 제거
 
-C SDK는 오늘 5 개의 프로토콜을 지원 합니다. MQTT, WebSocket을 통한 MQTT, AMQPs, WebSocket을 통한 AMQP 및 HTTPS 대부분의 시나리오에서는 1-2개의 프로토콜이 클라이언트에서 실행되어야 하므로 SDK에서 사용하지 않는 프로토콜 라이브러리를 제거할 수 있습니다. 시나리오에 적절한 통신 프로토콜을 선택하는 방법에 대한 자세한 내용은 [IoT Hub 통신 프로토콜 선택](iot-hub-devguide-protocols.md)에서 찾을 수 있습니다. 예를 들어 MQTT는 제한된 디바이스에 더 적합한 경량 프로토콜입니다.
+C SDK는 현재 MQTT, WebSocket을 통한 MQTT, AMQP, WebSocket을 통한 AMQP 및 HTTPS의 5개 프로토콜을 지원합니다. 대부분의 시나리오에서는 1-2개의 프로토콜이 클라이언트에서 실행되어야 하므로 SDK에서 사용하지 않는 프로토콜 라이브러리를 제거할 수 있습니다. 시나리오에 적절한 통신 프로토콜을 선택하는 방법에 대한 자세한 내용은 [IoT Hub 통신 프로토콜 선택](iot-hub-devguide-protocols.md)에서 찾을 수 있습니다. 예를 들어 MQTT는 제한된 디바이스에 더 적합한 경량 프로토콜입니다.
 
 다음 cmake 명령을 사용하여 AMQP 및 HTTP 라이브러리를 제거할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory의 연결된 서비스를 사용하여 오류를 진단하는 방법
+title: Azure Active Directory 연결 된 서비스를 사용 하 여 오류 진단
 description: Active Directory의 연결된 서비스에서 호환되지 않는 인증 유형 검색
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e544942029532fdbe998c36917e688d70ce4ed5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 26f25daa01288959c38520f9713d35eb975d2df2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851987"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73941375"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Azure Active Directory의 연결된 서비스를 사용하여 오류 진단
 
@@ -27,7 +27,7 @@ ms.locfileid: "68851987"
 
 ## <a name="project-types"></a>프로젝트 형식
 
-이 연결된 서비스는 프로젝트에 올바른 인증 논리를 삽입할 수 있도록 사용자가 개발 중인 프로젝트 형식을 확인합니다. 프로젝트의에서 `ApiController` 파생 되는 컨트롤러가 있으면 프로젝트가 WebAPI 프로젝트로 간주 됩니다. 프로젝트의 `MVC.Controller`에서 파생되는 컨트롤러만 있으면 프로젝트가 MVC 프로젝트로 간주됩니다. 연결된 서비스는 다른 모든 프로젝트 형식을 지원하지 않습니다.
+이 연결된 서비스는 프로젝트에 올바른 인증 논리를 삽입할 수 있도록 사용자가 개발 중인 프로젝트 형식을 확인합니다. 프로젝트의 `ApiController`에서 파생 되는 컨트롤러가 있으면 프로젝트가 WebAPI 프로젝트로 간주 됩니다. 프로젝트의 `MVC.Controller`에서 파생되는 컨트롤러만 있으면 프로젝트가 MVC 프로젝트로 간주됩니다. 연결된 서비스는 다른 모든 프로젝트 형식을 지원하지 않습니다.
 
 ## <a name="compatible-authentication-code"></a>호환 가능한 인증 코드
 
@@ -54,7 +54,7 @@ MVC 프로젝트에서 이 연결된 서비스는 이전에 서비스를 사용�
 * 개별 사용자 계정
 * 조직 계정
 
-MVC 프로젝트에서 Windows 인증을 감지하기 위해 연결된 서비스는 사용자의 `web.config` 파일에서 `authentication` 요소를 찾습니다.
+MVC 프로젝트에서 Windows 인증을 감지하기 위해 연결된 서비스는 사용자의 `authentication` 파일에서 `web.config` 요소를 찾습니다.
 
 ```xml
 <configuration>
@@ -64,7 +64,7 @@ MVC 프로젝트에서 Windows 인증을 감지하기 위해 연결된 서비스
 </configuration>
 ```
 
-웹 API 프로젝트에서 Windows 인증을 감지하기 위해 연결된 서비스는 프로젝트의 `.csproj` 파일에서 `IISExpressWindowsAuthentication` 요소를 찾습니다.
+웹 API 프로젝트에서 Windows 인증을 감지하기 위해 연결된 서비스는 프로젝트의 `IISExpressWindowsAuthentication` 파일에서 `.csproj` 요소를 찾습니다.
 
 ```xml
 <Project>

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub 모듈 ID 및 모듈 쌍 시작(포털 및 .NET) | Microsoft Docs
+title: 모듈 쌍 & 모듈 쌍 Azure IoT Hub (포털 및 .NET)
 description: 포털 및 .NET을 사용하여 모듈 ID를 만들고 모듈 쌍을 업데이트하는 방법을 알아봅니다.
 author: robinsh
 manager: philmea
@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: 395b1fd3301925db0607f775c6b7367979ba367b
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 289c269100eb6ab672bb8d60562c1fa77d8d091a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147426"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954612"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>포털 및 .NET 디바이스를 사용하여 IoT Hub 모듈 ID 및 모듈 쌍 시작
 
@@ -34,11 +34,11 @@ ms.locfileid: "70147426"
 > 장치 및 솔루션 백 엔드에서 실행 하기 위해 두 응용 프로그램을 빌드하는 데 사용할 수 있는 Azure IoT Sdk에 대 한 자세한 내용은 [Azure Iot sdk](iot-hub-devguide-sdks.md)를 참조 하세요.
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-* Visual Studio.
+* 있습니다.
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
+* 활성 Azure 계정. 계정이 없는 경우 몇 분 안에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.
 
 ## <a name="create-a-hub"></a>허브 만들기
 
@@ -56,7 +56,7 @@ ms.locfileid: "70147426"
 
 1. *Myfirstmodule*이름을 입력 합니다. 모듈 id를 저장 합니다.
 
-    ![모듈 ID 추가](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
+    ![모듈 id 추가](./media/iot-hub-portal-csharp-module-twin-getstarted/add-module-identity.png)
 
     새 모듈 id가 화면 맨 아래에 나타납니다. 모듈 id 세부 정보를 보려면 선택 합니다.
 
@@ -106,7 +106,7 @@ IoT Hub에서 모듈 ID를 성공적으로 만들었습니다. 시뮬레이트�
 
 앱을 만들려면 다음 단계를 수행 합니다.
 
-1. **Program.cs** 파일 위에 다음 `using` 문을 추가합니다.
+1. `using`Program.cs**파일 위에 다음** 문을 추가합니다.
 
   ```csharp
   using Microsoft.Azure.Devices.Client;

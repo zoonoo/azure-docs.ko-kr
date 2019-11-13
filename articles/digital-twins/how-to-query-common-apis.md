@@ -1,6 +1,6 @@
 ---
-title: Azure Digital Twins 일반적인 쿼리 패턴 | Microsoft Docs
-description: Azure Digital Twins 관리 API를 쿼리하는 일반적인 패턴에 대해 알아봅니다.
+title: 일반적인 쿼리 패턴-Azure Digital Twins | Microsoft Docs
+description: Azure Digital Twins 관리 Api에 대 한 몇 가지 일반적인 API 쿼리 패턴을 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.openlocfilehash: ef9e7a41f1de05e4d21a9ad7b45ed2b99885b6b8
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c821524b344c8b741047ba415127cffe59a74ca2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044446"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005908"
 ---
 # <a name="how-to-query-azure-digital-twins-apis-for-common-tasks"></a>일반적인 작업에 대해 Azure Digital Twins API를 쿼리하는 방법
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구의 복제 정책 구성 및 관리 | Microsoft Docs
+title: Azure Site Recovery |를 사용 하 여 VMware 재해 복구를 위한 복제 정책 설정 Microsoft Docs
 description: Azure Site Recovery를 사용하여 Azure에 대한 VMware 재해 복구의 복제 설정을 구성하는 방법에 대해 설명합니다.
 author: sujayt
 manager: rochakm
@@ -7,14 +7,15 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 019f9f2019619053f87a7923d656513a419d4675
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 45921bdf802a649b7b802f44d2842a543e44f02b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231450"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954317"
 ---
-# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Azure에 대한 VMware 재해 복구의 복제 정책 구성 및 관리
+# <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery"></a>VMware 재해 복구에 대 한 복제 정책 구성 및 관리
+
 이 아티클에서는 VMware VM을 Azure에 복제할 때 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 복제 정책을 구성하는 방법을 설명합니다.
 
 ## <a name="create-a-policy"></a>정책 만들기
@@ -48,11 +49,11 @@ ms.locfileid: "70231450"
 - 복제 된 컴퓨터를 다른 복제 정책에 연결 하려면 관련 컴퓨터에 대 한 보호를 사용 하지 않도록 설정 하 고 다시 활성화 해야 합니다.
 
 다음과 같이 정책을 편집 합니다.
-1.  > **Site Recovery**인프라복제 > **정책**관리를 선택 합니다.
+1. **관리** > **Site Recovery 인프라** > **복제 정책**을 선택 합니다.
 2. 수정 하려는 복제 정책을 선택 합니다.
 3. **설정 편집**을 클릭 하 고 필요에 따라 RPO 임계값/복구 지점 보존 시간/앱 일치 스냅숏 빈도 필드를 업데이트 합니다.
 4. 응용 프로그램 일관성 지점의 생성을 해제 하려는 경우 응용 프로그램 **일치 스냅숏 빈도**의 드롭다운에서 "해제" 값을 선택 합니다.
-5. **Save**을 클릭합니다. 정책은 30 ~ 60 초 이내에 업데이트 해야 합니다.
+5. **저장**을 클릭합니다. 정책은 30 ~ 60 초 이내에 업데이트 해야 합니다.
 
 
 

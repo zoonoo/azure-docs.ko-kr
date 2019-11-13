@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights의 고객 데이터 요청 기능 | Microsoft Docs
-description: Azure Time Series Insights의 고객 데이터 요청 기능에 대한 요약입니다.
+title: 고객 데이터 요청 기능-Azure Time Series Insights | Microsoft Docs
+description: Azure Time Series Insights의 고객 데이터 요청 기능에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: ba883ec3ce8f8ca4491b8576e6633ba2837bb5b2
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d134c7cbe220e6aa6b1471b50aa23e17d09734d5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990101"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007016"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
 

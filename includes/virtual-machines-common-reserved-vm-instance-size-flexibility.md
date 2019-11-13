@@ -4,23 +4,21 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
-ms.openlocfilehash: a98a941477fc83a104b55ed91f457c5a48f90d59
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 9a7de2b41c8016bdb7849cdef428d6f54a8ccf64
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69029827"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005436"
 ---
-# <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Reserved VM Instances에서 가상 머신 크기 유연성
-
-인스턴스 크기 유연성을 위해 최적화 된 예약 된 가상 머신 인스턴스를 사용 하 여 구입한 예약은 동일한 instance size 유연성 그룹의 Vm (가상 머신) 크기에 적용 될 수 있습니다. 예를 들어 Standard_DS5_v2와 같이 DSv2 시리즈에 나열 된 VM 크기에 대 한 예약을 구매 하는 경우 예약 할인은 동일한 인스턴스 크기의 유연성 그룹에 나열 된 다른 4 개 크기에 적용 될 수 있습니다.
+인스턴스 크기 유연성을 위해 최적화 된 예약 된 가상 머신 인스턴스를 사용 하 여 구입한 예약은 동일한 instance size 유연성 그룹의 Vm (가상 머신) 크기에 적용 될 수 있습니다. 예를 들어 Standard_DS5_v2 같이 DSv2 시리즈에 나열 된 VM 크기에 대 한 예약을 구매 하는 경우 예약 할인은 동일한 인스턴스 크기의 유연성 그룹에 나열 된 다른 4 개 크기에 적용 될 수 있습니다.
 
 - Standard_DS1_v2
 - Standard_DS2_v2
 - Standard_DS3_v2
 - Standard_DS4_v2
 
-그러나 예약 할인은 DSv2 시리즈 High Memory의 Sku와 같이 다른 인스턴스 크기의 유연성 그룹에 나열 된 Vm 크기에는 적용 되지 않습니다. Standard_DS11_v2, Standard_DS12_v2 등)의 VM 크기와 같이, 다른 테이블에 나열된 VM 크기에는 해당 예약 할인이 적용되지 않습니다.
+그러나 예약 할인은 다양 한 인스턴스 크기 유연성 그룹에 나열 된 Vm 크기에 적용 되지 않습니다. 예를 들어 DSv2 시리즈 High Memory의 Sku: Standard_DS11_v2, Standard_DS12_v2 등이 있습니다.
 
 인스턴스 크기 유연성 그룹 내에서 예약 할인이 적용 되는 Vm의 수는 예약을 구매할 때 선택한 VM 크기에 따라 달라 집니다. 또한 실행하는 VM의 크기에 따라서도 달라집니다. 요율 열은 해당 인스턴스 크기 유연성 그룹의 각 VM 크기에 대 한 상대적 공간을 비교 합니다. 예약 할인을 실행하고 있는 VM에 적용하는 방법을 계산하기 위해 비율 값을 사용합니다.
 

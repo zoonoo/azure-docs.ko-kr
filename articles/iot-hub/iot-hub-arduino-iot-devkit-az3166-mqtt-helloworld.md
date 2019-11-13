@@ -1,5 +1,5 @@
 ---
-title: Azure MQTT 클라이언트 라이브러리를 사용하여 MQTT 서버에 메시지 보내기 | Microsoft Docs
+title: Azure MQTT 클라이언트 라이브러리를 사용 하 여 MQTT 서버에 메시지 보내기
 description: MQTT 클라이언트 라이브러리를 사용 하 여 MQTT broker에 메시지를 보내는 방법에 대해 알아봅니다. 또한 mXChip IoT DevKit를 MQTT 클라이언트로 구성 하는 방법에 대해 알아봅니다.
 author: liydu
 manager: jeffya
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/02/2018
 ms.author: liydu
-ms.openlocfilehash: 4de8b0910a2be48cc626775c5c9bc873c6e780dc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 14feb02fbac800cd37da882a1872beb8269d9938
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889541"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954235"
 ---
 # <a name="send-messages-to-an-mqtt-server"></a>MQTT 서버에 메시지 보내기
 

@@ -3,17 +3,17 @@ title: Azure IoT Central의 아키텍처 개념 | Microsoft Docs
 description: 이 문서에서는 Azure IoT Central의 아키텍처와 관련된 주요 개념을 소개합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/15/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: cb2ca8fe227abd107daa60a0f7d31ba5dc4e7c1b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 66792d9d0a8b1cd72ef8f22481016a35f37a1597
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895333"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013897"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central 아키텍처 (미리 보기 기능)
 
@@ -33,6 +33,68 @@ ms.locfileid: "73895333"
 Azure IoT Central에서, 디바이스가 애플리케이션과 교환할 수 있는 데이터는 디바이스 템플릿에 지정됩니다. 디바이스 템플릿에 대한 자세한 내용은 [메타데이터 관리](#metadata-management)를 참조하세요.
 
 디바이스가 Azure IoT Central 애플리케이션에 연결하는 방법에 대한 자세한 내용은 [디바이스 연결](overview-iot-central-get-connected.md)을 참조하세요.
+
+## <a name="azure-iot-edge-devices"></a>Azure IoT Edge 디바이스
+
+[Azure IoT sdk](https://github.com/Azure/azure-iot-sdks)를 사용 하 여 만든 장치 뿐만 아니라 [Azure IoT Edge 장치](../../iot-edge/about-iot-edge.md) 를 IoT Central 응용 프로그램에 연결할 수도 있습니다. IoT Edge를 사용 하면 IoT Central에서 관리 하는 IoT 장치에서 직접 클라우드 인텔리전스 및 사용자 지정 논리를 실행할 수 있습니다. IoT Edge 런타임을 사용 하면 다음을 수행할 수 있습니다.
+
+- 디바이스에 워크로드를 설치하고 업데이트합니다.
+- 장치에서 IoT Edge 보안 표준을 유지 합니다.
+- IoT Edge 모듈이 항상 실행되도록 합니다.
+- 원격 모니터링을 위해 모듈 상태를 클라우드에 보고합니다.
+- 다운스트림 리프 디바이스와 IoT Edge 디바이스 간, IoT Edge 디바이스의 모듈 간, IoT Edge 디바이스와 클라우드 간의 통신을 관리합니다.
+
+![Azure IoT Central Azure IoT Edge](./media/concepts-architecture/iotedge.png)
+
+IoT Central IoT Edge 장치에 대해 다음 기능을 사용 하도록 설정 합니다.
+
+- 장치 템플릿은 다음과 같은 IoT Edge 장치의 기능을 설명 합니다.
+  - 배포 매니페스트 업로드 기능-장치에 대 한 매니페스트를 관리 하는 데 도움이 됩니다.
+  - IoT Edge 장치에서 실행 되는 모듈입니다.
+  - 각 모듈이 보내는 원격 분석입니다.
+  - 각 모듈이 보고 하는 속성입니다.
+  - 각 모듈이 응답 하는 명령입니다.
+  - IoT Edge 게이트웨이 장치 기능 모델과 다운스트림 장치 기능 모델 간의 관계입니다.
+  - IoT Edge 장치에 저장 되지 않는 클라우드 속성
+  - IoT Central 애플리케이션의 일부인 사용자 지정, 대시보드 및 양식
+
+  자세한 내용은 [IoT Edge 장치 템플릿 만들기](./tutorial-define-edge-device-type.md) 자습서를 참조 하세요.
+
+- Azure IoT 장치 프로 비전 서비스를 사용 하 여 대규모로 IoT Edge 장치를 프로 비전 하는 기능
+- 규칙 및 동작입니다.
+- 사용자 지정 대시보드 및 분석.
+- IoT Edge 장치에서 원격 분석 데이터를 지속적으로 내보냅니다.
+
+### <a name="iot-edge-device-types"></a>IoT Edge 장치 유형
+
+IoT Central IoT Edge 장치 유형을 다음과 같이 분류 합니다.
+
+- 리프 장치. IoT Edge 장치는 다운스트림 리프 장치를 포함할 수 있지만 이러한 장치는 IoT Central에서 프로 비전 되지 않습니다.
+- 다운스트림 장치를 사용 하는 게이트웨이 장치 게이트웨이 장치와 다운스트림 장치는 모두 IoT Central에서 프로 비전 됩니다.
+
+![IoT Edge 개요를 사용 하 여 IoT Central](./media/concepts-architecture/gatewayedge.png)
+
+### <a name="iot-edge-patterns"></a>IoT Edge 패턴
+
+IoT Central는 다음과 같은 IoT Edge 장치 패턴을 지원 합니다.
+
+#### <a name="iot-edge-as-leaf-device"></a>리프 장치로 IoT Edge
+
+![리프 장치로 IoT Edge](./media/concepts-architecture/edgeasleafdevice.png)
+
+IoT Edge 장치는 IoT Central에서 프로 비전 되며 다운스트림 장치와 해당 원격 분석은 IoT Edge 장치에서 가져온 것으로 표시 됩니다. IoT Edge 장치에 연결 된 다운스트림 장치는 IoT Central에서 프로 비전 되지 않습니다.
+
+#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity"></a>Id를 사용 하 여 다운스트림 장치에 연결 된 IoT Edge 게이트웨이 장치
+
+![다운스트림 장치 id를 사용 하 여 IoT Edge](./media/concepts-architecture/edgewithdownstreamdeviceidentity.png)
+
+IoT Edge 장치는 IoT Edge 장치에 연결 된 다운스트림 장치와 함께 IoT Central에 프로 비전 됩니다. 게이트웨이를 통해 다운스트림 장치를 프로 비전 하는 런타임 지원은 현재 지원 되지 않습니다.
+
+#### <a name="iot-edge-gateway-device-connected-to-downstream-devices-with-identity-provided-by-the-iot-edge-gateway"></a>IoT Edge 게이트웨이에서 제공 하는 id를 사용 하 여 다운스트림 장치에 연결 된 IoT Edge gateway 장치
+
+![Id 없는 다운스트림 장치를 사용 하 여 IoT Edge](./media/concepts-architecture/edgewithoutdownstreamdeviceidentity.png)
+
+IoT Edge 장치는 IoT Edge 장치에 연결 된 다운스트림 장치와 함께 IoT Central에 프로 비전 됩니다. 다운스트림 장치에 id를 제공 하 고 다운스트림 장치를 프로 비전 하는 게이트웨이의 런타임 지원은 현재 지원 되지 않습니다. 사용자 고유의 id 변환 모듈을 가져오는 경우이 패턴을 지원할 수 IoT Central.
 
 ## <a name="cloud-gateway"></a>클라우드 게이트웨이
 

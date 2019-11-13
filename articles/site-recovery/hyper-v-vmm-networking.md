@@ -1,18 +1,18 @@
 ---
-title: Azure Site Recovery로 장애 조치 (failover) 후 보조 온-프레미스 사이트에 연결 하도록 IP 주소 지정 설정
+title: Azure Site Recovery를 사용 하 여 보조 사이트로 장애 조치 (failover) 후 IP 주소 지정 설정
 description: Azure Site Recovery를 통해 재해 복구 및 장애 조치(failover) 후 보조 온-프레미스 사이트의 VM에 연결하도록 IP 주소 지정을 설정하는 방법을 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: f158c6b71bb53d6b683577401e625e24808eb7eb
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813691"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961437"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>장애 조치(failover) 후 보조 온-프레미스 사이트에 연결하도록 IP 주소 지정 설정
 
@@ -22,8 +22,8 @@ System Center VMM(Virtual Machine Manager) 클라우드의 Hyper-V VM을 보조 
 
 장애 조치(failover) 후 복제본 VM의 IP 주소 지정을 처리하는 몇 가지 방법이 있습니다. 
 
-- **장애 조치(failover) 후에 동일한 IP 주소 유지**: 이 시나리오에서는 복제된 VM이 기본 VM과 동일한 IP 주소를 갖습니다. 이렇게 하면 장애 조치(failover) 후 네트워크 관련 문제가 간소화되지만 일부 인프라 작업이 필요합니다.
-- **장애 조치(failover) 후 다른 IP 주소 사용**: 이 시나리오에서는 VM이 장애 조치(failover) 후에 새 IP 주소를 갖게 됩니다. 
+- **장애 조치(failover) 후 동일한 IP 주소 유지**: 이 시나리오에서는 복제된 VM이 기본 VM과 동일한 IP 주소를 갖습니다. 이렇게 하면 장애 조치(failover) 후 네트워크 관련 문제가 간소화되지만 일부 인프라 작업이 필요합니다.
+- **장애 조치(failover) 후 다른 IP 주소 사용**: 이 시나리오에서는 장애 조치(failover) 후 VM이 새로운 IP 주소를 얻습니다. 
  
 
 ## <a name="retain-the-ip-address"></a>IP 주소 유지
@@ -58,7 +58,7 @@ System Center VMM(Virtual Machine Manager) 클라우드의 Hyper-V VM을 보조 
 - 장애 조치(failover) 중 이 서브넷의 모든 VM이 보조 사이트로 장애 조치(failover)되며 IP 주소는 유지됩니다. 
 - 서브넷 192.168.1.0/24에 있는 모든 VM이 이제 보조 사이트로 이동된 사실을 반영하여 모든 사이트 간의 경로를 수정해야 합니다.
 
-다음 그림은 장애 조치(failover) 전과 후의 서브넷을 보여 줍니다.
+다음 그림에는 장애 조치(failover) 전과 후의 서브넷이 나와 있습니다.
 
 
 **장애 조치(failover) 전**

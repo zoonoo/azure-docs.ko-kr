@@ -8,14 +8,13 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182187"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014541"
 ---
-# <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>증분 스냅샷을 사용하여 Azure 관리되지 않는 VM 디스크 백업
 ## <a name="overview"></a>개요
 Azure Storage는 Blob의 스냅샷을 만드는 기능을 제공합니다. 스냅샷은 해당 시점에 Blob 상태를 캡처합니다. 이 문서에서는 스냅샷을 사용하여 가상 머신 디스크의 백업을 유지 관리할 수 있는 시나리오에 대해 설명합니다. Azure Backup 및 복구 서비스를 사용하지 않도록 선택하고 가상 컴퓨터 디스크에 대한 사용자 지정 백업 전략을 만들 때 이 방법론을 사용할 수 있습니다.
 
@@ -46,7 +45,7 @@ Blob 스냅샷은 특정 시점에 캡처된 Blob의 읽기 전용 버전입니�
 * 기본 Blob의 백업 복사본을 유지하려면 이 프로세스를 반복합니다.
 
 ## <a name="incremental-snapshot-copy"></a>증분 스냅샷 복사
-[GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) API의 새로운 기능은 페이지 Blob 또는 디스크의 스냅숏을 백업하는 더 좋은 방법을 제공합니다. API는 기본 Blob와 스냅샷 간의 변경 내용 목록을 반환하며 이로 인해 백업 계정에 사용되는 스토리지 공간의 양이 줄어듭니다. API는 Premium Storage 뿐만 아니라 Standard Storage에 페이지 Blob을 지원합니다. 이 API를 사용하여 Azure VM에 대한 빠르고 효율적인 백업 솔루션을 빌드할 수 있습니다. 이 API는 REST 버전 2015-07-08 이상에서 사용할 수 있습니다.
+[GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges) API의 새로운 기능은 페이지 Blob 또는 디스크의 스냅샷을 백업하는 더 좋은 방법을 제공합니다. API는 기본 Blob와 스냅샷 간의 변경 내용 목록을 반환하며 이로 인해 백업 계정에 사용되는 스토리지 공간의 양이 줄어듭니다. API는 Premium Storage 뿐만 아니라 Standard Storage에 페이지 Blob을 지원합니다. 이 API를 사용하여 Azure VM에 대한 빠르고 효율적인 백업 솔루션을 빌드할 수 있습니다. 이 API는 REST 버전 2015-07-08 이상에서 사용할 수 있습니다.
 
 증분 스냅샷 복사를 통해 다음 간의 차이를 하나의 스토리지 계정에서 다른 스토리지 계정으로 복사할 수 있습니다.
 
@@ -56,19 +55,19 @@ Blob 스냅샷은 특정 시점에 캡처된 Blob의 읽기 전용 버전입니�
 다음과 같은 조건이 충족된 경우
 
 * 2016년 1월 1일 또는 그 이후에 Blob을 만든 경우
-* [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 또는 [Blob 복사](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)를 사용하여 두 스냅숏 간에 Blob을 덮어쓰지 않은 경우
+* [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 또는 [Blob 복사](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)를 사용하여 두 스냅샷 간에 Blob을 덮어쓰지 않은 경우
 
-**참고**: 이 기능은 프리미엄 및 표준 Azure 페이지 Blob에 사용할 수 있습니다.
+**참고**: 이 기능은 프리미엄 및 표준 Azure 페이지 Blob에 대해 사용할 수 있습니다.
 
 스냅샷을 사용하는 사용자 지정 백업 전략이 있는 경우 하나의 스토리지 계정에서 다른 스토리지 계정으로 스냅샷을 복사하는 작업이 느려지고 스토리지 공간을 많이 사용할 수 있습니다. 전체 스냅샷을 백업 스토리지 계정에 복사하는 대신 백업 페이지 Blob에 연속 스냅샷 간의 차이를 기록할 수 있습니다. 이러한 방식으로 복사하는 시간 및 백업을 저장하는 공간이 상당히 줄어듭니다.
 
 ### <a name="implementing-incremental-snapshot-copy"></a>증분 스냅샷 복사 구현
 다음을 수행하여 증분 스냅샷 복사를 구현할 수 있습니다.
 
-* [Blob 스냅숏](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)을 사용하여 기본 Blob의 스냅숏을 만듭니다.
+* [Blob 스냅샷](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)을 사용하여 기본 Blob의 스냅샷을 만듭니다.
 * [복사 Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob)을 사용하여 스냅샷을 동일한 Azure 지역 또는 다른 Azure 지역의 대상 백업 스토리지 계정에 복사합니다. 이것이 백업 페이지 Blob입니다. 백업 페이지 Blob의 스냅샷을 만들고 백업 계정에 저장합니다.
 * Blob 스냅샷을 사용하여 기본 Blob의 또 다른 스냅샷을 만듭니다.
-* [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges)를 사용하여 기본 Blob의 첫 번째 스냅숏과 두 번째 스냅숏 간의 차이를 만듭니다. 새 매개 변수 **prevsnapshot**을 사용하여 차이를 만들려는 스냅샷의 날짜/시간 값을 지정합니다. 이 매개 변수가 존재하는 경우 REST 응답에는 페이지 지우기를 포함하여 대상 스냅샷과 이전 스냅샷 간의 변경된 페이지만 포함됩니다.
+* [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges)를 사용하여 기본 Blob의 첫 번째 스냅샷과 두 번째 스냅샷 간의 차이를 만듭니다. 새 매개 변수 **prevsnapshot**을 사용하여 차이를 만들려는 스냅샷의 날짜/시간 값을 지정합니다. 이 매개 변수가 존재하는 경우 REST 응답에는 페이지 지우기를 포함하여 대상 스냅샷과 이전 스냅샷 간의 변경된 페이지만 포함됩니다.
 * [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 를 사용하여 이러한 변경 내용을 백업 페이지 Blob에 적용합니다.
 * 마지막으로, 백업 페이지 Blob의 스냅샷을 만들고 백업 스토리지 계정에 저장합니다.
 
@@ -86,12 +85,12 @@ Azure VM 백업에 대해 알아보려면 [Azure VM 백업 계획](../articles/b
 ## <a name="steps-to-maintain-backups-of-a-disk-using-incremental-snapshots"></a>증분 스냅샷을 사용하여 디스크의 백업을 유지 관리하는 단계
 다음 단계는 *mypremiumdisk*의 스냅샷을 만들고 *mybackupstdaccount*에서 백업을 유지 관리하는 방법을 설명합니다. 이 백업은 *mybackupstdpageblob*이라는 표준 페이지 Blob입니다. 백업 페이지 Blob은 항상 *mypremiumdisk*라는 마지막 스냅샷과 동일한 상태를 반영합니다.
 
-1. *mypremiumdisk_ss1*이라는 *mypremiumdisk* 스냅숏을 만들어서 Premium Storage 디스크에 대한 백업 페이지 Blob을 만듭니다.
+1. *mypremiumdisk_ss1*이라는 *mypremiumdisk* 스냅샷을 만들어서 Premium Storage 디스크에 대한 백업 페이지 Blob을 만듭니다.
 2. 이 스냅샷을 mybackupstdaccount에 *mybackupstdpageblob*이라는 페이지 Blob으로 복사합니다.
-3. [스냅숏 Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)을 사용하여 *mybackupstdpageblob_ss1*이라는 *mybackupstdpageblob*의 스냅숏을 만들고 *mybackupstdaccount*에 저장합니다.
+3. *스냅샷 Blob*을 사용하여 *mybackupstdpageblob_ss1*이라는 [mybackupstdpageblob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob)의 스냅샷을 만들고 *mybackupstdaccount*에 저장합니다.
 4. 백업 창에 있는 동안 *mypremiumdisk_ss2*라는 *mypremiumdisk*의 또 다른 스냅샷을 만들고 *mypremiumaccount*에 저장합니다.
-5. **prevsnapshot** 매개 변수가 *mypremiumdisk_ss1*의 타임스탬프로 설정된 *mypremiumdisk_ss2*의 [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges)를 사용하여 두 스냅숏 *mypremiumdisk_ss2*와 *mypremiumdisk_ss1* 간의 증분 변경 내용을 가져옵니다. 이러한 증분 변경 내용을 *mybackupstdaccount*의 백업 페이지 Blob *mybackupstdpageblob*에 작성합니다. 증분 변경 내용에 삭제된 범위가 있는 경우 백업 페이지 Blob에서 지워야 합니다. [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 를 사용하여 증분 변경 내용을 백업 페이지 Blob에 작성합니다.
-6. *mybackupstdpageblob_ss2*라는 백업 페이지 Blob *mybackupstdpageblob*의 스냅숏을 만듭니다. Premium Storage 계정에서 이전 스냅샷 *mypremiumdisk_ss1*을 삭제합니다.
+5. *prevsnapshot* 매개 변수가 *mypremiumdisk_ss1*의 타임스탬프로 설정된 [mypremiumdisk_ss2](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges)의 *GetPageRanges*를 사용하여 두 스냅샷 **mypremiumdisk_ss2**와 *mypremiumdisk_ss1* 간의 증분 변경 내용을 가져옵니다. 이러한 증분 변경 내용을 *mybackupstdaccount*의 백업 페이지 Blob *mybackupstdpageblob*에 작성합니다. 증분 변경 내용에 삭제된 범위가 있는 경우 백업 페이지 Blob에서 지워야 합니다. [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) 를 사용하여 증분 변경 내용을 백업 페이지 Blob에 작성합니다.
+6. *mybackupstdpageblob_ss2*라는 백업 페이지 Blob *mybackupstdpageblob*의 스냅샷을 만듭니다. Premium Storage 계정에서 이전 스냅샷 *mypremiumdisk_ss1*을 삭제합니다.
 7. 백업 창마다 4~6단계를 반복합니다. 이러한 방식으로 표준 스토리지 계정에서 *mypremiumdisk* 의 백업을 유지할 수 있습니다.
 
 ![증분 스냅샷을 사용하여 디스크 백업](../articles/virtual-machines/windows/media/incremental-snapshots/storage-incremental-snapshots-1.png)
@@ -101,7 +100,7 @@ Azure VM 백업에 대해 알아보려면 [Azure VM 백업 계획](../articles/b
 
 1. 프리미엄 디스크를 복원하려는 시점을 식별합니다. 백업 스토리지 계정 *mybackupstdaccount*에 저장되는 스냅샷 *mybackupstdpageblob_ss2*라고 가정해 봅니다.
 2. mybackupstdaccount에서 새 백업 기본 페이지 Blob *mybackupstdpageblobrestored*로 스냅샷 *mybackupstdpageblob_ss2*를 승격합니다.
-3. *mybackupstdpageblobrestored_ss1*이라는 이 복원된 백업 페이지 Blob의 스냅숏을 만듭니다.
+3. *mybackupstdpageblobrestored_ss1*이라는 이 복원된 백업 페이지 Blob의 스냅샷을 만듭니다.
 4. 새로운 프리미엄 디스크 *mypremiumdiskrestored*로 복원된 페이지 Blob *mybackupstdpageblobrestored*를 *mybackupstdaccount*에서 *mypremiumaccount*로 복사합니다.
 5. 향후 증분 백업을 만들기 위해 *mypremiumdiskrestored_ss1*이라는 *mypremiumdiskrestored*의 스냅샷을 만듭니다.
 6. DS 시리즈 VM을 복원된 디스크 *mypremiumdiskrestored*로 가리키고 VM에서 이전 *mypremiumdisk*를 분리합니다.
@@ -112,6 +111,6 @@ Azure VM 백업에 대해 알아보려면 [Azure VM 백업 계획](../articles/b
 ## <a name="next-steps"></a>다음 단계
 다음 링크를 사용하여 Blob의 스냅샷을 만들고 VM 백업 인프라를 계획하는 방법을 알아봅니다.
 
-* [Blob의 스냅숏 만들기](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
+* [Blob의 스냅샷 만들기](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob)
 * [VM Backup 인프라 계획](../articles/backup/backup-azure-vms-introduction.md)
 

@@ -1,17 +1,14 @@
 ---
 title: 리소스 잠금 이해
 description: 청사진을 할당할 때 리소스를 보호하기 위한 잠금 옵션에 대해 알아봅니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 5c62fdb698dddf293d339904fd0c854052d636eb
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 754b9d7f73c6111abf7505e222a1ca5a8712ae45
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981039"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960476"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
@@ -19,12 +16,12 @@ ms.locfileid: "71981039"
 
 ## <a name="locking-modes-and-states"></a>잠금 모드 및 상태
 
-잠금 모드는 청사진 할당에 적용되며 다음 세 가지 옵션이 있습니다. **잠그지 않음**, **읽기 전용** 또는 **삭제 안 함**입니다. 잠금 모드는 청사진 할당을 수행하는 동안 아티팩트 배포 중에 구성됩니다. 청사진 할당을 업데이트하여 다른 잠금 모드를 설정할 수 있습니다.
+잠금 모드는 청사진 할당에 적용 되며, **잠금 안 함**, **읽기 전용**또는 **삭제**안 함과 같은 세 가지 옵션이 있습니다. 잠금 모드는 청사진 할당을 수행하는 동안 아티팩트 배포 중에 구성됩니다. 청사진 할당을 업데이트하여 다른 잠금 모드를 설정할 수 있습니다.
 그러나 잠금 모드는 청사진 외부에서 변경할 수 없습니다.
 
-청사진 할당의 아티팩트에서 생성되는 리소스에는 다음과 같은 네 가지 상태가 있습니다. **잠겨있지 않음**, **읽기 전용**, **편집/삭제할 수 없음** 또는 **삭제할 수 없음**입니다. 각 아티팩트 형식은 **잠겨있지 않음** 상태일 수 있습니다. 다음 표를 사용하여 리소스의 상태를 확인할 수 있습니다.
+청사진 할당에서 아티팩트에 의해 생성 된 리소스에는 **잠김 안 함**, **읽기 전용**, **편집/삭제**또는 **삭제할 수**없음의 네 가지 상태가 있습니다. 각 아티팩트 형식은 **잠겨있지 않음** 상태일 수 있습니다. 다음 표를 사용하여 리소스의 상태를 확인할 수 있습니다.
 
-|모드|아티팩트 리소스 형식|State|설명|
+|Mode|아티팩트 리소스 형식|State|설명|
 |-|-|-|-|
 |잠그지 않음|*|잠겨있지 않음|리소스는 청사진에 의해 보호되지 않습니다. 이 상태는 또한 청사진 할당 외부에서 **읽기 전용** 또는 **삭제 안 함** 리소스 그룹 아티팩트에 추가된 리소스에 사용됩니다.|
 |읽기 전용|리소스 그룹|편집/삭제할 수 없음|리소스 그룹이 읽기 전용이며 리소스 그룹의 태그를 수정할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|
@@ -48,13 +45,13 @@ ms.locfileid: "71981039"
 
 ## <a name="how-blueprint-locks-work"></a>청사진 잠금의 작동 방식
 
-할당에서 **읽기 전용** 또는 **삭제 안 함** 옵션을 선택한 경우 RBAC [거부 할당](../../../role-based-access-control/deny-assignments.md) 거부 동작이 청사진 할당 중에 아티팩트 리소스에 적용됩니다. 거부 동작은 청사진 할당의 관리 ID를 통해 추가되며 같은 관리 ID를 통해서만 아티팩트 리소스에서 제거할 수 있습니다. 이 보안 조치는 잠금 메커니즘을 적용하고, Blueprints 외부에서 청사진을 제거하지 못하도록 합니다.
+할당에서 [읽기 전용](../../../role-based-access-control/deny-assignments.md) 또는 **삭제 안 함** 옵션을 선택한 경우 RBAC **거부 할당** 거부 동작이 청사진 할당 중에 아티팩트 리소스에 적용됩니다. 거부 동작은 청사진 할당의 관리 ID를 통해 추가되며 같은 관리 ID를 통해서만 아티팩트 리소스에서 제거할 수 있습니다. 이 보안 조치는 잠금 메커니즘을 적용하고, Blueprints 외부에서 청사진을 제거하지 못하도록 합니다.
 
 ![리소스 그룹에 대 한 청사진 거부 할당](../media/resource-locking/blueprint-deny-assignment.png)
 
 각 모드의 [거부 할당 속성](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) 은 다음과 같습니다.
 
-|모드 |사용 권한. 작업 |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|Mode |사용 권한. 작업 |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
 |읽기 전용 |**\*** |**\*/read** |SystemDefined (Everyone) |**excludedPrincipals** 의 청사진 할당 및 사용자 정의 |리소스 그룹- _true_; 리소스- _false_ |
 |삭제 안 함 |**\*/delete** | |SystemDefined (Everyone) |**excludedPrincipals** 의 청사진 할당 및 사용자 정의 |리소스 그룹- _true_; 리소스- _false_ |

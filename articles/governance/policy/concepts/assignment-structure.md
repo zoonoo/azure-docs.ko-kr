@@ -1,17 +1,14 @@
 ---
 title: 정책 할당 구조의 세부 정보
 description: Azure Policy에서 평가를 위해 리소스에 정책 정의 및 매개 변수를 연결 하는 데 사용 하는 정책 할당 정의에 대해 설명 합니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: a75c64ebb6ba3eeffeccd98cf41365fe96218573
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 500e40b8d3a5943c7f64f5b190223cb1dc7b4c92
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255902"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960031"
 ---
 # <a name="azure-policy-assignment-structure"></a>Azure Policy 할당 구조
 
@@ -20,11 +17,11 @@ ms.locfileid: "72255902"
 JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음에 대 한 요소가 포함 됩니다.
 
 - 표시 이름
-- description
-- 메타데이터
+- 설명
+- metadata
 - 적용 모드
 - 정책 정의
-- parameters
+- 매개 변수
 
 예를 들어 다음 JSON은 동적 매개 변수를 사용 하는 _DoNotEnforce_ 모드의 정책 할당을 보여 줍니다.
 
@@ -62,10 +59,10 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 
 이 속성의 값은 다음과 같습니다.
 
-|모드 |JSON 값 |type |수동으로 재구성 |활동 로그 항목 |설명 |
+|Mode |JSON 값 |형식 |수동으로 재구성 |활동 로그 항목 |설명 |
 |-|-|-|-|-|-|
 |Enabled |기본값 |string |예 |예 |정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 됩니다. |
-|사용 안 함 |DoNotEnforce |string |예 |아니요 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
+|사용 안 함 |DoNotEnforce |string |예 |아니오 | 정책 효과는 리소스를 만들거나 업데이트 하는 동안 적용 되지 않습니다. |
 
 **EnforcementMode** 가 정책 또는 이니셔티브 정의에 지정 되지 않은 경우에는 _기본값_ 을 사용 합니다. **EnforcementMode** 가 _DoNotEnforce_로 설정 된 경우에도 [deployifnotexists](./effects.md#deployifnotexists) 정책에 대해 [재구성 작업](../how-to/remediate-resources.md) 을 시작할 수 있습니다.
 
@@ -74,7 +71,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 이 필드는 정책 정의 또는 이니셔티브 정의의 전체 경로 이름 이어야 합니다.
 `policyDefinitionId`은 배열이 아니라 문자열입니다. 여러 정책을 함께 할당 하는 것이 아니라 [이니셔티브](./definition-structure.md#initiatives) 를 사용 하는 것이 좋습니다.
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 정책 할당의이 세그먼트는 [정책 정의 또는 이니셔티브 정의](./definition-structure.md#parameters)에 정의 된 매개 변수에 대 한 값을 제공 합니다.
 이 설계를 통해 여러 리소스를 사용 하 여 정책 또는 이니셔티브 정의를 다시 사용할 수 있지만 다른 비즈니스 값 또는 결과를 확인할 수 있습니다.
@@ -90,7 +87,7 @@ JSON을 사용 하 여 정책 할당을 만듭니다. 정책 할당에는 다음
 }
 ```
 
-이 예제에서 정책 정의에 이전에 정의 된 매개 변수는 0 @no__t `suffix`입니다. 이 특정 정책 할당 집합은- **0에서가와 @no__t** , `suffix`- **LC**로 설정 됩니다. 동일한 정책 정의는 다른 부서에 대 한 다른 매개 변수 집합을 사용 하 여 다시 사용할 수 있으므로 유연성을 제공 하면서 정책 정의의 중복 및 복잡성을 줄일 수 있습니다.
+이 예에서는 정책 정의에 이전에 정의 된 매개 변수가 `prefix` 되 고 `suffix`됩니다. 이 특정 정책 할당은 `prefix`로 설정 **되 고 `suffix`** **-LC**로 설정 됩니다. 동일한 정책 정의는 다른 부서에 대 한 다른 매개 변수 집합을 사용 하 여 다시 사용할 수 있으므로 유연성을 제공 하면서 정책 정의의 중복 및 복잡성을 줄일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

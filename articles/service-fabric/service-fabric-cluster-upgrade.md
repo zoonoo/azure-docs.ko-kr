@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric 클러스터 업그레이드 | Microsoft Docs
+title: Azure Service Fabric 클러스터 업그레이드
 description: Azure Service Fabric 클러스터의 버전 또는 구성 업그레이드에 대해 알아봅니다.  이 문서에서는 클러스터 업데이트 모드 설정, 인증서 업그레이드, 애플리케이션 포트 추가, OS 패치 수행 및 업그레이드를 수행하는 경우 얻을 수 있는 것을 설명합니다.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2018
 ms.author: atsenthi
-ms.openlocfilehash: 2c8465a3aba4a21efaa20a118807d739dd501b09
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 161c720fbcc9370aaf273b241e88a7184f47371b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599789"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013315"
 ---
 # <a name="upgrading-and-updating-an-azure-service-fabric-cluster"></a>Azure Service Fabric 클러스터 업그레이드 및 업데이트
 

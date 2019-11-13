@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 환경의 규모 계획 | Microsoft Docs
-description: 이 문서에서는 Azure Time Series Insights 환경을 계획할 때 모범 사례를 따르는 방법을 설명 합니다. 포함 되는 영역에는 저장소 용량, 데이터 보존, 수신 용량, 모니터링, 비즈니스 연속성 및 재해 복구 (BCDR)가 포함 됩니다.
+title: GA 환경 계획-Azure Time Series Insights | Microsoft Docs
+description: GA 환경을 계획할 때 따라야 하는 모범 사례에 대해 알아봅니다.
 services: time-series-insights
 ms.service: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 649ff31e40bf612f1b70f81e895920f7fc21f082
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 2dd3b79e931464e83264433a923e9078b2f62525
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991249"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006948"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Azure Time Series Insights GA 환경 계획
 
@@ -42,7 +42,7 @@ Azure Time Series Insights를 시작 하려면 분 단위로 푸시 해야 하�
 - [이벤트 모양 지정](#shape-your-events)
 - [참조 데이터가 준비 되었는지 확인](#ensure-that-you-have-reference-data)
 
-## <a name="storage-capacity"></a>스토리지 용량
+## <a name="storage-capacity"></a>Storage 용량
 
 기본적으로 Time Series Insights는 프로 비전 하는 저장소 용량 ( &#215; 단위당 저장소 크기) 및 수신에 따라 데이터를 보존 합니다.
 
@@ -68,7 +68,7 @@ Azure Portal의 환경 구성 페이지에서 보존 기간을 조정 하 고 �
 
 1. **데이터 보존 시간 (일)** 상자에 1에서 400 사이의 값을 입력 합니다.
 
-   [보존 구성![](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [보존 구성 ![](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
 
 > [!TIP]
 > 적절 한 데이터 보존 정책을 구현 하는 방법에 대 한 자세한 내용은 [보존을 구성 하는 방법](./time-series-insights-how-to-configure-retention.md)을 참조 하세요.

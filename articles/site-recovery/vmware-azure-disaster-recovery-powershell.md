@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery에서 PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정 | Microsoft Docs
+title: Azure 사이트 복구에서 PowerShell을 사용 하 여 VMware 재해 복구 설정
 description: Azure Site Recovery에서 PowerShell을 사용하여 VMware VM의 재해 복구를 위해 Azure로 복제 및 장애 조치(failover)를 설정하는 방법을 알아봅니다.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 06/30/2019
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: 7c13bb8586995a82ee240df39a9c95a67743e2a8
-ms.sourcegitcommit: 837dfd2c84a810c75b009d5813ecb67237aaf6b8
+ms.openlocfilehash: 9546ae590918cdf6f3a6a95b9a68e9208054dcee
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67503348"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953940"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>PowerShell을 사용하여 Azure로 VMware VM의 재해 복구 설정
 
@@ -25,28 +25,28 @@ ms.locfileid: "67503348"
 > - 자격 증명 모음에서 서버 등록 유효성을 검사합니다.
 > - 복제 정책을 포함하여 복제를 설정합니다. vCenter 서버를 추가하고 VM을 검색합니다.
 > - vCenter 서버 추가 및 검색
-> - 복제 로그 또는 데이터를 갖기 위해 저장소 계정을 만들고 Vm을 복제 합니다.
-> - 장애 조치(failover)를 수행합니다. 장애 조치 설정을 구성 하 고 가상 머신을 복제 하는 것에 대 한 설정을 수행 하십시오.
+> - 복제 로그 나 데이터를 보관할 저장소 계정을 만들고 Vm을 복제 합니다.
+> - 장애 조치(failover)를 수행합니다. 장애 조치 (failover) 설정을 구성 하 고 가상 컴퓨터를 복제 하기 위한 설정을 수행 합니다.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 시작하기 전에 다음을 수행합니다.
 
 - [시나리오 아키텍처 및 구성 요소](vmware-azure-architecture.md)를 이해해야 합니다.
 - 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-azure.md)을 검토합니다.
-- Azure PowerShell을 사용할 `Az` 모듈입니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
+- Azure PowerShell `Az` 모듈이 있습니다. Azure PowerShell을 설치하거나 업그레이드해야 하는 경우 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/install-az-ps)을 참조하세요.
 
 ## <a name="log-into-azure"></a>Azure에 로그인
 
-Connect AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
+AzAccount cmdlet을 사용 하 여 Azure 구독에 로그인 합니다.
 
 ```azurepowershell
 Connect-AzAccount
 ```
-VMware 가상 머신을 복제할 대상 Azure 구독을 선택합니다. Get-AzSubscription cmdlet를 사용 하 여에 대 한 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. Azure 구독 선택 AzSubscription cmdlet을 사용 하 여 작업을 선택 합니다.
+VMware 가상 머신을 복제할 대상 Azure 구독을 선택합니다. AzSubscription cmdlet을 사용 하 여 액세스 권한이 있는 Azure 구독 목록을 가져옵니다. AzSubscription cmdlet을 사용 하 여 작업할 Azure 구독을 선택 합니다.
 
 ```azurepowershell
 Select-AzSubscription -SubscriptionName "ASR Test Subscription"
@@ -105,7 +105,7 @@ Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 설정합니다. 설정이 되면 PowerShell 세션의 후속 Azure Site Recovery 작업은 선택한 자격 증명 모음의 컨텍스트에서 수행됩니다.
 
 > [!TIP]
-> 대부분의 cmdlet에 대 한 편리한 별칭을 사용 하 여 Azure Site Recovery PowerShell 모듈 (Az.RecoveryServices 모듈)에 제공 됩니다. 모듈의 cmdlet 형태가  *\<작업 >-**AzRecoveryServicesAsr**\<개체 >* 형식의 별칭이 고  *\< 작업 >-**ASR**\<개체 >* 합니다. Cmdlet 별칭 사용 편의성을 위해 바꿀 수 있습니다.
+> Azure Site Recovery PowerShell 모듈 (Az. RecoveryServices 모듈)은 대부분의 cmdlet에 대 한 별칭을 쉽게 사용할 수 있습니다. 이 모듈의 cmdlet은 *\<작업 >-**AzRecoveryServicesAsr**\<개체 >* 를 사용 하 고\<*작업 >-**ASR**\<개체 >* 형식으로 사용 하는 동등한 별칭을 사용 합니다. 사용 편의성을 위해 cmdlet 별칭을 바꿀 수 있습니다.
 
 아래 예에서 $vault 변수의 자격 증명 모음 세부 정보가 PowerShell 세션의 자격 증명 모음 컨텍스트를 지정하는 데 사용됩니다.
 
@@ -118,7 +118,7 @@ Set-ASRVaultContext cmdlet을 사용하여 자격 증명 모음 컨텍스트를 
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Set-asrvaultcontext cmdlet 대신 자격 증명 모음 컨텍스트를 설정 가져오기 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용할 수도 하나입니다. 경로는 자격 증명 모음 등록 키 파일을 가져오기 AzRecoveryServicesAsrVaultSettingsFile cmdlet-path 매개 변수로 지정 합니다. 예를 들면 다음과 같습니다.
+Set-asrvaultcontext cmdlet에 대 한 대 안으로 AzRecoveryServicesAsrVaultSettingsFile cmdlet을 사용 하 여 자격 증명 모음 컨텍스트를 설정할 수도 있습니다. AzRecoveryServicesAsrVaultSettingsFile cmdlet에 대 한-path 매개 변수로 자격 증명 모음 등록 키 파일이 있는 경로를 지정 합니다. 예:
 
    ```azurepowershell
    Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
@@ -316,9 +316,9 @@ Errors           : {}
 
 ## <a name="create-storage-accounts-for-replication"></a>복제에 사용할 스토리지 계정 만들기
 
-**사용 하 여 관리 디스크에 쓸 [Powershell Az.RecoveryServices 모듈 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 이상.** 로그 저장소 계정 만들기만 필요합니다. 임시 로그만 저장에 사용 되기 때문에 표준 계정 형식 및 LRS 중복을 사용 하는 것이 좋습니다. 저장소 계정 자격 증명 모음과 동일한 Azure 지역에 만들어졌는지 확인 합니다.
+**관리 디스크에 쓰려면 [Powershell Az. RecoveryServices module 2.0.0](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 을 사용 합니다.** 로그 저장소 계정 만들기만 필요 합니다. 임시 로그를 저장 하는 데 사용 되므로 표준 계정 유형 및 중복성을 사용 하는 것이 LRS 것이 좋습니다. 저장소 계정이 자격 증명 모음과 동일한 Azure 지역에 만들어졌는지 확인 합니다.
 
-2\.0.0 보다 오래 된 Az.RecoveryServices 모듈의 버전을 사용 하는 경우 다음 단계를 사용 하 여 저장소 계정을 만들어야 합니다. 이 스토리지 계정은 나중에 가상 머신을 복제하는 데 사용됩니다. 스토리지 계정을 자격 증명 모음과 동일한 Azure 지역에 만들어야 합니다. 복제에 기존 스토리지 계정을 사용하려는 경우 이 단계를 건너뛸 수 있습니다.
+2\.0.0 보다 오래 된 Az. RecoveryServices 모듈의 버전을 사용 하는 경우 다음 단계를 사용 하 여 저장소 계정을 만듭니다. 이 스토리지 계정은 나중에 가상 머신을 복제하는 데 사용됩니다. 스토리지 계정을 자격 증명 모음과 동일한 Azure 지역에 만들어야 합니다. 복제에 기존 스토리지 계정을 사용하려는 경우 이 단계를 건너뛸 수 있습니다.
 
 > [!NOTE]
 > 온-프레미스 가상 머신을 Premium Storage 계정에 복제하는 동안 표준 스토리지 계정을 추가로 지정해야 합니다(로그 스토리지 계정). 로그 스토리지 계정에는 Premium Storage 대상에 로그가 적용될 때까지 복제 로그가 중간 스토리지로 보관됩니다.
@@ -340,8 +340,8 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 검색된 가상 머신을 보호하려면 다음 세부 정보가 필요합니다.
 
 * 복제할 보호 가능한 항목.
-* (저장소 계정에 복제 하는 경우에)에 가상 머신을 복제 하는 저장소 계정. 
-* 로그 저장소에 가상 머신을 프리미엄 저장소 계정 또는 관리 디스크를 보호 하기 위해 필요 합니다.
+* 가상 컴퓨터를 복제할 저장소 계정 (저장소 계정에 복제 하는 경우에만 해당) 
+* 로그 저장소는 premium storage 계정 또는 관리 디스크로 가상 컴퓨터를 보호 하는 데 필요 합니다.
 * 복제에 사용할 프로세스 서버. 사용 가능한 프로세스 서버 목록이 검색되어 ***$ProcessServers[0]*** *(ScaleOut-ProcessServer)* 및 ***$ProcessServers[1]*** *(ConfigurationServer)* 변수에 저장됩니다.
 * 모바일 서비스 소프트웨어를 컴퓨터에 강제 설치하는 데 사용할 계정. 사용 가능한 계정 목록은 검색되어 ***$AccountHandles*** 변수에 저장됩니다.
 * 복제에 사용되는 복제 정책에 대한 보호 컨테이너 매핑.
@@ -351,11 +351,11 @@ vCenter Server에서 가상 머신을 검색하는 데 15~20분 정도 걸립니
 이제 이 테이블에 지정된 설정을 사용하여 다음 가상 머신을 복제합니다.
 
 
-|가상 머신  |프로세스 서버        |스토리지 계정              |로그 스토리지 계정  |정책           |모바일 서비스 설치를 위한 계정|대상 리소스 그룹  | 대상 가상 네트워크  |대상 서브넷  |
+|가상 컴퓨터  |프로세스 서버        |Storage 계정              |로그 스토리지 계정  |정책           |모바일 서비스 설치를 위한 계정|대상 리소스 그룹  | 대상 가상 네트워크  |대상 서브넷  |
 |-----------------|----------------------|-----------------------------|---------------------|-----------------|-----------------------------------------|-----------------------|-------------------------|---------------|
-|CentOSVM1       |ConfigurationServer   |N/A| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
+|CentOSVM1       |ConfigurationServer   |해당 없음| logstorageaccount1                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |
 |Win2K12VM1       |ScaleOut-ProcessServer|premiumstorageaccount1       |logstorageaccount1   |ReplicationPolicy|WindowsAccount                           |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
-|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| N/A                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
+|CentOSVM2       |ConfigurationServer   |replicationstdstorageaccount1| 해당 없음                 |ReplicationPolicy|LinuxAccount                             |VMwareDRToAzurePs      |ASR-vnet                 |Subnet-1       |   
 
 
 ```azurepowershell
@@ -442,7 +442,7 @@ Tasks            : {Update the virtual machine properties}
 Errors           : {}
 ```
 
-## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
+## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
 
 1. 다음과 같이 DR 연습(테스트 장애 조치(failover))을 실행합니다.
 
@@ -493,4 +493,4 @@ Errors           : {}
 2. 장애 조치(failover)가 완료되면 장애 조치(failover) 작업을 커밋하고 Azure에서 온-프레미스 VMware 사이트로 역방향 복제를 설정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-사용 하 여 더 많은 작업을 자동화 하는 방법을 알아봅니다 합니다 [Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/Az.RecoveryServices)합니다.
+[Azure Site Recovery PowerShell 참조](https://docs.microsoft.com/powershell/module/Az.RecoveryServices)를 사용 하 여 더 많은 작업을 자동화 하는 방법을 알아봅니다.

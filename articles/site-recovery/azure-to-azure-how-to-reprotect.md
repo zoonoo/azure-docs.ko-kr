@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery를 사용하여 주 Azure 지역으로 장애 조치(failover)된 Azure VM 다시 보호 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 주 지역에서 장애 조치(failover) 후 보조 지역에서 Azure VM을 다시 보호하는 방법에 대해 설명합니다.
+title: Azure Site Recovery를 사용 하 여 Azure Vm을 주 지역으로 다시 보호 Microsoft Docs
+description: Azure Site Recovery를 사용 하 여 장애 조치 (failover) 후 보조 지역에서 주 지역으로 Azure Vm을 다시 보호 하는 방법을 설명 합니다.
 services: site-recovery
 author: rajani-janaki-ram
 manager: gauravd
@@ -8,22 +8,22 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: eabb7d194a3ef65282befab1ae59e85ba56f2f5b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 955e1b84f897a5eb877033e0a58b8d661f143a14
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65472151"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954181"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>주 지역으로 장애 조치(failover)된 Azure VM 다시 보호
 
 
-[Azure Site Recovery](site-recovery-overview.md)를 사용하여 한 지역에서 다른 지역으로 Azure VM을 [장애 조치](site-recovery-failover.md)(failover)할 경우 VM은 보조 지역에서 보호되지 않는 상태로 부팅됩니다. VM을 주 지역으로 장애 복구(failback)하려면 다음을 수행해야 합니다.
+[Azure Site Recovery](site-recovery-failover.md)를 사용하여 한 지역에서 다른 지역으로 Azure VM을 [장애 조치](site-recovery-overview.md)(failover)할 경우 VM은 보조 지역에서 보호되지 않는 상태로 부팅됩니다. VM을 주 지역으로 장애 복구(failback)하려면 다음을 수행해야 합니다.
 
 - VM이 주 지역으로 복제를 시작하도록 보조 지역의 VM을 다시 보호합니다.
 - 다시 보호를 완료하고 VM이 복제되면 보조 지역에서 주 지역으로 VM을 장애 조치(failover)할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 1. 주 지역에서 보조 지역으로 VM 장애 조치(failover)를 커밋해야 합니다.
 2. 주 대상 사이트가 사용 가능하고 해당 지역에서 리소스를 만들거나 액세스할 수 있어야 합니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "65472151"
 
 ![사용자 지정](./media/site-recovery-how-to-reprotect-azure-to-azure/customizeblade.png)
 
-|자산 |메모  |
+|속성 |참고 사항  |
 |---------|---------|
 |대상 리소스 그룹     | VM이 만들어진 대상 리소스 그룹을 수정합니다. 다시 보호의 일부로 대상 VM이 삭제됩니다. 장애 조치(failover) 후 VM을 만들 새 리소스 그룹을 선택할 수 있습니다.        |
 |대상 가상 네트워크     | 다시 보호 작업 동안 대상 네트워크를 변경할 수 없습니다. 네트워크를 변경하려면 네트워크 매핑을 다시 실행합니다.         |
@@ -59,7 +59,7 @@ ms.locfileid: "65472151"
 기본적으로 다음이 발생합니다.
 
 1. 장애 조치된 VM이 실행 중인 지역에 캐시 스토리지 계정이 만들어집니다.
-2. 대상 스토리지 계정(주 지역의 원래 스토리지 계정)이 없는 경우 새로 만들어집니다. 할당된 저장소 계정 이름은 보조 VM에서 사용하는 저장소 계정의 이름이며 접미사 "asr"이 사용됩니다.
+2. 대상 스토리지 계정(주 지역의 원래 스토리지 계정)이 없는 경우 새로 만들어집니다. 할당된 스토리지 계정 이름은 보조 VM에서 사용하는 스토리지 계정의 이름이며 접미사 &quot;asr&quot;이 사용됩니다.
 3. VM에서 관리 디스크를 사용하는 경우 복제본 관리 디스크는 보조 VM의 디스크에서 복제된 데이터를 저장하기 위해 주 지역에 생성됩니다.
 4. 대상 가용성 집합이 없으면 다시 보호 작업의 일부로 필요한 경우 새로 만들어집니다. 다시 보호 설정을 사용자 지정한 경우 선택한 집합이 사용됩니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "65472151"
 1. 대상 쪽 VM은 실행 중인 경우 꺼집니다.
 2. VM이 관리 디스크를 사용하는 경우 원래 디스크의 사본에는 ‘-ASRReplica' 접미사가 붙습니다. 원래 디스크가 삭제됩니다. '-ASRReplica' 사본은 복제에 사용됩니다.
 3. VM이 관리되지 않는 디스크를 사용할 경우 대상 VM의 데이터 디스크가 분리되어 복제에 사용됩니다. OS 디스크의 복사본이 만들어지고 VM에서 연결됩니다. 원래의 OS 디스크가 분리되며 복제에 사용됩니다.
-4. 원본 디스크와 대상 디스크 간의 변경 내용만 동기화됩니다. 차등 백업은 디스크를 모두 비교하여 계산된 다음, 전달됩니다. 아래 예상된 시간 검사를 찾으려고 합니다.
+4. 원본 디스크와 대상 디스크 간의 변경 내용만 동기화됩니다. 차등 백업은 디스크를 모두 비교하여 계산된 다음, 전달됩니다. 아래에서 예상 시간을 확인 하세요.
 5. 동기화가 완료되면 델타 복제가 시작되고 복제 정책에 따라 복구 지점을 만듭니다.
 
 다시 보호 작업을 트리거하고 대상 VM과 디스크가 없는 경우 다음이 발생합니다.
@@ -77,17 +77,17 @@ ms.locfileid: "65472151"
 3. 전체 디스크가 장애 조치된 지역에서 새 대상 지역에 복사됩니다.
 4. 동기화가 완료되면 델타 복제가 시작되고 복제 정책에 따라 복구 지점을 만듭니다.
 
-#### <a name="estimated-time--to-do-the-reprotection"></a>다시 보호가 수행 하는 예상된 시간 
+#### <a name="estimated-time--to-do-the-reprotection"></a>다시 보호 예상 시간 
 
-대부분의 경우에서 Azure Site Recovery 원본 지역에 전체 데이터를 복제 하지 않습니다. 다음은 얼마나 많은 데이터가 복제 됩니다 결정 하는 조건입니다.
+대부분의 경우 Azure Site Recovery은 전체 데이터를 원본 영역에 복제 하지 않습니다. 다음은 복제 되는 데이터의 양을 결정 하는 조건입니다.
 
-1.  원본 VM 데이터 삭제, 손상 또는 리소스 그룹 같은 몇 가지 이유로 인해 액세스할 수 없는 경우 사용 하 여 원본 지역에서 사용할 수 있는 데이터가 없는으로 변경/삭제 완료 IR 다시 보호 하는 동안 다음 발생 합니다.
-2.  VM 데이터 소스에 액세스할 수 그런 다음 차등만 두 디스크를 비교 하 여 계산 하 고 전송 됩니다. 확인 예상된 시간을 가져오기 위해 테이블 아래 
+1.  원본 VM 데이터를 삭제, 손상 또는 액세스할 수 없는 경우에는 사용 하는 원본 지역에서 사용할 수 있는 데이터가 없으므로 다시 보호를 완료 하는 동안 리소스 그룹 변경/삭제와 같은 몇 가지 이유로 인해이 오류가 발생 합니다.
+2.  원본 VM 데이터에 액세스할 수 있는 경우 두 디스크를 비교한 다음 전송 하 여 차등만 계산 합니다. 예상 시간을 얻으려면 아래 표를 확인 하세요. 
 
 |\* * 예제 상황 * * | \* * 다시 보호 하는 데 걸린 시간 * * |
 |--- | --- |
-|소스 영역에는 1 TB 표준 디스크를 사용 하 여 1 VM<br/>-127GB 데이터만 사용 되 고 디스크의 나머지 부분은 비어 있습니다.<br/>-디스크 유형은 표준 60 초 처리량으로<br/>-장애 조치 후 데이터 변경을 없음| 대략적인 시간 45 분-1.5 시간<br/> -다시 보호 하는 동안 Site Recovery는 127gb로 전체 데이터의 체크섬 채워집니다 45 / Mb ~ 45 분<br/>-일부 오버 헤드 시간은 20 ~ 30 분 배율을 자동 수행 Site Recovery에 대 한 필수<br/>-송신 요금 |
-|소스 영역에는 1 TB 표준 디스크를 사용 하 여 1 VM<br/>-127GB 데이터만 사용 되 고 디스크의 나머지 부분은 비어 있습니다.<br/>-디스크 유형은 표준 60 초 처리량으로<br/>-장애 조치 후 45 GB 데이터 변경 내용| 대략적인 시간 1 시간 – 2 시간<br/>-다시 보호 하는 동안 Site Recovery는 127gb로 전체 데이터의 체크섬 채워집니다 45 / Mb ~ 45 분<br/>--45 GB는 45GB의 변경 내용을 적용 하는 시간을 전송 하는 중 45 / MBps ~ 17 분<br/>-체크섬에 대 한 없습니다 45 GB 데이터에 대해서만 송신 요금이 것|
+|원본 영역에 1TB standard 디스크가 있는 VM 1 개 있음<br/>-127 GB 데이터만 사용 되며 나머지 디스크는 비어 있습니다.<br/>-디스크 유형이 표준 이며 60 MiB/S 처리량<br/>-장애 조치 (failover) 후 데이터 변경 안 함| 대략적인 45 분 ~ 1.5 시간<br/> -다시 보호 Site Recovery 하는 동안 127 g b/45 Mb를 사용 하는 전체 데이터의 체크섬을 채웁니다. ~ 45 분<br/>-20-30 분의 자동 크기 조정을 수행 하는 Site Recovery에는 몇 가지 오버 헤드 시간이 필요 합니다.<br/>-송신 요금 없음 |
+|원본 영역에 1TB standard 디스크가 있는 VM 1 개 있음<br/>-127 GB 데이터만 사용 되며 나머지 디스크는 비어 있습니다.<br/>-디스크 유형이 표준 이며 60 MiB/S 처리량<br/>-장애 조치 (failover) 후 45 GB 데이터 변경| 대략적인 시간 1 시간-2 시간<br/>-다시 보호 Site Recovery 하는 동안 127 g b/45 Mb를 사용 하는 전체 데이터의 체크섬을 채웁니다. ~ 45 분<br/>-45 45 GB/45 MBps ~ 17 분의 변경 사항을 적용 하기 위한 전송 시간<br/>-송신 요금은 체크섬에 대해 45 GB 데이터에만 해당 됩니다.|
  
 
 

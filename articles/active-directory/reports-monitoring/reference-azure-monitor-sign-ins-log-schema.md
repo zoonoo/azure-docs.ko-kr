@@ -3,7 +3,7 @@ title: Azure Monitor |의 로그인 로그 스키마 Microsoft Docs
 description: Azure Monitor에서 사용할 Azure AD 로그인 로그 스키마에 대해 설명 합니다.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4259a23778db175de2a0331e692e878df39d0a07
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 98157009b5a005d1d1f9efbe2f59bac1302cdb01
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895012"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014324"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Azure Monitor에서 Azure AD 로그인 로그 스키마 해석
 
-이 문서에서는 Azure Monitor에서 Azure AD(Azure Active Directory) 로그인 로그 스키마에 대해 설명합니다. 로그인 관련 정보는 대부분 `records` 개체의 *Properties* 특성에서 제공됩니다.
+이 문서에서는 Azure Monitor에서 Azure AD(Azure Active Directory) 로그인 로그 스키마에 대해 설명합니다. 로그인 관련 정보는 대부분 *개체의*Properties`records` 특성에서 제공됩니다.
 
 
 ```json
@@ -145,11 +145,11 @@ ms.locfileid: "72895012"
 
 | 필드 이름 | 설명 |
 |------------|-------------|
-| 시간 | UTC 형식의 날짜 및 시간입니다. |
+| Time | UTC 형식의 날짜 및 시간입니다. |
 | ResourceId | 이 값이 매핑 해제되며 이 필드를 안전하게 무시할 수 있습니다.  |
 | OperationName | 로그인의 경우 이 값은 항상 *로그인 활동*입니다. |
 | OperationVersion | 클라이언트에서 요청한 REST API 버전입니다. |
-| 범주 | 로그인의 경우 이 값은 항상 *SignIn*입니다. | 
+| Category | 로그인의 경우 이 값은 항상 *SignIn*입니다. | 
 | TenantId | 로그와 연결된 테넌트 GUID입니다. |
 | ResultType | 로그인 작업의 결과는 *성공* 또는 *실패*일 수 있습니다. | 
 | ResultSignature | 로그인 작업에 대한 오류 코드(있는 경우)를 포함합니다. |
@@ -163,9 +163,9 @@ ms.locfileid: "72895012"
 | callerIpAddress | 요청한 클라이언트의 IP 주소입니다. | 
 | CorrelationId | 클라이언트에서 전달한 선택적 GUID입니다. 이 값은 클라이언트 쪽 작업을 서버 쪽 작업과 상관 관계를 지정하는 데 도움이 될 수 있으며, 서비스에 걸쳐 있는 로그를 추적하는 경우에 유용합니다. |
 | ID | 요청할 때 제공된 토큰의 ID입니다. 사용자 계정, 시스템 계정 또는 서비스 사용자일 수 있습니다. |
-| Level | 메시지의 형식을 제공합니다. 감사의 경우 항상 *Informational*입니다. |
-| 위치 | 로그인 활동의 위치를 제공합니다. |
-| properties | 로그인과 연결 된 모든 속성을 나열 합니다. 자세한 내용은 [MICROSOFT GRAPH API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)를 참조 하세요. 이 스키마는 읽기 쉽도록 하기 위해 로그인 리소스와 동일한 특성 이름을 사용합니다.
+| 수준 | 메시지의 형식을 제공합니다. 감사의 경우 항상 *Informational*입니다. |
+| Location | 로그인 활동의 위치를 제공합니다. |
+| 속성 | 로그인과 연결 된 모든 속성을 나열 합니다. 자세한 내용은 [MICROSOFT GRAPH API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)를 참조 하세요. 이 스키마는 읽기 쉽도록 하기 위해 로그인 리소스와 동일한 특성 이름을 사용합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

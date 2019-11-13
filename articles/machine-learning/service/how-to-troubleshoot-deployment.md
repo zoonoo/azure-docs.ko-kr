@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a79c95d627bbdec3a91a1d048a48ff061b308ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cb0f373000d09cb387fb73eec344997381fe45d1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489365"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961674"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Kubernetes Service 및 Azure Container Instances 배포 Azure Machine Learning 문제 해결
 
@@ -42,11 +42,21 @@ Azure Machine Learning에서 모델을 배포 하는 경우 시스템에서 많�
 
 이 프로세스에 대한 자세한 정보는 [모델 관리](concept-model-management-and-deployment.md) 소개를 참조하세요.
 
+## <a name="prerequisites"></a>선행 조건
+
+* **Azure 구독**. 없는 경우 [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
+* [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다.
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Azure Machine Learning에 대 한 CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+* 로컬로 디버깅 하려면 로컬 시스템에서 작동 하는 Docker가 설치 되어 있어야 합니다.
+
+    Docker 설치를 확인 하려면 터미널 또는 명령 프롬프트에서 `docker run hello-world` 명령을 사용 합니다. Docker를 설치 하거나 Docker 오류 문제를 해결 하는 방법에 대 한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조 하세요.
+
 ## <a name="before-you-begin"></a>시작하기 전에
 
 문제가 발생할 경우 가장 먼저 할 일은 배포 작업을 개별 단계로 분리하여(이전 설명 참조) 문제를 격리하는 것입니다.
 
-[Deploy_from_model](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) ( [) api를](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) 사용 하는 경우이 두 함수는 위의 단계를 단일 작업으로 수행 하므로 배포를 작업으로 나누는 것이 유용 합니다. 일반적으로 이러한 Api는 편리 하지만 아래 API 호출로 바꿔서 문제를 해결 하는 데 도움이 됩니다.
+[Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) API, 및 [Deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) api를 사용 하는 경우이 두 함수 는 위의 단계를 단일 작업으로 수행 하므로 배포를 작업으로 나누는 것이 유용 합니다. 일반적으로 이러한 Api는 편리 하지만 아래 API 호출로 바꿔서 문제를 해결 하는 데 도움이 됩니다.
 
 1. 모델을 등록합니다. 다음은 샘플 코드입니다.
 
@@ -90,7 +100,7 @@ Azure Machine Learning에서 모델을 배포 하는 경우 시스템에서 많�
 
 ## <a name="image-building-fails"></a>이미지 빌드 실패
 
-Docker 이미지를 빌드할 수 없는 경우 [wait_for_creation ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) 또는 [wait_for_deployment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) 호출은 몇 가지 오류 메시지와 함께 실패 하 여 일부 단서를 제공할 수 있습니다. 또한 이미지 빌드 로그에서 오류에 대한 자세한 내용을 찾을 수 있습니다. 아래는 이미지 빌드 로그 uri를 검색하는 방법을 보여주는 샘플 코드입니다.
+Docker 이미지를 빌드할 수 없는 경우 [wait_for_creation ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-) 또는 [서비스 wait_for_deployment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py#wait-for-deployment-show-output-false-) 호출은 몇 가지 오류 메시지와 함께 실패 하 고 일부 단서를 제공할 수 있습니다. 또한 이미지 빌드 로그에서 오류에 대한 자세한 내용을 찾을 수 있습니다. 아래는 이미지 빌드 로그 uri를 검색하는 방법을 보여주는 샘플 코드입니다.
 
 ```python
 # if you already have the image object handy
@@ -155,9 +165,6 @@ b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server 
 ## <a name="debug-locally"></a>로컬에서 디버그
 
 ACI 또는 AKS에 모델을 배포 하는 데 문제가 발생 하는 경우 로컬로 배포 해 보세요. 로컬을 사용 하면 문제를 보다 쉽게 해결할 수 있습니다. 모델을 포함 하는 Docker 이미지가 로컬 시스템에서 다운로드 되 고 시작 됩니다.
-
-> [!IMPORTANT]
-> 로컬 배포를 수행 하려면 로컬 시스템에서 작동 하는 Docker가 설치 되어 있어야 합니다. 로컬을 배포 하기 전에 Docker를 실행 해야 합니다. Docker 설치 및 사용에 대 한 자세한 내용은 [https://www.docker.com/](https://www.docker.com/)를 참조 하세요.
 
 > [!WARNING]
 > 프로덕션 시나리오에서는 로컬 배포가 지원 되지 않습니다.
@@ -245,7 +252,7 @@ print(ws.webservices['mysvc'].get_logs())
 
 ## <a name="function-fails-get_model_path"></a>함수 실패: get_model_path()
 
-일반적으로 점수 매기기 스크립트의 `init()` 함수에서 [_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 함수를 호출 하 여 컨테이너에서 모델 파일 또는 모델 파일의 폴더를 찾습니다. 모델 파일이 나 폴더를 찾을 수 없는 경우 함수가 실패 합니다. 이 오류를 디버그하는 가장 쉬운 방법은 컨테이너 셸에서 아래의 Python 코드를 실행하는 것입니다.
+종종 점수 매기기 스크립트의 `init()` 함수에서 모델 파일이 나 컨테이너에 있는 모델 파일의 폴더를 찾기 위해 [get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) 함수가 호출 됩니다. 모델 파일이 나 폴더를 찾을 수 없는 경우 함수가 실패 합니다. 이 오류를 디버그하는 가장 쉬운 방법은 컨테이너 셸에서 아래의 Python 코드를 실행하는 것입니다.
 
 ```python
 from azureml.core.model import Model
@@ -325,8 +332,8 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
 
 > [!IMPORTANT]
 > `Model.deploy()` 및 `LocalWebservice.deploy_configuration`를 사용 하 여 모델을 로컬로 배포 하는 경우이 디버깅 방법이 작동 하지 않습니다. 대신 [get-containerimage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) 클래스를 사용 하 여 이미지를 만들어야 합니다. 
->
-> 로컬 배포를 수행 하려면 로컬 시스템에서 작동 하는 Docker가 설치 되어 있어야 합니다. 로컬을 배포 하기 전에 Docker를 실행 해야 합니다. Docker 설치 및 사용에 대 한 자세한 내용은 [https://www.docker.com/](https://www.docker.com/)를 참조 하세요.
+
+로컬 배포를 수행 하려면 로컬 시스템에서 작동 하는 Docker가 설치 되어 있어야 합니다. Docker를 사용 하는 방법에 대 한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조 하세요.
 
 ### <a name="configure-development-environment"></a>개발 환경 구성
 

@@ -1,17 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
 description: 청사진 만들기, 할당 및 제거와 관련된 문제를 해결하는 방법을 알아봅니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
-ms.service: blueprints
-ms.openlocfilehash: b99e94bfdcbf12e82a094f14995b6b93aa3354ed
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b6f1d6c40f7268e90f09457e680a3ef33996c341
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978219"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960283"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Azure Blueprints를 사용하여 오류 문제 해결
 
@@ -35,7 +32,7 @@ ms.locfileid: "71978219"
 
 ### <a name="policy-violation"></a>시나리오: 정책 위반
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 정책 위반으로 인해 템플릿을 배포하지 못했습니다.
 
@@ -50,9 +47,9 @@ ms.locfileid: "71978219"
 
 청사진이 오류 세부 정보의 정책과 충돌하지 않도록 변경합니다. 이렇게 변경할 수 없으면 대체 옵션으로 정책 할당의 범위를 변경하여 청사진이 더 이상 정책과 충돌하지 않도록 합니다.
 
-### <a name="escape-function-parameter"></a>시나리오: 청사진 매개 변수가 함수임
+### <a name="escape-function-parameter"></a>시나리오: 청사진 매개 변수는 함수입니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 함수인 청사진 매개 변수는 아티팩트로 전달되기 전에 처리됩니다.
 
@@ -62,7 +59,7 @@ ms.locfileid: "71978219"
 
 #### <a name="resolution"></a>해결 방법
 
-함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[[resourceGroup().tags.myTag]`와 같이 표시되도록 `[`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. Blueprints는 그런 후에 함수를 아티팩트에 배치하므로 함수가 동적으로 올바르게 설정됩니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구문 및 식](../../../azure-resource-manager/template-expressions.md)을 참조 하세요.
+함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[`와 같이 표시되도록 `[[resourceGroup().tags.myTag]`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. Blueprints는 그런 후에 함수를 아티팩트에 배치하므로 함수가 동적으로 올바르게 설정됩니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구문 및 식](../../../azure-resource-manager/template-expressions.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

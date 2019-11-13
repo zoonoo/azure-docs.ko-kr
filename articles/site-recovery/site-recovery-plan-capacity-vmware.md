@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure로 VMware 재해 복구를 수행하기 위한 용량 및 크기 조정 계획 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 VMware 재해 복구를 위한 용량 계획
 description: 이 문서는 Azure Site Recovery를 사용하여 Azure로의 복제로 VMware VM의 재해 복구를 설정할 때 적용할 용량 및 크기 조정을 계획하는 데 참고할 수 있습니다.
 author: nsoneji
 manager: garavd
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 4/9/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: 0bf1b34295d827124198206e743bc21d5f7eb904
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 467c70a722b8a243be6ac2826188a4ba3459aa06
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747909"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961367"
 ---
 # <a name="plan-capacity-and-scaling-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위한 용량 및 크기 조정 계획
 

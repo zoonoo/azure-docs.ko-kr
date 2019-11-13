@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 미리 보기 사용 사례 | Microsoft Docs
-description: Azure Time Series Insights 미리 보기 사용 사례를 이해합니다.
+title: 사용 사례 미리 보기-Azure Time Series Insights | Microsoft Docs
+description: Azure Time Series Insights 미리 보기 사용 사례에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: b2c1aec7f5b653824ab999da2706549e54d47e3a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 175fbf598ae2224d1e1ee0e9c9a3f9ba446965c3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492063"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014683"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights 미리 보기 사용 사례
 

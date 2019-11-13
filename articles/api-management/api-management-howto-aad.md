@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1def431bd24019c5f7d15cf7ac0e7550b85d17c4
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176717"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012959"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
 이 아티클에서는 Azure AD(Azure Active Directory)의 사용자에게 개발자 포털에 액세스할 수 있도록 하는 방법을 보여줍니다. 또한 이 가이드에서는 사용자를 포함하는 외부 그룹을 추가하여 Azure AD 사용자 그룹을 관리하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 - 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 - Azure API Management 인스턴스를 가져오고 게시합니다. 자세한 내용은 [가져오기 및 게시](import-and-publish.md)를 참조하세요.
@@ -32,8 +32,8 @@ ms.locfileid: "73176717"
 
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Azure AD를 사용하여 개발자 계정에 권한 부여
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. 
-2. 선택 ![화살표](./media/api-management-howto-aad/arrow.png).
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+2. 여기서 ![화살표](./media/api-management-howto-aad/arrow.png)을 선택합니다.
 3. 검색 상자에 **api**를 입력합니다.
 4. **API Management 서비스**를 선택합니다.
 5. API Management 서비스 인스턴스를 선택합니다.
@@ -71,9 +71,9 @@ ms.locfileid: "73176717"
 19. **ID 공급자 추가** 창에는 **허용된 테넌트** 텍스트 상자도 포함됩니다. 여기에서 API Management 서비스 인스턴스의 API에 대한 액세스 권한을 부여하려는 Azure AD 인스턴스의 도메인을 지정합니다. 줄바꿈, 공백 또는 쉼표로 여러 도메인을 구분할 수 있습니다.
 
 > [!NOTE]
-> **허용된 테넌트** 섹션에서 여러 도메인을 지정할 수 있습니다. 사용자가 애플리케이션이 등록되었던 원래 도메인이 아닌 다른 도메인에서 로그인하려면, 다른 도메인의 전역 관리자가 디렉터리 데이터에 액세스할 수 있도록 애플리케이션에 권한을 부여해야 합니다. 권한을 부여 하려면 전역 관리자가 다음을 수행 해야 합니다. `https://<URL of your developer portal>/aadadminconsent`(예: https://contoso.portal.azure-api.net/aadadminconsent) 로 이동합니다.
+> **허용된 테넌트** 섹션에서 여러 도메인을 지정할 수 있습니다. 사용자가 애플리케이션이 등록되었던 원래 도메인이 아닌 다른 도메인에서 로그인하려면, 다른 도메인의 전역 관리자가 디렉터리 데이터에 액세스할 수 있도록 애플리케이션에 권한을 부여해야 합니다. 권한을 부여 하려면 전역 관리자가 다음을 수행 해야 합니다. `https://<URL of your developer portal>/aadadminconsent`(예: https://contoso.portal.azure-api.net/aadadminconsent)로 이동합니다.
 > b. 액세스 권한을 부여하려는 Azure AD 테넌트의 도메인 이름을 입력합니다.
-> 다. **제출**을 선택합니다. 
+> c. **제출**을 선택합니다. 
 
 20.  원하는 구성을 지정한 후에 **추가**를 선택합니다.
 
@@ -100,11 +100,11 @@ API Management 인스턴스의 **그룹** 탭에 외부 Azure AD 그룹을 추�
 
 ## <a name="a-idlog_in_to_dev_portal-developer-portal---add-azure-ad-account-authentication"></a><a id="log_in_to_dev_portal"/> 개발자 포털-Azure AD 계정 인증 추가
 
-개발자 포털에서 AAD로 로그인을 사용 하도록 설정 하려면 로그인 폼에 **OAuth 단추** 위젯을 추가 해야 합니다.
+개발자 포털에서는 **OAuth 단추** 위젯을 사용 하 여 AAD로 로그인 할 수 있습니다. 위젯은 기본 개발자 포털 콘텐츠의 로그인 페이지에 이미 포함 되어 있습니다.
 
 ![AAD 단추 위젯](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-새 사용자가 AAD를 사용 하 여 로그인 할 때마다 새 계정이 자동으로 생성 되지만 등록 양식에서 동일한 위젯을 추가 하는 것이 좋습니다.
+새 사용자가 AAD를 사용 하 여 로그인 할 때마다 새 계정이 자동으로 생성 되지만, 동일한 위젯을 등록 페이지에 추가 하는 것이 좋습니다.
 
 ## <a name="legacy-developer-portal---how-to-sign-in-with-azure-ad"></a>레거시 개발자 포털-Azure AD를 사용 하 여 로그인 하는 방법
 

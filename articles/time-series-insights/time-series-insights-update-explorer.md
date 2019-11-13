@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 미리 보기 탐색기에서 데이터 시각화 | Microsoft Docs
-description: 이 문서에서는 Azure Time Series Insights 미리 보기 탐색기 웹앱에서 사용할 수 있는 기능 및 옵션에 대해 설명합니다.
+title: 미리 보기 탐색기에서 데이터 시각화-Azure Time Series Insights | Microsoft Docs
+description: Azure Time Series Insights Preview 탐색기에서 제공 되는 기능 및 옵션에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3f6c03ace13b9b6cb1bda004799502e1f382051d
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f09de6fee4c9de39d98ec66714686ab1e805c4cd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989962"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014872"
 ---
 # <a name="visualize-data-in-the-explorer-preview"></a>탐색기 미리 보기에서 데이터 시각화
 
 이 문서에서는 Azure Time Series Insights Preview [demo 웹 앱](https://insights.timeseries.azure.com/preview/demo)의 사용자 인터페이스 및 사용자 환경 기능 및 인터페이스에 대해 설명 합니다. 특히 호스팅된 샘플의 레이아웃, 인터페이스 사용자 지정 옵션 및 제공 된 데모를 통한 탐색에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 Azure Time Series Insights Preview 탐색기를 시작 하려면 다음을 수행 해야 합니다.
 
@@ -35,7 +35,7 @@ Azure Time Series Insights Preview 탐색기를 시작 하려면 다음을 수�
 
 Azure Time Series Insights 미리 보기 탐색기는 다음 요소로 구성되어 있습니다.
 
-[탐색기 보기![](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
+[탐색기 보기 ![](media/v2-update-explorer/explorer-one.png)](media/v2-update-explorer/explorer-one.png#lightbox)
 
 - <a href="#environment-drop-down-list">환경 패널</a>: Azure Time Series Insights 환경을 표시 합니다.
 - <a href="#navigation-menu">탐색 메뉴</a>: **분석** 및 **모델** 페이지 간을 전환 하는 데 사용 합니다.
@@ -51,13 +51,13 @@ Azure Time Series Insights 미리 보기 탐색기는 다음 요소로 구성되
 
 1. 표시 된 환경 옆에 있는 드롭다운 화살표를 선택 합니다.
 
-   [제어판![](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
+   [제어판 ![](media/v2-update-explorer/explorer-two.png)](media/v2-update-explorer/explorer-two.png#lightbox)
 
 1. 그런 다음 원하는 환경을 선택 합니다.
 
 ## <a name="navigation-menu"></a>탐색 메뉴
 
-  [탐색 메뉴![](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
+  [탐색 메뉴 ![](media/v2-update-explorer/explorer-three.png)](media/v2-update-explorer/explorer-three.png#lightbox)
 
 탐색 메뉴를 사용 하 여 두 뷰 중에서 선택 합니다.
 
@@ -72,7 +72,7 @@ Azure Time Series Insights 미리 보기 탐색기는 다음 요소로 구성되
 
 모델 검색 패널을 사용 하 여 시계열 모델 계층 구조를 쉽게 검색 하 고 탐색 하 여 차트에 표시할 특정 시계열 인스턴스를 찾을 수 있습니다. 인스턴스를 선택 하면 현재 차트와 데이터 웰에 모두 추가 됩니다.
 
-  [모델 검색 패널![](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
+  [모델 검색 패널 ![](media/v2-update-explorer/explorer-four.png)](media/v2-update-explorer/explorer-four.png#lightbox)
 
 ### <a name="model-authoring"></a>모델 작성
 
@@ -88,7 +88,7 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 
 는 선택한 Time Series Insights 인스턴스와 연결 된 인스턴스 필드 및 기타 메타 데이터를 표시 합니다. 오른쪽에 있는 확인란을 선택 하 여 현재 차트의 특정 인스턴스를 숨기 거 나 표시할 수 있습니다. 요소의 왼쪽에 있는 빨간색 **삭제** (휴지통) 컨트롤을 선택 하 여 현재 데이터에서 특정 데이터 요소를 제거할 수도 있습니다.
 
-  [미리 보기 웰![](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
+  [미리 보기 웰 ![](media/v2-update-explorer/explorer-five.png)](media/v2-update-explorer/explorer-five.png#lightbox)
 
 **분석** 차트 페이지의 레이아웃을 다시 구성 하려면 오른쪽 위 모퉁이에 있는 줄임표 아이콘을 선택 합니다.
 
@@ -129,7 +129,7 @@ Azure Time Series Insights 미리 보기는 시계열 모델에 대 한 모든 C
 
 여기에서 공유 Y 축의 예를 볼 수 있습니다.
 
-  [공유 Y 축![미리 보기](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
+  [공유 Y 축 ![미리 보기](media/v2-update-explorer/explorer-eleven.png)](media/v2-update-explorer/explorer-eleven.png#lightbox)
 
 ## <a name="time-editor-panel"></a>시간 편집기 패널
 
@@ -151,7 +151,7 @@ Time Series Insights 미리 보기를 사용하는 경우 먼저 시간 범위�
 
 1. **웹 컨트롤에 대 한 날짜 범위**:이 웹 컨트롤을 사용 하면 원하는 날짜 및 시간 범위를 쉽게 선택할 수 있습니다. 컨트롤을 사용하여 표준 시간대 간에 전환할 수도 있습니다. 현재 작업 영역에 변경 내용을 적용 한 후 **저장**을 선택 합니다.
 
-   [선택 패널과의![](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
+   [선택 패널과의 ![](media/v2-update-explorer/explorer-thirteen.png)](media/v2-update-explorer/explorer-thirteen.png#lightbox)
 
 ## <a name="navigation-panel"></a>탐색 패널
 
@@ -187,7 +187,7 @@ Azure Time Series Insights 미리 보기는 다음 두 가지 테마를 지원�
 * **밝은 테마**:이 문서 전체에 표시 되는 기본 테마입니다.
 * **어두운 테마**: 다음과 같이 탐색기를 렌더링 합니다.
 
-  [선택한 짙은 테마![](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
+  [선택한 짙은 테마 ![](media/v2-update-explorer/explorer-seventeen.png)](media/v2-update-explorer/explorer-seventeen.png#lightbox)
 
 ## <a name="s1s2-environment-controls"></a>S1/S2 환경 컨트롤
 
@@ -197,18 +197,18 @@ Azure Time Series Insights 미리 보기는 다음 두 가지 테마를 지원�
 
 계층 구조 대신 환경에서 쿼리를 정의 하는 Time Series Insights 용어 창이 표시 됩니다. 조건자를 기준으로 데이터를 필터링 하는 데 사용 합니다.
 
-  [쿼리 패널![](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
+  [쿼리 패널 ![](media/v2-update-explorer/explorer-eighteen.png)](media/v2-update-explorer/explorer-eighteen.png#lightbox)
 
 Time Series Insights 미리 보기 용어 편집기 패널은 다음 매개 변수를 사용합니다.
 
 **Where**: where 절을 사용 하 여 다음 표에 나열 된 피연산자 집합을 사용 하 여 이벤트를 신속 하 게 필터링 합니다. 피연산자를 선택하여 검색을 수행하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트됩니다. 지원 되는 피연산자 유형은 다음과 같습니다.
 
-| 작업(Operation) | 지원되는 형식   | 참고 |
+| 작업(Operation) | 지원되는 형식   | 참고 사항 |
 | --- | --- | --- |
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | 모든 연산자는 같은 형식이거나 NULL 상수여야 합니다. |
-| `HAS` | string | 오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다. |
+| `HAS` | 문자열 | 오른쪽에는 상수 문자열 리터럴만 사용할 수 있습니다. 빈 문자열 및 NULL은 허용 되지 않습니다. |
 
 지원 되는 쿼리 작업 및 데이터 형식에 대 한 자세한 내용은 [TSX (Time Series Expression)](https://docs.microsoft.com/rest/api/time-series-insights/preview-tsx)를 참조 하세요.
 

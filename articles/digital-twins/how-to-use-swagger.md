@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins 참조 Swagger를 사용하는 방법 이해 | Microsoft Docs
+title: 참조 Swagger 설명서를 사용 하는 방법-Azure Digital Twins | Microsoft Docs
 description: Azure Digital Twins Swagger 참조 설명서를 사용하는 방법을 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6a99693c3f88e94c093910da6ba4a305c26fe39d
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ccea63e8edee739ce6743d7638b4e5300ad07f8f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931336"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009893"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 참조 설명서
 

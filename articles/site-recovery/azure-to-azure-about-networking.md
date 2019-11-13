@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하는 Azure 간 재해 복구 정보 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 Azure VM 재해 복구의 네트워킹 정보
 description: Azure Site Recovery를 사용하는 Azure VM의 복제에 대한 네트워킹을 간략히 설명합니다.
 services: site-recovery
 author: sujayt
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: sutalasi
-ms.openlocfilehash: 5c2cd96ccfa3a26a9009188ad424eefaaeb7ce48
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 09cd814ade25be438a17b83fb73e74b89c14e22f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906851"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954204"
 ---
-# <a name="about-networking-in-azure-to-azure-replication"></a>Azure 간 복제의 네트워킹 정보
+# <a name="about-networking-in-azure-vm-disaster-recovery"></a>Azure VM 재해 복구의 네트워킹 정보
 
 
 
@@ -75,7 +75,7 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
    인도 중부 | 52.172.187.37 | 104.211.98.185
    인도 남부 | 52.172.46.220 | 104.211.224.190
    미국 중북부 | 23.96.195.247 | 168.62.249.226
-   북유럽 | 40.69.212.238 | 52.169.18.8
+   유럽 북부 | 40.69.212.238 | 52.169.18.8
    서유럽 | 52.166.13.64 | 40.68.93.145
    미국 동부 | 13.82.88.226 | 104.45.147.24
    미국 서부 | 40.83.179.48 | 104.40.26.199
@@ -101,7 +101,7 @@ Site Recovery IP 주소 범위는 다음과 같습니다.
    프랑스 남부 | 52.136.139.227 |52.136.136.62
    오스트레일리아 중부| 20.36.34.70 | 20.36.46.142
    오스트레일리아 중부 2| 20.36.69.62 | 20.36.74.130
-   남아프리카 공화국 서부 | 102.133.72.51 | 102.133.26.128
+   남아프리카 서부 | 102.133.72.51 | 102.133.26.128
    남아프리카 공화국 북부 | 102.133.160.44 | 102.133.154.128
    미국 정부 버지니아 | 52.227.178.114 | 23.97.0.197
    US Gov 아이오와 | 13.72.184.23 | 23.97.16.186

@@ -6,14 +6,14 @@ ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.date: 12/17/2018
+ms.date: 11/12/2019
 ms.reviewer: carlrab
-ms.openlocfilehash: 75e8cffea08c7db4526c647a32ed92be2d1779f1
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b092c547edf37b31e6099227d8cc0e69048bad7a
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899135"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961979"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Azure SQL 분석을 사용하여 Azure SQL Database 모니터링(미리 보기)
 
@@ -35,12 +35,27 @@ Azure SQL Analytics는 단일, 풀링, Managed Instance 데이터베이스 등 A
 | 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
 | [진단 설정](../platform/diagnostic-settings.md) | **예** | Azure 메트릭 및 로그 데이터는 Azure에서 직접 Azure Monitor 로그에 전송 됩니다. |
-| [Azure Storage 계정](../platform/collect-azure-metrics-logs.md) | 아닙니다. | Azure Monitor는 저장소 계정에서 데이터를 읽지 않습니다. |
-| [Windows 에이전트](../platform/agent-windows.md) | 아닙니다. | 직접 Windows 에이전트는 솔루션에서 사용되지 않습니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아닙니다. | 직접 Linux 에이전트는 솔루션에서 사용되지 않습니다. |
-| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 아닙니다. | Operations Manager 에이전트에서 Azure Monitor로의 직접 연결은 솔루션에서 사용 되지 않습니다. |
+| [Azure Storage 계정](../platform/collect-azure-metrics-logs.md) | 아니오 | Azure Monitor는 저장소 계정에서 데이터를 읽지 않습니다. |
+| [Windows 에이전트](../platform/agent-windows.md) | 아니오 | 직접 Windows 에이전트는 솔루션에서 사용되지 않습니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아니오 | 직접 Linux 에이전트는 솔루션에서 사용되지 않습니다. |
+| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 아니오 | Operations Manager 에이전트에서 Azure Monitor로의 직접 연결은 솔루션에서 사용 되지 않습니다. |
 
-## <a name="configuration"></a>구성
+## <a name="azure-sql-analytics-options"></a>Azure SQL 분석 옵션
+
+아래 표에서는 두 가지 버전의 Azure SQL 분석 대시보드의 지원 되는 옵션, Azure SQL database 및 탄력적 풀에 대해 지원 되는 옵션 및 Managed Instance에 대 한 다른 옵션을 간략하게 설명 합니다.
+
+| Azure SQL 분석 옵션 | 설명 | SQL Database 및 탄력적 풀 지원 | Managed Instance 지원 |
+| --- | ------- | ----- | ----- |
+| 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점. | 예 | 예 |
+| 자세한 정보 | Intelligent Insights 성능에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
+| 오류 | 데이터베이스에서 발생한 SQL 오류에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
+| 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. | 예 | 아니오 |
+| 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. | 예 | 아니오 |
+| 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. |예 | 예 |
+| 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
+| 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. | 예 | 예 |
+
+## <a name="configuration"></a>Configuration
 [솔루션 갤러리에서 Azure Monitor 솔루션 추가](../../azure-monitor/insights/solutions.md) 에 설명 된 프로세스를 사용 하 여 Log Analytics 작업 영역에 Azure SQL 분석 (미리 보기) 솔루션을 추가 합니다.
 
 ### <a name="configure-azure-sql-databases-elastic-pools-and-managed-instances-to-stream-diagnostics-telemetry"></a>진단 원격 분석을 스트림하기 위해 Azure SQL Databases, 탄력적 풀 및 Managed Instances 구성
@@ -94,21 +109,6 @@ Azure SQL Database 및 탄력적 풀에 대한 대시보드를 모니터링하�
 Managed Instance 보기를 선택하면 Managed Instance 사용률, 포함된 데이터베이스 및 인스턴스 전체에서 실행된 쿼리에 대한 원격 분석의 세부 정보가 표시됩니다.
 
 ![Azure SQL 분석 시간 제한](./media/azure-sql/azure-sql-sol-metrics-mi.png)
-
-### <a name="perspectives"></a>큐브 뷰
-
-아래 표에서는 Azure SQL 데이터베이스 및 탄력적 풀에 대한 큐브 뷰 및 Managed Instance에 대한 큐브 뷰와 같이 두 버전의 대시보드에 지원되는 큐브 뷰에 대해 설명합니다.
-
-| 관점 | 설명 | SQL Database 및 탄력적 풀 지원 | Managed Instance 지원 |
-| --- | ------- | ----- | ----- |
-| 유형별 리소스 | 모니터링되는 모든 리소스를 계산하는 관점. | yes | yes |
-| 인사이트 | Intelligent Insights 성능에 대한 계층적 드릴다운을 제공합니다. | yes | yes |
-| 오류 | 데이터베이스에서 발생한 SQL 오류에 대한 계층적 드릴다운을 제공합니다. | yes | yes |
-| 시간 제한 | 데이터베이스에서 발생한 SQL 시간 제한에 대한 계층적 드릴다운을 제공합니다. | yes | 아닙니다. |
-| 차단 | 데이터베이스에서 발생한 SQL 차단에 대한 계층적 드릴다운을 제공합니다. | yes | 아닙니다. |
-| 데이터베이스 대기 | 데이터베이스 수준에서 발생한 SQL 대기 통계에 대한 계층적 드릴다운을 제공합니다. 총 대기 시간 및 대기 유형별 대기 시간에 대한 요약을 포함합니다. |yes | yes |
-| 쿼리 기간 | 쿼리 기간, CPU 사용량, 데이터 IO 사용량, 로그 IO 사용량과 같은 쿼리 실행 통계에 대한 계층적 드릴다운을 제공합니다. | yes | yes |
-| 쿼리 대기 | 대기 범주별 쿼리 대기 통계에 대한 계층적 드릴다운을 제공합니다. | yes | yes |
 
 ### <a name="intelligent-insights-report"></a>Intelligent Insights 보고서
 

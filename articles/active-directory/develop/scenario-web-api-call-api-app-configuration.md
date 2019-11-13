@@ -15,12 +15,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 529665a03d2203dcb501b59d7647f4390bdaeb78
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5bae9f565dd37fbd3bcae38833662e13e0b7ac6d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936734"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960643"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 웹 API-코드 구성
 
@@ -70,13 +70,13 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
 AddAccountToCacheFromJwt () 메서드는 다음을 수행 해야 합니다.
 
 - MSAL 기밀 클라이언트 응용 프로그램을 인스턴스화합니다.
-- 을 `AcquireTokenOnBehalf` 호출 하 여 클라이언트에서 web API에 대해 획득 한 전달자 토큰을 동일한 사용자에 대 한 전달자 토큰에 대해 교환 하지만 api는 다운스트림 api를 호출 합니다.
+- `AcquireTokenOnBehalf`를 호출 하 여 클라이언트에서 web API에 대해 획득 한 전달자 토큰을 동일한 사용자에 대 한 전달자 토큰에 대해 교환 하지만이 API는 다운스트림 API를 호출 합니다.
 
 ### <a name="instantiate-a-confidential-client-application"></a>기밀 클라이언트 응용 프로그램 인스턴스화
 
-이 흐름은 기밀 클라이언트 흐름 에서만 사용할 수 있으므로 보호 된 웹 API는 `WithClientSecret` 또는 `WithCertificate` 메서드를 통해 클라이언트 자격 증명 (클라이언트 암호 또는 인증서)을 [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) 에 제공 합니다. 각기.
+이 흐름은 기밀 클라이언트 흐름 에서만 사용할 수 있으므로 보호 된 웹 API는 `WithClientSecret` 또는 `WithCertificate` 메서드를 통해 클라이언트 자격 증명 (클라이언트 암호 또는 인증서)을 [ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) 에 제공 합니다.
 
-![image](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
+![이미지](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
 
 ```CSharp
 IConfidentialClientApplication app;
@@ -99,13 +99,13 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 ### <a name="how-to-call-on-behalf-of"></a>대신를 호출 하는 방법
 
-(Obo) 호출은 `IConfidentialClientApplication` 인터페이스에서 [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) 메서드를 호출 하 여 수행 됩니다.
+`IConfidentialClientApplication` 인터페이스에서 [AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) 메서드를 호출 하 여 obo (주문형) 호출을 수행 합니다.
 
-는 `UserAssertion` 자체 클라이언트에서 web API가 받은 전달자 토큰을 기반으로 빌드됩니다. JWT 전달자 토큰을 사용 하는 생성자와 다른 종류의 사용자 어설션을 사용 하는 [생성자](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet)가 있습니다. 다른 종류의 보안 토큰은 라는 `assertionType`추가 매개 변수에 지정 됩니다.
+`UserAssertion`는 자체 클라이언트에서 web API가 받은 전달자 토큰에서 빌드됩니다. JWT 전달자 토큰을 사용 하는 생성자와 다른 종류의 사용자 어설션을 사용 하는 [생성자](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet)가 있습니다. 다른 종류의 보안 토큰은 다른 종류의 보안 토큰을 사용 합니다. 그 중 하나는 `assertionType`이라는 추가 매개 변수에 지정 됩니다.
 
-![image](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
+![이미지](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
 
-실제로는 obo flow를 사용 하 여 다운스트림 api에 대 한 토큰을 획득 하 고 MSAL.NET 사용자 토큰 캐시에 저장 하 여 web API의 다른 부분이 나중에의 ``AcquireTokenOnSilent`` [재정의](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) 를 호출 하 여 다운스트림 api를 호출할 수 있도록 하는 경우가 많습니다. 필요한 경우이 호출은 토큰을 새로 고치는 효과를 가집니다.
+실제로 OBO 흐름은 다운스트림 API에 대 한 토큰을 획득 하 고 MSAL.NET 사용자 토큰 캐시에 저장 하는 데 사용 됩니다. 따라서 웹 API의 다른 부분은 나중에 다운스트림 Api를 호출 하는 ``AcquireTokenOnSilent``의 [재정의](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) 를 호출할 수 있습니다. 필요한 경우이 호출은 토큰을 새로 고치는 효과를 가집니다.
 
 ```CSharp
 private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
@@ -141,7 +141,9 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
 }
 ```
 
-## <a name="protocol"></a>Protocol
+또한 [Nodejs 및 Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61)에서 흐름 구현을 대신 하는 예제를 볼 수 있습니다.
+
+## <a name="protocol"></a>프로토콜
 
 주문형 프로토콜에 대 한 자세한 내용은 [Microsoft id 플랫폼 및 OAuth 2.0 on flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow)를 참조 하세요.
 

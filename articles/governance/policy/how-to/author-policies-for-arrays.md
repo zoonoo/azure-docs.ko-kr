@@ -1,17 +1,14 @@
 ---
 title: 리소스의 배열 속성에 대 한 작성자 정책
 description: 배열 매개 변수를 만들고, 배열 언어 식에 대 한 규칙을 만들고, [*] 별칭을 평가 하 고, Azure Policy 정의 규칙을 사용 하 여 기존 배열에 요소를 추가 하는 방법을 알아봅니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 33607d790f564075623d6f61d1b7b8b70a119f98
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: f28cffcf928f9c4da6b2dae2a0811200397c1f0d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255815"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959707"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대 한 작성자 정책
 
@@ -19,7 +16,7 @@ Azure Resource Manager 속성은 일반적으로 문자열 및 부울로 정의 
 
 - 여러 옵션을 제공 하는 [정의 매개 변수의](../concepts/definition-structure.md#parameters)형식입니다.
 - 또는 **Notin** **의 조건을** 사용 하는 [정책 규칙](../concepts/definition-structure.md#policy-rule) 의 일부
-- [@No__t-1 @ no__t @ no__t 별칭](../concepts/definition-structure.md#understanding-the--alias) 을 평가 하 여 **None**, **Any**또는 **All** 등의 특정 시나리오를 평가 하는 정책 규칙의 일부입니다.
+- [\[\*\] 별칭](../concepts/definition-structure.md#understanding-the--alias) 을 평가 하 여 **None**, **Any**또는 **All** 등의 특정 시나리오를 평가 하는 정책 규칙의 일부입니다.
 - 기존 배열에 바꾸기 또는 기존 배열에 추가에 대 한 추가 [효과](../concepts/effects.md#append)
 
 이 문서에서는 Azure Policy의 각 사용에 대해 설명 하 고 몇 가지 예제 정의를 제공 합니다.
@@ -96,16 +93,16 @@ Azure Portal를 통해 정책을 할당할 때 _배열_ **형식의** 매개 변
 
 각 SDK에서이 문자열을 사용 하려면 다음 명령을 사용 합니다.
 
-- Azure CLI: **매개 변수 매개 변수** 를 사용 하 여 명령 [az policy 할당 만들기](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
-- Azure PowerShell: Cmdlet [AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) 매개 변수 **PolicyParameter**
-- REST API: _PUT_ [만들기](/rest/api/resources/policyassignments/create) 작업에서 요청 본문의 일부로 서 **속성. parameters** 속성의 값입니다.
+- Azure CLI: 명령 [az policy 대입문](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) with parameter **params**
+- Azure PowerShell: Cmdlet [AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) **PolicyParameter** 매개 변수
+- REST API: _PUT_ [만들기](/rest/api/resources/policyassignments/create) 작업에서 요청 본문의 일부로 서 **속성. parameters** 속성 값으로 설정 합니다.
 
 ## <a name="policy-rules-and-arrays"></a>정책 규칙 및 배열
 
 ### <a name="array-conditions"></a>배열 조건
 
 _배열_
-**형식의** 매개 변수를 사용할 수 있는 정책 규칙 [조건은](../concepts/definition-structure.md#conditions) `in` 및 `notIn`로 제한 됩니다. 예를 들어 다음 정책 정의를 조건 `equals`으로 사용 합니다.
+**형식의** 매개 변수를 사용할 수 있는 정책 규칙 [조건은](../concepts/definition-structure.md#conditions) `in` 및 `notIn`으로 제한 됩니다. 조건 `equals`를 사용 하 여 다음 정책 정의를 예로 들어 보겠습니다.
 
 ```json
 {
@@ -137,11 +134,11 @@ Azure Portal를 통해이 정책 정의를 만들려고 하면 다음 오류 메
 
 - "유효성 검사 오류로 인해 ' {GUID} ' 정책을 매개 변수화 할 수 없습니다. 정책 매개 변수가 제대로 정의 되어 있는지 확인 하세요. 언어 식 ' [parameters (' allowedLocations ')] '의 내부 예외 평가 결과는 ' Array ' 형식입니다. 필요한 형식은 ' String '입니다. '. "
 
-예상 되는 조건 **유형** `equals`은 _문자열_입니다. **Allowedlocations** **형식** _배열로_정의 되므로 정책 엔진은 언어 식을 평가 하 고 오류를 throw 합니다. @No__t-0 및 `notIn` 조건을 사용 하는 경우 정책 엔진은 언어 식에 **형식** _배열이_ 필요 합니다. 이 오류 메시지를 해결 하려면 `equals`을 `in` 또는 `notIn` 중 하나로 변경 합니다.
+예상 되는 조건 **유형** `equals`는 _문자열_입니다. **Allowedlocations** **형식** _배열로_정의 되므로 정책 엔진은 언어 식을 평가 하 고 오류를 throw 합니다. `in` 및 `notIn` 조건을 사용 하 여 정책 엔진은 언어 식에서 **형식** _배열을_ 예상 합니다. 이 오류 메시지를 해결 하려면 `equals` `in` 또는 `notIn`으로 변경 합니다.
 
 ### <a name="evaluating-the--alias"></a>[*] 별칭 평가
 
-이름에 연결 된 **[\*]** 의 별칭은 **형식이** _배열_임을 의미 합니다. 전체 배열의 값을 계산 하는 대신 **[\*]** 을 사용 하 여 배열의 각 요소를 평가할 수 있습니다. 다음과 같은 세 가지 시나리오가 있습니다. 이러한 시나리오는 항목 평가 별로 유용 합니다. None, Any 및 All입니다.
+이름에 연결 된 **[\*]** 의 별칭은 **형식이** _배열_임을 의미 합니다. 전체 배열의 값을 계산 하는 대신 **[\*]** 를 사용 하 여 배열의 각 요소를 평가할 수 있습니다. 항목 평가 별이 세 가지 시나리오는 없음, 모두 및 모두에 유용 합니다.
 
 정책 엔진은 **if** 규칙이 true로 평가 되는 **경우에만** 의 **효과** 를 트리거합니다.
 이 사실은 **[\*]** 이 배열의 개별 요소를 평가 하는 방식을 이해 하는 데 중요 합니다.
@@ -180,7 +177,7 @@ Azure Portal를 통해이 정책 정의를 만들려고 하면 다음 오류 메
 ]
 ```
 
-아래 각 조건 예에서는 `<field>`을 `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`로 바꿉니다.
+아래 각 조건 예에서는 `<field>`를 `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`으로 바꿉니다.
 
 다음 결과는 조건 및 예제 정책 규칙의 조합 및 위의 기존 값 배열에 대 한 결과입니다.
 
@@ -197,10 +194,10 @@ Azure Portal를 통해이 정책 정의를 만들려고 하면 다음 오류 메
 
 ## <a name="the-append-effect-and-arrays"></a>추가 효과 및 배열
 
-[추가 효과](../concepts/effects.md#append) 는 details가 **[\*]** 별칭 인지에 따라 다르게 동작 합니다 **.**
+[추가 효과](../concepts/effects.md#append) 는 details가 **[\*]** 별칭 인지 여부에 따라 다르게 동작 합니다 **.**
 
-- **[@No__t-1]** 별칭이 아니면 append는 전체 배열을 **value** 속성으로 바꿉니다.
-- **[@No__t-1]** 별칭이 면 append는 기존 배열에 **value** 속성을 추가 하거나 새 배열을 만듭니다.
+- **[\*]** 별칭이 아니면 append는 전체 배열을 **value** 속성으로 바꿉니다.
+- **[\*]** 별칭이 면 append는 기존 배열에 **value** 속성을 추가 하거나 새 배열을 만듭니다.
 
 자세한 내용은 [추가 예제](../concepts/effects.md#append-examples)를 참조 하세요.
 

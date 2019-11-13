@@ -2,7 +2,7 @@
 title: 포털의 위험한 로그인 보고서 | Microsoft Docs
 description: Azure Active Directory 포털의 위험한 로그인 보고서에 대해 알아보기
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: 7728fcd7-3dd5-4b99-a0e4-949c69788c0f
 ms.service: active-directory
@@ -12,21 +12,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/28/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7bb0cd2c98d0133b0eaffce1730fb9f7cb74bf60
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 3f19744e6c860ae315b681f5eb090cba23b153af
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043535"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008352"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 위험한 로그인 보고서
 
 Azure Active Directory(Azure AD)는 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 검색 된 각 작업에 대해 **위험 검색** 이라는 레코드가 만들어집니다. 자세한 내용은 [AZURE AD 위험 탐지](concept-risk-events.md)를 참조 하세요. 
 
-**Azure Active Directory** 블레이드를 선택한 다음, **보안** 섹션으로 이동하여 [Azure Portal](https://portal.azure.com)의 보안 보고서에 액세스할 수 있습니다. 
+[Azure Active Directory](https://portal.azure.com) 블레이드를 선택한 다음, **보안** 섹션으로 이동하여 **Azure Portal**의 보안 보고서에 액세스할 수 있습니다. 
 
 위험 검색에 따라 계산 되는 두 가지 보안 보고서가 있습니다.
 
@@ -44,7 +44,7 @@ Azure Active Directory(Azure AD)는 사용자 계정과 관련된 의심스러�
 
 - 보안 관리자
 - 전역 관리자
-- 보안 읽기 권한자
+- 보안 판독기
 
 Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방법을 알아보려면 [Azure Active Directory에서 관리자 역할 보기 및 할당](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal)을 참조하세요.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights에서 문제 진단 및 해결 | Microsoft Docs
-description: 이 문서에서는 Azure Time Series Insights 환경에서 발생할 수 있는 일반적인 문제를 진단하고 해결하는 방법을 설명합니다.
+title: 문제 진단, 문제 해결 및 해결-Azure Time Series Insights | Microsoft Docs
+description: 이 문서에서는 Azure Time Series Insights 환경의 일반적인 문제를 진단 하 고 해결 하 고 해결 하는 방법을 설명 합니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7c9dcdf43e819e20126f948fa08f4f8f476036ac
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: ca38ebb015552042591fb4cc6b7edfe99527e79f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991266"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007058"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
 
@@ -44,7 +44,7 @@ Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 
 
 * Azure Event Hubs의 이벤트 허브에서는 **수신** 권한이 있는 키를 제공해야 합니다. **read** 또는 **manage** 정책에는 **수신** 권한이 있으므로 둘 다 사용할 수 있습니다.
 
-   [이벤트 허브 수신 사용 권한![](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [이벤트 허브 수신 사용 권한 ![](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>원인 C: 제공 된 소비자 그룹이 Time Series Insights 전용이 아닙니다.
 
@@ -111,7 +111,7 @@ IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사�
 
 - *(abc)* : Time Series Insights에서 데이터 값을 문자열로 읽도록 지정 합니다.
 - *Calendar icon*: Time Series Insights에서 데이터 값을 *datetime*으로 읽도록 지정 합니다.
-- *#* : Time Series Insights에서 데이터 값을 정수로 읽도록 지정 합니다.
+- *#* : Time Series Insights 데이터 값을 정수로 읽도록 지정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

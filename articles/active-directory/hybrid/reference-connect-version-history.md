@@ -2,26 +2,22 @@
 title: 'Azure AD Connect: 버전 릴리스 내역 | Microsoft Docs'
 description: 이 문서에는 Azure AD Connect 및 Azure AD Sync의 모든 릴리스가 나열되어 있습니다.
 services: active-directory
-documentationcenter: ''
 author: billmath
 manager: daveba
-editor: ''
 ms.assetid: ef2797d7-d440-4a9a-a648-db32ad137494
 ms.service: active-directory
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52e15aa62043ba394ae6e8cfe2cc7f27709c7d33
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927448"
+ms.locfileid: "73944218"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -35,24 +31,23 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 --------- | --------- |
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](how-to-upgrade-previous-version.md) 하는 다른 방법입니다.
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
-
-다운로드 | [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771).
+다운로드| [Azure AD Connect 다운로드](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 >[!NOTE]
 >새 버전의 Azure AD Connect 릴리스는 서비스의 작업 기능을 보장 하기 위해 몇 가지 품질 제어 단계가 필요 하며,이 프로세스를 진행 하는 동안 새 릴리스의 버전 번호와 릴리스 상태를 업데이트 하는 프로세스입니다. 최신 상태를 반영 합니다.
 이 프로세스를 진행 하는 동안 릴리스 버전 번호는 "1.3. X. 0"과 같이 부 릴리스 번호 위치에 "X"가 표시 됩니다 .이는이 문서의 릴리스 정보가 "1.3"로 시작 하는 모든 버전에 대해 유효 함을 나타냅니다. 릴리스 프로세스를 완료 하는 즉시 릴리스 버전 번호는 가장 최근에 릴리스된 버전으로 업데이트 되 고 릴리스 상태는 "다운로드 및 자동 업그레이드를 위해 릴리스"로 업데이트 됩니다.
-일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)에 대한 자세한 내용은 이 링크 참조
+일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](how-to-connect-install-automatic-upgrade.md)에 대한 자세한 내용은 이 링크 참조
 
 ## <a name="14320"></a>1.4.32.0
 ### <a name="release-status"></a>릴리스 상태
-08/11/2019: 다운로드를 위해 릴리스 되었습니다. 자동 업그레이드에 사용할 수 없음
+11/08/2019: 다운로드를 위해 릴리스 되었습니다. 자동 업그레이드에 사용할 수 없음
 
 >[!IMPORTANT]
 >이 Azure AD Connect 릴리스의 내부 스키마 변경으로 인해 MSOnline PowerShell을 사용 하 여 ADFS 트러스트 관계 구성 설정을 관리 하는 경우 MSOnline PowerShell 모듈을 1.1.183.57 버전 이상으로 업데이트 해야 합니다.
 ### <a name="fixed-issues"></a>해결된 문제
 
 이 버전은 기존 하이브리드 Azure AD 조인 장치와 관련 된 문제를 해결 합니다. 이 릴리스에는이 문제를 해결 하는 새로운 장치 동기화 규칙이 포함 되어 있습니다.
-이 규칙 변경으로 인해 Azure AD에서 사용 되지 않는 장치를 삭제할 수 있습니다. 이러한 장치 개체는 조건부 액세스 권한 부여 중에 Azure AD에서 사용 되지 않기 때문에 문제가 발생 하지 않습니다. 일부 고객의 경우이 규칙 변경을 통해 삭제 되는 장치 수는 삭제 임계값을 초과할 수 있습니다. Azure AD의 장치 개체 삭제가 내보내기 삭제 임계값을 초과 하는 것으로 확인 되는 경우 삭제를 통과 하도록 허용 하는 것이 좋습니다. [삭제 임계값을 초과 하는 삭제를 허용 하는 방법](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-sync-feature-prevent-accidental-deletes)
+이 규칙 변경으로 인해 Azure AD에서 사용 되지 않는 장치를 삭제할 수 있습니다. 이러한 장치 개체는 조건부 액세스 권한 부여 중에 Azure AD에서 사용 되지 않기 때문에 문제가 발생 하지 않습니다. 일부 고객의 경우이 규칙 변경을 통해 삭제 되는 장치 수는 삭제 임계값을 초과할 수 있습니다. Azure AD의 장치 개체 삭제가 내보내기 삭제 임계값을 초과 하는 것으로 확인 되는 경우 삭제를 통과 하도록 허용 하는 것이 좋습니다. [삭제 임계값을 초과 하는 삭제를 허용 하는 방법](how-to-connect-sync-feature-prevent-accidental-deletes.md)
 
 ## <a name="14250"></a>1.4.25.0
 
@@ -120,8 +115,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 > 이 문제를 해결 하려면 **Adsync** 모듈을 가져온 다음 Azure AD Connect 서버에서`Set-ADSyncDirSyncConfiguration` powershell cmdlet을 실행 해야 합니다.  다음 단계를 사용할 수 있습니다.
 >
 >1. 관리자로 모드에서 Powershell 열기
->2. `Import-Module "ADSync"`
->3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`
+>2. `Import-Module "ADSync"`를 실행합니다.
+>3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`를 실행합니다.
  
 ### <a name="release-status"></a>릴리스 상태 
 
@@ -129,7 +124,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 ### <a name="fixed-issues"></a>해결된 문제 
 
-- Microsoft Azure Active Directory Connect 빌드 1.3.20.0에 존재 하는 권한 상승 취약점을 수정 했습니다.  특정 상황에서 공격자가 권한 있는 계정의 컨텍스트에서 두 powershell cmdlet을 실행 하 고 권한 있는 작업을 수행할 수 있습니다.  이 보안 업데이트는 이러한 cmdlet을 사용 하지 않도록 설정 하 여 문제를 해결 합니다. 자세한 내용은 [보안 업데이트](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000)를 참조 하세요.
+- Microsoft Azure Active Directory Connect 빌드 1.3.20.0에 존재 하는 권한 상승 취약점을 수정 했습니다.  특정 상황에서 공격자가 권한 있는 계정의 컨텍스트에서 두 powershell cmdlet을 실행 하 고 권한 있는 작업을 수행할 수 있습니다.  이 보안 업데이트는 이러한 cmdlet을 사용 하지 않도록 설정 하 여 문제를 해결 합니다. 자세한 내용은 [보안 업데이트](https://portal.msrc.microsoft.com/security-guidance/advisory/CVE-2019-1000)를 참조 하세요.
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -474,7 +469,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-에     | 이름                          | Access               | 적용 대상
+형식     | 이름                          | Access               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 허용    | SYSTEM                        | 모든 권한         | 이 개체  |
 허용    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
@@ -1186,7 +1181,7 @@ AD FS 관리
 
 **지원되는 새 시나리오:**
 
-* 여러 온-프레미스 Exchange 조직을 지원합니다. 자세한 내용은 [여러 Active Directory 포리스트가 있는 하이브리드 배포](https://technet.microsoft.com/library/jj873754.aspx)를 참조하세요.
+* 여러 온-프레미스 Exchange 조직을 지원합니다. 자세한 내용은 [여러 Active Directory 포리스트가 있는 하이브리드 배포](https://docs.microsoft.com/previous-versions/exchange-server/exchange-150/jj873754(v=exchg.150))를 참조하세요.
 
 **수정된 문제:**
 

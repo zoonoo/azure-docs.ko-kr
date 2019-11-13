@@ -1,17 +1,14 @@
 ---
 title: 배포 순서 이해
 description: 청사진 정의가 거치는 수명 주기와 각 단계에 대 한 세부 정보를 알아보세요.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: bda7a6caea931a993a6ddd6731688792bf0b3948
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 87eff48f977f0308fea563090a44ff0b301909a9
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981007"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960446"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure Blueprint의 배포 순서 이해
 
@@ -55,7 +52,7 @@ JSON에서 `dependsOn` 속성을 정의하여 순서를 지정할 수 있습니�
 
 ### <a name="example---ordered-resource-group"></a>예제-정렬 된 리소스 그룹
 
-이 예제 청사진 정의에는 표준 리소스 그룹과 함께 `dependsOn`에 대 한 값을 선언 하 여 사용자 지정 시퀀싱 순서를 정의한 리소스 그룹이 있습니다. 이 예에서 **assignPolicyTags**라는 이름의 아티팩트가 **ordered-rg** 리소스 그룹보다 먼저 처리됩니다.
+이 예제 청사진 정의에는 표준 리소스 그룹과 함께 `dependsOn`값을 선언 하 여 사용자 지정 시퀀싱 순서를 정의한 리소스 그룹이 있습니다. 이 예에서 **assignPolicyTags**라는 이름의 아티팩트가 **ordered-rg** 리소스 그룹보다 먼저 처리됩니다.
 **standard-rg**는 기본 시퀀싱 순서대로 처리됩니다.
 
 ```json

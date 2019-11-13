@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery 서비스를 사용하여 Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 Azure Express 경로 Azure VM 재해 복구 통합
 description: Azure Site Recovery 및 Azure ExpressRoute를 사용하여 Azure VM을 위한 재해 복구를 설정하는 방법 설명
 services: site-recovery
 author: mayurigupta13
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 0974e2ed78e557168357c51b5c77a94de2f56dc5
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: bf12a5b7850a56d945e1082be6c522c31738669c
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722113"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954093"
 ---
-# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure VM을 위한 재해 복구와 Azure ExpressRoute 통합
+# <a name="integrate-expressroute-with-disaster-recovery-for-azure-vms"></a>Azure Vm에 대 한 재해 복구와 Express 경로 통합
 
 
 이 문서에서는 Azure VM을 위한 재해 복구를 보조 Azure 하위 지역으로 설정할 때 Azure ExpressRoute를 [Azure Site Recovery](site-recovery-overview.md)와 통합하는 방법을 설명합니다.
@@ -28,11 +28,11 @@ Site Recovery를 사용하면 Azure VM 데이터를 Azure에 복제하여 Azure 
 
 ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft Azure 클라우드로 확장할 수 있습니다. ExpressRoute를 구성한 경우 다음과 같이 Site Recovery와 통합합니다.
 
-- **Azure 지역 간에 복제하는 동안**: Azure VM 재해 복구에 대한 복제 트래픽이 Azure 내에만 있으며 ExpressRoute는 복제에 필요하지 않거나 사용되지 않습니다. 그러나 온-프레미스 사이트에서 기본 Azure 사이트의 Azure VM에 연결하는 경우 해당 Azure VM에 대해 재해 복구를 설정할 때 주의해야 할 여러 가지 문제가 있습니다.
-- **Azure 지역 간 장애 조치(failover)** : 중단이 발생한 경우 Azure VM을 기본에서 보조 Azure 하위 지역으로 장애 조치합니다. 보조 하위 지역으로 장애 조치 후 ExpressRoute를 사용하여 보조 하위 지역의 Azure VM에 액세스하려면 여러 단계를 실행해야 합니다.
+- **Azure 하위 지역 간에 복제하는 동안**: Azure VM 재해 복구에 대한 복제 트래픽이 Azure 내에만 있으며 ExpressRoute는 복제를 위해 필요 없거나 사용되지 않습니다. 그러나 온-프레미스 사이트에서 기본 Azure 사이트의 Azure VM에 연결하는 경우 해당 Azure VM에 대해 재해 복구를 설정할 때 주의해야 할 여러 가지 문제가 있습니다.
+- **Azure 하위 지역 간의 장애 조치**: 중단이 발생한 경우 Azure VM을 기본에서 보조 Azure 하위 지역으로 장애 조치합니다. 보조 하위 지역으로 장애 조치 후 ExpressRoute를 사용하여 보조 하위 지역의 Azure VM에 액세스하려면 여러 단계를 실행해야 합니다.
 
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 시작하기 전에 다음 개념을 이해해야 합니다.
 
@@ -176,7 +176,7 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
 -   대상 vNet에 서로 다른 주소 공간을 사용하는 경우, 동일한 ExpressRoute 회로에서 원본 및 대상 vNet에 동시에 연결할 수 있습니다.
 
 
-## <a name="failover-example"></a>장애 조치 예제
+## <a name="failover-example"></a>장애 조치(failover) 예제
 
 이 예제에서는 다음과 같은 토폴로지를 사용합니다.
 
@@ -199,7 +199,7 @@ Site Recovery를 사용하여 대상 Azure 하위 지역에 Azure VM을 장애 �
 
     c. 대상 지역의 허브와 스포크 가상 네트워크 간에 VNet 피어링을 설정합니다. 대상 지역의 피어링 속성은 원본 지역에 있는 속성과 동일합니다.
 
-    d. 허브 VNet의 UDR 및 두 개의 스포크 VNet을 설정합니다.
+    ㄹ. 허브 VNet의 UDR 및 두 개의 스포크 VNet을 설정합니다.
 
     - 동일한 IP 주소를 사용할 때 대상 쪽 UDR의 속성이 원본 쪽 속성과 동일합니다.
     - 다른 대상 IP 주소에서 UDR은 적절하게 수정해야 합니다.

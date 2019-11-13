@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 환경으로 이벤트 보내기 | Microsoft Docs
-description: Azure Time Series Insights에서 볼 수 있는 이벤트를 푸시하기 위해 이벤트 허브를 구성하고 샘플 애플리케이션을 실행하는 방법을 알아봅니다.
+title: 환경에 이벤트 보내기-Azure Time Series Insights | Microsoft Docs
+description: 이벤트 허브를 구성 하 고, 샘플 응용 프로그램을 실행 하 고, Azure Time Series Insights 환경에 이벤트를 전송 하는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2878a77918fdd1c1cd298ae536bcdd3bec065e91
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: cdcd64b5281ce16002720072db3b5f29f1978cac
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991137"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014825"
 ---
 # <a name="send-events-to-a-time-series-insights-environment-by-using-an-event-hub"></a>이벤트 허브를 사용하여 Time Series Insights 환경으로 이벤트 보내기
 
@@ -29,14 +29,14 @@ ms.locfileid: "72991137"
 1. 이벤트 허브를 선택합니다.
 1. 이벤트 허브를 만들 때 event hubs 네임 스페이스를 만듭니다. 네임 스페이스 내에서 이벤트 허브를 아직 만들지 않은 경우 메뉴의 **엔터티**아래에서 이벤트 허브를 만듭니다.  
 
-    [이벤트 허브![목록](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
+    [이벤트 허브 ![목록](media/send-events/1-event-hub-namespace.png)](media/send-events/1-event-hub-namespace.png#lightbox)
 
 1. 이벤트 허브를 만든 후 이벤트 허브의 목록에서 선택합니다.
 1. 메뉴의 **엔터티**아래에서 **Event Hubs**를 선택 합니다.
 1. 구성할 이벤트 허브의 이름을 선택합니다.
 1. **개요**아래에서 **소비자 그룹**을 선택 하 고 **소비자 그룹**을 선택 합니다.
 
-    [소비자 그룹을 만드는![](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
+    [소비자 그룹을 만드는 ![](media/send-events/2-consumer-group.png)](media/send-events/2-consumer-group.png#lightbox)
 
 1. Time Series Insights 이벤트 원본에 의해 독점적으로 사용 되는 소비자 그룹을 만들어야 합니다.
 
@@ -49,13 +49,13 @@ ms.locfileid: "72991137"
 
 1. **새 공유 액세스 정책 추가** 창에서 **MySendPolicy**라는 공유 액세스를 만듭니다. 이 공유 액세스 정책을 사용 하 여이 문서의 뒷부분에 C# 나오는 예제에서 이벤트를 전송 합니다.
 
-    [정책 이름 상자에![MySendPolicy를 입력 합니다.](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
+    [정책 이름 상자에 ![MySendPolicy를 입력 합니다.](media/send-events/4-shared-access-policy-confirm.png)](media/send-events/4-shared-access-policy-confirm.png#lightbox)
 
 1. **클레임**에서 **송신** 확인란을 선택 합니다.
 
 ## <a name="add-a-time-series-insights-instance"></a>Time Series Insights 인스턴스 추가
 
-Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 원격 분석 데이터에 상황별 데이터를 추가합니다. 데이터는 **시계열 ID**를 사용하여 쿼리 시에 조인됩니다. 이 문서의 뒷부분에서 사용 하는 샘플 windmills 프로젝트의 **시계열 ID** 는 `id`됩니다. 시계열 정보 인스턴스 및 **시계열 ID**에 대 한 자세한 내용은 시계열 [모델](./time-series-insights-update-tsm.md)을 참조 하세요.
+Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 원격 분석 데이터에 상황별 데이터를 추가합니다. 데이터는 **시계열 ID**를 사용하여 쿼리 시에 조인됩니다. 이 문서의 뒷부분에서 사용 하는 샘플 windmills 프로젝트의 **시계열 ID** 는 `id`됩니다. Time Series Insight 인스턴스 및 **시계열 ID**에 대해 자세히 알아보려면 [시계열 모델](./time-series-insights-update-tsm.md)을 참조하세요.
 
 ### <a name="create-a-time-series-insights-event-source"></a>Time Series Insights 이벤트 원본 만들기
 
@@ -73,16 +73,16 @@ Time Series Insights 업데이트는 인스턴스를 사용하여 들어오는 �
 
     [![기본 키 연결 문자열의 값을 복사 합니다.](media/send-events/5-sample-code-connection-string.png)](media/send-events/5-sample-code-connection-string.png#lightbox)
 
-1. https://tsiclientsample.azurewebsites.net/windFarmGen.html 로 이동합니다. URL은 시뮬레이션된 가상 디바이스를 실행합니다.
+1. https://tsiclientsample.azurewebsites.net/windFarmGen.html로 이동합니다. URL은 시뮬레이션된 가상 디바이스를 실행합니다.
 1. 웹 페이지의 **이벤트 허브 연결 문자열** 상자에, [풍차 입력 필드](#push-events-to-windmills-sample)에 복사한 연결 문자열을 붙여넣습니다.
   
-    [기본 키 연결 문자열을 이벤트 허브 연결 문자열 상자에 붙여![](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
+    [기본 키 연결 문자열을 이벤트 허브 연결 문자열 상자에 붙여 ![](media/send-events/6-wind-mill-sim.png)](media/send-events/6-wind-mill-sim.png#lightbox)
 
 1. **시작하려면 클릭**을 선택합니다. 시뮬레이터는 직접 사용할 수 있는 인스턴스 JSON을 생성합니다.
 
 1. Azure Portal에서 이벤트 허브로 돌아갑니다. **개요** 페이지에 이벤트 허브에서 받은 새 이벤트가 표시 됩니다.
 
-    [이벤트 허브에 대 한 메트릭을 표시 하는 이벤트 허브 개요 페이지![](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
+    [이벤트 허브에 대 한 메트릭을 표시 하는 이벤트 허브 개요 페이지 ![](media/send-events/7-telemetry.png)](media/send-events/7-telemetry.png#lightbox)
 
 ## <a name="supported-json-shapes"></a>지원되는 JSON 셰이프
 

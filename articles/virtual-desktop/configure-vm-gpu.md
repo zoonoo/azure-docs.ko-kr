@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 1059dd463529f4c357038225f2f9ef11d0092802
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679599"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953942"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 GPU (그래픽 처리 장치) 가속 구성
 
@@ -26,17 +26,14 @@ Azure는 다양 한 [GPU 최적화 가상 머신 크기](/azure/virtual-machines
 
 ## <a name="create-a-host-pool-provision-your-virtual-machine-and-configure-an-app-group"></a>호스트 풀을 만들고, 가상 머신을 프로 비전 하 고, 앱 그룹을 구성 합니다.
 
-선택한 크기의 VM을 사용 하 여 새 호스트 풀을 만듭니다. 자세한 내용은 [Tutorial: Azure Marketplace @ no__t를 사용 하 여 호스트 풀을 만듭니다.
+선택한 크기의 VM을 사용 하 여 새 호스트 풀을 만듭니다. 지침은 [자습서: Azure Marketplace 사용 하 여 호스트 풀 만들기](/azure/virtual-desktop/create-host-pools-azure-marketplace)를 참조 하세요.
 
 Windows 가상 데스크톱은 다음과 같은 운영 체제에서 GPU 가속 렌더링 및 인코딩을 지원 합니다.
 
 * Windows 10 버전 1511 이상
 * Windows Server 2016 이상
 
-또한 앱 그룹을 구성 하거나 새 호스트 풀을 만들 때 자동으로 생성 되는 기본 데스크톱 앱 그룹 ("데스크톱 응용 프로그램 그룹" 이라고 함)을 사용 해야 합니다. 자세한 내용은 [Tutorial: Windows 가상 데스크톱 @ no__t-0에 대 한 앱 그룹을 관리 합니다.
-
->[!NOTE]
->Windows 가상 데스크톱은 GPU 사용 호스트 풀에 대해 "Desktop" 앱 그룹 유형만 지원 합니다. GPU 사용 호스트 풀에 대해 "RemoteApp" 유형의 앱 그룹이 지원 되지 않습니다.
+또한 앱 그룹을 구성 하거나 새 호스트 풀을 만들 때 자동으로 생성 되는 기본 데스크톱 앱 그룹 ("데스크톱 응용 프로그램 그룹" 이라고 함)을 사용 해야 합니다. 지침은 [자습서: Windows 가상 데스크톱에 대 한 앱 그룹 관리](/azure/virtual-desktop/manage-app-groups)를 참조 하세요.
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>가상 머신에서 지원 되는 그래픽 드라이버 설치
 
@@ -52,7 +49,7 @@ Azure에서 배포 하는 [NVIDIA 그리드 드라이버만](/azure/virtual-mach
 
 1. 로컬 관리자 권한이 있는 계정을 사용 하 여 VM의 데스크톱에 연결 합니다.
 2. 시작 메뉴를 열고 "gpedit.msc"를 입력 하 여 그룹 정책 편집기를 엽니다.
-3. 트리를 **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > **원격 데스크톱 세션 호스트** >  Remote로 이동 합니다. **세션 환경**.
+3. 트리를 **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** ** > 원격 데스크톱 세션 호스트** **원격 세션 환경**으로 이동 합니다. > 
 4. 정책 선택 **모든 원격 데스크톱 서비스 세션에 하드웨어 기본 그래픽 어댑터 사용** 을 선택 하 고이 정책을 **사용으로 설정** 하 여 원격 세션에서 GPU 렌더링을 사용 하도록 설정 합니다.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>GPU 가속 프레임 인코딩 구성
@@ -85,9 +82,9 @@ Azure에서 배포 하는 [NVIDIA 그리드 드라이버만](/azure/virtual-mach
 원격 데스크톱이 GPU 가속 인코딩을 사용 하는지 확인 하려면 다음을 수행 합니다.
 
 1. Windows 가상 데스크톱 클라이언트를 사용 하 여 VM의 데스크톱에 연결 합니다.
-2. 이벤트 뷰어를 시작 하 고 다음 노드로 이동 합니다. **응용 프로그램 및 서비스 로그** > **Microsoft** > **Windows** > **remotedesktopservices-Rpcors\@no__t**-7**작동**
-3. GPU 가속 인코딩이 사용 되는지 확인 하려면 이벤트 ID 170을 찾습니다. "AVC 하드웨어 인코더 사용: 1 "GPU 인코딩이 사용 됩니다.
-4. AVC 444 모드가 사용 되는지 확인 하려면 이벤트 ID 162를 찾습니다. "AVC 사용 가능: 1 초기 프로필: 2048 "다음에는 AVC 444이 사용 됩니다.
+2. 이벤트 뷰어를 시작 하 고 다음 노드로 이동 합니다. **응용 프로그램 및 서비스 로그** > **Microsoft** > **Windows** > **remotedesktopservices-rdpcorets** > **운영**
+3. GPU 가속 인코딩이 사용 되는지 확인 하려면 이벤트 ID 170을 찾습니다. "AVC 하드웨어 인코더 사용: 1"이 표시 되 면 GPU 인코딩이 사용 됩니다.
+4. AVC 444 모드가 사용 되는지 확인 하려면 이벤트 ID 162를 찾습니다. "AVC 사용 가능: 1 초기 프로필: 2048"이 표시 되 면 AVC 444이 사용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

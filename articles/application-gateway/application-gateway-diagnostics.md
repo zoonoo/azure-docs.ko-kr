@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 9e1fe0e5bae462715a8cb2950cca100f0f409325
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fa930d4ab420708e6abfdf1765703afbe20fa25e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718737"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958268"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Application Gateway에 대 한 백 엔드 상태 및 진단 로그
 
@@ -33,7 +33,7 @@ Application Gateway는 포털, PowerShell 및 CLI(명령줄 인터페이스)를 
 백 엔드 상태 보고서는 백 엔드 인스턴스에 대한 Application Gateway 상태 프로브의 결과를 반영합니다. 프로브가 성공하고 백 엔드에서 트래픽을 받을 수 있으면 정상 상태로 간주됩니다. 그렇지 않으면 비정상 상태로 간주됩니다.
 
 > [!IMPORTANT]
-> Application Gateway 서브넷에 NSG(네트워크 보안 그룹)가 있는 경우 인바운드 트래픽을 위해 Application Gateway 서브넷에서 65503-65534 포트 범위를 엽니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 해당 게이트웨이 고객을 포함하여 외부 엔터티는 해당 엔드포인트에서 변경을 시작할 수 없습니다.
+> Application Gateway 서브넷에 NSG (네트워크 보안 그룹)가 있는 경우 v1 Sku에 대 한 포트 범위 65503-65534 및 인바운드 트래픽에 대 한 Application Gateway 서브넷의 v2 Sku (65200-65535)를 엽니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. Azure 인증서에 의해 보호(잠김)됩니다. 적절한 인증서가 없는 경우 해당 게이트웨이 고객을 포함하여 외부 엔터티는 해당 엔드포인트에서 변경을 시작할 수 없습니다.
 
 
 ### <a name="view-back-end-health-through-the-portal"></a>포털을 통해 백 엔드 상태 보기
@@ -218,7 +218,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 |sslCipher| Ssl 통신에 사용 되는 암호 그룹입니다 (SSL을 사용 하는 경우).|
 |sslProtocol| SSL/TLS 프로토콜을 사용 하 고 있습니다 (SSL을 사용 하는 경우).|
 |serverRouted| Application gateway에서 요청을 라우팅하는 백 엔드 서버입니다.|
-|시작 했습니다| 백 엔드 서버의 HTTP 상태 코드입니다.|
+|serverStatus| 백 엔드 서버의 HTTP 상태 코드입니다.|
 |serverResponseLatency| 백 엔드 서버의 응답 대기 시간입니다.|
 |host| 요청의 호스트 헤더에 나열 된 주소입니다.|
 ```json
@@ -301,7 +301,7 @@ Application Gateway 및 WAF v 2의 경우 로그에 약간의 추가 정보가 �
 |ruleSetType     | 규칙 집합 유형이며, 사용 가능한 값은 OWASP입니다.        |
 |ruleSetVersion     | 사용된 규칙 집합 버전이며, 사용 가능한 값은 2.2.9 및 3.0입니다.     |
 |ruleId     | 트리거 이벤트의 규칙 ID        |
-|Message     | 사용자에게 친숙한 트리거 이벤트에 대한 메시지이며, 자세한 내용은 세부 정보 섹션에서 제공됩니다.        |
+|message     | 사용자에게 친숙한 트리거 이벤트에 대한 메시지이며, 자세한 내용은 세부 정보 섹션에서 제공됩니다.        |
 |action     |  요청에서 수행되는 동작이며, 사용할 수 있는 값은 Blocked 및 Allowed입니다.      |
 |site     | 로그를 생성한 사이트이며, 현재 규칙이 전역이므로 Global만 나열됩니다.|
 |세부 정보     | 트리거 이벤트의 세부 정보        |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 229d960f7851b5fab8504b6c2a109bece6c7b31f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 34a8b27442fc3f755cbe33f61857aa13d3be700b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969104"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012830"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm에서 SQL 데이터베이스 백업 및 복원
 
@@ -24,6 +24,7 @@ ms.locfileid: "72969104"
 이 자습서에서는 다음을 수행하는 방법을 설명합니다.
 
 > [!div class="checklist"]
+>
 > * PowerShell을 설정 하 고 Azure Recovery Services 공급자를 등록 합니다.
 > * Recovery Services 자격 증명 모음을 만듭니다.
 > * Azure VM 내에서 SQL DB에 대 한 백업을 구성 합니다.
@@ -270,10 +271,10 @@ Start-autoprotection 의도가 제공 되 면 새로 추가 된 Db를 가져오�
 
 다음과 같이 Azure Vm에서 실행 되는 SQL Server 데이터베이스를 복원할 수 Azure Backup.
 
-1. 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
-2. 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
+* 트랜잭션 로그 백업을 사용 하 여 특정 날짜 또는 시간 (초)으로 복원 합니다. Azure Backup은 선택 된 시간에 따라 복원 하는 데 필요한 적절 한 전체 차등 백업 및 로그 백업 체인을 자동으로 결정 합니다.
+* 특정 복구 지점으로 복원 하기 위해 특정 전체 또는 차등 백업을 복원 합니다.
 
-SQL Db를 복원 하기 전에 [여기](restore-sql-database-azure-vm.md#prerequisites) 에 언급 된 필수 구성 요소를 확인 하세요.
+SQL Db를 복원 하기 전에 [여기](restore-sql-database-azure-vm.md#prerequisites) 에 언급 된 전제 조건을 확인 하세요.
 
 먼저 [AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupItem?view=azps-1.5.0) PS cmdlet을 사용 하 여 관련 백업 된 SQL DB를 인출 합니다.
 
@@ -335,9 +336,9 @@ SQLDataBase;MSSQLSERVER;azu... 3/18/2019 8:09:35 PM           3/19/2019 12:08:32
 
 SQL DB 복원의 경우 다음 복원 시나리오가 지원 됩니다.
 
-1. 백업 된 SQL DB를 다른 복구 지점의 데이터로 재정의-OriginalWorkloadRestore
-2. 동일한 SQL 인스턴스에서 새 DB로 SQL DB 복원-AlternateWorkloadRestore
-3. 다른 sql VM의 다른 SQL 인스턴스에서 새 DB로 SQL DB 복원-AlternateWorkloadRestore
+* 백업 된 SQL DB를 다른 복구 지점의 데이터로 재정의-OriginalWorkloadRestore
+* 동일한 SQL 인스턴스에서 새 DB로 SQL DB 복원-AlternateWorkloadRestore
+* 다른 sql VM의 다른 SQL 인스턴스에서 새 DB로 SQL DB 복원-AlternateWorkloadRestore
 
 관련 복구 지점 (고유 또는 로그 지정 시간)을 인출 한 후 [AzRecoveryServicesBackupWorkloadRecoveryConfig](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupWorkloadRecoveryConfig?view=azps-1.5.0) PS cmdlet을 사용 하 여 원하는 복구 계획에 따라 복구 구성 개체를 가져옵니다.
 
@@ -560,12 +561,12 @@ SQL Always On 가용성 그룹의 경우 AG (가용성 그룹)의 [모든 노드
 
 예를 들어 SQL AG에 ' s q l-서버-0 ' 및 ' s q l-서버-1 '과 1 개의 노드가 있다고 가정해 보겠습니다. 이러한 두 노드가 모두 등록 되 면 사용자가 [보호 가능한 항목을 나열](#fetching-sql-dbs)하는 경우 다음 구성 요소를 나열 합니다.
 
-1. SQL AG 개체-보호 가능한 항목 유형 (SQLAvailabilityGroup)
-2. SQL AG DB 보호 가능한 항목 유형 (Backup-sqldatabase)
-3. SQLInstance으로 보호 가능한 항목 유형 (sql server-0)
-4. SQLInstance로 보호 되는 항목 유형 (sql server-1)
-5. Backup-sqldatabase에서 보호 가능한 항목 종류의 모든 기본 SQL Db (master, model, msdb)
-6. Sql server-1의 모든 기본 SQL Db (master, model, msdb)-Backup-sqldatabase으로 보호 가능한 항목 유형
+* SQL AG 개체-보호 가능한 항목 유형 (SQLAvailabilityGroup)
+* SQL AG DB 보호 가능한 항목 유형 (Backup-sqldatabase)
+* SQLInstance으로 보호 가능한 항목 유형 (sql server-0)
+* SQLInstance로 보호 되는 항목 유형 (sql server-1)
+* Backup-sqldatabase에서 보호 가능한 항목 종류의 모든 기본 SQL Db (master, model, msdb)
+* Sql server-1의 모든 기본 SQL Db (master, model, msdb)-Backup-sqldatabase으로 보호 가능한 항목 유형
 
 [백업 컨테이너가 나열 되](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0)면 sql server-0, sql-server-1도 "AzureVMAppContainer"로 표시 됩니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신 | Microsoft Docs
-description: Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신 이해
+title: 데이터 저장 및 수신 미리 보기-Azure Time Series Insights | Microsoft Docs
+description: 데이터 저장 및 수신 Azure Time Series Insights 미리 보기에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d0cdd78aaa2b58743e16a2e7cfe213a9daed85ff
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 62ee248c06d2b26b935f72b3bb73cf708f949c72
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605892"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014702"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 

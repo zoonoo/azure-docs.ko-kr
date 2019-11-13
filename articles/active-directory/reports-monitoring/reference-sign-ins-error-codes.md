@@ -3,7 +3,7 @@ title: Azure Active Directory 포털의 오류 코드 | Microsoft Docs
 description: 로그인 활동 보고서 오류 코드에 대한 참조입니다.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 08/08/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9bb7114611ce5c7eabb8124ad11db64d50e12946
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 84e9d484da1b59c456b30cf0b465ec6de5af77d1
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809816"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014307"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
@@ -107,7 +107,7 @@ ms.locfileid: "73809816"
 |50128|도메인 이름이 잘못되었습니다. 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다.|
 |50129|디바이스는 작업 공간에 연결되지 않았습니다. **작업 공간 연결**에는 디바이스를 등록할 필요가 없습니다.|
 |50130|클레임 값을 알려진 인증 방법으로 해석할 수 없습니다.|
-|50131|다양 한 조건부 액세스 오류에 사용 됩니다. 예: Windows 디바이스 상태가 잘못되었습니다. 의심스러운 활동, 액세스 정책 및 보안 정책 결정으로 인해 요청이 차단되었습니다.|
+|50131|다양 한 조건부 액세스 오류에 사용 됩니다. 예를 들어 Windows 디바이스 상태가 잘못되었습니다. 의심스러운 활동, 액세스 정책 및 보안 정책 결정으로 인해 요청이 차단되었습니다.|
 |50132|다음과 같은 이유로 자격 증명이 철회되었습니다.<ul><li>SSO 아티팩트가 잘못되었거나 만료되었습니다.</li><li>애플리케이션에 대한 세션이 최신 상태가 아닙니다.</li><li>자동 로그인 요청을 보냈지만 Azure AD를 사용하는 사용자의 세션이 유효하지 않거나 만료되었습니다.</li></ul>|
 |50133|만료 또는 최근 암호 변경으로 인해 세션이 잘못되었습니다.|
 |50135|계정이 위험하므로 암호를 변경해야 합니다.|

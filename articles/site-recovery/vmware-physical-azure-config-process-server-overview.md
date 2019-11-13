@@ -1,18 +1,18 @@
 ---
-title: Azure Site Recovery 구성, 프로세스 및 마스터 대상 서버 정보 | Microsoft Docs
+title: Azure Site Recovery 구성/프로세스/마스터 대상 서버 정보
 description: 이 문서에서는를 사용 하 여 Azure에 대 한 온-프레미스 VMware Vm의 재해 복구를 설정 하는 경우를 사용 하 여 구성, 프로세스 및 마스터 대상 서버에 대 한 개요를 제공 Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a70400a1d0c710b939b4dd6d157cb06e729f53cb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ad816f39dd4182dfa41fca975c99824a5d77f860
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747810"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961316"
 ---
 # <a name="about-site-recovery-components-configuration-process-master-target"></a>Site Recovery 구성 요소 정보 (구성, 프로세스, 마스터 대상)
 

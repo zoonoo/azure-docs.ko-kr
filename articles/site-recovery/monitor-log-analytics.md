@@ -1,18 +1,18 @@
 ---
-title: Azure Monitor 로그를 사용 하 여 Azure Site Recovery 모니터링 (Log Analytics) | Microsoft Docs
+title: Azure Monitor 로그를 사용 하 여 Azure Site Recovery 모니터링
 description: Azure Monitor 로그 (Log Analytics)를 사용 하 여 Azure Site Recovery를 모니터링 하는 방법을 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/13/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b5bf568e03d4949b8798dd2e0f4c2d8cbcbbe0c7
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331928"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73936081"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Site Recovery 모니터링
 
@@ -36,13 +36,13 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복
 
 - Recovery Services 자격 증명 모음에 보호 된 컴퓨터가 하나 이상 있습니다.
 - Site Recovery 로그를 저장할 Log Analytics 작업 영역입니다. 작업 영역을 설정 하는 [방법에 대해 알아봅니다](../azure-monitor/learn/quick-create-workspace.md) .
-- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세히 알아보기](../azure-monitor/log-query/get-started-portal.md).
+- Log Analytics에서 로그 쿼리를 작성, 실행 및 분석 하는 방법에 대 한 기본적인 이해 [자세히 알아봅니다](../azure-monitor/log-query/get-started-portal.md).
 
 시작 하기 전에 [일반적인 모니터링 질문](monitoring-common-questions.md) 을 검토 하는 것이 좋습니다.
 
 ## <a name="configure-site-recovery-to-send-logs"></a>로그를 보내도록 Site Recovery 구성
 
-1. 자격 증명 모음에서 **진단 설정** > **진단 설정 추가**를 클릭 합니다.
+1. 자격 증명 모음에서 진단 **설정** > **진단 설정 추가**를 클릭 합니다.
 
     ![진단 로깅 선택](./media/monitoring-log-analytics/add-diagnostic.png)
 
@@ -61,7 +61,7 @@ Site Recovery 로그는 선택한 작업 영역에서 테이블 (**Azurediagnost
 [Kusto 쿼리 언어로](../azure-monitor/log-query/get-started-queries.md)작성 된 로그 쿼리를 사용 하 여 로그에서 데이터를 검색 합니다. 이 섹션에서는 Site Recovery 모니터링에 사용할 수 있는 일반적인 쿼리의 몇 가지 예를 제공 합니다.
 
 > [!NOTE]
-> 일부 예제에서는 **replicationProviderName_s** 를 **A2A**로 설정 합니다. Site Recovery를 사용 하 여 보조 Azure 지역에 복제 되는 Azure Vm을 검색 합니다. 이 예제에서는 Site Recovery를 사용 하 여 Azure에 복제 된 온-프레미스 VMware Vm 또는 물리적 서버를 검색 하려는 경우 **A2A** 를 **InMageAzureV2**로 바꿀 수 있습니다.
+> 일부 예제에서는 **A2A**로 설정 된 **replicationProviderName_s** 를 사용 합니다. Site Recovery를 사용 하 여 보조 Azure 지역에 복제 되는 Azure Vm을 검색 합니다. 이 예제에서는 Site Recovery를 사용 하 여 Azure에 복제 된 온-프레미스 VMware Vm 또는 물리적 서버를 검색 하려는 경우 **A2A** 를 **InMageAzureV2**로 바꿀 수 있습니다.
 
 
 ### <a name="query-replication-health"></a>복제 상태 쿼리
@@ -223,7 +223,7 @@ AzureDiagnostics 
 Azure Monitor 데이터를 기반으로 하 Site Recovery 경고를 설정할 수 있습니다. 로그 경고 설정에 [대해 자세히 알아보세요](../azure-monitor/platform/alerts-log.md#managing-log-alerts-from-the-azure-portal) . 
 
 > [!NOTE]
-> 일부 예제에서는 **replicationProviderName_s** 를 **A2A**로 설정 합니다. 이렇게 하면 보조 Azure 지역에 복제 되는 Azure Vm에 대 한 경고가 설정 됩니다. 이 예에서는 Azure로 복제 된 온-프레미스 VMware Vm 또는 물리적 서버에 대 한 경고를 설정 하려는 경우 **A2A** 를 **InMageAzureV2** 로 바꿀 수 있습니다.
+> 일부 예제에서는 **A2A**로 설정 된 **replicationProviderName_s** 를 사용 합니다. 이렇게 하면 보조 Azure 지역에 복제 되는 Azure Vm에 대 한 경고가 설정 됩니다. 이 예에서는 Azure로 복제 된 온-프레미스 VMware Vm 또는 물리적 서버에 대 한 경고를 설정 하려는 경우 **A2A** 를 **InMageAzureV2** 로 바꿀 수 있습니다.
 
 ### <a name="multiple-machines-in-a-critical-state"></a>위험 상태의 여러 컴퓨터
 

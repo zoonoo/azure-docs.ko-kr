@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: mlearned
-ms.openlocfilehash: aa0cf1ef3f758d7aba4639d779bde90249d039cb
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 6fc1af356d035c4db73f761ce679f7ad16126d4f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815666"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013007"
 ---
 # <a name="secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 권한이 부여 된 IP 주소 범위를 사용 하 여 API 서버에 대 한 액세스 보호
 
@@ -21,7 +21,7 @@ Kubernetes에서 API 서버는 리소스를 만들거나 노드 수를 조정 �
 이 문서에서는 API server 권한이 부여 된 IP 주소 범위를 사용 하 여 제어 평면에 액세스할 수 있는 IP 주소 및 CIDRs를 제한 하는 방법을 보여 줍니다.
 
 > [!IMPORTANT]
-> 새 클러스터에서 API 서버 권한이 부여 된 IP 주소 범위는 *표준* SKU 부하 분산 장치 에서만 지원 됩니다. *기본* SKU 부하 분산 장치 및 API 서버 권한이 부여 된 IP 주소 범위가 있는 기존 클러스터는 그대로 작동 합니다. 이러한 기존 clusers는 업그레이드 될 수도 있고 계속 작동 합니다.
+> 새 클러스터에서 API 서버 권한이 부여 된 IP 주소 범위는 *표준* SKU 부하 분산 장치 에서만 지원 됩니다. *기본* SKU 부하 분산 장치 및 API 서버 권한이 부여 된 IP 주소 범위가 있는 기존 클러스터는 그대로 작동 합니다. 이러한 기존 클러스터도 업그레이드할 수 있으며, 계속 해 서 작동 합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: b1287f9c7e946c7b4d035b2ad6301947ffad3cea
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 86d03e980a233a60e4f3a6541462264dae0862af
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523419"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005577"
 ---
-# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
-
 이 문서는 Azure Premium Storage를 사용하여 고성능 애플리케이션을 빌드하기 위한 지침을 제공합니다. 애플리케이션에서 사용되는 기술에 적용 가능한 성능 모범 사례가 결합된 이 문서에 제공된 지침을 사용할 수 있습니다. 지침을 설명하기 위해 이 문서 전체에서 한 예로 Premium Storage에서 실행되는 SQL Server를 사용했습니다.
 
 이 문서에서는 스토리지 계층에 대한 성능 시나리오를 해결하지만 사용자는 애플리케이션 계층을 최적화해야 합니다. 예를 들어 Azure Premium Storage에 SharePoint 팜을 호스팅하는 경우 데이터베이스 서버를 최적화하기 위해 이 문서에서 SQL Server 예제를 사용할 수 있습니다. 또한 최적의 성능을 얻기 위해 SharePoint 팜의 웹 서버 및 애플리케이션 서버를 최적화합니다.

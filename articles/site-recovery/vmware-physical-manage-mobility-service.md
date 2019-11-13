@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버의 재해 복구를 위해 서버에서 모바일 에이전트 관리 Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 VMware/물리적 서버에 대 한 모바일 에이전트 관리
 description: Azure Site Recovery 서비스를 사용 하 여 Azure에 VMware Vm 및 물리적 서버 재해 복구를 위한 모바일 서비스 에이전트를 관리 합니다.
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -7,14 +7,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 0a8b3a8bcfc2aa8270d7be140a94e5b83973f3e5
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: e6e7beeb4c10098f36636aad2709e03d1a1a0fea
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972124"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953641"
 ---
-# <a name="manage-mobility-agent-on-protected-machines"></a>보호 된 컴퓨터에서 모바일 에이전트 관리
+# <a name="manage-the-mobility-agent"></a>모바일 에이전트 관리 
 
 Azure에 대 한 VMware Vm 및 물리적 서버 재해 복구를 위해 Azure Site Recovery를 사용 하는 경우 서버에서 모바일 에이전트를 설정 합니다. 모바일 에이전트는 보호 된 컴퓨터, 구성 서버/확장 프로세스 서버 간의 통신을 조정 하 고 데이터 복제를 관리 합니다. 이 문서에서는 모바일 에이전트를 배포한 후 관리 하는 일반적인 작업을 요약 합니다.
 
@@ -29,7 +29,7 @@ Azure에 대 한 VMware Vm 및 물리적 서버 재해 복구를 위해 Azure Si
 
      ![복제된 항목 창](./media/vmware-azure-install-mobility-service/replicated-item-notif.png)
 
-4. 알림을 클릭하고 **에이전트 업데이트**에서 Mobility 서비스를 업그레이드하려는 머신을 선택합니다. 그런 다음 **확인**을 클릭합니다.
+4. 알림을 클릭하고 **에이전트 업데이트**에서 Mobility 서비스를 업그레이드하려는 머신을 선택합니다. 그런 후 **OK**를 클릭합니다.
 
      ![복제된 항목 VM 목록](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
@@ -54,7 +54,7 @@ Site Recovery를 배포하여 Mobility 서비스의 푸시 설치를 사용하�
 UI 또는 명령 프롬프트에서 제거합니다.
 
 - **UI에서**: 머신의 제어판에서 **프로그램**을 선택합니다. **Microsoft Azure Site Recovery Mobility 서비스/마스터 대상 서버** > **제거**를 선택합니다.
-- **명령 프롬프트에서**: 머신에서 명령 프롬프트 창을 관리자로 엽니다. 다음 명령을 실행합니다. 
+- **명령 프롬프트에서**: 머신에서 관리자 권한으로 명령 프롬프트 창을 엽니다. 다음 명령 실행: 
     ```
     MsiExec.exe /qn /x {275197FC-14FD-4560-A5EB-38217F80CBD1} /L+*V "C:\ProgramData\ASRSetupLogs\UnifiedAgentMSIUninstall.log"
     ```
@@ -62,7 +62,7 @@ UI 또는 명령 프롬프트에서 제거합니다.
 ### <a name="on-a-linux-machine"></a>Linux 머신
 1. Linux 머신에서 **루트** 사용자로 로그인합니다.
 2. 터미널에서/Usr/local/asr로 이동 합니다.
-3. 다음 명령을 실행합니다.
+3. 다음 명령 실행:
     ```
     uninstall.sh -Y
    ```

@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 탐색기를 사용 하 여 데이터 탐색 | Microsoft Docs
-description: 이 문서에서는 웹 브라우저에서 Azure Time Series Insights 탐색기를 사용하여 빅 데이터의 글로벌 보기를 한눈에 확인하고 IoT 환경을 검증하는 방법을 설명합니다.
+title: 탐색기를 사용 하 여 데이터 탐색-Azure Time Series Insights | Microsoft Docs
+description: Azure Time Series Insights 탐색기를 사용 하 여 IoT 데이터를 보는 방법에 대해 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 25f2c07678217b69699b881d53ee9d5f92f84be1
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df895f99b64d30506bc9457fb5bdc54a2182b5fe
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990113"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012642"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights 탐색기
 
@@ -37,7 +37,7 @@ Azure Time Series Insights는 완전히 관리되는 분석, 스토리지 및 �
 >[!NOTE]
 >위의 비디오 <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"Azure IoT 솔루션 가속기를 사용 하 여 Time Series Insights 시작"</a> 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니다.
 
@@ -71,7 +71,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
 
       - **조건자**: 다음 표에 나열 된 피연산자 집합을 사용 하 여 이벤트를 신속 하 게 필터링 하려면 조건자를 사용 합니다. 를 선택 하거나 클릭 하 여 검색을 수행 하는 경우 조건자는 해당 검색에 따라 자동으로 업데이트 됩니다. 지원되는 연산자는 다음과 같습니다.
 
-         |작업  |지원되는 형식  |참고 사항  |
+         |작업(Operation)  |지원되는 형식  |참고 사항  |
          |---------|---------|---------|
          |`<`, `>`, `<=`, `>=`     |  Double, DateTime, TimeSpan       |         |
          |`=`, `!=`, `<>`     | String, Bool, Double, DateTime, TimeSpan, NULL        |         |
@@ -119,7 +119,7 @@ Time Series Insights 탐색기를 사용하려면 다음을 준비해야 합니�
     - **패턴**:이 기능은 선택한 데이터 영역에서 가장 통계적으로 중요 한 패턴을 사전에 표시 합니다. 많은 시간과 에너지를 필요로 하는 패턴을 이해 하기 위해 수천 개의 이벤트를 살펴볼 필요가 없습니다. Time Series Insights를 사용 하면 통계적으로 중요 한 패턴으로 직접 이동 하 여 분석을 계속 수행할 수 있습니다. 이 기능은 과거 데이터에 대한 사후 평가 분석을 실시할 때도 유용합니다.
     - **열 통계**: 열 통계는 선택한 시간 범위 동안 선택한 데이터 계열의 각 열에서 데이터를 분할 하는 차트와 테이블을 제공 합니다.
 
-      [![통계](media/time-series-insights-explorer/explorer8.png)](media/time-series-insights-explorer/explorer8.png#lightbox)
+      [![STATS](media/time-series-insights-explorer/explorer8.png)](media/time-series-insights-explorer/explorer8.png#lightbox)
 
 이제 Time Series Insights explorer 웹 앱 내에서 사용할 수 있는 다양 한 기능 및 옵션을 살펴보았습니다.
 

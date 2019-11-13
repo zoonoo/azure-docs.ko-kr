@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/07/2017
 ms.author: ancav
 ms.subservice: autoscale
-ms.openlocfilehash: 3700fb90318da3787830f9b6c202436c0e45e2fe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 604cf0564039a542ec117612bcbf74601388c0f7
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61063397"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007619"
 ---
 # <a name="best-practices-for-autoscale"></a>자동 크기 조정에 대한 모범 사례
 Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) 및 [API Management 서비스](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)에만 적용됩니다.
@@ -38,7 +38,7 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
 인스턴스 수를 최댓값 위 또는 아래 값으로 수동으로 업데이트하면 자동 크기 조정 엔진이 최솟값(아래인 경우) 또는 최댓값(위인 경우)으로 다시 자동으로 크기를 조정합니다. 예를 들어 3 및 6 사이의 범위를 설정할 수 있습니다. 실행 중인 인스턴스가 하나 있는 경우 자동 크기 조정 엔진은 다음 실행 시 3개 인스턴스로 확장합니다. 마찬가지로, 크기 조정 인스턴스를 8개로 수동 설정하면 다음에 실행되는 자동 크기 조정에서는 그 다음 실행 시 6개 인스턴스로 다시 돌아갑니다.  수동 크기 조정은 자동 크기 조정 규칙을 재설정하지 않은 경우 임시적입니다.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>항상 증가 및 감소를 수행하는 규모 확장 및 감축 규칙 조합 사용
-조합의 한 부분만 사용 하는 경우 자동 크기 조정 됩니다만 작업을 수행할 단일 방향 (out 또는 크기 조정)의 최대값에 도달 하거나 최소 인스턴스 수가 프로필에 정의 될 때까지. 이는 최적의 방법이 아니며 가용성을 보장하기 위해 사용률이 높은 시간에 이상적으로 리소스 규모를 확장할 수 있습니다. 마찬가지로 사용률이 낮은 시간에 리소스 규모를 축소하여 비용 절감을 실현할 수 있습니다.
+조합의 한 부분만 사용 하는 경우 자동 크기 조정 기능은 프로필에 정의 된의 최대 또는 최소 인스턴스 수에 도달할 때까지 단일 방향 (규모 확장 또는에서) 으로만 동작을 수행 합니다. 이는 최적의 방법이 아니며 가용성을 보장하기 위해 사용률이 높은 시간에 이상적으로 리소스 규모를 확장할 수 있습니다. 마찬가지로 사용률이 낮은 시간에 리소스 규모를 축소하여 비용 절감을 실현할 수 있습니다.
 
 ### <a name="choose-the-appropriate-statistic-for-your-diagnostics-metric"></a>진단 메트릭에 적절한 통계 선택
 진단 메트릭의 경우 크기를 조정할 메트릭으로 *평균*, *최소*, *최대* 및 *합계* 중에서 선택할 수 있습니다. 가장 일반적인 통계는 *평균*입니다.
@@ -46,10 +46,10 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
 ### <a name="choose-the-thresholds-carefully-for-all-metric-types"></a>모든 메트릭 유형에 대해 신중하게 임계값 선택
 현실적인 상황을 기반으로 서로 다른 규모 확장 및 규모 감축 임계값을 신중하게 선택하는 것이 좋습니다.
 
-아래 예와 같이 확장 및 감축 조건에 동일하거나 매우 유사한 임계값을 사용하는 자동 크기 조정 설정은 *권장되지 않습니다*.
+아래 예와 같이 확장 및 감축 조건에 동일하거나 매우 유사한 임계값을 사용하는 자동 크기 조정 설정은 *권장되지 않습니다* .
 
-* 스레드 수가 600 이하인 경우 인스턴스 수 1개 증가
-* 스레드 수가 600 이상인 경우 인스턴스 수 1개 감소
+* 스레드 수 > = 600 인 경우 인스턴스 수 1 개 증가
+* 스레드 수 < = 600 인 경우 인스턴스 수 1 개 감소
 
 혼동스러운 동작을 초래할 수 있는 예를 살펴보겠습니다. 다음과 같은 시퀀스를 고려해 보세요.
 
@@ -79,8 +79,8 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
 
 동작을 보다 잘 이해할 수 있도록 예를 들어 살펴보겠습니다.
 
-* 저장소 큐 메시지 수가 50개 이상인 경우 인스턴스 수 1개 증가
-* 저장소 큐 메시지 수가 10개 이하인 경우 인스턴스 수 1개 감소
+* 스토리지 큐 메시지 수가 50개 이상인 경우 인스턴스 수 1개 증가
+* 스토리지 큐 메시지 수가 10개 이하인 경우 인스턴스 수 1개 감소
 
 다음과 같은 시퀀스를 고려해 보세요.
 
@@ -139,9 +139,9 @@ Azure Monitor 자동 크기 조정은 [가상 컴퓨터 확장 집합](https://a
 
 * 자동 크기 조정에서 크기 조정 작업이 생성되는 경우
 * 자동 크기 조정 서비스에서 크기 조정 작업을 성공적으로 완료하는 경우
-* 자동 크기 조정 서비스에서 크기 조정 작업에 실패한 경우.
-* 자동 크기 조정 서비스에서 크기 조정 결정을 내리는 데 메트릭을 사용할 수 없는 경우.
-* 크기 조정 결정을 내리는 데 메트릭을 다시 사용할 수 있게 된(복구) 경우.
+* 자동 크기 조정 서비스에서 크기 조정 작업에 실패한 경우
+* 자동 크기 조정 서비스에서 크기 조정 결정을 내리는 데 메트릭을 사용할 수 없는 경우
+* 크기 조정 결정을 내리는 데 메트릭을 다시 사용할 수 있게 된(복구) 경우
 
 또한 활동 로그 경고를 사용하여 자동 크기 조정 엔진의 상태를 모니터링할 수도 있습니다. 다음은 [구독의 모든 자동 크기 조정 엔진 작업을 모니터링하기 위한 활동 로그 경고 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) 또는 [구독에서 실패한 모든 자동 크기 조정 규모 감축/규모 확장 작업을 모니터링하기 위한 활동 로그 경고 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert) 예제입니다.
 

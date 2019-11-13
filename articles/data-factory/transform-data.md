@@ -11,15 +11,16 @@ ms.date: 07/31/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 97077b9f72de8792e6aba1d72ff34b9185b2d998
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0b91d22454d6023094f269b184c845047092b4fb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683803"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954279"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Azure Data Factory의 데이터 변환
 > [!div class="op_single_selector"]
+> * [데이터 흐름 매핑](data-flow-create.md)
 > * [Hive](transform-data-using-hadoop-hive.md)  
 > * [Pig](transform-data-using-hadoop-pig.md)  
 > * [사용](transform-data-using-hadoop-map-reduce.md)  
@@ -34,7 +35,7 @@ ms.locfileid: "73683803"
 > * [.NET 사용자 지정](transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="overview"></a>개요
-이 문서에서는 원시 데이터를 예측 가능하고 통찰력 있는 정보로 변환하고 처리하는 데 사용할 수 있는 Azure Data Factory의 데이터 변환 작업을 설명합니다. 변환 작업은 Azure HDInsight 클러스터나 Azure Batch와 같은 컴퓨팅 환경에서 실행됩니다. 각 변환 작업에 대한 자세한 정보가 있는 문서에 대한 링크를 제공합니다.
+이 문서에서는 원시 데이터를 대규모의 예측 및 통찰력으로 변환 하 고 처리 하는 데 사용할 수 있는 Azure Data Factory의 데이터 변환 작업을 설명 합니다. 변환 작업은 Azure Databricks 또는 Azure HDInsight와 같은 컴퓨팅 환경에서 실행 됩니다. 각 변환 작업에 대한 자세한 정보가 있는 문서에 대한 링크를 제공합니다.
 
 Data Factory는 개별적 또는 다른 작업과 연계하여 [파이프라인](concepts-pipelines-activities.md)에 추가할 수 있는 다음 데이터 변환 작업을 지원합니다.
 
@@ -49,6 +50,8 @@ Data Factory는 개별적 또는 다른 작업과 연계하여 [파이프라인]
 Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드 규모에서 코드 없는 데이터 준비를 반복적으로 수행할 수 있습니다. 랭 글 링 데이터 흐름은 [파워 쿼리 Online](https://docs.microsoft.com/power-query/) 과 통합 되며 spark 실행을 통해 클라우드 규모의 데이터 랭 글 링에 사용할 수 있는 파워 쿼리 M 함수를 제공 합니다. 자세한 내용은 [랭 글 링 data](wrangling-data-flow-overview.md)flow을 참조 하세요.
 
 ## <a name="external-transformations"></a>외부 변환
+
+필요에 따라 변환을 직접 코딩 하 고 외부 계산 환경을 직접 관리할 수 있습니다.
 
 ### <a name="hdinsight-hive-activity"></a>HDInsight Hive 작업
 Data Factory 파이프라인에서 HDInsight Hive 작업은 사용자 고유 또는 주문형 Windows/Linux 기반 HDInsight 클러스터의 Hive 쿼리를 실행합니다. 이 작업에 대한 자세한 내용은 [Hive 작업](transform-data-using-hadoop-hive.md) 문서를 참조하세요. 
@@ -80,7 +83,7 @@ Data Lake Analytics U-SQL 작업은 Azure Data Lake Analytics 클러스터에 �
 
 ### <a name="databricks-notebook-activity"></a>Databricks Notebook 활동
 
-Data Factory 파이프라인의 Azure Databricks Notebook 활동은 Azure Databricks 작업 영역에서 Databricks Notebook을 실행합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다. [Databricks Notebook을 실행하여 데이터 변환](transform-data-databricks-notebook.md)을 참조하세요.
+Data Factory 파이프라인의 Azure Databricks 노트북 작업은 Azure Databricks 작업 영역에서 Databricks 노트북을 실행 합니다. Azure Databricks는 Apache Spark를 실행하기 위해 관리되는 플랫폼입니다. [Databricks Notebook을 실행하여 데이터 변환](transform-data-databricks-notebook.md)을 참조하세요.
 
 ### <a name="databricks-jar-activity"></a>Databricks Jar 활동
 

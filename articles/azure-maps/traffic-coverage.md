@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: f9a3c4875f01c650485034fe46f53bb5aa1fd75b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: cb7ebe5d9519f1a3967a29f4c883c420a892817f
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68722646"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958012"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps 교통 상황 검사
 
 Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래픽 정보를 제공합니다. 이 데이터는 지도에 시각화되거나, 실제 주행 상태를 고려하는 보다 효율적인 경로를 생성하는 데 사용될 수 있습니다.
 
-단, Maps에는 모든 지역에 대해 동일한 수준의 정보 및 정확도가 없습니다. 다음 표에서는 각 지역에서 요청할 수 있는 교통 정보 종류에 대한 정보를 제공 합니다. 
+그러나 Maps는 모든 국가 또는 지역에 대해 동일한 수준의 정보 및 정확도를 갖지 않습니다. 다음 표에서는 각 국가 또는 지역에서 요청할 수 있는 트래픽 정보의 종류에 대 한 정보를 제공 합니다. 
 
 ## <a name="americas"></a>아메리카
 
@@ -46,7 +46,7 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |홍콩 특별 행정구     |✓         |✓         |
 |인도   |✓         |✓         |
 |인도네시아     |✓         |✓         |
-|마카오 특별 행정구     |✓         |✓         |
+|마카오     |✓         |✓         |
 |말레이시아     |✓         |✓         |
 |뉴질랜드     |✓         |✓         |
 |필리핀  |✓         |✓         |
@@ -56,7 +56,7 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |베트남   |✓         |✓         |
 
 
-## <a name="europe"></a>Europe
+## <a name="europe"></a>유럽
 
 |국가/지역   |인시던트  |흐름  |
 |---------|:---------:|:---------:|
@@ -111,7 +111,7 @@ Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래�
 |+지브롤터     |✓         |✓         |
 |\+ 건지 & Jersey     |✓         |✓         |
 |\+ 맨 섬     |✓         |✓         |
-|바티칸   |✓         |✓         |
+|바티칸 시국   |✓         |✓         |
 
 
 ## <a name="middle-east-and-africa"></a>중동 및 아프리카

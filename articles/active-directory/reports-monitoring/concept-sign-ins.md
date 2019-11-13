@@ -3,7 +3,7 @@ title: Azure Active Directory 포털의 로그인 작업 보고서 | Microsoft D
 description: Azure Active Directory 포털의 로그인 작업 보고서 소개
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/28/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 553d882600203d0fa01cd876562d9ced7985d7a8
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 778353621491f912d3237900785e6dee17bf975e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73043747"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014485"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 이 문서에서는 로그인 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
@@ -47,7 +47,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>로그인 작업에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?
 
-* 모든 로그인 활동 보고서를 보려면 테넌트에 이와 관련된 Azure AD Premium 라이선스가 있어야 합니다. Azure Active Directory 버전을 업그레이드 하려면 [Azure Active Directory Premium 시작](../fundamentals/active-directory-get-started-premium.md) 을 참조 하세요. 업그레이드 하기 전에 데이터 작업 없이 프리미엄 라이선스로 업그레이드 한 후 데이터가 보고서에 표시 되는 데 몇 일이 걸릴 수 있습니다.
+* 모든 로그인 활동 보고서를 보려면 테넌트에 이와 관련된 Azure AD Premium 라이선스가 있어야 합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요. 업그레이드 하기 전에 데이터 작업 없이 프리미엄 라이선스로 업그레이드 한 후 데이터가 보고서에 표시 되는 데 몇 일이 걸릴 수 있습니다.
 
 ## <a name="sign-ins-report"></a>로그인 보고서
 
@@ -105,22 +105,22 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 **로그인 상태** 필터를 사용하면 다음을 선택할 수 있습니다.
 
-- 전체
+- 모두
 - 성공
 - 실패
 
 **조건부 액세스** 필터를 사용하면 로그인에 대한 CA 정책 상태를 선택할 수 있습니다.
 
-- 전체
+- 모두
 - 적용되지 않음
 - 성공
 - 실패
 
 **날짜** 필터를 사용하면 반환되는 데이터의 시간 범위를 정의할 수 있습니다.  
-가능한 값은 다음과 같습니다.
+가능한 값은
 
 - 1 개월
-- 7일
+- 7 일
 - 24시간
 - 사용자 지정 시간 간격
 
@@ -140,11 +140,11 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 - **기타 클라이언트**
     - **IMAP**  
         전자 메일을 검색 하는 데 IMAP를 사용 하는 레거시 메일 클라이언트입니다.
-    - **만들었습니다**  
+    - **MAPI**  
         ADAL을 사용 하 고 MAPI를 사용 하는 Office 2013.
     - **이전 Office 클라이언트**  
         ADAL이 사용 하도록 설정 되어 있지 않고 ADAL이 사용 하지 않도록 설정 된 경우 MAPI 또는 Office 2016를 사용 하는 기본 구성의 office 2013입니다.
-    - **창을**  
+    - **POP**  
         POP3를 사용 하 여 전자 메일을 검색 하는 레거시 메일 클라이언트입니다.
     - **SMTP**  
         SMTP를 사용 하 여 전자 메일을 보내는 레거시 메일 클라이언트입니다.
@@ -191,9 +191,9 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 - 애플리케이션 UI
 - 애플리케이션
 - 클라이언트
-- 위치
+- Location
 - IP 주소
-- 날짜
+- Date
 - 필요한 MFA
 - 로그인 상태
 

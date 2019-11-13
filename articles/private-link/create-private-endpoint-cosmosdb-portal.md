@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sngun
-ms.openlocfilehash: 80a0a3440a7fb5d056d1d76fb9d82931721b6e16
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 32595e561736b5f22f109d0caff1f3990300d2bc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514213"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007324"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Azure 개인 링크를 사용 하 여 개인적으로 Azure Cosmos 계정에 연결
 
@@ -35,11 +35,11 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
     | 설정 | 값 |
     | ------- | ----- |
-    | Name | *MyVirtualNetwork*를 입력합니다. |
+    | 이름 | *MyVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | 구독 | 사용 중인 구독을 선택합니다.|
     | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
-    | 위치 | **WestCentralUS**를 선택합니다.|
+    | Location | **WestCentralUS**를 선택합니다.|
     | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
     |||
@@ -99,7 +99,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 ## <a name="create-a-private-endpoint-for-your-azure-cosmos-account"></a>Azure Cosmos 계정에 대 한 개인 끝점 만들기
 
-연결 된 문서의 [Azure Portal를 사용 하 여 개인 링크 만들기](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-link-using-the-azure-portal) 섹션에 설명 된 대로 Azure Cosmos 계정에 대 한 개인 링크를 만듭니다.
+연결 된 문서의 [Azure Portal를 사용 하 여 개인 링크 만들기](../cosmos-db/how-to-configure-private-endpoints.md#create-a-private-endpoint-by-using-the-azure-portal) 섹션에 설명 된 대로 Azure Cosmos 계정에 대 한 개인 링크를 만듭니다.
 
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 
@@ -109,7 +109,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 1. **연결** 단추를 선택합니다. **연결** 단추를 선택하면 **가상 머신에 연결**이 열립니다.
 
-1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
+1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고 컴퓨터에 다운로드합니다.
 
 1. 다운로드한 *.rdp* 파일을 엽니다.
 
@@ -137,7 +137,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
    [개인 IP 주소] [계정 엔드포인트]. documents. .com
 
-   **예제:**
+   **예:**
 
    10.1.255.13 mycosmosaccount.documents.azure.com
 
@@ -168,7 +168,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 개인 끝점, Azure Cosmos 계정 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 여기에 포함 된 모든 리소스를 삭제 합니다. 
 
-1. 포털 맨 위에 있는 **검색** 상자에 *myresourcegroup* 을 입력 하 고 검색 결과에서 *myresourcegroup* 를 선택 합니다.
+1. 포털 맨 위에 있는  *검색* 상자에  myResourceGroup을 입력하고 검색 결과에서  *myResourceGroup* 을 선택합니다.
 
 1. **리소스 그룹 삭제**를 선택합니다.
 

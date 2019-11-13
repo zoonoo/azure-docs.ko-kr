@@ -18,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26ef28be328e01f8edcf898f123db55f262f286c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803338"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013052"
 ---
-# <a name="how-to-configure-an-applications-publisher-domain-preview"></a>방법: 응용 프로그램의 게시자 도메인 구성 (미리 보기)
+# <a name="how-to-configure-an-applications-publisher-domain"></a>방법: 응용 프로그램의 게시자 도메인 구성
 
 응용 프로그램의 [동의 프롬프트](application-consent-experience.md) 에서 사용자에 게 해당 정보를 보낼 위치를 알려 주는 응용 프로그램의 게시자 도메인이 표시 됩니다. 5 월 21 일 이후에 등록 된 다중 테 넌 트 응용 **프로그램 (게시자**도메인이 없는 2019)은 확인 되지 않음으로 표시 됩니다. 다중 테 넌 트 응용 프로그램은 단일 조직 디렉터리 외부의 계정을 지 원하는 응용 프로그램입니다. 예를 들어 모든 Azure AD 계정을 지원 하거나 모든 Azure AD 계정 및 개인 Microsoft 계정을 지원 합니다.
 
@@ -40,8 +40,8 @@ ms.locfileid: "72803338"
 | 테 넌 트 확인 도메인 | 게시자 도메인의 기본값 |
 |-------------------------|----------------------------|
 | null | null |
-| *. onmicrosoft.com | *. onmicrosoft.com |
-| -*. onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (주) | domain2.com |
+| *.onmicrosoft.com | *.onmicrosoft.com |
+| - *.onmicrosoft.com<br/>-domain1.com<br/>-domain2.com (주) | domain2.com |
 
 다중 테 넌 트 응용 프로그램의 게시자 도메인이 설정 되지 않았거나. onmicrosoft.com로 끝나는 도메인으로 설정 된 경우 앱의 동의 확인 표시는 게시자 도메인 대신 확인 되지 않음 **으로 표시 됩니다** .
 

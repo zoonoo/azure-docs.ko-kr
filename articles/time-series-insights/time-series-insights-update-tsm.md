@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 미리 보기의 시계열 모델 | Microsoft Docs
-description: Azure Time Series Insights 시계열 모델을 이해합니다.
+title: 시계열 모델-Azure Time Series Insights | Microsoft Docs
+description: Azure Time Series Insights 미리 보기의 시계열 모델에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c9bface359df020cea0bfff8f82e25e25efbc47
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a550643640afeefeb4cf79e35265f13557b6ffb0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585242"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014689"
 ---
-# <a name="time-series-model"></a>시계열 모델
+# <a name="time-series-model-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 시계열 모델
 
 이 문서에서는 시계열 모델, 기능 및 Azure Time Series Insights 미리 보기 환경에서 사용자 고유의 모델 빌드 및 업데이트를 시작 하는 방법을 설명 합니다.
 
@@ -101,7 +101,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 | timeSeriesId | 인스턴스가 연결 된 시계열의 UUID입니다. |
 | typeId | 인스턴스가 연결 된 시계열 모델 형식의 UUID입니다. 기본적으로 검색 되는 새 인스턴스는 모두 기본 형식에 연결 됩니다.
 | name | **name** 속성은 선택 사항이며 대/소문자를 구분합니다. **이름을** 사용할 수 없는 경우 기본적으로 **Timeseriesid**로 설정 됩니다. 이름이 제공 되는 경우에도 **Timeseriesid** 는 여전히 사용할 수 [있습니다.](time-series-insights-update-explorer.md#preview-well) |
-| description | 인스턴스에 대 한 텍스트 설명입니다. |
+| 설명 | 인스턴스에 대 한 텍스트 설명입니다. |
 | 계층 Id | 인스턴스가 속한 계층을 정의 합니다. |
 | instanceFields | **instanceFields**는 인스턴스 그리고 인스턴스를 정의하는 정적 데이터의 속성입니다. 계층 구조 또는 비 계층 구조의 값을 정의하는 한편 검색 작업을 수행하기 위한 인덱싱도 지원합니다. |
 
@@ -240,7 +240,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 | ---| ---|
 | id | 형식의 UUID입니다. |
 | name | 형식의 이름을 제공 하는 데 사용 되는 문자열입니다. |
-| description | 형식에 대 한 문자열 설명입니다. |
+| 설명 | 형식에 대 한 문자열 설명입니다. |
 | variables | 형식과 연결 된 변수를 지정 합니다. |
 
 형식은 다음 JSON 예제를 따릅니다.

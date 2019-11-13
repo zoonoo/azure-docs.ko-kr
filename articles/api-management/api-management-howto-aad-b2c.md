@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 62657134775d21ad6aabdf8f02a1e001de0a6094
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 55a9cbcfdb9766c6adc6d10f975fa4d074ec3aaf
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176838"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011661"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory B2C를 사용하여 개발자 계정에 권한을 부여하는 방법
 
@@ -77,7 +77,7 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
     
 12. **Signin 테 넌 트**에 Azure Active Directory B2C 테 넌 트의 도메인 이름을 지정 합니다.
 
-13. **권한** 필드를 사용 하 여 사용할 AZURE AD B2C 로그인 URL을 제어할 수 있습니다. 값 **< your_b2c_tenant_name >. b2clogin**로 설정 합니다.
+13. **권한** 필드를 사용 하 여 사용할 AZURE AD B2C 로그인 URL을 제어할 수 있습니다. 값을 **< your_b2c_tenant_name > b2clogin**로 설정 합니다.
 
 14. B2C 테넌트 정책에서 **등록 정책** 및 **로그인 정책**을 지정합니다. 선택적으로 **프로필 편집 정책** 및 **암호 재설정 정책**을 제공할 수도 있습니다.
 
@@ -87,11 +87,11 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
 
 ## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>개발자 포털-Azure AD B2C 계정 인증 추가
 
-개발자 포털에서 AAD B2C 로그인을 사용 하도록 설정 하려면 로그인 폼에 **OAuth 단추** 위젯을 추가 해야 합니다.
+개발자 포털에서 AAD B2C를 사용 하 여 로그인 할 수는 **OAuth 단추** 위젯입니다. 위젯은 기본 개발자 포털 콘텐츠의 로그인 페이지에 이미 포함 되어 있습니다.
 
 ![AAD 단추 위젯](./media/api-management-howto-aad/portal-oauth-widget.png)
 
-새 사용자가 AAD B2C를 사용 하 여 로그인 할 때마다 새 계정이 자동으로 생성 되지만 등록 양식에서 동일한 위젯을 추가 하는 것이 좋습니다.
+새 사용자가 AAD B2C를 사용 하 여 로그인 할 때마다 새 계정이 자동으로 생성 되지만 동일한 위젯을 등록 페이지에 추가 하는 것이 좋습니다.
 
 ## <a name="legacy-developer-portal---how-to-sign-up-with-azure-ad-b2c"></a>레거시 개발자 포털-Azure AD B2C 등록 하는 방법
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Digital Twins의 송신 및 엔드포인트 | Microsoft Docs
-description: Azure Digital Twins를 사용하여 엔드포인트를 만드는 방법에 대한 지침입니다.
+title: 송신 및 끝점-Azure Digital Twins | Microsoft Docs
+description: Azure Digital Twins에서 이벤트 끝점을 만들고 수신 하는 방법에 대해 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -8,14 +8,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 9a5e060d6248d3144720930fe960e0a371a73d6e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 33e8a6a281fbc6620a4608c7b0821b196043423e
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822262"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010063"
 ---
-# <a name="egress-and-endpoints"></a>송신 및 엔드포인트
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Azure Digital Twins의 송신 및 끝점
 
 Azure Digital Twins *엔드포인트*는 사용자의 Azure 구독 내 메시지 또는 이벤트 브로커를 나타냅니다. 이벤트 및 메시지를 Azure Event Hubs, Azure Event Grid 및 Azure Service Bus 토픽으로 전송할 수 있습니다.
 
@@ -55,8 +55,8 @@ Azure Digital Twins *엔드포인트*는 사용자의 Azure 구독 내 메시지
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid가 이 값을 제공합니다. |
-| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid가 이 값을 제공합니다. |
+| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 
 Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -100,7 +100,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 - UserBlobMetadata
 - UserExtendedProperty
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 ```JSON
 {
@@ -133,7 +133,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 > [!IMPORTANT]  
 > 이 이벤트는 UDF 자체에서 명시적으로 전송해야 합니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 ```JSON
 {
@@ -161,7 +161,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 
 **SensorChange**는 원격 분석 변경 내용을 기반으로 하는 센서의 상태 업데이트입니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 ```JSON
 {
@@ -196,7 +196,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 
 **SpaceChange**는 원격 분석 변경 내용을 기반으로 하는 공간의 상태 업데이트입니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 ```JSON
 {

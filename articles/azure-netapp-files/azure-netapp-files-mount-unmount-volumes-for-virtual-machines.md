@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 49c5fc4a9d4fed2176baf220e3fcc8f887757a36
-ms.sourcegitcommit: f226cdd6406372b5693d46b6d04900f2f0cda4e6
+ms.openlocfilehash: 4cd3bc7e4f95869d3efd2d92a7cdf1addc7ce5b2
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906218"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953107"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
 
@@ -36,4 +36,7 @@ NFSv 4.1을 사용 하는 경우 다음 명령을 사용 하 여 파일 시스�
 
 `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
 
-[Azure NetApp Files에 대 한 nfsv 4.1 기본 도메인 구성을](azure-netapp-files-configure-nfsv41-domain.md)참조 하세요.
+## <a name="next-steps"></a>다음 단계
+
+* [Azure NetApp Files에 대 한 NFSv 4.1 기본 도메인 구성](azure-netapp-files-configure-nfsv41-domain.md)
+* Azure VM을 시작 하거나 다시 부팅할 때 NFS 볼륨을 자동으로 탑재 하는 방법에 대 한 [Nfs faq](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs) 를 참조 하세요.

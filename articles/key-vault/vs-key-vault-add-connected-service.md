@@ -9,12 +9,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 9331f13bd85d9df0d47f8fa9d0964974764691f7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4cbc4044b5d1270cecd1a271d2a1db02801650dd
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73815112"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012764"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Visual Studio 연결된 서비스를 사용하여 웹 애플리케이션에 Key Vault 추가
 
@@ -22,7 +22,7 @@ ms.locfileid: "73815112"
 
 Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 서비스에서 수행하는 변경 내용에 대한 자세한 내용은 [Key Vault 연결된 서비스 - 내 ASP.NET 4.7.1 프로젝트에서 변경된 내용](#how-your-aspnet-framework-project-is-modified) 또는 [Key Vault 연결된 서비스 - 내 ASP.NET Core 프로젝트에서 변경된 내용](#how-your-aspnet-core-project-is-modified)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 - **Azure 구독**. 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 등록 합니다.
 - **웹 개발** 워크 로드가 설치 된 **visual studio 2019 버전 16.3 Preview 1** 이상 또는 **visual studio 2017 버전 15.7** 입니다. [여기에서 다운로드하세요](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
@@ -59,7 +59,7 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 
    ![비밀 만들기](media/vs-key-vault-add-connected-service/azure-create-a-secret.png)
 
-1. (선택 사항) 다른 비밀을 입력합니다. 단, 이번에는 *비밀-MySecret*이라는 이름을 지정하여 범주에 포함시킵니다. 이 구문은 "MySecret" 비밀을 포함 하는 "암호" 범주를 지정 합니다.
+1. (선택 사항) 다른 비밀을 입력합니다. 단, 이번에는 *비밀--MySecret*이라는 이름을 지정하여 범주에 포함시킵니다. 이 구문은 "MySecret" 비밀을 포함 하는 "암호" 범주를 지정 합니다.
 
 이제 코드에서 비밀에 액세스할 수 있습니다. 다음 단계는 ASP.NET 4.7.1 또는 ASP.NET Core를 사용하는지에 따라 달라집니다.
 
@@ -134,6 +134,21 @@ Key Vault를 사용하도록 설정하기 위해 프로젝트에서 연결된 �
 1. 포털 맨 위에 있는 검색 상자에 리소스 그룹의 이름을 입력합니다. 검색 결과에 이 빠른 시작에서 사용된 리소스 그룹이 표시되면 선택합니다.
 2. **리소스 그룹 삭제**를 선택합니다.
 3. **리소스 그룹 이름 입력:** 상자에 리소스 그룹의 이름을 입력 하 고 **삭제**를 선택 합니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+키 자격 증명 모음이 Visual Studio에 로그인 한 것과 다른 Microsoft 계정에서 실행 중인 경우 (예: 키 자격 증명 모음이 회사 계정에서 실행 중이지만 Visual Studio에서 개인 계정을 사용 하는 경우) Program.cs 파일에 오류가 발생 합니다. 는 Visual Studio에서 키 자격 증명 모음에 액세스할 수 없습니다. 이 문제를 해결하려면
+
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 Key Vault를 엽니다.
+
+1. **액세스 정책**, **액세스 정책 추가**를 차례로 선택 하 고 보안 주체로 로그인 한 계정을 선택 합니다.
+
+1. Visual Studio에서 **파일** > **계정 설정**을 선택 합니다.
+**모든 계정** 섹션에서 **계정 추가** 를 선택 합니다. 액세스 정책의 보안 주체로 선택한 계정으로 로그인 합니다.
+
+1. **도구** > **옵션**을 선택 하 고 **Azure 서비스 인증**을 찾습니다. 그런 다음 Visual Studio에 방금 추가한 계정을 선택 합니다.
+
+이제 응용 프로그램을 디버그할 때 Visual Studio에서 키 자격 증명 모음이 있는 계정에 연결 합니다.
 
 ## <a name="how-your-aspnet-core-project-is-modified"></a>ASP.NET Core 프로젝트를 수정 하는 방법
 

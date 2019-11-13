@@ -3,7 +3,7 @@ title: Azure Portal에서 사용자 활동 보고서 찾기 Microsoft Docs
 description: Azure Portal에서 Azure Active Directory 사용자 작업 보고서가 어디에 위치하는지 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7fdf8c17c8dcbdc8203cb46342c8474b3d9832f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d356f8c10ae3770d9f4ade100ab0496ee58d772f
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820932"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008205"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Azure Portal에서 작업 보고서 찾기
 
@@ -42,7 +42,7 @@ ms.locfileid: "72820932"
 * 암호 재설정 등록 활동
 * 셀프 서비스 그룹 작업
 * Office 365 그룹 이름 변경
-* 계정 프로비전 활동
+* 계정 프로비저닝 활동
 * 암호 롤오버 상태
 * 계정 프로비전 오류
 
@@ -52,18 +52,18 @@ ms.locfileid: "72820932"
 
 범주는 다음과 같습니다.
 
-- 전체
+- 모두
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
+- 인증
 - 권한 부여
-- 지원 문의
+- 연락처
 - 디바이스
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
-- 다른
+- 기타
 - 정책
 - ResourceManagement
 - RoleManagement
@@ -73,7 +73,7 @@ ms.locfileid: "72820932"
 
 서비스에는 다음이 포함됩니다.
 
-- 전체
+- 모두
 - 액세스 검토
 - 계정 프로비전 
 - 응용 프로그램 SSO
@@ -87,7 +87,7 @@ ms.locfileid: "72820932"
 - PIM
 - 셀프 서비스 그룹 관리
 - 셀프 서비스 암호 관리
-- 사용 조건
+- 사용 약관
 
 ## <a name="sign-ins-report"></a>로그인 보고서 
 
@@ -147,7 +147,7 @@ ms.locfileid: "72820932"
 
 #### <a name="symptoms"></a>증상 
 
-활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 그 이유는 무엇입니까? 
+활동 로그(감사 또는 로그인)를 다운로드했고 선택한 시간에 대한 모든 레코드가 표시되지 않습니다. 이유가 무엇일까요? 
 
  ![보고](./media/troubleshoot-missing-data-download/01.png)
  
@@ -155,7 +155,7 @@ ms.locfileid: "72820932"
 
 Azure Portal에서 활동 로그를 다운로드 하는 경우 가장 최근의 가장 먼저 정렬 된 25만 레코드로 크기를 제한 합니다. 
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 [Azure AD Reporting API](concept-reporting-api.md)를 활용하여 특정 시점에서 최대 백만 개의 레코드를 가져올 수 있습니다.
 
@@ -176,7 +176,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 | 디렉터리 감사 | &nbsp; | 2분 | 5분 |
 | 로그인 작업 | &nbsp; | 2분 | 5분 | 
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 15분에서 2시간 동안 기다렸다가 로그에 작업이 표시되는지 확인합니다. 2시간 후에도 로그가 보이지 않으면 [지원 티켓을 제출](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)해 주시면 저희 쪽에서 살펴보겠습니다.
 
@@ -197,7 +197,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 | 디렉터리 감사 | &nbsp; | 2분 | 5분 |
 | 로그인 작업 | &nbsp; | 2분 | 5분 | 
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 15분에서 2시간 동안 기다렸다가 로그에 작업이 표시되는지 확인합니다. 2시간 후에도 로그가 보이지 않으면 [지원 티켓을 제출](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)해 주시면 저희 쪽에서 살펴보겠습니다.
 
@@ -205,7 +205,7 @@ Azure Portal에서 일부 작업을 수행했고 `Activity logs > Audit Logs` �
 
 #### <a name="symptoms"></a>증상
 
-Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 그 이유는 무엇입니까? 
+Azure Portal에서 30일이 초과된 로그인 및 감사 데이터를 볼 수 없습니다. 이유가 무엇일까요? 
 
  ![보고](./media/troubleshoot-missing-audit-data/03.png)
 
@@ -215,12 +215,12 @@ Azure Active Directory 작업은 사용자 라이선스에 따라 다음 기간 
 
 | 보고서           | &nbsp; |  Azure AD Free | Azure AD Premium P1 | Azure AD Premium P2 |
 | ---              | ----   |  ---           | ---                 | ---                 |
-| 디렉터리 감사  | &nbsp; |   7일     | 30일             | 30일             |
+| 디렉터리 감사  | &nbsp; |   7 일     | 30일             | 30일             |
 | 로그인 작업 | &nbsp; | 사용할 수 없음. 로그인 작업은 개별 사용자 프로필 블레이드에서 7일 동안 액세스할 수 있습니다. | 30일 | 30일             |
 
 자세한 내용은 [Azure Active Directory 보고서 보존 정책](reference-reports-data-retention.md)을 참조하세요.  
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 데이터를 30일 넘게 보존하는 두 가지 옵션이 있습니다. [Azure AD Reporting API](concept-reporting-api.md)를 사용하여 프로그래밍 방식으로 데이터를 검색하고 데이터베이스에 저장합니다. 또는 감사 로그를 Splunk 또는 SumoLogic 같은 타사 SIEM 시스템에 통합합니다.
 

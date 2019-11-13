@@ -1,5 +1,5 @@
 ---
-title: Visual studio용 클라우드 탐색기를 사용하여 Azure IoT 디바이스 관리 | Microsoft Docs
+title: Visual Studio 클라우드 탐색기 Azure IoT 장치 관리
 description: Direct 메서드와 Twin의 desired 속성 관리 옵션을 제공하는 Visual Studio용 클라우드 탐색기를 사용하여 Azure IoT Hub 디바이스를 관리합니다.
 author: shizn
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: e05ba421a4535e6e424e65a1f2271d19f9d9abf4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 6fe5a45dda6632c56b3c6714827950e25e7d26af
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048717"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953190"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Azure IoT Hub 디바이스 관리를 위해 Visual Studio용 클라우드 탐색기 사용
 
@@ -22,7 +22,7 @@ ms.locfileid: "70048717"
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-| 관리 옵션          | 태스크                    |
+| 관리 옵션          | Task                    |
 |----------------------------|--------------------------------|
 | 직접 메서드             | 메시지 보내기 시작 또는 중지, 디바이스 다시 부팅 등의 디바이스 작업을 수행합니다.                                        |
 | 디바이스 쌍 읽기           | 디바이스의 보고된 상태를 가져옵니다. 예를 들어 디바이스에서 지금 LED가 깜박이고 있다고 보고합니다.                                    |
@@ -43,9 +43,9 @@ ms.locfileid: "70048717"
 
 ## <a name="what-you-need"></a>필요한 항목
 
-다음 필수 구성 요소가 필요 합니다.
+다음 필수 조건이 필요합니다.
 
-- 활성화된 Azure 구독.
+- 활성 Azure 구독.
 
 - 구독 중인 Azure IoT Hub
 
@@ -59,7 +59,7 @@ Visual Studio 2017 Visual Studio 설치 관리자의 클라우드 탐색기 구�
 
 ## <a name="sign-in-to-access-your-hub"></a>허브에 액세스 하려면 로그인 하세요.
 
-1. Visual Studio에서**클라우드 탐색기** **보기** > 를 선택 하 여 클라우드 탐색기를 엽니다.
+1. Visual Studio에서 **뷰** > **클라우드 탐색기** 를 선택 하 여 클라우드 탐색기를 엽니다.
 
 1. 계정 관리 아이콘을 선택 하 여 구독을 표시 합니다.
 

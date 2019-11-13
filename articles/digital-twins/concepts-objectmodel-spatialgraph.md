@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해 | Microsoft Docs
+title: 개체 모델 및 공간 인텔리전스 그래프 이해-Azure Digital Twins | Microsoft Docs
 description: Azure Digital Twins를 사용하여 사람, 장소 및 디바이스 간 관계 모델링
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/05/2019
-ms.openlocfilehash: da345c0cf039e3cc2f7f8828a0769b6e65048571
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 85fb67248a69a2726fef99ebe4749d61807631e4
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930407"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010096"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Digital Twins 개체 모델 및 공간 인텔리전스 그래프 이해
 

@@ -1,5 +1,5 @@
 ---
-title: 온-프레미스 사이트로 장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 Linux VM 장애 복구를 위한 마스터 대상 서버 설치
 description: Azure Site Recovery를 사용한 VMware VM과 Azure 간 재해 복구 중에 온-프레미스 사이트로 장애 복구(failback)를 위한 Linux 마스터 대상 서버를 설치하는 방법을 알아봅니다.
 author: mayurigupta13
 services: site-recovery
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 5b4b3f5025edef242b87215665fd65f131157943
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 5b4d625d28584bb601905e9439c112c845219e54
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904406"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954370"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>장애 복구(failback)를 위한 Linux 마스터 대상 서버 설치
 Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시 온-프레미스 사이트에 장애 복구할 수 있습니다. 장애 복구하려면 가상 머신을 Azure에서 온-프레미스 사이트로 다시 보호해야 합니다. 이 프로세스를 수행하려면 트래픽을 수신할 온-프레미스 마스터 대상 서버가 필요합니다. 
@@ -29,14 +29,14 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 
 이 문서의 마지막 부분 또는 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 의견이나 질문을 게시할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 * 마스터 대상을 배포해야 하는 호스트를 선택하려면 기존 온-프레미스 가상 머신에 장애 복구를 수행할 것인지 아니면 새 가상 머신에 장애 복구를 수행할 것인지 결정합니다. 
     * 기존 가상 컴퓨터에서 수행하는 경우 마스터 대상의 호스트가 가상 컴퓨터의 데이터 저장소에 액세스할 수 있어야 합니다.
     * 온-프레미스 가상 머신이 없는 경우(대체 위치 복구의 경우) 마스터 대상과 동일한 호스트에 장애 복구(failback) 가상 머신이 생성됩니다. 아무 ESXi 호스트를 선택하여 마스터 대상을 설치할 수 있습니다.
 * 마스터 대상은 프로세스 서버 및 구성 서버와 통신할 수 있는 네트워크에 있어야 합니다.
 * 마스터 대상의 버전이 프로세스 서버 및 구성 서버의 버전과 같거나 그보다 이전 버전이어야 합니다. 예를 들어 구성 서버의 버전이 9.4인 경우 마스터 대상의 버전이 9.4 또는 9.3인 것은 괜찮지만 9.5는 안 됩니다.
-* 마스터 대상은 VMware 가상 머신만 될 수 있고 물리적 서버는 안 됩니다.
+* 마스터 대상은 VMware 가상 컴퓨터만 될 수 있고 물리적 서버는 안 됩니다.
 
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>마스터 대상 서버 만들기에 대한 크기 조정 지침
 
@@ -44,14 +44,14 @@ Azure에 가상 머신을 장애 조치(failover)한 후 가상 머신을 다시
 - **RAM**: 6GB 이상
 - **OS 디스크 크기**: 100GB 이상(OS 설치에 필요)
 - **보존 드라이브에 대한 추가 디스크 크기**: 1TB
-- **CPU 코어**: 4 코어 이상
+- **CPU 코어**: 코어 4개 이상
 
 지원 되는 Ubuntu 커널은 다음과 같습니다.
 
 
 |커널 시리즈  |최대 지원  |
 |---------|---------|
-|4.4      |4.4.0-81-제네릭         |
+|4.4.      |4.4.0-81-제네릭         |
 |4.8      |4.8.0-56-제네릭         |
 |4.10     |4.10.0-24-제네릭        |
 
@@ -154,7 +154,7 @@ DVD 드라이브에서 Ubuntu 16.04.2 최소 64비트 ISO를 유지하고 시스
 
 Linux 가상 머신에 있는 각 SCSI 하드 디스크의 ID를 가져오려면 **disk.EnableUUID = TRUE** 매개 변수를 사용하도록 설정해야 합니다. 이 매개 변수를 사용하려면 다음 단계를 따르세요.
 
-1. 가상 머신을 종료합니다.
+1. 가상 컴퓨터를 종료합니다.
 
 2. 왼쪽 창에서 가상 머신의 항목을 마우스 오른쪽 단추로 클릭한 다음 **편집 설정**을 선택합니다.
 
@@ -244,7 +244,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     ![다중 경로 ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. 드라이브를 포맷 하 고 새 드라이브에 파일 시스템을 만듭니다. **mkfs. ext4\</dev/mapper/보존 디스크의 다중 경로 id >** 합니다.
+3. 드라이브를 포맷 하 고 새 드라이브에 파일 시스템을 만듭니다. **mkfs. ext4/dev/mapper/\<보존 디스크의 다중 경로 id >** .
     
     ![파일 시스템](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -278,7 +278,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
 
     `echo <passphrase> >passphrase.txt`
 
-    예제: 
+    예: 
 
        `echo itUx70I47uxDuUVY >passphrase.txt`
     
@@ -289,7 +289,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
 
-    예제: 
+    예: 
     
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
@@ -320,7 +320,7 @@ Linux를 사용하여 다운로드하려면 다음을 입력합니다.
     ./install -q -d /usr/local/ASR -r MT -v VmWare
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i <ConfigurationServer IP Address> -P passphrase.txt
     ```
-    예제: 
+    예: 
 
     ```
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
@@ -335,7 +335,7 @@ VMware 도구 또는 open-vm-tools가 데이터 저장소를 찾을 수 있도�
 
 ### <a name="upgrade-the-master-target-server"></a>마스터 대상 서버 업그레이드
 
-설치 관리자를 실행합니다. 마스터 대상에 에이전트가 설치되어 있는지를 자동으로 검색합니다. 업그레이드하려면 **Y**를 선택합니다.  설치가 완료된 후에 다음 명령을 사용하여 설치된 마스터 대상의 버전을 확인할 수 있습니다.
+설치 관리자를 실행합니다. 마스터 대상에 에이전트가 설치되어 있는지를 자동으로 검색합니다. 업그레이드 하려면 **Y**를 선택 합니다.  설치가 완료 되 면 다음 명령을 사용 하 여 설치 된 마스터 대상의 버전을 확인 합니다.
 
 `cat /usr/local/.vx_version`
 

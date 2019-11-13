@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 270dbb24d851645ff7a7f0bcf5f78bfb95bcd095
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5ae97f18bb15b5ab2fe092a1e3b857ea3ef0aed0
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604738"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012977"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 
@@ -77,7 +77,7 @@ AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문�
 
 이 오류는 여러 가지 이유로 클러스터가 실패 상태를 입력 하는 경우에 발생 합니다. 이전에 실패 한 작업을 다시 시도 하기 전에 다음 단계를 수행 하 여 클러스터 실패 상태를 확인 합니다.
 
-1. 클러스터가 `failed` 상태를 초과할 때까지 `upgrade` 및 `scale` 작업이 실패 합니다. 일반적인 근본 문제 및 해결 방법은 다음과 같습니다.
+1. 클러스터가 `failed` 상태가 될 때까지 `upgrade` 및 `scale` 작업이 성공 하지 않습니다. 일반적인 근본 문제 및 해결 방법은 다음과 같습니다.
     * **계산 (CRP) 할당량이 부족**한 크기 조정 문제를 해결 하려면 먼저 할당량 내에서 안정적인 목표 상태로 클러스터를 다시 확장 합니다. 그런 다음 초기 할당량 한도를 초과 하 여 다시 확장 하기 전에 [계산 할당량 증가를 요청 하려면 다음 단계를](../azure-supportability/resource-manager-core-quotas-request.md) 수행 합니다.
     * 고급 네트워킹으로 클러스터 크기를 조정 하 고 **서브넷 (네트워킹) 리소스가 부족**합니다. 문제를 해결 하려면 먼저 할당량 내에서 안정적인 목표 상태로 클러스터를 다시 확장 합니다. 그런 후에 다음 단계에 따라 초기 할당량 한도를 초과 하 여 다시 확장 하기 전에 [리소스 할당량 증가를 요청](../azure-resource-manager/resource-manager-quota-errors.md#solution) 합니다.
 2. 업그레이드 실패의 근본 원인이 해결 되 면 클러스터가 성공 상태 여야 합니다. 성공 상태가 확인 되 면 원래 작업을 다시 시도 합니다.
@@ -88,7 +88,7 @@ AKS 클러스터 내의 에이전트 노드에서 태그를 수정했기 때문�
 
 단일 노드 풀 또는 [여러 노드 풀](use-multiple-node-pools.md) 을 포함 하는 클러스터에서 클러스터에 대 한 업그레이드 및 크기 조정 작업은 함께 사용할 수 없습니다. 클러스터 또는 노드 풀을 동시에 업그레이드 하 고 확장할 수 없습니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 따라서 활성 업그레이드 또는 크기 조정 작업이 발생 하거나 시도한 후에 실패 하는 경우 작업이 제한 됩니다. 
 
-문제를 진단 하는 데 도움이 되도록 `az aks show -g myResourceGroup -n myAKSCluster -o table`을 실행 하 여 클러스터에서 자세한 상태를 검색 합니다. 결과에 따라:
+문제를 진단 하는 데 도움이 되도록 `az aks show -g myResourceGroup -n myAKSCluster -o table`를 실행 하 여 클러스터에서 자세한 상태를 검색 합니다. 결과에 따라:
 
 * 클러스터가 적극적으로 업그레이드 되는 경우 작업이 종료 될 때까지 기다립니다. 성공 하면 이전에 실패 한 작업을 다시 시도 합니다.
 * 클러스터가 업그레이드에 실패 한 경우 이전 섹션에 설명 된 단계를 수행 합니다.
@@ -118,7 +118,8 @@ AKS 클러스터가 다음 예제와 같이 가상 머신 확장 집합에 없�
 
 명명 제한은 Azure 플랫폼과 AKS 모두에 의해 구현 됩니다. 리소스 이름 또는 매개 변수가 이러한 제한 중 하나를 중단 하는 경우 다른 입력을 제공 하 라는 오류가 반환 됩니다. 다음과 같은 일반적인 명명 지침이 적용 됩니다.
 
-* AKS *MC_* 리소스 그룹 이름은 리소스 그룹 이름 및 리소스 이름을 결합 합니다. `MC_resourceGroupName_resourceName_AzureRegion`의 자동 생성 구문은 80 자이 하 여야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름 길이를 줄이십시오.
+* 클러스터 이름은 1-63 자 여야 합니다. 허용 되는 문자는 문자, 숫자, 대시 및 밑줄만 사용할 수 있습니다. 첫 번째 및 마지막 문자는 문자 또는 숫자 여야 합니다.
+* AKS *MC_* 리소스 그룹 이름은 리소스 그룹 이름과 리소스 이름을 결합 합니다. `MC_resourceGroupName_resourceName_AzureRegion`의 자동 생성 구문은 80 자이 하 여야 합니다. 필요한 경우 리소스 그룹 이름 또는 AKS 클러스터 이름 길이를 줄이십시오.
 * *DnsPrefix* 는 영숫자 값으로 시작 하 고 끝나야 합니다. 유효한 문자에는 영숫자 값과 하이픈 (-)이 포함 됩니다. *DnsPrefix* 에는 마침표 (.)와 같은 특수 문자를 포함할 수 없습니다.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>클러스터를 만들거나, 업데이트 하거나, 크기를 삭제 하거나, 업그레이드 하는 동안 오류가 발생 하는 경우 다른 작업이 진행 중 이므로 해당 작업이 허용 되지 않습니다.

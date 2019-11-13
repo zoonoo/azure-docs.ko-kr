@@ -1,18 +1,17 @@
 ---
-title: Azure Site Recovery를 사용한 VMware VM에서 Azure로의 재해 복구 정보 | Microsoft Docs
+title: Azure Site Recovery를 사용한 VMware 재해 복구
 description: 이 문서에서는 Azure Site Recovery 서비스를 사용하여 수행되는 VMware VM에서 Azure로의 재해 복구 개요를 제공합니다.
-author: raynew
+author: rayne-wiselman
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 9/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: dca8174caabf4799c338d780a78ba58f1af5a2f1
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 589dda80d68fba73a729da4b6e59270cc09c18cb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814317"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954385"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>VMware VM에서 Azure로의 재해 복구 정보
 
@@ -88,7 +87,7 @@ Azure에서 다음을 준비해야 합니다.
 Azure 및 온-프레미스 인프라가 준비된 후에 재해 복구를 설정할 수 있습니다.
 
 1. 배포해야 하는 구성 요소를 이해하려면 [VMware에서 Azure로의 아키텍처](vmware-azure-architecture.md), 및 [물리적 서버에서 Azure로의 아키텍처](physical-azure-architecture.md)를 검토합니다. 많은 구성 요소가 있으므로 이러한 구성 요소가 어떻게 잘 맞는지 이해하는 것이 중요합니다.
-2. **원본 환경**: 배포의 첫 번째 단계로 복제 원본 환경 설정을 설정합니다. 복제할 대상과 복제할 위치를 지정합니다.
+2. **원본 환경**: 배포의 첫 번째 단계에서는 복제 원본 환경 설정을 설정합니다. 복제할 대상과 복제할 위치를 지정합니다.
 3. **구성 서버**: 온-프레미스 원본 환경에서 구성 서버를 설정해야 합니다.
     - 구성 서버는 단일 온-프레미스 컴퓨터입니다. VMware 재해 복구의 경우 다운로드 가능 OVF 템플릿에서 배포할 수 있는 VMware VM으로 배포하는 것이 좋습니다.
     - 구성 서버는 온-프레미스와 Azure 간의 통신을 조정합니다.
@@ -96,7 +95,7 @@ Azure 및 온-프레미스 인프라가 준비된 후에 재해 복구를 설정
         - 프로세스 서버는 Azure의 캐시 저장소 계정에 복제 데이터를 수신, 최적화 및 전송 합니다. 또한 복제하려는 컴퓨터에서 모바일 서비스의 자동 설치를 처리하고, VMware 서버에서 VM의 자동 검색을 수행합니다.
         - 마스터 대상 서버는 Azure에서 장애 복구 중 복제 데이터를 처리합니다.
     - 설정 중에 자격 증명 모음에 구성 서버가 등록되고, MySQL Server 및 VMware PowerCLI가 다운로드되고, 자동 검색 및 모바일 서비스 설치용으로 만든 계정이 지정됩니다.
-4. **대상 환경**: Azure 구독 및 네트워크 설정을 지정 하 여 대상 Azure 환경을 설정 합니다.
+4. **대상 환경**: azure 구독 및 네트워크 설정을 지정 하 여 대상 azure 환경을 설정 합니다.
 5. **복제 정책**: 복제 수행 방법을 지정합니다. 또한 복구 지점이 생성 및 저장되는 주기와 앱 일치 스냅샷을 만들지 여부가 설정됩니다.
 6. **복제를 활성화합니다**. 온-프레미스 컴퓨터에 대해 복제를 사용하도록 설정합니다. 모바일 서비스를 설치하기 위한 계정을 만든 경우 컴퓨터에 대해 복제를 사용하도록 설정할 때 해당 계정이 설치됩니다. 
 
@@ -107,7 +106,7 @@ Azure 및 온-프레미스 인프라가 준비된 후에 재해 복구를 설정
 - 구성 서버 요구 사항 및 VMware 복제를 위해 OVF 템플릿으로 구성 서버를 설정하는 방법을 [자세히 알아봅니다](vmware-azure-deploy-configuration-server.md). 어떤 이유로든 템플릿을 사용할 수 없거나 실제 서버를 복제하려는 경우 [이러한 지침을 사용](physical-azure-set-up-source.md#set-up-the-source-environment)합니다.
 - 대상 설정에 대해 [자세히 알아봅니다](vmware-azure-set-up-target.md).
 - 복제 정책 설정에 대해 [자세히 알아봅니다](vmware-azure-set-up-replication.md).
-- 복제를 사용하도록 설정하고 복제에서 디스크를 [제외](vmware-azure-exclude-disk.md)하는 방법을 [알아봅니다](vmware-azure-enable-replication.md).
+- 복제를 사용하도록 설정하고 복제에서 디스크를 [제외](vmware-azure-enable-replication.md)하는 방법을 [알아봅니다](vmware-azure-exclude-disk.md).
 
 
 ## <a name="something-went-wrong-how-do-i-troubleshoot"></a>문제가 있는 경우 어떻게 해결하나요?

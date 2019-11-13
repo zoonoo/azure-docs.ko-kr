@@ -1,21 +1,21 @@
 ---
 title: Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 만들기 및 관리
 description: Azure Resource Manager 템플릿을 사용 하 여 SQL (Core) API에 대 한 Azure Cosmos DB 만들기 및 구성
-author: markjbrown
+author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
-ms.author: mjbrown
-ms.openlocfilehash: 5babcadee02da0ba3e112f75e8b4d1aed5f3339f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.date: 11/12/2019
+ms.author: thvankra
+ms.openlocfilehash: 0cb6e80bafca3bb0bfc339552facae5bd16aced4
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721081"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960541"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB SQL (코어) API 리소스 관리
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너의 관리를 자동화 하는 다양 한 작업을 수행 하는 방법을 설명 합니다. 이 문서에는 SQL API 계정에 대 한 예제가 포함 되어 있습니다. 다른 API 형식 계정에 대 한 예제는 [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md)에 대 한 Azure Cosmos DB의 api를 사용 하 여 리소스 관리자 템플릿 [사용을 참조](manage-table-with-resource-manager.md) 하세요.
+이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너의 관리를 자동화 하는 다양 한 작업을 수행 하는 방법을 설명 합니다. 이 문서에는 SQL API 계정에 대 한 예제가 포함 되어 있습니다. 다른 API 형식 계정에 대 한 예제는 [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md)에 대 한 Azure Cosmos DB의 api를 사용 하 여 Azure Resource Manager 템플릿 [사용을 참조](manage-table-with-resource-manager.md) 하세요.
 
 MongoDB, Gremlin, Cassandra 및 Table API에 대 한 Cosmos DB 계정, 데이터베이스 및 컨테이너를 만들고 관리 하는 방법입니다.
 
@@ -26,7 +26,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 
 > [!NOTE]
 >
 > - Azure Cosmos 계정에 위치를 동시에 추가 또는 제거 하 고 다른 속성을 수정할 수 없습니다. 이러한 작업은 별도의 작업으로 수행 해야 합니다.
-> - 계정 이름은 소문자 여야 하 고 44 자 < 합니다.
+> - 계정 이름은 소문자와 44 자이 하 여야 합니다.
 > - R u/s를 업데이트 하려면 업데이트 된 처리량 속성 값으로 템플릿을 다시 전송 합니다.
 
 [!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
@@ -36,7 +36,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 
 
 ### <a name="deploy-via-powershell"></a>PowerShell을 통해 배포
 
-PowerShell을 사용 하 여 리소스 관리자 템플릿을 배포 하려면 스크립트를 **복사** 하 고 **체험** 을 선택 하 여 Azure Cloud shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
+PowerShell을 사용 하 여 Azure Resource Manager 템플릿을 배포 하려면 스크립트를 **복사** 하 고 **시도** 를 선택 하 여 Azure Cloud Shell를 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
 
 ```azurepowershell-interactive
 
@@ -70,11 +70,11 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-Azure Cloud shell 대신 로컬로 설치 된 PowerShell 버전을 사용 하도록 선택 하는 경우 Azure PowerShell 모듈을 [설치](/powershell/azure/install-az-ps) 해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다.
+Azure Cloud Shell 대신 로컬로 설치 된 PowerShell 버전을 사용 하도록 선택한 경우 Azure PowerShell 모듈을 [설치](/powershell/azure/install-az-ps) 해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다.
 
 ### <a name="deploy-via-azure-cli"></a>Azure CLI를 통해 배포
 
-Azure CLI를 사용 하 여 리소스 관리자 템플릿을 배포 하려면 **시도** 를 선택 하 여 Azure Cloud shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
+Azure CLI를 사용 하 여 Azure Resource Manager 템플릿을 배포 하려면 **시도** 를 선택 하 여 Azure Cloud Shell를 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName
@@ -115,7 +115,7 @@ Azure Resource Manager 템플릿을 사용 하 여 저장 프로시저, 트리�
 
 ### <a name="deploy-stored-procedure-template-via-powershell"></a>PowerShell을 통해 저장 프로시저 템플릿 배포
 
-PowerShell을 사용 하 여 리소스 관리자 템플릿을 배포 하려면 스크립트를 **복사** 하 고 **체험** 을 선택 하 여 Azure Cloud shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
+PowerShell을 사용 하 여 리소스 관리자 템플릿을 배포 하려면 스크립트를 **복사** 하 고 **시도** 를 선택 하 여 Azure Cloud Shell를 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
 
 ```azurepowershell-interactive
 
@@ -141,11 +141,11 @@ New-AzResourceGroupDeployment `
  (Get-AzResource --ResourceType "Microsoft.DocumentDb/databaseAccounts" --ApiVersion "2019-08-01" --ResourceGroupName $resourceGroupName).name
 ```
 
-Azure Cloud shell 대신 로컬로 설치 된 PowerShell 버전을 사용 하도록 선택 하는 경우 Azure PowerShell 모듈을 [설치](/powershell/azure/install-az-ps) 해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다.
+Azure Cloud Shell 대신 로컬로 설치 된 PowerShell 버전을 사용 하도록 선택한 경우 Azure PowerShell 모듈을 [설치](/powershell/azure/install-az-ps) 해야 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다.
 
 ### <a name="deploy-stored-procedure-template-via-azure-cli"></a>Azure CLI를 통해 저장 프로시저 템플릿 배포
 
-Azure CLI를 사용 하 여 리소스 관리자 템플릿을 배포 하려면 **시도** 를 선택 하 여 Azure Cloud shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
+Azure CLI를 사용 하 여 Azure Resource Manager 템플릿을 배포 하려면 **시도** 를 선택 하 여 Azure Cloud Shell를 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
 
 ```azurecli-interactive
 read -p 'Enter the Resource Group name: ' resourceGroupName

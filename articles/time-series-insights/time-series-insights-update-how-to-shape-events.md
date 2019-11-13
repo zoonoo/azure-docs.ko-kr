@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑 | Microsoft Docs
-description: Azure Time Series Insights 미리 보기를 사용 하 여 이벤트 모양을 파악 합니다.
+title: 셰이프 이벤트-Azure Time Series Insights | Microsoft Docs
+description: Azure Time Series Insights 미리 보기로 이벤트를 셰이핑 하는 방법을 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b9dd10a4017d821794af037e502c784b10cd62f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: bd1b59ac2037669be021dfad3bf5032b794bef4a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585284"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006252"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑
 
@@ -117,7 +117,7 @@ Time Series Insights 미리 보기로 이벤트를 보내는 방법에 대해 �
 
 Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 조인합니다(평면화 후). 테이블에는 **유형** 등의 추가 열이 포함됩니다. 다음 예제에서는 원격 분석 데이터의 [모양을](./time-series-insights-send-events.md#supported-json-shapes) 지정할 수 있는 방법을 보여 줍니다.
 
-| deviceId  | 형식 | L1 | L2 | timestamp | series_Flow Rate ft3/s | series_Engine 석유 압력 프 프 |
+| deviceId  | 형식 | L1 | L2 | timestamp | series_Flow Rate ft3/s | 석유 압력 프 series_Engine |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
 | `FXXX` | Default_Type | 시뮬레이터 | 배터리 시스템 | 2018-01-17T01:17:00Z |   1.0172575712203979 |    34.7 |
 | `FXXX` | Default_Type | 시뮬레이터 |   배터리 시스템 |    2018-01-17T01:17:00Z | 2.445906400680542 |  49.2 |
@@ -128,7 +128,7 @@ Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 �
 * 정적 속성은 네트워크를 통해 전송되는 데이터를 최적화하기 위해 Time Series Insights 미리 보기에 저장됩니다.
 * Time Series Insights 미리 보기 데이터는 인스턴스에 정의 된 시계열 ID를 통해 쿼리 시간에 조인 됩니다.
 * 두 개의 중첩 계층이 사용 됩니다. 이 번호는 Time Series Insights 미리 보기에서 지 원하는 가장 많은 값입니다. 여러 중첩된 배열을 방지해야 합니다.
-* 측정값이 거의 없으므로 동일한 개체 내의 개별 속성으로 전송됩니다. 이 예에서는 **Series_Flow rate psi**, **series_Engine 석유 압력 프 프**및 **series_Flow rate ft3/s** 가 고유 열입니다.
+* 측정값이 거의 없으므로 동일한 개체 내의 개별 속성으로 전송됩니다. 이 예에서는 **Series_Flow 요금 프**에 **series_Engine 석유 압력 Psi**와 **series_Flow Rate ft3/s** 가 고유 열입니다.
 
 >[!IMPORTANT]
 > 인스턴스 필드는 원격 분석과 함께 저장 되지 않습니다. 이러한 데이터는 시계열 모델에서 메타 데이터와 함께 저장 됩니다.

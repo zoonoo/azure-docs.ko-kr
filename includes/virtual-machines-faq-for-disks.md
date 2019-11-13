@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 95fe5471789b66c253aa21d73433f5192cd01e6b
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 92aa28c131d81c41d515762ac2a346048c143790
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612128"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008590"
 ---
-# <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Azure IaaS VM 디스크와 관리 및 관리되지 않는 프리미엄 디스크에 대한 질문과 대답
-
 이 문서에서는 Azure Managed Disks 및 Azure 프리미엄 SD 디스크에 대해 몇몇 자주 묻는 질문과 대답을 설명합니다.
 
 ## <a name="managed-disks"></a>Managed Disks
@@ -350,18 +348,6 @@ Azure Portal, Azure CLI 및 PowerShell에서 Managed Disk를 만든 시간을 �
 
 ## <a name="premium-disks-managed-and-unmanaged"></a>프리미엄 디스크: 관리 및 관리되지 않는 디스크
 
-**해당 하는 프리미엄 SSD 디스크 크기에 대해 버스트 기능을 지 원하는 지역은 어디 인가요?**
-
-버스트 기능은 현재 미국 서 부 중부에서 지원 됩니다.
-
-**에서 지원 되는 4/8/16 GiB 관리 디스크 크기 (P1/P2/P3, E1/E2/E3)는 어떻게 되나요?**
-
-이러한 새 디스크 크기는 현재 미국 서 부 중부에서 지원 됩니다.
-
-**관리 되지 않는 디스크 또는 페이지 blob에 대해 P1/P2/P3 디스크 크기가 지원 되나요?**
-
-아니요, 프리미엄 SSD Managed Disks 에서만 지원 됩니다. 
-
 **VM에서 DSv2와 같이 프리미엄 SD 디스크를 지원하는 크기를 사용하는 경우 프리미엄 및 표준 데이터 디스크를 모두 연결할 수 있나요?** 
 
 예.
@@ -391,6 +377,22 @@ DS 시리즈의 캐시 및 로컬 SSD에 대한 결합 제한은 코어당 4,000
 프리미엄 또는 표준 디스크의 Azure 디스크에서 TRIM을 사용해도 문제는 없습니다.
 
 ## <a name="new-disk-sizes-managed-and-unmanaged"></a>새 디스크 크기: 관리 및 관리되지 않는 디스크
+
+**해당 하는 프리미엄 SSD 디스크 크기에 대해 버스트 기능을 지 원하는 지역은 어디 인가요?**
+
+버스트 기능은 현재 미국 서 부 중부에서 지원 됩니다.
+
+**에서 지원 되는 4/8/16 GiB 관리 디스크 크기 (P1/P2/P3, E1/E2/E3)는 어떻게 되나요?**
+
+이러한 새 디스크 크기는 현재 미국 서 부 중부에서 지원 됩니다.
+
+**관리 되지 않는 디스크 또는 페이지 blob에 대해 P1/P2/P3 디스크 크기가 지원 되나요?**
+
+아니요, 프리미엄 SSD 관리 디스크 에서만 지원 됩니다. 
+
+**관리 되지 않는 디스크 또는 페이지 blob에 대해 E1/E2/E3 디스크 크기가 지원 되나요?**
+
+아니요, 관리 되지 않는 디스크 또는 페이지 blob에는 크기의 표준 SSD 관리 디스크를 사용할 수 없습니다.
 
 **운영 체제 및 데이터 디스크에 지원되는 가장 큰 관리 디스크 크기는 어떻게 되나요?**
 

@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ca55d49721f9c22f35ba79e819efa354a660d92a
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72302331"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012529"
 ---
-# <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Azure IaaS 디스크에 대한 백업 및 재해 복구
-
 이 문서에서는 Azure에서 IaaS VM(가상 머신) 및 디스크의 백업 및 DR(재해 복구)을 계획하는 방법을 설명합니다. Managed Disks 및 Unmanaged Disks를 모두 다루고 있습니다.
 
 먼저 로컬 오류로부터 보호하는 데 도움이 되는 Azure 플랫폼의 기본 제공 내결함성 기능을 다룹니다. 기본 제공 기능에 완전히 포함되는 재해 시나리오를 설명합니다. 또한 다른 백업 및 DR 고려 사항이 적용될 수 있는 워크로드 시나리오의 몇 가지 예도 보여 줍니다. 그런 다음 IaaS 디스크의 DR에 가능한 솔루션을 검토합니다.
@@ -53,7 +51,7 @@ IaaS 디스크의 경우 데이터의 내구성이 영구 스토리지 플랫폼
 
 이러한 별도의 장애 도메인 때문에 지역화된 하드웨어 오류는 일반적으로 집합에 있는 여러 VM에 동시에 영향을 주지 않습니다. 별도의 오류 도메인이 있으면 애플리케이션에 대한 고가용성을 제공합니다. 고가용성이 필요한 경우에는 가용성 집합을 사용하는 것이 좋습니다. 다음 섹션에서는 재해 복구 측면을 다룹니다.
 
-### <a name="backup-and-disaster-recovery"></a>백업 및 재해 복구
+### <a name="backup-and-disaster-recovery"></a>Backup 및 재해 복구
 
 재해 복구는 드물지만 주요한 인시던트로부터 복구하는 기능입니다. 이러한 인시던트에는 전체 지역에 영향을 주는 서비스 중단과 같이 일시적이지 않은 대규모 오류가 포함됩니다. 재해 복구에는 데이터 백업 및 보관이 포함되며, 백업에서 데이터베이스를 복원하는 것과 같은 수동 작업이 포함될 수 있습니다.
 
@@ -63,9 +61,9 @@ IaaS 디스크의 경우 데이터의 내구성이 영구 스토리지 플랫폼
 
 DR 고려 사항에는 다음과 같은 측면이 포함될 수 있습니다.
 
-- 고가용성: 애플리케이션에서 상당한 가동 중지 시간 없이 정상 상태로 계속 실행할 수 있는 기능입니다. *정상 상태*는 애플리케이션에서 응답하고 사용자가 애플리케이션에 연결하여 애플리케이션과 상호 작용할 수 있음을 의미합니다. 특정 중요 업무용 애플리케이션 및 데이터베이스는 플랫폼에 오류가 발생하더라도 항상 사용할 수 있어야 합니다. 이러한 작업의 경우 애플리케이션과 데이터에 대한 중복성을 계획해야 합니다.
+- 고가용성: 애플리케이션에서 상당한 가동 중지 없이 정상 상태로 계속 실행할 수 있는 기능입니다. *정상 상태*는 애플리케이션에서 응답하고 사용자가 애플리케이션에 연결하여 애플리케이션과 상호 작용할 수 있음을 의미합니다. 특정 중요 업무용 애플리케이션 및 데이터베이스는 플랫폼에 오류가 발생하더라도 항상 사용할 수 있어야 합니다. 이러한 작업의 경우 애플리케이션과 데이터에 대한 중복성을 계획해야 합니다.
 
-- 데이터 내구성: 어떤 경우에 주요 고려 사항은 재해가 발생하더라도 데이터가 보존되도록 하는 것입니다. 따라서 다른 사이트에 데이터를 백업해야 할 수 있습니다. 이러한 작업의 경우 애플리케이션에 대한 전체 중복성이 필요하지는 않지만 디스크를 정기적으로 백업해야 합니다.
+- 데이터 내구성: 어떤 경우에 주요 고려 사항은 재해가 발생하는 경우 데이터가 보존되도록 하는 것입니다. 따라서 다른 사이트에 데이터를 백업해야 할 수 있습니다. 이러한 작업의 경우 애플리케이션에 대한 전체 중복성이 필요하지는 않지만 디스크를 정기적으로 백업해야 합니다.
 
 ## <a name="backup-and-dr-scenarios"></a>백업 및 DR 시나리오
 
@@ -112,7 +110,7 @@ IaaS 애플리케이션 데이터 문제도 발생할 수 있습니다. 애플�
 | 시나리오 | 자동 복제 | DR 솔루션 |
 | --- | --- | --- |
 | 프리미엄 SSD 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| 관리 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| 관리되는 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | 관리되지 않은 로컬 중복 스토리지 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | 관리되지 않은 지역 중복 스토리지 디스크 | 지역 간([지역 중복 스토리지](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅샷](#alternative-solution-consistent-snapshots) |
 | 관리되지 않은 읽기 액세스 지역 중복 스토리지 디스크 | 지역 간([읽기 액세스 지역 중복 스토리지](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅샷](#alternative-solution-consistent-snapshots) |
@@ -121,7 +119,7 @@ Azure Backup과 함께 가용성 집합에서 Managed Disks를 사용할 경우�
 
 애플리케이션 또는 인프라 수준에서 고가용성, 백업 및 DR을 선택하는 경우 다음과 같이 나타낼 수 있습니다.
 
-| Level |   고가용성   | 백업 또는 DR |
+| 수준 |   고가용성   | 백업 또는 DR |
 | --- | --- | --- |
 | 애플리케이션 | SQL Server AlwaysOn | Azure Backup |
 | 인프라    | 가용성 집합  | 일관된 스냅샷을 사용하는 지역 중복 스토리지 |
@@ -248,7 +246,7 @@ VM에서 실행되는 SQL Server에는 SQL Server 데이터베이스를 Azure Bl
 
 선택한 백업 옵션에 따라 데이터와 구성의 백업을 처리해야 할 수도 있고, 백업 서비스에서 모든 백업을 처리할 수도 있습니다.
 
-## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>부록: 데이터 중복성의 영향 이해
+## <a name="appendix-understanding-the-impact-of-data-redundancy"></a>부록: 데이터 중복의 영향 이해
 
 Azure에 있는 스토리지 계정의 경우 재해 복구와 관련하여 세 가지 유형의 데이터 중복성, 즉 로컬 중복, 지역 중복 또는 읽기 액세스 지역 중복를 고려해야 합니다. 
 

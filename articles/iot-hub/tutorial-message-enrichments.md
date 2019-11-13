@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 8b74621f2c5a9c91ece58c8118cd2bc952c3a464
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 0dd6c410040eea9eb4039ab5da183cc0b6799493
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809705"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005769"
 ---
-# <a name="tutorial-using-azure-iot-hub-message-enrichments-preview"></a>자습서: Azure IoT Hub 메시지 강화 사용 (미리 보기)
+# <a name="tutorial-using-azure-iot-hub-message-enrichments"></a>자습서: Azure IoT Hub 메시지 강화 사용
 
 *메시지 강화* 는 지정 된 끝점으로 메시지를 보내기 전에 추가 정보를 사용 하 여 메시지를 *스탬프* 하는 IoT Hub의 기능입니다. 메시지 강화를 사용 하는 한 가지 이유는 다운스트림 처리를 간소화 하는 데 사용할 수 있는 데이터를 포함 하는 것입니다. 예를 들어 장치 쌍 태그를 사용 하는 장치 원격 분석 메시지를 보강 고객에 대 한 부하를 줄여이 정보에 대 한 장치 쌍 API 호출을 수행할 수 있습니다. 자세한 내용은 [메시지 강화 개요](iot-hub-message-enrichments-overview.md)를 참조 하세요.
 
@@ -30,9 +30,9 @@ ms.locfileid: "72809705"
 > * 허브로 메시지를 보내는 IoT 장치를 시뮬레이트하는 앱을 실행 합니다.
 > * 결과를 확인 하 고 강화 메시지가 정상적으로 작동 하는지 확인 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-* Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 * [Visual Studio](https://www.visualstudio.com/)를 설치합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "72809705"
 
 [IoT 장치 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip) 을 다운로드 하 고 압축을 풉니다. 이 리포지토리에는 IoT hub로 메시지를 전송 하는 데 사용할 응용 프로그램을 포함 하 여 여러 응용 프로그램이 있습니다.
 
-이 다운로드에는 메시지 강화를 테스트 하는 데 사용 되는 리소스를 만드는 스크립트도 포함 되어 있습니다. 이 스크립트는/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli.azcli.에 있습니다. 지금은 스크립트를 보고 사용할 수 있습니다. 문서에서 직접 스크립트를 복사할 수도 있습니다.
+이 다운로드에는 메시지 강화를 테스트 하는 데 사용 되는 리소스를 만드는 스크립트도 포함 되어 있습니다. 이 스크립트는/azure-iot-samples-csharp/iot-hub/Tutorials/Routing/SimulatedDevice/resources/iothub_msgenrichment_cli. azcli에 있습니다. 지금은 스크립트를 보고 사용할 수 있습니다. 문서에서 직접 스크립트를 복사할 수도 있습니다.
 
 테스트를 시작할 준비가 되 면이 다운로드의 장치 시뮬레이션 응용 프로그램을 사용 하 여 IoT hub로 메시지를 보냅니다.
 
@@ -69,14 +69,14 @@ Azure CLI 스크립트는 필요한 리소스를 만드는 것 외에도 별도�
 
 스크립트에서 만든 리소스는 다음과 같습니다. **보강** 는 강화가 포함 된 메시지에 대 한 리소스 임을 의미 합니다. **원래** 는 보강 되지 않은 메시지에 대 한 리소스 임을 의미 합니다.
 
-| name | Value |
+| 이름 | 값 |
 |-----|-----|
 | resourceGroup | ContosoResourcesMsgEn |
 | 컨테이너 이름 | 원문 언어  |
 | 컨테이너 이름 | 보강  |
 | IoT 장치 이름 | Contoso-테스트-장치 |
 | IoT Hub 이름 | ContosoTestHubMsgEn |
-| 저장소 계정 이름 | : contosostorage |
+| 저장소 계정 이름 | contosostorage |
 | 끝점 이름 1 | ContosoStorageEndpointOriginal |
 | 끝점 이름 2 | ContosoStorageEndpointEnriched|
 | 경로 이름 1 | ContosoStorageRouteOriginal |
@@ -251,10 +251,10 @@ az iot hub route create \
 
 2. 이러한 값을 ContosoStorageEndpointEnriched 끝점 목록에 추가 합니다.
 
-   | name | Value | 끝점 (드롭다운 목록) |
+   | 키 | 값 | 끝점 (드롭다운 목록) |
    | ---- | ----- | -------------------------|
    | myIotHub | $iothubname | AzureStorageContainers > ContosoStorageEndpointEnriched |
-   | Msds-devicelocation | $twin. tags. location | AzureStorageContainers > ContosoStorageEndpointEnriched |
+   | Msds-devicelocation | $twin.tags.location | AzureStorageContainers > ContosoStorageEndpointEnriched |
    |CustomerID | 6ce345b8-1e4a-411e-9398-d34587459a3a | AzureStorageContainers > ContosoStorageEndpointEnriched |
 
    > [!NOTE]

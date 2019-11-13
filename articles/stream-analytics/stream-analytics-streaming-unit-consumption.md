@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: d9c4169176707f98181f2a479e470cf89ff2e04f
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 25105847b7134b7119252a66ac7e8502771ce5db
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72988239"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961272"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
@@ -65,7 +65,7 @@ SU% 사용률은 잠시 동안 갑자기 0으로 떨어졌다가 정상 수준�
 ## <a name="stateful-query-logicin-temporal-elements"></a>temporal 요소의 상태 저장 쿼리 논리
 Azure Stream Analytics 작업의 고유한 기능 중 하나는 기간 이동 집계, 임시 조인 및 임시 분석 함수 등과 같은 상태 저장 처리를 수행하는 것입니다. 이러한 연산자마다 상태 정보를 유지합니다. 이러한 쿼리 요소에 대 한 최대 창 크기는 7 일입니다. 
 
-temporal 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 나타납니다.
+임시 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 나타납니다.
 1. 기간 이동 집계: 연속, 도착 및 슬라이딩 시간 범위의 GROUP BY
 
 2. temporal 조인: DATEDIFF 함수를 사용한 JOIN
@@ -86,7 +86,7 @@ temporal 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 �
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-이전 쿼리에서 높은 카디널리티로 인해 발생 하는 문제를 완화 하기 위해 `clusterid`에 의해 분할 된 이벤트 허브로 이벤트를 전송 하 고 시스템에서 표시 된 대로 **PARTITION by** 를 사용 하 여 각 입력 파티션을 별도로 처리 하도록 허용 하 여 쿼리를 확장할 수 있습니다. 아래 예제를 참조 하십시오.
+이전 쿼리에서 높은 카디널리티로 인해 발생 하는 문제를 완화 하기 위해 `clusterid`에 의해 분할 된 이벤트 허브로 이벤트를 전송 하 고, 아래 예제와 같이 시스템에서 **PARTITION by** 를 사용 하 여 별도로 각 입력 파티션을 처리 하도록 허용 하 여 쿼리를 확장할 수 있습니다.
 
    ```sql
    SELECT count(*) 
@@ -99,7 +99,7 @@ temporal 시간 범위 개념은 몇 가지 Stream Analytics 쿼리 요소에 �
 이벤트 허브 파티션은 단계를 줄이지 않아도 되도록 그룹 키로 분할되어야 합니다. 자세한 내용은 [Event Hubs 개요](../event-hubs/event-hubs-what-is-event-hubs.md)를 참조하세요. 
 
 ## <a name="temporal-joins"></a>temporal 조인
-temporal 조인의 메모리 소비(상태 크기)는 조인의 temporal 위글 공간의 이벤트 수에 비례합니다. 즉 이벤트 입력 속도와 위글 공간 크기의 곱입니다. 즉, 조인에 의해 소비되는 메모리는 DateDiff 시간 범위에 평균 이벤트 속도를 곱한 값에 비례합니다.
+Temporal 조인의 사용 된 메모리 (상태 크기)는 조인의 임시 공간에 있는 이벤트 수에 비례 합니다. 즉, 이벤트 입력 률에는 흔들기 방 크기를 곱합니다. 즉, 조인에 의해 소비되는 메모리는 DateDiff 시간 범위에 평균 이벤트 속도를 곱한 값에 비례합니다.
 
 조인에서 일치하지 않는 이벤트 수는 쿼리에 대한 메모리 사용률에 영향을 줍니다. 다음 쿼리는 클릭을 유도하는 광고 노출을 찾는 것입니다.
 

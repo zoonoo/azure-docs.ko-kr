@@ -3,7 +3,7 @@ title: 사용량 및 통찰력 보고서 | Microsoft Docs
 description: Azure Active Directory 포털의 사용 현황 및 정보 보고서 소개
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 3fba300d-18fc-4355-9924-d8662f563a1f
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 05/13/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 568eaa358f6788af525a69cd8ecda76a0591879f
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820947"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008257"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 사용 현황 및 정보 보고서
 
@@ -31,7 +31,7 @@ ms.locfileid: "72820947"
 *   실패 한 로그인이 가장 많은 응용 프로그램은 무엇 인가요? 
 *   각 응용 프로그램에 대 한 상위 로그인 오류는 무엇 인가요?
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>선행 조건 
 
 사용량 및 통찰력 보고서의 데이터에 액세스 하려면 다음이 필요 합니다.
 

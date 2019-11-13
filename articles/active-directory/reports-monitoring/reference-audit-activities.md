@@ -3,7 +3,7 @@ title: Azure Active Directory(Azure AD) 감사 활동 참조 | Microsoft Docs
 description: Azure Active Directory(Azure AD)에서 감사 로그에 기록될 수 있는 감사 작업의 개요를 가져옵니다.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: a1f93126-77d1-4345-ab7d-561066041161
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 01/24/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aaa60a7737b7781a21e23516d139332f10bdf448
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 843f12d14120a7becdc1e8b15bfcc65948602c44
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305992"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007760"
 ---
 # <a name="azure-ad-audit-activity-reference"></a>Azure AD 감사 활동 참조
 
@@ -36,7 +36,7 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
     
 - **보안 보고서** 
     - [위험한 로그인](concept-risky-sign-ins.md) - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다. 
-    - [위험 플래그가 지정된 사용자](concept-user-at-risk.md) - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 
+    - [위험 플래그가 지정된 사용자](concept-user-at-risk.md) - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 지표입니다. 
 
 이 문서에서는 감사 로그에 기록될 수 있는 감사 작업을 나열합니다.
 
@@ -98,7 +98,7 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |디렉터리 관리|서비스 주체 추가|
 |디렉터리 관리|서비스 주체 자격 증명 추가|
 |디렉터리 관리|애플리케이션에 동의|
-|디렉터리 관리|응용 프로그램 삭제|
+|디렉터리 관리|애플리케이션 삭제|
 |디렉터리 관리|애플리케이션 영구 삭제|
 |디렉터리 관리|OAuth2PermissionGrant 제거|
 |디렉터리 관리|서비스 주체에서 앱 역할 할당 제거|
@@ -140,112 +140,112 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |인증|V1 애플리케이션 만들기|
 |인증|V2 애플리케이션 만들기|
 |인증|테넌트에 사용자 지정 도메인 만들기|
-|Authorization|새 AdminUserJourney 만들기|
-|Authorization|지역화된 리소스 json 만들기|
-|Authorization|새 사용자 지정 IDP 만들기|
-|Authorization|새 IDP 만들기|
-|Authorization|B2C 디렉터리 리소스 만들기 또는 업데이트|
-|Authorization|정책 만들기|
-|Authorization|trustFramework 정책 만들기|
-|Authorization|구성 가능한 접두사로 trustFramework 정책 만들기|
-|Authorization|사용자 특성 만들기|
-|Authorization|CreateTrustFrameworkPolicy|
-|Authorization|새 AdminUserJourney 만들기 또는 업데이트|
-|Authorization|IDP 삭제|
-|Authorization|IdentityProvider 삭제|
-|Authorization|V1 애플리케이션 삭제|
-|Authorization|V2 애플리케이션 삭제|
-|Authorization|V2 애플리케이션 권한 부여 삭제|
-|Authorization|B2C 디렉터리 리소스 삭제|
-|Authorization|CPIM 키 컨테이너 삭제|
-|Authorization|trustFramework 정책 삭제|
-|Authorization|사용자 특성 삭제|
-|Authorization|B2C 기능 사용|
-|Authorization|구독에서 B2C 디렉터리 리소스 가져오기|
-|Authorization|사용자 지정 IDP 가져오기|
-|Authorization|IDP 가져오기|
-|Authorization|V1 및 V2 애플리케이션 가져오기|
-|Authorization|V1 애플리케이션 가져오기|
-|Authorization|V1 애플리케이션 가져오기|
-|Authorization|V2 애플리케이션 가져오기|
-|Authorization|V2 애플리케이션 가져오기|
-|Authorization|B2C 디렉터리 리소스 가져오기|
-|Authorization|테넌트의 사용자 지정 도메인 목록 가져오기|
-|Authorization|사용자 경험 가져오기|
-|Authorization|사용자 경험에 허용된 애플리케이션 클레임 가져오기|
-|Authorization|사용자 경험에 허용된 자체 어설션된 클레임 가져오기|
-|Authorization|허용된 자체 어설션된 정책 클레임 가져오기|
-|Authorization|사용 가능한 출력 클레임 목록 가져오기|
-|Authorization|사용자 경험에 대한 콘텐츠 정의 가져오기|
-|Authorization|특정 관리 흐름에 대한 idp 가져오기|
-|Authorization|JWK의 키 컨테이너 활성 키 메타데이터 가져오기|
-|Authorization|모든 관리 흐름 목록 가져오기|
-|Authorization|모든 사용자의 모든 관리 흐름에 대한 태그 목록 가져오기|
-|Authorization|사용자의 테넌트 목록 가져오기|
-|Authorization|로컬 계정의 자체 어설션된 클레임 가져오기|
-|Authorization|지역화된 리소스 json 가져오기|
-|Authorization|Microsoft.AzureActiveDirectory 리소스 공급자의 작업 가져오기|
-|Authorization|정책 가져오기|
-|Authorization|정책 가져오기|
-|Authorization|테넌트의 리소스 속성 가져오기|
-|Authorization|지원되는 IDP 목록 가져오기|
-|Authorization|지원되는 사용자 경험 IDP 목록 가져오기|
-|Authorization|테넌트 정보 가져오기|
-|Authorization|테넌트에서 허용하는 기능 가져오기|
-|Authorization|테넌트에서 정의한 사용자 지정 IDP 목록 가져오기|
-|Authorization|테넌트에서 정의한 IDP 목록 가져오기|
-|Authorization|테넌트에서 정의한 로컬 IDP 목록 가져오기|
-|Authorization|리소스 만들기에 대한 사용자의 테넌트 세부 정보 가져오기|
-|Authorization|테넌트 목록 가져오기|
-|Authorization|TenantDomains 가져오기|
-|Authorization|CPIM에 지원되는 기본 문화권 가져오기|
-|Authorization|관리 흐름 세부 정보 가져오기|
-|Authorization|이 테넌트의 UserJourneys 목록 가져오기|
-|Authorization|CPIM에 지원되는 문화권 집합 가져오기|
-|Authorization|trustFramework 정책 가져오기|
-|Authorization|trustFramework 정책을 xml로 가져오기|
-|Authorization|사용자 특성 가져오기|
-|Authorization|사용자 특성 가져오기|
-|Authorization|사용자 경험 목록 가져오기|
-|Authorization|GetIEFPolicies|
-|Authorization|GetIdentityProviders|
-|Authorization|GetTrustFrameworkPolicy|
-|Authorization|jwk 형식으로 CPIM 키 컨테이너 가져오기|
-|Authorization|테넌트의 키 컨테이너 목록을 가져오기|
-|Authorization|테넌트 형식 가져오기|
-|Authorization|MigrateTenantMetadata|
-|Authorization|IdentityProvider 패치|
-|Authorization|PutTrustFrameworkPolicy|
-|Authorization|PutTrustFrameworkpolicy|
-|Authorization|사용자 경험 제거|
-|Authorization|CPIM 키 컨테이너 백업 복원|
-|Authorization|V2 애플리케이션 권한 부여 검색|
-|Authorization|현재 테넌트의 V2 애플리케이션 서비스 사용자 검색|
-|Authorization|사용자 지정 IDP 업데이트|
-|Authorization|IDP 업데이트|
-|Authorization|로컬 IDP 업데이트|
-|Authorization|V1 애플리케이션 업데이트|
-|Authorization|V2 애플리케이션 업데이트|
-|Authorization|V2 애플리케이션 권한 부여 업데이트|
-|Authorization|정책 업데이트|
-|Authorization|사용자 특성 업데이트|
-|Authorization|CPIM 암호화 키 업로드|
-|Authorization|사용자 권한 부여: 테넌트 기능 세트에 API 사용 안 함|
-|Authorization|사용자 권한 부여: 사용자에게 '테넌트 관리자' 액세스 권한 부여|
-|Authorization|사용자 권한 부여: 사용자에게 '인증된 사용자' 액세스 권한 부여|
-|Authorization|B2C 기능을 사용하도록 설정되었는지 확인|
-|Authorization|기능을 사용하도록 설정되었는지 확인|
-|Authorization|프로그램 만들기|
-|Authorization|프로그램 삭제|
-|Authorization|프로그램 컨트롤 연결|
-|Authorization|Azure AD 액세스 검토에 온보드|
-|Authorization|프로그램 컨트롤 연결 해제|
-|Authorization|프로그램 업데이트|
-|Authorization|데스크톱 Sso 사용 안 함|
-|Authorization|특정 도메인에 데스크톱 Sso 사용 안 함|
-|Authorization|응용 프로그램 프록시 사용 안 함|
-|Authorization|통과 인증 사용 안 함|
-|Authorization|데스크톱 Sso 사용|
+|권한 부여|새 AdminUserJourney 만들기|
+|권한 부여|지역화된 리소스 json 만들기|
+|권한 부여|새 사용자 지정 IDP 만들기|
+|권한 부여|새 IDP 만들기|
+|권한 부여|B2C 디렉터리 리소스 만들기 또는 업데이트|
+|권한 부여|정책 만들기|
+|권한 부여|trustFramework 정책 만들기|
+|권한 부여|구성 가능한 접두사로 trustFramework 정책 만들기|
+|권한 부여|사용자 특성 만들기|
+|권한 부여|CreateTrustFrameworkPolicy|
+|권한 부여|새 AdminUserJourney 만들기 또는 업데이트|
+|권한 부여|IDP 삭제|
+|권한 부여|IdentityProvider 삭제|
+|권한 부여|V1 애플리케이션 삭제|
+|권한 부여|V2 애플리케이션 삭제|
+|권한 부여|V2 애플리케이션 권한 부여 삭제|
+|권한 부여|B2C 디렉터리 리소스 삭제|
+|권한 부여|CPIM 키 컨테이너 삭제|
+|권한 부여|trustFramework 정책 삭제|
+|권한 부여|사용자 특성 삭제|
+|권한 부여|B2C 기능 사용|
+|권한 부여|구독에서 B2C 디렉터리 리소스 가져오기|
+|권한 부여|사용자 지정 IDP 가져오기|
+|권한 부여|IDP 가져오기|
+|권한 부여|V1 및 V2 애플리케이션 가져오기|
+|권한 부여|V1 애플리케이션 가져오기|
+|권한 부여|V1 애플리케이션 가져오기|
+|권한 부여|V2 애플리케이션 가져오기|
+|권한 부여|V2 애플리케이션 가져오기|
+|권한 부여|B2C 디렉터리 리소스 가져오기|
+|권한 부여|테넌트의 사용자 지정 도메인 목록 가져오기|
+|권한 부여|사용자 경험 가져오기|
+|권한 부여|사용자 경험에 허용된 애플리케이션 클레임 가져오기|
+|권한 부여|사용자 경험에 허용된 자체 어설션된 클레임 가져오기|
+|권한 부여|허용된 자체 어설션된 정책 클레임 가져오기|
+|권한 부여|사용 가능한 출력 클레임 목록 가져오기|
+|권한 부여|사용자 경험에 대한 콘텐츠 정의 가져오기|
+|권한 부여|특정 관리 흐름에 대한 idp 가져오기|
+|권한 부여|JWK의 키 컨테이너 활성 키 메타데이터 가져오기|
+|권한 부여|모든 관리 흐름 목록 가져오기|
+|권한 부여|모든 사용자의 모든 관리 흐름에 대한 태그 목록 가져오기|
+|권한 부여|사용자의 테넌트 목록 가져오기|
+|권한 부여|로컬 계정의 자체 어설션된 클레임 가져오기|
+|권한 부여|지역화된 리소스 json 가져오기|
+|권한 부여|Microsoft.AzureActiveDirectory 리소스 공급자의 작업 가져오기|
+|권한 부여|정책 가져오기|
+|권한 부여|정책 가져오기|
+|권한 부여|테넌트의 리소스 속성 가져오기|
+|권한 부여|지원되는 IDP 목록 가져오기|
+|권한 부여|지원되는 사용자 경험 IDP 목록 가져오기|
+|권한 부여|테넌트 정보 가져오기|
+|권한 부여|테넌트에서 허용하는 기능 가져오기|
+|권한 부여|테넌트에서 정의한 사용자 지정 IDP 목록 가져오기|
+|권한 부여|테넌트에서 정의한 IDP 목록 가져오기|
+|권한 부여|테넌트에서 정의한 로컬 IDP 목록 가져오기|
+|권한 부여|리소스 만들기에 대한 사용자의 테넌트 세부 정보 가져오기|
+|권한 부여|테넌트 목록 가져오기|
+|권한 부여|TenantDomains 가져오기|
+|권한 부여|CPIM에 지원되는 기본 문화권 가져오기|
+|권한 부여|관리 흐름 세부 정보 가져오기|
+|권한 부여|이 테넌트의 UserJourneys 목록 가져오기|
+|권한 부여|CPIM에 지원되는 문화권 집합 가져오기|
+|권한 부여|trustFramework 정책 가져오기|
+|권한 부여|trustFramework 정책을 xml로 가져오기|
+|권한 부여|사용자 특성 가져오기|
+|권한 부여|사용자 특성 가져오기|
+|권한 부여|사용자 경험 목록 가져오기|
+|권한 부여|GetIEFPolicies|
+|권한 부여|GetIdentityProviders|
+|권한 부여|GetTrustFrameworkPolicy|
+|권한 부여|jwk 형식으로 CPIM 키 컨테이너 가져오기|
+|권한 부여|테넌트의 키 컨테이너 목록을 가져오기|
+|권한 부여|테넌트 형식 가져오기|
+|권한 부여|MigrateTenantMetadata|
+|권한 부여|IdentityProvider 패치|
+|권한 부여|PutTrustFrameworkPolicy|
+|권한 부여|PutTrustFrameworkpolicy|
+|권한 부여|사용자 경험 제거|
+|권한 부여|CPIM 키 컨테이너 백업 복원|
+|권한 부여|V2 애플리케이션 권한 부여 검색|
+|권한 부여|현재 테넌트의 V2 애플리케이션 서비스 사용자 검색|
+|권한 부여|사용자 지정 IDP 업데이트|
+|권한 부여|IDP 업데이트|
+|권한 부여|로컬 IDP 업데이트|
+|권한 부여|V1 애플리케이션 업데이트|
+|권한 부여|V2 애플리케이션 업데이트|
+|권한 부여|V2 애플리케이션 권한 부여 업데이트|
+|권한 부여|정책 업데이트|
+|권한 부여|사용자 특성 업데이트|
+|권한 부여|CPIM 암호화 키 업로드|
+|권한 부여|사용자 권한 부여: 테넌트 기능 집합에 API를 사용하지 않음|
+|권한 부여|사용자 권한 부여: 사용자에게 '테넌트 관리자' 액세스 권한 부여|
+|권한 부여|사용자 권한 부여: 사용자에게 '인증된 사용자' 액세스 권한 부여|
+|권한 부여|B2C 기능을 사용하도록 설정되었는지 확인|
+|권한 부여|기능을 사용하도록 설정되었는지 확인|
+|권한 부여|프로그램 만들기|
+|권한 부여|프로그램 삭제|
+|권한 부여|프로그램 컨트롤 연결|
+|권한 부여|Azure AD 액세스 검토에 온보드|
+|권한 부여|프로그램 컨트롤 연결 해제|
+|권한 부여|프로그램 업데이트|
+|권한 부여|데스크톱 Sso 사용 안 함|
+|권한 부여|특정 도메인에 데스크톱 Sso 사용 안 함|
+|권한 부여|애플리케이션 프록시 사용 안 함|
+|권한 부여|통과 인증 사용 안 함|
+|권한 부여|데스크톱 Sso 사용|
 |디렉터리 관리|특정 도메인에 데스크톱 Sso 사용|
 |디렉터리 관리|애플리케이션 프록시 사용|
 |디렉터리 관리|통과 인증 사용|
@@ -256,17 +256,17 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |디렉터리 관리|테넌트 정보 가져오기|
 |디렉터리 관리|테넌트에서 허용하는 기능 가져오기|
 |디렉터리 관리|TenantDomains 가져오기|
-|Key|테넌트 형식 가져오기|
-|Key|B2C 기능을 사용하도록 설정되었는지 확인|
-|Key|기능을 사용하도록 설정되었는지 확인|
-|Key|회사에 파트너 추가|
-|Key|확인되지 않은 도메인 추가|
-|Key|확인된 도메인 추가|
-|Key|회사 만들기|
-|Key|회사 설정 만들기|
-|Key|회사 설정 삭제|
-|Key|파트너 강등|
-|Key|디렉터리 삭제됨|
+|키|테넌트 형식 가져오기|
+|키|B2C 기능을 사용하도록 설정되었는지 확인|
+|키|기능을 사용하도록 설정되었는지 확인|
+|키|회사에 파트너 추가|
+|키|확인되지 않은 도메인 추가|
+|키|확인된 도메인 추가|
+|키|회사 만들기|
+|키|회사 설정 만들기|
+|키|회사 설정 삭제|
+|키|파트너 강등|
+|키|디렉터리 삭제됨|
 |기타|디렉터리가 영구적으로 삭제됨|
 |기타|디렉터리 삭제가 예약됨|
 |리소스|회사를 파트너로 수준 올리기|
@@ -298,7 +298,7 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |리소스|디렉터리에 대한 암호 쓰기 사용|
 |리소스|그룹에 앱 역할 할당 추가|
 |리소스|그룹 추가|
-|리소스|그룹에 구성원 추가|
+|리소스|그룹에 멤버 추가|
 |리소스|그룹에 소유자 추가|
 |리소스|그룹 설정 만들기|
 |리소스|그룹 삭제|
@@ -306,7 +306,7 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |리소스|사용자에게 그룹 기반 라이선스 적용 완료|
 |리소스|그룹 영구 삭제|
 |리소스|그룹에서 앱 역할 할당 제거|
-|리소스|그룹에서 구성원 제거|
+|리소스|그룹에서 멤버 제거|
 |리소스|그룹에서 소유자 제거|
 |리소스|그룹 복원|
 |리소스|그룹 라이선스 설정|
@@ -315,10 +315,10 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |리소스|그룹 라이선스 다시 계산을 트리거|
 |리소스|그룹 업데이트|
 |리소스|그룹 설정 업데이트|
-|리소스|구성원 추가|
+|리소스|멤버 추가|
 |리소스|그룹 만들기|
 |리소스|그룹 삭제|
-|리소스|구성원 제거|
+|리소스|멤버 제거|
 |리소스|그룹 업데이트|
 |리소스|보류 중인 그룹 가입 요청 승인|
 |리소스|보류 중인 그룹 가입 요청 취소|
@@ -356,7 +356,7 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |애플리케이션 관리|Batch 초대가 처리됨|
 |애플리케이션 관리|Batch 초대가 업로드됨|
 |애플리케이션 관리|정책에 소유자 추가|
-|애플리케이션 관리|정책 만들기|
+|애플리케이션 관리|정책 추가|
 |애플리케이션 관리|정책 삭제|
 |애플리케이션 관리|정책 자격 증명 제거|
 |애플리케이션 관리|정책 업데이트|
@@ -488,7 +488,7 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |사용자 관리|디바이스에서 등록된 소유자 제거|
 |사용자 관리|디바이스에서 등록된 사용자 제거|
 |사용자 관리|역할에서 적격 멤버 제거|
-|사용자 관리|역할에서 구성원 제거|
+|사용자 관리|역할에서 멤버 제거|
 |사용자 관리|역할 정의에서 역할 할당 제거|
 |사용자 관리|역할에서 범위가 지정된 멤버 제거|
 |사용자 관리|디바이스 업데이트|
@@ -547,7 +547,7 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 
 
 
-## <a name="privileged-identity-management"></a>권위 있는 ID 관리
+## <a name="privileged-identity-management"></a>Privileged Identity Management
 
 |감사 범주|활동|
 |---|---|
@@ -605,7 +605,7 @@ Azure AD의 보고 아키텍처는 다음 구성 요소로 구성됩니다.
 |사용자 관리|셀프 서비스 암호 재설정에서 차단|
 
 
-## <a name="terms-of-use"></a>서비스 계약
+## <a name="terms-of-use"></a>사용 약관
 
 |감사 범주|활동|
 |---|---|

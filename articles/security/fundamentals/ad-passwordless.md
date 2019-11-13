@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 0fbd8404e326ecc6fabef8c89991009809b1448b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 78f8b7097060f1091bfed30722c9ea456feed384
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820522"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007271"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Azure Active Directory 암호가 없는 전 세계
 
@@ -24,7 +24,7 @@ ms.locfileid: "73820522"
 
 이 문서는 Microsoft의 암호 없는 솔루션을 이해 하 고 구현 하 고 다음 옵션 중 하나 이상을 선택 하는 데 도움이 되는 여행의 시작입니다.
 
-* **비즈니스용 Windows Hello**. Windows 10에서 비즈니스용 Windows Hello는 Pc 및 모바일 장치에서 암호를 강력한 2 단계 인증으로 바꿉니다. 이 인증은 디바이스에 연결되는 사용자 자격 증명의 새로운 유형으로 구성되며 생체 인식 또는 PIN을 사용합니다.
+* **비즈니스용 Windows Hello**. Windows 10에서 비즈니스용 Windows Hello는 Pc 및 모바일 장치에서 암호를 강력한 2 단계 인증으로 바꿉니다. 이 인증은 장치에 연결 되 고 생체 인식 또는 PIN을 사용 하는 새로운 유형의 사용자 자격 증명으로 구성 됩니다.
 
 * **Microsoft Authenticator를 사용 하 여 Passwordless 로그인**합니다. Microsoft Authenticator 앱은 암호를 사용 하지 않고 Azure AD 계정에 로그인 하는 데 사용할 수 있습니다. 비즈니스용 Windows Hello의 기술과 마찬가지로 Microsoft Authenticator는 키 기반 인증을 사용 하 여 장치에 연결 되 고 생체 인식 또는 PIN을 사용 하는 사용자 자격 증명을 사용 하도록 설정 합니다.
 
@@ -291,10 +291,10 @@ Microsoft 암호 없는 기술을 선택할 때 고려할 몇 가지 요소는 �
 
 다음 표를 사용 하 여 요구 사항 및 사용자를 지원할 방법을 선택할 수 있습니다.
 
-|Persona|시나리오|Environment|Passwordless 기술|
+|Persona|시나리오|환경|Passwordless 기술|
 |:-|:-|:-|:-|
-|**지점**|관리 작업을 위해 장치에 안전 하 게 액세스|할당 된 Windows 10 장치|비즈니스용 Windows Hello 및/또는 FIDO2 보안 키|
-|**지점**|Windows가 아닌 장치에 대 한 관리 작업| 모바일 또는 비 windows 장치|Microsoft Authenticator 앱을 사용 하 여 passwordless 로그인|
+|**관리자**|관리 작업을 위해 장치에 안전 하 게 액세스|할당 된 Windows 10 장치|비즈니스용 Windows Hello 및/또는 FIDO2 보안 키|
+|**관리자**|Windows가 아닌 장치에 대 한 관리 작업| 모바일 또는 비 windows 장치|Microsoft Authenticator 앱을 사용 하 여 passwordless 로그인|
 |**정보 근로자**|생산성 작업|할당 된 Windows 10 장치|비즈니스용 Windows Hello 및/또는 FIDO2 보안 키|
 |**정보 근로자**|생산성 작업| 모바일 또는 비 windows 장치|Microsoft Authenticator 앱을 사용 하 여 passwordless 로그인|
 |**Frontline worker**|공장, 공장, 소매 또는 데이터 입력의 키오스크|공유 Windows 10 장치|FIDO2 보안 키|

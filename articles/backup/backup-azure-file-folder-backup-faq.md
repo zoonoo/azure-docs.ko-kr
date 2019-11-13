@@ -7,18 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: c30b918be5e4185d6fb4fdd2fcfc47f8dd4d25ef
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: a77227aca70a48d625f9e20fff9c9fe7df87c000
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969160"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012149"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더 백업에 대 한 일반적인 질문
 
 이 문서에서는 [Azure Backup](backup-overview.md) 서비스에서 MARS (Microsoft Azure Recovery Services) 에이전트로 파일 및 폴더를 백업 하는 일반적인 질문에 대 한 답변을 abound.
-
-## <a name="general"></a>일반
 
 ## <a name="configure-backups"></a>백업 구성
 
@@ -72,7 +70,7 @@ Windows 컴퓨터의 이름을 바꾸면 현재 구성 된 모든 백업이 중�
 
 * 백업 자격 증명 모음에 새 컴퓨터 이름을 등록 해야 합니다.
 * 자격 증명 모음에 새 이름을 등록 하는 경우 첫 번째 작업은 *전체* 백업입니다.
-* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아보기](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아봅니다](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>백업의 최대 파일 경로 길이는 얼마 인가요?
 
@@ -104,7 +102,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 1. 기본적으로 스크래치 폴더는 `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`에 있습니다.
 2. 스크래치 폴더 위치의 경로가 아래에 표시 된 레지스트리 키 항목의 값과 일치 하는지 확인 합니다.
 
-  | 레지스트리 경로 | 레지스트리 키 | Value |
+  | 레지스트리 경로 | 레지스트리 키 | 값 |
   | --- | --- | --- |
   | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*새 캐시 폴더 위치* |
   | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*새 캐시 폴더 위치* |
@@ -113,22 +111,24 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 1. 관리자 권한 명령 프롬프트에서이 명령을 실행 하 여 백업 엔진을 중지 합니다.
 
-    ```PS C:\> Net stop obengine```
+    ```Net stop obengine```
 
 2. 시스템 상태 백업을 구성한 경우 디스크 관리를 열고 이름을 `"CBSSBVol_<ID>"`형식으로 지정 하 여 디스크를 분리 합니다.
 3. 파일을 이동 하지 않습니다. 대신 캐시 공간 폴더를 공간이 충분 한 다른 드라이브로 복사 합니다.
-4. 새 캐시 폴더의 경로를 사용 하 여 다음 레지스트리 항목을 업데이트 합니다.<br/>
+4. 새 캐시 폴더의 경로를 사용 하 여 다음 레지스트리 항목을 업데이트 합니다.
 
-    | 레지스트리 경로 | 레지스트리 키 | Value |
+    | 레지스트리 경로 | 레지스트리 키 | 값 |
     | --- | --- | --- |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*새 캐시 폴더 위치* |
     | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*새 캐시 폴더 위치* |
 
 5. 관리자 권한 명령 프롬프트에서 백업 엔진을 다시 시작 합니다.
 
-    ```PS C:\> Net stop obengine```
+  ```command
+  Net stop obengine
 
-    ```PS C:\> Net start obengine```
+  Net start obengine
+  ```
 
 6. 임시 백업을 실행합니다. 새 위치를 사용 하 여 백업이 성공적으로 완료 되 면 원래 캐시 폴더를 제거할 수 있습니다.
 
@@ -143,7 +143,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 다음과 같은 특성 또는 해당 조합은 캐시 폴더에 지원되지 않습니다.
 
-* 암호화
+* 암호화됨
 * 중복 제거
 * 압축됨
 * 스파스
@@ -153,7 +153,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>백업에 사용 되는 대역폭의 양을 조정 하는 방법이 있나요?
 
-예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아보기](backup-configure-vault.md#enable-network-throttling).
+예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아봅니다](backup-configure-vault.md#enable-network-throttling).
 
 ## <a name="restore"></a>복원
 

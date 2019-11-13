@@ -1,6 +1,6 @@
 ---
 title: Visual Studio에서 스토리지 에뮬레이터 구성 및 사용 | Microsoft Docs
-description: Visual Studio에서 스토리지 에뮬레이터 구성 및 사용
+description: 로컬 개발 컴퓨터의 Azure에서 사용할 수 있는 Blob, 큐 및 Table storage 서비스를 시뮬레이트하는 유틸리티인 저장소 에뮬레이터를 구성 하 고 사용 합니다.
 services: visual-studio-online
 author: ghogen
 manager: jillfra
@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: 08e3f5d5bb32d15b9d8d164c898d2b8d7a90108c
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: aca4bf5017a4ee23d69016b937673443c1a0e200
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969707"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73935844"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Visual Studio에서 스토리지 에뮬레이터 구성 및 사용
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "71969707"
 ## <a name="overview"></a>개요
 Azure SDK 개발 환경은 로컬 개발 컴퓨터의 Azure에서 사용할 수 있는 Blob, 큐 및 Table Storage를 시뮬레이션하는 유틸리티인 스토리지 에뮬레이터를 포함합니다. Azure 스토리지 서비스를 사용하는 클라우드 서비스를 구축하거나 스토리지 서비스를 호출하는 외부 애플리케이션을 작성하는 경우, 스토리지 에뮬레이터에 대해 로컬로 코드를 테스트할 수 있습니다. Microsoft Visual Studio용 Azure Tools는 스토리지 에뮬레이터의 관리를 Visual Studio로 통합합니다. 처음으로 Azure Tools가 스토리지 에뮬레이터 데이터베이스를 초기화하고, Visual Studio에서 코드를 실행하거나 디버깅할 때 스토리지 에뮬레이터 서비스를 시작하고, Azure Storage Explorer를 통해 스토리지 에뮬레이터 데이터에 대한 읽기 전용 액세스를 제공합니다.
 
-시스템 요구 사항 및 사용자 지정 구성 지침을 포함한 스토리지 에뮬레이터에 대한 자세한 정보는 [개발 및 테스트용으로 Azure Storage 에뮬레이터 사용](storage/common/storage-use-emulator.md)을 참조하세요.
+시스템 요구 사항 및 사용자 지정 구성 지침 포함에 대한 자세한 정보는 [개발 및 테스트용으로 Azure Storage 에뮬레이터 사용](storage/common/storage-use-emulator.md)을 참조하세요.
 
 > [!NOTE]
 > 스토리지 에뮬레이터 시뮬레이션과 Azure Storage 서비스 간 기능에 몇 가지 차이점이 있습니다. 특정 차이점에 대한 정보는 Azure SDK 설명서에서 [스토리지 에뮬레이터와 Azure Storage 서비스 간 차이점](storage/common/storage-use-emulator.md)을 참조하세요.

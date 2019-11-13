@@ -1,17 +1,14 @@
 ---
 title: 관리 그룹으로 작업 하는 방법-Azure 거 버 넌 스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
-author: rthorn17
-ms.service: governance
 ms.date: 05/22/2019
-ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 57695157119b81580777c0581adccb267e7e9faa
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 90f4bacf462ed5f2590f51d15b6b660057c51738
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255936"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960234"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -27,7 +24,7 @@ ms.locfileid: "72255936"
 
 ### <a name="change-the-name-in-the-portal"></a>포털에서 이름 변경
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 
@@ -75,7 +72,7 @@ az account management-group update --name 'Contoso' --display-name 'Contoso Grou
 
 ### <a name="delete-in-the-portal"></a>포털에서 삭제
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 
@@ -118,7 +115,7 @@ az account management-group delete --name 'Contoso'
 
 ### <a name="view-in-the-portal"></a>포털에서 보기
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 
@@ -126,7 +123,7 @@ az account management-group delete --name 'Contoso'
 
 1. 관리 그룹의 세부 정보를 보려면 관리 그룹의 제목 옆에 있는 **(세부 정보)** 링크를 선택합니다. 이 링크를 사용할 수 없으면 해당 관리 그룹을 볼 수 있는 권한이 없습니다.
 
-   ![주](./media/main.png)
+   ![기본](./media/main.png)
 
 ### <a name="view-in-powershell"></a>PowerShell에서 보기
 
@@ -217,7 +214,7 @@ Azure Portal에서 사용 권한을 확인 하려면 관리 그룹을 선택한 
 
 #### <a name="add-an-existing-subscription-to-a-management-group"></a>관리 그룹에 기존 구독 추가
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 
@@ -233,7 +230,7 @@ Azure Portal에서 사용 권한을 확인 하려면 관리 그룹을 선택한 
 
 #### <a name="remove-a-subscription-from-a-management-group"></a>관리 그룹에서 구독 제거
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 
@@ -285,7 +282,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ### <a name="move-management-groups-in-the-portal"></a>포털에서 관리 그룹 이동
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
 
 1. **모든 서비스** > **관리 그룹**을 선택합니다.
 

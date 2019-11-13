@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 11/04/2019
-ms.openlocfilehash: 2206afc45c7ea35c41f51839b66dca33982939ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d44fb94978c450808c8a1c0852d4c771a100857e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489806"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961712"
 ---
 # <a name="manage-and-request-quotas-for-azure-resources"></a>Azure 리소스에 대한 할당량 관리 및 요청
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -62,7 +62,7 @@ Azure Machine Learning 컴퓨팅의 경우 구독의 영역당 허용되는 코�
 
 + 적중 한 후에는 초과 될 수 없는 * * 다른 엄격한 제한이 있습니다.
 
-| **리소스** | **최대 한도** |
+| **Resource** | **최대 한도** |
 | --- | --- |
 | 리소스 그룹당 최대 작업 영역 | 800 |
 | 단일 Azure Machine Learning 컴퓨팅(AmlCompute) 리소스의 최대 노드 수 | 100개 노드 |
@@ -92,7 +92,7 @@ Azure Machine Learning 파이프라인의 경우 파이프라인의 단계 수�
 좀 더 구체적인 최신 할당량 한도 목록은 [여기](https://docs.microsoft.com/azure/azure-subscription-service-limits#container-instances-limits)서 Azure 전체 할당량 문서를 참조하세요.
 
 ### <a name="storage"></a>Storage
-영역당 및 특정 구독당 스토리지 계정의 수가 제한되어 있습니다. 기본 제한은 200이고 표준 및 Premium Storage 계정이 모두 포함됩니다. 지정된 지역에서 스토리지 계정이 200개 이상 필요한 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)에 요청합니다. Azure Storage 팀이 비즈니스 사례를 검토하고 지정된 지역에 대해 Storage 계정을 250개까지 승인할 수 있습니다.
+영역당 및 특정 구독당 스토리지 계정의 수가 제한되어 있습니다. 기본 제한은 250 이며 표준 및 Premium Storage 계정을 모두 포함 합니다. 지정 된 지역에서 250 개 이상의 저장소 계정이 필요한 경우 [Azure 지원](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/)에 요청을 만듭니다. Azure Storage 팀이 비즈니스 사례를 검토하고 지정된 지역에 대해 Storage 계정을 250개까지 승인할 수 있습니다.
 
 
 ## <a name="workspace-level-quota"></a>작업 영역 수준 할당량
@@ -128,7 +128,7 @@ Virtual Machines, Storage, Network 등의 다양한 리소스에 대한 할당�
 1. 구독을 선택하여 할당량 한도를 확인합니다. 관심 있는 영역으로 필터링해야 합니다.
 
 1. 이제 구독 수준 보기와 작업 영역 수준 보기 사이를 전환할 수 있습니다.
-    + **구독 뷰:** 이렇게 하면 VM 제품군에서 코어 할당량을 사용 하 여 작업 영역으로 확장 하 고 실제 클러스터 이름으로 확장할 수 있습니다. 이 보기는 특정 VM 제품군의 코어 사용에 대 한 세부 정보를 신속 하 게 파악 하 여 각 작업 영역에 대 한 기본 클러스터에서 작업 영역에의 한 분할 및 기타 작업을 추가로 확인 하는 데 적합 합니다. 이 보기의 일반 규칙은 (사용량/할당량)입니다. 여기서 사용량은 현재 확장 된 코어 수이 고, 할당량은 리소스를 확장할 수 있는 논리적 최대 코어 수입니다. 각 **작업 영역**에 대해 할당량은 위에서 설명한 대로 작업 영역 수준 할당량으로, 특정 VM 제품군에 맞게 확장할 수 있는 최대 코어 수를 나타냅니다. 마찬가지로 **클러스터** 의 경우 할당량은 실제로 max_nodes 속성에 의해 정의 되는 클러스터 크기를 조정할 수 있는 최대 노드 수에 해당 하는 코어입니다.
+    + **구독 뷰:** 이렇게 하면 VM 제품군에서 코어 할당량을 사용 하 여 작업 영역으로 확장 하 고 실제 클러스터 이름으로 확장할 수 있습니다. 이 보기는 특정 VM 제품군의 코어 사용에 대 한 세부 정보를 신속 하 게 파악 하 여 각 작업 영역에 대 한 기본 클러스터에서 작업 영역에의 한 분할 및 기타 작업을 추가로 확인 하는 데 적합 합니다. 이 보기의 일반 규칙은 (사용량/할당량)입니다. 여기서 사용량은 현재 확장 된 코어 수이 고, 할당량은 리소스를 확장할 수 있는 논리적 최대 코어 수입니다. 각 **작업 영역**에 대해 할당량은 위에서 설명한 대로 작업 영역 수준 할당량으로, 특정 VM 제품군에 맞게 확장할 수 있는 최대 코어 수를 나타냅니다. 이와 유사 하 게 **클러스터** 의 경우 할당량은 실제로 max_nodes 속성에 의해 정의 되는 클러스터 크기를 조정할 수 있는 최대 노드 수에 해당 하는 코어입니다.
 
     + **작업 영역 보기:** 이를 통해 작업 영역에서 코어 할당량을 사용 하 고 VM 제품군을 확장 하 여 실제 클러스터 이름으로 확장 하는 작업을 볼 수 있습니다. 이 보기는 특정 작업 영역에 대 한 핵심 사용에 대 한 세부 정보를 신속 하 게 확인 하 여 VM 제품군에의 한 분할을 확인 하 고 각 제품군에 대 한 기본 클러스터에서 추가 작업을 진행 하는 데 가장 적합 합니다.
 

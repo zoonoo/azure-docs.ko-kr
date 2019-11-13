@@ -1,17 +1,14 @@
 ---
 title: 쿼리 언어 이해
 description: 리소스 그래프 테이블에 대해 설명 하 고 Azure 리소스 그래프에서 사용할 수 있는 Kusto 데이터 형식, 연산자 및 함수에 대해 설명 합니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: conceptual
-ms.service: resource-graph
-ms.openlocfilehash: d0ba3195aef246ff49042f61dcec0b4397b5dde6
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: baef46f4ba6f899c2c0a1392f87006223d75a4e1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622630"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959045"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -47,7 +44,7 @@ Resources
 | limit 1
 ```
 
-다음 쿼리는 `join`의 보다 복잡 한 사용을 보여 줍니다. 이 쿼리는 조인 된 테이블을 구독 리소스로 제한 하 고, `project`를 사용 하 여 원래 필드 _subscriptionId_ 와 이름 _필드를 모두_ _이름_ 으로 바꾸었습니다. 필드 이름 바꾸기는 _리소스_에 이미 존재 하므로 _name1_ 으로 추가 하는 `join`을 방지 합니다. 원래 테이블은 `where`를 사용 하 여 필터링 되 고 다음 `project`에는 두 테이블의 열이 포함 됩니다. 쿼리 결과는 유형, 주요 자격 증명 모음 이름 및 구독 이름을 표시 하는 단일 키 자격 증명 모음입니다.
+다음 쿼리는 `join`의 보다 복잡 한 사용을 보여 줍니다. 이 쿼리는 조인된 테이블을 구독 리소스로 제한하고 `project`를 사용하여 원래 필드 _subscriptionId_ 및 _SubName_으로 이름이 바뀐 _name_ 필드만 포함합니다. 필드 이름 바꾸기는 _리소스_에 이미 존재 하므로 _name1_ 으로 추가 하는 `join`을 방지 합니다. 원래 테이블은 `where`를 사용하여 필터링되고 다음 `project`에는 두 테이블의 열이 포함됩니다. 쿼리 결과는 유형, 키 자격 증명 모음 이름 및 해당하는 구독 이름을 표시하는 단일 키 자격 증명 모음입니다.
 
 ```kusto
 Resources
@@ -73,9 +70,9 @@ Resources
 |[count](/azure/kusto/query/countoperator) |[키 자격 증명 모음 수](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[특정 별칭에 대한 고유 값 표시](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[OS 유형별 가상 머신 개수 계산](../samples/starter.md#count-os) | |
-|[join](/azure/kusto/query/joinoperator) |[구독 이름이 있는 Key vault](../samples/advanced.md#join) |지원 되는 조인 특색: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). 단일 쿼리에서 `join` 3 개로 제한 됩니다. 브로드캐스트 조인과 같은 사용자 지정 조인 전략은 허용 되지 않습니다. 단일 테이블 내에서 또는 _리소스_ 와 _ResourceContainers_ 테이블 간에 사용할 수 있습니다. |
+|[join](/azure/kusto/query/joinoperator) |[구독 이름이 있는 키 자격 증명 모음](../samples/advanced.md#join) |지원 되는 조인 특색: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). 단일 쿼리에서 `join` 3 개로 제한 됩니다. 브로드캐스트 조인과 같은 사용자 지정 조인 전략은 허용 되지 않습니다. 단일 테이블 내에서 또는 _리소스_ 와 _ResourceContainers_ 테이블 간에 사용할 수 있습니다. |
 |[limit](/azure/kusto/query/limitoperator) |[모든 공용 IP 주소 나열](../samples/starter.md#list-publicip) |`take`의 동의어 |
-|[mv-확장](/azure/kusto/query/mvexpandoperator) |[특정 쓰기 위치를 사용 하 여 Cosmos DB 나열](../samples/advanced.md#mvexpand-cosmosdb) |_Rowlimit_ 최대 400 |
+|[mv-확장](/azure/kusto/query/mvexpandoperator) |[특정 쓰기 위치를 사용하여 Cosmos DB 나열](../samples/advanced.md#mvexpand-cosmosdb) |_Rowlimit_ 최대 400 |
 |[주문을](/azure/kusto/query/orderoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) |`sort`의 동의어 |
 |[project](/azure/kusto/query/projectoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) | |
 |[project-away](/azure/kusto/query/projectawayoperator) |[결과에서 열 제거](../samples/advanced.md#remove-column) | |

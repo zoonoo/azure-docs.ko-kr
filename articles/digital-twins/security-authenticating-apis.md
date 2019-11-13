@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins를 사용 하 여 API 인증 이해 | Microsoft Docs
+title: API 인증 이해-Azure Digital Twins | Microsoft Docs
 description: Azure Digital Twins를 사용 하 여 Api에 연결 하 고 인증 하는 방법을 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 53b53fa5185ade87dfdd21f0805641657d49d676
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6af6a4501ad58fc8e371b895da601d177d872f41
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72800218"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013949"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Api에 연결 및 인증
 

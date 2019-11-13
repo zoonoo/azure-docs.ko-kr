@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 환경의 보존 기간을 구성하는 방법 | Microsoft Docs
-description: 이 아티클에서는 Azure Time Series Insights 환경의 보존 기간을 구성하는 방법을 설명합니다.
+title: 환경에서 보존을 구성 하는 방법-Azure Time Series Insights | Microsoft Docs
+description: Azure Time Series Insights 환경에서 보존을 구성 하는 방법에 대해 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: ff4d326af691ae27894dc94d7581ba68951f090e
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: aa905d1686939346827d07419a62fd6f299387ec
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990066"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012603"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Time Series Insights의 보존 기간 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "72990066"
 
 ## <a name="configure-data-retention"></a>데이터 보존 구성하기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. 기존 Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 선택합니다. Time Series Insights 환경을 선택합니다.
 

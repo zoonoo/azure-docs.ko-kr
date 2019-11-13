@@ -9,19 +9,19 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 04/19/2019
+ms.date: 11/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: bb3b9504abcd453977d63a9bfccf77a33da6455a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9bb22a564f52dfcdb3fbec6d842e452ca416059f
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489486"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961707"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>추정기를 사용하여 Azure Machine Learning에서 모델 학습
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning에서는 [RunConfiguration 개체](how-to-set-up-training-targets.md#compute-targets-for-training) 및 [ScriptRunConfig 개체](how-to-set-up-training-targets.md#whats-a-run-configuration)를 사용하여 학습 스크립트를 [다양한 컴퓨팅 대상](how-to-set-up-training-targets.md#submit)에 제출할 수 있습니다. 이러한 패턴은 풍부한 유연성과 최대의 제어 능력을 제공합니다.
+Azure Machine Learning를 사용 하 여 [Runconfiguration 개체](how-to-set-up-training-targets.md#whats-a-run-configuration) 및 [ScriptRunConfig 개체](how-to-set-up-training-targets.md#submit)를 사용 하 여 [다양 한 계산 대상](how-to-set-up-training-targets.md#compute-targets-for-training)에 학습 스크립트를 쉽게 제출할 수 있습니다. 이러한 패턴은 풍부한 유연성과 최대의 제어 능력을 제공합니다.
 
 딥 러닝 모델 학습을 용이하게 하기 위해 Azure Machine Learning Python SDK는 사용자가 실행 구성을 쉽게 생성할 수 있게 하는 높은 수준의 대체 추상화인 estimator 클래스를 제공합니다. 사용자가 선택한 모든 계산 대상에서 선택한 모든 학습 프레임 워크 (예: scikit)를 사용 하 여 학습 스크립트를 제출 하는 일반 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) 을 만들고 사용할 수 있습니다 .이는 로컬 컴퓨터, azure의 단일 VM 또는 AZURE의 GPU 클러스터 인지 여부 PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이러한 프레임 워크 사용을 간소화 하기 위해 각 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)및 [체 이너](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 추정도 제공 합니다.
 
@@ -44,7 +44,8 @@ scikit-learn 모델을 위해 Azure의 원격 컴퓨팅에서 실행되는 단�
 from azureml.train.estimator import Estimator
 
 script_params = {
-    '--data-folder': ds.as_mount(),
+    # to mount files referenced by mnist dataset
+    '--data-folder': ds.as_named_input('mnist').as_mount(),
     '--regularization': 0.8
 }
 
@@ -57,7 +58,7 @@ sk_est = Estimator(source_directory='./my-sklearn-proj',
 
 이 코드 조각에서 `Estimator` 생성자에 지정한 매개 변수는 다음과 같습니다.
 
-매개 변수 | 설명
+매개 변수를 포함해야 합니다. | 설명
 --|--
 `source_directory`| 학습 작업에 필요한 모든 코드가 포함된 로컬 디렉터리입니다. 이 폴더는 로컬 컴퓨터에서 원격 계산으로 복사 됩니다.
 `script_params`| 사전 `<command-line argument, value>` 쌍으로 학습 스크립트에 전달할 명령줄 인수를 지정 하 `entry_script`합니다. `script_params`에서 자세한 정보 플래그를 지정 하려면 `<command-line argument, "">`를 사용 합니다.
@@ -109,7 +110,7 @@ estimator = Estimator(source_directory='./my-keras-proj',
 
 위의 코드는 `Estimator` 생성자에 다음과 같은 새 매개 변수를 표시합니다.
 
-매개 변수 | 설명 | 기본값
+매개 변수를 포함해야 합니다. | 설명 | 기본값
 --|--|--
 `custom_docker_image`| 사용하려는 이미지의 이름입니다. 공용 Docker 리포지토리(여기서는 Docker 허브)에서 사용할 수 있는 이미지만 제공합니다. 프라이빗 Docker 리포지토리의 이미지를 사용하려면 생성자의 `environment_definition` 매개 변수를 대신 사용합니다. [예제를 참조하세요](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/how-to-use-estimator/how-to-use-estimator.ipynb). | `None`
 `node_count`| 학습 작업에 사용할 노드의 수입니다. | `1`
@@ -135,7 +136,8 @@ print(run.get_portal_url())
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 심층 학습 프레임 워크 관련 추정을 사용 하 여 학습 모델에 대 한 노트북은 다음을 참조 하세요.
-* [how-to-use-azureml/training-with-deep-learning](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning)
+
+* [사용 방법-azureml/ml-프레임 워크](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

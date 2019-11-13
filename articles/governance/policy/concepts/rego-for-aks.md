@@ -1,17 +1,14 @@
 ---
 title: Azure Kubernetes Service에 대 한 Azure Policy 알아보기
 description: Azure Policy에서 Rego를 사용 하 여 Azure Kubernetes Service에서 클러스터를 관리 하는 방법에 대해 알아봅니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 248f96b4385e97605986b53bd94fd83236ec8f08
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dbac1ee762066fb59cd57c04839666026a2bd89b
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480897"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959792"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 Azure Policy 이해
 
@@ -92,11 +89,11 @@ Kubernetes에 대 한 _Azure Policy 추가 기능_ 에서 게이트 키퍼 허�
 
 ### <a name="installing-the-add-on"></a>추가 기능 설치
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>선행 조건
 
 AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장을 설치 해야 합니다. 이 단계는 Azure CLI를 통해 수행 됩니다.
 
-1. Azure CLI 버전 2.0.62 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드를 해야 할 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+1. Azure CLI 버전 2.0.62 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 1. AKS 클러스터는 _1.10_ 이상 버전 이어야 합니다. 다음 스크립트를 사용 하 여 AKS 클러스터 버전의 유효성을 검사 합니다.
 
@@ -126,7 +123,7 @@ AKS 클러스터에 추가 기능을 설치 하기 전에 미리 보기 확장�
 
 필수 구성 요소가 완료 되 면 관리 하려는 AKS 클러스터에 Azure Policy 추가 기능을 설치 합니다.
 
-- Azure portal
+- Azure 포털
 
   1. **모든 서비스**를 클릭 한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 
@@ -209,7 +206,7 @@ Kubernetes controller/container Azure Policy 추가 기능이 AKS 클러스터�
 
 AKS 클러스터에서 Azure Policy 추가 기능을 제거 하려면 Azure Portal 또는 Azure CLI를 사용 합니다.
 
-- Azure portal
+- Azure 포털
 
   1. **모든 서비스**를 클릭 한 다음 **Kubernetes services**를 검색 하 고 선택 하 여 Azure Portal에서 AKS 서비스를 시작 합니다.
 

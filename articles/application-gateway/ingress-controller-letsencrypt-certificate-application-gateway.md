@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 2e91a888d0dc98a4f94b956e15336d75291f733e
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 92e9747865f1a0910c8bae4001cc597ae9ea3da6
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795908"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73957978"
 ---
 # <a name="use-certificates-with-letsencryptorg-on-application-gateway-for-aks-clusters"></a>AKS 클러스터에 대 한 Application Gateway에 LetsEncrypt.org에서 인증서 사용
 
@@ -130,8 +130,12 @@ ms.locfileid: "73795908"
     몇 초 후에 자동으로 발급 된 **준비** `Lets Encrypt` 인증서를 사용 하 여 Application Gateway HTTPS url을 통해 `guestbook` 서비스에 액세스할 수 있습니다.
     브라우저에서 잘못 된 인증 기관에 대해 경고할 수 있습니다. `CN=Fake LE Intermediate X1`에서 준비 인증서를 발급 합니다. 시스템이 예상 대로 작동 하 고 프로덕션 인증서를 사용할 준비가 되었음을 나타냅니다.
 
-4. 프로덕션 인증서 스테이징 인증서가 성공적으로 설정 되 면 프로덕션 ACME 서버로 전환할 수 있습니다.
+4. 프로덕션 인증서
+
+    스테이징 인증서가 성공적으로 설정 되 면 프로덕션 ACME 서버로 전환할 수 있습니다.
     1. 수신 리소스의 준비 주석을 다음과 같이 바꿉니다. `certmanager.k8s.io/cluster-issuer: letsencrypt-prod`
     1. 이전 단계에서 만든 기존 준비 `ClusterIssuer`를 삭제 하 고 위의 ClusterIssuer YAML에서 ACME 서버를 대체 하 여 새 준비를 만듭니다 `https://acme-v02.api.letsencrypt.org/directory`
 
-5. 인증서 만료 및 갱신 `Lets Encrypt` 인증서가 만료 되기 전에는 `cert-manager` Kubernetes 암호 저장소에서 인증서를 자동으로 업데이트 합니다. 이 시점에서 Application Gateway 수신 컨트롤러는 Application Gateway를 구성 하는 데 사용 하는 수신 리소스에서 참조 되는 업데이트 된 암호를 적용 합니다.
+5. 인증서 만료 및 갱신
+
+    `Lets Encrypt` 인증서가 만료 되기 전에는 `cert-manager` Kubernetes 암호 저장소에서 인증서를 자동으로 업데이트 합니다. 이 시점에서 Application Gateway 수신 컨트롤러는 Application Gateway를 구성 하는 데 사용 하는 수신 리소스에서 참조 되는 업데이트 된 암호를 적용 합니다.

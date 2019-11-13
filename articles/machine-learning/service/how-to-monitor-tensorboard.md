@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
-ms.date: 06/28/2019
-ms.openlocfilehash: 272dbbbc335574456feebfb85e4c5eafd544f8d6
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/08/2019
+ms.openlocfilehash: fc8159b3deba373948f513cb11540695362ecaf1
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574287"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954557"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning를 사용 하 여 실험 실행 및 메트릭 시각화
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,7 +31,7 @@ Azure Machine Learning 실험을 통해 TensorBoard를 시작 하는 방법은 �
 > [!TIP]
 > 이 문서의 정보는 주로 모델 학습 프로세스를 모니터링 하려는 데이터 과학자 및 개발자를 위한 것입니다. 할당량, 완료 된 학습 실행 또는 완료 된 모델 배포와 같이 Azure Machine learning의 리소스 사용 및 이벤트를 모니터링 하는 데 관심이 있는 관리자는 [모니터링 Azure Machine Learning](monitor-azure-machine-learning.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * TensorBoard을 시작 하 고 실험 실행 기록을 보려면 실험에서 이전에 로깅을 사용 하도록 설정 하 여 해당 메트릭과 성능을 추적 해야 합니다.  
 
@@ -41,16 +41,18 @@ Azure Machine Learning 실험을 통해 TensorBoard를 시작 하는 방법은 �
 
         * [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
 
-        * 노트북 서버의 samples 폴더에서 다음 디렉터리로 이동 하 여 완료 및 확장 된 두 개의 노트북을 찾습니다. **사용 방법-azureml > 교육-심층 학습**.
-        * 내보내기-실행-기록-실행-기록.
-        * tensorboard
+        * 노트북 서버의 samples 폴더에서 다음 디렉터리로 이동 하 여 두 개의 완료 및 확장 된 노트북을 찾습니다.
+            * **사용 방법-azureml > 교육-심층 학습 > 내보내기-실행-기록-tensorboard > 내보내기-실행-기록-tensorboard.**
+
+            * **사용 방법-azureml > 트랙-및 모니터-실험 > tensorboard**
 
     * 사용자 고유의 Juptyer 노트북 서버
-          * `tensorboard` 추가 된 [AZURE MACHINE LEARNING SDK를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 합니다.
-          * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md).  
-          * [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
+       * `tensorboard` 추가 된 [AZURE MACHINE LEARNING SDK를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 합니다.
+        * [Azure Machine Learning 작업 영역을 만듭니다](how-to-manage-workspace.md).  
+        * [작업 영역 구성 파일을 만듭니다](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
+
 ## <a name="option-1-directly-view-run-history-in-tensorboard"></a>옵션 1: TensorBoard에서 실행 기록 직접 보기
 
 이 옵션은 PyTorch, 체 이너 및 TensorFlow 실험 같이 TensorBoard에서 사용할 수 있는 로그 파일을 고유 하 게 출력 하는 실험에 사용할 수 있습니다. 실험의 사례가 아니면 [`export_to_tensorboard()` 메서드를](#export) 대신 사용 합니다.
@@ -85,7 +87,7 @@ tf_code = requests.get("https://raw.githubusercontent.com/tensorflow/tensorflow/
 with open(os.path.join(exp_dir, "mnist_with_summaries.py"), "w") as file:
     file.write(tf_code.text)
 ```
-MNIST 코드 파일 mnist_with_summaries. py에서는 `tf.summary.scalar()`, `tf.summary.histogram()`, `tf.summary.FileWriter()` 등을 호출 하는 줄이 있음을 알 수 있습니다. 이러한 메서드는 실험의 주요 메트릭을 실행 기록으로 그룹화, 기록 및 태그 합니다. `tf.summary.FileWriter()`는 로깅된 실험 메트릭의 데이터를 직렬화 하므로 TensorBoard에서 시각화를 생성할 수 있도록 하는 것이 특히 중요 합니다.
+MNIST 코드 파일 mnist_with_summaries py에서 `tf.summary.scalar()`, `tf.summary.histogram()`, `tf.summary.FileWriter()` 등을 호출 하는 줄이 있는지 확인 합니다. 이러한 메서드는 실험의 주요 메트릭을 실행 기록으로 그룹화, 기록 및 태그 합니다. `tf.summary.FileWriter()`는 로깅된 실험 메트릭의 데이터를 직렬화 하므로 TensorBoard에서 시각화를 생성할 수 있도록 하는 것이 특히 중요 합니다.
 
  ### <a name="configure-experiment"></a>실험 구성
 
@@ -243,7 +245,7 @@ for alpha in tqdm(alphas):
 
 ### <a name="export-runs-to-tensorboard"></a>TensorBoard로 실행 내보내기
 
-SDK의 [export_to_tensorboard ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) 메서드를 사용 하 여 Azure machine learning 실험의 실행 기록을 tensorboard 로그로 내보내 tensorboard를 통해 볼 수 있습니다.  
+SDK의 [export_to_tensorboard ()](https://docs.microsoft.com/python/api/azureml-tensorboard/azureml.tensorboard.export?view=azure-ml-py) 메서드를 사용 하 여 Azure machine learning 실험의 실행 기록을 tensorboard를 통해 볼 수 있도록 tensorboard 로그로 내보낼 수 있습니다.  
 
 다음 코드에서는 현재 작업 디렉터리에 `logdir` 폴더를 만듭니다. 이 폴더에는 `root_run`에서 실험 실행 기록 및 로그를 내보낸 후 해당 실행을 완료 된 것으로 표시 합니다. 
 

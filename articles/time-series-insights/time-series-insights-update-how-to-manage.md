@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series 미리 보기 프로비전 및 관리 | Microsoft Docs
-description: Azure Time Series 미리 보기를 프로비전 및 관리하는 방법을 이해합니다.
+title: 미리 보기 환경 프로 비전 및 관리-Azure 시계열 | Microsoft Docs
+description: Azure Time Series Insights 미리 보기 환경을 프로 비전 하 고 관리 하는 방법을 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 47c96cb14f2e466d02d57f73fb2e66bc1f44a311
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f66925c20f6767286eb98a7f5fab180845da4c33
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989922"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014790"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Azure Time Series 미리 보기 프로비전 및 관리
 

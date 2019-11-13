@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 2f24f5cacb8b6e115d7fe91c6ef0a7a333676ae1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e68ce5a198165c4187cbad9e86ce61f67694a82d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472850"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961597"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 대한 질문과 대답
 
@@ -55,7 +55,7 @@ Kured를 사용 하는 방법에 대 한 자세한 내용은 [AKS에서 노드�
 
 ### <a name="windows-server-nodes"></a>Windows Server 노드
 
-Windows Server 노드 (현재 AKS의 미리 보기 상태)의 경우 Windows 업데이트가 자동으로 실행 되 고 최신 업데이트를 적용 하지 않습니다. Windows 업데이트 릴리스 주기와 사용자 고유의 유효성 검사 프로세스를 정기적으로 수행 하는 일정에 따라 클러스터에서 업그레이드를 수행 하 고 AKS 클러스터에서 Windows Server 노드 풀을 업그레이드 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행 하는 노드를 만든 다음 이전 노드를 제거 합니다. 이 프로세스에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
+Windows Server 노드(현재 AKS에서 프리뷰)에 대한 Windows Update는 최신 업데이트를 자동으로 실행 및 적용하지 않습니다. Windows 업데이트 릴리스 주기와 사용자 고유의 유효성 검사 프로세스를 정기적으로 수행 하는 일정에 따라 클러스터에서 업그레이드를 수행 하 고 AKS 클러스터에서 Windows Server 노드 풀을 업그레이드 해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행하는 노드를 생성하고 이전 노드를 제거합니다. 이 프로세스에 대한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조하세요.
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>AKS를 통해 2개의 리소스 그룹이 생성되는 이유는 무엇인가요?
 
@@ -63,12 +63,12 @@ AKS는 가상 머신 확장 집합, 가상 네트워크 및 관리 디스크를 
 
 이 아키텍처를 사용 하도록 설정 하기 위해 각 AKS 배포는 다음 두 리소스 그룹에 걸쳐 있습니다.
 
-1. 첫 번째 리소스 그룹을 만듭니다. 이 그룹에는 Kubernetes service 리소스만 포함 됩니다. AKS 리소스 공급자는 배포 하는 동안 두 번째 리소스 그룹을 자동으로 만듭니다. 두 번째 리소스 그룹의 예는 *MC_myResourceGroup_myAKSCluster_eastus*입니다. 이 두 번째 리소스 그룹의 이름을 지정 하는 방법에 대 한 자세한 내용은 다음 섹션을 참조 하세요.
-1. *노드 리소스 그룹*이라고 하는 두 번째 리소스 그룹에는 클러스터와 연결 된 모든 인프라 리소스가 포함 되어 있습니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 스토리지가 포함됩니다. 기본적으로 노드 리소스 그룹의 이름은 *MC_myResourceGroup_myAKSCluster_eastus*와 같습니다. AKS는 클러스터가 삭제 될 때마다 노드 리소스를 자동으로 삭제 하므로 클러스터의 수명 주기를 공유 하는 리소스에 대해서만 사용 해야 합니다.
+1. 첫 번째 리소스 그룹을 만듭니다. 이 그룹에는 Kubernetes service 리소스만 포함 됩니다. AKS 리소스 공급자는 배포 하는 동안 두 번째 리소스 그룹을 자동으로 만듭니다. 두 번째 리소스 그룹의 예는 *MC_myResourceGroup_myAKSCluster_eastus*합니다. 이 두 번째 리소스 그룹의 이름을 지정 하는 방법에 대 한 자세한 내용은 다음 섹션을 참조 하세요.
+1. *노드 리소스 그룹*이라고 하는 두 번째 리소스 그룹에는 클러스터와 연결 된 모든 인프라 리소스가 포함 되어 있습니다. 이러한 리소스에는 Kubernetes 노드 VM, 가상 네트워킹 및 스토리지가 포함됩니다. 기본적으로 노드 리소스 그룹은 *MC_myResourceGroup_myAKSCluster_eastus*와 같은 이름을 갖습니다. AKS는 클러스터가 삭제 될 때마다 노드 리소스를 자동으로 삭제 하므로 클러스터의 수명 주기를 공유 하는 리소스에 대해서만 사용 해야 합니다.
 
 ## <a name="can-i-provide-my-own-name-for-the-aks-node-resource-group"></a>AKS node 리소스 그룹에 대 한 고유한 이름을 제공할 수 있나요?
 
-예. 기본적으로 AKS는 노드 리소스 그룹의 이름을 *MC_resourcegroupname_clustername_location*로 지정 하지만 사용자 고유의 이름을 제공할 수도 있습니다.
+예. 기본적으로 AKS는 노드 리소스 그룹의 이름을 *MC_resourcegroupname_clustername_location*하지만 사용자 고유의 이름을 제공할 수도 있습니다.
 
 고유한 리소스 그룹 이름을 지정 하려면 [aks-preview][aks-preview-cli] Azure CLI 확장 버전 *0.3.2* 이상을 설치 합니다. [Az AKS create][az-aks-create] 명령을 사용 하 여 AKS 클러스터를 만들 때 *--node-group* 매개 변수를 사용 하 고 리소스 그룹의 이름을 지정 합니다. [Azure Resource Manager 템플릿을 사용][aks-rm-template] 하 여 AKS 클러스터를 배포 하는 경우 *Noderesourcegroup* 속성을 사용 하 여 리소스 그룹 이름을 정의할 수 있습니다.
 
@@ -124,7 +124,7 @@ Kubernetes 제어 평면의 작동 시간 및 Azure Virtual Machines에서 실�
 
 AKS에서는 Azure CLI 및 Azure Resource Manager 템플릿을 사용 하 여 클러스터를 만들 때 `maxPods` 값을 설정할 수 있습니다. 그러나 Kubenet 및 Azure CNI에는 최소한의 *값* (생성 시 유효성 검사 됨)이 필요 합니다.
 
-| 네트워킹 | 최소 | 최대 |
+| 네트워킹 | 최소 | 최대값 |
 | -- | :--: | :--: |
 | Azure CNI | 30 | 250 |
 | Kubenet | 30 | 110 |
@@ -194,7 +194,6 @@ AKS는 관리 되는 서비스 이며 IaaS 리소스 조작은 지원 되지 않
 [aks-regions]: ./quotas-skus-regions.md#region-availability
 [aks-upgrade]: ./upgrade-cluster.md
 [aks-cluster-autoscale]: ./autoscaler.md
-[virtual-kubelet]: virtual-kubelet.md
 [aks-advanced-networking]: ./configure-azure-cni.md
 [aks-rbac-aad]: ./azure-ad-integration.md
 [node-updates-kured]: node-updates-kured.md

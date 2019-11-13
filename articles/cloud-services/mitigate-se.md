@@ -12,14 +12,14 @@ ms.service: cloud-services
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 05/21/2018
+ms.date: 11/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 29dc2114edbb0a27f7c0731d970a73080969828f
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 37af0e994e7012f2c35dd4f7baf2a38db3bdbca8
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945961"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953298"
 ---
 # <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Azure에서 투기적 실행 사이드 채널 취약성을 완화하기 위한 지침입니다.
 

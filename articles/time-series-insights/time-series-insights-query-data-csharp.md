@@ -1,6 +1,6 @@
 ---
-title: 코드를 사용 하 여 C# Azure Time Series Insights GA 환경에서 데이터 쿼리 | Microsoft Docs
-description: 이 문서에서는 C#(c-sharp) .NET 언어로 작성된 사용자 지정 앱을 코딩하여 Azure Time Series Insights 환경에서 데이터를 쿼리하는 방법을 설명합니다.
+title: 코드 Azure Time Series Insights를 사용 하 여 C# GA 환경에서 데이터 쿼리 | Microsoft Docs
+description: 에서 C#작성 한 사용자 지정 앱을 사용 하 여 Azure Time Series Insights 환경에서 데이터를 쿼리 하는 방법에 대해 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 23e4ad5667019b5bc38f9ba11d14632d4d55d5b7
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 5946a1484a62b041772f388b0629d131afe37b92
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989973"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012556"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>를 사용 하 여 Azure Time Series Insights GA 환경에서 데이터 쿼리C#
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: dacurwin
-ms.openlocfilehash: bdcd7cbd24ca7023070585df46aa8cea7bdc70eb
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 7716fba7a16b393143ffb9c97e7203e15bc07d82
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747297"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012947"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -124,22 +124,22 @@ Recovery Services 자격 증명 모음 스토리지 복제를 사용하면 지�
 
 ## <a name="download-azure-backup-server-installer"></a>Azure Backup Server 설치 관리자 다운로드
 
-Azure Backup Server 설치 관리자를 다운로드하는 두 가지 방법이 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=55269)에서 Azure Backup Server 설치 관리자를 다운로드할 수 있습니다. Recovery Services 자격 증명 모음을 구성할 때 Azure Backup Server 설치 관리자를 다운로드할 수도 있습니다. 다음은 Recovery Services 자격 증명 모음을 구성하는 동안 Azure Portal에서 설치 관리자를 다운로드하는 단계입니다.
+Azure Backup Server 설치 관리자를 다운로드하는 두 가지 방법이 있습니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=55269)에서 Azure Backup Server 설치 관리자를 다운로드할 수 있습니다. Recovery Services 자격 증명 모음을 구성할 때 Azure Backup Server 설치 관리자를 다운로드할 수도 있습니다. 다음은 Recovery Services 자격 증명 모음을 구성하는 동안 Azure Portal에서 설치 관리자를 다운로드하는 단계입니다.
 
 1. Azure Stack 가상 머신에서, [Azure Portal에서 Azure 구독에 로그인](https://portal.azure.com/)합니다.
 2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
 
-    ![주 메뉴에서 모든 서비스 옵션 선택](./media/backup-mabs-install-azure-stack/click-all-services.png)
+    ![주 메뉴에서 [모든 서비스] 옵션을 선택합니다.](./media/backup-mabs-install-azure-stack/click-all-services.png)
 
 3. **모든 서비스** 대화 상자에서 *Recovery Services*를 입력합니다. 입력하기 시작하면 입력은 리소스 목록을 필터링합니다. **Recovery Services 자격 증명 모음**이 보이면 선택합니다.
 
-    ![[모든 서비스] 대화 상자에서 Recovery Services 입력](./media/backup-mabs-install-azure-stack/all-services.png)
+    ![모든 서비스 대화 상자에서 Recovery Services 입력](./media/backup-mabs-install-azure-stack/all-services.png)
 
-    구독의 Recovery Services 자격 증명 모음 목록이 표시됩니다.
+    구독에 Recovery Services 자격 증명 모음 목록이 표시됩니다.
 
 4. Recovery Services 자격 증명 모음 목록에서 해당 자격 증명 모음을 선택하여 대시보드를 엽니다.
 
-    ![[모든 서비스] 대화 상자에서 Recovery Services 입력](./media/backup-mabs-install-azure-stack/rs-vault-dashboard.png)
+    ![모든 서비스 대화 상자에서 Recovery Services 입력](./media/backup-mabs-install-azure-stack/rs-vault-dashboard.png)
 
 5. 자격 증명 모음의 [시작] 메뉴에서 **백업**을 클릭하여 [시작] 마법사를 엽니다.
 
@@ -326,7 +326,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azu
 
 Azure Backup 서버가 Azure Backup 서비스에 연결되어야 제품이 제대로 작동합니다. 컴퓨터가 Azure에 연결되어 있는지 여부를 확인하려면 Azure Backup 서버 PowerShell 콘솔에서 ```Get-DPMCloudConnection``` cmdlet을 사용합니다. cmdlet의 출력이 TRUE인 경우 연결되어 있고 그렇지 않으면 연결되지 않은 것입니다.
 
-이와 동시에 Azure 구독은 정상 상태여야 합니다. 구독 상태를 확인하고 관리하려면 [구독 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 로그인합니다.
+이와 동시에 Azure 구독은 정상 상태여야 합니다. 구독 상태를 확인 하 고 관리 하려면 [구독 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 로그인 합니다.
 
 Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하여 제공된 백업/복원 기능에 미치는 영향을 알아볼 수 있습니다.
 

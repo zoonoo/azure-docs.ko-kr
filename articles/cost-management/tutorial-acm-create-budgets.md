@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2019
+ms.date: 11/12/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 8c3c0574389fc9808af3cd70c928ede82d375076
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c4de8b0d78d66709d13526c69f9d33b16dbad1dc
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720717"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74010228"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -36,7 +36,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 > * Azure Portal에서 예산 만들기
 > * 예산 편집
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 예산은 다양한 유형의 Azure 계정에 대해 지원됩니다. 지원되는 계정 유형의 전체 목록을 보려면 [Cost Management 데이터 이해](understand-cost-mgt-data.md)를 참조하세요. 예산을 보려면 적어도 Azure 계정에 대한 읽기 권한이 필요합니다.
 
@@ -52,7 +52,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+- https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Azure Portal에서 예산 만들기
 
@@ -90,7 +90,9 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="trigger-an-action-group"></a>작업 그룹 트리거
 
-구독 또는 리소스 그룹 범위에 대 한 예산을 만들거나 편집 하는 경우 작업 그룹을 호출 하도록 구성할 수 있습니다. 작업 그룹은 예산 임계값이 충족 될 때 다양 한 작업을 수행할 수 있습니다. 작업 그룹에 대 한 자세한 내용은 [Azure Portal에서 작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조 하세요. 작업 그룹에서 예산 기반 자동화를 사용 하는 방법에 대 한 자세한 내용은 [Azure 예산으로 비용 관리](../billing/billing-cost-management-budget-scenario.md)를 참조 하세요.
+구독 또는 리소스 그룹 범위에 대 한 예산을 만들거나 편집 하는 경우 작업 그룹을 호출 하도록 구성할 수 있습니다. 작업 그룹은 예산 임계값이 충족 될 때 다양 한 작업을 수행할 수 있습니다. 작업 그룹은 현재 구독 및 리소스 그룹 범위 에서만 지원 됩니다. 작업 그룹에 대 한 자세한 내용은 [Azure Portal에서 작업 그룹 만들기 및 관리](../azure-monitor/platform/action-groups.md)를 참조 하세요. 작업 그룹에서 예산 기반 자동화를 사용 하는 방법에 대 한 자세한 내용은 [Azure 예산으로 비용 관리](../billing/billing-cost-management-budget-scenario.md)를 참조 하세요.
+
+
 
 작업 그룹을 만들거나 업데이트 하려면 예산을 만들거나 편집 하는 동안 **작업 그룹 관리** 를 클릭 합니다.
 
@@ -116,7 +118,7 @@ Cost Management 데이터에 대한 사용 권한을 할당하는 방법에 대�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 예산 만들기

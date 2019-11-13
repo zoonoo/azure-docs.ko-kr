@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins에서 다중 테넌트 애플리케이션 사용 | Microsoft Docs
+title: 다중 테 넌 트 응용 프로그램 사용-Azure Digital Twins | Microsoft Docs
 description: Azure Digital Twins에 대한 다중 테넌트 Azure Active Directory 애플리케이션을 구성하는 방법
 ms.author: alinast
 author: alinamstanciu
@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.openlocfilehash: 070b04b27982b84f101ee4d6f85f4e5b82760092
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 6394d519b93b55358ef9d528f89978d5a3cf3007
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958811"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005911"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Azure Digital Twins에서 다중 테넌트 애플리케이션 사용
 

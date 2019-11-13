@@ -4,14 +4,14 @@ description: Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB�
 author: TheovanKraay
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/08/2019
 ms.author: thvankra
-ms.openlocfilehash: 7c508d736c7c04cc6df2b42e0a90a2906052adbc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7b08ca98f25b079d831033b9393effd4ee4b65e3
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835513"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961849"
 ---
 # <a name="azure-resource-manager-templates-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Azure Resource Manager 템플릿
 
@@ -29,8 +29,6 @@ ms.locfileid: "73835513"
 |**템플릿**|**설명**|
 |---| ---|
 |[Azure Cosmos 계정, 데이터베이스, 컬렉션 만들기](manage-mongodb-with-resource-manager.md#create-resource) | 이 템플릿은 다중 마스터가 활성화 된 두 지역에서 MongoDB 용 Azure Cosmos DB API를 사용 하 여 계정을 만듭니다. Azure Cosmos 계정에는 데이터베이스 수준 처리량을 공유 하는 두 개의 컨테이너가 있습니다. |
-|[데이터베이스의 업데이트 처리량 (r u/초)](manage-mongodb-with-resource-manager.md#database-ru-update) | 이 템플릿은 MongoDB API 계정에서 데이터베이스에 대 한 처리량을 업데이트 합니다. |
-|[컬렉션에 대 한 업데이트 처리량 (r u/초)](manage-mongodb-with-resource-manager.md#collection-ru-update) | 이 템플릿은 MongoDB API 계정의 컨테이너에 대 한 처리량을 업데이트 합니다. |
 
 ## <a name="cassandra-api"></a>Cassandra API
 
@@ -43,17 +41,14 @@ ms.locfileid: "73835513"
 |**템플릿**|**설명**|
 |---| ---|
 |[Azure Cosmos 계정, 데이터베이스, 그래프 만들기](manage-gremlin-with-resource-manager.md#create-resource) | 이 템플릿은 다중 마스터가 활성화 된 두 지역에 Gremlin API 계정을 만듭니다. Azure Cosmos 계정에는 데이터베이스 수준 처리량을 공유 하는 두 개의 그래프가 있습니다. |
-|[데이터베이스의 업데이트 처리량 (r u/초)](manage-gremlin-with-resource-manager.md#database-ru-update) | 이 템플릿은 Gremlin API 계정에서 데이터베이스에 대 한 처리량을 업데이트 합니다. |
-|[그래프의 업데이트 처리량 (r u/초)](manage-gremlin-with-resource-manager.md#graph-ru-update) | 이 템플릿은 Gremlin API 계정에서 그래프의 처리량을 업데이트 합니다. |
 
 ## <a name="table-api"></a>테이블 API
 
 |**템플릿**|**설명**|
 |---| ---|
 |[Azure Cosmos account, 테이블을 만듭니다.](manage-table-with-resource-manager.md#create-resource) | 이 템플릿은 다중 마스터가 설정 된 두 지역에 Table API 계정을 만듭니다. Azure Cosmos 계정에는 단일 테이블이 포함 됩니다. |
-|[테이블에 대 한 업데이트 처리량 (r u/초)](manage-table-with-resource-manager.md#table-ru-update) | 이 템플릿은 Table API 계정에서 테이블에 대 한 처리량을 업데이트 합니다. |
 
 > [!TIP]
 > Table API를 사용할 때 공유 처리량을 사용 하도록 설정 하려면 Azure Portal에서 계정 수준 처리량을 사용 하도록 설정 합니다.
 
-참조 설명서는 [Azure Cosmos DB 페이지에 대 한 ARM 참조](/azure/templates/microsoft.documentdb/allversions) 를 참조 하세요.
+참조 설명서는 [Azure Cosmos DB 페이지 Azure Resource Manager 참조](/azure/templates/microsoft.documentdb/allversions) 를 참조 하세요.

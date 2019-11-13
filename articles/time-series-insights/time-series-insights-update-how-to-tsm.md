@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 미리 보기의 데이터 모델링 | Microsoft Docs
-description: Azure Time Series Insights 미리 보기의 데이터 모델링을 이해합니다.
+title: 미리 보기 환경에서 데이터 모델링-Azure Time Series Insights | Microsoft Docs
+description: Azure Time Series Insights 미리 보기에서 데이터 모델링에 대해 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81c2c2af78f5f066e1b27e14fa774df04d7c5868
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: fb1bfb30d531f8b93489c8fc1dfbc6b8172339a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063993"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006468"
 ---
 # <a name="data-modeling-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 모델링
 
@@ -76,7 +76,7 @@ ms.locfileid: "73063993"
 
 1. 계층 구조 정보를 입력하고 **만들기**를 선택합니다.
 
-    [![계층이 세부 정보 및 "만들기" 단추](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
+    [계층 세부 정보 및 "만들기" 단추를 ![합니다.](media/v2-update-how-to-tsm/portal-nine.png)](media/v2-update-how-to-tsm/portal-nine.png#lightbox)
 
 ### <a name="bulk-upload-one-or-more-hierarchies"></a>하나 이상의 계층 구조 대량 업로드
 

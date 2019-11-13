@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 08/30/2019
 ms.author: danlep
-ms.openlocfilehash: 98bab18f9a8250b99410941a8f865fd7ec1c5fe0
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 38639f22457d923643e8de09cfbbb2fd7f4d2985
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931574"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007491"
 ---
 # <a name="content-formats-supported-in-azure-container-registry"></a>Azure Container Registry에서 지원되는 콘텐츠 서식
 
@@ -29,7 +29,7 @@ Azure Container Registry에서 프라이빗 리포지토리를 사용하여 다�
 
 ## <a name="oci-images"></a>OCI 이미지
 
-Azure Container Registry은 [OCI (Open Container 이니셔티브) 이미지 형식 사양을](https://github.com/opencontainers/image-spec/blob/master/spec.md)만족 하는 이미지를 지원 합니다. 패키지 형식에는 [SIF (특이성 Image Format)](https://www.sylabs.io/2018/03/sif-containing-your-containers/)가 포함 됩니다.
+Azure Container Registry은 [OCI (Open Container 이니셔티브) 이미지 형식 사양을](https://github.com/opencontainers/image-spec/blob/master/spec.md)만족 하는 이미지를 지원 합니다. 패키지 형식에는 [SIF (특이성 Image Format)](https://github.com/sylabs/sif)가 포함 됩니다.
 
 ## <a name="oci-artifacts"></a>OCI 아티팩트
 

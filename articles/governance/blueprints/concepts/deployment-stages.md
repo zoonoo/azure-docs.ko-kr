@@ -1,17 +1,14 @@
 ---
 title: 청사진 배포 단계
 description: 배포 하는 동안 Azure Blueprint 서비스가 거치는 단계에 대해 알아봅니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 4645edde5163f1c8bca787416f5465e5a8f2d355
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: d0d97ed01c4ae2ef96da151e1ab4ddc13a4b1d3e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978534"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960531"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>청사진 배포 단계
 
@@ -30,7 +27,7 @@ ms.locfileid: "71978534"
 
 Azure 청사진 서비스 주체에 게 할당 된 구독 또는 구독에 대 한 소유자 권한이 부여 됩니다. 부여 된 역할을 통해 청사진은 [시스템 할당 관리 id](../../../active-directory/managed-identities-azure-resources/overview.md)를 만들고 나중에 해지할 수 있습니다.
 
-포털을 통해 할당을 수행 하는 경우에는 권한이 자동으로 부여 됩니다. 그러나 REST API를 통해 할당을 수행 하는 경우 별도의 API 호출을 사용 하 여 권한을 부여 해야 합니다. Azure Blueprint AppId는-0 @no__t 하지만 서비스 사용자는 테 넌 트에 따라 다릅니다. [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) 및 REST 끝점 [serviceprincipals](/graph/api/resources/serviceprincipal) 을 사용 하 여 서비스 주체를 가져옵니다. 그런 다음 [포털](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md)또는 [리소스 관리자 템플릿을](../../../role-based-access-control/role-assignments-template.md)통해 Azure 청사진에 _소유자_ 역할을 부여 합니다.
+포털을 통해 할당을 수행 하는 경우에는 권한이 자동으로 부여 됩니다. 그러나 REST API를 통해 할당을 수행 하는 경우 별도의 API 호출을 사용 하 여 권한을 부여 해야 합니다. Azure Blueprint AppId는 `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`있지만 서비스 사용자는 테 넌 트에 따라 다릅니다. [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) 및 REST 끝점 [serviceprincipals](/graph/api/resources/serviceprincipal) 을 사용 하 여 서비스 주체를 가져옵니다. 그런 다음 [포털](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md)또는 [리소스 관리자 템플릿을](../../../role-based-access-control/role-assignments-template.md)통해 Azure 청사진에 _소유자_ 역할을 부여 합니다.
 
 청사진 서비스는 리소스를 직접 배포 하지 않습니다.
 

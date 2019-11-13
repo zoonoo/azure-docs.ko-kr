@@ -1,18 +1,18 @@
 ---
-title: Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
+title: 포털의 HTTP에서 HTTPS로 리디렉션-Azure 애플리케이션 게이트웨이
 description: Azure Portal을 사용하여 HTTP에서 HTTPS로 리디렉션된 트래픽으로 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 12/7/2018
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 17eef2fc2608ca4ccbabff8179cd63798d275582
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d67270896792ea506d2df04dcc3745a43d3d8251
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62101464"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012874"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -25,13 +25,13 @@ Azure Portal을 사용하여 SSL 종료를 위한 인증서로 [애플리케이�
 > * 네트워크 설정
 > * 인증서가 있는 애플리케이션 게이트웨이 만들기
 > * 수신기 및 리디렉션 규칙 추가
-> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+> * 기본 백 엔드 풀로 가상 머신 확장 집합 만들기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-이 자습서에는 Azure PowerShell 모듈 버전 1.0.0 또는 나중에 인증서를 만들고 IIS를 설치 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 자습서의 명령을 실행하려면 `Login-AzAccount`를 실행하여 Azure에 연결해야 합니다.
+이 자습서에서는 인증서를 만들고 IIS를 설치 하는 데 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 이 자습서의 명령을 실행하려면 `Login-AzAccount`를 실행하여 Azure에 연결해야 합니다.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
@@ -90,7 +90,7 @@ Export-PfxCertificate `
 7. **확인**을 클릭하여 가상 네트워크 및 서브넷을 만듭니다.
 8. **프런트 엔드 IP 구성**에서 **IP 주소 형식**이 **공용**으로 설정되어 있고 **새로 만들기**가 선택되어 있는지 확인합니다. 이름으로 *myAGPublicIPAddress*를 입력합니다. 다른 설정에 대한 기본값을 적용한 다음, **확인**을 클릭합니다.
 9. **수신기 구성** 아래에서 **HTTPS**를 선택한 후 **파일 선택**을 선택하고 *c:\appgwcert.pfx* 파일로 이동한 다음, **열기**를 선택합니다.
-10. 인증서 이름으로 *appgwcert*를 입력하고 암호로 *Azure123456!* 을 입력합니다. 암호
+10. 인증서 이름으로 *appgwcert*를 입력하고 암호로 *Azure123456!* 을 입력합니다. 입력합니다.
 11. 웹 애플리케이션 방화벽을 사용하지 않도록 설정하고 **확인**을 선택합니다.
 12. 요약 페이지에서 설정을 검토한 다음, **확인**을 선택하여 네트워크 리소스와 애플리케이션 게이트웨이를 만듭니다. 애플리케이션 게이트웨이가 생성되는 데 몇 분이 걸릴 수 있습니다. 배포가 완료될 때까지 기다렸다가 다음 섹션으로 이동합니다.
 
@@ -215,7 +215,7 @@ IIS 사용하여 인스턴스를 변경한 후에는 이 변경 내용으로 확
 1. **myAppGateway**를 선택합니다.
 2. **개요** 페이지에서 **프런트 엔드 공용 IP 주소** 아래의 IP 주소를 기록해 둡니다.
 
-3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예를 들어 http://52.170.203.149
+3. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다. 예: http://52.170.203.149
 
    ![보안 경고](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 

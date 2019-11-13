@@ -1,19 +1,19 @@
 ---
-title: Azure Virtual WAN 가상 허브 경로 테이블을 생성하여 NVA 조정 | Microsoft Docs
+title: '가상 WAN: NVA에 대 한 가상 허브 경로 테이블 만들기: Azure PowerShell'
 description: 네트워크 가상 어플라이언스에 대한 트래픽을 조정하기 위한 가상 WAN 가상 허브 경로 테이블.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to work with routing tables for NVA.
-ms.openlocfilehash: 18af56f6924484c6267871cf3fed34f80a8f12a4
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 2d8922084dbe30c2dbe494028f2e5a1497fb3759
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744709"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014999"
 ---
 # <a name="create-a-virtual-hub-route-table-to-steer-traffic-to-a-network-virtual-appliance"></a>가상 허브 경로 테이블을 생성하여 네트워크 가상 어플라이언스에 대한 트래픽 조정
 
@@ -30,7 +30,7 @@ ms.locfileid: "70744709"
 * 경로 테이블 만들기
 * 경로 테이블 적용
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

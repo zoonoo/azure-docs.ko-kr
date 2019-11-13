@@ -1,6 +1,6 @@
 ---
-title: Azure Digital Twins에서 UDF를 디버그하는 방법 | Microsoft Docs
-description: Azure Digital Twins에서 UDF를 디버그하는 방법에 대한 지침입니다.
+title: Udf를 디버그 하는 방법-Azure Digital Twins | Microsoft Docs
+description: Azure Digital Twins에서 사용자 정의 함수를 디버그 하는 데 권장 되는 방법에 대해 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -9,12 +9,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7b122df279ecde8ed9ed49b5a89251073f3feda7
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 130250156f0fae3e6c40742278479b5d4612657b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949896"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005930"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 디버그하는 방법
 
@@ -35,7 +35,7 @@ Azure Digital Twins는 강력한 로깅, 모니터링 및 분석을 지원합니
 
 * Azure Digital Twins에 특정 한 로깅 구성을 보려면 [모니터링 및 로깅을 구성 하는 방법](./how-to-configure-monitoring.md)을 참조 하세요.
 * Azure Monitor를 통해 사용 하도록 설정 된 강력한 로그 설정에 대 한 자세한 내용은 [Azure Monitor](../azure-monitor/overview.md) 개요를 참조 하세요.
-* Azure Portal, Azure CLI 또는 PowerShell을 통해 azure Digital Twins에서 진단 로그 설정 구성에 대 한 [azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/resource-logs-overview.md) 문서를 검토 합니다.
+* Azure Portal, Azure CLI 또는 PowerShell을 통해 Azure Digital Twins에서 진단 로그 설정 구성에 대 한 [azure 리소스에서 로그 데이터 수집 및 사용](../azure-monitor/platform/resource-logs-overview.md) 문서를 검토 합니다.
 
 구성 된 후에는 모든 로그 범주 및 메트릭을 선택 하 고 강력한 Azure Monitor log analytics 작업 영역을 사용 하 여 디버깅 활동을 지원할 수 있습니다.
 
@@ -63,7 +63,7 @@ AzureDiagnostics
 | order by CorrelationId desc
 ```
 
-사용자 정의 함수에 대 한 로깅을 사용 하도록 설정 하는 경우 해당 로그는 `UserDefinedFunction` 범주를 사용 하 여 log analytics 인스턴스에 표시 됩니다. 이를 검색 하려면 log analytics에서 다음 쿼리 조건을 입력 합니다.
+사용자 정의 함수에 대 한 로깅을 사용 하도록 설정 하면 해당 로그는 `UserDefinedFunction`범주를 사용 하 여 log analytics 인스턴스에 표시 됩니다. 이를 검색 하려면 log analytics에서 다음 쿼리 조건을 입력 합니다.
 
 ```Kusto
 AzureDiagnostics
@@ -102,7 +102,7 @@ Azure Digital Twins 인스턴스의 관리 API에 대해 다음 호출을 사용
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| 매개 변수 | 다음 항목으로 교체 |
+| 매개 변수를 포함해야 합니다. | 다음 항목으로 교체 |
 | --- | --- |
 | *YOUR_MATCHER_IDENTIFIER* | 평가하려는 검사기의 ID |
 | *YOUR_SENSOR_IDENTIFIER* | 평가하려는 센서의 ID |
@@ -126,7 +126,7 @@ Azure Digital Twins 관리 API에 대해 다음 호출을 사용하여 지정된
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| 매개 변수 | 다음 항목으로 교체 |
+| 매개 변수를 포함해야 합니다. | 다음 항목으로 교체 |
 | --- | --- |
 | *YOUR_SENSOR_IDENTIFIER* | 원격 분석을 전송할 센서의 ID |
 

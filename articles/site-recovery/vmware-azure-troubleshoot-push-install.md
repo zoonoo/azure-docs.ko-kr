@@ -1,20 +1,20 @@
 ---
-title: 재해 복구에 대한 복제를 사용하도록 설정할 때 Mobility Service 푸시 설치 오류 문제 해결 | Microsoft Docs
-description: 재해 복구에 대한 복제를 사용하도록 설정할 때 Mobility Service 설치 오류 문제 해결
+title: Azure Site Recovery f를 사용 하 여 모바일 서비스 푸시 설치 문제 해결
+description: Azure Site Recovery를 사용 하 여 재해 복구에 대 한 복제를 사용 하도록 설정할 경우 모바일 서비스 설치 오류 문제를 해결
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 09/11/2019
-ms.openlocfilehash: 4aa18379962c289f5094795988a247f4c7e35df2
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 3646499ad2104566cb82f3f26c6b55d05f84dc7d
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910649"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953785"
 ---
-# <a name="troubleshoot-mobility-service-push-installation-issues"></a>Mobility Service 푸시 설치 문제 해결
+# <a name="troubleshoot-mobility-service-push-installation"></a>모바일 서비스 푸시 설치 문제 해결 
 
 모바일 서비스 설치는 복제를 사용하도록 설정하는 동안 주요한 단계입니다. 이 단계의 성공은 필수 구성 요소 충족 및 지원되는 구성 작업에 달려 있습니다. 모바일 서비스를 설치하는 동안 접하는 가장 일반적인 문제의 원인은 다음과 같습니다.
 
@@ -50,26 +50,26 @@ ms.locfileid: "70910649"
 
 선택한 사용자 계정의 자격 증명을 수정하려면 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)에 제공된 지침을 따릅니다.
 
-## <a name="insufficient-privileges-failure-errorid-95517"></a>권한 부족 오류(ErrorID: 95517)
+## <a name="insufficient-privileges-failure-errorid-95517"></a>권한 부족 오류 (ErrorID: 95517)
 
 모바일 에이전트를 설치하도록 선택한 사용자에게 관리자 권한이 없는 경우, 구성 서버/스케일 아웃 프로세스 서버에서 모바일 에이전트 소프트웨어를 원본 머신에 복사할 수 없습니다. 따라서 이 오류는 액세스 거부됨 오류의 결과입니다. 사용자 계정에 관리자 권한이 있는지 확인합니다.
 
 선택한 사용자 계정의 자격 증명을 수정하려면 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)에 제공된 지침을 따릅니다.
 
-## <a name="insufficient-privileges-failure-errorid-95518"></a>권한 부족 오류(ErrorID: 95518)
+## <a name="insufficient-privileges-failure-errorid-95518"></a>권한 부족 오류 (ErrorID: 95518)
 
 원본 컴퓨터에 로그인을 시도 하는 동안 주 도메인과 워크스테이션 간에 도메인 트러스트 관계가 설정 되지 않으면 모바일 에이전트 설치는 오류 ID 95518와 함께 실패 합니다. 따라서 모바일 에이전트를 설치 하는 데 사용 되는 사용자 계정에 원본 컴퓨터의 주 도메인을 통해 로그인 할 수 있는 관리 권한이 있는지 확인 합니다.
 
 선택한 사용자 계정의 자격 증명을 수정하려면 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)에 제공된 지침을 따릅니다.
 
-## <a name="login-failures-errorid-95519-95520-95521-95522"></a>로그인 실패(ErrorID: 95519, 95520, 95521, 95522)
+## <a name="login-failures-errorid-95519-95520-95521-95522"></a>로그인 오류 (ErrorID: 95519, 95520, 95521, 95522)
 
-### <a name="credentials-of-the-user-account-have-been-disabled-errorid-95519"></a>사용자 계정의 자격 증명이 사용하지 않도록 설정됨(ErrorID: 95519)
+### <a name="credentials-of-the-user-account-have-been-disabled-errorid-95519"></a>사용자 계정의 자격 증명을 사용 하지 않도록 설정 했습니다 (ErrorID: 95519).
 
 복제를 사용하도록 설정하는 동안 선택한 사용자 계정을 사용할 수 없습니다. 사용자 계정을 사용하려면 [여기](https://aka.ms/enable_login_user)서 문서를 참조하거나, *username* 텍스트를 실제 사용자 이름으로 대체하여 다음 명령을 실행합니다.
 `net user 'username' /active:yes`
 
-### <a name="credentials-locked-out-due-to-multiple-failed-login-attempts-errorid-95520"></a>로그인 시도에 여러 번 실패하여 자격 증명이 잠김(ErrorID: 95520)
+### <a name="credentials-locked-out-due-to-multiple-failed-login-attempts-errorid-95520"></a>여러 번 실패 한 로그인 시도로 인해 자격 증명이 잠겼습니다 (ErrorID: 95520).
 
 머신에 대한 액세스 시도가 여러 번 실패하면 사용자 계정이 잠깁니다. 실패 원인은 다음과 같을 수 있습니다.
 
@@ -78,15 +78,15 @@ ms.locfileid: "70910649"
 
 따라서 [여기](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation)에 제공된 지침에 따라 선택한 자격 증명을 수정하고 잠시 후에 작업을 다시 시도합니다.
 
-### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>원본 머신에서 로그온 서버를 사용할 수 없음(ErrorID: 95521)
+### <a name="logon-servers-are-not-available-on-the-source-machine-errorid-95521"></a>원본 컴퓨터에서 로그온 서버를 사용할 수 없습니다 (ErrorID: 95521).
 
-이 오류는 원본 머신에서 로그온 서버를 사용할 수 없는 경우에 발생합니다. 로그온 서버를 사용할 수 없는 경우 로그인 요청이 실패하여 모바일 에이전트를 설치할 수 없습니다. 로그인에 성공하려면 원본 머신에서 로그온 서버를 사용할 수 있는지 확인하고 로그온 서비스를 시작합니다. 자세한 지침은 KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) 오류 메시지를 참조 하세요. 현재 사용할 수 있는 로그온 서버가 없습니다.
+이 오류는 원본 머신에서 로그온 서버를 사용할 수 없는 경우에 발생합니다. 로그온 서버를 사용할 수 없는 경우 로그인 요청이 실패하여 모바일 에이전트를 설치할 수 없습니다. 로그인에 성공하려면 원본 머신에서 로그온 서버를 사용할 수 있는지 확인하고 로그온 서비스를 시작합니다. 자세한 지침은 KB [139410](https://support.microsoft.com/en-in/help/139410/err-msg-there-are-currently-no-logon-servers-available) 오류 메시지: 현재 사용할 수 있는 로그온 서버가 없습니다 .를 참조 하세요.
 
-### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>원본 머신에서 로그온 서비스가 실행되지 않음(ErrorID: 95522)
+### <a name="logon-service-isnt-running-on-the-source-machine-errorid-95522"></a>로그온 서비스가 원본 컴퓨터에서 실행 되 고 있지 않습니다 (ErrorID: 95522).
 
 로그인 서비스가 원본 머신에서 실행되고 있지 않아 로그인 요청이 실패했습니다. 따라서 모바일 에이전트를 설치할 수 없습니다. 오류를 해결하려면 성공적인 로그인을 위해 원본 머신에서 로그온 서비스가 실행되고 있는지 확인합니다. 로그온 서비스를 시작하려면 명령 프롬프트에서 “net start Logon” 명령을 실행하거나 작업 관리자에서 “NetLogon” 서비스를 시작합니다.
 
-## <a name="connectivity-failure-errorid-95117--97118"></a>**연결 실패(ErrorID: 95117 및 97118)**
+## <a name="connectivity-failure-errorid-95117--97118"></a>**연결 실패 (ErrorID: 95117 & 97118)**
 
 구성 서버/스케일 아웃 프로세스 서버가 모바일 에이전트를 설치하기 위해 원본 VM에 연결하려고 시도합니다. 이 오류는 네트워크 연결 문제로 인해 원본 머신에 도달할 수 없는 경우에 발생합니다. 오류를 해결하려면 다음을 수행합니다.
 
@@ -106,7 +106,7 @@ ms.locfileid: "70910649"
 * 일정 기간 후에 적절한 응답이 없거나 연결된 호스트가 응답하지 못하여 기존 연결에 오류가 발생한 경우 연결 시도가 실패할 수 있습니다.
 * 연결/네트워크/도메인 관련 문제일 수 있습니다. DNS 이름 확인 문제 또는 TCP 포트 고갈 문제가 원인일 수 있습니다. 도메인에 이러한 알려진 문제가 있는지 확인합니다.
 
-## <a name="connectivity-failure-errorid-95523"></a>연결 실패(ErrorID: 95523)
+## <a name="connectivity-failure-errorid-95523"></a>연결 실패 (ErrorID: 95523)
 
 이 오류는 원본 머신이 상주하는 네트워크를 찾을 수 없거나, 삭제되었거나, 더 이상 사용할 수 없는 경우에 발생합니다. 오류를 해결하는 유일한 방법은 네트워크가 존재하는지 확인하는 것입니다.
 
@@ -126,7 +126,7 @@ ms.locfileid: "70910649"
 
 **이후 버전**의 경우 파일 및 프린터 공유를 사용 하도록 설정 하려면 [VMware vm 및 물리적 서버에 대 한 재해 복구를 위해 모바일 서비스 설치](vmware-azure-install-mobility-service.md) 에 제공 된 지침을 따르세요.
 
-## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>WMI(Windows Management Instrumentation) 구성 확인(오류 코드: 95103)
+## <a name="windows-management-instrumentation-wmi-configuration-check-error-code-95103"></a>WMI(Windows Management Instrumentation) (WMI) 구성 검사 (오류 코드: 95103)
 
 파일 및 프린터 서비스를 확인한 후에는 방화벽을 통해 프라이빗, 공용 및 도메인 프로필에 대한 WMI 서비스를 사용하도록 설정합니다. 이 설정은 원본 머신에서 원격 실행을 완료하는 데 필요합니다. 사용하도록 설정하려면 다음을 수행합니다.
 
@@ -146,28 +146,28 @@ ms.locfileid: "70910649"
 실패에 대한 또 다른 가장 일반적인 이유는 지원되지 않는 운영 체제일 수 있습니다. 모바일 서비스를 성공적으로 설치하려면 지원되는 운영 체제/커널 버전에 설치해야 합니다. 프라이빗 패치를 사용하지 마세요.
 Azure Site Recovery에서 어떤 운영 체제 및 커널 버전이 지원되는지 알아보려면 [지원 매트릭스 문서](vmware-physical-azure-support-matrix.md#replicated-machines)를 참조하세요.
 
-## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>지원되지 않는 부팅 디스크 구성(ErrorID: 95309, 95310, 95311)
+## <a name="unsupported-boot-disk-configurations-errorid-95309-95310-95311"></a>지원 되지 않는 부팅 디스크 구성 (ErrorID: 95309, 95310, 95311)
 
-### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>부트 및 시스템 파티션/볼륨이 동일한 디스크가 아님(ErrorID: 95309)
+### <a name="boot-and-system-partitions--volumes-are-not-the-same-disk-errorid-95309"></a>부팅 및 시스템 파티션/볼륨이 동일한 디스크가 아닙니다 (ErrorID: 95309).
 
 9\.20 이전 버전에서는 서로 다른 디스크의 부트 및 시스템 파티션/볼륨이 지원되지 않는 구성이었습니다. [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 이 구성이 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
 
-### <a name="the-boot-disk-is-not-available-errorid-95310"></a>부팅 디스크를 사용할 수 없음(ErrorID: 95310)
+### <a name="the-boot-disk-is-not-available-errorid-95310"></a>부팅 디스크를 사용할 수 없습니다 (ErrorID: 95310).
 
 부트 디스크가 없는 가상 머신은 보호할 수 없습니다. 이는 장애 조치 작업 중에 가상 머신의 원활한 복구를 보장하기 위한 것입니다. 부트 디스크가 없으면 장애 조치 후 머신을 부팅하지 못합니다. 가상 머신에 부트 디스크가 있는지 확인하고 작업을 다시 시도하세요. 또한 동일한 머신에 부트 디스크가 여러 개 있는 것도 지원되지 않습니다.
 
-### <a name="multiple-boot-disks-present-on-the-source-machine-errorid-95311"></a>원본 머신에 여러 개의 부팅 디스크가 있음(ErrorID: 95311)
+### <a name="multiple-boot-disks-present-on-the-source-machine-errorid-95311"></a>원본 컴퓨터에 여러 부팅 디스크가 있음 (ErrorID: 95311)
 
 부트 디스크가 여러 개인 가상 머신은 [지원되는 구성](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)이 아닙니다.
 
-## <a name="system-partition-on-multiple-disks-errorid-95313"></a>여러 디스크에 있는 시스템 파티션(ErrorID: 95313)
+## <a name="system-partition-on-multiple-disks-errorid-95313"></a>여러 디스크의 시스템 파티션 (ErrorID: 95313)
 
 9\.20 이전 버전에서는 여러 디스크에 배치된 루트 파티션 또는 볼륨이 지원되지 않는 구성이었습니다. [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 이 구성이 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
 
-## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>UUID 대신 디바이스 이름이 GRUB 구성에 언급되어 보호를 사용하도록 설정하지 못함(ErrorID: 95320)
+## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-errorid-95320"></a>UUID 대신 GRUB 구성에서 언급 된 장치 이름으로 보호를 사용 하도록 설정 하지 못했습니다 (ErrorID: 95320).
 
 **가능한 원인:** </br>
-GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 **root** 및 **resume** 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름으로 포함되어 있을 수 있습니다. Site Recovery에서는 UUID를 사용해야 합니다. 디바이스 이름은 VM을 다시 부팅하면 변경될 수 있는데, 장애 조치(failover) 시에 VM 이름이 달라지면 문제가 발생하기 때문입니다. 예를 들어: </br>
+GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub")에는 **root** 및 **resume** 매개 변수의 값이 UUID가 아닌 실제 디바이스 이름으로 포함되어 있을 수 있습니다. Site Recovery에서는 UUID를 사용해야 합니다. 디바이스 이름은 VM을 다시 부팅하면 변경될 수 있는데, 장애 조치(failover) 시에 VM 이름이 달라지면 문제가 발생하기 때문입니다. 예: </br>
 
 
 - 아래에는 이러한 오류의 원인이 되는 GRUB 파일 **/boot/grub2/grub.cfg**에서 발췌한 줄이 나와 있습니다. <br>
@@ -183,7 +183,7 @@ GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
 디바이스 이름을 해당 UUID로 바꿔야 합니다.<br>
 
 
-1. "Blkid \<device name >" 명령을 실행 하 여 장치의 UUID를 찾습니다. 예를 들어:<br>
+1. "Blkid \<장치 이름 >" 명령을 실행 하 여 장치의 UUID를 찾습니다. 예:<br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -191,11 +191,11 @@ GRUB 구성 파일("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/gr
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
    ```
 
-2. 이제 "root = uuid =\<uuid >"와 같은 형식의 UUID로 장치 이름을 바꿉니다. 예를 들어 "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub:" 파일에서 위에 언급 된 루트의 경우 UUID로 장치 이름을 바꾸면 파일의 줄은 처럼 보입니다. <br>
+2. 이제 "root = UUID =\<UUID >"와 같은 형식의 UUID로 장치 이름을 바꿉니다. 예를 들어 "/boot/grub2/grub.cfg", "/boot/grub2/grub.cfg" 또는 "/etc/default/grub:" 파일에서 위에 언급 된 루트의 경우 UUID로 장치 이름을 바꾸면 파일의 줄은 처럼 보입니다. <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. 보호 다시 시작
 
-## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>모바일 서비스 설치가 완료되고 재부팅하라는 경고가 표시됨(ErrorID: 95265 및 95266)
+## <a name="install-mobility-service-completed-with-warning-to-reboot-errorid-95265--95266"></a>다시 부팅 하는 경고와 함께 모바일 서비스 설치 완료 (ErrorID: 95265 & 95266)
 
 Site Recovery 모바일 서비스에는 여러 구성 요소가 있으며, 그중에서 하나를 필터 드라이버라고 합니다. 필터 드라이버는 시스템 재부팅 시에만 시스템 메모리에 로드됩니다. 따라서 시스템 재부팅 시 새 필터 드라이버가 로드될 때만 필터 드라이버를 수정할 수 있습니다.
 
@@ -210,7 +210,7 @@ Site Recovery 모바일 서비스에는 여러 구성 요소가 있으며, 그�
 
 [9.20 버전](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery)부터 [LVM의 OS 디스크](vmware-physical-azure-support-matrix.md#linux-file-systemsguest-storage)가 지원됩니다. 이 지원을 활용하려면 최신 버전을 사용합니다.
 
-## <a name="insufficient-space-errorid-95524"></a>공간 부족(ErrorID: 95524)
+## <a name="insufficient-space-errorid-95524"></a>공간 부족 (ErrorID: 95524)
 
 모바일 에이전트를 원본 머신에 복사하는 경우 최소 100MB의 여유 공간이 필요합니다. 따라서 원본 머신에 필요한 여유 공간이 있는지 확인하고 작업을 다시 시도합니다.
 
@@ -279,7 +279,7 @@ DCOM 문제 해결에 대 한 지원을 받으려면 [Microsoft Windows 플랫�
 
 DCOM 문제가 해결 되 면 다음 명령을 사용 하 여 Azure Site Recovery VSS 공급자를 수동으로 다시 설치 합니다.
  
-**C:\Program Files (x86) \Microsoft Azure Site Recovery\agent > "C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\InMageVSSProvider_Install.cmd**
+**C:\Program Files (x86) \Microsoft Azure Site Recovery\agent > "C:\Program Files (x86) \Microsoft Azure Site Recovery\agent\ InMageVSSProvider_Install .cmd**
   
 응용 프로그램 일관성이 재해 복구 요구 사항에 중요 하지 않은 경우 VSS 공급자 설치를 무시할 수 있습니다. 
 
@@ -293,7 +293,7 @@ Azure Site Recovery VSS 공급자 설치를 우회 하 고 Azure Site Recovery V
    1. 다음 위치에 있는 Azure Site Recovery Mobility Service 설치 디렉터리를 엽니다.
    
       C:\Program Files (x86) \Microsoft Azure Site Recovery\agent
-   2. 다음 줄을 추가 하 여 Azure Site Recovery VSS 공급자 설치 스크립트 **nMageVSSProvider_Install** 및 **InMageVSSProvider_Uninstall** 를 항상 성공적으로 수정 합니다.
+   2. 다음 줄을 추가 하 여 **nMageVSSProvider_Install** Azure Site Recovery VSS 공급자 설치 스크립트를 수정 하 고 InMageVSSProvider_Uninstall을 항상 성공적으로 수행 **합니다** .
     
       ```     
       rem @echo off
@@ -305,7 +305,7 @@ Azure Site Recovery VSS 공급자 설치를 우회 하 고 Azure Site Recovery V
 4. 설치가 성공 하 고 다음 단계로 이동 하면 추가 된 줄을 **구성**하 고 제거 합니다.
 5. VSS 공급자를 설치 하려면 관리자 권한으로 명령 프롬프트를 열고 다음 명령을 실행 합니다.
    
-    **C:\Program Files (x86) \Microsoft Azure Site Recovery\agent > .\InMageVSSProvider_Install.cmd**
+    **C:\Program Files (x86) \Microsoft Azure Site Recovery\agent > .\ InMageVSSProvider_Install .cmd**
 
 9. ASR VSS 공급자가 Windows 서비스에 서비스로 설치 되어 있는지 확인 하 고 구성 요소 서비스 MMC를 열어 ASR VSS 공급자가 표시 되는지 확인 합니다.
 10. VSS 공급자 설치를 계속 실패할 경우 CX를 사용 하 여 CAPI2의 사용 권한 오류를 해결 하십시오.
@@ -316,9 +316,9 @@ Azure Site Recovery VSS 공급자 설치를 우회 하 고 Azure Site Recovery V
  
 ### <a name="to-identify-the-issue"></a>문제를 식별 하려면
 
-C:\ProgramData\ASRSetupLogs\UploadedLogs\<날짜-시간 > UA_InstallLogFile에 있는 구성 서버에 있는 로그에서 다음 예외가 발견 됩니다.
+C:\ProgramData\ASRSetupLogs\UploadedLogs\<날짜-시간 UA_InstallLogFile > 구성 서버에 있는 로그에서 다음 예외가 발견 됩니다.
 
-COM +가 Microsoft DTC(Distributed Transaction Coordinator)와 통신할 수 없습니다 (HRESULT의 예외: 0x8004E00F)
+COM +가 Microsoft DTC(Distributed Transaction Coordinator)와 통신할 수 없습니다 (예외: 0x8004E00F).
 
 이 문제를 해결하려면
 
@@ -332,7 +332,7 @@ COM +가 Microsoft DTC(Distributed Transaction Coordinator)와 통신할 수 없
 이 문제를 해결하려면
   
 1. Regedit.exe와 같은 레지스트리 편집기를 사용 하 여 레지스트리를 엽니다.
-2. HKEY_LOCAL_MACHINE\SYSTEM 노드를 엽니다.
+2. HKEY_LOCAL_MACHINE \SYSTEM 노드를 엽니다.
 3. 시스템 노드에서 컨트롤 집합을 찾습니다.
 4. 각 컨트롤 집합을 열고 다음 Windows 드라이버가 있는지 확인 합니다.
 

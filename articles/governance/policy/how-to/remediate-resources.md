@@ -1,17 +1,14 @@
 ---
 title: 규정 비준수 리소스 수정
 description: 이 가이드에서는 Azure Policy 정책을 준수 하지 않는 리소스를 수정 하는 과정을 안내 합니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 219a3c56f9e4e4c9e132fa759b017fac63ade766
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 53ca21e4b8a1f3e7973706acd10601593efc3448
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977984"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959495"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -25,7 +22,7 @@ Azure Policy는 각 할당에 대 한 관리 id를 만들지만 관리 되는 id
 ![관리 ID - 역할 누락](../media/remediate-resources/missing-role.png)
 
 > [!IMPORTANT]
-> **Deployifnotexists** 또는 **modify** 로 수정 된 리소스가 정책 할당 범위를 벗어난 경우 또는 템플릿에서 정책 할당 범위를 벗어난 리소스의 속성에 액세스 하는 경우 할당의 관리 되는 id는 이어야 [합니다. 액세스를 수동으로 부여](#manually-configure-the-managed-identity) 하거나 업데이트를 배포 하지 못합니다.
+> **Deployifnotexists** 또는 **modify** 로 수정 된 리소스가 정책 할당 범위를 벗어난 경우 또는 템플릿에서 정책 할당 범위를 벗어난 리소스의 속성에 액세스 하는 경우 할당의 관리 되는 id에는 [수동으로 액세스 권한을 부여](#manually-configure-the-managed-identity) 해야 합니다. 그렇지 않으면 재구성 배포가 실패 합니다.
 
 ## <a name="configure-policy-definition"></a>정책 정의 구성
 
@@ -79,7 +76,7 @@ $assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL D
 
 ### <a name="grant-defined-roles-with-powershell"></a>PowerShell을 사용하여 정의된 역할 부여
 
-Azure Active Directory를 통해 새 관리 ID 복제를 완료해야 필요한 역할을 해당 ID에 부여할 수 있습니다. 다음 예제에서는 복제가 완료된 후 **roleDefinitionIds**에 대해 `$policyDef`에서 정책 정의를 반복하며, [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용하여 새 관리 ID에 역할을 부여합니다.
+Azure Active Directory를 통해 새 관리 ID 복제를 완료해야 필요한 역할을 해당 ID에 부여할 수 있습니다. 다음 예제에서는 복제가 완료된 후 `$policyDef`roleDefinitionIds**에 대해** 에서 정책 정의를 반복하며, [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용하여 새 관리 ID에 역할을 부여합니다.
 
 ```azurepowershell-interactive
 # Use the $policyDef to get to the roleDefinitionIds array
@@ -160,7 +157,7 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Azure CLI를 통해 재구성 작업을 만듭니다.
 
-Azure CLI를 사용 하 여 **수정 작업** 을 만들려면 `az policy remediation` 명령을 사용 합니다. @No__t-0을 구독 ID로 바꾸고 `{myAssignmentId}`을 **Deployifnotexists** 로 바꾸고 정책 할당 ID를 **수정** 합니다.
+Azure CLI를 사용 하 여 **수정 작업** 을 만들려면 `az policy remediation` 명령을 사용 합니다. `{subscriptionId}`를 사용자의 구독 ID로 바꾸고,을 **Deployifnotexists** 로 `{myAssignmentId}` 하거나 정책 할당 ID를 **수정** 합니다.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -173,7 +170,7 @@ az policy remediation create --name myRemediation --policy-assignment '/subscrip
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Azure PowerShell를 통해 재구성 작업을 만듭니다.
 
-Azure PowerShell를 사용 하 여 **수정 작업** 을 만들려면 `Start-AzPolicyRemediation` 명령을 사용 합니다. @No__t-0을 구독 ID로 바꾸고 `{myAssignmentId}`을 **Deployifnotexists** 로 바꾸고 정책 할당 ID를 **수정** 합니다.
+Azure PowerShell를 사용 하 여 **수정 작업** 을 만들려면 `Start-AzPolicyRemediation` 명령을 사용 합니다. `{subscriptionId}`를 사용자의 구독 ID로 바꾸고,을 **Deployifnotexists** 로 `{myAssignmentId}` 하거나 정책 할당 ID를 **수정** 합니다.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

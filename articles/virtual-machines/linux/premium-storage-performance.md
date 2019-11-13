@@ -7,13 +7,14 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 79bd41c08a566b55efb4a29084847848e001629f
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8314c3147321e7daa0e71be33c57405139294c1d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036036"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005556"
 ---
+# <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]
 
 > [!NOTE]
@@ -30,7 +31,7 @@ ms.locfileid: "70036036"
 
 디스크 벤치 마크를 하려는 경우 [디스크 벤치마킹](disks-benchmarks.md)의 문서를 참조 하세요.
 
-사용 가능한 디스크 유형에 대해 자세히 알아봅니다. [디스크 유형 선택](disks-types.md)  
+사용 가능한 디스크 유형에 대 한 자세한 정보: [디스크 유형 선택](disks-types.md)  
 
 SQL Server 사용자의 경우 SQL Server에 대한 성능 모범 사례의 문서를 읽으세요.
 

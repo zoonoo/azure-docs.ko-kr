@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: f733e29fc5fbce764fef9a713747d6793d2ebd43
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 62f298e0efb5c54efdcd15cf470ed4640f720058
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489331"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73957849"
 ---
-# <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 학습 및 배포를 위한 재사용 가능한 환경을 만들고 관리 합니다.
+# <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 & 배포를 위한 환경을 재사용 합니다.
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 프로젝트의 소프트웨어 종속성이 진화 함에 따라 추적 하 고 재현할 수 있도록 Azure Machine Learning [환경을](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) 만들고 관리 하는 방법을 알아봅니다.
@@ -51,7 +51,7 @@ ms.locfileid: "73489331"
 
 [Conda](https://conda.io/docs/) 에서 Python 환경 및 스크립트 종속성을 관리 하려는 경우 시스템 관리 환경이 사용 됩니다. 서비스는 수동으로 구성할 수 없는 원격 계산 대상의 유용성으로 인해 기본적으로 이러한 유형의 환경을 가정 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * Python 용 Azure Machine Learning SDK가 [설치 되어](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)있습니다.
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
@@ -270,7 +270,7 @@ myenv.docker.base_image_registry="your_registry_location"
 ```
 
 > [!NOTE]
-> 사용자 지정 Docker 이미지를 사용 하는 동안 `environment.python.user_managed_dependencies=False`을 지정 하는 경우 서비스는 이미지 내에서 Conda 환경을 빌드하고 기본 이미지에 설치 했을 수 있는 Python 라이브러리를 사용 하는 대신 해당 환경에서 실행을 실행 합니다. 매개 변수를 `True`으로 설정 하 여 설치 된 패키지를 사용 합니다.
+> 사용자 지정 Docker 이미지를 사용 하는 동안 `environment.python.user_managed_dependencies=False`를 지정 하는 경우, 서비스는 이미지 내에서 Conda 환경을 빌드하고 기본 이미지에 설치 했을 수 있는 Python 라이브러리를 사용 하는 대신 해당 환경에서 실행을 실행 합니다. 매개 변수를 `True` 설정 하 여 설치 된 패키지를 사용 합니다.
 
 ## <a name="using-environments-for-training"></a>교육 환경 사용
 
@@ -301,7 +301,7 @@ run = exp.submit(runconfig)
 ```
 
 > [!NOTE]
-> 실행 기록을 사용 하지 않도록 설정 하거나 스냅숏을 실행 하려면 `ScriptRunConfig.run_config.history`에서 설정을 사용 합니다.
+> 실행 기록을 사용 하지 않도록 설정 하거나 스냅숏을 실행 하려면 `ScriptRunConfig.run_config.history`의 설정을 사용 합니다.
 
 실행 구성에서 환경을 지정 하지 않으면 실행을 제출할 때 서비스에서 기본 환경을 만듭니다.
 
@@ -309,7 +309,7 @@ run = exp.submit(runconfig)
 
 학습에 [평가기](how-to-train-ml-models.md) 를 사용 하는 경우 이미 환경 및 계산 대상을 캡슐화 하므로 평가기 인스턴스를 직접 제출할 수 있습니다.
 
-다음 코드는 scikit 학습 모델에 대 한 원격 계산에서 단일 노드 학습 실행에 대해 평가기를 사용 하 고 이전에 생성 된 계산 대상 개체인 `compute_target` 및 데이터 저장소 개체 `ds`로 가정 합니다.
+다음 코드는 scikit 학습 모델에 대 한 원격 계산에서 단일 노드 학습 실행에 대해 평가기를 사용 하 고, 이전에 만든 계산 대상 개체 `compute_target` 및 데이터 저장소 개체를 `ds`가정 합니다.
 
 ```python
 from azureml.train.estimator import Estimator
@@ -359,7 +359,7 @@ service = Model.deploy(
     deployment_config = deployment_config)
 ```
 
-## <a name="example-notebooks"></a>노트북 예제
+## <a name="example-notebooks"></a>예제 Notebook
 
 이 [예제 전자 필기장은](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) 이 문서에 설명 되어 있는 개념과 메서드를 확장 합니다.
 

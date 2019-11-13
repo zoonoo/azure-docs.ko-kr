@@ -3,7 +3,7 @@ title: Azure Monitor에서 활동 로그 Azure Active Directory Microsoft Docs
 description: Azure Monitor의 Azure Active Directory 활동 로그 소개
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/22/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f62ad020d2ec3b5ab712f50dca2dddd3b981f098
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 46e29fff3308f35b16dbff2f9cead82abc222a5c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656478"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014513"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure Monitor의 Azure AD 활동 로그
 
@@ -41,14 +41,14 @@ ms.locfileid: "69656478"
 
 이 기능을 사용하여 Azure AD 감사 로그 및 로그인 로그를 Azure Storage 계정, 이벤트 허브, Azure Monitor 로그 또는 사용자 지정 솔루션으로 라우팅할 수 있습니다. 
 
-* **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)를 통해 테넌트에서 수행된 모든 작업의 기록에 액세스할 수 있습니다.
-* **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 통해 감사 로그에 보고된 작업을 수행한 사용자를 확인할 수 있습니다.
+* **감사 로그**: [감사 로그 활동 보고서](concept-audit-logs.md)는 테넌트에서 수행된 모든 작업 기록에 대한 액세스를 제공합니다.
+* **로그인 로그**: [로그인 활동 보고서](concept-sign-ins.md)를 사용하면 감사 로그에 보고된 작업을 누가 수행했는지 확인할 수 있습니다.
 
 > [!NOTE]
 > B2C 관련 감사 및 로그인 활동 로그는 현재 지원되지 않습니다.
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 기능을 사용하려면 다음이 필요합니다.
 
@@ -131,39 +131,39 @@ Azure Monitor 로그 관리와 관련된 비용을 검토하려면 [Azure Monito
 
 이 섹션에서는 Azure Monitor의 Azure AD 로그에 대해 자주 묻는 질문에 대답하고 알려진 문제에 대해 토론합니다.
 
-**Q: 어떤 로그가 포함되나요?**
+**Q: 어떤 로그가 포함됩니까?**
 
-**A**: 현재 B2C 관련 감사 이벤트가 포함되지 않지만, 이 기능을 라우팅하는 데 로그인 활동 로그와 감사 로그를 모두 사용할 수 있습니다. 현재 지원되는 로그 유형 및 기능 기반 로그를 알아보려면 [감사 로그 스키마](reference-azure-monitor-audit-log-schema.md) 및 [로그인 로그 스키마](reference-azure-monitor-sign-ins-log-schema.md)를 참조하세요. 
-
----
-
-**Q: 작업 수행 후 해당 로그가 내 이벤트 허브에 표시되려면 얼마나 걸리나요?**
-
-**A**: 작업이 수행된 후 2~5분 이내에 이벤트 허브에 로그가 나타나야 합니다. Event Hubs에 대한 자세한 내용은 [Azure Event Hubs란?](../../event-hubs/event-hubs-about.md)을 참조하세요.
+**A:** 현재 B2C 관련 감사 이벤트가 포함되지 않지만, 이 기능을 라우팅하는 데 로그인 활동 로그와 감사 로그를 모두 사용할 수 있습니다. 현재 지원되는 로그 유형 및 기능 기반 로그를 알아보려면 [감사 로그 스키마](reference-azure-monitor-audit-log-schema.md) 및 [로그인 로그 스키마](reference-azure-monitor-sign-ins-log-schema.md)를 참조하세요. 
 
 ---
 
-**Q: 작업 수행 후 해당 로그가 내 스토리지 계정에 표시되려면 얼마나 걸리나요?**
+**Q: 작업 수행 후 해당 로그가 내 이벤트 허브에 표시되려면 얼마나 걸립니까?**
 
-**A**: Azure Storage 계정의 경우 대기 시간은 어디서나 작업 수행 후 5~15분입니다.
+**A**: 작업이 수행된 후 2~5분 내에 이벤트 허브에 로그가 나타나야 합니다. Event Hubs에 대한 자세한 내용은 [Azure Event Hubs란?](../../event-hubs/event-hubs-about.md)을 참조하세요.
+
+---
+
+**Q: 작업 수행 후 해당 로그가 내 스토리지 계정에 표시되려면 얼마나 걸립니까?**
+
+**A:** Azure Storage 계정의 경우 대기 시간은 어디서나 작업 수행 후 5~15분입니다.
 
 ---
 
 **Q: 관리자가 진단 설정의 보존 기간을 변경 하면 어떻게 되나요?**
 
-**A**: 변경 이후에 수집되는 로그에는 새 보존 정책이 적용됩니다. 정책 변경 이전에 수집된 로그에는 아무런 변화가 없습니다.
+**A**: 새 보존 정책은 변경 후 수집 된 로그에 적용 됩니다. 정책 변경 이전에 수집된 로그에는 아무런 변화가 없습니다.
 
 ---
 
 **Q: 데이터를 저장하는 데 비용이 얼마나 들까요?**
 
-**A**: 스토리지 비용은 로그의 크기와 사용자가 선택한 보존 기간에 따라 달라집니다. 생성된 로그 볼륨에 따라 달라지는 예상 테넌트 비용 목록을 보려면 [활동 로그에 대한 Storage 크기](#storage-size-for-activity-logs) 섹션을 참조하세요.
+**A:** 스토리지 비용은 로그의 크기와 사용자가 선택한 보존 기간에 따라 달라집니다. 생성된 로그 볼륨에 따라 달라지는 예상 테넌트 비용 목록을 보려면 [활동 로그에 대한 Storage 크기](#storage-size-for-activity-logs) 섹션을 참조하세요.
 
 ---
 
 **Q: 이벤트 허브에 데이터를 스트리밍하는 데 비용이 얼마나 들까요?**
 
-**A**: 스트리밍 비용은 분당 수신 메시지 수에 따라 다릅니다. 이 문서에서는 메시지 수를 기반으로 비용을 계산하고 예상 비용을 나열하는 방법을 설명합니다. 
+**A:** 스트리밍 비용은 분당 수신 메시지 수에 따라 다릅니다. 이 문서에서는 메시지 수를 기반으로 비용을 계산하고 예상 비용을 나열하는 방법을 설명합니다. 
 
 ---
 
@@ -177,9 +177,9 @@ Azure Monitor 로그 관리와 관련된 비용을 검토하려면 [Azure Monito
 
 ---
 
-**Q: 현재 지원되는 SIEM 도구는 무엇인가요?** 
+**Q: 현재 지원되는 SIEM 도구는 무엇입니까?** 
 
-**A**: Azure Monitor는 현재 [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar 및 [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory)에서 지원됩니다. 커넥터의 작동 원리에 대한 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)을 참조하세요.
+**A:** Azure Monitor는 현재 [Splunk](tutorial-integrate-activity-logs-with-splunk.md), QRadar 및 [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory)에서 지원됩니다. 커넥터의 작동 원리에 대한 자세한 내용은 [Azure 모니터링 데이터를 이벤트 허브로 스트리밍하여 외부 도구에서 사용](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)을 참조하세요.
 
 ---
 

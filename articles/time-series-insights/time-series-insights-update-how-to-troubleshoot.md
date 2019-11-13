@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 미리 보기 진단 및 문제 해결 | Microsoft Docs
-description: Azure Time Series Insights 미리 보기를 사용 하 여 진단 하 고 문제를 해결 하는 방법을 알아봅니다.
+title: 미리 보기 환경 진단 및 문제 해결-Azure Time Series Insights | Microsoft Docs
+description: Azure Time Series Insights 미리 보기 환경을 진단 하 고 문제를 해결 하는 방법을 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,14 +10,14 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b65edbd808abd6ff660ef00a8a680b4d3f0846c
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: df8300e84309a874faa4b1c06891a4c5b549fce6
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72989896"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014772"
 ---
-# <a name="diagnose-and-troubleshoot"></a>진단 및 문제 해결
+# <a name="diagnose-and-troubleshoot-a-preview-environment"></a>미리 보기 환경 진단 및 문제 해결
 
 이 문서에서는 Azure Time Series Insights 미리 보기 환경을 사용할 때 발생할 수 있는 몇 가지 일반적인 문제를 요약해서 보여 줍니다. 또한 이 문서에서는 각 문제의 잠재적 원인 및 해결 방법에 대해 설명합니다.
 
@@ -98,7 +98,7 @@ ms.locfileid: "72989896"
 
    시계열 모델은 종 량 제 환경 에서만 지원 됩니다. Time Series Insights Preview 탐색기에서 S1 또는 S2 환경에 액세스 하는 방법에 대 한 자세한 내용은 [탐색기에서 데이터 시각화](./time-series-insights-update-explorer.md)를 참조 하세요.
 
-   [![액세스](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
+   [![Access](media/v2-update-diagnose-and-troubleshoot/access.png)](media/v2-update-diagnose-and-troubleshoot/access.png#lightbox)
 
 - 모델을 보고 편집할 권한이 없을 수 있습니다.
 

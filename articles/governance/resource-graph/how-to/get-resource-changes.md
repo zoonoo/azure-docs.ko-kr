@@ -1,18 +1,14 @@
 ---
 title: 리소스 변경 내용 가져오기
 description: 리소스가 변경 된 시기를 찾는 방법을 이해 하 고 변경 된 속성의 목록을 가져옵니다.
-services: resource-graph
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
-ms.service: resource-graph
-ms.openlocfilehash: 44e7bbde40dbd4b79a6ce3735ab5a1ac81421d3b
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 25d900276518e51e80021d1fdb1ac80945eb2d5c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622569"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958755"
 ---
 # <a name="get-resource-changes"></a>리소스 변경 내용 가져오기
 

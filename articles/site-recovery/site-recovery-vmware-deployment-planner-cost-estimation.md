@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery Deployment Planner에서 비용 예측 보고서 검토 | Microsoft Docs
-description: 이 문서에서는 Azure로 VMware 재해 복구를 위해 Azure Site Recovery Deployment Planner에서 비용 예측 보고서를 검토하는 방법을 설명합니다.
+title: Azure Site Recovery Deployment Planner에서 비용 추정치 검토
+description: 이 문서에서는 VMware 재해 복구에 대 한 Azure Site Recovery Deployment Planner의 비용 추정치를 검토 하는 방법을 설명 합니다.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
 ms.author: mayg
-ms.openlocfilehash: 1f825b67baf36c9a1a9187d555522f5a5955d1c7
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 27678fff1c0322f9755e7726026c73934810d5d6
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620066"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953332"
 ---
-# <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Azure로 VMware 재해 복구를 위해 Site Recovery Deployment Planner에서 비용 예측 보고서 검토
+# <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>VMware Deployment Planner에서 비용 추정치 검토 
 
 Deployment Planner 보고서는 [권장 사항](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) 시트에 비용 예측 요약을 제공하고 비용 예측 시트에 자세한 비용 분석을 제공합니다. VM당 자세한 비용 분석이 있습니다. 
 
@@ -31,11 +31,11 @@ Deployment Planner 보고서는 [권장 사항](site-recovery-vmware-deployment-
  
 월별 또는 연도별 비용을 볼 수 있습니다. [지원되는 대상 지역](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions) 및 [지원되는 통화](./site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies)에 대해 자세히 알아보세요.
 
-**구성 요소별 비용** 총 DR 비용은 다음 네 가지 구성 요소로 구분됩니다. 컴퓨팅, 스토리지, 네트워크 및 Azure Site Recovery 라이선스 비용. 비용은 복제 중에 발생하는 사용량 및 DR 드릴 시간에 컴퓨팅, 스토리지(프리미엄 및 표준), 온-프레미스 사이트와 Azure 사이에 구성된 ExpressRoute/VPN 및 Azure Site Recovery 라이선스에 대해 발생하는 사용량을 기반으로 계산됩니다.
+**구성 요소별 비용** 총 DR 비용은 컴퓨팅, 스토리지, 네트워크 및 Azure Site Recovery 라이선스 비용이라는 4가지 구성 요소로 나뉩니다. 비용은 복제 중에 발생하는 사용량 및 DR 드릴 시간에 컴퓨팅, 스토리지(프리미엄 및 표준), 온-프레미스 사이트와 Azure 사이에 구성된 ExpressRoute/VPN 및 Azure Site Recovery 라이선스에 대해 발생하는 사용량을 기반으로 계산됩니다.
 
 **상태별 비용**: 총 DR(재해 복구) 비용은 복제 및 DR 드릴이라는 두 가지 다른 상태를 기반으로 분류됩니다. 
 
-**복제 비용**:  복제 중에 발생하는 비용입니다. 스토리지, 네트워크 및 Azure Site Recovery 라이선스 비용이 포함됩니다. 
+**복제 비용**: 복제 중에 발생하는 비용입니다. 스토리지, 네트워크 및 Azure Site Recovery 라이선스 비용이 포함됩니다. 
 
 **DR 드릴 비용**: 테스트 장애 조치(failover) 중에 발생하는 비용입니다. Azure Site Recovery는 테스트 장애 조치(failover) 중에 VM을 작동합니다. DR 드릴 비용은 VM의 컴퓨팅 및 스토리지를 실행하는 비용을 포함합니다. 
 
@@ -54,17 +54,17 @@ Deployment Planner 보고서는 [권장 사항](site-recovery-vmware-deployment-
 
 **컴퓨팅**: DR 요구 사항에 대해 Azure에서 실행되는 IaaS VM 비용입니다. DR 드릴(테스트 장애 조치) 중에 Azure Site Recovery에서 만들어진 VM과 Always On 가용성 그룹과 도메인 컨트롤러/도메인 이름 서버가 있는 SQL Server와 같이 Azure에서 실행되는 VM이 포함됩니다.
 
-**스토리지**: DR 요구 사항에 대한 Azure Storage 사용 비용입니다. 복제를 위한 스토리지 사용량 및 DR 드릴 중 스토리지 사용량이 포함됩니다.
-네트워크: DR 요구 사항에 대한 ExpressRoute 및 사이트 간 VPN 비용입니다. 
+**스토리지**: DR 요구 사항에 따른 Azure Storage 사용에 대한 비용입니다. 복제를 위한 스토리지 사용량 및 DR 드릴 중 스토리지 사용량이 포함됩니다.
+네트워크: DR 요구 사항에 대한 ExpressRoute 및 Site간 VPN 비용입니다. 
 
 **ASR 라이선스**: 호환 가능한 모든 VM에 대한 Azure Site Recovery 라이선스 비용입니다. 자세한 비용 분석 테이블에 VM을 수동으로 입력하면 해당 VM에 대한 Azure Site Recovery 라이선스 비용도 포함됩니다.
 
 ### <a name="overall-dr-cost-by-states"></a>상태별 전체 DR 비용
 전체 DR 비용은 복제 및 DR 드릴이라는 두 가지 상태를 기반으로 분류됩니다.
 
-**복제 비용**: 복제 시 발생하는 비용입니다. 스토리지, 네트워크 및 Azure Site Recovery 라이선스 비용이 포함됩니다. 
+**복제 비용**: 복제 시 비용이 발생합니다. 스토리지, 네트워크 및 Azure Site Recovery 라이선스 비용이 포함됩니다. 
 
-**DR 드릴 비용**: DR 드릴 시 발생하는 비용입니다. Azure Site Recovery는 DR 드릴 중에 VM을 작동합니다. DR 드릴 비용은 실행 중인 VM의 컴퓨팅 및 스토리지 비용을 포함합니다.
+**DR 드릴 비용**: DR 드릴 시 비용이 발생합니다. Azure Site Recovery는 DR 드릴 중에 VM을 작동합니다. DR 드릴 비용은 실행 중인 VM의 컴퓨팅 및 스토리지 비용을 포함합니다.
 연간 총 DR 드릴 지속 시간 = DR 드릴 횟수 x 각 DR 드릴 지속 시간(일) 평균 DR 드릴 비용(월간) = 총 DR 드릴 비용/12
 
 ### <a name="storage-cost-table"></a>스토리지 비용 테이블:
@@ -73,11 +73,11 @@ Deployment Planner 보고서는 [권장 사항](site-recovery-vmware-deployment-
 ### <a name="site-to-azure-network"></a>사이트 - Azure 네트워크
 요구 사항에 따라 적절한 설정을 선택합니다. 
 
-**ExpressRoute**: 기본적으로 도구에서 델타 복제에 필요한 네트워크 대역폭과 일치하는 가장 가까운 ExpressRoute 계획이 선택됩니다. 계획은 요구 사항에 따라 변경할 수 있습니다.
+**ExpressRoute**: 기본적으로 도구가 델타 복제에 필요한 네트워크 대역폭과 일치하는 가장 가까운 ExpressRoute 계획을 선택합니다. 계획은 요구 사항에 따라 변경할 수 있습니다.
 
 **VPN Gateway**: 사용자 환경에 VPN Gateway가 있는 경우 선택합니다. 기본값은 NA입니다.
 
-**대상 지역**: DR에 대해 지정된 Azure 지역입니다. 컴퓨팅, 스토리지, 네트워크 및 라이선스에 대해 보고서에 사용된 가격은 해당 지역에 대한 Azure 가격을 기반으로 합니다. 
+**대상 지역**: DR을 위해 지정한 Azure 지역입니다. 컴퓨팅, 스토리지, 네트워크 및 라이선스에 대해 보고서에 사용된 가격은 해당 지역에 대한 Azure 가격을 기반으로 합니다. 
 
 ### <a name="vm-running-on-azure"></a>Azure에서 실행 중인 VM
 DR을 위해 Azure에서 Always On 가용성 그룹이 실행되는 SQL Server나 도메인 컨트롤러 또는 DNS VM이 있는 경우 총 DR 비용에서 계산 비용을 고려하도록 VM 수와 크기를 제공할 수 있습니다. 
@@ -90,7 +90,7 @@ DR을 위해 Azure에서 Always On 가용성 그룹이 실행되는 SQL Server�
 
 ### <a name="settings"></a>설정 
 
-**Currency**: 보고서 생성 시 사용되는 통화입니다. 비용 지속 시간:  월간 또는 연간 비용을 모두 볼 수 있습니다. 
+**통화**: 보고서가 생성되는 통화입니다. 비용 기간: 1달 또는 1년에 대한 모든 비용을 볼 수 있습니다. 
 
 ## <a name="detailed-cost-analysis-table"></a>자세한 비용 분석 테이블
 ![자세한 비용 분석](media/site-recovery-hyper-v-deployment-planner-cost-estimation/detailed-cost-analysis-h2a.png): 이 테이블에는 호환 가능한 각 VM에 대해 자세한 비용이 나열됩니다. 이 테이블을 사용하여 VM을 수동으로 추가하면 프로파일링되지 않은 VM의 Azure DR 비용을 예측할 수 있습니다. 자세한 프로파일링을 수행하지 않고 새로운 재해 복구 배포에 대한 Azure 비용을 예측해야 하는 경우에 유용합니다.
@@ -104,7 +104,7 @@ VM을 수동으로 추가하려면:
 * VM 원본 컴퓨터의 총 저장소 크기 (GB)
 * 연간 DR 드릴 횟수 
 * 각 DR 드릴 지속 시간(일) 
-* OS 유형
+* OS 종류
 * 데이터 중복 
 * Azure 하이브리드 혜택
 
@@ -122,21 +122,21 @@ VM을 수동으로 추가하려면:
 
 **스토리지 유형**: VM에 사용되는 스토리지 유형입니다. Standard Storage 또는 Premium Storage입니다.
 
-**VM 총 스토리지 크기(GB)** : 원본 VM의 총 저장소입니다.
+**Vm 총 저장소 크기 (GB)** : 원본 VM의 총 저장소입니다.
 
-**연간 DR 드릴 횟수**: 1년 동안 DR 드릴을 수행하는 횟수입니다. 기본적으로 1년에 4번입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간에 따라 총 DR 드릴 비용이 계산됩니다.  
+**연간 DR 드릴 횟수**: 연간 DR 드릴을 수행하는 횟수입니다. 기본적으로 1년에 4번입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간에 따라 총 DR 드릴 비용이 계산됩니다.  
 
-**각 DR 드릴 기간(일)** : 각 DR 드릴의 기간입니다. 기본적으로 [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/pricing/details/site-recovery)당 90일마다 7일입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 총 DR 드릴 비용은 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간을 기반으로 계산됩니다.
+**각 DR 드릴 지속 시간(일)** : 각 DR 드릴의 지속 시간입니다. 기본적으로 [재해 복구 Software Assurance 혜택](https://azure.microsoft.com/pricing/details/site-recovery)당 90일마다 7일입니다. 특정 VM의 기간을 수정하거나 맨 위 행에 새 값을 입력하고 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 새 값을 모든 VM에 적용할 수 있습니다. 총 DR 드릴 비용은 연간 DR 드릴 횟수와 각 DR 드릴 지속 시간을 기반으로 계산됩니다.
   
-**OS 유형**: VM의 OS 유형입니다. Windows 또는 Linux입니다. OS 종류가 Windows이면 Azure 하이브리드 사용 혜택을 해당 VM에 적용할 수 있습니다. 
+**OS 종류**: VM의 OS 종류입니다. Windows 또는 Linux입니다. OS 종류가 Windows이면 Azure 하이브리드 사용 혜택을 해당 VM에 적용할 수 있습니다. 
 
-**데이터 중복성**: LRS(로컬 중복 스토리지), GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지) 중 하나일 수 있습니다. 기본값은 LRS입니다. 특정 VM에 대한 스토리지 계정을 기반으로 유형을 변경하거나 맨 위 행의 유형을 변경하고 'Apply to all'(모든 항목에 적용) 단추를 클릭하여 모든 VM에 새 유형을 적용할 수 있습니다.  복제에 대한 스토리지 비용은 선택한 데이터 중복성에 대한 가격을 기반으로 계산됩니다. 
+**데이터 중복성**: LRS(로컬 중복 스토리지), GRS(지역 중복 스토리지) 또는 RA-GRS(읽기 액세스 지역 중복 스토리지) 중 하나가 될 수 있습니다. 기본값은 LRS입니다. 특정 VM에 대한 스토리지 계정을 기반으로 유형을 변경하거나 맨 위 행의 유형을 변경하고 'Apply to all'(모든 항목에 적용) 단추를 클릭하여 모든 VM에 새 유형을 적용할 수 있습니다.  복제에 대한 스토리지 비용은 선택한 데이터 중복성에 대한 가격을 기반으로 계산됩니다. 
 
-**Azure 하이브리드 혜택**: 해당되는 경우 Azure 하이브리드 혜택을 Windows VM에 적용할 수 있습니다.  기본값은 Yes입니다. 특정 VM의 설정을 변경하거나 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 모든 VM을 업데이트할 수 있습니다.
+**Azure 하이브리드 혜택**: 해당되는 경우 Azure 하이브리드 혜택을 Windows VM에 적용할 수 있습니다.  기본값은 [예]입니다. 특정 VM의 설정을 변경하거나 'Apply to all(모든 항목에 적용)' 단추를 클릭하여 모든 VM을 업데이트할 수 있습니다.
 
 **총 Azure 사용량**: DR에 대한 컴퓨팅, 스토리지 및 Azure Site Recovery 라이선스 비용이 포함됩니다. 선택에 따라 월간 또는 연간 비용이 표시됩니다.
 
-**안정적 상태 복제 비용**: 복제에 대한 스토리지 비용이 포함됩니다.
+**안정적 상태 복제 비용**: 복제를 위한 스토리지 비용이 포함됩니다.
 
 **총 DR 드릴 비용(평균)** : DR 드릴에 대한 컴퓨팅 및 스토리지 비용이 포함됩니다.
 
@@ -152,14 +152,14 @@ Azure Site Recovery Deployment Planner는 다음 통화 중 하나로 비용 보
 
 |통화|이름||통화|이름||통화|이름|
 |---|---|---|---|---|---|---|---|
-|ARS|아르헨티나 페소($)||AUD|오스트레일리아 달러($)||BRL|브라질 레알(R$)|
+|ARS|아르헨티나 페소($)||AUD|호주 달러($)||BRL|브라질 헤알(R$)|
 |CAD|캐나다 달러($)||CHF|스위스 프랑. (chf)||DKK|덴마크 크론(kr)|
 |EUR|유로(€)||GBP|영국 파운드(£)||HKD|홍콩 달러(HK$)|
 |IDR|인도네시아 루피아(Rp)||INR|인도 루피(₹)||JPY|일본 엔(¥)|
-|KRW|대한민국 원(₩)||MXN|멕시코 페소(MX$)||MYR|말레이시아 링기트(RM$)|
+|KRW|한국 원(₩)||MXN|멕시코 페소(MX$)||MYR|말레이시아 링깃(RM$)|
 |NOK|노르웨이 크론(kr)||NZD|뉴질랜드 달러($)||RUB|러시아 루블(руб)|
 |특별 행정구|사우디아라비아 리얄(SR)||SEK|스웨덴 크로나(kr)||TWD|대만 달러(NT$)|
-|TRY|터키 리라(TL)||USD| 미국 달러($)||ZAR|남아프리카 랜드(R)|
+|TRY|터키 리라(TL)||USD| 미국 달러($)||ZAR|남아프리카공화국 랜드(R)|
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Site Recovery를 사용하여 VMware VM을 Azure로](https://docs.microsoft.com/azure/site-recovery/tutorial-vmware-to-azure) 보호하는 내용에 대해 자세히 알아보세요.

@@ -1,5 +1,5 @@
 ---
-title: Azure 방호에서 가상 컴퓨터 세션 보기를 전체 화면으로 변경 | Microsoft Docs
+title: 'Azure 방호: 가상 컴퓨터 세션 보기: 전체 화면'
 description: 이 문서에서는 보기를 전체 화면으로 변경 하는 방법에 대해 알아봅니다.
 services: bastion
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: a8c9cab825644fe797713c80d3a710c7a2d54850
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 87a6c046d5f20b8f38381acbfefbfef43b09092c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498058"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014236"
 ---
 # <a name="change-to-full-screen-view-for-a-vm-session-azure-bastion"></a>Vm 세션의 전체 화면 보기로 변경: Azure 방호
 

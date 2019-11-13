@@ -1,17 +1,14 @@
 ---
 title: 규정 비준수의 원인 확인
 description: 리소스가 비규격 인 경우 여러 가지 원인이 있을 수 있습니다. 비준수를 일으킨 원인을 확인 하는 방법을 알아보세요.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 556a8029b9b5f831ac3ace7ed0fcc474fb2e262e
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6f113080ab84fe7d159766e6543ff61b28f4ead2
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978103"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959606"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -21,7 +18,7 @@ Azure 리소스가 정책 규칙을 준수 하지 않는 것으로 확인 되 �
 > - [호환성 정보](#compliance-details)
 > - [변경 내용 (미리 보기)](#change-history)
 
-## <a name="compliance-details"></a>준수 세부 정보
+## <a name="compliance-details"></a>호환성 정보
 
 리소스가 비규격 인 경우 **정책 준수** 페이지에서 해당 리소스에 대 한 준수 정보를 사용할 수 있습니다. 준수 정보 창에는 다음 정보가 포함 됩니다.
 
@@ -84,7 +81,7 @@ Azure 리소스가 정책 규칙을 준수 하지 않는 것으로 확인 되 �
 
 다음 행렬은 가능한 각 _이유_ 를 정책 정의의 책임 [조건](../concepts/definition-structure.md#conditions) 에 매핑합니다.
 
-|Reason | 조건 |
+|이유 | 조건 |
 |-|-|
 |현재 값은 대상 값을 키로 포함 해야 합니다. |containsKey 또는 **not** notContainsKey |
 |현재 값은 대상 값을 포함 해야 합니다. |contains 또는 **not** notcontains |
@@ -93,7 +90,7 @@ Azure 리소스가 정책 규칙을 준수 하지 않는 것으로 확인 되 �
 |현재 값은 대상 값 보다 크거나 같아야 합니다. |greaterOrEquals 또는 **less** |
 |현재 값은 대상 값 보다 커야 합니다. |**lessOrEquals 이상** |
 |현재 값은 대상 값 보다 작거나 같아야 합니다. |lessOrEquals 또는 크지 **않음** |
-|현재 값이 있어야 합니다. |있음 |
+|현재 값이 있어야 합니다. |exists |
 |현재 값은 대상 값에 있어야 합니다. |in 또는 **not** notin |
 |현재 값은 대상 값과 같아야 합니다. |like 또는 **not** notlike |
 |현재 값이 대상 값과 대/소문자를 구분 해야 합니다. |match 또는 **not** notmatch |
@@ -114,7 +111,7 @@ _게스트 구성_ 범주에 있는 _AUDITIFNOTEXISTS_ 정책의 경우 VM 내�
 
 VM에 직접 로그인 할 수 있는 액세스 권한이 없을 수도 있지만 VM이 _비규격_인 이유를 보고 해야 합니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 포털
 
 정책 준수 세부 정보를 보기 위해 위의 섹션에서 설명한 것과 동일한 단계를 수행 하 여 시작 합니다.
 
@@ -124,7 +121,7 @@ VM에 직접 로그인 할 수 있는 액세스 권한이 없을 수도 있지�
 
 **게스트 할당** 페이지에는 사용 가능한 모든 호환성 정보가 표시 됩니다. 뷰의 각 행은 컴퓨터 내에서 수행 된 평가를 나타냅니다. **이유** 열에서 게스트 할당이 _비호환_ 인 이유를 설명 하는 구가 표시 됩니다. 예를 들어 암호 정책을 감사 하는 경우 **Reason** 열에 각 설정에 대 한 현재 값을 포함 하는 텍스트가 표시 됩니다.
 
-![정책 준수 세부 정보를 봅니다.](../media/determine-non-compliance/guestconfig-compliance-details.png)
+![호환성 세부 정보 보기](../media/determine-non-compliance/guestconfig-compliance-details.png)
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -191,7 +188,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/> 변경 기록 (미리 보기)
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>변경 기록 (미리 보기)
 
 새 **공개 미리 보기**의 일부로, [전체 모드 삭제](../../../azure-resource-manager/complete-mode-deletion.md)를 지 원하는 모든 Azure 리소스에 대 한 최근 14 일간의 변경 기록을 사용할 수 있습니다. 변경 기록은 변경이 검색된 시간 및 각 변경의 _시각적 차이_에 대한 세부 정보를 제공합니다. 변경 내용 검색은 리소스 관리자 속성이 추가, 제거 또는 변경 될 때 트리거됩니다.
 

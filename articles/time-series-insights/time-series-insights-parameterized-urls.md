@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 사용자 지정 보기를 매개 변수가 있는 URL과 공유 | Microsoft Docs
-description: 이 문서에서는 고객 보기를 쉽게 공유할 수 있도록 Azure Time Series Insights에서 매개 변수가 있는 URL을 개발하는 방법을 설명합니다.
+title: 매개 변수가 있는 Url을 사용 하 여 사용자 지정 보기 공유-Azure Time Series Insights | Microsoft Docs
+description: Azure Time Series Insights에서 매개 변수가 있는 Url을 개발 하 여 쉽게 사용자 지정 된 보기를 공유 하는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 10/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: e62455a0c8412a579c0fab9d7fabd6016f47dbf3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 145af35f8c36d7f4659c3937209cb0d4d5b221a3
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991107"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006383"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>매개 변수가 있는 URL을 사용하여 사용자 지정 보기 공유
 
@@ -33,7 +33,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 
 예를 들어 `?environmentId=10000000-0000-0000-0000-100000000108`은 환경 ID 매개 변수입니다.
 
-## <a name="time"></a>시간
+## <a name="time"></a>Time
 
 매개 변수가 있는 URL을 사용하여 절대 또는 상대 시간 값을 지정할 수 있습니다.
 
@@ -72,8 +72,8 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 | **name** | `\<string>` | *조건*의 이름입니다. |
 | **splitBy** | `\<string>` | *분할의 기준*이 되는 열 이름입니다. |
 | **measureName** | `\<string>` | *측정값*의 열 이름입니다. |
-| **가** | `\<string>` | 서버 쪽 필터링에 대한 *where* 절입니다. |
-| **.** | `true` | 측정값에 sum을 사용 하 여 지정 하는 선택적 매개 변수입니다. </br>  `Events` 선택 된 측정값이 면 기본적으로 개수가 선택 됩니다.  </br>  `Events` 선택 되지 않은 경우 기본적으로 평균이 선택 됩니다. |
+| **predicate** | `\<string>` | 서버 쪽 필터링에 대한 *where* 절입니다. |
+| **useSum** | `true` | 측정값에 sum을 사용 하 여 지정 하는 선택적 매개 변수입니다. </br>  `Events` 선택 된 측정값이 면 기본적으로 개수가 선택 됩니다.  </br>  `Events` 선택 되지 않은 경우 기본적으로 평균이 선택 됩니다. |
 
 * `multiChartStack=<true/false>` 키-값 쌍은 차트에서 누적을 사용 합니다.
 * `multiChartSameScale=<true/false>` 키-값 쌍은 선택적 매개 변수 내에서 용어에 대해 동일한 Y 축 눈금을 사용할 수 있도록 합니다.  
@@ -87,7 +87,7 @@ Time Series Insights 탐색기는 url 쿼리 매개 변수를 지원 하 여 URL
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | 단위 = 일, 시간, 분, 초, 밀리초.  단위는 항상 대문자로 시작합니다. </br> timeBucketSize에 원하는 정수를 전달하여 단위의 수를 정의합니다.  최대 7일까지 설정할 수 있습니다.  |
 | `timezoneOffset=-<integer>` | 정수는 항상 밀리초 단위입니다. </br> 이 기능은 Time Series Insights 탐색기에서 사용 하는 것과 약간 다르며, 여기에서 로컬 (브라우저 시간) 또는 UTC를 선택할 수 있습니다. |
 
-### <a name="examples"></a>예시
+### <a name="examples"></a>예
 
 URL 매개 변수로 Time Series Insights 환경에 시계열 정의를 추가 하려면 다음을 추가 합니다.
 

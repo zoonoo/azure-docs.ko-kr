@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4f5344259767aaad9ed58ded1da86ae7ee3c03e7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 21600036302050aeea3e2ea989d86e18b208c087
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470099"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958033"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -26,11 +26,11 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 이 문서에서는 진단 로그 작업에 [Azure Portal](https://portal.azure.com)과 Azure CLI를 사용합니다. Visual Studio를 사용하여 진단 로그로 작업하는 방법에 대한 자세한 내용은 [Visual Studio에서 Azure 문제 해결](troubleshoot-dotnet-visual-studio.md)을 참조하세요.
 
 > [!NOTE]
-> 이 문서의 로깅 지침 외에도 Azure 모니터링을 사용 하는 새로운 통합 로깅 기능이 있습니다. [로그 페이지 및 진단 설정 (미리 보기) 페이지](https://aka.ms/appsvcblog-azmon)에서이 기능을 찾을 수 있습니다. 
+> 이 문서의 로깅 지침 외에도 Azure 모니터링을 사용 하는 새로운 통합 로깅 기능이 있습니다. 이 기능에 대 한 자세한 내용은 [Azure Monitor에 대 한 로그 보내기 (미리 보기)](#send-logs-to-azure-monitor-preview) 섹션에서 확인할 수 있습니다. 
 >
 >
 
-|형식|플랫폼|위치|설명|
+|형식|플랫폼|Location|설명|
 |-|-|-|-|
 | 애플리케이션 로깅 | Windows, Linux | App Service 파일 시스템 및/또는 Azure Storage blob | 응용 프로그램 코드에 의해 생성 된 메시지를 기록 합니다. 사용자가 선택한 웹 프레임 워크 또는 사용자 언어의 표준 로깅 패턴을 사용 하 여 직접 응용 프로그램 코드에서 메시지를 생성할 수 있습니다. 각 메시지에는 **중요**, **오류**, **경고**, **정보**, **디버그**및 **추적**범주 중 하나가 할당 됩니다. 응용 프로그램 로깅을 사용 하도록 설정할 때 심각도 수준을 설정 하 여 로깅을 원하는 세부 정보를 선택할 수 있습니다.|
 | 웹 서버 로깅| Windows | App Service 파일 시스템 또는 Azure Storage blob| [W3C 확장 로그 파일 형식의](/windows/desktop/Http/w3c-logging)원시 HTTP 요청 데이터입니다. 각 로그 메시지에는 HTTP 메서드, 리소스 URI, 클라이언트 IP, 클라이언트 포트, 사용자 에이전트, 응답 코드 등의 데이터가 포함 됩니다. |
@@ -178,7 +178,28 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 | **웹 서버 로그** | */LogFiles/http/RawLogs/* | [W3C 확장 로그 파일 형식을](/windows/desktop/Http/w3c-logging)사용 하 여 서식이 지정 된 텍스트 파일을 포함 합니다. 이 정보는 텍스트 편집기나 [로그 파서와](https://go.microsoft.com/fwlink/?LinkId=246619)같은 유틸리티를 사용 하 여 읽을 수 있습니다.<br/>App Service는 `s-computername`, `s-ip`또는 `cs-version` 필드를 지원 하지 않습니다. |
 | **배포 로그** | */LogFiles/Git/* 및 */deployments/* | Git 배포에 대 한 로그 뿐만 아니라 내부 배포 프로세스에서 생성 된 로그를 포함 합니다. |
 
+## <a name="send-logs-to-azure-monitor-preview"></a>Azure Monitor로 로그 보내기 (미리 보기)
+
+새 [Azure Monitor 통합](https://aka.ms/appsvcblog-azmon)을 사용 하 여 [진단 설정 (미리 보기)을 만들어](https://azure.github.io/AppService/2019/11/01/App-Service-Integration-with-Azure-Monitor.html#create-a-diagnostic-setting) 저장소 계정, Event Hubs 및 Log Analytics에 로그를 보낼 수 있습니다. 
+
+> [!div class="mx-imgBorder"]
+> 진단 설정 ![(미리 보기)](media/troubleshoot-diagnostic-logs/diagnostic-settings-page.png)
+
+### <a name="supported-log-types"></a>지원 되는 로그 유형
+
+다음 표에서는 지원 되는 로그 유형 및 설명을 보여 줍니다. 
+
+| 로그 형식 | Windows 지원 | Linux 지원 | 설명 |
+|-|-|-|
+| AppServiceConsoleLogs | TBA | 예 | 표준 출력 및 표준 오류 |
+| AppServiceHTTPLogs | 예 | 예 | 웹 서버 로그 |
+| Appservice환경 Platformlogs | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
+| AppServiceAuditLogs | 예 | 예 | FTP 및 Kudu를 통한 로그인 활동 |
+| AppServiceFileAuditLogs | TBA | TBA | FTP 및 Kudu를 통해 파일 변경 |
+| AppServiceAppLogs | TBA | Java SE & Tomcat | 애플리케이션 로그 |
+
 ## <a name="nextsteps"></a> 다음 단계
+* [Azure Monitor를 사용 하 여 로그 쿼리](../azure-monitor/log-query/log-query-overview.md)
 * [Azure App Service에서 모니터링하는 방법](web-sites-monitor.md)
 * [Visual Studio에서 Azure App Service 문제 해결](troubleshoot-dotnet-visual-studio.md)
 * [HDInsight에서 앱 로그 분석](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

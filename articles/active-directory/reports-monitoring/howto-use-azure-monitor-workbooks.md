@@ -2,7 +2,7 @@
 title: 보고서용 Azure Monitor 통합 문서 | Microsoft Docs
 description: Azure Active Directory 보고서에 Azure Monitor 통합 문서를 사용 하는 방법에 대해 알아봅니다.
 services: active-directory
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 10/30/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b88648ce68a7359a842ec975d8633d6200b1a507
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 2e94d9f56a865999f9169650f621a6af892c27ae
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200124"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014372"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Azure Active Directory 보고서에 Azure Monitor 통합 문서를 사용 하는 방법
 
@@ -54,7 +54,7 @@ ms.locfileid: "73200124"
  
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 통합 문서 모니터링을 사용 하려면 다음이 필요 합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "73200124"
 
 통합 문서에 액세스 하려면:
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **Azure Active Directory** > **모니터링** > **통합 문서로**이동 합니다. 
 
@@ -116,7 +116,7 @@ ms.locfileid: "73200124"
 
 각 추세에 대해 다음 범주의 분석 결과를 얻을 수 있습니다.
 
-- 위치
+- Location
 
     ![위치별 로그인](./media/howto-use-azure-monitor-workbooks/45.png)
 
@@ -231,7 +231,7 @@ ms.locfileid: "73200124"
 
 - 개인정보 취급 방침 필요
 
-- 다른
+- 기타
 
 
 각 추세는 다음 범주로 필터링 할 수 있습니다.

@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 메시지 강화 개요
-description: Azure IoT Hub 메시지에 대 한 메시지 강화 개요
+description: 이 문서에서는 메시지를 지정 된 끝점으로 보내기 전에 추가 정보를 사용 하 여 메시지를 스탬프 할 수 IoT Hub 제공 하는 메시지 강화를 보여 줍니다.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -8,14 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177987"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005837"
 ---
-# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>장치-클라우드 IoT Hub 메시지에 대 한 메시지 강화 (미리 보기)
+# <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>장치-클라우드 IoT Hub 메시지의 메시지 강화
 
 *메시지 강화* 는 지정 된 끝점으로 메시지를 보내기 전에 추가 정보를 사용 하 여 메시지를 *스탬프* 하는 IoT Hub의 기능입니다. 메시지 강화를 사용 하는 한 가지 이유는 다운스트림 처리를 간소화 하는 데 사용할 수 있는 데이터를 포함 하는 것입니다. 예를 들어 장치 쌍 태그를 사용 하는 장치 원격 분석 메시지를 보강 고객에 대 한 부하를 줄여이 정보에 대 한 장치 쌍 API 호출을 수행할 수 있습니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "72177987"
 
 * 보강을 적용 해야 하는 하나 이상의 [끝점](iot-hub-devguide-endpoints.md) 입니다.
 
-**키** 가 문자열입니다. 키에는 영숫자 문자 또는 하이픈 (`-`), 밑줄 (`_`) 및 마침표 (`.`)와 같은 특수 문자만 사용할 수 있습니다.
+**키** 가 문자열입니다. 키에는 영숫자 문자 또는 하이픈 (`-`), 밑줄 (`_`), 마침표 (`.`) 등의 특수 문자만 사용할 수 있습니다.
 
 **값** 은 다음 중 하나일 수 있습니다.
 
@@ -82,10 +82,6 @@ Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지�
 
 메시지 강화는 추가 요금 없이 사용할 수 있습니다. 현재 IoT Hub에 메시지를 보낼 때 요금이 청구 됩니다. 메시지가 여러 끝점으로 이동 하더라도 해당 메시지에 대해 한 번만 요금이 청구 됩니다.
 
-## <a name="availability"></a>가용성
-
-이 기능은 미리 보기에서 사용할 수 있으며 미국 동부, 미국 서 부, 유럽 서부, [Azure Government](/azure/azure-government/documentation-government-welcome), [azure 중국 21Vianet](/azure/china)및 [azure 독일](https://azure.microsoft.com/global-infrastructure/germany/)을 제외한 모든 지역에서 사용할 수 있습니다.
-
 ## <a name="next-steps"></a>다음 단계
 
 IoT Hub로 메시지를 라우팅하는 방법에 대 한 자세한 내용은 다음 문서를 확인 하세요.
@@ -94,4 +90,4 @@ IoT Hub로 메시지를 라우팅하는 방법에 대 한 자세한 내용은 �
 
 * [IoT Hub 메시지 라우팅을 사용 하 여 다른 끝점으로 장치-클라우드 메시지 보내기](iot-hub-devguide-messages-d2c.md)
 
-* [자습서: IoT Hub routing @ no__t-0
+* [자습서: IoT Hub 라우팅](tutorial-routing.md)

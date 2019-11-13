@@ -1,6 +1,6 @@
 ---
-title: Azure Time Series Insights 미리 보기 환경 계획 | Microsoft Docs
-description: Azure Time Series Insights 미리 보기 환경을 계획합니다.
+title: 미리 보기 환경 계획-Azure Time Series Insights | Microsoft Docs
+description: Azure Time Series Insights 미리 보기 환경을 계획 하는 방법을 알아봅니다.
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: f5a12ca2bdccee1d2f738aa3c810577caf3d8eac
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4b87bf9bdb70f2bcef27927dbaa0d79716c81368
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491966"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74006331"
 ---
 # <a name="plan-your-azure-time-series-insights-preview-environment"></a>Azure Time Series Insights 미리 보기 환경 계획
 

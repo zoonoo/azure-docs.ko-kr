@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad3cd612200dc33fe37036146b00f52073403ecc
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 929479f2816ef979edb26ba5aa00cf449c49b70a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852035"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73942162"
 ---
 # <a name="supported-account-types"></a>지원되는 계정 유형
 
@@ -41,7 +41,7 @@ Microsoft Azure 퍼블릭 클라우드에서는 대부분의 앱 유형이 모�
   - 회사 또는 학교 계정이나 Microsoft 개인 계정
   - Microsoft 개인 계정만
     > [!NOTE]
-    > 현재 Microsoft ID 플랫폼은 **회사 또는 학교 계정이나 Microsoft 개인 계정**에 대한 앱을 등록하여 Microsoft 개인 계정만 지원하며, 애플리케이션을 빌드할 때 `https://login.onmicrosoftonline.com/consumers`처럼 Azure AD 기관을 지정하여 애플리케이션의 코드에서 로그인을 제한합니다.
+    > 현재 Microsoft ID 플랫폼은 **회사 또는 학교 계정이나 Microsoft 개인 계정**에 대한 앱을 등록하여 Microsoft 개인 계정만 지원하며, 애플리케이션을 빌드할 때 `https://login.microsoftonline.com/consumers`처럼 Azure AD 기관을 지정하여 애플리케이션의 코드에서 로그인을 제한합니다.
 
 - B2C 애플리케이션을 작성 중인 경우 Azure AD B2C를 사용하여 사용자의 소셜 ID로 사용자를 로그인할 수 있습니다.
 

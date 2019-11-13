@@ -1,6 +1,6 @@
 ---
-title: C#을 사용하여 Azure Time Series Insights 환경에 대한 참조 데이터 관리 | Microsoft Docs
-description: 이 문서에서는 C#(c-sharp) .NET 언어로 작성된 사용자 지정 애플리케이션을 만들어 Azure Time Series Insights 환경에 대한 참조 데이터를 관리하는 방법을 설명합니다.
+title: -Azure Time Series Insights를 사용 하 여 C# GA 환경에서 참조 데이터 관리 Microsoft Docs
+description: 에서 C#작성 한 사용자 지정 응용 프로그램을 만들어 GA 환경에 대 한 참조 데이터를 관리 하는 방법을 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -11,18 +11,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4eb8a22ee56203fe84df6ee1cff779e3f3bdf491
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: a32bf00d21311a1a8041a901f70b9b400a49ab76
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990038"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012560"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>을 사용 하 여 Azure Time Series Insights 환경의 GA 참조 데이터 관리C#
 
 이 아티클에서는 Azure Time Series Insights 환경에 대한 참조 데이터를 관리하기 위해 컴파일할 수 있는 예제 C# 프로젝트에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 

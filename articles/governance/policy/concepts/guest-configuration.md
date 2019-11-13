@@ -1,27 +1,24 @@
 ---
 title: 가상 컴퓨터의 콘텐츠를 감사 하는 방법 알아보기
 description: Azure Policy 게스트 구성을 사용 하 여 Azure 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: 0e5592f629646db3132ffd65fd56b1a0d5d5be39
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 5148ecb2f10a2ac517c5cf6c7f682a0f25808910
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581439"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959773"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
-감사 및 [수정](../how-to/remediate-resources.md) Azure 리소스 외에도 Azure Policy는 컴퓨터 내의 설정을 감사할 수 있습니다. 게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 확장은 클라이언트를 통해 다음과 같은 설정의 유효성을 검사 합니다.
+감사 및 [수정](../how-to/remediate-resources.md) Azure 리소스 외에도 Azure Policy는 컴퓨터 내의 설정을 감사할 수 있습니다. 게스트 구성 확장 및 클라이언트가 유효성 검사를 수행합니다. 클라이언트를 통한 확장은 다음과 같은 설정의 유효성을 검사합니다.
 
 - 운영 체제의 구성
-- 응용 프로그램 구성 또는 상태
+- 애플리케이션 구성 또는 현재 상태
 - 환경 설정
 
-지금은 게스트 구성 Azure Policy 컴퓨터 내의 설정만 감사 합니다. 구성은 적용 되지 않습니다.
+현재 Azure Policy 게스트 구성은 머신 내의 설정만 감사합니다. 구성은 적용하지 않습니다.
 
 ## <a name="extension-and-client"></a>확장 및 클라이언트
 
@@ -75,7 +72,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
 
-|게시자|Name|버전|
+|게시자|이름|버전|
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
@@ -159,7 +156,7 @@ Windows: `C:\Packages\Plugins\Microsoft.GuestConfiguration.ConfigurationforWindo
 
 Linux: `/var/lib/waagent/Microsoft.GuestConfiguration.ConfigurationforLinux-<version>/GCAgent/logs/dsc.log`
 
-여기서 `<version>`은 현재 버전 번호를 참조 합니다.
+여기서 `<version>`는 현재 버전 번호를 참조 합니다.
 
 ### <a name="collecting-logs-remotely"></a>원격으로 로그 수집
 

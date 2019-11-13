@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f9b9773e595d1ff00d92bd757c4b85eb6c219b26
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a7e9e36f75d0b0638fadbf92e713a924e816807d
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73897530"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012384"
 ---
-# <a name="creating-an-incremental-snapshot-preview-for-managed-disks"></a>관리 디스크에 대 한 증분 스냅숏 (미리 보기) 만들기
-
 증분 스냅숏 (미리 보기)은 마지막 스냅숏 이후의 모든 변경 내용 으로만 구성 된 관리 디스크의 지정 시간 백업입니다. 증분 스냅숏을 다운로드 하거나 사용 하지 않으면 전체 VHD가 사용 됩니다. 관리 디스크 스냅숏에 대 한 이러한 새로운 기능을 사용 하면 필요한 경우를 제외 하 고 각 개별 스냅숏으로 전체 디스크를 저장 하는 것이 더 이상 필요 하지 않으므로 관리 디스크 스냅숏에 대 한 이러한 새로운 기능을 사용 하는 것이 더 비용 효율적입니다. 일반 스냅숏과 마찬가지로 증분 스냅숏은 전체 관리 디스크를 만드는 데 사용 하거나 일반 스냅숏을 만드는 데 사용할 수 있습니다.
 
 증분 스냅숏과 일반 스냅숏 간에는 몇 가지 차이점이 있습니다. 증분 스냅숏은 디스크의 저장소 유형과 관계 없이 항상 표준 Hdd 저장소를 사용 하는 반면, 일반 스냅숏은 프리미엄 Ssd를 사용할 수 있습니다. Premium Storage에서 정기적인 스냅숏을 사용 하 여 VM 배포를 강화 하는 경우 [공유 이미지 갤러리](../articles/virtual-machines/linux/shared-image-galleries.md)의 standard Storage에서 사용자 지정 이미지를 사용 하는 것이 좋습니다. 이를 통해 더 저렴 한 비용으로 더 광범위 한 규모를 달성할 수 있습니다. 또한 증분 스냅숏은 ZRS ( [영역 중복 저장소](../articles/storage/common/storage-redundancy-zrs.md) )를 사용 하 여 더 높은 안정성을 제공할 수 있습니다. 선택한 지역에서 ZRS을 사용할 수 있는 경우 증분 스냅숏은 ZRS을 자동으로 사용 합니다. ZRS를 지역에서 사용할 수 없는 경우 스냅숏은 기본적으로 LRS ( [로컬 중복 저장소](../articles/storage/common/storage-redundancy-lrs.md) )로 사용 됩니다. 이 동작을 재정의 하 고 하나를 수동으로 선택할 수 있지만 권장 되지는 않습니다.
