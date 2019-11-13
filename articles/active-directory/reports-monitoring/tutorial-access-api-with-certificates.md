@@ -3,7 +3,7 @@ title: 인증서를 사용 하는 AD Reporting API에 대 한 자습서 | Micros
 description: 이 자습서에서는 인증서 자격 증명과 함께 Azure AD Reporting API를 사용하여 사용자 작업 없이 디렉터리에서 데이터를 가져오는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 ms.assetid: ''
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fe5f2a6d1957a544c63cb8a7c223ba9734786f8
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4d723af5d994006c4ae4f90905ede73fa87326bf
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895140"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014260"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>자습서: 인증서와 함께 Azure Active Directory Reporting API를 사용하여 데이터 가져오기
 
@@ -29,9 +29,9 @@ ms.locfileid: "72895140"
 
 이 자습서에서는 테스트 인증서를 사용하여 보고용 MS Graph API에 액세스하는 방법을 알아봅니다. 프로덕션 환경에서는 테스트 인증서를 사용하지 않는 것이 좋습니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-1. 로그인 데이터에 액세스하려면 Premium (P1/P2) 라이선스를 사용하는 Azure Active Directory 테넌트가 있는지 확인합니다. Azure Active Directory 버전을 업그레이드 하려면 [Azure Active Directory Premium 시작](../fundamentals/active-directory-get-started-premium.md) 을 참조 하세요. 업그레이드 전에 활동 데이터가 없었다면 Premium 라이선스로 업그레이드한 후 보고서에 데이터가 나타나기까지 1~2일 정도 걸립니다. 
+1. 로그인 데이터에 액세스하려면 Premium (P1/P2) 라이선스를 사용하는 Azure Active Directory 테넌트가 있는지 확인합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요. 업그레이드 전에 활동 데이터가 없었다면 프리미엄 라이선스로 업그레이드한 후 보고서에 데이터가 나타나기까지 며칠이 걸립니다. 
 
 2. 테넌트에 대한 **글로벌 관리자**, **보안 관리자**, **보안 읽기 권한자** 또는 **보고서 읽기 권한자** 역할의 사용자 계정을 만들거나 해당 계정으로 전환합니다. 
 
@@ -87,15 +87,15 @@ ms.locfileid: "72895140"
   
 7. 이제 이 인증서를 사용하여 MS Graph API에 대한 액세스 토큰을 가져올 수 있습니다. MSCloudIdUtils PowerShell 모듈에서 **Get-MSCloudIdMSGraphAccessTokenFromCert** cmdlet을 사용하여 이전 단계에서 가져온 애플리케이션 ID와 지문을 전달합니다. 
 
-   ![Azure Portal](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
+   ![Azure 포털](./media/tutorial-access-api-with-certificates/getaccesstoken.png)
 
 8. Powershell 스크립트에서 액세스 토큰을 사용하여 Graph API를 쿼리합니다. MSCloudIDUtils에서 **Invoke-MSCloudIdMSGraphQuery** cmdlet을 사용하여 signins 및 directoryAudits 엔드포인트를 열거합니다. 이 cmdlet은 여러 페이지 단위의 결과를 처리한 다음 PowerShell 파이프라인에 해당 결과를 보냅니다.
 
 9. directoryAudits 엔드포인트를 쿼리하여 감사 로그를 검색합니다. 
-   ![Azure 포털](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
+   ![Azure Portal](./media/tutorial-access-api-with-certificates/query-directoryAudits.png)
 
 10. signins 엔드포인트를 쿼리하여 로그인 로그를 검색합니다.
-    ![Azure 포털](./media/tutorial-access-api-with-certificates/query-signins.png)
+    ![Azure Portal](./media/tutorial-access-api-with-certificates/query-signins.png)
 
 11. 이제 이 데이터를 CSV로 내보내고 SIEM 시스템에 저장하도록 선택할 수 있습니다. 예약된 태스크에서 스크립트를 래핑하여 원본 코드에서 애플리케이션 키를 저장하지 않고 주기적으로 테넌트에서 Azure AD 데이터를 가져올 수도 있습니다. 
 

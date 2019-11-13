@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: dacurwin
-ms.openlocfilehash: a59ac45d157f8674374c894a280e51392038524b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: abd4e91b8fd3332191b58acf38daed06d03801be
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747402"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012832"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -46,8 +46,8 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 | 원인 | 권장 작업 |
 | ---     | ---    |
 | **자격 증명 모음 자격 증명이 유효 하지 않음** <br/> <br/> 자격 증명 모음 파일이 손상 되었거나 만료 되었을 수 있습니다. (예를 들어 등록 하는 동안 48 시간 이상 다운로드 되었을 수 있습니다.)| Azure Portal Recovery Services 자격 증명 모음에서 새 자격 증명을 다운로드 합니다. [MARS 에이전트 다운로드](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) 섹션의 6 단계를 참조 하세요. 그런 후에 다음 단계를 적절 하 게 수행 합니다. <ul><li> MARS를 이미 설치 하 고 등록 한 경우 Microsoft Azure Backup 에이전트 MMC 콘솔을 열고 **작업** 창에서 **서버 등록** 을 선택 하 여 새 자격 증명을 사용 하 여 등록을 완료 합니다. <br/> <li> 새 설치에 실패 하는 경우 새 자격 증명을 사용 하 여 다시 설치 해 봅니다.</ul> **참고**: 여러 자격 증명 모음 파일을 다운로드 한 경우 최신 파일만 다음 48 시간 동안 유효 합니다. 새 자격 증명 모음 자격 증명 파일을 다운로드 하는 것이 좋습니다.
-| **프록시 서버/방화벽이 등록을 차단 하 고 있습니다.** <br/>또는 <br/>**인터넷 연결 없음** <br/><br/> 컴퓨터 또는 프록시 서버가 인터넷 연결을 제한 하 고 필요한 Url에 대 한 액세스를 보장 하지 않는 경우 등록에 실패 합니다.| 다음 단계를 수행 합니다.<br/> <ul><li> IT 팀과 협력 하 여 시스템이 인터넷에 연결 되어 있는지 확인 합니다.<li> 프록시 서버가 없는 경우 에이전트를 등록할 때 프록시 옵션이 선택 되어 있지 않은지 확인 합니다. [프록시 설정을 확인](#verifying-proxy-settings-for-windows)하세요.<li> 방화벽/프록시 서버를 사용 하는 경우에는 네트워킹 팀과 협력 하 여 이러한 Url 및 IP 주소에 액세스할 수 있는지 확인 합니다.<br/> <br> **URL**<br> `www.msftncsi.com` <br> . Microsoft.com <br> . WindowsAzure.com <br> . microsoftonline.com <br> . windows.net <br>**IP 주소**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>위의 문제 해결 단계를 완료 한 후 다시 등록 해 보세요.
-| **바이러스 백신 소프트웨어가 등록을 차단 하 고 있습니다.** | 서버에 바이러스 백신 소프트웨어가 설치 되어 있는 경우 다음과 같은 파일 및 폴더에 대 한 바이러스 백신 검사에 필요한 제외 규칙을 추가 합니다. <br/><ul> <li> CBengine.exe <li> CSC.EXE<li> 스크래치 폴더입니다. 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> C:\Program Files\Microsoft Azure Recovery Services의 bin 폴더.
+| **프록시 서버/방화벽이 등록을 차단 하 고 있습니다.** <br/>or <br/>**인터넷 연결 없음** <br/><br/> 컴퓨터 또는 프록시 서버가 인터넷 연결을 제한 하 고 필요한 Url에 대 한 액세스를 보장 하지 않는 경우 등록에 실패 합니다.| 다음 단계를 수행 합니다.<br/> <ul><li> IT 팀과 협력 하 여 시스템이 인터넷에 연결 되어 있는지 확인 합니다.<li> 프록시 서버가 없는 경우 에이전트를 등록할 때 프록시 옵션이 선택 되어 있지 않은지 확인 합니다. [프록시 설정을 확인](#verifying-proxy-settings-for-windows)하세요.<li> 방화벽/프록시 서버를 사용 하는 경우에는 네트워킹 팀과 협력 하 여 이러한 Url 및 IP 주소에 액세스할 수 있는지 확인 합니다.<br/> <br> **URL**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP 주소**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>위의 문제 해결 단계를 완료 한 후 다시 등록 해 보세요.
+| **바이러스 백신 소프트웨어가 등록을 차단 하 고 있습니다.** | 서버에 바이러스 백신 소프트웨어가 설치 되어 있는 경우 다음과 같은 파일 및 폴더에 대 한 바이러스 백신 검사에 필요한 제외 규칙을 추가 합니다. <br/><ul> <li> CBengine.exe <li> CSC.exe<li> 스크래치 폴더입니다. 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> C:\Program Files\Microsoft Azure Recovery Services의 bin 폴더.
 
 ### <a name="additional-recommendations"></a>추가 권장 사항
 
@@ -119,11 +119,13 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 
   `<MARS agent installation path>\Microsoft Azure Recovery Services Agent\bin\Modules\MSOnlineBackup`
 
-- `LocalMachine`에 대 한 PowerShell 실행 정책이 제한으로 설정 된 경우 백업 작업을 트리거하는 PowerShell cmdlet이 실패할 수 있습니다. 관리자 모드에서 다음 명령을 실행 하 여 실행 정책을 확인 하 고 `Unrestricted` 또는 `RemoteSigned`으로 설정 합니다.
+- `LocalMachine`에 대 한 PowerShell 실행 정책이 `restricted`로 설정 된 경우 백업 작업을 트리거하는 PowerShell cmdlet이 실패할 수 있습니다. 관리자 모드에서 다음 명령을 실행 하 여 실행 정책을 확인 하 고 `Unrestricted` 또는 `RemoteSigned`으로 설정 합니다.
 
-  `PS C:\WINDOWS\system32> Get-ExecutionPolicy -List`
+ ```PowerShell
+ Get-ExecutionPolicy -List
 
-  `PS C:\WINDOWS\system32> Set-ExecutionPolicy Unrestricted`
+Set-ExecutionPolicy Unrestricted
+```
 
 - PowerShell 모듈 MSOnlineBackup 파일이 없거나 손상 되지 않았는지 확인 하십시오. 파일이 없거나 손상 된 경우 다음 단계를 수행 합니다.
 
@@ -165,9 +167,9 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 
 ## <a name="troubleshoot-cache-problems"></a>캐시 문제 해결
 
-캐시 폴더 (스크래치 폴더 라고도 함)가 잘못 구성 되었거나 누락 된 필수 구성 요소가 있거나 액세스가 제한 된 경우 백업 작업이 실패할 수 있습니다.
+캐시 폴더 (스크래치 폴더 라고도 함)가 잘못 구성 되었거나, 필수 구성 요소가 없거나, 액세스가 제한 된 경우 백업 작업이 실패할 수 있습니다.
 
-### <a name="pre-requisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>선행 조건
 
 MARS 에이전트 작업을 성공적으로 수행 하려면 캐시 폴더에서 다음 요구 사항을 준수 해야 합니다.
 
@@ -193,7 +195,7 @@ MARS 에이전트 작업을 성공적으로 수행 하려면 캐시 폴더에서
 - 스크래치 폴더입니다. 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch입니다.
 - C:\Program Files\Microsoft Azure Recovery Services Agent\Bin의 bin 폴더
 - CBengine.exe
-- CSC.EXE
+- CSC.exe
 
 ## <a name="common-issues"></a>일반적인 문제
 
@@ -215,13 +217,13 @@ Microsoft Azure Recovery Services 에이전트가 VHD를 초기화하기 위해 
 
 오류 메시지 | 권장 작업 |
 -- | --
-스크래치 폴더가 있는 볼륨의 저장소 공간이 부족 하 여 백업에 실패 했습니다. | 이 문제를 해결 하려면 아래 단계를 확인 하 고 작업을 다시 시도 하세요.<br/>[MARS 에이전트가 최신 상태 - 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> [백업 스크래치 공간에 영향을 주는 저장소 문제를 확인 하 고 해결](#pre-requisites) - 
+스크래치 폴더가 있는 볼륨의 저장소 공간이 부족 하 여 백업에 실패 했습니다. | 이 문제를 해결 하려면 아래 단계를 확인 하 고 작업을 다시 시도 하세요.<br/>[MARS 에이전트가 최신 상태 - 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> [백업 스크래치 공간에 영향을 주는 저장소 문제를 확인 하 고 해결](#prerequisites) - 
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 오류 메시지 | 권장 작업 |
 -- | --
-파일에 변경 내용을 찾을 수 없습니다. 이는 다양한 이유 때문일 수 있습니다. 작업을 다시 시도하세요. | 이 문제를 해결 하려면 아래 단계를 확인 하 고 작업을 다시 시도 하세요.<br/> [MARS 에이전트가 최신 상태 - 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> [백업 스크래치 공간에 영향을 주는 저장소 문제를 확인 하 고 해결](#pre-requisites) - 
+파일에 변경 내용을 찾을 수 없습니다. 이는 다양한 이유 때문일 수 있습니다. 작업을 다시 시도하세요. | 이 문제를 해결 하려면 아래 단계를 확인 하 고 작업을 다시 시도 하세요.<br/> [MARS 에이전트가 최신 상태 - 확인](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> [백업 스크래치 공간에 영향을 주는 저장소 문제를 확인 하 고 해결](#prerequisites) - 
 
 ## <a name="next-steps"></a>다음 단계
 

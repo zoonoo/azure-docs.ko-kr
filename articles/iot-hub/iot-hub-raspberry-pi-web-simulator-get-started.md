@@ -1,5 +1,5 @@
 ---
-title: 시뮬레이션된 Raspberry Pi-클라우드(Node.js) - Azure IoT Hub에 Raspberry Pi 웹 시뮬레이터 연결 | Microsoft Docs
+title: Raspberry Pi 웹 시뮬레이터를 Azure IoT Hub (node.js)에 연결
 description: Raspberry Pi가 Azure 클라우드에 데이터를 보내도록 Raspberry Pi 웹 시뮬레이터를 Azure IoT Hub에 연결합니다.
 author: wesmc7777
 manager: philmea
@@ -10,12 +10,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 9af2f0860c415ddb701e24ed8a698fae36d42e1f
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: efbe41be6c923f3547df86fd6faeb56bff5e0802
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838717"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954525"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Azure IoT Hub에 Raspberry Pi 온라인 시뮬레이터 연결(Node.js)
 
@@ -54,7 +54,7 @@ ms.locfileid: "67838717"
 
 * Raspberry Pi 온라인 시뮬레이터를 사용하는 방법
 
-* IoT Hub로 센서 데이터를 보내는 방법.
+* IoT Hub로 센서 데이터를 보내는 방법
 
 ## <a name="overview-of-raspberry-pi-web-simulator"></a>Raspberry Pi 웹 시뮬레이터 개요
 
@@ -94,17 +94,17 @@ ms.locfileid: "67838717"
 
 1. 코딩 영역에서 기본 샘플 애플리케이션으로 작업 중인지 확인합니다. 15행의 자리 표시자를 Azure IoT Hub 디바이스 연결 문자열로 대체합니다.
 1. 
-   ![장치 연결 문자열로 대체 합니다.](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
+   ![장치 연결 문자열 바꾸기](media/iot-hub-raspberry-pi-web-simulator/1-connectionstring.png)
 
-2. 선택 **실행** 종류나 `npm start` 응용 프로그램을 실행 합니다.
+2. **실행** 을 선택 하거나 `npm start` 입력 하 여 응용 프로그램을 실행 합니다.
 
 IoT Hub로 전송되는 센서 데이터와 메시지를 보여 주는 다음 출력이 표시됩니다. ![출력 - Raspberry Pi에서 IoT Hub로 전송된 센서 데이터](media/iot-hub-raspberry-pi-web-simulator/2-run-application.png)
 
-## <a name="read-the-messages-received-by-your-hub"></a>허브에서 수신한 메시지 읽기
+## <a name="read-the-messages-received-by-your-hub"></a>허브에서 받은 메시지 읽기
 
-시뮬레이트된 장치에서 IoT hub에서 수신한 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 참조 하세요 [for Visual Studio Code 장치 및 IoT Hub 간에 메시지를 받고 보내는 데 사용 하 여 Azure IoT 도구](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)합니다.
+시뮬레이션 된 장치에서 IoT hub가 받은 메시지를 모니터링 하는 한 가지 방법은 Visual Studio Code 용 Azure IoT 도구를 사용 하는 것입니다. 자세한 내용은 [Azure IoT Tools를 사용 하 여 장치와 IoT Hub 간에 메시지 보내기 및 받기 Visual Studio Code](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md)을 참조 하세요.
 
-장치에서 보낸 데이터를 처리 하는 방법을 더 보려면, 다음 섹션을 진행 합니다.
+장치에서 전송 되는 데이터를 처리 하는 방법에 대 한 자세한 내용은 다음 섹션을 계속 진행 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

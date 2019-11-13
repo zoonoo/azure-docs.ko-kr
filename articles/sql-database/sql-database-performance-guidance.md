@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 6e42911d05f387ea47b56b913e9a1868100c1b3c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0dc3a121b30f33d533b1079d9c81501130487017
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821373"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009096"
 ---
 # <a name="manual-tune-query-performance-in-azure-sql-database"></a>Azure SQL Database에서 쿼리 성능 수동 튜닝
 
@@ -253,7 +253,7 @@ Azure SQL Database 내에서 확장형 아키텍처를 사용하는 경우 애�
 
 임시 쿼리를 대량으로 빈번하게 사용하여 데이터에 액세스하는 애플리케이션의 경우 애플리케이션 계층과 Azure SQL Database 계층 간 네트워크 통신에서 많은 응답 시간이 사용됩니다. 애플리케이션과 Azure SQL Database가 동일한 데이터 센터 내에 있는 경우에도 데이터 액세스 작업 수가 많으면 그 사이의 네트워크 대기 시간이 커질 수 있습니다. 데이터 액세스 작업의 네트워크 왕복을 줄이기 위해 임시 쿼리를 일괄 처리하거나 저장된 프로시저로 컴파일하는 옵션을 사용하는 것을 고려하십시오. 임시 쿼리를 일괄 처리할 경우 복수 쿼리를 Azure SQL Database로 하나의 큰 일괄 처리로 한 번에 보낼 수 있습니다. 임시 쿼리를 저장된 프로시저로 컴파일하면 일괄 처리와 동일한 결과를 얻을 수 있습니다. 저장된 프로시저를 사용하면 Azure SQL Database에서 쿼리 계획을 캐싱하여 저장된 프로시저를 다시 사용할 수 있도록 하는 기회를 늘린다는 이점이 있습니다.
 
-일부 애플리케이션은 쓰기를 많이 사용합니다. 쓰기를 일괄 처리하는 방법을 고려하여 데이터베이스에서 총 IO 부하를 줄일 수 있는 경우도 있습니다. 흔히 이렇게 하려면 저장된 프로시저 및 임시 배치 내에서 트랜잭션을 자동 커밋하는 대신 명시적 트랜잭션을 사용하기만 하면 됩니다. 사용 가능한 다양한 기법을 평가하려면 [Azure에서 SQL Database 애플리케이션의 일괄 처리 기법](https://msdn.microsoft.com/library/windowsazure/dn132615.aspx)을 참조하세요. 자신의 고유한 워크로드를 가지고 실험하여 일괄 처리에 적합한 모델을 찾으세요. 모델의 트랜잭션 일관성 보증이 조금 다를 수 있다는 것을 이해해야 합니다. 리소스 사용을 최소화하는 올바른 워크로드를 찾으려면 일관성과 성능 사이의 올바른 조합을 찾아야 합니다.
+일부 애플리케이션은 쓰기를 많이 사용합니다. 쓰기를 일괄 처리하는 방법을 고려하여 데이터베이스에서 총 IO 부하를 줄일 수 있는 경우도 있습니다. 흔히 이렇게 하려면 저장된 프로시저 및 임시 배치 내에서 트랜잭션을 자동 커밋하는 대신 명시적 트랜잭션을 사용하기만 하면 됩니다. 사용 가능한 다양한 기법을 평가하려면 [Azure에서 SQL Database 애플리케이션의 일괄 처리 기법](sql-database-use-batching-to-improve-performance.md)을 참조하세요. 자신의 고유한 워크로드를 가지고 실험하여 일괄 처리에 적합한 모델을 찾으세요. 모델의 트랜잭션 일관성 보증이 조금 다를 수 있다는 것을 이해해야 합니다. 리소스 사용을 최소화하는 올바른 워크로드를 찾으려면 일관성과 성능 사이의 올바른 조합을 찾아야 합니다.
 
 ### <a name="application-tier-caching"></a>애플리케이션 계층 캐싱
 

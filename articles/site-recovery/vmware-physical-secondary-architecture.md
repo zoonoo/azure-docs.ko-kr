@@ -1,19 +1,18 @@
 ---
-title: VMware용 아키텍처/Azure Site Recovery를 사용하여 보조 사이트에 물리적 서버의 재해 복구 | Microsoft Docs
+title: 아키텍처-Azure Site Recovery를 사용 하 여 보조 사이트로의 VMware/물리적 재해 복구
 description: 이 문서에서는 Azure Site Recovery를 사용하여 온-프레미스 VMware VM 또는 실제 Windows/Linux 서버를 보조 VMware 사이트로 재해 복구하는 동안 사용되는 구성 요소 및 아키텍처 개요를 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-services: site-recovery
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 0c00e26e6c12835db96c192400c3fe8652534dd4
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b0a46dcf8fe298494a53713f122b1bda8ce07e5e
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972106"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954584"
 ---
 # <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>VMware용 아키텍처/보조 온-프레미스 사이트에 물리적 서버 복제
 

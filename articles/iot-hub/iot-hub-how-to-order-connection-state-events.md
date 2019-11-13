@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬 | Microsoft Docs
+title: 장치 연결 이벤트의 순서에 따라 fr-fr Azure IoT Hub w/Azure Cosmos DB
 description: 이 문서에서는 최신 연결 상태를 유지하기 위해 Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트를 정렬하고 기록하는 방법을 설명합니다.
 services: iot-hub
 ms.service: iot-hub
@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: asrastog
-ms.openlocfilehash: a020221d841682d1e18d2b728a732ec4dfc35ef3
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 210c2e74305ba99b4ac3a12625d0b7f5fc47ba43
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67988294"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954263"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용하여 Azure IoT Hub의 디바이스 연결 이벤트 정렬
 
@@ -20,15 +20,15 @@ Azure Event Grid를 사용하면 이벤트 기반 애플리케이션을 빌드�
 
 시퀀스 번호는 16진수 숫자에 대한 문자열 표현입니다. 문자열 비교를 사용하여 더 큰 숫자를 식별할 수 있습니다. 문자열을 16진수로 변환하면 숫자는 256비트 숫자가 됩니다. 시퀀스 번호는 절대적으로 증가하며 최신 이벤트는 다른 이벤트보다 번호가 높습니다. Azure Event Grid에서는 이벤트 정렬이 지원되지 않기 때문에 시퀀스 번호는 디바이스를 자주 연결하고 연결을 끊는 경우, 다운 스트림 작업을 트리거하는 데 최신 이벤트만 사용되도록 하려는 경우에 유용합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)에 만들 수 있습니다.
 
 * 활성 Azure Cosmos DB SQL API 계정입니다. 아직 만들지 않았다면, [데이터베이스 계정 만들기](../cosmos-db/create-sql-api-java.md#create-a-database-account)를 연습으로 참조하세요.
 
-* 데이터베이스의 컬렉션입니다. [컬렉션 추가](../cosmos-db/create-sql-api-java.md#add-a-container)를 연습으로 참조하세요. 컬렉션을 만들 때 파티션 키에 `/id` 대해를 사용 합니다.
+* 데이터베이스의 컬렉션입니다. [컬렉션 추가](../cosmos-db/create-sql-api-java.md#add-a-container)를 연습으로 참조하세요. 컬렉션을 만들 때 파티션 키에 대 한 `/id`를 사용 합니다.
 
-* Azure에 있는 IoT Hub입니다. 아직 만들지 않았다면, 연습으로 [IoT Hub 시작](iot-hub-csharp-csharp-getstarted.md)을 참조하세요.
+* Azure에 있는 IoT Hub. 아직 만들지 않았다면, 연습으로 [IoT Hub 시작](iot-hub-csharp-csharp-getstarted.md)을 참조하세요.
 
 ## <a name="create-a-stored-procedure"></a>저장 프로시저 만들기
 
@@ -264,7 +264,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
    ![새 이벤트 구독 만들기](./media/iot-hub-how-to-order-connection-state-events/event-subscription.png)
 
-4. **이벤트 구독 정보**입력: 설명이 포함된 이름을 제공하고, **Event Grid 스키마**를 선택합니다.
+4. **이벤트 구독 정보**입력: 설명이 포함 된 이름을 입력 하 고 **Event Grid 스키마**를 선택 합니다.
 
 5. **이벤트 유형** 필드를 입력 합니다. 드롭다운 목록에서 **장치에 연결 됨** 을 선택 하 고 메뉴에서 **장치 연결 끊기** 를 선택 합니다. 화면에서 다른 곳을 클릭 하 여 목록을 닫고 선택 내용을 저장 합니다.
 
@@ -292,7 +292,7 @@ Logic Apps Designer를 나가기 전에 논리 앱이 트리거에 대해 수신
 
 3. **디바이스 ID**로 `Demo-Device-1`를 입력합니다.
 
-4.           **저장**을 선택합니다.
+4. **저장**을 선택합니다.
 
 5. 다른 디바이스 ID로 여러 디바이스를 추가할 수 있습니다.
 

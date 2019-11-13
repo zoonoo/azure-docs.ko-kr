@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7993810343f6bd925afd54cc38a8302420d6aec
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 47a60ed44ddf057ef983f8f76f23fd784bc3efd5
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439367"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961827"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Azure Active Directory에서 디렉터리를 삭제 합니다.
 
@@ -56,7 +56,7 @@ Azure AD 디렉터리를 구성할 때 Azure AD Premium P2, Office 365 Business 
 
 평가판 Office 365 구독(유료 파트너/CSP, 기업계약 또는 볼륨 라이선스를 포함하지 않음)이 만료될 경우 예상되는 결과는 다음 표를 참조하세요. Office 365 데이터 보존 및 구독 수명 주기에 대한 자세한 내용은 [비즈니스용 Office 365 구독이 종료되면 내 데이터와 액세스 권한에 어떤 변화가 있나요?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3)를 참조하세요. 
 
-구독 상태 | 데이터 | 데이터 액세스
+구독 상태 | Data | 데이터 액세스
 ----- | ----- | -----
 활성(평가판의 경우 30일) | 모두 데이터에 액세스할 수 있음 | 사용자는 Office 365 파일 또는 앱에 대한 일반 액세스 권한이 있음<br>관리자는 Microsoft 365 관리 센터 및 리소스에 대 한 일반적인 액세스 권한을 가집니다. 
 만료됨(30일) | 모두 데이터에 액세스할 수 있음| 사용자는 Office 365 파일 또는 앱에 대한 일반 액세스 권한이 있음<br>관리자는 Microsoft 365 관리 센터 및 리소스에 대 한 일반적인 액세스 권한을 가집니다.
@@ -67,7 +67,7 @@ Azure AD 디렉터리를 구성할 때 Azure AD Premium P2, Office 365 Business 
 
 Microsoft 365 관리 센터를 사용 하 여 3 일 이내에 구독을 **프로 비전 해제** 상태로 전환할 수 있습니다.
 
-1. 조직의 전역 관리자 인 계정을 사용 하 여 [Microsoft 365 관리 센터](https://admin.microsoft.com) 에 로그인 합니다. 초기 기본 도메인 contoso.onmicrosoft.com을 포함 하는 "Contoso" 디렉터리를 삭제 하려는 경우 admin@contoso.onmicrosoft.com과 같은 UPN을 사용 하 여 로그인 합니다.
+1. 조직의 전역 관리자 인 계정을 사용 하 여 [Microsoft 365 관리 센터](https://admin.microsoft.com) 에 로그인 합니다. 초기 기본 도메인 contoso.onmicrosoft.com을 포함 하는 "Contoso" 디렉터리를 삭제 하려는 경우 admin@contoso.onmicrosoft.com와 같은 UPN을 사용 하 여 로그인 합니다.
 
 2. 새 **관리 센터 전환 시도** 를 사용 하도록 설정 하 여 새 Microsoft 365 관리 센터를 미리 봅니다.
 
@@ -97,7 +97,7 @@ Microsoft 365 관리 센터를 사용 하 여 3 일 이내에 구독을 **프로
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>삭제를 차단 하는 평가판 구독이 있습니다.
 
-Microsoft Power BI, Rights Management 서비스, Microsoft Power Apps 또는 Dynamics 365와 같은 [셀프 서비스 등록 제품이](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) 있습니다. 개별 사용자는 Office 365를 통해 등록할 수 있으며, Azure AD 디렉터리에서 인증을 위한 게스트 사용자도 만듭니다. . 이러한 셀프 서비스 제품은 디렉터리에서 완전히 삭제 될 때까지 디렉터리 삭제를 차단 하 여 데이터 손실을 방지 합니다. 사용자가 개별적으로 등록 하거나 제품을 할당 했는지 여부에 관계 없이 Azure AD 관리자만 삭제할 수 있습니다.
+Microsoft Power BI, Rights Management 서비스, Microsoft Power Apps 또는 Dynamics 365와 같은 [셀프 서비스 등록 제품이](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide) 있습니다. 개별 사용자는 Office 365를 통해 등록할 수 있으며, Azure AD 디렉터리에서 인증을 위해 게스트 사용자도 만듭니다. 이러한 셀프 서비스 제품은 디렉터리에서 완전히 삭제 될 때까지 디렉터리 삭제를 차단 하 여 데이터 손실을 방지 합니다. 사용자가 개별적으로 등록 하거나 제품을 할당 했는지 여부에 관계 없이 Azure AD 관리자만 삭제할 수 있습니다.
 
 할당 되는 방법에는 두 가지 유형의 셀프 서비스 등록 제품이 있습니다. 
 
@@ -108,24 +108,24 @@ Microsoft Power BI, Rights Management 서비스, Microsoft Power Apps 또는 Dyn
 
 현재 사용할 수 있는 셀프 서비스 등록 제품 및 서비스에 대 한 자세한 내용은 [사용 가능한 셀프 서비스 프로그램](https://docs.microsoft.com/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs)을 참조 하십시오.
 
-평가판 Office 365 구독(유료 파트너/CSP, 기업계약 또는 볼륨 라이선스를 포함하지 않음)이 만료될 경우 예상되는 결과는 다음 표를 참조하세요. Office 365 데이터 보존 및 구독 수명 주기에 대 한 자세한 내용은 [office 365 for business 구독이 종료 되는 경우 데이터 및 액세스의 결과](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide)를 참조 하세요.
+평가판 Office 365 구독(유료 파트너/CSP, 기업계약 또는 볼륨 라이선스를 포함하지 않음)이 만료될 경우 예상되는 결과는 다음 표를 참조하세요. Office 365 데이터 보존 및 구독 수명 주기에 대한 자세한 내용은 [비즈니스용 Office 365 구독이 종료되면 내 데이터와 액세스 권한에 어떤 변화가 있나요?](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide)를 참조하세요.
 
-제품 상태 | 데이터 | 데이터 액세스
+제품 상태 | Data | 데이터 액세스
 ------------- | ---- | --------------
 활성(평가판의 경우 30일) | 모두 데이터에 액세스할 수 있음 | 사용자는 셀프 서비스 등록 제품, 파일 또는 앱에 대 한 일반적인 액세스 권한이 있습니다.<br>관리자는 Microsoft 365 관리 센터 및 리소스에 대 한 일반적인 액세스 권한을 가집니다.
-삭제됨 | 삭제 된 데이터 | 사용자는 셀프 서비스 등록 제품, 파일 또는 앱에 액세스할 수 없습니다.<br>관리자는 Microsoft 365 관리 센터에 액세스 하 여 다른 구독을 구매 하 고 관리할 수 있습니다.
+Deleted | 삭제 된 데이터 | 사용자는 셀프 서비스 등록 제품, 파일 또는 앱에 액세스할 수 없습니다.<br>관리자는 Microsoft 365 관리 센터에 액세스 하 여 다른 구독을 구매 하 고 관리할 수 있습니다.
 
 ## <a name="how-can-i-delete-a-self-service-sign-up-product-in-the-azure-portal"></a>Azure Portal에서 셀프 서비스 등록 제품을 삭제 하려면 어떻게 해야 하나요?
 
 Microsoft Power BI 또는 Azure Rights Management 서비스와 같은 셀프 서비스 등록 제품을 Azure AD 포털에서 즉시 삭제할 **삭제** 상태로 전환할 수 있습니다.
 
-1. 조직에서 전역 관리자 인 계정으로 [AZURE AD 관리 센터](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with 로그인 합니다. 초기 기본 도메인 contoso.onmicrosoft.com을 포함 하는 "Contoso" 디렉터리를 삭제 하려는 경우 admin@contoso.onmicrosoft.com과 같은 UPN을 사용 하 여 로그온 합니다.
+1. 조직의 전역 관리자 인 계정으로 [AZURE AD 관리 센터](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) 에 로그인 합니다. 초기 기본 도메인 contoso.onmicrosoft.com을 포함 하는 "Contoso" 디렉터리를 삭제 하려는 경우 admin@contoso.onmicrosoft.com와 같은 UPN을 사용 하 여 로그온 합니다.
 
-2. **라이선스**를 선택 하 고 **셀프 서비스 등록 제품**을 선택 합니다. 사용자 기반 구독에서 별도로 모든 셀프 서비스 등록 제품을 볼 수 있습니다. 영구적으로 삭제 하려는 제품을 선택 합니다. Microsoft Power BI의 예제는 다음과 같습니다.
+2. **라이선스**를 선택 하 고 **셀프 서비스 등록 제품**을 선택 합니다. 사용자 기반 구독에서 별도로 모든 셀프 서비스 등록 제품을 볼 수 있습니다. 영구적으로 삭제 하려는 제품을 선택 합니다. Microsoft Power BI의 예제는 다음과 같습니다.
 
     ![사용자 이름이 잘못 입력 되었거나 찾을 수 없습니다.](./media/directory-delete-howto/licenses-page.png)
 
-3.  **삭제** 을 선택 하 여 제품을 삭제 하 고 데이터를 즉시 삭제 하 고 영구적으로 삭제 하는 조건에 동의 합니다. 이 삭제 작업은 모든 사용자를 제거 하 고 제품에 대 한 조직 액세스를 제거 합니다. 예를 클릭 하 여 삭제를 진행 합니다.  
+3. **삭제** 를 선택 하 여 제품을 삭제 하 고 데이터를 즉시 삭제 하 고 영구적으로 삭제 하는 조건에 동의 합니다. 이 삭제 작업은 모든 사용자를 제거 하 고 제품에 대 한 조직 액세스를 제거 합니다. 예를 클릭 하 여 삭제를 진행 합니다.  
 
     ![사용자 이름이 잘못 입력 되었거나 찾을 수 없습니다.](./media/directory-delete-howto/delete-product.png)
 

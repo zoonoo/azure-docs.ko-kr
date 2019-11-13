@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: bdbc50983708327cf5d3857282c92fcab1c28b09
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: d9c294d4ddadd1f6be7f66cd7fdd0f0dc723e18f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930538"
+ms.locfileid: "73950571"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Azure Cosmos DB의 진단 로깅 
 
@@ -70,7 +70,7 @@ Azure 진단 로그는 리소스에서 내보내며, 해당 리소스의 작업�
 
 Azure Portal에서 진단 로깅을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
+1. [Azure 포털](https://portal.azure.com)할 수 있습니다. 
 
 1. Azure Cosmos 계정으로 이동합니다. **진단 설정** 창을 열고 **진단 설정 추가** 옵션을 선택 합니다.
 
@@ -401,7 +401,7 @@ Azure Monitor 로그에서 진단 데이터를 보려면 다음 그림과 같이
 ![최근 10개 로그에 대한 샘플 로그 검색](./media/logging/log-analytics-query.png)
 
 <a id="#queries"></a>
-### <a name="cosmosdb-log-analytics-queries-in-azure-monitor"></a>CosmosDB Log Analytics 쿼리 Azure Monitor
+### <a name="azure-cosmos-db-log-analytics-queries-in-azure-monitor"></a>Log Analytics 쿼리를 Azure Cosmos DB Azure Monitor
 
 Azure Cosmos 컨테이너를 모니터링 하는 데 도움이 되는 **로그 검색** 상자에 입력할 수 있는 몇 가지 추가 쿼리는 다음과 같습니다. 이러한 쿼리는 [새 언어](../log-analytics/log-analytics-log-search-upgrade.md)에서 작동합니다.  
 
@@ -445,6 +445,7 @@ Azure Cosmos 컨테이너를 모니터링 하는 데 도움이 되는 **로그 �
     | where Caller == "test@company.com" and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" 
     | summarize count() by Resource
     ```
+
     > [!NOTE]
     > 이 명령은 진단 로그가 아닌 활동 로그용입니다.
 
@@ -462,8 +463,6 @@ Azure Cosmos 컨테이너를 모니터링 하는 데 도움이 되는 **로그 �
     | order by requestCharge_s desc
     | limit 100
     ```
-    
-      
 
 * 3밀리초보다 오래 소요되는 작업을 쿼리하려면
 
@@ -496,11 +495,8 @@ Azure Cosmos 컨테이너를 모니터링 하는 데 도움이 되는 **로그 �
     AzureDiagnostics 
     | where ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="PartitionKeyStatistics" 
     | project SubscriptionId, regionName_s, databaseName_s, collectionname_s, partitionkey_s, sizeKb_s, ResourceId 
-    
-   
     ```
     
-
 새 로그 검색 언어를 사용 하는 방법에 대 한 자세한 내용은 [Azure Monitor 로그의 로그 검색 이해](../log-analytics/log-analytics-log-search-new.md)를 참조 하세요. 
 
 ## <a id="interpret"></a>로그 해석
@@ -512,7 +508,7 @@ Azure Storage 및 Azure Monitor 로그에 저장 된 진단 데이터는 유사�
 | Azure Storage 필드 또는 속성 | Azure Monitor logs 속성 | 설명 |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | 작업이 발생한 날짜 및 시간(UTC)입니다. |
-| **resourceId** | **리소스** | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
+| **resourceId** | **Resource** | 로그가 사용하도록 설정된 Azure Cosmos DB 계정입니다.|
 | **category** | **범주** | Azure Cosmos DB 로그의 경우 **DataPlaneRequests**가 사용 가능한 유일한 값입니다. |
 | **operationName** | **OperationName** | 작업의 이름입니다. 이 값은 Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed 또는 Upsert 작업 중 하나일 수 있습니다.   |
 | **properties** | 해당 없음 | 이 필드의 내용은 다음 행에 설명되어 있습니다. |

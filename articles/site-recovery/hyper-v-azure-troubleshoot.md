@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 Hyper-V와 Azure 간 재해 복구 문제 해결 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 Hyper-v 재해 복구 문제 해결
 description: Azure Site Recovery를 사용하여 Hyper-V와 Azure 간 복제의 재해 복구 문제를 해결하는 방법을 설명합니다.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/14/2019
 ms.author: rajanaki
-ms.openlocfilehash: 2cf43f8a235b112cfcf1fc6c9dba626a5a0c9b7e
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 0a3e5c922009353e4ba9ccab12cf70ea2b5992da
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828397"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961477"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Hyper-V와 Azure 간 복제 및 장애 조치(Failover) 문제 해결
 
@@ -53,7 +53,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
     - 작업 환경에서 VMM을 사용하여 복제하는 경우 다음 서비스가 실행되고 있는지 확인합니다.
         - Hyper-V 호스트에서 Virtual Machine Management 서비스, Microsoft Azure Recovery Services Agent 및 WMI Provider Host 서비스가 실행되고 있는지 확인합니다.
         - VMM 서버에서 System Center Virtual Machine Manager 서비스가 실행되고 있는지 확인합니다.
-4. Hyper-V 서버와 Azure 간의 연결을 확인합니다. 연결을 확인하려면 Hyper-V 호스트에서 작업 관리자를 엽니다. **성능** 탭에서 **리소스 모니터 열기**를 클릭합니다. **네트워크** 탭 > **네트워크 활동이 있는 프로세스**에서 cbengine.exe가 대용량(Mbs)의 데이터를 전송하고 있는지를 확인합니다.
+4. Hyper-V 서버와 Azure 간의 연결을 확인합니다. 연결을 확인하려면 Hyper-V 호스트에서 작업 관리자를 엽니다. **성능** 탭으로 이동하고 **리소스 모니터 열기**를 클릭합니다. **네트워크** 탭 > **네트워크 활동이 있는 프로세스**에서 cbengine.exe가 대용량(Mbs)의 데이터를 전송하고 있는지를 확인합니다.
 5. Hyper-V 호스트가 Azure Storage Blob URL에 연결할 수 있는지 확인합니다. 호스트를 연결할 수 있는지 확인하려면 **cbengine.exe**를 선택하고 확인합니다. **TCP 연결**에서 호스트-Azure Storage Blob 간 연결을 확인합니다.
 6. 아래 설명된 대로 성능 문제를 확인합니다.
     
@@ -66,7 +66,7 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 3. 프로파일러를 실행한 후 [대역폭](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) 및 [스토리지](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) 권장 사항을 따릅니다.
 4. [데이터 변동 제한 사항](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)을 확인합니다. VM에서 높은 데이터 변동이 확인되면 다음을 수행합니다.
    - VM이 재동기화용으로 표시되어 있는지 여부를 확인합니다.
-   - [이 단계](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/)에 따라 변동의 원본을 조사합니다.
+   - [다음 단계](https://blogs.technet.microsoft.com/virtualization/2014/02/02/hyper-v-replica-debugging-why-are-very-large-log-files-generated/)에 따라 변동의 원본을 조사합니다.
    - HRL 로그 파일이 사용 가능한 디스크 공간의 50%를 초과하면 변동이 발생할 수 있습니다. 이것이 문제인 경우 문제가 발생하는 모든 VM에 대해 더 많은 스토리지 공간을 프로비전합니다.
    - 복제가 일시 중지되지 않았는지 확인합니다. 일시 중지된 경우 HRL 파일에 변경 내용이 계속 써지므로 파일 크기가 커질 수 있습니다.
  
@@ -111,8 +111,8 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 6. VSS 스냅샷을 만드는 앱과 충돌하지 않는지 확인합니다. 여러 앱이 VSS 스냅샷을 동시에 만들려고 하면 충돌이 발생할 수 있습니다. 예를 들어, 복제 정책에 따라 Site Recovery가 스냅샷을 만들도록 예약되어 있을 때 Backup 앱이 VSS 스냅샷을 만드는 경우가 여기에 해당합니다.   
 7. VM에서 높은 변동률이 발생하는지 확인합니다.
     - Hyper-V 호스트에서 성능 카운터를 사용하여 게스트 VM에 대한 일일 데이터 변경률을 측정할 수 있습니다. 데이터 변경률을 측정하려면 다음 카운터를 사용하도록 설정합니다. 5-15분 동안 전체 VM 디스크에서 이 값의 샘플을 집계하여 VM 변동 정보를 파악합니다.
-        - 범주: “Hyper-V 가상 스토리지 디바이스”
-        - 카운터: “쓰기 바이트/초”</br>
+        - 범주: &quot;Hyper-V 가상 스토리지 디바이스&quot;
+        - 카운터: "Write Bytes / Sec"</br>
         - 이 데이터 변동률은 VM 및 해당 앱의 작업량에 따라 증가하거나 높은 수준을 유지합니다.
         - 평균 원본 디스크 데이터 변동은 Site Recovery용 표준 스토리지에 대해 2MB/s입니다. [자세히 알아보기](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits)
     - 또한 [스토리지 확장성 목표를 확인](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)할 수 있습니다.
@@ -125,18 +125,18 @@ Hyper-V VM에 대해 보호를 사용하도록 설정할 경우 문제가 발생
 1. 이벤트 로그에서 VSS 오류 및 권장 사항을 확인합니다.
     - Hyper-V 호스트 서버의 **이벤트 뷰어** > **Applications and Services Logs** > **Microsoft** > **Windows** > **Hyper-V** > **Admin**에서 Hyper-V Admin 이벤트 로그를 엽니다.
     - 앱 일치 스냅샷 실패를 나타내는 이벤트가 있는지 여부를 확인합니다.
-    - 일반적인 오류는 다음과 같습니다. "Hyper-V가 가상 머신 'XYZ'에 대한 VSS 스냅샷 세트를 생성하지 못했습니다. 작성자에게 일시적인 오류가 발생했습니다. VSS 서비스가 응답하지 않을 때 서비스를 다시 시작하면 문제가 해결될 수 있습니다."
+    - 일반적인 오류는 다음과 같습니다. "Hyper-V가 가상 머신 'XYZ'에 대한 VSS 스냅샷 집합을 생성하지 못했습니다. 작성자에게 영구 오류가 발생했습니다. VSS 서비스가 응답하지 않을 때 서비스를 다시 시작하면 문제가 해결될 수 있습니다."
 
 2. VM에 대한 VSS 스냅샷을 생성하려면 VM에서 Hyper-V Integration Services가 설치되어 있는지와 Backup(VSS) Integration Services가 사용되도록 설정되어 있는지 확인합니다.
     - Integration Services VSS 서비스/디먼이 게스트에서 실행되고 있는지와 **정상** 상태인지 확인합니다.
-    - **Enable-vmintegrationservice-VMName\<VMName >-Name VSS** 명령을 사용 하 여 hyper-v 호스트의 관리자 권한 PowerShell 세션에서이를 확인할 수 있습니다. 게스트 VM에 로그인 하 여이 정보를 가져올 수도 있습니다. [자세히 알아보기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
+    - **Enable-vmintegrationservice-VMName\<> VMName-NAME VSS** 명령을 사용 하 여 hyper-v 호스트의 관리자 권한 PowerShell 세션에서이를 확인할 수 있습니다. 게스트 VM에 로그인 하 여이 정보를 가져올 수도 있습니다. [자세히 알아봅니다](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
     - VM에서 Backup/VSS Integration Services가 실행되고 있는지와 정상 상태인지 확인합니다. 그렇지 않은 경우, 이러한 서비스와 Hyper-V 호스트 서버의 Hyper-V 볼륨 섀도 복사본 요청자 서비스를 다시 시작합니다.
 
 ### <a name="common-errors"></a>일반 오류
 
 **오류 코드** | **메시지** | **세부 정보**
 --- | --- | ---
-**0x800700EA** | "Hyper-V가 가상 머신에 대한 VSS 스냅샷 세트를 생성하지 못했습니다. 추가 데이터를 사용할 수 있습니다. (0x800700EA). 백업 작업이 진행 중인 경우 VSS 스냅샷 집합 생성이 실패할 수 있습니다.<br/><br/> 가상 머신에 대한 복제 작업이 실패했습니다. 추가 데이터를 사용할 수 있습니다.” | VM의 동적 디스크가 사용되도록 설정되어 있는지 확인합니다. 지원되지 않습니다.
+**0x800700EA** | "Hyper-V가 가상 머신에 대한 VSS 스냅샷 집합을 생성하지 못했습니다. 추가 데이터를 사용할 수 있습니다. (0x800700EA). 백업 작업이 진행 중인 경우 VSS 스냅샷 집합 생성이 실패할 수 있습니다.<br/><br/> 가상 머신에 대한 복제 작업이 실패했습니다. 추가 데이터를 사용할 수 있습니다.” | VM의 동적 디스크가 사용되도록 설정되어 있는지 확인합니다. 지원되지 않습니다.
 **0x80070032** | Hyper-V 볼륨 섀도 복사본 요청자가 해당 버전이 Hyper-V에서 요구하는 버전과 일치하지 않으므로 가상 머신 <./VMname>에 연결하지 못했습니다. | 최신 Windows 업데이트가 설치되어 있는지 확인합니다.<br/><br/> 최신 버전의 Integration Services로 [업그레이드](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date)합니다.
 
 

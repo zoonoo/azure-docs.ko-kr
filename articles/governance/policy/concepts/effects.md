@@ -1,17 +1,14 @@
 ---
 title: 효과 작동 방식 이해
 description: Azure Policy 정의에는 규정 준수를 관리 하 고 보고 하는 방법을 결정 하는 다양 한 효과가 있습니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-ms.openlocfilehash: c448ab889ad263f4f8b6c9a59048551ca761d69a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c345f96ef5176c4afb3d46aaca2e9903c7911fb1
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464042"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73959897"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -22,7 +19,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 - [추가할](#append)
 - [감사](#audit)
 - [AuditIfNotExists](#auditifnotexists)
-- [차단할](#deny)
+- [거부](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [사용 안 함](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (미리 보기)
@@ -161,7 +158,7 @@ Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를
 
 **Operation** 속성에는 다음과 같은 옵션이 있습니다.
 
-|작업 |설명 |
+|작업(Operation) |설명 |
 |-|-|
 |addOrReplace |태그가 다른 값으로 이미 존재 하는 경우에도 정의 된 태그 및 값을 리소스에 추가 합니다. |
 |추가 |리소스에 정의 된 태그 및 값을 추가 합니다. |
@@ -243,7 +240,7 @@ Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를
 
 ### <a name="audit-evaluation"></a>감사 평가
 
-Audit는 리소스를 만들거나 업데이트 하는 동안 Azure Policy에서 확인 한 마지막 효과입니다. 그런 다음 리소스를 리소스 공급자에 게 보냅니다. Azure Policy 감사는 리소스 요청 및 평가 주기와 동일하게 작동합니다. Azure Policy 작업 로그에 `Microsoft.Authorization/policies/audit/action` 작업을 추가 하 고 리소스를 비규격으로 표시 합니다.
+Audit는 리소스를 만들거나 업데이트 하는 동안 Azure Policy에서 확인 한 마지막 효과입니다. 그런 다음 리소스를 리소스 공급자에 게 보냅니다. Azure Policy 감사는 리소스 요청 및 평가 주기와 동일하게 작동합니다. Azure Policy는 활동 로그에 `Microsoft.Authorization/policies/audit/action` 작업을 추가 하 고 리소스를 비규격으로 표시 합니다.
 
 ### <a name="audit-properties"></a>감사 속성
 
@@ -504,7 +501,7 @@ EnforceOPAConstraint 효과의 **details** 속성에는 게이트 키퍼 v3 허�
 
 EnforceRegoPolicy 효과의 **details** 속성에는 게이트 키퍼 허용 제어 규칙을 설명 하는 하위 속성이 있습니다.
 
-- **Policyid** [필수]
+- **policyId** [required]
   - Rego 허용 제어 규칙에 매개 변수로 전달 되는 고유 이름입니다.
 - **정책** [필수]
   - Rego 허용 제어 규칙의 URI를 지정 합니다.

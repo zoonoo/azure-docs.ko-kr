@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 11/11/2019
 ms.author: cherylmc
-ms.openlocfilehash: 38250d1cd9853013ba9721ece0201a8df6dd1b4a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 6678efd04125e6ae0e0b66e8bcc011c0f319c0fb
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336285"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954302"
 ---
 # <a name="advertise-custom-routes-for-p2s-vpn-clients"></a>P2S VPN 클라이언트에 대 한 사용자 지정 경로 보급
 
@@ -22,9 +22,9 @@ ms.locfileid: "71336285"
 
 ## <a name="to-advertise-custom-routes"></a>사용자 지정 경로를 보급 하려면
 
-사용자 지정 경로를 보급 하려면를 `Set-AzVirtualNetworkGateway cmdlet`사용 합니다. 다음 예에서는 [Contoso 저장소 계정 테이블](https://contoso.table.core.windows.net)의 IP를 보급 하는 방법을 보여 줍니다.
+사용자 지정 경로를 보급 하려면 `Set-AzVirtualNetworkGateway cmdlet`을 사용 합니다. 다음 예에서는 [Contoso 저장소 계정 테이블](https://contoso.table.core.windows.net)의 IP를 보급 하는 방법을 보여 줍니다.
 
-1. *Contoso.table.core.windows.net* 를 Ping 하 고 IP 주소를 적어둡니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+1. *Contoso.table.core.windows.net* 를 Ping 하 고 IP 주소를 적어둡니다. 예:
 
     ```cmd
     C:\>ping contoso.table.core.windows.net
@@ -38,7 +38,7 @@ ms.locfileid: "71336285"
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute 13.88.144.250/32
     ```
 
-3. 여러 사용자 지정 경로를 추가 하려면 쉼표가와 공백을 사용 하 여 주소를 구분 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+3. 여러 사용자 지정 경로를 추가 하려면 쉼표가와 공백을 사용 하 여 주소를 구분 합니다. 예:
 
     ```azurepowershell-interactive
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute x.x.x.x/xx , y.y.y.y/yy
@@ -51,7 +51,14 @@ ms.locfileid: "71336285"
   $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
   $gw.CustomRoutes | Format-List
   ```
+## <a name="to-delete-custom-routes"></a>사용자 지정 경로를 삭제 하려면
 
+다음 예제를 사용 하 여 사용자 지정 경로를 삭제 합니다.
+
+  ```azurepowershell-interactive
+  $gw = Get-AzVirtualNetworkGateway -Name <name of gateway> -ResourceGroupName <name of resource group>
+  Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -CustomRoute @0
+  ```
 ## <a name="next-steps"></a>다음 단계
 
 추가 P2S 라우팅 정보는 지점 및 [사이트 간 라우팅](vpn-gateway-about-point-to-site-routing.md)정보를 참조 하세요.

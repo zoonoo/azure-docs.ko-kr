@@ -8,16 +8,14 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 838037804baad9105b4636934de957c2e5f3e810
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3525edb2a73811254b2a4dce70ce3edb58988492
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612118"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012465"
 ---
-# <a name="using-azure-ultra-disks"></a>Azure ultra disks 사용
-
-Azure ultra disks는 Azure IaaS Vm (가상 머신)에 대 한 높은 처리량, 높은 IOPS 및 일관 된 짧은 대기 시간 디스크 저장소를 제공 합니다. 이 새 제품은 Microsoft의 기존 디스크 제품과 동일한 가용성 수준에서 최상의 성능을 제공합니다. 울트라 디스크의 주요 장점 중 하나는 Vm을 다시 시작할 필요 없이 워크 로드와 함께 SSD의 성능을 동적으로 변경 하는 기능입니다. Ultra disks는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 집약적인 워크 로드와 같은 데이터를 많이 사용 하는 워크 로드에 적합 합니다.
+Azure ultra disks는 Azure IaaS Vm (가상 머신)에 대 한 높은 처리량, 높은 IOPS 및 일관 된 짧은 대기 시간 디스크 저장소를 제공 합니다. 이 새 제품은 당사의 기존 디스크 제품과 동일한 가용성 수준에서 최상의 성능을 제공합니다. 울트라 디스크의 주요 장점 중 하나는 Vm을 다시 시작할 필요 없이 워크 로드와 함께 SSD의 성능을 동적으로 변경 하는 기능입니다. Ultra disks는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 집약적인 워크 로드와 같은 데이터를 많이 사용 하는 워크 로드에 적합 합니다.
 
 ## <a name="ga-scope-and-limitations"></a>GA 범위 및 제한 사항
 
@@ -49,7 +47,7 @@ $vmSize = "Standard_E64s_v3"
 
 **영역** 값을 유지 하 고, 가용성 영역을 나타내며, Ultra disk를 배포 하기 위해이 값이 필요 합니다.
 
-|ResourceType  |Name  |위치  |영역  |제한  |기능  |값  |
+|ResourceType  |이름  |Location  |영역  |제한  |기능  |값  |
 |---------|---------|---------|---------|---------|---------|---------|
 |디스크     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
@@ -66,7 +64,7 @@ $vmSize = "Standard_E64s_v3"
 
 사용자 고유의 템플릿을 사용 하려는 경우 `Microsoft.Compute/virtualMachines` 및 `Microsoft.Compute/Disks`에 대 한 **apiVersion** `2018-06-01` 이상으로 설정 되어 있는지 확인 합니다.
 
-디스크 sku를 **UltraSSD_LRS**로 설정 하 고 디스크 용량, IOPS, 가용성 영역 및 처리량을 MBps 단위로 설정 하 여 ultra 디스크를 만듭니다.
+디스크 sku를 **UltraSSD_LRS**설정 하 고 디스크 용량, IOPS, 가용성 영역 및 처리량을 MBps 단위로 설정 하 여 울트라 디스크를 만듭니다.
 
 VM을 프로비전한 후 데이터 디스크를 분할 및 포맷하고 워크로드용 데이터 디스크를 구성할 수 있습니다.
 

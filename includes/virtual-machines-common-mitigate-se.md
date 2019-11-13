@@ -5,17 +5,17 @@ services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 08/08/2019
+ms.date: 11/12/2019
 ms.author: cynthn;kareni
 ms.custom: include file
-ms.openlocfilehash: b13b809b04f6cf878d68311b756ed2ca826f9697
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 6668d9753d0b93ab907d37cdeff8315f488cff7a
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935302"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73935871"
 ---
-**마지막 문서 업데이트**: 9 월 2019 10:00 오전 9 시 PST.
+**마지막 문서 업데이트**: 12 월 2019 10:00 오전 6 시 PST
 
 투기적 실행 사이드 채널 공격으로 알려진 공개된 [새로운 종류의 CPU 취약점](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002)으로 인해 고객은 명확하게 이해하기 위해 질문하게 되었습니다.  
 
@@ -28,17 +28,12 @@ Azure의 모든 측면에 보안을 통합하는 방법에 대한 자세한 정�
 > [!NOTE] 
 > 이 문서를 처음 게시한 이후 이 취약점 종류의 여러 변형이 공개되었습니다. Microsoft에서는 고객을 보호하고 지침을 제공하는 데 계속 투자하고 있습니다. 계속 추가 수정을 릴리스하므로 이 페이지가 업데이트됩니다. 
 > 
-> 2019 년 5 월 14 일부 터는 여러 CVEs가 할당 된 Microarchitectural 데이터 샘플링 (MDS에서 Microsoft 보안 지침 [ADV190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)참조) 이라고 하는 새로운 인식 실행 측 채널 취약점을 [공개](https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00233.html) 했습니다. 
-> - CVE-2019-11091-Microarchitectural 데이터 샘플링 Uncacheable 메모리 (MDSUM)
-> - CVE-2018-12126-Microarchitectural 저장소 버퍼 데이터 샘플링 (MSBDS) 
-> - CVE-2018-12127-Microarchitectural Load 포트 데이터 샘플링 (MLPDS)
-> - CVE-2018-12130-Microarchitectural Fill 버퍼 데이터 샘플링 (MFBDS)
+> 2019 년 11 월 12 일, Intel [2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135)은 Intel® 트랜잭션 동기화 확장 (INTEL® TSX) 트랜잭션 TAA (트랜잭션 비동기 중단)에 대 한 기술 자문을 [발표](https://software.intel.com/security-software-guidance/insights/deep-dive-intel-transactional-synchronization-extensions-intel-tsx-asynchronous-abort) 했습니다. 이 취약점은 Intel® Core® 프로세서 및 Intel® Xeon® 프로세서에 영향을 줍니다.  Microsoft Azure는 운영 체제 업데이트를 출시 했으며 새 마이크로코드를 배포 하 고 있습니다 .이 새로운 취약점 으로부터 고객을 보호 하기 위해 Intel에서 사용할 수 있게 되었습니다.   Azure는 플랫폼의 공식 출시 전에 새 마이크로코드를 테스트 하 고 유효성을 검사 하기 위해 Intel과 긴밀 하 게 협력 하 고 있습니다. 
 >
-> 이 취약점은 Intel® Core® 프로세서 및 Intel® Xeon® 프로세서에 영향을 줍니다.  Microsoft Azure는 운영 체제 업데이트를 출시 했으며 새 마이크로코드를 배포 하 고 있습니다 .이 새로운 취약점 으로부터 고객을 보호 하기 위해 Intel에서 사용할 수 있게 되었습니다.   Azure는 플랫폼의 공식 출시 전에 새 마이크로코드를 테스트 하 고 유효성을 검사 하기 위해 Intel과 긴밀 하 게 협력 하 고 있습니다. 
->
-> **VM 내에서 신뢰할 수 없는 코드를 실행** 하는 고객은 아래 내용을 참조 하 여 이러한 취약성 으로부터 보호 하는 조치를 취해야 모든 잘못 된 실행 측 채널 취약점 (MICROSOFT 권고 고급 [ 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018)및 [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013)).
+> **VM 내에서 신뢰할 수 없는 코드를 실행** 하는 고객은 모든 잘못 된 실행 측 채널 취약점 (MICROSOFT 권고 고급 [180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002), [180018](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/adv180018)및 [190013](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV190013))에 대 한 추가 지침을 참조 하 여 이러한 취약성 으로부터 보호 하기 위한 조치를 취해야 합니다.
 >
 > 다른 고객은 심층 관점에서 이러한 취약성을 평가 하 고 선택 된 구성의 보안 및 성능에 미치는 영향을 고려해 야 합니다.
+> 
 
 
 
@@ -77,9 +72,9 @@ OS 업데이트가 다른 Azure 고객으로부터 Azure에서 실행되는 애�
 대상 운영 체제를 최신 상태로 유지하여 이러한 추가 보안 기능을 사용하도록 설정해야 합니다. 다양한 투기적 실행 쪽 채널 완화를 기본적으로 사용하는 반면 여기에 설명된 추가 기능은 수동으로 활성화해야 하며 성능에 영향이 발생할 수 있습니다. 
 
 
-**1단계: VM** 에서 하이퍼 스레딩 사용 안 함-하이퍼 스레드 vm에서 신뢰할 수 없는 코드를 실행 하는 고객은 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 하이퍼 스레드 이외의 vm 크기로 이동 해야 합니다. 하이퍼 스레드 VM 크기 목록을 보려면 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/acu) 를 참조 하세요. 여기서 vcpu의 비율은 2:1입니다. VM에서 하이퍼 스레딩을 사용 하도록 설정 했는지 확인 하려면 VM 내에서 Windows 명령줄을 사용 하 여 아래 스크립트를 참조 하세요.
+**1 단계: VM에서 하이퍼 스레딩 사용 안 함** -하이퍼 스레드 vm에서 신뢰할 수 없는 코드를 실행 하는 고객은 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 하이퍼 스레드 이외의 vm 크기로 이동 해야 합니다. 하이퍼 스레드 VM 크기 목록을 보려면 [이 문서](https://docs.microsoft.com/azure/virtual-machines/windows/acu) 를 참조 하세요. 여기서 vcpu의 비율은 2:1입니다. VM에서 하이퍼 스레딩을 사용 하도록 설정 했는지 확인 하려면 VM 내에서 Windows 명령줄을 사용 하 여 아래 스크립트를 참조 하세요.
 
-을 `wmic` 입력 하 여 대화형 인터페이스를 입력 합니다. 그런 후 아래를 입력 하 여 VM의 실제 및 논리 프로세서의 양을 확인 합니다.
+`wmic` 입력 하 여 대화형 인터페이스를 입력 합니다. 그런 후 아래를 입력 하 여 VM의 실제 및 논리 프로세서의 양을 확인 합니다.
 
 ```console
 CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
@@ -88,7 +83,7 @@ CPU Get NumberOfCores,NumberOfLogicalProcessors /Format:List
 논리 프로세서 수가 실제 프로세서 (코어) 보다 큰 경우 하이퍼 스레딩을 사용 하도록 설정 됩니다.  하이퍼 스레드 VM을 실행 하는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 하 여 하이퍼 스레딩을 사용 하지 않도록 설정 하세요.  하이퍼 스레딩을 사용 하지 않도록 설정 하면 **전체 VM 재부팅이 필요**합니다. VM 코어 수가 감소 하는 이유를 이해 하려면 [코어 수](#core-count) 를 참조 하세요.
 
 
-**2단계**: 1 단계에 대해 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 의 지침에 따라 [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell 모듈을 사용 하 여 보호를 사용 하도록 설정 되었는지 확인 합니다.
+**2 단계**: 1 단계와 동시에 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 의 지침에 따라 [SpeculationControl](https://aka.ms/SpeculationControlPS) PowerShell 모듈을 사용 하 여 보호를 사용 하도록 설정 되었는지 확인 합니다.
 
 > [!NOTE]
 > 이전에 이 모듈을 다운로드한 경우 최신 버전을 설치해야 합니다.
@@ -103,19 +98,20 @@ Windows OS support for kernel VA shadow is enabled: True
 Windows OS support for speculative store bypass disable is enabled system-wide: False
 Windows OS support for L1 terminal fault mitigation is enabled: True
 Windows OS support for MDS mitigation is enabled: True
+Windows OS support for TAA mitigation is enabled: True
 ```
 
-출력에이 표시 `MDS mitigation is enabled: False`되는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 하 여 사용 가능한 완화 옵션을 확인 하세요.
+출력에 `MDS mitigation is enabled: False`표시 되는 경우 [Azure 지원에 문의](https://aka.ms/MicrocodeEnablementRequest-SupportTechnical) 하 여 사용 가능한 완화 옵션을 확인 하세요.
 
 
 
-**3단계**: 커널 가상 주소 섀도잉 (KVAS) 및 분기 대상 삽입 (bti) OS 지원을 사용 하도록 설정 하려면 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 의 지침에 따라 `Session Manager` 레지스트리 키를 사용 하 여 보호를 사용 하도록 설정 합니다. 다시 부팅해야 합니다.
+**3 단계**: 커널 가상 주소 섀도잉 (KVAS) 및 분기 대상 삽입 (bti) OS 지원을 사용 하도록 설정 하려면 [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 의 지침에 따라 `Session Manager` 레지스트리 키를 사용 하 여 보호를 사용 하도록 설정 합니다. 다시 부팅해야 합니다.
 
 
-**4단계**: [중첩 된 가상화](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) 를 사용 하는 배포의 경우 (D3 및 E3 전용): 이러한 지침은 Hyper-v 호스트로 사용 하는 VM 내에서 적용 됩니다.
+**4 단계**: [중첩 된 가상화](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization) 를 사용 하는 배포의 경우 (D3 및 E3 전용): 이러한 지침은 hyper-v 호스트로 사용 하는 VM 내에 적용 됩니다.
 
 1.  [KB4072698](https://support.microsoft.com/help/4072698/windows-server-guidance-to-protect-against-the-speculative-execution) 의 지침에 따라 `MinVmVersionForCpuBasedMitigations` 레지스트리 키를 사용 하 여 보호를 사용 하도록 설정 합니다.
-2.  [여기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types)에 설명된 지침에 따라 하이퍼바이저 스케줄러 유형을 `Core`로 설정 합니다.
+2.  `Core`여기[에 설명된 지침에 따라 하이퍼바이저 스케줄러 유형을 ](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-scheduler-types)로 설정 합니다.
 
 
 ### <a name="linux"></a>Linux
@@ -123,11 +119,11 @@ Windows OS support for MDS mitigation is enabled: True
 <a name="linux"></a> 내부 추가 보안 기능 집합을 사용하도록 설정하면 대상 운영 체제를 최신 상태로 유지해야 합니다. 일부 완화는 기본적으로 활성화됩니다. 다음 섹션에서는 기본적으로 해제되어 있고 하드웨어 지원(마이크로코드)을 사용하는 기능을 설명합니다. 이러한 기능을 활성화하면 성능에 영향이 발생할 수 있습니다. 자세한 지침은 운영 체제 공급자의 설명서를 참조합니다.
 
 
-**1단계: VM** 에서 하이퍼 스레딩 사용 안 함-하이퍼 스레드 vm에서 신뢰할 수 없는 코드를 실행 하는 고객은 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 비 하이퍼 스레드 vm으로 이동 해야 합니다.  하이퍼 스레드 VM 크기 목록을 보려면 [이 문서](https://docs.microsoft.com/azure/virtual-machines/linux/acu) 를 참조 하세요. 여기서 vcpu의 비율은 2:1입니다. 하이퍼 스레드 vm을 실행 하 고 있는지 확인 하려면 Linux vm에서 `lscpu` 명령을 실행 합니다. 
+**1 단계: VM에서 하이퍼 스레딩 사용 안 함** -하이퍼 스레드 vm에서 신뢰할 수 없는 코드를 실행 하는 고객은 하이퍼 스레딩을 사용 하지 않도록 설정 하거나 비 하이퍼 스레드 vm으로 이동 해야 합니다.  하이퍼 스레드 VM 크기 목록을 보려면 [이 문서](https://docs.microsoft.com/azure/virtual-machines/linux/acu) 를 참조 하세요. 여기서 vcpu의 비율은 2:1입니다. 하이퍼 스레드 VM을 실행 하 고 있는지 확인 하려면 Linux VM에서 `lscpu` 명령을 실행 합니다. 
 
-이면 `Thread(s) per core = 2`하이퍼 스레딩을 사용 하도록 설정 된 것입니다. 
+`Thread(s) per core = 2`경우 하이퍼 스레딩을 사용할 수 있습니다. 
 
-이면 `Thread(s) per core = 1`하이퍼 스레딩을 사용할 수 없습니다. 
+`Thread(s) per core = 1`경우 하이퍼 스레딩을 사용할 수 없습니다. 
 
  
 하이퍼 스레딩을 사용 하도록 설정 된 VM에 대 한 샘플 출력: 
@@ -149,7 +145,7 @@ NUMA node(s):          1
 
 
 
-**2단계**: 아래의 잘못 된 실행 측 채널 취약성을 완화 하려면 해당 운영 체제 공급자의 설명서를 참조 하세요.   
+**2 단계**: 아래의 잘못 된 실행 측 채널 취약성을 완화 하기 위해 운영 체제 공급자의 설명서를 참조 하세요.   
  
 - [Redhat 및 CentOS](https://access.redhat.com/security/vulnerabilities) 
 - [SUSE](https://www.suse.com/support/kb/?doctype%5B%5D=DT_SUSESDB_PSDB_1_1&startIndex=1&maxIndex=0) 
@@ -158,7 +154,7 @@ NUMA node(s):          1
 
 ### <a name="core-count"></a>코어 수
 
-하이퍼 스레드 VM이 생성 되 면 Azure는 코어 당 2 개의 스레드를 할당 합니다 .이를 vCPUs 라고 합니다. 하이퍼 스레딩을 사용 하지 않도록 설정 하면 Azure는 스레드를 제거 하 고 단일 스레드 코어 (물리적 코어)를 표시 합니다. CPU와 CPU의 비율은 2:1 이므로 하이퍼 스레딩을 사용 하지 않도록 설정 하면 VM의 CPU 수가 절반으로 감소 한 것으로 나타납니다. 예를 들어, D8_v3 VM은 8 개 vCPUs (코어 x 4 코어 당 스레드 2 개)에서 실행 되는 하이퍼 스레드 VM입니다.  하이퍼 스레딩이 사용 하지 않도록 설정 된 경우 Cpu는 코어 1 개를 사용 하 여 4 개 코어 코어를 삭제 합니다. 
+하이퍼 스레드 VM이 생성 되 면 Azure는 코어 당 2 개의 스레드를 할당 합니다 .이를 vCPUs 라고 합니다. 하이퍼 스레딩을 사용 하지 않도록 설정 하면 Azure는 스레드를 제거 하 고 단일 스레드 코어 (물리적 코어)를 표시 합니다. CPU와 CPU의 비율은 2:1 이므로 하이퍼 스레딩을 사용 하지 않도록 설정 하면 VM의 CPU 수가 절반으로 감소 한 것으로 나타납니다. 예를 들어 D8_v3 VM은 8 개 vCPUs (코어 x 4 코어 당 스레드 2 개)에서 실행 되는 하이퍼 스레드 VM입니다.  하이퍼 스레딩이 사용 하지 않도록 설정 된 경우 Cpu는 코어 1 개를 사용 하 여 4 개 코어 코어를 삭제 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -180,6 +176,9 @@ NUMA node(s):          1
 - CVE-2018-12126-Microarchitectural 저장소 버퍼 데이터 샘플링 (MSBDS)
 - CVE-2018-12127-Microarchitectural Load 포트 데이터 샘플링 (MLPDS)
 - CVE-2018-12130-Microarchitectural Fill 버퍼 데이터 샘플링 (MFBDS)
+
+트랜잭션 동기화 확장 (Intel® TSX) 트랜잭션 비동기 중단:  
+- [CVE-2019-11135](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-11135) – TSX 트랜잭션 비동기 중단 (TAA)
 
 
 

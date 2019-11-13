@@ -1,5 +1,5 @@
 ---
-title: 분산 추적(미리 보기)을 사용하여 IoT 메시지에 상관 관계 ID 추가
+title: 분산 추적 (사전)을 통해 IoT 메시지에 상관 관계 Id 추가
 description: 분산 추적 기능을 사용 하 여 솔루션에서 사용 하는 Azure 서비스 전체에서 IoT 메시지를 추적 하는 방법을 알아봅니다.
 author: jlian
 manager: briz
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: a6e7d2dc9b6274c07fda011bff8ec9dc59f74f95
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 835a359d3b5781ad814e423e4a69e8d60379c97b
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889438"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953147"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -197,7 +197,7 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 
 1. 0%과 100% 사이의 **샘플링 주기**를 선택합니다.
 
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 
 1. 몇 초 정도 기다렸다가 **새로 고침**을 누릅니다. 디바이스에서 성공적으로 승인하면 확인 표시가 있는 동기화 아이콘이 나타납니다.
 
@@ -240,10 +240,10 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 }
 ```
 
-| 요소 이름 | 필수 | 에 | 설명 |
+| 요소 이름 | 필수 | 형식 | 설명 |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | 예 | 정수, | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1`은 켜짐이고 `2`는 꺼짐입니다. |
-| `sampling_rate` | 예 | 정수, | 이 값은 백분율입니다. `0`~`100`(경계값 포함) 사이의 값만 허용됩니다.  |
+| `sampling_mode` | 예 | String | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1`은 켜짐이고 `2`는 꺼짐입니다. |
+| `sampling_rate` | 예 | String | 이 값은 백분율입니다. `0`~`100`(경계값 포함) 사이의 값만 허용됩니다.  |
 
 ## <a name="query-and-visualize"></a>쿼리 및 시각화
 

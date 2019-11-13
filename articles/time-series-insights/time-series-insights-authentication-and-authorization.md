@@ -1,5 +1,5 @@
 ---
-title: Azure Time Series Insights API를 사용 하 여 인증 및 권한 부여 Microsoft Docs
+title: API 인증 및 권한 부여-Azure Time Series Insights | Microsoft Docs
 description: 이 문서에서는 Azure Time Series Insights API를 호출하는 사용자 지정 애플리케이션에 대한 인증 및 권한 부여를 구성하는 방법을 설명합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4fd68f770cbe48b15646ec41c0bf94be5e760a50
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 37a409ab28728fe40c5f054d5e9a40cb20774450
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990197"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007103"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -63,11 +63,11 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 1. **사용자 선택** 대화 상자에서 **응용 프로그램 이름** 또는 응용 프로그램 **ID** Azure Active Directory 앱 등록 섹션에서 붙여넣습니다.
 
-   [사용자 선택 대화 상자에서 응용 프로그램을 찾을![](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   [사용자 선택 대화 상자에서 응용 프로그램을 찾을 ![](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
 1. 역할을 선택 합니다. 데이터 또는 **참가자** 를 쿼리하여 데이터를 쿼리하고 참조 데이터를 변경 하려면 **Reader** 를 선택 합니다. **확인**을 선택합니다.
 
-   [사용자 역할 선택 대화 상자에서 판독기 또는 참가자를 선택![.](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+   [사용자 역할 선택 대화 상자에서 판독기 또는 참가자를 선택 ![.](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
 1. **확인을**선택 하 여 정책을 저장 합니다.
 
@@ -105,7 +105,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 이 섹션에서는 Time Series Insights GA 및 Preview Api에 대 한 쿼리를 수행 하는 데 사용 되는 일반적인 HTTP 요청 헤더 및 매개 변수에 대해 설명 합니다. API 관련 요구 사항은 [Time Series Insights REST API 참조 설명서](https://docs.microsoft.com/rest/api/time-series-insights/)에 자세히 설명 되어 있습니다.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>인증
 
 [TIME SERIES INSIGHTS Rest api](https://docs.microsoft.com/rest/api/time-series-insights/)에 대해 인증 된 쿼리를 수행 하려면 선택한 rest 클라이언트 (Postman, JavaScript, C#)를 사용 하 여 유효한 OAuth 2.0 전달자 토큰을 [인증 헤더](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) 에 전달 해야 합니다. 
 

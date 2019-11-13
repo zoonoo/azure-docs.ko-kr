@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4e3276e6cde254daf2299f33d8b5ed9f54985327
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 340ff6d9b112f4ff04950499b2708d8882fa6120
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517658"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960623"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>P2S VPN 클라이언트 프로필 정보
 
@@ -34,7 +34,7 @@ zip 파일의 압축을 풉니다. 파일에는 다음 폴더가 포함 되어 �
 
 * AzureVPN
 * 일반
-* OpenVPN
+* OpenVPN (게이트웨이에서 OpenVPN 및 Azure AD 인증 설정을 사용 하도록 설정한 경우) [테 넌 트 만들기를](openvpn-azure-ad-tenant.md)참조 하세요.)
 
 ## <a name="3-retrieve-information"></a>3. 정보 검색
 

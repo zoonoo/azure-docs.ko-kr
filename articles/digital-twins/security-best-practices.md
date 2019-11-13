@@ -8,14 +8,14 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: ba10a6105972eddc8474841b234d2eeddc994f5d
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 9f3f98863f9a7cd0e6328ddc75b1154ee933fe0b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948933"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74009248"
 ---
-# <a name="security-best-practices"></a>보안 모범 사례
+# <a name="azure-digital-twins-security-best-practices"></a>Azure Digital Twins 보안 모범 사례
 
 Azure Digital Twins 보안을 사용하면 IoT 그래프에서 특정 리소스 및 작업에 대한 액세스 권한을 세밀하게 지정할 수 있습니다. 이 작업은 [역할 기반 액세스 제어](./security-role-based-access-control.md)라는 세분화된 역할 및 권한 관리를 통해 수행됩니다.
 
