@@ -307,8 +307,8 @@
               href: concepts-gating-overview.md
             - name: 합성 기술 배포
               href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: Custom Voice 투명도 정보
-              href: 'https://aka.ms/neural-tts-transparency-note'
+            - name: 발화자 공개 지침
+              href: 'https://aka.ms/disclosure-voice-talent'
             - name: 디자인 지침 공개
               href: concepts-disclosure-guidelines.md
             - name: 디자인 패턴 공개
