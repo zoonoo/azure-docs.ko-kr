@@ -1,17 +1,14 @@
 ---
 title: IRS 1075 청사진 샘플 - 개요
 description: IRS 1075 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 IRS 1075 컨트롤을 평가하는 데 도움이 됩니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 08/07/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 43578f0600b4f4359e52f310366ccac1aff3acb1
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: ef15960fe1c356d6c92ef765bca77441b0fd40c4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200687"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032151"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>IRS 1075 청사진 샘플 개요
 

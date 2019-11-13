@@ -1,17 +1,14 @@
 ---
 title: ISO 27001 청사진 샘플 - 개요
 description: ISO 27001 청사진 샘플 개요. 이 청사진 샘플은 고객이 특정 ISO 27001 컨트롤을 평가하는 데 도움이 됩니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 8c9d657788e8fd56e37acbf8924cb28573858ead
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 2e6e3d8d1abec1262f60ca25a549f35658ed54d3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200680"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037317"
 ---
 # <a name="overview-of-the-iso-27001-blueprint-sample"></a>ISO 27001 청사진 샘플 개요
 
