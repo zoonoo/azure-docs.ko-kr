@@ -392,9 +392,9 @@
               href: active-directory-configurable-token-lifetimes.md
         - name: 애플리케이션 구성
           items:
-            - name: Azure Portal 앱 등록 학습 가이드(레거시)
+            - name: 앱 등록(레거시)에서 Azure Portal의 새로운 앱 등록 환경으로 전환
               href: app-registrations-training-guide-for-app-registrations-legacy-users.md
-            - name: Application Registration Portal 앱 등록 가이드
+            - name: 애플리케이션 등록 포털에서 Azure Portal의 새로운 앱 등록 환경으로 전환
               href: app-registration-portal-training-guide.md
             - name: 단일 테넌트 앱을 다중 테넌트 앱으로 변환
               href: howto-convert-app-to-be-multi-tenant.md

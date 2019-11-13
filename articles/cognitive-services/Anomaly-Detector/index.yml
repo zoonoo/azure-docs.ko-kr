@@ -14,12 +14,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/10/2019
   ms.author: aahi
-  ms.openlocfilehash: d073adfbc1b05bbd4d92f5cfb500184653444f4b
-  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+  ms.openlocfilehash: 4f7eca51cd4ec6995618b68bd376fa5f4f6268e4
+  ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 09/18/2019
-  ms.locfileid: "71086793"
+  ms.lasthandoff: 11/13/2019
+  ms.locfileid: "74013598"
 landingContent:
 - title: Anomaly Detector API 정보
   linkLists:
@@ -39,7 +39,11 @@ landingContent:
       url: https://www.youtube.com/embed/ERTaAnwCarM
   - linkListType: reference
     links:
-    - text: 변칙 검색에 사용되는 알고리즘(백서)
+    - text: Azure Anomaly Detector API 소개
+      url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162
+    - text: SR-CNN 알고리즘 개요
+      url: https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798
+    - text: 변칙 검색에 사용되는 알고리즘(KDD 문서)
       url: https://arxiv.org/abs/1906.03821
 - title: 데이터에서 변칙 검색
   linkLists:
@@ -54,7 +58,7 @@ landingContent:
     - text: 일괄 처리 검색 및 Power BI를 사용하여 변칙 시각화
       url: tutorials/batch-anomaly-detection-powerbi.md
     - text: Azure Databricks를 사용하여 스트리밍 데이터에서 변칙 검색
-      url: tutorials/batch-anomaly-detection-powerbi.md
+      url: tutorials/anomaly-detection-streaming-databricks.md
   - linkListType: video
     links:
     - text: Azure Databricks를 사용하여 스트리밍 데이터에 대한 변칙 검색

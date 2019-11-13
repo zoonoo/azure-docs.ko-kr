@@ -1,6 +1,6 @@
 ---
-title: Java를 사용 하 여 Azure Service Bus 큐 사용
-description: Azure에서 Service Bus 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다.
+title: '빠른 시작: Java에서 Azure Service Bus 큐 사용'
+description: '빠른 시작: Azure에서 Service Bus 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Java로 작성되었습니다.'
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -11,38 +11,39 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 19cfd2c5dd4229e4687fcb1a3286509c9b768d7a
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
-ms.translationtype: MT
+ms.openlocfilehash: bb51f30a69294cd78d0664a5bdae70c969da1972
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155490"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721699"
 ---
-# <a name="use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Java가 있는 Azure Service Bus 큐를 사용 하 여 메시지 보내기 및 받기
+# <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>빠른 시작: Java에서 Azure Service Bus 큐를 사용하여 메시지 보내기 및 받기
+
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
-이 자습서에서는 Azure Service Bus 큐에 메시지를 보내고 메시지를 수신 하는 Java 응용 프로그램을 만드는 방법에 대해 알아봅니다. 
+이 자습서에서는 Azure Service Bus 큐와 메시지를 주고 받는 Java 애플리케이션을 만드는 방법에 대해 알아봅니다. 
 
 > [!NOTE]
 > Java 샘플은 GitHub의 [azure-service-bus 리포지토리](https://github.com/Azure/azure-service-bus/tree/master/samples/Java)에 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 을 활성화 하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 등록할 수 있습니다.
-2. 사용할 큐가 없는 경우 [Azure Portal를 사용 하 여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
-    1. Service Bus **큐**에 대 한 간략 한 **개요** 를 참조 하세요. 
-    2. Service Bus **네임 스페이스**를 만듭니다. 
+## <a name="prerequisites"></a>필수 조건
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+2. 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
+    1. Service Bus **큐**의 빠른 **개요**을 읽습니다. 
+    2. Service Bus **네임스페이스**를 만듭니다. 
     3. **연결 문자열**을 가져옵니다.
     4. Service Bus **큐**를 만듭니다.
-3. [Java 용 AZURE SDK를][Azure SDK for Java]설치 합니다. 
+3. [Java용 Azure SDK][Azure SDK for Java]를 설치합니다. 
 
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
 이 샘플을 빌드하기 전에 [Java용 Azure SDK][Azure SDK for Java]를 설치했는지 확인하세요. Eclipse를 사용하는 경우 Azure SDK for Java를 포함하고 있는 [Eclipse용 Azure 도구 키트][Azure Toolkit for Eclipse]를 설치할 수 있습니다. 그런 다음 **Java용 Microsoft Azure 라이브러리**를 프로젝트에 추가할 수 있습니다.
 
-![Eclipse 프로젝트에 Java 용 Microsoft Azure 라이브러리 추가](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
+![Java용 Microsoft Azure 라이브러리를 Eclipse 프로젝트에 추가합니다.](./media/service-bus-java-how-to-use-queues/eclipse-azure-libraries-java.png)
 
 Java 파일 맨 위에 다음 `import` 문을 추가합니다.
 

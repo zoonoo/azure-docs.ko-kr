@@ -1,6 +1,6 @@
 ---
-title: 송신 및 Azure Event Hubs.NET Framework를 사용 하 여 이벤트 수신 | Microsoft Docs
-description: 이 문서에서는 Azure Event Hubs로 이벤트를 전송 하는.NET Framework 응용 프로그램을 만드는 연습을 제공 합니다.
+title: '빠른 시작: .NET Framework를 사용하여 이벤트 보내기 및 받기 - Azure Event Hubs'
+description: '빠른 시작: 이 문서에서는 Azure Event Hubs에 이벤트를 보내는 .NET Framework 애플리케이션을 만드는 방법을 안내합니다.'
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
@@ -11,30 +11,30 @@ ms.service: event-hubs
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.custom: seodec18
-ms.date: 04/15/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 96ce71a7b3076adec169f103060a167b61c42d5c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
-ms.translationtype: MT
+ms.openlocfilehash: 89419e9a3ef364d4095800a617a84ff2f63c09a0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65603514"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720656"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>이벤트를 보내거나.NET Framework를 사용 하 여 Azure Event Hubs에서 이벤트 수신
+# <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>빠른 시작: .NET Framework를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
-이 자습서에서.NET Framework 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다 C# 이벤트를 보내거나 eventhub에서 이벤트를 수신 합니다. 
+이 자습서에서는 C#에서 이벤트 허브와 이벤트를 주고 받는 .NET Framework 콘솔 애플리케이션을 만드는 방법을 보여줍니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
-- [Microsoft Visual Studio 2019](https://visualstudio.com).
-- **Event Hubs 네임 스페이스를 만들고 event hub**합니다. 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그런 다음, 가져옵니다 합니다 **이벤트 허브 네임 스페이스에 대 한 연결 문자열** 문서에서 지침에 따라: [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 해당 연결 문자열은 이 자습서의 뒷부분에서 사용합니다.
+- [Microsoft Visual Studio 2019](https://visualstudio.com)
+- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그리고 다음 문서의 지침에 따라 **이벤트 허브 네임스페이스에 대한 연결 문자열**을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 해당 연결 문자열은 이 자습서의 뒷부분에서 사용합니다.
 
 ## <a name="send-events"></a>이벤트 보내기 
-이 섹션에서는 이벤트 허브로 이벤트를 보내는.net 콘솔 응용 프로그램을 만드는 방법을 보여 줍니다. 
+이 섹션에서는 이벤트 허브로 이벤트를 전송하는 .NET Framework 콘솔 애플리케이션을 만드는 방법을 보여줍니다. 
 
 ### <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
@@ -103,7 +103,7 @@ Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사�
 5. 프로그램을 실행하고 오류가 없는지 확인합니다.
   
 ## <a name="receive-events"></a>이벤트 수신
-이 섹션에서는 사용 하 여 이벤트 허브에서 메시지를 수신 하는.NET Framework 콘솔 응용 프로그램을 작성 합니다 [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)합니다. [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 .NET 클래스입니다. 이벤트 프로세서 호스트를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 
+이 섹션에서는 [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)를 사용하여 이벤트 허브에서 메시지를 받는 .NET Framework 콘솔 애플리케이션을 작성합니다. [이벤트 프로세서 호스트](event-hubs-event-processor-host.md)는 영구적 검사점을 관리하여 Event Hubs의 이벤트 수신을 간소화하고 이러한 Event Hubs에서 병렬 수신하는 .NET 클래스입니다. 이벤트 프로세서 호스트를 사용하면 다른 노드에 호스트된 수신기를 비롯한 여러 수신기 간에 이벤트를 분할할 수 있습니다. 
 
 [!INCLUDE [event-hubs-create-storage](../../includes/event-hubs-create-storage.md)]
 
@@ -218,7 +218,7 @@ Visual Studio에서 **콘솔 애플리케이션** 프로젝트 템플릿을 사�
 다음 문서를 읽어보세요. 
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
-- [기능 및 Azure Event Hubs의 용어](event-hubs-features.md)합니다.
+- [Azure Event Hubs의 기능 및 용어](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)
 
 

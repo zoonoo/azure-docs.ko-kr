@@ -1,26 +1,26 @@
 ---
-title: Stream 분석을 사용하여 Apache Kafka 이벤트 처리 - Azure Event Hubs | Microsoft Docs
-description: 이 문서에서는 Azure Stream Analytics를 사용하여 이벤트 허브를 통해 수집되는 Kafka 이벤트를 처리하는 방법을 보여줍니다.
+title: '자습서: Stream 분석을 사용하여 Apache Kafka 이벤트 처리 - Azure Event Hubs'
+description: '자습서: 이 문서에서는 Azure Stream Analytics를 사용하여 이벤트 허브를 통해 수집되는 Kafka 이벤트를 처리하는 방법을 보여줍니다.'
 services: event-hubs
 documentationcenter: ''
 author: spelluru
 manager: ''
 ms.service: event-hubs
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.author: spelluru
-ms.openlocfilehash: 0c4beede2508104fc9af934d3f9a2bbcce791292
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
-ms.translationtype: MT
+ms.openlocfilehash: 7801b3252ab13df1f92e7aa5e0eba071195cb76c
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626181"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720626"
 ---
-# <a name="process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리 
+# <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>자습서: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리 
 이 문서에서는 데이터를 Kafka 지원 Event Hubs로 스트리밍하고 Azure Stream Analytics를 사용하여 처리하는 방법을 보여줍니다. 다음 단계를 안내합니다. 
 
 1. Kafka 지원 Event Hubs 네임스페이스를 만듭니다.
@@ -30,7 +30,7 @@ ms.locfileid: "67626181"
 이벤트 허브에서 노출한 Kafka 엔드포인트를 사용하는 경우 프로토콜 클라이언트를 변경하거나 사용자 고유의 클러스터를 실행할 필요가 없습니다. Azure Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html)을 지원합니다. 이상 
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 빠른 시작을 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
@@ -133,7 +133,7 @@ Stream Analytics 작업에서 쿼리는 분석을 수행하지 않고 데이터�
 
 ### <a name="configure-job-input"></a>작업 입력 구성
 
-1. 알림 메시지를 선택 **리소스로 이동** 보려는 합니다 **Stream Analytics 작업** 페이지입니다. 
+1. 알림 메시지에서 **리소스로 이동**을 선택하여 **Stream Analytics 작업** 페이지를 봅니다. 
 2. 왼쪽 메뉴의 **작업 토폴로지** 섹션에서 **입력**을 선택합니다.
 3. **스트림 입력 추가**를 선택한 다음, **이벤트 허브**를 선택합니다. 
 
@@ -144,7 +144,7 @@ Stream Analytics 작업에서 쿼리는 분석을 수행하지 않고 데이터�
     2. Azure **구독**을 선택합니다.
     3. 이전에 만든 **이벤트 허브 네임스페이스**를 선택합니다. 
     4. **이벤트 허브**에 대해 **테스트**를 선택합니다. 
-    5.           **저장**을 선택합니다. 
+    5. **저장**을 선택합니다. 
 
         ![이벤트 허브 입력 구성](./media/event-hubs-kafka-stream-analytics/event-hub-input-configuration.png)
 
@@ -157,7 +157,7 @@ Stream Analytics 작업에서 쿼리는 분석을 수행하지 않고 데이터�
     2. Azure **구독**을 선택합니다. 
     3. **Azure Storage 계정**을 선택합니다. 
     4. Stream Analytics 쿼리에서 출력 데이터를 저장하는 **컨테이너에 대한 이름**을 입력합니다.
-    5.           **저장**을 선택합니다.
+    5. **저장**을 선택합니다.
 
         ![Blob Storage 출력 구성](./media/event-hubs-kafka-stream-analytics/output-blob-settings.png)
  
@@ -170,7 +170,7 @@ Stream Analytics 작업에서 쿼리는 분석을 수행하지 않고 데이터�
 3. `[YourInputAlias]`를 앞에서 만든 입력 별칭으로 바꿉니다. 
 4. 도구 모음에서 **저장**을 선택합니다. 
 
-    ![Query](./media/event-hubs-kafka-stream-analytics/query.png)
+    ![쿼리](./media/event-hubs-kafka-stream-analytics/query.png)
 
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행

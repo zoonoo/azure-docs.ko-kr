@@ -1,6 +1,6 @@
 ---
-title: PHP에서 Service Bus 큐를 사용하는 방법 | Microsoft Docs
-description: Azure에서 Service Bus 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 PHP로 작성되었습니다.
+title: '빠른 시작: PHP에서 Service Bus 큐를 사용하는 방법'
+description: '빠른 시작: Azure에서 Service Bus 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 PHP로 작성되었습니다.'
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -11,30 +11,30 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
-ms.topic: article
-ms.date: 04/10/2019
+ms.topic: quickstart
+ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: d958202ee42b1edec5e1b65c120536c656823ecf
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
-ms.translationtype: MT
+ms.openlocfilehash: d576c269f4178c7543327c6b75f46f5487d7a205
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147250"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73719195"
 ---
-# <a name="how-to-use-service-bus-queues-with-php"></a>PHP에서 Service Bus 큐를 사용하는 방법
+# <a name="quickstart-how-to-use-service-bus-queues-with-php"></a>빠른 시작: PHP에서 Service Bus 큐를 사용하는 방법
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-이 자습서에서는 Service Bus 큐에 메시지를 보내고 메시지를 수신 하는 PHP 응용 프로그램을 만드는 방법에 대해 알아봅니다. 
+이 자습서에서는 Service Bus 큐와 메시지를 주고 받는 PHP 애플리케이션을 만드는 방법에 대해 알아봅니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) 을 활성화 하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 등록할 수 있습니다.
-2. 사용할 큐가 없는 경우 [Azure Portal를 사용 하 여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
-    1. Service Bus **큐**에 대 한 간략 한 **개요** 를 참조 하세요. 
-    2. Service Bus **네임 스페이스**를 만듭니다. 
+## <a name="prerequisites"></a>필수 조건
+1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+2. 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다.
+    1. Service Bus **큐**의 빠른 **개요**을 읽습니다. 
+    2. Service Bus **네임스페이스**를 만듭니다. 
     3. **연결 문자열**을 가져옵니다. 
 
         > [!NOTE]
-        > 이 자습서에서는 PHP를 사용 하 여 Service Bus 네임 스페이스에 **큐** 를 만듭니다. 
+        > 이 자습서에서는 PHP를 사용하여 Service Bus 네임스페이스에 **큐**를 만들 것입니다. 
 3. [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php)
 
 ## <a name="create-a-php-application"></a>PHP 애플리케이션 만들기
@@ -43,7 +43,7 @@ Azure Blob service에 액세스하는 PHP 애플리케이션을 만드는 데 �
 > [!NOTE]
 > PHP를 설치하려면 [OpenSSL 확장](https://php.net/openssl)도 설치되어 있고 사용하도록 설정되어 있어야 합니다.
 
-이 가이드에서는 PHP 응용 프로그램 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행 되는 코드에서 호출할 수 있는 서비스 기능을 사용 합니다.
+이 가이드에서는 PHP 애플리케이션 내에서 로컬로 또는 Azure 웹 역할, 작업자 역할 또는 웹 사이트 내에서 실행되는 코드에서 호출할 수 있는 서비스 기능을 사용합니다.
 
 ## <a name="get-the-azure-client-libraries"></a>Azure 클라이언트 라이브러리 가져오기
 [!INCLUDE [get-client-libraries](../../includes/get-client-libraries.md)]
@@ -51,7 +51,7 @@ Azure Blob service에 액세스하는 PHP 애플리케이션을 만드는 데 �
 ## <a name="configure-your-application-to-use-service-bus"></a>Service Bus를 사용하도록 애플리케이션 구성
 Service Bus 큐 API를 사용하려면 다음을 수행합니다.
 
-1. [Require_once][require_once] 문을 사용 하 여 자동 로더 파일을 참조 합니다.
+1. [require_once][require_once] 문을 사용하여 자동 로더 파일을 참조합니다.
 2. 사용할 수 있는 모든 클래스 참조
 
 다음 예제에서는 자동 로더 파일을 포함하고 `ServicesBuilder` 클래스를 참조하는 방법을 보여 줍니다.
@@ -77,7 +77,7 @@ Endpoint=[yourEndpoint];SharedAccessKeyName=RootManageSharedAccessKey;SharedAcce
 
 여기서 `Endpoint`는 일반적으로 `[yourNamespace].servicebus.windows.net` 형식입니다.
 
-Azure 서비스 클라이언트를 만들려면 `ServicesBuilder` 클래스를 사용해야 합니다. 다음을 할 수 있습니다.
+Azure 서비스 클라이언트를 만들려면 `ServicesBuilder` 클래스를 사용해야 합니다. 다음을 수행할 수 있습니다.
 
 * 연결 문자열을 직접 전달합니다.
 * **CCM(CloudConfigurationManager)** 을 사용하여 여러 외부 소스에서 연결 문자열을 확인할 수 있습니다.
@@ -163,7 +163,7 @@ catch(ServiceException $e){
 }
 ```
 
-Service Bus 큐로 보내고 받은 메시지는 [BrokeredMessage][BrokeredMessage] 클래스의 인스턴스입니다. [BrokeredMessage][BrokeredMessage] 개체에는 사용자 지정 응용 프로그램별 속성 및 임의 응용 프로그램 데이터 본문을 저장 하는 데 사용 되는 표준 메서드 및 속성 집합이 있습니다.
+Service Bus 큐와 주고 받은 메시지는 [BrokeredMessage][BrokeredMessage] 클래스 인스턴스입니다. [BrokeredMessage][BrokeredMessage] 개체에는 애플리케이션별 사용자 지정 속성을 저장하는 데 사용되는 표준 메서드 및 속성 세트와 임의 애플리케이션 데이터 본문이 있습니다.
 
 Service Bus 큐는 [표준 계층](service-bus-premium-messaging.md)에서 256KB의 최대 메시지 크기를 [프리미엄 계층](service-bus-premium-messaging.md)에서 1MB를 지원합니다. 표준 및 사용자 지정 애플리케이션 속성이 포함된 헤더의 최대 크기는 64KB입니다. 한 큐에 저장되는 메시지 수에는 제한이 없지만 한 큐에 저장되는 총 메시지 크기는 제한됩니다. 큐 크기의 상한은 5GB입니다.
 

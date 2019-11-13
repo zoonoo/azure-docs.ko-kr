@@ -5,27 +5,25 @@ services: redis-cache
 author: wesmc7777
 ms.service: cache
 ms.topic: include
-ms.date: 03/28/2018
+ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 8d0973b8d4de280842930a8a70618600daab849b
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a737e130d616a67bab28c7c96c0372216a6707af
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849915"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720412"
 ---
-### <a name="retrieve-host-name-ports-and-access-keys-by-using-the-azure-portal"></a>Azure Portal을 사용하여 호스트 이름, 포트 및 액세스 키를 검색합니다.
+### <a name="retrieve-host-name-ports-and-access-keys-from-the-azure-portal"></a>Azure Portal에서 호스트 이름, 포트 및 액세스 키를 검색합니다.
 
-Azure Cache for Redis 인스턴스에 연결할 때 캐시 클라이언트에 캐시의 호스트 이름, 포트 및 키가 필요합니다. 일부 클라이언트는 약간 다른 이름으로 이러한 항목을 참조할 수 있습니다. 이 정보는 Azure Portal에서 검색할 수 있습니다.
+Azure Cache for Redis 인스턴스에 연결하려면 캐시 클라이언트에 캐시의 호스트 이름, 포트 및 키가 필요합니다. 일부 클라이언트는 약간 다른 이름으로 이러한 항목을 참조할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 호스트 이름, 포트 및 키를 가져올 수 있습니다.
 
-#### <a name="to-retrieve-the-access-keys-and-host-name"></a>액세스 키 및 호스트 이름을 검색하려면
+- 액세스 키를 가져오려면 캐시의 왼쪽 탐색 영역에서 **액세스 키**를 선택합니다. 
+  
+  ![Azure Cache for Redis 키](media/redis-cache-access-keys/redis-cache-keys.png)
 
-1. [Azure Portal](https://portal.azure.com)을 사용하여 액세스 키를 검색하려면 캐시로 이동하여 **액세스 키**를 선택합니다. 
+- 호스트 이름 및 포트를 가져오려면 캐시의 왼쪽 탐색 영역에서 **속성**을 선택합니다. 호스트 이름은 *\<DNS 이름>.redis.cache.windows.net* 형식입니다.
 
-    ![Azure Cache for Redis 키](media/redis-cache-access-keys/redis-cache-keys.png)
-
-2. 호스트 이름 및 포트를 검색하려면 **속성**을 선택합니다.
-
-    ![Azure Cache for Redis 속성](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
+  ![Azure Cache for Redis 속성](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
 

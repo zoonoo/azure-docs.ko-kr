@@ -154,6 +154,8 @@
         - name: 배포 - REST API
           displayName: deployment
           href: resource-group-template-deploy-rest.md
+        - name: 가상 배포
+          href: template-deploy-what-if.md
         - name: 오류 발생 시 다시 배포
           displayName: rollback
           href: rollback-on-error.md

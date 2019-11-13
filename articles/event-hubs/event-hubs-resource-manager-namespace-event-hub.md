@@ -1,6 +1,6 @@
 ---
-title: 소비자 그룹을 사용하여 이벤트 허브 만들기 - Azure Event Hubs | Microsoft Docs
-description: Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 Event Hubs 네임스페이스 만들기
+title: '빠른 시작: 소비자 그룹을 사용하여 이벤트 허브 만들기 - Azure Event Hubs'
+description: '빠른 시작: Azure Resource Manager 템플릿을 사용하여 이벤트 허브 및 소비자 그룹이 있는 Event Hubs 네임스페이스 만들기'
 services: event-hubs
 documentationcenter: .net
 author: ShubhaVijayasarathy
@@ -9,37 +9,37 @@ editor: ''
 ms.assetid: 28bb4591-1fd7-444f-a327-4e67e8878798
 ms.service: event-hubs
 ms.devlang: tbd
-ms.topic: article
+ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/02/2019
+ms.date: 11/05/2019
 ms.author: shvija
-ms.openlocfilehash: 29e494b23176f9e936816a371a09e1c4ffeceae0
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
-ms.translationtype: MT
+ms.openlocfilehash: b262f5f4122256a55c005002c4323205a5b564f0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67538004"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73717653"
 ---
-# <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용 하 여 이벤트 허브 만들기
+# <a name="quickstart-create-an-event-hub-by-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 이벤트 허브 만들기
 
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
 
-이 빠른 시작에서 만든 이벤트 허브를 사용 하 여는 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md)합니다. 형식의 네임 스페이스를 만드는 Azure Resource Manager 템플릿을 배포할 [Event Hubs](event-hubs-what-is-event-hubs.md), 하나의 이벤트 허브가 있는 합니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿을 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]합니다. 템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.EventHub 리소스 종류](/azure/templates/microsoft.eventhub/allversions)를 참조하세요.
+이 빠른 시작에서는 [Azure Resource Manager 템플릿](../azure-resource-manager/resource-group-overview.md)을 사용하여 이벤트 허브를 만듭니다. 이벤트 허브가 하나 있는 [Event Hubs](event-hubs-what-is-event-hubs.md) 형식의 네임스페이스를 만드는 Azure Resource Manager 템플릿을 배포합니다. 또한 어떤 리소스를 배포할지 정의하는 방법 및 배포를 실행할 때 매개 변수를 지정하는 방법을 설명합니다. 배포를 위해 이 템플릿을 사용하거나 요구 사항에 맞게 사용자 지정을 할 수 있습니다. 템플릿을 만드는 더 자세한 내용은 [Azure Resource Manager 템플릿 작성][Authoring Azure Resource Manager templates]을 참조하세요. 템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.EventHub 리소스 종류](/azure/templates/microsoft.eventhub/allversions)를 참조하세요.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
 ## <a name="create-an-event-hub"></a>이벤트 허브 만들기
 
-이 빠른 시작에서 사용 하는 [기존의 빠른 시작 템플릿을](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json):
+이 빠른 시작에서는 [기존 빠른 시작 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)을 사용합니다.
 
 [!code-json[create-azure-event-hub-namespace](~/quickstart-templates/101-eventhubs-create-namespace-and-eventhub/azuredeploy.json)]
 
-자세한 템플릿 샘플을 참조 하세요 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular)합니다.
+더 많은 샘플 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=eventhub&pageNumber=1&sort=Popular)에서 찾을 수 있습니다.
 
-에 템플릿을 배포 합니다.
+템플릿을 배포하는 방법은 다음과 같습니다.
 
-1. 선택 **사용해** 에서 다음 코드 블록을 및 Azure Cloud shell에 로그인 하 고 지침을 따릅니다.
+1. 다음 코드 블록에서 **사용해보기**를 선택한 다음, 지침에 따라 Azure Cloud 셸에 로그인합니다.
 
    ```azurepowershell-interactive
    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -53,14 +53,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
    Write-Host "Press [ENTER] to continue ..."
    ```
 
-   이벤트 허브를 만들려면 몇 분 정도 걸립니다.
+   이벤트 허브를 만드는 데 몇 분 정도 걸립니다.
 
 1. **복사**를 선택하여 PowerShell 스크립트를 복사합니다.
-1. 셸 콘솔을 마우스 오른쪽 단추로 클릭 한 다음 선택 **붙여넣기**합니다.
+1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
 
 ## <a name="verify-the-deployment"></a>배포 확인
 
-배포를 확인 하거나 열면에서 리소스 그룹을 [Azure portal](https://portal.azure.com), 또는 다음 Azure PowerShell 스크립트를 사용 합니다.  Cloud shell가 계속 열려 있으면 첫 번째 줄 (읽기-호스트)에 대 한 복사/실행 필요가 없습니다.
+배포를 확인하려면 [Azure Portal](https://portal.azure.com)에서 리소스 그룹을 열거나 다음 Azure PowerShell 스크립트를 사용하면 됩니다.  Cloud 셸이 아직 열려 있으면 첫 번째 줄(Read-Host)을 복사/실행할 필요가 없습니다.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -74,7 +74,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다. Cloud shell가 계속 열려 있으면 첫 번째 줄 (읽기-호스트)에 대 한 복사/실행 필요가 없습니다.
+Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다. Cloud 셸이 아직 열려 있으면 첫 번째 줄(Read-Host)을 복사/실행할 필요가 없습니다.
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -87,7 +87,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서는 Event Hubs 네임 스페이스 및 이벤트 허브 네임 스페이스에서를 만들었습니다. 이벤트 허브에서 이벤트를 보내거나 받기 위한 단계별 지침은 **이벤트 보내기 및 받기** 자습서를 참조하세요.
+이 문서에서는 Event Hubs 네임스페이스 및 네임스페이스의 이벤트 허브를 만들었습니다. 이벤트 허브에서 이벤트를 보내거나 받기 위한 단계별 지침은 **이벤트 보내기 및 받기** 자습서를 참조하세요.
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
 - [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
