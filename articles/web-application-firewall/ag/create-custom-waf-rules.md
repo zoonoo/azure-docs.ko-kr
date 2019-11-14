@@ -1,18 +1,19 @@
 ---
-title: Azure WAF (웹 응용 프로그램 방화벽) v2 사용자 지정 규칙 만들기 및 사용
+title: V2 사용자 지정 규칙 만들기 및 사용
+titleSuffix: Azure Web Application Firewall
 description: 이 문서에서는 Azure 애플리케이션 게이트웨이에서 WAF (웹 응용 프로그램 방화벽) v2 사용자 지정 규칙을 만드는 방법에 대 한 정보를 제공 합니다.
 services: web-application-firewall
 ms.topic: article
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/04/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d8ba105e15a825b6b53d941ed2f3847fa597d538
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4efa60a48a540efdd835b106afa5872057ae3d53
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516657"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046427"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Application Gateway에서 웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
 
@@ -25,7 +26,7 @@ Azure 애플리케이션 Gateway의 WAF (웹 응용 프로그램 방화벽) v2�
 
 ![WAF 사용][fig1]
 
-## <a name="example-1"></a>예 1
+## <a name="example-1"></a>예제 1
 
 웹 사이트 탐색에서 차단 하려는 *evilbot* 이라는 봇이 있음을 알고 있습니다. 이 경우 요청 헤더의 사용자 에이전트 *evilbot* 를 차단 합니다.
 
@@ -125,7 +126,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-### <a name="example-2"></a>예 2
+### <a name="example-2"></a>예제 2
 
 GeoMatch 연산자를 사용 하 여 미국에서 트래픽을 허용 하려고 합니다.
 

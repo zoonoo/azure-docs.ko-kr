@@ -1,18 +1,18 @@
 ---
-title: Azure 애플리케이션 Gateway에 대 한 웹 응용 프로그램 방화벽 문제 해결
+title: 문제 해결-Azure 웹 응용 프로그램 방화벽
 description: 이 문서에서는 Azure 애플리케이션 게이트웨이의 WAF (웹 응용 프로그램 방화벽)에 대 한 문제 해결 정보를 제공 합니다.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/22/2019
+ms.date: 11/14/2019
 ms.author: ant
 ms.topic: conceptual
-ms.openlocfilehash: fff50417bd7944e125ce1d7c1e1ae52ec22f806f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 33c85752903edd618044ccbab06aff7df9a791da
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516566"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046185"
 ---
 # <a name="troubleshoot-web-application-firewall-waf-for-azure-application-gateway"></a>Azure 애플리케이션 Gateway에 대 한 WAF (웹 응용 프로그램 방화벽) 문제 해결
 
@@ -148,7 +148,7 @@ WAF 로그의 목적은 WAF에 의해 일치 되거나 차단 되는 모든 요�
 
 제외 목록을 사용할 경우의 한 가지 장점 중 하나는 요청의 특정 부분만 사용 하지 않도록 설정 된다는 것입니다. 그러나이는 전역 설정 이므로 WAF를 통해 전달 되는 모든 트래픽에 특정 제외가 적용 될 수 있음을 의미 합니다. 예를 들어 *1 = 1* 은 특정 앱에 대 한 본문의 유효한 요청 이지만 다른 항목에 대해서는 그렇지 않은 경우 문제가 발생할 수 있습니다. 또 다른 혜택은 전체 요청을 제외 하는 것과는 반대로 특정 조건이 충족 될 경우 본문, 헤더 및 제외할 쿠키 중에서 선택할 수 있는 것입니다.
 
-때로는 직관적이 지 않을 수 있는 방식으로 특정 매개 변수가 WAF에 전달 되는 경우가 있습니다. 예를 들어 Azure Active Directory를 사용 하 여 인증할 때 전달 되는 토큰이 있습니다. 이 토큰 *__RequestVerificationToken*는 일반적으로 요청 쿠키로 전달 됩니다. 그러나 쿠키를 사용 하지 않도록 설정 하는 경우이 토큰은 요청 특성 또는 "arg"로도 전달 됩니다. 이 경우 *__RequestVerificationToken* 가 제외 목록에 **요청 특성 이름** 으로 추가 되었는지 확인 해야 합니다.
+때로는 직관적이 지 않을 수 있는 방식으로 특정 매개 변수가 WAF에 전달 되는 경우가 있습니다. 예를 들어 Azure Active Directory를 사용 하 여 인증할 때 전달 되는 토큰이 있습니다. 이 토큰 *__RequestVerificationToken*은 일반적으로 요청 쿠키로 전달 됩니다. 그러나 쿠키를 사용 하지 않도록 설정 하는 경우이 토큰은 요청 특성 또는 "arg"로도 전달 됩니다. 이 경우 *__RequestVerificationToken* 를 제외 목록에 **요청 특성 이름** 으로도 추가 해야 합니다.
 
 ![제외](../media/web-application-firewall-troubleshoot/exclusion-list.png)
 

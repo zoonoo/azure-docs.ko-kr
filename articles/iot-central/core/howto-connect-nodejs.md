@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 87dbd7ab4d75150d09a8c26db50ce2e3b1a085db
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 1ddb947e9bcbdde655b5c83cffb67e8fc13d9d0e
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930234"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048688"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Azure IoT Central 애플리케이션에 일반 클라이언트 애플리케이션 연결(Node.js)
 
@@ -31,6 +31,8 @@ ms.locfileid: "73930234"
 ## <a name="create-a-device-template"></a>디바이스 템플릿 만들기
 
 Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정 및 명령을 사용 하 여 장치 템플릿이 필요 합니다.
+
+유효한 속성 이름에 대 한 자세한 내용은 [태그 및 속성 형식](../../iot-hub/iot-hub-devguide-device-twins.md#tags-and-properties-format)을 참조 하세요.
 
 ### <a name="telemetry-measurements"></a>원격 분석 측정값
 
@@ -53,7 +55,7 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 | 표시 이름 | 필드 이름  | 값 1 | 표시 이름 | 값 2 | 표시 이름 |
 | ------------ | ----------- | --------| ------------ | ------- | ------------ | 
-| 팬 모드     | fanmode     | 1       | 실행 중      | 0       | 중지      |
+| 팬 모드     | fanmode     | 1       | 실행 중      | 0       | 중지됨      |
 
 > [!NOTE]
 > 상태 측정값의 데이터 형식은 문자열입니다.
@@ -89,8 +91,8 @@ Azure IoT Central 응용 프로그램에서 다음 측정, 장치 속성, 설정
 
 | 표시 이름        | 필드 이름        | 데이터 형식 |
 | ------------------- | ----------------- | --------- |
-| 일련 번호       | serialNumber      | 텍스트      |
-| 디바이스 제조업체 | manufacturer      | 텍스트      |
+| 일련 번호       | serialNumber      | text      |
+| 디바이스 제조업체 | manufacturer      | text      |
 
 테이블에 표시된 필드 이름을 디바이스 템플릿에 똑같이 입력합니다. 필드 이름이 해당 장치 코드의 속성 이름과 일치 하지 않는 경우에는 응용 프로그램에 속성을 표시할 수 없습니다.
 

@@ -11,12 +11,12 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f05e732e11fb9cd88d4671528d551c68e448a8d7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 025c60485625a4ab4d2e29b1e81d8574f6187b93
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685471"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049126"
 ---
 # <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 분산 테이블 디자인 지침
 Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
@@ -26,7 +26,7 @@ Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 
 ## <a name="what-is-a-distributed-table"></a>분산 테이블이란?
 분산 테이블은 단일 테이블로 나타나지만 실제로는 행이 60개의 배포에 저장됩니다. 행은 해시 또는 라운드 로빈 알고리즘으로 분산됩니다.  
 
-이 문서에서는 큰 팩트 테이블의 쿼리 성능을 향상시키는 **해시 분산 테이블**에 중점을 둡니다. **라운드 로빈 테이블**은 로드 속도를 향상시키는 데 유용합니다. 이러한 디자인 선택이 쿼리 및 로드 성능 향상에 상당한 영향을 미칩니다.
+이 문서에서는 큰 팩트 테이블의 쿼리 성능을 향상시키는 **해시 분산 테이블**에 중점을 둡니다. **라운드 로빈 테이블**은 로드 속도를 향상시키는 데 유용합니다. 이러한 디자인 선택에 따라 쿼리 및 로드 성능 향상에 상당한 영향을 미칩니다.
 
 또 다른 Table Storage 옵션은 모든 컴퓨팅 노드에서 작은 테이블을 복제하는 것입니다. 자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요. 세 가지 옵션 중 빨리 선택하려면 [테이블 개요](sql-data-warehouse-tables-overview.md)의 분산 테이블을 참조하세요. 
 
@@ -52,7 +52,7 @@ Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 
 - 테이블에 삽입, 업데이트 및 삭제 작업이 빈번합니다. 
 
 ### <a name="round-robin-distributed"></a>라운드 로빈 분산
-라운드 로빈 분산 테이블은 모든 배포에 테이블 행을 균일하게 배포합니다. 행은 배포에 무작위로 할당됩니다. 해시 분산 테이블과 달리 값이 동일한 행은 동일한 배포에 할당된다는 보장은 없습니다. 
+라운드 로빈 분산 테이블은 모든 배포에 테이블 행을 균일하게 배포합니다. 행은 배포에 무작위로 할당됩니다. 해시 분산 테이블과 달리 값이 동일한 행이 동일한 배포에 할당되지 않습니다. 
 
 결과적으로 경우에 따라 시스템은 쿼리를 해결하기 위해 먼저 데이터 이동 작업을 호출하여 데이터를 좀 더 나은 방식으로 구성해야 합니다.  이 추가 단계로 인해 쿼리 속도가 느려질 수 있습니다. 예를 들어 일반적으로 라운드 로빈 테이블을 조인하려면 행을 다시 섞어야 하므로 성능이 저하됩니다.
 
@@ -60,7 +60,7 @@ Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 
 
 - 기본값이기 때문에 간단한 시작점으로 시작하는 경우
 - 명백한 조인 키가 없는 경우
-- 테이블의 해시 분산에 적합한 후보 열이 없는 경우
+- 해시 테이블을 배포 하는 데 적합 한 후보 열이 없으면
 - 테이블이 다른 테이블과 공통 조인 키를 공유하지 않는 경우
 - 조인이 쿼리의 다른 조인보다 덜 중요한 경우
 - 테이블이 임시 준비 테이블인 경우

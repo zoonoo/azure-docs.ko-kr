@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0c263e1353a07ca388ea9a7fb48ebcf99be07fc1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 79f1bd95451709485f92050a882c790f9e281eb5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820628"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049022"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Media Services v3 Api를 사용 하 여 개발
 
@@ -108,7 +108,7 @@ Media Services에는 다음과 같은 장기 실행 작업이 있습니다.
 
 긴 작업을 성공적으로 제출 하면 ' 202 수락 됨 '이 수신 되 고 반환 된 작업 ID를 사용 하 여 작업 완료에 대해 폴링해야 합니다.
 
-[비동기 azure 작업 추적](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) 문서에서는 응답에서 반환 된 값을 통해 비동기 azure 작업의 상태를 추적 하는 방법에 대해 자세히 설명 합니다.
+[비동기 Azure 작업 추적](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) 문서에서는 응답에서 반환된 값을 통해 비동기 Azure 작업의 상태를 추적하는 방법에 대해 자세히 설명합니다.
 
 지정 된 라이브 이벤트 또는 연결 된 라이브 출력에는 장기 실행 작업이 하나만 지원 됩니다. 시작 된 후에는 동일한 라이브 또는 연결 된 실시간 출력에서 후속 장기 실행 작업을 시작 하기 전에 장기 실행 작업을 완료 해야 합니다. 여러 라이브 출력이 있는 라이브 이벤트의 경우 다른 라이브 출력에서 장기 실행 작업을 트리거하기 전에 단일 라이브 출력에서 장기 실행 작업이 완료 될 때까지 기다려야 합니다. 
 
@@ -122,11 +122,11 @@ Media Services에는 다음과 같은 장기 실행 작업이 있습니다.
 |[.NET SDK](https://aka.ms/ams-v3-dotnet-sdk)|[.NET 참조](https://aka.ms/ams-v3-dotnet-ref)|
 |[Java SDK](https://aka.ms/ams-v3-java-sdk)|[Java 참조](https://aka.ms/ams-v3-java-ref)|
 |[Python SDK](https://aka.ms/ams-v3-python-sdk)|[Python 예제](https://aka.ms/ams-v3-python-ref)|
-|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js 예제](https://aka.ms/ams-v3-nodejs-ref)| 
+|[Node.js SDK](https://aka.ms/ams-v3-nodejs-sdk) |[Node.js 예제](/javascript/api/overview/azure/mediaservices/management)| 
 |[SDK로 이동](https://aka.ms/ams-v3-go-sdk) |[참조로 이동](https://aka.ms/ams-v3-go-ref)|
 |[Ruby SDK](https://aka.ms/ams-v3-ruby-sdk)||
 
-### <a name="see-also"></a>참고 항목
+### <a name="see-also"></a>참고 항목:
 
 - [미디어 서비스 이벤트를 포함하는 EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Media Services 이벤트의 정의](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
@@ -145,7 +145,7 @@ AMSE는 오픈 소스 프로젝트이며, 커뮤니티에서 지원을 제공합
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 [Azure CLI](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 

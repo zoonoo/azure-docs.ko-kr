@@ -1,18 +1,18 @@
 ---
-title: Azure 애플리케이션 게이트웨이에서 웹 응용 프로그램 방화벽 규칙 사용자 지정-Azure Portal
+title: 포털을 사용 하 여 규칙 사용자 지정-Azure 웹 응용 프로그램 방화벽
 description: 이 문서에서는 Azure Portal Application Gateway에서 웹 응용 프로그램 방화벽 규칙을 사용자 지정 하는 방법에 대 한 정보를 제공 합니다.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/24/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: ab2722ed4a4aa4fe95be15cd536bfd5d959f9139
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c4635333614ee1c0fd0322c29a659380fb4315c9
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516930"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048372"
 ---
 # <a name="customize-web-application-firewall-rules-using-the-azure-portal"></a>Azure Portal를 사용 하 여 웹 응용 프로그램 방화벽 규칙 사용자 지정
 

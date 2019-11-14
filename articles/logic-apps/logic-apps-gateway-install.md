@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: a8deb7933bb19745bbe4c3b3a209c19c9cc712bd
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 6daf9351e48603824aa6cec30adb4a6b82349784
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796302"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049032"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -22,14 +22,14 @@ ms.locfileid: "73796302"
 
 * [Microsoft Power BI 온-프레미스 데이터 게이트웨이](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
 * [Microsoft Power Apps 온-프레미스 데이터 게이트웨이](https://powerapps.microsoft.com/tutorials/gateway-management/)
-* [온-프레미스 데이터 게이트웨이 전원 자동화](https://flow.microsoft.com/documentation/gateway-manage/)
+* [온-프레미스 데이터 게이트웨이 전원 자동화](/power-automate/gateway-reference)
 * [Azure Analysis Services 온-프레미스 데이터 게이트웨이](../analysis-services/analysis-services-gateway.md)
 
 이 문서에서는 온-프레미스 데이터 게이트웨이를 다운로드, 설치 및 설정 하 여 Azure Logic Apps에서 온-프레미스 데이터 원본에 액세스할 수 있도록 하는 방법을 보여 줍니다. 이 항목의 뒷부분에서 [데이터 게이트웨이가 작동 하는 방식](#gateway-cloud-service) 에 대해 자세히 알아볼 수도 있습니다. 게이트웨이에 대 한 자세한 내용은 [온-프레미스 게이트웨이](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem)란?을 참조 하세요.
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * Azure 계정 및 구독 구독이 있는 Azure 계정이 없는 경우 [무료 azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 

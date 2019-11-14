@@ -1,25 +1,18 @@
 ---
-title: SSL 오프로드 구성 - Azure Application Gateway - PowerShell 클래식 | Microsoft Docs
+title: PowerShell을 사용 하 여 SSL 오프 로드-Azure 애플리케이션 게이트웨이
 description: 이 문서에서는 Azure 클래식 배포 모델을 사용하여 SSL 오프로드와 함께 애플리케이션 게이트웨이를 만드는 지침을 제공합니다.
-documentationcenter: na
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-ms.assetid: 63f28d96-9c47-410e-97dd-f5ca1ad1b8a4
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 01/23/2017
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: 89a88d79b6b93a233dbd4f335d0eb449e49d5289
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c456a0856adb0d36349b5f96ba0ab8bab3eec5c9
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122203"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047913"
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>클래식 배포 모델을 사용하여 SSL 오프로드에 대한 애플리케이션 게이트웨이 구성
 
@@ -100,14 +93,14 @@ State..........: Provisioned
 값은 다음과 같습니다.
 
 * **백 엔드 서버 풀**: 백 엔드 서버의 IP 주소 목록입니다. 나열된 IP 주소는 가상 네트워크 서브넷에 속하거나 공용 IP 도는 VIP 주소이어야 합니다.
-* **백 엔드 서버 풀 설정**: 모든 풀에는 포트, 프로토콜, 쿠키 기반 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
-* **프런트 엔드 포트**: 이 포트는 애플리케이션 게이트웨이에서 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
+* **백 엔드 서버 풀 설정**: 모든 풀에는 포트, 프로토콜 및 쿠키 기반의 선호도와 같은 설정이 있습니다. 이러한 설정은 풀에 연결 및 풀 내의 모든 서버에 적용 됩니다.
+* **프런트 엔드 포트**: 이 포트는 애플리케이션 게이트웨이에 열려 있는 공용 포트입니다. 트래픽이 이 포트에 도달하면, 백 엔드 서버 중의 하나로 리디렉트됩니다.
 * **수신기**: 수신기에는 프런트 엔드 포트, 프로토콜(Http 또는 Https, 이 값은 대/소문자 구분) 및 SSL 인증서 이름(SSL 오프로드를 구성하는 경우)이 있습니다.
 * **규칙**: 규칙은 수신기와 백 엔드 서버 풀을 바인딩하고 특정 수신기에 도달했을 때 트래픽을 이동하는 백 엔드 서버 풀을 정의합니다. 현재는 *기본* 규칙만 지원 됩니다. *기본* 규칙은 라운드 로빈 부하 분산입니다.
 
 **추가 구성 정보**
 
-SSL 인증서 구성에서 **HttpListener** 의 프로토콜은 **Https** (대/소문자 구분)로 바꿔야 합니다. **SslCert** 요소를 이전 [SSL 인증서 섹션의 업로드](#upload-ssl-certificates)에 사용된 것과 동일한 이름으로 값을 설정하여 **HttpListener**에 추가합니다. 프런트 엔드 포트는 **443**으로 업데이트되어야 합니다.
+SSL 인증서 구성에서 **HttpListener** 의 프로토콜은 **Https** (대/소문자 구분)로 바꿔야 합니다. **SslCert** 요소를 이전 **SSL 인증서 섹션의 업로드**에 사용된 것과 동일한 이름으로 값을 설정하여 [HttpListener](#upload-ssl-certificates)에 추가합니다. 프런트 엔드 포트는 **443**으로 업데이트되어야 합니다.
 
 **쿠키 기반 선호도를 사용하도록 설정**: 클라이언트 세션의 요청이 항상 웹 팜에 있는 동일한 VM으로 전송되도록 애플리케이션 게이트웨이를 구성할 수 있습니다. 이를 완료하려면 게이트웨이에서 트래픽을 적절하게 지시할 수 있는 세션 쿠키를 삽입합니다. 쿠키 기반 선호도를 사용하려면 **BackendHttpSettings** 요소에서 **CookieBasedAffinity**를 **Enabled**로 설정합니다.
 

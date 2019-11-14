@@ -1,5 +1,5 @@
 ---
-title: Azure Traffic Manager를 사용한 가중치 적용 라운드 로빈 트래픽 라우팅 방법 구성 | Microsoft Docs
+title: 가중치가 적용 되는 라운드 로빈 트래픽 라우팅-Azure Traffic Manager
 description: 이 문서에서는 Traffic Manager에서 라운드 로빈 메서드를 사용하여 트래픽 부하를 분산하는 방법을 설명합니다
 services: traffic-manager
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: allensu
-ms.openlocfilehash: 4ca43bf958606a71911bf5d35f31e4fe0b342601
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0bfed558ec8db0ef715dad044c3965c1b1d8052b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071266"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040325"
 ---
 # <a name="configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Traffic Manager에서 가중치 적용 트래픽 라우팅 방법 구성
 

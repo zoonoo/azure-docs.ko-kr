@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 공용 기본 부하 분산 장치 만들기'
-titlesuffix: Azure Load Balancer
+title: '빠른 시작: 공용 기본 Load Balancer 만들기-Azure Portal'
+titleSuffix: Azure Load Balancer
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 공용 기본 부하 분산 장치를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: 9819111c8264493648233f40252db4fb4410aaf1
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 3cbb4271909cf739dc3ce13712e388f2fc8e20a5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274092"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048696"
 ---
-# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 기본 Load Balancer 만들기
+# <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>빠른 시작: Azure Portal를 사용 하 여 기본 Load Balancer 만들기
 
-부하를 분산시키면 들어오는 요청을 VM(가상 머신)에 분산하여 높은 수준의 가용성과 크기 조정이 제공됩니다. Azure Portal을 사용하여 부하 분산 장치를 만들고 VM 간의 트래픽 부하를 분산할 수 있습니다. 이 빠른 시작에서는 기본 가격 계층에서 부하 분산 장치, 백 엔드 서버 및 네트워크 리소스를 만들고 구성하는 방법을 보여 줍니다.
+부하를 분산하면 들어오는 요청을 VM(가상 머신)에 분산하여 높은 수준의 가용성과 크기 조정이 제공됩니다. Azure Portal을 사용하여 부하 분산 장치를 만들고 VM 간의 트래픽 부하를 분산할 수 있습니다. 이 빠른 시작에서는 기본 가격 계층에서 부하 분산 장치, 백 엔드 서버 및 네트워크 리소스를 만들고 구성하는 방법을 보여 줍니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다. 
 
 이 빠른 시작의 작업을 수행하려면 [Azure Portal](https://portal.azure.com)에 로그인해야 합니다.
 
@@ -35,15 +35,15 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 먼저 포털을 사용하여 공용 기본 Load Balancer를 만듭니다. 만드는 이름과 공용 IP 주소는 자동으로 부하 분산 장치의 프런트 엔드로 구성됩니다.
 
 1. 화면의 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **부하 분산 장치**를 클릭합니다.
-2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 유지한 다음, **검토 + 만들기**를 선택합니다.
+2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 적용한 다음, **리뷰 + 만들기**를 선택합니다.
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 구독               | 구독을 선택합니다.    |    
+    | 구독               | 사용 중인 구독을 선택합니다.    |    
     | 리소스 그룹         | **새로 만들기**를 선택하고 텍스트 상자에 *MyResourceGroupLB*를 입력합니다.|
     | 이름                   | *myLoadBalancer*                                   |
-    | Region         | **유럽 서부**를 선택합니다.                                        |
-    | 형식          | **공용**을 선택합니다.                                        |
+    | 지역         | **유럽 서부**를 선택합니다.                                        |
+    | 에          | **공용**을 선택합니다.                                        |
     | SKU           | **기본**을 선택합니다.                          |
     | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
     | 공용 IP 주소 이름              | *MyPublicIP*   |
@@ -63,7 +63,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **가상 네트워크 만들기** 창에서 다음 값을 입력하거나 선택합니다.
    
    - **이름**: *MyVnet*을 입력합니다.
-   - **ResourceGroup**: **기존 항목 선택**을 드롭다운하고, **MyResourceGroupLB**를 선택합니다. 
+   - **리소스 그룹**: **기존 항목 선택**을 드롭다운하고, **MyResourceGroupLB**를 선택합니다. 
    - **서브넷** > **이름**: *MyBackendSubnet*을 입력합니다.
    
 1. **만들기**를 선택합니다.
@@ -117,7 +117,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - **작업**: **허용**을 선택합니다.  
    - **우선 순위**: *100*을 입력합니다. 
    - **이름**: *MyHTTPRule*을 입력합니다. 
-   - **설명**: ‘HTTP 허용’을 입력합니다.  
+   - **설명**: *HTTP 허용*을 입력합니다. 
    
 1. **추가**를 선택합니다. 
    
@@ -147,13 +147,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
    - **이름**: *MyBackEndPool*을 입력합니다.
    - **다음에 연결됨**: 드롭다운하고 **가용성 세트**를 선택합니다.
-   - **가용성 집합**: **MyAvailabilitySet**를 선택합니다.
+   - **가용성 세트**: **MyAvailabilitySet**를 선택합니다.
    
 1. **대상 네트워크 IP 구성 추가**를 선택합니다. 
    1. 백 엔드 풀에 만든 각각의 가상 머신(**MyVM1** 및 **MyVM2**)을 추가합니다.
    2. 각각의 머신이 추가되면 드롭다운하고 **네트워크 IP 구성**을 선택합니다. 
    
-1.           **확인**을 선택합니다.
+1. **확인**을 선택합니다.
    
    ![백 엔드 주소 풀 추가](./media/load-balancer-get-started-internet-portal/3-load-balancer-backend-02.png)
    
@@ -205,7 +205,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    - **백 엔드 풀**: **MyBackendPool**을 선택합니다.
    - **상태 프로브**: **MyHealthProbe**를 선택합니다. 
    
-1.           **확인**을 선택합니다.
+1. **확인**을 선택합니다.
    
    ![부하 분산 장치 규칙 추가](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
@@ -237,7 +237,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    
 **IIS를 설치 하려면**
 
-1. 왼쪽 메뉴에서 **모든 서비스**를 선택한 다음, **모든 리소스**를 선택하고 리소스 목록에서 *myResourceGroupSLB* 리소스 그룹에 있는 **myVM1**을 선택합니다.
+1. 왼쪽 메뉴에서 **모든 서비스**를 선택한 다음, **모든 리소스**를 선택하고 리소스 목록에서 **myResourceGroupSLB** 리소스 그룹에 있는 *myVM1*을 선택합니다.
 2. **개요** 페이지에서 **연결**을 선택하여 VM에 RDP로 연결합니다.
 5. 이 VM을 만드는 동안 입력한 자격 증명을 사용하여 VM에 로그인합니다. 그러면 가상 머신 *myVM1*을 사용하여 원격 데스크톱 세션을 시작합니다.
 6. 서버 바탕 화면에서 **Windows 관리 도구**>**Windows PowerShell**로 이동합니다.

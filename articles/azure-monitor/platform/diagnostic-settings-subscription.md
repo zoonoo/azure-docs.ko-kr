@@ -7,12 +7,12 @@ ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
 ms.date: 10/31/2019
-ms.openlocfilehash: 9f8783dc6d3c14b086364639b60273dbae626cee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 6104a8b01cc9fca5ff8de973e7fc2af77cda8515
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587980"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048199"
 ---
 # <a name="collect-azure-activity-log-with-diagnostic-settings-preview"></a>진단 설정을 사용 하 여 Azure 활동 로그 수집 (미리 보기)
 [Azure 활동 로그](activity-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 지금까지 [이벤트 허브 또는 저장소 계정](activity-log-export.md) 에 활동 로그 항목을 보내고 커넥터를 사용 하 여 [Log Analytics 작업 영역](activity-log-collect.md)으로 수집 하는 로그 프로필을 만들었습니다.
@@ -22,6 +22,8 @@ ms.locfileid: "73587980"
 - 모든 플랫폼 로그를 수집 하기 위한 일관 된 방법입니다.
 - 여러 구독 및 테 넌 트에 걸쳐 활동 로그를 수집 합니다.
 - 컬렉션을 필터링 하 여 특정 범주에 대 한 로그만 수집 합니다.
+- 모든 활동 로그 범주를 수집 합니다. 일부 범주는 이전 메서드를 사용 하 여 수집 되지 않습니다.
+- 로그 수집에 대 한 대기 시간을 단축 합니다. 진단 설정에 약 1 분만 추가 되는 동안 이전 메서드에는 약 15 분의 대기 시간이 있습니다.
 
 ## <a name="considerations"></a>고려 사항
 이 기능을 사용 하도록 설정 하기 전에 진단 설정을 사용 하 여 활동 로그 컬렉션의 다음 세부 사항을 고려 합니다.

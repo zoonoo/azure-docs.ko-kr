@@ -1,6 +1,6 @@
 ---
-title: 웹 페이지에서 Azure Traffic Manager의 실제 사용자 측정 | Microsoft Docs
-description: Traffic Manager로 실제 사용자 측정을 보내도록 웹 페이지 설정
+title: 웹 페이지 실제 사용자 측정-Azure Traffic Manager
+description: 이 문서에서는 Azure Traffic Manager에 실제 사용자 측정를 보내도록 웹 페이지를 설정 하는 방법에 대해 알아봅니다.
 services: traffic-manager
 documentationcenter: traffic-manager
 author: asudbring
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: 2d044457df80f16a6e8073e7f3253a611f74d8a8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6e3cf5af5aaa894b1595d67c0056073a458b0a88
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071226"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74040292"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>웹 페이지를 사용하여 Azure Traffic Manager의 실제 사용자 측정을 보내는 방법
 

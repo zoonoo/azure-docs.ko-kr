@@ -1,18 +1,19 @@
 ---
-title: Azure 애플리케이션 게이트웨이에서 허용 목록 백 엔드에 필요한 인증서
-description: 이 문서에서는 Azure 애플리케이션 게이트웨이의 백 엔드 인스턴스를 허용 목록 하는 데 필요한 인증 인증서와 신뢰할 수 있는 루트 인증서로 SSL 인증서를 변환 하는 방법에 대 한 예제를 제공 합니다.
+title: 백 엔드 서버를 허용 하는 데 필요한 인증서
+titleSuffix: Azure Application Gateway
+description: 이 문서에서는 Azure 애플리케이션 게이트웨이에서 백 엔드 인스턴스를 허용 하는 데 필요한 인증 인증서와 신뢰할 수 있는 루트 인증서로 SSL 인증서를 변환 하는 방법에 대 한 예제를 제공 합니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/23/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: ae1ac3df3da4e5c25e5538f0e8cc4cd12f9186c6
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 48944c513bd075e3859503fdadc4001261dc8c4a
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774786"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048165"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Azure 애플리케이션 게이트웨이를 사용 하 여 백 엔드를 허용 하는 인증서 만들기
 
@@ -25,7 +26,7 @@ ms.locfileid: "68774786"
 > - 백 엔드 인증서에서 인증 인증서 내보내기 (v1 SKU의 경우)
 > - 백 엔드 인증서에서 신뢰할 수 있는 루트 인증서 내보내기 (v2 SKU 용)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 Application Gateway를 사용 하 여 백 엔드 인스턴스를 허용 하는 데 필요한 인증 인증서 또는 신뢰할 수 있는 루트 인증서를 생성 하려면 기존 백엔드 인증서가 필요 합니다. 백 엔드 인증서는 SSL 인증서와 동일 하거나 보안 강화를 위해 서로 다를 수 있습니다. Application Gateway는 SSL 인증서를 만들거나 구입 하는 메커니즘을 제공 하지 않습니다. 테스트를 위해 자체 서명 된 인증서를 만들 수 있지만 프로덕션 워크 로드에는 사용 하지 않아야 합니다. 
 
@@ -61,7 +62,7 @@ SSL 인증서에서 공개 키 .cer 파일 (개인 키 아님)을 내보냅니�
 
 7. 인증서가 성공적으로 내보내졌습니다.
 
-   ![Success](./media/certificates-for-backend-authentication/success.png)
+   ![성공](./media/certificates-for-backend-authentication/success.png)
 
    내보낸 인증서는 다음과 비슷합니다.
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik
-ms.date: 12/19/2018
-ms.openlocfilehash: fb7ba90724a98a34adf4aa279eefc8e3d7a63bf3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/12/2019
+ms.openlocfilehash: a113ea3fd4828a498d1f53ea7604df7bc8588eb5
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811382"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048402"
 ---
 # <a name="performance-recommendations-for-sql-database"></a>SQL Database에 대한 성능 권장 사항
 
@@ -25,6 +25,17 @@ Azure SQL Database는 애플리케이션과 함께 학습하고 조정됩니다.
 > [!TIP]
 > [자동 튜닝](sql-database-automatic-tuning.md)은 가장 일반적인 데이터베이스 성능 문제를 자동으로 조정하는 권장 방법입니다. [Query Performance Insights](sql-database-query-performance.md)는 기본적인 Azure SQL Database 성능 모니터링 요구에 맞는 권장 방법입니다. [Azure SQL 분석](../azure-monitor/insights/azure-sql.md)은 자동화된 성능 문제 해결을 위해 기본 제공 인텔리전스를 사용하여 규모에 맞게 데이터베이스 성능을 상세히 모니터링하는 데 권장되는 방법입니다.
 >
+
+## <a name="performance-recommendations-options"></a>성능 권장 사항 옵션
+
+Azure SQL Database 사용할 수 있는 성능 권장 옵션은 다음과 같습니다.
+
+| 성능 권장 사항 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 인스턴스 데이터베이스 지원 |
+| :----------------------------- | ----- | ----- |
+| **인덱스 만들기 권장 사항** -작업의 성능을 향상 시킬 수 있는 인덱스를 만드는 것이 좋습니다. | 예 | 아니오 | 
+| **Drop index 권장 사항** -긴 시간 (> 90 일) 동안 사용 되지 않은 인덱스 및 고유 인덱스를 제외 하 고 매일 중복 인덱스 및 중복 인덱스의 제거를 권장 합니다. 이 옵션은 파티션 전환 및 인덱스 힌트를 사용하는 애플리케이션과 호환되지 않습니다. Premium 및 중요 비즈니스용 서비스 계층에서는 사용 하지 않는 인덱스를 삭제할 수 없습니다. | 예 | 아니오 |
+| **쿼리 매개 변수화 권장 사항 (미리 보기)** -지속적으로 다시 컴파일될 하나 이상의 쿼리가 있고 동일한 쿼리 실행 계획으로 종료 되는 경우 강제 parametrization을 권장 합니다. | 예 | 아니오 |
+| **스키마 문제 해결 권장 사항 (미리 보기)** -SQL DATABASE 서비스가 SQL Database에서 발생 하는 스키마 관련 sql 오류 수의 비정상 상태를 볼 때 스키마 수정에 대 한 권장 사항이 표시 됩니다. Microsoft는 현재 “스키마 문제 해결” 권장 사항을 사용하지 않습니다. | 예 | 아니오 |
 
 ## <a name="create-index-recommendations"></a>인덱스 만들기 권장 사항
 SQL Database는 실행 중인 쿼리를 지속적으로 모니터링하고 성능을 향상할 수 있는 인덱스를 식별합니다. 특정 인덱스가 없다는 충분한 신뢰도가 빌드되면 새 **인덱스 만들기** 권장 사항이 생성됩니다.
@@ -50,8 +61,7 @@ SQL Database는 누락된 인덱스를 검색하는 작업 이외에도 기존 �
 
 인덱스 삭제 권장 사항은 구현 후에 확인도 수행합니다. 성능이 향상되면 영향 보고서를 사용할 수 있습니다. 성능이 저하되면 권장 사항이 되돌려집니다.
 
-
-## <a name="parameterize-queries-recommendations"></a>쿼리 매개 변수화 권장 사항
+## <a name="parameterize-queries-recommendations-preview"></a>쿼리 매개 변수화 권장 사항 (미리 보기)
 *쿼리 매개 변수화* 권장 사항은 지속적으로 다시 컴파일되지만 동일한 쿼리 실행 계획으로 종료되는 하나 이상의 쿼리가 있을 때 나타납니다. 이 조건은 강제 매개 변수화를 적용할 기회를 만듭니다. 또한 강제 매개 변수화를 설정하면 나중에 쿼리 계획을 캐시하고 다시 사용할 수 있으므로 성능이 향상되고 리소스 사용량이 줄어듭니다. 
 
 SQL Server에 대해 실행되는 모든 쿼리는 실행 계획을 생성하기 위해 초기에 컴파일되어야 합니다. 생성된 각 계획은 계획 캐시에 추가됩니다. 이후에 동일한 쿼리를 실행할 때 캐시에서 이 계획을 다시 사용할 수 있으므로 추가 컴파일이 필요하지 않게 됩니다. 

@@ -7,18 +7,21 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 02/06/2019
-ms.openlocfilehash: 98e256dbdc6993ee1aeb8e2ac26809ef849edb91
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b11671f20a7e3e6053f90a884777b31196232a38
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932905"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048300"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants"></a>Azure Active Directory 테 넌 트에서 Azure 활동 로그를 Azure Monitor으로 수집
 
+> [!NOTE]
+> 이제 리소스 로그를 수집 하는 방법과 유사한 진단 설정을 사용 하 여 활동 로그를 Log Analytics 작업 영역으로 수집할 수 있습니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](activity-log-collect.md)을 참조 하세요.
+
 이 문서에서는 azure Log Analytics 데이터 수집기 connector for Logic Apps를 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역으로 Azure 활동 로그를 수집 하는 방법을 단계별로 안내 합니다. 다른 Azure Active Directory 테넌트의 작업 영역에 로그를 보내야 하는 경우 이 문서의 과정을 사용합니다. 예를 들어 관리형 서비스 공급자인 경우 고객의 구독에서 활동 로그를 수집하여 자체 구독의 Log Analytics 작업 영역에 저장하는 것이 좋습니다.
 
-Log Analytics 작업 영역이 동일한 Azure 구독 또는 다른 구독에 있지만 동일한 Azure Active Directory에 있는 경우 [Azure Monitor의 Log Analytics 작업 영역에서 azure 활동 로그 수집 및 분석](activity-log-collect.md) 의 단계를 사용 하 여 azure를 수집 합니다. 활동 로그.
+Log Analytics 작업 영역이 동일한 Azure 구독 또는 다른 구독에 있지만 동일한 Azure Active Directory에 있는 경우 [Azure Monitor의 Log Analytics 작업 영역에서 azure 활동 로그 수집 및 분석](activity-log-collect.md) 의 단계를 사용 하 여 azure 활동 로그를 수집 합니다.
 
 ## <a name="overview"></a>개요
 
@@ -123,10 +126,10 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
    |설정 | 설명  |
    |:---|:---|
-   | name           | Logic App의 고유 이름입니다. |
-   | Subscription   | Logic App이 포함될 Azure 구독을 선택합니다. |
+   | 이름           | Logic App의 고유 이름입니다. |
+   | 구독   | Logic App이 포함될 Azure 구독을 선택합니다. |
    | 리소스 그룹 | 기존 Azure 리소스 그룹을 선택하거나 Logic App에 사용할 리소스 그룹을 새로 만듭니다. |
-   | 위치       | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다. |
+   | Location       | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다. |
    | Log Analytics  | Log Analytics 작업 영역에서 논리 앱의 각 실행 상태를 기록 하려는 경우 선택 합니다.  |
 
     
@@ -296,11 +299,11 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
     ![데이터 보내기 작업 구성](media/collect-activity-logs-subscriptions/logic-apps-send-data-to-log-analytics-configuration.png)
 
-   |설정        | Value           | 설명  |
+   |설정        | 값           | 설명  |
    |---------------|---------------------------|--------------|
    |JSON 요청 본문  | **작성** 작업의 **출력** | 작성 작업의 본문에서 레코드를 검색합니다. |
    | 사용자 지정 로그 이름 | AzureActivity | 가져온 데이터를 저장 하기 위해 Log Analytics 작업 영역에 만들 사용자 지정 로그 테이블의 이름입니다. |
-   | Time-generated-field | time | **time**에 대해 JSON 필드를 선택하지 않고 time 단어만 입력합니다. JSON 필드를 선택하면 디자이너가 **데이터 보내기** 작업을 *For Each* 루프에 넣으며, 이는 원하는 작업이 아닙니다. |
+   | Time-generated-field | 실시간 | **time**에 대해 JSON 필드를 선택하지 않고 time 단어만 입력합니다. JSON 필드를 선택하면 디자이너가 **데이터 보내기** 작업을 *For Each* 루프에 넣으며, 이는 원하는 작업이 아닙니다. |
 
 
 

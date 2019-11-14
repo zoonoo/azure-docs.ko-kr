@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e368894d7036d071285ebc7ba85056676d8d670d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2d0f92f7bf5b015a30e431354edb0c29f5e103f6
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692646"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046445"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL Data Warehouse 데이터 통합 파트너
 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다. 이 문서에서는 Azure SQL Data Warehouse을 지 원하는 공식 데이터 통합 솔루션을 사용 하는 Microsoft 파트너 회사를 강조 합니다.
@@ -29,13 +29,13 @@ ms.locfileid: "73692646"
 | ![Attunity][2] |**Attunity (CloudBeam)**<br>Attunity CloudBeam은 SQL Data Warehouse으로 데이터를 로드 하기 위한 자동화 된 솔루션을 제공 합니다. SQL Server, Oracle, DB2, Sybase, MySQL 등의 많은 원본에서 데이터의 일괄 처리 로드 및 증분 복제를 간소화 합니다. |[제품 페이지][attunity_cloudbeam_website]<br>[Azure Marketplace][attunity_marketplace]<br> |
 | ![Denodo][3] |**Denodo**<br>Denodo는 조직의 다양 한 데이터 원본에서 데이터에 대 한 실시간 액세스를 제공 합니다. 데이터 가상화를 사용 하 여 복제 하지 않고 많은 원본에서 데이터를 연결 합니다. 이는 배치와 실시간으로 엔터프라이즈, 빅 데이터 및 클라우드 원본에 있는 구조화 된 데이터 및 구조화 되지 않은 데이터에 대 한 광범위 한 액세스를 제공 합니다.|[제품 페이지][denodo_website]<br>[Azure Marketplace][denodo_marketplace]<br> |
 | ![Fivetran][8] |**Fivetran**<br>Fivetran를 사용 하면 서로 다른 원본에서 데이터를 중앙 집중화할 수 있습니다. 여기에는 널리 사용 되는 모든 데이터 원본에 대 한 기본 제공 커넥터 목록이 증가 하는 0 유지 관리 및 제로 구성 데이터 파이프라인 제품이 포함 됩니다. 설치 프로그램은 데이터 원본 및 대상 데이터 웨어하우스에 인증 한 후 5 분 정도 걸립니다.|[제품 페이지][fivetran_website]<br> |
-| ![Informatica][4] |**1. Azure에 대 한 Informatica Cloud Services**<br> Informatica Cloud는 셀프 서비스 데이터 마이그레이션, 통합 및 관리 기능을 제공 하는 최고의 솔루션을 제공 합니다. 고객은 다양 한 원본에서 Azure로 페타바이트 데이터를 빠르고 안정적으로 가져오고 내보낼 수 있습니다. Azure용 Informatica Cloud Services는 Azure SQL Data Warehouse, SQL 데이터베이스, Blob Storage, Data Lake Store 및 Azure Cosmos DB에 네이티브, 대용량 및 고성능 연결을 제공합니다. <br><br> **2. Informatica PowerCenter** PowerCenter는 데이터 통합 프로젝트를 전력망 하 고 가속화 하는 메타 데이터 기반 데이터 통합 플랫폼으로, 수동으로 데이터를 비즈니스에 전달 하는 것 보다 신속 하 게 비즈니스에 데이터를 전달 합니다. 데이터 통합 투자의 기반으로 사용 됩니다. |**Azure에 대 한 Informatica Cloud services**<br>[제품 페이지][informatica_Cloud_Services_website]<br>[Azure Marketplace][informatica_Cloud_Services_marketplace]<br><br> **Informatica PowerCenter**<br>[제품 페이지][informatica_PowerCenter_website]<br> [Azure Marketplace][informatica_PowerCenter_byol]<br>|
+| ![Informatica][4] |**1. Azure에 대 한 Informatica Cloud Services**<br> Informatica Cloud는 셀프 서비스 데이터 마이그레이션, 통합 및 관리 기능을 제공 하는 최고의 솔루션을 제공 합니다. 고객은 다양 한 종류의 원본에서 Azure로 페타바이트 데이터를 빠르고 안정적으로 가져오고 내보낼 수 있습니다. Azure용 Informatica Cloud Services는 Azure SQL Data Warehouse, SQL 데이터베이스, Blob Storage, Data Lake Store 및 Azure Cosmos DB에 네이티브, 대용량 및 고성능 연결을 제공합니다. <br><br> **2. Informatica PowerCenter** PowerCenter는 데이터 통합 프로젝트를 전력망 하 여 데이터 통합 프로젝트를 가속화 하 고 수동 코딩 보다 신속 하 게 비즈니스에 데이터를 제공 하는 메타 데이터 기반 데이터 통합 플랫폼입니다. 데이터 통합 투자의 기반으로 사용 됩니다. |**Azure에 대 한 Informatica Cloud services**<br>[제품 페이지][informatica_Cloud_Services_website]<br>[Azure Marketplace][informatica_Cloud_Services_marketplace]<br><br> **Informatica PowerCenter**<br>[제품 페이지][informatica_PowerCenter_website]<br> [Azure Marketplace][informatica_PowerCenter_byol]<br>|
 | ![정보 작성기][5] |**정보 작성기 (전체 Gen 데이터 관리)**<br>정보 작성기의 전체 세대 데이터 관리 플랫폼은 데이터 통합, 데이터 품질 및 마스터 데이터 관리 솔루션을 제공 합니다. 형식, 위치, 볼륨 또는 대기 시간에 관계 없이 모든 데이터를 쉽게 액세스 하 고, 이동 하 고, 혼합할 수 있습니다.|[제품 페이지][omnifocus_website]<br> [Azure Marketplace][omnigen_marketplace] |
-| ![Qubole][9] |**Qubole**<br>Qubole는 사용자가 ETL, 분석 및 AI/ML 워크 로드를 수행할 수 있도록 하는 클라우드 네이티브 플랫폼을 제공 합니다. Apache Spark, TensorFlow, Presto, 통풍, Hadoop, Hive 등의 다양 한 오픈 소스 엔진을 지원 합니다. SQL 쿼리 도구, 노트북, 강력한 오픈 소스 엔진을 활용 하는 대시보드로 데이터를 처리 하기 위한 사용 하기 쉬운 최종 사용자 도구를 제공 합니다.|[제품 페이지][qubole_website]<br> [Azure Marketplace][qubole_marketplace] |
-| ![세그먼트가][10] |**세그먼트**<br>세그먼트는 다양 한 원본에서 들어오는 고객 데이터를 이해 하는 데 도움이 되는 데이터 관리 및 분석 솔루션입니다. 이를 통해 데이터를 200 개 이상의 도구에 연결 하 여 더 나은 결정, 제품 및 환경을 만들 수 있습니다. 세그먼트는 기본 제공 데이터 커넥터를 사용 하 여 여러 데이터 원본을 사용자의 웨어하우스로 변환 하 고 로드 합니다.|[제품 페이지][segment_website]<br> |
-| ![Skyvia][11] |**Skyvia (데이터 통합)**<br>Skyvia 데이터 통합은 데이터 가져오기를 자동화 하는 마법사를 제공 합니다. 이 마법사를 사용 하면 다양 한 원본 (CRMs, 응용 프로그램 데이터베이스, CSV 파일 등) 간에 데이터를 마이그레이션할 수 있습니다. |[제품 페이지][segment_website]<br> |
+| ![Qubole][9] |**Qubole**<br>Qubole는 사용자가 ETL, 분석 및 AI/ML 워크 로드를 수행할 수 있도록 하는 클라우드 네이티브 플랫폼을 제공 합니다. Apache Spark, TensorFlow, Presto, 통풍, Hadoop, Hive 등 다양 한 종류의 오픈 소스 엔진을 지원 합니다. SQL 쿼리 도구, 노트북, 강력한 오픈 소스 엔진을 활용 하는 대시보드로 데이터를 처리 하기 위한 사용 하기 쉬운 최종 사용자 도구를 제공 합니다.|[제품 페이지][qubole_website]<br> [Azure Marketplace][qubole_marketplace] |
+| ![세그먼트가][10] |**Segment**<br>세그먼트는 다양 한 원본에서 들어오는 고객 데이터를 이해 하는 데 도움이 되는 데이터 관리 및 분석 솔루션입니다. 이를 통해 데이터를 200 개 이상의 도구에 연결 하 여 더 나은 결정, 제품 및 환경을 만들 수 있습니다. 세그먼트는 기본 제공 데이터 커넥터를 사용 하 여 여러 데이터 원본을 사용자의 웨어하우스로 변환 하 고 로드 합니다.|[제품 페이지][segment_website]<br> |
+| ![Skyvia][11] |**Skyvia (데이터 통합)**<br>Skyvia 데이터 통합은 데이터 가져오기를 자동화 하는 마법사를 제공 합니다. 이 마법사를 사용 하 여 다양 한 종류의 원본 (CRMs, 응용 프로그램 데이터베이스, CSV 파일 등) 간에 데이터를 마이그레이션할 수 있습니다. |[제품 페이지][segment_website]<br> |
 | ![SnapLogic][6] |**SnapLogic**<br>SnapLogic 플랫폼을 사용 하면 고객은 데이터를 Microsoft Azure SQL Data Warehouse으로 신속 하 게 전송할 수 있습니다. 단일 솔루션에서 수백 개의 응용 프로그램, 서비스 및 IoT 시나리오를 통합할 수 있는 기능을 제공 합니다.|[제품 페이지][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
-| ![StreamSets][15] |**StreamSets**<br>StreamSets는 DataOps에 대 한 데이터 통합 플랫폼을 제공 합니다. Azure SQL Data Warehouse에 데이터를 통합 하기 위한 전체 디자인-배포-작업 수명 주기를 operationalizes 합니다. 스트리밍, 일괄 처리 또는 변경 된 데이터 캡처 데이터 전달 방법을 통해 웨어하우스 간에 데이터를 신속 하 게 수집 하 고 통합할 수 있을 뿐만 아니라 종단 간 데이터 흐름 표시 유형을 제공 하는 스마트 데이터 파이프라인을 사용 하 여 연속 작업을 수행할 수도 있습니다. 복구.|[제품 페이지][streamsets_website]|
+| ![StreamSets][15] |**StreamSets**<br>StreamSets는 DataOps에 대 한 데이터 통합 플랫폼을 제공 합니다. Azure SQL Data Warehouse에 데이터를 통합 하기 위한 전체 디자인-배포-작업 수명 주기를 operationalizes 합니다. 스트리밍, 일괄 처리 또는 변경 된 데이터 캡처 데이터 전달 방법을 통해 웨어하우스 간에 데이터를 신속 하 게 수집 하 고 통합할 수는 없지만, 종단 간 데이터 흐름 표시 유형을 제공 하는 스마트 데이터 파이프라인을 사용 하는 연속 작업을 보장 합니다. 복구.|[제품 페이지][streamsets_website]|
 | ![Talend][12] |**Talend 클라우드**<br>Talend Cloud는 클라우드 또는 온-프레미스에서 데이터를 연결, 액세스 및 변환 하기 위한 엔터프라이즈 데이터 통합 플랫폼입니다. 광범위 한 연결, 기본 제공 데이터 품질 및 최신 빅 데이터 및 클라우드 기술에 대 한 기본 지원을 제공 하는 iPaaS (integration platform as a service) 제품입니다. |[제품 페이지][talend_website]<br> [Azure Marketplace][talend_marketplace] |
 | ![Trifacta][13] |**Trifacta Wrangler**<br> Trifacta를 사용 하면 개인 및 조직이 분석을 위해 다양 한 데이터를 탐색 하 고 조인할 수 있습니다. Trifacta Wrangler는 대규모의 최종 사용자에 게 데이터를 지원 해야 하는 데이터 랭 글 링 워크 로드를 처리 하도록 설계 되었습니다.|[제품 페이지][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |
 | ![WhereScape][14] |**Wherescape RED**<br> WhereScape RED는 팀이 ETL 워크플로를 간소화 하는 자동화 도구를 제공 하는 IDE입니다. IDE는 인기 있는 데이터 대상에 대해 최적화 된 네이티브 코드를 최적화 하는 모범 사례를 제공 합니다. WhereScape RED를 사용 하면 데이터 인프라를 개발, 배포 및 운영 하는 시간을 줄일 수 있습니다.|[제품 페이지][wherescape_website]<br> [Azure Marketplace][wherescape_marketplace] |
@@ -95,7 +95,7 @@ ms.locfileid: "73692646"
 [alteryx_marketplace]:https://azure.microsoft.com/marketplace/partners/alteryx/alteryx-designer/
 [attunity_marketplace]:https://azure.microsoft.com/marketplace/partners/attunity-cloudbeam/cloudbeam-dw-byol/ 
 [denodo_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/denodo.denodo-platform-7_0
-[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.ics-byol
+[informatica_Cloud_Services_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.iics-winter
 [informatica_PowerCenter_byol]:https://azuremarketplace.microsoft.com/marketplace/apps/informatica.powercenter/
 [snaplogic_marketplace]:https://azure.microsoft.com/marketplace/partners/snaplogic/snaplogic-elastic-integration-windows/ 
 [omnigen_marketplace]:https://azuremarketplace.microsoft.com/marketplace/apps/informationbuilders.omni-gen-mdm

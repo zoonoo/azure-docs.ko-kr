@@ -1,20 +1,21 @@
 ---
-title: Azure 애플리케이션 게이트웨이에서 웹 응용 프로그램 방화벽 규칙 사용자 지정-PowerShell
+title: PowerShell을 사용 하 여 규칙 사용자 지정
+titleSuffix: Azure Web Application Firewall
 description: 이 문서에서는 PowerShell로 Application Gateway에서 웹 응용 프로그램 방화벽 규칙을 사용자 지정 하는 방법에 대 한 정보를 제공 합니다.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/23/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: 2930204cd322f3a8ba25eb6f3455a51f1d3d2ee9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55eea15da8c3a10b0421ff1576082d6b42fc7c56
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516956"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048517"
 ---
-# <a name="customize-web-application-firewall-rules-through-powershell"></a>PowerShell을 통해 웹 응용 프로그램 방화벽 규칙 사용자 지정
+# <a name="customize-web-application-firewall-rules-using-powershell"></a>PowerShell을 사용 하 여 웹 응용 프로그램 방화벽 규칙 사용자 지정
 
 Azure 애플리케이션 게이트웨이 WAF (웹 응용 프로그램 방화벽)는 웹 응용 프로그램에 대 한 보호를 제공 합니다. 이러한 보호 기능은 OWASP(Open Web Application Security Project) CRS(코어 규칙 세트)을 통해 제공됩니다. 일부 규칙은 거짓 긍정의 원인이 되어 실제 트래픽을 차단할 수도 있습니다. 이러한 이유로 Application Gateway는 규칙 그룹 및 규칙을 사용자 지정하는 기능을 제공합니다. 특정 규칙 그룹 및 규칙에 대 한 자세한 내용은 [웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙 목록](application-gateway-crs-rulegroups-rules.md)을 참조 하세요.
 

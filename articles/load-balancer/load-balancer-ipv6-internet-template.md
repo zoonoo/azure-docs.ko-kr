@@ -1,6 +1,6 @@
 ---
 title: IPv6을 사용하여 인터넷 연결 부하 분산 장치 배포 - Azure 템플릿
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원을 배포하는 방법.
 services: load-balancer
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: bfecb2a57cf5f086b6c9f99c50b857c8c1183e3e
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: e5cfc980387b63701fb3ff36e7fa8ac43800ecce
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025600"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048438"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>템플릿을 사용하여 IPv6로 인터넷 연결 부하 분산 장치 솔루션을 배포합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "73025600"
 > * [템플릿](load-balancer-ipv6-internet-template.md)
 
 
->[! 참고: i p v 6에 대 한 모범 사례 변경 내용이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능을 설명 합니다.  이제 ipv6 연결을 가상 네트워크와 통합 하 고 ipv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, ipv6 기본 및와 같은 주요 기능을 포함 하는 [Azure vnet 용](../virtual-network/ipv6-overview.md) i p v 6에서 더 포괄적인 ipv6 연결을 사용할 수 있습니다. 표준 부하 분산 등이 있습니다.  Azure Vnet에 대 한 i p v 6은 Azure에서 IPv6 응용 프로그램에 권장 되는 모범 사례입니다. 
+>[! 참고: i p v 6에 대 한 모범 사례 변경 내용이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능을 설명 합니다.  이제 ipv6 연결을 가상 네트워크와 통합 하 고 ipv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 부하 분산 등의 주요 기능을 포함 하는 [Azure vnet에 대 한](../virtual-network/ipv6-overview.md) 더 포괄적인 ipv6 연결을 사용할 수 있습니다.  Azure Vnet에 대 한 i p v 6은 Azure에서 IPv6 응용 프로그램에 권장 되는 모범 사례입니다. 
 >[AZURE VNET 용 IPv6 템플릿 배포를](../virtual-network/ipv6-configure-standard-load-balancer-template-json.md) 참조 하세요.
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 부하 분산 장치 집합에 있는 클라우드 서비스 또는 가상 머신의 정상 서비스 인스턴스 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. Azure Load Balancer는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.
@@ -111,7 +111,7 @@ Azure Resource Manager 템플릿은 요구에 맞게 사용자 지정할 수 있
 
 이 문서에서 사용된 예제 템플릿에는 다음 변수 및 매개 변수가 들어 있습니다.
 
-| 매개 변수 / 변수 | 참고 |
+| 매개 변수 / 변수 | 참고 사항 |
 | --- | --- |
 | adminUsername |가상 머신에 로그인하는 데 사용되는 관리자 계정의 이름을 지정합니다. |
 | adminPassword |가상 머신에 로그인하는 데 사용되는 관리자 계정의 비밀번호를 지정합니다. |

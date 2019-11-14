@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4307c9036db45145a7c0e95cb5e55a667c6851eb
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1490a25e69ff22fde1f5c870868f20ea6f9a1cf7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893359"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74046981"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정
 
@@ -61,10 +61,11 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 
 | NameID 형식 | 설명 |
 |---------------|-------------|
-| **기본값** | Azure AD는 기본 원본 형식을 사용 합니다. |
+| **Default** | Azure AD는 기본 원본 형식을 사용 합니다. |
 | **지속적** | Azure AD는 NameID 형식으로 영구를 사용 합니다. |
 | **EmailAddress** | Azure AD는 EmailAddress을 NameID 형식으로 사용 합니다. |
 | **지정 되지 않은** | Azure AD는 NameID 형식으로 지정 되지 않은를 사용 합니다. |
+| **Windows 도메인 정규화 된 이름** | Azure AD는 WindowsDomainQualifiedName을 NameID 형식으로 사용 합니다. |
 
 임시 NameID도 지원 되지만 드롭다운에서 사용할 수 없으며 Azure 측에서 구성할 수 없습니다. NameIDPolicy 특성에 대해 자세히 알아보려면 [Single SIGN-ON SAML 프로토콜](single-sign-on-saml-protocol.md)을 참조 하세요.
 
@@ -72,12 +73,12 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 
 `NameIdentifier`(또는 NameID) 클레임의 원하는 소스를 선택합니다. 다음 옵션 중에서 선택할 수 있습니다.
 
-| name | 설명 |
+| 이름 | 설명 |
 |------|-------------|
-| 이메일 | 사용자의 이메일 주소입니다. |
+| Email | 사용자의 이메일 주소입니다. |
 | userprincipalName | 사용자의 UPN (사용자 계정 이름) |
 | onpremisessamaccount | 온-프레미스 Azure AD에서 동기화된 SAM 계정 이름입니다. |
-| objectId | Azure AD에서 사용자의 objectid |
+| objectId | Azure AD에서 사용자의 Objectid |
 | employeeid | 사용자의 직원 ID |
 | 디렉터리 확장 | [Azure AD Connect 동기화를 사용하여 온-프레미스 Active Directory에서 동기화되는](../hybrid/how-to-connect-sync-feature-directory-extensions.md) 디렉터리 확장입니다. |
 | 확장 특성 1-15 | Azure AD 스키마를 확장하는 데 사용되는 온-프레미스 확장 특성입니다. |
@@ -105,7 +106,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 | 함수 | 설명 |
 |----------|-------------|
 | **ExtractMailPrefix()** | 전자 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거 합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
-| **Join ()** | 확인된 도메인에 특성을 조인합니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
+| **Join()** | 확인된 도메인에 특성을 조인합니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
 | **ToLower()** | 선택한 특성의 문자를 소문자로 변환합니다. |
 | **ToUpper()** | 선택한 특성의 문자를 대문자로 변환합니다. |
 
@@ -132,21 +133,21 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 | 함수 | 설명 |
 |----------|-------------|
 | **ExtractMailPrefix()** | 전자 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거 합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
-| **Join ()** | 두 특성을 조인 하 여 새 값을 만듭니다. 필요에 따라 두 특성 사이에 구분 기호를 사용할 수 있습니다. NameID 클레임 변환의 경우 조인은 확인 된 도메인으로 제한 됩니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
+| **Join()** | 두 특성을 조인 하 여 새 값을 만듭니다. 필요에 따라 두 특성 사이에 구분 기호를 사용할 수 있습니다. NameID 클레임 변환의 경우 조인은 확인 된 도메인으로 제한 됩니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
 | **ToLower()** | 선택한 특성의 문자를 소문자로 변환합니다. |
 | **ToUpper()** | 선택한 특성의 문자를 대문자로 변환합니다. |
-| **Contains ()** | 입력이 지정 된 값과 일치 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 "@contoso.com" 도메인을 포함 하는 경우 값이 사용자의 전자 메일 주소인 클레임을 내보내려면이 고, 그렇지 않으면 사용자 계정 이름을 출력 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. email<br/>*값*: "@contoso.com"<br/>매개 변수 2 (출력): user. email<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. userprincipalname |
-| **EndWith ()** | 입력이 지정 된 값으로 끝나는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 직원 ID가 "000"으로 끝나는 경우 값이 사용자의 직원 ID 인 클레임을 내보내려면이 고, 그렇지 않으면 확장 특성을 출력 하는 것입니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. employeeid<br/>*값*: "000"<br/>매개 변수 2 (출력): user. employeeid<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. extensionattribute1 |
-| **StartWith ()** | 입력이 지정 된 값으로 시작 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 국가/지역이 "US"로 시작 하는 경우 값이 사용자의 직원 ID 인 클레임을 내보내려면이 고, 그렇지 않으면 확장 특성을 출력 하는 것입니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. country<br/>*값*: "US"<br/>매개 변수 2 (출력): user. employeeid<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. extensionattribute1 |
-| **Extract ()-일치 후** | 지정 된 값과 일치 하는 부분 문자열을 반환 합니다.<br/>예를 들어 입력 값이 "Finance_BSimon" 인 경우 일치 하는 값은 "Finance_"이 고 클레임의 출력은 "따르면"입니다. |
-| **Extract ()-일치 하기 전에** | 지정 된 값과 일치 하는 부분 문자열을 반환 합니다.<br/>예를 들어 입력 값이 "BSimon_US" 인 경우 일치 하는 값은 "_US"이 고 클레임의 출력은 "따르면"입니다. |
-| **Extract ()-일치 항목 사이** | 지정 된 값과 일치 하는 부분 문자열을 반환 합니다.<br/>예를 들어 입력 값이 "Finance_BSimon_US" 인 경우 일치 하는 첫 번째 값은 "Finance_"이 고, 두 번째 일치 하는 값은 "_US"이 고, 클레임의 출력은 "따르면"입니다. |
-| **ExtractAlpha ()-접두사** | 문자열의 접두사 사전순 부분을 반환 합니다.<br/>예를 들어 입력의 값이 "BSimon_123" 인 경우 "따르면"를 반환 합니다. |
-| **ExtractAlpha ()-접미사** | 문자열의 접미사 사전순 부분을 반환 합니다.<br/>예를 들어 입력의 값이 "123_Simon" 인 경우 "Simon"를 반환 합니다. |
-| **ExtractNumeric ()-접두사** | 문자열의 접두사 숫자 부분을 반환 합니다.<br/>예를 들어 입력의 값이 "123_BSimon" 인 경우 "123"을 반환 합니다. |
-| **ExtractNumeric ()-접미사** | 문자열의 접미사 숫자 부분을 반환 합니다.<br/>예를 들어 입력의 값이 "BSimon_123" 인 경우 "123"을 반환 합니다. |
-| **IfEmpty ()** | 입력이 null 이거나 비어 있는 경우 특성 또는 상수를 출력 합니다.<br/>예를 들어 지정 된 사용자에 대 한 직원 ID가 비어 있는 경우 extensionattribute에 저장 된 특성을 출력 하려고 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>매개 변수 1 (입력): user. employeeid<br/>매개 변수 2 (출력): extensionattribute1<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. employeeid |
-| **IfNotEmpty ()** | 입력이 null 이거나 비어 있지 않은 경우 특성 또는 상수를 출력 합니다.<br/>예를 들어 지정 된 사용자에 대 한 직원 ID가 비어 있지 않은 경우 extensionattribute에 저장 된 특성을 출력 하려고 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>매개 변수 1 (입력): user. employeeid<br/>매개 변수 2 (출력): extensionattribute1 |
+| **Contains()** | 입력이 지정 된 값과 일치 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 "@contoso.com" 도메인을 포함 하는 경우 값이 사용자의 전자 메일 주소인 클레임을 내보내려면이 고, 그렇지 않으면 사용자 계정 이름을 출력 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. email<br/>*값*: "@contoso.com"<br/>매개 변수 2 (출력): user. email<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. userprincipalname |
+| **EndWith()** | 입력이 지정 된 값으로 끝나는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 직원 ID가 "000"으로 끝나는 경우 값이 사용자의 직원 ID 인 클레임을 내보내려면이 고, 그렇지 않으면 확장 특성을 출력 하는 것입니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. employeeid<br/>*값*: "000"<br/>매개 변수 2 (출력): user. employeeid<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. extensionattribute1 |
+| **StartWith()** | 입력이 지정 된 값으로 시작 하는 경우 특성 또는 상수를 출력 합니다. 그렇지 않으면 일치 하는 항목이 없는 경우 다른 출력을 지정할 수 있습니다.<br/>예를 들어 국가/지역이 "US"로 시작 하는 경우 값이 사용자의 직원 ID 인 클레임을 내보내려면이 고, 그렇지 않으면 확장 특성을 출력 하는 것입니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>*매개 변수 1 (입력)* : user. country<br/>*값*: "US"<br/>매개 변수 2 (출력): user. employeeid<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. extensionattribute1 |
+| **Extract ()-일치 후** | 지정 된 값과 일치 하는 부분 문자열을 반환 합니다.<br/>예를 들어 입력 값이 "Finance_BSimon" 이면 일치 하는 값은 "Finance_"이 고 클레임의 출력은 "따르면"입니다. |
+| **Extract ()-일치 하기 전에** | 지정 된 값과 일치 하는 부분 문자열을 반환 합니다.<br/>예를 들어 입력 값이 "BSimon_US" 이면 일치 하는 값은 "_US"이 고 클레임의 출력은 "따르면"입니다. |
+| **Extract ()-일치 항목 사이** | 지정 된 값과 일치 하는 부분 문자열을 반환 합니다.<br/>예를 들어 입력 값이 "Finance_BSimon_US" 이면 첫 번째 일치 값이 "Finance_"이 고 두 번째 일치 값은 "_US"이 고 클레임의 출력은 "따르면"입니다. |
+| **ExtractAlpha() - Prefix** | 문자열의 접두사 사전순 부분을 반환 합니다.<br/>예를 들어 입력 값이 "BSimon_123" 인 경우 "따르면"를 반환 합니다. |
+| **ExtractAlpha() - Suffix** | 문자열의 접미사 사전순 부분을 반환 합니다.<br/>예를 들어 입력 값이 "123_Simon" 인 경우 "Simon"를 반환 합니다. |
+| **ExtractNumeric() - Prefix** | 문자열의 접두사 숫자 부분을 반환 합니다.<br/>예를 들어 입력 값이 "123_BSimon" 이면 "123"를 반환 합니다. |
+| **ExtractNumeric() - Suffix** | 문자열의 접미사 숫자 부분을 반환 합니다.<br/>예를 들어 입력 값이 "BSimon_123" 이면 "123"를 반환 합니다. |
+| **IfEmpty()** | 입력이 null 이거나 비어 있는 경우 특성 또는 상수를 출력 합니다.<br/>예를 들어 지정 된 사용자에 대 한 직원 ID가 비어 있는 경우 extensionattribute에 저장 된 특성을 출력 하려고 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>매개 변수 1 (입력): user. employeeid<br/>매개 변수 2 (출력): extensionattribute1<br/>매개 변수 3 (일치 하지 않는 경우 출력): user. employeeid |
+| **IfNotEmpty()** | 입력이 null 이거나 비어 있지 않은 경우 특성 또는 상수를 출력 합니다.<br/>예를 들어 지정 된 사용자에 대 한 직원 ID가 비어 있지 않은 경우 extensionattribute에 저장 된 특성을 출력 하려고 합니다. 이렇게 하려면 다음 값을 구성 합니다.<br/>매개 변수 1 (입력): user. employeeid<br/>매개 변수 2 (출력): extensionattribute1 |
 
 추가 변환이 필요한 경우 [AZURE AD의 사용자 의견 포럼](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=160599) 에서 *SaaS 응용 프로그램* 범주에 따라 아이디어를 제출 합니다.
 

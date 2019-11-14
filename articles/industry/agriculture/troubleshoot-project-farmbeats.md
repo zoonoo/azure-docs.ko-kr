@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ab0d3aac6944e331223d91eb98b50b3308be12c3
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 567110b2e0429930720abf6af5f2727e4ad9d3bb
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797635"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048270"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
@@ -251,7 +251,7 @@ Azure Storage 탐색기에 [설치 하 고 배포]( https://docs.microsoft.com/a
 
 **의미**: Azure AD 앱 등록 구성이 제대로 수행 되지 않았습니다.  
 
-**정정 작업**: IT 관리자에 게 문의 하 여 Azure AD 앱 등록 생성을 생성 하는 [스크립트](https://aka.ms/PPCreateAADappregistration) 를 사용 합니다. 이 스크립트는 구성 단계도 자동으로 처리 합니다. 는  
+**정정 작업**: IT 관리자에 게 문의 하 여 Azure AD 앱 등록 생성을 생성 하는 [스크립트](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect/tree/master/AppCreationScripts) 를 사용 합니다. 이 스크립트는 구성 단계도 자동으로 처리 합니다.
 
 **오류**:이 테 넌 트에서 새 Active Directory 응용 프로그램 "dummyname"을 만들 수 없습니다. 속성 식별자 uri에 대해 동일한 값을 가진 다른 개체가 이미 있습니다.
 

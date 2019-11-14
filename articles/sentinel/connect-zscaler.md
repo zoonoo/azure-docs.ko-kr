@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: rkarlin
-ms.openlocfilehash: fe7ba0f6daec0b85ec73611ba4e48d72f16146e3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45351cc29b2b7028863aff06ab5a511674604d6f
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515136"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048949"
 ---
 # <a name="connect-zscaler-internet-access-to-azure-sentinel"></a>Azure 센티널에 Zscaler 인터넷 액세스 연결
 
@@ -48,7 +48,7 @@ Zscaler 인터넷 액세스와 Azure 센티널 간의 통신을 지원 하려면
 보안 솔루션과 Syslog 컴퓨터 사이에 TLS 통신을 사용 하려면 tls: s s o l e n t e r s e n t e r s e n t e [r s-rsyslog를 사용 하 여 Syslog 트래픽 암호화](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html), [tls를 사용 하 여 로그 메시지 암호화 등에서 통신 하도록 syslog 디먼 (rsyslog 또는 syslog syslog](https://support.oneidentity.com/technical-documents/syslog-ng-open-source-edition/3.22/administration-guide/60#TOPIC-1209298).
 
  
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 프록시로 사용 하는 Linux 컴퓨터가 다음 운영 체제 중 하나를 실행 하 고 있는지 확인 합니다.
 
 - 64비트
@@ -103,10 +103,10 @@ Zscaler 인터넷 액세스와 Azure 센티널 간의 통신을 지원 하려면
 
 1. Zscaler 어플라이언스에서 어플라이언스는 Log Analytics 에이전트에 따라 필요한 형식으로 필요한 로그를 Azure 센티널 Syslog 에이전트로 보내도록 이러한 값을 설정 해야 합니다. 이러한 매개 변수는 Azure 센티널 에이전트의 Syslog 디먼 에서도 수정할 수 있는 경우 어플라이언스에서 수정할 수 있습니다.
     - 프로토콜 = TCP
-    - 포트 = 514
+    - Port = 514
     - 형식 = CEF
     - IP 주소-이 목적을 위해 전용으로 사용 하는 가상 컴퓨터의 IP 주소에 CEF 메시지를 전송 해야 합니다.
- 자세한 내용은 [Zscaler Azure 센티널 통합 가이드](https://aka.ms/ZscalerCEFInstructions)를 참조 하세요.
+ 자세한 내용은 [Zscaler 및 Azure 센티널 배포 가이드](https://aka.ms/ZscalerCEFInstructions)를 참조 하세요.
  
    > [!NOTE]
    > 이 솔루션은 Syslog RFC 3164 또는 RFC 5424을 지원 합니다.
