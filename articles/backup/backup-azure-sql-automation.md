@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 34a8b27442fc3f755cbe33f61857aa13d3be700b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 85d6b9e00798926bee2d5050767ba47512fc9e86
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012830"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074108"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm에서 SQL 데이터베이스 백업 및 복원
 
@@ -460,7 +460,7 @@ $endDate = (Get-Date).AddDays(60).ToUniversalTime()
 Backup-AzRecoveryServicesBackupItem -Item $bkpItem -BackupType Full -EnableCompression -VaultId $targetVault.ID -ExpiryDateTimeUTC $endDate
 ````
 
-임시 백업 명령은 추적할 작업을 반환 합니다.
+주문형 백업 명령은 추적할 작업을 반환 합니다.
 
 ````powershell
 WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
@@ -541,13 +541,13 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 Azure Backup는 SQL 백업에서 사용자 트리거 작업만 추적 하는 것이 중요 합니다. 예약 된 백업 (로그 백업 포함)은 포털/powershell에 표시 되지 않습니다. 그러나 예약 된 작업이 실패 하는 경우 [백업 경고가](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) 생성 되 고 포털에 표시 됩니다. [Azure Monitor를 사용](backup-azure-monitoring-use-azuremonitor.md) 하 여 모든 예약 된 작업 및 기타 관련 정보를 추적할 수 있습니다.
 
-사용자는 백업과 같은 비동기 작업의 [출력](#on-demand-backup) 에서 반환 된 JobID를 사용 하 여 임시/사용자 트리거 작업을 추적할 수 있습니다. [AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS cmdlet을 사용 하 여 작업 및 해당 세부 정보를 추적 합니다.
+사용자는 백업과 같은 비동기 작업의 [출력](#on-demand-backup) 에서 반환 된 JobID를 사용 하 여 요청 시/사용자 트리거 작업을 추적할 수 있습니다. [AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) PS cmdlet을 사용 하 여 작업 및 해당 세부 정보를 추적 합니다.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID
 ````
 
-Azure Backup 서비스에서 임시 작업 목록과 해당 상태를 가져오려면 [AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) PS cmdlet을 사용 합니다. 다음 예에서는 진행 중인 모든 SQL 작업을 반환 합니다.
+Azure Backup 서비스에서 주문형 작업 및 해당 상태 목록을 가져오려면 [AzRecoveryServicesBackupJob](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJob?view=azps-1.5.0) PS cmdlet을 사용 합니다. 다음 예에서는 진행 중인 모든 SQL 작업을 반환 합니다.
 
 ```powershell
 Get-AzRecoveryServicesBackupJob -Status InProgress -BackupManagementType AzureWorkload
@@ -570,4 +570,4 @@ SQL Always On 가용성 그룹의 경우 AG (가용성 그룹)의 [모든 노드
 
 [백업 컨테이너가 나열 되](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupContainer?view=azps-1.5.0)면 sql server-0, sql-server-1도 "AzureVMAppContainer"로 표시 됩니다.
 
-[백업](#configuring-backup) 및 [임시 백업](#on-demand-backup) 및 [restore PS CMDLET](#restore-sql-dbs) 이 동일 하도록 관련 SQL 데이터베이스를 인출 하기만 하면 됩니다.
+관련 SQL 데이터베이스를 인출 하 여 [백업을 사용 하도록 설정](#configuring-backup) 하 고, [요청 시 백업](#on-demand-backup) 및 [restore PS cmdlet](#restore-sql-dbs) 이 동일 합니다.

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3c451d1bd77fa1cec85a9d42b5d4d3d819b2d19a
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 7339ef136639ceaaacb1c416c147155c7ce659f8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210352"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074171"
 ---
 # <a name="recovery-services-vaults-overview"></a>Recovery Services 자격 증명 모음 개요
 
@@ -37,6 +37,7 @@ Recovery Services 자격 증명은 Azure의 Azure Resource Manager 모델을 기
 - **IaaS VM에 대한 인스턴트 복원**: Recovery Services 자격 증명 모음을 사용하여 전체 VM을 복원하지 않고 IaaS VM의 파일 및 폴더를 복원할 수 있습니다. 그러면 복원 시간이 빨라집니다. IaaS VM에 대한 인스턴트 복원은 Windows 및 Linux VM 모두에서 제공됩니다. [자세히 알아보기](https://azure.microsoft.com/blog/instant-file-recovery-from-azure-linux-vm-backup-using-azure-backup-preview)
 
 ## <a name="managing-your-recovery-services-vaults-in-the-portal"></a>포털에서 Recovery Services 자격 증명 모음 관리
+
 Backup 서비스가 다른 Azure 서비스에 통합되기 때문에 Azure Portal에서 Recovery Services 자격 증명 모음을 쉽게 만들고 관리할 수 있습니다. 이 통합으로 인해 *대상 서비스의 컨텍스트에서* Recovery Services 자격 증명 모음을 만들거나 관리할 수 있습니다. 예를 들어 VM의 복구 지점을 보려면 해당 VM을 선택하고 작업 메뉴에서 **Backup**을 클릭합니다.
 
 ![Recovery Services 자격 증명 모음 세부 정보 VM](./media/backup-azure-recovery-services-vault-overview/rs-vault-in-context-vm.png)
@@ -55,25 +56,28 @@ VM에 백업이 구성되지 않은 경우 백업을 구성하라는 메시지�
 > Recovery Services 자격 증명 모음을 삭제한 후 24시간 동안은 같은 이름의 자격 증명 모음을 만들 수 없습니다. 다른 리소스 이름을 사용하거나 다른 리소스 그룹을 선택하고 24시간 후에 다시 시도하세요.
 
 ### <a name="back-up-data"></a>데이터 백업
+
 - [Azure VM 백업](backup-azure-vms-first-look-arm.md)
 - [Windows Server 또는 Windows 워크스테이션 백업](backup-try-azure-backup-in-10-mins.md)
 - [Azure에 DPM 워크로드 백업](backup-azure-dpm-introduction.md)
 - [Azure Backup Server를 사용하여 워크로드 백업 준비](backup-azure-microsoft-azure-backup.md)
 
 ### <a name="manage-recovery-points"></a>복구 지점 관리
+
 - [Azure VM 백업 관리](backup-azure-manage-vms.md)
 - [파일 및 폴더 구성](backup-azure-manage-windows-server.md)
 
 ### <a name="restore-data-from-the-vault"></a>자격 증명 모음에서 데이터 복원
+
 - [Azure VM에서 개별 파일 복구](backup-azure-restore-files-from-vm.md)
 - [Azure VM 복원](backup-azure-arm-restore-vms.md)
 
 ### <a name="secure-the-vault"></a>자격 증명 모음 보안
+
 - [Recovery Services 자격 증명 모음에서 클라우드 백업 데이터 보안](backup-azure-security-feature.md)
 
-
-
 ## <a name="next-steps"></a>다음 단계
+
 다음 문서를 사용하여 해당 작업을 수행하세요.</br>
 [IaaS VM 백업](backup-azure-arm-vms-prepare.md)</br>
 [Azure Backup Server 백업](backup-azure-microsoft-azure-backup.md)</br>

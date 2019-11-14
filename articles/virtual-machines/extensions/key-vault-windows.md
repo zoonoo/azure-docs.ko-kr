@@ -1,5 +1,5 @@
 ---
-title: Windows 용 Azure Key Vault VM 확장 | Microsoft Docs
+title: Windows 용 Azure Key Vault VM 확장
 description: 가상 머신 확장을 사용하여 가상 머신에 Key Vault 비밀의 자동 새로 고침을 수행하는 에이전트를 배포합니다.
 services: virtual-machines-windows
 author: msmbaldwin
@@ -7,12 +7,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 09/23/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 7c730ad3f14cc26cd1251b497ef2d146fe99e448
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4a2323212d2112e17dc613040434d54516aad9d3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584361"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073707"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Windows용 Key Vault 가상 머신 확장
 
@@ -59,13 +59,13 @@ Key Vault VM 확장은 다음 버전의 Windows를 지원 합니다.
 ```
 
 > [!NOTE]
-> 관찰 된 인증서 Url은 `https://myVaultName.vault.azure.net/secrets/myCertName` 형식 이어야 합니다.
+> 관찰 된 인증서 Url은 `https://myVaultName.vault.azure.net/secrets/myCertName`형식 이어야 합니다.
 > 
 > `/secrets` 경로는 개인 키를 포함 하 여 전체 인증서를 반환 하지만 `/certificates` 경로는 반환 하지 않기 때문입니다. 인증서에 대 한 자세한 내용은 [Key Vault 인증서](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates) 를 참조 하세요.
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 | 데이터 형식 |
+| 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault.Edp | string |
@@ -73,9 +73,9 @@ Key Vault VM 확장은 다음 버전의 Windows를 지원 합니다.
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | MY | string |
-| linkOnRenewal | false | 부울 |
+| linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine | string |
-| requiredInitialSync | true | 부울 |
+| requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | 문자열 배열
 
 
@@ -83,7 +83,7 @@ Key Vault VM 확장은 다음 버전의 Windows를 지원 합니다.
 
 Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. 배포 후에 인증서를 새로 고칠 필요가 있는 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다. 확장은 개별 Vm 또는 가상 머신 확장 집합에 배포할 수 있습니다. 스키마와 구성은 두 템플릿 형식 모두에 공통적으로 적용됩니다. 
 
-가상 머신 확장에 대 한 JSON 구성은 템플릿의 가상 머신 리소스 조각 내에 중첩 되어야 합니다. 특히 가상 머신 템플릿에 대 한 `"resources": []` 개체와 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 개체 아래 가상 머신 확장 집합의 경우에는 0이 됩니다.
+가상 컴퓨터 확장에 대 한 JSON 구성은 템플릿의 가상 컴퓨터 리소스 조각 내에 중첩 되어야 합니다. 특히 가상 컴퓨터 템플릿에 대 한 개체 `"resources": []` 하 고 `"virtualMachineProfile":"extensionProfile":{"extensions" :[]` 개체 아래에 가상 컴퓨터 확장 집합을 포함 해야 합니다.
 
 ```json
     {

@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 611b3e608d9b0de9423c861ec70e9fc2e7ad67d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: cd3efbea7b194da54bc1d9bebd1cc77987bd9dea
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720761"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072344"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너에 대 한 Azure Cost Management 시작
 
-Azure Cost Management는 고객이 Microsoft 고객 계약에 등록 하는 파트너에 게 기본적으로 제공 됩니다. 이 문서에서는 파트너가 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/) 기능을 사용 하는 방법을 설명 합니다. 또한 파트너가 고객에 게 Cost Management 액세스를 사용 하도록 설정 하는 방법을 설명 합니다. 고객은 CSP 파트너가 사용 하도록 설정 된 경우 Cost Management 기능을 사용할 수 있습니다.
+Azure Cost Management는 고객이 Microsoft 고객 계약에 등록 Azure 요금제를 구매한 파트너에 게 기본적으로 제공 됩니다. 이 문서에서는 파트너가 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/) 기능을 사용 하는 방법을 설명 합니다. 또한 파트너가 고객에 게 Cost Management 액세스를 사용 하도록 설정 하는 방법을 설명 합니다. 고객은 CSP 파트너가 사용 하도록 설정 된 경우 Cost Management 기능을 사용할 수 있습니다.
 
 CSP 파트너는 Cost Management을 사용 하 여 다음을 수행 합니다.
 
@@ -37,7 +37,7 @@ CSP 파트너는 Cost Management을 사용 하 여 다음을 수행 합니다.
 
 Azure Cost Management에서 사용할 수 있는 모든 기능을 REST Api와 함께 사용할 수도 있습니다. Api를 사용 하 여 비용 관리 작업을 자동화 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 Azure Cost Management에는 청구 계정 또는 구독에 대 한 읽기 권한이 필요 합니다. 액세스는 리소스의 상위 수준, 즉 청구 계정 또는 관리 그룹에서 앱을 관리 하는 개별 리소스 그룹까지 부여할 수 있습니다. 청구 계정의 Azure Cost Management에 대 한 액세스를 설정 하 고 할당 하는 방법에 대 한 자세한 내용은 [사용자 역할 및 사용 권한 할당](/partner-center/permissions-overview)을 참조 하세요. **전역 관리자** 및 **관리 에이전트** 역할은 청구 계정에 대 한 비용을 관리할 수 있습니다.
 
@@ -286,7 +286,7 @@ GET https://management.azure.com/Microsoft.Billing/billingAccounts/{billingAccou
 POST https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
 ```
 
-그런 다음 비동기 작업 속성 값을 호출 합니다. 예:
+그런 다음 비동기 작업 속성 값을 호출 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheetDownloadOperations/{operation}?sessiontoken=0:11186&api-version=2019-10-01-preview

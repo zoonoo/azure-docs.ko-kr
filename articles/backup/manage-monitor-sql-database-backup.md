@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7440859748a613f7d6af751974e07289175ed7ac
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: b9a292d06ce68d211b5c758e287f2935411c6f12
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968363"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074776"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 
@@ -42,7 +42,7 @@ Azure Backup는 **백업 작업** 포털에서 수동으로 트리거된 모든 
 
 데이터베이스 백업 경고를 모니터링 하려면:
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. 자격 증명 모음 대시보드에서 **경고 및 이벤트**를 선택합니다.
 
@@ -108,7 +108,7 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 
 2. **백업 정책** 메뉴에서 정책을 선택한 다음, **저장**을 클릭합니다.
 
-## <a name="run-an-on-demand-backup"></a>요청 시 백업 실행
+## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 
 다음과 같은 다양한 유형의 주문형 백업을 실행할 수 있습니다.
 
@@ -117,7 +117,7 @@ SQL database에 대 한 보호를 다시 시작 하려면:
 - 차등 백업
 - 로그 백업
 
-복사 전용 전체 백업에 대 한 보존 기간을 지정 해야 하지만 임시 전체 백업에 대 한 보존 범위는 현재 시간부터 45 일로 자동 설정 됩니다.
+복사 전용 전체 백업에 대 한 보존 기간을 지정 해야 하지만, 주문형 전체 백업에 대 한 보존 범위는 현재 시간부터 45 일로 자동 설정 됩니다.
 
 자세한 내용은 [SQL Server 백업 유형](backup-architecture.md#sql-server-backup-types)을 참조 하세요.
 

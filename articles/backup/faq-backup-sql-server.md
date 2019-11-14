@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: dacurwin
-ms.openlocfilehash: 7d09e7839356c040e6632ef728cc579abaa17268
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: d9272aa4a46a5835558be8c695b62ec0770e3827
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968345"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074054"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -62,7 +62,7 @@ SQL 제한 사항에 따라 보조 복제본에서 전체 백업만 복사를 �
 
 ## <a name="can-i-protect-availability-groups-on-premises"></a>온-프레미스 가용성 그룹을 보호할 수 있나요?
 
-아닙니다. Azure Backup는 Azure에서 실행 되는 SQL Server 데이터베이스를 보호 합니다. Azure와 온-프레미스 컴퓨터 간에 AG (가용성 그룹)를 분산 하는 경우 주 복제본이 Azure에서 실행 되는 경우에만 AG를 보호할 수 있습니다. 또한 Azure Backup는 Recovery Services 자격 증명 모음과 동일한 Azure 지역에서 실행 되는 노드만 보호 합니다.
+아니요. Azure Backup는 Azure에서 실행 되는 SQL Server 데이터베이스를 보호 합니다. Azure와 온-프레미스 컴퓨터 간에 AG (가용성 그룹)를 분산 하는 경우 주 복제본이 Azure에서 실행 되는 경우에만 AG를 보호할 수 있습니다. 또한 Azure Backup는 Recovery Services 자격 증명 모음과 동일한 Azure 지역에서 실행 되는 노드만 보호 합니다.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>지역 간 가용성 그룹을 보호할 수 있나요?
 
@@ -70,11 +70,11 @@ Azure Backup Recovery Services 자격 증명 모음은 자격 증명 모음과 �
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>성공한 백업 작업에 경고가 만들어지나요?
 
-아닙니다. 성공한 백업 작업에서는 경고가 생성되지 않습니다. 경고는 실패한 백업 작업에 대해서만 전송됩니다. 포털 경고에 대 한 자세한 동작은 [여기](backup-azure-monitoring-built-in-monitor.md)에 설명 되어 있습니다. 그러나 성공한 작업에 대해서도 경고가 표시 되는 경우 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용할 수 있습니다.
+아니요. 성공한 백업 작업에서는 경고가 생성되지 않습니다. 경고는 실패한 백업 작업에 대해서만 전송됩니다. 포털 경고에 대 한 자세한 동작은 [여기](backup-azure-monitoring-built-in-monitor.md)에 설명 되어 있습니다. 그러나 성공한 작업에 대해서도 경고가 표시 되는 경우 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용할 수 있습니다.
 
 ## <a name="can-i-see-scheduled-backup-jobs-in-the-backup-jobs-menu"></a>백업 작업 메뉴에서 예약 된 백업 작업을 볼 수 있나요?
 
-**백업 작업** 메뉴에는 임시 백업 작업만 표시 됩니다. 예약 된 작업의 경우 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용 합니다.
+**백업 작업** 메뉴에는 주문형 백업 작업만 표시 됩니다. 예약 된 작업의 경우 [Azure Monitor를 사용 하 여 모니터링](backup-azure-monitoring-use-azuremonitor.md)을 사용 합니다.
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>이후 데이터베이스가 백업을 위해 자동으로 추가되나요?
 

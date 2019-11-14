@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: jgao
-ms.openlocfilehash: 8d2b818846eeae44ffe05b4546a333510c638621
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 4c0fd0968ce52e50a9171eecb3dfaebd1e2a4c46
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70196154"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075008"
 ---
 # <a name="use-visual-studio-code-to-create-azure-resource-manager-templates"></a>Visual Studio Code를 사용 하 여 Azure Resource Manager 템플릿 만들기
 
@@ -70,7 +70,7 @@ Visual studio Code는 MacOS, Windows 및 Linux를 지원 합니다.  [Visual Stu
 
 ### <a name="go-to-definition-for-variable-and-parameter-references"></a>변수 및 매개 변수 참조에 대 한 정의로 이동
 
-**Ctrl + 클릭**을 사용 하거나 스크린샷에 표시 된 상황에 맞는 메뉴를 사용 하 여 정의로 이동할 수 있습니다. ![Visual Studio Code 리소스 관리자 도구 확장 정의로 이동](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-context-menu.png)
+**Ctrl + 클릭**을 사용 하 여 정의로 이동 하거나 스크린샷에 표시 된 상황에 맞는 메뉴를 사용 하 여 (![Visual Studio Code 리소스 관리자 도구 확장 정의로 이동)를 사용할 수 있습니다](./media/resource-manager-tools-vs-code/resource-manager-tools-extension-context-menu.png)
 
 **Ctrl + Alt + 클릭**을 사용 하 여 정의를 왼쪽으로 열 수 있습니다.
 
@@ -121,5 +121,5 @@ Visual studio Code는 MacOS, Windows 및 Linux를 지원 합니다.  [Visual Stu
 
 ## <a name="next-steps"></a>다음 단계
 
-- 리소스 관리자 및 리소스 관리자 템플릿에 대해 자세히 알아보려면 [Azure Resource Manager 개요](./resource-group-overview.md)를 참조 하세요.
-- Visual Studio Code를 [사용 하 여 빠른 시작을 진행 하려면 빠른 시작: Visual Studio Code를 사용 하 여 Azure Resource Manager 템플릿 만들기](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+- Azure Resource Manager 템플릿을 만드는 방법에 대 한 자세한 내용은 [자습서: 첫 번째 Azure Resource Manager 템플릿 만들기 및 배포](template-tutorial-create-first-template.md)를 참조 하세요.
+- Visual Studio Code를 사용 하 여 빠른 시작을 진행 하려면 [빠른 시작:를 사용 하 여 Azure Resource Manager 템플릿 만들기](./resource-manager-quickstart-create-templates-use-visual-studio-code.md) 를 참조 하세요 Visual Studio Code

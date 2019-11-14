@@ -1,5 +1,5 @@
 ---
-title: Azure의 Linux VM에서 사용자 지정 스크립트 실행 | Microsoft Docs
+title: Azure에서 Linux Vm에 대 한 사용자 지정 스크립트 실행
 description: 사용자 지정 스크립트 확장 v1을 사용하여 Linux VM 구성 작업 자동화
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: e5ef1bde9420104b596c22837048b054f918b3cc
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b7dbabf5be8b1f223f6e39f294b9d7022b83c4f8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092621"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073172"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 1 사용
 
@@ -54,7 +54,7 @@ ms.locfileid: "70092621"
 
 ### <a name="script-location"></a>스크립트 위치
 
-확장은 Azure Blob Storage 자격 증명을 사용하여 Azure Blob Storage에 액세스하는 데 사용할 수 있습니다. 또는 스크립트 위치가 VM에서 해당 엔드포인트(예: GitHub, 내부 파일 서버 등)로 라우팅할 수 있는 모든 위치가 될 수 있습니다.
+확장을 사용하여 Azure Blob Storage 자격 증명을 사용하고 Azure Blob Storage에 액세스할 수 있습니다. 또는 스크립트 위치가 VM에서 해당 엔드포인트(예: GitHub, 내부 파일 서버 등)로 라우팅할 수 있는 모든 위치가 될 수 있습니다.
 
 ### <a name="internet-connectivity"></a>인터넷 연결
 
@@ -69,12 +69,12 @@ ms.locfileid: "70092621"
 * 스크립트를 실행할 때 사용자 입력이 필요하지 않도록 합니다.
 * 스크립트를 실행하는 데 허용되는 시간은 90분입니다. 더 오래 걸리면 확장을 프로비전하는 데 실패합니다.
 * 스크립트 내에 재부팅을 배치하지 않습니다. 그렇지 않으면 설치되는 다른 확장에 문제가 발생하고 재부팅 후 다시 시작하면 확장이 계속 실행되지 않습니다. 
-* 재부팅할 스크립트가 있는 경우 애플리케이션을 설치하고 스크립트를 실행합니다. Cron 작업 또는 DSC, Chef 또는 Puppet 확장과 같은 도구를 사용하여 재부팅을 예약해야 합니다.
+* 다시 부팅 해야 하는 스크립트가 있는 경우 응용 프로그램을 설치 하 고 스크립트를 실행 합니다. Cron 작업을 사용 하거나 DSC, Chef, 퍼핏 확장 등의 도구를 사용 하 여 다시 부팅을 예약 해야 합니다.
 * 확장은 스크립트를 한 번만 실행합니다. 부팅할 때마다 스크립트를 실행하려는 경우 [cloud-init 이미지](../linux/using-cloud-init.md)를 사용하고 [부팅 단위 스크립트](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 모듈을 사용할 수 있습니다. 또는 Systemd 서비스 단위를 만드는 스크립트를 사용할 수 있습니다.
 * 스크립트가 실행될 시기를 예약하려면 Cron 작업을 만드는 확장을 사용해야 합니다.
 * 스크립트를 실행하는 경우 Azure Portal 또는 CLI에서 ‘전환 중’ 확장 상태만 표시됩니다. 실행 중인 스크립트의 상태 업데이트를 더 자주 수행하려는 경우 사용자 고유의 솔루션을 만들어야 합니다.
 * 사용자 지정 스크립트 확장이 고유하게 프록시 서버를 지원하지는 않지만 *Curl*과 같은 스크립트 내에서 프록시 서버를 지원하는 파일 전송 도구를 사용할 수 있습니다.
-* 스크립트 또는 명령에서 사용할 수 있는 기본 디렉터리가 아닌 위치를 알고 있어야 하고, 이를 처리할 논리가 있어야 합니다.
+* 스크립트 또는 명령이 사용할 수 있는 기본이 아닌 디렉터리 위치에는 이를 처리하기 위한 논리가 있습니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
@@ -82,7 +82,7 @@ ms.locfileid: "70092621"
 
 중요한 데이터는 보호된 구성에 저장하면 암호화된 후 가상 머신 내에서만 해독됩니다. 보호된 구성은 실행 명령에 암호와 같은 기밀 정보가 포함될 때 유용합니다.
 
-이러한 항목은 중요한 데이터로 처리하고 확장으로 보호되는 설정 구성에 지정되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다.
+이러한 항목은 중요한 데이터로 처리하고 확장으로 보호되는 설정 구성에 지정되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다.
 
 ```json
 {
@@ -124,7 +124,7 @@ ms.locfileid: "70092621"
 | publisher | Microsoft.OSTCExtensions | string |
 | type | CustomScriptForLinux | string |
 | typeHandlerVersion | 1.5 | int |
-| fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | 배열 |
+| fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
 | commandToExecute(예) | python MyPythonScript.py \<my-param1\> | string |
 | enableInternalDNSCheck | true | boolean |
 | storageAccountName(예) | examplestorageacct | string |
@@ -136,7 +136,7 @@ ms.locfileid: "70092621"
 * `enableInternalDNSCheck`: (선택 사항, bool) 기본값은 True이며 DNS 확인을 해제하려면 False로 설정합니다.
 * `commandToExecute`: (선택 사항, 문자열) 실행할 진입점 스크립트.
 * `storageAccountName`: (선택 사항, 문자열) 스토리지 계정의 이름
-* `storageAccountKey`: (선택 사항, 문자열) 스토리지 계정의 액세스 키
+* `storageAccountKey`: (옵션, 문자열) 스토리지 계정의 액세스 키입니다.
 
 공용 또는 보호된 설정에서 다음 값을 설정할 수 있습니다. 공용 및 보호된 설정 모두에서 이러한 값을 설정하지 않아야 합니다.
 
@@ -184,7 +184,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 �
 
 ## <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용하여 사용자 지정 스크립트 확장을 실행하는 경우 구성 파일 또는 파일을 만듭니다. 최소한 ‘commandToExecute’가 있어야 합니다.
+Azure CLI를 사용하여 사용자 지정 스크립트 확장을 실행하는 경우 구성 파일 또는 파일을 만듭니다. 최소한 'commandToExecute'가 있어야 합니다.
 
 ```azurecli
 az vm extension set -n VMAccessForLinux \
@@ -295,7 +295,7 @@ az vm extension set
 
 1. 사용은 명령이 실행하기 시작할 때입니다.
 1. 다운로드는 fileUris에 지정된 스크립트 파일이 아니라 Azure의 CustomScript 확장 패키지의 다운로드에 관련됩니다.
-1. 기록 하는 로그 파일을 확인할 수도 있습니다.`/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
+1. 또한 작성 중인 로그 파일을 볼 수 있습니다 `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 다음 단계는 로그 파일 검사로 이동하는 것입니다. 다음과 같은 형식입니다.
 
@@ -337,7 +337,7 @@ az vm extension set
 * 이 로그를 시작하는 사용 명령
 * 확장에 전달된 설정
 * 파일 및 해당 결과를 다운로드하는 확장.
-* 실행되는 명령 및 결과.
+* 실행되는 명령 및 결과
 
 Azure CLI를 사용하여 사용자 지정 스크립트 확장의 실행 상태를 검색할 수도 있습니다.
 

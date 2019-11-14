@@ -1,7 +1,7 @@
 ---
-title: Azure에서 Load Balancer TCP 유휴 시간 제한 구성
-titlesuffix: Azure Load Balancer
-description: 분산 장치 TCP 유휴 시간 제한 구성
+title: Azure에서 부하 분산 장치 TCP 유휴 시간 제한 구성
+titleSuffix: Azure Load Balancer
+description: 이 문서에서는 Azure Load Balancer TCP 유휴 시간 제한을 구성 하는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: b3df1ead7a3164ffd9a4b4acf8820d0f5b82cee3
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 530bfbe85a564b3dd517e14df819586dee332a78
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274176"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076977"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Azure Load Balancer에 대한 TCP 유휴 시간 제한 설정 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "68274176"
 
 기본 구성에서 Azure 부하 분산 장치의 '유휴 시간 제한' 설정은 4분입니다. 비활성 기간이 시간 제한 값보다 긴 경우 클라이언트와 클라우드 서비스 간의 TCP 또는 HTTP 세션이 유지되지 않을 수 있습니다.
 
-연결이 닫혀 있는 경우 클라이언트 애플리케이션이 다음 오류 메시지를 수신할 수 있습니다. “기본 연결이 닫혔습니다. 활성 상태로 유지될 것으로 예상된 연결이 서버에서 닫혔습니다.”
+연결이 닫히면 클라이언트 애플리케이션에 "기본 연결이 닫혔습니다. 활성 상태로 유지될 것으로 예상된 연결이 서버에서 닫혔습니다."와 같은 오류 메시지가 표시될 수 있습니다.
 
 일반적인 방법은 TCP 연결 유지를 사용하는 것입니다. 이 방법은 더 오랜 기간 동안 연결을 활성 상태로 유지합니다. 자세한 내용은 이러한 [.NET 예제](https://msdn.microsoft.com/library/system.net.servicepoint.settcpkeepalive.aspx)를 참조하세요. 연결 유지를 사용하면 연결 비활성화 기간 동안 패킷이 전송됩니다. 이러한 연결 유지 패킷은 유휴 시간 제한 값에 도달하지 않도록 하고 연결이 장기간 유지되도록 합니다.
 
@@ -76,7 +76,7 @@ Get-AzureVM -ServiceName "mySvc" -Name "MyVM1" | Add-AzureEndpoint -Name "HttpIn
 
 ## <a name="set-the-tcp-timeout-on-a-load-balanced-endpoint-set"></a>부하 분산된 엔드포인트 집합에 대한 TCP 시간 제한 설정
 
-부하 분산된 엔드포인트 집합에 엔드포인트가 포함되어 있으면 부하 분산된 엔드포인트 집합에 대해 TCP 시간 제한을 설정해야 합니다. 예를 들어:
+부하 분산된 엔드포인트 집합에 엔드포인트가 포함되어 있으면 부하 분산된 엔드포인트 집합에 대해 TCP 시간 제한을 설정해야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```powershell
 Set-AzureLoadBalancedEndpoint -ServiceName "MyService" -LBSetName "LBSet1" -Protocol tcp -LocalPort 80 -ProbeProtocolTCP -ProbePort 8080 -IdleTimeoutInMinutes 15
@@ -119,7 +119,7 @@ Service Management API를 사용하여 TCP 유휴 시간 제한을 구성할 수
 
     POST https://management.core.windows.net/<subscription-id>/services/hostedservices/<cloudservice-name>/deployments/<deployment-name>
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 ```xml
 <LoadBalancedEndpointList xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="https://www.w3.org/2001/XMLSchema-instance">

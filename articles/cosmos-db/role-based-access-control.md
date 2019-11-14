@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: e519df8c116244b0c74be6b189d99599d89dee77
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c7605bbc1824e2e859cc94296834daf4e4e0907b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582837"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072360"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Azure Cosmos DB의 역할 기반 액세스 제어
 
@@ -23,7 +23,7 @@ Azure Cosmos DB에서 지 원하는 기본 제공 역할은 다음과 같습니�
 
 |**기본 제공 역할**  |**설명**  |
 |---------|---------|
-|[DocumentDB 계정 기여자](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Azure Cosmos DB 계정을 관리할 수 있습니다.|
+|[DocumentDB 계정 참여자](../role-based-access-control/built-in-roles.md#documentdb-account-contributor)|Azure Cosmos DB 계정을 관리할 수 있습니다.|
 |[Cosmos DB 계정 판독기](../role-based-access-control/built-in-roles.md#cosmos-db-account-reader-role)|Azure Cosmos DB 계정 데이터를 읽을 수 있습니다.|
 |[Cosmos Backup 운영자](../role-based-access-control/built-in-roles.md#cosmosbackupoperator)|Azure Cosmos 데이터베이스 또는 컨테이너에 대 한 복원 요청을 제출할 수 있습니다.|
 |[Cosmos DB 연산자](../role-based-access-control/built-in-roles.md#cosmos-db-operator)|는 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 프로 비전 할 수 있지만 데이터에 액세스 하는 데 필요한 키에는 액세스할 수 없습니다.|

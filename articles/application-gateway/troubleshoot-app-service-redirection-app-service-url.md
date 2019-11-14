@@ -1,18 +1,19 @@
 ---
-title: App Service를 사용 하 여 Azure 애플리케이션 게이트웨이 문제 해결-App Service URL로 리디렉션
+title: App Service URL로 리디렉션 문제 해결
+titleSuffix: Azure Application Gateway
 description: 이 문서에서는 Azure 애플리케이션 Gateway를 사용할 때 리디렉션 문제를 해결 하는 방법에 대 한 정보를 제공 Azure App Service
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: ef2bbf8804e96a3e25f053d189c6d85bfa845b0b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d43efd6dbd344f666c23b1ad4414ceb29992e996
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833185"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074489"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>App Service 문제 해결 Application Gateway
 

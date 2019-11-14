@@ -7,19 +7,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 486033ef4120d721458add7f23cdf9b78a44a388
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8decf4622c4043cbac0f2e2f6e2ad59f1b5baaae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928347"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074007"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
 [GitHub 작업](https://github.com/features/actions) 을 통해 Azure의 함수 앱에 함수 코드를 자동으로 빌드 및 배포 하는 워크플로를 정의할 수 있습니다. 
-
-> [!IMPORTANT]  
-> GitHub 동작은 현재 베타 버전입니다. 먼저 GitHub 계정을 사용 하 여 [미리 보기에 참여 하려면 등록](https://github.com/features/actions) 해야 합니다.
 
 GitHub 작업에서 [워크플로](https://help.github.com/articles/about-github-actions#workflow) 는 github 리포지토리에서 정의 하는 자동화 된 프로세스입니다. 이 프로세스는 github에서 함수 앱 프로젝트를 빌드하고 배포 하는 방법을 GitHub에 알려 줍니다. 
 
@@ -27,7 +24,7 @@ GitHub 작업에서 [워크플로](https://help.github.com/articles/about-github
 
 Azure Functions 워크플로의 경우 파일에는 다음과 같은 세 개의 섹션이 있습니다. 
 
-| 섹션 | 작업 |
+| 섹션 | 태스크 |
 | ------- | ----- |
 | **인증** | <ol><li>서비스 주체를 정의 합니다.</li><li>게시 프로필을 다운로드 합니다.</li><li>GitHub 비밀을 만듭니다.</li></ol>|
 | **빌드** | <ol><li>환경을 설정 합니다.</li><li>함수 앱을 빌드합니다.</li></ol> |

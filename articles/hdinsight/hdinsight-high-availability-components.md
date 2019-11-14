@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 8aeef72c23f3ed40a7f187c976c67c2ae117189a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 38fb45fd339b5e2c7cab6f66a1ed6c0df73fb29e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958487"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069622"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Azure HDInsight에서 지원 되는 고가용성 서비스
 
@@ -123,7 +123,7 @@ Apache Hadoop 2.0 이상을 기반으로 하는 HDInsight 클러스터는 NameNo
 
 Apache Hadoop 2.4 이상을 기반으로 하는 HDInsight 클러스터는 YARN ResourceManager 고가용성을 지원 합니다. 헤드 노드 0 및 헤드 노드 1에서 각각 실행 되는 두 개의 ResourceManagers, rm1 및 rm2가 있습니다. NameNode와 마찬가지로 YARN ResourceManager도 자동 장애 조치 (failover)를 위해 구성 됩니다. 현재 활성 ResourceManager가 다운 되거나 응답 하지 않는 경우 다른 ResourceManager가 자동으로 활성화 되도록 선택 됩니다.
 
-YARN ResourceManager는 포함 된 *ActiveStandbyElector* 를 오류 감지기 및 리더 elector 사용 합니다. HDFS NodeManager와 달리 YARN ResourceManager에는 별도의 ZKFC 데몬이 필요 하지 않습니다. 활성 ResourceManager는 Apache 사육 사에 상태를 기록 합니다.
+YARN ResourceManager는 포함 된 *ActiveStandbyElector* 를 오류 감지기 및 리더 elector 사용 합니다. HDFS NameNode와 달리 YARN ResourceManager에는 별도의 ZKFC 데몬이 필요 하지 않습니다. 활성 ResourceManager는 Apache 사육 사에 상태를 기록 합니다.
 
 YARN ResourceManager의 고가용성은 NameNode 및 기타 HDInsight HA 서비스와는 독립적입니다. 활성 NameNode가 실행 중인 헤드 노드나 활성 헤드 노드에서 활성 ResourceManager가 실행 되지 않을 수 있습니다. YARN ResourceManager high availability에 대 한 자세한 내용은 [Resourcemanager 고가용성](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/ResourceManagerHA.html)을 참조 하세요.
 

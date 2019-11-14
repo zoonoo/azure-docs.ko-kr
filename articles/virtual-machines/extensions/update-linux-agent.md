@@ -1,5 +1,5 @@
 ---
-title: GitHub에서 Azure Linux 에이전트 업데이트 | Microsoft Docs
+title: GitHub에서 Azure Linux 에이전트 업데이트
 description: Azure Linux VM의 Azure Linux 에이전트를 업데이트하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: akjosh
-ms.openlocfilehash: 1ae3c3a74d1a46a98fa6676e18ffe71a4d6937a1
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 2215136c02d9cf967e0184af7588ce8d48362009
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168760"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072946"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>VM에서 Azure Linux 에이전트를 업데이트하는 방법
 
@@ -351,7 +351,7 @@ sudo systemctl restart waagent.service
 
 ## <a name="oracle-6-and-7"></a>Oracle 6 및 7
 
-Oracle Linux의 경우 `Addons` 리포지토리가 사용되도록 설정되었는지 확인합니다. 파일 `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) 또는 파일 `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux)를 편집하고 이 파일의 **[ol6_addons]** 또는 **[ol7_addons]** 아래에서 줄 `enabled=0`을 `enabled=1`로 변경하도록 선택합니다.
+Oracle Linux의 경우 `Addons` 리포지토리가 사용하도록 설정되었는지 확인합니다. 파일 `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) 또는 파일 `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux)를 편집하고 이 파일의 `enabled=0`[ol6_addons]`enabled=1` 또는 **[ol7_addons]** 아래에서 줄 **을** 로 변경하도록 선택합니다.
 
 그런 다음 최신 버전의 Azure Linux 에이전트를 설치하려면 다음을 입력합니다.
 
@@ -389,14 +389,14 @@ enabled=1
 sudo yum update WALinuxAgent
 ```
 
-일반적으로는 이렇게만 하면 되지만 어떤 이유로든 https://github.com 에서 직접 설치해야 하는 경우 다음 단계를 사용하세요.
+일반적으로는 이렇게만 하면 되지만 어떤 이유로든 https://github.com에서 직접 설치해야 하는 경우 다음 단계를 사용하세요.
 
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>배포에 대해 에이전트 패키지가 없는 경우 Linux 에이전트를 업데이트합니다.
 
 명령줄에 `sudo yum install wget`를 입력하여 wget을 설치합니다. Red Hat, CentOS, Oracle Linux 버전 6.4 및 6.5와 같이 기본적으로 이 방법으로 설치되지 않는 몇 가지 배포판이 있습니다.
 
-### <a name="1-download-the-latest-version"></a>1. 최신 버전 다운로드
+### <a name="1-download-the-latest-version"></a>1. 최신 버전을 다운로드 합니다.
 웹 페이지에서 [GitHub의 Azure Linux 에이전트 릴리스](https://github.com/Azure/WALinuxAgent/releases) 를 열고 최신 버전 번호를 확인합니다. `waagent --version`을 입력하면 현재 버전을 찾을 수 있습니다.
 
 #### <a name="for-version-22x-or-later-type"></a>2\.2.x 이상 버전의 경우 다음을 입력합니다.
@@ -414,10 +414,10 @@ unzip v2.2.14.zip
 cd WALinuxAgent-2.2.14
 ```
 
-### <a name="2-install-the-azure-linux-agent"></a>2. Azure Linux 에이전트를 설치합니다.
+### <a name="2-install-the-azure-linux-agent"></a>2. Azure Linux 에이전트 설치
 
 #### <a name="for-version-22x-use"></a>버전 2.2.x의 경우 다음을 사용합니다.
-`setuptools` 패키지를 먼저 설치해야 할 수도 있습니다. [여기](https://pypi.python.org/pypi/setuptools)를 참조하세요. 다음을 실행합니다.
+`setuptools` 패키지를 먼저 설치해야 할 수도 있습니다. [여기](https://pypi.python.org/pypi/setuptools)를 참조하세요. 그런 후 다음을 실행합니다.
 
 ```bash
 sudo python setup.py install
@@ -444,7 +444,7 @@ AutoUpdate.Enabled=y
 sudo sed -i 's/# AutoUpdate.Enabled=n/AutoUpdate.Enabled=y/g' /etc/waagent.conf
 ```
 
-### <a name="3-restart-the-waagent-service"></a>3. waagent 서비스 다시 시작
+### <a name="3-restart-the-waagent-service"></a>3. waagent 서비스를 다시 시작 합니다.
 대부분의 Linux 배포판:
 
 ```bash

@@ -1,10 +1,11 @@
 ---
-title: .NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합 만들기 | Microsoft Docs
+title: .NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
+titleSuffix: Azure DNS
 description: .NET SDK를 사용하여 Azure DNS에서 DNS 영역 및 레코드 집합을 만드는 방법입니다.
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jeconnoc
+author: asudbring
+manager: kumudD
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
 ms.service: dns
 ms.devlang: na
@@ -12,24 +13,24 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
-ms.author: victorh
-ms.openlocfilehash: a06d629087e853c2578e6d35a2ea90c5a8eff840
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: b51dd4ea3b36a9d0420a60883ebc29276a7d6b8a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60308946"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076716"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 
-.NET DNS 관리 라이브러리와 함께 DNS SDK를 사용하여 DNS 영역, 레코드 집합 및 레코드를 만들거나 삭제하거나 업데이트하는 작업을 자동화할 수 있습니다. 전체 Visual Studio 프로젝트는 [여기](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)에서 사용할 수 있습니다.
+.NET DNS 관리 라이브러리와 함께 DNS SDK를 사용하여 DNS 영역, 레코드 집합 및 레코드를 만들거나 삭제하거나 업데이트하는 작업을 자동화할 수 있습니다. 전체 Visual Studio 프로젝트는 [여기](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)
 
 ## <a name="create-a-service-principal-account"></a>서비스 주체 계정 만들기
 
 일반적으로 고유한 사용자 자격 증명 대신 전용 계정을 통해 Azure 리소스에 대한 프로그래밍 방식의 액세스를 부여합니다. 이러한 전용 계정을 '서비스 주체' 계정이라고 합니다. Azure DNS SDK 샘플 프로젝트를 사용하려면 먼저 서비스 주체 계정을 만들고 올바른 사용 권한을 할당해야 합니다.
 
 1. [이러한 지침](../active-directory/develop/howto-authenticate-service-principal-powershell.md) 에 따라 서비스 주체 계정을 만듭니다(Azure DNS SDK 샘플 프로젝트는 암호 기반 인증을 가정함).
-2. 리소스 그룹을 만듭니다([방법은 여기에서 확인](../azure-resource-manager/resource-group-template-deploy-portal.md)).
+2. 리소스 그룹을 만듭니다([방법은 다음과 같음](../azure-resource-manager/resource-group-template-deploy-portal.md)).
 3. Azure RBAC를 사용하여 서비스 주체 계정 'DNS 영역 참가자' 권한을 리소스 그룹에 부여합니다([방법은 다음과 같음](../role-based-access-control/role-assignments-portal.md)).
 4. Azure DNS SDK 샘플 프로젝트를 사용하는 경우 'program.cs' 파일을 다음과 같이 편집합니다.
 
@@ -45,7 +46,7 @@ Azure DNS .NET SDK를 사용하려면 **Azure DNS 관리 라이브러리** NuGet
 2. **도구** **>** **NuGet 패키지 관리자** **>** **솔루션의 NuGet 패키지 관리...** 로 이동합니다.
 3. **찾아보기**를 클릭하고 **시험판 포함** 확인란을 사용하도록 설정한 후, 검색 상자에 **Microsoft.Azure.Management.Dns**를 입력합니다.
 4. 패키지를 선택하고 **설치** 를 클릭하여 Visual Studio 프로젝트에 추가합니다.
-5. 또한 다음 패키지를 설치 하려면 위의 프로세스를 반복 합니다. **Microsoft.Rest.ClientRuntime.Azure.Authentication** 하 고 **Microsoft.Azure.Management.ResourceManager**합니다.
+5. 또한 위의 프로세스를 반복하여 **Microsoft.Rest.ClientRuntime.Azure.Authentication** 및 **Microsoft.Azure.Management.ResourceManager** 패키지를 설치합니다.
 
 ## <a name="add-namespace-declarations"></a>네임스페이스 선언 추가
 
@@ -145,7 +146,7 @@ recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName, zo
 
 ## <a name="list-zones-and-record-sets"></a>영역 및 레코드 집합 나열
 
-영역을 나열하려면 *DnsManagementClient.Zones.List...* 메서드를 사용합니다. 이는 여러 리소스 그룹에 걸쳐 지정된 리소스 그룹의 모든 영역 또는 지정된 Azure 구독의 모든 영역을 나열하도록 지원합니다. 레코드 집합을 나열하려면 *DnsManagementClient.RecordSets.List...* 메서드를 사용하며 이는 지정한 영역의 모든 레코드 집합 또는 특정 형식의 해당 레코드 집합만을 지원합니다.
+영역을 나열 하려면 지정 된 리소스 그룹의 모든 영역 또는 지정 된 Azure 구독의 모든 영역 (리소스 그룹 간)을 나열 하는 *Dnsmanagementclient* ... 메서드를 사용 합니다. 레코드 집합을 나열 하려면 지정 된 영역에 모든 레코드 집합을 나열 하거나 특정 형식의 레코드 집합만 표시 하는 데 사용할 수 있는 *Dnsmanagementclient. list ...* 메서드를 사용 합니다.
 
 영역을 나열할 때 나오는 레코드 집합은 페이지를 매길 수 있습니다.  다음 예제에서는 결과 페이지를 반복하는 방법을 보여 줍니다. (인위적으로 작은 페이지 크기인 '2'는 페이지를 강제하는 데 사용됩니다. 실제로 이 매개 변수를 생략하고 기본 페이지 크기를 사용해야 합니다.)
 

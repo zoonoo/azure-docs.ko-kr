@@ -1,24 +1,25 @@
 ---
-title: Azure PowerShell를 사용 하 여 Application Gateway 사용자 지정 규칙에서 웹 응용 프로그램 방화벽 v2 구성
+title: PowerShell을 사용 하 여 v2 사용자 지정 규칙 구성
+titleSuffix: Azure Web Application Firewall
 description: Azure PowerShell를 사용 하 여 WAF v2 사용자 지정 규칙을 구성 하는 방법을 알아봅니다.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 8c307ac5553c2c333425b6c14b9b4da4a6582f62
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 48f45629b82e63dfc3f098b68e1be2523a3a0e5c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516800"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075394"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 사용자 지정 규칙을 사용 하 여 Application Gateway에서 웹 응용 프로그램 방화벽 v2 구성
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-사용자 지정 규칙을 사용 하면 WAF (웹 응용 프로그램 방화벽) v2를 통과 하는 각 요청에 대해 평가 되는 고유한 규칙을 만들 수 있습니다. 이러한 규칙은 관리 되는 규칙 집합의 나머지 규칙 보다 높은 우선 순위를 보유 합니다. 사용자 지정 규칙에는 작업 (허용 또는 차단), 일치 조건 및 전체 사용자 지정을 허용 하는 연산자가 있습니다.
+사용자 지정 규칙을 사용 하면 WAF (웹 응용 프로그램 방화벽) v2를 통과 하는 각 요청에 대해 평가 되는 고유한 규칙을 만들 수 있습니다. 이러한 규칙은 관리형 규칙 세트의 나머지 규칙보다 높은 우선 순위를 갖습니다. 사용자 지정 규칙에는 작업 (허용 또는 차단), 일치 조건 및 전체 사용자 지정을 허용 하는 연산자가 있습니다.
 
 이 문서에서는 사용자 지정 규칙을 사용 하는 Application Gateway WAF v2를 만듭니다. 요청 헤더에 사용자 에이전트 *evilbot*이 포함되어 있으면 사용자 지정 규칙이 트래픽을 차단합니다.
 
@@ -26,7 +27,7 @@ ms.locfileid: "73516800"
 
 복사, 붙여넣기 및 실행할 수 있는 하나의 연속 스크립트에서이 문서의 Azure PowerShell를 실행 하려면 [Azure 애플리케이션 Gateway PowerShell 샘플](powershell-samples.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell 모듈
 

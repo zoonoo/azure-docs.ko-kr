@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5968a675c3f0f9a2c6426ed73d06e2d116a8ff3b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 004f15a1af11e3ed27f792e245888671b94fbb1a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827397"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074922"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>암호화 된 Azure VM 백업 및 복원
 
@@ -38,8 +38,6 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 - [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)및 [keks](https://blogs.msdn.microsoft.com/cclayton/2017/01/03/creating-a-key-encrypting-key-kek/)에 대해 자세히 알아보세요.
 - Azure VM 디스크 암호화에 대 한 [FAQ](../security/azure-security-disk-encryption-faq.md) 를 참조 하세요.
 
-
-
 ### <a name="limitations"></a>제한 사항
 
 - 동일한 구독 및 지역 내에서 암호화 된 Vm을 백업 하 고 복원할 수 있습니다.
@@ -48,10 +46,7 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 - 암호화된 VM은 파일/폴더 수준에서 복구할 수 없습니다. 파일 및 폴더를 복원 하려면 전체 VM을 복구 해야 합니다.
 - VM을 복원 하는 경우 암호화 된 Vm에 대해 [기존 vm 바꾸기](backup-azure-arm-restore-vms.md#restore-options) 옵션을 사용할 수 없습니다. 이 옵션은 암호화 되지 않은 managed disks에 대해서만 지원 됩니다.
 
-
-
-
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 시작하기 전에 다음을 수행합니다.
 
@@ -62,10 +57,8 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
 또한 경우에 따라 몇 가지 작업을 수행 해야 할 수도 있습니다.
 
-- Vm **에 vm 에이전트를 설치 합니다**. Azure Backup은 컴퓨터에서 실행 중인 Azure VM 에이전트에 확장을 설치하여 Azure VM을 백업합니다. Azure marketplace 이미지에서 VM을 만든 경우 에이전트가 설치 되 고 실행 됩니다. 사용자 지정 VM을 만들거나 온-프레미스 컴퓨터를 마이그레이션하는 경우 [에이전트를 수동으로 설치](backup-azure-arm-vms-prepare.md#install-the-vm-agent)해야 할 수 있습니다.
-- **아웃 바운드 액세스를 명시적으로 허용**: 일반적으로 Azure Backup와 통신 하기 위해 Azure VM에 대 한 아웃 바운드 네트워크 액세스를 명시적으로 허용 하지 않아도 됩니다. 그러나 연결을 시도할 때 **ExtensionSnapshotFailedNoNetwork** 오류가 표시 되는 일부 vm에 연결 문제가 발생할 수 있습니다. 이 경우 [아웃 바운드 액세스를 명시적으로 허용](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access)해야 하므로 Azure Backup 확장은 백업 트래픽에 대해 AZURE 공용 IP 주소와 통신할 수 있습니다.
-
-
+- Vm **에 vm 에이전트 설치**: Azure Backup는 컴퓨터에서 실행 되는 azure vm 에이전트에 확장을 설치 하 여 azure vm을 백업 합니다. Azure marketplace 이미지에서 VM을 만든 경우 에이전트가 설치 되 고 실행 됩니다. 사용자 지정 VM을 만들거나 온-프레미스 컴퓨터를 마이그레이션하는 경우 [에이전트를 수동으로 설치](backup-azure-arm-vms-prepare.md#install-the-vm-agent)해야 할 수 있습니다.
+- **아웃 바운드 액세스 명시적 허용**: 일반적으로 Azure VM에 대 한 아웃 바운드 네트워크 액세스를 Azure Backup와 통신 하기 위해 명시적으로 허용 하지 않아도 됩니다. 그러나 연결을 시도할 때 **ExtensionSnapshotFailedNoNetwork** 오류가 표시 되는 일부 vm에 연결 문제가 발생할 수 있습니다. 이 경우 [아웃 바운드 액세스를 명시적으로 허용](backup-azure-arm-vms-prepare.md#explicitly-allow-outbound-access)해야 하므로 Azure Backup 확장은 백업 트래픽에 대해 AZURE 공용 IP 주소와 통신할 수 있습니다.
 
 ## <a name="configure-a-backup-policy"></a>백업 정책 구성
 
@@ -74,19 +67,18 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
     ![백업 블레이드](./media/backup-azure-vms-encryption/select-backup.png)
 
-3. **백업 목표** > **은 워크 로드가 실행 되 고 있나요?** **Azure**를 선택 합니다.
-4. **백업할 항목** 에서 **가상 컴퓨터** > **확인을**선택 합니다.
+3. **워크 로드가 실행 되는 위치** > **백업 목표** 에서 **Azure**를 선택 합니다.
+4. **백업할 항목** 에서 **가상 컴퓨터** > **확인**을 선택 합니다.
 
       ![시나리오 블레이드](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. **백업 정책** > **백업 정책을 선택**하 고 자격 증명 모음과 연결할 정책을 선택 합니다. 그런 후 **OK**를 클릭합니다.
+5. 백업 **정책** > **백업 정책을 선택**하 고 자격 증명 모음과 연결할 정책을 선택 합니다. 그런 후 **OK**를 클릭합니다.
     - 백업 정책은 백업이 수행 되는 시기와 저장 기간을 지정 합니다.
     - 드롭다운 메뉴 아래에 기본 정책의 상세 정보가 나열됩니다.
 
     ![시나리오 블레이드 열기](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
 6. 기본 정책을 사용 하지 않으려면 **새로 만들기**를 선택 하 고 [사용자 지정 정책을 만듭니다](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
-
 
 7. 선택 정책을 사용 하 여 백업 하려는 암호화 된 Vm을 선택 하 고 **확인**을 선택 합니다.
 
@@ -104,18 +96,16 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 
 9. 백업 **사용** 을 클릭 하 여 자격 증명 모음에 백업 정책을 배포 하 고 선택한 vm에 대 한 백업을 사용 하도록 설정 합니다.
 
-
 ## <a name="trigger-a-backup-job"></a>백업 작업 트리거
 
 초기 백업은 일정에 따라 실행 되지만 다음과 같이 즉시 실행할 수 있습니다.
 
 1. 자격 증명 모음 메뉴에서 **백업 항목**을 클릭합니다.
-2. **백업 항목**에서 **Azure Virtual Machine**을 클릭합니다.
+2. **Backup 항목**에서 **Azure Virtual Machine**을 클릭 합니다.
 3. **백업 항목** 목록에서 줄임표 (...)를 클릭 합니다.
 4. **지금 백업**을 클릭합니다.
 5. **지금 백업**에서 달력 컨트롤을 사용 하 여 복구 지점을 유지할 마지막 날을 선택 합니다. 그런 후 **OK**를 클릭합니다.
 6. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. VM의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
-
 
 ## <a name="provide-permissions"></a>권한 제공
 
@@ -128,9 +118,9 @@ Azure VM에는 연결 된 Vm과 함께 키와 암호를 백업 하기 위한 읽
 
 1. Azure Portal에서 **모든 서비스**를 선택 하 고 **키 자격 증명 모음**을 검색 합니다.
 2. 백업 중인 암호화 된 VM과 연결 된 key vault를 선택 합니다.
-3. **액세스 정책** > **새로 추가**를 선택 합니다.
+3. **액세스 정책** 을 선택 하 > **새 추가**를 선택 합니다.
 4. **보안 주체 선택**을 선택 하 고 **백업 관리**를 입력 합니다.
-5. **백업 관리 서비스**@no__t **-1을 선택 합니다**.
+5. **백업 관리 서비스** 를 선택 하 > **선택**합니다.
 
     ![백업 서비스 선택](./media/backup-azure-vms-encryption/select-backup-service.png)
 
@@ -140,11 +130,11 @@ Azure VM에는 연결 된 Vm과 함께 키와 암호를 백업 하기 위한 읽
 
     ![Azure Backup 선택](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. **확인**을 클릭합니다. **액세스 정책**에 **백업 관리 서비스가** 추가 됩니다.
+7. **확인**을 클릭합니다. **액세스 정책**에 **백업 관리 서비스가** 추가 됩니다.
 
     ![액세스 정책](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
-7. **저장** 을 클릭 하 여 사용 권한을 Azure Backup 제공 합니다.
+8. **저장** 을 클릭 하 여 사용 권한을 Azure Backup 제공 합니다.
 
 ## <a name="restore-an-encrypted-vm"></a>암호화된 VM 복원
 
@@ -152,9 +142,9 @@ Azure VM에는 연결 된 Vm과 함께 키와 암호를 백업 하기 위한 읽
 
 1. [VM 디스크를 복원](backup-azure-arm-restore-vms.md#restore-disks)합니다.
 2. 다음 중 하나를 수행 합니다.
-    - 복원 작업 중에 생성 된 템플릿을 사용 하 여 VM 설정을 사용자 지정 하 고 VM 배포를 트리거합니다. [자세히 알아보기](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
-    - PowerShell을 사용 하 여 복원 된 디스크에서 새 VM을 만듭니다. [자세히 알아보기](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
-    - Linux Vm의 경우 데이터 디스크가 열리고 탑재 되도록 ADE 확장을 다시 설정 합니다. 
+    - 복원 작업 중에 생성 된 템플릿을 사용 하 여 VM 설정을 사용자 지정 하 고 VM 배포를 트리거합니다. [자세히 알아봅니다](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm).
+    - PowerShell을 사용 하 여 복원 된 디스크에서 새 VM을 만듭니다. [자세히 알아봅니다](backup-azure-vms-automation.md#create-a-vm-from-restored-disks).
+    - Linux Vm의 경우 데이터 디스크가 열리고 탑재 되도록 ADE 확장을 다시 설정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

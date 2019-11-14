@@ -1,5 +1,5 @@
 ---
-title: Azure Windows VM 크기 - HPC | Microsoft Docs
+title: Azure Windows VM 크기-HPC
 description: Azure의 Windows 고성능 컴퓨팅 가상 머신에 사용할 수 있는 다양한 크기를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: 0c5398caf85566f78c7ebe9e8ba114a53d2f6271
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e96c74eb4b9b96459bb5de7db2faeb47ed99a82e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088532"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065447"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 

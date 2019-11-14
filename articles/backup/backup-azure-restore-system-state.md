@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: dacurwin
-ms.openlocfilehash: beac49585239a1ecc15588a6c8160bc34c84c6ad
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 5fc9eb5a85b5ce834060f3f35e89ebc2acea2244
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210324"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074216"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -25,8 +25,8 @@ ms.locfileid: "70210324"
 
 2. Windows Server에 복원된 시스템 상태 파일 적용
 
-
 ## <a name="recover-system-state-files-to-the-same-server"></a>동일한 서버에 시스템 상태 파일 복구
+
 다음 단계에서는 Windows Server 구성을 이전 상태로 롤백하는 방법을 설명합니다. 서버 구성을 알려진 안정적인 상태로 다시 롤백하는 작업은 매우 중요할 수 있습니다. 다음 단계는 Recovery Services 자격 증명 모음에서 서버의 시스템 상태를 복원합니다.
 
 1. **Microsoft Azure Backup** 스냅인을 엽니다. 스냅인이 설치된 위치를 모르는 경우 컴퓨터 또는 서버에서 **Microsoft Azure Backup**을 검색합니다.
@@ -39,7 +39,7 @@ ms.locfileid: "70210324"
 
 3. **시작** 창에서 동일한 서버 또는 컴퓨터로 데이터를 복원하려면 **이 서버(`<server name>`)** 를 선택하고 **다음**을 클릭합니다.
 
-    ![같은 컴퓨터에 데이터를 복원하려면 이 서버 옵션을 선택합니다.](./media/backup-azure-restore-system-state/samemachine.png)
+    ![동일한 컴퓨터에 데이터를 복원 하려면이 서버 옵션을 선택 합니다.](./media/backup-azure-restore-system-state/samemachine.png)
 
 4. **복구 모드 선택** 창에서 **시스템 상태**를 선택하고 **다음**을 선택합니다.
 
@@ -73,9 +73,9 @@ Windows Server가 손상되었거나 액세스할 수 없고 Windows Server 시�
 
 다음 단계에서 사용되는 용어는 다음과 같습니다.
 
-- *원본 컴퓨터* – 처음에 백업이 수행되었고 현재는 사용할 수 없는 컴퓨터입니다.
-- *대상 컴퓨터* – 데이터가 복구되는 컴퓨터입니다.
-- *샘플 자격 증명 모음* – *원본 컴퓨터* 및 *대상 컴퓨터*가 등록된 Recovery Services 자격 증명 모음입니다. <br/>
+* *원본 컴퓨터* – 처음에 백업이 수행되었고 현재는 사용할 수 없는 컴퓨터입니다.
+* *대상 컴퓨터* – 데이터가 복구되는 컴퓨터입니다.
+* *샘플 자격 증명 모음* – *원본 컴퓨터* 및 *대상 컴퓨터*가 등록된 Recovery Services 자격 증명 모음입니다. <br/>
 
 > [!NOTE]
 > 이전 버전의 운영 체제를 실행 중인 컴퓨터에는 컴퓨터에서 수행된 백업을 복원할 수 없습니다. 예를 들어 Windows Server 2016 컴퓨터에서 수행된 백업은 Windows Server 2012 R2로 복원될 수 없습니다. 그러나 반대는 가능합니다. Windows Server 2016을 복원하려면 Windows Server 2012 R2에서 백업을 사용할 수 있습니다.
@@ -114,9 +114,6 @@ Windows Server가 손상되었거나 액세스할 수 없고 Windows Server 시�
 12. *WindowsImageBackup* 디렉터리를 서버의 중요하지 않은 볼륨에 복사합니다(예: d:\). 일반적으로 Windows OS 볼륨은 중요한 볼륨입니다.
 
 13. 복구 프로세스를 완료하려면 다음 섹션을 사용하여 [Windows Server에서 복원된 시스템 상태 파일을 적용](#apply-restored-system-state-on-a-windows-server)합니다.
-
-
-
 
 ## <a name="apply-restored-system-state-on-a-windows-server"></a>Windows Server에서 복원된 시스템 상태 적용
 
@@ -168,7 +165,6 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 1. DSRM(디렉터리 서비스 복원 모드)로 도메인 컨트롤러를 다시 시작합니다.
 2. Windows Server Backup cmdlet을 사용하여 AD DS를 복구하려면 [여기](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) 있는 단계를 수행합니다.
 
-
 ## <a name="troubleshoot-failed-system-state-restore"></a>실패한 시스템 상태 복원 문제 해결
 
 시스템 상태를 적용하는 이전 프로세스가 성공적으로 완료되지 않으면 Win RE(Windows Recovery Environment)를 사용하여 Windows Server를 복구합니다. 다음 단계에서는 Win RE를 사용하여 복구하는 방법을 설명합니다. 시스템 상태 복원 후 Windows Server가 정상적으로 부팅 되지 않는 경우에만이 옵션을 사용 합니다. 다음 프로세스는 비 시스템 데이터를 지우고 주의를 사용합니다.
@@ -192,6 +188,7 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
     ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
+
     ![시스템 상태 백업 버전 가져오기](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. 백업에 사용할 수 있는 모든 볼륨을 가져오는 다음 명령을 실행합니다.
@@ -207,9 +204,9 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
     ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
+
      ![시스템 상태 백업 버전 가져오기](./media/backup-azure-restore-system-state/winre-6.png)
 
-
-
 ## <a name="next-steps"></a>다음 단계
+
 * 파일과 폴더를 복구했으므로 [백업을 관리](backup-azure-manage-windows-server.md)할 수 있습니다.

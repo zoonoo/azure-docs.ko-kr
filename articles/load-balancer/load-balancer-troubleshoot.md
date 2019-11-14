@@ -1,7 +1,6 @@
 ---
 title: Azure Load Balancer 문제 해결
-titlesuffix: Azure Load Balancer
-description: Azure Load Balancer의 알려진 문제 해결
+description: Azure Load Balancer의 알려진 문제를 해결 하는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: chadmath
@@ -14,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 4e0e3cf6067467947bcb799a915a93d1bb342ea1
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154917"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076916"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 
@@ -66,7 +65,7 @@ VM의 방화벽이 프로브 포트를 차단하고 있거나 서브넷 또는 V
 * 이러한 규칙에 의해 프로브 트래픽이 차단되는 경우 해당 규칙을 제거한 후 프로브 트래픽을 허용하도록 다시 구성합니다.  
 * VM이 상태 프로브에 응답하기 시작했는지 테스트합니다. 
 
-### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>원인 4: Load Balancer의 기타 구성 오류
+### <a name="cause-4-other-misconfigurations-in-load-balancer"></a>원인 4: 부하 분산 장치의 기타 구성 오류
 위의 모든 원인에 대해 유효성이 검사되고 문제가 적절히 해결된 것 같으나 백 엔드 VM이 여전히 상태 프로브에 응답하지 않으면 연결을 수동으로 테스트하고 연결을 이해하기 위한 몇 가지 추적을 수집합니다.
 
 **유효성 검사 및 해결**
@@ -89,7 +88,7 @@ VM의 방화벽이 프로브 포트를 차단하고 있거나 서브넷 또는 V
 * 동일한 VM 및 NIC에서 Load Balancer에 액세스 
 * 참여하는 Load Balancer 백 엔드 풀 VM에서 인터넷 Load Balancer 프런트 엔드에 액세스 
 
-### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>원인 1: Load Balancer 백 엔드 풀 VM이 데이터 포트에서 수신 대기하지 않습니다. 
+### <a name="cause-1-load-balancer-backend-pool-vm-is-not-listening-on-the-data-port"></a>원인 1: Load Balancer 백 엔드 풀 VM이 데이터 포트에서 수신하지 않습니다. 
 VM이 데이터 트래픽에 응답하지 않을 경우 대상 포트가 참여 VM에서 열려 있지 않거나 VM이 해당 포트에서 수신하지 않기 때문일 수 있습니다. 
 
 **유효성 검사 및 해결**
@@ -118,7 +117,7 @@ Load Balancer의 백 엔드 VM에서 호스트된 애플리케이션이 동일�
 * 애플리케이션마다 별도 백 엔드 풀 VM을 구성합니다. 
 * 각 애플리케이션이 자체 네트워크 인터페이스 및 IP 주소를 사용하도록 이중 NIC VM에 애플리케이션을 구성합니다. 
 
-### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>원인 4: 참여하는 Load Balancer 백 엔드 풀 VM에서 내부 Load Balancer 프런트 엔드에 액세스
+### <a name="cause-4-accessing-the-internal-load-balancer-frontend-from-the-participating-load-balancer-backend-pool-vm"></a>원인 4: 참여하는 Load Balancer 백 엔드 풀 VM에서 내부 Load Balancer VIP에 액세스
 
 내부 Load Balancer가 VNet 내에서 구성되고, 참여하는 백 엔드 Load Balancer 중 하나가 내부 Load Balancer 프런트 엔드에 액세스하려고 하면 흐름이 원본 VM에 매핑될 때 오류가 발생할 수 있습니다. 이 시나리오는 지원되지 않습니다. 자세한 내용은 [제한 사항](load-balancer-overview.md#limitations)을 검토하세요.
 

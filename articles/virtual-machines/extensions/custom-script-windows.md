@@ -1,5 +1,5 @@
 ---
-title: Windows용 Azure 사용자 지정 스크립트 확장 | Microsoft Azure
+title: Windows 용 Azure 사용자 지정 스크립트 확장
 description: 사용자 지정 스크립트 확장을 사용하여 Windows VM 구성 작업 자동화
 services: virtual-machines-windows
 manager: carmonm
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: c0c160d9fc2fcfb8da004d02baae1dd410620cbb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b3c355219fcbebc5fda38c33d6eb7f9126b3b2b8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204191"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073831"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -23,7 +23,7 @@ ms.locfileid: "71204191"
 
 이 문서에서는 Azure PowerShell 모듈, Azure Resource Manager 템플릿을 사용하는 사용자 지정 스크립트 확장을 사용하는 방법과 Windows 시스템에서 문제 해결 단계를 자세히 설명하고 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 > [!NOTE]  
 > 해당 매개 변수와 동일한 VM을 사용하여 Update-AzVM을 실행하려는 경우에는 사용자 지정 스크립트 확장을 사용하지 마세요. 대기 시간이 길어집니다.  
@@ -63,7 +63,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드 
 
 중요한 데이터는 보호된 구성에 저장하면 암호화된 후 가상 머신 내에서만 해독됩니다. 보호된 구성은 실행 명령에 암호와 같은 기밀 정보가 포함될 때 유용합니다.
 
-이러한 항목은 중요한 데이터로 처리하고 확장으로 보호되는 설정 구성에 지정되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다.
+이러한 항목은 중요한 데이터로 처리하고 확장으로 보호되는 설정 구성에 지정되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다.
 
 ```json
 {
@@ -112,7 +112,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드 
 | publisher | Microsoft.Compute | string |
 | type | CustomScriptExtension | string |
 | typeHandlerVersion | 1.9 | int |
-| fileUris(예) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | 배열 |
+| fileUris(예) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp(예) | 123456789 | 32비트 정수 |
 | commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
 | storageAccountName(예) | examplestorageacct | string |
@@ -161,7 +161,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-multiple-scripts"></a>여러 스크립트 사용
 
-이 예에서는 서버를 빌드하는 데 사용 되는 세 가지 스크립트가 있습니다. **Commandtoexecute** 는 첫 번째 스크립트를 호출한 다음 다른 스크립트를 호출 하는 방법에 대 한 옵션을 설정 합니다. 예를 들어, 올바른 오류 처리, 로깅 및 상태 관리를 사용 하 여 실행을 제어 하는 마스터 스크립트를 사용할 수 있습니다. 스크립트는를 실행 하기 위해 로컬 컴퓨터에 다운로드 됩니다. 예를 들어 `1_Add_Tools.ps1` 에서 스크립트에 `2_Add_Features.ps1` 를 추가 `.\2_Add_Features.ps1` 하 여를 호출 하 고에서 `$settings`정의 하는 다른 스크립트에 대해이 프로세스를 반복 합니다.
+이 예에서는 서버를 빌드하는 데 사용 되는 세 가지 스크립트가 있습니다. **Commandtoexecute** 는 첫 번째 스크립트를 호출한 다음 다른 스크립트를 호출 하는 방법에 대 한 옵션을 설정 합니다. 예를 들어, 올바른 오류 처리, 로깅 및 상태 관리를 사용 하 여 실행을 제어 하는 마스터 스크립트를 사용할 수 있습니다. 스크립트는를 실행 하기 위해 로컬 컴퓨터에 다운로드 됩니다. 예를 들어 `1_Add_Tools.ps1` 스크립트에 `.\2_Add_Features.ps1`를 추가 하 여 `2_Add_Features.ps1`를 호출 하 고 `$settings`에서 정의 하는 다른 스크립트에 대해이 프로세스를 반복 합니다.
 
 ```powershell
 $fileUri = @("https://xxxxxxx.blob.core.windows.net/buildServer1/1_Add_Tools.ps1",
@@ -215,7 +215,7 @@ Set-AzVMExtension -ResourceGroupName <resourceGroupName> `
 
 ### <a name="using-invoke-webrequest"></a>Invoke WebRequest 사용
 
-스크립트에서 [호출 WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) 를 사용 하는 경우 매개 변수 `-UseBasicParsing` 를 지정 해야 합니다. 그렇지 않으면 자세한 상태를 확인할 때 다음 오류가 표시 됩니다.
+스크립트에서 [호출 WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest) 를 사용 하는 경우 `-UseBasicParsing` 매개 변수를 지정 해야 합니다. 그렇지 않으면 자세한 상태를 확인할 때 다음 오류가 표시 됩니다.
 
 ```error
 The response content cannot be parsed because the Internet Explorer engine is not available, or Internet Explorer's first-launch configuration is not complete. Specify the UseBasicParsing parameter and try again.
@@ -225,7 +225,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 
 클래식 Vm에서 사용자 지정 스크립트 확장을 배포 하려면 Azure Portal 또는 클래식 Azure PowerShell cmdlet을 사용할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 포털
 
 클래식 VM 리소스로 이동 합니다. **설정**아래에서 **확장** 을 선택 합니다.
 
@@ -283,7 +283,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""
 ```
 
-첫 번째 URI 세그먼트 뒤의 경로 정보는 `fileUris` 속성 목록을 통해 다운로드 한 파일에 대해 유지 됩니다.  아래 테이블에 표시된 대로 다운로드된 파일은 다운로드 하위 디렉터리에 매핑되어 `fileUris` 값의 구조를 반영합니다.  
+첫 번째 URI 세그먼트 뒤의 경로 정보는 `fileUris` 속성 목록을 통해 다운로드 된 파일에 대해 유지 됩니다.  아래 테이블에 표시된 대로 다운로드된 파일은 다운로드 하위 디렉터리에 매핑되어 `fileUris` 값의 구조를 반영합니다.  
 
 #### <a name="examples-of-downloaded-files"></a>다운로드된 파일의 예
 

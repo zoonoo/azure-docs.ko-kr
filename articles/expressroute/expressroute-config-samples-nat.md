@@ -1,5 +1,5 @@
 ---
-title: 라우터 구성 샘플 - NAT - Azure ExpressRoute | Microsoft Docs
+title: 'Azure Express 경로: 라우터 구성 샘플-NAT'
 description: 이 페이지는 Cisco 및 Juniper 라우터에 대한 라우터 구성 샘플을 제공합니다.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: ccee0f0c01119ebbfb5ba9c5980ee006a555a399
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ef2fd40db422c459ca966e802344ef45f7ec01de
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367611"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072105"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-nat"></a>NAT 설정 및 관리를 위한 라우터 구성 샘플
 
@@ -83,7 +82,7 @@ NAT 명령:
 
 
 ## <a name="juniper-srx-series-routers"></a>Juniper SRX 시리즈 라우터
-### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. 클러스터에 대한 중복 이더넷 인터페이스 만들기
+### <a name="1-create-redundant-ethernet-interfaces-for-the-cluster"></a>1. 클러스터에 대 한 중복 이더넷 인터페이스 만들기
     interfaces {
         reth0 {
             description "To Internal Network";
@@ -115,7 +114,7 @@ NAT 명령:
     }
 
 
-### <a name="2-create-two-security-zones"></a>2. 두 보안 영역 만들기
+### <a name="2-create-two-security-zones"></a>2. 두 개의 보안 영역을 만듭니다.
 * 내부 네트워크에 대한 신뢰 영역 및 에지 라우터 방향의 외부 네트워크에 대한 신뢰할 수 없는 영역
 * 영역에 적절한 인터페이스 할당
 * 인터페이스에서 서비스 허용
@@ -213,8 +212,8 @@ NAT 명령:
            }
        }
 
-### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. 각 방향으로 선택적 접두사를 보급하도록 BGP 구성
-샘플을 참조 [라우팅 구성 샘플](expressroute-config-samples-routing.md) 페이지입니다.
+### <a name="5-configure-bgp-to-advertise-selective-prefixes-in-each-direction"></a>5. 각 방향에서 선택적 접두사를 알리도록 BGP를 구성 합니다.
+[라우팅 구성 샘플](expressroute-config-samples-routing.md) 페이지의 샘플을 참조 하세요.
 
 ### <a name="6-create-policies"></a>6. 정책 만들기
     routing-options {

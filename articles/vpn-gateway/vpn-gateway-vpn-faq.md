@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 05/14/2019
+ms.date: 11/12/2019
 ms.author: yushwang
-ms.openlocfilehash: 23dc017b6ffcca8761966a10bd5cb45b32c7a602
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd012ab94ba47f700230ac761f2dc803988cefd4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786709"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075409"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -48,7 +48,7 @@ VPN Gateway 연결에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gatewa
 
 ### <a name="what-is-the-difference-between-a-site-to-site-connection-and-point-to-site"></a>사이트 간 연결과 지점 및 사이트 간 연결의 차이점은 무엇입니까?
 
-**사이트 간**(IPsec/IKE VPN 터널) 구성은 온-프레미스 위치와 Azure 사이에 있습니다. 즉, 라우팅 및 사용 권리를 어떻게 구성하는지에 따라 프레미스에 있는 원하는 컴퓨터에서 가상 네트워크 내에 있는 원하는 가상 머신 또는 역할 인스턴스에 연결할 수 있습니다. 이 연결은 항상 사용할 수 있는 프레미스 간 연결에 유용한 옵션이며 하이브리드 구성에 적합합니다. 이 연결 유형에서는 네트워크의 가장자리에 배포되어야 하는 IPsec VPN 어플라이언스(하드웨어 디바이스 또는 소프트 어플라이언스)를 사용합니다. 이 유형의 연결을 만들려면 외부 연결 IPv4 주소가 있어야 합니다.
+**사이트 간**(IPsec/IKE VPN 터널) 구성은 온-프레미스 위치와 Azure 사이에 있습니다. 즉, 라우팅 및 사용 권리를 어떻게 구성하는지에 따라 프레미스에 있는 원하는 컴퓨터에서 가상 네트워크 내에 있는 원하는 가상 머신 또는 역할 인스턴스에 연결할 수 있습니다. 이 연결은 항상 사용할 수 있는 프레미스 간 연결에 유용한 옵션이며 하이브리드 구성에 적합합니다. 이 연결 유형에서는 네트워크의 가장자리에 배포되어야 하는 IPsec VPN 어플라이언스(하드웨어 디바이스 또는 소프트 어플라이언스)를 사용합니다. 이러한 유형의 연결을 만들려면 외부 연결 IPv4 주소가 있어야 합니다.
 
 **지점 및 사이트 간**(SSTP를 통한 VPN) 구성을 사용하면 모든 위치의 단일 컴퓨터에서 가상 네트워크에 있는 모든 컴퓨터에 연결할 수 있습니다. Windows 인박스 VPN 클라이언트를 사용합니다. 지점 및 사이트 간 구성 중에 가상 네트워크 내의 가상 머신 또는 역할 인스턴스에 컴퓨터를 연결할 수 있도록 해주는 설정이 포함된 인증서 및 VPN 클라이언트 구성 패키지를 설치합니다. 가상 네트워크에 연결하려고 하지만 온-프레미스에 없는 경우에 유용합니다. 사이트 간 연결에 필요한 VPN 하드웨어 또는 외부 연결 IPv4 주소에 액세스할 수 없을 때 유용한 옵션입니다.
 
@@ -69,7 +69,7 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 경로 기반 게이트웨이는 경로 기반 VPN을 구현합니다. 경로 기반 VPN은 IP 전달 또는 라우팅 테이블에서 “경로"를 사용하여 패킷을 해당 터널 인터페이스에 전달합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 VPN에 대한 정책 또는 트래픽 선택기는 임의 또는 와일드카드로 구성됩니다.
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>정책 기반 VPN Gateway를 경로 기반으로 업데이트할 수 있나요?
-아니요. Azure VNet 게이트웨이 형식을 정책 기반에서 경로 기반으로, 혹은 그 반대로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
+아니요. Azure Vnet 게이트웨이 형식은 정책 기반에서 경로 기반으로 또는 다른 방식으로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
 1. 삭제할 게이트웨이와 연결된 모든 연결을 삭제합니다.
 1. 게이트웨이를 삭제합니다.
 1. [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -190,7 +190,7 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>Azure는 동일한 가상 네트워크의 모든 VPN 연결에 대해 동일한 IPsec/IKE 미리 공유한 키를 생성합니까?
 
-아니요, 기본적으로 Azure는 VPN 연결마다 다른 미리 공유한 키를 생성합니다. 하지만 VPN Gateway 키 생성 REST API 또는 PowerShell cmdlet을 사용하여 원하는 키 값을 설정할 수 있습니다. 키에는 인쇄 가능한 ASCII 문자 여야 합니다.
+아니요, 기본적으로 Azure는 VPN 연결마다 다른 미리 공유한 키를 생성합니다. 하지만 VPN Gateway 키 생성 REST API 또는 PowerShell cmdlet을 사용하여 원하는 키 값을 설정할 수 있습니다. 키는 인쇄 가능한 ASCII 문자 여야 합니다.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>단일 가상 네트워크보다 더 많은 사이트 간 VPN을 사용하면 대역폭이 증가합니까?
 
@@ -221,7 +221,7 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-and-i-have-a-cross-premises-connection-how-should-i-connect-to-the-vm"></a>가상 컴퓨터가 가상 네트워크에 있고 프레미스 간 연결을 사용하는 경우 VM에 연결하려면 어떻게 해야 합니까?
 
-몇 가지 옵션이 있습니다. VM에 RDP를 사용하도록 설정한 경우 개인 IP 주소를 사용하여 가상 머신에 연결할 수 있습니다. 이 경우 개인 IP 주소 및 연결하려는 포트(일반적으로 3389)를 지정합니다. 가상 머신에서 트래픽에 대한 포트를 구성해야 합니다.
+몇 가지 옵션이 있습니다. VM에 RDP를 사용하도록 설정한 경우 개인 IP 주소를 사용하여 가상 머신에 연결할 수 있습니다. 이 경우 개인 IP 주소 및 연결하려는 포트(일반적으로 3389)를 지정합니다. 가상 컴퓨터에서 트래픽에 대한 포트를 구성해야 합니다.
 
 동일한 가상 네트워크에 있는 다른 가상 머신의 개인 IP 주소를 통해 가상 머신에 연결할 수도 있습니다. 가상 네트워크의 외부 위치에서 연결할 경우 개인 IP 주소를 사용하여 가상 머신에 RDP할 수 없습니다. 예를 들어 지점 및 사이트 간 가상 네트워크를 구성하고 컴퓨터에서 연결을 설정하지 않은 경우 개인 IP 주소를 통해 가상 머신에 연결할 수 없습니다.
 
@@ -243,4 +243,4 @@ Azure VPN 게이트웨이 통한 전송 트래픽은 클래식 배포 모델을 
 * VPN Gateway에 대한 자세한 내용은 [VPN Gateway 정보](vpn-gateway-about-vpngateways.md)를 참조하세요.
 * VPN Gateway 구성 설정에 대한 자세한 내용은 [VPN Gateway 구성 설정 정보](vpn-gateway-about-vpn-gateway-settings.md)를 참조하세요.
 
-**"OpenVPN"는 OpenVPN i n c.의 상표**
+**"OpenVPN"은 OpenVPN i n c .의 상표입니다.**

@@ -1,19 +1,19 @@
 ---
-title: Azure Resource Manager 템플릿
-description: 리소스 배포를 위해 Azure Resource Manager 템플릿을 사용 하는 방법을 설명 합니다.
+title: Azure Resource Manager 템플릿 개요
+description: 리소스 배포를 위한 Azure Resource Manager 템플릿을 사용 하는 이점에 대해 설명 합니다.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 956450e5a47e4d0e16de44b6bc72c6cb24d05889
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71300145"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074379"
 ---
-# <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
+# <a name="azure-resource-manager-templates-overview"></a>Azure Resource Manager 템플릿 개요
 
 클라우드로 이동 하면 많은 팀에서 agile 개발 방법을 채택 했습니다. 이러한 팀은 빠르게 반복 됩니다. It는 솔루션을 클라우드에 반복적으로 배포 하 고 인프라가 신뢰할 수 있는 상태 인지를 알고 있어야 합니다. 인프라가 반복적인 프로세스의 일부가 되기 때문에 작업과 개발 간의 분할이 사라졌습니다. 팀은 통합 된 프로세스를 통해 인프라 및 응용 프로그램 코드를 관리 해야 합니다.
 
@@ -125,5 +125,6 @@ REQUEST BODY
 
 ## <a name="next-steps"></a>다음 단계
 
+* 템플릿을 만드는 과정을 안내 하는 단계별 자습서는 [자습서: 첫 번째 Azure Resource Manager 템플릿 만들기 및 배포](template-tutorial-create-first-template.md)를 참조 하세요.
 * 템플릿 파일의 속성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조 하세요.
 * 템플릿 내보내기에 대 한 자세한 내용은 [빠른 시작: Azure Portal를 사용 하 여 Azure Resource Manager 템플릿 만들기 및 배포](./resource-manager-quickstart-create-templates-use-the-portal.md)를 참조 하세요.

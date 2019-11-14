@@ -1,5 +1,5 @@
 ---
-title: Windows 용 가상 머신 확장 Azure Monitor | Microsoft Docs
+title: Windows 용 가상 머신 확장 Azure Monitor
 description: 가상 머신 확장을 사용하여 Windows 가상 머신에 Log Analytics 에이전트를 배포합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2019
 ms.author: akjosh
-ms.openlocfilehash: fe8bafcb63c1a27b905bdc339c07d30c9f0a5982
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: c9fd62e57d131fb21e657c53914f9cd5349107ec
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168920"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073670"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Windows 용 가상 머신 확장 Azure Monitor
 
@@ -27,7 +27,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -38,12 +38,12 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 | Windows 에이전트 번들 버전 Log Analytics | Azure Monitor Windows VM 확장 버전 | 릴리스 날짜 | 릴리스 정보 |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
-| 10.20.18011 | 1.0.18011 | 7 월 2019 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> MaxExpressionDepth를 1만으로 증가 </li></ul> |
-| 10.20.18001 | 1.0.18001 | 2019년 6월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> 프록시 연결을 만들 때 기본 자격 증명을 사용 하지 않도록 설정 하는 기능 추가 (WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH에 대 한 지원) </li></ul>|
+| 10.20.18011 | 1.0.18011 | 2019년 7월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> MaxExpressionDepth를 1만으로 증가 </li></ul> |
+| 10.20.18001 | 1.0.18001 | 2019년 6월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> 프록시 연결을 만들 때 기본 자격 증명을 사용 하지 않도록 설정 하는 기능 추가 (WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH 지원) </li></ul>|
 | 10.19.13515 | 1.0.13515 | 2019년 3월 | <ul><li>사소한 안정화 픽스 </li></ul> |
-| 10.19.10006 | n/a | 12 월 2018 | <ul><li> 사소한 안정화 픽스 </li></ul> | 
-| 8.0.11136 | n/a | 9 월 2018 |  <ul><li> VM 이동에 대 한 리소스 ID 변경 검색에 대 한 지원이 추가 됨 </li><li> 비 확장 설치를 사용 하는 경우 보고 리소스 ID에 대 한 지원이 추가 됨 </li></ul>| 
-| 8.0.11103 | n/a |  2018년 4월 | |
+| 10.19.10006 | 해당 없음 | 12 월 2018 | <ul><li> 사소한 안정화 픽스 </li></ul> | 
+| 8.0.11136 | 해당 없음 | 9 월 2018 |  <ul><li> VM 이동에 대 한 리소스 ID 변경 검색에 대 한 지원이 추가 됨 </li><li> 비 확장 설치를 사용 하는 경우 보고 리소스 ID에 대 한 지원이 추가 됨 </li></ul>| 
+| 8.0.11103 | 해당 없음 |  2018년 4월 | |
 | 8.0.11081 | 1.0.11081 | 11 월 2017 | | 
 | 8.0.11072 | 1.0.11072 | 9 월 2017 | |
 | 8.0.11049 | 1.0.11049 | 2 월 2017 | |
@@ -52,12 +52,12 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 Azure Security Center Log Analytics 에이전트를 자동으로 프로 비전 하 고 Azure 구독의 기본 Log Analytics 작업 영역에 연결 합니다. Azure Security Center를 사용하는 경우 이 문서의 단계를 실행하지 마세요. 이렇게 하면 구성된 작업 영역을 덮어쓰고 Azure Security Center와의 연결을 끊습니다.
 
-### <a name="internet-connectivity"></a>인터넷에 연결
+### <a name="internet-connectivity"></a>인터넷 연결
 Windows용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 확장에는 대상 Log Analytics 작업 영역에서 작업 영역 ID 및 작업 영역 키가 필요 합니다. 이러한 내용은 Azure Portal의 작업 영역에 대한 설정에서 확인할 수 있습니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
+다음 JSON은 Log Analytics 에이전트 확장에 대한 스키마를 보여줍니다. 확장에는 대상 Log Analytics 작업 영역에서 작업 영역 ID 및 작업 영역 키가 필요 합니다. 이러한 내용은 Azure Portal의 작업 영역에 대한 설정에서 확인할 수 있습니다. 작업 영역 키는 중요한 데이터로 처리되므로 보호되는 설정에 저장됩니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다. **workspaceId** 및 **workspaceKey**는 대/소문자를 구분합니다.
 
 ```json
 {

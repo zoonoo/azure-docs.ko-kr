@@ -1,6 +1,6 @@
 ---
-title: 영역별 프런트 엔드가 있는 Load Balancer 만들기 - Azure CLI
-titlesuffix: Azure Load Balancer
+title: 영역 프런트 엔드를 사용 하 여 부하 분산 장치 만들기-Azure CLI
+titleSuffix: Azure Load Balancer
 description: Azure CLI를 사용하여 영역별 프런트 엔드가 있는 표준 Load Balancer를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: 663567f6e3b078c1cb2afc60c3aaa9fcfb7af4dd
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 620e4456e86a8610819495bd490353a3a5681738
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275250"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076079"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Azure CLI를 사용하여 영역별 프런트 엔드가 있는 표준 Load Balancer 만들기
 
 이 문서에서는 영역별 프런트 엔드가 있는 공용 [Standard Load Balancer](https://aka.ms/azureloadbalancerstandard)를 만드는 단계를 안내합니다. 영역별 프런트 엔드란 모든 인바운드 또는 아웃바운드 흐름이 한 지역의 단일 영역에서 처리된다는 뜻입니다. 프런트 엔드 구성에서 영역별 표준 공용 IP 주소를 사용하여 영역별 프런트 엔드가 있는 부하 분산 장치를 만들 수 있습니다. Standard Load Balancer에서 가용성 영역이 작동하는 방법에 대한 내용은 [Standard Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)을 참조하세요. 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -78,7 +78,7 @@ az network lb rule create --resource-group myResourceGroupZLB --lb-name myLoadBa
 ```
 
 ## <a name="next-steps"></a>다음 단계
-- [Standard Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아봅니다.
+- [표준 Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아봅니다.
 
 
 

@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute Global Reach 구성: Azure CLI | Microsoft Docs'
+title: 'Azure Express 경로: Global Reach Express 경로 구성: CLI'
 description: 이 문서는 온-프레미스 네트워크 간의 프라이빗 네트워크를 설정하고 Global Reach를 사용하도록 설정하기 위해 ExpressRoute 회로를 함께 연결하는 데 유용합니다.
 services: expressroute
 author: jaredr80
@@ -7,15 +7,14 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 89ada41c5f3c9cf1ca7a2ac707363f57080c361d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: eda0011ea4d259d0e60cb894c2b42325ddfc2eb7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64869976"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076625"
 ---
-# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 ExpressRoute 글로벌 환경 구성
+# <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 Global Reach 구성
 
 이 문서는 Azure CLI를 사용하여 Azure ExpressRoute Global Reach를 구성하는 데 도움이 됩니다. 자세한 내용은 [ExpressRoute Global Reach](expressroute-global-reach.md)를 참조하세요.
  
@@ -48,13 +47,13 @@ az account set --subscription <your subscription ID>
 
 ### <a name="identify-your-expressroute-circuits-for-configuration"></a>구성에 대한 ExpressRoute 회로 식별
 
-설정할 수 있습니다. ExpressRoute 글로벌 환경 모든 두 개의 ExpressRoute 회로 간의 있기만 지원 되는 국가/지역에 거주 하는 다른 피어 링 위치에 생성 된 합니다. 구독에 두 회로가 모두 있는 경우 이 문서의 뒷부분에서 설명한 대로 구성을 실행할 회로를 선택할 수 있습니다. 두 회로가 서로 다른 Azure 구독에 있는 경우 한 Azure 구독에서 권한을 부여하고, 다른 Azure 구독에서 구성 명령을 실행할 때 권한 부여 키를 전달해야 합니다.
+지원 되는 국가/지역에 있고 서로 다른 피어 링 위치에서 만들어진 경우 두 개의 Express 경로 회로 간에 Express 경로 Global Reach를 사용 하도록 설정할 수 있습니다. 구독에 두 회로가 모두 있는 경우 이 문서의 뒷부분에서 설명한 대로 구성을 실행할 회로를 선택할 수 있습니다. 두 회로가 서로 다른 Azure 구독에 있는 경우 한 Azure 구독에서 권한을 부여하고, 다른 Azure 구독에서 구성 명령을 실행할 때 권한 부여 키를 전달해야 합니다.
 
 ## <a name="enable-connectivity-between-your-on-premises-networks"></a>온-프레미스 네트워크 간 연결 사용
 
 연결을 사용하도록 설정하는 명령을 실행하는 경우 매개 변수 값에 대한 다음 요구 사항에 유의하세요.
 
-* *peer-circuit*은 전체 리소스 ID여야 합니다. 예를 들면 다음과 같습니다.
+* *peer-circuit*은 전체 리소스 ID여야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
   > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 

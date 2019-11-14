@@ -1,7 +1,7 @@
 ---
 title: 여러 IP 구성의 부하 분산 - Azure Portal
-titlesuffix: Azure Load Balancer
-description: 기본 및 보조 IP 구성에서 부하 분산.
+titleSuffix: Azure Load Balancer
+description: 이 문서에서는 Azure Portal를 사용 하 여 기본 및 보조 IP 구성에서 부하 분산에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: dbf8cdd326d3e1c8f32f6dc2bd3486146993e06b
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 4bf74986462ecb2659505f8a1261b9b24aba3fee
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274729"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076999"
 ---
 # <a name="load-balancing-on-multiple-ip-configurations-by-using-the-azure-portal"></a>Azure Portal을 사용하여 여러 IP 구성의 부하 분산
 
@@ -42,7 +42,7 @@ ms.locfileid: "68274729"
 - Azure Load Balancer는 각 웹 사이트에 하나씩 두 개의 프런트 엔드 IP 주소를 노출하는 데 사용됩니다. 프런트 엔드 주소는 트래픽을 각 웹 사이트의 각 IP 구성에 분산하는 데 사용됩니다.
 - 프런트 엔드 IP 주소와 백 엔드 풀 IP 주소 모두에 동일한 포트 번호가 사용됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 시나리오 예제에서는 다음과 같이 구성된 **contosofabrikam**이라는 리소스 그룹이 있다고 가정합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "68274729"
 
 가상 네트워크의 각 VM에 대해 보조 NIC에 대한 IP 구성을 추가합니다.  
 
-1. Azure Portal https://portal.azure.com 로 이동합니다. Azure 계정으로 로그인합니다.
+1. Azure Portal https://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
 
 2. 화면 왼쪽 위에 있는 **리소스 그룹** 아이콘을 선택합니다. 그런 다음 VM이 있는 리소스 그룹(예: **contosofabrikam**)을 선택합니다. **리소스 그룹** 창에 VM의 모든 리소스와 NIC가 표시됩니다.
 
@@ -78,7 +78,7 @@ ms.locfileid: "68274729"
 
         2. **개인 IP 주소**, **할당** 설정에 대해 **정적**을 선택합니다.
 
-        3.           **확인**을 선택합니다.
+        3. **확인**을 선택합니다.
 
 보조 NIC에 대한 두 번째 IP 구성을 완료하면 지정된 NIC에 대한 **IP 구성** 설정에 그 내용이 표시됩니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "68274729"
 
 구성에 대한 부하 분산 장치를 만듭니다.
 
-1. Azure Portal https://portal.azure.com 로 이동합니다. Azure 계정으로 로그인합니다.
+1. Azure Portal https://portal.azure.com로 이동합니다. Azure 계정으로 로그인합니다.
 
 2. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다. 다음 **만들기**를 선택합니다.
 
@@ -112,7 +112,7 @@ ms.locfileid: "68274729"
 
    3. **위치**에서 VM과 같은 위치를 선택합니다.
 
-   4.           **확인**을 선택합니다.
+   4. **확인**을 선택합니다.
 
       공용 IP 주소가 만들어 지면 **공용 IP** 주소에 표시됩니다.
 
@@ -152,7 +152,7 @@ ms.locfileid: "68274729"
 
     2. **네트워크 IP 구성**의 경우 이전 단계에서 선택한 VM에 대한 보조 NIC의 IP 구성(예: **VM1NIC2-ipconfig2** 또는 **VM2NIC2-ipconfig2**)을 선택합니다.
 
-7.           **확인**을 선택합니다.
+7. **확인**을 선택합니다.
 
 백 엔드 풀이 구성된 후 부하 분산 장치 **백 엔드 풀** 설정 아래에 주소가 표시됩니다.
 
@@ -166,7 +166,7 @@ ms.locfileid: "68274729"
 
 3. **설정**에서 **상태 프로브**를 선택합니다. 다음 창에서 위쪽에 있는 **추가**를 선택합니다. 
 
-4. 상태 프로브의 이름(예: **HTTP**)을 입력합니다.           **확인**을 선택합니다.
+4. 상태 프로브의 이름(예: **HTTP**)을 입력합니다. **확인**을 선택합니다.
 
 ### <a name="step-6-configure-load-balancing-rules"></a>6단계: 부하 분산 규칙 구성
 

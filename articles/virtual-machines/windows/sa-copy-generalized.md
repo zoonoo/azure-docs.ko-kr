@@ -1,5 +1,5 @@
 ---
-title: Azure에서 일반화된 VM의 관리되지 않는 이미지 만들기 | Microsoft Docs
+title: Azure에서 일반화 된 VM의 관리 되지 않는 이미지 만들기
 description: Azure에서 VM의 여러 복사본을 만드는 데 사용할 일반화된 Windows VM의 관리되지 않는 이미지를 만듭니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: b0277e07f67b3f9124dc0e27b20e3d49e0d2f6e9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f25968fb74f0f10b1d498866c036dd04d4d5d134
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749204"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073388"
 ---
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Azure VM에서 관리되지 않는 VM 이미지를 만드는 방법
 
@@ -43,14 +43,14 @@ ms.locfileid: "73749204"
 `sudo waagent -deprovision+user`을 사용하여 Linux VM을 일반화한 다음 PowerShell을 사용하여 VM을 캡처할 수 있습니다. CLI를 사용 하 여 VM을 캡처하는 방법에 대 한 자세한 내용은 [Azure CLI를 사용 하 여 Linux 가상 머신을 일반화 하 고 캡처하는 방법](../linux/capture-image.md)을 참조 하세요.
 
 
-1. Windows 가상 머신에 로그인
+1. Windows 가상 컴퓨터에 로그인
 2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 **%windir%\system32\sysprep**로 변경한 후 `sysprep.exe`를 실행합니다.
 3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
 4. **종료 옵션**에서 **종료**를 선택합니다.
 5. **확인**을 클릭합니다.
    
     ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Sysprep이 완료되면 가상 머신을 종료합니다. 
+6. Sysprep이 완료되면 가상 컴퓨터를 종료합니다. 
 
 > [!IMPORTANT]
 > Azure에 VHD를 업로드하거나 VM에서 이미지를 만드는 작업을 완료할 때까지 VM을 다시 시작하지 않습니다. VM이 실수로 다시 시작되면 Sysprep을 실행하여 다시 일반화합니다.
@@ -89,7 +89,7 @@ ms.locfileid: "73749204"
     ```
    
     Azure Portal의 VM에 대한 *상태*가 **중지됨**에서 **중지됨(할당 취소됨)** 으로 변경됩니다.
-2. 가상 머신의 상태를 **일반화됨**으로 설정합니다. 
+2. 가상 컴퓨터의 상태를 **일반화됨**으로 설정합니다. 
    
     ```powershell
     Set-AzVm -ResourceGroupName <resourceGroup> -Name <vmName> -Generalized
@@ -148,7 +148,7 @@ $imageURI = "https://mystorageaccount.blob.core.windows.net/mycontainer/myVhd.vh
     ```    
 
 ### <a name="create-a-public-ip-address-and-network-interface"></a>공용 IP 주소 및 네트워크 인터페이스 만들기
-가상 네트워크에서 가상 머신과 통신하려면 [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
+가상 네트워크에서 가상 컴퓨터와 통신하려면 [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
 
 1. 공용 IP 주소 만들기. 이 예에서는 **myPip**라는 공용 IP 주소를 만듭니다. 
    

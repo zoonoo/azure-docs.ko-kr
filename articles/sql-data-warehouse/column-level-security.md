@@ -11,16 +11,16 @@ ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 34172e313b537d59287a424683ea1555cbba9b99
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 85f705022a0ff5970d30c61206d4f2631254b7ce
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049153"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077098"
 ---
 # <a name="column-level-security"></a>열 수준 보안
 고객은 CLS(열 수준 보안)을 통해 사용자의 실행 컨텍스트 또는 해당 그룹 구성원에 따라 데이터베이스 테이블 열에 대한 액세스를 제어할 수 있습니다.
-아래 비디오 업데이트-이 비디오는 게시 된 [행 수준 보안](https://docs.microsoft.com/en-us/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) 을 SQL Data Warehouse 에서도 사용할 수 있습니다. 
+아래 비디오 업데이트-이 비디오는 게시 된 [행 수준 보안](/sql/relational-databases/security/row-level-security?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc&view=sql-server-2017) 을 SQL Data Warehouse 에서도 사용할 수 있습니다. 
 > [!VIDEO https://www.youtube.com/embed/OU_ESg0g8r8]
 
 CLS는 애플리케이션에서 보안의 설계 및 코딩을 간소화합니다. CLS를 사용하면 열 액세스에 대한 제한을 구현하여 중요한 데이터를 보호할 수 있습니다. 예를 들어 특정 사용자가 해당 부서와 관련된 테이블의 특정 열에만 액세스할 수 있도록 합니다. 액세스 제한 논리는 다른 애플리케이션 계층의 데이터가 아닌 데이터베이스 계층에 있습니다. 데이터베이스는 모든 계층에서 데이터 액세스를 시도할 때마다 액세스 제한을 적용합니다. 이렇게 제한하면 전체 보안 시스템의 노출 영역이 줄어들어 보안 시스템을 보다 안정적이고 강력하게 만들 수 있습니다. 또한 CLS를 사용하면 사용자에게 액세스 제한을 적용하기 위해 열을 필터링하는 뷰를 도입할 필요가 없습니다.

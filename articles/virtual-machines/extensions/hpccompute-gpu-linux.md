@@ -1,5 +1,5 @@
 ---
-title: NVIDIA GPU 드라이버 확장 - Azure Linux VM | Microsoft Docs
+title: NVIDIA GPU 드라이버 확장-Azure Linux Vm
 description: Linux를 실행하는 N 시리즈 컴퓨팅 VM에서 NVIDIA GPU 드라이버를 설치하기 위한 Microsoft Azure 확장입니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: akjosh
-ms.openlocfilehash: 83646c0b11bf558f667b29271a27d31e5489c157
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 6ea61acfc2db3c8f1f5c9c0ac8da8f19897d441e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174008"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073739"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Linux용 NVIDIA GPU 드라이버 확장
 
@@ -30,7 +30,7 @@ ms.locfileid: "71174008"
 https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)에서 제공 됩니다.
 확장은 [Windows N 시리즈 VM](hpccompute-gpu-windows.md)에서 NVIDIA GPU 드라이버를 설치하는 데 지원됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -42,7 +42,7 @@ https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup)�
 | Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
 | Linux: CentOS | 7.3, 7.4, 7.5, 7.6 |
 
-### <a name="internet-connectivity"></a>인터넷에 연결
+### <a name="internet-connectivity"></a>인터넷 연결
 
 NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM이 인터넷에 연결되어 있고 액세스 권한이 있어야 합니다.
 
@@ -83,10 +83,10 @@ NVIDIA GPU 드라이버용 Microsoft Azure 확장을 사용하려면 대상 VM�
 
 모든 설정은 선택 사항입니다. 기본 동작은 드라이버 설치에 필요하지 않은 경우 커널을 업데이트하지 않고, 지원되는 최신 드라이버 및 CUDA 도구 키트(해당하는 경우)를 설치하는 것입니다.
 
-| 이름 | 설명 | Default Value | 유효한 값 | 데이터 형식 |
+| 이름 | 설명 | 기본값 | 유효한 값 | 데이터 형식 |
 | ---- | ---- | ---- | ---- | ---- |
 | updateOS | 드라이버 설치에 필요하지 않은 경우에도 커널을 업데이트합니다. | false | true, false | boolean |
-| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | latest | GRID: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
+| driverVersion | NV: GRID 드라이버 버전<br> NC/ND: CUDA 도구 키트 버전입니다. 선택한 CUDA에 대한 최신 드라이버가 자동으로 설치됩니다. | latest | 그리드: "430.30", "418.70", "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: “10.0.130”, “9.2.88”, “9.1.85” | string |
 | installCUDA | CUDA 도구 키트를 설치합니다. NC/ND 시리즈 VM에만 관련됩니다. | true | true, false | boolean |
 
 

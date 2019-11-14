@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Windows VM 리소스에 태그 지정 | Microsoft Docs
+title: Azure에서 Windows VM 리소스에 태그를 만드는 방법
 description: 리소스 관리자 배포 모델을 사용하여 Azure에서 만든 Windows 가상 컴퓨터에 태그를 지정하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/05/2016
 ms.author: memccror
-ms.openlocfilehash: f6f3a4be21eee6a9e07a4ae11a530dd9dd50c81c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 52f8dbfc8665fce832eaa60e204273368ae7485d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749152"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068206"
 ---
 # <a name="how-to-tag-a-windows-virtual-machine-in-azure"></a>Azure에서 Windows 가상 머신에 태그를 지정하는 방법
 이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Windows 가상 머신에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 15개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다. Linux 가상 머신에 태그를 지정하려는 경우 [Azure에서 Linux 가상 머신에 태그를 지정하는 방법](../linux/tag.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.

@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 42c674e236d769d48f6f17fc43494ac006219a8a
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: cfac7fdbbdbf06ae74385fbc33e61d11cb99ff87
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795688"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066307"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 암호화 Azure Storage
 
 Azure Storage는 클라우드로 데이터를 유지할 때 자동으로 데이터를 암호화 합니다. 암호화는 데이터를 보호 하 고 조직의 보안 및 규정 준수 약정을 충족 하는 데 도움이 됩니다. Azure Storage의 데이터는 256 비트 [AES 암호화](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard)를 사용 하 여 투명 하 게 암호화 되 고 해독 되며, 사용 가능한 가장 강력한 블록 암호화 중 하나 이며 FIPS 140-2 규격입니다. Azure Storage 암호화는 Windows의 BitLocker 암호화와 비슷합니다.
 
-Azure Storage 암호화는 모든 신규 및 기존 저장소 계정에 대해 사용 하도록 설정 되어 있으며 사용 하지 않도록 설정할 수 없습니다. 기본적으로 데이터 보안을 유지 하기 때문에 Azure Storage 암호화를 활용 하기 위해 코드 또는 응용 프로그램을 수정할 필요가 없습니다.
+Azure Storage 암호화는 모든 새 저장소 계정에 대해 사용 하도록 설정 되어 있으며 사용 하지 않도록 설정할 수 없습니다. 기본적으로 데이터 보안을 유지 하기 때문에 Azure Storage 암호화를 활용 하기 위해 코드 또는 응용 프로그램을 수정할 필요가 없습니다.
 
 저장소 계정은 성능 계층 (표준 또는 프리미엄) 또는 배포 모델 (Azure Resource Manager 또는 클래식)에 관계 없이 암호화 됩니다. 모든 Azure Storage 중복성 옵션은 암호화를 지원 하 고 저장소 계정의 모든 복사본은 암호화 됩니다. Blob, 디스크, 파일, 큐 및 테이블을 포함 하 여 모든 Azure Storage 리소스가 암호화 됩니다. 모든 개체 메타 데이터도 암호화 됩니다.
 
@@ -194,11 +194,11 @@ public static void UploadBlobWithClientKey(CloudBlobContainer container)
 
 ## <a name="azure-storage-encryption-versus-disk-encryption"></a>Azure Storage 암호화 및 디스크 암호화
 
-Azure Storage 암호화를 사용 하 여 Azure 가상 머신 디스크를 반환 하는 페이지 blob을 포함 하 여 모든 Azure Storage 계정 및 포함 된 리소스가 암호화 됩니다. 또한 Azure 가상 머신 디스크는 [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md)로 암호화 될 수 있습니다. Azure Disk Encryption는 Windows에서 업계 표준 [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) 를 사용 하 고 Linux에서 [DM-](https://en.wikipedia.org/wiki/Dm-crypt) 컴퓨터를 사용 하 여 Azure Key Vault와 통합 된 운영 체제 기반 암호화 솔루션을 제공 합니다.
+Azure Storage 암호화는 Azure 가상 머신 디스크를 반환 하는 페이지 blob을 암호화 합니다. 또한 로컬 임시 디스크를 포함 하 여 모든 Azure virtual machine 디스크를 선택적으로 [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md)으로 암호화할 수 있습니다. Azure Disk Encryption는 Windows에서 업계 표준 [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) 를 사용 하 고 Linux에서 [DM-](https://en.wikipedia.org/wiki/Dm-crypt) 컴퓨터를 사용 하 여 Azure Key Vault와 통합 된 운영 체제 기반 암호화 솔루션을 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Key Vault란?](../../key-vault/key-vault-overview.md)
+- [Azure 키 자격 증명 모음이란?](../../key-vault/key-vault-overview.md)
 - [Azure Portal에서 Azure Storage 암호화를 위해 고객이 관리하는 키 구성](storage-encryption-keys-portal.md)
 - [PowerShell에서 Azure Storage 암호화용 고객 관리형 키 구성](storage-encryption-keys-powershell.md)
 - [Azure CLI에서 Azure Storage 암호화용 고객 관리형 키 구성](storage-encryption-keys-cli.md)

@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Windows Vm에 대 한 예약 된 이벤트 모니터링 | Microsoft Docs
+title: Azure에서 Windows Vm에 대 한 예약 된 이벤트 모니터링
 description: 예약 된 이벤트에 대 한 Azure 가상 머신을 모니터링 하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: d090fb52beb266f006e69688c09f66412f1fe8c2
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 1cda07c18e4f5ef2a8c00b6a275f22ecc0935751
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376208"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073307"
 ---
 # <a name="monitoring-scheduled-events"></a>모니터링 Scheduled Events
 
@@ -32,7 +32,7 @@ Scheduled Events는 azure [Instance Metadata Service](instance-metadata-service.
 
 ![이벤트 수명 주기를 보여 주는 다이어그램](./media/notifications/events.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 예에서는 [가용성 집합에 Windows 가상 머신을](tutorial-availability-sets.md)만들어야 합니다. 가용성 집합, 클라우드 서비스, 가상 머신 확장 집합 또는 독립 실행형 Vm의 가상 머신에 영향을 줄 수 있는 변경 내용에 대 한 알림을 제공 Scheduled Events 합니다. 가용성 집합의 다른 모든 Vm에 대 한 이벤트를 가져오기 위해 수집기 역할을 하는 Vm 중 하나에서 예약 된 이벤트를 폴링하는 [서비스](https://github.com/microsoft/AzureScheduledEventsService) 를 실행 합니다.    
 
@@ -61,7 +61,7 @@ New-AzVm `
 
 [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip)에서 프로젝트의 설치 .zip 파일을 다운로드 합니다.
 
-**MyCollectorVM** 에 연결 하 고 .zip 파일을 가상 머신에 복사 하 고 모든 파일을 추출 합니다. VM에서 PowerShell 프롬프트를 엽니다. @No__t-0 (예: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`)을 포함 하는 폴더로 메시지를 이동 하 고 서비스를 설정 합니다.
+**MyCollectorVM** 에 연결 하 고 .zip 파일을 가상 머신에 복사 하 고 모든 파일을 추출 합니다. VM에서 PowerShell 프롬프트를 엽니다. 프롬프트를 `SchService.ps1`포함 된 폴더로 이동 합니다 (예: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`, 서비스 설정).
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -81,7 +81,7 @@ New-AzVm `
 .\SchService.ps1 -status  
 ```
 
-@No__t-0을 반환 해야 합니다.
+`Running`를 반환 해야 합니다.
 
 이제 서비스는 예약 된 이벤트에 대해 10 초 마다 폴링을 시작 하 고 이벤트를 승인 하 여 유지 관리를 신속 하 게 진행 합니다.  중지, 다시 부팅, 다시 배포 및 Preempt는 일정 이벤트에 의해 캡처된 이벤트입니다. 이벤트를 승인 하기 전에 스크립트를 확장 하 여 일부 완화를 트리거할 수 있습니다.
 
@@ -98,7 +98,7 @@ New-AzVm `
 >
 > 설치를 위해 Windows를 선택 했지만 Linux에서 비슷한 솔루션을 디자인할 수 있습니다.
 
-언제 든 지 `–stop` 및 `–remove` 스위치를 사용 하 여 예약 된 이벤트 서비스를 중지 하거나 제거할 수 있습니다.
+언제 든 지 `–stop` 및 `–remove`스위치를 사용 하 여 예약 된 이벤트 서비스를 중지/제거할 수 있습니다.
 
 ## <a name="connect-to-the-workspace"></a>작업 영역에 연결
 
@@ -157,9 +157,9 @@ New-AzVm `
 
     ![쿼리 저장](./media/notifications/save-query.png)
 
-1. **새 경고 규칙**을 선택 합니다. 
-1. **규칙 만들기** 페이지에서 `collectorworkspace`을 **리소스로**그대로 둡니다.
-1. **조건**아래에서 *고객 로그 검색이-2 @no__t 될 때마다*항목을 선택 합니다. **신호 논리 구성** 페이지가 열립니다.
+1. **새로운 경고 규칙**을 선택합니다. 
+1. **규칙 만들기** 페이지에서 `collectorworkspace`를 **리소스로**유지 합니다.
+1. **조건**아래에서 *고객 로그 검색이 <login undefined>될 때마다* 항목을 선택 합니다. **신호 논리 구성** 페이지가 열립니다.
 1. **임계값**에서 *0* 을 입력 한 다음 **완료**를 선택 합니다.
 1. **작업**아래에서 **작업 그룹 만들기**를 선택 합니다. **작업 그룹 추가** 페이지가 열립니다.
 1. **작업 그룹 이름**에 *myactiongroup*을 입력 합니다.

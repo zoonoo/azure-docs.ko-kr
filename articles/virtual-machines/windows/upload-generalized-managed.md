@@ -1,5 +1,5 @@
 ---
-title: 일반화된 온-프레미스 VHD에서 관리되는 Azure VM 만들기 | Microsoft Docs
+title: 일반화 된 온-프레미스 VHD에서 관리 되는 Azure VM 만들기
 description: 일반화된 VHD를 Azure에 업로드하고 이를 사용하여 Resource Manager 배포 모델에서 새 VM을 만듭니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: cynthn
-ms.openlocfilehash: ead44c321ffb7afb69295d1bf8c0e1acd26cb9ce
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d0995fed61d169cc173ca01767c2e48f4f798b0d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749080"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067441"
 ---
 # <a name="upload-a-generalized-vhd-and-use-it-to-create-new-vms-in-azure"></a>일반화된 VHD를 업로드하고 사용하여 Azure에서 새 VM 만들기
 
@@ -46,14 +46,14 @@ Sysprep은 여러 정보 중에서 모든 개인 계정 정보를 제거하고 �
 > 
 > 
 
-1. Windows 가상 머신에 로그인
+1. Windows 가상 컴퓨터에 로그인
 2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 %windir%\system32\sysprep으로 변경한 다음, `sysprep.exe`를 실행합니다.
 3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 입력**을 선택하고 **일반화** 확인란을 선택했는지 확인합니다.
 4. **종료 옵션**에서 **종료**를 선택합니다.
 5. **확인**을 선택합니다.
    
     ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
-6. Sysprep이 완료되면 가상 머신을 종료합니다. VM을 다시 시작하지 마세요.
+6. Sysprep이 완료되면 가상 머신을 종료합니다. VM을 다시 시작하지 않습니다.
 
 
 ## <a name="upload-the-vhd-to-your-storage-account"></a>스토리지 계정에 VHD 업로드

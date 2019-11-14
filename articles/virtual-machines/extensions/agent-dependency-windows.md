@@ -1,5 +1,5 @@
 ---
-title: Windows 용 Azure Monitor 종속성 가상 머신 확장 | Microsoft Docs
+title: Windows 용 Azure Monitor 종속성 가상 머신 확장
 description: 가상 컴퓨터 확장을 사용 하 여 Windows 가상 컴퓨터에 Azure Monitor 종속성 에이전트를 배포 합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: b2a86ffab0286559cfcce89252c889c530f00871
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 858aba2a45a6b8cf133e6f94bac45e721535ab25
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750104"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073260"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Windows 용 Azure Monitor 종속성 가상 머신 확장
 
@@ -71,10 +71,10 @@ Windows 용 Azure VM 종속성 에이전트 확장은 VM용 Azure Monitor 배포
 
 ### <a name="property-values"></a>속성 값
 
-| Name | 값/예제 |
+| 이름 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2015-01-01 |
-| publisher | DependencyAgent. |
+| publisher | Microsoft.Azure.Monitoring.DependencyAgent |
 | type | DependencyAgentWindows |
 | typeHandlerVersion | 9.5 |
 
@@ -105,7 +105,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure VM 확장을 배포할 
 }
 ```
 
-템플릿의 루트에 JSON 확장을 저장 하면 리소스 이름에 부모 가상 머신에 대 한 참조가 포함 됩니다. 형식은 중첩 된 구성을 반영 합니다.
+템플릿의 루트에 JSON 확장을 저장 하면 리소스 이름에 부모 가상 머신에 대 한 참조가 포함 됩니다. 형식에 중첩 된 구성을 반영합니다.
 
 ```json
 {

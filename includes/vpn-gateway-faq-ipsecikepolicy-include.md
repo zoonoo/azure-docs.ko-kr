@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 6fa1912e80a98c98f058931708e191d0fff5bc66
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 345822847ddd60794cd912ccb52c14f6e240cd66
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73799988"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075401"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>사용자 지정 IPsec/IKE 정책은 모든 Azure VPN Gateway SKU에서 지원되나요?
-사용자 지정 IPsec/IKE 정책은 **VpnGw1, VpnGw2, VpnGw3, 표준** 및 **HighPerformance** VPN Gateway에서 지원됩니다. **기본** SKU는 지원되지 **않습니다**.
+사용자 지정 IPsec/IKE 정책은 기본 SKU를 제외한 모든 Azure Sku에서 지원 됩니다.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>연결에서 얼마나 많은 정책을 지정할 수 있나요?
 지정된 연결에 대해 ***하나의*** 정책 조합만 지정할 수 있습니다.
@@ -27,22 +27,22 @@ ms.locfileid: "73799988"
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>사용자 지정 정책에서 지원되는 알고리즘과 키 강도는 어떻게 되나요?
 다음 표에는 고객이 구성 가능하도록 지원되는 암호화 알고리즘 및 키 강도가 나와 있습니다. 모든 필드에 대해 한 가지 옵션을 선택해야 합니다.
 
-| **IPsec/IKEv1, IKEv2**  | **옵션**                                                                   |
-| ---                     | ---                                                                           |
-| IKEv1, IKEv2 암호화 | AES256, AES192, AES128, DES3, DES                                             |
-| IKEv1, IKEv2 무결성  | SHA384, SHA256, SHA1, MD5                                                     |
-| DH 그룹                | DHGroup24, ECP384, ECP256, DHGroup14(DHGroup2048), DHGroup2, DHGroup1, 없음  |
-| IPsec 암호화        | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, 없음      |
-| IPsec 무결성         | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
-| PFS 그룹               | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, 없음                              |
-| QM SA 수명          | 초(정수, **최소 300**/기본값 27,000초)<br>KB(정수, **최소 1,024**/기본값 102,400,000KB) |
-| 트래픽 선택기        | UsePolicyBasedTrafficSelectors($True/$False, 기본값: $False)                 |
-|                         |                                                                               |
+| **IPsec/IKEv2**  | **옵션**                                                                   |
+| ---              | ---                                                                           |
+| IKEv2 암호화 | AES256, AES192, AES128, DES3, DES                                             |
+| IKEv2 무결성  | SHA384, SHA256, SHA1, MD5                                                     |
+| DH 그룹         | DHGroup24, ECP384, ECP256, DHGroup14(DHGroup2048), DHGroup2, DHGroup1, 없음 |
+| IPsec 암호화 | GCMAES256, GCMAES192, GCMAES128, AES256, AES192, AES128, DES3, DES, 없음      |
+| IPsec 무결성  | GCMAES256, GCMAES192, GCMAES128, SHA256, SHA1, MD5                            |
+| PFS 그룹        | PFS24, ECP384, ECP256, PFS2048, PFS2, PFS1, 없음                              |
+| QM SA 수명   | 초(정수, **최소 300**/기본값 27,000초)<br>KB(정수, **최소 1,024**/기본값 102,400,000KB)           |
+| 트래픽 선택기 | UsePolicyBasedTrafficSelectors($True/$False, 기본값: $False)                 |
+|                  |                                                                               |
 
 > [!IMPORTANT]
 > 1. DHGroup2048 및 PFS2048은 IKE 및 IPsec PFS의 Diffie-Hellman 그룹 **14**와 동일합니다. 전체 매핑은 [Diffie-Hellman 그룹](#DH)을 참조하세요.
 > 2. GCMAES 알고리즘의 경우 IPsec 암호화 및 무결성 모두에 대해 동일한 GCMAES 알고리즘 및 키 길이를 지정해야 합니다.
-> 3. IKEv1 및 IKEv2 주 모드 SA 수명은 Azure VPN 게이트웨이에서 28800 초에 고정 됩니다.
+> 3. IKEv2 주 모드 SA 수명은 Azure VPN 게이트웨이에서 28800 초에 고정 됩니다.
 > 4. QM SA 수명은 선택적 매개 변수입니다. 지정되지 않으면 기본값인 27,000초(7.5시간) 및 102,400,000KB(102GB)가 사용됩니다.
 > 5. UsePolicyBasedTrafficSelector는 연결에 대한 옵션 매개 변수입니다. "UsePolicyBasedTrafficSelectors"에 대한 다음 FAQ 항목을 참조하세요.
 

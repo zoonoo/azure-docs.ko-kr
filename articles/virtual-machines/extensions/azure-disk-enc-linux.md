@@ -1,5 +1,5 @@
 ---
-title: Linux용 Azure Disk Encryption | Microsoft Docs
+title: Linux에 대 한 Azure Disk Encryption
 description: 가상 머신 확장을 사용하여 Linux용 Azure Disk Encryption을 가상 머신에 배포합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: ejarvi
-ms.openlocfilehash: 1801ca8bd59153de81ef680253da229e2bd4a338
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 4fa7f7d1419a8cd1006a632ba67587ab3434bf5a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597863"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073803"
 ---
 # <a name="azure-disk-encryption-for-linux-microsoftazuresecurityazurediskencryptionforlinux"></a>Linux용 Azure Disk Encryption(Microsoft.Azure.Security.AzureDiskEncryptionForLinux)
 
@@ -26,7 +26,7 @@ ms.locfileid: "72597863"
 
 Azure Disk Encryption은 Linux에서 dm-crypt 서브 시스템을 활용하여 [Azure Linux 배포판 선택](https://aka.ms/adelinux)에서 전체 디스크 암호화를 제공합니다.  이 솔루션은 Azure Key Vault와 통합되어 디스크 암호화 키와 비밀을 관리합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 필수 구성 요소의 전체 목록은 [Linux vm에 대 한 Azure Disk Encryption](../linux/disk-encryption-overview.md), 특히 다음 섹션을 참조 하세요.
 
@@ -67,7 +67,7 @@ V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 
 
 ### <a name="schema-v01-with-aad"></a>Schema v 0.1: AAD 사용 
 
-0\.1 스키마에 `aadClientID` `aadClientSecret` 또는 `AADClientCertificate` 필요 합니다.
+0\.1 스키마에 `aadClientID` `aadClientSecret` 또는 `AADClientCertificate`필요 합니다.
 
 `aadClientSecret`을 사용할 경우 다음을 실행합니다.
 
@@ -132,23 +132,23 @@ V 1.1 스키마를 권장 하며 Azure Active Directory 속성이 필요 하지 
 
 ### <a name="property-values"></a>속성 값
 
-| name | 값/예제 | 데이터 형식 |
+| 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | 문자열 |
-| type | AzureDiskEncryptionForLinux | 문자열 |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0.1, 1.1 | int |
 | (0.1 스키마) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | GUID | 
-| (0.1 스키마) AADClientSecret | 암호 | 문자열 |
-| (0.1 스키마) AADClientCertificate | thumbprint | 문자열 |
+| (0.1 스키마) AADClientSecret | password | string |
+| (0.1 스키마) AADClientCertificate | thumbprint | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON 사전 |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | 문자열 | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | 문자열 |
-| KeyEncryptionKeyURL | URL | 문자열 |
-| 필드 KeyVaultURL | URL | 문자열 |
-| 암호 | 암호 | 문자열 | 
-| SequenceVersion | uniqueidentifier | 문자열 |
-| VolumeType | OS, Data, All | 문자열 |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
+| KeyEncryptionKeyURL | URL | string |
+| 필드 KeyVaultURL | URL | string |
+| Passphrase | password | string | 
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | OS, Data, All | string |
 
 ## <a name="template-deployment"></a>템플릿 배포
 

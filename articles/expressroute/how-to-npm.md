@@ -1,5 +1,5 @@
 ---
-title: ExpressRoute 회로의 네트워크 성능 모니터 구성 - Azure | Microsoft Docs
+title: 'Azure Express 경로: 회로에 대 한 NPM 구성'
 description: Azure ExpressRoute 회로에 대해 클라우드 기반 NPM(네트워크 모니터링)을 구성합니다. 여기서는 ExpressRoute 프라이빗 피어링 및 Microsoft 피어링에 대한 모니터링을 다룹니다.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 180075f13be2cc2507a78e3d10a67a49a0c0cb12
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 54fa3dcbfbbcb3153f81407a9bc9b52511405390
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60840329"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076598"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>ExpressRoute에 대한 네트워크 성능 모니터 구성
 
@@ -60,7 +59,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 
    ![portal](./media/how-to-npm/3.png)<br><br>
 2. 주 **네트워크 성능 모니터** 페이지 아래쪽에서 **만들기**를 클릭하여 **네트워크 성능 모니터 - 새 솔루션 만들기** 페이지를 엽니다. **Log Analytics 작업 영역 - 작업 영역 선택**을 클릭하여 작업 영역 페이지를 엽니다. **+ 새 작업 영역 만들기**를 클릭하여 작업 영역 페이지를 엽니다.
-3. 에 **Log Analytics 작업 영역** 페이지에서 **새로 만들기**, 다음 설정을 구성 합니다.
+3. **Log Analytics 작업 영역** 페이지에서 **새로 만들기**를 선택 하 고 다음 설정을 구성 합니다.
 
    * Log Analytics 작업 영역 - 작업 영역의 이름을 입력합니다.
    * 구독 - 여러 구독이 있는 경우 새 작업 영역에 연결할 구독을 선택합니다.
@@ -80,7 +79,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 
 ## <a name="agents"></a>2단계: 에이전트 설치 및 구성
 
-### <a name="download"></a>2.1: 에이전트 설치 파일을 다운로드합니다
+### <a name="download"></a>2.1: 에이전트 설치 파일 다운로드
 
 1. 리소스에 대한 **네트워크 성능 모니터 구성** 페이지의 **일반 설정** 탭으로 이동합니다. **Log Analytics 에이전트 설치** 섹션에서 서버 프로세서에 해당하는 에이전트를 클릭하고 설치 파일을 다운로드합니다.
 2. 이제 **작업 영역 ID** 및 **기본 키**를 메모장에 복사합니다.
@@ -100,20 +99,20 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 2. **Welcome** 페이지에서 **다음**을 클릭합니다.
 3. **사용 조건** 페이지에서 라이선스를 읽고 **동의함**을 클릭합니다.
 4. **대상 폴더** 페이지에서 기본 설치 폴더를 변경 또는 유지하고 **다음**을 클릭합니다.
-5. 에 **에이전트 설치 옵션** 페이지에서 Azure Monitor 로그 또는 Operations Manager 에이전트를 연결 하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음**을 클릭합니다.
+5. **에이전트 설치 옵션** 페이지에서 에이전트를 Azure Monitor 로그 또는 Operations Manager에 연결 하도록 선택할 수 있습니다. 또는 에이전트를 나중에 구성하려는 경우 선택 항목을 비워 둘 수 있습니다. 선택한 후 **다음**을 클릭합니다.
 
-   * **Azure Log Analytics**에 연결하려는 경우 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID**와 **작업 영역 키**(기본 키)를 붙여넣습니다. 그런 후 **다음**을 클릭합니다.
+   * **Azure Log Analytics**에 연결하려는 경우 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID**와 **작업 영역 키**(기본 키)를 붙여넣습니다. 그런 후에 **다음**을 클릭합니다.
 
      ![ID 및 키](./media/how-to-npm/8.png)
-   * **Operations Manager**에 연결할 경우 **관리 그룹 구성** 페이지에서 **관리 그룹 이름**, **관리 서버** 및 **관리 서버 포트**를 입력합니다. 그런 후 **다음**을 클릭합니다.
+   * **Operations Manager**에 연결할 경우 **관리 그룹 구성** 페이지에서 **관리 그룹 이름**, **관리 서버** 및 **관리 서버 포트**를 입력합니다. 그런 후에 **다음**을 클릭합니다.
 
      ![Operations Manager](./media/how-to-npm/9.png)
-   * **에이전트 작업 계정** 페이지에서 **로컬 시스템** 계정 또는 **도메인 또는 로컬 컴퓨터 계정**을 선택합니다. 그런 후 **다음**을 클릭합니다.
+   * **에이전트 작업 계정** 페이지에서 **로컬 시스템** 계정 또는 **도메인 또는 로컬 컴퓨터 계정**을 선택합니다. 그런 후에 **다음**을 클릭합니다.
 
-     ![계좌](./media/how-to-npm/10.png)
+     ![계정](./media/how-to-npm/10.png)
 6. **설치 준비** 페이지에서 선택 항목을 검토한 다음 **설치**를 클릭합니다.
 7. **구성 완료** 페이지에서 **마침**을 클릭합니다.
-8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토 하 고 Azure Monitor 로그에 에이전트 연결 되어 있는지 확인 수 있습니다. 연결되면 에이전트에: **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.
+8. 완료되면 제어판에 Microsoft Monitoring Agent가 나타납니다. 여기에서 구성을 검토 하 고 에이전트가 Azure Monitor 로그에 연결 되어 있는지 확인할 수 있습니다. 연결되면 에이전트에 **Microsoft Monitoring Agent가 Microsoft Operations Management Suite 서비스에 성공적으로 연결되었습니다.** 와 같은 메시지가 표시됩니다.
 
 9. 모니터링해야 하는 각 VNET에 대해 이 프로시저를 반복합니다.
 
@@ -137,7 +136,7 @@ ExpressRoute 회로에 대한 VNets 링크가 있는 구독에 작업 영역을 
 1. 모니터링 에이전트가 있는 서버에서 **제어판**을 엽니다.
 2. **Microsoft Monitoring Agent**를 엽니다.
 3. **Azure Log Analytics** 탭을 클릭합니다.
-4. 에 **상태** 열 표시 Azure Monitor 로그에는 에이전트가 성공적으로 연결 합니다.
+4. **상태** 열에 에이전트가 성공적으로 Azure Monitor 로그에 연결 된 것을 확인할 수 있습니다.
 
    ![status](./media/how-to-npm/12.png)
 
@@ -185,7 +184,7 @@ NSG에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-networ
             
 ## <a name="configmonitor"></a>5단계: 모니터 구성
 
-이 섹션에서는 모니터를 구성합니다. **개인 피어링** 또는 **Microsoft 피어링** 등 모니터링하려는 피어링의 형식에 이 단계를 수행합니다.
+이 섹션에서는 모니터를 구성합니다. **프라이빗 피어링** 또는 **Microsoft 피어링** 등 모니터링하려는 피어링의 형식에 이 단계를 수행합니다.
 
 ### <a name="private-peering"></a>프라이빗 피어링
 

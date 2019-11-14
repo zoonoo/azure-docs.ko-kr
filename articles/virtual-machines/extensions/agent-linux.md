@@ -1,6 +1,6 @@
 ---
-title: Azure Linux VM 에이전트 개요 | Microsoft Docs
-description: Linux 에이전트(waagent)를 설치 및 구성하여 가상 머신과 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다.
+title: Azure Linux VM 에이전트 개요
+description: Linux 에이전트(waagent)를 설치 및 구성하여 가상 컴퓨터와 Azure 패브릭 컨트롤러의 상호 작용을 관리하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e8bc28c7454296f32dda09894ad3dca2f4fae99b
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5f22fbd77069488e7aaf490f93f42cde747444a8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169153"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073861"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Azure Linux 에이전트 이해 및 사용
 
@@ -107,12 +107,12 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 
 ## <a name="command-line-options"></a>명령줄 옵션
 ### <a name="flags"></a>플래그
-* 구문 지정 된 명령의 자세한 정도 늘리기
-* 설정 일부 명령에 대 한 대화형 확인 건너뛰기
+* verbose: 지정한 명령의 세부 정보 표시를 늘립니다.
+* force: 일부 명령의 대화형 확인을 건너뜁니다.
 
 ### <a name="commands"></a>명령
-* 도움말: 지원 되는 명령 및 플래그를 나열 합니다.
-* 프로 비전 해제 시스템을 정리 하 고 다시 프로 비전에 적합 하 게 만듭니다. 삭제되는 작업은 다음과 같습니다.
+* help: 지원되는 명령 및 플래그를 나열합니다.
+* deprovision: 시스템을 정리하고 다시 프로비전하는 데 적합하도록 만듭니다. 삭제되는 작업은 다음과 같습니다.
   
   * 모든 SSH 호스트 키(구성 파일에서 Provisioning.RegenerateSshHostKeyPair가 'y'인 경우)
   * /etc/resolv.conf의 Nameserver 구성
@@ -125,11 +125,11 @@ Linux 에이전트는 다음과 같은 일부 시스템 패키지가 있어야 �
 > 
 > 
 
-* 프로 비전 해제 + 사용자: 모든 항목을-프로 비전 해제 (위)를 수행 하 고 마지막으로 프로 비전 된 사용자 계정 (/var/cerwwerererererererererererervva Azure에서 이전에 프로비전한 이미지의 프로비전을 해제하여 이미지를 캡처하고 다시 사용할 수 있도록 하는 경우에 이 매개 변수를 사용합니다.
-* 버전: Waagent의 버전을 표시 합니다.
-* serialconsole: TtyS0 (첫 번째 직렬 포트)를 부팅 콘솔로 표시 하도록 GRUB를 구성 합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고 디버깅에 사용할 수 있도록 설정합니다.
-* 데몬 Waagent를 디먼으로 실행 하 여 플랫폼과의 상호 작용을 관리 합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
-* 시작 백그라운드 프로세스로 waagent 실행
+* deprovision+user: -deprovision(위)의 모든 작업을 수행하고, 마지막으로 프로비전한 사용자 계정(/var/lib/waagent에서 가져옴) 및 연결된 데이터도 삭제합니다. Azure에서 이전에 프로비전한 이미지의 프로비전을 해제하여 이미지를 캡처하고 다시 사용할 수 있도록 하는 경우에 이 매개 변수를 사용합니다.
+* version: waagent의 버전을 표시합니다.
+* serialconsole: ttyS0(첫 번째 직렬 포트)을 부팅 콘솔로 표시하도록 GRUB를 구성합니다. 이 매개 변수는 커널 부팅 로그를 직렬 포트로 보내고 디버깅에 사용할 수 있도록 설정합니다.
+* daemon: waagent를 디먼으로 실행하여 플랫폼 조작을 관리합니다. 이 인수는 waagent init 스크립트에서 waagent에 지정됩니다.
+* start: waagent를 백그라운드 프로세스로 실행
 
 ## <a name="configuration"></a>Configuration
 구성 파일(/etc/waagent.conf)은 waagent의 동작을 제어합니다. 다음은 구성 파일 샘플을 보여 줍니다.
@@ -343,6 +343,6 @@ Ubuntu 클라우드 이미지는 [cloud-init](https://launchpad.net/ubuntu/+sour
 
 * 프로비전 중에 Ubuntu 클라우드 이미지에서 리소스 디스크 탑재 지점 및 스왑 공간을 구성하는 방법에 대한 자세한 내용은 다음 리소스를 참조하세요.
   
-  * [Ubuntu Wiki: 스왑 파티션 구성](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Ubuntu Wiki: Swap 파티션 구성](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Azure Virtual Machine에 사용자 지정 데이터 삽입](../windows/classic/inject-custom-data.md)
 

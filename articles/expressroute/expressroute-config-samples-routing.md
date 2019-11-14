@@ -1,5 +1,5 @@
 ---
-title: 라우터 구성 샘플 - Azure ExpressRoute | Microsoft Docs
+title: 'Azure Express 경로: 라우터 구성 샘플'
 description: 이 페이지는 Cisco 및 Juniper 라우터에 대한 라우터 구성 샘플을 제공합니다.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 2d7fb060896de8df266489451a11ba343760c747
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2c37dadeb669fb88f858b5487379828a8dddec6c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60367475"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076658"
 ---
 # <a name="router-configuration-samples-to-set-up-and-manage-routing"></a>라우팅 설정 및 관리를 위한 라우터 구성 샘플
 이 페이지는 ExpressRoute를 사용하여 작업할 때 Cisco IOS-XE 및 Juniper MX 시리즈 라우터에 대한 인터페이스 및 라우팅 구성 샘플을 제공합니다. 이러한 샘플은 참조용이므로 그대로 사용해서는 안 됩니다. 사용 중인 네트워크에 적절하게 구성하려면 공급업체와 작업하면 됩니다. 
@@ -64,7 +63,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
      exit-address-family
     !
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션을 통해 알릴 접두사 설정
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션을 통해 보급 하도록 접두사 설정
 선택된 접두사를 Microsoft에 알리도록 라우터를 구성할 수 있습니다. 아래의 샘플을 사용하여 이 작업을 수행할 수 있습니다.
 
     router bgp <Customer_ASN>
@@ -149,7 +148,7 @@ Microsoft에 연결하는 모든 라우터에서 피어링별로 하위 인터�
         }                                   
     }
 
-### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션을 통해 알릴 접두사 설정
+### <a name="3-setting-up-prefixes-to-be-advertised-over-the-bgp-session"></a>3. BGP 세션을 통해 보급 하도록 접두사 설정
 선택된 접두사를 Microsoft에 알리도록 라우터를 구성할 수 있습니다. 아래의 샘플을 사용하여 이 작업을 수행할 수 있습니다.
 
     policy-options {

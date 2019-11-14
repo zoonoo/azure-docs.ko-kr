@@ -1,5 +1,5 @@
 ---
-title: 포털을 사용 하 여 Windows 용 공유 Azure 가상 머신 이미지 만들기 | Microsoft Docs
+title: 포털을 사용 하 여 Windows 용 공유 Azure Virtual Machine 이미지 만들기
 description: Azure Portal를 사용 하 여 가상 머신 이미지를 만들고 공유 하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 8dac15a39355f3faf749327431423629fa6ce09b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0823942964f2bdb9f943d6eb778a3132574af0f7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903675"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065538"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Azure Portal를 사용 하 여 공유 이미지 갤러리 만들기
 

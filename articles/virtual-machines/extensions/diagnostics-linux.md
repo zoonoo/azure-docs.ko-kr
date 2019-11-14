@@ -1,5 +1,5 @@
 ---
-title: Azure Compute - Linux 진단 확장 | Microsoft Docs
+title: Azure Compute-Linux 진단 확장
 description: Azure에서 실행 중인 Linux VM에서 메트릭 및 로그 이벤트를 수집하도록 Azure LAD(Linux 진단 확장)를 구성하는 방법입니다.
 services: virtual-machines-linux
 author: abhijeetgaiha
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 63008de6d29790333764f4dcca27b8dc03cedbdb
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: b8a5a344f2f1d8280ca60169786e72a0e1dd291e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838185"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073161"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -49,13 +49,13 @@ Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Port
 
 다운로드 가능한 구성은 예로 든 것일 뿐입니다. 사용자 요구 사항에 맞게 수정합니다.
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>선행 조건
 
 * **Azure Linux 에이전트 버전 2.2.0 이상**. 대부분의 Azure VM Linux 갤러리 이미지에는 2.2.7 이후 버전이 포함되어 있습니다. VM에 설치된 버전을 확인하려면 `/usr/sbin/waagent -version`을 실행합니다. VM이 게스트 에이전트의 이전 버전을 실행 중인 경우 [이 지침](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)에 따라 업데이트합니다.
-* **Azure CLI** 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+* **Azure CLI**Azure CLI는 서비스 주체를 만드는 데 사용됩니다. 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
 * 데이터를 저장할 기존 Azure 구독 및 기존 스토리지 계정
-* 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions 에 있습니다.
+* 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions에 있습니다.
 
 ### <a name="sample-installation"></a>샘플 설치
 
@@ -131,7 +131,7 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 ---- | -----
 storageAccountName | 확장에 의해 데이터가 기록될 스토리지 계정의 이름입니다.
 storageAccountEndPoint | (선택 사항) 스토리지 계정이 있는 클라우드를 식별하는 엔드포인트입니다. 이 설정이 없는 경우 LAD는 Azure 퍼블릭 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 스토리지 계정을 사용하려면 이 값을 적절하게 설정합니다.
-storageAccountSasToken | Blob service 및 Table service(`ss='bt'`)용으로, 컨테이너 및 개체(`srt='co'`)에 적용할 수 있고, 추가, 생성, 나열, 업데이트 및 쓰기 권한(`sp='acluw'`)을 부여하는 [계정 SAS 토큰](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/)입니다. 앞에 물음표(?)를 포함하지 *마세요*.
+storageAccountSasToken | Blob service 및 Table service([)용으로, 컨테이너 및 개체(](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/))에 적용할 수 있고, 추가, 생성, 나열, 업데이트 및 쓰기 권한(`ss='bt'`)을 부여하는 `srt='co'`계정 SAS 토큰`sp='acluw'`입니다. 앞에 물음표(?)를 포함하지 *마세요*.
 mdsdHttpProxy | (선택 사항) 지정된 스토리지 계정 및 엔드포인트에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
 sinksConfig | (선택 사항) 메트릭 및 이벤트를 전달할 수 있는 대체 대상의 세부 정보입니다. 확장에서 지원되는 각 데이터 싱크의 특정 세부 정보는 다음에 나오는 섹션에 설명되어 있습니다.
 
@@ -170,7 +170,7 @@ Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다
 name | 확장 구성의 다른 위치에서 이 싱크를 참조하는 데 사용되는 문자열입니다.
 type | 정의 중인 싱크 유형입니다. 이 유형의 인스턴스에서 다른 값(있는 경우)을 결정합니다.
 
-Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형 EventHub 및 JsonBlob을 지원합니다.
+Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형(EventHub 및 JsonBlob)을 지원합니다.
 
 #### <a name="the-eventhub-sink"></a>EventHub 싱크
 
@@ -252,10 +252,10 @@ mdsdHttpProxy | (선택 사항) [보호 설정](#protected-settings)에서와 �
 
 요소 | 값
 ------- | -----
-eventVolume | (선택 사항) 스토리지 테이블 내에서 만든 파티션의 수를 제어합니다. `"Large"`, `"Medium"` 또는 `"Small"` 중 하나여야 합니다. 기본값은 지정 하지 않으면 `"Medium"`합니다.
+eventVolume | (선택 사항) 스토리지 테이블 내에서 만든 파티션의 수를 제어합니다. `"Large"`, `"Medium"` 또는 `"Small"` 중 하나여야 합니다. 지정하지 않으면 기본값 `"Medium"`입니다.
 sampleRateInSeconds | (선택 사항) 원시(집계되지 않은) 메트릭 컬렉션 간의 기본 간격입니다. 지원되는 가장 작은 샘플 속도는 15초입니다. 지정하지 않으면 기본값 `15`입니다.
 
-#### <a name="metrics"></a>metrics
+#### <a name="metrics"></a>메트릭
 
 ```json
 "metrics": {
@@ -314,7 +314,7 @@ type | 메트릭의 실제 공급자를 식별합니다.
 class | "counter"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counter | "class"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counterSpecifier | Azure Metrics 네임스페이스 내에서 특정 메트릭을 식별합니다.
-조건 | (선택 사항) 메트릭이 적용되는 개체의 특정 인스턴스를 선택하거나 해당 개체의 모든 인스턴스에서 집계를 선택합니다. 자세한 내용은 `builtin` 메트릭 정의를 참조하세요.
+condition | (선택 사항) 메트릭이 적용되는 개체의 특정 인스턴스를 선택하거나 해당 개체의 모든 인스턴스에서 집계를 선택합니다. 자세한 내용은 `builtin` 메트릭 정의를 참조하세요.
 sampleRate | 이 메트릭의 원시 샘플이 수집되는 속도를 설정하는 IS 8601 간격입니다. 설정하지 않은 경우 컬렉션 간격은 [sampleRateInSeconds](#ladcfg) 값으로 설정됩니다. 지원되는 최소 샘플 속도는 15초(PT15S)입니다.
 단위 | 문자열 "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond" 중 하나여야 합니다. 메트릭에 대한 단위를 정의합니다. 수집된 데이터의 소비자는 수집된 데이터 값이 이 단위와 일치할 것으로 예상합니다. LAD는 이 필드를 무시합니다.
 displayName | Azure Metrics에서 이 데이터에 연결되는 레이블(연결된 로캘 설정에서 지정된 언어)입니다. LAD는 이 필드를 무시합니다.
@@ -384,9 +384,9 @@ minSeverity | syslog 심각도 수준입니다(예: "LOG\_ERR" 또는 "LOG\_INFO
 
 요소 | 값
 ------- | -----
-네임스페이스 | (선택 사항) 실행해야 할 쿼리 내의 OMI 네임스페이스입니다. 지정되지 않은 경우 기본값은 [System Center 플랫폼 간 공급자](https://github.com/Microsoft/SCXcore)가 구현한 "root/scx"입니다.
+namespace | (선택 사항) 실행해야 할 쿼리 내의 OMI 네임스페이스입니다. 지정되지 않은 경우 기본값은 [System Center 플랫폼 간 공급자](https://github.com/Microsoft/SCXcore)가 구현한 "root/scx"입니다.
 query | 실행될 OMI 쿼리입니다.
-table | (선택 사항) 지정된 스토리지 계정의 Azure Storage 테이블입니다([보호 설정](#protected-settings) 참조).
+테이블 | (선택 사항) 지정된 스토리지 계정의 Azure Storage 테이블입니다([보호 설정](#protected-settings) 참조).
 frequency | (선택 사항) 쿼리 실행 간격(초)입니다. 기본값은 300(5분)이고 최소값은 15초입니다.
 sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는 쉼표로 구분된 추가 싱크 이름 목록입니다. 이러한 원시 샘플의 집계는 확장 또는 Azure Metrics에서 계산되지 않습니다.
 
@@ -409,7 +409,7 @@ sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는
 요소 | 값
 ------- | -----
 file | 확인 및 캡처할 로그 파일의 전체 경로 이름입니다. 경로 이름은 단일 파일의 이름을 지정해야 합니다. 디렉터리 이름을 지정하거나 와일드카드를 포함할 수 없습니다.
-table | (선택 사항) 보호되는 구성에서 지정된 대로, 파일의 “끝"에서 새 줄이 작성되고 지정된 스토리지 계정의 Azure Storage 테이블입니다.
+테이블 | (선택 사항) 보호되는 구성에서 지정된 대로, 파일의 “끝"에서 새 줄이 작성되고 지정된 스토리지 계정의 Azure Storage 테이블입니다.
 sinks | (선택 사항) 로그 줄이 전송되는 쉼표로 구분된 추가 싱크 이름 목록입니다.
 
 "table"이나 "sinks" 또는 둘 다 지정해야 합니다.
@@ -493,7 +493,7 @@ PercentFreeInodes | 사용하지 않은 inode의 백분율
 PercentUsedInodes | 모든 파일 시스템에서 합한 할당된(사용 중인) inode의 백분율
 BytesReadPerSecond | 초당 읽은 바이트
 BytesWrittenPerSecond | 초당 쓴 바이트
-BytesPerSecond | 초당 읽거나 쓴 바이트
+초당 바이트 수 | 초당 읽거나 쓴 바이트
 ReadsPerSecond | 초당 읽기 작업
 WritesPerSecond | 초당 쓰기 작업
 TransfersPerSecond | 초당 읽기 또는 쓰기 작업
@@ -517,7 +517,7 @@ AverageTransferTime | 작업당 평균 시간(초)
 AverageDiskQueueLength | 대기 중인 디스크 작업의 평균 수
 ReadBytesPerSecond | 초당 읽은 바이트 수
 WriteBytesPerSecond | 초당 쓴 바이트 수
-BytesPerSecond | 초당 읽거나 쓴 바이트 수
+초당 바이트 수 | 초당 읽거나 쓴 바이트 수
 
 `"condition": "IsAggregate=True"`로 설정하면 모든 디스크에서 집계된 값을 얻을 수 있습니다. 특정 디바이스(예: /dev/sdf1)에 대한 정보를 얻으려면 `"condition": "Name=\\"/dev/sdf1\\""`를 설정합니다.
 

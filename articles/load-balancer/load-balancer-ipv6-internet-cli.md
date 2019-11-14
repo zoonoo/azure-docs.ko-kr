@@ -1,7 +1,7 @@
 ---
 title: IPv6로 공용 Load Balancer 만들기 - Azure CLI
-titlesuffix: Azure Load Balancer
-description: Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치를 만드는 방법을 알아봅니다.
+titleSuffix: Azure Load Balancer
+description: 이 학습 경로를 사용 하 여 Azure CLI 사용 하는 i p v 6으로 공용 부하 분산 장치 만들기를 시작 합니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: allensu
-ms.openlocfilehash: 3d92f1a7067d4b3717ecdfd5b8cb16ec0234bdec
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: f7c0eb9bd258d2efbdb4df78f2cf86861f77a975
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025699"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076024"
 ---
 # <a name="create-a-public-load-balancer-with-ipv6-using-azure-cli"></a>Azure CLI를 사용하여 IPv6로 공용 부하 분산 장치 만들기
 
->[! 참고: i p v 6에 대 한 모범 사례 변경 내용이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능을 설명 합니다.  이제 ipv6 연결을 가상 네트워크와 통합 하 고 ipv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, ipv6 기본 및와 같은 주요 기능을 포함 하는 [Azure vnet 용](../virtual-network/ipv6-overview.md) i p v 6에서 더 포괄적인 ipv6 연결을 사용할 수 있습니다. 표준 부하 분산 등이 있습니다.  Azure Vnet에 대 한 i p v 6은 Azure에서 IPv6 응용 프로그램에 권장 되는 모범 사례입니다. 
+>[! 참고: i p v 6에 대 한 모범 사례 변경 내용이 문서에서는 기본 부하 분산 장치에서 IPv4 및 IPv6 연결을 모두 제공할 수 있도록 하는 소개 IPv6 기능을 설명 합니다.  이제 ipv6 연결을 가상 네트워크와 통합 하 고 ipv6 네트워크 보안 그룹 규칙, IPv6 사용자 정의 라우팅, IPv6 기본 및 표준 부하 분산 등의 주요 기능을 포함 하는 [Azure vnet에 대 한](../virtual-network/ipv6-overview.md) 더 포괄적인 ipv6 연결을 사용할 수 있습니다.  Azure Vnet에 대 한 i p v 6은 Azure에서 IPv6 응용 프로그램에 권장 되는 모범 사례입니다. 
 >[AZURE VNET CLI 배포에 대 한](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md) i p v 6을 참조 하세요.
 
 Azure 부하 분산 장치는 계층 4(TCP, UDP) 부하 분산 장치입니다. 부하 분산 장치는 클라우드 서비스의 정상 서비스 인스턴스 또는 부하 분산 장치 집합의 가상 머신 간에 들어오는 트래픽을 배포하여 고가용성을 제공합니다. 부하 분산 장치는 여러 포트, 여러 IP 주소 또는 둘 다에서 이러한 서비스를 제공할 수도 있습니다.

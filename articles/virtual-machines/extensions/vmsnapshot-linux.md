@@ -1,5 +1,5 @@
 ---
-title: Azure Backup용 VM 스냅샷 Linux 확장 | Microsoft Docs
+title: Azure Backup용 VM 스냅샷 Linux 확장
 description: VM 스냅샷 확장을 사용하여 Azure Backup에서 가상 머신의 애플리케이션 일치 백업을 수행합니다.
 services: backup, virtual-machines-linux
 documentationcenter: ''
@@ -10,12 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 12/17/2018
 ms.author: trinadhk
-ms.openlocfilehash: e0e959647231fb87c023dcb5c4c48a205259de74
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 186468119fb5b630b56a91b38026f202b98630d6
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67705859"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072920"
 ---
 # <a name="vm-snapshot-linux-extension-for-azure-backup"></a>Azure Backup용 VM 스냅샷 Linux 확장
 
@@ -23,7 +23,7 @@ ms.locfileid: "67705859"
 
 Azure Backup은 워크로드를 온-프레미스에서 클라우드에 백업하고, 클라우드 리소스를 Recovery Services 자격 증명 모음에 백업하도록 지원합니다. Azure Backup은 VM 스냅샷 확장을 사용하여 VM을 종료하지 않고도 Azure 가상 머신의 애플리케이션 일치 백업을 수행합니다. Microsoft는 Azure Backup 서비스의 일부로 VM 스냅샷 Linux 확장을 게시하고 지원합니다. Azure Backup은 백업을 활성화한 후 트리거되는 첫 번째 예약된 백업의 일부로 확장을 설치합니다. 이 문서에서는 VM 스냅샷 확장에 지원되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 ### <a name="operating-system"></a>운영 체제
 지원되는 운영 체제 목록은 [Azure Backup에 지원되는 운영 체제](../../backup/backup-azure-arm-vms-prepare.md#before-you-start)를 참조하세요.
@@ -34,7 +34,7 @@ VM 스냅샷 확장을 사용하려면 가상 머신을 백업할 때 대상 가
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 VM 스냅샷 확장에 대한 스키마를 보여 줍니다. 확장에는 VM에서 스냅샷을 트리거한 백업 작업을 식별하기 위한 작업 ID, 스냅샷 작업 상태가 기록되는 상태 Blob URI, 예약된 스냅샷 시작 시간, 스냅샷 작업에 해당하는 로그가 기록되는 로그 Blob URI, VM 디스크 및 메타데이터에 대한 표현인 개체 문자열이 필요합니다.  이러한 설정은 중요한 데이터로 처리되어야 하므로 protected 설정 구성에 저장해야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다. 이러한 설정은 Azure Backup 서비스에서 백업 작업의 일부로만 전달하는 것이 좋습니다.
+다음 JSON은 VM 스냅샷 확장에 대한 스키마를 보여 줍니다. 확장에는 VM에서 스냅샷을 트리거한 백업 작업을 식별하기 위한 작업 ID, 스냅샷 작업 상태가 기록되는 상태 Blob URI, 예약된 스냅샷 시작 시간, 스냅샷 작업에 해당하는 로그가 기록되는 로그 Blob URI, VM 디스크 및 메타데이터에 대한 표현인 개체 문자열이 필요합니다.  이러한 설정은 중요한 데이터로 처리되어야 하므로 protected 설정 구성에 저장해야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다. 이러한 설정은 Azure Backup 서비스에서 백업 작업의 일부로만 전달하는 것이 좋습니다.
 
 ```json
 {
@@ -66,7 +66,7 @@ VM 스냅샷 확장을 사용하려면 가상 머신을 백업할 때 대상 가
 
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | 날짜 |
+| apiVersion | 2015-06-15 | date |
 | taskId | e07354cf-041e-4370-929f-25a319ce8933_1 | string |
 | commandStartTimeUTCTicks | 6.36458E+17 | string |
 | locale | en-us | string |
@@ -113,6 +113,6 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 
 문제 해결 정보는 [Azure VM 백업 문제 해결 가이드](../../backup/backup-azure-vms-troubleshoot.md)에 있습니다.
 
-### <a name="support"></a>Support(지원)
+### <a name="support"></a>지원
 
 이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/forums/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.

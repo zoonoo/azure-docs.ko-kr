@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell을 사용하여 Windows VM에서 진단을 사용하도록 설정 | Microsoft Docs
+title: Azure PowerShell를 사용 하 여 Windows VM에서 진단을 사용 하도록 설정
 services: virtual-machines-windows
 documentationcenter: ''
 description: PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정하는 방법 알아보기
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: 547de4862081b56bf627c3a00564ce6564f2ad09
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d43859de71b6e41d5df444716b5504ca6b78400b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750093"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073150"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정
 
@@ -27,7 +27,7 @@ Azure Diagnostics는 배포된 애플리케이션에서 진단 데이터를 수�
  
 
 ## <a name="enable-the-diagnostics-extension-if-you-use-the-resource-manager-deployment-model"></a>리소스 관리자 배포 모델을 사용하는 경우 진단 확장을 사용하도록 설정
-Azure 리소스 관리자 배포 모델을 통해 Windows VM을 만드는 동안 리소스 관리자 템플릿에 확장 구성을 추가하여 진단 확장을 사용하도록 설정할 수 있습니다. [Azure Resource Manager를 사용하여 Windows 가상 머신과 모니터링 및 진단 기능 만들기](diagnostics-template.md)를 참조하세요.
+Azure 리소스 관리자 배포 모델을 통해 Windows VM을 만드는 동안 리소스 관리자 템플릿에 확장 구성을 추가하여 진단 확장을 사용하도록 설정할 수 있습니다. [Azure Resource Manager를 사용하여 Windows 가상 컴퓨터와 모니터링 및 진단 기능 만들기](diagnostics-template.md)를 참조하세요.
 
 Resource Manager 배포 모델을 통해 만든 기존 VM에서 진단 확장을 사용하도록 설정하려면 아래 표시된 [Set-AzVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmdiagnosticsextension) PowerShell cmdlet을 사용합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Lsv2 시리즈 가상 머신-저장소에서 성능 최적화 Microsoft Docs
+title: Azure Lsv2 시리즈 가상 머신에서 성능 최적화-저장소
 description: Lsv2 시리즈 가상 머신에서 솔루션의 성능을 최적화 하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 author: laurenhughes
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: joelpell
-ms.openlocfilehash: 5728afe8195a8f25e5aafcb815b0c61558b32547
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a14e38cd93e7d6273282e209db8ce83ec99f16db
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101794"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068174"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Lsv2 시리즈 가상 머신에서 성능 최적화
 
@@ -39,7 +39,7 @@ Lsv2 시리즈 Vm은 Zen 마이크로 아키텍처를 기반으로 하는 AMD EY
 
 * Lsv2 사용자는 응용 프로그램에 대 한 NUMA 선호도를 결정 하기 위해 데이터 드라이브에 대 한 VM 내에서 보고 되는 장치 NUMA 정보 (모두 0)를 사용 하면 안 됩니다. 성능 향상을 위해 가능한 경우 Cpu 간에 워크 로드를 분산 하는 것이 좋습니다. 
 
-* Lsv2 VM NVMe 장치에 대 한 i/o 큐 쌍 당 지원 되는 최대 큐 깊이는 1024 (vs)입니다. Amazon i3 QD 32 제한). Lsv2 사용자는 큐의 전체 상태가 트리거되지 않도록 (가상) 벤치마킹 워크 로드를 큐 깊이 1024 이하로 제한 하 여 성능을 저하 시킬 수 있습니다.
+* Lsv2 VM NVMe 장치에 대 한 i/o 큐 쌍 당 지원 되는 최대 큐 깊이는 1024 (Amazon i3 QD 32 제한)입니다. Lsv2 사용자는 큐의 전체 상태가 트리거되지 않도록 (가상) 벤치마킹 워크 로드를 큐 깊이 1024 이하로 제한 하 여 성능을 저하 시킬 수 있습니다.
 
 ## <a name="utilizing-local-nvme-storage"></a>로컬 NVMe 저장소 활용
 

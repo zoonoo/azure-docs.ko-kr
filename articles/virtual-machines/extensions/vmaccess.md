@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM에 대한 액세스 다시 설정 | Microsoft Docs
+title: Azure Linux VM에 대 한 액세스 다시 설정
 description: VMAccess 확장 및 Azure CLI를 사용하여 관리 사용자를 관리하고 Linux VM에 대한 액세스를 다시 설정하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
-ms.openlocfilehash: 447c10037503c627092bb23e23b4fe1ee88ca45d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173957"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073600"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Azure CLI에서 VMAccess 확장을 사용하여 관리 사용자, SSH를 관리하고 Linux VM의 디스크를 검사 또는 복구
 ## <a name="overview"></a>개요
@@ -31,7 +31,7 @@ Linux VM의 디스크에 오류가 표시되어 있습니다. 사용자가 Linux
 > [!NOTE]
 > AAD 로그인 확장을 설치한 후에 VMAccess 확장을 사용하여 VM의 암호를 재설정하는 경우 AAD 로그인 확장을 다시 실행하여 머신에 대해 AAD 로그인을 다시 사용하도록 설정해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 ### <a name="operating-system"></a>운영 체제
 
 VM 액세스 확장은 다음 Linux 배포판에 대해 실행할 수 있습니다.
@@ -56,7 +56,7 @@ Linux VM에서 두 가지 방법으로 VMAccess 확장을 사용할 수 있습�
 다음 예에서는 [az vm user](/cli/azure/vm/user) 명령을 사용합니다. 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 ## <a name="update-ssh-key"></a>SSH 키 업데이트
-다음 예제에서는 VM `myVM`에서 사용자 `azureuser`에 대한 SSH 키를 업데이트합니다.
+다음 예제에서는 VM `azureuser`에서 사용자 `myVM`에 대한 SSH 키를 업데이트합니다.
 
 ```azurecli-interactive
 az vm user update \
@@ -68,8 +68,8 @@ az vm user update \
 
 > **참고:** `az vm user update` 명령은 VM의 관리 사용자에 대한 `~/.ssh/authorized_keys` 파일에 새 공개 키 텍스트를 추가합니다. 기존 SSH 키를 대체하거나 제거하지 않습니다. 배포 시 설정된 이전 키 또는 VMAccess 확장을 통한 후속 업데이트를 제거하지 않습니다.
 
-## <a name="reset-password"></a>암호 다시 설정
-다음 예제에서는 VM `myVM`에서 사용자 `azureuser`에 대한 암호를 다시 설정합니다.
+## <a name="reset-password"></a>암호 재설정
+다음 예제에서는 VM `azureuser`에서 사용자 `myVM`에 대한 암호를 다시 설정합니다.
 
 ```azurecli-interactive
 az vm user update \
@@ -89,7 +89,7 @@ az vm user reset-ssh \
 ```
 
 ## <a name="create-an-administrativesudo-user"></a>관리/sudo 사용자 만들기
-다음 예제에서는 **sudo** 권한을 가진 `myNewUser`라는 사용자를 만듭니다. 계정은 `myVM`이라는 VM에서 인증을 위해 SSH 키를 사용합니다. 이 메서드는 현재 자격 증명을 분실하거나 잊어버린 상황에서 VM에 대한 액세스 권한을 다시 얻을 수 있도록 설계되었습니다. 모범 사례로, **sudo** 권한이 있는 계정은 제한되어야 합니다.
+다음 예제에서는 `myNewUser`sudo**권한을 가진**라는 사용자를 만듭니다. 계정은 `myVM`이라는 VM에서 인증을 위해 SSH 키를 사용합니다. 이 메서드는 현재 자격 증명을 분실하거나 잊어버린 상황에서 VM에 대한 액세스 권한을 다시 얻을 수 있도록 설계되었습니다. 모범 사례로, **sudo** 권한이 있는 계정은 제한되어야 합니다.
 
 ```azurecli-interactive
 az vm user update \
@@ -100,7 +100,7 @@ az vm user update \
 ```
 
 ## <a name="delete-a-user"></a>사용자 삭제
-다음 예제에서는 VM `myVM`에서 사용자 `myNewUser`을 삭제합니다.
+다음 예제에서는 VM `myNewUser`에서 사용자 `myVM`을 삭제합니다.
 
 ```azurecli-interactive
 az vm user delete \

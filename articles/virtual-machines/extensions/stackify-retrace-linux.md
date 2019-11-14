@@ -1,5 +1,5 @@
 ---
-title: Stackify Retrace Azure Linux 에이전트 확장 | Microsoft Docs
+title: Azure Linux 에이전트 확장 Stackify
 description: Linux 가상 머신에 Stackify Retrace Linux 에이전트를 배포합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/12/2018
 ms.author: akjosh
-ms.openlocfilehash: 2278f1bef3a72408b097f9a2d676931fd07369f4
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5914947bd994ee405f253e34c3dd919dd6561898
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173966"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073631"
 ---
 # <a name="stackify-retrace-linux-agent-extension"></a>Stackify Retrace Linux 에이전트 확장
 
@@ -37,7 +37,7 @@ Retrace는 단일 플랫폼에서 모든 환경에 걸쳐 다음 기능을 모�
 
 이 확장은 Retrace용 Linux 에이전트에 대한 설치 경로를 제공합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 ### <a name="operating-system"></a>운영 체제 
 
@@ -50,7 +50,7 @@ Retrace 에이전트를 실행할 수 있는 Linux 배포판은 다음과 같습
 | Red Hat | 6.7+, 7.1+ |
 | CentOS | 6.3+, 7.0+ |
 
-### <a name="internet-connectivity"></a>인터넷에 연결
+### <a name="internet-connectivity"></a>인터넷 연결
 
 Linux용 Stackify 에이전트 확장을 사용하려면 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 
 
@@ -198,4 +198,4 @@ az vm extension set --publisher 'Stackify.LinuxAgent.Extension' --version 1.0 --
 | 110 | 사용 해제 오류 | 서비스를 제거하지 못했습니다 |
 | 120 | 제거 오류 | 서비스를 중지하지 못했습니다. |
 
-도움이 더 필요하면 https://support.stackify.com 에서 Stackify 지원 팀에 문의하세요.
+도움이 더 필요하면 https://support.stackify.com에서 Stackify 지원 팀에 문의하세요.

@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 17499fad64c8ae313f7a544015a04cc20e8bbabe
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cba54c65a314919b5509e1de029ad05f8722baa2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495687"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075452"
 ---
 |**VPN<br>게이트웨이<br>생성** |**SKU**   | **S2S/VNet 간<br>터널** | **P2S<br> SSTP 연결** | **P2S<br> IKEv2/OpenVPN 연결** | **집계<br>처리량 벤치마크** | **BGP** | **Zone-redundant** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -46,7 +46,7 @@ ms.locfileid: "73495687"
 
 * 단일 터널에서 최대 1Gbps 처리량을 얻을 수 있습니다. 위 표에서 집계 처리량 벤치마크는 단일 게이트웨이를 통해 집계된 여러 터널의 측정값을 기반으로 합니다. VPN Gateway의 집계 처리량 벤치마크는 S2S + P2S 결합형입니다. **P2S 연결이 많을 경우 처리량 제한으로 인해 S2S 연결에 부정적인 영향을 줄 수 있습니다.** 집계 처리량 벤치마크는 인터넷 트래픽 조건 및 애플리케이션 동작으로 인해 처리량이 보장되지 않습니다.
 
-* 고객이 다른 알고리즘을 사용하여 SKU의 상대 성능을 파악할 수 있도록, 공개적으로 사용 가능한 iPerf 및 CTSTraffic 도구를 사용하여 성능을 측정했습니다. 아래 표에서는 생성 1, VpnGw SKU의 성능 테스트 결과를 보여줍니다. 여기서 확인할 수 있듯이, IPsec 암호화와 무결성에 모두 GCMAES256 알고리즘을 사용했을 때 최고 성능을 얻었습니다. IPsec 암호화에 AES256을 사용하고 무결성에 SHA256을 사용했을 때는 평균 성능을 얻었습니다. IPsec 암호화에 DES3을 사용하고 무결성에 SHA256을 사용했을 때 성능이 가장 낮았습니다.
+고객이 다른 알고리즘을 사용하여 SKU의 상대 성능을 파악할 수 있도록, 공개적으로 사용 가능한 iPerf 및 CTSTraffic 도구를 사용하여 성능을 측정했습니다. 아래 표에서는 생성 1, VpnGw SKU의 성능 테스트 결과를 보여줍니다. 여기서 확인할 수 있듯이, IPsec 암호화와 무결성에 모두 GCMAES256 알고리즘을 사용했을 때 최고 성능을 얻었습니다. IPsec 암호화에 AES256을 사용하고 무결성에 SHA256을 사용했을 때는 평균 성능을 얻었습니다. IPsec 암호화에 DES3을 사용하고 무결성에 SHA256을 사용했을 때 성능이 가장 낮았습니다.
 
 |**생성**|**SKU**   | **사용된<br>알고리즘** | **관찰된<br>처리량** | **관찰된<br>초당 패킷 수** |
 |---           |---       | ---                 | ---            | ---                    |

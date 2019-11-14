@@ -1,18 +1,19 @@
 ---
-title: Azure 애플리케이션 Gateway를 사용 하 여 Azure 앱 서비스와 같은 다중 테 넌 트 백 엔드의 개요
+title: 다중 테 넌 트 백 엔드
+titleSuffix: Azure Application Gateway
 description: 이 페이지에서는 다중 테넌트 백 엔드에 대한 Application Gateway 지원의 개요를 제공합니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 66e4a578e3f443f4cbc3f6e5467cf9a86adf05fe
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: efa2885ce0534c5d78bb08bbf24da59850f6ea22
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297056"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075187"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>App service와 같은 다중 테 넌 트 백 엔드에 대 한 Application Gateway 지원
 

@@ -8,53 +8,64 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: bdf0f64bf24f77d54a8fed8714a0cc7c3de814b1
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a9a72a9b9df18462c1a4dfe470c7c7393cf356d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210476"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074276"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>MABS를 사용 하 여 Azure에 SharePoint 팜 백업
+
 SharePoint 팜은 다른 데이터 원본을 백업하는 것과 같은 방법으로 Microsoft Azure Backup Server(MABS)를 사용하여 Microsoft Azure에 백업합니다. Azure Backup은 일간, 주간, 월간 혹은 연간 백업 지점을 생성하도록 백업 일정에 유연성을 제공하고 다양한 백업 지점에 관한 보존 정책 옵션을 제공합니다. 또한 빠른 복구 시간 목표(RTO)를 위해 로컬 디스크 복사본을 저장하는 기능과 경제적인 장기 보존을 위해 Azure에 사본을 복사하는 기능을 제공합니다.
 
 ## <a name="sharepoint-supported-versions-and-related-protection-scenarios"></a>SharePoint가 지원하는 버전 및 관련 보호 시나리오
+
 DPM의 Azure Backup은 다음 시나리오들을 지원합니다.
 
-| 작업 | 버전 | SharePoint 배포 | 보호 및 복구 |
+| 워크로드 | 버전 | SharePoint 배포 | 보호 및 복구 |
 | --- | --- | --- | --- |
-| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint는 물리적 서버 또는 하이퍼-V/VMware 가상 머신으로 배포됨 <br> -------------- <br> SQL AlwaysOn | SharePoint 팜 보호 복구 옵션: 디스크 복구 지점에서 팜, 데이터베이스, 파일 또는 목록 항목을 복구합니다.  Azure 복구 지점에서 팜 및 데이터베이스 복구 |
+| SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010, SharePoint 2007, SharePoint 3.0 |SharePoint는 물리적 서버 또는 하이퍼-V/VMware 가상 머신으로 배포됨 <br> -------------- <br> SQL AlwaysOn | SharePoint 팜 보호 복구 옵션: 복구 팜, 데이터베이스, 및 파일 또는 디스크 복구 지점의 목록 항목  Azure 복구 지점에서 팜 및 데이터베이스 복구 |
 
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
+
 SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>선행 조건
+
 진행에 앞서, 워크로드를 보호하기 위해 [Azure Backup Server를 설치 및 준비](backup-azure-microsoft-azure-backup.md)해야 합니다.
 
 ### <a name="protection-agent"></a>보호 에이전트
+
 SharePoint를 실행하는 서버, SQL Server를 실행하는 서버, SharePoint 팜에 속하는 그 밖의 모든 서버에 Azure Backup 에이전트가 설치되어야 합니다. 보호 에이전트를 설정하는 방법 대한 자세한 내용은 [보호 에이전트 설치](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx)를 참조하세요.  유일한 예외는 단일 WFE(웹 프런트엔드) 서버에만 에이전트를 설치하는 것입니다. Azure Backup Server는 보호를 위한 진입점 역할을 하는 한 WFE 서버에만 에이전트가 필요합니다.
 
 ### <a name="sharepoint-farm"></a>Sharepoint 팜
+
 팜의 모든 항목이 천만 개에 이르기 때문에, MABS 폴더의 위치에는 최소 2GB의 공간이 필요합니다. 이 공간은 카탈로그를 생성하는 데 필요 합니다. MABS가 특정 항목(사이트 모음, 사이트, 목록, 문서 라이브러리, 폴더, 개별 문서 및 목록 항목)을 복구할 때 카탈로그 생성이 각 콘텐츠 데이터베이스에 포함된 URL의 목록을 만듭니다. MABS 관리자 콘솔 안의 **복구** 작업 영역에서 복구 가능한 항목 창의 URL 목록을 볼 수 있습니다.
 
 ### <a name="sql-server"></a>SQL Server
+
 Azure Backup Server는 LocalSystem 계정으로 실행됩니다. SQL Server 데이터베이스를 백업하려면, MABS에 SQL Server를 실행하는 서버의 해당 계정에 대한 sysadmin 권한이 필요합니다. 백업하기 전에 SQL Server를 실행하는 서버에서 NT AUTHORITY\SYSTEM을 *sysadmin*으로 설정합니다.
 
 SharePoint 팜에 SQL Server 별칭으로 구성 된 SQL Server 데이터베이스가 있는 경우, MABS가 보호할 프런트엔드 웹 서버에 SQL Server 클라이언트 구성 요소를 설치합니다.
 
 ### <a name="sharepoint-server"></a>SharePoint Server
+
 성능은 SharePoint 팜 크기와 같은 다양 한 요소에 따라 달라 지지만, 일반적으로 MABS는 25tb SharePoint 팜을 보호할 수 있는 방법입니다.
 
 ### <a name="whats-not-supported"></a>지원 되지않는 사항
+
 * SharePoint 팜을 보호하는 MABS는 검색 인덱스 또는 애플리케이션 서비스 데이터베이스를 보호하지 않습니다. 이러한 데이터베이스들은 별도로 보호를 구성해야 합니다.
 * MABS는 스케일 아웃 파일 서버(SOFS) 공유에 호스트되는 SharePoint SQL Server 데이터베이스의 백업을 제공하지 않습니다.
 
 ## <a name="configure-sharepoint-protection"></a>SharePoint 보호 구성
+
 MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureSharePoint.exe**를 사용하여 SharePoint VSS 기록기 서비스(WSS 기록기 서비스)를 구성해야 합니다.
 
 **ConfigureSharePoint.exe**는 프런트엔드 웹 서버의 [MABS 설치 경로]\bin 폴더에서 찾을 수 있습니다. 이 도구는 SharePoint 팜의 자격 증명을 사용하여 보호 에이전트를 제공합니다. 단일 WFE 서버에서 실행합니다. WFE 서버가 여러 개인 경우, 보호 그룹을 구성할 때 하나만 선택합니다.
 
 ### <a name="to-configure-the-sharepoint-vss-writer-service"></a>SharePoint VSS 기록기 서비스를 구성하려면
+
 1. WFE 서버의 명령 프롬프트에서 [MABS 설치 위치] \bin\으로 이동
 2. ConfigureSharePoint -EnableSharePointProtection을 입력합니다.
 3. 팜 관리자 자격 증명을 입력 합니다. 이 계정은 WFE 서버에서 로컬 관리자 그룹의 구성원 이어야 합니다. 팜 관리자가 로컬 관리자가 아닌 경우, WFE 서버에 다음 권한을 부여 합니다.
@@ -67,9 +78,11 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
 >
 
 ## <a name="back-up-a-sharepoint-farm-by-using-mabs"></a>MABS를 사용하여 SharePoint 팜 백업
+
 이전의 설명에 따라 MABS 및 SharePoint 팜을 구성한 후에는, SharePoint를 MABS로 보호할 수 있습니다.
 
 ### <a name="to-protect-a-sharepoint-farm"></a>SharePoint 팜을 보호하려면
+
 1. MABS 관리자 콘솔의 **보호**탭에서 **새로 만들기**를 클릭합니다.
     ![새 보호 탭](./media/backup-azure-backup-sharepoint/dpm-new-protection-tab.png)
 2. **새 보호 그룹 만들기** 마법사의 **보호 그룹 종류 선택** 페이지에서, **서버**를 선택하고 **다음**을 클릭합니다.
@@ -138,6 +151,7 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
     ![요약](./media/backup-azure-backup-sharepoint/summary.png)
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>MABS를 사용하여 디스크에서 SharePoint 항목 복원
+
 아래 예제에서는 실수로 삭제한 *SharePoint 복구 항목*을 복구해야 합니다.
 ![MABS SharePoint Protection4](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection5.png)
 
@@ -199,6 +213,7 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
     >
 
 ## <a name="restore-a-sharepoint-database-from-azure-by-using-dpm"></a>DPM을 사용하여 Azure에서 SharePoint 데이터베이스 복원
+
 1. SharePoint 콘텐츠 데이터베이스를 복구하려면, 다양한 복구 지점을 살펴보고(이전과 같이), 복원할 복구 지점을 선택합니다.
 
     ![MABS SharePoint Protection8](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection9.png)
@@ -222,7 +237,7 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
 4. MABS **복구** 탭의 SharePoint 개체를 클릭하여 콘텐츠 데이터베이스 구조를 가져옵니다. 항목을 마우스 오른쪽 단추로 클릭한 다음 **복구**를 클릭합니다.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. 이제 이 문서 앞부분의 복구 단계를 수행하여 디스크로 SharePoint 콘텐츠 데이터베이스를 복구합니다.
+5. 이 지점에서 이 문서 앞쪽의 복구 단계를 따라 디스크에서 SharePoint 콘텐츠 데이터베이스를 복구합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

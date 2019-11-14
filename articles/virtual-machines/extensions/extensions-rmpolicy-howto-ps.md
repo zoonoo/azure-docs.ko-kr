@@ -1,5 +1,5 @@
 ---
-title: Azure Policy를 사용하여 VM 확장 설치 제한 | Microsoft Docs
+title: Azure Policy를 사용 하 여 VM 확장 설치 제한
 description: Azure Policy를 사용하여 확장 배포 제한
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 599417131f228c95168641c54ffbb947e3682f7b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 428db340ce43463939ce71ffadd4188060f3e732
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750016"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073105"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Azure Policy를 사용하여 Windows VM의 확장 설치 제한
 

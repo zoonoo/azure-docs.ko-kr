@@ -1,5 +1,5 @@
 ---
-title: Azure에서 특수한 디스크로 VM 만들기 | Microsoft Docs
+title: Azure의 특수 한 디스크에서 VM 만들기
 description: Resource Manager 배포 모델에서 특수한 비관리 디스크를 연결하여 새 VM을 만듭니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: cdbf55aae52cec9df1ba34cbeb34c67b8e5fc5d0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: d887ef2ef74bb433d6e8ae7f53cd0b77f5948303
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749193"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073344"
 ---
 # <a name="create-a-vm-from-a-specialized-vhd-in-a-storage-account"></a>스토리지 계정의 특수한 VHD에서 VM 만들기
 
 Powershell을 사용하여 특수한 비관리 디스크를 OS 디스크로 연결하여 새 VM을 만듭니다. 특수한 디스크는 기존 VM의 VHD 복사본으로 사용자 계정, 애플리케이션 및 원본 VM의 기타 상태 데이터를 유지합니다. 
 
-다음 두 가지 옵션을 사용할 수 있습니다.
+두 가지가 있습니다.
 * [VHD 업로드](sa-create-vm-specialized.md#option-1-upload-a-specialized-vhd)
 * [기존 Azure VM의 VHD 복사](sa-create-vm-specialized.md#option-2-copy-the-vhd-from-an-existing-azure-vm)
 
@@ -231,7 +231,7 @@ $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $rgName -Location $location
 엔드포인트 및 NSG 규칙에 대한 자세한 내용은 [PowerShell을 사용하여 Azure에서 VM으로 포트 열기](nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
 ### <a name="create-a-public-ip-address-and-nic"></a>공용 IP 주소 및 NIC 만들기
-가상 네트워크에서 가상 머신과 통신하려면 [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
+가상 네트워크에서 가상 컴퓨터와 통신하려면 [공용 IP 주소](../../virtual-network/virtual-network-ip-addresses-overview-arm.md) 및 네트워크 인터페이스가 필요합니다.
 
 1. 공용 IP를 만듭니다. 이 예제에서는 공용 IP 주소 이름을 **myIP**로 설정합니다.
    

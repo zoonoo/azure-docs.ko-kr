@@ -1,5 +1,5 @@
 ---
-title: Python을 사용하여 Azure에서 Windows VM 만들기 및 관리 | Microsoft Docs
+title: Python을 사용 하 여 Azure에서 Windows VM 만들기 및 관리
 description: Python을 사용하여 Azure에서 Windows VM을 만들고 관리하는 방법을 설명합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.openlocfilehash: fcbf4e054359534f924b401f2f42e1d4c33890be
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1686e86600fb28165ae44e7ca6c0c406dfa26d72
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102492"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065593"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Python을 사용하여 Azure에서 Windows VM 만들기 및 관리
 
-[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Python을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
+[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Python을 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Visual Studio 프로젝트 만들기
@@ -52,7 +52,7 @@ azure 패키지가 성공적으로 설치되었음이 출력 창에 표시됩니
 
 ## <a name="create-credentials"></a>자격 증명 만들기
 
-이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md)가 있는지 확인합니다. 또한 이후 단계에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
+이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md)가 있는지 확인합니다. 또한 이후 단계에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해야 합니다.
 
 1. 만든 *myPythonProject.py* 파일을 열고, 애플리케이션을 실행하도록 활성화하는 다음 코드를 추가합니다.
 
@@ -94,7 +94,7 @@ azure 패키지가 성공적으로 설치되었음이 출력 창에 표시됩니
         return credentials
     ```
 
-    **application-id**, **authentication-key** 및 **tenant-id**를 Azure Active Directory 서비스 주체를 만들 때 이전에 수집한 값으로 바꿉니다.
+    **application-id**, **authentication-key** 및 **tenant-id**를 Azure Active Directory 서비스 사용자를 만들 때 이전에 수집한 값으로 바꿉니다.
 
 5. 이전에 추가한 함수를 호출하려면 .py 파일의 끝에서 **if** 문 아래에 이 코드를 추가합니다.
 
@@ -567,7 +567,7 @@ Azure에서 사용되는 리소스에 대한 요금이 부과되기 때문에, �
 
 2. 각 리소스의 상태가 반환된 후 **Enter** 키를 누릅니다. 상태 정보에 **Succeeded** 프로비저닝 상태가 표시됩니다. 가상 머신을 만든 후 만든 모든 리소스를 삭제할 기회가 있습니다. **Enter** 키를 눌러 리소스 삭제를 시작하기 전에 Azure Portal에서 리소스 만들기를 확인하는 데에 몇 분이 걸릴 수 있습니다. Azure Portal이 열려 있는 경우 새 리소스를 보려면 블레이드를 새로 고쳐야 할 수 있습니다.  
 
-    이 콘솔 애플리케이션을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. 애플리케이션이 종료된 후 모든 리소스 및 리소스 그룹을 삭제하려면 몇 분 정도 걸릴 수 있습니다.
+    이 콘솔 애플리케이션을 처음부터 끝까지 완전히 실행하려면 약 5분이 필요합니다. 애플리케이션이 종료된 후 모든 리소스 및 리소스 그룹이 삭제되기 전에 몇 분 정도 걸릴 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

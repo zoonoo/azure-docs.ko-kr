@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: dacurwin
-ms.openlocfilehash: e072923c2c8b1d8e5bb281a5bcff992b25289b4d
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888497"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074358"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -134,7 +134,7 @@ Azure Vm은 제어 명령에 대 한 인터넷 액세스가 필요 합니다. VM
     - MARS 에이전트는 Windows 시스템 쓰기 작업만 사용 하 여 스냅숏을 캡처합니다.
     - 에이전트는 응용 프로그램 VSS 기록기를 사용 하지 않으므로 앱 일치 스냅숏을 캡처하지 않습니다.
 1. VSS를 사용 하 여 스냅숏을 만든 후 MARS 에이전트는 백업을 구성할 때 지정한 캐시 폴더에 VHD (가상 하드 디스크)를 만듭니다. 에이전트는 또한 각 데이터 블록에 대 한 체크섬을 저장 합니다.
-1. 임시 백업을 실행 하지 않는 한 증분 백업은 지정한 일정에 따라 실행 됩니다.
+1. 요청 시 백업을 실행 하지 않는 한 증분 백업은 지정한 일정에 따라 실행 됩니다.
 1. 증분 백업에서는 변경된 파일이 식별되고 새 VHD가 만들어집니다. VHD는 압축 되 고 암호화 된 후 자격 증명 모음으로 전송 됩니다.
 1. 증분 백업이 완료 된 후에는 새 VHD가 초기 복제 후 생성 된 VHD와 병합 됩니다. 이 병합 된 VHD는 진행 중인 백업을 비교 하는 데 사용할 최신 상태를 제공 합니다.
 
@@ -148,7 +148,7 @@ Azure Vm은 제어 명령에 대 한 인터넷 액세스가 필요 합니다. VM
     - DPM/MABS를 사용 하 여 백업 볼륨, 공유, 파일 및 폴더를 보호할 수 있습니다. 또한 컴퓨터의 시스템 상태 (운영 체제 미 설치)를 보호 하 고 앱 인식 백업 설정을 사용 하 여 특정 앱을 보호할 수 있습니다.
 1. DPM/MABS에서 컴퓨터 또는 앱에 대 한 보호를 설정 하는 경우 단기 저장소 및 온라인 보호를 위해 Azure에 대 한 MABS/DPM 로컬 디스크에 백업 하도록 선택 합니다. 또한 로컬 DPM/MABS 저장소에 대 한 백업을 실행 해야 하는 경우와 Azure에 대 한 온라인 백업을 실행 해야 하는 경우를 지정 합니다.
 1. 보호 되는 작업의 디스크는 지정 된 일정에 따라 로컬 MABS/DPM 디스크에 백업 됩니다.
-4. Dpm/MABS 디스크는 DPM/MABS 서버에서 실행 중인 MARS 에이전트에 의해 자격 증명 모음에 백업 됩니다.
+1. Dpm/MABS 디스크는 DPM/MABS 서버에서 실행 중인 MARS 에이전트에 의해 자격 증명 모음에 백업 됩니다.
 
 ![DPM 또는 MABS로 보호 되는 컴퓨터 및 워크 로드 백업](./media/backup-architecture/architecture-dpm-mabs.png)
 

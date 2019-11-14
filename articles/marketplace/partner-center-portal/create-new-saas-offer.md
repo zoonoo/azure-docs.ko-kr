@@ -1,19 +1,19 @@
 ---
 title: 상업적 Marketplace에서 새 SaaS 제품 만들기
 description: Microsoft 파트너 센터에서 상용 Marketplace 포털을 사용 하 여 Azure Marketplace, AppSource 또는 CSP (클라우드 솔루션 공급자) 프로그램을 통해 나열 하거나 판매 하기 위해 새 SaaS (Software as a Service) 제품을 만드는 방법입니다.
-author: qianw211
+author: ChJenk
 manager: evansma
-ms.author: v-qiwe
+ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 10/04/2019
-ms.openlocfilehash: 9eb283f538759f9591add4b04462de151f2cb014
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/13/2019
+ms.openlocfilehash: a6694d094d185ad70cce8c546e12f48afb69f1ae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825588"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076954"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -34,12 +34,11 @@ SaaS (Software as a Service) 제품을 만들기 시작 하려면 먼저 [파트
 
 ![새 제품 대화 상자](./media/new-offer-popup.png)
 
-
 ## <a name="offer-id-and-alias"></a>제품 ID 및 별칭
 
 - **제품 ID**: 계정의 각 제품에 대 한 고유 식별자입니다. 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿 (해당 하는 경우)에 대 한 URL 주소의 고객에 게 표시 됩니다. 제품 ID는 소문자, 영숫자 (하이픈 및 밑줄을 포함 하 고 공백 없음) 이어야 합니다. 이는 50 자로 제한 되며, *만들기*를 선택한 후에는 변경할 수 없습니다.  
 예: 테스트-제품-1
-<br>URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
+<br>결과 URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
 - **제품 별칭**: 파트너 센터 포털 내에서 제품을 참조 하는 데 사용 되는 이름입니다. 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 *제품 이름* 및 기타 값과 다릅니다. *만들기*를 선택한 후에는이 값을 변경할 수 없습니다.
 
@@ -105,16 +104,6 @@ SaaS는 요금제 청구 서비스를 사용 하 여 정액 요금, 사용자 �
 > [!NOTE]
 > **Marketplace 서비스 요금 절감**: 상업적 marketplace에 게시 한 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 Marketplace 서비스 요금을 10%까지 줄일 수 있습니다. 제안을 받으려면 Microsoft에서 하나 이상의 제품을 IP 공동 판매 준비 또는 IP 공동 판매 우선 순위로 지정 해야 합니다.  해당 월에 대해이 감소 한 Marketplace 서비스 요금을 받으려면 각 월이 끝날 때까지 영업일 (5) 이상 이어야 합니다.  낮은 Marketplace 서비스 요금은 Vm, 관리 되는 앱 또는 상용 Marketplace를 통해 제공 되는 기타 제품에는 적용 되지 않습니다.  줄어든 Marketplace 서비스 요금은 2020 년 5 월 1 일부 터 2019 년 6 월 30 일 사이 Microsoft에서 수집한 라이선스 요금에 대 한 한정 된 제품에만 제공 됩니다.  이 시간 후에 Marketplace 서비스 요금은 일반적인 금액으로 반환 됩니다. 
 
-
-
-
-#### <a name="csp-program-opt-in"></a>CSP 프로그램 옵트인
-[CSP (클라우드 솔루션 공급자)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) 프로그램을 사용 하면 소프트웨어 제품이 최소의 마케팅 및 판매 투자로 수많은 Microsoft 고객에 게 도달할 수 있습니다.
-
-- **채널: CSP 프로그램 (확인란)에서 제품을 사용할 수 있도록 설정**
-
-CSP 프로그램에서 제품을 사용할 수 있도록 리더로 선택 클라우드 솔루션 공급자는 고객에 게 번들로 제공 되는 솔루션의 일부로 제품을 판매할 수 있습니다. 
-
 ### <a name="list-through-microsoft"></a>Microsoft의 목록
 
 Marketplace 목록을 만들어 Microsoft로 비즈니스를 홍보 하세요. Microsoft가 아닌 제품을 나열 하도록 선택 하는 것은 Microsoft가 소프트웨어 라이선스 트랜잭션에 직접 참여 하지 않는다는 것을 의미 합니다. 연결 된 트랜잭션 요금은 없으며 게시자는 고객 으로부터 수집 된 소프트웨어 라이선스 수수료의 100%를 유지 합니다. 그러나 게시자는 주문 처리, 계량, 청구, 청구, 지불 및 수집을 비롯 하 여 소프트웨어 라이선스 트랜잭션의 모든 측면을 지원 해야 합니다. 
@@ -125,7 +114,7 @@ Marketplace 목록을 만들어 Microsoft로 비즈니스를 홍보 하세요. M
 앱에 액세스할 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 무료로 제공 합니다.  예: `https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>무료 평가판 (목록)
-[AZURE AD (Azure Active Directory)를 사용 하 여 한 번의 클릭으로 인증](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 나열 합니다.  예제: `https://contoso.com/trial/saas-app`. 무료 평가판을 나열 하는 제품은 서비스에서 생성, 관리 및 구성 되며 Microsoft에서 관리 하는 구독을 포함 하지 않습니다.
+[AZURE AD (Azure Active Directory)를 사용 하 여 한 번의 클릭으로 인증](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 나열 합니다.  예를 들어 `https://contoso.com/trial/saas-app`을 참조하십시오. 무료 평가판을 나열 하는 제품은 서비스에서 생성, 관리 및 구성 되며 Microsoft에서 관리 하는 구독을 포함 하지 않습니다.
 
 > [!NOTE]
 > 평가판 링크를 통해 응용 프로그램에서 수신 하는 토큰은 Azure AD를 통해 사용자 정보를 가져와서 앱에서 계정 만들기를 자동화 하는 데만 사용할 수 있습니다. 이 토큰을 사용 하는 인증에는 MSA (Microsoft 계정)가 지원 되지 않습니다.
@@ -141,7 +130,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 시험 사용한 고객에 게 제품을 고객에 게 제공 하는 좋은 방법은 ' 구매 전 시도 '를 선택 하 여 변환 및 높은 우량 잠재 고객을 생성 하는 옵션을 제공 하는 것입니다. [테스트 드라이브에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **테스트 드라이브 사용** (확인란) 
+- **테스트 드라이브 사용** (확인란)
 
 테스트 드라이브를 사용 하도록 설정 하면 고객이 고정 기간 동안 제품을 사용해 볼 수 있도록 시연 환경을 구성 하 라는 메시지가 표시 됩니다. 
 
@@ -223,7 +212,7 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
 
 #### <a name="description"></a>**설명**
 
-이 필드는 필수 필드입니다. 설명에 포함할 항목: 
+이 이름은 반드시 입력해야 합니다. 설명에 포함할 항목: 
 
 * 설명의 처음 몇 문장에서 제품의 가치 제안을 명확하게 설명합니다.  
 * 처음 몇 문장은 검색 엔진 결과에 표시될 수 있다는 점에 유의하세요.  
@@ -238,12 +227,12 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
 
 제품 설명을 더 많이 활용 하려면 HTML 태그를 사용 하 여 설명의 서식을 지정할 수 있습니다. 
 
-1. 단락을 만들려면 텍스트 begging에 `<p>`을 추가 하 고 끝에 `</p>`을 추가 합니다.
+1. 단락을 만들려면 텍스트 begging에 `<p>`을 추가 하 고 끝에 `</p>`를 추가 합니다.
 
     **예제**: 
 
-    `<p>`은 첫 번째 단락입니다. `</p>` <br>
-    `<p>` 두 번째 단락입니다. `</p>` <br>
+    첫 번째 단락을 `<p>` 합니다. `</p>` <br>
+    `<p>`이 두 번째 단락입니다. `</p>` <br>
 
     위는 다음과 같습니다.
 
@@ -277,7 +266,7 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
 
     **무료 평가판**
 
-1. 콘텐츠 사이에 **줄 바꿈을** 추가 하려면 새 줄에서 시작 하려는 콘텐츠 앞에 `<br>`를 추가 합니다. 공백을 두고 콘텐츠가 새 줄에서 시작 되도록 하려면 콘텐츠 앞에 `<br><br>`을 추가 합니다. 
+1. 콘텐츠 사이에 **줄 바꿈을** 추가 하려면 새 줄에서 시작 하려는 콘텐츠 앞에 `<br>`를 추가 합니다. 공백을 두고 콘텐츠가 새 줄에서 시작 되도록 하려면 내용 앞에 `<br><br>`를 추가 합니다. 
 
     **예제**:
 
@@ -287,7 +276,7 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
 
     텍스트 줄입니다. <br> 새 줄에서 시작 하는 텍스트 줄입니다. <br><br> 아래 두 줄을 시작 하는 줄입니다. 
 
-1. **텍스트의 크기를 늘리려면**먼저 텍스트를 표시할 크기를 선택 합니다. 아래 예제를 사용 합니다. 텍스트의 크기를 선택한 후에는 텍스트의 시작 부분 및 끝 부분에 해당 하는 `<H*></H*>` 태그를 추가 합니다. 
+1. **텍스트의 크기를 늘리려면**먼저 텍스트를 표시할 크기를 선택 합니다. 아래 예제를 사용 합니다. 텍스트의 크기를 선택한 후 해당 `<H*></H*>` 태그를 텍스트의 시작 부분 및 끝 부분에 추가 합니다. 
 
     **예제**:
 
@@ -331,7 +320,6 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
 
 - [Marketplace 제품 목록에 대 한 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-
 ## <a name="preview"></a>미리 보기
 
 **미리 보기** 탭에서는 제품을 광범위 한 marketplace 대상에 게시 하기 전에 제품을 릴리스할 수 있는 제한 된 **미리 보기 대상을** 정의할 수 있습니다.
@@ -352,7 +340,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 - **방문 페이지 url** (필수): marketplace에서 제품을 확보 한 후 고객이 게 될 사이트 Url을 정의 합니다. 이 URL은 고객이 페이지로 라우팅되는 경우 토큰을 수신 하는 끝점입니다. 이 토큰은 처리 Api에서 해결을 사용 하 여 프로 비전 세부 정보를 교환할 수 있습니다. 이러한 세부 정보 및 수집 하는 다른 항목은 등록을 완료 하 고 구매를 활성화 하는 사용자 환경에서 빌드된 고객 대화형 웹 페이지의 일부로 사용할 수 있습니다.
 
-- **연결 webhook** (필수): Microsoft에서 고객을 대신 하 여 사용자에 게 보내야 하는 모든 비동기 이벤트의 경우 (예: SaaS 구독이 유효 하지 않음) 연결 webhook를 제공 해야 합니다. 웹 후크 시스템이 아직 없는 경우 가장 간단한 구성은 게시 되는 이벤트를 수신 하 고 적절 하 게 처리 하는 HTTP 끝점 논리 앱을 보유 하는 것입니다 (예: https: \//1westus: 443/work). ). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
+- **연결 webhook** (필수): Microsoft에서 고객을 대신 하 여 사용자에 게 보내야 하는 모든 비동기 이벤트의 경우 (예: SaaS 구독이 유효 하지 않음) 연결 webhook를 제공 해야 합니다. 웹 후크 시스템이 아직 없는 경우 가장 간단한 구성은 게시 되는 모든 이벤트를 수신 대기 하 고 적절 하 게 처리 하는 HTTP 끝점 논리 앱을 보유 하는 것입니다 (예: https:\//prod-1westus.logic.azure.com:443/work). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
 
 - **AZURE ad 테 넌 트 ID** (필수): Azure Portal 내에서는 두 서비스 간의 연결에 대 한 유효성을 검사할 수 있도록 [AD (Azure Active Directory) 앱을 만들어야](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 합니다. [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 여 **속성**을 선택한 다음 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다.
 
@@ -407,7 +395,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 >[!Note]
 >불가능 제안을 무료 평가판으로 게시 한 후에는 해당 계획에 대해 사용 하지 않도록 설정할 수 없습니다. 첫 번째 게시에 대해이 설정이 올바른지 확인 하 여 계획을 다시 만들 필요가 없도록 합니다.
 
-현재 무료 평가판에 참여 하는 고객 구독에 대 한 정보를 얻으려면 새 API 속성 `isFreeTrial`을 사용 합니다 .이 속성은 true 또는 false로 표시 됩니다. 자세한 내용은 [SaaS Get SUBSCRIPTION API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) 를 참조 하세요.
+현재 무료 평가판에 참여 하는 고객 구독에 대 한 정보를 얻으려면 true 또는 false로 표시 되는 `isFreeTrial`새 API 속성을 사용 합니다. 자세한 내용은 [SaaS Get SUBSCRIPTION API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) 를 참조 하세요.
 
 >[!Note]
 >Marketplace 계량 서비스를 활용 하는 요금제에 대 한 무료 평가판은 지원 되지 않습니다.
@@ -416,8 +404,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 - **시장 편집** (선택 사항)
 
-모든 요금제는 하나 이상의 시장에서 사용할 수 있어야 합니다. 이 요금제를 사용할 수 있도록 하려는 시장 위치에 대 한 확인란을 선택 합니다. "세금 송금" 국가를 선택 하는 데 사용 되는 검색 상자와 단추를 사용 하 여 Microsoft 송금 판매 및 세금을 대신 사용 합니다. 
-
+모든 요금제는 하나 이상의 시장에서 사용할 수 있어야 합니다. 이 요금제를 사용할 수 있도록 하려는 시장 위치에 대 한 확인란을 선택 합니다. "세금 송금" 국가를 선택 하는 데 사용 되는 검색 상자와 단추를 사용 하 여 Microsoft 송금 판매 및 세금을 대신 사용 합니다.
 
 요금제에 대 한 가격을 미국 달러 (USD)로 설정 하 고 다른 시장 위치를 추가 하는 경우 새 시장의 가격은 현재 환율이 따라 계산 됩니다. 게시 하기 전에 항상 각 시장의 가격을 검토 해야 합니다. 변경 내용을 저장 한 후 "가격 (.xlsx) 내보내기" 링크를 사용 하 여 가격 책정을 검토할 수 있습니다.
 
@@ -475,11 +462,15 @@ SaaS 제공이 테 넌 트 Id를 사용 하 여 개인 사용자를 정의 하�
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
+## <a name="cloud-solution-provider-csp-reseller-audience"></a>CSP (클라우드 솔루션 공급자) 대리점 대상
+
+CSP 프로그램에서 제품을 사용할 수 있도록 리더로 선택 클라우드 솔루션 공급자는 고객에 게 번들로 제공 되는 솔루션의 일부로 제품을 판매할 수 있습니다. 자세한 내용은 [CSP (클라우드 솔루션 공급자)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md)를 참조 하세요.
+
 ## <a name="publish"></a>게시
 
-#### <a name="submit-offer-to-preview"></a>미리 보기로 제품 제출
+제품의 필수 섹션을 모두 완료 한 후에는 포털의 오른쪽 위 모서리에서 **게시** 를 선택 합니다. **검토 및 게시** 페이지로 다시 이동 됩니다.
 
-제품의 필수 섹션을 모두 완료 한 후에는 포털의 오른쪽 위 모서리에서 **게시** 를 선택 합니다. **검토 및 게시** 페이지로 다시 이동 됩니다. 
+#### <a name="submit-offer-to-preview"></a>미리 보기로 제품 제출
 
 이 제품을 처음으로 게시 하는 경우 다음을 수행할 수 있습니다.
 

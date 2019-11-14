@@ -1,5 +1,5 @@
 ---
-title: Azure Stack Vm의 파일 백업
+title: Azure Stack Vm에서 파일 백업-Azure Backup
 description: Azure Backup을 사용하여 Azure Stack 환경에 Azure Stack 파일과 애플리케이션을 백업하고 복구합니다.
 ms.reviewer: adigan
 author: dcurwin
@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: d9e7aaca99e551e17e8b4be5ef6146a19e44355f
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: dc498e08509280b0dcd19cb1556a3c5a152f6d97
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210219"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074103"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Azure Stack의 파일 및 애플리케이션 백업
 
@@ -55,7 +55,7 @@ Azure Stack 가상 머신에서 파일을 보호하도록 Azure Backup Server를
 
     ![새 보호 그룹 마법사가 열립니다.](./media/backup-mabs-files-applications-azure-stack/6-select-data-protection-method.png)
 
-    **온라인 보호 사용**을 선택하려면 먼저 **다음을 사용한 단기 보호 사용:** 디스크를 선택해야 합니다. Azure Backup Server가 테이프를 보호하지 못하므로 단기 보호에 선택할 수 있는 방법은 디스크밖에 없습니다.
+    **온라인 보호를 사용하려고 합니다**를 선택하려면 먼저 **다음 방법을 사용하여 단기 보호:** 디스크를 선택해야 합니다. Azure Backup Server가 테이프를 보호하지 못하므로 단기 보호에 선택할 수 있는 방법은 디스크밖에 없습니다.
 
 5. **단기 목표 지정** 화면에서, 디스크에 저장된 복구 지점을 얼마나 오래 유지할 것인지, 언제 증분 백업을 저장할 것인지 지정합니다. **다음**을 클릭합니다.
 
@@ -111,7 +111,7 @@ Azure Backup Server 콘솔을 사용하여 가상 머신에 데이터를 복구�
 
     * **기존 버전 복구 동작**의 경우 **복사본 만들기**, **건너뛰기** 또는 **덮어쓰기**를 선택합니다. 덮어쓰기는 원래 위치로 복구하는 경우에만 사용할 수 있습니다.
     * **보안 복원**의 경우 **대상 컴퓨터의 설정 적용** 또는 **복구 지점 버전의 보안 설정 적용**을 선택합니다.
-    * **네트워크 대역폭 사용 제한**의 경우 **수정**을 클릭하여 네트워크 대역폭 사용 제한을 사용하도록 설정합니다.
+    * **네트워크 대역폭 사용량 제한**의 경우 **수정**을 클릭하여 네트워크 대역폭 사용량 제한을 사용하도록 설정합니다.
     * **알림** **복구가 완료되면 이메일 보내기**를 클릭하고, 알림을 받을 사람을 지정합니다. 이메일 주소를 쉼표로 구분합니다.
     * 모두 선택한 후에는 **다음**을 클릭합니다.
 
@@ -134,7 +134,7 @@ Azure Portal에서 Azure Backup Server 엔터티를 보려면 다음 단계를 �
 2. 백업 인프라 클릭
 3. 백업 관리 서버 보기
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목:
 
 Azure Backup Server를 사용하여 다른 워크로드를 보호하는 방법에 대한 내용은 다음 아티클 중 하나를 참조하세요.
 

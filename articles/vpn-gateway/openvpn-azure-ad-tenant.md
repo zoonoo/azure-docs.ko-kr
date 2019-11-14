@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/13/2019
 ms.author: alzam
-ms.openlocfilehash: bd8a9413efc4f2130bd71f15f0da2a605b8c03e1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a7f17890c8422c9a9be7620f5ff1441390c60257
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960674"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075314"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 만들기
 
@@ -84,7 +84,7 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
 
 6. 메시지가 표시 되 면 **동의** 를 선택 합니다.
 
-    ![수락](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![허용](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. Azure AD의 **엔터프라이즈 응용 프로그램**에는 나열 된 **azure VPN** 이 표시 됩니다.
 
@@ -94,6 +94,7 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
 
     ```azurepowershell-interactive
     $gw = Get-AzVirtualNetworkGateway -Name <name of VPN gateway> -ResourceGroupName <Resource group>
+    Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/"
     ```
 

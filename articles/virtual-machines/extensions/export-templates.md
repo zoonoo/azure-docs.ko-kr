@@ -1,5 +1,5 @@
 ---
-title: VM 확장을 포함하는 Azure 리소스 그룹 내보내기 | Microsoft Docs
+title: VM 확장을 포함 하는 Azure 리소스 그룹 내보내기
 description: 가상 머신 확장을 포함하는 Resource Manager 템플릿을 내보냅니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: akjosh
-ms.openlocfilehash: 652ed732a7fe8f08e48aba6fc4bd1b52164d1fa0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 79991dad96742109817d579b951082d1a30e3951
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169053"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073120"
 ---
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>VM 확장을 포함하는 리소스 그룹 내보내기
 
@@ -50,7 +50,7 @@ Automation 스크립트 기능을 사용하여 다음 확장을 내보낼 수 �
 
 리소스 그룹을 다시 사용할 수 있는 템플릿으로 내보내려면 다음 단계를 완료합니다.
 
-1. Azure Portal에 로그인
+1. Azure 포털에 로그인합니다.
 2. 허브 메뉴에서 리소스 그룹 클릭
 3. 목록에서 대상 리소스 그룹 선택
 4. 리소스 그룹 블레이드에서 Automation 스크립트 클릭

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc5c85aaa3c2128b10ba2e6f9c45a66b44593202
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: d67a73ca47811e7275a6f2177573e10a09b230df
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809215"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073622"
 ---
 # <a name="controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인의 제어된 유효성 검사
 
@@ -33,7 +33,7 @@ Windows 현재 장치에서 하이브리드 Azure AD 조인의 유효성을 제�
 1. Active Directory (AD)에서 SCP (서비스 연결 지점) 항목의 선택을 취소 합니다 (있는 경우).
 1. GPO (그룹 정책 개체)를 사용 하 여 도메인에 가입 된 컴퓨터에서 SCP에 대 한 클라이언트 쪽 레지스트리 설정 구성
 1. AD FS를 사용 하는 경우 GPO를 사용 하 여 AD FS 서버에서 SCP에 대 한 클라이언트 쪽 레지스트리 설정도 구성 해야 합니다.  
-
+1. Azure AD Connect에서 [동기화 옵션을 사용자 지정](../hybrid/how-to-connect-post-installation.md#additional-tasks-available-in-azure-ad-connect) 하 여 장치 동기화를 사용 하도록 설정 해야 할 수도 있습니다. 
 
 
 ### <a name="clear-the-scp-from-ad"></a>AD에서 SCP 지우기
@@ -64,7 +64,7 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
       1. 값 이름: **TenantId**
       1. 값 형식: **REG_SZ**
       1. 값 데이터: Azure AD 인스턴스의 GUID 또는 **디렉터리 id** 입니다 .이 값은 **Azure Portal** > **AZURE ACTIVE DIRECTORY** > **속성** > **디렉터리 id**)에서 찾을 수 있습니다.
-   1. **확인**
+   1. **확인**을 클릭합니다.
 1. 레지스트리를 마우스 오른쪽 단추로 클릭 하 고 **새로 만들기** > **레지스트리 항목** 을 선택 합니다.
    1. **일반** 탭에서 다음을 구성 합니다.
       1. 작업: **업데이트**
@@ -73,7 +73,7 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
       1. 값 이름: **Tenantname**
       1. 값 형식: **REG_SZ**
       1. 값 데이터: AD FS와 같은 페더레이션된 환경을 사용 하는 경우 확인 된 **도메인 이름** 입니다. 확인 된 **도메인 이름** 또는 onmicrosoft.com 도메인 이름 (예: 관리 되는 환경을 사용 하는 경우 `contoso.onmicrosoft.com`)
-   1. **확인**
+   1. **확인**을 클릭합니다.
 1. 새로 만든 GPO에 대 한 편집기를 닫습니다.
 1. 사용자가 제어 하는 출시 모집단에 속한 도메인 가입 컴퓨터를 포함 하는 원하는 OU에 새로 만든 GPO를 연결 합니다.
 
@@ -82,7 +82,7 @@ ADSI 편집 (Active Directory Services 인터페이스 편집기)을 사용 하 
 AD FS를 사용 하는 경우 먼저 위에서 언급 한 지침을 사용 하 여 클라이언트 쪽 SCP를 구성 해야 하지만, GPO를 AD FS 서버에 연결 해야 합니다. SCP 개체는 장치 개체에 대 한 기관의 원본을 정의 합니다. 온-프레미스 또는 Azure AD 일 수 있습니다. 이를 AD FS에 대해 구성 하면 장치 개체의 소스가 Azure AD로 설정 됩니다.
 
 > [!NOTE]
-> AD FS 서버에서 클라이언트 쪽 SCP를 구성 하지 않은 경우 장치 id의 원본은 온-프레미스로 간주 되 고, 장치 쓰기 저장이 있는 경우에는 온-프레미스에 등록 된 장치 컨테이너에서 장치 개체를 삭제 하기 시작 AD FS 규정 된 기간
+> AD FS 서버에서 클라이언트 쪽 SCP를 구성 하지 않은 경우 장치 id의 원본은 온-프레미스로 간주 됩니다. 그러면 adfs는 ADFS 장치 등록의 특성 "MaximumInactiveDays"에 정의 된 규정 된 기간 후 온-프레미스 디렉터리에서 장치 개체 삭제를 시작 합니다. ADFS 장치 등록 개체는 [합니다. cmdlet](https://docs.microsoft.com/powershell/module/adfs/get-adfsdeviceregistration?view=win10-ps)을 사용 하 여 찾을 수 있습니다.
 
 ## <a name="controlled-validation-of-hybrid-azure-ad-join-on-windows-down-level-devices"></a>Windows 하위 수준 장치에서 하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사
 

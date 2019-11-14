@@ -1,20 +1,20 @@
 ---
 title: Azure Files 배포에 대한 계획 | Microsoft Docs
-description: Azure Files 배포를 계획할 때 고려할 사항을 알아봅니다.
+description: Azure Files 배포에 대한 계획 시 고려해야 할 사항에 대해 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 33fa474d719ec8a20142f35f56cc697c11e03e86
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d0dd2ca35453859dcc16ef78ef4845a4198aad95
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72926626"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066353"
 ---
-# <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
+# <a name="planning-for-an-azure-files-deployment"></a>Azure 파일 배포에 대한 계획
 
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure Files은 완벽하게 관리되기 때문에 프로덕션 시나리오에서 이를 배포하면 파일 서버 또는 NAS 디바이스를 훨씬 쉽게 배포하고 관리할 수 있습니다. 이 문서에서는 조직 내에서 프로덕션 용도로 Azure 파일 공유를 배포할 때 고려해야 할 항목을 다룹니다.
 
@@ -126,10 +126,10 @@ Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kube
 |500         | 500     | 최대 1500   | 90   | 60   |
 |1,024       | 1,024   | 최대 3072   | 122   | 81   |
 |5,120       | 5,120   | 최대 15360  | 368   | 245   |
-|10240      | 10240  | 최대 30720  | 675 | 450   |
-|33792      | 33792  | 최대 10만 | 2088 | 1392   |
-|51200      | 51200  | 최대 10만 | 3,132 | 2088   |
-|102400     | 100,000개의 | 최대 10만 | 6204 | 4136   |
+|10,240      | 10,240  | 최대 30720  | 675 | 450   |
+|33,792      | 33,792  | 최대 10만 | 2088 | 1,392   |
+|51,200      | 51,200  | 최대 10만 | 3,132 | 2088   |
+|102,400     | 100,000 | 최대 10만 | 6204 | 4136   |
 
 > [!NOTE]
 > 파일 공유 성능에는 컴퓨터 네트워크 제한, 사용 가능한 네트워크 대역폭, IO 크기, 병렬 처리 등 많은 요인이 적용 됩니다. 최대 성능 확장을 얻으려면 부하를 여러 Vm에 분산 합니다. 몇 가지 일반적인 성능 문제 및 해결 방법에 대해서는 [문제 해결 가이드](storage-troubleshooting-files-performance.md) 를 참조 하세요.
@@ -199,20 +199,24 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 
 - LRS/ZRS to GRS/GZRS 계정 변환은 대량 파일 공유를 사용 하는 모든 저장소 계정에 사용할 수 없습니다.
 
-### <a name="regional-availability"></a>지역별 가용성
+### <a name="regional-availability"></a>국가별 가용성
 
 표준 파일 공유는 최대 5 TiB의 모든 지역에서 사용할 수 있습니다. 특정 지역에서는 100 TiB 한도를 사용할 수 있습니다. 이러한 지역은 다음 표에 나와 있습니다.
 
-|지역 |지원 되는 중복성 |
+|Region |지원 되는 중복성 |
 |-------|---------|
 |오스트레일리아 동부 |LRS     |
 |오스트레일리아 남동부|LRS |
 |캐나다 중부  |LRS     |
+|캐나다 동부     |LRS     |
 |인도 중부  |LRS     |
+|미국 중부 *   |LRS     |
 |동아시아      |LRS     |
 |미국 동부 *        |LRS     |
+|미국 동부 2 *      |LRS     |
 |프랑스 중부 |LRS, ZRS|
 |프랑스 남부   |LRS     |
+|유럽 북부   |LRS     |
 |인도 남부    |LRS     |
 |동남아시아 |LRS, ZRS|
 |미국 중서부|LRS     |

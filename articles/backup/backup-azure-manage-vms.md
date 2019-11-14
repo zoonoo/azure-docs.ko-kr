@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 3781ac1be547f6733417c4f0cae9f3e8681ea9e8
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 800acb622a54ae922300d4c1b188f7ec19f5a95f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969227"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074242"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Azure VM 백업 관리
 
@@ -34,7 +34,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 
 자격 증명 모음 대시보드에서 Vm을 보려면 다음을 수행 합니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 허브 메뉴에서 **찾아보기**를 선택 합니다. 리소스 목록에서 **Recovery Services**를 입력합니다. 입력 하는 경우에는 입력에 따라 목록이 필터링 됩니다. **Recovery Services 자격 증명 모음**을 선택합니다.
 
     ![Recovery Services 자격 증명 모음 만들기](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
@@ -60,7 +60,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 
 백업 정책을 관리 하려면 다음을 수행 합니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다. 자격 증명 모음 대시보드를 엽니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 자격 증명 모음 대시보드를 엽니다.
 2. **Backup 항목** 타일에서 **Azure Virtual Machines**를 선택 합니다.
 
     ![Backup 항목 타일을 엽니다.](./media/backup-azure-manage-vms/contoso-vault-1606.png)
@@ -75,7 +75,7 @@ Azure Portal에서 Recovery Services 자격 증명 모음 대시보드는 다음
 
      ![백업 정책 선택](./media/backup-azure-manage-vms/backup-policy-create-new.png)
 
-## <a name="run-an-on-demand-backup"></a>요청 시 백업 실행
+## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 
 보호를 설정한 후에는 VM의 주문형 백업을 실행할 수 있습니다. 이러한 세부 정보를 염두에 두어야 합니다.
 
@@ -167,9 +167,9 @@ VM의 백업 데이터를 삭제 하는 방법에는 다음 두 가지가 있습
 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>주 데이터 원본이 더 이상 존재 하지 않는 백업 항목
 
-* Azure backup에 대해 구성 된 Azure Vm이 보호를 중지 하지 않고 삭제 되거나 이동 되 면 예약 된 백업 작업과 주문형 (임시) 백업 작업이 모두 실패 하 고 UserErrorVmNotFoundV2 오류가 발생 합니다. 백업 사전 검사는 실패 한 임시 백업 작업에 대해서만 중요 한 것으로 표시 됩니다 (실패 한 예약 된 작업은 표시 되지 않음).
+* Azure backup에 대해 구성 된 Azure Vm이 보호를 중지 하지 않고 삭제 되거나 이동 되 면 예약 된 백업 작업과 주문형 (임시) 백업 작업이 모두 실패 하 고 UserErrorVmNotFoundV2 오류가 발생 합니다. 백업 사전 검사는 실패 한 요청 시 백업 작업에 대해서만 중요 한 것으로 표시 됩니다 (실패 한 예약 작업은 표시 되지 않음).
 * 이러한 백업 항목은 사용자가 설정한 백업 및 보존 정책을 준수 하는 시스템에서 활성 상태로 유지 됩니다. 이러한 Azure Vm에 대 한 백업 된 데이터는 보존 정책에 따라 보존 됩니다. 만료 된 복구 지점 (마지막 복구 지점 제외)은 백업 정책에 설정 된 보존 범위에 따라 정리 됩니다.
-* 사용자는 추가 비용을 방지 하기 위해 주 데이터 원본이 더 이상 존재 하지 않는 백업 항목을 삭제 하는 것이 좋습니다. 마지막 복구 지점이 영구적으로 유지 되 고 사용자에 게 요금이 청구 될 때 삭제 리소스에 대 한 백업 항목/데이터가 더 이상 필요 하지 않은 경우에는 해당 하는 백업 가격에 따라 적용 됩니다.
+* 사용자는 추가 비용을 방지 하기 위해 주 데이터 원본이 더 이상 존재 하지 않는 백업 항목을 삭제 하는 것이 좋습니다 .이 경우에는 마지막 복구 지점이 영구적으로 유지 되 고 해당 사용자에 게 적용 되는 백업 가격에 따라 요금이 청구 되기 때문에 삭제 리소스의 백업 항목/데이터가 더 이상 필요 하지 않은 경우
 
 ## <a name="next-steps"></a>다음 단계
 

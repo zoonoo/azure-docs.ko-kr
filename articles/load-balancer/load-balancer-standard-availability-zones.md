@@ -1,7 +1,7 @@
 ---
 title: Azure 표준 Load Balancer 및 가용성 영역
-titlesuffix: Azure Load Balancer
-description: 표준 Load Balancer 및 가용성 영역
+titleSuffix: Azure Load Balancer
+description: 이 학습 경로를 사용 하 여 Azure 표준 Load Balancer 및 가용성 영역를 시작 합니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 925e7857d337f7f2fd501e4e4467c05952b0da65
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 63a7db6e7078df978f47a6d53ea82df83c22c800
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882956"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076979"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
@@ -88,7 +88,7 @@ Load Balancer 리소스는 영역 중복 및 영역 중복 프런트 엔드 있�
                 ],
 ```
 
-앞 발췌는 전체 템플릿이 아니라 가용성 영역 속성을 표현 하는 방법을 보여 주기 위한 것입니다.  이러한 문을 템플릿에 포함 해야 합니다.
+위의 발췌는 전체 템플릿이 아니지만 가용성 영역 속성을 표현 하는 방법을 보여 주기 위한 것입니다.  이러한 문을 템플릿에 포함 해야 합니다.
 
 #### <a name="optional-zone-isolation"></a>선택적 영역 격리
 

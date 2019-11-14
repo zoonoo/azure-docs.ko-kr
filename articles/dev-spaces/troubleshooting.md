@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스가 있는 Kubernetes 개발 환경을 빠르게 만듭니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s '
-ms.openlocfilehash: 0afdc0ac246e4cacbd4f45cca36c3c57b1c26e02
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005986"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072201"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -56,13 +56,13 @@ CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. �
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>컨트롤러 이름 길이 때문에 컨트롤러를 만들지 못했습니다.
 
-Azure Dev Spaces 컨트롤러 이름은 31 자 보다 길 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31 자를 초과 하는 경우 오류가 표시 됩니다. 예:
+Azure Dev Spaces 컨트롤러 이름은 31 자 보다 길 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31 자를 초과 하는 경우 오류가 표시 됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-이 문제를 해결 하려면 대체 이름으로 컨트롤러를 만듭니다. 예:
+이 문제를 해결 하려면 대체 이름으로 컨트롤러를 만듭니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -94,9 +94,13 @@ azure-cli                         2.0.60 *
 
 이 문제를 해결 하려면 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) 설치를 2.0.63 이상으로 업데이트 합니다. 이 업데이트는 `az aks use-dev-spaces`을 실행할 때 나타나는 오류 메시지를 해결 합니다. 또는 현재 버전의 Azure CLI 및 Azure Dev Spaces CLI를 계속 사용할 수 있습니다.
 
-### <a name="aks-clusters-with-api-server-authorized-ip-address-ranges-enabled"></a>API 서버 권한이 부여 된 IP 주소 범위를 사용 하는 AKS 클러스터
+### <a name="error-unable-to-reach-kube-apiserver"></a>"Kube-apiserver에 연결할 수 없습니다." 오류
 
-AKS 클러스터에 대해 [API server 권한 있는 IP 주소 범위](../aks/api-server-authorized-ip-ranges.md) 를 사용 하도록 설정한 경우에는 [사용자의 지역에 따라 추가 범위를 허용](https://github.com/Azure/dev-spaces/tree/master/public-ips)하도록 클러스터도 [만들거나](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) [업데이트](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) 해야 합니다.
+Azure Dev Spaces에서 AKS 클러스터의 API 서버에 연결할 수 없는 경우이 오류가 표시 될 수 있습니다. 
+
+AKS cluster API 서버에 대 한 액세스가 잠겨 있거나 AKS 클러스터에 대해 [API server 권한 있는 IP 주소 범위](../aks/api-server-authorized-ip-ranges.md) 를 사용 하도록 설정한 경우에는 [해당 지역에 따라 추가 범위를 허용](https://github.com/Azure/dev-spaces/tree/master/public-ips)하도록 클러스터도 [만들거나](../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled) [업데이트](../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges) 해야 합니다.
+
+Kubectl 명령을 실행 하 여 API 서버를 사용할 수 있는지 확인 합니다. API 서버를 사용할 수 없는 경우 AKS 지원에 문의 하 고 API 서버가 작동 하 고 있는 경우 다시 시도 하세요.
 
 ## <a name="common-issues-when-preparing-your-project-for-azure-dev-spaces"></a>Azure Dev Spaces에 대 한 프로젝트를 준비할 때 발생 하는 일반적인 문제
 
@@ -159,7 +163,7 @@ Container image build failed
 
 프로젝트에서 특정 _Dockerfile_을 가리키도록 Azure Dev Spaces를 구성할 수 있습니다. Azure Dev Spaces가 컨테이너를 빌드하는 데 필요한 _Dockerfile_을 사용하지 않는 것 같으면 Azure Dev Spaces에서 사용할 Dockerfile을 명시적으로 지정해야 할 수 있습니다. 
 
-이 문제를 해결 하려면 프로젝트에 생성 Azure Dev Spaces _azds_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: dockerfile* 을 사용 하려는 dockerfile을 가리킵니다. 예:
+이 문제를 해결 하려면 프로젝트에 생성 Azure Dev Spaces _azds_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: dockerfile* 을 사용 하려는 dockerfile을 가리킵니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```yaml
 ...
@@ -206,13 +210,13 @@ install:
 
 서비스 코드를 시작하지 못하면 이 오류가 발생할 수 있습니다. 사용자 코드에 원인이 있는 경우가 많습니다. 더 많은 진단 정보를 얻으려면 서비스를 시작할 때 자세한 로깅을 사용 하도록 설정 합니다.
 
-명령줄에서 `--verbose` 사용 하 여 자세한 로깅을 사용 하도록 설정 합니다. `--output`를 사용 하 여 출력 형식을 지정할 수도 있습니다. 예:
+명령줄에서 `--verbose` 사용 하 여 자세한 로깅을 사용 하도록 설정 합니다. `--output`를 사용 하 여 출력 형식을 지정할 수도 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```cmd
 azds up --verbose --output json
 ```
 
-Visual Studio에서
+Visual Studio에서 다음을 수행합니다.
 
 1. **도구 > 옵션**을 열고 **프로젝트 및 솔루션** 아래에서 **빌드 및 실행**을 선택합니다.
 2. **MSBuild 프로젝트 빌드 출력 세부 정보 표시**의 설정을 **세부 내용** 또는 **진단**으로 변경합니다.
@@ -320,7 +324,7 @@ Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>"Microsoft DevSpaces/register/action" 권한 부여 오류
 
-Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev 공간을 관리 하려는 경우 연결 된 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 없으면 권한 부여 오류가 표시 될 수 있습니다. 예:
+Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev 공간을 관리 하려는 경우 연결 된 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 없으면 권한 부여 오류가 표시 될 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```console
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.

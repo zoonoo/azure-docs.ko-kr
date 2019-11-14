@@ -1,5 +1,5 @@
 ---
-title: Linux용 Azure VM 확장 및 기능 | Microsoft Docs
+title: Linux 용 Azure VM 확장 및 기능
 description: 확장이 제공하거나 개선하는 기능별로 그룹화하여 Azure 가상 머신에 사용할 수 있는 확장을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: f66ec2ea9d0c042b698db1725980e981a27a55d0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 67df46742be52b03bd91af19654fbfac5df29646
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169005"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073757"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Linux용 가상 머신 확장 및 기능
 
@@ -37,7 +37,7 @@ Azure VM(가상 머신) 확장은 Azure VM에서 배포 후 구성 및 Automatio
 
 프로세스 관련 확장 외에도 Windows 및 Linux 가상 머신에 대해 사용자 지정 스크립트 확장을 사용할 수 있습니다. Linux용 사용자 지정 스크립트 확장을 사용하면 Bash 스크립트를 VM에서 실행할 수 있습니다. 사용자 지정 스크립트는 네이티브 Azure 도구로 제공할 수 있는 것 이상의 구성이 필요한 Azure 배포를 디자인할 때 유용합니다. 자세한 내용은 [Linux VM 사용자 지정 스크립트 확장](custom-script-linux.md)을 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 VM에서 확장을 처리하려면 Azure Linux 에이전트를 설치해야 합니다. 일부 개별 확장에는 리소스에 대한 액세스 권한 또는 종속성 같은 필수 구성 요소가 있습니다.
 
@@ -85,7 +85,7 @@ Azure VM 확장은 기존 VM에서 실행됩니다. 이러한 기능은 이미 �
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예제에서는 *Myvm*이라는 리소스 그룹에서 *MYVM* 이라는 Vm에 대해 사용자 지정 스크립트 확장을 실행 합니다. 사용자 고유의 정보를 사용 하 여 예제 리소스 그룹 이름, VM 이름 및 스크립트\/를 실행 (https:/raw.githubusercontent.com/me/project/hello.sh)으로 바꿉니다. 
+Azure VM 확장은 [az vm extension set](/cli/azure/vm/extension#az-vm-extension-set) 명령을 사용하여 기존 VM에 대해 실행할 수 있습니다. 다음 예제에서는 *Myvm*이라는 리소스 그룹에서 *MYVM* 이라는 Vm에 대해 사용자 지정 스크립트 확장을 실행 합니다. 예제 리소스 그룹 이름, VM 이름 및 스크립트를 사용자 고유의 정보로 (https:\//raw.githubusercontent.com/me/project/hello.sh) 실행으로 바꿉니다. 
 
 ```azurecli
 az vm extension set `
@@ -105,7 +105,7 @@ info:    Executing command vm extension set
 info:    vm extension set command OK
 ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 포털
 
 Azure Portal을 통해 기존 VM에 VM 확장을 적용할 수 있습니다. 포털에서 VM을 선택하고, **확장**을 선택한 다음, **추가**를 선택합니다. 사용 가능한 확장 목록에서 원하는 확장을 선택하고 마법사의 지시를 따릅니다.
 
@@ -283,7 +283,7 @@ Goal state agent: 2.2.18
 
 #### <a name="identifying-if-the-extension-is-set-with-autoupgrademinorversion-on-a-vm"></a>확장이 VM에서 autoUpgradeMinorVersion로 설정되었는지를 식별합니다.
 
-확장이 ‘autoUpgradeMinorVersion’을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [az vm show](/cli/azure/vm#az-vm-show)를 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
+확장이 'autoUpgradeMinorVersion'을 사용하여 프로비전된 경우 VM 모델에서 볼 수 있습니다. 확인하려면 [az vm show](/cli/azure/vm#az-vm-show)를 사용하고 다음과 같이 리소스 그룹 및 VM 이름을 제공합니다.
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM
@@ -336,7 +336,7 @@ INFO [Microsoft.OSTCExtensions.LinuxDiagnostic-2.3.9027] Launch command:diagnost
 
 1. Linux 에이전트 로그를 확인하려면 */var/log/waagent.log*에서 확장이 프로비전되었을 때 작업을 확인합니다.
 
-2. */Var/log/azure/\<extensionName* 에 대 한 자세한 내용은 실제 확장 로그를 확인 하세요 >
+2. */Var/log/azure/\<extensionName* 에 대 한 자세한 내용은 실제 확장 로그를 참조 하세요 >
 
 3. 오류 코드, 알려진 문제 등에 대한 확장 관련 설명서 문제 해결 섹션을 확인합니다.
 

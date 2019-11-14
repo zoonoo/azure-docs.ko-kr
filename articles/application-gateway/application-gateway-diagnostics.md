@@ -1,22 +1,23 @@
 ---
-title: Azure Application Gateway에 대한 액세스 로그, 성능 로그, 백 엔드 상태 및 메트릭 모니터링
+title: 백 엔드 상태 및 진단 로그
+titleSuffix: Azure Application Gateway
 description: Azure Application Gateway에 대한 액세스 및 성능 로그를 사용하고 관리하는 방법을 알아봅니다
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: fa930d4ab420708e6abfdf1765703afbe20fa25e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 448e5bf798f5b1c3006888f846722e54fec46ef8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958268"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075310"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Application Gateway에 대 한 백 엔드 상태 및 진단 로그
 
-Azure Application Gateway를 사용하여 다음과 같은 방법으로 리소스를 모니터링할 수 있습니다.
+다음과 같은 방법으로 Azure 애플리케이션 게이트웨이 리소스를 모니터링할 수 있습니다.
 
 * [백 엔드 상태](#back-end-health) - Application Gateway는 Azure Portal과 PowerShell을 통해 백 엔드 풀에 있는 서버의 상태를 모니터링하는 기능을 제공합니다. 또한 성능 진단 로그를 통해 백 엔드 풀의 상태도 확인할 수 있습니다.
 

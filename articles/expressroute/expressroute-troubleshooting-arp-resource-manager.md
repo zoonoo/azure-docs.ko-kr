@@ -1,5 +1,5 @@
 ---
-title: 'Azure Express 경로: ARP 테이블 가져오기-문제 해결'
+title: 'Azure Express 경로: ARP 테이블-문제 해결'
 description: 이 페이지는 ExpressRoute 회로의 ARP 테이블을 가져오는 방법을 안내합니다.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 2410465052bd9ff83090c6f7122ffab2855af1d0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4f1bd064dbc0909be3deba9180be1d8b3c066fd4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033424"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076572"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]

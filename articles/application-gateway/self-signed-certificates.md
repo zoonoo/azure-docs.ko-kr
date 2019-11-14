@@ -1,5 +1,6 @@
 ---
-title: 사용자 지정 루트 CA를 사용 하 여 Azure 애플리케이션 게이트웨이 자체 서명 된 인증서 생성
+title: 사용자 지정 루트 CA를 사용 하 여 자체 서명 된 인증서 생성
+titleSuffix: Azure Application Gateway
 description: 사용자 지정 루트 CA를 사용 하 여 Azure 애플리케이션 게이트웨이 자체 서명 된 인증서를 생성 하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: 84a46e66bb6c36950a84fbeb2dacc3a8d6bcc241
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833362"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075080"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>사용자 지정 루트 CA를 사용 하 여 Azure 애플리케이션 게이트웨이 자체 서명 된 인증서 생성
 
@@ -29,7 +30,7 @@ Application Gateway는 잘 알려진 CA (예: GoDaddy 또는 DigiCert)에 의해
 - 사용자 지정 CA로 서명 된 자체 서명 된 인증서 만들기
 - Application Gateway에 자체 서명 된 루트 인증서를 업로드 하 여 백 엔드 서버 인증
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 - **Windows 또는 Linux를 실행 하는 컴퓨터의 [OpenSSL](https://www.openssl.org/)** 
 
@@ -178,7 +179,7 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 Application Gateway에서 인증서를 업로드 하려면 .crt 인증서를 64로 인코딩된 .cer 형식으로 내보내야 합니다. Crt에는 기본-64 인코딩 형식으로 공개 키가 이미 포함 되어 있으므로 .crt에서 .cer으로 파일 확장명의 이름을 바꿉니다. 
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
 
 포털에서 신뢰할 수 있는 루트 인증서를 업로드 하려면 **HTTP 설정을** 선택 하 고 **HTTPS** 프로토콜을 선택 합니다.
 

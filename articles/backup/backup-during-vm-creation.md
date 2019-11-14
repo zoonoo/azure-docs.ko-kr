@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
 ms.author: dacurwin
-ms.openlocfilehash: 90f69371457bbfe37789b12971343f738ff35e8e
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: e873980ce7aab1c5454a28e88df24bdb189c4860
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639723"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074841"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Azure VM을 만들 때 백업 사용
 
@@ -52,11 +52,8 @@ Azure Backup 서비스를 사용 하 여 Azure Vm (가상 머신)을 백업 합�
 
       ![기본 백업 정책](./media/backup-during-vm-creation/daily-policy.png)
 
-
 > [!NOTE]
-> Azure Backup 서비스는 명명 형식 (예: **AzureBackupRG_geography_number** )을 사용 하 여 스냅숏을 저장 하기 위해 VM 리소스 그룹 이외의 별도 리소스 그룹을 만듭니다. AzureBackupRG_northeurope_1). 이 리소스 그룹의 데이터는 Azure 가상 머신 백업 정책의 *즉시 복구 스냅숏 유지* 섹션에 지정 된 기간 (일) 동안 보존 됩니다.  이 리소스 그룹에 잠금을 적용 하면 백업 오류가 발생할 수 있습니다.<br>
-또한이 리소스 그룹은 모든 이름/태그 제한에서 제외 되어야 합니다. 제한 정책에 따라 다시 백업 오류가 발생 하 여 리소스 지점 컬렉션 만들기가 차단 됩니다.
-
+> Azure Backup 서비스는 명명 형식 **AzureBackupRG_geography_number** (예: AzureBackupRG_northeurope_1)를 사용 하 여 스냅숏을 저장할 별도의 리소스 그룹 (VM 리소스 그룹 제외)을 만듭니다. 이 리소스 그룹의 데이터는 Azure 가상 머신 백업 정책의 *즉시 복구 스냅숏 유지* 섹션에 지정 된 기간 (일) 동안 보존 됩니다.  이 리소스 그룹에 잠금을 적용 하면 백업 오류가 발생할 수 있습니다. <br> 또한이 리소스 그룹은 모든 이름/태그 제한에서 제외 되어야 합니다. 제한 정책에 따라 다시 백업 오류가 발생 하 여 리소스 지점 컬렉션 만들기가 차단 됩니다.
 
 ## <a name="start-a-backup-after-creating-the-vm"></a>VM을 만든 후 백업 시작
 
@@ -67,13 +64,11 @@ VM을 만든 후 다음을 수행 합니다.
 1. VM 속성에서 **백업**을 클릭 합니다. 초기 백업이 실행 될 때까지 VM 상태는 초기 백업 보류 중입니다.
 2. **지금** 백업을 클릭 하 여 요청 시 백업을 실행 합니다.
 
-    ![요청 시 백업 실행](./media/backup-during-vm-creation/run-backup.png)
+    ![주문형 백업 실행](./media/backup-during-vm-creation/run-backup.png)
 
 ## <a name="use-a-resource-manager-template-to-deploy-a-protected-vm"></a>리소스 관리자 템플릿을 사용 하 여 보호 된 VM 배포
 
 이전 단계에서는 Azure Portal를 사용 하 여 가상 머신을 만들고 Recovery Services 자격 증명 모음에서 보호 하는 방법을 설명 합니다. 하나 이상의 Vm을 신속 하 게 배포 하 고 Recovery Services 자격 증명 모음에서 보호 하려면 [WINDOWS VM 배포 및 백업 사용](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/)템플릿을 참조 하세요.
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

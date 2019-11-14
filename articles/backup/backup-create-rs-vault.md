@@ -1,6 +1,6 @@
 ---
 title: 'Azure Backup: Recovery Services 자격 증명 모음 만들기'
-description: 백업 및 복구 지점이 저장 되는 Recovery Services 자격 증명 모음 만들기
+description: 이 문서에서는 백업 및 복구 지점이 저장 되는 Recovery Services 자격 증명 모음을 만드는 방법에 대해 알아봅니다.
 ms.reviewer: sogup
 author: dcurwin
 manager: carmonm
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: d13aff40d735e98e7745358f8caddcd8cdc20727
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 30e2f8812b14f27b57ef22e30aea89f19fa56e58
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688551"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074872"
 ---
 # <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -32,7 +32,7 @@ Recovery Services 자격 증명 모음을 만들려면:
 
     ![Recovery Services 자격 증명 모음 입력 및 선택](./media/backup-create-rs-vault/all-services.png)
 
-    구독의 Recovery Services 자격 증명 모음 목록이 표시됩니다.
+    구독에 Recovery Services 자격 증명 모음 목록이 표시됩니다.
 
 4. **Recovery Services 자격 증명 모음** 대시보드에서 **추가**를 선택합니다.
 
@@ -45,7 +45,7 @@ Recovery Services 자격 증명 모음을 만들려면:
    - **이름**: 자격 증명 모음을 식별하기 위한 이름을 입력합니다. 이름은 Azure 구독에 고유해야 합니다. 2자 이상 50자 이하의 이름을 지정합니다. 이름은 문자로 시작해야 하며, 문자, 숫자, 하이픈만 포함할 수 있습니다.
    - **구독**: 사용할 구독을 선택합니다. 단일 구독의 멤버인 경우 해당 이름이 표시됩니다. 사용할 구독을 잘 모르는 경우 기본(제안된) 구독을 사용합니다. 회사 또는 학교 계정이 둘 이상의 Azure 구독과 연결된 경우에만 여러 항목을 선택할 수 있습니다.
    - **리소스 그룹**: 기존 리소스 그룹을 사용하거나 새 리소스 그룹을 만듭니다. 구독에서 사용 가능한 리소스 그룹 목록을 보려면 **기존 그룹 사용**을 선택한 다음, 드롭다운 목록 상자에서 리소스를 선택합니다. 새 리소스 그룹을 만들려면 **새로 만들기**를 선택하고 이름을 입력합니다. 리소스 그룹에 대한 전체 내용은 [Azure Resource Manager 개요](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 참조하세요.
-   - **위치**: 자격 증명 모음에 대한 지리적 지역을 선택합니다. 가상 머신을 보호할 자격 증명 모음을 만들려면, 자격 증명 모음이 **반드시** 가상 머신과 동일한 지역에 있어야 합니다.
+   - **위치**: 자격 증명 모음의 지리적 지역을 선택합니다. 가상 머신을 보호할 자격 증명 모음을 만들려면, 자격 증명 모음이 **반드시** 가상 머신과 동일한 지역에 있어야 합니다.
 
       > [!IMPORTANT]
       > VM의 위치를 잘 모를 경우 대화 상자를 닫습니다. 포털에서 가상 머신의 목록으로 이동합니다. 가상 머신이 여러 지역에 있는 경우 각 지역에 Recovery Services 자격 증명 모음을 만듭니다. 첫 번째 위치에서 자격 증명 모음을 만든 후에 다른 위치에 대한 자격 증명 모음을 만듭니다. 백업 데이터를 저장할 스토리지 계정을 지정하지 않아도 됩니다. Recovery Services 자격 증명 모음 및 Azure Backup 서비스는 이를 자동으로 처리합니다.
@@ -76,7 +76,7 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
    - [지역](../storage/common/storage-redundancy-grs.md) 및 [로컬](../storage/common/storage-redundancy-lrs.md) 중복성에 대해 자세히 알아보세요.
 
 > [!NOTE]
-> Recovery services 자격 증명 모음에 대 한 **저장소 복제 유형** (로컬 중복/지역 중복) 변경은 자격 증명 모음에서 백업을 구성 하기 전에 수행 해야 합니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없으며 **저장소 복제 유형을**변경할 수 없습니다. 
+> Recovery services 자격 증명 모음에 대 한 **저장소 복제 유형** (로컬 중복/지역 중복) 변경은 자격 증명 모음에서 백업을 구성 하기 전에 수행 해야 합니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없으며 **저장소 복제 유형을**변경할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

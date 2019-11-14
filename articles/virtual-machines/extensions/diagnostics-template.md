@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines에 모니터링 및 진단 추가 | Microsoft Docs
+title: Azure 가상 머신에 모니터링 & 진단 추가
 description: Azure Resource Manager 템플릿을 사용 하 여 Azure 진단 확장을 사용 하 여 새 Windows 가상 머신을 만듭니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2017
 ms.author: saurabh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9ba8fdba3b7283185920432b5b096b80b2e32021
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2490c3de60e0deac6a1a4ddc5abc95cb46e240b2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092550"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073836"
 ---
 # <a name="use-monitoring-and-diagnostics-with-a-windows-vm-and-azure-resource-manager-templates"></a>Windows VM 및 Azure Resource Manager 템플릿을 사용하여 모니터링 및 진단 사용
 Azure Diagnostics Extension은 Windows 기반 Azure 가상 머신에 모니터링 및 진단 기능을 제공합니다. 확장을 Azure Resource Manager 템플릿에 속하도록 포함시켜서 가상 머신에서 이러한 기능을 사용하도록 설정할 수 있습니다. 가상 머신 템플릿의 일부로 확장을 포함시키는 것과 관련된 자세한 내용은 [VM 확장을 사용하여 Azure 리소스 관리자 템플릿 작성](../windows/template-description.md#extensions) 을 참조하세요. 이 문서는 Azure Diagnostics 확장을 Windows 가상 머신 템플릿에 추가하는 방법을 설명합니다.  
@@ -62,7 +62,7 @@ Windows 가상 머신에서 진단 확장을 사용하도록 설정하려면 진
 ]
 ```
 
-가상 머신의 리소스 노드 아래에 확장을 구성하는 대신 템플릿의 루트 리소스 노드에 확장 구성을 추가하는 것도 일반적인 방법입니다. 이런 방식의 경우 *name* 및 *type* 값을 통해 확장과 가상 머신 간의 계층적인 관계를 명시적으로 지정해야 합니다. 예: 
+가상 머신의 리소스 노드 아래에 확장을 구성하는 대신 템플릿의 루트 리소스 노드에 확장 구성을 추가하는 것도 일반적인 방법입니다. 이런 방식의 경우 *name* 및 *type* 값을 통해 확장과 가상 머신 간의 계층적인 관계를 명시적으로 지정해야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. 
 
 ```json
 "name": "[concat(variables('vmName'),'Microsoft.Insights.VMDiagnosticsSettings')]",
@@ -131,7 +131,7 @@ Virtual Machine Scale Sets 확장 구성은 *VirtualMachineProfile*의 *extensio
 위의 구성에서 Metrics 정의 XML 노드는 앞서 XML에서 *PerformanceCounter* 노드에 정의한 성능 카운터가 집계되고 저장되는 방식을 정의하기 때문에 중요한 구성 요소입니다. 
 
 > [!IMPORTANT]
-> 이러한 메트릭은 Azure 포털에서 모니터링 차트 및 경고를 실행합니다.  Azure 포털의 VM 모니터링 데이터를 확인하려는 경우 VM에 대한 진단 구성에 *resourceID* 및 **MetricAggregation**이 있는 **메트릭** 노드가 포함되어 있어야 합니다. 
+> 이러한 메트릭은 Azure 포털에서 모니터링 차트 및 경고를 실행합니다.  Azure 포털의 VM 모니터링 데이터를 확인하려는 경우 VM에 대한 진단 구성에 **resourceID** 및 *MetricAggregation*이 있는 **메트릭** 노드가 포함되어 있어야 합니다. 
 > 
 > 
 
@@ -158,8 +158,8 @@ MetricAggregation의 *PT1M* 및 *PT1H* 값은 각각 1분간의 집계와 1시�
 위의 Metrics 구성은 다음과 같은 명명 규칙으로 진단 스토리지 계정에 테이블을 생성합니다.
 
 * **WADMetrics**: 모든 WADMetrics 테이블에 대한 표준 접두사입니다.
-* **PT1H** 또는 **PT1M**: 테이블에 1시간 또는 1분 동안 집계된 데이터가 포함되어 있음을 나타냅니다.
-* **P10D**: 테이블에 데이터 수집을 시작한 시점부터 10일 동안의 데이터가 포함할 것임을 나타냅니다.
+* **PT1H** 또는 **PT1M**: 1시간 또는 1분 동안 집계된 데이터가 테이블에 포함되어 있음을 나타냅니다.
+* **P10D**: 테이블이 데이터 수집을 시작한 시점부터 시작하여 10일 동안의 데이터를 포함할 것임을 나타냅니다.
 * **V2S**: 문자열 상수입니다.
 * **yyyymmdd**: 테이블이 데이터 수집을 시작한 날짜입니다.
 
@@ -167,13 +167,13 @@ MetricAggregation의 *PT1M* 및 *PT1H* 값은 각각 1분간의 집계와 1시�
 
 각각의 WADMetrics 테이블은 다음 열을 포함합니다.
 
-* **PartitionKey**: 파티션 키는 VM 리소스를 고유하게 식별하기 위해 *resourceID* 값을 기준으로 생성됩니다. 예: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
+* **PartitionKey**: partitionkey는 VM 리소스를 고유하게 식별하기 위해 *resourceID* 값을 기준으로 생성됩니다. 예: `002Fsubscriptions:<subscriptionID>:002FresourceGroups:002F<ResourceGroupName>:002Fproviders:002FMicrosoft:002ECompute:002FvirtualMachines:002F<vmName>`  
 * **RowKey**: `<Descending time tick>:<Performance Counter Name>` 형식을 따릅니다. 감소하는 시간 틱 계산식은 최대 시간 틱 빼기 집계 기간이 시작된 시간입니다. 예를 들어 샘플 기간이 2015년 11월 10일 00:00시(UTC)에 시작되는 경우의 계산식은 `DateTime.MaxValue.Ticks - (new DateTime(2015,11,10,0,0,0,DateTimeKind.Utc).Ticks)`입니다. memory available bytes 성능 카운터의 행 키는 `2519551871999999999__:005CMemory:005CAvailable:0020Bytes`입니다.
-* **CounterName**: 성능 카운터의 이름입니다. 이것은 XML config에 정의된 *counterSpecifier* 와 일치합니다.
-* **Maximum**: 집계 기간 동안 성능 카운터의 최댓값입니다.
-* **최소**: 집계 기간 동안 성능 카운터의 최솟값입니다.
+* **counterName**: 성능 카운터의 이름입니다. 이것은 XML config에 정의된 *counterSpecifier* 와 일치합니다.
+* **Maximum**: 집계 기간 동안 성능 카운터의 최대 값입니다.
+* **Minimum**: 집계 기간 동안 성능 카운터의 최소 값입니다.
 * **Total**: 집계 기간 동안 보고된 모든 성능 카운터 값의 합계입니다.
-* **개수**: 성능 카운터에 대해 보고된 값의 총 개수입니다.
+* **Count**: 성능 카운터에 대해 보고된 값의 총 개수입니다.
 * **Average**: 집계 기간 동안 성능 카운터의 평균(합계/개수) 값입니다.
 
 ## <a name="next-steps"></a>다음 단계

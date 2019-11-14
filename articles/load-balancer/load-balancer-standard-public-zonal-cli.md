@@ -1,5 +1,5 @@
 ---
-title: 영역 프런트 엔드가 있는 표준 Load Balancer-Azure CLI
+title: 영역 공용 IP 주소 프런트 엔드로 표준 Load Balancer-Azure CLI
 titleSuffix: Azure Load Balancer
 description: Azure CLI를 사용하여 영역별 공용 IP 주소 프런트 엔드가 있는 공용 표준 Load Balancer를 만드는 방법을 알아봅니다.
 services: load-balancer
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: 5e6dd06cf43b0eb5389597dcedbc323f4c035333
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: b9c3a88df6801566bc927cfc18fda0adfa05a5ae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048334"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076040"
 ---
-#  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-cli"></a>Azure CLI를 사용하여 영역별 프런트 엔드가 있는 표준 Load Balancer 만들기
+#  <a name="create-a-standard-load-balancer-with-zonal-public-ip-address-frontend-using-azure-cli"></a>Azure CLI를 사용 하 여 영역별 공용 IP 주소 프런트 엔드가 있는 표준 Load Balancer 만들기
 
 이 문서에서는 공용 IP 표준 주소를 사용하여 영역별 프런트 엔드가 있는 공용 [표준 Load Balancer](https://aka.ms/azureloadbalancerstandard)를 만드는 단계를 안내합니다. 이 시나리오에서는 프런트 엔드 및 백 엔드 인스턴스에 대한 특정 영역을 지정하여 특정 영역으로 데이터 경로 및 리소스를 맞출 수도 있습니다.
 

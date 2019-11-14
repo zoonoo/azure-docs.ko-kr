@@ -1,5 +1,5 @@
 ---
-title: Azure에서 VHD의 스냅샷 만들기 | Microsoft Docs
+title: Azure에서 VHD의 스냅숏 만들기
 description: 백업 또는 문제 해결을 위해 사용할 Azure VM의 복사본을 만드는 방법을 알아봅니다.
 documentationcenter: ''
 author: roygara
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 74ef55fe9a0a6603bd43d68b6b8557dce1bca921
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b564e20ca8aa5acd7fbd4ea69ac2b1cd72e66d5e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749138"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075332"
 ---
 # <a name="create-a-snapshot"></a>스냅샷 만들기
 
@@ -27,9 +27,9 @@ ms.locfileid: "73749138"
 
 스냅샷을 사용하여 새 VM을 만들려는 경우 진행 중인 모든 프로세스를 제거하려면 스냅샷을 만들기 전에 완전히 VM을 종료하는 것이 좋습니다.
 
-## <a name="use-the-azure-portal"></a>Azure Portal 사용 
+## <a name="use-the-azure-portal"></a>Azure 포털 사용 
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 메뉴에서 **리소스 만들기**를 선택한 다음, **스냅샷**을 검색하여 선택합니다.
 3. **스냅샷** 창에서 만들기 **만들기**를 선택합니다. **스냅샷 만들기** 창이 나타납니다.
 4. 스냅샷의 **이름**을 입력합니다.

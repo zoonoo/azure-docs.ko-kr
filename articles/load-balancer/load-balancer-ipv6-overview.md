@@ -1,7 +1,6 @@
 ---
-title: Azure Load Balancer의 IPv6에 대한 개요
-titlesuffix: Azure Load Balancer
-description: Azure Load Balancer 및 부하 분산된 VM에 대한 IPv6 지원 이해하기.
+title: IPv6 Azure Load Balancer 개요
+description: 이 학습 경로를 사용 하 여 Azure Load Balancer 및 부하가 분산 된 Vm에 대 한 IPv6 지원을 시작 하세요.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: b4c1fcd6a719f341dcebfd9f4efc4423241ca3dd
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 07dd3ee507f31099e32f18143d2beedf76e83c36
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147336"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077016"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer의 IPv6에 대한 개요
 
 
 >[!NOTE] 
->Azure Load Balancer는 다음의 두 가지 형식을 지원합니다. 기본 및 표준 이 문서는 기본 Load Balancer에 대해 설명합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer 개요](load-balancer-standard-overview.md)를 참조하세요.
+>Azure Load Balancer는 기본 및 표준이라는 두 가지 형식을 지원합니다. 이 문서는 기본 Load Balancer에 대해 설명합니다. 표준 Load Balancer에 대한 자세한 내용은 [표준 Load Balancer 개요](load-balancer-standard-overview.md)를 참조하세요.
 
 기본 SKU 인터넷 연결 부하 분산 장치는 IPv6 주소를 사용 하 여 배포할 수 있습니다. IPv4 연결 외에도 다음과 같은 기능을 사용할 수 있습니다.
 
@@ -56,7 +55,7 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 
 ## <a name="details-and-limitations"></a>세부 사항 및 제한 사항
 
-설명
+세부 정보
 
 * Azure DNS 서비스는 IPv4 및 IPv6 AAAA 이름 레코드를 모두 포함하며 부하 분산 장치에 대해 두 레코드와 반응합니다. 클라이언트는 어떤 주소(IPv4 또는 IPv6)와 통신할지 선택합니다.
 * VM이 공용 인터넷 IPv6 연결 디바이스에 연결을 시작할 경우 VM의 원본 IPv6 주소는 부하 분산 디바이스의 공용 IPv6 주소에 대한 NAT(네트워크 주소 변환)입니다.

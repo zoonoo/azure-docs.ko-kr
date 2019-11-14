@@ -1,153 +1,150 @@
 ---
-title: Azure ExpressRoute를 사용 하 여 재해 복구를 위한 설계 | Microsoft Docs
-description: 이 페이지는 Azure ExpressRoute를 사용 하는 동안 재해 복구에 대 한 아키텍처 권장을 제공 합니다.
-documentationcenter: na
-services: networking
+title: 'Azure Express 경로: 재해 복구를 위한 디자인'
+description: 이 페이지에서는 Azure Express 경로를 사용 하는 동안 재해 복구에 대 한 아키텍처 권장 사항을 제공 합니다.
+services: expressroute
 author: rambk
-manager: tracsman
 ms.service: expressroute
 ms.topic: article
-ms.workload: infrastructure-services
 ms.date: 05/25/2019
 ms.author: rambala
-ms.openlocfilehash: cf2b4e385de901254fde3c3d3e807feda98d5b41
-ms.sourcegitcommit: c63e5031aed4992d5adf45639addcef07c166224
+ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67466066"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076697"
 ---
-# <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>ExpressRoute 개인 피어 링이 있는 재해 복구를 위한 설계
+# <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Express 경로 개인 피어 링을 사용 하 여 재해 복구를 위한 디자인
 
-ExpressRoute는 고가용성 운송 업체 Microsoft 리소스에 대 한 엔터프라이즈급 개인 네트워크 연결을 제공 하기 위해 설계 되었습니다. 즉, Microsoft 네트워크 내에서 ExpressRoute 경로에 있는 오류의 단일 지점이 없는 경우 ExpressRoute 회로의 가용성을 최대화 하기 위해 디자인 고려 사항에 대해서 [ExpressRoute 사용 하 여 고가용성을 위해 디자인][HA]합니다.
+Express 경로는 Microsoft 리소스에 대 한 반송파 등급 개인 네트워크 연결을 제공 하는 고가용성을 위해 설계 되었습니다. 즉, Microsoft 네트워크 내에서 Express 경로 경로에 단일 실패 지점이 없습니다. Express 경로 회로의 가용성을 최대화 하기 위한 설계 고려 사항은 Express 경로를 [사용 하 여 고가용성을 위한 디자인][HA]을 참조 하세요.
 
-그러나 Murphy의 인기 있는 중요 한 원동력이-수행*아무 것도 문제가 발생할 수 있는, 경우*-을 고려해 야 할이 문서의 보겠습니다 집중을 단일 ExpressRoute 회로 사용 하 여 해결할 수 있는 오류를 넘어서는 솔루션이 있습니다. 즉,이 문서의 살펴보겠습니다 지역 중복 ExpressRoute 회로 사용 하 여 재해 복구를 위한 강력한 백 엔드 네트워크 연결을 구축 하기 위한 네트워크 아키텍처 고려 사항에.
+그러나 Murphy의 인기 있는 말라을 사용 하는*경우에는 문제가 발생할 수 있습니다*.이 문서에서는 단일 express 경로 회로를 사용 하 여 해결할 수 있는 오류를 벗어난 솔루션에 집중할 수 있습니다. 즉,이 문서에서는 지역 중복 Express 경로 회로를 사용 하 여 재해 복구를 위해 강력한 백 엔드 네트워크 연결을 빌드하기 위한 네트워크 아키텍처 고려 사항을 살펴보겠습니다.
 
-## <a name="need-for-redundant-connectivity-solution"></a>중복 연결 솔루션에 대 한 필요성
+## <a name="need-for-redundant-connectivity-solution"></a>중복 연결 솔루션이 필요 합니다.
 
-전체 지역 서비스 (서비스 공급자, 고객 또는 다른 클라우드 서비스 공급자 네트워크는 Microsoft에서 일)을 가져옵니다 성능이 저하 된 인스턴스와 가능성이 있습니다. 이러한 넓은 지역 서비스 영향에 대 한 근본 원인을 천재지변 포함 됩니다. 따라서 비즈니스 연속성 및 업무상 중요 한 응용 프로그램에 대 한 재해 복구를 계획 하는 것이 반드시 합니다.   
+전체 지역 서비스 (Microsoft, 네트워크 서비스 공급자, 고객 또는 기타 클라우드 서비스 공급자)가 저하 되는 경우가 있습니다. 이러한 지역 전체의 서비스 영향에 대 한 근본 원인은 자연 calamity입니다. 따라서 비즈니스 연속성 및 업무에 중요 한 응용 프로그램의 경우 재해 복구를 계획 하는 것이 중요 합니다.   
 
-여부를 실행 하면 Azure 지역 또는 온-프레미스에서 업무상 중요 한 응용 프로그램 또는 다른 곳에 관계 없이 다른 Azure 지역 장애 조치 사이트로 사용할 수 있습니다. 다음 문서 주소 재해 복구 응용 프로그램 및 프런트 엔드 액세스 관점에서:
+중요 업무용 응용 프로그램을 Azure 지역 또는 온-프레미스 또는 다른 곳에서 실행 하는지 여부에 관계 없이 다른 Azure 지역을 장애 조치 사이트로 사용할 수 있습니다. 다음 문서에서는 응용 프로그램 및 프런트 엔드 액세스 관점에서의 재해 복구에 대해 다룹니다.
 
 - [엔터프라이즈급 재해 복구][Enterprise DR]
 - [Azure Site Recovery를 사용한 SMB 재해 복구][SMB DR]
 
-중요 한 작업에 대 한 온-프레미스 네트워크와 Microsoft 간의 ExpressRoute 연결에서 사용 하는 경우 재해 복구 계획에 지역 중복 네트워크 연결도 포함 해야 합니다. 
+중요 업무용 작업을 위해 온-프레미스 네트워크와 Microsoft 간의 Express 경로 연결을 사용 하는 경우 재해 복구 계획에는 지역 중복 네트워크 연결도 포함 되어야 합니다. 
 
-## <a name="challenges-of-using-multiple-expressroute-circuits"></a>여러 ExpressRoute 회로 사용 하 여 과제
+## <a name="challenges-of-using-multiple-expressroute-circuits"></a>여러 Express 경로 회로를 사용 하는 문제
 
-둘 이상의 연결을 사용 하 여 네트워크의 동일한 집합을 상호 연결 하는 경우 네트워크 간에 병렬 경로 도입 합니다. 평행 경로 올바르게 설계를 비대칭 라우팅 발생할 수 있습니다. 상태 저장 엔터티 (예: NAT, 방화벽)의 경로 있는 경우 비대칭 라우팅 트래픽 흐름을 차단할 수 있습니다.  일반적으로 ExpressRoute 개인 피어 링 경로 통해 NAT 또는 방화벽 같은 상태 저장 엔터티에서 제공 하지 있습니다. 따라서 비대칭 라우팅 ExpressRoute 개인 피어 링을 통해 차단 하지 않습니다 반드시 트래픽 흐름.
+둘 이상의 연결을 사용 하 여 동일한 네트워크 세트를 상호 연결 하는 경우 네트워크 간에 병렬 경로가 도입 됩니다. 병렬 경로는 제대로 설계 되지 않은 경우 비대칭 라우팅이 발생할 수 있습니다. 경로에 상태 저장 엔터티 (예: NAT, 방화벽)가 있는 경우 비대칭 라우팅은 트래픽 흐름을 차단할 수 있습니다.  일반적으로 Express 경로 개인 피어 링 경로를 통해 NAT 또는 방화벽과 같은 상태 저장 엔터티를 통해 제공 되지 않습니다. 따라서 Express 경로 개인 피어 링을 통한 비대칭 라우팅은 반드시 트래픽 흐름을 차단 하지는 않습니다.
  
-그러나 여부, 상태 저장 엔터티가 있는지 여부에 관계 없이 지역 중복 병렬 경로 간에 트래픽 분산을 로드 하는 경우 일치 하지 않는 네트워크 성능을 발생 합니다. 이 문서에서는 이러한 문제를 해결 하는 방법을 살펴보겠습니다.
+그러나 상태 저장 엔터티를 포함 하는지 여부에 관계 없이 지역 중복 병렬 경로에서 트래픽 부하를 분산 하는 경우 네트워크 성능이 일관 되지 않을 수 있습니다. 이 문서에서는 이러한 문제를 해결 하는 방법을 설명 하겠습니다.
 
-## <a name="small-to-medium-on-premises-network-considerations"></a>작은 중간 온-프레미스 네트워크 고려 사항
+## <a name="small-to-medium-on-premises-network-considerations"></a>중소 규모 온-프레미스 네트워크 고려 사항
 
-다음 다이어그램에 표시 된 예제에서는 네트워크를 생각해 보겠습니다. 예제에서는 지역 중복 ExpressRoute 연결을 Contoso의 온-프레미스 위치 및 Azure 지역에서 Contoso의 VNet 간에 설정 됩니다. 다이어그램에서 녹색 실선 (ExpressRoute 1)를 통해 기본 경로 나타냅니다 및 점선으로 표시 된 것 (ExpressRoute 2)를 통해 대기 경로 나타냅니다.
+다음 다이어그램에 나와 있는 예제 네트워크를 살펴보겠습니다. 이 예제에서 지역 중복 Express 경로 연결은 Contoso의 온-프레미스 위치와 Azure 지역의 Contoso VNet 간에 설정 됩니다. 다이어그램에서 녹색 실선은 기본 경로 (Express 경로 1을 통해)를 나타내고 점 하나는 기본 경로 (Express 경로 2를 통해)를 나타냅니다.
 
 [![1]][1]
 
-재해 복구에 대 한 ExpressRoute 연결을 디자인할 때 고려해 야 합니다.
+재해 복구를 위한 Express 경로 연결을 디자인 하는 경우 다음을 고려해 야 합니다.
 
-- 지역 중복 ExpressRoute 회로 사용 하 여
-- 서로 다른 ExpressRoute 회로 대 한 다양 한 서비스 공급자 네트워크를 사용 하 여
-- 각 ExpressRoute 회로 대 한 디자인 [고가용성][HA]
-- 고객 네트워크에 다른 위치에서 다른 ExpressRoute 회로 종료합니다.
+- 지역 중복 Express 경로 회로 사용
+- 다른 Express 경로 회로에 다양 한 서비스 공급자 네트워크 사용
+- [고가용성][HA] 을 위해 각 express 경로 회로 디자인
+- 고객 네트워크의 다른 위치에 있는 다른 Express 경로 회로 종료
 
-기본적으로 모든 ExpressRoute 경로 통해 동일한 경로 보급 하는 경우 Azure는 온-프레미스 바인딩된 트래픽 부하 분산 같은 비용 다중 경로 (ECMP) 라우팅을 사용 하 여 모든 ExpressRoute 경로에서.
+기본적으로 모든 Express 경로 경로에 대해 동일한 경로를 보급 하는 경우 Azure는 동일한 ECMP (다중 경로) 라우팅을 사용 하 여 모든 Express 경로 경로에서 온-프레미스 바인딩된 트래픽을 부하 분산 합니다.
 
-그러나 지역 중복 ExpressRoute 회로 사용 하 여 해야 다른 네트워크 경로 (특히 네트워크 대기 시간)를 사용 하 여 다른 네트워크 성능을 고려해 야 합니다. 정상적인 작업 중 더 일관 된 네트워크 성능을 얻으려면 최소 대기 시간을 제공 하는 ExpressRoute 회로 선호 하는 것이 좋습니다.
+그러나 지역 중복 Express 경로 회로를 사용 하는 경우 네트워크 경로 (특히 네트워크 대기 시간)를 사용 하 여 서로 다른 네트워크 성능을 고려해 야 합니다. 정상적인 작업 중에 네트워크 성능을 일관 되 게 유지 하려면 최소 대기 시간을 제공 하는 Express 경로 회로를 사용 하는 것이 좋습니다.
 
-다른 (효율성 순서 대로 나열 됨) 다음 방법 중 하나를 사용 하 여 보다 이상의 ExpressRoute 회로 사용 하려면 Azure 영향을 줄 수 있습니다.
+다음 기술 중 하나를 사용 하 여 다른 Express 경로 회로에 대 한 하나의 Express 경로 회로를 선호 하도록 Azure에 영향을 줄 수 있습니다 (효율성 순서로 나열 됨).
 
-- 다른 ExpressRoute 회로에 비해 기본 ExpressRoute 회로 통해 보다 구체적인 경로 보급
-- 기본 ExpressRoute 회로에 가상 네트워크를 연결 하는 연결에서 더 높은 연결 가중치를 구성 합니다.
-- (경로 앞)에 따라 더 AS 경로 사용 하 여 작은 기본 ExpressRoute 회로 통해 경로 보급
+- 다른 Express 경로 회로와 비교 하 여 선호 하는 Express 경로 회로에서 보다 구체적인 경로를 보급 합니다.
+- 가상 네트워크를 기본 설정 된 Express 경로 회로에 연결 하는 연결에서 더 높은 연결 가중치 구성
+- 경로 앞에 경로를 추가 하 여 선호 하는 Express 경로 회로에서 경로를 더 길게 보급 합니다.
 
 ### <a name="more-specific-route"></a>보다 구체적인 경로
 
-다음 다이어그램은 보다 구체적인 경로 보급을 사용 하 여 미칠 ExpressRoute 경로 선택 합니다. 그림 예에서 Contoso 온-프레미스/24 IP 범위는 기본 경로 (ExpressRoute 1)를 통해 두 개의/25 주소 범위와 / 24 대기 경로 (ExpressRoute 2)를 통해 보급 됩니다.
+다음 다이어그램은 보다 구체적인 경로 광고를 사용 하는 Express 경로 선택 항목을 보여 줍니다. 예를 들어, Contoso 온-프레미스/24 IP 범위는 기본 경로 (Express 경로 1)를 통해 2/25 주소 범위로, 그리고 (Express 경로 2)를 통해/24로 보급 됩니다.
 
 [![2]][2]
 
-/ 25 보다 구체적인 이기 때문 에/24에 비해 Azure가 보냅니다 10.1.11.0/24 표준 상태의 ExpressRoute 1을 통해 대상이 지정 된 트래픽을 합니다. ExpressRoute 1의 두 연결의 작동이 다음 VNet은 참조 ExpressRoute 2; 통해서만 10.1.11.0/24 경로 보급 알림 및 따라서 대기 회로이 오류 상태에 사용 됩니다.
+/25는/24와 비교 하 여 더 구체적 이므로 Azure는 표준 상태에서 Express 경로 1을 통해 10.1.11.0/24로 향하는 트래픽을 전송 합니다. Express 경로 1의 연결이 중단 되 면 VNet은 Express 경로 2를 통해서만 10.1.11.0/24 경로 알림을 볼 수 있습니다. 따라서이 오류 상태에서 대기 회로가 사용 됩니다.
 
 ### <a name="connection-weight"></a>연결 가중치
 
-다음 스크린샷은 Azure portal 통해 ExpressRoute 연결의 가중치를 구성 하는 방법을 보여 줍니다.
+다음 스크린샷은 Azure Portal를 통해 Express 경로 연결의 무게를 구성 하는 방법을 보여 줍니다.
 
 [![3]][3]
 
-다음 다이어그램에서는 연결 가중치를 사용 하 여 미칠 ExpressRoute 경로 선택 합니다. 기본 연결 가중치는 0입니다. 아래 예제에서 ExpressRoute 1에 대 한 연결의 가중치는 100으로 구성 됩니다. VNet에 둘 이상의 ExpressRoute 회로 통해 보급 된 경로 접두사를 받으면 VNet 가중치가 가장 높은 연결을 선호 합니다.
+다음 다이어그램에서는 연결 가중치를 사용 하는 Express 경로 선택 경로 선택에 대해 설명 합니다. 기본 연결 가중치는 0입니다. 아래 예제에서는 Express 경로 1에 대 한 연결의 가중치가 100로 구성 됩니다. VNet은 둘 이상의 Express 경로 회로를 통해 보급 된 경로 접두사를 받을 때 가장 높은 가중치가 있는 연결을 선호 합니다.
 
 [![4]][4]
 
-ExpressRoute 1의 두 연결의 작동이 다음 VNet은 참조 ExpressRoute 2; 통해서만 10.1.11.0/24 경로 보급 알림 및 따라서 대기 회로이 오류 상태에 사용 됩니다.
+Express 경로 1의 연결이 중단 되 면 VNet은 Express 경로 2를 통해서만 10.1.11.0/24 경로 알림을 볼 수 있습니다. 따라서이 오류 상태에서 대기 회로가 사용 됩니다.
 
-### <a name="as-path-prepend"></a>경로 앞에 추가
+### <a name="as-path-prepend"></a>AS path 앞에 추가
 
-다음 다이어그램에서는 미칠 ExpressRoute 경로 선택을 경로 앞에 추가 하는 대로 사용 하 여 보여 줍니다. 다이어그램 1 ExpressRoute를 통해 경로 보급 eBGP의 기본 동작을 나타냅니다. ExpressRoute 2를 통해 경로 보급 알림에서 온-프레미스 네트워크의 ASN은 또한에 추가 경로 경로로. 동일한 경로 eBGP 경로 선택 프로세스당 여러 ExpressRoute 회로 통해 수신 되는 경우 VNet 경로와 가장 짧은 경로 선호 합니다. 
+다음 다이어그램에서는 AS path 앞에를 사용 하는 Express 경로 선택 경로 선택을 보여 줍니다. 다이어그램에서 Express 경로 1을 통한 경로 보급 알림은 eBGP의 기본 동작을 나타냅니다. Express 경로 2를 통한 경로 알림에서 온-프레미스 네트워크의 ASN이 경로 AS 경로에 추가로 붙습니다. 여러 Express 경로 회로를 통해 동일한 경로를 수신 하는 경우 (eBGP 경로 선택 프로세스에 따라) VNet은 최단 경로로 경로를 선호 합니다. 
 
 [![5]][5]
 
-ExpressRoute 1의 두 연결의 작동이 VNet이 ExpressRoute 2를 통해서만 10.1.11.0/24 경로 광고를 표시 됩니다. 검사가 경로로 길수록는 생기고 있습니다. 따라서이 오류 상태에 대기 회로 사용할 것입니다.
+Express 경로 1의 연결이 중단 되 면 VNet은 Express 경로 2를 통해서만 10.1.11.0/24 경로 알림을 볼 수 있습니다. Consequentially 경로는 관련성이 떨어질 수 있습니다. 따라서이 오류 상태에서 대기 회로가 사용 됩니다.
 
-기술 중 하나를 사용 하 여 다른 ExpressRoute 중 하나를 사용 하려면 Azure를 영향을 주는 경우에 해야 온-프레미스 네트워크도 Azure 바인딩 트래픽을 비대칭 흐름을 방지 하려면 동일한 ExpressRoute 경로 선호 합니다. 일반적으로 로컬 기본 설정 값에 다른 하나의 ExpressRoute 회로 사용 하려면 온-프레미스 네트워크를 영향을 주는 사용 됩니다. 로컬 환경에 내부 BGP (iBGP) 메트릭 되어 있습니다. 가장 높은 로컬 기본 설정 값을 사용 하 여 BGP 경로 것이 좋습니다.
+Azure에 영향을 주는 방법 중 하나를 사용 하 여 다른 사용자에 대 한 Express 경로를 선호 하는 경우에도 온-프레미스 네트워크에서 Azure 바운드 트래픽에 대해 동일한 Express 경로 경로를 사용 하 여 비대칭 흐름을 방지 하도록 해야 합니다. 일반적으로 로컬 기본 설정 값은 온-프레미스 네트워크에 영향을 주므로 다른 Express 경로 회로를 선호 하는 데 사용 됩니다. 로컬 기본 설정은 iBGP (내부 BGP) 메트릭입니다. 로컬 기본 설정 값이 가장 높은 BGP 경로를 사용 하는 것이 좋습니다.
 
 > [!IMPORTANT]
-> 특정 ExpressRoute 회로 사용 하 여 대기로 능동적으로 관리 하 고 주기적으로 장애 조치 작업을 테스트 해야 합니다. 
+> 특정 Express 경로 회로를 사용 하는 경우 적극적으로 관리 하 고 장애 조치 (failover) 작업을 정기적으로 테스트 해야 합니다. 
 > 
 
-## <a name="large-distributed-enterprise-network"></a>대규모 분산된 엔터프라이즈 네트워크
+## <a name="large-distributed-enterprise-network"></a>대량 분산 엔터프라이즈 네트워크
 
-대규모 분산된 엔터프라이즈 네트워크에 있는 경우에 여러 ExpressRoute 회로 포함할 가능성이 있습니다. 이 섹션에서는 활성-활성 ExpressRoute 회로 사용 하 여 추가 독립에서 회로 하지 않고도 재해 복구를 설계 하는 방법을 살펴보겠습니다. 
+분산 된 기업 네트워크가 많은 경우 Express 경로 회로가 여러 개 있을 가능성이 높습니다. 이 섹션에서는 추가 독립 실행형 회로를 필요로 하지 않고 활성-활성 Express 경로 회로를 사용 하 여 재해 복구를 설계 하는 방법을 알아보겠습니다. 
 
-다음 다이어그램에 설명 된 예제를 살펴보겠습니다. 예제에서는 Contoso에는 두 개의 서로 다른 두 피어 링 위치에서 ExpressRoute 회로 통해 서로 다른 두 Azure 지역에서 두 Contoso IaaS 배포에 연결 된 온-프레미스 위치입니다. 
+다음 다이어그램에 나와 있는 예제를 살펴보겠습니다. 이 예에서 Contoso는 두 개의 서로 다른 피어 링 위치에서 Express 경로 회로를 통해 두 개의 다른 Azure 지역에 두 개의 Contoso IaaS 배포에 연결 된 두 개의 온-프레미스 위치를 가집니다. 
 
 [![6]][6]
 
-지역 간 교차 위치 (지역 1/region2 location2/location1에) 트래픽이 라우팅되는 방법을에 영향을 줄에 재해 복구 구축 하는 방법 다르게 교차 지역 위치 트래픽을 라우팅하는 두 개의 서로 다른 재해 아키텍처를 살펴보겠습니다.
+재해 복구를 설계 하는 방법에 따라 지역별 지역 간 위치 간 (region1/region2 location2/location1) 트래픽이 라우팅되는 방법에 영향을 줍니다. 지역 간 위치 트래픽을 다르게 라우팅하는 서로 다른 두 가지 재해 아키텍처를 살펴보겠습니다.
 
 ### <a name="scenario-1"></a>시나리오 1
 
-첫 번째 시나리오에서는 모든 Azure 지역과 온-프레미스 네트워크 간의 트래픽은 안정적인 상태에서 로컬 ExpressRoute 회로 통해 재해 복구를 설계 해 보겠습니다. 로컬 ExpressRoute 회로가 실패 하면, 그런 다음 원격 ExpressRoute 회로 Azure 사이의 모든 트래픽 흐름에 사용 되 고 온-프레미스 네트워크.
+첫 번째 시나리오에서는 Azure 지역과 온-프레미스 네트워크 간의 모든 트래픽이 로컬 Express 경로 회로를 통해 안정 된 상태로 이동 하도록 재해 복구를 설계 합니다. 로컬 Express 경로 회로가 실패 한 경우 원격 Express 경로 회로는 Azure와 온-프레미스 네트워크 간의 모든 트래픽 흐름에 사용 됩니다.
 
-다음 다이어그램은 시나리오 1과 같습니다. 다이어그램에서 녹색 선은 VNet1 및 온-프레미스 네트워크 간의 트래픽 흐름에 대 한 경로 나타냅니다. 파란색 선은 VNet2와 온-프레미스 네트워크 간의 트래픽 흐름에 대 한 경로 나타냅니다. 실선 안정적인 상태의 원하는 경로 나타내고, 파선 안정적인 상태 트래픽 흐름을 전달 하는 해당 ExpressRoute 회로의 오류 트래픽 경로 나타냅니다. 
+시나리오 1은 다음 다이어그램에 설명 되어 있습니다. 다이어그램에서 녹색 선은 VNet1와 온-프레미스 네트워크 간의 트래픽 흐름 경로를 표시 합니다. 파란색 선은 VNet2와 온-프레미스 네트워크 간의 트래픽 흐름 경로를 표시 합니다. 실선은 안정적인 상태에서 원하는 경로를 나타내고 파선은 안정적인 상태 트래픽 흐름을 전달 하는 해당 하는 Express 경로 회로 오류의 트래픽 경로를 표시 합니다. 
 
 [![7]][7]
 
-에 바인딩된 트래픽을 온-프레미스 네트워크에 대 한 로컬 피어 링 위치 ExpressRoute 연결을 사용 하려면 Vnet을 영향을 주는 연결 가중치를 사용 하 여 시나리오를 설계 하 합니다. 솔루션 완료 하는 데 대칭 역방향 트래픽 흐름을 확인 해야 합니다. ExpressRoute 회로 사용 하려면 (에 ExpressRoute 회로 종료 온-프레미스 쪽에서) BGP 라우터 간에 로컬 기본 설정을 iBGP 세션에서 사용할 수 있습니다. 다음 다이어그램은 솔루션을 보여 줍니다. 
+Vnet에 영향을 주는 연결 가중치를 사용 하 여 온-프레미스 네트워크 바운드 트래픽에 대 한 로컬 피어 링 위치에 대 한 연결을 선호 하는 시나리오를 설계할 수 있습니다. 이 솔루션을 완료 하려면 대칭 역방향 트래픽 흐름을 확인 해야 합니다. BGP 라우터 (온-프레미스 쪽에서 Express 경로 회로가 종료 됨) 간의 iBGP 세션에서 로컬 기본 설정을 사용 하 여 Express 경로 회로를 선호 합니다. 이 솔루션은 다음 다이어그램에 설명 되어 있습니다. 
 
 [![8]][8]
 
 ### <a name="scenario-2"></a>시나리오 2
 
-시나리오 2는 다음 다이어그램에 나와 있습니다. 다이어그램에서 녹색 선은 VNet1 및 온-프레미스 네트워크 간의 트래픽 흐름에 대 한 경로 나타냅니다. 파란색 선은 VNet2와 온-프레미스 네트워크 간의 트래픽 흐름에 대 한 경로 나타냅니다. 안정적인-상태 (다이어그램에서 실선)에서는 모든 Vnet 및 온-프레미스 위치 간의 트래픽은 Microsoft 백본을 통해 대부분의 경우 flow 간의 상호 연결을 통과 온-프레미스 위치 (점선의 오류 상태에만 다이어그램) ExpressRoute입니다.
+시나리오 2는 다음 다이어그램에 설명 되어 있습니다. 다이어그램에서 녹색 선은 VNet1와 온-프레미스 네트워크 간의 트래픽 흐름 경로를 표시 합니다. 파란색 선은 VNet2와 온-프레미스 네트워크 간의 트래픽 흐름 경로를 표시 합니다. 안정적인 상태 (다이어그램의 실선)에서 Vnet 및 온-프레미스 위치 간의 모든 트래픽은 대부분의 경우 Microsoft 백본을 통해 이동 하 고, 장애 상태 (의 점선 줄)에 있는 온-프레미스 위치 간 상호 연결만을 통해 흐릅니다. 다이어그램)
 
 [![9]][9]
 
-다음 다이어그램은 솔루션을 보여 줍니다. 시나리오를 하거나 설계 수 있듯이, VNet 경로 선택에 영향을 줍니다 (옵션 2) 앞에 보다 구체적인 경로 (옵션 1) 또는 AS path를 사용 하 여 합니다. Azure 바인딩된 트래픽을 온-프레미스 네트워크 경로 선택에 영향을 줍니다, 떨어지는 것으로 선호 온-프레미스 위치 간 상호 연결을 구성 해야 합니다. 로드하우 선호으로 상호 연결 링크를 구성 하면 온-프레미스 네트워크 내에서 사용 하는 라우팅 프로토콜에 따라 달라 집니다. IBGP 또는 IGP (OSPF 또는 IS IS)를 사용 하 여 메트릭을 사용 하 여 로컬 기본 설정을 사용할 수 있습니다.
+이 솔루션은 다음 다이어그램에 설명 되어 있습니다. 앞에서 설명한 것 처럼 VNet 경로 선택에 영향을 주는 보다 구체적인 경로 (옵션 1) 또는 경로 앞에 추가 (옵션 2)를 사용 하 여 시나리오를 설계할 수 있습니다. Azure 바운드 트래픽에 대 한 온-프레미스 네트워크 경로 선택에 영향을 미치는 경우 온-프레미스 위치 간 연결을 보다 낮은 수준으로 구성 해야 합니다. 로드하우 연결을 구성 하는 것은 온-프레미스 네트워크 내에서 사용 되는 라우팅 프로토콜에 따라 달라 집니다. IGP (OSPF 또는 is IS IS)와 함께 iBGP 또는 메트릭과 함께 로컬 기본 설정을 사용할 수 있습니다.
 
 [![10]][10]
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 ExpressRoute 회로 개인 피어 링 연결의 재해 복구를 위한 디자인 하는 방법에 설명 했습니다. 다음 문서 주소 재해 복구 응용 프로그램 및 프런트 엔드 액세스 관점에서:
+이 문서에서는 Express 경로 회로 개인 피어 링 연결의 재해 복구를 설계 하는 방법에 대해 설명 했습니다. 다음 문서에서는 응용 프로그램 및 프런트 엔드 액세스 관점에서의 재해 복구에 대해 다룹니다.
 
 - [엔터프라이즈급 재해 복구][Enterprise DR]
 - [Azure Site Recovery를 사용한 SMB 재해 복구][SMB DR]
 
 <!--Image References-->
-[1]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/one-region.png "작아서 중간 크기 온-프레미스 네트워크 고려 사항"
-[2]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/specificroute.png "보다 구체적인 경로 사용 하 여 경로 선택에 영향을 주는"
-[3]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/configure-weight.png "Azure portal 통해 연결 가중치를 구성 합니다."
-[4]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/connectionweight.png "연결 가중치를 사용 하 여 경로 선택에 영향을 주는"
-[5]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/aspath.png "경로로 사용 하 여 경로 선택에 영향을 주는 앞에 추가"
-[6]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png "대규모 분산된 온-프레미스 네트워크 고려 사항"
-[7]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch1.png "scenario 1"
-[8]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol1.png "활성-활성 ExpressRoute 회로 솔루션 1"
+[1]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/one-region.png "중소 규모의 온-프레미스 네트워크 고려 사항"
+[2]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/specificroute.png "더 구체적인 경로를 사용 하 여 경로 선택에 영향"
+[3]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/configure-weight.png "Azure Portal를 통해 연결 가중치 구성"
+[4]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/connectionweight.png "연결 가중치를 사용 하 여 경로 선택에 영향"
+[5]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/aspath.png에 "영향을 주는 경로 선택에 사용 경로" 추가
+[6]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region.png "개의 대량 분산 온-프레미스 네트워크 고려 사항"
+[7]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch1.png "시나리오 1"
+[8]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol1.png "활성-활성 express 경로 회로 솔루션 1"
 [9]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-arch2.png "시나리오 2"
-[10]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol2.png "활성-활성 ExpressRoute 회로 솔루션 2"
+[10 개의]: ./media/designing-for-disaster-recovery-with-expressroute-pvt/multi-region-sol2.png "활성-활성 express 경로 회로 솔루션 2"
 
 <!--Link References-->
 [HA]: https://docs.microsoft.com/azure/expressroute/designing-for-high-availability-with-expressroute

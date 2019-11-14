@@ -1,20 +1,16 @@
 ---
-title: 코드 워크플로로 정책 디자인
+title: 코드 워크플로서의 디자인 정책
 description: Azure Policy 정의를 코드로 배포 하 고 리소스의 유효성을 자동으로 검사 하는 워크플로를 디자인 하는 방법을 알아봅니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: e3fcb9996266af7e952538c7c92c665929bb9492
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 935616145ee32bea8c3b514c495690ce4105cb80
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518698"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072083"
 ---
-# <a name="design-policy-as-code-workflows"></a>코드 워크플로로 정책 디자인
+# <a name="design-policy-as-code-workflows"></a>코드 워크플로서의 디자인 정책
 
 클라우드 거 버 넌 스를 진행 하면서, Azure Portal의 각 정책 정의를 수동으로 관리 하거나 다양 한 Sdk를 통해 엔터프라이즈 규모에서 보다 관리 하기 쉽고 반복 가능한 것으로 전환 하려고 합니다. 클라우드에서 대규모 시스템을 관리 하는 방법에는 다음 두 가지가 있습니다.
 

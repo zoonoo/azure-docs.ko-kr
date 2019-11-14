@@ -1,5 +1,5 @@
 ---
-title: Azure의 Linux VM에서 사용자 지정 스크립트 실행 | Microsoft Docs
+title: Azure에서 Linux Vm에 대 한 사용자 지정 스크립트 실행
 description: 사용자 지정 스크립트 확장 v2를 사용하여 Linux VM 구성 작업 자동화
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: akjosh
-ms.openlocfilehash: 86c05519e7027ec8b7434919bf43f9b4602b0300
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 87826b5bec4294ce45355ab0cfc4df373895563b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789952"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073222"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Linux 가상 머신에서 Azure 사용자 지정 스크립트 확장 버전 2 사용
 사용자 지정 스크립트 확장 버전 2는 Azure 가상 머신에서 스크립트를 다운로드하고 실행합니다. 이 확장은 배포 후 구성, 소프트웨어 설치 또는 기타 구성/관리 작업에 유용합니다. 스크립트를 Azure Storage 또는 기타 액세스가 가능한 인터넷 위치에서 다운로드하거나 확장 런타임을 제공할 수 있습니다. 
@@ -38,7 +38,7 @@ ms.locfileid: "72789952"
 
 ### <a name="operating-system"></a>운영 체제
 
-Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확장에서 실행됩니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)를 참조하세요.
+Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확장에서 실행됩니다. 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)를 참조하세요.
 
 ### <a name="script-location"></a>스크립트 위치
 
@@ -58,7 +58,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 * 다시 부팅 해야 하는 스크립트가 있는 경우 응용 프로그램을 설치 하 고 스크립트를 실행 합니다. Cron 작업을 사용 하거나 DSC, Chef, 퍼핏 확장 등의 도구를 사용 하 여 다시 부팅을 예약 해야 합니다.
 * 확장은 스크립트를 한 번만 실행합니다. 부팅할 때마다 스크립트를 실행하려는 경우 [cloud-init 이미지](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init)를 사용하고 [부팅 단위 스크립트](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot) 모듈을 사용할 수 있습니다. 또는 Systemd 서비스 단위를 만드는 스크립트를 사용할 수 있습니다.
 * 스크립트가 실행될 시기를 예약하려면 Cron 작업을 만드는 확장을 사용해야 합니다. 
-* 스크립트가 실행 중인 경우 Azure Portal 또는 CLI에서 '전환 중' 확장 상태만 표시됩니다. 실행 중인 스크립트의 상태 업데이트를 자주 수행하려면 사용자 고유의 솔루션을 만들어야 합니다.
+* 스크립트를 실행하는 경우 Azure Portal 또는 CLI에서 ‘전환 중’ 확장 상태만 표시됩니다. 실행 중인 스크립트의 상태 업데이트를 더 자주 수행하려는 경우 사용자 고유의 솔루션을 만들어야 합니다.
 * 사용자 지정 스크립트 확장이 고유하게 프록시 서버를 지원하지는 않지만 *Curl*과 같은 스크립트 내에서 프록시 서버를 지원하는 파일 전송 도구를 사용할 수 있습니다. 
 * 스크립트 또는 명령이 사용할 수 있는 기본이 아닌 디렉터리 위치에는 이를 처리하기 위한 논리가 있습니다.
 
@@ -70,7 +70,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 
 중요한 데이터는 보호된 구성에 저장하면 암호화된 후 가상 머신 내에서만 해독됩니다. 보호된 구성은 실행 명령에 암호와 같은 기밀 정보가 포함될 때 유용합니다.
 
-이러한 항목은 중요한 데이터로 처리하고 확장으로 보호되는 설정 구성에 지정되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 머신에서만 해독됩니다.
+이러한 항목은 중요한 데이터로 처리하고 확장으로 보호되는 설정 구성에 지정되어야 합니다. Azure VM 확장으로 보호되는 설정 데이터는 암호화되어 대상 가상 컴퓨터에서만 해독됩니다.
 
 ```json
 {
@@ -106,19 +106,19 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 
 ### <a name="property-values"></a>속성 값
 
-| name | 값/예제 | 데이터 형식 | 
+| 이름 | 값/예제 | 데이터 형식 | 
 | ---- | ---- | ---- |
 | apiVersion | 2019-03-01 | date |
-| publisher | Microsoft.Compute.Extensions | 문자열 |
-| type | CustomScript | 문자열 |
+| publisher | Microsoft.Compute.Extensions | string |
+| type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris(예) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute(예) | python MyPythonScript.py \<내 param1 > | 문자열 |
-| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | 문자열 |
-| skipDos2Unix(예) | false | 부울 |
+| commandToExecute(예) | python MyPythonScript.py \<my-param1> | string |
+| script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
+| skipDos2Unix(예) | false | boolean |
 | timestamp(예) | 123456789 | 32비트 정수 |
-| storageAccountName(예) | examplestorageacct | 문자열 |
-| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
+| storageAccountName(예) | examplestorageacct | string |
+| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 
 ### <a name="property-value-details"></a>속성 값 세부 정보
 * `skipDos2Unix`: (옵션, 부울) 스크립트 기반 파일 URL 또는 스크립트의 dos2unix 변환을 건너뜁니다.
@@ -127,7 +127,7 @@ Linux용 사용자 지정 스크립트 확장은 지원되는 확장 OS의 확�
 * `script`: (commandToExecute를 설정하지 않은 경우 **필수**, 문자열) /bin/sh로 실행된 base64 인코딩(및 필요에 따라 gzip 압축) 스크립트입니다.
 * `fileUris`: (옵션, 문자열 배열) 다운로드할 파일에 대한 URL입니다.
 * `storageAccountName`: (옵션, 문자열) 스토리지 계정에 대한 이름입니다. 스토리지 자격 증명을 지정하는 경우 모든 `fileUris`는 Azure Blob에 대한 URL이어야 합니다.
-* `storageAccountKey`: (선택 사항, 문자열) 스토리지 계정의 액세스 키
+* `storageAccountKey`: (옵션, 문자열) 스토리지 계정의 액세스 키입니다.
 
 
 다음 값은 공용 또는 보호된 설정 중 하나에서 설정할 수 있습니다. 확장은 공용 및 보호된 설정 모두에 아래 값이 설정된 모든 구성을 거부합니다.

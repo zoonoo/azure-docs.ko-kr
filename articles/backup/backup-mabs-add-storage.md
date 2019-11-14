@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 48d58ac303a843c627067c9a0287628c35b65f66
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 15bf955d6055ed91b486d34cf9d805de34e9f8f5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019065"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074820"
 ---
 # <a name="add-storage-to-azure-backup-server"></a>Azure Backup Server에 스토리지 추가
 
@@ -27,13 +27,13 @@ Azure Backup Server V2 이상은 스토리지를 50% 절약할 수 있고, 백�
 
 Backup Server V2는 스토리지 볼륨을 허용합니다. 볼륨을 추가하면 Backup Server에서는 볼륨 형식을 Modern Backup Storage에 필요한 ReFS(Resilient File System)로 지정합니다. 볼륨을 추가하고 필요한 경우 나중에 확장하려면 이 워크플로를 사용하는 것이 좋습니다.
 
-1.  VM에 Backup Server를 설치합니다.
-2.  스토리지 풀의 가상 디스크에 볼륨을 만듭니다.
-    1.  스토리지 풀에 디스크를 추가하고 간단한 레이아웃으로 가상 디스크를 만듭니다.
-    2.  다른 디스크를 추가하고 가상 디스크를 확장합니다.
-    3.  가상 디스크에 볼륨을 만듭니다.
-3.  Backup Server에 볼륨을 추가합니다.
-4.  워크로드 인식 스토리지를 구성합니다.
+1. VM에 Backup Server를 설치합니다.
+2. 스토리지 풀의 가상 디스크에 볼륨을 만듭니다.
+    1. 스토리지 풀에 디스크를 추가하고 간단한 레이아웃으로 가상 디스크를 만듭니다.
+    2. 다른 디스크를 추가하고 가상 디스크를 확장합니다.
+    3. 가상 디스크에 볼륨을 만듭니다.
+3. Backup Server에 볼륨을 추가합니다.
+4. 워크로드 인식 스토리지를 구성합니다.
 
 ## <a name="create-a-volume-for-modern-backup-storage"></a>Modern Backup Storage에 대한 볼륨 만들기
 
@@ -75,15 +75,16 @@ Backup Server에 볼륨을 추가하려면 **관리** 창에서 스토리지를 
 
 ### <a name="update-dpmdiskstorage"></a>Update-DPMDiskStorage
 
-Azure Backup Server에서 저장소 풀의 볼륨 속성을 업데이트 하는 PowerShell cmdlet 업데이트-DPMDiskStorage를 사용 하 여 워크 로드 인식 저장소를 설정할 수 있습니다. 
+Azure Backup Server에서 저장소 풀의 볼륨 속성을 업데이트 하는 PowerShell cmdlet 업데이트-DPMDiskStorage를 사용 하 여 워크 로드 인식 저장소를 설정할 수 있습니다.
 
-구문:
+구문
 
 `Parameter Set: Volume`
 
 ```powershell
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
+
 다음 스크린샷은 PowerShell 창의 Update-DPMDiskStorage cmdlet을 보여 줍니다.
 
 ![PowerShell 창의 Update-DPMDiskStorage 명령](./media/backup-mabs-add-storage/mabs-add-storage-8.png)
@@ -92,8 +93,8 @@ PowerShell을 사용하여 변경하는 내용은 Backup Server 관리자 콘솔
 
 ![관리자 콘솔의 디스크 및 볼륨](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
-
 ## <a name="migrate-legacy-storage-to-modern-backup-storage"></a>Modern Backup Storage로 레거시 스토리지 마이그레이션
+
 Backup Server V2로 업그레이드하거나 이 버전을 설치하고 운영 체제를 Windows Server 2016으로 업그레이드한 후 Modern Backup Storage를 사용하도록 보호 그룹을 업데이트합니다. 기본적으로 보호 그룹은 변경되지 않습니다. 보호 그룹은 처음에 설정된 대로 계속 작동합니다.
 
 Modern Backup Storage를 사용하도록 보호 그룹을 업데이트하는 것은 선택 사항입니다. 보호 그룹을 업데이트하려면 데이터 보존 옵션을 사용하여 모든 데이터 원본의 보호를 중지합니다. 그다음에 데이터 원본을 새 보호 그룹에 추가합니다.
@@ -120,11 +121,12 @@ Backup Server에서 레거시 스토리지를 사용하려면 디스크를 추�
 
     ![디스크 스토리지 추가 대화 상자](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
-4. **디스크 스토리지 추가** 대화 상자에서 **디스크 추가**를 선택합니다.
+2. **디스크 스토리지 추가** 대화 상자에서 **디스크 추가**를 선택합니다.
 
-5. 사용 가능한 디스크 목록에서 추가할 디스크를 선택하고, **추가**를 선택하고 나서, **확인**을 선택합니다.
+3. 사용 가능한 디스크 목록에서 추가할 디스크를 선택하고, **추가**를 선택하고 나서, **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 Backup Server를 설치한 후 서버를 준비하는 방법을 알아보거나 워크로드 보호를 시작합니다.
 
 - [Backup Server 워크로드 준비](backup-azure-microsoft-azure-backup.md)
