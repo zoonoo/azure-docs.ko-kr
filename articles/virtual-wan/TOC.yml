@@ -8,7 +8,7 @@
   items:
     - name: 사이트 간 연결 만들기
       href: virtual-wan-site-to-site-portal.md
-    - name: 지점 및 사이트 간 연결 만들기
+    - name: 사용자 VPN(지점 및 사이트 간) 연결 만들기
       href: virtual-wan-point-to-site-portal.md
     - name: ExpressRoute 연결 만들기
       href: virtual-wan-expressroute-portal.md
@@ -20,36 +20,38 @@
       href: virtual-wan-ipsec.md
     - name: 아키텍처
       items:
+        - name: Virtual WAN으로 마이그레이션
+          href: migrate-from-hub-spoke-topology.md
         - name: 글로벌 전송 네트워크 아키텍처
           href: virtual-wan-global-transit-network-architecture.md
         - name: Virtual WAN의 Office 365 제어판
           href: virtual-wan-office365-overview.md
 - name: 방법 가이드
   items:
-    - name: 가상 WAN SKU 업그레이드
-      href: upgrade-virtual-wan.md
-    - name: 가상 WAN으로 마이그레이션
-      href: migrate-from-hub-spoke-topology.md
-    - name: ExpressRoute 프라이빗 피어링을 통한 VPN 연결 만들기
-      href: vpn-over-expressroute.md
     - name: 가상 네트워크 게이트웨이를 Virtual WAN에 연결
       href: connect-virtual-network-gateway-vwan.md
     - name: 글로벌 VNet 피어링 구성
       href: global-peering-vnet.md
+    - name: ExpressRoute를 통해 VPN 연결 만들기
+      href: vpn-over-expressroute.md
+    - name: 가상 WAN SKU 업그레이드
+      href: upgrade-virtual-wan.md
     - name: 사용자 지정 IPsec 정책 구성
       href: virtual-wan-custom-ipsec-portal.md
-    - name: 사용자 VPN에 대한 인증서 구성
+    - name: 사용자 VPN(지점 및 사이트 간)에 대한 인증서 구성
       href: certificates-point-to-site.md
-    - name: 가상 허브에서 NVA로 트래픽 라우팅
-      items:
-        - name: Azure portal
-          href: virtual-wan-route-table-portal.md
-        - name: Azure PowerShell
-          href: virtual-wan-route-table.md
-    - name: 가상 허브 유효 경로 보기
-      href: effective-routes-virtual-hub.md
-    - name: Virtual WAN 파트너를 위한 자동화
+    - name: 자동화 구성(Virtual WAN 파트너)
       href: virtual-wan-configure-automation-providers.md
+    - name: 라우팅 구성
+      items:
+        - name: 가상 허브에서 NVA로 트래픽 라우팅
+          items:
+            - name: Azure portal
+              href: virtual-wan-route-table-portal.md
+            - name: Azure PowerShell
+              href: virtual-wan-route-table.md
+        - name: 가상 허브 유효 경로 보기
+          href: effective-routes-virtual-hub.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell

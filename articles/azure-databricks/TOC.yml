@@ -856,11 +856,20 @@
             - name: 추적 개요
               href: /azure/databricks/applications/mlflow/tracking
               maintainContext: true
-            - name: MLflow 추적 예제
-              href: /azure/databricks/applications/mlflow/  tracking-examples
+            - name: scikit 학습 모델 학습
+              href: /azure/databricks/applications/mlflow/tracking-ex-scikit
+              maintainContext: true
+            - name: PyTorch 모델 학습
+              href: /azure/databricks/applications/mlflow/tracking-ex-pytorch
+              maintainContext: true
+            - name: PySpark 모델을 학습하고 MLeap 형식으로 저장
+              href: /azure/databricks/applications/mlflow/tracking-ex-pyspark
+              maintainContext: true
+            - name: Delta Lake를 사용하여 ML 모델 학습 데이터 추적
+              href: /azure/databricks/applications/mlflow/tracking-ex-delta
               maintainContext: true
             - name: 외부 액세스 추적
-              href: /azure/databricks/applications/mlflow/  access-hosted-tracking-server
+              href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
               maintainContext: true
         - name: '모델 저장, 로드 및 배포'
           items:
@@ -911,6 +920,9 @@
             - name: Tumor/Normal 파이프라인
               href: /azure/databricks/applications/genomics/secondary/tumor-normal-pipeline
               maintainContext: true
+            - name: 파이프 변환기를 사용한 변형 주석
+              href: /azure/databricks/applications/genomics/secondary/variant-annotation-pipe
+              maintainContext: true
             - name: 변형 주석 메서드
               href: /azure/databricks/applications/genomics/secondary/annotate-variants
               maintainContext: true
@@ -920,26 +932,6 @@
             - name: Vep 파이프라인
               href: /azure/databricks/applications/genomics/secondary/vep-pipeline
               maintainContext: true
-        - name: ETL
-          items:
-            - name: Genomics ETL 개요
-              href: /azure/databricks/applications/genomics/etl/index
-              maintainContext: true
-            - name: Apache Spark SQL을 사용한 변형 IO
-              href: /azure/databricks/applications/genomics/etl/variant-data
-              maintainContext: true
-            - name: Geomics Delta Lake 만들기
-              href: /azure/databricks/applications/genomics/etl/vcf2delta
-              maintainContext: true
-            - name: 변형 품질 제어
-              href: /azure/databricks/applications/genomics/etl/variant-qc
-              maintainContext: true
-            - name: 품질 제어 샘플
-              href: /azure/databricks/applications/genomics/etl/sample-qc
-              maintainContext: true
-            - name: 위로 리프트
-              href: /azure/databricks/applications/genomics/etl/lift-over
-              maintainContext: true
         - name: 3차 분석
           items:
             - name: 3차 분석 개요
@@ -947,18 +939,6 @@
               maintainContext: true
             - name: 유전자형 결합(joint genotyping) 파이프라인
               href: /azure/databricks/applications/genomics/tertiary/joint-genotyping-pipeline
-              maintainContext: true
-            - name: 파이프 변환기를 사용하여 명령줄 도구 병렬 처리
-              href: /azure/databricks/applications/genomics/tertiary/pipe-transformer
-              maintainContext: true
-            - name: 변형 정규화
-              href: /azure/databricks/applications/genomics/tertiary/variant-normalization
-              maintainContext: true
-            - name: 재발 테스트
-              href: /azure/databricks/applications/genomics/tertiary/regression-tests
-              maintainContext: true
-            - name: Python 통계 라이브러리
-              href: /azure/databricks/applications/genomics/tertiary/pandas-udf
               maintainContext: true
             - name: SAIGE
               href: /azure/databricks/applications/genomics/tertiary/saige
@@ -1228,7 +1208,10 @@
               maintainContext: true
             - name: JSON에서 인코딩을 검색하지 못함
               href: /azure/databricks/kb/data-sources/json-unicode
-              maintainContext: true j
+              maintainContext: true
+            - name: WASB에서 파일을 읽을 수 없음
+              href: /azure/databricks/kb/data-sources/wasb-check-blob-types
+              maintainContext: true
         - name: DBFS
           items:
             - name: DBFS 루트에 저장된 개체를 읽을 수 없음
@@ -1550,6 +1533,9 @@
           items:
             - name: 플랫폼 릴리스 정보
               href: /azure/databricks/release-notes/product/index
+              maintainContext: true
+            - name: 2019년 11월
+              href: /azure/databricks/release-notes/product/2019/november
               maintainContext: true
             - name: 2019년 10월
               href: /azure/databricks/release-notes/product/2019/october

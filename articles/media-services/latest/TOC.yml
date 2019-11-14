@@ -138,6 +138,8 @@
         - name: 시간 이동 및 실시간 VOD
           displayName: 'archive, dvr'
           href: live-event-cloud-dvr.md
+        - name: 라이브 전사
+          href: live-transcription.md
         - name: 기능 비교
           href: live-event-types-comparison.md
         - name: 상태 및 청구

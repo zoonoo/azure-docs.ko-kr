@@ -114,6 +114,8 @@
           href: key-vault-group-permissions-for-apps.md
     - name: Event Grid를 사용하여 키 자격 증명 모음 알림 라우팅
       href: event-grid-tutorial.md
+    - name: Azure Policy와 통합
+      href: azure-policy.md
     - name: Azure Key Vault 로깅
       href: key-vault-logging.md
     - name: 방화벽 뒤에 액세스
