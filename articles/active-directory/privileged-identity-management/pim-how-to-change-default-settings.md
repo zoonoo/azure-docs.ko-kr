@@ -1,25 +1,25 @@
 ---
-title: Privileged Identity Management-Azure Active Directory에서 Azure AD 역할 설정 구성 Microsoft Docs
+title: PIM에서 Azure AD 역할 설정 구성-Azure AD | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할 설정을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cff298e24ac185767e6290e396818ccece7b9b55
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ee99a8e75fe8da85b1cf82623ed110991db24b66
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809160"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021807"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 설정 구성
 
@@ -49,7 +49,7 @@ ms.locfileid: "72809160"
 
 **활성화** 슬라이더를 사용하여 역할이 만료되기 전에 활성 상태로 지속되는 최대 시간(시간 단위)을 설정합니다. 이 값은 1 ~ 72시간 사이가 될 수 있습니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 **알림** 스위치를 사용하여 역할이 활성화될 때 관리자가 이메일 알림을 받을지 여부를 지정합니다. 이 알림은 무단 또는 불법 활성화를 검색 하는 데 유용할 수 있습니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "72809160"
 
 **인시던트/요청 티켓** 스위치를 사용 하 여 적격 관리자가 자신의 역할을 활성화할 때 티켓 번호를 포함 하도록 요구할 수 있습니다. 이 방법을 사용 하면 역할 액세스 감사를 보다 효과적으로 수행할 수 있습니다.
 
-## <a name="multi-factor-authentication"></a>다중 인증(Multi-Factor Authentification)
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 **Multi-Factor Authentication** 스위치를 사용하여 사용자가 자신의 역할을 활성화하기 전에 MFA로 신원을 확인하도록 요구할지 여부를 지정할 수 있습니다. 세션 마다 한 번만 id를 확인 하면 되므로 역할을 활성화할 때마다 해당 id를 확인 해야 합니다. MFA를 사용할 때 염두에 두어야 할 두 가지가 있습니다.
 

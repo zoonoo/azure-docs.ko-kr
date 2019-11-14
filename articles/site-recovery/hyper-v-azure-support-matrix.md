@@ -7,20 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 594534f64c984f4afb986d3366f388e412bde27c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 9c0ed5a28f865d5dd53b01f22eb69c7d1b332ecf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961458"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030105"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 온-프레미스 Hyper-V VM을 Azure로 재해 복구하는 데 지원되는 구성 요소와 설정의 요약 정보를 제공합니다.
 
-> [!WARNING]
-> SCVMM 구성을 고려 하는 ASR 지원은 곧 사용 되지 않을 예정 이므로 계속 하기 전에 사용 [중단 세부 정보를 읽는](scvmm-site-recovery-deprecation.md) 것이 좋습니다.
 
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
@@ -91,7 +89,7 @@ Azure Virtual Network 서비스 엔드포인트<br/> (Azure Storage 방화벽 �
 
 ## <a name="hyper-v-host-storage"></a>Hyper-V 호스트 스토리지
 
-**Storage** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
+**저장소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | --- 
 NFS | 해당 없음 | 해당 없음
 SMB 3.0 | 예 | 예
@@ -100,7 +98,7 @@ SAN(ISCSI) | 예 | 예
 
 ## <a name="hyper-v-vm-guest-storage"></a>Hyper-V VM 게스트 스토리지
 
-**Storage** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
+**저장소** | **Hyper-V(Virtual Machine Manager 있음)** | **Hyper-V(Virtual Machine Manager 없음)**
 --- | --- | ---
 VMDK | 해당 없음 | 해당 없음
 VHD/VHDX | 예 | 예
