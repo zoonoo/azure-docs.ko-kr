@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Linux VM의 시간 동기화 | Microsoft Docs
+title: Azure에서 Linux VM의 시간 동기화
 description: Linux 가상 머신의 시간 동기화입니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 7e23b71edd05154f3c19a097ebf92c690426c777
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e5d68a31db3797f9919d044eed284d0d09052390
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100778"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034655"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Azure에서 Linux VM의 시간 동기화
 
-시간 동기화는 보안 및 이벤트 상관 관계에서 중요합니다. 경우에 따라 시간 동기화는 분산 트랜잭션 구현에 사용됩니다. 여러 컴퓨터 시스템 간에 시간 정확도는 동기화를 통해 이루어집니다. 동기화는 재부팅 및 시간 원본 서버와 시간을 페치하는 컴퓨터 간의 네트워크 트래픽을 비롯해 여러 작업에서 영향을 받을 수 있습니다. 
+시간 동기화는 보안 및 이벤트 상관 관계에서 중요합니다. 경우에 따라 시간 동기화는 분산 트랜잭션 구현에 사용됩니다. 여러 컴퓨터 시스템 간에 시간 정확도는 동기화를 통해 이루어집니다. 동기화는 재부팅 및 시간 원본 서버와 시간을 페칭하는 컴퓨터 간의 네트워크 트래픽을 비롯해 여러 작업에서 영향을 받을 수 있습니다. 
 
 Azure는 Windows Server 2016을 실행하는 인프라의 지원을 받습니다. Windows Server 2016은 시간을 수정하고 로컬 시계에 영향을 미치는 데 사용된 알고리즘을 개선하여 UTC와 동기화했습니다.  Windows Server 2016의 정확한 시간 기능은 정확한 시간을 위해 VMICTimeSync 서비스가 호스트를 통해 VM을 제어하는 방법을 크게 개선했습니다. 이러한 개선은 VM 시작 또는 VM 복원 시 시작 시간의 정확도 향상을 포함하며 대기 시간 수정을 중단합니다. 
 
@@ -71,13 +71,13 @@ NTP가 올바르게 동기화하고 있는지 확인하려면 `ntpq -p` 명령�
 
 ### <a name="host-only"></a>호스트 전용 
 
-time.windows.com 및 ntp.ubuntu.com과 같은 NTP 서버는 공용이므로 NTP 서버와 시간을 동기화하려면 인터넷을 통해 트래픽을 보내야 합니다. 가변적인 패킷 지연은 시간 동기화의 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환하여 NTP를 제거하면 경우에 따라 시간 동기화 결과를 향상시킬 수 있습니다.
+time.windows.com 및 ntp.ubuntu.com과 같은 NTP 서버는 공용이므로 NTP 서버와 시간을 동기화하려면 인터넷을 통해 트래픽을 보내야 합니다. 패킷 지연의 변화는 시간 동기화의 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환 하 여 NTP를 제거 하면 시간 동기화 결과를 향상 시킬 수 있습니다.
 
 기본 구성을 사용하는 시간 동기화 문제를 겪는 경우 호스트 전용 시간 동기화로 전환하는 것이 합리적입니다. 이 방법이 VM에서 시간 동기화를 향상시키는지 확인하려면 호스트 전용 동기화를 사용해 보세요. 
 
 ### <a name="external-time-server"></a>외부 시간 서버
 
-특정 시간 동기화 요구 사항이 있는 경우 외부 시간 서버를 사용할 수도 있습니다. 외부 시간 서버는 테스트 시나리오에 유용할 수 있는 특정 시간을 제공하면서 타사 데이터 센터에 호스트된 머신을 사용하여 시간 일관성을 보장하거나, 특별한 방식으로 윤초를 처리할 수 있습니다.
+특정 시간 동기화 요구 사항이 있는 경우 외부 시간 서버를 사용할 수도 있습니다. 외부 시간 서버는 테스트 시나리오에 유용할 수 있는 특정 시간을 제공하면서 타사 데이터센터에 호스팅된 머신을 사용하여 시간 일관성을 보장하거나, 특별한 방식으로 윤초를 처리할 수 있습니다.
 
 외부 시간 서버를 VMICTimeSync 서비스와 결합하여 기본 구성과 유사한 결과를 제공할 수 있습니다. 외부 시간 서버를 VMICTimeSync와 결합하는 기능은 유지 관리를 위해 VM이 일시 중지될 때 발생할 수 있는 문제를 처리하는 가장 좋은 옵션입니다. 
 

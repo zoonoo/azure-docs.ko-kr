@@ -1,25 +1,25 @@
 ---
-title: 라이선스 그룹에 대 한 PowerShell 및 그래프 예제-Azure Active Directory | Microsoft Docs
+title: 그룹 라이선스에 대 한 PowerShell 및 그래프 예제-Azure AD | Microsoft Docs
 description: Azure Active Directory 그룹 기반 라이선스에 대 한 PowerShell + 그래프 예제 및 시나리오
 services: active-directory
 keywords: Azure AD 라이선스
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8965f4872ac88601a4a77dc48ba430c2f419250f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 52a741fd0616fc17ed133309ea6200dca43a83b7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160568"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025569"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Azure AD의 그룹 기반 라이선스에 대 한 PowerShell 및 그래프 예제
 
@@ -39,7 +39,7 @@ ms.locfileid: "73160568"
 (Get-MsolGroup -ObjectId 99c4216a-56de-42c4-a4ac-e411cd8c7c41).Licenses
 | Select SkuPartNumber
 ```
-출력
+출력:
 ```
 SkuPartNumber
 -------------
@@ -55,7 +55,7 @@ EMSPREMIUM
 ```
 GET https://graph.microsoft.com/v1.0/groups/99c4216a-56de-42c4-a4ac-e411cd8c7c41?$select=assignedLicenses
 ```
-출력
+출력:
 ```
 HTTP/1.1 200 OK
 {
@@ -92,7 +92,7 @@ Get-MsolGroup | Where {$_.Licenses} | Select `
     @{Name="Licenses";Expression={$_.Licenses | Select -ExpandProperty SkuPartNumber}}
 ```
 
-출력
+출력:
 ```
 ObjectId                             DisplayName              Licenses
 --------                             -----------              --------
@@ -146,7 +146,7 @@ Get-MsolGroup -All | Where {$_.Licenses}  | Foreach {
 ```
 
 
-출력
+출력:
 ```
 GroupName         GroupId                              GroupLicenses       TotalUserCount LicensedUserCount LicenseErrorCount
 ---------         -------                              -------------       -------------- ----------------- -----------------
@@ -165,7 +165,7 @@ Access to Offi... 11151866-5419-4d93-9141-0603bbf78b42 STANDARDPACK             
 ```powershell
 Get-MsolGroup -HasLicenseErrorsOnly $true
 ```
-출력
+출력:
 ```
 ObjectId                             DisplayName             GroupType Description
 --------                             -----------             --------- -----------
@@ -175,7 +175,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 GET https://graph.microsoft.com/v1.0/groups?$filter=hasMembersWithLicenseErrors+eq+true
 ```
-출력
+출력:
 ```
 HTTP/1.1 200 OK
 {
@@ -219,7 +219,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId |
            @{Name="LicenseError";Expression={$_.IndirectLicenseErrors | Where {$_.ReferencedObjectId -eq $groupId} | Select -ExpandProperty Error}}
 ```
 
-출력
+출력:
 
 ```powershell
 ObjectId                             DisplayName      License Error
@@ -233,7 +233,7 @@ ObjectId                             DisplayName      License Error
 GET https://graph.microsoft.com/v1.0/groups/11151866-5419-4d93-9141-0603bbf78b42/membersWithLicenseErrors
 ```
 
-출력
+출력:
 ```powershell
 HTTP/1.1 200 OK
 {
@@ -271,7 +271,7 @@ Get-MsolUser -All | Where {$_.IndirectLicenseErrors } | % {
     }  
 ```
 
-출력
+출력:
 
 ```powershell
 UserName         UserId                               GroupId                              LicenseError
@@ -378,7 +378,7 @@ Get-MsolUser -All | where {$_.isLicensed -eq $true -and $_.Licenses.AccountSKUID
     @{Name="AssignedFromGroup";Expression={(UserHasLicenseAssignedFromGroup $_ $skuId)}}
 ```
 
-출력
+출력:
 
 ```powershell
 ObjectId                             SkuId       AssignedDirectly AssignedFromGroup
@@ -394,7 +394,7 @@ ObjectId                             SkuId       AssignedDirectly AssignedFromGr
 GET https://graph.microsoft.com/v1.0/users/e61ff361-5baf-41f0-b2fd-380a6a5e406a?$select=licenseAssignmentStates
 ```
 
-출력
+출력:
 
 ```powershell
 HTTP/1.1 200 OK
@@ -607,7 +607,7 @@ Get-MsolGroupMember -All -GroupObjectId $groupId | Get-MsolUser -ObjectId {$_.Ob
 #END: executing the script
 ```
 
-출력
+출력:
 
 ```powershell
 UserId                               OperationResult

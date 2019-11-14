@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 8b4ab0e44f2432056c9c94061c59c99c89a6407d
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 9bfe88c34c78d18f2f5aefb8ae6946b9786030ad
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513425"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023507"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -35,6 +35,13 @@ Sync 명령은 다음과 같은 여러 가지 방법으로 복사 명령과 다�
 2. 가상 디렉터리 간에 동기화 할 때 가상 디렉터리와 동일한 이름의 blob이 있는 경우 경로에 후행 슬래시를 추가 합니다 (예제 참조).
 3. ' DeleteDestination ' 플래그가 true 또는 prompt로 설정 된 경우 sync는 대상에서 원본에 없는 파일 및 blob을 삭제 합니다.
 
+## <a name="related-conceptual-articles"></a>관련 개념 문서
+
+- [AzCopy 시작](storage-use-azcopy-v10.md)
+- [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](storage-use-azcopy-blobs.md)
+- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
+
 ### <a name="advanced"></a>고급
 
 파일 확장명을 지정 하지 않으면 AzCopy는 파일 확장명 또는 콘텐츠 (확장명이 지정 되지 않은 경우)에 따라 로컬 디스크에서 업로드할 때 파일의 콘텐츠 형식을 자동으로 검색 합니다.
@@ -48,10 +55,10 @@ Sync 명령은 다음과 같은 여러 가지 방법으로 복사 명령과 다�
 Windows에서는 레지스트리에서 MIME 형식이 추출 됩니다.
 
 ```azcopy
-azcopy sync [flags]
+azcopy sync <source> <destination> [flags]
 ```
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 단일 파일 동기화:
 
@@ -152,6 +159,6 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 |--0mbps uint32|전송 률 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.|
 |--출력 형식 문자열|명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 - [azcopy](storage-ref-azcopy.md)

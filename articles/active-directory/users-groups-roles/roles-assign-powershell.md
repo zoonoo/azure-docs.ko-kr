@@ -1,24 +1,24 @@
 ---
-title: Azure PowerShell-Azure Active Directory를 사용 하 여 리소스 범위에 사용자 지정 역할 할당 Microsoft Docs
+title: Azure PowerShell를 사용 하 여 사용자 지정 역할 할당-Azure AD | Microsoft Docs
 description: Azure PowerShell를 사용 하 여 Azure AD 관리자 사용자 지정 역할의 멤버를 관리 합니다.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/05/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd3f590659017d2bb79c7445f6896817b8432f41
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 0a2096b7899039e7a9d3455bc0c6fb3ec84ebd1a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68880727"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025329"
 ---
 # <a name="assign-custom-roles-with-resource-scope-using-powershell-in-azure-active-directory"></a>Azure Active Directory에서 PowerShell을 사용 하 여 리소스 범위에 사용자 지정 역할 할당
 
@@ -26,7 +26,7 @@ ms.locfileid: "68880727"
 
 Azure AD 관리자 역할에 대 한 자세한 내용은 [Azure Active Directory에서 관리자 역할 할당](directory-assign-admin-roles.md)을 참조 하세요.
 
-## <a name="required-permissions"></a>필요한 권한
+## <a name="required-permissions"></a>필요한 사용 권한
 
 전역 관리자 계정을 사용 하 여 Azure AD 테 넌 트에 연결 하 여 역할을 할당 하거나 제거 합니다.
 
@@ -52,7 +52,7 @@ get-module azureadpreview
 ## <a name="assign-a-role-to-a-user-or-service-principal-with-resource-scope"></a>리소스 범위를 사용 하 여 사용자 또는 서비스 주체에 역할 할당
 
 1. Azure AD preview PowerShell 모듈을 엽니다.
-1. 명령을 `Connect-AzureAD`실행 하 여 로그인 합니다.
+1. 명령 `Connect-AzureAD`를 실행 하 여 로그인 합니다.
 1. 다음 PowerShell 스크립트를 사용 하 여 새 역할을 만듭니다.
 
 ``` PowerShell

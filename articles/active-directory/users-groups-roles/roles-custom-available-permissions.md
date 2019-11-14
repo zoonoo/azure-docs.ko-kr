@@ -1,24 +1,24 @@
 ---
-title: 앱 등록 관리에 대 한 사용자 지정 관리자 역할 권한-Azure Active Directory | Microsoft Docs
+title: 사용 가능한 사용자 지정 관리자 역할 권한-Azure AD | Microsoft Docs
 description: Id 관리를 위임 하기 위한 사용자 지정 관리자 역할 권한
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ebffbc1c451404d93383a483eecdd4a25acf6b6
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: d6156857202c1cca94df6d70ec2059daf55178f1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928611"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025158"
 ---
 # <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Azure Active Directory의 응용 프로그램 등록 하위 형식 및 권한
 
@@ -52,7 +52,7 @@ ms.locfileid: "72928611"
 
 앱 등록을 삭제 하는 기능을 부여 하는 데 사용할 수 있는 두 가지 권한이 있습니다.
 
-#### <a name="microsoftdirectoryapplicationsdelete"></a>microsoft. 디렉터리/응용 프로그램/삭제
+#### <a name="microsoftdirectoryapplicationsdelete"></a>microsoft.directory/applications/delete
 
 하위 형식에 관계 없이 앱 등록을 삭제할 수 있는 기능을 부여 합니다. 즉, 단일 테 넌 트 및 다중 테 넌 트 응용 프로그램입니다.
 
@@ -91,7 +91,7 @@ ms.locfileid: "72928611"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/applications/standard/read와 동일한 사용 권한을 부여 합니다.
 
-### <a name="update"></a>주 지역에서
+### <a name="update"></a>업데이트
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>microsoft. directory/응용 프로그램/m 속성/업데이트
 
@@ -101,7 +101,7 @@ ms.locfileid: "72928611"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/applications/allProperties/update와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft. 디렉터리/응용 프로그램/대상/업데이트
+#### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
 단일 디렉터리 및 다중 디렉터리 응용 프로그램에서 지원 되는 계정 유형 (signInAudience) 속성을 업데이트 하는 기능입니다.
 
@@ -111,7 +111,7 @@ ms.locfileid: "72928611"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/applications/사용자/업데이트와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>microsoft. 디렉터리/응용 프로그램/인증/업데이트
+#### <a name="microsoftdirectoryapplicationsauthenticationupdate"></a>microsoft.directory/applications/authentication/update
 
 단일 테 넌 트 및 다중 테 넌 트 응용 프로그램에서 회신 URL, 로그 아웃 URL, 암시적 흐름 및 게시자 도메인 속성을 업데이트할 수 있습니다. 지원 되는 계정 유형을 제외한 응용 프로그램 등록 인증 페이지의 모든 필드에 대 한 액세스 권한을 부여 합니다.
 
@@ -121,7 +121,7 @@ ms.locfileid: "72928611"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/응용 프로그램/인증/업데이트와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>microsoft. 디렉터리/응용 프로그램/기본/업데이트
+#### <a name="microsoftdirectoryapplicationsbasicupdate"></a>microsoft.directory/applications/basic/update
 
 단일 테 넌 트 및 다중 테 넌 트 응용 프로그램의 이름, 로고, 홈페이지 URL, 서비스 약관 URL 및 개인정보 처리 방침 URL 속성을 업데이트 하는 기능입니다. 응용 프로그램 등록 브랜딩 페이지의 모든 필드에 대 한 액세스 권한을 부여 합니다.
 
@@ -131,7 +131,7 @@ ms.locfileid: "72928611"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/applications/basic/update와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft. 디렉터리/응용 프로그램/자격 증명/업데이트
+#### <a name="microsoftdirectoryapplicationscredentialsupdate"></a>microsoft.directory/applications/credentials/update
 
 단일 테 넌 트 및 다중 테 넌 트 응용 프로그램에서 인증서 및 클라이언트 암호 속성을 업데이트 하는 기능입니다. 응용 프로그램 등록 인증서 & 암호 페이지의 모든 필드에 대 한 액세스 권한을 부여 합니다.
 
@@ -141,7 +141,7 @@ ms.locfileid: "72928611"
 
 는 단일 디렉터리 응용 프로그램에 대해서만 microsoft. directory/응용 프로그램/자격 증명/업데이트와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft. 디렉터리/응용 프로그램/소유자/업데이트
+#### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
 
 단일 테 넌 트 및 다중 테 넌 트의 owner 속성을 업데이트 하는 기능입니다. 응용 프로그램 등록 소유자 페이지의 모든 필드에 대 한 액세스 권한을 부여 합니다.
 
@@ -151,7 +151,7 @@ ms.locfileid: "72928611"
 
 는 단일 테 넌 트 응용 프로그램에 대해서만 microsoft. directory/응용 프로그램/소유자/업데이트와 동일한 권한을 부여 합니다.
 
-#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>microsoft. 디렉터리/응용 프로그램/사용 권한/업데이트
+#### <a name="microsoftdirectoryapplicationspermissionsupdate"></a>microsoft.directory/applications/permissions/update
 
 단일 테 넌 트 및 다중 테 넌 트 응용 프로그램에 대해 위임 된 권한, 응용 프로그램 권한, 권한 있는 클라이언트 응용 프로그램, 필요한 권한 및 승인 속성을 업데이트할 수 있습니다. 는 동의를 수행할 수 있는 기능을 부여 하지 않습니다. 응용 프로그램 등록 API 권한의 모든 필드에 대 한 액세스 권한을 부여 하 고 API 페이지를 표시 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure 배포 후 작업의 OpenShift 컨테이너 플랫폼 3.11 | Microsoft Docs
+title: Azure 배포 후 작업의 OpenShift 컨테이너 플랫폼 3.11
 description: OpenShift Container Platform 3.11 클러스터가 배포 된 후에 대 한 추가 작업
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: c1e04f048c081da4777045e5bee43991c95b4625
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d3008e2e2d720b67fcf0846c27d2fed1ef7db307
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392775"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035503"
 ---
 # <a name="post-deployment-tasks"></a>배포 후 작업
 
@@ -90,7 +90,7 @@ Azure Portal에서 다음을 수행합니다.
 
    ![앱 등록 액세스](media/openshift-post-deployment/app-registration-access.png)
 
-8. **완료** 를 선택합니다.
+8. **완료**를 선택합니다.
 
 ### <a name="configure-openshift-for-azure-ad-authentication"></a>Azure AD 인증을 위한 OpenShift 구성
 
@@ -202,7 +202,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 
 Open Service Broker for Azure 또는 OSBA를 사용하여 OpenShift에서 직접 Azure Cloud Services를 프로비전할 수 있습니다. OSBA는 Azure에서 구현된 Open Service Broker API입니다. Open Service Broker API는 클라우드 기본 애플리케이션이 잠금 없이 클라우드 서비스를 관리하는 데 사용할 수 있는 클라우드 공급자에 대한 공용 언어를 정의하는 사양입니다.
 
-OpenShift에 OSBA를 설치하려면 https://github.com/Azure/open-service-broker-azure#openshift-project-template 의 지침을 따르세요. 
+OpenShift에 OSBA를 설치하려면 https://github.com/Azure/open-service-broker-azure#openshift-project-template의 지침을 따르세요. 
 > [!NOTE]
 > OpenShift 프로젝트 템플릿 섹션의 단계를 완료 하 고 전체 설치 섹션은 완료 하지 않습니다.
 

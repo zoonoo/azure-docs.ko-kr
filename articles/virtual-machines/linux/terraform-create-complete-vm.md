@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Terraform을 사용하여 전체 Linux VM 만들기 | Microsoft Docs
+title: Terraform을 사용 하 여 Azure에서 전체 Linux VM 만들기
 description: Azure에서 Terraform을 사용하여 전체 Linux 가상 머신 환경을 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: bb4628477719d0aa2f176c466047531b42d7cfc3
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b97d9563f0bddcc2b3bf82807f41af68f3abbff1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72924884"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034712"
 ---
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Azure에서 Terraform을 사용하여 전체 Linux 가상 머신 인프라 만들기
 
@@ -44,7 +44,7 @@ provider "azurerm" {
 }
 ```
 
-다음 섹션에서는 `eastus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
+다음 섹션에서는 `myResourceGroup` 위치에 `eastus`이라는 리소스 그룹을 만듭니다.
 
 ```hcl
 resource "azurerm_resource_group" "myterraformgroup" {
@@ -187,7 +187,7 @@ resource "azurerm_storage_account" "mystorageaccount" {
 ```
 
 
-## <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
+## <a name="create-virtual-machine"></a>가상 머신 만들기
 
 마지막 단계에서는 VM을 만들고 생성한 모든 리소스를 사용합니다. 다음 섹션에서는 *myVM*이라는 VM을 만들고 *myNIC*라는 가상 NIC를 연결합니다. 최신 *Ubuntu 16.04-LTS* 이미지를 사용하고, 암호 인증을 사용하지 않도록 설정된 *azureuser*라는 사용자가 만들어집니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용하여 Linux VM 이미지 캡처 | Microsoft Docs
+title: Azure CLI를 사용 하 여 Azure에서 Linux VM의 이미지 캡처
 description: Azure CLI를 사용하여 대량 배포에 사용할 Azure VM 이미지를 캡처합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 0767031ff6eee59de6cf447464328f66c50ef71a
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: ed7d45fb9148bd441a3798c48be8b25e1da2b8c1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552800"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036914"
 ---
 # <a name="how-to-create-an-image-of-a-virtual-machine-or-vhd"></a>가상 머신 또는 VHD의 이미지를 만드는 방법
 
@@ -44,7 +44,7 @@ Azure에서 사용할 VM(가상 머신)의 복사본을 여러 개 만들려면 
 
 
 ## <a name="step-1-deprovision-the-vm"></a>1단계: VM 프로비전 해제
-Azure VM 에이전트를 사용하여 VM의 프로비전을 해제하여 머신별 파일 및 데이터를 삭제합니다. 원본 Linux VM에서 `-deprovision+user` 매개 변수와 함께 `waagent` 명령을 사용합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../extensions/agent-linux.md)를 참조하세요.
+Azure VM 에이전트를 사용하여 VM의 프로비전을 해제하여 머신별 파일 및 데이터를 삭제합니다. 원본 Linux VM에서 `waagent` 매개 변수와 함께 `-deprovision+user` 명령을 사용합니다. 자세한 내용은 [Azure Linux 에이전트 사용자 가이드](../extensions/agent-linux.md)를 참조하세요.
 
 1. SSH 클라이언트를 사용하여 Linux VM에 연결합니다.
 2. SSH 창에서 다음 명령을 입력합니다.

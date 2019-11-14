@@ -1,25 +1,25 @@
 ---
-title: 동적 자동 그룹 멤버 자격 규칙 - Azure Active Directory | Microsoft Docs
+title: 동적 그룹 멤버 자격 규칙-Azure AD | Microsoft Docs
 description: 그룹을 자동으로 채우는 멤버 자격 규칙과 규칙 참조를 만드는 방법입니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 050bc3cf6b81b9467d9947a4f611477e2fcbcd9a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: a6cfad04d9b0dd3537d60f2651ed341d96bd0210
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885855"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027122"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Azure Active Directory의 그룹에 대한 동적 멤버 자격 규칙
 
@@ -138,14 +138,14 @@ user.department -eq "Sales"
 | 연산자 | 구문 |
 | --- | --- |
 | 같지 않음 |-ne |
-| equals |-eq |
+| 같음 |-eq |
 | 다음으로 시작 안 함 |-notStartsWith |
 | 시작 단어 |-startsWith |
 | 포함하지 않음 |-notContains |
-| contains |-contains |
+| 포함 |-contains |
 | 일치하지 않음 |-notMatch |
 | 일치 |-match |
-| 내용 | -in |
+| 입력 | -in |
 | 속하지 않음 | -notIn |
 
 ### <a name="using-the--in-and--notin-operators"></a>-in 및 -notIn 연산자 사용
@@ -271,7 +271,7 @@ user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df
 
 이와 같은 규칙은 Office 365(또는 다른 Microsoft 온라인 서비스) 기능을 사용하도록 설정된 모든 사용자를 그룹화하는 데 사용할 수 있습니다. 그러면 일단의 정책을 그룹에 적용할 수 있습니다.
 
-#### <a name="example-2"></a>예 2
+#### <a name="example-2"></a>예제 2
 
 다음 식은 Intune 서비스("SCO" 서비스 이름으로 식별)와 연결된 서비스 계획이 있는 모든 사용자를 선택합니다.
 
@@ -372,8 +372,8 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  디바이스 특성  | 값 | 예
  ----- | ----- | ----------------
  accountEnabled | true false | (device.accountEnabled -eq true)
- displayName | 임의의 문자열 값입니다. |(장치. displayName-eq "Rob iPhone")
- deviceOSType | 임의의 문자열 값입니다. | (device.deviceOSType -eq "iPad") -또는 (device.deviceOSType -eq "iPhone")<br>(Device.deviceostype-"AndroidEnterprise" 포함)<br>(Device.deviceostype-eq "AndroidForWork")
+ displayName | 임의의 문자열 값입니다. |(device.displayName -eq "Rob iPhone")
+ deviceOSType | 임의의 문자열 값입니다. | (device.deviceOSType -eq "iPad") -또는 (device.deviceOSType -eq "iPhone")<br>(device.deviceOSType -contains "AndroidEnterprise")<br>(device.deviceOSType -eq "AndroidForWork")
  deviceOSVersion | 임의의 문자열 값입니다. | (device.deviceOSVersion -eq "9.1")
  deviceCategory | 유효한 디바이스 범주 이름 | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | 임의의 문자열 값입니다. | (device.deviceManufacturer -eq "Samsung")
@@ -385,7 +385,7 @@ user.extension_c272a57b722d4eb29bfe327874ae79cb_OfficeNumber -eq "123"
  deviceId | 유효한 Azure AD 디바이스 ID | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | 유효한 Azure AD 개체 ID |  (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d")
  devicePhysicalIds | Autopilot에서 사용 하는 모든 문자열 값 (예: 모든 Autopilot devices, OrderID 또는 PurchaseOrderID)  | (devicePhysicalIDs-any _-contains "[Zt\]") (devicePhysicalIds-any _-eq "[OrderID]: 179887111881") (devicePhysicalIds-any _-eq "[PurchaseOrderId]: 76222342342")
- systemLabels | 최신 작업 공간 디바이스의 태그를 지정하는 Intune 디바이스 속성과 일치하는 문자열 | (장치간 레이블-"M365Managed" 포함)
+ systemLabels | 최신 작업 공간 디바이스의 태그를 지정하는 Intune 디바이스 속성과 일치하는 문자열 | (device.systemLabels -contains "M365Managed")
 
 > [!Note]  
 > 디바이스용 동적 그룹을 만들 때 deviceOwnership의 경우 값을 “Company”로 설정해야 합니다. Intune에서 디바이스 소유권이 Corporate로 대신 표시됩니다. 자세한 내용은 [OwnerTypes](https://docs.microsoft.com/intune/reports-ref-devices#ownertypes)를 참조하세요. 

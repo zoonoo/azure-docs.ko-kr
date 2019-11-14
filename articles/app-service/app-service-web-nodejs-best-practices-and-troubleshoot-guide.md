@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: ranjithr
+ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5dae268e2c659bcd39c7b274f2f12c64b4504353
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67719789"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024235"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 
@@ -90,11 +90,11 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="watchedfiles"></a>watchedFiles
 
-변경 내용을 감시하는 세미콜론으로 구분된 파일 목록입니다. 파일에 대한 변경 내용으로 인해 애플리케이션 재활용이 발생합니다. 각 항목은 주 애플리케이션 진입점이 있는 디렉터리를 기준으로 선택적 디렉터리 이름 및 필수 파일 이름으로 구성됩니다. 파일 이름 부분에만 와일드 카드가 허용됩니다. 기본값은 `*.js;iisnode.yml`
+변경 내용을 감시하는 세미콜론으로 구분된 파일 목록입니다. 파일에 대한 변경 내용으로 인해 애플리케이션 재활용이 발생합니다. 각 항목은 주 애플리케이션 진입점이 있는 디렉터리를 기준으로 선택적 디렉터리 이름 및 필수 파일 이름으로 구성됩니다. 파일 이름 부분에만 와일드 카드가 허용됩니다. 기본값은 `*.js;iisnode.yml`입니다.
 
 ### <a name="recyclesignalenabled"></a>recycleSignalEnabled
 
-기본값은 false입니다. 설정된 경우 노드 애플리케이션에서 명명된 파이프(환경 변수 IISNODE\_CONTROL\_PIPE)에 연결할 수 있으며 "재활용" 메시지를 보낼 수 있습니다. 그러면 w3wp가 정상적으로 재활용됩니다.
+기본값은 False입니다. 설정된 경우 노드 애플리케이션에서 명명된 파이프(환경 변수 IISNODE\_CONTROL\_PIPE)에 연결할 수 있으며 "재활용" 메시지를 보낼 수 있습니다. 그러면 w3wp가 정상적으로 재활용됩니다.
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
@@ -106,7 +106,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="debugheaderenabled"></a>debugHeaderEnabled
 
-기본값은 false입니다. true로 설정되면 iisnode에서 HTTP 응답 헤더 `iisnode-debug`를 보내는 모든 HTTP 응답에 추가하고 `iisnode-debug` 헤더 값은 URL입니다. 개별 진단 정보 조각은 URL 조각을 확인하여 얻을 수 있지만 브라우저에서 URL을 열면 시각화를 달성할 수 있습니다.
+기본값은 False입니다. true로 설정되면 iisnode에서 HTTP 응답 헤더 `iisnode-debug`를 보내는 모든 HTTP 응답에 추가하고 `iisnode-debug` 헤더 값은 URL입니다. 개별 진단 정보 조각은 URL 조각을 확인하여 얻을 수 있지만 브라우저에서 URL을 열면 시각화를 달성할 수 있습니다.
 
 ### <a name="loggingenabled"></a>loggingEnabled
 
@@ -114,7 +114,7 @@ IIS는 기본적으로 플러시하기 전에 또는 응답이 끝날 때까지(
 
 ### <a name="deverrorsenabled"></a>devErrorsEnabled
 
-기본값은 false입니다. true로 설정하면 iisnode에서 HTTP 상태 코드 및 Win32 오류 코드가 브라우저에 표시됩니다. win32 코드는 특정 유형의 문제를 디버깅하는 데 유용합니다.
+기본값은 False입니다. true로 설정하면 iisnode에서 HTTP 상태 코드 및 Win32 오류 코드가 브라우저에 표시됩니다. win32 코드는 특정 유형의 문제를 디버깅하는 데 유용합니다.
 
 ### <a name="debuggingenabled-do-not-enable-on-live-production-site"></a>debuggingEnabled(라이브 프로덕션 사이트에서 사용 안 함)
 
@@ -212,7 +212,7 @@ http.createServer(function (req, res) {
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/scm_profile.cpuprofile.png)
 
-이 파일을 다운로드하여 Chrome F12 Tools로 엽니다. Chrome에서 F12 키를 누른 다음 **프로필** 탭을 선택합니다. **로드** 단추를 선택합니다. 다운로드한 profile.cpuprofile 파일을 선택합니다. 방금 로드한 프로파일을 클릭합니다.
+이 파일을 다운로드하여 Chrome F12 Tools로 엽니다. Chrome에서 F12 키를 누른 다음 **프로필** 탭을 선택 합니다. **로드** 단추를 선택 합니다. 다운로드한 profile.cpuprofile 파일을 선택합니다. 방금 로드한 프로파일을 클릭합니다.
 
 ![](./media/app-service-web-nodejs-best-practices-and-troubleshoot-guide/chrome_tools_view.png)
 

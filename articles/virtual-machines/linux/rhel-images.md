@@ -1,5 +1,5 @@
 ---
-title: Azure의 Red Hat Enterprise Linux 이미지 | Microsoft Docs
+title: Azure의 Red Hat Enterprise Linux 이미지
 description: Microsoft Azure의 Red Hat Enterprise Linux 이미지에 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 8/14/2019
 ms.author: borisb
-ms.openlocfilehash: c11ce31913baa8c638e94bdf92ef622cd8899e03
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: eaabe9da20c22dd3e4d924887adcbc7081857e91
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764314"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035111"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Azure의 Red Hat Enterprise Linux 이미지
 이 문서에서는 명명 및 보존 정책에 대한 정책과 함께 Azure Marketplace에서 사용할 수 있는 RHEL(Red Hat Enterprise Linux) 이미지를 설명합니다.
@@ -64,7 +64,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### <a name="current-naming-convention"></a>현재 명명 규칙
 현재 게시된 모든 RHEL 이미지는 종량제 모델을 사용하며 [Azure의 RHUI(Red Hat 업데이트 인프라)](https://aka.ms/rhui-update)에 연결되어 있습니다. 디스크 파티션 구성표 (raw, LVM)가 버전 대신 SKU에 지정 된 RHEL 7 패밀리 이미지에 대해 새로운 명명 규칙이 채택 되었습니다. RHEL 이미지 버전에는 7-RAW 또는 7LVM이 포함 됩니다. RHEL 6 제품군 명명은 현재 변경되지 않았습니다.
 
-이 명명 규칙에는 RHEL 7 이미지 Sku의 2 가지 유형이 있습니다. 부 버전을 나열 하는 Sku와 그렇지 않은 Sku 7-RAW 또는 7LVM SKU를 사용 하려는 경우 버전에서 배포 하려는 RHEL 부 버전을 지정할 수 있습니다. "최신" 버전을 선택 하면 RHEL의 최신 부 릴리스가 프로 비전 됩니다.
+이 명명 규칙에는 두 가지 유형의 RHEL 7 이미지 Sku (부 버전을 나열 하는 Sku 및 그렇지 않은 Sku)가 있습니다. 7-RAW 또는 7LVM SKU를 사용 하려는 경우 버전에서 배포 하려는 RHEL 부 버전을 지정할 수 있습니다. "최신" 버전을 선택 하면 RHEL의 최신 부 릴리스가 프로 비전 됩니다.
 
 >[!NOTE]
 > SAP 이미지 세트에 대한 RHEL에서 RHEL 버전은 고정으로 유지됩니다. 따라서 해당 명명 규칙은 SKU에서 특정 버전을 포함합니다.
@@ -88,7 +88,7 @@ EUS 리포지토리에 연결 된 이미지를 사용 하려는 고객은 SKU에
 RedHat:RHEL:7-RAW:7.4.2018010506
 RedHat:RHEL:7.4:7.4.2019041718
 ```
-이 경우는 기본적 `RedHat:RHEL:7.4:7.4.2019041718` `RedHat:RHEL:7-RAW:7.4.2018010506` 으로 eus 리포지토리에 연결 되며, 기본적으로 eus 리포지토리에 연결 됩니다.
+이 경우 `RedHat:RHEL:7.4:7.4.2019041718`는 기본적으로 EUS 리포지토리에 연결 되며 `RedHat:RHEL:7-RAW:7.4.2018010506`는 기본적으로 EUS 리포지토리에 연결 됩니다.
 
 ### <a name="for-customers-that-dont-want-to-use-eus-images"></a>EUS 이미지를 사용 하지 않으려는 고객의 경우:
 기본적으로 EUS에 연결 된 이미지를 사용 하지 않으려는 경우 SKU에 부 버전 번호가 포함 되지 않은 이미지를 사용 하 여 배포 합니다.
@@ -106,13 +106,13 @@ RedHat:RHEL:7.4:7.4.2019041718
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | 4 월 2019 일에 게시 된 이미지는 기본적으로 EUS입니다.|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | 6 월 2019 일 이후 게시 된 이미지는 기본적으로 EUS입니다. |
 RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | 2019 이상 게시 된 이미지는 기본적으로 EUS입니다.  |
-RHEL 8.0      |N/A                            | Red Hat에서 제공 되는 EUS 없음                               |
+RHEL 8.0      |해당 없음                            | Red Hat에서 제공 되는 EUS 없음                               |
 
 
 ## <a name="list-of-rhel-images-available"></a>사용할 수 있는 RHEL 이미지 목록
 다음 제품은 SKU이며 현재 일반 용도로 사용할 수 있습니다.
 
-제공| SKU | 분할 | 프로비전 | 참고
+제안| SKU | 분할 | 프로비전 | 참고 사항
 :----|:----|:-------------|:-------------|:-----
 RHEL          | 7-RAW    | RAW    | Linux 에이전트 | RHEL 7.x 이미지 제품군 <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.
 |             | 7-LVM    | LVM    | Linux 에이전트 | RHEL 7.x 이미지 제품군 <br> 기본적으로 EUS 리포지토리에 연결 되지 않습니다.

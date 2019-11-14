@@ -1,26 +1,25 @@
 ---
-title: 정적 그룹 멤버 자격 유형을 동적으로 변경 - Azure Active Directory | Microsoft Docs
+title: 정적 그룹 멤버 자격을 동적으로 변경-Azure AD | Microsoft Docs
 description: 그룹을 자동으로 채우는 멤버 자격 규칙과 규칙 참조를 만드는 방법입니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd753ca4994975302a0bc6fede61964f80196d7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 34451fcc4597f77464e5e9566613e21e9fecdbc6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472074"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027306"
 ---
 # <a name="change-static-group-membership-to-dynamic-in-azure-active-directory"></a>Azure Active Directory에서 정적 그룹 멤버 자격을 동적으로 변경
 
@@ -33,7 +32,7 @@ ms.locfileid: "60472074"
 
 ## <a name="change-the-membership-type-for-a-group"></a>그룹에 대한 멤버 자격 유형 변경
 
-1. 에 로그인 합니다 [Azure AD 관리 센터](https://aad.portal.azure.com) 전역 관리자 또는 테 넌 트의 사용자 관리자 계정으로 합니다.
+1. 테 넌 트의 전역 관리자 또는 사용자 관리자 인 계정으로 [AZURE AD 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
 2. **그룹**을 선택합니다.
 3. **모든 그룹** 목록에서 변경하려는 그룹을 엽니다.
 4. **속성**을 선택합니다.

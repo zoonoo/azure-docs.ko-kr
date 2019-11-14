@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM 크기 - HPC | Microsoft Docs
+title: Azure Linux VM 크기-HPC
 description: Azure의 Linux 고성능 컴퓨팅 가상 머신에 사용할 수 있는 다양한 크기를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: ee99869c2b7a7b3ab38fdd9eae0687862ea53819
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 214ab48b6b0dca37eff3b3f155aaa92afc7fee16
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100871"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034887"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>고성능 컴퓨팅 가상 머신 크기
 

@@ -1,5 +1,5 @@
 ---
-title: B-시리즈 Azure Linux VM 크기| Microsoft Docs
+title: B-시리즈 Azure Linux VM 크기
 description: 버스터블 Azure VM 크기의 B-시리즈에 대해 설명합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/25/2019
 ms.author: ayshak
-ms.openlocfilehash: 01da424872cdfde6c7e035cadd2b948117fb996c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b9e55d64636b6ee8bf2cff72d44c73e73bf877c1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083997"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036991"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 

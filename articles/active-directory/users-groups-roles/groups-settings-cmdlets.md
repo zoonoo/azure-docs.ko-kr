@@ -1,34 +1,34 @@
 ---
-title: PowerShell을 사용하여 그룹 설정 구성 - Azure Active Directory | Microsoft Docs
+title: PowerShell을 사용 하 여 그룹 설정 구성-Azure AD | Microsoft Docs
 description: Azure Active Directory cmdlet을 사용하여 그룹 설정을 관리하는 방법
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18fbaad8ce15ab4eb9a08d5edc273098e7fb372e
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 6a1b900d4a67390ae867d770c3b984c43fd501b5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263970"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026747"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
-이 문서에서는 Azure Active Directory(Azure AD) PowerShell cmdlet을 사용하여 그룹을 만들고 업데이트하는 방법을 설명합니다. 이 콘텐츠는 Office 365 그룹에만 적용됩니다(통합 그룹이라고도 함). 
+
+이 문서에서는 Azure Active Directory(Azure AD) PowerShell cmdlet을 사용하여 그룹을 만들고 업데이트하는 방법을 설명합니다. 이 콘텐츠는 Office 365 그룹에만 적용됩니다(통합 그룹이라고도 함).
 
 > [!IMPORTANT]
 > 일부 설정에는 Azure Active Directory Premium P1 라이선스가 필요합니다. 자세한 내용은 [템플릿 설정](#template-settings) 표를 참조하세요.
 
-관리자가 아닌 사용자가 보안 그룹을 만들지 못하게 방지하려면 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명된 대로 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`를 설정하세요.
+관리자가 아닌 사용자가 보안 그룹을 만들지 못하게 방지하려면  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`Set-MSOLCompanySettings[에 설명된 대로](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)를 설정하세요.
 
 Office 365 그룹 설정은 설정 개체와 SettingsTemplate 개체를 사용하여 구성됩니다. 처음에는 디렉터리가 기본 설정으로 구성되어 있으므로 디렉터리에 설정 개체가 표시되지 않습니다. 기본 설정을 변경하려면 설정 템플릿을 사용하여 새 설정 개체를 만들어야 합니다. 설정 템플릿은 Microsoft가 정의합니다. 여러 종류의 설정 템플릿이 있습니다. 디렉터리에 대한 Office 365 그룹 설정을 구성하려면 "Group.Unified" 템플릿을 사용하세요. 단일 그룹의 Office 365 그룹 설정을 구성하려면 "Group.Unified.Guest" 템플릿을 사용하세요. 이 템플릿은 Office 365 그룹에 대한 게스트 액세스 관리에 사용됩니다. 
 
@@ -114,18 +114,18 @@ UsageGuideLinesUrl의 값을 제거 하려면 위의 4 단계를 사용 하 여 
 | **설정** | **설명** |
 | --- | --- |
 |  <ul><li>EnableGroupCreation<li>형식: Boolean<li>기본값: True |관리자가 아닌 사용자에 의해 디렉터리에서 Office 365 그룹 만들기가 허용되는지 여부를 나타내는 플래그입니다. 이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
-|  <ul><li>GroupCreationAllowedGroupId<li>형식: 문자열<li>기본값: “” |EnableGroupCreation == false일 때도 구성원이 Office 365 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
-|  <ul><li>UsageGuidelinesUrl<li>형식: 문자열<li>기본값: “” |그룹 사용 지침 링크입니다. |
-|  <ul><li>ClassificationDescriptions<li>형식: 문자열<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. ClassificationDescriptions 값은 다음 형식일 때만 유효합니다.<br>$setting ["ClassificationDescriptions"] = "분류: 설명, 분류: 설명"<br>여기서 분류가 ClassificationList의 문자열과 일치 합니다.|
-|  <ul><li>DefaultClassification<li>형식: 문자열<li>기본값: “” | 설정이 지정되지 않은 경우에 그룹의 기본 분류로 사용되는 분류입니다.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>형식: 문자열<li>기본값: “” | Office 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
-| <ul><li>CustomBlockedWordsList<li>형식: 문자열<li>기본값: “” | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
-| <ul><li>EnableMSStandardBlockedWords<li>형식: Boolean<li>기본값: “False” | 사용 안 함
+|  <ul><li>GroupCreationAllowedGroupId<li>형식: String<li>기본값: “” |EnableGroupCreation == false일 때도 구성원이 Office 365 그룹을 만들도록 허용된 보안 그룹의 GUID입니다. |
+|  <ul><li>UsageGuidelinesUrl<li>형식: String<li>기본값: “” |그룹 사용 지침 링크입니다. |
+|  <ul><li>ClassificationDescriptions<li>형식: String<li>기본값: “” | 쉼표로 구분된 분류 설명 목록입니다. ClassificationDescriptions 값은 다음 형식일 때만 유효합니다.<br>$setting ["ClassificationDescriptions"] = "분류: 설명, 분류: 설명"<br>여기서 분류가 ClassificationList의 문자열과 일치 합니다.|
+|  <ul><li>DefaultClassification<li>형식: String<li>기본값: “” | 설정이 지정되지 않은 경우에 그룹의 기본 분류로 사용되는 분류입니다.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>형식: String<li>기본값: “” | Office 365 그룹에 대해 구성된 명명 규칙을 정의하는 최대 64자의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
+| <ul><li>CustomBlockedWordsList<li>형식: String<li>기본값: “” | 사용자가 그룹 이름 또는 별칭에서 사용하도록 허용되지 않은 쉼표로 구분된 구의 문자열입니다. 자세한 내용은 [Office 365 그룹에 대한 명명 정책 적용](groups-naming-policy.md)을 참조하세요. |
+| <ul><li>EnableMSStandardBlockedWords<li>형식: Boolean<li>기본값: "False" | 사용 안 함
 |  <ul><li>AllowGuestsToBeGroupOwner<li>형식: Boolean<li>기본값: False | 게스트 사용자가 그룹의 소유자일 수 있는지 여부를 나타내는 부울 값입니다. |
 |  <ul><li>AllowGuestsToAccessGroups<li>형식: Boolean<li>기본값: True | 게스트 사용자가 Office 365 그룹의 콘텐츠에 액세스할 수 있는지 여부를 나타내는 부울 값입니다.  이 설정에는 Azure Active Directory Premium P1 라이선스가 필요하지 않습니다.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>형식: 문자열<li>기본값: “” | 게스트 사용 지침의 링크 url입니다. |
+|  <ul><li>GuestUsageGuidelinesUrl<li>형식: String<li>기본값: “” | 게스트 사용 지침의 링크 url입니다. |
 |  <ul><li>AllowAddGuests<li>형식: Boolean<li>기본값: True | 이 디렉터리에 게스트를 추가하는 것이 허용되는지 여부를 나타내는 부울 값입니다.|
-|  <ul><li>ClassificationList<li>형식: 문자열<li>기본값: “” |Office 365 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. |
+|  <ul><li>ClassificationList<li>형식: String<li>기본값: “” |Office 365 그룹에 적용할 수 있는 유효한 분류 값을 쉼표로 구분한 목록입니다. |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>예: 디렉터리 수준에서 그룹에 대 한 게스트 정책 구성
 1. 모든 설정 템플릿을 가져옵니다.

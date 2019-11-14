@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine PowerShell 샘플 | Microsoft Docs
+title: Azure Virtual Machine PowerShell 샘플
 description: Azure Virtual Machine PowerShell 샘플
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c106ee2110a8c023ab3ed4f2ec9903fc5ca146b2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f068b79f1b1eaa9a11df70052619c8e3993101cb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088966"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033006"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Azure Virtual Machine PowerShell 샘플
 
@@ -30,7 +30,7 @@ ms.locfileid: "70088966"
 |---|---|
 |**가상 머신 만들기**||
 | [가상 머신 빠르게 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-vm-quick.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 최소한의 프롬프트를 사용하여 리소스 그룹, 가상 머신 및 모든 관련 리소스를 만듭니다.|
-| [완벽히 구성된 가상 머신 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 리소스 그룹, 가상 머신 및 모든 관련 리소스를 만듭니다.|
+| [완벽히 구성된 가상 컴퓨터 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 리소스 그룹, 가상 머신 및 모든 관련 리소스를 만듭니다.|
 | [고가용성 가상 머신 만들기](./../scripts/virtual-machines-windows-powershell-sample-create-nlb-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 여러 가상 머신을 부하 분산된 고가용성 구성으로 만듭니다.|
 | [VM 만들기 및 구성 스크립트 실행](./../scripts/virtual-machines-windows-powershell-sample-create-vm-iis.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 가상 머신을 만들고 Azure 사용자 지정 스크립트 확장을 사용하여 IIS를 설치합니다. |
 | [VM 만들기 및 DSC 구성 실행](./../scripts/virtual-machines-windows-powershell-sample-create-iis-using-dsc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 가상 머신을 만들고 Azure DSC(필요한 상태 구성) 확장을 사용하여 IIS를 설치합니다. |

@@ -1,5 +1,5 @@
 ---
-title: Azure에서 관리 이미지 만들기 | Microsoft Docs
+title: Azure에서 관리 되는 이미지 만들기
 description: Azure에서 일반화된 VM 또는 VHD의 관리 이미지를 만듭니다. 이미지를 사용하여 관리 디스크를 사용하는 여러 VM을 만들 수 있습니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 54743b191b0334c92c63f374d38870a7dbfd9a38
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 5557028304d0e2bd5940dd9b01dddf525806d0c6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749627"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033671"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
@@ -54,7 +54,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
    
     ![Sysprep 시작](./media/upload-generalized-managed/sysprepgeneral.png)
 
-6. Sysprep은 작업을 완료하면 VM을 종료합니다. VM을 다시 시작하지 마세요.
+6. Sysprep은 작업을 완료하면 VM을 종료합니다. VM을 다시 시작하지 않습니다.
 
 > [!TIP]
 > **선택 사항** [DISM](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-optimize-image-command-line-options) 을 사용 하 여 이미지를 최적화 하 고 VM의 첫 번째 부팅 시간을 줄입니다.
@@ -120,13 +120,13 @@ VM 이미지를 만들려면 다음 단계를 수행합니다.
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
-3. 가상 머신의 상태를 **일반화됨**으로 설정합니다. 
+3. 가상 컴퓨터의 상태를 **일반화됨**으로 설정합니다. 
    
     ```azurepowershell-interactive
     Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
     ```
     
-4. 가상 머신을 가져옵니다. 
+4. 가상 컴퓨터를 가져옵니다. 
 
     ```azurepowershell-interactive
     $vm = Get-AzVM -Name $vmName -ResourceGroupName $rgName

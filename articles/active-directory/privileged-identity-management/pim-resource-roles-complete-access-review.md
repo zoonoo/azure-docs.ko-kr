@@ -1,26 +1,26 @@
 ---
-title: Privileged Identity Management-Azure Active Directory에서 Azure 리소스 역할에 대 한 액세스 검토를 완료 합니다. Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM)에서 Azure 리소스 역할에 대 한 액세스 검토를 완료 하는 방법에 대해 알아봅니다.
+title: PIM에서 Azure 리소스 역할의 액세스 검토 완료-Azure AD | Microsoft Docs
+description: Azure Active Directory에서 Privileged Identity Management Azure 리소스 역할에 대 한 액세스 검토를 완료 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6761d1d6aea796e0cca708676f69c47328642cc2
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 9e45249245aaab97070b7e774d4b6bab6827bdc9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895805"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021992"
 ---
 # <a name="complete-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할에 대 한 액세스 검토 완료
 
@@ -44,15 +44,15 @@ ms.locfileid: "72895805"
 
 ![검토 관리 옵션-중지, 다시 설정, 적용, 삭제](media/pim-resource-roles-complete-access-review/rbac-access-review-menu.png)
 
-### <a name="stop"></a>중지
+### <a name="stop"></a>Stop
 
 모든 액세스 검토에는 종료 날짜가 있습니다. **중지** 를 선택 하 여 일찍 마칩니다. 이 시간을 기준으로 검토를 완료 하지 않은 사용자는 검토를 중지 한 후에 완료할 수 없습니다. 검토를 중단한 후에는 다시 시작할 수 없습니다.
 
 ### <a name="reset"></a>다시 설정
 
-액세스 검토를 다시 설정하여 모든 결정 사항을 제거할 수 있습니다. 액세스 검토를 다시 설정하면 모든 사용자가 다시 검토되지 않음으로 표시됩니다.
+액세스 검토를 다시 설정하여 모든 결정 사항을 제거할 수 있습니다. 액세스 검토를 다시 설정 하면 모든 사용자가 다시 검토 안 함으로 표시 됩니다.
 
-### <a name="apply"></a>신청
+### <a name="apply"></a>적용
 
 액세스 검토가 완료 되 면 **적용** 을 선택 하 여 검토 결과를 구현 합니다. 사용자의 액세스가 검토 중에 거부되었다면, 이 단계는 해당 역할 할당을 제거합니다.  
 

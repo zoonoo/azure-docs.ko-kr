@@ -1,31 +1,31 @@
 ---
-title: 그룹 관리 및 온-프레미스에서 그룹 쓰기 저장을 위한 PowerShell 예제-Azure Active Directory | Microsoft Docs
+title: 그룹 관리를 위한 PowerShell V2 예제-Azure AD | Microsoft Docs
 description: 이 페이지에는 Azure Active Directory에서 그룹을 관리하는 데 도움이 되는 PowerShell 예제가 나와 있습니다.
 keywords: Azure AD, Azure Active Directory, PowerShell, 그룹, 그룹 관리
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 06/14/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e22baabda901a34f624cf27c25037ff3ba94e90
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1aa696ccaecc24df700315962c1f01f3a298c56c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381852"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026700"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 버전 2 cmdlet
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
-> * [PowerShell](groups-settings-v2-cmdlets.md)
+> - [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
 
@@ -130,7 +130,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
 ```
 
 > [!NOTE]
-> Azure AD PowerShell cmdlet에서는 OData 쿼리 표준을 구현합니다. 자세한 내용은 [OData 엔드포인트를 사용하는 OData 시스템 쿼리 옵션](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter)의 **$filter**를 참조하세요.
+> Azure AD PowerShell cmdlet에서는 OData 쿼리 표준을 구현합니다. 자세한 내용은 **OData 엔드포인트를 사용하는 OData 시스템 쿼리 옵션**의 [$filter](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter)를 참조하세요.
 
 ## <a name="create-groups"></a>그룹 만들기
 
@@ -199,7 +199,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     PS C:\Windows\system32> Remove-AzureADGroup -ObjectId b11ca53e-07cc-455d-9a89-1fe3ab24566b
 ```
 
-## <a name="manage-group-membership"></a>그룹 멤버 자격 관리
+## <a name="manage-group-membership"></a>그룹 구성원 자격 관리
 
 ### <a name="add-members"></a>구성원 추가
 
@@ -224,7 +224,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
                           8120cc36-64b4-4080-a9e8-23aa98e8b34f User
 ```
 
-### <a name="remove-members"></a>멤버 제거
+### <a name="remove-members"></a>구성원 제거
 
 이전에 추가한 그룹에 구성원을 제거하려면 다음과 같이 Remove-AzureADGroupMember cmdlet을 사용합니다.
 
@@ -308,15 +308,15 @@ Cmdlet은 지정 된 그룹에 대 한 소유자 (사용자 및 서비스 사용
 
 ## <a name="reserved-aliases"></a>예약된 별칭
 
-그룹을 만들 때 특정 엔드포인트는 최종 사용자가 mailNickname 또는 별칭이 그룹의 전자 메일 주소의 일부로 사용되도록 지정할 수 있게 합니다. 다음과 같은 높은 권한이 있는 전자 메일 별칭이 있는 그룹은 Azure AD 전역 관리자만 만들 수 있습니다. 
+그룹을 만들 때 특정 엔드포인트는 최종 사용자가 mailNickname 또는 별칭이 그룹의 전자 메일 주소의 일부로 사용되도록 지정할 수 있게 합니다. Azure AD 전역 관리자는 다음과 같은 높은 권한이 있는 메일 별칭을 사용 하는 그룹을 만들 수 있습니다. 
   
 * abuse
-* 관리자
-* 관리자 역할
+* admin
+* administrator
 * hostmaster
 * majordomo
 * postmaster
-* 루트
+* root
 * secure
 * security
 * ssl-admin

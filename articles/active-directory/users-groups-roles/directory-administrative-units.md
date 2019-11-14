@@ -1,26 +1,25 @@
 ---
-title: 관리 단위 관리(미리 보기) - Azure Active Directory | Microsoft Docs
+title: 관리 단위 관리 (미리 보기)-Azure AD | Microsoft Docs
 description: Azure Active Directory에서 보다 세부적인 권한 위임을 위해 관리 단위 사용
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.topic: article
 ms.subservice: users-groups-roles
 ms.workload: identity
-ms.date: 08/01/2019
+ms.date: 11/13/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b61186a876af90c812ec7faf41fa9f5b14bf4e
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 3c4958975a080a98fb900bf317229ba9eda795d5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71336914"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028422"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Azure Active Directory의 관리 단위 관리 (미리 보기)
 
@@ -34,13 +33,13 @@ ms.locfileid: "71336914"
 
 ## <a name="license-requirements"></a>라이선스 요구 사항
 
-관리 단위를 사용 하려면 각 관리 단위 관리자에 대 한 Azure Active Directory Premium 라이선스가 필요 합니다. 자세한 내용은 [Azure AD Premium 시작을 참조하세요](../fundamentals/active-directory-get-started-premium.md).
+관리 단위를 사용 하려면 각 관리 단위 관리자에 대 한 Azure Active Directory Premium 라이선스가 필요 합니다. 자세한 내용은 [Azure AD Premium 시작](../fundamentals/active-directory-get-started-premium.md)을 참조 하세요.
 
 ## <a name="managing-administrative-units"></a>관리 단위 관리
 
 이 미리 보기 릴리스에서는 관리 단위 [작업](https://docs.microsoft.com/powershell/azure/active-directory/working-with-administrative-units?view=azureadps-2.0) 에 설명 된 대로 관리 단위를 만들고 관리할 수 있는 유일한 방법은 Windows PowerShell cmdlet에 대 한 Azure Active Directory 모듈을 사용 하는 것입니다.
 
-소프트웨어 요구 사항 및 Azure AD 모듈 설치에 대 한 자세한 내용과 구문, 매개 변수 설명 및 예제 등 관리 단위를 관리 하기 위한 Azure AD 모듈 cmdlet에 대 한 참조 정보는 Azure Active를 참조 하세요. [ 디렉터리 PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0).
+소프트웨어 요구 사항 및 Azure AD 모듈 설치에 대 한 자세한 내용과 구문, 매개 변수 설명 및 예제 등 관리 단위를 관리 하기 위한 Azure AD 모듈 cmdlet에 대 한 참조 정보는 [PowerShell Azure Active Directory](https://docs.microsoft.com/powershell/azure/active-directory/overview?view=azureadps-2.0)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: Oracle Linux VHD 만들기 및 업로드 | Microsoft Docs
+title: Oracle Linux VHD 만들기 및 업로드
 description: Oracle Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: ede12520fc6db089aea2d22b02dc32e72496830c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 16f3bc9e70f8fac6ab28318e1654742a2c3b76a1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082450"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035365"
 ---
-# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure용 Oracle Linux 가상 머신 준비
+# <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Azure용 Oracle Linux 가상 컴퓨터 준비
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 이 문서에서는 가상 하드 디스크에 Oracle Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](https://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
 
 ### <a name="oracle-linux-installation-notes"></a>Oracle Linux 설치 참고 사항
-* Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes) 을 참조하세요.
+* Azure용 Linux를 준비하는 방법에 대한 추가 팁은 [일반 Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes) 도 참조하세요.
 * Oracle Red Hat 호환 커널 및 해당 UEK3(Unbreakable Enterprise Kernel)은 모두 Hyper-V 및 Azure에서 지원됩니다. 최상의 결과를 얻으려면 Oracle Linux VHD를 준비할 때 최신 커널로 업데이트하세요.
 * Oracle의 UEK2는 필수 드라이버를 포함하지 않으므로 Hyper-V 및 Azure에서 지원되지 않습니다.
 * VHDX 형식은 Azure에서 지원되지 않습니다. **고정된 VHD**만 지원됩니다.  Hyper-V 관리자 또는 convert-vhd cmdlet을 사용하여 디스크를 VHD 형식으로 변환할 수 있습니다.
@@ -36,12 +36,12 @@ ms.locfileid: "70082450"
 * 2\.6.37보다 낮은 Linux 커널 버전의 버그 때문에 더 큰 VM 크기에서는 NUMA가 지원되지 않습니다. 이 문제는 주로 업스트림 Red Hat 2.6.32 커널을 사용하는 분산에 영향을 줍니다. Azure Linux 에이전트(waagent)를 수동으로 설치하면 Linux 커널의 GRUB 구성에서 NUMA가 자동으로 사용하지 않도록 설정됩니다. 여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 * OS 디스크에 스왑 파티션을 구성하지 마세요. 임시 리소스 디스크에서 스왑 파일을 만들도록 Linux 에이전트를 구성할 수 있습니다.  여기에 대한 자세한 내용은 아래 단계에서 확인할 수 있습니다.
 * Azure의 모든 VHD는 가상 크기가 1MB 단위로 조정되어야 합니다. 원시 디스크에서 VHD로 변환할 때 변환하기 전에 원시 디스크 크기가 1MB의 배수인지 확인해야 합니다. 자세한 내용은 [Linux 설치 참고 사항](create-upload-generic.md#general-linux-installation-notes)을 참조하세요.
-* `Addons` 리포지토리가 사용되도록 설정되었는지 확인합니다. 파일 `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) 또는 `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7)을 편집 하 고이 파일의 `enabled=0` **[ol6_addons]** 또는 **[ol7_addons]** 아래에서 줄을로 `enabled=1` 변경 합니다.
+* `Addons` 리포지토리가 사용하도록 설정되었는지 확인합니다. 파일 `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) 또는 `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7)을 편집 하 고이 파일의 **[`enabled=0`]** 또는 **[`enabled=1`]** 아래에 있는 ol6_addons 줄을 변경 합니다.
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4 이상
 가상 컴퓨터를 Azure에서 실행하려면 운영 체제에서 특정 구성 단계를 완료해야 합니다.
 
-1. Hyper-V 관리자의 가운데 창에서 가상 머신을 선택합니다.
+1. Hyper-V 관리자의 가운데 창에서 가상 컴퓨터를 선택합니다.
 2. **연결** 을 클릭하여 가상 머신 창을 엽니다.
 3. 다음 명령을 실행하여 NetworkManager를 제거합니다.
    
@@ -61,7 +61,7 @@ ms.locfileid: "70082450"
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-6. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 머신을 복제하는 경우 문제를 발생시킬 수 있습니다.
+6. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킬 수 있습니다.
    
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
         # sudo rm -f /etc/udev/rules.d/70-persistent-net.rules
@@ -134,7 +134,7 @@ Azure용으로 Oracle Linux 7 가상 컴퓨터를 준비하는 작업은 Oracle 
         USERCTL=no
         PEERDNS=yes
         IPV6INIT=no
-5. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 머신을 복제하는 경우 문제를 발생시킬 수 있습니다.
+5. 이더넷 인터페이스에 대한 정적 규칙을 생성하지 않도록 방지하는 udev 규칙을 수정합니다. 이러한 규칙은 Microsoft Azure 또는 Hyper-V에서 가상 컴퓨터를 복제하는 경우 문제를 발생시킬 수 있습니다.
    
         # sudo ln -s /dev/null /etc/udev/rules.d/75-persistent-net-generator.rules
 6. 다음 명령을 실행하여 부팅 시 네트워크 서비스가 시작되도록 합니다.

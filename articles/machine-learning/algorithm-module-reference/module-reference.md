@@ -9,14 +9,14 @@ ms.topic: reference
 author: peterclu
 ms.author: peterlu
 ms.date: 11/11/2019
-ms.openlocfilehash: 938286f0dafdeb11473bef1b88f876d7918e76ca
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 21577936f2487313683ac763b0c6c661c6c1f958
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012750"
+ms.locfileid: "74039329"
 ---
-# <a name="algorithm--module-reference"></a>알고리즘 및 모듈 참조
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에 대 한 알고리즘 & 모듈 참조
 
 이 참조 콘텐츠는 Azure Machine Learning designer (미리 보기)에서 사용할 수 있는 각 기계 학습 알고리즘 및 모듈에 대 한 기술 배경을 제공 합니다.
 
@@ -39,7 +39,7 @@ ms.locfileid: "74012750"
 | 텍스트 분석 | 구조화 된 텍스트와 구조화 되지 않은 텍스트를 모두 사용 하기 위한 특수 한 계산 도구를 제공 합니다. | [텍스트에서 N 개의 문법 기능 추출](extract-n-gram-features-from-text.md) <br/> [기능 해시](feature-hashing.md) <br/> [텍스트 전처리](preprocess-text.md) |
 |  | **기계 학습 알고리즘**: | |
 | 분류 | 클래스를 예측 합니다.  이진 파일 (2 클래스) 또는 다중 클래스 알고리즘에서 선택 합니다.| [다중 클래스 의사 결정 포리스트](multiclass-decision-forest.md) <br/> [다중 클래스 승격 된 의사 결정 트리](multiclass-boosted-decision-tree.md) <br/> [다중 클래스 로지스틱 회귀](multiclass-logistic-regression.md)  <br/> [다중 클래스 신경망](multiclass-neural-network.md) <br/> [One 및 All 다중 클래스](one-vs-all-multiclass.md) <br/>  [2 클래스 로지스틱 회귀](two-class-logistic-regression.md)  <br/>[2 클래스 평균 퍼셉트론](two-class-averaged-perceptron.md) <br/> [2클래스 향상된 의사 결정 트리](two-class-boosted-decision-tree.md)  <br/> [2 클래스 의사 결정 포리스트](two-class-decision-forest.md)  <br/> [2 클래스 신경망](two-class-neural-network.md) <br/> [2 클래스 지원 벡터 컴퓨터](two-class-support-vector-machine.md) | 
-| Clustering | 데이터를 그룹화 합니다.| [K-클러스터링을 의미 합니다.](k-means-clustering.md)
+| 클러스터링 | 데이터를 그룹화 합니다.| [K-클러스터링을 의미 합니다.](k-means-clustering.md)
 | 회귀 | 값을 예측 합니다. | [승격 된 의사 결정 트리 회귀](boosted-decision-tree-regression.md) <br/> [의사 결정 포리스트 회귀](decision-forest-regression.md) <br/> [선형 회귀](linear-regression.md)  <br/> [신경망 회귀](neural-network-regression.md)  <br/> |
 | 추천 | 권장 사항 모델을 작성 합니다. | [추천 평가](evaluate-recommender.md) <br/> [.SVD 추천 점수 매기기](score-svd-recommender.md) <br/> [.SVD 추천 학습](train-SVD-recommender.md) |
 |  | **모델 작성 및 평가**: | |

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 51a51e63f1d45d67cda63d4491a3bac572434dc0
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: a35cf935d990dbb61f440d2592d59d21f33a2ae8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991904"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037234"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen2는 Azure 역할 기반 액세스 제어 (RBAC) 및 
 
 RBAC는 역할 할당을 사용 하 여 *보안 주체*에 대 한 권한 집합을 효과적으로 적용 합니다. *보안 주체* 는 Azure 리소스에 대 한 액세스를 요청 하는 AD (Azure Active Directory)에 정의 된 사용자, 그룹, 서비스 주체 또는 관리 id를 나타내는 개체입니다.
 
-일반적으로 이러한 Azure 리소스는 최상위 리소스로 제한 됩니다. 예를 들면 다음과 같습니다. Azure Storage 계정). Azure Data Lake Storage Gen2 Azure Storage 경우에는이 메커니즘이 컨테이너 (파일 시스템) 리소스로 확장 되었습니다.
+일반적으로 이러한 Azure 리소스는 최상위 리소스 (예: Azure Storage 계정)로 제한 됩니다. Azure Data Lake Storage Gen2 Azure Storage 경우에는이 메커니즘이 컨테이너 (파일 시스템) 리소스로 확장 되었습니다.
 
 저장소 계정 범위에서 보안 주체에 역할을 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)지정을 참조 하세요.
 
@@ -36,7 +36,7 @@ RBAC 역할 할당을 사용 하는 것은 액세스 권한을 제어 하는 강
 보안 주체에 [기본 제공 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)또는 사용자 지정 역할을 통해 RBAC 데이터 권한이 부여 된 경우 요청에 대 한 권한 부여 시 먼저 이러한 권한이 평가 됩니다. 요청 된 작업이 보안 주체의 RBAC 할당에 의해 권한이 부여 되 면 권한 부여가 즉시 해결 되며 추가 ACL 검사가 수행 되지 않습니다. 또는 보안 주체에 RBAC 할당이 없거나 요청의 작업이 할당 된 권한과 일치 하지 않는 경우에는 ACL 검사를 수행 하 여 보안 주체가 요청 된 작업을 수행할 수 있는 권한을 부여 받았는지 확인 합니다.
 
 > [!NOTE]
-> 보안 주체에 저장소 Blob 데이터 소유자 기본 제공 역할 할당이 할당 된 경우 보안 주체는 *슈퍼 사용자* 로 간주 되 고 디렉터리 소유자를 설정 하는 등의 모든 변경 작업에 대 한 모든 액세스 권한이 부여 됩니다. 파일은 소유자가 아닌 디렉터리와 파일에 대 한 Acl을 비롯 한 파일입니다. 슈퍼 사용자 액세스는 리소스 소유자를 변경할 수 있는 권한을 부여받는 유일한 방법입니다.
+> 보안 주체가 저장소 Blob 데이터 소유자 기본 제공 역할 할당을 할당 한 경우에는 보안 주체가 *슈퍼 사용자* 로 간주 되 고 디렉터리 또는 파일의 소유자를 설정 하거나 소유자가 아닌 디렉터리와 파일에 대 한 acl을 설정 하는 등 모든 변경 작업에 대 한 모든 권한을 부여 받습니다. 슈퍼 사용자 액세스는 리소스 소유자를 변경할 수 있는 권한을 부여받는 유일한 방법입니다.
 
 ## <a name="shared-key-and-shared-access-signature-sas-authentication"></a>공유 키 및 SAS (공유 액세스 서명) 인증
 
@@ -64,13 +64,13 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 |REST API    |[경로-업데이트](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> 보안 주체가 *서비스* 사용자 인 경우 관련 앱 등록의 개체 id가 아니라 서비스 주체의 개체 id를 사용 하는 것이 중요 합니다. 서비스 주체의 개체 ID를 가져오려면 Azure CLI를 연 후 다음 명령을 `az ad sp show --id <Your App ID> --query objectId`사용 합니다. 자리 표시자를 `<Your App ID>` 앱 등록의 앱 ID로 바꾸어야 합니다.
+> 보안 주체가 *서비스* 사용자 인 경우 관련 앱 등록의 개체 id가 아니라 서비스 주체의 개체 id를 사용 하는 것이 중요 합니다. 서비스 주체의 개체 ID를 가져오려면 Azure CLI를 연 후 다음 명령을 사용 합니다. `az ad sp show --id <Your App ID> --query objectId`. `<Your App ID>` 자리 표시자를 앱 등록의 앱 ID로 바꾸어야 합니다.
 
 ### <a name="types-of-access-control-lists"></a>액세스 제어 목록의 유형
 
 액세스 제어 목록에는 *액세스 acl* 및 *기본 acl*의 두 종류가 있습니다.
 
-액세스 ACL은 개체에 대한 액세스를 제어합니다. 파일과 디렉터리 모두에 액세스 ACL이 있습니다.
+액세스 ACL은 개체에 대한 액세스를 제어합니다. 파일과 디렉터리 둘 다에 액세스 ACL이 있습니다.
 
 기본 Acl은 해당 디렉터리 아래에 생성 된 모든 자식 항목의 액세스 Acl을 결정 하는 디렉터리와 연결 된 Acl의 템플릿입니다. 파일에는 기본 ACL이 없습니다.
 
@@ -90,7 +90,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 | **실행(X)** | Data Lake Storage Gen2의 컨텍스트에서는 의미가 없습니다. | 디렉터리의 자식 항목을 트래버스하는 데 필요합니다. |
 
 > [!NOTE]
-> Acl만 사용 하 여 권한을 부여 하는 경우 (RBAC 없음) 서비스 사용자에 게 파일에 대 한 읽기 또는 쓰기 액세스 권한을 부여 하려면 컨테이너에 대 한 서비스 사용자 **실행** 권한과 폴더의 계층 구조에 있는 각 폴더에 파일로 이어질 수 있습니다.
+> Acl만 사용 하 여 권한을 부여 하는 경우 (RBAC 없음) 보안 주체에 게 파일에 대 한 읽기 또는 쓰기 액세스 권한을 부여 하려면 컨테이너에 대 한 보안 주체 실행 권한과 파일을 받는 폴더 계층의 각 폴더에 보안 주체 **실행** 권한을 부여 해야 합니다.
 
 #### <a name="short-forms-for-permissions"></a>사용 권한에 대한 짧은 형식
 
@@ -100,8 +100,8 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 |--------------|------------|------------------------|
 | 7            | `RWX`        | 읽기 + 쓰기 + 실행 |
 | 5            | `R-X`        | 읽기 + 실행         |
-| 4            | `R--`        | Read                   |
-| 0            | `---`        | 권한 없음         |
+| 4            | `R--`        | 읽기                   |
+| 0            | `---`        | 사용 권한 없음         |
 
 #### <a name="permissions-inheritance"></a>권한 상속
 
@@ -111,7 +111,7 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 다음 표에서는 저장소 계정에서 특정 작업을 수행 하는 데 필요한 사용 권한을 이해 하는 데 도움이 되는 몇 가지 일반적인 시나리오를 보여 줍니다.
 
-|    연산             |    /    | Oregon/ | Portland/ | Data.txt     |
+|    작업(Operation)             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
@@ -154,8 +154,8 @@ POSIX ACL에서 모든 사용자는 *주 그룹*과 연결됩니다. 예를 들�
 
 ##### <a name="assigning-the-owning-group-for-a-new-file-or-directory"></a>새 파일 또는 디렉터리에 대한 소유 그룹 할당
 
-* **사례 1**: 루트 디렉터리("/")입니다. 이 디렉터리는 Data Lake Storage Gen2 컨테이너를 만들 때 생성 됩니다. 이 경우 소유 그룹은 OAuth를 사용 하 여 완료 된 경우 컨테이너를 만든 사용자로 설정 됩니다. 공유 키, 계정 SAS 또는 서비스 SAS를 사용 하 여 컨테이너를 만든 경우 소유자 및 소유 그룹은 **$superuser**로 설정 됩니다.
-* **사례 2**(다른 모든 경우): 새 항목을 만들 때 소유 그룹이 부모 디렉터리에서 복사됩니다.
+* **사례 1**: 루트 디렉터리 "/"입니다. 이 디렉터리는 Data Lake Storage Gen2 컨테이너를 만들 때 생성 됩니다. 이 경우 소유 그룹은 OAuth를 사용 하 여 완료 된 경우 컨테이너를 만든 사용자로 설정 됩니다. 공유 키, 계정 SAS 또는 서비스 SAS를 사용 하 여 컨테이너를 만든 경우 소유자 및 소유 그룹은 **$superuser**로 설정 됩니다.
+* **사례 2** (다른 모든 경우): 새 항목이 만들어지면 소유 그룹이 부모 디렉터리에서 복사 됩니다.
 
 ##### <a name="changing-the-owning-group"></a>소유 그룹 변경
 
@@ -239,7 +239,7 @@ return ( (desired_perms & perms & mask ) == desired_perms)
 
 Azure Data Lake Storage Gen2에 대한 umask는 007로 설정된 상수 값입니다. 이 값은 다음과 같이 변환됩니다.
 
-| umask 구성 요소     | 숫자 형식 | 약식 | 의미 |
+| umask 구성 요소     | 숫자 형식 | 짧은 형식 | 의미 |
 |---------------------|--------------|------------|---------|
 | umask.owning_user   |    0         |   `---`      | 소유 사용자의 경우 부모 항목의 기본 ACL을 자식 항목의 액세스 ACL에 복사합니다. | 
 | umask.owning_group  |    0         |   `---`      | 소유 그룹의 경우 부모 항목의 기본 ACL을 자식 항목의 액세스 ACL에 복사합니다. | 
@@ -335,6 +335,6 @@ ACL은 상속되지 않습니다. 그러나 기본 ACL을 사용하여 부모 �
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Linux의 액세스 제어 목록 사용](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)(영문)
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목:
 
 * [Azure Data Lake Storage Gen2 개요](../blobs/data-lake-storage-introduction.md)

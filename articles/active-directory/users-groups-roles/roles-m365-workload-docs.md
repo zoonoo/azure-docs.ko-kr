@@ -1,26 +1,25 @@
 ---
-title: Microsoft 365 services에 대 한 관리자 역할 콘텐츠-Azure AD | Microsoft Docs
+title: Microsoft 365 서비스에서 관리자 역할 문서-Azure AD | Microsoft Docs
 description: Azure Active Directory에서 Microsoft 365 services의 관리자 역할에 대 한 콘텐츠 및 API 참조를 찾습니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12ffa1d4f3e802b3419b31844ddd8133ceab5086
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 430b65217da33185cd3b5c235fb148f3350e1bfe
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304386"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024451"
 ---
 # <a name="administrator-roles-for-microsoft-365-services"></a>Microsoft 365 services에 대 한 관리자 역할
 
@@ -42,7 +41,7 @@ Azure Information Protection | [Azure AD 관리자 역할](directory-assign-admi
 Microsoft Cloud App Security | [역할 기반 액세스 제어](https://docs.microsoft.com/cloud-app-security/manage-admins) | [API 참조](https://docs.microsoft.com/cloud-app-security/api-tokens) 
 Azure Advanced Threat Protection | [Azure ATP 역할 그룹](https://docs.microsoft.com/azure-advanced-threat-protection/atp-role-groups) | 사용할 수 없음
 Windows Defender Advanced Threat Protection | [Windows Defender ATP 역할 기반 액세스 제어](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-atp/rbac-windows-defender-advanced-threat-protection) | 사용할 수 없음
-권위 있는 ID 관리 | [Azure AD 관리자 역할](directory-assign-admin-roles.md) | [그래프 API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
+Privileged Identity Management | [Azure AD 관리자 역할](directory-assign-admin-roles.md) | [그래프 API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 Intune | [Intune 역할 기반 액세스 제어](https://docs.microsoft.com/intune/role-based-access-control) | [그래프 API](https://docs.microsoft.com/graph/api/resources/intune-rbac-conceptual?view=graph-rest-beta)<br>[역할 할당 가져오기](https://docs.microsoft.com/graph/api/intune-rbac-roledefinition-list?view=graph-rest-beta)
 Managed Desktop | [Azure AD 관리자 역할](directory-assign-admin-roles.md) | [그래프 API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[역할 할당 가져오기](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)
 

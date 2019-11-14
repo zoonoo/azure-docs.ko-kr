@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
-ms.date: 08/06/2018
+ms.date: 11/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 44f45c53a12c7ac73c3de3f2734f024cb9bc6dd5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fa1179e55a4826450d30351be0a905efb059780b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899993"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031023"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-a-virtual-machine-scale-set-by-using-application-insights-profiler"></a>Application Insights Profiler를 사용하여 Azure Virtual Machine 또는 가상 머신 확장 집합에서 실행되는 웹앱 프로파일링
 
@@ -89,15 +89,15 @@ ms.locfileid: "72899993"
 
     ![WAD 확장이 설치 되어 있는지 확인][wadextension]
 
-1. VM에 대 한 VM 진단 확장을 찾습니다. 리소스 그룹, virtualMachines, 가상 컴퓨터 이름 및 확장을 확장 합니다.  
+2. VM에 대 한 VM 진단 확장을 찾습니다. [https://resources.azure.com](https://resources.azure.com)로 이동합니다. 리소스 그룹, virtualMachines, 가상 컴퓨터 이름 및 확장을 확장 합니다.  
 
     ![Azure Resource Explorer에서 WAD config로 이동 합니다.][azureresourceexplorer]
 
-1. Diagnostics.wadcfg 아래의 SinksConfig 노드에 Application Insights Profiler 싱크를 추가 합니다. SinksConfig 섹션이 아직 없는 경우 하나를 추가 해야 할 수 있습니다. 설정에 적절 한 Application Insights iKey를 지정 해야 합니다. 오른쪽 위 모서리에서 탐색기 모드를 읽기/쓰기로 전환 하 고 파란색 ' 편집 ' 단추를 눌러야 합니다.
+3. Diagnostics.wadcfg 아래의 SinksConfig 노드에 Application Insights Profiler 싱크를 추가 합니다. SinksConfig 섹션이 아직 없는 경우 하나를 추가 해야 할 수 있습니다. 설정에 적절 한 Application Insights iKey를 지정 해야 합니다. 오른쪽 위 모서리에서 탐색기 모드를 읽기/쓰기로 전환 하 고 파란색 ' 편집 ' 단추를 눌러야 합니다.
 
     ![Application Insights Profiler 싱크 추가][resourceexplorersinksconfig]
 
-1. 구성을 편집한 후 ' Put ' 키를 누릅니다. 성공적으로 배치 되 면 화면 중간에 녹색 확인 표시가 나타납니다.
+4. 구성을 편집한 후 ' Put ' 키를 누릅니다. 성공적으로 배치 되 면 화면 중간에 녹색 확인 표시가 나타납니다.
 
     ![변경 내용을 적용 하기 위해 put 요청 보내기][resourceexplorerput]
 

@@ -1,6 +1,6 @@
 ---
-title: Azure를 사용 하 여 SQL Server 2008 및 SQL Server 2008 R2 지원 확장
-description: SQL Server 인스턴스를 Azure로 마이그레이션하거나 확장 된 지원을 구매 하 여 온-프레미스로 유지 함으로써 SQL Server 2008 및 SQL Server 2008 r 2에 대 한 지원을 확장 하는 방법에 대해 알아봅니다.
+title: SQL Server 2008 & 2008 R2 지원 확장
+description: SQL Server 인스턴스를 Azure로 마이그레이션하거나 확장 된 지원을 구매 하 여 온-프레미스 인스턴스를 유지 함으로써 SQL Server 2008 및 SQL Server 2008 r 2에 대 한 지원을 확장 합니다.
 services: virtual-machines-windows
 documentationcenter: ''
 author: MashaMSFT
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 93e0032cd283eda034519ca29a0e1cf501b5cde6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: d1b3961b61d45718e726b31ec406445b202a0adf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100464"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034183"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Azure를 사용 하 여 SQL Server 2008 및 SQL Server 2008 R2 지원 확장
 
@@ -37,9 +38,9 @@ SQL Server 2008을 보유 하 고 있는 고객은 SQL Server 2008 r 2로 자체
 Azure Marketplace를 통해 배포 된 이미지는 SQL IaaS 확장이 미리 설치 된 상태로 제공 됩니다. SQL IaaS 확장은 유연한 라이선스 및 자동화 된 패치를 위한 요구 사항입니다. 자체 설치 된 Vm을 배포 하는 고객은 SQL IaaS 확장을 수동으로 설치 해야 합니다. SQL IaaS 확장은 Windows Server 2008에서 지원 되지 않습니다.
 
 > [!NOTE]
-> SQL Server **만들기** 및 **관리** 블레이드가 Azure Portal의 SQL Server 2008 R2 이미지와 함께 작동 하지만 다음 기능은 _지원 되지_않습니다. 자동 백업, Azure Key Vault 통합, R Services 및 저장소 구성.
+> SQL Server **만들기** 및 **관리** 블레이드가 Azure Portal의 SQL Server 2008 R2 이미지와 함께 작동 하지만, 자동 백업, Azure Key Vault 통합, R 서비스 및 저장소 구성과 같은 기능은 _지원 되지 않습니다_.
 
-## <a name="licensing"></a>라이선싱
+## <a name="licensing"></a>라이선스
 종 량 제 SQL Server 2008 R2 배포를 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)으로 변환할 수 있습니다.
 
 소프트웨어 보증 (SA) 기반 라이선스를 종 량 제로 변환 하려면 고객은 SQL VM [리소스 공급자](virtual-machines-windows-sql-register-with-resource-provider.md)에 등록 해야 합니다. 등록 후에는 Azure 하이브리드 혜택와 종 량 제 간에 SQL 라이선스 유형을 교환할 수 있습니다.
@@ -63,7 +64,7 @@ SQL Server 복구를 보장 하기 위해 앱에 일관 된 Azure Site Recovery 
 
 Azure VM에서 EOS SQL Server에 대 한 재해 복구 솔루션은 다음과 같습니다.
 
-- **백업 SQL Server**: Azure Backup를 사용 하 여, 랜 섬 웨어, 실수로 인 한 삭제 및 손상 으로부터 EOS SQL Server를 보호 합니다. 이 솔루션은 현재 EOS SQL Server 미리 보기로 제공 되며 Windows 2008 R2 s p 1에서 실행 되는 SQL Server 2008 및 2008 R2를 지원 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2)를 참조 하세요.
+- **SQL Server 백업**: Azure Backup를 사용 하 여, 랜 섬 웨어, 실수로 인 한 삭제 및 손상 으로부터 EOS SQL Server을 보호 합니다. 이 솔루션은 현재 EOS SQL Server 미리 보기로 제공 되며 Windows 2008 R2 s p 1에서 실행 되는 SQL Server 2008 및 2008 R2를 지원 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2)를 참조 하세요.
 - **로그 전달**: RTO를 줄이기 위해 연속 복원을 사용 하 여 다른 영역 또는 Azure 지역에 로그 전달 복제본을 만들 수 있습니다. 로그 전달을 수동으로 구성 해야 합니다.
 - **Azure Site Recovery**: Azure Site Recovery 복제를 통해 영역 및 지역 간에 VM을 복제할 수 있습니다. 재해 발생 시 복구를 보장 하기 위해 SQL Server에는 앱 일치 스냅숏이 필요 합니다. Azure Site Recovery는 최소 1 시간 RPO와 EOS SQL Server 재해 복구를 위한 2 시간 (+ SQL Server 복구 시간) RTO를 제공 합니다.
 

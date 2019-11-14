@@ -1,5 +1,5 @@
 ---
-title: 'Azure Premium Storage: Windows VM의 성능을 위한 설계 | Microsoft Docs'
+title: 'Azure Premium Storage: Windows Vm의 성능에 대 한 디자인 '
 description: Azure Premium Storage를 사용하여 고성능 애플리케이션을 설계합니다. Premium Storage는 Azure Virtual Machines에서 실행되는 I/O 사용량이 많은 작업에 대해 대기 시간이 짧은 고성능 디스크 지원을 제공합니다.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/27/2017
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 073b0f0b0078f8e1159fad5e4eb6a70543c81700
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 584c69f4079eeebf04a0e40021bfc843b40e8b1b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012355"
+ms.locfileid: "74032947"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: 고성능을 위한 설계
 [!INCLUDE [virtual-machines-common-premium-storage-introduction](../../../includes/virtual-machines-common-premium-storage-introduction.md)]

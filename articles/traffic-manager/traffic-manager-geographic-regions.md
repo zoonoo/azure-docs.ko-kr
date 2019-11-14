@@ -1,5 +1,5 @@
 ---
-title: Azure Traffic Manager 지리적 라우팅 유형에서 사용하는 국가/지역 계층 구조 | Microsoft Docs
+title: 지리적 라우팅에서 사용 하는 국가/지역 계층 구조-Azure Traffic Manager
 description: 이 문서에서는 Azure Traffic Manager 지리적 라우팅 유형에서 사용하는 국가/지역 계층 구조를 나열합니다.
 services: traffic-manager
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: allensu
-ms.openlocfilehash: d16529e966fb2e16d1012f4aa0aafcff204a3093
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 13f4101c17d78a59e8cde724863d237ba888e6a4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071173"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037198"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>지리적 트래픽 라우팅 메소드에 대해 Azure Traffic Manager에서 사용하는 국가/지역 계층 구조
 
@@ -128,7 +128,7 @@ ms.locfileid: "67071173"
         - SM(산마리노)
 
         - UA(우크라이나)
-            - 영역의 크리미아 반도
+            - Crimea의 지역
 
         - VA (바티칸 시국)
 
@@ -270,7 +270,7 @@ ms.locfileid: "67071173"
 
         - TT(트리니다드 토바고)
 
-        - UM(미국 소수 외부 제도)
+        - UM (미국 소수 외부 제도)
 
         - US(미국)
 
@@ -380,7 +380,7 @@ ms.locfileid: "67071173"
 
         - VG(영국령 버진 아일랜드)
 
-        - VI(미국령 버진 아일랜드)
+        - VI (미국령 버진 아일랜드)
 
         - XE(신트외스타티우스)
 

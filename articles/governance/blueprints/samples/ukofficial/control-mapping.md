@@ -1,18 +1,14 @@
 ---
 title: 영국 공식 & 영국 NHS 청사진 샘플-컨트롤 매핑
 description: UK 공식 및 영국 NHS 청사진 예제의 매핑을 제어 합니다. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: e86c7040e94553b032b565e282639047a1ed8750
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5ba7cf481276b236c9299e660acb9668feeea683
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162951"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037761"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>영국 공식 및 UK NHS 청사진 예제의 매핑 제어
 
@@ -48,7 +44,7 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 ## <a name="52-vulnerability-management"></a>5.2 취약성 관리
 
-이 청사진은 누락 된 endpoint protection, 누락 된 시스템 업데이트, 운영 체제 취약점, SQL 취약성 및 가상을 모니터링 하는 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 여 정보 시스템 취약성을 관리 하는 데 도움이 됩니다. 시스템 취약점. 이러한 인사이트는 배포된 리소스의 보안 상태에 대한 실시간 정보를 제공하며, 업데이트 관리 작업의 우선 순위를 지정하는 데 도움이 될 수 있습니다.
+이 청사진을 통해 누락 된 endpoint protection, 누락 된 시스템 업데이트, 운영 체제 취약점, SQL 취약성 및 가상 컴퓨터 취약성을 모니터링 하는 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 여 정보 시스템 취약성을 관리할 수 있습니다. 이러한 인사이트는 배포된 리소스의 보안 상태에 대한 실시간 정보를 제공하며, 업데이트 관리 작업의 우선 순위를 지정하는 데 도움이 될 수 있습니다.
 
 - Azure Security Center에서 누락된 Endpoint Protection 모니터링
 - 시스템 업데이트를 머신에 설치해야 합니다.
@@ -67,7 +63,7 @@ Azure 리소스의 암호화 구성이 최적이 아닐 수 있는 경우를 이
 
 ## <a name="9-secure-user-management--10-identity-and-authentication"></a>9 보안 사용자 관리/10 Id 및 인증
 
-Azure는 Azure의 리소스에 대 한 액세스 권한이 있는 사용자를 관리 하는 데 도움이 되는 RBAC (역할 기반 액세스 제어)를 구현 합니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 이 청사진은 소유자 및/또는 읽기/쓰기 권한이 있는 외부 계정을 감사 하는 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 여 액세스 권한을 제한 하 고 제어 하며, 소유자, 읽기 및/또는 쓰기 권한이 있는 계정을 사용 하 여 다단계 인증을 사용 합니다.
+Azure는 Azure의 리소스에 대 한 액세스 권한이 있는 사용자를 관리 하는 데 도움이 되는 RBAC (역할 기반 액세스 제어)를 구현 합니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 이 청사진은 소유자 및/또는 읽기/쓰기 권한이 있는 외부 계정을 감사 하는 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 고, multi-factor authentication을 사용 하도록 설정 되지 않은 읽기 및/또는 쓰기 권한이 있는 계정을 사용 하 여 액세스 권한을 제한 하 고 제어 하는 데 도움이 됩니다.
 
 - 구독에서 소유자 권한이 있는 계정에 MFA를 사용하도록 설정해야 합니다.
 - 구독에 대 한 쓰기 권한이 있는 계정으로 MFA를 사용 하도록 설정 해야 합니다.
@@ -124,7 +120,7 @@ Azure는 Azure의 리소스에 대 한 액세스 권한이 있는 사용자를 �
 
 ## <a name="12-secure-service-administration"></a>12 보안 서비스 관리
 
-Azure는 Azure의 리소스에 대 한 액세스 권한이 있는 사용자를 관리 하는 데 도움이 되는 RBAC (역할 기반 액세스 제어)를 구현 합니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 이 청사진은 5 개의 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 여 권한 있는 액세스 권한을 제한 하 고 제어 합니다 .이를 통해 소유자 및/또는 쓰기 권한 및 소유자가 있는 계정 및/또는 쓰기 권한이 없는 계정을 감사 합니다. multi-factor authentication을 사용 하도록 설정 했습니다.
+Azure는 Azure의 리소스에 대 한 액세스 권한이 있는 사용자를 관리 하는 데 도움이 되는 RBAC (역할 기반 액세스 제어)를 구현 합니다. Azure Portal을 사용하여 Azure 리소스에 대한 액세스 권한이 있는 사용자 및 해당 사용자의 권한을 검토할 수 있습니다. 이 청사진은 5 개의 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 여 권한 있는 액세스 권한을 제한 하 고 제어 하는 데 도움이 됩니다 .이를 통해 소유자 및/또는 쓰기 권한 및 소유자가 포함 된 계정이 포함 된 외부 계정을 감사 하 고 multi-factor authentication을 사용 하도록 설정 되지 않은 쓰기 권한을 사용 하도록
 
 클라우드 서비스 관리에 사용되는 시스템에는 해당 서비스에 대해 높은 권한의 액세스가 있습니다. 이러한 시스템이 손상되면 보안 제어를 우회하고 대용량의 데이터를 도용하거나 조작할 수단을 비롯하여 상당한 영향을 미칩니다. 서비스 공급자의 관리자가 운영 서비스를 관리 하는 데 사용 하는 방법은 서비스의 보안을 강화 하는 악용 위험을 완화 하도록 설계 되어야 합니다. 이 원칙이 구현 되지 않은 경우 공격자는 보안 제어를 우회 하 고 대량의 데이터를 도용 또는 조작 하는 수단을 가질 수 있습니다.
 
@@ -168,7 +164,7 @@ Azure는 Azure의 리소스에 대 한 액세스 권한이 있는 사용자를 �
 > [UK 공식 및 영국 NHS 청사진-개요](./index.md)
 > [영국 공식 및 영국 Nhs 청사진-배포 단계](./deploy.md)
 
-청사진 및 사용 방법에 대 한 추가 문서입니다.
+청사진 및 사용 방법에 대한 추가 문서:
 
 - [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해

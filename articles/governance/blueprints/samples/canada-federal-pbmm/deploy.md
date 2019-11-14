@@ -1,18 +1,14 @@
 ---
 title: 캐나다 연방 PMM 청사진 샘플-배포 단계
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함 하는 캐나다 연방 PMM 청사진 샘플에 대 한 단계를 배포 합니다.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: 22806f497283c1885446eadd5f444dacf3769c12
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 788c52ee9a2bf9a0a2c506c2a34d221ff08bd0af
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163334"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038406"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>캐나다 연방 PMM 청사진 샘플 배포
 
@@ -23,7 +19,7 @@ ms.locfileid: "73163334"
 > - 샘플 사본을 **게시됨**으로 표시
 > - 기존 구독에 청사진 사본 할당
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다.
 
 ## <a name="create-blueprint-from-sample"></a>샘플에서 청사진 만들기
 
@@ -31,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **모든 서비스**를 선택하고 왼쪽 창에서 **정책**을 검색하여 선택합니다. **정책** 페이지에서 **청사진**을 선택합니다.
 
-1. **시작** 페이지 왼쪽에서 _청사진 만들기_ 아래의 **만들기** 단추를 선택합니다.
+1. **시작** 페이지 왼쪽에서 **청사진 만들기** 아래의 _만들기_ 단추를 선택합니다.
 
 1. _다른 샘플_ 에서 **캐나다 연방 pmm** 청사진 샘플을 찾고 **이 샘플 사용**을 선택 합니다.
 
@@ -64,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 정의 페이지 위쪽에서 **청사진 할당**을 선택합니다.
 
-1. 청사진 할당의 매개 변수 값을 다음과 같이 지정합니다.
+1. 청사진 할당의 매개 변수 값을 지정합니다.
 
    - 기본 사항
 
@@ -103,9 +99,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |Windows VM용 Log Analytics 작업 영역 |자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. |
 |\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |VM을 구성해야 하는 Log Analytics 작업 영역 ID |VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다. |
 |\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |진단 로그를 사용해야 하는 리소스 종류 목록 |진단 로그 설정이 사용 하도록 설정 되지 않은 경우 감사할 리소스 종류 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다. |
-|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Administrators 그룹 |그룹. 예: `Administrator; myUser1; myUser2` |
-|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Windows VM 관리자 그룹에 포함해야 하는 사용자 목록 |관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: `Administrator; myUser1; myUser2` |
-|스토리지 계정에 Advanced Threat Protection 배포 |정책 할당 |영향 |정책 효과에 대 한 정보는 [Azure Policy 효과 이해](../../../policy/concepts/effects.md)에서 확인할 수 있습니다. |
+|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Administrators 그룹 |그룹. 예제: `Administrator; myUser1; myUser2` |
+|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Windows VM 관리자 그룹에 포함해야 하는 사용자 목록 |관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예제: `Administrator; myUser1; myUser2` |
+|스토리지 계정에 Advanced Threat Protection 배포 |정책 할당 |결과 |정책 효과에 대 한 정보는 [Azure Policy 효과 이해](../../../policy/concepts/effects.md)에서 확인할 수 있습니다. |
 |SQL Server에 감사 배포 |정책 할당 |보존 기간 값(일)(0은 보존 기간에 제한이 없음을 표시) |보존 일 수 (선택 사항, 지정 되지 않은 경우 _180_ 일) |
 |SQL Server에 감사 배포 |정책 할당 |SQL 서버 감사를 위한 스토리지 계정의 리소스 그룹 이름 |감사는 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 씁니다. 저장소 계정은 해당 지역의 모든 서버에서 공유 하는 SQL Server 생성 된 각 지역에서 만들어집니다. 중요-감사를 적절 하 게 수행 하려면 리소스 그룹 또는 저장소 계정을 삭제 하거나 이름을 변경 하지 마십시오. |
 |네트워크 보안 그룹에 대한 진단 설정 배포 |정책 할당 |네트워크 보안 그룹 진단을 위한 스토리지 계정 접두사 |이 접두사는 생성 된 저장소 계정 이름을 구성 하기 위해 네트워크 보안 그룹 위치와 결합 됩니다. |
@@ -119,7 +115,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > [캐나다 연방 pmm 청사진-개요](./index.md)
 > [캐나다 연방 Pmm 청사진-제어 매핑](./control-mapping.md)
 
-청사진 및 사용 방법에 대 한 추가 문서입니다.
+청사진 및 사용 방법에 대한 추가 문서:
 
 - [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해

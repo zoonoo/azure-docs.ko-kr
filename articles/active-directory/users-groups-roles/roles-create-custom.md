@@ -1,24 +1,24 @@
 ---
-title: Azure AD 역할 기반 액세스 제어에서 사용자 지정 역할 만들기 및 할당-Azure Active Directory | Microsoft Docs
+title: Azure AD 역할 기반 액세스 제어에서 사용자 지정 역할 만들기 | Microsoft Docs
 description: 리소스 범위를 사용 하 여 Azure Active Directory 리소스에 대 한 사용자 지정 Azure AD 역할을 만들고 할당 합니다.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 09/04/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1a5aee1be7580956c32947e9bda7e2928a006c3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c2cb19c82f8c19bf87eeef755adb5756b2452512
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026393"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025280"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Azure Active Directory에서 사용자 지정 역할 만들기 및 할당
 
@@ -30,8 +30,8 @@ Azure AD 개요 페이지의 [역할 및 관리자](https://portal.azure.com/#bl
 
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>앱 등록 관리에 대 한 액세스 권한을 부여 하는 새 사용자 지정 역할 만들기
 
-1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로 [AZURE ad 관리 센터](https://aad.portal.azure.com) with 로그인 합니다.
-1. **Azure Active Directory** > **역할 및 관리자**@no__t 3**새 사용자 지정 역할**을 선택 합니다.
+1. Azure ad 조직에서 권한 있는 역할 관리자 또는 전역 관리자 권한으로  [AZURE ad 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
+1. **새 사용자 지정 역할** > **Azure Active Directory** > **역할 및 관리자를** 선택 합니다.
 
    ![역할 및 관리자 페이지에서 역할 만들기 또는 편집](./media/roles-create-custom/new-custom-role.png)
 
@@ -40,11 +40,11 @@ Azure AD 개요 페이지의 [역할 및 관리자](https://portal.azure.com/#bl
    ![기본 사항 탭에서 사용자 지정 역할에 대 한 이름 및 설명 입력](./media/roles-create-custom/basics-tab.png)
 
 1. **사용 권한** 탭에서 앱 등록의 기본 속성 및 자격 증명 속성을 관리 하는 데 필요한 권한을 선택 합니다. 각 사용 권한에 대 한 자세한 설명은 [Azure Active Directory의 응용 프로그램 등록 하위 형식 및 사용 권한](./roles-custom-available-permissions.md)을 참조 하세요.
-   1. 먼저 검색 창에 "자격 증명"을 입력 하 고 `microsoft.directory/applications/credentials/update` 사용 권한을 선택 합니다.
+   1. 먼저 검색 표시줄에 "자격 증명"을 입력 하 고 `microsoft.directory/applications/credentials/update` 사용 권한을 선택 합니다.
 
       ![사용 권한 탭에서 사용자 지정 역할에 대 한 사용 권한 선택](./media/roles-create-custom/permissions-tab.png)
 
-   1. 다음으로 검색 표시줄에 "기본"을 입력 하 고 `microsoft.directory/applications/basic/update` 권한을 선택한 후 **다음**을 클릭 합니다.
+   1. 다음으로 검색 표시줄에 "기본"을 입력 하 고 `microsoft.directory/applications/basic/update` 사용 권한을 선택한 후 **다음**을 클릭 합니다.
 1. **검토 + 만들기** 탭에서 사용 권한을 검토 하 고 **만들기**를 선택 합니다.
 
 사용자 지정 역할이 할당할 수 있는 역할 목록에 표시 됩니다.
@@ -116,7 +116,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
     사용자 지정 역할 정의를 만들기 위한 HTTP 요청입니다.
 
-    올리기
+    POST
 
     ``` HTTP
     https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
@@ -145,7 +145,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
     사용자 지정 역할 정의를 만들기 위한 HTTP 요청입니다.
 
-    올리기
+    POST
 
     ``` HTTP
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments

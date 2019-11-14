@@ -1,6 +1,6 @@
 ---
-title: 사용 후 삭제 OS 디스크에 대 한 Azure Windows Virtual Machines | Microsoft Docs
-description: Azure Vm에 대 한 사용 후 삭제 OS 디스크에 대 한 자세한 정보를 알아봅니다.
+title: Azure Windows Virtual Machines에 대 한 삭제 OS 디스크
+description: Azure Vm의 임시 OS 디스크에 대해 자세히 알아보세요.
 services: virtual-machines-windows
 author: cynthn
 manager: gwallace
@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 07/01/2019
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f821089bb9f46bcf63350519953d6cff843351f5
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 4397a2453fc4313a8f45b165fbea6f002d350781
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67808036"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033511"
 ---
-# <a name="ephemeral-os-disks-for-azure-vms"></a>Azure Vm에 대 한 사용 후 삭제 OS 디스크
+# <a name="ephemeral-os-disks-for-azure-vms"></a>Azure Vm 용 삭제 OS 디스크
 
 [!INCLUDE [virtual-machines-common-ephemeral](../../../includes/virtual-machines-common-ephemeral.md)]
  
 ## <a name="next-steps"></a>다음 단계
-사용 하 여 사용 후 삭제 OS 디스크를 사용 하 여 VM을 만들 수 있습니다 [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)합니다.
+[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)를 사용 하 여 임시 OS 디스크로 VM을 만들 수 있습니다.
 

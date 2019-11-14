@@ -1,19 +1,19 @@
 ---
-title: Express 경로 회로 리소스 관리자 템플릿을 만듭니다. Azure | Microsoft Docs
+title: 'Azure Express 경로 템플릿: Express 경로 회로 만들기'
 description: Express 경로 회로를 만들고, 프로 비전 하 고, 삭제 하 고, 프로 비전 해제 합니다.
-services: expressroute;azure-resource-manager
+services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: cherylmc
 ms.reviewer: ganesr
-ms.openlocfilehash: 103c61b6ad244bf4b140f897c070ce5bfd54cded
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: d6d9a3b472e2a40bfacf25a0b8fe0accb7d62cb8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67849229"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031965"
 ---
 # <a name="create-an-expressroute-circuit-by-using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Express 경로 회로 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "67849229"
 
 Azure PowerShell를 사용 하 여 Azure Resource Manager 템플릿을 배포 하 여 Express 경로 회로를 만드는 방법에 대해 알아봅니다. Resource Manager 탬플릿 개발에 대한 자세한 내용은 [Resource Manager 설명서](/azure/azure-resource-manager/) 및 [템플릿 참조](/azure/templates/microsoft.network/expressroutecircuits)를 참조하세요.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 * 새 네트워킹 리소스를 만들 권한이 있는지 확인합니다. 적절한 권한이 없는 경우에는 계정 관리자에게 문의합니다.

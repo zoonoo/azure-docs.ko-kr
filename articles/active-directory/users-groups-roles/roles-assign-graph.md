@@ -1,5 +1,5 @@
 ---
-title: Microsoft Graph API를 사용 하 여 사용자 지정 관리자 역할 할당 및 제거-Azure Active Directory | Microsoft Docs
+title: Microsoft Graph API를 사용 하 여 Azure AD 관리자 역할 할당 | Microsoft Docs
 description: Azure Active Directory에서 Graph API를 사용 하 여 Azure AD 관리자 역할 할당 및 제거
 services: active-directory
 author: curtand
@@ -8,23 +8,23 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 898f444e868a469aed5358f49f48f5bcbfab4450
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 2f5be5829843e9857239ca5ea9a7395f569f563a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707579"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025335"
 ---
 # <a name="assign-custom-admin-roles-using-graph-api-in-azure-active-directory"></a>Azure Active Directory에서 Graph API를 사용 하 여 사용자 지정 관리자 역할 할당 
 
 API Microsoft Graph 사용자 계정에 역할을 할당 하는 방법을 자동화할 수 있습니다. 이 문서에서는 roleAssignments에 대 한 POST, GET 및 DELETE 작업에 대해 설명 합니다.
 
-## <a name="required-permissions"></a>필요한 권한
+## <a name="required-permissions"></a>필요한 사용 권한
 
 전역 관리자 계정 또는 권한 있는 Id 관리자를 사용 하 여 Azure AD 테 넌 트에 연결 하 여 역할을 할당 하거나 제거 합니다.
 
@@ -32,13 +32,13 @@ API Microsoft Graph 사용자 계정에 역할을 할당 하는 방법을 자동
 
 사용자와 역할 정의 간에 역할 할당을 만들기 위한 HTTP 요청입니다.
 
-올리기
+POST
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-본문
+Body
 
 ``` HTTP
 {
@@ -48,7 +48,7 @@ https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version
 }
 ```
 
-응답
+response
 
 ``` HTTP
 HTTP/1.1 201 Created
@@ -56,13 +56,13 @@ HTTP/1.1 201 Created
 
 주 또는 역할 정의가 없는 역할 할당을 만들기 위한 HTTP 요청
 
-올리기
+POST
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-본문
+Body
 
 ``` HTTP
 {
@@ -72,7 +72,7 @@ https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version
 }
 ```
 
-응답
+response
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -83,13 +83,13 @@ HTTP/1.1 404 Not Found
 > [!NOTE] 
 > 현재 기본 제공 역할에는 "/" 조직 전체의 범위 또는 "/AU/*" 범위로만 범위를 지정할 수 있는 제한 사항이 있습니다. 단일 리소스 범위 지정은 기본 제공 역할에 대해 작동 하지 않지만 사용자 지정 역할에 대해 작동 합니다.
 
-올리기
+POST
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
 ```
 
-본문
+Body
 
 ``` HTTP
 {
@@ -99,7 +99,7 @@ https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version
 }
 ```
 
-응답
+response
 
 ``` HTTP
 HTTP/1.1 400 Bad Request
@@ -133,7 +133,7 @@ HTTP/1.1 400 Bad Request
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=principalId eq ‘<object-id-of-principal>’
 ```
 
-응답
+response
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -159,7 +159,7 @@ HTTP/1.1 200 OK
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
-응답
+response
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -179,7 +179,7 @@ ID로 역할 할당을 가져오기 위한 HTTP 요청입니다.
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-응답
+response
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -195,26 +195,26 @@ HTTP/1.1 200 OK
 
 사용자와 역할 정의 간의 역할 할당을 삭제 하는 HTTP 요청입니다.
 
-DELETE
+삭제
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-응답
+response
 ``` HTTP
 HTTP/1.1 204 No Content
 ```
 
 더 이상 존재 하지 않는 역할 할당을 삭제 하는 HTTP 요청
 
-DELETE
+삭제
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-응답
+response
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -222,13 +222,13 @@ HTTP/1.1 404 Not Found
 
 자체 역할과 기본 제공 역할 정의 간의 역할 할당을 삭제 하는 HTTP 요청
 
-DELETE
+삭제
 
 ``` HTTP
 https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
 ```
 
-응답
+response
 
 ``` HTTP
 HTTP/1.1 400 Bad Request

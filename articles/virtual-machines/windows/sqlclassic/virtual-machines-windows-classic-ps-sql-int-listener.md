@@ -1,27 +1,28 @@
 ---
-title: Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성 | Microsoft Docs
-description: 이 자습서에서는 클래식 배포 모델을 사용하여 만든 리소스를 사용하며, Azure에서 내부 부하 분산 장치를 사용하는 Always On 가용성 그룹 수신기를 만듭니다.
+title: 가용성 그룹에 대 한 ILB 수신기 구성 (클래식)
+description: 이 자습서에서는 클래식 배포 모델을 사용 하 여 만든 리소스를 사용 하며, 내부 부하 분산 장치를 사용 하는 Azure의 SQL Server VM에 대 한 Always On 가용성 그룹 수신기를 만듭니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MikeRayMSFT
 manager: craigg
 editor: ''
 tags: azure-service-management
-ms.assetid: 291288a0-740b-4cfa-af62-053218beba77
+ms.assetid: 291288a0-740b-4cfa-af62-053218beba77j
 ms.service: virtual-machines-sql
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: ca8adf4f9ce221533240e6c797f1fb01dacf6e8d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 29aaedeafb3995cc09e221d2e049dd538808904a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101899"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032666"
 ---
-# <a name="configure-an-ilb-listener-for-always-on-availability-groups-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 ILB 수신기 구성
+# <a name="configure-an-ilb-listener-for-availability-groups-on-azure-sql-server-vms"></a>Azure SQL Server Vm에서 가용성 그룹에 대 한 ILB 수신기 구성
 > [!div class="op_single_selector"]
 > * [내부 수신기](../classic/ps-sql-int-listener.md)
 > * [외부 수신기](../classic/ps-sql-ext-listener.md)
@@ -31,7 +32,7 @@ ms.locfileid: "70101899"
 ## <a name="overview"></a>개요
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 사용하기 위한 [Azure Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있다는 것을 이해해야 합니다. 이 문서에서는 클래식 배포 모델의 사용에 대해 설명합니다. 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하기 위한 두 가지 배포 모델, 즉 [Azure Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md) 모델이 있습니다. 이 문서에서는 클래식 배포 모델의 사용에 대해 설명합니다. 대부분의 새로운 배포에서는 Azure Resource Manager 모델을 사용하는 것이 좋습니다.
 
 Resource Manager 모델에서 Always On 가용성 그룹에 대한 수신기를 구성하려면 [Azure에서 Always On 가용성 그룹에 대한 부하 분산 장치 구성](../sql/virtual-machines-windows-portal-sql-alwayson-int-listener.md)을 참조하세요.
 

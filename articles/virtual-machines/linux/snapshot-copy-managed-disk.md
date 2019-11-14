@@ -1,5 +1,5 @@
 ---
-title: Azure에서 VHD의 스냅샷 만들기 | Microsoft Docs
+title: Azure에서 VHD의 스냅숏 만들기
 description: 백업 또는 문제 해결을 위해 Azure에서 VHD의 복사본을 만드는 방법을 알아봅니다.
 documentationcenter: ''
 author: roygara
@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 9f2f3ac3668f0e48716fc30fb69cd1782dbd4e56
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 15696469ca3861586617e9f418f8a55a7ea90467
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64706964"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034791"
 ---
 # <a name="create-a-snapshot"></a>스냅샷 만들기 
 
@@ -41,7 +41,7 @@ osDiskId=$(az vm show \
    -o tsv)
 ```
 
-[az snapshot create](/cli/azure/snapshot#az-snapshot-create)를 사용하여 *osDisk-backup*이라는 스냅숏을 만듭니다.
+*az snapshot create*를 사용하여 [osDisk-backup](/cli/azure/snapshot#az-snapshot-create)이라는 스냅샷을 만듭니다.
 
 ```azurecli-interactive
 az snapshot create \
@@ -53,7 +53,7 @@ az snapshot create \
 > [!NOTE]
 > 스냅샷을 영역 중복 스토리지에 저장하려는 경우 [가용성 영역](../../availability-zones/az-overview.md)을 지원하고 **--sku Standard_ZRS** 매개 변수를 포함하는 지역에 만들어야 합니다.
 
-[az snapshot list](/cli/azure/snapshot#az-snapshot-list)를 사용하여 스냅숏 목록을 볼 수 있습니다.
+[az snapshot list](/cli/azure/snapshot#az-snapshot-list)를 사용하여 스냅샷 목록을 볼 수 있습니다.
 
 ```azurecli-interactive
 az snapshot list \
@@ -65,10 +65,10 @@ az snapshot list \
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 위에서 **리소스 만들기**를 클릭하고 **스냅샷**을 검색합니다. 검색 결과에서 **스냅샷**을 선택합니다.
-3. **스냅숏** 블레이드에서 **만들기**를 클릭합니다.
+3. **스냅샷** 블레이드에서 **만들기**를 클릭합니다.
 4. 스냅샷의 **이름**을 입력합니다.
 5. 기존 리소스 그룹을 선택하거나 새 리소스 그룹의 이름을 입력합니다. 
-7. **원본 디스크**에서 스냅숏을 만들 관리 디스크를 선택합니다.
+7. **원본 디스크**에서 스냅샷을 만들 관리 디스크를 선택합니다.
 8. 스냅샷 저장에 사용할 **계정 유형**을 선택합니다. 고성능 SSD에 저장할 필요가 없다면 **표준 HDD**를 사용합니다.
 9. **만들기**를 클릭합니다.
 

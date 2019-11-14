@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: e0354f96036cce968e6b6909a18f97ff48347eda
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 356eab6122272162f20e1516a9ef7f4ea0127084
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796263"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049060"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -28,7 +28,7 @@ ms.locfileid: "73796263"
 다른 서비스에서 게이트웨이를 사용하는 방법에 대한 내용은 다음 문서를 참조하세요.
 
 * [Microsoft Power BI 온-프레미스 데이터 게이트웨이](https://powerbi.microsoft.com/documentation/powerbi-gateway-onprem/)
-* [온-프레미스 데이터 게이트웨이 전원 자동화](https://flow.microsoft.com/documentation/gateway-manage/)
+* [온-프레미스 데이터 게이트웨이 전원 자동화](/power-automate/gateway-reference)
 * [Microsoft Power Apps 온-프레미스 데이터 게이트웨이](https://powerapps.microsoft.com/tutorials/gateway-management/)
 * [Azure Analysis Services 온-프레미스 데이터 게이트웨이](../analysis-services/analysis-services-gateway.md)
 
@@ -53,7 +53,7 @@ Azure Logic Apps 온-프레미스 데이터 게이트웨이는 이러한 데이�
 
 Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업을 지원 합니다. 그러나 이러한 작업 [은 페이로드 크기에 제한이](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations)있습니다. 게이트웨이 자체는 추가 비용이 발생 하지 않지만 [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md) 은 Azure Logic Apps의 이러한 커넥터 및 기타 작업에 적용 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * 이미 [로컬 컴퓨터에 온-프레미스 데이터 게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)했습니다.
 
@@ -86,7 +86,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
    | **리소스 이름** | 문자, 숫자, 하이픈 (`-`), 밑줄 (`_`), 괄호 (`(`, `)`) 또는 마침표 (`.`)만 포함 하는 게이트웨이 리소스의 이름을 제공 합니다. |
    | **구독** | 게이트웨이 설치에 사용 된 Azure 계정에 대 한 Azure 구독을 선택 합니다. 기본 구독은 로그인하는 데 사용한 Azure 계정을 기반으로 합니다. |
    | **리소스 그룹** | 사용 하려는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) |
-   | **위치**: | [게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)하는 동안 게이트웨이 클라우드 서비스에 대해 선택한 것과 동일한 지역 또는 위치입니다. 그렇지 않으면 게이트웨이 설치가 **설치 이름** 목록에 표시 되지 않습니다. 논리 앱 위치는 게이트웨이 리소스 위치와 다를 수 있습니다. |
+   | **위치** | [게이트웨이를 설치](../logic-apps/logic-apps-gateway-install.md)하는 동안 게이트웨이 클라우드 서비스에 대해 선택한 것과 동일한 지역 또는 위치입니다. 그렇지 않으면 게이트웨이 설치가 **설치 이름** 목록에 표시 되지 않습니다. 논리 앱 위치는 게이트웨이 리소스 위치와 다를 수 있습니다. |
    | **설치 이름** | 이러한 조건이 충족 될 때만 목록에 표시 되는 게이트웨이 설치를 선택 합니다. <p><p>-게이트웨이 설치는 만들려는 게이트웨이 리소스와 동일한 지역을 사용 합니다. <br>-게이트웨이 설치는 다른 Azure 게이트웨이 리소스에 연결 되지 않습니다. <br>-게이트웨이 설치는 게이트웨이 리소스를 만드는 데 사용 하는 것과 동일한 Azure 계정에 연결 됩니다. <br>-Azure 계정은 단일 [Azure Active Directory (AZURE AD) 테 넌 트 또는 디렉터리](../active-directory/fundamentals/active-directory-whatis.md#terminology) 에 속하며 게이트웨이 설치에 사용 된 것과 동일한 계정입니다. <p><p>자세한 내용은 질문과 [대답](#faq) 섹션을 참조 하세요. |
    |||
 

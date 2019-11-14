@@ -1,24 +1,24 @@
 ---
-title: 관리자 역할 사용 권한 보기 및 할당 - Azure Active Directory | Microsoft Docs
-description: 이제 포털에서 Azure AD 관리자 역할의 멤버를 보고 관리할 수 있습니다. 역할 할당을 자주 관리하는 사용자를 위한 것입니다.
+title: 관리자 역할 권한 보기 및 할당-Azure AD | Microsoft Docs
+description: 이제 포털에서 Azure AD 관리자 역할의 멤버를 확인하고 관리할 수 있습니다. 역할 할당을 자주 관리하는 사용자를 위한 것입니다.
 services: active-directory
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20842c8c644a351b59322569661abf82bb524449
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7ac62a4f318690a1e8156d619c82e9b936973159
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60472592"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027891"
 ---
 # <a name="view-and-assign-administrator-roles-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 보기 및 할당
 
@@ -46,7 +46,7 @@ Azure Active Directory에서 **역할 및 관리자**를 선택하여 사용 가
 
 ## <a name="view-a-users-role-permissions"></a>사용자의 역할 권한 보기
 
-역할의 멤버를 보고 있는 경우 **설명**을 선택하여 역할 할당에서 부여된 권한의 전체 목록을 확인합니다. 이 페이지에는 디렉터리 역할을 관리하는 데 도움이 되는 관련 설명서에 대한 링크가 포함되어 있습니다.
+역할의 멤버를 보고 있는 경우, **설명**을 선택하여 역할 할당에 의해 부여된 권한의 전체 목록을 확인합니다. 이 페이지에는 디렉터리 역할을 관리하는 데 도움이 되는 관련 설명서에 대한 링크가 포함되어 있습니다.
 
 ![관리 역할에 대한 권한 목록](./media/directory-manage-roles-portal/role-description.png)
 

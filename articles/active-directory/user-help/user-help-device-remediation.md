@@ -1,6 +1,6 @@
 ---
-title: 오류 "를 가져올 수 없습니다 여기에서"-Azure Active Directory 문제 해결 | Microsoft Docs
-description: “여기서는 거기에 접근할 수 없습니다.” 오류 메시지가 표시되는 잠재적 원인을 해결합니다.
+title: "\"여기에서 가져올 수 없습니다\" 오류에 대 한 수정-Azure AD"
+description: "\"여기에서 가져올 수 없습니다\" 오류 메시지가 표시 되는 이유에 대 한 잠재적 수정 사항을 찾습니다."
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -14,14 +14,15 @@ ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 3d6385343ed26e5043e1491529fd2454caff4d04
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60473806"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028568"
 ---
-# <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>“여기서는 거기에 접근할 수 없습니다.” 오류 메시지가 표시되는 잠재적 원인
+# <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>"여기에서 가져올 수 없습니다." 오류 메시지에 대 한 가능한 해결 방법
+
 조직의 내부 웹앱 또는 서비스에 액세스하는 동안 **여기서는 거기에 접근할 수 없습니다.** 라는 오류 메시지가 표시될 수 있습니다. 이 메시지는 조직에서 디바이스가 조직 리소스에 액세스하지 못하도록 방지하는 정책을 설정했음을 의미합니다. 이 문제를 해결하기 위해 결과적으로 기술 지원 팀에 문의해야 할 수 있지만 먼저 다음 작업을 시도할 수 있습니다.
 
 ## <a name="make-sure-youre-using-a-supported-browser"></a>지원되는 브라우저를 사용하고 있는지 확인

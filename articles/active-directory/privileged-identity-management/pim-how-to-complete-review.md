@@ -1,25 +1,25 @@
 ---
-title: PIM에서 Azure AD 역할에 대 한 액세스 검토 완료-Azure Active Directory | Microsoft Docs
+title: PIM에서 Azure AD 역할의 액세스 검토 완료-Azure AD | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 액세스 검토를 완료 하 고 결과를 확인 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 197abc0642d6abf1278a75c2101c195cafeb53b2
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: fe2d85d605b9ee418a5709ddcdb448c56be1d918
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809135"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022275"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 액세스 검토를 완료 합니다.
 
@@ -41,11 +41,11 @@ ms.locfileid: "72809135"
 
 액세스 검토가 설정되어 사용자가 자체적으로 검토하는 경우 **알림** 단추가 알림을 보냅니다.
 
-### <a name="stop"></a>중지
+### <a name="stop"></a>Stop
 
 모든 액세스 검토는 종료 날짜가 있지만, **중지** 단추를 사용하여 일찍 완료할 수 있습니다. 만일 이 때까지 검토하지 않은 사용자가 있다면, 검토를 중지한 후에는 그들을 검토할 수 없습니다. 검토를 중단한 후에는 다시 시작할 수 없습니다.
 
-### <a name="apply"></a>신청
+### <a name="apply"></a>적용
 
 종료 날짜가 되었거나 수동으로 중지하여 액세스 검토가 완료되면, **적용** 단추가 검토 결과를 구현합니다. 사용자의 액세스가 검토 중에 거부되었다면, 이는 그들의 역할 할당을 제거할 단계입니다.  
 
