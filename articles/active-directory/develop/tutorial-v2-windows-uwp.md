@@ -55,7 +55,7 @@ ms.locfileid: "71290847"
 이 가이드에서는 Graph API를 쿼리하는 단추와 로그아웃하는 단추를 표시하는 애플리케이션을 만듭니다. 또한 호출 결과가 포함된 텍스트 상자도 표시합니다.
 
 > [!NOTE]
-> 이 샘플의 Visual Studio 프로젝트를 만드는 대신 다운로드하고 싶나요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)하고, [애플리케이션 등록”](#register-your-application "a애플리케이션 등록”) 단계로 건너뛰어 코드 샘플을 구성한 후에 실행하세요.
+> 이 샘플의 Visual Studio 프로젝트를 만드는 대신 다운로드하고 싶나요? [프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/msal3x.zip)하고, [애플리케이션 등록](#register-your-application "a애플리케이션 등록") 단계로 건너뛰어 코드 샘플을 구성한 후에 실행하세요.
 
 ### <a name="create-your-application"></a>애플리케이션 만들기
 

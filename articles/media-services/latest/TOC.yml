@@ -109,7 +109,7 @@
     - name: 콘텐츠 보호
       items:
         - name: 동적 암호화 및 키 전달
-          displayName: 'content protection, streaming protocols, encryption types, content protection, PlayReady, Widevine, FairPlay'
+          displayName: 'content protection, streaming protocols, encryption types, PlayReady, Widevine, FairPlay, custom'
           href: content-protection-overview.md
         - name: 다중 DRM 시스템 디자인
           displayName: 'drm, access control'
