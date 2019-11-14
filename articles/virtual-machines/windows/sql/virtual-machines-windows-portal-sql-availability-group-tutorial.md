@@ -1,5 +1,5 @@
 ---
-title: SQL Server 가용성 그룹 - Azure Virtual Machines - 자습서 | Microsoft Docs
+title: '자습서: 가용성 그룹 구성'
 description: 이 자습서에서는 Azure Virtual Machines에 SQL Server Always On 가용성 그룹을 만드는 방법을 보여 줍니다.
 services: virtual-machines
 documentationCenter: na
@@ -9,20 +9,20 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 08a00342-fee2-4afe-8824-0db1ed4b8fca
 ms.service: virtual-machines-sql
-ms.custom: na
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 6485b7c102977f4fb6963418084f4da050c68558
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 5c4eb5241cc5e50c11c05cac6909e37557ba106d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036519"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037507"
 ---
-# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>자습서: 수동으로 Azure VM에서 Always On 가용성 그룹 구성
+# <a name="tutorial-configure-availability-group-on-azure-sql-server-vm-manually"></a>자습서: Azure SQL Server VM에서 수동으로 가용성 그룹 구성
 
 이 자습서에서는 Azure Virtual Machines에 SQL Server Always On 가용성 그룹을 만드는 방법을 보여 줍니다. 전체 자습서는 두 개의 SQL Server의 데이터베이스 복제본으로 가용성 그룹을 만듭니다.
 
@@ -32,19 +32,19 @@ ms.locfileid: "71036519"
 
 ![가용성 그룹](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서는 사용자가 SQL Server Always On 가용성 그룹을 기본적으로 이해하고 있다고 가정합니다. 자세한 내용은 [Always On 가용성 그룹 개요(SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx)를 참조하세요.
 
 다음 표에 이 자습서를 시작하기 전에 완료해야 하는 필수 구성 요소가 나열되어 있습니다.
 
-|  |요구 사항 |Description |
+|  |요구 사항 |설명 |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | SQL Server 2개 | - Azure 가용성 집합에 <br/> - 단일 도메인에 <br/> - 장애 조치(Failover) 클러스터링 기능(설치됨) |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | 클러스터 감시를 위한 파일 공유 |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server 서비스 계정 | 도메인 계정 |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server 에이전트 서비스 계정 | 도메인 계정 |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|방화벽 포트 열기 | - SQL Server: 기본 인스턴스의 경우 **1433** <br/> - 데이터베이스 미러링 엔드포인트: **5022** 또는 사용 가능한 모든 포트 <br/> - 가용성 그룹 부하 분산 장치 IP 주소 상태 프로브: **59999** 또는 사용 가능한 모든 포트 <br/> - 클러스터 코어 부하 분산 장치 IP 주소 상태 프로브: **58888** 또는 사용 가능한 모든 포트 |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|방화벽 포트 열기 | - SQL Server: 기본 인스턴스에 대해 **1433** <br/> - 데이터베이스 미러링 엔드포인트: **5022** 또는 사용 가능한 포트 <br/> - 가용성 그룹 부하 분산 장치 IP 주소 상태 프로브: **59999** 또는 사용 가능한 포트 <br/> - 클러스터 코어 부하 분산 장치 IP 주소 상태 프로브: **58888** 또는 사용 가능한 포트 |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|장애 조치(Failover) 클러스터링 기능 추가 | 이 기능을 필요로 하는 SQL Server 2개 |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|설치 도메인 계정 | - 각 SQL Server의 로컬 관리자 <br/> - SQL Server의 각 인스턴스에 대해 SQL Server sysadmin 고정 서버 역할의 멤버  |
 
@@ -76,14 +76,14 @@ ms.locfileid: "71036519"
    | --- | --- |
    | 시작하기 전 주의 사항 |기본값 사용 |
    | 서버 선택 |첫 번째 SQL Server 이름을 **서버 이름 입력**에 입력하고 **추가**를 클릭합니다. |
-   | 유효성 검사 경고 |**아니요. 이 클러스터에 대한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행하지 않습니다. [다음]을 클릭하면 클러스터 만들기를 계속합니다.** 를 선택합니다. |
+   | 유효성 검사 경고 |**아니요 .이 클러스터에 대 한 Microsoft의 지원이 필요 없으므로 유효성 검사 테스트를 실행 하지 않습니다. 다음을 클릭 하면 클러스터 만들기를 계속**합니다. |
    | 클러스터 관리를 위한 액세스 지점 |클러스터 이름(예: **SQLAGCluster1**)을 **클러스터 이름**에 입력합니다.|
-   | 확인 |스토리지 공간을 사용하지 않는 경우 기본값을 사용합니다. 이 표 다음의 참고 사항을 참조하세요. |
+   | 다음 |스토리지 공간을 사용하지 않는 경우 기본값을 사용합니다. 이 표 다음의 참고 사항을 참조하세요. |
 
 ### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Windows Server 장애 조치(Failover) 클러스터 IP 주소 설정
 
   > [!NOTE]
-  > Windows Server 2019에서는 클러스터가 **클러스터 네트워크 이름**대신 **분산 서버 이름을** 만듭니다. Windows Server 2019를 사용 하는 경우이 자습서의 cluster core 이름을 참조 하는 단계를 건너뜁니다. [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019)을 사용 하 여 클러스터 네트워크 이름을 만들 수 있습니다. 블로그 [장애 조치 (Failover) 클러스터 검토: 자세한 내용은 클러스터](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) 네트워크 개체를. 
+  > Windows Server 2019에서는 클러스터가 **클러스터 네트워크 이름**대신 **분산 서버 이름을** 만듭니다. Windows Server 2019를 사용 하는 경우이 자습서의 cluster core 이름을 참조 하는 단계를 건너뜁니다. [PowerShell](virtual-machines-windows-portal-sql-create-failover-cluster.md#windows-server-2019)을 사용 하 여 클러스터 네트워크 이름을 만들 수 있습니다. 자세한 내용은 블로그 [장애 조치 (Failover) 클러스터: 클러스터 네트워크 개체](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97) 를 검토 하세요. 
 
 1. **장애 조치(Failover) 클러스터 관리자**에서 **클러스터 코어 리소스**로 아래로 스크롤하여 클러스터 세부 정보를 확장합니다. **이름** 및 **IP 주소** 리소스가 **실패** 상태에 모두 표시됩니다. 클러스터에 컴퓨터 자체와 동일한 IP 주소가 할당되어 주소가 중복되므로 IP 주소 리소스는 온라인 상태로 전환할 수 없습니다.
 
@@ -116,7 +116,7 @@ ms.locfileid: "71036519"
 
 1. **다음**을 클릭합니다.
 
-1. **마침**을 클릭합니다.
+1. **Finish**를 클릭합니다.
 
    이제 장애 조치(Failover) 클러스터 관리자에 새 노드가 포함된 클러스터가 표시되고 **노드** 컨테이너에 목록으로 표시됩니다.
 
@@ -179,7 +179,7 @@ ms.locfileid: "71036519"
 
 1. **확인**에서 설정을 확인합니다. **다음**을 클릭합니다.
 
-1. **마침**을 클릭합니다.
+1. **Finish**를 클릭합니다.
 
 클러스터 코어 리소스는 파일 공유 감시로 구성됩니다.
 
@@ -193,7 +193,7 @@ ms.locfileid: "71036519"
 
     ![AlwaysOn 가용성 그룹 사용](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/54-enableAlwaysOn.png)
 
-4. **적용**을 클릭합니다. 팝업 대화 상자에서 **확인**을 클릭합니다.
+4. **적용**을 클릭합니다. 팝업 대화 상자에서 **확인** 을 클릭합니다.
 
 5. SQL Server 서비스를 다시 시작합니다.
 
@@ -301,7 +301,7 @@ Repeat these steps on the second SQL Server.
 
     ![새 AG 마법사, 초기 데이터 동기화 선택](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/66-endpoint.png)
 
-8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 **\\\\\<First SQL Server\>\Backup\\** 입니다. **다음**을 클릭합니다.
+8. **초기 데이터 동기화 선택** 페이지에서 **전체**를 선택하고 공유 네트워크 위치를 지정합니다. 위치의 경우 [만든 백업 공유](#backupshare)를 사용합니다. 예제에서는 **\\\\\<First SQL Server\>\Backup\\\** 입니다. **다음**을 클릭합니다.
 
    >[!NOTE]
    >전체 동기화는 SQL Server의 첫 번째 인스턴스에서 데이터베이스의 전체 백업을 수행하고 두 번째 인스턴스로 복원합니다. 대형 데이터베이스의 경우 전체 동기화는 시간이 오래 걸릴 수 있으므로 권장되지 않습니다. 수동으로 데이터베이스의 백업을 수행하고 `NO RECOVERY`를 통해 복원하여 이 시간을 줄일 수 있습니다. 가용성 그룹을 구성하기 전에 두 번째 SQL Server에서 이미 `NO RECOVERY`로 데이터베이스를 복원한 경우 **조인만**을 선택합니다. 가용성 그룹을 구성한 후 백업을 수행하려는 경우 **초기 데이터 동기화 건너뛰기**를 선택합니다.
@@ -367,7 +367,7 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
    | **IP 주소 할당** |정적 |
    | **IP 주소** |서브넷에서 사용 가능한 주소를 사용합니다. 가용성 그룹 수신기에 대해 이 주소를 사용합니다. 이것은 클러스터 IP 주소와 다릅니다.  |
    | **구독** |가상 머신과 동일한 구독을 사용합니다. |
-   | **위치**: |가상 컴퓨터와 동일한 위치를 사용합니다. |
+   | **위치** |가상 컴퓨터와 동일한 위치를 사용합니다. |
 
    Azure Portal 블레이드는 다음과 같습니다.
 
@@ -402,7 +402,7 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
 
 1. 다음과 같이 수신기 상태 프로브를 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예
    | --- | --- |---
    | **이름** | 텍스트 | SQLAlwaysOnEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
@@ -418,7 +418,7 @@ Azure Load Balancer는 표준 Load Balancer 또는 기본 Load Balancer일 수 �
 
 1. 수신기 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | Description | 예제
+   | 설정 | 설명 | 예
    | --- | --- |---
    | **이름** | 텍스트 | SQLAlwaysOnEndPointListener |
    | **프런트 엔드 IP 주소** | 주소 선택 |부하 분산 장치를 만들 때 생성된 주소를 사용합니다. |
@@ -445,7 +445,7 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
 1. WSFC 클러스터 코어 IP 주소 상태 프로브를 다음과 같이 설정합니다.
 
-   | 설정 | 설명 | 예제
+   | 설정 | 설명 | 예
    | --- | --- |---
    | **이름** | 텍스트 | WSFCEndPointProbe |
    | **프로토콜** | TCP 선택 | TCP |
@@ -459,7 +459,7 @@ WSFC IP 주소는 부하 분산 장치에 배치되어야 합니다.
 
 1. 클러스터 코어 IP 주소 부하 분산 규칙을 다음과 같이 설정합니다.
 
-   | 설정 | 설명 | 예제
+   | 설정 | 설명 | 예
    | --- | --- |---
    | **이름** | 텍스트 | WSFCEndPoint |
    | **프런트 엔드 IP 주소** | 주소 선택 |WSFC IP 주소를 구성할 때 생성된 주소를 사용합니다. 수신기 IP 주소와는 다릅니다. |

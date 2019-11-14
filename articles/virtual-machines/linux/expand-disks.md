@@ -1,5 +1,5 @@
 ---
-title: Azure의 Linux VM에서 가상 하드 디스크 확장 | Microsoft Docs
+title: Azure에서 Linux VM의 가상 하드 디스크 확장
 description: Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크를 확장하는 방법에 대해 알아봅니다.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 19e1a5f1534d09246ca85029f45ee918ec57e51f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 3bd85048cf12760d5918544ed6aac803e9fe120a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828421"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036200"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Azure CLI를 사용하여 Linux VM에서 가상 하드 디스크 확장
 
@@ -113,7 +113,7 @@ ms.locfileid: "71828421"
     End?  [107GB]? 215GB
     ```
 
-    d. 종료하려면 `quit`를 입력합니다.
+    ㄹ. 종료하려면 `quit`를 입력합니다.
 
 1. 파티션 크기를 조정했으면 `e2fsck`를 사용하여 파티션 일관성을 확인합니다.
 

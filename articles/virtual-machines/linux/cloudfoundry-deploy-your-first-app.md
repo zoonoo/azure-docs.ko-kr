@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포 | Microsoft Docs
+title: Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
 description: Azure의 Cloud Foundry에 애플리케이션 배포
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: c4088e593ca7d48a3e7a5c1a6699f316b57fff31
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b1f9ab5289a41aacb5514e954f1ca01f6ad66152
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083949"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036838"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Microsoft Azure의 Cloud Foundry에 첫 번째 앱 배포
 
@@ -112,7 +112,7 @@ hello-spring-cloud 애플리케이션을 보려면 브라우저에서 제공된 
 ![Hello Spring Cloud용 기본 UI][hello-spring-cloud-basic]
 
 > [!NOTE] 
-> 에서 발생 `cf push`하는 상황에 대 한 자세한 내용은 Cloud Foundry 설명서에서 [응용 프로그램을 준비 하는 방법][cf-push-docs] 을 참조 하세요.
+> `cf push`하는 동안 발생 하는 상황에 대 한 자세한 내용은 Cloud Foundry 설명서에서 [응용 프로그램을 준비 하는 방법][cf-push-docs] 을 참조 하세요.
 
 ## <a name="view-application-logs"></a>애플리케이션 로그 보기
 

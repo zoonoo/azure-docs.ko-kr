@@ -1,5 +1,5 @@
 ---
-title: 'ExpressRoute용 VNet에 가상 네트워크 게이트웨이 추가: PowerShell: Azure | Microsoft Docs'
+title: 'Azure Express 경로: VNet에 게이트웨이 추가: PowerShell'
 description: 이 문서에서는 ExpressRoute에 대해 이미 만들어진 Resource Manager VNet에 VNet 게이트웨이를 추가합니다.
 services: expressroute
 author: charwen
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/21/2019
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: bbb091addd078a08a075d2754256ed016d8dd086
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6e6d79afa1126acb26cb8856c39ba486cce31a5e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748346"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037423"
 ---
 # <a name="configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>PowerShell을 사용하여 ExpressRoute에 대한 가상 네트워크 게이트웨이 구성
 > [!div class="op_single_selector"]

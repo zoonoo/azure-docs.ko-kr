@@ -1,5 +1,5 @@
 ---
-title: '연결 확인-Express 경로 문제 해결 가이드: Azure | Microsoft Docs'
+title: 'Azure Express 경로: 연결 확인-문제 해결 가이드'
 description: ExpressRoute 회로에 대한 종단 간 연결의 유효성 검사 및 문제 해결에 대한 지침을 제공합니다.
 services: expressroute
 author: rambk
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2019
 ms.author: rambala
 ms.custom: seodec18
-ms.openlocfilehash: c5001e884047fc6078faf3a8de0e45b7e30e1038
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 833e7788a5b17b12ad883f705d56f660c2f1d832
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580316"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033780"
 ---
 # <a name="verifying-expressroute-connectivity"></a>ExpressRoute 연결 확인
 이 문서는 ExpressRoute 연결 문제를 확인하고 해결하는 데 도움을 줍니다. Express 경로는 연결 공급자가 일반적으로 지 원하는 개인 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장 합니다. Express 경로 연결은 일반적으로 다음과 같은 세 가지 고유한 네트워크 영역을 포함 합니다.

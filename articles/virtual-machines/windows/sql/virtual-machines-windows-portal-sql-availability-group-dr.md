@@ -1,5 +1,5 @@
 ---
-title: SQL Server 가용성 그룹 - Azure Virtual Machines - 재해 복구 | Microsoft Docs
+title: 여러 지역에서 가용성 그룹 구성
 description: 이 문서에서는 다른 지역의 복제본으로 Azure Virtual Machines의 SQL Server 가용성 그룹을 구성하는 방법을 설명합니다.
 services: virtual-machines
 documentationCenter: na
@@ -9,20 +9,20 @@ editor: monicar
 tags: azure-service-management
 ms.assetid: 388c464e-a16e-4c9d-a0d5-bb7cf5974689
 ms.service: virtual-machines-sql
-ms.custom: na
+ms.custom: seo-lt-2019
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mikeray
-ms.openlocfilehash: 9949c389ad0511c3ed5923e0451bc96e7063621f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 96b7c3cf59f947d1476ad840ae81695356d869b6
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159738"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037546"
 ---
-# <a name="configure-an-always-on-availability-group-on-azure-virtual-machines-in-different-regions"></a>다른 하위 지역의 Azure Virtual Machines에서 Always On 가용성 그룹 구성
+# <a name="configure-an-availability-group-on-azure-sql-server-virtual-machines-in-different-regions"></a>서로 다른 지역의 Azure SQL Server virtual machines에서 가용성 그룹 구성
 
 이 문서에서는 원격 Azure 위치의 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹 복제본을 구성하는 방법을 설명합니다. 이 구성을 사용하여 재해 복구를 지원합니다.
 
@@ -158,17 +158,17 @@ ms.locfileid: "73159738"
 1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭하고 **대시보드 표시**를 클릭합니다.
 1. 대시보드에서 DR 사이트의 복제본이 동기화되었는지 확인합니다.
 1. **개체 탐색기**에서 가용성 그룹을 마우스 오른쪽 단추로 클릭 하 고 **장애 조치 (Failover) ...** 를 클릭 합니다. SQL Server Management 스튜디오는 SQL Server를 장애 조치 하는 마법사를 엽니다.  
-1. **다음**을 클릭하고 DR 사이트의 SQL Server 인스턴스를 선택합니다. 다시 **다음**을 클릭합니다.
+1. **다음**을 클릭하고 DR 사이트의 SQL Server 인스턴스를 선택합니다. 다시 **다음** 을 클릭합니다.
 1. DR 사이트에서 SQL Server 인스턴스에 연결하고 **다음**을 클릭합니다.
 1. **요약** 페이지에서 설정을 확인한 다음 **마침**을 클릭합니다.
 
 연결을 테스트한 후에 주 복제본은 기본 데이터 센터로 다시 이동되고 가용성 모드는 일반 작동 설정으로 다시 지정됩니다. 다음 표에는 이 문서에서 설명하는 아키텍처에 대한 일반 작업 설정이 나와 있습니다.
 
-| 위치 | 서버 인스턴스 | 역할 | 가용성 모드 | 장애 조치(Failover) 모드
+| Location | 서버 인스턴스 | 역할 | 가용성 모드 | 장애 조치(Failover) 모드
 | ----- | ----- | ----- | ----- | -----
 | 주 데이터 센터 | SQL-1 | 보조 | 동기 | 자동
-| 주 데이터 센터 | SQL-2 | 주 | 동기 | 자동
-| 보조 또는 원격 데이터 센터 | SQL-3 | 주 | 비동기 | Manual
+| 주 데이터 센터 | SQL-2 | 보조 | 동기 | 자동
+| 보조 또는 원격 데이터 센터 | SQL-3 | 보조 | 비동기 | 수동
 
 
 ### <a name="more-information-about-planned-and-forced-manual-failover"></a>계획된 및 강제 수동 장애 조치에 대한 자세한 내용

@@ -1,5 +1,5 @@
 ---
-title: Azure Portal을 사용하여 VM으로 포트 열기 | Microsoft Docs
+title: Azure Portal를 사용 하 여 VM에 대 한 포트 열기
 description: Azure Portal의 Resource Manager 배포 모델을 사용하여 Windows VM에 대한 포트를 열고 엔드포인트를 만드는 방법 알아보기
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: f9edee7a0ff19a536d0ea719ede6d0cd2e9d6ac7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fe9b0f590dbb728a54ac66fcaa49bf3d00417e41
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102645"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033100"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Azure Portal을 사용하여 가상 머신에 대한 포털을 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 

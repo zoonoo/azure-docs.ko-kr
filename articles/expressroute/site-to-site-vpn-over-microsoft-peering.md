@@ -1,5 +1,5 @@
 ---
-title: Microsoft 피어링을 통해 사이트 간 VPN 구성 - ExpressRoute - Azure | Microsoft Docs
+title: 'Azure Express 경로: Microsoft 피어 링을 통해 S2S VPN 구성'
 description: 사이트 간 VPN Gateway를 사용하여 ExpressRoute Microsoft 피어링 회로를 통해 Azure에 대한 IPsec/IKE 연결을 구성합니다.
 services: expressroute
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: d26210ab226f8e907aa845d51dca94f59badd6a3
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 89c7e398e24fb48c1829dbaa2811f440c5485a60
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748082"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038113"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>ExpressRoute Microsoft 피어링을 통해 사이트 간 VPN 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "73748082"
 VPN Gateway를 사용하거나 Azure Marketplace를 통해 사용할 수 있는 적절한 NVA(네트워크 가상 어플라이언스)를 사용하여 Microsoft 피어링을 통한 VPN 터널을 종료할 수 있습니다. 기본 Microsoft 피어링에 경로 교환을 노출하지 않고 암호화된 터널을 통해 경로를 정적으로 또는 동적으로 교환할 수 있습니다. 이 문서의 예제에서는 BGP(Microsoft 피어링을 만드는 데 사용되는 BGP 세션과 다름)를 사용하여 암호화된 터널을 통해 동적으로 접두사를 교환합니다.
 
 >[!IMPORTANT]
->온-프레미스 측의 경우 일반적으로 Microsoft 피어링은 DMZ에서 종료되고 프라이빗 피어링은 핵심 네트워크 영역에서 종료됩니다. 두 영역은 방화벽을 사용하여 분리됩니다. ExpressRoute를 통해 보안 터널링을 사용하기 위해 배타적으로 Microsoft 피어링을 구성하는 경우 Microsoft 피어링을 통해 보급된 주요 공용 IP만을 통해 필터링해야 합니다.
+>온-프레미스 측의 경우 일반적으로 Microsoft 피어링은 DMZ에서 종료되고 프라이빗 피어링은 핵심 네트워크 영역에서 종료됩니다. 두 영역은 방화벽을 사용하여 분리됩니다. ExpressRoute를 통해 보안 터널링을 사용하기 위해 배타적으로 Microsoft 피어링을 구성하는 경우 Microsoft 피어링을 통해 보급되는 주요 공용 IP만을 필터링해야 합니다.
 >
 >
 
@@ -59,7 +59,7 @@ ExpressRoute를 통해 사이트 간 VPN 연결을 구성하려면 ExpressRoute 
 
 * 새 ExpressRoute 회로를 구성하려면 [ExpressRoute 필수 구성 요소](expressroute-prerequisites.md) 문서 및 [ExpressRoute 회로 만들기 및 수정](expressroute-howto-circuit-arm.md)을 차례로 시작합니다.
 
-* ExpressRoute 회로가 이미 있지만 Microsoft 피어링을 구성하지 않고, [ExpressRoute 회로에 대한 피어링 만들기 및 수정](expressroute-howto-routing-arm.md#msft) 문서를 사용하여 Microsoft 피어링을 구성합니다.
+* ExpressRoute 회로가 이미 있지만 Microsoft 피어링을 구성하지 않은 경우, [ExpressRoute 회로에 대한 피어링 만들기 및 수정](expressroute-howto-routing-arm.md#msft) 문서를 사용하여 Microsoft 피어링을 구성합니다.
 
 회로 및 Microsoft 피어링을 구성하면 Azure Portal에서 **개요** 페이지를 사용하여 쉽게 볼 수 있습니다.
 
@@ -71,7 +71,7 @@ ExpressRoute를 통해 사이트 간 VPN 연결을 구성하려면 ExpressRoute 
 
 ![경로 필터](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
-이 예제에서는 배포는 *Azure 미국 서부 2* 지역에서만 이루어집니다. 경로 필터 규칙을 추가하여 Azure 미국 서부 2 지역별 접두사만 보여줍니다. 여기에는 BGP 커뮤니티 값 *12076:51026*이 있습니다. **규칙 관리**를 선택하여 허용하려는 국가별 접두사를 지정합니다.
+이 예제에서 배포는 *Azure 미국 서부 2* 지역에서만 이루어집니다. 경로 필터 규칙을 추가하여 Azure 미국 서부 2 지역별 접두사만 보여줍니다. 여기에는 BGP 커뮤니티 값 *12076:51026*이 있습니다. **규칙 관리**를 선택하여 허용하려는 지역별 접두사를 지정합니다.
 
 경로 필터 내에서 경로 필터가 적용되는 ExpressRoute 회로를 선택해야 합니다. **회로 추가**를 선택하여 ExpressRoute 회로를 선택할 수 있습니다. 위의 그림에서 경로 필터는 예제 ExpressRoute 회로에 연결되어 있습니다.
 
@@ -571,7 +571,7 @@ Peer: 52.175.253.112 port 4500 fvrf: (none) ivrf: (none)
         Outbound: #pkts enc'ed 477 drop 0 life (KB/Sec) 4607953/437
 ```
 
-VTI(가상 터널 인터페이스)에서 회선 프로토콜은 IKE 단계 2가 완료될 때까지 "위쪽"으로 변경되지 않습니다. 다음 명령은 보안 연결을 확인합니다.
+VTI(가상 터널 인터페이스)에서 회선 프로토콜은 IKE 단계 2가 완료될 때까지 "up"으로 변경되지 않습니다. 다음 명령은 보안 연결을 확인합니다.
 
 ```
 csr1#show crypto ikev2 sa
@@ -648,7 +648,7 @@ AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 65010  10.2.0.228   10.0.0.0/24  172.16.0.10 EBgp   172.16.0.10  32768
 ```
 
-보급된 경로 목록을 보려면:
+보급된 경로 목록 보기:
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
@@ -688,7 +688,7 @@ RPKI validation codes: V valid, I invalid, N Not found
 Total number of prefixes 4
 ```
 
-다음 명령을 사용하여 온-프레미스 Cisco CSR1000에서 Azure VPN Gateway로 보급된 네트워크 목록이 나열될 수 있습니다.
+온-프레미스 Cisco CSR1000에서 Azure VPN Gateway로 보급된 네트워크 목록을 나열하려면 다음 명령을 사용합니다.
 
 ```
 csr1#show ip bgp neighbors 10.2.0.228 advertised-routes

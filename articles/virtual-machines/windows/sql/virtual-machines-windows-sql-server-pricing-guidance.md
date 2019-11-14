@@ -1,10 +1,9 @@
 ---
-title: Azure Virtual Machines의 SQL Server에 대한 효과적인 비용 관리 | Microsoft 문서
+title: 비용 관리 & 가격 지침
 description: 적합한 SQL Server 가상 머신 가격 책정 모델을 선택하기 위한 모범 사례를 제공합니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
-manager: craigg
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -15,14 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 076d6fc387aaee85a1cd407fa48e7347ff185ef4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028634"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038869"
 ---
-# <a name="pricing-guidance-for-sql-server-azure-vms"></a>SQL Server Azure VM에 대한 가격 책정 지침
+# <a name="pricing-guidance-for-azure-sql-server-vms"></a>Azure SQL Server Vm에 대 한 가격 책정 지침
 
 이 문서에서는 Azure의 [SQL Server 가상 머신](virtual-machines-windows-sql-server-iaas-overview.md)에 대한 가격 책정 지침을 제공합니다. 비용에 영향을 미치는 다양한 옵션이 있고 비용과 비즈니스 요구 사항 간에 균형을 이루는 적합한 이미지를 선택해야 합니다.
 
@@ -56,8 +56,8 @@ ms.locfileid: "72028634"
 
 | SQL Server 버전 | 워크로드 |
 |-----|-----|
-| Web | 작은 웹 사이트 |
-| Standard | 소규모~중간 규모 작업 |
+| 웹 | 작은 웹 사이트 |
+| 표준 | 소규모~중간 규모 작업 |
 | Enterprise | 대규모 또는 중요 업무용 작업|
 
 이러한 버전의 SQL Server 라이선스 요금을 지급하는 두 가지 옵션은 *사용당 지급* 또는 *사용자 라이선스 필요(BYOL)* 입니다.

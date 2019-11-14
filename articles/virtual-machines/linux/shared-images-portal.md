@@ -1,5 +1,5 @@
 ---
-title: 포털을 사용 하 여 Linux 용 공유 Azure 가상 머신 이미지 만들기 | Microsoft Docs
+title: 포털을 사용 하 여 Linux 용 공유 Azure 가상 머신 이미지 만들기
 description: Azure Portal를 사용 하 여 가상 머신 이미지를 만들고 공유 하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: a56b34318725667a9eef143bbf2be90f411b74a1
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 89c98379a8e79d1b00db47021ae737ae471f79b3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904958"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035018"
 ---
 # <a name="create-a-shared-image-gallery-using-the-azure-portal"></a>Azure Portal를 사용 하 여 공유 이미지 갤러리 만들기
 

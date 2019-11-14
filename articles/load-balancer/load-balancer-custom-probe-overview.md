@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: 78e085aae97114e6848b736c40b16c755256d0cd
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: d9873c4d8d4ca2b74532706f079c7384bf38db42
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571107"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033830"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -84,7 +84,7 @@ Azure Load Balancer에서 부하 분산 규칙을 사용 하는 경우 Load Bala
 
 사용 가능한 프로토콜은 사용 되는 Load Balancer SKU에 따라 다릅니다.
 
-|| TCP | HTTP | HTTPS |
+|| TCP | http | HTTPS |
 | --- | --- | --- | --- |
 | 표준 SKU |    &#9989; |   &#9989; |   &#9989; |
 | 기본 SKU |   &#9989; |   &#9989; | &#10060; |
@@ -160,7 +160,7 @@ HTTP/HTTPS 프로브가 실패하는 경우는 다음과 같습니다.
 
 게스트 에이전트 프로브는 VM 내부의 게스트 에이전트를 검사합니다. 그런 다음 인스턴스가 준비 상태인 경우에만 수신 대기하며 HTTP 200 OK로 응답합니다. 다른 상태는 사용 중, 재생 중 또는 중지 중입니다.
 
-자세한 내용은 [상태 프로브에 대한 서비스 정의 파일(csdef) 구성](https://msdn.microsoft.com/library/azure/ee758710.aspx) 또는 [클라우드 서비스를 위한 공용 부하 분산 장치 만들기 시작](load-balancer-get-started-internet-classic-cloud.md#check-load-balancer-health-status-for-cloud-services)을 참조하세요.
+자세한 내용은 [상태 프로브에 대한 서비스 정의 파일(csdef) 구성](https://msdn.microsoft.com/library/azure/ee758710.aspx) 또는 [클라우드 서비스를 위한 공용 부하 분산 장치 만들기 시작](https://docs.microsoft.com/azure/load-balancer/load-balancer-get-started-internet-classic-cloud#check-load-balancer-health-status-for-cloud-services)을 참조하세요.
 
 게스트 에이전트가 HTTP 200 OK로 응답하는 데 실패하면 부하 분산 장치가 인스턴스를 응답하지 않음으로 표시합니다. 그런 다음, 해당 인스턴스에 흐름을 보내지 않도록 중지합니다. 부하 분산 장치는 인스턴스를 계속 검사합니다. 
 

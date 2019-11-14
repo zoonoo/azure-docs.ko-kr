@@ -1,5 +1,5 @@
 ---
-title: C# 및 Resource Manager 템플릿을 사용하여 VM 배포 | Microsoft Docs
+title: 및 리소스 관리자 템플릿을 사용 C# 하 여 VM 배포
 description: C# 및 Resource Manager 템플릿을 사용하여 Azure VM을 배포하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: cynthn
-ms.openlocfilehash: 65ce7711786e15a5455d91ce829a3bc0bdf4317d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c88b060104a4c17e3edad2e23cfb23a54661b969
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103240"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033807"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>C# 및 Resource Manager 템플릿을 사용하여 Azure Virtual Machine 배포
 
@@ -55,7 +55,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 ### <a name="create-the-template-file"></a>템플릿 파일 만들기
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목*에서 **텍스트 파일**을 선택합니다. 파일 이름을 *CreateVMTemplate.json*으로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 **Visual C# 항목**에서 *텍스트 파일*을 선택합니다. 파일 이름을 *CreateVMTemplate.json*으로 지정하고 **추가**를 클릭합니다.
 2. 만든 파일에 이 JSON 코드를 추가합니다.
 
     ```json
@@ -167,7 +167,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 템플릿에서 리소스 매개 변수의 값을 지정 하려면 값을 포함 하는 매개 변수 파일을 만듭니다.
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목*에서 **텍스트 파일**을 선택합니다. 파일 이름을 *Parameters.json*으로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 **Visual C# 항목**에서 *텍스트 파일*을 선택합니다. 파일 이름을 *Parameters.json*으로 지정하고 **추가**를 클릭합니다.
 2. 만든 파일에 이 JSON 코드를 추가합니다.
 
     ```json
@@ -187,7 +187,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
 
 템플릿을 배포하기 전에 [Active Directory 서비스 사용자](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)에 액세스할 수 있는지 확인합니다. 서비스 주체에서 Azure Resource Manager에서 요청을 인증받기 위한 토큰을 얻을 수 있습니다. 또한 권한 부여 파일에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
 
-1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 *Visual C# 항목*에서 **텍스트 파일**을 선택합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
+1. 솔루션 탐색기에서 *myDotnetProject* > **추가** > **새 항목**을 마우스 오른쪽 단추로 클릭한 다음 **Visual C# 항목**에서 *텍스트 파일*을 선택합니다. 파일 이름을 *azureauth.properties*로 지정하고 **추가**를 클릭합니다.
 2. 다음과 같은 권한 부여 속성을 추가합니다.
 
     ```
@@ -204,7 +204,7 @@ NuGet 패키지는 이러한 단계를 완료하는데 필요한 라이브러리
     **&lt;subscription-id&gt;** 를 구독 식별자, **&lt;application-id&gt;** 를 Active Directory 애플리케이션 식별자, **&lt;authentication-key&gt;** 를 애플리케이션 키, **&lt;tenant-id&gt;** 를 테넌트 식별자로 바꿉니다.
 
 3. azureauth.properties 파일을 저장합니다.
-4. 만든 권한 부여 파일의 전체 경로를 사용 하 여 AZURE_AUTH_LOCATION 라는 Windows의 환경 변수를 설정 합니다. 예를 들어 다음 PowerShell 명령을 사용할 수 있습니다.
+4. 사용자가 만든 권한 부여 파일의 전체 경로를 사용 하 여 AZURE_AUTH_LOCATION 라는 Windows의 환경 변수를 설정 합니다. 예를 들어 다음 PowerShell 명령을 사용할 수 있습니다.
 
     ```powershell
     [Environment]::SetEnvironmentVariable("AZURE_AUTH_LOCATION", "C:\Visual Studio 2019\Projects\myDotnetProject\myDotnetProject\azureauth.properties", "User")
@@ -252,7 +252,7 @@ var resourceGroup = azure.ResourceGroups.Define(groupName)
     .Create();
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
 템플릿 및 매개 변수는 Azure의 스토리지 계정에서 배포됩니다. 이 단계에서는 계정을 만들고 파일을 업로드합니다. 
 

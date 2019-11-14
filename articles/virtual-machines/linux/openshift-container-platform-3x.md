@@ -1,5 +1,5 @@
 ---
-title: Azure에서 OpenShift Container Platform 3.11 배포 | Microsoft Docs
+title: Azure에서 OpenShift Container Platform 3.11 배포
 description: Azure에서 OpenShift Container Platform 3.11을 배포 합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 4320105c5411e8a01ff6c69bf7d87057c786d092
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 56607de57939be769b1951f0eee9078c46d610c0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392749"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035457"
 ---
 # <a name="deploy-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11 배포
 
@@ -30,7 +30,7 @@ ms.locfileid: "72392749"
 - 다른 방법은 [Azure Marketplace 제품](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview)을 사용하는 것입니다.
 
 모든 옵션에 Red Hat 구독이 필요합니다. 배포하는 동안 Red Hat Enterprise Linux 인스턴스는 Red Hat 구독에 등록되고 OpenShift Container Platform에 대한 자격이 포함된 풀 ID에 연결됩니다.
-유효한 RHSM(Red Hat Subscription Manager) 사용자 이름, 암호 및 풀 ID가 있어야 합니다. 활성화 키, 조직 ID 및 풀 ID를 사용할 수 있습니다. 이 정보는 https://access.redhat.com 에 로그인하여 확인할 수 있습니다.
+유효한 RHSM(Red Hat Subscription Manager) 사용자 이름, 암호 및 풀 ID가 있어야 합니다. 활성화 키, 조직 ID 및 풀 ID를 사용할 수 있습니다. 이 정보는 https://access.redhat.com에 로그인하여 확인할 수 있습니다.
 
 
 ## <a name="deploy-using-the-openshift-container-platform-resource-manager-311-template"></a>OpenShift Container Platform 리소스 관리자 3.11 템플릿을 사용 하 여 배포
@@ -59,7 +59,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 
 [OpenShift Container Platform 템플릿](https://github.com/Microsoft/openshift-container-platform)에는 각기 다른 OpenShift Container Platform 버전에 사용할 수 있는 여러 분기가 있습니다.  필요에 따라, 리포지토리에서 직접 배포하거나, 배포하기 전에 리포지토리를 포크하고 템플릿 또는 스크립트를 사용자 지정할 수 있습니다.
 
-`aadClientId` 매개 변수에 대해 이전에 만든 서비스 주체에서 `appId` 값을 사용합니다.
+`appId` 매개 변수에 대해 이전에 만든 서비스 주체에서 `aadClientId` 값을 사용합니다.
 
 다음 예제에서는 모든 필수 입력이 포함된 azuredeploy.parameters.json이라는 매개 변수 파일을 보여 줍니다.
 
@@ -248,16 +248,16 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 
 ### <a name="azuredeployparametersjson-file-explained"></a>azuredeploy.json. 매개 변수. json 파일 설명
 
-| 자산 | 설명 | 유효한 옵션 | 기본값 |
+| 속성 | 설명 | 유효한 옵션 | 기본값 |
 |----------|-------------|---------------|---------------|
-| `_artifactsLocation`  | 아티팩트에 대 한 URL (json, 스크립트 등) |  |  https: \//raw. c o m/Microsoft/openshift-container-platform/master  |
+| `_artifactsLocation`  | 아티팩트에 대 한 URL (json, 스크립트 등) |  |  https:\//raw.githubusercontent.com/Microsoft/openshift-container-platform/master  |
 | `location` | 리소스를 배포할 Azure 지역 |  |  |
 | `masterVmSize` | 마스터 VM의 크기입니다. Azuredeploy json 파일에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_E2s_v3 |
 | `infraVmSize` | 인프라 VM의 크기입니다. Azuredeploy json 파일에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_D4s_v3 |
 | `nodeVmSize` | 앱 노드 VM의 크기입니다. Azuredeploy json 파일에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_D4s_v3 |
 | `cnsVmSize` | 컨테이너 기본 저장소 (CN) 노드 VM의 크기입니다. Azuredeploy json 파일에 나열 된 허용 되는 VM 크기 중 하나를 선택 합니다. |  | Standard_E4s_v3 |
 | `osImageType` | 사용할 RHEL 이미지입니다. defaultgallery: 주문형 marketplace: 타사 이미지 | defaultgallery <br> Marketplace | defaultgallery |
-| `marketplaceOsImage` | @No__t-0 인 경우 marketplace 제안의 ' 게시자 ', ' 제안 ', ' sku ', ' 버전 '에 대해 적절 한 값을 입력 합니다. 이 매개 변수는 개체 유형입니다. |  |  |
+| `marketplaceOsImage` | `osImageType` marketplace 인 경우 marketplace 제안의 ' 게시자 ', ' 제안 ', ' sku ', ' 버전 '에 대해 적절 한 값을 입력 합니다. 이 매개 변수는 개체 유형입니다. |  |  |
 | `storageKind` | 사용할 저장소의 유형입니다.  | 관리<br> 관리 되지 않는 | 관리 |
 | `openshiftClusterPrefix` | 모든 노드에 대 한 호스트 이름을 구성 하는 데 사용 되는 클러스터 접두사입니다.  1 ~ 007e; 20 자 |  | mycluster |
 | `minoVersion` | 배포할 OpenShift Container Platform 3.11의 부 버전입니다. |  | 69 |
@@ -282,13 +282,13 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `enableAzure` | Azure Cloud Provider 사용 | true <br> false | true |
 | `aadClientId` | 서비스 주체의 응용 프로그램 ID 라고도 하는 Azure Active Directory 클라이언트 ID |  |  |
 | `domainName` | 사용할 사용자 지정 도메인 이름의 이름입니다 (해당 하는 경우). 전체 개인 클러스터를 배포 하지 않는 경우 "없음"으로 설정 합니다. |  | 없음 |
-| `masterClusterDnsType` | OpenShift 웹 콘솔용 도메인 유형입니다. ' 기본값 '은 마스터 인프라 공용 IP의 DNS 레이블을 사용 합니다. ' 사용자 지정 '을 사용 하 여 고유한 이름을 정의할 수 있습니다. | 기본값 <br> 재구성 | 기본값 |
-| `masterClusterDns` | @No__t-0에 대해 ' 사용자 지정 '을 선택한 경우 OpenShift 웹 콘솔에 액세스 하는 데 사용할 사용자 지정 DNS 이름입니다. |  | console.contoso.com |
-| `routingSubDomainType` | ' Nipio '로 설정 되 면 `routingSubDomain`은 nip.io를 사용 합니다.  라우팅에 사용 하려는 고유한 도메인이 있으면 ' 사용자 지정 '을 사용 합니다. | nipio <br> 재구성 | nipio |
-| `routingSubDomain` | @No__t-0에 대해 ' 사용자 지정 '을 선택한 경우 라우팅에 사용 하려는 와일드 카드 DNS 이름 |  | apps.contoso.com |
-| `virtualNetworkNewOrExisting` | 기존 Virtual Network를 사용할지 아니면 새 Virtual Network를 만들지를 선택 합니다. | 있는 <br> 신규 | 신규 |
-| `virtualNetworkResourceGroupName` | @No__t에 대해 ' 새로 만들기 '를 선택한 경우 새 Virtual Network에 대 한 리소스 그룹의 이름-0 |  | resourceGroup (). 이름 |
-| `virtualNetworkName` | @No__t에서 ' n e w '를 선택한 경우 만들 새 Virtual Network의 이름-0 |  | openshiftvnet |
+| `masterClusterDnsType` | OpenShift 웹 콘솔용 도메인 유형입니다. ' 기본값 '은 마스터 인프라 공용 IP의 DNS 레이블을 사용 합니다. ' 사용자 지정 '을 사용 하 여 고유한 이름을 정의할 수 있습니다. | 기본 <br> 재구성 | 기본 |
+| `masterClusterDns` | `masterClusterDnsType`에 대해 ' 사용자 지정 '을 선택한 경우 OpenShift 웹 콘솔에 액세스 하는 데 사용할 사용자 지정 DNS 이름 |  | console.contoso.com |
+| `routingSubDomainType` | ' Nipio '로 설정 하면 `routingSubDomain` nip.io를 사용 합니다.  라우팅에 사용 하려는 고유한 도메인이 있으면 ' 사용자 지정 '을 사용 합니다. | nipio <br> 재구성 | nipio |
+| `routingSubDomain` | `routingSubDomainType`에 대해 ' 사용자 지정 '을 선택한 경우 라우팅에 사용 하려는 와일드 카드 DNS 이름 |  | apps.contoso.com |
+| `virtualNetworkNewOrExisting` | 기존 Virtual Network를 사용할지 아니면 새 Virtual Network를 만들지를 선택 합니다. | 있는 <br> new | new |
+| `virtualNetworkResourceGroupName` | `virtualNetworkNewOrExisting`에 대해 ' 새로 만들기 '를 선택한 경우 새 Virtual Network에 대 한 리소스 그룹의 이름 |  | resourceGroup().name |
+| `virtualNetworkName` | `virtualNetworkNewOrExisting` ' n e w '를 선택한 경우 만들 새 Virtual Network의 이름 |  | openshiftvnet |
 | `addressPrefixes` | 새 가상 네트워크의 주소 접두사 |  | 10.0.0.0/14 |
 | `masterSubnetName` | 마스터 서브넷의 이름입니다. |  | mastersubnet |
 | `masterSubnetPrefix` | 마스터 서브넷에 사용 되는 CIDR-addressPrefix의 하위 집합 이어야 합니다. |  | 10.1.0.0/16 |
@@ -300,9 +300,9 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 | `existingInfraSubnetReference` | 인프라 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
 | `existingCnsSubnetReference` | CN 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
 | `existingNodeSubnetReference` | 계산 노드의 기존 서브넷에 대 한 전체 참조입니다. 새 vNet/서브넷을 만드는 경우 필요 하지 않음 |  |  |
-| `masterClusterType` | 클러스터가 개인 또는 공용 마스터 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 마스터 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신 @no__t에서 지정 된 개인 IP를 사용 합니다.-0 | 공공 <br> 프라이빗 | 공공 |
+| `masterClusterType` | 클러스터가 개인 또는 공용 마스터 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 마스터 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신 `masterPrivateClusterIp`에서 지정 된 개인 IP를 사용 합니다. | 공공 <br> 프라이빗 | 공공 |
 | `masterPrivateClusterIp` | 개인 마스터 노드를 선택 하는 경우에는 마스터 노드에 대 한 내부 부하 분산 장치에서 사용할 개인 IP 주소를 지정 해야 합니다. 이 고정 IP는 마스터 서브넷의 CIDR 블록 내에 있어야 하며 이미 사용 되 고 있지 않아야 합니다. 공용 마스터 노드를 선택 하는 경우이 값은 사용 되지 않지만 여전히 지정 해야 합니다. |  | 10.1.0.200 |
-| `routerClusterType` | 클러스터가 개인 또는 공용 인프라 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 인프라 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신 @no__t에서 지정 된 개인 IP를 사용 합니다.-0 | 공공 <br> 프라이빗 | 공공 |
+| `routerClusterType` | 클러스터가 개인 또는 공용 인프라 노드를 사용 하는지 여부를 지정 합니다. 비공개를 선택 하면 인프라 노드가 공용 IP를 통해 인터넷에 노출 되지 않습니다. 대신 `routerPrivateClusterIp`에서 지정 된 개인 IP를 사용 합니다. | 공공 <br> 프라이빗 | 공공 |
 | `routerPrivateClusterIp` | 개인 인프라 노드가 선택 된 경우 인프라 노드에 대 한 내부 부하 분산 장치에서 사용할 개인 IP 주소를 지정 해야 합니다. 이 고정 IP는 마스터 서브넷의 CIDR 블록 내에 있어야 하며 이미 사용 되 고 있지 않아야 합니다. Public 인프라 nodes를 선택 하는 경우이 값은 사용 되지 않지만 여전히 지정 해야 합니다. |  | 10.2.0.200 |
 | `routingCertType` | 라우팅 도메인 또는 기본 자체 서명 된 인증서에 사용자 지정 인증서 사용- **사용자 지정 인증서** 섹션의 지침을 따릅니다. | selfsigned <br> 재구성 | selfsigned |
 | `masterCertType` | 마스터 도메인 또는 기본 자체 서명 된 인증서에 사용자 지정 인증서 사용- **사용자 지정 인증서** 섹션의 지침을 따릅니다. | selfsigned <br> 재구성 | selfsigned |

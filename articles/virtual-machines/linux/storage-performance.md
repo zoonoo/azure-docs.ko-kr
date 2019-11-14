@@ -1,5 +1,5 @@
 ---
-title: Azure Lsv2 시리즈 가상 머신-저장소에서 성능 최적화 Microsoft Docs
+title: Azure Lsv2 시리즈 가상 머신에서 성능 최적화-저장소
 description: Lsv2 시리즈 가상 머신에서 솔루션의 성능을 최적화 하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 author: laurenhughes
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/05/2019
 ms.author: joelpell
-ms.openlocfilehash: ea64a4274eda947aebf0f693657c17a120bec560
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8d99f63ae084b4f1dae3c0125420eaecf5655e2d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081796"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034762"
 ---
 # <a name="optimize-performance-on-the-lsv2-series-virtual-machines"></a>Lsv2 시리즈 가상 머신에서 성능 최적화
 
@@ -45,7 +45,7 @@ Lsv2 시리즈 Vm은 Zen 마이크로 아키텍처를 기반으로 하는 AMD EY
 
 * Lsv2 사용자는 응용 프로그램에 대 한 NUMA 선호도를 결정 하기 위해 데이터 드라이브에 대 한 VM 내에서 보고 되는 장치 NUMA 정보 (모두 0)를 사용 하면 안 됩니다. 성능 향상을 위해 가능한 경우 Cpu 간에 워크 로드를 분산 하는 것이 좋습니다.
 
-* Lsv2 VM NVMe 장치에 대 한 i/o 큐 쌍 당 지원 되는 최대 큐 깊이는 1024 (vs)입니다. Amazon i3 QD 32 제한). Lsv2 사용자는 큐의 전체 상태가 트리거되지 않도록 (가상) 벤치마킹 워크 로드를 큐 깊이 1024 이하로 제한 하 여 성능을 저하 시킬 수 있습니다.
+* Lsv2 VM NVMe 장치에 대 한 i/o 큐 쌍 당 지원 되는 최대 큐 깊이는 1024 (Amazon i3 QD 32 제한)입니다. Lsv2 사용자는 큐의 전체 상태가 트리거되지 않도록 (가상) 벤치마킹 워크 로드를 큐 깊이 1024 이하로 제한 하 여 성능을 저하 시킬 수 있습니다.
 
 ## <a name="utilizing-local-nvme-storage"></a>로컬 NVMe 저장소 활용
 
@@ -93,20 +93,20 @@ Lsv2 시리즈 Vm은 Zen 마이크로 아키텍처를 기반으로 하는 AMD EY
 * **단일 NVMe 디스크 오류로 인해 호스트의 모든 Vm이 실패 하나요?**  
    하드웨어 노드에서 디스크 오류가 검색 되 면 하드웨어가 실패 상태에 있습니다. 이 경우 노드의 모든 Vm이 자동으로 할당 취소 되 고 정상 노드로 이동 합니다. Lsv2 시리즈 Vm의 경우 오류가 발생 한 노드의 고객 데이터도 안전 하 게 삭제 되며 고객이 새 노드에 대해 다시 만들어야 합니다. 앞서 언급 했 듯이 Lsv2에서 실시간 마이그레이션을 사용할 수 있게 되기 전에 오류가 발생 한 노드의 데이터는 다른 노드로 전송 될 때 Vm과 사전에 이동 합니다.
 
-* **성능에 대 한 rq_affinity을 조정 해야 하나요?**  
-   Rq_affinity 설정은 최대 IOPS (초당 입력/출력 작업 수)를 사용 하는 경우 약간 조정 됩니다. 다른 모든 것이 제대로 작동 하는 경우에는 rq_affinity를 0으로 설정 하 여 차이가 있는지 확인 하십시오.
+* **성능을 위해 rq_affinity를 조정 해야 하나요?**  
+   Rq_affinity 설정은 최대 IOPS (초당 입력/출력 작업 수)를 사용 하는 경우 약간 조정 됩니다. 다른 모든 항목이 제대로 작동 하는 경우에는 rq_affinity를 0으로 설정 하 여 차이가 있는지 확인 하십시오.
 
 * **Blk_mq 설정을 변경 해야 하나요?**  
-   RHEL/CentOS 7.x는 NVMe 장치에 대해 blk-mq를 자동으로 사용 합니다. 구성 변경 이나 설정은 필요 하지 않습니다. Scsi_mod _blk_mq 설정은 SCSI에만 사용 되며, NVMe 장치는 게스트 Vm에 SCSI 장치로 표시 되기 때문에 Lsv2 Preview 중에 사용 되었습니다. 현재 NVMe 장치는 NVMe 장치로 표시 되므로 SCSI blk-mq 설정은 관련이 없습니다.
+   RHEL/CentOS 7.x는 NVMe 장치에 대해 blk-mq를 자동으로 사용 합니다. 구성 변경 이나 설정은 필요 하지 않습니다. Scsi_mod. use_blk_mq 설정은 vm에만 사용 되며 NVMe 장치가 게스트 Vm에 SCSI 장치로 표시 되기 때문에 Lsv2 Preview 중에 사용 되었습니다. 현재 NVMe 장치는 NVMe 장치로 표시 되므로 SCSI blk-mq 설정은 관련이 없습니다.
 
 * **"Fio"를 변경 해야 하나요?**  
-   L64v2 및 L80v2 VM 크기에서 ' fio '와 같은 성능 측정 도구를 사용 하 여 최대 IOPS를 얻으려면 각 NVMe 장치에서 "rq_affinity"을 0으로 설정 합니다.  예를 들어,이 명령줄은 L80v2 VM의 모든 10 개 NVMe 장치에 대해 "rq_affinity"을 0으로 설정 합니다.
+   L64v2 및 L80v2 VM 크기에서 ' fio '와 같은 성능 측정 도구를 사용 하 여 최대 IOPS를 얻으려면 각 NVMe 장치에서 "rq_affinity"을 0으로 설정 합니다.  예를 들어 다음 명령줄은 L80v2 VM의 모든 10 개 NVMe 장치에 대해 "rq_affinity"을 0으로 설정 합니다.
 
    ```console
    for i in `seq 0 9`; do echo 0 >/sys/block/nvme${i}n1/queue/rq_affinity; done
    ```
 
-   또한 i/o가 분할 안 함, 파일 시스템, RAID 0 구성 등을 포함 하지 않는 각 원시 NVMe 장치에 직접 수행 되는 경우 최상의 성능을 얻을 수 있습니다. 테스트 세션을 시작 하기 전에 각 NVMe 장치에서를 실행 `blkdiscard` 하 여 구성이 알려진 최신/정리 상태에 있는지 확인 합니다.
+   또한 i/o가 분할 안 함, 파일 시스템, RAID 0 구성 등을 포함 하지 않는 각 원시 NVMe 장치에 직접 수행 되는 경우 최상의 성능을 얻을 수 있습니다. 테스트 세션을 시작 하기 전에 각 NVMe 장치에서 `blkdiscard`를 실행 하 여 구성이 알려진 최신/정리 상태 인지 확인 합니다.
    
 ## <a name="next-steps"></a>다음 단계
 

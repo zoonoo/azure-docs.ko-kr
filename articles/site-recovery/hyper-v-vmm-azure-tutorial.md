@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fdf6d9674305ca13af51f3f7b97e0a40568738b6
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 0c570702e4c3899ef2847883e6fc8649e603a787
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953963"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039681"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>VMM 클라우드의 온-프레미스 Hyper-V VM에서 Azure로의 재해 복구 설정
 
@@ -32,8 +32,6 @@ ms.locfileid: "73953963"
 > [!NOTE]
 > 자습서는 시나리오에 맞는 가장 간단한 배포 경로를 보여줍니다. 가능한 경우 기본 옵션을 사용하고 가능한 모든 설정과 경로를 보여주지 않습니다. 자세한 지침은 **Site Recovery 설명서**의 [방법 가이드](https://docs.microsoft.com/azure/site-recovery) 섹션에 있는 문서를 검토하세요.
 
-> [!WARNING]
-> System Center VMM을 사용 하는 Hyper-v Vm의 재해 복구 지원은 곧 사용 되지 않을 예정입니다. 계속 하기 전에 사용 [중단 세부 정보](scvmm-site-recovery-deprecation.md) 를 읽는 것이 좋습니다.
 
 
 ## <a name="before-you-begin"></a>시작하기 전에

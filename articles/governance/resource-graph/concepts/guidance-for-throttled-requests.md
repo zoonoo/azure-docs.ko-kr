@@ -3,12 +3,12 @@ title: 제한된 요청에 대한 지침
 description: Azure 리소스 그래프가 제한 되는 것을 방지 하기 위해 더 나은 쿼리를 만드는 방법을 알아봅니다.
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 46af11bfea47e37b97fa9492f71be8b5fe1817e3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 651a5daa9e7e19a5dc157ba0cfa17da2c8abe3db
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959212"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038320"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure 리소스 그래프의 제한 된 요청에 대 한 지침
 
@@ -215,11 +215,11 @@ Azure 리소스 그래프가 단일 쿼리 응답에서 최대 1000 개 항목�
   Azure CLI 또는 Azure PowerShell를 사용 하는 경우 Azure 리소스 그래프에 대 한 쿼리는 최대 5000 항목에서 자동으로 페이지가 매겨집니다. 쿼리 결과는 페이지가 매겨진 모든 호출에서 항목의 결합 된 목록을 반환 합니다. 이 경우 쿼리 결과의 항목 수에 따라 페이지가 매겨진 단일 쿼리에서 둘 이상의 쿼리 할당량을 사용할 수 있습니다. 예를 들어 아래 예제에서는 쿼리를 한 번 실행할 때 쿼리 할당량을 5 개까지 사용할 수 있습니다.
 
   ```azurecli-interactive
-  az graph query -q 'Resources | project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' --first 5000
   ```
 
   ```azurepowershell-interactive
-  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -First 5000
   ```
 
 ## <a name="still-get-throttled"></a>제한 된 상태 인가요?

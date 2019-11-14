@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 08/26/2019
+ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: bac784ea3050111184e2908fe5656a1d16545a99
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231022"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037862"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -27,7 +27,7 @@ Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라�
 - 라이브 이벤트를 캡처하는 데 사용되는 카메라.<br/>설치 아이디어는 [간단하고 이동 가능한 이벤트 비디오 기어 설정]( https://link.medium.com/KNTtiN6IeT)을 확인하세요.
 
     카메라에 대 한 액세스 권한이 없는 경우 [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) 와 같은 도구를 사용 하 여 비디오 파일에서 라이브 피드를 생성할 수 있습니다.
-- 카메라(또는 노트북과 같은 다른 디바이스)의 신호를 Media Services로 전송되는 기여 피드로 변환하는 라이브 비디오 인코더. 기여 피드에는 SCTE-35 마커와 같은 광고 관련 신호가 포함될 수 있습니다.<br/>권장 라이브 스트리밍 인코더 목록은 [라이브 스트리밍 인코더](recommended-on-premises-live-encoders.md)를 참조하세요. 또한 이 블로그를 확인하세요. [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT)
+- 카메라(또는 노트북과 같은 다른 디바이스)의 신호를 Media Services로 전송되는 기여 피드로 변환하는 라이브 비디오 인코더. 기여 피드에는 SCTE-35 마커와 같은 광고 관련 신호가 포함될 수 있습니다.<br/>권장 라이브 스트리밍 인코더 목록은 [라이브 스트리밍 인코더](recommended-on-premises-live-encoders.md)를 참조하세요. 또한 [OBS를 사용한 라이브 스트리밍 프로덕션](https://link.medium.com/ttuwHpaJeT)블로그를 확인 하세요.
 - Media Services의 구성 요소. 이러한 구성 요소를 사용하여 라이브 이벤트를 수집, 미리 보기, 패키지화, 기록, 암호화할 수 있으며 고객 또는 CDN(추가 배포를 위해)에 브로드캐스트할 수 있습니다.
 
 이 문서에서는 Media Services와 라이브 스트리밍에 대 한 개요 및 지침을 제공 하 고 다른 관련 문서에 대 한 링크를 제공 합니다.
@@ -41,7 +41,7 @@ Media Services를 사용 하 여 서비스에 전송 되는 기여 피드의 [MP
 
 ## <a name="dynamic-encryption"></a>동적 암호화
 
-동적 암호화를 사용 하면 AES-128 또는 세 가지 주요 DRM (디지털 권한 관리) 시스템 중 하나를 사용 하 여 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 자세한 내용은 [동적 암호화](content-protection-overview.md)를 참조 하세요.
+동적 암호화를 사용 하면 AES-128 또는 세 가지 주요 DRM (디지털 권한 관리) 시스템 인 Microsoft PlayReady, Google Widevine Apple FairPlay에서 라이브 또는 주문형 콘텐츠를 동적으로 암호화할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 자세한 내용은 [동적 암호화](content-protection-overview.md)를 참조 하세요.
 
 ## <a name="dynamic-manifest"></a>동적 매니페스트
 
@@ -53,7 +53,7 @@ Media Services를 사용 하 여 서비스에 전송 되는 기여 피드의 [MP
 
 ### <a name="pass-through"></a>통과
 
-![pass-through(통과)](./media/live-streaming/pass-through.svg)
+![통과](./media/live-streaming/pass-through.svg)
 
 통과 **라이브 이벤트**를 사용 하는 경우 온-프레미스 라이브 인코더를 사용 하 여 여러 비트 전송률 비디오 스트림을 생성 하 고이를 라이브 이벤트에 기여 피드로 보냅니다 (RTMP 또는 조각화 된 MP4 입력 프로토콜 사용). 그런 다음 라이브 이벤트는 추가 코드 변환 없이 들어오는 비디오 스트림을 동적 포장기 (스트리밍 끝점)에 전달 합니다. 이러한 통과 라이브 이벤트는 장기 실행 라이브 이벤트 또는 24x365 선형 라이브 스트리밍을 위해 최적화 되었습니다. 
 
@@ -61,7 +61,14 @@ Media Services를 사용 하 여 서비스에 전송 되는 기여 피드의 [MP
 
 ![라이브 인코딩](./media/live-streaming/live-encoding.svg)
 
-Media Services와 함께 클라우드 인코딩을 사용 하는 경우 온-프레미스 라이브 인코더를 구성 하 여 단일 비트 전송률 비디오를 라이브 이벤트 (최대 32Mbps 집계)에서 라이브 이벤트 (RTMP 또는 조각화 된 MP4 입력 프로토콜 사용)로 전송 합니다. 라이브 이벤트는 들어오는 단일 비트 전송률 스트림을 다양 한 해상도에서 [여러 비트 전송률 비디오 스트림으로](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) 코드 변환 하 여 제공 기능을 개선 하 고, MPEG-대시, Apple 같은 산업 표준 프로토콜을 통해 재생 장치로 배달할 수 있도록 합니다. HTTP 라이브 스트리밍 (HLS) 및 Microsoft 부드러운 스트리밍. 
+Media Services와 함께 클라우드 인코딩을 사용 하는 경우 온-프레미스 라이브 인코더를 구성 하 여 단일 비트 전송률 비디오를 라이브 이벤트 (최대 32Mbps 집계)에서 라이브 이벤트 (RTMP 또는 조각화 된 MP4 입력 프로토콜 사용)로 전송 합니다. 라이브 이벤트는 들어오는 단일 비트 전송률 스트림을 다양 한 해상도에서 [여러 비트 전송률 비디오 스트림으로](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) 코드 변환 하 여 제공 하는 기능을 개선 하 고 MPEG-2, HLS (Apple HTTP 라이브 스트리밍) 및 Microsoft 부드러운 스트리밍 같은 산업 표준 프로토콜을 통해 재생 장치로 배달 될 수 있도록 합니다. 
+
+### <a name="live-transcription"></a>라이브 기록
+
+라이브 기록은 통과 또는 라이브 인코딩의 라이브 이벤트와 함께 사용할 수 있는 기능입니다. 자세한 내용은 [라이브](live-transcription.md)기록을 참조 하세요. 이 기능을 사용 하는 경우 서비스는 Cognitive Services의 [음성 텍스트](../../cognitive-services/speech-service/speech-to-text.md) 기능을 사용 하 여 들어오는 오디오의 음성 단어를 텍스트로 높여줄 합니다. 그런 다음이 텍스트는 MPEG-2 및 HLS 프로토콜의 비디오 및 오디오와 함께 배달할 수 있게 됩니다.
+
+> [!NOTE]
+> 현재는 미국 서 부 2에서 라이브 기록을 미리 보기 기능으로 사용할 수 있습니다.
 
 ## <a name="live-streaming-workflow"></a>라이브 스트리밍 워크플로
 

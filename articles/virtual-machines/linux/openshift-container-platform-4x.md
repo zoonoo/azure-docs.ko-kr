@@ -1,5 +1,5 @@
 ---
-title: Azure에서 OpenShift Container Platform 4.x 배포 | Microsoft Docs
+title: Azure에서 OpenShift Container Platform 4.x 배포
 description: Azure에서 OpenShift Container Platform 4.x를 배포 합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 9f807823b1d0d8079c43b2ba0e074a1c8a91b458
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 213c02b76f822d134729ebc4c0e6bff40f62089f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392684"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035430"
 ---
 # <a name="deploy-openshift-container-platform-4x-in-azure"></a>Azure에서 OpenShift Container Platform 4.x 배포
 
 이제 IPI (Installer 프로 비전 된 인프라) 모델을 통해 Azure에서 OCP (OpenShift Container Platform) 4.2 배포가 지원 됩니다.  OpenShift 4를 시도 하기 위한 방문 페이지는 [try.openshift.com](https://try.openshift.com/)입니다. Azure에서 OCP 4.2을 설치 하려면 [Red Hat OpenShift 클러스터 관리자](https://cloud.redhat.com/openshift/install/azure/installer-provisioned) 페이지를 방문 하세요.  이 사이트에 액세스 하려면 red Hat 자격 증명이 필요 합니다.
 
 
-## <a name="notes"></a>참고 
+## <a name="notes"></a>참고 사항 
 
  - Azure에서 OCP 4.x를 설치 하 고 실행 하려면 AAD (Azure Active Directory) SP (서비스 사용자)가 필요 합니다.
      - SP는 Azure Active Directory Graph에 대해 OwnedBy의 API 권한을 부여 받아야 합니다 **.**

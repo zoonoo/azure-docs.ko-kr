@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용하여 Resource Manager로 마이그레이션 | Microsoft Docs
+title: PowerShell을 사용 하 여 리소스 관리자로 마이그레이션
 description: 이 문서에서는 Azure PowerShell 명령을 사용하여 VM(가상 머신), VNET(가상 네트워크), 스토리지 계정 등의 IaaS 리소스를 플랫폼 지원 방식으로 클래식에서 ARM(Azure Resource Manager)으로 마이그레이션하는 과정을 안내합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 01d5670add82291cb91264ab41fcd312a338840c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 99650b090a84fd417fca5bbeb1ce3f58d32729bb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749333"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033203"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-powershell"></a>Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 이러한 단계에서는 Azure PowerShell 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다.
@@ -33,7 +33,7 @@ ms.locfileid: "73749333"
 <br>
 다음은 마이그레이션 프로세스 중에 단계를 실행해야 하는 순서를 나타내는 순서도입니다.
 
-![Screenshot that shows the migration steps](media/migration-classic-resource-manager/migration-flow.png)
+![마이그레이션 단계를 보여 주는 스크린샷](media/migration-classic-resource-manager/migration-flow.png)
 
  
 
@@ -58,7 +58,7 @@ Azure PowerShell을 설치하는 두 가지 주요 옵션으로 [PowerShell 갤�
 ## <a name="step-3-ensure-that-you-are-an-administrator-for-the-subscription-in-azure-portal"></a>3단계: Azure Portal에서 구독에 대한 관리자인지 확인
 이 마이그레이션을 수행하려면 [Azure Portal](https://portal.azure.com)에 구독에 대한 공동 관리자로 추가되어야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)할 수 있습니다.
 2. 허브 메뉴에서 **구독**을 선택합니다. 표시되지 않으면 **모든 서비스**를 선택합니다.
 3. 적절한 등록 항목을 찾은 다음 **내 역할** 필드를 확인합니다. 공동 관리자의 경우 값은 _계정 관리자_여야 합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure에서 PowerShell을 사용하여 Traffic Manager 관리
-description: Azure Resource Manager과 함께 Traffic Manager용 powershell 사용
+description: 이 학습 경로를 사용 하 여 Traffic Manager에 대 한 Azure PowerShell 사용을 시작 하세요.
 services: traffic-manager
 documentationcenter: na
 author: asudbring
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: allensu
-ms.openlocfilehash: a2065ba51b74d7f55464a22df0f55cac4c6defcb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8dd01f22dec58c3345798b391c1c37c968d1025
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071039"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038129"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>PowerShell을 사용하여 Traffic Manager 관리
 
@@ -38,7 +38,7 @@ Azure Traffic Manager는 Traffic Manager 프로필을 호출하는 설정 모음
 
 이러한 지침은 Microsoft Azure PowerShell을 사용합니다. 다음 문서는 Azure PowerShell 설치 및 구성하는 방법을 설명합니다.
 
-* [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)
+* [Azure PowerShell을 설치하고 구성하는 방법](/powershell/azure/overview)
 
 이 문서의 예제에서는 기존 리소스 그룹이 있다고 가정합니다. 다음 명령을 사용하여 리소스 그룹을 만들 수 있습니다.
 
@@ -59,9 +59,9 @@ $TmProfile = New-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyRG
 
 다음 표는 매개 변수를 설명합니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 | --- | --- |
-| Name |Traffic Manager 프로필 리소스의 ARM 리소스 이름입니다. 동일한 리소스 그룹의 프로필 이름은 고유해야 합니다. 이 이름은 DNS 쿼리에 사용되는 DNS 이름과 구분됩니다. |
+| 이름 |Traffic Manager 프로필 리소스의 ARM 리소스 이름입니다. 동일한 리소스 그룹의 프로필 이름은 고유해야 합니다. 이 이름은 DNS 쿼리에 사용되는 DNS 이름과 구분됩니다. |
 | ResourceGroupName |프로필 리소스가 포함된 리소스 그룹의 이름. |
 | TrafficRoutingMethod |DNS 쿼리에 대한 응답으로 반환되는 엔드포인트를 결정하는 데 사용되는 트래픽 라우팅 메서드를 지정합니다. 가능한 값은 '성능', '가중' 또는 '우선 순위'입니다. |
 | RelativeDnsName |이 Traffic Manager 프로필을 통해 제공되는 DNS 이름의 호스트 이름 부분을 지정합니다. 이 값은 프로필의 FQDN(정규화된 도메인 이름)을 형성하여 Azure Traffic Manager가 사용하는 DNS 도메인 이름과 결합됩니다. 예를 들어 'contoso'의 값이 'contoso.trafficmanager.net.'이 되도록 설정합니다. |
@@ -125,7 +125,7 @@ Azure 엔드포인트는 Azure에서 호스팅되는 서비스를 나타냅니�
 * '가중치' 지정은 선택 사항입니다. 가중치는 '가중' 트래픽 라우팅 메서드를 사용하도록 프로필을 구성한 경우에만 사용됩니다. 그렇지 않으면 무시됩니다. 지정된 경우, 이 값은 1과 1000 사이의 숫자여야 합니다. 기본값은 '1'입니다.
 * '우선 순위' 지정은 선택 사항입니다. 우선 순위는 '우선 순위' 트래픽 라우팅 메서드를 사용하도록 프로필을 구성한 경우에만 사용됩니다. 그렇지 않으면 무시됩니다. 유효한 값은 낮은 숫자가 더 높은 우선 순위를 나타내도록 한 1부터 1000까지의 숫자입니다. 한 엔드포인트에 대해 지정한 경우 모든 엔드포인트에 대해 지정되어야 합니다. 생략한 경우 '1'부터 시작하는 기본값이 엔드포인트가 나열된 순서대로 적용됩니다.
 
-### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>예제 1: `Add-AzTrafficManagerEndpointConfig`를 사용하여 App Service 엔드포인트 추가
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>예제 1: `Add-AzTrafficManagerEndpointConfig`를 사용 하 여 App Service 끝점 추가
 
 이 예제에서는 Traffic Manager 프로필을 만들고 `Add-AzTrafficManagerEndpointConfig` cmdlet을 사용하여 두 개의 App Service 엔드포인트를 추가합니다.
 
@@ -137,7 +137,7 @@ $webapp2 = Get-AzWebApp -Name webapp2
 Add-AzTrafficManagerEndpointConfig -EndpointName webapp2ep -TrafficManagerProfile $TmProfile -Type AzureEndpoints -TargetResourceId $webapp2.Id -EndpointStatus Enabled
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
-### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>예 2: `New-AzTrafficManagerEndpoint`를 사용하여 publicIpAddress 엔드포인트 추가
+### <a name="example-2-adding-a-publicipaddress-endpoint-using-new-aztrafficmanagerendpoint"></a>예시 2: `New-AzTrafficManagerEndpoint`을 사용하여 publicIpAddress 엔드포인트 추가
 
 이 예제에서는 공용 IP 주소 리소스가 Traffic Manager 프로필에 추가됩니다. 공용 IP 주소는 구성된 DNS 이름이 있어야 하고 VM의 NIC 또는 부하 분산 장치에 바인딩될 수 있습니다.
 
@@ -156,7 +156,7 @@ Traffic Manager는 외부 엔드포인트를 사용하여 Azure 외부에서 호
 * 'Performance' 트래픽 라우팅 메서드를 사용하는 경우 'EndpointLocation'이 필수입니다. 그렇지 않은 경우 선택적입니다. 값은 [올바른 Azure 지역 이름](https://azure.microsoft.com/regions/)이어야 합니다.
 * 'Weight' 및 'Priority'는 선택 사항입니다.
 
-### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>예제 1: `Add-AzTrafficManagerEndpointConfig`와 `Set-AzTrafficManagerProfile`을 사용하여 외부 엔드포인트 추가
+### <a name="example-1-adding-external-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>예시 1: `Add-AzTrafficManagerEndpointConfig`과 `Set-AzTrafficManagerProfile`를 사용하여 외부 엔드포인트 추가
 
 이 예제에서는 Traffic Manager 프로필을 만들고 두 개의 외부 엔드포인트를 추가하고 변경 내용을 커밋합니다.
 
@@ -167,7 +167,7 @@ Add-AzTrafficManagerEndpointConfig -EndpointName us-endpoint -TrafficManagerProf
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
-### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>예 2: `New-AzTrafficManagerEndpoint`를 사용하여 외부 엔드포인트 추가
+### <a name="example-2-adding-external-endpoints-using-new-aztrafficmanagerendpoint"></a>예시 2: `New-AzTrafficManagerEndpoint`을 사용하여 외부 엔드포인트 추가
 
 이 예제에서는 기존 프로필에 외부 엔드포인트를 추가합니다. 프로필은 프로필 및 리소스 그룹 이름을 사용하여 지정합니다.
 
@@ -186,7 +186,7 @@ New-AzTrafficManagerEndpoint -Name eu-endpoint -ProfileName MyProfile -ResourceG
 * Azure 엔드포인트에 대해 'Weight' 및 'Priority'는 선택 사항입니다.
 * 'MinChildEndpoints' 매개 변수는 선택적입니다. 기본값은 '1'입니다. 사용할 수 있는 엔드포인트 수가 이 임계값 아래로 떨어지는 경우 부모 프로필은 자식 프로필의 '성능이 저하되었다'고 간주하고 트래픽을 부모 프로필에 있는 다른 엔드포인트로 전환합니다.
 
-### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>예제 1: `Add-AzTrafficManagerEndpointConfig`와 `Set-AzTrafficManagerProfile`을 사용하여 중첩된 엔드포인트 추가
+### <a name="example-1-adding-nested-endpoints-using-add-aztrafficmanagerendpointconfig-and-set-aztrafficmanagerprofile"></a>예시 1: `Add-AzTrafficManagerEndpointConfig`과 `Set-AzTrafficManagerProfile`를 사용하여 중첩 엔드포인트 추가
 
 이 예제에서는 새 Traffic Manager 자식 및 부모 프로필을 만들고 자식을 부모의 중첩 엔드포인트로 추가하고 변경 내용을 커밋합니다.
 
@@ -199,7 +199,7 @@ Set-AzTrafficManagerProfile -TrafficManagerProfile $parent
 
 이 예제에서는 간단한 설명을 위해 자식 또는 부모 프로필에 다른 엔드포인트를 추가하지 않았습니다.
 
-### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>예 2: `New-AzTrafficManagerEndpoint`를 사용하여 중첩된 엔드포인트 추가
+### <a name="example-2-adding-nested-endpoints-using-new-aztrafficmanagerendpoint"></a>예시 2: `New-AzTrafficManagerEndpoint`을 사용하여 중첩 엔드포인트 추가
 
 이 예제에서는 기존 부모 프로필에 기존 자식 프로필을 중첩된 엔드포인트로 추가합니다. 프로필은 프로필 및 리소스 그룹 이름을 사용하여 지정합니다.
 
@@ -210,7 +210,7 @@ New-AzTrafficManagerEndpoint -Name child-endpoint -ProfileName parent -ResourceG
 
 ## <a name="adding-endpoints-from-another-subscription"></a>다른 구독에서 엔드포인트 추가
 
-Traffic Manager는 다른 구독의 엔드포인트에서 사용할 수 있습니다. Traffic Manager에 필요한 입력을 검색하려면 추가하려는 엔드포인트로 구독을 전환해야 합니다. 그런 다음 Traffic Manager 프로필을 포함 하는 구독으로 전환 하 여 끝점을 추가 해야 합니다. 아래 예제에서는 공용 IP 주소로 이 작업을 수행하는 방법을 보여줍니다.
+Traffic Manager는 다른 구독의 엔드포인트에서 사용할 수 있습니다. Traffic Manager에 필요한 입력을 검색하려면 추가하려는 엔드포인트로 구독을 전환해야 합니다. 그런 다음 Traffic Manager 프로필을 사용 하 여 구독으로 전환 하 고 끝점을 추가 해야 합니다. 아래 예제에서는 공용 IP 주소로 이 작업을 수행하는 방법을 보여줍니다.
 
 ```powershell
 Set-AzContext -SubscriptionId $EndpointSubscription
@@ -227,7 +227,7 @@ New-AzTrafficManagerEndpoint -Name $EndpointName -ProfileName $ProfileName -Reso
 1. `Get-AzTrafficManagerProfile`을 사용하여 Traffic Manager 프로필을 가져오고 프로필 내의 엔드포인트 속성을 업데이트하고 `Set-AzTrafficManagerProfile`를 사용하여 변경 내용을 커밋합니다. 이 메서드는 한 번에 엔드포인트를 둘 이상 업데이트할 수 있다는 장점이 있습니다.
 2. `Get-AzTrafficManagerEndpoint`을 사용하여 Traffic Manager 엔드포인트 가져오고 엔드포인트 속성을 업데이트하고 `Set-AzTrafficManagerEndpoint`를 사용하여 변경 내용을 커밋합니다. 이 메서드는 프로필에서 엔드포인트 배열로 인덱싱하지 않아도 되므로 훨씬 간단합니다.
 
-### <a name="example-1-updating-endpoints-using-get-aztrafficmanagerprofile-and-set-aztrafficmanagerprofile"></a>예제 1: `Get-AzTrafficManagerProfile`과 `Set-AzTrafficManagerProfile`을 사용하여 엔드포인트 업데이트
+### <a name="example-1-updating-endpoints-using-get-aztrafficmanagerprofile-and-set-aztrafficmanagerprofile"></a>예시 1: `Get-AzTrafficManagerProfile`과 `Set-AzTrafficManagerProfile`를 사용하여 엔드포인트 업데이트
 
 이 예제에서는 기존 프로필 내에서 두 개의 엔드포인트에 대한 우선 순위를 수정합니다.
 
@@ -238,7 +238,7 @@ $TmProfile.Endpoints[1].Priority = 1
 Set-AzTrafficManagerProfile -TrafficManagerProfile $TmProfile
 ```
 
-### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>예 2: `Get-AzTrafficManagerEndpoint`와 `Set-AzTrafficManagerEndpoint`를 사용하여 엔드포인트 업데이트
+### <a name="example-2-updating-an-endpoint-using-get-aztrafficmanagerendpoint-and-set-aztrafficmanagerendpoint"></a>예시 2: `Get-AzTrafficManagerEndpoint`과 `Set-AzTrafficManagerEndpoint`를 사용하여 엔드포인트 업데이트
 
 이 예제에서는 기존 프로필에 있는 단일 엔드포인트의 가중치를 수정합니다.
 
@@ -269,7 +269,7 @@ Disable-AzTrafficManagerProfile -Name MyProfile -ResourceGroupName MyResourceGro
 
 Disable-AzTrafficManagerProfile cmdlet은 확인 프롬프트를 표시합니다. 이 프롬프트는 '-Force' 매개 변수를 사용하여 표시되지 않게 할 수 있습니다.
 
-### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>예 2: Traffic Manager 엔드포인트 활성화 및 비활성화
+### <a name="example-2-enabling-and-disabling-a-traffic-manager-endpoint"></a>예제 2: Traffic Manager 엔드포인트 활성화 및 비활성화
 
 Traffic Manager 엔드포인트를 활성화하려면 `Enable-AzTrafficManagerEndpoint`을 사용합니다. 엔드포인트를 지정하는 방법은 두 가지입니다
 

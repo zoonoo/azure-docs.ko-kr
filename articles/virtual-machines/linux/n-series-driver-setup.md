@@ -1,5 +1,5 @@
 ---
-title: Linux용 Azure N 시리즈 GPU 드라이버 설치 | Microsoft Docs
+title: Linux 용 Azure N 시리즈 GPU 드라이버 설치
 description: Azure에서 Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버를 설정하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3abc221295a90dfbf7e46e3bd5bff1c8c0937162
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6ebc991d54ef902eb653cf2d99b2f74f18551568
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035009"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035619"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Linux를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치
 
@@ -151,7 +151,7 @@ sudo reboot
 
 GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드라이버와 설치된 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 명령줄 유틸리티를 실행합니다. 
 
-드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 워크로드를 실행 중이지 않으면 **GPU-Util**에 0%가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
+드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 워크로드를 실행 중이지 않으면 **GPU-Util**에 0%가 표시됩니다. 드라이버 버전 및 GPU 세부 정보가 표시된 것과 다를 수 있습니다.
 
 ![NVIDIA 디바이스 상태](./media/n-series-driver-setup/smi.png)
 
@@ -190,7 +190,7 @@ NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 
    
    sudo apt-get install linux-azure -y
    ```
-3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NVv2 VM에서 NVIDIA 드라이버만 사용합니다.) 이 작업을 수행 하려면 다음 내용으로 `nouveau.conf` 이라는 @no__t에 파일을 만듭니다.
+3. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NVv2 Vm 에서만 NVIDIA 드라이버를 사용 합니다.) 이렇게 하려면 다음 내용을 사용 하 여 이름이 `nouveau.conf` `/etc/modprobe.d` 파일을 만듭니다.
 
    ```
    blacklist nouveau
@@ -230,7 +230,7 @@ NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 
    EnableUI=FALSE
    ```
    
-9. @No__t에서 다음을 제거 합니다 (있는 경우).
+9. `/etc/nvidia/gridd.conf`에서 다음을 제거 합니다 (있는 경우).
  
    ```
    FeatureType=0
@@ -254,7 +254,7 @@ NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 
    sudo yum install hyperv-daemons
    ```
 
-2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 VM에서 NVIDIA 드라이버만 사용합니다.) 이 작업을 수행 하려면 다음 내용으로 `nouveau.conf` 이라는 @no__t에 파일을 만듭니다.
+2. NVIDIA 드라이버와 호환되지 않는 Nouveau 커널 드라이버를 사용하지 않도록 설정합니다. (NV 또는 NV2 Vm 에서만 NVIDIA 드라이버를 사용 합니다.) 이렇게 하려면 다음 내용을 사용 하 여 이름이 `nouveau.conf` `/etc/modprobe.d` 파일을 만듭니다.
 
    ```
    blacklist nouveau
@@ -302,7 +302,7 @@ NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 
    IgnoreSP=FALSE
    EnableUI=FALSE 
    ```
-9. @No__t에서 다음을 제거 합니다 (있는 경우).
+9. `/etc/nvidia/gridd.conf`에서 다음을 제거 합니다 (있는 경우).
  
    ```
    FeatureType=0
@@ -315,7 +315,7 @@ NV 또는 NVv3 시리즈 Vm에 NVIDIA GRID 드라이버를 설치 하려면 각 
 
 GPU 디바이스 상태를 쿼리하려면 VM에 대해 SSH를 실행하고 드라이버와 설치된 [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) 명령줄 유틸리티를 실행합니다. 
 
-드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 워크로드를 실행 중이지 않으면 **GPU-Util**에 0%가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
+드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 워크로드를 실행 중이지 않으면 **GPU-Util**에 0%가 표시됩니다. 드라이버 버전 및 GPU 세부 정보가 표시된 것과 다를 수 있습니다.
 
 ![NVIDIA 디바이스 상태](./media/n-series-driver-setup/smi-nv.png)
  

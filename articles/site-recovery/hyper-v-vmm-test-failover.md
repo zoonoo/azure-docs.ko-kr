@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 444868f1716ae55f1851e50c057b172f5e3eb3d1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4a1b5f804986d2bda85980d01cdaaa130d86b50d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961390"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039744"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>보조 사이트로 Hyper-V VM에 대한 DR 훈련 실행
 
@@ -22,7 +22,7 @@ ms.locfileid: "73961390"
 데이터 손실 또는 가동 중지 없이 복제 전략의 유효성을 검사하고 DR 훈련을 수행하기 위해 테스트 장애 조치(failover)를 실행합니다. 테스트 장애 조치(failover)는 진행 중인 복제 또는 프로덕션 환경에 영향을 주지 않습니다. 
 
 > [!WARNING]
-> SCVMM 구성을 고려 하는 ASR 지원은 곧 사용 되지 않을 예정 이므로 계속 하기 전에 사용 [중단 세부 정보를 읽는](scvmm-site-recovery-deprecation.md) 것이 좋습니다.
+> SCVMM 구성을 고려 하는 ASR 지원은 곧 사용 되지 않을 예정 이므로 계속 하기 전에 사용 [중단 세부 정보를 읽는](site-to-site-deprecation.md) 것이 좋습니다.
 
 
 ## <a name="how-do-test-failovers-work"></a>장애 조치(failover) 작업은 어떻게 수행되나요?

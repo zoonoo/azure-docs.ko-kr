@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Windows VM의 가용성 관리 | Microsoft Docs
+title: Azure에서 Windows Vm의 가용성 관리
 description: Azure에서 여러 가상 머신을 사용하여 Windows 애플리케이션의 고가용성을 유지하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c7de139c83128f92c9c28fbdb002246f6dbbf0ec
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 44db2b0b42175f7968852ad9a0f7769b05e2c008
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079240"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038175"
 ---
 # <a name="manage-the-availability-of-windows-virtual-machines-in-azure"></a>Azure에서 Windows 가상 머신의 가용성 관리 
 

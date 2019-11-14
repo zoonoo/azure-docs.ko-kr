@@ -1,5 +1,5 @@
 ---
-title: 'Microsoft 피어 링에 대 한 경로 필터 구성-Express 경로: PowerShell: Azure | Microsoft Docs'
+title: 'Express 경로: 경로 필터-Microsoft 피어 링: Azure PowerShell'
 description: 이 문서에서는 PowerShell을 사용하여 Microsoft 피어링에 대한 경로 필터를 구성하는 방법을 설명합니다.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 7a830b01bb66f807972b642ad46d54d124d16d8d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: cade33e77eb0d3ddd818a6ce3dbd7c6cf72811d4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748129"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037414"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Microsoft 피어링에 대한 경로 필터 구성: PowerShell
 > [!div class="op_single_selector"]
@@ -79,7 +79,7 @@ Microsoft 피어링을 통해 서비스에 성공적으로 연결할 수 있으�
 
 [!INCLUDE [expressroute-cloudshell](../../includes/expressroute-cloudshell-powershell-about.md)]
 
-### <a name="log-in-to-your-azure-account"></a>Azure 계정에 로그인합니다.
+### <a name="log-in-to-your-azure-account"></a>Azure 계정에 로그인
 
 이 구성을 시작하기 전에 Azure 계정에 로그인해야 합니다. Cmdlet가 Azure 계정에 대한 로그인 자격 증명을 유도합니다. 로그인한 다음 Azure PowerShell에 사용할 수 있도록 계정 설정을 다운로드합니다.
 

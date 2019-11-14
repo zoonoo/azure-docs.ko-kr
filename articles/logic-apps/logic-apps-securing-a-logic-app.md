@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 2177ba8b3864e8d453a097b391a18ebbbb5baa11
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 57bea93fd03dc19caa1ce29a34a40bc3cff06209
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499917"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039052"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -36,7 +36,7 @@ Azure Logic Apps에서 데이터 액세스 및 보호를 제어 하기 위해 �
 
 * [공유 액세스 서명 생성](#sas)
 * [인바운드 IP 주소 제한](#restrict-inbound-ip-addresses)
-* [Azure Active Directory, OAuth 또는 기타 보안 추가](#add-authentication)
+* [Azure Active Directory OAuth 또는 기타 보안 추가](#add-authentication)
 
 <a name="sas"></a>
 
@@ -83,7 +83,7 @@ SAS를 사용 하 여 액세스를 보호 하는 방법에 대 한 자세한 내
 POST /subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.Logic/workflows/<workflow-name>/triggers/<trigger-name>/listCallbackUrl?api-version=2016-06-01
 ```
 
-본문에서 JSON 날짜 문자열을 사용 하 여 `NotAfter`property를 포함 합니다. 이 속성은 `NotAfter` 날짜 및 시간까지만 유효한 콜백 URL을 반환합니다.
+본문에서 JSON 날짜 문자열을 사용 하 여 `NotAfter`속성을 포함 합니다. 이 속성은 `NotAfter` 날짜 및 시간까지만 유효한 콜백 URL을 반환합니다.
 
 <a name="primary-secondary-key"></a>
 
@@ -163,9 +163,9 @@ SAS (공유 액세스 서명)와 함께 논리 앱을 호출할 수 있는 클�
 
 <a name="add-authentication"></a>
 
-### <a name="add-azure-active-directory-oauth-or-other-security"></a>Azure Active Directory, OAuth 또는 기타 보안 추가
+### <a name="add-azure-active-directory-oauth-or-other-security"></a>Azure Active Directory OAuth 또는 기타 보안 추가
 
-논리 앱에 더 많은 권한 부여 프로토콜을 추가 하려면 [Azure API Management](../api-management/api-management-key-concepts.md) 서비스를 사용 하는 것이 좋습니다. 이 서비스를 사용 하면 논리 앱을 API로 노출 하 고 모든 끝점에 대 한 다양 한 모니터링, 보안, 정책 및 설명서를 제공할 수 있습니다. API Management는 논리 앱에 대 한 공용 또는 개인 끝점을 노출할 수 있습니다. 그런 다음 해당 끝점에 대 한 액세스 권한을 부여 하는 데 Azure Active Directory, OAuth, 인증서 또는 기타 보안 표준을 사용할 수 있습니다. API Management는 요청을 받으면 논리 앱에 요청을 보내고 필요한 변환 또는 제한을 수행합니다. 논리 앱만 API Management 트리거할 수 있도록 논리 앱의 인바운드 IP 범위 설정을 사용할 수 있습니다.
+논리 앱에 더 많은 권한 부여 프로토콜을 추가 하려면 [Azure API Management](../api-management/api-management-key-concepts.md) 서비스를 사용 하는 것이 좋습니다. 이 서비스를 사용 하면 논리 앱을 API로 노출 하 고 모든 끝점에 대 한 다양 한 모니터링, 보안, 정책 및 설명서를 제공할 수 있습니다. API Management는 논리 앱에 대 한 공용 또는 개인 끝점을 노출할 수 있습니다. 이 끝점에 대 한 액세스 권한을 부여 하려면 [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication), [클라이언트 인증서](#client-certificate-authentication)또는 다른 보안 표준을 사용 하 여 해당 끝점에 대 한 액세스 권한을 부여할 수 있습니다. API Management는 요청을 받으면 논리 앱에 요청을 보내고 필요한 변환 또는 제한을 수행합니다. 논리 앱만 API Management 트리거할 수 있도록 논리 앱의 인바운드 IP 범위 설정을 사용할 수 있습니다.
 
 <a name="secure-operations"></a>
 
@@ -361,7 +361,7 @@ SAS (공유 액세스 서명)와 함께 논리 앱을 호출할 수 있는 클�
 
 여러 환경에 걸쳐 배포 하는 경우 해당 환경에 따라 달라 지는 워크플로 정의의 값을 매개 변수화 하는 것이 좋습니다. 이렇게 하면 [Azure Resource Manager 템플릿을](../azure-resource-manager/template-deployment-overview.md) 사용 하 여 논리 앱을 배포 하 고, 보안 매개 변수를 정의 하 여 중요 한 데이터를 보호 하 고,를 사용 하 여 [템플릿의 매개 변수](../azure-resource-manager/template-parameters.md) 를 통해 해당 데이터를 별도의 입력으로 전달 하 여 하드 코드 된 데이터를 방지할 수 있습니다. [매개 변수 파일](../azure-resource-manager/resource-manager-parameter-files.md)입니다.
 
-예를 들어 [Azure Active Directory](#azure-active-directory-oauth-authentication)를 사용 하 여 HTTP 작업을 인증 하는 경우 인증에 사용 되는 클라이언트 ID 및 클라이언트 암호를 허용 하는 매개 변수를 정의 하 고 보호할 수 있습니다. 논리 앱에서 이러한 매개 변수를 정의 하려면 논리 앱의 워크플로 정의에서 `parameters` 섹션을 사용 하 고 배포용 리소스 관리자 템플릿을 사용 합니다. 논리 앱을 편집 하거나 실행 기록을 볼 때 표시 하지 않으려는 매개 변수 값을 숨기려면 `securestring` 또는 `secureobject` 유형을 사용 하 여 매개 변수를 정의 하 고 필요에 따라 인코딩을 사용 합니다. 이 형식의 매개 변수는 리소스 정의와 함께 반환 되지 않으며 배포 후 리소스를 볼 때 액세스할 수 없습니다. 런타임 중에 이러한 매개 변수 값에 액세스 하려면 워크플로 정의 내에서 `@parameters('<parameter-name>')` 식을 사용 합니다. 이 식은 런타임에만 계산 되며 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)에 의해 설명 됩니다.
+예를 들어 [Azure Active Directory OAuth](#azure-active-directory-oauth-authentication)를 사용 하 여 HTTP 작업을 인증 하는 경우 인증에 사용 되는 클라이언트 ID 및 클라이언트 암호를 허용 하는 매개 변수를 정의 하 고 보안을 설정할 수 있습니다. 논리 앱에서 이러한 매개 변수를 정의 하려면 논리 앱의 워크플로 정의에서 `parameters` 섹션을 사용 하 고 배포용 리소스 관리자 템플릿을 사용 합니다. 논리 앱을 편집 하거나 실행 기록을 볼 때 표시 하지 않으려는 매개 변수 값을 숨기려면 `securestring` 또는 `secureobject` 유형을 사용 하 여 매개 변수를 정의 하 고 필요에 따라 인코딩을 사용 합니다. 이 형식의 매개 변수는 리소스 정의와 함께 반환 되지 않으며 배포 후 리소스를 볼 때 액세스할 수 없습니다. 런타임 중에 이러한 매개 변수 값에 액세스 하려면 워크플로 정의 내에서 `@parameters('<parameter-name>')` 식을 사용 합니다. 이 식은 런타임에만 계산 되며 [워크플로 정의 언어](../logic-apps/logic-apps-workflow-definition-language.md)에 의해 설명 됩니다.
 
 > [!NOTE]
 > 요청 헤더 또는 본문에서 매개 변수를 사용 하는 경우 논리 앱의 실행 기록과 나가는 HTTP 요청을 볼 때 해당 매개 변수가 표시 될 수 있습니다. 또한 콘텐츠 액세스 정책도 적절 하 게 설정 해야 합니다. [난독 처리](#obfuscate) 를 사용 하 여 실행 기록에서 입력 및 출력을 숨길 수도 있습니다. 권한 부여 헤더는 입력 또는 출력을 통해 볼 수 없습니다. 따라서 권한 부여 헤더에 비밀이 사용되면 해당 비밀을 검색할 수 없습니다.
@@ -434,7 +434,7 @@ SAS (공유 액세스 서명)와 함께 논리 앱을 호출할 수 있는 클�
 
 * 템플릿의 최상위 수준에서 `parameters` 섹션은 템플릿에서 *배포*에 사용 하는 값에 대 한 매개 변수를 정의 합니다. 예를 들어 이러한 값에는 특정 배포 환경에 대 한 연결 문자열이 포함 될 수 있습니다. 그런 다음이 값을 별도의 [매개 변수 파일](../azure-resource-manager/resource-manager-parameter-files.md)에 저장 하면 이러한 값을 보다 쉽게 변경할 수 있습니다.
 
-* 논리 앱의 리소스 정의 내에서 워크플로 정의 외부에 있는 `parameters` 섹션은 워크플로 정의의 매개 변수에 대 한 값을 지정 합니다. 이 섹션에서는 템플릿 매개 변수를 참조 하는 템플릿 식을 사용 하 여 이러한 값을 할당할 수 있습니다. 이러한 식은 배포 시 평가 됩니다.
+* 논리 앱의 리소스 정의 내에서 워크플로 정의 외부에 있는 `parameters` 섹션에서는 워크플로 정의의 매개 변수에 대 한 값을 지정 합니다. 이 섹션에서는 템플릿 매개 변수를 참조 하는 템플릿 식을 사용 하 여 이러한 값을 할당할 수 있습니다. 이러한 식은 배포 시 평가 됩니다.
 
 * 워크플로 정의 내에서 `parameters` 섹션은 런타임에 논리 앱에서 사용 하는 매개 변수를 정의 합니다. 그런 다음 런타임에 평가 되는 워크플로 정의 식을 사용 하 여 논리 앱의 워크플로 내에서 이러한 매개 변수를 참조할 수 있습니다.
 
@@ -573,7 +573,17 @@ SAS (공유 액세스 서명)와 함께 논리 앱을 호출할 수 있는 클�
 
 * 아웃 바운드 요청에 인증을 추가 합니다.
 
-  Http, HTTP + Swagger 또는 Webhook와 같은 아웃 바운드 호출을 수행 하는 HTTP 기반 트리거 또는 작업을 사용 하 여 작업 하는 경우 논리 앱에서 보낸 요청에 인증을 추가할 수 있습니다. 예를 들어 기본 인증, 클라이언트 인증서 인증, [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) 인증 또는 관리 id를 사용할 수 있습니다. 자세한 내용은이 항목의 뒷부분에 있는 [아웃 바운드 호출에 인증 추가](#add-authentication-outbound) 를 참조 하세요.
+  Http, HTTP + Swagger 또는 Webhook와 같은 아웃 바운드 호출을 수행 하는 HTTP 기반 트리거 또는 작업을 사용 하 여 작업 하는 경우 논리 앱에서 보낸 요청에 인증을 추가할 수 있습니다. 예를 들어 다음 인증 유형을 사용할 수 있습니다.
+
+  * [기본 인증](#basic-authentication)
+
+  * [클라이언트 인증서 인증](#client-certificate-authentication)
+
+  * [Active Directory OAuth 인증](#azure-active-directory-oauth-authentication)
+
+  * [관리 id 인증](#managed-identity-authentication)
+  
+  자세한 내용은이 항목의 뒷부분에 있는 [아웃 바운드 호출에 인증 추가](#add-authentication-outbound) 를 참조 하세요.
 
 * 논리 앱 IP 주소에서 액세스를 제한 합니다.
 
@@ -597,12 +607,12 @@ SAS (공유 액세스 서명)와 함께 논리 앱을 호출할 수 있는 클�
 
 HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러한 끝점에 액세스 하는 아웃 바운드 호출 또는 요청을 만드는 데 사용 하는 트리거 또는 작업에 따라 다양 한 인증 유형 범위에서 선택할 수 있습니다. 논리 앱이 처리 하는 중요 한 정보를 보호 하기 위해 필요에 따라 보안 매개 변수를 사용 하 고 데이터를 인코딩합니다. 매개 변수 사용 및 보안에 대 한 자세한 내용은 [매개 변수 입력에 액세스](#secure-action-parameters)를 참조 하세요.
 
-| 인증 유형 | 지원 |
+| 인증 유형 | 지원 요소 |
 |---------------------|--------------|
 | [Basic](#basic-authentication) | Azure API Management, Azure 앱 Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [클라이언트 인증서](#client-certificate-authentication) | Azure API Management, Azure 앱 Services, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Azure API Management, Azure 앱 Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
-| [미처리](#raw-authentication) | Azure API Management, Azure 앱 Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
+| [Raw](#raw-authentication) | Azure API Management, Azure 앱 Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 | [관리 id](#managed-identity-authentication) (시스템 할당 전용) | Azure API Management, Azure 앱 Services, Azure Functions, HTTP, HTTP + Swagger, HTTP Webhook |
 |||
 
@@ -617,7 +627,7 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 
 | 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | 예 | Basic | 사용할 인증 유형입니다. |
+| **인증** | `type` | 예 | 기본 | 사용할 인증 유형입니다. |
 | **사용자 이름** | `username` | 예 | <*사용자 이름*>| 대상 서비스 엔드포인트에 대한 액세스를 인증하는 사용자 이름입니다. |
 | **암호** | `password` | 예 | *암호* <> | 대상 서비스 엔드포인트에 대한 액세스를 인증하는 암호입니다. |
 ||||||
@@ -648,9 +658,9 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 
 | 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | 예 | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
+| **인증** | `type` | 예 | **클라이언트 인증서** <br>or <br>`ClientCertificate` | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
 | **Pfx** | `pfx` | 예 | <*로 인코딩된 .pfx-파일-콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
-| **암호** | `password`| 예 | *pfx 파일에 대 한* <> | PFX 파일에 액세스하기 위한 암호 |
+| **암호** | `password`| 설명 참조 | *pfx 파일에 대 한* <> | PFX 파일에 액세스 하기 위한 암호입니다. <p><p>**참고**:이 속성 값은 논리 앱 디자이너에서 작업 하는 경우에 필요 하며, 코드 뷰에서 작업할 때는 필요 *하지* 않습니다. |
 |||||
 
 [보안 매개 변수](#secure-action-parameters) 를 사용 하 여 [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)등의 중요 한 정보를 처리 하 고 보호 하는 경우 식을 사용 하 여 런타임에 이러한 매개 변수 값에 액세스할 수 있습니다. 이 예제 HTTP 동작 정의는 `ClientCertificate` 인증 `type`을 지정 하 고 [parameters () 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 를 사용 하 여 매개 변수 값을 가져옵니다.
@@ -687,15 +697,15 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 
 | 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
-| **인증** | `type` | 예 | **Active Directory OAuth** <br>또는 <br>`ActiveDirectoryOAuth` | 사용할 인증 유형입니다. Logic Apps 현재 [OAuth 2.0 프로토콜](../active-directory/develop/v2-overview.md)을 따릅니다. |
+| **인증** | `type` | 예 | **Active Directory OAuth** <br>or <br>`ActiveDirectoryOAuth` | 사용할 인증 유형입니다. Logic Apps 현재 [OAuth 2.0 프로토콜](../active-directory/develop/v2-overview.md)을 따릅니다. |
 | **넌** | `tenant` | 예 | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID |
 | **대상** | `audience` | 예 | <*resource-to-authorize*> | 권한 부여에 사용할 리소스(예: `https://management.core.windows.net/`) |
 | **클라이언트 ID** | `clientId` | 예 | <*client-ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID |
-| **자격 증명 유형** | `credentialType` | 예 | 인증서 <br>또는 <br>Secret | 클라이언트에서 권한 부여를 요청 하는 데 사용 하는 자격 증명 형식입니다. 이 속성 및 값은 논리 앱의 기본 정의에 표시 되지 않지만 선택한 자격 증명 유형에 대해 표시 되는 속성을 결정 합니다. |
+| **자격 증명 유형** | `credentialType` | 예 | 인증서 <br>or <br>Secret | 클라이언트에서 권한 부여를 요청 하는 데 사용 하는 자격 증명 형식입니다. 이 속성 및 값은 논리 앱의 기본 정의에 표시 되지 않지만 선택한 자격 증명 유형에 대해 표시 되는 속성을 결정 합니다. |
 | **비밀** | `secret` | 예, 하지만 "비밀" 자격 증명 형식에만 해당 | *클라이언트 암호* <> | 권한 부여를 요청하는 클라이언트 비밀 |
 | **Pfx** | `pfx` | 예, 하지만 "인증서" 자격 증명 형식에만 해당 | <*로 인코딩된 .pfx-파일-콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
 | **암호** | `password` | 예, 하지만 "인증서" 자격 증명 형식에만 해당 | *pfx 파일에 대 한* <> | PFX 파일에 액세스하기 위한 암호 |
-| **기관** | `authority` | 아니요 | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공 하는 인증 기관에 대 한 URL입니다. 이 값은 기본적으로 `https://login.windows.net`입니다. <p>**참고**: 디자이너에서이 속성을 표시 하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **인증 기관**을 선택 합니다. |
+| **기관** | `authority` | 아니오 | <*URL-for-authority-token-issuer*> | 인증 토큰을 제공 하는 인증 기관에 대 한 URL입니다. 이 값은 기본적으로 `https://login.windows.net`입니다. <p>**참고**: 디자이너에서이 속성을 표시 하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **인증 기관**을 선택 합니다. |
 |||||
 
 [보안 매개 변수](#secure-action-parameters) 를 사용 하 여 [배포 자동화를 위한 Azure Resource Manager 템플릿](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)등의 중요 한 정보를 처리 하 고 보호 하는 경우 식을 사용 하 여 런타임에 이러한 매개 변수 값에 액세스할 수 있습니다. 이 예제 HTTP 동작 정의는 인증 `type` `ActiveDirectoryOAuth`, 자격 증명 유형 `Secret`을 지정 하 고 [parameters () 함수](../logic-apps/workflow-definition-language-functions-reference.md#parameters) 를 사용 하 여 매개 변수 값을 가져옵니다.
@@ -776,7 +786,7 @@ Authorization: OAuth realm="Photos",
 
    | 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | 설명 |
    |---------------------|-----------------|----------|-------|-------------|
-   | **인증** | `type` | 예 | **관리 ID** <br>또는 <br>`ManagedServiceIdentity` | 사용할 인증 유형입니다. |
+   | **인증** | `type` | 예 | **관리 ID** <br>or <br>`ManagedServiceIdentity` | 사용할 인증 유형입니다. |
    | **대상** | `audience` | 예 | <*대상-리소스 ID*> | 액세스 하려는 대상 리소스의 리소스 ID입니다. <p>예를 들어 `https://storage.azure.com/`는 모든 저장소 계정에 대해 인증에 대 한 액세스 토큰을 사용할 수 있습니다. 그러나 특정 저장소 계정에 대 한 `https://fabrikamstorageaccount.blob.core.windows.net`와 같은 루트 서비스 URL을 지정할 수도 있습니다. <p>**참고**:이 속성은 일부 트리거 또는 작업에서 숨겨질 수 있습니다. 이 속성을 표시 하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **대상 그룹**을 선택 합니다. <p><p>**중요**:이 대상 리소스 ID가 필요한 후행 슬래시를 포함 하 여 Azure AD에 필요한 값과 정확 하 게 일치 하는지 확인 합니다. 따라서 모든 Azure Blob Storage 계정에 대 한 `https://storage.azure.com/` 리소스 ID는 후행 슬래시가 필요 합니다. 그러나 특정 저장소 계정에 대 한 리소스 ID는 후행 슬래시가 필요 하지 않습니다. 이러한 리소스 Id를 찾으려면 [AZURE AD를 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조 하세요. |
    |||||
 

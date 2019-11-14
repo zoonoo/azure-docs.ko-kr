@@ -1,5 +1,5 @@
 ---
-title: REST API를 사용하여 Azure Virtual Machine 사용량 데이터 가져오기 | Microsoft Docs
+title: REST API를 사용 하 여 Azure 가상 머신 사용 현황 데이터 가져오기
 description: Azure REST API를 사용하여 가상 머신에 대한 사용률 메트릭을 수집합니다.
 services: virtual-machines
 author: rloutlaw
@@ -10,16 +10,16 @@ ms.custom: REST
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: routlaw
-ms.openlocfilehash: 53e93d20f4a8c4877374d8242521ca97d481e15d
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 523b81e53f2b0622b237993dbd88fb9492079c86
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67667449"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035818"
 ---
 # <a name="get-virtual-machine-usage-metrics-using-the-rest-api"></a>REST API를 사용하여 가상 머신 사용률 메트릭 가져오기
 
-이 예제에서는 [Azure REST API](/rest/api/azure/)를 사용하여 [Linux 가상 머신](https://docs.microsoft.com/azure/virtual-machines/linux/monitor)의 CPU 사용량을 검색하는 방법을 보여 줍니다.
+이 예제에서는 [Azure REST API](https://docs.microsoft.com/azure/virtual-machines/linux/monitor)를 사용하여 [Linux 가상 머신](/rest/api/azure/)의 CPU 사용량을 검색하는 방법을 보여 줍니다.
 
 REST API에 대한 전체 참조 설명서 및 추가 샘플은 [Azure Monitor REST 참조](/rest/api/monitor)에서 사용할 수 있습니다. 
 
@@ -35,10 +35,10 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 
 다음과 같은 헤더가 필요합니다. 
 
-|요청 헤더|Description|  
+|요청 헤더|설명|  
 |--------------------|-----------------|  
-|*Content-Type:*|필수 요소. `application/json`로 설정합니다.|  
-|*Authorization:*|필수 요소. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |  
+|*Content-Type:*|필수입니다. `application/json`로 설정합니다.|  
+|*권한 부여*|필수입니다. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |  
 
 ### <a name="uri-parameters"></a>URI 매개 변수
 
@@ -49,7 +49,7 @@ GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{
 | vmname | Azure Virtual Machine의 이름입니다. |
 | metricnames | 쉼표로 구분된 유효한 [Load Balancer 메트릭](/azure/load-balancer/load-balancer-standard-diagnostics) 목록입니다. |
 | api-version | 요청에 사용할 API 버전입니다.<br /><br /> 이 문서에서는 위 URL에 포함되어 있는 api-version `2018-01-01`을 다룹니다.  |
-| TimeSpan | 반환된 메트릭의 시간 범위를 정의하는 `startDateTime_ISO/endDateTime_ISO` 형식의 문자열입니다. 이 선택적 매개 변수는 예제에서 하루 동안의 데이터를 반환하도록 설정되어 있습니다. |
+| timespan | 반환된 메트릭의 시간 범위를 정의하는 `startDateTime_ISO/endDateTime_ISO` 형식의 문자열입니다. 이 선택적 매개 변수는 예제에서 하루 동안의 데이터를 반환하도록 설정되어 있습니다. |
 | &nbsp; | &nbsp; |
 
 ### <a name="request-body"></a>요청 본문

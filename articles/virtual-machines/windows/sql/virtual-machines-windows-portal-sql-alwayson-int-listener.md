@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines에서 SQL Server 가용성 그룹 수신기 만들기 | Microsoft Docs
+title: '& 부하 분산 장치 (Azure Portal)를 사용 하 여 가용성 그룹 수신기 구성'
 description: Azure Virtual Machines에서 SQL Server에 대한 Always On 가용성 그룹용 수신기를 만드는 단계별 지침
 services: virtual-machines
 documentationcenter: na
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: c9c8379787619608421256120139f07c8dbd8d14
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: aefd7a55090da7f55404d6f551ab61268582ff5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102247"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039659"
 ---
-# <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Azure에서 Always On 가용성 그룹에 대한 부하 분산 장치 구성
+# <a name="configure-a-load-balancer-for-an-availability-group-on-azure-sql-server-vms"></a>Azure SQL Server Vm에서 가용성 그룹에 대 한 부하 분산 장치 구성
 이 문서에서는 Azure Resource Manager로 실행 중인 Azure Virtual Machines에서 SQL Server Always On 가용성 그룹에 대한 부하 분산 장치를 만드는 방법을 설명합니다. SQL Server 인스턴스가 Azure 가상 머신에 있는 경우 가용성 그룹을 사용하려면 부하 분산 장치가 필요합니다. 부하 분산 장치는 가용성 그룹 수신기의 IP 주소를 저장합니다. 가용성 그룹이 여러 지역에 분산된 경우 각 지역에 부하 분산 장치가 있어야 합니다.
 
 이 작업을 완료하려면 Resource Manager로 실행 중인 Azure Virtual Machines에 SQL Server 가용성 그룹이 배포되어야 합니다. 두 SQL Server 가상 머신은 동일한 가용성 집합에 속해야 합니다. [Microsoft 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)을 사용하여 Resource Manager에서 가용성 그룹을 자동으로 만들 수 있습니다. 이 템플릿은 내부 부하 분산 장치를 자동으로 만듭니다. 
@@ -65,7 +66,7 @@ ms.locfileid: "70102247"
    | 설정 | 값 |
    | --- | --- |
    | **이름** |부하 분산 장치를 나타내는 텍스트 이름입니다. 예를 들어 **sqlLB**입니다. |
-   | **형식** |**내부**: 대부분의 구현에서는 동일한 가상 네트워크 내에 있는 애플리케이션이 가용성 그룹에 연결할 수 있도록 하는 내부 부하 분산 장치를 사용합니다.  </br> **외부**: 애플리케이션이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있도록 합니다. |
+   | **형식** |**내부**: 대부분의 구현에서는 내부 부하 분산 장치를 사용하며, 동일한 가상 네트워크 내에 있는 애플리케이션은 가용성 그룹에 연결할 수 있습니다.  </br> **외부**: 애플리케이션이 공용 인터넷 연결을 통해 가용성 그룹에 연결할 수 있습니다. |
    | **가상 네트워크** |SQL Server 인스턴스가 있는 가상 네트워크를 선택합니다. |
    | **서브넷** |SQL Server 인스턴스가 있는 서브넷을 선택합니다. |
    | **IP 주소 할당** |**정적** |
@@ -139,11 +140,11 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
    | **이름** |부하 분산 규칙을 나타내는 텍스트 이름입니다. 예를 들어 **SQLAlwaysOnEndPointListener**입니다. |
    | **프로토콜** |**TCP** |
    | **포트** |*1433* |
-   | **백 엔드 포트** |*1433*. 이 규칙은 **부동 IP(Direct Server Return)** 를 사용하므로 이 값은 무시됩니다. |
+   | **백 엔드 포트** |*1433*.이 규칙은 **부동 IP (direct server return)** 를 사용 하므로이 값은 무시 됩니다. |
    | **프로브** |이 부하 분산 장치에 대해 만든 프로브의 이름을 사용합니다. |
    | **세션 지속성** |**없음** |
    | **유휴 제한 시간(분)** |*4* |
-   | **부동 IP(Direct Server Return)** |**사용** |
+   | **부동 IP(Direct Server Return)** |**Enabled** |
 
    > [!NOTE]
    > 블레이드에서 모든 설정을 보려면 아래로 스크롤해야 할 수도 있습니다.
@@ -164,7 +165,7 @@ Azure는 프로브를 만든 후 가용성 그룹에 대한 수신기가 있는 
 
 1. 장애 조치(failover) 클러스터에서 가용성 그룹 수신기 만들기 
 
-2. 수신기를 온라인 상태로 전환합니다.
+2. 수신기를 온라인 상태로 만들기
 
 ### <a name="step-5-create-the-availability-group-listener-on-the-failover-cluster"></a>5단계: 장애 조치(failover) 클러스터에서 가용성 그룹 수신기 만들기
 이 단계에서는 장애 조치(Failover) 클러스터 관리자와 SQL Server Management Studio에서 가용성 그룹 수신기를 수동으로 만듭니다.

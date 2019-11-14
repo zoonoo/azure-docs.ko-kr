@@ -1,5 +1,5 @@
 ---
-title: Azure에서 OKD 배포 | Microsoft Docs
+title: Azure에서 OKD 배포
 description: Azure에서 OKD를 배포합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: 66d17fb2a96bbb5b1dcb51151242f014b4116b86
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 6ecae09b0efbc0e35e591b31dbb54fb49ce101b3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390539"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035397"
 ---
 # <a name="deploy-okd-in-azure"></a>Azure에서 OKD 배포
 
@@ -40,7 +40,7 @@ Resource Manager 템플릿을 사용하여 배포하려면 매개 변수 파일�
 
 [OKD 템플릿](https://github.com/Microsoft/openshift-origin)에는 각기 다른 OKD 버전에 사용할 수 있는 여러 분기가 있습니다.  필요에 따라, 리포지토리에서 직접 배포하거나, 배포하기 전에 리포지토리를 포크하고 사용자 지정할 수 있습니다.
 
-`aadClientId` 매개 변수에 대해 이전에 만든 서비스 주체에서 `appId` 값을 사용합니다.
+`appId` 매개 변수에 대해 이전에 만든 서비스 주체에서 `aadClientId` 값을 사용합니다.
 
 다음은 모든 필수 입력이 포함된 azuredeploy.parameters.json이라는 매개 변수 파일의 예입니다.
 

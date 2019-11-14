@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: ecec237eab42cf434ab8627ebdf9b1e34f3ab3f1
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fb9f986c2711e0cbc8ac3facd073f1a72f46043d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838123"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039118"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Azure Logic Apps에서 사용자 지정 API에 대한 호출 보호
 
@@ -206,7 +206,7 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 | audience | 예 | 액세스하려는 대상 리소스의 GUID, 즉 웹앱 또는 API 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
 | clientId | 예 | 액세스를 요청하는 클라이언트의 GUID, 즉 논리 앱에 대한 애플리케이션 ID의 클라이언트 ID | 
 | secret | 예 | 액세스 토큰을 요청하는 클라이언트에 대한 애플리케이션 ID의 키 또는 암호 | 
-| type | 예 | 인증 유형입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
+| type | 예 | 인증 형식입니다. ActiveDirectoryOAuth 인증의 경우 이 값은 `ActiveDirectoryOAuth`입니다. | 
 |||| 
 
 예:
@@ -251,12 +251,12 @@ Azure Active Directory 인증과 함께 빈 웹앱과 논리 앱을 자동으로
 } 
 ```
 
-| 속성 | 필수 | 설명 | 
-| -------- | -------- | ----------- | 
-| type | 예 | 인증 유형입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`여야 합니다. | 
-| password | 예 | 클라이언트 인증서(PFX 파일)에 액세스하기 위한 암호 | 
-| pfx | 예 | 클라이언트 인증서(PFX 파일)의 Base64로 인코딩된 콘텐츠 | 
-|||| 
+| 속성 | 필수 | 설명 |
+| -------- | -------- | ----------- |
+| `type` | 예 | 인증 형식입니다. SSL 클라이언트 인증서의 경우 이 값은 `ClientCertificate`여야 합니다. |
+| `password` | 아니오 | 클라이언트 인증서(PFX 파일)에 액세스하기 위한 암호 |
+| `pfx` | 예 | 클라이언트 인증서(PFX 파일)의 Base64로 인코딩된 콘텐츠 |
+||||
 
 <a name="basic"></a>
 

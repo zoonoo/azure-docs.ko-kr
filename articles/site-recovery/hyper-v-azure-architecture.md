@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: raynew
-ms.openlocfilehash: 20f325ff64581396f5f7ab2ce05a2479cdb45118
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1ce21ea6042bbe1191edede13f80455c8e669f3b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933538"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030206"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V와 Azure 간 재해 복구 아키텍처
 
@@ -36,11 +36,8 @@ Hyper-V호스트는 선택적으로 System Center VMM(Virtual Machine Manager) �
 
 **Hyper-V에서 Azure로 아키텍처(VMM 없음)**
 
-![건축](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![아키텍처](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
-
-> [!WARNING]
-> SCVMM 구성을 고려 하는 ASR 지원은 곧 사용 되지 않을 예정 이므로 계속 하기 전에 사용 [중단 세부 정보를 읽는](scvmm-site-recovery-deprecation.md) 것이 좋습니다.
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>아키텍처 구성 요소 - VMM 있는 Hyper-V
 

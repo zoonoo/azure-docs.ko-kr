@@ -1,5 +1,5 @@
 ---
-title: 여러 NIC를 사용하여 Azure에서 Linux VM 만들기 | Microsoft Docs
+title: 여러 Nic를 사용 하 여 Azure에서 Linux VM 만들기
 description: Azure CLI 또는 Resource Manager 템플릿을 사용하여 여러 NIC가 연결된 Linux VM을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/07/2018
 ms.author: cynthn
-ms.openlocfilehash: 04aaa1da304657ac3cc305b8939ac4fcce126145
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: b4ab46a59bd83bf2d1c08e3a238df3c59797f3e7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671177"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035601"
 ---
 # <a name="how-to-create-a-linux-virtual-machine-in-azure-with-multiple-network-interface-cards"></a>여러 네트워크 인터페이스 카드를 사용하여 Azure에서 Linux 가상 머신을 만드는 방법
 
@@ -175,7 +175,7 @@ Azure Resource Manager 템플릿은 선언적 JSON 파일을 사용하여 환경
 
 [*복사*를 사용하여 여러 인스턴스 만들기](../../resource-group-create-multiple.md)에 대해 자세히 읽어보세요. 
 
-`copyIndex()`를 사용하여 리소스 이름에 번호를 추가할 수도 있습니다. 이와 같이 `myNic1`, `myNic2` 등을 만들 수 있습니다. 다음은 인덱스 값을 추가하는 예를 보여 줍니다.
+`copyIndex()`를 사용 하 여 리소스 이름에 번호를 추가 하 여 `myNic1`, `myNic2`등을 만들 수도 있습니다. 다음은 인덱스 값을 추가 하는 예를 보여 줍니다.
 
 ```json
 "name": "[concat('myNic', copyIndex())]", 

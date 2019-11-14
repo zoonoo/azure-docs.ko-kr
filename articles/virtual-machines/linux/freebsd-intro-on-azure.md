@@ -1,5 +1,5 @@
 ---
-title: Azure의 FreeBSD 소개 | Microsoft Docs
+title: Azure의 FreeBSD 소개
 description: Azure에서 FreeBSD 가상 머신을 사용하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: c1ac7a0310eda032b45fb57cea95ba38b753ef1d
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: d243806d619aa6d7328220eae53804d734737489
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695343"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036116"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Azure의 FreeBSD 소개
 이 문서에서는 Azure에서 FreeBSD 가상 머신을 실행하는 방법의 개요를 제공합니다.
@@ -59,7 +59,7 @@ sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
-설치하는 동안 `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)` 프롬프트가 표시됩니다. `y`로 답변하고 `a path to an rc file to update`로 `/etc/rc.conf`를 입력하면 문제 `ERROR: [Errno 13] Permission denied`가 발생할 수 있습니다. 이 문제를 해결하려면 현재 사용자에게 `etc/rc.conf` 파일에 대한 쓰기 권한을 부여해야 합니다.
+설치하는 동안 `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)` 프롬프트가 표시됩니다. `y`로 답변하고 `/etc/rc.conf`로 `a path to an rc file to update`를 입력하면 문제 `ERROR: [Errno 13] Permission denied`가 발생할 수 있습니다. 이 문제를 해결하려면 현재 사용자에게 `etc/rc.conf` 파일에 대한 쓰기 권한을 부여해야 합니다.
 
 이제 Azure에 로그인한 후 FreeBSD VM을 만들 수 있습니다. 다음은 FreeBSD 11.0 VM을 만드는 예제입니다. 새로 만든 공용 IP의 정규화된 DNS 이름을 사용하여 `--public-ip-address-dns-name` 매개 변수를 추가할 수도 있습니다. 
 
@@ -108,7 +108,7 @@ FreeBSD에서 지원되는 VM 확장은 다음과 같습니다.
 > FreeBSD VM은 현재 CustomScript 버전 1.x만 지원합니다.  
 
 ## <a name="authentication-user-names-passwords-and-ssh-keys"></a>인증: 사용자 이름, 암호 및 SSH 키
-Azure 포털을 사용하여 FreeBSD 가상 머신을 만들 때 사용자 이름, 암호 또는 SSH 공개 키를 제공해야 합니다.
+Azure 포털을 사용하여 FreeBSD 가상 컴퓨터를 만들 때 사용자 이름, 암호 또는 SSH 공개 키를 제공해야 합니다.
 Azure에서 FreeBSD 가상 머신을 배포하기 위한 사용자 이름은 가상 머신에 이미 있는 시스템 계정 이름(UID &lt;100)(예: "root")과 일치해서는 안 됩니다.
 현재는 RSA SSH 키만 지원됩니다. 여러 줄 SSH 키는 `---- BEGIN SSH2 PUBLIC KEY ----`로 시작하고 `---- END SSH2 PUBLIC KEY ----`로 끝나야 합니다.
 

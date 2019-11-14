@@ -1,5 +1,5 @@
 ---
-title: 가상 컴퓨터용 Azure 전용 호스트 개요 | Microsoft Docs
+title: 가상 컴퓨터용 Azure 전용 호스트 개요
 description: 가상 컴퓨터를 배포 하는 데 Azure 전용 호스트를 사용 하는 방법에 대해 자세히 알아보세요.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 5f2b34b3acb559d74414ea622fba2769ede7f0a7
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: f4a5e78afdf774af056d7c9b8a108c3418c2caa4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976626"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036386"
 ---
 # <a name="preview-azure-dedicated-hosts"></a>미리 보기: Azure 전용 호스트
 

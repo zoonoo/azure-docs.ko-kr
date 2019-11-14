@@ -1,5 +1,5 @@
 ---
-title: Azure Portal을 사용하여 영역 설정된 Windows VM 만들기 | Microsoft Docs
+title: Azure Portal를 사용 하 여 배열로 영역 설정 Windows VM 만들기
 description: Azure Portal을 사용하여 가용성 영역에서 Windows VM 만들기
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 90c6f7106cbc885c513d47bf80a7b1ec218d8c6c
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: c6f843693ccfa16f9b31027ba370242e0462b138
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168566"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033885"
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-the-azure-portal"></a>Azure Portal을 사용하여 가용성 영역에서 Windows 가상 머신 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "71168566"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "71168566"
 
 2. **Compute**를 선택한 다음, **Windows Server 2016 Datacenter**를 선택합니다. 
 
-3. 가상 머신 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다. 가용성 영역을 지원하는 미국 동부 2와 같은 위치를 선택합니다. 완료되면 **확인**을 클릭합니다.
+3. 가상 컴퓨터 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](faq.md#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다. 가용성 영역을 지원하는 미국 동부 2와 같은 위치를 선택합니다. 완료되면 **확인**을 클릭합니다.
 
     ![포털 블레이드에서 VM에 대한 기본 정보 입력](./media/create-portal-availability-zone/create-windows-vm-portal-basic-blade.png)
 

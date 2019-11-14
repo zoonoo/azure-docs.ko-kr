@@ -1,5 +1,5 @@
 ---
-title: GRUB 및 단일 사용자 모드용 Azure 직렬 콘솔 | Microsoft Docs
+title: GRUB 및 단일 사용자 모드용 Azure 직렬 콘솔
 description: Azure 가상 머신에서 Grub에 직렬 콘솔 사용
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: cce4e558331cad0045772f53f7fc3c78aeed2bb7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 87f16ec615c8b47c93745b33be12d3acd6d9177a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082193"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035047"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>직렬 콘솔을 사용하여 GRUB 및 단일 사용자 모드 액세스
 GRUB는 GRand Unified Bootloader의 약어입니다. GRUB에서는 단일 사용자 모드로 부팅되도록 부팅 구성을 수정하는 등의 작업을 수행할 수 있습니다.
@@ -35,7 +35,7 @@ GRUB에 액세스하려면 직렬 콘솔 블레이드를 열어 두고 VM을 다
 단일 사용자 모드에 액세스할 수 있으려면 VM에서 GRUB을 사용하도록 설정되어 있는지 확인해야 합니다. 배포판에 따라 GRUB을 사용하도록 설정되어 있는지 확인하기 위한 몇 가지 설정 작업이 있을 수 있습니다. 배포별 정보는 아래에 나와 있습니다.
 
 ### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>VM을 다시 부팅하여 직렬 콘솔에서 GRUB 액세스
-[SysRq](./serial-console-nmi-sysrq.md)가 사용하도록 설정되어 있으면 SysRq `'b'` 명령을 통해 직렬 콘솔 블레이드를 열어 두고 VM을 다시 부팅할 수 있습니다. 개요 블레이드에서 다시 시작 단추를 클릭해도 됩니다. 그러면 VM이 새 브라우저 탭에서 열리므로 직렬 콘솔 블레이드를 닫지 않고도 VM을 다시 부팅할 수 있습니다. 다시 부팅할 때의 GRUB 상태에 대해 알아보려면 아래의 배포별 지침을 따르세요.
+`'b'`SysRq[가 사용하도록 설정되어 있으면 SysRq ](./serial-console-nmi-sysrq.md) 명령을 통해 직렬 콘솔 블레이드를 열어 두고 VM을 다시 부팅할 수 있습니다. 개요 블레이드에서 다시 시작 단추를 클릭해도 됩니다. 그러면 VM이 새 브라우저 탭에서 열리므로 직렬 콘솔 블레이드를 닫지 않고도 VM을 다시 부팅할 수 있습니다. 다시 부팅할 때의 GRUB 상태에 대해 알아보려면 아래의 배포별 지침을 따르세요.
 
 ## <a name="general-single-user-mode-access"></a>일반 단일 사용자 모드 액세스
 암호 인증을 사용하는 계정을 구성하지 않은 상황에서는 단일 사용자 모드에 수동으로 액세스해야 할 수 있습니다. 이 경우 단일 사용자 모드에 수동으로 진입하도록 GRUB 구성을 수정해야 합니다. 이 구성 수정을 완료한 후에는 [단일 사용자 모드를 사용하여 암호 재설정 또는 추가]에서 추가 지침을 참조하세요.
@@ -79,7 +79,7 @@ RHEL 7.4+ 또는 6.9+의 경우 GRUB 프롬프트에서 단일 사용자 모드�
 1. 커널 줄 찾기 - Azure에서 `linux16`으로 시작합니다.
 1. Ctrl + E를 눌러서 줄 끝으로 이동합니다.
 1. `systemd.unit=rescue.target`을 줄의 끝에 추가합니다.
-    * 그러면 단일 사용자 모드로 부팅됩니다. 비상 모드를 사용하려면 줄 끝에 `systemd.unit=rescue.target` 대신 `systemd.unit=emergency.target`을 추가합니다.
+    * 그러면 단일 사용자 모드로 부팅됩니다. 비상 모드를 사용하려면 줄 끝에 `systemd.unit=emergency.target` 대신 `systemd.unit=rescue.target`을 추가합니다.
 1. Ctrl + X를 눌러 끝낸 후 적용된 설정으로 다시 부팅합니다.
 1. 단일 사용자 모드로 들어가기 전에 관리자 암호를 묻는 메시지가 표시됩니다. 이것은 위 지침에서 만든 암호와 같습니다.    
 
@@ -94,7 +94,7 @@ RHEL 7.4+ 또는 6.9+의 경우 GRUB 프롬프트에서 단일 사용자 모드�
 1. GRUB에서 'e'를 눌러서 부팅하도록 선택한 OS를 편집합니다(일반적으로 첫 번째 줄).
 1. 커널 줄 찾기 - Azure에서 `linux16`으로 시작합니다.
 1. 줄 끝에 `rd.break`를 추가하고 `rd.break` 앞에 공백이 있는지 확인합니다(아래 예 참조).
-    - 이렇게 하면 [여기](https://aka.ms/rhel7rootpassword) Red Hat 설명서의 내용처럼 `initramfs`에서 `systemd`로 컨트롤이 전달되기 전에 부팅 프로세스가 중단됩니다.
+    - 이렇게 하면 `initramfs`여기`systemd` Red Hat 설명서의 내용처럼 [에서 ](https://aka.ms/rhel7rootpassword)로 컨트롤이 전달되기 전에 부팅 프로세스가 중단됩니다.
 1. Ctrl + X를 눌러 끝낸 후 적용된 설정으로 다시 부팅합니다.
 1. 부팅이 되면, 읽기 전용 파일 시스템으로 비상 모드로 전환됩니다. 셸에 `mount -o remount,rw /sysroot`를 입력하여 읽기/쓰기 권한으로 루트 파일 시스템을 다시 탑재합니다.
 1. 단일 사용자 모드로 부팅되면 `chroot /sysroot`를 입력하여 `sysroot` jail로 전환합니다.
@@ -125,14 +125,14 @@ GRUB에 액세스하려면 VM이 부팅되는 동안 'Esc' 키를 길게 누릅�
 1. `GRUB_TIMEOUT` 값을 0이 아닌 값으로 변경합니다.
 1. 원하는 텍스트 편집기에서 `/etc/default/grub`를 엽니다.
 1. `GRUB_HIDDEN_TIMEOUT=1` 줄을 주석으로 처리합니다.
-1. `sudo update-grub`를 실행합니다.
+1. `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Ubuntu의 단일 사용자 모드
 Ubuntu는 정상적으로 부팅할 수 없는 경우 단일 사용자 모드로 자동으로 전환됩니다. 단일 사용자 모드로 수동으로 전환하려면 다음 지침을 따르세요.
 
 1. GRUB에서 'e'를 눌러서 부팅 항목(Ubuntu 항목)을 편집합니다.
 1. `linux`로 시작하는 줄을 찾은 다음, `ro`를 찾습니다.
-1. `ro` 다음에 `single`을 추가합니다. `single` 앞뒤에 공백이 있어야 합니다.
+1. `single` 다음에 `ro`을 추가합니다. `single` 앞뒤에 공백이 있어야 합니다.
 1. Ctrl + X를 눌러서 이 설정으로 다시 부팅하고 단일 사용자 모드로 전환합니다.
 
 ## <a name="access-for-coreos"></a>CoreOS에 대한 액세스
@@ -145,7 +145,7 @@ GRUB에 액세스하려면, VM을 부팅하는 동안 아무 키나 누릅니다
 CoreOS는 정상적으로 부팅할 수 없는 경우 단일 사용자 모드로 자동으로 전환됩니다. 단일 사용자 모드로 수동으로 전환하려면 다음 지침을 따르세요.
 1. GRUB에서 'e'를 눌러서 부팅 항목을 편집합니다.
 1. `linux$`로 시작하는 줄을 찾습니다. 서로 다른 if/else 절에 캡슐화된 줄이 2개 있습니다.
-1. 두 `linux$` 줄의 끝에 `coreos.autologin=ttyS0`를 추가합니다.
+1. 두 `coreos.autologin=ttyS0` 줄의 끝에 `linux$`를 추가합니다.
 1. Ctrl + X를 눌러서 이 설정으로 다시 부팅하고 단일 사용자 모드로 전환합니다.
 
 ## <a name="access-for-suse-sles"></a>SUSE SLES에 대한 액세스
@@ -160,7 +160,7 @@ SLES에서 GRUB 액세스에는 YaST를 통한 부팅 로더 구성이 필요합
 
 1. F10을 눌러서 설정을 저장하고 종료합니다.
 1. GRUB으로 전환하려면 VM을 다시 부팅하고 부팅 시퀀스 중에 아무 키나 눌러 GRUB을 화면에 유지합니다.
-    - GRUB에 대한 기본 시간 제한은 1초입니다. 이 설정은 `/etc/default/grub`에서 `GRUB_TIMEOUT` 변수를 변경하여 수정할 수 있습니다.
+    - GRUB에 대한 기본 시간 제한은 1초입니다. 이 설정은 `GRUB_TIMEOUT`에서 `/etc/default/grub` 변수를 변경하여 수정할 수 있습니다.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 

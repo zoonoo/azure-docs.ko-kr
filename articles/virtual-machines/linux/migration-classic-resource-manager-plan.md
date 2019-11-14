@@ -1,5 +1,5 @@
 ---
-title: 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획 | Microsoft Docs
+title: 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 description: 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 3cf262f2c2f14ea66a40facfd5b32139fc648e47
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 8dc1ee85b9d17824898de80562ea5bfb251a2c41
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165319"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035711"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다. 
@@ -114,7 +114,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
     >
 
   - 네트워크 인터페이스
-  - Load Balancers
+  - Load Balancer
   - 공용 IP
   - 고정 공용 IP
   - 코어 수
@@ -135,7 +135,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
     az network list-usages -l <azure-region> -o jsonc
     ```
 
-    **저장소** *(Storage 계정)*
+    **스토리지** *(Storage 계정)*
     
     ```bash
     az storage account show-usage
