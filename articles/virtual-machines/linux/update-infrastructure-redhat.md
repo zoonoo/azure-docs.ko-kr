@@ -1,5 +1,5 @@
 ---
-title: Red Hat 업데이트 인프라 | Microsoft Docs
+title: Red Hat 업데이트 인프라
 description: Microsoft Azure의 주문형 Red Hat Enterprise Linux 인스턴스에 대한 Red Hat 업데이트 인프라에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 6/6/2019
 ms.author: borisb
-ms.openlocfilehash: 6b332af53f421230b3fb5401e525bd77c5e87ed9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b19ccad5254418092446aaf781d49fa7edf0e4f4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081381"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034315"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
 
-RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세스하도록 미리 구성됩니다. 추가적인 구성은 필요하지 않습니다. 최신 업데이트를 가져오려면 RHEL 인스턴스가 준비된 후 `sudo yum update`를 실행합니다. 이 서비스는 RHEL PAYG 소프트웨어 요금의 일부로 포함됩니다.
+RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세스하도록 미리 구성됩니다. 추가 구성은 필요하지 않습니다. 최신 업데이트를 가져오려면 RHEL 인스턴스가 준비된 후 `sudo yum update`를 실행합니다. 이 서비스는 RHEL PAYG 소프트웨어 요금의 일부로 포함됩니다.
 
 게시 및 재방문 주기 정책을 포함하여 Azure에서 RHEL 이미지에 추가 정보가 [여기](./rhel-images.md)에 제공됩니다.
 
@@ -40,13 +40,13 @@ RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세
 
 ## <a name="image-update-behavior"></a>이미지 업데이트 동작
 
-4 월 2019부터 Azure는 기본적으로 EUS (확장 업데이트 지원) 리포지토리에 연결 되는 RHEL 이미지를 제공 하 고, 기본적으로 일반 (비 EUS) 리포지토리에 연결 된 이미지를 RHEL 제공 합니다. RHEL EUS에 대 한 자세한 내용은 Red Hat의 [버전 수명 주기 설명서](https://access.redhat.com/support/policy/updates/errata) 및 [eus 설명서](https://access.redhat.com/articles/rhel-eus)에서 확인할 수 있습니다. 의 `sudo yum update` 기본 동작은 다양 한 이미지가 다른 리포지토리에 연결 될 때에서 프로 비전 한 RHEL 이미지에 따라 달라 집니다.
+4 월 2019부터 Azure는 기본적으로 EUS (확장 업데이트 지원) 리포지토리에 연결 되는 RHEL 이미지를 제공 하 고, 기본적으로 일반 (비 EUS) 리포지토리에 연결 된 이미지를 RHEL 제공 합니다. RHEL EUS에 대 한 자세한 내용은 Red Hat의 [버전 수명 주기 설명서](https://access.redhat.com/support/policy/updates/errata) 및 [eus 설명서](https://access.redhat.com/articles/rhel-eus)에서 확인할 수 있습니다. `sudo yum update`의 기본 동작은 다양 한 이미지가 다른 리포지토리에 연결 되어 있으므로에서 프로 비전 한 RHEL 이미지에 따라 달라 집니다.
 
-전체 이미지 목록을 보려면 Azure CLI 사용 하 `az vm image list --publisher redhat --all` 여를 실행 합니다.
+전체 이미지 목록에 대해 Azure CLI를 사용 하 여 `az vm image list --publisher redhat --all`를 실행 합니다.
 
 ### <a name="images-connected-to-non-eus-repositories"></a>비-EUS 리포지토리에 연결 된 이미지
 
-비 EUS 리포지토리에 연결 된 RHEL 이미지에서 VM을 프로 비전 하는 경우를 실행할 `sudo yum update`때 최신 RHEL 부 버전으로 업그레이드 됩니다. 예를 들어 RHEL 7.4 PAYG 이미지에서 VM을 프로 비전 하 고를 실행 `sudo yum update`하는 경우 RHEL 7.7 VM (RHEL7 제품군의 최신 부 버전)으로 끝납니다.
+비 EUS 리포지토리에 연결 된 RHEL 이미지에서 VM을 프로 비전 하는 경우 `sudo yum update`를 실행 하면 최신 RHEL 부 버전으로 업그레이드 됩니다. 예를 들어 RHEL 7.4 PAYG 이미지에서 VM을 프로 비전 하 고 `sudo yum update`를 실행 하는 경우 RHEL 7.7 VM (RHEL7 제품군의 최신 부 버전)으로 끝납니다.
 
 비-EUS 리포지토리에 연결 된 이미지에는 SKU의 부 버전 번호가 포함 되지 않습니다. SKU는 URN의 세 번째 요소 (이미지의 전체 이름)입니다. 예를 들어 다음 이미지는 모두 EUS 리포지토리에 연결 됩니다.
 
@@ -63,7 +63,7 @@ Sku는 7LVM 또는 7-RAW 중 하나입니다. 부 버전은 이러한 이미지�
 
 ### <a name="images-connected-to-eus-repositories"></a>EUS 리포지토리에 연결 된 이미지
 
-EUS 리포지토리에 연결 된 RHEL 이미지에서 VM을 프로 비전 하는 경우를 실행할 `sudo yum update`때 최신 RHEL 부 버전으로 업그레이드 되지 않습니다. EUS 리포지토리에 연결 된 이미지도 해당 하는 부 버전에 대 한 버전 잠겨 있기 때문입니다.
+EUS 리포지토리에 연결 된 RHEL 이미지에서 VM을 프로 비전 하는 경우 `sudo yum update`를 실행 하면 최신 RHEL 부 버전으로 업그레이드 되지 않습니다. EUS 리포지토리에 연결 된 이미지도 해당 하는 부 버전에 대 한 버전 잠겨 있기 때문입니다.
 
 EUS 리포지토리에 연결 된 이미지의 SKU에 부 버전 번호가 포함 됩니다. 예를 들어 다음 이미지는 모두 EUS 리포지토리에 연결 됩니다.
 
@@ -167,7 +167,7 @@ RHUI는 RHEL 주문형 이미지를 사용할 수 있는 모든 지역에서 제
 
 ### <a name="update-expired-rhui-client-certificate-on-a-vm"></a>VM에서 만료된 RHUI 클라이언트 인증서 업데이트
 
-RHEL 7.4(이미지 URN: `RedHat:RHEL:7.4:7.4.2018010506`)와 같은 이전 RHEL VM 이미지를 사용하는 경우 현재는 만료된 SSL 클라이언트 인증서로 인해 RHUI에 연결 문제가 발생합니다. 이 경우 _“인증서가 만료되어 SSL 피어에서 거부되었습니다.”_ 또는 _“오류: 리포지토리에 대한 리포지토리 메타데이터(repomd.xml)를 검색할 수 없습니다. 해당 경로를 확인하고 다시 시도하세요.”_ 와 같은 오류가 표시됩니다. 이 문제를 해결하려면 다음 명령을 사용하여 VM에서 RHUI 클라이언트 패키지를 업데이트합니다.
+RHEL 7.4(이미지 URN: `RedHat:RHEL:7.4:7.4.2018010506`)와 같은 이전 RHEL VM 이미지를 사용하는 경우 현재는 만료된 SSL 클라이언트 인증서로 인해 RHUI에 연결 문제가 발생합니다. 표시 되는 오류는 _"SSL 피어가 만료 된 것으로 인증서를 거부_ 했습니다." 또는 _"오류: 리포지토리의 리포지토리 메타 데이터 (repomd .xml)를 검색할 수 없습니다."와 같은 것 처럼 보일 수 있습니다. 경로를 확인 하 고 다시 시도 하십시오. "_ 이 문제를 해결하려면 다음 명령을 사용하여 VM에서 RHUI 클라이언트 패키지를 업데이트합니다.
 
 ```bash
 sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
@@ -175,7 +175,7 @@ sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 
 또는 `sudo yum update`를 실행하면 다른 리포지토리에 대해 표시되는 "만료된 SSL 인증서" 오류에 관계없이 클라이언트 인증서 패키지(RHEL 버전에 따라 다름)를 업데이트할 수도 있습니다. 이 업데이트가 성공하면 다른 RHUI 리포지토리에 대한 일반 연결이 복원되어 `sudo yum update`를 성공적으로 실행할 수 있습니다.
 
-을 `yum update`실행 하는 동안 404 오류가 발생 하는 경우 다음을 시도 하 여 yum 캐시를 새로 고칩니다.
+`yum update`를 실행 하는 동안 404 오류가 발생 하는 경우 다음을 시도 하 여 yum 캐시를 새로 고칩니다.
 ```bash
 sudo yum clean all;
 sudo yum makecache
@@ -186,7 +186,7 @@ RHEL PAYG Azure VM에서 Azure RHUI에 연결할 때 문제가 발생하는 경�
 
 1. Azure RHUI 엔드포인트에 대한 VM 구성 검사
 
-    1. `/etc/yum.repos.d/rh-cloud.repo` 파일이 해당 파일에 있는 `[rhui-microsoft-azure-rhel*]` 섹션의 `baseurl`에서 `rhui-[1-3].microsoft.com`에 대한 참조를 포함하는지 확인합니다. 그렇다면 새 Azure RHUI를 사용 중입니다.
+    1. `/etc/yum.repos.d/rh-cloud.repo` 파일이 해당 파일에 있는 `rhui-[1-3].microsoft.com` 섹션의 `baseurl`에서 `[rhui-microsoft-azure-rhel*]`에 대한 참조를 포함하는지 확인합니다. 그렇다면 새 Azure RHUI를 사용 중입니다.
 
     1. 다음 `mirrorlist.*cds[1-4].cloudapp.net` 패턴으로 위치를 가리키는 경우 구성 업데이트가 필요합니다. 이전 VM 스냅샷을 사용하는 경우 새 Azure RHUI를 가리키도록 업데이트해야 합니다.
 

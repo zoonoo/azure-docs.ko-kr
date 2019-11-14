@@ -1,25 +1,25 @@
 ---
-title: 동적 그룹 만들기 및 상태 확인 - Azure Active Directory | Microsoft Docs
+title: 동적 그룹을 만들고 상태 확인-Azure AD | Microsoft Docs
 description: Azure Portal에서 그룹 멤버 자격 규칙을 만드는 방법 상태를 확인 합니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343acce228c38e38152fc2ea9d8fe0a59d8254d4
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193939"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027237"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>동적 그룹 만들기 및 상태 확인
 
@@ -35,7 +35,7 @@ Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하�
 - 5 개 이상의 식이 있는 규칙
 - 부하 직원 규칙
 - [연산자 우선 순위](groups-dynamic-membership.md#operator-precedence) 설정
-- [복잡 한 식이 포함 된 규칙](groups-dynamic-membership.md#rules-with-complex-expressions) 예를 들어`(user.proxyAddresses -any (_ -contains "contoso"))`
+- [복잡 한 식이 포함 된 규칙](groups-dynamic-membership.md#rules-with-complex-expressions) 예 `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
 > 규칙 작성기가 텍스트 상자에 생성 된 일부 규칙을 표시 하지 못할 수 있습니다. 규칙 작성기에서 규칙을 표시할 수 없는 경우 메시지가 표시 될 수 있습니다. 규칙 빌더는 지원 되는 구문, 유효성 검사 또는 동적 그룹 규칙의 처리를 어떤 식으로든 변경 하지 않습니다.
@@ -76,10 +76,10 @@ Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하�
 
 **멤버 자격 처리** 상태에 대해 다음 상태 메시지가 표시될 수 있습니다.
 
-- **평가 중**:  그룹 변경 내용이 수신되었으며 업데이트가 평가 중입니다.
+- **평가 중**: 그룹 변경 내용이 수신되었으며 업데이트가 평가 중입니다.
 - **처리 중**: 업데이트가 처리 중입니다.
 - **업데이트 완료**: 처리가 완료되었으며 적용 가능한 모든 업데이트가 수행되었습니다.
-- **처리 오류**:  멤버 자격 규칙을 평가 하는 동안 오류가 발생 하 여 처리를 완료할 수 없습니다.
+- **처리 오류**: 멤버 자격 규칙을 평가 하는 동안 오류가 발생 하 여 처리를 완료할 수 없습니다.
 - **업데이트 일시 중지됨**: 관리자가 동적 멤버 자격 규칙 업데이트를 일시 중지했습니다. MembershipRuleProcessingState가 “일시 중지됨”으로 설정됩니다.
 
 **마지막으로 업데이트된 멤버 자격** 상태에 대해 다음 상태 메시지가 표시될 수 있습니다.

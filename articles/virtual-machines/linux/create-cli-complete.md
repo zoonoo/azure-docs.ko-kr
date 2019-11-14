@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용하여 Linux 환경 만들기 | Microsoft Docs
+title: Azure CLI를 사용 하 여 Linux 환경 만들기
 description: Azure CLI를 사용하여 스토리지, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 디바이스, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2017
 ms.author: cynthn
-ms.openlocfilehash: bcaa3ae105490fe4f38a9de47ba0450c33da5ee1
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 56b476c431ed8b41f04b1a1c11c730e5260ade8d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671630"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036537"
 ---
 # <a name="create-a-complete-linux-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 완전한 Linux 가상 머신 만들기
 Azure에서 가상 머신(VM)를 신속하게 만들려면 기본 값을 사용하여 모든 필요한 지원 리소스를 생성하는 단일 Azure CLI 명령을 사용할 수 있습니다. 가상 네트워크, 공용 IP 주소 및 네트워크 보안 그룹 규칙 등의 리소스는 자동으로 생성됩니다. 프로덕션 환경에서의 더 높은 제어를 위해 미리 이 리소스를 만들어 VM을 여기에 추가할 수 있습니다. 이 문서에서는 VM을 만들고 지원 리소스를 하나씩 만드는 방법을 안내합니다.
@@ -478,7 +478,7 @@ az vm availability-set create \
 
 
 ## <a name="create-a-vm"></a>VM 만들기
-인터넷에서 액세스 가능한 VM을 지원하기 위해 네트워크 리소스를 만들었습니다. 이제 VM을 만들어 SSH 키로 보호합니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](cli-ps-findimage.md)에서 설명한 대로 [az vm image list](/cli/azure/vm/image)를 통해 추가적인 이미지를 찾을 수 있습니다.
+인터넷에서 액세스 가능한 VM을 지원하기 위해 네트워크 리소스를 만들었습니다. 이제 VM을 만들어 SSH 키로 보호합니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](/cli/azure/vm/image)에서 설명한 대로 [az vm image list](cli-ps-findimage.md)를 통해 추가적인 이미지를 찾을 수 있습니다.
 
 인증에 사용할 SSH 키를 지정합니다. SSH 공개 키 쌍이 없는 경우 [만들거나 ](mac-create-ssh-keys.md) `--generate-ssh-keys` 매개 변수를 사용하여 만들 수 있습니다. 키 쌍이 있으면 이 매개 변수는 `~/.ssh`의 기존 키를 사용합니다.
 
@@ -565,7 +565,7 @@ sudo apt-get install -y nginx
 az group export --name myResourceGroup > myResourceGroup.json
 ```
 
-이 명령을 실행하면 `myResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 이 템플릿에서 환경을 만들면 모든 리소스 이름을 입력하라는 메시지가 표시됩니다. `az group export` 명령에 `--include-parameter-default-value` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 입력할 수 있습니다. JSON 템플릿을 편집하여 리소스 이름을 지정하거나 리소스 이름을 지정하는 [parameters.json 파일을 만듭니다](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+이 명령을 실행하면 `myResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 이 템플릿에서 환경을 만들면 모든 리소스 이름을 입력하라는 메시지가 표시됩니다. `--include-parameter-default-value` 명령에 `az group export` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 입력할 수 있습니다. JSON 템플릿을 편집하여 리소스 이름을 지정하거나 리소스 이름을 지정하는 [parameters.json 파일을 만듭니다](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 템플릿에서 환경을 만들려면 다음과 같이 [az group deployment create](/cli/azure/group/deployment)를 사용합니다.
 

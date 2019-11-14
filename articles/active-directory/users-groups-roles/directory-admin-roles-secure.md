@@ -1,12 +1,12 @@
 ---
-title: 보안 관리 액세스 모범 사례 - Azure Active Directory | Microsoft Docs
+title: 보안 관리 액세스에 대 한 모범 사례-Azure AD | Microsoft Docs
 description: 조직의 관리 액세스 및 관리자 계정이 안전한지 확인합니다. Azure AD, Azure 및 Microsoft Online Services를 구성하는 시스템 설계자 및 IT 전문가를 대상으로 합니다.
 services: active-directory
 keywords: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.author: curtand
-ms.date: 03/18/2019
+ms.date: 11/13/2019
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3346c873f88654f75628863a01fda76449ce2d
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e65714f67dde79847bf07efda358a4e1f9ea938d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259402"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028445"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -60,21 +60,21 @@ does the article really start here?-->
 
 ## <a name="develop-a-roadmap"></a>로드맵 개발 
 
-사이버 공격자로부터 권한 있는 액세스를 보호하기 위한 로드맵을 개발하고 따르는 것이 좋습니다. 언제든지 조직 내의 기존 기능과 특정 요구 사항에 맞게 로드맵을 조정할 수 있습니다. 로드맵의 각 단계에서는 악의적 사용자가 온-프레미스, 클라우드 및 하이브리드 자산에 대한 권한 있는 액세스를 공격하는 데 드는 비용과 어려움을 제시해야 합니다. Microsoft는 다음 네 개의 로드맵 스테이지를 권장합니다. 이 권장 로드맵은 사이버 공격 인시던트 및 대응 구현에 대한 Microsoft의 경험을 기반으로 하여 가장 효과적이고 빠른 구현을 먼저 계획합니다. 이 로드맵에 대한 타임라인은 근사값으로 표시됩니다.
+사이버 공격자로부터 권한 있는 액세스를 보호하기 위한 로드맵을 개발하고 따르는 것이 좋습니다. 언제든지 조직 내의 기존 기능과 특정 요구 사항에 맞게 로드맵을 조정할 수 있습니다. 로드맵의 각 단계에서는 악의적 사용자가 온-프레미스, 클라우드 및 하이브리드 자산에 대한 권한 있는 액세스를 공격하는 데 드는 비용과 어려움을 제시해야 합니다. Microsoft는 다음 네 개의 로드맵 단계를 권장합니다. 이 권장 로드맵은 사이버 공격 인시던트 및 대응 구현에 대한 Microsoft의 경험을 기반으로 하여 가장 효과적이고 빠른 구현을 먼저 계획합니다. 이 로드맵에 대한 타임라인은 근사값으로 표시됩니다.
 
 ![타임라인이 있는 로드맵 단계](./media/directory-admin-roles-secure/roadmap-timeline.png)
 
-* 스테이지 1(24~48시간): 즉시 수행하도록 권장되는 중요한 항목
+* 1단계(24~48시간): 즉시 수행하도록 권장되는 중요한 항목
 
-* 스테이지 2(2~4주): 가장 자주 사용되는 공격 기법에 대한 완화
+* 2단계(2~4주): 가장 자주 사용되는 공격 기법에 대한 완화
 
-* 스테이지 3(1~3개월): 가시성 빌드 및 관리자 활동에 대한 모든 권한 빌드
+* 3단계(1~3개월): 가시성 빌드 및 관리자 활동에 대한 모든 권한 빌드
 
-* 스테이지 4(6개월 이상): 보안 플랫폼 강화를 위한 방어 체계 구축 계속
+* 4단계(6개월 이상): 보안 플랫폼 강화를 위한 방어 체계 구축 계속
 
 이 로드맵 프레임워크는 이미 배포한 Microsoft 기술을 최대한 사용하도록 설계되었습니다. 또한 주요 현재 및 향후 보안 기술을 활용하고, 이미 배포했거나 배포하려고 고려 중인 다른 공급업체의 보안 도구를 통합할 수 있습니다. 
 
-## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>스테이지 1: 즉시 수행하도록 권장되는 중요한 항목
+## <a name="stage-1-critical-items-that-we-recommend-you-do-right-away"></a>1단계: 즉시 수행하도록 권장되는 중요한 항목
 
 ![가장 먼저 수행할 중요 한 항목 1 단계](./media/directory-admin-roles-secure/stage-one.png)
 
@@ -123,9 +123,9 @@ Azure AD Privileged Identity Management가 설정되면, 디렉터리 역할 전
 
 #### <a name="turn-on-multi-factor-authentication-and-register-all-other-highly-privileged-single-user-non-federated-admin-accounts"></a>다단계 인증 설정 및 권한이 높고 페더레이션되지 않은 다른 모든 단일 사용자 관리자 계정 등록
 
-로그인 시 Azure AD 관리자 역할인 전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에게 Azure MFA(Multi-Factor Authentication)를 요구합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](../authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Office 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
+로그인 시 Azure AD 관리자 역할(전역 관리자, 권한 있는 역할 관리자, Exchange Online 관리자 및 SharePoint Online 관리자) 중 하나 이상에 영구적으로 할당된 모든 개별 사용자에 대해 Azure MFA(Multi-Factor Authentication)를 요구합니다. 이 가이드를 사용하여 [관리자 계정에 대해 MFA(Multi-Factor Authentication)](../authentication/howto-mfa-userstates.md)를 사용하도록 설정하고, 해당 사용자가 모두 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 등록되었는지 확인합니다. 자세한 내용은 [Office 365에서 데이터 및 서비스에 대한 액세스 보호](https://support.office.com/article/Protect-access-to-data-and-services-in-Office-365-a6ef28a4-2447-4b43-aae2-f5af6d53c68e) 가이드의 2단계 및 3단계에서 찾을 수 있습니다. 
 
-## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>스테이지 2: 가장 자주 사용되는 공격 기법에 대한 완화
+## <a name="stage-2-mitigate-the-most-frequently-used-attack-techniques"></a>2단계: 가장 자주 사용되는 공격 기법에 대한 완화
 
 ![2 단계는 자주 사용 하는 공격을 완화 합니다.](./media/directory-admin-roles-secure/stage-two.png)
 
@@ -195,7 +195,7 @@ Azure AD Identity Protection은 조직의 ID에 영향을 주는 잠재적 취�
 
 #### <a name="secure-on-premises-privileged-administrative-accounts-if-not-already-done"></a>아직 보안이 설정되지 않은 권한 있는 온-프레미스 관리 계정에 대한 보안
 
-Azure Active Directory 테넌트가 온-프레미스 Active Directory와 동기화되는 경우 [권한 있는 보안 액세스 로드맵](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): 스테이지 1의 지침을 따릅니다. 여기에는 온-프레미스 관리 작업을 수행해야 하는 사용자에 대한 별도의 관리자 계정 만들기, Active Directory 관리자에 대한 액세스 권한 있는 워크스테이션 배포 및 워크스테이션 및 서버에 대한 고유 로컬 관리자 암호 만들기가 포함됩니다.
+Azure Active Directory 테넌트가 온-프레미스 Active Directory와 동기화되는 경우 [권한 있는 보안 액세스 로드맵](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): 1단계의 지침을 따릅니다. 여기에는 온-프레미스 관리 작업을 수행해야 하는 사용자에 대한 별도의 관리자 계정 만들기, Active Directory 관리자에 대한 액세스 권한 있는 워크스테이션 배포 및 워크스테이션 및 서버에 대한 고유 로컬 관리자 암호 만들기가 포함됩니다.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Azure에 대한 액세스를 관리하는 조직을 위한 추가 단계
 
@@ -241,7 +241,7 @@ Azure MFA 또는 Windows Hello와 같이 고위 경영진, 고위 관리자, 중
 
 #### <a name="use-dedicated-workstations-for-administration-for-azure-ad"></a>Azure AD에 대한 관리 전용 워크스테이션 사용
 
-공격자는 프로그램 논리를 변경하거나 관리자가 자격 증명을 입력하는 것을 염탐하는 악성 코드를 통해 권한 있는 계정을 대상으로 지정하여 조직의 데이터와 시스템에 액세스함으로써 데이터의 무결성 및 신뢰성을 방해할 수 있습니다. PAW(Privileged Access Workstation)는 인터넷 공격 및 위협 벡터로부터 보호되는 중요한 작업에 대한 전용 운영 체제를 제공합니다. 이러한 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 디바이스에서 분리하면 피싱 공격, 애플리케이션 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격(예: 키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)으로부터 매우 강력한 보호 효과를 얻을 수 있습니다. 액세스 권한 있는 워크스테이션을 배포하는 경우 강화된 데스크톱 환경을 제외하고는 관리자가 관리자 자격 증명을 입력하는 위험을 줄일 수 있습니다. 자세한 내용은 [액세스 권한 있는 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)을 참조하세요.
+공격자는 프로그램 논리를 변경하거나 관리자가 자격 증명을 입력하는 것을 염탐하는 악성 코드를 통해 권한 있는 계정을 대상으로 지정하여 조직의 데이터와 시스템에 액세스함으로써 데이터의 무결성 및 신뢰성을 방해할 수 있습니다. PAW(권한 있는 액세스 워크스테이션)는 인터넷 공격 및 위협 벡터로부터 보호되는 전용 운영 체제를 중요한 작업을 위해 제공합니다. 이러한 중요한 작업 및 계정을 매일 사용하는 워크스테이션 및 디바이스에서 분리하면 피싱 공격, 애플리케이션 및 OS 취약점, 다양한 가장 공격 및 자격 증명 도난 공격(예: 키 입력 로깅, Pass-the-Hash 및 Pass-The-Ticket)으로부터 매우 강력한 보호 효과를 얻을 수 있습니다. 액세스 권한 있는 워크스테이션을 배포하는 경우 강화된 데스크톱 환경을 제외하고는 관리자가 관리자 자격 증명을 입력하는 위험을 줄일 수 있습니다. 자세한 내용은 [액세스 권한 있는 워크스테이션](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)을 참조하세요.
 
 #### <a name="review-national-institute-of-standards-and-technology-recommendations-for-handling-incidents"></a>인시던트 처리에 대한 NIST 권장 사항 검토 
 
@@ -261,7 +261,7 @@ Azure AD Privileged Identity Management를 이미 사용하고 있는 경우 필
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>암호 기반 로그인 프로토콜에 대한 노출 확인(Exchange Online을 사용하는 경우)
 
-과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제 클라우드의 사이버 공격에 대 한 위험이 있으므로 자격 증명이 손상 된 경우 조직에 치명적이 될 수 있는 모든 잠재적 사용자를 식별 하 고, 사용자 이름을 통해 해당 전자 메일에 로그인 할 수 없도록 제외 하는 것이 좋습니다. 강력한 인증 요구 사항 및 조건부 액세스를 구현 하 여 암호를 입력 합니다. [조건부 액세스를 사용 하 여 레거시 인증](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication)을 차단할 수 있습니다. Exchnage online을 통해 [기본 인증을 차단 하는 방법](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) 에 대 한 세부 정보를 확인 하세요. 
+과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제 클라우드의 사이버 공격에 대 한 위험이 있으므로 자격 증명이 손상 된 경우 모든 잠재적 사용자를 식별 하는 것이 좋습니다. 해당 자격 증명이 손상 된 경우에는 강력한 인증 요구 사항 및 조건부 액세스를 구현 하 여 사용자 이름/암호를 통해 전자 메일에 로그인 할 수 없습니다. [조건부 액세스를 사용 하 여 레거시 인증](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication)을 차단할 수 있습니다. Exchnage online을 통해 [기본 인증을 차단 하는 방법](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) 에 대 한 세부 정보를 확인 하세요. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Office 365 역할에 대한 역할 검토 평가 수행(Office 365를 사용하는 경우)
 
@@ -273,7 +273,7 @@ Azure AD Privileged Identity Management를 이미 사용하고 있는 경우 필
 
 #### <a name="continue-to-secure-on-premises-privileged-administrative-accounts"></a>권한 있는 온-프레미스 관리 계정 보안 유지
 
-Azure Active Directory 테넌트가 온-프레미스 Active Directory에 연결되는 경우 [권한 있는 보안 액세스 로드맵](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): 스테이지 2의 지침을 따릅니다. 여기에는 모든 관리자에 대한 액세스 권한 있는 워크스테이션 배포, MFA 요구, DC 유지 관리를 위한 Just Inough Admin(충분한 관리) 사용, 도메인 공격 영역 감소, 공격 탐지를 위한 ATA 배포가 포함됩니다.
+Azure Active Directory 테넌트가 온-프레미스 Active Directory에 연결되는 경우 [권한 있는 보안 액세스 로드맵](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access): 2단계의 지침을 따릅니다. 여기에는 모든 관리자에 대한 액세스 권한 있는 워크스테이션 배포, MFA 요구, DC 유지 관리를 위한 Just Inough Admin(충분한 관리) 사용, 도메인 공격 영역 감소, 공격 탐지를 위한 ATA 배포가 포함됩니다.
 
 ### <a name="additional-steps-for-organizations-managing-access-to-azure"></a>Azure에 대한 액세스를 관리하는 조직을 위한 추가 단계
 
@@ -320,7 +320,7 @@ MCAS를 사용하면 Azure Information Protection 분류 레이블을 기반으�
 
 Cloud App Security SIEM 에이전트는 Cloud App Security와 SIEM 서버를 통합하여 Office 365 경고 및 활동을 중앙 집중식으로 모니터링할 수 있도록 합니다. 서버에서 실행되고 Cloud App Security에서 경고 및 활동을 가져와서 SIEM 서버로 스트리밍합니다. 자세한 내용은 [SIEM 통합](https://docs.microsoft.com/cloud-app-security/siem)을 참조하세요.
 
-## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>스테이지 4: 사전 예방적인 보안 상태에 대한 방어 체계 구축 계속
+## <a name="stage-4-continue-building-defenses-to-a-more-proactive-security-posture"></a>4단계: 사전 예방적인 보안 상태에 대한 방어 체계 구축 계속
 
 ![사전 보안 상태를 채택 하는 4 단계](./media/directory-admin-roles-secure/stage-four.png)
 
@@ -379,7 +379,7 @@ Office 365를 사용하는 경우
 
 5. [Azure AD 로그인 보고서](../reports-monitoring/overview-reports.md)를 확인합니다. 이벤트가 발생하는 시점과 보고서에 포함되는 시점 사이에 지연이 있을 수 있습니다.
 
-6. 하이브리드 환경의 경우 페더레이션되고 AD FS 서버를 사용할 수 없으면 일시적으로 페더레이션 인증에서 암호 해시 동기화를 사용하도록 전환해야 할 수 있습니다. 이렇게 하면 AD FS 서버를 사용할 수 있을 때까지 도메인 페더레이션을 관리 인증으로 되돌립니다.
+6. 하이브리드 환경의 경우 페더레이션 및 AD FS 서버를 사용할 수 없는 경우에는 암호 해시 동기화를 사용 하도록 페더레이션 인증에서 일시적으로 전환 해야 할 수 있습니다. 그러면 AD FS 서버를 사용할 수 있게 될 때까지 도메인 페더레이션이 관리 되는 인증으로 되돌아갑니다.
 
 7. 권한 있는 계정에 대한 이메일을 모니터링합니다.
 

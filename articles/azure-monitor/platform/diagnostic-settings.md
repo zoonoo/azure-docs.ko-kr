@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: c1b7f81c62217d9e113f3293a8f351d908a6a576
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b90e5ccf38e95d33c4b5b6f3b8da0e91a4facb5a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887277"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023737"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기
 Azure의 [플랫폼 로그](resource-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. 이 문서에서는 다양 한 대상에 플랫폼 로그를 수집 하는 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
@@ -42,7 +42,8 @@ Azure의 [플랫폼 로그](resource-logs-overview.md) 는 azure 리소스 및 �
 | [Azure Storage 계정](resource-logs-collect-storage.md) | Azure 저장소 계정에 로그를 보관 하는 것은 감사, 정적 분석 또는 백업에 유용 합니다. |
 
 
-
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen2 계정은 현재 Azure Portal에서 유효한 옵션으로 나열 될 수 있지만 진단 설정의 대상으로 지원 되지 않습니다.
 
 ## <a name="create-diagnostic-settings-in-azure-portal"></a>Azure Portal에서 진단 설정 만들기
 Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정을 구성할 수 있습니다.
@@ -85,7 +86,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
 >
 > *예*: Event Hub의 '들어오는 메시지' 메트릭은 큐 수준별로 탐색하고 차트화할 수 있습니다. 하지만 진단 설정을 통해 내보내면 메트릭은 Event Hub의 모든 큐에서 모두 수신되는 메시지로 표시됩니다.
 
-4. **Save**를 클릭합니다.
+4. **저장**을 클릭합니다.
 
 잠시 후 새 설정이이 리소스에 대 한 설정 목록에 표시 되 고, 새 이벤트 데이터가 생성 될 때 로그가 지정 된 대상으로 스트리밍됩니다. 이벤트가 내보내지는 시간과 [Log Analytics 작업 영역에 표시](data-ingestion-time.md)되는 시간 사이에는 최대 15 분이 걸릴 수 있습니다.
 

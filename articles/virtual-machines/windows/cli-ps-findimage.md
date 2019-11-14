@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Windows VM 이미지 선택 | Microsoft Docs
+title: Azure에서 Windows VM 이미지 선택
 description: Azure PowerShell을 사용하여 Marketplace VM 이미지의 게시자, 제품, SKU 및 버전을 확인합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
-ms.openlocfilehash: 32264fc6c58dd1cb6c1514af1c07391ab0e9193d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2388b51c8103b6bcbae0c32d3c4d78a176caf282
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749591"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039527"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Marketplace에서 Windows VM 이미지 찾기
 

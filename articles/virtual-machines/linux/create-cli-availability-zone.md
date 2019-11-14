@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용하여 영역 설정된 Linux VM 만들기 | Microsoft Docs
+title: Azure CLI를 사용 하 여 배열로 영역 설정 Linux VM 만들기
 description: Azure CLI를 사용하여 가용성 영역에서 Linux VM 만들기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 04/05/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: e732693a63b3c866dc767e98bbe298474286f178
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1cb8222b5e7bf2efee36673f9b80738500345754
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173897"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036551"
 ---
 # <a name="create-a-linux-virtual-machine-in-an-availability-zone-with-the-azure-cli"></a>Azure CLI를 사용하여 가용성 영역에서 Linux 가상 머신 만들기
 
@@ -63,7 +63,7 @@ virtualMachines   eastus2    Standard_E4_v3              Standard   E4_v3    1,2
 
 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다.  
 
-Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 머신보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus2* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 미국 동부 2는 가용성 영역을 지원하는 Azure 지역 중 하나입니다.
+Azure 리소스 그룹은 Azure 리소스가 배포 및 관리되는 논리적 컨테이너입니다. 가상 컴퓨터보다 먼저 리소스 그룹을 만들어야 합니다. 이 예제에서는 *eastus2* 지역에 *myResourceGroupVM*이라는 리소스 그룹을 만듭니다. 미국 동부 2는 가용성 영역을 지원하는 Azure 지역 중 하나입니다.
 
 ```azurecli 
 az group create --name myResourceGroupVM --location eastus2

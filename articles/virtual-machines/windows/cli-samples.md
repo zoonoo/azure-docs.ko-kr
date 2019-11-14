@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 샘플 Windows| Microsoft Docs
+title: Azure CLI 샘플 Windows
 description: Azure CLI 샘플 Windows
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e8d4cfbb103313d1d13ec0e08a3be82b6a75b331
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8d57220f79f1349937a279e57a17d51a76bcccb3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089400"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033635"
 ---
 # <a name="azure-cli-samples-for-windows-virtual-machines"></a>Windows 가상 머신에 대한 Azure CLI 샘플
 
@@ -30,7 +30,7 @@ ms.locfileid: "70089400"
 |---|---|
 |**가상 머신 만들기**||
 | [가상 머신 만들기](./../scripts/virtual-machines-windows-cli-sample-create-vm-quick-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 최소한의 구성으로 Windows 가상 머신을 만듭니다. |
-| [완벽히 구성된 가상 머신 만들기](./../scripts/virtual-machines-windows-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 리소스 그룹, 가상 머신 및 모든 관련된 리소스를 만듭니다.|
+| [완벽히 구성된 가상 컴퓨터 만들기](./../scripts/virtual-machines-windows-cli-sample-create-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 리소스 그룹, 가상 컴퓨터 및 모든 관련된 리소스를 만듭니다.|
 | [고가용성 가상 머신 만들기](./../scripts/virtual-machines-windows-cli-sample-nlb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 고가용성의 부하가 분산된 구성으로 여러 가상 머신을 만듭니다. |
 | [VM 만들기 및 구성 스크립트 실행](./../scripts/virtual-machines-windows-cli-sample-create-vm-iis.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 가상 머신을 만들고 Azure 사용자 지정 스크립트 확장을 사용하여 IIS를 설치합니다. |
 | [VM 만들기 및 DSC 구성 실행](./../scripts/virtual-machines-windows-cli-sample-create-iis-using-dsc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) | 가상 머신을 만들고 Azure DSC(필요한 상태 구성) 확장을 사용하여 IIS를 설치합니다. |

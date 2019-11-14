@@ -1,5 +1,5 @@
 ---
-title: Windows VM에 관리되는 데이터 디스크 연결 - Azure | Microsoft Docs
+title: Windows VM에 관리 되는 데이터 디스크 연결-Azure
 description: Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크를 연결하는 방법입니다.
 author: roygara
 ms.service: virtual-machines-windows
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: ece7cbe76cd744302362b8c59f100e23f1b74dff
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: d98fdab6dcd0abb70967d1e17d138a860a31da5f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699832"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039311"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크 연결
 
@@ -42,7 +42,7 @@ ms.locfileid: "68699832"
 6. **디스크 관리**를 닫습니다.
 7. 사용하기 전에 새 디스크를 포맷해야 함을 알리는 팝업 창이 나타납니다. **디스크 포맷**을 선택합니다.
 8. **새 디스크 포맷** 창에서 설정을 확인한 후 **시작**을 선택합니다.
-9. 디스크를 포맷하면 모든 데이터가 지워짐을 알리는 경고가 나타납니다.           **확인**을 선택합니다.
+9. 디스크를 포맷하면 모든 데이터가 지워짐을 알리는 경고가 나타납니다. **확인**을 선택합니다.
 10. 포맷이 완료되면 **확인**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계

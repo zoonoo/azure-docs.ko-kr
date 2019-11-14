@@ -1,5 +1,5 @@
 ---
-title: 'Express 경로 및 사이트 간 VPN 연결 구성-공존: 클래식: Azure | Microsoft Docs'
+title: 'Express 경로 및 S2S VPN 공존 연결 구성: 클래식'
 description: 이 문서에서는 클래식 배포 모델에 대해 공존할 수 있는 ExpressRoute와 사이트 간 VPN 연결을 구성하는 과정을 안내합니다.
 documentationcenter: na
 services: expressroute
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: charwen
 ms.custom: seodec18
-ms.openlocfilehash: b8eb1d7da9c588aedaedb37dc50c69970fe79ac2
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 0643ce99ce4ba9328abc3f7a8c8e7061026611b9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162720"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031786"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>ExpressRoute 및 사이트 간 공존 연결 구성(클래식)
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 5. ExpressRoute 게이트웨이를 ExpressRoute 회로에 연결합니다. 이 단계를 완료하면 ExpressRoute를 통해 온-프레미스 네트워크와 Azure 간의 연결이 설정됩니다.
    
         New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
-6. <a name="vpngw"></a>그런 다음 사이트 간 VPN Gateway를 만듭니다. GatewaySKU는 *Standard*, *HighPerformance* 또는 *UltraPerformance*이어야 하고 GatewayType은 *DynamicRouting*이어야 합니다.
+6. <a name="vpngw"></a>그런 다음 사이트 간 VPN 게이트웨이를 만듭니다. GatewaySKU는 *Standard*, *HighPerformance* 또는 *UltraPerformance*이어야 하고 GatewayType은 *DynamicRouting*이어야 합니다.
    
         New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
    

@@ -1,5 +1,5 @@
 ---
-title: 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획 | Microsoft Docs
+title: 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 description: 클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 840d7b9534124a4fcc93962e8329dc6ce2bdf1a4
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2c0f4924c41b36c306d4e6b9286105662744c4da
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749352"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033233"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스의 마이그레이션 계획
 Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연하게 이전할 수 있도록 마이그레이션 과정을 계획하는 것이 매우 중요합니다. 계획에 시간을 들이면 마이그레이션 활동을 수행하는 동안 문제가 발생하지 않습니다.
@@ -122,7 +122,7 @@ Azure Resource Manager는 수많은 놀라운 기능을 제공하지만, 유연�
     >
 
   - 네트워크 인터페이스
-  - 부하 분산 장치
+  - Load Balancer
   - 공용 IP
   - 고정 공용 IP
   - 코어 수

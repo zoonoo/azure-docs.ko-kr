@@ -1,5 +1,5 @@
 ---
-title: Docker Machine을 사용하여 Azure에서 Linux 호스트 만들기
+title: Docker Machine을 사용 하 여 Azure에서 Linux 호스트 만들기
 description: Docker Machine을 사용하여 Azure에서 Docker 호스트를 만드는 방법에 대해 설명합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: 1e946f82cf7dfcec0a6ff451012e6f5f0ac6e955
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 6b7f26d4554cc5ab1450ac3a8cf927b2338f8ea2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671546"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036258"
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Docker Machine을 사용하여 Azure에서 호스트를 만드는 방법
 이 문서는 [Docker Machine](https://docs.docker.com/machine/)을 사용하여 Azure에서 호스트를 만드는 방법을 자세히 설명합니다. `docker-machine` 명령은 Azure에서 Linux VM(가상 머신)을 만든 다음 Docker를 설치합니다. 동일한 로컬 도구 및 워크플로를 사용하여 Azure에서 Docker 호스트를 관리할 수 있습니다. Windows 10에서 Docker-컴퓨터를 사용하려면 Linux bash를 사용해야 합니다.
@@ -31,7 +31,7 @@ ms.locfileid: "67671546"
 sub=$(az account show --query "id" -o tsv)
 ```
 
-드라이버로 *azure*를 지정하여 `docker-machine create`로 Azure에서 Docker 호스트 VM을 만듭니다. 자세한 내용은 [Docker Azure 드라이버 설명서](https://docs.docker.com/machine/drivers/azure/)를 참조하세요.
+드라이버로 `docker-machine create`azure*를 지정하여* 로 Azure에서 Docker 호스트 VM을 만듭니다. 자세한 내용은 [Docker Azure 드라이버 설명서](https://docs.docker.com/machine/drivers/azure/)를 참조하세요.
 
 다음 예제에서는 *myVM*이라는 VM을 만들고 "표준 D2 v2" 계획에 따라 *azureuser*라는 사용자 계정을 만들고 호스트 VM에서 포트 *80*을 엽니다. 프롬프트를 따라 Azure 계정에 로그인하고 리소스를 만들고 관리하도록 Docker Machine에 사용 권한을 부여합니다.
 
@@ -44,7 +44,7 @@ docker-machine create -d azure \
     myvm
 ```
 
-출력은 다음 예제와 유사합니다.
+다음 예제와 유사하게 출력됩니다.
 
 ```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem

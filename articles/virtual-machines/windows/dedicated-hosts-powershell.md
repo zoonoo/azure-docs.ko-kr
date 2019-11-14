@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell를 사용 하 여 Azure 전용 호스트 배포 Microsoft Docs
+title: Azure PowerShell를 사용 하 여 Azure 전용 호스트 배포
 description: Azure PowerShell를 사용 하 여 전용 호스트에 Vm을 배포 합니다.
 services: virtual-machines-windows
 author: cynthn
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 1dcea4f56d778b0e6320634286a25d478c78a5bc
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 92dca6f4f41ff426aebcb8e580653afaa71afff8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261705"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033358"
 ---
-# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>미리 보기: Azure PowerShell를 사용 하 여 전용 호스트에 Vm 배포
+# <a name="preview-deploy-vms-to-dedicated-hosts-using-the-azure-powershell"></a>미리 보기: Azure PowerShell을 사용 하 여 전용 호스트에 Vm 배포
 
 이 문서에서는 Vm (가상 머신)을 호스트 하는 Azure [전용 호스트](dedicated-hosts.md) 를 만드는 방법을 안내 합니다. 
 
-Azure PowerShell 버전 2.4.2 sections 이상을 설치 했는지 확인 하 고를 사용 하 여 `Connect-AzAccount`의 Azure 계정에 로그인 합니다. 2\.4.2 sections 버전을 설치 하려면 PowerShell 프롬프트를 열고 다음을 입력 합니다.
+Azure PowerShell 버전 2.4.2 sections 이상을 설치 했는지 확인 하 고 `Connect-AzAccount`사용 하 여의 Azure 계정에 로그인 했는지 확인 합니다. 2\.4.2 sections 버전을 설치 하려면 PowerShell 프롬프트를 열고 다음을 입력 합니다.
 
 ```powershell
 Install-Module -Name Az.Compute -Repository PSGallery -RequiredVersion 2.4.2-preview -AllowPrerelease
@@ -42,7 +42,7 @@ Install-Module -Name PowerShellGet -Repository PSGallery -Force
 >
 > **알려진 미리 보기 제한 사항**
 > - 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
-> - Preview 초기 릴리스는 다음 VM 시리즈를 지원 합니다. DSv3 및 ESv3. 
+> - Preview 초기 릴리스는 다음 VM 시리즈를 지원 합니다. DSv3 및 ESv3 
 
 
 
@@ -72,7 +72,7 @@ $hostGroup = New-AzHostGroup `
 
 ## <a name="create-a-host"></a>호스트 만들기
 
-이제 호스트 그룹에서 전용 호스트를 만들어 보겠습니다. 호스트의 이름 외에 호스트의 SKU를 제공 해야 합니다. 호스트 SKU는 지원 되는 VM 시리즈 뿐만 아니라 전용 호스트의 하드웨어 생성도 캡처합니다.  미리 보기 중에는 다음 호스트 SKU 값을 지원 합니다. DSv3_Type1 및 ESv3_Type1.
+이제 호스트 그룹에서 전용 호스트를 만들어 보겠습니다. 호스트의 이름 외에 호스트의 SKU를 제공 해야 합니다. 호스트 SKU는 지원 되는 VM 시리즈 뿐만 아니라 전용 호스트의 하드웨어 생성도 캡처합니다.  미리 보기 중에는 DSv3_Type1 및 ESv3_Type1 호스트 SKU 값을 지원 합니다.
 
 
 호스트 Sku 및 가격 책정에 대 한 자세한 내용은 [Azure 전용 호스트 가격](https://aka.ms/ADHPricing)을 참조 하세요.
@@ -115,7 +115,7 @@ New-AzVM `
 
 ## <a name="check-the-status-of-the-host"></a>호스트의 상태를 확인 합니다.
 
-`-InstanceView` 매개 변수와 함께 [GetAzHost](/powershell/module/az.compute/get-azhost) 를 사용 하 여 호스트에 배포할 수 있는 가상 컴퓨터의 수 및 호스트 상태를 확인할 수 있습니다.
+`-InstanceView` 매개 변수와 함께 [GetAzHost](/powershell/module/az.compute/get-azhost) 를 사용 하 여 호스트에 배포할 수 있는 가상 컴퓨터 수와 호스트 상태를 확인할 수 있습니다.
 
 ```
 Get-AzHost `

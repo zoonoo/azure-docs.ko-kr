@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: fc23afb9a407fc2e6689c5c8766cb4beba868269
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: abce1acb88e920c0de7bbb6447ec9d838f10486c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72513436"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033992"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -25,7 +25,14 @@ Azure 저장소 계정에서 blob 또는 파일을 삭제 합니다.
 azcopy remove [resourceURL] [flags]
 ```
 
-## <a name="examples"></a>예시
+## <a name="related-conceptual-articles"></a>관련 개념 문서
+
+- [AzCopy 시작](storage-use-azcopy-v10.md)
+- [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](storage-use-azcopy-blobs.md)
+- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
+
+## <a name="examples"></a>예
 
 SAS를 사용 하 여 단일 blob을 제거 합니다.
 
@@ -105,6 +112,6 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 |--0mbps uint32|전송 률 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.|
 |--출력 형식 문자열|명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 - [azcopy](storage-ref-azcopy.md)

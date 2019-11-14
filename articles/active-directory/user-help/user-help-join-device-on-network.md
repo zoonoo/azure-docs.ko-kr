@@ -1,5 +1,5 @@
 ---
-title: 조직의 네트워크에 회사 디바이스 가입 - Azure Active Directory | Microsoft Docs
+title: 회사 장치를 조직의 네트워크에 연결-AD
 description: 회사 디바이스를 조직의 네트워크에 가입하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62faa47c116cceb941f575a9f76052e8bc57f036
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b122d70179f22c91028c8343b23d74cc616b1f76
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66243267"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028537"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>조직의 네트워크에 회사 디바이스 가입
 잠재적으로 제한된 리소스에 액세스할 수 있도록 회사 소유의 Windows 10 디바이스를 조직의 네트워크에 가입합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "66243267"
 ## <a name="what-happens-when-you-join-your-device"></a>디바이스를 가입할 때 나타나는 결과
 조직의 네트워크에 Windows 10 디바이스를 가입하는 동안 다음 작업이 발생합니다.
 
-- Windows 개인 계정을 사용 하 여 리소스에 액세스할 수 있도록 조직의 네트워크에 장치를 등록 합니다. 디바이스가 등록되면 Windows는 네트워크에 디바이스를 가입하므로 조직의 사용자 이름 및 암호를 사용하여 로그인하고 제한된 리소스에 액세스할 수 있습니다.
+- Windows는 조직의 네트워크에 장치를 등록 하 여 개인 계정을 사용 하 여 리소스에 액세스할 수 있도록 합니다. 디바이스가 등록되면 Windows는 네트워크에 디바이스를 가입하므로 조직의 사용자 이름 및 암호를 사용하여 로그인하고 제한된 리소스에 액세스할 수 있습니다.
 
 - 조직의 선택에 따라, [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) 또는 [보안 정보](user-help-security-info-overview.md)를 통해 2단계 인증을 설정하도록 요구될 수 있습니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "66243267"
 
     ![설정 화면의 계정](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. 선택 **회사 또는 학교 액세스**와 같은 것 이라는 텍스트가 표시 되는지 확인 하 고 **연결할  *\<your_organization >* Azure AD**합니다.
+2. **회사 또는 학교 액세스**를 선택 하 고,  ***\<your_organization >* Azure AD에 연결 된**것과 같은 텍스트가 표시 되는지 확인 합니다.
 
     ![연결된 contoso 계정을 사용하여 회사 또는 학교 액세스 화면](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ ms.locfileid: "66243267"
 
     ![설정 화면의 계정](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. 선택 **회사 또는 학교 액세스**와 같은 것 이라는 텍스트가 표시 되는지 확인 하 고 **연결할  *\<your_organization >* Azure AD**합니다.
+2. **회사 또는 학교 액세스**를 선택 하 고,  ***\<your_organization >* Azure AD에 연결 된**것과 같은 텍스트가 표시 되는지 확인 합니다.
 
     ![연결된 contoso 계정을 사용하여 회사 또는 학교 액세스 화면](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 
@@ -116,4 +116,4 @@ ms.locfileid: "66243267"
 
 - 조직이 휴대폰과 같은 개인 디바이스를 등록하도록 요구할 경우 [조직의 네트워크에 개인 디바이스 등록](user-help-register-device-on-network.md)을 참조하세요.
 
-- 조직의 관리 되는 Microsoft Intune을 사용 하 여 등록 하는 방법에 대 한 질문이 있는 로그인 또는 모든 기타 Intune 관련 문제를 참조 하십시오 합니다 [Intune 사용자 도움말 콘텐츠](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done)합니다.
+- 조직에서 Microsoft Intune를 사용 하 여 관리 하 고 등록, 로그인 또는 기타 Intune 관련 문제에 대 한 질문이 있는 경우 [intune 사용자 도움말 콘텐츠](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done)를 참조 하세요.

@@ -1,5 +1,5 @@
 ---
-title: 'ARP 테이블 가져오기-문제 해결-Express 경로: Azure | Microsoft Docs'
+title: 'Azure Express 경로: ARP 테이블 가져오기-문제 해결'
 description: 이 페이지는 ExpressRoute 회로의 ARP 테이블을 가져오는 방법을 안내합니다.
 services: expressroute
 author: ganesr
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: e35020923405ec072ac9c42093752ec5a9290824
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2410465052bd9ff83090c6f7122ffab2855af1d0
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748153"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033424"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Resource Manager 배포 모델에서 ARP 테이블 가져오기
 > [!div class="op_single_selector"]
@@ -154,7 +154,7 @@ ARP 테이블의 예:
        --- ----------------- ---------  ----------    
          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
-또는
+or
        
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------   

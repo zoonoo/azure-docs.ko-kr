@@ -1,5 +1,5 @@
 ---
-title: Linux VM용 Windows를 통한 SSH 키 사용 | Microsoft Docs
+title: Linux VM용 Windows를 통한 SSH 키 사용
 description: Windows 컴퓨터에서 SSH 키를 생성하고 사용하여 Azure에서 Linux 가상 머신에 연결하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: e8e63f2c916153b5d43267869d7bc5be8fa646c0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e01fb23bbf1720f7d8df9c269373c1b8dc3ec75c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081986"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034814"
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Azure에서 Windows를 통해 SSH 키를 사용하는 방법
 
@@ -57,7 +57,7 @@ Windows에서 SSH 클라이언트 도구를 지원하는 명령 셸을 실행하
 ssh-keygen -t rsa -b 2048
 ```
 
-자세한 배경 및 정보는 `ssh-keygen`을 사용하여 SSH 키를 만드는 [빠른](mac-create-ssh-keys.md) 또는 [자세한](create-ssh-keys-detailed.md) 단계를 참조하세요.
+자세한 배경 및 정보는 [을 사용하여 SSH 키를 만드는 ](mac-create-ssh-keys.md)빠른[ 또는 ](create-ssh-keys-detailed.md)자세한`ssh-keygen` 단계를 참조하세요.
 
 ### <a name="create-ssh-keys-with-puttygen"></a>PuTTYgen을 사용하여 SSH 키 만들기
 
@@ -71,7 +71,7 @@ PuTTYgen을 사용하여 SSH RSA 키 쌍을 만들려면:
 
 4. 빈 영역으로 마우스를 이동하여 키에 대한 임의성을 제공합니다.
 
-5. 공개 키를 생성한 후 필요에 따라 전달 구를 입력하고 확인합니다. 프라이빗 SSH 키를 사용하여 VM을 인증할 경우 전달 구를 입력하라는 메시지가 표시됩니다. 암호를 사용하지 않으면 프라이빗 키를 입수하는 사용자가 해당 키를 사용하는 모든 VM 또는 서비스에 로그인할 수 있게 됩니다. 따라서 전달 구를 만드는 것이 좋습니다. 하지만 전달 구를 잊어버린 경우에는 복구할 수 있는 방법이 없으므로 주의해야 합니다.
+5. 공개 키를 생성한 후 필요에 따라 전달 구를 입력하고 확인합니다. 프라이빗 SSH 키를 사용하여 VM을 인증할 경우 전달 구를 입력하라는 메시지가 표시됩니다. 암호를 사용하지 않으면 프라이빗 키를 입수하는 사용자가 해당 키를 사용하는 모든 VM 또는 서비스에 로그인할 수 있게 됩니다. 따라서 전달 구를 만드는 것이 좋습니다. 그러나 암호를 잊은 경우 복구할 수 있는 방법이 없습니다.
 
 6. 공개 키는 창의 맨 위에 표시됩니다. Linux VM을 만들 때 이 전체 공개 키를 복사한 다음, Azure Portal 또는 Azure Resource Manager 템플릿에 붙여넣습니다. **공개 키 저장**을 선택하여 컴퓨터에 복사본을 저장할 수도 있습니다.
 

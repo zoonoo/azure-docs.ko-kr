@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용하여 Linux VM에 MongoDB 설치 | Microsoft Docs
+title: Azure CLI를 사용 하 여 Linux VM에 MongoDB 설치
 description: Azure CLI를 사용하여 Linux 가상 머신에 MongoDB를 설치하고 구성하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: d75b00acac75b3b9680f862952e5c224336ca57a
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 7f5fdd625eb49bfcac0bd58bca7a8415ac877517
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671373"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036001"
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Linux VM에 MongoDB를 설치하고 구성하는 방법
 
-[MongoDB](https://www.mongodb.org)는 인기 있는 오픈 소스 고성능 NoSQL 데이터베이스입니다. 이 문서에서는 Azure CLI를 사용하여 Linux VM에 MongoDB를 설치하고 구성하는 방법을 보여 줍니다. 표시된 예제는 다음과 같은 방법을 자세히 보여줍니다.
+[MongoDB](https://www.mongodb.org)는 인기 있는 고성능 오픈 소스 NoSQL 데이터베이스입니다. 이 문서에서는 Azure CLI를 사용하여 Linux VM에 MongoDB를 설치하고 구성하는 방법을 보여 줍니다. 표시된 예제는 다음과 같은 방법을 자세히 보여줍니다.
 
 * [기본 MongoDB 인스턴스를 수동으로 설치 및 구성](#manually-install-and-configure-mongodb-on-a-vm)
 * [Resource Manager 템플릿을 사용하여 기본 MongoDB 클러스터 만들기](#create-basic-mongodb-instance-on-centos-using-a-template)

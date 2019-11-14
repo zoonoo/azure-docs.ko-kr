@@ -1,5 +1,5 @@
 ---
-title: Azure에서 OpenShift Container Platform 3.11 자체 관리 Marketplace 제품 배포 | Microsoft Docs
+title: Azure에서 OpenShift Container Platform 3.11 자체 관리 Marketplace 제품 배포
 description: Azure에서 OpenShift Container Platform 3.11 자체 관리 Marketplace 제품을 배포 합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: d5028ff6378fec5939aee3218071fe6f4eb1e843
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 20a17e52064c5beb09ce4db5815ddd6faf7cbcba
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791621"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035516"
 ---
 # <a name="configure-prerequisites"></a>필수 조건 구성
 
@@ -67,9 +67,9 @@ Azure Portal 왼쪽 위에서 **리소스 만들기**를 클릭 하 고 검색 �
 |-----------------------|-----------------|
 | VM 관리 사용자 이름 | 모든 VM 인스턴스에서 만들 관리자 사용자 |
 | 관리 사용자에 대 한 SSH 공개 키 | VM에 로그인 하는 데 사용 되는 SSH 공개 키-암호가 없어야 합니다. |
-| Subscription | 클러스터를 배포할 Azure 구독 |
+| 구독 | 클러스터를 배포할 Azure 구독 |
 | 리소스 그룹 | 새 리소스 그룹을 만들거나 클러스터 리소스에 대 한 기존 빈 리소스 그룹을 선택 합니다. |
-| 위치 | 클러스터를 배포할 Azure 지역 |
+| Location | 클러스터를 배포할 Azure 지역 |
 
    ![제안 기본 사항 블레이드](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>

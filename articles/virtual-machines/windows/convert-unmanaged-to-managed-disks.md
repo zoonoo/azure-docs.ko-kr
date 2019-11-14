@@ -1,17 +1,17 @@
 ---
-title: 비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환 - Azure Managed Disks | Microsoft Docs
+title: 관리 되지 않는 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환-Azure Managed Disks
 description: Resource Manager 배포 모델에서 PowerShell을 사용하여 비관리 디스크에서 관리 디스크로 Windows VM을 변환하는 방법
 author: roygara
 ms.service: virtual-machines-windows
 ms.topic: conceptual
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 64ff47f1dc4b06d1407497adf41981c670ea9064
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 92f70cbfcf261c218ea43b159ed49126f7b2ecd5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749542"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033909"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>비관리 디스크에서 관리 디스크로 Windows 가상 컴퓨터 변환
 
@@ -52,7 +52,7 @@ ms.locfileid: "73749542"
 
 ## <a name="convert-vms-in-an-availability-set"></a>가용성 집합의 VM 변환
 
-관리되는 디스크로 변환하려는 VM이 가용성 집합에 있는 경우 먼저 가용성 집합을 관리되는 가용성 집합으로 변환해야 합니다.
+관리 디스크로 변환하려는 VM이 가용성 집합에 있는 경우 먼저 가용성 집합을 관리 가용성 집합으로 변환해야 합니다.
 
 1. [Update-AzAvailabilitySet](https://docs.microsoft.com/powershell/module/az.compute/update-azavailabilityset) cmdlet을 사용하여 가용성 집합을 변환합니다. 다음 예제에서는 리소스 그룹 `myAvailabilitySet`의 가용성 집합 `myResourceGroup`을 업데이트합니다.
 
@@ -94,7 +94,7 @@ ms.locfileid: "73749542"
 
 Azure Portal을 사용하여 관리되지 않는 디스크에서 관리 디스크로 변환할 수도 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 포털의 VM 목록에서 VM을 선택합니다.
 3. VM 블레이드의 메뉴에서 **디스크**를 선택합니다.
 4. **디스크** 블레이드 상단에서 **관리 디스크로 마이그레이션**을 선택합니다.

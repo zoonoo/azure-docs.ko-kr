@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용하여 Linux VM 이미지 선택 | Microsoft Docs
+title: Azure CLI를 사용하여 Linux VM 이미지 선택
 description: Azure CLI를 사용하여 Marketplace VM 이미지의 게시자, 제품, SKU 및 버전을 확인하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bbe98c4ad3a1b737b9df0d2ea53d53875f26ba54
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: e4dd51640c4eeda2ec99c14812a534ee506faeda
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668379"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036861"
 ---
 # <a name="find-linux-vm-images-in-the-azure-marketplace-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Marketplace에서 Linux VM 이미지 찾기
 
@@ -35,7 +35,7 @@ ms.locfileid: "67668379"
 
 ## <a name="list-popular-images"></a>인기 있는 이미지 나열
 
-`--all` 옵션을 사용하지 않고 [az vm image list](/cli/azure/vm/image) 명령을 실행하여 Azure Marketplace에서 인기있는 VM 이미지의 목록을 확인합니다. 예를 들어, 다음 명령을 실행하여 테이블 형식으로 캐시된 인기있는 이미지 목록을 표시합니다.
+[ 옵션을 사용하지 않고 ](/cli/azure/vm/image)az vm image list`--all` 명령을 실행하여 Azure Marketplace에서 인기있는 VM 이미지의 목록을 확인합니다. 예를 들어, 다음 명령을 실행하여 테이블 형식으로 캐시된 인기있는 이미지 목록을 표시합니다.
 
 ```azurecli
 az vm image list --output table
@@ -202,7 +202,7 @@ westus      akumina
 az vm image list-offers --location westus --publisher Canonical --output table
 ```
 
-출력
+출력:
 
 ```
 Location    Name
@@ -278,7 +278,7 @@ UbuntuServer  Canonical    18.04-LTS  Canonical:UbuntuServer:18.04-LTS:18.04.201
 ...
 ```
 
-이제 URN 값을 기록하여 사용할 이미지를 정밀하게 선택할 수 있습니다. [az vm create](/cli/azure/vm) 명령을 사용하여 VM을 만들 때 이 값을 `--image` 매개 변수와 함께 제공합니다. 필요에 따라 "최신"을 사용하여 URN에서 버전 번호를 바꿀 수 있습니다. 이 버전은 항상 최신 버전의 이미지입니다. 
+이제 URN 값을 기록하여 사용할 이미지를 정밀하게 선택할 수 있습니다. `--image`az vm create[ 명령을 사용하여 VM을 만들 때 이 값을 ](/cli/azure/vm) 매개 변수와 함께 제공합니다. 필요에 따라 "최신"을 사용하여 URN에서 버전 번호를 바꿀 수 있습니다. 이 버전은 항상 최신 버전의 이미지입니다. 
 
 Resource Manager 템플릿을 사용하여 VM을 배포하는 경우 `imageReference` 속성에 이미지 매개 변수를 개별적으로 설정합니다. [템플릿 참조](/azure/templates/microsoft.compute/virtualmachines)를 참조하세요.
 
@@ -286,7 +286,7 @@ Resource Manager 템플릿을 사용하여 VM을 배포하는 경우 `imageRefer
 
 ### <a name="view-plan-properties"></a>플랜 속성 보기
 
-이미지의 구매 계획 정보를 보려면 [az vm image show](/cli/azure/image) 명령을 실행합니다. 출력의 `plan` 속성이 `null`이 아닌 경우, 이미지에는 프로그램 방식으로 배포하기 전에 동의해야 하는 약관이 있습니다.
+이미지의 구매 플랜 정보를 보려면 [az vm image show](/cli/azure/image) 명령을 실행합니다. 출력의 `plan` 속성이 `null`이 아닌 경우, 이미지에는 프로그램 방식으로 배포하기 전에 동의해야 하는 약관이 있습니다.
 
 예를 들어, Canonical Ubuntu Server 18.04 LTS 이미지는 `plan` 정보가 `null`이기 때문에 추가 약관이 없습니다.
 
@@ -310,12 +310,12 @@ az vm image show --location westus --urn Canonical:UbuntuServer:18.04-LTS:latest
 }
 ```
 
-RabbitMQ Certified by Bitnami 이미지에 유사한 명령을 실행하면 `name`, `product` 및 `publisher`와 같은 `plan` 속성이 표시됩니다. (일부 이미지에는 `promotion code` 속성도 있습니다.) 이 이미지를 배포하려면 다음 섹션에서 약관에 동의하고 프로그래밍 방식 배포를 사용하도록 설정합니다.
+RabbitMQ Certified by Bitnami 이미지에 유사한 명령을 실행하면 `plan`, `name` 및 `product`와 같은 `publisher` 속성이 표시됩니다. 일부 이미지에는 `promotion code` 속성도 있습니다. 이 이미지를 배포 하려면 다음 섹션을 참조 하 여 약관에 동의 하 고 프로그래밍 방식 배포를 사용 하도록 설정 하세요.
 
 ```azurecli
 az vm image show --location westus --urn bitnami:rabbitmq:rabbitmq:latest
 ```
-출력
+출력:
 
 ```
 {

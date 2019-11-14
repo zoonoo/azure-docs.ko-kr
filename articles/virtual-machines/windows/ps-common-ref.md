@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines에 대한 공통 PowerShell 명령 | Microsoft Docs
+title: Azure Virtual Machines에 대 한 일반적인 PowerShell 명령
 description: Azure에서 Windows VM 만들기 및 관리를 시작하기 위한 공통 PowerShell 명령
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 24cb9db9dff670ece75db24df873d24c08919722
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: e61d0840f66dad2e1bf91512281d9171771f7ca9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749270"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032900"
 ---
 # <a name="common-powershell-commands-for-creating-and-managing-azure-virtual-machines"></a>Azure Virtual Machines를 만들고 관리하기 위한 공통 PowerShell 명령
 
@@ -71,5 +71,5 @@ ms.locfileid: "73749270"
 
 
 ## <a name="next-steps"></a>다음 단계
-* [리소스 관리자 및 PowerShell을 사용하여 Windows VM 만들기](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 가상 머신 만들기 기본 단계를 참조합니다.
+* [리소스 관리자 및 PowerShell을 사용하여 Windows VM 만들기](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에서 가상 컴퓨터 만들기 기본 단계를 참조합니다.
 

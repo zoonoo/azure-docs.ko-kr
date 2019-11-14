@@ -1,5 +1,5 @@
 ---
-title: Stretch Database TSQL에 대해 투명한 데이터 암호화를 사용하도록 설정 - Azure | Microsoft Docs
+title: Stretch Database에 대해 투명한 데이터 암호화 사용 (T-sql)
 description: Azure TSQL에서 SQL Server Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정
 services: sql-server-stretch-database
 documentationcenter: ''
@@ -13,12 +13,13 @@ author: blazem-msft
 ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
-ms.openlocfilehash: 9718db18ea675fa744262f0736aff3c07732e1d1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 6f1f5f55348069dbfe11b4d5857d93f8ba8c9b19
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002866"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033965"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure-transact-sql"></a>Azure에서 Stretch Database에 대해 TDE(투명한 데이터 암호화)를 사용하도록 설정(Transact-SQL)
 > [!div class="op_single_selector"]
@@ -29,7 +30,7 @@ ms.locfileid: "66002866"
 
 TDE(투명한 데이터 암호화)는 애플리케이션에 대한 변경 요구 없이 데이터베이스, 연결된 백업 및 저장된 트랜잭션 로그 파일에 대한 실시간 암호화 및 암호 해독을 수행하여 악의적인 활동의 위협으로부터 보호합니다.
 
-TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 스토리지를 암호화합니다. 데이터베이스 암호화 키는 기본 제공 서버 인증서에 의해 보호됩니다. 기본 제공 서버 인증서는 각 Azure 서버에 대해 고유합니다. Microsoft는 적어도 90일마다 이러한 인증서를 자동으로 회전합니다. TDE에 대한 일반적인 설명은 [TDE(투명한 데이터 암호화)]를 참조하세요.
+TDE는 데이터베이스 암호화 키라는 대칭 키를 사용하여 전체 데이터베이스의 스토리지를 암호화합니다. 데이터베이스 암호화 키는 기본 제공 서버 인증서에 의해 보호됩니다. 기본 제공 서버 인증서는 각 Azure 서버에 대해 고유합니다. Microsoft는 적어도 90일마다 이러한 인증서를 자동으로 회전합니다. TDE에 대한 일반적인 설명은 [투명한 데이터 암호화(TDE)]를 참조하세요.
 
 ## <a name="enabling-encryption"></a>암호화 설정
 스트레치 사용 SQL Server 데이터베이스에서 마이그레이션된 데이터를 저장하는 Azure 데이터베이스에 대해 TDE를 사용하도록 설정하려면 다음을 수행합니다.
@@ -54,7 +55,7 @@ ALTER DATABASE [database_name] SET ENCRYPTION OFF;
 ## <a name="verifying-encryption"></a>암호화 확인
 스트레치 사용 SQL Server 데이터베이스에서 마이그레이션된 데이터를 저장하는 Azure 데이터베이스에 대한 암호화 상태를 확인하려면 다음을 수행합니다.
 
-1. master 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버 로그인을 사용하여 **master** 또는 인스턴스 데이터베이스에 연결합니다.
+1. 마스터 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 **마스터** 또는 인스턴스 데이터베이스에 연결
 2. 다음 문을 실행하여 데이터베이스를 암호화합니다.
 
 ```sql
@@ -68,7 +69,7 @@ FROM
 ```1```의 결과는 암호화된 데이터베이스를 나타내고 ```0```은(는) 암호화되지 않은 데이터베이스를 나타냅니다.
 
 <!--Anchors-->
-[TDE(투명한 데이터 암호화)]: https://msdn.microsoft.com/library/bb934049.aspx
+[투명한 데이터 암호화(TDE)]: https://msdn.microsoft.com/library/bb934049.aspx
 
 
 <!--Image references-->

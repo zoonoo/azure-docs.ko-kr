@@ -1,10 +1,11 @@
 ---
-title: 응급 액세스 관리자 계정 관리-Azure Active Directory | Microsoft Docs
+title: 응급 액세스 관리자 계정 관리-Azure AD | Microsoft Docs
 description: 이 문서에서는 Azure Active Directory (Azure AD) 조직에서 실수로 잠기는 것을 방지 하기 위해 응급 액세스 계정을 사용 하는 방법을 설명 합니다.
 services: active-directory
 author: markwahl-msft
+manager: daveba
 ms.author: curtand
-ms.date: 09/09/2019
+ms.date: 11/08/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -12,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04016df86a9bed06f2cbb79d459b10486a9b7d67
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 80ab7e0603f63fb395832b0da887916dc032c3bf
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772403"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028138"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Azure AD에서 응급 액세스 계정 관리
 
@@ -51,7 +52,7 @@ ms.locfileid: "70772403"
 
 암호 손상으로 인한 공격 위험을 줄이기 위해서, Azure AD에서는 모든 개별 사용자에 대해 MFA을 요구하는 것이 좋습니다. 이 그룹에는 계정이 공격에 노출되면 상당한 영향을 미치는 관리자 및 기타 모든 사용자(예: 회계 담당자)가 포함됩니다.
 
-하지만 응급 액세스 계정 중 하나 이상은 응급 계정이 아닌 기타 계정과 MFA 메커니즘이 달라야 합니다. 여기에는 타사 MFA 솔루션이 포함됩니다. Azure AD의 모든 관리자 및 기타 연결 된 SaaS (software as a service) 앱 [에 대해 multi-factor authentication](../authentication/howto-mfa-userstates.md) 을 요구 하는 조건부 액세스 정책이 있는 경우이 요구 사항에서 응급 액세스 계정을 제외 하 고 구성 해야 합니다. 대신 다른 메커니즘이 있습니다. 또한 계정에 사용자별 MFA 정책이 없도록 해야 합니다.
+하지만 응급 액세스 계정 중 하나 이상은 응급 계정이 아닌 기타 계정과 MFA 메커니즘이 달라야 합니다. 여기에는 타사 MFA 솔루션이 포함됩니다. Azure AD의 모든 관리자 및 기타 연결 된 SaaS (software as a service) 앱 [에 대해 multi-factor authentication](../authentication/howto-mfa-userstates.md) 을 요구 하는 조건부 액세스 정책이 있는 경우이 요구 사항에서 응급 액세스 계정을 제외 하 고 대신 다른 메커니즘을 구성 해야 합니다. 또한 계정에 사용자별 MFA 정책이 없도록 해야 합니다.
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>조건부 액세스 정책에서 하나 이상의 계정을 제외 합니다.
 
@@ -71,7 +72,7 @@ AD Domain Services와 ADFS 또는 유사한 ID 공급자를 사용하여 Azure A
 
 조직은 응급 계정에서 로그인 및 감사 로그 작업을 모니터링 하 고 다른 관리자에 게 알림을 트리거합니다. 브레이크 유리 계정에서 활동을 모니터링 하는 경우 이러한 계정이 테스트 또는 실제 emergencies 사용 되는지 확인할 수 있습니다. Azure Log Analytics를 사용 하 여 로그인 로그를 모니터링 하 고, 투명 한 계정이 로그인 할 때마다 관리자에 게 전자 메일 및 SMS 경고를 트리거할 수 있습니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>선행 조건
 
 1. Azure Monitor에 [AZURE AD 로그인 로그를 보냅니다](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) .
 
@@ -108,7 +109,7 @@ AD Domain Services와 ADFS 또는 유사한 ID 공급자를 사용하여 Azure A
 
         ![경고 논리](./media/directory-emergency-access/alert-image2.png)
 
-    1. **완료** 를 선택합니다. 이제이 경고의 월별 예상 비용을 볼 수 있습니다.
+    1. **완료**를 선택합니다. 이제이 경고의 월별 예상 비용을 볼 수 있습니다.
 1. 경고에서 알림을 받을 사용자의 작업 그룹을 선택 합니다. 만들려면 [작업 그룹 만들기](#create-an-action-group)를 참조 하세요.
 1. 작업 그룹의 멤버로 전송 되는 전자 메일 알림을 사용자 지정 하려면 작업 **사용자 지정**에서 작업을 선택 합니다.
 1. **경고 세부 정보**에서 경고 규칙 이름을 지정 하 고 설명 (선택 사항)을 추가 합니다.

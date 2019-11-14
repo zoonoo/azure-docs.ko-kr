@@ -1,5 +1,5 @@
 ---
-title: Azure REST API를 통해 Linux 가상 머신 만들기 | Microsoft Docs
+title: Azure REST API을 사용 하 여 Linux 가상 머신 만들기
 description: Azure에서 Azure REST API를 통해 관리 디스크 및 SSH 인증을 사용하는 Linux 가상 머신을 만드는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 9851305bdaa2f214e0d00eda3235068cac2ea980
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c1010bf4bde01920449e9252de563d79bfc61997
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083470"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036438"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>REST API를 통해 SSH 인증을 사용하는 Linux 가상 머신 만들기
 
@@ -29,7 +29,7 @@ Azure Portal, Azure CLI 2.0, 여러 Azure SDK, Azure Resource Manager 템플릿 
 
 이 문서에서는 REST API를 사용하여 관리 디스크 및 SSH 인증을 통해 Ubuntu 18.04-LTS를 실행하는 Linux VM을 만드는 방법을 보여 줍니다.
 
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 요청을 만들고 제출하기 전에 다음이 필요합니다.
 
@@ -53,8 +53,8 @@ PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 
 | 요청 헤더   | 설명 |
 |------------------|-----------------|
-| *Content-Type:*  | 필수 요소. `application/json`로 설정합니다. |
-| *Authorization:* | 필수 요소. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
+| *Content-Type:*  | 필수입니다. `application/json`로 설정합니다. |
+| *권한 부여* | 필수입니다. 유효한 `Bearer` [액세스 토큰](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |
 
 REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성 요소](/rest/api/azure/#components-of-a-rest-api-requestresponse)를 참조하세요.
 
@@ -62,16 +62,16 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 다음과 같은 일반적인 정의가 요청 본문을 빌드하는 데 사용됩니다.
 
-| 이름                       | 필수 | 형식                                                                                | Description  |
+| 이름                       | 필수 | 에                                                                                | 설명  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
-| 위치                   | True     | string                                                                              | 리소스 위치. |
+| location                   | true     | string                                                                              | 리소스 위치. |
 | name                       |          | string                                                                              | 가상 머신의 이름. |
 | properties.hardwareProfile |          | [HardwareProfile](/rest/api/compute/virtualmachines/createorupdate#hardwareprofile) | 가상 머신에 대한 하드웨어 설정을 지정합니다. |
 | properties.storageProfile  |          | [StorageProfile](/rest/api/compute/virtualmachines/createorupdate#storageprofile)   | 가상 머신 디스크에 대한 스토리지 설정을 지정합니다. |
 | properties.osProfile       |          | [OSProfile](/rest/api/compute/virtualmachines/createorupdate#osprofile)             | 가상 머신에 대한 운영 체제 설정을 지정합니다. |
 | properties.networkProfile  |          | [NetworkProfile](/rest/api/compute/virtualmachines/createorupdate#networkprofile)   | 가상 머신의 네트워크 인터페이스를 지정합니다. |
 
-요청 본문 예제는 아래에 있습니다. `keyData`에서 `{computerName}` 및 `{name}` 매개 변수의 VM 이름, `networkInterfaces`에 만든 네트워크 인터페이스 이름, `adminUsername` 및 `path`의 사용자 이름, SSH 키 쌍의 *public* 부분(위치 예: `~/.ssh/id_rsa.pub`)을 지정했는지 확인합니다. 다른 매개 변수의 경우 `location` 및 `vmSize`를 포함하여 수정할 수 있습니다.  
+요청 본문 예제는 아래에 있습니다. `{computerName}`에서 `{name}` 및 `networkInterfaces` 매개 변수의 VM 이름, `adminUsername`에 만든 네트워크 인터페이스 이름, `path` 및 *의 사용자 이름, SSH 키 쌍의* public`~/.ssh/id_rsa.pub` 부분(위치 예: `keyData`)을 지정했는지 확인합니다. 다른 매개 변수의 경우 `location` 및 `vmSize`를 포함하여 수정할 수 있습니다.  
 
 ```json
 {
@@ -130,13 +130,13 @@ REST API 요청 작업에 대한 일반 내용은 [REST API 요청/응답 구성
 
 ## <a name="sending-the-request"></a>요청 보내기
 
-이 HTTP 요청을 보내기 위해 원하는 클라이언트를 사용할 수 있습니다. **사용** 단추를 클릭하여 [브라우저 도구](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate)를 사용할 수도 있습니다.
+이 HTTP 요청을 보내기 위해 원하는 클라이언트를 사용할 수 있습니다. [사용](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) 단추를 클릭하여 **브라우저 도구**를 사용할 수도 있습니다.
 
 ### <a name="responses"></a>Responses
 
 가상 머신 만들기 또는 업데이트하는 작업에 대한 성공적인 응답에는 두 가지가 있습니다.
 
-| 이름        | 형식                                                                              | 설명 |
+| 이름        | 에                                                                              | 설명 |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 정상      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 확인          |
 | 201 생성됨 | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | 만든 날짜     |

@@ -1,25 +1,25 @@
 ---
-title: Privileged Identity Management에서 관리할 Azure 리소스 검색-Azure Active Directory | Microsoft Docs
+title: PIM에서 관리할 Azure 리소스 검색-Azure AD | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 관리할 Azure 리소스를 검색하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7e401426e1c9448caaae28648abce481f426d38
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 87da43100c7494937ddc842e0f903ba3a360959e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895695"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022886"
 ---
 # <a name="discover-azure-resources-to-manage-in-privileged-identity-management"></a>Privileged Identity Management에서 관리할 Azure 리소스 검색
 
@@ -29,7 +29,7 @@ Azure 리소스에 대 한 Privileged Identity Management를 처음 설정 하�
 
 ## <a name="discover-resources"></a>리소스 검색
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 

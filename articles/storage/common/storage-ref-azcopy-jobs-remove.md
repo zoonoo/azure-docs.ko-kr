@@ -8,14 +8,14 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 82c399580322334e67c0c9c2b88d1edf6f175e0c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: ba403c8d823b7ead0414521ebd51dc6f6601ccd8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518292"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034169"
 ---
-# <a name="azcopy-jobs-remove"></a>azcopy 작업 제거
+# <a name="azcopy-jobs-remove"></a>azcopy jobs remove
 
 지정 된 작업 ID와 연결 된 모든 파일을 제거 합니다.
 
@@ -26,7 +26,14 @@ ms.locfileid: "72518292"
 azcopy jobs remove [jobID] [flags]
 ```
 
-## <a name="examples"></a>예시
+## <a name="related-conceptual-articles"></a>관련 개념 문서
+
+- [AzCopy 시작](storage-use-azcopy-v10.md)
+- [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](storage-use-azcopy-blobs.md)
+- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
+
+## <a name="examples"></a>예
 
 ```
   azcopy jobs rm e52247de-0323-b14d-4cc8-76e0be2e2d44
@@ -42,6 +49,6 @@ azcopy jobs remove [jobID] [flags]
 
 **--output-** 명령 출력의 문자열 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 ' text '입니다. (기본 "텍스트")
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 - [azcopy 작업](storage-ref-azcopy-jobs.md)

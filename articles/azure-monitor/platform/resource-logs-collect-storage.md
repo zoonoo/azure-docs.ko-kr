@@ -8,18 +8,23 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 8a1802f0f24ba5ccad3ec1c45f3baa29dfe6909f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 306f6cb0b50b7befcbf51e6164a5da887d35616e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262558"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030884"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>저장소 계정에 Azure 리소스 로그 보관
 Azure의 [리소스 로그](resource-logs-overview.md) 는 azure 리소스의 내부 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 이 문서에서는 보관할 데이터를 유지 하기 위해 Azure storage 계정에 리소스 로그를 수집 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 아직 없는 경우 [Azure storage 계정을 만들어야](../../storage/common/storage-quickstart-create-account.md) 합니다. 설정을 구성 하는 사용자가 두 구독에 대 한 적절 한 RBAC 액세스를 가진 경우 저장소 계정은 로그를 보내는 리소스와 동일한 구독을가지고 있지 않아도 됩니다.
+
+
+> [!IMPORTANT]
+> Azure Data Lake Storage Gen2 계정은 현재 Azure Portal에서 유효한 옵션으로 나열 될 수 있지만 진단 설정의 대상으로 지원 되지 않습니다.
+
 
 모니터링 데이터에 대 한 액세스를 더 잘 제어할 수 있도록 다른 모니터링 되지 않는 데이터가 저장 되어 있는 기존 저장소 계정을 사용해 서는 안 됩니다. 그러나 [활동 로그](activity-logs-overview.md) 를 저장소 계정에 보관 하는 경우에도 동일한 저장소 계정을 사용 하 여 모든 모니터링 데이터를 중앙 위치에 유지 하도록 선택할 수 있습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell을 사용하여 VM으로 포트 열기 | Microsoft Docs
+title: Azure PowerShell를 사용 하 여 VM에 대 한 포트 열기
 description: Azure Resource Manager 배포 모델 및 Azure PowerShell을 사용하여 Windows VM에 대한 포트를 열고 엔드포인트를 만드는 방법 알아보기
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: cynthn
-ms.openlocfilehash: cd5aab6934e2f9692411e09046722cd59ad5e6a8
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3577c97b55baebe08ca4020b0c570160d551dfd3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089097"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033066"
 ---
 # <a name="how-to-open-ports-and-endpoints-to-a-vm-in-azure-using-powershell"></a>PowerShell을 사용하여 Azure에서 VM의 포트 및 엔드포인트를 여는 방법
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -60,7 +60,7 @@ $nsg = New-AzNetworkSecurityGroup `
     -SecurityRules $httprule
 ```
 
-이제 서브넷에 네트워크 보안 그룹을 할당합니다. 다음 예제에서는 [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork)를 사용하여 *myVnet*이라는 기존 가상 네트워크를 *$vnet* 변수에 할당합니다.
+이제 서브넷에 네트워크 보안 그룹을 할당합니다. 다음 예제에서는 *Get-AzVirtualNetwork*를 사용하여 *myVnet*이라는 기존 가상 네트워크를 [$vnet](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) 변수에 할당합니다.
 
 ```powershell
 $vnet = Get-AzVirtualNetwork `

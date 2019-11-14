@@ -1,5 +1,5 @@
 ---
-title: SQL Server IaaS 에이전트 확장을 사용 하 여 Azure virtual machines에서 관리 작업 자동화 | Microsoft Docs
+title: IaaS 에이전트 확장을 사용 하 여 관리 작업 자동화
 description: 이 문서에서는 특정 SQL Server 관리 작업을 자동화 하는 SQL Server IaaS 에이전트 확장을 관리 하는 방법을 설명 합니다. 여기에는 자동화 된 백업, 자동화 된 패치 및 Azure Key Vault 통합이 포함 됩니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -16,12 +16,13 @@ ms.workload: iaas-sql-server
 ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3240bb689447c16de8c62e9e8118b0b0df2b1ea3
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 9aae386e21df6711fc4984a7abfd34f418399f76
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259421"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034190"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>SQL Server IaaS 에이전트 확장을 사용 하 여 Azure virtual machines에서 관리 작업 자동화
 > [!div class="op_single_selector"]
@@ -38,7 +39,7 @@ SQL Server IaaS 에이전트 확장(SqlIaasExtension)은 관리 작업을 자동
 ## <a name="supported-services"></a>지원되는 서비스
 SQL Server IaaS 에이전트 확장은 다음 관리 작업을 지원합니다.
 
-| 관리 기능 | Description |
+| 관리 기능 | 설명 |
 | --- | --- |
 | **자동화 된 백업 SQL Server** |는 VM에 기본 인스턴스 또는 [올바르게 설치](virtual-machines-windows-sql-server-iaas-faq.md#administration) 된 명명 된 SQL Server 인스턴스에 대 한 모든 데이터베이스의 백업 일정을 자동화 합니다. 자세한 내용은 [Azure virtual machines의 SQL Server에 대 한 자동화 된 백업 (리소스 관리자)](virtual-machines-windows-sql-automated-backup.md)을 참조 하세요. |
 | **자동화 된 패치 SQL Server** |워크로드가 가장 많은 시간에 업데이트하지 않도록 VM에 대한 중요한 Windows 업데이트가 수행될 유지 관리 기간을 구성할 수 있습니다. 자세한 내용은 [Azure virtual machines의 SQL Server에 대 한 자동화 된 패치 (리소스 관리자)](virtual-machines-windows-sql-automated-patching.md)를 참조 하세요. |
@@ -49,7 +50,7 @@ SQL Server Iaas 에이전트 확장이 설치 되어 실행 되 면 관리 기�
 * Azure Portal에서 가상 컴퓨터의 SQL Server 패널에서 Azure Marketplace의 SQL Server 이미지에 Azure PowerShell 합니다.
 * 확장의 수동 설치에 대 한 Azure PowerShell. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 VM에서 SQL Server IaaS 에이전트 확장을 사용 하기 위한 요구 사항은 다음과 같습니다.
 
 **운영 체제**:

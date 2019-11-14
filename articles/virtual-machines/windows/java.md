@@ -1,5 +1,5 @@
 ---
-title: Java를 사용하여 Azure Virtual Machine 만들기 및 관리 | Microsoft Docs
+title: Java를 사용 하 여 Azure 가상 머신 만들기 및 관리
 description: Java 및 Azure Resource Manager를 사용하여 가상 컴퓨터 및 모든 지원 리소스를 배포합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: fa6c5115663d770f561764356129448af878668b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bf0f2928bd7cbac08a2a887481f19b3acb99f6fa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103031"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039713"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-java"></a>Java를 사용하여 Azure에서 Windows VM 만들기 및 관리
 
-[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Java를 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
+[Azure VM(Virtual Machine)](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 몇 가지 지원 Azure 리소스가 필요합니다. 이 문서에서는 Java를 사용하여 VM 리소스 만들기, 관리 및 삭제에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * Maven 프로젝트 만들기
@@ -116,7 +116,7 @@ ms.locfileid: "70103031"
 
 ## <a name="create-credentials"></a>자격 증명 만들기
 
-이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md)에 액세스할 수 있는지 확인합니다. 또한 이후 단계에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해 두어야 합니다.
+이 단계를 시작하기 전에 [Active Directory 서비스 주체](../../active-directory/develop/howto-create-service-principal-portal.md)에 액세스할 수 있는지 확인합니다. 또한 이후 단계에서 필요한 애플리케이션 ID, 인증 키 및 테넌트 ID를 기록해야 합니다.
 
 ### <a name="create-the-authorization-file"></a>권한 부여 파일 만들기
 
@@ -140,7 +140,7 @@ ms.locfileid: "70103031"
 
 ### <a name="create-the-management-client"></a>관리 클라이언트 만들기
 
-1. `src\main\java\com\fabrikam`에 있는 `App.java` 파일을 열고 이 패키지 문이 위쪽에 있는지 확인합니다.
+1. `App.java`에 있는 `src\main\java\com\fabrikam` 파일을 열고 이 패키지 문이 위쪽에 있는지 확인합니다.
 
     ```java
     package com.fabrikam.testAzureApp;
@@ -250,7 +250,7 @@ Network network = azure.networks()
 
 ### <a name="create-the-network-interface"></a>네트워크 인터페이스 만들기
 
-가상 머신은 가상 네트워크에서 통신하기 위해 네트워크 인터페이스가 필요합니다.
+가상 컴퓨터는 가상 네트워크에서 통신하기 위해 네트워크 인터페이스가 필요합니다.
 
 네트워크 인터페이스를 만들려면 Main 메서드의 try 블록에 이 코드를 추가합니다.
 

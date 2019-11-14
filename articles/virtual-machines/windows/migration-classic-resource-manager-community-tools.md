@@ -1,5 +1,5 @@
 ---
-title: 커뮤니티 도구 - 클래식 리소스를 Azure Resource Manager로 이동 | Microsoft 문서
+title: 커뮤니티 도구-클래식 리소스를 Azure Resource Manager 이동
 description: 이 문서에는 IaaS 리소스를 클래식에서 Azure Resource Manager 배포 모델로 마이그레이션하도록 지원하기 위해 커뮤니티에서 제공해온 도구가 설명되어 있습니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 2b5d218812878db6fb110c043afffd2f9a2d344d
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a4a7ed6d57e72deb7f49895935e522e65e18f7d9
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102670"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033308"
 ---
 # <a name="community-tools-to-migrate-iaas-resources-from-classic-to-azure-resource-manager"></a>클래식에서 Azure Resource Manager로 IaaS 리소스를 마이그레이션하기 위한 커뮤니티 도구
 이 문서에는 IaaS 리소스를 클래식에서 Azure Resource Manager 배포 모델로 마이그레이션하도록 지원하기 위해 커뮤니티에서 제공해온 도구가 설명되어 있습니다.
@@ -41,7 +41,7 @@ Azure 서비스 관리에서 Azure Resource Manager로의 엔터프라이즈 마
 [도구 설명서 링크](https://github.com/Azure/classic-iaas-resourcemanager-migration/tree/master/AsmToArmMigrationApiToolset)
 
 ## <a name="migaz"></a>migAz
-migAz는 전체 클래식 IaaS 리소스 집합을 Azure Resource Manager IaaS 리소스로 마이그레이션할 수 있는 추가 옵션입니다. 마이그레이션은 동일한 구독 내에서 또는 서로 다른 구독 및 구독 유형 간에 발생할 수 있습니다 (예: CSP 구독).
+migAz는 전체 클래식 IaaS 리소스 집합을 Azure Resource Manager IaaS 리소스로 마이그레이션할 수 있는 추가 옵션입니다. 동일한 구독 내에서 또는 서로 다른 구독 및 구독 형식(예: CSP 구독) 간에 마이그레이션을 수행할 수 있습니다.
 
 [도구 설명서 링크](https://github.com/Azure/migAz)
 

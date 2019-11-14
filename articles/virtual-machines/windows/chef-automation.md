@@ -1,5 +1,5 @@
 ---
-title: Chef를 사용하여 Azure 가상 머신 배포 | Microsoft Docs
+title: Chef를 사용 하 여 Azure 가상 머신 배포
 description: Chef를 사용하여 자동화된 가상 머신 배포 및 Microsoft Azure에서 구성하는 방법에 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 07/09/2019
 ms.author: diviso
-ms.openlocfilehash: 5cbf53da5a0af0a511350b9f30153e2fefe72dcf
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58642cdbf164523390d5e4925290b43f6c05549b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70080058"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039554"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Chef를 사용하여 Azure 가상 머신 배포 자동화
 
@@ -36,7 +36,7 @@ Chef는 자동화 및 필요한 상태 구성을 제공하는 유용한 도구�
 
 ![][2]
 
-Chef는 세 가지 주요 아키텍처 구성 요소인 Chef Server, Chef Client(노드) 및 Chef Workstation으로 구분됩니다.
+Chef에는 Chef 서버, Chef 클라이언트(노드) 및 Chef 워크스테이션 등의 세 가지 주요 아키텍처 구성 요소가 있습니다.
 
 Chef Server는 관리 지점이며, 호스트 솔루션과 온-프레미스 솔루션의 두 가지 옵션이 있습니다.
 
@@ -79,7 +79,7 @@ SubscriptionID, TenantID, ClientID 및 클라이언트 암호 (위에서 설정�
 Chef Server를 아직 사용하고 있지 않으면 다음을 수행할 수 있습니다.
 
 * [Hosted Chef](https://manage.chef.io/signup)에 등록합니다. 이렇게 하는 것이 Chef를 시작하는 가장 빠른 방법입니다.
-* [Chef Docs](https://docs.chef.io/)의 [설치 지침](https://docs.chef.io/install_server.html)에 따라 Linux 기반 컴퓨터에 독립 실행형 Chef Server를 설치합니다.
+* [Chef Docs](https://docs.chef.io/install_server.html)의 [설치 지침](https://docs.chef.io/)에 따라 Linux 기반 컴퓨터에 독립 실행형 Chef Server를 설치합니다.
 
 ### <a name="creating-a-hosted-chef-account"></a>Hosted Chef 계정 만들기
 
@@ -193,7 +193,7 @@ knife[:azure_client_secret] = "#1234p$wdchef19"
 다음으로, Chef Workstation을 [다운로드 및 설치](https://downloads.chef.io/chef-workstation/)합니다.
 Chef Workstation을 기본 위치에 설치합니다. 설치하는 데 몇 분 정도 걸릴 수 있습니다.
 
-바탕 화면에 "CW PowerShell"이 표시됩니다. 이것은 Chef 제품과 상호 작용하는 데 필요한 도구와 함께 로드되는 환경입니다. CW PowerShell은와 같은 기존 Chef CLI 명령 `chef-run` `chef`뿐만 아니라와 같은 새 임시 명령을 사용할 수 있도록 합니다. `chef -v`를 사용하여 설치된 Chef Workstation 및 Chef 도구 버전을 확인합니다. Chef Workstation 앱에서 "Chef Workstation 정보"를 선택하여 Workstation 버전을 확인할 수도 있습니다.
+바탕 화면에 "CW PowerShell"이 표시됩니다. 이것은 Chef 제품과 상호 작용하는 데 필요한 도구와 함께 로드되는 환경입니다. CW PowerShell은 `chef`와 같은 기존 Chef CLI 명령 뿐만 아니라 `chef-run` 같은 새로운 임시 명령을 사용할 수 있도록 합니다. `chef -v`를 사용하여 설치된 Chef Workstation 및 Chef 도구 버전을 확인합니다. Chef Workstation 앱에서 "Chef Workstation 정보"를 선택하여 Workstation 버전을 확인할 수도 있습니다.
 
 `chef --version`은 다음과 같은 결과를 반환합니다.
 
@@ -309,7 +309,7 @@ Azure Virtual Machine을 배포하고 IIS 웹 서비스 및 기본 웹 페이지
     -r "recipe[webserver]"
 
 
-위의 예제에서는 미국 서 부 지역에 Windows Server 2016가 설치 된 Standard_DS2_v2 가상 컴퓨터를 만듭니다. 특정 변수를 대체하고 실행합니다.
+위의 예제에서는 미국 서 부 지역에 Windows Server 2016가 설치 된 Standard_DS2_v2 가상 머신을 만듭니다. 특정 변수를 대체하고 실행합니다.
 
 > [!NOTE]
 > 명령줄에서 –tcp-endpoints 매개 변수를 사용하여 엔드포인트 네트워크 필터 규칙을 자동화해 보겠습니다. 웹 페이지 및 RDP 세션에 대 한 액세스를 제공 하기 위해 80 및 3389 포트를 열었습니다.

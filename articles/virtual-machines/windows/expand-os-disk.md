@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Windows VM의 OS 드라이브 확장 | Microsoft Docs
+title: Azure에서 Windows VM의 OS 드라이브 확장
 description: Resource Manager 배포 모델에서 Azure Powershell을 사용하여 가상 머신의 OS 드라이브 크기를 확장합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 07/05/2018
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 12fa8cb09a9864b49c9368462ae3d5ca1d88f2c9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c76f57d15cd4cbdad5ded3b7545aab4d57272a50
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749421"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033493"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>가상 머신의 OS 드라이브 확장 방법
 
@@ -207,11 +207,11 @@ VM의 디스크를 확장한 후에는 OS로 이동하고 볼륨을 확장하여
 
 2.  명령 프롬프트를 열고 **diskpart**를 입력합니다.
 
-2.  **DISKPART** 프롬프트에 `list volume`를 입력합니다. 확장할 볼륨을 기록해 둡니다.
+2.  **DISKPART** 프롬프트에 `list volume`을 입력합니다. 확장할 볼륨을 기록해 둡니다.
 
-3.  **DISKPART** 프롬프트에 `select volume <volumenumber>`를 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber*가 선택됩니다.
+3.  **DISKPART** 프롬프트에 `select volume <volumenumber>`을 입력합니다. 동일한 디스크의 인접한 빈 공간으로 확장하려는 볼륨 *volumenumber*가 선택됩니다.
 
-4.  **DISKPART** 프롬프트에 `extend [size=<size>]`를 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
+4.  **DISKPART** 프롬프트에 `extend [size=<size>]`을 입력합니다. 선택된 볼륨이 *size*(MB)만큼 확장됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계

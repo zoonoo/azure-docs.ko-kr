@@ -1,5 +1,5 @@
 ---
-title: Azure Portal의 Windows SQL Server VM에 대한 프로비저닝 안내서 | Microsoft Docs
+title: Azure Portal를 사용 하 여 가상 머신 프로 비전
 description: 이 방법 가이드에서는 Azure Portal에서 Windows SQL Server 2017 가상 머신을 만드는 데 사용되는 옵션에 대해 설명합니다.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,12 +14,13 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1e0bc4647476cd5c6aa0f38456ef8890b4ddcaa5
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 68fda45038da48660da0c29787b3a86e00d9b129
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828772"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033579"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Azure Portal에서 Windows SQL Server 가상 머신 프로비전하는 방법
 
@@ -30,7 +31,7 @@ ms.locfileid: "71828772"
 > [!TIP]
 > SQL Server 가상 머신에 대한 질문이 있으면 [질문과 대답](virtual-machines-windows-sql-server-iaas-faq.md)을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 ## <a id="select"></a>SQL Server 가상 머신 갤러리 이미지
 
@@ -38,7 +39,7 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 
 1. Azure Portal의 왼쪽 메뉴에서 **Azure SQL**을 선택합니다. **AZURE sql** 이 목록에 없는 경우 **모든 서비스**를 선택한 다음 검색 상자에 azure sql을 입력 합니다. (선택 사항) **Azure SQL** 옆의 별표를 선택하여 즐겨찾기로 선택하고 왼쪽 탐색에 항목으로 추가합니다. 
 1. **+ 추가**를 선택하여 **SQL 배포 옵션 선택** 페이지를 엽니다. **자세한 정보 표시**를 선택 하 여 추가 정보를 볼 수 있습니다. 
-1. **SQL 가상 컴퓨터** 타일의 SQL Server 이미지 검색 상자에 `2017`을 입력 하 고 ** 무료 SQL Server 라이선스를 선택 합니다. Windows Server 2016의 SQL Server 2017 Developer @ no__t-0 (드롭다운에서) 
+1. **SQL 가상 컴퓨터** 타일의 SQL Server 이미지 검색 상자에 `2017`를 입력 하 고 드롭다운 메뉴에서 **무료 SQL Server 라이선스: SQL Server 2017 Developer on Windows Server 2016** 를 선택 합니다. 
 
 
    ![SQL VM 이미지 선택](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
@@ -73,10 +74,10 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
     1. 고유한 **가상 머신 이름을**입력 합니다.  
     1. **영역**에 위치를 선택합니다. 
     1. 이 가이드의 목적에 맞게 **가용성 옵션** 을 _인프라 중복성 필요 없음_으로 설정 된 상태로 둡니다. 가용성 옵션에 대한 자세한 내용을 알아보려면 [가용성](../../windows/availability.md)을 참조하세요. 
-    1. **이미지** 목록에서 _무료 SQL Server 라이선스: Windows Server 2016의 SQL Server 2017 Developer_ 이미지를 선택합니다.  
+    1. **이미지** 목록에서 _무료 SQL Server 라이선스: SQL Server 2017 Developer on Windows Server 2016_를 선택 합니다.  
     1. 가상 머신의 **크기**에서 **크기 변경**을 선택하고 **A2 Basic** 제품을 선택합니다. 리소스를 다 사용했으면 예기치 않은 요금이 청구되지 않도록 리소스를 삭제하세요. 프로덕션 워크로드의 경우 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)에서 권장하는 컴퓨터 크기 및 구성을 참조하세요.
 
-    ![인스턴스 정보](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
+    ![인스턴스 세부 정보](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
 > [!IMPORTANT]
 > **크기 선택** 창에 표시된 월별 예상 비용에는 SQL Server 라이선스 비용이 포함되지 않습니다. 이 예상 비용은 VM만의 비용입니다. SQL Server의 Express 및 개발자 버전의 경우, 이 예상 비용은 총 예상 비용입니다. 다른 버전의 경우 [Windows Virtual Machines 가격 책정 페이지](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)를 참조하여 SQL Server의 대상 버전을 선택하세요. 또한 Azure Vm 및 [가상 컴퓨터 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) [SQL Server에 대 한 가격 책정 지침](virtual-machines-windows-sql-server-pricing-guidance.md) 을 참조 하세요.
@@ -90,11 +91,11 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
    ![인바운드 포트 규칙](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
 
-## <a name="2-configure-optional-features"></a>2. 옵션 기능 구성
+## <a name="2-configure-optional-features"></a>2. 선택적 기능 구성
 
 ### <a name="disks"></a>디스크
 
-디스크 탭 **에서** 디스크 옵션을 구성 합니다. 
+**디스크 탭에서** 디스크 옵션을 구성 합니다. 
 
 * **Os 디스크 유형**의 드롭다운에서 os에 사용할 디스크 유형을 선택 합니다. 프리미엄은 프로덕션 시스템에 권장 되지만 기본 VM에는 사용할 수 없습니다. 프리미엄 SSD를 활용 하려면 가상 머신 크기를 변경 합니다. 
 * **고급**아래에서 **Managed Disks**사용에서 **예** 를 선택 합니다.
@@ -136,7 +137,7 @@ SQL Server 가상 머신을 만들 때 가상 머신 갤러리에서 미리 구�
 | [연결](#connectivity) |
 | [인증](#authentication) |
 | [Azure Key Vault 통합](#azure-key-vault-integration) |
-| [스토리지 구성](#storage-configuration) |
+| [Storage 구성](#storage-configuration) |
 | [자동화된 패치](#automated-patching) |
 | [자동화된 Backup](#automated-backup) |
 | [R Services (고급 분석)](#r-services-advanced-analytics) |
@@ -193,17 +194,17 @@ SQL Server 인증을 사용하도록 설정하지 않으면, VM의 로컬 관리
 
 자세한 내용은 [Azure VM에서 SQL Server에 대한 Azure Key Vault 통합 구성](virtual-machines-windows-ps-sql-keyvault.md)을 참조하세요.
 
-### <a name="storage-configuration"></a>스토리지 구성
+### <a name="storage-configuration"></a>Storage 구성
 
 **SQL Server 설정** 탭의 **저장소 구성**에서 **구성 변경** 을 선택 하 여 성능 최적화 저장소 구성 페이지를 열고 저장소 요구 사항을 지정 합니다.
 
 ![SQL VM 저장소 구성](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-**다음에 대해 스토리지 최적화**에서 다음 옵션 중 하나를 선택합니다.
+**다음에 대해 Storage 최적화**에서 다음 옵션 중 하나를 선택합니다.
 
-* **일반**은 기본 설정이며 대부분의 워크로드를 지원합니다.
+* **일반** 은 기본 설정이며 대부분의 워크로드를 지원합니다.다.
 * **트랜잭션 처리** 는 기존의 데이터베이스 OLTP 워크 로드에 대 한 저장소를 최적화 합니다.
-* **데이터 웨어하우징** 은 분석 및 보고 워크로드용으로 스토리지를 최적화합니다.
+* **데이터 웨어하우징**은 분석 및 보고 워크로드용으로 스토리지를 최적화합니다.
 
 ![SQL VM 저장소 구성](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
 

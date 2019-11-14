@@ -1,5 +1,5 @@
 ---
-title: Azure에서 Linux VHD 다운로드 | Microsoft Docs
+title: Azure에서 Linux VHD 다운로드
 description: Azure CLI 및 Azure Portal을 사용하여 Linux VHD를 다운로드합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: cynthn
-ms.openlocfilehash: ed79df03a42c1558b975cd1c21c79716d50d4616
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 257f3f723fc8a971b8253699f4beb002cf46ce52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083494"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036282"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Azure에서 Linux VHD 다운로드
 
@@ -76,8 +76,8 @@ VHD 파일을 다운로드하려면 [SAS(공유 액세스 서명)](../../storage
 ## <a name="download-vhd"></a>VHD 다운로드
 
 1.  생성 된 URL에서 **VHD 파일 다운로드**를 선택 합니다.
-**
-    ![VHD 다운로드](./media/download-vhd/export-download.png)
+VHD를 다운로드 하 ![**
+    ](./media/download-vhd/export-download.png)
 
 2.  다운로드를 시작 하려면 브라우저에서 **저장** 을 선택 해야 할 수도 있습니다. VHD 파일에 대한 기본 이름은 *abcd*입니다.
 

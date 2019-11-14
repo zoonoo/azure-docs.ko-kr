@@ -1,5 +1,5 @@
 ---
-title: Azure CLI에서 VM 이름 확인을 위해 내부 DNS 사용 | Microsoft Docs
+title: Azure CLI에서 VM 이름 확인을 위해 내부 DNS 사용
 description: 가상 네트워크 인터페이스 카드를 만들고 Azure CLI를 사용하여 Azure에서 VM 이름 확인을 위해 내부 DNS를 사용하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 02/16/2017
 ms.author: cynthn
-ms.openlocfilehash: b143a28216d0d8417615ad2c40a3b66c9c5d1be2
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: acfdfd4edf90b90998a913fa0c6479bedf0028b7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173877"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034737"
 ---
 # <a name="create-virtual-network-interface-cards-and-use-internal-dns-for-vm-name-resolution-on-azure"></a>가상 네트워크 인터페이스 카드 만들기 및 Azure에서 VM 이름 확인을 위해 내부 DNS 사용
 
@@ -70,7 +70,7 @@ Azure에서 전체 CiCd(지속적인 통합 및 지속적인 배포) 인프라�
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `myNic` 및 `myVM`이 포함됩니다.
 
 ## <a name="create-the-resource-group"></a>리소스 그룹 만들기
-먼저 [az group create](/cli/azure/group)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `westus` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
+먼저 [az group create](/cli/azure/group)을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `myResourceGroup` 위치에 `westus`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create --name myResourceGroup --location westus

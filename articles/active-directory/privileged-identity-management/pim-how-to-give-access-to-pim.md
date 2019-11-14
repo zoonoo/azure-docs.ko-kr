@@ -1,25 +1,25 @@
 ---
-title: 다른 관리자에 게 PIM-Azure Active Directory를 관리 하는 액세스 권한 부여 Microsoft Docs
+title: PIM을 관리 하기 위한 액세스 권한 부여-Azure Active Directory | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)을 관리하기 위해 다른 관리 기관에 액세스 권한을 부여하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60c0e1bfd457137ddfb8f3ae81fc9044098c1f8d
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7424e92f8520d13137b6ac8787523095058a005f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809062"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022124"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-privileged-identity-management"></a>다른 관리자에 게 Privileged Identity Management을 관리할 수 있는 권한 부여
 
@@ -32,7 +32,7 @@ ms.locfileid: "72809062"
 
 ## <a name="grant-access-to-manage-pim"></a>PIM을 관리하기 위한 액세스 권한 부여
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. Azure AD에서 **Privileged Identity Management**를 엽니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "72809062"
 
 권한 있는 역할 관리자 역할에서 사용자를 제거하기 전에 항상 두 명 이상의 사용자가 이 역할에 할당되어 있는지 확인합니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 

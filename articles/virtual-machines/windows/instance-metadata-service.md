@@ -1,5 +1,5 @@
 ---
-title: Azure Instance Metadata Service | Microsoft Docs
+title: Azure Instance Metadata Service
 description: RESTful 인터페이스를 통해 Windows VM의 계산, 네트워크 및 예정 된 유지 관리 이벤트에 대 한 정보를 가져올 수 있습니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 658830e37a453075100cd3aaf132bb1d3aedfaea
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 4e411d986ffe88c0cf498262688afd2ecc71e51c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240386"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038538"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -103,18 +103,18 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 API | 기본 데이터 형식 | 다른 형식
 --------|---------------------|--------------
-/instance | json : | 텍스트
+/instance | json : | text
 /scheduledevents | json : | 없음
-/attested | JSON | 없음
+/attested | json : | 없음
 
-기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 > [!NOTE]
-> 리프 노드의 경우는 `format=json` 작동 하지 않습니다. 기본 형식이 json `format=text` 인 경우 이러한 쿼리를 명시적으로 지정 해야 합니다.
+> 리프 노드의 경우 `format=json` 작동 하지 않습니다. 이러한 쿼리 `format=text` 기본 형식이 json 인 경우에는 명시적으로 지정 해야 합니다.
 
 ### <a name="security"></a>보안
 
@@ -128,7 +128,7 @@ Instance Metadata Service 엔드포인트는 라우팅이 불가능한 IP 주소
 HTTP 상태 코드 | 이유
 ----------------|-------
 200 정상 |
-400 잘못된 요청 | 리프 `Metadata: true` 노드를 쿼리할 때 헤더가 누락 되었거나 형식이 누락 되었습니다.
+400 잘못된 요청 | 리프 노드를 쿼리할 때 `Metadata: true` 헤더가 없거나 형식이 누락 되었습니다.
 404 찾을 수 없음 | 요청된 요소가 없음
 405 메서드를 사용할 수 없음 | `GET` 및 `POST` 요청만 지원됨
 429 요청이 너무 많음 | API는 현재 초당 최대 5개의 쿼리를 지원함
@@ -341,10 +341,10 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 
 #### <a name="the-following-apis-are-available-through-the-metadata-endpoint"></a>메타 데이터 끝점을 통해 사용할 수 있는 Api는 다음과 같습니다.
 
-data | 설명 | 도입된 버전
+Data | 설명 | 도입된 버전
 -----|-------------|-----------------------
 attested | [증명된 데이터](#attested-data) 참조 | 2018-10-01
-identity | Azure 리소스에 대한 관리 ID입니다. [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01
+ID | Azure 리소스에 대한 관리 ID입니다. [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01
 instance | [인스턴스 API](#instance-api) 참조 | 2017-04-02
 scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
 
@@ -354,28 +354,28 @@ scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
 > [!NOTE]
 > 메타 데이터 끝점을 통해 다음 범주는 인스턴스/계산을 통해 액세스 됩니다.
 
-data | 설명 | 도입된 버전
+Data | 설명 | 도입된 버전
 -----|-------------|-----------------------
 azEnvironment | VM이 실행 되는 Azure 환경 | 2018-10-01
 customData | [사용자 지정 데이터](#custom-data) 참조 | 2019-02-01
-위치 | VM을 실행하는 Azure 지역 | 2017-04-02
+location | VM을 실행하는 Azure 지역 | 2017-04-02
 name | VM의 이름 | 2017-04-02
-제안 | VM 이미지에 대 한 제품 정보 이며 Azure 이미지 갤러리에서 배포 된 이미지에 대해서만 제공 됩니다. | 2017-04-02
+제품 | VM 이미지에 대 한 제품 정보 이며 Azure 이미지 갤러리에서 배포 된 이미지에 대해서만 제공 됩니다. | 2017-04-02
 osType | Linux 또는or Windows | 2017-04-02
 placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) | 2017-08-01
-플랜 | Azure Marketplace 이미지의 경우 VM에 대 한 이름, 제품 및 게시자를 포함 하는 [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
+계획 | Azure Marketplace 이미지의 경우 VM에 대 한 이름, 제품 및 게시자를 포함 하는 [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
 platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability.md) | 2017-04-02
-공급자 | VM의 공급자 | 2018-10-01
+provider | VM의 공급자 | 2018-10-01
 publicKeys | VM 및 경로에 할당 된 [공개 키 컬렉션](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) | 2018-04-02
 publisher | VM 이미지 게시자 | 2017-04-02
 resourceGroupName | Virtual Machine에 대한 [리소스 그룹](../../azure-resource-manager/resource-group-overview.md) | 2017-08-01
-resourceId | 리소스의 정규화 [된 ID입니다](https://docs.microsoft.com/rest/api/resources/resources/getbyid) . | 2019-03-11
+resourceId | 리소스 [의 정규화 된 ID입니다](https://docs.microsoft.com/rest/api/resources/resources/getbyid) . | 2019-03-11
 sku | VM 이미지에 해당하는 SKU | 2017-04-02
-SubscriptionId | Virtual Machine에 대한 Azure 구독 | 2017-08-01
+subscriptionId | Virtual Machine에 대한 Azure 구독 | 2017-08-01
 태그 | Virtual Machine에 대한 [태그](../../azure-resource-manager/resource-group-using-tags.md)  | 2017-08-01
 tagsList | 프로그래밍 방식의 구문 분석을 용이 하 게 하기 위해 JSON 배열로 형식이 지정 된 태그  | 2019-06-04
-version | VM 이미지의 버전 | 2017-04-02
+버전 | VM 이미지의 버전 | 2017-04-02
 vmId | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmScaleSetName | 가상 머신 확장 집합의 [Virtual Machine ScaleSet 이름](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 vmSize | [VM 크기](sizes.md) | 2017-04-02
@@ -386,7 +386,7 @@ vmSize | [VM 크기](sizes.md) | 2017-04-02
 > [!NOTE]
 > 메타 데이터 끝점을 통해 다음 범주는 인스턴스/네트워크/인터페이스를 통해 액세스 됩니다.
 
-data | 설명 | 도입된 버전
+Data | 설명 | 도입된 버전
 -----|-------------|-----------------------
 ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02
 ipv4/publicIpAddress | VM의 공용 IPv4 주소 | 2017-04-02
@@ -568,7 +568,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api
 Department:IT;Environment:Test;Role:WebRole
 ```
 
-`tags` 필드는 태그가 세미콜론으로 구분 된 문자열입니다. 태그 자체에서 세미콜론을 사용 하는 경우이 문제가 발생할 수 있습니다. 프로그래밍 방식으로 태그를 추출 하도록 파서가 작성 된 경우 구분 기호가 없는 JSON 배열인 `tagsList` 필드를 사용 하 여 구문 분석을 보다 쉽게 수행할 수 있습니다.
+`tags` 필드는 태그가 세미콜론으로 구분 된 문자열입니다. 태그 자체에서 세미콜론을 사용 하는 경우이 문제가 발생할 수 있습니다. 프로그래밍 방식으로 태그를 추출 하기 위해 파서가 작성 된 경우에는 구분 기호가 없는 JSON 배열인 `tagsList` 필드를 사용 해야 하므로 구문 분석 하기가 더 쉽습니다.
 
 **요청**
 
@@ -641,14 +641,14 @@ Verification successful
 }
 ```
 
-data | 설명
+Data | 설명
 -----|------------
 nonce | 사용자가 요청과 함께 선택적 문자열을 제공했습니다. 요청에 nonce를 제공하지 않은 경우 현재 UTC 타임스탬프가 반환됩니다.
-플랜 | Azure Marketplace 이미지의 VM에 대한 [플랜](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)에는 이름, 제품 및 게시자가 포함됩니다.
+계획 | Azure Marketplace 이미지의 VM에 대한 [플랜](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)에는 이름, 제품 및 게시자가 포함됩니다.
 timestamp/createdOn | 첫 번째 서명된 문서가 생성된 타임스탬프
 timestamp/expiresOn | 서명된 문서가 만료되는 타임스탬프
 vmId |  VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/)
-SubscriptionId | 에 도입 된 가상 컴퓨터에 대 한 Azure 구독`2019-04-30`
+subscriptionId | 에 도입 된 가상 컴퓨터에 대 한 Azure 구독 `2019-04-30`
 
 #### <a name="verifying-the-signature"></a>서명 확인
 
@@ -758,7 +758,7 @@ My custom data.
 
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>VM 내의 서로 다른 언어를 사용하여 메타데이터 서비스를 호출하는 예 
 
-언어 | 예제
+언어 | 예
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
 Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
@@ -786,7 +786,7 @@ Puppet | https://github.com/keirans/azuremetadata
 5. `500 Internal Server Error` 오류가 발생하는 이유가 무엇인가요?
    * 지수 백오프 시스템을 기반으로 요청을 다시 시도하세요. 문제가 지속되면 Azure 지원에 문의하세요.
 6. 추가 질문/의견은 어디에 공유하나요?
-   * [https://feedback.azure.com](https://feedback.azure.com )에 대한 의견을 보내주세요.
+   * https://feedback.azure.com에 대한 의견을 보내주세요.
 7. Virtual Machine Scale Set 인스턴스에 작동하나요?
    * 예, 메타데이터 서비스는 확장 집합 인스턴스에 사용할 수 있습니다.
 8. 서비스에 대한 지원을 받으려면 어떻게 하나요?

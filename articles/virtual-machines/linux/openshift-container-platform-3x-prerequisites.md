@@ -1,5 +1,5 @@
 ---
-title: Azure 필수 조건에서 OpenShift Container Platform 3.11 | Microsoft Docs
+title: Azure 필수 구성 요소에서 OpenShift Container Platform 3.11
 description: Azure에서 OpenShift Container Platform 3.11을 배포 하기 위한 필수 구성 요소입니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 0b7eaaf68c1b0907b6d687b823ef71a7c9bd0102
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 069561c4bed55bf6021b594d693e076ef8d313bd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882410"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035467"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11을 배포 하기 위한 일반적인 필수 구성 요소
 
@@ -49,7 +49,7 @@ VM(가상 머신)은 Azure Resource Manager 템플릿을 통해 배포되기 때
 > * OpenShift 클러스터에 대한 SSH 키를 관리하는 키 자격 증명 모음을 만듭니다.
 > * Azure 클라우드 공급자가 사용할 서비스 주체를 만듭니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 [az login](/cli/azure/reference-index) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따르거나 **시도**를 클릭하여 Cloud Shell을 사용합니다.
@@ -139,7 +139,7 @@ az ad sp create-for-rbac --name openshiftsp \
 
 ## <a name="prerequisites-applicable-only-to-resource-manager-template"></a>리소스 관리자 템플릿에만 적용 되는 필수 구성 요소
 
-**SshPrivateKey**(SSH 개인 키), Azure AD 클라이언트 암호 (**AadClientSecret**), Openshift admin password (**OpenshiftPassword**) 및 Red Hat Subscription Manager 암호나 활성화 키 ( **rhsmPasswordOrActivationKey**).  또한 사용자 지정 SSL 인증서를 사용 하는 경우에는 **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**및 **를 생성 해야 합니다. masterkeyfile**.  이러한 매개 변수에 대해서는 자세히 설명 합니다.
+**SshPrivateKey**(SSH 개인 키), Azure AD 클라이언트 암호 (**AadClientSecret**), Openshift admin password (**OpenshiftPassword**) 및 Red Hat Subscription Manager 암호 또는**rhsmPasswordOrActivationKey**(활성화 키)에 대 한 암호를 만들어야 합니다.  또한 사용자 지정 SSL 인증서를 사용 하는 경우에는 **routingcafile**, **routingcertfile**, **routingkeyfile**, **mastercafile**, **mastercertfile**및 **masterkeyfile**의 6 가지 추가 암호를 만들어야 합니다.  이러한 매개 변수에 대해서는 자세히 설명 합니다.
 
 템플릿은 특정 비밀 이름을 참조 하므로 위에 나열 된 굵게 표시 된 이름을 사용 **해야** 합니다 (대/소문자 구분).
 

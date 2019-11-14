@@ -1,5 +1,5 @@
 ---
-title: 클라우드 초기화를 사용 하 여 Linux VM에서 스왑 파티션 구성 | Microsoft Docs
+title: 클라우드 초기화를 사용 하 여 Linux VM에서 스왑 파티션 구성
 description: Azure CLI를 사용 하 여 만드는 동안 Linux VM에서 클라우드 초기화를 사용 하 여 스왑 파티션을 구성 하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: d8ce12b931b6a30fa375588b73a1140ed4697c2f
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: fad73a7dbed9351d684ef2464cf2fa6fa3489290
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640763"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036763"
 ---
 # <a name="use-cloud-init-to-configure-a-swap-partition-on-a-linux-vm"></a>클라우드 초기화를 사용 하 여 Linux VM에서 스왑 파티션 구성
 이 문서에서는 [클라우드 초기화](https://cloudinit.readthedocs.io) 를 사용 하 여 다양 한 Linux 배포판에서 스왑 파티션을 구성 하는 방법을 보여 줍니다. 스왑 파티션은 기존에 필요한 배포를 기반으로 Linux 에이전트 (WALA)에 의해 구성 됩니다.  이 문서에서는 클라우드 초기화를 사용 하 여 프로 비전 하는 동안 요청 시 스왑 파티션을 작성 하는 프로세스에 대해 간략하게 설명 합니다.  기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
@@ -29,7 +29,7 @@ ms.locfileid: "69640763"
 
 ## <a name="create-swap-partition-for-red-hat-and-centos-based-images"></a>Red Hat 및 CentOS 기반 이미지에 대 한 스왑 파티션 만들기
 
-현재 셸에서 *cloud_init_swappart* 라는 파일을 만들고 다음 구성을 붙여넣습니다. 이 예제에서는 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. `sensible-editor cloud_init_swappart.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. #1을 선택하여 **nano** 편집기를 사용합니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.  
+현재 셸에서 이름이 *cloud_init_swappart* 인 파일을 만들고 다음 구성을 붙여넣습니다. 이 예제에서는 로컬 컴퓨터에 없는 Cloud Shell에서 파일을 만듭니다. 원하는 모든 편집기를 사용할 수 있습니다. `sensible-editor cloud_init_swappart.txt`를 입력하여 파일을 만들고 사용할 수 있는 편집기의 목록을 봅니다. #1을 선택하여 **nano** 편집기를 사용합니다. 전체 cloud-init 파일, 특히 첫 줄이 올바르게 복사되었는지 확인합니다.  
 
 ```yaml
 #cloud-config

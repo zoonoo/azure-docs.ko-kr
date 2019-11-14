@@ -1,5 +1,5 @@
 ---
-title: Windows AWS VM을 Azure로 이동 | Microsoft Docs
+title: Windows AWS Vm을 Azure로 이동
 description: AWS(Amazon Web Services) EC2 Windows 인스턴스를 Azure 가상 머신으로 이동합니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: cynthn
-ms.openlocfilehash: 31f6ffc4f114039e0c53c1994f8c4364dea18298
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 9bd01f24ac2cada02f51089d238519cd6c7e0248
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70089512"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039276"
 ---
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-an-azure-virtual-machine"></a>AWS(Amazon Web Services)에서 Azure 가상 머신으로 Windows VM 이동
 
@@ -47,7 +47,7 @@ ms.locfileid: "70089512"
 
 EC2 인스턴스를 Amazon S3 버킷의 VHD로 내보냅니다. Amazon 설명서 [VM Import/Export를 사용하여 인스턴스를 VM으로 내보내기](https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html) 항목의 단계를 수행하고, [create-instance-export-task](https://docs.aws.amazon.com/cli/latest/reference/ec2/create-instance-export-task.html) 명령을 실행하여 EC2 인스턴스를 VHD 파일로 내보냅니다. 
 
-내보낸 VHD 파일은 지정한 Amazon S3 버킷에 저장됩니다. VHD를 내보내는 기본 구문은 다음과 같습니다. > 괄호 안의 \<자리 표시자 텍스트를 사용자 정보로 바꾸면 됩니다.
+내보낸 VHD 파일은 지정한 Amazon S3 버킷에 저장됩니다. VHD를 내보내는 기본 구문은 다음과 같습니다. \<대괄호 >의 자리 표시자 텍스트를 사용자의 정보로 바꿉니다.
 
 ```
 aws ec2 create-instance-export-task --instance-id <instanceID> --target-environment Microsoft \

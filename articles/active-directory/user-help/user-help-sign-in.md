@@ -1,6 +1,6 @@
 ---
-title: 2 단계 인증 또는 보안 정보를 사용 하 여 로그인-Azure Active Directory | Microsoft Docs
-description: 보안 정보의 다양한 신원 확인 방법을 사용하여 로그인하는 방법을 알아봅니다.
+title: Id 인증 정보를 사용 하 여 로그인-Azure AD
+description: 보안 정보의 다양 한 id 확인 방법을 사용 하 여 로그인 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,12 +13,12 @@ ms.date: 07/18/2019
 ms.author: lizross
 ms.custom: user-help
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b20ea1131ceda0527ed35d1a1082d05f25da6bac
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 1c79e82680ae81137ee4164e88e62235f934565a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382329"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028519"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>2단계 인증 또는 보안 정보를 사용하여 로그인
 

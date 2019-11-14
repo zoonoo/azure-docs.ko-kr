@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines에서 중첩된 가상화를 사용하는 방법 | Microsoft Docs
+title: Azure Virtual Machines에서 중첩된 가상화를 사용하는 방법
 description: Azure Virtual Machines에서 중첩된 가상화를 사용하는 방법
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 843dfa64cdf0af3ad6cfd3a9f83c16f0ce85fcd0
-ms.sourcegitcommit: dad277fbcfe0ed532b555298c9d6bc01fcaa94e2
+ms.openlocfilehash: 16f5bed5a2342bb1d120d0d3dc853e0bc44376dc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67720219"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033132"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Azure VM에서 중첩된 가상화를 사용하는 방법
 
@@ -26,7 +26,7 @@ ms.locfileid: "67720219"
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>중첩 지원 Azure VM 만들기
 
-새 Windows Server 2016 Azure VM을 만듭니다.  빠른 참조에 대 한 모든 v3 virtual machines는 중첩 된 가상화를 지원합니다. 중첩을 지원하는 가상 머신 크기의 전체 목록은 [Azure 컴퓨팅 단위 문서](acu.md)를 참조하세요.
+새 Windows Server 2016 Azure VM을 만듭니다.  빠른 참조를 위해 모든 v3 가상 머신은 중첩 된 가상화를 지원 합니다. 중첩을 지원하는 가상 머신 크기의 전체 목록은 [Azure 컴퓨팅 단위 문서](acu.md)를 참조하세요.
 
 게스트 가상 머신의 수요를 지원할 만큼 큰 VM 크기를 선택해야 합니다. 이 예제에서는 D3_v3 크기의 Azure VM을 사용합니다. 
 
@@ -44,7 +44,7 @@ Dv3 또는 Ev3 시리즈 가상 머신의 지역별 가용성은 [여기](https:
 
 2. VM에 연결하려면 다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결**을 클릭합니다. Mac의 Mac 앱 스토어에서 이 [원격 데스크톱 클라이언트](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12)와 같은 RDP 클라이언트가 필요합니다.
 
-3. 가상 머신을 만들 때 지정한 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다.
+3. 가상 컴퓨터를 만들 때 지정한 사용자 이름 및 암호를 입력하고 **확인**을 클릭합니다.
 
 4. 로그인 프로세스 중에 인증서 경고가 나타날 수 있습니다. **예** 또는 **계속**을 클릭하여 연결을 진행합니다.
 
@@ -52,7 +52,7 @@ Dv3 또는 Ev3 시리즈 가상 머신의 지역별 가용성은 [여기](https:
 이러한 설정을 수동으로 구성하거나 PowerShell 스크립트를 제공하여 구성을 자동화할 수 있습니다.
 
 ### <a name="option-1-use-a-powershell-script-to-configure-nested-virtualization"></a>옵션 1: PowerShell 스크립트를 사용하여 중첩된 가상화 구성
-Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설정하는 PowerShell 스크립트는 [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested)에서 사용할 수 있습니다. 이 스크립트는 사전 요구 사항을 확인한 다음 Azure VM에서 중첩된 가상화를 구성합니다. 구성을 완료하려면 Azure VM을 다시 시작해야 합니다. 이 스크립트는 다른 환경에서도 작동하지만 보장할 수는 없습니다. Azure에서 실행되는 중첩된 가상화에 대한 라이브 비디오 데모가 있는 Azure 블로그 게시물을 확인하세요. [https://aka.ms/AzureNVblog](https://aka.ms/AzureNVblog ).
+Windows Server 2016 호스트에서 중첩된 가상화를 사용하도록 설정하는 PowerShell 스크립트는 [GitHub](https://github.com/charlieding/Virtualization-Documentation/tree/live/hyperv-tools/Nested)에서 사용할 수 있습니다. 이 스크립트는 사전 요구 사항을 확인한 다음 Azure VM에서 중첩된 가상화를 구성합니다. 구성을 완료하려면 Azure VM을 다시 시작해야 합니다. 이 스크립트는 다른 환경에서도 작동하지만 보장할 수는 없습니다. Azure에서 실행되는 중첩된 가상화에 대한 라이브 비디오 데모가 있는 Azure 블로그 게시물을 확인하세요. https://aka.ms/AzureNVblog.
 
 ### <a name="option-2-configure-nested-virtualization-manually"></a>옵션 2: 수동으로 중첩된 가상화 구성
 
@@ -122,7 +122,7 @@ New-NetNat -Name "InternalNat" -InternalIPInterfaceAddressPrefix 192.168.0.0/24
 
 >[!IMPORTANT] 
 >
->Azure 게스트 에이전트는 중첩 된 Vm에서 지원 되지 않습니다 및 호스트와 중첩 된 Vm에서 문제가 발생할 수 있습니다. 중첩 된 Vm에 Azure 에이전트를 설치 하지 마세요 한 이미 Azure 게스트 에이전트가 설치 되어 있는 중첩 된 Vm을 만들기 위한 이미지를 사용 하지 마세요.
+>Azure 게스트 에이전트는 중첩 된 Vm에서 지원 되지 않으며 호스트와 중첩 된 Vm 모두에서 문제를 일으킬 수 있습니다. 중첩 된 Vm에 Azure 에이전트를 설치 하지 말고, Azure 게스트 에이전트가 이미 설치 된 중첩 된 Vm을 만드는 데 이미지를 사용 하지 마세요.
 
 1. Hyper-V 관리자를 열고 새 가상 머신을 만듭니다. 새로 만든 내부 네트워크를 사용하도록 가상 머신을 구성합니다.
     

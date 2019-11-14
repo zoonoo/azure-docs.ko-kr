@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator 앱을 사용하여 계정에 로그인 - Azure Active Directory | Microsoft Docs
+title: Microsoft Authenticator 앱을 사용 하 여 로그인-Azure AD
 description: Microsoft Authenticator 앱을 사용하여 2단계 인증 또는 휴대폰 로그인을 통해 회사 또는 학교 계정 또는 개인 Microsoft 및 Microsoft 이외의 계정에 로그인합니다.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9af3549984bd29a6e896e498bf4a2e6c67d7e0e2
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4cf9b92793d6c769751590dd0a375cbc8894759c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616008"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028978"
 ---
 # <a name="sign-in-to-your-accounts-using-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용하여 계정에 로그인
 
@@ -32,7 +32,7 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
   >[!Important]
   >이 휴대폰 로그인 방법은 회사 또는 학교 및 개인 Microsoft 계정에서만 작동합니다. Microsoft 이외의 계정은 표준 2단계 인증 프로세스를 사용해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 Microsoft Authenticator 앱을 사용하려면 다음을 수행해야 합니다.
 
@@ -110,7 +110,7 @@ Outlook.com, Xbox, Skype 등의 개인 Microsoft 계정에 휴대폰 로그인�
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-| 질문 | 솔루션 |
+| 질문 | 해결 방법 |
 | -------- | -------- |
 | 휴대폰에 암호를 입력하는 것보다 안전하게 로그인할 수 있나요? | 오늘날 대부분의 사람들은 사용자 이름 및 암호를 사용하여 웹 사이트 또는 앱에 로그인합니다. 그러나 암호를 분실하거나, 도난당하거나, 해커가 추측할 가능성이 있습니다.<br><br>Microsoft Authenticator 앱을 설정하면 이 앱은 휴대폰의 PIN 또는 생체 인식 잠금으로 보호되는 계정을 잠금 해제하는 키를 휴대폰에 만듭니다. 이 키는 로그인하는 동안 신원을 증명하는 데 사용됩니다.<br><br>**중요**<br>데이터는 키를 로컬로 보호하는 용도로만 사용됩니다. 어떤 경우에도 전송되거나 클라우드에 저장되지 않습니다. |
 | 전화 로그인이 2 단계 인증을 대체 하나요? 기능을 꺼야 하나요? | 휴대폰 로그인은 2단계 모두 모바일 디바이스에서 발생하는 2단계 인증의 형식입니다. 계정에 대한 추가 보안을 제공하도록 설정한 2단계 인증을 유지해야 합니다. |

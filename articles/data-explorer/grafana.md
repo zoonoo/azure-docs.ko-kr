@@ -1,32 +1,32 @@
 ---
 title: Grafana를 사용 하 여 Azure 데이터 탐색기에서 데이터 시각화
-description: 이 문서에서는 Grafana에 대한 데이터 원본으로 Azure Data Explorer를 설정한 다음, 샘플 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
+description: 이 문서에서는 Grafana에 대 한 데이터 원본으로 Azure 데이터 탐색기를 설정 하 고 샘플 클러스터에서 데이터를 시각화 하는 방법을 알아봅니다.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 6/30/2019
-ms.openlocfilehash: f1eb9fb0d81d1e9cdf3dd8628a6d7ad1f0ccce92
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 11/13/2019
+ms.openlocfilehash: a1c52007ea86ca0812c4a73a92ce81db6ddadc7b
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581928"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037981"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Grafana의 Azure Data Explorer에서 데이터 시각화
 
-Grafana는 데이터를 쿼리하고 시각화한 다음, 시각화에 따라 대시보드를 만들고 공유할 수 있도록 해주는 분석 플랫폼입니다. Grafana는 Azure Data Explorer *플러그 인*을 제공하여 Azure Data Explorer에서 데이터에 연결하고 데이터를 시각화할 수 있습니다. 이 문서에서는 Grafana에 대한 데이터 원본으로 Azure Data Explorer를 설정한 다음, 샘플 클러스터에서 데이터를 시각화하는 방법을 알아봅니다.
+Grafana는 데이터를 쿼리하고 시각화한 다음, 시각화에 따라 대시보드를 만들고 공유할 수 있도록 해주는 분석 플랫폼입니다. Grafana는 Azure Data Explorer *플러그 인*을 제공하여 Azure Data Explorer에서 데이터에 연결하고 데이터를 시각화할 수 있습니다. 이 문서에서는 Grafana에 대 한 데이터 원본으로 Azure 데이터 탐색기를 설정 하 고 샘플 클러스터에서 데이터를 시각화 하는 방법을 알아봅니다.
 
-다음 비디오를 사용 하 여 Grafana의 Azure 데이터 탐색기 플러그 인을 사용 하 고, Grafana에 대 한 데이터 원본으로 Azure 데이터 탐색기를 설정한 후 데이터를 시각화 하는 방법을 배울 수 있습니다. 
+다음 비디오를 사용 하 여 Grafana의 Azure 데이터 탐색기 플러그 인을 사용 하 고, Grafana에 대 한 데이터 원본으로 Azure 데이터 탐색기를 설정한 다음, 데이터를 시각화 하는 방법을 알아보세요. 
 
 > [!VIDEO https://www.youtube.com/embed/fSR_qCIFZSA]
 
 또는 아래 문서에 설명 된 대로 [데이터 원본을 구성](#configure-the-data-source) 하 고 [데이터를 시각화할](#visualize-data) 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
-이 방법을 완료하려면 다음 사항이 필요합니다.
+이 문서를 완료 하려면 다음이 필요 합니다.
 
 * 운영 체제용 [Grafana 버전 5.3.0 이상](https://docs.grafana.org/installation/)
 
@@ -56,7 +56,7 @@ Grafana는 데이터를 쿼리하고 시각화한 다음, 시각화에 따라 �
 
     ![연결 속성](media/grafana/connection-properties.png)
 
-    | Grafana UI | Azure portal | Azure CLI |
+    | Grafana UI | Azure 포털 | Azure CLI |
     | --- | --- | --- |
     | 구독 ID | 구독 ID | SubscriptionId |
     | 테넌트 ID | 디렉터리 ID | 테넌트 |
@@ -66,7 +66,7 @@ Grafana는 데이터를 쿼리하고 시각화한 다음, 시각화에 따라 �
 
 1. **저장 & 테스트**를 선택합니다.
 
-    테스트에 성공한 경우 다음 섹션으로 이동합니다. 문제가 발생 하는 경우 Grafana에서 지정한 값을 확인하고 이전 단계를 검토합니다.
+    테스트에 성공한 경우 다음 섹션으로 이동합니다. 모든 문제가 발생 한 경우 Grafana에서 지정한 값을 확인 하 고 이전 단계를 검토 합니다.
 
 ## <a name="visualize-data"></a>데이터 가상화
 
@@ -109,10 +109,28 @@ Grafana에 대한 데이터 원본으로 Azure Data Explorer 구성을 완료했
 
     ![완성된 그래프](media/grafana/finished-graph.png)
 
-1. 상단 메뉴에서 저장 아이콘을 선택합니다. ![저장 아이콘](media/grafana/save-icon.png)에서 수집된 앱의 원격 분석을 통해 유용한 쿼리를 실행할 수 있습니다.
+1. 상단 메뉴에서 저장 아이콘을 선택합니다. ![저장 아이콘](media/grafana/save-icon.png)가 필요합니다.
+
+## <a name="create-alerts"></a>경고 만들기
+
+1. 홈 대시보드에서 **경고** > **알림 채널** 을 선택 하 여 새 알림 채널을 만듭니다.
+
+    ![알림 채널 만들기](media/grafana/create-notification-channel.png)
+
+1. 새 **알림 채널**을 만든 다음 **저장**을 클릭 합니다.
+
+    ![새 알림 채널 만들기](media/grafana/new-notification-channel-adx.png)
+
+1. **대시보드에서**드롭다운에서 **편집** 을 선택 합니다.
+
+    ![대시보드에서 편집 선택](media/grafana/edit-panel-4-alert.png)
+
+1. 경고 벨 아이콘을 선택 하 여 **경고** 창을 엽니다. **경고 만들기**를 선택 합니다. **경고** 창에서 다음 속성을 완료 합니다.
+
+    ![경고 속성](media/grafana/alert-properties.png)
+
+1. **대시보드 저장** 아이콘을 선택 하 여 변경 내용을 저장 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure 데이터 탐색기용 쿼리 작성](write-queries.md)
-
-* [자습서: Power BI에서 Azure 데이터 탐색기의 데이터 시각화](visualize-power-bi.md)

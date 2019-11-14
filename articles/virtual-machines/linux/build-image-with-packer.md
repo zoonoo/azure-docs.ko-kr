@@ -1,5 +1,5 @@
 ---
-title: Packer를 사용하여 Linux Azure VM 이미지를 만드는 방법 | Microsoft Docs
+title: 패키지를 사용 하 여 Linux Azure VM 이미지를 만드는 방법
 description: Azure에서 Packer를 사용하여 Linux 가상 머신의 이미지를 만드는 방법에 대해 알아보기
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/07/2019
 ms.author: cynthn
-ms.openlocfilehash: 4dcf6f2e26a2cc589e350ee2b40c10b85786d4be
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a9f0750908123c236596683ec2ad6de505c46213
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671778"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036957"
 ---
 # <a name="how-to-use-packer-to-create-linux-virtual-machine-images-in-azure"></a>Azure에서 Packer를 사용하여 Linux 가상 머신 이미지를 만드는 방법
 Azure의 각 VM(가상 컴퓨터)은 Linux 배포판 및 OS 버전을 정의하는 이미지에서 만들어집니다. 이미지는 사전 설치된 애플리케이션 및 구성을 포함할 수 있습니다. Azure Marketplace는 가장 일반적인 배포 및 애플리케이션 환경에 대한 다양한 자사 및 타사 이미지를 제공하거나 사용자 요구에 맞게 사용자 지정 이미지를 만들 수 있습니다. 이 문서에는 오픈 소스 도구 [Packer](https://www.packer.io/)를 사용하여 Azure에서 사용자 지정 이미지를 정의하고 작성하는 방법을 자세히 설명합니다.
 
 > [!NOTE]
-> Azure 서비스를 Azure 이미지 작성기 (미리 보기)를 정의 하 고 사용자 고유의 사용자 지정 이미지를 만들기 위한 되었습니다. Azure 이미지 작성기는 기존 Packer 셸 프로 비 저 너 스크립트와도 사용할 수 있도록 Packer에 작성 됩니다. Azure 이미지 작성기를 사용 하 여 시작을 참조 하세요 [Azure 이미지 작성기를 사용 하 여 Linux VM 만들기](image-builder.md)합니다.
+> 이제 azure에는 고유한 사용자 지정 이미지를 정의 하 고 만드는 데 필요한 Azure Image Builder (미리 보기) 서비스가 있습니다. Azure 이미지 작성기는 패키지를 사용 하 여 구축 되므로 기존 패키지 provisioner 스크립트를 사용할 수도 있습니다. Azure 이미지 작성기를 시작 하려면 [Azure 이미지 작성기를 사용 하 여 LINUX VM 만들기](image-builder.md)를 참조 하세요.
 
 
 ## <a name="create-azure-resource-group"></a>Azure 리소스 그룹 만들기
@@ -72,7 +72,7 @@ az account show --query "{ subscription_id: id }"
 
 *ubuntu.json*이라는 파일을 만들고 다음 콘텐츠를 붙여 넣습니다. 다음에 대해 사용자 고유의 값을 입력합니다.
 
-| 매개 변수                           | 얻을 수 있는 위치 |
+| 매개 변수를 포함해야 합니다.                           | 얻을 수 있는 위치 |
 |-------------------------------------|----------------------------------------------------|
 | *client_id*                         | `az ad sp` create 명령의 첫 번째 출력 줄 - *appId* |
 | *client_secret*                     | `az ad sp` create 명령의 두 번째 출력 줄 - *password* |
@@ -126,7 +126,7 @@ az account show --query "{ subscription_id: id }"
 이 템플릿은 Ubuntu 16.04 LTS 이미지를 빌드하고 NGINX를 설치한 다음 VM의 프로비전을 해제합니다.
 
 > [!NOTE]
-> 이 템플릿을 확장하여 사용자 자격 증명을 프로비전하는 경우 Azure 에이전트의 프로비전을 해제하여 `deprovision+user` 대신 `-deprovision`을 읽는 프로비저너 명령을 조정합니다.
+> 이 템플릿을 확장하여 사용자 자격 증명을 프로비전하는 경우 Azure 에이전트의 프로비전을 해제하여 `-deprovision` 대신 `deprovision+user`을 읽는 프로비저너 명령을 조정합니다.
 > `+user` 플래그는 원본 VM에서 모든 사용자 계정을 제거합니다.
 
 
@@ -235,4 +235,4 @@ az vm open-port \
 
 
 ## <a name="next-steps"></a>다음 단계
-사용 하 여 기존 Packer 프로 비 저 너 스크립트를 사용할 수도 있습니다 [Azure 이미지 작성기](image-builder.md)합니다.
+[Azure 이미지 작성기](image-builder.md)에서 기존 패키지를 사용 하 여 provisioner 스크립트를 사용할 수도 있습니다.

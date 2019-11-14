@@ -1,9 +1,9 @@
 ---
-title: Azure Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성
+title: 지리적 트래픽 라우팅 구성-Azure Traffic Manager
 description: 이 문서에서는 Azure Traffic Manager를 사용하여 지리적 트래픽 라우팅 방법을 구성하는 방법을 설명합니다.
 services: traffic-manager
 author: asudbring
-manager: twooley
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: allensu
-ms.openlocfilehash: bd01849e33d4c061b25c27a5391701876861b76b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f15871705b9839f1c7a7c7f04f6f4a88641673fd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051068"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031957"
 ---
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "67051068"
 1. 브라우저에서 [Azure Portal](https://portal.azure.com)에 로그인합니다. 아직 계정이 없는 경우 [1개월 무료 평가판](https://azure.microsoft.com/free/)을 등록할 수 있습니다.
 2. **리소스 만들기** > **네트워킹** > **Traffic Manager 프로필** > **만들기**를 클릭합니다.
 4. **Traffic Manager 프로필 만들기**에서 다음을 수행합니다.
-    1. 사용자의 프로필에 사용할 이름을 제공합니다. 이 이름은 trafficmanager.net 영역 내에서 고유해야 합니다. DNS 이름을 사용 하면 Traffic Manager 프로필에 액세스 하려면 `<profilename>.trafficmanager.net`합니다.
+    1. 사용자의 프로필에 사용할 이름을 제공합니다. 이 이름은 trafficmanager.net 영역 내에서 고유해야 합니다. Traffic Manager 프로필에 액세스 하려면 DNS 이름 `<profilename>.trafficmanager.net`를 사용 합니다.
     2. **지리적** 라우팅 방법을 선택합니다.
     3. 이 프로필에서 만들려는 구독을 선택합니다.
     4. 기존 리소스 그룹을 사용하거나 이 프로필에서 대체할 새 리소스 그룹을 만듭니다. 새 리소스 그룹을 만드는 경우 **리소스 그룹 위치** 드롭다운을 사용하여 리소스 그룹의 위치를 지정합니다. 이 설정은 리소스 그룹의 위치를 나타내며 전역적으로 배포되는 Traffic Manager 프로필에는 영향을 미치지 않습니다.

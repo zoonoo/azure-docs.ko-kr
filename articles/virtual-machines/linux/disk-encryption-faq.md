@@ -1,5 +1,5 @@
 ---
-title: FAQ-Linux Vm에 대 한 Azure Disk Encryption | Microsoft Docs
+title: FAQ-Linux Vm에 대 한 Azure Disk Encryption
 description: 이 문서에서는 Linux IaaS Vm 용 Microsoft Azure 디스크 암호화에 대 한 질문과 대답을 제공 합니다.
 author: msmbaldwin
 ms.service: security
@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: f8d31c8df4d073ccd744e792d1316ce02e4bf387
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 77b092920bff75c806ec78a933d23df546bf636a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828638"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036361"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 

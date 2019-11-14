@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 자격 증명을 사용하여 Linux VM에 로그인 | Microsoft Docs
+title: Azure Active Directory 자격 증명을 사용 하 여 Linux VM에 로그인 합니다.
 description: Azure Active Directory 인증을 사용 하 여 로그인 하는 Linux VM을 만들고 구성 하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: iainfou
-ms.openlocfilehash: b473844f1507285e0052ca1f8de00f6ca3207e6f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a67d3a9fb74b1a4f07fc4995c268bb40a84834f7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327089"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035937"
 ---
-# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인
+# <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>미리 보기: Azure Active Directory 인증을 사용 하 여 Azure에서 Linux 가상 머신에 로그인 합니다.
 
 Azure에서 Linux VM(가상 머신)의 보안을 강화하려면 Azure AD(Active Directory) 인증으로 통합하면 됩니다. Linux VM에 Azure AD 인증을 사용하면 VM에 대한 액세스를 허용하거나 거부하는 정책을 중앙에서 제어하고 적용할 수 있습니다. 이 아티클에서는 Azure AD 인증을 사용하도록 Linux VM을 만들고 구성하는 방법을 보여줍니다.
 
@@ -42,7 +42,7 @@ Azure에서 Azure AD 인증을 사용하여 Linux VM에 로그인하는 경우 �
   - Azure 가상 머신에 대한 로그인의 보안을 강화하려면 다단계 인증을 구성하면 됩니다.
   - Azure Active Directory를 사용하여 Linux VM에 로그인하는 기능은 [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md)를 사용하는 고객에게도 적용됩니다.
 
-- **원활한 협업:** RBAC(역할 기반 액세스 제어)를 사용하여 지정된 VM에 로그인할 수 있는 사용자를 일반 사용자로 또는 관리자 권한으로 지정할 수 있습니다. 사용자가 팀에 조인하거나 나가는 경우 적절한 액세스 권한을 부여하도록 VM에 대한 RBAC 정책을 업데이트할 수 있습니다. 이 환경은 불필요한 SSH 공개 키를 제거하기 위해 VM을 삭제하는 것보다 훨씬 더 간단합니다. 직원이 조직을 나가고 해당 사용자 계정을 비활성화하거나 Azure AD에서 제거한 경우 더 이상 리소스에 액세스할 수 없습니다.
+- **원활한 협업:** RBAC(역할 기반 액세스 제어)를 사용하여 지정된 VM에 로그인하는 사용자를 일반 사용자로 또는 관리자 권한으로 지정할 수 있습니다. 사용자가 팀에 조인하거나 나가는 경우 적절한 액세스 권한을 부여하도록 VM에 대한 RBAC 정책을 업데이트할 수 있습니다. 이 환경은 불필요한 SSH 공개 키를 제거하기 위해 VM을 삭제하는 것보다 훨씬 더 간단합니다. 직원이 조직을 나가고 해당 사용자 계정을 비활성화하거나 Azure AD에서 제거한 경우 더 이상 리소스에 액세스할 수 없습니다.
 
 ## <a name="supported-azure-regions-and-linux-distributions"></a>지원되는 Azure 지역 및 Linux 배포
 
@@ -149,11 +149,11 @@ ssh -l azureuser@contoso.onmicrosoft.com 10.11.123.456
 
 메시지가 표시되면 로그인 페이지에서 Azure AD 로그인 자격 증명을 입력합니다. 
 
-성공적으로 인증 되 면 웹 브라우저에 다음 메시지가 표시 됩니다.`You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
+성공적으로 인증 되 면 웹 브라우저에 다음 메시지가 표시 됩니다. `You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.`
 
 브라우저 창을 닫고, SSH 프롬프트를 돌아가서, **Enter** 키를 누릅니다. 
 
-이제 할당된 대로 *VM 사용자* 또는 *VM 관리자*와 같은 역할 권한이 있는 Azure Linux 가상 머신에 로그인했습니다. 사용자 계정에 *가상 컴퓨터 관리자 로그인* 역할이 할당 된 경우를 사용 `sudo` 하 여 루트 권한이 필요한 명령을 실행할 수 있습니다.
+이제 할당된 대로 *VM 사용자* 또는 *VM 관리자*와 같은 역할 권한이 있는 Azure Linux 가상 머신에 로그인했습니다. 사용자 계정에 *가상 컴퓨터 관리자 로그인* 역할이 할당 된 경우 `sudo`를 사용 하 여 루트 권한이 필요한 명령을 실행할 수 있습니다.
 
 ## <a name="sudo-and-aad-login"></a>Sudo 및 AAD 로그인
 
@@ -173,7 +173,7 @@ sudo를 처음 실행하면 두 번째에는 인증이 요청됩니다. sudo를 
 
 Azure AD 자격 증명을 사용하여 SSH하려고 할 때 발생하는 몇 가지 일반적인 오류에는 RBAC 역할이 할당되지 않거나 로그인하라는 프롬프트가 반복되는 문제가 있습니다. 이러한 문제를 해결하려면 다음 섹션을 사용합니다.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>액세스 거부됨: RBAC 역할 할당되지 않음
+### <a name="access-denied-rbac-role-not-assigned"></a>액세스 거부: RBAC 역할 할당되지 않음
 
 SSH 프롬프트에서 다음 오류를 표시하는 경우 사용자에게 *가상 머신 관리자 로그인* 또는 *가상 머신 사용자 로그인* 역할을 부여한 VM에 대한 RBAC 정책을 구성했는지 확인합니다.
 

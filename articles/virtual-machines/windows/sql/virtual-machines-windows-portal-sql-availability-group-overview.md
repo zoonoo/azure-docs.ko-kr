@@ -1,5 +1,5 @@
 ---
-title: SQL Server 가용성 그룹 - Azure Virtual Machines - 개요 | Microsoft Docs
+title: 가용성 그룹 개요
 description: 이 문서에서는 Azure Virtual Machines의 SQL Server 가용성 그룹을 소개합니다.
 services: virtual-machines
 documentationCenter: na
@@ -14,14 +14,15 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: d89e25b6a39649bb8421fd32b8842c3c76807268
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8119990ab4ab4a918e325976092100086a547aa4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102160"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037488"
 ---
-# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server Always On 가용성 그룹 소개 #
+# <a name="introducing-sql-server-availability-groups-on-azure-virtual-machines"></a>Azure virtual machines에서 SQL Server 가용성 그룹 소개
 
 이 문서에서는 Azure Virtual Machines의 SQL Server 가용성 그룹을 소개합니다. 
 
@@ -39,9 +40,9 @@ Azure Virtual Machines의 가용성 그룹에 대한 주요 차이점은 Azure V
 
 |  | Windows Server 버전 | SQL Server 버전 | SQL Server 버전 | WSFC 쿼럼 구성 | 다중 지역 DR | 다중 서브넷 지원 | 기존 AD에 대 한 지원 | 다중 영역을 동일한 지역 DR | 배포-AD 도메인이 없는 AG 지원 | 클러스터 없는 배포-AG 지원 |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | 클라우드 감시 | 아니요 | 예 | 예 | 예 | 아니오 | 아니요 |
-| [빠른 시작 템플릿](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | 클라우드 감시 | 아니요 | 예 | 예 | 예 | 아니오 | 아니요 |
-| [포털 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | 파일 공유 | 아니요 | 아니요 | 아니요 | 아니요 | 아니요 | 아니요 |
+| [SQL VM CLI](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | Ent | 클라우드 감시 | 아니오 | 예 | 예 | 예 | 아니오 | 아니오 |
+| [빠른 시작 템플릿](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | Ent | 클라우드 감시 | 아니오 | 예 | 예 | 예 | 아니오 | 아니오 |
+| [포털 템플릿](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | Ent | 파일 공유 | 아니오 | 아니오 | 아니오 | 아니오 | 아니오 | 아니오 |
 | [수동](virtual-machines-windows-portal-sql-availability-group-prereq.md) | 모두 | 모두 | 모두 | 모두 | 예 | 예 | 예 | 예 | 예 | 예 |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 

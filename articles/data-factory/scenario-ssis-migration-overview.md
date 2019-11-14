@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: e75e6bc78740ffb8aba0faa0ef95f4b13a8c56ef
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 99b7de8c0e24fdbd12742b26394e61c956638525
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684416"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038268"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>ADF에서 온-프레미스 SSIS 워크 로드를 SSIS로 마이그레이션
 
@@ -48,7 +48,7 @@ DMA (Data Migration Assistant)는이 목적을 위해 로컬에서 설치 및 �
   - MSDB는 SSIS 패키지를 저장 하는 데 사용 되는 SQL Server의 시스템 데이터베이스입니다.
   - SSIS 패키지를 저장 하는 데 사용 되는 SQL Server 설치 경로의 특정 폴더인 관리 파일 시스템입니다.
 
-DMA는 현재 **dma 버전 v 4.5**이후 **파일 시스템** 저장소 형식에 저장 된 패키지의 일괄 처리 평가를 지원 합니다.
+Dma는 현재 **dma 버전 v 5.0**이후 **파일 시스템**, **패키지 저장소**및 **SSIS 카탈로그** 에 저장 된 패키지의 일괄 처리 평가를 지원 합니다.
 
 [DMA](https://docs.microsoft.com/sql/dma/dma-overview)를 가져오고 [이를 사용 하 여 패키지 평가를 수행](https://docs.microsoft.com/sql/dma/dma-assess-ssis)합니다.
 
@@ -79,7 +79,7 @@ DMA는 현재 **dma 버전 v 4.5**이후 **파일 시스템** 저장소 형식�
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure 데이터 팩터리](https://docs.microsoft.com/azure/data-factory/introduction)
+- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
 - [Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview)
 - [SSIS 워크 로드를 클라우드로 리프트 앤 시프트](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-lift-shift-ssis-packages-overview?view=sql-server-2017)
 - [SSIS 패키지를 Azure SQL Database 관리 되는 인스턴스로 마이그레이션](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages-managed-instance)

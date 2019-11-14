@@ -1,18 +1,14 @@
 ---
 title: PCI DSS v 3.2.1 청사진 샘플-컨트롤 매핑
 description: 지불 카드 업계 데이터 보안 표준 v 3.2.1 청사진 샘플을 Azure Policy 및 RBAC에 대 한 매핑을 제어 합니다.
-services: blueprints
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
-ms.service: blueprints
-ms.openlocfilehash: c1e04cb2bfd5ae532b556ed53d585aae90c312e6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: d3e72f923ea3d752d829731d1f741bda090ae9fd
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163054"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037275"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>PCI DSS v 3.2.1 청사진 샘플의 매핑 제어
 
@@ -48,7 +44,7 @@ ms.locfileid: "73163054"
 
 ## <a name="51-62-66-and-1121-vulnerability-scanning-and-system-updates"></a>5.1, 6.2, 6.6 및 11.2.1 취약성 검색 및 시스템 업데이트
 
-이 청사진은 Azure의 누락 된 시스템 업데이트, 운영 체제 취약점, SQL 취약성 및 가상 머신 취약점을 모니터링 하는 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 여 정보 시스템 취약성을 관리 하는 데 도움이 됩니다. Security Center. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다.
+이 청사진은 Azure Security Center의 누락 된 시스템 업데이트, 운영 체제 취약점, SQL 취약성 및 가상 컴퓨터 취약점을 모니터링 하는 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 여 정보 시스템 취약점을 관리 하는 데 도움이 됩니다. Azure Security Center는 배포된 Azure 리소스의 보안 상태에 대한 실시간 인사이트를 가질 수 있도록 하는 보고 기능을 제공합니다.
 
 - Azure Security Center에서 누락된 Endpoint Protection 모니터링
 - Windows Server용 기본 Microsoft IaaSAntimalware 확장 배포
@@ -67,7 +63,7 @@ Azure 구독 소유자가 한 명만 있으면 관리 중복이 허용되지 않
 
 ## <a name="32-721-831a-and-831b-management-of-privileged-access-rights"></a>3.2, 7.2.1, 8.3.1 및 8.3.1 권한 있는 액세스 권한 관리
 
-이 청사진은 소유자, 쓰기 및/또는 읽기 권한이 있는 외부 계정을 감사 하는 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 고 소유자 및/또는 쓰기 권한이 없는 직원 계정을 감사 하는 권한 있는 액세스 권한을 제한 하 고 제어 하는 데 도움이 됩니다. multi-factor authentication을 사용 하도록 설정 했습니다. Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하기 위해 RBAC(역할 기반 액세스 제어)를 구현합니다. 사용자 지정 RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다. 이 청사진에는 SQL Server에 대 한 Azure Active Directory 인증 사용을 감사 하는 [Azure Policy](../../../policy/overview.md) 정의도 할당 됩니다. Azure Active Directory 인증을 사용 하면 권한 관리가 간소화 되 고 데이터베이스 사용자 및 기타 Microsoft의 id 관리가 중앙 집중화 됩니다.  
+이 청사진은 소유자, 쓰기 및/또는 읽기 권한이 있는 외부 계정을 감사 하는 [Azure Policy](../../../policy/overview.md) 정의를 할당 하 고, multi-factor authentication을 사용 하도록 설정 하지 않은 소유자 및/또는 쓰기 권한이 있는 직원 계정을 감사 하는 권한 있는 액세스 권한을 제한 하 고 제어 하는 데 도움이 됩니다. Azure는 Azure 리소스에 대한 액세스 권한이 있는 사용자를 관리하기 위해 RBAC(역할 기반 액세스 제어)를 구현합니다. 사용자 지정 RBAC 규칙은 오류가 발생할 가능성이 높기 때문에 사용자 지정 RBAC 규칙이 구현되는 경우를 이해하면 어떤 구현이 필요하고 적절한지 확인하는 데 도움이 될 수 있습니다. 이 청사진에는 SQL Server에 대 한 Azure Active Directory 인증 사용을 감사 하는 [Azure Policy](../../../policy/overview.md) 정의도 할당 됩니다. Azure Active Directory 인증을 사용 하면 권한 관리가 간소화 되 고 데이터베이스 사용자 및 기타 Microsoft의 id 관리가 중앙 집중화 됩니다.  
 서비스.
  
 - 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.
@@ -134,7 +130,7 @@ Azure는 Azure의 리소스에 대 한 액세스 권한이 있는 사용자를 �
 > [PCI dss v 3.2.1 청사진-개요](./index.md)
 > [PCI-dss v 3.2.1 청사진-배포 단계](./deploy.md)
 
-청사진 및 사용 방법에 대 한 추가 문서입니다.
+청사진 및 사용 방법에 대한 추가 문서:
 
 - [청사진 수명 주기](../../concepts/lifecycle.md)에 대해 알아봅니다.
 - [정적 및 동적 매개 변수](../../concepts/parameters.md) 사용 방법 이해

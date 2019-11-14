@@ -1,5 +1,5 @@
 ---
-title: Azure Linux VM 크기 - 스토리지 | Microsoft Docs
+title: Azure Linux VM 크기-저장소
 description: Azure의 Linux 가상 머신에 사용할 수 있는 다양한 스토리지에 최적화 크기를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/15/2019
 ms.author: jonbeck
-ms.openlocfilehash: 7320acc3a00702b66800af5bfd9a240f4b146670
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 26fb9b285658b9bf3d3df67849e9ccd15b8b5f61
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100843"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034837"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>스토리지 최적화 가상 컴퓨터 크기
 

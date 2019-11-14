@@ -1,31 +1,31 @@
 ---
-title: 그룹 기반 라이선스에 개별적으로 사용이 허가 된 사용자 추가-Azure Active Directory | Microsoft Docs
+title: 그룹 라이선스에 직접 라이선스가 있는 사용자 추가-Azure AD | Microsoft Docs
 description: Azure Active Directory를 사용 하 여 개별 사용자 라이선스에서 그룹 기반 라이선스로 마이그레이션하는 방법
 services: active-directory
 keywords: Azure AD 라이선스
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/26/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29ec9c05a7e7d594c64a450fe64e5bb0e0d1b7d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 6c06d81f2f3f6cee781889d05ae08a1fd125df52
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034769"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025673"
 ---
 # <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>라이선스를 위해 개별 라이선스가 있는 사용자를 그룹으로 마이그레이션하는 방법
 
-개별 사용자에게 라이선스를 할당하기 위해 "직접 할당"을 통해, 즉 PowerShell 스크립트 또는 기타 도구를 사용하여 조직의 사용자에게 기존 라이선스가 배포되었을 수 있습니다. 그룹 기반 라이선스를 사용 하 여 조직의 라이선스를 관리 하기 전에이 마이그레이션 계획을 사용 하 여 기존 솔루션을 그룹 기반 라이선스로 원활 하 게 바꿀 수 있습니다.
+직접 할당을 통해 조직의 사용자에 게 기존 라이선스가 배포 되었을 수 있습니다. 즉, PowerShell 스크립트 또는 다른 도구를 사용 하 여 개별 사용자 라이선스를 할당 합니다. 그룹 기반 라이선스를 사용 하 여 조직의 라이선스를 관리 하기 전에이 마이그레이션 계획을 사용 하 여 기존 솔루션을 그룹 기반 라이선스로 원활 하 게 바꿀 수 있습니다.
 
 가장 중요한 고려 사항은 그룹 기반 라이선스로의 마이그레이션으로 인해 사용자에게 현재 할당된 라이선스가 일시적으로 손실되는 상황을 피해야 한다는 것입니다. 사용자가 서비스 및 해당 데이터에 액세스하지 못하는 일이 없도록 라이선스를 제거할 수 있는 프로세스는 피해야 합니다.
 

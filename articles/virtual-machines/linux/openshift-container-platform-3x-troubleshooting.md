@@ -1,5 +1,5 @@
 ---
-title: Azure에서 OpenShift Container Platform 3.11 배포 문제 해결 | Microsoft Docs
+title: Azure에서 OpenShift Container Platform 3.11 배포 문제 해결
 description: Azure에서 OpenShift Container Platform 3.11 배포 문제를 해결 합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: 4301d81a4d14c36c34d29a54bc146bc8985dfc00
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 1915cce1878b9b7ec058c13167e03c3c318f3668
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72392762"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035480"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Azure에서 OpenShift Container Platform 3.11 배포 문제 해결
 
@@ -96,7 +96,7 @@ Ssh에 대 한 권한이 거부 되었다는 오류가 표시 됩니다. ansible
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>프라이빗 키를 사용한 키 자격 증명 모음 비밀이 올바르게 생성되지 않음
 
-개인 키가 ansible 플레이 북 host-~/.ssh/id_rsa.에 복사 됩니다. 이 파일이 올바른지 확인합니다. ansible 플레이북 호스트에서 클러스터 노드 중 하나에 대한 SSH 세션을 열어 테스트합니다.
+개인 키가 ansible 플레이 북 host-~/.ssh/id_rsa에 복사 됩니다. 이 파일이 올바른지 확인합니다. ansible 플레이북 호스트에서 클러스터 노드 중 하나에 대한 SSH 세션을 열어 테스트합니다.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>서비스 주체 자격 증명이 잘못 입력됨
 
@@ -118,5 +118,5 @@ az group update -g <openshift resource group> --set tags.sptest=test
 
 일부 오류의 경우 다음 명령을 사용하여 자세한 정보를 가져올 수도 있습니다.
 
-1. systemctl 상태 \<service >
+1. systemctl 상태 \<서비스 >
 2. journalctl -xe

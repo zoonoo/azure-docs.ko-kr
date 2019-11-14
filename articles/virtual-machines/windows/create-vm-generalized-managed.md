@@ -1,5 +1,5 @@
 ---
-title: Azure에서 관리되는 이미지에서 VM 만들기 | Microsoft Docs
+title: Azure의 관리 되는 이미지에서 VM 만들기
 description: Resource Manager 배포 모델에서 Azure PowerShell 또는 Azure Portal을 사용하여 일반화된 관리되는 이미지로 Windows 가상 머신을 만듭니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 016b53660499b86de13855cfa994c84d6d9bc702
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 17100769bac2e7af08e0bcba6ca2eb129b621013
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749494"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037522"
 ---
 # <a name="create-a-vm-from-a-managed-image"></a>관리되는 이미지에서 VM 만들기
 
@@ -33,7 +33,7 @@ Azure Portal 또는 PowerShell을 사용하여 Azure 관리되는 VM 이미지�
 2. 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. **형식**별로 리소스를 정렬하여 간편하게 이미지를 찾을 수 있습니다.
 3. 목록에서 사용할 이미지를 선택합니다. 이미지 **개요** 페이지가 열립니다.
 4. 메뉴에서 **VM 만들기**를 선택합니다.
-5. 가상 머신 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다. 완료되면 **확인**을 선택합니다. 기존 리소스 그룹에서 새 VM을 만들거나 **새로 만들기**를 선택하여 VM을 저장할 새 리소스 그룹을 만들 수 있습니다.
+5. 가상 컴퓨터 정보를 입력합니다. 여기에서 입력한 이사용자 이름과 암호는 가상 머신에 로그인하는 데 사용됩니다. 완료되면 **확인**을 선택합니다. 기존 리소스 그룹에서 새 VM을 만들거나 **새로 만들기**를 선택하여 VM을 저장할 새 리소스 그룹을 만들 수 있습니다.
 6. VM의 크기를 선택합니다. 더 많은 크기를 보려면 **모두 보기**를 선택하거나 **지원되는 디스크 형식** 필터를 변경합니다. 
 7. **설정**에서 필요한 항목을 변경하고 **확인**을 선택합니다. 
 8. 요약 페이지에서 이미지 이름이 **프라이빗 이미지** 아래 나열되어야 합니다. **확인**을 선택하여 가상 머신 배포를 시작합니다.

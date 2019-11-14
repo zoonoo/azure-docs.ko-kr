@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 95f2dbdbb34ff349d14be430b4e5a4fa84df0f5a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 78693dceaac119279b1c1d06a6c3a18cc4fdb485
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581478"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033934"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -57,12 +57,12 @@ Blob Api 및 Data Lake Storage Gen2 Api는 동일한 데이터에 대해 작동�
 | **Azure Blob Storage 수명 주기 관리 정책** | 모든 액세스 계층이 지원 됩니다. 보관 액세스 계층은 현재 미리 보기로 제공 됩니다. Blob 스냅숏의 삭제는 아직 지원 되지 않습니다. |
 | **CDN (Azure Content Delivery Network)** | 아직 지원 되지 않음|
 | **Azure 검색** |지원 됨 (미리 보기)|
-| **Azure Storage Explorer** | 버전별 지원 <br><br>버전 `1.6.0` 이상만 사용 합니다. <br>버전 `1.6.0`은 [무료로 다운로드할](https://azure.microsoft.com/features/storage-explorer/)수 있습니다.|
+| **Azure Storage Explorer** | 버전별 지원 <br><br>`1.10.0`를 통해 `1.6.0` 버전만 사용 합니다. <br> 버전 `1.10.0`은 [무료로 다운로드할](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-relnotes)수 있습니다. 버전 `1.11.0`는 아직 지원 되지 않습니다.|
 | **Blob 컨테이너 Acl** |아직 지원 되지 않음|
 | **Blobfuse** |아직 지원 되지 않음|
 | **사용자 지정 도메인** |아직 지원 되지 않음|
 | **Azure Portal Storage 탐색기** | 제한적으로 지원 됩니다. Acl은 아직 지원 되지 않습니다. |
-| **진단 로깅** |진단 로그가 지원 됩니다 (미리 보기).<br><br>Azure Portal에서 로그를 사용 하도록 설정 하는 것은 현재 지원 되지 않습니다. PowerShell을 사용 하 여 로그를 사용 하도록 설정 하는 방법의 예는 다음과 같습니다. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`에 설정해야 합니다에 설정해야 합니다. <br><br>이 예에 표시 된 것 처럼 `-ServiceType` 매개 변수의 값으로 `Blob`을 지정 해야 합니다. <br><br>현재 Azure Storage 탐색기 진단 로그를 보는 데 사용할 수 없습니다. 로그를 보려면 AzCopy 또는 Sdk를 사용 하세요.
+| **진단 로깅** |진단 로그가 지원 됩니다 (미리 보기).<br><br>Azure Portal에서 로그를 사용 하도록 설정 하는 것은 현재 지원 되지 않습니다. PowerShell을 사용 하 여 로그를 사용 하도록 설정 하는 방법의 예는 다음과 같습니다. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`. <br><br>이 예제에 표시 된 대로 `Blob`를 `-ServiceType` 매개 변수의 값으로 지정 해야 합니다. <br><br>현재 Azure Storage 탐색기 진단 로그를 보는 데 사용할 수 없습니다. 로그를 보려면 AzCopy 또는 Sdk를 사용 하세요.
 | **변경할 수 없는 저장소** |아직 지원 되지 않음 <br><br>변경할 수 없는 저장소는 데이터를 [웜 (한 번 쓰기, 많은 읽기)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) 상태에 저장 하는 기능을 제공 합니다.|
 | **개체 수준 계층** |쿨 및 archive 계층이 지원 됩니다. 보관 계층은 미리 보기 상태입니다. 다른 모든 액세스 계층은 아직 지원 되지 않습니다.|
 | **Powershell 및 CLI 지원** | 제한 된 기능 <br><br>Blob 작업이 지원 됩니다. 디렉터리 작업 및 Acl (액세스 제어 목록) 설정은 아직 지원 되지 않습니다. |

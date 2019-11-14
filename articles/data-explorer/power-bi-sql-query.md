@@ -1,28 +1,28 @@
 ---
 title: Power BI에서 SQL 쿼리를 사용하여 Azure Data Explorer의 데이터 시각화
-description: '이 문서에서는 Power BI에서 데이터를 시각화에 대 한 세 가지 옵션 중 하나를 사용 하는 방법을 알아봅니다: Azure Data Explorer 클러스터에 대해 SQL 쿼리.'
+description: 이 문서에서는 Azure 데이터 탐색기 클러스터에 대 한 SQL 쿼리 Power BI에서 데이터를 시각화 하기 위한 세 가지 옵션 중 하나를 사용 하는 방법에 대해 알아봅니다.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 5378a49ba5a4f3770ec9d9b3f723c063b4ef1a61
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: e4e7858a54f3002a511269a2519135d5ac24ed68
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67806429"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74024075"
 ---
 # <a name="visualize-data-from-azure-data-explorer-using-a-sql-query-in-power-bi"></a>Power BI에서 SQL 쿼리를 사용하여 Azure Data Explorer의 데이터 시각화
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Power BI는 데이터를 시각화하고 조직 전체에서 결과를 공유할 수 있는 비즈니스 분석 솔루션입니다.
 
-Azure Data Explorer는 Power BI에서 데이터에 연결하기 위한 세 가지 옵션, 즉 기본 제공 커넥터 사용, Azure Data Explorer에서 쿼리 가져오기 또는 SQL 쿼리 사용을 제공합니다. 이 문서에서는 SQL 쿼리를 사용 하 여 데이터를 가져와 Power BI 보고서에서 시각화 하는 방법을 보여 줍니다.
+Azure Data Explorer는 Power BI에서 데이터에 연결하기 위한 세 가지 옵션, 즉 기본 제공 커넥터 사용, Azure Data Explorer에서 쿼리 가져오기 또는 SQL 쿼리 사용을 제공합니다. 이 문서에서는 SQL 쿼리를 사용 하 여 Power BI 보고서에서 데이터를 가져오고 시각화 하는 방법을 보여 줍니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 이 문서를 완료 하려면 다음이 필요 합니다.
 
@@ -80,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에 대해 작성 된 보고서를 더 이상 해야 하는 경우 Power BI Desktop (.pbix) 파일을 삭제 합니다.
+이 문서에 대해 만든 보고서가 더 이상 필요 하지 않은 경우 Power BI Desktop (.pbix) 파일을 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

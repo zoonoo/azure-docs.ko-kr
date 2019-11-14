@@ -1,5 +1,5 @@
 ---
-title: Azure 리소스를 프로 비전 하기 위해 Terraform 설치 및 구성 | Microsoft Docs
+title: Azure 리소스를 프로 비전 하기 위해 Terraform 설치 및 구성
 description: Terraform을 설치하고 구성하여 Azure 리소스를 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/20/2019
 ms.author: tarcher
-ms.openlocfilehash: cd3c8d7d862788f626356b4cfcdccccca36227b3
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: efba440448ac912b7656eeab017eef947ab25e95
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168742"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034693"
 ---
 # <a name="install-and-configure-terraform-to-provision-azure-resources"></a>Azure 리소스를 프로 비전 하기 위해 Terraform 설치 및 구성
  
@@ -52,7 +52,7 @@ Terraform에서 Azure로 리소스를 프로비전할 수 있도록 [Azure AD �
 az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
 ```
 
-선택한 구독을 사용하려면 [az account set](/cli/azure/account#az-account-set) 명령을 사용하여 이 세션에 대한 구독을 설정합니다. 사용하려는 구독에서 반환된 `id` 필드 값을 보유하도록 `SUBSCRIPTION_ID` 환경 변수를 설정합니다.
+선택한 구독을 사용하려면 [az account set](/cli/azure/account#az-account-set) 명령을 사용하여 이 세션에 대한 구독을 설정합니다. 사용하려는 구독에서 반환된 `SUBSCRIPTION_ID` 필드 값을 보유하도록 `id` 환경 변수를 설정합니다.
 
 ```azurecli-interactive
 az account set --subscription="${SUBSCRIPTION_ID}"

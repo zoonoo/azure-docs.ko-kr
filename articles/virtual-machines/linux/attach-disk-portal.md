@@ -1,5 +1,5 @@
 ---
-title: Linux VM에 데이터 디스크 연결 | Microsoft Docs
+title: Linux VM에 데이터 디스크 연결
 description: 포털을 사용하여 새 또는 기존 데이터 디스크를 Linux VM에 연결합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: f63648f63d6154b89f641cdc4d2657e0396a8c66
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 78604a4f6fd5a6bcd21d0adc80c1c60278068836
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036372"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037059"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>포털을 사용하여 데이터 디스크를 Linux VM에 연결 
-이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 머신에 연결하는 방법을 보여줍니다. 또한 [Azure Portal에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다. 
+이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 머신에 연결하는 방법을 보여줍니다. 또한 [Azure 포털에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다. 
 
 VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
 
@@ -35,7 +35,7 @@ VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
 ## <a name="find-the-virtual-machine"></a>가상 머신 찾기
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **Virtual Machines**를 클릭합니다.
-3. 목록에서 가상 머신을 선택합니다.
+3. 목록에서 가상 컴퓨터를 선택합니다.
 4. 가상 머신 페이지의 **Essentials**에서 **디스크**를 클릭합니다.
    
     ![디스크 설정 열기](./media/attach-disk-portal/find-disk-settings.png)
@@ -70,7 +70,7 @@ VM에 디스크를 연결하기 전에 다음 팁을 검토합니다.
    
    ![Azure Managed Disk 업데이트 저장](./media/attach-disk-portal/confirm-attach-existing-md.png)
 
-4. Azure가 디스크를 가상 머신에 연결한 후 가상 머신의 디스크 설정의 **데이터 디스크**아래에 해당 디스크가 나열됩니다.
+4. Azure가 디스크를 가상 컴퓨터에 연결한 후 가상 컴퓨터의 디스크 설정의 **데이터 디스크**아래에 해당 디스크가 나열됩니다.
 
 ## <a name="connect-to-the-linux-vm-to-mount-the-new-disk"></a>Linux VM에 연결하여 새 디스크 탑재
 Linux VM에서 사용할 수 있도록 새 디스크를 분할, 포맷 및 탑재하려면 VM에 SSH합니다. 자세한 내용은 [Azure에서 Linux와 함께 SSH를 사용하는 방법](mac-create-ssh-keys.md)을 참조하세요. 다음 예제에서는 사용자 이름 *azureuser*를 사용하여 공용 DNS 항목이 *mypublicdns.westus.cloudapp.azure.com*인 VM에 연결합니다. 
@@ -103,7 +103,7 @@ dmesg | grep SCSI
 > [!NOTE]
 > 배포판에 사용할 수 있는 최신 버전의 fdisk 또는 parted를 사용 하는 것이 좋습니다.
 
-`fdisk`를 사용하여 디스크를 분할합니다. 디스크 크기가 2테비바이트(TiB) 이상이어서 GPT 분할을 사용해야 하는 경우 `parted`를 사용하여 GPT 분할을 수행할 수 있습니다. 디스크 크기가 2TiB 미만이라면 MBR 또는 GPT 분할을 사용하면 됩니다. 파티션 1에 기본 디스크를 만들고, 나머지는 기본값을 적용합니다. 다음 예제에서는 */dev/sdc*에서 `fdisk` 프로세스를 시작합니다.
+`fdisk`를 사용하여 디스크를 분할합니다. 디스크 크기가 2테비바이트(TiB) 이상이어서 GPT 분할을 사용해야 하는 경우 `parted`를 사용하여 GPT 분할을 수행할 수 있습니다. 디스크 크기가 2TiB 미만이라면 MBR 또는 GPT 분할을 사용하면 됩니다. 파티션 1에 기본 디스크를 만들고, 나머지는 기본값을 적용합니다. 다음 예제에서는 `fdisk`/dev/sdc*에서*  프로세스를 시작합니다.
 
 ```bash
 sudo fdisk /dev/sdc
@@ -202,7 +202,7 @@ sudo mount /dev/sdc1 /datadrive
 sudo -i blkid
 ```
 
-출력은 다음 예제와 유사합니다.
+다음 예제와 유사하게 출력됩니다.
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
@@ -235,7 +235,7 @@ UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail 
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
-* */etc/fstab*에 `discard` 탑재 옵션을 사용합니다. 예:
+* `discard`/etc/fstab*에*  탑재 옵션을 사용합니다. 예:
 
     ```bash
     UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2

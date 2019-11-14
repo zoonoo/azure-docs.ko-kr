@@ -1,5 +1,5 @@
 ---
-title: 2 세대 Vm에 대 한 Azure 지원 | Microsoft Docs
+title: 2 세대 Vm에 대 한 Azure 지원
 description: 2 세대 Vm에 대 한 Azure 지원 개요
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 4cb6d684171ac6e7e9e1cb7da556250f857cf2af
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: f17ec7179413bebb8260089abc46856412b78ab5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891475"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038645"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2 세대 Vm에 대 한 지원
 
@@ -37,7 +37,7 @@ ms.locfileid: "73891475"
 * [Dsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv2-series) 및 [Dsv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-general#dsv3-series-1)
 * [Esv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory#esv3-series)
 * [Fsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-compute#fsv2-series-1)
-* [GS 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
+* [GS-series](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#gs-series)
 * [HB-시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#hb-series)
 * [HC 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#hc-series)
 * [Ls 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-previous-gen#ls-series) 및 [Lsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage#lsv2-series)

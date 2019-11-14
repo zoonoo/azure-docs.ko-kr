@@ -1,5 +1,5 @@
 ---
-title: Linux VM에서 데이터 디스크 분리 - Azure | Microsoft Docs
+title: Linux VM에서 데이터 디스크 분리-Azure
 description: Azure CLI 또는 Azure Portal을 사용하여 Azure의 가상 머신에서 데이터 디스크를 분리하는 방법을 알아봅니다.
 author: roygara
 ms.service: virtual-machines-linux
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: e026617db4da58c12a454000f6d97f8b6843e95d
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: f8a0790169b17ad7755386f9bdd4f9372efc83e7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695874"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036377"
 ---
 # <a name="how-to-detach-a-data-disk-from-a-linux-virtual-machine"></a>Linux 가상 머신에서 데이터 디스크를 분리하는 방법
 
-가상 머신에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 컴퓨터에서 디스크가 제거되지만, 스토리지에서는 제거되지 않습니다. 이 문서에서는 Ubuntu LTS 16.04 배포판으로 작업합니다. 다른 배포판을 사용하는 경우 디스크 탑재 해제 지침이 다를 수 있습니다.
+가상 컴퓨터에 연결된 데이터 디스크가 더 이상 필요하지 않은 경우 쉽게 분리할 수 있습니다. 디스크를 분리하면 가상 컴퓨터에서 디스크가 제거되지만, 스토리지에서는 제거되지 않습니다. 이 문서에서는 Ubuntu LTS 16.04 배포판으로 작업합니다. 다른 배포판을 사용하는 경우 디스크 탑재 해제 지침이 다를 수 있습니다.
 
 > [!WARNING]
 > 디스크를 분리해도 자동으로 삭제되지 않습니다. Premium Storage를 구독하는 경우 디스크에 대한 스토리지 요금이 계속 부과됩니다. 자세한 내용은 [Premium Storage 사용 시 가격 책정 및 청구](https://azure.microsoft.com/pricing/details/storage/page-blobs/)를 참조하세요.
@@ -56,7 +56,7 @@ dmesg | grep SCSI
 sudo -i blkid
 ```
 
-출력은 다음 예제와 유사합니다.
+다음 예제와 유사하게 출력됩니다.
 
 ```bash
 /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"

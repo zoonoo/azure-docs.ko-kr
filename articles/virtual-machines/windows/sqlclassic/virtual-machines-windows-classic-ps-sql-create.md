@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell에서 SQL Server Virtual Machine 만들기(클래식) | Microsoft Docs
+title: 클래식 SQL Server VM 만들기 (PowerShell)
 description: SQL Server 가상 컴퓨터 갤러리 이미지를 사용하여 Azure VM을 만드는 단계 및 PowerShell 스크립트를 제공합니다. 이 항목에서는 클래식 배포 모드를 사용합니다.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,24 +14,25 @@ ms.workload: iaas-sql-server
 ms.date: 08/07/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a4c7c29736cdd80ef7ebe413a377aba630d61858
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 8757b634b76867a2d5ccce3dcfdc9d66ef25c25e
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101879"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032727"
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-classic"></a>Azure PowerShell을 사용하여 SQL Server 가상 컴퓨터 프로비전(클래식)
 
 이 문서에서는 PowerShell cmdlet을 사용하여 Azure에서 SQL Server 가상 머신을 만드는 방법에 대한 단계를 제공합니다.
 
 > [!IMPORTANT] 
-> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하기 위한 [리소스 관리자 및 클래식](../../../azure-resource-manager/resource-manager-deployment-model.md)라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 리소스 관리자 모델을 사용하는 것이 좋습니다.
 
 이 항목의 Resource Manager 버전에 대해서는 [Azure PowerShell Resource Manager를 사용하여 SQL Server 가상 머신 프로비전](../sql/virtual-machines-windows-ps-sql-create.md)을 참조하세요.
 
 ### <a name="install-and-configure-powershell"></a>PowerShell 설치 및 구성:
-1. Azure 계정이 없는 경우 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
+1. Azure 계정이 없는 경우 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 방문하십시오.
 2. [최신 Azure PowerShell 명령을 다운로드하여 설치합니다](/powershell/azure/overview).
 3. Windows PowerShell을 시작하고 **Add-AzureAccount** 명령을 사용하여 Azure 구독에 연결합니다.
 
@@ -94,7 +95,7 @@ SQL Server Virtual Machine을 특정 Azure 지역에 있는 클라우드 서비�
    Get-AzureVMImage | where { $_.ImageFamily -like "SQL*" } | select ImageFamily -Unique | Sort-Object -Property ImageFamily
    ```
 
-2. 가상 머신 이미지 패밀리를 찾으면 해당 패밀리에 여러 개의 게시된 이미지가 있을 수 있습니다. 다음 스크립트를 사용하여 선택한 이미지 패밀리에 대해 게시된 최신 가상 머신 이미지 이름을 찾습니다(예: **Windows Server 2012 R2의 SQL Server 2016 RTM Enterprise**).
+2. 가상 머신 이미지 패밀리를 찾으면 해당 패밀리에 여러 개의 게시된 이미지가 있을 수 있습니다. 다음 스크립트를 사용하여 선택한 이미지 패밀리에 대해 게시된 최신 가상 컴퓨터 이미지 이름을 찾습니다(예: **Windows Server 2012 R2의 SQL Server 2016 RTM Enterprise**).
 
    ```powershell
    $family="<ImageFamily value>"
@@ -115,7 +116,7 @@ SQL Server Virtual Machine을 특정 Azure 지역에 있는 클라우드 서비�
    New-AzureService -ServiceName $svcname -Label $svcname -Location $dcLocation
    ```
 
-2. 가상 머신 이름 및 크기를 지정합니다. 가상 컴퓨터 크기에 대한 자세한 내용은 [Azure에 대한 Virtual Machine 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
+2. 가상 머신 이름 및 크기를 지정합니다. 가상 머신 크기에 대한 자세한 내용은 [Azure에 대한 Virtual Machine 크기](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조하세요.
 
    ```powershell
    $vmname="<machine name>"

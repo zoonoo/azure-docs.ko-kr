@@ -1,5 +1,5 @@
 ---
-title: CLI를 통해 Azure VM에 대한 OS 디스크 교체 | Microsoft Docs
+title: CLI를 사용 하 여 Azure VM에 대 한 OS 디스크 교체
 description: CLI를 사용하여 Azure Virtual Machine에서 사용하는 운영 체제 디스크를 변경합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: cynthn
-ms.openlocfilehash: 7b5f8a47b2b9c3692698b2ec6a7e5bc470b86a18
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bfbe47fb68ffe7cee1ee2f9f7b94b418d8da2a1d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091662"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035338"
 ---
 # <a name="change-the-os-disk-used-by-an-azure-vm-using-the-cli"></a>CLI를 사용하여 Azure VM에서 사용하는 OS 디스크 변경
 
@@ -52,7 +52,7 @@ az vm stop \
 ```
 
 
-`--osdisk` 매개 변수에 대한 새로운 디스크의 전체 리소스 ID와 함께 [az vm update](/cli/azure/vm#az-vm-update)를 사용합니다. 
+[ 매개 변수에 대한 새로운 디스크의 전체 리소스 ID와 함께 ](/cli/azure/vm#az-vm-update)az vm update`--osdisk`를 사용합니다. 
 
 ```azurecli-interactive 
 az vm update \

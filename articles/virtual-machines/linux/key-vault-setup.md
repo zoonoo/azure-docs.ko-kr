@@ -1,5 +1,5 @@
 ---
-title: Linux VM의 Azure Key Vault 설정 | Microsoft Docs
+title: Linux Vm에 대 한 Azure Key Vault 설정
 description: Azure CLI를 사용하여 Azure Resource Manager 가상 머신에서 사용할 Key Vault를 설정하는 방법을 설명합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/24/2017
 ms.author: kasing
-ms.openlocfilehash: cbc8b6be09fcf4232636b580dc0c62482b83bd60
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 25ef1d43af9d37cebde4a28479010776cc148b6d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002153"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035946"
 ---
 # <a name="how-to-set-up-key-vault-for-virtual-machines-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신용 Key Vault를 설정하는 방법
 
@@ -29,14 +29,14 @@ Azure Resource Manager 스택에서 암호/인증서는 Key Vault에서 제공�
 이러한 단계를 수행하려면 최신 [Azure CLI](/cli/azure/install-az-cli2)를 설치하고 [az login](/cli/azure/reference-index)을 사용하여 Azure 계정에 로그인해야 합니다.
 
 ## <a name="create-a-key-vault"></a>주요 자격 증명 모음 만들기
-[az keyvault create](/cli/azure/keyvault)를 사용하여 주요 자격 증명 모음을 만들고 배포 정책을 할당합니다. 다음 예제에서는 `myResourceGroup` 리소스 그룹에 `myKeyVault`이라는 주요 자격 증명 모음을 만듭니다.
+[az keyvault create](/cli/azure/keyvault)를 사용하여 주요 자격 증명 모음을 만들고 배포 정책을 할당합니다. 다음 예제에서는 `myKeyVault` 리소스 그룹에 `myResourceGroup`이라는 주요 자격 증명 모음을 만듭니다.
 
 ```azurecli
 az keyvault create -l westus -n myKeyVault -g myResourceGroup --enabled-for-deployment true
 ```
 
 ## <a name="update-a-key-vault-for-use-with-vms"></a>VM과 함께 사용할 Key Vault를 업데이트합니다.
-[az keyvault update](/cli/azure/keyvault)를 사용하여 기존 주요 자격 증명 모음에 대한 배포 정책을 설정합니다. 다음에서는 `myResourceGroup` 리소스 그룹에 `myKeyVault`이라는 주요 자격 증명 모음을 업데이트합니다.
+[az keyvault update](/cli/azure/keyvault)를 사용하여 기존 주요 자격 증명 모음에 대한 배포 정책을 설정합니다. 다음에서는 `myKeyVault` 리소스 그룹에 `myResourceGroup`이라는 주요 자격 증명 모음을 업데이트합니다.
 
 ```azurecli
 az keyvault update -n myKeyVault -g myResourceGroup --set properties.enabledForDeployment=true

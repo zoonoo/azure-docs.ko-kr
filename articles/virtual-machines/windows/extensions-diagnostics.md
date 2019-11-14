@@ -1,5 +1,5 @@
 ---
-title: Windows용 Azure Diagnostics 확장 | Microsoft Docs
+title: Windows 용 Azure 진단 확장
 description: Azure Diagnostics 확장을 사용하여 Azure Windows VM 모니터링
 services: virtual-machines-windows
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 4230e2aac8d386c759a403b9008029d68049569c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 3fcdcd4565ed0512b3efcf9b23ca349a3bbf3a6c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749399"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033489"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Windows VM용 Azure Diagnostics 확장
 
@@ -25,7 +25,7 @@ ms.locfileid: "73749399"
 
 Azure Diagnostics VM 확장을 사용하면 Windows VM에서 모니터링 데이터(예: 성능 카운터 및 이벤트 로그)를 수집할 수 있습니다. 수집하려는 데이터와 데이터를 저장할 위치(예: Azure Storage 계정 또는 Azure Event Hub)를 세분화하여 지정할 수 있습니다. 이 데이터를 사용하여 Azure Portal에서 차트를 작성하거나 메트릭 경고를 만들 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 ### <a name="operating-system"></a>운영 체제
 

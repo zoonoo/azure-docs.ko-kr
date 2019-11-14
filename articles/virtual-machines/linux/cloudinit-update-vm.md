@@ -1,5 +1,5 @@
 ---
-title: cloud-init를 사용하여 Azure의 Linux VM에서 패키지 업데이트 및 설치 | Microsoft Docs
+title: 클라우드 초기화를 사용 하 여 Azure에서 Linux VM의 패키지 업데이트 및 설치
 description: Azure CLI에서 cloud-init를 사용하여 생성 중인 Linux VM의 패키지를 업데이트 및 설치하는 방법
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: rclaus
-ms.openlocfilehash: cff3ce47d7421b70a49161dddadd05b3f3878a04
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: ddea412598e02be7d71d5a3efafa444a5dc19e8c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668175"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036723"
 ---
 # <a name="use-cloud-init-to-update-and-install-packages-in-a-linux-vm-in-azure"></a>cloud-init를 사용하여 Azure의 Linux VM에서 패키지 업데이트 및 설치
 이 문서는 [cloud-init](https://cloudinit.readthedocs.io)를 사용하여 Azure의 프로비전 시간에서 Linux VM(가상 머신) 또는 VMSS(가상 머신 확장 집합)의 패키지를 업데이트하는 방법을 보여 줍니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다. 기본적으로 cloud-init가 Azure에서 작동되는 방식과 지원되는 Linux 배포판에 대한 자세한 내용은 [cloud-init 개요](using-cloud-init.md)를 참조하세요.
@@ -65,7 +65,7 @@ ssh <publicIpAddress>
 sudo yum update
 ```
 
-cloud-init가 부팅 시 업데이트를 확인하여 설치했으므로 적용할 추가 업데이트가 없습니다.  `yum history`를 실행하여 `httpd`의 설치와 함께 업데이트 프로세스, 변경된 패키지 수를 확인하고 아래 있는 것과 유사한 출력을 검토합니다.
+cloud-init가 부팅 시 업데이트를 확인하여 설치했으므로 적용할 추가 업데이트가 없습니다.  `httpd`를 실행하여 `yum history`의 설치와 함께 업데이트 프로세스, 변경된 패키지 수를 확인하고 아래 있는 것과 유사한 출력을 검토합니다.
 
 ```bash
 Loaded plugins: fastestmirror, langpacks

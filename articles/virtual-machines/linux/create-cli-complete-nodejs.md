@@ -1,5 +1,5 @@
 ---
-title: Azure 클래식 CLI를 사용하여 전체 Linux 환경 만들기 | Microsoft Docs
+title: Azure 클래식 CLI를 사용하여 전체 Linux 환경 만들기
 description: Azure 클래식 CLI를 사용하여 스토리지, Linux VM, 가상 네트워크 및 서브넷, 부하 분산 디바이스, NIC, 공용 IP, 네트워크 보안 그룹을 모두 처음부터 새로 만듭니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/09/2017
 ms.author: cynthn
-ms.openlocfilehash: aaf91aa81be5fc4c5944dde804798a61ceffc5a6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1ee89ce18600685f3f82bfb49d4d8ecbaf192b04
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083711"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74036521"
 ---
 # <a name="create-a-complete-linux-environment-with-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 전체 Linux 환경 만들기
 이 문서에서는 개발 및 간단한 계산에 유용한 부하 분산 장치와 한 쌍의 VM을 사용하여 간단한 네트워크를 빌드해 보겠습니다. 인터넷 어디에서나 안전하게 실행되는 두 개의 Linux VM에 연결할 수 있을 때까지 프로세스를 명령별로 진행합니다. 그 후에는 좀 더 복잡한 네트워크 및 환경으로 넘어갈 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "70083711"
 * 포트 80에서 부하 분산 규칙이 있는 부하 분산 장치
 * 원치 않는 트래픽으로부터 VM을 보호하기 위한 NSG(네트워크 보안 그룹) 규칙
 
-이러한 사용자 지정 환경을 만들려면 Resource Manager 모드(`azure config mode arm`)의 최신 [Azure 클래식 CLI](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)가 필요합니다. JSON 구문 분석 도구도 필요합니다. 이 예제에서는 [jq](https://stedolan.github.io/jq/)를 사용합니다.
+이러한 사용자 지정 환경을 만들려면 Resource Manager 모드([)의 최신 ](../../cli-install-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)Azure 클래식 CLI`azure config mode arm`가 필요합니다. JSON 구문 분석 도구도 필요합니다. 이 예제에서는 [jq](https://stedolan.github.io/jq/)를 사용합니다.
 
 
 ## <a name="cli-versions-to-complete-the-task"></a>태스크를 완료하기 위한 CLI 버전
@@ -51,9 +51,9 @@ ms.locfileid: "70083711"
 azure config mode arm
 ```
 
-다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `mystorageaccount` 및 `myVM`가 포함됩니다.
+다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `mystorageaccount` 및 `myVM`이 포함됩니다.
 
-리소스 그룹을 만듭니다. 다음 예제에서는 `westeurope` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
+리소스 그룹을 만듭니다. 다음 예제에서는 `myResourceGroup` 위치에 `westeurope`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 azure group create -n myResourceGroup -l westeurope
@@ -65,7 +65,7 @@ JSON 파서를 사용하여 리소스 그룹을 확인합니다.
 azure group show myResourceGroup --json | jq '.'
 ```
 
-스토리지 계정을 만듭니다. 다음 예제에서는 `mystorageaccount`라는 스토리지 계정을 만듭니다. (스토리지 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요.)
+스토리지 계정을 만듭니다. 다음 예제에서는 `mystorageaccount`라는 스토리지 계정을 만듭니다. 스토리지 계정 이름은 고유해야 하므로 자신만의 이름을 제공하세요.
 
 ```azurecli
 azure storage account create -g myResourceGroup -l westeurope \
@@ -78,7 +78,7 @@ JSON 파서를 사용하여 스토리지 계정을 확인합니다.
 azure storage account show -g myResourceGroup mystorageaccount --json | jq '.'
 ```
 
-가상 네트워크 만들기 다음 예제는 `myVnet`이라는 가상 네트워크를 만듭니다.
+가상 네트워크 만들기 다음 예제에서는 `myVnet`이라는 가상 네트워크를 만듭니다.
 
 ```azurecli
 azure network vnet create -g myResourceGroup -l westeurope\
@@ -98,7 +98,7 @@ JSON 파서를 사용하여 가상 네트워크 및 서브넷을 확인합니다
 azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
-공용 IP를 만듭니다. 다음 예제는 `mypublicdns`라는 DNS 이름으로 `myPublicIP`라는 공용 IP를 만듭니다. DNS 이름은 고유해야 하므로 자신만의 이름을 제공하세요.
+공용 IP를 만듭니다. 다음 예제는 `myPublicIP`라는 DNS 이름으로 `mypublicdns`라는 공용 IP를 만듭니다. DNS 이름은 고유해야 하므로 자신만의 이름을 제공하세요.
 
 ```azurecli
 azure network public-ip create -g myResourceGroup -l westeurope \
@@ -235,7 +235,7 @@ azure vm create \
     --admin-username azureuser
 ```
 
-두 번째 Linux VM을 만듭니다. 다음 예제는 `myVM2`라는 VM을 만듭니다.
+두 번째 Linux VM을 만듭니다. 다음 예제는 `myVM2`이라는 VM을 만듭니다.
 
 ```azurecli
 azure vm create \
@@ -278,7 +278,7 @@ azure config mode arm
 다음 예제에서 매개 변수 이름을 고유한 값으로 바꿉니다. 예제 매개 변수 이름에 `myResourceGroup`, `mystorageaccount` 및 `myVM`이 포함됩니다.
 
 ## <a name="create-resource-groups-and-choose-deployment-locations"></a>리소스 그룹 만들기 및 배포 위치 선택
-Azure 리소스 그룹은 리소스 배포를 논리적으로 관리할 수 있는 구성 정보 및 메타데이터를 포함하는 논리적 배포 엔터티입니다. 다음 예제에서는 `westeurope` 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
+Azure 리소스 그룹은 리소스 배포를 논리적으로 관리할 수 있는 구성 정보 및 메타데이터를 포함하는 논리적 배포 엔터티입니다. 다음 예제에서는 `myResourceGroup` 위치에 `westeurope`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 azure group create --name myResourceGroup --location westeurope
@@ -300,7 +300,7 @@ data:
 info:    group create command OK
 ```
 
-## <a name="create-a-storage-account"></a>저장소 계정 만들기
+## <a name="create-a-storage-account"></a>스토리지 계정 만들기
 VM 디스크 및 추가하려는 추가 데이터 디스크에 대한 스토리지 계정이 필요합니다. 리소스 그룹을 만든 후 거의 즉시 스토리지 계정을 만들게 됩니다.
 
 여기서는 `azure storage account create` 명령을 사용하여 계정 위치, 계정을 제어할 리소스 그룹, 원하는 스토리지 지원 형식을 전달합니다. 다음 예제에서는 `mystorageaccount`라는 스토리지 계정을 만듭니다.
@@ -321,7 +321,7 @@ info:    Executing command storage account create
 info:    storage account create command OK
 ```
 
-`azure group show` 명령을 사용하여 리소스 그룹을 검사하기 위해 `--json` Azure CLI 옵션과 함께 [jq](https://stedolan.github.io/jq/) 도구를 사용해 보겠습니다. ( **jsawk** 또는 원하는 언어 라이브러리를 사용하여 JSON을 구문 분석할 수 있습니다.)
+`azure group show` 명령을 사용하여 리소스 그룹을 검사하기 위해 [ Azure CLI 옵션과 함께 ](https://stedolan.github.io/jq/)jq`--json` 도구를 사용해 보겠습니다. ( **jsawk** 또는 원하는 언어 라이브러리를 사용하여 JSON을 구문 분석할 수 있습니다.)
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -383,7 +383,7 @@ info:    storage container list command OK
 ```
 
 ## <a name="create-a-virtual-network-and-subnet"></a>가상 네트워크 및 서브넷 만들기
-다음에는 Azure에서 실행되는 가상 네트워크와 VM을 만들 수 있는 서브넷을 만들어야 합니다. 다음 예제는 주소 접두사 `192.168.0.0/16`으로 `myVnet`이라는 가상 네트워크를 만듭니다.
+다음에는 Azure에서 실행되는 가상 네트워크와 VM을 만들 수 있는 서브넷을 만들어야 합니다. 다음 예제는 주소 접두사 `myVnet`으로 `192.168.0.0/16`이라는 가상 네트워크를 만듭니다.
 
 ```azurecli
 azure network vnet create --resource-group myResourceGroup --location westeurope \
@@ -452,7 +452,7 @@ azure group show myResourceGroup --json | jq '.'
 }
 ```
 
-이번에는 VM을 배포할 `myVnet` 가상 네트워크에 서브넷을 만들겠습니다. `azure network vnet subnet create` 명령과 이전에 만든 리소스인 `myResourceGroup` 리소스 그룹 및 `myVnet` 가상 네트워크를 함께 사용합니다. 다음 예제는 서브넷 주소 접두사 `192.168.1.0/24`로 `mySubnet`이라는 서브넷을 추가합니다.
+이번에는 VM을 배포할 `myVnet` 가상 네트워크에 서브넷을 만들겠습니다. `azure network vnet subnet create` 명령과 이전에 만든 리소스인 `myResourceGroup` 리소스 그룹 및 `myVnet` 가상 네트워크를 함께 사용합니다. 다음 예제는 서브넷 주소 접두사 `mySubnet`로 `192.168.1.0/24`이라는 서브넷을 추가합니다.
 
 ```azurecli
 azure network vnet subnet create --resource-group myResourceGroup \
@@ -513,7 +513,7 @@ azure network vnet show myResourceGroup myVnet --json | jq '.'
 ```
 
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
-이제 부하 분산 장치에 할당할 PIP(공용 IP 주소)를 만들어 보겠습니다. 이 주소가 있으면 `azure network public-ip create` 명령을 사용하여 인터넷에서 VM에 연결할 수 있습니다. 기본 주소는 동적이기 때문에 `--domain-name-label` 옵션을 사용하여 **cloudapp.azure.com** 도메인에 명명된 DNS 항목을 만듭니다. 다음 예제는 `mypublicdns`라는 DNS 이름으로 `myPublicIP`라는 공용 IP를 만듭니다. DNS 이름은 고유해야 하므로 자신만의 DNS 이름을 제공하세요.
+이제 부하 분산 장치에 할당할 PIP(공용 IP 주소)를 만들어 보겠습니다. 이 주소가 있으면 `azure network public-ip create` 명령을 사용하여 인터넷에서 VM에 연결할 수 있습니다. 기본 주소는 동적이기 때문에 **옵션을 사용하여**cloudapp.azure.com`--domain-name-label` 도메인에 명명된 DNS 항목을 만듭니다. 다음 예제는 `myPublicIP`라는 DNS 이름으로 `mypublicdns`라는 공용 IP를 만듭니다. DNS 이름은 고유해야 하므로 자신만의 DNS 이름을 제공하세요.
 
 ```azurecli
 azure network public-ip create --resource-group myResourceGroup \
@@ -662,7 +662,7 @@ data:    Public IP address id            : /subscriptions/guid/resourceGroups/my
 info:    network lb mySubnet-ip create command OK
 ```
 
-앞에서 만든 `myPublicIP`를 전달하기 위해 `--public-ip-name` 스위치를 어떻게 사용했는지 확인하세요. 부하 분산 장치에 공용 IP 주소를 할당하면 인터넷에서 VM에 연결할 수 있습니다.
+앞에서 만든 `--public-ip-name`를 전달하기 위해 `myPublicIP` 스위치를 어떻게 사용했는지 확인하세요. 부하 분산 장치에 공용 IP 주소를 할당하면 인터넷에서 VM에 연결할 수 있습니다.
 
 다음으로 백 엔드 트래픽에 사용할 두 번째 IP 풀을 만들겠습니다. 다음 예제는 `myBackEndPool`이라는 백 엔드 풀을 만듭니다.
 
@@ -1043,7 +1043,7 @@ azure network nic show myResourceGroup myNic1 --json | jq '.'
 }
 ```
 
-이제 두 번째 NIC를 만들고 백 엔드 IP 풀에 다시 연결합니다. 이번에는 두 번째 NAT 규칙이 SSH 트래픽을 허용합니다. 다음 예제는 `myNic2`라는 NIC를 만듭니다.
+이제 두 번째 NIC를 만들고 백 엔드 IP 풀에 다시 연결합니다. 이번에는 두 번째 NAT 규칙이 SSH 트래픽을 허용합니다. 다음 예제는 `myNic2`이라는 NIC를 만듭니다.
 
 ```azurecli
 azure network nic create --resource-group myResourceGroup --location westeurope \
@@ -1111,7 +1111,7 @@ azure availset create --resource-group myResourceGroup --location westeurope
 [VM의 가용성 관리](manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대한 자세한 내용을 참조하세요.
 
 ## <a name="create-the-linux-vms"></a>Linux VM 만들기
-인터넷에서 액세스 가능한 VM을 지원하기 위해 스토리지 및 네트워크 리소스를 만들었습니다. 이제 해당 VM을 만들고 암호 없이 SSH 키를 사용하여 VM을 보호하겠습니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. [Azure VM 이미지 찾기](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 설명된 대로 `azure vm image list`를 사용하여 해당 이미지 정보를 찾을 것입니다.
+인터넷에서 액세스 가능한 VM을 지원하기 위해 스토리지 및 네트워크 리소스를 만들었습니다. 이제 해당 VM을 만들고 암호 없이 SSH 키를 사용하여 VM을 보호하겠습니다. 이 예에서는 가장 최근의 LTS를 기반으로 Ubuntu VM을 만들겠습니다. `azure vm image list`Azure VM 이미지 찾기[에 설명된 대로 ](../windows/cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)를 사용하여 해당 이미지 정보를 찾을 것입니다.
 
 `azure vm image list westeurope canonical | grep LTS`명령을 사용하여 이미지는 선택했습니다. 이 경우 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`을 사용합니다. 나중에 항상 가장 최근 빌드를 가져오도록 마지막 필드에는 `latest` 를 제공합니다. (사용하는 문자열은 `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`입니다.)
 
@@ -1276,7 +1276,7 @@ info:    vm show command OK
 azure group export --name myResourceGroup
 ```
 
-이 명령을 실행하면 `myResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 그런 다음 이 템플릿에서 환경을 만들 경우 부하 분산 장치, 네트워크 인터페이스 또는 VM의 이름과 같은 모든 리소스 이름을 지정하라는 메시지가 표시됩니다. 앞에 나온 `azure group export` 명령에 `-p` 또는 `--includeParameterDefaultValue` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 채울 수 있습니다. JSON 템플릿을 편집하여 리소스 이름을 지정하거나 리소스 이름을 지정하는 [parameters.json 파일을 만듭니다](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
+이 명령을 실행하면 `myResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 그런 다음 이 템플릿에서 환경을 만들 경우 부하 분산 장치, 네트워크 인터페이스 또는 VM의 이름과 같은 모든 리소스 이름을 지정하라는 메시지가 표시됩니다. 앞에 나온 `-p` 명령에 `--includeParameterDefaultValue` 또는 `azure group export` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 채울 수 있습니다. JSON 템플릿을 편집하여 리소스 이름을 지정하거나 리소스 이름을 지정하는 [parameters.json 파일을 만듭니다](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) .
 
 템플릿에서 환경을 만들려면
 

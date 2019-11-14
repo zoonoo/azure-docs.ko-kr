@@ -8,14 +8,14 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 31529155ee44b2bcfad90e8634053403dfe8fc8c
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 7ae14c3606dfe6bffa8481682843f3f2e85c2131
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72518513"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74033714"
 ---
-# <a name="azcopy-jobs-clean"></a>azcopy 작업 정리
+# <a name="azcopy-jobs-clean"></a>azcopy jobs clean
 
 모든 작업에 대 한 모든 로그 및 계획 파일 제거
 
@@ -23,7 +23,14 @@ ms.locfileid: "72518513"
 azcopy jobs clean [flags]
 ```
 
-## <a name="examples"></a>예시
+## <a name="related-conceptual-articles"></a>관련 개념 문서
+
+- [AzCopy 시작](storage-use-azcopy-v10.md)
+- [AzCopy 및 Blob 저장소를 사용 하 여 데이터 전송](storage-use-azcopy-blobs.md)
+- [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
+- [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
+
+## <a name="examples"></a>예
 
 ```
   azcopy jobs clean --with-status=completed
@@ -41,6 +48,6 @@ azcopy jobs clean [flags]
 
 **--output-** 명령 출력의 문자열 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 ' text '입니다. (기본 "텍스트")
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 - [azcopy 작업](storage-ref-azcopy-jobs.md)
