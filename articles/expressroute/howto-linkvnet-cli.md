@@ -1,5 +1,5 @@
 ---
-title: '가상 네트워크를 ExpressRoute 회로에 연결: CLI: Azure | Microsoft Docs'
+title: 'Azure Express 경로: 회로에 VNet 연결: CLI'
 description: 이 문서는 Resource Manager 배포 모델 및 CLI를 사용하여 VNet(가상 네트워크)을 ExpressRoute 회로에 연결하는 방법을 보여줍니다.
 services: expressroute
 author: cherylmc
@@ -7,14 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.reviewer: anzaman
-ms.custom: seodec18
-ms.openlocfilehash: d858c83fb6669e5348b4256931e080656be0ebad
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a8814030e6c4345227ec05ea1554104e0b21efbc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621071"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076550"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 가상 네트워크를 ExpressRoute 회로에 연결
 
@@ -54,11 +52,11 @@ ms.locfileid: "67621071"
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>다른 구독에 있는 가상 네트워크를 회로에 연결
+## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>다른 구독의 가상 네트워크를 회로에 연결
 
 여러 구독에서 ExpressRoute 회로를 공유할 수 있습니다. 아래 그림에는 여러 구독에서 ExpressRoute 회로에 대한 작업을 공유하는 방법의 간단한 계통도가 나와 있습니다.
 
-큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다. 단일 부서(이 예제에서: IT)는 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 ExpressRoute 회로를 사용할 수 있습니다.
+큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다. 단일 부서(이 예제에서는 IT)가 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 ExpressRoute 회로를 사용할 수 있습니다.
 
 > [!NOTE]
 > 전용 회로에 대한 연결 및 대역폭 요금은 ExpressRoute 회로 소유자에게 적용됩니다. 모든 가상 네트워크는 동일한 대역폭을 공유합니다.
@@ -154,11 +152,11 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 
 *RoutingWeight*의 범위는 0에서 32000입니다. 기본값은 0입니다.
 
-## <a name="configure-expressroute-fastpath"></a>ExpressRoute FastPath 구성 
-설정할 수 있습니다 [ExpressRoute FastPath](expressroute-about-virtual-network-gateways.md) ExpressRoute 회로에 있으면 [ExpressRoute 직접](expressroute-erdirect-about.md) 가상 네트워크 게이트웨이 Ultra Performance 인지 ErGw3AZ 합니다. FastPath 패킷 / 초 및 온-프레미스 네트워크와 가상 네트워크 간에 초당 연결 등의 데이터 경로 성능을 향상 됩니다. 
+## <a name="configure-expressroute-fastpath"></a>Express 경로 구성 
+Express 경로 회로가 [express 경로 다이렉트](expressroute-erdirect-about.md) 에 있고 가상 네트워크 게이트웨이가 Ultra Performance 또는 ErGw3AZ 인 경우 [express 경로 fastpath](expressroute-about-virtual-network-gateways.md) 를 사용 하도록 설정할 수 있습니다. FastPath는 초당 패킷 및 온-프레미스 네트워크와 가상 네트워크 간의 초당 연결과 같은 데이터 경로 preformance를 향상 시킵니다. 
 
 > [!NOTE] 
-> 이미 가상 네트워크에 연결 되어 있지만 FastPath 사용 하도록 설정 하지 않은 경우 새로 만들고 가상 네트워크 연결을 삭제 해야 합니다. 
+> 이미 가상 네트워크에 연결 되어 있지만 FastPath를 사용 하도록 설정 하지 않은 경우 가상 네트워크 연결을 삭제 하 고 새 연결을 만들어야 합니다. 
 > 
 >  
 

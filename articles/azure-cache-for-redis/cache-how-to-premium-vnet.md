@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: yegu
-ms.openlocfilehash: ec21c26c705dab94b15c1f76be5e62207b9f206f
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 6fc17f08db5951a3d693c7a5e3d5556d848d2efb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815678"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075054"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 프라이빗 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
@@ -104,16 +104,17 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 
 #### <a name="outbound-port-requirements"></a>아웃바운드 포트 요구 사항
 
-7가지 아웃바운드 포트 요구 사항이 있습니다.
+아웃 바운드 포트 요구 사항은 9 가지가 있습니다.
 
 - 인터넷에 대 한 모든 아웃 바운드 연결은 클라이언트의 온-프레미스 감사 장치를 통해 이루어질 수 있습니다.
 - 포트 중 3개는 Azure Storage 및 Azure DNS에 서비스하는 Azure 엔드포인트로 트래픽을 전송합니다.
 - 나머지 포트는 다양한 범위에 사용되고 내부 Redis 서브넷 통신에도 사용됩니다. 내부 Redis 서브넷 통신에 필요한 서브넷 NSG 규칙은 없습니다.
 
-| 포트 | Direction | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
+| 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 |아웃바운드 |TCP |Azure Storage/PKI(인터넷)에 대한 Redis 종속성 | (Redis 서브넷) |* |
-| 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) | 168.63.129.16 및 169.254.169.254 <sup>1</sup> 및 서브넷 <sup>3</sup> 의 모든 사용자 지정 DNS 서버 |
+| 443 | 아웃바운드 | TCP | Azure Key Vault에 대 한 Redis 종속성 | (Redis 서브넷) | AzureKeyVault <sup>1</sup> |
+| 53 |아웃바운드 |TCP/UDP |DNS(인터넷/VNet)에 대한 Redis 종속성 | (Redis 서브넷) | 168.63.129.16 및 169.254.169.254 <sup>2</sup> 및 서브넷 <sup>3</sup> 에 대 한 모든 사용자 지정 DNS 서버 |
 | 8443 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
 | 10221-10231 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) | (Redis 서브넷) |
 | 20226 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
@@ -121,7 +122,9 @@ Azure Cache for Redis가 VNet에 호스팅되는 경우 사용되는 포트는 �
 | 15000-15999 |아웃바운드 |TCP |Redis 및 지역에서 복제에 대 한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) (지역 복제본 피어 서브넷) |
 | 6379-6380 |아웃바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
-<sup>1</sup> Microsoft에서 소유 하는 이러한 IP 주소는 Azure DNS 서비스를 제공 하는 호스트 VM의 주소를 결정 하는 데 사용 됩니다.
+<sup>1</sup> 리소스 관리자 네트워크 보안 그룹에서 서비스 태그 ' AzureKeyVault '를 사용할 수 있습니다.
+
+<sup>2</sup> Microsoft에서 소유 하는 이러한 IP 주소는 Azure DNS 서비스를 제공 하는 호스트 VM의 주소를 결정 하는 데 사용 됩니다.
 
 <sup>3</sup> 사용자 지정 dns 서버가 없는 서브넷 또는 사용자 지정 dns를 무시 하는 최신 redis 캐시가 필요 하지 않습니다.
 
@@ -133,18 +136,18 @@ Azure 가상 네트워크의 캐시 간에 georeplication를 사용 하는 경�
 
 8개의 인바운드 포트 범위 요구 사항이 있습니다. 이러한 범위의 인바운드 요청은 동일한 VNET에서 호스트되는 다른 서비스로부터 인바운드로 진행되거나 Redis 서브넷 통신 내부로 진행됩니다.
 
-| 포트 | Direction | 전송 프로토콜 | 용도 | 로컬 IP | 원격 IP |
+| 포트 | 방향 | 전송 프로토콜 | 목적 | 로컬 IP | 원격 IP |
 | --- | --- | --- | --- | --- | --- |
-| 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), Virtual Network, Azure Load Balancer <sup>2</sup> |
+| 6379, 6380 |인바운드 |TCP |Redis에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) | (Redis 서브넷), Virtual Network, Azure Load Balancer <sup>1</sup> |
 | 8443 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
-| 8500 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure Load Balancer |
+| 8500 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure 부하 분산 장치 |
 | 10221-10231 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷), Azure Load Balancer |
 | 13000-13999 |인바운드 |TCP |Redis 클러스터에 대한 클라이언트 통신, Azure 부하 분산 | (Redis 서브넷) |Virtual Network, Azure Load Balancer |
 | 15000-15999 |인바운드 |TCP |Redis 클러스터에 대 한 클라이언트 통신, Azure 부하 분산 및 지역에서 복제 | (Redis 서브넷) |Virtual Network, Azure Load Balancer, (지역 복제본 피어 서브넷) |
-| 16001 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure Load Balancer |
+| 16001 |인바운드 |TCP/UDP |Azure 부하 분산 | (Redis 서브넷) |Azure 부하 분산 장치 |
 | 20226 |인바운드 |TCP |Redis에 대한 내부 통신 | (Redis 서브넷) |(Redis 서브넷) |
 
-<sup>2</sup> nsg 규칙을 작성 하는 데 서비스 태그 ' azureloadbalancer ' (리소스 관리자) (또는 클래식의 경우 ' AZURE_LOADBALANCER ')를 사용할 수 있습니다.
+<sup>1</sup> nsg 규칙을 작성 하는 데 서비스 태그 ' azureloadbalancer ' (리소스 관리자) (또는 클래식의 경우 ' AZURE_LOADBALANCER ')를 사용할 수 있습니다.
 
 #### <a name="additional-vnet-network-connectivity-requirements"></a>추가 VNET 네트워크 연결 요구 사항
 
@@ -254,4 +257,3 @@ ExpressRoute에 대한 자세한 내용은 [ExpressRoute 기술 개요](../expre
 [redis-cache-vnet-ip]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-ip.png
 
 [redis-cache-vnet-info]: ./media/cache-how-to-premium-vnet/redis-cache-vnet-info.png
-

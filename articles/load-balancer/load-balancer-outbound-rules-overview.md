@@ -1,7 +1,6 @@
 ---
-title: Azure Load Balancer의 아웃바운드 규칙
-titlesuffix: Azure Load Balancer
-description: 아웃바운드 규칙을 사용하여 아웃바운드 네트워크 주소 변환을 정의합니다.
+title: 아웃 바운드 규칙-Azure Load Balancer
+description: 이 학습 경로를 사용 하 여 아웃 바운드 네트워크 주소 변환을 정의 하는 아웃 바운드 규칙 사용을 시작 합니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: d1874d610feb041545e1675ad5b40a1b5e753b67
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 316b28faa458b03431cb48f02a8087116415b061
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497976"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075895"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 아웃바운드 규칙
 

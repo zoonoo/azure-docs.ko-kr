@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 78b83eb725da09dc98df05865ba4d41c505f0f4c
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: bf79957bec4b330ca9acce3f8b92aab1a0944440
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747254"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074869"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
@@ -547,9 +547,9 @@ IsExclude : True
 IsRecursive : True
 ```
 
-### <a name="performing-an-ad-hoc-backup"></a>임시 백업 수행
+### <a name="performing-an-on-demand-backup"></a>주문형 백업 수행
 
-백업 정책이 설정 되 면 일정에 따라 백업이 수행 됩니다. 또한 [Start-OBBackup](https://technet.microsoft.com/library/hh770426) cmdlet을 사용하여 임시 백업 트리거도 가능합니다.
+백업 정책이 설정 되 면 일정에 따라 백업이 수행 됩니다. 요청 시 백업을 트리거하는 것도 [시작 obbackup](https://technet.microsoft.com/library/hh770426) cmdlet을 사용 하 여 수행할 수 있습니다.
 
 ```powershell
 Get-OBPolicy | Start-OBBackup

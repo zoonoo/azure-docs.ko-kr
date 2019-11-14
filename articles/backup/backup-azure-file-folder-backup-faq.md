@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: dacurwin
-ms.openlocfilehash: a77227aca70a48d625f9e20fff9c9fe7df87c000
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c65c04a67b92642d3664293dd666236919142f12
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012149"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074204"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더 백업에 대 한 일반적인 질문
 
@@ -130,7 +130,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
   Net start obengine
   ```
 
-6. 임시 백업을 실행합니다. 새 위치를 사용 하 여 백업이 성공적으로 완료 되 면 원래 캐시 폴더를 제거할 수 있습니다.
+6. 주문형 백업을 실행 합니다. 새 위치를 사용 하 여 백업이 성공적으로 완료 되 면 원래 캐시 폴더를 제거할 수 있습니다.
 
 ### <a name="where-should-the-cache-folder-be-located"></a>캐시 폴더를 어디에 배치 해야 하나요?
 

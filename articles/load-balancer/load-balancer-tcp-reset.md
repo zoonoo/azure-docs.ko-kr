@@ -1,7 +1,7 @@
 ---
 title: Azure에서 유휴 시 Load Balancer TCP 재설정
-titlesuffix: Azure Load Balancer
-description: 유휴 시간 초과 시 양방향 TCP RST 패킷이 포함된 Load Balancer
+titleSuffix: Azure Load Balancer
+description: 이 문서에서는 유휴 시간 제한에 양방향 TCP RST 패킷을 사용 하는 Azure Load Balancer에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2019
 ms.author: allensu
-ms.openlocfilehash: 8485f4b6e8d4ff55de4930b3cfb7a07802cf1d41
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b37253f37043d902d33504b99401781eb1c761c5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274149"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075929"
 ---
 # <a name="load-balancer-with-tcp-reset-on-idle-public-preview"></a>유휴 시 TCP 재설정이 포함된 Load Balancer(공개 미리 보기)
 

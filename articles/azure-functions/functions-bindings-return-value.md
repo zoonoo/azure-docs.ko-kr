@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 01/14/2019
 ms.author: cshoe
-ms.openlocfilehash: 1ea7ec0444ba80d3494afba77ad9d7fdabd5f982
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dd5a4d9d869c879ed402c5450690f0a691e1d2c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086419"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074409"
 ---
 # <a name="using-the-azure-function-return-value"></a>Azure Function 반환 값 사용
 
@@ -23,21 +23,13 @@ ms.locfileid: "70086419"
 반환 값이 있는 언어에서 함수 [출력 바인딩을](./functions-triggers-bindings.md#binding-direction) 반환 값에 바인딩할 수 있습니다.
 
 * C# 클래스 라이브러리에서 출력 바인딩 특성을 메서드 반환 값에 적용합니다.
-* 다른 언어에서 *function.json*의 `name` 속성을 `$return`에 설정합니다.
+* 다른 언어에서 `name`function.json*의*  속성을 `$return`에 설정합니다.
 
 여러 개의 출력 바인딩이 있으면 둘 중 하나에 대한 반환 값을 사용합니다.
 
 C# 및 C# 스크립트에서 데이터를 출력 바인딩으로 보내는 또 다른 방법은 `out` 매개 변수 및 [수집기 개체](functions-reference-csharp.md#writing-multiple-output-values)입니다.
 
-반환 값 사용 방법을 보여주는 언어별 예제를 참조하세요.
-
-* [C#](#c-example)
-* [C# 스크립트(.csx)](#c-script-example)
-* [F#](#f-example)
-* [JavaScript](#javascript-example)
-* [Python](#python-example)
-
-## <a name="c-example"></a>C# 예제
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 다음은 출력 바인딩에 대한 반환 값을 사용하는 C# 코드이며, 그 뒤에 비동기 예제가 나와 있습니다.
 
@@ -63,7 +55,7 @@ public static Task<string> Run([QueueTrigger("inputqueue")]WorkItem input, ILogg
 }
 ```
 
-## <a name="c-script-example"></a>C# 스크립트 예제
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 *function.json* 파일의 출력 바인딩은 다음과 같습니다.
 
@@ -96,7 +88,7 @@ public static Task<string> Run(WorkItem input, ILogger log)
 }
 ```
 
-## <a name="f-example"></a>F# 예제
+# <a name="ftabfsharp"></a>[F#](#tab/fsharp)
 
 *function.json* 파일의 출력 바인딩은 다음과 같습니다.
 
@@ -118,7 +110,7 @@ let Run(input: WorkItem, log: ILogger) =
     json
 ```
 
-## <a name="javascript-example"></a>JavaScript 예제
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 *function.json* 파일의 출력 바인딩은 다음과 같습니다.
 
@@ -141,7 +133,7 @@ module.exports = function (context, input) {
 }
 ```
 
-## <a name="python-example"></a>Python 예제
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 *function.json* 파일의 출력 바인딩은 다음과 같습니다.
 
@@ -163,6 +155,8 @@ def main(input: azure.functions.InputStream) -> str:
         'content': input.read().decode('utf-8')
     })
 ```
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

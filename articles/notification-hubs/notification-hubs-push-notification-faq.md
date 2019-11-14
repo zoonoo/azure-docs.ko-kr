@@ -17,12 +17,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: ee1bd413894ff5c12883279ccd8a9e9eac3c1790
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: c84a4472789430524cbf5ff3f1ae24ea10d342b9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048780"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74066869"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
 
@@ -30,9 +30,7 @@ ms.locfileid: "74048780"
 
 ### <a name="what-is-the-resource-structure-of-notification-hubs"></a>Notification Hubs의 리소스 구조는 무엇입니까?
 
-Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리소스 수준이 있습니다. 허브는 한 앱의 교차 플랫폼 푸시 정보를 저장할 수 있는 단일 푸시 리소스입니다. 네임스페이스는 한 지역의 허브 컬렉션입니다.
-
-권장되는 매핑은 하나의 네임스페이스를 하나의 앱과 일치시키는 것입니다. 네임스페이스 내에 프로덕션 앱과 작동하는 프로덕션 허브, 테스트 앱과 작동하는 테스트 허브 등이 있을 수 있습니다.
+Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리소스 수준이 있습니다. 허브는 한 앱의 교차 플랫폼 푸시 정보를 저장할 수 있는 단일 푸시 리소스입니다. 네임스페이스는 한 지역의 허브 컬렉션입니다. 권장되는 매핑은 하나의 네임스페이스를 하나의 앱과 일치시키는 것입니다. 네임스페이스 내에 프로덕션 앱과 작동하는 프로덕션 허브, 테스트 앱과 작동하는 테스트 허브 등이 있을 수 있습니다.
 
 ### <a name="what-is-the-price-model-for-notification-hubs"></a>Notification Hubs의 가격 책정 모델은 무엇인가요?
 
@@ -45,7 +43,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 표준 계층 기능:
 
 * **다양한 원격 분석**: 메시지 원격 분석 단위로 Notification Hubs를 사용하여 푸시 요청을 추적하고 디버깅을 위해 플랫폼 알림 시스템 피드백을 사용할 수 있습니다.
-* **다중 테넌트**: 네임스페이스 수준에서 플랫폼 알림 시스템 자격 증명 작업을 수행할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
+* **다중 테 넌 트**: 네임 스페이스 수준에서 플랫폼 알림 시스템 자격 증명으로 작업할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
 * **예약된 푸시**: 알림이 언제든지 전송되도록 예약할 수 있습니다.
 * **대량 작업**: [등록 내보내기/] 가져오기 문서에 설명 된 대로 등록 내보내기/가져오기 기능을 사용 하도록 설정 합니다.
 
@@ -54,7 +52,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 기본 및 표준 Notification Hubs 계층의 경우에 올바르게 구성된 애플리케이션은 99.9% 이상의 성공률로 푸시 알림을 보내거나 등록 관리 작업을 수행할 수 있습니다. SLA에 대해 자세히 알아보려면 [Notification Hubs SLA](https://azure.microsoft.com/support/legal/sla/notification-hubs/) 페이지로 이동하세요.
 
 > [!NOTE]
-> 푸시 알림은 타사 플랫폼 알림 시스템(예: Apple APNS 및 Google FCM)에 의존하므로 이러한 메시지 배달에 대한 SLA 보장이 없습니다. Notification Hubs에서 플랫폼 알림 시스템(SLA 보장)에 대한 전송을 일괄 처리하면 푸시를 제공하는 것(SLA 보장 안 함)은 플랫폼 알림 시스템의 책임입니다.
+> 푸시 알림은 Apple의 APNs (푸시 알림 서비스) 및 Google의 FCM (Firebase Cloud Messaging)와 같은 타사 플랫폼 알림 시스템에 종속 되기 때문에 이러한 메시지의 배달에 대 한 SLA를 보장 하지 않습니다. Notification Hubs에서 플랫폼 알림 시스템(SLA 보장)에 대한 전송을 일괄 처리하면 푸시를 제공하는 것(SLA 보장 안 함)은 플랫폼 알림 시스템의 책임입니다.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>내 허브 또는 네임스페이스를 다른 계층으로 업그레이드하거나 다운그레이드하려면 어떻게 해야 합니까?
 
@@ -75,13 +73,7 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 
 ### <a name="do-you-support-text-message-email-or-web-notifications"></a>문자 메시지, 전자 메일, 웹 알림이 지원되나요?
 
-Notification Hubs는 기본적으로 모바일 앱에 알림을 보내도록 디자인되었습니다. 전자 메일 또는 문자 메시지 기능은 제공하지 않습니다. 그러나 이러한 기능을 제공하는 타사 플랫폼을 Notification Hubs와 통합하여 [Mobile Apps]를 사용해 네이티브 푸시 알림을 보낼 수는 있습니다.
-
-또한 Notification Hubs는 브라우저 내 푸시 알림 배달 서비스를 기본적으로 제공하지 않습니다. 고객은 지원되는 서버 쪽 플랫폼의 맨 위에서 SignalR을 사용하여 이를 구현할 수 있습니다. 
-
-### <a name="how-are-mobile-apps-and-azure-notification-hubs-related-and-when-do-i-use-them"></a>Mobile Apps와 Azure Notification Hubs는 어떻게 관련성이 있으며 이 두 항목은 각각 어떤 경우에 사용해야 하나요?
-
-기존 모바일 앱 백 엔드가 있으며 푸시 알림을 보내는 기능만 추가하려는 경우 Azure Notification Hubs를 사용할 수 있습니다. 모바일 앱 백 엔드를 처음부터 설정하려면 Azure App Service의 Mobile Apps를 사용하는 것이 좋습니다. 모바일 앱은 모바일 앱 백 엔드에서 푸시 알림을 쉽게 보낼 수 있도록 알림 허브를 자동으로 프로비전합니다. Mobile Apps의 가격 책정에는 알림 허브의 기본 요금이 포함됩니다. 포함된 푸시를 초과하는 경우에만 요금을 지불하면 됩니다. 비용에 대한 자세한 정보는 [App Service 가격 책정] 페이지로 이동하세요.
+Notification Hubs는 mobile apps를 실행 하는 장치에 알림을 보냅니다. 전자 메일 또는 문자 메시지 기능은 제공하지 않습니다. 또한 Notification Hubs는 브라우저 내 푸시 알림 배달 서비스를 기본적으로 제공하지 않습니다. 고객은 지원되는 서버 쪽 플랫폼의 맨 위에서 SignalR을 사용하여 이를 구현할 수 있습니다. 
 
 ### <a name="how-many-devices-can-i-support-if-i-send-push-notifications-via-notification-hubs"></a>Notification Hubs를 통해 푸시 알림을 보낼 경우 얼마나 많은 디바이스를 지원할 수 있나요?
 
@@ -94,7 +86,7 @@ Notification Hubs는 기본적으로 모바일 앱에 알림을 보내도록 디
 선택한 계층에 따라 Azure Notification Hubs는 시스템에서 전송되는 알림 수에 따라 알림 허브가 자동으로 확장합니다.
 
 > [!NOTE]
-> 전체 사용 비용은 제공되는 푸시 알림 수에 따라 증가될 수 있습니다. [Notification Hubs 가격 책정] 페이지에 설명된 계층 한도를 알고 있는지 확인합니다.
+> 전송 된 푸시 알림 수에 따라 전체 사용량 비용이 늘어날 수 있습니다. [Notification Hubs 가격 책정] 페이지에 설명된 계층 한도를 알고 있는지 확인합니다.
 
 고객들은 Notification Hubs를 사용하여 매일 수백만 건의 푸시 알림을 보내고 있습니다. Azure Notification Hubs를 사용하는 한 푸시 알림 도달률의 규모를 조정하기 위해 특별한 작업을 수행할 필요가 없습니다.
 
@@ -135,7 +127,7 @@ Apple, Google 등의 플랫폼 개발자 포털에 모바일 앱을 등록하면
 
 #### <a name="geo-distribution"></a>지역 배포
 
-지역 배포가 푸시 알림 시나리오에서 반드시 중요한 것은 아닙니다. 디바이스에 푸시 알림을 전송하는 다양한 PNS(예: APNS 또는 FCM)가 고르게 배포되지 않습니다.
+지역 배포가 푸시 알림 시나리오에서 반드시 중요한 것은 아닙니다. 장치에 푸시 알림을 전달 하는 다양 한 PNSes (예: APNs 또는 FCM)는 균일 하 게 분산 되지 않습니다.
 
 애플리케이션이 전역적으로 사용되는 경우에는 전 세계 여러 Azure 지역에서 Notification Hubs 서비스를 사용하여 다른 네임스페이스에 허브를 만들 수 있습니다.
 
@@ -157,7 +149,7 @@ Azure Notification Hubs에서는 [공유 액세스 서명](../storage/common/sto
 보낸 사람으로부터 Azure Notification Hubs를 거쳐 PNS로 가는 모든 연결에서는 HTTPS를 사용합니다.
 
 > [!NOTE]
-> Azure Notification Hubs는 어떤 방식으로도 메시지 페이로드를 기록하지 않습니다.
+> Azure Notification Hubs는 메시지 페이로드를 기록 하지 않습니다.
 
 중요한 페이로드를 전송하려면 보안 푸시 패턴을 사용하는 것이 좋습니다. 보낸 사람은 메시지 식별자가 포함된 ping 알림을 중요한 페이로드 없이 디바이스에 배달합니다. 디바이스의 앱이 페이로드를 수신하면 앱에서 보안 API를 직접 호출하여 메시지 세부 정보를 가져옵니다. 이 패턴을 구현하는 방법에 대한 가이드를 보려면 [Notification Hubs 보안 푸시 자습서] 페이지로 이동하세요.
 
@@ -207,9 +199,8 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 - [리소스에 대 한 메트릭 및 활동 로그 가져오기](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
 - [Azure 모니터링 REST API 연습](../azure-monitor/platform/rest-api-walkthrough.md)
 
-
 > [!NOTE]
-> 성공적인 알림은 푸시 알림이 외부 PNS(예: Apple용 APNS, Google용 FCM)에 전송되었음을 의미합니다. 이것은 대상 디바이스에 알림을 배달하기 위해 PNS가 담당합니다. 일반적으로 PNS는 제 3자에게 배달 메트릭을 노출하지 않습니다.  
+> 성공적인 알림은 푸시 알림이 외부 PNS (예: iOS 용 APNs 및 macOS 또는 Android 장치용 FCM)에 전달 되었다는 것을 의미 합니다. 이것은 대상 디바이스에 알림을 배달하기 위해 PNS가 담당합니다. 일반적으로 PNS는 제 3자에게 배달 메트릭을 노출하지 않습니다.  
 
 [Azure Portal]: https://portal.azure.com
 [Notification Hubs 가격 책정]: https://azure.microsoft.com/pricing/details/notification-hubs/
@@ -226,5 +217,4 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [등록 내보내기/]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
-[Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/
-[App Service 가격 책정]: https://azure.microsoft.com/pricing/details/app-service/
+[App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

@@ -1,11 +1,11 @@
 ---
-title: Azure Load Balancer 상태 프로브를 사용하여 서비스에 대해 확장된 고가용성을 제공합니다.
-titlesuffix: Azure Load Balancer
-description: 상태 프로브를 사용하여 Load Balancer 뒤의 인스턴스를 모니터링하는 방법을 알아봅니다.
+title: 서비스에 대 한 HA를 확장 하 고 제공 하는 상태 프로브
+titleSuffix: Azure Load Balancer
+description: 이 문서에서는 상태 프로브를 사용 하 여 인스턴스를 모니터링 하는 방법에 대해 알아봅니다 Azure Load Balancer
 services: load-balancer
 documentationcenter: na
 author: asudbring
-manager: twooley
+manager: kumudD
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: d9873c4d8d4ca2b74532706f079c7384bf38db42
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: fdc7254b4c6e798c0f32f5fac3575474ed6ec1d0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033830"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077067"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -84,7 +84,7 @@ Azure Load Balancer에서 부하 분산 규칙을 사용 하는 경우 Load Bala
 
 사용 가능한 프로토콜은 사용 되는 Load Balancer SKU에 따라 다릅니다.
 
-|| TCP | http | HTTPS |
+|| TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
 | 표준 SKU |    &#9989; |   &#9989; |   &#9989; |
 | 기본 SKU |   &#9989; |   &#9989; | &#10060; |

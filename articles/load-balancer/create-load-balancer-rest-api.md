@@ -1,7 +1,7 @@
 ---
-title: REST API를 사용하여 Azure Load Balancer 만들기
-titlesuffix: Azure Load Balancer
-description: REST API를 사용하여 Azure Load Balancer를 만드는 방법을 알아봅니다.
+title: REST API를 사용 하 여 부하 분산 장치 만들기
+titleSuffix: Azure Load Balancer
+description: 이 문서에서는 REST API를 사용 하 여 Azure Load Balancer를 만드는 방법에 대해 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: load-balancer
 ms.date: 06/06/2018
 ms.author: allensu
-ms.openlocfilehash: ae8fb4494d27d0c145963c9b32757bdb802e0cc7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: b8acf1faff17f657999769216f71cfb5fa6e3181
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275554"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077089"
 ---
 # <a name="create-an-azure-basic-load-balancer-using-rest-api"></a>REST API를 사용하여 Azure 기본 Load Balancer 만들기
 
@@ -35,10 +35,10 @@ Azure Load Balancer는 규칙 및 상태 프로브에 따라, 부하 분산 장�
 
 |이름  |입력  |필수 |형식 |설명 |
 |---------|---------|---------|---------|--------|
-|subscriptionId   |  path       |  True       |   string      |  Microsoft Azure 구독을 고유하게 식별하는 구독 자격 증명입니다. 구독 ID는 모든 서비스 호출에 대한 URI의 파트를 형성합니다.      |
-|resourceGroupName     |     path    | True        |  string       |   리소스 그룹의 이름.     |
-|loadBalancerName     |  path       |      True   |    string     |    부하 분산 장치의 이름입니다.    |
-|api-version    |   쿼리     |  True       |     string    |  클라이언트 API 버전입니다.      |
+|subscriptionId   |  path       |  true       |   string      |  Microsoft Azure 구독을 고유하게 식별하는 구독 자격 증명입니다. 구독 ID는 모든 서비스 호출에 대한 URI의 파트를 형성합니다.      |
+|resourceGroupName     |     path    | true        |  string       |   리소스 그룹의 이름.     |
+|loadBalancerName     |  path       |      true   |    string     |    부하 분산 장치의 이름입니다.    |
+|api-version    |   query     |  true       |     string    |  클라이언트 API 버전입니다.      |
 
 
 
@@ -51,11 +51,11 @@ Azure Load Balancer는 규칙 및 상태 프로브에 따라, 부하 분산 장�
 | location | string | 리소스 위치. [위치 나열](https://docs.microsoft.com/rest/api/resources/subscriptions/listlocations) 작업을 사용하여 현재 위치 목록을 가져옵니다. |
 
 
-## <a name="example-create-and-update-a-basic-load-balancer"></a>예제: 기본 Load Balancer 만들기 및 업데이트
+## <a name="example-create-and-update-a-basic-load-balancer"></a>예: 기본 Load Balancer 만들기 및 업데이트
 
 이 예제에서는 먼저 기본 Load Balancer를 해당 리소스와 함께 만듭니다. 그런 다음, 프론트 엔드 IP 구성, 백 엔드 주소 풀, 부하 분산 규칙, 상태 프로브 및 인바운드 NAT 규칙을 포함하는 부하 분산 장치 리소스를 구성합니다.
 
-아래 예제를 사용하여 부하 분산 장치를 만들기 전에 **East US** 위치의 *rg1*이라는 리소스 그룹에 *subnetlb* 서브넷과 함께 *vnetlb* 가상 네트워크를 만드세요.
+아래 예제를 사용하여 부하 분산 장치를 만들기 전에 *East US* 위치의 *rg1*이라는 리소스 그룹에 *subnetlb* 서브넷과 함께 **vnetlb** 가상 네트워크를 만드세요.
 
 ### <a name="step-1-create-a-basic-load-balancer"></a>1단계. 기본 부하 분산 장치 만들기
 이 단계에서는 *rg1* 리소스 그룹 내의 **EAST US** 위치에서 *lb*라는 기본 Load Balancer를 만듭니다.

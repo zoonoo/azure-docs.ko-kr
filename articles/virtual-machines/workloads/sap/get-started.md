@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/08/2019
+ms.date: 11/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d092dcf6fa9942f7b3283d1d77157b1f291a5062
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 7f9d1198a0faca8eed2ca5d3f3ee89ac9019d657
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905054"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073917"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -120,6 +120,7 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 
 ## <a name="change-log"></a>변경 로그
+- 11/12/2019: [Windows에서 SMB (Azure NetApp Files)를 사용 하는 SAP NetWeaver의 고가용성](high-availability-guide-windows-netapp-files-smb.md) 릴리스
 - 11/08/2019: [SUSE Linux Enterprise Server의 Azure vm에서 SAP HANA의 고가용성](sap-hana-high-availability.md)을 변경 하 고, [azure vm (가상 머신)에서 SAP HANA 시스템 복제](sap-hana-high-availability-rhel.md)Virtual Machines를 설정 하 고, sap [응용 프로그램 SUSE Linux Enterprise Server](high-availability-guide-suse.md)에서 sap NetWeaver에 대 한 고가용성을 설정 하 고, VIRTUAL MACHINES을 사용 하 SUSE Linux Enterprise Server [에서 sap NetWeaver에 대](high-availability-guide-suse-netapp-files.md)한 고가용성을 Azure NetApp Files, [sap NetWeaver에 대 한 고가용성 azure Virtual Machines ](high-availability-guide-rhel.md), [Azure Virtual Machines Azure NetApp Files Red Hat Enterprise Linux 고가용성](high-availability-guide-rhel-netapp-files.md), [SUSE Linux Enterprise Server의 azure vm에서 NFS에 대 한](high-availability-guide-suse-nfs.md)고가용성, sap NetWeaver에 대 한 [GlusterFS의 azure Red Hat Enterprise Linux vm](high-availability-guide-rhel-glusterfs.md) 에서 azure 표준 부하 분산 장치 권장  
 - 11/08/2019: 암호화 권장 사항을 명시 하기 위해 [SAP 워크 로드 계획 및 배포 검사 목록의](sap-deployment-checklist.md) 변경 내용  
 - 11/04/2019: 유니캐스트 구성을 사용 하 여 클러스터를 직접 만들 수 있도록 [Azure에서 SUSE Linux Enterprise Server Pacemaker 설정](high-availability-guide-suse-pacemaker.md) 의 변경 내용  

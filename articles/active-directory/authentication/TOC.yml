@@ -139,8 +139,6 @@
           href: howto-authentication-passwordless-security-key.md
         - name: 암호 없는 Windows 10
           href: howto-authentication-passwordless-security-key-windows.md
-        - name: 암호 없는 온-프레미스
-          href: howto-authentication-passwordless-security-key-on-premises.md
         - name: 암호 없는 휴대폰 로그인
           href: howto-authentication-passwordless-phone.md
         - name: 비즈니스용 Windows Hello

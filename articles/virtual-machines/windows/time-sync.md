@@ -1,5 +1,5 @@
 ---
-title: Azure의 Windows VM에 대한 시간 동기화 | Microsoft Docs
+title: Azure의 Windows VM에 대한 시간 동기화
 description: Windows 가상 머신에 대한 시간 동기화.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 04b2eb70a9e304fb50f4f6cb94daf0a0dda86d63
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58824b13cfac264c051de6bea45d2dab3aae8fae
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100253"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068113"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 시간 동기화
 
@@ -73,7 +73,7 @@ w32time은 계층 수준, 루트 지연, 루트 분산, 시간 오프셋의 우�
 
 ### <a name="host-only"></a>호스트 전용 
 
-time.windows.com은 공용 NTP 서버이므로 시간과 동기화는 인터넷을 통해 트래픽을 전송해야 하며, 다양한 패킷 지연 시간이 시간 동기화의 품질을 저하시킬 수 있습니다. 호스트 전용 동기화로 전환하여 time.windows.com을 제거하면 경우에 따라 시간 동기화 결과를 향상시킬 수 있습니다.
+Time.windows.com는 공용 NTP 서버 이므로 시간을 동기화 하면 인터넷을 통해 트래픽을 전송 해야 하며, 다양 한 패킷 지연이 발생 하면 시간 동기화의 품질에 부정적인 영향을 줄 수 있습니다. 호스트 전용 동기화로 전환 하 여 time.windows.com를 제거 하면 시간 동기화 결과를 향상 시킬 수 있습니다.
 
 기본 구성을 사용하는 시간 동기화 문제를 겪는 경우 호스트 전용 시간 동기화로 전환하는 것이 합리적입니다. 이 방법이 VM에서 시간 동기화를 향상시키는지 확인하려면 호스트 전용 동기화를 사용해 보세요. 
 
@@ -153,7 +153,7 @@ net stop w32time && net start w32time
 
 ## <a name="windows-server-2012-and-r2-vms"></a>Windows Server 2012 및 R2 VM 
 
-Windows Server 2012 및 Windows Server 2012 R2에는 시간 동기화에 대한 서로 다른 기본 설정이 있습니다. 기본적으로 w32time은 정확한 시간보다 서비스의 낮은 오버헤드를 선호하는 방식으로 구성됩니다. 
+Windows Server 2012 및 Windows 2012 Server 2008 r 2에는 시간 동기화에 대 한 기본 설정이 다릅니다. 기본적으로 w32time은 정확한 시간으로 서비스의 낮은 오버 헤드를 선호 하는 방식으로 구성 됩니다. 
 
 정확한 시간을 선호하는 최신 기본값을 사용하기 위해 Windows Server 2012 및 2012 R2 배포로 이동하려는 경우 다음 설정을 적용할 수 있습니다.
 

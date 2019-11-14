@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: cb0f373000d09cb387fb73eec344997381fe45d1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: dab79f1d63a20e12f148766db5fcc3fc313a1f3a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961674"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076903"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Kubernetes Service 및 Azure Container Instances 배포 Azure Machine Learning 문제 해결
 
@@ -164,12 +164,12 @@ b\'{"code":"InternalServerError","statusCode":500,"message":"An internal server 
 
 ## <a name="debug-locally"></a>로컬에서 디버그
 
-ACI 또는 AKS에 모델을 배포 하는 데 문제가 발생 하는 경우 로컬로 배포 해 보세요. 로컬을 사용 하면 문제를 보다 쉽게 해결할 수 있습니다. 모델을 포함 하는 Docker 이미지가 로컬 시스템에서 다운로드 되 고 시작 됩니다.
+ACI 또는 AKS에 모델을 배포 하는 데 문제가 발생 하는 경우 로컬 웹 서비스로 배포 해 보세요. 로컬 웹 서비스를 사용 하면 문제를 보다 쉽게 해결할 수 있습니다. 모델을 포함 하는 Docker 이미지가 로컬 시스템에서 다운로드 되 고 시작 됩니다.
 
 > [!WARNING]
-> 프로덕션 시나리오에서는 로컬 배포가 지원 되지 않습니다.
+> 로컬 웹 서비스 배포는 프로덕션 시나리오에 대해 지원 되지 않습니다.
 
-로컬로 배포 하려면 `LocalWebservice.deploy_configuration()`를 사용 하 여 배포 구성을 만들 수 있도록 코드를 수정 합니다. 그런 다음 `Model.deploy()`를 사용 하 여 서비스를 배포 합니다. 다음 예에서는 모델 (`model` 변수에 포함)을 로컬으로 배포 합니다.
+로컬로 배포 하려면 `LocalWebservice.deploy_configuration()`를 사용 하 여 배포 구성을 만들 수 있도록 코드를 수정 합니다. 그런 다음 `Model.deploy()`를 사용 하 여 서비스를 배포 합니다. 다음 예에서는 모델 (`model` 변수에 포함)을 로컬 웹 서비스로 배포 합니다.
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -180,14 +180,14 @@ inference_config = InferenceConfig(runtime="python",
                                    entry_script="score.py",
                                    conda_file="myenv.yml")
 
-# Create a local deployment, using port 8890 for the  endpoint
+# Create a local deployment, using port 8890 for the web service endpoint
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 # Deploy the service
 service = Model.deploy(
     ws, "mymodel", [model], inference_config, deployment_config)
 # Wait for the deployment to complete
 service.wait_for_deployment(True)
-# Display the port that the  is available on
+# Display the port that the web service is available on
 print(service.port)
 ```
 
@@ -267,7 +267,7 @@ print(Model.get_model_path(model_name='my-best-model'))
 
 ## <a name="function-fails-runinput_data"></a>함수 실패: run(input_data)
 
-서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 예:
+서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```python
 def run(input_data):
@@ -297,7 +297,7 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
     > [!IMPORTANT]
     > 이 변경으로 인해 복제본이 *더*이상 생성 되지 않습니다. 대신 낮은 사용률 임계값으로 만들어집니다. 서비스가 70% 이용 될 때까지 기다리는 대신 30%의 사용률을 발생 시킬 때 값을 30%로 변경 하면 복제본이 생성 됩니다.
     
-    에서 현재 최대 복제본을 이미 사용 하 고 있고 503 상태 코드가 표시 되는 경우 `autoscale_max_replicas` 값을 늘려 최대 복제본 수를 늘립니다.
+    웹 서비스가 이미 현재 최대 복제본을 사용 중이 고 503 상태 코드가 표시 되는 경우 `autoscale_max_replicas` 값을 늘려 최대 복제본 수를 늘립니다.
 
 * 최소 복제본 수를 변경 합니다. 최소 복제본 수를 늘리면 들어오는 급증을 처리할 수 있는 더 큰 풀이 제공 됩니다.
 
@@ -333,7 +333,7 @@ Azure Kubernetes 서비스 배포는 복제본을 추가 하 여 추가 부하�
 > [!IMPORTANT]
 > `Model.deploy()` 및 `LocalWebservice.deploy_configuration`를 사용 하 여 모델을 로컬로 배포 하는 경우이 디버깅 방법이 작동 하지 않습니다. 대신 [get-containerimage](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image.containerimage?view=azure-ml-py) 클래스를 사용 하 여 이미지를 만들어야 합니다. 
 
-로컬 배포를 수행 하려면 로컬 시스템에서 작동 하는 Docker가 설치 되어 있어야 합니다. Docker를 사용 하는 방법에 대 한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조 하세요.
+로컬 웹 서비스 배포에는 로컬 시스템에서 작동 하는 Docker 설치가 필요 합니다. Docker를 사용 하는 방법에 대 한 자세한 내용은 [Docker 설명서](https://docs.docker.com/)를 참조 하세요.
 
 ### <a name="configure-development-environment"></a>개발 환경 구성
 

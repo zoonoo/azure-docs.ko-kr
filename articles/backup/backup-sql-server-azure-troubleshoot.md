@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: e4683547a7c305da3d3a3bc7a7d6a50f21ad46f2
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: e600fdb882294d14bb9f9216ac8d621ba5254170
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614392"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074723"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -31,7 +31,7 @@ ms.locfileid: "73614392"
 
 | 심각도 | 설명 | 가능한 원인 | 권장 작업 |
 |---|---|---|---|
-| Warning | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업과 트랜잭션 로그 백업은 모두 사용할 수 없습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 임시 백업에 대 한 백업 작업이 실패 합니다.
+| Warning | 이 데이터베이스의 현재 설정은 연결 된 정책에 있는 특정 백업 유형을 지원 하지 않습니다. | <li>Master 데이터베이스에서는 전체 데이터베이스 백업 작업만 수행할 수 있습니다. 차등 백업과 트랜잭션 로그 백업은 모두 사용할 수 없습니다. </li> <li>단순 복구 모델의 모든 데이터베이스는 트랜잭션 로그의 백업을 허용 하지 않습니다.</li> | 정책의 모든 백업 유형이 지원되도록 데이터베이스 설정을 수정합니다. 또는 지원 되는 백업 유형만 포함 하도록 현재 정책을 변경 합니다. 그렇지 않으면 예약 된 백업 중에 지원 되지 않는 백업 유형을 건너뛰지 않으며 요청 시 백업에 대 한 백업 작업이 실패 합니다.
 
 ### <a name="usererrorsqlpodoesnotsupportbackuptype"></a>UserErrorSQLPODoesNotSupportBackupType
 
@@ -50,7 +50,7 @@ ms.locfileid: "73614392"
 
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
-| 로그 체인이 손상되었습니다. | 데이터베이스 또는 VM은 다른 백업 솔루션을 통해 백업 되며이를 통해 로그 체인이 잘립니다.|<ul><li>다른 백업 솔루션이나 스크립트를 사용 중인지 확인합니다. 이런 경우 백업 솔루션을 중지합니다. </li><li>백업이 임시 로그 백업 인 경우 전체 백업을 트리거하여 새 로그 체인을 시작 합니다. 예약 된 로그 백업의 경우 Azure Backup 서비스가 자동으로 전체 백업을 트리거하여이 문제를 해결 하기 때문에 작업이 필요 하지 않습니다.</li>|
+| 로그 체인이 손상되었습니다. | 데이터베이스 또는 VM은 다른 백업 솔루션을 통해 백업 되며이를 통해 로그 체인이 잘립니다.|<ul><li>다른 백업 솔루션이나 스크립트를 사용 중인지 확인합니다. 이런 경우 백업 솔루션을 중지합니다. </li><li>백업이 주문형 로그 백업 인 경우 전체 백업을 트리거하여 새 로그 체인을 시작 합니다. 예약 된 로그 백업의 경우 Azure Backup 서비스가 자동으로 전체 백업을 트리거하여이 문제를 해결 하기 때문에 작업이 필요 하지 않습니다.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -62,7 +62,7 @@ ms.locfileid: "73614392"
 
 | 오류 메시지 | 가능한 원인 | 권장 작업 |
 |---|---|---|
-| 이 데이터 원본에 대한 첫 번째 전체 백업이 없습니다. | 데이터베이스에 대한 전체 백업이 누락되었습니다. 로그 및 차등 백업은 전체 백업에 대 한 부모 이므로 차등 또는 로그 백업을 트리거하기 전에 전체 백업을 수행 해야 합니다. | 임시 전체 백업을 트리거합니다.   |
+| 이 데이터 원본에 대한 첫 번째 전체 백업이 없습니다. | 데이터베이스에 대한 전체 백업이 누락되었습니다. 로그 및 차등 백업은 전체 백업에 대 한 부모 이므로 차등 또는 로그 백업을 트리거하기 전에 전체 백업을 수행 해야 합니다. | 주문형 전체 백업을 트리거합니다.   |
 
 ### <a name="usererrorbackupfailedastransactionlogisfull"></a>UserErrorBackupFailedAsTransactionLogIsFull
 

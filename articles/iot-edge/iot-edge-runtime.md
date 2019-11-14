@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 94e33c855327e70f486746bcd781491823324dec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4bdf496995e8b466f1346bfe16365b251c6853c3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490432"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076046"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Azure IoT Edge 런타임 및 해당 아키텍처 이해
 
@@ -24,7 +24,7 @@ IoT Edge 런타임은 IoT Edge 장치에서 다음 기능을 담당 합니다.
 
 * 디바이스에 워크로드를 설치하고 업데이트합니다.
 * 디바이스에서 Azure IoT Edge 보안 표준을 유지합니다.
-* [IoT Edge 모듈이](iot-edge-modules.md) 항상 실행 되 고 있는지 확인 합니다.
+* [IoT Edge 모듈](iot-edge-modules.md) 실행을 유지합니다.
 * 원격 모니터링을 위해 모듈 상태를 클라우드에 보고합니다.
 * 다운스트림 장치와 IoT Edge 장치 간의 통신을 관리 합니다.
 * IoT Edge 장치의 모듈 간 통신을 관리 합니다.
@@ -98,9 +98,12 @@ IoT Edge 에이전트는 Azure IoT Edge 런타임을 구성하는 다른 모듈�
    * `on-failure`-모듈이 충돌 하면 IoT Edge 에이전트가 다시 시작 합니다. 모듈이 완전히 종료되면 IoT Edge 에이전트에서 해당 모듈을 다시 시작하지 않습니다.
    * `on-unhealthy`-모듈이 충돌 하거나 비정상으로 간주 되는 경우 IoT Edge 에이전트가 다시 시작 합니다.
    * `always`-모듈의 작동이 중단 되거나 비정상으로 간주 되거나 어떤 식으로든 종료 되 면 IoT Edge 에이전트가 다시 시작 합니다. 
+* **Imagepullpolicy** -IoT Edge 에이전트가 모듈의 최신 이미지를 자동으로 가져오려고 하는지 여부를 지정 합니다. 값을 지정 하지 않는 경우 기본값은 *onCreate*입니다. 가능한 값은 다음과 같습니다. 
+   * `on-create`-모듈을 시작 하거나 새 배포 매니페스트에 따라 모듈을 업데이트 하는 경우 IoT Edge 에이전트가 컨테이너 레지스트리에서 모듈 이미지를 가져오려고 시도 합니다.
+   * `never`-IoT Edge 에이전트가 컨테이너 레지스트리에서 모듈 이미지를 가져오려고 시도 하지 않습니다. 모듈 이미지가 장치에 캐시 되 고 모든 모듈 이미지 업데이트가 타사 솔루션에 의해 수동 또는 관리 되는 것으로 예상 됩니다. 
 
 IoT Edge 에이전트는 IoT Hub에 런타임 응답을 보냅니다. 가능한 응답 목록은 다음과 같습니다.
-  * 200 - 확인
+  * 200 - 정상
   * 400 - 배포 구성이 잘못되었거나 유효하지 않습니다.
   * 417-장치에 배포 구성 집합이 없습니다.
   * 412 - 배포 구성의 스키마 버전이 잘못되었습니다.

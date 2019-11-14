@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: b05473fd9868821285853b089fe711aa48f347fc
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: a24f670314d2f6679e37b438a74421e0e84604e2
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973431"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075496"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Service Fabric 애플리케이션에서 암호화된 비밀 관리
 이 가이드에서는 Service Fabric 애플리케이션에서 비밀을 관리하는 단계를 안내합니다. 스토리지 연결 문자열, 암호, 일반 텍스트로 처리하면 안 되는 값 등 모든 민감한 정보를 비밀로 처리할 수 있습니다.
@@ -37,7 +37,7 @@ Service Fabric 애플리케이션에서 암호화된 비밀을 사용하는 데�
 ## <a name="specify-encrypted-secrets-in-an-application"></a>애플리케이션에서 암호화된 비밀 지정
 이전 단계에서 인증서를 사용하여 비밀을 암호화하고 애플리케이션에서 사용할 수 있도록 base-64로 인코딩된 문자열을 생성하는 방법을 설명했습니다. 이 base-64로 인코딩된 문자열은 서비스의 Servicemanifest.xml에 암호화 된 [매개 변수로][parameters-link] 지정 하거나 서비스의에 암호화 된 [환경 변수로][environment-variables-link] 지정할 수 있습니다.
 
-@No__t-1 특성이 `true`로 설정 된 서비스의 설정 .xml 구성 파일에 암호화 된 [매개 변수][parameters-link] 를 지정 합니다.
+서비스의 설정 .xml 구성 파일에서 `IsEncrypted` 특성이 `true`로 설정 된 암호화 된 [매개 변수][parameters-link] 를 지정 합니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -47,7 +47,7 @@ Service Fabric 애플리케이션에서 암호화된 비밀을 사용하는 데�
   </Section>
 </Settings>
 ```
-@No__t-1 특성을 `Encrypted`로 설정 하 여 서비스의 Servicemanifest.xml 파일에 암호화 된 [환경 변수][environment-variables-link] 를 지정 합니다.
+`Type` 특성이 `Encrypted`로 설정 된 서비스의 Servicemanifest.xml 파일에 암호화 된 [환경 변수][environment-variables-link] 를 지정 합니다.
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
@@ -147,10 +147,12 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## <a name="next-steps"></a>다음 단계
-[애플리케이션 및 서비스 보안](service-fabric-application-and-service-security.md)에 대한 자세한 정보
+* [비밀 저장소](service-fabric-application-secret-store.md) Service Fabric 
+* [애플리케이션 및 서비스 보안](service-fabric-application-and-service-security.md)에 대한 자세한 정보
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
 [environment-variables-link]: service-fabric-how-to-specify-environment-variables.md
 [secret-management-windows-specific-link]: service-fabric-application-secret-management-windows.md
 [secret-management-linux-specific-link]: service-fabric-application-secret-management-linux.md
+[service fabric secrets store]: service-fabric-application-secret-store.md

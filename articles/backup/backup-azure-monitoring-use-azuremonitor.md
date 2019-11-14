@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 2b951c6660143b1bd2f6502a5441aec3ba8d71e1
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e8f162b9dc84b863c54d92313307ef4abca76ebb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792848"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074233"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 규모에 맞게 모니터링
 
@@ -209,7 +209,7 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
 자격 증명 모음의 진단 데이터는 일정 시간 동안 Log Analytics 작업 영역에 펌프 됩니다. 모든 이벤트는 Recovery Services 자격 증명 모음에서 푸시된 후 *20 분에서 30 분* Log Analytics 작업 영역에 도착 합니다. 지연에 대 한 자세한 내용은 다음과 같습니다.
 
 - 모든 솔루션에서 백업 서비스의 기본 제공 경고는 생성 되는 즉시 푸시됩니다. 따라서 일반적으로 20 분에서 30 분 후에 Log Analytics 작업 영역에 나타납니다.
-- 모든 솔루션에서 임시 백업 작업 및 복원 작업은 *완료*되는 즉시 푸시됩니다.
+- 모든 솔루션에서 주문형 백업 작업 및 복원 작업은 *완료*되는 즉시 푸시됩니다.
 - SQL 백업을 제외한 모든 솔루션에 대해 예약 된 백업 작업은 *완료*되는 즉시 푸시됩니다.
 - SQL 백업의 경우 로그 백업이 15 분 마다 발생할 수 있으므로 로그를 포함 하 여 완료 된 모든 예약 된 백업 작업에 대 한 정보는 6 시간 마다 일괄 처리 되 고 푸시됩니다.
 - 모든 솔루션에서 백업 항목, 정책, 복구 지점, 저장소 등의 기타 정보는 *하루에 한 번* 이상 푸시됩니다.

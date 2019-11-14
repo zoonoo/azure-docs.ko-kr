@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory를 사용 하 여 Azure SQL Data Warehouse 간에 데이터 복사
-description: Data Factory를 사용하여 지원되는 원본 저장소에서 Azure SQL Data Warehouse로 또는 SQL Data Warehouse에서 지원되는 싱크 저장소로 데이터를 복사하는 방법을 알아봅니다.
+title: Azure Data Factory를 사용 하 여 Azure SQL Data Warehouse 데이터 복사 및 변환
+description: Data Factory를 사용 하 여 Azure SQL Data Warehouse에서 데이터를 복사 하 고 Azure SQL Data Warehouse 데이터를 변환 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -10,21 +10,21 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: b64bfd046a42a630e7913c45213053e84377a037
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 4d08a388e98283ff7bf05e938d7b8c48b7065074
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681159"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076762"
 ---
-# <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간 데이터 복사 
+# <a name="copy-and-transform-data-in-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure SQL Data Warehouse 데이터 복사 및 변환 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택 합니다."]
 > * [Version1](v1/data-factory-azure-sql-data-warehouse-connector.md)
 > * [현재 버전](connector-azure-sql-data-warehouse.md)
 
-이 문서에서는 Azure SQL Data Warehouse 간에 데이터를 복사 하는 방법을 설명 합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 Azure SQL Data Warehouse 간에 데이터를 복사 하 고 데이터 흐름을 사용 하 여 Azure Data Lake Storage Gen2 데이터를 변환 하는 방법을 설명 합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
@@ -35,7 +35,7 @@ ms.locfileid: "73681159"
 - [조회 작업](control-flow-lookup-activity.md)
 - [GetMetadata 작업](control-flow-get-metadata-activity.md)
 
-특히 이 Azure SQL Data Warehouse 커넥터는 다음 기능을 지원합니다.
+복사 활동의 경우이 Azure SQL Data Warehouse 커넥터는 다음과 같은 기능을 지원 합니다.
 
 - 서비스 주체 또는 Azure 리소스에 대한 관리 ID를 통해 SQL 인증 및 Azure AD(Azure Active Directory) 애플리케이션 토큰 인증을 사용하여 데이터를 복사합니다.
 - 원본으로 SQL 쿼리 또는 저장 프로시저를 사용하여 데이터를 검색합니다.
@@ -63,9 +63,9 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 | type                | type 속성은 **AzureSqlDW**로 설정해야 합니다.             | 예                                                          |
 | connectionString    | Azure SQL Data Warehouse 인스턴스에 연결하는 데 필요한 정보를 **connectionString** 속성에 대해 지정합니다. <br/>이 필드를 SecureString으로 표시하여 Data Factory에서 안전하게 저장합니다. 암호/서비스 주체 키를 Azure Key Vault에 넣고, SQL 인증인 경우 연결 문자열에서 `password` 구성을 끌어올 수도 있습니다. 자세한 내용은 표 아래의 JSON 예제 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. | 예                                                          |
 | servicePrincipalId  | 애플리케이션의 클라이언트 ID를 지정합니다.                         | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
+| servicePrincipalKey | 애플리케이션의 키를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
 | 테넌트              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 서비스 주체와 함께 Azure AD 인증을 사용하는 경우 예 |
-| connectVia          | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 아니요                                                           |
+| connectVia          | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 자체 호스팅 통합 런타임을 사용할 수 있습니다(데이터 저장소가 프라이빗 네트워크에 있는 경우). 지정하지 않으면 기본 Azure 통합 런타임을 사용합니다. | 아니오                                                           |
 
 다른 인증 형식의 경우, 각각의 필수 조건 및 JSON 샘플에 대한 다음 섹션을 참조하세요.
 
@@ -182,7 +182,7 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 }
 ```
 
-### <a name="managed-identity"></a> Azure 리소스 인증용 관리 ID
+### <a name="managed-identity"></a> Azure 리소스 인증에 대한 관리 ID
 
 데이터 팩터리는 특정 팩터리를 나타내는 [Azure 리소스에 대한 관리 ID](data-factory-service-identity.md)와 연결할 수 있습니다. Azure SQL Data Warehouse 인증에이 관리 되는 id를 사용할 수 있습니다. 지정된 팩터리는 이 ID를 사용하여 데이터 웨어하우스의 데이터에 액세스하고 복사할 수 있습니다.
 
@@ -204,7 +204,7 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 5. Azure Data Factory에서 **Azure SQL Data Warehouse 연결된 서비스를 구성**합니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -227,16 +227,16 @@ Azure SQL Data Warehouse 연결된 서비스에 대해 지원되는 속성은 �
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
-데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Azure SQL Data Warehouse 데이터 세트에서 지원하는 속성 목록을 제공합니다.
+데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 
 
-Azure SQL Data Warehouse에서 또는로 데이터를 복사 하려면 다음 속성이 지원 됩니다.
+Azure SQL Data Warehouse 데이터 집합에 대해 지원 되는 속성은 다음과 같습니다.
 
 | 속성  | 설명                                                  | 필수                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | 데이터 세트의 **type** 속성을 **AzureSqlDWTable**로 설정해야 합니다. | 예                         |
 | schema | 스키마의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
 | 테이블 | 테이블/뷰의 이름입니다. |원본에는 아니요이고 싱크에는 예입니다  |
-| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`을 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
+| tableName | 스키마가 포함 된 테이블/뷰의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드의 경우 `schema` 및 `table`를 사용 합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 #### <a name="dataset-properties-example"></a>데이터 세트 속성 예제
 
@@ -270,9 +270,9 @@ Azure SQL Data Warehouse에서/로 데이터를 복사하려면 복사 작업 �
 | 속성                     | 설명                                                  | 필수 |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | 복사 작업 원본의 **type** 속성을 **SqlDWSource**로 설정해야 합니다. | 예      |
-| SqlReaderQuery               | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아니요       |
-| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니요       |
-| storedProcedureParameters    | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니요       |
+| SqlReaderQuery               | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `select * from MyTable`. | 아니오       |
+| sqlReaderStoredProcedureName | 원본 테이블에서 데이터를 읽는 저장 프로시저의 이름입니다. 마지막 SQL 문은 저장 프로시저의 SELECT 문이어야 합니다. | 아니오       |
+| storedProcedureParameters    | 저장 프로시저에 대한 매개 변수입니다.<br/>허용되는 값은 이름 또는 값 쌍입니다. 매개 변수의 이름 및 대소문자와, 저장 프로시저 매개변수의 이름 및 대소문자와 일치해야 합니다. | 아니오       |
 
 ### <a name="points-to-note"></a>주의할 사항
 
@@ -373,16 +373,16 @@ Azure SQL Data Warehouse에 데이터를 복사하려면 복사 작업의 싱크
 | 속성          | 설명                                                  | 필수                                      |
 | :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
 | type              | 복사 작업 싱크의 **type** 속성은 **SqlDWSink**로 설정해야 합니다. | 예                                           |
-| allowPolyBase     | BULKINSERT 메커니즘 대신 PolyBase(해당하는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> PolyBase를 사용하여 SQL Data Warehouse에 데이터를 로드하는 것이 좋습니다. 제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니요                                            |
-| polyBaseSettings  | **allowPolybase** 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. | 아니요                                            |
-| rejectValue       | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. | 아니요                                            |
-| rejectType        | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용되는 값은 **Value**(기본값) 및 **Percentage**입니다. | 아니요                                            |
+| allowPolyBase     | BULKINSERT 메커니즘 대신 PolyBase(해당하는 경우)를 사용할지 여부를 나타냅니다. <br/><br/> PolyBase를 사용하여 SQL Data Warehouse에 데이터를 로드하는 것이 좋습니다. 제약 조건 및 세부 정보는 [PolyBase를 사용하여 Azure SQL Data Warehouse에 데이터 로드](#use-polybase-to-load-data-into-azure-sql-data-warehouse) 섹션을 참조하세요.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다. | 아니오                                            |
+| polyBaseSettings  | **allowPolybase** 속성이 **true**로 설정된 경우 지정될 수 있는 속성의 그룹입니다. | 아니오                                            |
+| rejectValue       | 쿼리가 실패하기 전에 거부될 수 있는 행의 수 또는 백분율을 지정합니다.<br/><br/>[CREATE EXTERNAL TABLE(Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx)의 인수 섹션에서 PolyBase의 거부 옵션에 대해 자세히 알아봅니다. <br/><br/>허용되는 값은 0(기본값), 1, 2 등입니다. | 아니오                                            |
+| rejectType        | **rejectValue** 옵션이 리터럴 값인지 또는 백분율인지를 지정합니다.<br/><br/>허용되는 값은 **Value**(기본값) 및 **Percentage**입니다. | 아니오                                            |
 | rejectSampleValue | PolyBase가 거부된 행의 백분율을 다시 계산하기 전에 검색할 행 수를 결정합니다.<br/><br/>허용되는 값은 1, 2 등입니다. | **rejectType**이 **percentage**인 경우 예 |
-| useTypeDefault    | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다.<br><br> | 아니요                                            |
-| writeBatchSize    | **일괄**처리당 SQL 테이블에 삽입할 행 수입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. 기본적으로 Data Factory는 행 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다. | 아니요                                            |
-| writeBatchTimeout | 일괄 삽입 작업이 시간이 초과 되기 전에 완료 될 때까지 대기 하는 시간입니다. PolyBase를 사용 하지 않는 경우에만 적용 됩니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예: “00:30:00”(30분). | 아니요                                            |
-| preCopyScript     | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아니요                                            |
-| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정 합니다. 준비 된 복사본이 복사 작업에서 구성 된 경우 자동 테이블 만들기가 지원 되지 않습니다. 허용 되는 값은 `none` (기본값), `autoCreate`입니다. |아니요 |
+| useTypeDefault    | PolyBase가 텍스트 파일에서 데이터를 검색할 경우 구분된 텍스트 파일에서 누락된 값을 처리하는 방법을 지정합니다.<br/><br/>[외부 파일 서식 만들기(Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx)를 사용하여 파이프라인을 만드는 데 사용할 수 있는 샘플 JSON 정의를 제공합니다.<br/><br/>허용되는 값은 **True** 및 **False**(기본값)입니다.<br><br> | 아니오                                            |
+| writeBatchSize    | **일괄**처리당 SQL 테이블에 삽입할 행 수입니다. PolyBase가 사용되지 않는 경우에만 적용됩니다.<br/><br/>허용되는 값은 **정수**(행 수)입니다. 기본적으로 Data Factory는 행 크기에 따라 적절 한 일괄 처리 크기를 동적으로 결정 합니다. | 아니오                                            |
+| writeBatchTimeout | 일괄 삽입 작업이 시간이 초과 되기 전에 완료 될 때까지 대기 하는 시간입니다. PolyBase를 사용 하지 않는 경우에만 적용 됩니다.<br/><br/>허용되는 값은 **시간 범위**입니다. 예: “00:30:00”(30분). | 아니오                                            |
+| preCopyScript     | 각 실행 시 Azure SQL Data Warehouse에 데이터를 쓰기 전에 실행할 복사 작업에 대한 SQL 쿼리를 지정합니다. 이 속성을 사용하여 미리 로드된 데이터를 정리합니다. | 아니오                                            |
+| tableOption | 원본 스키마에 따라 존재 하지 않는 경우 싱크 테이블을 자동으로 만들지 여부를 지정 합니다. 준비 된 복사본이 복사 작업에서 구성 된 경우 자동 테이블 만들기가 지원 되지 않습니다. 허용 되는 값은 `none` (기본값) `autoCreate`입니다. |아니오 |
 | disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 SQL Data Warehouse DWUs와 같은 메트릭을 수집 합니다. 이 동작에 관심이 있는 경우 `true` 지정 하 여 해제 합니다. | 아니요(기본값: `false`) |
 
 #### <a name="sql-data-warehouse-sink-example"></a>SQL Data Warehouse 싱크 예제
@@ -559,7 +559,7 @@ ErrorCode=FailedDbOperation, ......HadoopSqlException: Error converting data typ
 ```
 
 이 솔루션은 복사 작업 싱크에서 PolyBase 설정 > "**형식 기본값 사용**" 옵션을 선택 취소 하는 것입니다 (false로 설정). "[USE_TYPE_DEFAULT](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql?view=azure-sqldw-latest#arguments
-)"은 polybase 네이티브 구성으로, polybase가 텍스트 파일에서 데이터를 검색할 때 분리 된 텍스트 파일에서 누락 값을 처리 하는 방법을 지정 합니다. 
+)"은 polybase 네이티브 구성으로, polybase가 텍스트 파일에서 데이터를 검색할 때 구분 된 텍스트 파일에서 누락 값을 처리 하는 방법을 지정 합니다. 
 
 **Azure SQL Data Warehouse `tableName`**
 
@@ -594,12 +594,12 @@ NULL 값은 특별한 형태의 기본값입니다. 열이 Null을 허용하는 
 
 ## <a name="data-type-mapping-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 데이터 형식 매핑
 
-Azure SQL Data Warehouse에서 데이터를 복사하는 경우, Azure SQL Data Warehouse 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
+Azure SQL Data Warehouse에서/로 데이터를 복사하는 경우, Azure SQL Data Warehouse 데이터 형식에서 Azure Data Factory 중간 데이터 형식으로 다음 매핑이 사용됩니다. 복사 작업에서 원본 스키마 및 데이터 형식을 싱크에 매핑하는 방법에 대한 자세한 내용은 [스키마 및 데이터 형식 매핑](copy-activity-schema-and-type-mapping.md)을 참조하세요.
 
 >[!TIP]
 >SQL DW 지원 데이터 형식 및 지원 되지 않는 문제에 대 한 해결 방법에 대 한 [Azure SQL Data Warehouse 문서의 테이블 데이터 형식을](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) 참조 하세요.
 
-| Azure SQL Data Warehouse 데이터 형식    | Data Factory 중간 데이터 형식 |
+| Azure SQL Data Warehouse 데이터 형식    | 데이터 팩터리 중간 데이터 형식 |
 | :------------------------------------ | :----------------------------- |
 | bigint                                | Int64                          |
 | binary                                | Byte[]                         |
@@ -608,24 +608,24 @@ Azure SQL Data Warehouse에서 데이터를 복사하는 경우, Azure SQL Data 
 | date                                  | DateTime                       |
 | DateTime                              | DateTime                       |
 | datetime2                             | DateTime                       |
-| Datetimeoffset                        | Datetimeoffset                 |
-| 10진수                               | 10진수                        |
-| FILESTREAM 특성(varbinary(max)) | Byte[]                         |
+| Datetimeoffset                        | DateTimeOffset                 |
+| DECIMAL                               | DECIMAL                        |
+| FILESTREAM attribute (varbinary(max)) | Byte[]                         |
 | Float                                 | Double                         |
-| 이미지                                 | Byte[]                         |
+| image                                 | Byte[]                         |
 | int                                   | Int32                          |
-| money                                 | 10진수                        |
+| money                                 | DECIMAL                        |
 | nchar                                 | String, Char[]                 |
-| numeric                               | 10진수                        |
+| numeric                               | DECIMAL                        |
 | nvarchar                              | String, Char[]                 |
-| real                                  | 단일                         |
+| REAL                                  | Single                         |
 | rowversion                            | Byte[]                         |
 | smalldatetime                         | DateTime                       |
 | smallint                              | Int16                          |
-| smallmoney                            | 10진수                        |
-| 실시간                                  | TimeSpan                       |
+| smallmoney                            | DECIMAL                        |
+| Time                                  | TimeSpan                       |
 | tinyint                               | Byte                           |
-| uniqueidentifier                      | Guid                           |
+| uniqueidentifier                      | GUID                           |
 | varbinary                             | Byte[]                         |
 | varchar                               | String, Char[]                 |
 

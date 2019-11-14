@@ -8,14 +8,15 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/09/2019
 ms.author: dacurwin
-ms.openlocfilehash: 293af600f4bd58efe8383d019ca3d17f724f242c
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 757e12f97f95ef856643820e47113521d840f10d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933324"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074984"
 ---
-# <a name="configure-azure-backup-reports"></a>Azure Backup 구성 보고서
+# <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
+
 이 문서에서는 Recovery Services 자격 증명 모음을 사용하여 Azure Backup용 보고서를 구성하기 위해 수행해야 하는 단계를 설명합니다. 또한 Power BI를 사용하여 보고서에 액세스하는 방법도 설명합니다. 이러한 단계를 완료한 후에는 Power BI로 직접 이동하여 보고서를 확인, 사용자 지정 및 작성할 수 있습니다.
 
 > [!IMPORTANT]
@@ -26,24 +27,27 @@ ms.locfileid: "68933324"
 >
 
 ## <a name="supported-scenarios"></a>지원되는 시나리오
+
 - Azure Backup 보고서는 Azure Recovery Services 에이전트를 사용하여 클라우드로 Azure 가상 머신 백업 및 파일/폴더 백업을 전송하는 작업용으로 지원됩니다.
 - Azure SQL Database, Azure File Shares, Data Protection Manager 및 Azure Backup Server용 보고서는 현재 지원되지 않습니다.
 - 각 자격 증명 모음에 대해 동일한 스토리지 계정이 구성된 경우 여러 자격 증명 모음과 구독의 보고서를 볼 수 있습니다. 선택한 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
-- Power BI에서 보고서에 대해 예약된 새로 고침 빈도는 24시간입니다. Power BI에서 보고서의 임시 새로 고침을 수행할 수도 있습니다. 이 경우 고객 스토리지 계정의 최신 데이터를 사용하여 보고서를 렌더링합니다.
+- Power BI에서 보고서에 대해 예약된 새로 고침 빈도는 24시간입니다. Power BI에서 보고서의 주문형 새로 고침을 수행할 수도 있습니다. 이 경우 고객 스토리지 계정의 최신 데이터를 사용하여 보고서를 렌더링합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
+
 - [Azure Storage 계정](../storage/common/storage-quickstart-create-account.md)을 만들어 보고서에 대해 구성합니다. 이 스토리지 계정은 보고서 관련 데이터를 저장하는 데 사용됩니다.
 - [Power BI 계정을 만들어](https://powerbi.microsoft.com/landing/signin/) Power BI 포털을 사용해 보고서를 확인, 사용자 지정 및 생성합니다.
 - 리소스 공급자 **Microsoft.insights**를 아직 등록하지 않은 경우 등록합니다. 보고 데이터가 스토리지 계정으로 전송될 수 있도록 Recovery Services 자격 증명 모음 및 스토리지 계정용 구독을 사용합니다. 이 단계를 수행하려면 Azure Portal로 이동하여 **구독** > **리소스 공급자**를 선택한 다음 이 공급자를 선택해서 등록합니다.
 
 ## <a name="configure-storage-account-for-reports"></a>보고서에 대한 스토리지 계정 구성
+
 Azure Portal을 사용하여 Recovery Services 자격 증명 모음용 스토리지 계정을 구성하려면 다음 단계를 수행합니다. 이 구성은 한 번만 수행하면 됩니다. 저장소 계정이 구성 된 후 Power BI으로 직접 이동 하 여 템플릿 앱을 보고 보고서를 사용할 수 있습니다.
 
 1. Recovery Services 자격 증명 모음이 이미 열려 있으면 다음 단계로 진행합니다. Recovery Services 자격 증명 모음이 열려 있지 않으면 Azure Portal에서 **모든 서비스**를 선택합니다.
 
-   * 리소스 목록에서 **Recovery Services**를 입력합니다.
-   * 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
-   * Recovery Services 자격 증명 모음의 목록이 표시됩니다. Recovery Services 자격 증명 모음의 목록에서 자격 증명 모음을 선택합니다.
+   - 리소스 목록에서 **Recovery Services**를 입력합니다.
+   - 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Recovery Services 자격 증명 모음**이 표시되면 이를 선택합니다.
+   - Recovery Services 자격 증명 모음의 목록이 표시됩니다. Recovery Services 자격 증명 모음의 목록에서 자격 증명 모음을 선택합니다.
 
      선택한 자격 증명 모음 대시보드가 열립니다.
 2. 자격 증명 모음 아래에 나타나는 항목 목록에서 **모니터링 및 보고서** 섹션 아래의 **백업 보고서**를 선택하여 보고서용 스토리지 계정을 구성합니다.
@@ -76,6 +80,7 @@ Azure Portal을 사용하여 Recovery Services 자격 증명 모음용 스토리
 >
 
 ## <a name="view-reports-in-power-bi"></a>Power BI에서 보고서 보기
+
 Recovery Services 자격 증명 모음을 사용하여 보고서용 스토리지 계정을 구성한 후 보고 데이터 전송이 시작될 때까지는 약 24시간 정도 걸립니다. 스토리지 계정을 설정하고 24시간 후에 Power BI에서 보고서를 보려면 다음 단계를 수행합니다.
 보고서를 사용자 지정하고 공유하려면 작업 영역을 만들고 다음 단계를 수행하세요.
 
@@ -87,7 +92,7 @@ Recovery Services 자격 증명 모음을 사용하여 보고서용 스토리지
       ![템플릿 앱 가져오기](./media/backup-azure-configure-reports/template-app-get.png)
 4. 위의 5단계에서 구성한 스토리지 계정의 이름을 입력하고 **다음**을 선택합니다.
 
-    ![스토리지 계정 이름 입력](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
+    ![스토리지 계정 이름 입력](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)
 5. 인증 방법 &quot;키&quot;를 사용하여 이 스토리지 계정의 스토리지 계정 키를 입력합니다. [스토리지 액세스 키를 확인하고 복사](../storage/common/storage-account-manage.md#access-keys)하려면 Azure Portal에서 스토리지 계정으로 이동합니다.
 
      ![스토리지 계정 입력](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
@@ -112,16 +117,17 @@ Recovery Services 자격 증명 모음을 사용하여 보고서용 스토리지
 
       ![Azure Backup 보고서 탭](./media/backup-azure-configure-reports/reports-tab-view.png)
 
-
 ## <a name="troubleshooting-errors"></a>문제 해결 오류
+
 | 오류 세부 정보 | 해결 방법 |
 | --- | --- |
 | 백업 보고서의 스토리지 계정을 설정한 후에도 **스토리지 계정**에 계속 **구성되지 않음**이 표시됩니다. | 스토리지 계정을 정상적으로 구성했다면 이 문제가 발생해도 보고 데이터는 전송됩니다. 이 문제를 해결하려면 Azure Portal로 이동하여 **모든 서비스** > **진단 설정** > **Recovery Services 자격 증명 모음** > **설정 편집**을 선택합니다. 이전에 구성한 설정을 삭제하고 동일한 블레이드에서 새 설정을 만듭니다. 이번에는 **이름** 상자에서 **서비스**를 선택합니다. 그러면 구성된 스토리지 계정이 표시됩니다. |
 |Power BI에서 Azure Backup 템플릿 앱을 가져온 후 "404-컨테이너를 찾을 수 없습니다." 라는 오류 메시지가 나타납니다. | 앞에서 설명한 것처럼 Recovery Services 자격 증명 모음에서 보고서를 구성한 후 24시간 동안 기다려야 Power BI에서 해당 보고서가 올바르게 표시됩니다. 24시간이 지나기 전에 보고서에 액세스하려고 하면 유효한 보고서를 표시하는 데 필요한 전체 데이터가 아직 없으므로 이 오류 메시지가 나타납니다. |
 
 ## <a name="next-steps"></a>다음 단계
+
 저장소 계정을 구성 하 고 Azure Backup 템플릿 앱을 가져온 후 다음 단계는 보고서를 사용자 지정 하 고 보고 데이터 모델을 사용 하 여 보고서를 만드는 것입니다. 자세한 내용은 다음 문서를 참조하세요.
 
-* [Azure Backup 보고 데이터 모델 사용](backup-azure-reports-data-model.md)
-* [Power BI에서 보고서 필터링](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-* [Power BI에서 보고서 만들기](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+- [Azure Backup 보고 데이터 모델 사용](backup-azure-reports-data-model.md)
+- [Power BI에서 보고서 필터링](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+- [Power BI에서 보고서 만들기](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

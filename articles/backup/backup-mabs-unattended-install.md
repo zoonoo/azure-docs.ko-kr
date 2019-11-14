@@ -7,22 +7,22 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3777aecea5e25b33a7010ad90887829406e491ae
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: a02d9f42242b9a762c58ef65a798ff6ab8f53914
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210157"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074787"
 ---
 # <a name="run-an-unattended-installation-of-azure-backup-server"></a>Azure Backup Server의 무인 설치 실행
 
 Azure Backup Server의 무인 설치를 실행하는 방법을 알아봅니다.
 
-Azure Backup Server V1을 설치할 경우에는 이러한 단계가 적용되지 않습니다.
+Azure Backup Server V1을 설치 하는 경우에는 이러한 단계가 적용 되지 않습니다.
 
 ## <a name="install-backup-server"></a>Backup Server 설치
 
-1. Azure Backup Server V2 이상을 호스트하는 서버에서 텍스트 파일을 만듭니다. 메모장이나 다른 텍스트 편집기에서 파일을 만들 수 있습니다. 파일을 MABSSetup.ini로 저장합니다.
+1. Azure Backup Server V2 이상을 호스트하는 서버에서 텍스트 파일을 만듭니다. 메모장 이나 다른 텍스트 편집기에서 파일을 만들 수 있습니다. 파일을 Mabssetup.ini로 저장 합니다.
 
 2. MABSSetup.ini 파일에 다음 코드를 붙여넣습니다. 대괄호(\< \>) 내부의 텍스트를 사용자 환경의 값으로 바꿉니다. 다음 텍스트는 예제입니다.
 
@@ -60,6 +60,7 @@ Azure Backup Server V1을 설치할 경우에는 이러한 단계가 적용되�
 **/x**: 제거 경로</br>
 
 ## <a name="next-steps"></a>다음 단계
+
 Backup Server를 설치한 후 서버를 준비하는 방법을 알아보거나 워크로드 보호를 시작합니다.
 
 - [Backup Server 워크로드 준비](backup-azure-microsoft-azure-backup.md)
