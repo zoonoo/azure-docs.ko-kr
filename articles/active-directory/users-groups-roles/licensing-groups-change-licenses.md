@@ -1,33 +1,33 @@
 ---
-title: 사용자 및 그룹에 대 한 라이선스 할당을 변경 하는 방법-Azure Active Directory | Microsoft Docs
-description: 그룹 라이선스를 사용 하 여 그룹 내의 사용자를 다른 서비스 라이선스 (Office 365 Enterprise E1 및 E3)로 마이그레이션하기 위한 권장 프로세스에 대해 설명 합니다.
+title: 사용자 및 그룹에 대 한 라이선스 계획 변경-Azure AD | Microsoft Docs
+description: Azure Active Directory에서 그룹 라이선스를 사용 하 여 그룹 내의 사용자를 다른 서비스 계획으로 마이그레이션하는 방법
 services: active-directory
 keywords: Azure AD 라이선스
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 09/27/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7212983470e71ff6d7c1c33de142767ecf38d1f
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: bf2f04e1728f94c89bddcc31c287cc017a79020f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034032"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74025896"
 ---
 # <a name="change-license-assignments-for-a-user-or-group-in-azure-active-directory"></a>Azure Active Directory에서 사용자 또는 그룹에 대 한 라이선스 할당 변경
 
 이 문서에서는 Azure Active Directory (Azure AD)에서 서비스 라이선스 계획 간에 사용자 및 그룹을 이동 하는 방법을 설명 합니다. Azure AD의 접근 방식은 라이선스 변경을 수행 하는 동안 서비스 또는 데이터가 손실 되지 않도록 하는 것입니다. 사용자는 서비스 간을 원활 하 게 전환 해야 합니다. 이 문서의 라이선스 계획 할당 단계에서는 Office 365 E1의 사용자 또는 그룹을 Office 365 E3으로 변경 하는 방법에 대해 설명 하지만,이 단계는 모든 라이선스 계획에 적용 됩니다. 사용자 또는 그룹에 대 한 라이선스 할당을 업데이트 하는 경우 라이선스를 변경 하는 동안 사용자가 서비스에 액세스 하지 못하게 하거나 계획 간 라이선스 충돌을 확인 하기 위해 라이선스 할당 제거 및 새 할당이 동시에 수행 됩니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 라이선스 할당을 업데이트 하기 전에 업데이트할 모든 사용자 또는 그룹에 대 한 특정 가정이 true 인지 확인 하는 것이 중요 합니다. 그룹의 모든 사용자에 대해 가정이 적용 되지 않는 경우 일부에 대해 마이그레이션이 실패할 수 있습니다. 결과적으로, 일부 사용자가 서비스 또는 데이터에 액세스하지 못할 수 있습니다. 다음 사항을 확인합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "72034032"
 **라이선스 할당 업데이트** 페이지에서 일부 확인란을 사용할 수 없는 경우 그룹 라이선스에서 상속 되므로 변경할 수 없는 서비스를 나타냅니다.
 
 1. Azure AD 조직의 라이선스 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
-1. **Azure Active Directory**@no__t 1**사용자**를 선택 하 고 사용자에 대 한 **프로필** 페이지를 엽니다.
+1. **Azure Active Directory** > **사용자**를 선택 하 고 사용자에 대 한 **프로필** 페이지를 엽니다.
 1. **라이선스**를 선택합니다.
 1. **할당** 을 선택 하 여 사용자 또는 그룹에 대 한 라이선스 할당을 편집 합니다. **할당** 페이지에서 라이선스 할당 충돌을 해결할 수 있습니다.
 1. Office 366 E3의 확인란을 선택 하 고 최소한 사용자에 게 할당 된 모든 E1 서비스가 선택 되어 있는지 확인 합니다.

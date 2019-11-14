@@ -1,25 +1,25 @@
 ---
-title: 그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리 - Azure Active Directory | Microsoft Docs
+title: 그룹을 사용 하 여 SaaS 앱에 대 한 액세스 관리-Azure AD | Microsoft Docs
 description: Azure Active Directory에서 그룹을 사용하여 Azure Active Directory와 통합되는 SaaS 애플리케이션에 대한 액세스 권한을 할당하는 방법입니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/01/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75fdd0fcd4ceeeb0f680b2cbdb743d30d236c93d
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 51375f057543c86fe021822eb9722ffd1be16804
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736516"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026849"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>그룹을 사용하여 SaaS 애플리케이션에 대한 액세스 관리
 

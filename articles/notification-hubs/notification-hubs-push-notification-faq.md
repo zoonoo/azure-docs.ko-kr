@@ -13,18 +13,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 5de8c9523e05411a4751766c836b8e99ebb977c1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 11/13/2019
+ms.openlocfilehash: ee1bd413894ff5c12883279ccd8a9e9eac3c1790
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213141"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048780"
 ---
-# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs를 사용하는 푸시 알림: 질문과 대답
+# <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Azure Notification Hubs로 푸시 알림: 질문과 대답
 
 ## <a name="general"></a>일반
 
@@ -45,9 +45,9 @@ Azure Notification Hubs에는 허브 및 네임스페이스라는 두 개의 리
 표준 계층 기능:
 
 * **다양한 원격 분석**: 메시지 원격 분석 단위로 Notification Hubs를 사용하여 푸시 요청을 추적하고 디버깅을 위해 플랫폼 알림 시스템 피드백을 사용할 수 있습니다.
-* **다중 테넌시**: 네임스페이스 수준에서 플랫폼 알림 시스템 자격 증명 작업을 수행할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
+* **다중 테넌트**: 네임스페이스 수준에서 플랫폼 알림 시스템 자격 증명 작업을 수행할 수 있습니다. 이 옵션을 사용하면 동일한 네임스페이스 내에서 허브로 테넌트를 쉽게 분할할 수 있습니다.
 * **예약된 푸시**: 알림이 언제든지 전송되도록 예약할 수 있습니다.
-* **대량 작업**: [등록 내보내기/가져오기] 문서에 설명된 대로 등록 내보내기/가져오기 기능을 사용합니다.
+* **대량 작업**: [등록 내보내기/] 가져오기 문서에 설명 된 대로 등록 내보내기/가져오기 기능을 사용 하도록 설정 합니다.
 
 ### <a name="what-is-the-notification-hubs-sla"></a>Notification Hubs SLA란?
 
@@ -165,7 +165,7 @@ Azure Notification Hubs에서는 [공유 액세스 서명](../storage/common/sto
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>재해 복구에는 어떤 지원이 제공되나요?
 
-끝에서 Notification Hubs 이름, 연결 문자열 및 기타 중요한 정보에 대한 메타데이터 재해 복구를 제공합니다. 재해 복구 시나리오가 트리거되면 등록 데이터는 손실될 Notification Hubs 인프라의 *유일한 세그먼트* 입니다. 솔루션을 구현하여 이 데이터를 새 허브 사후 복구에 다시 채워야 합니다.
+끝에서 Notification Hubs 이름, 연결 문자열 및 기타 중요한 정보에 대한 메타데이터 재해 복구를 제공합니다. 재해 복구 시나리오가 트리거되면 등록 데이터는 손실될 Notification Hubs 인프라의 *유일한 세그먼트* 입니다. 이 데이터를 새 허브 사후 복구에 다시 채우려면 솔루션을 구현 해야 합니다.
 
 1. 다른 데이터 센터에서 보조 알림 허브를 만듭니다. 관리 기능에 영향을 줄 수 있는 재해 복구 이벤트로부터 사용자를 보호하기 위해 처음부터 알림 허브를 만드는 것이 좋습니다. 재해 복구 이벤트 시 만들 수도 있습니다.
 
@@ -177,11 +177,15 @@ Azure Notification Hubs에서는 [공유 액세스 서명](../storage/common/sto
 * 주 알림 허브에서 일반 등록 덤프를 백업으로 가져오는 앱 백 엔드를 사용합니다. 그런 다음 보조 알림 허브로 대량 삽입을 수행할 수 있습니다.
 
 > [!NOTE]
-> 표준 계층에서 제공되는 등록 내보내기/가져오기는 [등록 내보내기/가져오기] 문서에서 설명합니다.
+> 표준 계층에서 제공되는 등록 내보내기/가져오기는 [등록 내보내기/] 문서에서 설명합니다.
 
 백 엔드가 없고 앱에서 대상 디바이스를 시작하면 보조 알림 허브에서 새 등록을 수행합니다. 결국 보조 알림 허브는 등록된 모든 활성 디바이스를 포함합니다.
 
 앱이 열리지 않은 디바이스가 알림을 수신하지 않을 때 시간 간격이 있게 됩니다.
+
+### <a name="is-all-of-my-data-stored-in-encrypted-form"></a>모든 데이터가 암호화 된 형식으로 저장 되나요?
+
+Azure Notification Hubs는 등록 태그를 제외 하 고 미사용의 모든 고객 데이터를 암호화 합니다. 따라서 태그를 사용 하 여 개인 데이터 나 기밀 데이터를 저장 해서는 안 됩니다.
 
 ### <a name="is-there-audit-log-capability"></a>감사 로그 기능이 있나요?
 
@@ -219,7 +223,7 @@ Azure Notification Hubs에서는 [Azure Portal]의 원격 분석 데이터를 �
 [Notification Hubs 보안 푸시 자습서]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
 [Notification Hubs 문제 해결]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
 [Notification Hubs 메트릭]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[등록 내보내기/가져오기]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
+[등록 내보내기/]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Mobile Apps]: https://azure.microsoft.com/services/app-service/mobile/

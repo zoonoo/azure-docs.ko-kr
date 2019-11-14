@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery 서비스를 사용 하 여 Azure 내의 다른 지역으로 SQL Server VM 이동 | Microsoft Docs
+title: 가상 컴퓨터를 다른 지역으로 이동 (Azure Site Recovery)
 description: Azure 내에서 한 지역에서 다른 지역으로 SQL Server 가상 머신을 마이그레이션하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
@@ -14,22 +14,23 @@ ms.workload: iaas-sql-server
 ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 063876316c92780d061388283a55c7f50dd3d78a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 3b84119cdcc1bb7e8603de64e3d23c69dac70cc3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100534"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022299"
 ---
 # <a name="move-sql-server-vm-to-another-region-within-azure-with-azure-site-recovery-services"></a>Azure Site Recovery 서비스를 사용 하 여 Azure 내의 다른 지역으로 SQL Server VM 이동
 
 이 문서에서는 Azure Site Recovery를 사용 하 여 Azure 내에서 한 지역에서 다른 지역으로 SQL Server VM (가상 머신)을 마이그레이션하는 방법을 설명 합니다. 
 
 SQL Server VM을 다른 지역으로 이동 하려면 다음을 수행 해야 합니다.
-1. [**준비 중**](#prepare-to-move): 원본 SQL Server VM와 대상 지역이 이동에 적절 하 게 준비 되었는지 확인 합니다. 
+1. [**준비**](#prepare-to-move): 원본 SQL Server VM 및 대상 지역이 이동에 적절 하 게 준비 되었는지 확인 합니다. 
 1. [**구성**](#configure-azure-site-recovery-vault): SQL Server VM 이동 하려면 Azure Site Recovery 자격 증명 모음 내에서 복제 된 개체 여야 합니다. Azure Site Recovery 자격 증명 모음에 SQL Server VM를 추가 해야 합니다. 
 1. [**테스트**](#test-move-process): SQL Server VM 마이그레이션하려면 원본 지역에서 복제 된 대상 지역으로 장애 조치 (failover)를 수행 해야 합니다. 이동 프로세스가 성공 하려면 먼저 대상 지역으로 SQL Server VM 성공적으로 장애 조치 (failover) 할 수 있는지 테스트 해야 합니다. 이렇게 하면 문제를 노출 하 고 실제 이동을 수행할 때이를 방지할 수 있습니다. 
-1. [**이동**](#move-the-sql-server-vm): 테스트 장애 조치 (failover)가 성공 하 고 SQL Server VM를 마이그레이션하는 것이 안전 하다는 것을 알고 있으면 VM을 대상 지역으로 이동 하는 것을 수행할 수 있습니다. 
+1. [**이동**](#move-the-sql-server-vm): 테스트 장애 조치 (failover)가 성공 하 고 SQL Server VM를 마이그레이션하는 것이 안전 하다는 것을 알게 되 면 VM을 대상 지역으로 이동할 수 있습니다. 
 1. [**정리**](#clean-up-source-resources): 청구 요금을 방지 하려면 자격 증명 모음에서 SQL Server VM를 제거 하 고 리소스 그룹에서 남은 불필요 한 리소스를 제거 합니다. 
 
 ## <a name="verify-prerequisites"></a>필수 조건 확인 
@@ -78,7 +79,7 @@ SQL Server VM을 다른 지역으로 이동 하려면 다음을 수행 해야 �
 1. **기본** 정보 탭의 **프로젝트 세부 정보**에서 대상 지역에 새 리소스 그룹을 만들거나 대상 지역에서 기존 리소스 그룹을 선택 합니다. 
 1. **인스턴스 세부 정보**에서 자격 증명 모음에 대 한 이름을 지정 하 고 드롭다운에서 대상 **지역을** 선택 합니다. 
 1. **검토 + 만들기** 를 선택 하 여 Recovery Services 자격 증명 모음을 만듭니다. 
-1. 탐색 창의 왼쪽 위 모서리에 있는 **모든 서비스** 를 선택 하 고 검색 상자에를 입력 `recovery services`합니다. 
+1. 탐색 창의 왼쪽 위 모서리에 있는 **모든 서비스** 를 선택 하 고 검색 상자에 `recovery services`을 입력 합니다. 
 1. 생략할 **Recovery Services 자격 증명 모음** 옆의 별표를 선택 하 여 빠른 탐색 모음에 추가 합니다. 
 1. **Recovery services 자격 증명 모음** 을 선택 하 고 만든 Recovery Services 자격 증명 모음을 선택 합니다. 
 1. **개요** 창에서 **복제**를 선택 합니다. 
@@ -113,7 +114,7 @@ SQL Server VM을 다른 지역으로 이동 하려면 다음을 수행 해야 �
    ![장애 조치 (failover) 테스트 진행률 모니터링](media/virtual-machines-windows-sql-move-to-new-region/monitor-failover-test-job.png)
 
 1. 테스트가 완료 되 면 포털에서 **virtual machines** 로 이동 하 여 새로 만든 가상 머신을 검토 합니다. SQL Server VM 실행 중이 고, 적절 하 게 크기를 조정 하 고, 적절 한 네트워크에 연결 되어 있는지 확인 합니다. 
-1. 장애 조치 (failover) 옵션은 장애 조치 (failover) 테스트 리소스가 정리 될 때까지 회색으로 표시 되기 때문에 테스트의 일부로 생성 된 VM을 삭제 합니다. 자격 증명 모음으로 다시 이동 하 여 **복제 된 항목**을 선택 하 고 SQL Server VM를 선택한 후 **테스트 장애 조치 (failover) 정리**를 선택 합니다. **메모** 섹션에서 테스트와 관련 된 관찰을 기록 하 고 저장 한 다음 **테스트 완료 옆의 확인란을 선택 합니다. 테스트 장애 조치 (failover**) 가상 컴퓨터를 삭제 합니다. **확인** 을 선택 하 여 테스트 후 리소스를 정리 합니다. 
+1. 장애 **조치 (failover) 옵션은** 장애 조치 (failover) 테스트 리소스가 정리 될 때까지 회색으로 표시 되기 때문에 테스트의 일부로 생성 된 VM을 삭제 합니다. 자격 증명 모음으로 다시 이동 하 여 **복제 된 항목**을 선택 하 고 SQL Server VM를 선택한 후 **테스트 장애 조치 (failover) 정리**를 선택 합니다. **메모** 섹션에서 테스트와 관련 된 관찰을 기록 하 고 저장 한 다음 테스트 완료 옆의 확인란을 선택 **합니다. 테스트 장애 조치 (failover) 가상 컴퓨터를 삭제**합니다. **확인** 을 선택 하 여 테스트 후 리소스를 정리 합니다. 
 
    ![장애 조치 (failover) 테스트 후 항목 정리](media/virtual-machines-windows-sql-move-to-new-region/cleanup-test-items.png)
 
@@ -122,7 +123,7 @@ SQL Server VM을 다른 지역으로 이동 하려면 다음을 수행 해야 �
 
 1. **Recovery Services** 자격 증명 모음으로 이동 하 여 **복제 된 항목**을 선택 하 고 VM을 선택한 다음 **장애 조치 (Failover)** 를 선택 합니다. 
 
-   ![장애 조치(failover) 시작](media/virtual-machines-windows-sql-move-to-new-region/initiate-failover.png)
+   ![장애 조치 시작](media/virtual-machines-windows-sql-move-to-new-region/initiate-failover.png)
 
 1. **복구 지점**에서 **최신 앱 일치** 복구 지점을 선택 합니다. 
 1. **장애 조치 (failover)를 시작 하기 전에 컴퓨터 종료**옆의 확인란을 선택 합니다. Site Recovery는 장애 조치 (failover)를 트리거하기 전에 원본 VM을 종료 하려고 시도 합니다. 종료가 실패 하더라도 장애 조치 (Failover)가 계속 됩니다. 

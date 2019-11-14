@@ -1,10 +1,10 @@
 ---
-title: PIM에서 Azure AD 역할에 대 한 감사 기록 보기-Azure Active Directory | Microsoft Docs
+title: PIM에서 Azure AD 역할에 대 한 감사 보고서 보기-Azure AD | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 감사 기록을 보는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aa1c5121c723148884584ca3f00522c1c459859
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7c4a157d8d5bcd281ca9fee488e58c455034e898
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809006"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022056"
 ---
 # <a name="view-audit-history-for-azure-ad-roles-in-pim"></a>PIM에서 Azure AD 역할에 대 한 감사 기록 보기
 
@@ -29,7 +29,7 @@ PIM (Privileged Identity Management) 감사 기록을 사용 하 여 모든 권�
 
 Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세요.
 
-1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할의 구성원인 사용자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [권한 있는 역할 관리자](https://portal.azure.com/) 역할의 구성원인 사용자로 [Azure Portal](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator)에 로그인합니다.
 
 1. **Azure AD Privileged Identity Management**를 엽니다.
 
@@ -45,9 +45,9 @@ Azure AD 역할에 대 한 감사 기록을 보려면 다음 단계를 따르세
 
     | 열 | 설명 |
     | --- | --- |
-    | 시간 | 작업이 발생 한 시간입니다. |
+    | Time | 작업이 발생 한 시간입니다. |
     | 요청 | 역할 활성화 또는 변경을 요청한 사용자입니다. 값이 **Azure System**이면 azure 감사 기록에서 자세한 내용을 확인 합니다. |
-    | 실행력 | 요청자에 의해 수행 된 작업입니다. 작업에는 Assign, 할당 취소, 활성화, 비활성화 또는 AddedOutsidePIM이 포함 될 수 있습니다. |
+    | 작업 | 요청자에 의해 수행 된 작업입니다. 작업에는 Assign, 할당 취소, 활성화, 비활성화 또는 AddedOutsidePIM이 포함 될 수 있습니다. |
     | 멤버 | 역할을 활성화 하거나 역할에 할당 된 사용자입니다. |
     | 역할 | 사용자가 할당 하거나 활성화 한 역할입니다. |
     | 추론 | 활성화 하는 동안 이유 필드에 입력 한 텍스트입니다. |

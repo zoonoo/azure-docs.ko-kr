@@ -1,33 +1,33 @@
 ---
-title: Privileged Identity Management에서 게스트를 초대 하 고 Azure 리소스 역할 할당-Azure Active Directory | Microsoft Docs
+title: PIM에서 게스트에 Azure 리소스 역할 할당-Azure AD | Microsoft Docs
 description: Azure AD Privileged Identity Management (PIM)에서 외부 게스트 사용자를 초대 하 고 Azure 리소스 역할을 할당 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08c2ef1695d118c248abfc500025479d1186eb05
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 2efcf77d65fa2f9e203ed805cd7d78b9802ee3aa
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895642"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021932"
 ---
 # <a name="invite-guest-users-and-assign-azure-resource-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 게스트 사용자를 초대 하 고 Azure 리소스 역할을 할당 합니다.
 
 Azure ad (Azure Active Directory) 게스트 사용자는 azure ad 내에서 B2B (기업 간) 공동 작업 기능의 일부로, 외부 게스트 사용자 및 공급 업체를 Azure AD의 게스트로 관리할 수 있습니다. B2B 공동 작업을 Azure AD Privileged Identity Management (PIM)와 결합 하는 경우 게스트에 대 한 규정 준수 및 거 버 넌 스 요구 사항을 확장할 수 있습니다. 예를 들어 게스트를 사용 하 여 Azure id 작업에 이러한 Privileged Identity Management 기능을 사용할 수 있습니다.
 
 - 특정 Azure 리소스에 대한 액세스 할당
-- Just-In-Time VM 액세스 사용
+- Just-In-Time 액세스 사용
 - 할당 기간 및 종료 날짜 지정
 - 활성 할당 또는 활성화에 대 한 multi-factor authentication 필요
 - 액세스 검토 수행

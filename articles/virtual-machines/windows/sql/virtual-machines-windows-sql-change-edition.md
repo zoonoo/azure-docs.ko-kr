@@ -1,5 +1,5 @@
 ---
-title: Azure VM에서 SQL Server 버전의 전체 업그레이드를 수행 합니다. | Microsoft Docs
+title: SQL Server 버전의 전체 업그레이드
 description: Azure에서 SQL Server VM 버전을 변경 하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,12 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 06/26/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: eec2e588b1c2b03e9880dad0848b8213bf5fa449
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 1db45097b0416b680571cb47ec1d9b52f9275c43
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100520"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022213"
 ---
 # <a name="perform-an-in-place-upgrade-of-a-sql-server-edition-on-an-azure-vm"></a>Azure VM에서 SQL Server 버전의 전체 업그레이드를 수행 합니다.
 
@@ -38,7 +39,7 @@ SQL VM 리소스 공급자를 사용 하 여 등록 한 후에 설치 미디어�
 1. **적용** 을 선택 하 여 버전 메타 데이터 변경 내용을 적용 합니다. 
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 SQL Server 버전의 현재 위치를 변경 하려면 다음이 필요 합니다. 
 

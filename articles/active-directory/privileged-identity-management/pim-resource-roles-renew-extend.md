@@ -1,10 +1,10 @@
 ---
-title: Privileged Identity Management에서 Azure 리소스 역할 할당 확장 또는 갱신 | Azure Active Directory Microsoft Docs
+title: PIM에서 Azure 리소스 역할 할당 갱신-Azure AD | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management)에서 Azure 리소스 역할 할당을 확장하거나 갱신하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: pim
-ms.date: 10/23/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: edfe6a545aa9acae8045e9c9756fc2711504d75d
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 577c028582bc3b23d13e71522bb83db558065ee2
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895565"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022904"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 할당 확장 또는 갱신
 
@@ -43,7 +43,7 @@ Privileged Identity Management는 사용자에 게 전자 메일 알림을 보�
 
 ### <a name="self-extend-expiring-assignments"></a>자동 연장 할당 만료
 
-역할에 할당 된 사용자 또는 그룹은 리소스의 **내 역할** 페이지의 **적격** 또는 **활성** 탭과 Privileged Identity Management 포털의 최상위 수준 **내 역할** 페이지에서 만료 된 역할 할당을 직접 확장할 수 있습니다. . 사용자 또는 그룹은 다음 14 일 후에 만료 되는 적격 및 활성 (할당 된) 역할을 확장 하도록 요청할 수 있습니다.
+역할에 할당 된 사용자 또는 그룹은 리소스의 **내 역할** 페이지의 **적격** 또는 **활성** 탭과 Privileged Identity Management 포털의 최상위 수준 **내 역할** 페이지에서 만료 된 역할 할당을 직접 확장할 수 있습니다. 사용자 또는 그룹은 다음 14 일 후에 만료 되는 적격 및 활성 (할당 된) 역할을 확장 하도록 요청할 수 있습니다.
 
 ![Azure 리소스-작업 열이 있는 적격 역할을 나열 하는 내 역할 페이지](media/pim-resource-roles-renew-extend/aadpim-rbac-extend-ui.png)
 

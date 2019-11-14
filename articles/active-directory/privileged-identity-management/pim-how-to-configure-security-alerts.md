@@ -1,25 +1,25 @@
 ---
-title: PIM에서 Azure AD 역할에 대 한 보안 경고 구성-Azure Active Directory | Microsoft Docs
-description: Azure AD Privileged Identity Management (PIM)에서 Azure AD 역할에 대 한 보안 경고를 구성 하는 방법에 대해 알아봅니다.
+title: PIM의 Azure AD 역할에 대 한 보안 경고-Azure AD | Microsoft Docs
+description: Azure Active Directory에서 Privileged Identity Management Azure AD 역할에 대 한 보안 경고를 구성 합니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/22/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e188ef651f6fe539932cf1670f914e8b57564567
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: e05502b40f7f917526b2514d83dcc58636ac06f3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809093"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023052"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 보안 경고 구성
 
@@ -57,24 +57,24 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 | **방지** | [모든 역할에 대해 MFA를 요구합니다](pim-how-to-change-default-settings.md).  |
 | **포털 내 완화 작업** | 권한 있는 역할을 활성화 하는 데 multi-factor authentication을 사용 해야 합니다. |
 
-### <a name="the-tenant-doesnt-have-azure-ad-premium-p2"></a>테넌트에 Azure AD Premium P2가 없음
+### <a name="the-organization-doesnt-have-azure-ad-premium-p2"></a>조직에 Azure AD Premium P2가 없습니다.
 
 | | |
 | --- | --- |
 | **심각도** | 낮음 |
-| **이 경고가 표시된 이유는 무엇인가요?** | 현재 테넌트에 Azure AD Premium P2가 없습니다. |
+| **이 경고가 표시된 이유는 무엇인가요?** | 현재 Azure AD 조직에 Azure AD Premium P2가 없습니다. |
 | **해결 방법** | [Azure AD 버전](../fundamentals/active-directory-whatis.md)에 대한 정보를 검토합니다. Azure AD Premium P2로 업그레이드합니다. |
 
 ### <a name="potential-stale-accounts-in-a-privileged-role"></a>권한 있는 역할의 잠재적인 부실 계정
 
 | | |
 | --- | --- |
-| **심각도** | 중간 |
+| **심각도** | 보통 |
 | **이 경고가 표시된 이유는 무엇인가요?** | 권한 있는 역할의 계정이 지난 90 일 동안 암호를 변경 하지 않았습니다. 이러한 계정은 유지되지 않고 공격자에게 취약한 서비스 또는 공유 계정일 수 있습니다. |
 | **해결 방법** | 목록에서 계정을 검토합니다. 액세스가 더 이상 필요하지 않으면 권한 있는 역할에서 제거합니다. |
 | **방지** | 암호를 아는 사용자에게 변경 내용이 있으면 공유되는 계정에서 강력한 암호가 회전되는지 확인합니다. </br>정기적으로 [액세스 검토](pim-how-to-start-security-review.md)를 사용하여 권한 있는 역할이 있는 계정을 검토하고, 더 이상 필요하지 않은 역할 할당을 제거합니다. |
 | **포털 내 완화 작업** | 해당하는 권한 있는 역할에서 계정을 제거합니다. |
-| **모범 사례** | 암호를 사용 하 여 인증 하 고 전역 관리자 또는 보안 관리자와 같은 매우 권한 있는 관리 역할에 할당 된 공유, 서비스 및 응급 액세스 계정은 다음과 같은 경우에 암호를 회전 해야 합니다.<ul><li>관리 액세스 권한의 남용 또는 손상과 관련된 보안 인시던트 이후</li><li>사용자의 권한이 변경되어 더 이상 관리자가 아닌 경우(예: 관리자였던 직원이 IT 부서 또는 조직을 퇴직한 후)</li><li>IT 직원에 대한 알려진 위반 또는 변경 사항이 없는 경우에도 정기적으로(예: 분기별 또는 연간)</li></ul>여러 사용자가 이러한 계정의 자격 증명에 액세스할 수 있으므로 해당 역할을 떠난 사용자가 더 이상 계정에 액세스할 수 없도록 자격 증명을 회전시켜야 합니다. [자세한 정보](https://aka.ms/breakglass) |
+| **모범 사례** | 암호를 사용 하 여 인증 하 고 전역 관리자 또는 보안 관리자와 같은 매우 권한 있는 관리 역할에 할당 된 공유, 서비스 및 응급 액세스 계정은 다음과 같은 경우에 암호를 회전 해야 합니다.<ul><li>관리 액세스 권한의 남용 또는 손상과 관련된 보안 인시던트 이후</li><li>사용자의 권한이 변경되어 더 이상 관리자가 아닌 경우(예: 관리자였던 직원이 IT 부서 또는 조직을 퇴직한 후)</li><li>IT 직원에 대한 알려진 위반 또는 변경 사항이 없는 경우에도 정기적으로(예: 분기별 또는 연간)</li></ul>여러 사용자가 이러한 계정의 자격 증명에 액세스할 수 있으므로 해당 역할을 떠난 사용자가 더 이상 계정에 액세스할 수 없도록 자격 증명을 회전시켜야 합니다. [자세히 알아보기](https://aka.ms/breakglass) |
 
 ### <a name="roles-are-being-assigned-outside-of-privileged-identity-management"></a>역할이 Privileged Identity Management 외부에서 할당 됨
 
@@ -107,7 +107,7 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 | **이 경고가 표시된 이유는 무엇인가요?** | 동일한 사용자를 통해 같은 권한 있는 역할에 대해 여러 번 활성화하는 것은 공격의 징후입니다. |
 | **해결 방법** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다. |
 | **방지** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다.</br>여러 관리자가 공유한 계정이 있는 권한 있는 역할에 대해 [multi-factor authentication을 요구](pim-how-to-change-default-settings.md) 합니다. |
-| **포털 내 완화 작업** | N/A |
+| **포털 내 완화 작업** | 해당 없음 |
 | **트리거** | 사용자가 지정된 기간 내에 동일한 권한 있는 역할을 여러 번 활성화한다면 트리거됩니다. 기간 및 활성화 횟수를 모두 구성할 수 있습니다. |
 | **활성화 갱신 기간** | 이 설정은 의심스러운 갱신을 추적하는 데 사용할 기간을 일, 시, 분, 초로 지정합니다. |
 | **활성화 갱신 수** | 이 설정은 사용자가 선택한 기간 내에 통지를 받으려는 2에서 100 까지의 정품 인증 수를 지정 합니다. 슬라이더를 이동하거나 텍스트 상자에 숫자를 입력하여 이 설정을 변경할 수 있습니다. |

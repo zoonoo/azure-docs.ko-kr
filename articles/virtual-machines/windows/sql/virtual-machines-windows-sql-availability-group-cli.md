@@ -1,5 +1,5 @@
 ---
-title: Azure CLI를 사용 하 여 Azure VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성
+title: 가용성 그룹 구성 (Azure CLI)
 description: Azure CLI를 사용 하 여 Azure에서 Windows 장애 조치 (failover) 클러스터, 가용성 그룹 수신기 및 내부 부하 분산 SQL Server VM 장치를 만들 수 있습니다.
 services: virtual-machines-windows
 documentationcenter: na
@@ -13,17 +13,18 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 58174704051709a720950ac51591a1d53b9d01bb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.custom: seo-lt-2019
+ms.openlocfilehash: a6600af353daf2bfa7b49196f48ba5b60e6c45fb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100558"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74022359"
 ---
 # <a name="use-the-azure-cli-to-configure-an-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Azure CLI를 사용 하 여 Azure VM에서 SQL Server에 대 한 Always On 가용성 그룹 구성
 이 문서에서는 [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) 를 사용 하 여 Windows 장애 조치 (failover) 클러스터를 배포 하 고, 클러스터에 SQL Server vm을 추가 하 고, Always On 가용성 그룹에 대 한 내부 부하 분산 장치 및 수신기를 만드는 방법을 설명 합니다. Always On 가용성 그룹 배포는 SSMS (SQL Server Management Studio)를 통해 여전히 수동으로 수행 됩니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 Azure CLI를 사용 하 여 Always On 가용성 그룹의 설치를 자동화 하려면 다음 필수 구성 요소가 있어야 합니다. 
 - [Azure 구독](https://azure.microsoft.com/free/).
 - 도메인 컨트롤러를 포함하는 리소스 그룹 
@@ -31,13 +32,13 @@ Azure CLI를 사용 하 여 Always On 가용성 그룹의 설치를 자동화 �
 - [Azure CLI](/cli/azure/install-azure-cli) 
 - 사용 가능한 두 개의 IP 주소 (엔터티에서 사용 하지 않음)입니다. 하나는 내부 부하 분산 장치에 대 한 것입니다. 다른는 가용성 그룹과 동일한 서브넷에 있는 가용성 그룹 수신기에 대 한 것입니다. 기존 부하 분산 장치를 사용 하는 경우 가용성 그룹 수신기에 대해 사용 가능한 IP 주소가 하나만 필요 합니다. 
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 Azure CLI를 사용 하 여 Always On 가용성 그룹을 구성 하려면 다음 계정 권한이 필요 합니다. 
 
-- 도메인에 대 한 **컴퓨터 개체 만들기** 권한이 있는 기존 도메인 사용자 계정 예를 들어 도메인 관리자 계정에는 일반적으로 충분 한 권한 (예 account@domain.com:)이 있습니다. 또한 이 계정은 클러스터를 만들 각 VM의 로컬 관리자 그룹에 속해 있어야 합니다.
+- 도메인에 대 한 **컴퓨터 개체 만들기** 권한이 있는 기존 도메인 사용자 계정 예를 들어 도메인 관리자 계정에는 일반적으로 충분 한 사용 권한이 있습니다 (예: account@domain.com). 또한 이 계정은 클러스터를 만들 각 VM의 로컬 관리자 그룹에 속해 있어야 합니다.
 - SQL Server 서비스를 제어 하는 도메인 사용자 계정입니다. 
  
-## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>1단계: 클라우드 감시로 저장소 계정 만들기
+## <a name="step-1-create-a-storage-account-as-a-cloud-witness"></a>1 단계: 클라우드 감시로 저장소 계정 만들기
 클러스터에는 클라우드 감시 역할을 하는 저장소 계정이 필요 합니다. 기존 저장소 계정을 사용 하거나 새 저장소 계정을 만들 수 있습니다. 기존 저장소 계정을 사용 하려는 경우 다음 섹션으로 건너뜁니다. 
 
 다음 코드 조각에서는 저장소 계정을 만듭니다. 
@@ -51,9 +52,9 @@ az storage account create -n <name> -g <resource group name> -l <region ex:eastu
 ```
 
 >[!TIP]
-> 오래 된 버전의 Azure CLI `az sql: 'vm' is not in the 'az sql' command group` 을 사용 하는 경우 오류가 표시 될 수 있습니다. [최신 버전의 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) 을 다운로드 하 여이 오류를 지났습니다.
+> 오래 된 버전의 Azure CLI를 사용 하는 경우 `az sql: 'vm' is not in the 'az sql' command group` 오류가 표시 될 수 있습니다. [최신 버전의 Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest) 을 다운로드 하 여이 오류를 지났습니다.
 
-## <a name="step-2-define-windows-failover-cluster-metadata"></a>2단계: Windows 장애 조치 (failover) 클러스터 메타 데이터 정의
+## <a name="step-2-define-windows-failover-cluster-metadata"></a>2 단계: Windows 장애 조치 (failover) 클러스터 메타 데이터 정의
 Azure CLI [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) 명령 그룹은 가용성 그룹을 호스팅하는 WSFC (Windows Server 장애 조치 (Failover) 클러스터) 서비스의 메타 데이터를 관리 합니다. 클러스터 메타 데이터에는 Active Directory 도메인, 클러스터 계정, 클라우드 감시로 사용할 저장소 계정 및 SQL Server 버전이 포함 됩니다. [Az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) 를 사용 하 여 WSFC에 대 한 메타 데이터를 정의 합니다. 그러면 첫 번째 SQL Server VM 추가 될 때 클러스터가 정의 된 대로 만들어집니다. 
 
 다음 코드 조각에서는 클러스터에 대 한 메타 데이터를 정의 합니다.
@@ -73,8 +74,8 @@ az sql vm group create -n <cluster name> -l <region ex:eastus> -g <resource grou
   --storage-account '<ex:https://cloudwitness.blob.core.windows.net/>'
 ```
 
-## <a name="step-3-add-sql-server-vms-to-the-cluster"></a>3단계: 클러스터에 SQL Server Vm 추가
-클러스터에 첫 번째 SQL Server VM을 추가 하면 클러스터가 만들어집니다. [Az sql vm 추가-그룹](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) 명령은 이전에 지정한 이름으로 클러스터를 만들고 SQL Server vm에 클러스터 역할을 설치 하 여 클러스터에 추가 합니다. 이후 `az sql vm add-to-group` 명령을 사용 하면 새로 만든 클러스터에 더 많은 SQL Server vm이 추가 됩니다. 
+## <a name="step-3-add-sql-server-vms-to-the-cluster"></a>3 단계: 클러스터에 SQL Server Vm 추가
+클러스터에 첫 번째 SQL Server VM을 추가 하면 클러스터가 만들어집니다. [Az sql vm 추가-그룹](https://docs.microsoft.com/cli/azure/sql/vm?view=azure-cli-latest#az-sql-vm-add-to-group) 명령은 이전에 지정한 이름으로 클러스터를 만들고 SQL Server vm에 클러스터 역할을 설치 하 여 클러스터에 추가 합니다. 이후에 `az sql vm add-to-group` 명령을 사용 하 여 새로 만든 클러스터에 더 많은 SQL Server Vm을 추가 합니다. 
 
 다음 코드 조각은 클러스터를 만들고 여기에 첫 번째 SQL Server VM를 추가 합니다. 
 
@@ -90,15 +91,15 @@ az sql vm add-to-group -n <VM1 Name> -g <Resource Group Name> --sqlvm-group <clu
 az sql vm add-to-group -n <VM2 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
   -b <bootstrap account password> -p <operator account password> -s <service account password>
 ```
-이 명령을 사용 하 여 클러스터에 다른 SQL Server Vm을 추가 합니다. SQL Server VM 이름에 대 한 매개변수만수정합니다.`-n` 
+이 명령을 사용 하 여 클러스터에 다른 SQL Server Vm을 추가 합니다. SQL Server VM 이름에 대 한 `-n` 매개 변수만 수정 합니다. 
 
-## <a name="step-4-create-the-availability-group"></a>4단계: 가용성 그룹 만들기
+## <a name="step-4-create-the-availability-group"></a>4 단계: 가용성 그룹 만들기
 일반적으로 [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell)또는 [transact-sql](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql)을 사용 하 여 가용성 그룹을 수동으로 만듭니다. 
 
 >[!IMPORTANT]
-> 이 는 다음 섹션의 Azure CLI를 통해 수행 되므로 수신기를 만들지 마십시오.  
+> 이는 다음 섹션의 Azure CLI를 통해 수행 되므로 수신기를 *만들지 마십시오.*  
 
-## <a name="step-5-create-the-internal-load-balancer"></a>5단계: 내부 부하 분산 장치 만들기
+## <a name="step-5-create-the-internal-load-balancer"></a>5 단계: 내부 부하 분산 장치 만들기
 
 Always On 가용성 그룹 수신기에는 Azure Load Balancer의 내부 인스턴스가 필요 합니다. 내부 부하 분산 장치는 더 빠른 장애 조치 (failover) 및 다시 연결을 허용 하는 가용성 그룹 수신기에 대 한 "부동" IP 주소를 제공 합니다. 가용성 그룹의 SQL Server Vm이 동일한 가용성 집합의 일부인 경우 기본 부하 분산 장치를 사용할 수 있습니다. 그렇지 않으면 표준 부하 분산 장치를 사용 해야 합니다.  
 
@@ -119,17 +120,17 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
 >[!IMPORTANT]
 > 각 SQL Server VM에 대 한 공용 IP 리소스에 표준 부하 분산 장치와 호환 되는 표준 SKU가 있어야 합니다. VM의 공용 IP 리소스의 SKU를 확인 하려면 **리소스 그룹**으로 이동 하 여 원하는 SQL Server VM에 대 한 **공용 ip 주소** 리소스를 선택 하 고 **개요** 창의 **SKU** 아래에서 값을 찾습니다.  
 
-## <a name="step-6-create-the-availability-group-listener"></a>6단계: 가용성 그룹 수신기 만들기
+## <a name="step-6-create-the-availability-group-listener"></a>6 단계: 가용성 그룹 수신기 만들기
 수동으로 가용성 그룹을 만든 후에는 [az sql vm ag 수신기](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create)를 사용 하 여 수신기를 만들 수 있습니다. 
 
-*서브넷 리소스 id* 는 가상 네트워크 리소스의 `/subnets/<subnetname>` 리소스 id에 추가 된의 값입니다. 서브넷 리소스 ID를 확인 하려면:
+*서브넷 리소스 id* 는 가상 네트워크 리소스의 리소스 id에 추가 된 `/subnets/<subnetname>`의 값입니다. 서브넷 리소스 ID를 확인 하려면:
    1. [Azure Portal](https://portal.azure.com)의 리소스 그룹으로 이동 합니다. 
    1. 가상 네트워크 리소스를 선택 합니다. 
    1. **설정** 창에서 **속성** 을 선택 합니다. 
-   1. 가상 네트워크의 리소스 id를 확인 하 고 그 `/subnets/<subnetname>` 끝에 추가 하 여 서브넷 리소스 id를 만듭니다. 예:
-      - 가상 네트워크 리소스 ID는 다음과 같습니다.`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
-      - 서브넷 이름은 다음과 같습니다.`default`
-      - 따라서 서브넷 리소스 ID는 다음과 같습니다.`/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
+   1. 가상 네트워크의 리소스 ID를 확인 하 고 그 끝에 `/subnets/<subnetname>`을 추가 하 여 서브넷 리소스 ID를 만듭니다. 예:
+      - 가상 네트워크 리소스 ID: `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet`
+      - 서브넷 이름은 `default`입니다.
+      - 따라서 서브넷 리소스 ID는 다음과 같습니다 `/subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Network/virtualNetworks/SQLVMvNet/subnets/default`
 
 
 다음 코드 조각에서는 가용성 그룹 수신기를 만듭니다.

@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/02/2019
+ms.date: 11/12/2019
 ms.custom: include file
-ms.openlocfilehash: bfcebacf6d8240f067cecc7828c299504b49b44b
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 57373f31b91be81021d3f8382331d491e39b0f9c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949121"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74062904"
 ---
 > [!TIP]
 > Swagger 미리 보기는 API 기능 집합을 설명하기 위해 제공됩니다.
@@ -22,7 +22,7 @@ ms.locfileid: "71949121"
 
 다음에서 생성된 고유한 관리 API Swagger 설명서에 액세스할 수 있습니다.
 
-```plaintext
+```URL
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 

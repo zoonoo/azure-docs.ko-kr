@@ -9,24 +9,16 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 09/24/2019
-ms.openlocfilehash: 7e67b9e1c611d14b78db53f8662fb4e1f493a8df
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 1ed57e30273c9ba3feb110e0e5acbd3bcc7ffd40
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990188"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74062903"
 ---
-> [!IMPORTANT]
-> * 2019년 5월에 새 **Azure Active Directory** > **앱 등록** 블레이드가 레거시 **Azure Active Directory** > **앱 등록(레거시)** 블레이드를 대체합니다.
-> * 레거시 블레이드에 생성되거나 표시된 앱 등록은 자동으로 새 블레이드에 나타납니다.
-> * 새 Azure 앱 등록 환경으로 마이그레이션하는 방법에 대한 전체 정보는 [Azure 앱 등록 학습 가이드](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide) 및 [Azure Active Directory 빠른 시작](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)을 참조하세요.
-
 1. [Azure portal](https://ms.portal.azure.com/)에서 **Azure Active Directory** > **앱 등록** > **새 등록**을 선택합니다.
 
    [![Azure Active Directory에서 새 애플리케이션 등록](media/time-series-insights-aad-registration/active-directory-new-application-registration.png)](media/time-series-insights-aad-registration/active-directory-new-application-registration.png#lightbox)
-
-   > [!TIP]
-   > 새 Azure Active Directory 앱 등록 패널을 사용하면 **소유한 애플리케이션**을 선택하여 표시된 앱을 필터링할 수 있습니다.
 
     등록한 후에 앱이 여기 나열됩니다.
 
@@ -51,7 +43,7 @@ ms.locfileid: "72990188"
 
    [![새 클라이언트 비밀 만들기](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
-   페이지 맨 아래에 있는 **저장**을 참조하세요.
+   **저장**을 클릭합니다.
 
 1. **인증서 및 비밀**을 선택한 다음, **새 클라이언트 비밀**을 선택하여 클라이언트에서 ID를 증명하는 데 사용할 수 있는 애플리케이션 암호를 만듭니다.
 

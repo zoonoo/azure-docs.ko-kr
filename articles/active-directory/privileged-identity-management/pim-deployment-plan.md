@@ -1,25 +1,25 @@
 ---
-title: 배포 Privileged Identity Management (PIM)-Azure Active Directory | Microsoft Docs
+title: 배포 Privileged Identity Management (PIM)-Azure AD | Microsoft Docs
 description: Azure AD PIM(Privileged Identity Management) 배포를 계획하는 방법에 대해 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/08/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1263d494ff26ff6ab87d39bc864271f14457b3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: eef096322c8a8cfbf1618447529d46f6fbfd13b1
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756276"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74021861"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
@@ -99,7 +99,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>관련자: Azure AD 역할에 대 한 Privileged Identity Management
 
-| name | 역할 | 실행력 |
+| 이름 | 역할 | 작업 |
 | --- | --- | --- |
 | 이름 및 이메일 | **설계자 또는 Azure 글로벌 관리자 식별**<br/>이 변경을 조직의 핵심 ID 관리 인프라와 일치시키는 방법을 정의할 책임이 있는 ID 관리 팀 출신 담당자입니다. | SO/R/I |
 | 이름 및 이메일 | **서비스 소유자 / 라인 관리자**<br/>서비스 또는 서비스 그룹의 IT 소유자 출신 담당자입니다. 이는 결정을 내리는 데 중요 하며 팀에 대 한 Privileged Identity Management를 롤아웃 하는 데 도움이 됩니다. | SO/R/I |
@@ -109,7 +109,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>관련자: Azure 리소스 역할에 대 한 Privileged Identity Management
 
-| name | 역할 | 실행력 |
+| 이름 | 역할 | 작업 |
 | --- | --- | --- |
 | 이름 및 이메일 | **구독 / 리소스 소유자**<br/>Privileged Identity Management 배포 하려는 각 구독 또는 리소스의 IT 소유자 담당자 | SO/R/I |
 | 이름 및 이메일 | **보안 소유자**<br/>계획이 조직의 보안 요구 사항을 만족하도록 로그오프할 수 있는 보안 팀 출신 담당자입니다. | SO/R |
@@ -189,14 +189,14 @@ Privileged Identity Management로 보호할 역할을 선택 하는 것은 어�
 1. 비즈니스용 Skype 관리자
 
 > [!TIP]
-> : heavy_check_mark: 모든 전역 관리자 및 보안 관리자는 Privileged Identity Management를 사용 하 여 모든 전역 관리자 및 보안 관리자를 관리 하는 것 **이 좋습니다** .이는 손상 될 때 가장 피해를 주는 것입니다.
+> : heavy_check_mark: Privileged Identity Management를 사용 하 여 모든 전역 관리자 및 보안 관리자를 관리 하는 것 **이 가장 좋습니다** .
 
 조직에 가장 중요한 데이터 및 사용 권한을 고려해야 합니다. 예를 들어, 일부 조직에서는 데이터에 액세스 하 고 핵심 워크플로를 변경 하는 기능이 있기 때문에 Privileged Identity Management를 사용 하 여 Power BI 관리자 역할 또는 팀 관리자 역할을 보호 하려고 할 수 있습니다.
 
 게스트 사용자가 할당된 역할이 있는 경우 특히 공격에 취약합니다.
 
 > [!TIP]
-> : heavy_check_mark: 손상 된 게스트 사용자 계정과 관련 된 위험을 줄이기 위해 Privileged Identity Management를 사용 하 여 게스트 사용자와 모든 역할을 관리 하는 것 **이 좋습니다** .
+> : heavy_check_mark: 손상 된 게스트 사용자 계정과 관련 된 위험을 줄이기 위해 Privileged Identity Management를 사용 하 여 게스트 사용자로 모든 역할을 관리 하는 것 **이 좋습니다** .
 
 디렉터리 독자, 메시지 센터 독자 및 보안 독자와 같은 독자 역할은 쓰기 사용 권한이 없기 때문에 간혹 다른 역할에 비해 덜 중요한 것으로 여겨지는 경우가 있습니다. 그러나 이러한 계정에 대한 액세스 권한을 획득한 공격자가 PII(개인 식별 정보)와 같은 중요 데이터를 읽을 수 있기 때문에 이러한 역할을 보호하는 고객도 있습니다. 조직의 독자 역할을 Privileged Identity Management를 사용 하 여 관리 해야 하는지 여부를 결정할 때이를 고려해 야 합니다.
 
@@ -210,21 +210,21 @@ Azure 리소스에 대 한 Privileged Identity Management를 사용 하 여 관�
 가장 중요한 구독/리소스를 결정하는 데 어려움이 있는 글로벌 관리자의 경우 조직의 구독 소유자에게 문의하여 각 구독에 의해 관리되는 리소스의 목록을 수집하는 것이 좋습니다. 그런 다음, 구독 소유자와 협력하여 손상될 경우 심각도 수준(낮음, 보통, 높음)에 따라 리소스를 그룹화하는 것이 좋습니다. 이 심각도 수준에 따라 Privileged Identity Management를 사용 하 여 리소스를 관리 하는 우선 순위를 지정 해야 합니다.
 
 > [!TIP]
-> : heavy_check_mark: Microsoft는 중요 한 서비스의 구독/리소스 소유자와 협력 하 여 중요 한 구독/리소스 내의 모든 역할에 대 한 Privileged Identity Management 워크플로를 설정 하는 것 **이 좋습니다** .
+> : heavy_check_mark: 중요 한 서비스의 구독/리소스 소유자와 협력 하 여 중요 한 구독/리소스 내의 모든 역할에 대 한 Privileged Identity Management 워크플로를 설정 하는 것 **이 좋습니다** .
 
 Azure 리소스에 대 한 Privileged Identity Management는 시간 제한 서비스 계정을 지원 합니다. 서비스 계정을 일반적인 사용자 계정을 처리하는 방법과 동일한 방법으로 처리하는 것이 좋습니다.
 
 중요 하지 않은 구독/리소스의 경우 모든 역할에 대해 Privileged Identity Management를 설정할 필요가 없습니다. 그러나 Privileged Identity Management를 사용 하 여 소유자 및 사용자 액세스 관리자 역할을 계속 보호 해야 합니다.
 
 > [!TIP]
-> : heavy_check_mark: Privileged Identity Management을 사용 하 여 모든 구독/리소스의 소유자 역할 및 사용자 액세스 관리자 역할을 관리 하는 것 **이 좋습니다** .
+> : heavy_check_mark: Privileged Identity Management를 사용 하 여 모든 구독/리소스의 소유자 역할 및 사용자 액세스 관리자 역할을 관리 하는 것 **이 좋습니다** .
 
 ### <a name="decide-which-role-assignments-should-be-permanent-or-eligible"></a>영구적이거나 자격이 있어야 하는 역할 할당 결정
 
 Privileged Identity Management에서 관리할 역할 목록을 결정 한 후에는 적절 한 역할 및 영구 활성 역할을 가져올 사용자를 결정 해야 합니다. 영구적으로 활성 역할은 Azure Active Directory 및 Azure 리소스를 통해 할당 된 일반 역할이 며, 적격 역할은 Privileged Identity Management 에서만 할당 될 수 있습니다.
 
 > [!TIP]
-> : heavy_check_mark: Azure AD 역할 및 Azure 리소스 역할 모두에 대해 영구 활성 [할당을 0](../users-groups-roles/directory-emergency-access.md)으로 **유지 하는** 것이 좋습니다. 전역 관리자 역할.
+> : heavy_check_mark: Azure AD 역할 및 Azure 리소스 역할에 대 한 영구 활성 할당을 0으로 **유지 하는** 것이 좋습니다 .이 [계정](../users-groups-roles/directory-emergency-access.md)에는 영구 전역 관리자 역할이 있어야 합니다.
 
 현재 관리자가 없도록 하는 것이 좋지만 조직이 지금 바로 이렇게 하는 것은 어려운 경우가 있습니다. 다음은 이 결정을 내릴 때 고려해야 하는 사항입니다.
 
@@ -250,9 +250,9 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 
 | 역할 | MFA 요구 | 알림 | 승인 필요 | 승인자 | 활성화 기간 | 활성 관리자 | 활성화 만료 | 자격 만료 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | 없음 | n/a | 3개월 |
-| 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | 없음 | 1시간 | 없음 | n/a | 3개월 |
-| Virtual Machine 기여자 | :x: | :heavy_check_mark: | :x: | 없음 | 3시간 | 없음 | n/a | 6개월 |
+| 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | 없음 | 해당 없음 | 3개월 |
+| 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | 없음 | 1시간 | 없음 | 해당 없음 | 3개월 |
+| Virtual Machine 참가자 | :x: | :heavy_check_mark: | :x: | 없음 | 3시간 | 없음 | 해당 없음 | 6개월 |
 
 다음 테이블에서 각 설정을 설명합니다.
 
@@ -261,11 +261,11 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 | 역할 | 설정을 정의하는 역할의 이름입니다. |
 | MFA 요구 | 자격이 있는 사용자가 역할을 활성화하기 전에 MFA를 수행해야 하는지 여부입니다.<br/><br/> : heavy_check_mark: 특히 역할에 게스트 사용자가 있는 경우 모든 관리자 역할에 대해 MFA를 적용 하는 것 **이 좋습니다** . |
 | 알림 | True로 설정하는 경우 자격이 있는 사용자가 해당 역할을 활성화하면 글로벌 관리자, 권한 있는 역할 관리자 및 조직의 보안 관리자가 이메일 알림을 받습니다.<br/><br/>**참고:** 일부 조직에는 관리자 계정에 연결 된 전자 메일 주소가 없으므로 이러한 전자 메일 알림을 받으려면 관리자가 이러한 전자 메일을 받을 수 있도록 대체 전자 메일 주소를 설정 해야 합니다. |
-| 인시던트 티켓 | 자격이 있는 사용자가 자신의 역할을 활성화할 때 인시던트 티켓 번호를 기록해야 하는지 여부입니다. 이 설정은 조직이 원치 않는 활성화를 완화하기 위해 내부 문제 번호를 통해 각 활성화를 식별하는 데 도움이 됩니다.<br/><br/> : heavy_check_mark: 문제 티켓 번호를 활용 하 여 내부 시스템에 Privileged Identity Management 연결 하는 것 **이 좋습니다** . 이 방법은 활성화에 대한 컨텍스트가 필요한 승인자에게 특히 유용합니다. |
-| 승인 필요 | 자격이 있는 사용자가 역할을 활성화하기 위해 승인을 받아야 하는지 여부입니다.<br/><br/> : heavy_check_mark: 대부분의 사용 권한을 가진 역할에 대 한 승인을 설정 하는 것 **이 좋습니다** . 모든 Privileged Identity Management 고객, 전역 관리자, 사용자 관리자, Exchange 관리자, 보안 관리자 및 암호 관리자의 사용 패턴에 따라 승인 설정이 가장 일반적으로 사용 되는 역할입니다. |
-| 승인자 | 자격이 있는 역할을 활성화하기 위해 승인이 필요한 경우 요청을 승인해야 하는 개인을 나열합니다. 기본적으로 Privileged Identity Management는 승인자를 영구적 이거나 적격 인지 여부에 관계 없이 권한 있는 역할 관리자 인 모든 사용자로 설정 합니다.<br/><br/>**참고:** 사용자가 Azure AD 역할 및 역할 승인자 모두에 적합 한 경우 자신을 승인할 수 없습니다.<br/><br/> : heavy_check_mark: 승인자가 전역 관리자가 아닌 특정 역할 및 빈번한 사용자에 대해 가장 잘 알고 있는 사용자로 선택 하는 것 **이 좋습니다** . |
+| 인시던트 티켓 | 자격이 있는 사용자가 자신의 역할을 활성화할 때 인시던트 티켓 번호를 기록해야 하는지 여부입니다. 이 설정은 조직이 원치 않는 활성화를 완화하기 위해 내부 문제 번호를 통해 각 활성화를 식별하는 데 도움이 됩니다.<br/><br/> : heavy_check_mark: Microsoft는 인시던트 티켓 번호를 활용 하 여 Privileged Identity Management 내부 시스템에 연결 하는 것 **이 좋습니다** . 이 방법은 활성화에 대한 컨텍스트가 필요한 승인자에게 특히 유용합니다. |
+| 승인 필요 | 자격이 있는 사용자가 역할을 활성화하기 위해 승인을 받아야 하는지 여부입니다.<br/><br/> : heavy_check_mark: Microsoft는 가장 많은 권한을 가진 역할에 대 한 승인을 설정 하는 것 **이 좋습니다** . 모든 Privileged Identity Management 고객, 전역 관리자, 사용자 관리자, Exchange 관리자, 보안 관리자 및 암호 관리자의 사용 패턴에 따라 승인 설정이 가장 일반적으로 사용 되는 역할입니다. |
+| 승인자 | 자격이 있는 역할을 활성화하기 위해 승인이 필요한 경우 요청을 승인해야 하는 개인을 나열합니다. 기본적으로 Privileged Identity Management는 승인자를 영구적 이거나 적격 인지 여부에 관계 없이 권한 있는 역할 관리자 인 모든 사용자로 설정 합니다.<br/><br/>**참고:** 사용자가 Azure AD 역할 및 역할 승인자 모두에 적합 한 경우 자신을 승인할 수 없습니다.<br/><br/> : heavy_check_mark: 승인자는 전역 관리자가 아닌 특정 역할 및 빈번한 사용자에 대해 가장 잘 알고 있는 사용자로 선택 하는 것 **이 좋습니다** . |
 | 활성화 기간 | 역할이 만료되기 전에 사용자가 해당 역할에서 활성화되는 기간입니다. |
-| 영구 관리자 | 역할에 대한 영구 관리자인(활성화할 필요가 없는) 사용자의 목록입니다.<br/><br/> : heavy_check_mark: 전역 관리자를 제외 하 고 모든 역할에 대 한 관리자가 0 인 경우를 **추천** 합니다. 자격이 있도록 만들어야 하는 개인과 이 계획의 영구 활성화 섹션이어야 하는 개인의 경우 해당 역할에 대해 더 자세히 읽으세요. |
+| 영구 관리자 | 역할에 대한 영구 관리자인(활성화할 필요가 없는) 사용자의 목록입니다.<br/><br/> : heavy_check_mark: 전역 관리자를 제외 하 고 모든 역할에 대 한 관리자가 0 인 경우를 **권장** 합니다. 자격이 있도록 만들어야 하는 개인과 이 계획의 영구 활성화 섹션이어야 하는 개인의 경우 해당 역할에 대해 더 자세히 읽으세요. |
 | 활성 관리자 | Azure 리소스의 경우 활성 관리자는 역할을 사용하기 위해 활성화할 필요가 없는 사용자의 목록입니다. 이 관리자는 이 역할을 상실하는 만료 시간을 설정할 수 있으므로 Azure AD 역할과 같이 영구 관리자라고 하지 않습니다. |
 | 활성화 만료 | Azure 리소스 역할에 대한 활성 역할 할당은 이 구성된 기간이 경과한 후 만료됩니다. 15일, 1개월, 3개월, 6개월, 1년 또는 영구 활성 중에서 선택할 수 있습니다. |
 | 자격 만료 | Azure 리소스 역할에 대해 자격이 있는 역할 할당은 이 구성된 기간이 경과한 후 만료됩니다. 15일, 1개월, 3개월, 6개월, 1년 또는 영구적으로 자격이 있음 중에서 선택할 수 있습니다. |
@@ -290,7 +290,7 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 
 ### <a name="test-implementation"></a>테스트 구현
 
-이제 테스트 사용자를 식별 했으므로이 단계를 사용 하 여 테스트 사용자에 대 한 Privileged Identity Management를 구성 합니다. 조직에서 Azure Portal의 Privileged Identity Management를 사용 하는 대신 사용자 고유의 내부 응용 프로그램에 Privileged Identity Management 워크플로를 통합 하려는 경우 Privileged Identity Management의 모든 작업도 지원 됩니다. [GRAPH API](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-root)를 통해.
+이제 테스트 사용자를 식별 했으므로이 단계를 사용 하 여 테스트 사용자에 대 한 Privileged Identity Management를 구성 합니다. 조직에서 Azure Portal에서 Privileged Identity Management를 사용 하는 대신 사용자 고유의 내부 응용 프로그램에 Privileged Identity Management 워크플로를 통합 하려는 경우 Privileged Identity Management의 모든 작업도 [GRAPH API](https://docs.microsoft.com/graph/api/resources/privilegedidentitymanagement-root)를 통해 지원 됩니다.
 
 #### <a name="configure-privileged-identity-management-for-azure-ad-roles"></a>Azure AD 역할에 대 한 Privileged Identity Management 구성
 
@@ -338,7 +338,7 @@ Privileged Identity Management를 배포 하면 권한 있는 역할의 사용�
 - PIM과 연결된 문제에 대한 연락처 정보 또는 고객 지원팀 링크
 
 > [!TIP]
-> : heavy_check_mark: **Microsoft** 는 기술 지원팀/지원 팀과 함께 시간을 설정 하 여 조직에 내부 IT 지원 팀이 있는 경우 Privileged Identity Management 워크플로를 통해이를 안내할 것을 권장 합니다. 해당 팀에게 적절한 설명서 및 본인의 연락처 정보를 제공합니다.
+> : heavy_check_mark: **Microsoft** 는 기술 지원팀/지원 팀과 함께 시간을 설정 하 여 Privileged Identity Management 워크플로 (조직에 내부 IT 지원 팀이 있는 경우)를 안내 하도록 권장 합니다. 해당 팀에게 적절한 설명서 및 본인의 연락처 정보를 제공합니다.
 
 ### <a name="move-to-production"></a>프로덕션 환경으로 이동
 
@@ -350,7 +350,7 @@ Privileged Identity Management 프로덕션 환경에서 원하는 대로 작동
 
 #### <a name="azure-ad-roles"></a>Azure AD 역할
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **Azure AD Privileged Identity Management**를 엽니다.
 1. **Azure AD 역할**을 클릭한 다음, **역할**을 클릭합니다.
 1. 구성한 각 역할의 자격이 있는 할당을 가진 모든 사용자에 대해 줄임표( **...** )를 클릭합니다.
@@ -358,7 +358,7 @@ Privileged Identity Management 프로덕션 환경에서 원하는 대로 작동
 
 #### <a name="azure-resource-roles"></a>Azure 리소스 역할
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **Azure AD Privileged Identity Management**를 엽니다.
 1. **Azure 리소스**를 클릭한 다음, 롤백하려는 구독 또는 리소스를 클릭합니다.
 1. **역할**을 클릭합니다.
@@ -373,7 +373,7 @@ Privileged Identity Management 프로덕션 환경에서 원하는 대로 작동
 
 테 넌 트를 보다 잘 보호 하기 위해 Privileged Identity Management의 기본 제공 경고 기능을 활용 해야 합니다. 자세한 내용은 [보안 경고](pim-how-to-configure-security-alerts.md#security-alerts)를 참조하세요. 이러한 경고는 관리자가 권한 있는 역할을 사용 하지 않거나, 역할이 Privileged Identity Management 외부에서 할당 되 고, 역할이 너무 자주 활성화 되는 경우 등에 발생 합니다. 조직을 완전하게 보호하기 위해 정기적으로 경고 목록을 검토하고 문제를 해결하는 것이 좋습니다. 다음 방법으로 경고를 확인하고 해결할 수 있습니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 1. **Azure AD Privileged Identity Management**를 엽니다.
 1. **Azure AD 역할**을 클릭한 다음, **경고**를 클릭합니다.
 
