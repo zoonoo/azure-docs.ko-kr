@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Services와 함께 R을 사용하여 Azure SQL Database 쿼리
+title: Machine Learning Services와 함께 R을 사용하여 쿼리
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: 이 문서에서는 Azure SQL Database Machine Learning Services와 함께 R 스크립트를 사용하여 Azure SQL 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 쿼리하는 방법을 보여줍니다.
 services: sql-database
@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: ff38346a9b3bd14db51383c116240b030d3ee42a
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: a54b538247f81ea3bb0ea70a2af374158bd9e2ff
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514853"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826983"
 ---
 # <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>빠른 시작: Machine Learning Services와 함께 R을 사용하여 Azure SQL 데이터베이스 쿼리(미리 보기)
 

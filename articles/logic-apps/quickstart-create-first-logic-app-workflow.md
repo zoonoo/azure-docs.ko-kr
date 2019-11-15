@@ -1,6 +1,6 @@
 ---
-title: 첫 번째 워크플로 만들기 및 자동화 - Azure Logic Apps
-description: 빠른 시작 - 시스템 통합 및 EAI(엔터프라이즈 애플리케이션 통합) 솔루션에 대한 Azure Logic Apps를 사용하여 첫 번째 자동화된 작업 또는 워크플로를 만듭니다.
+title: 첫 번째 자동화 워크플로 만들기 - Azure Logic Apps
+description: 빠른 시작 - 시스템 통합 및 EAI(엔터프라이즈 애플리케이션 통합) 솔루션에 대한 Azure Logic Apps를 사용하여 첫 번째 자동화된 워크플로 빌드
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -10,21 +10,21 @@ ms.manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 08/20/2019
-ms.openlocfilehash: 8886472b9840c27bcbceb70265379db1682673a9
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.date: 10/20/2019
+ms.openlocfilehash: b6222747e352f446dab33314729f7f697e328909
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679138"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824899"
 ---
-# <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 자동화된 워크플로 만들기 - Azure Portal
+# <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 워크플로 만들기 - Azure Portal
 
-이 빠른 시작에서는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 첫 번째 자동화 워크플로를 빌드하는 방법을 소개합니다. 이 문서에서는 새 항목에 대한 웹 사이트의 RSS 피드를 주기적으로 확인하는 논리 앱을 만듭니다. 새 항목이 있으면 논리 앱에서 각 항목에 대한 이메일을 보냅니다. 여기까지 모두 마치면 논리 앱이 이 워크플로와 비슷하게 보입니다.
+이 빠른 시작에서는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 첫 번째 워크플로를 빌드하는 방법 외의 기본적인 일반 개념(예: 빈 논리 앱 만들기, 트리거와 작업 추가, 논리 앱 테스트 등)을 소개합니다. 이 빠른 시작에서는 새 항목에 대한 웹 사이트의 RSS 피드를 주기적으로 확인하는 논리 앱을 빌드합니다. 새 항목이 있으면 논리 앱에서 각 항목에 대한 이메일을 보냅니다. 여기까지 모두 마치면 논리 앱이 이 워크플로와 비슷하게 보입니다.
 
 ![상위 수준 예제 논리 앱 워크플로](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
-이 빠른 시작을 수행하려면 Office 365 Outlook, Outlook.com 또는 Gmail처럼 Logic Apps에서 지원되는 공급자의 이메일 계정이 필요합니다. 다른 공급자에 대한 내용은 [여기서 커넥터 목록을 검토하세요](https://docs.microsoft.com/connectors/). 이 논리 앱은 Office 365 Outlook 계정을 사용합니다. 다른 이메일 계정을 사용하는 경우 전체 단계는 동일하지만 UI가 약간 다를 수 있습니다.
+이 시나리오에서는 Office 365 Outlook, Outlook.com 또는 Gmail처럼 Azure Logic Apps에서 지원되는 서비스의 메일 계정이 필요합니다. 지원되는 메일 서비스는 [여기의 커넥터 목록을 검토하세요](https://docs.microsoft.com/connectors/). 이 예제에서 논리 앱은 Office 365 Outlook을 사용합니다. 다른 메일 서비스를 사용하는 경우 전체적인 일반 단계는 동일하지만 사용자 인터페이스는 약간 다를 수 있습니다.
 
 또한 Azure 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -34,11 +34,15 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 ## <a name="create-your-logic-app"></a>논리 앱 만들기
 
-1. Azure 주 메뉴에서 **리소스 만들기** > **통합** > **논리 앱**을 차례로 선택합니다.
+1. Azure 홈페이지의 검색 상자에서 **Logic Apps**를 찾아 선택합니다.
 
-   ![논리 앱 만들기 - Azure Portal](./media/quickstart-create-first-logic-app-workflow/create-new-logic-app.png)
+   !["Logic Apps" 찾기 및 선택](./media/quickstart-create-first-logic-app-workflow/find-select-logic-apps.png)
 
-1. 여기에 보이는 것처럼 **논리 앱 만들기** 아래에서 논리 앱에 대한 정보를 제공합니다. 완료되면 **만들기**를 선택합니다.
+1. **Logic Apps** 페이지에서 **추가**를 선택합니다.
+
+   ![새 논리 앱 추가](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
+
+1. 여기에 표시된 것처럼 **논리 앱** 창에서 논리 앱에 대한 정보를 제공합니다. 완료되면 **만들기**를 선택합니다.
 
    ![새 논리 앱에 대한 세부 정보 제공](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
@@ -61,15 +65,15 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![논리 앱에 대한 빈 템플릿 선택](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
-다음으로, 새 RSS 피드 항목이 나타나면 실행되는 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)를 추가합니다. 모든 논리 앱은 특정 이벤트가 발생하거나 특정 조건이 충족할 때 실행되는 트리거를 통해 시작되어야 합니다. 트리거가 발생될 때마다 Logic Apps 엔진은 워크플로를 시작하고 실행하는 논리 앱 인스턴스를 만듭니다.
+다음으로, 새 RSS 피드 항목이 나타나면 실행되는 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)를 추가합니다. 모든 논리 앱은 특정 이벤트가 발생하거나 특정 조건이 충족할 때 실행되는 트리거를 통해 시작되어야 합니다. 트리거가 발생될 때마다 Azure Logic Apps 엔진은 워크플로를 시작하고 실행하는 논리 앱 인스턴스를 만듭니다.
 
 <a name="add-rss-trigger"></a>
 
-## <a name="check-rss-feed-with-a-trigger"></a>트리거로 RSS 피드 확인
+## <a name="add-the-rss-trigger"></a>RSS 트리거 추가
 
-1. 논리 앱 디자이너의 검색 상자에서 **모두**를 선택합니다.
+1. **논리 앱 디자이너**의 검색 상자에서 **모두**를 선택합니다.
 
-1. 검색 상자에 "rss"를 입력합니다. 트리거 목록에서 다음 트리거를 선택합니다. **피드 항목이 게시된 경우 - RSS**
+1. 검색 상자에 `rss`를 입력하여 RSS 커넥터를 찾습니다. 트리거 목록에서 **피드 항목이 게시된 경우** 트리거를 선택합니다.
 
    !["피드 항목이 게시되는 경우" 트리거 선택](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
@@ -86,7 +90,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    간격과 빈도는 논리 앱의 트리거에 대한 일정을 정의합니다. 이 논리 앱은 1분마다 피드를 확인합니다.
 
-1. 지금은 트리거 세부 정보를 숨기려면 트리거의 제목 표시줄 내부를 클릭합니다.
+1. 지금은 트리거 세부 정보를 축소하려면 트리거의 제목 표시줄 내부를 클릭합니다.
 
    ![논리 앱 셰이프 축소하여 세부 정보 숨기기](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
@@ -94,9 +98,9 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 이제 논리 앱이 라이브 상태이지만 RSS 피드를 확인하는 것 이외에 아무 것도 수행하지 않습니다. 따라서 트리거가 실행되면 응답하는 작업을 추가해 보겠습니다.
 
-## <a name="send-email-with-an-action"></a>작업을 통해 이메일 전송
+## <a name="add-the-send-email-action"></a>"메일 보내기" 작업 추가
 
-이제 RSS 피드에 새 항목이 표시되면 이메일을 보내는 [작업](../logic-apps/logic-apps-overview.md#logic-app-concepts)을 추가합니다.
+이제 RSS 피드에 새 항목이 표시되면 메일을 보내는 [작업](../logic-apps/logic-apps-overview.md#logic-app-concepts)을 추가합니다.
 
 1. **피드 항목이 게시된 경우** 트리거 아래에서 **새 단계**를 선택합니다.
 
@@ -104,7 +108,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 1. **작업 선택** 및 검색 상자 아래에서 **모두**를 선택합니다.
 
-1. 검색 상자에 "이메일 보내기"를 입력합니다. 작업 목록에서 원하는 이메일 공급자에 대한 "이메일 보내기" 작업을 선택합니다.
+1. 검색 상자에 `send an email`을 입력하여 이 작업을 제공하는 커넥터를 찾습니다. 작업 목록에서 원하는 메일 공급자에 대해 "메일 보내기" 작업을 선택합니다. 이 예제에서는 **메일 보내기** 작업이 있는 Office 365 Outlook 커넥터를 사용합니다.
 
    ![Office 365 Outlook에 대한 "이메일 보내기" 작업 선택](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
@@ -113,15 +117,23 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
    * Azure 회사 또는 학교 계정에서 Office 365 Outlook을 선택합니다.
    * Microsoft 개인 계정에서 Outlook.com을 선택합니다.
 
-1. 자격 증명을 입력하라는 메시지가 나타나면 Logic Apps가 이메일 계정에 대한 연결을 만들 수 있도록 이메일 계정에 로그인합니다.
+1. 선택한 메일 커넥터에서 ID를 인증하라는 메시지를 표시하는 경우 해당 단계를 완료하여 논리 앱과 메일 서비스 간에 연결을 만듭니다.
+
+   > [!NOTE]
+   > 이 특정 예제에서는 ID를 수동으로 인증합니다. 그러나 인증을 요구하는 커넥터는 지원하는 인증 유형에 따라 달라집니다. 또한 인증을 처리하는 방법을 설정하는 옵션도 제공됩니다. 예를 들어, 배포에 Azure Resource Manager 템플릿을 사용하는 경우 연결 정보와 같이 자주 또는 쉽게 변경하려는 입력을 매개 변수화하고 보호할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
+   >
+   > * [배포용 템플릿 매개 변수](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
+   > * [OAuth 연결 권한 부여](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)
+   > * [관리 ID를 사용하여 액세스 인증](../logic-apps/create-managed-service-identity.md)
+   > * [논리 앱 배포를 위한 연결 인증](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#authenticate-connections)
 
 1. **이메일 보내기** 작업에서 이메일에 포함할 데이터를 지정합니다.
 
-   1. **받는 사람** 상자에 받는 사람의 이메일 주소를 입력합니다. 자신의 이메일 주소를 사용하여 테스트할 수 있습니다.
+   1. **받는 사람** 상자에 받는 사람의 이메일 주소를 입력합니다. 메일 주소를 사용하여 테스트할 수 있습니다.
 
       지금은 나타나는 **동적 콘텐츠 추가** 목록을 무시합니다. 일부 편집 상자 내부를 클릭하면 이 목록이 나타나고 워크플로에 입력으로 포함할 수 있는 이전 단계의 사용 가능한 매개 변수가 표시됩니다.
 
-   1. **제목** 상자에 ```New RSS item:``` 텍스트를 입력하고 후행 공백을 하나 둡니다.
+   1. **제목** 상자에 `New RSS item: ` 텍스트를 입력하고 후행 공백을 하나 둡니다.
 
       !["Subject" 속성에 이메일 제목을 입력합니다.](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
 
@@ -158,7 +170,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
 ![새 RSS 피드 항목이 표시될 때 전송되는 샘플 이메일](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
-기술적으로 트리거가 RSS 피드를 확인하고 새 항목을 찾는 경우 해당 트리거가 실행되고 Logic Apps 엔진이 워크플로에서 동작을 실행하는 논리 앱 워크플로 인스턴스를 만듭니다. 트리거가 새 항목을 찾지 못하면 해당 트리거는 실행되지 않고 워크플로 인스턴스화도 "건너뜁니다".
+기술적으로 트리거가 RSS 피드를 확인하고 새 항목을 찾는 경우 해당 트리거가 실행되고 Azure Logic Apps 엔진이 워크플로에서 동작을 실행하는 논리 앱 워크플로 인스턴스를 만듭니다. 트리거가 새 항목을 찾지 못하면 해당 트리거는 실행되지 않고 워크플로 인스턴스화도 "건너뜁니다".
 
 축하합니다. Azure Portal을 사용하여 첫 번째 논리 앱을 성공적으로 빌드하고 실행했습니다.
 
@@ -170,16 +182,12 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 
    ![리소스 그룹 찾기, 선택 및 삭제](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
-1. 리소스 그룹 이름을 입력하여 확인하고, **삭제**를 선택합니다.
+1. 확인 창이 표시되면 리소스 그룹 이름을 입력하고 **삭제**를 선택합니다.
 
    ![삭제를 확인하려면 "삭제"를 선택합니다.](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
 > [!NOTE]
 > 논리 앱을 삭제하면 새 실행이 인스턴스화되지 않습니다. 모든 진행 중 및 보류 중인 실행이 취소됩니다. 수천 개의 실행이 있다면 취소를 완료하는 데 상당한 시간이 소요될 수 있습니다.
-
-## <a name="get-support"></a>지원 받기
-
-질문이 있는 경우 [Azure Logic Apps 포럼](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps)을 방문해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 

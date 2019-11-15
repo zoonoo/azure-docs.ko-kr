@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure SQL Data Warehouse에서 컴퓨팅 스케일 아웃 - PowerShell | Microsoft Docs'
+title: '빠른 시작: 컴퓨팅 크기 조정 - PowerShell '
 description: PowerShell에서 Azure SQL Data Warehouse의 컴퓨팅 능력을 조정합니다. 더 나은 성능을 위해 컴퓨팅 능력을 확장하거나 비용 절감을 위해 다시 축소할 수 있습니다.
 services: sql-data-warehouse
 author: Antvgski
@@ -10,12 +10,13 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 37b5f0a989bb76a9a40529cd11944de40a164156
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.custom: seo-lt-2019
+ms.openlocfilehash: f4c2087052e4c3b4fac4d27bb4ecdc2ebf8a42f6
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306223"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73692973"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-azure-powershell"></a>빠른 시작: Azure PowerShell에서 Azure SQL Data Warehouse의 컴퓨팅 능력 조정
 

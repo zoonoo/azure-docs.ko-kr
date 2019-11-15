@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 워크플로 실행'
+title: '빠른 시작: 워크플로 실행 - Microsoft Genomics'
 description: 빠른 시작은 Azure Blob Storage에 입력 데이터를 로드하고 Microsoft Genomics 서비스를 통해 워크플로를 실행하는 방법을 보여줍니다.
 services: genomics
 author: grhuynh
@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: e7c90cc0ce85f2a90cc2ddc2cd086fd2626f4d96
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 47043b9f4416ec61cf25ea92504c0c653b7d5408
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248533"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819212"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>빠른 시작: Microsoft Genomics 서비스를 통해 워크플로 실행
 
@@ -39,15 +39,15 @@ Microsoft Genomics 계정을 만들려면 [Azure Portal](https://portal.azure.co
  |**설정**          |  **제안 값**  | **필드 설명** |
  |:-------------       |:-------------         |:----------            |
  |Subscription         | 구독 이름|귀하의 Azure 서비스에 대한 청구 단위입니다. 구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |      
- |Resource group       | MyResourceGroup       |  리소스 그룹을 사용하여 여러 Azure 리소스(스토리지 계정, 게놈 계정 등)를 단일 그룹으로 그룹화하여 간단히 관리할 수 있습니다. 자세한 내용은 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)을 참조하세요. 유효한 리소스 그룹 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
- |계정 이름         | MyGenomicsAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
+ |Resource group       | MyResourceGroup       |  리소스 그룹을 사용하여 여러 Azure 리소스(스토리지 계정, 게놈 계정 등)를 단일 그룹으로 그룹화하여 간단히 관리할 수 있습니다. 자세한 내용은 [리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)을 참조하세요. 유효한 리소스 그룹 이름은 [이름 지정 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. |
+ |계정 이름         | MyGenomicsAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. |
  |위치                   | 미국 서부 2                    |    미국 서부 2, 유럽 서부 및 동남 아시아에서 서비스를 사용할 수 있습니다. |
 
 
 
 
 상단 메뉴 표시줄에 있는 알림을 클릭하여 배포 프로세스를 모니터링할 수 있습니다.
-![Microsoft Genomics 알림](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Microsoft Genomics 알림")
+![Microsoft Genomics 알림](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "MMicrosoft Genomics 알림)
 
 
 
@@ -90,7 +90,7 @@ pip install msgen
 Microsoft Genomics 클라이언트를 테스트하려면 Genomics 계정에서 구성 파일을 다운로드합니다. 왼쪽 상단에서 **모든 서비스**를 클릭하고, Genomics 계정을 필터링하고 선택하여 Genomics 계정으로 이동합니다.
 
 
-![Azure Portal에서 Microsoft Genomics 필터링](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Azure Portal에서 Microsoft Genomics 필터링")
+![Azure Portal의 Microsoft Genomics용 필터](./media/quickstart-run-genomics-workflow-portal/genomics-filter-box.png "Azure Portal의 Microsoft Genomics용 필터")
 
 
 
@@ -110,7 +110,7 @@ msgen list -f “<full path where you saved the config file>”
 Microsoft Genomics 서비스는 입력 파일이 Azure Storage 계정에 블록 Blob으로 저장될 것으로 예상합니다. 또한 출력 파일을 Azure Storage 계정의 사용자 지정 컨테이너에 블록 Blob으로 기록합니다. 입력 및 출력 파일은 서로 다른 Storage 계정에 있을 수 있습니다.
 Azure Storage 계정에 이미 데이터가 있다면 Genomics 계정과 동일한 위치에 있는지 확인하면 됩니다. 그렇지 않으면 Genomics 서비스를 실행할 때 송신 비용이 발생합니다. Microsoft Azure Storage 계정이 아직 없는 경우 계정을 만들어 데이터를 업로드해야 합니다. Storage 계정은 무엇이며 어떤 서비스를 제공하는지 등 Azure Storage 계정에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account)에서 확인할 수 있습니다. Microsoft Azure Storage 계정을 만들려면 [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM )로 이동합니다.  
 
-![Storage 만들기 블레이드](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "Storage 만들기 블레이드")
+![스토리지 만들기 블레이드](./media/quickstart-run-genomics-workflow-portal/genomics-storage-create-blade.png "스토리지 만들기 블레이드")
 
 앞의 이미지와 같이 다음 정보를 사용하여 Storage 계정을 구성합니다. 스토리지 계정에 대한 대부분의 표준 옵션을 사용하되, 계정은 일반적인 용도가 아닌 Blob Storage 전용으로 지정합니다. Blob Storage 용량은 다운로드 및 업로드 시 2-5배 빨라질 수 있습니다.  기본 배포 모델인 Azure Resource Manager를 권장합니다.  
 
@@ -118,8 +118,8 @@ Azure Storage 계정에 이미 데이터가 있다면 Genomics 계정과 동일�
  |**설정**          |  **제안 값**  | **필드 설명** |
  |:-------------------------       |:-------------         |:----------            |
  |Subscription         | Azure 구독 |구독에 대한 자세한 내용은 [구독](https://account.azure.com/Subscriptions)을 참조하세요. |      
- |Resource group       | MyResourceGroup       |  Genomics 계정과 동일한 리소스 그룹을 선택할 수 있습니다. 유효한 리소스 그룹 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
- |Storage 계정 이름         | MyStorageAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions)을 참조하세요. |
+ |Resource group       | MyResourceGroup       |  Genomics 계정과 동일한 리소스 그룹을 선택할 수 있습니다. 유효한 리소스 그룹 이름은 [이름 지정 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. |
+ |Storage 계정 이름         | MyStorageAccount     |고유한 계정 식별자를 선택합니다. 유효한 이름은 [이름 지정 규칙](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. |
  |위치                  | 미국 서부 2                  | Genomics 계정의 위치와 동일한 위치를 사용하여 송신 비용을 낮추고 대기 시간을 줄입니다.  | 
  |성능                  | Standard                   | 기본값은 표준입니다. 표준 및 프리미엄 스토리지 계정에 대한 자세한 내용은 [Microsoft Azure Storage 소개 ](https://docs.microsoft.com/azure/storage/common/storage-introduction)를 참조하세요.    |
  |계정 종류       | Blob Storage       |  Blob Storage는 다운로드 및 업로드 시 범용보다 2-5배 빨라질 수 있습니다. |

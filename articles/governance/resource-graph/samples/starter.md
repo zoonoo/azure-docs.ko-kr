@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: c2a8c60502aeb75173371d40475b5d2875417791
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 7eef353f45d0387a45fbf8180bc49cae7975dfa9
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808626"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622495"
 ---
 # <a name="starter-resource-graph-queries"></a>Resource Graph 시작 쿼리
 
@@ -535,5 +535,5 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.network/networksecur
 ## <a name="next-steps"></a>다음 단계
 
 - [쿼리 언어](../concepts/query-language.md)에 대해 자세히 알아보기
-- [리소스 탐색](../concepts/explore-resources.md)에 대해 알아보기
+- [리소스를 살펴 보는](../concepts/explore-resources.md) 방법에 대해 자세히 알아보기
 - [고급 쿼리](advanced.md) 샘플 참조

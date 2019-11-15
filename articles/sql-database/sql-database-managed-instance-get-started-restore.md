@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Managed Instance에 백업 복원 | Microsoft Docs
+title: Managed Instance에 백업 복원
 description: SSMS를 사용하여 Azure SQL Database Managed Instance에 데이터베이스 백업을 복원합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 12/14/2018
-ms.openlocfilehash: ca0dcc850b2db513c8d85d43ad76bc75053c0d04
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 37f7366d6622356017e458fb8f893b0be0851335
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72514015"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825702"
 ---
 # <a name="quickstart-restore-a-database-to-a-managed-instance"></a>빠른 시작: 데이터베이스를 Managed Instance로 복원
 
@@ -35,12 +35,12 @@ ms.locfileid: "72514015"
 - [Managed Instance 만들기](sql-database-managed-instance-get-started.md) 빠른 시작의 리소스를 사용합니다.
 - 컴퓨터에 최신 [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)가 설치되어 있어야 합니다.
 - SSMS를 사용하여 Managed Instance에 연결해야 합니다. 다음과 같이 연결하는 방법에 대한 빠른 시작을 참조하세요.
+  - Managed Instance에서 [퍼블릭 엔드포인트 사용](sql-database-managed-instance-public-endpoint-configure.md) - 이 자습서에서 권장하는 방법입니다.
   - [Azure VM에서 Azure SQL Database Managed Instance에 연결](sql-database-managed-instance-configure-vm.md)
   - [온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md).
-- `rw` 권한이 있는 **SAS 자격 증명**으로 보호된 **퍼블릭 IP**에 Azure Blob Storage 계정(예: Standard_LRS V2)이 있어야 합니다. [방화벽으로 보호된 Blob 스토리지의 프라이빗 IP](https://docs.microsoft.com/azure/storage/common/storage-network-security) 및 Azure Blob Storage 서비스 엔드포인트는 현재 지원되지 않습니다.
 
 > [!NOTE]
-> Azure Blob Storage와 [SAS(공유 액세스 서명) 키](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)를 사용하여 SQL Server Database를 백업하고 복원하는 데 관한 자세한 내용은 [URL에 SQL Server 백업](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017)을 참조하세요.
+> Azure Blob Storage와 [SAS(공유 액세스 서명) 키](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)를 사용하여 SQL Server Database를 백업하고 복원하는 데 관한 자세한 내용은 [URL에 SQL Server 백업](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017)을 참조하세요.
 
 ## <a name="restore-the-database-from-a-backup-file"></a>백업 파일에서 데이터베이스 복원
 
@@ -86,7 +86,11 @@ SSMS에서 이러한 단계를 사용하여 Managed Instance로 Wide World Impor
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. 복원이 완료되면 개체 탐색기에서 봅니다.
+7. 복원이 완료되면 개체 탐색기에서 데이터베이스를 봅니다. [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 보기를 사용하여 데이터베이스 복원이 완료되었는지 확인할 수 있습니다.
+
+> [!NOTE]
+> 데이터베이스 복원 작업은 비동기로 진행되며 다시 시도할 수 있습니다. 연결이 끊어지고 제한 시간이 만료되는 경우 SQL Server Management Studio에서 오류가 발생할 수 있습니다. Azure SQL Database는 백그라운드에서 데이터베이스 복원을 계속 시도하며, [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) 및 [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 보기를 사용하여 복원 진행률을 추적할 수 있습니다.
+> 복원 프로세스의 일부 단계에서는 시스템 보기에 실제 데이터베이스 이름 대신 고유 식별자가 표시됩니다. [여기](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-transact-sql-information#restore-statement)에서 `RESTORE` 문 동작 차이점에 대해 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

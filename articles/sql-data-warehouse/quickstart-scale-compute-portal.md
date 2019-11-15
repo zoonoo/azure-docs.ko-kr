@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Azure SQL Data Warehouse에서 컴퓨팅 확장 - Azure Portal | Microsoft Docs'
+title: '빠른 시작: 컴퓨팅 크기 조정 - Azure Portal '
 description: Azure Portal에서 Azure SQL Data Warehouse의 컴퓨팅 능력을 조정합니다. 더 나은 성능을 위해 컴퓨팅 능력을 확장하거나 비용 절감을 위해 다시 축소할 수 있습니다.
 services: sql-data-warehouse
 author: Antvgski
@@ -10,12 +10,13 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4197d7a4724199f8c42fc09a6d1ed18af46cc4f8
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.custom: seo-lt-2019
+ms.openlocfilehash: 59d929165ac9618d68707e2f13741e7bbba7b37f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69575353"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73685969"
 ---
 # <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse의 컴퓨팅 조정
 

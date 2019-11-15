@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 241935afa023162a35559cd3c46206efa7a7835f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: d9349391ad9af1a4ec1c84b586f825f3f7632ff8
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240175"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73815761"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>빠른 시작: Python 웹앱에 Microsoft로 로그인 추가
 
@@ -74,6 +74,13 @@ ms.locfileid: "72240175"
 >      - **1년 후** 키 기간을 선택합니다.
 >      - **추가**를 클릭하면 키 값이 표시됩니다.
 >      - 키 값을 복사합니다. 이 시간은 나중에 필요합니다.
+> 1. **API 사용 권한** 섹션을 선택합니다.
+>
+>      - **권한 추가** 단추를 클릭한 다음,
+>      - **Microsoft API** 탭을 선택합니다.
+>      - *일반적으로 사용되는 Microsoft API* 섹션에서 **Microsoft Graph**를 클릭합니다.
+>      - **위임된 권한** 섹션에서 적절한 권한, 즉, **User.ReadBasic.All**. 필요한 경우 검색 상자를 사용합니다.
+>      - **권한 추가** 단추를 선택합니다.
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
@@ -83,9 +90,10 @@ ms.locfileid: "72240175"
 >
 > 1. 회신 URL을 `http://localhost:5000/getAToken`으로 입력합니다.
 > 1. 클라이언트 비밀을 만듭니다.
+> 1. Microsoft Graph API의 User.ReadBasic.All 위임된 권한을 추가합니다.
 >
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
-> > [자동 변경]()
+> > [이러한 변경 내용 적용]()
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![이미 구성됨](media/quickstart-v2-aspnet-webapp/green-check.png) 이 특성을 사용하여 애플리케이션을 구성합니다.
 
@@ -100,8 +108,9 @@ ms.locfileid: "72240175"
 1. 루트 폴더에 있는 **app_config.py** 파일을 열고 다음 코드 조각으로 바꿉니다.
 
 ```python
-CLIENT_SECRET = "Enter_the_Client_Secret_Here"
 CLIENT_ID = "Enter_the_Application_Id_here"
+CLIENT_SECRET = "Enter_the_Client_Secret_Here"
+AUTHORITY = "https://login.microsoftonline.com/Enter_the_Tenant_Name_Here"
 ```
 
 > [!div renderon="docs"]
@@ -109,6 +118,7 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 >
 > - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
 > - `Enter_the_Client_Secret_Here` - 등록한 애플리케이션의 **인증서 및 비밀**에서 만든 **클라이언트 비밀**입니다.
+> - `Enter_the_Tenant_Name_Here` - 등록한 애플리케이션의 **디렉터리(테넌트 ) ID** 값입니다.
 
 #### <a name="step-4-run-the-code-sample"></a>4단계: 코드 샘플 실행
 
@@ -123,6 +133,25 @@ CLIENT_ID = "Enter_the_Application_Id_here"
    ```Shell
    python app.py
    ```
+   > [!IMPORTANT]
+   > 이 빠른 시작 애플리케이션에서는 클라이언트 비밀을 사용하여 자체를 기밀 클라이언트로 식별합니다. 클라이언트 비밀은 보안상의 이유로 프로젝트 파일에 일반 텍스트로 추가되므로, 이 애플리케이션을 프로덕션 애플리케이션으로 사용하는 방안을 고려하기 전에 클라이언트 비밀 대신 인증서를 사용하는 것이 좋습니다. 인증서를 사용하는 방법에 대한 자세한 내용은 [다음 지침](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials)을 참조하세요.
+
+## <a name="more-information"></a>자세한 정보
+
+### <a name="getting-msal"></a>MSAL 가져오기
+MSAL은 사용자를 로그인하고 Microsoft ID 플랫폼으로 보호되는 API 액세스에 사용되는 토큰을 요청할 때 사용되는 라이브러리입니다.
+Pip을 사용하여 애플리케이션에 MSAL Python을 추가할 수 있습니다.
+
+```Shell
+pip install msal
+```
+
+### <a name="msal-initialization"></a>MSAL 초기화
+MSAL을 사용할 파일 맨 위에 다음 코드를 추가하여 MSAL Python에 대한 참조를 추가할 수 있습니다.
+
+```Python
+import msal
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,20 +1,17 @@
 ---
-title: Azure CLI를 사용하여 Java Spring 애플리케이션 시작
+title: '빠른 시작: Azure CLI를 사용하여 Java Spring 애플리케이션 시작'
 description: 이 빠른 시작에서는 Azure CLI의 Azure Spring Cloud에 샘플 애플리케이션을 배포합니다.
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 10/04/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 6d399f04015140477af17f718c3e2205b8c3855f
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.date: 11/04/2019
+ms.author: jeconnoc
+ms.openlocfilehash: 3bc1bfcf58d622151f0af9c6da693c5533bcf966
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170550"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721617"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Java Spring 애플리케이션 시작
 
@@ -26,16 +23,15 @@ Azure Spring Cloud를 사용하면 Azure에서 Spring Boot 기반 마이크로�
 
 > [!div class="checklist"]
 > * 서비스 인스턴스 프로비저닝
-> * 인스턴스의 구성 서버 설정
+> * 인스턴스에 대한 구성 서버 설정
 > * 로컬에서 마이크로서비스 애플리케이션 빌드
 > * 각 마이크로서비스 배포
-> * 애플리케이션의 공용 엔드포인트 할당
+> * 애플리케이션에 대한 공용 엔드포인트 할당
 
 ## <a name="prerequisites"></a>필수 조건
 
 >[!Note]
-> 이 빠른 시작을 시작하기 전에 Azure 구독에서 Azure Spring Cloud에 액세스할 수 있는지 확인합니다.  미리 보기 서비스이므로 사용자의 구독을 허용 목록에 추가할 수 있도록 Microsoft에 연락 주시기 바랍니다.  Azure Spring Cloud의 기능을 살펴보려면 [이 양식을 작성](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-)하세요.
+> Azure Spring Cloud는 현재 퍼블릭 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 검토하거나 [지원 요청](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조하여 자세히 알아보세요.
 
 >[!TIP]
 > Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다.  최신 버전의 Git, JDK, Maven 및 Azure CLI를 포함하는 일반적인 Azure 도구가 미리 설치되어 있습니다. Azure 구독에 로그인한 경우 shell.azure.com에서 [Azure Cloud Shell](https://shell.azure.com)을 시작합니다.  Azure Cloud Shell에 대한 자세한 내용은 [설명서를 참조하세요](../cloud-shell/overview.md).
@@ -45,7 +41,7 @@ Azure Spring Cloud를 사용하면 Azure에서 Spring Boot 기반 마이크로�
 1. [Git 설치](https://git-scm.com/)
 2. [JDK 8 설치](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable)
 3. [Maven 3.0 이상 설치](https://maven.apache.org/download.cgi)
-4. [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+4. [Azure CLI 버전 2.0.67 이상 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 5. [Azure 구독에 가입](https://azure.microsoft.com/free/)
 
 ## <a name="install-the-azure-cli-extension"></a>Azure CLI 확장 설치
@@ -53,7 +49,7 @@ Azure Spring Cloud를 사용하면 Azure에서 Spring Boot 기반 마이크로�
 다음 명령을 사용하여 Azure CLI용 Azure Spring Cloud 확장 설치
 
 ```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+az extension add --name spring-cloud
 ```
 
 ## <a name="provision-a-service-instance-on-the-azure-cli"></a>Azure CLI에서 서비스 인스턴스 프로비저닝
@@ -110,7 +106,7 @@ az spring-cloud config-server git set -n <your-service-name> --uri https://githu
 2. 디렉터리를 변경하고 프로젝트를 빌드합니다.
 
     ```azurecli
-        cd PiggyMetrics
+        cd piggymetrics
         mvn clean package -D skipTests
     ```
 
@@ -125,9 +121,6 @@ az spring-cloud app create --name gateway
 az spring-cloud app create --name auth-service
 az spring-cloud app create --name account-service
 ```
-
->[!NOTE]
-> 제공된 구성 서버가 제대로 작동하려면 애플리케이션 이름이 JARS의 이름과 정확히 일치해야 합니다.
 
 ## <a name="deploy-applications-and-set-environment-variables"></a>애플리케이션 배포 및 환경 변수 설정
 

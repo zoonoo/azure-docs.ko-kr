@@ -1,5 +1,5 @@
 ---
-title: Java를 사용하여 Azure SQL Database 쿼리
+title: Java를 사용하여 쿼리
 description: Java를 사용하여 Azure SQL 데이터베이스에 연결하고 T-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ ms.author: andrela
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019
-ms.openlocfilehash: 8940e13dcc6d6287984ba1cc7c7510768b4e232f
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 6d4d9353e29a29b0cd6db7575e49a00a213355d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624073"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827036"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>빠른 시작: Java를 사용하여 Azure SQL 데이터베이스에 연결 및 쿼리
 

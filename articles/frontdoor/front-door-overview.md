@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2019
+ms.date: 11/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 20cfcea4a8b58c1c01a7c710163b7320ff96d65c
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 96dae96e16ce033ce15a8f1e9386e5252562654a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330831"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796215"
 ---
 # <a name="what-is-azure-front-door-service"></a>Azure Front Door Service란?
 Azure Front Door Service를 사용하면 최적의 성능과 고가용성을 지원하는 즉시 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다.
@@ -25,7 +25,7 @@ Azure Front Door Service를 사용하면 최적의 성능과 고가용성을 지
 Front Door는 Layer 7 또는 HTTP/HTTPS 계층에서 작동하며, TCP가 분할된 애니캐스트 프로토콜과 Microsoft의 글로벌 네트워크를 사용하여 글로벌 연결을 개선합니다. 따라서 구성에서 선택한 라우팅 방법에 따라 Front Door가 클라이언트 요청을 가장 빠르고 가장 가용성이 높은 애플리케이션 백엔드로 라우팅합니다. 애플리케이션 백엔드는 Azure의 내부 또는 외부에서 호스팅되는 모든 인터넷 연결 서비스입니다. Front Door는 다양한 애플리케이션 요구와 자동 장애 조치(failover)에 맞는 [트래픽 라우팅 방법](front-door-routing-methods.md) 및 [백엔드 상태 모니터링 옵션](front-door-health-probes.md)을 제공합니다. [Traffic Manager](../traffic-manager/traffic-manager-overview.md)와 유사한 Front Door는 전체 Azure 지역의 오류를 포함한, 오류에 대해 복원력을 갖습니다.
 
 >[!NOTE]
-> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. DNS 기반 글로벌 라우팅이 필요하고, TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 응용 프로그램 계층 처리에 대한 요구 사항이 **없는** 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 특정 지역의 서버 간 부하 분산이 필요한 경우 응용 프로그램 계층은 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 살펴보고, 네트워크 계층 부하 분산은 [Load Balancer](../load-balancer/load-balancer-overview.md)를 살펴보세요. 필요에 따라 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. DNS 기반 글로벌 라우팅이 필요하고, TLS(Transport Layer Security) 프로토콜 종료(&quot;SSL 오프로드&quot;) 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리에 대한 요구 사항이 **없는** 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 특정 지역의 서버 간 부하 분산이 필요한 경우 응용 프로그램 계층은 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 살펴보고, 네트워크 계층 부하 분산은 [Load Balancer](../load-balancer/load-balancer-overview.md)를 살펴보세요. 필요에 따라 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
 
 다음 기능이 Front Door에 포함됩니다.
 
@@ -57,7 +57,7 @@ Front Door를 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름
 또한 Front Door는 사용자 지정 도메인 이름에 HTTPS를 지원합니다. 트래픽에 Front Door 관리 인증서를 선택하거나 사용자 지정 SSL 인증서를 업로드하여 이 기능을 사용하세요.
 
 ## <a name="application-layer-security"></a>애플리케이션 계층 보안
-Azure Front Door를 사용하면 액세스 제어에 대한 사용자 지정 웹 애플리케이션 방화벽(WAF) 규칙을 작성하여 클라이언트 IP 주소, 국가 코드 및 http 매개 변수를 기준으로 HTTP/HTTPS 워크로드 만료를 방지할 수 있습니다. 또한 Front Door를 사용하면 악성 봇 트래픽을 차단하는 등급 제한 규칙을 만들 수 있습니다. 
+Azure Front Door를 사용하면 액세스 제어에 대한 사용자 지정 WAF(웹 애플리케이션 방화벽) 규칙을 작성하여 클라이언트 IP 주소, 국가 코드 및 http 매개 변수를 기준으로 HTTP/HTTPS 워크로드 만료를 방지할 수 있습니다. 또한 Front Door를 사용하면 악성 봇 트래픽을 차단하는 등급 제한 규칙을 만들 수 있습니다. 웹 애플리케이션 방화벽에 대한 자세한 내용은 [Azure 웹 애플리케이션 방화벽이란?](../web-application-firewall/overview.md)을 참조하세요.
 
 Front Door 플랫폼 자체는 [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) Basic으로 보호됩니다. 추가 보호를 위해 VNET에서 Azure DDoS Protection Standard를 활성화하고, 자동 튜닝 및 완화를 통해 네트워크 계층(TCP/UDP) 공격으로부터 리소스를 보호할 수 있습니다. Front Door는 계층 7 역방향 프록시이며, 웹 트래픽만 백 엔드를 통과하도록 허용하고 기본적으로 다른 종류의 트래픽은 차단합니다.
 

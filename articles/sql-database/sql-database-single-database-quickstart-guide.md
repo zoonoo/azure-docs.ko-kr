@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure SQL Database의 단일 데이터베이스 | Microsoft Docs
+title: 빠른 시작 - 단일 데이터베이스
 description: Azure SQL Database의 단일 데이터베이스로 빠르게 시작하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 07/29/2019
-ms.openlocfilehash: 45b0b2bc7a2ef5c3cb6ca801668f7b5be7c8ac73
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 4332d57c8d5587a34ba3a593deb9bd635132b03d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639985"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820962"
 ---
 # <a name="getting-started-with-single-databases-in-azure-sql-database"></a>Azure SQL Database의 단일 데이터베이스로 빠르게 시작하기
 

@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure SQL Database 관리형 인스턴스 | Microsoft Docs
+title: 빠른 시작 - SQL Managed Instance
 description: Azure SQL Database - 관리형 인스턴스를 빠르게 시작하는 방법 알아보기
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 ms.date: 07/11/2019
-ms.openlocfilehash: 65b6b503d107b36813d1716348ce5f11fa840cc0
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 602de3e23eb5419958f84b071e2220550d1d04d0
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937223"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821729"
 ---
 # <a name="getting-started-with-azure-sql-database-managed-instance"></a>Azure SQL Database 관리형 인스턴스 시작하기
 

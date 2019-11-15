@@ -1,5 +1,5 @@
 ---
-title: Ruby를 사용하여 Azure SQL Database 쿼리 | Microsoft Docs
+title: Ruby를 사용하여 쿼리
 description: 이 항목에서는 Ruby를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 5b47ddc2d865108e03b3c649536bfaa700e4a59d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 4bef55b049ee542efdb9d72d13fa196c989c75ec
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569117"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826916"
 ---
 # <a name="quickstart-use-ruby-to-query-an-azure-sql-database"></a>빠른 시작: Ruby를 사용하여 Azure SQL 데이터베이스 쿼리
 

@@ -1,19 +1,19 @@
 ---
-title: Azure HPC Cache 미리 보기 개요
+title: Azure HPC Cache 개요
 description: 고성능 컴퓨팅을 위한 파일 액세스 가속기 솔루션인 Azure HPC Cache에 대해 설명합니다.
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 09/24/2019
+ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: bfbbcd2d7d1bb44e260bedda54ca38ed6860ea67
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 2a008d22de5df8d091e868153205697b4bb343ee
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254492"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73582138"
 ---
-# <a name="what-is-azure-hpc-cache-preview"></a>Azure HPC Cache란? (미리 보기)
+# <a name="what-is-azure-hpc-cache"></a>Azure HPC Cache란?
 
 Azure HPC Cache는 HPC(고성능 컴퓨팅) 작업을 위해 데이터 액세스 속도를 높입니다. Azure에서 파일을 캐싱하여 Azure HPC Cache는 기존 워크플로에 대한 클라우드 컴퓨팅의 확장성을 제공합니다. 이 서비스는 데이터가 로컬 데이터 센터 NAS(Network Attached Storage) 환경과 같이 WAN 연결을 통해 저장된 워크플로에서도 사용할 수 있습니다.
 
@@ -54,13 +54,17 @@ Azure HPC Cache는 다음 Azure 지역에서 제공됩니다.
 * 북유럽
 * 서유럽
 * 동남아시아
+* 시드니
 * 미국 서부 2
+* 한국 중부
 
 최신 가용성 정보를 보려면 [Azure HPC Cache 제품 페이지](https://azure.microsoft.com/services/hpc-cache)를 확인하세요.
 
-## <a name="preview-availability"></a>미리 보기 가용성
+## <a name="service-availability"></a>서비스 가용성
 
-Azure HPC Cache 공개 미리 보기는 서비스 품질을 보장하도록 제한됩니다. [이 양식](https://aka.ms/onboard-hpc-cache)을 입력하여 액세스를 요청합니다. 구독이 액세스 목록에 추가된 후에는 테스트 캐시를 만들 수 있습니다.
+Azure HPC 캐시에서 사용할 각 구독에 대해 액세스를 요청해야 합니다. 이 제한은 일반 공급이 제공되는 처음 몇 달 동안 서비스 품질을 보장하는 데 도움이 됩니다.
+
+[이 양식](https://aka.ms/onboard-hpc-cache)을 입력하여 액세스를 요청합니다. 구독이 액세스 목록에 추가된 후에는 캐시를 만들 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

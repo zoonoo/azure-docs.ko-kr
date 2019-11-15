@@ -1,20 +1,19 @@
 ---
 title: Azure 빠른 시작 - Azure CLI를 사용하여 개체 스토리지에 Blob 만들기 | Microsoft Docs
-description: 이 빠른 시작에서는 개체(Blob) 스토리지에서 Azure CLI를 사용합니다. 그런 다음, CLI를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열합니다.
+description: 이 빠른 시작에서는 Azure CLI를 사용하여 Azure Storage에 BLOB을 업로드하고, BLOB을 다운로드하고, 컨테이너의 BLOB을 나열하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
+ms.date: 11/06/2019
 ms.author: tamram
-ms.reviewer: seguler
-ms.openlocfilehash: 6a0aef9b2fc7a99183ebd6991691245731e00200
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1f3143eced90f97c090c0005375ef50fe48c5f5f
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68565948"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747937"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -39,30 +38,26 @@ Blob은 항상 컨테이너에 업로드됩니다. 폴더에서 컴퓨터의 파
 Blob 저장을 위한 컨테이너는 [az storage container create](/cli/azure/storage/container) 명령을 사용하여 만듭니다.
 
 ```azurecli-interactive
-az storage container create --name mystoragecontainer
+az storage container create --name sample-container
 ```
 
 ## <a name="upload-a-blob"></a>Blob 업로드
 
-Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. Blob Storage에 저장된 대부분의 파일은 블록 Blob으로 저장됩니다. 추가 Blob은 로깅과 같이 기존 내용을 수정하지 않고 기존 Blob에 데이터를 추가해야 할 때 사용됩니다. 페이지 Blob은 IaaS 가상 머신의 VHD 파일을 백업합니다.
+Blob Storage는 블록 Blob, 추가 Blob 및 페이지 Blob을 지원합니다. 이 빠른 시작의 예제에서는 블록 Blob을 사용하는 방법을 보여 줍니다.
 
-먼저 Blob에 업로드할 파일을 만듭니다.
-Azure Cloud Shell을 사용하는 경우 `vi helloworld` 파일을 만들려면 해당 파일이 열릴 때 **삽입**을 누르고 "Hello world"를 입력한 다음, **Esc** 키를 누르고 `:x`를 입력하고 **Enter** 키를 누릅니다.
+먼저 Blob에 업로드할 파일을 만듭니다. Azure Cloud Shell을 사용하는 경우 다음 명령을 사용하여 파일을 만듭니다.
 
-이 예제에서는 [az storage blob upload](/cli/azure/storage/blob) 명령을 사용하여 마지막 단계에서 만든 컨테이너에 Blob을 업로드합니다.
-
-```azurecli-interactive
-az storage blob upload \
-    --container-name mystoragecontainer \
-    --name blobName \
-    --file ~/path/to/local/file
+```bash
+vi helloworld
 ```
 
-Azure Cloud Shell에서 앞에서 설명한 방법으로 파일을 만든 경우 다음 CLI 명령을 대신 사용할 수 있습니다(일반적으로는 경로를 지정해야 하지만, 파일이 기본 디렉터리에 만들어져 있으므로 경로를 별도로 지정할 필요가 없음).
+파일이 열리면 **삽입**을 누릅니다. *Hello World*를 입력한 다음, **Esc** 키를 누릅니다. 그런 다음, *:x*를 입력하고 **Enter** 키를 누릅니다.
+
+이 예제에서는 [az storage blob upload](/cli/azure/storage/blob) 명령을 사용하여 마지막 단계에서 만든 컨테이너에 Blob을 업로드합니다. 루트 디렉터리에서 파일을 만들었기 때문에 파일 경로를 지정할 필요는 없습니다.
 
 ```azurecli-interactive
 az storage blob upload \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --name helloworld \
     --file helloworld
 ```
@@ -77,7 +72,7 @@ az storage blob upload \
 
 ```azurecli-interactive
 az storage blob list \
-    --container-name mystoragecontainer \
+    --container-name sample-container \
     --output table
 ```
 
@@ -87,8 +82,8 @@ az storage blob list \
 
 ```azurecli-interactive
 az storage blob download \
-    --container-name mystoragecontainer \
-    --name blobName \
+    --container-name sample-container \
+    --name helloworld \
     --file ~/destination/path/for/file
 ```
 
@@ -96,27 +91,27 @@ az storage blob download \
 
 [AzCopy](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 유틸리티는 Azure Storage를 위한 또 다른 스크립팅 가능한 고성능 데이터 전송 옵션입니다. AzCopy를 사용하여 Blob, File 및 Table Storage 간에 데이터를 전송할 수 있습니다.
 
-간단한 예제로, 다음은 *myfile.txt* 파일을 *mystoragecontainer* 컨테이너에 업로드하기 위한 AzCopy 명령입니다.
+다음 예제에서는 AzCopy를 사용하여 *myfile.txt*라는 파일을 *sample-container* 컨테이너에 업로드합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```bash
 azcopy \
     --source /mnt/myfiles \
-    --destination https://mystorageaccount.blob.core.windows.net/mystoragecontainer \
-    --dest-key <storage-account-access-key> \
+    --destination https://<account-name>.blob.core.windows.net/sample-container \
+    --dest-key <account-key> \
     --include "myfile.txt"
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작에서 만든 스토리지 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group) 명령으로 리소스 그룹을 삭제합니다.
+이 빠른 시작에서 만든 스토리지 계정을 비롯하여 리소스 그룹의 어떠한 리소스도 더 이상 필요하지 않은 경우 [az group delete](/cli/azure/group) 명령으로 리소스 그룹을 삭제합니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
-az group delete --name myResourceGroup
+az group delete --name <resource-group-name>
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 로컬 디스크와 Azure Blob Storage의 컨테이너 간에 파일을 전송하는 방법을 알아보았습니다. Azure Storage에서 Blob을 사용하는 방법을 자세히 알아보려면 계속해서 Azure Blob Storage 사용에 대한 자습서를 진행하세요.
+이 빠른 시작에서는 로컬 파일 시스템과 Azure Blob 스토리지의 컨테이너 간에 파일을 전송하는 방법을 알아보았습니다. Azure Storage에서 Blob을 사용하는 방법을 자세히 알아보려면 계속해서 Azure Blob Storage 사용에 대한 자습서를 진행하세요.
 
 > [!div class="nextstepaction"]
 > [방법: Azure CLI를 사용한 Blob Storage 작업](storage-how-to-use-blobs-cli.md)

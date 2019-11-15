@@ -7,22 +7,22 @@ manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.topic: overview
-ms.date: 08/31/2019
+ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e3a83730e47686e9d4757f057d2e8da4629fdd7a
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 62ca71e1b42e000f7528a2963793f9bf40663bf3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72312132"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818512"
 ---
-# <a name="entity-functions-preview"></a>엔터티 함수(미리 보기)
+# <a name="entity-functions"></a>엔터티 함수
 
 엔터티 함수는 *지속성 엔터티*라고 하는 작은 상태 부분을 읽고 업데이트하는 작업을 정의합니다. 오케스트레이터 함수와 마찬가지로 엔터티 함수는 특수 트리거 유형인 *엔터티 트리거*를 사용하는 함수입니다. 오케스트레이터 함수와 달리 엔터티 함수는 제어 흐름을 통해 엔터티의 상태를 암시적으로 표시하는 것이 아니라 명시적으로 관리합니다.
 엔터티는 각각 적당한 크기의 상태인 여러 엔터티 간에 작업을 분산하여 애플리케이션을 확장할 수 있는 방법을 제공합니다.
 
 > [!NOTE]
-> 엔터티 함수 및 관련 기능은 Durable Functions 2.0 이상에서만 사용할 수 있습니다. 엔터티 함수는 현재 공개 미리 보기로 있습니다.
+> 엔터티 함수 및 관련 기능은 Durable Functions 2.0 이상에서만 사용할 수 있습니다.
 
 ## <a name="general-concepts"></a>일반 개념
 
@@ -58,7 +58,7 @@ ms.locfileid: "72312132"
 
 **클래스 기반 구문** - 엔터티와 작업이 클래스와 메서드로 표시됩니다. 이 구문은 더 쉽게 읽을 수 있는 코드를 생성하며, 형식이 안전한 방식으로 작업을 호출할 수 있도록 합니다. 클래스 기반 구문은 함수 기반 구문 위에 있는 씬(thin) 계층이므로 두 변형을 모두 동일한 애플리케이션에서 교대로 사용할 수 있습니다.
 
-### <a name="example-function-based-syntax"></a>예제: 함수 기반 구문
+### <a name="example-function-based-syntax---c"></a>예제: 함수 기반 구문 - C#
 
 다음 코드는 지속성 함수로 구현된 간단한 *Counter* 엔터티의 예제입니다. 이 함수는 각각 정수 상태에서 작동하는 세 가지 작업(`add`, `reset` 및 `get`)을 정의합니다.
 
@@ -75,7 +75,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
             ctx.SetState(0);
             break;
         case "get":
-            ctx.Return(ctx.GetState<int>()));
+            ctx.Return(ctx.GetState<int>());
             break;
     }
 }
@@ -83,7 +83,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 
 함수 기반 구문과 이를 사용하는 방법에 대한 자세한 내용은 [함수 기반 구문](durable-functions-dotnet-entities.md#function-based-syntax)을 참조하세요.
 
-### <a name="example-class-based-syntax"></a>예제: 클래스 기반 구문
+### <a name="example-class-based-syntax---c"></a>예제: 클래스 기반 구문 - C#
 
 다음 예제에서는 클래스와 메서드를 사용하여 `Counter` 엔터티를 동일하게 구현합니다.
 
@@ -109,6 +109,45 @@ public class Counter
 이 엔터티의 상태는 카운터의 현재 값을 저장하는 필드가 포함된 `Counter` 형식의 개체입니다. 이 개체를 스토리지에 유지하기 위해 [Json.NET](https://www.newtonsoft.com/json) 라이브러리에서 직렬화 및 역직렬화합니다. 
 
 클래스 기반 구문과 이를 사용하는 방법에 대한 자세한 내용은 [엔터티 클래스 정의](durable-functions-dotnet-entities.md#defining-entity-classes)를 참조하세요.
+
+### <a name="example-javascript-entity"></a>예제: JavaScript 엔터티
+
+지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0**부터 JavaScript에서 사용할 수 있습니다. 다음 코드는 JavaScript로 작성된 지속성 함수로 구현된 *Counter* 엔터티입니다.
+
+**function.json**
+```json
+{
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}
+```
+
+**index.js**
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
 
 ## <a name="accessing-entities"></a>엔터티 액세스
 
@@ -145,6 +184,16 @@ public static Task Run(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
 *신호*라는 용어는 엔터티 API 호출이 단방향이며 비동기적임을 의미합니다. *클라이언트 함수*는 엔터티에서 작업을 처리한 시기를 인식할 수 없습니다. 또한 클라이언트 함수는 결과 값 또는 예외를 관찰할 수 없습니다. 
 
 ### <a name="example-client-reads-an-entity-state"></a>예제: 클라이언트에서 엔터티 상태 읽기
@@ -163,6 +212,16 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    return context.df.readEntityState(entityId);
+};
+```
+
 엔터티 상태 쿼리는 지속성 추적 저장소로 보내지고 엔터티의 가장 최근 *persisted*(지속됨) 상태를 반환합니다. 이 상태는 항상 "committed"(커밋됨) 상태입니다. 즉 작업을 실행하는 중간에 가정된 임시 중간 상태가 아닙니다. 그러나 이 상태는 엔터티의 메모리 내 상태에 비해 오래되었을 수 있습니다. 다음 섹션에서 설명한 대로 오케스트레이션만 엔터티의 메모리 내 상태를 읽을 수 있습니다.
 
 ### <a name="example-orchestration-signals-and-calls-an-entity"></a>예제: 오케스트레이션에서 엔터티에 신호 보내기 및 엔터티 호출
@@ -176,7 +235,7 @@ public static async Task Run(
 {
     var entityId = new EntityId(nameof(Counter), "myCounter");
 
-   // Two-way call to the entity which returns a value - awaits the response
+    // Two-way call to the entity which returns a value - awaits the response
     int currentValue = await context.CallEntityAsync<int>(entityId, "Get");
     if (currentValue < 10)
     {
@@ -184,6 +243,21 @@ public static async Task Run(
         context.SignalEntity(entityId, "Add", 1);
     }
 }
+```
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context){
+    const entityId = new df.EntityId("Counter", "myCounter");
+
+    // Two-way call to the entity which returns a value - awaits the response
+    currentValue = yield context.df.callEntity(entityId, "get");
+    if (currentValue < 10) {
+        // One-way signal to the entity which updates the value - does not await a response
+        yield context.df.signalEntity(entityId, "add", 1);
+    }
+});
 ```
 
 오케스트레이션만 엔터티를 호출하고, 반환 값 또는 예외일 수 있는 응답을 받을 수 있습니다. [클라이언트 바인딩](durable-functions-bindings.md#entity-client)을 사용하는 클라이언트 함수는 엔터티에 대한 *신호만 보낼* 수 있습니다.
@@ -198,82 +272,33 @@ public static async Task Run(
 
 ```csharp
    case "add":
+        var currentValue = ctx.GetState<int>();
         var amount = ctx.GetInput<int>();
         if (currentValue < 100 && currentValue + amount >= 100)
         {
             ctx.SignalEntity(new EntityId("MonitorEntity", ""), "milestone-reached", ctx.EntityKey);
         }
-        currentValue += amount;
+
+        ctx.SetState(currentValue + amount);
         break;
 ```
 
-다음 코드 조각에서는 주입된 서비스를 엔터티 클래스에 통합하는 방법을 보여 줍니다.
-
-```csharp
-public class HttpEntity
-{
-    private readonly HttpClient client;
-
-    public HttpEntity(IHttpClientFactory factory)
-    {
-        this.client = factory.CreateClient();
-    }
-
-    public async Task<int> GetAsync(string url)
-    {
-        using (var response = await this.client.GetAsync(url))
-        {
-            return (int)response.StatusCode;
+```javascript
+    case "add":
+        const amount = context.df.getInput();
+        if (currentValue < 100 && currentValue + amount >= 100) {
+            const entityId = new df.EntityId("MonitorEntity", "");
+            context.df.signalEntity(entityId, "milestone-reached", context.df.instanceId);
         }
-    }
-
-    // The function entry point must be declared static
-    [FunctionName(nameof(HttpEntity))]
-    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
-        => ctx.DispatchAsync<HttpEntity>();
-}
+        context.df.setState(currentValue + amount);
+        break;
 ```
-
-> [!NOTE]
-> 일반 .NET Azure Functions에서 생성자 주입을 사용하는 경우와 달리 클래스 기반 엔터티에 대한 함수 진입점 메서드를 `static`으로 *선언해야* 합니다. 비정적 함수 진입점을 선언하면 일반 Azure Functions 개체 이니셜라이저와 지속성 엔터티 개체 이니셜라이저 간에 충돌이 발생할 수 있습니다.
-
-### <a name="bindings-in-entity-classes-net"></a>엔터티 클래스의 바인딩(.NET)
-
-일반 함수와 달리 엔터티 클래스 메서드는 입력 및 출력 바인딩에 직접 액세스할 수 없습니다. 대신, 진입점 함수 선언에서 바인딩 데이터를 캡처한 다음, `DispatchAsync<T>` 메서드에 전달해야 합니다. `DispatchAsync<T>`에 전달된 모든 개체는 자동으로 엔터티 클래스 생성자에 인수로 전달됩니다.
-
-다음 예제에서는 [Blob 입력 바인딩](../functions-bindings-storage-blob.md#input)의 `CloudBlobContainer` 참조를 클래스 기반 엔터티에 사용할 수 있게 하는 방법을 보여 줍니다.
-
-```csharp
-public class BlobBackedEntity
-{
-    private readonly CloudBlobContainer container;
-
-    public BlobBackedEntity(CloudBlobContainer container)
-    {
-        this.container = container;
-    }
-
-    // ... entity methods can use this.container in their implementations ...
-    
-    [FunctionName(nameof(BlobBackedEntity))]
-    public static Task Run(
-        [EntityTrigger] IDurableEntityContext context,
-        [Blob("my-container", FileAccess.Read)] CloudBlobContainer container)
-    {
-        // passing the binding object as a parameter makes it available to the
-        // entity class constructor
-        return context.DispatchAsync<BlobBackedEntity>(container);
-    }
-}
-```
-
-Azure Functions의 바인딩에 대한 자세한 내용은 [Azure Functions 트리거 및 바인딩](../functions-triggers-bindings.md) 설명서를 참조하세요.
 
 ## <a name="entity-coordination"></a>엔터티 조정
 
 여러 엔터티 간에 작업을 조정해야 하는 경우가 있을 수 있습니다. 예를 들어 은행 애플리케이션에서 개별 은행 계좌를 나타내는 엔터티가 있을 수 있습니다. 한 계좌에서 다른 계좌로 자금을 이체하는 경우 _원본_ 계좌에 충분한 자금이 있고 _원본_ 및 _대상_ 계좌 모두에 대한 업데이트가 거래 측면에서 일관된 방식으로 수행되는지 확인해야 합니다.
 
-### <a name="example-transfer-funds"></a>예제: 자금 이체
+### <a name="example-transfer-funds-c"></a>예제: 자금 이체(C#)
 
 다음 예제 코드에서는 오케스트레이터 함수를 사용하여 두 _계좌_ 엔터티 간에 자금을 이체합니다. 엔터티 업데이트를 조정하려면 `LockAsync` 메서드를 사용하여 _임계 영역_을 오케스트레이션에 만들어야 합니다.
 
@@ -322,7 +347,7 @@ public static async Task<bool> TransferFundsAsync(
 
 .NET에서 `LockAsync`는 삭제될 때 임계 영역을 종료하는 `IDisposable`을 반환합니다. 이 `IDisposable` 결과를 `using` 블록과 함께 사용하여 임계 영역에 대한 구문 표현을 가져올 수 있습니다.
 
-앞의 예제에서 오케스트레이터 함수는 자금을 _원본_ 엔터티에서 _대상_ 엔터티로 이체했습니다. `LockAsync` 메서드는 _원본_ 및 _대상_ 계좌 엔터티를 모두 잠궜습니다. 이 잠금을 통해 오케스트레이션 논리에서 `using` 문 끝에 있는 _임계 영역_을 종료할 때까지 다른 클라이언트에서 두 계좌의 상태를 쿼리하거나 수정할 수 없습니다. 이로 인해 _원본_ 계좌에서 초과 인출될 가능성이 효과적으로 차단되었습니다.
+앞의 예제에서 오케스트레이터 함수는 자금을 _원본_ 엔터티에서 _대상_ 엔터티로 이체했습니다. `LockAsync` 메서드는 _원본_ 및 _대상_ 계좌 엔터티를 모두 잠궜습니다. 이 잠금을 통해 오케스트레이션 논리에서 `using` 문 끝에 있는 _임계 영역_을 종료할 때까지 다른 클라이언트에서 두 계좌의 상태를 쿼리하거나 수정할 수 없습니다. 이 동작으로 인해 _원본_ 계좌에서 초과 인출될 가능성이 효과적으로 차단되었습니다.
 
 > [!NOTE] 
 > 오케스트레이션이 종료되면(일반적으로 또는 오류로 인해) 진행 중인 모든 임계 영역이 암시적으로 종료되고 모든 잠금이 해제됩니다.

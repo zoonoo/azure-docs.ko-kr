@@ -1,5 +1,5 @@
 ---
-title: 'VS Code: Azure SQL Database에서 데이터 연결 및 쿼리 | Microsoft Docs'
+title: VS Code를 사용하여 연결 및 쿼리
 description: Visual Studio Code를 사용하여 Azure에서 SQL Database에 연결하는 방법을 알아봅니다. 그런 다음 Transact-SQL(T-SQL) 문을 실행하여 데이터를 쿼리하고 편집합니다.
 keywords: SQL Database에 연결
 services: sql-database
@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: d8f12e699c17787d897a7f5ed23eccdbf3659921
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 28b35f273783b2e4d0b8f59c5bc5be384b933ba2
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569135"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826885"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>빠른 시작: Visual Studio Code를 사용하여 Azure SQL Database 연결 및 쿼리
 

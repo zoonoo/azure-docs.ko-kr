@@ -7,20 +7,19 @@ author: cynthn
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 8/20/2019
+ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c05eb59c42700394f755f226405f16a47edc73c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8dbe8e43122fb7fa00129dec0d9961bd70e5a784
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091559"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693353"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Linux 가상 머신 만들기
 
@@ -50,15 +49,14 @@ Bash 셸을 열고 [ssh-keygen](https://www.ssh.com/ssh/keygen/)을 사용하여
 
 ## <a name="create-virtual-machine"></a>가상 머신 만들기
 
-1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
-
-1. **인기 항목**에서 **Ubuntu Server 18.04 LTS**를 선택합니다.
-
-1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, **리소스 그룹** 아래에서 **새로 만들기**를 선택합니다. 리소스 그룹 이름으로 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. 
+1. 검색에서 **가상 머신**을 입력합니다.
+1. **서비스**에서 **가상 머신**을 선택합니다.
+1. **가상 머신** 페이지에서 **추가**를 선택합니다. **가상 머신 만들기** 페이지가 열립니다.
+1. **기본** 탭의 **프로젝트 세부 정보** 아래에서 올바른 구독이 선택되어 있는지 확인한 다음, 리소스 그룹 **새로 만들기**를 선택합니다. 이름으로 *myResourceGroup*을 입력합니다.* 
 
     ![VM에 대한 새 리소스 그룹 만들기](./media/quick-create-portal/project-details.png)
 
-1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름**에 *myVM*을 입력하고 **지역**에 *미국 동부*를 선택합니다. 다른 기본값을 그대로 둡니다.
+1. **인스턴스 세부 정보** 아래에서 **가상 머신 이름**에 *myVM*을 입력하고 **지역**에 *미국 동부*를 선택한 후 **이미지**로 *Ubuntu 18.04 LTS*를 선택합니다. 다른 기본값은 그대로 둡니다.
 
     ![인스턴스 세부 정보 섹션](./media/quick-create-portal/instance-details.png)
 

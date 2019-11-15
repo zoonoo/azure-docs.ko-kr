@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: abee722e725b55933d7ff1acdcd1e9a2e701502b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 14615d596c1b673a234ccef541fecfbfce9d5f27
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752142"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622597"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -120,9 +120,9 @@ Azure Portal 환경에서 Resource Graph 샘플 대시보드를 제거하려면 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [쿼리 언어](./concepts/query-language.md)에 대해 자세히 알아보기
-- [리소스 탐색](./concepts/explore-resources.md)에 대해 알아보기
-- [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리 실행
-- [시작 쿼리](./samples/starter.md) 샘플 보기
-- [고급 쿼리](./samples/advanced.md) 샘플 참조
-- [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)에서 사용자 의견 제공
+- [쿼리 언어](./concepts/query-language.md)에 대한 자세한 정보를 가져옵니다.
+- [리소스를 살펴 보는](./concepts/explore-resources.md) 방법을 자세히 알아보세요.
+- [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리를 실행합니다.
+- [시작 쿼리](./samples/starter.md) 샘플을 참조하세요.
+- [고급 쿼리](./samples/advanced.md) 샘플을 참조하세요.
+- [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)에서 사용자 의견을 제공합니다.

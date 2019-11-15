@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 06/12/2019
-ms.openlocfilehash: 5108424c4e39c1c47710c0e25e4e22c4474e68ad
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 782c860ca50c1ef12eda1ec33f29c5103b396349
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68941690"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73665298"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight에서 ML Services란
 
@@ -23,7 +23,7 @@ HDInsight의 ML Services는 Azure Blob 또는 Data Lake Store에 로드된 거�
 
 클러스터의 에지 노드는 클러스터에 연결하고 R 스크립트를 실행하는 데 편리한 위치를 제공합니다. 에지 노드를 사용하는 경우 에지 노드 서버의 코어에서 ScaleR의 병렬화된 분산 함수를 실행하는 옵션이 제공됩니다. 또한 ScaleR의 Hadoop Map Reduce 또는 Apache Spark 컴퓨팅 컨텍스트를 사용하여 클러스터의 노드 전반에 함수를 실행할 수도 있습니다.
 
-분석 결과에서 얻은 모델 또는 예측을 온-프레미스 용도로 다운로드할 수 있습니다. 또한 특히 [Azure Machine Learning Studio](https://studio.azureml.net) [웹 서비스](../../machine-learning/studio/publish-a-machine-learning-web-service.md)를 통해 Azure의 다른 곳에서 작동할 수 있습니다.
+분석 결과에서 얻은 모델 또는 예측을 온-프레미스 용도로 다운로드할 수 있습니다. 또한 특히 [Azure Machine Learning Studio(클래식)](https://studio.azureml.net) [웹 서비스](../../machine-learning/studio/deploy-a-machine-learning-web-service.md)를 통해 Azure의 다른 곳에서 작동할 수 있습니다.
 
 ## <a name="get-started-with-ml-services-on-hdinsight"></a>HDInsight에서 ML Services 시작
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center 빠른 시작 - Security Center에 Linux 컴퓨터 온보딩 | Microsoft Docs
+title: Azure Security Center에 Linux 컴퓨터 온보딩 | Microsoft Docs
 description: 이 빠른 시작에서는 Security Center에 Linux 컴퓨터를 온보딩하는 방법을 보여 줍니다.
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 82ce466f12acef529b5e45e5dd94c64b94be0f7e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 9f49b858a23d0a1f58505d9f9971a31e8c9167e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202895"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73664491"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>빠른 시작: Azure Security Center에 Linux 컴퓨터 온보딩
 Azure 구독을 온보딩한 후 에이전트를 프로비저닝하여 Azure 외부(예: 온-프레미스 또는 다른 클라우드)에서 실행되는 Linux 리소스에 Security Center를 사용하도록 설정할 수 있습니다. 에이전트는 MMA(Microsoft Monitoring Agent)라고 하지만 OMS 에이전트라고도 합니다.

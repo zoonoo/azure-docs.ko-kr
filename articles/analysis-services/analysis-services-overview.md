@@ -1,18 +1,18 @@
 ---
 title: Azure Analysis Services란? | Microsoft Docs
-description: Azure에서 Analysis Services의 큰 그림을 가져옵니다.
+description: 클라우드에서 엔터프라이즈급 데이터 모델을 제공하는 완전히 관리되는 PaaS(platform as a service)인 Azure Analysis Services에 대해 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4369f1ce7d6ef90e8489dbec5daa181406c0fecf
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: eb69028a3b5ea232fbafe8286c3067a22f06d455
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512601"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572822"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -200,9 +200,9 @@ Azure 보안에 대한 자세한 내용은 [Microsoft 보안 센터](https://www
 
 ### <a name="visual-studio"></a>Visual Studio
 
-[Visual Studio용 SSDT(SQL Server Data Tools)](/sql/ssdt/download-sql-server-data-tools-ssdt) 평가판을 사용하여 모델을 개발하고 배포합니다. SSDT에는 빠르게 준비하고 실행할 수 있는 Analysis Services 프로젝트 템플릿이 포함되어 있습니다. 이제 SSDT에는 1400 테이블 형식 모델에 대한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능도 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다. 
+Analysis Services 프로젝트를 사용하여 Visual Studio에서 모델을 개발하고 배포합니다. Analysis Services 프로젝트 확장에는 빠르게 준비하고 실행할 수 있는 템플릿 및 마법사가 포함되어 있습니다. 이제 Visual Studio의 모델 작성 환경에는 테이블 형식으로 된 1400개 이상의 모델을 위한 최신 데이터 가져오기 데이터 원본 쿼리 및 매시업 기능이 포함되어 있습니다. Power BI Desktop 및 Excel 2016에서 데이터 가져오기에 익숙한 경우 고도로 사용자 지정된 데이터 원본 쿼리를 만드는 것이 얼마나 쉬운지 이미 알고 있습니다. 
 
-Visual Studio 2017 이상을 사용하는 경우 Microsoft Analysis Services Projects는 무료로 설치할 수 있는 VSIX 패키지로 제공됩니다. [Marketplace에서 다운로드](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Microsoft Analysis Services 프로젝트는 설치 가능한 무료 VSIX 패키지로 제공됩니다. [Marketplace에서 다운로드](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects). 이 확장은 무료 Community Edition을 비롯하여 모든 Visual Studio 2017 이상 버전에서 작동합니다.
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

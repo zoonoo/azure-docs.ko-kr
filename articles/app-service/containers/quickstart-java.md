@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 2d486a5e181e9131ef7a1e91f52018fb2be82dc1
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 3b011d3d7dc881d44fdcafb29efacf9548866d7a
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105230"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747739"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-linux"></a>빠른 시작: Linux의 App Service에서 Java 앱 만들기
 
@@ -47,44 +47,23 @@ mvn archetype:generate -DgroupId=example.demo -DartifactId=helloworld -Darchetyp
 
 ## <a name="configure-the-maven-plugin"></a>Maven 플러그 인 구성
 
-Maven에서 배포하려면 Cloud Shell의 코드 편집기를 사용하여 `helloworld` 디렉터리의 `pom.xml` 프로젝트 파일을 엽니다. 
-
-```bash
-code pom.xml
-```
-
-그런 다음, `pom.xml` 파일의 `<build>` 요소 내에 다음 플러그 인 정의를 추가합니다.
-
-```xml
-<plugins>
-    <!--*************************************************-->
-    <!-- Deploy to Tomcat in App Service Linux           -->
-    <!--*************************************************-->
-    <plugin>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.7.0</version>       
-    </plugin>
-</plugins>
-```
-
 Azure App Service에 대한 배포 프로세스는 Azure CLI의 계정 자격 증명을 사용합니다. 계속하려면 [Azure CLI로 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)합니다.
 
 ```azurecli
 az login
 ```
 
-그런 다음 배포를 구성하고 명령 프롬프트에서 maven 명령 `mvn azure-webapp:config`를 실행하고 기본 구성을 사용할 수 있습니다. **확인(Y/N)** 메시지가 표시될 때까지 **ENTER** 키를 누른 후 **'y'** 를 누르면 구성이 완료됩니다.
+그런 다음 배포를 구성하고 명령 프롬프트에서 maven 명령 `mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config`를 실행하고 기본 구성을 사용할 수 있습니다. **확인(Y/N)** 메시지가 표시될 때까지 **ENTER** 키를 누른 후 **'y'** 를 누르면 구성이 완료됩니다.
 
 ```cmd
-~@Azure:~/helloworld$ mvn azure-webapp:config
+~@Azure:~/helloworld$ mvn com.microsoft.azure:azure-webapp-maven-plugin:1.8.0:config
 [INFO] Scanning for projects...
 [INFO]
 [INFO] ----------------------< example.demo:helloworld >-----------------------
 [INFO] Building helloworld Maven Webapp 1.0-SNAPSHOT
 [INFO] --------------------------------[ war ]---------------------------------
 [INFO]
-[INFO] --- azure-webapp-maven-plugin:1.7.0:config (default-cli) @ helloworld ---
+[INFO] --- azure-webapp-maven-plugin:1.8.0:config (default-cli) @ helloworld ---
 [WARNING] The plugin may not work if you change the os of an existing webapp.
 Define value for OS(Default: Linux):
 1. linux [*]
@@ -92,14 +71,13 @@ Define value for OS(Default: Linux):
 3. docker
 Enter index to use:
 Define value for javaVersion(Default: jre8):
-1. jre8 [*]
-2. java11
+1. Java 11
+2. Java 8 [*]
 Enter index to use:
 Define value for runtimeStack(Default: TOMCAT 8.5):
 1. TOMCAT 9.0
-2. jre8
-3. TOMCAT 8.5 [*]
-4. WILDFLY 14
+2. TOMCAT 8.5 [*]
+3. WILDFLY 14
 Enter index to use:
 Please confirm webapp properties
 AppName : helloworld-1558400876966
@@ -122,7 +100,7 @@ Confirm (Y/N)? : Y
 `<schemaVersion>` | false | 구성 스키마의 버전을 지정합니다. 지원되는 값은 `v1`, `v2`입니다. | 1.5.2
 `<resourceGroup>` | true | 웹앱에 대한 Azure 리소스 그룹입니다. | 0.1.0+
 `<appName>` | true | 웹앱의 이름입니다. | 0.1.0+
-[`<region>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) | true | 웹앱이 호스트되는 지역을 지정합니다(기본값: **westus**). [지원되는 지역](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) 섹션에 있는 모든 유효한 지역입니다. | 0.1.0+
+[`<region>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) | true | 웹앱이 호스트되는 지역을 지정합니다(기본값: **westeurope**). [지원되는 지역](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#region) 섹션에 있는 모든 유효한 지역입니다. | 0.1.0+
 [`<pricingTier>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme##pricingtier) | false | 웹앱에 대한 가격 책정 계층입니다. 기본값은 **P1V2**입니다.| 0.1.0+
 [`<runtime>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting) | true | 런타임 환경 구성이며, [여기](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#runtimesetting)에서 세부 정보를 볼 수 있습니다. | 0.1.0+
 [`<deployment>`](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting) | true | 배포 구성이며, [여기](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme#deploymentsetting)에서 세부 정보를 볼 수 있습니다. | 0.1.0+

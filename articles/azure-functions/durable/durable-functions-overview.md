@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: a917a823d47d6a072cf5a3ee5d636b432913df9a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 0b85d6fbe8e66b94bad372ccb29e5489dd81587b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299436"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614795"
 ---
 # <a name="what-are-durable-functions"></a>Durable Functions란?
 
@@ -57,7 +57,7 @@ Durable Functions에 대한 기본 사용 사례는 서버리스 애플리케이
 ```csharp
 [FunctionName("Chaining")]
 public static async Task<object> Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     try
     {
@@ -73,7 +73,7 @@ public static async Task<object> Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -88,10 +88,10 @@ module.exports = df.orchestrator(function*(context) {
 
 이 예제에서 `F1`, `F2`, `F3` 및 `F4` 값은 함수 앱에 있는 다른 함수의 이름입니다. 일반적인 명령적 코딩 구문을 사용하여 제어 흐름을 구현할 수 있습니다. 코드는 위에서 아래로 실행됩니다. 코드에는 조건부 및 루프와 같은 기존 언어 제어 흐름 의미 체계가 포함될 수 있습니다. `try`/`catch`/`finally` 블록에는 오류 처리 논리가 포함될 수 있습니다.
 
-`context` 매개 변수인 [DurableOrchestrationContext]\(.NET\) 및 `context.df` 개체(JavaScript)를 사용하여 이름을 기준으로 다른 함수를 호출하고, 매개 변수를 전달하며, 함수 출력을 반환할 수 있습니다. 코드에서 `await`(C#) 또는 `yield`(JavaScript)를 호출할 때마다 Durable Functions 프레임워크는 현재 함수 인스턴스의 진행률 검사점을 설정합니다. 프로세스 또는 VM이 실행 중간에 재활용되면 함수 인스턴스가 이전 `await` 또는 `yield` 호출에서 다시 시작됩니다. 자세한 내용은 다음 섹션인 '패턴 #2: 팬아웃/팬인'을 참조하세요.
+`context` 매개 변수인 [IDurableOrchestrationContext] \(.NET\) 및 `context.df` 개체(JavaScript)를 사용하여 이름을 기준으로 다른 함수를 호출하고, 매개 변수를 전달하며, 함수 출력을 반환할 수 있습니다. 코드에서 `await`(C#) 또는 `yield`(JavaScript)를 호출할 때마다 Durable Functions 프레임워크는 현재 함수 인스턴스의 진행률 검사점을 설정합니다. 프로세스 또는 VM이 실행 중간에 재활용되면 함수 인스턴스가 이전 `await` 또는 `yield` 호출에서 다시 시작됩니다. 자세한 내용은 다음 섹션인 '패턴 #2: 팬아웃/팬인'을 참조하세요.
 
 > [!NOTE]
-> JavaScript의 `context` 개체는 [DurableOrchestrationContext] 매개 변수 외에도 [함수 컨텍스트](../functions-reference-node.md#context-object) 전체를 나타냅니다.
+> JavaScript의 `context` 개체는 [IDurableOrchestrationContext] 매개 변수 외에도 [함수 컨텍스트](../functions-reference-node.md#context-object) 전체를 나타냅니다.
 
 ### <a name="fan-in-out"></a>패턴 #2: 팬아웃/팬인
 
@@ -108,7 +108,7 @@ Durable Functions 확장에서는 비교적 간단한 코드를 사용하여 이
 ```csharp
 [FunctionName("FanOutFanIn")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     var parallelTasks = new List<Task<int>>();
 
@@ -128,7 +128,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -204,7 +204,7 @@ Durable Functions 확장은 장기 실행 오케스트레이션을 관리하는 
 
 ![모니터 패턴의 다이어그램](./media/durable-functions-concepts/monitor.png)
 
-몇 줄의 코드에서 Durable Functions를 사용하여 임의의 엔드포인트를 관찰하는 여러 모니터를 만들 수 있습니다. 조건이 충족되면 모니터에서 실행을 종료하거나 [DurableOrchestrationClient](durable-functions-instance-management.md)에서 모니터를 종료할 수 있습니다. 특정 조건(예: 지수 백오프)에 따라 모니터의 `wait` 간격을 변경할 수 있습니다. 
+몇 줄의 코드에서 Durable Functions를 사용하여 임의의 엔드포인트를 관찰하는 여러 모니터를 만들 수 있습니다. 조건이 충족되면 모니터에서 실행을 종료하거나 `IDurableOrchestrationClient`에서 모니터를 종료할 수 있습니다. 특정 조건(예: 지수 백오프)에 따라 모니터의 `wait` 간격을 변경할 수 있습니다. 
 
 다음 코드에서는 기본 모니터를 구현합니다.
 
@@ -213,7 +213,7 @@ Durable Functions 확장은 장기 실행 오케스트레이션을 관리하는 
 ```csharp
 [FunctionName("MonitorJobStatus")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     int jobId = context.GetInput<int>();
     int pollingInterval = GetPollingInterval();
@@ -238,7 +238,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -285,7 +285,7 @@ module.exports = df.orchestrator(function*(context) {
 ```csharp
 [FunctionName("ApprovalWorkflow")]
 public static async Task Run(
-    [OrchestrationTrigger] DurableOrchestrationContext context)
+    [OrchestrationTrigger] IDurableOrchestrationContext context)
 {
     await context.CallActivityAsync("RequestApproval", null);
     using (var timeoutCts = new CancellationTokenSource())
@@ -307,7 +307,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-2x-only"></a>JavaScript(Functions 2.x만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -331,13 +331,13 @@ module.exports = df.orchestrator(function*(context) {
 
 지속성 타이머를 만들려면 `context.CreateTimer`(.NET) 또는 `context.df.createTimer`(JavaScript)를 호출합니다. 알림은 `context.WaitForExternalEvent`(.NET) 또는 `context.df.waitForExternalEvent`(JavaScript)에서 수신됩니다. 그런 다음, `Task.WhenAny`(.NET) 또는 `context.df.Task.any`(JavaScript)를 호출하여 에스컬레이션할지(시간 제한이 먼저 발생함) 또는 승인을 처리할지(시간 제한 전에 승인이 수신됨)를 결정합니다.
 
-외부 클라이언트는 [기본 제공 HTTP API](durable-functions-http-api.md#raise-event) 또는 다른 함수의 [DurableOrchestrationClient.RaiseEventAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RaiseEventAsync_System_String_System_String_System_Object_) API를 사용하여 이벤트 알림을 대기 중인 오케스트레이터 함수에 전달할 수 있습니다.
+외부 클라이언트는 [기본 제공 HTTP API](durable-functions-http-api.md#raise-event) 또는 다른 함수의 `RaiseEventAsync`(.NET) 또는 `raiseEvent`(JavaScript) 메서드를 사용하여 이벤트 알림을 대기 중인 오케스트레이터 함수에 전달할 수 있습니다.
 
 ```csharp
 [FunctionName("RaiseEventToOrchestration")]
 public static async Task Run(
     [HttpTrigger] string instanceId,
-    [OrchestrationClient] DurableOrchestrationClient client)
+    [DurableClient] IDurableOrchestrationClient client)
 {
     bool isApproved = true;
     await client.RaiseEventAsync(instanceId, "ApprovalEvent", isApproved);
@@ -358,7 +358,7 @@ module.exports = async function (context) {
 curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/ApprovalEvent -H "Content-Type: application/json"
 ```
 
-### <a name="aggregator"></a>패턴 #6: 집계(미리 보기)
+### <a name="aggregator"></a>패턴 #6: 집계
 
 여섯 번째 패턴은 일정 기간 동안의 이벤트 데이터를 주소 지정 가능한 단일 *엔터티*로 집계하는 것입니다. 이 패턴에서 집계되는 데이터는 여러 원본에서 제공되거나, 일괄 처리로 전달되거나, 장기간에 걸쳐 분산될 수 있습니다. 집계는 도착한 이벤트 데이터에 대한 작업을 수행해야 할 수 있으며, 외부 클라이언트는 집계된 데이터를 쿼리해야 할 수도 있습니다.
 
@@ -366,33 +366,50 @@ curl -d "true" http://localhost:7071/runtime/webhooks/durabletask/instances/{ins
 
 일반적인 상태 비저장 함수를 사용하여 이러한 패턴을 구현하려고 할 때 어려운 점은 동시성 제어가 엄청난 과제가 된다는 것입니다. 여러 스레드에서 동일한 데이터를 동시에 수정하는 것과 집계가 한 번에 하나의 VM에서만 실행되도록 하는 것에 대해 걱정할 필요가 있습니다.
 
-[지속성 엔터티 함수](durable-functions-preview.md#entity-functions)를 사용하면 이 패턴을 단일 함수로 쉽게 구현할 수 있습니다.
+[지속성 엔터티](durable-functions-entities.md)를 사용하여 이 패턴을 단일 함수로 쉽게 구현할 수 있습니다.
 
 ```csharp
 [FunctionName("Counter")]
 public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-
     switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
             int amount = ctx.GetInput<int>();
-            currentValue += amount;
+            ctx.SetState(currentValue + amount);
             break;
         case "reset":
-            currentValue = 0;
+            ctx.SetState(0);
             break;
         case "get":
             ctx.Return(currentValue);
             break;
     }
-
-    ctx.SetState(currentValue);
 }
 ```
 
-지속성 엔터티는 .NET 클래스로 모델링할 수도 있습니다. 작업 목록이 고정되어 커지는 경우 이 모델이 유용할 수 있습니다. 다음 예제에서는 .NET 클래스와 메서드를 사용하여 `Counter` 엔터티를 동일하게 구현합니다.
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.entity(function(context) {
+    const currentValue = context.df.getState(() => 0);
+    switch (context.df.operationName) {
+        case "add":
+            const amount = context.df.getInput();
+            context.df.setState(currentValue + amount);
+            break;
+        case "reset":
+            context.df.setState(0);
+            break;
+        case "get":
+            context.df.return(currentValue);
+            break;
+    }
+});
+```
+
+지속성 엔터티는 .NET에서 클래스로 모델링할 수도 있습니다. 작업 목록이 고정되어 커지는 경우 이 모델이 유용할 수 있습니다. 다음 예제에서는 .NET 클래스와 메서드를 사용하여 `Counter` 엔터티를 동일하게 구현합니다.
 
 ```csharp
 public class Counter
@@ -418,7 +435,7 @@ public class Counter
 [FunctionName("EventHubTriggerCSharp")]
 public static async Task Run(
     [EventHubTrigger("device-sensor-events")] EventData eventData,
-    [OrchestrationClient] IDurableOrchestrationClient entityClient)
+    [DurableClient] IDurableOrchestrationClient entityClient)
 {
     var metricType = (string)eventData.Properties["metric"];
     var delta = BitConverter.ToInt32(eventData.Body, eventData.Body.Offset);
@@ -429,10 +446,21 @@ public static async Task Run(
 }
 ```
 
-동적으로 생성된 프록시는 엔터티에 대한 신호를 형식이 안전한 방식으로 보내는 데에도 사용할 수 있습니다. 그리고 신호를 보내는 것 외에도 클라이언트는 오케스트레이션 클라이언트 바인딩에서 [형식이 안전한 메서드](durable-functions-bindings.md#entity-client-usage)를 사용하여 엔터티 함수의 상태를 쿼리할 수 있습니다.
-
 > [!NOTE]
-> 엔터티 함수는 현재 [Durable Functions 2.0 미리 보기](durable-functions-preview.md)의 일부로 .NET에서만 사용할 수 있습니다.
+> 동적으로 생성된 프록시는 .NET에서 엔터티에 대한 신호를 형식이 안전한 방식으로 보내는 데에도 사용할 수 있습니다. 그리고 신호를 보내는 것 외에도 클라이언트는 오케스트레이션 클라이언트 바인딩에서 [형식이 안전한 메서드](durable-functions-bindings.md#entity-client-usage)를 사용하여 엔터티 함수의 상태를 쿼리할 수 있습니다.
+
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = async function (context) {
+    const client = df.getClient(context);
+    const entityId = new df.EntityId("Counter", "myCounter");
+    await context.df.signalEntity(entityId, "add", 1);
+};
+```
+
+엔터티 함수는 [Durable Functions 2.0](durable-functions-versions.md) 이상에서 사용할 수 있습니다.
 
 ## <a name="the-technology"></a>기술
 

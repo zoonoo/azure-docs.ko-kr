@@ -4,14 +4,14 @@ description: Azure에서 Java Spring 애플리케이션을 배포 및 관리하�
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: overview
-ms.date: 10/04/2019
+ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: c58e6b2a0c0de8295df65b44fbdeaeb2d4461948
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 9709d7edb7c48ccfdb551d0e837a098289a5097a
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166526"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721258"
 ---
 # <a name="what-is-azure-spring-cloud"></a>Azure Spring Cloud란?
 
@@ -19,8 +19,7 @@ Azure Spring Cloud를 사용하면 코드 변경 없이 Spring Boot 기반 마�
 
 Azure 에코시스템의 일부인 Azure Spring Cloud를 사용하면 스토리지, 데이터베이스, 모니터링 등을 비롯한 다른 Azure 서비스에 쉽게 바인딩할 수 있습니다.
 
-Azure Spring Cloud는 현재 미리 보기로 제공되고 있습니다.  미리 보기로 제공되는 동안 이 서비스에 액세스하려면 [이 양식을 작성](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-)하세요.
+Azure Spring Cloud는 현재 퍼블릭 미리 보기로 제공됩니다. 퍼블릭 미리 보기 제품을 통해 고객은 공식 릴리스 전에 새로운 기능을 시험해 볼 수 있습니다.  퍼블릭 미리 보기 기능 및 서비스는 프로덕션 용도로 사용되지 않습니다.  미리 보기 동안 제공되는 지원에 대한 자세한 내용은 [FAQ](https://azure.microsoft.com/support/faq/)를 검토하거나 [지원 요청](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조하여 자세히 알아보세요.
 
 시작하려면 [Azure CLI](spring-cloud-quickstart-launch-app-cli.md), [Azure Portal](spring-cloud-quickstart-launch-app-portal.md) 또는 [Maven](spring-cloud-quickstart-launch-app-maven.md)을 사용하여 Spring Cloud 빠른 시작을 완료합니다.
 

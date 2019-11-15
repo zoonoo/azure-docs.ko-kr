@@ -1,6 +1,6 @@
 ---
 title: OPC 자격 증명 모음이란? - Azure | Microsoft Docs
-description: OPC 자격 증명 모음 개요
+description: 이 문서는 OPC 자격 증명 모음에 대한 개요를 제공합니다. 클라우드 내 OPC UA 애플리케이션에 대한 인증서 수명 주기를 구성, 등록 및 관리할 수 있습니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 44315790116545dd888aed533731bbf01abe801d
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 66a322d4f60d9553a68207136ae609c1f9b50dbc
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997299"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826211"
 ---
 # <a name="what-is-opc-vault"></a>OPC 자격 증명 모음이란?
 

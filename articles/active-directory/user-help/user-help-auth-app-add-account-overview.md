@@ -1,6 +1,6 @@
 ---
-title: Microsoft Authenticator 앱에 계정 추가 방법에 대한 개요 - Azure Active Directory | Microsoft Docs
-description: 2단계 인증을 위해 Microsoft Authenticator 앱에 회사 및 개인 계정을 추가하는 방법에 대한 개요입니다.
+title: Authenticator 앱에 계정 추가 방법에 대한 개요 - Azure AD
+description: 2단계 인증을 위해 Microsoft Authenticator 앱에 회사 및 개인 계정을 추가하는 방법을 제공하는 콘텐츠 링크입니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d16699729e62953cb2369f39ecfe759aab663caf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 16244be7dee9faaa15105f9dc0ac6c074230d243
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382639"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820272"
 ---
 # <a name="overview-about-adding-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 계정 추가 방법에 대한 개요
 
@@ -43,7 +43,7 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 | 회사 또는 학교 계정 | 회사나 학교에서 부여 받은 계정(예: alain@contoso.com) |
 | 개인 계정 | Outlook.com, Xbox LIVE, Google, Facebook 등을 위해 개인적으로 개설한 Microsoft 계정 및 비 Microsoft 계정 |
 
-## <a name="in-this-section"></a>섹션 내용
+## <a name="articles-about-how-to-add-different-accounts"></a>다른 계정을 추가하는 방법에 대한 문서
 
 | 문서 |설명 |
 | ------|------------|

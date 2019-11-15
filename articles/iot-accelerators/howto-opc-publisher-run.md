@@ -1,6 +1,6 @@
 ---
 title: OPC 게시자 실행 - Azure | Microsoft Docs
-description: OPC 게시자 실행
+description: 이 문서에서는 OPC 게시자를 실행하고 디버그하는 방법을 설명합니다. 또한 성능 및 메모리 고려 사항에 대해서도 설명합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 06/10/2019
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 3b386171afc7916e5e803c39a9c7b3520752e6fd
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: 66e2cb30dcd58b7ad0c6cedbb547f75c8039bc58
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603745"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73824129"
 ---
 # <a name="run-opc-publisher"></a>OPC 게시자 실행
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 06/25/2019
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 52f682f7c7f06056be122b33d27592a55a01be94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: fbde3c939a23e4023c0403c27433717a11762b08
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70744066"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622050"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Visual Studio Code를 사용하여 첫 번째 함수 만들기
 
@@ -26,7 +26,7 @@ Azure Functions를 사용하면 먼저 VM을 만들거나 웹 애플리케이션
 
 ![Visual Studio 프로젝트의 Azure Functions 코드](./media/functions-create-first-function-vs-code/functions-vscode-intro.png)
 
-현재 확장은 C#, JavaScript, Java 및 Python 함수를 지원합니다. 이 문서와 다음 문서에 나오는 단계는 JavaScript 및 C# 함수만 지원합니다. Visual Studio Code를 사용하여 Python 함수를 만들고 게시하는 방법에 대해 알아보려면 [Azure Functions에 Python 배포](https://code.visualstudio.com/docs/python/tutorial-azure-functions)를 참조하세요. Visual Studio Code를 사용하여 PowerShell 함수를 만들고 게시하는 방법에 대해 알아보려면 [Azure에서 첫 번째 PowerShell 함수 만들기](functions-create-first-function-powershell.md)를 참조하세요. 
+현재 확장은 C#, JavaScript, Java 및 Python 함수를 지원합니다. 이 문서와 다음 문서에 나오는 단계는 JavaScript 및 C# 함수만 지원합니다. Visual Studio Code를 사용하여 Python 함수를 만들고 게시하는 방법에 대해 알아보려면 [Visual Studio Code를 사용하여 Python에서 서버리스 Azure Functions 만들기 및 배포](/azure/python/tutorial-vs-code-serverless-python-01)를 참조하세요. Visual Studio Code를 사용하여 PowerShell 함수를 만들고 게시하는 방법에 대해 알아보려면 [Azure에서 첫 번째 PowerShell 함수 만들기](functions-create-first-function-powershell.md)를 참조하세요. 
 
 확장은 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Visual Studio Code용 Azure Functions 확장] 확장 페이지를 참조하세요.
 

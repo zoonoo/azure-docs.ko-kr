@@ -4,19 +4,19 @@ description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 10/18/2019
+ms.date: 11/7/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8d7b1f24d5dcf3d66ffd04704c79a284c4810365
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 182970cc39d200c37264a93d5e1b70c8839e5ef7
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598446"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73825814"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
-이 문서에서는 서비스 공급자가 [Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용하여 [Azure Portal](https://portal.azure.com)의 고유한 테넌트 내에서 여러 고객에 대한 Azure 리소스를 관리할 수 있는 시나리오에 대해 설명합니다.
+서비스 공급자는 [Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용하여 [Azure Portal](https://portal.azure.com)의 고유한 테넌트 내에서 여러 고객에 대한 Azure 리소스를 관리할 수 있습니다. 대부분의 작업 및 서비스는 관리형 테넌트의 위임된 Azure 리소스에서 수행할 수 있습니다. 이 문서에서는 Azure 위임 리소스 관리를 효과적으로 수행할 수 있는 고급 시나리오 중 일부에 대해 설명합니다.
 
 > [!NOTE]
 > 테넌트 간 관리를 간소화하기 위해 자체 테넌트가 여러 개 있는 엔터프라이즈 내에서 Azure 위임 리소스 관리를 사용할 수도 있습니다.
@@ -37,9 +37,20 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 
 ![하나의 서비스 공급자 테넌트를 통해 관리되는 고객 리소스](../media/azure-delegated-resource-management-service-provider-tenant.jpg)
 
-## <a name="supported-services-and-scenarios"></a>지원되는 서비스 및 시나리오
+## <a name="apis-and-management-tool-support"></a>API 및 관리 도구 지원
 
-현재 테넌트 간 관리 환경에서는 위임된 고객 리소스에 대해 다음과 같은 시나리오를 지원합니다.
+포털에서 직접 또는 API 및 관리 도구(예: Azure CLI 및 Azure PowerShell)를 사용하여 위임된 리소스에서 관리 작업을 수행할 수 있습니다. 이 기능이 테넌트 간 관리에 대해 지원되고 사용자에게 적절 한 권한이 있는 한, 위임된 리소스를 사용할 때 기존의 모든 API를 사용할 수 있습니다.
+
+또한 Azure 위임 리소스 관리 작업을 수행하기 위한 API를 제공합니다. 자세한 내용은 **참조** 섹션을 참조하세요.
+
+## <a name="enhanced-services-and-scenarios"></a>고급 서비스 및 시나리오
+
+대부분의 작업 및 서비스는 관리형 테넌트의 위임된 리소스에서 수행할 수 있습니다. 다음은 테넌트 간 관리를 효과적으로 수행할 수 있는 몇 가지 주요 시나리오입니다.
+
+[서버용 Azure Arc(미리 보기)](https://docs.microsoft.com/azure/azure-arc/servers/overview):
+
+- [Azure 외부의 Windows Server 또는 Linux 컴퓨터를](https://docs.microsoft.com/azure/azure-arc/servers/quickstart-onboard-portal) Azure의 위임 구독 및/또는 리소스 그룹에 연결
+- Azure Policy 및 태그 지정과 같은 Azure 구문을 사용하여 연결된 컴퓨터 관리
 
 [Azure Automation](https://docs.microsoft.com/azure/automation/):
 
@@ -55,7 +66,7 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 
 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/):
 
-- 모든 구독에서 경고를 볼 수 있는 기능을 사용하여 Azure Portal에서 또는 REST API 호출을 통해 프로그래밍 방식으로 위임된 구독에 대한 경고를 봅니다.
+- 모든 구독에서 경고를 볼 수 있는 기능을 사용하여 위임된 구독에 대한 경고를 봅니다.
 - 위임된 구독의 활동 로그 세부 정보를 봅니다.
 - 로그 분석: 여러 테넌트의 원격 고객 작업 영역에서 데이터를 쿼리합니다.
 - 웹 후크를 통해 서비스 공급자 테넌트에서 Azure Automation Runbook 또는 Azure Functions와 같은 자동화를 트리거하는 고객 테넌트에서 경고를 만듭니다.
@@ -121,16 +132,9 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 모든 시나리오에서 다음과 같은 현재 제한 사항을 알고 있어야 합니다.
 
 - Azure Resource Manager에서 처리되는 요청은 Azure 위임 리소스 관리를 사용하여 수행할 수 있습니다. 이러한 요청에 대한 작업 URI는 `https://management.azure.com`으로 시작합니다. 그러나 리소스 유형의 인스턴스가 처리하는 요청(예: KeyVault 비밀 액세스 또는 스토리지 데이터 액세스)은 Azure 위임 리소스 관리에서 지원되지 않습니다. 이러한 요청에 대한 작업 URI는 일반적으로 `https://myaccount.blob.core.windows.net` 또는 `https://mykeyvault.vault.azure.net/`과 같이 사용자 인스턴스에 고유한 주소로 시작합니다. 후자는 일반적으로 관리 작업이 아니라 데이터 작업입니다. 
-- 역할 할당은 RBAC(역할 기반 액세스 제어) [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 사용해야 합니다. 현재, 소유자, 사용자 액세스 관리자 또는 [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure 위임 리소스 관리에서 지원됩니다. 사용자 지정 역할 및 [클래식 구독 관리자 역할](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators)도 지원되지 않습니다.
+- 역할 할당은 RBAC(역할 기반 액세스 제어) [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 사용해야 합니다. 현재, 소유자 또는 [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) 권한이 있는 기본 제공 역할을 제외한 모든 기본 제공 역할이 Azure 위임 리소스 관리에서 지원됩니다. 사용자 액세스 관리자 역할은 [관리 ID에 역할 할당](../how-to/deploy-policy-remediation.md#create-a-user-who-can-assign-roles-to-a-managed-identity-in-the-customer-tenant)에서 제한된 용도로만 지원됩니다.  사용자 지정 역할 및 [클래식 구독 관리자 역할](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators)은 지원되지 않습니다.
 - 현재, 구독에서 Azure Databricks를 사용하는 경우 Azure 위임 리소스 관리에 대 한 구독(또는 구독 내의 리소스 그룹)을 온보딩할 수 없습니다. 마찬가지로, **Microsoft.ManagedServices** 리소스 공급자에 온보딩하기 위해 구독을 등록한 경우 현재는 해당 구독에 대해 Databricks 작업 영역을 만들 수 없습니다.
 - 리소스 잠금이 있는 Azure 위임 리소스 관리에 대한 구독 및 리소스 그룹을 온보드할 수 있지만 이러한 잠금으로 인해 관리 테넌트의 사용자가 작업을 수행할 수 없습니다. Azure 관리 애플리케이션 또는 Azure Blueprints(시스템이 할당한 거부 할당)에서 만든 것과 같이 시스템 관리 리소스를 보호하는 [거부 할당](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments)은 관리 테넌트의 사용자가 해당 리소스에 대해 작업을 수행하지 못하도록 합니다. 그러나 현재 고객 테넌트의 사용자는 자신의 거부 할당(사용자가 할당한 거부 할당)을 만들 수 없습니다.
-
-## <a name="using-apis-and-management-tools-with-cross-tenant-management"></a>다중 테넌트 관리에서 API 및 관리 도구 사용
-
-위에 나열된 지원 서비스 및 시나리오의 경우 포털에서 직접 또는 API 및 관리 도구(예: Azure CLI 및 Azure PowerShell)를 사용하여 관리 작업을 수행할 수 있습니다. 모든 기존 API는 위임된 리소스(지원되는 서비스용)로 작업할 때 사용할 수 있습니다.
-
-Azure 위임 리소스 관리 작업 수행과 관련된 API도 있습니다. 자세한 내용은 **참조** 섹션을 참조하세요.
-
 
 ## <a name="next-steps"></a>다음 단계
 

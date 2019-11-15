@@ -1,5 +1,5 @@
 ---
-title: PHP를 사용하여 Azure SQL 데이터베이스 쿼리 | Microsoft Docs
+title: PHP를 사용하여 쿼리
 description: PHP를 사용하여 Azure SQL 데이터베이스에 연결하고 T-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법입니다.
 services: sql-database
 ms.service: sql-database
@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 02/12/2019
-ms.openlocfilehash: a7da65438ffd7db6c43cf2ede7cc52378af056f1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ae119dd23da670f16c0239b14119519c431e6326
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569213"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827004"
 ---
 # <a name="quickstart-use-php-to-query-an-azure-sql-database"></a>빠른 시작: PHP를 사용하여 Azure SQL 데이터베이스 쿼리
 

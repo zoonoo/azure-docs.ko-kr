@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center 빠른 시작 - Security Center에 Azure Stack 가상 머신 온보딩 | Microsoft Docs
+title: Azure Stack 가상 머신을 Azure Security Center에 온보딩
 description: 이 빠른 시작에서는 Azure Stack 가상 머신에서 Azure Monitor, Update 및 Configuration Management 가상 머신 확장을 프로비저닝하는 방법을 보여줍니다.
 services: security-center
 documentationcenter: na
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: fiseraci
-ms.openlocfilehash: 1772fd34a2d79b725b2b5ccaa66adb0b251b7e1d
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c186dcb2d7d7d423f5c001bdb4d3f3503beebd9c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202860"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686515"
 ---
-# <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>빠른 시작:  Azure Stack 가상 머신을 Security Center에 온보딩
+# <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>빠른 시작: Azure Stack 가상 머신을 Security Center에 온보딩
 Azure 구독을 온보딩한 후 Azure Stack 마켓플레이스에서 **Azure Monitor, Update 및 Configuration Management** 가상 머신 확장을 추가하여 Azure Stack에서 실행 중인 가상 머신을 보호하도록 Security Center를 설정할 수 있습니다.
 
 이 빠른 시작에서는 Azure Stack에서 실행 중인 가상 머신(Linux 및 Windows 모두 지원)에서 **Azure Monitor, Update 및 Configuration Management** 가상 머신 확장을 추가하는 방법을 보여줍니다.
@@ -69,7 +69,7 @@ Security Center를 시작하려면 Microsoft Azure에 대한 구독이 있어야
 > **Azure Monitor, Update 및 Configuration Management** 확장이 Marketplace에 나열되지 않으면 사용할 수 있도록 Azure Stack 운영자에게 연락하세요.
 
 6. **설치 확장** 구성 블레이드에서 이전 절차에서 메모장에 복사해 둔 **작업 영역 ID**와 **작업 영역 키**(기본 키)를 붙여넣습니다.
-7.  필요한 구성 설정을 제공했으면 **확인**을 클릭합니다.
+7. 필요한 구성 설정을 제공했으면 **확인**을 클릭합니다.
 8. 확장 설치가 완료되면 상태가 **프로비전 성공**으로 표시됩니다. Security Center 포털에 가상 머신이 나타나기까지 최대 1시간이 걸릴 수 있습니다.
 
 Windows용 에이전트 설치 및 구성에 대한 자세한 내용은 [Windows 컴퓨터 연결](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard)을 참조하세요.

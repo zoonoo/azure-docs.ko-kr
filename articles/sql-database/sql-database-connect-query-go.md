@@ -1,5 +1,5 @@
 ---
-title: Go를 사용하여 Azure SQL Database 쿼리 | Microsoft Docs
+title: Go를 사용하여 쿼리
 description: Go를 사용하여 Azure SQL Database에 연결하고 Transact-SQL 문을 사용하여 데이터를 쿼리하고 수정합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: David-Engel
 ms.author: craigg
 ms.reviewer: MightyPen
 ms.date: 02/12/2019
-ms.openlocfilehash: baa43a93ff0c1e814478bdc195b2fd525d4dbbf3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9b85b1bfb8935b5e311bb7d9503c17261a210127
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569259"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73827074"
 ---
 # <a name="quickstart-use-golang-to-query-an-azure-sql-database"></a>빠른 시작: Golang을 사용하여 Azure SQL 데이터베이스 쿼리
 

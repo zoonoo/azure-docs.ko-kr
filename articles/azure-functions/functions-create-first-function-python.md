@@ -1,5 +1,5 @@
 ---
-title: Azure에서 HTTP 트리거 함수 만들기
+title: Azure에서 HTTP 트리거 Python 함수 만들기
 description: Azure에서 Azure Functions Core Tools 및 Azure CLI를 사용하여 첫 번째 Azure 함수를 만드는 방법을 알아봅니다.
 author: ggailey777
 ms.author: glenga
@@ -9,14 +9,14 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: python
 manager: gwallace
-ms.openlocfilehash: f2602e5a13f83090291656e7062c74c245bc6568
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 791348088d909785b36934c3b9a2ae00fc0acbb7
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693341"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622042"
 ---
-# <a name="create-an-http-triggered-function-in-azure"></a>Azure에서 HTTP 트리거 함수 만들기
+# <a name="create-an-http-triggered-python-function-in-azure"></a>Azure에서 HTTP 트리거 Python 함수 만들기
 
 이 문서에서는 명령줄 도구를 사용하여 Azure Functions에서 실행되는 Python 프로젝트를 만드는 방법을 보여줍니다. HTTP 요청에 의해 트리거되는 함수도 만듭니다. 마지막으로, Azure에서 [서버리스 함수](functions-scale.md#consumption-plan)로 실행되도록 프로젝트를 게시합니다.
 

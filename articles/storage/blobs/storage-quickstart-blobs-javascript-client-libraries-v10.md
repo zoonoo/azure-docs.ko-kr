@@ -2,19 +2,19 @@
 title: 빠른 시작 - 브라우저에서 JavaScript 및 HTML을 사용하여 Azure Storage에 Blob 만들기
 description: HTML 페이지에서 JavaScript를 사용하여 Blob을 업로드, 나열 및 삭제하는 방법을 알아봅니다.
 services: storage
-author: KarlErickson
+author: mhopkins-msft
 ms.custom: mvc
 ms.service: storage
-ms.author: karler
+ms.author: mhopkins
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: fc6ccaae698043db631c7724c6aabbca16f4328f
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 3eb6f68a443e29a7d4c7b4dedad38783f838dee5
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172828"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686677"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -168,23 +168,23 @@ VS Code 디버거가 연결된 브라우저에서 *index.html*을 시작하려�
 
 ### <a name="add-the-blob-storage-client-library"></a>Blob 스토리지 클라이언트 라이브러리 추가
 
-Blob 스토리지 API에 대한 호출을 사용하도록 설정하려면 먼저 [JavaScript용 Azure Storage SDK - Blob 클라이언트 라이브러리를 다운로드](https://aka.ms/downloadazurestoragejsblob)하고, zip의 내용을 추출한 다음, *azure-storage.blob.js* 파일을 *azure-blobs-javascript* 폴더에 배치합니다.
+Blob 스토리지 API에 대한 호출을 사용하도록 설정하려면 먼저 [JavaScript용 Azure Storage SDK - Blob 클라이언트 라이브러리를 다운로드](https://aka.ms/downloadazurestoragejsblob)하고, zip의 내용을 추출한 다음, *azure-storage-blob.js* 파일을 *azure-blobs-javascript* 폴더에 배치합니다.
 
 다음으로, 다음 HTML을 *index.html*의 닫는 `</body>` 태그 뒤에 붙여넣고 자리 표시자 주석을 바꿉니다.
 
 ```html
-<script src="azure-storage.blob.js" charset="utf-8"></script>
+<script src="azure-storage-blob.js" charset="utf-8"></script>
 
 <script>
 // You'll add code here in the following sections.
 </script>
 ```
 
-이 코드는 스크립트 파일에 참조를 추가하고, 사용자 고유의 JavaScript 코드를 위한 공간을 제공합니다. 이 빠른 시작을 위해 *azure-storage.blob.js* 스크립트 파일을 사용하여 VS Code에서 열고, 내용을 읽고, 중단점을 설정할 수 있습니다. 프로덕션 환경에서는 zip 파일에도 제공되는 더 간단한 *azure-storage.blob.min.js* 파일을 사용해야 합니다.
+이 코드는 스크립트 파일에 참조를 추가하고, 사용자 고유의 JavaScript 코드를 위한 공간을 제공합니다. 이 빠른 시작을 위해 *azure-storage-blob.js* 스크립트 파일을 사용하여 VS Code에서 열고, 내용을 읽고, 중단점을 설정할 수 있습니다. 프로덕션 환경에서는 zip 파일에도 제공되는 더 간단한 *azure-storage.blob.min.js* 파일을 사용해야 합니다.
 
 각 Blob 스토리지 함수에 대한 자세한 내용은 [참조 설명서](https://docs.microsoft.com/javascript/api/%40azure/storage-blob/index)에서 확인할 수 있습니다. SDK의 일부 함수는 Node.js 또는 브라우저에서만 사용할 수 있습니다.
 
-*azure-storage.blob.js*의 코드는 JavaScript 코드에서 사용하여 Blob 스토리지 API에 액세스하는 데 사용할 수 있는 `azblob`이라는 글로벌 변수를 내보냅니다.
+*azure-storage-blob.js*의 코드는 JavaScript 코드에서 사용하여 Blob 스토리지 API에 액세스하는 데 사용할 수 있는 `azblob`이라는 글로벌 변수를 내보냅니다.
 
 ### <a name="add-the-initial-javascript-code"></a>초기 JavaScript 코드 추가
 

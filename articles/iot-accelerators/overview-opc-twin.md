@@ -1,6 +1,6 @@
 ---
 title: OPC 쌍이란? - Azure | Microsoft Docs
-description: OPC 쌍 개요
+description: 이 문서는 OPC 쌍에 대한 개요를 제공합니다. OPC 쌍은 REST API를 통한 산업용 디바이스의 검색, 등록 및 원격 제어를 제공합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: c0d824e23a98aa14081fbd21bd6a9fbec5d583e0
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 91448f55f0ebb88ba6c685b960ece9d91cb98e25
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815945"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73826233"
 ---
 # <a name="what-is-opc-twin"></a>OPC 쌍이란?
 

@@ -1,6 +1,6 @@
 ---
-title: 보안 정보(미리 보기) 방법 및 정보 변경 개요 - Azure Active Directory | Microsoft Docs
-description: 2단계 인증 및 셀프 서비스 암호 재설정을 위한 보안 정보 방법을 추가, 업데이트 및 삭제하는 방법을 간략하게 설명합니다.
+title: 보안 정보 변경 방법 개요(미리 보기) - Azure AD
+description: 2단계 인증 및 셀프 서비스 암호 재설정을 위한 보안 정보 방법을 추가, 업데이트 및 삭제하는 방법을 설명하는 문서 링크입니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bcef64c8bf8c2b52e5cc5d954de933d830ba4c1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 3b781cd30bc5f63199ef9bff45670fa618e2ca17
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382876"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73803813"
 ---
 # <a name="overview-about-changing-your-security-info-preview-methods-and-information"></a>보안 정보(미리 보기) 방법 및 정보 변경에 대한 개요
 

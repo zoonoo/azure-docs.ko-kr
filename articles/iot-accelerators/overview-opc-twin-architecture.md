@@ -1,6 +1,6 @@
 ---
 title: OPC 쌍 아키텍처 | Microsoft Docs
-description: OPC 쌍 아키텍처
+description: 이 문서는 OPC 쌍 아키텍처의 개요를 제공합니다. 서버의 검색, 활성화, 찾아보기 및 모니터링 방법을 설명합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: 6ce9394f3d454bda5ead51f2c77a47db137a5136
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: b8d4424c92ff24c36650e34a5d050bdc5f0f9091
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67606174"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819849"
 ---
 # <a name="opc-twin-architecture"></a>OPC 쌍 아키텍처
 

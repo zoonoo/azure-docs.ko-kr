@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 66a972e66c35cdd5b8dedceefbe3dbd008380da9
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 12df79696033e69abbf48f053c1a594be9409cda
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327152"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721115"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
@@ -96,7 +96,7 @@ Azure Cosmos DB Cassandra API는 다음 CQL 함수를 지원합니다.
 
 ## <a name="cassandra-api-limits"></a>Cassandra API 한도
 
-Azure Cosmos DB Cassandra API에는 테이블에 저장할 수 있는 데이터 크기에 제한이 없습니다. 그러므로 파티션 키 제한 범위 내에서 수백 TB/PB에 달하는 데이터를 저장할 수 있습니다. 마찬가지로, 모든 엔터티 또는 그에 해당하는 행에도 열 수는 제한되지 않습니다. 그러나 엔터티의 총 크기는 2MB를 초과할 수 없습니다. 파티션 키당 데이터는 다른 모든 API에서와 같이 10GB를 초과할 수 없습니다.
+Azure Cosmos DB Cassandra API에는 테이블에 저장할 수 있는 데이터 크기에 제한이 없습니다. 그러므로 파티션 키 제한 범위 내에서 수백 TB/PB에 달하는 데이터를 저장할 수 있습니다. 마찬가지로, 모든 엔터티 또는 그에 해당하는 행에도 열 수는 제한되지 않습니다. 그러나 엔터티의 총 크기는 2MB를 초과할 수 없습니다. 파티션 키당 데이터는 다른 모든 API의 경우처럼 10GB를 초과할 수 없습니다.
 
 ## <a name="tools"></a>도구 
 
@@ -106,24 +106,37 @@ Azure Cosmos DB Cassandra API는 관리되는 서비스 플랫폼입니다. 그�
 
 ## <a name="cql-shell"></a>CQL Shell  
 
-Apache Cassandra 3.1.1과 함께 제공되는 CQLSH 명령줄 유틸리티는 다음 환경 변수가 사용하도록 설정된 상태로 기본 작동합니다.
+Apache Cassandra 3.1.1과 함께 제공되는 CQLSH 명령줄 유틸리티는 일부 환경 변수를 설정하면 바로 작동합니다.
 
-다음 명령을 실행하기 전에 [cacerts 저장소에 Baltimore 루트 인증서를 추가](https://docs.microsoft.com/java/azure/java-sdk-add-certificate-ca-store?view=azure-java-stable#to-add-a-root-certificate-to-the-cacerts-store)합니다. 
+**Windows:**
 
-**Windows:** 
+Windows를 사용하는 경우 [Linux용 Windows 파일 시스템](https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-the-windows-subsystem-for-linux)을 사용하도록 설정하는 것이 좋습니다. 그런 다음, 아래의 linux 명령을 따를 수 있습니다.
 
-```bash
-set SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to Baltimore root ca cert>
-set CQLSH_PORT=10350 
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
-```
 **Unix/Linux/Mac:**
 
 ```bash
-export SSL_VERSION=TLSv1_2 
-export SSL_CERTFILE=<path to Baltimore root ca cert>
-cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl 
+# Install default-jre and default-jdk
+sudo apt install default-jre
+sudo apt-get update
+sudo apt install default-jdk
+
+# Import the Baltimore CyberTrust root certificate:
+curl https://cacert.omniroot.com/bc2025.crt > bc2025.crt
+keytool -importcert -alias bc2025ca -file bc2025.crt
+
+# Install the Cassandra libraries in order to get CQLSH:
+echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /etc/apt/sources.list.d/cassandra.sources.list
+curl https://www.apache.org/dist/cassandra/KEYS | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install cassandra
+
+# Export the SSL variables:
+export SSL_VERSION=TLSv1_2
+export SSL_VALIDATE=false
+
+# Connect to Azure Cosmos DB API for Cassandra:
+cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
+
 ```
 
 ## <a name="cql-commands"></a>CQL 명령
@@ -140,7 +153,8 @@ Azure Cosmos DB는 Cassandra API 계정에서 다음 데이터베이스 명령�
 * BATCH - 로깅되지 않는 명령만 지원됨 
 * 삭제
 
-CQLV4 호환 SDK를 통해 실행하는 모든 CRUD 작업에서는 오류, 사용한 요청 단위와 관련된 추가 정보가 반환됩니다. 프로비저닝된 처리량을 적절하게 사용하지 않으려면 리소스 거버넌스를 고려하여 삭제 및 업데이트 명령을 처리해야 합니다. 
+CQL v4 호환 SDK를 통해 실행하는 모든 CRUD 작업에서는 오류, 사용한 요청 단위와 관련된 추가 정보가 반환됩니다. 프로비저닝된 처리량을 가장 효율적으로 사용하기 위해 리소스 거버넌스를 고려하면서 DELETE 및 UPDATE 명령을 처리해야 합니다.
+
 * 참고: gc_grace_seconds 값은 지정하는 경우 0이어야 합니다.
 
 ```csharp
@@ -151,13 +165,13 @@ foreach (string key in insertResult.Info.IncomingPayload)
         { 
             byte[] valueInBytes = customPayload[key]; 
             double value = Encoding.UTF8.GetString(valueInBytes); 
-            Console.WriteLine($“CustomPayload:  {key}: {value}”); 
+            Console.WriteLine($"CustomPayload:  {key}: {value}"); 
         } 
 ```
 
 ## <a name="consistency-mapping"></a>일관성 매핑 
 
-Azure Cosmos DB Cassandra API에서는 읽기 작업을 일관되게 수행할지 여부를 선택할 수 있습니다.  일관성 매핑에 대한 자세한 내용은 [여기](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping)를 참조하세요.
+Azure Cosmos DB Cassandra API에서는 읽기 작업을 일관되게 수행할지 여부를 선택할 수 있습니다.  일관성 매핑에 대한 자세한 내용은 [여기](consistency-levels-across-apis.md#cassandra-mapping)를 참조하세요.
 
 ## <a name="permission-and-role-management"></a>권한 및 역할 관리
 
@@ -165,7 +179,7 @@ Azure Cosmos DB는 프로비전, 키 회전, 메트릭 보기를 위한 RBAC(역
 
 ## <a name="keyspace-and-table-options"></a>키스페이스 및 테이블 옵션
 
-"Create Keyspace" 명령에서 지역 이름, 클래스, replication_factor 및 데이터 센터의 옵션은 현재 무시됩니다. 시스템은 기본 Azure Cosmos DB의 [글로벌 배포](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) 복제 방법을 사용하여 지역을 추가합니다. 영역 간 데이터가 필요한 경우 PowerShell, CLI 또는 포털을 사용하여 계정 수준에서 이를 활성화할 수 있습니다. 자세한 내용은 [지역 추가 방법](how-to-manage-database-account.md#addremove-regions-from-your-database-account) 문서를 참조하세요. Azure Cosmos DB는 모든 쓰기가 내구성이 있는지 확인하기 때문에 Durable_writes를 비활성화할 수 없습니다. 모든 지역에서 Azure Cosmos DB는 4개의 복제본으로 구성된 복제본 세트 전체에 데이터를 복제하고 이 복제본 세트 [구성](global-dist-under-the-hood.md)은 수정할 수 없습니다.
+"Create Keyspace" 명령에서 지역 이름, 클래스, replication_factor 및 데이터 센터의 옵션은 현재 무시됩니다. 시스템은 기본 Azure Cosmos DB의 [글로벌 배포](global-dist-under-the-hood.md) 복제 방법을 사용하여 지역을 추가합니다. 영역 간 데이터가 필요한 경우 PowerShell, CLI 또는 포털을 사용하여 계정 수준에서 이를 활성화할 수 있습니다. 자세한 내용은 [지역 추가 방법](how-to-manage-database-account.md#addremove-regions-from-your-database-account) 문서를 참조하세요. Azure Cosmos DB는 모든 쓰기가 내구성이 있는지 확인하기 때문에 Durable_writes를 비활성화할 수 없습니다. 모든 지역에서 Azure Cosmos DB는 4개의 복제본으로 구성된 복제본 세트 전체에 데이터를 복제하고 이 복제본 세트 [구성](global-dist-under-the-hood.md)은 수정할 수 없습니다.
  
 0으로 설정해야 하는 gc_grace_seconds를 제외하고 모든 옵션은 테이블을 만들 때 무시됩니다.
 키스페이스 및 테이블에는 "cosmosdb_provisioned_throughput"이라는 추가 옵션이 있으며 최솟값은 400RU/s입니다. 키스페이스 처리량은 여러 테이블에서 처리량을 공유할 수 있도록 하며 모든 테이블이 프로비저닝된 처리량을 활용하지 않는 시나리오에 유용합니다. Alter Table 명령을 사용하면 지역 전체에서 프로비저닝된 처리량을 변경할 수 있습니다. 

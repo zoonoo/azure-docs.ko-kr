@@ -1,5 +1,6 @@
 ---
-title: Microsoft ID 플랫폼 JavaScript 빠른 시작 - Azure
+title: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기 | Azure
+titleSuffix: Microsoft identity platform
 description: JavaScript 애플리케이션이 Microsoft ID 플랫폼을 사용하여 액세스 토큰이 필요한 API를 호출하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -8,7 +9,7 @@ manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
@@ -16,14 +17,14 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c41dedf6b4fe52ba3250ada14b0cca6bbeb636af
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 5ca9a8b87713508a581a833f60fbe863fd93919a
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827124"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73795606"
 ---
-# <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>빠른 시작: JavaScript 단일 페이지 애플리케이션에서 사용자를 로그인하고 액세스 토큰 획득
+# <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>빠른 시작: JavaScript SPA에서 사용자 로그인 및 액세스 토큰 가져오기
 
 이 빠른 시작에서는 코드 샘플을 사용하여 JavaScript SPA(단일 페이지 애플리케이션)에서 개인 계정, 회사 및 학교 계정의 사용자에 로그인하는 방법을 알아봅니다. 또한 JavaScript SPA는 Microsoft Graph API 또는 웹 API를 호출하는 액세스 토큰을 가져올 수 있습니다. (자세한 내용은 [샘플 작동 방식 ](#how-the-sample-works)을 참조하세요.)
 
@@ -79,12 +80,11 @@ ms.locfileid: "71827124"
 
 * (선택 사항) IIS 서버에서 프로젝트를 실행하려면 [Visual Studio 프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)합니다. zip 파일을 로컬 폴더(예: *C:\Azure-Samples*)에 추출합니다.
 
-#### <a name="step-3-configure-your-javascript-app"></a>3단계: JavaScript 앱 구성
-
 > [!div renderon="docs"]
+> #### <a name="step-3-configure-your-javascript-app"></a>3단계: JavaScript 앱 구성
 > *JavaScriptSPA* 폴더에서 *index.html*을 편집하고 `msalConfig`의 `clientID` 및 `authority` 값을 설정합니다.
 
-> [!div class="sxs-lookup" renderon="portal"]
+> [!div renderon="docs"]
 > *JavaScriptSPA* 폴더에서 *index.html*을 편집하고 `msalConfig`를 다음 코드로 바꿉니다.
 
 ```javascript
@@ -101,10 +101,6 @@ var msalConfig = {
 };
 
 ```
-> [!div renderon="portal"]
-> > [!NOTE]
-> > 이 빠른 시작에서는 Enter_the_Supported_Account_Info_Here를 지원합니다.
-
 
 > [!div renderon="docs"]
 >
@@ -119,7 +115,12 @@ var msalConfig = {
 > > **애플리케이션(클라이언트) ID**, **디렉터리(테넌트) ID** 및 **지원되는 계정 유형**의 값을 찾아보려면 Azure Portal에서 앱의 **개요** 페이지로 이동합니다.
 >
 
-#### <a name="step-4-run-the-project"></a>4단계: 프로젝트 실행
+> [!div class="sxs-lookup" renderon="portal"]
+> #### <a name="step-3-your-app-is-configured-and-ready-to-run"></a>3단계: 앱이 구성되었고 실행할 준비가 되었습니다.
+> 앱 속성 값을 사용하여 프로젝트를 구성했습니다. 
+
+> [!div renderon="docs"]
+> #### <a name="step-4-run-the-project"></a>4단계: 프로젝트 실행
 
 * [Node.js](https://nodejs.org/en/download/)를 사용하는 경우 다음을 수행합니다.
 
