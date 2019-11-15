@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Ansible을 사용하여 Azure HDInsight에 클러스터 구성
-description: Ansible을 사용하여 Azure HDInsight를 만들고 크기를 조정하는 방법 알아보기
+description: Ansible을 사용하여 Azure HDInsight클러스터를 구성, 크기 조정 및 삭제하는 방법 알아보기
 keywords: ansible, azure, devops, bash, playbook, apache hadoop, hdinsight
 ms.topic: tutorial
 ms.service: ansible
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ad17e6ff4cbf5b583e3a4be410847c1349c9edce
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: ce4723a9dbe952f0112b7e24c3e361fd2f414374
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241942"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614415"
 ---
 # <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>자습서: Ansible을 사용하여 Azure HDInsight에 클러스터 구성
 

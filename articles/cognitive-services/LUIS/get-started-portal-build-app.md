@@ -1,26 +1,25 @@
 ---
 title: '빠른 시작: LUIS 포털에서 새 앱 만들기'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 LUIS 포털에서 새 앱을 만듭니다. 앱, 의도 및 엔터티의 기본적인 부분을 만듭니다. 예측된 의도를 얻기 위해 대화형 테스트 패널에 샘플 사용자 발언을 제공하여 앱을 테스트합니다. 앱 빌드는 무료로, Azure 구독이 필요하지 않습니다.
+description: 이 빠른 시작에서는 앱, 의도 및 엔터티의 기본 부분을 만들고, LUIS 포털에서 발화 샘플을 사용하여 테스트합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 6888c53122e649d6a0e91f8ece30101f051c08e8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 087b3a61902c533648b5d6e1b4b763f88ee5d794
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488800"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669672"
 ---
 # <a name="quickstart-create-a-new-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 새 앱 만들기
 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 이 빠른 시작에서는 [LUIS 포털](https://www.luis.ai)에서 새 앱을 작성합니다. 우선 앱, **의도** 및 **엔터티**의 기본적인 부분을 만듭니다. 그런 다음, 예측된 의도를 얻기 위해 대화형 테스트 패널에 샘플 사용자 발언을 제공하여 앱을 테스트합니다.
 
@@ -32,7 +31,7 @@ ms.locfileid: "73488800"
 
 1. 컨텍스트 도구 모음에서 **+ 만들기**를 선택합니다.
 
-   [![LUIS 포털에서 새 앱 만들기](./media/get-started-portal-build-app/create-app-in-portal.png)](./media/get-started-portal-build-app/create-app-in-portal.png#lightbox)
+   [![LUIS 포털에서 새 앱 만들기](./media/create-app-in-portal.png)](./media/create-app-in-portal.png#lightbox)
 
 1. 팝업 창에서 다음 설정으로 앱을 구성한 다음, **완료**를 선택합니다.
 
@@ -40,8 +39,8 @@ ms.locfileid: "73488800"
    |--|--|--|
    |Name|`myEnglishApp`|고유한 LUIS 앱 이름<br>필수|
    |문화권|**English**|사용자의 발화 언어, **en-us**<br>필수|
-   |설명|`App made with LUIS Portal`|앱에 대한 설명<br>선택 사항|
-   | | | |
+   |설명(선택 사항)|`App made with LUIS Portal`|앱에 대한 설명<br>선택 사항|
+   |예측 리소스(선택 사항) |-  |선택하지 마세요. LUIS는 작성 및 1,000개의 예측 엔드포인트 요청에 무료로 사용할 수 있는 시작 키를 제공합니다. |
 
    ![새 앱 설정 입력](./media/get-started-portal-build-app/create-new-app-settings.png)
 
@@ -61,13 +60,11 @@ LUIS 앱이 만들어지면 의도를 만들어야 합니다. 의도는 사용�
 
 의도를 만들려면 다음 단계를 완료합니다.
 
-1. 앱을 만들면 **빌드** 섹션의 **의도** 페이지가 표시됩니다. **새 의도 만들기**를 선택합니다.
+1. 앱을 만들면 **빌드** 섹션의 **의도** 페이지가 표시됩니다. **만들기**를 선택합니다.
 
-   [![새 의도 만들기 단추 선택](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
+   [![만들기를 선택하여 새 의도 만들기](./media/get-started-portal-build-app/create-new-intent-button.png)](./media/get-started-portal-build-app/create-new-intent-button.png#lightbox)
 
 1. 의도 이름 `FindForm`을 입력한 다음, **완료**를 선택합니다.
-
-   ![FindForm의 의도 이름 입력](./media/get-started-portal-build-app/create-new-intent-dialog.png)
 
 ## <a name="add-an-example-utterance"></a>예제 발화 추가
 
@@ -113,13 +110,16 @@ LUIS 앱이 만들어지면 의도를 만들어야 합니다. 의도는 사용�
 
 1. 왼쪽 메뉴에서 **엔터티**를 선택합니다.
 
-1. **엔터티** 페이지에서 **새 엔터티 만들기**를 선택합니다.
+1. **엔터티** 페이지에서 **만들기**를 선택합니다.
 
-1. 이름 `Human Resources Form Number`를 입력하고 **Regex** 엔터티 형식을 선택한 후 정규식 `hrf-[0-9]{6}`을 입력합니다. 이 항목은 리터럴 문자, `hrf-`와 일치하며 정확히 6자를 허용합니다.
+1. `Human Resources Form Number`라는 이름을 입력하고, **Regex** 엔터티 형식을 선택하고, **다음**을 선택합니다.
 
-   ![정규식 엔터티에 대한 엔터티 정보를 입력합니다.](./media/get-started-portal-build-app/create-regular-expression-entity.png)
+   ![정규식 엔터티 만들기](./media/get-started-portal-build-app/create-regular-expression-entity.png)
 
-1. **완료** 를 선택합니다.
+1. `hrf-[0-9]{6}`이라는 정규식(**RegEx**) 식을 입력합니다. 이 항목은 `hrf-` 리터럴 문자와 일치하고, 정확히 6자를 허용한 다음, **만들기**를 선택합니다.
+
+   ![엔터티에 대한 정규식 입력](./media/get-started-portal-build-app/create-regular-expression-entity-with-expression.png)
+
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>None 의도에 예제 발언 추가
 
@@ -137,11 +137,11 @@ LUIS 앱이 만들어지면 의도를 만들어야 합니다. 의도는 사용�
    |피자 주문해 줘|
    |바다의 펭귄|
 
-   이 인적 자원 앱에서 이러한 예제 발화는 해당 영역 외부에 있습니다. 인적 자원 도메인에 동물, 식품 또는 해양이 포함되는 경우에는 **None** 의도에 다른 에제 발언을 사용해야 합니다.
+   이 앱에서 이러한 발화 예제는 도메인 외부에 있습니다. 도메인에 동물, 음식 또는 바다가 포함된 경우 **없음** 의도에 다른 발화 예제를 사용해야 합니다.
 
 ## <a name="train-the-app"></a>앱 학습
 
-오른쪽 위에 있는 메뉴에서 **학습**을 선택하여 의도 및 엔터티 모델 변경 내용을 앱의 현재 버전에 적용합니다.
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="look-at-the-regular-expression-entity-in-the-example-utterances"></a>예제 발화의 정규식 엔터티 확인
 
@@ -168,8 +168,6 @@ LUIS 포털에서 대화형 **테스트** 창을 사용하여 앱에 아직 표�
 ## <a name="clean-up-resources"></a>리소스 정리
 
 이 빠른 시작을 완료했는데 다음 빠른 시작으로 넘어가지 않으면 위쪽 탐색 메뉴에서 **내 앱**을 선택합니다. 그런 다음, 목록에서 앱의 왼쪽 확인란을 선택하고, 목록 위의 상황에 맞는 도구 모음에서 **삭제**를 선택합니다.
-
-[![내 앱 목록에서 앱 삭제](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>다음 단계
 

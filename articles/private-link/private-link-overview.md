@@ -5,14 +5,14 @@ services: private-link
 author: KumudD
 ms.service: private-link
 ms.topic: overview
-ms.date: 09/16/2019
+ms.date: 11/04/2019
 ms.author: kumud
-ms.openlocfilehash: 9e6206e6f7e09ebe03659eb6e515a9b26d3469bd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: aa176cb5ffc67ebba826cf13a1a66608301af5e5
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475932"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73601525"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Azure Private Link란? (미리 보기)
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage, Azure Cosmos DB 및 SQL Database)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. VNet(가상 네트워크)에서 자체 [Private Link Service](private-link-service-overview.md)를 만들어 고객에게 개인적으로 제공할 수도 있습니다. Azure Private Link를 사용하는 설정 및 사용 환경은 Azure PaaS, 고객 소유/공유 파트너 서비스에서 일관적입니다.
@@ -40,12 +40,12 @@ Azure Private Link는 다음과 같은 이점이 있습니다.
 
 |시나리오  |지원되는 서비스   |사용 가능한 지역 | 상태   |
 |---------|---------|---------|---------|
-|고객 소유 서비스용 Private Link|표준 Load Balancer 뒤에 배치된 Private Link 서비스 |미국 중서부, 미국 서부, 미국 중남부, 미국 동부, 미국 중북부  |  미리 보기  |
-|Azure PaaS 서비스용 Private Link   | Azure Storage        |  미국 동부, 미국 서부, 미국 중서부       | 미리 보기         |
-|  | Azure Data Lake Storage Gen2        |  미국 동부, 미국 서부, 미국 중서부       | 미리 보기         |
-|  |  Azure SQL Database         | 미국 중서부, 미국 서부, 미국 중남부, 미국 동부, 미국 중북부      |   미리 보기      |
-||Azure SQL Data Warehouse| 미국 중서부, 미국 서부, 미국 중남부, 미국 동부, 미국 중북부 |미리 보기|
-||Azure Cosmos DB| 미국 중서부, 미국 서부, 미국 동부, 미국 북중부, 미국 동부 2, 미국 서부 2 |미리 보기|
+|고객 소유 서비스용 Private Link|표준 Load Balancer 뒤에 배치된 Private Link 서비스 | 모든 공용 지역  |  미리 보기  |
+|Azure PaaS 서비스용 Private Link   | Azure Storage        |  모든 공용 지역      | 미리 보기         |
+|  | Azure Data Lake Storage Gen2        |  모든 공용 지역      | 미리 보기         |
+|  |  Azure SQL Database         | 모든 공용 지역      |   미리 보기      |
+||Azure SQL Data Warehouse| 모든 공용 지역 |미리 보기|
+||Azure Cosmos DB| 미국 중서부, 미국 서부, 미국 북중부 |미리 보기|
 
 최신 알림은 [Azure Virtual Network 업데이트 페이지](https://azure.microsoft.com/updates/?product=virtual-network)를 확인하세요.
 

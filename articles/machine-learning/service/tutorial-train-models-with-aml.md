@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd215e754b7e72c9ac424a53015955332068558e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4d16c07bf42c99b905868cb956d82e8723da61d6
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493567"
+ms.locfileid: "73581533"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +44,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 * 이 자습서를 시작하기 전에 [자습서: 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)을 완료하여 다음을 수행합니다.
     * 작업 영역 만들기
     * 자습서 Notebook을 작업 영역의 사용자 폴더로 복제합니다.
-    * 클라우드 기반 컴퓨팅 인스턴스를 만듭니다.
+    * 클라우드 기반 Notebook VM을 만듭니다.
 
 * 복제된 **tutorials** 폴더에서 **img-classification-part1-training.ipynb** Notebook을 엽니다. 
 

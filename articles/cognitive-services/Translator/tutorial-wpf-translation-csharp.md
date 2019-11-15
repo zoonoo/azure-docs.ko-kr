@@ -1,7 +1,7 @@
 ---
 title: '자습서: WPF, C#을 사용하여 번역 앱 만들기 - Translator Text API'
 titleSuffix: Azure Cognitive Services
-description: 이 자습서에서는 단일 구독 키를 사용하여 텍스트 번역, 언어 감지 및 맞춤법 검사에서 Cognitive Service API를 사용하는 WPF(Windows Presentation Foundation) 앱을 만듭니다. 이 연습에서는 Translator Text API 및 Bing Spell Check API의 기능을 사용하는 방법을 보여 줍니다.
+description: 이 자습서에서는 단일 구독 키를 사용하여 텍스트 번역, 언어 감지 및 맞춤법 검사를 수행하는 WPF 앱을 만듭니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 286b75166e6216513afc46e5779b8a2f969aeaf6
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 6f8196c276b4f8ef5c8a49f6f83f59f9f505a6be
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858900"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647699"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>자습서: WPF를 사용하여 번역 앱 만들기
 

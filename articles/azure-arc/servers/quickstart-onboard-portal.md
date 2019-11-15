@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 08/25/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: b014f6015b3e13a603cf3893062bd0463eb110ee
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ae7c8545286baebc83077276e356cd2e41f0dc3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488199"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668669"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---portal"></a>빠른 시작: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - 포털
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="generate-the-agent-install-script-using-the-azure-portal"></a>Azure Portal을 사용하여 에이전트 설치 스크립트 생성
 
-1. [https://aka.ms/hybridmachineportal ][aka_hybridmachineportal]을 시작합니다.
+1. 시작 [https://aka.ms/hybridmachineportal](https://aka.ms/hybridmachineportal)
 1. **+추가**를 클릭합니다.
 1. 마법사에 따라 완료합니다.
 1. 마지막 페이지에 복사하거나 다운로드할 수 있는 스크립트가 생성됩니다.
@@ -64,6 +64,29 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. [포털](https://aka.ms/hybridmachineportal)에서 머신을 선택하고, 줄임표(`...`)를 클릭한 다음, **삭제**를 선택합니다.
 1. 머신에서 에이전트를 제거합니다.
+
+   Windows에서는 "앱 및 기능" 제어판을 사용하여 에이전트를 제거할 수 있습니다.
+  
+  ![앱 및 기능](./media/quickstart-onboard/apps-and-features.png)
+
+   제거를 스크립팅하려면 **PackageId**를 검색하고 `msiexec /X`를 사용하여 에이전트를 제거하는 다음 예제를 사용할 수 있습니다.
+
+   레지스트리 키 `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` 아래에서 **PackageId**를 찾습니다. 그런 다음, `msiexec`를 사용하여 에이전트를 제거할 수 있습니다.
+
+   아래 예제에서는 에이전트를 제거하는 방법을 보여줍니다.
+
+   ```powershell
+   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+   Get-ItemProperty | `
+   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
+   ```
+
+   Linux에서는 다음 명령을 실행하여 에이전트를 제거합니다.
+
+   ```bash
+   sudo apt purge hybridagent
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,20 +1,21 @@
 ---
-title: '빠른 시작: Java용 Content Moderator 클라이언트 라이브러리 | Microsoft Docs'
-description: Java용 Content Moderator 클라이언트 라이브러리를 시작합니다.
+title: '빠른 시작: Java용 Content Moderator 클라이언트 라이브러리'
+titleSuffix: Azure Cognitive Services
+description: Java용 Azure Cognitive Services Content Moderator 클라이언트 라이브러리를 시작하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 5d1575818ac35c45af8a7df59c0853389d01031c
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: edc51be93ba209a1c60970e6fa1b47fca75048c6
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699912"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744447"
 ---
 # <a name="quickstart-content-moderator-client-library-for-java"></a>빠른 시작: Java용 Content Moderator 클라이언트 라이브러리
 
@@ -24,7 +25,7 @@ Java용 Content Moderator 클라이언트 라이브러리를 사용하여 다음
 
 * 성인 또는 외설 콘텐츠, 텍스트 또는 사람 얼굴에 대한 이미지를 조정합니다.
 
-[참조 설명서](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [아티팩트(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator&sort=0)
+[참조 설명서](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/contentmoderator?view=azure-java-stable) | [아티팩트(Maven)](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-contentmoderator) | [샘플](https://docs.microsoft.com/samples/browse/?products=azure&term=content-moderator)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -125,14 +126,14 @@ Content Moderator Java SDK의 주요 기능 중 일부를 처리하는 클래스
 
 ### <a name="get-images"></a>이미지 가져오기
 
-프로젝트의 **src/main/** 폴더에서 **resources** 폴더를 만들고 해당 폴더로 이동합니다. 그런 다음, *ImageFiles.txt* 텍스트 파일을 새로 만듭니다. 이 파일에서 분석할 이미지의 URL을 각 줄에 하나씩 추가합니다. 다음 샘플 콘텐츠를 사용할 수 있습니다.
+프로젝트의 **src/main/** 폴더에서 **resources** 폴더를 만들고 해당 폴더로 이동합니다. 그런 다음, *ImageFiles.txt* 텍스트 파일을 새로 만듭니다. 이 파일에서 분석할 이미지의 URL을 각 줄에 하나씩 추가합니다. 다음 샘플 이미지를 사용할 수 있습니다.
 
 ```
 https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg
 https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 ```
 
-### <a name="use-helper-class"></a>도우미 클래스 사용
+### <a name="define-helper-class"></a>도우미 클래스 정의
 
 다음으로, *ContentModeratorQuickstart.java* 파일에서 다음 클래스 정의를 **ContentModeratorQuickstart** 클래스 내에 추가합니다. 이 내부 클래스는 나중에 이미지 조정 프로세스에서 사용됩니다.
 

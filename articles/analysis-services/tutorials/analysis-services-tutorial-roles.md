@@ -1,18 +1,18 @@
 ---
-title: 자습서 - Azure Analysis Services 관리자 및 사용자 역할 구성 | Microsoft Docs
-description: Azure Analysis Services 역할을 구성하는 방법을 알아봅니다.
+title: 자습서 - Azure Analysis Services 역할 구성 | Microsoft Docs
+description: Azure Portal 또는 SQL Server Management Studio를 사용하여 Azure Analysis Services 관리자 및 사용자 역할을 구성하는 방법에 대해 알아봅니다.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: b70d1502985a1ffc0ebdf6fcb487cda3992d1c19
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3abcfe61f365c3c96dfb6b8eb2ca6cc9e5d3797e
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72294424"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73572366"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>자습서: 서버 관리자 및 사용자 역할 구성
 

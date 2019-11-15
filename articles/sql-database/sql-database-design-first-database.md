@@ -1,5 +1,5 @@
 ---
-title: '자습서: SSMS를 사용하여 Azure SQL Database에서 첫 번째 관계형 데이터베이스 디자인 | Microsoft Docs'
+title: '자습서: SSMS를 사용하여 첫 번째 관계형 데이터베이스 디자인'
 description: SQL Server Management Studio를 사용하여 Azure SQL Database에서 단일 데이터베이스의 첫 번째 관계형 데이터베이스를 디자인하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: v-masebo
 ms.date: 07/29/2019
-ms.openlocfilehash: 18e7e75b259475b9e360dc3441ed83ccb577e557
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 97e603e6daa64bb70edefe06b52a7c45f90787f3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492020"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818312"
 ---
 # <a name="tutorial-design-a-relational-database-in-a-single-database-within-azure-sql-database-using-ssms"></a>자습서: SSMS를 사용하여 Azure SQL Database 내에서 단일 데이터베이스의 관계형 데이터베이스 디자인
 

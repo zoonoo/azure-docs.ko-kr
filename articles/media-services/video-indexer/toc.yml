@@ -15,6 +15,10 @@
   items:
     - name: Video Indexer API 사용
       href: video-indexer-use-apis.md
+- name: 샘플
+  items:
+    - name: 라이브 스트림 분석
+      href: live-stream-analysis.md
 - name: 개념
   items:
     - name: 개요

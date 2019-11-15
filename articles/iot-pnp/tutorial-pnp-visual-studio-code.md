@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b890fe1a9ef30e18a54ced9f48015bed39298807
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: b7b9cd1040accda4d39af4d0a18940b56a45f929
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858873"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569895"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>자습서: Visual Studio Code를 사용하여 디바이스 기능 모델 만들기 및 테스트
 
@@ -43,14 +43,9 @@ ms.locfileid: "70858873"
 
 이 자습서에서 생성된 C 코드를 Windows에 빌드하려면 다음이 필요합니다.
 
-* [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) - Visual Studio를 설치할 때 **NuGet 패키지 관리자** 구성 요소와 **C++를 사용한 데스크톱 개발** 워크로드를 포함해야 합니다.
+* **C++ 빌드 도구** 및 **NuGet 패키지 관리자 구성 요소** 워크로드를 사용하여 [Visual Studio용 도구를 빌드](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools&rel=16)합니다. 또는 동일한 워크로드가 설치된 [Visual Studio(Community, Professional 또는 Enterprise)](https://visualstudio.microsoft.com/downloads/) 2019, 2017 또는 2015가 이미 있는 경우
 * [Git](https://git-scm.com/download)
 * [CMake](https://cmake.org/download/)
-* Azure IoT C SDK의 로컬 복사본:
-
-    ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
-    ```
 
 이 자습서에서 디바이스 코드를 테스트하려면 다음이 필요합니다.
 
@@ -176,7 +171,7 @@ VS Code에서 IoT 디바이스의 기능을 정의하는 인터페이스 파일�
           "commandType": "synchronous"
         }
       ],
-      "@context": "http://azureiot.com/v1/contexts/Interface.json"
+      "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
     }
     ```
 
@@ -310,9 +305,11 @@ VS Code에서 회사 리포지토리를 열려면 다음을 수행합니다.
 
 1. 언어로 **ANSI C**를 선택합니다.
 
-1. 대상으로 **CMake 프로젝트**를 선택합니다.
-
 1. 연결 방법으로 **IoT Hub 디바이스 연결 문자열을 통해**을 선택합니다.
+
+1. 프로젝트 템플릿으로 **Windows의 CMake 프로젝트**를 선택합니다.
+
+1. 디바이스 SDK를 포함하는 방법으로 **Via Vcpkg**를 선택합니다.
 
 VS Code에서 기본 C 코드를 생성하고, 해당 파일을 **modelcode** 폴더의 **sensorbox_app** 폴더에 저장합니다. VS Code에서 생성된 코드 파일이 포함된 새 창이 열립니다.
 

@@ -1,6 +1,6 @@
 ---
-title: REST API를 통해 Azure Data Box Blob Storage로 데이터를 복사하기 위한 자습서 | Microsoft Docs
-description: REST API를 통해 Azure Data Box Blob 스토리지에 데이터를 복사하는 방법 알아보기
+title: REST API를 통해 Azure Data Box Blob Heavy 스토리지로 데이터를 복사하기 위한 자습서 | Microsoft Docs
+description: REST API를 통해 Azure Data Box Heavy Blob 스토리지에 데이터를 복사하는 방법 알아보기
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 2c66b94cbcfa4688d9dc45d99688abe76fa55d17
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: adc48acbadaef56958587dc79be377b76a21fdc0
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595802"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606289"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 

@@ -1,5 +1,5 @@
 ---
-title: PowerShell 예제-모니터링-크기 조정-탄력적 풀-Azure SQL Database | Microsoft Docs
+title: PowerShell 예제-모니터링-크기 조정-탄력적 풀-Azure SQL Database
 description: Azure SQL Database에서 탄력적 풀을 모니터링하고 크기를 조정하는 Azure PowerShell 예제 스크립트
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 4d096600e57d3ca94a7c32547bd546bfdbeb9487
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6ab361b67741f2b96f593d04dafbabe355fc9121
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569939"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691629"
 ---
 # <a name="use-powershell-to-monitor-and-scale-an-elastic-pool-in-azure-sql-database"></a>PowerShell을 사용하여 Azure SQL Database에서 탄력적 풀 모니터링 및 크기 조정
 

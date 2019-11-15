@@ -9,18 +9,18 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 11/04/2019
-ms.openlocfilehash: d49a84f26453a6a7b2ff6d7f419fbc53ad8b98ba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ccd3e6129f4a061eacf83a1f4e70174c697480f
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476035"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73633703"
 ---
 1. Azure 구독에 대한 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. Azure Portal의 왼쪽 위 모서리에서 **+ 리소스 만들기**를 선택합니다.
 
-      ![새 리소스 만들기](media/aml-create-in-portal/portal-create-resource.png)
+    ![새 리소스 만들기](media/aml-create-in-portal/create-workspace.gif)
 
 1. 검색 창을 사용하여 **Machine Learning**을 찾습니다.
 

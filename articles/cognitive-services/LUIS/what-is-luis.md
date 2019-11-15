@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: c24b62ac729a0c52efb78f612c53c8844cf23b12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ee22a2a8a12eb85439e191bc21e6cf391bea3f8
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500001"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73612842"
 ---
 # <a name="what-is-language-understanding-luis"></a>LUIS(Language Understanding)란?
 
@@ -114,7 +114,7 @@ LUIS에 대한 상위 클라이언트 애플리케이션은 다음과 같습니�
 * [LUISGen](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUISGen) - LUISGen은 내보낸 LUIS 모델에서 강력한 형식의 C# 및 TypeScript 소스 코드를 생성하는 도구입니다.
 * [디스패치](https://aka.ms/dispatch-tool)는 디스패처 모델을 사용하는 부모 앱에서 여러 LUIS 및 QnA Maker 앱을 사용할 수 있도록 허용합니다.
 * [LUDown](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Ludown) - LUDown은 봇용 언어 모델을 관리하는 데 유용한 명령줄 도구입니다.
-* [Bot Framework - 작성기](https://github.com/microsoft/BotFramework-Composer)
+* [봇 프레임워크 - 작성기](https://github.com/microsoft/BotFramework-Composer) - 개발자 및 멀티 징계 팀이 Microsoft Bot Framework를 사용하여 봇 및 대화형 환경을 빌드하는 통합 개발 도구입니다.
 
 LUIS에 사용되는 다른 Cognitive Services:
 * [QnA Maker][qnamaker]에서는 몇 가지 유형의 텍스트를 질문 및 답변 기술 자료로 결합할 수 있습니다.

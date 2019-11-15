@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 683ea55bdc9eb878f7bcbe832d5364d50a6b23e2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 12b8d6dff571c074d1f1422f75e33a8b12761bd9
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509007"
+ms.locfileid: "73572147"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Azure App Service에서 SSL 인증서 추가
 
@@ -65,6 +65,7 @@ SSL 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 
 무료 App Service Managed Certificate는 App Service에서 사용자 지정 DNS 이름을 보호하는 데 사용되는 턴키 솔루션입니다. App Service에서 관리하고 자동으로 갱신되는 완전한 기능을 갖춘 SSL 인증서입니다. 무료 인증서에는 다음과 같은 제한이 있습니다.
 
+- 와일드카드 인증서를 지원하지 않습니다.
 - 네이키드 도메인을 지원하지 않습니다.
 - 내보낼 수 없습니다.
 
@@ -281,7 +282,7 @@ IIS 또는 _Certreq.exe_를 사용하여 인증서 요청을 생성한 경우 �
 
 ![App Service에서 공용 인증서 업로드](./media/configure-ssl-certificate/upload-public-cert.png)
 
-인증서가 업로드되면 인증서 지문을 복사하고 [인증서에 액세스할 수 있도록 설정](configure-ssl-certificate-in-code.md#load-the-certificate)을 참조합니다.
+인증서가 업로드되면 인증서 지문을 복사하고 [인증서에 액세스할 수 있도록 설정](configure-ssl-certificate-in-code.md#make-the-certificate-accessible)을 참조합니다.
 
 ## <a name="manage-app-service-certificates"></a>Azure App 인증서 관리
 

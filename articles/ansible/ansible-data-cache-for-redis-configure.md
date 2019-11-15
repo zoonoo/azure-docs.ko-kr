@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Azure Cache for Redis에서 Ansible을 사용하여 캐시 구성
-description: Ansible을 사용하여 Azure Cache for Redis를 만들고, 크기를 조정하고, 다시 부팅하는 방법 알아보기
+description: Ansible을 사용하여 Azure Cache for Redis에 방화벽 규칙을 생성, 확장, 다시 부팅 및 추가하는 방법 알아보기
 keywords: ansible, azure, devops, bash, 플레이북, 캐시, redis
 ms.topic: tutorial
 ms.service: ansible
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 92592dffb3a9094ae74328e8819cafc9469c2ac7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 95b42bc9539c36a533eb528c3c26ade89e99290b
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241804"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614358"
 ---
 # <a name="tutorial-configure-caches-in-azure-cache-for-redis-using-ansible"></a>자습서: Azure Cache for Redis에서 Ansible을 사용하여 캐시 구성
 

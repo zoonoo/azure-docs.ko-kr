@@ -7,14 +7,18 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 1165021ba602b85f47ff53dc14a2992f43be25bf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7574e80101784961448ff3c3b5a49d9e2c2f9807
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521310"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720220"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Azure Migrate를 사용하여 물리적 서버 평가: Server Assessment
+
+> [!NOTE]
+> Azure Migrate 포털에 이 기능이 아직 표시되지 않으면 중단합니다. 다음 주 정도에 표시됩니다.
+ 
 
 이 문서에서는 Azure Migrate:  서버 평가 도구를 사용하여 온-프레미스 VMware VM을 평가하는 방법을 보여 줍니다.
 
@@ -295,7 +299,7 @@ Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 
 > * Azure Migrate 어플라이언스 설정
 > * 평가 만들기 및 검토
 
-Azure Migrate:  서버 마이그레이션을 사용하여 물리적 서버를 Azure로 마이그레이션하는 방법을 알아보려면 이 시리즈의 세 번째 자습서로 계속 진행하세요.
+Azure Migrate:  Server Migration에 연결합니다.
 
 > [!div class="nextstepaction"]
 > [물리적 서버 마이그레이션](./tutorial-migrate-physical-virtual-machines.md)

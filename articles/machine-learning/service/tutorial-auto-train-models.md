@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: a7bd735a808532ed0e61cf42dca2d7a797092487
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 23441fb64293647698921c17c06731ab413b7699
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493700"
+ms.locfileid: "73582450"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-predict-taxi-fares"></a>자습서: 자동화된 기계 학습을 사용하여 택시 요금 예측
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -1062,7 +1062,7 @@ print(1 - mean_abs_percent_error)
 
 다른 Azure Machine Learning 자습서를 실행하려면 이 섹션을 완료하지 마세요.
 
-### <a name="stop-the-compute-instance"></a>컴퓨팅 인스턴스 중지
+### <a name="stop-the-notebook-vm"></a>Notebook VM 중지
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

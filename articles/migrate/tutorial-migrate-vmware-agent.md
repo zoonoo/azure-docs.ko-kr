@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: aecbaab1ed29a1acfdcb4eec53b88fc266bbab09
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 07e91abc1130505abc84f6687be7edd04522fa76
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309420"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720180"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>VMware VM을 Azure로 마이그레이션(에이전트 기반)
 
@@ -424,7 +424,19 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
 
 ## <a name="post-migration-best-practices"></a>마이그레이션 후 작업 모범 사례
 
-- 복원력 개선:
+- 온-프레미스
+    - 마이그레이션된 Azure VM 인스턴스에서 실행 중인 앱으로 앱 트래픽을 이동합니다.
+    - 로컬 VM 인벤토리에서 온-프레미스 VM을 제거합니다.
+    - 로컬 백업 작업에서 온-프레미스 VM을 제거합니다.
+    - 내부 문서를 업데이트하여 Azure VM의 새 위치 및 IP 주소를 표시합니다.
+- 마이그레이션 후 Azure VM 설정을 조정합니다.
+    - [Azure VM 에이전트](../virtual-machines/extensions/agent-windows.md)는 Azure Fabric Controller와 VM 간 상호 작용을 관리합니다. 이는 Azure Backup, Site Recovery, Azure Security 같은 일부 Azure 서비스에 필요합니다. 에이전트 기반 마이그레이션으로 VMare VM을 마이그레이션할 때 Mobility Service 설치 관리자는 Windows 머신에 Azure VM 에이전트를 설치합니다. Linux VM에서는 마이그레이션 후 에이전트를 설치하는 것이 좋습니다.
+    - 마이그레이션 후 Azure VM에서 모바일 서비스를 수동으로 제거합니다.
+    - 마이그레이션 후 VMware 도구를 수동으로 제거합니다.
+- Azure에서:
+    - 데이터베이스 연결 문자열 업데이트, 웹 서버 구성 등의 마이그레이션 후 앱 조정을 수정합니다.
+    - 이제 Azure에서 실행 중인 마이그레이션된 애플리케이션에서 최종 애플리케이션 및 마이그레이션 수용 테스트를 수행합니다.
+- 비즈니스 연속성/재해 복구
     - Azure Backup 서비스를 통해 Azure VM을 백업하여 데이터 보안을 유지합니다. [자세히 알아보기](../backup/quick-backup-vm-portal.md).
     - Site Recovery를 통해 Azure VM을 보조 지역에 복제하면 워크로드를 계속 실행하고 지속적으로 사용할 수 있습니다. [자세히 알아보기](../site-recovery/azure-to-azure-tutorial-enable-replication.md).
 - 보안 강화:
@@ -433,9 +445,11 @@ OVF 템플릿이 다운로드되면 VMware로 가져와서 Windows Server 2016�
     - [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)을 배포하여 디스크를 보호하고 데이터를 도난 및 무단 액세스로부터 안전하게 유지합니다.
     - [IaaS 리소스 보호](https://azure.microsoft.com/services/virtual-machines/secure-well-managed-iaas/)에 대해 자세히 알아보고 [Azure Security Center](https://azure.microsoft.com/services/security-center/)를 방문하세요.
 - 모니터링 및 관리 앱:
--  리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview)를 배포하는 것이 좋습니다.
+    - 리소스 사용량과 비용을 모니터링하려면 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/overview)를 배포하는 것이 좋습니다.
 
 
-## <a name="next-steps"></a>다음 단계
+
+
+ ## <a name="next-steps"></a>다음 단계
 
 Azure 클라우드 채택 프레임워크에서 [클라우드 마이그레이션 과정](https://docs.microsoft.com/azure/architecture/cloud-adoption/getting-started/migrate)을 조사합니다.

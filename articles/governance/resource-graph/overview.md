@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: overview
 ms.service: resource-graph
-ms.openlocfilehash: c113719d304aa4ed9c13df1fe0264d22aacb5002
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 41663ec04e194bcc4380f46f1e5cc5a6867e53fc
+ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499133"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73622526"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
 
@@ -92,7 +92,7 @@ Resource Graph는 Azure CLI, Azure PowerShell, Azure SDK for .NET 등을 지원�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal](first-query-portal.md)에서 첫 번째 쿼리를 실행합니다.
+- [Azure Portal](first-query-portal.md)을 사용하여 첫 번째 쿼리를 실행합니다.
 - [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리를 실행합니다.
 - [Azure PowerShell](first-query-powershell.md)로 첫 번째 쿼리를 실행합니다.
 - [쿼리 언어](./concepts/query-language.md)에 대한 자세한 정보를 가져옵니다.

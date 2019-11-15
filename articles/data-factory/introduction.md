@@ -1,28 +1,22 @@
 ---
-title: Azure Data Factory 소개 | Microsoft Docs
+title: Azure Data Factory 소개
 description: 데이터의 이동과 변환을 조율하고 자동화하는 클라우드 데이터 통합 서비스인 Azure Data Factory에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
 author: djpmsft
 ms.author: daperlov
-manager: jroth
-ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: overview
 ms.date: 09/30/2019
-ms.openlocfilehash: 7bc03e80fc49756d19677edbef6bd8d372849732
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: e23268d21b01435aa71d4f471afc6d37ee9e9c1d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937245"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672692"
 ---
 # <a name="what-is-azure-data-factory"></a>Azure 데이터 팩터리란 무엇인가요?
-
-> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
-> * [버전 1](v1/data-factory-introduction.md)
-> * [현재 버전](introduction.md)
 
 빅 데이터 세계에서 구성되지 않은 원시 데이터는 흔히 관계형, 비관계형 및 기타 스토리지 시스템에 저장됩니다. 그러나 원시 데이터 자체는 분석자, 데이터 과학자 또는 비즈니스 의사 결정자에게 의미 있는 통찰력을 제공하는 적절한 컨텍스트나 의미를 가지고 있지 않습니다. 
 
@@ -34,16 +28,15 @@ ms.locfileid: "71937245"
 
 통찰력을 추출하기 위해 클라우드의 Spark 클러스터를 사용하여 조인한 데이터를 처리하고(Azure HDInsight), 변환된 데이터를 Azure SQL Data Warehouse 같은 클라우드 데이터 웨어하우스에 게시하여 이 데이터를 바탕으로 보고서를 쉽게 작성하려고 합니다. 이 워크플로를 자동화하고 일일 일정으로 모니터링 및 관리하려고 합니다. 또한 파일이 Blob 저장소 컨테이너에 배치될 때 실행하려고 합니다.
 
-Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼입니다. *데이터 이동 및 데이터 변환을 오케스트레이션하고 자동화하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스*입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소의 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 예약할 수 있습니다. Azure HDInsight Hadoop, Spark, Azure Data Lake Analytics 및 Azure Machine Learning과 같은 컴퓨팅 서비스를 사용하여 데이터를 처리하고 변환할 수 있습니다. 
+Azure Data Factory는 그러한 데이터 시나리오를 해결하는 플랫폼입니다. 이는 *데이터 이동을 오케스트레이션하고 데이터를 규모에 맞게 변환하는 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 ETL 및 데이터 통합 서비스*입니다. Azure Data Factory를 사용하여 서로 다른 데이터 저장소의 데이터를 수집할 수 있는 데이터 기반 워크플로(파이프라인이라고 함)를 만들고 예약할 수 있습니다. 데이터 흐름을 사용하거나 컴퓨팅 서비스(예: Azure HDInsight Hadoop, Azure Databricks 및 Azure SQL Database)를 사용하여 데이터를 시각적으로 변환하는 복잡한 ETL 프로세스를 작성할 수 있습니다. 
 
-또한 사용할 BI(비즈니스 인텔리전스) 애플리케이션용 Azure SQL Data Warehouse와 같은 데이터 저장소에 출력 데이터를 게시할 수도 있습니다. 궁극적으로, Azure Data Factory를 통해 원시 데이터를 더 나은 비즈니스 결정에 의미 있는 데이터 저장소 및 데이터 레이크로 구성할 수 있습니다.
+또한 변환된 데이터를 데이터 저장소(예: BI(비즈니스 인텔리전스) 애플리케이션용 Azure SQL Data Warehouse)에 게시하여 사용할 수 있습니다. 궁극적으로, Azure Data Factory를 통해 원시 데이터를 더 나은 비즈니스 결정에 의미 있는 데이터 저장소 및 데이터 레이크로 구성할 수 있습니다.
 
-![데이터 팩터리의 최상위 수준 보기](media/introduction/big-picture.png)
+![데이터 팩터리의 최상위 수준 보기](media/data-flow/overview.png)
 
 ## <a name="how-does-it-work"></a>작동 원리
-Azure Data Factory의 파이프라인(데이터 기반 워크플로)는 일반적으로 다음 네 단계를 수행합니다.
 
-![데이터 기반 워크플로의 네 단계](media/introduction/four-steps-of-a-workflow.png)
+Data Factory에는 데이터 엔지니어에게 완벽한 엔드투엔드 플랫폼을 제공하는 일련의 상호 연결된 시스템이 포함되어 있습니다.
 
 ### <a name="connect-and-collect"></a>연결 및 수집
 
@@ -56,10 +49,12 @@ Azure Data Factory의 파이프라인(데이터 기반 워크플로)는 일반�
 Data Factory가 있으면 향후 분석에 사용할 수 있도록 데이터 파이프라인에서 [복사 작업](copy-activity-overview.md)을 사용하여 온-프레미스 및 클라우드 소스 데이터 저장소에서 클라우드의 중앙 데이터 저장소로 데이터를 이동할 수 있습니다. 예를 들어, Azure Data Lake Storage에서 데이터를 수집하고 나중에 Azure Data Lake Analytics 컴퓨팅 서비스를 사용하여 데이터를 변환할 수 있습니다. 또한 Azure HDInsight Hadoop 클러스터를 사용하여 Azure Blob Storage에서 데이터를 수집하고 나중에 변환할 수 있습니다.
 
 ### <a name="transform-and-enrich"></a>변환 및 보강
-데이터가 클라우드에서 중앙 집중화된 데이터 저장소에 표시되면 HDInsight Hadoop, Spark, Data Lake Analytics 및 Machine Learning과 같은 컴퓨팅 서비스를 사용하여 수집된 데이터를 처리하거나 변환합니다. 이제 유지 관리할 수 있고 제어된 일정에 따라 변환된 데이터를 안정적으로 생성하여 프로덕션 환경에 신뢰할 수 있는 데이터를 공급하려고 합니다.
+데이터가 클라우드의 중앙 집중식 데이터 저장소에 있는 경우 ADF 매핑 데이터 흐름을 사용하여 수집된 데이터를 처리하거나 변환합니다. 데이터 흐름을 통해 데이터 엔지니어는 Spark 클러스터 또는 Spark 프로그래밍을 이해할 필요 없이 Spark에서 실행되는 데이터 변환 그래프를 작성하고 유지할 수 있습니다.
 
-### <a name="publish"></a>게시
-원시 데이터를 비즈니스에 사용 가능한 형식으로 구체화했으므로 데이터를 Azure Data Warehouse, Azure SQL Database, Azure CosmosDB 또는 비즈니스 사용자가 자신의 비즈니스 인텔리전스 도구로/에서 가리킬 수 있는 분석 엔진에 로드합니다.
+직접 변환을 코딩하는 것을 선호하는 경우 ADF는 컴퓨팅 서비스(예: HDInsight Hadoop, Spark, Data Lake Analytics 및 Machine Learning)에서 변환을 실행하기 위한 외부 활동을 지원합니다.
+
+### <a name="cicd-and-publish"></a>CI/CD 및 게시
+Data Factory는 Azure DevOps 및 GitHub를 사용하여 데이터 파이프라인의 CI/CD를 완벽하게 지원합니다. 이를 통해 완성된 제품을 게시하기 전에 ETL 프로세스를 증분 방식으로 개발하고 제공할 수 있습니다. 원시 데이터를 비즈니스에 사용 가능한 형식으로 구체화했으므로 데이터를 Azure Data Warehouse, Azure SQL Database, Azure CosmosDB 또는 비즈니스 사용자가 자신의 비즈니스 인텔리전스 도구로/에서 가리킬 수 있는 분석 엔진에 로드합니다.
 
 ### <a name="monitor"></a>모니터
 데이터 통합 파이프라인을 성공적으로 만들고 배포하여 구체화된 데이터에서 비즈니스 가치를 제공한 후에는 성공 및 실패 비율에 맞게 일정 계획된 작업과 파이프라인을 모니터링합니다. Azure Data Factory는 Azure Monitor, API, PowerShell, Azure Monitor 로그 및 Azure Portal의 상태 패널을 통한 파이프라인 모니터링을 기본 제공합니다.
@@ -71,6 +66,9 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데�
 데이터 팩터리에는 하나 이상의 파이프라인이 포함될 수 있습니다. 파이프라인은 작업 단위를 수행하는 작업의 논리적 그룹입니다. 파이프라인의 활동이 모여 작업을 수행합니다. 예를 들어, Azure Blob에서 데이터를 수집한 다음 HDInsight 클러스터에서 Hive 쿼리를 실행하여 데이터를 분할하는 작업 그룹이 파이프라인에 포함될 수 있습니다. 
 
 이 방식의 장점은 파이프라인을 통해 각각을 개별적으로 관리하는 대신 하나의 집합으로써 활동을 관리할 수 있다는 점입니다. 파이프라인의 작업을 서로 연결하여 순차적으로 작동하거나 독립적으로 병렬 작동할 수 있습니다.
+
+### <a name="mapping-data-flows"></a>데이터 흐름 매핑
+모든 크기의 데이터를 변환하는 데 사용할 수 있는 데이터 변환 논리 그래프를 만들고 관리합니다. 재사용 가능한 데이터 변환 루틴 라이브러리를 작성하고, 이러한 프로세스를 ADF 파이프라인에서 확장된 방식으로 실행할 수 있습니다. Data Factory는 필요할 때 회전 속도를 높이고 낮추는 논리를 Spark 클러스터에서 실행합니다. 클러스터를 관리하거나 유지 관리할 필요가 없습니다.
 
 ### <a name="activity"></a>작업
 작업은 파이프라인의 처리 단계를 나타냅니다. 예를 들어, 하나의 데이터 저장소에서 다른 데이터 저장소로 데이터를 복사하는 데 복사 작업을 사용할 수 있습니다. 마찬가지로 데이터를 변환하거나 분석하기 위해서 Azure HDInsight 클러스터에서 Hive 쿼리를 실행하는 Hive 작업을 사용할 수 있습니다. Data Factory는 데이터 이동 작업, 데이터 변환 작업 및 제어 작업이라는 세 종류의 작업을 지원합니다.
@@ -103,33 +101,16 @@ Azure 구독에는 하나 이상의 Azure Data Factory 인스턴스(또는 데�
 ### <a name="control-flow"></a>흐름 제어
 흐름 제어는 파이프라인 수준에서 시퀀스, 분기 및 매개 변수 정의의 작업 연결 그리고 요청 시 또는 트리거에서 파이프라인을 호출할 때 인수 전달을 포함하는 파이프라인 작업의 조율입니다. 또한 사용자 지정 상태 전달 및 컨테이너 루핑, 즉 For-each 반복기도 포함합니다.
 
+### <a name="variables"></a>variables
+변수는 파이프라인 내부에서 임시 값을 저장하는 데 사용할 수 있으며, 파이프라인, 데이터 흐름 및 기타 활동 간에 값을 전달할 수 있도록 매개 변수와 함께 사용할 수도 있습니다.
 
-Data Factory 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
+## <a name="next-steps"></a>다음 단계
+살펴볼 필요가 있는 중요한 다음 단계 문서는 아래와 같습니다.
 
 - [데이터 세트 및 연결된 서비스](concepts-datasets-linked-services.md)
 - [파이프라인 및 활동](concepts-pipelines-activities.md)
 - [통합 런타임](concepts-integration-runtime.md)
-
-## <a name="supported-regions"></a>지원되는 지역
-
-현재 Data Factory를 사용할 수 있는 Azure 지역 목록을 보려면 다음 페이지에서 관심 있는 지역을 선택한 다음, **Analytics**를 펼쳐서 **Data Factory**: [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/)을 찾습니다. 그러나 데이터 팩터리는 컴퓨팅 서비스를 사용하여 데이터 저장소 간에 데이터를 이동하고 데이터를 처리하도록 다른 Azure 지역에서 데이터 저장소 및 컴퓨팅 서비스에 액세스할 수 있습니다.
-
-Azure 데이터 팩터리 자체는 데이터를 저장하지 않습니다. 데이터 기반 워크플로를 만들어서 지원되는 데이터 저장소 간의 데이터 이동을 조율하고 다른 지역 또는 온-프레미스 환경에서 컴퓨팅 서비스를 사용하여 데이터의 처리를 조율할 수 있습니다. 또한 프로그래밍 방식 및 UI 메커니즘을 모두 사용하여 워크플로를 모니터링하고 관리할 수 있습니다.
-
-Data Factory는 특정 지역에서만 사용할 수 있지만, 여러 지역에서 Data Factory의 데이터 이동을 지원하는 서비스를 전역적으로 사용할 수 있습니다. 데이터 저장소가 방화벽 뒤에 있는 경우 온-프레미스 환경에 설치된 자체 호스팅 Integration Runtime이 데이터를 대신 이동합니다.
-
-예를 들어, Azure HDInsight 클러스터 및 Azure Machine Learning과 같은 컴퓨팅 환경이 서유럽 지역 외부에서 실행되고 있다고 가정해보겠습니다. 미국 동부 또는 미국 동부 2에서 Azure Data Factory 인스턴스를 만들고 사용할 수 있으며, 이를 사용하여 서유럽의 컴퓨팅 환경에서 작업을 예약할 수 있습니다. 데이터 팩터리가 컴퓨팅 환경에 작업을 트리거하는 데는 몇 밀리초가 걸리지만 사용자의 컴퓨팅 환경에서 작업을 실행하는 데 걸리는 시간은 변경되지 않습니다.
-
-## <a name="accessibility"></a>접근성
-
-Azure Portal에서 Data Factory 사용자 환경에 액세스할 수 있습니다.
-
-## <a name="compare-with-version-1"></a>버전 1과 비교
-Data Factory 서비스 버전 1과 현재 버전 사이의 차이점 목록은 [버전 1과 비교](compare-versions.md)를 참조하세요. 
-
-## <a name="next-steps"></a>다음 단계
-다음 도구/SDK 중 하나를 사용하여 Data Factory 파이프라인을 만들기 시작합니다. 
-
+- [데이터 흐름 매핑](concepts-data-flow-overview.md)
 - [Azure Portal의 Data Factory UI](quickstart-create-data-factory-portal.md)
 - [Azure Portal의 데이터 복사 도구](quickstart-create-data-factory-copy-data-tool.md)
 - [PowerShell](quickstart-create-data-factory-powershell.md)

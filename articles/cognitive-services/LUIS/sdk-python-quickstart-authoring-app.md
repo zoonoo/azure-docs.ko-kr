@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리'
 titleSuffix: Azure Cognitive Services
-description: Python용 LUIS(Language Understanding) 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.  LUIS(Language Understanding)를 사용하면 사용자 지정 기계 학습 인텔리전스를 사용자의 대화형 자연어 텍스트에 적용하여 전반적인 의미를 예측하고 관련된 세부 정보를 끌어올 수 있습니다.
+description: Python용 LUIS 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/07/2019
 ms.author: diberry
-ms.openlocfilehash: f8149372e0a96cda81ef38558ee0bcf87eb53bb3
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 1b586af569a9406d7fe9fa3d05c198f62f32744f
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258758"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73672011"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>빠른 시작: Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리
 

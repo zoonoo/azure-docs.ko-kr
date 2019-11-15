@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4f49220da5d996615c9f8ef7cad2b6c6793866b7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4e479405a9606a8353785828d0c9c94ef8c32ed
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466260"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73850420"
 ---
 ### <a name="regions"></a>이용 가능한 지역은 어디인가요?
 
@@ -50,3 +50,8 @@ Windows에서 Microsoft Edge 브라우저 또는 Chrome을 사용합니다. Appl
 ### <a name="session"></a>왜 Bastion 세션이 시작하기 전에 "세션이 만료되었습니다." 오류 메시지를 받나요?
 
 세션은 Azure Portal에서만 시작되어야 합니다. Azure Portal에 로그인하고 세션을 다시 시작합니다. 다른 브라우저 세션이나 탭에서 URL로 직접 이동하는 경우 이 오류가 예상됩니다. 세션이 더 안전한지 Azure Portal을 통해서만 세션에 액세스할 수 있는지 확인하도록 돕습니다.
+
+### <a name="keyboard"></a>Bastion 원격 세션 중에 지원되는 키보드 레이아웃은?
+
+Azure Bastion은 현재 VM 내에서 en-us-qwerty 키보드 레이아웃을 지원합니다.  키보드 레이아웃을 위한 다른 로캘에 대한 지원이 진행 중입니다.
+

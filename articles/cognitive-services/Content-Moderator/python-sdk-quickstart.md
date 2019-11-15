@@ -1,20 +1,21 @@
 ---
 title: '빠른 시작: Python용 Content Moderator 클라이언트 라이브러리 | Microsoft Docs'
-description: Python용 Content Moderator 클라이언트 라이브러리를 시작합니다.
+titleSuffix: Azure Cognitive Services
+description: Python용 Azure Cognitive Services Content Moderator 클라이언트 라이브러리를 시작하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 07/24/2019
+ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 62407467e3c63b1752ee6816325f097ad9a1f09e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3978b4ec302bf4dd2390f2390c967ca6e12e67d5
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755245"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73744402"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>빠른 시작: Python용 Content Moderator 클라이언트 라이브러리
 
@@ -295,7 +296,7 @@ This text contains the terms "term1" and "term2".
 
 ## <a name="create-a-review"></a>검토 만들기
 
-Content Moderator Python SDK를 사용하여 사용자 중재자가 검토할 수 있도록 콘텐츠를 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에 제공합니다. 검토 도구에 대한 자세한 내용은 [개념 가이드](./review-tool-user-guide/human-in-the-loop.md)를 참조하세요.
+Content Moderator Python SDK를 사용하여 사용자 중재자가 검토할 수 있도록 콘텐츠를 [검토 도구](https://contentmoderator.cognitive.microsoft.com)에 제공합니다. 검토 도구에 대한 자세한 내용은 [검토 도구 개념 가이드](./review-tool-user-guide/human-in-the-loop.md)를 참조하세요.
 
 다음 코드에서는 검토 도구의 웹 포털을 통해 사용자 입력을 받은 후에 [ReviewsOperations](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.reviewsoperations?view=azure-python) 클래스를 사용하여 검토를 만들고, 해당 ID를 검색하고, 해당 세부 정보를 확인합니다.
 
@@ -312,7 +313,7 @@ Content Moderator Python SDK를 사용하여 사용자 중재자가 검토할 �
 
 ### <a name="get-review-details"></a>검토 세부 정보 가져오기
 
-다음 코드를 사용하여 지정된 검토의 세부 정보를 확인합니다. 검토가 만들어지면 검토 도구로 직접 이동하여 콘텐츠와 상호 작용할 수 있습니다. 완료되면 이 코드를 다시 실행할 수 있으며, 검토 프로세스의 결과를 검색합니다.
+다음 코드를 사용하여 지정된 검토의 세부 정보를 확인합니다. 검토가 만들어지면 검토 도구로 직접 이동하여 콘텐츠와 상호 작용할 수 있습니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [리뷰 방법 가이드](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/review-moderated-images)를 참조하세요. 완료되면 이 코드를 다시 실행할 수 있으며, 검토 프로세스의 결과를 검색합니다.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imagereview_getdetails)]
 

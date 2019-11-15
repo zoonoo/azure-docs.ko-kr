@@ -1,5 +1,5 @@
 ---
-title: CLI 예제 Azure SQL 데이터베이스 만들기 | Microsoft Docs
+title: CLI 예제 - Azure SQL 데이터베이스 만들기
 description: 다음 Azure CLI 예제 스크립트를 사용하여 SQL Database를 만듭니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/25/2019
-ms.openlocfilehash: f6051c5c83f43f20e453b5f87aabb1a80d7a0487
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: aa13e5f245a34387eee5fae48c896163cc2f7c4a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569988"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691712"
 ---
 # <a name="use-cli-to-create-a-single-azure-sql-database-and-configure-a-firewall-rule"></a>CLI를 사용하여 단일 Azure SQL 데이터베이스 만들기 및 방화벽 규칙 구성
 

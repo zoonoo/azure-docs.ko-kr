@@ -1,6 +1,6 @@
 ---
 title: 대규모로 Azure 가상 머신 백업
-description: Azure에 여러 가상 머신을 동시에 백업
+description: 이 자습서에서는 Recovery Services 자격 증명 모음을 만들고, 백업 정책을 정의하고, 여러 가상 머신을 동시에 백업하는 방법에 대해 알아봅니다.
 keywords: 가상 머신 백업; vm 백업; Azure vm 백업; 백업 및 재해 복구
 author: dcurwin
 manager: carmonm
@@ -9,24 +9,25 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: fa9f13bf4f4e06973f7b9125897366ad53d06857
-ms.sourcegitcommit: d585cdda2afcf729ed943cfd170b0b361e615fae
+ms.openlocfilehash: 99a842704325e38cbf1ab9203a56a25bc2273827
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68688442"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73747022"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal을 사용하여 여러 가상 머신을 백업
 
-Azure에 데이터를 백업하면 Recovery Services 자격 증명 모음이라는 Azure 리소스에 해당 데이터가 저장됩니다. Recovery Services 자격 증명 모음 리소스는 대부분의 Azure 서비스의 설정 메뉴에서 사용할 수 있습니다. Recovery Services 자격 증명 모음이 Azure 서비스 대부분의 설정 메뉴에 통합되면 데이터의 백업이 매우 쉬워집니다. 그러나 회사의 각 데이터베이스 또는 가상 컴퓨터에서 개별적으로 작업하면 번거로울 수 있습니다. 한 부서 또는 한 위치에 있는 모든 가상 머신의 데이터를 백업하려면 어떻게 해야 할까요? 백업 정책을 만들어 원하는 가상 머신에 적용하면 여러 가상 머신을 쉽게 백업할 수 있습니다. 이 자습서에서는 다음을 수행하는 방법을 설명합니다.
+Azure에 데이터를 백업하면 Recovery Services 자격 증명 모음이라는 Azure 리소스에 해당 데이터가 저장됩니다. Recovery Services 자격 증명 모음 리소스는 대부분의 Azure 서비스의 설정 메뉴에서 사용할 수 있습니다. Recovery Services 자격 증명 모음이 Azure 서비스 대부분의 설정 메뉴에 통합되면 데이터의 백업이 쉬워집니다. 그러나 회사의 각 데이터베이스 또는 가상 컴퓨터에서 개별적으로 작업하면 번거로울 수 있습니다. 한 부서 또는 한 위치에 있는 모든 가상 머신의 데이터를 백업하려면 어떻게 해야 할까요? 백업 정책을 만들어 원하는 가상 머신에 적용하면 여러 가상 머신을 쉽게 백업할 수 있습니다. 이 자습서에서는 다음을 수행하는 방법을 설명합니다.
 
 > [!div class="checklist"]
+>
 > * Recovery Services 자격 증명 모음 만들기
 > * 백업 정책 정의
 > * 여러 가상 머신을 보호하기 위해 백업 정책 적용
 > * 보호된 가상 머신 대한 주문형 백업 작업 트리거
 
-## <a name="log-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -44,11 +45,11 @@ Recovery Services 자격 증명 모음에는 백업 데이터, 그리고 보호�
 
 3. Recovery Services 자격 증명 모음 메뉴에서
 
-    - **이름**에 *myRecoveryServicesVault*를 입력합니다.
-    - 현재 구독 ID가 **구독**에 표시됩니다. 추가 구독이 있는 경우 새 자격 증명 모음에 대해 다른 구독을 선택할 수 있습니다.
-    - **리소스 그룹**에서 **기존 항목 사용**을 선택하고 *myResourceGroup*을 선택합니다. *myResourceGroup*이 없는 경우에는 **새로 만들기**를 선택한 후 *myResourceGroup*을 입력합니다.
-    - **위치** 드롭다운 메뉴에서 *유럽 서부*를 선택합니다.
-    - **만들기**를 클릭하면 Recovery Services 자격 증명 모음이 생성됩니다.
+    * **이름**에 *myRecoveryServicesVault*를 입력합니다.
+    * 현재 구독 ID가 **구독**에 표시됩니다. 추가 구독이 있는 경우 새 자격 증명 모음에 대해 다른 구독을 선택할 수 있습니다.
+    * **리소스 그룹**에서 **기존 항목 사용**을 선택하고 *myResourceGroup*을 선택합니다. *myResourceGroup*이 없는 경우에는 **새로 만들기**를 선택한 후 *myResourceGroup*을 입력합니다.
+    * **위치** 드롭다운 메뉴에서 *유럽 서부*를 선택합니다.
+    * **만들기**를 클릭하면 Recovery Services 자격 증명 모음이 생성됩니다.
 
 Recovery Services 자격 증명 모음은 보호 중인 가상 머신과 동일한 위치에 있어야 합니다. 가상 머신이 여러 지역에 있는 경우 각 지역에 Recovery Services 자격 증명 모음을 만듭니다. 이 자습서에서는 *유럽 서부*에 Recovery Services 자격 증명 모음을 만듭니다. 이 지역에 *myVM*(퀵 스타트로 만든 가상 머신)을 생성했기 때문입니다.
 
@@ -77,12 +78,12 @@ Recovery Services 자격 증명 모음을 만든 후 다음 단계는 데이터 
     ![워크로드 선택](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. **백업 정책** 메뉴에서 **정책 이름**에 *재무*를 입력합니다. 백업 정책에 대해 다음과 같은 변경 사항을 입력합니다.
-   - **백업 빈도**에서 *중부 표준시*의 표준 시간대를 설정합니다. 스포츠 복합 시설이 텍사스에 있으므로 소유자는 현지 시간을 설정하고자 합니다. 백업 빈도는 매일 오전 3시 30분 설정을 그대로 둡니다.
-   - **일일 백업 지점 보존**에서 기간은 90일로 설정합니다.
-   - **주간 백업 지점 보존**에서 *월요일*을 복원 지점으로 사용하고 52주 동안 유지합니다.
-   - **월간 백업 지점 보존**에서 해당 월 첫 번째 일요일의 복원 지점을 사용하고 36개월 동안 유지합니다.
-   - **연간 백업 지점 보존** 옵션은 선택 취소합니다. 재무 책임자는 데이터를 36개월 넘게 보관하려고 하지 않습니다.
-   - **확인**을 클릭하여 백업 정책을 만듭니다.
+   * **백업 빈도**에서 *중부 표준시*의 표준 시간대를 설정합니다. 스포츠 복합 시설이 텍사스에 있으므로 소유자는 현지 시간을 설정하고자 합니다. 백업 빈도는 매일 오전 3시 30분 설정을 그대로 둡니다.
+   * **일일 백업 지점 보존**에서 기간은 90일로 설정합니다.
+   * **주간 백업 지점 보존**에서 *월요일*을 복원 지점으로 사용하고 52주 동안 유지합니다.
+   * **월간 백업 지점 보존**에서 해당 월 첫 번째 일요일의 복원 지점을 사용하고 36개월 동안 유지합니다.
+   * **연간 백업 지점 보존** 옵션은 선택 취소합니다. 재무 책임자는 데이터를 36개월 넘게 보관하려고 하지 않습니다.
+   * **확인**을 클릭하여 백업 정책을 만듭니다.
 
      ![워크로드 선택](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
@@ -142,7 +143,6 @@ Recovery Services 자격 증명 모음에 대한 백업을 사용하도록 설�
 
     ![설정 아이콘](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
-
 2. **백업 항목** 메뉴에서 **Azure Virtual Machine**을 클릭하여 자격 증명 모음과 연결된 가상 머신의 목록을 엽니다.
 
     ![설정 아이콘](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
@@ -171,12 +171,12 @@ Recovery Services 자격 증명 모음에 대한 백업을 사용하도록 설�
 
     자격 증명 모음이 삭제되면 Recovery Services 자격 증명 모음 목록으로 돌아갑니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 Azure Portal을 사용하여 다음을 수행했습니다.
 
 > [!div class="checklist"]
+>
 > * Recovery Services 자격 증명 모음 만들기
 > * 자격 증명 모음을 설정하여 가상 머신 보호
 > * 사용자 지정 백업 및 보존 정책 만들기

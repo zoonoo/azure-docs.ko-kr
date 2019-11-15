@@ -1,21 +1,21 @@
 ---
 title: '빠른 시작: LUIS 키 만들기'
 titleSuffix: Azure Cognitive Services
-description: 이 자습서에서는 LUIS 애플리케이션을 신속하게 만드는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 LUIS 애플리케이션을 만들고 키를 가져오는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 11/04/2019
 ms.author: wolfma
-ms.openlocfilehash: 95becb2574a45536610aef87f8045b3dad5a5003
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2ee2b25958feac2387779d9e60734a6600b60a2e
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500803"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682062"
 ---
 # <a name="quickstart-getting-a-luis-endpoint-key"></a>빠른 시작: LUIS 엔드포인트 키 가져오기
 
@@ -54,7 +54,7 @@ Azure 대시보드에서 LUIS 리소스를 만든 후에는 [LUIS 포털](https:
    * **구독 이름**에서 사용하려는 LUIS 리소스가 포함된 Azure 구독을 선택합니다.
    * **키**에서 앱에 사용하려는 LUIS 리소스를 선택합니다.
 
-   잠시 후 페이지 아래쪽의 표에 새 구독이 나타납니다. 
+   잠시 후 페이지 아래쪽의 표에 새 구독이 나타납니다.
 
 1. 키 옆에 있는 아이콘을 선택하여 클립보드에 복사합니다. 두 키 중 하나를 사용할 수 있습니다.
 

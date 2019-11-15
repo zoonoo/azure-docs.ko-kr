@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 325de36f3aa480847bc647827260f7f65765b5d7
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: beef37b0ece9cf57c86927b9f57d85ad4a25dbd1
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103758"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73746325"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -202,6 +202,10 @@ VM, 디스크, 웹 사이트 등의 모든 리소스가 새 계정에 양도됩�
 ### <a name="can-i-use-a-different-payment-method"></a>다른 결제 방법을 사용할 수 있나요?
 
 예. 양도 요청을 수락하는 과정에서 계정에 연결된 기존 결제 방법을 선택하거나 새 결제 방법을 추가할 수 있습니다.
+
+### <a name="how-can-i-transfer-ownership-of-my-enterprise-agreement-ea-subscription-account-ownership-if-the-original-account-owner-is-no-longer-with-the-organization"></a>원래 계정 소유자가 더 이상 조직에 없는 경우 내 EA(기업계약) 구독 계정 소유권의 소유권을 양도하려면 어떻게 해야 하나요?
+
+Enterprise Administrator는 원래 계정 소유자가 더 이상 조직의 일부가 아닌 경우에도 모든 계정에 대한 계정 소유권을 업데이트할 수 있습니다. 이러한 작업은 EA 포털에서 [모든 구독에 대한 계정 소유권 전송](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription)에 대한 지침에 따라 수행할 수 있습니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

@@ -7,13 +7,13 @@ ms.custom: include file
 ms.topic: include
 author: sgilley
 ms.author: sgilley
-ms.date: 10/22/2019
-ms.openlocfilehash: 5a66212122745d0f4426e48e9487e9d674cec53f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/06/2019
+ms.openlocfilehash: 66f5c72fcabb62e21f0110cb981b7271244c0648
+ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489965"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73799991"
 ---
 >[!IMPORTANT]
 >직접 만든 리소스는 다른 Azure Machine Learning 자습서 및 방법 문서에 대한 필수 조건으로 사용할 수 있습니다.
@@ -28,32 +28,22 @@ ms.locfileid: "73489965"
 
 1. 목록에서 만든 리소스 그룹을 선택합니다.
 
-1. 창의 오른쪽에서 줄임표 단추( **...** )를 선택합니다.
-
 1. **리소스 그룹 삭제**를 선택합니다.
 
 리소스 그룹을 삭제하면 디자이너에서 만든 모든 리소스도 삭제됩니다.  
 
-### <a name="delete-only-the-compute-target"></a>컴퓨팅 대상만 삭제
-
-여기에서 만든 컴퓨팅 대상은 사용하지 않을 경우 제로 노드로 *자동으로 크기 조정*됩니다. 이러한 기능은 요금을 최소화하기 위한 것입니다. 컴퓨팅 대상을 삭제하려는 경우 다음 단계를 수행합니다.
-
-1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 엽니다.
-
-    ![컴퓨팅 대상 삭제](./media/aml-ui-cleanup/delete-compute-target.png)
-
-1. 작업 영역의 **컴퓨팅** 섹션에서 리소스를 선택합니다.
-
-1. **삭제**를 선택합니다.
-
 ### <a name="delete-individual-assets"></a>개별 자산 삭제
 
 실험을 만든 디자이너에서 개별 자산을 선택한 다음, **삭제** 단추를 선택하여 자산을 삭제합니다.
+
+여기에서 만든 컴퓨팅 대상은 사용하지 않을 경우 제로 노드로 *자동으로 크기 조정*됩니다. 이러한 기능은 요금을 최소화하기 위한 것입니다. 컴퓨팅 대상을 삭제하려는 경우 다음 단계를 수행합니다.
 
 ![자산 삭제](./media/aml-ui-cleanup/delete-asset.png)
 
 각 데이터 세트를 선택하고 **등록 취소**를 선택하면 작업 영역에서 데이터 세트를 등록 취소할 수 있습니다.
 
 ![데이터 세트 등록 취소](./media/aml-ui-cleanup/unregister-dataset.png)
+
+데이터 세트를 삭제하려면 Azure Portal 또는 Storage Explorer를 사용하여 스토리지 계정으로 이동하여 해당 자산을 수동으로 삭제합니다.
 
 

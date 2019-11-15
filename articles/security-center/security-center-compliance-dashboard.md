@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center를 사용하여 규정 준수 개선 | Microsoft Docs
+title: 규정 준수 검사 - Azure Security Center
 description: '자습서: Azure Security Center를 사용하여 규정 준수를 개선하는 방법을 알아봅니다.'
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 2961474e84930cf548a1ef23b19fcd1be443b151
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: c448697339948b30d73e88c183211e7a1154fe77
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520915"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73686429"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>자습서: 규정 준수 개선
 ---

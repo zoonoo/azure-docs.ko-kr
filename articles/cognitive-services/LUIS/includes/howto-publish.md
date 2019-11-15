@@ -8,14 +8,14 @@ ms.custom: include file
 ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
-ms.date: 10/23/2019
+ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: f833ded4467da1f129b1ea7f858ae8bdd9c2048e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495388"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647439"
 ---
 챗봇 또는 다른 클라이언트 애플리케이션에서 LUIS 예측을 받으려면 앱을 엔드포인트에 게시해야 합니다. 
 
@@ -31,4 +31,4 @@ ms.locfileid: "73495388"
 
     ![엔드포인트에 LUIS 게시](../media/howto-publish/publish-endpoint-success.png)
 
-4. 녹색 상태 표시줄에서 **엔드포인트**를 선택하여 **키 및 엔드포인트** 페이지로 이동합니다. 엔드포인트 URL은 맨 아래에 나열됩니다.
+4. 알림에서 **엔드포인트 URL에 액세스** 링크를 선택하여 **Azure Resources** 페이지로 이동합니다. 엔드포인트 URL은 **예제 쿼리**로 나열됩니다.

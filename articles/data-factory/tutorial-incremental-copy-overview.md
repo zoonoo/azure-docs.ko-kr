@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용하여 데이터 증분 복사 | Microsoft Docs
+title: 'Azure Data Factory를 사용하여 데이터 증분 복사 '
 description: 이 자습서는 원본 데이터 저장소에서 대상 데이터 저장소로 데이터를 증분 복사하는 방법을 보여줍니다. 첫 번째 복사는 한 테이블에서 데이터를 복사합니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 15ff84bf8a194c6172864601e3aefe78f9cc13a3
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9cbe9dfea116df30f49b89e2e59886f2f112487c
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140592"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683370"
 ---
 # <a name="incrementally-load-data-from-a-source-data-store-to-a-destination-data-store"></a>원본 데이터 저장소에서 대상 데이터 저장소로 데이터 증분 로드
 
@@ -54,7 +54,7 @@ LastModifiedDate를 사용하여 새 파일과 변경된 파일만 대상 저장
 - [LastModifiedDate로 새 파일 복사](solution-template-copy-new-files-lastmodifieddate.md)
 
 ## <a name="loading-new-files-only-by-using-time-partitioned-folder-or-file-name"></a>시간 분할 폴더 또는 파일 이름을 사용하여 새 파일만 로드합니다.
-파일 또는 폴더가 timeslice 정보와 함께 파일 또는 폴더 이름(예: /yyyy/mm/dd/file.csv)의 일부로 이미 시간 분할된 새 파일만 복사할 수 있습니다. 이는 새 파일의 증분 로드 시 가장 높은 성능을 제공하는 방법입니다. 
+파일 또는 폴더가 timeslice 정보와 함께 파일 또는 폴더 이름(예: /yyyy/mm/dd/file.csv)의 일부로 이미 시간 분할된 새 파일만 복사할 수 있습니다. 이는 새 파일을 증분 로드 시 가장 높은 성능을 제공하는 방법입니다. 
 
 단계별 지침은 다음 자습서를 참조하세요. <br/>
 - [시간 분할된 폴더나 파일 이름을 기반으로 Azure Blob Storage에서 Azure Blob Storage로 새 파일 증분 복사](tutorial-incremental-copy-partitioned-file-name-copy-data-tool.md)

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: 3e19a2a45dde8a951e0ae3a4bd3c8d019609a5e1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: df649eab1f0e2946078f8efd3cdd6ab68c3b7938
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501087"
+ms.locfileid: "73580204"
 ---
 # <a name="what-is-azure-firewall-manager-preview"></a>Azure Firewall Manager Preview란?
 
@@ -20,7 +20,7 @@ ms.locfileid: "73501087"
 
 Azure Firewall Manager Preview는 클라우드 기반 보안 경계에 대한 중앙 보안 정책 및 경로 관리를 제공하는 보안 관리 서비스입니다. 이 서비스는 허브 및 스포크 아키텍처를 쉽게 만들 수 있도록 하는 Microsoft 관리 리소스인 [Azure Virtual WAN 허브](../virtual-wan/virtual-wan-about.md#resources)에서 작동합니다. 보안 및 라우팅 정책이 이러한 허브와 연결된 경우에는 *[보안 가상 허브](secured-virtual-hub.md)* 라고도 합니다. 
 
-![방화벽-관리자](media/overview/firewall-manager-conceptual.png)
+![방화벽-관리자](media/overview/firewallmanagerv3.png)
 
 ## <a name="azure-firewall-manager-preview-features"></a>Azure Firewall Manager Preview 기능
 
@@ -70,7 +70,7 @@ Azure Firewall Manager Preview에는 다음과 같이 알려진 문제가 있습
 
 |문제  |설명  |해결 방법  |
 |---------|---------|---------|
-|수동으로 만든 중앙 VNet이 지원되지 않음|현재 Azure Firewall Manager는 가상 서버를 사용하여 만든 네트워크를 지원합니다. 수동으로 만든 직접 만든 허브 VNet은 아직 지원되지 않습니다.|지금은 가상 허브를 사용하여 만든 허브 및 스포크 네트워크에서 Azure Firewall Manager를 사용합니다.<br>현재 조사 중입니다.
+|수동으로 만든 중앙 VNet이 지원되지 않음|현재 Azure Firewall Manager는 가상 서버를 사용하여 만든 네트워크를 지원합니다. 수동으로 만든 직접 만든 허브 VNet은 아직 지원되지 않습니다.|지금은 Virtual Hubs를 사용하여 만든 허브 및 스포크 네트워크에서 Azure Firewall Manager를 사용합니다.<br>현재 조사 중입니다.
 |타사 필터링 제한 사항|타사 공급자를 사용한 V2I 트래픽 필터링은 Azure Firewall B2V 및 V2V에서 지원되지 않습니다.|현재 조사 중입니다.|
 |트래픽 분할은 현재 지원되지 않습니다.|Office 365 및 Azure 퍼블릭 PaaS 트래픽 분할은 현재 지원되지 않습니다. 따라서 V2I 또는 B2I에 대해 타사 공급자를 선택하면 모든 Azure 퍼블릭 PaaS 및 Office 365 트래픽도 파트너 서비스를 통해 전송됩니다.|허브의 트래픽 분할을 현재 조사 중입니다.
 |지역별로 허브 1개|지역별로 허브를 둘 이상 사용할 수 없습니다.|한 지역에 여러 가상 WAN을 만듭니다.|

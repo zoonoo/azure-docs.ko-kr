@@ -1,20 +1,17 @@
 ---
 title: Azure Database for MySQL을 Azure Spring Cloud 애플리케이션에 바인딩하는 방법 | Microsoft Docs
 description: 이 문서에서는 Azure MySQL을 Azure Spring Cloud 애플리케이션에 바인딩하는 방법을 보여줍니다.
-services: spring-cloud
-author: v-vasuke
-manager: gwallace
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
-ms.date: 10/07/2019
-ms.author: v-vasuke
-ms.openlocfilehash: e2add139f5cfd8299ec809793dd822b051d0f542
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.topic: tutorial
+ms.date: 11/04/2019
+ms.author: jeconnoc
+ms.openlocfilehash: b6de5bb3b25c111d1b7775ea9570a4ae2cf45042
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038352"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607581"
 ---
 # <a name="tutorial-bind-azure-services-to-your-azure-spring-cloud-application-azure-database-for-mysql"></a>자습서: Azure 서비스를 Azure Spring Cloud 애플리케이션에 바인딩: Azure Database for MySQL
 
@@ -26,14 +23,7 @@ Azure Spring Cloud를 사용하면 Spring Boot 애플리케이션을 수동으�
 * Azure Database for MySQL 계정
 * Azure CLI
 
-필요한 경우 다음 명령을 사용하여 Azure CLI용 Azure Spring Cloud 확장을 설치합니다.
-
-```azurecli
-az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
-```
-
->[!TIP]
-> Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다.  최신 버전의 Git, JDK, Maven 및 Azure CLI를 포함하는 일반적인 Azure 도구가 미리 설치되어 있습니다. Azure 구독에 로그인한 경우 shell.azure.com에서 [Azure Cloud Shell](https://shell.azure.com)을 시작합니다.  Azure Cloud Shell에 대한 자세한 내용은 [설명서를 참조하세요](../cloud-shell/overview.md).
+배포된 Azure Spring Cloud 인스턴스가 없는 경우 이 [빠른 시작](spring-cloud-quickstart-launch-app-portal.md)의 단계에 따라 첫 번째 Spring Cloud 앱을 배포합니다.
 
 ## <a name="bind-azure-database-for-mysql"></a>Azure Database for MySQL 바인딩
 

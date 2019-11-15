@@ -10,16 +10,18 @@ ms.subservice: computer-vision
 ms.topic: tutorial
 ms.date: 09/04/2019
 ms.author: pafarley
-ms.openlocfilehash: 7caf4493db32201a8e83ffb3722c80c5e9b41a8f
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: ac292f020bb64c7c70ce3ea5c7f66fe9e9ed1bb7
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057735"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73604648"
 ---
 # <a name="tutorial-use-computer-vision-to-generate-image-metadata-in-azure-storage"></a>자습서: Computer Vision을 사용하여 Azure Storage에서 이미지 메타데이터 생성
 
-이 자습서에서는 Azure Computer Vision 서비스를 웹앱에 통합하여 업로드된 이미지에 대한 메타데이터를 생성하는 방법에 대해 알아봅니다. 전체 앱 가이드는 GitHub의 [Azure Storage 및 Cognitive Services 랩](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md)에서 찾을 수 있으며, 이 자습서에서는 기본적으로 랩의 연습 5를 다룹니다. 모든 단계를 수행하여 엔드투엔드 애플리케이션을 만들 수 있지만, Computer Vision이 기존 웹앱에 통합될 수 있는 방법을 알아보려면 여기를 참조하세요.
+이 자습서에서는 Azure Computer Vision 서비스를 웹앱에 통합하여 업로드된 이미지에 대한 메타데이터를 생성하는 방법에 대해 알아봅니다. 이 기능은 회사가 모든 이미지에 대한 설명 캡션 또는 검색 가능한 키워드를 빠르게 생성하려는 경우와 같이 [DAM(디지털 자산 관리)](../Home.md#computer-vision-for-digital-asset-management) 시나리오에 유용합니다.
+
+전체 앱 가이드는 GitHub의 [Azure Storage 및 Cognitive Services 랩](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md)에서 찾을 수 있으며, 이 자습서에서는 기본적으로 랩의 연습 5를 다룹니다. 모든 단계를 수행하여 엔드투엔드 애플리케이션을 만들 수 있지만, Computer Vision이 기존 웹앱에 통합될 수 있는 방법을 알아보려면 여기를 참조하세요.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 

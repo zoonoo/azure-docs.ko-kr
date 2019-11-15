@@ -9,16 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/23/2019
+ms.date: 11/04/2019
 ms.author: diberry
-ms.openlocfilehash: 4acf6e4df978ffee6e0f8320bafbb64994aa0639
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 22a37dbd0b76710a14183aec1795639614207d16
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495393"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73613689"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>빠른 시작: 미리 빌드된 홈 자동화 앱 사용
+
+[!INCLUDE [Uses preview portal](./includes/uses-portal-preview.md)]
 
 이 빠른 시작에서는 미리 작성된 도메인 `HomeAutomation`를 사용하여 조명 및 어플라이언스를 켜고 끄는 LUIS 응용 프로그램을 만듭니다. 미리 작성된 도메인에는 의도, 엔터티 및 예제 발언이 제공됩니다. 마치면 클라우드에서 LUIS 엔드포인트를 실행하게 됩니다.
 
@@ -28,6 +30,8 @@ ms.locfileid: "73495393"
 
 [!INCLUDE [Sign in to LUIS](./includes/sign-in-process.md)]
 
+[!INCLUDE [Select authoring resource](./includes/select-authoring-resource.md)]
+
 ## <a name="create-a-new-app"></a>새 앱 만들기
 애플리케이션은 **내 앱**에서 만들고 관리할 수 있습니다. 
 
@@ -35,7 +39,7 @@ ms.locfileid: "73495393"
 
     ![LUIS 포털의 내 앱 목록에서 '+ 만들기'를 선택합니다.](./media/create-app-in-portal.png)
 
-1. 대화 상자에서 애플리케이션 이름을 `Home Automation`으로 지정한 후 **완료**를 선택합니다. LUIS가 앱을 만듭니다.
+1. 대화 상자에서 애플리케이션 이름을 `Home Automation`으로 지정한 후 **완료**를 선택합니다. LUIS가 앱을 만듭니다. 설명은 선택 사항이며 작성 또는 예측에 사용되지 않습니다. LUIS 앱을 만들 때 예측 리소스도 선택 사항입니다. 앱을 프로덕션에 게시할 때 앱이 많은 요청을 처리할 수 있도록 예측 리소스를 할당해야 합니다.  
 
     ![대화 상자에서 애플리케이션 이름을 'Home Automation'으로 지정합니다.](./media/create-new-app-details.png)
 
@@ -65,7 +69,7 @@ ms.locfileid: "73495393"
 
 ## <a name="train-the-luis-app"></a>LUIS 앱 학습
 
-[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](includes/howto-train.md)]
 
 ## <a name="test-your-app"></a>앱 테스트
 앱을 학습시킨 후에는 테스트할 수 있습니다. **테스트**를 선택합니다. 대화형 테스트 창에 테스트 발언(예: `Turn off the lights`)을 입력하고 Enter 키를 누릅니다. 
@@ -114,7 +118,25 @@ Turn off the lights
             "topIntent": "HomeAutomation.TurnOff",
             "intents": {
                 "HomeAutomation.TurnOff": {
-                    "score": 0.967174649
+                    "score": 0.984315455
+                },
+                "HomeAutomation.QueryState": {
+                    "score": 0.009912962
+                },
+                "HomeAutomation.TurnDown": {
+                    "score": 0.00626645749
+                },
+                "HomeAutomation.TurnUp": {
+                    "score": 0.00572059769
+                },
+                "HomeAutomation.SetDevice": {
+                    "score": 0.00379381469
+                },
+                "HomeAutomation.TurnOn": {
+                    "score": 0.00366983772
+                },
+                "None": {
+                    "score": 0.000623856
                 }
             },
             "entities": {
@@ -138,7 +160,7 @@ Turn off the lights
                             "text": "living room",
                             "startIndex": 13,
                             "length": 11,
-                            "score": 0.9494325,
+                            "score": 0.907323956,
                             "modelTypeId": 1,
                             "modelType": "Entity Extractor",
                             "recognitionSources": [

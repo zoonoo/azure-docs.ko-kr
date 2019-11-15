@@ -1,5 +1,5 @@
 ---
-title: R 패키지를 Azure SQL Database Machine Learning Services(미리 보기)에 추가
+title: R 패키지를 Machine Learning Services(미리 보기)에 추가
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: 이 문서에서는 Azure SQL Database Machine Learning Services(미리 보기)에 아직 설치되지 않은 R 패키지를 설치하는 방법을 설명합니다.
 services: sql-database
@@ -13,12 +13,12 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/29/2019
-ms.openlocfilehash: f82408a6aaa7cf3a492f3036a6db5d8666b6f160
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: ce85f45d823df42e70af53824e175968439621d3
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68598042"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73819877"
 ---
 # <a name="add-an-r-package-to-azure-sql-database-machine-learning-services-preview"></a>R 패키지를 Azure SQL Database Machine Learning Services(미리 보기)에 추가
 

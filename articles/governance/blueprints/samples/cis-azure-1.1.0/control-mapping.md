@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 10/01/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 64af398ec4829a0336294b33fef102392b9a4099
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6549cf030772d805b063510b9931968027639511
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163865"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73583133"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure Foundations 벤치마크 청사진 샘플에 대한 추천 매핑
 
@@ -356,11 +356,11 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 ## <a name="next-steps"></a>다음 단계
 
-CIS Microsoft Azure Foundations 벤치마크 청사진에 대한 제어 매핑을 검토했으면, 다음 문서를 방문하여 청사진에 대해 알아보거나 Azure Portal의 Azure Policy를 방문하여 이니셔티브를 할당합니다.
+CIS Microsoft Azure Foundations Benchmark 청사진에 대한 제어 매핑을 검토했으면, 다음 문서를 방문하여 청사진에 대해 알아보거나 Azure Portal의 Azure Policy를 방문하여 이니셔티브를 할당합니다.
 
 > [!div class="nextstepaction"]
-> [CIS Microsoft Azure Foundations 벤치마크 청사진 - 개요](./index.md)
-> [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyMenuBlade/Definitions)
+> [CIS Microsoft Azure Foundations Benchmark 청사진- 개요](./index.md)
+> [CIS Microsoft Azure Foundations Benchmark 청사진 - 배포 단계](./deploy.md)
 
 청사진 및 사용 방법에 대한 추가 문서:
 

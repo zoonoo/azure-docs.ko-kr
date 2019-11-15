@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 복사 도구를 사용하여 데이터 복사 | Microsoft Docs
+title: Azure 데이터 복사 도구를 사용하여 데이터 복사
 description: Azure Data Factory를 만든 다음, 데이터 복사 도구를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터를 복사합니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: a99f319c25613f811b48923c734b77b135b677bc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 4646d7429dc4b3286f6af8861eaf7f1e6e27a760
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827958"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683594"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용하여 Azure Blob Storage에서 SQL 데이터베이스로 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스의 버전을 선택합니다."]
@@ -73,7 +73,7 @@ ms.locfileid: "68827958"
 
 2. Azure 서비스에서 SQL Server에 액세스하도록 허용합니다. SQL Database를 실행하는 서버에 대해 **Azure 서비스에 대한 액세스 허용** 설정을 사용하도록 설정되어 있는지 확인합니다. 이 설정을 사용하면 Data Factory에서 데이터베이스 인스턴스에 데이터를 쓸 수 있습니다. 이 설정을 확인하고 켜려면 Azure SQL Server > 개요 > 서버 방화벽 설정>으로 이동하고 **Azure 서비스에 대한 액세스 허용** 옵션을 **켜기**로 설정합니다.
 
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 선택합니다.
     

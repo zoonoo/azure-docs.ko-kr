@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 35d850dc6439173c83730375c576855f6920b450
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0cf9a0a13a1c16f5be6d82528849e6e2cc3d466d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475237"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73641836"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API에 대한 액세스 권한 부여
 
@@ -66,12 +66,12 @@ ms.locfileid: "73475237"
 1. **구성된 사용 권한** 아래에서 **권한 추가**를 선택합니다.
 1. **내 API** 탭을 선택합니다.
 1. 네이티브 클라이언트 애플리케이션에 액세스 권한을 부여할 API를 선택합니다. 예를 들어 *webapi1*과 같습니다.
-1. **PERMISSION** 아래에서 **데모**를 확장한 후 앞에서 정의한 범위를 선택합니다. *demo.read* 및 *demo.write*가 예입니다.
+1. **권한** 아래에서 **데모**를 확장한 다음, 앞에서 정의한 범위를 선택합니다. *demo.read* 및 *demo.write*가 예입니다.
 1. **권한 추가**를 선택합니다. 안내에 따라 몇 분 정도 기다린 후 다음 단계를 진행하세요.
 1. **(테넌트 이름)에 대한 관리자 동의 허용**을 선택합니다.
 1. 현재 로그인된 관리자 계정을 선택하거나 Azure AD B2C 테넌트에서 최소한 *클라우드 애플리케이션 관리자* 역할이 할당된 계정으로 로그인합니다.
 1. **수락**을 선택합니다.
-1. **새로 고침**을 선택한 후 두 범위 모두 **STATUS** 아래에 "...에 대해 허용됨"이 표시되는지 확인합니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
+1. **새로 고침**을 선택한 다음, 두 범위 모두 **상태** 아래에 "...에 대해 허용됨"이 표시되는지 확인합니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
 
 * * *
 

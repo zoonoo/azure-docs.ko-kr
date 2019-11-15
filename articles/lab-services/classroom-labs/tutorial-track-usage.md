@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/18/2019
+ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: 842392ab425628a1c82a39e25a65066064747211
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 315ebfa1460f9d9bc041925cec2451f63ac5be16
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675794"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73580280"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>자습서: Azure Lab Services에서 랩 사용량 추적
 이 자습서에서는 랩 작성자/소유자가 랩 사용량을 추적하는 방법을 보여줍니다.
@@ -41,6 +41,8 @@ ms.locfileid: "72675794"
 
     ![등록된 사용자](../media/tutorial-track-usage/registered-users.png)
 
+    랩 사용자를 추가하고 관리하는 방법에 대한 자세한 내용은 [랩 사용자 추가 및 관리](how-to-configure-student-usage.md)를 참조하세요.
+
 ## <a name="view-the-usage-of-vms-in-the-lab"></a>랩의 VM 사용량 보기 
 
 1. 왼쪽 메뉴에서 **가상 머신**을 선택합니다. 
@@ -49,12 +51,11 @@ ms.locfileid: "72675794"
     ![VM 사용량](../media/tutorial-track-usage/vm-usage.png)
 
 ## <a name="manage-student-vms"></a>학생 VM 관리 
-이 페이지에서 **Status** 열의 드롭다운 목록 또는 도구 모음에 있는 단추를 사용하여 학생 VM을 시작, 중지 또는 다시 설정할 수 있습니다. 
+이 페이지에서 **Status** 열 또는 도구 모음 목록에서 컨트롤을 사용하여 학생 VM을 시작, 중지 또는 다시 설정할 수 있습니다.
 
 ![VM 컨트롤](../media/tutorial-track-usage/vm-controls.png)
 
-또한 도구 모음 단추를 사용하여 VM을 시작, 중지 또는 삭제할 수 있습니다. 
-
+랩의 가상 머신 풀을 관리하는 방법에 대한 자세한 내용은 [가상 머신 풀 설정 및 관리](how-to-set-virtual-machine-passwords.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 클래스룸 랩에 대한 자세한 내용은 [방법 가이드](how-to-manage-lab-accounts.md)의 문서를 참조하세요.

@@ -1,20 +1,17 @@
 ---
 title: Azure Spring Cloud에서 배포용 Spring 애플리케이션 준비 | Microsoft Docs
 description: 이 빠른 시작에서는 배포용 Java Spring 애플리케이션을 준비합니다.
-services: spring-cloud
-author: v-vasuke
-manager: jeconnoc
-editor: ''
+author: jpconnock
 ms.service: spring-cloud
-ms.topic: quickstart
+ms.topic: tutorial
 ms.date: 10/06/2019
-ms.author: v-vasuke
-ms.openlocfilehash: 98d9f3f656cff84cec8d223ed535255157155bd2
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.author: jeconnoc
+ms.openlocfilehash: 6c3048fd27c3d3d4fdba0841fb4ab21bd10e15fe
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038332"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721245"
 ---
 # <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>자습서: Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
 
@@ -93,27 +90,27 @@ Azure Spring Cloud에서는 Spring Cloud 서비스 레지스트리 및 Spring Cl
 
 Spring Boot 버전 | Spring Cloud 버전 | Azure Spring Cloud 버전
 ---|---|---
-2.0.x | Finchley.RELEASE | 2.0.0-SNAPSHOT
-2.1.x | Greenwich.RELEASE | 2.1.0-SNAPSHOT
+2.0.x | Finchley.RELEASE | 2.0.x
+2.1.x | Greenwich.RELEASE | 2.1.x
 
-'종속성'에서 올바른 Azure Spring Cloud 버전으로 `pom.xml`에 이 코드 조각을 포함합니다.
+`pom.xml` 아래 코드 조각 중 하나를 포함합니다.  사용자 소유의 버전과 일치하는 코드 조각을 선택합니다.
 
+### <a name="version-20x"></a>버전 2.0.x:
 ```xml
-    <repositories>
-        <repository>
-            <id>nexus-snapshots</id>
-            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
-    
-    <dependency>
+<dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0-SNAPSHOT</version>
-    </dependency>
+        <version>2.0.0</version>
+</dependency>
+```
+
+### <a name="version-21x"></a>버전 2.1.x:
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.1.0</version>
+</dependency>
 ```
 
 ## <a name="other-required-dependencies"></a>기타 필수 종속성

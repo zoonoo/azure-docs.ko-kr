@@ -7,13 +7,13 @@ ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 04/30/2019
-ms.openlocfilehash: 9b70a9c364768322a3eae6ef5b92c87b6839c540
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.date: 11/04/2019
+ms.openlocfilehash: b0839cf418cd30f62623e046960c32d41537609a
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242081"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614373"
 ---
 # <a name="tutorial-configure-azure-kubernetes-service-aks-clusters-in-azure-using-ansible"></a>자습서: Azure에서 Ansible을 사용하여 AKS(Azure Kubernetes Service) 클러스터 구성
 
@@ -54,7 +54,8 @@ ms.locfileid: "72242081"
     ssh_key: "your_ssh_key"
     client_id: "your_client_id"
     client_secret: "your_client_secret"
-  tasks:
+    aks_version: aks_version
+tasks:
   - name: Create resource group
     azure_rm_resourcegroup:
       name: "{{ resource_group }}"
@@ -65,6 +66,7 @@ ms.locfileid: "72242081"
       location: "{{ location }}"
       resource_group: "{{ resource_group }}"
       dns_prefix: "{{ aks_name }}"
+      kubernetes_version: "{{aks_version}}"
       linux_profile:
         admin_username: "{{ username }}"
         ssh_key: "{{ ssh_key }}"
@@ -84,6 +86,7 @@ ms.locfileid: "72242081"
 - `tasks` 내부의 첫 번째 섹션은 `eastus` 위치 내에 `myResourceGroup`이라는 리소스 그룹을 정의합니다.
 - `tasks` 내부의 두 번째 섹션은 `myResourceGroup` 리소스 그룹 내에 `myAKSCluster`라는 AKS 클러스터를 정의합니다.
 - `your_ssh_key` 자리 표시자의 경우 "ssh-rsa"로 시작하는 단일 줄 형식으로 RSA 공개 키를 입력합니다(따옴표 제외).
+- `aks_version` 자리 표시자의 경우 [az aks get-versions](/cli/azure/aks?view=azure-cli-latest#az-aks-get-versions) 명령을 사용합니다.
 
 다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 

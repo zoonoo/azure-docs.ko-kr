@@ -5,18 +5,18 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/01/2019
 ms.author: banders
-ms.openlocfilehash: 02a4ccc1bd7c18c36a7203f7d81cce8923ecf59a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a002f5a1657454ff5048ab695e62eccd268a5891
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499250"
+ms.locfileid: "73580087"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
-Azure 예약은 1년치 또는 3년치 가상 머신, SQL Database 컴퓨팅 용량, Azure Cosmos DB 처리량 또는 기타 Azure 리소스를 약정하여 비용을 줄일 수 있는 제도입니다. 약정하면 사용하는 리소스 요금에 대한 할인을 받을 수 있습니다. 예약을 사용하면 가상 머신, SQL Database 컴퓨팅, Azure Cosmos DB 또는 기타 리소스 비용이 종량제 가격의 최대 72%까지 감소합니다. 예약은 청구 할인을 제공하며, 리소스의 런타임 상태에 영향을 주지 않습니다.
+Azure 예약은 가상 머신, Azure Blob 스토리지 또는 Azure Data Lake Storage Gen2, SQL Database 컴퓨팅 용량, Azure Cosmos DB 처리량 또는 기타 Azure 리소스에 대한 1년 또는 3년 요금제를 약정하여 비용을 절감할 수 있습니다. 약정하면 사용하는 리소스 요금에 대한 할인을 받을 수 있습니다. 예약을 사용하면 리소스 비용이 종량제 가격의 최대 72%까지 줄일 수 있습니다. 예약은 청구 할인을 제공하며, 리소스의 런타임 상태에 영향을 주지 않습니다.
 
 예약 요금을 선결제할 수도 있고 매달 결제할 수도 있습니다. 선결제 및 월별 예약의 총 비용은 동일하며, 매달 결제하기로 선택하는 경우 추가 요금은 청구되지 않습니다. 월간 결제는 타사 제품이 아닌 Azure 예약에 사용할 수 있습니다.
 
@@ -24,13 +24,14 @@ Azure 예약은 1년치 또는 3년치 가상 머신, SQL Database 컴퓨팅 용
 
 ## <a name="why-buy-a-reservation"></a>예약을 구입하는 이유
 
-오래 실행되는 가상 머신, Azure Cosmos DB 또는 SQL Database가 있는 경우 예약을 구매하면 가장 비용 효율적인 가격이 제공됩니다. 예를 들어 예약 없이 한 서비스의 인스턴스 4개를 지속적으로 실행하는 경우 종량제 요금이 청구됩니다. 이러한 리소스에 대한 예약을 구매하면 즉시 예약 할인을 받습니다. 리소스 요금이 더 이상 종량제로 청구되지 않습니다.
+많은 용량 또는 처리량을 사용하거나 장기간 실행되는 가상 머신, Blob 스토리지 데이터, Azure Cosmos DB 또는 SQL Database가 있는 경우 예약을 구매하면 가장 비용 효율적인 가격이 제공됩니다. 예를 들어 예약 없이 한 서비스의 인스턴스 4개를 지속적으로 실행하는 경우 종량제 요금이 청구됩니다. 이러한 리소스에 대한 예약을 구매하면 즉시 예약 할인을 받습니다. 리소스 요금이 더 이상 종량제로 청구되지 않습니다.
 
 ## <a name="charges-covered-by-reservation"></a>예약에 포함되는 요금
 
 서비스 플랜:
 
 - **예약 Virtual Machine 인스턴스** - 예약에 가상 머신 컴퓨팅 비용만 포함됩니다. 추가 소프트웨어, 네트워킹 또는 스토리지 요금은 포함되지 않습니다.
+- **Azure Storage 예약 용량** - 예약에는 Blob 스토리지 또는 Azure Data Lake Gen2 스토리지의 표준 스토리지 계정에 대한 스토리지 용량이 포함됩니다. 예약에는 대역폭 또는 트랜잭션 요금이 포함되지 않습니다.
 - **Azure Cosmos DB 예약 용량** - 리소스에 프로비저닝된 처리량이 포함됩니다. 스토리지 및 네트워킹 요금은 포함하지 않습니다.
 - **SQL Database 예약 vCore** - 컴퓨팅 비용만 예약에 포함됩니다. 라이선스는 별도로 청구됩니다.
 - **SQL Data Warehouse** - 예약에 cDWU 사용이 포함됩니다. SQL Data Warehouse 사용과 관련된 스토리지 또는 네트워킹 요금은 포함되지 않습니다.
@@ -134,6 +135,7 @@ EA(기업계약) 고객은 EA Portal에서 **예약 인스턴스 추가** 옵션
 서비스 플랜:
 
 - Reserved VM Instances: 예약을 구매할 때 **인스턴스 크기 유연성에 맞게 최적화**를 선택하는 경우 할인 적용 범위는 선택하는 VM 크기에 따라 달라집니다. 같은 크기 시리즈 그룹의 VM(가상 머신) 크기에 예약을 적용할 수 있습니다. 자세한 내용은 [예약 VM 인스턴스를 통해 유동적으로 가상 머신 크기 조정](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md)을 참조하세요.
+- Azure Storage 예약 용량: 표준 Azure Storage 계정에 대해 예약된 용량을 월 100TiB 또는 1PiB 단위로 구매할 수 있습니다. Azure Storage 예약 용량은 모든 액세스 계층(핫, 쿨 또는 보관) 및 모든 복제 옵션(LRS, GRS 또는 ZRS)에 대해 모든 지역에서 사용할 수 있습니다.
 - SQL Database 예약 용량: 할인 적용 범위는 선택하는 성능 계층에 따라 달라집니다. 자세한 내용은 [Azure 예약 할인이 적용되는 방식 이해](billing-understand-reservation-charges.md)를 참조하세요.
 - Azure Cosmos DB 예약 용량: 할인 적용 범위는 프로비전되는 처리량에 따라 달라집니다. 자세한 내용은 [Azure Cosmos DB 예약 할인이 적용되는 방식 이해](billing-understand-cosmosdb-reservation-charges.md)를 참조하세요.
 

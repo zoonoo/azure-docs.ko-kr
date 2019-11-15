@@ -1,21 +1,24 @@
 ---
-title: REST를 사용하여 지식 저장소 만들기
+title: REST를 사용하여 지식 저장소(미리 보기) 만들기
 titleSuffix: Azure Cognitive Search
-description: REST API 및 Postman을 사용하여 AI 보강 파이프라인의 보강을 유지하기 위한 Azure Cognitive Search 지식 저장소를 만듭니다.
-author: lobrien
+description: REST API 및 Postman을 사용하여 AI 보강 파이프라인의 보강을 유지하기 위한 Azure Cognitive Search 지식 저장소를 만듭니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
+author: HeidiSteen
 manager: nitinme
-ms.author: laobri
+ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 24b97374b032640afafde775e90f6db735d63c46
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 107dcfa9ea312774e679c301ea934255c7b836c0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790022"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720074"
 ---
 # <a name="create-an-azure-cognitive-search-knowledge-store-by-using-rest"></a>REST를 사용하여 Azure Cognitive Search 지식 저장소 만들기
+
+> [!IMPORTANT] 
+> 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 미리 보기 기능은 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md)에서 제공됩니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
 Azure Cognitive Search의 지식 저장소 기능은 나중에 분석하거나 다른 다운스트림을 처리할 수 있도록 AI 보강 파이프라인의 출력을 유지합니다. AI 보강 파이프라인은 이미지 파일 또는 비정형 텍스트 파일을 수락하고, Azure Cognitive Search를 사용하여 인덱싱하고, Azure Cognitive Services의 AI 보강(예: 이미지 분석 및 자연어 처리)을 적용한 다음, 결과를 Azure Storage의 지식 저장소에 저장합니다. Azure Portal에서 Power BI 또는 Storage Explorer와 같은 도구를 사용하여 지식 저장소를 검색할 수 있습니다.
 

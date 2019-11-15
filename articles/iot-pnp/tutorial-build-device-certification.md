@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 524bc3b2650ad7b435cba6b6b9d4084ffa5cf96c
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: e4dd5215812f0fd1a43afe0923601417bc8e6916
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932673"
+ms.lasthandoff: 11/04/2019
+ms.locfileid: "73569631"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>즉시 인증 가능한 IoT 플러그 앤 플레이 미리 보기 디바이스 빌드
 
@@ -111,26 +111,17 @@ Azure CLI를 사용하여 **디바이스 정보** 인터페이스를 보려면 �
 
 1. 언어로 **ANSI C**를 선택합니다.
 
-1. 프로젝트 형식으로 **CMake 프로젝트**를 선택합니다.
-
 1. 연결 방법으로 **DPS(Device Provisioning Service) 대칭 키를 통해**를 선택합니다.
+
+1. 디바이스 OS에 따라 프로젝트 템플릿으로 **Windows의 CMake 프로젝트** 또는 **Linux의 CMake 프로젝트**를 선택합니다.
 
 1. 생성된 디바이스 코드 스텁 파일이 포함된 VS Code 새 창이 열립니다.
 
-1. `main.c` 파일을 열고, 준비한 **dpsIdScope**, **sasKey** 및 **registrationId**를 채웁니다. 이 정보는 인증 포털에서 찾을 수 있습니다. 자세한 내용은 [IoT 플러그 앤 플레이 디바이스 연결 및 테스트](tutorial-certification-test.md#connect-and-discover-interfaces)를 참조하세요.
+1. 코드를 빌드한 후 DPS 자격 증명(**DPS ID 범위**, **DPS 대칭 키** **디바이스 ID**)을 애플리케이션의 매개 변수로 입력합니다. 인증 포털에서 자격 증명을 가져오려면 [IoT 플러그 앤 플레이 디바이스 연결 및 테스트](tutorial-certification-test.md#connect-and-discover-interfaces)를 참조하세요.
 
-    ```c
-    // TODO: Specify DPS scope ID if you intend on using DPS / IoT Central.
-    static const char *dpsIdScope = "[DPS Id Scope]";
-    
-    // TODO: Specify symmetric keys if you intend on using DPS / IoT Central and symmetric key based auth.
-    static const char *sasKey = "[DPS symmetric key]";
-    
-    // TODO: specify your device registration ID
-    static const char *registrationId = "[device registration Id]";
+    ```cmd/sh
+    .\your_pnp_app.exe [DPS ID Scope] [DPS symmetric key] [device ID]
     ```
-
-1. 파일을 저장합니다.
 
 ### <a name="implement-standard-interfaces"></a>표준 인터페이스 구현
 

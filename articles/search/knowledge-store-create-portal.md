@@ -1,25 +1,24 @@
 ---
-title: Azure Portal에서 지식 저장소 만들기
+title: Azure Portal에서 지식 저장소(미리 보기) 만들기
 titleSuffix: Azure Cognitive Search
-description: 데이터 가져오기 마법사를 사용하여 보강 콘텐츠를 유지하는 데 사용되는 지식 저장소를 만듭니다. 분석을 목적으로 다른 앱에서 지식 저장소에 연결하거나, 보강 콘텐츠를 다운스트림 프로세스에 보냅니다.
+description: 데이터 가져오기 마법사를 사용하여 보강 콘텐츠를 유지하는 데 사용되는 지식 저장소를 만듭니다. 분석을 목적으로 다른 앱에서 지식 저장소에 연결하거나, 보강 콘텐츠를 다운스트림 프로세스에 보냅니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 16dd63e22182dedb4af97c2ef6238e6628778467
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 56053a942604a6f1cb935e6bddcae85ffc5a9e54
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485174"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720113"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-knowledge-store-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 지식 저장소 만들기
 
-> [!Note]
-> 지식 저장소는 미리 보기로 있으므로 프로덕션 환경에서 사용하면 안 됩니다. Azure Portal과 [Search REST API 버전 2019-05-06-Preview](search-api-preview.md) 둘 다 이 기능을 제공합니다. 지금은 .NET SDK 지원이 없습니다.
->
+> [!IMPORTANT] 
+> 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. 
 
 지식 저장소는 후속 분석 또는 다운스트림 처리를 위해 인지 기술 파이프라인의 출력을 유지하는 Azure Cognitive Search의 기능입니다. 
 
@@ -87,7 +86,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. **Cognitive Services 연결** 섹션을 펼칩니다. **무료(제한적 보강)** 가 기본적으로 선택되어 있습니다. HotelReviews-Free.csv의 레코드 수가 19개이고 이 무료 리소스에서 하루 최대 20개의 트랜잭션을 허용하므로 이 리소스를 사용할 수 있습니다.
 1. **인지 기술 추가**를 확장합니다.
 1. **기술 세트 이름**에 대해 `hotel-reviews-ss`를 입력합니다.
-1. **원본 데이터 필드**에 대해 **reviews_text*를 선택합니다.
+1. **원본 데이터 필드**에 대해 **reviews_text**를 선택합니다.
 1. **보강 세분성 수준**에 대해 **페이지(5,000자 청크)** 를 선택합니다.
 1. 다음 인지 기술을 선택합니다.
     + **핵심 구 추출**

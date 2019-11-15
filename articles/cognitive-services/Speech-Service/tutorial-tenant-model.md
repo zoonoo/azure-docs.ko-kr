@@ -1,7 +1,7 @@
 ---
 title: 테넌트 모델 만들기(미리 보기) - Speech Service
 titleSuffix: Azure Cognitive Services
-description: Office 365 데이터를 활용하는 사용자 지정 음성 모델을 자동으로 생성하여 안전하고 규정을 준수하는 조직 관련 용어에 대한 최적의 음성 인식 기능을 제공합니다.
+description: Office 365 데이터를 활용하여 안전하고 규정을 준수하는 조직 관련 용어에 대해 최적의 음성 인식을 제공하는 테넌트 모델(Office 365 데이터를 사용하는 Custom Speech)을 자동으로 생성합니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 10/26/2019
 ms.author: erhopf
-ms.openlocfilehash: 85b9291ee24c024ebc8ce81ddba46d04f7744081
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c8a2855ce9cd320be3aea8b3b4a05f3b3eb39976
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500397"
+ms.locfileid: "73578229"
 ---
 # <a name="create-a-tenant-model-preview"></a>테넌트 모델 만들기(미리 보기)
 
-테넌트 모델은 조직의 Office 365 데이터에서 사용자 지정 음성 인식 모델을 자동으로 생성하는 서비스로, Office 365 엔터프라이즈 고객을 위한 옵트인 서비스입니다. 생성된 모델은 기술 용어, 전문 용어 및 인명 모두에 대해 안전하고 규정을 준수하는 방식으로 최적화됩니다.
+테넌트 모델(Office 365 데이터를 사용하는 Custom Speech)은 조직의 Office 365 데이터에서 사용자 지정 음성 인식 모델을 자동으로 생성하는 Office 365 엔터프라이즈 고객을 위한 옵트인 서비스입니다. 생성된 모델은 기술 용어, 전문 용어 및 인명 모두에 대해 안전하고 규정을 준수하는 방식으로 최적화됩니다.
 
 > [!IMPORTANT]
-> 조직에서 테넌트 모델을 등록하는 경우 Speech Service는 이메일 및 문서와 같은 Office 365 리소스에 의해 생성되는 조직의 언어 모델에 액세스할 수 있습니다. 조직의 Office 365 관리자는 Office 365 관리 포털을 사용하여 조직 전체의 언어 모델 사용을 설정/해제할 수 있습니다.
+> 조직이 테넌트 모델에 등록되면 Speech Service에서 조직의 언어 모델에 액세스할 수 있습니다. 이 모델은 조직의 모든 사용자가 볼 수 있는 Office 365 퍼블릭 그룹 이메일 및 문서에서 생성됩니다. 조직의 Office 365 관리자는 Office 365 관리 포털을 사용하여 조직 전체의 언어 모델을 사용하도록 설정하거나 이를 해제할 수 있습니다.
 
 이 자습서에서 학습할 방법은 다음과 같습니다.
 
@@ -33,8 +33,6 @@ ms.locfileid: "73500397"
 > * 테넌트 모델 배포
 > * Speech SDK와 함께 테넌트 모델 사용
 
-![테넌트 모델 다이어그램](media/tenant-language-model/tenant-language-model-diagram.png)
-
 ## <a name="enroll-using-the-microsoft-365-admin-center"></a>Microsoft 365 관리 센터를 사용하여 등록
 
 테넌트 모델을 배포하려면 먼저 Microsoft 365 관리 센터를 사용하여 등록해야 합니다. 이 작업은 Microsoft 365 관리자만 수행할 수 있습니다.
@@ -42,11 +40,11 @@ ms.locfileid: "73500397"
 1. [Microsoft 365 관리 센터](https://admin.microsoft.com )에 로그인합니다.
 2. 왼쪽 패널에서 **설정**, **앱**을 차례로 선택합니다.
 
-   ![테넌트 모델 다이어그램](media/tenant-language-model/tenant-language-model-enrollment.png)
+   ![테넌트 모델 등록](media/tenant-language-model/tenant-language-model-enrollment.png)
 
 3. **Azure Speech Services**를 찾아 선택합니다.
 
-   ![테넌트 모델 다이어그램](media/tenant-language-model/tenant-language-model-enrollment-2.png)
+   ![테넌트 모델 등록 2](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
 4. 확인란을 클릭하고 저장합니다.
 
@@ -77,9 +75,10 @@ ms.locfileid: "73500397"
 
 3. 이 시점에 테넌트 모델을 만들 자격이 있는지 여부를 알 수 있는 메시지가 표시됩니다.
    > [!NOTE]
-   > 북미의 Office 365 엔터프라이즈 고객은 테넌트 모델(영어)을 만들 자격이 있습니다. CLB(고객 Lockbox) 또는 CK(고객 키) 고객인 경우에는 이 기능을 사용할 수 없습니다. 고객 Lockbox 또는 고객 키 고객인지 여부를 확인하려면 다음 지침을 따르세요.
+   > 북미의 Office 365 엔터프라이즈 고객은 테넌트 모델(영어)을 만들 자격이 있습니다. CLB(고객 Lockbox), CK(고객 키) 또는 Office 365 Government 고객인 경우 이 기능을 사용할 수 없습니다. 고객 Lockbox 또는 고객 키 고객인지 여부를 확인하려면 다음 지침을 따르세요.
    > * [고객 Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
    > * [고객 키](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
+   > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
 
 4. 다음으로, **옵트인**을 선택합니다. 테넌트 모델이 준비되면 지침이 포함된 이메일을 받게 됩니다.
 

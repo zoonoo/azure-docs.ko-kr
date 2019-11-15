@@ -1,5 +1,5 @@
 ---
-title: Azure Security Center 자습서 - 보안 인시던트에 대응 | Microsoft Docs
+title: 인시던트 응답 자습서 - Azure Security Center
 description: Azure Security Center 자습서 - 보안 인시던트에 대응
 services: security-center
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: 11c2543de2b5456d253e7e905065eea14810877a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: cd3f99fe82c9a8e5e760aa3be3bed1ad5d9bd5e9
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200613"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73663635"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>자습서: 보안 인시던트에 대응
 Security Center는 고급 분석 및 위협 인텔리전스를 사용하여 하이브리드 클라우드 워크로드를 지속적으로 분석하여 악의적인 활동을 경고합니다. 또한 다른 보안 제품 및 서비스의 경고를 Security Center에 통합하고, 사용자 고유의 표시기 또는 인텔리전스 원본에 기반한 사용자 지정 경고를 만들 수 있습니다. 경고가 생성되면 조사하고 수정하기 위한 신속한 조치가 필요합니다. 이 자습서에서는 다음 방법을 알아봅니다.
@@ -66,7 +66,7 @@ Security Center는 모든 보안 경고에 대해 통일된 보기를 제공합�
 
 1. Security Center 주 메뉴의 **검색** 아래에서 **보안 경고**를 선택합니다.
 
-   ![보안 경고](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![보안 경고](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
 2. 이 인시던트에 대한 자세한 내용을 보려면 경고 목록에서 경고 모음인 보안 인시던트를 클릭합니다. **보안 인시던트가 검색됨**이 열립니다.
 

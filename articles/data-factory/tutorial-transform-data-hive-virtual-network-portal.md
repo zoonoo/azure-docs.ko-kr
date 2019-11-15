@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Network에서 Hive를 사용하여 데이터 변환 | Microsoft Docs
+title: 'Azure Virtual Network에서 Hive를 사용하여 데이터 변환 '
 description: 이 자습서에서는 Azure Data Factory에서 Hive 작업을 사용하여 데이터를 변환하는 단계별 지침을 제공합니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 01/04/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: b6e57500da0ca863f0c5810f625d6a4b0c56d1bf
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 73a43bdb859d39bd0cb8e3d4a3ed3f114fb2c156
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68277464"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683438"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hive 작업을 사용하여 Azure Virtual Network에서 데이터 변환
 이 자습서에서는 Azure Portal을 사용하여 Azure VNet(Virtual Network)에 있는 HDInsight 클러스터에서 Hive 활동을 통해 데이터를 변환하는 Data Factory 파이프라인을 만듭니다. 이 자습서에서 수행하는 단계는 다음과 같습니다.
@@ -68,7 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 3. **hivescripts**라는 폴더를 만듭니다.
 4. **hivescript.hql** 파일을 **hivescripts** 하위 폴더로 업로드합니다.
 
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. **Microsoft Edge** 또는 **Google Chrome** 웹 브라우저를 시작합니다. 현재 Data Factory UI는 Microsoft Edge 및 Google Chrome 웹 브라우저에서만 지원됩니다.
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.    
@@ -175,7 +175,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 1. **새로 만들기** 단추를 다시 클릭하여 또 하나의 연결된 서비스를 만듭니다. 
     
    ![새 연결된 서비스 단추](./media/tutorial-transform-data-using-hive-in-vnet-portal/new-linked-service.png)    
-2. **계산** 탭으로 전환하고, **Azure HDInsight**를 선택하고, **계속**을 클릭합니다.
+2. **컴퓨팅** 탭으로 전환하고, **Azure HDInsight**를 선택하고, **계속**을 클릭합니다.
 
     ![Azure HDInsight 선택](./media/tutorial-transform-data-using-hive-in-vnet-portal/select-hdinsight.png)
 3. **새 연결된 서비스** 창에서 다음 단계를 수행합니다.
@@ -195,7 +195,7 @@ Hadoop 클러스터는 가상 네트워크 내에 있으므로 동일한 가상 
 
     `10.6.0.15 myHDIClusterName.azurehdinsight.net`
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다. 
+## <a name="create-a-pipeline"></a>파이프라인 만들기 
 이 단계에서는 Hive 작업이 있는 새 파이프라인을 만듭니다. 이 작업은 Hive 스크립트를 실행하여 샘플 테이블의 데이터를 반환하고 사용자가 정의한 경로에 저장합니다.
 
 다음 사항에 유의하세요.

@@ -7,14 +7,17 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 86d61dbd75363f68ee4651bfb36f940810909c00
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 856f7f7735435579ac14918ee8026f27b222773e
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509947"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715502"
 ---
 # <a name="assess-servers-using-imported-data"></a>가져온 데이터를 사용하여 서버 평가
+
+> [!NOTE]
+> Azure Migrate 포털에 이 기능이 아직 표시되지 않으면 중단합니다. 다음 주 정도에 표시됩니다.
 
 이 문서에서는 CSV를 통해 서버 메타데이터를 가져와 [Azure Migrate: 서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool)로 온-프레미스 서버를 평가하는 방법을 설명합니다. 이 평가 방법을 사용하면 평가를 만들기 위해 Azure Migrate 어플라이언스를 설정할 필요가 없습니다. 이러한 특성은 다음과 같은 경우에 유용합니다. 
 

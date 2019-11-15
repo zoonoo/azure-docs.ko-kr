@@ -14,16 +14,16 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 05/21/2019
+ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: 0335f5c71f99e6c7a90ce920c25e6bb7e9b4a08f
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 452ccfc796fcd2a390c7380f4c6b2ced2057dc3b
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211938"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822349"
 ---
 # <a name="tutorial-push-notifications-to-ios-apps-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 iOS 앱에 알림 푸시
 
@@ -31,8 +31,7 @@ ms.locfileid: "71211938"
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
 > * [Swift](notification-hubs-ios-push-notifications-swift-apps-get-started.md)
 
-
-이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 애플리케이션으로 알림을 푸시합니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다.
+이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 애플리케이션에 푸시 알림을 보냅니다. [APNS(Apple Push Notification Service)](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1)를 사용하여 푸시 알림을 받는 빈 iOS 앱을 만듭니다.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -45,14 +44,16 @@ ms.locfileid: "71211938"
 > * 테스트 푸시 알림 보내기
 > * 앱에 알림을 수신되는지 확인
 
-이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)에서 찾을 수 있습니다. 
+이 자습서에 대해 완료된 코드는 [GitHub](https://github.com/Azure/azure-notificationhubs-ios/tree/master/Samples)에서 찾을 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-* 활성 Azure 계정. 계정이 없는 경우 몇 분 만에 [Azure 체험 계정을 만들 수 있습니다](https://azure.microsoft.com/free).
+이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
+
+* 활성 Azure 계정. 계정이 없으면 [평가판 Azure 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Windows Azure Messaging 프레임워크]
 * [Xcode]
-* iOS 10 이상 지원 디바이스
+* iOS 버전 10 이상 지원 디바이스
 * [Apple 개발자 프로그램](https://developer.apple.com/programs/) 멤버 자격
   
   > [!NOTE]
@@ -97,7 +98,7 @@ ms.locfileid: "71211938"
      `pod install`을 실행하여 새로 정의된 pod를 설치하고 `.xcworkspace`를 엽니다.
 
      > [!NOTE]
-     > `pod install` 실행 동안 ```[!] Unable to find a specification for `AzureNotificationHubs-iOS` ```와 같은 오류가 표시되면 `pod repo update`를 실행하여 Cocoapods 리포지토리에서 최신 pod를 가져오고 `pod install`을 실행합니다.
+     > `pod install`을 실행하는 동안 **[!] AzureNotificationHubs-iOS에 대한 사양을 찾을 수 없음**과 같은 오류가 표시되면 `pod repo update`를 실행하여 Cocoapods 리포지토리에서 최신 pods를 가져온 다음, `pod install`을 실행하세요.
 
    - Carthage를 통한 통합
 
@@ -129,8 +130,8 @@ ms.locfileid: "71211938"
     #ifndef HubInfo_h
     #define HubInfo_h
 
-        #define HUBNAME @"<Enter the name of your hub>"
-        #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
+    #define HUBNAME @"<Enter the name of your hub>"
+    #define HUBLISTENACCESS @"<Enter your DefaultListenSharedAccess connection string"
 
     #endif /* HubInfo_h */
     ```
@@ -142,11 +143,11 @@ ms.locfileid: "71211938"
     #import <UserNotifications/UserNotifications.h>
     #import "HubInfo.h"
     ```
+
 8. `AppDelegate.m` 파일에서 iOS 버전에 따라 `didFinishLaunchingWithOptions` 메서드에 다음 코드를 추가합니다. 이 코드는 APNS로 디바이스 핸들을 등록합니다.
 
     ```objc
-    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound |
-        UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
+    UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge categories:nil];
 
     [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
     [[UIApplication sharedApplication] registerForRemoteNotifications];
@@ -155,21 +156,21 @@ ms.locfileid: "71211938"
 9. 동일한 파일에 다음 메서드를 추가합니다.
 
     ```objc
-        - (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
-        SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
-                                    notificationHubPath:HUBNAME];
+    (void) application:(UIApplication *) application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *) deviceToken {
+     SBNotificationHub* hub = [[SBNotificationHub alloc] initWithConnectionString:HUBLISTENACCESS
+                                 notificationHubPath:HUBNAME];
 
-        [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
-            if (error != nil) {
-                NSLog(@"Error registering for notifications: %@", error);
-            }
-            else {
-                [self MessageBox:@"Registration Status" message:@"Registered"];
-            }
-        }];
-        }
+     [hub registerNativeWithDeviceToken:deviceToken tags:nil completion:^(NSError* error) {
+         if (error != nil) {
+             NSLog(@"Error registering for notifications: %@", error);
+         }
+         else {
+             [self MessageBox:@"Registration Status" message:@"Registered"];
+         }
+     }];
+     }
 
-    -(void)MessageBox:(NSString *) title message:(NSString *)messageText
+    (void)MessageBox:(NSString *) title message:(NSString *)messageText
     {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:messageText preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
@@ -183,9 +184,9 @@ ms.locfileid: "71211938"
 10. 같은 파일에서 앱이 활성 상태일 때 알림이 수신되는 경우 **UIAlert** 를 표시하려면 다음 메서드를 추가합니다.
 
     ```objc
-    - (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
-        NSLog(@"%@", userInfo);
-        [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
+    (void)application:(UIApplication *)application didReceiveRemoteNotification: (NSDictionary *)userInfo {
+      NSLog(@"%@", userInfo);
+      [self MessageBox:@"Notification" message:[[userInfo objectForKey:@"aps"] valueForKey:@"alert"]];
     }
     ```
 

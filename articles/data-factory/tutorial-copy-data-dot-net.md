@@ -1,5 +1,5 @@
 ---
-title: Azure Blob Storage에서 SQL Database로 데이터 복사 | Microsoft Docs
+title: 'Azure Blob Storage에서 SQL Database로 데이터 복사 '
 description: 이 자습서에서는 Azure Blob Storage에서 Azure SQL Database로 데이터를 복사하는 단계별 지침을 제공합니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 49b5b03356790bd45b2ad29897a57b746af1abe1
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 96b1e5a9633ee141fd4aa369468a8866d87f27f2
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140696"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73683658"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Blob에서 Azure SQL Database로 데이터 복사
 
@@ -160,7 +160,7 @@ Visual Studio 2015/2017을 사용하여 C# .NET 콘솔 애플리케이션을 만
     var client = new DataFactoryManagementClient(cred) { SubscriptionId = subscriptionId };
     ```
 
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 **Main** 메서드에 **데이터 팩터리**를 만드는 다음 코드를 추가합니다.
 
@@ -291,7 +291,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, sqlDatasetName, s
 Console.WriteLine(SafeJsonConvert.SerializeObject(sqlDataset, client.SerializationSettings));
 ```
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 
 **Main** 메서드에 **복사 작업이 있는 파이프라인**을 만드는 다음 코드를 추가합니다. 이 자습서에서는 이 파이프라인에 하나의 작업, 즉 Blob 데이터 세트를 원본으로, SQL 데이터 세트를 싱크로 사용하는 복사 작업이 포함됩니다. 복사 작업에 대한 자세한 내용은 [복사 작업 개요](copy-activity-overview.md)를 참조하세요.
 

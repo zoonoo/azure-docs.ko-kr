@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 98ebc8d9408d937730643056f65c3d8011c1fdc4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ecad41097786a40f7c605a686f085136856c950a
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493417"
+ms.locfileid: "73581572"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습을 사용하여 처음으로 분류 모델 만들어보기
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -171,18 +171,21 @@ Azure Machine Learning Studio에서 자동화된 기계 학습을 사용하면 �
 
 1. 왼쪽 아래 모서리에 있는 **최적 모델 배포** 단추를 선택합니다.
 
-1. **최적 모델 배포** 창을 다음과 같이 채웁니다.
+1. 다음과 같이 **모델 배포** 창을 채웁니다.
 
     필드| 값
     ----|----
     배포 이름| my-automl-deploy
     배포 설명| 첫 번째 자동화된 기계 학습 실험 배포
-    채점 스크립트| 자동 생성
-    환경 스크립트| 자동 생성
+    컴퓨팅 형식 | ACI(Azure Compute Instance) 선택
+    인증 사용| 사용 안 함 
+    사용자 지정 배포 사용| 사용 안 함 기본 드라이버 파일(점수 매기기 스크립트) 및 환경 파일을 자동으로 생성할 수 있습니다. 
     
+    이 예제에서는 *고급* 메뉴에 제공된 기본값을 사용합니다. 
+
 1. **배포**를 선택합니다.  
 
-    배포가 완료되면 **권장 모델** 창에서 **배포 상태**에 배포 성공 메시지가 표시됩니다. 주기적으로 **새로 고침**을 선택하여 배포 상태를 확인합니다.
+    녹색 성공 메시지가 **실행** 화면의 맨 위에 표시되고 **권장 모델** 창에는 상태 메시지가 **배포 상태**아래에 나타납니다. 주기적으로 **새로 고침**을 선택하여 배포 상태를 확인합니다.
     
 이제 예측을 생성하는 운영 웹 서비스가 생겼습니다. 
 

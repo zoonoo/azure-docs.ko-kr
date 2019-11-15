@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: f693a80726c9185bbd75d5fb99eb7e5f3ccad987
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ccd29952693ecbc1db5927d5deabae874b6e9933
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493508"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73796704"
 ---
 # <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드 및 사용
 
@@ -480,7 +480,7 @@ REST 엔드포인트에서 파이프라인을 실행하려면 OAuth2 전달자 �
 
 서비스 주체 인증에는 *앱 등록*을 *Azure Active Directory*에 만드는 작업이 포함됩니다. 먼저 클라이언트 비밀을 생성한 다음, 서비스 주체 *역할 액세스* 권한을 기계 학습 작업 영역에 부여합니다. 인증 흐름은 [`ServicePrincipalAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) 클래스를 사용하여 관리합니다. 
 
-`InteractiveLoginAuthentication` 및 `ServicePrincipalAuthentication`은 모두 `AbstractAuthentication`에서 상속됩니다. 두 경우 모두 `get_authentication_header()` 함수를 동일한 방식으로 사용하여 헤더를 가져옵니다.
+[`InteractiveLoginAuthentication`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.interactiveloginauthentication?view=azure-ml-py) 및 `ServicePrincipalAuthentication`은 모두 `AbstractAuthentication`에서 상속됩니다. 두 경우 모두 [`get_authentication_header()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.abstractauthentication?view=azure-ml-py#get-authentication-header--) 함수를 동일한 방식으로 사용하여 헤더를 가져옵니다.
 
 ```python
 from azureml.core.authentication import InteractiveLoginAuthentication
@@ -522,7 +522,7 @@ RunDetails(published_pipeline_run).show()
 
 다른 Azure Machine Learning 자습서를 실행하려면 이 섹션을 수행하지 마세요.
 
-### <a name="stop-the-compute-instance"></a>컴퓨팅 인스턴스 중지
+### <a name="stop-the-notebook-vm"></a>Notebook VM 중지
 
 [!INCLUDE [aml-stop-server](../../../includes/aml-stop-server.md)]
 

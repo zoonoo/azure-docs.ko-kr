@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 0178f27c39c065399208e7fc5afe7352ba4f8e30
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 57dbfa0c2063c2059955294ccc1337bb76b72614
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488219"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606095"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>서버용 Azure Arc란
 
@@ -83,7 +83,7 @@ Linux:
 
 ## <a name="register-the-required-resource-providers"></a>필요한 리소스 공급자 등록
 
-'기능 플래그' 등록이 승인되면, 필요한 리소스 공급자를 등록해야 합니다.
+서버용 Azure Arc를 사용하려면 필요한 리소스 공급자를 등록해야 합니다.
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**

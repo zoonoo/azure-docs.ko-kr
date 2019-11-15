@@ -7,12 +7,12 @@ ms.topic: overview
 author: cjgronlund
 ms.author: cgronlun
 ms.date: 11/04/2019
-ms.openlocfilehash: b8633bd91abc1f336870158f54d75829ed5cf6a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fd5697f9c325dc4ad866c333ce1b20e008ebfa24
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496613"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73606165"
 ---
 # <a name="what-are-azure-open-datasets-and-how-can-you-use-them"></a>Azure Open Datasets란 무엇이며 사용하려면 어떻게 해야 하나요?
 
@@ -25,7 +25,7 @@ ms.locfileid: "73496613"
 ## <a name="curated-prepared-datasets"></a>큐레이팅 및 준비를 마친 데이터 세트
 Azure Open Datasets의 큐레이팅된 공개 데이터 세트는 기계 학습 워크플로에 사용하도록 최적화되었습니다. 
 
-데이터 과학자들은 종종 고급 분석을 위해 데이터를 정리하고 준비하는 일에 대부분의 시간을 보냅니다. Open Datasets는 Azure 클라우드에 복사되어 미리 처리되므로 시간을 절약할 수 있습니다. 정기적으로 NOAA(해양대기청) 같은 소스에 FTP로 연결하여 데이터를 끌어오고 정형 형식으로 구문 분석한 다음, 가장 가까운 기상 관측 스테이션의 우편 번호나 위치 같은 기능을 사용하여 적절하게 데이터를 보강합니다.
+데이터 과학자들은 종종 고급 분석을 위해 데이터를 정리하고 준비하는 일에 대부분의 시간을 보냅니다. Open Datasets는 Azure 클라우드에 복사되어 미리 처리되므로 시간을 절약할 수 있습니다. 정기적인 간격으로 데이터를 원본에서 가져옵니다. 예를 들어 NOAA(National Oceanic 및 Atmospheric Administration)에 대한 FTP 연결 등이 있습니다. 다음으로, 데이터는 구조화된 형식으로 구문 분석된 다음, 우편 번호 또는 가장 가까운 기상 관측소의 위치와 같은 기능으로 적절하게 보강됩니다.
 
 데이터 세트는 클라우드 컴퓨팅을 통해 Azure에 공동으로 호스트되므로 쉽게 액세스하여 조작할 수 있습니다.  
 
@@ -57,5 +57,5 @@ Open Datasets는 Azure Machine Learning UI 및 SDK를 통해 제공됩니다. Op
 
 ## <a name="next-steps"></a>다음 단계
 * [샘플 Notebook](samples.md)
-* [자습서: 뉴욕 택시 데이터를 사용하는 회귀 모델링](tutorial-opendatasets-automl.md)
+* [자습서: 뉴욕 택시 데이터를 사용하는 회귀 모델링](/azure/machine-learning/service/tutorial-auto-train-models?context=azure/open-datasets/context/open-datasets-context)
 * [공개 데이터 세트용 Python SDK](/python/api/azureml-opendatasets/?view=azure-ml-py)

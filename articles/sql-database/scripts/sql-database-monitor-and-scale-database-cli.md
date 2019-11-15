@@ -1,5 +1,5 @@
 ---
-title: CLI 예제 모니터링 크기 조정 단일 Azure SQL 데이터베이스 | Microsoft Docs
+title: CLI 예제 모니터링 크기 조정 단일 Azure SQL 데이터베이스
 description: 단일 Azure SQL 데이터베이스를 모니터링하고 크기를 조정하는 Azure CLI 예제 스크립트
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 ms.date: 06/25/2019
-ms.openlocfilehash: 9468f5d631dd713c9e131c63de824c5e552178e3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 96a27d5bfc76c78688d6b6b2a02c988dde764248
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569922"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691598"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>CLI를 사용하여 단일 SQL Database 모니터링 및 크기 조정
 

@@ -4,15 +4,15 @@ description: 이 문서에서는 Application Gateway의 WAF(웹 애플리케이�
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/16/2019
+ms.date: 11/05/2019
 ms.author: victorh
 ms.topic: overview
-ms.openlocfilehash: 3cc0af122143d2ee702f1f16ee26c010befa1155
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6d073648dc908cbbe40962f7ba079abcfe85ce45
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495579"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73607298"
 ---
 # <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Azure Application Gateway의 Azure 웹 애플리케이션 방화벽
 
@@ -20,10 +20,10 @@ Azure Application Gateway의 Azure WAF(웹 애플리케이션 방화벽)는 일�
 
 Application Gateway의 WAF는 OWASP(Open Web Application Security Project)의 [CRS(핵심 규칙 세트)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1, 3.0 또는 2.2.9를 기반으로 합니다. WAF는 새로운 취약점에 대한 방어 기능을 포함하도록 자동으로 업데이트되며, 추가 구성이 필요 없습니다. 
 
-아래에 나열된 모든 WAF 기능은 WAF 정책 내에 있습니다. 원하는 만큼 정책을 만들 수 있으며, 정책을 Application Gateway, 개별 수신기 또는 Application Gateway의 경로 기반 회람 규칙에 연결할 수 있습니다. 이러한 방식으로 필요에 따라 Application Gateway 뒤에 있는 각 사이트에 별도의 정책을 적용할 수 있습니다. WAF 정책에 대한 자세한 내용은 [WAF 정책 만들기](create-waf-policy-ag.md)를 참조하세요.
+아래에 나열된 모든 WAF 기능은 WAF 정책 내에 있습니다. 여러 정책을 만들 수 있으며, 정책을 Application Gateway, 개별 수신기 또는 Application Gateway의 경로 기반 회람 규칙에 연결할 수 있습니다. 이러한 방식으로 필요에 따라 Application Gateway 뒤에 있는 각 사이트에 별도의 정책을 적용할 수 있습니다. WAF 정책에 대한 자세한 내용은 [WAF 정책 만들기](create-waf-policy-ag.md)를 참조하세요.
 
    > [!NOTE]
-   > 사이트별 및 URI별 WAF 정책은 공개 미리 보기로 제공됩니다. 즉, 이 기능은 Microsoft의 추가 사용 약관을 따릅니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/en-us/support/legal/preview-supplemental-terms/)을 참조하세요.
+   > 사이트별 및 URI별 WAF 정책은 공개 미리 보기로 제공됩니다. 즉, 이 기능은 Microsoft의 추가 사용 약관을 따릅니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 ![Application Gateway WAF 다이어그램](../media/ag-overview/waf1.png)
 
@@ -39,9 +39,11 @@ Application Gateway의 향상된 보안 기능으로는 SSL 정책 관리와 엔
 
 * 백 엔드 코드를 수정하지 않고 웹 취약점 및 공격으로부터 웹 애플리케이션을 보호합니다.
 
-* 동시에 여러 웹 애플리케이션을 보호합니다. Application Gateway 인스턴스 하나로 웹 애플리케이션 방화벽의 보호를 받는 웹 사이트를 100개까지 호스트할 수 있습니다.
+* 동시에 여러 웹 애플리케이션을 보호합니다. Application Gateway 인스턴스는 웹 애플리케이션 방화벽으로 보호되는 최대 40개의 웹 사이트를 호스팅할 수 있습니다.
 
-* IP 평판 규칙 세트를 사용하여 악의적인 봇으로부터 웹 애플리케이션 보호
+* 동일한 WAF 뒤에 있는 다른 사이트에 대한 사용자 지정 WAF 정책을 만듭니다. 
+
+* IP 신뢰도 규칙 세트를 사용하여 악의적인 봇으로부터 웹 애플리케이션을 보호합니다(미리 보기).
 
 ### <a name="monitoring"></a>모니터링
 
@@ -51,9 +53,11 @@ Application Gateway의 향상된 보안 기능으로는 SSL 정책 관리와 엔
 
 ### <a name="customization"></a>사용자 지정
 
-* WAF 규칙 및 규칙 그룹을 사용자 지정하여 애플리케이션 요구 사항에 맞게 거짓 긍정을 방지할 수 있습니다.
+* 애플리케이션 요구 사항에 맞게 WAF 규칙 및 규칙 그룹을 사용자 지정하고 가양성을 제거합니다.
 
-* WAF 뒤에 있는 각 사이트의 WAF 정책을 연결하여 사이트별 구성을 허용할 수 있습니다.
+* 사이트별로 구성할 수 있도록 WAF 뒤에 있는 각 사이트에 대한 WAF 정책을 연결합니다.
+
+* 애플리케이션의 요구 사항에 맞는 사용자 지정 규칙을 만듭니다.
 
 ## <a name="features"></a>기능
 
@@ -62,10 +66,13 @@ Application Gateway의 향상된 보안 기능으로는 SSL 정책 관리와 엔
 - 명령 삽입, HTTP 요청 밀반입, HTTP 응답 분할, 원격 파일 포함 등의 일반 웹 공격 방지
 - HTTP 프로토콜 위반 방지
 - 누락된 호스트 사용자-에이전트 헤더 및 수락 헤더 같은 HTTP 프로토콜 이상 방지
-- 봇, 크롤러 및 스캐너 방지
+- 크롤러 및 스캐너에 대한 방지
 - 일반적인 애플리케이션 구성 오류(예: Apache 및 IIS) 검색
 - 하한값과 상한값이 있는 구성 가능한 요청 크기 제한
 - WAF 평가에서 특정 요청 특성을 생략할 수 있는 제외 목록. 일반적인 예로는 인증 또는 암호 필드에 사용되는 Active Directory 삽입 토큰이 있습니다.
+- 애플리케이션의 특정 요구 사항에 맞는 사용자 지정 규칙 만들기
+- 특정 국가의 애플리케이션에 대한 액세스를 허용하거나 차단하기 위한 지역 필터 트래픽 (미리 보기)
+- 봇 완화 규칙 세트를 사용하여 봇으로부터 애플리케이션 보호 (미리 보기)
 
 ## <a name="waf-policy"></a>WAF 정책
 
@@ -79,7 +86,7 @@ Application Gateway는 세 가지 규칙 세트 CRS 3.1, CRS 3.0 및 CRS 2.2.9�
 
 ### <a name="custom-rules"></a>사용자 지정 규칙
 
-Application Gateway는 사용자 지정 규칙도 지원합니다. 사용자 지정 규칙을 사용하면 WAF를 통해 전달되는 각 요청에 대해 평가되는 사용자 고유의 규칙을 만들 수 있습니다. 이러한 규칙은 관리형 규칙 세트의 나머지 규칙보다 높은 우선 순위를 갖습니다. 조건 세트가 충족되면 작업이 허용 또는 차단됩니다. 
+Application Gateway는 사용자 지정 규칙도 지원합니다. 사용자 지정 규칙을 사용하면 WAF를 통해 전달되는 각 요청에 대해 평가되는 사용자 고유의 규칙을 만들 수 있습니다. 이러한 규칙은 관리형 규칙 세트의 나머지 규칙보다 높은 우선 순위를 갖습니다. 조건 세트가 충족되면 허용 또는 차단 작업을 수행합니다. 
 
 자세한 내용은 [Application Gateway에 대한 사용자 지정 규칙](custom-waf-rules-overview.md)을 참조하세요.
 
@@ -138,6 +145,15 @@ Application Gateway 로그는 [Azure Monitor](../../azure-monitor/overview.md)�
 
 ![Security Center 개요 창](../media/ag-overview/figure1.png)
 
+#### <a name="azure-sentinel"></a>Azure Sentinel
+
+Microsoft Azure Sentinel은 확장 가능한 클라우드 네이티브, SIEM(보안 정보 이벤트 관리) 및 SOAR(보안 오케스트레이션 자동화 응답) 솔루션입니다. Azure Sentinel은 엔터프라이즈 전반에 지능적인 보안 분석 및 위협 인텔리전스를 제공하며, 경고 검색, 위협 가시성, 주도적 헌팅 및 위협 대응을 위한 단일 솔루션을 제공합니다.
+
+기본 제공 Azure WAF 방화벽 이벤트 통합 문서를 사용하면 WAF의 보안 이벤트에 대한 개요를 볼 수 있습니다. 여기에는 이벤트, 일치 규칙 및 차단 규칙 및 방화벽 로그에 기록되는 모든 항목이 포함됩니다. 로깅에 대해 아래에서 자세히 참조하세요. 
+
+
+![Sentinel](../media/ag-overview/sentinel.png)
+
 #### <a name="logging"></a>로깅
 
 Application Gateway WAF는 탐지된 각 위협에 대한 상세 보고를 제공합니다. 로깅은 Azure Diagnostics 로그와 통합됩니다. 경고는 .json 형식으로 기록됩니다. 이러한 로그는 [Azure Monitor 로그](../../azure-monitor/insights/azure-networking-analytics.md)와 통합될 수 있습니다.
@@ -186,4 +202,8 @@ WAF_v1 및 WAF_v2 SKU의 가격 책정 모델이 서로 다릅니다. 자세한 
 
 ## <a name="next-steps"></a>다음 단계
 
+- [WAF 정책을 만들어](create-waf-policy-ag.md) 시작
+- [WAF 관리 규칙](application-gateway-crs-rulegroups-rules.md)에 대해 자세히 알아보기
+- [사용자 지정 규칙](custom-waf-rules-overview.md)에 대해 자세히 알아보기
 - [Azure Front Door의 웹 애플리케이션 방화벽](../afds/afds-overview.md)에 대한 자세한 내용
+

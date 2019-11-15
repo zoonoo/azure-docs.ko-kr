@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: 91d8ddf7d8051baeb42ceb58673c93555908f03a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ddade9472517d080d01b04c853db9dd1848fe0f3
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488179"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73668461"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>빠른 시작: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - PowerShell
 
@@ -198,6 +198,29 @@ Restart-Service -Name himds
 
 1. [포털](https://aka.ms/hybridmachineportal)에서 머신을 선택하고, 줄임표(`...`)를 클릭한 다음, **삭제**를 선택합니다.
 1. 머신에서 에이전트를 제거합니다.
+
+   Windows에서는 "앱 및 기능" 제어판을 사용하여 에이전트를 제거할 수 있습니다.
+  
+  ![앱 및 기능](./media/quickstart-onboard/apps-and-features.png)
+
+   제거를 스크립팅하려면 **PackageId**를 검색하고 `msiexec /X`를 사용하여 에이전트를 제거하는 다음 예제를 사용할 수 있습니다.
+
+   레지스트리 키 `HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Uninstall` 아래에서 **PackageId**를 찾습니다. 그런 다음, `msiexec`를 사용하여 에이전트를 제거할 수 있습니다.
+
+   아래 예제에서는 에이전트를 제거하는 방법을 보여줍니다.
+
+   ```powershell
+   Get-ChildItem -Path HKLM:\Software\Microsoft\Windows\CurrentVersion\Uninstall | `
+   Get-ItemProperty | `
+   Where-Object {$_.DisplayName -eq "Azure Connected Machine Agent"} | `
+   ForEach-Object {MsiExec.exe /Quiet /X "$($_.PsChildName)"}
+   ```
+
+   Linux에서는 다음 명령을 실행하여 에이전트를 제거합니다.
+
+   ```bash
+   sudo apt purge hybridagent
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

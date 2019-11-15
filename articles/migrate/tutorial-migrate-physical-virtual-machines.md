@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 9b1944cdad67f9f1b74c8dae95bc9d8409e56f54
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: ffa072f593a06a38e6e3d121fb76806e41bf568e
+ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309460"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73605543"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>물리적 서버 또는 가상화된 서버를 Azure로 마이그레이션 
 
@@ -135,7 +135,7 @@ Azure Migrate 서버 마이그레이션은 복제 어플라이언스를 사용�
 - **구성 서버**: 구성 서버는 온-프레미스와 Azure 간의 통신을 조정하여 데이터 복제를 관리합니다.
 - **프로세스 서버**: 프로세스 서버는 복제 게이트웨이의 역할을 합니다. 복제 데이터를 수신하여 캐싱, 압축 및 암호화를 사용하여 최적화한 후 Azure의 캐시 스토리지 계정으로 보냅니다. 
 
-시작하기 전에 복제 어플라이언스를 호스팅할 Windows Server 2016 머신을 준비해야 합니다. 머신은 [이러한 요구 사항](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements)을 준수해야 합니다.
+시작하기 전에 복제 어플라이언스를 호스팅할 Windows Server 2016 머신을 준비해야 합니다. 머신은 [이러한 요구 사항](migrate-support-matrix-vmware.md#agent-based-migration-replication-appliance-requirements)을 준수해야 합니다. 보호하려는 원본 머신에 어플라이언스를 설치해서는 안 됩니다.
 
 
 ## <a name="add-the-azure-migrate-server-migration-tool"></a>Azure Migrate 서버 마이그레이션 도구 추가

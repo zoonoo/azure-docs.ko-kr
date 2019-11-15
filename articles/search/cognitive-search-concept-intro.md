@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 97622df578b6c1357601b32a22c806e9eef77c96
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5dc33de19ef71a0714052a6457bef9f32fc159c3
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466862"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73720153"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 소개
 
@@ -25,7 +25,7 @@ AI 보강은 이미지, Blob 및 기타 비정형 데이터 원본에서 텍스�
 
 ![보강 파이프라인 다이어그램](./media/cognitive-search-intro/cogsearch-architecture.png "보강 파이프라인 개요")
 
-Azure Cognitive Search의 인지 기술은 Cognitive Services API의 기계 학습 모델을 기준으로 합니다. [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) 및 [Text Analysis](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)와 같은 Cognitive Services API의 기계 학습 모델을 기반으로 합니다. 
+Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 학습된 기계 학습 모델을 기반으로 합니다. [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) 및 [Text Analysis](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)와 같은 Cognitive Services API의 기계 학습 모델을 기반으로 합니다. 
 
 자연어 및 이미지 처리는 데이터 수집 단계에서 적용되며, 여기서 결과는 Azure Cognitiv Search의 검색 가능한 인덱스에서 문서의 컴퍼지션 중 일부가 됩니다. 데이터는 Azure 데이터 집합으로 소싱된 다음, 필요한 [기본 제공 기술](cognitive-search-predefined-skills.md)을 사용하여 인덱싱 파이프라인을 통해 푸시됩니다. 아키텍처는 확장이 가능하므로 기본 제공 기술이 충분하지 않은 경우 사용자 지정 처리를 통합하도록 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md)을 만들고 연결할 수 있습니다. 예에는 금융, 과학 출판물 또는 의약품과 같은 특정 도메인을 대상으로 하는 사용자 지정 엔터티 모듈 또는 문서 분류자가 있습니다.
 
@@ -79,7 +79,7 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API의 기계 학�
 
 ![보강 단계](./media/cognitive-search-intro/enrichment-phase-blowup.png "보강 단계")
 
-기술 집합은 [미리 정의된 인지 기술](cognitive-search-predefined-skills.md) 또는 사용자가 제공하고 기술 집합에 연결하는 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md)을 기반으로 합니다. 기술 집합은 매우 간단하거나 복잡할 수 있으며 처리 유형뿐만 아니라 작업 순서도 결정합니다. 기술 집합 및 인덱서의 일부로 정의된 필드 매핑은 보강 파이프라인을 완벽하게 지정합니다. 이 모든 부분을 한데 모으는 방법에 대한 자세한 정보 [기술 집합 정의](cognitive-search-defining-skillset.md)를 참조하세요.
+기술 집합은 [기본 제공 인지 기술](cognitive-search-predefined-skills.md) 또는 사용자가 제공하고 기술 집합에 연결하는 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md)을 기반으로 합니다. 기술 집합은 매우 간단하거나 복잡할 수 있으며 처리 유형뿐만 아니라 작업 순서도 결정합니다. 기술 집합 및 인덱서의 일부로 정의된 필드 매핑은 보강 파이프라인을 완벽하게 지정합니다. 이 모든 부분을 한데 모으는 방법에 대한 자세한 정보 [기술 집합 정의](cognitive-search-defining-skillset.md)를 참조하세요.
 
 내부적으로 파이프라인은 보강된 문서 컬렉션을 생성합니다. 보강된 문서의 어느 부분을 검색 인덱스의 인덱싱 가능 필드에 매핑할지 결정할 수 있습니다. 예를 들어 핵심 구 추출과 엔터티 인식 기술을 적용한 경우 새 필드는 보강된 문서의 일부가 되며 인덱스의 필드에 매핑될 수 있습니다. 입/출력에 대한 자세한 내용은 [주석](cognitive-search-concept-annotations-syntax.md)을 참조하세요.
 
@@ -107,13 +107,13 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API의 기계 학�
 |---------|------------|-------|
 | 기술 집합 | 기술 컬렉션이 포함된 최상위의 명명된 리소스입니다. 기술 집합은 보강 파이프라인입니다. 인덱서가 인덱싱을 수행하는 동안 호출됩니다. | [기술 세트 정의](cognitive-search-defining-skillset.md)를 참조하세요. |
 | 인지 기술 | 보강 파이프라인의 원자성 변환입니다. 대개, 구조를 추출하거나 유추하는 구성 요소이므로 입력 데이터에 대한 이해를 높여줍니다. 거의 항상 출력은 텍스트 기반이며 처리는 자연어 처리이거나 이미지 입력으로부터 텍스트를 추출하거나 생성하는 이미지 처리입니다. 기술을 통한 출력은 인덱스의 필드로 매핑되거나 다운스트림 보강을 위한 입력으로 사용될 수 있습니다. 기술은 Microsoft가 미리 정의해서 제공하거나 사용자가 지정하여 생성하고 배포합니다. | [기본 제공 인지 기술](cognitive-search-predefined-skills.md) |
-| 데이터 추출 | 광범위한 처리를 다루지만, AI 보강과 관련하여 엔터티 인식 기술은 해당 정보를 기본적으로 제공하지 않는 원본에서 데이터(엔터티)를 추출하는 데 일반적으로 사용됩니다. | [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md)을 참조하세요.| 
+| 데이터 추출 | 광범위한 처리를 다루지만, AI 보강과 관련하여 엔터티 인식 기술은 해당 정보를 기본적으로 제공하지 않는 원본에서 데이터(엔터티)를 추출하는 데 일반적으로 사용됩니다. | [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md) 및 [문서 추출 기술(미리 보기)](cognitive-search-skill-document-extraction.md)을 참조하세요.| 
 | 이미지 처리 | 이정표를 인식하는 기능, 이미지에서 텍스트를 추출하는 기능처럼 이미지의 텍스트를 유추합니다. 일반적인 예에는 스캔한 문서(JPEG) 파일에서 문자를 인식하거나 도로 표지판이 포함된 사진에서 거리 이름을 인식하는 OCR이 있습니다. | [이미지 분석 기술](cognitive-search-skill-image-analysis.md) 또는 [OCR 기술](cognitive-search-skill-ocr.md)을 참조하세요.
-| 자연어 처리 | 입력 텍스트에 대한 정보 및 인사이트를 위한 텍스트 처리입니다. 언어 감지, 감정 분석 및 핵심 구 추출은 자연어 처리에 해당하는 기술입니다.  | [핵심 구 추출 기술](cognitive-search-skill-keyphrases.md), [언어 감지 기술](cognitive-search-skill-language-detection.md), [감정 분석 기술](cognitive-search-skill-sentiment.md)을 참조하세요. |
+| 자연어 처리 | 입력 텍스트에 대한 정보 및 인사이트를 위한 텍스트 처리입니다. 언어 감지, 감정 분석 및 핵심 구 추출은 자연어 처리에 해당하는 기술입니다.  | [핵심 구 추출 기술](cognitive-search-skill-keyphrases.md), [언어 감지 기술](cognitive-search-skill-language-detection.md), [텍스트 번역 기술](cognitive-search-skill-text-translation.md), [감정 분석 기술](cognitive-search-skill-sentiment.md)을 참조하세요. |
 | 문서 크래킹 | 인덱싱 중에 텍스트가 아닌 원본에서 텍스트 콘텐츠를 추출하거나 만드는 프로세스입니다. OCR(광학 문자 인식)은 하나의 예이며, 일반적으로 인덱서가 애플리케이션 파일에서 콘텐츠를 추출하는 핵심 인덱서 기능을 말합니다. 원본 파일 위치를 제공하는 데이터 원본과 필드 매핑을 제공하는 인덱서 정의는 문서 크래킹의 핵심 요소입니다. | [인덱서 개요](search-indexer-overview.md)를 참조하세요. |
 | 셰이핑 | 추가적인 다운스트림 처리를 위해 텍스트 조각을 더 큰 구조에 통합하거나 반대로 큰 텍스트 청크를 처리할 수 있는 크기로 분해합니다. | [쉐이퍼 기술](cognitive-search-skill-shaper.md), [텍스트 병합기 기술](cognitive-search-skill-textmerger.md), [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 참조하세요. |
 | 보강된 문서 | 검색 인덱스에 반영된 최종 출력을 사용하여 처리하는 동안 생성된 일시적인 내부 구조입니다. 기술 세트는 어떤 보강이 수행되는지 결정합니다. 필드 매핑은 인덱스에 추가할 데이터 요소를 결정합니다. 선택적으로, Storage Explorer, Power BI 또는 Azure Blob Storage에 연결되는 다른 도구를 사용하여 보강된 문서를 유지하고 살펴보기 위한 기술 저장소를 만들 수 있습니다. | [지식 저장소(미리 보기)](knowledge-store-concept-intro.md)를 참조하세요. |
-| 인덱서 |  외부 데이터 원본에서 검색 가능한 데이터 및 메타데이터를 추출하고 문서 크래킹을 위한 인덱스와 데이터 원본 간의 필드 간 매핑에 따라 인덱스를 채우는 크롤러입니다. AI 보강의 경우 인덱서는 기술 세트를 호출하고, 인덱스의 대상 필드에 보강 출력을 연결하는 필드 매핑을 포함합니다. 인덱서 정의에는 파이프라인 작업에 대한 모든 지침과 참조가 포함되며 인덱서를 실행하면 파이프라인이 호출됩니다. | [인덱서](search-indexer-overview.md) |
+| 인덱서 |  외부 데이터 원본에서 검색 가능한 데이터 및 메타데이터를 추출하고 문서 크래킹을 위한 인덱스와 데이터 원본 간의 필드 간 매핑에 따라 인덱스를 채우는 크롤러입니다. AI 보강의 경우 인덱서는 기술 세트를 호출하고, 인덱스의 대상 필드에 보강 출력을 연결하는 필드 매핑을 포함합니다. 인덱서 정의에는 파이프라인 작업에 대한 모든 지침과 참조가 포함되며 인덱서를 실행하면 파이프라인이 호출됩니다. 추가 구성을 통해 기존 처리를 다시 사용하고 변경된 단계 및 기술만 실행할 수 있습니다. | [인덱서](search-indexer-overview.md) 및 [증분 인덱싱(미리 보기)](cognitive-search-incremental-indexing-conceptual.md)을 참조하세요. |
 | 데이터 원본  | Azure에서 지원되는 유형의 외부 데이터 소스에 연결할 때 인덱서에 사용되는 개체입니다. | [인덱서 개요](search-indexer-overview.md)를 참조하세요. |
 | 인덱스 | 필드 구조와 사용법을 정의하는 인덱스 스키마에서 작성된 Azure Cognitive Search의 지속형 검색 인덱스입니다. | [기본 인덱스 만들기](search-what-is-an-index.md)를 참조하세요. | 
 

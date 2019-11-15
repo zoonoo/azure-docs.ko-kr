@@ -1,37 +1,42 @@
 ---
-title: Power BI를 사용하여 지식 저장소에 연결
+title: Power BI를 사용하여 지식 저장소(미리 보기)에 연결
 titleSuffix: Azure Cognitive Search
-description: 분석 및 검색을 위해 Power BI를 사용하여 Azure Cognitive Search 지식 저장소에 연결합니다.
+description: 분석 및 검색을 위해 Power BI를 사용하여 Azure Cognitive Search 지식 저장소(미리 보기)를 연결합니다.
 author: lisaleib
 manager: nitinme
 ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 03f28cb40708b7ec77a0a342b5ec1b6faeaa8e3b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7b12f0f14003389d36e2df5bcffe7828c135cf2b
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73485150"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715499"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Power BI를 사용하여 지식 저장소 연결
 
-> [!Note]
-> 지식 저장소는 미리 보기로 있으므로 프로덕션 환경에서 사용하면 안 됩니다. 이 기능은 포털 및 [Search REST API 버전 2019-05-06-Preview](search-api-preview.md)에서 제공됩니다. 지금은 .NET SDK 지원이 없습니다.
->
+> [!IMPORTANT] 
+> 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-Preview](search-api-preview.md)는 미리 보기 기능을 제공합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
 이 문서에서는 Power BI Desktop 앱에서 파워 쿼리를 사용하여 지식 저장소에 연결하고 검색하는 방법을 알아봅니다. 템플릿을 사용해서 빠르게 시작하거나 사용자 지정 대시보드를 처음부터 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
++ [Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md) 또는 [REST를 사용하여 Azure Cognitive Search 지식 저장소 만들기](knowledge-store-create-rest.md)의 단계에 따라 이 연습에서 사용되는 지식 저장소 샘플을 만듭니다. 지식 저장소를 만들 때 사용한 Azure 스토리지 계정의 이름과 Azure Portal의 계정 액세스 키도 필요합니다.
 
 + [Power BI Desktop 설치](https://powerbi.microsoft.com/downloads/)
 
-+ Azure 테이블 스토리지에 대한 프로젝션을 포함하는 지식 저장소가 필요합니다. 또한 Azure Portal의 액세스 키와 함께 지식 저장소를 만들기 위해 사용되는 Azure Storage 계정의 이름도 필요합니다.
+## <a name="sample-power-bi-template---azure-portal-only"></a>Power BI 템플릿 샘플 - Azure Portal만
 
-샘플 지식 저장소를 사용하려면 지침에 따라 [지식 저장소를 만듭니다](knowledge-store-create-portal.md).
+[Azure Portal을 사용하여 지식 저장소를 만든](knowledge-store-create-portal.md) 경우 [Azure Cognitive Search Power BI 템플릿 샘플](https://github.com/Azure-Samples/cognitive-search-templates)을 사용하여 Power BI 시각화를 보고 실험할 수 있습니다. 이 템플릿은 **데이터 가져오기** 마법사를 단계별로 실행하는 경우에도 다운로드할 수 있습니다.
 
-## <a name="create-a-custom-report"></a>사용자 지정 보고서 만들기
+템플릿 샘플은 이 문서의 나머지 부분에서 설명하는 설정 단계를 자동으로 수행합니다. 그러나 REST API를 사용하여 지식 저장소를 만든 경우 템플릿을 건너뛰고 이 문서의 나머지 섹션을 사용하여 지식 저장소를 Power BI에 연결합니다. [Power BI로 연결](#connect-with-power-bi)을 시작합니다.
+
+템플릿 샘플에는 WordCloud 및 Network Navigator와 같은 몇 가지 시각화가 포함되어 있습니다. 위치 맵 및 엔터티-그래프 뷰어와 같은 템플릿의 일부 시각화에는 [Azure Portal에서 지식 저장소 만들기](knowledge-store-create-portal.md)에서 만든 지식 저장소 샘플에 대한 데이터가 표시되지 않습니다. 이는 **데이터 가져오기** 마법사에서 사용할 수 있는 AI 보강의 하위 세트만 사용되었기 때문입니다.
+
+![Azure Cognitive Search Power BI 템플릿 샘플](media/knowledge-store-connect-power-bi/powerbi-sample-template-portal-only.png "Power BI 템플릿 샘플")
+
+## <a name="connect-with-power-bi"></a>Power BI로 연결
 
 1. Power BI Desktop을 시작하고 **데이터 가져오기**를 클릭합니다.
 

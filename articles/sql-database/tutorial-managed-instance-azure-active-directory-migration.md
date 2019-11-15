@@ -1,20 +1,21 @@
 ---
-title: T-SQL DDL 구문을 사용하여 SQL Server 온-프레미스 Windows 사용자 및 그룹을 Azure SQL Database 관리형 인스턴스로 마이그레이션 | Microsoft Docs
+title: T-SQL을 사용하여 SQL Server Windows 사용자 및 그룹을 관리형 인스턴스로 마이그레이션
 description: SQL Server 온-프레미스 Windows 사용자 및 그룹을 관리형 인스턴스로 마이그레이션하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
+ms.custom: seo-lt-2019
 ms.topic: tutorial
 author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/22/2019
-ms.openlocfilehash: ca0997010fef40c0927960c04588c031dd85fff8
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 10/30/2019
+ms.openlocfilehash: 3ed4e4b1d37a9705378281ca74b53a6b60713d97
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72795064"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73807171"
 ---
 # <a name="tutorial-migrate-sql-server-on-premises-windows-users-and-groups-to-azure-sql-database-managed-instance-using-t-sql-ddl-syntax"></a>자습서: T-SQL DDL 구문을 사용하여 SQL Server 온-프레미스 Windows 사용자 및 그룹을 Azure SQL Database 관리형 인스턴스로 마이그레이션
 
@@ -41,6 +42,8 @@ ms.locfileid: "72795064"
 - Active Directory에 액세스하여 사용자/그룹을 만듭니다.
 - 온-프레미스 환경의 기존 SQL 서버
 - 기존 관리형 인스턴스. [빠른 시작: Azure SQL Database 관리형 인스턴스 만들기](sql-database-managed-instance-get-started.md)를 참조하세요.
+  - 관리형 인스턴스의 `sysadmin`을 사용하여 Azure AD 로그인을 만들어야 합니다.
+- [관리형 인스턴스에 대한 Azure AD 관리자를 만듭니다](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance).
 - 네트워크 내에서 관리형 인스턴스에 연결할 수 있습니다. 추가 정보는 다음 문서를 참조하세요. 
     - [애플리케이션을 Azure SQL Database 관리형 인스턴스에 연결](sql-database-managed-instance-connect-app.md)
     - [빠른 시작: 온-프레미스에서 Azure SQL Database Managed Instance로의 지점 및 사이트 간 연결 구성](sql-database-managed-instance-configure-p2s.md)
@@ -212,9 +215,12 @@ go
 
 ## <a name="part-4-migrate-users-to-managed-instance"></a>4부. 사용자를 관리형 인스턴스로 마이그레이션
 
+> [!NOTE]
+> 생성 후 관리형 인스턴스 기능에 대한 Azure AD 관리자가 변경되었습니다. 자세한 내용은 [MI의 새 Azure AD 관리자 기능](sql-database-aad-authentication-configure.md#new-azure-ad-admin-functionality-for-mi)을 참조하세요.
+
 ALTER USER 명령을 실행하여 관리형 인스턴스에서 마이그레이션 프로세스를 완료합니다.
 
-1. 관리형 인스턴스의 SQL 관리자 계정을 사용하여 관리형 인스턴스에 로그인합니다. 그런 다음, 다음 구문을 사용하여 Azure AD 로그인을 관리형 인스턴스에 만듭니다.
+1. 관리형 인스턴스의 Azure AD 관리자 계정을 사용하여 관리형 인스턴스에 로그인합니다. 그런 다음, 다음 구문을 사용하여 Azure AD 로그인을 관리형 인스턴스에 만듭니다. 자세한 내용은 [자습서: Azure SQL Database에서 Azure AD 서버 보안 주체(로그인)를 사용하는 관리형 인스턴스 보안](sql-database-managed-instance-aad-security-tutorial.md)을 참조하세요.
 
     ```sql
     use master 

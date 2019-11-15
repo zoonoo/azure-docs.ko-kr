@@ -1,6 +1,5 @@
 ---
-title: Azure Site Recovery 서비스를 사용하여 Azure IaaS VM을 다른 Azure 지역에 영역 고정 VM으로 이동 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 Azure IaaS VM을 다른 Azure 지역에 영역 고정 VM으로 이동합니다.
+title: Azure Site Recovery를 사용하여 가용성 영역이 있는 Azure 지역으로 VM 이동
 services: site-recovery
 author: rajani-janaki-ram
 ms.service: site-recovery
@@ -8,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a9e8ddcca727c4c457e4d92a880fb0cafe5ca6f8
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375735"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73693190"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>가용성 영역으로 Azure VM 이동
 Azure 프로젝트의 가용성 영역은 데이터 센터 오류로부터 애플리케이션과 데이터를 보호할 수 있도록 지원합니다. 각 가용성 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있도록 합니다. 가용성 영역을 사용하여 Azure는 이제 VM(가상 머신) 작동 시간에 대해 99.99% SLA(서비스 수준 약정)를 제공합니다. 가용성 영역은 [Azure에서 가용성 영역이란?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region)에 설명된 것처럼 선택 지역에서 지원됩니다.

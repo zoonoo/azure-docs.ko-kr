@@ -1,7 +1,7 @@
 ---
 title: '자습서: 텍스트를 번역, 합성 및 분석하는 Flask 앱 만들기 - Translator Text API'
 titleSuffix: Azure Cognitive Services
-description: 이 자습서에서는 Azure Cognitive Services를 사용하여 텍스트를 번역하고 감정을 분석하고 번역된 텍스트를 음성으로 합성하는 Flask 기반 웹앱을 만듭니다. 주된 초점은 애플리케이션을 사용할 수 있게 해주는 Python 코드 및 Flask 경로입니다. 앱을 제어하는 Javascript에 많은 시간을 소비하지 않으려고 하지만, 모든 파일을 제공하므로 원할 경우 검사할 수 있습니다.
+description: 이 자습서에서는 Flask 기반 웹앱을 빌드하여 텍스트를 번역하고, 감정을 분석하고 번역된 텍스트를 음성으로 합성합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 8d85db0e9aa9da48713ca0c119a12160cc99dbff
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 7b9f1cfeb6ebcbc693135d83ad167092e16f478d
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671834"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647323"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>자습서: Azure Cognitive Services를 사용하여 Flask 앱 만들기
 

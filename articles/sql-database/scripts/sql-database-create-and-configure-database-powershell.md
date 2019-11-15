@@ -1,5 +1,5 @@
 ---
-title: PowerShell 예제-Azure SQL Database에서 단일 데이터베이스 만들기 | Microsoft Docs
+title: PowerShell 예제-Azure SQL Database에서 단일 데이터베이스 만들기
 description: Azure SQL Database에서 단일 데이터베이스를 만드는 Azure PowerShell 예제 스크립트
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 7aa38f61d74a5418b4c33fef550f70ba4254e00d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1311c14e95e709ef522fe13ce30786ce0d8fb0a1
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570006"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691670"
 ---
 # <a name="use-powershell-to-create-a-single-azure-sql-database-and-configure-a-sql-database-server-firewall-rule"></a>PowerShell을 사용하여 단일 Azure SQL 데이터베이스 만들기 및 SQL Database 서버 방화벽 규칙 구성
 

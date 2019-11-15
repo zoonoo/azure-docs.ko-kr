@@ -1,5 +1,5 @@
 ---
-title: Computer Vision API란? - Computer Vision
+title: Computer Vision이란? - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다.
 services: cognitive-services
@@ -8,21 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 703e750c0d2515484cd9f1d2cb046096dfd1800d
+ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719550"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73794971"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
-Azure의 Computer Vision 서비스는 개발자에게 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다. 이미지를 분석하려면 이미지를 업로드하거나 이미지 URL을 지정할 수 있습니다. 이미지 처리 알고리즘은 관심 있는 시각적 기능에 따라 콘텐츠를 다양한 방식으로 분석할 수 있습니다. 예를 들어 Computer Vision은 이미지에 성인 콘텐츠가 포함되어 있는지 확인하거나 이미지에서 모든 사람 얼굴을 찾을 수 있습니다.
+개발자는 관심 있는 시각적 기능에 따라 Azure의 Computer Vision 서비스를 통해 이미지를 처리하고 정보를 반환하는 고급 알고리즘을 사용할 수 있습니다. 예를 들어 Computer Vision은 이미지에 성인 콘텐츠가 포함되어 있는지 확인하거나 이미지에서 모든 사람 얼굴을 찾을 수 있습니다.
 
-네이티브 SDK를 사용하거나 REST API를 직접 호출하여 애플리케이션에서 Computer Vision을 사용할 수 있습니다. 이 페이지는 Computer Vision에서 수행할 수 있는 작업을 광범위하게 다룹니다.
+네이티브 SDK를 통해 또는 REST API를 직접 호출하여 애플리케이션에서 Computer Vision을 사용할 수 있습니다. 이 페이지는 Computer Vision에서 수행할 수 있는 작업을 광범위하게 다룹니다.
+
+## <a name="computer-vision-for-digital-asset-management"></a>디지털 자산 관리를 위한 Computer Vision
+
+Computer Vision은 여러 DAM(디지털 자산 관리) 시나리오를 구현할 수 있습니다. DAM은 풍부한 미디어 자산을 구성, 저장, 검색하고 디지털 권한 및 사용 권한을 관리하는 비즈니스 프로세스입니다. 예를 들어 기업에서 시각적 로고, 면, 개체, 색 등을 기준으로 이미지를 그룹화하고 식별하기를 원할 수 있습니다. 또는 이미지를 검색할 수 있도록 [이미지에 대한 자막을 자동으로 생성](./Tutorials/storage-lab-tutorial.md)하고 키워드를 연결하기를 원할 수 있습니다. Cognitive Services, Azure Cognitive Search 및 인텔리전트 보고를 사용하는 올인원 DAM 솔루션은 GitHub의 [정보 마이닝 솔루션 가속기 가이드](https://github.com/Azure-Samples/azure-search-knowledge-mining)를 참조하세요. 다른 DAM 예제는 [Computer Vision 솔루션 템플릿](https://github.com/Azure-Samples/Cognitive-Services-Vision-Solution-Templates) 리포지토리를 참조하세요.
 
 ## <a name="analyze-images-for-insight"></a>인사이트를 위한 이미지 분석
 
@@ -47,8 +51,6 @@ Azure의 Computer Vision 서비스는 개발자에게 이미지를 처리하고 
 Computer Vision [Read API](concept-recognizing-text.md#read-api)를 사용하여 이미지에서 인쇄 및 필기 텍스트를 머신이 읽을 수 있는 문자 스트림으로 추출할 수 있습니다. Read API는 최신 모델을 사용하고, 여러 다른 표면 및 배경을 갖는 다양한 텍스트(예: 영수증, 포스터, 명함, 편지 및 화이트보드)에 사용할 수 있습니다. 현재 지원되는 언어는 영어뿐입니다.
 
 [OCR(광학 문자 인식)](concept-recognizing-text.md#ocr-optical-character-recognition-api) API를 사용하여 여러 언어로 인쇄된 텍스트를 추출할 수도 있습니다. 필요한 경우 OCR은 인식된 텍스트의 회전을 수정하고 각 단어에 대한 프레임 좌표를 제공합니다. OCR은 25개 언어를 지원하며, 인식된 텍스트의 언어를 자동으로 감지합니다.
-
-
 
 ## <a name="moderate-content-in-images"></a>이미지 콘텐츠 조정
 

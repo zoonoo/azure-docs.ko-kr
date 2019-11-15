@@ -1,26 +1,26 @@
 ---
 title: '빠른 시작: 프로젝트 만들기'
 titleSuffix: Azure Cognitive Services
-description: TBD
+description: 이 빠른 시작에서는 빠른 시작을 완료하거나 애플리케이션을 만드는 데 사용할 기본 프로그래밍 언어에 대한 빈 프로젝트를 만듭니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 10/28/2019
+ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-three
-ms.openlocfilehash: 25d6e8f7642db05663082414f013b2b11bff46da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 276dbcdfe3f40122b6a7a14e78aeee4d6ab2fbe9
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500793"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73721002"
 ---
-# <a name="quickstart-create-an-empty-project"></a>빠른 시작: 빈 프로젝트를 만듭니다.
+# <a name="quickstart-create-a-project"></a>빠른 시작: 프로젝트 만들기
 
-이 가이드에서는 다른 빠른 시작에서 사용할 빈 프로젝트를 만드는 방법을 보여 줍니다.
+이 빠른 시작에서는 빠른 시작을 완료하거나 애플리케이션을 만드는 데 사용할 기본 프로그래밍 언어에 대한 빈 프로젝트를 만듭니다.
 
 ::: zone pivot="programming-language-csharp"
 **대상 환경 선택**
@@ -54,6 +54,9 @@ ms.locfileid: "73500793"
 ::: zone-end
 
 ::: zone pivot="programming-language-python"
+
+Python 기반 빠른 시작의 경우 즐겨 사용하는 텍스트 편집기나 IDE를 사용하여 `helloworld.py`라는 파일을 만들어야 합니다.
+
 ::: zone-end
 
 ## <a name="next-steps"></a>다음 단계
@@ -63,4 +66,3 @@ ms.locfileid: "73500793"
 - [빠른 시작: 음성을 텍스트로 번역](translate-speech-to-text.md)
 - [빠른 시작: 텍스트로 음성 합성](text-to-speech.md)
 - [빠른 시작: 의도 인식](intent-recognition.md)
-

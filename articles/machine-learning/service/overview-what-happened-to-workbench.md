@@ -1,7 +1,7 @@
 ---
-title: Machine Learning Workbench는 어떻게 변경되었나요?
+title: Workbench의 변경된 내용
 titleSuffix: Azure Machine Learning
-description: Machine Learning Workbench 애플리케이션의 변경 내용, Azure Machine Learning의 변경 내용 및 지원 타임라인에 대해 알아봅니다.
+description: Workbench 애플리케이션 없이 가능한 작업 및 지원 타임라인에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: j-martens
 ms.author: jmartens
-ms.date: 05/14/2019
+ms.date: 11/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3c98da50d0c50a7fdb94f579444f3c09c1096d18
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 835024f7c8d77d67a2f6321df658c2f5c2007e62
+ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476410"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73647112"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Azure Machine Learning Workbench는 어떻게 되었나요?
 
@@ -64,12 +64,6 @@ Azure Machine Learning의 최신 릴리스에 포함된 기능은 다음과 같�
 
 새 CLI 및 SDK를 사용하여 모델 학습 및 실행 기록 추적을 시작하세요. 해당 방법은 [자습서: Azure Machine Learning을 사용하여 모델 학습시키기](tutorial-train-models-with-aml.md)에서 확인할 수 있습니다.
 
-## <a name="can-i-still-prep-data"></a>여전히 데이터를 준비할 수 있나요?
-
-더 이상 Machine Learning Workbench를 사용할 수 없으므로 기존의 데이터 준비 파일은 최신 릴리스로 이식할 수 없습니다. 하지만 여전히 모델링할 데이터 세트를 원하는 크기로 준비할 수 있습니다.
-
-모든 크기의 데이터 세트를 사용하면 [Azure Machine Learning용 데이터 준비 패키지](https://aka.ms/data-prep-sdk)를 사용하여 Python 코드를 작성함으로써 모델링하기 전에 데이터를 빠르게 준비할 수 있습니다.
-
 ## <a name="will-projects-persist"></a>프로젝트는 유지되나요?
 
 코드 또는 작업은 사라지지 않습니다. 이전 버전에서는 프로젝트가 로컬 디렉터리를 사용하는 클라우드 엔터티입니다. 최신 버전에서는 로컬 구성 파일을 사용하여 Azure Machine Learning 작업 영역에 로컬 디렉터리를 연결합니다. [최신 아키텍처의 다이어그램](concept-azure-machine-learning-architecture.md)을 참조하세요.
@@ -97,22 +91,6 @@ run = exp.submit(source_directory=script_folder,
 다음 문서에서 자세한 내용을 알아보세요.
 + [모델을 배포하는 위치 및 방법](how-to-deploy-and-where.md)
 + [자습서: Azure Machine Learning을 사용하여 모델 배포](tutorial-deploy-models-with-aml.md)
-
-## <a name="what-about-the-old-sdk-and-cli"></a>이전 SDK 및 CLI는 어떻게 되나요?
-
-앞의 [타임라인](#timeline)을 참조하세요. 최신 SDK 또는 CLI를 사용하여 새 실험 및 모델을 만드는 것이 좋습니다.
-
-최신 릴리스에서 새 Python SDK를 사용하면 모든 Python 환경에서 Azure Machine Learning과 상호 작용할 수 있습니다. 최신 <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>를 설치하는 방법을 알아보세요. 다양한 `az ml` 명령 세트로 업데이트된 [Azure Machine Learning CLI 확장](reference-azure-machine-learning-cli.md)을 사용하여 Azure Cloud Shell을 포함한 모든 명령줄 환경에서 서비스와 상호 작용할 수도 있습니다.
-
-## <a name="what-about-visual-studio-code-tools-for-ai"></a>Visual Studio Code Tools for AI란?
-
-이 최신 릴리스에서는 확장 이름이 Visual Studio Code용 Azure Machine Learning으로 변경되었으며 앞의 새 기능을 사용할 수 있도록 확장 및 개선되었습니다.
-
-[![Visual Studio Code용 Azure Machine Learning ](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
-
-## <a name="what-about-domain-packages"></a>도메인 패키지는 어떻게 되나요?
-
-Computer Vision, Text Analytics 및 예측용 도메인 패키지는 최신 버전의 Azure Machine Learning에서 사용할 수 없습니다. 그러나 여전히 최신 Azure Machine Learning Python <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">SDK</a>를 사용하여 컴퓨터 비전, 텍스트 및 예측 모델을 빌드하고 학습할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

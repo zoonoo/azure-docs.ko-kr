@@ -1,5 +1,5 @@
 ---
-title: SQL Database에 대한 Azure PowerShell 스크립트 예제 | Microsoft Docs
+title: Azure PowerShell 스크립트 예제
 description: Azure SQL Database 서버, 탄력적 풀, 데이터베이스 및 방화벽을 만들고 관리하는 데 유용한 Azure PowerShell 스크립트 예제입니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 998497d3e790ba501ac5cdeb4974bf7ee9ea6a54
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: dd16753a9b057e441884b0a6a019701766aaa321
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059270"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73821393"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Azure SQL Database에 대한 Azure PowerShell 샘플
 
@@ -41,6 +41,7 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 | [활성 지역 복제를 사용하여 풀링된 데이터베이스 구성 및 장애 조치(Failover)](scripts/sql-database-setup-geodr-and-failover-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 SQL 탄력적 풀의 단일 Azure SQL 데이터베이스에 대해 활성 지역 복제를 구성하고 보조 복제본으로 장애 조치(failover)합니다. |
 |**장애 조치(failover) 그룹 구성**||
 | [단일 데이터베이스에 대한 장애 조치(failover) 그룹 구성](scripts/sql-database-add-single-db-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 데이터베이스 및 장애 조치(failover) 그룹을 만들고, 장애 조치(failover) 그룹에 데이터베이스를 추가하고, 보조 서버로 장애 조치(failover)를 테스트합니다. | 
+| [탄력적 풀에 대한 장애 조치(failover) 그룹 구성](scripts/sql-database-add-elastic-pool-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 데이터베이스를 만들어 탄력적 풀에 추가하고, 탄력적 풀을 장애 조치(failover) 그룹에 추가하고, 보조 서버로 장애 조치(failover)를 테스트합니다. | 
 |**단일 데이터베이스 및 탄력적 풀 크기 조정**||
 | [단일 데이터베이스 크기 조정](scripts/sql-database-monitor-and-scale-database-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 Azure SQL Database의 성능 메트릭을 모니터링하고, 더 큰 컴퓨팅 크기로 조정하고, 성능 메트릭 중 하나에 대한 경고 규칙을 만듭니다. |
 | [탄력적 풀 크기 조정](scripts/sql-database-monitor-and-scale-pool-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 Azure SQL Database 탄력적 풀의 성능 메트릭을 모니터링하고, 더 큰 컴퓨팅 크기로 조정하고, 성능 메트릭 중 하나에 대한 경고 규칙을 만듭니다. |
@@ -70,6 +71,8 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 | [다른 지역에서 Managed Instance로 데이터베이스 복원](scripts/sql-managed-instance-restore-geo-backup.md) | 이 PowerShell 스크립트는 하나의 데이터베이스의 백업을 수행하고 다른 지역으로 복원합니다. 이를 지역 복원 재해 복구 시나리오라고 합니다. |
 | **TDE(투명한 데이터 암호화) 구성**||
 | [Azure Key Vault에서 사용자 고유 키를 사용하여 Managed Instance에서 투명한 데이터 암호화 관리](scripts/transparent-data-encryption-byok-sql-managed-instance-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| 이 PowerShell 스크립트는 Azure Key Vault의 키를 사용하여 Azure SQL Managed Instance에 대한 Bring Your Own Key 시나리오에서 TDE(투명한 데이터 암호화)를 구성합니다.|
+|**장애 조치(failover) 그룹 구성**||
+| [관리형 인스턴스에 대한 장애 조치(failover) 그룹 구성](scripts/sql-database-add-managed-instance-to-failover-group-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | 이 PowerShell 스크립트는 두 개의 관리형 인스턴스를 만들고 이를 장애 조치(failover) 그룹에 추가한 다음, 기본 관리형 인스턴스에서 보조 관리형 인스턴스로 장애 조치(failover)를 테스트합니다. | 
 |||
 
 [Managed Instance Azure PowerShell API](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances)에 대해 자세히 알아봅니다.

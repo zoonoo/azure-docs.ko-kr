@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 5/31/2019
+ms.date: 11/05/2019
 ms.author: victorh
-ms.openlocfilehash: b30b96e6ae931e0df41b60e16f04127e82a068ad
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a51276cd54a88c5e566afef0d06673f14b5862cf
+ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469751"
+ms.locfileid: "73572028"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -47,11 +47,11 @@ Standard_v2 WAF_v2 SKU의 애플리케이션 게이트웨이 VIP는 정적 VIP �
 
 ## <a name="web-application-firewall"></a>웹 애플리케이션 방화벽
 
-WAF(웹 애플리케이션 방화벽)는 일반적인 악용 및 취약점으로부터 웹 애플리케이션에 대해 중앙 집중화된 보호를 제공하는 Application Gateway의 기능입니다. WAF는 [OWASP(Open Web Application Security Project) 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1(WAF_v2만 해당), 3.0 또는 2.2.9의 규칙에 기반합니다. 
+WAF(웹 애플리케이션 방화벽)는 일반적인 악용과 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호하는 서비스입니다. WAF는 [OWASP(Open Web Application Security Project) 핵심 규칙 집합](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.1(WAF_v2만 해당), 3.0 또는 2.2.9의 규칙에 기반합니다. 
 
 웹 애플리케이션의 널리 알려진 취약점을 악용하는 악의적인 공격이 점점 많아지고 있습니다. 이러한 공격으로는 SQL 삽입 공격, 사이트 간 스크립팅 공격 등이 있습니다. 애플리케이션 코드로 이러한 공격을 방어하기란 매우 어려울 수 있으며 애플리케이션 토폴로지의 다양한 계층에서 엄격한 유지 관리, 패치 적용 및 모니터링이 필요할 수 있습니다. 중앙 집중식 웹 애플리케이션 방화벽을 통해 보안 관리가 훨씬 간단해지고 애플리케이션 관리자에게 위협 또는 침입으로부터 효과적인 보호를 제공합니다. 또한 WAF 솔루션은 각각의 웹 애플리케이션을 보호하는 대신 중앙의 위치에서 알려진 취약점에 패치를 적용하여 보다 신속하게 보안 위협에 대응할 수 있습니다. 기존 Application Gateway는 웹 애플리케이션 방화벽을 사용한 Application Gateway로 쉽게 변환될 수 있습니다.
 
-자세한 내용은 [Application Gateway의 WAF(웹 애플리케이션 방화벽)](https://docs.microsoft.com/azure/application-gateway/waf-overview)를 참조하세요.
+자세한 내용은 [Azure Web Application Firewall이란?](../web-application-firewall/overview.md)를 참조하세요.
 
 ## <a name="ingress-controller-for-aks"></a>AKS용 Ingress Controller
 AGIC(Application Gateway Ingress Controller)에서는 Application Gateway를 [AKS(Azure Kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/) 클러스터용 Ingress Controller로 사용할 수 있습니다. 

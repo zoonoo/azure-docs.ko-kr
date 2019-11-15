@@ -1,22 +1,22 @@
 ---
-title: 이벤트 데이터를 SQL Data Warehouse로 마이그레이션 - Azure Event Hubs | Microsoft Docs
-description: 이 자습서에서는 이벤트 그리드에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 보여 줍니다.
+title: '자습서: 이벤트 데이터를 SQL Data Warehouse로 마이그레이션 - Azure Event Hubs'
+description: '자습서: 이 자습서에서는 이벤트 그리드에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 보여 줍니다.'
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: ''
 ms.author: shvija
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 11/05/2019
 ms.topic: tutorial
 ms.service: event-hubs
-ms.openlocfilehash: 90a17839afdddb4d6ad8abfa57963b4c76b100ed
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 92c414afbb8121eb03353c79dfe3a51e0cfa7ec0
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65604298"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718877"
 ---
-# <a name="migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 SQL Data Warehouse로 마이그레이션
+# <a name="tutorial-migrate-captured-event-hubs-data-to-a-sql-data-warehouse-using-event-grid-and-azure-functions"></a>자습서: Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 SQL Data Warehouse로 마이그레이션
 
 Event Hubs [캡처](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview)는 Event Hubs에 스트림된 데이터를 Azure Blob Storage 또는 Azure Data Lake 스토리지에 자동으로 전달하는 가장 쉬운 방법입니다. 이후에 데이터를 SQL Data Warehouse 또는 Cosmos DB와 같이 원하는 다른 스토리지 대상으로 처리하고 전달할 수 있습니다. 이 자습서에서는 [이벤트 그리드](https://docs.microsoft.com/azure/event-grid/overview)에서 트리거된 Azure 함수를 사용하여 데이터를 이벤트 허브에서 SQL 데이터 웨어하우스로 캡처하는 방법을 알아봅니다.
 
@@ -112,7 +112,7 @@ WITH (CLUSTERED COLUMNSTORE INDEX, DISTRIBUTION = ROUND_ROBIN);
 
    ![함수 앱 게시](./media/store-captured-data-data-warehouse/publish-function-app.png)
 
-1. **Azure Function App**과 **기존 항목 선택**을 차례로 선택합니다. **게시**를 선택합니다.
+1. **Azure 함수 앱**과 **기존 항목 선택**을 차례로 선택합니다. **게시**를 선택합니다.
 
    ![대상 함수 앱](./media/store-captured-data-data-warehouse/pick-target.png)
 

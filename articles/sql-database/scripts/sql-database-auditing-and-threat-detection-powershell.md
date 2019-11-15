@@ -1,5 +1,5 @@
 ---
-title: 감사 및 Advanced Threat Protection의 PowerShell 예제 - Azure SQL Database | Microsoft Docs
+title: 감사 및 Advanced Threat Protection의 PowerShell 예제 - Azure SQL Database
 description: Azure SQL Database에서 감사 및 Advanced Threat Protection을 구성하는 Azure PowerShell 예제 스크립트
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: f9ef894f4c4d1d0ad0ab43b538c984f9cf5b2d01
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 1dee8031b00e7d291844790fb86efd4d00075d87
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816696"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73691735"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>PowerShell을 사용하여 SQL Database 감사 및 Advanced Threat Protection 구성
 

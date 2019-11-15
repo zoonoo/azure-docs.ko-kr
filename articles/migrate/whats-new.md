@@ -4,15 +4,15 @@ description: Azure Migrate 서비스의 개요를 제공합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 10/22/2019
+ms.date: 11/06/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1ecd15b36b677e65eadbe4e979925723c9eedd51
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: af9305aafc3a77df9d7c4cffa65f6c61c53ad8a4
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498433"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73715385"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Azure Migrate의 새로운 기능
 
@@ -22,7 +22,12 @@ ms.locfileid: "73498433"
 
 ## <a name="update-november-2019"></a>업데이트(2019년 11월)
 
+
+
 Azure Migrate에 여러 가지 새로운 기능이 추가되었습니다.
+
+> [!NOTE]
+> Azure Migrate 포털에 이러한 기능중 일부가 아직 표시되지 않으면 중단합니다. 이는 다음 주 정도에 표시됩니다.
 
 - **물리적 서버 평가**. 이미 지원되는 물리적 서버 마이그레이션 외에도 온-프레미스 물리적 서버의 평가가 지원됩니다.
 - **가져오기 기반 평가**. 이제 CSV 파일로 제공되는 메타데이터 및 성능 데이터를 사용한 컴퓨터 평가가 지원됩니다.
@@ -30,6 +35,13 @@ Azure Migrate에 여러 가지 새로운 기능이 추가되었습니다.
 - **에이전트 없는 종속성 시각화**: 종속성 시각화를 위해 더 이상 에이전트를 명시적으로 설치할 필요가 없습니다. 이제 에이전트 없이 또는 에이전트 기반이 모두 지원됩니다.
 - **가상 데스크톱**: ISV 도구를 사용하여 온-프레미스 VDI(가상 데스크톱 인프라)를 평가하고 Azure의 Windows Virtual Desktop으로 마이그레이션합니다.
 - **웹앱**: 이제 웹앱을 평가하고 마이그레이션하는 데 사용되는 Azure App Service Migration Assistant가 Azure Migrate에 통합되었습니다.
+
+Azure Migrate에 새로운 평가 및 마이그레이션 도구가 추가되었습니다.
+
+- **Rackware**: 제품 클라우드 마이그레이션.
+- **Movere**: 제품 평가.
+
+Azure Migrate에서 평가 및 마이그레이션을 위해 도구 및 ISV 제품을 사용하는 방법에 대해 [자세히 알아봅니다](migrate-services-overview.md).
 
 ## <a name="release-version-july-2019"></a>릴리스 버전(2019년 7월)
 

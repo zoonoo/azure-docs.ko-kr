@@ -1,6 +1,6 @@
 ---
 title: 자습서 - Ansible을 사용하여 Azure 경로 테이블 구성
-description: Ansible을 사용하여 Azure 경로 테이블을 생성, 변경 및 삭제하는 방법 알아보기
+description: Ansible을 사용하여 Azure 경로 테이블을 생성, 관리 및 삭제하는 방법을 알아봅니다. 또한 경로를 만들고 삭제하는 방법에 대해 알아봅니다.
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, 네트워킹, 경로, 경로 테이블
 ms.topic: tutorial
 ms.service: ansible
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 14753af58a179ddf4011cb29c7ed08faab62875c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 0ffc00606eac4cf57cdf19072986373f5602aafa
+ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241772"
+ms.lasthandoff: 11/05/2019
+ms.locfileid: "73614351"
 ---
 # <a name="tutorial-configure-azure-route-tables-using-ansible"></a>자습서: Ansible을 사용하여 Azure 경로 테이블 구성
 
