@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/21/2019
 ms.author: glenga
-ms.openlocfilehash: 77805b15d0061d0ab4b6ef2185c2f7f1c3459f0c
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 5aac99dbeb6ebd7c0b131df5027daa352c30f3bd
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172072"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082795"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>을 사용 하 여 Azure Functions 개발 Visual Studio Code
 
@@ -27,13 +27,13 @@ Azure Functions 확장 프로그램은 다음과 같은 이점을 제공 합니�
 확장은 다음 언어와 함께 사용할 수 있습니다 .이 언어는 Azure Functions 버전 2.x 런타임에서 지원 됩니다.
 
 * [C#컴파일하기](functions-dotnet-class-library.md)
-* [C#스크립트도](functions-reference-csharp.md)<sup>*</sup>
+* <sup></sup> [ C# 스크립트](functions-reference-csharp.md)*
 * [JavaScript](functions-reference-node.md)
 * [Java](functions-reference-java.md)
 * [PowerShell](functions-reference-powershell.md)
 * [Python](functions-reference-python.md)
 
-<sup>*</sup>을 사용 하려면 [스크립트 C# 를 기본 프로젝트 언어로 설정](#c-script-projects)해야 합니다.
+<sup>*</sup> 을 사용 하려면 [스크립트 C# 를 기본 프로젝트 언어로 설정](#c-script-projects)해야 합니다.
 
 이 문서에서 예제는 현재 JavaScript (node.js) 및 C# 클래스 라이브러리 함수에 대해서만 사용할 수 있습니다.  
 
@@ -42,13 +42,13 @@ Azure Functions 확장 프로그램은 다음과 같은 이점을 제공 합니�
 > [!IMPORTANT]
 > 단일 함수 앱에 대 한 로컬 개발 및 포털 개발을 혼합 하지 마세요. 로컬 프로젝트에서 함수 앱에 게시할 때 배포 프로세스는 포털에서 개발한 모든 기능을 덮어씁니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 Visual Studio Code 용 [visual studio code용 azure functions 확장][visual studio code용 azure functions 확장]을 설치 하 고 실행 하기 전에 다음 요구 사항을 충족 해야 합니다.
 
 * [Visual Studio Code](https://code.visualstudio.com/) [지원 되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms)중 하나에 설치 되어 있어야 합니다.
 
-* 활성화된 Azure 구독.
+* 활성 Azure 구독.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -83,9 +83,9 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
 
 프로젝트 템플릿은 선택한 언어로 프로젝트를 만들고 필요한 종속성을 설치 합니다. 모든 언어에 대해 새 프로젝트에는 다음 파일이 있습니다.
 
-* **host.json**: Functions 호스트를 구성할 수 있습니다. 이러한 설정은 로컬에서 함수를 실행 하는 경우와 Azure에서 함수를 실행 하는 경우에 적용 됩니다. 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
+* **host.json**: 함수 호스트를 구성할 수 있습니다. 이러한 설정은 로컬에서 함수를 실행 하는 경우와 Azure에서 함수를 실행 하는 경우에 적용 됩니다. 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
 
-* **local.settings.json**: 함수를 로컬로 실행할 때 사용 하는 설정을 유지 합니다. 이러한 설정은 함수를 로컬로 실행 하는 경우에만 사용 됩니다. 자세한 내용은 [로컬 설정 파일](#local-settings-file)을 참조 하세요.
+* **local. settings**: 함수를 로컬로 실행 하는 경우 사용 되는 설정을 유지 합니다. 이러한 설정은 함수를 로컬로 실행 하는 경우에만 사용 됩니다. 자세한 내용은 [로컬 설정 파일](#local-settings-file)을 참조 하세요.
 
     >[!IMPORTANT]
     >로컬. 설정 json 파일은 암호를 포함할 수 있기 때문에 프로젝트 소스 제어에서 제외 해야 합니다.
@@ -114,7 +114,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 ## <a name="add-a-function-to-your-project"></a>프로젝트에 함수 추가
 
-미리 정의 된 함수 트리거 템플릿 중 하나를 사용 하 여 기존 프로젝트에 새 함수를 추가할 수 있습니다. 새 함수 트리거를 추가 하려면 F1 키를 선택 하 여 명령 팔레트를 연 다음 명령을 **검색 하 고 실행 Azure Functions 합니다. Create Function**. 프롬프트에 따라 트리거 유형을 선택 하 고 트리거의 필수 특성을 정의 합니다. 서비스에 연결 하기 위해 트리거에 액세스 키 또는 연결 문자열이 필요한 경우 함수 트리거를 만들기 전에 준비 합니다.
+미리 정의 된 함수 트리거 템플릿 중 하나를 사용 하 여 기존 프로젝트에 새 함수를 추가할 수 있습니다. 새 함수 트리거를 추가 하려면 F1 키를 선택 하 여 명령 팔레트를 연 다음 명령을 검색 하 고 실행 **Azure Functions: Create function**합니다. 프롬프트에 따라 트리거 유형을 선택 하 고 트리거의 필수 특성을 정의 합니다. 서비스에 연결 하기 위해 트리거에 액세스 키 또는 연결 문자열이 필요한 경우 함수 트리거를 만들기 전에 준비 합니다.
 
 이 작업의 결과는 프로젝트의 언어에 따라 달라 집니다.
 
@@ -132,7 +132,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 입력 및 출력 바인딩을 추가 하 여 함수를 확장할 수 있습니다. 바인딩을 추가 하는 프로세스는 프로젝트의 언어에 따라 달라 집니다. 바인딩에 대해 자세히 알아보려면 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조 하세요.
 
-다음 예에서는 저장소 계정에 대 한 연결 `outqueue`문자열이 `MyStorageConnection` 응용 프로그램 설정의 로컬. 설정에서 설정 된 이라는 저장소 큐에 연결 합니다.
+다음 예에서는 `outqueue`이라는 저장소 큐에 연결 합니다. 여기서 저장소 계정에 대 한 연결 문자열은 로컬. 설정의 `MyStorageConnection` 응용 프로그램 설정에 설정 됩니다.
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
@@ -142,13 +142,13 @@ Visual Studio Code를 사용 하면 편리한 프롬프트 집합에 따라 함�
 
 다음은 새 저장소 출력 바인딩을 정의 하는 예제 프롬프트입니다.
 
-| 프롬프트 | 값 | 설명 |
+| prompt | 값 | 설명 |
 | -------- | ----- | ----------- |
 | **바인딩 방향 선택** | `out` | 바인딩은 출력 바인딩입니다. |
 | **방향이 있는 바인딩 선택** | `Azure Queue Storage` | 바인딩은 Azure Storage 큐 바인딩입니다. |
 | **코드에서 이 바인딩을 식별하는 데 사용하는 이름** | `msg` | 코드에서 참조되는 바인딩 매개 변수를 식별하는 이름입니다. |
 | **메시지가 전송될 큐** | `outqueue` | 바인딩이 데이터를 쓰는 큐의 이름입니다. 바인딩을 처음 사용할 때 *queueName*이 없으면 바인딩이 알아서 만듭니다. |
-| **"local.setting.json"에서 설정 선택** | `MyStorageConnection` | 저장소 계정에 대 한 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. 이 `AzureWebJobsStorage` 설정에는 함수 앱을 사용 하 여 만든 저장소 계정에 대 한 연결 문자열이 포함 됩니다. |
+| **"local.setting.json"에서 설정 선택** | `MyStorageConnection` | 저장소 계정에 대 한 연결 문자열을 포함 하는 응용 프로그램 설정의 이름입니다. `AzureWebJobsStorage` 설정에는 함수 앱을 사용 하 여 만든 저장소 계정에 대 한 연결 문자열이 포함 됩니다. |
 
 이 예제에서는 다음 바인딩이 함수 json 파일의 `bindings` 배열에 추가 됩니다.
 
@@ -164,7 +164,7 @@ Visual Studio Code를 사용 하면 편리한 프롬프트 집합에 따라 함�
 
 동일한 바인딩 정의를 함수 json에 직접 추가할 수도 있습니다.
 
-함수 코드 `msg` 에서 바인딩은 다음 예제와 같이에서 액세스 `context`됩니다.
+함수 코드에서 다음 예제와 같이 `context`에서 `msg` 바인딩에 액세스 합니다.
 
 ```javascript
 context.bindings.msg = "Name passed to the function: " req.query.name;
@@ -218,17 +218,17 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 
 1. 로그인 하지 않은 경우 **Azure에 로그인**하 라는 메시지가 표시 됩니다. 또한 **무료 Azure 계정을 만들** 수 있습니다. 브라우저에서 로그인 한 후 Visual Studio Code로 돌아갑니다.
 
-1. 구독이 여러 개인 경우 함수 앱에 대 한 **구독을 선택한** 다음, Azure에서 새 **함수 앱 만들기 ...를 선택 합니다. _고급_** . 이 _고급_ 옵션을 사용 하면 Azure에서 만든 리소스를 보다 강력 하 게 제어할 수 있습니다. 
+1. 구독이 여러 개인 경우 함수 앱에 대 한 **구독을 선택한** 다음, **Azure에서 새 함수 앱 만들기 ...를 선택 합니다. _고급_** . 이 _고급_ 옵션을 사용 하면 Azure에서 만든 리소스를 보다 강력 하 게 제어할 수 있습니다. 
 
 1. 메시지가 표시 되 면 다음 정보를 제공 합니다.
 
-    | 프롬프트 | 값 | 설명 |
+    | prompt | 값 | 설명 |
     | ------ | ----- | ----------- |
     | Azure에서 함수 앱 선택 | Azure에서 새 함수 앱 만들기 | 다음 프롬프트에서 새 함수 앱을 식별 하는 전역적으로 고유한 이름을 입력 한 다음 Enter 키를 선택 합니다. 함수 앱 이름에 대한 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. |
     | OS 선택 | Windows | 함수 앱은 Windows에서 실행 됩니다. |
     | 호스팅 계획 선택 | 소비 계획 | 서버를 사용 하지 않는 [소비 계획 호스팅을](functions-scale.md#consumption-plan) 사용 합니다. |
     | 새 앱에 대 한 런타임 선택 | 프로젝트 언어 | 런타임은 게시 중인 프로젝트와 일치 해야 합니다. |
-    | 새 리소스에 대 한 리소스 그룹을 선택 합니다. | 새 리소스 그룹 만들기 | 다음 프롬프트에서 리소스 그룹 이름 `myResourceGroup`(예:)을 입력 하 고 enter 키를 선택 합니다. 기존 리소스 그룹을 선택할 수도 있습니다. |
+    | 새 리소스에 대 한 리소스 그룹을 선택 합니다. | 새 리소스 그룹 만들기 | 다음 프롬프트에서 `myResourceGroup`와 같은 리소스 그룹 이름을 입력 하 고 enter 키를 선택 합니다. 기존 리소스 그룹을 선택할 수도 있습니다. |
     | 저장소 계정 선택 | 새 스토리지 계정 만들기 | 다음 프롬프트에서 함수 앱에서 사용 하는 새 저장소 계정에 대 한 전역적으로 고유한 이름을 입력 한 다음 Enter 키를 선택 합니다. Storage 계정 이름은 3 자에서 24 자 사이 여야 하며 숫자와 소문자만 포함할 수 있습니다. 기존 계정을 선택할 수도 있습니다. |
     | 새 리소스의 위치를 선택 하십시오. | 영역(region) | 가까운 [지역](https://azure.microsoft.com/regions/) 또는 함수에서 액세스 하는 다른 서비스 근처의 위치를 선택 합니다. |
 
@@ -241,7 +241,7 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 > [!IMPORTANT]
 > 기존 함수 앱에 게시하면 Azure에서 해당 앱의 콘텐츠를 덮어씁니다.
 
-1. Visual Studio Code에서 F1 키를 선택 하 여 명령 팔레트를 엽니다. 명령 팔레트에서 Azure Functions을 검색 하 고 선택 **합니다. 함수 앱**에 배포 합니다.
+1. Visual Studio Code에서 F1 키를 선택 하 여 명령 팔레트를 엽니다. 명령 팔레트에서 **Azure Functions: 함수 앱에 배포를**검색 하 고 선택 합니다.
 
 1. 로그인 하지 않은 경우 **Azure에 로그인**하 라는 메시지가 표시 됩니다. 브라우저에서 로그인 한 후 Visual Studio Code으로 돌아갑니다. 구독이 여러 개인 경우 함수 앱을 포함 하는 **구독을 선택** 합니다.
 
@@ -253,7 +253,7 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 
 HTTP로 트리거되는 함수를 호출 하려면 함수 앱에 배포 될 때 함수의 URL이 필요 합니다. 이 URL은 필요한 모든 [기능 키](functions-bindings-http-webhook.md#authorization-keys)를 포함 합니다. 확장을 사용 하 여 배포 된 함수에 대 한 이러한 Url을 가져올 수 있습니다.
 
-1. F1 키를 선택 하 여 명령 팔레트를 열고 Azure Functions 명령을 **검색 하 여 실행 합니다. 함수 URL**을 복사 합니다.
+1. F1 키를 선택 하 여 명령 팔레트를 연 다음 명령을 검색 하 고 실행 합니다. **함수 URL 복사를 Azure Functions**합니다.
 
 1. 프롬프트에 따라 Azure에서 함수 앱을 선택 하 고 호출 하려는 특정 HTTP 트리거를 선택 합니다.
 
@@ -276,7 +276,7 @@ Azure Functions 확장을 사용 하면 로컬 개발 컴퓨터에서 함수 프
     | **C#** | [C# 확장](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)<br/>[.NET Core CLI 도구](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x)   |
     | **Java** | [Java 용 디버거 확장](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug)<br/>[Java 8](https://aka.ms/azure-jdks)<br/>[Maven 3 이상](https://maven.apache.org/) |
     | **JavaScript** | [Node.js](https://nodejs.org/)<sup>*</sup> |  
-    | **Python** | [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6 이상](https://www.python.org/downloads/)|
+    | **Python** | [Python 확장](https://marketplace.visualstudio.com/items?itemName=ms-python.python)<br/>[Python 3.6.8](https://www.python.org/downloads/) 권장|
 
     <sup>*</sup>활성 LTS 및 유지 관리 LTS 버전(8.11.1 및 10.14.1 권장).
 
@@ -288,7 +288,7 @@ Azure Functions 확장을 사용 하면 로컬 개발 컴퓨터에서 함수 프
 
 스토리지 계정 연결 문자열을 설정하려면 다음을 수행합니다.
 
-1. Visual Studio에서 **클라우드 탐색기**열고 저장소 계정**저장소**계정 **을 확장** > 한 다음 **속성** 을 선택 하 고 **기본 연결 문자열** 값을 복사 합니다.
+1. Visual Studio에서 **클라우드 탐색기** **열고 저장소 계정 > 저장소** **계정**을 확장 한 다음 **속성** 을 선택 하 고 **기본 연결 문자열** 값을 복사 합니다.
 
 2. 사용자 프로젝트에서 local.settings.json 파일을 열고 **AzureWebJobsStorage** 키의 값을 복사한 연결 문자열로 설정합니다.
 
@@ -298,7 +298,7 @@ Azure Functions 확장을 사용 하면 로컬 개발 컴퓨터에서 함수 프
 
 ### <a name="debugging-functions-locally"></a>로컬에서 함수 디버깅  
 
-함수를 디버깅 하려면 F5 키를 선택 합니다. [핵심 도구][azure functions 핵심 도구]를 아직 다운로드 하지 않은 경우에는이 작업을 수행 하 라는 메시지가 표시 됩니다. 핵심 도구를 설치 하 고 실행 하는 경우 출력은 터미널에 표시 됩니다. 이는 터미널에서 `func host start` 핵심 도구 명령을 실행 하는 것과 같지만 추가 빌드 작업 및 연결 된 디버거를 사용 합니다.  
+함수를 디버깅 하려면 F5 키를 선택 합니다. [핵심 도구][azure functions 핵심 도구]를 아직 다운로드 하지 않은 경우에는이 작업을 수행 하 라는 메시지가 표시 됩니다. 핵심 도구를 설치 하 고 실행 하는 경우 출력은 터미널에 표시 됩니다. 이는 터미널에서 `func host start` Core 도구 명령을 실행 하는 것과 같지만 추가 빌드 작업 및 연결 된 디버거를 사용 합니다.  
 
 프로젝트가 실행 되는 동안 프로젝트를 Azure에 배포할 때와 마찬가지로 함수를 트리거할 수 있습니다. 프로젝트가 디버그 모드에서 실행 되는 경우 예상 대로 Visual Studio Code에서 중단점이 적중 됩니다.
 
@@ -329,20 +329,20 @@ Azure에서 함수 앱에 필요한 설정을 게시 하는 가장 쉬운 방법
 
 ![응용 프로그램 설정 업로드](./media/functions-develop-vs-code/upload-app-settings.png)
 
-또한 Azure Functions를 **사용 하 여 설정을 게시할 수 있습니다. 명령 팔레트에서** 로컬 설정 업로드 명령 Azure Functions를 **사용 하 여 Azure의 응용 프로그램 설정에 개별 설정을 추가할 수 있습니다. 새 설정** 명령을 추가 합니다.
+명령 팔레트에서 **Azure Functions: 로컬 설정 업로드** 명령을 사용 하 여 설정을 게시할 수도 있습니다. **Azure Functions: 새 설정 추가** 명령을 사용 하 여 Azure의 응용 프로그램 설정에 개별 설정을 추가할 수 있습니다.
 
 > [!TIP]
 > 게시 하기 전에 로컬 설정 json 파일을 저장 해야 합니다.
 
 로컬 파일이 암호화 된 경우 암호 해독, 게시 및 암호화 됩니다. 두 위치에 충돌 하는 값이 있는 설정이 있는 경우 계속 하는 방법을 선택 하 라는 메시지가 표시 됩니다.
 
-**Azure에서 기존 앱 설정 보기: 함수** 영역에는 구독, 함수 앱 및 **응용 프로그램 설정이**확장 됩니다.
+**Azure: 함수** 영역에서 구독, 함수 앱 및 **응용 프로그램 설정을**확장 하 여 기존 앱 설정을 봅니다.
 
 ![Visual Studio Code에서 함수 앱 설정 보기](./media/functions-develop-vs-code/view-app-settings.png)
 
 ### <a name="download-settings-from-azure"></a>Azure에서 설정 다운로드
 
-Azure에서 응용 프로그램 설정을 만든 경우 **Azure Functions를 사용 하 여 로컬 설정 json 파일에 다운로드할 수 있습니다. 원격 설정** 다운로드 명령입니다.
+Azure에서 응용 프로그램 설정을 만든 경우 **Azure Functions: 원격 설정 다운로드** 명령을 사용 하 여 로컬 설정 json 파일에 다운로드할 수 있습니다.
 
 업로드와 마찬가지로 로컬 파일이 암호화 되 면 암호 해독, 업데이트 및 암호화 됩니다. 두 위치에 충돌 하는 값이 있는 설정이 있는 경우 계속 하는 방법을 선택 하 라는 메시지가 표시 됩니다.
 
@@ -375,13 +375,13 @@ Azure에서 응용 프로그램 설정을 만든 경우 **Azure Functions를 사
 
 기본적으로 모든 C# 프로젝트는 [ C# 컴파일된 클래스 라이브러리 프로젝트로](functions-dotnet-class-library.md)생성 됩니다. C# 스크립트 프로젝트를 대신 사용 하려는 경우 Azure Functions 확장 설정에서 스크립트를 C# 기본 언어로 선택 해야 합니다.
 
-1. **파일** > 기본설정 > **설정을**선택 합니다.
+1. **파일** > **기본** 설정 > **설정**을 선택 합니다.
 
-1. **사용자 설정** > 확장AzureFunctions > 로 이동 합니다.
+1. **사용자 설정** > **확장** > **Azure Functions**으로 이동 합니다.
 
-1. Azure Function에서 **C # 스크립트** 를 **선택 합니다. 프로젝트 언어**.
+1. **Azure 함수: 프로젝트 언어**에서 **C # 스크립트** 를 선택 합니다.
 
-이러한 단계를 완료 한 후 기본 핵심 도구에 대 한 호출은 스크립트 ( `--csx` csx) 프로젝트 파일을 C# 생성 하 고 게시 하는 옵션을 포함 합니다. 이 기본 언어를 지정 하면 사용자가 만드는 모든 프로젝트는 기본적으로 스크립트 C# 프로젝트로 지정 됩니다. 기본값이 설정 된 경우 프로젝트 언어를 선택 하 라는 메시지가 표시 되지 않습니다. 다른 언어로 프로젝트를 만들려면이 설정을 변경 하거나 사용자 설정. json 파일에서 제거 해야 합니다. 이 설정을 제거 하면 프로젝트를 만들 때 언어를 선택 하 라는 메시지가 다시 표시 됩니다.
+이러한 단계를 완료 한 후 기본 핵심 도구에 대 한 호출은 스크립트 (csx) 프로젝트 파일을 생성 C# 하 고 게시 하는 `--csx` 옵션을 포함 합니다. 이 기본 언어를 지정 하면 사용자가 만드는 모든 프로젝트는 기본적으로 스크립트 C# 프로젝트로 지정 됩니다. 기본값이 설정 된 경우 프로젝트 언어를 선택 하 라는 메시지가 표시 되지 않습니다. 다른 언어로 프로젝트를 만들려면이 설정을 변경 하거나 사용자 설정. json 파일에서 제거 해야 합니다. 이 설정을 제거 하면 프로젝트를 만들 때 언어를 선택 하 라는 메시지가 다시 표시 됩니다.
 
 ## <a name="command-palette-reference"></a>명령 팔레트 참조
 
@@ -394,7 +394,7 @@ Azure Functions 확장은 Azure에서 함수 앱과 상호 작용 하기 위한 
 | **GitHub 리포지토리에 연결** | 함수 앱을 GitHub 리포지토리에 연결 합니다. |
 | **함수 URL 복사** | Azure에서 실행 되는 HTTP 트리거 함수의 원격 URL을 가져옵니다. 자세히 알아보려면 [배포 된 함수의 URL 가져오기](#get-the-url-of-the-deployed-function)를 참조 하세요. |
 | **Azure에서 함수 앱 만들기** | Azure의 구독에서 새 함수 앱을 만듭니다. 자세히 알아보려면 [Azure에서 새 함수 앱에 게시](#publish-to-azure)하는 방법에 대 한 섹션을 참조 하세요.        |
-| **암호 해독 설정** | Azure Functions로 **암호화 된 [로컬 설정을](#local-settings-file) 해독 합니다. 설정을**암호화 합니다.  |
+| **암호 해독 설정** | **Azure Functions: 암호화 설정**에 의해 암호화 된 [로컬 설정을](#local-settings-file) 해독 합니다.  |
 | **함수 앱 삭제** | Azure의 구독에서 함수 앱을 제거 합니다. App Service 계획에 다른 앱이 없는 경우 해당 앱을 삭제 하는 옵션도 제공 됩니다. 저장소 계정 및 리소스 그룹과 같은 다른 리소스는 삭제 되지 않습니다. 모든 리소스를 제거 하려면 대신 [리소스 그룹을 삭제](functions-add-output-binding-storage-queue-vs-code.md#clean-up-resources)해야 합니다. 로컬 프로젝트가 영향을 받지 않습니다. |
 |**Delete 함수**  | Azure의 함수 앱에서 기존 함수를 제거 합니다. 이 삭제는 로컬 프로젝트에 영향을 주지 않으므로 대신 함수를 로컬로 제거한 다음 프로젝트를 다시 [게시](#republish-project-files)하는 것이 좋습니다. |
 | **프록시 삭제** | Azure의 함수 앱에서 Azure Functions 프록시를 제거 합니다. 프록시에 대 한 자세한 내용은 [Azure Functions 프록시 사용](functions-proxies.md)을 참조 하세요. |
@@ -402,13 +402,13 @@ Azure Functions 확장은 Azure에서 함수 앱과 상호 작용 하기 위한 
 | **리포지토리의 연결 끊기**  | Azure의 함수 앱과 소스 제어 리포지토리 간의 [연속 배포](functions-continuous-deployment.md) 연결을 제거 합니다. |
 | **원격 설정 다운로드** | Azure에서 선택한 함수 앱의 설정을 로컬. 설정 json 파일로 다운로드 합니다. 로컬 파일이 암호화 되 면 암호 해독, 업데이트 및 암호화 됩니다. 두 위치에 충돌 하는 값이 있는 설정이 있는 경우 계속 하는 방법을 선택 하 라는 메시지가 표시 됩니다. 이 명령을 실행 하기 전에 로컬 설정 json 파일에 대 한 변경 내용을 저장 해야 합니다. |
 | **설정 편집** | Azure의 기존 함수 앱 설정 값을 변경 합니다. 이 명령은 로컬 설정 json 파일의 설정에 영향을 주지 않습니다.  |
-| **설정 암호화** | `Values` [로컬 설정](#local-settings-file)에서 배열의 개별 항목을 암호화 합니다. 이 파일 `IsEncrypted` 에서는를 사용 하기 전에 `true`로컬 런타임에서 설정의 암호를 해독 하도록 지정 하는도로 설정 됩니다. 로컬 설정을 암호화 하 여 중요 한 정보 누출의 위험을 줄입니다. Azure에서 응용 프로그램 설정은 항상 암호화 된 상태로 저장 됩니다. |
+| **설정 암호화** | [로컬 설정](#local-settings-file)에서 `Values` 배열의 개별 항목을 암호화 합니다. 이 파일에서 `IsEncrypted`는 로컬 런타임에서 설정의 암호를 사용 하기 전에 암호를 해독 하도록 지정 하는 `true`으로도 설정 됩니다. 로컬 설정을 암호화 하 여 중요 한 정보 누출의 위험을 줄입니다. Azure에서 응용 프로그램 설정은 항상 암호화 된 상태로 저장 됩니다. |
 | **지금 함수 실행** | Azure에서 [타이머 트리거 함수](functions-bindings-timer.md) 를 수동으로 시작 합니다. 이 명령은 테스트에 사용 됩니다. Azure에서 HTTP가 아닌 함수를 트리거하는 방법에 대해 자세히 알아보려면 [http로 트리거되는 함수 수동 실행](functions-manually-run-non-http.md)을 참조 하세요. |
 | **VS Code에서 사용할 프로젝트를 초기화 합니다.** | 필요한 Visual Studio Code 프로젝트 파일을 기존 함수 프로젝트에 추가 합니다. 이 명령을 사용 하 여 핵심 도구를 사용 하 여 만든 프로젝트를 사용할 수 있습니다. |
 | **Azure Functions Core Tools 설치 또는 업데이트** | 함수를 로컬로 실행 하는 데 사용 되는 [Azure Functions 핵심 도구]를 설치 하거나 업데이트 합니다. |
 | **배포한**  | 연결 된 Git 리포지토리의 프로젝트 파일을 Azure의 특정 배포에 다시 배포할 수 있습니다. Visual Studio Code에서 로컬 업데이트를 다시 게시 하려면 프로젝트를 다시 [게시](#republish-project-files)합니다. |
 | **설정 이름 바꾸기** | Azure에서 기존 함수 앱 설정의 키 이름을 변경 합니다. 이 명령은 로컬 설정 json 파일의 설정에 영향을 주지 않습니다. Azure에서 설정의 이름을 바꾼 후 [해당 변경 내용을 로컬 프로젝트에 다운로드](#download-settings-from-azure)해야 합니다. |
-| **시작할지** | Azure에서 함수 앱을 다시 시작 합니다. 업데이트를 배포 하면 함수 앱도 다시 시작 됩니다. |
+| **다시 시작** | Azure에서 함수 앱을 다시 시작 합니다. 업데이트를 배포 하면 함수 앱도 다시 시작 됩니다. |
 | **AzureWebJobsStorage 설정**| `AzureWebJobsStorage` 응용 프로그램 설정의 값을 설정 합니다. 이 설정은 Azure Functions에 필요 합니다. Azure에서 함수 앱을 만들 때 설정 됩니다. |
 | **시작** | Azure에서 중지 된 함수 앱을 시작 합니다. |
 | **스트리밍 로그 시작** | Azure에서 함수 앱에 대 한 스트리밍 로그를 시작 합니다. 로깅 정보를 거의 실시간으로 확인 해야 하는 경우 Azure에서 원격 문제 해결 중에 스트리밍 로그를 사용 합니다. 자세히 알아보려면 [스트리밍 로그](#streaming-logs)를 참조 하세요. |

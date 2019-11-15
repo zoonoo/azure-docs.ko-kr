@@ -9,29 +9,28 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 01/25/2019
-ms.openlocfilehash: f7e5f698a822cd68d8319102e1b8bddbbfa8ad70
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: c710e2b7c4376fc1725032c86cd02d9a6c8cafac
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821331"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090343"
 ---
 # <a name="monitor-and-improve-performance"></a>성능 모니터링 및 향상
 
 Azure SQL Database는 데이터베이스의 잠재적 문제를 파악하고 지능형 튜닝 작업 및 권장 사항을 제공하여 워크로드 성능을 높일 수 있는 작업을 권장합니다.
 
-데이터베이스 성능을 검토하려면 개요 페이지의 **성능** 타일을 사용하거나 "지원 + 문제 해결" 섹션에서 아래로 이동합니다.
+## <a name="performance-tuning-options"></a>성능 조정 옵션
 
-   ![성능 보기](./media/sql-database-performance/entries.png)
+Azure SQL Database 사용할 수 있는 성능 튜닝 옵션은 데이터베이스 탐색 메뉴의 "지능형 성능"에서 사용할 수 있습니다.
 
-"지원 + 문제 해결" 섹션에서 사용할 수 있는 페이지는 다음과 같습니다.
-
-
-1. [성능 개요](#performance-overview) - 데이터베이스 성능을 모니터링합니다. 
-2. [성능 권장 사항](#performance-recommendations) - 워크로드 성능을 향상시킬 수 있는 성능 권장 사항을 찾습니다.
-3. [Query Performance Insight](#query-performance-insight) - 쿼리를 소비하는 상위 리소스를 찾습니다.
-4. [자동 튜닝](#automatic-tuning) - Azure SQL Database에서 데이터베이스를 자동으로 최적화하도록 허용합니다.
+| 성능 조정 옵션 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 인스턴스 데이터베이스 지원 |
+| :----------------------------- | ----- | ----- |
+| **[성능 개요](#performance-overview)** -데이터베이스의 모든 성능 작업을 모니터링 합니다. | 예 | 아니오 | 
+| **[성능 권장 사항](#performance-recommendations)** -워크 로드의 성능을 향상 시킬 수 있는 성능 권장 사항을 표시 합니다. | 예 | 아니오 | 
+| **[Query Performance Insight](#query-performance-insight)** -데이터베이스에서 가장 많이 사용 되는 쿼리의 성능을 보여 줍니다. | 예 | 아니오 | 
+| **[자동 튜닝](#automatic-tuning)** -Azure SQL Database를 사용 하 여 데이터베이스 성능을 자동으로 최적화 합니다. | 예 | 아니오 | 
 
 ## <a name="performance-overview"></a>성능 개요
 
@@ -58,11 +57,7 @@ Azure SQL Database는 데이터베이스의 잠재적 문제를 파악하고 지
 
 [성능 권장 사항 찾기 및 적용](sql-database-advisor-portal.md) 문서에서 성능 권장 사항을 찾아 적용하는 방법을 알아보세요.
 
-## <a name="automatic-tuning"></a>자동 조정
-
-Azure SQL 데이터베이스는 자동으로 [성능 권장 사항](sql-database-advisor.md)을 적용하여 데이터베이스 성능을 튜닝할 수 있습니다. 자세한 내용은 [자동 튜닝 문서](sql-database-automatic-tuning.md)를 읽어보세요. 이 기능을 사용하려면 [자동 튜닝 사용 방법](sql-database-automatic-tuning-enable.md)을 읽어보세요.
-
-## <a name="query-performance-insight"></a>쿼리
+## <a name="query-performance-insight"></a>Query Performance Insight
 
 [Query Performance Insight](sql-database-query-performance.md) 를 통해 다음을 제공하여 데이터베이스 성능 문제 해결 시간을 줄일 수 있습니다.
 
@@ -74,8 +69,11 @@ Azure SQL 데이터베이스는 자동으로 [성능 권장 사항](sql-database
 
 **[Query Performance Insight 사용 방법](sql-database-query-performance.md)** 문서에서 이 페이지에 대한 자세한 내용을 알아보세요.
 
+## <a name="automatic-tuning"></a>자동 조정
+
+Azure SQL 데이터베이스는 자동으로 [성능 권장 사항](sql-database-advisor.md)을 적용하여 데이터베이스 성능을 튜닝할 수 있습니다. 자세한 내용은 [자동 튜닝 문서](sql-database-automatic-tuning.md)를 읽어보세요. 이 기능을 사용하려면 [자동 튜닝 사용 방법](sql-database-automatic-tuning-enable.md)을 읽어보세요.
+
 ## <a name="additional-resources"></a>추가 리소스
 
 * [단일 데이터베이스의 Azure SQL Database 성능 지침](sql-database-performance-guidance.md)
 * [탄력적 풀을 사용해야 하는 경우](sql-database-elastic-pool-guidance.md)
-

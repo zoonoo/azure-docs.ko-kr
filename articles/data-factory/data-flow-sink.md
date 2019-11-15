@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 7cfe0cf291e8c39a4600234632090c39ab5cd78e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa6a2fd853673493c93dbe65f889468c8e0c8617
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519325"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082943"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>데이터 흐름에 대 한 싱크 변환
 
@@ -28,7 +28,7 @@ ms.locfileid: "73519325"
 ## <a name="output"></a>출력 
 Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된 데이터를 폴더에 출력 합니다. Spark는 싱크 변환에서 사용 하는 파티션 구성표를 기반으로 분할 된 출력 데이터 파일을 생성 합니다. 
 
-**최적화** 탭에서 파티션 구성표를 설정할 수 있습니다. Data Factory 하 여 출력을 단일 파일로 병합 하려면 **단일 파티션**을 선택 합니다.
+**최적화** 탭에서 파티션 구성표를 설정할 수 있습니다. Data Factory 하 여 출력을 단일 파일로 병합 하려면 **단일 파티션**을 선택 합니다. 분할 된 폴더를 유지 관리 하거나 만들려면 **키 분할** 을 사용 하 고 분할 된 폴더 구조에 사용할 키를 설정 합니다.
 
 ![최적화 탭의 옵션](media/data-flow/opt001.png "싱크 옵션")
 

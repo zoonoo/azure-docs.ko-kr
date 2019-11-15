@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: e600fdb882294d14bb9f9216ac8d621ba5254170
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 635476ed5ca6440995fff743b7eb8f70a66768b4
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074723"
+ms.locfileid: "74091513"
 ---
 # <a name="troubleshoot-sql-server-database-backup-by-using-azure-backup"></a>Azure Backup를 사용 하 여 SQL Server 데이터베이스 백업 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "74074723"
 
 ## <a name="error-messages"></a>오류 메시지
 
-### <a name="backup-type-unsupported"></a>백업 유형이 지원되지 않습니다
+### <a name="backup-type-unsupported"></a>지원 되지 않는 백업 유형
 
 | 심각도 | 설명 | 가능한 원인 | 권장 작업 |
 |---|---|---|---|

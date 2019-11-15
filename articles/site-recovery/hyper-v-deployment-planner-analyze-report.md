@@ -1,5 +1,5 @@
 ---
-title: Hyper-V VM과 Azure 간 재해 복구를 위한 Azure Site Recovery Deployment Planner 보고서 분석 | Microsoft Docs
+title: Azure Site Recovery에서 Hyper-v Deployment Planner 보고서 분석
 description: 이 문서에서는 Hyper-V VM과 Azure 간 재해 복구를 위해 Azure Site Recovery Deployment Planner에서 생성된 보고서를 분석하는 방법을 설명합니다.
 services: site-recovery
 author: mayurigupta13
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/21/2019
 ms.author: mayg
-ms.openlocfilehash: aafeeb59446ac914bba25874f74871fc5f189498
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 0d39f763d3cdc90f89e0bcd17d0facc67551ffc0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693580"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084957"
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Azure Site Recovery Deployment Planner 보고서 분석
 이 문서는 Hyper-V에서 Azure로의 복제 시나리오에 대해 Azure Site Recovery Deployment Planner에서 생성한 Excel 보고서에 포함된 시트에 대해 설명합니다.
@@ -41,7 +41,7 @@ ms.locfileid: "72693580"
 
 **관찰된 일반적 일일 데이터 변동량(GB)** : 모든 프로파일링 일 수 동안 관찰된 평균 데이터 변동량입니다.
 
-## <a name="recommendations"></a>권장 사항 
+## <a name="recommendations"></a>추천 
 Hyper-V에서 Azure로 보고서의 권장 사항 시트에는 선택된 원하는 RPO에 따라 다음과 같은 세부 정보가 포함됩니다.
 
 ![Hyper-V에서 Azure로 보고서에 대한 권장 사항](media/hyper-v-deployment-planner-analyze-report/Recommendations-h2a.png)
@@ -179,7 +179,7 @@ Site Recovery Deployment Planner에서 생성된 Excel 보고서의 "호환되�
 
 **VM 이름**: 보고서가 생성될 때 VMListFile에 사용되는 VM 이름입니다. 또한 이 열에는 VM에 연결된 디스크(VHD)가 나열됩니다. 이 이름에는 프로파일링 기간 동안 VM이 도구를 검색했을 때 VM이 있었던 Hyper-V 호스트 이름이 포함됩니다.
 
-**VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [프리미엄 SSD](../virtual-machines/windows/disks-types.md)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동 또는 IOPS 디스크는 디스크에 매핑된 크기 보다 높은 프리미엄 디스크 크기에 적합합니다. 스토리지 계정은 크기에 따라 디스크를 매핑할 프리미엄 스토리지 디스크 유형을 결정합니다. 
+**VM 호환성**: 값은 **예** 및 **예**\*입니다. **예**\*는 VM이 [프리미엄 SSD](../virtual-machines/windows/disks-types.md)에 적합한 인스턴스에 대한 값입니다. 여기서 프로파일링된 높은 변동 또는 IOPS 디스크는 디스크에 매핑된 크기 보다 높은 프리미엄 디스크 크기에 적합합니다. 스토리지 계정은 크기에 따라 디스크를 매핑할 Premium Storage 디스크 유형을 결정합니다. 
 * 128GB 미만은 P10입니다.
 * 128~256GB는 P15입니다.
 * 256GB ~ 512GB는 P20입니다.
@@ -238,7 +238,7 @@ Site Recovery Deployment Planner에서 생성된 Excel 보고서의 "호환되�
 
 * VM은 고가용성이 아닙니다. Site Recovery는 클러스터 디스크가 아닌 로컬 디스크에 VHD가 저장된 Hyper-V 클러스터 노드의 VM을 지원하지 않습니다. 
 
-* 총 VM 크기(복제 + 테스트 장애 조치)가 지원되는 프리미엄 스토리지 계정의 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 스토리지에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 Premium Storage 영역에 푸시합니다. 그러나 프리미엄 스토리지 계정의 최대 지원 크기는 35TB입니다. 보호된 단일 VM은 여러 스토리지 계정에서 보호할 수 없습니다. 
+* 총 VM 크기(복제 + 테스트 장애 조치)가 지원되는 Premium Storage 계정의 크기 한도(35TB)를 초과합니다. 이러한 비호환성은 일반적으로 VM의 단일 디스크가 표준 스토리지에 대해 지원되는 최대 Azure 또는 Site Recovery 한도를 초과하는 성능 특성을 가지고 있는 경우에 발생합니다. 이러한 인스턴스는 VM을 Premium Storage 영역에 푸시합니다. 그러나 Premium Storage 계정의 최대 지원 크기는 35TB입니다. 보호된 단일 VM은 여러 스토리지 계정에서 보호할 수 없습니다. 
 
     보호된 VM에서 테스트 장애 조치가 실행되고 관리되지 않는 디스크가 테스트 장애 조치용으로 구성된 경우, 복제가 진행되는 동일한 스토리지 계정에서 실행됩니다. 이 경우 복제와 동일한 양의 스토리지 공간이 추가로 필요합니다. 그러면 병렬로 복제가 진행되고 테스트 장애 조치(failover)가 성공할 수 있습니다. 관리 디스크가 테스트 장애 조치용으로 구성된 경우, 테스트 장애 조치 VM에 대해 추가 공간을 고려할 필요가 없습니다.
 
@@ -274,8 +274,8 @@ Site Recovery Deployment Planner에서 생성된 Excel 보고서의 "호환되�
 **복제 스토리지 대상** | **원본 VM 평균 I/O 크기** |**원본 VM 평균 데이터 변동** | **일일 총 원본 VM 데이터 변동**
 ---|---|---|---
 Standard Storage | 8KB | VM당 2MB/s | VM당 168GB
-프리미엄 스토리지 | 8KB  | VM당 5MB/s | VM당 421GB
-프리미엄 스토리지 | 16KB 이상| VM 당 20mb/s | VM 당 1684 GB
+Premium Storage | 8KB  | VM당 5MB/s | VM당 421GB
+Premium Storage | 16KB 이상| VM 당 20mb/s | VM 당 1684 GB
 
 이러한 한도는 I/O가 30% 겹친다고 가정하는 평균 숫자입니다. Site Recovery는 중첩 비율, 더 큰 쓰기 크기 및 실제 워크로드 I/O 동작에 따라 더 높은 처리량을 다룰 수 있습니다. 앞의 숫자는 약 5분의 일반적인 백로그가 있다고 가정합니다. 즉, 데이터를 업로드한 후에 처리되며, 5분 내에 복구 지점이 만들어집니다.
 

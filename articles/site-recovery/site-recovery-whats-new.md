@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery의 새로운 기능
-description: 에 도입 된 새로운 기능에 대 한 요약을 제공 Azure Site Recovery
+description: Azure Site Recovery 서비스의 새 기능 및 최신 업데이트에 대 한 요약 정보를 제공 합니다.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 19bf79cdb6bcdc0c20d47c698647383b758338db
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: af1b531ac1b38921a99284aad2108e4027d97f4c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961328"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091712"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 

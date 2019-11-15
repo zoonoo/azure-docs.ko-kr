@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: dacurwin
-ms.openlocfilehash: 28d4ad1a94cea6f21d1fe75483357d8788524b88
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 397de7d1de9acc657fa0fd0cb93bd6e26e5606e2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747216"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090884"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Azure Stack에 SQL Server 백업
 
@@ -37,7 +37,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 
     ![보호 그룹 만들기](./media/backup-azure-backup-sql/protection-group.png)
 
-    Azure Backup Server가 **보호 그룹**을 만드는 방법을 안내하는 보호 그룹 마법사를 시작합니다. **다음**을 누릅니다.
+    Azure Backup Server가 **보호 그룹**을 만드는 방법을 안내하는 보호 그룹 마법사를 시작합니다. **다음**을 클릭합니다.
 
 3. **보호 그룹 형식 선택** 화면에서 **서버**를 선택합니다.
 
@@ -64,9 +64,9 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
    >
    >
 
-7. **디스크 할당 검토** 화면에서 사용 가능한 전체 스토리지 공간 및 잠재적인 디스크 공간을 확인합니다. **다음**을 누릅니다.
+7. **디스크 할당 검토** 화면에서 사용 가능한 전체 스토리지 공간 및 잠재적인 디스크 공간을 확인합니다. **다음**을 클릭합니다.
 
-8. **복제본 만들기 방법 선택**에서, 첫 번째 복구 지점을 만들 방법을 선택합니다. 대역폭 정체를 방지하기 위해 초기 백업을 수동으로(오프 네트워크) 전송해도 되고 아니면 네트워크를 통해 전송해도 됩니다. 첫 번째 백업이 전송되기를 기다리기로 선택하는 경우 초기 전송의 시간을 지정할 수 있습니다. **다음**을 누릅니다.
+8. **복제본 만들기 방법 선택**에서, 첫 번째 복구 지점을 만들 방법을 선택합니다. 대역폭 정체를 방지하기 위해 초기 백업을 수동으로(오프 네트워크) 전송해도 되고 아니면 네트워크를 통해 전송해도 됩니다. 첫 번째 백업이 전송되기를 기다리기로 선택하는 경우 초기 전송의 시간을 지정할 수 있습니다. **다음**을 클릭합니다.
 
     ![초기 복제 방법](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -140,13 +140,13 @@ Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하�
 2. 데이터베이스 이름을 마우스 오른쪽 단추로 클릭하고 **복구**를 클릭합니다.
 
     ![Azure에서 복구](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. MABS에서는 복구 지점에 대한 세부 정보를 보여줍니다. **다음**을 누릅니다. 데이터베이스를 덮어쓰려면 복구 형식 **SQL Server의 원본 인스턴스에 복구**를 선택합니다. **다음**을 누릅니다.
+3. MABS에서는 복구 지점에 대한 세부 정보를 보여줍니다. **다음**을 클릭합니다. 데이터베이스를 덮어쓰려면 복구 형식 **SQL Server의 원본 인스턴스에 복구**를 선택합니다. **다음**을 클릭합니다.
 
     ![원래 위치로 복구](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     이 예제에서 MABS는 다른 SQL Server 인스턴스 또는 독립 실행형 네트워크 폴더로 데이터베이스를 복구합니다.
 
-4. **복구 옵션 지정** 화면에서 네트워크 대역폭 사용량 제한을 같은 복구 옵션을 선택하여 복구에서 사용되는 대역폭을 제한할 수 있습니다. **다음**을 누릅니다.
+4. **복구 옵션 지정** 화면에서 네트워크 대역폭 사용량 제한을 같은 복구 옵션을 선택하여 복구에서 사용되는 대역폭을 제한할 수 있습니다. **다음**을 클릭합니다.
 
 5. **요약** 화면에서는 지금까지 제공하는 모든 복구 구성을 표시합니다. **복구**를 클릭합니다.
 

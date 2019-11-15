@@ -1,5 +1,5 @@
 ---
-title: '클래식에서 리소스 관리자로 회로 이동: PowerShell: Azure | Microsoft Docs'
+title: 'Azure Express 경로: 클래식 회로를 리소스 관리자 이동'
 description: 이 페이지는 PowerShell을 사용하여 클래식 회로를 Resource Manager 배포 모델로 이동하는 방법을 설명합니다.
 services: expressroute
 author: ganesr
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 34dd7ed4c6352ed90793288f918d78b7fb07af80
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 4e49a3bc803733f5e78207fa3573c93395924d6a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748234"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080164"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>PowerShell을 사용하여 클래식에서 Resource Manager 배포 모델로 ExpressRoute 회로 이동
 

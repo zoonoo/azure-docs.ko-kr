@@ -1,18 +1,18 @@
 ---
-title: Azure Site Recovery를 사용 하 여 다 수의 VMware Vm 또는 물리적 서버에 대해 Azure로 재해 복구 설정 Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 VMware/물리적 재해 복구 크기 조정
 description: Azure Site Recovery를 사용 하 여 많은 수의 온-프레미스 VMware Vm 또는 물리적 서버에 대해 Azure에 대 한 재해 복구를 설정 하는 방법을 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 7ef4a9d5f63282736b010e67b467f82474bcf409
-ms.sourcegitcommit: f7998db5e6ba35cbf2a133174027dc8ccf8ce957
+ms.openlocfilehash: e08c7d5f794611a92688e931f35da7482c04407f
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68782667"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082216"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>VMware v m/물리적 서버에 대해 대규모 재해 복구 설정
 
@@ -30,11 +30,11 @@ BCDR (비즈니스 연속성 및 재해 복구) 전략의 일부로 비즈니스
 
 대규모 재해 복구에 대 한 몇 가지 일반적인 모범 사례입니다. 이러한 모범 사례는 문서의 다음 섹션에 자세히 설명 되어 있습니다.
 
-- **대상 요구 사항 식별**: 재해 복구를 설정 하기 전에 Azure에서 용량 및 리소스 요구 사항을 예측 하세요.
-- **Site Recovery 구성 요소에 대 한 계획**: 예상 용량을 충족 하는 데 필요한 구성 요소 (구성 서버, 프로세스 서버) Site Recovery를 파악 합니다.
-- **하나 이상의 스케일 아웃 프로세스 서버를 설정**합니다. 구성 서버에서 기본적으로 실행 되는 프로세스 서버는 사용 하지 마세요. 
-- **최신 업데이트를 실행 합니다**. Site Recovery 팀은 새로운 버전의 Site Recovery 구성 요소를 정기적으로 릴리스 하며, 최신 버전을 실행 하 고 있는지 확인 해야 합니다. 이 작업을 돕기 위해 업데이트의 [새로운 기능](site-recovery-whats-new.md) 을 추적 하 고 릴리스 시 [업데이트를 사용 하도록 설정 하 고 설치](service-updates-how-to.md) 합니다.
-- **사전 모니터링**: 재해 복구를 실행 하는 동안 복제 된 컴퓨터 및 인프라 리소스의 상태와 상태를 사전에 모니터링 해야 합니다.
+- **대상 요구 사항 식별**: 재해 복구를 설정 하기 전에 Azure에서 용량과 리소스 요구를 예측 합니다.
+- **Site Recovery 구성 요소 계획**: 예상 용량을 충족 하는 데 필요한 Site Recovery 구성 요소 (구성 서버, 프로세스 서버)를 파악 합니다.
+- **하나 이상의 스케일 아웃 프로세스 서버 설정**: 구성 서버에서 기본적으로 실행 되는 프로세스 서버를 사용 하지 않습니다. 
+- **최신 업데이트 실행**: Site Recovery 팀은 정기적으로 새 버전의 Site Recovery 구성 요소를 릴리스 하 고 최신 버전을 실행 하 고 있는지 확인 해야 합니다. 이 작업을 돕기 위해 업데이트의 [새로운 기능](site-recovery-whats-new.md) 을 추적 하 고 릴리스 시 [업데이트를 사용 하도록 설정 하 고 설치](service-updates-how-to.md) 합니다.
+- **사전 모니터링**: 재해 복구를 시작할 때 복제 된 컴퓨터 및 인프라 리소스의 상태를 사전에 모니터링 해야 합니다.
 - **재해 복구 훈련**: 정기적으로 재해 복구 훈련을 실행 해야 합니다. 이러한 작업은 프로덕션 환경에는 영향을 주지 않지만 필요한 경우 Azure로의 장애 조치 (failover)가 예상 대로 작동 하는지 확인 하는 데 도움이 됩니다.
 
 
@@ -70,12 +70,12 @@ Deployment Planner는 VMware 온-프레미스 환경에 대 한 정보를 수집
 
 수집 된 예측이 나 권장 사항을 사용 하 여 대상 리소스 및 용량을 계획할 수 있습니다. VMware Vm에 대 한 Deployment Planner를 실행 한 경우 도움이 되는 다양 한 [보고서 권장 사항을](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) 사용할 수 있습니다.
 
-- **호환 vm**: 이 숫자를 사용 하 여 Azure에 대 한 재해 복구에 사용할 수 있는 Vm 수를 식별 합니다. 네트워크 대역폭과 Azure 코어에 대 한 권장 사항은이 숫자를 기반으로 합니다.
-- **필요한 네트워크 대역폭**: 호환 되는 Vm의 델타 복제에 필요한 대역폭을 확인 합니다. 
+- **호환 되는 vm**:이 숫자를 사용 하 여 Azure에 대 한 재해 복구에 사용할 수 있는 vm 수를 식별 합니다. 네트워크 대역폭과 Azure 코어에 대 한 권장 사항은이 숫자를 기반으로 합니다.
+- **필요한 네트워크 대역폭**: 호환 되는 vm의 델타 복제에 필요한 대역폭을 확인 합니다. 
     - Planner를 실행 하는 경우 원하는 RPO를 분 단위로 지정 합니다. 권장 사항에는 RPO 100% 및 90%의 시간을 충족 하는 데 필요한 대역폭이 표시 됩니다. 
     - 네트워크 대역폭 권장 사항은 Planner에 권장 되는 구성 서버 및 프로세스 서버의 총 수에 필요한 대역폭을 고려 합니다.
-- **필요한 Azure 코어**: 호환 되는 Vm 수에 따라 대상 Azure 지역에서 필요한 코어 수를 확인 합니다. 코어가 충분 하지 않은 경우 장애 조치 (failover) Site Recovery에서 필요한 Azure Vm을 만들 수 없습니다.
-- **권장 VM 일괄 처리 크기**: 권장 되는 일괄 처리 크기는 기본적으로 72 시간 이내에 일괄 처리에 대 한 초기 복제를 완료 하는 동시에 100%의 RPO를 충족 하는 기능을 기준으로 합니다. 시간 값을 수정할 수 있습니다.
+- **필수 azure 코어**: 호환 되는 vm 수에 따라 대상 azure 지역에서 필요한 코어 수를 확인 합니다. 코어가 충분 하지 않은 경우 장애 조치 (failover) Site Recovery에서 필요한 Azure Vm을 만들 수 없습니다.
+- **권장 VM 일괄 처리 크기**: 권장 되는 일괄 처리 크기는 100%의 RPO를 충족 하는 동안 기본적으로 72 시간 이내에 일괄 처리에 대 한 초기 복제를 완료 하는 기능을 기준으로 합니다. 시간 값을 수정할 수 있습니다.
 
 이러한 권장 사항을 사용 하 여 Azure 리소스, 네트워크 대역폭 및 VM 일괄 처리를 계획할 수 있습니다.
 
@@ -83,7 +83,7 @@ Deployment Planner는 VMware 온-프레미스 환경에 대 한 정보를 수집
 
 대상 구독에서 사용 가능한 할당량이 장애 조치 (failover)를 처리 하기에 충분 한지 확인 하려고 합니다.
 
-**태스크** | **세부 정보** | **동작**
+**작업** | **세부 정보** | **동작**
 --- | --- | ---
 **코어 확인** | 사용 가능한 할당량의 코어가 장애 조치 (failover) 시 전체 대상 수를 초과 하지 않는 경우 장애 조치 (failover)가 실패 합니다. | VMware Vm의 경우 대상 구독에 Deployment Planner 핵심 권장 사항을 충족 하는 코어가 충분 한지 확인 합니다.<br/><br/> 물리적 서버의 경우 Azure 코어가 수동 추정치를 충족 하는지 확인 합니다.<br/><br/> 할당량을 확인 하려면 Azure Portal > **구독**에서 **사용량 + 할당량**을 클릭 합니다.<br/><br/> 할당량 향상에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) .
 **장애 조치 (failover) 제한 확인** | 장애 조치 (failover) 되어서는 안됩니다 수가 Site Recovery 장애 조치 (failover) 제한을 초과 합니다. |  장애 조치 (failover)가 제한을 초과 하는 경우 구독을 추가 하 고 여러 구독으로 장애 조치 (failover) 하거나 구독에 대 한 할당량을 늘릴 수 있습니다. 
@@ -95,13 +95,13 @@ Deployment Planner는 VMware 온-프레미스 환경에 대 한 정보를 수집
 
 의미는 무엇 인가요? Azure VM을 시작 하려면 일부 드라이버가 부팅 시작 상태 여야 하 고 DHCP와 같은 서비스가 자동으로 시작 되도록 설정 되어야 합니다.
 - 를 준수 하는 컴퓨터에는 이러한 설정이 이미 적용 되어 있습니다.
-- Windows를 실행 하는 컴퓨터의 경우 규정 준수를 사전에 확인 하 고 필요한 경우 정책을 준수 하도록 할 수 있습니다. [자세히 알아보기](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
+- Windows를 실행 하는 컴퓨터의 경우 규정 준수를 사전에 확인 하 고 필요한 경우 정책을 준수 하도록 할 수 있습니다. [자세히 알아봅니다](site-recovery-failover-to-azure-troubleshoot.md#failover-failed-with-error-id-170010).
 - Linux 컴퓨터는 장애 조치 (failover) 시에만 준수 상태로 전환 됩니다.
 
 **컴퓨터가 Azure를 준수 하나요?** | **Azure VM 제한 (관리 디스크 장애 조치 (failover))**
 --- | --- 
 예 | 2000
-아니요 | 1000
+아니오 | 1000
 
 - 제한에는 구독에 대 한 대상 지역에서 최소한의 다른 작업이 진행 중 이라고 가정 합니다.
 - 일부 Azure 지역은 더 작으며 약간 낮은 제한이 있을 수 있습니다.
@@ -155,7 +155,7 @@ vCPU 8대<br> 2 개 소켓 * 4 코어 @ 2.5 g h z | 16GB | 600GB | 최대 550 �
 
 **CPU** | **메모리** | **캐시 디스크** | **변동 율**
  --- | --- | --- | --- 
-vCPU 12대<br> 2 개 소켓 * 6 코어 @ 2.5 g h z | 24GB | 1GB | 하루 최대 2tb
+vCPU 12대<br> 2 개 소켓 * 6 코어 @ 2.5 g h z | 24GB | 1 GB | 하루 최대 2tb
 
 다음과 같이 프로세스 서버를 설정 합니다.
 

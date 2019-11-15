@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: a86af57f49b91615cc453946b0b5d51d22f2d163
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 9e5103fad517e695198602a182574de964a9c504
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747448"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091133"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
@@ -83,9 +83,9 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 | 경고 수준 | 알림을 생성하는 이벤트 |
 | ----------- | ----------- |
-| 중요 | 다음과 같은 경우에 중요한 알림을 받습니다. 백업 작업이 실패하고 복구 작업이 실패하고 서버의 보호를 중지했지만 데이터를 보존할 때.|
+| 심각 | 다음과 같은 경우에 중요한 알림을 받습니다. 백업 작업이 실패하고 복구 작업이 실패하고 서버의 보호를 중지했지만 데이터를 보존할 때.|
 | Warning | 백업 작업이 경고와 함께 완료되었거나(예: 손상 문제로 인해 100개 미만의 파일이 백업되지 않은 경우), 1,000,000개가 넘는 파일이 성공적으로 백업된 경우에는 경고 알림을 받습니다. |
-| 정보 제공 | 현재는 사용되는 정보 알림이 없습니다. |
+| 정보 | 현재는 사용되는 정보 알림이 없습니다. |
 
 ### <a name="viewing-alert-details"></a>알림 세부 정보 보기
 
@@ -99,7 +99,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 * Backup 항목
 * 보호된 서버
 * 심각도
-* 기간
+* Duration
 * 만든 시간
 * 가동 상태
 * 최근 발생 시간
@@ -209,12 +209,12 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 항목 종류는 보호된 인스턴스에 대한 백업 관리 유형입니다. 여기에는 네 가지 종류가 있으며, 다음 목록을 참조하세요. 하나 또는 모든 항목 종류를 볼 수 있습니다. 둘 또는 세 개의 항목 종류는 선택할 수 없습니다. 사용 가능한 항목 종류는 다음과 같습니다.
 
 * 모든 항목 종류
-* Azure 가상 머신
+* Azure 가상 컴퓨터
 * 파일 및 폴더
 * Azure Storage
 * Azure 워크로드
 
-#### <a name="operation"></a>작업
+#### <a name="operation"></a>작업(Operation)
 
 하나 또는 모든 작업을 볼 수 있습니다. 둘 또는 세 개의 작업은 선택할 수 없습니다. 사용 가능한 작업은 다음과 같습니다.
 

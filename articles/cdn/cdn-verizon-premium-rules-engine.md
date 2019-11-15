@@ -1,20 +1,20 @@
 ---
-title: Verizon 프리미엄의 규칙 엔진에서 Azure CDN을 사용 하 여 HTTP 동작 재정의 | Microsoft Docs
-description: 규칙 엔진을 사용 하면 특정 유형의 콘텐츠 전달 차단과 같이 HTTP 요청 Verizon 프리미엄에서의 Azure CDN에서 처리 되는 방법을 사용자 지정 캐싱 정책을 정의 하 고 HTTP 헤더를 수정할 수 있습니다.
+title: Azure CDN-Verizon Premium 규칙 엔진을 사용 하 여 HTTP 동작 재정의
+description: 규칙 엔진을 사용 하면 특정 유형의 콘텐츠 배달 차단, 캐싱 정책 정의, HTTP 헤더 수정 등 Verizon 프리미엄에서 Azure CDN 하 여 HTTP 요청을 처리 하는 방법을 사용자 지정할 수 있습니다.
 services: cdn
 author: mdgattuso
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: magattus
-ms.openlocfilehash: fa08f59f3b69395d548649bb131e04c5071c053d
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: aa0606eafb8fe4c517b0c18e0137058a120115ba
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593171"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082946"
 ---
-# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Verizon 프리미엄의 규칙 엔진에서 Azure CDN을 사용 하 여 HTTP 동작 재정의
+# <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Verizon 프리미엄 규칙 엔진의 Azure CDN를 사용 하 여 HTTP 동작 재정의
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
@@ -22,7 +22,7 @@ ms.locfileid: "67593171"
 
 Azure CDN 규칙 엔진을 사용하면 HTTP 요청을 처리하는 방법을 사용자 지정할 수 있습니다. 예를 들어 특정 콘텐츠 형식 배달을 차단하거나, 캐싱 정책을 정의하거나, HTTP 헤더를 수정할 수 있습니다. 이 자습서에서는 CDN 자산의 캐싱 동작을 변경하는 규칙을 만드는 방법을 보여줍니다. 규칙 엔진 구문에 대한 자세한 내용은 [Azure CDN 규칙 엔진 참조](cdn-verizon-premium-rules-engine-reference.md)를 참조하세요.
 
-## <a name="access"></a>액세스
+## <a name="access"></a>Access
 
 규칙 엔진에 액세스하려면 먼저 **CDN 프로필** 페이지의 맨 위에서 **관리**를 선택하여 Azure CDN 관리 페이지에 액세스해야 합니다. 엔드포인트가 DSA(동적 사이트 가속)에 최적화되었는지 여부에 따라 엔드포인트의 형식에 적절한 규칙 집합을 사용하여 규칙 엔진에 액세스할 수 있습니다.
 
@@ -73,7 +73,7 @@ Azure CDN 규칙 엔진을 사용하면 HTTP 요청을 처리하는 방법을 �
    >
    >
 
-5. 새 기능을 추가하려면 **기능** 옆에 있는 **+** 단추를 선택합니다.  왼쪽의 드롭다운 목록에서 **Force Internal Max-Age**(내부 Max-Age 강제)를 선택합니다.  표시되는 텍스트 상자에 **300**을 입력합니다. 나머지 기본값을 변경하지 않습니다.
+5. 새 기능을 추가하려면 **기능+ 옆에 있는**  단추를 선택합니다.  왼쪽의 드롭다운 목록에서 **Force Internal Max-Age**(내부 Max-Age 강제)를 선택합니다.  표시되는 텍스트 상자에 **300**을 입력합니다. 나머지 기본값을 변경하지 않습니다.
    
    ![CDN 규칙 기능](./media/cdn-rules-engine/cdn-new-feature.png)
    
@@ -93,11 +93,11 @@ Azure CDN 규칙 엔진을 사용하면 HTTP 요청을 처리하는 방법을 �
    >
    >
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목:
 
 - [Azure CDN 개요](cdn-overview.md)
 - [규칙 엔진 참조](cdn-verizon-premium-rules-engine-reference.md)
 - [규칙 엔진 일치 조건](cdn-verizon-premium-rules-engine-reference-match-conditions.md)
 - [규칙 엔진 조건식](cdn-verizon-premium-rules-engine-reference-conditional-expressions.md)
 - [규칙 엔진 기능](cdn-verizon-premium-rules-engine-reference-features.md)
-- [Azure Fridays: Azure CDN의 강력한 새로운 프리미엄 기능](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (비디오)
+- [Azure Fridays: Azure CDN의 강력하고 새로운 프리미엄 기능](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (동영상)

@@ -1,44 +1,43 @@
 ---
-title: Azure Site Recovery-질문과 대답
-description: 이 문서에서는 Azure Site Recovery에 대한 일반적인 질문에 대답합니다.
-services: site-recovery
+title: Azure Site Recovery 서비스에 대 한 일반적인 질문
+description: 이 문서에서는 Azure Site Recovery에 대해 널리 사용 되는 일반적인 질문을 설명 합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 9ab2466a201662cfde4655aedd12f9fd1b21c964
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: fb88d28ea47495dcbdb0844901a03ee7efa4e4eb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053719"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078528"
 ---
-# <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: FAQ(질문과 대답)
-이 문서에서는 Azure Site Recovery에 대 한 자주 묻는 질문을 요약 합니다.</br>
-다른 ASR 시나리오에 대 한 특정 쿼리는 시나리오 관련 Faq를 참조 하세요.<br>
+# <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대 한 일반적인 질문
 
-- [Azure에 대 한 azure VM 재해 복구](azure-to-azure-common-questions.md)
-- [Azure에 대 한 VMware VM 재해 복구](vmware-azure-common-questions.md)
-- [Azure로 hyper-v VM 재해 복구](hyper-v-azure-common-questions.md)
+이 문서에서는 Azure Site Recovery에 대 한 자주 묻는 질문을 요약 합니다. 특정 시나리오의 경우 다음 문서를 검토 하세요.
+
+- [Azure에 대 한 Azure VM 재해 복구에 대 한 질문](azure-to-azure-common-questions.md)
+- [Azure에 대 한 VMware VM 재해 복구에 대 한 질문](vmware-azure-common-questions.md)
+- [Azure로의 Hyper-v VM 재해 복구에 대 한 질문](hyper-v-azure-common-questions.md)
  
 ## <a name="general"></a>일반
 
 ### <a name="what-does-site-recovery-do"></a>Site Recovery의 기능은 무엇입니까?
-Site Recovery는 온-프레미스 가상 머신 및 물리적 서버에서 Azure로, 그리고 온-프레미스 컴퓨터에서 보조 데이터 센터로의 지역 간 Azure VM 복제 작업을 오케스트레이션 및 자동화하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. [자세히 알아보기](site-recovery-overview.md).
+Site Recovery는 온-프레미스 가상 머신 및 물리적 서버에서 Azure로, 그리고 온-프레미스 컴퓨터에서 보조 데이터 센터로의 지역 간 Azure VM 복제 작업을 오케스트레이션 및 자동화하여 BCDR(비즈니스 연속성 및 재해 복구) 전략에 기여합니다. [자세히 알아봅니다](site-recovery-overview.md).
 
 ### <a name="can-i-protect-a-virtual-machine-that-has-a-docker-disk"></a>Docker 디스크가 있는 가상 컴퓨터를 보호할 수 있나요?
 
 아니요, 이것은 지원되지 않는 시나리오입니다.
 
-## <a name="service-providers"></a>서비스 공급 기업
+## <a name="service-providers"></a>서비스 공급자
 
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>서비스 공급자입니다. Site Recovery는 전용 및 공유 인프라 모델에 대해 작동합니까?
 예, Site Recovery는 전용 및 공유 인프라 모델 모두에 대해 작동합니다.
 
 ### <a name="for-a-service-provider-is-the-identity-of-my-tenant-shared-with-the-site-recovery-service"></a>서비스 공급자의 경우 내 테넌트의 ID가 Site Recovery 서비스와 공유됩니까?
-아닙니다. 테넌트 ID는 익명으로 유지됩니다. 사용자의 테넌트는 Site Recovery 포털에 액세스할 필요가 없습니다. 서비스 공급자 관리자만 포털과 상호 작용합니다.
+아니요. 테넌트 ID는 익명으로 유지됩니다. 사용자의 테넌트는 사이트 복구 포털에 액세스할 필요가 없습니다. 서비스 공급자 관리자만 포털과 상호 작용합니다.
 
 ### <a name="will-tenant-application-data-ever-go-to-azure"></a>테넌트 애플리케이션 데이터가 Azure로 이동됩니까?
 서비스 공급자가 소유하고 있는 사이트 간에 복제할 경우 애플리케이션 데이터가 Azure로 이동되지 않습니다. 데이터는 전송 중에 암호화되어 서비스 공급자 사이트 간에 직접 복제됩니다.
@@ -46,7 +45,7 @@ Site Recovery는 온-프레미스 가상 머신 및 물리적 서버에서 Azure
 Azure로 복제하는 경우 애플리케이션 데이터가 Azure Storage로 전송되지만 Site Recovery 서비스로는 전송되지 않습니다. 데이터는 전송 중에 암호화되어 Azure에 암호화된 상태로 남아 있습니다.
 
 ### <a name="will-my-tenants-receive-a-bill-for-any-azure-services"></a>내 테넌트로 Azure 서비스에 대한 청구서가 발급됩니까?
-아닙니다. Azure의 청구 관계는 서비스 공급자와 직접 유지됩니다. 서비스 공급자는 해당 테넌트에 대한 특정 청구서를 생성하는 일을 담당합니다.
+아니요. Azure의 청구 관계는 서비스 공급자와 직접 유지됩니다. 서비스 공급자는 해당 테넌트에 대한 특정 청구서를 생성하는 일을 담당합니다.
 
 ### <a name="if-im-replicating-to-azure-do-we-need-to-run-virtual-machines-in-azure-at-all-times"></a>Azure로 복제할 때 항상 Azure에서 가상 머신을 실행해야 합니까?
 아니요, 데이터는 구독의 Azure 저장소로 복제 됩니다. 테스트 장애 조치(failover)(DR 드릴) 또는 실제 장애 조치(failover)를 수행하면 Site Recovery가 구독에서 자동으로 가상 머신을 만듭니다.
@@ -77,11 +76,11 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 
 아니요, 캐시에 대 한 추가 요금은 없습니다. 표준 저장소 계정에 복제 하는 경우이 캐시 저장소는 동일한 대상 저장소 계정의 일부입니다.
 
-### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>한 달 이상 Azure Site Recovery를 사용해 왔습니다. 모든 보호된 인스턴스에 대해 계속 처음 31일 무료를 적용받나요?
+### <a name="i-have-been-an-azure-site-recovery-user-for-over-a-month-do-i-still-get-the-first-31-days-free-for-every-protected-instance"></a>한 달 이상 Azure Site Recovery를 사용해 왔습니다. 그런데도 모든 보호된 인스턴스를 처음 31일 동안 무료로 사용할 수 있나요?
 
-예. 보호되는 모든 인스턴스에 대해 처음 31일 동안은 Azure Site Recovery 요금이 발생하지 않습니다. 예를 들어 지난 6 개월 동안 인스턴스 10 개를 보호 하 고 11 번째 인스턴스를 Azure Site Recovery에 연결 하는 경우 처음 31 일 동안에는 11 번째 인스턴스에 대 한 요금이 부과 되지 않습니다. 처음 10 개 인스턴스는 31 일 이상 보호 되기 때문에 Azure Site Recovery 요금은 계속 해 서 발생 합니다.
+예. 모든 보호된 인스턴스에는 처음 31일 동안 Azure Site Recovery 요금이 부과되지 않습니다. 예를 들어 지난 6 개월 동안 인스턴스 10 개를 보호 하 고 11 번째 인스턴스를 Azure Site Recovery에 연결 하는 경우 처음 31 일 동안에는 11 번째 인스턴스에 대 한 요금이 부과 되지 않습니다. 처음 10 개 인스턴스는 31 일 이상 보호 되기 때문에 Azure Site Recovery 요금은 계속 해 서 발생 합니다.
 
-### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>처음 31일 동안 다른 Azure 요금이 부과되나요?
+### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>처음 31일 동안 다른 Azure 요금이 발생하나요?
 
 예, Site Recovery 보호 된 인스턴스의 처음 31 일 동안 무료로 제공 되는 경우에도 Azure Storage, 저장소 트랜잭션 및 데이터 전송에 대 한 요금이 부과 될 수 있습니다. 복구된 가상 머신도 Azure Compute 요금이 발생할 수 있습니다.
 
@@ -94,7 +93,7 @@ DR 드릴에 대한 별도의 비용은 없습니다. 테스트 장애 조치 (f
 
 ## <a name="security"></a>보안
 
-### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>복제 데이터가 Site Recovery 서비스로 전송되나요?
+### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>복제 데이터가 사이트 복구 서비스로 전송되나요?
 아니요, Site Recovery는 복제된 데이터를 가로채거나 사용자의 가상 머신 또는 물리적 서버에서 실행 중인 항목에 대한 정보를 보유하지 않습니다.
 복제 데이터는 온-프레미스 Hyper-V 호스트, VMware 하이퍼바이저 또는 물리적 서버와 Azure Storage 또는 보조 사이트 간에 교환됩니다. Site Recovery는 데이터를 가로챌 수 있는 기능이 없습니다. 복제 오케스트레이션 및 장애 조치(failover)에 필요한 메타데이터만 Site Recovery 서비스로 전송됩니다.  
 
@@ -195,20 +194,20 @@ LRS 또는 GRS 저장소가 필요 합니다. 지역 정전이 발생하거나 �
 
 
 
-## <a name="failover"></a>장애 조치(failover)
+## <a name="failover"></a>장애 조치
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-vms-after-failover"></a>Azure로 장애 조치 (failover) 하는 경우 장애 조치 (failover) 후 Azure Vm에 액세스 하려면 어떻게 하나요?
 
-보안 인터넷 연결 또는 사이트 간 VPN 또는 Azure ExpressRoute로 Azure VM에 액세스할 수 있습니다. 연결 하려면 여러 항목을 준비 해야 합니다. [자세히 알아보기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+보안 인터넷 연결 또는 사이트 간 VPN 또는 Azure ExpressRoute로 Azure VM에 액세스할 수 있습니다. 연결 하려면 여러 항목을 준비 해야 합니다. [자세히 알아봅니다](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
 
 
-### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Azure로 장애 조치(failover)하는 경우 Azure는 어떻게 데이터 복원을 보장합니까?
+### <a name="if-i-fail-over-to-azure-how-does-azure-make-sure-my-data-is-resilient"></a>Azure로 장애 조치(Failover)하는 경우 Azure는 어떻게 데이터 복원을 보장합니까?
 Azure는 복원을 위해 디자인되었습니다. Site Recovery는 Azure SLA에 따라 보조 Azure 데이터 센터에 대 한 장애 조치 (failover)를 위해 이미 엔지니어링 되었습니다. 이 상황이 발생하면 사용자가 자격 증명 모음에 대해 선택한 지리적으로 동일한 지역에 메타데이터 및 자격 증명 모음이 남아 있습니다.  
 
 ### <a name="if-im-replicating-between-two-datacenters-what-happens-if-my-primary-datacenter-experiences-an-unexpected-outage"></a>두 데이터 센터 간에 복제하는 동안 주 데이터 센터에서 예기치 않게 정전이 발생하면 어떻게 됩니까?
 보조 사이트에서 계획되지 않은 장애 조치(failover)를 트리거할 수 있습니다. Site Recovery는 기본 사이트가 연결되지 않아도 장애 조치(failover)를 수행할 수 있습니다.
 
 ### <a name="is-failover-automatic"></a>장애 조치(failover)는 자동입니까?
-자동이 아닙니다. 포털에서 클릭 한 번으로 장애 조치(failover)를 시작하거나 [Site Recovery PowerShell](/powershell/module/az.recoveryservices) 을 사용하여 장애 조치(failover)를 트리거할 수 있습니다. 장애 복구(failback) 작업은 Site Recovery 포털에서 간단하게 수행할 수 있습니다.
+자동이 아닙니다. 포털에서 클릭 한 번으로 장애 조치(Failover)를 시작하거나 [Site Recovery PowerShell](/powershell/module/az.recoveryservices) 을 사용하여 장애 조치(Failover)를 트리거할 수 있습니다. 장애 복구(failback) 작업은 Site Recovery 포털에서 간단하게 수행할 수 있습니다.
 
 온-프레미스 Orchestrator 또는 Operations Manager를 사용하여 가상 머신 오류를 감지하면 SDK를 사용하여 장애 조치(failover)를 트리거하도록 자동화할 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 08/30/2019
 ms.author: dacurwin
-ms.openlocfilehash: 78de85cede228f4b1c6ff01388fd7a08f78aa74f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 0be9973aed1aaf5074c3b61d6249b95e8fd45a64
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747182"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090898"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -161,7 +161,7 @@ Windows 서비스 **Com + 시스템** 응용 프로그램 문제로 인해 백�
   * /Etc/azure/vmbackup.conf에서 **isanysnapshotfailed** 의 값이 false로 설정 되어 있는지 확인 합니다.
   * 다른 시간에 Azure Site Recovery 예약 하 여 백업 작업과 충돌 하지 않도록 합니다.
 
-## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive-VM 리소스가 부족 하 여 스냅숏 작업에 실패 했습니다.
+## <a name="extensionfailedtimeoutvmnetworkunresponsive---snapshot-operation-failed-due-to-inadequate-vm-resources"></a>ExtensionFailedTimeoutVMNetworkUnresponsive-VM 리소스가 부족 하 여 스냅숏 작업이 실패 했습니다.
 
 오류 코드: ExtensionFailedTimeoutVMNetworkUnresponsive<br/>
 오류 메시지: VM 리소스가 부족 하 여 스냅숏 작업에 실패 했습니다.

@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 9055223d1e4ed056ad606533219925972b623f86
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: de746d0b370de2d238c1143c48b75c1505cd9dc0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682112"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091476"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,7 +37,7 @@ Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__된 
 > [!IMPORTANT]
 > 생성 또는 첨부 파일 프로세스는 일회성 작업입니다. AKS 클러스터가 작업 영역에 연결 되 면 배포에 사용할 수 있습니다. 더 이상 필요 하지 않은 경우 AKS 클러스터를 분리 하거나 삭제할 수 있습니다. Detatched 또는 삭제 된 후에는 더 이상 클러스터에 배포할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
@@ -92,16 +92,16 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)의 경우 `agent_count` 및 `vm_size`에 대 한 사용자 지정 값을 선택 하 고 `cluster_purpose` `DEV_TEST`되지 않는 경우 `agent_count`에 `vm_size` 곱한 값이 12 개의 가상 cpu 보다 크거나 같은지 확인 해야 합니다. 예를 들어 가상 Cpu가 4 개 있는 "Standard_D3_v2"의 `vm_size` 사용 하는 경우 3 개 이상의 `agent_count`를 선택 해야 합니다.
+> [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)의 경우 `agent_count` 및 `vm_size`에 대 한 사용자 지정 값을 선택 하 고 `cluster_purpose` `DEV_TEST`되지 않는 경우 `agent_count`에 `vm_size` 곱한 값이 12 개의 가상 cpu 보다 크거나 같은지 확인 해야 합니다. 예를 들어 가상 Cpu가 4 개 있는 `vm_size` "Standard_D3_v2"를 사용 하는 경우 3 이상의 `agent_count`를 선택 해야 합니다.
 >
 > Azure Machine Learning SDK는 AKS 클러스터의 크기 조정을 지원 하지 않습니다. 클러스터의 노드 크기를 조정 하려면 Azure Machine Learning studio에서 AKS 클러스터에 대 한 UI를 사용 합니다. 클러스터의 VM 크기가 아니라 노드 수만 변경할 수 있습니다.
 
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
 * [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
-* [AksCompute.provisioning_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute provisioning_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
 * [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#wait-for-completion-show-output-false-)
+* [ComputeTarget wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#wait-for-completion-show-output-false-)
 
 **CLI 사용**
 
@@ -159,7 +159,7 @@ aks_target = ComputeTarget.attach(ws, 'myaks', attach_config)
 
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
-* [AksCompute.attach_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
+* [AksCompute () attach_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none-)
 * [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
 * [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#attach-workspace--name--attach-configuration-)
 
@@ -209,13 +209,13 @@ print(service.get_logs())
 이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
 
 * [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py)
-* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
+* [AksWebservice deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
 * [모델. 배포](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)
-* [Wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
+* [웹 서비스. wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
 
 ### <a name="using-the-cli"></a>CLI 사용
 
-CLI를 사용 하 여 배포 하려면 다음 명령을 사용 합니다. `myaks`을 AKS 계산 대상의 이름으로 바꿉니다. `mymodel:1`를 등록 된 모델의 이름 및 버전으로 바꿉니다. 이 서비스를 제공할 이름으로 `myservice`을 바꿉니다.
+CLI를 사용 하 여 배포 하려면 다음 명령을 사용 합니다. `myaks`을 AKS 계산 대상의 이름으로 바꿉니다. `mymodel:1`를 등록 된 모델의 이름 및 버전으로 바꿉니다. `myservice`를이 서비스에 제공 하는 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
@@ -309,7 +309,7 @@ deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1,
 
 ### <a name="authentication-with-keys"></a>키를 사용 하 여 인증
 
-키 인증을 사용 하는 경우 `get_keys` 메서드를 사용 하 여 기본 인증 키와 보조 인증 키를 검색할 수 있습니다.
+키 인증을 사용 하는 경우 `get_keys` 메서드를 사용 하 여 기본 및 보조 인증 키를 검색할 수 있습니다.
 
 ```python
 primary, secondary = service.get_keys()

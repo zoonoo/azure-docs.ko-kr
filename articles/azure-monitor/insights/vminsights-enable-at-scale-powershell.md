@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/14/2019
-ms.openlocfilehash: 24b40e5dfdef7bde65d326cb0d054365f730477e
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 25e9848124b84822749d3be4d1ead7b86e6e584e
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555282"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091767"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM용 Azure Monitor (미리 보기) 사용
 
@@ -183,9 +183,9 @@ provisioningState       : Succeeded
 - *ResourceGroup*으로 지정 된 범위 지정 리소스 그룹입니다. 
 - *이름*으로 지정 된 단일 VM 또는 가상 머신 확장 집합입니다.
 
-각 VM 또는 가상 머신 확장 집합의 경우 스크립트에서 VM 확장을 이미 설치했는지 여부를 확인합니다. VM 확장을 설치 하지 않은 경우 스크립트에서 다시 설치 하려고 시도 합니다. VM 확장이 설치 된 경우 스크립트는 Log Analytics 및 Dependency Agent VM 확장을 설치 합니다.
+각 VM 또는 가상 머신 확장 집합의 경우 스크립트에서 VM 확장을 이미 설치했는지 여부를 확인합니다. VM 확장이 설치 된 경우 스크립트에서 다시 설치 하려고 시도 합니다. VM 확장이 설치 되지 않은 경우 스크립트는 Log Analytics 및 종속성 에이전트 VM 확장을 설치 합니다.
 
-@No__t_0 호환성 별칭을 사용 하 여 Azure PowerShell 모듈 Az version 1.0.0 이상을 사용 중인지 확인 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
+`Enable-AzureRM` 호환성 별칭을 사용 하 여 Azure PowerShell 모듈 Az version 1.0.0 이상을 사용 중인지 확인 합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
 스크립트의 인수 세부 정보 및 사용법 예제 목록을 가져오려면 `Get-Help`를 실행합니다.
 

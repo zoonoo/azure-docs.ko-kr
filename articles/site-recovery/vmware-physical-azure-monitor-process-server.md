@@ -1,18 +1,18 @@
 ---
 title: Azure Site Recovery 프로세스 서버 모니터링
-description: 이 문서에서는 Azure Site Recovery 프로세스 서버를 모니터링 하는 방법을 설명 합니다.
+description: 이 문서에서는 VMware v m/물리적 서버 재해 복구에 사용 되는 Azure Site Recovery 프로세스 서버를 모니터링 하는 방법을 설명 합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 00b424672b505a5bb3d576c0ca4d8e334e2a1753
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 54c161c40c881d7626f79fc9bfe1ec1c160480ae
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383201"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082237"
 ---
 # <a name="monitor-the-process-server"></a>프로세스 서버 모니터링
 
@@ -53,12 +53,12 @@ ms.locfileid: "70383201"
 
 **경고 유형** | **세부 정보**
 --- | ---
-![정상][green] | 프로세스 서버가 연결 되어 있고 정상 상태입니다.
-![경고][yellow] | 지난 15 분간 CPU 사용률 > 80%
-![경고][yellow] | 최근 15 분 동안 메모리 사용 > 80%
-![경고][yellow] | 최근 15 분 동안 캐시 폴더의 사용 가능한 공간 < 30%
-![경고][yellow] | Site Recovery은 5 분 마다 보류/발신 데이터를 모니터링 하 고, 프로세스 서버 캐시의 데이터를 30 분 내에 Azure에 업로드할 수 없음을 추정 합니다.
-![경고][yellow] | 지난 15 분간 프로세스 서버 서비스가 실행 되 고 있지 않음
+![Healthy][green] | 프로세스 서버가 연결 되어 있고 정상 상태입니다.
+![Warning][yellow] | 지난 15 분간 CPU 사용률 > 80%
+![Warning][yellow] | 최근 15 분 동안 메모리 사용 > 80%
+![Warning][yellow] | 최근 15 분 동안 캐시 폴더의 사용 가능한 공간 < 30%
+![Warning][yellow] | Site Recovery은 5 분 마다 보류/발신 데이터를 모니터링 하 고, 프로세스 서버 캐시의 데이터를 30 분 내에 Azure에 업로드할 수 없음을 추정 합니다.
+![Warning][yellow] | 지난 15 분간 프로세스 서버 서비스가 실행 되 고 있지 않음
 ![심각][red] | 지난 15 분간 CPU 사용률 > 95%
 ![심각][red] | 최근 15 분 동안 메모리 사용 > 95%
 ![심각][red] | 최근 15 분 동안 캐시 폴더의 사용 가능한 공간 < 25%

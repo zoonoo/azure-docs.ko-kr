@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: dacurwin
-ms.openlocfilehash: 48339addf6020a7a95e1c0b650bfcb43e1898483
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 940ac4d94bf39583fad828545a45cbb033908f15
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747487"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091651"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server 및 DPM-FAQ
 
@@ -65,7 +65,7 @@ VMware/Hyper-V 보호를 위해 별도 라이선스는 필요 없습니다.
 
 ### <a name="can-i-recover-a-sharepoint-database-to-the-original-location-if-sharepoint-is-configured-by-using-sql-alwayson"></a>SQL AlwaysOn을 사용해 SharePoint를 구성한 경우 SharePoint 데이터베이스를 원본 위치로 복구할 수 있나요?
 
-SharePoint 데이터베이스가 SQL AlwaysOn에서 구성되었으므로 가용성 그룹을 제거하기 전에는 수정할 수 없습니다. 따라서 DPM은 원래 위치로 데이터베이스를 복원할 수 없습니다. SQL Server 데이터베이스를 다른 SQL Server 인스턴스로 복구할 수 있습니다.
+이 경우에는 SharePoint 데이터베이스가 SQL AlwaysOn에서 구성되었으므로 가용성 그룹을 제거해야 수정할 수 있습니다. 따라서 DPM은 원래 위치로 데이터베이스를 복원할 수 없습니다. SQL Server 데이터베이스를 다른 SQL Server 인스턴스로 복구할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

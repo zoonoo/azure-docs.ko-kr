@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c8bfa5fc31ce8500d1ed339ba28afeed21e25a0
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: e073b4ff366c05cdf429f81d46647cd330604057
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603501"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081570"
 ---
 # <a name="passwordless-authentication-options"></a>Passwordless 인증 옵션
 
@@ -73,9 +73,9 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만, Microsoft는 
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
-| 숨겼습니다 | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
+| HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
-| eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
+| eWBM | [https://www.ewbm.com/support](https://www.ewbm.com/support) |
 | AuthenTrend | [https://authentrend.com/about-us/#pg-35-3](https://authentrend.com/about-us/#pg-35-3) |
 
 > [!NOTE]

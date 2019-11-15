@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: dacurwin
-ms.openlocfilehash: 13481788bce22876fa13080d0be34db29e2a72cb
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 07ec5b76756b462e03e9349edd2daff96933588c
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961576"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091639"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -66,17 +66,13 @@ Azure Backup에서는 복구 지점이라고도 하는 Azure VM 백업에서 [Az
     제한된 액세스를 포함하는 컴퓨터에서 스크립트를 실행하는 경우 다음에 대한 액세스 권한이 있는지 확인합니다.
 
     - download.microsoft.com
-    - Recovery Service URL(복구 서비스 자격 증명 모음이 있는 지역을 참조하는 지역 이름)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.com (Azure 공용 geos의 경우)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.cn (Azure 중국 21Vianet의 경우)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.us (Azure 미국 정부)
-        - https:\//pod01-rec2.geo-name.backup.windowsazure.de (Azure 독일의 경우)
+    - Recovery Service Url (지역 이름은 recovery service 자격 증명 모음이 상주 하는 지역을 나타냄) - <https://pod01-rec2.geo-name.backup.windowsazure.com> (azure 중국 geos) - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (azure 중국 21Vianet) - <https://pod01-rec2.geo-name.backup.windowsazure.us> (azure 미국 정부) - <https://pod01-rec2.geo-name.backup.windowsazure.de> (Azure 독일의 경우)
     - 아웃바운드 포트 3260
 
 > [!Note]
 >
-> - 다운로드 한 스크립트 파일 이름에는 URL에 입력 되는 **지역 이름이** 포함 됩니다. 예: 다운로드 한 스크립트 이름은 \'VMname\'\_\'geoname\'_\'GUID\'(예: ContosoVM_wcus_12345678 ...)로 시작 합니다.<br><br>
-> - URL은 "https:\//pod01-rec2.wcus.backup.windowsazure.com"입니다.
+> - 다운로드 한 스크립트 파일 이름에는 URL에 입력 되는 **지역 이름이** 포함 됩니다. 예를 들어, 다운로드 한 스크립트 이름은 \'VMname\'\_\'geoname\'_\'GUID\'으로 시작 합니다 (예: ContosoVM_wcus_12345678
+> - URL은 <https://pod01-rec2.wcus.backup.windowsazure.com>"입니다.
 
    Linux의 경우 스크립트는 복구 지점에 연결하는 데 'open-iscsi' 및 'lshw' 구성 요소가 필요합니다. 컴퓨터에 스크립트가 실행되는 구성 요소가 없는 경우 스크립트에서 구성 요소 설치를 허가할지 묻습니다. 동의하여 필요한 구성 요소를 설치 합니다.
 
@@ -135,27 +131,27 @@ Linux에서 LVM(논리 볼륨 관리자) 및/또는 소프트웨어 RAID 배열�
 
 이 파티션을 온라인 상태로 만들려면 다음 섹션의 명령을 실행합니다.
 
-#### <a name="for-lvm-partitions"></a>LVM 파티션의 경우
+#### <a name="for-lvm-partitions"></a>LVM 파티션
 
 실제 볼륨에 볼륨 그룹 이름을 나열합니다.
 
 ```bash
 #!/bin/bash
-$ pvs <volume name as shown above in the script output>
+pvs <volume name as shown above in the script output>
 ```
 
 볼륨 그룹에 모든 논리 볼륨, 이름 및 해당 경로를 나열합니다.
 
 ```bash
 #!/bin/bash
-$ lvdisplay <volume-group-name from the pvs command’s results>
+lvdisplay <volume-group-name from the pvs command’s results>
 ```
 
 선택한 경로에 논리 볼륨을 탑재하려면.
 
 ```bash
 #!/bin/bash
-$ mount <LV path> </mountpath>
+mount <LV path> </mountpath>
 ```
 
 #### <a name="for-raid-arrays"></a>RAID 배열의 경우
@@ -164,7 +160,7 @@ $ mount <LV path> </mountpath>
 
 ```bash
 #!/bin/bash
-$ mdadm –detail –scan
+mdadm –detail –scan
 ```
 
  관련 RAID 디스크는 `/dev/mdm/<RAID array name in the protected VM>`으로 표시됩니다.
@@ -173,7 +169,7 @@ RAID 디스크에 실제 볼륨이 있는 경우 탑재 명령을 사용합니�
 
 ```bash
 #!/bin/bash
-$ mount [RAID Disk Path] [/mountpath]
+mount [RAID Disk Path] [/mountpath]
 ```
 
 RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대한 이전 절차를 사용하되 RAID 디스크 이름 대신에 볼륨 이름을 사용합니다.
@@ -190,7 +186,7 @@ RAID 디스크에 다른 LVM이 구성되어 있는 경우 LVM 파티션에 대�
 | Windows Server 2016    | Windows 10 |
 | Windows Server 2012 R2 | Windows 8.1 |
 | Windows Server 2012    | Windows 8  |
-| Windows Server 2008 R2 | 윈도우 7   |
+| Windows Server 2008 R2 | Windows 7   |
 
 ### <a name="for-linux-os"></a>Linux OS
 

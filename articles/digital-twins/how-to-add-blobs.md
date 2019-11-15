@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 11/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a6629db50d0cec13d866d28a0823ccd3ed43f42
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 6ab9d0ae07978e69bebb0fc24c8965cce971cfd5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014207"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082359"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Azure Digital Twins에서 개체에 Blob 추가
 
@@ -51,7 +51,7 @@ JSON Blob 메타데이터는 다음과 같은 모델을 준수합니다.
   }
 ```
 
-| 특성 | 형식 | 설명 |
+| 특성 | 에 | 설명 |
 | --- | --- | --- |
 | **parentId** | 문자열 | Blob을 연결할 부모 엔터티(공백, 디바이스 또는 사용자)입니다. |
 | **name** |문자열 | Blob의 이름입니다. |
@@ -106,7 +106,7 @@ Swagger 설명서는 이러한 모델 스키마에 대해 매우 자세하게 �
 }
 ```
 
-| 특성 | 형식 | 설명 |
+| 특성 | 에 | 설명 |
 | --- | --- | --- |
 | **id** | 문자열 | Blob의 고유한 식별자입니다. |
 | **name** |문자열 | Blob의 이름입니다. |
@@ -181,8 +181,6 @@ var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 
 마지막으로, [cURL](https://curl.haxx.se/) 사용자는 다음과 같이 동일한 방식으로 다중 파트 양식 요청을 수행할 수 있습니다.
 
-[![말아 예](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
-
 ```bash
 curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
  -H "Authorization: Bearer YOUR_TOKEN" \
@@ -198,7 +196,9 @@ curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
 | YOUR_SPACE_ID | Blob을 연결할 공간의 ID |
 | PATH_TO_FILE | 텍스트 파일의 경로 |
 
-성공한 POST는 새 Blob의 ID를 반환합니다(이전에 빨간색으로 강조 표시됨).
+[![말아 예](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+
+POST가 성공 하면 blob의 새 ID가 반환 됩니다.
 
 ## <a name="api-endpoints"></a>API 엔드포인트
 

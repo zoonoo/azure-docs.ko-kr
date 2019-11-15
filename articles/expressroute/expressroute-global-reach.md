@@ -1,5 +1,5 @@
 ---
-title: Global Reach를 사용하여 Microsoft Cloud에 온-프레미스 네트워크 연결 - Azure ExpressRoute | Microsoft Docs
+title: 'Azure Express 경로: Global Reach를 사용 하 여 Microsoft 클라우드에 연결'
 description: 이 문서에서는 ExpressRoute Global Reach에 대해 설명합니다.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: e522c7ea306667f675af4bbe7486e25fb7f4ec9f
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: e01b311d10dcf4216bfeea77ce8919f64ea2ef28
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122796"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080336"
 ---
 # <a name="expressroute-global-reach"></a>ExpressRoute Global Reach
 ExpressRoute는 온-프레미스 네트워크를 Microsoft 클라우드에 연결하기 위한 프라이빗이고 탄력적인 방법입니다. Azure와 같은 여러 Microsoft 클라우드 서비스, 개인 데이터 센터 또는 회사 네트워크에서 Office 365에 액세스할 수 있습니다. 예를 들어, 실리콘밸리의 ExpressRoute 회로를 사용하는 샌프란시스코 지사와, 런던의 ExpressRoute 회로를 사용하는 런던 지사가 있을 수 있습니다. 두 지사는 모두 미국 서부와 영국 남부에서 Azure 리소스에 고속으로 연결할 수 있습니다. 그러나 해당 지점은 서로 데이터를 직접 교환할 수 없습니다. 즉, 10.0.1.0/24는 10.0.3.0/24 및 10.0.4.0/24에 데이터를 보낼 수 있지만, 10.0.2.0/24에는 보낼 수 없습니다.
@@ -39,7 +38,7 @@ ExpressRoute Global Reach는 서비스 공급자의 WAN 구현을 보완하고 �
 * 홍콩 특별 행정구
 * 아일랜드
 * 일본
-* 대한민국
+* 한국
 * 네덜란드
 * 싱가포르
 * 스위스

@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: ba961547bc46b0746997ea95ddd14f1a6d1d8a23
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1c8717614ec59ef210c7340f70ddedd7f7f86f88
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821219"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091963"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>자동화 된 데이터베이스 백업을 사용 하 여 Azure SQL 데이터베이스 복구
 
@@ -108,11 +108,13 @@ Azure Portal를 사용 하 여 관리 되는 인스턴스 데이터베이스를 
 
 Azure Portal를 사용 하 여 단일 또는 풀링된 삭제 된 데이터베이스를 복구 하려면 서버 개요 페이지를 열고 삭제 된 **데이터베이스**를 선택 합니다. 복원 하려는 삭제 된 데이터베이스를 선택 하 고 백업에서 복원 된 데이터로 생성 될 새 데이터베이스의 이름을 입력 합니다.
 
-  ![삭제 된 데이터베이스 옵션의 스크린샷](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+  ![삭제 된 Azure SQL database 복원의 스크린샷](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
 
 #### <a name="managed-instance-database"></a>관리 되는 인스턴스 데이터베이스
 
-Azure Portal를 사용 하 여 관리 되는 인스턴스에서 삭제 된 데이터베이스를 복원할 수는 없습니다. 이 목적을 위해 PowerShell을 사용할 수 있습니다. 
+Azure Portal를 사용 하 여 관리 되는 데이터베이스를 복구 하려면 관리 되는 인스턴스 개요 페이지를 열고 **삭제 된 데이터베이스**를 선택 합니다. 복원 하려는 삭제 된 데이터베이스를 선택 하 고 백업에서 복원 된 데이터로 생성 될 새 데이터베이스의 이름을 입력 합니다.
+
+  ![삭제 된 Azure SQL 인스턴스 데이터베이스 복원의 스크린샷](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
 
 ### <a name="deleted-database-restore-by-using-powershell"></a>PowerShell을 사용 하 여 삭제 된 데이터베이스 복원
 
@@ -192,7 +194,7 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 뛰어난 익스텐트와 동일 합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az module 및 AzureRm 모듈의 명령에 대 한 인수는 뛰어난 익스텐트와 동일 합니다.
 
 #### <a name="single-azure-sql-database"></a>단일 Azure SQL database
 
@@ -214,8 +216,8 @@ Azure Portal에서 관리 되는 인스턴스 데이터베이스를 선택한 �
 
   | Cmdlet | 설명 |
   | --- | --- |
-  | [AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리 되는 인스턴스를 가져옵니다. |
-  | [AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |
+  | [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) |하나 이상의 관리 되는 인스턴스를 가져옵니다. |
+  | [Get-AzSqlInstanceDatabase](/powershell/module/az.sql/get-azsqlinstancedatabase) | 인스턴스 데이터베이스를 가져옵니다. |
   | [Restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase) |인스턴스 데이터베이스를 복원 합니다. |
 
 ### <a name="rest-api"></a>REST API

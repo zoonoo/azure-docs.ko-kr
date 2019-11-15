@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
 ms.custom: seodec18
-ms.openlocfilehash: 8f6fb9737d3d8dad93a95f31d566f7cc4706ded3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e63d8f03b26c9039fe4093cf15b13522dbb49af9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886039"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081482"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Java 앱 구성
 
@@ -239,9 +239,9 @@ Spring Boot 개발자는 [Azure Active Directory Spring Boot starter](/java/azur
 
 이러한 암호를 스프링 또는 Tomcat 구성 파일에 삽입 하려면 환경 변수 삽입 구문 (`${MY_ENV_VAR}`)을 사용 합니다. 스프링 구성 파일은 [표면화 된 구성](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html)에 대 한이 설명서를 참조 하세요.
 
-## <a name="using-the-java-key-store"></a>Java 키 저장소 사용
+### <a name="using-the-java-key-store"></a>Java 키 저장소 사용
 
-기본적으로 [App Service Linux에 업로드](../configure-ssl-certificate.md) 된 공용 또는 개인 인증서는 컨테이너가 시작 될 때 Java 키 저장소에 로드 됩니다. 즉, 아웃 바운드 TLS 연결을 만들 때 업로드 된 인증서를 연결 컨텍스트에서 사용할 수 있습니다.
+기본적으로 [App Service Linux에 업로드](../configure-ssl-certificate.md) 된 공용 또는 개인 인증서는 컨테이너가 시작 될 때 Java 키 저장소에 로드 됩니다. 즉, 아웃 바운드 TLS 연결을 만들 때 업로드 된 인증서를 연결 컨텍스트에서 사용할 수 있습니다. 인증서를 업로드 한 후에는 Java 키 저장소에 로드 하기 위해 App Service를 다시 시작 해야 합니다.
 
 App Service에 대 한 [SSH 연결을 열고](app-service-linux-ssh-support.md) 명령 `keytool`를 실행 하 여 Java 키 도구를 상호 작용 하거나 디버그할 수 있습니다. 명령 목록은 [키 도구 설명서](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html) 를 참조 하세요. 인증서는 Java의 기본 키 저장소 파일 위치 `$JAVA_HOME/jre/lib/security/cacerts`에 저장 됩니다.
 
@@ -251,7 +251,7 @@ JDBC 연결을 암호화 하는 데 추가 구성이 필요할 수 있습니다.
 - [SQL Server](https://docs.microsoft.com/sql/connect/jdbc/connecting-with-ssl-encryption?view=sql-server-ver15)
 - [MySQL](https://dev.mysql.com/doc/connector-j/5.1/en/connector-j-reference-using-ssl.html)
 
-### <a name="manually-initialize-and-load-the-key-store"></a>수동으로 키 저장소 초기화 및 로드
+#### <a name="manually-initialize-and-load-the-key-store"></a>수동으로 키 저장소 초기화 및 로드
 
 키 저장소를 초기화 하 고 인증서를 수동으로 추가할 수 있습니다. `1` 값을 사용 하 여 키 저장소로 인증서를 자동으로 로드할 App Service 사용 하지 않도록 설정 하 `SKIP_JAVA_KEYSTORE_LOAD`앱 설정을 만듭니다. Azure Portal을 통해 App Service에 업로드 된 모든 공용 인증서는 `/var/ssl/certs/`아래에 저장 됩니다. 개인 인증서는 `/var/ssl/private/`에 저장 됩니다.
 
@@ -579,7 +579,7 @@ JBoss CLI를 통해 모듈 및 해당 종속성을 WildFly 클래스 경로에 �
 
 6. Azure CLI를 사용 하 여 데이터베이스 연결 정보를 저장 하는 설정을 App Service에 추가 합니다. `<resource group>` 및 `<webapp name>`을 App Service 사용 하는 값으로 바꿉니다. `<database server name>`, `<database name>`, `<admin name>`및 `<admin password>`를 데이터베이스 연결 정보로 바꿉니다. Azure Portal에서 App Service 및 데이터베이스 정보를 가져올 수 있습니다.
 
-    **PostgreSQL**
+    **PostgreSQL:**
 
     ```bash
     az webapp config appsettings set \
@@ -591,7 +591,7 @@ JBoss CLI를 통해 모듈 및 해당 종속성을 WildFly 클래스 경로에 �
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **MySQL**
+    **MySQL:**
 
     ```bash
     az webapp config appsettings set \

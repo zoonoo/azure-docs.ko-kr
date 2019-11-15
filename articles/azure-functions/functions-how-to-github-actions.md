@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: aelnably
-ms.openlocfilehash: 8decf4622c4043cbac0f2e2f6e2ad59f1b5baaae
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 681d7a5eab3306a4067ea49bcf8a038e8627f60e
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074007"
+ms.locfileid: "74091374"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
@@ -215,7 +215,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 ## <a name="next-steps"></a>다음 단계
 
-전체 워크플로를 보려면 [Azure GitHub 작업 워크플로 샘플 리포지토리](https://github.com/Azure/actions-workflow-samples) 에서 이름에 `functionapp` 있는 파일 중 하나를 참조 하세요. 이러한 샘플을 워크플로의 시작 지점으로 사용할 수 있습니다.
+전체 워크플로를 보려면 [Azure GitHub 작업 워크플로 샘플 리포지토리](https://aka.ms/functions-actions-samples) 에서 이름에 `functionapp` 있는 파일 중 하나를 참조 하세요. 이러한 샘플을 워크플로의 시작 지점으로 사용할 수 있습니다.
 
 > [!div class="nextstepaction"]
 > [GitHub 동작에 대 한 자세한 정보](https://help.github.com/en/articles/about-github-actions)

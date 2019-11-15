@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 57bea93fd03dc19caa1ce29a34a40bc3cff06209
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: c9dfc4ed6fce186fea9474222875a072edb32f59
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039052"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084718"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -659,7 +659,7 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 | 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | 설명 |
 |---------------------|-----------------|----------|-------|-------------|
 | **인증** | `type` | 예 | **클라이언트 인증서** <br>or <br>`ClientCertificate` | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
-| **Pfx** | `pfx` | 예 | <*로 인코딩된 .pfx-파일-콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 |
+| **Pfx** | `pfx` | 예 | <*로 인코딩된 .pfx-파일-콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 <p><p>PFX 파일을 b a s e 64로 인코딩된 형식으로 변환 하려면 다음 단계를 수행 하 여 PowerShell을 사용할 수 있습니다. <p>1. 인증서 콘텐츠를 변수에 저장 합니다. <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. `ToBase64String()` 함수를 사용 하 여 인증서 콘텐츠를 변환 하 고 해당 콘텐츠를 텍스트 파일에 저장 합니다. <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **암호** | `password`| 설명 참조 | *pfx 파일에 대 한* <> | PFX 파일에 액세스 하기 위한 암호입니다. <p><p>**참고**:이 속성 값은 논리 앱 디자이너에서 작업 하는 경우에 필요 하며, 코드 뷰에서 작업할 때는 필요 *하지* 않습니다. |
 |||||
 

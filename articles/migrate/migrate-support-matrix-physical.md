@@ -7,14 +7,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 902e89305aa24e8cbb6d2dd84d6a61c710d11637
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 55ada93e6a77dd7e31640988bad95034f77c90dd
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715379"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091884"
 ---
-# <a name="support-matrix-for-physical-server-assessment-and-migration"></a>물리적 서버 평가 및 마이그레이션에 대 한 지원 매트릭스
+# <a name="support-matrix-for-physical-server-assessment-and-migration"></a>물리적 서버 평가 및 마이그레이션을 위한 지원 매트릭스
 
 [Azure Migrate 서비스](migrate-overview.md) 를 사용 하 여 컴퓨터를 평가 하 고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 온-프레미스 물리적 서버를 평가 하 고 마이그레이션하기 위한 지원 설정 및 제한 사항을 요약 합니다.
 
@@ -26,9 +26,9 @@ ms.locfileid: "73715379"
 
 이 표에는 물리적 서버에 대해 지원 되는 시나리오가 요약 되어 있습니다.
 
-**배포웹사이트를** | **세부 정보***
+**배포** | **세부 정보***
 --- | ---
-**온-프레미스 물리적 서버 평가** | 첫 번째 평가를 [설정](tutorial-prepare-physical.md) 합니다.
+**온-프레미스 물리적 서버 평가** | 첫 번째 평가를 [설정](tutorial-prepare-physical.md) 합니다.<br/><br/> 평가를 [실행](tutorial-assess-physical.md) 합니다.
 **Azure에 물리적 서버 마이그레이션** | Azure로의 마이그레이션을 [시도](tutorial-migrate-physical-virtual-machines.md) 합니다.
 
 
@@ -37,7 +37,7 @@ ms.locfileid: "73715379"
 **지원** | **세부 정보**
 --- | ---
 **Azure 사용 권한** | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
-**물리적 서버** | 단일 프로젝트에서 최대 250 대의 물리적 서버를 평가 합니다. Azure 구독에 여러 프로젝트를 포함할 수 있습니다. 프로젝트는 평가 제한까지 물리적 서버, VMware Vm 및 Hyper-v Vm을 포함할 수 있습니다.
+**물리적 서버** | 단일 프로젝트에서 최대 35000 대의 물리적 서버를 평가 합니다. Azure 구독에 여러 프로젝트를 포함할 수 있습니다. 프로젝트는 평가 제한까지 물리적 서버, VMware Vm 및 Hyper-v Vm을 포함할 수 있습니다.
 **지리** | 여러 지역에서 Azure Migrate 프로젝트를 만들 수 있습니다. 특정 지역에 프로젝트를 만들 수 있지만 다른 대상 위치의 컴퓨터를 평가 하거나 마이그레이션할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
 
   **지리** | **메타데이터 스토리지 위치**
@@ -65,8 +65,8 @@ ms.locfileid: "73715379"
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **물리적 서버 배포**       | 물리적 서버는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
-| **권한**           | **Windows:** 검색에 포함 하려는 모든 Windows 서버에서 로컬 사용자 계정을 설정 합니다. 사용자 계정은 원격 데스크톱 사용자, 성능 모니터 사용자 및 성능 로그 사용자 그룹에 추가 해야 합니다. <br/> **Linux:** 검색 하려는 Linux 서버에 루트 계정이 필요 합니다. |
-| **운영 체제** | Azure에서 지 원하는 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제입니다. |
+| **Permissions**           | **Windows:** 검색에 포함 하려는 모든 Windows 서버에서 로컬 사용자 계정을 설정 합니다. 사용자 계정은 원격 데스크톱 사용자, 성능 모니터 사용자 및 성능 로그 사용자 그룹에 추가 해야 합니다. <br/> **Linux:** 검색 하려는 Linux 서버에 루트 계정이 필요 합니다. |
+| **운영 체제** | 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제는 다음을 제외 하 고 지원 됩니다.<br/> Windows Server 2003 <br/> SUSE Linux|
 
 
 ## <a name="assessment-appliance-requirements"></a>평가-어플라이언스 요구 사항
@@ -75,9 +75,9 @@ ms.locfileid: "73715379"
 
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
-| **어플라이언스 배포**   |  실제 서버 또는 VM에 어플라이언스를 배포 합니다.<br/>  호스트 컴퓨터에서 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 호스트는 16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 어플라이언스 VM에 대 한 외부 스위치를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스가 필요 합니다.
+| **어플라이언스 배포**   |  어플라이언스는 물리적 서버 또는 가상 머신에 배포 합니다.<br/>  호스트 컴퓨터에서 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 호스트는 16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 어플라이언스 VM에 대 한 외부 스위치를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스가 필요 합니다.
 | **Azure Migrate 프로젝트**  |  어플라이언스는 단일 프로젝트에 연결할 수 있습니다.<br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 프로젝트에서 최대 35000 대의 컴퓨터를 평가할 수 있습니다.
-| **조사**              | 단일 어플라이언스에서 최대 200 서버를 검색할 수 있습니다.
+| **조사**              | 단일 어플라이언스에서 최대 250 서버를 검색할 수 있습니다.
 | **평가 그룹**       | 단일 그룹에 최대 35000 대의 컴퓨터를 추가할 수 있습니다.
 | **평가**             | 단일 평가에서 최대 35000 대의 컴퓨터를 평가할 수 있습니다.
 

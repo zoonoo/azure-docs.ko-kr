@@ -1,5 +1,5 @@
 ---
-title: Azure Machine Learning을 사용하여 IoT Hub 데이터로 일기 예보 | Microsoft Docs
+title: IoT Hub 데이터와 함께 Azure Machine Learning를 사용한 날씨 예측
 description: Azure Machine Learning을 사용하여 IoT Hub가 센서에서 수집한 온도 및 습도 데이터를 기반으로 하여 강우 확률을 예측합니다.
 author: robinsh
 manager: philmea
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: d7b71a6aa17e8eeae55fd6c8c6e9a5aa9e0ce524
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e7114febe85af4acaf94ef7fe64fe47988fd6321
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498880"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079257"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용한 일기 예보
 
@@ -42,7 +42,7 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 ## <a name="what-you-need"></a>필요한 항목
 
 - [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 장치 자습서 중 하나를 완료 합니다. 예를 들어 [node.js를 사용 하 여 Pi를 Raspberry](iot-hub-raspberry-pi-kit-node-get-started.md)합니다. 다음 요구 사항을 다룹니다.
-  - 활성화된 Azure 구독.
+  - 활성 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
 - [Azure Machine Learning Studio](https://studio.azureml.net/) 계정.
@@ -163,7 +163,7 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 
    `[YourOutputAlias]`를 작업의 출력 별칭으로 바꿉니다.
 
-1. **Save**를 클릭합니다.
+1. **저장**을 클릭합니다.
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 

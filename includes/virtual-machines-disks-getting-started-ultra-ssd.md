@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 3525edb2a73811254b2a4dce70ce3edb58988492
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 63045bf1b836215b00b9b7c1b46dd208152fa772
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012465"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74101240"
 ---
 Azure ultra disks는 Azure IaaS Vm (가상 머신)에 대 한 높은 처리량, 높은 IOPS 및 일관 된 짧은 대기 시간 디스크 저장소를 제공 합니다. 이 새 제품은 당사의 기존 디스크 제품과 동일한 가용성 수준에서 최상의 성능을 제공합니다. 울트라 디스크의 주요 장점 중 하나는 Vm을 다시 시작할 필요 없이 워크 로드와 함께 SSD의 성능을 동적으로 변경 하는 기능입니다. Ultra disks는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 집약적인 워크 로드와 같은 데이터를 많이 사용 하는 워크 로드에 적합 합니다.
 
@@ -133,7 +133,7 @@ az disk update `
 
 ## <a name="deploy-an-ultra-disk-using-powershell"></a>PowerShell을 사용 하 여 ultra disk 배포
 
-먼저, 배포할 VM 크기를 결정 합니다. 지원 되는 VM 크기 목록은 [GA 범위 및 제한 사항](#ga-scope-and-limitations) 섹션을 참조 하세요. 이러한 VM 크기에 대 한 자세한 내용은을 참조 하세요.
+먼저, 배포할 VM 크기를 결정 합니다. 지원 되는 VM 크기 목록은 [GA 범위 및 제한 사항](#ga-scope-and-limitations) 섹션을 참조 하세요.
 
 Ultra disks를 사용 하려면 ultra disks를 사용할 수 있는 VM을 만들어야 합니다. **$Resourcegroup** 및 **$vmName** 변수를 고유한 값으로 바꾸거나 설정 합니다. [이 문서의 시작 부분](#determine-vm-size-and-region-availability)에서 가져온 가용성 영역 값으로 **$zone** 설정 합니다. 그런 후에 다음 [new-azvm](/powershell/module/az.compute/new-azvm) 명령을 실행 하 여 ULTRA enabled VM을 만듭니다.
 

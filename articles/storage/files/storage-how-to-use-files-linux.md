@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 70673dc7d42a0c7d9b60f3c3f877c1985dac3c98
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 238afdf9e50eaccba51d996ce6e9cfd06ea36899
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73097804"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091991"
 ---
 # <a name="use-azure-files-with-linux"></a>Linux에서 Azure Files 사용
 [Azure Files](storage-files-introduction.md)는 사용하기 쉬운 Microsoft 클라우드 파일 시스템입니다. Azure 파일 공유는 [SMB 커널 클라이언트](https://wiki.samba.org/index.php/LinuxCIFS)를 사용하여 Linux 배포판에 탑재할 수 있습니다. 이 문서에서는 Azure 파일 공유를 탑재하는 두 가지 방법을 보여 줍니다. 하나는 요청 시 `mount` 명령을 사용하여 탑재하고, 다른 하나는 `/etc/fstab`에 항목을 만들어 부팅 시 탑재하는 방법입니다.
@@ -24,7 +24,7 @@ Linux에서 Azure 파일 공유를 탑재 하는 권장 방법은 SMB 3.0을 사
 | Ubuntu | 14.04+ | 16.04+ |
 | RHEL(Red Hat Enterprise Linux) | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ | 10 + |
+| Debian | 8+ | 10+ |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12+ | 12 SP3+ |
 
@@ -34,7 +34,7 @@ Linux에서 Azure 파일 공유를 탑재 하는 권장 방법은 SMB 3.0을 사
 uname -r
 ```
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 <a id="smb-client-reqs"></a>
 
 * <a id="install-cifs-utils"></a>**Cifs-유틸리티 패키지가 설치 되어 있는지 확인 합니다.**  
@@ -53,7 +53,7 @@ uname -r
     sudo dnf install cifs-utils
     ```
 
-    이전 버전의 **Red Hat Enterprise Linux** 및 **CentOS**에서 `dnf` 패키지 관리자를 사용 합니다.
+    이전 버전의 **Red Hat Enterprise Linux** 및 **CentOS**에서 `yum` 패키지 관리자를 사용 합니다.
 
     ```bash
     sudo yum install cifs-utils 
@@ -173,7 +173,7 @@ Azure 파일 공유를 사용하여 작업을 완료하면 `sudo umount $mntPath
     sudo chmod 600 $smbCredentialFile
     ```
 
-1. **다음 명령을 사용 하 여 `/etc/fstab`에 다음 줄을 추가** 합니다. 아래 예제에서는 소유자 (파일/디렉터리 Linux 소유자 기반)에 대 한 읽기, 쓰기 및 실행을 의미 하는 로컬 Linux 파일 및 폴더 사용 권한에 대 한 기본 0755을 읽습니다. 소유자 그룹의 사용자에 대해를 실행 하 고 시스템에서 다른 사용자를 읽고 실행 합니다. `uid`를 사용 하 고 탑재 옵션을 `gid` 하 여 탑재의 사용자 ID 및 그룹 ID를 설정할 수 있습니다. `dir_mode` 및 `file_mode`를 사용 하 여 원하는 대로 사용자 지정 권한을 설정할 수도 있습니다. 사용 권한을 설정 하는 방법에 대 한 자세한 내용은 위키백과의 [UNIX 숫자 표기법](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) 을 참조 하세요.
+1. **다음 명령을 사용 하 여 `/etc/fstab`에 다음 줄을 추가** 합니다. 아래 예제에서는 파일/디렉터리 Linux 소유자에 따라 소유자에 대 한 읽기, 쓰기 및 실행, 소유자 그룹의 사용자에 대 한 읽기 및 실행, 시스템의 다른 사용자에 대 한 읽기 및 실행을 의미 하는 로컬 Linux 파일 및 폴더 권한을 기본 0755으로 설정 합니다. `uid`를 사용 하 고 탑재 옵션을 `gid` 하 여 탑재의 사용자 ID 및 그룹 ID를 설정할 수 있습니다. `dir_mode` 및 `file_mode`를 사용 하 여 원하는 대로 사용자 지정 권한을 설정할 수도 있습니다. 사용 권한을 설정 하는 방법에 대 한 자세한 내용은 위키백과의 [UNIX 숫자 표기법](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation) 을 참조 하세요.
 
     ```bash
     httpEndpoint=$(az storage account show \
@@ -199,24 +199,24 @@ Linux에서 Azure 파일 공유를 탑재 하려면 포트 445에 액세스할 �
 
 Linux 커널 4.18부터 레거시 이유로 `cifs` 이라고 하는 SMB 커널 모듈은 `disable_legacy_dialects`라는 새 모듈 매개 변수 (종종 다양 한 외부 문서에서 *parm* 라고도 함)를 노출 합니다. Linux 커널 4.18에 도입 되었지만 일부 공급 업체는이 변경 내용을 지원 되는 이전 커널로 변경 했습니다. 편의를 위해 다음 표에서는 일반적인 Linux 배포판에서이 모듈 매개 변수의 가용성을 자세히 설명 합니다.
 
-| 유통 | SMB를 사용 하지 않도록 설정할 수 있음 1 |
+| 배포 | SMB를 사용 하지 않도록 설정할 수 있음 1 |
 |--------------|-------------------|
-| Ubuntu 14.04-16.04 | 아닙니다. |
-| Ubuntu 18.04 | yes |
-| Ubuntu 19.04 + | yes |
-| Debian 8-9 | 아닙니다. |
-| Debian 10 이상 | yes |
-| Fedora 29 이상 | yes |
-| CentOS 7 | 아닙니다. | 
-| CentOS 8 이상 | yes |
-| Red Hat Enterprise Linux 6.x-7.x | 아닙니다. |
-| Red Hat Enterprise Linux 8 이상 | yes |
-| openSUSE Leap 15.0 | 아닙니다. |
-| openSUSE Leap 15.1 + | yes |
-| openSUSE Tumbleweed | yes |
-| SUSE Linux Enterprise 11.x-12. x | 아닙니다. |
-| SUSE Linux Enterprise 15 | 아닙니다. |
-| SUSE Linux Enterprise 15.1 | 아닙니다. |
+| Ubuntu 14.04-16.04 | 아니오 |
+| Ubuntu 18.04 | 예 |
+| Ubuntu 19.04 + | 예 |
+| Debian 8-9 | 아니오 |
+| Debian 10 이상 | 예 |
+| Fedora 29 이상 | 예 |
+| CentOS 7 | 아니오 | 
+| CentOS 8 이상 | 예 |
+| Red Hat Enterprise Linux 6.x-7.x | 아니오 |
+| Red Hat Enterprise Linux 8 이상 | 예 |
+| openSUSE Leap 15.0 | 아니오 |
+| openSUSE Leap 15.1 + | 예 |
+| openSUSE Tumbleweed | 예 |
+| SUSE Linux Enterprise 11.x-12. x | 아니오 |
+| SUSE Linux Enterprise 15 | 아니오 |
+| SUSE Linux Enterprise 15.1 | 아니오 |
 
 다음 명령을 통해 Linux 배포판에서 `disable_legacy_dialects` module 매개 변수를 지원 하는지 확인할 수 있습니다.
 
@@ -273,7 +273,7 @@ sudo modprobe cifs
 cat /sys/module/cifs/parameters/disable_legacy_dialects
 ```
 
-## <a name="feedback"></a>피드백
+## <a name="feedback"></a>사용자 의견
 Linux 사용자 여러분의 의견을 듣고 싶습니다!
 
 Linux 사용자 그룹용 Azure Files는 Linux에서 File Storage를 평가하고 채택할 때 피드백을 공유할 수 있도록 포럼을 제공합니다. 사용자 그룹에 참가하려면 [Azure Files Linux 사용자](mailto:azurefileslinuxusers@microsoft.com)에게 메일을 보내세요.

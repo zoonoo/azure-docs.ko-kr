@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285921"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091791"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 데이터 탐색기 데이터 수집
 
@@ -22,17 +22,17 @@ ms.locfileid: "72285921"
 
 데이터 수집을 담당하는 Azure 데이터 탐색기 데이터 관리 서비스는 다음과 같은 기능을 제공합니다.
 
-1. **데이터 끌어오기**: 외부 원본(Event Hubs)에서 데이터를 끌어오거나 Azure 큐의 수집 요청을 읽습니다.
+1. **데이터 끌어오기**: 외부 소스(Event Hubs)에서 데이터를 끌어오거나 Azure 큐의 수집 요청을 읽습니다.
 
 1. **일괄 처리**: 같은 데이터베이스와 테이블로 흐르는 데이터를 일괄 처리하여 수집 처리량을 최적화합니다.
 
-1. **유효성 검사**: 필요한 경우 사전 유효성 검사 및 형식 변환을 수행합니다.
+1. **유효성 검사**: 예비 유효성 검사 및 형식 변환 (필요한 경우)
 
-1. **데이터 조작**: 스키마 매칭, 데이터 구성, 인덱싱, 인코딩 및 압축을 수행합니다.
+1. **데이터 조작**: 스키마 매칭, 데이터 구성, 인덱싱, 인코딩 및 압축.
 
-1. **수집 흐름의 지속성 지점**: 엔진의 수집 부하를 관리하고 일시적인 오류 시 다시 시도를 처리합니다.
+1. **수집 흐름의 지속성 포인트**: 엔진의 수집 부하를 관리하고 일시적인 오류 시 재시도를 처리합니다.
 
-1. **데이터 수집 커밋**: 데이터를 쿼리에 사용할 수 있도록 합니다.
+1. **데이터 수집 커밋**: 데이터를 쿼리에 사용할 수 있도록 지정합니다.
 
 ## <a name="ingestion-methods"></a>수집 메서드
 
@@ -117,11 +117,9 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 
 ## <a name="supported-data-formats"></a>지원되는 데이터 형식
 
-쿼리에서 수집을 제외한 모든 수집 방법에 대해 Azure Data Explorer에서 구문 분석이 가능하도록 데이터 형식을 지정합니다. 지원되는 데이터 형식은 다음과 같습니다.
-
-* TXT, CSV, TSV, TSVE, PSV, SCSV, SOH
-* JSON(구분된 줄, 여러 줄), Avro
-* ZIP 및 GZIP 
+쿼리에서 수집을 제외한 모든 수집 방법에 대해 Azure Data Explorer에서 구문 분석이 가능하도록 데이터 형식을 지정합니다. 
+* 지원 되는 데이터 형식은 TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (줄 구분, 여러 줄), Avro 및 Parquet입니다. 
+* ZIP 및 GZIP 압축을 지원 합니다.
 
 > [!NOTE]
 > 데이터가 수집될 때 목표 테이블 열을 기반으로 데이터 형식이 유추됩니다. 레코드가 불완전하거나 필수 데이터 형식으로 필드를 구문 분석할 수 없는 경우, 해당 테이블 열에는 Null 값이 채워집니다.

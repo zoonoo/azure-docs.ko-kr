@@ -1,5 +1,5 @@
 ---
-title: '라우팅 최적화 - ExpressRoute 회로: Azure | Microsoft Docs'
+title: 'Azure Express 경로: 라우팅 최적화'
 description: 이 페이지에서는 사용자에게 Microsoft 및 회사 네트워크에 연결되는 하나 이상의 ExpressRoute 회로가 있는 경우 라우팅을 최적화하는 방법에 대한 자세한 정보를 제공합니다.
 services: expressroute
 author: charwen
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: charwen
-ms.custom: seodec18
-ms.openlocfilehash: 4a20318a4779b06e60d849dea0774d717d87e48e
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: dcbae103933167c583bf0f73dc2fa09178c38bd5
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141860"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080126"
 ---
 # <a name="optimize-expressroute-routing"></a>ExpressRoute 라우팅 최적화
 여러 개의 ExpressRoute 회로가 있는 경우 Microsoft에 연결되는 하나 이상의 경로가 있습니다. 결과적으로 최적이 아닌 라우팅이 발생할 수 있습니다. 즉, 트래픽이 Microsoft에, Microsoft에서 다시 네트워크로 도달하는 경로가 더 길어질 수 있습니다. 네트워크 경로가 길어질수록 대기 시간도 늘어납니다. 대기 시간은 애플리케이션 성능 및 사용자 환경에 직접적인 영향을 줍니다. 이 문서에서는 이 문제를 보여 주고 표준 라우팅 기술을 사용하여 라우팅을 최적화하는 방법을 설명합니다.
@@ -55,7 +54,7 @@ Microsoft 또는 공용 피어 링을 활용 하는 경우 하나 이상의 Expr
 ![ExpressRoute 사례 1 문제 - 고객으로부터 Microsoft에 이르는 최적이 아닌 라우팅](./media/expressroute-optimize-routing/expressroute-case1-problem.png)
 
 ### <a name="solution-use-bgp-communities"></a>해결 방법: BGP 커뮤니티 사용
-두 사무실 사용자에 대한 라우팅을 최적화하려면 접두사가 Azure 미국 서부의 것인지 Azure 미국 동부의 것인지 알아야 합니다. 이 정보는 [BGP 커뮤니티 값](expressroute-routing.md)을 사용하여 인코딩합니다. 각 Azure 지역에 고유한 BGP 커뮤니티 값을 할당했습니다. 예를 들어 미국 동부는 "12076:51004"를, 미국 서부는 "12076:51006"을 할당했습니다. 이제 어떤 접두사가 어떤 Azure 지역의 것인지 알았으므로 어떤 ExpressRoute를 기본 설정할지 구성할 수 있습니다. BGP를 사용하여 라우팅 정보를 교환하므로 라우팅에 영향을 주는 BGP의 로컬 기본 설정을 사용할 수 있습니다. 이 예제에서는 미국 동부보다 미국 서부의 13.100.0.0/16에 더 높은 로컬 기본 설정 값을 할당할 수 있으며 마찬가지로 미국 서부보다 미국 동부의 23.100.0.0/16에 더 높은 로컬 기본 설정 값을 할당할 수 있습니다. 이 구성은 Microsoft에 대한 두 경로를 사용할 수 있는 경우 로스앤젤레스의 사용자가 미국 서부에서 ExpressRoute 회로를 사용하여 Azure 미국 서부에 연결하는 반면 뉴욕의 사용자는 미국 동부의 ExpressRoute를 사용하여 Azure 미국 동부에 연결할 수 있도록 합니다. 라우팅이 양쪽 모두에서 최적화됩니다. 
+두 사무실 사용자에 대한 라우팅을 최적화하려면 접두사가 Azure 미국 서부의 것인지 Azure 미국 동부의 것인지 알아야 합니다. 이 정보는 [BGP 커뮤니티 값](expressroute-routing.md)을 사용하여 인코딩합니다. Microsoft는 각 Azure 지역에 고유한 BGP 커뮤니티 값을 할당 했습니다. 예를 들어 미국 동부의 경우 "12076:51004", "12076:51006"는 미국 서 부입니다. 이제 어떤 접두사가 어떤 Azure 지역의 것인지 알았으므로 어떤 ExpressRoute를 기본 설정할지 구성할 수 있습니다. BGP를 사용하여 라우팅 정보를 교환하므로 라우팅에 영향을 주는 BGP의 로컬 기본 설정을 사용할 수 있습니다. 이 예제에서는 미국 동부보다 미국 서부의 13.100.0.0/16에 더 높은 로컬 기본 설정 값을 할당할 수 있으며 마찬가지로 미국 서부보다 미국 동부의 23.100.0.0/16에 더 높은 로컬 기본 설정 값을 할당할 수 있습니다. 이 구성은 Microsoft에 대한 두 경로를 사용할 수 있는 경우 로스앤젤레스의 사용자가 미국 서부에서 ExpressRoute 회로를 사용하여 Azure 미국 서부에 연결하는 반면 뉴욕의 사용자는 미국 동부의 ExpressRoute를 사용하여 Azure 미국 동부에 연결할 수 있도록 합니다. 라우팅이 양쪽 모두에서 최적화됩니다. 
 
 ![ExpressRoute 사례 1 솔루션 - BGP 커뮤니티 사용](./media/expressroute-optimize-routing/expressroute-case1-solution.png)
 

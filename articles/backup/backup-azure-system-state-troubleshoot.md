@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: dacurwin
-ms.openlocfilehash: eb8bf1891f5ce96507c20e196d20ae499f30fe34
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 5901cbe1e30eb1ce2334a7b935a3629c66c24b8a
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012121"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091582"
 ---
 # <a name="troubleshoot-system-state-backup"></a>시스템 상태 백업 문제 해결
 
@@ -102,8 +102,8 @@ PowerShell을 사용 하 여 Windows Server 백업를 설치 하려면 아래 �
 RPC (원격 프로시저 호출) | 자동
 COM + 이벤트 시스템 (EventSystem) | 자동
 시스템 이벤트 알림 서비스 (SENS) | 자동
-VSS (볼륨 섀도 복사본) | 설명서
-Microsoft 소프트웨어 섀도 복사본 공급자 (SWPRV) | 설명서
+VSS (볼륨 섀도 복사본) | 수동
+Microsoft 소프트웨어 섀도 복사본 공급자 (SWPRV) | 수동
 
 ### <a name="validate-windows-server-backup-status"></a>Windows Server 백업 상태 유효성 검사
 

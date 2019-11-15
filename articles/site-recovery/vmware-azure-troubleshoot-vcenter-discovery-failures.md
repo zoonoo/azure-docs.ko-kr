@@ -1,20 +1,20 @@
 ---
-title: Azure Site Recovery를 사용 하 여 Azure에 VMware VM 재해 복구를 수행 하는 동안 온-프레미스로 장애 복구 문제 해결
-description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구하는 동안 발생하는 장애 복구(failback) 및 다시 보호 문제를 해결하는 방법을 설명합니다.
+title: Azure Site Recovery에서 VMware vCenter 검색 오류 문제 해결
+description: 이 문서에서는 Azure Site Recovery에서 VMware vCenter 검색 오류 문제를 해결 하는 방법을 설명 합니다.
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2019
 ms.author: mayg
-ms.openlocfilehash: e9213637f45a4761af60de9dfac7add6324f6b96
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: f00c7b12accde9df9a5708a2b8b378d70428318d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053859"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091247"
 ---
-# <a name="troubleshoot-vcenter-discovery-failures"></a>vCenter 검색 실패 문제 해결
+# <a name="troubleshoot-vcenter-server-discovery-failures"></a>vCenter Server 검색 오류 문제 해결
 
 이 문서는 VMware vCenter 검색 오류로 인해 발생 하는 문제를 해결 하는 데 도움이 됩니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "73053859"
 
 - VM을 식별 하 고 값을 숫자 값 (vCenter의 VM 편집 설정)으로 설정 합니다.
 
-or
+또는
 
 - 구성 서버를 버전 9.20 이상으로 업그레이드 합니다.
 
@@ -60,7 +60,7 @@ PsExec 도구를 사용 하 여 시스템 사용자 컨텍스트에 액세스 �
 
 1. PsExec 도구를 사용 하 여 시스템 사용자 컨텍스트에서 IE를 엽니다.
     
-    psexec-i "%Programfiles%\internet explorer\ Explorer\iexplore.exe"
+    psexec -s -i "%programfiles%\Internet Explorer\iexplore.exe"
 
 2. Internet Explorer에서 프록시 설정을 수정 하 여 vCenter IP 주소를 무시 합니다.
 3. Tmanssvc 서비스를 다시 시작 합니다.

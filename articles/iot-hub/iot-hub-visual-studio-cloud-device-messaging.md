@@ -1,5 +1,5 @@
 ---
-title: Visual Studio용 클라우드 탐색기를 사용하여 Azure IoT Hub 클라우드 디바이스 메시지 관리 | Microsoft Docs
+title: VS 클라우드 탐색기를 사용 하 여 Azure IoT Hub 장치 메시징 관리
 description: Visual Studio용 클라우드 탐색기를 사용하여 디바이스-클라우드 메시지를 모니터링하고 클라우드를 Azure IoT Hub의 디바이스 메시지로 보내는 방법을 알아봅니다.
 author: shizn
 ms.service: iot-hub
@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: xshi
-ms.openlocfilehash: b8ea705b55c1485cab2e1478d2d455f1d4a427d3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: c56bb7030b2ebc12e3afc24e2d8cb29ce2dda0bf
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050207"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74079486"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Visual Studio용 클라우드 탐색기를 사용하여 디바이스와 IoT Hub 간에 메시지 보내고 받기
 
@@ -36,9 +36,9 @@ ms.locfileid: "70050207"
 
 ## <a name="what-you-need"></a>필요한 항목
 
-다음 필수 구성 요소가 필요 합니다.
+다음 필수 조건이 필요합니다.
 
-- 활성화된 Azure 구독.
+- 활성 Azure 구독.
 
 - 구독 중인 Azure IoT Hub
 
@@ -54,7 +54,7 @@ Visual Studio 2017 Visual Studio 설치 관리자의 클라우드 탐색기 구�
 
 허브에 액세스 하려면 다음 단계를 수행 합니다.
 
-1. Visual Studio에서**클라우드 탐색기** **보기** > 를 선택 하 여 클라우드 탐색기를 엽니다.
+1. Visual Studio에서 **뷰** > **클라우드 탐색기** 를 선택 하 여 클라우드 탐색기를 엽니다.
 
 1. 계정 관리 아이콘을 선택 하 여 구독을 표시 합니다.
 

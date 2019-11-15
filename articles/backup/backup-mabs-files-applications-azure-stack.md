@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/05/2018
 ms.author: dacurwin
-ms.openlocfilehash: dc498e08509280b0dcd19cb1556a3c5a152f6d97
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 70da426f1dff843f1e2515052431f54f8ea83780
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074103"
+ms.locfileid: "74091576"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Azure Stack의 파일 및 애플리케이션 백업
 
@@ -134,7 +134,7 @@ Azure Portal에서 Azure Backup Server 엔터티를 보려면 다음 단계를 �
 2. 백업 인프라 클릭
 3. 백업 관리 서버 보기
 
-## <a name="see-also"></a>참고 항목:
+## <a name="next-steps"></a>다음 단계
 
 Azure Backup Server를 사용하여 다른 워크로드를 보호하는 방법에 대한 내용은 다음 아티클 중 하나를 참조하세요.
 

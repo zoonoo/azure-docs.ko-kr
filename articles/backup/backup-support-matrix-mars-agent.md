@@ -7,12 +7,12 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.author: dacurwin
 manager: carmonm
-ms.openlocfilehash: 57e8eab6413efa25eb03c48a968ca2b671b8c8d6
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a4372a66caaa8af807980a2f58f344cbf8fb1be9
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162126"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090544"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -48,7 +48,7 @@ MARS 에이전트를 사용 하 여 데이터를 백업 하는 경우 에이전�
 **캐시** | **세부 정보**
 --- | ---
 크기 |  캐시 폴더의 사용 가능한 공간은 전체 백업 데이터 크기의 5 ~ 10% 이상 이어야 합니다.
-위치 | 캐시 폴더는 백업 중인 컴퓨터에 로컬로 저장 되어 있어야 하며 온라인 상태 여야 합니다. 캐시 폴더는 네트워크 공유, 이동식 미디어 또는 오프 라인 볼륨에 있지 않아야 합니다.
+Location | 캐시 폴더는 백업 중인 컴퓨터에 로컬로 저장 되어 있어야 하며 온라인 상태 여야 합니다. 캐시 폴더는 네트워크 공유, 이동식 미디어 또는 오프 라인 볼륨에 있지 않아야 합니다.
 폴더 | 캐시 폴더는 중복 제거 된 볼륨이 나 압축 된 폴더 (스파스 또는 재분석 지점 포함)에서 암호화 되어야 합니다.
 위치 변경 | 백업 엔진 (`net stop bengine`)을 중지 하 고 캐시 폴더를 새 드라이브에 복사 하 여 캐시 위치를 변경할 수 있습니다. 새 드라이브에 충분 한 공간이 있는지 확인 합니다. 그런 다음 **HKLM\SOFTWARE\Microsoft\Windows Azure Backup** (**config/ScratchLocation** 및 **config/cloudbackupprovider/ScratchLocation**)에서 두 레지스트리 항목을 새 위치로 업데이트 하 고 엔진을 다시 시작 합니다.
 
@@ -58,11 +58,11 @@ MARS 에이전트를 사용 하 여 데이터를 백업 하는 경우 에이전�
 
 MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
-- http://www.msftncsi.com/ncsi.txt
+- <http://www.msftncsi.com/ncsi.txt>
 - *.Microsoft.com
 - *.WindowsAzure.com
-- *. MicrosoftOnline.com
-- *. Windows.net
+- *.MicrosoftOnline.com
+- *.Windows.net
 
 ### <a name="throttling-support"></a>제한 지원
 
@@ -73,21 +73,24 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
 ## <a name="support-for-direct-backups"></a>직접 백업 지원
 
+>[!NOTE]
+> MARS 에이전트는 Windows Server Core Sku를 지원 하지 않습니다.
+
 MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 Azure Vm에서 실행 되는 일부 운영 체제에서 Azure로 직접 백업할 수 있습니다. 운영 체제는 64 비트 여야 하며, 최신 서비스 팩 및 업데이트를 실행 해야 합니다. 다음 표에는 이러한 운영 체제가 요약 되어 있습니다.
 
 **운영 체제** | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**
 --- | --- | --- | ---
-Windows 10(Enterprise, Pro, Home) | yes | 아닙니다. |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 8.1(Enterprise, Pro)| yes |아닙니다. | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 8(Enterprise, Pro) | yes | 아닙니다. | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 7(Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | yes | 아닙니다. | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows Server 2016(Standard, Datacenter, Essentials) | yes | yes | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
-Windows Server 2012 R2(Standard, Datacenter, Foundation, Essentials) | yes | yes | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
-Windows Server 2012(Standard, Datacenter, Foundation) | yes | yes |-.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE)
-Windows Server 2008 R2(Standard, Enterprise, Datacenter, Foundation) | yes | yes | -.NET 3.5, .Net 4.5 <br> -Windows PowerShell <br> 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE)
-Windows Server 2008 SP2(Standard, Datacenter, Foundation) | yes | 아닙니다. | -.NET 3.5, .Net 4.5 <br> -Windows PowerShell <br> 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE) <br> -Virtual Server 2005 기본 + KB KB948515
-Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | yes | 아닙니다. | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
-Windows Server 2019(Standard, Datacenter, Essentials) | yes | yes | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows 10(Enterprise, Pro, Home) | 예 | 아니오 |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8.1(Enterprise, Pro)| 예 |아니오 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8(Enterprise, Pro) | 예 | 아니오 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 7(Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | 예 | 아니오 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows Server 2016(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Server 2012 R2(Standard, Datacenter, Foundation, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Server 2012(Standard, Datacenter, Foundation) | 예 | 예 |-.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE)
+Windows Server 2008 R2(Standard, Enterprise, Datacenter, Foundation) | 예 | 예 | -.NET 3.5, .Net 4.5 <br> -Windows PowerShell <br> 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE)
+Windows Server 2008 SP2(Standard, Datacenter, Foundation) | 예 | 아니오 | -.NET 3.5, .Net 4.5 <br> -Windows PowerShell <br> 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE) <br> -Virtual Server 2005 기본 + KB KB948515
+Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | 예 | 아니오 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 
 자세한 내용은 [지원 되는 MABS 및 DPM 운영 체제](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)를 참조 하세요.
 
@@ -107,7 +110,7 @@ Windows 7| 1700 GB
 
 **형식** | **지원**
 --- | ---
-암호화| 지원됩니다.
+암호화됨| 지원됩니다.
 압축됨 | 지원됩니다.
 스파스 | 지원됩니다.
 압축 및 스파스 |지원됩니다.
@@ -122,12 +125,12 @@ OneDrive (동기화 된 파일이 스파스 스트림)| 지원되지 않습니�
 
 **드라이브/볼륨** | **지원** | **세부 정보**
 --- | --- | ---
-읽기 전용 볼륨| 지원하지 않음 | VSS (볼륨 복사 섀도 서비스)는 볼륨에 쓸 수 있는 경우에만 작동 합니다.
-오프라인 볼륨| 지원하지 않음 |VSS는 볼륨이 온라인 상태인 경우에만 작동 합니다.
-네트워크 공유| 지원하지 않음 |볼륨은 서버에서 로컬 이어야 합니다.
-BitLocker로 보호 된 볼륨| 지원하지 않음 |백업을 시작 하기 전에 볼륨을 잠금 해제 해야 합니다.
-파일 시스템 id| 지원하지 않음 |NTFS만 지원 됩니다.
-이동식 미디어| 지원하지 않음 |모든 백업 항목 원본의 상태는 *고정* 이어야 합니다.
+읽기 전용 볼륨| 지원되지 않음 | VSS (볼륨 복사 섀도 서비스)는 볼륨에 쓸 수 있는 경우에만 작동 합니다.
+오프라인 볼륨| 지원되지 않음 |VSS는 볼륨이 온라인 상태인 경우에만 작동 합니다.
+네트워크 공유| 지원되지 않음 |볼륨은 서버에서 로컬 이어야 합니다.
+BitLocker로 보호 된 볼륨| 지원되지 않음 |백업을 시작 하기 전에 볼륨을 잠금 해제 해야 합니다.
+파일 시스템 id| 지원되지 않음 |NTFS만 지원 됩니다.
+이동식 미디어| 지원되지 않음 |모든 백업 항목 원본의 상태는 *고정* 이어야 합니다.
 중복 제거된 드라이브 | 지원됨 | Azure Backup에서 중복 제거된 데이터를 일반 데이터로 변환합니다. 이는 데이터를 최적화, 암호화, 저장 및 자격 증명 모음으로 전송 합니다.
 
 ## <a name="support-for-initial-offline-backup"></a>오프라인 초기 백업 지원

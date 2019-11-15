@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 12/15/2017
 ms.author: glenga
 ms.reviewer: sunayv
-ms.openlocfilehash: 2ed154d15176ed6706a69f0a6be4c60159d478c2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b12d1fec9b7852835d3d5b5346d64868d2ee8c46
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087689"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082858"
 ---
 # <a name="exporting-an-azure-hosted-api-to-powerapps-and-microsoft-flow"></a>Azure에서 호스트되는 API를 PowerApps 및 Microsoft Flow로 내보내기
 
@@ -30,7 +30,7 @@ ms.locfileid: "70087689"
 API를 내보내기 전에 먼저 OpenAPI 정의(이전에는 [Swagger](https://swagger.io/) 파일)를 사용하여 API를 설명해야 합니다. 이 정의에는 API에서 사용할 수 있는 작업 및 API에 대한 요청 및 응답 데이터가 구성되는 방식에 대한 정보가 포함됩니다. PowerApps 및 Microsoft Flow는 모든 OpenAPI 2.0 정의를 위한 사용자 지정 커넥터를 만들 수 있습니다. Azure Functions 및 Azure App Service는 OpenAPI 정의를 만들고 호스트하고 관리할 수 있는 기본 지원을 제공합니다. 자세한 내용은 [Azure App Service에서 CORS를 통해 RESTful API 호스팅](../app-service/app-service-web-tutorial-rest-api.md)을 참조하세요.
 
 > [!NOTE]
-> OpenAPI 정의를 사용하지 않고 PowerApps 및 Microsoft Flow UI에서 사용자 지정 커넥터를 빌드할 수도 있습니다. 자세한 내용은 [사용자 지정 커넥터 등록 및 사용(PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) 및 [사용자 지정 커넥터 등록 및 사용(Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/)을 참조하세요.
+> OpenAPI 정의를 사용하지 않고 PowerApps 및 Microsoft Flow UI에서 사용자 지정 커넥터를 빌드할 수도 있습니다. 자세한 내용은 [사용자 지정 커넥터 등록 및 사용(PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/) 및 [사용자 지정 커넥터 등록 및 사용(Microsoft Flow)](/power-automate/developer/register-custom-api)을 참조하세요.
 
 API 정의를 내보내려면 다음 단계를 수행합니다.
 
@@ -68,7 +68,7 @@ API 정의를 내보내려면 다음 단계를 수행합니다.
 
 2. 표에 지정된 대로 설정을 사용합니다.
 
-    |설정|Description|
+    |설정|설명|
     |--------|------------|
     |**환경**|사용자 지정 커넥터를 저장해야 하는 환경을 선택합니다. 자세한 내용은 [환경 개요](https://powerapps.microsoft.com/tutorials/environments-overview/)를 참조하세요.|
     |**사용자 지정 API 이름**|PowerApps 및 Microsoft Flow 빌더의 커넥터 목록에 표시될 이름을 입력합니다.|
@@ -127,7 +127,7 @@ PowerApps 및 Microsoft Flow로 API 정의를 가져오려면 다음 단계를 �
 
 7. 페이지 위쪽의 **커넥터 만들기**를 클릭합니다.
 
-이제 PowerApps 및 Microsoft Flow에서 사용자 지정 커넥터에 연결할 수 있습니다. PowerApps 및 Microsoft Flow 포털에서 커넥터를 만드는 방법에 대한 자세한 내용은 [사용자 지정 커넥터 등록(PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) 및 [사용자 지정 커넥터 등록(Microsoft Flow)](https://flow.microsoft.com/documentation/register-custom-api/#register-your-custom-connector)을 참조하세요.
+이제 PowerApps 및 Microsoft Flow에서 사용자 지정 커넥터에 연결할 수 있습니다. PowerApps 및 Microsoft Flow 포털에서 커넥터를 만드는 방법에 대한 자세한 내용은 [사용자 지정 커넥터 등록(PowerApps)](https://powerapps.microsoft.com/tutorials/register-custom-api/#register-your-custom-connector) 및 [사용자 지정 커넥터 등록(Microsoft Flow)](/power-automate/get-started-flow-dev#create-a-custom-connector)을 참조하세요.
 
 <a name="auth"></a>
 ## <a name="specify-authentication-type"></a>인증 유형 지정
@@ -158,7 +158,7 @@ Azure AD를 사용하는 경우 두 개의 Azure AD 애플리케이션 등록이
 
 - 커넥터에 대한 등록을 구성하려면 [Azure AD 애플리케이션 추가](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)의 단계를 따릅니다. 등록에는 API 및 `https://msmanaged-na.consent.azure-apim.net/redirect`의 회신 URL에 대한 위임된 액세스가 필요합니다. 
 
-자세한 내용은 [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) 및 [Microsoft Flow](https://flow.microsoft.com/documentation/customapi-azure-resource-manager-tutorial/)에 대한 Azure AD 등록 예제를 참조하세요. 이러한 예제에서는 Azure Resource Manager를 API로 사용합니다. 다음 단계를 수행하는 경우 API를 대체하세요.
+자세한 내용은 [PowerApps](https://powerapps.microsoft.com/tutorials/customapi-azure-resource-manager-tutorial/) 및 [Microsoft Flow](https://docs.microsoft.com/connectors/custom-connectors/azure-active-directory-authentication)에 대한 Azure AD 등록 예제를 참조하세요. 이러한 예제에서는 Azure Resource Manager를 API로 사용합니다. 다음 단계를 수행하는 경우 API를 대체하세요.
 
 다음과 같은 구성 값이 필요합니다.
 - **클라이언트 ID** - 커넥터 Azure AD 등록의 클라이언트 ID

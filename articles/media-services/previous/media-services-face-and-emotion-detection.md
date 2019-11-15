@@ -15,19 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: 6fa2495ee580bb8e74a0d026533fa90f20743510
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: b6cbca454d1463ffe6e73d7021ea563e7121b7be
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881760"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084632"
 ---
 # <a name="detect-face-and-emotion-with-azure-media-analytics"></a>Azure 미디어 분석으로 얼굴 및 감정 검색
 
-> [!IMPORTANT]
-> 일부 미디어 프로세서의 사용 중지 [계획](media-services-analytics-overview.md#retirement-plans) 을 검토 합니다.
-
 ## <a name="overview"></a>개요
+
 **Azure 미디어 얼굴 탐지기** MP(미디어 프로세서)를 사용하여 이동 추적, 계산이 가능해지며 표정을 통해 대상 그룹 참여 및 반응 판단도 가능합니다. 이 서비스는 두 가지 기능을 포함합니다. 
 
 * **얼굴 검색**
@@ -349,7 +347,7 @@ ms.locfileid: "72881760"
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 ```csharp
 using System;
@@ -521,10 +519,10 @@ namespace FaceDetection
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>관련된 링크
+## <a name="related-links"></a>관련 링크
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](https://amslabs.azurewebsites.net/demos/Analytics.html)

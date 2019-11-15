@@ -1,5 +1,5 @@
 ---
-title: 모니터링, 메트릭 및 경고 - Azure ExpressRoute | Microsoft Docs
+title: 'Azure Express 경로: 모니터링, 메트릭 및 경고'
 description: 이 페이지에서는 ExpressRoute 모니터링에 대한 정보를 제공합니다.
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: 40e5561c9a55595340568ec660cbc6dd6e1eab51
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 95083809f8fcfe42ae76faa0af507c7ce4acd709
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672107"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083423"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>ExpressRoute 모니터링, 메트릭 및 경고
 
@@ -32,16 +31,16 @@ ms.locfileid: "71672107"
 ### <a name="available-metrics"></a>사용 가능한 메트릭
 |**메트릭**|**범주**|**개 차원**|**기능**|
 | --- | --- | --- | --- |
-|ARP 가용성|가용성|<ui><li>피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형 (비공개/공용/Microsoft)</ui></li>|Express 경로|
-|Bgp 가용성|가용성|<ui><li> 피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형</ui></li>|Express 경로|
-|BitsInPerSecond|트래픽|<ui><li> 피어 링 유형 (Express 경로)</ui></li><ui><li>링크 (Express 경로 직접)</ui></li>| <li> Express 경로</li><li>ExpressRoute Direct|
-|BitsOutPerSecond|트래픽| <ui><li>피어 링 유형 (Express 경로)</ui></li><ui><li> 링크 (Express 경로 직접) | <ui><li>ExpressRoute<ui><li>Express 경로 직접</ui></li> |
+|ARP 가용성|가용성|<ui><li>피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형 (개인/공용/Microsoft)</ui></li>|ExpressRoute|
+|Bgp 가용성|가용성|<ui><li> 피어 (기본/보조 Express 경로 라우터)</ui></li><ui><li> 피어 링 유형</ui></li>|ExpressRoute|
+|BitsInPerSecond|트래픽|<ui><li> 피어 링 유형 (Express 경로)</ui></li><ui><li>Link (Express 경로 직접)</ui></li>| <li> ExpressRoute</li><li>ExpressRoute Direct|
+|BitsOutPerSecond|트래픽| <ui><li>피어 링 유형 (Express 경로)</ui></li><ui><li> 링크 (Express 경로 직접) | <ui><li>Express 경로<ui><li>Express 경로 직접</ui></li> |
 |GlobalReachBitsInPerSecond|트래픽|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|Global Reach|
 |GlobalReachBitsOutPerSecond|트래픽|<ui><li>피어 링 회로 Skey (서비스 키)</ui></li>|Global Reach|
 |AdminState|실제 연결|링크|ExpressRoute Direct|
 |LineProtocol|실제 연결|링크|ExpressRoute Direct|
-|RxLightLevel|실제 연결|<ui><li>링크나</ui></li><ui><li>차선</ui></li>|ExpressRoute Direct|
-|TxLightLevel|실제 연결|<ui><li>링크나</ui></li><ui><li>차선</ui></li>|ExpressRoute Direct|
+|RxLightLevel|실제 연결|<ui><li>링크</ui></li><ui><li>레인</ui></li>|ExpressRoute Direct|
+|TxLightLevel|실제 연결|<ui><li>링크</ui></li><ui><li>레인</ui></li>|ExpressRoute Direct|
 >[!NOTE]
 >*GlobalGlobalReachBitsInPerSecond* 및 *GlobalGlobalReachBitsOutPerSecond* 를 사용 하는 것은 하나 이상의 Global Reach 연결이 설정 된 경우에만 표시 됩니다.
 >

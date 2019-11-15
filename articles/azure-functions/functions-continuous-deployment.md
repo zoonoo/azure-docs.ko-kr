@@ -1,21 +1,19 @@
 ---
-title: Azure Functions에 대한 연속 배포 | Microsoft 문서
+title: Azure Functions에 대한 연속 배포
 description: Azure App Service의 연속 배포 기능을 사용 하 여 함수를 게시 합니다.
-services: functions
-documentationcenter: na
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/25/2016
+ms.date: 09/25/2019
 ms.author: glenga
-ms.openlocfilehash: fb3cd885c0a16b3dc3a79150043b25cb271040bd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dae75153cffbf2f0e836e1a28b78a9f05f54e6e0
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097092"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091171"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Azure Functions에 대한 연속 배포
 
@@ -35,11 +33,14 @@ Azure에서 함수에 대 한 배포 단위는 함수 앱입니다. 함수 앱�
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
+>[!NOTE]  
+> 소비 계획에서 실행 되는 Linux 앱에 대해서는 연속 배포가 아직 지원 되지 않습니다. 
+
 ## <a name="credentials"></a>연속 배포 설정
 
 기존 함수 앱에 대 한 연속 배포를 구성 하려면 다음 단계를 완료 합니다. 이 단계에서는 GitHub 리포지토리와의 통합을 보여 주지만, Azure Repos 또는 다른 소스 코드 리포지토리에 대해 비슷한 단계가 적용 됩니다.
 
-1. [Azure Portal](https://portal.azure.com)의 함수 앱에서 **플랫폼 기능** > **배포 센터**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 함수 앱에서 **플랫폼 기능** > **Deployment Center**를 선택 합니다.
 
     ![배포 센터 열기](./media/functions-continuous-deployment/platform-features.png)
 
@@ -56,7 +57,7 @@ Azure에서 함수에 대 한 배포 단위는 함수 앱입니다. 함수 앱�
 4. 다음 빌드 공급자 중 하나를 선택 합니다.
 
     * **App Service 빌드 서비스**: 빌드가 필요 하지 않거나 제네릭 빌드가 필요한 경우에 가장 적합 합니다.
-    * **Azure Pipelines (미리 보기)** : 빌드에 대해 더 많은 제어가 필요한 경우에 가장 적합 합니다. 이 공급자는 현재 미리 보기 상태입니다.
+    * **Azure Pipelines (미리 보기)** : 빌드를 보다 세부적으로 제어 해야 하는 경우에 가장 적합 합니다. 이 공급자는 현재 미리 보기 상태입니다.
 
     ![빌드 공급자 선택](./media/functions-continuous-deployment/build.png)
 

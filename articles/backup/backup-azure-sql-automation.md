@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 85d6b9e00798926bee2d5050767ba47512fc9e86
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2622fc9b7b7bc5caedc560af64a5d6b2971b814f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074108"
+ms.locfileid: "74090943"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm에서 SQL 데이터베이스 백업 및 복원
 
@@ -254,7 +254,7 @@ Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLDat
 관련 된 보호 가능한 항목을 인출 한 후에는 [위의 섹션](#configuring-backup)에 설명 된 대로 백업을 사용 하도록 설정 합니다.
 새 Db를 수동으로 검색 하지 않으려는 경우 [아래](#enable-autoprotection)설명 된 대로 자동 보호를 선택할 수 있습니다.
 
-## <a name="enable-autoprotection"></a>AutoProtection 사용
+## <a name="enable-autoprotection"></a>Start-autoprotection 사용
 
 사용자는 나중에 추가 된 모든 Db가 특정 정책을 사용 하 여 자동으로 보호 되도록 백업을 구성할 수 있습니다. Autoprotection을 사용 하도록 설정 하려면 [AzRecoveryServicesBackupAutoProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupAutoProtection?view=azps-1.5.0) PS cmdlet을 사용 합니다.
 
