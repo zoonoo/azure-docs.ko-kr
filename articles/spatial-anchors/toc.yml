@@ -57,6 +57,20 @@
           href: how-tos/create-locate-anchors-cpp-ndk.md
         - name: C++/WinRT에서
           href: how-tos/create-locate-anchors-cpp-winrt.md
+    - name: 디바이스의 센서를 사용하여 주변 앵커 검색
+      items:
+        - name: 'C#/Unity에서'
+          href: how-tos/set-up-coarse-reloc-unity.md
+        - name: Objective-C에서
+          href: how-tos/set-up-coarse-reloc-objc.md
+        - name: Swift에서
+          href: how-tos/set-up-coarse-reloc-swift.md
+        - name: Java에서
+          href: how-tos/set-up-coarse-reloc-java.md
+        - name: C++/NDK에서
+          href: how-tos/set-up-coarse-reloc-cpp-ndk.md
+        - name: C++/WinRT에서
+          href: how-tos/set-up-coarse-reloc-cpp-winrt.md
 - name: 샘플
   items:
     - name: Azure Spatial Anchors 샘플(GitHub)
@@ -71,6 +85,8 @@
       href: concepts/guidelines-effective-anchor-experiences.md
     - name: 로깅 및 진단
       href: concepts/logging-diagnostics.md
+    - name: 광역 위치 재결정
+      href: concepts/coarse-reloc.md
 - name: 참조
   items:
     - name: Unity용 SDK

@@ -75,6 +75,8 @@
           href: key-vault-access.md
         - name: 관리 ID를 사용하여 배포
           href: publish-managed-identity.md
+        - name: 알림을 사용하여 배포
+          href: publish-notifications.md
     - name: 소비자
       items:
         - name: 관리되는 애플리케이션 모니터링

@@ -140,6 +140,8 @@
                   href: learn/quick-create-workspace-posh.md
             - name: 작업 영역 삭제 및 복구
               href: platform/delete-workspace.md
+            - name: 작업 영역 이동
+              href: platform/move-workspace.md
             - name: 서비스 공급자용 디자인
               href: platform/service-providers.md
             - name: 액세스 관리

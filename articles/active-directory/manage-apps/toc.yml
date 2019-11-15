@@ -24,6 +24,8 @@
 - name: 개념
   expanded: true
   items:
+    - name: 앱 관리 모범 사례
+      href: application-management-fundamentals.md
     - name: 클라우드 앱 및 Single Sign-On
       items:
         - name: 클라우드 앱 통합 계획

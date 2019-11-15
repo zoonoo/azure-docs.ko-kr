@@ -27,6 +27,7 @@ sections:
           - html: <a href="/azure/spatial-anchors/concepts/anchor-relationships-way-finding">앵커 관계 및 방법 찾기.</a>
           - html: <a href="/azure/spatial-anchors/concepts/guidelines-effective-anchor-experiences">환경 지침.</a>
           - html: <a href="/azure/spatial-anchors/concepts/logging-diagnostics">로깅 및 진단.</a>
+          - html: <a href="/azure/spatial-anchors/concepts/coarse-reloc">광역 위치 재결정.</a>
   - title: 5분 빠른 시작
     items:
       - type: paragraph

@@ -180,6 +180,8 @@
       items:
         - name: Azure 데이터 팩터리
           items:
+            - name: Data Factory와 통합
+              href: data-factory-integration.md
             - name: Azure Data Factory 템플릿을 사용하여 데이터 대량 복사
               href: data-factory-template.md
             - name: Azure Data Factory를 사용하여 제어 명령 실행

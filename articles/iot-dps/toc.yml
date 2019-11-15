@@ -145,6 +145,8 @@
       href: how-to-send-additional-data.md
     - name: 문제 해결
       href: how-to-troubleshoot-dps.md
+    - name: MQTT 프로토콜을 사용하여 DPS와 통신
+      href: iot-dps-mqtt-support.md
 - name: 참고 자료
   items:
     - name: REST API
