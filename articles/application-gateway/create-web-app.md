@@ -1,20 +1,21 @@
 ---
-title: Azure Application Gateway로 웹앱 보호 - PowerShell
+title: PowerShell을 사용 하 여 App Service 구성
+titleSuffix: Azure Application Gateway
 description: 이 문서에서는 기존 또는 새 애플리케이션 게이트웨이에 웹앱을 백 엔드 호스트로 구성하는 방법을 안내합니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: dcf21fe111ab742074ab4fe580a021338e1f7c43
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4198c83a167ad8f2d52f4393c39625948e18e6e3
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62122220"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74089505"
 ---
-# <a name="configure-app-service-with-application-gateway"></a>Application Gateway를 사용하여 App Service 구성
+# <a name="configure-app-service-with-application-gateway-using-powershell"></a>PowerShell을 사용 하 여 Application Gateway App Service 구성
 
 Application Gateway를 통해 App Service 앱 또는 다른 다중 테넌트 서비스를 백 엔드 풀 멤버로 사용할 수 있습니다. 이 문서에서는 Application Gateway를 사용하여 App Service 앱을 구성하는 방법을 알아봅니다. 첫 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하도록 기존 애플리케이션 게이트웨이를 구성하는 방법을 보여 줍니다. 두 번째 예에서는 웹앱을 백 엔드 풀 멤버로 사용하여 새 애플리케이션 게이트웨이를 만드는 방법을 보여 줍니다.
 
@@ -165,4 +166,4 @@ DnsSettings              : {
 
 ## <a name="next-steps"></a>다음 단계
 
-다음을 방문하여 리디렉션을 구성하는 방법을 알아봅니다. [PowerShell을 사용하여 Application Gateway에서 리디렉션 구성](redirect-overview.md)
+[PowerShell을 사용하여 Application Gateway에서 리디렉션 구성](redirect-overview.md)을 방문하여 리디렉션 구성 방법을 알아봅니다.

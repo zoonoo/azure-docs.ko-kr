@@ -1,5 +1,5 @@
 ---
-title: ExpressRoute Direct 구성 - Azure CLI | Microsoft Docs
+title: 'Azure Express 경로: Express 경로 직접 구성: CLI'
 description: 이 문서는를 사용 하 여 Express 경로 다이렉트를 구성 하는 데 도움이 됩니다 Azure CLI
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: a879344fddd6d12ae8a50e109dcaf4a4bb2c1b68
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 6a17570a62728d5b4f9c99e3c4c939b5c77cb3df
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161559"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74080223"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 직접 구성
 

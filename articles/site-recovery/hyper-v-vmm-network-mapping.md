@@ -1,18 +1,18 @@
 ---
-title: Hyper-v VM (VMM 사용)에 대 한 네트워크 매핑 정보를 사용 하 여 Azure로의 재해 복구 정보 Site Recovery
+title: Site Recovery의 Hyper-v (VMM 사용) 네트워크 매핑 정보
 description: Azure Site Recovery를 사용하여 Azure로의 VMM 클라우드에서 관리되는 Hyper-V VM의 재해 복구를 위한 네트워크 매핑을 설정하는 방법을 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 637f327b40341ac04f37baf9e43f136a0315b17f
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 6b68b4c943ec96620427978c2309f27e1fb1f217
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813664"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082567"
 ---
 # <a name="prepare-network-mapping-for-hyper-v-vm-disaster-recovery-to-azure"></a>Azure로 Hyper-V VM 재해 복구를 수행하기 위해 네트워크 매핑 준비
 
@@ -32,7 +32,7 @@ Azure로 복제할 때 네트워크 매핑은 원본 VMM 서버의 VM 네트워�
 - 장애 조치 후 원본 네트워크의 Azure VM이 매핑된 대상 가상 네트워크에 연결됩니다.
 - 원본 VM 네트워크에 추가된 새 VM은 복제된 후에 매핑된 Azure 네트워크에 연결됩니다.
 - 대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 머신이 있는 서브넷과 같으면 복제 가상 머신이 장애 조치(failover) 후에 대상 서브넷에 연결됩니다.
-- 일치하는 이름을 가진 대상 서브넷이 없으면 가상 머신이 네트워크의 첫 번째 서브넷에 연결됩니다.
+- 일치하는 이름을 가진 대상 서브넷이 없으면 가상 컴퓨터가 네트워크의 첫 번째 서브넷에 연결됩니다.
 
 ## <a name="prepare-network-mapping-for-replication-to-a-secondary-site"></a>보조 사이트로의 복제를 위한 네트워크 매핑 준비
 
@@ -49,13 +49,13 @@ Azure로 복제할 때 네트워크 매핑은 원본 VMM 서버의 VM 네트워�
 - Site Recovery에서 네트워크 매핑 중에 대상 VM 네트워크를 선택하면 보호에 사용되는 대상 클라우드의 사용 가능한 대상 VM 네트워크와 함께 원본 VM 네트워크를 사용하는 VMM 원본 클라우드가 표시됩니다.
 - 대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 머신이 있는 서브넷과 같으면 복제 VM이 장애 조치(failover) 후에 대상 서브넷에 연결됩니다. 이름이 일치하는 대상 서브넷이 없으면 VM은 네트워크의 첫 번째 서브넷에 연결됩니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 이 메커니즘을 설명하는 예는 다음과 같습니다. 뉴욕과 시카고 두 위치에 있는 조직을 보겠습니다.
 
 **위치** | **VMM 서버** | **VM 네트워크** | **다음으로 매핑**
 ---|---|---|---
-New York | VMM-뉴욕| VMNetwork1-뉴욕 | VMNetwork1-시카고로 매핑
+뉴욕 | VMM-뉴욕| VMNetwork1-뉴욕 | VMNetwork1-시카고로 매핑
  |  | VMNetwork2-뉴욕 | 매핑되지 않음
 시카코 | VMM-시카고| VMNetwork1-시카고 | VMNetwork1-뉴욕으로 매핑
  | | VMNetwork2-시카고 | 매핑되지 않음
@@ -73,14 +73,14 @@ VMM 클라우드가 예제 조직 및 클라우드와 연결된 논리 네트워
 ---|---|---
 GoldCloud1 | GoldCloud2 |
 SilverCloud1| SilverCloud2 |
-GoldCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-뉴욕</p><p>LogicalNetwork1-시카고</p>
-SilverCloud2 | <p>NA</p><p></p> | <p>LogicalNetwork1-뉴욕</p><p>LogicalNetwork1-시카고</p>
+GoldCloud2 | <p>해당 없음</p><p></p> | <p>LogicalNetwork1-뉴욕</p><p>LogicalNetwork1-시카고</p>
+SilverCloud2 | <p>해당 없음</p><p></p> | <p>LogicalNetwork1-뉴욕</p><p>LogicalNetwork1-시카고</p>
 
 ### <a name="logical-and-vm-network-settings"></a>논리 및 VM 네트워크 설정
 
 **위치** | **논리 네트워크** | **연결된 VM 네트워크**
 ---|---|---
-New York | LogicalNetwork1-뉴욕 | VMNetwork1-뉴욕
+뉴욕 | LogicalNetwork1-뉴욕 | VMNetwork1-뉴욕
 시카코 | LogicalNetwork1-시카고 | VMNetwork1-시카고
  | LogicalNetwork2Chicago | VMNetwork2-시카고
 
@@ -88,7 +88,7 @@ New York | LogicalNetwork1-뉴욕 | VMNetwork1-뉴욕
 
 이러한 설정에 따라 대상 VM 네트워크를 선택하면 다음 표에 사용 가능한 선택 항목이 보입니다.
 
-**선택** | **보호된 클라우드** | **클라우드 보호** | **사용 가능한 대상 네트워크**
+**Select** | **보호된 클라우드** | **클라우드 보호** | **사용 가능한 대상 네트워크**
 ---|---|---|---
 VMNetwork1-시카고 | SilverCloud1 | SilverCloud2 | 사용 가능
  | GoldCloud1 | GoldCloud2 | 사용 가능
@@ -96,7 +96,7 @@ VMNetwork2-시카고 | SilverCloud1 | SilverCloud2 | 사용할 수 없음
  | GoldCloud1 | GoldCloud2 | 사용 가능
 
 
-대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 머신이 있는 서브넷과 같으면 복제본 가상 머신이 장애 조치(Failover) 후에 대상 서브넷에 연결됩니다. 일치하는 이름을 가진 대상 서브넷이 없으면 가상 컴퓨터가 네트워크의 첫 번째 서브넷에 연결됩니다.
+대상 네트워크에 여러 서브넷이 있고 이 서브넷 중 하나의 이름이 원본 가상 컴퓨터가 있는 서브넷과 같으면 복제본 가상 컴퓨터가 장애 조치(Failover) 후에 대상 서브넷에 연결됩니다. 일치하는 이름을 가진 대상 서브넷이 없으면 가상 머신이 네트워크의 첫 번째 서브넷에 연결됩니다.
 
 
 ### <a name="failback-behavior"></a>장애 복구 동작

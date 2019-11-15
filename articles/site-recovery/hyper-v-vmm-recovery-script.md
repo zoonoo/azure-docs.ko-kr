@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 재해 복구를 위해 복구 계획에 스크립트 추가 | Microsoft Docs
+title: Azure Site Recovery에서 복구 계획에 스크립트를 추가 합니다.
 description: VMM 클라우드에서 Hyper-V VM의 재해 복구를 위해 복구 계획에 VMM 스크립트를 추가하는 방법을 알아봅니다.
 author: rajani-janaki-ram
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: ea6d969ed6612f947e3c73c438738bd98ac2bb30
-ms.sourcegitcommit: 1289f956f897786090166982a8b66f708c9deea1
+ms.openlocfilehash: 6902876e066649ae4dff4134fb8cc462f30dd0b7
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "64700455"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084868"
 ---
 # <a name="add-a-vmm-script-to-a-recovery-plan"></a>복구 계획에 VMM 스크립트 추가
 
@@ -20,7 +20,7 @@ ms.locfileid: "64700455"
 
 의견이나 질문은 이 문서의 하단이나 [Azure Recovery Services 포럼](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr)에 게시하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 복구 계획에서 PowerShell 스크립트를 사용할 수 있습니다. 복구 계획에서 스크립트를 액세스할 수 있도록 스크립트를 작성하여 VMM 라이브러리에 배치해야 합니다. 스크립트를 작성할 때는 다음 사항에 유의하세요.
 
@@ -33,7 +33,7 @@ ms.locfileid: "64700455"
         - 600초 이내에 반환하지 않는 경우 스크립트 시간이 초과됩니다.
         - STDERR에 기록되는 항목이 하나라도 존재하면 스크립트가 실패로 분류됩니다. 이 정보는 스크립트 실행 세부 정보에 표시됩니다.
 
-* 복구 계획의 스크립트는 VMM 서비스 계정 컨텍스트에서 실행됩니다. 따라서 VMM 서비스 계정에 스크립트가 위치한 원격 공유에 대한 읽기 권한이 있어야 합니다. 스크립트가 VMM 서비스 계정에 부여된 사용자 권한과 동일한 수준으로 실행되는지 테스트합니다.
+* 복구 계획의 스크립트는 VMM 서비스 계정에서 실행됩니다. 따라서 VMM 서비스 계정에 스크립트가 위치한 원격 공유에 대한 읽기 권한이 있어야 합니다. 스크립트가 VMM 서비스 계정에 부여된 사용자 권한과 동일한 수준으로 실행되는지 테스트합니다.
 * VMM cmdlet은 Windows PowerShell 모듈로 배달됩니다. 모듈은 VMM 콘솔을 설치할 때 설치됩니다. 스크립트에 모듈을 로드하려면 스크립트에서 다음 명령을 사용합니다. 
 
     `Import-Module -Name virtualmachinemanager`
@@ -51,7 +51,7 @@ ms.locfileid: "64700455"
 
      a. **64비트 Windows PowerShell** 콘솔을 권리자 권한으로 엽니다.
      
-     나. **Set-executionpolicy bypass**를 입력합니다. 자세한 내용은 [Set-ExecutionPolicy cmdlet 사용](https://technet.microsoft.com/library/ee176961.aspx)을 참조하세요.
+     b. **Set-executionpolicy bypass**를 입력합니다. 자세한 내용은 [Set-ExecutionPolicy cmdlet 사용](https://technet.microsoft.com/library/ee176961.aspx)을 참조하세요.
 
      > [!IMPORTANT]
      > **Set-executionpolicy bypass**는 64비트 PowerShell 콘솔에서만 설정해야 합니다. 32비트 PowerShell 콘솔에서 설정하면 스크립트가 실행되지 않습니다.

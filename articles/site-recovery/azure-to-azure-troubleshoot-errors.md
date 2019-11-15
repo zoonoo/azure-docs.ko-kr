@@ -1,19 +1,18 @@
 ---
-title: Azure 간 복제 오류에 대 한 Azure Site Recovery 문제 해결 | Microsoft Docs
+title: Azure Site Recovery에서 Azure VM 복제 문제 해결
 description: 재해 복구를 위해 Azure 가상 머신을 복제할 때 발생 하는 오류 문제를 해결 합니다.
-services: site-recovery
 author: asgang
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: asgang
-ms.openlocfilehash: baf7a21d04e8f9bcf86c67abde302a558dfba01c
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: b3c459c0eaac98a1cb704b4346153f77ec974188
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910390"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084917"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
 
@@ -77,29 +76,29 @@ SuSE Linux는 기호화 된 링크 (또는 *symlink*)를 사용 하 여 인증�
 
 1. Symantec 루트 CA 인증서가 있는지 확인 합니다.
 
-    **# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5**
+    **# ls VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Symantec 루트 CA 인증서를 찾을 수 없는 경우 다음 명령을 실행 하 여 파일을 다운로드 합니다. 오류를 확인 하 고 네트워크 오류에 대 한 권장 조치를 따릅니다.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5**
+    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Baltimore 루트 CA 인증서가 있는지 확인 합니다.
 
-    **# ls Baltimore_CyberTrust_Root**
+    **# ls Baltimore_CyberTrust_Root. pem**
 
 1. Baltimore 루트 CA 인증서를 찾을 수 없는 경우 다음 명령을 실행 하 여 인증서를 다운로드 합니다.
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root. pem**
 
 1. DigiCert_Global_Root_CA 인증서가 있는지 확인 합니다.
 
-    **# ls DigiCert_Global_Root_CA**
+    **# ls DigiCert_Global_Root_CA. pem**
 
-1. DigiCert_Global_Root_CA을 찾을 수 없는 경우 다음 명령을 실행 하 여 인증서를 다운로드 합니다.
+1. DigiCert_Global_Root_CA를 찾을 수 없는 경우 다음 명령을 실행 하 여 인증서를 다운로드 합니다.
 
     **# wget http://www.digicert.com/CACerts/DigiCertGlobalRootCA.crt**
 
-    **# openssl x509-DigiCertGlobalRootCA-outform pem-아웃 DigiCert_Global_Root_CA에 알립니다.**
+    **# openssl x509-DigiCertGlobalRootCA-outform pem 아웃 DigiCert_Global_Root_CA. pem**
 
 1. Rehash 스크립트를 실행 하 여 새로 다운로드 한 인증서에 대 한 인증서 주체 해시를 업데이트 합니다.
 
@@ -137,17 +136,17 @@ SuSE Linux는 기호화 된 링크 (또는 *symlink*)를 사용 하 여 인증�
 
         `-rw-r--r-- 1 root root 1380 Jun  5  2014 DigiCert_Global_Root_CA.pem`
 
-1. Filename b204d74a를 사용 하 여 VeriSign_Class_3_Public_Primary_Certification_Authority_G5 파일의 복사본을 만듭니다.
+1. VeriSign_Class_3_Public_Primary_Certification_Authority_G5 파일 이름 b204d74a를 사용 하 여 파일의 복사본을 만듭니다.:
 
-    **# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5 b204d74a. 0**
+    **# cp VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem b204d74a. 0**
 
-1. Filename 653b494a를 사용 하 여 Baltimore_CyberTrust_Root 파일의 복사본을 만듭니다.
+1. Baltimore_CyberTrust_Root 파일 이름 653b494a를 사용 하 여 파일의 복사본을 만듭니다.:
 
-    **# cp Baltimore_CyberTrust_Root 653b494a. 0**
+    **# cp Baltimore_CyberTrust_Root. pem 653b494a. 0**
 
 1. 파일 이름이 3513523f 인 DigiCert_Global_Root_CA 파일의 복사본을 만듭니다. 0:
 
-    **# cp DigiCert_Global_Root_CA 3513523f. 0**
+    **# cp DigiCert_Global_Root_CA. pem 3513523f. 0**
 
 1. 파일이 있는지 여부를 확인 합니다.
 
@@ -167,7 +166,7 @@ SuSE Linux는 기호화 된 링크 (또는 *symlink*)를 사용 하 여 인증�
 
 Site Recovery 복제가 작동 하려면 VM에서 특정 Url 또는 IP 범위에 대 한 아웃 바운드 연결이 필요 합니다. VM이 방화벽 뒤에 있거나 NSG(네트워크 보안 그룹) 규칙을 사용하여 아웃바운드 연결을 제어하는 경우 이러한 문제 중 하나가 발생할 수 있습니다.
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>문제 1: Site Recovery를 사용 하 여 Azure 가상 머신을 등록 하지 못했습니다 (오류 코드 151195).
+### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>문제 1: Site Recovery을 사용 하 여 Azure 가상 머신을 등록 하지 못했습니다 (오류 코드 151195).
 
 #### <a name="possible-cause"></a>가능한 원인 
 
@@ -177,13 +176,13 @@ DNS 확인 오류로 인해 Site Recovery 끝점에 대 한 연결을 설정할 
 
 #### <a name="fix-the-problem"></a>문제 해결
 
-사용자 지정 DNS를 사용 하는 경우 재해 복구 지역에서 DNS 서버에 액세스할 수 있는지 확인 합니다. VM에서 사용자 지정 DNS가 있는지 여부를 확인 하려면 *재해 복구 네트워크* > **DNS 서버**로 이동 합니다.
+사용자 지정 DNS를 사용 하는 경우 재해 복구 지역에서 DNS 서버에 액세스할 수 있는지 확인 합니다. VM에서 사용자 지정 DNS가 있는지 여부를 확인 하려면 *재해 복구 네트워크* > **dns 서버**로 이동 합니다.
 
 ![사용자 지정 DNS 서버 목록](./media/azure-to-azure-troubleshoot-errors/custom_dns.PNG)
 
 가상 머신에서 DNS 서버에 액세스를 시도합니다. 서버에 액세스할 수 없는 경우 DNS 서버를 장애 조치 (failover) 하거나 DR 네트워크와 DNS 사이에 사이트의 줄을 만들어 액세스할 수 있도록 합니다.
 
-### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>문제 2: Site Recovery 구성에 실패 했습니다 (오류 코드 151196).
+### <a name="issue-2-site-recovery-configuration-failed-error-code-151196"></a>문제 2: Site Recovery 구성 실패 (오류 코드 151196)
 
 #### <a name="possible-cause"></a>가능한 원인
 
@@ -197,7 +196,7 @@ Azure NSG 규칙 또는 방화벽 프록시를 사용 하 여 VM에서 아웃 �
 > [!NOTE]
 > Vm이 *표준* 내부 부하 분산 장치 뒤에 있는 경우 부하 분산 장치는 기본적으로 OFFICE 365 IP 범위 (즉, login.microsoftonline.com)에 액세스할 수 없습니다. 내부 부하 분산 장치 유형을 *기본* 으로 변경 하거나 [부하 분산 및 아웃 바운드 규칙 구성](https://aka.ms/lboutboundrulescli)문서에 설명 된 대로 아웃 바운드 액세스를 만듭니다.
 
-### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>문제 3: Site Recovery 구성에 실패 했습니다 (오류 코드 151197).
+### <a name="issue-3-site-recovery-configuration-failed-error-code-151197"></a>문제 3: Site Recovery 구성 실패 (오류 코드 151197)
 
 #### <a name="possible-cause"></a>가능한 원인
 
@@ -207,7 +206,7 @@ Site Recovery 서비스 끝점에 대 한 연결을 설정할 수 없습니다.
 
 Site Recovery 지역에 따라 [SITE RECOVERY IP 범위](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges)에 액세스할 수 있어야 합니다. 가상 머신에서 필요한 IP 범위에 액세스할 수 있는지 확인 합니다.
 
-### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버를 통과 하는 경우 azure에서 Azure로 복제 하지 못했습니다 (오류 코드 151072).
+### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-an-on-premises-proxy-server-error-code-151072"></a>문제 4: 네트워크 트래픽이 온-프레미스 프록시 서버를 통과 하는 경우 Azure에서 Azure로 복제 하지 못했습니다 (오류 코드 151072).
 
 #### <a name="possible-cause"></a>가능한 원인
 
@@ -253,9 +252,9 @@ VM에 연결된 새 디스크는 초기화되어야 합니다. 디스크를 찾�
 
 데이터 디스크가 초기화 되었는지 확인 한 후 작업을 다시 시도 하십시오.
 
-- **Windows**: [새 디스크를 연결하고 초기화](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)합니다.
+- **Windows**: [새 디스크를 연결 하 고 초기화](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal)합니다.
 
-- **Linux**: [Linux에서 새 데이터 디스크를 초기화](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)합니다.
+- **Linux**: [linux에서 새 데이터 디스크를 초기화](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk)합니다.
 
 문제가 계속되면 지원에 문의하세요.
 
@@ -272,14 +271,14 @@ VM의 복제 상태를 다시 정상으로 설정 하려면 디스크를 보호 
 
 #### <a name="to-protect-the-disks"></a>디스크를 보호 하려면
 
-1. 복제 된 **항목** > *VM 이름* > **디스크**로 이동 합니다.
+1. *VM 이름* > **디스크** > **복제 된 항목** 으로 이동 합니다.
 1. 보호 되지 않은 디스크를 선택한 다음 **복제 사용**을 선택 합니다.
 
     ![VM 디스크에서 복제 사용](./media/azure-to-azure-troubleshoot-errors/add-disk.png)
 
 #### <a name="to-dismiss-the-warning"></a>경고를 해제 하려면
 
-1. 복제 된 **항목** > *VM 이름*으로 이동 합니다.
+1. *VM 이름* > **복제 된 항목** 으로 이동 합니다.
 1. **개요** 섹션에서 경고를 선택 하 고 **확인**을 선택 합니다.
 
     ![새로 만들기-디스크 경고](./media/azure-to-azure-troubleshoot-errors/dismiss-warning.png)
@@ -294,7 +293,7 @@ VM의 복제 상태를 다시 정상으로 설정 하려면 디스크를 보호 
 > 정리 하지 않은 경우:
 >
 > - Recovery Services 자격 증명 모음을 통해 복제를 사용 하도록 설정 하면 가상 컴퓨터가 나열 되지 않습니다.
-> - **가상 컴퓨터** > 설정재해 > **복구**를 사용 하 여 VM을 보호 하려고 하면 작업이 실패 하 고 "기존에 사용 된 오래 된 리소스 링크를 사용 하 여 복제를 사용할 수 없습니다. VM입니다. "
+> - **가상 컴퓨터** > **설정** > **재해 복구**를 사용 하 여 vm을 보호 하려고 하면 작업이 실패 하 고 "VM의 기존 부실 리소스 링크 때문에 복제를 사용할 수 없습니다." 라는 메시지가 표시 됩니다.
 
 ### <a name="fix-the-problem"></a>문제 해결
 
@@ -336,11 +335,11 @@ Site Recovery를 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 �
 
 ## <a name="unable-to-see-the-azure-vm-or-resource-group-for-the-selection-in-the-enable-replication-job"></a>"복제 사용" 작업에서 선택 항목에 대 한 Azure VM 또는 리소스 그룹을 볼 수 없습니다.
 
-### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>원인 1: 리소스 그룹 및 원본 가상 머신이 다른 위치에 있습니다.
+### <a name="cause-1-the-resource-group-and-source-virtual-machine-are-in-different-locations"></a>원인 1: 리소스 그룹 및 원본 가상 머신이 서로 다른 위치에 있습니다.
 
 Site Recovery 현재 원본 영역 리소스 그룹 및 가상 컴퓨터가 동일한 위치에 있어야 합니다. 그렇지 않으면 보호를 적용 하려고 할 때 가상 머신 또는 리소스 그룹을 찾을 수 없습니다.
 
-이 문제를 해결 하려면 Recovery Services 자격 증명 모음 대신 VM에서 복제를 사용 하도록 설정할 수 있습니다. **원본 VM** > 속성재해 > **복구** 로 이동 하 여 복제를 사용 하도록 설정 합니다.
+이 문제를 해결 하려면 Recovery Services 자격 증명 모음 대신 VM에서 복제를 사용 하도록 설정할 수 있습니다. **원본 VM** > **속성** > **재해 복구** 로 이동 하 여 복제를 사용 하도록 설정 합니다.
 
 ### <a name="cause-2-the-resource-group-is-not-part-of-the-selected-subscription"></a>원인 2: 리소스 그룹이 선택한 구독의 일부가 아닙니다.
 
@@ -371,7 +370,7 @@ Site Recovery 현재 원본 영역 리소스 그룹 및 가상 컴퓨터가 동�
 
 ### <a name="cause-1-the-virtual-machine-has-an-extension-installed-in-a-failed-or-unresponsive-state"></a>원인 1: 가상 컴퓨터에 실패 또는 응답 하지 않는 확장 프로그램이 설치 되어 있습니다.
 
-**Virtual machines** > 설정확장 > 으로 이동 하 여 실패 상태에 있는 확장을 확인 합니다. 실패 한 확장을 제거 하 고 다시 시도 하 여 가상 머신을 보호 합니다.
+**Virtual machines** > **설정** > **확장** 으로 이동 하 여 실패 상태에 있는 확장을 확인 합니다. 실패 한 확장을 제거 하 고 다시 시도 하 여 가상 머신을 보호 합니다.
 
 ### <a name="cause-2-the-vms-provisioning-state-is-not-valid"></a>원인 2: VM의 프로 비전 상태가 잘못 되었습니다.
 
@@ -476,7 +475,7 @@ Linux GRUB 구성 파일 (/boot/grub/menu.lst ",/boot/grub/grub.cfg,/boot/grub2/
     /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3"
    ```
 
-1. 장치 이름을 **root = uuid**=*uuid* 및 **resume = uuid**=*uuid*형식의 uuid로 바꿉니다. 예를 들어, 바꾼 후/boot/grub/menu.lst (앞에서 설명한)의 줄은 다음과 같습니다.
+1. 장치 이름을 uuid ( **root = uuid**=*uuid* , **resume = uuid**=*uuid*형식으로 바꿉니다. 예를 들어, 바꾼 후/boot/grub/menu.lst (앞에서 설명한)의 줄은 다음과 같습니다.
 
     > kernel/boot/vmlinuz-3.0.101-63-default **root = UUID = 62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume = UUID = 6f614b44-433b-431b-9ca1-4dd2f6f74f6b** 스플래시 = Silent crashkernel = 256M-: 128m showopts vga = 0x314
 
@@ -490,15 +489,15 @@ GRUB 구성 파일 (/boot/grub/menu.lst,/boot/grub/grub.cfg,/boot/grub2/grub.cfg
 
 - File:/boot/grub2/grub.cfg on RHEL7:
 
-    > linux16/vmlinuz-3.10.0-957.el7.x86_64 root =/dev/mapper/rhel_mup--rhel7u6-root ro crashkernel = 128m\@64m rootvg **= rootvg/root** = rhgb/swap en_US quiet LANG =. UTF-8
+    > linux16/vmlinuz-3.10.0-957.el7. x86_64 root =/sv/sii/rhel_mup--rhel7u6 ro crashkernel = 128M\@64M rootvg **/root rootvg/root** rhgb//root quiet LANG = en_US. UTF-8
 
 - File:/etc/default/grub on RHEL7:
 
-    > GRUB_CMDLINE_LINUX = "crashkernel = auto **rd. lv = rootvg/root rhgb = rootvg/swap** quiet"
+    > GRUB_CMDLINE_LINUX = "crashkernel = auto **rootvg/root. lv = rootvg/swap** rhgb quiet"
 
 - File:/boot/grub/menu.lst on RHEL6:
 
-    > kernel/vmlinuz-2.6.32-754.el6.x86_64 ro root = UUID = 36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US. UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = auto **rd_LVM_LV = rootvg/lv_root** KEYBOARDTYPE = PC keytable = us **rd_LVM_LV = rootvg/lv_swap** rd_NO_DM rhgb quiet
+    > kernel/vmlinuz-2.6.32-754.el6. x86_64 ro root = UUID = 36dd8b45-e90d-40d6-81ac-ad0d0725d69e rd_NO_LUKS LANG = en_US. UTF-8 rd_NO_MD SYSFONT = latarcyrheb-sun16 crashkernel = auto **rd_LVM_LV = rootvg/lv_root** KEYBOARDTYPE = PC keytable = us **rd_LVM_LV = rootvg/lv_swap** rd_NO_DM rhgb
 
 각 예제에서 굵게 표시 된 부분은 GRUB가 볼륨 그룹 "rootvg"에서 이름이 "root" 및 "swap" 인 두 개의 LVM 장치를 검색 해야 함을 보여 줍니다.
 

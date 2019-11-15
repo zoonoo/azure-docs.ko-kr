@@ -1,5 +1,5 @@
 ---
-title: PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM과 Azure 간 재해 복구 설정 | Microsoft Docs
+title: Azure Site Recovery 및 PowerShell을 사용 하 여 hyper-v VM 재해 복구
 description: PowerShell 및 Azure Resource Manager를 사용하여 Azure Site Recovery 서비스로 Hyper-V VM과 Azure 간 재해 복구를 자동화합니다.
 author: sujayt
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 06/18/2019
 ms.author: sutalasi
-ms.openlocfilehash: 1779a33e4ac021c1807ce10dc224e0b8c8c53ebb
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73f5f64a64ab28cdb4b57d0904911f62c2020cf0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200525"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082688"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-hyper-v-vms-using-powershell-and-azure-resource-manager"></a>PowerShell과 Azure Resource Manager를 사용하여 Hyper-V VM용 Azure에 대한 재해 복구 설정
 
@@ -34,10 +34,10 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 >
 >
 
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
 다음 필수 조건이 충족되었는지 확인합니다.
 
-* [Microsoft Azure](https://azure.microsoft.com/) 계정. [평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
+* [Microsoft Azure](https://azure.microsoft.com/) 계정. [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)으로 시작할 수 있습니다. [Azure Site Recovery Manager 가격](https://azure.microsoft.com/pricing/details/site-recovery/)에 대해 알아볼 수도 있습니다.
 * Azure PowerShell. 이 릴리스와 설치 방법에 대 한 자세한 내용은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조 하세요.
 
 또한 이 문서에 설명된 특정 예제에는 다음과 같은 필수 조건이 있습니다.
@@ -47,9 +47,9 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 ## <a name="step-1-sign-in-to-your-azure-account"></a>1단계: Azure 계정에 로그인
 
-1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. cmdlet은 계정 자격 증명을 묻는 웹 페이지를 엽니다. **Connect-AzAccount**.
+1. PowerShell 콘솔을 열고 이 명령을 실행하여 Azure 계정에 로그인합니다. Cmdlet은 계정 자격 증명을 입력 하 라는 메시지를 표시 하는 웹 페이지를 표시 합니다. **AzAccount**.
     - 또는 **Connect-AzAccount** cmdlet에서 **-Credential** 매개 변수를 사용하여 계정 자격 증명을 매개 변수로 포함할 수 있습니다.
-    - 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. **Connect-AzAccount -Tenant "fabrikam.com"**
+    - 사용자가 테넌트를 대신하여 작업 중인 CSP 파트너인 경우 tenantID 또는 테넌트 기본 도메인 이름을 사용하여 고객을 테넌트로 지정합니다. 예: **AzAccount-Tenant "fabrikam.com"**
 2. 계정에 여러 구독이 있을 수 있으므로 사용하려는 구독을 계정과 연결합니다.
 
     `Select-AzSubscription -SubscriptionName $SubscriptionName`
@@ -80,7 +80,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
     **AzRecoveryServicesVault** cmdlet을 사용 하 여 기존 자격 증명 모음 목록을 검색할 수 있습니다.
 
 
-## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: Recovery Services 자격 증명 모음 컨텍스트 설정
+## <a name="step-3-set-the-recovery-services-vault-context"></a>3단계: Recovery Services 자격 증명 모음 설정
 
 자격 증명 모음 컨텍스트를 다음과 같이 설정합니다.
 
@@ -104,7 +104,7 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
 
 5. Hyper-V 호스트에 다운로드한 키를 복사합니다. 사이트에 Hyper-V 호스트를 등록하는 키가 필요합니다.
 
-## <a name="step-5-install-the-provider-and-agent"></a>5단계: 공급자 및 에이전트를 설치
+## <a name="step-5-install-the-provider-and-agent"></a>5단계: 공급자 및 에이전트 설치
 
 1. [Microsoft](https://aka.ms/downloaddra)에서 공급자의 최신 버전을 위한 설치 관리자를 다운로드합니다.
 2. Hyper-v 호스트에서 설치 관리자를 실행 합니다.
@@ -115,8 +115,8 @@ Azure PowerShell은 Windows PowerShell을 사용하여 Azure를 관리하기 위
         $server =  Get-AsrFabric -Name $siteName | Get-AsrServicesProvider -FriendlyName $server-friendlyname
 
 Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고 다음 단계를 수행합니다.
-1. 다음 명령을 실행 하 여 AzureSiteRecoveryProvider에서 로컬 디렉터리로 파일의 압축을 풉니다.```AzureSiteRecoveryProvider.exe /x:. /q```
-2. 실행 ```.\setupdr.exe /i``` 결과는%Programdata%\ASRLogs\DRASetupWizard.log.에 기록 됩니다.
+1. 다음 명령을 실행 하 여 AzureSiteRecoveryProvider에서 로컬 디렉터리로 파일의 압축을 풉니다. ```AzureSiteRecoveryProvider.exe /x:. /q```
+2. 실행 ```.\setupdr.exe /i``` 결과가%Programdata%\ASRLogs\DRASetupWizard.log.에 기록 됩니다.
 
 3. 다음 명령을 실행하여 서버를 등록합니다.
 
@@ -151,7 +151,7 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
 
         $ProtectionContainerMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $protectionContainer
 
-## <a name="step-7-enable-vm-protection"></a>7단계: VM 보호 사용
+## <a name="step-7-enable-vm-protection"></a>단계7: VM 보호 사용
 
 1. 다음과 같이 보호하려는 VM에 해당하는 보호 항목을 검색합니다.
 
@@ -190,7 +190,7 @@ Hyper-V 코어 서버를 실행하는 경우 설치 파일을 다운로드하고
 
 
 
-## <a name="step-8-run-a-test-failover"></a>8단계: 테스트 장애 조치(failover) 실행
+## <a name="step-8-run-a-test-failover"></a>8단계: 테스트 장애 조치 실행
 1. 다음과 같이 테스트 장애 조치(failover)를 실행합니다.
 
         $nw = Get-AzVirtualNetwork -Name "TestFailoverNw" -ResourceGroupName "MyRG" #Specify Azure vnet name and resource group

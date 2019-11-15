@@ -1,20 +1,18 @@
 ---
-title: Azure Site Recovery를 사용하여 다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 SAP NetWeaver 재해 복구 설정
 description: 이 문서에서는 Azure Site Recovery를 사용하여 SAP NetWeaver 애플리케이션 배포를 위한 재해 복구를 설정하는 방법에 대해 설명합니다.
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.workload: backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ca3126c983d62cb28c543215b86ab9709a4736d8
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65793685"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083783"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정
 
@@ -28,7 +26,7 @@ Site Recovery의 기능은 다음과 같습니다.
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 SAP NetWeaver 애플리케이션 배포를 보호하는 방법을 설명합니다. Site Recovery를 사용하여 다른 Azure 데이터 센터로 복제하여 3계층 SAP NetWeaver 배포를 보호하는 모범 사례도 보여줍니다. 또한, 지원되는 시나리오와 구성을 설명하고, 테스트 장애 조치(failover)(재해 복구 연습)와 실제 장애 조치(failover)를 수행하는 방법을 안내합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
 
 * [Azure에 가상 머신 복제](azure-to-azure-walkthrough-enable-replication.md)
@@ -80,7 +78,7 @@ ABAP 애플리케이션 서버에 대한 로그온 그룹을 관리하기 위해
 
 클러스터링을 처리하는 또 다른 방법은 파일 공유 클러스터를 구현하는 것입니다. [SAP](https://blogs.sap.com/2018/03/19/migration-from-a-shared-disk-cluster-to-a-file-share-cluster)는 UNC 경로를 통해 /sapmnt 전역 디렉터리에 액세스하도록 Central Services 배포 패턴을 수정했습니다. 그래도 /sapmnt UNC 공유가 고가용성인지 확인하는 것이 좋습니다. 이 작업은 Central Services 인스턴스에서 Windows Server 2016의 SOFS(스케일 아웃 파일 서버) 및 S2D(스토리지 공간 다이렉트) 기능이 있는 Windows Server 장애 조치 클러스터를 사용하여 수행할 수 있습니다. 
  > [!NOTE]
- > Azure Site Recovery 지원 저장소 공간 다이렉트 및 수동 노드의 SIOS Datakeeper를 사용 하 여 가상 머신의 복제 일치 시점만 충돌 되는 현재
+ > 현재는 SIOS Datakeeper의 저장소 공간 다이렉트 및 수동 노드를 사용 하 여 가상 컴퓨터의 크래시 일관성 지점 복제만 지원 Azure Site Recovery
 
 
 ## <a name="disaster-recovery-considerations"></a>재해 복구 고려 사항
@@ -97,7 +95,7 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 
 다음은 이 예제에 사용된 각 계층의 재해 복구를 위한 권장 사항입니다. 
 
- **SAP 계층** | **권장 사항**
+ **SAP 계층** | **권장**
  --- | ---
 **SAP Web Dispatcher 풀** |  Site Recovery를 사용하여 복제 
 **SAP 애플리케이션 서버 풀** |  Site Recovery를 사용하여 복제 
@@ -132,7 +130,7 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 
 
 ### <a name="add-scripts-to-the-recovery-plan"></a>복구 계획에 스크립트 추가
-애플리케이션이 제대로 작동하려면 장애 조치(failover) 후에 또는 테스트 장애 조치(failover) 중에 Azure 가상 머신에서 일부 작업을 수행해야 할 수 있습니다. 일부 장애 조치(failover) 사후 작업은 자동화할 수 있습니다. 예를 들어, 복구 계획에 해당 스크립트를 추가하여 DNS 항목을 업데이트하고 바인딩과 연결을 변경할 수 있습니다.
+애플리케이션이 제대로 작동하려면 장애 조치(failover) 후에 또는 테스트 장애 조치(failover) 중에 Azure 가상 머신에서 일부 작업을 수행해야 할 수 있습니다. 일부 장애 조치 후 작업은 자동화할 수 있습니다. 예를 들어, 복구 계획에 해당 스크립트를 추가하여 DNS 항목을 업데이트하고 바인딩과 연결을 변경할 수 있습니다.
 
 
 아래 ‘Azure로 배포’ 단추를 클릭하면 가장 일반적으로 사용되는 Azure Site Recovery 스크립트를 Automation 계정에 배포할 수 있습니다. 게시된 스크립트를 사용하는 경우 스크립트에 있는 지침을 따라야 합니다.
@@ -145,7 +143,7 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 ![SAP 복구 계획](./media/site-recovery-sap/sap_recovery_plan.png)
 
 
-## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
+## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
 
 1.  Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 2.  SAP 애플리케이션용으로 생성한 복구 계획을 선택합니다.
@@ -156,7 +154,7 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 
 자세한 내용은 [Site Recovery에서 Azure로 테스트 장애 조치(failover)](site-recovery-test-failover-to-azure.md)를 참조하세요.
 
-## <a name="run-a-failover"></a>장애 조치(Failover) 실행
+## <a name="run-a-failover"></a>장애 조치(failover) 실행
 
 1.  Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 2.  SAP 애플리케이션용으로 생성한 복구 계획을 선택합니다.
@@ -166,5 +164,5 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 자세한 내용은 [Site Recovery에서 장애 조치(failover)](site-recovery-failover.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-* Site Recovery를 사용하여 SAP NetWeaver 배포를 위한 재해 복구 솔루션을 빌드하는 방법을 자세히 알아보려면 다운로드 가능한 백서인 [SAP NetWeaver: Azure Site Recovery를 사용하여 재해 복구 솔루션 빌드](https://aka.ms/asr_sap)를 참조하세요. 이 백서에서는 다양한 SAP 아키텍처의 권장 사항에 대해 설명하고, Azure의 SAP에서 지원되는 애플리케이션 및 VM 유형을 나열하며, 재해 복구 솔루션에서 사용할 수 있는 테스트 계획 옵션에 대해 설명합니다.
+* Site Recovery를 사용하여 SAP NetWeaver 배포를 위한 재해 복구 솔루션을 빌드하는 방법을 자세히 알아보려면 백서 [SAP NetWeaver: Azure Site Recovery를 사용하여 재해 복구 솔루션 빌드](https://aka.ms/asr_sap)를 다운로드하여 참조하세요. 이 백서에서는 다양한 SAP 아키텍처의 권장 사항에 대해 설명하고, Azure의 SAP에서 지원되는 애플리케이션 및 VM 유형을 나열하며, 재해 복구 솔루션에서 사용할 수 있는 테스트 계획 옵션에 대해 설명합니다.
 * Site Recovery를 사용하여 [다른 워크로드를 복제](site-recovery-workload.md)하는 방법에 대해 알아봅니다.

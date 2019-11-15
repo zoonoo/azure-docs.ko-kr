@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c9dbc24aa93b1f2c89b23120abb018c920835d8d
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 612da322e0d248f9b0000c8f0006893b87b74e44
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69896987"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084637"
 ---
 # <a name="introduction-to-azure-storage"></a>Azure Storage 소개
 
@@ -30,13 +30,13 @@ Azure Storage는 최신 데이터 스토리지 시나리오를 위한 Microsoft�
 Azure Storage는 이러한 데이터 서비스를 포함합니다.
 
 - [Azure Blob](../blobs/storage-blobs-introduction.md): 텍스트 및 이진 데이터에 대한 확장성이 뛰어난 개체 저장소입니다.
-- [Azure 파일](../files/storage-files-introduction.md): 클라우드 또는 온-프레미스 배포에 대한 관리형 파일 공유입니다.
-- [Azure 큐](../queues/storage-queues-introduction.md): 애플리케이션 구성 요소 간에 안정적인 메시지를 위한 메시지 저장소입니다. 
-- [Azure 테이블](../tables/table-storage-overview.md): 정형 데이터의 스키마 없는 스토리지를 위한 NoSQL 저장소입니다.
+- [Azure Files](../files/storage-files-introduction.md): 클라우드 또는 온-프레미스 배포에 대한 관리되는 파일 공유입니다.
+- [Azure 큐](../queues/storage-queues-introduction.md): 애플리케이션 구성 요소 간에 안정적인 메시징을 위한 메시징 저장소입니다. 
+- [Azure 테이블](../tables/table-storage-overview.md): 구조화된 데이터의 스키마 없는 스토리지를 위한 NoSQL 스토리지입니다.
 
 각 서비스는 스토리지 계정을 통해 액세스됩니다. 시작하려면 [스토리지 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
-## <a name="blob-storage"></a>Blob 스토리지
+## <a name="blob-storage"></a>Linux 사용자 그룹용 Azure Files는 Linux에서 File Storage를 평가하고 채택할 때 피드백을 공유할 수 있도록 포럼을 제공합니다.
 
 Azure Blob Storage는 클라우드를 위한 Microsoft의 개체 스토리지 솔루션입니다. Blob Storage는 텍스트 또는 이진 데이터와 같이 구조화되지 않은 대량의 데이터를 저장하는 데 최적화되어 있습니다. 
 
@@ -52,7 +52,7 @@ Blob Storage의 개체는 HTTP 또는 HTTPS를 통해 전 세계 어디에서든
 
 Blob 스토리지에 대한 자세한 내용은 [Blob 스토리지 소개](../blobs/storage-blobs-introduction.md)를 참조하세요.
 
-## <a name="azure-files"></a>Azure Files
+## <a name="azure-files"></a>Azure 파일
 
 [Azure Files](../files/storage-files-introduction.md)를 사용하면 표준 SMB(서버 메시지 블록) 프로토콜을 사용하여 액세스할 수 있는 고가용성 네트워크 파일 공유를 설정할 수 있습니다. 즉, 여러 VM이 읽기 및 쓰기 권한을 모두 사용하여 동일한 파일을 공유할 수 있습니다. 또한 REST 인터페이스 또는 스토리지 클라이언트 라이브러리를 사용하여 파일을 읽을 수 있습니다.
 
@@ -60,7 +60,7 @@ Azure Files가 회사 파일 공유의 파일과 다른 점 한 가지는 파일
 
 파일 공유는 다음과 같은 여러 가지 일반적인 시나리오에 사용할 수 있습니다.
 
-- 여러 온-프레미스 애플리케이션에서 파일 공유를 사용합니다. 이 기능을 사용하면 데이터를 공유하는 애플리케이션을 Azure로 보다 쉽게 마이그레이션할 수 있습니다. 파일 공유를 온-프레미스 애플리케이션에서 사용하는 것과 동일한 드라이브 문자에 탑재하면 애플리케이션에서 파일 공유에 액세스하는 부분을 변경하지 않거나 최소한의 변경만 하고도 작동할 것입니다.
+- 여러 온-프레미스 애플리케이션에서 파일 공유를 사용합니다. 이 기능을 사용하면 데이터를 공유하는 애플리케이션을 Azure로 보다 쉽게 마이그레이션할 수 있습니다. 파일 공유를 온-프레미스 애플리케이션에서 사용하는 것과 동일한 드라이브 문자에 탑재하면 파일 공유에 액세스하는 애플리케이션의 일부가 최소한의 변경 내용(있는 경우)으로 작동해야 합니다.
 
 - 구성 파일을 파일 공유에 저장하고 여러 VM에서 액세스할 수 있습니다. 그룹의 여러 개발자가 사용하는 도구 및 유틸리티를 파일 공유에 저장할 수 있으며, 이렇게 하면 모든 사람이 찾아서 동일한 버전을 사용할 수 있습니다.
 
@@ -78,7 +78,7 @@ Azure 큐 서비스는 메시지를 저장하고 검색하는 데 사용됩니�
 
 Azure 큐에 대한 자세한 내용은 [큐 소개](../queues/storage-queues-introduction.md)를 참조하세요.
 
-## <a name="table-storage"></a>테이블 스토리지
+## <a name="table-storage"></a>Table Storage
 
 Azure Table Storage는 이제 Azure Cosmos DB의 일부입니다. Azure Table Storage 설명서를 보려면 [Azure Table Storage 개요](../tables/table-storage-overview.md)를 참조하세요. 기존 Azure Table Storage 서비스 외에도 처리량 최적화 테이블, 전역 분산 및 자동 보조 인덱스를 제공하는 새로운 Azure Cosmos DB 테이블 API가 있습니다. 새로운 프리미엄 환경에 대해 알아보고 사용해 보려면 [Azure Cosmos DB 테이블 API](https://aka.ms/premiumtables)를 확인하세요.
 
@@ -130,7 +130,7 @@ Azure Storage 클라이언트 라이브러리는 네트워크를 통해 전송 �
 
 Azure Storage에서 데이터를 이동하는 몇 가지 옵션이 있습니다. 선택하는 옵션은 데이터 세트의 크기와 네트워크 대역폭에 따라 달라집니다. 자세한 내용은 [데이터 전송을 위한 Azure 솔루션 선택](storage-choose-data-transfer-solution.md)을 참조하세요.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 Azure Storage에서 가격 책정에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
@@ -143,7 +143,7 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 - [Azure Storage REST API](https://docs.microsoft.com/rest/api/storageservices/)
 - [.NET 용 Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/dotnet/api/overview/azure/storage)
 - [Java/Android 용 Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/java/api/overview/azure/storage)
-- [Node.js 용 Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/javascript/api/azure-storage)
+- [Node.js 용 Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/javascript/api/overview/azure/storage)
 - [Python 용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-python)
 - [PHP 용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-php)
 - [Ruby 용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-ruby)
@@ -157,7 +157,7 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 
 ### <a name="azure-storage-data-movement-api-and-library-references"></a>Azure Storage 데이터 이동 API 및 라이브러리 참조
 
-- [스토리지 Import/Export 서비스 REST API](https://docs.microsoft.com/rest/api/storageimportexport/)
+- [Storage Import/Export Service REST API](https://docs.microsoft.com/rest/api/storageimportexport/)
 - [.NET용 스토리지 데이터 이동 클라이언트 라이브러리](/dotnet/api/microsoft.azure.storage.datamovement)
 
 ### <a name="tools-and-utilities"></a>도구 및 유틸리티
@@ -167,7 +167,7 @@ Azure Storage 리소스는 HTTP/HTTPS 요청을 수행할 수 있는 모든 언�
 - [AzCopy 명령줄 유틸리티](https://aka.ms/downloadazcopy)
 - [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 - [Azure Storage 클라이언트 도구](../storage-explorers.md)
-- [Azure 개발자 도구](https://azure.microsoft.com/tools/)
+- [Azure Developer Tools](https://azure.microsoft.com/tools/)
 
 ## <a name="next-steps"></a>다음 단계
 

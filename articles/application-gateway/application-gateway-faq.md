@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 63c3f2080a74142f3f9a68852092cbc527c4483b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f2cf69b456aeccd6da5ac393b88171fb3bb03cf2
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470080"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082543"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -135,7 +135,7 @@ Traffic Manager를 사용 하 여 여러 데이터 센터의 여러 응용 프�
 
 예. Azure는 인스턴스를 업데이트 및 장애 도메인 간에 배포 하 여 인스턴스가 동시에 모두 실패 하지 않도록 합니다. Application Gateway는 로드를 공유하기 위해 동일한 게이트웨이의 여러 인스턴스를 추가하여 크기 조정을 지원합니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Application Gateway가 가상 네트워크에서 항상 배포되나요?
 
@@ -290,10 +290,6 @@ Application Gateway는 최대 100 인증 인증서를 지원 합니다.
 
 예. WAF는 표준 SKU의 모든 기능을 지원 합니다.
 
-### <a name="which-crs-versions-does-application-gateway-support"></a>Application Gateway 지원 되는 CRS 버전은 무엇 인가요?
-
-Application Gateway는 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) 및 CRS [3.0](application-gateway-crs-rulegroups-rules.md#owasp30)을 지원합니다.
-
 ### <a name="how-do-i-monitor-waf"></a>WAF를 모니터링하려면 어떻게 하나요?
 
 진단 로깅을 통해 WAF를 모니터링 합니다. 자세한 내용은 [Application Gateway에 대 한 진단 로깅 및 메트릭](application-gateway-diagnostics.md)을 참조 하세요.
@@ -308,7 +304,7 @@ Application Gateway는 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#o
 
 ### <a name="what-rules-are-currently-available-for-waf"></a>WAF에 대해 현재 사용할 수 있는 규칙은 무엇 인가요?
 
-WAF는 현재 CRS [2.2.9](application-gateway-crs-rulegroups-rules.md#owasp229) 및 [3.0](application-gateway-crs-rulegroups-rules.md#owasp30)를 지원 합니다. 이러한 규칙은 OWASP (Web Application Security Project)에서 식별 하는 대부분의 상위 10 개 취약점에 대 한 기준선 보안을 제공 합니다. 
+WAF는 현재 CRS [2.2.9](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp229), [3.0](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp30)및 [3.1](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md#owasp31)을 지원 합니다. 이러한 규칙은 OWASP (Web Application Security Project)에서 식별 하는 대부분의 상위 10 개 취약점에 대 한 기준선 보안을 제공 합니다. 
 
 * SQL 삽입 공격 보호
 * 사이트 간 스크립팅 보호

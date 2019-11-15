@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2585b47d049047cc191bfc284c4486361917f1ed
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c4c8f123eb8c32362219f21dc70d137f2cc9b4b1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802075"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078818"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -31,9 +31,9 @@ B2C 테 넌 트의 경우 Graph API와 통신 하는 두 가지 기본 모드가
 이 문서에서는 자동화 된 사용 사례를 수행 하는 방법에 대해 알아봅니다. 사용자 만들기, 읽기, 업데이트 및 삭제(CRUD) 작업을 수행하는 .NET 4.5 `B2CGraphClient`을 작성합니다. 클라이언트에는 다양한 메서드를 호출할 수 있도록 하는 Windows CLI(명령줄 인터페이스)가 있습니다. 그러나 코드는 대화형이 아닌 자동화 된 방식으로 동작 하도록 작성 됩니다.
 
 >[!IMPORTANT]
-> Azure AD B2C 디렉터리에서 사용자를 관리 하려면 [AZURE AD Graph API](../active-directory/develop/active-directory-graph-api-quickstart.md) 를 사용 **해야 합니다** . Azure AD Graph API는 Microsoft Graph API와 다릅니다. 이 MSDN 블로그 게시물에서 자세한 정보를 알아보세요. [Microsoft Graph 또는 AZURE AD 그래프](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/)
+> Azure AD B2C 디렉터리에서 사용자를 관리 하려면 [AZURE AD Graph API](../active-directory/develop/active-directory-graph-api-quickstart.md) 를 사용 **해야 합니다** . Azure AD Graph API는 Microsoft Graph API와 다릅니다. 자세한 내용은 MSDN 블로그 게시물의 [Microsoft Graph 또는 AZURE AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/)를 확인 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 애플리케이션 또는 사용자를 만들기 전에 Azure AD B2C 테넌트가 필요합니다. 아직 없는 경우 [Azure Active Directory B2C 테 넌 트를 만듭니다](tutorial-create-tenant.md).
 
@@ -77,7 +77,7 @@ B2C 테 넌 트와 함께 Azure AD Graph API을 사용 하려면 Azure Active Di
 
 코드 샘플은 [ADAL (Active Directory 인증 라이브러리)](../active-directory/develop/active-directory-authentication-libraries.md) 을 사용 하 여 Azure AD Graph API와 상호 작용 하는 .net 콘솔 응용 프로그램입니다. 이 코드에서는 API를 호출 하 여 Azure AD B2C 테 넌 트에서 사용자를 프로그래밍 방식으로 관리 하는 방법을 보여 줍니다.
 
-[샘플 아카이브](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip) (\*.zip)를 다운로드 하거나 GitHub 리포지토리를 복제할 수 있습니다.
+샘플 아카이브 (\*.zip) [를 다운로드](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip) 하거나 GitHub 리포지토리를 복제할 수 있습니다.
 
 ```cmd
 git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
@@ -87,7 +87,7 @@ git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 
 1. Visual Studio에서 `B2CGraphClient\B2CGraphClient.sln` 솔루션을 엽니다.
 1. **B2CGraphClient** 프로젝트에서 *app.config* 파일을 엽니다.
-1. 섹션을 `<appSettings>` 다음 XML로 바꿉니다. 그런 다음 `{your-b2c-tenant}` 를 테 넌 트 `{Application ID}` `{Client secret}` 의 이름으로 바꾸고을 이전에 기록한 값으로 바꿉니다.
+1. `<appSettings>` 섹션을 다음 XML로 바꿉니다. 그런 다음 `{your-b2c-tenant}`을 테 넌 트의 이름으로 바꾸고 `{Application ID}` 및 `{Client secret}` 앞에서 기록한 값으로 바꿉니다.
 
     ```xml
     <appSettings>
@@ -99,7 +99,7 @@ git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
 
 1. 솔루션을 빌드합니다. 솔루션 탐색기에서 **B2CGraphClient** 솔루션을 마우스 오른쪽 단추로 클릭 한 다음 **솔루션 다시 빌드**를 선택 합니다.
 
-빌드에 성공 `B2C.exe` 하면 콘솔 응용 프로그램을에서 `B2CGraphClient\bin\Debug`찾을 수 있습니다.
+빌드에 성공 하면 `B2CGraphClient\bin\Debug`에서 `B2C.exe` 콘솔 응용 프로그램을 찾을 수 있습니다.
 
 ## <a name="review-the-sample-code"></a>샘플 코드 검토
 
@@ -110,18 +110,18 @@ cd B2CGraphClient\bin\Debug
 B2C Help
 ```
 
-`B2C Help` 명령은 사용 가능한 하위 명령에 대 한 간단한 설명을 표시 합니다. 해당 하위 명령 중 하나를 호출할 때마다가 `B2CGraphClient` Azure AD Graph API 요청을 보냅니다.
+`B2C Help` 명령은 사용 가능한 하위 명령에 대 한 간단한 설명을 표시 합니다. 해당 하위 명령 중 하나를 호출할 때마다 `B2CGraphClient` Azure AD Graph API에 요청을 보냅니다.
 
 다음 섹션에서는 응용 프로그램 코드가 Azure AD Graph API를 호출 하는 방법을 설명 합니다.
 
 ### <a name="get-an-access-token"></a>액세스 토큰 가져오기
 
-Azure AD Graph API에 대 한 모든 요청에는 인증을 위한 액세스 토큰이 필요 합니다. `B2CGraphClient`ADAL (open source Active Directory 인증 라이브러리)을 사용 하 여 액세스 토큰을 가져오는 데 도움을 줍니다. ADAL을 사용 하면 도우미 API를 제공 하 고 액세스 토큰 캐싱과 같은 몇 가지 중요 한 세부 정보를 처리 하 여 토큰을 보다 쉽게 가져올 수 있습니다. 그러나 ADAL을 사용 하 여 토큰을 가져올 필요는 없습니다. 대신 HTTP 요청을 수동으로 작성 하 여 토큰을 가져올 수 있습니다.
+Azure AD Graph API에 대 한 모든 요청에는 인증을 위한 액세스 토큰이 필요 합니다. `B2CGraphClient`은 ADAL (오픈 소스 Active Directory 인증 라이브러리)을 사용 하 여 액세스 토큰을 가져오는 데 도움을 줍니다. ADAL을 사용 하면 도우미 API를 제공 하 고 액세스 토큰 캐싱과 같은 몇 가지 중요 한 세부 정보를 처리 하 여 토큰을 보다 쉽게 가져올 수 있습니다. 그러나 ADAL을 사용 하 여 토큰을 가져올 필요는 없습니다. 대신 HTTP 요청을 수동으로 작성 하 여 토큰을 가져올 수 있습니다.
 
 > [!NOTE]
 > Azure AD Graph API와 함께 사용할 수 있는 액세스 토큰을 가져오려면 ADAL v2 이상을 사용 해야 합니다. ADAL v1은 사용할 수 없습니다.
 
-가 `B2CGraphClient` 실행 되 면 `B2CGraphClient` 클래스의 인스턴스를 만듭니다. 이 클래스의 생성자는 ADAL 인증 스 캐 폴딩을 설정 합니다.
+`B2CGraphClient`를 실행 하면 `B2CGraphClient` 클래스의 인스턴스를 만듭니다. 이 클래스의 생성자는 ADAL 인증 스 캐 폴딩을 설정 합니다.
 
 ```csharp
 public B2CGraphClient(string clientId, string clientSecret, string tenant)
@@ -140,9 +140,9 @@ public B2CGraphClient(string clientId, string clientSecret, string tenant)
 }
 ```
 
-`B2C Get-User` 명령을 예로 사용 하겠습니다.
+`B2C Get-User` 명령을 사용 하 여 예로 살펴보겠습니다.
 
-추가 `B2C Get-User` 인수 없이를 호출 하면 응용 프로그램에서 메서드를 `B2CGraphClient.GetAllUsers()` 호출 합니다. `GetAllUsers()`그런 다음 `B2CGraphClient.SendGraphGetRequest()`를 호출 하 여 Azure AD Graph API에 HTTP GET 요청을 전송 합니다. 는 `B2CGraphClient.SendGraphGetRequest()` GET 요청을 보내기 전에 먼저 ADAL을 사용 하 여 액세스 토큰을 가져옵니다.
+추가 인수 없이 `B2C Get-User`를 호출 하면 응용 프로그램은 `B2CGraphClient.GetAllUsers()` 메서드를 호출 합니다. 그런 다음 `GetAllUsers()` `B2CGraphClient.SendGraphGetRequest()`를 호출 하 여 HTTP GET 요청을 Azure AD Graph API 전송 합니다. `B2CGraphClient.SendGraphGetRequest()` GET 요청을 보내기 전에 먼저 ADAL을 사용 하 여 액세스 토큰을 가져옵니다.
 
 ```csharp
 public async Task<string> SendGraphGetRequest(string api, string query)
@@ -157,7 +157,7 @@ ADAL `AuthenticationContext.AcquireToken()` 메서드를 호출하여 Graph API�
 
 ### <a name="read-users"></a>사용자 읽기
 
-사용자 목록을 가져오거나 Azure AD Graph API에서 특정 사용자를 가져오는 경우 `GET` `/users` 끝점에 HTTP 요청을 보낼 수 있습니다. 테넌트의 모든 사용자에 대한 요청은 다음과 같습니다.
+사용자 목록을 가져오거나 Azure AD Graph API에서 특정 사용자를 가져오는 경우 HTTP `GET` 요청을 `/users` 끝점으로 보낼 수 있습니다. 테넌트의 모든 사용자에 대한 요청은 다음과 같습니다.
 
 ```HTTP
 GET https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -172,7 +172,7 @@ Authorization: Bearer eyJhbGciOiJSUzI1NiIsIng1dCI6IjdkRC1nZWNOZ1gxWmY3R0xrT3ZwT0
 
 유의해야 할 두 가지 중요한 사항은 다음과 같습니다.
 
-* ADAL을 사용 하 여 얻은 액세스 토큰은 `Authorization` `Bearer` 스키마를 사용 하 여 헤더에 추가 됩니다.
+* ADAL을 사용 하 여 가져온 액세스 토큰은 `Bearer` 체계를 사용 하 여 `Authorization` 헤더에 추가 됩니다.
 * B2C 테넌트의 경우 쿼리 매개 변수 `api-version=1.6`를 사용해야 합니다.
 
 이러한 세부 사항은 모두 `B2CGraphClient.SendGraphGetRequest()` 메서드에서 처리됩니다.
@@ -200,9 +200,9 @@ public async Task<string> SendGraphGetRequest(string api, string query)
 
 ### <a name="create-consumer-user-accounts"></a>소비자 사용자 계정 만들기
 
-B2C 테 넌 트에서 사용자 계정을 만들 때 `POST` `/users` 끝점에 HTTP 요청을 보낼 수 있습니다. 다음 HTTP `POST` 요청은 테 넌 트에서 만들 예제 사용자를 보여 줍니다.
+B2C 테 넌 트에서 사용자 계정을 만들 때 HTTP `POST` 요청을 `/users` 끝점으로 보낼 수 있습니다. 다음 HTTP `POST` 요청은 테 넌 트에서 만들 예제 사용자를 표시 합니다.
 
-소비자 사용자를 만들려면 다음 요청의 대부분 속성이 필요 합니다. `//` 설명에 대 한 설명이 포함 되어 있습니다. 실제 요청에는 포함 되지 않습니다.
+소비자 사용자를 만들려면 다음 요청의 대부분 속성이 필요 합니다. 설명에 대 한 `//` 주석은 실제 요청에 포함 되지 않습니다.
 
 ```HTTP
 POST https://graph.windows.net/contosob2c.onmicrosoft.com/users?api-version=1.6
@@ -238,18 +238,18 @@ B2C Create-User ..\..\..\usertemplate-email.json
 B2C Create-User ..\..\..\usertemplate-username.json
 ```
 
-`Create-User` 명령은 사용자 개체의 json 표현을 포함 하는 json 파일을 입력 매개 변수로 사용 합니다. 코드 샘플 `usertemplate-email.json` 에는 및 `usertemplate-username.json`라는 두 개의 샘플 JSON 파일이 있습니다. 필요에 따라 이러한 파일을 수정할 수 있습니다. 위의 필수 필드 외에도 파일에 몇 가지 선택적 필드가 포함 됩니다.
+`Create-User` 명령은 사용자 개체의 JSON 표현을 포함 하는 JSON 파일을 입력 매개 변수로 사용 합니다. 코드 샘플에는 `usertemplate-email.json` 및 `usertemplate-username.json`의 두 가지 샘플 JSON 파일이 있습니다. 필요에 따라 이러한 파일을 수정할 수 있습니다. 위의 필수 필드 외에도 파일에 몇 가지 선택적 필드가 포함 됩니다.
 
 필수 및 선택적 필드에 대 한 자세한 내용은 [엔터티 및 복합 형식 참조를 참조 하세요. 참조를 Graph API](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference)합니다.
 
-에서 `B2CGraphClient.SendGraphPostRequest()`POST 요청을 생성 하는 방법을 확인할 수 있습니다.
+`B2CGraphClient.SendGraphPostRequest()`에서 POST 요청을 생성 하는 방법을 확인할 수 있습니다.
 
 * 액세스 토큰을 요청의 `Authorization` 헤더에 연결합니다.
 * `api-version=1.6`을 설정합니다.
 * 요청 본문에 JSON 사용자 개체를 포함합니다.
 
 > [!NOTE]
-> 기존 사용자 저장소에서 마이그레이션하려는 계정이 [Azure AD B2C에 의해 적용 되는 강력한 암호](active-directory-b2c-reference-password-complexity.md)강도 보다 낮은 암호를 사용 하는 경우에는 `DisableStrongPassword` `passwordPolicies`의값을사용하여강력한암호요구사항을사용하지않도록설정할수있습니다.속성. 예를 들어 이전 사용자 만들기 요청을 다음과 `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`같이 수정할 수 있습니다.
+> 기존 사용자 저장소에서 마이그레이션하려는 계정이 [Azure AD B2C에 의해 적용 되는 강력한 암호](active-directory-b2c-reference-password-complexity.md)강도 보다 낮은 암호를 사용 하는 경우 `passwordPolicies` 속성에 `DisableStrongPassword` 값을 사용 하 여 강력한 암호 요구 사항을 사용 하지 않도록 설정할 수 있습니다. 예를 들어 이전 사용자 만들기 요청을 다음과 같이 수정할 수 있습니다. `"passwordPolicies": "DisablePasswordExpiration, DisableStrongPassword"`.
 
 ### <a name="update-consumer-user-accounts"></a>소비자 사용자 계정 업데이트
 
@@ -266,7 +266,7 @@ Content-Length: 37
 }
 ```
 
-JSON 파일의 일부 값을 수정 하 여 사용자를 업데이트 한 후를 사용 하 `B2CGraphClient` 여 다음 명령 중 하나를 실행 합니다.
+JSON 파일의 일부 값을 수정 하 여 사용자를 업데이트 한 후 `B2CGraphClient`를 사용 하 여 다음 명령 중 하나를 실행 합니다.
 
 ```cmd
 B2C Update-User <user-object-id> ..\..\..\usertemplate-email.json
@@ -277,10 +277,11 @@ B2C Update-User <user-object-id> ..\..\..\usertemplate-username.json
 
 ### <a name="search-users"></a>사용자 검색
 
-B2C 테 넌 트에서 사용자를 검색 하는 방법에는 두 가지가 있습니다.
+B2C 테 넌 트에서 사용자를 검색 하려면 다음과 같은 방법을 사용할 수 있습니다.
 
 * 사용자의 **개체 ID**를 참조 합니다.
-* 속성의 `signInNames` 로그인 식별자를 참조 합니다.
+* `signInNames` 속성의 로그인 식별자를 참조 합니다.
+* 유효한 OData 매개 변수 (예: givenName, 성, displayName 등)를 참조 합니다.
 
 다음 명령 중 하나를 실행 하 여 사용자를 검색 합니다.
 
@@ -289,11 +290,14 @@ B2C Get-User <user-object-id>
 B2C Get-User <filter-query-expression>
 ```
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+예:
 
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
 B2C Get-User $filter=signInNames/any(x:x/value%20eq%20%27consumer@fabrikam.com%27)
+B2C get-user $filter=givenName%20eq%20%27John%27
+B2C get-user $filter=surname%20eq%20%27Doe%27
+B2C get-user $filter=displayName%20eq%20%27John%20Doe%27
 ```
 
 ### <a name="delete-users"></a>사용자 삭제
@@ -328,7 +332,7 @@ B2C Get-B2C-Application
 B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
-출력은 각 사용자 지정 특성의 세부 정보를 표시 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+출력은 각 사용자 지정 특성의 세부 정보를 표시 합니다. 예:
 
 ```json
 {

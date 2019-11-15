@@ -4,17 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 072864d565e2edbddd4b7df851ad0e30daf7e5fa
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 09c4420647043fccc408631fec75854667923721
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182227"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085262"
 ---
 Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제가 발생할 때 가상 머신에서 서비스의 로그 파일을 수집해야 합니다. 필요에 따라 AzureLogCollector 확장을 사용하여 VM에 원격으로 로그온하지 않고 웹 역할 및 작업자 역할 둘 다로 하나 이상의 클라우드 서비스 VM에서 일회성 로그 수집을 수행하고 수집한 파일을 Azure Storage 계정으로 보낼 수 있습니다.
 
 > [!NOTE]
-> 대부분의 로깅된 정보에 대한 설명은 http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.asp 에서 확인할 수 있습니다.
+> 기록 된 대부분의 정보에 대 한 설명은 https://blogs.msdn.microsoft.com/kwill/2013/08/09/windows-azure-paas-compute-diagnostics-data/에서 찾을 수 있습니다.
 > 
 > 
 
@@ -31,17 +31,17 @@ Microsoft Azure 클라우드 서비스 관련 문제를 진단하려면 문제�
 
 두 컬렉션 모드에서 다음 구조의 컬렉션을 사용하여 추가 데이터 수집 폴더를 지정할 수 있습니다.
 
-* **이름**: 수집된 파일이 포함된 Zip 파일 내의 하위 폴더의 이름으로 사용되는 컬렉션의 이름입니다.
-* **Location**: 수집될 파일이 배치될 가상 머신의 폴더 경로입니다.
+* **이름**: 수집된 파일이 포함된 zip 파일 내의 하위 폴더의 이름으로 사용될 컬렉션의 이름입니다.
+* **위치**: 수집되는 파일이 배치될 가상 머신의 폴더 경로입니다.
 * **SearchPattern**: 수집할 파일의 이름 패턴입니다. 기본값은 “\*”입니다.
 * **재귀**: 수집되는 파일이 지정된 위치에 재귀적으로 배치됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 * 생성된 zip 파일을 저장하려면 확장에 대한 스토리지 계정이 있어야 합니다.
-* Azure PowerShell. 참조 [Azure PowerShell 설치](/powershell/azure/install-az-ps)] 설치 지침에 대 한 합니다.
+* Azure PowerShell. 설치 지침은 install [Azure PowerShell](/powershell/azure/install-az-ps)]를 참조 하세요.
 
 ## <a name="add-the-extension"></a>확장 추가
 [Microsoft Azure PowerShell](https://msdn.microsoft.com/library/dn495240.aspx) cmdlet 또는 [서비스 관리 REST API](https://msdn.microsoft.com/library/ee460799.aspx)를 사용하여 AzureLogCollector 확장을 추가할 수 있습니다.
@@ -181,10 +181,10 @@ param (
 * **역할**: "WebRole1" 또는 "WorkerRole1"과 같은 역할 목록입니다.
 * **인스턴스**: 쉼표로 구분된 역할 인스턴스의 이름 목록입니다. 모든 역할 인스턴스에 대해 와일드카드 문자열(“*”)을 사용합니다.
 * **슬롯**: 슬롯 이름입니다. “프로덕션” 또는 “스테이징”입니다.
-* **모드**: 수집 모드입니다. "Full" 또는 "GA"입니다.
+* **모드**: 컬렉션 모드입니다. "Full" 또는 "GA"입니다.
 * **StorageAccountName**: 수집된 데이터를 저장하기 위한 Azure 스토리지 계정의 이름입니다.
-* **StorageAccountKey**: Azure Storage 계정 키 이름입니다.
-* **AdditionalDataLocationList**: 다음 구조의 목록:
+* **StorageAccountKey**: Azure 스토리지 계정 키의 이름입니다.
+* **AdditionalDataLocationList**: 다음 구조의 목록입니다.
 
   ```powershell
   {
@@ -261,10 +261,10 @@ param (
 
 * **ServiceName**: 클라우드 서비스 이름입니다.
 * **VMName**: VM의 이름입니다.
-* **모드**: 수집 모드입니다. "Full" 또는 "GA"입니다.
+* **모드**: 컬렉션 모드입니다. "Full" 또는 "GA"입니다.
 * **StorageAccountName**: 수집된 데이터를 저장하기 위한 Azure 스토리지 계정의 이름입니다.
-* **StorageAccountKey**: Azure Storage 계정 키 이름입니다.
-* **AdditionalDataLocationList**: 다음 구조의 목록:
+* **StorageAccountKey**: Azure 스토리지 계정 키의 이름입니다.
+* **AdditionalDataLocationList**: 다음 구조의 목록입니다.
 
   ```
   {

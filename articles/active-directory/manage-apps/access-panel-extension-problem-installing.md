@@ -16,12 +16,12 @@ ms.date: 05/04/2018
 ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 598a69593046354e83fe35b7b2ecfb0745e8b637
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 580207bb10680e84cfda7d4b1874f2b460602973
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66388327"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082172"
 ---
 # <a name="install-the-access-panel-browser-extension"></a>액세스 패널 브라우저 확장 설치
 
@@ -63,11 +63,11 @@ Azure AD 버전을 사용하는 경우에는 액세스 패널을 통해 셀프 �
 또한 Chrome 및 Microsoft Edge 확장은 다음 사이트에서 직접 다운로드할 수도 있습니다.
 
 - [Chrome 확장](https://chrome.google.com/webstore/detail/access-panel-extension/ggjhpefgjjfobnfoldnjipclpcfbgbhl)
-- [Microsoft Edge 확장](https://www.microsoft.com/store/apps/9pc9sckkzk84)
+- [Microsoft Edge 확장](https://www.microsoft.com/en-us/p/my-apps-secure-sign-in-extension/9pc9sckkzk84)
 - [Firefox 확장](https://addons.mozilla.org/en-US/firefox/addon/access-panel-extension/)
 
-## <a name="use-the-my-apps-secure-sign-in-extension"></a>My Apps 보안 로그인 확장 사용
-* `https://myapps.microsoft.com` 이외의 My Apps URL을 사용하는 경우 다음을 수행하여 기본 URL을 구성합니다.
+## <a name="use-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장 사용
+* `https://myapps.microsoft.com`이 아닌 내 앱 URL을 사용하는 경우 다음을 수행하여 기본 URL을 구성합니다.
    1. 확장에 로그인되지 *않은* 상태에서 확장 아이콘을 마우스 오른쪽 단추로 클릭합니다.
    2. 메뉴에서 **My Apps URL**을 선택합니다.
    3. 기본 URL을 선택합니다.
@@ -86,7 +86,7 @@ Azure AD 버전을 사용하는 경우에는 액세스 패널을 통해 셀프 �
    2. 확장 아이콘을 선택하여 해당 메뉴를 엽니다.
    3. My Apps 포털에서 사용할 수 있는 앱을 검색합니다.
    4. 검색 결과 목록에서 앱을 선택합니다.  
-       마지막으로 사용한 세 개의 앱이 **최근에 사용한 항목** 바로 가기 목록에 표시됩니다.
+       마지막으로 사용한 앱 3개가 **최근에 사용됨** 바로 가기 목록에 표시됩니다.
        
 * 원격으로 회사 내부 URL을 사용하려면 다음을 수행합니다.
     1. 테넌트에 [애플리케이션 프록시 구성](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-enable)

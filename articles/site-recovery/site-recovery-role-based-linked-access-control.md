@@ -1,21 +1,21 @@
 ---
-title: RBAC(역할 기반 액세스 제어)를 사용하여 Azure Site Recovery 액세스 관리 | Microsoft Docs
+title: Azure Site Recovery에서 Azure 역할 기반 액세스 제어 관리
 description: 이 문서에서는 RBAC(역할 기반 액세스 제어)를 적용하여 Azure Site Recovery 액세스를 관리하는 방법을 설명합니다.
 ms.service: site-recovery
 ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 51c0d832a6d6d9b1cd148f765e68cb77c4679819
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ce389f9281b02662f87353f00c9bca92cdf86937
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72929212"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083770"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>RBAC(역할 기반 액세스 제어)를 사용하여 Site Recovery 액세스 관리
 
-Azure 역할 기반 Access Control(RBAC)을 통해 Azure에 대한 세밀한 액세스 관리가 가능합니다. RBAC를 사용하여 팀 내 책임을 구분하고, 특정 작업을 수행하는 데 필요한 사용자에게 특정 액세스 권한만 부여할 수 있습니다.
+Azure 역할 기반 access Control (RBAC)은 Azure에 대 한 세밀 한 액세스 관리를 가능 하 게 합니다. RBAC를 사용하여 팀 내 책임을 구분하고, 특정 작업을 수행하는 데 필요한 사용자에게 특정 액세스 권한만 부여할 수 있습니다.
 
 Azure Site Recovery는 Site Recovery 관리 작업을 제어하는 3가지 기본 제공 역할을 제공합니다. [Azure RBAC 기본 제공 역할](../role-based-access-control/built-in-roles.md)에 대해 알아보기
 
@@ -43,7 +43,7 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 
 | **리소스 종류** | **배포 모델** | **사용 권한** |
 | --- | --- | --- |
-| 컴퓨팅 | Resource Manager | Microsoft.Compute/availabilitySets/read |
+| 컴퓨팅 | 리소스 관리자 | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
@@ -53,7 +53,7 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 |  |  | Microsoft.ClassicCompute/virtualMachines/read |
 |  |  | Microsoft.ClassicCompute/virtualMachines/write |
 |  |  | Microsoft.ClassicCompute/virtualMachines/delete |
-| 네트워크 | Resource Manager | Microsoft.Network/networkInterfaces/read |
+| 네트워크 | 리소스 관리자 | Microsoft.Network/networkInterfaces/read |
 |  |  | Microsoft.Network/networkInterfaces/write |
 |  |  | Microsoft.Network/networkInterfaces/delete |
 |  |  | Microsoft.Network/networkInterfaces/join/action |
@@ -62,11 +62,11 @@ Azure Site Recovery를 사용하여 새 Virtual Machine을 Azure에 복제할 �
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | 클래식 | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| 스토리지 | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| 스토리지 | 리소스 관리자 | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | 클래식 | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
-| 리소스 그룹 | Resource Manager | Microsoft.Resources/deployments/* |
+| 리소스 그룹 | 리소스 관리자 | Microsoft.Resources/deployments/* |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
 Resource Manager 및 클래식 배포 모델에 대해 각각 'Virtual Machine 참여자' 및 '클래식 Virtual Machine 참여자' [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 사용하는 것이 좋습니다.

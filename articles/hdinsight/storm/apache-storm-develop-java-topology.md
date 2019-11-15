@@ -2,19 +2,18 @@
 title: Apache Storm 예제 Java 토폴로지 - Azure HDInsight
 description: 예제 단어 개수 토폴로지를 만들어 Java에서 Apache Storm 토폴로지를 만드는 방법에 대해 배웁니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-keywords: apache storm,apache storm example,storm java,storm topology example
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 41ed51fc0cec9843525275613cca211d2e1bf409
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 75100b47ddf8f36ed9a22ff3073c439f8ad9040b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018634"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083289"
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Java에서 Apache Storm 토폴로지 만들기
 
@@ -25,13 +24,14 @@ ms.locfileid: "71018634"
 > [!NOTE]  
 > 이 문서에서 만든 Storm 토폴로지 예제의 전체 버전은 [https://github.com/Azure-Samples/hdinsight-java-storm-wordcount](https://github.com/Azure-Samples/hdinsight-java-storm-wordcount)에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 * [JDK(Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
 
-* Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html) [Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
+* Apache에 따라 올바르게 [설치된](https://maven.apache.org/download.cgi) [Apache Maven](https://maven.apache.org/install.html)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
 
 ## <a name="test-environment"></a>테스트 환경
+
 이 문서에 사용 되는 환경은 Windows 10을 실행 하는 컴퓨터 였습니다.  명령은 명령 프롬프트에서 실행 되었으며 다양 한 파일이 메모장을 사용 하 여 편집 되었습니다.
 
 명령 프롬프트에서 아래 명령을 입력 하 여 작업 환경을 만듭니다.
@@ -52,7 +52,7 @@ cd WordCount
 mkdir resources
 ```
 
-이 명령은 기본 Maven 프로젝트를 포함하는 현재 위치에 `WordCount`라는 디렉터리를 만듭니다. 두 번째 명령은 현재 작업 디렉터리를로 `WordCount`변경 합니다. 세 번째 명령은 나중에 사용 되는 `resources`새 디렉터리를 만듭니다.  `WordCount` 디렉터리에는 다음과 같은 항목이 포함됩니다.
+이 명령은 기본 Maven 프로젝트를 포함하는 현재 위치에 `WordCount`라는 디렉터리를 만듭니다. 두 번째 명령은 현재 작업 디렉터리를 `WordCount`로 변경 합니다. 세 번째 명령은 나중에 사용 될 새 디렉터리 `resources`를 만듭니다.  `WordCount` 디렉터리에는 다음과 같은 항목이 포함됩니다.
 
 * `pom.xml`: Maven 프로젝트에 대한 설정을 포함합니다.
 * `src\main\java\com\microsoft\example`: 애플리케이션 코드를 포함합니다.
@@ -60,7 +60,7 @@ mkdir resources
 
 ### <a name="remove-the-generated-example-code"></a>생성된 예제 코드 제거
 
-다음 명령을 입력 `App.java` 하 여 생성 된 `AppTest.java`테스트 및 응용 프로그램 파일을 삭제 합니다.
+`AppTest.java`생성 된 테스트 및 응용 프로그램 파일을 삭제 하 고 아래 명령을 입력 하 여 `App.java` 합니다.
 
 ```cmd
 DEL src\main\java\com\microsoft\example\App.java
@@ -71,7 +71,7 @@ DEL src\test\java\com\microsoft\example\AppTest.java
 
 HDInsight는 HDP(Hortonworks Data Platform)를 기반으로 하므로 Hortonworks 리포지토리를 사용하여 Apache Storm 프로젝트에 대한 종속성을 다운로드하는 것이 좋습니다.  
 
-아래 `pom.xml` 명령을 입력 하 여를 엽니다.
+아래 명령을 입력 하 여 `pom.xml`를 엽니다.
 
 ```cmd
 notepad pom.xml
@@ -118,7 +118,7 @@ notepad pom.xml
 
 ## <a name="add-properties"></a>속성 추가
 
-Maven을 사용하면 속성이라고 하는 프로젝트 수준 값을 정의할 수 있습니다. 에서 `pom.xml` 줄`</repositories>` 뒤에 다음 텍스트를 추가 합니다.
+Maven을 사용하면 속성이라고 하는 프로젝트 수준 값을 정의할 수 있습니다. `pom.xml`에서 `</repositories>` 줄 뒤에 다음 텍스트를 추가 합니다.
 
 ```xml
 <properties>
@@ -134,7 +134,7 @@ Maven을 사용하면 속성이라고 하는 프로젝트 수준 값을 정의�
 
 ## <a name="add-dependencies"></a>종속성 추가
 
-Storm 구성 요소에 대한 종속성을 추가합니다. 에서 `pom.xml` 섹션`<dependencies>` 에 다음 텍스트를 추가 합니다.
+Storm 구성 요소에 대한 종속성을 추가합니다. `pom.xml`의 `<dependencies>` 섹션에 다음 텍스트를 추가 합니다.
 
 ```xml
 <dependency>
@@ -153,7 +153,7 @@ Storm 구성 요소에 대한 종속성을 추가합니다. 에서 `pom.xml` 섹
 
 ## <a name="build-configuration"></a>빌드 구성
 
-Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 지정할 수 있습니다. 예를 들어 프로젝트 컴파일 방법 또는 JAR 파일로 패키지하는 방법입니다. 에서 `pom.xml` `</project>` 줄 바로 위에 다음 텍스트를 추가 합니다.
+Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 지정할 수 있습니다. 예를 들어 프로젝트 컴파일 방법 또는 JAR 파일로 패키지하는 방법입니다. `pom.xml`에서 `</project>` 줄 바로 위에 다음 텍스트를 추가 합니다.
 
 ```xml
 <build>
@@ -164,14 +164,14 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
 </build>
 ```
 
-이 섹션은 플러그 인, 리소스 및 다른 빌드 구성 옵션을 추가하는 데 사용됩니다. `pom.xml` 파일에 대 한 전체 참조는을 참조 [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html)하세요.
+이 섹션은 플러그 인, 리소스 및 다른 빌드 구성 옵션을 추가하는 데 사용됩니다. `pom.xml` 파일에 대 한 전체 참조는 [https://maven.apache.org/pom.html](https://maven.apache.org/pom.html)를 참조 하세요.
 
 ### <a name="add-plug-ins"></a>플러그 인 추가
 
 * **Exec Maven 플러그 인**
 
-    Java에서 구현된 Apache Storm 토폴로지의 경우 [Exec Maven 플러그 인](https://www.mojohaus.org/exec-maven-plugin/)을 사용하면 개발 환경에서 토폴로지를 로컬에서 쉽게 실행할 수 있어 유용합니다. Exec Maven 플러그 인을 추가하려면 `pom.xml` 파일의 `<plugins>` 섹션에 다음을 추가합니다.
-    
+    Java에서 구현된 Apache Storm 토폴로지의 경우 [Exec Maven 플러그 인](https://www.mojohaus.org/exec-maven-plugin/)을 사용하면 개발 환경에서 토폴로지를 로컬에서 쉽게 실행할 수 있어 유용합니다. Exec Maven 플러그 인을 추가하려면 `<plugins>` 파일의 `pom.xml` 섹션에 다음을 추가합니다.
+
     ```xml
     <plugin>
         <groupId>org.codehaus.mojo</groupId>
@@ -179,9 +179,9 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
         <version>1.6.0</version>
         <executions>
             <execution>
-            <goals>
-                <goal>exec</goal>
-            </goals>
+                <goals>
+                    <goal>exec</goal>
+                </goals>
             </execution>
         </executions>
         <configuration>
@@ -190,7 +190,7 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
             <includePluginDependencies>false</includePluginDependencies>
             <classpathScope>compile</classpathScope>
             <mainClass>${storm.topology}</mainClass>
-            <cleanupDaemonThreads>false</cleanupDaemonThreads> 
+            <cleanupDaemonThreads>false</cleanupDaemonThreads>
         </configuration>
     </plugin>
     ```
@@ -198,35 +198,35 @@ Maven 플러그 인을 사용하면 프로젝트의 빌드 단계를 사용자 �
 * **Apache Maven 컴파일러 플러그 인**
 
     다른 유용한 플러그 인은 컴파일 옵션을 변경하는 데 사용되는 [Apache Maven 컴파일러 플러그 인](https://maven.apache.org/plugins/maven-compiler-plugin/)입니다. 응용 프로그램의 원본 및 대상에 Maven이 사용 하는 Java 버전을 변경 합니다.
-    
+
   * HDInsight __3.4 이하__의 경우 원본과 대상의 Java 버전을 __1.7__로 설정합니다.
-    
+
   * HDInsight __3.5__의 경우 원본과 대상의 Java 버전을 __1.8__로 설정합니다.
-    
-    Apache Maven Compiler 플러그 인을 포함하려면 `pom.xml` 파일의 `<plugins>` 섹션에 다음 텍스트를 추가합니다. 이 예에서는 1.8을 지정하므로 대상 HDInsight 버전은 3.5가 됩니다.
-    
-    ```xml
-    <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-compiler-plugin</artifactId>
-      <version>3.3</version>
-      <configuration>
-      <source>1.8</source>
-      <target>1.8</target>
-      </configuration>
-    </plugin>
-    ```
+
+  Apache Maven Compiler 플러그 인을 포함하려면 `<plugins>` 파일의 `pom.xml` 섹션에 다음 텍스트를 추가합니다. 이 예에서는 1.8을 지정하므로 대상 HDInsight 버전은 3.5가 됩니다.
+
+  ```xml
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.1</version>
+    <configuration>
+            <source>1.8</source>
+            <target>1.8</target>
+    </configuration>
+  </plugin>
+  ```
 
 ### <a name="configure-resources"></a>리소스 구성
 
-리소스 섹션을 사용하면 토폴로지에 구성 요소에 필요한 구성 파일과 같은 비코드 리소스를 포함할 수 있습니다. 이 예에서는 `<resources>` `pom.xml` 파일의 섹션에 다음 텍스트를 추가 합니다.
+리소스 섹션을 사용하면 토폴로지에 구성 요소에 필요한 구성 파일과 같은 비코드 리소스를 포함할 수 있습니다. 이 예에서는 `pom.xml` 파일의 `<resources>` 섹션에 다음 텍스트를 추가 합니다. 그런 다음 파일을 저장 하 고 닫습니다.
 
 ```xml
 <resource>
     <directory>${basedir}/resources</directory>
     <filtering>false</filtering>
     <includes>
-        <include>log4j2.xml</include>
+            <include>log4j2.xml</include>
     </includes>
 </resource>
 ```
@@ -245,9 +245,9 @@ Java 기반 Apache Storm 토폴로지는 사용자가 작성자이거나 종속�
 
 ### <a name="create-the-spout"></a>Spout 만들기
 
-외부 데이터 소스 설정에 대한 요구를 줄이기 위해 다음 spout가 임의의 문장을 내보냅니다. 이는 [Storm-Starter 예제](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)와 함께 제공된 Spout의 수정된 버전입니다.  이 토폴로지는 하나의 spout만 사용하지만 다른 토폴로지는 다른 소스에서 해당 토폴로지로 데이터를 피드하는 여러 spout를 사용할 수 있습니다.
+외부 데이터 소스 설정에 대한 요구를 줄이기 위해 다음 spout가 임의의 문장을 내보냅니다. 이는 spout의 수정 된 버전으로, [스톰 스타터 예제](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter)와 함께 제공 됩니다.  이 토폴로지는 하나의 spout만 사용하지만 다른 토폴로지는 다른 소스에서 해당 토폴로지로 데이터를 피드하는 여러 spout를 사용할 수 있습니다.
 
-다음 명령을 입력 하 여 새 파일 `RandomSentenceSpout.java`을 만들고 엽니다.
+다음 명령을 입력 하 `RandomSentenceSpout.java`새 파일을 만들고 엽니다.
 
 ```cmd
 notepad src\main\java\com\microsoft\example\RandomSentenceSpout.java
@@ -320,9 +320,8 @@ public class RandomSentenceSpout extends BaseRichSpout {
 > [!NOTE]  
 > 외부 데이터 소스에서 읽는 Spout의 예는 다음 예제 중 하나를 참조하세요.
 >
-> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): Twitter에서 읽는 예제 Spout입니다.
-> * [Storm-Kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): Kafka에서 읽는 Spout입니다.
-
+> * [TwitterSampleSPout](https://github.com/apache/storm/blob/0.10.x-branch/examples/storm-starter/src/jvm/storm/starter/spout/TwitterSampleSpout.java): Twitter에서 읽는 예제 spout입니다.
+> * [스톰-kafka](https://github.com/apache/storm/tree/0.10.x-branch/external/storm-kafka): kafka에서 읽는 spout입니다.
 
 ### <a name="create-the-bolts"></a>Bolt 만들기
 
@@ -332,10 +331,9 @@ Bolt는 데이터 처리를 다룹니다. Bolt는 계산, 지속성, 외부 구�
 
 * **WordCount**: 각각의 단어가 발생한 횟수를 계산합니다.
 
-
 #### <a name="splitsentence"></a>SplitSentence
 
-다음 명령을 입력 하 여 새 파일 `SplitSentence.java`을 만들고 엽니다.
+다음 명령을 입력 하 `SplitSentence.java`새 파일을 만들고 엽니다.
 
 ```cmd
 notepad src\main\java\com\microsoft\example\SplitSentence.java
@@ -392,7 +390,7 @@ public class SplitSentence extends BaseBasicBolt {
 
 #### <a name="wordcount"></a>WordCount
 
-다음 명령을 입력 하 여 새 파일 `WordCount.java`을 만들고 엽니다.
+다음 명령을 입력 하 `WordCount.java`새 파일을 만들고 엽니다.
 
 ```cmd
 notepad src\main\java\com\microsoft\example\WordCount.java
@@ -489,7 +487,7 @@ public class WordCount extends BaseBasicBolt {
 
 ![Spout 및 Bolt 배열을 보여 주는 다이어그램](./media/apache-storm-develop-java-topology/word-count-topology1.png)
 
-토폴로지를 구현 하려면 아래 명령을 입력 하 여 새 파일 `WordCountTopology.java`을 만들고 엽니다.
+토폴로지를 구현 하려면 아래 명령을 입력 하 `WordCountTopology.java`새 파일을 만들고 엽니다.
 
 ```cmd
 notepad src\main\java\com\microsoft\example\WordCountTopology.java
@@ -561,7 +559,7 @@ public class WordCountTopology {
 
 ### <a name="configure-logging"></a>로깅 구성
 
-Storm은 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/)를 사용하여 정보를 기록합니다. 로깅을 구성하지 않으면 토폴로지는 진단 정보를 내보냅니다. 로깅되는 내용을 제어 하려면 아래 명령을 입력 하 여 `log4j2.xml` `resources` 디렉터리에 이라는 파일을 만듭니다.
+Storm은 [Apache Log4j 2](https://logging.apache.org/log4j/2.x/)를 사용하여 정보를 기록합니다. 로깅을 구성 하지 않으면 토폴로지는 진단 정보를 내보냅니다. 로깅되는 내용을 제어 하려면 아래 명령을 입력 하 여 `resources` 디렉터리에 `log4j2.xml` 라는 파일을 만듭니다.
 
 ```cmd
 notepad resources\log4j2.xml
@@ -572,19 +570,19 @@ notepad resources\log4j2.xml
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration>
-<Appenders>
-    <Console name="STDOUT" target="SYSTEM_OUT">
-        <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
-    </Console>
-</Appenders>
-<Loggers>
-    <Logger name="com.microsoft.example" level="trace" additivity="false">
-        <AppenderRef ref="STDOUT"/>
-    </Logger>
-    <Root level="error">
-        <Appender-Ref ref="STDOUT"/>
-    </Root>
-</Loggers>
+    <Appenders>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
+    </Appenders>
+    <Loggers>
+        <Logger name="com.microsoft.example" level="trace" additivity="false">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+        <Root level="error">
+            <Appender-Ref ref="STDOUT"/>
+        </Root>
+    </Loggers>
 </Configuration>
 ```
 
@@ -617,7 +615,7 @@ mvn compile exec:java -Dstorm.topology=com.microsoft.example.WordCountTopology
 
 이 예제 로그는 단어 ‘and’가 113번 내보내졌음을 나타냅니다. Spout가 계속해서 동일한 문장을 내보내기 때문에 토폴로지를 실행하면 개수는 계속 증가합니다.
 
-단어 내보내기와 개수 사이에는 5초의 간격이 있습니다. **WordCount** 구성 요소는 틱 튜플이 도착할 때 정보만 내보내도록 구성되어 있습니다. 틱 튜플은 5초마다 배달되어야 합니다.
+단어 내보내기와 개수의 내보내기 사이에는 5 초의 간격이 있습니다. **WordCount** 구성 요소는 틱 튜플이 도착할 때 정보만 내보내도록 구성되어 있습니다. 틱 튜플은 5초마다 배달되어야 합니다.
 
 ## <a name="convert-the-topology-to-flux"></a>토폴로지를 Flux로 변환
 
@@ -630,13 +628,13 @@ Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.or
 > [!WARNING]  
 > Storm 1.0.1의 [버그(https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055)로 인해 [Storm 개발 환경](https://storm.apache.org/releases/current/Setting-up-development-environment.html)을 설치하여 Flux 토폴로지를 로컬로 실행해야 합니다.
 
-1. 이전에는 토폴로지를 정의했지만flux에는필요하지않습니다.`WordCountTopology.java` 다음 명령을 사용 하 여 파일을 삭제 합니다.
+1. 이전에는 `WordCountTopology.java` 토폴로지를 정의 했지만 Flux에는 필요 하지 않습니다. 다음 명령을 사용 하 여 파일을 삭제 합니다.
 
     ```cmd
     DEL src\main\java\com\microsoft\example\WordCountTopology.java
     ```
 
-2. 다음 명령을 입력 하 여 새 파일 `topology.yaml`을 만들고 엽니다.
+1. 다음 명령을 입력 하 `topology.yaml`새 파일을 만들고 엽니다.
 
     ```cmd
     notepad resources\topology.yaml
@@ -648,46 +646,46 @@ Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.or
     name: "wordcount"       # friendly name for the topology
 
     config:                 # Topology configuration
-      topology.workers: 1     # Hint for the number of workers to create
-
+           topology.workers: 1     # Hint for the number of workers to create
+  
     spouts:                 # Spout definitions
     - id: "sentence-spout"
-      className: "com.microsoft.example.RandomSentenceSpout"
-      parallelism: 1      # parallelism hint
+           className: "com.microsoft.example.RandomSentenceSpout"
+           parallelism: 1      # parallelism hint
 
     bolts:                  # Bolt definitions
     - id: "splitter-bolt"
-      className: "com.microsoft.example.SplitSentence"
-      parallelism: 1
-        
+           className: "com.microsoft.example.SplitSentence"
+           parallelism: 1
+
     - id: "counter-bolt"
-      className: "com.microsoft.example.WordCount"
-      constructorArgs:
-        - 10
-      parallelism: 1
+           className: "com.microsoft.example.WordCount"
+           constructorArgs:
+             - 10
+           parallelism: 1
 
     streams:                # Stream definitions
     - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
-      from: "sentence-spout"       # The stream emitter
-      to: "splitter-bolt"          # The stream consumer
-      grouping:                    # Grouping type
-        type: SHUFFLE
-    
+           from: "sentence-spout"       # The stream emitter
+           to: "splitter-bolt"          # The stream consumer
+           grouping:                    # Grouping type
+             type: SHUFFLE
+
     - name: "Splitter -> Counter"
-      from: "splitter-bolt"
-      to: "counter-bolt"
-      grouping:
-        type: FIELDS
-        args: ["word"]           # field(s) to group on
+           from: "splitter-bolt"
+           to: "counter-bolt"
+           grouping:
+             type: FIELDS
+             args: ["word"]           # field(s) to group on
     ```
 
-3. 아래 명령을 `pom.xml` 입력 하 여 아래에서 설명 하는 수정 사항을 확인 합니다.
+1. 아래 명령을 입력 하 여 `pom.xml`을 열고 아래에 설명 된 수정 버전을 만듭니다.
 
     ```cmd
     notepad pom.xml
     ```
 
-   * `<dependencies>` 섹션에서 다음 새 종속성을 추가합니다.
+   1. `<dependencies>` 섹션에서 다음 새 종속성을 추가합니다.
 
         ```xml
         <!-- Add a dependency on the Flux framework -->
@@ -698,7 +696,7 @@ Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.or
         </dependency>
         ```
 
-   * `<plugins>` 섹션에 다음 플러그 인을 추가합니다. 이 플러그 인은 프로젝트에 대한 패키지(jar 파일)를 만들도록 처리하고 패키지를 만들 때 Flux에 특정된 일부 변환을 적용합니다.
+   1. `<plugins>` 섹션에 다음 플러그 인을 추가합니다. 이 플러그 인은 프로젝트에 대한 패키지(jar 파일)를 만들도록 처리하고 패키지를 만들 때 Flux에 특정된 일부 변환을 적용합니다.
 
         ```xml
         <!-- build an uber jar -->
@@ -739,9 +737,9 @@ Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.or
         </plugin>
         ```
 
-   * **Maven-plugin** `<configuration>` 섹션에서의 값을 `<mainClass>` 에서 `${storm.topology}` 로 `org.apache.storm.flux.Flux`변경 합니다. 이 설정을 통해 Flux가 개발 중에 로컬로 토폴로지 실행을 처리하도록 할 수 있습니다.
+   1. Exec Maven 플러그 인 섹션의 경우 `<configuration>` > `<mainClass>`로 이동 하 여 `${storm.topology}`를 `org.apache.storm.flux.Flux`로 변경 합니다. 이 설정을 통해 Flux가 개발 중에 로컬로 토폴로지 실행을 처리하도록 할 수 있습니다.
 
-   * 섹션에서 다음을에 `<includes>`추가 합니다. `<resources>` 이 XML에는 토폴로지를 프로젝트의 일환으로 정의하는 YAML 파일이 포함됩니다.
+   1. `<resources>` 섹션에서 다음을 `<includes>`에 추가 합니다. 이 XML에는 토폴로지를 프로젝트의 일환으로 정의하는 YAML 파일이 포함됩니다.
 
         ```xml
         <include>topology.yaml</include>
@@ -769,34 +767,36 @@ Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.or
 
     실행할 때 토폴로지가 시작 정보를 표시합니다. 다음 텍스트는 출력의 예제입니다.
 
-        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
-        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
-        17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
-        17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
-        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
-        17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+    ```
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word snow
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 56 for word white
+    17:33:27 [Thread-12-count] INFO  com.microsoft.example.WordCount - Emitting a count of 112 for word seven
+    17:33:27 [Thread-16-count] INFO  com.microsoft.example.WordCount - Emitting a count of 195 for word the
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 113 for word and
+    17:33:27 [Thread-30-count] INFO  com.microsoft.example.WordCount - Emitting a count of 57 for word dwarfs
+    ```
 
-    기록된 정보 배치 간에 10초의 지연이 있습니다.
+    기록 된 정보의 일괄 처리 사이에는 10 초 지연이 있습니다.
 
 2. 프로젝트에서 새 토폴로지 yaml을 만듭니다.
- 
-    a. 다음 명령을 입력 하 여 엽니다 `topology.xml`.
+
+    1. `topology.xml`를 열려면 아래 명령을 입력 합니다.
 
     ```cmd
     notepad resources\topology.yaml
     ```
 
-    b. 다음 섹션을 찾고 값 `10` 을로 `5`변경 합니다. 이렇게 수정하면 단어 수의 배치를 내보내는 간격이 10초에서 5초로 변경됩니다.  
+    1. 다음 섹션을 찾아 `10`의 값을 `5`로 변경 합니다. 이렇게 수정하면 단어 수의 배치를 내보내는 간격이 10초에서 5초로 변경됩니다.  
 
     ```yaml
     - id: "counter-bolt"
-      className: "com.microsoft.example.WordCount"
-      constructorArgs:
-        - 5
-      parallelism: 1  
-    ```  
+           className: "com.microsoft.example.WordCount"
+           constructorArgs:
+             - 5
+           parallelism: 1  
+    ```
 
-    c. 다른 이름으로 `newtopology.yaml`파일을 저장 합니다.
+    1. `newtopology.yaml`로 파일을 저장 합니다.
 
 3. 토폴로지를 실행 하려면 다음 명령을 입력 합니다.
 
@@ -810,9 +810,9 @@ Flux에 대한 자세한 내용은 [Flux 프레임워크(https://storm.apache.or
     storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local resources/newtopology.yaml
     ```
 
-     이 명령은를 `newtopology.yaml` 토폴로지 정의로 사용 합니다. `compile` 매개 변수를 포함하지 않았기 때문에 Maven은 이전 단계에서 빌드한 프로젝트의 버전을 사용합니다.
+    이 명령은 `newtopology.yaml`를 토폴로지 정의로 사용 합니다. `compile` 매개 변수를 포함하지 않았기 때문에 Maven은 이전 단계에서 빌드한 프로젝트의 버전을 사용합니다.
 
-    토폴로지가 시작 되 면 내보낸 일괄 처리 사이의 시간이의 `newtopology.yaml`값을 반영 하도록 변경 된 것을 알 수 있습니다. 따라서 토폴로지를 다시 컴파일하지 않고도 YAML 파일을 통해 구성을 변경할 수 있습니다.
+    토폴로지가 시작 되 면 내보낸 일괄 처리 사이의 시간이 `newtopology.yaml`값을 반영 하도록 변경 된 것을 알 수 있습니다. 따라서 토폴로지를 다시 컴파일하지 않고도 YAML 파일을 통해 구성을 변경할 수 있습니다.
 
 Flux 프레임워크의 다른 기능에 대한 자세한 내용은 [Flux(https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html)를 참조하세요.
 
@@ -820,13 +820,13 @@ Flux 프레임워크의 다른 기능에 대한 자세한 내용은 [Flux(https:
 
 [Trident](https://storm.apache.org/releases/current/Trident-API-Overview.html)는 Storm에서 제공하는 높은 수준의 추상화이며 상태 저장 처리를 지원합니다. Trident의 주요 이점은 토폴로지가 입력하는 모든 메시지가 한 번만 처리된다는 점입니다. Trident를 사용하지 않으면 토폴로지는 메시지가 최소한 한 번은 처리된다는 것만 보장할 수 있습니다. Bolt를 만드는 대신 사용할 수 있는 기본 제공 구성 요소와 같은 다른 차이점도 있습니다. 사실 Bolt는 필터, 프로젝션 및 함수와 같이 덜 일반적인 구성 요소로 대체됩니다.
 
-Trident 애플리케이션은 Maven 프로젝트를 사용하여 만들 수 있습니다. 이 문서의 앞부분에 제공된 것과 동일한 기본 단계를 거치며 코드만 다릅니다. Trident도 현재 Flux 프레임워크에서 사용할 수 없습니다.
+Trident 애플리케이션은 Maven 프로젝트를 사용하여 만들 수 있습니다. 이 문서의 앞부분에 제공된 것과 동일한 기본 단계를 거치며 코드만 다릅니다. Trident는 현재 Flux 프레임 워크에도 사용할 수 없습니다.
 
 Trident에 대한 자세한 내용은 [Trident API 개요](https://storm.apache.org/releases/current/Trident-API-Overview.html)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Java를 사용하여 Apache Storm 토폴로지를 만드는 방법을 알아봤으면 이제 다음으로 이동합니다.
+Java를 사용 하 여 Apache Storm 토폴로지를 만드는 방법을 알아보았습니다. 이제 다음으로 이동합니다.
 
 * [HDInsight에서 Apache Storm 토폴로지 배포 및 관리](apache-storm-deploy-monitor-topology-linux.md)
 

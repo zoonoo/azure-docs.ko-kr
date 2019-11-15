@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery를 사용하여 VMware VM 및 실제 서버 장애 복구에 대해 Azure의 프로세스 서버 설정 | Microsoft Docs
+title: Azure Site Recovery에서 프로세스 서버를 설정 하 고 VMware/물리적 장애 복구
 description: 이 아티클에서는 Azure VM을 VMware에 장애 복구하도록 Azure에서 프로세스 서버를 설정하는 방법을 설명합니다.
 services: site-recovery
 author: Rajeswari-Mamilla
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/21/2019
 ms.author: ramamill
-ms.openlocfilehash: 080edfc86848bb6c6579c177c72d3fbd3214a06a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 16214fa07b14c8db2f32fa2c69739b7fa3dc1907
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968846"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083963"
 ---
 # <a name="set-up-a-process-server-in-azure-for-failback"></a>장애 복구를 위해 Azure에서 프로세스 서버 설정
 
@@ -37,7 +37,7 @@ ms.locfileid: "72968846"
 
 4. **서버 이름**, **사용자 이름** 및 **암호**에서 프로세스 서버의 이름과 서버에 관리자 권한이 할당된 자격 증명을 지정합니다.
 5. 서버 VM 디스크에 사용할 스토리지 계정, 프로세스 서버 VM이 위치한 서브넷 및 VM이 시작될 때 할당된 서버 IP 주소를 지정합니다.
-6. **확인** 단추를 클릭하여 프로세스 서버 VM을 배포하기 시작합니다. 프로세스 서버는 Standard_A8_v2 SKU에 배포 됩니다. 이 VM SKU를 구독에 사용할 수 있는지 확인 하세요.
+6. **확인** 단추를 클릭하여 프로세스 서버 VM을 배포하기 시작합니다. 프로세스 서버가 Standard_A8_v2 SKU에 배포 됩니다. 이 VM SKU를 구독에 사용할 수 있는지 확인 하세요.
 
 >
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
-ms.date: 04/18/2019
-ms.openlocfilehash: 907fc89c0d9af01865037f650c407edd97e96645
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: 52e7a3408c231ba8a38fdc22c2fcac65ee26bb82
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821152"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082519"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Azure SQL Database 서버의 SQL Database 리소스 한도
 
@@ -29,7 +29,7 @@ ms.locfileid: "73821152"
 
 | 리소스 | 제한 |
 | :--- | :--- |
-| 서버당 데이터베이스 | 5,000 |
+| 서버당 데이터베이스 | 5000 |
 | 모든 지역에서 구독당 서버의 기본 수 | 20 |
 | 모든 지역에서 구독당 서버의 최대 수 | 200 |  
 | 서버당 DTU/eDTU 할당량 | 54,000 |  
@@ -41,11 +41,13 @@ ms.locfileid: "73821152"
 > 기본 양보다 더 많은 DTU/eDTU 할당량, vCore 할당량 또는 더 많은 서버를 얻으려면 문제 유형 "할당량"을 사용하여 구독을 위한 Azure Portal에서 새 지원 요청을 제출할 수 있습니다. 서버당 DTU/eDTU 할당량 및 데이터베이스 제한은 서버당 탄력적 풀의 수를 제한합니다.
 > [!IMPORTANT]
 > 데이터베이스 수가 SQL Database 서버당 한도에 근접하면 다음이 발생할 수 있습니다.
+>
 > - 마스터 데이터베이스에 대해 쿼리를 실행할 때 대기 시간이 증가합니다.  여기에는 sys.resource_stats와 같은 리소스 사용률 통계 보기가 포함됩니다.
 > - 관리 작업을 수행하고 서버의 데이터베이스 열거와 관련된 포털 뷰 포인트를 렌더링할 때 대기 시간이 증가합니다.
 
 ### <a name="storage-size"></a>스토리지 크기
-- 단일 데이터베이스의 경우 rources에 대 한 [DTU 기반 리소스](sql-database-dtu-resource-limits-single-databases.md) 제한 또는 [vcore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md) 을 참조 하세요.
+
+- 단일 데이터베이스 리소스 저장소 크기의 경우 가격 책정 계층 당 저장소 크기 제한에 대 한 [DTU 기반 리소스](sql-database-dtu-resource-limits-single-databases.md) 제한 또는 [vcore 기반 리소스 제한](sql-database-vcore-resource-limits-single-databases.md) 을 참조 하세요.
 
 ## <a name="what-happens-when-database-resource-limits-are-reached"></a>데이터베이스 리소스 한계에 도달하면 어떻게 되나요?
 
@@ -57,9 +59,9 @@ ms.locfileid: "73821152"
 - 데이터베이스 또는 탄력적 풀의 컴퓨팅 크기를 늘려 데이터베이스에 더 많은 컴퓨팅 리소스를 제공합니다. [단일 데이터베이스 리소스 확장](sql-database-single-database-scale.md) 및 [탄력적 풀 리소스 확장](sql-database-elastic-pool-scale.md)을 참조하세요.
 - 쿼리를 최적화하여 각 쿼리당 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](sql-database-performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
-사용된 데이터베이스 공간이 최대 크기 제한에 도달하면 데이터 크기 증가를 가져오는 데이터베이스 삽입 및 업데이트가 실패하고 클라이언트에 [오류 메시지](sql-database-develop-error-messages.md)가 표시됩니다. 데이터베이스 선택 및 삭제는 계속 성공적으로 수행됩니다.
+사용된 데이터베이스 공간이 최대 크기 제한에 도달하면 데이터 크기 증가를 가져오는 데이터베이스 삽입 및 업데이트가 실패하고 클라이언트에 [오류 메시지](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md)가 표시됩니다. 데이터베이스 선택 및 삭제는 계속 성공적으로 수행됩니다.
 
 높은 공간 사용률에 도달할 경우 완화하는 방법에는 다음이 포함됩니다.
 
@@ -76,17 +78,18 @@ ms.locfileid: "73821152"
 - 데이터베이스 또는 탄력적 풀의 서비스 계층 또는 컴퓨팅 크기를 늘립니다. [단일 데이터베이스 리소스 확장](sql-database-single-database-scale.md) 및 [탄력적 풀 리소스 확장](sql-database-elastic-pool-scale.md)을 참조하세요.
 - 컴퓨팅 리소스에 대한 경합 때문에 작업자 사용률이 증가할 경우 쿼리를 최적화하여 각 쿼리의 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](sql-database-performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
 
-## <a name="transaction-log-rate-governance"></a>트랜잭션 로그 요금 거 버 넌 스 
-트랜잭션 로그 속도 거 버 넌 스는 대량 삽입, SELECT INTO 및 인덱스 빌드와 같은 워크 로드에 대 한 높은 수집 속도를 제한 하는 데 사용 되는 Azure SQL Database의 프로세스입니다. 이러한 한도는 1 초 수준에서 로그 레코드 생성 속도까지 추적 되 고 적용 되며, 데이터 파일에 대해 실행할 수 있는 IOs 수에 관계 없이 처리량이 제한 됩니다.  현재 트랜잭션 로그 생성 속도는 하드웨어에 종속 된 지점까지 선형적으로 확장 되며 vCore 구매 모델을 사용 하 여 최대 로그 속도는 96 m b/초까지 허용 됩니다. 
+## <a name="transaction-log-rate-governance"></a>트랜잭션 로그 요금 거 버 넌 스
+
+트랜잭션 로그 속도 거 버 넌 스는 대량 삽입, SELECT INTO 및 인덱스 빌드와 같은 워크 로드에 대 한 높은 수집 속도를 제한 하는 데 사용 되는 Azure SQL Database의 프로세스입니다. 이러한 한도는 초이 수준에서 로그 레코드 생성 속도까지 추적 되 고 적용 되며, 데이터 파일에 대해 실행할 수 있는 IOs 수에 관계 없이 처리량이 제한 됩니다.  현재 트랜잭션 로그 생성 속도는 하드웨어에 종속 된 지점까지 선형적으로 확장 되며 vCore 구매 모델을 사용 하 여 최대 로그 속도는 96 m b/초까지 허용 됩니다.
 
 > [!NOTE]
-> 실제 실제 Io 트랜잭션 로그 파일은 제어 되거나 제한 되지 않습니다. 
+> 실제 실제 Io 트랜잭션 로그 파일은 제어 되거나 제한 되지 않습니다.
 
 로그 속도는 다양 한 시나리오에서 달성 하 고 유지할 수 있도록 설정 되며, 전체 시스템은 사용자 부하에 대 한 영향이 최소화 된 기능을 유지할 수 있습니다. 로그 전송률 관리는 트랜잭션 로그 백업이 게시 된 복구 가능성 Sla 내에 유지 되도록 합니다.  이 거 버 넌 스는 또한 보조 복제본의 과도 한 백로그를 방지 합니다.
 
 로그 레코드가 생성 되 면 각 작업이 평가 되 고, 최대 원하는 로그 전송률 (초당 MB/s)을 유지 하기 위해 지연 되어야 하는지 여부가 평가 됩니다. 로그 레코드가 저장소에 플러시될 때 지연 시간이 추가 되지 않고 로그 속도가 자동으로 생성 되는 동안 로그 속도가 적용 됩니다.
 
-런타임에 적용 되는 실제 로그 생성 요금은 피드백 메커니즘의 영향을 받을 수 있으므로 시스템이 안정화 될 수 있도록 허용 가능한 로그 비율을 일시적으로 줄일 수 있습니다. 로그 파일 공간 관리를 사용 하 여 로그 공간 부족 상태를 방지 하 고 가용성 그룹 복제 메커니즘을 통해 전체 시스템 제한을 일시적으로 낮출 수 있습니다. 
+런타임에 적용 되는 실제 로그 생성 요금은 피드백 메커니즘의 영향을 받을 수 있으므로 시스템이 안정화 될 수 있도록 허용 가능한 로그 비율을 일시적으로 줄일 수 있습니다. 로그 파일 공간 관리를 사용 하 여 로그 공간 부족 상태를 방지 하 고 가용성 그룹 복제 메커니즘을 통해 전체 시스템 제한을 일시적으로 낮출 수 있습니다.
 
 로그 전송률 관리자 트래픽 셰이핑은 다음 대기 유형 ( [dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) DMV에 노출 됨)을 통해 표시 됩니다.
 
@@ -100,9 +103,10 @@ ms.locfileid: "73821152"
 |||
 
 원하는 확장성을 hampering 로그 전송률 제한이 발생할 경우 다음 옵션을 고려 하십시오.
-- 최대 96 m b/초 로그 속도를 얻기 위해 더 큰 계층으로 확장 합니다. 
-- 데이터를 로드 하는 경우, 즉 ETL 프로세스에서 데이터를 준비 하는 경우 tempdb에 로드할 수 있습니다 (최소 기록 됨). 
-- 분석 시나리오의 경우 클러스터형 columnstore 대상 테이블로 로드 합니다. 이렇게 하면 압축으로 인해 필요한 로그 전송률이 줄어듭니다. 이 기법은 CPU 사용률을 높이고 클러스터형 columnstore 인덱스를 활용 하는 데이터 집합에만 적용 됩니다. 
+
+- 최대 96 m b/초 로그 속도를 얻기 위해 더 큰 계층으로 확장 합니다.
+- 데이터를 로드 하는 경우, 즉 ETL 프로세스에서 데이터를 준비 하는 경우 tempdb에 로드할 수 있습니다 (최소 기록 됨).
+- 분석 시나리오의 경우 클러스터형 columnstore 대상 테이블로 로드 합니다. 이렇게 하면 압축으로 인해 필요한 로그 전송률이 줄어듭니다. 이 기법은 CPU 사용률을 높이고 클러스터형 columnstore 인덱스를 활용 하는 데이터 집합에만 적용 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

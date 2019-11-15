@@ -1,5 +1,5 @@
 ---
-title: '회로에 대한 NAT 요구 사항 - ExpressRoute: Azure | Microsoft Docs'
+title: 'Azure Express 경로: 회로에 대 한 NAT 요구 사항'
 description: 이 페이지는 ExpressRoute 회로에 NAT를 구성하고 관리하는 자세한 요구 사항을 제공합니다.
 services: expressroute
 author: cherylmc
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.custom: seodec18
-ms.openlocfilehash: d2879b6830a5c793358cc2200485ed971c5f3c48
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 9f5c5cc3a943ad4a8882a91ffdcee89c2ad39743
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123316"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083371"
 ---
 # <a name="expressroute-nat-requirements"></a>ExpressRoute NAT 요구 사항
 ExpressRoute를 사용하여 Microsoft 클라우드 서비스에 연결하려면 NAT을 설치하고 관리해야 합니다. 일부 연결 공급자는 NAT을 관리 서비스로 설치하고 관리해 줍니다. 연결 공급자를 확인하여 그런 서비스를 제공하는지를 확인합니다. 그렇지 않은 경우 아래에 설명한 요구 사항을 준수해야 합니다. 

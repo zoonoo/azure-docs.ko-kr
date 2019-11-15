@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 8967b61115d2e2e644dea93cb236f8a7cdfcfcbd
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6a001d6b501a22b4b07599792a64af735c5d4d9b
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072244"
+ms.locfileid: "74090498"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -37,7 +37,7 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
 
 1. 앱 등록을 위한 **API 사용 권한** 창을 엽니다. **사용 권한 추가** 단추를 선택합니다. **API 사용 권한 요청** 창에서 **내 조직이 사용하는 API** 탭을 선택한 후, 다음을 검색합니다.
     
-    1. `Azure Digital Twins` 을 참조하세요. **Azure Digital Twins** API를 선택합니다.
+    1. `Azure Digital Twins`. **Azure Digital Twins** API를 선택합니다.
 
         [![Search API 또는 Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
@@ -61,6 +61,12 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
 1. `https://www.getpostman.com/oauth2/callback`에 대 한 두 번째 **리디렉션 URI** 를 구성 합니다.
 
     [Postman Redirect URI를 추가 ![](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
+
+1. [앱이 **공용 클라이언트로**등록](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)되었는지 확인 하려면 앱 등록에 대 한 **인증** 창을 열고 해당 창에서 아래로 스크롤합니다. **기본 클라이언트 유형** 섹션에서 **응용 프로그램을 공용 클라이언트로 처리**에 대해 **예** 를 선택 하 고 **저장**을 누릅니다.
+
+    **액세스 토큰** 을 확인 하 여 **oauth2AllowImplicitFlow** 설정을 사용 하도록 설정 합니다.
+
+    [![공용 클라이언트 구성 설정](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
 
 1. Azure Active Directory 앱의 **애플리케이션 ID**를 복사하고 유지합니다. 이어지는 단계에서 사용됩니다.
 

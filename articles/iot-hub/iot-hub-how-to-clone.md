@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: robinsh
-ms.openlocfilehash: 8d071d4cd6ae3f9a52433104075e396d70d5bc57
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4d8771d49f30d94aeb6dfa855f5c2ef107076afb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828696"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083279"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Azure IoT hub를 다른 지역에 복제 하는 방법
 
@@ -113,7 +113,7 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>원본 허브를 찾아 리소스 템플릿으로 내보냅니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
+1. [Azure 포털](https://portal.azure.com)할 수 있습니다. 
 
 1. **리소스 그룹** 으로 이동 하 여 이동 하려는 허브가 포함 된 리소스 그룹을 선택 합니다. **리소스** 로 이동 하 여 해당 방식으로 허브를 찾을 수도 있습니다. 허브를 선택 합니다.
 
@@ -353,7 +353,7 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
 
 템플릿을 사용 하 여 새 위치에 새 허브를 만듭니다. 이동 하려는 라우팅 리소스가 있는 경우 새 위치에 리소스를 설정 하 고 템플릿의 참조를 일치 하도록 업데이트 해야 합니다. 라우팅 리소스를 이동 하지 않는 경우 업데이트 된 키를 사용 하 여 템플릿에 있어야 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com)할 수 있습니다.
 
 1. **리소스 만들기**를 선택합니다. 
 
@@ -391,7 +391,7 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
 
 이제 복제를 실행 하 고 나면 원본 허브의 모든 장치를 복제로 복사 해야 합니다. 
 
-여러 가지 방법으로이를 수행할 수 있습니다. 처음에는 [장치 프로 비전 서비스 (DPS)](/azure/iot-dps/about-iot-dps.md)를 사용 하 여 장치를 프로 비전 했거나 아직 하지 않았습니다. 수행한 경우에는이 방법이 어렵습니다. 그렇게 하지 않으면 매우 복잡할 수 있습니다. 
+여러 가지 방법으로이를 수행할 수 있습니다. 처음에는 [장치 프로 비전 서비스 (DPS)](/azure/iot-dps/about-iot-dps)를 사용 하 여 장치를 프로 비전 했거나 아직 하지 않았습니다. 수행한 경우에는이 방법이 어렵습니다. 그렇게 하지 않으면 매우 복잡할 수 있습니다. 
 
 장치를 프로 비전 하는 데 DPS를 사용 하지 않은 경우 다음 섹션을 건너뛰고 [Import/Export를 사용 하 여 장치를 새 허브로 이동](#using-import-export-to-move-the-devices-to-the-new-hub)하는 것부터 시작할 수 있습니다.
 

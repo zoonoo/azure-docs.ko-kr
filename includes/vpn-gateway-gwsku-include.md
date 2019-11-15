@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 75152fabfc33dda0494d871fbdf9a388f4260c0d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8087025810214f3edbb74e628698eb69558f3500
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495742"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085260"
 ---
 가상 네트워크 게이트웨이를 만들 때 사용하려는 게이트웨이 SKU를 지정해야 합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다. Azure 가용성 영역의 가상 네트워크 게이트웨이 Sku는 [Azure 가용성 영역 게이트웨이 sku](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md)를 참조 하세요.
 
@@ -21,7 +21,11 @@ ms.locfileid: "73495742"
 
 [!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
-[!INCLUDE [classic SKU](./vpn-gateway-classic-sku-support-include.md)]
+> [!NOTE]
+> VpnGw Sku (VpnGw1, VpnGw1AZ, VpnGw2, VpnGw2AZ, VpnGw3, VpnGw3AZ, VpnGw4, VpnGw4AZ, VpnGw5, VpnGw5AZ,,,)는 리소스 관리자 배포 모델에만 지원 됩니다. 클래식 가상 네트워크는 이전(레거시) SKU를 계속 사용해야 합니다.
+>  * 레거시 게이트웨이 SKU(기본, 표준 및 HighPerformance)로 작업하는 방법에 대한 정보는 [VPN Gateway SKU(레거시 SKU) 작업](../articles/vpn-gateway/vpn-gateway-about-skus-legacy.md)을 참조하세요.
+>  * ExpressRoute 게이트웨이 SKU는 [ExpressRoute에 대한 Virtual Network 게이트웨이](../articles/expressroute/expressroute-about-virtual-network-gateways.md)를 참조하세요.
+>
 
 ###  <a name="feature"></a>기능 집합별 게이트웨이 SKU
 
@@ -41,7 +45,7 @@ ms.locfileid: "73495742"
 
 SLA 및 기능 집합의 차이로 인해 프로덕션 vs. 개발-테스트에 다음과 같은 SKU를 사용하는 것이 좋습니다.
 
-| **워크로드**                       | **SKU**               |
+| **작업**                       | **SKU**               |
 | ---                                | ---                    |
 | **프로덕션, 중요한 워크로드** | Basic을 제외한 모든 Generation1.xml 및 Generation2 Sku |
 | **개발-테스트 또는 개념 증명**   | 기본(\*\*)                 |

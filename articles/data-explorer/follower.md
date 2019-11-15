@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: a46cf78d902ec8391d7dc3667a6d66daa78927ab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2306b6cbdd347e3be9921b196ae06385ef5ca90a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73828566"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083184"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>종동체 데이터베이스를 사용 하 여 Azure 데이터 탐색기에 데이터베이스 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "73828566"
 * 단일 클러스터는 여러 개의 리더 클러스터에서 데이터베이스를 따라갈 수 있습니다. 
 * 클러스터에는 종동체 데이터베이스와 리더 데이터베이스가 모두 포함 될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 1. 리더 및 종동체에 대 한 [클러스터 및 DB를 만듭니다](/azure/data-explorer/create-cluster-database-portal) .
@@ -170,7 +170,7 @@ var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseCo
 |데이터베이스 이름     |      따를 데이터베이스의 이름입니다. 모든 리더의 데이터베이스를 팔 로우 하려면 ' * '를 사용 합니다.   |
 |리더 클러스터 리소스 ID    |   리더 클러스터의 리소스 ID입니다.      |
 |기본 보안 주체 수정 종류    |   기본 보안 주체 수정 종류입니다. `Union`, `Replace` 또는 `None`수 있습니다. 기본 보안 주체 수정 종류에 대 한 자세한 내용은 [principal 수정 kind 제어 명령](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind)을 참조 하세요.      |
-|위치   |   모든 리소스의 위치입니다. 리더와 종동체는 동일한 위치에 있어야 합니다.       |
+|Location   |   모든 리소스의 위치입니다. 리더와 종동체는 동일한 위치에 있어야 합니다.       |
  
 ### <a name="verify-that-the-database-was-successfully-attached"></a>데이터베이스가 성공적으로 연결 되었는지 확인 합니다.
 
@@ -242,15 +242,15 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### <a name="manage-principals"></a>보안 주체 관리
 
-데이터베이스를 연결할 때 **기본 보안 주체 수정 종류**를 지정 합니다. 기본적으로는 [인증 된 보안 주체의](/azure/kusto/management/access-control/index.md#authorization) 리더 데이터베이스 컬렉션을 유지 합니다.
+데이터베이스를 연결할 때 **기본 보안 주체 수정 종류**를 지정 합니다. 기본적으로는 [인증 된 보안 주체의](/azure/kusto/management/access-control/index#authorization) 리더 데이터베이스 컬렉션을 유지 합니다.
 
 |**종류** |**설명**  |
 |---------|---------|
-|**부분**     |   연결 된 데이터베이스 보안 주체에는 항상 원래 데이터베이스 보안 주체와 종동체 데이터베이스에 추가 된 새 보안 주체가 모두 포함 됩니다.      |
-|**Replace**   |    원본 데이터베이스의 보안 주체를 상속 하지 않습니다. 연결 된 데이터베이스에 대 한 새 보안 주체를 만들어야 합니다. 보안 주체 상속을 차단 하려면 보안 주체를 하나 이상 추가 해야 합니다.     |
+|**Union**     |   연결 된 데이터베이스 보안 주체에는 항상 원래 데이터베이스 보안 주체와 종동체 데이터베이스에 추가 된 새 보안 주체가 모두 포함 됩니다.      |
+|**바꾸기**   |    원본 데이터베이스의 보안 주체를 상속 하지 않습니다. 연결 된 데이터베이스에 대 한 새 보안 주체를 만들어야 합니다. 보안 주체 상속을 차단 하려면 보안 주체를 하나 이상 추가 해야 합니다.     |
 |**없음**   |   연결 된 데이터베이스 보안 주체에는 추가 보안 주체가 없는 원래 데이터베이스의 보안 주체만 포함 됩니다.      |
 
-제어 명령을 사용 하 여 권한이 부여 된 보안 주체를 구성 하는 방법에 대 한 자세한 내용은 [종동체 클러스터를 관리 하기 위한 제어 명령](/azure/kusto/management/cluster-follower.md)을 참조 하세요.
+제어 명령을 사용 하 여 권한이 부여 된 보안 주체를 구성 하는 방법에 대 한 자세한 내용은 [종동체 클러스터를 관리 하기 위한 제어 명령](/azure/kusto/management/cluster-follower)을 참조 하세요.
 
 ### <a name="manage-permissions"></a>권한 관리
 
@@ -258,7 +258,7 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ### <a name="configure-caching-policy"></a>캐싱 정책 구성
 
-종동체 데이터베이스 관리자는 호스팅 클러스터에서 연결 된 데이터베이스의 [캐싱 정책이](/azure/kusto/management/cache-policy) 나 해당 테이블을 수정할 수 있습니다. 기본적으로 데이터베이스 및 테이블 수준 캐싱 정책의 리더 데이터베이스 컬렉션을 유지 합니다. 예를 들어 월간 보고를 실행 하기 위해 리더 데이터베이스에 30 일 캐싱 정책을 설정 하 고, 문제 해결을 위해 최신 데이터만 쿼리하려면 종동체 데이터베이스에서 3 일 캐싱 정책을 사용할 수 있습니다. 제어 명령을 사용 하 여 종동체 데이터베이스 또는 테이블에 대 한 캐싱 정책을 구성 하는 방법에 대 한 자세한 내용은 [종동체 클러스터를 관리 하기 위한 제어 명령](/azure/kusto/management/cluster-follower.md)을 참조 하세요.
+종동체 데이터베이스 관리자는 호스팅 클러스터에서 연결 된 데이터베이스의 [캐싱 정책이](/azure/kusto/management/cache-policy) 나 해당 테이블을 수정할 수 있습니다. 기본적으로 데이터베이스 및 테이블 수준 캐싱 정책의 리더 데이터베이스 컬렉션을 유지 합니다. 예를 들어 월간 보고를 실행 하기 위해 리더 데이터베이스에 30 일 캐싱 정책을 설정 하 고, 문제 해결을 위해 최신 데이터만 쿼리하려면 종동체 데이터베이스에서 3 일 캐싱 정책을 사용할 수 있습니다. 제어 명령을 사용 하 여 종동체 데이터베이스 또는 테이블에 대 한 캐싱 정책을 구성 하는 방법에 대 한 자세한 내용은 [종동체 클러스터를 관리 하기 위한 제어 명령](/azure/kusto/management/cluster-follower)을 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 
@@ -270,4 +270,4 @@ resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupNam
 
 ## <a name="next-steps"></a>다음 단계
 
-* 종동체 클러스터 구성에 대 한 자세한 내용은 [종동체 클러스터를 관리 하는 명령 제어](/azure/kusto/management/cluster-follower.md)를 참조 하세요.
+* 종동체 클러스터 구성에 대 한 자세한 내용은 [종동체 클러스터를 관리 하는 명령 제어](/azure/kusto/management/cluster-follower)를 참조 하세요.

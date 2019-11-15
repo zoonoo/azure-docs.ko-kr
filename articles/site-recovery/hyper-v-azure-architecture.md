@@ -1,18 +1,18 @@
 ---
-title: Azure Site Recovery의 hyper-v에서 Azure로의 재해 복구 아키텍처
+title: Azure Site Recovery의 hyper-v 재해 복구 아키텍처
 description: 이 문서에서는 Azure Site Recovery 서비스를 사용한 온-프레미스 Hyper-V VM(VMM 없음)과 Azure 간 재해 복구를 배포할 때 사용되는 구성 요소 및 아키텍처를 간략하게 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 1ce21ea6042bbe1191edede13f80455c8e669f3b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 022d6edad1e907173dfde3481e60d2523be087a1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030206"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082659"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Hyper-V와 Azure 간 재해 복구 아키텍처
 

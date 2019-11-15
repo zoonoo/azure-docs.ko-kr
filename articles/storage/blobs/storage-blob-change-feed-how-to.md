@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 90b7d79cd2a0e215af17856796bcdda2fbabb43f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 00805d6284c166d0ec03b9fe88482377a9488314
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693632"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084858"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Azure Blob Storage에서 변경 피드 처리 (미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "73693632"
 
 ## <a name="get-the-blob-change-feed-processor-library"></a>Blob 변경 피드 프로세서 라이브러리 가져오기
 
-1. Visual Studio에서 NuGet 패키지 소스에 `https://azuresdkartifacts.blob.core.windows.net/azure-sdk-for-net/index.json` URL을 추가 합니다. 
+1. Visual Studio에서 NuGet 패키지 소스에 `https://azuresdkartifacts.blob.core.windows.net/azuresdkpartnerdrops/index.json` URL을 추가 합니다. 
 
    방법을 알아보려면 [패키지 원본](https://docs.microsoft.com/nuget/consume-packages/install-use-packages-visual-studio#package-sources)을 참조 하세요.
 

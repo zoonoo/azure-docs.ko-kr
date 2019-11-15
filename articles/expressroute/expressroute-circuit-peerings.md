@@ -1,5 +1,5 @@
 ---
-title: Azure ExpressRoute 회로 및 피어링 | Microsoft Docs
+title: 'Azure Express 경로: 회로 및 피어 링'
 description: 이 페이지는 ExpressRoute 회로 및 라우팅 도메인/피어링에 대한 개요를 제공합니다.
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.custom: seodec18
-ms.openlocfilehash: 864b834fcc6810b52f067d8e67b4a48febd0f787
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f6673e114c249cb86c648155b889e925554e9458
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123488"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083626"
 ---
 # <a name="expressroute-circuits-and-peering"></a>ExpressRoute 회로 및 피어링
 
@@ -31,7 +30,7 @@ ExpressRoute 회로는 연결 공급자를 통한 온-프레미스 인프라와 
 
 ExpressRoute 회로는 물리적 엔터티에 매핑되지 않습니다. 회로는 서비스 키(S 키)라고 하는 표준 GUID를 통해 고유하게 식별됩니다. 서비스 키는 Microsoft, 연결 공급자 및 사용자 간에 교환되는 유일한 정보의 부분입니다. S 키는 보안을 위한 암호가 아닙니다. ExpressRoute 회로와 S 키 사이에는 1:1 매핑이 있습니다.
 
-새 ExpressRoute 회로에는 두 개의 독립 피어링이 포함될 수 있습니다. 프라이빗 피어링 및 Microsoft 피어링. 반면 기존 ExpressRoute 회로에는 3개의 피어링이 포함될 수 있습니다. Azure 공용, Azure 프라이빗 및 Microsoft. 각 피어링은 한 쌍의 독립 BGP 세션으로, 각각 고가용성을 위해 중복 구성됩니다. ExpressRoute 회로와 라우팅 도메인 사이에는 1:N(1 <= N <= 3) 매핑이 있습니다. ExpressRoute 회로는 ExpressRoute 회로마다 1개, 2개 또는 3개의 피어링을 모두 사용할 수 있습니다.
+새 ExpressRoute 회로에는 프라이빗 피어링 및 Microsoft 피어링이라는 두 개의 독립 피어링이 포함될 수 있습니다. 기존 ExpressRoute 회로에는 Azure 공용, Azure 프라이빗 및 Microsoft라는 3개의 피어링이 포함될 수 있습니다. 각 피어링은 한 쌍의 독립 BGP 세션으로, 각각 고가용성을 위해 중복 구성됩니다. ExpressRoute 회로와 라우팅 도메인 사이에는 1:N(1 <= N <= 3) 매핑이 있습니다. ExpressRoute 회로는 ExpressRoute 회로마다 1개, 2개 또는 3개의 피어링을 모두 사용할 수 있습니다.
 
 각 회로는 고정 대역폭(50Mbps, 100Mbps, 200Mbps, 500Mbps, 1Gbps, 10Gbps)이며 연결 공급자 및 피어링 위치에 매핑됩니다. 선택한 대역폭은 모든 회로 피어링에서 공유됩니다.
 
@@ -41,7 +40,7 @@ ExpressRoute 회로는 물리적 엔터티에 매핑되지 않습니다. 회로�
 
 ## <a name="routingdomains"></a>ExpressRoute 피어링
 
-ExpressRoute 회로에는 연결된 여러 라우팅 도메인/피어링이 있습니다. Azure 공용, Azure 프라이빗 및 Microsoft. 각 피어링은 고가용성을 위해 활성-활성 또는 부하 공유로 구성된 라우터 쌍에서 동일하게 구성됩니다. Azure 서비스는 IP 주소 지정 스키마를 나타내기 위해 *Azure 공용* 및 *Azure 프라이빗*으로 분류됩니다.
+Express 경로 회로에는 Azure 공용, Azure 개인 및 Microsoft와 연결 된 여러 라우팅 도메인/피어 링이 있습니다. 각 피어링은 고가용성을 위해 활성-활성 또는 부하 공유로 구성된 라우터 쌍에서 동일하게 구성됩니다. Azure 서비스는 IP 주소 지정 스키마를 나타내기 위해 *Azure 공용* 및 *Azure 프라이빗*으로 분류됩니다.
 
 ![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 

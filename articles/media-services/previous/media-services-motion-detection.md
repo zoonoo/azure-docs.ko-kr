@@ -14,19 +14,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: c319b3e53f550e56fbf4f655cb9cfa43326f9c72
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: fd31528325ddbe913333bc228fc3847242abcd24
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882417"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083746"
 ---
 # <a name="detect-motions-with-azure-media-analytics"></a>Azure 미디어 검색으로 동작 검색
-
-> [!IMPORTANT]
-> 일부 미디어 프로세서의 사용 중지 [계획](media-services-analytics-overview.md#retirement-plans) 을 검토 합니다.
-
+ 
 ## <a name="overview"></a>개요
+
 **Azure 미디어 동작 탐지기** 의 MP(미디어 프로세서)를 사용하여 길고 특별하지 않은 동영상 중에서 원하는 섹션을 효율적으로 식별합니다. 동작 검색은 고정된 카메라 장면에서 동작이 발생한 동영상 섹션을 식별하는 데 사용할 수 있습니다. 이벤트가 발생한 경계 영역 및 타임스탬프가 있는 메타데이터를 포함하는 JSON 파일을 생성합니다.
 
 보안 동영상 피드를 대상으로 하는 이 기술은 동작을 관련 이벤트와 그림자 및 조명 변화와 같은 가양성으로 분류할 수 있습니다. 이를 통해 수많은 관련 없는 이벤트로 인해 스팸 처리되지 않고 카메라 피드로부터 보안 경고를 생성할 수 있으며, 긴 감시 동영상으로부터 필요한 순간을 추출할 수 있습니다.
@@ -44,7 +42,7 @@ ms.locfileid: "72882417"
 ### <a name="parameters"></a>parameters
 다음 매개 변수를 사용할 수 있습니다.
 
-| name | 옵션 | 설명 | 기본값 |
+| 이름 | 옵션 | 설명 | 기본값 |
 | --- | --- | --- | --- |
 | sensitivityLevel |문자열:'low', 'medium', 'high' |동작이 보고되는 민감도 수준을 설정합니다. 가양성 수를 조정하려면 이 값을 조정합니다. |'medium' |
 | frameSamplingValue |양의 정수 |알고리즘이 실행되는 빈도를 설정합니다. 1은 프레임마다, 2는 두 개의 프레임마다 등을 의미합니다. |1 |
@@ -104,13 +102,13 @@ ms.locfileid: "72882417"
 | offset |"틱" 단위의 타임스탬프에 대한 시간 오프셋입니다. 동영상 API 버전 1.0에서는 항상 0입니다. 향후 지원하는 시나리오에서는 이 값이 변경될 수 있습니다. |
 | framerate |동영상의 초당 프레임 수입니다. |
 | width, height |픽셀 단위의 동영상 너비와 높이를 참조합니다. |
-| 시작 |"틱" 단위의 시작 타임스탬프입니다. |
+| start |"틱" 단위의 시작 타임스탬프입니다. |
 | duration |"틱" 단위의 이벤트 길이입니다. |
 | interval |"틱" 단위의 이벤트에 있는 각 항목의 간격입니다. |
 | events |각 이벤트 조각에는 해당 기간 내에 검색된 동작이 포함됩니다. |
 | type |현재 버전에서 이 값은 일반 동작에 대해 항상 '2'입니다. 이 레이블은 향후 버전에서 동영상 API에 동작 분류에 대한 유연성을 제공합니다. |
 | regionId |위에서 설명했듯이 이 버전에서 이 값은 항상 0입니다. 이 레이블은 향후 버전에서 동영상 API에 다양한 영역에서 동작을 찾는 유연성을 제공합니다. |
-| 개 지역 |동작에 관심이 있는 동영상 영역을 참조합니다. <br/><br/>-"id"는 지역 영역을 나타내는데, 이 버전에는 ID 0밖에 없습니다. <br/>-"type"은 동작에 대한 중요한 영역 모양을 나타냅니다. 현재 "rectangle" 및 "polygon"이 지원됩니다.<br/> "rectangle"이 지정된 경우 영역은 X, Y, 너비 및 높이 치수를 가집니다. X 및 Y 좌표는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 왼쪽 상단 XY 좌표를 나타냅니다. 너비와 높이는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 크기를 나타냅니다. 현재 버전에서, X, Y, 너비 및 높이는 0, 0 및 1, 1로 항상 고정됩니다. <br/>"polygon"이 지정된 경우 영역은 지점 단위의 치수를 가집니다. <br/> |
+| regions |동작에 관심이 있는 동영상 영역을 참조합니다. <br/><br/>-"id"는 지역 영역을 나타내는데, 이 버전에는 ID 0밖에 없습니다. <br/>-"type"은 동작에 대한 중요한 영역 모양을 나타냅니다. 현재 "rectangle" 및 "polygon"이 지원됩니다.<br/> "rectangle"이 지정된 경우 영역은 X, Y, 너비 및 높이 치수를 가집니다. X 및 Y 좌표는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 왼쪽 상단 XY 좌표를 나타냅니다. 너비와 높이는 0.0 ~ 1.0의 정규화된 배율 단위로 영역의 크기를 나타냅니다. 현재 버전에서, X, Y, 너비 및 높이는 0, 0 및 1, 1로 항상 고정됩니다. <br/>"polygon"이 지정된 경우 영역은 지점 단위의 치수를 가집니다. <br/> |
 | fragments |메타데이터는 조각이라고 하는 다른 세그먼트로 청크 분할됩니다. 각 조각에는 시작, 기간, 간격 번호 및 이벤트가 포함됩니다. 이벤트가 없는 조각은 해당 시작 시간 및 기간 동안에 검색된 동작이 없음을 의미합니다. |
 | 대괄호 [] |각 대괄호는 이벤트에서 하나의 간격을 나타냅니다. 해당 간격에 대한 빈 대괄호는 검색된 동작이 없음을 의미합니다. |
 | 위치 |이벤트 아래의 이 새 항목은 동작이 발생한 위치를 나열합니다. 검색 영역보다 더 구체적입니다. |
@@ -209,7 +207,7 @@ ms.locfileid: "72882417"
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 ```csharp
 
@@ -383,10 +381,10 @@ namespace VideoMotionDetection
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>관련된 링크
+## <a name="related-links"></a>관련 링크
 [Azure Media Services 동작 탐지기 블로그](https://azure.microsoft.com/blog/motion-detector-update/)
 
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)

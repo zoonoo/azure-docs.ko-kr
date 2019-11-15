@@ -1,5 +1,5 @@
 ---
-title: ExpressRoute Direct 정보 - Azure | Microsoft Docs
+title: Azure Express 경로 직접 정보
 description: 이 페이지는 Express 경로 직접의 개요를 제공 합니다.
 services: expressroute
 author: jaredr80
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jaredro
-ms.custom: seodec18
-ms.openlocfilehash: 916175401cd993392094b2bb16f8fc8746a4d2a8
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: f26fdd75e0a6c6228d329a8b9be4743072ae54c1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123391"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083595"
 ---
 # <a name="about-expressroute-direct"></a>ExpressRoute Direct 정보
 
@@ -21,8 +20,8 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
 
 ExpressRoute Direct가 제공하는 주요 기능은 다음을 포함하지만 제한되지 않습니다.
 
-* 스토리지 및 Cosmos DB와 같은 서비스로 대규모 데이터 수집
-* 은행, 정부 및 소매업체와 같이 규제가 적용되며 전용 격리 연결을 사용해야 하는 업계의 물리적 격리입니다.
+* Storage 및 Cosmos DB와 같은 서비스로의 대규모 데이터 수집
+* 은행, 정부, 소매업체 등 규제가 적용되며 전용 격리 연결을 사용해야 하는 업계의 물리적 격리
 * 비즈니스 단위에 따라 세부적으로 회로 배포 제어
 
 ## <a name="onboard-to-expressroute-direct"></a>Express 경로 직접에 등록
@@ -57,7 +56,7 @@ ExpressRoute Direct는 Azure Storage 및 기타 빅 데이터 서비스에 대�
 
 | **100 Gbps Express 경로 직접** | **10gbps Express 경로 직접** | 
 | --- | --- |
-| **구독 된 대역폭**: 200Gbps | **구독 된 대역폭**: 20gbps |
+| **구독 된 대역폭**: 200 Gbps | **구독 된 대역폭**: 20gbps |
 | <ul><li>5Gbps</li><li>10Gbps</li><li>40Gbps</li><li>100 Gbps</li></ul> | <ul><li>1Gbps</li><li>2Gbps</li><li>5Gbps</li><li>10Gbps</li></ul>
 
 ## <a name="technical-requirements"></a>기술적인 요구 사항
@@ -73,8 +72,8 @@ ExpressRoute Direct는 Azure Storage 및 기타 빅 데이터 서비스에 대�
     * Ethertype = 0x8100
     * Microsoft에서 지정한 VLAN ID에 따라 외부 VLAN 태그 (STAG)를 추가 해야 합니다 ( *QinQ에만 해당* ).
     * 포트 및 장치당 여러 BGP 세션 (Vlan)을 지원 해야 합니다.
-    * IPv4 및 IPv6 연결 *I p v 6의 경우 하위 인터페이스가 추가로 생성 되지 않습니다. IPv6 주소가 기존 하위 인터페이스*에 추가 됩니다. 
-    * 선택 사항: [BFD (양방향 전달 검색)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) 지원-express 경로 회로의 모든 개인 피어 링에 대해 기본적으로 구성 됩니다.
+    * IPv4 및 IPv6 연결 I p v 6 *의 경우 하위 인터페이스가 추가로 생성 되지 않습니다. IPv6 주소가 기존 하위 인터페이스에 추가*됩니다. 
+    * 선택 사항: [BFD (양방향 전달 검색)](https://docs.microsoft.com/azure/expressroute/expressroute-bfd) 지원: express 경로 회로의 모든 개인 피어 링에 대해 기본적으로 구성 됩니다.
 
 ## <a name="vlan-tagging"></a>VLAN 태그 지정
 

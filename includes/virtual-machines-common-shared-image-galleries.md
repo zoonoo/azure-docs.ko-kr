@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 18c85995c545e1b603333fd6788b70cd863865ce
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 4d64d556c96d29556ee36179623ff8cc24532b48
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73905004"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74085261"
 ---
 공유 이미지 갤러리는 관리 되는 이미지에 대 한 구조와 조직을 구축 하는 데 도움이 되는 서비스입니다. 공유 이미지 갤러리는 다음을 제공 합니다.
 
@@ -100,7 +100,7 @@ ms.locfileid: "73905004"
 | 브라질 남부          | 동아시아         | 한국 중부      | 미국 국방부 동부        |
 | 캐나다 중부        | 미국 동부           | 한국 남부        | 미국 정부 애리조나     |
 | 캐나다 동부           | 미국 동부 2         | 미국 중북부   | 미국 정부 텍사스       |
-| 인도 중부         | 미국 동부 2 EUAP    | 북유럽       | 미국 정부 버지니아    |
+| 인도 중부         | 미국 동부 2 EUAP    | 유럽 북부       | 미국 정부 버지니아    |
 | 미국 중부            | 프랑스 중부    | 미국 중남부   | 인도 서부         |
 | 미국 중부 EUAP       | 프랑스 남부      | 미국 중서부    | 미국 서부            |
 |                       |                   |                    | 미국 서부 2          |
@@ -186,7 +186,7 @@ ms.locfileid: "73905004"
 
 - [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/virtualmachines/management?view=azure-dotnet)
 - [Java](https://docs.microsoft.com/java/azure/?view=azure-java-stable)
-- [Node.JS](https://docs.microsoft.com/javascript/api/azure-arm-compute/?view=azure-node-latest)
+- [Node.JS](https://docs.microsoft.com/javascript/api/@azure/arm-compute)
 - [Python](https://docs.microsoft.com/python/api/overview/azure/virtualmachines?view=azure-python)
 - [Go](https://docs.microsoft.com/azure/go/)
 

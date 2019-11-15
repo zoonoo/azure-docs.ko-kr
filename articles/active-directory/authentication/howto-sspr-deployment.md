@@ -11,14 +11,17 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330b02e3db6af90fcfeb962e78b043b04090116e
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: b648d6f914b5e3004ea3b62019bbec33e5a4871d
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743237"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081527"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정 배포
+
+> [!NOTE]
+> 이 가이드에서는 셀프 서비스 암호 재설정 및 배포 방법에 대해 설명 합니다. 계정으로 다시 이동 하는 셀프 서비스 암호 재설정 도구를 찾고 있는 경우 [https://aka.ms/sspr](https://aka.ms/sspr)으로 이동 합니다. 
 
 SSPR (셀프 서비스 암호 재설정)는 직원 들이 IT 직원에 게 문의 하지 않고도 암호를 재설정할 수 있도록 하는 Azure Active Directory 기능입니다. 직원은 서비스를 사용 하기 전에 셀프 서비스 암호 재설정을 위해 등록 하거나 등록 해야 합니다. 등록 하는 동안 직원은 조직에서 사용 하도록 설정 된 하나 이상의 인증 방법을 선택 합니다.
 
@@ -136,7 +139,7 @@ Oracle AM, SiteMinder 또는 기타 시스템과 같은 온-프레미스 id 관�
 | 사용자가 등록 한 후 Windows 10 AADJ 또는 H + AADJ 장치 잠금 화면에서 사용자 암호 다시 설정 | 사용자가 암호를 재설정할 수 있음 |
 | SSPR 등록 및 사용 현황 데이터는 거의 실시간으로 관리자에 게 제공 됩니다. | 감사 로그를 통해 사용할 수 있습니다. |
 
-### <a name="support-plan"></a>지원 플랜
+### <a name="support-plan"></a>지원 계획
 
 SSPR는 일반적으로 사용자 문제를 만들지 않지만, 발생할 수 있는 문제를 해결 하기 위해 지원 담당자가 준비 하는 것이 중요 합니다.
 
@@ -206,7 +209,7 @@ Azure AD 조인 또는 하이브리드 Azure AD 조인 된 버전 1803 이상을
 
 ### <a name="configure-password-writeback"></a>비밀번호 쓰기 저장 구성
 
-조직에 대해 비밀 번호 쓰기 저장을 구성 하 [는 단계는 방법: 비밀 번호 쓰기](howto-sspr-writeback.md)저장을 구성 합니다.
+조직에 대해 비밀 번호 쓰기 저장을 구성 하 [는 단계는 방법: 비밀 번호 쓰기 저장 구성](howto-sspr-writeback.md)문서에서 찾을 수 있습니다.
 
 ## <a name="manage-sspr"></a>SSPR 관리
 
@@ -222,7 +225,7 @@ Azure AD 조인 또는 하이브리드 Azure AD 조인 된 버전 1803 이상을
 
 지원 팀의 성공 여부를 설정 하기 위해 사용자가 받은 질문에 따라 FAQ를 만들 수 있습니다. 다음 표에는 일반적인 지원 시나리오가 나와 있습니다.
 
-| 시나리오 | Description |
+| 시나리오 | 설명 |
 | --- | --- |
 | 사용자에 게 사용 가능한 등록 된 인증 방법이 없습니다. | 사용자가 자신의 암호를 재설정 하려고 하지만 등록 한 인증 방법이 없습니다 (예: 집에서 휴대폰을 사용 하 고 전자 메일에 액세스할 수 없음). |
 | 사용자가 사무실 또는 휴대폰에서 텍스트 또는 통화를 받지 않습니다. | 사용자가 텍스트 또는 호출을 통해 id를 확인 하려고 하지만 텍스트/호출을 받지 않습니다. |

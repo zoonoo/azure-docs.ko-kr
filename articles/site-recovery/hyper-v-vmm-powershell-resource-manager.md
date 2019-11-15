@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery 및 PowerShell을 사용하여 VMM 클라우드의 Hyper-V VM과 보조 사이트 간 재해 복구 설정 | Microsoft Docs
+title: Azure Site Recovery/PowerShell을 사용 하 여 Hyper-v (VMM 포함)에서 보조 사이트로 재해 복구를 설정 합니다.
 description: Azure Site Recovery 및 PowerShell을 사용하여 VMM 클라우드의 Hyper-V VM과 보조 VMM 사이트 간 재해 복구를 설정하는 방법을 설명합니다.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 78bd077b5491b093510b9c55bf7b5a42ee9cb578
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2fc66514bdf33611f9e6266d35a2d537fe3b9261
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60362359"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084898"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell을 사용하여 Hyper-V VM과 보조 사이트 간 재해 복구 설정(Resource Manager)
 
@@ -21,7 +21,7 @@ ms.locfileid: "60362359"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 - [시나리오 아키텍처 및 구성 요소](hyper-v-vmm-architecture.md)를 검토합니다.
 - 모든 구성 요소에 대한 [지원 요구 사항](site-recovery-support-matrix-to-sec-site.md)을 검토합니다.
@@ -29,7 +29,7 @@ ms.locfileid: "60362359"
 - 복제하려는 VM에서 [복제된 컴퓨터 지원](site-recovery-support-matrix-to-sec-site.md)을 준수하는지 확인합니다.
 
 
-## <a name="prepare-for-network-mapping"></a>네트워크 매핑을 준비
+## <a name="prepare-for-network-mapping"></a>네트워크 매핑 준비
 
 [네트워크 매핑](hyper-v-vmm-network-mapping.md)에서는 원본 및 대상 클라우드의 온-프레미스 Virtual Machine Manager VM 네트워크 사이를 매핑합니다. 매핑은 다음을 수행합니다.
 
@@ -77,7 +77,7 @@ Azure PowerShell을 사용할 준비가 되었는지 확인합니다.
 
         $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
-    Get-AzRecoveryServicesVault cmdlet을 사용 하 여 만든 후 자격 증명 모음 개체를 검색할 수 있습니다.
+    AzRecoveryServicesVault cmdlet을 사용 하 여 자격 증명 모음 개체를 만든 후 검색할 수 있습니다.
 
 ## <a name="set-the-vault-context"></a>자격 증명 모음 컨텍스트 설정
 1. 기존 자격 증명 모음을 검색합니다.
@@ -195,7 +195,7 @@ Azure PowerShell을 사용할 준비가 되었는지 확인합니다.
 
           $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
 
-## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
+## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
 
 배포를 테스트하려면 단일 가상 머신에 대한 테스트 장애 조치(failover)를 실행합니다. 또한 여러 개의 VM이 포함된 복구 계획을 만들고 계획에 대한 테스트 장애 조치(failover)를 실행할 수 있습니다. 테스트 장애 조치(Failover)에서는 격리된 네트워크에서 장애 조치(Failover) 및 복구 메커니즘을 시뮬레이션합니다.
 

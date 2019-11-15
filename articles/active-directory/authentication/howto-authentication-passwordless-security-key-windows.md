@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b57fe9241a6a29e6f5ce12b7a1412455df4a001
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7b3aa2add128cfc11a638fe6c7e03cfb25189afc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603468"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081553"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Windows 10 장치에 대 한 암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -60,7 +60,7 @@ ms.locfileid: "73603468"
 
 ### <a name="enable-with-intune"></a>Intune을 사용 하 여 사용
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Windows **등록 > windows 등록** 을 >  > **장치 등록** 을 **Microsoft Intune** 하 여 **비즈니스용 windows Hello** > **속성**으로 이동 합니다.
 1. **설정** 에서 **로그인에 대 한 보안 키 사용** 을 사용 **으로 설정**합니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "73603468"
 
 특정 장치 그룹을 대상으로 자격 증명 공급자를 사용 하도록 설정 하려면 Intune을 통해 다음 사용자 지정 설정을 사용 합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Microsoft Intune** > **장치 구성** > 프로필로 이동 하 여 **프로필 만들기**를 > 합니다.
 1. 다음 설정을 사용 하 여 새 프로필을 구성 합니다.
    1. 이름: Windows 로그인에 대 한 보안 키
@@ -88,7 +88,7 @@ ms.locfileid: "73603468"
 
 ### <a name="enable-with-a-provisioning-package"></a>프로 비전 패키지를 사용 하 여 사용
 
-Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 프로 비전 패키지를 설치할 수 있습니다. [Microsoft Store](https://www.microsoft.com/store/apps/9nblggh4tx22)에서 Windows 구성 디자이너 앱을 설치할 수 있습니다.
+Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 프로 비전 패키지를 설치할 수 있습니다. [Microsoft Store](https://www.microsoft.com/en-us/p/windows-configuration-designer/9nblggh4tx22)에서 Windows 구성 디자이너 앱을 설치할 수 있습니다.
 
 1. Windows 구성 디자이너를 시작 합니다.
 1. **파일** > **새 프로젝트**를 선택 합니다.

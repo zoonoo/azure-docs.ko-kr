@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: e0e649045e3efe488804fd37c030fe01991ad232
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 01d8560ee2752f21eb52c00f4c337d1dca59b8fb
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803619"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082692"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -28,7 +28,7 @@ Python의 독립 실행형 함수 샘플 프로젝트에 대해서는 [Python �
 
 ## <a name="programming-model"></a>프로그래밍 모델
 
-Azure Functions는 Python 스크립트에서 입력을 처리 하 고 출력을 생성 하는 상태 비저장 메서드가 될 것으로 예상 합니다. 기본적으로 런타임은 `__init__.py` 파일에서 `main()` 이라는 전역 메서드로 구현 될 것으로 예상 합니다. 또한 [대체 진입점을 지정할](#alternate-entry-point)수 있습니다.
+Azure Functions는 Python 스크립트에서 입력을 처리 하 고 출력을 생성 하는 상태 비저장 메서드가 될 것으로 예상 합니다. 기본적으로 런타임에서는 메서드가 `__init__.py` 파일의 `main()` 라는 전역 메서드로 구현 될 것으로 예상 합니다. 또한 [대체 진입점을 지정할](#alternate-entry-point)수 있습니다.
 
 트리거와 바인딩의 데이터는 *함수 json* 파일에 정의 된 `name` 속성을 사용 하 여 메서드 특성을 통해 함수에 바인딩됩니다. 예를 들어, 아래 _함수인 json_ 은 `req`라는 HTTP 요청에 의해 트리거되는 간단한 함수를 설명 합니다.
 
@@ -87,10 +87,10 @@ def main(req: azure.functions.HttpRequest) -> str:
 
 ## <a name="folder-structure"></a>폴더 구조
 
-Python 함수 프로젝트에 대 한 폴더 구조는 다음 예제와 같습니다.
+Python 함수 프로젝트에 권장 되는 폴더 구조는 다음 예제와 같습니다.
 
 ```
- FunctionApp
+ __app__
  | - MyFirstFunction
  | | - __init__.py
  | | - function.json
@@ -103,23 +103,31 @@ Python 함수 프로젝트에 대 한 폴더 구조는 다음 예제와 같습�
  | | - mySecondHelperFunction.py
  | - host.json
  | - requirements.txt
+ tests
 ```
+기본 프로젝트 폴더 (\_\_app\_\_)에는 다음 파일이 포함 될 수 있습니다.
 
-함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일과 바인딩 구성 파일(function.json)이 있습니다. 
+* *로컬*에서 실행 하는 경우 응용 프로그램 설정 및 연결 문자열을 저장 하는 데 사용 됩니다. 이 파일은 Azure에 게시되지 않습니다. 자세한 내용은 [local. settings. 파일](functions-run-local.md#local-settings-file)을 참조 하세요.
+* *요구 사항 .txt*: Azure에 게시할 때 시스템이 설치 하는 패키지 목록을 포함 합니다.
+* *host. json*: 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션을 포함 합니다. 이 파일은 Azure에 게시됩니다. 모든 옵션은 로컬로 실행할 때 지원 되지 않습니다. 자세한 내용은 [호스트 json](functions-host-json.md)을 참조 하세요.
+* *funcignore*: (선택 사항) Azure에 게시 되지 않아야 하는 파일을 선언 합니다.
+* *.gitignore*: (선택 사항) git 리포지토리에서 제외 되는 파일을 선언 합니다 (예: 로컬 설정).
 
-공유 코드는 별도의 폴더에 보관해야 합니다. SharedCode 폴더의 모듈을 참조하기 위해 다음 구문을 사용할 수 있습니다.
+각 함수에는 자체 코드 파일과 바인딩 구성 파일(function.json)이 있습니다. 
 
-```
+공유 코드는 \_\_app\_\_에서 별도의 폴더에 유지 해야 합니다. SharedCode 폴더의 모듈을 참조하기 위해 다음 구문을 사용할 수 있습니다.
+
+```python
 from __app__.SharedCode import myFirstHelperFunction
 ```
 
 함수에 대 한 로컬 모듈을 참조 하려면 다음과 같이 상대 가져오기 구문을 사용할 수 있습니다.
 
-```
+```python
 from . import example
 ```
 
-Azure의 함수 앱에 함수 프로젝트를 배포할 때 *Functionapp* 폴더의 전체 콘텐츠는 패키지에 포함 되어야 하지만 폴더 자체에는 포함 되지 않아야 합니다.
+Azure에서 함수 앱에 프로젝트를 배포할 때 *Functionapp* 폴더의 전체 콘텐츠는 패키지에 포함 되어야 하지만 폴더 자체에는 포함 되지 않아야 합니다. 프로젝트 폴더와 별도의 폴더에 있는 테스트를 유지 관리 하는 것이 좋습니다 (이 예제에서는 `tests`. 그러면 응용 프로그램에 테스트 코드를 배포할 수 있습니다. 자세한 내용은 [단위 테스트](#unit-testing)를 참조 하십시오.
 
 ## <a name="triggers-and-inputs"></a>트리거 및 입력
 
@@ -176,7 +184,7 @@ def main(req: func.HttpRequest,
 함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 항목은 경로 URL의 _ID_ 를 기반으로 Azure Blob Storage에서 검색 되 고 함수 본문에서 `obj` 사용할 수 있게 됩니다.  여기서 지정 된 저장소 계정은 함수 앱에서 사용 하는 것과 동일한 저장소 계정인에 있는 연결 문자열입니다.
 
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>출력
 
 출력은 반환 값 및 출력 매개 변수 둘 다로 표현될 수 있습니다. 출력이 하나만 있는 경우 반환 값을 사용하는 것이 좋습니다. 다중 출력의 경우 출력 매개 변수를 사용해야 합니다.
 
@@ -250,7 +258,7 @@ def main(req):
 
 ## <a name="http-trigger-and-bindings"></a>HTTP 트리거 및 바인딩
 
-HTTP 트리거는 함수인 jon file에 정의 되어 있습니다. 바인딩의 `name`은 함수의 명명 된 매개 변수와 일치 해야 합니다. 앞의 예제에서 바인딩 이름 `req`이 사용 됩니다. 이 매개 변수는 [HttpRequest] 개체 이며 [httpresponse.cache] 개체가 반환 됩니다.
+HTTP 트리거는 함수인 jon file에 정의 되어 있습니다. 바인딩의 `name`은 함수의 명명 된 매개 변수와 일치 해야 합니다. 이전 예제에서는 바인딩 이름 `req`를 사용 합니다. 이 매개 변수는 [HttpRequest] 개체 이며 [httpresponse.cache] 개체가 반환 됩니다.
 
 [HttpRequest] 개체에서 요청 헤더, 쿼리 매개 변수, 경로 매개 변수 및 메시지 본문을 가져올 수 있습니다. 
 
@@ -378,11 +386,13 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 로컬 개발의 경우 응용 프로그램 설정은 [로컬. 설정 json 파일에서 유지 관리](functions-run-local.md#local-settings-file)됩니다.  
 
-## <a name="python-version-and-package-management"></a>Python 버전 및 패키지 관리
+## <a name="python-version"></a>Python 버전 
 
-현재 Azure Functions는 Python3.6.x(공식 CPython 배포)만 지원합니다.
+현재 Azure Functions는 Python 3.6 및 3.7 .x를 모두 지원 합니다 (공식 CPython 배포). 로컬로 실행 하는 경우 런타임은 사용 가능한 Python 버전을 사용 합니다. Azure에서 함수 앱을 만들 때 특정 Python 버전을 요청 하려면 [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) 명령의 `--runtime-version` 옵션을 사용 합니다.  
 
-Azure Functions Core Tools 또는 Visual Studio Code를 사용하여 로컬에서 개발하는 경우 필요한 패키지의 이름과 버전을 `requirements.txt` 파일에 추가하고 `pip`를 사용하여 설치합니다.
+## <a name="package-management"></a>패키지 관리
+
+Azure Functions Core Tools 또는 Visual Studio Code를 사용하여 로컬에서 개발하는 경우 필요한 패키지의 이름과 버전을 `requirements.txt` 파일에 추가하고 `pip`를 사용하여 설치합니다. 
 
 예를 들어 다음 요구 사항 파일 및 pip 명령을 사용하여 PyPI에서 `requests` 패키지를 설치할 수 있습니다.
 
@@ -396,35 +406,67 @@ pip install -r requirements.txt
 
 ## <a name="publishing-to-azure"></a>Azure에 게시
 
-게시할 준비가 되 면 모든 종속성이 프로젝트 디렉터리의 루트에 있는 *요구 사항 .txt* 파일에 나열 되어 있는지 확인 합니다. 이러한 종속성을 [원격으로 빌드할](functions-deployment-technologies.md#remote-build) 수 Azure Functions.
+게시할 준비가 되 면 공개적으로 사용할 수 있는 모든 종속성이 프로젝트 디렉터리의 루트에 있는 요구 사항 .txt 파일에 나열 되는지 확인 합니다. 
 
-가상 환경 폴더를 비롯 하 여 게시에서 제외 되는 프로젝트 파일 및 폴더는 funcignore 파일에 나열 됩니다. 
+가상 환경 폴더를 비롯 하 여 게시에서 제외 되는 프로젝트 파일 및 폴더는 funcignore 파일에 나열 됩니다.
 
-[VS Code에 대 한](functions-create-first-function-vs-code.md#publish-the-project-to-azure) [Azure Functions Core Tools](functions-run-local.md#v2) 및 Azure Functions 확장은 기본적으로 원격 빌드를 수행 합니다. 예를 들어 다음 명령을 사용합니다.
+Python 프로젝트를 Azure에 게시 하는 데 지원 되는 빌드 작업에는 세 가지가 있습니다.
+
++ 원격 빌드: 종속성은 요구 사항 .txt 파일의 내용에 따라 원격으로 가져옵니다. [원격 빌드](functions-deployment-technologies.md#remote-build) 는 권장 되는 빌드 방법입니다. 원격은 Azure 도구의 기본 빌드 옵션 이기도 합니다. 
++ 로컬 빌드: 종속성은 요구 사항 .txt 파일의 내용에 따라 로컬에서 가져옵니다. 
++ 사용자 지정 종속성: 프로젝트에서 공개적으로 사용할 수 없는 패키지를 도구에 사용 합니다. Docker가 필요 합니다.
+
+종속성을 빌드하고 CD (지속적인 업데이트) 시스템을 사용 하 여 게시 하려면 [Azure Pipelines을 사용](functions-how-to-azure-devops.md)합니다.
+
+### <a name="remote-build"></a>원격 빌드
+
+기본적으로 Azure Functions Core Tools는 다음 [func azure functionapp publish](functions-run-local.md#publish) 명령을 사용 하 여 Python 프로젝트를 azure에 게시할 때 원격 빌드를 요청 합니다. 
 
 ```bash
-func azure functionapp publish <app name>
+func azure functionapp publish <APP_NAME>
 ```
 
-Azure 대신 로컬로 앱을 빌드 하려는 경우 로컬 컴퓨터에 Docker를 [설치](https://docs.docker.com/install/) 하 고 [Azure Functions Core Tools](functions-run-local.md#v2) (func)를 사용 하 여 게시 하려면 다음 명령을 실행 합니다. `<app name>`을 Azure의 함수 앱 이름으로 바꾸어야 합니다. 
+`<APP_NAME>`을 Azure의 함수 앱 이름으로 바꾸어야 합니다.
 
-```bash
-func azure functionapp publish <app name> --build-native-deps
+또한 [Visual Studio Code Azure Functions 확장](functions-create-first-function-vs-code.md#publish-the-project-to-azure) 은 기본적으로 원격 빌드를 요청 합니다. 
+
+### <a name="local-build"></a>로컬 빌드
+
+다음 [func azure functionapp publish](functions-run-local.md#publish) 명령을 사용 하 여 로컬 빌드와 함께 게시 하는 방법으로 원격 빌드를 방지할 수 있습니다. 
+
+```command
+func azure functionapp publish <APP_NAME> --build local
 ```
 
-이면에서 Core Tools는 docker를 사용하여 [mcr.microsoft.com/azure-functions/python](https://hub.docker.com/r/microsoft/azure-functions/) 이미지를 로컬 머신의 컨테이너로 실행합니다. 그런 다음이 환경을 사용 하 여 Azure에 대 한 최종 배포를 위해 패키지 하기 전에 원본 배포에서 필요한 모듈을 빌드하고 설치 합니다.
+`<APP_NAME>`을 Azure의 함수 앱 이름으로 바꾸어야 합니다. 
 
-종속성을 빌드하고 CD (지속적인 업데이트) 시스템을 사용 하 여 게시 하려면 [Azure Pipelines을 사용](functions-how-to-azure-devops.md)합니다. 
+`--build local` 옵션을 사용 하면 요구 사항 .txt 파일에서 프로젝트 종속성을 읽고 해당 종속 패키지를 로컬로 다운로드 하 여 설치 합니다. 프로젝트 파일 및 종속성은 로컬 컴퓨터에서 Azure로 배포 됩니다. 결과적으로 더 큰 배포 패키지가 Azure에 업로드 됩니다. 어떤 이유로 든 지 요구 사항 .txt 파일의 종속성을 핵심 도구로 가져올 수 없는 경우 게시를 위해 사용자 지정 종속성 옵션을 사용 해야 합니다. 
+
+### <a name="custom-dependencies"></a>사용자 지정 종속성
+
+프로젝트에서 공개적으로 사용할 수 없는 패키지를 도구에서 사용 하는 경우 \_\_app\_\_/. python_packages 디렉터리에 배치 하 여 앱에서 사용할 수 있도록 설정할 수 있습니다. 게시 하기 전에 다음 명령을 실행 하 여 로컬에서 종속성을 설치 합니다.
+
+```command
+pip install  --target="<PROJECT_DIR>/.python_packages/lib/site-packages"  -r requirements.txt
+```
+
+사용자 지정 종속성을 사용 하는 경우 이미 종속성을 설치 했으므로 `--no-build` 게시 옵션을 사용 해야 합니다.  
+
+```command
+func azure functionapp publish <APP_NAME> --no-build
+```
+
+`<APP_NAME>`을 Azure의 함수 앱 이름으로 바꾸어야 합니다.
 
 ## <a name="unit-testing"></a>유닛 테스트
 
-Python으로 작성 된 함수는 표준 테스트 프레임 워크를 사용 하 여 다른 Python 코드와 같이 테스트할 수 있습니다. 대부분의 바인딩에서 `azure.functions` 패키지에서 적절 한 클래스의 인스턴스를 만들어 모의 입력 개체를 만들 수 있습니다. [`azure.functions`](https://pypi.org/project/azure-functions/) 패키지는 즉시 사용할 수 없으므로 위의 [Python 버전 및 패키지 관리](#python-version-and-package-management) 섹션에 설명 된 대로 `requirements.txt` 파일을 통해 설치 해야 합니다.
+Python으로 작성 된 함수는 표준 테스트 프레임 워크를 사용 하 여 다른 Python 코드와 같이 테스트할 수 있습니다. 대부분의 바인딩에서 `azure.functions` 패키지에서 적절 한 클래스의 인스턴스를 만들어 모의 입력 개체를 만들 수 있습니다. [`azure.functions`](https://pypi.org/project/azure-functions/) 패키지는 즉시 사용할 수 없으므로 위의 [패키지 관리](#package-management) 섹션에 설명 된 대로 `requirements.txt` 파일을 통해 설치 해야 합니다. 
 
 예를 들어 다음은 HTTP 트리거 함수의 모의 테스트입니다.
 
 ```json
 {
-  "scriptFile": "httpfunc.py",
+  "scriptFile": "__init__.py",
   "entryPoint": "my_function",
   "bindings": [
     {
@@ -447,7 +489,7 @@ Python으로 작성 된 함수는 표준 테스트 프레임 워크를 사용 �
 ```
 
 ```python
-# myapp/httpfunc.py
+# __app__/HttpTrigger/__init__.py
 import azure.functions as func
 import logging
 
@@ -473,12 +515,11 @@ def my_function(req: func.HttpRequest) -> func.HttpResponse:
 ```
 
 ```python
-# myapp/test_httpfunc.py
+# tests/test_httptrigger.py
 import unittest
 
 import azure.functions as func
-from httpfunc import my_function
-
+from __app__.HttpTrigger import my_function
 
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
@@ -501,22 +542,36 @@ class TestFunction(unittest.TestCase):
 
 큐 트리거 함수를 사용 하는 또 다른 예는 다음과 같습니다.
 
-```python
-# myapp/__init__.py
-import azure.functions as func
+```json
+{
+  "scriptFile": "__init__.py",
+  "entryPoint": "my_function",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "queueTrigger",
+      "direction": "in",
+      "queueName": "python-queue-items",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
 
+```python
+# __app__/QueueTrigger/__init__.py
+import azure.functions as func
 
 def my_function(msg: func.QueueMessage) -> str:
     return f'msg body: {msg.get_body().decode()}'
 ```
 
 ```python
-# myapp/test_func.py
+# tests/test_queuetrigger.py
 import unittest
 
 import azure.functions as func
-from . import my_function
-
+from __app__.QueueTrigger import my_function
 
 class TestFunction(unittest.TestCase):
     def test_my_function(self):
@@ -554,6 +609,8 @@ from os import listdir
    fp.write(b'Hello world!')              
    filesDirListInTemp = listdir(tempFilePath)     
 ```   
+
+프로젝트 폴더와 별도의 폴더에 테스트를 유지 관리 하는 것이 좋습니다. 그러면 응용 프로그램에 테스트 코드를 배포할 수 있습니다. 
 
 ## <a name="known-issues-and-faq"></a>알려진 문제 및 FAQ
 

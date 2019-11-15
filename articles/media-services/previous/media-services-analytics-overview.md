@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 9427b72faf36106602cb59dc271d72402453e81e
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 66edbc872fe5f1d4320107aa21ed2792bdd4fecc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821426"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083882"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services 플랫폼에서 미디어 분석 
 
@@ -33,11 +33,7 @@ ms.locfileid: "72821426"
 |---|---|
 |[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| 2020의 1 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 교체 됩니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.|
 |[Azure Media Indexer](media-services-index-content.md)|2020의 10 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 교체 됩니다. 자세한 내용은 [Azure Media Indexer에서 Azure Media Services로 마이그레이션](migrate-indexer-v1-v2.md) 을 참조 하세요 Video Indexer
-|[Azure Media Face Detector](media-services-face-and-emotion-detection.md)|2020 년 2 월 1 일|이 미디어 분석 미리 보기 프로세서는 사용 중지 되며 일반 공급으로 이동 하지 않습니다. 향후 투자를 위해 고객의 시나리오 및 사용 사례를 평가 합니다.|
-|[Azure Media Motion Detector](media-services-motion-detection.md)|2020 년 2 월 1 일|이 미디어 분석 미리 보기 프로세서는 사용 중지 되며 일반 공급으로 이동 하지 않습니다. 향후 투자를 위해 고객의 시나리오 및 사용 사례를 평가 합니다.|
-|[Azure 미디어 OCR](media-services-video-optical-character-recognition.md)|2020 년 2 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 및 [Azure Media Services V3 API Video Analyzer 사전 설정](../latest/analyzing-video-audio-files-concept.md)으로 바뀝니다.|
-|[Azure Media Video Thumbnails](media-services-video-summarization.md)|2020 년 2 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 및 [Azure Media Services V3 API Video Analyzer 사전 설정](../latest/analyzing-video-audio-files-concept.md)으로 바뀝니다.|
-
+ 
 ## <a name="overview"></a>개요
 
 직원을 교육하고, 고객을 참여시키고, 비즈니스 기능을 문서화하는 기본 미디어로 비디오를 사용하는 조직이 늘어나고 있습니다. 클라우드 컴퓨팅은 이러한 대용량 미디어 파일을 저장, 스트림, 액세스하는 방법을 제공합니다. 하지만 비디오 콘텐츠의 회사 라이브러리가 늘어남에 따라 콘텐츠에서 통찰력을 추출하는 효과적인 방법이 동일하게 필요합니다. 
@@ -67,7 +63,7 @@ Azure Media OCR(광학 문자 인식)을 사용하여 비디오 파일의 텍스
 ### <a name="scalable-face-redaction"></a>확장 가능한 얼굴 편집
 Azure Media Redactor는 클라우드에서 확장성 있는 얼굴 편집 기능을 제공하는 Media Analytics 미디어 프로세서입니다. 얼굴 편집을 사용하면 선택한 개인의 얼굴을 흐리게 표시하기 위해 동영상을 수정할 수 있습니다. 뉴스 미디어 또는 공공 안전과 관련된 경우 얼굴 편집 서비스를 사용할 수 있습니다. 짧은 장면이라도 여러 명의 얼굴이 포함된 경우 수동으로 편집하려면 많은 시간이 걸릴 수 있지만 이 서비스를 사용하면 몇 번의 간단한 단계를 통해 얼굴을 편집할 수 있습니다. 자세한 내용은 [Azure Media 분석으로 얼굴 편집](media-services-face-redaction.md) 문서를 참조하세요.
 ### <a name="content-moderation"></a>콘텐츠 조정
-Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하는 조정을 사용할 수 있습니다. 예를 들어 휴먼 조정 팀이 비디오에서 혹시라도 있을 수 있는 성인/외설 콘텐츠를 검색하고 플래그가 지정된 콘텐츠를 검토하게 하고 싶을 수 있습니다. 원치 않는 콘텐츠에 대해 비디오를 수동으로 조정하는 것은 시간도 많이 걸리고 비용도 많이 드는 작업입니다. 이 서비스 및 관련 검토 도구를 사용하면 컴퓨터에서 지원하는 조정과 휴먼 인 루프 기능을 결합하여 최상의 결과를 효율적이고 경제적으로 얻을 수 있습니다. 자세한 내용은 [Azure Content Moderator에서 비디오 처리](media-services-content-moderation.md) 문서를 참조하세요.
+Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하는 조정을 사용할 수 있습니다. 예를 들어 휴먼 조정 팀이 비디오에서 혹시라도 있을 수 있는 성인/외설 콘텐츠를 검색하고 플래그가 지정된 콘텐츠를 검토하게 하는 것이 좋습니다. 원치 않는 콘텐츠에 대해 비디오를 수동으로 조정하는 것은 시간도 많이 걸리고 비용도 많이 드는 작업입니다. 이 서비스 및 관련 검토 도구를 사용하면 컴퓨터에서 지원하는 조정과 휴먼 인 루프 기능을 결합하여 최상의 결과를 효율적이고 경제적으로 얻을 수 있습니다. 자세한 내용은 [Azure Content Moderator에서 비디오 처리](media-services-content-moderation.md) 문서를 참조하세요.
 
 ## <a name="common-scenarios"></a>일반적인 시나리오
 미디어 분석은 조직 및 기업이 비디오에서 새로운 통찰력을 얻고 대용량의 비디오 콘텐츠를 효율적으로 관리하는 데 도움이 됩니다. 다음은 몇 가지 시나리오입니다.
@@ -106,7 +102,7 @@ Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하�
     }
 
 
-### <a name="rest"></a>REST (영문)
+### <a name="rest"></a>REST(영문)
 요청:
 
     GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
@@ -140,10 +136,10 @@ Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하�
 ## <a name="demos"></a>데모
 [Azure Media 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)를 참조하세요.
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-articles"></a>관련 문서
+## <a name="related-articles"></a>관련된 문서
 [Media Services 분석 알림](https://azure.microsoft.com/blog/introducing-azure-media-analytics/)을 참조하세요.
 
 <!-- Images -->

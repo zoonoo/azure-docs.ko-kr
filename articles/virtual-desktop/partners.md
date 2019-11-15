@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 11/14/2019
 ms.author: helohr
-ms.openlocfilehash: dc93480807f34a79ee02f628f7b6f090c7efa428
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c482291e665656bf16f28cd114a9cb8141ae77c3
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931715"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084031"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -133,6 +133,16 @@ Nerdio는 Azure 리소스를 쉽게 프로 비전 하 고 배포를 간소화할
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh)하세요.
 - [파트너 웹 사이트로 이동](https://getnerdio.com/windows-virtual-desktop/)합니다.
 
+## <a name="numecent"></a>Numecent
+
+![Numecent 로고](./media/partners/numecent.png)
+
+Numecent는 windows 가상 데스크톱 환경에서 복잡 하거나 호환 되지 않는 Windows 앱의 신속한 온 보 딩 및 마이그레이션을 통해 총 운영 비용을 크게 줄여 주는 Windows 가상 데스크톱 부가 서비스 공급자입니다. 또한 numecent는 사용자가 수행 해야 하는 구성의 양을 최소화 하 고 응용 프로그램 업데이트를 줄이고 복잡 한 프로세스를 간소화 합니다. Numecent Cloudpaging은 다른 응용 프로그램 제공 도구 보다 더 많은 응용 프로그램을 원활 하 게 지원 하므로 다양 한 응용 프로그램 집합을 사용 하 여 환경에서 시간과 IT 워크 로드를 줄일 수 있습니다. 
+
+Windows 가상 데스크톱과 함께 사용 하면 배포에서 소프트웨어 자산 수명 주기를 완료 하 여 응용 프로그램을 업그레이드, 계량 및 제거 하는 방법으로 Cloudpaging이 비용을 더 줄일 수 있습니다. Cloudpaging은 Windows 가상 데스크톱 배포에 대 한 실시간으로 필요에 따라 앱을 동적으로 프로 비전 하 여 이미지 관리를 간소화 합니다. Cloudpaging은 정기적인 Windows 10 업데이트를 통해 관리 또는 개입 없이 응용 프로그램을 실행 하는 데 도움이 됩니다. 또한 cloudpaging 이러한 응용 프로그램의 보다 효율적인 배포 및 사용을 가능 하 게 하 여 비용이 많이 드는 응용 프로그램의 라이선스 비용을 줄여줍니다. 
+
+- [파트너 웹 사이트로 이동](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/)합니다.
+
 ## <a name="policypak"></a>PolicyPak
 
 ![PolicyPak 로고](./media/partners/policypak.png)
@@ -147,21 +157,22 @@ PolicyPak의 가장 중요 한 사용 사례는 로컬 관리자 권한을 제�
 
 ![프린터 논리 로고](./media/partners/printerlogic.png)
 
-프린터 논리는 IT 전문가가 모든 인쇄 서버를 제거 하 고 항상 사용 가능한 서버 리스 인쇄 인프라를 제공할 수 있도록 하는 Windows 가상 데스크톱 부가 가치 서비스 공급자 플랫폼입니다. 프린터 논리는 중앙에서 관리 하 고 프린터 개체를 프린터 또는 끝점 OS에 배포할 수 있도록 하 여 Windows 가상 데스크톱 및 Azure의 가치를 확장 합니다.   
+프린터 논리는 IT 전문가가 모든 인쇄 서버를 제거 하 고 항상 사용 가능한 서버 리스 인쇄 인프라를 제공할 수 있도록 하는 Windows 가상 데스크톱 부가 가치 서비스 공급자 플랫폼입니다. 프린터 논리는 중앙에서 관리 하 고 프린터 개체를 프린터 또는 끝점 OS에 배포할 수 있도록 하 여 Windows 가상 데스크톱 및 Azure의 가치를 확장 합니다. 
 
-SaaS로 제공 되거나 사용자 고유의 사설 클라우드에서 웹 스택으로 제공 되는, 프린터 논리 플랫폼은 사용자 ID, 장치 이름 또는 위치에 따라 사용자가 가상 세션에 필요한 적절 한 프린터를 항상 보유 하 고 있는지 확인 합니다. 이 기능은 인쇄 추적 및 보고, 모바일 인쇄, 보안 배지 릴리스 인쇄 등의 전체 엔터프라이즈 인쇄 관리 기능 모음을 보완 합니다. 
+SaaS로 제공 되거나 사용자 고유의 사설 클라우드에서 웹 스택으로 제공 되는, 프린터 논리 플랫폼은 사용자 ID, 장치 이름 또는 위치에 따라 사용자가 가상 세션에 필요한 적절 한 프린터를 항상 보유 하 고 있는지 확인 합니다. 이 기능은 인쇄 추적 및 보고, 모바일 인쇄, 보안 배지 릴리스 인쇄 등의 전체 엔터프라이즈 인쇄 관리 기능 모음을 보완 합니다. 
 
 - [파트너 웹 사이트로 이동](https://www.printerlogic.com)합니다.
 
-## <a name="numecent"></a>Numecent
+## <a name="printix"></a>Printix
 
-![Numecent 로고](./media/partners/numecent.png)
+![Printix 로고](./media/partners/printix.png)
 
-Numecent는 windows 가상 데스크톱 환경에서 복잡 하거나 호환 되지 않는 Windows 앱의 신속한 온 보 딩 및 마이그레이션을 통해 총 운영 비용을 크게 줄여 주는 Windows 가상 데스크톱 부가 서비스 공급자입니다. 또한 numecent는 사용자가 수행 해야 하는 구성의 양을 최소화 하 고 응용 프로그램 업데이트를 줄이고 복잡 한 프로세스를 간소화 합니다. Numecent Cloudpaging은 다른 응용 프로그램 제공 도구 보다 더 많은 응용 프로그램을 원활 하 게 지원 하므로 다양 한 응용 프로그램 집합을 사용 하 여 환경에서 시간과 IT 워크 로드를 줄일 수 있습니다. 
+Printix는 office 인쇄 리소스에 대 한 사용자 연결을 자동화 하는 Windows 가상 데스크톱 값 추가 서비스 공급자입니다. 고객 Azure 마이그레이션의 누락 된 부분으로, Printix는 위치에 관계 없이 모든 사용자에 대 한 인쇄 워크플로 지원 및 최적화와 관련 된 인프라 및 IT 작업을 제거 하는 데 사용할 수 있는 가장 비용 효율적인 서비스입니다.
 
-Windows 가상 데스크톱과 함께 사용 하면 배포에서 소프트웨어 자산 수명 주기를 완료 하 여 응용 프로그램을 업그레이드, 계량 및 제거 하는 방법으로 Cloudpaging이 비용을 더 줄일 수 있습니다. Cloudpaging은 Windows 가상 데스크톱 배포에 대 한 실시간으로 필요에 따라 앱을 동적으로 프로 비전 하 여 이미지 관리를 간소화 합니다. Cloudpaging은 정기적인 Windows 10 업데이트를 통해 관리 또는 개입 없이 응용 프로그램을 실행 하는 데 도움이 됩니다. 또한 cloudpaging 이러한 응용 프로그램의 보다 효율적인 배포 및 사용을 가능 하 게 하 여 비용이 많이 드는 응용 프로그램의 라이선스 비용을 줄여줍니다. 
+인쇄는 모든 office 및 소규모 비즈니스 환경 에서만 기본적인 작업입니다. Windows 가상 데스크톱을 완벽 하 게 활용 하 고 뛰어난 사용자 환경을 제공 하기 위해 사용자가 최소한의 노력과 최대 안정성으로 프린터에 연결할 수 있는지 확인 하는 것이 중요 합니다. Printix를 사용 하면 SSO (Single Sign-On), 자동 구성, 정기 업데이트 및 인쇄 환경의 지속적인 모니터링을 통해 Windows 가상 데스크톱을 최대한 활용할 수 있습니다.
 
-- [파트너 웹 사이트로 이동](https://www.numecent.com/partners/cloudpaging-for-windows-applications-windows-virtual-desktop/)합니다.
+- [공동 솔루션 brief 보기](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4aiK2)
+- [파트너 웹 사이트로 이동](https://www.printix.net/printix-for-windows-virtual-desktop)
 
 ## <a name="rdpsoft"></a>RDPSoft
 

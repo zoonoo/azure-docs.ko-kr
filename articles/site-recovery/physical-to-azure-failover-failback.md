@@ -1,18 +1,19 @@
 ---
-title: Site Recovery를 사용하여 Azure로 재해 복구하기 위한 물리적 서버 장애 조치(Failover) 및 장애 복구(Failback) | Microsoft Docs
+title: Site Recovery를 사용 하 여 물리적 서버에 대 한 장애 조치 (failover) 및 장애 복구 설정
 description: Azure Site Recovery를 사용한 재해 복구를 위해 물리적 서버를 Azure로 장애 조치(Failover)하고, 온-프레미스 사이트로 장애 복구(Failback)하는 방법에 대한 자세한 정보
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 49b61423b33282be7f0ace52c2a164d52ba20314
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 2c0d2e57a34286f65be45a95403a32de42c51908
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814421"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084564"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>복제된 물리적 서버를 Azure로 장애 조치(Failover) 및 장애 복구(Failback)
 
@@ -24,10 +25,10 @@ Site Recovery를 사용하여 Azure로 복제된 물리적 서버는 VMware VM�
 
 장애 조치(Failover) 및 장애 복구(Failback)는 다음 4단계로 진행됩니다.
 
-1. **Azure로 장애 조치(failover)** : 머신을 온-프레미스 사이트에서 Azure로 장애 조치합니다.
-2. **Azure VM 다시 보호**: 온-프레미스 VMware VM으로 복제를 다시 시작하도록 Azure VM을 다시 보호합니다.
-3. **온-프레미스로 장애 조치(failover)** : Azure에서 장애 복구(Failback)하도록 장애 조치(Failover)를 실행합니다.
-4. **온-프레미스 VM 다시 보호**: 데이터를 장애 복구한 후에 Azure로 복제를 시작하도록 장애 복구한 온-프레미스 VMware VM을 다시 보호합니다.
+1. **Azure로 장애 조치(failover)** : 온-프레미스 사이트에서 Azure로 컴퓨터를 장애 조치합니다.
+2. **Azure VM 다시 보호**: Azure VM을 다시 보호하여 온-프레미스 VMware VM으로의 복제를 다시 시작하도록 합니다.
+3. **온-프레미스로 장애 조치(Failover)** : Azure에서 장애 복구(Failback)하도록 장애 조치(Failover)를 실행합니다.
+4. **온-프레미스 VM 다시 보호**: 데이터가 장애 복구(Failback)된 후에 장애 복구(Failback)한 온-프레미스 VMware VM을 다시 보호하여 Azure로 복제를 시작하도록 합니다.
 
 ## <a name="verify-server-properties"></a>서버 속성 확인
 
@@ -43,10 +44,10 @@ Site Recovery를 사용하여 Azure로 복제된 물리적 서버는 VMware VM�
 ## <a name="run-a-failover-to-azure"></a>Azure에 대한 장애 조치(Failover) 실행
 
 1. **설정** > **복제된 항목**에서 컴퓨터 > **장애 조치(Failover)** 를 클릭합니다.
-2. **장애 조치(Failover)** 에서 장애 조치할 **복구 시점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
-   - **최신**: 이 옵션은 Site Recovery로 전송된 모든 데이터를 먼저 처리합니다. 이 옵션은 장애 조치(failover) 후에 생성된 Azure VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
-   - **가장 최근에 처리됨**: 이 옵션은 머신을 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(Failover)합니다. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
-   - **최신 앱 일치**: 이 옵션은 머신을 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치(Failover)합니다.
+2. **장애 조치(Failover)** 에서 장애 조치할 **복구 지점**을 선택합니다. 다음 옵션 중 하나를 사용할 수 있습니다.
+   - **최신**: 이 옵션은 먼저 Site Recovery로 전송된 모든 데이터를 처리합니다. 이 옵션은 장애 조치(failover) 후에 생성된 Azure VM은 장애 조치(failover)가 트리거되었을 때 Site Recovery로 복제된 모든 데이터를 보유하므로 가장 낮은 RPO(복구 지점 목표)를 제공합니다.
+   - **가장 최근에 처리됨**: 이 옵션은 컴퓨터를 Site Recovery에서 처리된 최신 복구 지점으로 장애 조치(Failover)합니다. 이 옵션은 처리되지 않은 데이터를 처리하는 데 시간이 투입되지 않으므로 낮은 RTO(복구 시간 목표)를 제공합니다.
+   - **최신 앱 일치**: 이 옵션은 컴퓨터를 Site Recovery에서 처리된 최신 앱 일치 복구 지점으로 장애 조치(Failover)합니다.
    - **사용자 지정**: 복구 지점을 지정합니다.
 
 3. 장애 조치(Failover)를 트리거하기 전에 Site Recovery에서 원본 컴퓨터를 종료하려고 시도하는 경우 **장애 조치(Failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
@@ -59,7 +60,7 @@ Site Recovery를 사용하여 Azure로 복제된 물리적 서버는 VMware VM�
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>장애 조치(Failover) 후 Azure VM에 연결할 준비
 
-장애 조치(Failover) 후 RDP/SSH를 사용하여 Azure VM에 연결하려면 [여기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover)에서 표에 요약된 요구 사항을 따릅니다.
+장애 조치(Failover) 후 RDP/SSH를 사용하여 Azure VM에 연결하려면 표([여기](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover))에 요약된 요구 사항을 따르십시오.
 
 [여기](site-recovery-failover-to-azure-troubleshoot.md)에 설명된 단계에 따라 장애 조치(failover) 후 연결 문제를 해결합니다.
 
@@ -101,7 +102,7 @@ Site Recovery를 사용하여 Azure로 복제된 물리적 서버는 VMware VM�
 
 온-프레미스로 다시 복제하려면 장애 복구(Failback) 정책 정책이 사용됩니다. 이 정책은 Azure로의 복제를 위한 복제 정책을 만들 때 자동으로 생성됩니다.
 
-- 정책은 구성 서버에 자동으로 연결됩니다.
+- 정책은 구성 서버와 자동으로 연결됩니다.
 - 정책을 수정할 수는 없습니다.
 - 정책 값은 다음과 같습니다.
     - RPO 임계값 = 15분

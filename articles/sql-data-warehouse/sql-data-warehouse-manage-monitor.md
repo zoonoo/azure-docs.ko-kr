@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 08/23/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e1a754747ae5c0fb7c50653f4881b67a81e011ef
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 629ba904d055977fe70f749a46fbbec71be71b79
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645665"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083644"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>DMV를 사용하여 작업 모니터링
 이 문서에서는 동적 관리 뷰(DMV)를 사용하여 워크로드를 모니터링하는 방법을 설명합니다. 여기에는 Azure SQL Data Warehouse에서 쿼리 실행을 조사하는 것이 포함됩니다.
@@ -63,9 +63,9 @@ ORDER BY total_elapsed_time DESC;
 
 위의 쿼리 결과에서 조사할 쿼리의 **요청 ID를 적어 둡니다** .
 
-**일시 중단** 상태의 쿼리는 실행 중인 활성 쿼리 수가 많기 때문에 큐에 대기할 수 있습니다. 이러한 쿼리는 UserConcurrencyResourceType 유형을 사용 하 여 [sys. dm _stststststststststst\_\wait](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) 대기 쿼리에도 표시 됩니다. 동시성 제한에 대한 자세한 내용은 [성능 계층](performance-tiers.md) 또는 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][Investigating queries waiting for resources] 를 참조하세요.
+**일시 중단**된 쿼리는 활성 실행 중인 쿼리 수가 많아져서 상태 큐에 대기할 수 있습니다. 이러한 쿼리는 UserConcurrencyResourceType 형식으로 [sys.dm_pdw_waits](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql) 대기 쿼리에도 나타납니다. 동시성 제한에 대한 자세한 내용은 [성능 계층](/azure/sql-data-warehouse/what-is-a-data-warehouse-unit-dwu-cdwu#performance-tiers-and-data-warehouse-units) 또는 [워크로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md)를 참조하세요. 쿼리는 개체 잠금 등의 기타 이유로 인해 대기 상태일 수도 있습니다.  쿼리가 리소스를 대기 중인 경우 이 문서 뒷부분의 [리소스를 대기 중인 쿼리 조사][Investigating queries waiting for resources] 를 참조하세요.
 
-[_Pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 테이블에서 쿼리 조회를 간소화 하려면 [LABEL][LABEL] 을 사용 하 여 _pdw_exec_requests 뷰에서 조회할 수 있는 쿼리에 주석을 할당 합니다.
+[Dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) 테이블에서 쿼리 조회를 간소화 하려면 [레이블][LABEL] 을 사용 하 여 dm_pdw_exec_requests 뷰에서 조회할 수 있는 쿼리에 주석을 할당 합니다.
 
 ```sql
 -- Query with Label
@@ -131,8 +131,8 @@ SELECT * FROM sys.dm_pdw_dms_workers
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-* *total_elapsed_time* 열을 검사하여 특정 배포에서 데이터 이동 시간이 다른 배포보다 오래 걸리는지 확인합니다.
-* 장기 실행 배포의 경우 *rows_processed* 열을 검사하여 해당 배포에서 이동되는 행 수가 다른 배포보다 훨씬 큰지 확인합니다. 그렇다면 이 결과는 기본 데이터의 왜곡을 나타낼 수 있습니다.
+* *total_elapsed_time* 열을 검사하여 특정 분산에서 데이터 이동 시간이 다른 분산보다 오래 걸리는지 확인합니다.
+* 장기 실행 분산의 경우 *rows_processed* 열을 검사하여 해당 분산에서 이동되는 행 수가 다른 분산보다 훨씬 큰지 확인합니다. 그렇다면 이 결과는 기본 데이터의 왜곡을 나타낼 수 있습니다.
 
 쿼리가 실행되고 있으면 [DBCC PDW_SHOWEXECUTIONPLAN][DBCC PDW_SHOWEXECUTIONPLAN]을 사용하여 특정 배포 내에서 현재 실행 중인 SQL 단계에 대한 SQL Server 계획 캐시에서 SQL Server 예상 계획을 검색할 수 있습니다.
 
@@ -171,10 +171,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 쿼리가 적극적으로 다른 쿼리의 리소스를 대기 중인 경우 상태는 **AcquireResources**입니다.  쿼리가 필요한 리소스를 모두 가지고 있으면 상태는 **Granted**입니다.
 
 ## <a name="monitor-tempdb"></a>tempdb 모니터링
-Tempdb는 쿼리를 실행 하는 동안 중간 결과를 저장 하는 데 사용 됩니다. Tempdb 데이터베이스의 사용률이 높으면 쿼리 성능이 저하 될 수 있습니다. Azure SQL Data Warehouse의 각 노드에는 tempdb에 대 한 약 1TB의 원시 공간이 있습니다. 다음은 tempdb 사용을 모니터링 하 고 쿼리에서 tempdb 사용을 줄이는 데 유용한 팁입니다. 
+Tempdb는 쿼리를 실행하는 동안 중간 결과를 저장하는 데 사용됩니다. Tempdb 데이터베이스의 높은 사용률은 쿼리 성능을 저하시킬 수 있습니다. Azure SQL Data Warehouse의 각 노드는 약 1TB의 tempdb에 대한 원시 공간에 있습니다. 다음은 tempdb의 사용량 모니터링 및 쿼리에서의 tempdb 사용량 감소에 대한 팁입니다. 
 
-### <a name="monitoring-tempdb-with-views"></a>뷰를 사용 하 여 tempdb 모니터링
-Tempdb 사용 현황을 모니터링 하려면 먼저 [SQL Data Warehouse Microsoft 도구 키트](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring)에서 [vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) 뷰를 설치 합니다. 그러면 다음 쿼리를 실행 하 여 실행 된 모든 쿼리에 대 한 노드당 tempdb 사용량을 확인할 수 있습니다.
+### <a name="monitoring-tempdb-with-views"></a>뷰를 사용하여 tempdb 모니터링
+Tempdb 사용량을 모니터링하려면, 먼저 [SQL Data Warehouse에 대한 Microsoft 도구 키트](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql)에서 [microsoft.vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring) 뷰를 설치합니다. 그런 다음 모든 실행된 쿼리에 대한 노드당 tempdb 사용량을 보려면 다음 쿼리를 실행할 수 있습니다.
 
 ```sql
 -- Monitor tempdb
@@ -206,9 +206,9 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-많은 양의 메모리를 사용 하는 쿼리를 사용 하거나 tempdb 할당과 관련 된 오류 메시지를 받은 경우 [select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 또는 [INSERT select](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 문이 실행 중에 실패 하는 것으로 CREATE TABLE 인해이 오류가 발생할 수 있습니다. 최종 데이터 이동 작업 이는 일반적으로 분산 쿼리 계획에서 최종 INSERT SELECT 바로 전에 ShuffleMove 작업으로 식별 될 수 있습니다.  ShuffleMove 작업을 [모니터링 하려면](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 작업을 사용 합니다. 
+많은 양의 메모리를 사용 하는 쿼리를 사용 하거나 tempdb 할당과 관련 된 오류 메시지를 받은 경우 [select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 또는 [INSERT select](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 문이 실행 중에 실패 하는 것으로 CREATE TABLE 인해이 오류가 발생할 수 있습니다. 최종 데이터 이동 작업 이것은 일반적으로 최종 INSERT SELECT 직전 분산된 쿼리 계획 ShuffleMove 작업으로 식별할 수 있습니다.  ShuffleMove를 [dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 사용 하 여 작업을 모니터링할 수 있습니다. 
 
-가장 일반적인 완화 방법은 CTAS 또는 INSERT SELECT 문을 여러 개의 load 문으로 분할 하는 것입니다. 따라서 데이터 볼륨은 노드 tempdb 제한 당 1TB를 초과 하지 않습니다. 또한 클러스터의 크기를 더 크게 조정 하 여 더 많은 노드 간에 tempdb 크기를 분산할 수 있습니다. 그러면 각 개별 노드에서 tempdb를 줄일 수 있습니다.
+가장 일반적인 완화 방법은 데이터 볼륨이 tempdb 노드 제한당 1TB를 초과하지 않도록 CTAS 또는 INSERT SELECT 문을 여러 load 문으로 분해하는 것입니다. 또한 각 개별 노드에서 tempdb를 줄여 더 많은 노드에 tempdb 크기를 분산하여 더 큰 크기로 클러스터를 확장할 수 있습니다.
 
 CTAS 및 INSERT SELECT 문 외에도 메모리 부족으로 실행 되는 복잡 한 쿼리는 tempdb로 분할 되어 쿼리가 실패할 수 있습니다.  Tempdb로 분산 하지 않도록 더 큰 [리소스 클래스](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) 를 사용 하 여 실행 하는 것이 좋습니다.
 

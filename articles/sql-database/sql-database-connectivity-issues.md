@@ -12,13 +12,13 @@ author: dalechen
 manager: dcscontentpm
 ms.author: ninarn
 ms.reviewer: carlrab
-ms.date: 06/14/2019
-ms.openlocfilehash: a943ade4bfc46083fe84274640d979928357a492
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/14/2019
+ms.openlocfilehash: c25fa3f378c1e5a0f8bc26e4fb8c6f4ec752b43c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826806"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082502"
 ---
 # <a name="working-with-sql-database-connection-issues-and-transient-errors"></a>SQL Database 연결 문제 및 일시적 오류 해결
 
@@ -30,7 +30,7 @@ ms.locfileid: "73826806"
 
 일시 결함으로도 알려진 일시적인 오류에는 자체적으로 신속히 확인되는 원인이 있습니다. 일시적 오류가 발생하는 이유는 가끔 Azure 시스템에서 다양한 워크로드의 부하를 더 효율적으로 분산하기 위해 하드웨어를 신속하게 변경하는 경우가 포함됩니다. 이러한 재구성 이벤트는 60초 이내에 완료됩니다. 이 재구성 기간 중에는 SQL Database에 대한 연결에 문제가 있을 수 있습니다. SQL Database에 연결하는 애플리케이션은 이러한 일시적인 오류를 예상하도록 빌드되어야 합니다. 이를 처리하기 위해 사용자에게 애플리케이션 오류로 표시되는 대신 해당 코드에서 재시도 논리를 구현합니다.
 
-클라이언트 프로그램에서 ADO.NET을 사용하는 경우 사용자 프로그램에 **SqlException**이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다. **숫자** 속성을 본 문서 윗부분의 [SQL Database 클라이언트 애플리케이션의 SQL 오류 메시지](sql-database-develop-error-messages.md)에 있는 일시적 오류 목록과 비교합니다.
+클라이언트 프로그램에서 ADO.NET을 사용하는 경우 사용자 프로그램에 **SqlException**이 throw되어 일시적 오류가 발생했다는 메시지가 표시됩니다. 
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 

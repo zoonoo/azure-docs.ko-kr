@@ -1,5 +1,5 @@
 ---
-title: SQL Server 및 Azure Site Recovery를 사용하여 SQL Server에 대한 재해 복구 설정 | Microsoft Docs
+title: Azure Site Recovery를 사용 하 여 SQL Server에 대 한 재해 복구 설정
 description: 이 문서에서는 SQL Server 및 Azure Site Recovery를 사용 하 여 SQL Server에 대 한 재해 복구를 설정 하는 방법을 설명 합니다.
 services: site-recovery
 author: sujayt
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 08/02/2019
 ms.author: sutalasi
-ms.openlocfilehash: 79428520eed95e6e79f29e1676e2711e6ee24087
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 429f46156da728bbc24108090eac8c04f68da71c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934843"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084747"
 ---
 # <a name="set-up-disaster-recovery-for-sql-server"></a>SQL Server에 대한 재해 복구 설정
 
@@ -54,18 +54,18 @@ Azure IaaS VM 또는 온-프레미스에서 SQL Server 합니다.| Azure Site Re
 
 사용자의 요구에 따라 복구 계획이 완전히 사용자 지정 되도록 하기 위한 몇 가지 필수 구성 요소가 있습니다. 모든 SQL Server 배포에는 일반적으로 Active Directory 배포가 필요 합니다. 응용 프로그램 계층에 대 한 연결도 필요 합니다.
 
-### <a name="step-1-set-up-active-directory"></a>1단계: Active Directory 설정
+### <a name="step-1-set-up-active-directory"></a>1 단계: Active Directory 설정
 
 SQL Server를 제대로 실행 하려면 보조 복구 사이트에서 Active Directory를 설정 합니다.
 
-* **Small enterprise**: 적은 수의 응용 프로그램과 온-프레미스 사이트에 대 한 단일 도메인 컨트롤러가 있습니다. 전체 사이트를 장애 조치 (failover) 하려는 경우 Site Recovery 복제를 사용 합니다. 이 서비스는 도메인 컨트롤러를 보조 데이터 센터 또는 Azure에 복제 합니다.
-* **Medium-대기업**: 추가 도메인 컨트롤러를 설정 해야 할 수도 있습니다.
+* **Small enterprise**: 적은 수의 응용 프로그램과 온-프레미스 사이트에 대 한 단일 도메인 컨트롤러를 보유 하 고 있습니다. 전체 사이트를 장애 조치 (failover) 하려는 경우 Site Recovery 복제를 사용 합니다. 이 서비스는 도메인 컨트롤러를 보조 데이터 센터 또는 Azure에 복제 합니다.
+* **Medium-대기업**: 추가 도메인 컨트롤러를 설정 해야 할 수 있습니다.
   - 응용 프로그램 수가 많은 경우 Active Directory 포리스트가 있고 응용 프로그램 또는 워크 로드에 의해 장애 조치 (failover) 하려는 경우 보조 데이터 센터 또는 Azure에서 다른 도메인 컨트롤러를 설정 합니다.
   -  Always On 가용성 그룹를 사용 하 여 원격 사이트로 복구 하는 경우 보조 사이트 또는 Azure에서 다른 도메인 컨트롤러를 설정 합니다. 이 도메인 컨트롤러는 복구 된 SQL Server 인스턴스에 사용 됩니다.
 
 이 문서의 지침에서는 도메인 컨트롤러를 보조 위치에서 사용할 수 있다고 가정 합니다. 자세히 알아보려면 [Site Recovery를 사용 하 여 Active Directory를 보호 하](site-recovery-active-directory.md)는 절차를 참조 하세요.
 
-### <a name="step-2-ensure-connectivity-with-other-tiers"></a>2단계: 다른 계층과의 연결 확인
+### <a name="step-2-ensure-connectivity-with-other-tiers"></a>2 단계: 다른 계층과의 연결 확인
 
 데이터베이스 계층이 대상 Azure 지역에서 실행 된 후에는 응용 프로그램 및 웹 계층과 연결 되어 있는지 확인 합니다. 테스트 장애 조치 (failover)와의 연결 유효성을 검사 하기 위해 필요한 단계를 미리 수행 합니다.
 
@@ -74,7 +74,7 @@ SQL Server를 제대로 실행 하려면 보조 복구 사이트에서 Active Di
 * [클라우드 재해 복구를 위한 응용 프로그램 디자인](../sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery.md)
 * [탄력적 풀 재해 복구 전략](../sql-database/sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md)
 
-### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>3단계: Always On, 활성 지역 복제 및 자동 장애 조치 (failover) 그룹과 상호 운용
+### <a name="step-3-interoperate-with-always-on-active-geo-replication-and-auto-failover-groups"></a>3 단계: Always On, 활성 지역 복제 및 자동 장애 조치 (failover) 그룹과 상호 운용
 
 BCDR 기술 Always On, 활성 지역 복제 및 자동 장애 조치 (failover) 그룹에는 대상 Azure 지역에서 실행 되는 SQL Server의 보조 복제본이 있습니다. 응용 프로그램 장애 조치 (failover)의 첫 번째 단계는이 복제본을 기본 복제본으로 지정 하는 것입니다. 이 단계에서는 보조 데이터베이스에 도메인 컨트롤러가 이미 있다고 가정 합니다. 자동 장애 조치 (failover)를 수행 하도록 선택 하는 경우에는이 단계가 필요 하지 않을 수 있습니다. 데이터베이스 장애 조치 (failover)가 완료 된 후에만 웹 및 응용 프로그램 계층을 장애 조치 합니다.
 
@@ -85,13 +85,13 @@ BCDR 기술 Always On, 활성 지역 복제 및 자동 장애 조치 (failover) 
 
 1. [리소스 관리자 가상 머신과](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) [클래식 가상 머신에서](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1)SQL 가용성 그룹 장애 조치 (failover)를 수행 하는 스크립트를 가져옵니다. 스크립트를 Azure Automation 계정으로 가져옵니다.
 
-    [!["Azure에 배포" 로고의 이미지](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    ["Azure에 배포" 로고의 ![이미지](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. 복구 계획의 첫 번째 그룹에 대 한 사전 작업으로 ASR-SQL-FailoverAG 스크립트를 추가 합니다.
 
 1. 스크립트에서 사용할 수 있는 지침에 따라 자동화 변수를 만듭니다. 이 변수는 가용성 그룹의 이름을 제공 합니다.
 
-### <a name="step-4-conduct-a-test-failover"></a>4단계: 테스트 장애 조치 (failover) 수행
+### <a name="step-4-conduct-a-test-failover"></a>4 단계: 테스트 장애 조치 (failover) 수행
 
 SQL Always On와 같은 일부 BCDR 기술은 기본적으로 테스트 장애 조치 (failover)를 지원 하지 않습니다. *이러한 기술을 사용 하는 경우에만 다음 방법을 사용 하*는 것이 좋습니다.
 
@@ -109,7 +109,7 @@ SQL Always On와 같은 일부 BCDR 기술은 기본적으로 테스트 장애 �
 
 1. 수신기를 온라인 상태로 전환합니다.
 
-    ![서버 이름 및 상태를 표시 하는 Content_AG 레이블이 지정 된 창의 스크린샷](./media/site-recovery-sql/bring-listener-online.png)
+    ![서버 이름 및 상태를 표시 하 Content_AG 레이블이 지정 된 창의 스크린샷](./media/site-recovery-sql/bring-listener-online.png)
 
 1. 장애 조치 (failover) 네트워크의 부하 분산 장치에 각 가용성 그룹 수신기에 해당 하는 프런트 엔드 IP 주소 풀에서 그리고 백 엔드 풀의 SQL Server VM 하나의 IP 주소가 있는지 확인 합니다.
 
