@@ -27,9 +27,9 @@
         - name: PHP 사용
           href: quickstarts/php.md
         - name: Go 사용
-          href: quickstarts/php.md
+          href: quickstarts/go.md
         - name: Ruby 사용
-          href: quickstarts/php.md
+          href: quickstarts/ruby.md
 - name: 자습서
   items:
     - name: Power BI를 통합하여 고객 피드백 분석
