@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 5ababe9eb1f680378e882970df2d0b008287a7c4
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6aa721ee6cf6680518a28d050c22d8649f0f531f
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241708"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73833161"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>빠른 시작: CentOS에 Azure용 Ansible 솔루션 템플릿 배포
 
@@ -59,7 +59,7 @@ Azure용 Ansible 솔루션 템플릿은 Azure와 함께 작동하도록 구성�
        - [VM용 고성능 Premium Storage 및 관리 디스크](/azure/virtual-machines/windows/premium-storage)
        - [Azure 가상 머신 워크로드용 표준 SSD Managed Disks](/azure/virtual-machines/windows/disks-standard-ssd)
    - **공용 IP 주소** - 가상 머신 외부에서 가상 머신과 통신하려면 이 설정을 지정합니다. 기본값은 이름이 `ansible-pip`인 새 공용 IP 주소입니다. 다른 IP 주소를 지정하려면 화살표를 선택하여 이름, SKU, 할당 등 해당 IP 주소의 특성을 지정합니다. 
-   - **도메인 이름 레이블** - 가상 머신의 공용 도메인 이름을 입력합니다. 이름은 고유해야 하고 명명 요구 사항을 충족해야 합니다. 가상 머신 이름 지정에 대한 자세한 내용은 [Azure 리소스의 명명 규칙](/azure/architecture/best-practices/naming-conventions)을 참조하세요.
+   - **도메인 이름 레이블** - 가상 머신의 공용 도메인 이름을 입력합니다. 이름은 고유해야 하고 명명 요구 사항을 충족해야 합니다. 가상 머신 이름 지정에 대한 자세한 내용은 [Azure 리소스의 명명 규칙](/azure/architecture/best-practices/resource-naming)을 참조하세요.
    - **Ansible 버전** - 버전 번호 또는 `latest` 값을 지정하여 최신 버전을 배포합니다. **Ansible 버전** 옆에 있는 정보 아이콘을 선택하면 사용 가능한 버전에 대한 자세한 내용을 볼 수 있습니다.
 
      ![Ansible 추가 설정에 대한 Azure Portal 탭](./media/ansible-quick-deploy-solution-template/portal-ansible-setup-tab-2.png)

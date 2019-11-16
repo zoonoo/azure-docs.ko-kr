@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 2ab79cccaafeb1b48100285a5fd495340b545278
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 478ebde1de5624796ebf1dde5cf89f4e1f9d9104
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615356"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890728"
 ---
 # <a name="architecture-of-iot-central-digital-distribution-center-application-template"></a>IoT Central 디지털 배포 센터 애플리케이션 템플릿의 아키텍처
 
@@ -48,4 +48,4 @@ IoT Central 플랫폼은 CDE(연속 데이터 내보내기) 및 API를 통해 �
 ## <a name="next-steps"></a>다음 단계
 * [디지털 물류 센터 템플릿](./tutorial-iot-central-digital-distribution-center-pnp.md)을 배포하는 방법을 알아봅니다.
 * [IoT Central 소매 템플릿](./overview-iot-central-retail-pnp.md)에 대해 자세히 알아보기
-* [IoT Central 개요](../core/overview-iot-central-pnp.md)에서 IoT Central에 대한 자세한 내용을 참조합니다.
+* [IoT Central 개요](../preview/overview-iot-central.md)에서 IoT Central에 대한 자세한 내용을 참조합니다.

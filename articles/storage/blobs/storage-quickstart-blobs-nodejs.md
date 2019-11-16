@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 28a75158b161e680f857b986bcb754f1f99e8fab
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2e5a5f2a4de4e01d2e4fa66f819e55839959afd0
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825310"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130700"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-javascript"></a>빠른 시작: JavaScript용 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
@@ -205,7 +205,7 @@ const CONNECT_STR = process.env.CONNECT_STR;
 > [!IMPORTANT]
 > 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름 지정에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
-[fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--newpipelineoptions-) 메서드를 호출하여 [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) 클래스의 인스턴스를 만듭니다. 그런 다음, [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) 메서드를 호출하여 컨테이너에 대한 참조를 가져옵니다. 마지막으로 [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-)를 호출하여 스토리지 계정에 컨테이너를 실제로 만듭니다.
+[fromConnectionString](/javascript/api/@azure/storage-blob/blobserviceclient#fromconnectionstring-string--storagepipelineoptions-) 메서드를 호출하여 [BlobServiceClient](/javascript/api/@azure/storage-blob/blobserviceclient) 클래스의 인스턴스를 만듭니다. 그런 다음, [getContainerClient](/javascript/api/@azure/storage-blob/blobserviceclient#getcontainerclient-string-) 메서드를 호출하여 컨테이너에 대한 참조를 가져옵니다. 마지막으로 [create](/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-)를 호출하여 스토리지 계정에 컨테이너를 실제로 만듭니다.
 
 이 코드를 `main` 함수의 끝에 추가합니다.
 
@@ -351,7 +351,7 @@ Done
 Blob 스토리지 샘플 앱을 보려면 다음을 계속 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Azure Blob 스토리지 SDK v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/azure-storage-blob/samples)
+> [Azure Blob 스토리지 SDK v12 JavaScript 샘플](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples)
 
 * 자세한 내용은 [JavaScript용 Azure SDK](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/storage/storage-blob/README.md)를 참조하세요.
 * 자습서, 샘플, 빠른 시작 및 기타 설명서는 [JavaScript용 Azure SDK 설명서](/azure/javascript/)를 참조하세요.

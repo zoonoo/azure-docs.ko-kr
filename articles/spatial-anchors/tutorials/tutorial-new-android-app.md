@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 499b08dbdc8e798a884b721bcba51be1f6973df6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 6386ef775f897ca56d2660adf72a885672c8dfd2
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562392"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092056"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 새 Android 앱을 만드는 단계별 지침
 
@@ -36,7 +36,7 @@ Android Studio를 시작합니다. **Android Studio 시작** 창에서 **새 And
 
 새 앱을 테스트하려면 USB 케이블을 사용하여 개발자가 사용하는 디바이스를 개발 머신에 연결합니다. **실행**-> **'앱' 실행**을 차례로 클릭합니다. **배포 대상 선택** 창에서 디바이스를 선택하고 **확인**을 클릭합니다. Android Studio에서 앱을 연결된 디바이스에 설치하고 시작합니다. 이제 디바이스에서 실행되는 앱에 "Hello World!"가 표시됩니다. **실행**-> **'앱' 중지**를 차례로 클릭합니다.
 
-## <a name="integrating-arcore"></a>_ARCore_ 통합
+## <a name="integrating-_arcore_"></a>_ARCore_ 통합
 
 <a href="https://developers.google.com/ar/discover/" target="_blank">_ARCore_</a>는 증강 현실 환경을 구축하는 Google의 플랫폼으로, 디바이스가 이동하고 실제 환경에 대한 자체 인식을 구축하면서 해당 위치를 추적할 수 있도록 합니다.
 
@@ -62,12 +62,12 @@ Android Studio를 시작합니다. **Android Studio 시작** 창에서 **새 And
 ```
 dependencies {
     ...
-    implementation 'com.google.ar:core:1.8.0'
+    implementation 'com.google.ar:core:1.11.0'
     ...
 }
 ```
 
-## <a name="integrating-sceneform"></a>_Sceneform_ 통합
+## <a name="integrating-_sceneform_"></a>_Sceneform_ 통합
 
 <a href="https://developers.google.com/ar/develop/java/sceneform/" target="_blank">_Sceneform_</a>을 사용하면 OpenGL을 익히지 않고도 증강 현실 앱에서 사실적인 3D 장면을 간단하게 렌더링할 수 있습니다.
 
@@ -85,7 +85,7 @@ android {
 
 dependencies {
     ...
-    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.8.0'
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.11.0'
     ...
 }
 ```

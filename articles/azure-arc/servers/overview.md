@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 57dbfa0c2063c2059955294ccc1337bb76b72614
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7a2e9d39629e4fdb349652c9c48d0084d051f9f8
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606095"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122847"
 ---
 # <a name="what-is-azure-arc-for-servers"></a>서버용 Azure Arc란
 
@@ -132,7 +132,7 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 - MMA 에이전트가 이미 설치되어 있는 머신에서는 업데이트된 관리 팩을 통해 **Azure Arc** 기능을 사용할 수 있습니다.
 - 서버 통합을 위해 Azure Arc에 [MMA 에이전트 버전 10.20.18011 이상](https://docs.microsoft.com/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version)이 필요합니다.
-- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview#log-queries)에서 로그 데이터를 쿼리하면 반환된 데이터 스키마에 Hybrid **ResourceId**가 `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>` 형식으로 포함됩니다.
+- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)에서 로그 데이터를 쿼리하면 반환된 데이터 스키마에 Hybrid **ResourceId**가 `/subscriptions/<SubscriptionId/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridCompute/machines/<MachineName>` 형식으로 포함됩니다.
 
 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal)을 참조하세요.
 

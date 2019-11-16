@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f0669a474c24647e71eae8b5e0e0830b7c0bef
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b46ac34db21576c7e2de2271a468e3e782ff6aa9
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533085"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885345"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>자습서: Check Point CloudGuard Dome9 Arc와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -107,7 +107,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | memberof | user.assignedroles |
 
     >[!NOTE]
-    >[여기를](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/apptio-tutorial) 클릭하여 Azure AD에서 역할을 만드는 방법을 알아봅니다.
+    >[여기](https://docs.microsoft.com/azure/active-directory/saas-apps/apptio-tutorial)를 클릭하여 Azure AD에서 역할을 만드는 방법을 알아봅니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 

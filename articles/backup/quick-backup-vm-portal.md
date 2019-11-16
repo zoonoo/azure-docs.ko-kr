@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/17/2018
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 09154c68ab5cb0c3db3cd3325a4bf37fa33c1144
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2d740c8d078770267669a0be749ca8d5d210bb72
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747073"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083174"
 ---
 # <a name="back-up-a-virtual-machine-in-azure"></a>Azure에서 가상 머신 백업
 
@@ -26,7 +26,7 @@ Azure Portal을 통해 Azure Backup을 만들 수 있습니다. 이 방법은 Az
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-<https://portal.azure.com.>에서 Azure Portal에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="select-a-vm-to-back-up"></a>백업할 VM을 선택합니다.
 

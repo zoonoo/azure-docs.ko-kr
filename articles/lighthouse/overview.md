@@ -1,18 +1,14 @@
 ---
 title: Azure Lighthouse란?
 description: Azure Lighthouse에서 서비스 공급자는 더 높은 자동화 및 효율성으로 고객을 위한 관리형 서비스를 제공할 수 있습니다.
-author: JnHs
-ms.author: jenhayes
-ms.date: 08/22/2019
+ms.date: 11/11/2019
 ms.topic: overview
-ms.service: lighthouse
-manager: carmonm
-ms.openlocfilehash: 05fa16504e25a6bf0f6aa1c0a348284abba6e1ed
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 0551bbcbc9609809b0b28eb56a0a3b848debcaae
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70011888"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132202"
 ---
 # <a name="what-is-azure-lighthouse"></a>Azure Lighthouse란?
 
@@ -39,9 +35,6 @@ Azure Lighthouse에는 고객 참여 및 관리를 간소화하는 데 도움이
 - **Azure Resource Manager 템플릿**: Azure 위임 리소스 관리를 위한 고객 온보딩을 포함하는 관리 작업을 보다 쉽게 수행합니다. 자세한 내용은 [샘플 리포지토리](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/Azure-Delegated-Resource-Management/templates) 및 [Azure 위임 리소스 관리에 고객 온보딩](how-to/onboard-customer.md)을 참조하세요.
 - **Azure Marketplace의 관리형 서비스 솔루션**: 프라이빗 또는 퍼블릭 제품을 통해 고객에게 서비스를 제공하고, Azure Resource Manager 템플릿을 사용한 온보딩에 대한 대안으로, Azure 위임 리소스 관리에 자동으로 온보딩되도록 합니다. 자세한 내용은 [Azure Marketplace의 관리형 서비스 솔루션](./concepts/managed-services-offers.md)을 참조하세요.
 - **Azure 관리형 애플리케이션**: 고객이 각자의 구독에서 쉽게 배포하고 사용할 수 있는 애플리케이션을 패키지 하고 제공합니다. 애플리케이션은 테넌트에서 액세스하는 리소스 그룹에 배포되므로 전체 Azure Lighthouse 환경의 일부로 서비스를 관리할 수 있습니다. 자세한 내용은 [Azure Managed Applications 개요](https://docs.microsoft.com/azure/managed-applications/overview)를 참조하세요.
-
-> [!NOTE]
-> 위에서 설명한 기능은 현재 퍼블릭 클라우드에서 사용할 수 있습니다. 개별 서비스의 지역별 가용성에 대해서는 [지역별 사용 가능 제품](https://azure.microsoft.com/global-infrastructure/services/)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

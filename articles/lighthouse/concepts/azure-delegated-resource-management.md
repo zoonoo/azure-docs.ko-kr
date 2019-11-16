@@ -1,18 +1,14 @@
 ---
 title: Azure 위임 리소스 관리
 description: 관리형 서비스를 통해 서비스 공급자는 Azure Marketplace에서 고객에게 리소스 관리 제품을 판매할 수 있습니다.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 07/11/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: c2aa393f04a8db470dd8b739c0ed003477df0221
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: e79252d38e5e3363ef1d6a82ec060b896fa247a8
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615422"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133379"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 위임 리소스 관리
 

@@ -1,17 +1,14 @@
 ---
 title: 샘플 - Express 경로에 대한 네트워크 피어링 없음
 description: 이 샘플 정책 정의에서는 네트워크 피어링이 지정된 리소스 그룹의 한 네트워크에 연결되는 것이 금지됩니다.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 7cd3dde826e79bc38f257d0c8b58e4faf0bef3d4
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 42f91698c4e2fcb6173aa6eade6423fd60546a98
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255717"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076184"
 ---
 # <a name="sample---no-network-peering-to-express-route-network"></a>샘플 - Express 경로 네트워크에 대한 네트워크 피어링 없음
 

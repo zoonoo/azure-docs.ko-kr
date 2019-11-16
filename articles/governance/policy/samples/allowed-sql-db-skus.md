@@ -1,17 +1,14 @@
 ---
 title: 샘플 - 허용되는 SQL DB SKU
 description: 이 샘플 정책 정의에서는 승인된 SKU를 사용하기 위해 SQL Database가 필요합니다. 요구 사항을 충족하지 않는 새 리소스는 거부됩니다.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 812ba137bad052e9ee784504151d2a52f99fb9a8
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.topic: sample
+ms.openlocfilehash: 0365de32cd2b6d52b236f2105912e0969f9b7a18
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244201"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076368"
 ---
 # <a name="sample---allowed-sql-database-skus"></a>샘플 - 허용되는 SQL 데이터베이스 SKU
 

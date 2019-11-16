@@ -7,12 +7,12 @@ ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 5fc9463d5f5ea15f08378d4a0245174a366fa2b9
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747469"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091085"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Azure 파일 공유 백업 및 복원
 
@@ -195,13 +195,13 @@ Azure 파일 공유 보호를 중지하려면:
 
    ![모니터링할 작업 선택](./media/backup-file-shares/resume-backup-job.png)
 
-### <a name="delete-backup-data"></a>Backup 데이터 삭제
+### <a name="delete-backup-data"></a>백업 데이터 삭제
 
 백업 중지 작업이 진행되는 동안 또는 보호를 중지한 후 언제든지 파일 공유 백업을 삭제할 수 있습니다. 복구 지점을 삭제하기 전에 며칠 또는 몇 주 기다리는 것이 도움이 될 수도 있습니다. 백업 데이터를 삭제하는 경우 복구 지점을 복원하는 작업과 달리 특정 복구 지점을 삭제하도록 선택할 수 없습니다. 백업 데이터를 삭제하려는 경우 항목에 연결된 모든 복구 지점을 삭제합니다.
 
 다음 절차에서는 가상 머신에 대한 Backup 작업이 중지된 것으로 가정합니다. Backup 작업이 중지된 경우 Backup 항목 대시보드에서 [백업 다시 시작] 및 [Backup 데이터 삭제] 옵션을 다시 시작할 수 있습니다. [Backup 데이터 삭제]를 클릭하고 파일 공유 이름을 입력하여 삭제를 확인합니다. 필요에 따라 삭제 이유 또는 주석을 입력합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
 Azure 파일 공유에 대한 자세한 내용은 다음을 참조하세요.
 

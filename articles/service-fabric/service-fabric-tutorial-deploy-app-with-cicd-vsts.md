@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 184c57c0d9160cedef4be417f16c52c8635a1eb4
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 13411e813e96a1548b912c024f75404dd856fee1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68385298"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838964"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>자습서: Service Fabric 클러스터에 CI/CD로 애플리케이션 배포
 
@@ -144,7 +144,7 @@ Azure Active Directory 자격 증명의 경우 사용하려는 클러스터 및 
 
 **+ 릴리스** -> **릴리스 만들기** -> **만들기**를 선택하여 릴리스를 수동으로 만듭니다. **릴리스** 탭에서 릴리스 진행률을 모니터링할 수 있습니다.
 
-배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  애플리케이션 버전을 확인합니다. 이 예제에서는 “1.0.0.20170616.3”입니다.
+배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`로 이동합니다.  애플리케이션 버전을 확인합니다. 이 예제에서는 “1.0.0.20170616.3”입니다.
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>변경 내용 커밋 및 푸시, 릴리스 트리거
 
@@ -164,7 +164,7 @@ Azure Pipelines에 변경 내용을 푸시하면 빌드가 자동으로 트리�
 
 빌드 진행률을 확인하려면 Visual Studio의 **팀 탐색기**에서 **빌드** 탭으로 전환합니다.  빌드가 성공적으로 실행되는지 확인한 후 애플리케이션을 클러스터에 배포하는 릴리스 파이프라인을 정의합니다.
 
-배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/)로 이동합니다.  애플리케이션 버전을 확인합니다. 이 예제에서는 &quot;1.0.0.20170815.3&quot;입니다.
+배포에 성공했고 클러스터에서 애플리케이션이 실행 중인지 확인합니다.  웹 브라우저를 열고 `http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/`로 이동합니다.  애플리케이션 버전을 확인합니다. 이 예제에서는 &quot;1.0.0.20170815.3&quot;입니다.
 
 ![Service Fabric Explorer][sfx1]
 

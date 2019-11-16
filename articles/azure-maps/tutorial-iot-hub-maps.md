@@ -1,22 +1,22 @@
 ---
-title: Azure Maps를 사용하여 IoT 공간 분석 구현 | Microsoft Docs
-description: IoT Hub를 Azure Maps 서비스 API와 통합합니다.
+title: '자습서: Azure Maps를 사용하여 IoT 공간 분석 구현'
+description: '자습서: IoT Hub를 Azure Maps 서비스 API와 통합합니다.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/13/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 618931c3a45fcb25b2a9221ea3f6069e9ff11de5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b876b27d0eb24a9eabcffe0d131ea0ef5bb79bad
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933195"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107047"
 ---
-# <a name="implement-iot-spatial-analytics-using-azure-maps"></a>Azure Maps를 사용하여 IoT 공간 분석 구현
+# <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
 공간과 시간에서 발생하는 관련 이벤트를 추적하고 캡처하는 것은 일반적인 IoT 시나리오입니다. 예를 들어 차량 관리, 자산 추적, 모바일 및 스마트 도시 애플리케이션입니다. 이 자습서에서는 Event Grid에서 제공하는 이벤트 구독 모델을 사용하여 IoT Hub에서 캡처한 관련 이벤트에 대해 Azure Maps API를 사용하는 솔루션 패턴을 안내합니다.
 

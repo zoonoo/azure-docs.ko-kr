@@ -1,5 +1,5 @@
 ---
-title: 가상 네트워크에 대한 Azure CLI 샘플 | Microsoft Docs
+title: 가상 네트워크에 대한 Azure CLI 샘플
 description: 가상 네트워크에 대한 Azure CLI 샘플입니다.
 services: virtual-network
 documentationcenter: virtual-network
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: kumud
-ms.openlocfilehash: 4caa19ad22faa0a921fb6397e5b376b65a29e519
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: ff1017c8a6bc3c2806da6ea2a53b931aaf28644f
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249061"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092092"
 ---
 # <a name="azure-cli-samples-for-virtual-network"></a>가상 네트워크에 대한 Azure CLI 샘플
 

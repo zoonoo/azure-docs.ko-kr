@@ -8,23 +8,23 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 10/29/2019
-ms.openlocfilehash: 721f730aa78be39b91f7d8368655dbbd5878903b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 00a2268442f94822064f86d95b14160d67e1516c
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716683"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084752"
 ---
 # <a name="how-azure-machine-learning-differs-from-ml-studio-classic"></a>Azure Machine Learning과 ML Studio(클래식)의 차이점
 
 이 문서에서는 Azure Machine Learning의 기능 및 인터페이스를 ML Studio(클래식)와 비교합니다. 
 
 ## <a name="about-ml-studio-classic"></a>ML Studio(클래식) 정보
-[ML Studio(클래식)](/studio/what-is-ml-studio.md)는 코드 작성 없이 기계 학습 솔루션을 빌드, 테스트, 배포할 수 있는 끌어서 놓기 방식의 시각적 공동 작업 영역입니다. 미리 빌드되고 미리 구성된 기계 학습 알고리즘과 데이터 처리 모듈 그리고 전용 컴퓨팅 플랫폼을 사용합니다.
+[ML Studio(클래식)](studio/what-is-ml-studio.md)는 코드 작성 없이 기계 학습 솔루션을 빌드, 테스트, 배포할 수 있는 끌어서 놓기 방식의 시각적 공동 작업 영역입니다. 미리 빌드되고 미리 구성된 기계 학습 알고리즘과 데이터 처리 모듈 그리고 전용 컴퓨팅 플랫폼을 사용합니다.
 
 ## <a name="about-azure-machine-learning"></a>Azure Machine Learning 정보
 
-한편 [Azure Machine Learning](/service/overview-what-is-azure-ml.md)은 디자이너(미리 보기)라는 웹 인터페이스 **및** 여러 SDK와 CLI를 모두 제공하여 데이터를 빠르게 준비하고 기계 학습 모델을 학습 및 배포합니다. Azure Machine Learning을 사용하면 크기 조정, 여러 프레임워크 지원, 자동화된 Machine Learning 및 파이프라인 지원과 같은 고급 ML 기능을 사용할 수 있습니다.
+한편 [Azure Machine Learning](service/overview-what-is-azure-ml.md)은 디자이너(미리 보기)라는 웹 인터페이스 **및** 여러 SDK와 CLI를 모두 제공하여 데이터를 빠르게 준비하고 기계 학습 모델을 학습 및 배포합니다. Azure Machine Learning을 사용하면 크기 조정, 여러 프레임워크 지원, 자동화된 Machine Learning 및 파이프라인 지원과 같은 고급 ML 기능을 사용할 수 있습니다.
 
 Azure Machine Learning 디자이너는 Studio(클래식)와 비슷한 끌어서 놓기 환경을 제공합니다. 그러나 Studio(클래식) 전용 컴퓨팅 플랫폼과는 달리, 디자이너는 사용자 고유의 컴퓨팅 리소스를 사용하고 확장 가능하며 Azure Machine Learning에 완전히 통합됩니다.  
 

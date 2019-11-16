@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b131a6fd5bb39ee5ec672a8ffb75cb22087a38af
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: e599ff280481549f68822d96f97b85f2516b1593
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597449"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082741"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Microsoft Flow, Logic Apps, Functions 및 WebJobs란?
 
@@ -123,12 +123,12 @@ Microsoft Flow, Logic Apps 및 Functions 간의 통합은 계속해서 점차 �
 * [Christopher Anderson의 통합 시나리오에 대한 Azure Functions 및 Azure App Service 활용](https://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
 * [Integrations Made Simple by Charles Lamanna](https://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Logic Apps 라이브 웹캐스트](https://aka.ms/logicappslive)
-* [Microsoft Flow 질문과 대답](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+* [Microsoft Flow 질문과 대답](/power-automate/frequently-asked-questions)
 
 ## <a name="next-steps"></a>다음 단계
 
 첫 번째 흐름, 논리 앱 또는 함수 앱을 만들어 시작하세요. 다음 링크 중 하나를 선택합니다.
 
-* [Microsoft Flow 시작](https://flow.microsoft.com/en-us/documentation/getting-started/)
+* [Microsoft Flow 시작](/power-automate/getting-started)
 * [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 * [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)

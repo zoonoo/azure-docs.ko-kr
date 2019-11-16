@@ -9,12 +9,12 @@ ms.author: mhopkins
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.subservice: blobs
-ms.openlocfilehash: 3eb6f68a443e29a7d4c7b4dedad38783f838dee5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 018a0405215d084962f6c107a607c8f82fae2500
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686677"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132007"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -254,7 +254,7 @@ createContainerButton.addEventListener("click", createContainer);
 deleteContainerButton.addEventListener("click", deleteContainer);
 ```
 
-이 코드는 [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) 인스턴스를 사용하지 않고 ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#create-aborter--icontainercreateoptions-)(만들기) 및 [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#delete-aborter--icontainerdeletemethodoptions-)(삭제) 함수를 호출합니다. 이 빠른 시작을 간단히 유지하기 위해 이 코드에서 스토리지 계정이 만들어져 있고 사용하도록 설정되었다고 가정합니다. 프로덕션 코드에서 Aborter 인스턴스를 사용하여 시간 제한 기능을 추가합니다.
+이 코드는 [Aborter](https://docs.microsoft.com/javascript/api/@azure/storage-blob/aborter) 인스턴스를 사용하지 않고 ContainerURL [create](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#create-containercreateoptions-)(만들기) 및 [delete](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#delete-containerdeletemethodoptions-)(삭제) 함수를 호출합니다. 이 빠른 시작을 간단히 유지하기 위해 이 코드에서 스토리지 계정이 만들어져 있고 사용하도록 설정되었다고 가정합니다. 프로덕션 코드에서 Aborter 인스턴스를 사용하여 시간 제한 기능을 추가합니다.
 
 ### <a name="list-blobs"></a>Blob 나열
 
@@ -290,7 +290,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-이 코드는 루프의 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) 함수를 호출하여 모든 세그먼트가 검색되도록 합니다. 각 세그먼트에 대해 포함된 Blob 항목의 목록을 반복하여 **Files**(파일) 목록을 업데이트합니다.
+이 코드는 루프의 [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/containerclient#listblobsflat-containerlistblobsoptions-) 함수를 호출하여 모든 세그먼트가 검색되도록 합니다. 각 세그먼트에 대해 포함된 Blob 항목의 목록을 반복하여 **Files**(파일) 목록을 업데이트합니다.
 
 ### <a name="upload-blobs"></a>Blob 업로드
 
@@ -318,7 +318,7 @@ selectButton.addEventListener("click", () => fileInput.click());
 fileInput.addEventListener("change", uploadFiles);
 ```
 
-이 코드는 **선택 및 업로드 파일** 단추를 숨겨진 `file-input` 요소에 연결합니다. 이 방식으로 단추 `click` 이벤트에서 파일 입력 `click` 이벤트를 트리거하고 파일 선택기를 표시합니다. 파일을 선택하고 대화 상자를 닫으면 `input` 이벤트가 발생하고 `uploadFiles` 함수가 호출됩니다. 이 함수는 선택한 각 파일에 대해 브라우저 전용 [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/#uploadbrowserdatatoblockblob-aborter--blob---arraybuffer---arraybufferview--blockbloburl--iuploadtoblockbloboptions-) 함수를 호출합니다. 각 호출에서 Promise(약속)를 반환합니다. 이 약속은 한 번에 모든 파일을 기다릴 수 있도록 목록에 추가되며, 이에 따라 모든 파일을 동시에 업로드합니다.
+이 코드는 **선택 및 업로드 파일** 단추를 숨겨진 `file-input` 요소에 연결합니다. 이 방식으로 단추 `click` 이벤트에서 파일 입력 `click` 이벤트를 트리거하고 파일 선택기를 표시합니다. 파일을 선택하고 대화 상자를 닫으면 `input` 이벤트가 발생하고 `uploadFiles` 함수가 호출됩니다. 이 함수는 선택한 각 파일에 대해 브라우저 전용 [uploadBrowserDataToBlockBlob](https://docs.microsoft.com/javascript/api/@azure/storage-blob/blockblobclient#uploadbrowserdata-blob---arraybuffer---arraybufferview--blockblobparalleluploadoptions-) 함수를 호출합니다. 각 호출에서 Promise(약속)를 반환합니다. 이 약속은 한 번에 모든 파일을 기다릴 수 있도록 목록에 추가되며, 이에 따라 모든 파일을 동시에 업로드합니다.
 
 ### <a name="delete-blobs"></a>Blob 삭제
 
