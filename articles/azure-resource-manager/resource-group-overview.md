@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: overview
 ms.date: 08/29/2019
 ms.author: tomfitz
-ms.openlocfilehash: f8ec833a469e3c3a9b4c88343a48e109fc5c9728
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 525271fdc94e0fd1b2cafe4a5a222ce9100156ef
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338218"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888486"
 ---
 # <a name="azure-resource-manager-overview"></a>Azure Resource Manager 개요
 
@@ -87,7 +87,7 @@ Azure는 [관리 그룹](../governance/management-groups/overview.md), 구독, [
 
 리소스 그룹을 만들 때 해당 리소스 그룹의 위치를 제공해야 합니다. 리소스 그룹에 위치가 필요한 이유는 무엇인지 궁금할 수 있습니다. 리소스의 위치가 리소스 그룹과 다른 경우 리소스 그룹 위치가 중요한 이유는 무엇인가요? 리소스 그룹은 리소스에 대한 메타데이터를 저장합니다. 리소스 그룹의 위치를 지정하면 메타데이터가 저장되는 위치를 지정하게 됩니다. 규정 준수 때문에 특정 지역에 데이터가 저장되는지 확인해야 합니다.
 
-리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 신뢰할 수 있는 애플리케이션을 빌드하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 Azure 애플리케이션 디자인](/azure/architecture/reliability/)을 참조하세요.
+리소스 그룹의 지역이 일시적으로 사용할 수 없는 경우 메타데이터를 사용할 수 없기 때문에 리소스 그룹의 리소스를 업데이트할 수 없습니다. 다른 지역에 있는 리소스는 여전히 예상대로 작동하지만 업데이트는 불가능합니다. 신뢰할 수 있는 애플리케이션을 빌드하는 방법에 대한 자세한 내용은 [신뢰할 수 있는 Azure 애플리케이션 디자인](/azure/architecture/checklist/resiliency-per-service)을 참조하세요.
 
 ## <a name="resiliency-of-azure-resource-manager"></a>Azure Resource Manager의 복원력
 

@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 1940f02fdf9badcf99ef85a2ab02ac9099cc1775
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 797488632f04af9a170f05590154e50310570b28
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615388"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890714"
 ---
 # <a name="architecture-of-iot-central-connected-logistics-application-template"></a>IoT Central 커넥티드 물류 애플리케이션 템플릿의 아키텍처
 
@@ -47,4 +47,4 @@ IoT Central 플랫폼은 CDE(연속 데이터 내보내기) 및 API를 통해 �
 ## <a name="next-steps"></a>다음 단계
 * [연결된 물류 솔루션 템플릿](./tutorial-iot-central-connected-logistics-pnp.md)을 배포하는 방법을 알아봅니다.
 * [IoT Central 소매 템플릿](./overview-iot-central-retail-pnp.md)에 대해 자세히 알아보기
-* [IoT Central 개요](../core/overview-iot-central-pnp.md)에서 IoT Central에 대한 자세한 내용을 참조합니다.
+* [IoT Central 개요](../preview/overview-iot-central.md)에서 IoT Central에 대한 자세한 내용을 참조합니다.

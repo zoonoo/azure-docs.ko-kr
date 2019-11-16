@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Bing Visual Search SDK for Node.js를 사용하여 이미지 인사이트 가져오기'
 titleSuffix: Azure Cognitive Services
-description: Bing Visual Search SDK를 사용하여 이미지를 업로드하고 이미지에 대한 인사이트를 가져올 수 있습니다.
+description: 이 빠른 시작의 안내에 따라 Node.js SDK를 사용하여 Bing Visual Search 서비스에서 이미지 인사이트 가져오기를 시작하세요.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 07/15/2019
 ms.author: aahi
-ms.openlocfilehash: f0dd0bb82f899146956b5671497d298c7ce076ef
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: fd69179c98e999323936daf7e83b165126c20381
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68360527"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111582"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>빠른 시작: Bing Visual Search SDK for Node.js를 사용하여 이미지 인사이트 가져오기
 

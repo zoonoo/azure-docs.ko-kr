@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 12df79696033e69abbf48f053c1a594be9409cda
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c0a47e922ae8cdca3c70cb53f9fa2f7dafe191c6
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721115"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889220"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Azure Cosmos DB Cassandra API에서 지원하는 Apache Cassandra 기능 
 
@@ -110,7 +110,7 @@ Apache Cassandra 3.1.1과 함께 제공되는 CQLSH 명령줄 유틸리티는 �
 
 **Windows:**
 
-Windows를 사용하는 경우 [Linux용 Windows 파일 시스템](https://docs.microsoft.com/en-us/windows/wsl/install-win10#install-the-windows-subsystem-for-linux)을 사용하도록 설정하는 것이 좋습니다. 그런 다음, 아래의 linux 명령을 따를 수 있습니다.
+Windows를 사용하는 경우 [Linux용 Windows 파일 시스템](https://docs.microsoft.com/windows/wsl/install-win10#install-the-windows-subsystem-for-linux)을 사용하도록 설정하는 것이 좋습니다. 그런 다음, 아래의 linux 명령을 따를 수 있습니다.
 
 **Unix/Linux/Mac:**
 

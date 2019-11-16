@@ -11,12 +11,12 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 9724e54b03e5de065b8b39cb57c6a9880cf37cc6
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e9ef939d46a02b8aa6b0b7f481fec9e30edf53fc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827203"
+ms.locfileid: "73839201"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>PowerShell을 사용하여 탄력적 작업 에이전트 만들기
 
@@ -72,7 +72,7 @@ Get-Module Az.Sql
 
 *아래 스크립트에서는 작업 데이터베이스로 사용할 새 리소스 그룹, 서버 및 데이터베이스를 만듭니다. 아래 스크립트에서는 작업을 실행하기 위해 2개의 비어 있는 데이터베이스를 포함한 두 번째 서버도 만듭니다.*
 
-[Azure 요구 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 준수하면 원하는 명명 규칙을 사용할 수 있도록 탄력적 작업에는 특정 명명 요구 사항이 포함되지 않습니다.
+[Azure 요구 사항](/azure/architecture/best-practices/resource-naming)을 준수하면 원하는 명명 규칙을 사용할 수 있도록 탄력적 작업에는 특정 명명 요구 사항이 포함되지 않습니다.
 
 ```powershell
 # Sign in to your Azure account

@@ -1,7 +1,7 @@
 ---
 title: '자습서: Visual Studio에서 연결된 서비스를 사용하여 Text Analytics 서비스에 연결'
 titleSuffix: Azure Cognitive Services
-description: ASP.NET Core 웹 애플리케이션에서 Text Analytics에 연결하는 방법을 알아봅니다.
+description: 이 문서 및 함께 제공되는 문서에서는 Text Analytics 서비스용 Visual Studio 연결된 서비스 기능 사용에 대한 세부 정보를 제공합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: ff4c703070d6a7ebd545de3043e5f59b764fe4c9
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: b094a6917892dfff58c49435de4dc42551be19df
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478470"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837202"
 ---
 # <a name="tutorial-connect-to-the-text-analytics-service-with-connected-services-in-visual-studio"></a>자습서: Visual Studio에서 연결된 서비스를 사용하여 Text Analytics 서비스에 연결
 

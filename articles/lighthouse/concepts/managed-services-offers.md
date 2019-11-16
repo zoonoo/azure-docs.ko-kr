@@ -1,18 +1,14 @@
 ---
 title: Azure Marketplace의 관리형 서비스 솔루션
 description: 관리형 서비스를 통해 서비스 공급자는 Azure Marketplace에서 고객에게 리소스 관리 제품을 판매할 수 있습니다.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 09/19/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 0a6371a1020182650d83d5e7ec9bb2378b44b557
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 0f1ba749a5477f0c006e6666b841e82f4eeb193f
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155266"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131863"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Azure Marketplace의 관리형 서비스 솔루션
 

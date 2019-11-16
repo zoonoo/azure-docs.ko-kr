@@ -103,7 +103,7 @@
             - name: 사용자 및 역할 관리
               href: how-to-assign-roles.md
             - name: 가상 네트워크 사용
-              displayName: vnet
+              displayName: 'vnet, blob'
               href: how-to-enable-virtual-network.md
             - name: SSL로 웹 서비스 보호
               href: how-to-secure-web-service.md

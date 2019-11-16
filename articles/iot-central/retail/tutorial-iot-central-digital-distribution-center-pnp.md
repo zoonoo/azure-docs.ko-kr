@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: overview
 ms.date: 10/20/2019
-ms.openlocfilehash: 1965cc17f3d58932321c3ff14c99a962830d07b4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 879e1911c715688c2fed4044e23f437b3bbef7b2
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615248"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890668"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>자습서: 디지털 배포 센터 애플리케이션 템플릿 배포 및 살펴보기
 
@@ -113,4 +113,4 @@ ms.locfileid: "73615248"
 ## <a name="next-steps"></a>다음 단계
 * 디지털 배포 센터 솔루션 아키텍처 [디지털 배포 센터 개념](./architecture-digital-distribution-center-pnp.md)에 대해 자세히 알아보기
 * 다른 [IoT Central 소매 템플릿](./overview-iot-central-retail-pnp.md)에 대해 자세히 알아보기
-* [IoT Central 개요](../core/overview-iot-central-pnp.md)에서 IoT Central에 대한 자세한 내용을 참조합니다.
+* [IoT Central 개요](../preview/overview-iot-central.md)에서 IoT Central에 대한 자세한 내용을 참조합니다.
