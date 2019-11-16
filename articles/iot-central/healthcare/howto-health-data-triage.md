@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 88b4df909e2c56f1a60e0f3c737b05ae4c27ca4a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 40e850bcbd177b15c91e57ec369c6b04963ffb84
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123253"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132272"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>자습서: Power BI 공급자 대시보드 빌드
 
@@ -51,7 +51,7 @@ ms.locfileid: "74123253"
 * Power BI 서비스 계정. 아직 계정이 없는 경우 [Power BI 서비스 평가판 계정을 만들 수 있습니다](https://app.powerbi.com/). 이전에 Power BI를 사용한 적이 없는 경우 [Power BI 시작](https://docs.microsoft.com/power-bi/service-get-started)을 수행하면 도움이 될 수 있습니다.
 
 ## <a name="set-up-a-continuous-data-export-to-azure-event-hubs"></a>Azure Event Hubs로 지속적인 데이터 내보내기 설정
-먼저 Azure IoT Central 앱 템플릿에서 구독의 Azure Event Hub로 지속적인 데이터 내보내기를 설정해야 합니다. 이렇게 하려면 [Event Hubs로 내보내기](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp)에 대한 이 Azure IoT Central 자습서의 단계를 따르면 됩니다. 이 자습서의 목적에 맞게 원격 분석이 가능하도록 내보내기만 하면 됩니다.
+먼저 Azure IoT Central 앱 템플릿에서 구독의 Azure Event Hub로 지속적인 데이터 내보내기를 설정해야 합니다. 이렇게 하려면 [Event Hubs로 내보내기](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data)에 대한 이 Azure IoT Central 자습서의 단계를 따르면 됩니다. 이 자습서의 목적에 맞게 원격 분석이 가능하도록 내보내기만 하면 됩니다.
 
 ## <a name="create-a-power-bi-streaming-dataset"></a>Power BI 스트리밍 데이터 세트 만들기
 
