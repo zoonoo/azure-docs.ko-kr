@@ -1,17 +1,14 @@
 ---
 title: 샘플 - 허용되는 ExpressRoute 대역폭
 description: 이 샘플 정책 정의에서는 ExpressRoute가 지정된 대역폭 세트를 사용해야 합니다.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 27e09169ef076bad174eaebccdabc3b0cc531dbf
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 20841b5476c50fb98d6b2d4a59f351525e1ecc9e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980828"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072088"
 ---
 # <a name="sample---allowed-expressroute-bandwidth"></a>샘플 - 허용되는 ExpressRoute 대역폭
 

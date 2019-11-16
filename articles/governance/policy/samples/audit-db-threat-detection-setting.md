@@ -1,17 +1,14 @@
 ---
 title: 샘플 - DB 수준 위협 검색 설정 감사
 description: 이 샘플 정책 정의는 해당 정책이 지정된 상태로 설정되지 않은 경우 SQL Database 보안 경고 정책을 감사합니다.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 7c8c5f4530f6f34cfe94143fa03c89647369f5b7
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 77a3865c04ee9bc5a1cab9b51f503f71daf74435
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977537"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74071505"
 ---
 # <a name="sample---audit-db-level-threat-detection-setting"></a>샘플 - DB 수준 위협 검색 설정 감사
 

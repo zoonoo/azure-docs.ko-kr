@@ -1,17 +1,14 @@
 ---
 title: PowerShell을 사용하여 첫 번째 쿼리 실행
 description: 이 문서에서는 Azure PowerShell에 대한 Resource Graph 모듈을 사용하도록 설정하고 첫 번째 쿼리를 실행하는 단계를 안내합니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/18/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 9e41ca2e7c6d789b3d18fa98c4845118fa6538ef
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 6aaddcfc6cae16501ba6544f9789aa3ac1d13136
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622547"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958773"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -111,5 +108,5 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 - [Azure Portal](first-query-portal.md)을 사용하여 첫 번째 쿼리를 실행합니다.
 - [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리를 실행합니다.
 - [시작 쿼리](./samples/starter.md) 샘플을 참조하세요.
-- [고급 쿼리](./samples/advanced.md) 샘플을 참조하세요.
-- [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)에서 사용자 의견을 제공합니다.
+- [고급 쿼리](./samples/advanced.md) 샘플을 살펴봅니다.
+- [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)에서 피드백을 제공합니다.

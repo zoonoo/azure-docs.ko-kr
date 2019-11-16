@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: aschhab
-ms.openlocfilehash: 40543f55dc0cb56f6bc575f926456faf2d0ae5a3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c82edde98242ffe130c2022c428c86de80e3b034
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719213"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111772"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azure-sb-package"></a>빠른 시작: Node.js와 azure-sb 패키지에서 Service Bus 토픽 및 구독을 사용하는 방법
 > [!div class="op_multi_selector" title1="프로그래밍 언어" title2="Node.js 패키지"]
@@ -150,7 +150,7 @@ var serviceBusService = azure.createServiceBusService().withFilter(retryOperatio
 > [!NOTE]
 > 기본적으로 구독은 구독 자체 또는 구독과 연결된 토픽이 삭제될 때까지 영구적으로 유지됩니다. 애플리케이션에 구독을 만들기 위한 논리가 포함된 경우, `getSubscription` 메서드를 사용하여 구독이 존재하는지를 먼저 확인해야 합니다.
 >
-> [AutoDeleteOnIdle 속성](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle)을 설정하여 구독을 자동으로 삭제할 수 있습니다.
+> [AutoDeleteOnIdle 속성](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle)을 설정하여 구독을 자동으로 삭제할 수 있습니다.
 
 ### <a name="create-a-subscription-with-the-default-matchall-filter"></a>기본(MatchAll) 필터를 사용하여 구독 만들기
 **MatchAll** 필터는 구독을 만들 때 사용하는 기본 필터입니다. **MatchAll** 필터를 사용하면 토픽에 게시된 모든 메시지가 구독의 가상 큐에 배치됩니다. 다음 예제에서는 AllMessages라는 구독을 만들고 기본 **MatchAll** 필터를 사용합니다.
@@ -314,7 +314,7 @@ Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적
 애플리케이션이 메시지를 처리한 후 `deleteMessage` 메서드가 호출되기 전에 충돌하는 경우 다시 시작될 때 메시지가 애플리케이션에 다시 배달됩니다. 이 동작은 일반적으로 *최소 한 번 이상 처리*라고 합니다. 즉, 각 메시지가 최소 한 번 이상 처리되지만 특정 상황에서는 동일한 메시지가 다시 배달될 수 있습니다. 중복 처리가 허용되지 않는 시나리오에서는 중복 메시지 배달을 처리하는 논리를 애플리케이션에 추가해야 합니다. 배달 시도 간에 일정하게 유지하는 메시지의 **MessageId** 속성을 사용하면 됩니다.
 
 ## <a name="delete-topics-and-subscriptions"></a>토픽 및 구독 삭제
-토픽과 구독은 [autoDeleteOnIdle 속성](https://docs.microsoft.com/javascript/api/azure-arm-sb/sbsubscription?view=azure-node-latest#autodeleteonidle)이 설정되지 않는 한 영구적으로 유지되며, [Azure Portal][Azure portal]을 통해 또는 프로그래밍 방식으로 명시적으로 삭제해야 합니다.
+토픽과 구독은 [autoDeleteOnIdle 속성](https://docs.microsoft.com/javascript/api/@azure/arm-servicebus/sbsubscription?view=azure-node-latest#autodeleteonidle)이 설정되지 않는 한 영구적으로 유지되며, [Azure Portal][Azure portal]을 통해 또는 프로그래밍 방식으로 명시적으로 삭제해야 합니다.
 다음 예제는 `MyTopic` 토픽을 삭제하는 방법을 보여 줍니다.
 
 ```javascript

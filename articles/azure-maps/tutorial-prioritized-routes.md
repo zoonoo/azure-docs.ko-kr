@@ -1,22 +1,22 @@
 ---
-title: Azure Maps를 사용하여 여러 경로 찾기 | Microsoft Docs
-description: Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
+title: '자습서: Azure Maps를 사용하여 여러 경로 찾기'
+description: '자습서: Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 664a2a77203ae1bebd95391fa6a4ae906121465a
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 07391633436931a8f7cc46c430387f5877d10674
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70916317"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106713"
 ---
-# <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
+# <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>자습서: Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 
 이 자습서에서는 Azure Maps 계정과 경로 서비스를 사용하여 여행 모드의 우선 순위에 따라 관심 지점까지의 경로를 찾는 방법을 보여 줍니다. 지도에는 서로 다른 두 개의 경로가 표시됩니다. 하나는 승용차용이고, 다른 하나는 높이, 무게 또는 위험 화물로 인해 경로가 제한되는 화물차용입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

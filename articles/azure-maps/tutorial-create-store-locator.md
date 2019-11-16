@@ -1,22 +1,22 @@
 ---
-title: Azure Maps를 사용하여 매장 로케이터 만들기 | Microsoft Docs
-description: Azure Maps를 사용하여 매장 로케이터를 만듭니다.
+title: '자습서: Azure Maps를 사용하여 스토어 로케이터 만들기'
+description: '자습서: Azure Maps를 사용하여 매장 로케이터를 만듭니다.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/15/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: bf30e805a06222bf8c74429df54565073d7d919b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 52deb1cf872176b69975d550dd89d870b34d9bf0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933061"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107078"
 ---
-# <a name="create-a-store-locator-by-using-azure-maps"></a>Azure Maps를 사용하여 매장 로케이터 만들기
+# <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기
 
 이 자습서에서는 Azure Maps를 사용하여 간단한 매장 로케이터를 만드는 과정을 안내합니다. 매장 로케이터는 일반적인 프로그램입니다. 이 유형의 애플리케이션에서 사용되는 개념 대부분이 다른 많은 애플리케이션에도 적용됩니다. 고객에게 매장 로케이터를 제공하는 일은 소비자에게 직접 제품을 판매하는 대부분의 기업에게 있어서 반드시 필요한 작업입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
     

@@ -1,17 +1,14 @@
 ---
 title: Azure Resource Graph Explorer를 사용하여 첫 번째 쿼리 실행
 description: 이 문서에서는 Azure Resource Graph Explorer를 사용하여 Azure Portal에서 첫 번째 쿼리를 실행하는 단계를 안내합니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 14615d596c1b673a234ccef541fecfbfce9d5f27
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 9cb8fdfcc68e2ef8e19a8fce2545d2939ac13e06
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622597"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73958837"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -124,5 +121,5 @@ Azure Portal 환경에서 Resource Graph 샘플 대시보드를 제거하려면 
 - [리소스를 살펴 보는](./concepts/explore-resources.md) 방법을 자세히 알아보세요.
 - [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리를 실행합니다.
 - [시작 쿼리](./samples/starter.md) 샘플을 참조하세요.
-- [고급 쿼리](./samples/advanced.md) 샘플을 참조하세요.
-- [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)에서 사용자 의견을 제공합니다.
+- [고급 쿼리](./samples/advanced.md) 샘플을 살펴봅니다.
+- [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)에서 피드백을 제공합니다.

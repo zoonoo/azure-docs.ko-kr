@@ -1,17 +1,14 @@
 ---
 title: 샘플 - 허용되지 않는 리소스 종류
 description: 이 샘플 정책 정의에서는 지정된 리소스 유형의 배포가 금지됩니다.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: b053d3de627432ec5d0db9ff25d826a4dd7464d7
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 35bbf4f07ce7deb8458f5dee84710b06b92732b9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980427"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076176"
 ---
 # <a name="sample---not-allowed-resource-types"></a>샘플 - 허용되지 않는 리소스 종류
 

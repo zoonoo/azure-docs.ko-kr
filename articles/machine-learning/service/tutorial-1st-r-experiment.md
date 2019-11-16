@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 11/04/2019
-ms.openlocfilehash: bcd1fff61e1612cc3361548527e5ed13affa3ba5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 72ab2717cea479de6150f435398f164c7c9d5937
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509277"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092272"
 ---
 # <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>자습서: Azure Machine Learning을 사용하여 R로 첫 번째 모델 학습 및 배포
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -167,7 +167,7 @@ upload_files_to_datastore(ds,
 `accidents.R`이라는 학습 스크립트가 이 자습서와 동일한 디렉터리에 제공되었습니다. **학습 스크립트**에서 학습에 Azure ML 서비스를 활용하기 위해 수행된 다음 작업 세부 정보를 알아두세요.
 
 * 학습 스크립트에서 인수 `-d`를 사용하여 학습 데이터가 있는 디렉터리를 찾습니다. 나중에 작업을 정의하고 제출할 때 이 인수에 대한 데이터 저장소를 가리킵니다. Azure ML은 학습 작업을 위해 원격 클러스터에 스토리지 폴더를 탑재합니다.
-* 학습 스크립트는 `log_metric_to_run()`을 사용하여 Azure ML의 실행 기록에 대한 메트릭으로 최종 정확도를 로깅합니다. Azure ML SDK는 학습 실행 중 다양한 메트릭을 로깅하는 일련의 로깅 API를 제공합니다. 이러한 메트릭은 실험 실행 기록에 기록되고 유지됩니다. 그런 다음, [Azure Machine Learning Studio](http://ml.azure.com)의 실행 세부 정보 페이지에서 언제든지 메트릭을 액세스하거나 볼 수 있습니다. 로깅 메서드 `log_*()`의 전체 세트에 대해서는 [참조](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation)를 참조하세요.
+* 학습 스크립트는 `log_metric_to_run()`을 사용하여 Azure ML의 실행 기록에 대한 메트릭으로 최종 정확도를 로깅합니다. Azure ML SDK는 학습 실행 중 다양한 메트릭을 로깅하는 일련의 로깅 API를 제공합니다. 이러한 메트릭은 실험 실행 기록에 기록되고 유지됩니다. 그런 다음, [Azure Machine Learning Studio](https://ml.azure.com)의 실행 세부 정보 페이지에서 언제든지 메트릭을 액세스하거나 볼 수 있습니다. 로깅 메서드 `log_*()`의 전체 세트에 대해서는 [참조](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation)를 참조하세요.
 * 학습 스크립트는 **outputs**라는 디렉터리에 모델을 저장합니다. `./outputs` 폴더는 Azure ML에서 특별히 취급됩니다. 학습하는 동안 `./outputs`에 기록된 파일은 Azure ML에 의해 실행 기록에 자동으로 업로드되고 아티팩트로 유지됩니다. `./outputs`에 학습된 모델을 저장하여 실행이 끝난 후에도 모델 파일을 액세스하고 검색할 수 있으며, 원격 교육 환경에 더 이상 액세스할 수 없습니다.
 
 ### <a name="create-an-estimator"></a>추정기 만들기
@@ -269,7 +269,7 @@ as.numeric(predict(accident_model,newdata, type="response")*100)
 
 ## <a name="deploy-as-a-web-service"></a>웹 서비스로 배포
 
-이 모델을 사용하여 충돌에 따른 사망 위험을 예측할 수 있습니다. Azure ML을 사용하여 모델을 예측 서비스로 배포합니다. 이 자습서에서는 ACI([Azure Container Instances](https://docs.microsoft.com/en-us/azure/container-instances/))에서 웹 서비스를 배포합니다.
+이 모델을 사용하여 충돌에 따른 사망 위험을 예측할 수 있습니다. Azure ML을 사용하여 모델을 예측 서비스로 배포합니다. 이 자습서에서는 ACI([Azure Container Instances](https://docs.microsoft.com/azure/container-instances/))에서 웹 서비스를 배포합니다.
 
 ### <a name="register-the-model"></a>모델 등록
 
@@ -353,17 +353,17 @@ aci_service$scoring_uri
 더 이상 필요하지 않은 리소스는 삭제합니다. 계속 사용하려는 리소스를 삭제하지 마세요. 
 
 다음과 같이 웹 서비스를 삭제합니다.
-```{r delete_service, eval=FALSE}
+```R
 delete_webservice(aci_service)
 ```
 
 다음과 같이 등록된 모델을 삭제합니다.
-```{r delete_model, eval=FALSE}
+```R
 delete_model(model)
 ```
 
 다음과 같이 컴퓨팅 클러스터를 삭제합니다.
-```{r delete_compute, eval=FALSE}
+```R
 delete_compute(compute)
 ```
 

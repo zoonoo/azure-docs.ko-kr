@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 1de9283e1ad609a1f81d7e8a6d8171cc8052e3ae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500801"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111784"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android에서 Java로 음성 도우미 만들기
 
@@ -30,9 +30,9 @@ ms.locfileid: "73500801"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
-* 이전에 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)을 사용하여 만들고 구성한 봇
-* [Android Studio](https://developer.android.com/studio/) v3.3 이상
+- Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
+- 이전에 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)을 사용하여 만들고 구성한 봇
+- [Android Studio](https://developer.android.com/studio/) v3.3 이상
 
     > [!NOTE]
     > [음성 도우미에 대한 지원되는 지역 목록](regions.md#voice-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인하세요.
@@ -96,9 +96,9 @@ ms.locfileid: "73500801"
 
 이 XML은 봇과 상호 작용하는 간단한 UI를 정의합니다.
 
-* `button` 요소를 클릭하면 상호 작용이 시작되고 `onBotButtonClicked` 메서드가 호출됩니다.
-* `recoText` 요소는 사람이 봇에 말할 때 음성 텍스트 변환 결과를 표시합니다.
-* `activityText` 요소는 봇에서 최신 Bot Framework 작업에 대한 JSON 페이로드를 표시합니다.
+- `button` 요소를 클릭하면 상호 작용이 시작되고 `onBotButtonClicked` 메서드가 호출됩니다.
+- `recoText` 요소는 사람이 봇에 말할 때 음성 텍스트 변환 결과를 표시합니다.
+- `activityText` 요소는 봇에서 최신 Bot Framework 작업에 대한 JSON 페이로드를 표시합니다.
 
 이제 UI의 텍스트 및 그래픽 모양이 다음과 유사하게 표시됩니다.
 

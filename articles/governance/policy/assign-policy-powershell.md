@@ -1,17 +1,14 @@
 ---
 title: PowerShell을 사용하여 리소스를 감사하는 정책 만들기
 description: Azure PowerShell을 사용하여 비준수 리소스를 식별하는 Azure Policy 할당을 만들 수 있습니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 03/11/2019
 ms.topic: quickstart
-ms.service: azure-policy
-ms.openlocfilehash: 55b7d8509fcf681438b377aa43f5f8aa9bac158d
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 796606e1e34e753e49a9083fca5a441cacf6d03c
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255907"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960122"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 

@@ -1,18 +1,14 @@
 ---
 title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 11/7/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 182970cc39d200c37264a93d5e1b70c8839e5ef7
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 0d04a7a77a3f92cffb185ff829f0d678dac2a9ff
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825814"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131926"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 

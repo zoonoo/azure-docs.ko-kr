@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 샘플 - IIS 설치 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - IIS 설치
 description: Azure CLI 스크립트 샘플 - IIS 설치
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-Windows
 ms.workload: infrastructure
 ms.date: 02/28/2017
 ms.author: cynthn
-ms.openlocfilehash: 6e9e54c164ed3112cddd7f92304eb44ee86abef6
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 1ec0ada9143d193f8ee976d53d0b9754904efbe5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708257"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039952"
 ---
 # <a name="quick-create-a-virtual-machine-with-the-azure-cli"></a>Azure CLI를 사용하여 가상 컴퓨터 빠른 생성
 

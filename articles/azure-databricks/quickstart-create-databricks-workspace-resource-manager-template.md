@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 3af9c5e728bd119ce6c5546c8dc6556967cd1eda
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 83dc18424bc8606eff9a735b76cdaa09e381d588
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606117"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129347"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Databricks에서 Spark 작업 실행
 
@@ -81,7 +81,7 @@ ms.locfileid: "73606117"
 
    **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 
-클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Databricks에서 Spark 클러스터 만들기](/azure/databricks/user-guide/clusters/create)를 참조하세요.
+클러스터를 만드는 방법에 대한 자세한 내용은 [Azure Databricks에서 Spark 클러스터 만들기](/azure/databricks/clusters/create)를 참조하세요.
 
 ## <a name="run-a-spark-sql-job"></a>Spark SQL 작업 실행
 
@@ -126,7 +126,7 @@ ms.locfileid: "73606117"
      스토리지 계정 키를 검색하는 방법에 대한 지침은 [스토리지 액세스 키 관리](../storage/common/storage-account-manage.md#access-keys)를 참조하세요.
 
    > [!NOTE]
-   > 또한 Azure Databricks에서 Azure Data Lake Store를 Spark 클러스터와 함께 사용할 수 있습니다. 자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html)을 참조하세요.
+   > 또한 Azure Databricks에서 Azure Data Lake Store를 Spark 클러스터와 함께 사용할 수 있습니다. 자세한 내용은 [Azure Databricks에서 Data Lake Store 사용](/azure/databricks/data/data-sources/azure/azure-datalake-gen2)을 참조하세요.
 
 4. SQL 문을 실행하여 샘플 JSON 데이터 파일인 **small_radio_json.json**의 데이터를 사용하여 임시 테이블을 만듭니다. 다음 코드 조각에서 자리 표시자 값을 컨테이너 이름 및 스토리지 계정 이름으로 대체합니다. 노트북의 코드 셀에 코드 조각을 붙여넣은 다음 SHIFT + ENTER를 누릅니다. 코드 조각에서 `path`는 Azure Storage 계정에 업로드한 샘플 JSON 파일의 위치를 나타냅니다.
 
@@ -186,7 +186,7 @@ ms.locfileid: "73606117"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure Storage의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](/azure/databricks/data/data-sources/index.html)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. 또한 Resource Manager 템플릿을 살펴보고 [사용자 지정 VNET 주소로 Azure Databricks 작업 영역을 만들](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address) 수 있습니다. 템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces) 템플릿 참조를 참조하세요.
+이 문서에서는 Azure Databricks에서 Spark 클러스터를 만들고 Azure Storage의 데이터를 사용하여 Spark 작업을 실행했습니다. 또한 [Spark 데이터 소스](/azure/databricks/data/data-sources/index)를 보고 다른 데이터 소스의 데이터를 Azure Databricks로 가져오는 방법을 배울 수 있습니다. 또한 Resource Manager 템플릿을 살펴보고 [사용자 지정 VNET 주소로 Azure Databricks 작업 영역을 만들](https://github.com/Azure/azure-quickstart-templates/tree/master/101-databricks-workspace-with-custom-vnet-address) 수 있습니다. 템플릿에서 사용할 JSON 구문 및 속성은 [Microsoft.Databricks/workspaces](/azure/templates/microsoft.databricks/workspaces) 템플릿 참조를 참조하세요.
 
 Azure Databricks를 사용하여 ETL 작업(데이터 추출, 변환 및 로드)을 수행하는 방법을 알아보려면 다음 문서로 이동합니다.
 

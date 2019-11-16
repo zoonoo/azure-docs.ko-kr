@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 샘플 - 스냅샷에서 관리 디스크 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - 스냅샷에서 관리 디스크 만들기
 description: Azure CLI 스크립트 샘플 - 스냅샷에서 관리 디스크 만들기
 services: virtual-machines-linux
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 030f3d9455956c3c728e450aca058b2df10eb3d3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 8a219b24c4d4b82363094ccba74db22e3b4018c4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55691188"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74023308"
 ---
 # <a name="create-a-managed-disk-from-a-snapshot-with-cli"></a>CLI를 사용하여 스냅샷에서 관리 디스크 만들기
 

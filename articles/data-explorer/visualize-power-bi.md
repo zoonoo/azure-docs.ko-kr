@@ -3,16 +3,16 @@ title: '자습서: Power BI에서 Azure Data Explorer의 데이터 시각화'
 description: 이 자습서에서는 Power BI를 사용하여 Azure Data Explorer에 연결하여 데이터를 시각화하는 방법을 알아봅니다.
 author: orspod
 ms.author: orspodek
-ms.reviewer: mblythe
+ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 70a06b75db9ff49222c2de4aa78519b32d863478
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec1579792a6e247bf49946bb8609a626154fbd46
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59049883"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037353"
 ---
 # <a name="tutorial-visualize-data-from-azure-data-explorer-in-power-bi"></a>자습서: Power BI에서 Azure Data Explorer의 데이터 시각화
 
@@ -85,7 +85,7 @@ Power BI에 들어가기 전에 Azure Data Explorer에서 시각적 개체를 �
 
     ![데이터 가져오기](media/visualize-power-bi/get-data-more.png)
 
-1. *Azure Data Explorer*를 검색한 다음, **Azure Data Explorer(베타)**, **연결**을 차례로 선택합니다.
+1. *Azure Data Explorer*를 검색한 다음, **Azure Data Explorer(베타)** , **연결**을 차례로 선택합니다.
 
     ![데이터 검색 및 가져오기](media/visualize-power-bi/search-get-data.png)
 
@@ -219,7 +219,7 @@ Azure Data Explorer에 연결했으므로 파워 쿼리 편집기에서 데이�
 
 1. **내 작업 영역** 아래에서 **보고서**로 스크롤 하여 **storm-events**를 찾습니다.
 
-1. **storm-events** 옆의 줄임표(**...**)를 선택한 다음, **제거**를 선택합니다.
+1. **storm-events** 옆의 줄임표( **...** )를 선택한 다음, **제거**를 선택합니다.
 
     ![보고서 제거](media/visualize-power-bi/remove-report.png)
 

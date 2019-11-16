@@ -1,18 +1,19 @@
 ---
-title: Azure Application Gateway용 Azure Resource Manager 템플릿
+title: Azure 리소스 관리자 템플릿
+titleSuffix: Azure Application Gateway
 description: Azure Application Gateway용 Azure Resource Manager 템플릿
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: sample
-ms.date: 08/13/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 4f147e67789349b489674af33d7f04041662660e
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 7353601ac6b624b2adf216d17638fe7b6198eec4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991096"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074497"
 ---
 # <a name="azure-resource-manager-templates-for-azure-application-gateway"></a>Azure Application Gateway용 Azure Resource Manager 템플릿
 

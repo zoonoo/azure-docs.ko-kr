@@ -1,17 +1,14 @@
 ---
 title: 샘플 - Network Watcher가 없는 영역에 대한 감사
 description: 이 샘플 정책 정의는 Network Watcher를 특정 지역에 대해 사용하도록 설정되지 않은 경우 감사합니다.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 3c93fb72be82c1a89ea4420f4b8d34bb98785376
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 8d820cfea34eec91c7d4b050d58046b357f2ddd9
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254779"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74070004"
 ---
 # <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>샘플 - 지역에서 Network Watcher를 사용할 수 없는 경우 감사
 

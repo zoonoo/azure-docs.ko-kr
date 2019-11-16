@@ -1,17 +1,14 @@
 ---
 title: FedRAMP Moderate 청사진 샘플 - 배포 단계
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 FedRAMP Moderate 청사진 샘플에 대한 단계를 배포합니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/31/2019
 ms.topic: sample
-ms.service: blueprints
-ms.openlocfilehash: 6bd78d68e8273989ae1a11011d2759c70d916276
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 7bf89ace40e7fb1f45be63f08529ef1fda8a50c8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581341"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032309"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>FedRAMP Moderate 청사진 샘플 배포
 

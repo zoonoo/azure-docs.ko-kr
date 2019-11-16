@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 샘플 - NLB를 사용하여 Windows Server 2016 VM 만들기 | Microsoft Docs
+title: Azure CLI 스크립트 샘플 - NLB를 사용하여 Windows Server 2016 VM 만들기
 description: Azure CLI 스크립트 샘플 - NLB를 사용하여 Windows Server 2016 VM 만들기
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
-ms.openlocfilehash: b1cbb48bc6dcfcaf20d4331b93ba61e57979692c
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: eab50ec5bbd6fa3942cf4845a556779da047b02f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67703244"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74039825"
 ---
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>고가용성 가상 머신 간에 트래픽 부하 분산
 

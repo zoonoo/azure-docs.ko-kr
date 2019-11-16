@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
+ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 43ad6558b685d3959562be720f7494b3d2a7334e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c118a74e273e153746240465692b1c712bd25f47
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499437"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953612"
 ---
 # <a name="tutorial-extract-free-form-data-with-patternany-entity"></a>자습서: Pattern.any 엔터티를 사용하여 자유 형식 데이터 추출
 
@@ -138,7 +138,7 @@ Pattern.any 엔터티는 다양한 길이의 엔터티를 추출합니다. 패�
 
 ## <a name="using-an-explicit-list"></a>명시적 목록 사용
 
-Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견하면 [명시적 목록](luis-concept-patterns.md#explicit-lists)을 사용하여 이 문제를 정정합니다.
+Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견하면 [명시적 목록](reference-pattern-syntax.md#explicit-lists)을 사용하여 이 문제를 정정합니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리

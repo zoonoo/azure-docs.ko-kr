@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Central에서 스토어 내 분석 애플리케이션 만들기 | Microsoft Docs
+title: '자습서: Azure IoT Central에서 매장 내 분석 애플리케이션 만들기'
 description: 이 자습서에서는 IoT Central에서 매장 내 분석 소매점 애플리케이션을 만드는 방법을 보여 줍니다. 애플리케이션을 만들고 사용자 지정한 후 센서 디바이스를 추가합니다.
 services: iot-central
 ms.service: iot-central
@@ -10,13 +10,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: timlt
 author: timlt
-ms.date: 10/03/2019
-ms.openlocfilehash: a662201823808c9e2e34e9210096cb081e1b9430
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.date: 11/12/2019
+ms.openlocfilehash: 071d432ba2769705213cb98cee644b64e9e81b6e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615321"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112891"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 매장 내 분석 애플리케이션 만들기
 
@@ -75,7 +75,7 @@ ms.locfileid: "73615321"
 
 1. Azure 구독이 있는 경우 *디렉터리, Azure 구독 및 지역*을 입력합니다. 구독이 없는 경우 **7일 평가판**을 사용하도록 설정하고 필요한 연락처 정보를 작성할 수 있습니다.  
 
-    디렉터리 및 구독에 대한 자세한 내용은 [애플리케이션 만들기 빠른 시작](../core/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)을 참조하세요.
+    디렉터리 및 구독에 대한 자세한 내용은 [애플리케이션 만들기 빠른 시작](../preview/quick-deploy-iot-central.md)을 참조하세요.
 
 1. **만들기**를 선택합니다.
 
@@ -160,7 +160,7 @@ ms.locfileid: "73615321"
 
 셋째, 사용자 지정 보기를 빌드하여 디바이스 템플릿을 사용자 지정합니다. 보기에서는 운영자가 디바이스 메트릭 및 상태와 같은 디바이스에 대한 원격 분석 및 메타데이터를 시각화할 수 있습니다.
 
-여기서는 처음 두 가지 방법을 사용하여 RuuviTag 센서용 디바이스 템플릿을 사용자 지정합니다. 센서용 보기를 만드는 방법에 대한 자세한 내용은 [IoT Central 애플리케이션에 시뮬레이트된 디바이스 추가](../core/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) 빠른 시작을 참조하세요.
+여기서는 처음 두 가지 방법을 사용하여 RuuviTag 센서용 디바이스 템플릿을 사용자 지정합니다. 센서용 보기를 만드는 방법에 대한 자세한 내용은 [IoT Central 애플리케이션에 시뮬레이트된 디바이스 추가](../preview/quick-create-pnp-device.md) 빠른 시작을 참조하세요.
 
 RuuviTag 디바이스 템플릿의 기본 제공 인터페이스를 사용자 지정하려면 다음을 수행합니다.
 
@@ -227,8 +227,8 @@ RuuviTag 디바이스 템플릿의 기본 제공 인터페이스를 사용자 �
 
 다음 두 문서의 단계를 완료하여 실제 Rigado 게이트웨이와 RuuviTag 센서를 연결합니다. 완료되면 이 자습서로 돌아옵니다. 이 자습서에서 디바이스 템플릿을 이미 만들었기 때문에 다음 지침에 따라 다시 만들 필요가 없습니다.
 
-- Rigado 게이트웨이를 연결하려면 [Azure IoT Central 애플리케이션에 Rigado Cascade 500 연결](../core/howto-connect-rigado-cascade-500-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)을 참조하세요.
-- RuuviTag 센서를 연결하려면 [Azure IoT Central 애플리케이션에 RuuviTag 센서 연결](../core/howto-connect-ruuvi-pnp.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)을 참조하세요. 필요한 경우 이러한 지침을 사용하여 두 개의 시뮬레이트된 센서를 만들 수도 있습니다.
+- Rigado 게이트웨이를 연결하려면 [Azure IoT Central 애플리케이션에 Rigado Cascade 500 연결](../preview/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)을 참조하세요.
+- RuuviTag 센서를 연결하려면 [Azure IoT Central 애플리케이션에 RuuviTag 센서 연결](../preview/howto-connect-ruuvi.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json)을 참조하세요. 필요한 경우 이러한 지침을 사용하여 두 개의 시뮬레이트된 센서를 만들 수도 있습니다.
 
 ## <a name="add-rules-and-actions"></a>규칙 및 작업 추가
 Azure IoT Central 애플리케이션에서 센서를 사용하여 조건을 모니터링하는 과정의 일부로, 특정 조건이 충족될 때 작업을 실행하는 규칙을 만들 수 있습니다. 규칙은 디바이스 템플릿과 하나 이상의 디바이스에 연결되며 디바이스 원격 분석 또는 이벤트에 따라 충족되어야 하는 조건을 포함합니다. 규칙에는 하나 이상의 관련된 작업도 있습니다. 작업에는 메일 알림 전송 또는 다른 서비스로 데이터를 보내는 웹후크 작업 트리거 등이 포함될 수 있습니다. **매장 내 분석 - 체크 아웃** 애플리케이션 템플릿에는 애플리케이션의 디바이스에 대한 몇 가지 미리 정의된 규칙이 포함되어 있습니다.

@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/17/2019
 ms.author: diberry
-ms.openlocfilehash: afa2dc950efe4c03b41afbd6090d9bf29ac5a798
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cac3ee99598f8bcb29bd15c60063159b51f71923
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499651"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125551"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -107,7 +107,7 @@ Java를 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [A
 
 1. 다음 값을 바꿉니다.
 
-    * 시작 키가 있는 `YOUR-KEY`
+    * `YOUR-KEY`를 시작 키로
     * 엔드포인트가 있는 `YOUR-ENDPOINT`(예: `westus2.api.cognitive.microsoft.com`)
 
 
@@ -178,9 +178,9 @@ Java를 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [A
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 빠른 시작을 완료하면 파일 시스템에서 파일을 삭제합니다. 
+이 빠른 시작을 완료한 후 파일 시스템에서 파일을 삭제합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Java로 발언 및 학습 추가](../luis-get-started-java-add-utterance.md)
+> [Java로 발언 및 학습 추가](../get-started-get-model-rest-apis.md)

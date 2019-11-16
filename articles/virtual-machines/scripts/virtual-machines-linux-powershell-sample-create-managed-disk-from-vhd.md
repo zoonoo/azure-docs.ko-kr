@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 동일한 또는 다른 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기 | Microsoft Docs
+title: Azure PowerShell 스크립트 샘플 - 동일한 또는 다른 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
 description: Azure PowerShell 스크립트 샘플 - 동일한 또는 다른 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
 services: virtual-machines-linux
 documentationcenter: storage
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: ramankum
-ms.openlocfilehash: f7ed492960f6aaa190dc920c8829f91dce29399a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 941fd7e4fc883317b6968e87fc52048523b396d4
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748841"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031501"
 ---
 # <a name="create-a-managed-disk-from-a-vhd-file-in-a-storage-account-in-same-or-different-subscription-with-powershell"></a>PowerShell을 사용하여 동일한 또는 다른 구독에 있는 스토리지 계정의 VHD 파일에서 관리 디스크 만들기
 

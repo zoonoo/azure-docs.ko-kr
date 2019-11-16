@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 1f98e4ac6bdc0a9b7a5982b58677732ede1911f7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d0d1cfee535a04203d9ff995b94fcad5d432ed3e
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500667"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961189"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=xamarin)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=xamarin)
 
@@ -53,7 +53,7 @@ ms.locfileid: "73500667"
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
-#### <a name="androidtabandroid"></a>[Android](#tab/android)
+#### <a name="androidtabx-android"></a>[Android](#tab/x-android)
 ## <a name="add-sample-code-for-the-helloworldandroid-project"></a>`helloworld.Android` 프로젝트용 샘플 코드 추가
 
 이제 애플리케이션의 Android 관련 부분을 정의하는 C# 코드를 추가합니다.

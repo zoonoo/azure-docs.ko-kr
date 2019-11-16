@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: b0f3a486edb0c650a4a14e5e60b4459f758a64d4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 88b4df909e2c56f1a60e0f3c737b05ae4c27ca4a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499933"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123253"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>자습서: Power BI 공급자 대시보드 빌드
 
@@ -91,7 +91,7 @@ Power BI의 스트리밍 데이터 세트에 대한 자세한 내용은 [Power B
 ## <a name="stream-data-to-power-bi-from-your-logic-app"></a>논리 앱에서 Power BI로 데이터 스트리밍
 다음 단계는 Event Hub에서 들어오는 데이터를 구문 분석하여 이전에 만든 Power BI 데이터 세트로 스트리밍하는 것입니다.
 
-1. 이 작업을 수행하려면 먼저 디바이스에서 Event Hub로 전송되는 JSON 페이로드를 이해해야 합니다. 그러려면 이 [샘플 스키마](https://docs.microsoft.com/azure/iot-central/core/howto-export-data-pnp#telemetry)를 확인하고 스키마에 맞게 수정하거나 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)를 사용하여 메시지를 검사합니다. 지속적인 환자 모니터링 애플리케이션을 사용하는 경우 메시지는 다음과 같습니다.
+1. 이 작업을 수행하려면 먼저 디바이스에서 Event Hub로 전송되는 JSON 페이로드를 이해해야 합니다. 그러려면 이 [샘플 스키마](https://docs.microsoft.com/azure/iot-central/preview/howto-export-data#telemetry)를 확인하고 스키마에 맞게 수정하거나 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer)를 사용하여 메시지를 검사합니다. 지속적인 환자 모니터링 애플리케이션을 사용하는 경우 메시지는 다음과 같습니다.
 
 **스마트 바이탈 패치 원격 분석**
 

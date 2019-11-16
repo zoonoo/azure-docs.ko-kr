@@ -1,17 +1,14 @@
 ---
 title: 샘플 - 서버 수준 위협 탐지 감사
 description: 이 샘플 정책 정의는 해당 정책이 지정된 상태로 설정되지 않은 경우 SQL Server 보안 경고 정책을 감사합니다.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 0c5cfe2d30668102a356224b5efd141746ab0866
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 8eeb557426ef2eaca855c30f1bce14ee2b7681f4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254754"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74071222"
 ---
 # <a name="sample---audit-server-level-threat-detection-setting"></a>샘플 - 서버 수준 위협 탐지 설정 감사
 

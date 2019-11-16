@@ -8,39 +8,41 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: b150dc8e0688b27fdc677bf23a75389c493f1325
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 8d23eb5c177464642ffcafec8877fd2649c0d4f7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210202"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074001"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Azure에서 가상 머신에 파일 복원
+
 Azure Backup은 지역 중복 복구 자격 증명 모음에 저장되는 복구 지점을 만듭니다. 복구 지점에서 복원하는 경우 전체 VM 또는 개별 파일을 복원할 수 있습니다. 이 문서에서는 개별 파일을 복원하는 방법에 대해 자세히 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * 복구 지점 나열 및 선택
 > * VM에 복구 지점 연결
 > * 복구 지점에서 파일 복원
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.18 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
-
+CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.18 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
+
 이 자습서에서는 Azure Backup으로 보호된 Linux VM이 필요합니다. 실수로 인한 파일 삭제 및 복구 프로세스를 시뮬레이션하려면 웹 서버에서 페이지를 삭제합니다. 웹 서버를 실행하고 Azure Backup으로 보호된 Linux VM이 필요한 경우 [CLI를 사용하여 Azure에서 가상 컴퓨터 백업](quick-backup-vm-cli.md)을 참조하세요.
 
-
 ## <a name="backup-overview"></a>Backup 개요
+
 Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시점 스냅샷을 만듭니다. 첫 번째 백업이 요청될 때 백업 확장이 VM에 설치됩니다. 또한 백업이 수행될 때 VM이 실행되고 있지 않으면 Azure Backup에서 기본 스토리지의 스냅샷을 만들 수도 있습니다.
 
 기본적으로 Azure Backup은 파일 시스템 일치 백업을 만듭니다. Azure Backup에서 스냅샷을 만들면 데이터가 Recovery Services 자격 증명 모음으로 전송됩니다. 효율성을 극대화하기 위해 Azure Backup은 이전 백업 이후에 변경된 데이터 블록만 식별하여 전송합니다.
 
 데이터 전송이 완료되면 스냅샷이 제거되고 복구 지점이 생성됩니다.
 
-
 ## <a name="delete-a-file-from-a-vm"></a>VM에서 파일 삭제
+
 실수로 파일을 삭제하거나 파일을 변경한 경우 복구 지점에서 개별 파일을 복원할 수 있습니다. 이 프로세스를 사용하면 복구 지점에 백업된 파일을 찾아 필요한 파일만 복원할 수 있습니다. 이 예제에서는 웹 서버에서 파일을 삭제하여 파일 수준 복구 프로세스를 보여 줍니다.
 
 1. VM에 연결하려면 [az vm show](/cli/azure/vm?view=azure-cli-latest#az-vm-show)를 사용하여 VM의 IP 주소를 얻습니다.
@@ -75,8 +77,8 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
     exit
     ```
 
-
 ## <a name="generate-file-recovery-script"></a>파일 복구 스크립트 생성
+
 파일을 복원하기 위해 Azure Backup은 복구 지점을 로컬 드라이브로 연결하는 VM에서 실행할 스크립트를 제공합니다. 이 로컬 드라이브를 찾아보고, VM에 파일을 직접 복원한 다음, 복구 지점 연결을 해제할 수 있습니다. Azure Backup에서는 일정 및 보존에 할당된 정책에 따라 데이터를 계속 백업합니다.
 
 1. VM에 대한 복구 지점을 나열하려면 [az backup recoverypoint list](https://docs.microsoft.com/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list)를 사용합니다. 이 예제에서는 *myRecoveryServicesVault*에서 보호되는 *myVM*이라는 VM에 대한 최근 복구 지점을 선택합니다.
@@ -116,8 +118,8 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
     scp myVM_we_1571974050985163527.sh 52.174.241.110:
     ```
 
-
 ## <a name="restore-file-to-your-vm"></a>VM에 파일 복원
+
 이제 VM에 복사된 복구 스크립트를 사용하여 복구 지점을 연결하고 파일을 복원할 수 있습니다.
 
 1. SSH를 사용하여 VM에 연결합니다. 다음과 같이 *publicIpAddress*를 VM의 공용 IP 주소로 바꿉니다.
@@ -146,19 +148,19 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
     Microsoft Azure VM Backup - File Recovery
     ______________________________________________
     Please enter the password as shown on the portal to securely connect to the recovery point. : c068a041ce12465
-    
+
     Connecting to recovery point using ISCSI service...
-    
+
     Connection succeeded!
-    
+
     Please wait while we attach volumes of the recovery point to this machine...
-    
+
     ************ Volumes of the recovery point and their mount paths on this machine ************
-    
+
     Sr.No.  |  Disk  |  Volume  |  MountPath
-    
+
     1)  | /dev/sdc  |  /dev/sdc1  |  /home/azureuser/myVM-20170919213536/Volume1
-    
+
     ************ Open File Explorer to browse for files. ************
     ```
 
@@ -168,20 +170,20 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
     sudo cp /home/azureuser/myVM-20170919213536/Volume1/var/www/html/index.nginx-debian.html /var/www/html/
     ```
 
-6. 웹 브라우저에서 웹 페이지를 새로 고칩니다. 이제 다음 예제와 같이 웹 사이트가 올바르게 다시 로드됩니다.
+5. 웹 브라우저에서 웹 페이지를 새로 고칩니다. 이제 다음 예제와 같이 웹 사이트가 올바르게 다시 로드됩니다.
 
     ![올바르게 로드된 NGINX 웹 사이트](./media/tutorial-restore-files/nginx-restored.png)
 
-7. 다음과 같이 VM에 대한 SSH 세션을 닫습니다.
+6. 다음과 같이 VM에 대한 SSH 세션을 닫습니다.
 
     ```bash
     exit
     ```
 
-8. [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp)를 사용하여 VM에서 복구 지점을 분리합니다. 다음 예제에서는 *myRecoveryServicesVault*에서 *myVM*이라는 VM의 복구 지점을 분리합니다.
+7. [az backup restore files unmount-rp](https://docs.microsoft.com/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-unmount-rp)를 사용하여 VM에서 복구 지점을 분리합니다. 다음 예제에서는 *myRecoveryServicesVault*에서 *myVM*이라는 VM의 복구 지점을 분리합니다.
 
     *myRecoveryPointName*을 이전 명령에서 가져온 복구 지점 이름으로 바꿉니다.
-    
+
     ```azurecli-interactive
     az backup restore files unmount-rp \
         --resource-group myResourceGroup \
@@ -192,9 +194,11 @@ Azure에서 백업을 시작하면 VM에 대한 백업 확장에서 특정 시�
     ```
 
 ## <a name="next-steps"></a>다음 단계
+
 이 자습서에서는 복구 지점을 VM에 연결하고 웹 서버에 대한 파일을 복원했습니다. 다음 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
+>
 > * 복구 지점 나열 및 선택
 > * VM에 복구 지점 연결
 > * 복구 지점에서 파일 복원
@@ -203,4 +207,3 @@ Azure에 Windows Server를 백업하는 방법을 알아보려면 다음 자습�
 
 > [!div class="nextstepaction"]
 > [Azure에 Windows Server 백업](tutorial-backup-windows-server-to-azure.md)
-

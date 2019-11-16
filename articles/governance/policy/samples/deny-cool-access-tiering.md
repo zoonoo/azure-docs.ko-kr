@@ -1,17 +1,14 @@
 ---
 title: 샘플 - 스토리지 계정에 쿨 액세스 계층이 없음
 description: 이 샘플 정책 정의에서는 Blob Storage 계정에 쿨 액세스 계층을 사용하는 것이 금지됩니다.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: a686126d0f164df2df224ced2e16f03a0a9bb283
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 6e22519eecc6db8ddccccbdb7f6bbbee622cc803
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255787"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076330"
 ---
 # <a name="sample---deny-cool-access-tiering-for-storage-accounts"></a>샘플 - 스토리지 계정에 대한 쿨 액세스 계층 거부
 

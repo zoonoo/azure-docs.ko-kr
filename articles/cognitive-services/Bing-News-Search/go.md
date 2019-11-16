@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Bing News Search REST API 및 Go를 사용하여 뉴스 가져오기'
 titleSuffix: Azure Cognitive Services
-description: Bing News Search API에서 뉴스 결과를 가져오는 방법을 알아봅니다.
+description: 이 빠른 시작에서는 Go 언어를 사용하여 Bing News Search API를 호출합니다. 결과는 쿼리 문자열로 식별되는 뉴스 원본의 이름 및 URL을 포함합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 2/21/2019
 ms.author: aahi
-ms.openlocfilehash: 79e93e3ba0bbf9ac71a01bad0502b84dfee85297
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: c3d18852086e202d9f818f2cac2c90fa4f464211
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65798495"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110813"
 ---
 # <a name="quickstart-get-news-results-using-the-bing-news-search-rest-api-and-go"></a>빠른 시작: Bing News Search REST API 및 Go를 사용하여 뉴스 결과 가져오기
 

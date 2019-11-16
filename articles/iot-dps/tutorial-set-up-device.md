@@ -1,22 +1,22 @@
 ---
-title: Azure IoT Hub Device Provisioning Service를 위한 디바이스 설정
-description: 디바이스 제조 프로세스 중 IoT Hub Device Provisioning Service를 통해 프로비전할 디바이스 설정
+title: '자습서: Azure IoT Hub Device Provisioning Service를 위한 디바이스 설정'
+description: '자습서: 디바이스 제조 프로세스 중 IoT Hub Device Provisioning Service를 통해 프로비전할 디바이스 설정'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d5a4f6c7d7d19ced4f2cd9ff21b00e58703f795e
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: e7f6151968fb14d44f1e330fb6ddc06fabad3ee6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65911686"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112765"
 ---
-# <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전
+# <a name="tutorial-set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>자습서: Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전
 
 이전 자습서에서 디바이스를 IoT Hub에 자동으로 프로비전하도록 Azure IoT Hub Device Provisioning Service를 설정하는 방법을 배웠습니다. 이 자습서에서는 IoT Hub가 자동으로 프로비전되도록 제조 과정에서 디바이스를 설정하는 방법을 보여줍니다. 디바이스를 처음으로 부팅하고 프로비전 서비스에 연결할 때 디바이스의 [증명 메커니즘](concepts-device.md#attestation-mechanism)에 따라 디바이스가 프로비전됩니다. 이 자습서에서 다루는 작업은 다음과 같습니다.
 

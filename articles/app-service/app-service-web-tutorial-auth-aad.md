@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c82cad30fcc2aa80eea52ab13f60fc0c4da33cd1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55ba5a193e15ac4e8bd83ac046deeac1f12d61d0
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471332"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961948"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>자습서: Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 
@@ -401,7 +401,7 @@ $routeProvider.when("/Home", {
 }).otherwise({ redirectTo: "/Home" });
 ```
 
-새로운 변경 내용은 `/.auth/me`를 호출하고 액세스 토큰을 설정하는 `revolve` 매핑을 추가합니다. 이것은 `todoListCtrl` 컨트롤러를 인스턴스화하기 전에 액세스 토큰을 갖도록 합니다. 이런 방식으로 컨트롤러의 모든 API 호출에는 토큰이 포함됩니다.
+새로운 변경 내용은 `/.auth/me`를 호출하고 액세스 토큰을 설정하는 `resolve` 매핑을 추가합니다. 이것은 `todoListCtrl` 컨트롤러를 인스턴스화하기 전에 액세스 토큰을 갖도록 합니다. 이런 방식으로 컨트롤러의 모든 API 호출에는 토큰이 포함됩니다.
 
 ### <a name="deploy-updates-and-test"></a>업데이트 배포 및 테스트
 

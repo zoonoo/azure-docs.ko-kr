@@ -1,17 +1,14 @@
 ---
 title: 샘플 - 모든 서브넷에서 NSG x
 description: 이 샘플 정책 정의에서는 특정 네트워크 보안 그룹이 모든 가상 서브넷과 함께 사용되어야 합니다.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 977deba4ee083fae5cbf24905cee84a3a0d020c4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 5e86bb60490fa6f32d3313e7c3fcf751057b3a52
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981343"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069856"
 ---
 # <a name="sample---network-security-group-x-on-every-subnet"></a>샘플 - 모든 서브넷의 네트워크 보안 그룹 x
 

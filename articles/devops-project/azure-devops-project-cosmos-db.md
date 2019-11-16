@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 1c16368990148406fbacdde2981c10fab0b2d405
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 229b4b9f53ea3866dce1169645f6d6da20827271
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969653"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888897"
 ---
 # <a name="deploy-nodejs-apps-powered-by-azure-cosmos-db-with-devops-projects"></a>DevOps Projects를 사용하여 Azure Cosmos DB에서 제공되는 Node.js 앱 배포
 
@@ -169,6 +169,6 @@ DevOps Projects는 Azure DevOps 조직에서 Azure 구독에 배포하는 데 �
 > * Git에 변경 내용 커밋 및 자동으로 Azure에 배포
 > * 리소스 정리
 
-자세한 내용과 다음 단계는 [다단계 CD(지속적인 배포) 파이프라인 정의](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts)를 참조하세요.
+자세한 내용과 다음 단계는 [다단계 CD(지속적인 배포) 파이프라인 정의](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=azure-devops&viewFallbackFrom=vsts)를 참조하세요.
 
 
