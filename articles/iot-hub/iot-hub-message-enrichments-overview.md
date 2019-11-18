@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 83114023eb35221bfa53e3ce4de8a861948c7a3a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: a623c8d3ff755338ac8b40faa970f2f007115a02
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005837"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144868"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages"></a>장치-클라우드 IoT Hub 메시지의 메시지 강화
 
@@ -54,11 +54,21 @@ ms.locfileid: "74005837"
 
 IoT Hub의 기본 제공 끝점으로 이동 하는 메시지 또는 Azure Blob storage, Service Bus 큐 또는 Service Bus 항목과 같은 사용자 지정 끝점으로 라우팅되는 메시지에 강화를 추가할 수 있습니다.
 
-Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지에 강화를 추가할 수도 있습니다. 자세한 내용은 [Iot Hub 및 Event Grid](iot-hub-event-grid.md)를 참조 하세요.
+Event Grid으로 끝점을 선택 하 여 Event Grid에 게시 되는 메시지에 강화를 추가할 수 있습니다. Event Grid 구독에 따라 장치 원격 분석에 대 한 IoT Hub 기본 경로를 만듭니다. 이 단일 경로는 모든 Event Grid 구독을 처리할 수 있습니다. Event grid에 대 한 이벤트 그리드 구독을 만든 후 장치 원격 분석에 대 한 강화을 구성할 수 있습니다. 자세한 내용은 [Iot Hub 및 Event Grid](iot-hub-event-grid.md)를 참조 하세요.
 
 강화는 끝점 별로 적용 됩니다. 특정 끝점에 대해 스탬프할 5 개의 강화 지정 하는 경우 해당 끝점으로 이동 하는 모든 메시지는 동일한 5 개의 강화으로 스탬프 됩니다.
 
-메시지 강화를 확인 하는 방법을 보려면 [강화 자습서 메시지](tutorial-message-enrichments.md) 를 참조 하세요.
+강화는 다음 메서드를 사용 하 여 구성할 수 있습니다.
+
+| **메서드** | **명령** |
+| ----- | -----| 
+| 포털 | [Azure Portal](https://portal.azure.com) | [메시지 강화 자습서](tutorial-message-enrichments.md) 를 참조 하세요. | 
+| Azure CLI   | [az iot hub message-보강](https://docs.microsoft.com/cli/azure/iot/hub/message-enrichment?view=azure-cli-latest) |
+| Azure PowerShell | [AzIotHubMessageEnrichment](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubmessageenrichment?view=azps-2.8.0) |
+
+메시지 강화 추가는 메시지 라우팅에 대기 시간을 추가 하지 않습니다.
+
+메시지 강화를 확인 하려면 [강화 자습서 메시지](tutorial-message-enrichments.md) 를 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 

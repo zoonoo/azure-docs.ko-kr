@@ -1,17 +1,14 @@
 ---
-title: Azure Pipelines 및 리소스 관리자 템플릿이 있는 CI/CD
+title: Azure Pipelines 및 템플릿이 있는 CI/CD
 description: Visual Studio에서 Azure 리소스 그룹 배포 프로젝트를 사용 하 여 리소스 관리자 템플릿을 배포 하는 Azure Pipelines에서 연속 통합을 설정 하는 방법을 설명 합니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.author: tomfitz
-ms.openlocfilehash: 9306ff8787a4e2b873cb11458a4cf9a10589bf6b
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 51122e314ebd0a97647fc4026b1f49619950c351
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597506"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143758"
 ---
 # <a name="integrate-resource-manager-templates-with-azure-pipelines"></a>Azure Pipelines와 리소스 관리자 템플릿 통합
 
@@ -75,21 +72,21 @@ steps:
     azurePowerShellVersion: LatestVersion
 ```
 
-작업을 `AzurePowerShell@3` 설정 하면 파이프라인은 AzureRM 모듈의 명령을 사용 하 여 연결을 인증 합니다. 기본적으로 Visual Studio 프로젝트의 PowerShell 스크립트는 AzureRM 모듈을 사용 합니다. [Az module](/powershell/azure/new-azureps-module-az)을 사용 하도록 스크립트를 업데이트 한 경우 작업을 `AzurePowerShell@4` 설정 합니다.
+작업을 `AzurePowerShell@3`설정 하면 파이프라인은 AzureRM 모듈의 명령을 사용 하 여 연결을 인증 합니다. 기본적으로 Visual Studio 프로젝트의 PowerShell 스크립트는 AzureRM 모듈을 사용 합니다. [Az module](/powershell/azure/new-azureps-module-az)을 사용 하도록 스크립트를 업데이트 한 경우 작업을 `AzurePowerShell@4`설정 합니다.
 
 ```yaml
 steps:
 - task: AzurePowerShell@4
 ```
 
-@No__t_0에서 사용자가 만든 서비스 연결의 이름을 제공 합니다.
+`azureSubscription`에서 사용자가 만든 서비스 연결의 이름을 제공 합니다.
 
 ```yaml
 inputs:
     azureSubscription: '<your-connection-name>'
 ```
 
-@No__t_0의 경우 파이프라인 파일에서 스크립트에 대 한 상대 경로를 제공 합니다. 리포지토리를 살펴보면 경로를 볼 수 있습니다.
+`scriptPath`의 경우 파이프라인 파일에서 스크립트에 대 한 상대 경로를 제공 합니다. 리포지토리를 살펴보면 경로를 볼 수 있습니다.
 
 ```yaml
 ScriptPath: '<your-relative-path>/<script-file-name>.ps1'
@@ -157,13 +154,13 @@ ScriptArguments: -ResourceGroupName '<resource-group-name>' -ResourceGroupLocati
     sasTokenTimeOutInMinutes: '240'
 ```
 
-이 작업에는 환경에 맞게 수정 하는 여러 부분이 있습니다. @No__t_0 파이프라인 파일을 기준으로 아티팩트의 위치를 나타냅니다. 이 예제에서 파일은 프로젝트의 이름인 `AzureResourceGroup1` 라는 폴더에 있습니다.
+이 작업에는 환경에 맞게 수정 하는 여러 부분이 있습니다. `SourcePath` 파이프라인 파일을 기준으로 아티팩트의 위치를 나타냅니다. 이 예제에서 파일은 프로젝트의 이름인 `AzureResourceGroup1` 라는 폴더에 있습니다.
 
 ```yaml
 SourcePath: '<path-to-artifacts>'
 ```
 
-@No__t_0에서 사용자가 만든 서비스 연결의 이름을 제공 합니다.
+`azureSubscription`에서 사용자가 만든 서비스 연결의 이름을 제공 합니다.
 
 ```yaml
 azureSubscription: '<your-connection-name>'
@@ -197,7 +194,7 @@ ContainerName: '<container-name>'
 
 이 작업에는 환경에 맞게 수정 하는 여러 부분이 있습니다.
 
-- `deploymentScope`: `Management Group`, `Subscription` 및 `Resource Group` 옵션에서 배포 범위를 선택 합니다. 이 연습에서는를 통해 **리소스 그룹** 을 사용 합니다. 범위에 대해 자세히 알아보려면 [배포 범위](./resource-group-template-deploy-rest.md#deployment-scope)를 참조 하세요.
+- `deploymentScope`: `Management Group`, `Subscription` 및 `Resource Group`옵션에서 배포 범위를 선택 합니다. 이 연습에서는를 통해 **리소스 그룹** 을 사용 합니다. 범위에 대해 자세히 알아보려면 [배포 범위](./resource-group-template-deploy-rest.md#deployment-scope)를 참조하세요.
 
 - `ConnectedServiceName`: 만든 서비스 연결의 이름을 제공 합니다.
 

@@ -5,13 +5,13 @@ author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 819b8551650f2e0b484021638ab5554cb557a750
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 11/15/2019
+ms.openlocfilehash: 59064c71d19f81a5edc322bc4c8158773a104b5d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330044"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151989"
 ---
 # <a name="choose-the-right-mariadb-server-option-in-azure"></a>Azure에서 적절 한 MariaDB 서버 옵션 선택
 
@@ -38,10 +38,10 @@ Azure를 사용 하는 경우에는 호스트 된 가상 머신 IaaS (infrastruc
 | MariaDB 패치     | 자동  | 고객이 관리 |
 | 고가용성 | HA (고가용성) 모델은 노드 수준의 중단이 발생 한 경우에 대 한 기본 제공 장애 조치 (failover) 메커니즘을 기반으로 합니다. 이 경우 서비스는 새 인스턴스를 자동으로 만들고이 인스턴스에 저장소를 연결 합니다. | 고객은 고가용성을 설계, 구현, 테스트 및 유지 관리 합니다. 기능에는 always on 장애 조치 (failover) 클러스터링, always on 그룹 복제, 로그 전달 또는 트랜잭션 복제가 포함 될 수 있습니다.|
 | 영역 중복 | 현재 지원되지 않음 | Azure Vm은 서로 다른 가용성 영역에서 실행 되도록 설정할 수 있습니다. 온-프레미스 솔루션의 경우 고객은 자체 보조 데이터 센터를 만들고 관리 하 고 유지 관리 해야 합니다.|
-| 하이브리드 시나리오 | [입력 데이터 복제](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)를 사용 하 여 외부의 데이터를 Azure Database for MariaDB 서비스에 동기화 할 수 있습니다. 외부 서버는 온-프레미스 가상 머신 또는 다른 클라우드 공급 기업이 호스트하는 데이터베이스 서비스에 있을 수 있습니다.<br/><br/> [복제본 읽기](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 기능을 사용 하면 Azure Database for MariaDB 마스터 서버에서 최대 5 개의 읽기 전용 복제 서버로 데이터를 복제할 수 있습니다. 복제본은 동일한 Azure 지역 내에 있거나 여러 지역에 있습니다. 읽기 전용 복제본은 binlog 복제 기술을 사용 하 여 비동기적으로 업데이트 됩니다.<br/><br/>영역 간 읽기 복제는 현재 공개 미리 보기로 제공 됩니다.| 고객이 관리
+| 하이브리드 시나리오 | [입력 데이터 복제](https://docs.microsoft.com/azure/MariaDB/concepts-data-in-replication)를 사용 하 여 외부의 데이터를 Azure Database for MariaDB 서비스에 동기화 할 수 있습니다. 외부 서버는 온-프레미스 가상 머신 또는 다른 클라우드 공급 기업이 호스트하는 데이터베이스 서비스에 있을 수 있습니다.<br/><br/> [복제본 읽기](https://docs.microsoft.com/azure/mariadb/concepts-read-replicas) 기능을 사용 하면 Azure Database for MariaDB 마스터 서버에서 최대 5 개의 읽기 전용 복제 서버로 데이터를 복제할 수 있습니다. 복제본은 동일한 Azure 지역 내에 있거나 여러 지역에 있습니다. 읽기 전용 복제본은 binlog 복제 기술을 사용 하 여 비동기적으로 업데이트 됩니다.<br/><br/>영역 간 읽기 복제는 현재 공개 미리 보기로 제공 됩니다.| 고객이 관리
 | 백업 및 복원 | 에서 자동으로 [서버 백업을](https://docs.microsoft.com/azure/MariaDB/concepts-backup#backups) 만들고 로컬 중복 또는 지역 중복 인 사용자 구성 저장소에 저장 합니다. 이 서비스는 전체, 차등 및 트랜잭션 로그 백업을 수행 합니다. | 고객이 관리 |
 | 데이터베이스 작업 모니터링 | 는 데이터베이스 작업에 대해 [경고를 설정](https://docs.microsoft.com/azure/MariaDB/concepts-monitoring) 하 고 임계값에 도달 하는 데 사용할 수 있는 기능을 고객에 게 제공 합니다. | 고객이 관리 |
-| Advanced Threat Protection | [고급 위협 방지 기능](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal)을 제공 합니다. 이 보호는 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 잠재적으로 유해한 시도를 감지 합니다.<br/><br/>Advanced Threat Protection은 현재 공개 미리 보기로 제공 됩니다.| 고객은 스스로이 보호를 구축 해야 합니다.
+| 고급 위협 보호 | [고급 위협 방지 기능](https://docs.microsoft.com/azure/MariaDB/howto-database-threat-protection-portal)을 제공 합니다. 이 보호는 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 잠재적으로 유해한 시도를 감지 합니다.<br/><br/>Advanced Threat Protection은 현재 공개 미리 보기로 제공 됩니다.| 고객은 스스로이 보호를 구축 해야 합니다.
 | 재해 복구 | 자동 백업을 사용자가 구성한 [로컬 중복 또는 지역 중복 저장소](https://docs.microsoft.com/azure/MariaDB/howto-restore-server-portal)에 저장 합니다. 또한 백업은 서버를 특정 시점으로 복원할 수 있습니다. 보존 기간은 7 일에서 35 일 사이입니다. 복원은 Azure Portal를 사용 하 여 수행 됩니다. | 고객이 완전히 관리 합니다. 책임은 예약, 테스트, 보관, 저장소 및 보존을 포함 하지만이에 국한 되지 않습니다. 추가 옵션은 Azure Recovery Services 자격 증명 모음을 사용 하 여 Vm에서 Azure Vm 및 데이터베이스를 백업 하는 것입니다. 이 옵션은 미리 보기 상태입니다. |
 | 성능 권장 사항 | 시스템에서 생성 된 사용 현황 로그 파일을 기반으로 고객에 게 [성능 권장 사항을](https://techcommunity.microsoft.com/t5/Azure-Database-for-MariaDB/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) 제공 합니다. 권장 사항은 워크 로드를 최적화 하는 데 도움이 됩니다.<br/><br/>성능 권장 사항은 현재 공개 미리 보기로 제공 됩니다. | 고객이 관리 |
 
@@ -53,7 +53,7 @@ Azure를 사용 하는 경우에는 호스트 된 가상 머신 IaaS (infrastruc
 
 제한 된 자금은 종종 데이터베이스 호스팅을 위한 최상의 솔루션을 결정 하는 주요 고려 사항입니다. 이는 비용 제한으로 운영 하는 설정 된 회사에서 현금 또는 팀이 거의 시작 하지 않는 경우에 해당 합니다. 이 섹션에서는 azure Vm의 Azure Database for MariaDB 및 MariaDB에 적용 되는 Azure의 청구 및 라이선스 기본 사항에 대해 설명 합니다.
 
-#### <a name="billing"></a>청구
+#### <a name="billing"></a>결제
 
 Azure Database for MariaDB는 현재 리소스에 대해 다른 가격을 사용 하는 여러 계층에서 서비스로 사용할 수 있습니다. 모든 리소스는 고정 요금으로 시간당 청구 됩니다. 현재 지원 되는 서비스 계층, 계산 크기 및 저장소 크기에 대 한 최신 정보는 [Vcore 기반 구매 모델](https://docs.microsoft.com/azure/MariaDB/concepts-pricing-tiers)을 참조 하세요. 응용 프로그램의 다양 한 처리량 요구에 맞게 서비스 계층 및 계산 크기를 동적으로 조정할 수 있습니다. 일반 [데이터 전송 요금](https://azure.microsoft.com/pricing/details/data-transfers/)으로 나가는 인터넷 트래픽에 대 한 요금이 청구 됩니다.
 

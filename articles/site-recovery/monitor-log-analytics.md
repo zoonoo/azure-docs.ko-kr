@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: b5bf568e03d4949b8798dd2e0f4c2d8cbcbbe0c7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: f20d0d38a7fbd831d3e97a69373bac04b9b330aa
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73936081"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133424"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 Site Recovery 모니터링
 
@@ -28,7 +28,7 @@ Site Recovery의 경우 로그를 Azure Monitor 하 여 다음 작업을 수행�
 Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복제, **VMware v m/물리적 서버에서 azure** 로 복제에 대해 지원 됩니다.
 
 > [!NOTE]
-> 변동 데이터 로그 및 업로드 율 로그는 보조 Azure 지역에 복제 하는 Azure Vm에만 사용할 수 있습니다.
+> VMware 및 물리적 컴퓨터의 변동 데이터 로그 및 업로드 빈도 로그를 가져오려면 프로세스 서버에 Microsoft monitoring agent를 설치 해야 합니다. 이 에이전트는 복제 하는 컴퓨터의 로그를 작업 영역으로 보냅니다. 이 기능은 9.30 모바일 에이전트 버전 이상 에서만 사용할 수 있습니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -54,6 +54,24 @@ Site Recovery에서 Azure Monitor 로그 사용은 azure **에서 azure로** 복
     ![작업 영역 선택](./media/monitoring-log-analytics/select-workspace.png)
 
 Site Recovery 로그는 선택한 작업 영역에서 테이블 (**Azurediagnostics**)에 피드를 시작 합니다.
+
+## <a name="configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs"></a>프로세스 서버에서 변동 및 업로드 율 로그를 보내도록 Microsoft monitoring agent 구성
+
+온-프레미스에서 VMware/물리적 컴퓨터에 대 한 데이터 변동 비율 정보 및 원본 데이터 업로드 속도 정보를 캡처할 수 있습니다. 이를 사용 하려면 프로세스 서버에 Microsoft monitoring agent를 설치 해야 합니다.
+
+1. Log Analytics 작업 영역으로 이동한 다음 **고급 설정**을 클릭 합니다.
+2. **연결 된 원본** 페이지를 클릭 하 고 **Windows 서버**를 추가로 선택 합니다.
+3. 프로세스 서버에서 Windows 에이전트 (64 비트)를 다운로드 합니다. 
+4. [작업 영역 ID 및 키 가져오기](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+5. [TLS 1.2를 사용 하도록 에이전트 구성](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
+6. 가져온 작업 영역 ID 및 키를 제공 하 여 [에이전트 설치를 완료](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) 합니다.
+7. 설치가 완료 되 면 Log Analytics 작업 영역으로 이동한 다음 **고급 설정**을 클릭 합니다. **데이터** 페이지로 이동 하 여 **Windows 성능 카운터**를 추가로 클릭 합니다. 
+8. **' + '** 를 클릭 하 여 샘플 간격이 300 초인 다음 두 카운터를 추가 합니다.
+
+        ASRAnalytics(*)\SourceVmChurnRate 
+        ASRAnalytics(*)\SourceVmThrpRate 
+
+변동 및 업로드 율 데이터는 작업 영역으로 공급 되기 시작 합니다.
 
 
 ## <a name="query-the-logs---examples"></a>로그 쿼리-예제
@@ -174,12 +192,9 @@ AzureDiagnostics  
 ```
 ![컴퓨터 RPO 쿼리](./media/monitoring-log-analytics/example2.png)
 
-### <a name="query-data-change-rate-churn-for-a-vm"></a>VM에 대 한 쿼리 데이터 변경 률 (변동)
+### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Azure VM의 데이터 변경 률 (변동) 및 업로드 율 쿼리
 
-> [!NOTE] 
-> 변동 정보는 보조 Azure 지역에 복제 하는 Azure Vm에만 사용할 수 있습니다.
-
-이 쿼리는 데이터 변경 률 (초당 쓰기 바이트) 및 데이터 업로드 율을 추적 하는 특정 Azure VM (ContosoVM123)에 대 한 추세 그래프를 그립니다. 
+이 쿼리는 데이터 변경 률 (초당 쓰기 바이트) 및 데이터 업로드 율을 나타내는 특정 Azure VM (ContosoVM123)에 대 한 추세 그래프를 그립니다. 
 
 ```
 AzureDiagnostics   
@@ -193,6 +208,23 @@ Category contains "Upload", "UploadRate", "none") 
 | render timechart  
 ```
 ![쿼리 데이터 변경](./media/monitoring-log-analytics/example3.png)
+
+### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>VMware 또는 물리적 컴퓨터에 대 한 쿼리 데이터 변경 률 (변동) 및 업로드 빈도
+
+> [!Note]
+> 프로세스 서버에서 이러한 로그를 가져오도록 모니터링 에이전트를 설정 했는지 확인 합니다. [모니터링 에이전트를 구성 하는 단계를](#configure-microsoft-monitoring-agent-on-the-process-server-to-send-churn-and-upload-rate-logs)참조 하세요.
+
+이 쿼리는 데이터 변경 률 (초당 쓰기 바이트) 및 데이터 업로드 율을 나타내는 복제 된 항목 **win-9r7sfh9qlru**의 특정 디스크 **disk0** 추세 그래프를 그립니다. Recovery services 자격 증명 모음에서 복제 된 항목 **의 디스크 이름 블레이드를** 찾을 수 있습니다. 쿼리에 사용할 인스턴스 이름은 다음 예제와 같이 _ 및 디스크 이름이 뒤에 나오는 컴퓨터의 DNS 이름입니다.
+
+```
+Perf
+| where ObjectName == "ASRAnalytics"
+| where InstanceName contains "win-9r7sfh9qlru_disk0"
+| where TimeGenerated >= ago(4h) 
+| project TimeGenerated ,CounterName, Churn_MBps = todouble(CounterValue)/5242880 
+| render timechart
+```
+프로세스 서버는이 데이터를 5 분 마다 Log Analytics 작업 영역에 푸시합니다. 이러한 데이터 요소는 5 분 동안 계산 된 평균을 나타냅니다.
 
 ### <a name="query-disaster-recovery-summary-azure-to-azure"></a>재해 복구 요약 쿼리 (Azure에서 Azure로)
 

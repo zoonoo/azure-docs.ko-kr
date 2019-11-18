@@ -2,18 +2,18 @@
 title: 공유 액세스 서명을 사용하여 액세스 제한 - Azure HDInsight
 description: 공유 액세스 서명을 사용하여 Azure Storage Blob에 저장된 데이터에 대한 HDInsight 액세스를 제한하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.author: hrasheed
-ms.openlocfilehash: 031498119eb4f9feb92046d7d7a86cfd77f8f368
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/13/2019
+ms.openlocfilehash: 725bdfd4efe3be600c993e568f1a5c7edccc6952
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498112"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148230"
 ---
 # <a name="use-azure-storage-shared-access-signatures-to-restrict-access-to-data-in-hdinsight"></a>Azure Storage 공유 액세스 서명을 사용하여 HDInsight에서 데이터 액세스 제한
 
@@ -25,7 +25,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 > [!WARNING]  
 > HDInsight는 클러스터의 기본 스토리지에 대해 모든 액세스 권한이 있어야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * Azure 구독.
 
@@ -35,7 +35,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
 
 * PowerShell을 사용 하는 경우 [Az Module](https://docs.microsoft.com/powershell/azure/overview)이 필요 합니다.
 
-* Azure CLI를 사용 하려는 경우 아직 설치 하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
+* Azure CLI를 사용 하 고 아직 설치 하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조 하세요.
 
 * [Python](https://www.python.org/downloads/)을 사용 하는 경우 버전 2.7 이상을 사용 합니다.
 
@@ -69,7 +69,7 @@ HDInsight는 클러스터와 연결된 Azure Storage 계정의 데이터에 대�
     * 시간 간격이 경과되었습니다.
     * 저장된 액세스 정책이 과거 만료 시간을 갖도록 수정되어 있습니다. SAS를 철회하는 한 가지 방법은 만료 시간을 변경하는 것입니다.
 
-3. SAS에서 참조되는 저장된 액세스 정책을 삭제한 경우(SAS를 해지하는 다른 방법). 똑같은 이름을 사용하여 저장된 액세스 정책을 다시 만들면 이전 정책에 대한 모든 SAS 토큰이 다시 유효해집니다(SAS의 만료 시간이 경과하지 않은 경우). SAS를 해지하기 위해 만료 시간을 미래의 시간으로 지정하여 액세스 정책을 다시 만들 경우 다른 이름을 사용해야 합니다.
+3. SAS에서 참조되는 저장된 액세스 정책을 삭제한 경우(SAS를 해지하는 다른 방법). 동일한 이름을 사용 하 여 저장 된 액세스 정책을 다시 만들면 이전 정책에 대 한 모든 SAS 토큰이 유효 합니다 (SAS의 만료 시간이 경과 하지 않은 경우). SAS를 해지하기 위해 만료 시간을 미래의 시간으로 지정하여 액세스 정책을 다시 만들 경우 다른 이름을 사용해야 합니다.
 
 4. SAS를 만드는 데 사용된 계정 키를 다시 생성한 경우. 키를 다시 생성하면 이전 키를 사용하는 모든 애플리케이션이 인증에 실패합니다. 모든 구성 요소를 새 키로 업데이트합니다.
 
@@ -234,7 +234,6 @@ HDInsight 클러스터를 만들 때 기본 스토리지 계정을 지정해야 
 `CLUSTERNAME`, `RESOURCEGROUP`, `DEFAULTSTORAGEACCOUNT`, `STORAGECONTAINER`, `STORAGEACCOUNT`및 `TOKEN`을 적절 한 값으로 바꿉니다. PowerShell 명령을 입력 합니다.
 
 ```powershell
-
 $clusterName = 'CLUSTERNAME'
 $resourceGroupName = 'RESOURCEGROUP'
 
@@ -285,11 +284,10 @@ $defaultStorageContext = New-AzStorageContext `
                                 -StorageAccountName $defaultStorageAccountName `
                                 -StorageAccountKey $defaultStorageAccountKey
 
-
 # Create a blob container. This holds the default data store for the cluster.
 New-AzStorageContainer `
     -Name $clusterName `
-    -Context $defaultStorageContext 
+    -Context $defaultStorageContext
 
 # Cluster login is used to secure HTTPS services hosted on the cluster
 $httpCredential = Get-Credential `
@@ -302,9 +300,9 @@ $sshCredential = Get-Credential `
     -UserName "sshuser"
 
 # Create the configuration for the cluster
-$config = New-AzHDInsightClusterConfig 
+$config = New-AzHDInsightClusterConfig
 
-$config = $config | Add-AzHDInsightConfigValues `
+$config = $config | Add-AzHDInsightConfigValue `
     -Spark2Defaults @{} `
     -Core @{"fs.azure.sas.$SASContainerName.$SASStorageAccountName.blob.core.windows.net"=$SASToken}
 
@@ -358,29 +356,29 @@ Remove-AzResourceGroup `
 
 1. 클러스터에 대한 Ambari 웹 UI를 엽니다. 이 페이지에 대한 주소는 `https://YOURCLUSTERNAME.azurehdinsight.net`입니다. 메시지가 표시되면 클러스터를 만들 때 사용한 관리자 이름(admin)과 암호를 사용하여 클러스터를 인증합니다.
 
-2. Ambari 웹 UI의 왼쪽에서 **HDFS** 를 선택한 다음 페이지 중간에서 **Configs** 탭을 선택합니다.
+1. **HDFS** > **Configs** > **고급** > **사용자 지정 코어-사이트**로 이동 합니다.
 
-3. **Advanced** 탭을 선택한 다음 **Custom core-site** 섹션이 나올 때까지 스크롤합니다.
+1. **사용자 지정 핵심 사이트** 섹션을 확장 하 고 끝으로 스크롤한 다음 **속성 추가 ...** 를 선택 합니다. **키** 와 **값**에 다음 값을 사용 합니다.
 
-4. **Custom core-site** 섹션을 확장한 후 끝까지 스크롤하여 **Add property...** 링크를 선택합니다. **Key** 및 **Value** 필드에 다음 값을 사용합니다.
+    * **키**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
+    * **값**: 이전에 실행 된 메서드 중 하나에서 반환 된 SAS입니다.
 
-   * **키**: `fs.azure.sas.CONTAINERNAME.STORAGEACCOUNTNAME.blob.core.windows.net`
-   * **값**: 이전에 실행 된 메서드 중 하나에서 반환 된 SAS입니다.
+    `CONTAINERNAME`를 또는 SAS 응용 프로그램에서 C# 사용한 컨테이너 이름으로 바꿉니다. `STORAGEACCOUNTNAME`를 사용한 저장소 계정 이름으로 바꿉니다.
 
-     `CONTAINERNAME`를 또는 SAS 응용 프로그램에서 C# 사용한 컨테이너 이름으로 바꿉니다. `STORAGEACCOUNTNAME`를 사용한 저장소 계정 이름으로 바꿉니다.
+    **추가** 를 선택 하 여이 키 및 값을 저장 합니다.
 
-5. **Add** 단추를 클릭하여 이 키 및 값을 저장한 후 **Save** 단추를 클릭하여 구성 변경을 저장합니다. 메시지가 나타나면 변경에 대한 설명(예: &quot;SAS 스토리지 액세스 추가&quot;)을 추가하고 **저장**을 클릭합니다.
+1. **저장** 단추를 선택 하 여 구성 변경 내용을 저장 합니다. 메시지가 표시 되 면 변경에 대 한 설명 (예: "SAS 저장소 액세스 추가")을 추가 하 고 **저장**을 선택 합니다.
 
-    변경이 완료되었으면 **확인** 을 클릭합니다.
+    변경이 완료 되 면 **확인을** 선택 합니다.
 
    > [!IMPORTANT]  
    > 변경 내용을 적용하기 전에 여러 서비스를 다시 시작해야 합니다.
 
-6. Ambari 웹 UI의 왼쪽 목록에서 **HDFS**를 선택한 다음, 오른쪽의 **Service Actions** 드롭다운 목록에서 **Restart All Affected**을 선택합니다. 메시지가 나타나면 __모두 다시 시작 확인__을 선택합니다.
+1. **다시 시작** 드롭다운 목록이 표시 됩니다. 드롭다운 목록에서 **영향을 받은 모두 다시 시작** 을 선택 하 고 __모두 다시 시작__을 선택 합니다.
 
-    MapReduce2 및 YARN에 대해 이 프로세스를 반복합니다.
+    **MapReduce2** 및 **YARN**에 대해이 프로세스를 반복 합니다.
 
-7. 서비스가 다시 시작된 후 각 서비스를 선택하고 **서비스 작업** 드롭다운에서 유지 관리 모드를 비활성화합니다.
+1. 서비스가 다시 시작된 후 각 서비스를 선택하고 **서비스 작업** 드롭다운에서 유지 관리 모드를 비활성화합니다.
 
 ## <a name="test-restricted-access"></a>제한된 액세스 테스트
 
@@ -405,7 +403,7 @@ SAS 저장소 계정의 항목만 읽고 나열할 수 있는지 확인 하려�
 3. 다음 명령을 사용하여 파일의 내용을 읽을 수 있는지 확인합니다. 이전 단계에서와 같이 `SASCONTAINER` 및 `SASACCOUNTNAME`를 바꿉니다. `sample.log`를 이전 명령에 표시 되는 파일의 이름으로 바꿉니다.
 
     ```bash
-    hdfs dfs -text wasb://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
+    hdfs dfs -text wasbs://SASCONTAINER@SASACCOUNTNAME.blob.core.windows.net/sample.log
     ```
 
     이 명령은 파일 내용을 나열합니다.
@@ -438,9 +436,7 @@ SAS 저장소 계정의 항목만 읽고 나열할 수 있는지 확인 하려�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 HDInsight 클러스터에 액세스가 제한된 스토리지를 추가하는 방법을 배웠으므로 클러스터에서 데이터에 대해 작업하는 다른 방법에 알아보겠습니다.
+HDInsight 클러스터에 제한 된 액세스 저장소를 추가 하는 방법을 배웠으므로 이제 클러스터에서 데이터로 작업 하는 다른 방법에 대해 알아보세요.
 
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
-

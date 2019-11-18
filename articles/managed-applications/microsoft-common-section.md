@@ -13,20 +13,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: a48c89785e0a448609026aab53364f6cf704e948
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fd2c1105078b918043791fd0f18395409bb32f7c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331662"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151716"
 ---
 # <a name="microsoftcommonsection-ui-element"></a>Microsoft.Common.Section UI 요소
+
 제목 아래에 하나 이상의 요소를 그룹화하는 컨트롤입니다.
 
 ## <a name="ui-sample"></a>UI 샘플
+
 ![Microsoft.Common.Section](./media/managed-application-elements/microsoft.common.section.png)
 
 ## <a name="schema"></a>스키마
+
 ```json
 {
   "name": "section1",
@@ -49,6 +52,7 @@ ms.locfileid: "72331662"
 ```
 
 ## <a name="remarks"></a>설명
+
 - `elements`는 하나 이상의 요소를 포함해야 하며, `Microsoft.Common.Section`을 제외한 모든 요소 형식을 포함할 수 있습니다.
 - 이 요소는 `toolTip` 속성을 지원하지 않습니다.
 
@@ -62,5 +66,6 @@ steps('configuration').section1.text1
 `Microsoft.Common.Section` 형식의 요소에는 출력 값 자체가 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 * UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
 * UI 요소의 공용 속성에 대한 설명은 [CreateUiDefinition 요소](create-uidefinition-elements.md)를 참조하세요.

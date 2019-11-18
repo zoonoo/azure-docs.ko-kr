@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 10/18/2019
 ms.author: jenns
-ms.openlocfilehash: 6c2a8fa57bf6e3a552da57588bdbe752ef0d22e2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5f2d23b3fe33691d37dc00b2d4e79036293252d9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609568"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132882"
 ---
 # <a name="azure-event-grid-event-schema-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 Azure Event Grid 이벤트 스키마
 
@@ -154,14 +154,14 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 
 | 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
-| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid가 이 값을 제공합니다. |
+| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 | subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
 | eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
 | id | string | 이벤트에 대한 고유 식별자입니다. |
 | 데이터 | object | Blob Storage 이벤트 데이터입니다. |
 | dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid가 이 값을 제공합니다. |
+| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
 
 데이터 개체에는 각 이벤트 유형에 대 한 다음 속성이 있습니다.
 
@@ -180,7 +180,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 | -------- | ---- | ----------- |
 | ServiceName | string | 배포 된 서비스의 이름입니다. |
 | ServiceComputeType | string | 배포 된 서비스의 계산 형식 (예: ACI, AKS)입니다. |
-| ModelIds | string | 모델 Id를 일반적으로 구분한 목록입니다. 서비스에 배포 된 모델의 Id입니다. |
+  | ModelIds | string | 쉼표로 구분 된 모델 Id 목록입니다. 서비스에 배포 된 모델의 Id입니다. |
 | ServiceTags | object | 배포 된 서비스의 태그입니다. |
 | ServiceProperties | object | 배포 된 서비스의 속성입니다. |
 
@@ -189,7 +189,7 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 | 속성 | 형식 | 설명 |
 | -------- | ---- | ----------- |
 | ExperimentId | string | 실행이 속한 실험의 ID입니다. |
-| experimentName | string | 실행이 속한 실험의 이름입니다. |
+| ExperimentName | string | 실행이 속한 실험의 이름입니다. |
 | RunId | string | 완료 된 실행의 ID입니다. |
 | RunType | string | 완료 된 실행의 실행 형식입니다. |
 | RunTags | object | 완료 된 실행의 태그입니다. |
@@ -214,4 +214,4 @@ Azure Machine Learning는 다음과 같은 이벤트 유형을 내보냅니다.
 * Azure Event Grid에 대한 소개는 [Event Grid란?](overview.md)을 참조하세요.
 * Azure Event Grid 구독을 만드는 방법에 대 한 자세한 내용은 [Event Grid 구독 스키마](subscription-creation-schema.md) 를 참조 하세요.
 * Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 방법에 대 한 소개는 [Azure Machine Learning 이벤트](/azure/machine-learning/service/concept-event-grid-integration) 사용을 참조 하세요.
-* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 예제는 [이벤트 기반 기계 학습 워크플로 만들기](/azure/machine-learning/service/event-schema-machine-learning) 를 참조 하세요.
+* Azure Machine Learning와 함께 Azure Event Grid를 사용 하는 예제는 [이벤트 기반 기계 학습 워크플로 만들기](/azure/machine-learning/service/how-to-use-event-grid) 를 참조 하세요.

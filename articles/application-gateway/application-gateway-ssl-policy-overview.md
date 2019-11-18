@@ -1,25 +1,18 @@
 ---
-title: Azure Application Gateway의 SSL 정책 개요 | Microsoft Docs
-description: Azure Application Gateway에 대해 자세히 알게 되면 SSL 정책을 구성할 수 있습니다.
+title: Azure 애플리케이션 Gateway에 대 한 SSL 정책 개요
+description: Azure 애플리케이션 Gateway에 대 한 SSL 정책을 구성 하 고 백 엔드 서버 팜에서 암호화 및 암호 해독 오버 헤드를 줄이는 방법에 대해 알아봅니다.
 services: application gateway
-documentationcenter: na
 author: amsriva
-manager: ''
-editor: ''
-tags: azure resource manager
 ms.service: application-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure services
-ms.date: 08/03/2017
+ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 1710635f145136e564a2bad48d539f242c9bc228
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 6b3d52f1f6bd0390ab6ccafa80b2979cb0e498fd
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359902"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130414"
 ---
 # <a name="application-gateway-ssl-policy-overview"></a>Application Gateway SSL 정책 개요
 
@@ -46,7 +39,7 @@ Application Gateway에는 세 가지 미리 정의된 보안 정책이 있습니
 |   ---      |  ---       |
 |이름     | AppGwSslPolicy20170401        |
 |MinProtocolVersion     | TLSv1_1        |
-|기본값| 거짓 |
+|기본값| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA<br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA |
   
 ### <a name="appgwsslpolicy20170401s"></a>AppGwSslPolicy20170401S
@@ -55,7 +48,7 @@ Application Gateway에는 세 가지 미리 정의된 보안 정책이 있습니
 |---|---|
 |이름     | AppGwSslPolicy20170401S        |
 |MinProtocolVersion     | TLSv1_2        |
-|기본값| 거짓 |
+|기본값| False |
 |CipherSuites     |TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256 <br>    TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384 <br>    TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA <br>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256<br>TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384<br>TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384<br>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256<br>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA<br>TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_256_GCM_SHA384<br>TLS_RSA_WITH_AES_128_GCM_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA256<br>TLS_RSA_WITH_AES_128_CBC_SHA256<br>TLS_RSA_WITH_AES_256_CBC_SHA<br>TLS_RSA_WITH_AES_128_CBC_SHA<br> |
 
 ## <a name="custom-ssl-policy"></a>SSL 정책 사용자 지정
@@ -65,7 +58,7 @@ Application Gateway에는 세 가지 미리 정의된 보안 정책이 있습니
 ### <a name="ssl-protocol-versions"></a>SSL 프로토콜 버전
 
 * SSL 2.0 및 3.0은 모든 Application Gateway에 대해 기본적으로 사용되지 않습니다. 이러한 프로토콜 버전을 구성할 수 없습니다.
-* 사용자 지정 SSL 정책은 게이트웨이의 최소 SSL 프로토콜 버전으로 다음 세 가지 프로토콜 중 하나를 선택 하는 옵션을 제공 합니다. TLSv1_0, TLSv1_1 및 TLSv1_2입니다.
+* 사용자 지정 SSL 정책은 사용자에게 TLSv1_0, TLSv1_1 및 TLSv1_2라는 게이트웨이의 최소 SSL 프로토콜 버전으로 다음 세 가지 프로토콜 중 하나를 선택할 수 있는 옵션을 제공합니다.
 * SSL 정책을 하나도 정의하지 않으면 3개 프로토콜(TLSv1_0, TLSv1_1, TLSv1_2) 모두 활성화됩니다.
 
 ### <a name="cipher-suites"></a>암호 그룹

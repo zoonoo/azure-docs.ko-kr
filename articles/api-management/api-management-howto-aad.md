@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 5d2b43599c1e1f95f505d7987675e5fd40810fa4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b0c3487bb77f32483d6d65cd0a4b1f637267eabf
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012959"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144361"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory를 사용하여 개발자 계정에 권한 부여
 
@@ -33,7 +33,7 @@ ms.locfileid: "74012959"
 ## <a name="authorize-developer-accounts-by-using-azure-ad"></a>Azure AD를 사용하여 개발자 계정에 권한 부여
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
-2. 여기서 ![화살표](./media/api-management-howto-aad/arrow.png)을 선택합니다.
+2. 선택 ![화살표](./media/api-management-howto-aad/arrow.png)을 선택합니다.
 3. 검색 상자에 **api**를 입력합니다.
 4. **API Management 서비스**를 선택합니다.
 5. API Management 서비스 인스턴스를 선택합니다.
@@ -81,12 +81,16 @@ ms.locfileid: "74012959"
 
 ## <a name="add-an-external-azure-ad-group"></a>외부 Azure AD 그룹 추가
 
-Azure AD 인스턴스에서 사용자에 대한 액세스를 활성화한 후에 API Management에서 Azure AD 그룹을 추가할 수 있습니다. 그런 다음, 원하는 제품과 그룹 개발자의 연결을 보다 쉽게 관리할 수 있습니다.
+Azure AD 테 넌 트의 사용자에 대 한 액세스를 사용 하도록 설정한 후 API Management에 Azure AD 그룹을 추가할 수 있습니다. 따라서 Azure AD 그룹을 사용 하 여 제품 표시 여부를 제어할 수 있습니다.
 
- > [!IMPORTANT]
- > 외부 Azure AD 그룹을 추가 하려면 이전 섹션의 절차를 수행 하 여 **id** 탭에서 Azure ad 인스턴스를 먼저 구성 해야 합니다. 또한 응용 프로그램에 `Directory.Read.All` 권한이 있는 Azure AD Graph API에 대 한 액세스 권한을 부여 해야 합니다. 
+외부 Azure AD 그룹을 APIM에 추가 하려면 먼저 이전 섹션을 완료 해야 합니다. 또한 등록 한 응용 프로그램에는 아래 단계를 수행 하 여 `Directory.ReadAll` 권한으로 Graph API Azure Active Directory에 대 한 액세스 권한을 부여 해야 합니다. 
 
-API Management 인스턴스의 **그룹** 탭에 외부 Azure AD 그룹을 추가합니다.
+1. 이전 섹션에서 만든 앱 등록으로 돌아갑니다.
+2. **API 사용 권한** 탭을 클릭 한 다음 **+ 권한 추가** 단추를 클릭 합니다. 
+3. **Api 권한 요청** 창에서 **Microsoft api** 탭을 선택 하 고 아래쪽으로 스크롤하여 지원 되는 레거시 Api 섹션에서 **Azure Active Directory Graph** 타일을 찾아 클릭 합니다. 그런 다음 **응용 프로그램 사용 권한** 단추를 클릭 하 고 **디렉터리. readall** 권한을 선택한 다음 아래쪽의 단추를 사용 하 여 해당 권한을 추가 합니다. 
+4. 이 디렉터리의 모든 사용자에 게 액세스 권한을 부여 하도록 **{tenantname}에 대 한 관리자 동의 부여** 단추를 클릭 합니다. 
+
+이제 API Management 인스턴스의 **그룹** 탭에서 외부 Azure AD 그룹을 추가할 수 있습니다.
 
 1. **그룹** 탭을 선택합니다.
 2. **AAD 그룹 추가** 단추를 선택합니다.

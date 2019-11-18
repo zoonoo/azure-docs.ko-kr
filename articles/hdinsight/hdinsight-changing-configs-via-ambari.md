@@ -2,18 +2,18 @@
 title: 클러스터 구성을 최적화 하기 위한 Apache Ambari-Azure HDInsight
 description: Apache Ambari 웹 UI를 사용 하 여 Azure HDInsight 클러스터를 구성 하 고 최적화 합니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: e0d94a41febdba1bea6818309e05d287bef6d3a1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 15a2c75a7619a815655be0fd9fd3044d86acd057
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492501"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150109"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Apache Ambari를 사용하여 HDInsight 클러스터 구성 최적화
 
@@ -123,7 +123,7 @@ Hadoop은 단일 파일을 여러 파일로 분할(*매핑*)하여 생성되는 
 
 Hive 쿼리는 하나 이상의 단계에서 실행됩니다. 독립적인 단계를 병렬로 실행할 수 있으면 쿼리 성능이 향상됩니다.
 
-1. 병렬 쿼리 실행을 사용하려면 Hive **Config**(구성) 탭으로 이동하여 `hive.exec.parallel` 속성을 검색합니다. 기본값은 False입니다. 값을 true로 변경한 다음 **Enter**를 눌러서 값을 저장합니다.
+1. 병렬 쿼리 실행을 사용하려면 Hive **Config**(구성) 탭으로 이동하여 `hive.exec.parallel` 속성을 검색합니다. 기본값은 false입니다. 값을 true로 변경한 다음 **Enter**를 눌러서 값을 저장합니다.
 
 1. 동시에 실행 되는 작업 수를 제한 하려면 `hive.exec.parallel.thread.number` 속성을 수정 합니다. 기본값은 8입니다.
 
@@ -135,7 +135,7 @@ Hive는 데이터를 한 행씩 처리합니다. 벡터화는 Hive가 데이터�
 
 1. 벡터화된 쿼리 실행을 사용하도록 설정하려면 Hive **Configs**(구성) 탭으로 이동하여 `hive.vectorized.execution.enabled` 매개 변수를 검색합니다. Hive 0.13.0 이상에서는 기본값이 true입니다.
 
-1. 쿼리의 리듀스 측에 대해 벡터화된 실행을 사용하도록 설정하려면 `hive.vectorized.execution.reduce.enabled` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
+1. 쿼리의 리듀스 측에 대해 벡터화된 실행을 사용하도록 설정하려면 `hive.vectorized.execution.reduce.enabled` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
 
     ![Apache Hive 벡터화 실행](./media/hdinsight-changing-configs-via-ambari/hive-vectorized-execution.png)
 
@@ -143,7 +143,7 @@ Hive는 데이터를 한 행씩 처리합니다. 벡터화는 Hive가 데이터�
 
 기본적으로 Hive는 일련의 규칙에 따라 하나의 최적 쿼리 실행 계획을 찾습니다. CBO(비용 기반 최적화)는 쿼리를 실행할 여러 계획을 평가하고 각 계획에 비용을 할당한 다음 쿼리를 실행하기에 가장 저렴한 계획을 결정합니다.
 
-CBO를 사용하도록 설정하려면 Hive **Configs**(구성) 탭으로 이동하여 `parameter hive.cbo.enable`을 검색한 다음 토글 단추를 **On**으로 전환합니다.
+CBO를 사용 하도록 설정 하려면 **Hive** > **Configs** > **설정** 으로 이동 하 여 **비용 기반 최적화 프로그램 사용**을 찾은 다음 설정/해제 단추를 **켜기**로 전환 합니다.
 
 ![HDInsight 비용 기반 최적화 프로그램](./media/hdinsight-changing-configs-via-ambari/hdinsight-cbo-config.png)
 
@@ -177,14 +177,14 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 | 형식 | 도구 | 알고리즘 | 파일 확장명 | 분할 가능? |
 | -- | -- | -- | -- | -- |
-| Gzip | Gzip | DEFLATE | .gz | 아니요 |
+| Gzip | Gzip | DEFLATE | .gz | 아니오 |
 | Bzip2 | Bzip2 | Bzip2 |.bz2 | 예 |
 | LZO | Lzop | LZO | .lzo | 예(인덱싱된 경우) |
-| Snappy | 해당 없음 | Snappy | Snappy | 아니요 |
+| Snappy | 해당 없음 | Snappy | Snappy | 아니오 |
 
 일반적으로 분할 가능한 압축 방법이 있는 것이 중요합니다. 그렇지 않으면 매우 적은 수의 매퍼가 생성됩니다. 입력 데이터가 텍스트인 경우 `bzip2`가 최고 옵션입니다. ORC 형식의 경우 Snappy가 가장 빠른 압축 옵션입니다.
 
-1. 중간 압축을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.intermediate` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
+1. 중간 압축을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.intermediate` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
 
     ![Hive 실행 중간 압축](./media/hdinsight-changing-configs-via-ambari/hive-exec-compress-intermediate.png)
 
@@ -195,15 +195,13 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 1. 사용자 지정 설정을 추가하려면:
 
-    a. Hive **Configs**(구성) 탭으로 이동하여 **고급** 탭을 선택합니다.
+    a. **Hive** > **Configs** > **고급** > **사용자 지정 hive 사이트로**이동 합니다.
 
-    b. **고급** 탭에서 **사용자 지정 hive-site** 창을 찾아서 확장합니다.
+    b. 사용자 지정 hive 사이트 창의 맨 아래에 있는 **속성 추가** ...를 선택 합니다.
 
-    c. 사용자 지정 hive-site 창 아래에서 **속성 추가** 링크를 클릭합니다.
+    c. 속성 추가 창에서 키에 `mapred.map.output.compression.codec`을 입력하고 값에 `org.apache.hadoop.io.compress.SnappyCodec`을 입력합니다.
 
-    ㄹ. 속성 추가 창에서 키에 `mapred.map.output.compression.codec`을 입력하고 값에 `org.apache.hadoop.io.compress.SnappyCodec`을 입력합니다.
-
-    e. **추가**를 클릭합니다.
+    d. **추가**를 선택합니다.
 
     ![사용자 지정 속성 추가 Apache Hive](./media/hdinsight-changing-configs-via-ambari/hive-custom-property.png)
 
@@ -216,7 +214,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 최종 Hive 출력도 압축될 수 있습니다.
 
-1. 최종 Hive 출력을 압축하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.output` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
+1. 최종 Hive 출력을 압축하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.exec.compress.output` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
 
 1. 출력 압축 코덱을 선택하려면 이전 섹션 3단계의 설명에 따라 사용자 지정 hive-site 창에 `mapred.output.compression.codec` 사용자 지정 속성을 추가합니다.
 
@@ -228,7 +226,7 @@ Hadoop 작업은 일반적으로 I/O 병목 상태가 됩니다. 데이터를 �
 
 입력 양이 많고 오래 실행되는 MapReduce 작업에는 투기적 실행을 사용하지 말아야 합니다.
 
-* 투기적 실행을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.mapred.reduce.tasks.speculative.execution` 매개 변수를 true로 설정합니다. 기본값은 False입니다.
+* 투기적 실행을 사용하려면 Hive **Configs**(구성) 탭으로 이동한 다음 `hive.mapred.reduce.tasks.speculative.execution` 매개 변수를 true로 설정합니다. 기본값은 false입니다.
 
     ![Hive mapred 리듀스 태스크 투기적 실행](./media/hdinsight-changing-configs-via-ambari/hive-mapred-reduce-tasks-speculative-execution.png)
 
@@ -281,7 +279,7 @@ Hive 실행 엔진 최적화를 위한 추가 권장 사항:
 | 설정 | 권장 | HDInsight 기본값 |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = 더 안전하고 느림; false = 빠름 | false |
-| `tez.am.resource.memory.mb` | 대부분의 경우 4gb 상한 | 자동 조정 |
+| `tez.am.resource.memory.mb` | 대부분의 경우 상한 4GB | 자동 조정 |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -313,13 +311,13 @@ Pig 스크립트를 실행하기 위해 두 개의 실행 엔진 즉, MapReduce 
 
 Hive와 마찬가지로 로컬 모드는 비교적 양이 적은 데이터의 작업 속도를 높이는 데 사용됩니다.
 
-1. 로컬 모드를 사용하도록 설정하려면 `pig.auto.local.enabled`를 **true**로 설정합니다. 기본값은 False입니다.
+1. 로컬 모드를 사용하도록 설정하려면 `pig.auto.local.enabled`를 **true**로 설정합니다. 기본값은 false입니다.
 
 1. 입력 데이터 크기가 `pig.auto.local.input.maxbytes` 속성 값보다 작은 작업은 작은 작업으로 간주됩니다. 기본값은 1GB입니다.
 
 ### <a name="copy-user-jar-cache"></a>사용자 jar 캐시 복사
 
-Pig는 UDF에 필요한 JAR 파일을 태스크 노드에서 사용할 수 있도록 분산 캐시에 복사합니다. 이러한 jar 파일은 자주 변경되지 않습니다. `pig.user.cache.enabled` 설정을 사용하도록 설정하면 jar를 캐시에 배치하여 동일한 사용자가 실행하는 작업에 다시 사용할 수 있습니다. 이로 인해 작업 성능이 약간 향상됩니다.
+Pig는 UDF에 필요한 JAR 파일을 태스크 노드에서 사용할 수 있도록 분산 캐시에 복사합니다. 이러한 jar 자주 변경 되지 않습니다. `pig.user.cache.enabled` 설정을 사용하도록 설정하면 jar를 캐시에 배치하여 동일한 사용자가 실행하는 작업에 다시 사용할 수 있습니다. 이로 인해 작업 성능이 약간 향상됩니다.
 
 1. 사용하도록 설정하려면 `pig.user.cache.enabled`를 true로 설정합니다. 기본값은 false입니다.
 
@@ -329,7 +327,7 @@ Pig는 UDF에 필요한 JAR 파일을 태스크 노드에서 사용할 수 있�
 
 다음 메모리 설정은 Pig 스크립트 성능을 최적화하는 데 도움이 됩니다.
 
-* `pig.cachedbag.memusage`: bag에 할당된 메모리 양입니다. bag은 튜플의 컬렉션입니다. 튜플은 정렬된 필드 집합이며 필드는 데이터의 일부입니다. bag의 데이터가 할당된 메모리를 초과하면 데이터가 디스크로 유출됩니다. 기본값은 0.2이며, 이것은 사용 가능한 메모리의 20%를 나타냅니다. 이 메모리는 애플리케이션의 모든 bag에서 공유됩니다.
+* `pig.cachedbag.memusage`: bag에 할당된 메모리 양입니다. bag은 튜플의 컬렉션입니다. 튜플은 정렬된 필드 집합이며 필드는 데이터의 일부입니다. 모음에 있는 데이터가 할당 된 메모리를 초과 하는 경우 디스크에 분산 됩니다. 기본값은 0.2이며, 이것은 사용 가능한 메모리의 20%를 나타냅니다. 이 메모리는 애플리케이션의 모든 bag에서 공유됩니다.
 
 * `pig.spill.size.threshold`: 이 유출 크기 임계값(바이트 단위)보다 큰 bag은 디스크로 유출됩니다. 기본값은 5MB입니다.
 
@@ -337,13 +335,13 @@ Pig는 UDF에 필요한 JAR 파일을 태스크 노드에서 사용할 수 있�
 
 Pig는 작업 실행 중에 임시 파일을 생성합니다. 임시 파일을 압축하면 디스크에 파일을 쓰거나 읽을 때 성능이 향상됩니다. 다음 설정을 사용하여 임시 파일을 압축할 수 있습니다.
 
-* `pig.tmpfilecompression`: true이면 임시 파일 압축이 사용됩니다. 기본값은 False입니다.
+* `pig.tmpfilecompression`: true이면 임시 파일 압축이 사용됩니다. 기본값은 false입니다.
 
 * `pig.tmpfilecompression.codec`: 임시 파일을 압축하는 데 사용하는 압축 코덱입니다. CPU 사용률을 낮추기 위해 권장되는 압축 코덱은 [LZO](https://www.oberhumer.com/opensource/lzo/) 및 Snappy입니다.
 
 ### <a name="enable-split-combining"></a>분할 결합 사용
 
-사용하도록 설정하면 맵 작업 수가 줄어들도록 작은 파일이 결합됩니다. 이렇게 하면 작은 파일이 많이 있는 작업의 효율이 향상됩니다. 사용하도록 설정하려면 `pig.noSplitCombination`를 true로 설정합니다. 기본값은 False입니다.
+사용하도록 설정하면 맵 작업 수가 줄어들도록 작은 파일이 결합됩니다. 이렇게 하면 작은 파일이 많이 있는 작업의 효율이 향상됩니다. 사용하도록 설정하려면 `pig.noSplitCombination`를 true로 설정합니다. 기본값은 false입니다.
 
 ### <a name="tune-mappers"></a>매퍼 조정
 
@@ -416,7 +414,7 @@ HBase는 *HFile*이라는 내부 파일 형식으로 데이터를 저장합니�
 
 * `hbase.hregion.memstore.flush.size` 속성은 Memstore가 디스크로 플러시되는 크기를 정의합니다. 기본 크기는128MB입니다.
 
-* Hbase 영역 블록 승수는 `hbase.hregion.memstore.block.multiplier`에 의해 정의됩니다. 기본값은 4입니다. 허용되는 최대값은 8입니다.
+* HBase 영역 블록 승수는 `hbase.hregion.memstore.block.multiplier`에 의해 정의 됩니다. 기본값은 4입니다. 허용되는 최대값은 8입니다.
 
 * Memstore가 (`hbase.hregion.memstore.flush.size` * `hbase.hregion.memstore.block.multiplier`)바이트이면 HBase가 업데이트를 차단합니다.
 

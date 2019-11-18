@@ -8,12 +8,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.openlocfilehash: 410b945f1a9a8d659f55668e272e2d9d08482bde
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: b9a5dbd8e24659493bbbefd50c3e234dca3dbdd9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601754"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129334"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Azure Databricks 클러스터의 지역 재해 복구
 
@@ -90,7 +90,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
    > [!NOTE]
    > 라이브러리는 이 단계에서 복사되지 않습니다. 기본 API가 라이브러리를 지원하지 않기 때문입니다.
 
-   다음 python 스크립트를 복사하여 파일에 저장하고, Databricks 명령줄에서 실행합니다. 예: `python scriptname.py`
+   다음 python 스크립트를 복사하여 파일에 저장하고, Databricks 명령줄에서 실행합니다. 예: `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -133,7 +133,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
    제공된 다음 스크립트는 기존 클러스터 ID에서 새 클러스터 ID로의 매핑을 인쇄하며, 나중에 작업 마이그레이션(기존 클러스터를 사용하도록 구성된 작업)에 사용할 수 있습니다.
 
-   다음 python 스크립트를 복사하여 파일에 저장하고, Databricks 명령줄에서 실행합니다. 예: `python scriptname.py`
+   다음 python 스크립트를 복사하여 파일에 저장하고, Databricks 명령줄에서 실행합니다. 예: `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -286,7 +286,7 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
 8. **Azure blob 저장소 및 Azure Data Lake Storage 탑재 마이그레이션**
 
-   노트북 기반 솔루션을 사용 하 여 모든 [Azure Blob storage](/azure/databricks/data/data-sources/azure/azure-storage.html) 및 [Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2.html) 탑재 위치를 수동으로 다시 탑재 합니다. 스토리지 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
+   노트북 기반 솔루션을 사용 하 여 모든 [Azure Blob storage](/azure/databricks/data/data-sources/azure/azure-storage) 및 [Azure Data Lake Storage (Gen 2)](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) 탑재 위치를 수동으로 다시 탑재 합니다. 스토리지 리소스는 기본 작업 영역에 탑재되었을 것이며, 보조 작업 영역에서도 반복해야 합니다. 탑재를 위한 외부 API는 없습니다.
 
 9. **클러스터 init 스크립트 마이그레이션**
 
@@ -306,9 +306,9 @@ Databricks 제어 평면은 Databricks 작업 영역 환경을 관리하고 모�
 
     액세스 제어 기능을 사용하는 경우 리소스(노트북, 클러스터, 작업, 테이블)에 대한 액세스 제어를 수동으로 다시 적용합니다.
 
-## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Azure 에코 시스템에 대 한 재해 복구
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Azure 에코 시스템에 대한 재해 복구
 
-다른 Azure 서비스를 사용 하는 경우 해당 서비스에 대 한 재해 복구 모범 사례를 구현 해야 합니다. 예를 들어 외부 Hive metastore 인스턴스를 사용 하도록 선택 하는 경우 [azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md)및/또는 [Azure Database for MySQL](../mysql/concepts-business-continuity.md)에 대 한 재해 복구를 고려해 야 합니다. 재해 복구에 대 한 일반적인 내용은 [Azure 응용 프로그램에 대 한 재해 복구](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)를 참조 하세요.
+다른 Azure 서비스를 사용하는 경우, 해당 서비스에 대한 재해 복구 모범 사례를 구현해야 합니다. 예를 들어 외부 Hive metastore 인스턴스를 사용하려는 경우, [Azure SQL Server](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md) 및/또는 [Azure Database for MySQL ](../mysql/concepts-business-continuity.md)에 대한 재해 복구를 고려해야 합니다. 재해 복구에 대한 일반적인 정보는 [Azure 응용 프로그램에 대한 재해 복구](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

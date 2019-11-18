@@ -12,12 +12,12 @@ ms.subservice: development
 ms.date: 11/06/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 96d66e6190732d88ba9a33094b6c27bbadfd4aae
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 758c9b323e78e7e86312555f5fabdcc9c4c28330
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747796"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123723"
 ---
 # <a name="getting-started-with-visual-studio-2019-for-sql-data-warehouse"></a>SQL Data Warehouse 용 Visual Studio 2019 시작
 Visual Studio **2019** SQL SERVER DATA TOOLS (SSDT)는 다음을 수행 하는 데 사용할 수 있는 단일 도구입니다.
@@ -32,7 +32,22 @@ Visual Studio **2019** SQL SERVER DATA TOOLS (SSDT)는 다음을 수행 하는 �
 ## <a name="install-visual-studio-2019"></a>Visual Studio 2019 설치
 Visual studio **16.3**를 다운로드 하 여 설치 하려면 visual [Visual Studio 2019 다운로드][] 를 참조 하세요. 설치 하는 동안 데이터 저장소 및 처리 워크 로드를 선택 합니다. Visual Studio 2019에는 독립 실행형 SSDT 설치가 더 이상 필요 하지 않습니다.
 
+## <a name="unsupported-features-in-ssdt"></a>SSDT에서 지원 되지 않는 기능
+
+SQL Data Warehouse에 대 한 기능 릴리스에 SSDT에 대 한 지원이 포함 되지 않을 수 있습니다. 현재 지원 되지 않는 기능은 다음과 같습니다.
+
+- [구체화 된 뷰](https://docs.microsoft.com/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (진행 중)
+- [순서가 지정 된 클러스터형 Columnstore 인덱스](https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest#examples--and-) (진행 중)
+- [COPY 문](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) (진행 중)
+- [워크 로드 관리](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-management) -작업 그룹 및 분류자 (진행 중)
+- [행 수준 보안](https://docs.microsoft.com/sql/relational-databases/security/row-level-security?view=sql-server-ver15)
+  - 지원 티켓을 제출 하거나 [여기](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040057-ssdt-row-level-security) 에 투표 하 여 지원 되는 기능을 받으세요.
+- [동적 데이터 마스킹](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?toc=%2Fazure%2Fsql-data-warehouse%2Ftoc.json&view=sql-server-2017#defining-a-dynamic-data-mask)
+  - 지원 티켓을 제출 하거나 [여기](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/39040048-ssdt-support-dynamic-data-masking) 에 투표 하 여 지원 되는 기능을 받으세요. 
+- [PREDICT](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=sql-server-ver15&viewFallbackFrom=azure-sqldw-latest) 함수 
+
 ## <a name="next-steps"></a>다음 단계
+
 최신 버전의 SSDT를 만들었으므로 SQL Data Warehouse에 [연결할][connect] 준비가 되었습니다.
 
 <!--Anchors-->

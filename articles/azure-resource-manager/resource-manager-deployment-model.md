@@ -1,17 +1,14 @@
 ---
-title: Resource Manager 및 클래식 배포 | Microsoft Docs
+title: Resource Manager 및 클래식 배포
 description: 리소스 관리자 배포 모델 및 기본(또는 서비스 관리) 배포 모델 간 차이점을 설명합니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.author: tomfitz
-ms.openlocfilehash: 9356a1603a39f2ac4d18b27445bf0f8d3a555d7e
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 3cca9c71c754b39d065a599c5bb116176ec89408
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69982466"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150616"
 ---
 # <a name="azure-resource-manager-vs-classic-deployment-understand-deployment-models-and-the-state-of-your-resources"></a>Azure Resource Manager 및 클래식 배포: 배포 모델 및 리소스 상태 이해
 
@@ -102,11 +99,11 @@ Get-AzVM -ResourceGroupName ExampleGroup
 
 다음 표에서 Compute, Network 및 Storage 리소스 공급자의 상호 작동 방식에 대한 변경 내용을 설명합니다.
 
-| 항목 | 클래식 | Resource Manager |
+| 항목 | 클래식 | 리소스 관리자 |
 | --- | --- | --- |
 | Virtual Machines용 클라우드 서비스 |클라우드 서비스는 플랫폼 가용성 및 부하 분산이 필요한 가상 머신을 유지하는 컨테이너였습니다. |클라우드 서비스는 더 이상 새 모델을 사용하여 Virtual Machine을 만드는 데 필요한 개체가 아닙니다. |
-| 가상 네트워크 |가상 머신의 가상 네트워크는 선택 사항입니다. 포함되는 경우 Resource Manager에서 가상 네트워크를 배포할 수 없습니다. |가상 머신에 Resource Manager에서 배포한 가상 네트워크가 필요합니다. |
-| 저장소 계정 |가상 머신에 운영 체제, 임시 및 추가 데이터 디스크용 VHD를 저장하는 데 필요한 스토리지 계정이 필요합니다. |가상 머신에 Blob Storage에서 해당 디스크를 저장하는 스토리지 계정이 필요합니다. |
+| Virtual Network |가상 머신의 가상 네트워크는 선택 사항입니다. 포함되는 경우 Resource Manager에서 가상 네트워크를 배포할 수 없습니다. |가상 머신에 Resource Manager에서 배포한 가상 네트워크가 필요합니다. |
+| Storage 계정 |가상 머신에 운영 체제, 임시 및 추가 데이터 디스크용 VHD를 저장하는 데 필요한 스토리지 계정이 필요합니다. |가상 머신에 Blob Storage에서 해당 디스크를 저장하는 스토리지 계정이 필요합니다. |
 | 가용성 집합 |Virtual Machines에서 동일한 “AvailabilitySetName”을 구성하여 플랫폼 가용성을 표시했습니다. 최대 장애 도메인 수는 2개였습니다. |가용성 집합은 Microsoft.Compute 공급자가 표시하는 리소스입니다. 고가용성이 필요한 Virtual Machines는 가용성 집합에 포함되어야 합니다. 최대 장애 도메인 수는 이제 3개입니다. |
 | 선호도 그룹 |선호도 그룹은 Virtual Network를 만드는 데 필요했습니다. 그러나 지역 Virtual Network의 도입으로 더 이상 필요하지 않게 되었습니다. |간단히 말해, Azure 리소스 관리자를 통해 표시되는 API에는 선호도 그룹 개념이 존재하지 않습니다. |
 | 부하 분산 |클라우드 서비스를 만들면 배포된 Virtual Machines에 대한 암시적 부하 분산 장치가 제공됩니다. |부하 분산 장치는 Microsoft.Network 공급자가 표시하는 리소스입니다. 부하 분산이 필요한 Virtual Machines의 기본 네트워크 인터페이스는 부하 분산 장치를 참조해야 합니다. 부하 분산 장치는 내부 또는 외부에 있을 수 있습니다. 부하 분산 장치 인스턴스는 가상 머신의 NIC(옵션)를 포함하는 IP 주소의 백 엔드 풀을 참조하며 로드 분산 장치 공용 또는 개인 IP 주소(옵션)를 참조합니다. |
@@ -114,7 +111,7 @@ Get-AzVM -ResourceGroupName ExampleGroup
 | 예약된 IP 주소 |Azure에서 IP 주소를 예약하고 클라우드 서비스와 연결하여 IP 주소를 고정할 수 있습니다. |공용 IP 주소는 고정 모드에서 만들 수 있으며 예약된 IP 주소와 동일한 기능을 제공합니다. |
 | VM당 PIP(공용 IP 주소) |공용 IP 주소를 VM에 직접 연결할 수도 있습니다. |공용 IP 주소는 Microsoft.Network 공급자가 표시하는 리소스입니다. 공용 IP 주소는 고정(예약된) 또는 동적일 수 있습니다. |
 | 엔드포인트 |특정 포트에 대한 연결을 설정하려면 Virtual Machine에서 입력 엔드포인트를 구성해야 했습니다. 가상 머신에 연결하는 일반적인 모드 중 하나는 입력 엔드포인트를 설정하는 방식으로 수행되었습니다. |부하 분산 장치에서 인바운드 NAT 규칙을 구성하여 특정 포트의 엔드포인트에서 VM에 연결하도록 지원하는 동일한 기능을 실현할 수 있습니다. |
-| DNS 이름 |클라우드 서비스는 전역적으로 고유한 암시적 DNS 이름을 가져옵니다. 예: `mycoffeeshop.cloudapp.net` |DNS 이름은 공용 IP 주소 리소스에 지정할 수 있는 선택적 매개 변수입니다. FQDN 형식 예: `<domainlabel>.<region>.cloudapp.azure.com` |
+| DNS 이름 |클라우드 서비스는 전역적으로 고유한 암시적 DNS 이름을 가져옵니다. 예를 들어 `mycoffeeshop.cloudapp.net`을 참조하십시오. |DNS 이름은 공용 IP 주소 리소스에 지정할 수 있는 선택적 매개 변수입니다. FQDN 형식 예: `<domainlabel>.<region>.cloudapp.azure.com` |
 | 네트워크 인터페이스 |기본 및 보조 네트워크 인터페이스와 해당 속성이 가상 머신의 네트워크 구성으로 정의되었습니다. |네트워크 인터페이스는 Microsoft.Network 공급자가 표시하는 리소스입니다. 네트워크 인터페이스의 수명 주기는 Virtual Machine과 관련이 없습니다. 네트워크 인터페이스는 가상 머신의 할당된 IP 주소(필수), 가상 머신에 대한 가상 네트워크의 서브넷(필수) 및 네트워크 보안 그룹(선택)을 참조합니다. |
 
 다양한 배포 모델의 가상 네트워크를 연결하는 것에 대한 자세한 내용은 [포털에서 다양한 배포 모델의 가상 네트워크 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md)을 참조하세요.
@@ -136,7 +133,7 @@ Get-AzVM -ResourceGroupName ExampleGroup
 
 이 구성은 지원되지 않습니다. 하지만 클래식 배포 모델을 통해 만든 스토리지 계정에서 VHD 파일을 복사하고 Resource Manager를 통해 만든 새 계정에 이 파일을 추가할 수는 있습니다.
 
-**내 구독의 할당량에 미치는 영향은 무엇입니까?**
+**내 구독의 할당량에 어떤 영향이 미치나요?**
 
 Azure Resource Manager를 사용하여 만든 가상 머신, 가상 네트워크 및 스토리지 계정에 대한 할당량은 다른 할당량과 별개입니다. 각 구독에는 새 API를 사용하여 리소스를 만들 수 있는 할당량이 부여됩니다. 추가 할당량에 대한 자세한 내용은 [여기](../azure-subscription-service-limits.md)에서 확인할 수 있습니다.
 
@@ -144,7 +141,7 @@ Azure Resource Manager를 사용하여 만든 가상 머신, 가상 네트워크
 
 사용자가 작성한 모든 자동화와 스크립트는 Azure Service Management 모드에서 만든 기존 가상 머신 및 가상 네트워크에서 계속 작동합니다. 하지만 Resource Manager 모드를 통해 동일한 리소스를 만드는 새 스키마를 사용하도록 스크립트를 업데이트해야 합니다.
 
-**Azure 리소스 관리자 템플릿 예제는 어디서 찾을 수 있습니까?**
+**Azure 리소스 관리자 템플릿 예제는 어디서 찾을 수 있나요?**
 
 [Azure Resource Manager 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/)에서 포괄적인 시작 템플릿 집합을 찾을 수 있습니다.
 

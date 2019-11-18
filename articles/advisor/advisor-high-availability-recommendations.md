@@ -3,17 +3,17 @@ title: Azure Advisor를 사용하여 애플리케이션의 가용성 향상 | Mi
 description: Azure Advisor를 사용하여 Azure 배포의 가용성을 향상시킵니다.
 services: advisor
 documentationcenter: NA
-author: kasparks
-ms.author: kasparks
+author: saket-ms
+ms.author: sagupt
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: d78d8a689b860162a742e85c155205f072a3667c
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dd1b898adf4c4cdff45e05427757d90d5f80bf25
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446785"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145338"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Azure Advisor를 사용하여 애플리케이션의 가용성 향상
 
@@ -28,7 +28,7 @@ Azure Advisor는 업무상 중요한 애플리케이션의 연속성을 보장�
 
 ## <a name="ensure-availability-set-fault-tolerance"></a>가용성 집합 내결함성 보장
 
-애플리케이션에 중복성을 제공하기 위해 여러 개의 가상 머신을 가용성 집합으로 그룹화하는 것이 좋습니다. Advisor는 단일 가상 머신을 포함하는 가용성 집합을 식별하고 여기에 하나 이상의 가상 머신을 추가할 것을 권장합니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 가상 머신을 사용할 수 있고 Azure 가상 머신 SLA가 충족되도록 합니다. 가상 머신을 만들거나 기존 가상 머신을 가용성 집합에 추가할 수 있습니다.  
+애플리케이션에 중복성을 제공하기 위해 여러 개의 가상 머신을 가용성 집합으로 그룹화하는 것이 좋습니다. Advisor는 단일 가상 머신을 포함하는 가용성 집합을 식별하고 여기에 하나 이상의 가상 머신을 추가할 것을 권장합니다. 이 구성은 계획 된 유지 관리 또는 계획 되지 않은 유지 관리 이벤트 중에 하나 이상의 가상 머신을 사용할 수 있고 Azure virtual machine SLA를 충족 하도록 합니다. 가상 컴퓨터를 만들거나 기존 가상 컴퓨터를 가용성 집합에 추가 하도록 선택할 수 있습니다.  
 
 ## <a name="use-managed-disks-to-improve-data-reliability"></a>Managed Disks를 사용하여 데이터 안정성 개선
 
@@ -64,38 +64,38 @@ Traffic Manager 프로필이 지리적 라우팅에 대해 구성된 경우 트�
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>연결 복원을 위해 VPN 게이트웨이를 활성-활성으로 구성
 
-활성-활성 구성에서 VPN gateway의 두 인스턴스는 온-프레미스 VPN 장치에 S2S VPN 터널을 설정 합니다. 게이트웨이 인스턴스 하나에서 계획된 유지 관리 이벤트 또는 계획되지 않은 이벤트가 발생하면 트래픽이 다른 활성 IPsec 터널로 전송되도록 자동 전환됩니다. Azure Advisor는 활성-활성으로 구성되지 않은 VPN 게이트웨이를 식별하여 고가용성을 유지할 수 있도록 해당 게이트웨이를 구성하라는 제안 메시지를 표시합니다.
+활성-활성 구성에서 VPN 게이트웨이의 두 인스턴스는 모두 온-프레미스 VPN 장치에 대 한 S2S VPN 터널을 설정 합니다. 게이트웨이 인스턴스 하나에서 계획된 유지 관리 이벤트 또는 계획되지 않은 이벤트가 발생하면 트래픽이 다른 활성 IPsec 터널로 전송되도록 자동 전환됩니다. Azure Advisor는 활성-활성으로 구성되지 않은 VPN 게이트웨이를 식별하여 고가용성을 유지할 수 있도록 해당 게이트웨이를 구성하라는 제안 메시지를 표시합니다.
 
-## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>프로덕션 VPN gateway를 사용 하 여 프로덕션 워크 로드를 실행 합니다.
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>프로덕션 VPN gateway를 사용 하 여 프로덕션 워크 로드 실행
 
-Azure Advisor는 기본 SKU가 있는 모든 VPN gateway에 대 한 확인 하 고 대신 프로덕션 SKU를 사용 하는 것이 좋습니다. 기본 SKU는 개발 및 테스트 목적으로 설계 되었습니다. 프로덕션 Sku 수가 높을수록 터널, BGP 지원, 활성-활성 구성 옵션, 사용자 지정 Ipsec/IKE 정책 및 높은 안정성 및 가용성을 제공합니다.
+Azure Advisor는 기본 SKU 인 VPN gateway를 확인 하 고 대신 프로덕션 SKU를 사용 하는 것이 좋습니다. 기본 SKU는 개발 및 테스트 목적으로 설계 되었습니다. 프로덕션 Sku는 더 높은 수의 터널, BGP 지원, 활성-활성 구성 옵션, 사용자 지정 Ipsec/IKE 정책, 높은 안정성 및 가용성을 제공 합니다.
 
-## <a name="repair-invalid-log-alert-rules"></a>잘못 된 로그 경고 규칙을 복구
+## <a name="repair-invalid-log-alert-rules"></a>잘못 된 로그 경고 규칙 복구
 
-Azure Advisor는 해당 조건 섹션에 지정 된 잘못 된 쿼리를 포함 하는 경고 규칙을 검색 합니다. 로그 경고 규칙은 Azure Monitor에서 생성되며 지정된 간격으로 분석 쿼리를 실행하는 데 사용됩니다. 쿼리 결과에 따라 경고를 트리거할 것인지 여부가 결정됩니다. 시간이 지나 참조되는 리소스, 테이블 또는 명령이 변경되면 분석 쿼리가 유효하지 않게 될 수 있습니다. 관리자 가져오기 자동 함에서 사용 되지 않도록 하 고 Azure에서 리소스의 모니터링 검사를 확인 하도록 경고 규칙에서 쿼리를 해결 하는 것이 좋습니다. [경고 규칙 문제를 해결 하는 방법에 대 한 자세한 정보](https://aka.ms/aa_logalerts_queryrepair)
+Azure Advisor는 해당 조건 섹션에 잘못 된 쿼리가 지정 된 경고 규칙을 검색 합니다. 로그 경고 규칙은 Azure Monitor에서 생성되며 지정된 간격으로 분석 쿼리를 실행하는 데 사용됩니다. 쿼리 결과에 따라 경고를 트리거할 것인지 여부가 결정됩니다. 시간이 지나 참조되는 리소스, 테이블 또는 명령이 변경되면 분석 쿼리가 유효하지 않게 될 수 있습니다. Advisor는 자동 사용 하지 않도록 설정 하 고 Azure에서 리소스의 모니터링 범위를 확인 하는 것을 방지 하기 위해 경고 규칙의 쿼리를 수정 하는 것을 권장 합니다. [경고 규칙 문제 해결에 대 한 자세한 정보](https://aka.ms/aa_logalerts_queryrepair)
 
-## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Cosmos DB 컬렉션에서 일관성 인덱싱 모드 구성
+## <a name="configure-consistent-indexing-mode-on-your-cosmos-db-collection"></a>Cosmos DB 컬렉션에서 일관 된 인덱싱 모드 구성
 
-지연 인덱싱 모드를 사용 하 여 구성 된 azure Cosmos DB 컨테이너의 쿼리 결과 새로 고침에 영향을 줄 수 있습니다. Advisor는 컨테이너에는이 방식으로 구성 된 감지 하 고 일관 된 모드로 전환 하는 것이 좋습니다. [인덱싱 정책에서 Cosmos DB에 자세히 알아보기](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
+지연 인덱싱 모드로 구성 된 Azure Cosmos DB 컨테이너는 쿼리 결과의 새로 고침에 영향을 줄 수 있습니다. Advisor는 이러한 방식으로 구성 된 컨테이너를 검색 하 고 일관 된 모드로 전환 하는 것을 권장 합니다. [Cosmos DB에서 인덱싱 정책에 대해 자세히 알아보세요.](https://aka.ms/cosmosdb/how-to-manage-indexing-policy)
 
 ## <a name="configure-your-azure-cosmos-db-containers-with-a-partition-key"></a>파티션 키를 사용하여 Azure Cosmos DB 컨테이너 구성
 
-Azure Advisor는 프로 비전 된 저장소 할당량 한도 도달 하는 Azure Cosmos DB 분할 되지 않은 컬렉션을 식별 합니다. 이러한 자동으로 확장할 수 있습니다 서비스에서 이러한 컬렉션 파티션 키 정의 사용 하 여 새 컬렉션으로 마이그레이션 하는 것이 좋습니다. [파티션 키를 선택 하는 방법에 대 한 자세한 정보](https://aka.ms/cosmosdb/choose-partitionkey)
+Azure Advisor는 프로 비전 된 저장소 할당량에 근접 하는 분할 되지 않은 컬렉션 Azure Cosmos DB를 식별 합니다. 이러한 컬렉션은 서비스에 의해 자동으로 확장 될 수 있도록 파티션 키 정의를 사용 하 여 새 컬렉션으로 마이그레이션하는 것이 좋습니다. [파티션 키를 선택 하는 방법에 대 한 자세한 정보](https://aka.ms/cosmosdb/choose-partitionkey)
 
 ## <a name="upgrade-your-azure-cosmos-db-net-sdk-to-the-latest-version-from-nuget"></a>Azure Cosmos DB .NET SDK를 최신 버전의 Nuget으로 업그레이드
 
-Azure Advisor는 이전 버전의.NET SDK를 사용 하는 최신 수정, 성능 향상 및 새로운 기능에 대 한 Nuget에서 최신 버전으로 업그레이드를 권장 하는 Azure Cosmos DB 계정을 식별 합니다. [Cosmos DB.NET SDK에 자세히 알아보기](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor는 이전 버전의 .NET SDK를 사용 하는 Azure Cosmos DB 계정을 식별 하 고 최신 수정, 성능 향상 및 새로운 기능 기능을 위해 Nuget에서 최신 버전으로 업그레이드 하는 것을 권장 합니다. [Cosmos DB .NET SDK에 대해 자세히 알아보기](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
 ## <a name="upgrade-your-azure-cosmos-db-java-sdk-to-the-latest-version-from-maven"></a>Azure Cosmos DB Java SDK를 최신 버전의 Maven으로 업그레이드
 
-Azure Advisor는 이전 버전의 Java SDK를 사용 하는 최신 수정, 성능 향상 및 새로운 기능에 대 한 Maven에서 최신 버전으로 업그레이드를 권장 하는 Azure Cosmos DB 계정을 식별 합니다. [Cosmos DB Java SDK에 자세히 알아보기](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
+Azure Advisor는 이전 버전의 Java SDK를 사용 하는 Azure Cosmos DB 계정을 식별 하 고 최신 수정, 성능 향상 및 새로운 기능 기능을 위해 Maven에서 최신 버전으로 업그레이드 하는 것이 좋습니다. [Cosmos DB Java SDK에 대 한 자세한 정보](https://aka.ms/cosmosdb/sql-api-sdk-dotnet)
 
 ## <a name="upgrade-your-azure-cosmos-db-spark-connector-to-the-latest-version-from-maven"></a>Azure Cosmos DB Spark Connector를 최신 버전의 Maven으로 업그레이드
 
-Azure Advisor는 Cosmos DB Spark 커넥터의 이전 버전을 사용 하는 최신 수정, 성능 향상 및 새로운 기능에 대 한 Maven에서 최신 버전으로 업그레이드를 권장 하는 Azure Cosmos DB 계정을 식별 합니다. [Cosmos DB Spark 커넥터에 자세히 알아보기](https://aka.ms/cosmosdb/spark-connector)
+Azure Advisor는 이전 버전의 Cosmos DB Spark 커넥터를 사용 하는 Azure Cosmos DB 계정을 식별 하 고 최신 수정, 성능 향상 및 새로운 기능 기능을 위해 Maven에서 최신 버전으로 업그레이드 하는 것이 좋습니다. [Cosmos DB Spark 커넥터에 대 한 자세한 정보](https://aka.ms/cosmosdb/spark-connector)
 
-## <a name="enable-virtual-machine-replication"></a>가상 컴퓨터 복제를 사용하도록 설정
-가상 컴퓨터 복제를 다른 지역에 사용 되지 않은 지역 가동 중단 시 복원 하지 않습니다. 가상 머신을 복제 Azure 지역 가동 중단 시간 동안 부정적인 비즈니스 영향을 줄일 수 있습니다. 관리자가 복제 되지 않은 Vm 사용 하도록 설정 하 고 중단이 발생할 경우 가져올 수 있습니다 신속 하 게 가상 컴퓨터 원격 Azure 지역에 있도록 복제를 사용 하도록 설정 하는 것이 좋습니다 검색 됩니다. [가상 머신 복제에 자세히 알아보기](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
+## <a name="enable-virtual-machine-replication"></a>가상 머신 복제 사용
+다른 지역에 복제를 사용 하도록 설정 하지 않은 가상 컴퓨터는 지역 가동 중단으로 복원 되지 않습니다. 가상 컴퓨터를 복제 하면 Azure 지역 가동 중단 시 부정적인 비즈니스 영향을 줄일 수가 줄어듭니다. Advisor는 복제를 사용 하도록 설정 되지 않은 Vm을 검색 하 고, 가동 중단이 발생할 경우 원격 Azure 지역에서 가상 컴퓨터를 신속 하 게 가져올 수 있도록 복제를 사용 하도록 설정 하는 것이 좋습니다. [가상 컴퓨터 복제에 대 한 자세한 정보](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart)
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Advisor의 고가용성 권장 사항에 액세스하는 방법
 
@@ -111,4 +111,4 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 비용 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 성능 권장 사항](advisor-performance-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-security-recommendations.md)
-
+* [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)

@@ -1,23 +1,17 @@
 ---
-title: 클라우드 간에 템플릿 재사용 - Azure Resource Manager
+title: 클라우드에서 템플릿 재사용
 description: 서로 다른 클라우드 환경에서 일관되게 작동하는 Azure Resource Manager 템플릿을 개발합니다. Azure Stack을 위해 새 템플릿을 만들거나, 기존 템플릿을 업데이트합니다.
-services: azure-resource-manager
-documentationcenter: na
 author: marcvaneijk
-ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 38da6d39d095ce27cdd26719d9b8b752d2921bc0
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 2964bb4365a2c153e7bc82c3292545ad4de985eb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164761"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143780"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발
 
@@ -445,7 +439,7 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 * 연결 문자열(MySql, SQLServer, SQLAzure, Custom, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
 * Traffic Manager
 * 공용 IP 주소의 domainNameLabel
-* Cloud Services
+* 클라우드 서비스
 
 일반적으로, 템플릿에 하드 코딩된 엔드포인트를 사용하면 안 됩니다. 모범 사례는 reference 템플릿 함수를 사용하여 엔드포인트를 동적으로 검색하는 것입니다. 예를 들어, 가장 일반적으로 하드 코딩되는 엔드포인트는 스토리지 계정의 엔드포인트 네임스페이스입니다. 각 스토리지 계정에는 스토리지 계정 이름과 엔드포인트 네임스페이스를 연결하여 생성된 고유 FQDN이 있습니다. mystorageaccount1이라는 Blob Storage 계정은 클라우드에 따라 다른 FQDN을 생성합니다.
 
@@ -473,7 +467,7 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 }
 ```
 
-그런 다음, `reference` 템플릿 함수 내에서 `resourceId` 함수를 사용하여 데이터베이스 속성을 검색할 수 있습니다. 반환 개체에는 전체 엔드포인트 값이 포함된 `fullyQualifiedDomainName` 속성이 있습니다. 이 값은 런타임에 검색되며, 클라우드 환경 특정 엔드포인트 네임스페이스를 제공합니다. 엔드포인트 네임스페이스를 하드 코딩하지 않고 연결 문자열을 정의하려면 다음과 같이 연결 문자열에서 직접 반환 개체의 속성을 참조할 수 있습니다.
+그런 다음, `resourceId` 템플릿 함수 내에서 `reference` 함수를 사용하여 데이터베이스 속성을 검색할 수 있습니다. 반환 개체에는 전체 엔드포인트 값이 포함된 `fullyQualifiedDomainName` 속성이 있습니다. 이 값은 런타임에 검색되며, 클라우드 환경 특정 엔드포인트 네임스페이스를 제공합니다. 엔드포인트 네임스페이스를 하드 코딩하지 않고 연결 문자열을 정의하려면 다음과 같이 연결 문자열에서 직접 반환 개체의 속성을 참조할 수 있습니다.
 
 ```json
 "[concat('Server=tcp:', reference(resourceId('sql', 'Microsoft.Sql/servers', parameters('test')), '2015-05-01-preview').fullyQualifiedDomainName, ',1433;Initial Catalog=', parameters('database'),';User ID=', parameters('username'), ';Password=', parameters('pass'), ';Encrypt=True;')]"
@@ -493,7 +487,7 @@ Azure는 다양한 VM 이미지를 제공합니다. Microsoft 및 파트너가 �
 az vm image list -all
 ```
 
-`-Location` 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet [Get-AzureRmVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher)를 사용하면 동일한 목록을 검색할 수 있습니다. 예를 들어:
+[ 매개 변수를 통해 원하는 위치를 지정하여 Azure PowerShell cmdlet ](/powershell/module/az.compute/get-azvmimagepublisher)Get-AzureRmVMImagePublisher`-Location`를 사용하면 동일한 목록을 검색할 수 있습니다. 예를 들어:
 
 ```azurepowershell-interactive
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
@@ -596,7 +590,7 @@ Get-AzureRmVMSize -Location "West Europe"
 az vm extension image list --location myLocation
 ```
 
-Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예:
+Azure PowerShell [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) cmdlet을 실행하고 `-Location`을 사용하여 가상 머신 이미지의 위치를 지정할 수도 있습니다. 예를 들어:
 
 ```azurepowershell-interactive
 Get-AzureRmVmImagePublisher -Location myLocation | Get-AzureRmVMExtensionImageType | Get-AzureRmVMExtensionImage | Select Type, Version

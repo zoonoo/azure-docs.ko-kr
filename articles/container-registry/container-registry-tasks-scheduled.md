@@ -1,6 +1,6 @@
 ---
 title: 작업 예약 Azure Container Registry
-description: 하나 이상의 타이머 트리거를 설정 하 여 정의 된 일정에 Azure Container Registry 작업을 실행 하는 방법을 알아봅니다.
+description: 이 자습서에서는 하나 이상의 타이머 트리거를 설정 하 여 정의 된 일정에 Azure Container Registry 작업을 실행 하는 방법에 대해 알아봅니다.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,16 +8,22 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019
 ms.author: danlep
-ms.openlocfilehash: 6272b5467aff10171814152eb4188554a22c7a51
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ae36b8d67d02f8cae0007b7b06485932db851af5
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931460"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148630"
 ---
 # <a name="run-an-acr-task-on-a-defined-schedule"></a>정의 된 일정에 따라 ACR 작업 실행
 
-이 문서에서는 일정에 따라 [ACR 작업](container-registry-tasks-overview.md) 을 실행 하는 방법을 보여 줍니다. 하나 이상의 *타이머 트리거*를 설정 하 여 작업을 예약 합니다.
+이 자습서에서는 일정에 따라 [ACR 작업](container-registry-tasks-overview.md) 을 실행 하는 방법을 보여 줍니다. 하나 이상의 *타이머 트리거*를 설정 하 여 작업을 예약 합니다. 타이머 트리거는 단독으로 사용 하거나 다른 작업 트리거와 함께 사용할 수 있습니다.
+
+이 자습서에서는 다음 작업을 예약 하는 방법에 대해 알아봅니다.
+
+> [!div class="checklist"]
+> * 타이머 트리거를 사용 하 여 작업 만들기
+> * 타이머 트리거 관리
 
 작업 예약은 다음과 같은 시나리오에 유용 합니다.
 
@@ -174,7 +180,7 @@ Cron 식에 사용 되는 표준 시간대는 UTC (협정 세계시)입니다. �
 
 각 필드에는 다음과 같은 형식의 값 중 하나가 포함될 수 있습니다.
 
-|에  |예  |트리거될 때  |
+|형식  |예  |트리거될 때  |
 |---------|---------|---------|
 |특정 값 |<nobr>`"5 * * * *"`</nobr>|매시간 매 시간 5 분 지난 5 분|
 |모든 값(`*`)|<nobr>`"* 5 * * *"`</nobr>|5:00 UTC부터 1 시간 마다 (60 시간)|
@@ -199,9 +205,11 @@ Cron 식에 사용 되는 표준 시간대는 UTC (협정 세계시)입니다. �
 
 ## <a name="next-steps"></a>다음 단계
 
+이 자습서에서는 타이머에 의해 자동으로 트리거되는 Azure Container Registry 작업을 만드는 방법에 대해 알아보았습니다. 
+
 예약 된 작업을 사용 하 여 레지스트리에서 리포지토리를 정리 하는 예제는 [Azure container registry에서 자동으로 이미지 제거](container-registry-auto-purge.md)를 참조 하세요.
 
-소스 코드 커밋 또는 기본 이미지 업데이트에 의해 트리거되는 작업의 예를 보려면 [ACR 작업 자습서 시리즈](container-registry-tutorial-quick-task.md)를 확인 하세요.
+소스 코드 커밋 또는 기본 이미지 업데이트에 의해 트리거되는 작업의 예는 [ACR 작업 자습서 시리즈](container-registry-tutorial-quick-task.md)의 다른 문서를 참조 하세요.
 
 
 

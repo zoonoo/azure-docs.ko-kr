@@ -1,18 +1,15 @@
 ---
-title: 비동기 작업의 상태 - Azure Resource Manager
+title: 비동기 작업의 상태
 description: Azure에서 비동기 작업을 추적하는 방법에 대해 설명합니다. 장기 실행 작업의 상태를 가져오는 데 사용하는 값을 보여줍니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 12/09/2018
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 56d55365a243a9e51e96985ee0035c43404f82f0
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 39174010e5d5c71e1b9f09827f92a2c540d98e78
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206289"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149513"
 ---
 # <a name="track-asynchronous-azure-operations"></a>Azure 비동기 작업 추적
 일부 Azure REST 작업은 작업을 신속하게 완료할 수 없기 때문에 비동기적으로 실행합니다. 이 문서에서는 응답에서 반환되는 값을 통해 비동기 작업의 상태를 추적하는 방법을 설명합니다.  
@@ -39,7 +36,7 @@ ms.locfileid: "67206289"
 
 그러나 일부 비동기 작업은 이러한 값을 반환하지 않습니다. 예를 들어, 한 가지 작업에 대한 Azure-AsyncOperation 헤더 값 및 다른 작업에 대한 위치 헤더 값을 평가해야 합니다. 
 
-요청에 대한 모든 헤더 값을 검색하는 경우 헤더 값을 검색 합니다. 예를 들어 C#에서는 다음 코드를 사용하여 `response`로 명명된 `HttpWebResponse` 개체에서 헤더 값을 검색합니다.
+요청에 대한 모든 헤더 값을 검색하는 경우 헤더 값을 검색 합니다. 예를 들어 C#에서는 다음 코드를 사용하여 `HttpWebResponse`로 명명된 `response` 개체에서 헤더 값을 검색합니다.
 
 ```cs
 response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
@@ -76,7 +73,7 @@ response.Headers.GetValues("Azure-AsyncOperation").GetValue(0)
 리소스 만들기, 업데이트 또는 삭제(PUT, PATCH, DELETE)하는 작업은 일반적으로 `provisioningState` 값을 반환합니다. 작업이 완료되면 다음 세 가지 값 중 하나가 반환됩니다. 
 
 * 성공함
-* 실패
+* Failed
 * Canceled
 
 다른 값은 모두 작업이 계속 실행 중임을 나타냅니다. 리소스 공급자는 해당 상태를 표시하는 사용자 지정된 값을 반환할 수 있습니다. 예를 들어 요청을 받고 실행 중인 경우 **수락됨**을 받을 수 있습니다.

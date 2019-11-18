@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 04dcdbe6854a386f7edaa04aa9c2912789122a31
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8e04369e3e070054c5095abde29ecca99d071cb8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827449"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144453"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -20,7 +20,7 @@ ms.locfileid: "73827449"
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
 
-![AlertLogic 로고](./media/partners/alertlogic.png)
+![AlertLogic Logo](./media/partners/alertlogic.png)
 
 Alert Logic Log Manager는 보안 분석 및 보존을 위해 VM, 애플리케이션 및 Azure 플랫폼 로그를 수집합니다. 또한 Azure Monitor API를 통해 Azure Activity Log를 수집합니다. 이 정보는 부정 행위를 탐지하고 규정 준수 요구 사항에 부합하는 데 사용됩니다.
 
@@ -35,12 +35,6 @@ Alert Logic Log Manager는 보안 분석 및 보존을 위해 VM, 애플리케�
 AppDynamics APM(Application Performance Management)을 사용하면 애플리케이션 소유자가 성능 병목 문제를 신속히 해결하고 Azure 환경에서 실행되는 애플리케이션의 성능을 최적화할 수 있습니다. Azure Cloud Services(PaaS), Virtual Machines(IaaS), 원격 서비스 탐지(Microsoft Azure Service Bus), Microsoft Azure Queue Microsoft Azure Remote Services(Azure Blob), Azure Queue(Microsoft Service Bus), 데이터 스토리지, Microsoft Azure Blob Storage 모니터링에 사용할 수 있습니다. 이제 Azure Marketplace에서 AppDynamics APM을 사용할 수 있습니다.
 
 [설명서로 이동 합니다.][appdynamics-doc]
-
-## <a name="microfocus-arcsight"></a>Microfocus ArcSight
-
-ArcSight에는 Azure Monitor 이벤트 허브에 대한 스마트 커넥터가 있습니다.
-
-[자세한 정보][arcsight-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 
@@ -64,16 +58,16 @@ Circonus는 온-프레미스 또는 SaaS 배포용으로 빌드된 마이크로 
 
 ## <a name="cloudhealth"></a>CloudHealth
 
-![CloudHealth 로고](./media/partners/cloudhealth.png)
+![CloudHealth Logo](./media/partners/cloudhealth.png)
 
 
 시간과 비용을 절감하도록 빌드된 플랫폼을 사용하여 클라우드를 통합하고 자동화합니다. CloudHealth는 클라우드 관리를 위한 탁월한 가시성, 직관적인 최적화 및 견고한 관리 사례를 제공합니다. CloudHealth 플랫폼을 사용 하면 기업 및 MSPs에서 클라우드 투자 수익을 최대화할 수 있습니다. 비용, 사용량, 성능, 보안에 대해 자신 있게 결정할 수 있습니다.
 
-[자세한 정보.][cloudhealth-doc]
+[자세히 알아보기][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
-![CloudMonix 로고](./media/partners/cloudmonix.png)
+![CloudMonix Logo](./media/partners/cloudmonix.png)
 
 CloudMonix는 Microsoft Azure 플랫폼을 위한 모니터링, 자동화 및 자동 복구 서비스를 제공합니다.
 
@@ -127,6 +121,31 @@ InfluxDB의 작성자인 InfluxData는 DevOps 및 IoT 애플리케이션에 대�
 LogicMonitor®는 복잡한 IT 인프라에 대한 선행 SaaS 기반, 성능 모니터링 플랫폼입니다. 수천 개의 기술에 대한 보급으로 LogicMonitor는 인프라 및 애플리케이션 성능에 대한 세부적인 가시성을 제공합니다. LM 클라우드의 포괄적인 Azure 모니터링을 사용하면 사용자는 Azure 클라우드, 온 프레미스 및 하이브리드 클라우드 리소스의 성능을 모두 단일 플랫폼에서 상관 관계를 지정할 수 있습니다. 자동화된 리소스 검색, 기본 제공 모니터링 템플릿, 미리 구성된 경고 임계값 및 사용자 지정 가능한 대시보드는 성공에 필요한 속도, 유연성 및 가시성을 IT에 제공하기 위해 결합됩니다.
 
 [설명서로 이동 합니다.][logicmonitor-doc]
+
+## <a name="logrhythm"></a>LogRhythm
+
+![LogRhythm 로고](./media/partners/logrhythm.png)
+
+NextGen SIEM의 선두 LogRhythm는 6 대륙의 조직이 신속 하 게 검색 하 고, 응답 하 고, 그것 사이버 위협 대 하 여 위험을 성능이 크게 수 있도록 합니다. LogRhythm의 TLM (위협 수명 주기 관리) 워크플로는 보안 작업 센터의 기반으로, 고객이 IT 및 OT 환경에 대 한 클라우드, 물리적 및 가상 인프라를 보호할 수 있도록 지원 합니다. LogRhythm 고객 이며 Azure 경험을 시작할 준비가 되 면 LogRhythm Open 수집기 및 EventHub 통합을 설치 하 고 구성 해야 합니다. Azure Monitor 구성과 개방형 수집기의 설명서를 비롯 한 자세한 내용은 [여기](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)에서 찾을 수 있습니다. 
+
+
+
+## <a name="microfocus"></a>마이크로 집중
+
+![마이크로 포커스 로고](./media/partners/microfocus.png)     
+
+마이크로 포커스 **Arcsight** 에는 Azure Monitor event hubs 용 스마트 커넥터가 있습니다.
+
+[자세히 알아보기](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight 설명서입니다.")
+
+마이크로 포커스 **작업 브리지** 는 모든 하이브리드 it 리소스 (모든 장치, 운영 체제, 데이터베이스, 응용 프로그램 또는 서비스)를 실행 하는 위치와 관계 없이 모든 데이터 형식 (이벤트, 메트릭, 로그 및 종속성)에 적용 합니다. 심층 응용 프로그램 상태 분석과 결합 된 서비스 품질 모니터링의 고유한 조합을 제공 하며, Microsoft Azure 서비스에 대 한 포괄적인 성능 및 가용성 모니터링을 포함 합니다. 작업 브리지를 사용 하면 비즈니스 및 IT 관련자 모두가 이해할 수 있는 모든 장치에서 브라우저를 통해 사용할 수 있는 단일 창을 제공할 수 있습니다.
+
+자세한 정보
+- [OB Suite 개요](https://www.microfocus.com/products/operations-bridge-suite/overview)
+- [다운로드](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
+- [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope은 작업 브리지 제품군의 구성 요소입니다.
+
+
 
 ## <a name="moogsoft"></a>Moogsoft
 
@@ -243,7 +262,6 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 <!--Partner Documentation-->
 [alertlogic-doc]: https://legacy.docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "AlertLogic 설명서."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "AppDynamics 설명서."
-[arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight 설명서."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Botmetric 소개."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 

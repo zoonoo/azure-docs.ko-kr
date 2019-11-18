@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 442ceab68851dc108d327cdf212dcf58d5b31084
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: 17906a7d0953d8b320301d74cda81d14c9ad340f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71008555"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123439"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처
 Azure Event Hubs를 사용하면 시간 또는 크기 간격을 유연하게 지정하여 Event Hubs의 스트리밍 데이터를 선택한 [Azure Blob 스토리지](https://azure.microsoft.com/services/storage/blobs/) 또는 [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/) 계정에 자동으로 캡처할 수 있습니다. 캡처는 빠르게 설정할 수 있으며 실행을 위한 관리 비용이 없고 Event Hubs [처리량 단위](event-hubs-scalability.md#throughput-units)에 따라 크기가 자동으로 조정됩니다. Event Hubs 캡처는 스트리밍 데이터를 Azure에 로드하는 가장 쉬운 방법이며 데이터 캡처보다 데이터 처리에 집중할 수 있게 해줍니다.
@@ -81,7 +81,7 @@ Avro 파일을 쉽게 탐색하는 방법은 Apache에서 [Avro 도구][Avro Too
 
 다음 설명서에 나온 것처럼 Avro 파일에서 데이터를 손쉽게 쿼리할 수 있는 Azure Blob Storage에 대한 기본 지원이 제공됩니다.
 
-[Apache Drill: Azure Blob Storage 플러그 인][Apache Drill: Azure Blob Storage Plugin]
+[Apache 드릴: Azure Blob Storage 플러그 인][Apache Drill: Azure Blob Storage Plugin]
 
 캡처된 파일을 손쉽게 쿼리하려면 컨테이너를 통해 Apache Drill을 사용하도록 설정된 VM을 만들고 실행하여 Azure Blob Storage에 액세스할 수 있습니다.
 
@@ -89,14 +89,14 @@ https://github.com/yorek/apache-drill-azure-blob
 
 전체 엔드투엔드 샘플은 확장 리포지토리의 스트리밍에 제공됩니다.
 
-[대규모 스트리밍: Event Hubs 캡처]
+[규모에 맞게 스트리밍: Event Hubs 캡처]
 
 ### <a name="use-apache-spark"></a>Apache Spark 사용
 
 [Apache Spark][Apache Spark] 는 "대규모 데이터 처리를 위한 통합 분석 엔진"입니다. SQL을 비롯한 다른 언어를 지원하며, Azure Blob Storage에 쉽게 액세스할 수 있습니다. Azure에서 Apache Spark를 실행하는 방법은 두 가지가 있으며, 모두 Azure Blob Storage에 손쉽게 액세스할 수 있습니다.
 
 - [HDInsight: Azure storage의 주소 파일][HDInsight: Address files in Azure storage]
-- [Azure Databricks: Azure Blob 저장소][Azure Databricks: Azure Blob Storage]
+- [Azure Databricks: Azure Blob storage][Azure Databricks: Azure Blob Storage]
 
 ### <a name="use-avro-tools"></a>Avro 도구 사용
 
@@ -139,7 +139,7 @@ Event Hubs 캡처는 처리량 단위와 유사하게 시간당 요금으로 측
 
 ## <a name="integration-with-event-grid"></a>Event Grid와 통합 
 
-원본으로 Event Hubs 네임스페이스를 사용하여 Azure Event Grid 구독을 만들 수 있습니다. 다음 자습서는 원본으로 이벤트 허브 및 싱크로 Azure Functions 앱을 사용하여 Event Grid 구독을 만드는 방법을 보여줍니다. [Event Grid 및 Azure Functions를 사용하여 캡처된 Event Hubs 데이터를 처리하고 SQL Data Warehouse로 마이그레이션](store-captured-data-data-warehouse.md)
+원본으로 Event Hubs 네임스페이스를 사용하여 Azure Event Grid 구독을 만들 수 있습니다. 다음 자습서에서는 원본으로 이벤트 허브를, 싱크로 Azure Functions 앱을 사용하여 Event Grid 구독을 만드는 방법을 보여줍니다. [Event Grid 및 Azure Functions를사용하여 SQL Data Warehouse에 캡처된 Event Hubs 데이터 처리 및 마이그레이션](store-captured-data-data-warehouse.md)
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -160,7 +160,7 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 [Java]: https://avro.apache.org/docs/current/gettingstartedjava.html
 [Python]: https://avro.apache.org/docs/current/gettingstartedpython.html
 [Event Hubs overview]: event-hubs-what-is-event-hubs.md
-[HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage#address-files-in-azure-storage
+[HDInsight: Address files in Azure storage]:https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage
 [Azure Databricks: Azure Blob Storage]:https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [Apache Drill: Azure Blob Storage Plugin]:https://drill.apache.org/docs/azure-blob-storage-plugin/
-[대규모 스트리밍: Event Hubs 캡처]: https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture
+[규모에 맞게 스트리밍: Event Hubs 캡처]: https://github.com/yorek/streaming-at-scale/tree/master/event-hubs-capture

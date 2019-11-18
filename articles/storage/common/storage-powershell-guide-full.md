@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 40fb44857126c3562e01585c3131afec87f01e42
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 7064496b89143f467ea63fe38233724a7b0af96d
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430068"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131025"
 ---
-# <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 Azure PowerShell 사용
+# <a name="using-azure-powershell-with-azure-storage"></a>Azure Storage와 함께 Azure PowerShell 사용
 
 PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure PowerShell이 사용됩니다. Azure Storage의 경우 이러한 cmdlet는 제어 평면과 데이터 평면 등, 두 범주로 나뉩니다. 제어 평면 cmdlet는 스토리지 계정 관리(스토리지 계정 만들기, 속성 설정, 스토리지 계정 삭제, 액세스 키 회전)에 사용됩니다. 데이터 평면 cmdlet는 스토리지 계정*에* 저장된 데이터를 관리하는 데 사용됩니다. 예를 들어 Blob 업로드, 파일 공유 만들기, 큐에 메시지 추가 등이 있습니다.
 
-이 방법 문서에서는 관리 평면 cmdlet를 사용하여 스토리지 계정을 관리 는 일반적인 작업에 대해 설명합니다. 다음 방법을 알아봅니다.
+이 방법 문서에서는 관리 평면 cmdlet를 사용하여 스토리지 계정을 관리 는 일반적인 작업에 대해 설명합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 스토리지 계정 나열
@@ -32,13 +32,13 @@ PowerShell 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관�
 
 이 문서에서는 스토리지 분석을 사용하고 액세스하는 방법, 데이터 평면 cmdlet을 사용하는 방법, China 클라우드, German 클라우드 및 Government 클라우드 같은 Azure 독립 클라우드에 액세스하는 방법 등, 스토리지에 대한 몇 가지 다른 PowerShell 문서에 대한 링크를 제공합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 이 연습에는 Azure PowerShell 모듈 Az 버전 0.7 이상이 필요합니다. `Get-Module -ListAvailable Az`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
 
-이 연습에서는 일반 PowerShell 창에 명령을 입력하거나, [Windows PowerShell ISE(Integrated Scripting Environment)](/powershell/scripting/getting-started/fundamental/windows-powershell-integrated-scripting-environment--ise-)를 사용하여 예제를 진행하면서 편집기에 명령을 입력한 다음 한 번에 하나 이상의 명령을 테스트할 수 있습니다. 실행하려는 행을 강조 표시한 다음 선택 항목 실행을 클릭하여 해당 명령만 실행할 수 있습니다.
+이 연습에서는 일반 PowerShell 창에 명령을 입력하거나, [Windows PowerShell ISE(Integrated Scripting Environment)](/powershell/scripting/components/ise/exploring-the-windows-powershell-ise)를 사용하여 예제를 진행하면서 편집기에 명령을 입력한 다음 한 번에 하나 이상의 명령을 테스트할 수 있습니다. 실행하려는 행을 강조 표시한 다음 선택 항목 실행을 클릭하여 해당 명령만 실행할 수 있습니다.
 
 스토리지 계정에 대한 자세한 내용은 [Storage 소개](storage-introduction.md) 및 [Azure Storage 계정 정보](storage-create-storage-account.md)를 참조하세요.
 
@@ -131,7 +131,7 @@ SKU 이름은 LRS(로컬 중복 스토리지)처럼 스토리지 계정에 대�
 
 * 스토리지 계정에 할당된 **태그**. 태그는 청구 목적으로 리소스를 분류하는 데 종종 사용됩니다.
 
-* **SKU**는 LRS(로컬 중복 스토리지)처럼 스토리지 계정에 대한 복제 설정을 나타냅니다. 예를 들어 Standard\_LRS를 Standard\_GRS 또는 Standard\_RAGRS로 변경할 수 있습니다. 표준 @ no__t-0ZRS, Standard @ no__t-1GZRS, Standard @ no__t-2RAGZRS 또는 Premium @ no__t-3LRS를 다른 Sku로 변경 하거나 다른 Sku를 변경할 수 없습니다.
+* **SKU**는 LRS(로컬 중복 스토리지)처럼 스토리지 계정에 대한 복제 설정을 나타냅니다. 예를 들어 Standard\_LRS를 Standard\_GRS 또는 Standard\_RAGRS로 변경할 수 있습니다. 표준\_ZRS, Standard\_GZRS, Standard\_RAGZRS 또는 Premium\_LRS를 다른 Sku로 변경 하거나 다른 Sku를 변경할 수 없습니다.
 
 * Blob Storage 계정에 대한 **액세스 계층**. 액세스 계층의 값은 **hot** 또는 **cool**로 설정되며 스토리지 계정을 사용하는 방법에 맞게 액세스 계층을 선택하여 비용을 최소화할 수 있습니다. 자세한 내용은 [핫, 쿨, 보관 스토리지 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
 
@@ -139,7 +139,7 @@ SKU 이름은 LRS(로컬 중복 스토리지)처럼 스토리지 계정에 대�
 
 ### <a name="manage-the-access-keys"></a>액세스 키 관리
 
-Azure Storage 계정과 두 계정 키를 함께 제공합니다. 키를 검색하려면 [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey)를 사용합니다. 이 예에서는 첫 번째 키를 검색합니다. 다른 항목을 검색하려면 `Value[0]` 대신 `Value[1]`을 사용합니다.
+Azure Storage 계정과 두 계정 키를 함께 제공합니다. 키를 검색하려면 [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey)를 사용합니다. 이 예에서는 첫 번째 키를 검색합니다. 다른 항목을 검색하려면 `Value[1]` 대신 `Value[0]`을 사용합니다.
 
 ```powershell
 $storageAccountKey = `
@@ -156,7 +156,7 @@ New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
   -KeyName key1
 ```
 
-다른 키를 생성하려면 `key1` 대신 `key2`를 키 이름으로 사용합니다.
+다른 키를 생성하려면 `key2` 대신 `key1`를 키 이름으로 사용합니다.
 
 키 중 하나를 다시 생성한 다음 다시 검색하여 새 값을 확인합니다.
 
@@ -185,7 +185,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 * [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
 * [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
-## <a name="use-storage-analytics"></a>스토리지 분석 사용  
+## <a name="use-storage-analytics"></a>스토리지 분석 사용
 
 [Azure Storage Analytics](storage-analytics.md)는[Storage Analytics 메트릭](/rest/api/storageservices/about-storage-analytics-metrics)과 [Storage Analytics 로깅](/rest/api/storageservices/about-storage-analytics-logging)으로 구성됩니다.
 
@@ -214,7 +214,7 @@ Remove-AzStorageAccount -ResourceGroup $resourceGroup -AccountName $storageAccou
 * [PowerShell을 사용하여 큐를 관리하는 방법](../queues/storage-powershell-how-to-use-queues.md)
 * [PowerShell을 사용하여 Azure Table Storage 작업 수행](../../storage/tables/table-storage-how-to-use-powershell.md)
 
-Azure Cosmos DB Table API는 턴키 전역 배포, 짧은 읽기 및 쓰기 대기 시간, 자동 보조 인덱싱 및 전용 처리량 등 Table Storage에 대한 프리미엄 기능을 제공합니다.
+Azure Cosmos DB 테이블 API는 턴키 글로벌 배포, 짧은 대기 시간 읽기 및 쓰기, 자동 보조 인덱싱 및 전용 처리량과 같은 Table Storage를 위한 고급 기능을 제공 합니다.
 
 * 자세한 내용은 [Azure Cosmos DB 테이블 API](../../cosmos-db/table-introduction.md)를 참조하세요.
 
@@ -222,7 +222,7 @@ Azure Cosmos DB Table API는 턴키 전역 배포, 짧은 읽기 및 쓰기 대�
 
 대부분의 사람들은 전역 Azure 배포에 Azure Public Cloud를 사용합니다. 또한 통치권 등의 사유로 인한 몇 가지 Microsoft Azure 독립 배포도 존재합니다. 이러한 독립 배포를 "환경"이라고 칭합니다. 다음은 사용 가능한 환경입니다.
 
-* [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
+* [Azure Government 클라우드](https://azure.microsoft.com/features/gov/)
 * [중국의 21Vianet에서 운영 하는 Azure 중국 21Vianet 클라우드](http://www.windowsazure.cn/)
 * [Azure German Cloud](../../germany/germany-welcome.md)
 
@@ -252,4 +252,4 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 * [Azure Storage 제어 평면 PowerShell cmdles](/powershell/module/az.storage/)
 * [Azure Storage 데이터 평면 PowerShell cmdles](/powershell/module/azure.storage/)
-* [Windows PowerShell 참조](/powershell/scripting/developer/windows-powershell)
+* [Windows PowerShell 참조](/powershell/scripting/overview)

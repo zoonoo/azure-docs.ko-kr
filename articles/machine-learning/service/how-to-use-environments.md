@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 62f298e0efb5c54efdcd15cf470ed4640f720058
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: b9b58c9b5f32d6ca714ac3ac940b91643fa8020c
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73957849"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123558"
 ---
 # <a name="reuse-environments-for-training--deployment-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 & 배포를 위한 환경을 재사용 합니다.
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -333,7 +333,7 @@ run = experiment.submit(sk_est)
 
 모델을 웹 서비스로 배포할 때 환경을 사용할 수 있습니다. 이렇게 하면 학습 및 유추 계산 모두에서 정확히 동일한 라이브러리를 사용 하 여 모델을 학습, 테스트 및 배포할 수 있는 재현 가능한 연결 워크플로를 사용할 수 있습니다.
 
-웹 서비스를 배포 하려면 배포 개체, [배포 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-)에 환경, 유추 계산, 점수 매기기 스크립트 및 등록 된 모델을 결합 합니다. [웹 서비스 배포](how-to-deploy-and-where.md)에 대해 자세히 알아보세요.
+웹 서비스를 배포 하려면 배포 개체, [배포 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)에 환경, 유추 계산, 점수 매기기 스크립트 및 등록 된 모델을 결합 합니다. [웹 서비스 배포](how-to-deploy-and-where.md)에 대해 자세히 알아보세요.
 
 이 예제에서는 학습 실행을 완료 하 고 ACI (Azure Container Instance)에 해당 모델을 배포 하려는 경우를 가정 합니다. 웹 서비스를 빌드할 때 모델 및 점수 매기기 파일이 이미지에 탑재 되 고 Azure Machine Learning 유추 스택이 이미지에 추가 됩니다.
 

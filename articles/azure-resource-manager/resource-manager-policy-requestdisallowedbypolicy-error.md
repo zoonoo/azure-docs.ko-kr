@@ -1,24 +1,16 @@
 ---
-title: Azure 리소스 정책의 RequestDisallowedByPolicy 오류 | Microsoft Docs
+title: RequestDisallowedByPolicy 오류
 description: Azure Resource Manager를 사용 하 여 리소스를 배포할 때 RequestDisallowedByPolicy 오류의 원인을 설명 합니다.
-services: azure-resource-manager
-documentationcenter: ''
 author: genlin
-manager: dcscontentpm
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: c791342bf68f84f6893e549d8528d1a861aa9040
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ed4008c6c6705f307f8c21bd43992523701a4ee6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390292"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150527"
 ---
 # <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Azure 리소스 정책의 RequestDisallowedByPolicy 오류
 
@@ -59,7 +51,7 @@ Azure CLI에서 정책 정의 이름을 제공합니다.
 az policy definition show --name regionPolicyAssignment
 ```
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 보안 또는 규정 준수를 위해 구독 관리자는 리소스가 배포되는 방식을 제한하는 정책을 할당할 수 있습니다. 예를 들어, 구독에는 공용 IP 주소, 네트워크 보안 그룹, 사용자 정의 경로 또는 경로 테이블을 만들지 못하게 하는 정책이 있을 수 있습니다. **증상** 섹션의 오류 메시지는 정책의 이름을 표시합니다.
 이 문제를 해결하려면 리소스 정책을 검토하고 해당 정책을 준수하는 리소스를 배포하는 방법을 결정합니다.

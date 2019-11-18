@@ -10,12 +10,12 @@ author: ronychatterjee
 ms.author: achatter
 ms.reviewer: davidph
 ms.date: 11/07/2019
-ms.openlocfilehash: 744ac9f8526b7d65709d3627a5f90b31d234b2cd
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: bdb602598f3d8b4aaed5d6061542d540a82ebc75
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009088"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114605"
 ---
 # <a name="machine-learning-and-ai-with-onnx-in-sql-database-edge-preview"></a>SQL Database Edge 미리 보기에서 ONNX를 사용 하는 기계 학습 및 AI
 
@@ -46,7 +46,7 @@ ONNX 형식으로 모델을 가져오려면 다음을 수행 합니다.
 
 현재 일부 ONNX 모델은 Azure SQL Database Edge에서 지원 되지 않습니다. 지원에는 **숫자 데이터 형식의**모델만 사용할 수 있습니다.
 
-- [int 및 bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql5)
+- [int 및 bigint](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql)
 - [real 및 float](https://docs.microsoft.com/sql/t-sql/data-types/float-and-real-transact-sql)입니다.
   
 [CAST 및 CONVERT](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)를 사용 하 여 다른 숫자 유형을 지원 되는 유형으로 변환할 수 있습니다.

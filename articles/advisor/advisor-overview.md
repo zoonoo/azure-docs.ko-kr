@@ -3,19 +3,19 @@ title: Azure Advisor 백업 소개 | Microsoft Docs
 description: Azure Advisor를 사용하여 Azure 배포를 최적화합니다.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: sagupt
 ms.service: advisor
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
-ms.author: kasparks
-ms.openlocfilehash: 2ccac3bf9a882dc021c6c969946ad9d439a7cf5d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: sagupt
+ms.openlocfilehash: 1a1ed13697d838041d1ac98b966695e24c06edbe
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069697"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145357"
 ---
 # <a name="introduction-to-azure-advisor"></a>Azure Advisor 소개
 
@@ -33,10 +33,11 @@ Advisor를 사용하면 다음과 같은 작업을 수행할 수 있습니다.
 
 Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 표시됩니다.  필터를 적용하여 특정 구독 및 리소스 유형에 대한 권장 사항을 표시할 수 있습니다.  권장 사항은 다음 네 가지 범주로 나뉩니다. 
 
-* **고가용성**: 중요 비즈니스용 애플리케이션의 연속성을 보장하고 향상시킵니다. 자세한 내용은 [Advisor 고가용성 권장 사항](advisor-high-availability-recommendations.md)을 참조하세요.
+* **고가용성**: 업무상 중요한 애플리케이션의 연속성을 보장하고 향상시키는 데 도움이 됩니다. 자세한 내용은 [Advisor 고가용성 권장 사항](advisor-high-availability-recommendations.md)을 참조하세요.
 * **보안**: 보안 위반으로 이어질 수 있는 위협 및 취약점을 검색합니다. 자세한 내용은 [Advisor 보안 권장 사항](advisor-security-recommendations.md)을 참조하세요.
 * **성능**: 애플리케이션의 속도를 향상시킵니다. 자세한 내용은 [Advisor 성능 권장 사항](advisor-performance-recommendations.md)을 참조하세요.
 * **비용**: 전체 Azure 사용을 최적화하고 사용량을 줄입니다. 자세한 내용은 [Advisor 비용 권장 사항](advisor-cost-recommendations.md)을 참조하세요.
+* **운영 뛰어난**기능: 프로세스 및 워크플로 효율성, 리소스 관리 효율성 및 배포 모범 사례를 달성할 수 있도록 지원 합니다. 을 선택합니다. 자세한 내용은 Advisor 작동에 대 한 [권장 사항](advisor-operational-excellence-recommendations.md)을 참조 하세요.
 
   ![Advisor 권장 사항 유형](./media/advisor-overview/advisor-dashboard.png)
 
@@ -61,9 +62,9 @@ Advisor 대시보드에 모든 구독에 대한 개인화된 권장 사항이 �
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>Advisor는 어떤 리소스에 대해 권장 사항을 제공하나요?
 
-Advisor는 Application Gateway, App Services에 대 한 권장 사항을 제공 가용성 집합, Azure Cache에 Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure 공용 IP 주소, SQL Data Warehouse, SQL 서버, 저장소 계정, Traffic Manager 프로필 및 가상 컴퓨터
+Advisor는 Application Gateway, App Services, 가용성 집합, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure Express 경로, Azure Cosmos DB, Azure 공개에 대 한 권장 사항을 제공 합니다. IP 주소, SQL Data Warehouse, SQL server, storage 계정, Traffic Manager 프로필 및 가상 머신.
 
-Azure Advisor에서 권장 사항에 포함 되어 있습니다 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) 는 추가 리소스 형식에 대 한 권장 사항이 포함 될 수 있습니다.
+Azure Advisor에는 추가 리소스 유형에 대 한 권장 사항을 포함 하는 [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations) 의 권장 사항도 포함 되어 있습니다.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>권장 사항을 연기하거나 해제할 수 있나요?
 

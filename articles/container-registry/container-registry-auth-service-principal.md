@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: danlep
-ms.openlocfilehash: 4cb678e1ffa73731c6c1444f87fec588da7ddfbf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 853b9bdb771fb08185670e13ec85a45028f9a145
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681840"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150133"
 ---
 # <a name="azure-container-registry-authentication-with-service-principals"></a>서비스 주체로 Azure Container Registry 인증
 
@@ -33,7 +33,7 @@ Azure AD 서비스 주체를 사용하면 프라이빗 컨테이너 레지스트
 
 ## <a name="when-to-use-a-service-principal"></a>서비스 주체를 사용하는 경우
 
-**헤드리스 시나리오**에서 레지스트리 액세스를 제공하려면 서비스 주체를 사용해야 합니다. 즉, 자동 또는 무인 방식으로 컨테이너 이미지를 푸시하거나 풀해야 하는 모든 애플리케이션, 서비스 또는 스크립트입니다. 예:
+**헤드리스 시나리오**에서 레지스트리 액세스를 제공하려면 서비스 주체를 사용해야 합니다. 즉, 자동 또는 무인 방식으로 컨테이너 이미지를 푸시하거나 풀해야 하는 모든 애플리케이션, 서비스 또는 스크립트입니다. 예를 들어:
 
   * *끌어오기*: KUBERNETES, DC/OS 및 Docker Swarm를 포함 하 여 레지스트리의 컨테이너를 오케스트레이션 시스템에 배포 합니다. 컨테이너 레지스트리에서 [AKS (Azure Kubernetes Service)](../aks/cluster-container-registry-integration.md), [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/)등의 관련 azure 서비스로 끌어올 수도 있습니다.
 
@@ -52,12 +52,12 @@ GitHub에서 Azure CLI에 대 한 앞의 샘플 스크립트와 Azure PowerShell
 
 ## <a name="authenticate-with-the-service-principal"></a>서비스 주체를 사용 하 여 인증
 
-컨테이너 레지스트리에 대 한 액세스 권한이 부여 된 서비스 주체가 있으면 "헤드리스" 서비스 및 응용 프로그램에 액세스 하기 위한 자격 증명을 구성 하거나 `docker login` 명령을 사용 하 여 해당 자격 증명을 입력할 수 있습니다. 다음 값을 사용합니다.
+컨테이너 레지스트리에 대 한 액세스 권한이 부여 된 서비스 주체가 있으면 "헤드리스" 서비스 및 응용 프로그램에 액세스 하기 위한 자격 증명을 구성 하거나 `docker login` 명령을 사용 하 여 해당 자격 증명을 입력할 수 있습니다. 다음 값을 사용 합니다.
 
 * **사용자 이름** -서비스 사용자 응용 프로그램 id ( *클라이언트 id*라고도 함)
 * **암호** 서비스 주체 암호 ( *클라이언트 암호*라고도 함)
 
-각 값은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` 형식의 GUID입니다. 
+각 값은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`형태의 GUID입니다. 
 
 > [!TIP]
 > [az ad sp reset-credentials](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) 명령을 실행하여 서비스 주체의 암호를 다시 생성할 수 있습니다.
@@ -113,4 +113,4 @@ CLI는 `az login` 실행 될 때 생성 된 토큰을 사용 하 여 레지스�
 <!-- LINKS - Internal -->
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-login]: /cli/azure/reference-index#az-login
-[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#[az-ad-sp-credential-reset]
+[az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset

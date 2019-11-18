@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: bd42117b384b9e384d59f9f4298c937135cafd34
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f17c588d28d0904041970eee8e9aa2201f905836
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810180"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151423"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>AI를 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights
 
@@ -65,6 +65,17 @@ Azure SQL Analytics에서 Intelligent Insights를 사용하는 방법에 대한 
 >
 
 Intelligent Insights는 SQL Database 성능 문제를 검색하고 해결할 때 특히 유용합니다. Intelligent Insights를 사용하여 SQL Database 및 Managed Instance 데이터베이스 성능 문제를 해결하려면 [Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결](sql-database-intelligent-insights-troubleshoot-performance.md)을 참조하세요.
+
+## <a name="intelligent-insights-options"></a>Intelligent Insights 옵션
+
+Azure SQL Database에서 사용할 수 있는 Intelligent Insights 옵션은 다음과 같습니다.
+
+| Intelligent Insights 옵션 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 인스턴스 데이터베이스 지원 |
+| :----------------------------- | ----- | ----- |
+| **Intelligent Insights 구성** -데이터베이스에 대 한 Intelligent Insights 분석을 구성 합니다. | 예 | 예 | 
+| **Azure SQL 분석에 대 한 정보를 스트림 하** 고 Azure SQL Database에 대 한 Azure SQL 분석 모니터링 솔루션에 대 한 정보를 스트리밍합니다. | 예 | 예 | 
+| **이벤트 허브에** 대 한 정보를 스트림 하 여 추가 사용자 지정 통합을 위해 Event Hubs를 스트림 합니다. | 예 | 예 | 
+| 추가 분석 및 장기 보관을 위해 Azure Storage에 대 한 Azure Storage 스트림 정보에 대 한 **정보를 스트리밍합니다** . | 예 | 예 |
 
 ## <a name="configure-intelligent-insights"></a>Intelligent Insights 구성
 
@@ -153,7 +164,7 @@ Intelligent Insights 진단 로그는 성능이 저하된 쿼리의 쿼리 해�
 - 탄력적 풀 리소스 제한에 도달
 - 과도한 작업자 또는 세션 스레드 수
 - 과도한 데이터베이스 잠금
-- 메모리 압력
+- 메모리 가중
 - 다른 대기 통계
 
 리소스 제한이나 탄력적 풀 리소스 제한에 도달하면 구독 또는 탄력적 풀에서 사용할 수 있는 리소스 소모량이 절대 임계값 이상으로 증가했음을 나타냅니다. 이러한 통계는 워크로드 성능 저하를 나타냅니다. 과도한 작업자 또는 세션 스레드 수는 시작된 작업자 스레드 또는 세션 수가 절대 임계값 이상에 도달한 상태를 나타냅니다. 이러한 통계는 워크로드 성능 저하를 나타냅니다.

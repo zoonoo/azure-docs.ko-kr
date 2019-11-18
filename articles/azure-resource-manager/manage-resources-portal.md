@@ -1,19 +1,16 @@
 ---
-title: Azure Portal를 사용 하 여 Azure 리소스 관리 Microsoft Docs
+title: 리소스 관리-Azure Portal
 description: Azure Portal 및 Azure Resource Manager를 사용 하 여 리소스를 관리 합니다. 리소스를 배포 하 고 삭제 하는 방법을 보여 줍니다.
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: c52d54ca02436f7224346a65048244a5ec8d104c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 5c0e09930ee53733b36e987356cef2963416006f
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390389"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149831"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure 리소스 관리
 
@@ -36,7 +33,7 @@ Azure 리소스는 Azure 서비스 및 리소스 그룹별로 구성 됩니다. 
 
 서비스 유형별로 리소스를 열려면 다음을 수행 합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 Azure 서비스를 선택 합니다. 이 경우 **저장소 계정**입니다.  나열 된 서비스가 표시 되지 않으면 **모든 서비스**를 선택한 다음 서비스 유형을 선택 합니다.
 
     ![포털에서 azure 리소스 열기](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
@@ -51,7 +48,7 @@ Azure 리소스는 Azure 서비스 및 리소스 그룹별로 구성 됩니다. 
 
 리소스 그룹별 리소스를 열려면:
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 **리소스 그룹** 을 선택 하 여 그룹 내의 리소스를 나열 합니다.
 3. 열려는 리소스를 선택 합니다. 
 

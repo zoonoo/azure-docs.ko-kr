@@ -1,14 +1,14 @@
 ---
 title: 매개 변수를 사용하여 동적 청사진 만들기
-description: 정적 및 동적 매개 변수란 무엇이며 동적 청사진을 만드는 데 사용하는 방법을 알아봅니다.
+description: 정적 및 동적 매개 변수와이를 사용 하 여 보안 및 동적 청사진을 만드는 방법에 대해 알아봅니다.
 ms.date: 03/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: da0670bdc880c47c3b715dc8344896a6c695924c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 31fff8fddd8e1969ef0d33047ae070f6302c9c83
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960505"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128928"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>매개 변수를 통해 동적 청사진 만들기
 

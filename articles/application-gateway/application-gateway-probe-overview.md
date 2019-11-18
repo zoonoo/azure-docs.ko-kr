@@ -1,19 +1,18 @@
 ---
 title: Azure Application Gateway에 대한 상태 모니터링 개요
-description: Azure Application Gateway의 모니터링 기능에 대해 알아봅니다.
+description: Azure 애플리케이션 게이트웨이는 백 엔드 풀의 모든 리소스 상태를 모니터링 하 고 풀에서 비정상으로 간주 되는 모든 리소스를 자동으로 제거 합니다.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: d0c425bcb9961fde9fb319991148c18c6a9ff57b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2938665aa0c0a3df66b6ddcfd1c8c5fbc4598319
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66135210"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130674"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway 상태 모니터링 개요
 
@@ -29,13 +28,13 @@ Azure Application Gateway는 기본적으로 백 엔드 풀의 모든 리소스 
 
 애플리케이션 게이트웨이는 사용자 지정 프로브 구성을 설정하지 않는 경우 기본 상태 프로브를 자동으로 구성합니다. 모니터링 동작은 백 엔드 풀에 대해 구성된 IP 주소에 대한 HTTP 요청을 만들어 작동합니다. 기본 프로브의 경우 백 엔드 http 설정이 HTTPS에 대해 구성되면 프로브는 HTTPS를 사용하고 백엔드의 상태를 테스트합니다.
 
-예를 들면 다음과 같습니다. 포트 80에서 HTTP 네트워크 트래픽을 수신할 백 엔드 서버 A, B, C를 사용하도록 애플리케이션 게이트웨이를 구성합니다. 기본 상태 모니터링은 정상 HTTP 응답에 대해 3개의 서버를 30초마다 테스트합니다. 정상 HTTP 응답은 [상태 코드](https://msdn.microsoft.com/library/aa287675.aspx) 200에서 399 사이입니다.
+예: 포트 80에서 HTTP 네트워크 트래픽을 수신할 백 엔드 서버 A, B, C를 사용하도록 애플리케이션 게이트웨이를 구성합니다. 기본 상태 모니터링은 정상 HTTP 응답에 대해 3개의 서버를 30초마다 테스트합니다. 정상 HTTP 응답은 [상태 코드](https://msdn.microsoft.com/library/aa287675.aspx) 200에서 399 사이입니다.
 
 서버 A에 대한 기본 프로브 확인이 실패하면 애플리케이션 게이트웨이가 백 엔드 풀에서 이를 제거하고 네트워크 트래픽이 이 서버로 이동되지 않습니다. 기본 프로브는 서버 A에 대해 30초마다 계속 확인합니다. 서버 A가 기본 상태 프로브에서 하나의 요청에 대해 성공적으로 응답하는 경우 백 엔드 풀에 정상으로 다시 추가되고 트래픽이 이 서버로 다시 이동하기 시작합니다.
 
 ### <a name="probe-matching"></a>프로브 일치
 
-기본적으로 200 ~ 399 사이의 상태 코드로 HTTP (S) 응답을 정상인 상태로 간주 됩니다. 사용자 지정 상태 프로브는 또한 일치하는 두 조건을 지원합니다. 일치하는 조건은 정상 응답을 구성하는 것에 대한 기본 해석을 필요에 따라 수정하는 데 사용될 수 있습니다.
+기본적으로 상태 코드가 200 ~ 399 사이인 HTTP (S) 응답은 정상으로 간주 됩니다. 사용자 지정 상태 프로브는 또한 일치하는 두 조건을 지원합니다. 일치하는 조건은 정상 응답을 구성하는 것에 대한 기본 해석을 필요에 따라 수정하는 데 사용될 수 있습니다.
 
 다음이 일치하는 조건입니다. 
 
@@ -44,7 +43,7 @@ Azure Application Gateway는 기본적으로 백 엔드 풀의 모든 리소스 
 
 `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet을 사용하여 일치 조건을 지정할 수 있습니다.
 
-예를 들면 다음과 같습니다.
+예를 들어:
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -64,7 +63,7 @@ $match = New-AzApplicationGatewayProbeHealthResponseMatch -Body "Healthy"
 > [!NOTE]
 > 포트는 백 엔드 HTTP 설정과 동일한 포트입니다.
 
-기본 프로브는 http에만:\//127.0.0.1:\<포트\> 에 상태를 확인 합니다. 사용자 지정 URL로 이동하거나 다른 모든 설정을 수정하도록 상태 프로브를 구성하려면 사용자 지정 프로브를 사용해야 합니다.
+기본 프로브는 http:\//127.0.0.1:\<포트\> 에서만 상태를 확인 합니다. 사용자 지정 URL로 이동하거나 다른 모든 설정을 수정하도록 상태 프로브를 구성하려면 사용자 지정 프로브를 사용해야 합니다.
 
 ### <a name="probe-intervals"></a>프로브 간격
 
@@ -84,8 +83,8 @@ Application Gateway의 모든 인스턴스는 서로 독립적으로 백 엔드�
 | --- | --- |
 | 이름 |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
 | 프로토콜 |프로브를 보내는 데 사용하는 프로토콜입니다. 프로브는 백 엔드 HTTP 설정에 정의된 프로토콜을 사용합니다. |
-| 호스트 |프로브에 보낼 호스트 이름입니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. 그렇지 않으면 '127.0.0.1'을 사용합니다. 이 값은 VM 호스트 이름과 다릅니다. |
-| path |프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. |
+| Host |프로브에 보낼 호스트 이름입니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. 그렇지 않으면 '127.0.0.1'을 사용합니다. 이 값은 VM 호스트 이름과 다릅니다. |
+| 경로 |프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. |
 | 간격 |프로브 간격(초). 이 값은 연속된 두 프로브 사이의 시간 간격입니다. |
 | 시간 제한 |프로브 시간 제한(초) 이 시간 제한 기간 내에 올바른 응답을 받지 못하면 프로브는 실패로 표시됩니다.  |
 | 비정상 임계값 |프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |

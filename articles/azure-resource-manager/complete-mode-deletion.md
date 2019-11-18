@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Manager 완료 모드 삭제
+title: 전체 모드 삭제
 description: 리소스 종류가 Azure Resource Manager 템플릿에서 전체 모드 삭제를 처리하는 방법을 보여줍니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: 34e6ee348a6e15e1178f5e7cb65edfb946c1280c
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e8e473ba697dd64d2562a2e1efc03f1ba5b384e6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953266"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149932"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>완료 모드 배포를 위한 Azure 리소스의 삭제
 
@@ -199,7 +196,7 @@ ms.locfileid: "73953266"
 > | agents | 아니오 |
 > | anonymousapiusers | 아니오 |
 > | 구성 | 아니오 |
-> | 로그 | 아니오 |
+> | logs | 아니오 |
 > | reports | 아니오 |
 > | servicehealthmetrics | 아니오 |
 > | services | 아니오 |
@@ -211,7 +208,7 @@ ms.locfileid: "73953266"
 > | ------------- | ----------- |
 > | 구성 | 아니오 |
 > | generateRecommendations | 아니오 |
-> | metadata | 아니오 |
+> | 메타데이터 | 아니오 |
 > | 동영상 추천 기능 | 아니오 |
 > | suppressions | 아니오 |
 
@@ -766,7 +763,7 @@ ms.locfileid: "73953266"
 > | ExternalSubscriptions/예측 | 아니오 |
 > | ExternalSubscriptions/Query | 아니오 |
 > | 예측할 | 아니오 |
-> | 쿼리 | 아니오 |
+> | query | 아니오 |
 > | register | 아니오 |
 > | Reportconfigs | 아니오 |
 > | 보고서 | 아니오 |
@@ -1611,7 +1608,7 @@ ms.locfileid: "73953266"
 > | childResources | 아니오 |
 > | events | 아니오 |
 > | impactedResources | 아니오 |
-> | metadata | 아니오 |
+> | 메타데이터 | 아니오 |
 > | 알림 | 아니오 |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
@@ -1773,7 +1770,7 @@ ms.locfileid: "73953266"
 > | containerGroups | 예 |
 > | gateways | 예 |
 > | networks | 예 |
-> | secrets | 예 |
+> | 비밀 | 예 |
 > | volumes | 예 |
 
 ## <a name="microsoftservices"></a>Microsoft 서비스

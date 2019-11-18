@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 196aeb69a1948a44afb8170fa5f48d42b978854d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070451"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130596"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
 
@@ -46,7 +46,7 @@ ms.locfileid: "70070451"
 **계층 3**
 * 소스 제어--웹앱에 종속됩니다.
 * MSDeploy 사이트 확장--웹앱에 종속됩니다.
-* 서비스 팜을 대상으로 하는 Application Insights 인스턴스--웹앱에 종속됩니다.
+* 웹 앱을 대상으로 하는 Azure 애플리케이션 Insights 인스턴스-웹 앱에 종속 됩니다.
 
 **계층 4**
 * App Service 인증서--있는 경우 소스 제어 또는 MSDeploy에 종속됩니다. 그렇지 않으면, 웹앱에 종속됩니다.

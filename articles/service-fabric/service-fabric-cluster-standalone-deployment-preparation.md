@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/11/2018
 ms.author: dekapur
-ms.openlocfilehash: 96956e1ad935933572b1f2d31b70ef64f8b92501
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 8b9f659098e563a3dc0692530ad798a5c763551f
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175865"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133408"
 ---
 # <a name="plan-and-prepare-your-service-fabric-standalone-cluster-deployment"></a>Service Fabric 독립 실행형 클러스터 배포 계획 및 준비
 
@@ -67,7 +67,7 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 * 모든 컴퓨터에 대해 보안 네트워크 또는 네트워크 연결성
 * Windows Server OS가 설치 되었습니다 (유효한 버전: 2012 R2, 2016, 1709 또는 1803). Service Fabric 버전 6.4.654.9590 이상에서는 서버 2019 및 1809도 지원 합니다.
 * [.NET Framework 4.5.1 이상](https://www.microsoft.com/download/details.aspx?id=40773), 전체 설치
-* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell)
+* [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/install/installing-windows-powershell)
 * [RemoteRegistry 서비스](https://technet.microsoft.com/library/cc754820)는 모든 컴퓨터에서 실행되어야 함
 * Service Fabric 설치 드라이브는 NTFS 파일 시스템 이어야 합니다.
 
@@ -99,11 +99,12 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 1. 클러스터를 만드는 사용자에는 클러스터 구성 파일에서 노드로 나열된 모든 컴퓨터에 대한 관리자 수준 보안 권한이 있어야 합니다.
 2. 클러스터가 생성되는 컴퓨터 뿐 아니라 각 클러스터 노드 컴퓨터는 다음이 필수입니다.
    * Service Fabric SDK 제거
-   * Service Fabric 런타임 제거 
+   * Service Fabric 런타임 제거
    * Windows 방화벽 서비스(mpssvc) 활성화
    * 원격 레지스트리 서비스(remoteregistry) 활성화
+   * 파일 공유(SMB) 활성화
    * 클러스터 구성 포트에 따라 필요한 포트 열기
-   * 원격 레지스트리 서비스에 대해 필요한 포트 (135, 137, 138 및 139)를 열어야 합니다.
+   * Windows SMB 및 원격 레지스트리 서비스: 135, 137, 138, 139 및 445에 대한 필요한 포트 열기
    * 네트워크 간 연결
 3. 모든 클러스터 노드 컴퓨터는 도메인 컨트롤러여서는 안 됩니다.
 4. 배포되는 클러스터가 보안 클러스터인 경우 필수 보안 구성 요소가 배치되고 구성에 대해 올바르게 구성되어 있는지 유효성을 검사합니다.
@@ -136,7 +137,7 @@ FD 및 UD에 대한 자세한 내용은 [Service Fabric 클러스터 설명](ser
 | FileStoreService.exe |
 
 ## <a name="validate-environment-using-testconfiguration-script"></a>TestConfiguration 스크립트를 사용하여 환경 유효성 검사
-TestConfiguration.ps1 스크립트는 독립 실행형 패키지에서 찾을 수 있습니다. 위의 조건 중 일부의 유효성을 검사하는 모범 사례 분석기로 사용되며 지정된 환경에 클러스터를 배포할 수 있는지 여부를 확인하는 온전성 검사로 사용되어야 합니다. 오류가 있는 경우 문제 해결은 [환경 설치](service-fabric-cluster-standalone-deployment-preparation.md) 아래의 목록을 참조하세요. 
+TestConfiguration.ps1 스크립트는 독립 실행형 패키지에서 찾을 수 있습니다. 위의 조건 중 일부의 유효성을 검사하는 모범 사례 분석기로 사용되며 지정된 환경에 클러스터를 배포할 수 있는지 여부를 확인하는 온전성 검사로 사용되어야 합니다. 오류가 있는 경우 문제 해결은 [환경 설치](service-fabric-cluster-standalone-deployment-preparation.md) 아래의 목록을 참조하세요.
 
 이 스크립트는 클러스터 구성 파일에서 노드로 나열된 모든 컴퓨터에 대한 관리자 액세스 권한이 있는 모든 컴퓨터에서 실행될 수 있습니다. 이 스크립트가 실행되는 컴퓨터가 클러스터의 일부일 필요는 없습니다.
 
@@ -159,12 +160,12 @@ FabricInstallable          : True
 Passed                     : True
 ```
 
-현재 이 구성 테스트 모듈은 보안 구성을 확인하지 않으므로 독립적으로 수행되어야 합니다.  
+현재 이 구성 테스트 모듈은 보안 구성을 확인하지 않으므로 독립적으로 수행되어야 합니다.
 
 > [!NOTE]
-> 이 모듈을 더욱 강력하게 만들도록 계속해서 개선하고 있으므로 현재 TestConfiguration에서 감지하지 못한다고 생각하는 결함 또는 누락된 사례가 있는 경우 [지원 채널](https://docs.microsoft.com/azure/service-fabric/service-fabric-support)을 통해 알려 주세요.   
-> 
-> 
+> 이 모듈을 더욱 강력하게 만들도록 계속해서 개선하고 있으므로 현재 TestConfiguration에서 감지하지 못한다고 생각하는 결함 또는 누락된 사례가 있는 경우 [지원 채널](https://docs.microsoft.com/azure/service-fabric/service-fabric-support)을 통해 알려 주세요.
+>
+>
 
 ## <a name="next-steps"></a>다음 단계
 * [Windows Server에서 실행되는 독립 실행형 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)

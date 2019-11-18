@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: b16b6bb8ad39f7f0a5f19a2e2d4280bb73def60a
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 5c20c280fdc9097692f98c83dcb3d310e9914ecf
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082207"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133371"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -208,7 +208,7 @@ Docker 디스크 구성 | 아니오
 게스트/서버 다중 경로(MPIO) | 아니오
 게스트/서버 GPT 파티션 | 5 개의 파티션은 [업데이트 롤업 37](https://support.microsoft.com/help/4508614/) (모바일 서비스 버전 9.25)부터 지원 됩니다. 이전에는 4개가 지원되었습니다.
 ReFS | 복원 파일 시스템은 모바일 서비스 버전 9.23 이상에서 지원 됩니다.
-게스트/서버 EFI/UEFI 부팅 | -Windows Server 2012 이상, SLES SP4 및 RHEL 8.0에 지원 됨 <br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. 
+게스트/서버 EFI/UEFI 부팅 | -Windows Server 2012 이상, SLES 12 SP4 및 RHEL 8.0 모바일 에이전트 버전 9.30부터 지원 됨<br/> -보안 UEFI 부팅 유형이 지원 되지 않습니다. 
 
 ## <a name="replication-channels"></a>복제 채널
 
@@ -242,7 +242,7 @@ Vnet에 대 한 Azure Storage 방화벽 | 예.<br/> 복제 데이터를 저장 �
 가용성 집합 | 예
 가용성 영역 | 아니오
 HUB | 예
-관리되는 디스크 | 예
+관리 디스크 | 예
 
 ## <a name="azure-vm-requirements"></a>Azure VM 요구 사항
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Container Instances 컨테이너 그룹
-description: 다중 컨테이너 그룹의 작동 방식 이해 Azure Container Instances
+description: 저장소 및 네트워크와 같은 수명 주기 및 리소스를 공유 하는 인스턴스 컬렉션인 Azure Container Instances의 컨테이너 그룹에 대해 알아봅니다.
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -9,18 +9,18 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a785ecbfa09c54d3affa97c220d4808f9fe8d90b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ef6745e18a0df3ee0a572f106d1507d0fca32ac2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904459"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150194"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
 
 Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니다. 이 문서에서는 컨테이너 그룹의 정의와 이들이 지원하는 시나리오 유형에 대해 설명합니다.
 
-## <a name="how-a-container-group-works"></a>컨테이너 그룹 작동 방식
+## <a name="what-is-a-container-group"></a>컨테이너 그룹 이란?
 
 컨테이너 그룹은 같은 호스트 컴퓨터에서 예약되어 있는 컨테이너 컬렉션입니다. 컨테이너 그룹의 컨테이너는 수명 주기, 리소스, 로컬 네트워크 및 저장소 볼륨을 공유 합니다. [Kubernetes][kubernetes-pod]의 *pod* 와 비슷합니다.
 
@@ -77,7 +77,7 @@ Azure Container Instances는 그룹의 인스턴스에 대 한 [리소스 요청
 
 필요에 따라 컨테이너 그룹을 [Azure virtual network][virtual-network] (미리 보기)에 배포 하 여 컨테이너가 가상 네트워크의 다른 리소스와 안전 하 게 통신할 수 있도록 합니다.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 컨테이너 그룹 내에서 탑재할 외부 볼륨을 지정할 수 있습니다. 해당 볼륨을 그룹의 개별 컨테이너 내에 있는 특정 경로에 매핑할 수 있습니다.
 

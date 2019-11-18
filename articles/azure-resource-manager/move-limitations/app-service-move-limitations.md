@@ -1,17 +1,14 @@
 ---
 title: Azure App Service 리소스 이동
 description: Azure Resource Manager를 사용 하 여 App Service 리소스를 새 리소스 그룹 또는 구독으로 이동 합니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 04ddf644c58434531dde708ee3b6432b1fce8f91
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: dca9b3a8f328192683cfde586f0ccdb01e84dc16
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533554"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150905"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>App Service 리소스에 대 한 이동 지침
 
@@ -33,9 +30,9 @@ _구독 간에_ Web App을 이동할 때 적용되는 제한 사항은 다음과
 
 - 대상 리소스 그룹에 기존 App Service 리소스가 없어야 합니다. App Service 리소스에는 다음이 포함됩니다.
     - Web Apps
-    - App Service 요금제
+    - App Service 계획
     - 업로드되거나 가져온 SSL 인증서
-    - App Service 환경
+    - App Service Environment
 - 리소스 그룹의 모든 App Service 리소스는 함께 이동해야 합니다.
 - App Service 리소스는 처음 만들었던 리소스 그룹에서만 이동할 수 있습니다. App Service 리소스가 원래 리소스 그룹에 더 이상 없는 경우 다시 원래 리소스 그룹으로 이동 합니다. 그런 다음 구독 간에 리소스를 이동 합니다.
 
@@ -53,7 +50,7 @@ _구독 간에_ Web App을 이동할 때 적용되는 제한 사항은 다음과
 
 리소스를 이동 하기 전에 수행 해야 하는 권장 작업이 표시 됩니다. 이 정보는 웹 앱에 대 한 원래 리소스 그룹을 포함 합니다.
 
-![권장 사항](./media/app-service-move-limitations/recommendations.png)
+![추천](./media/app-service-move-limitations/recommendations.png)
 
 ## <a name="move-app-service-certificate"></a>App Service Certificate 이동
 
@@ -63,9 +60,9 @@ App Service Certificate를 새 리소스 그룹 또는 구독으로 이동할 �
 
 이동할 수 있는 리소스 App Service를 확인 하려면 다음에 대 한 이동 지원 상태를 참조 하세요.
 
-- [AppService](../move-support-resources.md#microsoftappservice)
-- [CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
-- [Microsoft DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
+- [Microsoft.AppService](../move-support-resources.md#microsoftappservice)
+- [Microsoft.CertificateRegistration](../move-support-resources.md#microsoftcertificateregistration)
+- [Microsoft.DomainRegistration](../move-support-resources.md#microsoftdomainregistration)
 - [Microsoft.Web](../move-support-resources.md#microsoftweb)
 
 ## <a name="next-steps"></a>다음 단계

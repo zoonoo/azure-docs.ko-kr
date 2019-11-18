@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD 인증 VPN 클라이언트 문제 해결: Azure VPN Gateway | Microsoft Docs'
+title: 'VPN Gateway: VPN 클라이언트 문제 해결-Azure AD 인증'
 description: Azure AD 인증 클라이언트 VPN Gateway P2S 문제 해결
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: e239f283d5065e032e98e87a72a4bfe9fbafbdb1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8871e92f0911c4d3cbcc1772bef1daeb5c70b5d7
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517281"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151963"
 ---
 # <a name="troubleshoot-an-azure-ad-authentication-vpn-client"></a>Azure AD 인증 VPN 클라이언트 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "73517281"
 
 오류 메시지에 대 한 상태 로그를 봅니다.
 
-![로그](./media/troubleshoot-ad-vpn-client/1.png)
+![logs](./media/troubleshoot-ad-vpn-client/1.png)
 
 1. 클라이언트 창의 오른쪽 아래에 있는 화살표 아이콘을 클릭 하 여 **상태 로그**를 표시 합니다.
 2. 문제를 나타낼 수 있는 오류에 대 한 로그를 확인 합니다.

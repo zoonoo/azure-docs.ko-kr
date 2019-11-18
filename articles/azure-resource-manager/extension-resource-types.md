@@ -1,23 +1,20 @@
 ---
-title: Azure 확장 리소스 유형
+title: 확장 리소스 종류
 description: 다른 리소스 유형의 기능을 확장 하는 데 사용 되는 Azure 리소스 유형을 나열 합니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/24/2019
-ms.author: tomfitz
-ms.openlocfilehash: 00e8efaaa81ec0ce189d8cfe8a78285ded445c68
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 16dcd4cccea4445b6839ac639094d18e29ed49a9
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72901925"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147028"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>다른 리소스의 기능을 확장 하는 리소스 종류
 
 확장 리소스는 다른 리소스의 기능에 추가 되는 리소스입니다. 예를 들어 리소스 잠금은 확장 리소스입니다. 리소스 잠금을 삭제 하거나 수정 하지 못하도록 다른 리소스에 적용 합니다. 리소스 잠금을 직접 만드는 것은 적절 하지 않습니다. 확장 리소스는 항상 다른 리소스에 적용 됩니다.
 
-## <a name="extension-resource-types"></a>확장 리소스 형식
+## <a name="extension-resource-types"></a>확장 리소스 종류
 
 - Microsoft Advisor/구성
 - Microsoft Advisor/권장 사항
@@ -74,7 +71,7 @@ ms.locfileid: "72901925"
 - CostManagement/보고서
 - CostManagement/뷰
 - CostManagement/showbackRules
-- Microsoft. CustomProviders/association
+- Microsoft.CustomProviders/associations
 - Microsoft.EventGrid/eventSubscriptions
 - Microsoft.EventGrid/extensionTopics
 - GuestConfiguration/configurationprofil

@@ -1,5 +1,5 @@
 ---
-title: 크로스-프레미스 Azure 연결에 대한 VPN Gateway 설정 | Microsoft Docs
+title: 'Azure VPN Gateway: 구성 설정'
 description: Azure Virtual Network 게이트웨이의 VPN Gateway 설정에 대해 알아봅니다.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 64a162b9d2f83b4bc703f5912116fd302fcb601c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c72b85bc978191744c55afb73973caa6d3b45db6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495731"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150951"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>VPN Gateway 구성 설정 정보
 
@@ -39,7 +39,7 @@ VPN 게이트웨이 연결은 각각이 구성 가능한 설정을 포함하는 
 * Vpn
 * ExpressRoute
 
-VPN Gateway에는 `-GatewayType` *Vpn*이 필요합니다.
+VPN 게이트웨이에는 `-GatewayType` *Vpn*이 필요합니다.
 
 예:
 
@@ -55,7 +55,7 @@ New-AzVirtualNetworkGateway -Name vnetgw1 -ResourceGroupName testrg `
 
 ### <a name="configure-a-gateway-sku"></a>게이트웨이 SKU 구성
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure 포털
 
 Azure Portal을 사용하여 Resource Manager 가상 네트워크 게이트웨이를 만드는 경우 드롭다운을 사용하여 게이트웨이 SKU를 선택할 수 있습니다. 표시되는 옵션은 선택한 게이트웨이 형식 및 선택한 VPN 형식에 해당합니다.
 

@@ -1,17 +1,14 @@
 ---
 title: Azure 클래식 배포 리소스 이동
 description: Azure Resource Manager를 사용 하 여 클래식 배포 리소스를 새 리소스 그룹 또는 구독으로 이동 합니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: 783fcdca7637f3f67cf146bb827760cb4cdd7cbe
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: b97496e4abfdf248b9f5010417e9284c643a74ad
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533488"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150845"
 ---
 # <a name="move-guidance-for-classic-deployment-model-resources"></a>클래식 배포 모델 리소스에 대 한 이동 지침
 

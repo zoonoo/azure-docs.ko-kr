@@ -1,7 +1,7 @@
 ---
 title: OData 참조 선택
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리에서 select 구문을 위한 OData 언어 참조입니다.
+description: Azure Cognitive Search 쿼리의 검색 결과에 반환할 필드를 명시적으로 선택 하기 위한 구문 및 언어 참조입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 7786974f3d39f9cbc81e1ffea955156d623f1476
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 64f15bf3d262249cdda2760c7ddf768be2590419
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793259"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113108"
 ---
 # <a name="odata-select-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $select 구문
 
@@ -59,7 +59,7 @@ field_path ::= identifier('/'identifier)*
 
 하위 필드를 명시적으로 지정 하지 않고 복합 필드를 나열 하는 경우 검색 가능한 모든 하위 필드가 쿼리 결과 집합에 포함 됩니다. 예를 들어 인덱스에 모두 검색할 수 있는 `Street`, `City`및 `Country` 하위 필드가 있는 `Address` 필드가 있다고 가정 합니다. **$Select**에서 `Address` 지정 하는 경우 쿼리 결과에는 세 개의 하위 필드가 모두 포함 됩니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 결과에 `HotelId`, `HotelName`및 `Rating` 최상위 필드와 `Address`의 `City` 하위 필드를 포함 합니다.
 

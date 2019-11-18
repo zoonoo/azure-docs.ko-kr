@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Manager 템플릿 함수 - 비교 | Microsoft Docs
+title: 템플릿 함수-비교
 description: Azure Resource Manager 템플릿에서 값을 비교하는 데 사용할 수 있는 함수에 대해 설명합니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2017
-ms.author: tomfitz
-ms.openlocfilehash: 05e51af62be974f925fefc46ad63c489f27fd163
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c6d58332c9f4a4b811b395999130e56666452851
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194825"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150735"
 ---
 # <a name="comparison-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 비교 함수
 
@@ -30,12 +27,12 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 
 두 값이 서로 일치하는지 여부를 확인합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
-| arg1 |예 |int, string, array, 또는 object |같은지 확인할 첫 번째 값입니다. |
-| arg2 |예 |int, string, array, 또는 object |같은지 확인할 두 번째 값입니다. |
+| arg1 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 첫 번째 값입니다. |
+| arg2 |예 |int, 문자열, 배열 또는 개체 |같은지 확인할 두 번째 값입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -60,7 +57,7 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/equals.json)에서는 다른 형식의 값이 같은지 확인합니다. 모든 기본값은 True를 반환합니다.
 
@@ -125,14 +122,14 @@ equals 함수는 종종 `condition` 요소와 함께 리소스 배포 여부를 
 }
 ```
 
-기본값을 사용한 이전 예제의 출력은 다음과 같습니다.
+기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
-| checkStrings | Bool | True |
-| checkArrays | Bool | True |
-| checkObjects | Bool | True |
+| checkInts | Bool | true |
+| checkStrings | Bool | true |
+| checkArrays | Bool | true |
+| checkObjects | Bool | true |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -146,7 +143,7 @@ PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/equals.json 
 ```
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 **equals**에 [not](resource-group-template-functions-logical.md#not)을 사용합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json)에서는 [equals](resource-group-template-functions-logical.md#not)에 **not**을 사용합니다.
 
 ```json
 {
@@ -167,7 +164,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| checkNotEquals | Bool | True |
+| checkNotEquals | Bool | true |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -186,7 +183,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 첫 번째 값이 두 번째 값보다 큰지 여부를 확인합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
@@ -197,7 +194,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 첫 번째 값이 두 번째 값보다 크면 **True**를 반환하고 크지 않으면 **False**를 반환합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greater.json)에서는 한 값이 다른 값보다 큰지 여부를 확인합니다.
 
@@ -242,8 +239,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | 거짓 |
-| checkStrings | Bool | True |
+| checkInts | Bool | False |
+| checkStrings | Bool | true |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -262,7 +259,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 첫 번째 값이 두 번째 값보다 크거나 같은지 여부를 확인합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
@@ -273,7 +270,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 첫 번째 값이 두 번째 값보다 크거나 같으면 **True**를 반환하고 작으면 **False**를 반환합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/greaterorequals.json)에서는 한 값이 다른 값보다 큰지 아니면 동일한지를 확인합니다.
 
@@ -318,8 +315,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | 거짓 |
-| checkStrings | Bool | True |
+| checkInts | Bool | False |
+| checkStrings | Bool | true |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
 
@@ -333,12 +330,12 @@ PowerShell에서 이 예제 템플릿을 배포하려면 다음 기능을 사용
 New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/greaterorequals.json 
 ```
 
-## <a name="less"></a>간단히
+## <a name="less"></a>less
 `less(arg1, arg2)`
 
 첫 번째 값이 두 번째 값보다 작은지 여부를 확인합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
@@ -349,7 +346,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 첫 번째 값이 두 번째 값보다 작으면 **True**를 반환하고 작지 않으면 **False**를 반환합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/less.json)에서는 한 값이 다른 값보다 작은지 여부를 확인합니다.
 
@@ -394,7 +391,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
+| checkInts | Bool | true |
 | checkStrings | Bool | False |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.
@@ -414,7 +411,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 첫 번째 값이 두 번째 값보다 작거나 같은지 여부를 확인합니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
 | 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
 |:--- |:--- |:--- |:--- |
@@ -425,7 +422,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 첫 번째 값이 두 번째 값보다 작거나 같으면 **True**를 반환하고 크면 **False**를 반환합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/lessorequals.json)에서는 한 값이 다른 값보다 작은지 아니면 동일한지를 확인합니다.
 
@@ -470,7 +467,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 이름 | 형식 | 값 |
 | ---- | ---- | ----- |
-| checkInts | Bool | True |
+| checkInts | Bool | true |
 | checkStrings | Bool | False |
 
 Azure CLI에서 이 예제 템플릿을 배포하려면 다음 기능을 사용합니다.

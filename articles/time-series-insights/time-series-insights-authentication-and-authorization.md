@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 11/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: 37a409ab28728fe40c5f054d5e9a40cb20774450
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 60099689c79308a45e3d40d63e0f993b030db7cd
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007103"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133461"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -143,7 +143,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
 선택적 URL 쿼리 문자열 매개 변수:
 
-- `timeout=<timeout>` – 요청 실행을 위한 서버 쪽 시간 제한입니다. [환경 이벤트 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) 및 [환경 집계](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) api에만 적용 됩니다. 제한 시간 값은 ISO 8601 기간 형식 이어야 합니다. 예를 들어 `"PT20S"` `1-30 s`범위에 있어야 합니다. 기본값은 `30 s`입니다.
+- `timeout=<timeout>` – 요청 실행을 위한 서버 쪽 시간 제한입니다. [환경 이벤트 가져오기](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) 및 [환경 집계](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) api에만 적용 됩니다. 제한 시간 값은 ISO 8601 기간 형식 이어야 합니다. 예를 들어 `"PT20S"` `1-30 s`범위에 있어야 합니다. 기본값은 `30 s`여야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

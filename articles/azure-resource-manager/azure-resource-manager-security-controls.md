@@ -1,19 +1,14 @@
 ---
-title: Azure Resource Manager에 대 한 보안 제어
+title: 보안 컨트롤
 description: Azure Resource Manager 서비스를 평가 하기 위한 기본 제공 보안 컨트롤에 대 한 검사 목록입니다.
-services: azure-resource-manager
-author: msmbaldwin
-manager: rkarlin
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 78f3f41ca2f0aa45d295fd9846cf3aa96cccea72
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b2916a87c5cef01605054569285362fcf1c649c8
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390456"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147558"
 ---
 # <a name="security-controls-for-azure-resource-manager"></a>Azure Resource Manager에 대 한 보안 제어
 
@@ -23,43 +18,43 @@ ms.locfileid: "72390456"
 
 ## <a name="data-protection"></a>데이터 보호
 
-| 보안 제어 | 예/아니요 | 참고 |
+| 보안 제어 | 예/아니요 | 참고 사항 |
 |---|---|--|
-| 미사용 서버 쪽 암호화: Microsoft 관리 키 | yes |  |
-| 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| yes | HTTPS/TLS |
-| 미사용 서버 쪽 암호화: 고객 관리 키 (BYOK) | N/A | Azure Resource Manager는 고객 콘텐츠를 저장 하지 않고 데이터를 제어 합니다. |
-| 열 수준 암호화 (Azure Data Services)| yes | |
-| API 호출 암호화| yes | |
+| 미사용 서버 쪽 암호화: Microsoft 관리 키 | 예 |  |
+| 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | HTTPS/TLS. |
+| 미사용 서버 쪽 암호화: 고객 관리 키 (BYOK) | 해당 없음 | Azure Resource Manager는 고객 콘텐츠를 저장 하지 않고 데이터를 제어 합니다. |
+| 열 수준 암호화 (Azure Data Services)| 예 | |
+| API 호출 암호화| 예 | |
 
 ## <a name="network"></a>네트워크
 
-| 보안 제어 | 예/아니요 | 참고 |
+| 보안 제어 | 예/아니요 | 참고 사항 |
 |---|---|--|
-| 서비스 엔드포인트 지원| 아닙니다. | |
-| VNet 삽입 지원| yes | |
-| 네트워크 격리 및 방화벽 지원| 아닙니다. |  |
-| 강제 터널링 지원| 아닙니다. |  |
+| 서비스 엔드포인트 지원| 아니오 | |
+| VNet 삽입 지원| 예 | |
+| 네트워크 격리 및 방화벽 지원| 아니오 |  |
+| 강제 터널링 지원| 아니오 |  |
 
 ## <a name="monitoring--logging"></a>& 로깅 모니터링
 
-| 보안 제어 | 예/아니요 | 참고|
+| 보안 제어 | 예/아니요 | 참고 사항|
 |---|---|--|
-| Azure 모니터링 지원 (Log analytics, App insights 등)| 아닙니다. | |
-| 제어 및 관리 평면 로깅 및 감사| yes | 활동 로그는 리소스에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)을 노출 합니다. 작업 [로그 보기를 참조 하 여 리소스에 대 한 작업을 감사](resource-group-audit.md)합니다. |
-| 데이터 평면 로깅 및 감사| N/A | |
+| Azure 모니터링 지원 (Log analytics, App insights 등)| 아니오 | |
+| 제어 및 관리 평면 로깅 및 감사| 예 | 활동 로그는 리소스에서 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)을 노출 합니다. 작업 [로그 보기를 참조 하 여 리소스에 대 한 작업을 감사](resource-group-audit.md)합니다. |
+| 데이터 평면 로깅 및 감사| 해당 없음 | |
 
 ## <a name="identity"></a>ID
 
-| 보안 제어 | 예/아니요 | 참고|
+| 보안 제어 | 예/아니요 | 참고 사항|
 |---|---|--|
-| Authentication| yes | [Azure Active Directory](/azure/active-directory) 기반.|
-| 권한 부여| yes | |
+| 인증| 예 | [Azure Active Directory](/azure/active-directory) 기반.|
+| 권한 부여| 예 | |
 
-## <a name="configuration-management"></a>Configuration Management
+## <a name="configuration-management"></a>구성 관리
 
-| 보안 제어 | 예/아니요 | 참고|
+| 보안 제어 | 예/아니요 | 참고 사항|
 |---|---|--|
-| 구성 관리 지원 (구성의 버전 관리 등)| yes |  |
+| 구성 관리 지원 (구성의 버전 관리 등)| 예 |  |
 
 ## <a name="next-steps"></a>다음 단계
 

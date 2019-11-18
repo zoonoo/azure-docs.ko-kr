@@ -1,17 +1,14 @@
 ---
-title: 리소스 그룹 & Azure 리소스 간 구독 배포
+title: 리소스 그룹 & 구독 간 리소스 배포
 description: 배포 중에 둘 이상의 Azure 구독 및 리소스 그룹을 대상으로 지정하는 방법을 보여 줍니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: c90096043f54eb8db5834fbe83ed1d6ae710d371
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 99c534e1c51dcdf32c2b3a3b779c01d71b8d0c24
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528321"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149561"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포
 
@@ -162,7 +159,7 @@ ms.locfileid: "72528321"
 
 다음 템플릿은 여러 리소스 그룹 배포를 보여줍니다. 템플릿을 배포하는 스크립트는 표 뒤에 표시됩니다.
 
-|Template  |설명  |
+|템플릿  |설명  |
 |---------|---------|
 |[구독 간 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crosssubscription.json) |하나의 스토리지 계정을 어떤 리소스 그룹에 배포하고 다른 스토리지 계정을 두 번째 리소스 그룹에 배포합니다. 다른 구독에 두 번째 리소스 그룹이 있는 경우 구독 ID에 대한 값을 포함합니다. |
 |[리소스 그룹 속성 간 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) |`resourceGroup()` 함수를 확인하는 방법을 보여줍니다. 여기서는 리소스를 배포하지 않습니다. |

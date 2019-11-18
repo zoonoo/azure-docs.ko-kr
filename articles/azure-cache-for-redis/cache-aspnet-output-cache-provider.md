@@ -1,25 +1,17 @@
 ---
 title: Azure Cache for Redis에 대한 ASP.NET 출력 캐시 공급자
 description: Azure Cache for Redis를 사용하여 ASP.NET 페이지 출력을 캐시하는 방법을 알아봅니다.
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-ms.assetid: 78469a66-0829-484f-8660-b2598ec60fbf
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 04/22/2018
 ms.author: yegu
-ms.openlocfilehash: d3babb213f633586786c0015c27fae50e44369df
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 5d7099779f330bc0a92f0c8f305ac534ab385119
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815657"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122471"
 ---
 # <a name="aspnet-output-cache-provider-for-azure-cache-for-redis"></a>Azure Cache for Redis에 대한 ASP.NET 출력 캐시 공급자
 
@@ -59,12 +51,12 @@ NuGet 패키지에서는 필수 어셈블리 참조를 다운로드하고 추가
 
 Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성하고, 필요에 따라 다른 값을 구성합니다. 캐시 속성에 액세스하는 방법에 대한 지침은 [Azure Cache for Redis 설정 구성](cache-configure.md#configure-azure-cache-for-redis-settings)을 참조하세요.
 
-| 특성 | type | 기본값 | 설명 |
+| 특성 | 형식 | 기본값 | 설명 |
 | --------- | ---- | ------- | ----------- |
-| *호스트* | string | 호스트 | Redis 서버 IP 주소 또는 호스트 이름 |
+| *host* | string | 호스트 | Redis 서버 IP 주소 또는 호스트 이름 |
 | *port* | 양의 정수 | 6379 (비 SSL)<br/>6380 (SSL) | Redis 서버 포트 |
 | *accessKey* | string | "" | Redis 권한 부여를 사용 하는 경우 서버 암호를 Redis 합니다. 기본적으로이 값은 빈 문자열입니다. 즉, Redis 서버에 연결할 때 세션 상태 공급자가 암호를 사용 하지 않습니다. **Redis 서버가 Azure Redis Cache와 같은 공개적으로 액세스할 수 있는 네트워크에 있는 경우 보안을 향상 시키기 위해 Redis 권한 부여를 사용 하도록 설정 하 고 보안 암호를 제공 해야 합니다.** |
-| *ssl* | boolean | **false** | SSL을 통해 Redis 서버에 연결할지 여부를 지정 합니다. Redis은 기본적으로 SSL을 지원 하지 않으므로이 값은 기본적으로 **false** 입니다. **기본적으로 SSL을 지 원하는 Azure Redis Cache를 사용 하는 경우 보안을 강화 하려면이를 true로 설정 해야 합니다.**<br/><br/>비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. SSL 포트를 사용 하려면이 설정에 대해 **true** 를 지정 합니다. 비-SSL 포트 사용 방법에 대한 자세한 내용은 [캐시 구성](cache-configure.md) 토픽의 [액세스 포트](cache-configure.md#access-ports) 섹션을 참조하세요. |
+| *ssl* | boolean | **false** | SSL을 통해 Redis 서버에 연결할지 여부를 지정 합니다. Redis은 기본적으로 SSL을 지원 하지 않으므로이 값은 기본적으로 **false** 입니다. **기본적으로 SSL을 지 원하는 Azure Redis Cache를 사용 하는 경우 보안을 강화 하려면이를 true로 설정 해야 합니다.**<br/><br/>비 SSL 포트는 기본적으로 새 캐시에 대해 사용하지 않도록 설정됩니다. SSL 포트를 사용 하려면이 설정에 대해 **true** 를 지정 합니다. 비-SSL 포트 사용 방법에 대한 자세한 내용은 [캐시 구성](cache-configure.md#access-ports) 토픽의 [액세스 포트](cache-configure.md) 섹션을 참조하세요. |
 | *databaseIdNumber* | 양의 정수 | 0 | *이 특성은 web.config 또는 AppSettings를 통해서만 지정할 수 있습니다.*<br/><br/>사용할 Redis 데이터베이스를 지정 합니다. |
 | *connectionTimeoutInMilliseconds* | 양의 정수 | StackExchange에서 제공 합니다. | Redis를 만들 때 *Connecttimeout* 을 설정 하는 데 사용 됩니다. |
 | *operationTimeoutInMilliseconds* | 양의 정수 | StackExchange에서 제공 합니다. | Redis를 만들 때 *Synctimeout* 을 설정 하는 데 사용 됩니다. |
@@ -93,7 +85,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 </connectionStrings>
 ```
 
-@No__t-0에서 실제 값 대신 위의 키를 매개 변수 값으로 사용 합니다.
+`web.config`에서 실제 값 대신 위의 키를 매개 변수 값으로 사용 합니다.
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">
@@ -113,7 +105,7 @@ Microsoft Azure 포털의 캐시 블레이드에서 값으로 특성을 구성�
 </appSettings>
 ```
 
-@No__t-0에서 실제 값 대신 위의 키를 매개 변수 값으로 사용 합니다.
+`web.config`에서 실제 값 대신 위의 키를 매개 변수 값으로 사용 합니다.
 
 ```xml
 <sessionState mode="Custom" customProvider="MySessionStateStore">

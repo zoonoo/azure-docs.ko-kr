@@ -11,46 +11,69 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/12/2019
+ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef2ce1ce7a754868a1adc2e78b4c0a83fc84f071
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1f661aa67f04de23c7b4871e78d3628c639e7567
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641444"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144517"
 ---
-# <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제
+# <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Azure Active Directory 사용 하 여 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화
 
-Azure Active Directory (Azure AD)를 사용 하면 [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)등과 같은 클라우드 SaaS 응용 프로그램에서 사용자 id의 생성, 유지 관리 및 제거를 자동화할 수 있습니다. 이를 SaaS 앱에 대 한 자동화 된 사용자 프로비저닝 이라고 합니다.
+Azure AD (Azure Active Directory)에서 용어 **앱 프로 비전은** 사용자가 액세스 해야 하는 클라우드 ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램에서 사용자 id 및 역할을 자동으로 만드는 것을 의미 합니다. 사용자 id를 만들 뿐 아니라 자동 프로 비전에는 상태 또는 역할이 변경 되는 사용자 id의 유지 관리 및 제거도 포함 됩니다. 일반적인 시나리오에는 [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)등과 같은 응용 프로그램에 Azure AD 사용자를 프로 비전 하는 작업이 포함 됩니다.
 
-> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
+![프로 비전 개요 다이어그램](media/user-provisioning/provisioning-overview.png)
 
 이 기능을 통해 다음을 수행할 수 있습니다.
 
-- 새로운 사람이 팀 또는 조직에 가입할 때 적절한 시스템에서 새 계정을 자동으로 만듭니다.
-- 사용자가 팀 또는 조직을 떠날 때 적절한 시스템에서 계정을 자동으로 비활성화합니다.
-- 디렉터리 또는 인사 관리 시스템의 변경 내용에 따라 앱 및 시스템의 ID가 최신 상태로 유지되도록 합니다.
-- 그룹과 같이 사용자가 아닌 개체를 지원하는 애플리케이션에 해당 개체를 프로비전합니다.
+- **프로 비전 자동화**: 팀 또는 조직에 참여할 때 새 사용자를 위해 올바른 시스템에 새 계정을 자동으로 만듭니다.
+- **프로 비전 해제 자동화:** 사용자가 팀 이나 조직을 떠날 때 적절 한 시스템에서 계정을 자동으로 비활성화 합니다.
+- **시스템 간 데이터 동기화:** 디렉터리 또는 인적 자원 시스템의 변경 내용에 따라 앱 및 시스템의 id를 최신 상태로 유지 해야 합니다.
+- **프로 비전 그룹:** 이를 지 원하는 응용 프로그램에 그룹을 프로 비전 합니다.
+- **액세스 제어:** 응용 프로그램에 프로 비전 된 사용자를 모니터링 하 고 감사 합니다.
+- **갈색 필드 시나리오에서 원활 하 게 배포:** 시스템 간에 기존 id를 일치 시키고 사용자가 대상 시스템에 이미 있는 경우에도 쉽게 통합할 수 있습니다.
+- **다양 한 사용자 지정 사용:** 원본 시스템에서 대상 시스템으로 이동 해야 하는 사용자 데이터를 정의 하는 사용자 지정 가능한 특성 매핑을 활용 합니다.
+- **중요 이벤트에 대 한 경고 받기:** 프로 비전 서비스는 중요 이벤트에 대 한 경고를 제공 하며, 비즈니스 요구에 맞게 사용자 지정 경고를 정의할 수 있는 Log Analytics 통합을 허용 합니다.
 
-자동화 된 사용자 프로 비전에는 다음 기능도 포함 됩니다.
+## <a name="benefits-of-automatic-provisioning"></a>자동 프로 비전의 이점
 
-- 원본 시스템과 대상 시스템 간에 기존 id를 일치 시킬 수 있습니다.
-- 소스 시스템에서 대상 시스템으로 이동되어야 하는 사용자 데이터를 정의하는 사용자 지정 가능한 특성 매핑입니다.
-- 프로비전닝 오류를 전자 메일로 받을 수 있는 선택적 기능.
-- 모니터링 및 문제 해결에 도움이 되는 보고 및 활동 로그.
+최신 조직에서 사용 되는 응용 프로그램 수가 계속 증가 함에 따라 IT 관리자는 대규모로 액세스 관리를 수행 합니다. SAML (Security 어설션이 Markup Language) 또는 OIDC (Open ID Connect)와 같은 표준을 사용 하면 관리자가 SSO (Single Sign-On)를 신속 하 게 설정할 수 있지만 액세스를 위해서는 사용자를 앱에 프로 비전 해야 합니다. 대부분의 관리자는 프로 비전을 통해 모든 사용자 계정을 수동으로 만들거나 매주 CSV 파일을 업로드 하는 것을 의미 하지만 이러한 프로세스는 시간이 많이 걸리고, 비용이 많이 들고, 오류가 발생 하기 쉽습니다. 프로 비전을 자동화 하기 위해 SAML JIT (just-in-time)와 같은 솔루션을 채택 했지만, 조직에서 탈퇴 하거나 역할 변경에 따라 특정 앱에 더 이상 액세스할 필요가 없는 경우에는 사용자를 프로 비전 해제 하는 솔루션이 필요 합니다.
 
-## <a name="why-use-automated-provisioning"></a>자동 프로비전을 사용하는 이유는 무엇입니까?
+자동 프로비저닝을 사용 하는 일반적인 몇 가지 동기는 다음과 같습니다.
 
-이 기능을 사용하게 되는 일반적인 동기는 다음과 같습니다.
-
-- 수동 프로비저닝 절차에서 빚어지는 비용, 비효율성, 사람의 실수를 방지합니다.
-- 사용자 지정 개발된 프로비저닝 솔루션과 스크립트를 호스트하고 유지하는 데 관련된 비용을 방지합니다.
+- 프로 비전 프로세스의 효율성과 정확성을 극대화 합니다.
+- 사용자 지정 개발 프로 비전 솔루션 및 스크립트의 호스팅 및 유지 관리와 관련 된 비용을 절감 합니다.
 - 조직에서 나갈 때 키 SaaS 앱에서 사용자 id를 즉시 제거 하 여 조직의 보안을 유지 합니다.
 - 특정 SaaS 응용 프로그램 또는 시스템으로 많은 사용자를 쉽게 가져올 수 있습니다.
 - 단일 정책 집합을 포함 하 여 프로 비전 된 사용자 및 앱에 로그인 할 수 있는 사람을 결정 합니다.
+
+Azure AD 사용자 프로 비전은 이러한 문제를 해결 하는 데 도움이 될 수 있습니다. 고객이 Azure AD 사용자 프로 비전을 사용 하는 방법에 대해 자세히 알아보려면 [Asos 사례 연구](https://aka.ms/asoscasestudy)를 읽을 수 있습니다. 아래 비디오는 Azure AD에서 사용자 프로 비전의 개요를 제공 합니다.
+
+> [!VIDEO https://www.youtube.com/embed/_ZjARPpI6NI]
+
+## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Azure AD 자동 사용자 프로비전에서 사용할 수 있는 애플리케이션과 시스템은 무엇입니까?
+
+Azure AD는 널리 사용 되는 많은 SaaS 앱 및 인적 자원 시스템에 대 한 사전 통합 된 지원과 [Scim 2.0 표준](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)의 특정 부분을 구현 하는 앱에 대 한 일반 지원을 제공 합니다.
+
+* **사전 통합 된 응용 프로그램 (갤러리 SaaS 앱)** . Azure AD [가 사용자 프로 비전을 위한 응용 프로그램 자습서 목록](../saas-apps/tutorial-list.md)에서 사전 통합 된 프로 비전 커넥터를 지 원하는 모든 응용 프로그램을 찾을 수 있습니다. 갤러리에 나열 된 사전 통합 된 응용 프로그램은 일반적으로 프로 비전을 위해 SCIM 2.0 기반 사용자 관리 Api를 사용 합니다. 
+
+   ![Salesforce 로고](media/user-provisioning/gallery-app-logos.png)
+
+   프로 비전을 위해 새 응용 프로그램을 요청 하려는 경우 [응용 프로그램을 앱 갤러리와 통합 하도록 요청할](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing)수 있습니다. 사용자 프로 비전 요청의 경우 응용 프로그램에 SCIM 규격 끝점이 있어야 합니다. 앱을 플랫폼에 빠르게 등록할 수 있도록 응용 프로그램 공급 업체가 SCIM 표준을 따르도록 요청 하세요.
+
+* **SCIM 2.0을 지 원하는 응용 프로그램**입니다. 일반적으로 SCIM 2.0 기반 사용자 관리 Api를 구현 하는 응용 프로그램을 연결 하는 방법에 대 한 자세한 내용은 [SCIM을 사용 하 여 Azure Active Directory에서 응용 프로그램으로 사용자 및 그룹 자동 프로 비전](use-scim-to-provision-users-and-groups.md)을 참조 하세요.
+
+## <a name="what-is-scim"></a>SCIM 이란?
+
+프로 비전 및 프로 비전 해제를 자동화 하기 위해 앱은 독점적인 사용자 및 그룹 Api를 노출 합니다. 그러나 둘 이상의 앱에서 사용자를 관리 하려는 사용자는 모든 앱이 사용자 만들기 또는 업데이트, 그룹에 사용자 추가 또는 프로 비전 해제와 같은 간단한 작업을 수행 하려고 한다는 것을 알 수 있습니다. 그러나 이러한 모든 간단한 작업은 다른 끝점 경로, 사용자 정보를 지정 하는 다양 한 메서드 및 정보의 각 요소를 나타내는 다른 스키마를 사용 하 여 약간 약간 다르게 구현 됩니다.
+
+이러한 문제를 해결 하기 위해 SCIM 사양은 사용자가 앱으로 전환 하 고 앱을 확장 하는 데 도움이 되는 공용 사용자 스키마를 제공 합니다. SCIM은 프로 비전을 위한 사실상 표준으로 사용 되며, SAML 또는 Openid connect Connect와 같은 페더레이션 표준과 함께 사용 될 경우 관리자에 게 액세스 관리를 위한 종단 간 표준 기반 솔루션을 제공 합니다.
+
+SCIM을 사용 하 여 응용 프로그램에 사용자 및 그룹의 프로 비전 및 프로 비전 해제를 자동화 하는 방법에 대 한 자세한 지침은 [Azure Active Directory로 scim 사용자 프로 비전](use-scim-to-provision-users-and-groups.md)을 참조 하세요.
 
 ## <a name="how-does-automatic-provisioning-work"></a>자동 프로비전은 어떻게 작동합니까?
 
@@ -65,54 +88,13 @@ Azure AD 프로 비전 서비스를 ![](./media/user-provisioning/provisioning0.
 인바운드 사용자 프로 비전 워크플로](./media/user-provisioning/provisioning2.PNG)
 *그림 3: 인기 있는 HCM (인간 자본 관리) 응용 프로그램에서 Azure Active Directory 및 Windows Server로의 "인바운드" 사용자 프로 비전 워크플로를 ![Active Directory*
 
-## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Azure AD 자동 사용자 프로비전에서 사용할 수 있는 애플리케이션과 시스템은 무엇입니까?
-
-Azure AD는 널리 사용 되는 많은 SaaS 앱 및 인적 자원 시스템에 대 한 사전 통합 된 지원과 [Scim 2.0 표준](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)의 특정 부분을 구현 하는 앱에 대 한 일반 지원을 제공 합니다.
-
-### <a name="pre-integrated-applications"></a>사전 통합된 애플리케이션
-
-Azure AD가 미리 통합된 프로비저닝 커넥터를 지원하는 모든 애플리케이션 목록을 보려면 [사용자 프로비저닝에 대한 애플리케이션 자습서 목록](../saas-apps/tutorial-list.md)을 참조하세요.
-
-Azure AD 엔지니어링 팀에 문의하여 추가 애플리케이션에 대한 프로비전 지원을 요청하려면 [Azure Active Directory 피드백 포럼](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035)을 통해 메시지를 제출하세요.
-
-> [!NOTE]
-> 애플리케이션에서 자동화된 사용자 프로비저닝을 지원하려면, 먼저 외부 프로그램에서 사용자 만들기, 유지 관리 및 제거를 자동화하는 데 필요한 사용자 관리 API를 제공해야 합니다. 따라서 모든 SaaS 앱이 이 기능과 호환되지는 않습니다. 사용자 관리 Api를 지 원하는 앱의 경우 Azure AD 엔지니어링 팀은 이러한 앱에 대 한 프로 비전 커넥터를 빌드할 수 있으며이 작업은 현재 및 잠재 고객의 요구에 따라 우선 순위가 지정 됩니다.
-
-### <a name="connecting-applications-that-support-scim-20"></a>SCIM 2.0을 지원하는 애플리케이션 연결
-
-SCIM 2.0 기반 사용자 관리 API를 구현하는 애플리케이션에 일반적으로 연결하는 방법에 대한 자세한 내용은 [SCIM을 사용하여 사용자 및 그룹을 Azure Active Directory에서 애플리케이션으로 자동으로 프로비전](use-scim-to-provision-users-and-groups.md)을 참조하세요.
-
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>애플리케이션에 자동 프로비전을 설정하려면 어떻게 합니까?
+
+갤러리에 나열 된 사전 통합 된 응용 프로그램의 경우 자동 프로 비전을 설정 하는 데 단계별 지침을 사용할 수 있습니다. [통합 갤러리 앱에 대 한 자습서 목록](https://docs.microsoft.com/azure/active-directory/saas-apps/)을 참조 하세요. 다음 비디오는 SalesForce에 대 한 자동 사용자 프로 비전을 설정 하는 방법을 보여 줍니다.
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 
-Azure Active Directory 포털을 사용 하 여 선택한 응용 프로그램에 대 한 Azure AD 프로 비전 서비스를 구성 합니다.
-
-1. **[Azure Active Directory 포털](https://aad.portal.azure.com)** 을 엽니다.
-1. 왼쪽 창에서 **엔터프라이즈 응용 프로그램** 을 선택 합니다. 구성 된 모든 앱의 목록이 표시 됩니다.
-1. **+ 새 응용** 프로그램을 선택 하 여 응용 프로그램을 추가 합니다. 
-1. 세부 정보를 입력 하 고 **추가**를 선택 합니다. 새 앱이 엔터프라이즈 응용 프로그램 목록에 추가 되 고 응용 프로그램 관리 화면으로 열립니다.
-1. **프로 비전** 을 선택 하 여 앱에 대 한 사용자 계정 프로 비전 설정을 관리 합니다.
-
-   ![프로 비전 설정 화면을 표시 합니다.](./media/user-provisioning/provisioning_settings0.PNG)
-
-1. **프로 비전 모드** 에 대해 자동 옵션을 선택 하 여 관리자 자격 증명, 매핑, 시작 및 중지 및 동기화에 대 한 설정을 지정 합니다.
-
-   - **관리자 자격 증명** 을 확장 하 여 Azure AD에 응용 프로그램의 사용자 관리 API에 연결 하는 데 필요한 자격 증명을 입력 합니다. 또한이 섹션에서는 자격 증명이 실패 하거나 프로 비전 작업이 [격리](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)되는 경우 전자 메일 알림을 사용 하도록 설정할 수 있습니다.
-   - **매핑** 을 확장 하 여 사용자 계정이 프로 비전 되거나 업데이트 될 때 Azure AD와 대상 응용 프로그램 간에 흐르는 사용자 특성을 보고 편집 합니다. 대상 응용 프로그램에서 지 원하는 경우이 섹션에서 필요에 따라 그룹 및 사용자 계정 프로 비전을 구성할 수 있습니다. 테이블에서 매핑을 선택 하 여 사용자 특성을 확인 하 고 사용자 지정할 수 있는 오른쪽의 매핑 편집기를 엽니다.
-
-     **범위 지정 필터** 는 프로 비전 서비스에 원본 시스템의 사용자 및 그룹을 프로 비전 하거나 대상 시스템에 프로 비전 해제를 알려 줍니다. **특성 매핑** 창에서 **원본 개체 범위** 를 선택 하 여 특정 특성 값을 필터링 합니다. 예를 들어 "Department" 특성이 "Sales"인 사용자만 프로비전 범위에 속해야 한다고 지정할 수 있습니다. 자세한 내용은 [범위 지정 필터 사용](define-conditional-rules-for-provisioning-user-accounts.md)을 참조하세요.
-
-     자세한 내용은 [특성 매핑 사용자 지정](customize-application-attributes.md)을 참조하세요.
-
-   - **설정은** 현재 실행 중인지 여부를 포함 하 여 응용 프로그램에 대 한 프로 비전 서비스의 작업을 제어 합니다. **범위** 메뉴에서는 할당 된 사용자 및 그룹만 프로 비전 범위에 속해야 하는지 아니면 Azure AD 디렉터리의 모든 사용자를 프로 비전 해야 할지를 지정할 수 있습니다. 사용자 및 그룹 "할당"에 대한 자세한 내용은 [Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당](assign-user-or-group-access-portal.md)을 참조하세요.
-
-앱 관리 화면에서 **프로 비전 로그 (미리 보기)** 를 선택 하 여 Azure AD 프로 비전 서비스에서 실행 하는 모든 작업의 레코드를 확인 합니다. 자세한 내용은 [프로비전 보고 가이드](check-status-user-account-provisioning.md)를 참조하세요.
-
-![예제-앱에 대 한 로그 프로비저닝 화면](./media/user-provisioning/audit_logs.PNG)
-
-> [!NOTE]
-> [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)를 사용하여 Azure AD 사용자 프로비저닝 서비스를 구성 및 관리할 수도 있습니다.
+SCIM 2.0을 지 원하는 다른 응용 프로그램의 경우 [Azure Active Directory로 scim 사용자 프로 비전](use-scim-to-provision-users-and-groups.md)문서의 단계를 따르세요.
 
 ## <a name="what-happens-during-provisioning"></a>프로비전하는 동안 어떻게 됩니까?
 

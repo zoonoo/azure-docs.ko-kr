@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2b600edc4c360a2b2990be34e44bb8fbd1c8f721
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72330663"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133183"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>윤리적 해킹 클래스를 학습 하기 위한 랩 설정 
 이 문서에서는 윤리적 해킹의 법적 고 지에 초점을 맞춘 클래스를 설정 하는 방법을 보여 줍니다. 윤리적 해킹 커뮤니티에서 사용하는 방법인 침투 테스트는 누군가가 악의적인 공격자가 악용할 수 있는 취약성을 입증하기 위해 시스템 또는 네트워크에 대한 액세스 권한을 얻으려고 할 때 발생합니다. 
 
-윤리적 해킹 클래스에서 학생은 취약점을 방어하기 위한 최신 기술을 배울 수 있습니다. 각 학생에게는 두 개의 중첩된 가상 머신이 있는 Windows Server 호스트 가상 머신이 있습니다. 즉 **Metaspoiltable** 이미지가 있는 가상 머신과 [Kali Linux](https://www.kali.org/) 이미지가 있는 가상 머신이 있습니다. Metasploitable 가상 머신은 악용 목적을 위해 사용되며 Kali 가상 머신은 법정 작업을 실행하는 데 필요한 도구에 대한 액세스 권한을 제공합니다.
+윤리적 해킹 클래스에서 학생은 취약점을 방어하기 위한 최신 기술을 배울 수 있습니다. 각 학생은 두 개의 중첩 된 가상 머신 ( [Metasploitable3](https://github.com/rapid7/metasploitable3) 이미지가 있는 가상 머신과 [Kali Linux](https://www.kali.org/) 이미지를 포함 하는 다른 컴퓨터)가 있는 Windows Server 호스트 가상 머신을 가져옵니다. Metasploitable 가상 머신은 악용 목적을 위해 사용되며 Kali 가상 머신은 법정 작업을 실행하는 데 필요한 도구에 대한 액세스 권한을 제공합니다.
 
 이 문서에는 두 가지 주요 섹션이 있습니다. 첫 번째 섹션에서는 교실 랩을 만드는 방법을 설명 합니다. 두 번째 섹션에서는 중첩 된 가상화를 사용 하도록 설정 하 고 필요한 도구 및 이미지를 사용 하 여 템플릿 컴퓨터를 만드는 방법을 설명 합니다. 이 경우 Hyper-v를 사용 하 여 이미지를 호스트 하는 컴퓨터의 Metasploitable 이미지와 Kali Linux 이미지가 있습니다.
 
 ## <a name="lab-configuration"></a>랩 구성
-이 랩을 설정 하려면 시작 하려면 Azure 구독이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들거나 기존 계정을 사용할 수 있습니다. 새 랩 계정 만들기에 대 한 자습서: [랩 계정 설정 자습서](tutorial-setup-lab-account.md)를 참조 하세요.
+이 랩을 설정 하려면 시작 하려면 Azure 구독이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들거나 기존 계정을 사용할 수 있습니다. 새 랩 계정 만들기에 대 한 자습서: [랩 계정 설정 자습서](tutorial-setup-lab-account.md)를 참조 하세요.
 
 [이 자습서](tutorial-setup-classroom-lab.md) 에 따라 새 랩을 만들고 다음 설정을 적용 합니다.
 
@@ -44,13 +44,15 @@ ms.locfileid: "72330663"
 2. [Kali](https://www.kali.org/) Linux 이미지를 설정 합니다. Kali는 침투 테스트 및 보안 감사에 대 한 도구를 포함 하는 Linux 배포판입니다.
 3. Metasploitable 이미지를 설정 합니다. 이 예에서는 [Metasploitable3](https://github.com/rapid7/metasploitable3) 이미지가 사용 됩니다. 이 이미지는 의도적으로 보안 취약성을 갖도록 생성 됩니다.
 
+위에 설명 된 작업을 자동화 하는 스크립트는 [Lab Services 윤리적 해킹 스크립트](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/EthicalHacking)에서 사용할 수 있습니다.
+
 ### <a name="prepare-template-machine-for-nested-virtualization"></a>중첩 된 가상화를 위한 템플릿 시스템 준비
 중첩 된 가상화를 위해 템플릿 가상 머신을 준비 하려면 [이 문서의](how-to-enable-nested-virtualization-template-vm.md) 지침을 따르세요. 
 
 ### <a name="set-up-a-nested-virtual-machine-with-kali-linux-image"></a>Kali Linux 이미지를 사용 하 여 중첩 된 가상 머신 설정
 Kali는 침투 테스트 및 보안 감사에 대 한 도구를 포함 하는 Linux 배포판입니다.
 
-1. [@No__t-1](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/)에서 이미지를 다운로드 합니다.  
+1. [https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/](https://www.offensive-security.com/kali-linux-vm-vmware-virtualbox-image-download/)에서 이미지를 다운로드 합니다.  
     1. Hyper-v 용 **Kali Linux hyper-v 64 비트** 를 다운로드 합니다.
     1. 7z 파일의 압축을 풉니다.  7 개의 zip이 아직 없는 경우 [https://www.7-zip.org/download.html](https://www.7-zip.org/download.html)에서 다운로드 합니다. 압축을 푼 폴더의 위치는 나중에 필요 합니다.
 2. 관리 도구에서 **Hyper-v 관리자** 를 엽니다.
@@ -69,20 +71,20 @@ Kali는 침투 테스트 및 보안 감사에 대 한 도구를 포함 하는 Li
 
     ![네트워크 연결 페이지](../media/class-type-ethical-hacking/connect-network.png)
 1. **요약** 페이지에서 **마침** 을 선택 합니다. 복사 및 가져오기 작업이 완료 될 때까지 기다립니다. 이제 Kali Linux 가상 머신이 Hyper-v에서 제공 될 예정입니다.
-1. **Hyper-v 관리자**에서 **작업** -> **시작**을 선택한 다음 **작업** -> **연결** 을 선택 하 여 가상 컴퓨터에 연결 합니다.  
+1. **Hyper-v 관리자**에서 **작업** -> **시작한**후 **작업** -> **연결** 을 선택 하 여 가상 컴퓨터에 연결 합니다.  
 12. 기본 사용자 이름은 `root`이며 암호는 `toor`입니다. 
 
     > [!NOTE]
     > 이미지 잠금을 해제 해야 하는 경우 CTRL 키를 누르고 마우스를 위로 끕니다.
 
 ## <a name="set-up-a-nested-vm-with-metasploitable-image"></a>Metasploitable 이미지를 사용 하 여 중첩 된 VM 설정  
-Rapid7 Metasploitable 이미지는 보안 취약성으로 의도적으로 구성 된 이미지입니다. 이 이미지를 사용 하 여 문제를 테스트 하 고 확인 합니다. 다음 지침에서는 미리 만든 Metasploitable 이미지를 사용 하는 방법을 보여 줍니다. 그러나 최신 버전의 Metasploitable 이미지가 필요한 경우 [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3)을 참조 하세요.
+Rapid7 Metasploitable 이미지는 보안 취약성으로 의도적으로 구성 된 이미지입니다. 이 이미지를 사용 하 여 문제를 테스트 하 고 확인 합니다. 다음 지침에서는 미리 만든 Metasploitable 이미지를 사용 하는 방법을 보여 줍니다. 그러나 최신 버전의 Metasploitable 이미지가 필요한 경우 [https://github.com/rapid7/metasploitable3](https://github.com/rapid7/metasploitable3)를 참조 하세요.
 
 1. [https://information.rapid7.com/download-metasploitable-2017.html](https://information.rapid7.com/download-metasploitable-2017.html)으로 이동합니다. 양식을 작성 하 여 이미지를 다운로드 하 고 **제출** 단추를 선택 합니다.
 1. **Metasploitable 지금 다운로드** 단추를 선택 합니다.
 1. Zip 파일이 다운로드 되 면 zip 파일의 압축을 풀고 위치를 저장 합니다.
 1. Hyper-v와 함께 사용할 수 있도록 추출 된 .vmdk 파일을 vhdx 파일로 변환 합니다. 이렇게 하려면 관리자 권한으로 PowerShell을 열고 .vmdk 파일이 있는 폴더로 이동 하 여 다음 지침을 따르세요.
-    1. [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497)를 다운로드 하 고 메시지가 표시 되 면 mvmc_setup 파일을 실행 합니다.
+    1. [Microsoft Virtual Machine Converter](https://www.microsoft.com/download/details.aspx?id=42497)를 다운로드 하 고 메시지가 표시 되 면 mvmc_setup .msi 파일을 실행 합니다.
     1. PowerShell 모듈을 가져옵니다.  모듈이 설치 되는 기본 위치는 C:\Program Files\Microsoft 가상 컴퓨터 변환기 \입니다.
 
         ```powershell
@@ -96,7 +98,7 @@ Rapid7 Metasploitable 이미지는 보안 취약성으로 의도적으로 구성
     1. 새로 만든 metasploitable을 C:\Users\Public\Documents\Hyper-V\Virtual 하드 디스크에 복사 합니다. 
 1. 새 Hyper-v 가상 컴퓨터를 만듭니다.
     1. **Hyper-v 관리자**를 엽니다.
-    1. **작업** -> **새로 만들기** -> **가상 컴퓨터**를 선택 합니다.
+    1. **새** -> **가상 컴퓨터** -> **작업** 을 선택 합니다.
     1. **새 가상 컴퓨터 마법사**의 **시작 하기 전** 페이지에서 **다음**을 클릭 합니다.
     1. **이름 및 위치 지정** 페이지에서 **이름**에 **Metasploitable** 를 입력 하 고 **다음**을 선택 합니다.
 
@@ -119,7 +121,7 @@ Rapid7 Metasploitable 이미지는 보안 취약성으로 의도적으로 구성
     1. **레거시 네트워크 어댑터** 페이지에서 **가상 스위치** 설정에 대해 **LabServicesSwitch** 를 선택 하 고 **확인**을 선택 합니다. LabServicesSwitch는 **중첩 된 가상화를 위한 템플릿 준비** 섹션에서 hyper-v에 대 한 템플릿 컴퓨터를 준비할 때 생성 되었습니다.
 
         ![레거시 네트워크 어댑터 페이지](../media/class-type-ethical-hacking/legacy-network-adapter-page.png)
-    1. 이제 Metasploitable 이미지를 사용할 준비가 되었습니다. **Hyper-v 관리자**에서 **작업** -> **시작**을 선택한 다음 **작업** -> **연결** 을 선택 하 여 가상 컴퓨터에 연결 합니다.  기본 사용자 이름은 **msfadmin** 이 고 암호는 **msfadmin**입니다. 
+    1. 이제 Metasploitable 이미지를 사용할 준비가 되었습니다. **Hyper-v 관리자**에서 **작업** -> **시작한**후 **작업** -> **연결** 을 선택 하 여 가상 컴퓨터에 연결 합니다.  기본 사용자 이름은 **msfadmin** 이 고 암호는 **msfadmin**입니다. 
 
 
 이제 템플릿이 업데이트 되며, 침투 테스트를 수행 하는 도구를 포함 하는 이미지 및 검색을 위한 보안 취약성이 있는 다른 이미지를 포함 하는 윤리적 해킹 침투 테스트 클래스에 필요한 이미지가 있습니다. 이제 템플릿 이미지를 클래스에 게시할 수 있습니다. 템플릿 페이지에서 **게시** 단추를 선택 하 여 랩에 템플릿을 게시 합니다.

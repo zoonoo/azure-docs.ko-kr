@@ -1,5 +1,5 @@
 ---
-title: '지점 및 사이트 간 VPN 클라이언트 프로필 정보: Azure VPN Gateway | Microsoft Docs'
+title: 'Azure VPN Gateway: P2S VPN 클라이언트 프로필 정보'
 description: 이렇게 하면 클라이언트 프로필 파일을 사용할 수 있습니다.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: cherylmc
-ms.openlocfilehash: 340ff6d9b112f4ff04950499b2708d8882fa6120
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 5386cace7191be60534f0d2fbf4a85b592d1ecdd
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960623"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151629"
 ---
 # <a name="about-p2s-vpn-client-profiles"></a>P2S VPN 클라이언트 프로필 정보
 
@@ -33,7 +33,7 @@ $PROFILE.VpnProfileSASUrl
 zip 파일의 압축을 풉니다. 파일에는 다음 폴더가 포함 되어 있습니다.
 
 * AzureVPN
-* 일반
+* 제네릭
 * OpenVPN (게이트웨이에서 OpenVPN 및 Azure AD 인증 설정을 사용 하도록 설정한 경우) [테 넌 트 만들기를](openvpn-azure-ad-tenant.md)참조 하세요.)
 
 ## <a name="3-retrieve-information"></a>3. 정보 검색

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: ca9b4b337eed54f02f42cad53d22387eace6b76c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694705"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124016"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -29,7 +29,7 @@ Microsoft Azure Storage 탐색기은 Windows, macOS 및 Linux에서 Azure Storag
 
 RBAC를 통해 저장소 리소스에 액세스 하는 데 문제가 발생 하는 경우 적절 한 역할이 할당 되지 않았을 수 있습니다. 다음 섹션에서는 현재 저장소 리소스에 액세스 하는 데 필요한 권한을 Storage 탐색기 설명 합니다. 적절 한 역할 또는 권한이 있는지 확실 하지 않은 경우 Azure 계정 관리자에 게 문의 하세요.
 
-#### <a name="read-listget-storage-accounts-permissions-issue"></a>읽음 저장소 계정 나열/가져오기 "권한 문제
+#### <a name="read-listget-storage-accounts-permissions-issue"></a>"읽기: 저장소 계정 나열/가져오기" 권한 문제
 
 저장소 계정을 나열할 수 있는 권한이 있어야 합니다. 이 권한을 얻으려면 _읽기 권한자_ 역할을 할당 받아야 합니다.
 
@@ -58,7 +58,7 @@ Storage 탐색기를 통해 Azure 리소스에 연결 하는 데 필요한 정�
 
 ### <a name="what-if-i-cant-get-the-management-layer-permissions-i-need-from-my-administrator"></a>관리자에 게 필요한 관리 계층 권한을 얻을 수 없는 경우 어떻게 하나요?
 
-현재이 문제에 대 한 RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-sas-uri)SAS URI를 요청할 수 있습니다.
+현재이 문제에 대 한 RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
 
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>오류: 인증서 체인의 자체 서명 된 인증서 (및 유사한 오류)
 
@@ -70,24 +70,24 @@ Storage 탐색기를 통해 Azure 리소스에 연결 하는 데 필요한 정�
 Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증서가 표시 되 면 수신 된 HTTPS 메시지의 변경 여부를 더 이상 알 수 없습니다. 자체 서명 된 인증서의 복사본이 있는 경우 다음 단계에 따라 해당 인증서를 신뢰 하도록 Storage 탐색기에 지시할 수 있습니다.
 
 1. Base-64 인코딩된 x.509 (.cer) 인증서 복사본을 가져옵니다.
-2. **SSL 인증서** > 편집 > **인증서 가져오기**로 이동한 다음 파일 선택기를 사용 하 여 .cer 파일을 찾고 선택 하 고 엽니다.
+2.  > **SSL > 인증서** **편집** 으로 이동 하 여 **인증서를 가져온**다음 파일 선택기를 사용 하 여 .cer 파일을 찾고 선택 하 고 엽니다.
 
 여러 인증서 (루트 및 중간)가 있는 경우에도이 문제가 발생할 수 있습니다. 이 오류를 해결 하려면 두 인증서를 모두 추가 해야 합니다.
 
 인증서가 들어오는 위치를 모를 경우 다음 단계를 수행 하 여 인증서를 찾으십시오.
 
 1. OpenSSL를 설치 합니다.
-    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): 모든 light 버전이 면 충분 합니다.
+    * [Windows](https://slproweb.com/products/Win32OpenSSL.html): 모든 조명 버전이 면 충분 합니다.
     * Mac 및 Linux: 운영 체제에 포함 되어야 합니다.
 2. OpenSSL를 실행 합니다.
-    * Windows: 설치 디렉터리를 열고 **/cin/** 를 선택한 다음 **openssl**를 두 번 클릭 합니다.
-    * Mac 및 Linux: 터미널 `openssl` 에서를 실행 합니다.
+    * Windows: 설치 디렉터리를 열고 **/st/** 를 선택한 다음 **openssl**를 두 번 클릭 합니다.
+    * Mac 및 Linux: 터미널에서 `openssl`를 실행 합니다.
 3. `s_client -showcerts -connect microsoft.com:443`을 실행합니다.
-4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 모를 경우 주제 `("s:")` 와 발급자 `("i:")` 의 모든 위치를 기록해 둡니다.
-5. 자체 서명 된 인증서를 찾았으면 각 인증서에 대해를 복사 하 여에 포함 `-----BEGIN CERTIFICATE-----` `-----END CERTIFICATE-----` 된 모든 항목을 새 .cer 파일에 붙여넣습니다.
-6. Storage 탐색기를 열고**SSL 인증서** >  **편집** > **인증서 가져오기**로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
+4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 확실 하 게 알지 못하는 경우 주제 `("s:")`와 발급자 `("i:")` 동일한 위치를 기록해 둡니다.
+5. 자체 서명 된 인증서를 찾았으면 각 인증서에 대해 `-----END CERTIFICATE-----`를 통해 `-----BEGIN CERTIFICATE-----` 모든 항목을 복사 하 여 새 .cer 파일에 붙여넣습니다.
+6. Storage 탐색기를 열고 **편집** > **SSL 인증서** > **인증서 가져오기**로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
 
-이러한 단계를 수행 하 여 자체 서명 된 인증서를 찾을 수 없는 경우 피드백 도구를 통해 microsoft에 문의 하세요. 플래그를 `--ignore-certificate-errors` 사용 하 여 명령줄에서 Storage 탐색기를 열 수도 있습니다. 이 플래그를 사용 하 여 열면 Storage 탐색기 인증서 오류가 무시 됩니다.
+이러한 단계를 수행 하 여 자체 서명 된 인증서를 찾을 수 없는 경우 피드백 도구를 통해 microsoft에 문의 하세요. `--ignore-certificate-errors` 플래그를 사용 하 여 명령줄에서 Storage 탐색기를 열 수도 있습니다. 이 플래그를 사용 하 여 열면 Storage 탐색기 인증서 오류가 무시 됩니다.
 
 ## <a name="sign-in-issues"></a>로그인 문제
 
@@ -95,7 +95,7 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 
 빈 로그인 대화 상자는 Active Directory Federation Services (AD FS) 메시지를 Storage 탐색기 표시 하 여 전자에서 지원 하지 않는 리디렉션을 수행 하는 경우 가장 자주 발생 합니다. 이 문제를 해결 하기 위해 로그인에 장치 코드 흐름을 사용 하려고 할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
-1. 메뉴에서 **미리 보기** > **장치 코드 로그인 사용**으로 이동 합니다.
+1. 메뉴에서 **미리 보기** 로 이동 하 > **장치 코드 로그인을 사용**합니다.
 2. 왼쪽 세로 막대에 있는 플러그 아이콘을 통해 또는 계정 패널에서 **계정 추가** 를 선택 하 여 **연결** 대화 상자를 엽니다.
 3. 로그인 할 환경을 선택 합니다.
 4. **로그인**을 선택 합니다.
@@ -193,7 +193,7 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 
 * 프록시를 통해 작업해야 하는 경우 프록시를 통해 연결하도록 네트워킹 도구를 구성해야 할 수 있습니다.
 * 네트워킹 도구에서 사용하는 포트 번호를 확인합니다.
-* Storage Explorer에 로컬 호스트 URL과 네트워킹 도구의 포트 번호를 프록시 설정으로 입력합니다. 이 작업을 올바르게 수행 하는 경우 네트워킹 도구는 Storage 탐색기에서 만든 네트워크 요청을 관리 및 서비스 끝점에 기록 하기 시작 합니다. 예를 들어 브라우저 `https://cawablobgrs.blob.core.windows.net/` 에서 blob 끝점에 대해를 입력 하면 다음과 유사한 응답이 수신 됩니다.
+* Storage Explorer에 로컬 호스트 URL과 네트워킹 도구의 포트 번호를 프록시 설정으로 입력합니다. 이 작업을 올바르게 수행 하는 경우 네트워킹 도구는 Storage 탐색기에서 만든 네트워크 요청을 관리 및 서비스 끝점에 기록 하기 시작 합니다. 예를 들어 브라우저에서 blob 끝점에 대 한 `https://cawablobgrs.blob.core.windows.net/`를 입력 하면 다음과 같은 응답을 받게 됩니다.
 
   ![코드 샘플](./media/storage-explorer-troubleshooting/4022502_en_2.png)
 
@@ -216,14 +216,14 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 
 계정 키가 표시 되 면 문제를 해결 하는 데 도움이 될 수 있도록 GitHub에서 문제를 파일 합니다.
 
-## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>새 연결을 추가 하는 동안 오류 발생: TypeError Undefined의 ' version ' 속성을 읽을 수 없습니다.
+## <a name="error-occurred-while-adding-new-connection-typeerror-cannot-read-property-version-of-undefined"></a>새 연결을 추가 하는 동안 오류가 발생 했습니다. TypeError: 정의 되지 않은 ' version ' 속성을 읽을 수 없습니다.
 
 사용자 지정 연결을 추가 하려고 할 때이 오류 메시지가 표시 되 면 로컬 자격 증명 관리자에 저장 된 연결 데이터가 손상 될 수 있습니다. 이 문제를 해결 하려면 손상 된 로컬 연결을 삭제 한 다음 다시 추가 하십시오.
 
-1. Storage 탐색기를 시작 합니다. 메뉴에서 **도움말** > **설정/해제 개발자 도구**로 이동 합니다.
+1. Storage 탐색기를 시작 합니다. 메뉴에서 **도움말** > **개발자 도구 설정/해제**로 이동 합니다.
 2. 열린 창의 **응용 프로그램** 탭에서 **로컬 저장소** (왼쪽) > **file://** 로 이동 합니다.
 3. 문제가 발생 하는 연결 유형에 따라 해당 키를 찾은 다음 해당 값을 텍스트 편집기에 복사 합니다. 값은 다음과 같이 사용자 지정 연결 이름으로 이루어진 배열입니다.
-    * 저장소 계정
+    * Storage 계정
         * `StorageExplorer_CustomConnections_Accounts_v1`
     * Blob 컨테이너
         * `StorageExplorer_CustomConnections_Blobs_v1`
@@ -234,7 +234,7 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
         * `StorageExplorer_CustomConnections_Queues_v1`
     * 테이블
         * `StorageExplorer_CustomConnections_Tables_v1`
-4. 현재 연결 이름을 저장 한 후 개발자 도구의 값을로 `[]`설정 합니다.
+4. 현재 연결 이름을 저장 한 후 개발자 도구의 값을 `[]`로 설정 합니다.
 
 손상 되지 않은 연결을 유지 하려는 경우 다음 단계를 사용 하 여 손상 된 연결을 찾을 수 있습니다. 기존 연결을 모두 잃지 않는 경우 이러한 단계를 건너뛰고 플랫폼별 지침에 따라 연결 데이터를 지울 수 있습니다.
 
@@ -248,13 +248,13 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 
 1. **시작** 메뉴에서 **자격 증명 관리자** 를 검색 하 여 엽니다.
 2. **Windows 자격 증명**으로 이동 합니다.
-3. **일반 자격 증명**에서 `<connection_type_key>/<corrupted_connection_name>` 키가 있는 항목을 찾습니다 `StorageExplorer_CustomConnections_Accounts_v1/account1`(예:).
+3. **일반 자격 증명**에서 `<connection_type_key>/<corrupted_connection_name>` 키가 있는 항목을 찾습니다 (예: `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. 이러한 항목을 삭제 하 고 연결을 다시 추가 합니다.
 
 # <a name="macostabmacos"></a>[macOS](#tab/macOS)
 
 1. 스포트라이트 (명령 + 스페이스바)를 열고 키 **집합 액세스**를 검색 합니다.
-2. `<connection_type_key>/<corrupted_connection_name>` 키가 있는 항목을 찾습니다 ( `StorageExplorer_CustomConnections_Accounts_v1/account1`예:).
+2. `<connection_type_key>/<corrupted_connection_name>` 키가 있는 항목을 찾습니다 (예: `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. 이러한 항목을 삭제 하 고 연결을 다시 추가 합니다.
 
 # <a name="linuxtablinux"></a>[Linux](#tab/Linux)
@@ -262,7 +262,7 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 로컬 자격 증명 관리는 Linux 배포에 따라 다릅니다. Linux 배포판에서 로컬 자격 증명 관리에 대 한 기본 제공 GUI 도구를 제공 하지 않는 경우 타사 도구를 설치 하 여 로컬 자격 증명을 관리할 수 있습니다. 예를 들어 Linux 로컬 자격 증명을 관리 하기 위한 오픈 소스 GUI 도구인 [Seahorse](https://wiki.gnome.org/Apps/Seahorse/)를 사용할 수 있습니다.
 
 1. 로컬 자격 증명 관리 도구를 열고 저장 된 자격 증명을 찾습니다.
-2. `<connection_type_key>/<corrupted_connection_name>` 키가 있는 항목을 찾습니다 ( `StorageExplorer_CustomConnections_Accounts_v1/account1`예:).
+2. `<connection_type_key>/<corrupted_connection_name>` 키가 있는 항목을 찾습니다 (예: `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. 이러한 항목을 삭제 하 고 연결을 다시 추가 합니다.
 ---
 
@@ -351,10 +351,10 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 Storage 탐색기 1.7.0 이전 버전의 경우 Storage 탐색기에서 사용 하는 .NET Core 버전을 패치 해야 할 수 있습니다.
 
 1. [NuGet에서](https://www.nuget.org/packages/StreamJsonRpc/1.5.43)StreamJsonRpc의 1.5.43 버전을 다운로드 합니다. 페이지의 오른쪽에 있는 "패키지 다운로드" 링크를 찾습니다.
-2. 패키지를 다운로드 한 후 파일 확장명을에서 `.nupkg` 으로 `.zip`변경 합니다.
+2. 패키지를 다운로드 한 후 `.nupkg`에서 `.zip`로 파일 확장명을 변경 합니다.
 3. 패키지의 압축을 풉니다.
 4. `streamjsonrpc.1.5.43/lib/netstandard1.1/` 폴더를 엽니다.
-5. Storage 탐색기 `StreamJsonRpc.dll` 폴더의 다음 위치에 복사 합니다.
+5. `StreamJsonRpc.dll`를 Storage 탐색기 폴더의 다음 위치에 복사 합니다.
    * `StorageExplorer/resources/app/ServiceHub/Services/Microsoft.Developer.IdentityService/`
    * `StorageExplorer/resources/app/ServiceHub/Hosts/ServiceHub.Host.Core.CLR.x64/`
 

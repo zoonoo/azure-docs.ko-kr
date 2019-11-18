@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: c83ac8a42a91c9db06726e917ed142e20995b987
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 929672dceabc7d9b591f05ef3f4f716f2117e09c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797973"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128683"
 ---
 # <a name="manage-farms"></a>팜 관리
 
@@ -58,7 +58,7 @@ Azure FarmBeats에서 팜을 관리할 수 있습니다. 이 문서에서는 팜
 **팜** 페이지에는 생성 된 팜 목록이 표시 됩니다.
 
 1.  팜을 보고 편집할 팜을 선택 합니다.
-2.  팜 **편집** 을 선택 하 여 팜 정보를 편집 합니다. **팜 세부 정보** 창에서 **이름**, **자르기**, **주소**및 **팜 경계** 필드를 편집할 수 있습니다.
+2.  팜 **편집** 을 선택 하 여 팜 정보를 편집 합니다. **팜 세부 정보** 창에서 **팜 경계** 필드의 **이름**, **자르기**, **주소**및 정의를 편집할 수 있습니다.
 
     ![프로젝트 팜 비트](./media/create-farms/edit-farm-1.png)
 

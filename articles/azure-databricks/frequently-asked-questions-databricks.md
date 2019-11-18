@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/25/2018
-ms.openlocfilehash: 0436a0898f27d3059069ce2df1fdfb143a98f325
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3febdbc8f55f6ccd65eba97de984a9a38ddf214e
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601815"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129329"
 ---
 # <a name="frequently-asked-questions-about-azure-databricks"></a>Azure Databricks에 대한 질문과 대답
 
@@ -34,7 +34,7 @@ ms.locfileid: "73601815"
 1. Data Lake Storage에서 서비스 주체에 필요한 사용 권한을 할당 합니다.
 1. Data Lake Storage의 파일에 액세스 하려면 노트북에서 서비스 주체 자격 증명을 사용 합니다.
 
-자세한 내용은 [Azure Databricks와 함께 Azure Data Lake Storage 사용](/azure/databricks/data/data-sources/azure/azure-datalake.html)을 참조 하세요.
+자세한 내용은 [Azure Databricks와 함께 Azure Data Lake Storage 사용](/azure/databricks/data/data-sources/azure/azure-datalake)을 참조 하세요.
 
 ## <a name="fix-common-problems"></a>일반적인 문제 해결
 
@@ -73,7 +73,7 @@ Databricks에서 발생하는 몇 가지 문제는 다음과 같습니다.
     
     c. 새 사용자에게 Databricks 작업 영역 리소스에 대해 **참가자** 역할을 할당합니다.
     
-    ㄹ. Azure Portal에 새 사용자로 로그인하여 Databricks 작업 영역을 찾습니다.
+    d. Azure Portal에 새 사용자로 로그인하여 Databricks 작업 영역을 찾습니다.
     
     e. 이 사용자로 Databricks 작업 영역을 시작합니다.
 

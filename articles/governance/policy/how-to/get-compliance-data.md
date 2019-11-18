@@ -1,14 +1,14 @@
 ---
 title: 정책 준수 데이터 가져오기
-description: Azure Policy 평가 및 효과는 준수를 결정합니다. 준수 세부 정보를 가져오는 방법을 알아봅니다.
+description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 준수 세부 정보를 가져오는 방법에 대해 알아봅니다.
 ms.date: 02/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: b460a3e70b5462be3fdc7f34dd7261d491a495b3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8cb95f0a9479da27ea6b9ef8ec6836f915aa4030
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959578"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132812"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
 
@@ -84,7 +84,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 할당에서 정책 또는 이니셔티브 규칙을 따르지 않는 리소스는 **비준수** 리소스입니다.
 다음 표는 다양한 정책 효과가 결과 규정 준수 상태에 대한 조건 평가와 어떻게 작동하는지 보여줍니다.
 
-| 리소스 상태 | 결과 | 정책 평가 | 규정 준수 상태 |
+| 리소스 상태 | 영향 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | true | 비준수 |
 | Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |

@@ -1,17 +1,14 @@
 ---
-title: 테넌트에서 인증 - Azure Resource Manager
+title: 테넌트에서 인증
 description: Azure Resource Manager가 테넌트에서 인증 요청을 처리하는 방법을 설명합니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.author: tomfitz
-ms.openlocfilehash: b85ed32ac333402caeca4901e4d91bbe4d1d112c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 1dccfc522179cd88e69bc5a58307b343aaef8f9e
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300356"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149986"
 ---
 # <a name="authenticate-requests-across-tenants"></a>테넌트에서 요청 인증
 
@@ -23,8 +20,8 @@ ms.locfileid: "72300356"
 
 | 헤더 이름 | 설명 | 예제 값 |
 | ----------- | ----------- | ------------ |
-| Authorization | 기본 토큰 | Bearer &lt;primary-token&gt; |
-| x-ms-authorization-auxiliary | 보조 토큰 | 전달자 &lt;auxiliary @ no__t, EncryptedBearer &lt;auxiliary-token2 @ no__t-3, 전달자 &lt;auxiliary-token3 @ no__t-5 |
+| 권한 부여 | 기본 토큰 | Bearer &lt;primary-token&gt; |
+| x-ms-authorization-auxiliary | 보조 토큰 | 전달자 &lt;보조-token1&gt;, EncryptedBearer &lt;보조-token2&gt;, 전달자 &lt;보조 token3&gt; |
 
 보조 헤더는 최대 세 개의 보조 토큰을 유지할 수 있습니다. 
 

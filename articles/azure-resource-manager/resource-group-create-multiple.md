@@ -1,22 +1,18 @@
 ---
-title: Azure 리소스의 여러 인스턴스 배포 | Microsoft Docs
+title: 리소스의 여러 인스턴스 배포
 description: Azure 리소스 관리자 템플릿에서 복사 작업 및 배열을 사용하여 여러 번 반복하는 방법을 설명합니다.
-services: azure-resource-manager
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3ee4b47dd6cb9043a4100d114c483d1feadbde38
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71675095"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150795"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 리소스, 속성 또는 변수 반복
 
-이 문서에서는 Azure Resource Manager 템플릿에서 리소스, 변수 또는 속성의 인스턴스를 두 개 이상 만드는 방법을 보여 줍니다. 여러 인스턴스를 만들려면 `copy` 개체를 템플릿에 추가 합니다.
+이 문서에서는 Azure Resource Manager 템플릿에서 리소스, 변수 또는 속성의 인스턴스를 두 개 이상 만드는 방법을 보여 줍니다. 여러 인스턴스를 만들려면 템플릿에 `copy` 개체를 추가 합니다.
 
 리소스와 함께 사용 하는 경우 copy 개체의 형식은 다음과 같습니다.
 
@@ -57,7 +53,7 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 
 ## <a name="resource-iteration"></a>리소스 반복
 
-배포에서 리소스의 인스턴스를 두 개 이상 만들려면 리소스 종류에 `copy` 요소를 추가 합니다. Copy 요소에서 반복 횟수와이 루프의 이름을 지정 합니다.
+배포에서 리소스의 인스턴스를 둘 이상 만들려면 리소스 형식에 `copy` 요소를 추가 합니다. Copy 요소에서 반복 횟수와이 루프의 이름을 지정 합니다.
 
 다음 형식으로 리소스를 여러 번 만듭니다.
 
@@ -86,7 +82,7 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 }
 ```
 
-각 리소스의 이름에는 `copyIndex()` 함수가 포함되어 있으며 이 함수는 루프에서 현재 반복을 반환합니다. `copyIndex()`는 0부터 시작합니다. 따라서 예제는 다음과 같습니다.
+각 리소스의 이름에는 `copyIndex()` 함수가 포함되어 있으며 이 함수는 루프에서 현재 반복을 반환합니다. 0부터 시작하는 `copyIndex()`입니다. 따라서 예제는 다음과 같습니다.
 
 ```json
 "name": "[concat('storage', copyIndex())]",
@@ -530,6 +526,6 @@ copy 요소는 배열이므로 리소스에 대해 1 초과 속성을 지정할 
 
 * 자습서를 살펴보려면 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](./resource-manager-tutorial-create-multiple-instances.md)를 참조하세요.
 
-* 템플릿 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
-* 템플릿 배포 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](resource-group-template-deploy.md)를 참조하세요.
+* 템플릿 섹션에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
+* 템플릿 배포 방법에 대한 자세한 내용은 [Azure 리소스 관리자 템플릿을 사용하여 애플리케이션 배포](resource-group-template-deploy.md)를 참조하세요.
 

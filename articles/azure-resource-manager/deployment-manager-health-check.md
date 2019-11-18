@@ -1,19 +1,16 @@
 ---
 title: 상태 통합 출시-Azure 배포 관리자
 description: Azure 배포 관리자를 사용하여 여러 지역에 서비스를 배포하는 방법을 설명합니다. 모든 지역에 롤아웃하기 전에 배포의 안정성을 확인하는 안전한 배포 사례를 보여 줍니다.
-services: azure-resource-manager
-documentationcenter: na
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: jgao
-ms.openlocfilehash: 72ddc900a892e6391d6b54046ac6f3a42358526f
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 6cc21837ff08822a9eae6ae7c326142ca873df74
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528570"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149969"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Azure 배포 관리자에 상태 통합 출시 소개 (공개 미리 보기)
 
@@ -141,7 +138,7 @@ Azure 배포 관리자 상태 검사를 사용 하 여 설치를 가져오는 �
 
     1. 배포 작업이 완료 되 면 Vm이 다시 부팅 되거나, 새 데이터를 기반으로 다시 구성 되거나, 처음으로 시작 될 수 있습니다. 또한 서비스에서 상태 모니터링 공급자에 의해 유용한 상태 신호 내보내기를 시작 하는 데 시간이 걸립니다. 이 tumultuous 프로세스가 진행 되는 동안 업데이트가 아직 안정 된 상태에 도달 하지 않았기 때문에 서비스 상태를 확인 하는 것은 적절 하지 않을 수 있습니다. 실제로 리소스를 사용할 때 정상 상태와 비정상 상태 사이에서 서비스가 진동 될 수 있습니다. 
     1. 대기 단계에서 서비스 상태는 모니터링 되지 않습니다. 상태 검사 프로세스를 시작 하기 전에 배포 된 리소스를 굽기 시간으로 허용 하는 데 사용 됩니다. 
-1. 탄력성
+1. Elastic
 
     1. 리소스가 안정화 되기 전에 굽기 하는 데 걸리는 시간을 확인 하는 것이 불가능 하기 때문에 탄력적 단계를 사용 하면 리소스가 불안정 해질 때와 정상 상태를 유지 해야 하는 시간 사이에 유연 하 게 시간을 줄 수 있습니다. 상태일.
     1. 탄력적 단계가 시작 되 면 Azure 배포 관리자는 서비스 상태에 대해 제공 된 REST 끝점의 폴링을 주기적으로 시작 합니다. 폴링 간격을 구성할 수 있습니다. 

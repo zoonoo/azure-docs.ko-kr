@@ -7,12 +7,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 584fb7b97b8342289d7ca2f23b0479eb1169867a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 222ca8781ae9532f10ed7d113b93eac78c6a3bba
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575888"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129088"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Azure Functions 2.x에 대한 host.json 참조  
 
@@ -48,6 +48,10 @@ ms.locfileid: "73575888"
         "queues": {},
         "sendGrid": {},
         "serviceBus": {}
+    },
+    "extensionBundle": {
+        "id": "Microsoft.Azure.Functions.ExtensionBundle",
+        "version": "[1.*, 2.0.0)"
     },
     "functions": [ "QueueProcessor", "GitHubWebHook" ],
     "functionTimeout": "00:05:00",
@@ -135,6 +139,12 @@ ms.locfileid: "73575888"
 
 [http](#http), [eventHub](#eventhub) 등의 모든 바인딩 관련 설정이 포함된 개체를 반환하는 속성입니다.
 
+## <a name="extensionbundle"></a>extensionBundle 
+
+확장 번들을 사용 하면 호환 되는 함수 바인딩 확장 집합을 함수 앱에 추가할 수 있습니다. 자세히 알아보려면 [로컬 개발용 확장 번들](functions-bindings-register.md#extension-bundles)을 참조 하세요.
+
+[!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
+
 ## <a name="functions"></a>functions
 
 작업 호스트가 실행하는 함수 목록입니다. 빈 배열은 모든 함수를 실행한다는 의미입니다. [로컬로 실행](functions-run-local.md)할 때만 사용할 수 있습니다. Azure의 함수 앱에서는 이 설정을 사용하는 대신 [Azure Functions에서 함수를 사용하지 않도록 설정하는 방법](disable-function.md)의 단계를 수행하여 특정 함수를 사용하지 않도록 설정해야 합니다.
@@ -148,7 +158,7 @@ ms.locfileid: "73575888"
 ## <a name="functiontimeout"></a>functionTimeout
 
 모든 함수에 대한 시간 제한 기간을 나타냅니다. Timespan 문자열 형식을 따릅니다. 서버리스 사용 계획에서 유효한 범위는 1초에서 10분 사이이고 기본값은 5분입니다.  
-전용 (App Service) 계획에서는 전체 제한이 없으며 기본값은 30 분입니다. 값 `-1`은 무제한 실행을 나타냅니다.
+전용 (App Service) 계획에서는 전체 제한이 없으며 기본값은 30 분입니다. `-1` 값은 바인딩되지 않은 실행을 나타냅니다.
 
 ```json
 {

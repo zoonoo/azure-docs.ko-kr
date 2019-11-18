@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 74a33edb358f9b9bf9322c652c0696ef87182725
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: 1abfd8af7e0ef18d4e7bcf05b4726c5d0bcb0a84
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521580"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151700"
 ---
 # <a name="workflow-automation-preview"></a>워크플로 자동화 (미리 보기)
 
@@ -76,7 +76,7 @@ ms.locfileid: "73521580"
 
     ![새로 고침](media/workflow-automation/refresh-the-list-of-logic-apps.png)
 
-1. 논리 앱을 선택 하 고 자동화를 저장 합니다.
+1. 논리 앱을 선택 하 고 자동화를 저장 합니다. 논리 앱 드롭다운은 위에서 설명한 Security Center 커넥터를 지 원하는 Logic Apps 표시 합니다.
 
 
 ## <a name="manually-trigger-a-logic-app"></a>수동으로 논리 앱 트리거

@@ -7,19 +7,19 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/20/2019
-ms.openlocfilehash: daaf5763bde560250ddf70e70466fc9f4ed3e1c2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 11/14/2019
+ms.openlocfilehash: 1fd59bd18947d2c7aaba787ff7ce286e76f4f890
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834098"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150043"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Linux에서 HDInsight 사용에 관한 정보
 
 Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 Linux 환경에서 Apache Hadoop을 제공합니다. 대부분의 작업에 대해 Linux 설치에서 모든 다른 Hadoop으로 정확하게 작동해야 합니다. 이 문서를 알고 있어야 하는 특정 차이점을 호출합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 문서의 단계 대부분은 많은 시스템에 설치해야 할 수 있는 다음과 같은 유틸리티를 사용합니다.
 
@@ -88,14 +88,14 @@ Azure HDInsight 클러스터는 Azure 클라우드에서 실행되는 친숙한 
 
 Hadoop 관련 파일은 `/usr/hdp`의 클러스터 노드에서 찾을 수 있습니다. 이 디렉터리에는 다음과 같은 하위 디렉터리가 포함됩니다.
 
-* **2.6.5.3006-29**: 디렉터리 이름은 HDInsight에서 사용 하는 Hadoop 플랫폼의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
-* **current**:이 디렉터리에는 **2.6.5.3006-29** 디렉터리 아래의 하위 디렉터리에 대 한 링크가 포함 되어 있습니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
+* **2.6.5.3009-43**: 디렉터리 이름은 HDInsight에서 사용 하는 Hadoop 플랫폼의 버전입니다. 클러스터에 있는 숫자는 여기에 나열된 것과 다를 수 있습니다.
+* **current**:이 디렉터리에는 **2.6.5.3009** 디렉터리의 하위 디렉터리에 대 한 링크가 포함 되어 있습니다. 이 디렉터리가 있으므로 버전 번호를 기억할 필요가 없습니다.
 
 예제 데이터 및 JAR 파일은 `/example` 및 `/HdiSamples`의 HDFS(Hadoop 분산 파일 시스템)에서 찾을 수 있습니다.
 
 ## <a name="hdfs-azure-storage-and-data-lake-storage"></a>HDFS, Azure Storage 및 Data Lake Storage
 
-대부분의 Hadoop 배포판에서 HDFS에 저장된 데이터는 클러스터의 머신에서 로컬 스토리지에 의해 되돌아갑니다. 컴퓨팅 리소스에 대해 시간당 또는 분당 비용이 부과되는 클라우드 기반 솔루션의 경우 로컬 스토리지를 사용하면 비용이 많이 들 수 있습니다.
+대부분의 Hadoop 배포판에서 HDFS에 저장된 데이터는 클러스터의 머신에서 로컬 스토리지에 의해 되돌아갑니다. 계산 리소스에 대해 매시간 또는 분 단위로 요금이 부과 되는 클라우드 기반 솔루션의 경우 로컬 저장소를 사용 하는 데 비용이 많이 들 수 있습니다.
 
 HDInsight를 사용할 때는 Azure Blob Storage와, 선택적으로 Azure Data Lake Storage를 통해 데이터 파일이 확장성 있고 탄력적인 방식으로 클라우드에 저장됩니다. 이러한 서비스는 다음과 같은 이점을 제공합니다.
 
@@ -105,7 +105,7 @@ HDInsight를 사용할 때는 Azure Blob Storage와, 선택적으로 Azure Data 
 
 자세한 내용은 [Blob 이해](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 및 [Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 참조하세요.
 
-Azure Storage 또는 Data Lake Storage를 사용하는 경우 HDInsight에서 데이터에 액세스하기 위해 특별한 작업을 수행할 필요가 없습니다. 예를 들어 Azure Storage 또는 Data Lake Storage 중 어디에 저장되어 있든지 다음 명령은 `/example/data` 폴더에 있는 파일을 나열합니다.
+Azure Storage 또는 Data Lake Storage를 사용하는 경우 HDInsight에서 데이터에 액세스하기 위해 특별한 작업을 수행할 필요가 없습니다. 예를 들어 다음 명령은 Azure Storage 또는 Data Lake Storage에 저장 되었는지 여부에 관계 없이 `/example/data` 폴더에 있는 파일을 나열 합니다.
 
     hdfs dfs -ls /example/data
 
@@ -229,16 +229,16 @@ __Azure Data Lake Storage__를 사용하는 경우 다음 링크를 참조하여
 
 * **Storm**: 크기 조정 작업을 수행한 후 실행 중인 모든 Storm 토폴로지 균형을 다시 맞추어야 합니다. 균형을 다시 조정하면 토폴로지를 새 클러스터의 노드 수에 따라 병렬 처리 설정을 다시 조정할 수 있습니다. 실행 중인 토폴로지의 균형을 다시 조정하려면 다음 옵션 중 하나를 사용합니다.
 
-    * **SSH**: 서버에 연결하고 다음 명령을 사용하여 토폴로지 균형을 다시 조정합니다.
+    * **SSH**: 서버에 연결하고 다음 명령을 사용하여 토폴로지 균형을 다시 맞춥니다.
 
             storm rebalance TOPOLOGYNAME
 
         매개 변수를 지정하여 원래 토폴로지로 제공된 병렬 처리 힌트를 재정의할 수도 있습니다. 예를 들어 `storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10`은 토폴로지를 5개 작업자 프로세스, 파란색 spout 구성 요소를 3개 실행자 및 노란색 bolt 구성 요소를 10개 실행자로 다시 구성합니다.
 
-    * **Storm UI**: Storm UI를 사용하여 토폴로지 균형을 다시 맞추려면 다음 단계를 사용합니다.
+    * **Storm UI**: Storm UI를 사용하여 토폴로지의 균형을 다시 조정하려면 다음 단계를 사용합니다.
 
         1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/stormui`를 엽니다. 여기서 `CLUSTERNAME`은 스톰 클러스터의 이름입니다. 메시지가 표시되면 클러스터를 만들 때 지정한 HDInsight 클러스터 관리자(관리자) 이름 및 암호를 입력합니다.
-        2. 균형을 다시 맞추려는 토폴로지를 선택한 다음 **균형 다시 맞추기** 단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
+        2. 균형을 다시 조정하려는 토폴로지를 선택한 다음 **균형 다시 맞추기** 단추를 선택합니다. 균형 재조정 작업이 수행되기 전에 지연 시간을 입력합니다.
 
 * **Kafka**: 크기 조정 작업 후 파티션 복제본의 균형을 다시 조정해야 합니다. 자세한 내용은 [HDInsight에서 Apache Kafka를 사용한 데이터의 고가용성](./kafka/apache-kafka-high-availability.md) 문서를 참조하세요.
 
@@ -249,7 +249,7 @@ HDInsight 클러스터 크기 조정에 대한 자세한 내용은 다음을 참
 
 ## <a name="how-do-i-install-hue-or-other-hadoop-component"></a>Hue(또는 다른 Hadoop 구성 요소)를 어떻게 설치합니까?
 
-HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 문제를 발견하면 실패한 노드를 삭제하고 이 노드를 대체할 노드를 만들 수 있습니다. 클러스터에 Hue(또는 다른 Hadoop 구성 요소)를 수동으로 설치하는 경우 이 작업이 수행될 때 유지되지 않습니다. 대신 [HDInsight 스크립트 동작](hdinsight-hadoop-customize-cluster-linux.md)을 사용합니다. 스크립트 동작을 사용하여 다음과 같이 변경할 수 있습니다.
+HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 문제를 발견하면 실패한 노드를 삭제하고 이 노드를 대체할 노드를 만들 수 있습니다. 클러스터에 항목을 수동으로 설치 하는 경우에는이 작업이 수행 될 때 지속 되지 않습니다. 대신 [HDInsight 스크립트 동작](hdinsight-hadoop-customize-cluster-linux.md)을 사용합니다. 스크립트 동작을 사용하여 다음과 같이 변경할 수 있습니다.
 
 * 서비스 또는 웹 사이트를 설치하고 구성합니다.
 * 클러스터의 여러 노드에 대한 구성을 변경할 필요가 있는 구성 요소를 설치하고 구성합니다.
@@ -258,7 +258,7 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 
 * [Apache Giraph](hdinsight-hadoop-giraph-install-linux.md)
 
-사용자 고유의 스크립트 작업 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 작업 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
+사용자 고유의 스크립트 동작 개발에 대한 정보는 [HDInsight를 사용하여 스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 
 ### <a name="jar-files"></a>Jar 파일
 
@@ -284,5 +284,4 @@ HDInsight는 관리 서비스입니다. Azure에서 클러스터와 관련된 �
 
 * [Apache Ambari REST API를 사용 하 여 HDInsight 클러스터 관리](./hdinsight-hadoop-manage-ambari-rest-api.md)
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight에서 MapReduce 작업 사용](hadoop/hdinsight-use-mapreduce.md)

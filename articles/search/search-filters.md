@@ -1,5 +1,5 @@
 ---
-title: 인덱스의 범위 지정 검색 결과에 대 한 필터
+title: 검색 결과에 대 한 필터링
 titleSuffix: Azure Cognitive Search
 description: 사용자 보안 id, 언어, 지리적 위치 또는 숫자 값을 기준으로 필터링 하 여 Microsoft Azure에서 호스팅되는 클라우드 search 서비스인 Azure Cognitive Search의 쿼리에 대 한 검색 결과를 줄입니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7dd289005e91323010cfa2a0298c351b3e757d1d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 960f6f0de94c6bb4fc6b03c31740b63270cf9e14
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792853"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132917"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 필터 
 
@@ -196,7 +196,7 @@ search=John Leclerc&$count=true&$select=source,city,postCode,baths,beds&$filter=
 
 더 많은 예제를 사용하려면 [OData 필터 식 구문 > 예제](https://docs.microsoft.com/azure/search/search-query-odata-filter#examples)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 + [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식](search-lucene-query-architecture.md)
 + [문서 검색 REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents)

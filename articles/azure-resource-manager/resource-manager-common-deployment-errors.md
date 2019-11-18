@@ -1,19 +1,15 @@
 ---
-title: 일반적인 Azure 배포 오류 해결 | Microsoft Docs
+title: 일반 배포 오류 문제 해결
 description: Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생하는 일반적인 오류를 해결하는 방법을 설명합니다.
 tags: top-support-issue
-author: tfitzmac
-keywords: 배포 오류 Azure 배포, Azure에 배포
-ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 27f3b9db40e00ea0a00e50333fe86248906d8560
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263030"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150640"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Azure Resource Manager를 사용한 일반적인 Azure 배포 오류 해결
 
@@ -252,6 +248,6 @@ az group deployment operation list \
 
 ## <a name="next-steps"></a>다음 단계
 
-* 문제 해결 자습서를 진행 하려면 [Tutorial를 참조 하세요. Resource Manager 템플릿 배포 문제 해결](./resource-manager-tutorial-troubleshoot.md)을 참조하세요.
+* 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](./resource-manager-tutorial-troubleshoot.md) 을 참조 하세요.
 * 감사 작업에 대해 알아보려면 [리소스 관리자로 작업 감사](resource-group-audit.md)를 참조하세요.
 * 배포 중 오류를 확인하는 작업에 대해 알아보려면 [배포 작업 보기](resource-manager-deployment-operations.md)를 참조하세요.

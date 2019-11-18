@@ -5,21 +5,21 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/04/2019
+ms.date: 11/15/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: cd3efbea7b194da54bc1d9bebd1cc77987bd9dea
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b7ae388488de32bb106ae29f975302953cfcb2e9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072344"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123033"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너에 대 한 Azure Cost Management 시작
 
-Azure Cost Management는 고객이 Microsoft 고객 계약에 등록 Azure 요금제를 구매한 파트너에 게 기본적으로 제공 됩니다. 이 문서에서는 파트너가 [Azure Cost Management](https://docs.microsoft.com/azure/cost-management/) 기능을 사용 하는 방법을 설명 합니다. 또한 파트너가 고객에 게 Cost Management 액세스를 사용 하도록 설정 하는 방법을 설명 합니다. 고객은 CSP 파트너가 사용 하도록 설정 된 경우 Cost Management 기능을 사용할 수 있습니다.
+Azure Cost Management는 고객이 Microsoft 고객 계약에 등록 [Azure 요금제를 구매한](/partner-center/purchase-azure-plan)파트너에 게 기본적으로 제공 됩니다. 이 문서에서는 파트너가 [Azure Cost Management](index.yml) 기능을 사용 하 여 Azure 계획의 구독에 대 한 비용을 확인 하는 방법을 설명 합니다. 또한 파트너가 고객에 게 Cost Management 액세스를 사용 하도록 설정 하는 방법을 설명 합니다. 고객은 CSP 파트너가 사용 하도록 설정 된 경우 Cost Management 기능을 사용할 수 있습니다.
 
 CSP 파트너는 Cost Management을 사용 하 여 다음을 수행 합니다.
 
@@ -147,25 +147,81 @@ RBAC 범위에서 예약 된 인스턴스에 대 한 분할 상환 보기 및 �
 
 ## <a name="analyze-costs-in-cost-analysis"></a>비용 분석에서 비용 분석
 
-파트너는 특정 고객 또는 청구서에 대해 고객 전체의 비용 분석 비용을 탐색 하 고 분석할 수 있습니다.
+파트너는 특정 고객 또는 청구서에 대해 고객 전체의 비용 분석 비용을 탐색 하 고 분석할 수 있습니다. [비용 분석](quick-acm-cost-analysis.md) 보기에서는 [보기를 저장](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) 하 고 데이터를 [CSV 및 PNG 파일로](quick-acm-cost-analysis.md#automation-and-offline-analysis)내보낼 수도 있습니다.
 
-다음 필드는 사용 현황 정보 파일 및 Cost Management Api에 있습니다. 비용 분석에서 필터 및 그룹화 기능을 사용 하 여 여러 필드를 기준으로 비용을 분석할 수 있습니다. 필드의 전체 목록을 보려면 [Cost Management 데이터 필드](understand-cost-mgt-data.md#cost-management-data-fields)를 참조 하세요.
+비용 분석에서 필터 및 그룹화 기능을 사용 하 여 여러 필드를 기준으로 비용을 분석할 수 있습니다. 파트너 관련 필드는 다음 섹션에 나와 있습니다.
 
-| 필드 이름 | 설명 |
-| --- | --- |
-| CustomerTenantID | 고객&#39;구독의 Azure Active Directory 테 넌 트 식별자입니다. |
-| CustomerName | 고객&#39;구독에 대 한 Azure Active Directory 테 넌 트의 이름입니다. |
-| CustomerTenantDomainName | 고객&#39;구독의 Azure Active Directory 테 넌 트에 대 한 도메인 이름입니다. |
-| 대 여 | 파트너&#39;Azure Active Directory 테 넌 트의 식별자입니다. |
-| PartnerName | 파트너 Azure Active Directory 테 넌 트의 이름입니다. |
-| ResellerMPNID | 구독과 연결 된 대리점에 대 한 MPNID입니다. |
-| costinUSD | 세율의 세금 이전 예상 ExtendedCost 또는 혼합 비용입니다. |
-| paygCostInBillingCurrency | 가격 책정이 소매 가격 인 경우 비용을 표시 합니다. 청구 통화로 종 량 제 가격을 표시 합니다. RBAC 범위 에서만 사용할 수 있습니다. |
-| paygCostInUSD | 가격 책정이 소매 가격 인 경우 비용을 표시 합니다. USD로 종 량 제 가격을 표시 합니다. RBAC 범위 에서만 사용할 수 있습니다. |
-| partnerEarnedCreditRate | 파트너 관리자 링크 액세스를 기반으로 하는 파트너 획득 신용 (PEC)가 있는 경우 적용 되는 할인 률입니다. |
-| partnerEarnedCreditApplied | 파트너의 획득 크레딧을 적용 했는지 여부를 나타냅니다. |
+## <a name="data-fields"></a>데이터 필드
 
-[비용 분석](quick-acm-cost-analysis.md) 보기에서는 [보기를 저장](quick-acm-cost-analysis.md#saving-and-sharing-customized-views) 하 고 데이터를 [CSV 및 PNG 파일로](quick-acm-cost-analysis.md#automation-and-offline-analysis)내보낼 수도 있습니다.
+다음 데이터 필드는 사용 현황 정보 파일 및 Cost Management Api에 있습니다. 사용 가능한 경우 파트너 센터에 해당 하는 정보가 표시 됩니다. 다음 굵게 표시 된 필드의 경우 파트너는 비용 분석에서 필터 및 그룹화 기능을 사용 하 여 여러 필드를 기준으로 비용을 분석할 수 있습니다. 굵게 표시 된 필드는 파트너가 지 원하는 Microsoft 고객 계약에만 적용 됩니다.
+
+| **필드 이름** | **설명** | **파트너 센터 동급** |
+| --- | --- | --- |
+| invoiceId | 특정 트랜잭션에 대해 청구서에 표시 된 청구서 ID입니다. | 트랜잭션이 표시 되는 청구서 번호입니다. |
+| previousInvoiceID | 원래 청구서에 대 한 참조에는 환불 (음의 비용)이 있습니다. 환불 된 경우에만 채워집니다. | 해당 없음 |
+| billingAccountName | 파트너를 나타내는 청구 계정의 이름입니다. Microsoft 고객 계약에 등록 하 고 SaaS, Azure Marketplace, 예약 등의 권리를 구매한 고객에 대 한 모든 비용을 발생 시킬 수 있습니다. | 해당 없음 |
+| billingAccountID | 파트너를 나타내는 청구 계정의 식별자입니다. | MCAPI 파트너 상거래 루트 ID입니다. 요청에 사용 되지만 응답에는 포함 되지 않습니다.|
+| billingProfileID | 청구서에 대 한 비용을 청구 하는 청구 프로필에 대 한 식별자로, Microsoft 고객 계약을 등록 하 고 SaaS, Azure Marketplace 및와 같은 권한 부여를 구매한 고객에 게 서 예약. | MCAPI 파트너 청구 그룹 ID입니다. 요청에 사용 되지만 응답에는 포함 되지 않습니다. |
+| billingProfileName | 청구서에 대 한 비용을 청구 하는 청구 프로필의 이름으로, Microsoft 고객 계약을 등록 하 고, SaaS, Azure Marketplace 및와 같은 권한 부여를 만든 CSP 고객과 예약. | 해당 없음 |
+| invoiceSectionName | 청구서에서 청구 되는 프로젝트의 이름입니다. 파트너의 등록 Microsoft 고객 계약에는 적용 되지 않습니다. | 해당 없음 |
+| invoiceSectionID | 청구서에서 청구 되는 프로젝트의 식별자입니다. 파트너의 등록 Microsoft 고객 계약에는 적용 되지 않습니다. | 해당 없음 |
+| **CustomerTenantID** | 고객 구독의 Azure Active Directory 테 넌 트 식별자입니다. | 고객의 조직 ID-고객의 Azure Active Directory TenantID입니다. |
+| **CustomerName** | 고객 구독에 대 한 Azure Active Directory 테 넌 트의 이름입니다. | 파트너 센터에 표시 된 고객의 조직 이름입니다. 시스템 정보를 사용 하 여 송장을 조정 하는 데 중요 합니다. |
+| **CustomerTenantDomainName** | 고객 구독의 Azure Active Directory 테 넌 트에 대 한 도메인 이름입니다. | 고객 Azure Active Directory 테 넌 트 도메인입니다. |
+| **대 여** | 파트너 Azure Active Directory 테 넌 트의 식별자입니다. | 파트너 Azure Active Directory 테 넌 트 ID는 GUID 형식의 파트너 ID로 호출 됩니다. |
+| **PartnerName** | 파트너 Azure Active Directory 테 넌 트의 이름입니다. | 파트너 이름입니다. |
+| **ResellerMPNID** | 구독과 연결 된 대리점에 대 한 MPNID입니다. | 구독에 대 한 대리점의 MPN ID입니다. 현재 활동에 사용할 수 없습니다. |
+| costCenter | 구독과 관련 된 비용 센터입니다. | 해당 없음 |
+| billingPeriodStartDate | 청구서에 표시 된 청구 기간 시작 날짜입니다. | 해당 없음 |
+| billingPeriodEndDate | 청구서에 표시 된 청구 기간 종료 날짜입니다. | 해당 없음 |
+| servicePeriodStartDate | 요금 등급이 청구 된 등급 기간의 시작 날짜입니다. Azure 서비스 가격은 평가 기간에 따라 결정 됩니다. | 파트너 센터의 ChargeStartDate. 이전 청구 주기에서 이전에 청구 되지 않은 잠재 사용량 데이터의 날짜를 제시 하는 경우를 제외 하 고 청구 주기 시작 날짜 시간은 항상 0:00의 시작 날짜입니다. |
+| servicePeriodEndDate | 서비스 사용량이 요금으로 평가 된 기간의 종료 날짜입니다. Azure 서비스 가격은 평가 기간에 따라 결정 됩니다. | 해당 없음 |
+| date | Azure 소비 데이터의 경우 등급이 지정 된 사용량의 날짜를 표시 합니다. 예약 된 인스턴스의 경우 구매한 날짜를 표시 합니다. 반복 요금 및 Marketplace 및 지원과 같은 일회성 요금은 구매 날짜를 표시 합니다. | 해당 없음 |
+| productID | 소비 또는 구매 별 요금을 계산 하는 제품의 식별자입니다. 파트너 센터에 표시 된 것 처럼 productID 및 SKuID의 연결 된 키입니다. | 제품의 ID입니다. |
+| product | 청구서에 표시 된 대로 소비 또는 구매 별 요금을 계산 하는 제품의 이름입니다. | 카탈로그의 제품 이름입니다. |
+| serviceFamily | 구매한 제품의 서비스 제품군을 표시 합니다. 예를 들면 저장소 또는 계산입니다. | 해당 없음 |
+| 제품 Orderid | 구독이 속한 자산의 식별자 또는 Azure 계획 이름입니다. 예: Azure 요금제. | 해당 없음 |
+| productOrderName | 구독이 속한 Azure 계획의 이름입니다. 예: Azure 요금제. | 해당 없음|
+| consumedService | 레거시 EA 사용 세부 정보에 사용 되는 서비스 (레거시 분류)를 사용 합니다. | 파트너 센터에 표시 되는 서비스입니다. 예: operationalinsights, Microsoft. Compute 및 microsoft. |
+| meterID | 측정 된 소비에 대 한 계량 된 식별자입니다. | 사용 된 미터의 ID입니다. |
+| meterName | 측정 된 사용량에 대 한 미터의 이름을 식별 합니다. | 사용 된 미터의 이름입니다. |
+| meterCategory | 사용에 대 한 최상위 서비스를 식별 합니다. | 사용에 대 한 최상위 수준 서비스입니다. |
+| meterSubCategory | 요금에 영향을 줄 수 있는 Azure 서비스의 유형 또는 하위 범주를 정의 합니다. | 요금에 영향을 줄 수 있는 Azure 서비스의 유형입니다.|
+| meterRegion | 데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다. | 서비스에 대 한 데이터 센터의 지리적 위치입니다 (해당 하는 경우). |
+| 구독 ID | Azure 구독에 대해 고유한 Microsoft 생성 식별자입니다. | 해당 없음 |
+| subscriptionName | Azure 구독의 이름입니다. | 해당 없음 |
+| 용어 | 제품의 유효 기간을 표시합니다. 예를 들어 예약 된 인스턴스는 예약 된 인스턴스의 연간 기간 12 개월을 표시 합니다. 일회성 구매 또는 되풀이 구매의 경우 기간은 SaaS, Azure Marketplace 및 지원에 대해 한 달을 표시 합니다. Azure 소비에는 적용 되지 않습니다. | 해당 없음 |
+| publisherType (firstParty, thirdPartyReseller, thirdPartyAgency) | 자사, 타사 대리점 또는 타사 에이전시로 게시자를 식별 하는 게시자의 유형입니다. | 해당 없음 |
+| partNumber | 사용 하지 않는 예약 된 인스턴스와 Azure Marketplace 서비스에 대 한 부품 번호입니다. | 해당 없음 |
+| publisherName | Microsoft 또는 타사 게시자를 포함 하는 서비스의 게시자 이름입니다. | 제품 게시자의 이름입니다.|
+| reservationId | 예약 인스턴스 구매의 식별자입니다. | 해당 없음 |
+| reservationName | 예약 된 인스턴스의 이름입니다. | 해당 없음 |
+| reservationOrderId | 예약 된 인스턴스의 OrderID입니다. | 해당 없음 |
+| frequency | 예약 된 인스턴스의 지불 빈도입니다. | 해당 없음 |
+| 리소스 그룹 | 수명 주기 리소스 관리에 사용 되는 Azure 리소스 그룹의 이름입니다. | 리소스 그룹의 이름입니다. |
+| instanceID (또는) ResourceID | 리소스 인스턴스의 식별자입니다. | 전체 리소스 속성을 포함 하는 ResourceURI로 표시 됩니다. |
+| resourceLocation | 리소스 위치의 이름입니다. | 리소스의 위치입니다. |
+| Location | 리소스의 정규화 된 위치입니다. | 해당 없음 |
+| effectivePrice | 가격 책정 통화 단위의 서비스의 유효 단가입니다. 제품, 서비스 제품군, 측정기 및 제안에 대해 고유 합니다. 청구 계정에 대 한 가격표의 가격 책정과 함께 사용 됩니다. 계층화 된 가격 책정 또는 포함 된 수량이 있으면 소비에 대 한 혼합 가격이 표시 됩니다. | 조정한 후 단가입니다. |
+| 수량 | 구매 하거나 사용한 측정 된 수량입니다. 청구 기간 동안 사용 된 측정기의 양입니다. | 단위 수입니다. 조정 하는 동안 청구 시스템의 정보와 일치 하는지 확인 합니다. |
+| unitOfMeasure | 서비스 요금이 청구되는 단위를 식별합니다. 예를 들면 GB와 시간입니다. | 서비스 요금이 청구되는 단위를 식별합니다. 예: GB, 시간 및 10, 000s. |
+| pricingCurrency | 단가를 정의 하는 통화입니다. | 가격표의 통화입니다.|
+| billingCurrency | 청구 된 비용을 정의 하는 통화입니다. | 고객 지역의 통화입니다. |
+| chargeType | 구매 및 환불과 같은 Azure Cost Management 비용을 나타내는 청구 유형을 정의 합니다. | 요금 또는 조정의 유형입니다. 현재 활동에 사용할 수 없습니다. |
+| costinBillingCurrency | 세금이 청구 된 통화에 대 한 ExtendedCost 또는 블렌드된 비용입니다. | 해당 없음 |
+| costinPricingCurrency | 가격과의 상관 관계를 위해 가격 책정 통화의 세금에 대 한 ExtendedCost 또는 혼합 비용. | 해당 없음 |
+| **costinUSD** | 세율의 세금 이전 예상 ExtendedCost 또는 혼합 비용입니다. | 해당 없음 |
+| **paygCostInBillingCurrency** | 가격 책정이 소매 가격 인 경우 비용을 표시 합니다. 청구 통화로 종 량 제 가격을 표시 합니다. RBAC 범위 에서만 사용할 수 있습니다. | 해당 없음 |
+| **paygCostInUSD** | 가격 책정이 소매 가격 인 경우 비용을 표시 합니다. USD로 종 량 제 가격을 표시 합니다. RBAC 범위 에서만 사용할 수 있습니다. | 해당 없음 |
+| exchangeRate | 가격 책정 통화에서 청구 통화로 변환 하는 데 사용 되는 환율입니다. | 파트너 센터에서 PCToBCExchangeRate 이라고 합니다. 청구 통화 환율에 대 한 가격 책정 통화입니다.|
+| exchangeRateDate | 가격 책정 통화에서 청구 통화로 변환 하는 데 사용 되는 환율 날짜입니다. | 파트너 센터에서 PCToBCExchangeRateDat 이라고 합니다. 청구 통화 환율 날짜에 대 한 가격 책정 통화입니다.|
+| isAzureCreditEligible | 비용이 Azure 크레딧을 통해 지불 대상이 될 수 있는지 여부를 나타냅니다. | 해당 없음 |
+| serviceInfo1 | 선택적 서비스 특정 메타데이터를 캡처하는 레거시 필드입니다. | 내부 Azure 서비스 메타 데이터입니다. |
+| serviceInfo2 | 선택적 서비스 특정 메타데이터를 캡처하는 레거시 필드입니다. | 서비스 정보. 예를 들어, 가상 머신의 이미지 형식 및 ExpressRoute의 ISP 이름입니다.|
+| additionalInfo | 서비스 특정 메타데이터입니다. 예를 들어 가상 컴퓨터용 이미지 형식입니다. | 다른 열에서 다루지 않는 추가 정보입니다. 서비스별 메타 데이터입니다. 예를 들어 가상 컴퓨터용 이미지 형식입니다.|
+| 태그 | 미터에 할당 하는 태그입니다. 태그를 사용하여 청구 레코드를 그룹화합니다. 예를 들어 측정기를 사용하는 부서는 비용을 배분하는 데 태그를 사용할 수 있습니다. | 고객에 의해 추가 된 태그입니다.|
+| **partnerEarnedCreditRate** | 파트너 관리자 링크 액세스를 기반으로 하는 파트너 획득 신용 (PEC)가 있는 경우 적용 되는 할인 률입니다. | 파트너 획득 크레딧 (PEC)의 요금입니다. 예를 들어 0% 또는 15%입니다. |
+| **partnerEarnedCreditApplied** | 파트너의 획득 크레딧을 적용 했는지 여부를 나타냅니다. | 해당 없음 |
 
 ## <a name="view-partner-earned-credit-pec-resource-costs"></a>파트너 획득 크레딧 (PEC) 리소스 비용 보기
 
@@ -286,7 +342,7 @@ GET https://management.azure.com/Microsoft.Billing/billingAccounts/{billingAccou
 POST https://management.azure.com/providers/Microsoft.Billing/BillingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheet/default/download?api-version=2019-10-01-preview&format=csv" -verbose
 ```
 
-그런 다음 비동기 작업 속성 값을 호출 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+그런 다음 비동기 작업 속성 값을 호출 합니다. 예를 들어:
 
 ```
 GET https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileID}/pricesheetDownloadOperations/{operation}?sessiontoken=0:11186&api-version=2019-10-01-preview

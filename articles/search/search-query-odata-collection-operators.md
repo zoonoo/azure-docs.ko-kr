@@ -1,7 +1,7 @@
 ---
 title: OData 컬렉션 연산자 참조
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리의 OData 컬렉션 연산자, any 및 all 및 람다 식.
+description: Azure Cognitive Search 쿼리에서 필터 식을 만들 때 컬렉션이 나 복합 컬렉션 필드에 필터를 사용 하는 경우 람다 식에 "any" 및 "all" 연산자를 사용 합니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fdb250a844b70cef4f6941debbb1fa7450874932
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54ddc8222816831b5b436297bbb1b40d03230f0c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793410"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113241"
 ---
 # <a name="odata-collection-operators-in-azure-cognitive-search---any-and-all"></a>Azure Cognitive Search의 OData 컬렉션 연산자-`any` 및 `all`
 
@@ -62,7 +62,7 @@ lambda_expression ::= identifier ':' boolean_expression
 
 컬렉션 필터의 **람다 식은** 프로그래밍 언어의 루프 본문과 같습니다. 반복 하는 동안 컬렉션의 현재 요소를 보유 하는 **범위 변수**라고 하는 변수를 정의 합니다. 또한 컬렉션의 각 요소에 대 한 범위 변수에 적용할 필터 기준이 되는 또 다른 부울 식을 정의 합니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 `tags` 필드가 정확히 "wifi" 문자열을 포함 하는 문서를 찾습니다.
 

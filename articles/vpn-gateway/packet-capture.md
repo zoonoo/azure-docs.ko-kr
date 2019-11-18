@@ -1,5 +1,5 @@
 ---
-title: Azure VPN Gateway 패킷 캡처 | Microsoft Docs
+title: 'Azure VPN Gateway: 패킷 캡처 구성'
 description: VPN 게이트웨이에서 사용할 수 있는 패킷 캡처 기능에 대해 알아봅니다.
 services: vpn-gateway
 author: radwiv
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: radwiv
-ms.openlocfilehash: 0957fabf58a68efe9e215b390d28dbf160574963
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 41c36d302605bb619899131a8ace649b0f1439b2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517437"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151847"
 ---
 # <a name="configure-packet-captures-for-vpn-gateways"></a>VPN gateway에 대 한 패킷 캡처 구성
 

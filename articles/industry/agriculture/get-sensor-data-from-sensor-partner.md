@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 424df8ac7145129dd70a9a5791648730189b528b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 33fd2221d3f3a0562abf83f014a7b84df972eebc
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889666"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128850"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -86,7 +86,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 현재 FarmBeats는 다음 장치를 지원 합니다.
 
 - **노드**: 하나 이상의 센서가 연결 되는 장치입니다.
-- **게이트웨이**: 하나 이상의 센서가 연결 되는 장치입니다.
+- **게이트웨이**: 하나 이상의 노드가 연결 된 장치입니다.
 
 다음 단계를 사용하세요.
 

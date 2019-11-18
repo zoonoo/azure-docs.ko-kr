@@ -1,19 +1,19 @@
 ---
 title: Azure IoT Hub 및 Azure Event Grid | Microsoft Docs
 description: IoT Hub에서 발생하는 작업을 기반으로 프로세스를 트리거하려면 Azure Event Grid를 사용합니다.
-author: kgremban
+author: robinsh
 manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
-ms.author: kgremban
-ms.openlocfilehash: a2bb961989d5bb1cc879b197e45d25b566c56e83
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.author: robinsh
+ms.openlocfilehash: 2969791204474a7d73493ce6397c52255f7eab4a
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906768"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151303"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -37,7 +37,7 @@ IoT Hub는 다음과 같은 이벤트 유형을 게시합니다.
 | Microsoft.Devices.DeviceDeleted | IoT 허브에서 디바이스를 삭제하는 경우 게시합니다. |
 | Microsoft.Devices.DeviceConnected | IoT Hub에 디바이스가 연결되는 경우 게시합니다. |
 | Microsoft.Devices.DeviceDisconnected | IoT Hub와 디바이스의 연결이 해제되는 경우 게시합니다. |
-| DeviceTelemetry | 장치 원격 분석 메시지를 IoT hub로 보낼 때 게시 |
+| Microsoft.Devices.DeviceTelemetry | 장치 원격 분석 메시지를 IoT hub로 보낼 때 게시 |
 
 Azure Portal 또는 Azure 명령줄 인터페이스를 사용하여 각 IoT 허브에서 어떤 이벤트를 게시할지 구성할 수 있습니다. 한 예로 자습서 [Logic Apps를 사용하여 Azure IoT Hub 이벤트에 관한 이메일 알림 보내기](../event-grid/publish-iot-hub-events-to-logic-apps.md)를 시도해 봅니다.
 
@@ -176,13 +176,21 @@ devices/{deviceId}
 
 또한 Event Grid를 사용 하 여 데이터 콘텐츠를 포함 하 여 각 이벤트의 특성에 대 한 필터링을 수행할 수 있습니다. 그러면 원격 분석 메시지의 내용에 따라 전달 되는 이벤트를 선택할 수 있습니다. 예제를 보려면 [고급 필터링](../event-grid/event-filtering.md#advanced-filtering) 을 참조 하세요. 원격 분석 메시지 본문에 대 한 필터링을 위해 메시지 [시스템 속성](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)에서 contentType을 **application/Json** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다. 이러한 속성은 모두 대/소문자를 구분 하지 않습니다.
 
-DeviceConnected, DeviceDisconnected, DeviceCreated 및 Devicedisconnected와 같은 비 원격 분석 이벤트의 경우 구독을 만들 때 Event Grid 필터링을 사용할 수 있습니다. 원격 분석 이벤트의 경우, Event Grid 필터링 외에도 사용자는 메시지 라우팅 쿼리를 통해 장치 쌍, 메시지 속성 및 본문을 기준으로 필터링 할 수 있습니다. 장치 원격 분석에 대 한 Event Grid 구독에 따라 IoT Hub에서 기본 [경로](iot-hub-devguide-messages-d2c.md) 를 만듭니다. 이 단일 경로는 모든 Event Grid 구독을 처리할 수 있습니다. 원격 분석 데이터를 보내기 전에 메시지를 필터링 하기 위해 [라우팅 쿼리](iot-hub-devguide-routing-query-syntax.md)를 업데이트할 수 있습니다. 본문이 JSON 인 경우에만 메시지 본문에 라우팅 쿼리를 적용할 수 있습니다. 또한 메시지 [시스템 속성](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)에서 contentType을 **application/Json** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다.
+DeviceConnected, DeviceDisconnected, DeviceCreated 및 Devicedisconnected와 같은 비 원격 분석 이벤트의 경우 구독을 만들 때 Event Grid 필터링을 사용할 수 있습니다. 원격 분석 이벤트의 경우, Event Grid 필터링 외에도 사용자는 메시지 라우팅 쿼리를 통해 장치 쌍, 메시지 속성 및 본문을 기준으로 필터링 할 수 있습니다. 
+
+Event Grid를 통해 원격 분석 이벤트를 구독할 때 IoT Hub는 기본 메시지 경로를 만들어 데이터 원본 유형 장치 메시지를 Event Grid 보냅니다. 메시지 라우팅에 대 한 자세한 내용은 [IoT Hub 메시지 라우팅](iot-hub-devguide-messages-d2c.md)을 참조 하세요. 이 경로는 포털의 IoT Hub > 메시지 라우팅에서 볼 수 있습니다. 원격 분석 이벤트에 대해 생성 된 예 구독 수에 관계 없이 Event Grid 하나의 경로만 생성 됩니다. 따라서 다른 필터를 사용 하는 구독이 여러 개 필요한 경우에는 동일한 경로에 대 한 이러한 쿼리에서 또는 연산자를 사용할 수 있습니다. 경로 생성 및 삭제는 Event Grid를 통한 원격 분석 이벤트의 구독을 통해 제어 됩니다. IoT Hub 메시지 라우팅을 사용 하 여 Event Grid에 대 한 경로를 만들거나 삭제할 수 없습니다.
+
+원격 분석 데이터를 보내기 전에 메시지를 필터링 하기 위해 [라우팅 쿼리](iot-hub-devguide-routing-query-syntax.md)를 업데이트할 수 있습니다. 본문이 JSON 인 경우에만 메시지 본문에 라우팅 쿼리를 적용할 수 있습니다. 또한 메시지 [시스템 속성](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#system-properties)에서 contentType을 **application/Json** 으로, Contentencoding을 **u t f-8** 로 설정 해야 합니다.
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대한 제한
 
 디바이스 연결됨 및 디바이스 연결 끊김 이벤트를 받으려면 디바이스에 대한 C2D 링크 또는 D2C 링크를 열어야 합니다. 디바이스가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP의 경우 [Receive ASYNC API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)를 호출 하 여 C2D 링크를 열 수 있습니다.
 
-원격 분석 데이터를 보내는 경우 D2C 링크가 열려 있습니다. 장치 연결이 깜박이는 경우 (장치에서 연결 하 고 연결을 자주 해제 함) 모든 단일 연결 상태를 전송 하지는 않지만 스냅숏이 1 분 마다 수행 되는 연결 상태를 게시 합니다. IoT Hub가 중단되는 경우에는 중단이 끝나는 즉시 디바이스 연결 상태를 게시합니다. 중단된 상태에서 디바이스 연결이 끊기면 디바이스 연결 끊김 이벤트가 10분 내에 게시됩니다.
+원격 분석 데이터를 보내는 경우 D2C 링크가 열려 있습니다. 
+
+장치 연결이 깜박이는 경우 (장치에서 연결 하 고 연결을 자주 끊기) 모든 단일 연결 상태를 전송 하지는 않지만 최종적으로 일치 하는 *마지막* 연결 상태를 게시 합니다. 예를 들어 장치가 처음에 연결 된 상태에 있는 경우 몇 초 동안 연결이 깜박이 며 연결 된 상태로 돌아갑니다. 초기 연결 상태 이후 새 장치 연결 상태 이벤트가 게시 되지 않습니다. 
+
+IoT Hub가 중단되는 경우에는 중단이 끝나는 즉시 디바이스 연결 상태를 게시합니다. 중단된 상태에서 디바이스 연결이 끊기면 디바이스 연결 끊김 이벤트가 10분 내에 게시됩니다.
 
 ## <a name="tips-for-consuming-events"></a>이벤트 사용하기 위한 팁
 
