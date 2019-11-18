@@ -806,10 +806,10 @@
                   href: insights/container-insights-hybrid-setup.md
                 - name: 지역 매핑
                   href: insights/container-insights-region-mapping.md
-            - name: 분석
+            - name: 성능 모니터링
               href: insights/container-insights-analyze.md
-            - name: 모니터링 사용 안 함
-              href: insights/container-insights-optout.md
+            - name: 상태 모니터링
+              href: insights/container-insights-health.md
             - name: 라이브 데이터 보기
               items:
                 - name: 라이브 데이터(미리 보기) 개요
@@ -832,6 +832,10 @@
               href: insights/container-insights-agent-config.md
             - name: 메트릭을 사용하도록 업데이트
               href: insights/container-insights-update-metrics.md
+            - name: 상태 모니터링 구성
+              href: insights/container-insights-health-monitors-config.md
+            - name: 모니터링 사용 안 함
+              href: insights/container-insights-optout.md
             - name: 문제 해결
               href: insights/container-insights-troubleshoot.md
         - name: Docker 및 Windows 컨테이너 모니터링
@@ -1167,7 +1171,7 @@
               href: platform/autoscale-overview.md
             - name: 연습
               href: platform/autoscale-get-started.md
-            - name: 설정
+            - name: 구성 설정
               href: platform/autoscale-understanding-settings.md
             - name: 모범 사례
               href: platform/autoscale-best-practices.md
@@ -1183,6 +1187,10 @@
               href: platform/autoscale-virtual-machine-scale-sets.md
             - name: 웹후크 및 이메일 알림 사용
               href: platform/autoscale-webhook-email.md
+            - name: 문제 해결
+              href: platform/autoscale-troubleshoot.md
+            - name: 리소스 로그 스키마
+              href: platform/autoscale-resource-log-schema.md
         - name: PowerShell
           items:
             - name: PowerShell로 관리

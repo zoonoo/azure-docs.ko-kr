@@ -58,8 +58,6 @@
       href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
     - name: 키 회전 및 감사 설정
       href: key-vault-key-rotation-log-monitoring.md
-    - name: Event Grid를 사용하여 Key Vault 이벤트 모니터링
-      href: event-grid-overview.md
 - name: 샘플
   items:
     - name: 코드 샘플
@@ -114,6 +112,8 @@
           href: key-vault-group-permissions-for-apps.md
     - name: Event Grid를 사용하여 키 자격 증명 모음 알림 라우팅
       href: event-grid-tutorial.md
+    - name: Event Grid 및 Logic Apps를 통해 알림 받기
+      href: event-grid-logicapps.md
     - name: Azure Policy와 통합
       href: azure-policy.md
     - name: Azure Key Vault 로깅

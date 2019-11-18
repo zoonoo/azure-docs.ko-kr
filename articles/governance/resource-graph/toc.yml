@@ -84,6 +84,8 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: GitHub 샘플 리포지토리
+      href: 'https://github.com/Azure-Samples/Governance/tree/master/src/resource-graph'
     - name: UserVoice
       href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345061'
     - name: 거버넌스 YouTube 채널

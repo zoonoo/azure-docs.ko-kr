@@ -223,8 +223,6 @@
           href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
         - name: 인덱서 모니터링
           href: search-howto-monitor-indexers.md
-        - name: 일반적인 문제 해결
-          href: search-indexer-troubleshooting.md
     - name: AI로 보강
       items:
         - name: Cognitive Services 리소스 연결
@@ -249,7 +247,7 @@
               href: cognitive-search-create-custom-skill-example.md
             - name: 예 - 컨테이너
               href: 'https://go.microsoft.com/fwlink/?linkid=2089500'
-        - name: 문제 해결 팁
+        - name: 디자인 팁
           href: cognitive-search-concept-troubleshooting.md
         - name: 문서 링크
           href: cognitive-search-resources-documentation.md
@@ -261,8 +259,6 @@
               href: knowledge-store-view-storage-explorer.md
             - name: Power BI로 연결
               href: knowledge-store-connect-power-bi.md
-        - name: 보강 문제 해결
-          href: cognitive-search-common-errors-warnings.md
     - name: 쿼리 문서
       items:
         - name: 쿼리 형식 및 컴퍼지션
@@ -307,6 +303,12 @@
           href: search-manage-powershell.md
         - name: 작업 모니터링 및 로깅
           href: search-monitor-usage.md
+    - name: 문제 해결
+      items:
+        - name: 인덱서 문제
+          href: search-indexer-troubleshooting.md
+        - name: 인덱서 오류 및 경고
+          href: cognitive-search-common-errors-warnings.md
 - name: 참고 자료
   items:
     - name: Azure CLI

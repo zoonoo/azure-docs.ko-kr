@@ -241,7 +241,9 @@
                   href: migrate-android-adal-msal.md
                 - name: MSAL.iOS 및 MacOS로 마이그레이션
                   href: migrate-objc-adal-msal.md
-                - name: MSAL Java로 마이그레이션
+                - name: MSAL Python으로 마이그레이션
+                  href: migrate-python-adal-msal.md
+                - name: Java용 MSAL로 마이그레이션
                   href: migrate-adal-msal-java.md
                 - name: broker를 사용하여 ADAL.NET에서 MSAL.NET으로 Xamarin 앱 마이그레이션
                   href: msal-net-migration-ios-broker.md
@@ -452,7 +454,11 @@
                   href: request-custom-claims.md
                 - name: 리디렉션 URI 구성
                   href: redirect-uris-ios.md
-            - name: MSAL Java
+            - name: Python용 MSAL
+              items:
+                - name: 토큰 캐시 직렬화
+                  href: msal-python-token-cache-serialization.md
+            - name: Java용 MSAL
               items:
                 - name: 토큰 캐시 직렬화
                   href: msal-java-token-cache-serialization.md

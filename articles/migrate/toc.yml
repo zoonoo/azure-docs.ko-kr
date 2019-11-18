@@ -32,10 +32,16 @@
           href: tutorial-migrate-hyper-v.md
     - name: 물리적 서버 평가 및 마이그레이션
       items:
-        - name: 마이그레이션을 위한 물리적 서버 준비
+        - name: 평가 및 마이그레이션을 위한 물리적 서버 준비
           href: tutorial-prepare-physical.md
+        - name: 물리적 서버 평가
+          href: tutorial-assess-physical.md
         - name: 물리적 서버 마이그레이션
           href: tutorial-migrate-physical-virtual-machines.md
+    - name: 마이그레이션을 위해 가져온 서버 평가
+      items:
+        - name: 마이그레이션을 위해 가져온 서버 평가
+          href: tutorial-assess-import.md
 - name: 개념
   items:
     - name: 일반적인 질문
@@ -74,6 +80,8 @@
       href: how-to-set-up-appliance-hyper-v.md
     - name: 물리적 서버 어플라이언스 배포
       href: how-to-set-up-appliance-physical.md
+    - name: 애플리케이션/역할/기능 검색
+      href: how-to-discover-applications.md
     - name: 처음 도구 추가
       href: how-to-add-tool-first-time.md
     - name: 평가 도구 추가
@@ -82,6 +90,8 @@
       href: how-to-create-a-group.md
     - name: 종속성 시각화를 사용하여 컴퓨터 그룹화
       href: how-to-create-group-machine-dependencies.md
+    - name: 에이전트 없는 종속성 시각화를 사용하여 머신 그룹화
+      href: how-to-create-group-machine-dependencies-agentless.md
     - name: 평가 만들기
       href: how-to-create-assessment.md
     - name: SQL Server 데이터베이스 평가

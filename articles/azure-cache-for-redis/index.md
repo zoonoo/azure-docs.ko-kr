@@ -1,23 +1,18 @@
 ---
-title: Azure Cache for Redis 설명서 - 자습서, API 참조 | Microsoft Docs
+title: Azure Cache for Redis 설명서 - 자습서, API 참조
 description: 애플리케이션이 데이터에 빠르게 액세스할 수 있도록 지원하는 보안 데이터 캐시 및 메시징 broker인 Azure Cache for Redis를 사용하는 방법에 대해 알아봅니다. 자습서, API 참조 등입니다.
-services: cache
 author: yegu-ms
-manager: jubbard
 layout: LandingPage
-ms.assetid: ''
 ms.service: cache
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: landing-page
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: c5de77f3862f3ca315c586e1ec1cbfc7b5b453a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 02d28874d18debc73054ad47fe1604e21dd44d85
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60829941"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122549"
 ---
 # <a name="azure-cache-for-redis-documentation"></a>Azure Cache for Redis 설명서
 
@@ -217,7 +212,7 @@ ms.locfileid: "60829941"
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Languages</h3>
+                        <h3>언어</h3>
                         <p><a href="/dotnet/api/microsoft.azure.management.redis">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.azure.management.redis.rediscache">Java</a></p>
                         <p><a href="https://redis.io/clients">Redis 클라이언트</a></p>

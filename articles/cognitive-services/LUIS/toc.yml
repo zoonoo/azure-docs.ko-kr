@@ -171,6 +171,8 @@
           displayName: 'roles, import'
         - name: 미리 작성된 모델 사용
           href: howto-add-prebuilt-models.md
+        - name: 발화의 레이블 예제
+          href: label-entity-example-utterance.md
         - name: REST API 사용
           items:
             - name: Node.js를 사용하여 프로그래밍 방식으로 앱 빌드
@@ -188,8 +190,8 @@
         - name: 대시보드 사용
           displayName: 'dashboard, analytics, charts, data, unclear predictions, incorrect predictions, imbalance, endpoint hits, status, evaluation, accuracy, active version, problematic intents, nearest rival, usage'
           href: luis-how-to-use-dashboard.md
-        - name: 문구 목록 추가
-          displayName: 'synonym, interchange'
+        - name: 설명자 추가
+          displayName: 'synonym, interchange, phrase list, descriptor'
           href: luis-how-to-add-features.md
         - name: 엔드포인트 utterances 검토
           displayName: active learning

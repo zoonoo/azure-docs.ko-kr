@@ -216,6 +216,8 @@
         - name: Azure AD 통합에 Kubernetes RBAC 사용
           href: azure-ad-rbac.md
           maintainContext: true
+        - name: 인증서 회전
+          href: certificate-rotation.md
     - name: 모니터링 및 로깅
       items:
         - name: 컨테이너용 Azure Monitor
